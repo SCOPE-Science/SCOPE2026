@@ -1,15 +1,21 @@
-# Scientific review: metric swallowtail loop-area onset
+# Independent mathematical audit
 
-## Correctness — PASS
-The support-function identity and curvature-radius derivative are independently checked against Jerónimo-Castro (2013), Giblin–Warder (2014), and Aguilar-Arteaga et al. (2015). A nondegenerate minimum of \(g=\rho'/\rho\) forces the precise tangential and normal scales, whose Green integral is \(8\sqrt3 A^{7/2}/(35B^{3/2})\). The double point is transverse, and the oval at the critical angle is embedded, so one new loop forms at each minimum. The ellipse minima, radical coefficient and strict optimal aspect ratio follow by explicit algebra. The packaged checker verifies both the polynomial integral and actual geometric double-point loop integrals in three independent ellipse shapes. Finite numerical tests supplement, not replace, the proof.
+## correctness
 
-## Originality — PASS, provisional historical priority
-The angle threshold and swallowtail existence are **already** in Giblin–Warder (2014); the universal \(7/2\) exponent is implicit in the general swallowtail scaling of Eggers–Fontelos (2012); the evolutoid support and curvature-radius formulas are already in Jerónimo-Castro (2013) and Aguilar-Arteaga et al. (2015). None is reclaimed. The additional claim is the exact *ordinary Euclidean enclosed area* leading coefficient, its formula in the curvature-radius jet, and its sharp fixed-area ellipse minimizer. Scientific-record semantic checks of close titles and aliases returned different geometric objects. Priority uncertainties: the full 1955 Wunderlich ellipse-evolutoid paper and the full 2021/2022 extended-front paper were inaccessible; no negative full-text claim is made for either.
+PASS
 
-## Value — PASS
-The normal-form topology does not determine Euclidean loop area: local diffeomorphisms change metric area. The new coefficient is an explicit, shape-dependent metric invariant for an intrinsic cusp-birth phenomenon, and the nontrivial optimal aspect ratio gives a sharp extremal characterization among ellipses of fixed area. This is meaningful quantitative information beyond cusp counting or a textbook formula substitution.
+Differentiating the evolutoid support gives γ'_α=r_αT with r_α=ρ(cos α+g sin α), evaluated at φ=θ−α. At α_c this is nonnegative with isolated zeros, and the critical curve is injective: on the shorter interval between distinct parameters, of length at most π, the chord projected onto the midpoint tangent is strictly positive by integrating r_α times the cosine of the angular displacement. Compactness forces any double points as δ→0 into arbitrarily small parameter neighborhoods of the same critical parameter; uniform local monotone projection excludes all regular parameters. Near each minimum the equation g=−cot α has exactly two simple roots for δ>0 by nondegeneracy, and the sign of r_α is +,−,+ across the three branches. In a fixed small tangent-normal chart X'=r_α cos s and the slope dY/dX=−tan s is strictly decreasing in s. For any two ordered branches their graph-height difference is therefore strictly decreasing on the overlap in X. Adjacent branches already coincide at their shared cusp and cannot cross again; the two outer branches can cross at most once. Under s=√δ t and coordinate scaling (δ^(3/2),δ²), the curve converges in C¹ to X₀=−At+Bt³/3, Y₀=At²/2−Bt⁴/4 with A=ρ_j√(1+m²), B=ρ_jq_j/(2√(1+m²)). At t=±√(3A/B) the common point has slopes of opposite sign and derivatives X₀'=2A, so the transverse crossing persists and is the unique local loop closure. The two interior cusps are ordinary because det(γ'',γ''')=2(r_α')² at a simple root. The arc between the crossing parameters is simple except for endpoint identification. Its ordinary area is the absolute Green integral. Scaling out A and B reduces the leading integral to ∫₀^√3 (t²/2−t⁴/12)(t²−1) dt=8√3/35, with prefactor A^(7/2)/B^(3/2); the coordinate Jacobian contributes δ^(7/2). Distinct minima give disjoint loops for small δ by critical injectivity. For an ellipse set u=(b/a)tan φ, so g=(3D/(ab))u/(1+u²). Its two minima occur at u=−1; differentiating verifies the listed q_j and substituting into ρ verifies the stated total coefficient. The normalized coefficient is proportional to (1+m²)^(5/2)/m^(3/2), with unique minimum at m²=3/7 from the sign of its logarithmic derivative. Solving a/b−b/a=2m/3 gives the stated ratio.
 
-## Boundaries
-The asymptotic is pointwise at a fixed noncircular oval, with finitely many nondegenerate first minima. There is no uniform claim for approaching a circle or a degenerate minimum; no claim of independent mathematical verification or exhaustive historical priority.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The compared primary results cover the transition, canonical geometry and unsigned convex-regime or whole-curve oriented areas, not the ordinary local newborn-loop coefficient in the original Euclidean metric. The pass is for the curvature-jet coefficient and sharp ellipse aspect ratio, not for discovering the critical angle, swallowtail topology, or scaling exponent in isolation.
+
+## value
+
+PASS
+
+The area of the region created at a geometric singularity is a natural Euclidean quantity that cannot be read from topological type alone. The formula shows exactly how the original curvature-radius jet controls the first nonzero loop area and how multiple simultaneous births contribute. The sharp fixed-area ellipse optimum is an independent shape consequence of the metric coefficient, not merely another spelling of the known angle threshold.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

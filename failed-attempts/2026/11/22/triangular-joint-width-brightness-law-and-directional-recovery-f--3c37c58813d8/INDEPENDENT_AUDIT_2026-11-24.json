@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:04:14.791026Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–62",
+        "VERIFICATION.md and check.py, inspected not executed"
+      ],
+      "rationale": "With Λ=diag(λ_i) the squared support function is uᵀΛu and the determinant of the projected ellipse matrix on u-perp is uᵀadj(Λ)u, giving the claimed normalized area squared. Squared Haar coordinates are normalized independent gamma variables of shape 1/2. The columns v_i−v_3 equal (λ_i−λ_3)(1,−D/(λ_iλ_3)) for i=1,2, so their signed determinant is minus the Vandermonde in the stated order. Dividing the normalized Dirichlet density by its absolute value gives the stated planar density, with full closed-triangle support and the open-edge singularities. The extreme-point abscissas recover λ_i, and an interior point uniquely gives all three strictly positive squares and eight signs, modulo simultaneous negation for lines. From E[P_i²]=1/5 and E[P_iP_j]=1/15, the covariance is −2D((Σλ_i)(Σ1/λ_i)−9)/45, whose bracket is exactly the sum of squared differences divided by products. Coincident knots aggregate Dirichlet parameters, giving the isolated-coordinate Beta(1/2,1) segment or the sphere point mass.",
+      "residual_risks": [
+        "The code's Monte Carlo cases are diagnostics, not a uniform geometric or singular-law proof. The claim concerns a single matched Haar direction and squared normalized observables, not the sign of unsquared covariance, noisy inversion, or photometric brightness."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Equation (18) defines generalized B-spline measures as linear images of Dirichlet-weighted simplices. Figure 1 illustrates real and complex plane shadows of a normal matrix. Equation (23) gives D(λ_1,…,λ_N;1/2,…,1/2) for any real symmetric matrix, with eigenvalues counted with multiplicity. Section 2 explicitly aggregates weights of repeated knots."
+        ],
+        "reasoning": "The real formula applies to every real pencil matrix diag(tλ_i+sD/λ_i), without a distinct-knot hypothesis there. Consequently the entire planar pushforward and the repeated-axis limits are covered, not only a one-dimensional marginal at some fixed t,s.",
+        "searches": [
+          "Dunkl et al. arXiv:1409.4941, §§2–4, especially (18), (23), Fig. 1 and the repeated-knot additivity passage"
+        ]
+      },
+      "checked_sources": [
+        "Dunkl et al. arXiv:1409.4941, §§2–4",
+        "Resultary e3183756e2e2 and 846d385e421b",
+        "Kim–Yaskin–Zvavitch arXiv:1512.07289v1, introduction"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For all (t,s), tX+sY has the variance 2/15 times the sum of squared centered eigenvalues tλ_i+sD/λ_i by (23). Its cross coefficient immediately yields the claim's covariance. The simultaneous Dirichlet representation with the same three image knots follows by uniqueness from the laws of all these projections."
+        ],
+        "reasoning": "Three noncollinear knots make the affine simplex map invertible, so the density is the base density divided by the determinant, signs are the obvious preimages of coordinate squares, and support recovery reads the knot abscissas. Equal knots aggregate to beta and constant laws. The physical substitution makes a nice example but leaves no independent unsolved density, inverse, or moment inference.",
+        "searches": [
+          "arXiv:1409.4941, equation (23), variance following (23), and Dirichlet measure equation (18)",
+          "Frozen RESULT.md Proof, projection and affine geometry steps"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The pair is the real-sphere numerical shadow of the complex diagonal matrix with entries λ_i + iD/λ_i. Equivalently each real linear projection has the shadow of a real diagonal matrix, covered directly by equation (23).",
+          "The same-object Resultary record instead treats the scalar squared shadow-to-central-section ratio (the product XY), and Kim–Yaskin–Zvavitch's introduction describes separate section and projection-area distribution functions."
+        ],
+        "reasoning": "A known formula for every real linear projection determines the full bivariate law; a single product or separate marginals would not. The numerical-shadow formulation is the actual equivalent prior model.",
+        "searches": [
+          "Real numerical shadow and generalized B-splines, arXiv:1409.4941, pp. 6–9",
+          "Resultary e3183756e2e2 (paired sections and shadows)",
+          "Kim–Yaskin–Zvavitch arXiv:1512.07289v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected ellipsoid record is a scalar endpoint inversion up to scale and polarity, not an exact table of the paired law. A same-date cuboid summary reports a paired-measurement ambiguity with different body and geometry; its full mirrored file was unavailable. Figure 1 of the real-shadow work is illustrative (N=4), not an exact ellipsoid table."
+        ],
+        "reasoning": "No finite-table lookup can decide the full continuum-of-semi-axes claim. The rejection rests on exact broader mathematical coverage, not absence of a table or an inaccessible hit.",
+        "searches": [
+          "Resultary e3183756e2e2 and 846d385e421b (paired ellipsoid and cuboid measurements)",
+          "arXiv:1409.4941, Fig. 1 and Eq. (23)"
+        ]
+      },
+      "rationale": "A decisive lawful 2014 primary source was inspected. Dunkl et al.'s real numerical-shadow formula gives the distribution of every linear projection of this pair, and its Dirichlet-spline model specializes directly. There is no assertion that the exact ellipsoid terminology or the displayed physical formula appears verbatim there. The complete claim follows mechanically by substituting the two classical geometry forms, inverting a full-rank simplex map, and expanding its moment formula.",
+      "residual_risks": [
+        "No claim that the ellipsoid statement was printed verbatim, or that the cuboid paper or Abas's broad width/brightness preprint was excluded in full. The cited photometric geometry DOI 10.1051/0004-6361/201526456 did not yield a readable primary passage in a bounded retrieval. The decisive coverage instead follows from the accessible, exact pencil and Dirichlet formulas together with directly verified classical geometry."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "mechanically covers the complete law and its stated consequences",
+          "evidence": "The distribution for any real symmetric matrix under real-sphere sampling is the weighted sum of Dirichlet(1/2,…,1/2) coordinates with its eigenvalues as knots. Applying it to every linear combination of the geometry matrices gives the joint law; its center and variance formula give the covariance by polarization.",
+          "identifier_or_url": "https://arxiv.org/pdf/1409.4941",
+          "material_read": "arXiv v1, pp. 6–9; text offsets 20550–24527 and 24600–28552; §2 repeated-knot additivity locator at 18403; equations (18), (23), Fig. 1 and the variance after (23)",
+          "method": "lawful OA arXiv PDF alternate of the publisher article",
+          "title": "Real numerical shadow and generalized B-splines",
+          "trigger": "exact real Haar quadratic-form distributions and planar Dirichlet model"
+        },
+        {
+          "assessment": "different scalar measurement",
+          "evidence": "Uses the squared ratio of shadow and central section areas; endpoint and tail coefficient recover shape up to scale and polarity rather than the paired distribution or directional fibers.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-endpoint-tomography-from-paired-sections-and-shadows-of-triaxial--e3183756e2e2",
+          "material_read": "RESULT.md Finding and Proof, offset 0",
+          "method": "published-record mirror",
+          "title": "Endpoint tomography from paired sections and shadows of triaxial ellipsoids",
+          "trigger": "same ellipsoid and same Haar measurement direction"
+        },
+        {
+          "assessment": "separate one-dimensional functions in material inspected",
+          "evidence": "Introduces section-area and projection-area distribution functions, not the shared-direction pair of ellipsoid width and projection area.",
+          "identifier_or_url": "https://arxiv.org/html/1512.07289v1",
+          "material_read": "Abstract and Introduction, text offsets 0–4686",
+          "method": "lawful OA HTML",
+          "title": "Distribution functions of sections and projections of convex bodies",
+          "trigger": "distribution of random-direction convex-body area measurements"
+        },
+        {
+          "assessment": "close analogue only; full scope unverified",
+          "evidence": "Summary names a rectangular box and two-sheet density rather than triaxial ellipsoid. This is not the basis of the rejection.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-a-spherical-hexagon-ambiguity-law-for-paired-cuboid-width-and-br--846d385e421b",
+          "material_read": "indexed summary only; corresponding mirrored result text unavailable",
+          "method": "Resultary search and mirror attempt",
+          "title": "A spherical hexagon ambiguity law for paired cuboid width and brightness",
+          "trigger": "same physical measurement names and orientation inverse"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Proof",
+        "Dunkl et al. arXiv:1409.4941, equations (18) and (23) and variance formula"
+      ],
+      "rationale": "The common-direction ellipsoid experiment is natural and the worked physical example can be useful pedagogically, but all exact conclusions are routine consequences of the previously supplied real numerical-shadow model once width and orthogonal projection are written as their classical quadratic forms. The inverse, repeated-axis behavior and covariance do not give a surviving independent mathematical result beyond that specialization. There is no new estimation, stability, or noncommuting tomography result in the finding.",
+      "residual_risks": [
+        "This is a value judgment for the frozen claim as an independent finding, not a claim that the example cannot be useful in teaching or modeling."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

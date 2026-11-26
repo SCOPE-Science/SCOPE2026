@@ -1,124 +1,100 @@
 {
   "correctness": {
-    "rationale": "The source classification is reconstructed for exact domain and boundary cases (including g=1 and a=g+1), giving unique pivot run [qa+1,g]. The divisor histogram and sigma-summatory mean follow by exact bijections. For the uniform CDF bound, truncation at u=1/sqrt(g) and at most sqrt(g)+1 affine intervals bound grid-count discrepancies; excluded divisors are at most 2sqrt(g). The explicit continuous limit, harmonic-step density and zeta moments follow from branch-wise integrals. The included independent reachability checker passed all g=1..90, every admissible multiplicity, all histogram cells and mean sums; infinite bounds are proved mathematically, not inferred from finite tests.",
+    "rationale": "The classified uniform sample is a grid with the divisor indices removed and one exceptional ordinary semigroup added. Branch-wise counting and truncation prove the uniform bound. Branch masses are telescoping, and beta-free elementary integrals give the stated moments. Finite closure enumeration tests the exact input and is not a proof of convergence.",
     "status": "PASS"
   },
-  "independent": false,
-  "independent_audit_status": "not_performed",
+  "independent_audit_status": "passed",
+  "independent_validation": true,
   "originality": {
     "broader_coverage": {
       "evidence": [
-        "Shor provides broader per-semigroup parametrization but not the population-level distribution, CDF rate, or zeta moments.",
-        "The isolated-gap distribution has discrete \\(1/[k(k+1)]\\) limiting mass and diverging mean; the new normalized run length has a bounded continuous limit and finite moments.",
-        "The Arf-closure result fills \\(\\lfloor g/a\\rfloor\\) gaps, which is a quotient statistic, not the normalized remainder."
+        "Shor counts at fixed Frobenius number and characterizes genus/multiplicity; remainder-sum literature provides moment sums but not the stated continuous CDF; the Wilf-surplus transform is U^2 floor(1/U)"
       ],
-      "reasoning": "The existing full gap-set theorem is strong enough to derive the new statement, so no standalone novelty is claimed for the input parametrization or per-semigroup run formula. Deriving a finite divisor histogram and uniform harmonic-step limit requires additional counting, truncation, distributional and moment arguments, not furnished by the inspected closely related results.",
+      "reasoning": "Fixed-Frobenius counts have a different sampling scheme, and a different marginal pushforward or a sum of gaps does not give the required distribution and discrepancy.",
       "searches": [
-        "reflective numerical semigroups maximal gaps runs number of runs genus multiplicity limiting heavy tail divisor summatory sigma",
-        "Wilf surplus reflective semigroups random genus g limit U squared floor 1/U",
-        "2026/10/18/SCOPE-one-step-arf-closure-and-rigidity-of-reflective-numerical-semigr--9b2f31e01863",
-        "https://arxiv.org/abs/2207.00051"
+        "Shor §5",
+        "Es-said En-naoui arXiv:2509.10592v1, §§3,5,10",
+        "Index search for reflective semigroup Wilf surplus and isolated-gap laws"
       ]
     },
     "checked_sources": [
-      "Shor, arXiv:2207.00051v1, full-text Proposition 3.4, proof and Section 5 (2022).",
-      "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-an-exact-isolated-gap-distribution-and-harmonic-tail-law-for-ref--c016095bed6e (full published RESULT.md).",
-      "https://github.com/published-finding corpus/2026/tree/main/2026/10/18/SCOPE-one-step-arf-closure-and-rigidity-of-reflective-numerical-semigr--9b2f31e01863 (indexed summary only).",
-      "External semantic searches of “reflective numerical semigroups”, genus-pivot gap, normalized remainder, harmonic-step distribution."
+      "Shor, arXiv:2207.00051v1",
+      "OEIS A372727, A111490 and A004125",
+      "En-naoui, arXiv:2509.10592v1",
+      "Indexed isolated-gap and Wilf-surplus results"
     ],
     "claim_vs_prior_implication": {
       "evidence": [
-        "The primary source fully implies \\(R(g,a)=g\\bmod a\\), explicitly credited and not treated as new.",
-        "The isolated-gap theorem uses \\(\\lfloor g/a\\rfloor\\) and divisibility bonuses, yielding a different discrete random variable.",
-        "The new full claim is exact divisor counts \\(C_g(t)\\), uniform CDF error \\(O(g^{-1/2})\\), harmonic-step continuous limit and moment identities."
+        "The divisor formula is immediate from g-t=qa and a>t. Prior Riemann-sum analysis of the remainder sum covers the first moment."
       ],
-      "reasoning": "Prior individual gap sets determine enough data for a fresh derivation of the theorem, but do not by themselves assert its fixed-genus population distribution and quantitative limit. The related published heavy-tail and Arf-closure results are neither equivalent nor strong enough to imply this normalized-remainder law without the new derivation. Residual risk persists for unindexed or implicit equivalent population laws.",
+      "reasoning": "The full branch measure, uniform control for all thresholds with infinitely many jumps accumulating at zero, and the second-moment evaluation are not given by the finite census or the first-moment analysis.",
       "searches": [
-        "reflective numerical semigroup gap run spanning genus midpoint length remainder genus modulo multiplicity distribution harmonic staircase",
-        "reflective semigroup gap length remainder g mod a residue law",
-        "maximum run of gaps containing genus g in reflective semigroups exact distribution",
-        "https://arxiv.org/abs/2207.00051",
-        "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-an-exact-isolated-gap-distribution-and-harmonic-tail-law-for-ref--c016095bed6e"
+        "Shor §§3 and 5, OEIS modular array and remainder-sum formulas"
       ]
     },
     "equivalent_formulations": {
       "evidence": [
-        "Shor, 2022, Proposition 3.4 gives gap layers and \\(g=qa+r\\); the single-run \\(r\\) identity is already implied.",
-        "The cited isolated-gap population theorem determines a discrete variable counting isolated gaps rather than the length of the unique gap run through \\(g\\)."
+        "R=g mod a=2g-F at fixed g"
       ],
-      "reasoning": "Equivalent formulations include the normalized remainder \\((g\\bmod a)/g\\), maximal gap interval through the genus, and pushforward of uniform multiplicity by \\(u\\mapsto1-u\\lfloor1/u\\rfloor\\). Shor determines each semigroup but does not state the fixed-genus divisor histogram or harmonic CDF; the published isolated-gap statistic counts nonadjacent missing values and cannot be substituted for the pivot-run length.",
+      "reasoning": "A new finite invariant independent of the Frobenius number is not claimed; the repaired theorem also gives a fixed-genus limit for F/g.",
       "searches": [
-        "reflective numerical semigroup gap run spanning genus midpoint length remainder genus modulo multiplicity distribution harmonic staircase",
-        "random reflective numerical semigroups normalized remainder g modulo multiplicity continuous density harmonic number",
-        "reflective semigroup gap length remainder g mod a residue law",
-        "https://arxiv.org/abs/2207.00051"
+        "Shor arXiv:2207.00051v1, Proposition 3.4 and Corollary 3.6",
+        "normalized remainder random modulus reflective semigroup Frobenius gap law"
       ]
     },
     "exact_database_or_table": {
       "evidence": [
-        "Shor Section 5 tabulates numbers of reflective semigroups by genus and Frobenius number, not the genus-pivot gap-run histogram.",
-        "Full published isolated-gap RESULT.md supplies exact tails for isolated-gap count, with no tabulation of the remainder-length histogram or its continuous CDF."
+        "The nonzero row g of A372727 is the exact multiset, and its row sum is A111490, with leading constant 1-pi^2/12"
       ],
-      "reasoning": "No exact table, divisor histogram for the pivot run, or harmonic-step limit was located in the named full texts or indexed results. This observation is evidence of a gap, not a claim that web or database nonhits establish novelty.",
+      "reasoning": "All finite data and the leading mean are attributed. The inspected entries do not supply the limit CDF or second moment.",
       "searches": [
-        "random reflective numerical semigroups normalized remainder g modulo multiplicity continuous density harmonic number",
-        "harmonic step law reflecting semigroup central gap normalized g mod a",
-        "maximum run of gaps containing genus g in reflective semigroups exact distribution",
-        "Shor reflective genus pivot remainder harmonic distribution",
-        "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-an-exact-isolated-gap-distribution-and-harmonic-tail-law-for-ref--c016095bed6e"
+        "OEIS A372727, A111490, A004125"
       ]
     },
-    "rationale": "Full-text Shor explicitly supplies the genus/multiplicity parametrization and individual gap sets, so the single-semigroup run length is prior-implied. The newly compared statement is a complete finite-population divisor histogram and continuous harmonic-step limit with uniform convergence and zeta moments. The closest full-text published isolated-gap distribution concerns a different discrete count and does not assert this law; indexed Arf-closure concerns a different quotient statistic. Genuine searches and full-text comparisons found no direct equivalent, with explicit residual bibliographic risks.",
+    "rationale": "Restricted to the continuous distribution, its error bound and second moment. The finite data and first-moment numerator are attributed prior coverage.",
     "residual_risks": [
-      "The exact individual \\(R(g,a)=g\\bmod a\\) and the population indexing are straightforward consequences of Shor, already credited as prior; originality pertains only to the fixed-genus histogram and limiting law.",
-      "An unindexed paper, implicit specialization or alternate normal-form calculation could imply the full population theorem even without matching words.",
-      "Only the published indexed summary, not full text, was accessed for the Arf-closure comparison."
+      "A general literature treatment of the normalized modular-remainder distribution could have escaped the checked searches. Related corpus statements were compared at the indexed level."
     ],
     "source_inspections": [
       {
-        "assessment": "Complete parametrization and gap-set classification are prior; the new fixed-genus normalized pivot-run histogram, harmonic CDF and moments are not stated in the sections inspected",
+        "assessment": "Covers the exact input and implies the finite histogram",
         "evidence": [
-          "Explicit gap set \\(\\{n<g:a\\nmid n\\}\\cup\\{g+ja:0\\le j\\le\\lfloor g/a\\rfloor\\}\\), and exactly one semigroup for each \\(2\\le a\\le g+1\\), \\(a\\nmid g\\).",
-          "Section 5 counts reflective semigroups by genus, not by normalized pivot-run length."
+          "F=2g-r; one semigroup per admissible multiplicity"
         ],
-        "identifier_or_url": "https://arxiv.org/abs/2207.00051",
-        "material_read": "Full-text preprint transcription, Introduction, characterization Proposition 2.11, Proposition 3.4 and proof, generated gap structure and enumerative Section 5",
-        "method": "Read available lawful full-text reproduction and arXiv bibliographic metadata; compared genus/multiplicity/remainder equations and new population claim",
+        "identifier_or_url": "https://arxiv.org/html/2207.00051v1",
+        "material_read": "Proposition 3.4 and proof, Corollary 3.6 and §5",
+        "method": "Full-text equation and sampling comparison",
         "title": "Reflective Numerical Semigroups",
-        "trigger": "Exact same reflective genus/multiplicity parameter and gap-set object"
+        "trigger": "Exact same family and boundary statistic via F"
       },
       {
-        "assessment": "Counts isolated gaps rather than lengths of contiguous gap blocks crossing genus; discrete heavy-tail result does not state/cover continuous harmonic-step remainder law",
+        "assessment": "Covers the underlying table and first-moment numerator",
         "evidence": [
-          "Isolated-gap count has formula \\(I(g,a)=\\lfloor g/a\\rfloor+\\mathbf1_{a\\mid(g-1)}+\\cdots\\), distinct from \\(R(g,a)=g-a\\lfloor g/a\\rfloor\\).",
-          "Limit \\(\\Pr(I=k)=1/[k(k+1)]\\) is discrete with infinite mean, whereas pivot-length fraction has continuous bounded limit."
+          "A372727(g,0)=g; A111490(g)=g+A004125(g)"
         ],
-        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-an-exact-isolated-gap-distribution-and-harmonic-tail-law-for-ref--c016095bed6e",
-        "material_read": "Complete published RESULT.md including Finding, assumptions, proof of isolated-gap formula, uniform tail, moments, verification, and references",
-        "method": "Fetched published file content through GitHub read connector and compared full statements, variables and proofs",
-        "title": "An exact isolated-gap distribution and harmonic tail law for reflective numerical semigroups",
-        "trigger": "Same finite population and related exact gap-distribution questions"
+        "identifier_or_url": "https://oeis.org/A372727",
+        "material_read": "Entries A372727, A111490 and A004125",
+        "method": "Compared definitions, sample rows and asymptotic formulas",
+        "title": "OEIS remainder array and row sums",
+        "trigger": "Exact classical remainder reparametrization"
       },
       {
-        "assessment": "Counts \\(\\lfloor g/a\\rfloor\\) individual closure-fill gaps; not a direct published histogram of the remainder \\(g\\bmod a\\)",
+        "assessment": "Exact diagonal sum and quotient grouping; does not assert the claimed continuous law",
         "evidence": [
-          "The indexed statement specifies filling \\(\\lfloor g/a\\rfloor\\) gaps and a rigidity classification."
+          "Proposition 5.1 is the classical summatory-divisor identity"
         ],
-        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/18/SCOPE-one-step-arf-closure-and-rigidity-of-reflective-numerical-semigr--9b2f31e01863",
-        "material_read": "Indexed published mathematical title and full summary; complete paper not accessed",
-        "method": "Semantic indexed lookup and mathematical variable/implication comparison",
-        "title": "One-step Arf closure and rigidity of reflective numerical semigroups",
-        "trigger": "Same genus/multiplicity and quotient-of-genus parameter"
+        "identifier_or_url": "https://arxiv.org/html/2509.10592v1",
+        "material_read": "§§3,5 and 10",
+        "method": "Full-text comparison of formulas and scope",
+        "title": "The Modular Energy Function: the Sum of Remainders",
+        "trigger": "Exact diagonal remainder sum"
       }
     ],
     "status": "PASS"
   },
-  "review_type": "same_model_review",
-  "same_model_review_status": "passed",
-  "schema_version": 1,
-  "scope_run_id": "04c07362-19be-44d9-9bf7-b746c94e6b61",
+  "previously_published_pending_reaudit": false,
   "value": {
-    "rationale": "The length of the unique maximal contiguous gap run crossing genus g is intrinsically motivated by the reflective-semigroup construction. Its fixed-genus frequency histogram is a natural complete classification, not an arbitrary slice. The uniformly controlled continuous harmonic-step limit and zeta-valued moments reveal geometry that neither genus/Frobenius totals nor the previously published discrete isolated-gap count can supply; it exposes a distinct limiting regime with finite expectation and variance.",
+    "rationale": "A complete continuous distribution with a uniform quantitative error and explicit fluctuation scale is useful in its own right for the fixed-genus Frobenius distribution. Value does not rest on regrouping the finite remainder table.",
     "status": "PASS"
   }
 }

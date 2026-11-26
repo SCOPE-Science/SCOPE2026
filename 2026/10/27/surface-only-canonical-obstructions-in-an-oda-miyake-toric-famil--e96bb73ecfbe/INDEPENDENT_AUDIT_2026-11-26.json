@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:44:10.569641Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§1–4, VERIFICATION.md, artifacts/verify_toric_example.py inspected; repaired RESULT.md proof.",
+        "Independent replay: python3 /workspace/checks/frozen_mathematics.py 4; all 18 affine anticanonical wall polynomials verified by constant determinants and interpolation.",
+        "arXiv:2610.22279, Theorem 1.1/Corollary 3.6, Construction 6.1 and Remark 6.2; arXiv:2412.02392 §4 as identified in the frozen result."
+      ],
+      "rationale": "The exact wall replay uses Cramer determinants with only the last row varying in d; the common unimodular denominators are the same at 0 and 1, so stay constant, and the numerator degrees are affine. The nonconstant degrees d, 1−d, d+5, −d−2 and all constants have no zero for d≥2. The convex identity is positive with coefficients summing to one. On D7 the successive projected rays give the single subdivision of the product fan, and the degrees on E, Fx, Fy give K restricted as (d−1)Fx−2Fy+3E. The two opposite signs on the nef ruling classes exclude pseudo-effectivity for either sign. The (d−1,2) system is very ample; a general smooth irreducible member avoids p, so the exceptional term contributes zero. The two ruling terms cancel and adjunction gives d−2. Nonzero ambient wall degrees rule out invariance.",
+      "residual_risks": [
+        "Degree zero is numerical, not a claim that the canonical bundle restricts trivially. Computation checks wall arithmetic, not Bertini or fan completeness; the proof and published construction supply these."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The v7 separation inequalities include ct<1−d and the complete eighteen-entry degree table has parameters a,b,c,d."
+        ],
+        "reasoning": "At (−2,2,0,d), separation already fails and no wall degree is zero. This verifies actual coverage even without the same specialization written out. The known ambient results are now credited and the theorem is about the canonical restriction on the divisor and resulting curves.",
+        "searches": [
+          "Resultary 838005eaafd0, full four-parameter canonical tensor-generation test, Steps 2–3"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 838005eaafd0 and 855d8bd424a2; arXiv:2610.22279"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Question 6.6 asks whether the invariant (−1,−1)-curve pattern holds throughout the family; it does not assert it. 855d8bd424a2 already answers negatively. The restricted class coefficients can be recovered from prior wall numbers as done in the repair."
+        ],
+        "reasoning": "The novel part is not recovering numbers by substitution but exhibiting the opposing nef degrees and balancing them in a movable smooth system disjoint from the exceptional locus, with specified genus. Neither the classification nor the earlier explicit curve through the blowup center supplies that construction. No general uniqueness of this phenomenon or guarantee of historical priority is asserted.",
+        "searches": [
+          "Ito–Zeng–Zeng arXiv:2610.22279 p. 25 Question 6.6; Resultary 838005eaafd0 and 855d8bd424a2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary criterion combines bigness up to sign on invariant subvarieties with its toric affine separation reformulation. Remark 7.6 already has an obstructing surface without an obstructing invariant curve."
+        ],
+        "reasoning": "Surface obstruction alone, by either characterization, is not the new result. The repaired claim describes two signs of the concrete restriction and a family of smooth curves, not a new equivalent test.",
+        "searches": [
+          "Ito–Zeng–Zeng arXiv:2610.22279, Theorem 1.1, Corollary 3.6, Question 6.6, Remark 7.6; Resultary surface/canonical obstruction comparison"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "838005eaafd0 supplies every exact wall degree; 855d8bd424a2 explicitly gives Bl_p(P1×P1) at v7, anticanonical restriction F1+2F2−3E, and a rational degree-zero curve for (a,2,0,0), a≥4."
+        ],
+        "reasoning": "The wall table is covered for the very same slice. The earlier surface example has effective anticanonical restriction (sum of ruling strict transforms) and passes through p before blowup; its stated curve construction does not give the repaired exceptional-disjoint product system.",
+        "searches": [
+          "Resultary 838005eaafd0 Steps 2–3, 855d8bd424a2 Finding"
+        ]
+      },
+      "rationale": "For the repaired finding only: the full-family classification and wall degrees are prior, and even the same invariant blowup surface was used to answer the invariant-curve question on a different slice. The retained construction uses the opposite nef signs of the restricted class to obtain moving smooth zero-degree curves from a product linear system that avoids the exceptional locus, with genus growing in d.",
+      "residual_risks": [
+        "The indexed records establish coverage, not timing among undiscovered publications. Specific moving-curve geometry was not found in the closest consulted statements; this does not settle historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive prior coverage of the ambient claim",
+          "evidence": "v7 requires ct<1−d; Step 3 gives every wall polynomial, including d after specialization on wall 34.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-a-closed-four-parameter-canonical-tensor-generation-test-for-the--838005eaafd0/RESULT.md",
+          "material_read": "Finding and Steps 2–3, especially mirror offset 4060–6822",
+          "method": "Local Resultary and mirrored passage",
+          "title": "A closed four-parameter canonical tensor-generation test for the Oda–Miyake family",
+          "trigger": "Dominating parameter coverage and exact table"
+        },
+        {
+          "assessment": "Same negative answer, distinct slice and different surface positivity and curve geometry",
+          "evidence": "Bl_p(P1×P1) with effective anticanonical restriction F1+2F2−3E; a (1,1) curve passes through p.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-an-invariant-surface-obstruction-without-invariant-curve-obstruc--855d8bd424a2/RESULT.md",
+          "material_read": "Finding, direct mirror offset 0–1759, and compared proof passages",
+          "method": "Local Resultary and mirrored passages",
+          "title": "An invariant-surface obstruction without invariant-curve obstructions in non-projective toric threefolds",
+          "trigger": "Same named problem and obstructing surface"
+        },
+        {
+          "assessment": "Credited general results and different earlier phenomenon",
+          "evidence": "Ray criterion uses primitive generators; Remark 7.6 already describes an obstructing surface with no obstructing invariant curve.",
+          "identifier_or_url": "arXiv:2610.22279",
+          "material_read": "Corollary 3.6 p. 10; Construction 6.1 p. 23; Question 6.6 p. 25; Remark 7.6 p. 32",
+          "method": "Primary OA passages",
+          "title": "Tensor-generating line bundles on toric varieties",
+          "trigger": "Primary construction, criterion, posed question and general precedent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired RESULT.md, restricted class and moving curves; Resultary 855d8bd424a2 Finding"
+      ],
+      "rationale": "The surviving result diagnoses the obstruction geometrically rather than retesting the known ambient criterion. The two nef rulings of opposite canonical sign explain why the obstruction accommodates moving degree-zero curves that miss the exceptional locus, contrasting with the effective restriction and curve through p in the previously exhibited slice. The genus formula makes this distinction explicit over the complete displayed range.",
+      "residual_risks": [
+        "No new priority for answering Question 6.6, no general classification, and no purported new wall table."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

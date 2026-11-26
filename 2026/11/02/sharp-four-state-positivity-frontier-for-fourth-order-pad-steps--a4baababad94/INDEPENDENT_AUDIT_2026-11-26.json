@@ -1,0 +1,171 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:42:05.957893Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–34, 38–85; VERIFICATION.md; artifacts/verify_cycle_pade.py; requirements.txt; independent polynomial-remainder inversion and exact rational root bracket"
+      ],
+      "rationale": "The poles 3±i√3 do not meet h(ω−1); the column-sum identity follows from r(0)=1. I independently inverted the denominator modulo X^n−1 over Q(h) and multiplied by the numerator for n=2,3,4; all nine factorizations agree. The two- and three-state coefficients are positive for h>0. In dimension four the only sign-changing coefficient is the first neighbor, with numerator −3hF(h) and a strictly positive denominator. Descartes and the sign at zero and infinity give exactly one positive root; F(6135/1000)=−642270159/1600000000 and F(6136/1000)=38072521/244140625 isolate it. All other entries remain positive at and beyond the crossing, and the h=0 map is the identity. For the asymptotic law solve (P−I)G=I−U and impose GU=0: the coefficient difference g_(j−1)−g_j=−1/n for j≥1 and the zero coefficient sum give g_j=(2j−n+1)/(2n), with the wraparound equation giving (n−1)/n. On the nonstationary Fourier modes r(hλ)=1+12/(hλ)+O(h^−2), while on the stationary mode r(0)=1 exactly. Reading off the first column gives the asserted coefficients and the strict eventual first-neighbor negativity for n≥4.",
+      "residual_risks": [
+        "The asymptotic error is for each fixed n; no uniform estimate in n, stronger family claim, or claim about internal stages or finite precision is certified. The uploaded verifier was inspected, not executed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general rational limit is Π+r(∞)(I−Π), which gives I here. The cited eventual sign cases require 0≤r(∞)<1 or r(∞)<0. The [2/2] nilpotent example yields negativity in a nonconservative system, not a four-cycle frontier.",
+          "The later Resultary finding includes dimensions 5–7 and small-h loss for n≥8 as well as the exact n=4 formula."
+        ],
+        "reasoning": "The general leading-limit criterion is inconclusive for off-diagonal entries when the leading matrix is I; the later stronger coverage is recorded separately from priority.",
+        "searches": [
+          "arXiv:2608.22703 Theorem 2 and Corollary 3",
+          "Zappavigna et al., doi:10.1016/j.laa.2011.12.021, [2/2] Padé nilpotent example",
+          "Resultary 50bf05f4d07d"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 50bf05f4d07d, 164458fb3547, 6e27618b0571, 6c4221598c7b, 4aad2a3f58ab",
+        "doi:10.1016/j.laa.2011.12.021",
+        "arXiv:2608.22703 and arXiv:2404.12789"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier undirected proof uses the Laplacian pseudoinverse at r(∞)=1 but yields a different n-dependent sign law. Scaling-and-squaring performance/Lie-group properties and the general stationary limit do not give the quartic crossing or the absence of any other negative entry in dimension four."
+        ],
+        "reasoning": "The general expansion approach is reusable, not newly claimed; the directed coefficients and exact four-state all-step horizon need calculation for this support.",
+        "searches": [
+          "Earlier Resultary 164458fb3547 large-step proof, Resultary 6e27618b0571 Proof, arXiv:2608.22703 §3.2, arXiv:2404.12789"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Later 50bf05f4d07d gives the same quartic F4 and the expansion I+12X_n/h+O_n(h^−2), including first-neighbor limit −6(n−3)/n. Its row generator is the transpose of the frozen column generator.",
+          "Earlier 164458fb3547 uses an undirected diffusion generator and obtains a six-cycle threshold, with different first-order coefficient."
+        ],
+        "reasoning": "Transposition identifies the later directed statements exactly; it does not identify directed with undirected cycles. The later indexed publication date does not assign earlier priority to the matching result.",
+        "searches": [
+          "Resultary: directed cycles Gauss–Legendre Padé positivity horizon, [2/2] Markov cyclic shift group inverse",
+          "Resultary 50bf05f4d07d and 164458fb3547"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The pure-birth eight-state result concerns an absorbing generator. The October 26 and same-day November 2 records give a finite window for the directed eight-cycle; neither gives the four-state quartic. The November 8 record does list the identical n=4 cutoff."
+        ],
+        "reasoning": "An exact n=8 window is not a table entry or implication for n=4. The exact n=4 indexed entry found is later; no claim that the cutoff is absent from the current catalogue.",
+        "searches": [
+          "Resultary 4aad2a3f58ab, 6e27618b0571, 6c4221598c7b, 50bf05f4d07d; directed Gauss / [2/2] horizons"
+        ]
+      },
+      "rationale": "The exact four-cycle cutoff and its minimality within the directed cycle family are distinct from the accessible earlier statements checked. The asymptotic mechanism itself has direct precedents (in particular on undirected cycles); the relevant specialization here is to the directed generator at the critical value r(∞)=1, combined with an exact all-step small-dimension classification. A distinct later Nov. 8 Resultary record has demonstrably equivalent coverage of both quantitative claims, under transposition, and extends the dimension range. It is not evidence that an earlier result covered the Nov. 2 finding; this pass is a best-of-knowledge comparison at the frozen finding, not a claim of present-day exclusivity or of the later record's dependence.",
+      "residual_risks": [
+        "Bounded, not exhaustive, primary-literature comparison. The relationship between the two equivalent directed records is not established; no exclusivity or historical priority finding beyond the observed ordering."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Later exact coverage and extension, with no earlier priority inferred",
+          "evidence": [
+            "Same F4 and h_*; same inverse expansion and first-neighbor coefficient after transposition."
+          ],
+          "identifier_or_url": "Resultary 2026/11/8, 50bf05f4d07d",
+          "material_read": "Finding and proof, local-mirror offsets 0–7816",
+          "method": "Indexed search and local-mirror RESULT.md inspection",
+          "title": "Exact Padé positivity horizons for finite directed Markov cycles",
+          "trigger": "Exact directed-cycle topic and stronger parameter scope"
+        },
+        {
+          "assessment": "Substantial methodological precedent for a different generator",
+          "evidence": [
+            "Undirected diffusion cycles; first failing dimension six, neighbor coefficient −(n−1)(n−5)/(nh)."
+          ],
+          "identifier_or_url": "Resultary 2026/10/25, 164458fb3547",
+          "material_read": "Finding and large-step proof, offsets 0–5548",
+          "method": "Indexed search and local-mirror inspection",
+          "title": "The six-cycle is the first cycle to lose fourth-order Gauss positivity",
+          "trigger": "Same Padé method and critical large-step mechanism"
+        },
+        {
+          "assessment": "Exact window for n=8 only",
+          "evidence": [
+            "An irreducible eight-cycle with loss at small steps and finite reentry; does not classify n=4."
+          ],
+          "identifier_or_url": "Resultary 2026/10/26, 6e27618b0571",
+          "material_read": "Finding and positivity-window proof, offsets 0–6495",
+          "method": "Local-mirror inspection",
+          "title": "Exact stochasticity reentry for fourth-order Gauss stepping on the directed eight-cycle",
+          "trigger": "Earlier same family and endpoint rule"
+        },
+        {
+          "assessment": "Different dimension; no priority judgment from the date",
+          "evidence": [
+            "Eight-cycle window, not the n=4 root or the all-n expansion."
+          ],
+          "identifier_or_url": "Resultary 2026/11/2, 6c4221598c7b",
+          "material_read": "Finding and proof, offsets 0–6047",
+          "method": "Local-mirror inspection",
+          "title": "A sharp finite stochasticity window for fourth-order Gauss steps",
+          "trigger": "Distinct same-day record in the same family"
+        },
+        {
+          "assessment": "Different chain and small-step regime",
+          "evidence": [
+            "Absorbing pure-birth generator, not a conservative irreducible directed cycle."
+          ],
+          "identifier_or_url": "Resultary 2026/9/20, 4aad2a3f58ab",
+          "material_read": "Finding and proof, offsets 0–6716",
+          "method": "Local-mirror inspection",
+          "title": "Eight-state barrier for Markov positivity of the [2/2] Padé map",
+          "trigger": "Earlier minimum-dimension statement"
+        },
+        {
+          "assessment": "General hazard rather than this minimum and threshold",
+          "evidence": [
+            "8×8 nilpotent shift gives a negative [2/2] entry for every positive step."
+          ],
+          "identifier_or_url": "doi:10.1016/j.laa.2011.12.021",
+          "material_read": "Section 4, PDF p. 14, OA offset 38700",
+          "method": "OA primary PDF passage inspection",
+          "title": "Essentially Negative News About Positive Systems",
+          "trigger": "Classical exact Padé positivity obstruction"
+        },
+        {
+          "assessment": "Leading limit at r(∞)=1 does not determine the first off-diagonal sign",
+          "evidence": [
+            "Limit Π+r(∞)(I−Π); sign regimes for strict boundary alternatives, not a directed-cycle first-order coefficient."
+          ],
+          "identifier_or_url": "arXiv:2608.22703",
+          "material_read": "§3.2 p. 7 Theorem 2 and Corollary 3, offset 27600",
+          "method": "OA primary full-text passage inspection",
+          "title": "Diagonal Frog meets ADI",
+          "trigger": "Plausibly covering large-step rational-map theorem"
+        },
+        {
+          "assessment": "Methods comparison, not evidence of priority on directed positivity",
+          "evidence": [
+            "Padé efficiency and Lie-group preservation are the stated aims; no directed-cycle threshold is stated there."
+          ],
+          "identifier_or_url": "arXiv:2404.12789",
+          "material_read": "Abstract and scope on p. 1",
+          "method": "OA primary paper synopsis inspection",
+          "title": "Efficient scaling and squaring method for the matrix exponential",
+          "trigger": "Frozen methodological anchor"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding, Four states, Large-step law and scaling-and-squaring consequence; Itkin–Kazbek §3.2; Zappavigna et al. Section 4"
+      ],
+      "rationale": "Probability mass can be conserved exactly while the update ceases to be a transition matrix. The exact root gives the safe substep range on the smallest failing cycle, e.g. a sufficient positivity condition for scaling and squaring, and the fixed-n asymptotics explain why convergence back to the identity does not imply eventual positivity. The four-cycle horizon is a substantive sharp boundary, not just a negative example at a chosen step.",
+      "residual_risks": [
+        "No claim about efficiency of the resulting scaling condition in practice or positivity for arbitrary generators."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

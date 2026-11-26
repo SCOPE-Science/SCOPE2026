@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -18,6 +21,4 @@
 
 # Verification and limits
 
-`verify.py` (Python 3, standard library and SymPy) reproduces symbolic identities for the correlated-noise Gaussian conditional variance and the finite Brownian-bridge benchmarks, the exact vertex comparison and the rational witness. It also checks 501 rational reflected-pair configurations and 1,200 fixed-seed rational covariance configurations against the proved uniform matrix-resolvent estimate. These finite computations do not establish an all-grid or all-parameter proof; the mathematical arguments are in `RESULT.md`. The exact checker was executed successfully on the included source.
-
-The theorem requires \(\eta>0\) and fixed \(-1<\rho<1\), a compact observation domain, a continuous positive-semidefinite kernel, and a nonnegative target cross-covariance reaching a unique positive maximum and having at least one zero. The correlation \(\rho=1/2\) is an unresolved leading-order tie rather than a claimed unique geometric limit; no complete finite-noise global optimum is reported. Published-source comparison cannot establish historical uniqueness, and independent mathematical validation has not been performed.
+The unchanged companion `verify.py` uses Python 3 and SymPy. It checks the symbolic leading quadratic and vertex comparison and 1,200 fixed-seed rational cases of the uniform resolvent bound. Its additional finite-noise Brownian-bridge calculations are separate from the surviving high-noise theorem. These checks verify algebra and finite instances, not the stochastic hypotheses, the general theorem, or historical priority. Joint Gaussianity of the error vector, independent of the target and latent process, is an explicit hypothesis for identifying the gain with the conditional-variance reduction. The compactness and uniform convergence argument in `RESULT.md` applies with fixed \(-1<\rho<1\). The tie at \(\rho=1/2\) is only a leading-order tie.

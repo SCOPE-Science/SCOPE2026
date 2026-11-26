@@ -76,11 +76,11 @@ Strict definiteness forces equality precisely when \(w\) is a scalar multiple of
 A(w)=\sum_{j=0}^{q}(q+1-j)w^j,\qquad
 R(w)=w^qA(1/w)=\sum_{j=0}^{q}(j+1)w^j.
 \]
-Then \(P_{m,n}(z)=A(z^m)+z^rR(z^m)\). The coefficients of \(A\) are strictly decreasing from \(q+1\) to \(1\). The Eneström–Kakeya root bound (or its elementary coefficient proof) locates every root \(\alpha\) of \(A\) strictly outside the closed unit disk. Factoring \(A\) and \(R\) shows that \(|R(w)|<|A(w)|\) whenever \(|w|<1\): for every root \(|\alpha|>1\),
+Then \(P_{m,n}(z)=A(z^m)+z^rR(z^m)\). The coefficients of \(A\) are strictly decreasing from \(q+1\) to \(1\). The Eneström–Kakeya root bound locates every root \(\alpha\) of \(A\) strictly outside the closed unit disk. Because the roots of the monic real polynomial \(A\) occur in conjugate pairs (with multiplicity), its reversed polynomial is \(R(w)=\prod_\alpha(1-\overline\alpha w)\). Comparing each factor with the corresponding factor of \(A\), we have
 \[
-|1-\alpha w|^2-|w-\alpha|^2=(1-|\alpha|^2)(1-|w|^2)<0.
+ |1-\overline\alpha w|^2-|w-\alpha|^2=(1-|\alpha|^2)(1-|w|^2)<0
 \]
-Thus \(P_{m,n}(z)\ne0\) for \(|z|<1\). Directly from its coefficients, \(z^nP_{m,n}(1/z)=P_{m,n}(z)\) and its constant and leading coefficients are nonzero. Inversion symmetry rules out roots outside the unit circle, proving every root lies exactly on it. For \(q=0\), \(P_{m,n}(z)=1+z^r\) (constant \(2\) if \(r=0\)), so the conclusion is immediate.
+whenever \(|w|<1\). Hence \(|R(w)|<|A(w)|\) there and \(P_{m,n}(z)\ne0\) for \(|z|<1\). Directly from its coefficients, \(z^nP_{m,n}(1/z)=P_{m,n}(z)\) and its constant and leading coefficients are nonzero. Inversion symmetry rules out roots outside the unit circle, proving every root lies exactly on it. For \(q=0\), \(P_{m,n}(z)=1+z^r\) (constant \(2\) if \(r=0\)), so the conclusion is immediate.
 
 ## Verification
 
@@ -90,7 +90,9 @@ For concrete checks: \(C_{4,5}=24/11\), \(P_{4,5}(z)=2+z+z^4+2z^5\); \(C_{4,9}=1
 
 ## Relationship to prior work
 
-MacDonald's November 2026 paper [1, Theorem 3, equivalent convolution formulation] proves the matched-index inequality \(T\le2(F_n*T)\) for degree-at-most-\(n\) nonnegative polynomials and identifies its two-frequency equality case. This is precisely the \(m=n\) restriction of the present finding; [1] does not state or determine the general unequal-order constants \(C_{m,n}\), their at-most-quotient–remainder inverse vectors, or the all-unit-circle polynomial family. Its proof also uses Fejér–Riesz factorization and completes squares, but it addresses the matching regime. A simple pointwise monotonicity comparison between distinct Fejér orders cannot substitute for the sharp two-index computation. General Fejér-kernel and summability-kernel properties [2] do not determine these pointwise extremal constants. Mentz [3] treats broad banded Toeplitz inversion; only its abstract was accessible, so the relationship of its general inverse procedure to the specific closed formula above remains a bibliographic risk.
+MacDonald's November 2026 paper [1, Theorem 3, equivalent convolution formulation] proves the matched-index inequality \(T\le2(F_n*T)\) for degree-at-most-\(n\) nonnegative polynomials and identifies its two-frequency equality case. This is precisely the \(m=n\) restriction of the present finding; [1] does not state or determine the general unequal-order constants \(C_{m,n}\) or the quotient–remainder coefficient formula for the corresponding equality polynomials. Its proof also uses Fejér–Riesz factorization and completes squares, but it addresses the matching regime. A simple pointwise monotonicity comparison between distinct Fejér orders cannot substitute for the sharp two-index computation. General Fejér-kernel and summability-kernel properties [2] do not determine these pointwise extremal constants. Mentz [3] treats Toeplitz covariance inversion; only its abstract was accessible, so the relationship of its general inverse procedure to the specific closed formula above remains a bibliographic risk.
+
+The extremizing factor, up to scale, is the degree-\(n\) reproducing kernel at \(1\) for the measure \(F_m(t)\,dt/(2\pi)\), and \(C_{m,n}\) is its diagonal value. The unit-circle zero property also follows from the classical unit-circle Christoffel–Darboux formula [4, Eq. (3.23)]: multiplying the kernel at \(1\) by \(1-z\) gives a constant multiple of a paraorthogonal polynomial. The specific contribution is the exact kernel value and coefficient formula for independently varying \(m,n\), not a general root-location principle.
 
 ## Limitations
 
@@ -103,3 +105,5 @@ This is a one-dimensional circle theorem for *nonnegative trigonometric polynomi
 [2] Fejér summability kernel and Fejér–Riesz factorization, classical standard results; the normalization and factorization are stated in [1, §2] and in the displayed definitions above.
 
 [3] Raúl Pedro Mentz, *On the Inverse of Some Covariance Matrices of Toeplitz Type*, SIAM Journal on Applied Mathematics 31 (1976), 426–437, DOI 10.1137/0131036 (abstract consulted; full text not inspected).
+
+[4] Barry Simon, *The Christoffel–Darboux Kernel*, arXiv:0806.1528, Section 3, https://arxiv.org/abs/0806.1528.

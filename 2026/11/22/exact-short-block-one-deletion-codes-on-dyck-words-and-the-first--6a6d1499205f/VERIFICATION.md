@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -18,15 +21,13 @@
 
 # Exact arithmetic verification
 
-All packaged files are self-contained and readable as UTF-8. Run both programs in the same directory as `certificates.json`:
+Run both unchanged standard-library Python programs with `certificates.json` in the same directory:
 
 ```text
 python3 verify.py
 python3 verify_independent.py
 ```
 
-The programs use only the Python standard library, not an optimizer, internet access, external libraries, or saved outputs. `verify.py` recursively generates each Dyck language and checks all deletion shadows. `verify_independent.py` enumerates balanced bit masks through combinations of up-step positions and independently deletes bits using integer shifts. Both check every listed codeword, every nonnegative primal/dual certificate entry, every shadow-packing inequality, and exact rational objective equalities for semilengths one through six.
+`verify.py` recursively generates the Dyck languages and reconstructs their deletion shadows. It checks the domains and signs of the certificate entries, every primal and dual inequality, the exact objective totals, and the size and shadow disjointness of each codebook. `verify_independent.py` enumerates balanced bit masks and deletes bits using shifts. It independently checks disjointness, the variable domains, primal and dual row sums, and equality of the rational objectives. It prints the objective totals and checks their floors against the corresponding codebook sizes. The two success markers are `EXACT_DYCK_CERTIFICATES_OK` and `INDEPENDENT_DYCK_OK`.
 
-Observed terminal markers: `EXACT_DYCK_CERTIFICATES_OK` and `INDEPENDENT_DYCK_OK`. For lengths two through twelve, both reconstruct input sizes \((1,2,5,14,42,132)\), distinct output counts \((2,4,10,28,84,264)\), code sizes \((1,1,2,4,9,24)\), and rational LP totals \((1,1,2,4,29/3,3269/131)\).
-
-Every feasibility statement concerns a complete finite source layer. No external or infinite proof-checking is claimed; independent expert audit is not performed. Equality of the primal/dual rational objectives gives exact LP optimality and integer floor bounds, while disjoint deletion shadows give the attaining zero-error codebooks. Reconstructing the records from complete words makes this verification independent of how the certificates were originally found.
+Each layer is exhausted, not sampled; equality of feasible primal and dual values establishes the fractional optimum. The floor bounds match the explicit codebooks. The first strict cardinality-objective gap is \(29/3-9=2/3\) at semilength five. Equality of objectives at smaller semilengths does not prove polyhedral integrality. The fractional-vertex example at semilength four is verified separately by the explicit three deletion shadows and tight pair constraints in `RESULT.md`.

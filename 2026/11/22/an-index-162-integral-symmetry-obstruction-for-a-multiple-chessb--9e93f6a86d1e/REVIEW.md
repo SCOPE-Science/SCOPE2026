@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The final claim is about the integral \(S_4\times S_6\)-lattice \(K=\widetilde H_5(\Delta_{[6]}^{(2,2,2,2)};\mathbb Z)\), compared with the explicitly specified three-subset incidence kernel \(L\). Every step is reconstructed in the supplied standalone checker. The complete top boundary has \(1440\) oriented six-rook facets and \(3600\) five-rook rows; all \(1435\) elimination pivots are integer units, so the five free-coordinate cycles form the entire integral kernel. The \(15\)-by-\(20\) incidence matrix independently has rank \(15\) and a full integral five-element kernel basis. All five adjacent transpositions act through explicitly computed integral matrices; the three row generators act trivially. The \(125\) intertwining equations have exact rational rank \(24\) in \(25\) unknowns, and their primitive solution has determinant \(-162\) and Smith factors \((1,3,3,3,6)\). Since its coefficients have gcd one, the integer intertwiners are precisely its integer multiples. The comparison is a genuine integral obstruction, not inferred from a rational character alone or from finite-field experiments. The exact program and captured output were executed and compared; independent mathematical review is not asserted.
+PASS
 
-## Originality — PASS, subject to priority risk
+Independent replay: python /workspace/branches/audit5.py. The program generates the 1440 column-ordered six-rook words and 3600 deleted-column equations from the capacities, and the 15-by-20 inclusion equations from subsets. The orientation sign (-1)^j is constant within each boundary row and does not change its kernel; the separate column-action sign is retained. The ranks modulo 101 are 1435 and 15, giving rational lower bounds. Lifting the free-coordinate vectors to integers, checking every original integer boundary equation, and using their identity projections proves both upper bounds and integral saturation. This gives a different pair of integral bases. All three row generators act trivially and the column action on the entire basis is verified. Using only a generating 6-cycle and transposition gives a 50-equation intertwiner system of rank 24 over Q. Its primitive integer generator has determinant -162 and Smith factors (1,3,3,3,6), reproducing the reported quotient in the independent bases. Primitivity on a rational line forces every integral map to be an integer multiple, hence index 162|k|^5. There are no higher simplices, so the top kernel is H5 integrally. Young's rule for the subset modules and surjectivity of W over Q leave precisely S^(3,3) in L, and the nonzero determinant transfers the representation to K. The frozen proof/checker and captured matrix evidence were inspected, not executed.
 
-The October 2026 source establishes broader homotopy and torsion results for multiple chessboard complexes but does not compute the stated integral equivariant lattice. The closest complete accessible same-board research result from November 17, 2026 gives the nonequivariant sphere wedge and expressly leaves the symmetric-group action open. A five-column companion computes a distinct rank-three homology module, while a seven-column companion uses a different capacity pattern. The source by Reiner and Roberts treats rational symmetric-group representation formulas, and Rónyai's incidence-module work concerns \(L\) itself, not its integral comparison with \(K\). An abstract of Kustin's characteristic-free equivariant duality does not supply this numerical intertwiner or its Smith factors. Searches for the exact lattice, capacity profile, rational Specht partition, incidence aliases and index \(162\) found no covering theorem. Potential risk: older equivariant Koszul literature or an unindexed calculation could imply the same integral comparison; the abstract-only Kustin article was not fully inspected. No uniqueness or priority certification follows from search failure.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The four-by-six board is the natural capacity-balanced boundary immediately preceding the known seven-column order-two-torsion case. Its nonequivariant integral homotopy type and rank-five top homology were already calculated, making the integral symmetry module a concrete unresolved refinement. The kernel of the classical three-to-two subset incidence map is a canonical integral realization of the same rational Specht representation. Proving that every integral equivariant injection into homology has index divisible by \(162\), with exact prime-two and prime-three invariant factors, isolates a mathematically natural lattice obstruction invisible to rational characters and Betti numbers. This is more than a routine recomputation of the previous homotopy type. The claim is confined to a single but canonical finite board and a specified natural comparison lattice; no general-family theorem is asserted.
+The supported distinct contribution is the primitive integral comparison with its cokernel and minimal index for this natural pair of lattices, not the rational representation framework, the incidence lattice by itself, or the already known nonequivariant homotopy type.
 
-## Sources and limits
+## value
 
-The closest full sources inspected were the motivating 2026 preprint's relevant statements and proofs and two published, directly comparable research results. The principal coverage limitations are an inaccessible complete version of one older equivariant article, possible unindexed literature, the absence of a classification of the fourth-homology action, and the fact that no independent audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The pair is motivated by the structured row-capacity complex and its rationally identical column-subset model. The explicit obstruction shows that a natural replacement by the incidence kernel cannot be made integrally equivariant. The Smith factors distinguish the 2- and 3-primary defects and give a precise benchmark for characteristic or coefficient-sensitive comparisons, beyond the known homology ranks and rational type.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

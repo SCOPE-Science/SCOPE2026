@@ -1,0 +1,172 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:37:33.402536Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–22 and 26–66",
+        "Frozen VERIFICATION.md, check.py and check_output.txt (packaged evidence inspected, not executed)",
+        "Evans–Majumdar, arXiv:1404.4574v1, eqs. (71)–(77)",
+        "Independent coefficient comparison: in z=x²/(4ν) the Riccati equation is f_z=ν(f−2z)/z+f²/(2z); match coefficients of 1 and 1/ν after substituting f=2z+a/ν+b/ν²."
+      ],
+      "rationale": "For fixed d and positive x, the Laplace transform of the no-reset hitting time at the resetting rate is p=ε^ν K_ν(x)/K_ν(εx); the reset mean is (p⁻¹−1)/r. The small-argument K asymptotics give the stated leading objective x^(−ν−2)/K_ν(x), with a logarithm for ν=0. The derivative of its reciprocal has the sign of 2−F_ν. The Riccati identity for F_ν implies F_ν''=−2 at every stationary point, so F_ν cannot turn down and subsequently increase, whereas F_ν tends to infinity. Together with F_ν→0 at the left endpoint (including F_0∼1/log(1/x)), this gives a unique minimum. Strict order log-convexity of K follows by Hölder on its bilateral Laplace integral, and makes F_ν decrease with ν. The level-two root therefore increases with order. At the root F_ν'>0 gives the strict upper bracket; the recurrence and F_(ν−1)>F_ν give the strict lower bracket, with order log-convexity valid also at negative orders. The uniform Gamma-expectation expansion is valid since all Taylor derivatives used are uniformly bounded for z near 1 and the absolute seventh centered moment of U is O(ν^(−7/2)). An independent Riccati coefficient check gives a=2z−2z² and b=2z−8z²+4z³; at z=1 these are 0 and −2. The bracket localizes z within O(1/ν) of 1 and the uniform expansion refines this to z=1+ν⁻²+O(ν⁻³). Conversion of 4/ν to 8/(d−2) is correct.",
+      "residual_risks": [
+        "This is the optimizer of the leading coefficient, not an exchange of minimization with the finite-target limit or a uniform limit in d and ε. The numerical and coefficient diagnostics do not certify the uniform remainder; the analytic Gamma expansion does."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Segura 2021 gives strict x-monotonicity and two types of ratio bounds. Its cubic bound refines the elementary lower root bound; its Remark 3 upper root bound applies for ν≥1/2. The omitted integer dimension d=2 also has γ<2 since K_1(2)>K_0(2) by the positive integral representation.",
+          "The ν>2 upper root bound from Segura 2023 is stronger at large ν. The fixed-x expansion in Segura 2021 is not justified at x of order √ν; the DLMF uniform large-order formulas are relevant background but the direct squeeze suffices."
+        ],
+        "reasoning": "Combining older bounds on the exact ratio, rather than using a fixed-argument asymptotic outside its regime, proves the claimed first correction. Strict order increase of the roots is the direct level-set consequence of classical strict order log-convexity of K and x-monotonicity of F_ν.",
+        "searches": [
+          "arXiv:2105.02524, §2 Remark 3, §3.1 cubic, §3.2 Theorem 6 and Appendix",
+          "arXiv:2207.02713v3, Theorem 2 bound 4",
+          "DLMF §10.41(ii), eqs. 10.41.3–10.41.9"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–22 and 36–90",
+        "arXiv:1404.4574v1, 2105.02524, 2207.02713v3, 2009.02739v1 and 2505.19903v4",
+        "DLMF §10.41(ii)",
+        "Resultary 82f5b6fd540b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Let P(λ)=λ³+λ²−(ν²+x²)λ−ν². At the root Ψ=−ν−2 is strictly above the smallest root by Segura 2021 and left of the middle root: for ν>0, P(−ν)=νx²>0 and P(0)<0. Thus P(−ν−2)=(ν+2)x²−4(ν+1)²>0. The resulting lower bound is γ²>4ν+4/(ν+2). At ν=0 the middle cubic root is 0 and the same lower bound follows.",
+          "For ν>2 Segura 2023 applied at order ν−1 gives x K_(ν−1)/K_ν > √((ν−2)²+(ν−2)x²/(ν−1))−(ν−2). Setting the left side to 2 at γ gives γ²<4(ν−1)²/(ν−2)=4ν+4/(ν−2)."
+        ],
+        "reasoning": "Subtract 4ν+4/ν from the two bounding expressions: both residuals are O(ν⁻²). This gives exactly the highlighted 8/(d−2) term with O(d⁻²), using only published inequalities and the published root condition.",
+        "searches": [
+          "arXiv:2105.02524, cubic and Theorem 6(4)",
+          "arXiv:2207.02713v3, Theorem 2(4)",
+          "arXiv:1404.4574v1, eq. (73)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Evans–Majumdar's 2K_ν(γ)−γK_(ν−1)(γ)=0, including the planar case by K_(−1)=K_1, is F_ν(γ)=2.",
+          "Segura 2021 works with Ψ=xK_ν'/K_ν=−ν−F_ν. Segura 2023 bounds the adjacent upward ratio; shifting its order to ν−1 and inverting bounds the exact downward ratio in F_ν."
+        ],
+        "reasoning": "The objective and root agree after order conventions are matched; the general inequality results become inequalities for this identical root. The Gamma-expectation presentation changes the proof but not the mathematical claim.",
+        "searches": [
+          "arXiv:1404.4574v1, §4.2.2, eqs. (71)–(77)",
+          "arXiv:2105.02524, §3.2, Theorem 6",
+          "arXiv:2207.02713v3, §2.2, Theorem 2 bound 4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "82f5b6fd540b treats a concentric three-dimensional shell and competing minima, not the unbounded-space root ladder. Previously reported d=2 and d=3 values are examples, not an asymptotic table.",
+          "The published ratio-bound inventory explicitly includes the inequality needed for the upper half of the asymptotic squeeze. The comparison uses the stated inequality in Theorem 2, not a numerically fitted entry."
+        ],
+        "reasoning": "A numeric root table would not decide the all-d result. The relevant exact data are the published symbolic inequalities, which already pin down the claimed correction.",
+        "searches": [
+          "Resultary: free-space Brownian reset, small spherical target, dimension and Bessel root; 82f5b6fd540b",
+          "arXiv:2207.02713v3, §2.2 theorem and Table 2",
+          "Evans–Majumdar planar and d=3 benchmarks"
+        ]
+      },
+      "rationale": "The decisive subleading term, including the stated error order, follows by squeezing the same published level-two root between two earlier Bessel-ratio bounds. Segura 2021 implies γ²>4ν+4/(ν+2); the fourth bound of Segura 2023 Theorem 2 implies γ²<4ν+4/(ν−2) for ν>2. Both bounds equal 4ν+4/ν+O(ν⁻²). This is a verified stronger implication, not an inference from the existence of generic expansion machinery or an inaccessible article. The simpler nonasymptotic brackets and strict dimensional ordering are direct consequences of established Bessel properties, and the small-target optimization objective and critical equation are already published.",
+      "residual_risks": [
+        "This establishes implication by prior published results, not the historical priority of writing the root expansion explicitly. It does not evaluate any finer-order coefficient or other limit regime."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact objective and root already known",
+          "evidence": [
+            "Same K critical equation, exact γ_3=2 and planar root example"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1404.4574v1",
+          "material_read": "§4.2.2 and planar case, eqs. (71)–(77), OA offsets 34700 and 41199",
+          "method": "Primary OA passages",
+          "title": "Diffusion with resetting in arbitrary spatial dimension",
+          "trigger": "Same physical objective and critical root"
+        },
+        {
+          "assessment": "Prior strict monotonicity and decisive lower half of the asymptotic squeeze",
+          "evidence": [
+            "Theorem 6(4): smallest cubic root < Ψ_ν^(K) < −ν; Remark 3 gives the weaker upper root bound for ν≥1/2"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2105.02524",
+          "material_read": "§2 Remark 3, PDF p. 5, offset 12600; §3.1 cubic, offsets 28870 and 35400; §3.2 Theorem 6, offsets 44900 and 47929; Appendix offset 60300",
+          "method": "Primary OA PDF plus cubic evaluation at the root",
+          "title": "Monotonicity properties for ratios and products of modified Bessel functions and sharp trigonometric bounds",
+          "trigger": "Ratio monotonicity and possible stronger lower root constraint"
+        },
+        {
+          "assessment": "Decisive upper half of the squeeze",
+          "evidence": [
+            "For μ>1, xK_(μ+1)/K_μ<μ+√(μ²+x²μ/(μ−1)); μ=ν−1 gives γ²<4ν+4/(ν−2)"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2207.02713v3 (DOI 10.1016/j.jmaa.2023.127211)",
+          "material_read": "Theorem 2(4), §2.2, HTML offset 13400; shifted recurrence and Table 2 discussion, offset 30200",
+          "method": "Located lawful arXiv copy of the identified journal paper; read the explicit theorem and inverted the order-shifted ratio",
+          "title": "Simple bounds with best possible accuracy for ratios of modified Bessel functions",
+          "trigger": "Potential dominating upper root inequality"
+        },
+        {
+          "assessment": "General machinery; not needed for the decisive comparison",
+          "evidence": [
+            "Uniform large-order expansions of K_ν(νz) and derivative"
+          ],
+          "identifier_or_url": "https://dlmf.nist.gov/10.41",
+          "material_read": "§10.41(ii), 10.41.3–10.41.9, offset 1500",
+          "method": "Public reference passage",
+          "title": "NIST Digital Library of Mathematical Functions: Asymptotic Expansions for Large Order",
+          "trigger": "Possible earlier uniform large-order coverage"
+        },
+        {
+          "assessment": "Different domain and transition",
+          "evidence": [
+            "Concentric shell with coexistence of zero-reset and positive-reset minima"
+          ],
+          "identifier_or_url": "Resultary 82f5b6fd540b",
+          "material_read": "Finding, offset 0",
+          "method": "Resultary index and local mirror",
+          "title": "Exact small-target first-order resetting transition in a three-dimensional concentric shell",
+          "trigger": "Closest indexed spherical small-target resetting result"
+        },
+        {
+          "assessment": "Gated target, not the same root derivation",
+          "evidence": [
+            "Spherical formulas include gate dynamics absent here"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2009.02739v1",
+          "material_read": "§5, eqs. (5.1)–(5.10), offsets 40754–46752",
+          "method": "Primary OA passages",
+          "title": "Diffusive search for a stochastically-gated target with resetting",
+          "trigger": "Related spherical Bessel resetting formulas"
+        },
+        {
+          "assessment": "Different lattice problem",
+          "evidence": [
+            "Can yield r*∼2d for a particular lattice starting site, not the continuum subleading term"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2505.19903v4",
+          "material_read": "§III, eqs. (74)–(77), PDF p. 11, offsets 86797–94516",
+          "method": "Primary OA PDF",
+          "title": "Diffusion with stochastic resetting on a lattice",
+          "trigger": "Large-dimension reset-rate asymptotics"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–22 and 36–78",
+        "Evans–Majumdar eq. (73), Segura 2021 Theorem 6, Segura 2023 Theorem 2(4)"
+      ],
+      "rationale": "The resetting question is natural, and an explicit correction is useful context for approximating the leading optimum. In the submitted scope, however, the correction and error are already fixed by a direct substitution into older bounds, and the strict ordering is a routine consequence of classical order log-convexity and ratio monotonicity. The Gamma-ratio calculation offers another derivation but yields no new estimate that sharpens the older squeeze, no finite-target control, and no substantial remaining contribution in the frozen result.",
+      "residual_risks": [
+        "An explicit account of the corollary may have expository use. No scientific judgment is made about unclaimed higher-order corrections or finite-target optimization."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

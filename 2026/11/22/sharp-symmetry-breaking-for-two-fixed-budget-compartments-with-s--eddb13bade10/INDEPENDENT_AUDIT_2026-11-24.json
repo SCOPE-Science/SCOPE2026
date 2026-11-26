@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T14:46:18.684333Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–70, verify_haldane.py, VERIFICATION.md",
+        "/workspace/branches/b43f75c8-6b95-4af2-a617-ced08fad5382/record4_independent_replay.py",
+        "/workspace/branches/b43f75c8-6b95-4af2-a617-ced08fad5382/record4_independent_replay.txt"
+      ],
+      "rationale": "Scaling s by sqrt(K_s K_i) leaves the objective multiplied by the positive constant mu_max alpha. With z=d^2, the sum of the dimensionless responses is 2[mB-(alpha+m)z]/[(B+z)^2-(alpha+2m)^2 z]. Differentiating gives the stated quadratic sign test, whose endpoint at z=m^2 is strictly negative (the concentrated allocation has derivative f'(2m)-f'(0)<0). If P(0)<=0, convexity forces P<0 on (0,m^2], even exactly at criticality. If P(0)>0 the quadratic has one crossing in (0,m^2) and another past m^2. Its discriminant gives the smaller root as stated. The critical cubic increases from a negative value past sqrt(3) to infinity, and implicit differentiation of this root gives the asserted onset. Independently, m^2-d_*^2=[(alpha+2m)sqrt(B)-m]/(alpha+m) is asymptotic to 2m at fixed alpha, so d_*/m tends to 1 and m-d_* tends to 1. A separate bounded SymPy replay verified the derivative, discriminant, onset, high-load expansion and alpha=1,m=3 example, including 7.53068755883% gain.",
+      "residual_risks": [
+        "The conclusion is only for two equal-weight static compartments, with positive parameters and fixed alpha in the high-load limit; it is not a result about dynamic operation or unconstrained distributions."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Steele/Ricker Finding sections allow more modules but for the exponential response. The frozen prior-work section identifies the reactor papers as flow-coupled serial tanks and Gharasoo et al. as finite-rate availability-transfer kinetics; the primary full texts were not recovered."
+        ],
+        "reasoning": "Broader module count is not broader response-law coverage. Optimizing flow-coupled conversion is not optimizing the sum of equal-weight responses under a fixed concentration sum. General convex-envelope optimization over arbitrary weights, if applicable, would not automatically produce the exact equally weighted two-point maximizers.",
+        "searches": [
+          "Andrews (1968), DOI 10.1002/bit.260100602; Tan–Wang–Marshall (1996); Gharasoo et al. (2015); Abu Reesh (2021), DOI 10.3390/pr9081419; Stacey–Shepherd (2022), DOI 10.1007/s40314-022-01807-4; Resultary 904d722bd814 and 6909f062745f"
+        ]
+      },
+      "checked_sources": [
+        "Resultary eddb13bade10 (self), 904d722bd814, 6909f062745f, d5d7adc610c6",
+        "Frozen RESULT.md lines 72–89 and cited antecedents (access limitations as above)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The classical individual maximum follows immediately from f'(u) changing sign at 1, and is not credited as new. The retrieved analogues prove transitions or retained response for other objectives."
+        ],
+        "reasoning": "The sign change of individual growth does not give global two-point optimality or exclude an earlier tie with a disconnected maximizer. The Haldane quadratic sign argument supplies those implications and the coefficient of the onset for this rational response.",
+        "searches": [
+          "Frozen RESULT.md lines 72–89; inspected Steele/Ricker Finding sections and eDNA Finding and scope",
+          "Gharasoo et al., Environ. Sci. Technol. 49 (2015) 5529–5537; Reed–Lieb–Nijhout, BioEssays 32 (2010) 422–429"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Steele and Ricker Results, § Finding, use xe^(-x) and a total threshold of 4 for two units. The eDNA result uses Poisson arrival probabilities and a product-form detection objective."
+        ],
+        "reasoning": "Steele and Ricker are equivalent response laws to one another after scaling, not to Haldane: the exponential and reciprocal tails cannot be matched by constant rescaling of input and output, and the critical Haldane mean depends on alpha. The eDNA problem has a different objective and hypotheses despite similar optimizer patterns.",
+        "searches": [
+          "Resultary searches for fixed-mean/fixed-sum Haldane–Andrews response and two-module symmetry breaking; 904d722bd814, 6909f062745f, d5d7adc610c6",
+          "Targeted literature search on static two-point fixed-mean substrate-inhibited response (unavailable)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed Haldane result was a self-match. The exponential-law thresholds and Poisson-detection thresholds belong to different response functions."
+        ],
+        "reasoning": "An individual optimal load or a numerically tabulated gain at a single parameter would not establish the exact full parameter law or all equality cases.",
+        "searches": [
+          "Resultary searches for explicit Haldane imbalance, critical cubic, onset and finite smaller-compartment limit; eddb13bade10, 904d722bd814, 6909f062745f, d5d7adc610c6"
+        ]
+      },
+      "rationale": "The bounded comparison supports the distinct all-positive-alpha Haldane allocation law, not priority for substrate inhibition or for symmetry breaking in separable allocation problems generally. Strong same-day structural analogues treat mathematically different objectives and do not give the Haldane critical cubic, explicit pair, and onset. Primary full-text access limitations are recorded below.",
+      "residual_risks": [
+        "Unretrieved primary work or a stronger fixed-mean resource allocation theorem may cover part of the law. Absence from indexed matches or unavailable search is not evidence of priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same structural two-unit question with a different response; no equivalent Haldane theorem",
+          "evidence": [
+            "Both use xe^(-x); threshold total 4 for two; Ricker gives retained aggregate (m-1)/e at high load."
+          ],
+          "identifier_or_url": "Resultary 904d722bd814; 6909f062745f",
+          "material_read": "Both Finding sections and Steele Assumptions and scope",
+          "method": "Resultary and local mirror bounded passage retrieval",
+          "title": "A sharp module-count transition in fixed-budget Steele photoinhibition; Sharp continuous versus discontinuous symmetry breaking in Ricker recruitment",
+          "trigger": "Closest additive fixed-budget analogues"
+        },
+        {
+          "assessment": "Different optimizing functional",
+          "evidence": [
+            "Poisson target/inhibitor arrivals under a fixed sample volume and a product-form detection probability."
+          ],
+          "identifier_or_url": "Resultary d5d7adc610c6",
+          "material_read": "Finding, assumptions, initial proof, and catalogue summary for the large-budget detail",
+          "method": "Resultary and local mirror bounded passage retrieval",
+          "title": "A one-overloaded-channel law and sharp two-assay symmetry breaking",
+          "trigger": "Same threshold and load-retention pattern"
+        },
+        {
+          "assessment": "Antecedent for kinetics or dynamic context; possible wider coverage not excluded by access failure",
+          "evidence": [
+            "The frozen descriptions distinguish finite-rate transfer and flow-coupled tanks from the static sum objective."
+          ],
+          "identifier_or_url": "Tan et al. (1996) Biotechnol. Bioeng. 52:602–608; Gharasoo et al. (2015) Environ. Sci. Technol. 49:5529–5537; DOI 10.1007/s40314-022-01807-4",
+          "material_read": "Bibliographic and prior-work descriptions in frozen record; direct OA attempts did not recover primary passages",
+          "method": "Exact-reference comparison and lawful OA requests",
+          "title": "Modeling substrate inhibition of microbial growth; Kinetics of Substrate Biodegradation under the Cumulative Effects of Bioavailability and Self-Inhibition; Analysis of a continuously stirred two tank reactor cascade with Haldane kinetics",
+          "trigger": "Same inhibition law or two compartments"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md §§ Finding, Assumptions and scope, Proof"
+      ],
+      "rationale": "The response peaks at load 1, but the optimal allocation stays homogeneous up to a strictly larger critical mean. The exact law distinguishes inhibition from useful heterogeneity, rules out concentration in one unit, identifies all maximizing allocations, and quantifies onset and retained response. This is a meaningful benchmark for the stated static kinetic model, not a reactor operating prescription.",
+      "residual_risks": [
+        "No extension to unequal weights, many units, or dynamic reactor performance is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

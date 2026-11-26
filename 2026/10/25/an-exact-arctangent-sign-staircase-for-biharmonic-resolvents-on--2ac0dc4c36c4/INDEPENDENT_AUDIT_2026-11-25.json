@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:37:42.313607Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the unnormalized combinatorial Laplacian, normalized Walsh characters have eigenvalues 2k and give the scaled antipodal binomial sum with factor (-1)^k. Independently, the kernel of exp(-s L_d) between antipodes is [(1-exp(-2s))/2]^d by independent coordinate flips. Laplace integration for the ordinary shifted resolvent and the change u=exp(-2s) give its beta product for Re z>0, and rational continuation to z=±i/sqrt(t) is legitimate. Taking the appropriate imaginary part gives the positive product amplitude times cos(sum arctan(a/j)), with a=1/(2 sqrt(t)); this confirms the partial-fraction signs and 2^d normalizing factor. Phase derivative is strictly positive, and the phase ends at dπ/2 only at a=∞. Thus exactly floor(d/2) half-odd multiples of π lie in its open range, including the distinction at odd d; each crossing is simple and remains so under the decreasing parameter change. At p=π/2 the smallest phase root lies between p/H_d and 2p/H_d for large d by the uniform cubic arctangent remainder. Expansion gives a_0=p/H_d+H_d^(3)p³/(3H_d⁴)+O(H_d^(-6)); inverting gives the stated negative H_d^(3)/(6H_d) correction. The independent diagnostic matched 45 exact rational solves on the Hamming-layer quotient for d=2–10 with the binomial sum (independent_recheck.py, cube); the frozen script was inspected, not run. Only the antipodal entry is classified; t=0 is excluded and the last antipodal crossing is only a lower bound for an eventual full-matrix positivity cutoff.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Daners–Glück–Kennedy p. 32: a criterion for asymptotic positivity of finite-dimensional matrix semigroups",
+          "Gregorio–Mugnolo pp. 8 and 29: graph biharmonic heat positivity/irreducibility results",
+          "Gazzola–Grunau full text was unavailable via attempted routes"
+        ],
+        "reasoning": "Qualitative semigroup positivity or eventual irreducibility does not count zeros of a rational resolvent entry and does not give a dimension-dependent last crossing. The Euclidean heat paper was not used as theorem-level negative evidence.",
+        "searches": [
+          "arXiv:1511.05294, Theorem 9.1",
+          "arXiv:1712.07370, Propositions 2.3 and 6.1",
+          "DOI:10.3934/dcdss.2008.1.83"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check.py",
+        "Resultary f03089a5a92e, d420a169b802, 093b06a03097, 3ba87e58a8cd",
+        "arXiv:1511.05294 and 1712.07370",
+        "DOI:10.3934/dcdss.2008.1.83 (attempted)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The cube heat record gives at most floor(r/2) zeros at Hamming distance r and sharpness on Q4, not exact all-dimensional count for the rational kernel",
+          "The path example uses the same family of resolvents, but for a different graph with no Walsh-binomial antipodal product"
+        ],
+        "reasoning": "A heat sign count does not survive a Laplace transform as an equality. The path resolvent witnesses reentry, not this all-dimension count; the cosine branch and uniform small-phase inversion supply information beyond those results. The beta reduction makes an ordinary antipodal complex Green-function formula the principal possible implicit predecessor.",
+        "searches": [
+          "Resultary f03089a5a92e, RESULT.md offsets 0 and 8982",
+          "Resultary d420a169b802, RESULT.md offsets 0 and 6474",
+          "Focused hypercube Green-function query above"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The closest heat entry appears in Resultary 2026/11/22 record f03089a5a92e; the targeted web query surfaced spectral-bound and spectrum treatments, not a decisive Green-function primary passage",
+          "Frozen RESULT.md lines 35–44: antipodal alternating binomial product at z=±ia"
+        ],
+        "reasoning": "An earlier exact complex shift evaluation for the antipodal ordinary resolvent would imply the phase product by the difference of shifted inverses. Such an evaluation was not verified in the retrieved passages. Time-domain sign patterns for the Laplace-mixture integrand do not give the exact number or the location of zeros of the mixture.",
+        "searches": [
+          "Resultary: Boolean cube fourth-order resolvent antipodal sign staircase",
+          "Resultary: cube biharmonic heat; complex resolvent/Green functions",
+          "(\"Boolean cube\" OR hypercube) (\"Green function\" OR resolvent) antipodal complex spectral parameter exact formula Laplacian-squared"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Same-day cube Radau result 093b06a03097 has a different rational function and diagonal reentry on Q4",
+          "Same-day cyclic heat result 3ba87e58a8cd gives parity-sensitive cycle heat horizons",
+          "Graph biharmonic resolvent result d420a169b802 gives reentry on P5"
+        ],
+        "reasoning": "These are concrete adjacent exact computations, not a table of the same kernel under the same spectral function. Neither equality of dates nor overlap in words such as reentry or biharmonic determines coverage. Finite cube examples alone do not account for exact zeros for every dimension.",
+        "searches": [
+          "Resultary: cycle graph biharmonic resolvent antipodal sign zero crossings",
+          "Resultary: Boolean-cube antipodal resolvent and phase"
+        ]
+      },
+      "rationale": "The exact finite sign classification and final-zero expansion of this antipodal squared resolvent remain distinct from the inspected heat, time-stepping and path-resolvent results. Ordinary resolvent partial fractions and the beta integral themselves are standard; no priority is claimed for those tools or for eventual positivity in general.",
+      "residual_risks": [
+        "An equivalent complex antipodal Green-function evaluation under different terminology could subsume the phase product; the targeted query was a miss, not an absence proof.",
+        "No priority is claimed for the ordinary finite beta integral, Walsh spectrum, or generic qualitative eventual positivity."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different spectral function and quantifier; later-dated comparison",
+          "evidence": "Heat e^(-t L_d²) has an at-most-floor(r/2) count at distance r, with two antipodal crossings on Q4.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-distance-controlled-zero-crossings-and-the-first-reentrant-bihar--f03089a5a92e/RESULT.md",
+          "material_read": "Opening statement and prior-work passage, offsets 0 and 8982",
+          "method": "Local Resultary mirror",
+          "title": "Distance-controlled zero crossings and the first reentrant biharmonic heat on the Boolean cube",
+          "trigger": "Same cube, closely matching zero count"
+        },
+        {
+          "assessment": "Different graph and classification",
+          "evidence": "P5 reentry witness; no cubical phase law in the inspected statements.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-five-vertices-are-sharp-for-reentrant-positivity-in-graph-biharm--d420a169b802/RESULT.md",
+          "material_read": "Opening statement and prior work, offsets 0 and 6474",
+          "method": "Local Resultary mirror",
+          "title": "Five vertices are sharp for reentrant positivity in graph biharmonic resolvents",
+          "trigger": "Same resolvent, reentry"
+        },
+        {
+          "assessment": "Distinct rational function or geometry/time dependence",
+          "evidence": "Radau diagonal sign changes; cycle heat n^4 horizon and parity effects.",
+          "identifier_or_url": "Resultary 093b06a03097 and 3ba87e58a8cd",
+          "material_read": "Both opening RESULT.md statements; cyclic prior-work passage at 7573",
+          "method": "Local Resultary mirror",
+          "title": "Sharp Radau positivity loss and reentry on Boolean hypercubes; Parity splitting in the eventual positivity horizon of cyclic biharmonic heat",
+          "trigger": "Same-day rational cubical and cyclic biharmonic comparisons"
+        },
+        {
+          "assessment": "Qualitative semigroup background",
+          "evidence": "Finite-dimensional positivity criterion, not exact antipodal resolvent signs.",
+          "identifier_or_url": "https://arxiv.org/abs/1511.05294",
+          "material_read": "p. 32, Theorem 9.1",
+          "method": "Bounded OA primary PDF reading",
+          "title": "Eventually and asymptotically positive semigroups on Banach lattices",
+          "trigger": "Cited broader eventual positivity theory"
+        },
+        {
+          "assessment": "Qualitative heat results, not an exact resolvent theorem",
+          "evidence": "Graph heat positivity characterization and eventual irreducibility on connected graphs.",
+          "identifier_or_url": "https://arxiv.org/abs/1712.07370",
+          "material_read": "p. 8 Prop. 2.3 and p. 29 Prop. 6.1",
+          "method": "Bounded OA primary PDF reading",
+          "title": "Bi-Laplacians on graphs and networks",
+          "trigger": "Graph biharmonic positivity theory potentially covering cube"
+        },
+        {
+          "assessment": "No theorem-level comparison inferred from unavailable text",
+          "evidence": "Cited setting is Euclidean biharmonic heat, not finite cube rational kernels.",
+          "identifier_or_url": "https://doi.org/10.3934/dcdss.2008.1.83",
+          "material_read": "Frozen reference only; no primary passage recovered",
+          "method": "DOI and publisher routes attempted",
+          "title": "Gazzola–Grunau study of eventual local positivity of biharmonic heat",
+          "trigger": "Cited fourth-order sign predecessor"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural entry of a standard fourth-order graph resolvent exhibits an unbounded number of sign changes as the graph dimension grows. The exact count, ordered simple crossings and precise logarithmic scale resolve more than eventual positivity or a small-dimensional witness, and can be used to benchmark positivity or reentry for higher-order graph operators. The result neither assumes nor infers entrywise positivity at the antipodal cutoff.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,17 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The stated result is limited to positive equicorrelation kernels, the precise surrogate block matrices in the motivating source, and exact arithmetic. The normal matrix is \(h_0I+\eta\mathbf1\mathbf1^{\mathsf T}\). A direct decomposition into within-block contrasts, between-block contrasts, and the global constant vector gives the complete spectrum with multiplicities. A displayed positive-polynomial identity proves the nontrivial eigenvalue ordering for every allowed dimension and regularization. The unit-phase-block Rayleigh witness establishes the structural lower bound for arbitrary local SPD scaling, and the minimal-polynomial argument proves the exact-CG counts. The bundled checker passed 1,393 parameter/certificate checks and an exact-rational two-versus-three-step CG test. Numerical evidence supplements rather than substitutes for the analytic proof.
+PASS
 
-## Originality — PASS, qualified
+BLOKS Eq. (7) is the stated H, and (12)–(13) give the inverse of the stated P. Writing C=δE+ρ1_n1_mᵀ gives CᵀC=δ²I+(2δρ+nρ²)J and hence h₀,h₁. Blockwise zero sums, zero-global-sum block constants, and the global constant vector give the three simultaneous SPD eigenpairs and listed multiplicities. To check strict ordering independently, write F(x)=1+(δ+ρx)/(δ+λx). The inequality h₁/h₀>t₁/t₀ is exactly mF(n)>sF(s). For ρ≥λ, F is nondecreasing and m≥2s; for ρ<λ, F(n)>1 and F(s)<2. Also t₁>t₀. The s=1 within-block space is absent; when m=n=s, P=H. Comparing the real all-ones direction with the zero-sum vector having equal-modulus root-of-unity phases by block gives identical Q quadratic forms for any SPD block-diagonal Q and a quotient ratio h₁/h₀. CG takes the degree of the least residual polynomial annihilating the spectral components from a zero start, and full column rank of C makes generic responses possible. At n=8,m=4,s=2,ρ=3/5,λ=1/10 direct substitution gives 1/48,1/4,11/16 with ratio 33; b=(1,2,3,4) has each required component. In the repair the normalized top eigenvalue is 1+(mρ/δ)F(n); its derivative has the sign of ρ−λ and the middle ratio t₁/t₀ is independent of n. Packaged code was read, not executed.
 
-The paper introducing the sketched block construction was inspected at its method definition and in the available block-PCG comparison/appendix excerpts, and its stated contributions are empirical and algorithmic rather than this exact compound-symmetry spectral theorem. Older work on optimally conditioned block matrices may already imply the abstract no-improvement lower bound; that broad lemma is not presented as an independently new result. Southworth and Olivier supply general two-block eigenvalue machinery and illustrate preconditioner iteration penalties but do not state this all-parameter BLOKS-specific spectral profile. The result assessed as new is the precise 2026 sketched-preconditioner three-eigenvalue identity, the equality of its condition number to the unpreconditioned normal matrix, and the sharp extra-exact-CG-step consequence for normalized kernel data. Database and literature searches did not identify this conjunction. This does not prove global novelty, and unavailable older full texts leave a nonzero bibliography risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Sketched block preconditioning is motivated by a memory-versus-iteration tradeoff. A normalized, Gaussian-kernel-realizable family for which *every* nontrivial partition loses all condition-number advantage is a structural stress test, not an arbitrary rescaling or numerical curiosity. The result quantifies how shared cross-block coherence defeats purely local approximations and isolates an exact-iteration penalty. It motivates comparing local preconditioning with low-rank global/coarse corrections. The theorem does not predict empirical performance on non-equicorrelated datasets.
+Pass the exact normalized spectral profile and ordering for the actual BLOKS sketch with distinct equicorrelated nonlandmarks of arbitrary count, including the exact dependence on n. The abstract optimal block-scaling lower bound and the first appearance of a third eigenvalue are not accepted as independent discoveries. The full-center and replicated-center constructions already exhibit the homogeneous three-level mechanism and unchanged conditioning; the repair gives them explicit credit. For the same center Gram and ridge, adding distinct training points changes the normalized profile in general, whereas replication never changes it; the mathematical comparison removes the possible equivalence via scalar replication.
 
-The closest sources are Vitale et al. (arXiv:2610.13382v1), Kolotilina (2002), Shapiro (1985), Demmel (2023), and Southworth–Olivier (arXiv:2001.00711). The strongest residual risk is a general older spectral preconditioning identity whose specialization might subsume part of this calculation. Independent assessment remains outstanding.
+## value
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact spectral calculation for a standard, normalized, realizable kernel and actual distinct-point Nyström sampling analyzes a case not modeled by copying landmarks. It shows why added off-center training points can alter the largest generalized ratio while the failure to condition better and the extra Krylov step survive uniformly. This is a useful obstruction to interpreting a sketched block inverse as automatically improving the distinct-point normal system, beyond an abstract block scaling lower bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

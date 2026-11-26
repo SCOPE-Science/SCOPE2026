@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem has explicit quantifiers over all primes, depths, and eligible horizontal pairs. Lucas's congruence reduces an eligible pair to a unique first nonterminal digit. Lower digits contribute units equal to one, upper digit factors cancel in the quotient, and a finite-field reflection counts the exceptional \(-1\) quotient exactly. Summation over the position yields the all-depth law; character orthogonality and an exact signed-digit decomposition yield the four-cell sign law. Direct enumeration of complete finite levels, together with independent integer-binomial checks, passed 57,254 assertions (`checker.py`). The program is not treated as an infinite proof. No claim is made for ratios where either coefficient is divisible by the prime.
+## correctness
 
-## Originality — PASS, with identified risk
-Garfield--Wilf's full 1992 article gives one-entry row residue generating functions and a rowwise quadratic-character criterion, not nearest-neighbor quotient fibers. Lane's accessible 2023 manuscript also concerns distributions of individual entries. The closest published-finding corpus entries address lengths of nondivisibility runs, counts of nonzero coefficients, and unrelated binomial valuation correlations; their statements do not determine the quotient values of adjacent nonzero entries. Broad digital-distribution work of Barat--Grabner (2001) and Wilson (1998) was located, but full text access was unavailable; their abstract-level descriptions are not used to declare noncoverage. An earlier implicit exact quotient enumeration remains the main priority risk. Search absence alone was not regarded as proof of novelty.
+PASS
 
-## Mathematical value — PASS
-Single-entry residue statistics do not determine the local transitions of a Pascal row. The exact doubled \(-1\) class is uniform across all primes and all block depths, identifying a complete natural nearest-neighbor invariant of the prime-modular Pascal gasket rather than an arbitrary coefficient slice. The character consequence proves nonvanishing two-point dependence even when individual signs balance, supplying meaningful information beyond established one-point frequencies.
+Under Lucas eligibility, a carry through t trailing p−1 digits forces the corresponding n digits to be p−1, contributing units 1 to both entries. At the first changed nonterminal digit, (n_t,k_t)=(d,e) satisfies e<d, and the upper digits are arbitrary admissible equal-factor pairs. The quotient is b/a with (a,b)=(d−e,e+1) positive and a+b≤p. For fixed u there are p−1 pairs b=ua in the positive residue representatives; simultaneous complementation exchanges strict sides of the boundary a+b=p and the entire boundary occurs only for u=−1. Counting higher digits and summing over t gives the stated multiplicities and total, including the lone p=2 residue. For odd p, the ratio law gives the product sign mean χ_p(−1)/p by character orthogonality. The two one-coordinate signed totals are (H_p−p)Σ H_p^j: each local row lacks one unit endpoint and every upper digit contributes H_p. There are both signs among digit factors: −1 works for p≡3 mod 4, while the row p−2 factors (−1)^e(e+1) give a nonsquare for p≡1 mod 4. Thus |H_p|<Q_p and the marginal means vanish relative to the eligible total. Inverting the four exact sign totals verifies both the finite and limiting joint law. A separate enumeration by Pascal addition mod p, rather than the supplied Lucas implementation, reproduced the entire ratio histogram and each odd-prime joint-sign count at (p,r)=(2,5),(3,4),(5,3),(7,3),(11,2),(13,2).
 
-## Verification and limits
-The quotient law includes \(p=2\); the quadratic-character law requires odd primes. The proved domain is complete blocks of \(p^r\) rows modulo \(p\), not prime powers as residue moduli or arbitrary cutoffs. A complete prior-art classification has not been independently established.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit is for the evaluated unweighted ratio multiplicities at all complete cutoffs and the exact and limiting two-coordinate sign laws. Neither Lucas reduction, the use of a decisive carry digit, nor the qualitative prominence of −1 in the binomial problem is claimed as an independently new result. The strongest available distinct indexed theorem treats weighted counts with an additional trinomial coordinate and does not give the slice-specific evaluated histogram or joint signs.
+
+## value
+
+PASS
+
+Adjacent entries are a canonical local statistic of the Pascal array. Unlike one-entry digit distributions, the evaluated ratio law supplies a full pair observable at every depth and shows that marginal quadratic balance is consistent with definite nonzero short-range dependence. The all-prime law quantifies the lone exceptional residue and the sign and size of the persistent correlation, not just isolated rows or re-tabulated residue counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:39:51.519945Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The only possible nonzero products of distinct positive root units occur on directed two-step paths, with no cancellation in any characteristic. The source and target sets of a commuting arc family are disjoint, so unused vertices can be assigned to a cut with 1 on the source side and n on the sink side. For an arc outside this cut, composing it with 1->a or b->n (whichever endpoint has the wrong cut side) prevents adding it. These endpoint arcs also determine the cut uniquely. If x_i is an interior source bit, the columns include 1, x_i and x_i(1-x_j), and the remaining endpoint columns are 1-x_j. In the integral span, x_i(1-x_j) is interchangeable with x_ix_j using x_i. On the rows of support at most two the resulting inclusion evaluation matrix is unit triangular; these column operations on the chosen square submatrix give a genuine unit minor. This proves both rank and all unit Smith factors. The all-subsets alternating vectors form a unit triangular basis and their pairings with the monomial x_H are exactly delta_{J,H}; the high-degree vectors therefore give the full integral kernel, not merely a sublattice. The Walsh basis gives the same rational complement, and positive semidefiniteness identifies the Gram kernel over Q. The first nonzero mode has |J|=3, hence n=5. The size formula subtracts sink-before-source pairs in the middle binary word from s(n-s); the n-1 compulsory endpoint arcs are the whole cut precisely when the interior sinks precede the interior sources, yielding n-1 minima. An initial balanced source segment attains the upper bound. This covers n=2,3,4 with a zero kernel; no claim concerns the Gram kernel in small positive characteristic or arbitrary abelian subalgebras. The supplied finite checker was inspected, not executed; in particular its modular ranks are not a Smith certificate.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Panyushev treats abelian ideals and root-poset structure, not all inclusion-maximal commuting subsets. The later reachability-cut record classifies maximal commutative path subsemigroups with stationary paths and zero, not the present incidence map.",
+          "Bernstein–Sullivant Definition 1.1 uses unimodularity of all full-rank minors, not the weaker assertion that every nonzero Smith factor is one."
+        ],
+        "reasoning": "The larger models give relevant classifications or machinery, but the cited statements do not conclude the labeled incidence kernel. Their stronger matrix unimodularity property must not be conflated with saturation of the integral span at issue here.",
+        "searches": [
+          "Lawther Ch. 2 §2.1; Panyushev arXiv:math/0502385, introduction and §1",
+          "Resultary reachability-cut record 4f50b8d357fb",
+          "Binary hierarchical models and integral Boolean margin maps: Bernstein–Sullivant arXiv:1502.06131v2"
+        ]
+      },
+      "checked_sources": [
+        "Lawther §2.1",
+        "arXiv:math/0502385",
+        "arXiv:1502.06131v2",
+        "Resultary 4f50b8d357fb and 11acb45d3299",
+        "doi:10.1007/s11232-007-0107-z and doi:10.1515/auom-2016-0032 (full texts not reached)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The full signed cut classification does not provide the incidence reduction to the span of all complete two-way margins. For anchored positive cuts that reduction holds because endpoint columns recover each bit and x_i-x_i(1-x_j) recovers the missing joint monomial. At that point Boolean coefficient extraction and Walsh orthogonality are standard."
+        ],
+        "reasoning": "The novel content is at the interface of the two descriptions, not a stronger abstract theorem about Boolean polynomials. The root system and ordering dictate one oriented cell per pair; it is the endpoint columns and the exact integer identity that recover a saturated full marginal map. The prior studies do not supply that bridge or an equivalent labeled operator in the stated root setting.",
+        "searches": [
+          "Lawther Ch. 2 §2.1 and Bernstein–Sullivant Definitions 1.1 and 2.4, compared to the bounded source/sink incidence identity"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Positive-root noncommutation is exactly shift adjacency (i,j) adjacent to (j,k) for i<j<k); maximal cliques in the bound graph are maximal independent sets in that graph. The targeted lookup did not yield an exact incidence theorem.",
+          "Lawther's maximal type-A sets are Weyl conjugates of all signed source-to-sink roots across a bipartition. The binary hierarchical design maps a table to all margins associated with the selected facets."
+        ],
+        "reasoning": "The full signed cut analogue guides the cut reduction, but the labeled fixed-order incidence data are not a Weyl orbit invariant. On cut variables, the standard pairwise marginal model is integrally equivalent after removing redundancies: its four cell indicators per pair are generated by 1,x_i,x_j,x_ix_j. The new root-incidence identification is essential to transfer this equivalence.",
+        "searches": [
+          "Shift graph maximal independent sets; source/sink or directed-cut parametrization",
+          "Local Resultary: maximal commuting root sets, anti-path and source/sink cuts",
+          "Lawther, Maximal Abelian Sets of Roots, Ch. 2 §2.1",
+          "Bernstein–Sullivant, arXiv:1502.06131v2, Definition 2.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Record 11acb45d3299 computes Walsh-convolution ranks of Coxeter antichain and order-ideal families, not B_n or its Smith form. No matching exact size distribution or first rank defect was identified in the inspected hit set.",
+          "The Gaussian binary-word inversion count is standard; the no-inversion-reversal endpoint count in this application is a direct specialization."
+        ],
+        "reasoning": "Even a count of maximal independent sets alone would not establish which signed differences vanish against all single-root coordinates. The inspected Walsh tables use a different transform and indexing. No exact external table was identified for the root-incidence coefficients.",
+        "searches": [
+          "Local Resultary searches for exact B_n, Walsh cutoff and integral finite-difference kernel, Gaussian clique-size enumeration",
+          "Resultary Fourier-rank record 11acb45d3299",
+          "Targeted shift-graph maximal independent sets lookup"
+        ]
+      },
+      "rationale": "The distinct claim is the integral and rational reconstruction theorem for the labeled root incidence operator, including the kernel in the original clique coordinates. The source/sink paradigm and the low-degree Boolean tools are established, as is the equivalent generic pairwise marginal operator. Neither the inspected root-cut classifications nor the prior marginal model states or supplies the identification of individual positive-root incidences with the full marginal data on the anchored cuts. I credit the generic tools and cut precedent, not an independent discovery of them. The exact size census is an elementary secondary corollary, not the basis for passing originality.",
+      "residual_risks": [
+        "Earlier shift-graph incidence or design terminology could cover the identification more directly than sources found in the bounded lookup.",
+        "Two plausible upper-triangular subalgebra papers could not be read in full; their access limits alone do not affect the binary conclusion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Cut classification antecedent over the full signed root system, not fixed positive-root incidence",
+          "evidence": "Maximal type-A root sets are Weyl conjugate to X_m={epsilon_i-epsilon_j:i<=m<j}.",
+          "identifier_or_url": "https://api.repository.cam.ac.uk/server/api/core/bitstreams/0a21d500-af57-4175-96db-50c80aaeae7c/content",
+          "material_read": "Chapter 2 §2.1, printed p. 7 (PDF p. 13, offset about 19400)",
+          "method": "Bounded OA accepted-manuscript read",
+          "title": "Maximal Abelian Sets of Roots",
+          "trigger": "Strongest cut-structure primary overlap"
+        },
+        {
+          "assessment": "Abelian ideals, not the unrestricted clique problem",
+          "evidence": "Ideal/poset structure is part of the hypotheses of the results inspected.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0502385",
+          "material_read": "Introduction and §1, PDF offsets about 7000–10500",
+          "method": "Bounded OA PDF read",
+          "title": "The poset of positive roots and its relatives",
+          "trigger": "Potential equivalence with abelian positive-root objects"
+        },
+        {
+          "assessment": "Exact abstract marginal analogue; no root reduction in the inspected statements",
+          "evidence": "Def. 2.4 sums table entries over fibers of facet restriction; the rows are cell indicators. Def. 1.1 imposes a restriction on all maximal minors.",
+          "identifier_or_url": "https://arxiv.org/html/1502.06131v2",
+          "material_read": "Introduction, Def. 1.1 and §2 Def. 2.4, offsets 1200–4682 and 8200–11851",
+          "method": "Bounded OA HTML passages",
+          "title": "Unimodular Binary Hierarchical Models",
+          "trigger": "Equivalent marginal-operator framework and possible integral coverage"
+        },
+        {
+          "assessment": "Later related cut theorem, different objects and no B_n kernel",
+          "evidence": "Uses admissible cuts and includes stationary paths and zero in a subsemigroup classification.",
+          "identifier_or_url": "Resultary 2026/11/22/SCOPE-reachability-cuts-classify-maximal-commuting-families-in-finite--4f50b8d357fb",
+          "material_read": "RESULT.md opening, local mirror offset 0",
+          "method": "Bounded published-record mirror read",
+          "title": "Reachability cuts classify maximal commuting families in finite path semigroups",
+          "trigger": "Near-equivalent source/target cut formulation"
+        },
+        {
+          "assessment": "Different operator and family",
+          "evidence": "Computes Walsh-convolution ranks for antichains and ideals rather than all maximal root cliques against individual root vectors.",
+          "identifier_or_url": "Resultary 2026/11/16/SCOPE-first-fourier-rank-separation-of-coxeter-antichains-and-order-id--11acb45d3299",
+          "material_read": "RESULT.md opening, local mirror offset 0",
+          "method": "Bounded published-record mirror read",
+          "title": "First Fourier-rank separation of Coxeter antichains and order ideals",
+          "trigger": "Potential exact positive-root Walsh-rank overlap"
+        },
+        {
+          "assessment": "Full proof not assessed; no negative evidence inferred",
+          "evidence": "Indexed scope is maximum abelian dimension, not in itself an incidence claim.",
+          "identifier_or_url": "doi:10.1007/s11232-007-0107-z",
+          "material_read": "No full-text passage retrieved",
+          "method": "Lawful OA DOI resolution attempt",
+          "title": "The maximal Abelian dimension of linear algebras formed by strictly upper triangular matrices",
+          "trigger": "Potential broader positive-root clique coverage"
+        },
+        {
+          "assessment": "Full proof not assessed; possible ancillary overlap remains",
+          "evidence": "Bibliographic scope concerns upper-triangular abelian-subalgebra computation; no exact incidence claim verified.",
+          "identifier_or_url": "doi:10.1515/auom-2016-0032",
+          "material_read": "No full-text passage retrieved by the attempted route",
+          "method": "Lawful OA resolution attempt",
+          "title": "Computing abelian subalgebras for linear algebras of upper-triangular matrices from an algorithmic perspective",
+          "trigger": "Possible algorithmic coverage of maximal supports"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The root-incidence operator answers a concrete reconstruction problem on distributions of naturally defined maximal commuting supports. It identifies every detectable interaction, gives a complete integral basis in the original support coordinates for all invisible differences, locates the first failure at n=5, and rules out torsion obstructions. The applicability of standard margin and Walsh methods to this specific directed-root data is the useful structure; a standalone Gaussian size identity or the abstract orthogonality of Walsh modes would not suffice.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

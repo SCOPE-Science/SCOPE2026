@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:25:07.204182Z",
+  "axes": {
+    "correctness": {
+      "rationale": "RESULT.md lines 41–99 gives a correct all-parameter proof. Factoring out the centered Gaussian leaves c+cosh(su), with u=y/σ. The potential curvature is σ⁻²[1−s²R_c(z)] for z=cosh(su)≥1 and R_c(z)=(1+cz)/(c+z)^2. R_c' has numerator c²−cz−2, so the unique maximizer in z is 1 for c≤2 and c−2/c for c>2. Substitution verifies both branches and the two off-center minimizing points. Solving s²M(c)≤1 includes the c=2 junction and excludes all finite c at s=2. At s²=3,c=2 the rescaled log curvature is −(z−1)^2/(2+z)^2, giving the claimed quartic contact. For fixed s≥2 and c>sinh(s²) the log derivative is negative on the positive half-line (bound sinh(su)/u on 0<u≤s and use s≤u beyond it); TV is at most 1−w. Independent posterior-variance calculations at 180 deterministic points and four extremizer evaluations gave worst absolute discrepancies 7.77e−16 and 2.22e−16. These corroborate the symbolic proof; the frozen verifier was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The indexed exact result also covers spherical mixtures with three collinear means in all finite dimensions.",
+          "The sampling articles give general Gaussian-mixture identities and bounds, not the same exact optimizer in the passages inspected."
+        ],
+        "reasoning": "The indexed one-dimensional result directly covers all admitted weights and separations; its extension includes this case without parameter restrictions beyond the frozen ones. General curvature identities alone would not settle that optimization.",
+        "searches": [
+          "Resultary 2c1aa4a11620, Finding, Assumptions and Proof steps 1–5",
+          "arXiv:2305.15988, §§2.1, 6.1 and Appendix 1",
+          "arXiv:2306.10506, §4.3.1 and Lemma 4"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–37, 41–99, 101–117; VERIFICATION.md and verify.py read as evidence",
+        "Resultary 2c1aa4a11620 original RESULT.md, Finding and Proof steps 1–5",
+        "arXiv:2305.15988",
+        "arXiv:2306.10506",
+        "DOI 10.1111/j.1467-9868.2010.00753.x (retrieval only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The indexed record gives an explicit non-log-concave strict-mode example at b=4, derives the general scalar log-density and curvature, and has bQ(k)>1 for b≥4 and k>0.",
+          "No readable full text of the cited Cule–Samworth–Stewart article was obtained in the bounded attempt."
+        ],
+        "reasoning": "For fixed b≥4 the same density formula gives strict decrease for c>sinh(b) by the elementary sinh(z)/z bound, and TV≤1−w is immediate from the mixture weights. The quartic contact is a Taylor coefficient of the same rational curvature. These are direct consequences, not a separate exact phase diagram or a substantive surviving claim.",
+        "searches": [
+          "Resultary 2c1aa4a11620, Proof steps 1–4, including unimodality derivative",
+          "Cule–Samworth–Stewart, DOI 10.1111/j.1467-9868.2010.00753.x, §2 retrieval attempt"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Its Finding gives sup(log f)''=(bQ(k)−1)/σ², the center/off-center switch and both maximizing points."
+        ],
+        "reasoning": "Set θ=w, b=s² and k=(1−w)e^(−s²/2)/w=1/c. Then Q(k)=M(c) and (1−2k²)/k=c−2/c, with the same optimizing locations. The elementary and Lambert W boundary presentations solve the same inequality for different coordinates.",
+        "searches": [
+          "Resultary: symmetric three-normal common-variance log-concavity and sharp curvature",
+          "Resultary 2026/11/2, record suffix 2c1aa4a11620, RESULT.md offsets 0–5933"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed record contains the complete continuous piecewise function Q and exact admissibility inequality, not just benchmark examples."
+        ],
+        "reasoning": "A finite numerical table cannot establish this continuum classification; the indexed exact table of regimes, after k=1/c, covers it in full.",
+        "searches": [
+          "Resultary 2c1aa4a11620, Finding and Proof steps 1–3"
+        ]
+      },
+      "rationale": "A distinct indexed record contains the same exact global extremum, phase boundary, optimizer bifurcation and unimodal/non-log-concave phenomenon in equivalent coordinates. This is demonstrated coverage, not a claim about who obtained the result first. The contamination limit and quartic junction do not survive as substantial distinct results: both follow directly from the identical scalar curvature and density formulas.",
+      "residual_risks": [
+        "Indexed path dates do not establish publication priority, attribution or dependence.",
+        "The Cule–Samworth–Stewart full-text check was unresolved; the failure rests on a directly read equivalent exact result, not on inaccessible literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING",
+          "evidence": "bQ(k)−1 becomes s²M(c)−1 under k=1/c; the maximizing cosh argument, boundary and off-center/unimodal example match at the statement level.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-log-concavity-and-curvature-phase-diagram-for-symmetric-th--2c1aa4a11620/RESULT.md",
+          "material_read": "Finding, assumptions and Proof steps 1–5; especially offsets 0–6100 and 6180–8580",
+          "method": "Read original record via local mirror",
+          "title": "Sharp log-concavity and curvature phase diagram for symmetric three-normal mixtures",
+          "trigger": "Exact same family and optimal curvature"
+        },
+        {
+          "assessment": "Related general identities, no exact triple-family optimization in these passages",
+          "evidence": "General Hessian identities follow from differentiating a density; experiment definitions do not supply the global maximizing location or threshold.",
+          "identifier_or_url": "https://arxiv.org/abs/2305.15988",
+          "material_read": "§§2.1, 6.1 and Appendix 1 (HTML offsets 17000–19851, 62700–65174, 132700–135006)",
+          "method": "Read lawful OA article passages",
+          "title": "Non-Log-Concave and Nonsmooth Sampling via Langevin Monte Carlo Algorithms",
+          "trigger": "General Gaussian mixture potential curvature"
+        },
+        {
+          "assessment": "Related bounds, not a competing sharp optimizer in the inspected passages",
+          "evidence": "The Hessian estimates address mixing and are not the piecewise optimal three-point formula.",
+          "identifier_or_url": "https://arxiv.org/abs/2306.10506",
+          "material_read": "PDF §4.3.1, Lemma 4 and proof, pp. 6–7, 15",
+          "method": "Read lawful OA PDF passages",
+          "title": "Fast Conditional Mixing of MCMC Algorithms for Non-log-concave Distributions",
+          "trigger": "General equal-covariance Gaussian mixtures"
+        },
+        {
+          "assessment": "Unresolved full-text comparison; not a basis for rejection",
+          "evidence": "The cited two-component description in the frozen record is not independently confirmed by that access attempt.",
+          "identifier_or_url": "https://doi.org/10.1111/j.1467-9868.2010.00753.x",
+          "material_read": "DOI access responses only; no readable theorem passage recovered",
+          "method": "Lawful direct and alternate-route lookup",
+          "title": "Maximum likelihood estimation of a multi-dimensional log-concave density",
+          "trigger": "Cited §2 threshold for location mixtures"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The sharp phase diagram is a useful classification in itself, but the frozen record recomputes the already indexed exact scalar invariant under a reciprocal change of parameter. The elementary mixing bound and quartic Taylor expansion add no independently useful mathematical gap after that comparison; the supplied evidence does not support a valuable distinct repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

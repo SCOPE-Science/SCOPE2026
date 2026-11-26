@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:35:06.664880Z",
+  "axes": {
+    "correctness": {
+      "rationale": "RESULT.md lines 31–58 count ordered pairs over every odd finite field. In the basis H,E,F of sl₂, the trace pairing has tr(H²)=2 and tr(EF)=tr(FE)=1, hence is nondegenerate. A nonzero traceless A is nonscalar and cyclic, so its centralizer in M₂ is kI+kA and its traceless centralizer is kA. Thus im ad_A=A⊥. For nonzero C, q²−1 nonzero A are allowed, with q partners B each. For C=0 the matrix count is q³+q(q³−1). The vector map has image im A+im B and q^(4−r) lifts of every vector in it at rank r. At rank one the same image line ℓ lies in the kernel of each matrix by trace zero; both belong to the one-dimensional Hom(V/ℓ,ℓ), hence commute. For C=0 there are q²−1 nonzero matrix pairs on each ℓ, one rank-zero pair and q²(q²−1) rank-two pairs after subtraction. Combining vector lifts gives q³(q²−1) for C≠0, q³(q+1)(q²−1) for C=0,w≠0, and its sum with q⁶ for the zero target. Target counts and division by q^10 for the commuting probability follow. Inspected the packaged q=3,5 checker and output without executing it. Independent `python3 /workspace/replay/check_assignments.py 5` uses arithmetic in F₃[j]/(j²+1), direct matrix coordinates and image columns, including all 59,049 targets over F₉: (fiber size, multiplicity) = (58320,58968), (583200,80), (1114641,1). This confirms a nonprime-field case; the proof gives the universal result.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The mirabolic proof parameterizes all pairs with image in ℓ as rows (a,b),(c,d) in a basis starting with ℓ, with [A,B] having its sole possible nonzero entry ad−bc. The traces are exactly a and c. Imposing a=c=0 makes the commutator zero and leaves b,d arbitrary; removing (b,d)=(0,0) leaves precisely q²−1 pairs per ℓ.",
+          "The same proof supplies the rank-zero pair and q^(4−r) vector lifts, and sums rank-one contributions over the unique ℓ containing nonzero w, or over q+1 lines for w=0."
+        ],
+        "reasoning": "There are no rank-one pairs over C≠0, giving (G_q(C)/q²)q²=q³(q²−1). At C=0 subtract one and (q+1)(q²−1) from G_q(0)/q² to get q²(q²−1) rank-two pairs. Substituting into the prior rank-summation formulas yields both C=0 entries exactly. These substitutions cover all q, C and w in the frozen Finding.",
+        "searches": [
+          "Resultary 76eb45e3ac86, Proof §§2–4: exceptional translation maps, fixed-line parameterization, zero target",
+          "Resultary 251d071cafd0: complete finite Takiff sl₂ commutator fibers"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 76eb45e3ac86, f0f5cc8317b1, 1b00a980bbc9, 251d071cafd0",
+        "arXiv:1607.07205v2",
+        "arXiv:1402.4879"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Exact prior identities G_q, common-line row parameterization, and rank-summation formulas are all for the same M₂ action on columns; the witness restriction uses only a=c=0 and the canonical odd-characteristic scalar splitting.",
+          "The checked same-day central quotients overlap the nonzero nilpotent and zero-target counts; the independent earlier restriction also yields the invertible targets and C=0,w≠0."
+        ],
+        "reasoning": "All claimed fiber sizes follow mechanically from the prior proof, and the multiplicities, surjectivity, uniformity and commuting probability are immediate consequences. The frozen record contains no separate invariant beyond the covered law that could support a narrowing repair.",
+        "searches": [
+          "Resultary 76eb45e3ac86, Proof §§1–5, trace and rank conditions",
+          "Resultary f0f5cc8317b1 and 1b00a980bbc9, standard module and bracket modulo the center"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For odd q, M₂=sl₂⊕kI. Adding scalar matrices to A,B does not change [A,B]; each ordered traceless matrix pair has exactly q² full matrix lifts. Thus the earlier mirabolic matrix totals G_q(Z)=q⁵−q³ for nonzero trace-zero Z and G_q(0)=q⁶+q⁵−q³ divide by q² in the restricted problem, before considering vector lifts.",
+          "The exact two-by-two traceless bracket existence statement for odd characteristic is cited in Stasinski, but existence alone is not the fiber law. The real special-affine A₅,₄₀ classification and Takiff sl₂ with a three-dimensional adjoint module are not equivalent fiber statements."
+        ],
+        "reasoning": "Do not divide the total affine Lie bracket fibers by q² indiscriminately, since translation rank can change under scalar shifts. The earlier proof separates the matrix and translation stages, and it is the former totals and the latter explicit rank-one coordinates that restrict.",
+        "searches": [
+          "Resultary: special affine sl₂ natural two-dimensional module bracket fibers, full mirabolic and Takiff aliases",
+          "Resultary 76eb45e3ac86, Proof §§1–2",
+          "arXiv:1402.4879, A₅,₄₀; arXiv:1607.07205v2, Introduction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The full mirabolic table has five strata and counts full-algebra witnesses, unlike the three-stratum restricted table. Its proof nevertheless supplies the exact restriction above.",
+          "The same-day Schrödinger n=1 nilpotent-slice record gives q⁴(q²−1) or q⁴(q²−1)R₁,q(r²−2c) for the central lifts of a given nonzero nilpotent quotient target. The distinct central-target record gives N_c=q⁵(q²−1) for c≠0 and N₀−N_c=q⁸+q⁷−q⁵ at n=1."
+        ],
+        "reasoning": "The bracket in both n=1 extensions projects to the frozen bracket modulo the central line. Summing over central outputs and dividing by q² central input lifts gives q³(q²−1) in the nilpotent case (Σ_c R₁,q(r²−2c)=q), and q⁶+q³(q+1)(q²−1) at zero. No same-date priority claim is needed; the earlier mirabolic proof already permits the whole restriction.",
+        "searches": [
+          "Resultary: target-by-target fibers and commuting fibers on special-affine and Schrödinger quotients",
+          "Resultary f0f5cc8317b1 and 1b00a980bbc9, Finding and Assumptions"
+        ]
+      },
+      "rationale": "The exact law is a mechanical restriction of the explicitly parameterized proof of the distinct 2026/11/8 mirabolic record 76eb45e3ac86 (Proof §§1–4, mirror offsets 2384–5936). It is true that the full-algebra table alone is not the restricted count, but its available proof contains the matrix totals, exact rank strata, and the image-line coordinates on which imposing both traces zero is immediate. Applying that restriction recovers the whole claimed law; this is verified coverage, not a failure to find literature. Same-day central-extension results independently recover parts, with no inference of priority from their date.",
+      "residual_risks": [
+        "No determination of historical priority between same-date records is made. Public title search was noisy; the failure rests on the inspected earlier mirabolic proof and explicit restriction, not on search completeness."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Full-algebra table is different, but proof mechanically implies the entire restricted law",
+          "evidence": [
+            "G_q(C), G_q(0); explicit A=e(a,b), B=e(c,d) and [A,B]=e(0,ad−bc); rank and target count formulas."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-prescribed-lie-bracket-fibers-of-the-two-dimensional-mirabolic-a--76eb45e3ac86",
+          "material_read": "RESULT.md Finding/Assumptions and Proof §§1–5, offsets 0 and 2384–5936",
+          "method": "Paged original RESULT.md in the local Resultary mirror",
+          "title": "Prescribed Lie-bracket fibers of the two-dimensional mirabolic algebra over finite fields",
+          "trigger": "Earlier full affine algebra, potentially determines the trace-zero restriction"
+        },
+        {
+          "assessment": "Recovers nonzero nilpotent matrix targets; not by itself a full-law comparison",
+          "evidence": [
+            "Odd q, R₁,q formula, standard natural module, central coordinate ω(u,v), GL₂ change of coordinates for other nilpotent targets."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-three-level-bracket-fiber-law-on-nilpotent-slices-of-schr-dinger--f0f5cc8317b1",
+          "material_read": "RESULT.md Finding and Assumptions at offset 0; proof §§1–4",
+          "method": "Local Resultary mirror statement comparison and central quotient",
+          "title": "Three-level bracket-fiber law on nilpotent slices of Schrödinger Lie algebras",
+          "trigger": "Central quotient at n=1 equals the target algebra"
+        },
+        {
+          "assessment": "Recovers zero-target count and commuting probability only",
+          "evidence": [
+            "Exact N_c and N₀−N_c, and unconstrained central input coordinates of the bracket."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-nonzero-central-bracket-fibers-of-finite-schr-dinger-lie-algebra--1b00a980bbc9",
+          "material_read": "RESULT.md Finding, Assumptions and Proof §§1–3, beginning at offset 0",
+          "method": "Local Resultary mirror statement comparison and central quotient",
+          "title": "Nonzero central bracket fibers of finite Schrödinger Lie algebras",
+          "trigger": "Total central output lifts recover quotient's zero fiber"
+        },
+        {
+          "assessment": "Different adjoint module of dimension three",
+          "evidence": [
+            "Algebra sl₂ ⊗ k[ε]/(ε²), not the standard two-dimensional natural module."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-complete-commutator-fibers-in-the-finite-takiff-lie-algebra-of-m--251d071cafd0",
+          "material_read": "RESULT.md Finding and Proof, starting at offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Complete commutator fibers in the finite Takiff Lie algebra of sl₂",
+          "trigger": "Another sl₂ semidirect product with complete fibers"
+        },
+        {
+          "assessment": "Main theorem has size at least three; introduction cites traceless field commutator existence, not multiplicities here",
+          "evidence": [
+            "Introduction cites Thompson's field result with exception at characteristic two and size two."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1607.07205v2.pdf",
+          "material_read": "p. 1 Abstract and Introduction, offset 0",
+          "method": "Selected OA PDF passages",
+          "title": "Commutators of trace zero matrices over principal ideal rings",
+          "trigger": "Prior traceless commutator coverage"
+        },
+        {
+          "assessment": "Real algebra identification and faithful representations, not finite-field fiber counts",
+          "evidence": [
+            "A₅,₄₀ is the real special-affine semidirect product."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1402.4879",
+          "material_read": "pp. 4 and 8, including OA offset 9071",
+          "method": "Selected OA PDF passages",
+          "title": "Minimal matrix representations of five-dimensional Lie algebras",
+          "trigger": "Alias A₅,₄₀ for special-affine algebra"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The algebra and exact witness counts are natural, but for this frozen claim the whole classification is mechanically obtained from the earlier rank-stratified affine argument by setting two row entries to zero and dividing the matrix-pair totals by q². The different presentation and independent F₉ check do not add a new invariant or a nontrivial new argument beyond this restriction. No genuinely distinct valuable remainder is substantiated.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

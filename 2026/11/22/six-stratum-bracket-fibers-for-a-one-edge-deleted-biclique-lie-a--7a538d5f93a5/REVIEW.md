@@ -1,11 +1,21 @@
-# Mathematical assessment: Six-stratum bracket fibers for a one-edge-deleted biclique Lie algebra
+# Independent mathematical audit
 
-**Correctness — PASS.** The bracket in the eight-edge graph is the projection of a \(3\times3\) rank-at-most-two matrix factorization. Counting full-matrix factors by the rank of their first factor gives the exact \(N_0,N_1,N_2\) coefficients. A one-entry Schur-complement rank split gives all singular and nonsingular observed targets, including the no-completion stratum; finite-field matrix elimination makes no characteristic assumption. The table's seven condition rows combine into six distinct cardinalities. Every one of \(2^8=256\) binary targets and \(3^8=6561\) ternary targets was independently checked against brute-force ordered-pair enumeration. All derived targets are sums of two brackets by a rank-three decomposition, and an explicit positive zero-fiber stratum proves that two are needed.
+## correctness
 
-**Originality — PASS, with residual historical-priority risk.** Mainkar (2013) gives the graphical class-two Lie construction, not prescribed bracket counts. Király–Theran–Tomioka (arXiv 2012; JMLR 2015) gives generic low-rank completion over complex matrices, not finite-field singular-target factorization-weighted fibers. Rossmann (2022) counts centralizers/conjugacy classes, not fixed nonzero brackets. Kishnani–Kulshrestha (2025) supplies qualitative obstruction criteria, not the six-valued exact distribution. Related published graphical Lie fibers treat forests or triangle-with-leaves graphs; their statements do not imply the missing-biclique-edge target census. Factorization and Schur-complement tools are not claimed as novel. An undetected direct corollary in general finite-field matrix counting work remains possible and is not ruled out by search failure.
+PASS
 
-**Value — PASS.** The one-edge deletion of a complete bipartite graph is a natural minimal one-entry observation boundary for rank-two determinantal brackets. Its general target is bracket-attainable but a singular codimension-one population of size \(q^2(q-1)^3(q+1)^2\) is not; the complete six-fiber spectrum and width two quantify exactly that boundary in a graph-defined nilpotent Lie algebra. Unlike a generic-rank argument, the conclusion includes all singular targets and their exact witness multiplicities over every finite field. This is a natural complete word-map classification, not an arbitrary finite sample.
+Writing the degree-one variables as two outer products gives the projected rank-at-most-two factorization bijectively, and independent central coordinates give exactly q^16. For each full matrix of rank r, count the possible images of the left factor (zero, a line or a plane containing the column space); the column lifts of the right factor have q^{3(2−dim image)} possibilities. This yields the three displayed N values. For rank-one A, row and column operations leave a rank-one block plus a 2×2 block of the form [[0,β],[δ,c−c₀]], so the rank cases and their fields of validity, including characteristic two, follow without genericity. Rank-two A uses the Schur complement, and A=0 gives the listed zero/nonzero cases. The number of rank-one A is (q²−1)²/(q−1); each span has q points. The seven condition counts cover q^8 targets, two with identical qN₂; the other ordered fiber values are distinct by N₀>N₁>N₂>0 and q≥2. Every completed rank-three matrix splits into rank two plus rank one, while the positive zero-fiber stratum rules out width one. The independent outer-product convolution and determinant/minor rank check agreed for all 256 and 6561 targets at q=2 and 3, including 36 and 1152 zero fibers. The proof, not these two replays, covers all prime powers.
 
-**Limits and closest work.** This does not cover arbitrary graph deletions or broader matrix-completion models. The analysis relies on existing matrix-factorization principles and has not been independently audited. Source details, exact overlap checks and residual risks are recorded in AUDIT.json.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+On the available statements, the distinct contribution is the evaluated seven-condition/six-value distribution for a missing entry, including its exact zero-fiber and target multiplicities over all finite fields. The complete-bipartite fiber theorem provides full-matrix weights; projection supplies a sum but does not evaluate the singular completion ranks and their multiplicities. Width alone, the algebra construction and matrix-factorization formulas are not the supported originality claim.
+
+## value
+
+PASS
+
+Removing one observed coordinate from the smallest square target where rank three obstructs a single bracket is a natural boundary case. The census resolves exactly how generic attainability fails on singular targets and gives all witness counts, not only an upper bound on width or a generic completion theorem. These are concrete invariants for finite-field bracket maps, uniform in field size.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

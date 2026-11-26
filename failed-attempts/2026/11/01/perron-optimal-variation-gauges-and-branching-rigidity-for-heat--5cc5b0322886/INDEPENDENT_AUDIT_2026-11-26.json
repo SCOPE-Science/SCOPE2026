@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:11:54.341288Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Integrating along the tree gives all edge gradients, and differentiating yields Q=-BBᵀC with diagonal -2c_e and absolute off-diagonal column entries A_fe c_e. The right derivative of the weighted ℓ¹ induced norm at the identity is the maximum weighted column candidate, each attained on a cut indicator. Subdividing time proves the bound and the right derivative forces its exponent. For M=C(A-2I) the positive Perron vector after a scalar shift attains the minimum, and a positive left eigenvector forces equality for an optimizer. Similarity proves the symmetric formula and congruence the sign. Paths and the claw have line-graph radii below and equal to 2. Every other tree supplies a K4 or a triangle with an attached vertex in the line graph, forcing radius above 2. With consistent path orientation, Q=(A-2I)C, and its eigenvalues are minus the positive eigenvalues of BᵀCB; this includes the scalar one-edge case. Contractive means nonexpansive; the claw admits no strictly positive prefactor-one decay rate. The frozen checker was inspected, not run, and the proof does not require its finite samples.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Earlier tree-variation result allows arbitrary positive vertex masses and independent weights and gives both a uniform-vertex-mass and a uniform-variation-weight classification.",
+          "The inspected Markov curvature comparison uses a Lipschitz seminorm; Li–Yau examples concern positive heat solutions, and the tree-TV algorithms study static minimization."
+        ],
+        "reasoning": "The earlier Resultary theorem, unlike these neighboring literature examples, genuinely subsumes the fixed-gauge Finding.",
+        "searches": [
+          "Resultary 9fedb9294a7c theorem and edge-equation proof",
+          "arXiv:math/0701886 Propositions 28–29",
+          "arXiv:1306.2561; arXiv:1509.07981; arXiv:1502.07770 abstract and opening material"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py",
+        "Resultary 9fedb9294a7c",
+        "arXiv:math/0701886",
+        "arXiv:1306.2561",
+        "arXiv:1509.07981",
+        "arXiv:1502.07770"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier proof already gives the exact edge generator -W B diag(π)^(-1) Bᵀ C W^(-1), its logarithmic norm and the line-graph feasibility condition, using Collatz–Wielandt.",
+          "The specialized exact gauge objective is the Collatz–Wielandt quotient of C(A-2I). On a path the unweighted-in-gauge signed edge generator is itself (A-2I)C after orienting consecutively."
+        ],
+        "reasoning": "Shift by a scalar and apply Collatz–Wielandt directly to the previous objective, then conjugate by C^(1/2). For paths the optimum equals the top eigenvalue of the prior edge generator, which is minus the Laplacian gap by the nonzero AB/BA spectrum identity. Thus neither displayed spectral formula requires a new substantive step beyond the earlier result and standard matrix identities.",
+        "searches": [
+          "9fedb9294a7c edge equation and Perron–Frobenius/Collatz–Wielandt step (offset 2877 onward)",
+          "Frozen RESULT.md, proof §§2–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier theorem gives κ_e=(2w_e-s_u)/π_u+(2w_e-s_v)/π_v, μ=max_e(-c_e κ_e/w_e), the short-time derivative, exp(μt) envelope, and cut witnesses."
+        ],
+        "reasoning": "At π≡1, s_u+s_v=2w_e+(Aw)_e, giving exactly κ_e=2w_e-(Aw)_e. The exponent and admissible gauges are identical.",
+        "searches": [
+          "Resultary: weighted tree heat edge total variation log norm contraction path claw Perron",
+          "Resultary 2026/10/26/SCOPE-a-conductance-independent-contraction-criterion-for-weighted-tre--9fedb9294a7c/RESULT.md, offsets 0 and 2877"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Earlier Finding explicitly says the only trees at uniform masses admitting such a gauge are paths and the three-leaf star, and states discrete concavity and constant claw weights. The named spectral terms did not appear in the bounded check."
+        ],
+        "reasoning": "This is an exact indexed classification, not a numerical-table match; absence of the spectral terms is not absence of mathematical implication.",
+        "searches": [
+          "Local Resultary weighted tree heat total variation query",
+          "Direct mirror inspection of 9fedb9294a7c, Finding and proof; searchable terms spectral gap, Fiedler and spectral abscissa"
+        ]
+      },
+      "rationale": "A distinct earlier Resultary record states the fixed-gauge exponent, all-time envelope, cut witnesses and the identical path-or-claw criterion in a more general vertex-mass setting. The remaining optimized eigenvalue and path-gap formulas, though not stated in the inspected earlier Finding, are mechanically implied by its exact formula and edge equation via the same standard Perron/Collatz–Wielandt principle and the incidence spectrum. The claimed sharp combination is therefore covered, not merely similar in topic.",
+      "residual_risks": [
+        "The wider priority of the optimized formula among published papers was not exhaustively assessed; the directly inspected broader theorem and its implication already determine the decision."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Broader direct coverage with mechanical implication of optimized formulas",
+          "evidence": "States arbitrary positive masses, exact prefactor-one exponent, cut witness, and uniform-mass path/claw theorem; gives the edge equation used in the spectral implication.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-a-conductance-independent-contraction-criterion-for-weighted-tre--9fedb9294a7c/RESULT.md",
+          "material_read": "Finding, hypotheses and proof (offsets 0 and 2877)",
+          "method": "Local Resultary mirror",
+          "title": "A conductance-independent contraction criterion for weighted tree heat flow in total variation",
+          "trigger": "Exact weighted-tree heat-variation theorem and classification"
+        },
+        {
+          "assessment": "Different seminorm",
+          "evidence": "Contraction characterization uses Lipschitz seminorm and coarse Ricci curvature.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0701886",
+          "material_read": "Propositions 28–29 (pp. 23–25, offsets 64415 and 67000)",
+          "method": "OA primary text",
+          "title": "Ricci curvature of Markov chains on metric spaces",
+          "trigger": "Potential optimal Markov contraction/spectral comparison"
+        },
+        {
+          "assessment": "Adjacent heat estimate, not the exact variation comparison",
+          "evidence": "Positive heat-kernel solutions and curvature-dimension assumptions.",
+          "identifier_or_url": "https://arxiv.org/pdf/1306.2561",
+          "material_read": "Abstract and opening, p. 1, offset 0",
+          "method": "OA primary text",
+          "title": "Li-Yau inequality on graphs",
+          "trigger": "Heat gradient estimates on graphs"
+        },
+        {
+          "assessment": "Different scope",
+          "evidence": "Gradient estimates for positive functions and heat solutions.",
+          "identifier_or_url": "https://arxiv.org/pdf/1509.07981",
+          "material_read": "Abstract and opening, p. 1, offset 0",
+          "method": "OA primary text",
+          "title": "A gradient estimate for positive functions on graphs",
+          "trigger": "Heat gradient estimates on graphs"
+        },
+        {
+          "assessment": "Static rather than heat evolution",
+          "evidence": "Minimization algorithms for static tree TV.",
+          "identifier_or_url": "https://arxiv.org/pdf/1502.07770",
+          "material_read": "Abstract and opening, p. 1, offset 0",
+          "method": "OA primary text",
+          "title": "Total variation on a tree",
+          "trigger": "Similar tree TV terminology"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The rigidity classification and cut witnesses would be meaningful if not already stated for a broader setting. After crediting that result, the remaining formulas are a standard Perron optimization of a known quotient and its immediate path spectral identification; no distinct substantive or independently needed nonmechanical result survives.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

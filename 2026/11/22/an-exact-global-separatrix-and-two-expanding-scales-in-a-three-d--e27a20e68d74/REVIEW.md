@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The explicit three-step identity \(y_{n+3}=ab\,y_{n+2}y_n^2\) is an exact consequence of the original polynomial map when \(c=1\). Normalizing by \(\sqrt{ab}\) yields a constant-coefficient logarithmic recurrence with a single Perron eigenvalue \(r>1\) and complex conjugate eigenvalues of modulus \(s>1\), with \(s<r\). The positive left Perron eigenvector constructs \(H\) and proves its exact nonlinear power law. The Perron sign gives complete extinction/escape, whereas the complementary expanding rotation establishes infinite oscillations except the eight exactly enumerated preperiodic points. Recurrence arguments and Poincaré recurrence give the full invariant-probability census. Finite diagnostics supplement the proof and are not promoted to universal evidence.
+## correctness
 
-**Originality — PASS on accessible published evidence.** The founding Wang et al. paper was read through Sections 2.1 and 3.1 and its surrounding text: it gives the map and fixed-point/numerical bifurcation analyses but not the global \(c=1\) result. The closest published exact published-finding corpus work has the **same model** but only a primitive two-cycle census and local Floquet classification. Its theorem implies no two-cycles on this slice, but not the new trichotomy, critical bursts, nonlinear eigenfunction or invariant-measure statement. General monomial log-linearization is standard, and priority against undiscovered equivalences is not absolute. The preceding two-dimensional parabolic map is structurally different.
+PASS
 
-**Mathematical value — PASS.** The surface \(c=1\) is not an arbitrary numerical slice: it cancels the additive term in the delayed-feedback relation, converting an apparently nonlinear three-dimensional map into an exactly solvable monomial recurrence. The finding determines the *entire* basin boundary, including subtle escaping/vanishing nonperiodic orbits whose logarithms have a second expanding rate, and classifies all stationary probabilities. This is a motivated global-dynamics classification beyond fixed-point or short-cycle calculations.
+PASS applies to the replacement RESULT.md, not to the original positive-octant assertion. In the original coordinates, a=b=1 and (x,y,z)=(1,1,2) give a strictly positive H=1 point other than E_+ that maps to E_-=(1,−1,0) in one step rather than oscillating. The repaired text explicitly lists (1/b,1/√(ab),1+1/b), always positive, and E_+ only when b>1. This is exactly the intersection of the eight sign choices with the original positive octant. Rechecking the whole theorem: 1−z_{n+1}=x_n gives y_{n+3}=ab y_{n+2}y_n²; zero data force eventual zero, and other data give L_{n+3}=L_{n+2}+2L_n. The left projection w·U_0=log H and w·v=3r²−2r yield the leading r-mode, exact H power law, and strict-region limits because 1<s<r. Varying |x| locally on H=1 proves the common boundary. In the nonzero complementary mode the expanding rotation produces infinitely many strictly positive and strictly negative sinusoidal excursions, for both rational and irrational angles; its full log-vector norm diverges, precluding recurrence. Vanishing initial log vector gives exactly the eight sign cases and arrival at an E_± within two steps. Poincaré recurrence on a countable basis gives the three-Dirac probability census, and the normalized monomial log chart gives the three repelling eigenvalues at E_±. The derivative at E_0 is nilpotent.
 
-**Limits and priority risks.** The conclusions are restricted to \(a,b>0\) and \(c=1\). No robustness, four-dimensional memristive, statistical security, or perturbation claims are made. The origin and two other equilibria were known as fixed points; novelty is not attributed to their existence. A published general theorem on monomial dynamical systems might subsume the spectral *method*, although neither the accessible model-specific texts nor the indexed results were found to state the full model-specific theorem. Unindexed and inaccessible literature could alter priority.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+For the replacement, the correction restricts the positive-octant statement to its exact content without removing the mathematical gain: the full-real separatrix, classification of nonexceptional and eventually fixed critical orbits, two spectral scales, and invariant probability census. Wang et al. supply the map and local analysis; the same-map Resultary theorem supplies a complete primitive-two-cycle count and therefore already excludes primitive two-cycles on this slice. Neither inspected statement contains the global result. The adjacent water-filling separatrix is for another operator. The elementary monomial logarithm and spectral tools are not themselves novel.
+
+## value
+
+PASS
+
+The choice c=1 exactly cancels a delayed additive term and is a structurally motivated solvable slice of an existing polynomial map. The sharp common boundary and rank-two oscillatory critical dynamics distinguish true basin thresholds from a local stability or short-cycle census. The expanding full log norm despite a middle coordinate with vanishing subsequences is a meaningful mechanism for the complete invariant probability statement. The positive-octant repair removes an incorrect extra assertion without diminishing these conclusions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

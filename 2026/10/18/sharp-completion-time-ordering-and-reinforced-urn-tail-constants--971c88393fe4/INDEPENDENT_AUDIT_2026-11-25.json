@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:50:24.101137Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For finite-population balancing, couple via the sampled indices and condition on inclusion of the recolored ball and on the other categories. When the pair supplies t≥2r draws, recoloring shifts the allowed hypergeometric interval by one. The gained endpoint t−r and lost endpoint r−1 have nonnegative mass difference since the larger unmarked population is A−1≥B and C(x,v)/C(x,u) grows in x for v>u (if a relevant lower binomial factor vanishes, checking the support endpoints gives the same sign). For t<2r there is no pair success. Smoothing the finite population thus maximizes success at the balanced counts. Mixing iid-colored populations of size qa recovers k iid draws at distinct indices; the homogeneous population has zero success and positive mixture mass, so the comparison is strict for qr≤k≤qa. Above qa completion without replacement is certain while iid completion is not. For iid pair balancing, differentiating the truncated binomial sum telescopes to the two boundary masses and gives the displayed sign change about u=1/2. For an interior unequal vector, the conditioning event with all other quotas met and at least 2r pair draws has positive mass at every k≥qr; boundary vectors cannot succeed. Thus the uniform vector is the unique maximizer, and a symmetric Dirichlet draw is almost surely interior and nonuniform. All three probabilities vanish before qr. For the fixed-j beta-binomial mass the factorial and gamma ratios leave exponent −a and the stated coefficient; doing the same for two fixed counts under aggregation gives exponent −2a for q≥3, and for q=2 both deficient is impossible once k>2r−2. The first two Bonferroni bounds therefore preserve the leading q-fold coefficient. For q=3,a=2 the one-colour masses at j=0 and j=1 are 20/[(k+4)(k+5)] and 40k/[(k+3)(k+4)(k+5)], independently giving C=180 at r=2. Discrete tail summation with increments (k+1)^s−k^s gives the moment criterion including divergence at s=a. Replay: RESULT.md lines 25–80 and the above single-colour specialization. The supplied verify.py was inspected, not executed, and its finite comparisons are not a certificate of the universal ordering or the limit. There is no pathwise coupling claim, growing-parameter tail uniformity, or ordering for arbitrary unbalanced urns.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Anceaume et al. study averaging iid probabilities for the time to collect c distinct types, with one appearance per type.",
+          "5623e019d5e4 proves strict ordering of first-appearance times across starting mass vectors at fixed total within the reinforced mechanism.",
+          "The targeted follow-up literature query did not identify a theorem for balanced quota-completion across the three mechanisms; unrelated distributional results were not treated as coverage."
+        ],
+        "reasoning": "Broader coverage in probabilities, real starting masses, or number of distinct coupons is not broader coverage in both mechanism and common quota. In particular a fixed-total mass majorization theorem cannot compare iid and reinforced dynamics by varying the concentration while keeping the initial proportions equal.",
+        "searches": [
+          "Resultary: coupon collector peakedness Schur concavity balance probability vector completion all-horizon stochastic order",
+          "Anceaume et al. arXiv:1504.03878 Theorem 1",
+          "multivariate urn stochastic ordering hypergeometric multinomial Pólya majorization occupancy quota Schur concavity coupon collector comparison peakedness primary paper",
+          "Resultary 5623e019d5e4"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Jacobs arXiv:2110.02155; Anceaume et al. arXiv:1504.03878; Henze–Holmes arXiv:1911.01052; Myers–Wilf arXiv:math/0304229",
+        "Resultary 5623e019d5e4, 49ad21f71f59, 17d16015e72e and 7750e1dbf2a4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known Dirichlet mixture and count laws identify the finite probability sums but contain no strict ordering statement for those three sums. For r=1 the first-appearance proof uses aggregation of missing sets; once r>1, joint partial counts, not merely unseen subsets, enter.",
+          "Within iid sampling, averaging toward uniform and then mixing immediately gives a weak reinforced-vs-iid comparison at one-appearance targets. The comparison with the finite balanced population is not furnished by that theorem, and the repeated-copy comparison needs the truncated binomial pair argument."
+        ],
+        "reasoning": "The new implications require both a finite-population comparison and an iid quota comparison before mixing, with separate strictness witnesses. For the repeated-copy tail, the known marginal process and first-hit product must be supplemented by fixed positive observed-count asymptotics and negligible joint deficiency; the repeated-quota coefficient does not follow by a relabeling of the first-hit formula.",
+        "searches": [
+          "Jacobs arXiv:2110.02155 §§7, 10",
+          "Anceaume et al. arXiv:1504.03878 §2.1",
+          "Henze–Holmes arXiv:1911.01052 §§2, 4",
+          "5623e019d5e4 Finding and proof of exact survival"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Jacobs defines the negative hypergeometric, multinomial and Pólya completion laws for multicolor fill targets; the stopping event is the same quota completion.",
+          "Myers–Wilf give a generating function for the uniform iid time to obtain at least h of every type.",
+          "49ad21f71f59 gives an order conditional on which coupon arrives last for iid draws with common quota, not across sampling mechanisms."
+        ],
+        "reasoning": "Alternative negative-sampling or coupon-collector terminology covers the laws but not an inequality comparing their CDFs under a common balanced inventory. Conditioning on different last types within one iid law is also a different comparison.",
+        "searches": [
+          "Resultary: balanced finite urn sampling without replacement iid multinomial Pólya urn stochastic ordering all colors r observations completion time",
+          "Jacobs arXiv:2110.02155 Section 7, Definition 4",
+          "Myers–Wilf arXiv:math/0304229 Section 3, Theorem 2",
+          "49ad21f71f59 Finding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "5623e019d5e4 gives mΓ(A)/Γ(A−α) at r=1 for m minimal masses α, and all positive real moments below α. With A=qa, α=a, m=q, this is exactly the frozen r=1 coefficient and moment threshold.",
+          "Henze–Holmes give the one-colour first-hit tail product and integer moment thresholds. Neither exact formula tests growing one-colour requirements j<r or the simultaneous repeated-copy event."
+        ],
+        "reasoning": "The exact database match is a real special-case overlap, including the coefficient. It does not give the additional finite sum over deficiencies j=0,…,r−1 for repeated quotas. A finite enumeration of rational CDFs or agreement with C=180 is not a substitute for either statement-level novelty or the asymptotic proof.",
+        "searches": [
+          "Resultary: simultaneous multicolour Pólya urn completion all colors at least r tail asymptotic constant joint deficiency",
+          "Resultary: strict coverage-time majorization and rare-colour tails for reinforced urns",
+          "Henze–Holmes arXiv:1911.01052 §§2, 4"
+        ]
+      },
+      "rationale": "The three multicolor stopping laws, the repeated-copy iid marginal, one-appearance iid balancing, first-hit Pólya marginal tails, and the full simultaneous Pólya tail and moment criterion at r=1 have identifiable coverage. In particular the linked Resultary 5623e019d5e4 gives the exact r=1 coefficient even for unequal masses; this is not merely an exponent match. The distinct content is the strict all-horizon comparison across the three mechanisms and the sharp simultaneous coefficient for repeated quotas r>1, with pair-deficiency control. The checked comparators do not state or mechanically give that package. This pass credits only the distinction beyond the covered cases, not priority for the completion laws or first-appearance tails.",
+      "residual_risks": [
+        "A general stochastic-majorization theorem for multivariate urn quotas or an equivalent repeated-order-statistic tail formula under different terminology could overlap. The focused statement comparisons are not an exhaustive priority survey."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact r=1 coefficient and moments, including unequal masses; not the r>1 or cross-mechanism theorem",
+          "evidence": "First draw by which all colours have appeared; exponent α=min a_i and coefficient mΓ(A)/Γ(A−α). Mass comparisons preserve A and both sides are reinforced. The indexed date does not decide historical priority.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-strict-coverage-time-majorization-and-rare-colour-tails-for-rein--5623e019d5e4/RESULT.md",
+          "material_read": "Finding, Assumptions, exact survival proof and start of pair balancing; mirror offsets 0–3586",
+          "method": "Indexed local-mirror text inspection using the exact search hit identifier",
+          "title": "Strict coverage-time majorization and rare-colour tails for reinforced urns",
+          "trigger": "Closest indexed Pólya cover tail and moment criterion"
+        },
+        {
+          "assessment": "Substantial law-level coverage but no matching strict all-horizon theorem or repeated-quota coefficient in the inspected statements",
+          "evidence": "Negative urn sampling laws are defined by filling arbitrary colored tubes; general moments are noted as an extension.",
+          "identifier_or_url": "https://arxiv.org/abs/2110.02155",
+          "material_read": "Section 7 Definition 4 pp. 20–21 (offset 92485); Section 10 p. 29 (offset 140976)",
+          "method": "Lawful OA full-text passage inspection",
+          "title": "Urns & Tubes",
+          "trigger": "Same multicolor completion laws for all three mechanisms"
+        },
+        {
+          "assessment": "One-appearance iid balancing overlap; not the three mechanisms for all quotas",
+          "evidence": "Averaging a pair of iid probabilities can stochastically accelerate collection of c distinct types.",
+          "identifier_or_url": "https://arxiv.org/abs/1504.03878",
+          "material_read": "Section 2.1, Theorem 1 p. 3, OA offset around 8000",
+          "method": "Lawful OA theorem inspection",
+          "title": "Optimization Results for a Generalized Coupon Collector Problem",
+          "trigger": "Potential general balancing or peakedness theorem"
+        },
+        {
+          "assessment": "First hit of one colour, not simultaneous repeated hits of all colours",
+          "evidence": "Tail product for the time to the first black draw from initial masses b,w and finite integer moments of order s exactly for b>s.",
+          "identifier_or_url": "https://arxiv.org/abs/1911.01052",
+          "material_read": "Sections 2 and 4, pp. 2–3, OA offsets around 6481 and 13350",
+          "method": "Lawful OA full-text passage inspection",
+          "title": "Curiosities regarding Waiting Times in Pólya’s Urn Model",
+          "trigger": "Potential prior moment threshold and polynomial-tail formula"
+        },
+        {
+          "assessment": "Repeated-copy iid marginal law and conditional iid ordering are covered; no cross-mechanism conclusion",
+          "evidence": "Myers–Wilf give a generating function with uniform iid coupons and common target h. The indexed likelihood-ratio order compares last identities within iid common-quota sampling.",
+          "identifier_or_url": "arXiv:math/0304229; Resultary 49ad21f71f59",
+          "material_read": "Myers–Wilf Section 3 Theorem 2 p. 16; indexed comparator Finding and scope",
+          "method": "Lawful OA theorem passage and local-mirror record inspection",
+          "title": "Some New Aspects of the Coupon-Collector’s Problem; A strict likelihood-ratio ordering for the last coupon under multiple-copy collection",
+          "trigger": "Same quota completion and a plausible exact ordering comparator"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The balanced quota target gives a common nontrivial experiment with finite stock, independent repeats and persistent reinforcement. The ordering distinguishes all three at every feasible finite horizon; the tail coefficient identifies which rare events govern repeated-copy completion, yielding quantitative tails and an exact integrability boundary for the reinforced law. These conclusions extend beyond the already available one-hit or single-colour formulas.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

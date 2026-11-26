@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact path-KL chain rule reduces the infinite system to independent geometric nearest-revealed gaps; the asymptotic conditional-entropy kernel and a global-minimizer localization argument establish the full cubic-root law. The independent complete-path enumeration and asymptotic checker passes 26 checks. Finite checks alone do not prove the limit.
+## correctness
 
-**Originality — PASS, qualified.** The primary source (arXiv:2611.07845) explicitly solves arbitrary finite-step error but does not state the fixed-three-round near-perfect-order optimizer or its two distinct scales. General information-profile and UGC schedule theories (arXiv:2510.25544, arXiv:2608.13520) supply frameworks, not this singular optimization. A two-round analysis provides the different square-root scale; the additional intermediate round changes both exponents and leading coefficient. Unindexed work or unexpectedly strong implications of more general optimization results remain genuine priority risks.
+PASS
 
-**Value — PASS.** The exact three-round strong-correlation limit is the simplest regime beyond a previously analyzed two-round seeding law. The scale separation quantifies optimal short-protocol staging and proves an error improvement that the large-round thermodynamic geodesic does not directly control.
+For the repaired direction, cancellation of mask weights and source-law averaging give Eq. (1); conditional entropy with two boundaries is a_k+a_l-a_(k+l), and the finite-end correction per site vanishes, including zero previous density. Geometric scaling, exponentially bounded rescaled tails and Gamma(1,1)/Gamma(2,1) log moments give F_r(u) ~ r/(2u) when r/u tends to zero and u tends to zero. Strict subadditivity gives a positive limit for nonzero bounded r/u, while r/u tending to infinity gives log 2. A cost O(r^(2/3)) forces p=O(r^(2/3)); it first forces q to zero, then q bounded below on the r^(1/3) scale by the final-round term, and then forces p and q into compact rescaled ranges by the second term. The three rescaled leading terms have constant product log(2)/4, and equalizing them gives exactly the stated constants for every global minimizer. Inspected the frozen checker’s finite likelihood direction and tests, without executing it; the limiting proof is analytic.
 
-**Scientific limits.** Infinite-volume limit precedes the strong-correlation limit; only Bernoulli site assignment and exact single-site denoising are analyzed, and the divergence is for the *full path* (including assignment), not final output. No independent review is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Known representations and optimization frameworks are credited. The closest exact all-fixed-round result does contain every constant and quantifier but explicitly cites this exact three-round record as its antecedent. It is evidence of subsequent coverage, not evidence of antecedent priority against this record. No earlier equivalent found in the examined material; not a global priority determination.
+
+## value
+
+PASS
+
+Three rounds are a natural smallest budget with two optimizable intermediate densities. The theorem determines both seeding scales and sharp optimum for the actual fixed-round objective where a many-step geodesic is not valid, unlike a trial schedule that supplies only an upper bound. It makes no output-KL or practical training claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

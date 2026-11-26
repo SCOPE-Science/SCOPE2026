@@ -1,0 +1,157 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:38:09.789716Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For independent u₁,u₂,u₃, the dual restriction ξ↦(−⟨ξ,u_i⟩) is onto, with p^(d−3) lifts per triple. After removing the common nonzero scalar and translation character, the four summands are unit complex numbers. If their sum is zero, the third elementary symmetric sum is the product times the conjugate of the first, so the monic root polynomial is even and the four numbers pair oppositely, including multiplicities. A pair requires a ratio in −μ_p; two disjoint pairs give two independent affine equations in the anchored three coordinates. Three matchings cannot be feasible: two −μ_p ratios along a length-two path force the third ratio into μ_p, disjoint from −μ_p. Two matchings give an alternating four-cycle; fixing the phase at site zero determines every other actual summand and feasibility puts it in its required coset. The two local lines have different directions and meet at one point. This gives all counts and the lifted subspace dimensions. The three listed witnesses give zero, one or two feasible matchings; in the two-matching case the four coefficient cosets are two copies of one coset and two of its negative, giving the equivalence classification. Inspected the frozen exact Gaussian-integer checker (artifacts/verify.py) without executing it; its finite set has 5271 planned checks. In the independently written `python3 /workspace/replay/check_assignments.py 4`, reduction at primes 41,29,89 and evaluation at every primitive p-th root and both signs of the square root of −1 makes an exact test for these bounded coefficient sums. At p=5,7,11 the 64 normalized quarter-turn phase choices give local spectra {0,5,9}, {0,7,13}, {0,11,21}; the witness zero lines and intersections agree. This does not test arbitrary phases; the proof does.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Li's general-coefficient even-size bound p+2r−2 and large-zero line rigidity address supports on a finite parabola; the support here has rank three. Bonami–Ghobber's accessible abstract identifies different rank-two or cyclic group uncertainty problems.",
+          "Despite rank-two application, the earlier flat-parabola proof's cancellation and coefficient feasibility steps are independent of support; its sole rank-two step is the determinant test on the two frequency equations. It had already identified the very pairing mechanism used in the frozen proof.",
+          "The Delvaux–Van Barel report and DOI text were unavailable in bounded OA attempts; this is an access limitation, not evidence of either coverage or noncoverage."
+        ],
+        "reasoning": "The general uncertainty bounds and the parabola zero-count tables alone do not cover the stated classification. The decisive prior coverage is instead through the fully explicit parameterized torus zeros in the earlier rectangle proof.",
+        "searches": [
+          "Dongwei Li arXiv:2609.16030v1 Theorem 1.1; v2 Theorem 3.7",
+          "Bonami–Ghobber arXiv:1003.5060v2",
+          "Resultary c2e3015b14a6 full proof, mirror offsets 2496–5573",
+          "Delvaux–Van Barel DOI 10.1016/j.laa.2007.05.009"
+        ]
+      },
+      "checked_sources": [
+        "Resultary b51ecb1779fe, c2e3015b14a6, 3a5760f6b057, 6abb4e9679f8",
+        "arXiv:2609.16030v1 and v2",
+        "arXiv:1003.5060v2 abstract",
+        "DOI 10.1016/j.laa.2007.05.009 bibliographic identification"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Let U=bμ_p, V=cμ_p, T=d/(bc)μ_p. The three prior branches in the product U×V×T are A: η=1,Z=−1; B: η=1,W=−1; C: W=−Z,η=Z^(−2). A and B are each empty or a size-p line in exponent coordinates. C is empty unless V=−U and T={z^(−2):z∈U}, in which case its graph is also a size-p line, since p is odd and all its exponent constraints are affine-linear.",
+          "A and B together give U=V=−μ_p, incompatible with C. If A and B exist they meet at (−1,−1,1); if A and C exist they meet at (−1,1,1); if B and C exist they meet at (1,−1,1). Directions are distinct. All three counts already result from T=μ_p with U=V=μ_p, U=−μ_p and V=iμ_p, or U=V=−μ_p, respectively. The condition for two lines forces two coefficient cosets of each opposite type, up to permutation and common normalization."
+        ],
+        "reasoning": "The coordinate change is invertible and dual restriction lifts each local point to p^(d−3) frequencies. Thus direct coset restriction of explicit prior branches yields the complete count, geometry, sharp bound, and equality phase classification, with no new zero-producing mechanism or nontrivial extra step. This is verified implication and does not depend on the unavailable source.",
+        "searches": [
+          "Resultary b51ecb1779fe exact unit-torus zeros in the factorable and nonfactorable cases, Proof",
+          "Resultary c2e3015b14a6, four-unit cancellation and no-three-matchings passages"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Normalize α₀=1 and write b,c,d for the other phases. In the rank-three local cube replace t₃ by s=t₃−t₁−t₂. Then Z=bω^t₁, W=cω^t₂, η=d/(bc)·ω^s range independently over three cosets and the polynomial is 1+Z+W+ηZW, precisely the earlier rectangle proof's normalized torus polynomial.",
+          "The rectangle proof states that at η=1 the zeros have Z=−1 or W=−1, and for η≠1 the torus zeros obey W=−Z and ηZ²=1, giving both roots. The latter relation at η=1 gives (−1,1),(1,−1), already included. The flat-parabola proof uses the same even-root-polynomial lemma, two opposite-term equations per matching, and the same μ_p versus −μ_p exclusion."
+        ],
+        "reasoning": "The prior torus classification holds pointwise in η and so covers all slices of the independently varying cross-phase coset. Its three branches are exactly the three opposite-pair matchings on the normalized four summands (1,Z,W,ηZW).",
+        "searches": [
+          "Resultary b51ecb1779fe: phase-only Fourier-zero spectrum, fixed four-point rectangle, unit-torus zero equations",
+          "Resultary c2e3015b14a6: opposite-pair matchings for flat four-site Fourier sums"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The ternary table gives local counts {0,1,2,3,5} with arbitrary coefficients, only at p=3. The flat parabola table gives {0,1,2,p} in the centrally symmetric case and {0,1,2} otherwise; the rectangle table at m=n=p odd gives {0,1,p,2p−1} with fixed cross phase.",
+          "The same-day sixth-moment record concerns triple-sum collisions and sixth-moment extremizers on a parabola, not the rank-three Fourier-zero spectrum."
+        ],
+        "reasoning": "No one of these exact finite or rank-two tables is the assigned table. The older rectangle source's proof, rather than the numerical similarity of its fixed-cross-phase table, supplies the effective full coverage.",
+        "searches": [
+          "Resultary 3a5760f6b057: ternary affine 3-simplex",
+          "Resultary c2e3015b14a6: flat four-point finite-parabola",
+          "Resultary b51ecb1779fe: phase-only four-point rectangle",
+          "Resultary 6abb4e9679f8: four-point parabolic Fourier sixth moments"
+        ]
+      },
+      "rationale": "No identical rank-three table was found, but the exact phase-only law and geometry mechanically follow from the explicit unit-torus zero description in the distinct earlier four-point rectangle proof b51ecb1779fe (RESULT.md offset 0, Proof), by freeing its cross phase to range over a third coset. The distinct earlier flat-parabola proof c2e3015b14a6 independently already provides the setting-independent opposite-pair lemma, linear pairing equations and two-feasible-matching bound. Coverage is by the proof-level reduction given below, not by assuming that a rank-two support theorem applies unchanged to rank three.",
+      "residual_risks": [
+        "Fourier-submatrix full text was not accessible and historical priority is not established. The failure is based on the explicit earlier rectangle proof and the stated reduction, not on the access gap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The pointwise proof mechanically yields the frozen law when the cross phase is independently varied over one coset",
+          "evidence": [
+            "For η=1 the polynomial factors as (1+Z)(1+W); for η≠1 the exact two unit-torus zeros have W=−Z and Z²=η^(−1)."
+          ],
+          "identifier_or_url": "2026/10/4/SCOPE-phase-only-fourier-zero-spectrum-of-a-four-point-rectangle-on-cy--b51ecb1779fe",
+          "material_read": "RESULT.md Finding, Assumptions and exact torus Proof, mirror offsets 0–4577",
+          "method": "Paged full passages in local Resultary mirror",
+          "title": "Phase-only Fourier-zero spectrum of a four-point rectangle on cyclic product groups",
+          "trigger": "Same phase-only four-term polynomial on cross-phase slices of the local cube"
+        },
+        {
+          "assessment": "Rank-two table; prior exact matching mechanism and at-most-two feasible matchings",
+          "evidence": [
+            "Same even quartic lemma, two linear frequency conditions per pairing, and disjoint μ_p and −μ_p argument."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-flat-four-point-finite-parabola-fourier-zeros-a-prime-field-symm--c2e3015b14a6",
+          "material_read": "RESULT.md statement at offset 0; Proof offsets 2496–5573 and relationship at 7683",
+          "method": "Paged passages in local Resultary mirror",
+          "title": "Flat four-point finite-parabola Fourier zeros: a prime-field symmetry dichotomy",
+          "trigger": "Same phase-only problem and possibly transferable proof"
+        },
+        {
+          "assessment": "Ternary arbitrary-coefficient character cube, not the claimed all-p phase-only geometry",
+          "evidence": [
+            "Local counts {0,1,2,3,5}, lifted by 3^(d−3)."
+          ],
+          "identifier_or_url": "2026/10/4/SCOPE-fourier-support-spectrum-of-a-ternary-affine-3-simplex--3a5760f6b057",
+          "material_read": "RESULT.md Finding and reduction, mirror offset 0; start of Proof near 1515",
+          "method": "Local Resultary mirror",
+          "title": "Fourier-support spectrum of a ternary affine 3-simplex",
+          "trigger": "Same affine rank and four-site support"
+        },
+        {
+          "assessment": "Rank-two parabola only",
+          "evidence": [
+            "Even support size 2r gives p+2r−2 bound and line rigidity above the threshold."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.16030v1",
+          "material_read": "v1 Theorem 1.1, pp. 2–3 around offset 5200; v2 Theorem 3.7, p. 16 around offset 41450",
+          "method": "Selected OA PDF passages",
+          "title": "Parity-Sensitive Fourier Uncertainty and Zero-Set Rigidity on the Finite Parabola",
+          "trigger": "General-coefficient theorem across the same prime range"
+        },
+        {
+          "assessment": "Different quantity and support family",
+          "evidence": [
+            "Triple-sum collisions and sixth moments on four parabola sites in characteristic at least seven."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-cubic-resonance-strata-and-sharp-four-point-parabolic-fourier-si--6abb4e9679f8",
+          "material_read": "RESULT.md Finding, mirror offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Cubic-resonance strata and sharp four-point parabolic Fourier sixth moments",
+          "trigger": "Same-day four-site Fourier stratum result"
+        },
+        {
+          "assessment": "Abstract concerns different group cases; no whole-document conclusion",
+          "evidence": [
+            "Lists Z_p×Z_p, Z_(p²) and Z_p×Z_q."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1003.5060v2",
+          "material_read": "OA abstract, offset 0",
+          "method": "OA abstract comparison only",
+          "title": "Equality cases for the uncertainty principle in finite Abelian groups",
+          "trigger": "Possible uncertainty-equality coverage"
+        },
+        {
+          "assessment": "Unresolved by access; not a basis for either verdict or noncoverage",
+          "evidence": [
+            "Identified paper in Linear Algebra and its Applications 426, 349–367."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.laa.2007.05.009",
+          "material_read": "Bibliographic identification only; full text not obtained",
+          "method": "Bounded lawful OA attempts via DOI and report",
+          "title": "Rank-deficient submatrices of Kronecker products of Fourier matrices",
+          "trigger": "Possible broader Fourier-matrix formulation"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The fixed simplex is a natural support, and its phase-only zero sets are correctly described. But the exact invariant is a direct coset restriction of an existing complete pointwise torus description after one invertible coordinate change. Once those three prior branches are written, their line sizes, intersections and equality case are immediate. No distinct invariant beyond that consequence remains in the frozen claim; the independent finite check does not add substantive value to it.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

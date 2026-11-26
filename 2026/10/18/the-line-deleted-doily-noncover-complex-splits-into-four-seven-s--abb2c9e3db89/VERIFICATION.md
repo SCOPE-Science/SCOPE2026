@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducible finite verification
+# Independent mathematical audit
 
-Execute `python3 code/verify.py` using a standard Python 3.9+ interpreter. Compare its standard output byte-for-byte with `code/expected.txt`. The program constructs all fifteen duads and all fifteen synthemes from their definitions, forms the downward closures, and verifies full face-poset gradient acyclicity with a topological sort on every codimension-one incidence. It also enumerates the full \(S_6\) and the 48-element line stabilizer, computes rational homology characters from Euler–Lefschetz fixed-simplex sums, and independently checks all 48 stabilizer traces with signed oriented simplices.
+## correctness
 
-All integer counts, incidence tests and character sums have assertions in the program; it uses no approximate arithmetic. The program proves the finite hypotheses for the matching and homotopy-pushout arguments written in `RESULT.md` but does not itself automate general theorems from discrete Morse theory or homotopy theory. The independent audit status remains not performed.
+PASS
+
+The independent reconstruction from all perfect matchings on six labels gives 24,274 faces of K⁻ and 3,547 of J, with one critical vertex in each and respectively four size-eight and five size-seven critical faces. Full Hasse sorts cover the 166,002 and 20,016 directed incidences. Discrete Morse theory therefore gives both integral wedge types. Simplicial inclusions are cofibrations; J→K⁻ is null by 6-connectivity, so attaching F is the homotopy cofiber of a null map. The resulting wedge splitting respects the inclusion and yields its stated homotopy retraction and integral homology cokernel. All choices of deleted syntheme are conjugate. For the setwise stabilizer of the deleted line, independent oriented-simplex and orbit-union signs agree for all 48 elements. The reduced trace with the odd-degree sign gives dimension 4, invariant multiplicity zero, squared norm 2, and ε inner product one. The relative trace is the full trace minus the deleted trace by the equivariant homology exact sequence. It has dimension 5, no invariants and squared norm 2. This means two distinct complex constituents, of different dimensions by odd total dimension; their isotypic summands descend separately over Q. Neither splitting asserts an equivariant homotopy type.
+
+## originality
+
+PASS
+
+Do not credit the intact wedge as new. Alexander duality gives its integral homology from the older no-perfect-matching theorem; K contains the full 2-skeleton (each of three duads meets at most three synthemes), so simple connectivity upgrades this to the intact wedge by Hurewicz and Whitehead. The claimed distinct contribution is the one-line deletion, its attaching intersection, the natural split inclusion, and the stabilizer representations.
+
+## value
+
+PASS
+
+The natural one-line operation on the classical duad–syntheme system has a topological effect not captured by the intact Betti number. The result gives the attaching type and a homotopy retraction, and distinguishes the old and relative contributions as representations of the symmetries preserving the removed line. This determines what the perturbation changes rather than just recording ranks of unrelated finite examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

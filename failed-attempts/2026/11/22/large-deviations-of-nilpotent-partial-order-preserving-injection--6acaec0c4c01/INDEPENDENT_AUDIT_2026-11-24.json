@@ -1,0 +1,181 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:00:22.542713Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–48",
+        "Frozen CHECK.py, CHECK_OUTPUT.txt and VERIFICATION.md, inspected without executing the supplied script",
+        "/workspace/branches/21260020-0a48-41fc-8dd0-fcd29c115e27/independent_rank_replay.txt"
+      ],
+      "rationale": "A finite increasing partial injection is nilpotent iff it has no fixed point: any nonempty cycle is a permutation of its support and must preserve its order, so has length one. For equal-size ordered domain and image sets a fixed point is exactly a matching ordered coordinate. Marking such coincidences splits the indicator strings into balanced pieces and gives the stated inclusion–exclusion generating function. Write D=(1−a x)(1−b x), a=(1+√y)^2, b=(1−√y)^2 and ρ=1/a. For fixed y>0 and |x|≤ρ except x=ρ, both factors have positive real part and the selected square root has positive real part. If Re x≥0 this prevents a denominator zero; if Re x<0, |√D|≥1>|xy|, also preventing one. At x=ρ the denominator is ρy and the square-root coefficient is nonzero. The other radical zero is outside the disk and nonvanishing on compact parts of a slit neighborhood persists locally under complex y-perturbation after scaling x by ρ(y); this justifies the locally uniform transfer. The resulting log-mgf limit is 2 log((1+e^{t/2})/2). Its Legendre transform gives the displayed binary-entropy rate; differentiability gives the LDP, with endpoint lower bounds obtained by interior approximation and continuity. Uniform transfer near y=1 applied at t√(8/n) in the exponential tilt gives a centered standard normal mgf limit. Independent replay matched all rank profiles for n=0,…,10, including [1,12,14,2,0] at n=4; these checks do not prove the limits.",
+      "residual_risks": [
+        "The variance and rate concern uniform sampling among nilpotents, not the index of nilpotence or a different partial transformation semigroup."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Equation (1.4) gives the joint enumerator for all sizes and part counts under the exact equivalence. The open Garba paper identifies nonnilpotence with presence of a fixed point but covers the broader noninjective setting; Ahmed et al. treat a strictly narrower contraction class (11 versus 14 at n=4, rank 2).",
+          "Laradji–Umar's abstract claims enumerations by height, waist and fix, nilpotent generating functions and a marginal nilpotence-probability asymptotic; the inaccessible full paper is not needed for the confirmed composition equivalence."
+        ],
+        "reasoning": "A parametric exact enumerator of the same law is stronger coverage in this case because the moving simple branch point is explicit and standard transfer directly supplies both limits. Different restrictions on maps in the other sources are not substituted for this comparison.",
+        "searches": [
+          "Bender–Lawler–Pemantle–Wilf, arXiv:math/0404253 equation (1.4)",
+          "Laradji–Umar, doi:10.1080/10236198.2015.1005080, publisher and institutional repositories",
+          "Ahmed et al., arXiv:2203.06417v1 Theorem 2.6",
+          "Garba, doi:10.1017/S001309150001885X Lemma 2.1 and doi:10.1007/BF02573652"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:math/0404253, especially (1.4)",
+        "OEIS A081696",
+        "Laradji–Umar institutional abstract (full text unavailable)",
+        "Garba Cambridge paper and bibliographic reference to separate Springer paper",
+        "arXiv:2203.06417v1",
+        "Distinct Resultary map-semigroup records above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "With D=1−2(1+y)x+(1−y)²x², their equation (1.4) is xy(√D−xy)/(D−x²y²)=xy/(√D+xy). Their scalar asymptotic f(N)∼2·4^N/(√π N^{3/2}) becomes the frozen 8·4^n/(√π n^{3/2}) under N=n+1.",
+          "Keeping y in that same radical and applying square-root transfer yields normalized exponential growth ((1+√y)/2)^{2n}, times a smooth nonzero prefactor; the Legendre transform and second cumulant yield exactly I and n/8."
+        ],
+        "reasoning": "This is routine extraction from the prior rank-marked formula after the cut-position bijection, not a new conditional law requiring an independent enumerative or probabilistic mechanism. The source's discussion of a Gaussian for a single composition is not mistaken for an assertion of this conditional CLT.",
+        "searches": [
+          "arXiv:math/0404253 §1 Theorem 1.1 and its proof, equations (1.1)–(1.4)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cut positions at the ordered domain/image points identify each increasing partial injection with two compositions having the same number of parts. Bender et al.'s irreducibility compares equal-index prefix sums only, precisely the forbidden fixed points; cuts equal at different indices are allowed in both models.",
+          "The exact joint count is a_{n,k}=f(n+1,k+1), including the empty map, which corresponds to two single-part compositions."
+        ],
+        "reasoning": "The equivalence preserves the uniform law and rank up to the shift from k to k+1. It establishes actual mathematical coverage under another terminology, not merely matching initial totals.",
+        "searches": [
+          "OEIS A081696, irreducible ordered pairs of compositions and cited arXiv:math/0404253",
+          "arXiv:math/0404253 §1, proof of Theorem 1.1 and equation (1.4)",
+          "Resultary: nilpotent partial increasing injections, rank limit laws"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A081696 lists the scalar counts and G(x,1)=1/(x+√(1−4x)); its irreducible-composition interpretation points to the full two-variable primary precedent. The catalogue exact hit was the assigned record, and its closest distinct entries use different map classes."
+        ],
+        "reasoning": "The OEIS marginal would not alone determine a conditional rank law. The exact two-variable equality was verified in the linked primary source, not inferred from agreement of totals.",
+        "searches": [
+          "OEIS A081696, offsets 0–3371",
+          "Resultary conditional nilpotent rank-law queries"
+        ]
+      },
+      "rationale": "Bender–Lawler–Pemantle–Wilf (2004), equation (1.4), gives the exact joint size/part-count enumerator of the identical rank-marked objects under a parameter-preserving bijection. For a map on [n] of rank k, use its ordered domain and image as the cut positions in two compositions of n+1 into k+1 positive parts. A matching cut with the same index is a fixed point, so nilpotence is precisely irreducibility of the ordered pair in their definition. Their generating function is exactly xy times the frozen G(x,y), not merely the unrefined count at y=1. The two stated limits follow by standard transfer and cumulant arguments from this exact stronger precedent. The compared paper's normal approximation for a single composition is not itself the conditional CLT; the finding fails for demonstrated implication from the full enumerator, not because the limit wording was found verbatim or any paper was inaccessible.",
+      "residual_risks": [
+        "The Laradji–Umar 2015 and Garba partial one-one full texts were not available, so any additional exact statements there are unresolved. This does not affect the verified stronger equivalent result in the accessible composition paper."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Verified exact joint prior coverage and direct implication",
+          "evidence": [
+            "Irreducibility is equality avoidance of paired same-index proper partial sums. f(N,K) counts irreducible pairs by size and parts. Equation (1.4) simplifies to xy times the exact rank GF under N=n+1, K=k+1."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/0404253",
+          "material_read": "§1 definitions, Theorem 1.1 (1.1)–(1.3), pp.1–2 of the paper, and its proof, eq. (1.4), p.3 (PDF pp.2–4; extracted offsets 3690–7302 and 9180–14838)",
+          "method": "OA PDF bounded passage inspection",
+          "title": "Irreducible compositions and the first return to the origin of a random walk",
+          "trigger": "Exact equivalent model linked from OEIS A081696"
+        },
+        {
+          "assessment": "Exact scalar coverage; pointer to the joint formula",
+          "evidence": [
+            "Lists the same scalar counts and identifies irreducible composition pairs, offset by one in their total size."
+          ],
+          "identifier_or_url": "https://oeis.org/A081696",
+          "material_read": "Initial sequence, definition, Wilf comment, Bender et al. reference and GF; offsets 0–3371",
+          "method": "Public sequence-page inspection",
+          "title": "Expansion of 1/(x + sqrt(1−4x))",
+          "trigger": "Exact unrefined sequence match"
+        },
+        {
+          "assessment": "Closely relevant abstract; not treated as a full-text claim comparison",
+          "evidence": [
+            "Abstract states finite enumerations and marginal nilpotence probability; it does not give an inspectable conditional-rank formula or theorem."
+          ],
+          "identifier_or_url": "https://doi.org/10.1080/10236198.2015.1005080",
+          "material_read": "Institutional abstract and access links; SQU mirror offsets 520–2320. Full text not obtained.",
+          "method": "Publisher full-text/PDF attempts and identified SQU, KFUPM, and Khalifa University institutional pages",
+          "title": "Combinatorial results for semigroups of order-preserving or order-reversing subpermutations",
+          "trigger": "Same partial-injection class and parameters"
+        },
+        {
+          "assessment": "Criterion known in broader setting; distinct same-class article identified but not available in full",
+          "evidence": [
+            "Lemma 2.1 proves the nilpotent iff fixed-point-free criterion. The reference to the 1994 partial one-one paper is doi:10.1007/BF02573652, for which no lawful full text was obtained in this review."
+          ],
+          "identifier_or_url": "https://doi.org/10.1017/S001309150001885X",
+          "material_read": "Introduction p.361, Lemma 2.1 p.362 and reference p.377",
+          "method": "OA Cambridge paper passage comparison",
+          "title": "Nilpotents in semigroups of partial order-preserving transformations",
+          "trigger": "Fixed-point criterion and reference to same-class 1994 study"
+        },
+        {
+          "assessment": "Narrower contraction class, not the target law",
+          "evidence": [
+            "Zero fixed points specializes to nilpotent contractions only; its n=4, k=2 count 11 differs from the target 14."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2203.06417v1",
+          "material_read": "p.1 abstract, p.3 definitions and p.6 Theorem 2.6 (offsets 0, 6000 and 16800–20335)",
+          "method": "OA PDF passage comparison",
+          "title": "Combinatorial Results for Order-Preserving Partial Injective Contraction Mappings",
+          "trigger": "Rank and fixed-point counts for increasing partial injections with an extra constraint"
+        },
+        {
+          "assessment": "Different class and variance",
+          "evidence": [
+            "Weakly increasing potentially noninjective maps; Gaussian center n/√2 and variance n/(4√2), not the present law."
+          ],
+          "identifier_or_url": "Resultary:2026/11/8/SCOPE-nilpotent-partial-chain-transformations-an-exact-domain-enumerat--877b71416fdc",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Nilpotent partial chain transformations: an exact domain enumerator",
+          "trigger": "Closest distinct domain-size conditional Gaussian law"
+        },
+        {
+          "assessment": "Different geometric model",
+          "evidence": [
+            "Cycle partial isometries, not arbitrary increasing injections on a chain."
+          ],
+          "identifier_or_url": "Resultary:2026/11/8/SCOPE-nilpotent-rank-spectra-and-a-binomial-law-for-cycle-partial-isom--6fca557893ec",
+          "material_read": "RESULT.md Finding",
+          "method": "Local Resultary mirror",
+          "title": "Nilpotent rank spectra and a binomial law for cycle partial isometries",
+          "trigger": "Exact nilpotent rank laws"
+        },
+        {
+          "assessment": "Different conditioning and class",
+          "evidence": [
+            "Maximal-index elements in the contraction class, not all nilpotents of all ranks."
+          ],
+          "identifier_or_url": "Resultary:2026/11/2/SCOPE-extremal-nilpotency-in-order-preserving-partial-contractions-is--cbbee36cc90b",
+          "material_read": "RESULT.md statement and citation to contraction rank counts",
+          "method": "Local Resultary mirror",
+          "title": "Extremal nilpotency in order-preserving partial contractions",
+          "trigger": "Closely related map semigroup"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 20–48",
+        "Bender–Lawler–Pemantle–Wilf, equation (1.4) and univariate asymptotic (1.2)"
+      ],
+      "rationale": "The conditional rank is natural, but after identifying rank with the number of cuts in the previously enumerated composition pairs, the frozen LDP and CLT are standard one-parameter coefficient transfer and transforms of an explicit quadratic radical. There is no further new structural probabilistic conclusion, nonuniform boundary or local estimate, or application beyond these routine consequences. The finite replay and self-contained derivation have expository use but do not provide a distinct scientific advance under this standard.",
+      "residual_risks": [
+        "No surviving substantive claim in the frozen finding was identified for repair; this value decision is not a claim that the probability limits are false."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

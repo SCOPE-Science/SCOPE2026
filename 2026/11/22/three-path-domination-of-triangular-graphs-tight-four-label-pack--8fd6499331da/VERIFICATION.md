@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-## Reproducibility
-Run `c++ -O3 -std=c++17 verify_direct.cpp -o verify_direct && ./verify_direct` and `python3 verify_support.py`. Both use only standard runtime libraries. `CHECKS.txt` contains the executed output of these sources.
+# Independent mathematical audit
 
-The direct verifier uses closed-neighborhood bitmasks of every vertex of \(J(5,2)\), \(J(8,2)\), and \(J(9,2)\). It checks all path pairs at the last two orders and all single paths for \(n=5\). The \(n=8\) total is an extra non-tight test and is **not** asserted as an all-order closed formula. The \(n=9\) direct enumeration independently confirms the disjoint-four-support classification and tests the degree on 30 sampled optimizers. The second verifier independently counts root-path possibilities and block partitions for \(n=5,9\), then checks the factorial expressions at larger orders without exhaustive graph search. These finite checks are corroborative only; the proof in `RESULT.md` establishes the infinite statement.
+## correctness
 
-## Verification limits
-No outside referee, formal proof assistant, or independent audit was used. The historical-priority comparison is supported by actual searches and source text but is not exhaustive. The count convention is subgraph paths with a chosen middle vertex; three-vertex-support identification is a different invariant.
+PASS
+
+A set of ground edges dominates its line graph exactly when at most one ground label is unused: an edge on two missing labels is undominated and every other edge meets a selected one. The three distinct edges underlying a path object are connected, so cover at most four labels. To attain the resulting ceiling use disjoint four-label trees, with one final triangle on the last one, two or three required labels padded by old labels as needed, or a tree on the last four. The small orders 3, 4 and 5 admit one such object. At tight orders equality forces pairwise disjoint four-label supports and one hole. Each support gives 4·3 star choices with designated middle and 4!/2 ordinary paths, so the 24 cancels the 4! in the block partition count. With one path removed its replacement must occupy four of the five free labels; the 120 choices include the original exactly once, and neighbors obtained by dropping different paths cannot coincide. Hole swaps permit all ground-label permutations of block memberships and within-block moves select the decorations. Hence the connected graph has degree 119k and the stated edge count. The phrase 'last three-edge tree' in the construction is superseded immediately by the explicit triangle construction for one through three residual labels; that construction is valid under the non-induced convention.
+
+## originality
+
+PASS
+
+The parameter and the hole-mediated exchange idea have close precedents. The exact matching Resultary entry is the assigned record itself. The closest distinct records count different dominating subsets with three-label blocks or implement a different exchange. The four-label equality classification and resulting edge-defined path census and whole-path exchange law are supported as distinct; elementary line-graph incidence is not claimed original.
+
+## value
+
+PASS
+
+Beyond the simple bound on the minimum, this gives a full labelled optimum-space description and its exact connected one-move geometry at every tight order. It supplies an exact reference family for reconfiguration of dominating path objects, distinguishing multiplicities and move rules that are lost when one records only selected vertices.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

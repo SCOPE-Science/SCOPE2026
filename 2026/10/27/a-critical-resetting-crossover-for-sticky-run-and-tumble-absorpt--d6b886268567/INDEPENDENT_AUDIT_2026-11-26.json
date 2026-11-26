@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:40:33.903503Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The telegraph backward equation has decaying spatial eigenvalue −sqrt(s(s+2α))/v, and normalization in the left-moving wall state fixes the right/left amplitude ratio α/[s+α+sqrt(s(s+2α))]. Its small-s expansion gives A_wall=sqrt(2/α), A_home,−=(x₀/v)sqrt(2α), and their sum for A_home,+. Conditioning on the first independent exponential bulk reset, with any excursion start transform g and bare home transform a, gives the exact deficit 1−F_r,P(s)=s(1−g(s+r))/(s+r a(s+r)). At s=θ²z,r=Rθ² with z>0 and R≥0 fixed, this deficit is θ A_P z/sqrt(z+R)+O(θ²). Sum the independent geometric visits, including the initial home leg and the successful final wait: the numerator is θF_home φ and the denominator is 1−(1−θ)φF_P. Dividing by θ and using the square-root waiting deficit gives the claimed law, continuous at z=0, including R=0. Independent check of the Lévy measure: its tail is A_P e^(−Rt)/sqrt(πt), whose Laplace transform times z equals A_P z/sqrt(z+R). Differentiating that tail gives the stated positive density. Adding the independent stable component and sampling both at one independent mean-one exponential time gives the resolvent transform. Karamata's theorem for monotone survival yields c/sqrt(π) for R>0 and (c+A_P)/sqrt(π) for R=0 as the t^(−1/2) amplitudes. Pointwise continuity as R decreases to zero, strict Laplace-transform ordering at fixed z>0, and the orientation threshold all follow from the transform. This assumes no resetting during binding and independent waiting and absorption. The uploaded verifier was inspected, not run. A separate bounded Pareto-transform replay for both orientations and protocols at R=0 and 0.7 showed the maximum absolute error fall by about a factor of four from θ=0.04 to 0.01 in each reset regime; it is corroboration, not an asymptotic certificate.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bressloff gives a minimum-exponent rule with a summed coefficient at equality for competing heavy tails in a different bounded Brownian model. The Resultary comparison concerns arbitrary independent wall waits, finite poissonic resetting and partial absorption and identifies the protocol crossing using η=αx₀/v and t_c/sinh(t_c)=η."
+        ],
+        "reasoning": "The general tail rule explains the use of Tauberian analysis, not the particular shifted-square-root scaling exponent of the telegraph excursions. The stronger ordering theorem overlaps the protocol comparison, but does not identify the limiting distribution or the two limiting amplitudes.",
+        "searches": [
+          "arXiv:2503.01308, §3.3, Eqs. (3.34)–(3.36)",
+          "Resultary 216270416969, finite-parameter protocol comparison"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Resultary 216270416969",
+        "arXiv:2602.02446",
+        "arXiv:2503.01308"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The cited telegraph paper analyzes finite-moment expansions, while the submitted hypothesis 1−φ(s)∼c sqrt(s) has infinite mean. For fixed R>0 the prior protocol signs apply for small θ by letting r+s=(R+z)θ² fall below the finite crossing scale when η<1; the other orientation orders also agree. Those signs pass to weak inequalities, while strict separation away from η=1 and exact equality at η=1 follow from the limiting coefficients. The indexed comparison assumes r>0."
+        ],
+        "reasoning": "Neither the finite-discount ordering nor the heavy-tail minimum rule gives the joint law. The key additional balance is (1−g(s+r))s/(s+r a(s+r))∼θ A_P z/sqrt(z+R); a fixed-r Taylor expansion or setting r=0 first loses the crossover. The positive Lévy tail then separates binding from the reset-censored excursion, and a separate small-z comparison yields nonuniformity of the survival amplitude. This is more than restating the prior transform or renaming its parameters.",
+        "searches": [
+          "arXiv:2602.02446, Eqs. (4.9), (4.17) vs. the renewal equations",
+          "Resultary 216270416969, protocol crossing",
+          "arXiv:2503.01308, §3.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The two finite absorption transforms in Bressloff–Linn become θφF_home/[1−(1−θ)φF_P] by taking π_b=θ and π_d=1−θ and choosing the post-desorption excursion transform. The closest Resultary record, 216270416969, uses the same bulk-reset and sticky-wall model."
+        ],
+        "reasoning": "The starting state, independent waiting and reset convention are aligned, so this is exact finite-parameter overlap, not just conceptual similarity. The submitted claim beyond those formulas is a limit of a triangular family where both r and the Laplace variable vanish at the same rate.",
+        "searches": [
+          "Resultary sticky wall desorption and Laplace order search",
+          "arXiv:2602.02446, §IV, Eqs. (4.3)–(4.6) and (4.14)–(4.15)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Found exact prior wall-return and absorption formulas and an indexed finite-discount ordering result, but not an exact indexed fixed-R limit with the claimed resolvent and Lévy kernel."
+        ],
+        "reasoning": "No finite table can settle the distributional theorem; the exact comparison is against a transform identity at finite r,s and against any indexed scaling formula. A bounded search miss alone is not evidence of priority.",
+        "searches": [
+          "Resultary sticky telegraph desorption search; record 216270416969, RESULT.md",
+          "arXiv:2602.02446, §II Eq. (2.23) and §IV"
+        ]
+      },
+      "rationale": "The exact two-protocol renewal calculation and finite-parameter protocol comparison are materially prior. The contribution supported here is the fixed-R joint scaling law, the explicit bulk-excursion Lévy component, and the noncommuting zero-reset and far-tail limits. The known exact transform is a strong starting point, but the inspected prior analyses do not give the simultaneous critical scaling or the resulting reset-dependent tail behavior. Neither the general heavy-tail rule nor the protocol threshold taken in isolation supports this pass.",
+      "residual_risks": [
+        "General triangular-array/geometric-sum limits under Poisson censoring or equivalent resetting analyses may supply broader coverage beyond this bounded search. The same-model finite transforms and protocol signs are already covered; priority is not claimed for them."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact finite absorption and wall-return transform coverage; inspected asymptotics concern finite moments, not the submitted joint limit.",
+          "evidence": [
+            "Setting π_b=θ and π_d=1−θ identifies both finite geometric renewal transforms."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2602.02446",
+          "material_read": "§II Eq. (2.23) p. 5 (offset about 33800); §IV, Eqs. (4.3)–(4.6), (4.9), (4.14)–(4.15), (4.17), pp. 10–11 (offsets about 63200, 70400, 77341)",
+          "method": "Original OA PDF passage comparison and parameter translation",
+          "title": "Renewal theory for a run-and-tumble particle with stochastic resetting and a sticky boundary",
+          "trigger": "Identical sticky telegraph model and both desorption protocols"
+        },
+        {
+          "assessment": "Prior heavy-tail comparison, not a telegraph reset scaling theorem",
+          "evidence": [
+            "The equal-exponent case adds the contributions to the leading coefficient under that model's hypotheses."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2503.01308",
+          "material_read": "§3.3, Eqs. (3.34)–(3.36), p. 22, offset about 76400",
+          "method": "Original OA PDF passage and model/quantifier comparison",
+          "title": "Diffusion-mediated adsorption versus absorption at partially reactive targets: a renewal approach",
+          "trigger": "Potential stronger competition law for adsorption and independent bound times"
+        },
+        {
+          "assessment": "Material protocol-order overlap. The inspected theorem is not a weak-absorption weak-reset limit.",
+          "evidence": [
+            "With left-moving starts and η<1, the order can reverse at a positive discounted scale; with η≥1 or right-moving starts the wall transform is larger. The small-(r+s) side agrees with the new protocol signs."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-a-unique-laplace-order-reversal-between-sticky-wall-desorption-p--216270416969",
+          "material_read": "Mirrored RESULT.md, offsets 0–5120 and 5000–10491; exact order signs and threshold",
+          "method": "Local Resultary lookup and bounded mirror read of the stated theorem",
+          "title": "Resultary record on a unique Laplace-order reversal between sticky-wall desorption protocols",
+          "trigger": "Same model and an exact stronger finite-parameter orientation/protocol comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The critical law identifies when bulk resetting alters the limiting excursion contribution without truncating the independent binding tail. The limiting distribution is continuous at zero scaled reset rate but its far-tail amplitude is not, a meaningful diagnostic for using the zero-reset approximation. The two protocol coefficients and the explicit Lévy measure make that distinction testable without assuming a finite binding mean.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

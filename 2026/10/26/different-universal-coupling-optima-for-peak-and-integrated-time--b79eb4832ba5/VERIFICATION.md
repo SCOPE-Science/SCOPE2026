@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-Execute `python3 verify.py` in the directory containing the supplied files, with Python 3 and SymPy installed. The expected output is included in `verification_output.txt`; 113 assertions pass.
+## correctness
 
-Tests reconstruct the exact stationary Lyapunov equation, matrix exponential, antisymmetric two-time covariance, derivatives and dimensionless scaling, and 25 deterministic parameter comparisons. The analytical arguments in RESULT.md separately establish existence, strict uniqueness, and ordering of global maxima; no finite checker implies those facts. The calculation excludes equal reservoir temperatures and assumes unit mobility, stable positive coupling, equal trap stiffnesses, and stationary initialization. The optimizer is not asserted to be optimal for signal-to-noise ratio under finite-time sampling.
+PASS
 
-Primary literature for the model and generic covariance equations is cited in RESULT.md. Independent audit and independent validation have not been performed.
+Assessed the full repaired RESULT.md. The frozen Finding at line 9 literally said the signed infinitesimal-delay slope increases strictly; the allowed T_2<T_1 makes this false, although the frozen proof correctly uses its magnitude. The repair changes that finding to the magnitude statement, states the two signed directions, and identifies the known mean-circulation comparison by equation. Indeed Delta'_u(0+)=(T_2-T_1)u/(k+u) has coupling derivative k(T_2-T_1)/(k+u)^2; its absolute value increases strictly and has no finite maximizer. The two principal coupling optima need no change. The stationary centered normal modes have positive drift rates k and k+2u; their stationary cross covariance is (T_1-T_2)/(2(k+u)). Propagating each mode and returning to particle coordinates yields the stated sign and difference of exponentials. At fixed u, the derivative in lag vanishes exactly once at log(1+2u/k)/(2u), a global maximum of the magnitude. With x=2u/k the integral is proportional to h=x/((x+1)(x+2)) and the peak to h(1+x)^(-1/x). The area derivative has sign 2-x^2. The peak log derivative has sign F=(x+2)log(1+x)-x^2, with F(0)=0, F'(0)>0, F''=x/(1+x)^2-2<0 and F tending to minus infinity. Thus there is one positive peak optimum; F(2)>0 places it strictly above sqrt(2). Independent bisection and substitution reproduced x*=2.223254940100293 and both reported magnitudes and coupling ratios. The temperature gap is a positive prefactor so cannot affect either optimizer; equal temperatures are properly excluded. Reassessment of the repaired finding finds both optima and their corrected short-time comparison valid under the stated hypotheses.
+
+## originality
+
+PASS
+
+The repaired finding claims novelty for the two exact coupling optimizers and their distinction, neither for stationarity and the propagator nor for monotone short-time mean circulation. The inspected exact prior circulation formula and related optimized observables do not supply the two stated finite-delay objectives' coupling optima. The sign clarification introduces no claim of further novelty.
+
+## value
+
+PASS
+
+Delayed asymmetry can be read either as the largest lagged signal or as signal accumulated over lags. Comparing these natural objectives in the same model shows quantitatively that changing the way lags are summarized changes the unique optimal coupling, while the magnitude of the instantaneous comparator has no finite optimum. This is useful as a benchmark for finite-delay observables; metric dependence is not captured by a stationary solution or the classic circulation formula alone. The repair preserves that contribution and removes a misleading signed statement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

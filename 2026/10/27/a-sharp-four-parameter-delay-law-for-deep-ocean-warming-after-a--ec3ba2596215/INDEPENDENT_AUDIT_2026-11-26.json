@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:39:29.852873Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The two poles are simple and positive. The surface resolvent numerator places its zero between the poles since the rate polynomial is negative at gamma/C_d; hence both exponential weights are positive. A rectangular pulse differentiates to a single impulse response before shutdown and a difference of translated responses afterward. This gives a unique surface maximum at shutdown and a deep derivative with the sign of (exp(b*tau)-1)/(exp(a*tau)-1)-exp((b-a)*t), initially positive at shutdown and crossing once. The resulting delay is the interval mean of tau/(exp(r*tau)-1) over the two rates. Its partial derivative in either endpoint is strictly negative, as seen by writing the mean on the fixed unit interval. Both generalized eigenvalues increase strictly with feedback and coupling and decrease strictly with either capacity: the derivatives are v_s^2, (v_s-v_d)^2, -r*v_s^2, and -r*v_d^2 for a C-normalized eigenvector. The coupling prevents either entry from vanishing, and a constant eigenvector would force r*v_d=0 by the deep equation. Pointwise differentiation of tau/(1-exp(-r*tau)) gives a derivative in (0,1), proving the duration claim as well. Independently replayed the example by bisection of the translated impulse derivative: python3 /workspace/checks/4_peak_example.py gives peak 22.2543875592 and delay 12.2543875592. This is illustrative only; the strict signs follow analytically. The supplied check and verification notes were inspected, not executed or treated as an attestation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Frozen RESULT.md lines 66–70 identifies the broader step/ramp solutions and abrupt-return setting and explicitly credits the general model and forcing superposition; publisher full-text access was not obtained and a CNRM-hosted alternate timed out"
+        ],
+        "reasoning": "Known linear-response solutions cover the kernel and evaluability of the translated pulse; fast/slow adjustment or parameter sensitivity for oscillatory and ramp forcing does not itself state the strict pulse-delay derivatives. Unread text remains a risk.",
+        "searches": [
+          "10.1175/JCLI-D-12-00195.1: two-layer energy balance model analytical solution step forcing ramp forcing abrupt return forcing",
+          "10.1175/2009JCLI3466.1: returning abruptly to preindustrial forcing fast and slow components two-layer climate model deep ocean temperature continued warming",
+          "10.1029/2019GL084018: two-layer energy balance model sensitivity parameters frequency space ramp forcing deep ocean uptake"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check_two_box.py",
+        "Geoffroy et al. DOI listed above (access attempted)",
+        "Held et al. DOI listed above (access attempted)",
+        "Lutsko and Popp DOI listed above (access attempted)",
+        "Resultary 891dbf6e549e, 5d4ecd7d2393, d36483031f65"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior-model transfer functions imply the rectangular-pulse temperature by linear superposition; the serial lag formula after identification of the two eigenrates gives the same peak difference",
+          "Frozen proof lines 46–61 supplies an interval-mean argument plus generalized eigenvalue sensitivities absent from the inspected analogue statements"
+        ],
+        "reasoning": "The peak formula and amplitude independence are direct consequences, and the serial result overlaps the duration direction. The four-sign statement requires showing both eigenrates move strictly in the respective direction for each physical parameter and propagating those signs to the delay; it is not the surface phase-lag result or a renaming of the serial duration result.",
+        "searches": [
+          "Geoffroy et al., 10.1175/JCLI-D-12-00195.1",
+          "Resultary 891dbf6e549e, offset 0",
+          "Resultary d36483031f65, offset 0"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "891dbf6e549e mirrored RESULT.md offset 0 gives exactly log((1-exp(-sL))/(1-exp(-rL)))/(s-r) for a downstream serial toxin compartment",
+          "5d4ecd7d2393 mirrored RESULT.md offsets 0 and 620 gives a unique post-shutoff arrival-flux peak for a drift-diffusion first-passage kernel"
+        ],
+        "reasoning": "The serial model is rate-level equivalent for the delay, but not a claim about the four physical inputs to the coupled heat-model rate matrix. A two-capacitor network with leakage and exchange conductances is exactly equivalent at the equation level, so an earlier theorem for that RC circuit could cover the result; no such theorem was identified in the bounded comparison. The drift-diffusion case uses different kernels.",
+        "searches": [
+          "Resultary: deep layer temperature peak after abrupt termination direct radiative forcing post-shutdown delay two-layer climate model",
+          "Resultary: post-shutdown deep-layer peak lag two-box thermal reservoir rectangular pulse heat capacities radiative feedback coupling"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "d36483031f65 mirrored RESULT.md offset 0 describes a unique minimum of surface phase lag versus exchange for sinusoidal forcing, not a pulse-delay theorem",
+          "891dbf6e549e gives a matching scalar function, but studies serial toxin compartments"
+        ],
+        "reasoning": "This is a continuum theorem, not an exact finite table entry. The nearest catalogue statements compare different observables or leave the physical parameter derivatives unaddressed; bounded ranks cannot certify catalogue absence.",
+        "searches": [
+          "Resultary: deep layer temperature peak after abrupt termination direct radiative forcing post-shutdown delay two-layer climate model",
+          "Resultary: post-shutdown deep-layer peak lag two-box thermal reservoir rectangular pulse heat capacities radiative feedback coupling"
+        ]
+      },
+      "rationale": "Accept the distinct simultaneous global comparative statics of the pulse peak delay in four separate physical coefficients, not the model, transfer functions, or elementary translated-impulse peak formula as independent advances. The strongest exact lag-function match concerns a serial two-rate response and is later by its record date; its available statement does not give the bidirectionally coupled heat-model parameter sensitivities. No positive evidence of prior coverage of the four-sign result was found in the bounded comparison. Primary-text limitations remain material to priority, not evidence of absence.",
+      "residual_risks": [
+        "The complete primary papers and relevant appendices were unavailable in the retrieval attempts; the same specialized corollary may have appeared there or in two-box, two-node RC, or other linear compartment literature.",
+        "Catalogue searches were bounded; the comparisons do not certify historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Credit general-model coverage; specialized corollary not resolved from the paper",
+          "evidence": "Frozen attribution gives step/linear forcing and abrupt return from ramped forcing; publisher returned 403 and CNRM copy timed out.",
+          "identifier_or_url": "https://doi.org/10.1175/JCLI-D-12-00195.1",
+          "material_read": "Frozen attribution and scope, RESULT.md lines 66–70; no primary full text retrieved",
+          "method": "Targeted passage retrieval at publisher plus identified lawful CNRM copy",
+          "title": "Transient Climate Response in a Two-Layer Energy-Balance Model. Part I",
+          "trigger": "Same model and analytical time-domain forcing response"
+        },
+        {
+          "assessment": "Related physical experiment; no conclusion on full-paper coverage",
+          "evidence": "RESULT.md line 67 credits abrupt return and continued adjustment; publisher access denied.",
+          "identifier_or_url": "https://doi.org/10.1175/2009JCLI3466.1",
+          "material_read": "Frozen related-work summary only; publisher passages unavailable",
+          "method": "Targeted OA passage retrieval",
+          "title": "Probing the Fast and Slow Components of Global Warming by Returning Abruptly to Preindustrial Forcing",
+          "trigger": "Abrupt forcing withdrawal"
+        },
+        {
+          "assessment": "Different forcing and observable in the available account; full-paper coverage unresolved",
+          "evidence": "RESULT.md line 67 describes frequency-space and ramp responses; publisher access denied.",
+          "identifier_or_url": "https://doi.org/10.1029/2019GL084018",
+          "material_read": "Frozen related-work summary only; publisher passages unavailable",
+          "method": "Targeted OA passage retrieval",
+          "title": "Probing the Sources of Uncertainty in Transient Warming on Different Timescales",
+          "trigger": "Same broad model and parameter sensitivities"
+        },
+        {
+          "assessment": "Exact scalar formula overlap; does not cover the physical four-parameter signs in the coupled heat model",
+          "evidence": "Lag is log((1-exp(-sL))/(1-exp(-rL)))/(s-r) in serial rates r,s.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-a-finite-bloom-peak-lag-inversion-and-a-unique-crossover-between--891dbf6e549e",
+          "material_read": "Mirrored RESULT.md offset 0",
+          "method": "Catalogue search and bounded mirror passage",
+          "title": "A finite-bloom peak-lag inversion and a unique crossover between two serial toxin responses",
+          "trigger": "Exact rectangular-pulse lag analogue"
+        },
+        {
+          "assessment": "Different kernel and comparative parameters",
+          "evidence": "The arrival-flux delay decreases with pulse duration and drift.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-a-drift-diffusion-crossover-in-the-peak-lag-after-finite-tracer--5d4ecd7d2393",
+          "material_read": "Mirrored RESULT.md offsets 0 and 620",
+          "method": "Catalogue search and bounded mirror passages",
+          "title": "A drift–diffusion crossover in the peak lag after finite tracer shutoff",
+          "trigger": "Earlier post-shutoff peak theorem"
+        },
+        {
+          "assessment": "Not equivalent",
+          "evidence": "Surface phase lag under sinusoidal forcing, not deep peak time after a pulse.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-sharp-phase-only-identifiability-window-for-a-coupled-two-laye--d36483031f65",
+          "material_read": "Mirrored RESULT.md offset 0",
+          "method": "Catalogue search and bounded mirror passage",
+          "title": "A sharp phase-only identifiability window for a coupled two-layer climate response",
+          "trigger": "Matching model and exchange-dependent lag"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Gives a usable direction-of-change theorem for how long deep warming continues after direct forcing stops, separately for both thermal capacities, leakage feedback and exchange, with no parameter tuning. The exact global directions are more informative than a representative time course or an unconstrained two-timescale fit. The result is limited to the specified linear two-layer pulse experiment, not a claim about emissions cessation or a calibrated climate.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,12 +1,21 @@
-# Review of the generic double-contact theorem
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof fixes the precise conormal contact scheme (the hyperplane equation together with its first derivatives), proves rank \(r-1\) of the generic alternating Hessian, and exhibits a coefficient specialization for which the quadratic form is nonzero on the radical. Formal elimination then gives the **actual** local contact algebra \(k[[t]]/(t^2)\). A Hamming-ball tangent-span calculation excludes distinct generic contacts when \(r\ge5\); a separate matrix-pencil analysis does so for \(r=3\). Kaji's published hypersurface criterion ensures generic finiteness. The standalone checker corroborates bounded cases but is not an infinite proof. Residual scientific risk: another description of generic contact fibres could expose an overlooked exceptional locus; no such locus survives the generic-open arguments here.
+## correctness
 
-## Originality — PASS, with a literature caveat
-The closest inspected primary source is Kaji's *On the Duals of Segre Varieties* (2003), especially its theorem (3), Hessian lemma, and last-page proof. It establishes the qualitative characteristic-two nonreflexivity, but neither the precise conormal field degree nor the double contact algebra. These are not logical consequences of Hessian corank alone: the nonvanishing quadratic evaluation and the uniqueness of geometric contact require additional arguments. The literature record for Ottaviani's 2013 treatment addresses the classical hyperdeterminant framework; its full text was unavailable here and no negative whole-paper claim is made. Published mathematical-result searches revealed related dual-degree and hyperdeterminant work but no matching exact generic inseparability degree. Residual originality risk: an alternative tensor-discriminant or conormal projection treatment may explicitly or implicitly supply the same degree-two statement.
+PASS
 
-## Mathematical value — PASS
-The inseparable degree of the conormal projection is an intrinsic quantitative invariant in positive-characteristic projective duality. Kaji's classic theorem makes the absence of reflexivity important but leaves the size of the generic inseparability unspecified; the exact uniform value \(2\) and its local geometric explanation across every odd binary Segre factor count give a motivated structural refinement. The result is not a claim to a new hyperdeterminant equation and does not rest on one isolated computation. Limits: only general contact fibres and the binary Segre family are covered.
+The projective conormal bundle is irreducible of dimension N-1, and its scheme fibre is cut out by F and its first derivatives. Independently of the cited hypersurface theorem, generic finiteness onto the image follows once the isolated contact below is exhibited. At a coordinate vertex the available quadratic coefficients are unrestricted for pairs of distinct factors. The alternating polar form of any such quadratic has rank at most r-1, and the triangle plus disjoint pairs attains r-1 with radical vector (1,1,1,0,...) on which the quadratic is 1. These are open conditions on the conormal bundle, using coordinate homogeneity. Eliminate the r-1 nonsingular transverse derivative equations formally: the transverse coordinates have order at least two and F becomes t^2 times a unit, whereas the remaining derivative has order at least two. This gives exactly the length-two local algebra, not just an inseparable differential. For distinct contacts differing in j factors, the two radius-one Hamming balls meet in two vectors for j=1,2 and none for j>=3. The pair locus has dimension r+j and imposes 2r+2-e_j independent linear conditions on the hyperplane. Thus its incidence dimension is at most N-r+j-2+e_j<N-1 when r>=5. For r=3, write the pencil M(z)=z_0 A_0+z_1 A_1. Tangency forces both z-derivatives of det M(z) to vanish: the adjugate is a scalar multiple of the right-kernel times left-kernel vector when the rank is one, and is zero when the rank is zero. Hence beta=0 on the dual. Conversely a nonzero determinant quadratic on beta=0 has a unique geometric root, and on the open locus of linearly independent A_0,A_1 the pencil has rank one there; the two kernels and vanishing determinant derivatives give the unique tangent point. This open is nonempty (for example M=[[0,z_1],[z_1,z_0]]). The polar pairing of beta is nonsingular so the reduced quadric is smooth. Shrinking the reduced dual to avoid images of bad conormal loci and applying generic finiteness and flatness yields length two and exactly one geometric point in a general fibre. This proves separable degree one and purely inseparable degree two. The attached finite symbolic checks were read, not executed.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge support is for the uniform exact degree and scheme structure for all odd binary Segre products. The characteristic-two Cayley quadric for r=3 and qualitative Segre nonreflexivity are background. The inspected exact matches for analogous degree-two phenomena concern different incidence morphisms; no available inspected statement supplied the uniform degree assertion. The decisive older Segre paper could not be inspected in full independently, so a stronger prior implication remains possible.
+
+## value
+
+PASS
+
+The exact degree of the conormal projection is an intrinsic numerical invariant of a natural infinite family. The result distinguishes a doubled unique contact from higher inseparability or multiple geometric contacts, distinctions not settled by nonreflexivity alone. The length-two mechanism, rather than the known small-format equation, is the informative part.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

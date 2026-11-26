@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The hypercube Walsh-character formula is derived directly from the Laplacian spectrum and verified by exact-rational reconstruction. Multiplication by a strictly positive common denominator gives exact integer polynomials. Their signed factorizations, strictly positive remaining shell coefficients, and Descartes root-count certificates establish the full closed interval without relying on numerical plots. The degree-seven Padé Taylor coefficient and shortest-walk argument prove the sharp hypercube dimension boundary. `artifacts/verify_hypercube_pade.py` successfully reproduced the critical polynomial identities and sign checks.
+## correctness
 
-## Originality — PASS, with residual risk
-The closest source is the published eight-state conservative pure-birth positivity result, which uses the same Padé function and negative seventh Taylor coefficient but treats a directed absorbing chain, not an undirected Hamming cube or the seven-cube's complete admissible-timestep set. The 2012 Zappavigna–Colaneri–Kirkland–Shorten primary paper establishes Padé positivity failure for general nonconservative positive linear systems, not the reversible cube classification. The Lóczi–Ketcheson absolute-monotonicity theorem yields general nonuniform obstructions, not this exact special-graph window. Accessible earlier graph-specific records concern cycles or complete multipartite graphs, neither of which contains the seven-cube result as a covered special case. Searches for antipodal Hamming distance, Krawtchouk kernels, the graph and method names, and exact endpoint coefficients returned no evident statement implying the new theorem. Relevant full primary texts were inspected. Unindexed graph-specific prior work remains a risk, and absence of matching search results alone is not presented as proof of novelty.
+PASS
 
-## Value — PASS
-The seven-dimensional cube is a canonical reversible and symmetric graph diffusion testbed. The complete exact interval exhibits an important numerical-monotonicity anomaly: decreasing an already positive timestep into a sufficiently small regime destroys positivity, while the endpoint operator remains positive definite and mass preserving. The new sharp hypercube dimension threshold separates the diffusion topology constraint from general eight-state nonconservative or directed witnesses, and the algebraic endpoints are reusable exact benchmarks for positivity-aware rational time integration. This is a motivated complete natural classification, not a normalization change or routine restatement of the general Padé negativity example.
+Walsh characters diagonalize the unit-weight Laplacian with eigenvalues 2k. Grouping by overlap with the differing coordinates gives precisely the Hamming-shell formula (including the 2⁻ᵈ factor). The scalar rational multiplier is strictly positive and is 1 on constants, giving positive definiteness and preservation of mass but not entrywise positivity. Independent exact integer convolution reproduced all off-diagonal numerator factorizations: N₁=−864hP₁, N₂=−864h²P₂, N₇=90720h⁷P₇; the other reduced shell polynomials have strictly positive coefficients. Descartes' rule and the opposite signs at zero and infinity give one simple positive root of each sign-changing polynomial. Exact evaluations are P₇(1/20)=−92179451/16000000, P₇(1/10)=2007369/250000, P₁(1/2)=−207094797/1024, P₁(1)=36753129, and P₂(1)=−18333623. Thus the shell-2 upper bound lies above the shell-1 upper bound and the required closed window is exactly the one claimed; h=0 gives the identity. Numerical Horner bisection agrees with the stated approximations. For the dimension assertion, the Padé recurrence gives c₁,…,c₇=1,1/2,1/6,1/24,1/144,0,−1/1728. Distance r≤5 contributes r!cᵣ at its first possible degree. At distance 6, cube parity forces exactly six edge moves and one diagonal stay in degree seven, giving −7d·6! before multiplication by c₇; at distance 7 the seven moves give 7! and a negative leading term −35h⁷/12. This is a proof for all fixed d, not a finite-dimensional scan. The original replay path artifacts/verify_hypercube_pade.py is present and was read but not executed. VERIFICATION.md reports a package run; the three not_performed fields concern different channels and are not evidence of that run.
 
-## Limitations and closest sources
-The main novelty boundary is relative to (i) Zappavigna et al. (2012), doi:10.1016/j.laa.2011.12.021; (ii) Lóczi–Ketcheson (2014), doi:10.1112/S1461157013000326; and (iii) the published eight-state Padé/Markov note at https://github.com/published-finding corpus/2026/tree/main/2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab. The scope is strictly the specified rational endpoint map and hypercube family; a wider minimality theorem or independently verified novelty is not asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact nonnegative step set on Q₇, including which distance shell controls each endpoint, is supported as distinct. The seventh-order Padé obstruction itself is not new, and the small-step dimension assertion overlaps verbatim in substance with the dimension-twelve cube record. The pass does not credit that shared assertion as independently novel, nor infer priority from catalog dates.
+
+## value
+
+PASS
+
+At the first dimension where refining the step fails to ensure a nonnegative heat update, the result supplies the complete set of usable steps, not merely a negative-entry witness or an example of a usable step. Exact endpoints and their controlling shells matter to a practitioner selecting a positivity-preserving step and to comparisons of graph classes. The cube is a natural reversible, highly symmetric benchmark. The result is not a universal stability bound or an all-dimension all-step classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

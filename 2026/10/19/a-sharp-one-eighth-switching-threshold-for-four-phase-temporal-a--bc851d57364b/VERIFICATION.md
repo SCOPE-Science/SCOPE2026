@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility of the exact moment and phase calculation
+# Independent mathematical audit
 
-Run `python verify.py` using Python 3's standard library. The script enumerates every environmental state word and every inverse-branch cylinder, computes exact affine preimages of the complete random map, and integrates both cubic directional moments using rational arithmetic. It independently checks 40 combinations of switching parameters and lags against the claimed expression, including lags through eight and the exact critical switching line \(\delta=1/2,p=15/128\). It separately checks six phase-boundary and alternating-sign identities.
+## correctness
 
-Actual command (from the package directory): `python verify.py`.
+PASS
 
-Actual stdout: `VERIFY_OK 40 exact independent cylinder comparisons; 6 boundary and sign identities`.
+The uniform inverse-branch weights give a triangular conditional update on the centered linear and quadratic observables, with linear multiplier sδ, quadratic multiplier b and cross coefficient −(1−d)/4. This forces the reverse-directed third moment to vanish and expresses the other as a sum of environment products. Odd products vanish by symmetry; the expectation of an even block is a product of independent adjacent-pair flip increments. This gives the all-lag formula, generating function and parity covariance. Grouping successive odd/even lags reduces the sign to the finite geometric series in z/b²; zeros occur precisely in the stated two classes at the boundary. The identity b²/d=(1/d+6+9d)/16 has unique minimum 3/4 at d=1/3, giving p=1/8 as the sharp envelope; for p<1/8 both root endpoints are inside (0,1). The other algebraic discriminant zero, p=1/2, has no admissible double root in d. Strict asymmetry already at lag one proves nonreversibility everywhere in the stated domain.
 
-The finite computation is corroborative. The identities for arbitrary real \(0<\delta,p<1\), all integer lags, and the sharp threshold are proved analytically through the polynomial transfer operator, elementary Markov-sign moments, and a finite geometric-series sign argument in `RESULT.md`.
+## originality
+
+PASS
+
+An earlier exact deterministic full-branch result uses the same polynomial mechanism and studies cubic reversal contrasts. It neither averages complementary maps under a persistent Markov chain nor implies the resulting all-lag sign diagram. The inspected stochastic comparators concern independent intermittency or general ergodicity; the closest Markov-switching tent-map citation requires a different synchronization objective in the frozen description and could not be fully inspected. The supported distinct claim is the evaluated directional-moment law and sharp four-phase switching threshold, not polynomial transfer or third-order correlations in general.
+
+## value
+
+PASS
+
+For a natural stationary full-branch benchmark with reversible switching, the observed spatial law is already irreversible at lag one while higher-lag directional moments cross a sharp explicit boundary. The all-lag calculation identifies exactly when and at which residue classes a sign-based diagnostic would change its conclusion about direction; the simultaneous covariance law distinguishes that information from second-order correlation. The threshold is in switching persistence, not an arbitrary slice or an onset of irreversibility.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

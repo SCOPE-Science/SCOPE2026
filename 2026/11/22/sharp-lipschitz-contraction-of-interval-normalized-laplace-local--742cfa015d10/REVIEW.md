@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For every finite positive rate and nondegenerate interval the normalized density is smooth in its center in the weak derivative sense and strictly positive. The center-indexed densities have a monotone likelihood ratio; therefore their exact \(W_1\) distance equals the difference of means. The score calculation gives \(m'(x)=2\lambda AB(H(u)+H(v))\). Both factors are maximized at the interval midpoint: \(AB\le1/4\), while strict concavity of the truncated-exponential distance mean \(H\) supplies \(H(u)+H(v)\le2H((b-a)/2)\). The identity function witnesses sharpness. Reversibility follows from symmetry, and the mixing bound follows by iterated contraction and stationary averaging. Supplementary independent direct quadrature and finite-difference tests passed 2,532 assertions. No claim of optimality for the multi-step upper bound is made.
+PASS
 
-## Originality — PASS, with residual risk
+For x<x' the log density ratio is a constant plus lambda(|y-x|-|y-x'|), nondecreasing in y. Equal row mass then gives stochastic order, and the ordered quantile coupling gives W1 equal to the difference of means, which the identity function realizes. Subtracting the normalizer score from the left/right kernel scores (-lambda,+lambda) gives (-2lambda B,+2lambda A), where A,B are the two masses. The conditional means x-H(u), x+H(v) thus give m'=2lambda AB(H(u)+H(v)). The two factors are maximized at the midpoint: AB<=1/4, and H'' has the opposite sign of h(r)=(r-2)e^r+r+2, where h(0)=h'(0)=0,h''(r)=re^r>0. Strict concavity therefore gives H(u)+H(v)<=2H((b-a)/2), with equality only there. The result is 1-z/(exp(z)-1) in (0,1). Integrating the continuous interior derivative shows any distinct-pair quotient is strictly less than the optimum; location pairs coalescing at the midpoint approach it. This distinguishes optimizer among functions (the identity witnesses the seminorm) from non-attainment among distinct pairs. Kernel symmetry gives detailed balance with stationary density proportional to Z; iterating the contraction and integrating against this law gives the displayed supremum bound, including k=0. Integrating against any other stationary law then shows equality on all Lipschitz tests, hence uniqueness on the compact interval. This does not claim a sharp k-step norm for k>=2. Independently ran `python3 /workspace/review_checks.py 4` (SciPy): twelve finite-difference gains from direct quadrature at noncentered endpoints and several rates. The finite checks corroborate the argument and do not certify the unique global maximum on their own; the frozen checker was inspected, not executed.
 
-The 2019 *Wasserstein Transform* develops local probability distributions and analyzes data-distribution perturbations; its studied results do not state the present exact center-indexed Laplace interval contraction coefficient. The 2020 Tosatto–Akrour–Peters analysis bounds Nadaraya–Watson bias, particularly with Gaussian kernels, rather than giving the global Lipschitz seminorm. General Wasserstein contractivity theory supplies methods but not this explicitly optimized sharp formula for this kernel. Literature searches also covered normalized exponential distance, truncated Laplace location, Dobrushin coefficients and Wasserstein Markov averaging. Earlier equivalent exact formulas in less indexed location-family literature remain possible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A continuous-domain Markov smoothing kernel that looks nearly translation-invariant has a strictly contracting, exactly computable Lipschitz factor solely because of boundary normalization. The explicit transition from small-rate strong smoothing to large-rate almost-identity, the unique midpoint extremizer and stationary mixing rate give sharp, interpretable robustness and convergence benchmarks for finite-domain exponential-kernel localization. This is a motivated exact operator norm, not a parameter restatement of generic nonexpansivity.
+Neither normalized localization nor the bounded Laplace kernel is claimed as new. The supported addition is the sharp W1/Lipschitz coefficient and unique maximizing derivative location for the Lebesgue interval model. Reversibility from the symmetric base kernel and mixing from one-step contraction are standard consequences, not independent novelty claims. The closest truncated-mechanism literature was available only in part, so priority is qualified.
 
-## Closest literature and limitations
+## value
 
-See the three sources in RESULT.md; in particular the normalized local-measure framework is prior work and stochastic order/Wasserstein duality are classical. The proved formula requires a uniform base measure on an interval; no corresponding sharp coefficient is claimed for arbitrary designs, higher dimensions or kernel families. Historical originality cannot be independently certified from a search, and independent mathematical review remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The precise norm measures how bounded support changes a translation-invariant family into a strict contraction and gives a rate from the two physical parameters. Identifying the uniquely worst infinitesimal location matters for sharp robustness; the exact coefficient adds information beyond a qualitative contraction or a loose mixing estimate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

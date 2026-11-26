@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:35:01.794139Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Expanding the product of fixed-label signs gives the binomial formula with I_(n-j). Equivalently, Wick pairings of factors Z-1 at selected labels and Z+1 elsewhere contribute one per paired transposition and the correct signs at singleton labels. Substituting -Z gives reflection symmetry by (-1)^n; subtracting consecutive weights factors a 2 and gives W_(n,k)-W_(n,k+1)=2 W_(n-1,k). Central values are a_m=E[(Z²-1)^m] or its negative by odd reflection. Gaussian integration by parts on Z(Z²-1)^m gives a_(m+1)=2m(a_m+a_(m-1)); from (1,0,2) all later a_m are positive. Starting at (10,2,2,2,10), positive even rows force strictly decreasing odd rows and the consecutive central values a_m,-a_m. The odd sign split then forces the next even row to decrease and then increase strictly, with positive center a_(m+1). This proves the sharp minimum with exactly the stated weight ties. The n=1,2,3 rows are (1,-1), (2,0,2), (4,0,0,-4); binomial multiplicities give ranks 2 at both exceptional n. The empty frequency attains the trivial upper bound I_n on absolute values, so the condition number follows with unnormalized counting convolution. Inspected verify.py and check_output.txt; their recorded finite checks are not independent reruns or the all-order proof. Replay: RESULT.md equations (1), (5)–(7) and Proof 4–5.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Unrestricted permutation frequency counts use (n-j)!, not I_(n-j), and n=3 is nonsingular there. The exact-two-cycle-support result counts permutations allowing longer cycles and proves a different least-frequency theorem."
+        ],
+        "reasoning": "Changing from unrestricted permutations to involutions changes both matrices and conclusion. Nothing in the retrieved general enumerative evidence supplies the requisite signs and sharp gaps for the changed operator.",
+        "searches": [
+          "Resultary: unrestricted permutation fixed-point Walsh recovery and exact-two-cycle support",
+          "Chow–Mansour, DOI 10.1007/s11856-010-0088-8"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check_output.txt",
+        "Lugo arXiv:0911.3604",
+        "Chow–Mansour DOI (access only)",
+        "OEIS A053871",
+        "Resultary permutation and involution comparators"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known central moment gives a value at the central weight, not a bound for noncentral moments. The unrestricted permutation theorem even has a different exceptional-rank list."
+        ],
+        "reasoning": "The adjacent-weight identity and alternating parity induction provide the missing comparison with all other weights, not obtained by substituting cases into an inspected theorem. Same-day distinct records were compared on their statements, without assigning within-day priority.",
+        "searches": [
+          "Comparison of A053871, Lugo §6 and the Resultary unrestricted permutation Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Lugo pp.1,8 treats ordinary involutions, partial matchings and prescribed fixed-point counts, not positional signed frequencies. The prior six-vertex involution spectrum uses the 15 transposition edge bits rather than the fixed-label vector."
+        ],
+        "reasoning": "The mixed moment E[(Z-1)^k(Z+1)^(n-k)] realizes the exact signed transform. Neither ordinary marked counts nor the edge-bit spectrum states its all-order optimization.",
+        "searches": [
+          "Primary literature lookup: signed involutions, fixed-position Walsh, shifted Gaussian moments",
+          "Resultary: involution fixed-point profile and Walsh gap",
+          "Lugo, arXiv:0911.3604"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS lists 1,0,2,8,60,544,6040,79008 and the same recurrence. The exact Resultary match is the assigned record itself."
+        ],
+        "reasoning": "The sequence and recurrence are covered; the table does not identify the sequence as the minimum over every Walsh frequency.",
+        "searches": [
+          "OEIS A053871",
+          "Resultary: exact involution sign rigidity and sharp recovery gaps"
+        ]
+      },
+      "rationale": "The supported distinct result is the all-order positionwise Walsh sign, invertibility and sharp gap theorem for multiplicity-weighted involutions. The enumeration backbone and central sequence are known. Closest indexed permutation analogues do not specialize to this kernel.",
+      "residual_risks": [
+        "No independent access to the Chow–Mansour full text; an unindexed equivalent signed-involution treatment could exist. OEIS posting date and within-day ordering of distinct indexed results were not verified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Partial-matching enumeration background",
+          "evidence": [
+            "Sections inspected analyze path/cycle counts, not the positionwise signed gap."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0911.3604",
+          "material_read": "First-page definition and §6 prescribed fixed-point counts",
+          "method": "Bounded OA PDF passages",
+          "title": "The cycle structure of compositions of random involutions",
+          "trigger": "Primary enumerative involution precedent"
+        },
+        {
+          "assessment": "No independent full-text coverage determination",
+          "evidence": [
+            "Frozen record identifies scalar counting and generating functions in Prop. 7."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s11856-010-0088-8",
+          "material_read": "Citation and frozen description of §4, Prop. 7; no independent full text retrieved",
+          "method": "DOI and publisher access attempts",
+          "title": "Counting derangements, involutions and unimodal elements in the wreath product C_r wr S_n",
+          "trigger": "Possible general signed involution enumerators"
+        },
+        {
+          "assessment": "Different underlying permutation class and rank/sign claims",
+          "evidence": [
+            "Factorial binomial sum; only n=2 singular."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-dimension-free-walsh-recovery-of-permutation-fixed-point-s--fd9ec6453677",
+          "material_read": "Finding, Proof 1–2",
+          "method": "Local mirror bounded passages",
+          "title": "Sharp dimension-free Walsh recovery of permutation fixed-point sets",
+          "trigger": "Closest positional Fourier analogue"
+        },
+        {
+          "assessment": "Different support statistic on unrestricted permutations",
+          "evidence": [
+            "Exact two-cycle labels; longer cycles allowed."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-walsh-conditioning-and-central-frequency-minima-for-permut--b79c390c7b12",
+          "material_read": "Finding",
+          "method": "Local mirror bounded passage",
+          "title": "Sharp Walsh conditioning and central-frequency minima for permutation supports",
+          "trigger": "Other indexed central-frequency minima"
+        },
+        {
+          "assessment": "Signed matching sums on different coordinates at fixed n",
+          "evidence": [
+            "15 transposition-edge bits, not fixed-point incidence Walsh multipliers."
+          ],
+          "identifier_or_url": "2026/11/16/SCOPE-exact-six-vertex-involution-fourier-spectrum-and-sharp-projectio--4a2458c730e8",
+          "material_read": "Finding",
+          "method": "Local mirror bounded passage",
+          "title": "Exact six-vertex involution Fourier spectrum and sharp projection",
+          "trigger": "Indexed involution Fourier spectrum"
+        },
+        {
+          "assessment": "Covers scalar sequence, not multiplier minimum",
+          "evidence": [
+            "a_m=2(m-1)(a_(m-1)+a_(m-2)); matching interpretations."
+          ],
+          "identifier_or_url": "https://oeis.org/A053871",
+          "material_read": "Sequence, recurrence and interpretations",
+          "method": "OA page text",
+          "title": "OEIS A053871",
+          "trigger": "Exact values and recurrence match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The fixed-point incidence distribution is a natural marginal of involutions. The exact two exceptional orders, parity-dependent sign split, and complete location of the least multiplier determine when recovery works and its sharp l2 cost, uniformly in dimension. The result concerns an optimized invariant, not merely an evaluation of the known central sequence.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,162 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:41:29.344387Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The return of (F_n,F_(n+1)) to (0,1) is equivalent to M^n=I, so scalar periods equal matrix orders. Direct prime-level iteration gives 16 and 10; the two displayed powers are I+pB with unit upper off-diagonal in B. The binomial p-power lift gives v_p(F_(Pt))=1+v_p(t) for nonzero t, which proves the exact prime-power orders; gcd=2 and lcm=80·7^(a−1)·11^(b−1). For a period increment h=Pt with t nonzero, L_h+2 is a unit, so (L_h−2)(L_h+2)=5F_h² gives v_p(L_h−2)=2v_p(F_h). In the Fibonacci addition law, if L_r is a unit the term F_hL_n uniquely has the smallest valuation: the normalized Fibonacci branch is an isometry at each finite precision, giving one preimage per target in its residue disk. The excluded indices are 4 and 12 modulo 16 and 5 modulo 10. In those branches F_r is a unit, so the Lucas addition law instead makes the normalized Lucas map isometric and onto the divisible Lucas classes. The identity L_n²=5F_n²+4(-1)^n, with 10F_r a unit, then identifies the exceptional frequency with R_(p,k). For D=0 the root is divisible by p^ceil(k/2), giving p^floor(k/2) choices (including k=1); nonzero represented D has no root unless its valuation is even and the unit part is a square, and gives 2p^h roots when v_p(D)=2h≥2. Generalized CRT gives one index for each pair of equally paritied local indices, none otherwise. The seven-adic support sizes (even, odd, intersection) are (3A+2Q_7,4A,2A), A=7^(a−1), and eleven-adic sizes are (5B,2B+Q_11,B), B=11^(b−1), with Q at exponents a−2,b−2. Inclusion–exclusion yields the finite formula; Q_p counts squares and its normalized limit is the sum of the even valuation weights, p/[2(p+1)]. Substitution proves the two-variable density and discrepancy, not just a diagonal limit. A fresh recurrence replay checked complete parity tables and the root counts up to local exponent five and every composite fiber and support for all nine exponent pairs in [1,3]², including the stated support values 35, 1755 and 130525. Replay: python /workspace/replay_frozen.py 1. Finite checks do not establish the all-exponent theorem without the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first two primary sources prove local range statements, including 41/56 over powers of seven and 145/264 over powers of eleven. Carlip–Somer gives fixed-prime frequency bounds including singular recurrence cases. Lang–Lang characterize the residue-complete moduli, giving an obstruction to full image here but no density or fiber distribution.",
+          "The composite-period CRT principle in arXiv:2510.24882v4 p. 6 concerns periods of recurrences with varied initial values; this passage does not count targets in the fixed Fibonacci orbit."
+        ],
+        "reasoning": "Broader parameter coverage for image density, completeness or frequency bounds is not a stronger theorem on mixed exact fibers. Period lcm is inherited; counting simultaneous fiber solutions needs the distribution across the two shared index classes.",
+        "searches": [
+          "Bragman–Rowland arXiv:2202.00704v2, Theorem 1 and Propositions 24, 27",
+          "Rowland–Yassawi arXiv:1602.00176, Lemmas 17–19 and Theorem 20",
+          "Carlip–Somer DOI:10.21136/MB.2007.134189, abstract and Theorem 6.1",
+          "Lang–Lang arXiv:1304.2892, Theorem 2.5"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and referenced artifacts/verify_fibonacci_composite.py (inspected, not executed)",
+        "arXiv:2202.00704v2, 1602.00176, 1304.2892 and 2510.24882v4 (bounded passages)",
+        "Carlip–Somer DOI:10.21136/MB.2007.134189; Bundschuh–Bundschuh p. 1",
+        "Resultary IDs 2b765358240b, e48f16530325, be34cdadeedf and 9065fee25bef"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Once both full local parity tables are known, V=EE+OO is the direct generalized CRT count. The eleven-adic component is recoverable directly from the matched same-day proof. The seven-adic discriminant and branch support are strongly anticipated by the earlier local image theorem; counting all lifts of each singular discriminant at precision 7^a gives the finite fiber sizes, not merely membership.",
+          "The size of the union of the two compatible Cartesian products depends on the two parity intersections. Independent scalar prime-power densities or ordinary local multiplicities alone cannot supply those intersections or determine the mixed-law discrepancy."
+        ],
+        "reasoning": "Do not treat the CRT identity or its elementary lcm as a new theorem. The supported refinement is the fully evaluated finite-precision synchronized pushforward for all (a,b) and the consequent deficit against the product density. The checked sources do not already state a stronger result with both evaluated parity-resolved local frequency components and their mixed distribution.",
+        "searches": [
+          "arXiv:2202.00704v2, pp. 12–17 local branch and discriminant arguments",
+          "arXiv:1602.00176, Theorem 20 proof",
+          "Resultary e48f16530325, RESULT.md proof Steps 2–3 at offsets 3331–5492",
+          "Composite frequency/CRT query and bounded inspection of identified sources"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bragman–Rowland identify the regular 7-adic residues and the critical classes 4,12 mod 16; their p-adic interpolation and quadratic-root argument characterize the singular image. The two even critical branches are not new as branch loci.",
+          "The same-day exact 11-adic record e48f16530325 proves one preimage per regular class i mod 10 and an exact quadratic branch for i=5. Splitting its given initial residue list by parity gives the local E/O regular table, and all of the singular multiplicities are odd-indexed. This is established by its proof even though its theorem prints total local frequencies.",
+          "The seven-adic Lucas record be34cdadeedf concerns L_n, not the Fibonacci F_n; its use of a square relation is a method precedent, not an equivalent output fiber."
+        ],
+        "reasoning": "Equivalence is judged at finite precision, retaining actual index labels. Equal prime-power image sets do not specify how many preimages a target has. Parity is the common-period-class restriction, not the parity of the Fibonacci value or an obstruction to the residue CRT itself.",
+        "searches": [
+          "Resultary: parity-resolved mixed Fibonacci fibers, exact 11-adic Fibonacci multiplicities and seven-adic Lucas fibers",
+          "arXiv:2202.00704v2, Example 5, Lemmas 20–21 and Proposition 27",
+          "Fibonacci residues modulo composite modulus frequency Chinese remainder period parity 7 11 Fibonacci residue multiplicities product formula mixed moduli"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The identical result 2b765358240b is the frozen record itself. Same-day e48f16530325 gives the complete local eleven-adic classification; same-day 9065fee25bef gives exact Fibonacci fibers at 19^k; prior be34cdadeedf gives seven-adic Lucas fibers.",
+          "Bundschuh–Bundschuh give shortest-period Fibonacci and Lucas frequencies for 3^k, a different prime."
+        ],
+        "reasoning": "The eleven-adic comparison is a real partial overlap, without an inferred publication order. The Lucas, 19-adic and 3-adic data do not fill the other component or the mixed support table. The checked comparisons did not identify a distinct exact mixed table.",
+        "searches": [
+          "Resultary: exact Fibonacci fibers at 7^a11^b, prime-power exact multiplicities, and related same-day singular square branches"
+        ]
+      },
+      "rationale": "Pass is for the exact mixed Fibonacci frequency and support laws with the parity obstruction and quantified mixed density; it is not for the prime-power densities, local branch structure in itself, or CRT. The verified prior support results are substantial, and a same-day distinct index supplies the whole eleven-adic local frequency component already at proof level. None of the inspected stronger statements provides the parity-synchronized finite precision pushforward across both primes and the resulting mixed coefficient law without the additional finite-precision counts and synchronized support analysis.",
+      "residual_risks": [
+        "Same-day local precedence is unresolved; the proof-level eleven-adic overlap is credited irrespective of date.",
+        "An unindexed exact count or a stronger branchwise modular pushforward theorem could supply the mixed result. The 1991 CRT chapter was inaccessible and cannot be ruled out from its preview. No priority certification is inferred from search results."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers 41/56 and the local decomposition and discriminant mechanism; local support is not a mixed fiber formula",
+          "evidence": "The Lucas-zero indices are 4,12; nonsingular images are full disks and singular membership is analyzed via y²−√5zy−(−1)^i=0 and quadratic branching.",
+          "identifier_or_url": "https://arxiv.org/pdf/2202.00704",
+          "material_read": "v2 Theorem 1 and Example 5 p. 3; branch explanation p. 12, Lemmas 20–21 p. 13, Propositions 24 and 27 pp. 14,16–17",
+          "method": "Lawful OA PDF passages by offset",
+          "title": "Limiting density of the Fibonacci sequence modulo powers of a prime",
+          "trigger": "Exact prime-seven branch/support precedent"
+        },
+        {
+          "assessment": "Covers eleven-adic local range and density",
+          "evidence": "Six regular disks with residues 0,1,2,3,8,10, together with a disjoint critical image of F_5 in 5+11²Z_11, give 145/264.",
+          "identifier_or_url": "https://arxiv.org/pdf/1602.00176",
+          "material_read": "p. 15 Theorem 20 and proof, offset 49621, including its use of Lemmas 17–19",
+          "method": "Lawful OA PDF text",
+          "title": "p-adic asymptotic properties of constant-recursive sequences",
+          "trigger": "Exact prime-eleven local regime"
+        },
+        {
+          "assessment": "Explicit total fibers, with the local parity split already mechanically implied by its class-level proof; no mixed statement established",
+          "evidence": "Regular indices i≠5 each contribute one preimage per target in their disk, with initial list (0,1,1,2,3,5,8,2,10,1); the exceptional class is 5+10t and has an exact square normal form.",
+          "identifier_or_url": "Resultary 2026/11/22 ID e48f16530325",
+          "material_read": "RESULT.md Finding (1)–(2) and proof Steps 2–3, offsets 3331–5492",
+          "method": "Local catalog and mirror",
+          "title": "Exact residue multiplicities of Fibonacci numbers modulo powers of eleven",
+          "trigger": "Closest distinct exact local-fiber overlap"
+        },
+        {
+          "assessment": "Method and local invariant antecedents, not the exact mixed Fibonacci family",
+          "evidence": "The first counts Lucas fibers at 7^k and the second Fibonacci fibers at 19^k.",
+          "identifier_or_url": "Resultary IDs be34cdadeedf and 9065fee25bef",
+          "material_read": "Mirrored Findings and square-branch proof passages",
+          "method": "Local catalog and mirror",
+          "title": "Exact seven-adic Lucas residue fibers; Exact 19-adic Fibonacci residue fibers",
+          "trigger": "Similar singular branch exact counts"
+        },
+        {
+          "assessment": "Predicts incompleteness but not exact support sizes or frequencies",
+          "evidence": "The classified residue-complete family excludes the moduli here. The frozen citation uses a different title; the inspected identifier is the same.",
+          "identifier_or_url": "https://arxiv.org/pdf/1304.2892",
+          "material_read": "p. 3 Theorem 2.5, offset 10175",
+          "method": "Lawful OA PDF text",
+          "title": "Fibonacci Numbers and Residue Completeness",
+          "trigger": "Broader characterization of complete modular Fibonacci images"
+        },
+        {
+          "assessment": "Broader fixed-prime bounds, not the evaluated mixed law",
+          "evidence": "Gives bounds on prime-power frequencies for second-order recurrences, including p-singular terms.",
+          "identifier_or_url": "DOI:10.21136/MB.2007.134189",
+          "material_read": "Abstract and Theorem 6.1 p. 170, offset 82198",
+          "method": "Lawful OA PDF text",
+          "title": "Bounds for Frequencies of Residues of Second-Order Recurrences Modulo Prime Powers",
+          "trigger": "Possibly dominating regular or singular residue counts"
+        },
+        {
+          "assessment": "Different prime",
+          "evidence": "Evaluates shortest-period frequency functions for both sequences at powers of three.",
+          "identifier_or_url": "https://fq.math.ca/Papers1/49-3/Bundschuh2.pdf",
+          "material_read": "p. 1 abstract, offset 0",
+          "method": "Lawful OA PDF text",
+          "title": "Distribution of Fibonacci and Lucas Numbers Modulo 3^k",
+          "trigger": "Exact prime-power frequency precedent"
+        },
+        {
+          "assessment": "Period counts with variable initial values in the passage read; not a frequency-law comparison for fixed initial conditions",
+          "evidence": "The quoted CRT motivation is followed by a conjecture on the number of distinct periods modulo a prime under varied initial conditions.",
+          "identifier_or_url": "https://arxiv.org/pdf/2510.24882v4",
+          "material_read": "p. 6 passage around offset 19439",
+          "method": "Lawful OA PDF text",
+          "title": "Modular Periodicity of Random Initialized Recurrences",
+          "trigger": "Composite period/CRT search hit"
+        },
+        {
+          "assessment": "Coverage unresolved; not evidence against prior coverage",
+          "evidence": "The visible preview describes CRT congruence-solving algorithms and applications but is insufficient to decide its treatment of mixed Fibonacci frequencies.",
+          "identifier_or_url": "DOI:10.1007/978-94-011-3586-3_27",
+          "material_read": "Bibliographic and abstract-preview search hit only",
+          "method": "Attempted chapter PDF and identified alternate listing on lawful routes; full text not retrieved",
+          "title": "A Fast Algorithm of the Chinese Remainder Theorem and its Application to Fibonacci Numbers",
+          "trigger": "Plausible older CRT/Fibonacci overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The attained residues and their frequencies are natural invariants of the classical Fibonacci orbit. The smallest shared period modulus in this two-prime family enforces a concrete correlation: separate large local ranges do not combine independently. The exact all-target finite counts, support cardinality and nonzero asymptotic deficit quantify that correlation, covering the regular and ramified branches without orbit enumeration. This is more informative than an arbitrary finite modulus example or a repetition of the local image densities.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

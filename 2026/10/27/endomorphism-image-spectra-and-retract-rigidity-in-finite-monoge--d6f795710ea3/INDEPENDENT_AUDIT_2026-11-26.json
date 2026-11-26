@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:18:58.290698Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–66",
+        "Frozen VERIFICATION.md and verify.py (inspection only)",
+        "Independent partial-bijection closure and multiplication test in nine parameter cases",
+        "Elliott–Levine–Mitchell arXiv:2303.12387v2 §3, equation (5) and Theorem 10"
+      ],
+      "rationale": "A signed word in x traces a walk on the path. If the walk has span b<n, lower endpoint −a and final displacement c−a, it has domain [a,n−1−b+a] on the path and rotation c−a on the cycle. These give distinct triples 0≤a,c≤b<n; span at least n kills the path and leaves k distinct rotations. Any y in the resulting monoid has chains of length at most n and cycles of order dividing k (fixed points when the path restriction is idempotent). The same walks on y depend only on the triple or, for span ≥n, on the displacement modulo k. Thus every y determines a well-defined unital substitution, independently of presentation. Identity, nonterminal idempotents and bottom rotations give image sizes 1, 2 and d+1, respectively. A path translation by ±h on an interval of L=n−b starting vertices has longest chain of 1+ceil(L/h) vertices by restricting to a residue class modulo h, and the y-cycle order is d_h. Counting walk forms for y then gives B(1+ceil(L/h))+d_h, with 2(b−h+1) such translations for fixed b,h. The substitution fixes y if y is a partial identity; for a bottom rotation by u it fixes y iff u²≡u mod k. The latter solutions are 0 or 1 on each prime-power factor, yielding exactly the unitary-divisor subgroup orders. For a nonzero path translation t, idempotence requires t²=t, hence t=1; substituting the span-b walk into its length-(L+1) chain leaves at most max(L+1−b,0) path vertices in the domain, so equality forces b=h=1 and y=x. Surjectivity forces maximum chain length n and group order k, possible only for x and x⁻¹; the latter substitution squares to the identity. This gives the polynomial, counts, retractions, and fixed-k equivalent 3/(2n). The argument includes k=1, where the bottom identity is distinct from the ambient unit and its adjoined-unit monoid has size two. Independent enumeration and pairwise multiplication tests agreed for n=2,3,4 and k=1,2,3; at (2,1) the polynomial is z+3z²+2z⁶ and there are five idempotent endomorphisms.",
+      "residual_risks": [
+        "The citation for the presentation should point to §3, equation (5), not Theorem 10; the latter is the realization/classification. The attribution detail does not change the proof.",
+        "The supplied checker was not executed. The bounded independent enumeration corroborates only the specified nine cases."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first two sources cover the general underlying structure. Equation (5) supplies the defining relations used to permit all generator substitutions. Cho–Ruškuc address finitely generated subsemigroups of the free monogenic inverse semigroup and finite presentability."
+        ],
+        "reasoning": "The relations reduce admissibility to a walk saturation and cycle-period check. They do not attach multiplicities to image profiles or determine which substitutions fix their own images. Results about embeddings and finite presentability in the free object do not give a finite self-map classification.",
+        "searches": [
+          "Elliott–Levine–Mitchell arXiv:2303.12387v2 §3; Preston DOI 10.1017/S1446788700027543, Theorem 7; Cho–Ruškuc arXiv:2404.05244v2, §1"
+        ]
+      },
+      "checked_sources": [
+        "Elliott–Levine–Mitchell arXiv:2303.12387v2",
+        "Preston DOI 10.1017/S1446788700027543",
+        "Cho–Ruškuc arXiv:2404.05244v2",
+        "Resultary d8394c30e54e and 77e542c8edb6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known presentation and admissibility yield |End|=|S_{n,k}| from the normal forms. The later generator-rigidity result states exactly two generators f,f⁻¹ for a chain-bearing embedded inverse submonoid."
+        ],
+        "reasoning": "The latter gives the same upper bound on automorphisms, since an automorphism must send x to a generator and is determined by that image. Walk substitution gives the involution, hence the same C₂. That publicly dated later comparison is not a claim of earlier priority. Neither rigidity of generating pairs nor the underlying presentation counts the non-surjective substitution images or solves the retraction equation; those require the translation-span and modular-idempotence analyses.",
+        "searches": [
+          "Elliott–Levine–Mitchell §3 normal forms and classification; Resultary generator-rigidity passage in d8394c30e54e"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Preston classifies chain/cycle types, including the finite (r,s) case. Elliott–Levine–Mitchell Theorem 10 describes the chain-plus-cycle model with uniquely determined parameters and identifies Preston as the structural antecedent."
+        ],
+        "reasoning": "Rewriting the objects as finite chain/cycle types identifies the same family, not an existing theorem on its unital maps. Counting abstract inverse monoid types is different from counting maps on a fixed type, with image size as cardinality rather than partial-map rank.",
+        "searches": [
+          "Local Resultary and primary literature: finite monogenic inverse monoid self-endomorphisms, image sizes, idempotents and retracts",
+          "Elliott–Levine–Mitchell §3 and Preston Theorem 7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Records d8394c30e54e and 77e542c8edb6 give embedded inverse-submonoid enumerations by ambient configuration and generator profiles. The closest retrieved indexed results do not state the two-parameter self-endomorphism image polynomial or the unitary-divisor census."
+        ],
+        "reasoning": "An ambient embedded-subset census is not a table of endomorphisms of one fixed monoid. The exact indexed-result comparison is pertinent here; a one-dimensional term table could only check an arbitrarily chosen specialization of this bivariate parameter family.",
+        "searches": [
+          "Local Resultary: embedded monogenic inverse monoids and finite endomorphism/retract spectra"
+        ]
+      },
+      "rationale": "The classical presentation, walk forms and monogenic classification are prior structural input, and the automorphism count is close to their generator classification. The supported distinct content is the jointly quantified unital self-image-size polynomial and retraction census, including the exclusion of proper noncommutative retracts and the unitary-divisor restrictions on group-type retractions. The inspected prior statements do not supply that census.",
+      "residual_risks": [
+        "Equivalent self-map calculations under different finite quotient or Gluskin terminology are not exhaustively excluded. The comparisons do not claim priority for the ordinary walk forms, order formula, or generator rigidity."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Structural input and equivalent model, not the self-image and retract counts",
+          "evidence": "Equation (5) is the two-relation presentation. Theorem 10 gives the chain-plus-cycle model and uniqueness of its parameters.",
+          "identifier_or_url": "https://arxiv.org/html/2303.12387v2",
+          "material_read": "§3 equation (5), Lemmas 6, 8–9 and Theorem 10; equation at text offset about 12500, theorem at 23132",
+          "method": "Open paper passage inspection",
+          "title": "Counting monogenic monoids and inverse monoids",
+          "trigger": "Exact chain-plus-cycle family and its defining relations"
+        },
+        {
+          "assessment": "Prior type classification, not a census of self-maps",
+          "evidence": "Classifies monogenic inverse semigroups into types (r,s), (r,Fwd) and FI, with distinct isomorphism types.",
+          "identifier_or_url": "https://doi.org/10.1017/S1446788700027543",
+          "material_read": "Theorem 7, PDF p. 18 / journal p. 338 (text offset 47871)",
+          "method": "Open PDF passage inspection",
+          "title": "Monogenic inverse semigroups",
+          "trigger": "Classical classification in alternate notation"
+        },
+        {
+          "assessment": "Distinct objects and conclusion",
+          "evidence": "The problem concerns finite presentability of finitely generated subsemigroups of the free monogenic inverse semigroup.",
+          "identifier_or_url": "https://arxiv.org/html/2404.05244v2",
+          "material_read": "§1 beginning at text offset 0",
+          "method": "Open arXiv HTML passage inspection",
+          "title": "On Finite Presentability of Subsemigroups of the Monogenic Free Inverse Semigroup",
+          "trigger": "Closely related monogenic inverse-semigroup literature"
+        },
+        {
+          "assessment": "Generator rigidity is relevant to automorphisms; no self-image multiplicities or retract classification",
+          "evidence": "Only f and f⁻¹ generate the same inverse submonoid when h(f)≥1. The coefficient formulas count actual embedded submonoids by h and period.",
+          "identifier_or_url": "2026/11/2/SCOPE-embedded-monogenic-inverse-submonoids-a-chain-period-spectrum-an--d8394c30e54e",
+          "material_read": "RESULT.md Finding, generator-rigidity paragraph and census (offsets 600–2183)",
+          "method": "Local Resultary mirror passage inspection",
+          "title": "Embedded monogenic inverse submonoids: a chain-period spectrum",
+          "trigger": "Strongly related chain/cycle census and generator rigidity"
+        },
+        {
+          "assessment": "Embedded-subset counting rather than unital endomorphism counting",
+          "evidence": "Gives the embedded census and an asymptotic for nilpotent generators.",
+          "identifier_or_url": "2026/11/8/SCOPE-embedded-monogenic-inverse-submonoids-exact-census-and-a-square--77e542c8edb6",
+          "material_read": "RESULT.md opening finding",
+          "method": "Local Resultary mirror passage inspection",
+          "title": "Embedded monogenic inverse submonoids: exact census",
+          "trigger": "Exact related census in symmetric inverse monoids"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen image polynomial and retraction classification",
+        "Prior finite chain/cycle classification and embedded census passages"
+      ],
+      "rationale": "The standard finite monogenic inverse monoids form a natural class on which to ask how much of an inverse monoid survives a unital self-map. The result determines image-size multiplicities, not just which sizes occur, and reveals a stronger rigidity property: although noncommutative proper images may occur, proper idempotent images cannot be noncommutative. The latter follows from the interaction between path-width shrinkage and the idempotent congruence on the bottom rotations. This gives a complete calculation for natural self-map invariants beyond the abstract monoid census.",
+      "residual_risks": [
+        "Value is assessed for this finite unital family; no extension to arbitrary inverse semigroups or non-unital retractions is asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

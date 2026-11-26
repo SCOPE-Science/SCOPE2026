@@ -1,0 +1,96 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T13:26:50.788304Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With A high opponents earlier in the tie order and B later, the two ranks are 1+A and i+B. Their quadratic payoff difference has degree at most two; its Walsh constant is (N²+2Ni−N−4i+2)/8, singleton coefficients are −i/4 on earlier indices and (N+i−1)/4 on later ones, and pair coefficients are ±1/4 for pairs on the same side and zero otherwise. For each coordinate set U the gradients give the equal-coordinate line in the edge coefficient block, so subtracting its mean gives the residual. The only nonsingleton residuals are (N+i+j−1)²/32 per pair and 1/8 per triple. The pair sum before division by 32 is C(N,2)(N−1)²+2(N−1)² sum(i)+(N−2) sum(i²)+(sum(i))². In the total norm, writing k=i−1 and m=N−1, the numerator of the sum of singleton-coefficient squares is mN²+m²k−mk²; the quadratic terms sum to 2 C(N,3)/16. These sums and the constant coefficients yield exactly the stated T and H. For affine increments 1 the edge mean is (N−1)/2 and each singleton has magnitude 1/2, with opposing signs in each pair, giving H/T=1/N. The quadratic witness differs by the stated factorized excess; it ties at seven and is strict for all N>=8. My independent exact vertex-Laplacian replay /workspace/branches/audit_priority.py solved the normal equations directly from rank-sorted profiles (no edge Walsh coefficient computation), matched both energies for N=2 through 9 including 1919/2192 at N=8, and reproduced the seven-agent witness 53454277/62354880>6/7. For 2<=N<=6 it formed Q=H−T/N by polarization, verified its all-ones kernel vector and positive Schur pivots of the complementary principal minor (zero form at N=2), hence PSD on the whole space of increments. These checks and the analytic proof establish the exact threshold only for the stated uniform two-level complete-conflict model; there is no nonlinear optimum claim.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The priority-game primary abstract covers general conflict graphs for linear payoffs. The frozen record reports that the paper's affine optimality theorem for at least three levels does not cover the binary case, and that its binary results include N<=6 and an exact N=7 witness.",
+          "Resultary 3e56695ed673 concerns linear priority games on random G(n,p) and sparse-network transitions. Resultary 68659e78682c studies equilibrium prices on complete graphs, not orthogonal-projection shares."
+        ],
+        "reasoning": "Greater graph generality for affine payoffs does not answer nonlinear optimization on complete graphs. A priority-alphabet theorem for at least three levels has different strategy profiles and is not a binary dominance theorem.",
+        "searches": [
+          "arXiv:2610.05832v1 conclusion p. 12, Supplement §§S-N and S-E, Table S3; targeted primary lookup",
+          "Resultary 3e56695ed673 and 68659e78682c"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check_priority.py",
+        "Resultary fc84280c0552, 3e56695ed673, 68659e78682c",
+        "arXiv:2610.05832v1 p. 1; targeted supplement and conclusion retrieval attempts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The seven-agent witness has increments (9,8,6,4,2,1), whereas the new family's increments are (1,2,...,N−1) and give zero excess at seven.",
+          "The new sign factor comes from arbitrary-integer finite sums, not extrapolation from a table or padding of a smaller game."
+        ],
+        "reasoning": "Adding agents changes service ranks and the edge-space projection, so a counterexample on seven agents does not by restriction automatically improve the normalized full-game share at larger N. The explicit residual-to-total ratio is the new step.",
+        "searches": [
+          "Compare cited comparison form and witness, frozen RESULT.md §Proof 5, and Resultary all-size and complete-conflict claims"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The matching Resultary item fc84280c0552 uses the identical title, rank witness and all-population claim; it is the frozen record itself.",
+          "The primary abstract decomposes priority incentives into potential and harmonic parts and states a closed-form result for linear payoffs on every deterministic conflict graph."
+        ],
+        "reasoning": "Comparing harmonic-to-total energy with 1/N is exactly equivalent to comparing potential share with (N−1)/N under the frozen weighting. A formula for the linear-payoff components supplies the benchmark but not extremality against nonlinear payoffs.",
+        "searches": [
+          "Resultary: quadratic rank payoffs and binary-priority complete-conflict affine extremality threshold",
+          "Lin–Lan–Nguyen–Kawahara arXiv:2610.05832v1 and frozen RESULT.md lines 22–34, 82–98"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact Resultary match fc84280c0552 is the assigned item.",
+          "Frozen RESULT.md lines 82–90 attributes the seven-agent exact witness and reports Table S3 as finite floating-point evidence through N=12, not a proof. The table itself was not recovered, so these are author-reported entries and scope rather than independent transcription."
+        ],
+        "reasoning": "Credit prior small-N results and finite evidence as such. Finite signs cannot give the claimed all-N excess formula or prove the unrestricted failure tail.",
+        "searches": [
+          "Resultary exact factorized excess, N=8 share 1919/2192 and quadratic witness all N>=8",
+          "arXiv:2610.05832v1 Table S3 via targeted PDF and supplemental retrieval"
+        ]
+      },
+      "rationale": "Credit the affine benchmark, small-N comparison, and exact seven-agent example to prior work. The supported addition is the single explicit quadratic-payoff witness, with a closed-form positive excess for every N>=8, completing the population threshold. No distinct retrieved statement covers that unrestricted tail; finite signs are not an implication. The unresolved primary supplement access is recorded, not treated as negative evidence.",
+      "residual_risks": [
+        "The priority paper's decisive supplement and conclusion passages were not directly recovered. Their full content could include additional comparisons not in the abstract or frozen citation account. The originality judgment is bounded and does not certify historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Established general affine Hodge formulas in available text; no direct proof of all-N nonlinear witness in the retrieved passage. Finite threshold antecedents are attributed to the paper and independently reproduced here.",
+          "evidence": [
+            "Abstract states closed-form potential and harmonic components for linear payoffs on every conflict graph and deterministic tie-breaking protocol.",
+            "Frozen RESULT.md §Proof 5 and §Relationship specify small-population PSD, a separate N=7 witness and the limited numerical table."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.05832v1",
+          "material_read": "Primary PDF p. 1 abstract and author line; conclusion p. 12 and Supplement §§S-N/S-E and Table S3 located by frozen citation but passages not recovered",
+          "method": "Primary PDF preview, literal-query PDF/HTML passage attempts and focused literature lookup",
+          "title": "Priority Coordination Games: Hodge Decomposition and a Sharp Design Limit",
+          "trigger": "Same complete-conflict priority games and precise binary-extremality antecedents"
+        },
+        {
+          "assessment": "Identical assigned finding or different model/invariant, with no direct distinct coverage in the available summaries",
+          "evidence": [
+            "3e56695ed673: random-network linear Hodge error transitions and fluctuations. 68659e78682c: equilibrium price resonances rather than potential-share payoff extremality."
+          ],
+          "identifier_or_url": "fc84280c0552; 3e56695ed673; 68659e78682c",
+          "material_read": "Resultary scientific summaries",
+          "method": "Configured indexed search",
+          "title": "Exact population threshold; two thresholds and a Gaussian law; exact price resonances",
+          "trigger": "Exact self-match and strongest indexed distinct priority-game candidates"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The sign of the improvement, rather than its small numerical size at eight, answers when an affine rank rule ceases to maximize the potential component in this basic design model. A single strict monotone witness for every larger population replaces a finite pattern of isolated examples and gives a quantitative gap, so the sharp threshold is both motivated and useful without claiming the optimal nonlinear payoff.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

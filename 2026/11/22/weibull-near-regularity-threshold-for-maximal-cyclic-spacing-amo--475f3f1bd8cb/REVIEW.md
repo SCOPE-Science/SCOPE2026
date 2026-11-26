@@ -1,21 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is an asymptotic distribution for the deficit of the largest possible minimum cyclic gap among a fixed-size selected subset of independent circle points, and a total-variation approximation for the rare-subset count. The one-subset calculation is an exact Dirichlet-simplex volume transformation; it gives \(\Pr(A_I)=(m\varepsilon)^{m-1}\) for uniform sampling and a relative \(O(\varepsilon)\) correction for a positive Lipschitz density. If two distinct subsets overlap in \(k\) labels, conditioning on a common label forces the remaining \(2m-k-1\) independent observations into arcs of total width \(O_m(\varepsilon)\), establishing the joint bound. The dependency-graph Poisson argument consequently produces error \(O(n^{-1/(m-1)})\). Strictly continuous sampling removes threshold ties. These analytical steps, including the endpoint \(m=2\), were reconstructed; the finite checker's 321 deterministic assertions and 390,000 seeded trials corroborate specific calculations but are not substituted for proof.
+PASS
 
-## Originality — PASS against inspected sources
+Anchoring the labeled subset at its first point and ordering the other m−1 clockwise offsets produces the factor (m−1)! with unit gap Jacobian. Shifting by the minimum allowable gap leaves simplex mass mε; all its points differ from a rotated regular polygon by O_m(ε), giving the exact uniform probability and the Lipschitz O(ε) error in the density integral. Thus the mean differs from the claimed limiting intensity by O(n^−1). Conditional on a shared anchor, all 2m−k−1 other coordinates for a k-label overlap are independently confined to fixed arcs of total length O(ε); summation gives exponent −(m−k)/(m−1). Disjoint label sets give independence from all non-neighbors together, so the dependency-graph TV bound with mean adjustment has the stated rate. Zero count is exactly the strict survival event; at x=0 a regular selected subset has probability zero. The Fourier example follows by strict AM–GM or Jensen, and for m=3 only the paired harmonics survive integration. Independent replay: python3 /workspace/branches/independent_replay.py 2 (mpmath 1.3.0); integrates the m=2,3 Fourier densities and finite widths. The all-n claim follows from the argument, not this check or the supplied simulations.
 
-The closest motivating paper, Cunden et al., arXiv:2606.04837, treats a line with anchored endpoints and renewal spacings, not selected cyclic near-regular subsets. The broad circle U-max theorem of Nikitin and Simarova, arXiv:2010.04460, explicitly requires \(C^3\) smoothness near an extremum (A5) and a nondegenerate Hessian (A6); the minimum-gap kernel has a cusp there and exhibits a different scaling. The previously published fixed-sample circle Rips-loop result contains the same regular-polygon density product and resonance, but not the present growing-sample Poisson count or optimum law. A previously published circular scan result concerns tight clusters of consecutive sample points, not nearly equally spaced selected points. Both published records were examined in substantive full-result form. Classical dependency-graph Poisson approximation, the density product in isolation, and the harmonic resonance in isolation are credited, not claimed as new.
+## originality
 
-Historical geometric U-max and circle-coverage literature is extensive; an unlocated equivalent or implicit general theorem is a residual priority risk. Negative retrieval evidence is not treated as a proof of global novelty.
+PASS
 
-## Value — PASS
+The one-subset volume and regular-polygon density factor are prior tools, and no novelty is credited to those constants in isolation, the Poisson method, or the elementary two-point correspondence with diameter. The supported distinction is the growing-cloud arbitrary-subset minimum-gap extreme and count with a quantitative fixed-m TV bound and explicit nonuniform intensity. No inspected prior statement was found to cover that package or mechanically imply its nonsmooth m≥3 law.
 
-Selecting fixed numbers of circular sample points to maximize their smallest separation is a natural stochastic packing statistic motivated by recent optimal-spacing research. The sharp \(n^{-m/(m-1)}\) near-regularity scale, complete Weibull limiting law, actual total-variation rate, exact finite-subset probability in the uniform case, and sensitivity to the periodic sampling environment classify its rare optimal configurations. The result is not merely a renaming of the original line problem or a fixed-sample simplex identity, because dependence among \(\binom nm\) candidate near-regular configurations must be resolved.
+## value
 
-## Limits and remaining risks
+PASS
 
-The subset size and density stay fixed. The rate constants are not optimized and there is no claim of orientation-level point-process convergence, growing-subset-size universality, singular-density coverage, or algorithmic optimality. Independent scientific scrutiny of originality and proof has not been carried out.
+The minimum gap is the natural best-separation objective when selecting a fixed-size subset. The result identifies its different cusp scaling, quantifies how a nonuniform sample changes the chance of finding a well-spaced subset, and gives a finite-size error for the actual number of feasible subsets, not just the optimum. In particular the rate accounts for overlapping candidate subsets; neither a fixed-polygon calculation nor an elementary upper bound on the optimum gives this information.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

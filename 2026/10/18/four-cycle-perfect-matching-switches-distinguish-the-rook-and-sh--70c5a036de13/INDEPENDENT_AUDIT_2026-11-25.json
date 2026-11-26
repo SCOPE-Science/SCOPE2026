@@ -1,0 +1,157 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:05:13.240937Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, lines 26–63",
+        "VERIFICATION.md",
+        "enumerate.py, verify_certificate.py, independent.cpp (inspected)",
+        "certificate_output.txt and independent_output.txt (frozen recorded results)",
+        "Independent bounded replay: python3 /workspace/branches/a2daffc5-6acb-49bd-8cf0-0e7f227212ab/independent_recheck.py; corresponding exact_reproduction.json"
+      ],
+      "rationale": "A fresh enumeration from the two stated host graphs grouped the eight-edge perfect matchings by their six-edge subsets. Distinct matchings sharing six edges differ in exactly two different pairings of the same four vertices, hence in precisely one alternating four-cycle. All-source BFS on this alternative construction verified R: 2016 states, 6048 switches, component sizes 1368, 288 twice, and 72 isolated; S: 1920 states, 5280 switches, component size 1908 and 12 isolated. The radii/diameters (7,8), (14,14), (10,13), and all 576 degree-three vertices in the two 288 components were reproduced. The direct rook isolation proof also checks: exactly one horizontal edge per row and one vertical per column are necessary, horizontal pairs form an assigned C4 on the columns, and complementary incident-row pairs give distinct vertical pairs. Mixed pairs cannot switch: if the horizontal row meets the vertical edge, the needed same-column horizontal vertex would coincide with its endpoint; otherwise both horizontal vertices would need the vertical column.",
+      "residual_risks": [
+        "The frozen JSON checker tests the stated strong regularity parameters of the host data rather than binding each edge to the two definitions by itself; the fresh run starts with the explicit coordinate formulas, as do the original generators. No inference is made for longer switches."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The bipartite diameter bound concerns chordal bipartite graphs; switch-chain hereditary ergodicity and the reconfiguration complexity results do not compute the individual component sizes or the eccentricity distributions here."
+        ],
+        "reasoning": "Both hosts contain triangles, and neither the bipartite structural bound nor a decision or general sequence-length result supplies these exact numerical findings.",
+        "searches": [
+          "arXiv:1501.07725, pp. 1 and 5",
+          "arXiv:1705.05790, pp. 4 and 6",
+          "arXiv:1904.06184, pp. 1 and 9"
+        ]
+      },
+      "checked_sources": [
+        "Resultary named-pair and switch searches, including 87ccd434ee21, 1558a7631255, 4cb14dc867ef, 6d718ae5e302",
+        "arXiv:1501.07725",
+        "arXiv:1705.05790",
+        "arXiv:1904.06184"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The primary search yielded no relevant additional comparison. The inspected class results supply the operation and general decision/structural context, not an exact switch graph invariant for these hosts."
+        ],
+        "reasoning": "The negative statement about determination by strongly regular parameters requires a concrete pair with different profiles. No read theorem specializes to the exact witness data without an additional independent calculation.",
+        "searches": [
+          "arXiv:1705.05790, hereditary ergodicity characterization",
+          "arXiv:1904.06184, class-based reconfiguration results",
+          "Primary-literature query for rook/Shrikhande four-switch components"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The undirected non-loop transition graph of the four-cycle switch chain is exactly the space at issue. The local induced-matching record 1558a7631255 instead uses one-edge replacements of maximum induced matchings."
+        ],
+        "reasoning": "Graph identity alone does not identify either the state set or the exchange rule, so the induced-matching census does not cover the claim.",
+        "searches": [
+          "Resultary: rook Shrikhande four-cycle perfect matching switches/component counts; frozen matchings; K4 square K4 switch graphs",
+          "Dyer–Müller arXiv:1705.05790, switch transition graph"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-day 87ccd434ee21 is the homology character of the ordinary matching complex of P4 square P4; it is not a switch space or the rook host. Other hits concern induced matchings on the right graph pair, square switches on Q5, or Möbius ladders."
+        ],
+        "reasoning": "None of these inspected records has an exact entry with both the specified hosts and this switch rule. Same-day provenance is not treated as evidence of priority.",
+        "searches": [
+          "Resultary: matching reconfiguration for strongly regular graphs and graph-pair switch profile",
+          "Local mirror comparisons for 87ccd434ee21, 1558a7631255, 4cb14dc867ef, 6d718ae5e302"
+        ]
+      },
+      "rationale": "The move and graph pair are standard. No earlier theorem or exact catalogue entry checked determines the complete numerical component and distance profile for this switch operation on these two hosts. In particular the closely related records either change the states, the move, or the host.",
+      "residual_risks": [
+        "The bounded literature search cannot exclude an unindexed graph-specific computation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same kind of operation; relevant theorem has incompatible host hypotheses",
+          "evidence": [
+            "Bipartite setting and a distance bound, not an exact count for these two nonbipartite graphs."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1501.07725",
+          "material_read": "PDF pp. 1 and 5, offsets 0 and 19280, including chordal-bipartite diameter bound",
+          "method": "Bounded OA paper reads and literal term check",
+          "title": "On the switch Markov chain for perfect matchings",
+          "trigger": "Canonical four-switch chain and distance claims"
+        },
+        {
+          "assessment": "Matching move, but no applicable numerical profile",
+          "evidence": [
+            "Characterizes hereditary ergodicity; does not supply the component census of these particular hosts."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1705.05790",
+          "material_read": "PDF pp. 4 and 6, offsets 10710 and 17220, definitions and hereditary ergodicity",
+          "method": "Bounded OA paper reads and literal term check",
+          "title": "Counting perfect matchings and the switch chain",
+          "trigger": "Nonbipartite switch-chain results"
+        },
+        {
+          "assessment": "General/graph-class results do not compute these radii or sizes",
+          "evidence": [
+            "Tractable-class reconfiguration and bounds concern different claims."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1904.06184",
+          "material_read": "PDF pp. 1 and 9, offsets 0 and 34510, complexity and sequence bounds",
+          "method": "Bounded OA paper reads and literal term check",
+          "title": "The Perfect Matching Reconfiguration Problem",
+          "trigger": "Same four-cycle reconfiguration problem"
+        },
+        {
+          "assessment": "Different mathematical object",
+          "evidence": [
+            "P4 square P4, not K4 square K4; ordinary matching complex, not perfect-matching switches."
+          ],
+          "identifier_or_url": "Resultary 2026/10/18, 87ccd434ee21",
+          "material_read": "RESULT.md finding (offset 0)",
+          "method": "Local catalogue mirror",
+          "title": "The full D4 homology character of the 4×4 grid matching complex",
+          "trigger": "Same-day 4×4 graph and matching invariant"
+        },
+        {
+          "assessment": "Thematic overlap only",
+          "evidence": [
+            "216 connected rook states and 32 isolated Shrikhande states refer to maximum induced matchings with one-edge exchange."
+          ],
+          "identifier_or_url": "Resultary 2026/10/25, 1558a7631255",
+          "material_read": "RESULT.md finding (offset 0)",
+          "method": "Local catalogue mirror",
+          "title": "Induced matching polynomials and optimal exchange geometry of the rook and Shrikhande graphs",
+          "trigger": "Exact host pair and exchange properties"
+        },
+        {
+          "assessment": "Different host families",
+          "evidence": [
+            "The hosts are Q5 and Möbius ladders, respectively."
+          ],
+          "identifier_or_url": "Resultary 2026/11/2, 4cb14dc867ef; 2026/10/26, 6d718ae5e302",
+          "material_read": "Both RESULT.md findings (offset 0)",
+          "method": "Local catalogue mirror",
+          "title": "Square-switch components of perfect matchings of the five-cube; Lucas-cube flip geometry on Möbius ladders",
+          "trigger": "Same operation and exact component data"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, strongly regular host assumptions and exact distance profiles",
+        "Dyer–Müller arXiv:1705.05790 (switch-chain context)",
+        "Independent component and degree census"
+      ],
+      "rationale": "Rook and Shrikhande are the canonical same-parameter nonisomorphic pair. Their complete switch profiles give a concrete witness that those parameters do not control the frozen states or the exact distances in this natural reconfiguration process. The two cubic diameter-14 rook components and the single large Shrikhande component are more informative than simply observing that both switch chains are disconnected.",
+      "residual_risks": [
+        "Neither mixing times nor behavior of other strongly regular graphs is determined."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

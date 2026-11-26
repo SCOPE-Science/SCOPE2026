@@ -1,9 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** A selected line-graph vertex corresponds to an original edge. After the domination step the remaining white vertices are exactly the edges induced by vertices untouched by the selected edge set. The number of white neighbors of any observed boundary edge is the residual degree of its uncovered endpoint. For complete multipartite graphs, residual graphs with an edge have minimum degree at least two unless they are stars. This proves a complete if-and-only-if classification: residual stars force entirely in one parallel round, whereas the other residual graphs offer no legal first force. Explicit inclusion-exclusion over all selected edge-cover supports proves the cardinality polynomial, including the nonempty-selection boundary. Previously known triangular and rectangular rook special cases are excluded from the new claim. A standalone exhaustive propagation simulator and a separate coefficient calculator support the proof on finite inputs; neither is used for infinite extrapolation.
+## correctness
 
-**Originality — PASS, with residual risk.** The 2018 foundational power-domination-polynomial article treats other families and general structural identities, but does not state the all-set complete-multipartite line-graph theorem. Previously established mathematical results already supply full rook-graph and triangular-graph power domination polynomials, and their cases are excluded from the novel domain. A published result of Soh and Koh gives the scalar power domination number for products of complete graphs; this already-known scalar is expressly not the novelty claim. The 2021 article about middle graphs works with a different underlying graph, and the full 2024 rook-graph polynomial of Mertens concerns ordinary domination rather than power domination. Searches of mathematical research records and existing accessible findings under line graph, Cartesian product, rook graph, edge-power domination, triangular graph, residual star, and power-domination-polynomial synonyms uncovered no dominating theorem for three or more parts including a non-singleton part. The full 2011 thesis by Varghese could not be read, so priority risk is acknowledged rather than silently dismissed.
+PASS
 
-**Value — PASS.** The result is a natural all-parameter structural theorem for power propagation under the line-graph operation, with a rare zero-or-one-round dichotomy and a complete polynomial, not merely a scalar invariant. It simultaneously gives the cardinality and one-round propagation distributions across an arbitrary number of multipartite parts, while identifying the qualitative obstruction caused by three simultaneously untouched parts. The mixed multipartite cases are not subsumed by either previously covered two-part rook graphs or all-singleton triangular graphs. This is a natural complete classification over a genuinely broader graph class, although the proof reuses the basic incidence viewpoint employed in the boundary cases.
+An edge is initially observed in the line graph exactly when it meets the set T of selected endpoints. An observed edge wholly in T has no unobserved neighbor, while an observed boundary edge xy with y outside T has exactly deg(G[V\T],y) unobserved neighbors. Since nonempty S meets at least two parts, every uncovered vertex has an observed boundary edge to a covered vertex in a different part. The induced uncovered complete multipartite graph is either edgeless, a star (every edge can be forced simultaneously at a leaf), or of minimum degree at least two (no force can begin). For fixed uncovered counts, choose the uncovered labels, then apply inclusion–exclusion over missed labels among the remaining vertices; the empty remaining vertex set contributes zero after subtracting the empty selection. This verifies both size and round exponents, with zero measured after initial domination. An independent direct propagation enumeration agreed coefficientwise with the bivariate formula on (1,1,2), (1,2,3), (2,2,2), (1,1,1,3), and separately on the bipartite example (3,3).
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Pass for the mixed multipartite joint cardinality/propagation enumerator and its structural classification as assessed against the accessible earlier statements. The later general endpoint–forest result covers the feasibility condition and explains its specialization, but does not supply earlier priority or the round-resolved polynomial. The same-day all-singleton result is a boundary analogue and is outside the claim; ordinary rook domination and scalar power domination are not the joint enumerator.
+
+## value
+
+PASS
+
+Two selected sets of the same size can require different propagation effort. The exact joint distribution, valid for arbitrary mixed part sizes, identifies precisely when propagation can start and why it then terminates in one round; it is more informative than the minimum number or ordinary domination polynomial. The residual classification isolates the obstruction from three occupied uncovered parts, absent in the rook case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

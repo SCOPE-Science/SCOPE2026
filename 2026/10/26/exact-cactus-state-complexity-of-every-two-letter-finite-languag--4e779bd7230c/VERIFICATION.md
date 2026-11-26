@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Mathematical verification
+# Independent mathematical audit
 
-The main theorem is proved by the three-layer trimming lemma, a rectangle-cover lower bound, the cactus prohibition on three middle neighbors of one final state, and a cycle-disjoint pairing construction. The known Sperner antichain theorem yields the special inequality-language rank exactly.
+## correctness
 
-Run `python verify_boolean_rank.py` with Python 3.9+ and no third-party modules. It exhausts all 15 nonempty two-by-two relations and all 511 nonempty three-by-three relations and verifies that the resulting automata accept exactly the prescribed length-two words, no words of other lengths through length four, and have a bipartite cactus underlying graph. It checks antichain-optimal constructions for inequality relations with 2–14 symbols. Expected terminal marker: `VERIFY_OK`.
+PASS
 
-The checker is not an exhaustive proof for arbitrary alphabet sizes; the symbolic arguments in `RESULT.md` supply that proof. Full-text inspection of the newest source remained incomplete, which is a literature-review risk rather than a mathematical-validation result. Independent audit was not performed.
+Trimming preserves the language and graph restriction. A state on successful paths cannot occur at depths i and j with i≠j, because one common successful suffix would yield two accepted lengths. All surviving transitions increase depth by one (any transition between trim states lies on a successful computation). Every middle state contributes the rectangle of its first and second labels; their union is exactly R. Hence the unrestricted minimum is b(R)+2. Three different middle neighbors of one final yield two four-cycles sharing an edge at the start, so each final serves at most two middle states. Pairing the middle states from an optimal cover attains the resulting bound as a bipartite cactus, including a singleton when needed. For inequality, sets of rectangle indices containing each row symbol constitute an antichain because every ordered off-diagonal pair must be covered; equal-size subsets give the converse. Any null rectangle in the converse would reduce the number below the proved Sperner lower bound. Nonemptiness and k≥2 are used in the respective statements.
+
+## originality
+
+PASS
+
+The supported distinction is the exact cactus state cost for arbitrary nonempty length-two relations. The unrestricted rectangle construction, the classical Sperner bound, and the already covered diagonal specialization are not separate originality claims. The nearest inspected primary theorems do not give this general constrained state cost.
+
+## value
+
+PASS
+
+This is a complete sharp answer for a natural class of languages, relating a graph restriction on nondeterministic representations to a well-defined Boolean-rank invariant. It separates the reachability labeling cost from the exact cost of grouping finals, and shows that restricted-state overhead tracks the relation rather than the alphabet size (linear for equality versus logarithmic for inequality). This is a constrained optimization result, not a new claim for the standard Sperner calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

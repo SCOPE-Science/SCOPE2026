@@ -1,19 +1,21 @@
-# Scientific review: OR3 ratio-exponential parameter frontier
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The density numerator is derived from the exact OR3 expression and checked by symbolic differentiation. At fixed \(t=(1-x)(1-y)\), it is affine in the other symmetric coordinate and its minima occur at diagonal/axis endpoints. For negative \(a\), the sharp corner necessary condition is sufficient by the global bounds \(P\le1\) and \(Pw\le1\), not by any finite computation. For positive \(a\), axis positivity reduces the exact validity criterion to the diagonal. The two opposite parameter examples are certified by a uniform elementary inequality and an exact rational enclosure of the exponential.
+PASS
 
-## Originality
+For b>=0 the denominator is positive and the margins are uniform. Continuous mixed-density nonnegativity is equivalent to two-increasingness; a negative boundary density also gives a negative interior rectangle by continuity. For C=xy g(t), t=(1-x)(1-y), differentiation gives g-hg'+xy t g'', where h=x+y-3xy. For OR3 the resulting numerator is affine in s=(1-x)+(1-y) at fixed t, with attainable endpoints 2sqrt(t) and 1+t. On the positive side the axis endpoint is positive, leaving exactly the displayed diagonal test. On the negative side put k=-a and w=kt. At (0,1) one needs k<=b+1; under this bound P=k/(1+b exp(w))<=1 and Pw<=1, the latter by exp(w)>=1+w and w<=b+1. For z>=b the numerator divided by (b+z)^2 is at least 1-P, and for z<b it is at least 1-P+Pxy(1-w), nonnegative by the two bounds. This includes b=0 and equality at the frontier. The valid (2,1) witness follows from 1-exp(-2v^2)<=2v^2<=2v. At (21,20) and x=y=2/3, the witness is the quadratic (3600-3560z+205z^2)/9 with z=exp(7/3); exact Taylor bounds give 10<z<11, and convexity with negative endpoint values certifies failure.
 
-**PASS, with disclosed historical risk.** Chesneau (2023), https://doi.org/10.3390/sym15050977, supplies the original copula and its sufficient \(|a|\le1\) rectangle, not the sharp negative-side frontier. Manstavičius and Bagdonas (2022), https://doi.org/10.1016/j.fss.2020.12.022, already give a general twice-smooth independence-copula transformation characterization, which is credited. The new claim is its nontrivial OR3-specific sharp evaluation and concrete validity contrast; no novelty for the ambient class characterization is claimed. The 2022 full text was inaccessible despite lawful retrieval attempts, so an equivalent embedded specialization cannot be excluded. Two other relevant 2023 copula articles have different mathematical forms. Search absence does not certify priority.
+## originality
 
-## Value
+PASS
 
-**PASS.** This supplies a necessary-and-sufficient parameter boundary on the entire nonpositive branch, a rigorous positive-side diagnostic requiring only one coordinate, and an exact example showing the natural full symmetric corner rectangle would include an invalid model. These facts materially refine the admissible dependence models rather than merely recomputing a supplied table.
+The supported distinct result is the evaluated sharp negative frontier for OR3 for all b>=0 and its certified contrast with the positive side. The original expression, density, published sufficient rectangle and b=0 exponential special case are prior. The one-dimensional test is a family-specific formulation of a general affine-endpoint calculation, not credited as a new universal transform characterization. The closest accessible statements do not cover the family-specific sharp inequalities or directly imply the asymmetric boundary behavior.
 
-## Limits
+## value
 
-The positive-parameter criterion remains univariate with a continuum quantifier; no closed boundary formula is claimed. The 2022 general transformation paper may contain additional implications not verifiable from its accessible abstract. There is no independent external mathematical validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact sharp negative interval resolves an actual domain question for an existing copula family. The positive diagonal criterion reduces continuum checking to one variable and identifies what the corner bound misses: two exact examples on a=b+1 distinguish a valid extension from a genuine interior obstruction. This matters for selecting legal parameters, not merely comparing pointwise bounds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

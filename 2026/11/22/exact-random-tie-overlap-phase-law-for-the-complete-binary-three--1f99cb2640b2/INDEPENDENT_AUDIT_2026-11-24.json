@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:08:57.444027Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–69",
+        "VERIFICATION.md, verify_literal.py, verify_paths.py and the two frozen outputs (inspected, supplied code not executed)",
+        "/workspace/branches/f61d62b8-9f50-46c7-9170-bf7c2b463e23/independent_phase_dp.py and independent_phase_dp.out (independent exact replay)"
+      ],
+      "rationale": "A legal transition removes two current strings and inserts their literal merge. Averaging over every maximal-overlap ordered pair, before identifying equal successor states, is the exact conditional law. The substring-free invariant also follows directly: a third string newly contained in a merge but contained in neither parent must cross the entire glued interval and extend both ways; this yields a suffix-prefix overlap with the left parent greater than the chosen maximum. Containment of the merge in a third string would imply containment of a parent. Any outgoing overlap of the merge longer than its right parent would embed that parent in the other string, and the incoming argument uses the left parent symmetrically. Shorter overlaps are endpoint overlaps and are bounded by the old maximum. Thus the maximum never exceeds the initial two and there are exactly seven merges. A separate exact forward DP on literal strings, annotating each path by its phase counts, reproduced all seven cells and the five length probabilities, normalization and mean 167269939/14968800, independently of the endpoint-index calculation. Length starts at 24 and each merge removes exactly its overlap. Eight distinct three-windows require at least ten characters; 0001011100 contains all eight. In the length-fourteen witness the first four choices have overlap two, after which only the two indicated overlap-one moves and a final overlap-zero move are needed, all legal. The exact table gives positive mass at both extremes and no length outside 10 through 14.",
+      "residual_risks": [
+        "Only the uniform ordered-pair tie law on the stated finite instance is checked; uniform distinct successor states is not substituted for the tie rule."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chukhin et al. report the worst-case greediness ratio 9/5 at input length three over the general alphabet; Theorem 5.1 and Proposition 5.2 in the expanded comparison give a bound and an attainability construction.",
+          "Golovnev et al. give a graph-theoretic superstring framework and discuss the short-input case in the abstract."
+        ],
+        "reasoning": "A worst-case bound, an extremal construction and a graph encoding do not determine the probability of each signature on a fixed binary instance.",
+        "searches": [
+          "Chukhin et al. arXiv:2608.20018 abstract and Lemma 2.2",
+          "Chukhin et al. arXiv:2609.01365v2 §5",
+          "Golovnev et al. DOI 10.4230/LIPIcs.APPROX-RANDOM.2019.26"
+        ]
+      },
+      "checked_sources": [
+        "Resultary f43f5caa07c5, a4c0a785c07b and 570894b19121",
+        "arXiv:2608.20018 and 2609.01365v2 localized passages",
+        "Golovnev et al. abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier same-input census expressly makes no claim about typical tie-breaking, and the endpoint lemma supplies overlap weights but not total or branch-specific history masses.",
+          "The exact adjacent 4-mer result has a different set of original overlap edges and does not identify the three-word endpoint process with its own."
+        ],
+        "reasoning": "To get the exact atoms, one must weight every step by its varying tie denominator and aggregate complete histories; endpoints and the representation lemma do not perform that calculation. In particular, lengths 12 and 13 each arise from distinct phase signatures, not determined by an extremum record or even by their length masses alone.",
+        "searches": [
+          "Resultary f43f5caa07c5 limitations and census row",
+          "arXiv:2608.20018 Lemma 2.2",
+          "Resultary a4c0a785c07b Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same-input census row 255,8,10,14 identifies all eight words and the two extrema.",
+          "Chukhin et al. Lemma 2.2 gives equality of literal overlap and endpoint-word overlap. The focused search returned off-topic results and provided no scientific evidence."
+        ],
+        "reasoning": "The endpoint-path representation is a known equivalent of the literal string process. The full-set row uses a different observable: extrema over legal paths do not specify the weighted path law under uniform ordered-pair choices.",
+        "searches": [
+          "Resultary f43f5caa07c5, census row for full binary three-word set",
+          "arXiv:2608.20018 Lemma 2.2 and arXiv:2609.01365v2 §5",
+          "Primary query: greedy shortest common superstring exact random tie breaking probability distribution complete binary set eight strings length three de Bruijn 000 111 10 14"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact same-instance 255-subset census row is 255,8,10,14, and its text excludes typical tie-breaking.",
+          "The a4c0a785c07b Finding gives a uniform ordered-tie output law for a particular set of eight binary 4-mers. The 570894b19121 Finding gives lengths 19 through 27 attainable over legal ties for all sixteen binary 4-mers."
+        ],
+        "reasoning": "The exact table match is only at the two extremes. The same-day 4-mer records concern different word lengths and inputs; the spectrum result additionally uses existential, not random, tie choices.",
+        "searches": [
+          "Resultary f43f5caa07c5, census.csv",
+          "Same-day Resultary a4c0a785c07b and 570894b19121"
+        ]
+      },
+      "rationale": "The endpoints 10 and 14 are already covered for the identical input; neither is credited as new. The distinct finding is the exact distribution over all tie histories, including the seven overlap-count cells and their length probabilities. The strongest inspected prior same-input census reports only worst legal ties, and the closest same-day probabilistic result is for a different 4-mer input. The primary literature inspected provides an endpoint reduction and worst-case bounds, not the exact pushforward.",
+      "residual_risks": [
+        "An unindexed equivalent exact tie law remains possible. Same-day method analogues give no priority ordering, and an off-topic query return is not negative evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identical instance and endpoints; exact phase law not covered by the stated result",
+          "evidence": "Row 255,8,10,14 and exclusion of typical tie-breaking in the scope statement.",
+          "identifier_or_url": "2026/11/8/SCOPE-sharp-binary-three-word-greedy-superstring-ratio-and-all-equalit--f43f5caa07c5",
+          "material_read": "RESULT.md Finding near offset 0 and limitations near 5105; census.csv row near 2316",
+          "method": "Resultary and local mirrored text passages",
+          "title": "Sharp binary three-word greedy-superstring ratio and all equality cases",
+          "trigger": "Exact census for the identical input"
+        },
+        {
+          "assessment": "Structural antecedent and worst-case bound",
+          "evidence": "Endpoint-word overlap equals current-string overlap and is ≤k−1; worst-case ratio for length three is 9/5.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.20018",
+          "material_read": "Abstract p. 1 offset 1901; Lemma 2.2 p. 3 offset 10540",
+          "method": "Lawful OA PDF passages",
+          "title": "The Greedy Superstring Algorithm Achieves Ratio 2 for Strings of Length 6 Already",
+          "trigger": "Exact endpoint reduction and results for length-three inputs"
+        },
+        {
+          "assessment": "Worst-case claim, not a probability law for this fixed input",
+          "evidence": "Theorem 5.1 and Proposition 5.2 give the length-three bound and an example where greedy may attain it.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.01365v2",
+          "material_read": "§5, p. 23 near offset 82731",
+          "method": "Lawful OA PDF passage",
+          "title": "The Greedy Superstring Conjecture Is False",
+          "trigger": "Strong general fixed-word-length bound"
+        },
+        {
+          "assessment": "Framework comparison only; no whole-document absence inferred",
+          "evidence": "Graph-theoretic SCS formulation and a short-input special case.",
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.APPROX-RANDOM.2019.26",
+          "material_read": "Abstract at extracted offset 0",
+          "method": "Lawful OA text passage",
+          "title": "Collapsing Superstring Conjecture",
+          "trigger": "Classical overlap representation for short inputs"
+        },
+        {
+          "assessment": "Related method, different eight-word input",
+          "evidence": "Uniform independent maximal ordered-pair ties, but on eight specified binary words of length four.",
+          "identifier_or_url": "2026/11/22/SCOPE-the-exact-random-tie-output-law-of-a-binary-four-mer-greedy-supe--a4c0a785c07b",
+          "material_read": "RESULT.md offsets 0–3096",
+          "method": "Resultary and local mirrored text passage",
+          "title": "Exact random-tie output law of a binary four-mer greedy superstring obstruction",
+          "trigger": "Same-day exact random-tie law"
+        },
+        {
+          "assessment": "Different complete input and different observable",
+          "evidence": "All sixteen 4-mers, attainable lengths 19 through 27 under arbitrary legal ties.",
+          "identifier_or_url": "2026/11/22/SCOPE-complete-greedy-superstring-length-spectrum-for-the-binary-four--570894b19121",
+          "material_read": "RESULT.md offsets 0–2096",
+          "method": "Resultary and local mirrored text passage",
+          "title": "Complete greedy superstring length spectrum for the binary four-mer universe",
+          "trigger": "Same-day exact complete binary universe computation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 5–36 and 59–69",
+        "Resultary f43f5caa07c5 same-instance census"
+      ],
+      "rationale": "The complete binary three-word universe is a natural fixed de Bruijn instance, not a selected collection with arbitrarily tuned tie behavior. The exact law distinguishes how often greedy is optimal from how badly it can fail and separates histories with the same output length, including length 12 with and without a zero-overlap merge. These are useful repeatable benchmarks for random tie policies that the known extrema cannot supply.",
+      "residual_risks": [
+        "The exact distribution is finite and specific to the stated tie policy and complete binary length-three input; no extension or universal approximation claim is made."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

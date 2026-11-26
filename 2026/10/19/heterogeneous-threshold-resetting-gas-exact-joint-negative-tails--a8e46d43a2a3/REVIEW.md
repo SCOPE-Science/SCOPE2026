@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The killed Brownian transition density follows by reflection. Product survival decays as a positive constant times \(t^{-N/2}\), guaranteeing finite mean regeneration periods exactly for \(N>2\). The stationary occupation formula is an honest probability distribution. The joint negative tail reduces to an exact product of short Gaussian interval integrals. Its scaling limit is justified, not merely guessed, by an explicit integrable envelope \(s^{-N/2}\exp(-c/s)\) for every nonempty tagged set. Gamma integration gives the precise amplitude, taking ratios gives the threshold-invariant tail-dependence tensor, and tail integration gives the sharp marginal moment cutoff. The quadrature script runs against the same stationary integrals with three parameter sets, subset variation, and threshold perturbation; it corroborates, but does not prove, the infinite limit. The theorem's exact quantifiers exclude \(N\le2\), vanishing relative depths and varying-parameter limits.
+## correctness
 
-## Originality — PASS, qualified by residual implicit-coverage risk
-The closest complete primary source is Biroli–Majumdar–Schehr, arXiv:2512.00440, equations (1)–(13) and subsequent large-\(N\) analysis. Its homogeneous regenerative stationary formula is prior work, not a contribution here. The present result provides a new joint algebraic **extreme-negative tail classification for every nonempty tagged set with arbitrary heterogeneous diffusivities and triggering thresholds**, plus an invariant conditional tail-dependence coefficient and the finite-\(N\) marginal moment cutoff. The inspected source does not state these results. Biswas–Majumdar–Pal, arXiv:2504.13501, studies completion times, not stationary tails. The Poisson-rate resetting gas of arXiv:2211.00563 has a different mixing survival structure. Actual targeted research-record searches returned no implication-equivalent entry. A broad regenerative-mixture or multivariate regular-variation theorem might contain this as a corollary; that possibility is expressly not excluded, and search absence is not taken as uniqueness proof.
+PASS
 
-## Value — PASS
-The gap is mathematically motivated by the 2025 finite-\(N\) stationary first-passage-resetting gas, which has a long-lived common age but whose reported observables primarily use large-\(N\) typical positions. The result determines precise simultaneous far-left failure probabilities for **unequal** particle mobilities and unequal firing thresholds, an exact nonzero extremal-dependence law that is unexpectedly independent of the thresholds, and the precise moment existence boundary. The cutoff matters because stationary means and variances used for ordinary correlation statistics fail at small but stationary population sizes. These natural invariants have concrete use in risk, collective threshold events, and the interpretation of moment-based statistics; they are not an arbitrary numerical slice.
+Independence and the one-sided reflection principle give S_i and the killed kernel at variance 2D_i t. The cycle mean is μ, finite and positive for N>2 by the t^(−N/2) survival product. Finite-mean nonlattice regeneration at the common zero gives the stationary normalized cycle occupation measure. Integrating each tagged killed kernel to −Rc_j gives the Gaussian integral over [Rc_j,Rc_j+2L_j]; an untagged kernel instead integrates over [−L_i,L_i]. Independently of the frozen dominated-convergence argument, let U_i be independent uniforms over these respective intervals. Tonelli permits integrating t first, giving the exact joint probability A Γ(ν)4^ν/μ times E[(∑ U_i²/D_i)^(−ν)]. Since J is nonempty and the tagged depths are fixed positive, the scaled quadratic form converges uniformly over the windows to ∑ c_j²/D_j and stays bounded away from zero. This yields the claimed limit and positive prefactor for every J, including all coordinates. Dividing the pair constant by the one-coordinate constant gives (D_j/(D_i+D_j))^ν. The bounded positive side and tail integration give exactly p<N−2 and logarithmic divergence of the boundary truncated moment. Independent compact-box quadrature reproduced μ≈0.35698468349 and limiting constants 1.16798046352 and 0.38932682117, and tested a pair at unequal depths.
 
-## Closest sources and limits
-Biroli–Majumdar–Schehr, *First Passage Resetting Gas*, arXiv:2512.00440 (full open HTML inspected); Biswas–Majumdar–Pal, *Target Search Optimization by Threshold Resetting*, arXiv:2504.13501 (full open text inspected); Biroli et al., *Extreme Statistics and Spacing Distribution in a Brownian Gas Correlated by Resetting*, arXiv:2211.00563 (abstract and bibliographic description inspected). Homogeneous density, regenerative constructions, and the \(N>2\) stationary existence threshold belong to prior work. Independent scientific confirmation and exhaustive exclusion of general-theorem coverage have not been established.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct contribution is the sharp joint coefficient across all nonempty tagged subsets of an arbitrarily heterogeneous system, including its common-depth conditional consequence. The exact homogeneous stationary mixture, N>2 cutoff, and homogeneous case of the tail theorem are covered. The strongest exact overlapping catalogue statement has common D and L, plus a conditional age law; it cannot normalize away arbitrary ratios L_i/√D_i. The external-interval stationary mixture does not give the killed conditional kernels of this state-triggered reset model. No inspected statement establishes the fully heterogeneous joint asymptotic or its parameter dependence.
+
+## value
+
+PASS
+
+A single finite population has a genuinely shared heavy-tailed renewal age. The exact directional coefficients quantify which large excursions still co-occur at a common physical depth, and distinguish dependence on diffusivities from the thresholds that affect the absolute rates. The moment cutoff also gives concrete integrability information in a stationary regime. These are natural observables of the model; the heterogeneous family is not an arbitrary parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

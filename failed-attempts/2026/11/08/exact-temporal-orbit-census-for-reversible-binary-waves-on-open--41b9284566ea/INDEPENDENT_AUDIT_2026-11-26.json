@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:51:40.197432Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The formula is correct for the ordered pair of rows on the fixed-zero binary path. Independently, put q=n+1 and represent u_i(t)=z_(t+i)+z_(t-i) using indices modulo 2q. This solves the update with both boundaries zero. The kernel of the map to rows at times 0 and -1 consists exactly of sequences invariant under the two reflections centered at 0 and -1, hence of sequences constant on each parity class. The kernel has dimension 2, so the paired-row map is onto and conjugate to shift on that quotient. For the t-shift, let d=gcd(2q,t). Its difference map has kernel dimension d and image characterized by a zero mod-two sum on each of its d cycles. Intersect that image with the two-dimensional parity subspace and subtract 2 for the quotient. For even t, each cycle has constant parity; the intersection has dimension 2 if 2q/d is even and 0 otherwise. For odd t, each cycle alternates parity, so the intersection has dimension 2 if q/d is even and 1 otherwise. These cases give D_n(t). Full nullity first occurs at t=2q: for u>1 all odd roots and full 2-adic multiplicity are needed; for u=1 the multiplicity 2^(a+1)-2 exceeds 2^a since n>=2. Period counts follow by Möbius inversion. A separate direct basis-evolution check (python3 /workspace/audit_evidence/waves.py) matched 1,357 nullities and checked exact orders for n=2..24; the proof, not the tests, covers unbounded n and t. No formal or expert certification is asserted.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "28800b545f21 treats all finite fields of characteristic two and all trees with two even-degree vertices.",
+          "The ring/cycle records use periodic spatial boundaries; Tadaki's path spectrum is first order and Bhattacharjee–Das uses periodic boundaries."
+        ],
+        "reasoning": "The broader tree theorem covers the target; cyclic spatial boundaries and first-order path rules do not independently furnish this case.",
+        "searches": [
+          "Resultary 28800b545f21",
+          "Resultary a400d5cad467 and 6f3d55fba7da",
+          "arXiv:cond-mat/9305012",
+          "arXiv:1502.01187"
+        ]
+      },
+      "checked_sources": [
+        "Resultary:28800b545f21",
+        "Resultary:a400d5cad467",
+        "Resultary:6f3d55fba7da",
+        "arXiv:cond-mat/9305012",
+        "arXiv:1502.01187",
+        "DOI:10.1088/0305-4470/37/45/006 (access attempted)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Set field size 2, d=n-1 and N=2n in the indexed theorem; the nilpotent-primary exponent is zero. Thus fixed counts and primitive periods transfer without dropping any states."
+        ],
+        "reasoning": "The distinct indexed theorem entails the whole frozen finding by parameter specialization and a coordinate identification. No assessment of inaccessible Macfarlane passages is needed for that implication.",
+        "searches": [
+          "Resultary 28800b545f21, Finding",
+          "DOI:10.1088/0305-4470/37/45/006"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The indexed theorem identifies T_m(u,v)=(A(P_m)u+v,u) as the invertible component and gives its cyclic module F_q[X]/(Q_m^2).",
+          "Spine-plus-one-leaf adjacency is [[A(P_n),I],[I,0]]; d=n-1, including n=2."
+        ],
+        "reasoning": "The same fixed-zero path permutation occurs literally as a parity adjacency matrix; this is not resemblance between local rules.",
+        "searches": [
+          "Resultary: reversible second-order binary path wave, fixed points and primitive periods",
+          "Resultary record 28800b545f21, Finding and Assumptions and scope"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed Finding explicitly gives q^{D_m(t)}, the identical two-adic minimum formula, order 2(m+1), and the Möbius counts."
+        ],
+        "reasoning": "The lookup target is an all-parameter mathematical census, and the indexed match is formula-for-formula, not just an overlapping small table.",
+        "searches": [
+          "Resultary 28800b545f21, Finding, offsets 0–2950"
+        ]
+      },
+      "rationale": "Exact statement-level coverage in the distinct indexed two-defect-tree result. Its theorem contains the same cyclic path-wave component and the full fixed-point, order and orbit formulas. A tree realizing the entire scoped family is obtained by adding one leaf to every vertex of P_n: the two spine endpoints are its only even-degree vertices, at distance n-1, and in spine/leaf coordinates its parity update is exactly the paired-row matrix. Thus m=n and q=2 give the frozen theorem for every n>=2, not just an upper bound or one example. The records share an indexed date; no inference of chronological priority is made. The failure is exact non-distinctness within the compared results, not a proof of historical priority or an access failure.",
+      "residual_risks": [
+        "Publication chronology between the same-day indexed records is unknown.",
+        "Macfarlane full-text comparison and unindexed historical coverage remain unresolved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact broader statement-level coverage; historical order not established",
+          "evidence": "Similarity to T_m, full D_m, q^{D_m} and Möbius formulas, with d>=1 and all q=2^f.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-the-two-defect-tree-parity-automaton-is-a-reversible-path-wave-a--28800b545f21/RESULT.md",
+          "material_read": "Finding, Assumptions and scope, and opening proof; mirror offsets 0–3561",
+          "method": "Local mirror passage comparison and explicit spine-leaf reduction",
+          "title": "The two-defect tree parity automaton is a reversible path wave after transients",
+          "trigger": "Direct match to path-wave map and full orbit invariant"
+        },
+        {
+          "assessment": "Related first-order rule; not the same permutation",
+          "evidence": "Computes orbits for a single-row update; period/relaxation distribution is discussed as unclear.",
+          "identifier_or_url": "https://arxiv.org/pdf/cond-mat/9305012",
+          "material_read": "pp. 2–3 and 7",
+          "method": "Open full-text passages",
+          "title": "Orbits in one-dimensional finite linear cellular automata",
+          "trigger": "Dirichlet path orbits of Rule 90"
+        },
+        {
+          "assessment": "Different boundary and question",
+          "evidence": "Periodic-boundary reversibility tests rather than fixed-point census for a Dirichlet paired-row map.",
+          "identifier_or_url": "https://arxiv.org/pdf/1502.01187",
+          "material_read": "Boundary setup and p. 32 discussion, offsets 5585–7785 and 93800–95580",
+          "method": "Open full-text passages",
+          "title": "Reversibility of d-State Finite Cellular Automata",
+          "trigger": "Finite reversible automata"
+        },
+        {
+          "assessment": "Unresolved historical comparison, not evidence of absence",
+          "evidence": "The frozen paper's description of the RCA3 rule was not independently verified against the primary full text.",
+          "identifier_or_url": "https://doi.org/10.1088/0305-4470/37/45/006",
+          "material_read": "Bibliographic identification only; no lawful full text obtained via DOI/IOP or cited PDF route",
+          "method": "Lawful access attempts",
+          "title": "Linear reversible second-order cellular automata and their first-order matrix equivalents",
+          "trigger": "Plausible equivalent second-order matrix formulation"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The complete orbit census is a natural, useful invariant rather than a random test or period bound. However, as a standalone finding it adds no supported new invariant to the indexed theorem: the same permutation and census are given explicitly and specialize through the spine-leaf construction. The alternative proof used for correctness verification is not a new standalone claim in the frozen result.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

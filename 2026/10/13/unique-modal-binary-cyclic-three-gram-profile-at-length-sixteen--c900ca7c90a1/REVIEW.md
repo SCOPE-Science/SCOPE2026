@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The four-vertex and degenerate-support flow equations exhaust all cyclic binary three-gram profiles at length \(16\). The directed BEST formula with correct edge-multiplicity normalization gives every fiber count, and a separate direct enumeration of all \(65536\) indexed words independently confirms the entire 271-row table. These are complete finite calculations, not sampled evidence. The result asserts no infinite extension.
+## correctness
 
-## Originality — PASS, qualified
-The 2012 cyclic Markov-type literature counts *distinct types* and notes formulas for the size of a given type, not the fixed-length global largest type; the DNA-profile work counts distinct gram profiles. Tesler (2017) already obtains \(1296\) for the uniform repeated de Bruijn fiber. This value alone is not a novelty claim. What survives direct implication comparisons is that the uniform fiber uniquely beats all 270 competing profiles at length 16, with one distinct runner-up of size \(1280\). No matching published exact comparison was found in targeted semantic, phrase, database and primary-text checks, but an unindexed enumeration could exist; the later cross-join article was only partially readable.
+PASS
 
-## Value — PASS
-The problem determines the exact worst-case reconstruction ambiguity from all three-gram multiplicities at a natural repeated-coverage boundary. The contrast with the length-eight nonuniform mode demonstrates why the optimality of the uniform frequency vector is mathematically nonautomatic. The complete finite profile comparison and close runner-up give a useful exact benchmark without claiming a general asymptotic theorem.
+The scoped unit is an indexed binary array, not an equivalence class of rotations. A closed de Bruijn walk with its start specified determines exactly that array. The flow relations e=b, g=d, f=c+d−b and total a+b+2c+3d+h=16 are correct. With b,d>0 the four vertices form a directed cycle in the support, and a tree to 00 must use edges 10→00 and 11→10 and one of the c+d edges from 01, giving b d(c+d). For a fixed root the labeled last-exit count is t times its outdegree times the product of (r−1)!; summing roots gives the factor 16 and dividing by multiplicity factorials forgets the copy labels, without any assumption of aperiodicity. With b=0 or d=0, the disconnected loop is excluded unless it alone is active, giving the stated reduced supports. An independent direct census of all 65536 arrays matched all 271 CSV rows, including unique 1296 at all twos and unique 1280 at (1,2,3,2,2,3,2,1); next size 1152. At length 8 the 27-profile direct census gives the unique 24 at (0,1,2,1,1,2,1,0) vs 16 at the uniform vector. Independent replay: /workspace/branches/9d35c4e4-bed7-4118-aea7-e96320845b22/direct_census.py and direct_census_n8.log / direct_census_n16.log in that directory. This exhaustive calculation proves the scoped finite statement; it gives no general-length extremal assertion.
 
-## Scope and limitations
-Only binary indexed cyclic words of length 16 are covered. Cyclic rotation classes, noncyclic strings, alphabet changes, noise and all other lengths are outside the theorem. The listed source-inspection limitations and risk of earlier finite tables prevent stronger novelty or independence claims.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Supported here is the unrestricted length-16 uniqueness and full comparison with the runner-up, together with the contrast to the first possible uniform length. The size of the uniform fiber and the number of possible profiles are separately covered and are not credited as distinct results. The closest comparisons do not give the unrestricted exact ranking.
+
+## value
+
+PASS
+
+Lengths 8 and 16 are the first two natural uniform-coverage scales for eight cyclic triples: one of each and two of each. The precise modality switches there, refuting the uniform-at-first-coverage guess and giving a usable extremal ambiguity benchmark at the next scale. The strict gap 1296−1280 and exact runner-up certify that the second result is not a tie or merely the standard uniform count. No all-length cutoff is inferred.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

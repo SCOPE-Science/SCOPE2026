@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:23:44.466812Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Under the stated synchronous neighbor-only rule, A and A′ agree by symmetry and all relevant edges are initially active (gaps .21 and .29). Consequently a₁=.07 and b₁=K/[2(K+1)]. While the edges are active, d=b−a and e=s−b satisfy the displayed nonnegative gap recurrence, with ramp increment in [0,.001]. For K=1 the first pair (.18,.251) enters [0,.2]×[0,.3], mapped into itself since d′≤11/60 and e′≤.251. For K=2 the initial (.21,.29) belongs to [0,.3]², where d′≤.3 and e′≤.201. Inclusive confidence makes these inductive checks sufficient. At t≥500 the ramp increment vanishes and for each K the positive gap matrix has row sums 1 and 2/3 in some order, so its square has maximum row sum strictly below one. Therefore a and b converge to 1. For K≥3, the first ordinary gap is at least .305, outside the bound, while the nonnegative source gap is at most .126. A and A′ then keep averaging each other at .07; B follows the source with one-step lag. This is permanent since the ordinary gap stays above .43 and the subsequent source gap is at most .001. This also verifies nonempty eligible neighborhoods in every case. The observable excludes sources and equals (2a+b)/3, so the separated limit is 19/50 and the drop is 31/50. Replay: frozen RESULT.md, proof lines 29–73. The supplied Fraction checker was inspected, not executed; finite trajectories are not the basis of the all-K, infinite-time conclusion.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bautista's exact homogeneous-group confidence condition is |λ|≤Kε/(K+N) with compatible initialization, from the scalar update (Kf(t)+Nx(t))/(K+N). Figure 11 explores ramp duration and counts numerically. Tarantino et al. simulate large weighted networks, finding that larger source fractions can reduce influence by prematurely isolating a cluster."
+        ],
+        "reasoning": "The homogeneous-group result increases the admissible ramp speed with K but lacks the independently moving bridge node and rupturable ordinary links. In the frozen witness the ramp speed is held fixed and the extra weight changes B's first jump, not whether B can keep pace while an internally homogeneous ordinary group tracks the source. The simulation does not give a theorem for this triangle. For precision, in Bautista v1 the attractive/repulsive weighted rules appear in §2, Eqs. (2.8)–(2.9), not the §5 named in the frozen prior-work note; the conclusion is §4. This locator error does not affect the frozen dynamics or its proof.",
+        "searches": [
+          "Targeted source-count / moving stubborn agent literature lookup",
+          "Bautista arXiv:2501.12198v1 §3.3.2 and Corollary 3.3; Fig. 11; conclusion",
+          "Tarantino et al. arXiv:2605.14918v1 §§5.2–5.3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, REVIEW.md, AUDIT.json, VERIFICATION.md and checker.py",
+        "Tarantino et al., arXiv:2605.14918v1 primary passages",
+        "Bautista, arXiv:2501.12198v1 primary passages",
+        "Local Resultary results and one targeted literature lookup"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Tarantino et al. already report that a ramp from 0.5 to 1 with one source can be effective, while adding sources under some selection strategies leads to early clustering around 0.5 and worse final reach. Bautista proves a K-dependent confidence condition in a homogeneous setting."
+        ],
+        "reasoning": "These results cover qualitative backfire and a different exact pace/count relation. They do not supply first-step rupture uniformly for K≥3, an invariance and contraction proof for K=1,2, or the final population mean at the fixed graph, weights and placement. That exact counterexample and classification, rather than the generic phenomenon, are the supported distinct claim.",
+        "searches": [
+          "Tarantino et al. Eq. (4) and §§5.2–5.3 numerical source comparisons",
+          "Bautista Corollary 3.3 and Fig. 11"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equation (4) normalizes by total eligible edge weight. Identical incident sources at B are jointly active or inactive, contributing total weight K and numerator Ks_t when active."
+        ],
+        "reasoning": "One exogenous source at B with edge weight K gives the identical ordinary trajectory. This is a real equivalence, not a different physical mechanism or a claim of novelty for multiplying the number of vertices. Adding a source at another node or adding heterogeneous sources is not generally equivalent. The literature comparison credits the weighted rule and asks whether it already gives this threshold or a covering strength theorem.",
+        "searches": [
+          "Tarantino et al., arXiv:2605.14918v1 §2.1 Eq. (4)",
+          "Local Resultary lookups for ramp-source multiplicity or strength backfire in a weighted confidence network"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matching exact indexed result is SCOPE-a-sharp-source-multiplicity-backfire-threshold-in-a-three-person--d0fb7342f95a, the identical record. Returned nearby three-agent confidence and three-source Poisson inversion summaries describe different problems. Bautista's numerical grid varies K and ramp duration in a different HK setup."
+        ],
+        "reasoning": "An exact catalog self-match supplies no independent precedent, and an output grid in a different dynamics does not tabulate the two limiting means on this graph. No distinct inspected entry or figure supplied the exact trajectory classification.",
+        "searches": [
+          "Local Resultary: three-agent weighted bounded-confidence moving source threshold",
+          "Bautista v1 Figure 11 (PDF p. 13)"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the exact fixed three-ordinary-node, attractive-only weighted witness and its full integer phase classification, not for a new update rule, novel segregation mechanism, or first example of qualitatively worse outcomes with more sources. Tarantino et al. already give that qualitative behavior numerically. The exact model of the source bundle is an increase in one effective edge weight and should not be advertised as isolating count at constant aggregate strength. The checked stronger-looking source-count theorem is about pace in a homogeneous group, not about rupture at the fixed placement considered here.",
+      "residual_risks": [
+        "Earlier small adaptive-confidence examples or an unsearched general threshold in aggregate source strength could narrow the distinct contribution. The bounded literature and index comparisons do not certify historical priority.",
+        "Preexisting qualitative backfire substantially overlaps the motivation, and this example identifies strength at fixed placement rather than an effect of multiplicity holding total weight fixed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same weighted confidence update and meaningful qualitative overlap; inspected results are not the fixed-graph cutoff theorem",
+          "evidence": [
+            "Equation (4) averages active neighbors weighted by the incident weights. The simulations report a case with one source influencing at least 85% of 1000 nodes and cases where a larger source fraction loses reach through early clustering."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2605.14918v1",
+          "material_read": "§2.1, pp. 2–3 (offsets 8486 and 14966), and §§5.2–5.3, pp. 8–10 (offsets 42705–51927)",
+          "method": "Open-access primary PDF passage comparison",
+          "title": "Static and Dynamic Strategies for Influencing Opinions in Social Networks",
+          "trigger": "Exact weighted update convention, same general ramp strategy and plausible backfire examples"
+        },
+        {
+          "assessment": "Exact confidence maintenance theorem under homogeneous grouping, not the frozen heterogeneous bridge threshold",
+          "evidence": [
+            "Corollary 3.3 gives the threshold |λ|≤Kε/(K+N) in its compatible-initialization setting. Figure 11 samples source count and ramp duration in another configuration."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2501.12198v1",
+          "material_read": "§2 weighted rules (p. 7, offset 29400), Fig. 11 (p. 13, offset 55300), §3.3.2 and Cor. 3.3 (pp. 15–16, offsets 64400 and 68000), and §4 (p. 29, offset 136000)",
+          "method": "Open-access primary PDF passage comparison",
+          "title": "Opinion dynamics in bounded confidence models with manipulative agents: Moving the Overton window",
+          "trigger": "Exact group-size dependence for paced sources; related weighted variants"
+        },
+        {
+          "assessment": "Self-match, not another result",
+          "evidence": [
+            "Both statements have K=1,2 yielding ordinary mean one and K≥3 yielding 19/50 with the same construction."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-source-multiplicity-backfire-threshold-in-a-three-person--d0fb7342f95a",
+          "material_read": "Returned indexed statement and frozen RESULT.md",
+          "method": "Local Resultary comparison",
+          "title": "A sharp source-multiplicity backfire threshold in a three-person bounded-confidence network",
+          "trigger": "Exact local index hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a fully solved motivated counterexample to monotone influence in the aggregate input strength at fixed placement. It isolates permanent loss of an otherwise attractive ordinary bridge without repulsion, random source placement, changing ordinary topology, or varying ramp speed. The exact 2-to-3 source cutoff and large limiting loss come from one strict first-step inequality and a proof that the low-strength regimes never rupture; they are not a numerical anomaly. The value is the transparent model witness, not a universal cutoff, minimum number of agents, or behavioral prediction.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

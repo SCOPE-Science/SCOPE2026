@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The central claim is exact *local* sixth-power distance-energy minimality of a regular Euclidean hexagon among nearby convex hexagons with all interior angles less than \(\pi\), modulo direct similarities. The normalization uses the fifth power of area, matching the tenth-order scaling of the double integral. A six-triangle moment formula produces the exact area and energy, and a symbolic first derivative vanishes. The exact rational Hessian of the log-normalized functional has a fourth-order zero characteristic factor and four positive quadratic factors, with every nonzero root positive. Explicit similarity vectors span the kernel; a smooth eight-dimensional transverse slice yields strict local minimality by Taylor's theorem. The packaged exact checker reproduced the matrix and factorization and an independent polynomial-exact numerical quadrature corroborated the base energy and twelve Hessian directions. Unproved limits: global minimality, other numbers of sides and other powers.
+## correctness
 
-## Originality — PASS, with priority qualification
-Bogosel, Bucur and Fragalà (arXiv:2302.11677, Section 3.1) previously *reported numerically* that the full Hessian has only similarity-related zero modes and positive transverse modes for this same six-vertex sixth-power setting. They did not claim an exact, rigorous factorization or a proved local theorem for that setting, and their theorem for low powers covers only the second and fourth powers. The new contribution is the exact rational spectral certificate and rigorous local consequence, **not** discovery of the numerical positivity pattern. Bonacini, Cristoferi and Topaloglu (arXiv:2103.06657) prove interaction inequalities for three and four vertices only. Relevant published searchable records and accessible earlier claims did not provide an equivalent exact certification. Unindexed or later exact proofs are a real remaining priority risk.
+PASS
 
-## Mathematical value — PASS
-The sixth-power case is the first even exponent beyond the globally resolved second and fourth powers in the cited polygonal Riesz-energy problem. A fully rigorous, full-tangent-space local theorem is a natural limited step toward identifying exponents for which regular polygons are optimal. It improves a published numerical-only positivity observation, distinguishes genuine polygon-shape modes from similarity modes and delivers a reusable rational certificate. This is not asserted to settle the global conjecture or to cover a larger family.
+Two area elements and the sixth distance power scale by length to the tenth power, canceled by area to the fifth power. The oblique-coordinate change contributes (2/sqrt(3))^3. I reconstructed the quartic-and-higher moment calculation independently using Green's theorem: M_pq=(p+1)^(-1) ∮u^(p+1)v^q dv, evaluated along straight edges. Near the given ordered vertices these are the actual convex polygon moments; their polynomial extensions can be evaluated at interpolation nodes even outside that neighborhood. The area polynomial has degree at most two and the energy degree at most ten. Exact interpolation on eleven nodes gives their first and second directional derivatives, and polarization gives all mixed entries. It verifies area 3 and energy 5157/280 in oblique coordinates, the Euclidean normalized value 191 sqrt(3)/2835, vanishing log gradient, and every supplied entry and all four characteristic quadratics of the log-Hessian. The matrix is real symmetric and each quadratic has positive sum and product of roots, so the eight nonzero modes are positive. Similarity invariance and stationarity put the two translation, scale and rotation tangents in the kernel, hence exhaust it. Fixing the first two vertices by the unique nearby direct similarity gives an explicit smooth transverse slice; local convexity and orientation are open, and Taylor's theorem gives strict minimality on that slice and exactly the stated equality cases.
 
-## Closest work and limits
-Primary sources: arXiv:2302.11677 (Sections 2–3, Appendix 9.3); arXiv:2103.06657 (introduction and stated triangle/quadrilateral conclusions). The full text of the relevant primary sources was accessible in its HTML rendition for the assessed portions. The result has not received an independent mathematical audit, and the originality assessment cannot exclude all unpublished or unindexed exact certifications.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The same Hessian sign pattern and the likely local behavior were explicitly known numerically. The distinct result is a fully exact sign certificate for the full vertex Hessian and the resulting all-direction strict local theorem for sixth-power distance, with an exact value. The closest primary paper proves a restricted affine-image result at this power but does not certify arbitrary nonaffine directions. The closest distinct same-day hexagon entry expressly excludes power six; its nonspecific reference to a separate proof is not a separate exact proof or a basis for inferring priority.
+
+## value
+
+PASS
+
+The sixth power is the first even case beyond the known second- and fourth-power global inequalities. The cited numerical work directly motivates determining whether regular hexagons are stable under arbitrary nearby vertex perturbations. The exact full transverse Hessian answers that question rigorously and separates actual shape directions from the four similarity directions. Its value is the strict local theorem in nonaffine directions, not the length of the characteristic polynomial or the numerical value by itself.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

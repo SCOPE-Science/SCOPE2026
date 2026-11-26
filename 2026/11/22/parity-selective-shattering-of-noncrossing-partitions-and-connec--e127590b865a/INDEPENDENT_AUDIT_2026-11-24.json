@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:34:48.902287Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, Sections 1–4 of the proof; frozen VERIFICATION.md and verification_output.txt",
+        "/workspace/branches/ae042b52-e625-46fa-ada8-85959b455469/replay.py and full_output.txt"
+      ],
+      "rationale": "For the matching's positive chords, each crossing forces their equality blocks together. Chord unions for distinct crossing components are disjoint connected sets in the disk; alternating endpoints would force two such sets to meet. Thus crossing-component endpoints, with the other endpoints singleton, give the finest noncrossing partition satisfying the positive queries. Joining different blocks at adjacent boundary vertices preserves noncrossing: their convex hulls joined by the boundary side form a connected set disjoint from the other block hulls, so no alternating endpoints are created. With t negative matching queries there are at least 2t boundary transitions if t>0, at most t forbidden; negative endpoints are singleton, so any other merger preserves every negative. With no negatives there is a parity switch exactly if the closure has more than one block. A shattered query graph is acyclic, and a spanning tree forces one block on all positives and two with one negative, ruling it out in either stratum. A boundary path of length n-2 uses no queries at the spare vertex, which can be joined along the boundary to switch parity. Narayana symmetry exchanges k and n+1-k at even n. An independently written recursive enumeration confirmed all matching counts at 4, 6, and 8 points and all 455 three-query supports at six points (371 even, 375 odd).",
+      "residual_risks": [
+        "Finite replay does not establish the universal quantifiers; matching statement excludes m=1."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The geometric deletion theorem treats every pair support for unrestricted partitions and gives VC dimension n-1."
+        ],
+        "reasoning": "Existence of an unrestricted witness does not give one with either chosen parity; counting the blocks in the closure alone does not tell which other parities occur in the fiber.",
+        "searches": [
+          "Resultary unrestricted noncrossing equality-query shattering, f5f99d85cb8a"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary e127590b865a, f5f99d85cb8a, 51a4905acdf5, 1a75a2c4be87",
+        "arXiv:1905.10526 and arXiv:1611.04611"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The unrestricted closure accounts for a one-block realization in the connected all-positive case; the exact claim also requires both parities for every other labeling, via the permitted boundary merger."
+        ],
+        "reasoning": "Neither unrestricted shattering, Narayana symmetry, nor connected-diagram counts proves the parity-switch lemma with the negative equalities held fixed.",
+        "searches": [
+          "Local Resultary f5f99d85cb8a and 51a4905acdf5; arXiv:1611.04611"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Exact Resultary hit e127590b865a is the frozen record itself. Distinct record 51a4905acdf5 filters matchings by crossing-count parity and queries edge inclusion; 1a75a2c4be87 concerns edge inclusion in noncrossing matchings."
+        ],
+        "reasoning": "Neither uses partitions filtered by block count with arbitrary pair co-membership queries. The matching in the present theorem is the query support, not the concept.",
+        "searches": [
+          "Local Resultary: parity-restricted equality-query shattering; crossing-parity and noncrossing perfect-matching shattering records"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Narayana counts by block number give equal strata at even n. Connected-chord recurrence gives 1, 4, 27 at m=2,3,4."
+        ],
+        "reasoning": "The tables count partitions or matchings themselves, not trace realizations on supports. The equality between the connected count and the deficit is the result, not the count sequence.",
+        "searches": [
+          "arXiv:1905.10526, Narayana rank polynomial",
+          "arXiv:1611.04611, connected chord diagrams, Definition 3 and Proposition 12"
+        ]
+      },
+      "rationale": "The closest unrestricted shattering result and the exact classical enumerations do not supply the parity-selective realization and obstruction. Bounded comparison supports the distinct parity-restricted classification, not priority for the connected-chord numbers or the Narayana formula.",
+      "residual_risks": [
+        "Bounded source coverage; thematic public-search results did not settle priority or exclude an unindexed equivalent formulation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Unrestricted, not fixed-parity coverage",
+          "evidence": "Geometric deletion criterion and VC dimension n-1 apply before block-number filtering.",
+          "identifier_or_url": "Resultary f5f99d85cb8a",
+          "material_read": "RESULT.md, statement and comparison at offset 0",
+          "method": "Local mirror",
+          "title": "Geometric deletion criterion for shattering by noncrossing partitions",
+          "trigger": "Strongest same-object unrestricted theorem"
+        },
+        {
+          "assessment": "Different domain and predicate",
+          "evidence": "Crossing count of matching concepts is filtered and queries ask edge membership.",
+          "identifier_or_url": "Resultary 51a4905acdf5",
+          "material_read": "RESULT.md at offset 0",
+          "method": "Local mirror",
+          "title": "Crossing-parity perfect matchings: a complete shattering classification",
+          "trigger": "Closest matching and parity alias"
+        },
+        {
+          "assessment": "Different concept class",
+          "evidence": "Edge membership in a noncrossing perfect matching, not equality in a noncrossing partition.",
+          "identifier_or_url": "Resultary 1a75a2c4be87",
+          "material_read": "RESULT.md at offset 0",
+          "method": "Local mirror",
+          "title": "Face-activity characterization of shattered chord supports in noncrossing perfect matchings",
+          "trigger": "Noncrossing matching shattering alias"
+        },
+        {
+          "assessment": "Classical cardinality ingredient",
+          "evidence": "The block polynomial is the Narayana polynomial.",
+          "identifier_or_url": "https://arxiv.org/abs/1905.10526",
+          "material_read": "Page 3 near offset 10400, block generating polynomial",
+          "method": "Open primary text",
+          "title": "A combinatorial bijection on k-noncrossing partitions",
+          "trigger": "Exact rank count"
+        },
+        {
+          "assessment": "Exact count, not shattering classification",
+          "evidence": "Connectivity of the chord-intersection graph and recurrence for c_m; no trace condition in the cited results.",
+          "identifier_or_url": "https://arxiv.org/abs/1611.04611",
+          "material_read": "Definition 3, p. 3, and Proposition 12, p. 9",
+          "method": "Open primary text",
+          "title": "Connected chord diagrams and bridgeless maps",
+          "trigger": "Exact connected-matching sequence and definition"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, theorem and finite example; comparison to unrestricted result f5f99d85cb8a"
+      ],
+      "rationale": "Block parity is a natural rank restriction, and perfect matching supports test each point exactly once. The theorem gives a uniform geometric obstruction and an exact missing-face count in that family, separating classes that have both the same VC dimension and the same total number of concepts. This is stronger than an isolated small-order contrast or a re-enumeration of chord diagrams.",
+      "residual_risks": [
+        "No general classification of nonmatching supports or arbitrary face numbers is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

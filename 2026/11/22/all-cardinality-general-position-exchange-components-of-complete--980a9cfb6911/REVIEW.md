@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof uses the established pure-versus-rainbow classification of general-position sets in complete multipartite graphs and checks that unrestricted one-vertex exchanges stay in a Johnson component or in the rainbow truncation of a partition matroid. Pure and rainbow \(s\)-sets intersect in at most one vertex; different pure-part states are disjoint. These are exact lower bounds on the replacement budget. Explicit rainbow bridges show the sharp \(s-1\) transition when \(r\ge s\); otherwise pure parts require an \(s\)-replacement. Separate treatment covers \(s=1,2\). The auxiliary diameter proof constructs a two-edge path for each type of disjoint pair. The independently specified finite checker directly computes geodesic feasibility and components for 1036 profiles and 2534 budget comparisons. No unproved finite extrapolation is used.
+## correctness
 
-**Originality — PASS (historical priority provisional).** Rather's March 2026 full paper explicitly supplies the pure/rainbow classification and all-size general-position polynomial. Those results are **credited inputs**, not novel claims. Cody–Detore define the relevant higher-geodesic framework, and the 2025 mobile-position paper studies a different adjacent-move/visitability objective. Searches for token-jumping, batch exchanges, equivalent part-transversal reductions, and component phase diagrams did not reveal the stated all-cardinality component formula. The complete body of a relevant earlier mobile-position paper was not independently retrieved, and general partition-matroid reconfiguration literature may contain an equivalent result, so unindexed priority remains a risk.
+PASS
 
-**Value — PASS.** This determines all connected components and their actual graphs at one-site exchange for every feasible cardinality, not merely the optimum number or a few small examples. It identifies two sharp and different replacement barriers, with unbounded thresholds across the family. The diameter collapses to at most two as soon as the rainbow family reconnects the pure components. These quantities are useful for understanding the minimum simultaneous rearrangement needed to move between geodesically separated configurations; the distinction between unrestricted jumps and previously studied adjacent mobile movement is mathematically substantive.
+For at least two nonempty parts, every forbidden geodesic triple has its two ends in a common part and its middle in a different part. Thus for s≥3 the feasible states are exactly pure s-sets or size-s partial transversals. A pure component is a Johnson graph. For a rainbow pair X,Y, one may add y∈Y outside X by replacing the current vertex in its part, if present, or by removing a vertex in a part not used by Y, if its part is absent. Equal support sizes ensure such a removal in the second case. Each step increases |X∩Y| by exactly one, which also proves the claimed distance lower bound is attained. Distinct pure parts have disjoint states, and pure and rainbow states intersect in at most one vertex. This prevents all cross-family moves below s−1. At s−1, any two intersecting states are adjacent. If r≥s, disjoint states in the same pure part admit a pure intermediary meeting both; otherwise one can select a vertex from each state in distinct parts and extend the chosen pair to a rainbow intermediary. Thus diameter ≤2 precisely as asserted under that hypothesis. If rainbows are absent, no cross-part transition occurs before s. At k≥s the nonempty state graph is complete; for s=1,2 every s-set is feasible and the k=1 Johnson graph is connected. The numerical examples follow from the same classification. The phrase 'four-cluster decomposition' in the limitations is a stray description, not a bound on the number of families in the theorem.
 
-**Scientific limitations.** The static classification was known before this result. It does not cover token sliding, non-multipartite graphs, or independent external certification. The accompanying tests are finite corroboration, not a proof of the universal statement.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Bounded pass for the cross-family exchange diagram and diameter bound. The pure/rainbow classification and its static enumeration are known. Uniform and truncated partition matroid exchange accounts for the internal one-exchange results, but those theorems do not assemble or connect this union of feasible families. No inspected primary or distinct indexed claim supplies the whole fixed-cardinality batch result.
+
+## value
+
+PASS
+
+The classification answers when static families remain segregated under changes of increasing batch size, and when partial transversals become bridges. It captures two distinct thresholds and shows that connectivity via the bridges already collapses distances to at most two, not just eventual connectivity. The value lies in the complete dynamical comparison for a natural graph family, not in republishing the static count or the standard Johnson-graph fact.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

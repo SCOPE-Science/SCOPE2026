@@ -1,9 +1,0 @@
-# Scientific assessment
-
-**Correctness — PASS.** The proof uses the characteristic additive subgroup and the multiplicative quotient to reduce nonautomorphic group endomorphisms to cyclic-exponent maps with a unique fixed-point translation. It derives the CRT idempotents, the full composition law, and graph counts and invariants by independent exact combinatorial arguments. The packaged Python checker independently enumerates all homomorphisms for six finite fields and tests the original group identity, idempotence, composition, commutation, degrees, and diameter where applicable. The finite checks are supplementary, not an infinite classification proof.
-
-**Originality — PASS relative to actual comparisons.** The classical affine endomorphism dichotomy and the dihedral-prime-complement boundary are attributed to prior work. The directly inspected related theorem on elementary generalized dihedral groups has complement \(C_2\) and additive dimension at least two, while the present diameter-three graph concerns \(\operatorname{AGL}(1,\mathbb F_q)\) with at least two prime divisors of \(q-1\). Inspected papers on the same affine group address character-codegree and logical invariants. None of those inspected theorem statements gives the present left-regular-band law or full graph census, although unindexed equivalences remain possible.
-
-**Mathematical value — PASS.** The group family is a standard nonabelian Frobenius family. The exact all-arity retraction multiplication explains a nontrivial idempotent semigroup and leads to a sharp number-theoretic connectivity transition, precise degree stratification, maximum-clique characterization, and a closed commuting-pair formula. This is a motivated structural classification rather than a small isolated calculation.
-
-Self-review: passed. Independent audit: not yet performed.

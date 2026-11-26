@@ -1,0 +1,151 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:34:36.584116Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, normalization and proof steps 1–6",
+        "Frozen CHECK.py and VERIFICATION.md (inspected, not executed; finite-grid diagnostic only)",
+        "Singh–Aghion arXiv:2610.08029 eqs. (44)–(46), matching stationary-current convention"
+      ],
+      "rationale": "For |v|<b the uniformly inward tail drift gives an exponential Lyapunov function (choose its exponent below (b−|v|)/T); ellipticity and positive flipping give irreducibility. At v=0 the Gibbs density is comparable to a bilateral exponential, hence the reversible form has a gap on centered functions. In the weighted variables P/π and D/π the drift perturbation is B u=u′+(f/T)u, bounded H¹(π)→L²(π) and of mean zero; invert the diagonal operators on the normalized centered pair at fixed r and use a Neumann series for small v. The stationary law is in this space locally in v: at v=0 the positive-side tail exponents are 0, −b/T and (−b±√(b²+8rT))/(2T), simple for r>0; for small v both integrable exponents stay below −b/(2T), and the left tail is reflected. Thus the derivative D/v=−π(2r+K)⁻¹f/T is justified even with the cusps. Substitution into the specified full-state current gives the stated resolvent. The spectral measure for x has first moment T and second moment b², using Kx=−f weakly and |f|=b a.e. Positivity, strict monotonicity, strict concavity and analyticity follow from the positive spectral kernel; dominated convergence gives the two tails in the prescribed order. Subtracting the negative-half spill from the full shifted bilateral exponential gives the stated Gibbs variance; its derivative in a is positive. The Laplace transform of the continuous time covariance is exactly [V−T²χ(s/2)/s]/s. These calculations establish the full stated inverse claim.",
+      "residual_risks": [
+        "The v-linearization holds at fixed positive r; it gives no uniform error estimate as r tends to zero or infinity.",
+        "No stability under noise or finite sampling is asserted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The full-state framework is general; the harmonic EPR agrees under decorrelation rate 2r, diffusivity T and mobility 1, giving χ=2r/[T(k+2r)] for spring constant k.",
+          "The additive-functional Green–Kubo result is in a related resolvent setting but does not concern this observable or potential inversion.",
+          "Frydel’s accessible abstract covers EPR scaling with persistence and a vanishing infinite-persistence limit. The coefficient and inverse implications could not be checked in that paper."
+        ],
+        "reasoning": "The fluctuation–response/spectral method is standard and provides general covariance coverage at the level of mechanism. It does not determine which force and variance moments yield a one-to-one parametrization of this cusp family; the harmonic case tests but does not imply that parametrization.",
+        "searches": [
+          "Paoluzzi–Puglisi–Angelani arXiv:2404.16955 Eq. (32) and Sec. III.B",
+          "Van Ginkel–van Gisbergen–Redig arXiv:2101.09046 Green–Kubo result",
+          "Frydel DOI 10.1103/PhysRevE.105.034113 and lawful full-text routes"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.08029",
+        "arXiv:2404.16955",
+        "arXiv:2101.09046, Green–Kubo passage",
+        "Frydel DOI 10.1103/PhysRevE.105.034113, abstract",
+        "Resultary 13e6ecfe4092 and 91b2e07d37fd"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Eq. (46) provides exact forward information via D₀, not the rate-dependent weak-v susceptibility or an inverse theorem.",
+          "The generic covariance Laplace transform supplies a tool; injectivity here uses |f|²=b² almost everywhere and the strict dependence of the exact Gibbs variance on a at fixed b."
+        ],
+        "reasoning": "Being encoded in a forward formula is not itself an identified inverse statement. The nontrivial bridge uses different orders of the two rate tails at zero propulsion and a model-specific monotonicity argument. Neither the threshold in the reversed limit order nor the generic moment/covariance identity gives this conclusion without that bridge.",
+        "searches": [
+          "arXiv:2610.08029 §§3, 7 and arXiv:2404.16955 Sec. III.B",
+          "Resultary 13e6ecfe4092 and 91b2e07d37fd Finding/Proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Eq. (44) is exactly the stated full-state observable, and Eq. (46) is its same-cusp finite-v evaluation in terms of D₀.",
+          "Resultary 13e6ecfe4092 inverts a rate-dependent tracer diffusivity for Fourier powers of a periodic force, not EPR for a confined cusp.",
+          "Resultary 91b2e07d37fd includes this cusp at fixed propulsion and gives a rare-tumbling threshold (v²−b²)₊/T, not the coefficient of r after extracting v²."
+        ],
+        "reasoning": "The model/EPR equivalence is credited. The two indexed comparisons respectively change the observable and the limit order; neither is equivalent to the two-parameter local-response inversion.",
+        "searches": [
+          "Singh–Aghion arXiv:2610.08029v1 §§2, 3, 7",
+          "Resultary 13e6ecfe4092 and 91b2e07d37fd",
+          "Frydel DOI 10.1103/PhysRevE.105.034113, persistence or covariance formulations"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest exact formula hit is Eq. (46) with the stationary finite-v density difference. The indexed hits use a diffusivity transform or the fixed-v infinite-persistence limit, respectively."
+        ],
+        "reasoning": "A table of scalar evaluations would not establish continuous two-parameter injectivity; here the appropriate exact-object check is the analytic formula and catalogue statement rather than a discrete sequence. No inspected exact-object result gives both weak-response tail coefficients as inverse data.",
+        "searches": [
+          "Resultary telegraph/cusp spectroscopy records 13e6ecfe4092 and 91b2e07d37fd",
+          "Singh–Aghion arXiv:2610.08029 Eq. (46)"
+        ]
+      },
+      "rationale": "The same model and EPR identity are explicit prior work. A generic weak-force covariance transform is also an equilibrium fluctuation–response consequence: stationarity of σX gives Π=2rv⟨σX⟩/T, and convolution of −C′/T with exp(−2rt) produces the response formula. These are not freestanding novel principles. What survives is the exact use of the rate curve to identify both cusp parameters, via different low- and high-frequency spectral moments and a strictly invertible equilibrium variance, together with its covariance interpretation in this model. The closest inspected exact same-model formulas do not give this inverse identification.",
+      "residual_risks": [
+        "Frydel’s full text was not accessible by the attempted lawful routes; uninspected general response results may give further implicit coverage.",
+        "Do not infer priority from the same-day catalogue record; comparisons are at statement level."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct model and finite-propulsion EPR overlap; inspected derivation does not state the tail inversion",
+          "evidence": [
+            "Eq. (46) adds the signed two-region integral of D₀ to v²/T."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.08029",
+          "material_read": "Sec. 2 Eqs. (1)–(4), Sec. 7 Eqs. (41),(43)–(46); particularly PDF pp. 21–22, offsets 58800–62759",
+          "method": "Lawful open preprint, bounded passages",
+          "title": "Spatial density, first passage times, and entropy of run and tumble particles in a bistable potential",
+          "trigger": "Exact same cusp model and dissipation convention"
+        },
+        {
+          "assessment": "Framework and harmonic result are prior inputs, not the cusp inverse theorem",
+          "evidence": [
+            "The harmonic rate-scan agrees after converting the orientation rate to 2r."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2404.16955",
+          "material_read": "Eq. (32) and Sec. III.B Eqs. (37)–(52), pp. 3–4",
+          "method": "Lawful open preprint, targeted passages",
+          "title": "Entropy Production of Run-and-Tumble Particles",
+          "trigger": "General EPR framework and possible stronger formula"
+        },
+        {
+          "assessment": "Specific unresolved coverage risk, not negative evidence",
+          "evidence": [
+            "Abstract mentions persistence dependence and vanishing EPR at infinite persistence, not the displayed inverse coefficients."
+          ],
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevE.105.034113",
+          "material_read": "Accessible indexed abstract only; publisher PDF and DOI recovery did not yield text; identified ResearchGate and Academia routes did not yield full text",
+          "method": "Bounded lawful retrieval attempts; no full text read",
+          "title": "Intuitive view of entropy production of ideal run-and-tumble particles",
+          "trigger": "Plausible general persistence-time overlap"
+        },
+        {
+          "assessment": "Material analogy, different observable and unknowns",
+          "evidence": [
+            "Diffusivity rate scan for Fourier powers, not EPR for a bistable potential."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-exact-finite-rate-spectroscopy-of-fourier-force-power-in-a-teleg--13e6ecfe4092",
+          "material_read": "RESULT.md Finding and Proof offsets 0–6204",
+          "method": "Lawful local Resultary mirror",
+          "title": "Exact finite-rate spectroscopy of Fourier force power in a telegraph-driven tracer",
+          "trigger": "Closest indexed inverse rate spectroscopy"
+        },
+        {
+          "assessment": "Overlap on object and observable but different limit order",
+          "evidence": [
+            "Fixed-v rare-tumbling limit (v²−b²)₊/T gives neither the linear-in-r susceptibility coefficient nor its inverse."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-universal-rare-tumbling-dissipation-threshold-in-linear-tailed-a--91b2e07d37fd",
+          "material_read": "RESULT.md Finding and cusp specialization",
+          "method": "Lawful local Resultary mirror",
+          "title": "Universal rare-tumbling dissipation threshold in linear-tailed active confinement",
+          "trigger": "Same cusp as special case, same EPR and rare flipping"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Steps 4–6",
+        "Same-model benchmark arXiv:2610.08029 §7"
+      ],
+      "rationale": "In the already studied cusp model, the rate scan extracts the confinement slope and then the well separation from different ends of one observable, without reconstructing or fitting the full stationary density or assuming a finite-mode spectrum. The exact covariance interpretation explains the low-rate calibration and identifies the information content of the full curve. This is a concrete motivated inverse result, not novelty of the equilibrium fluctuation–response principle.",
+      "residual_risks": [
+        "Uniqueness requires exact response data and known T; analytic extension and tail extrapolation are not necessarily numerically well conditioned."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

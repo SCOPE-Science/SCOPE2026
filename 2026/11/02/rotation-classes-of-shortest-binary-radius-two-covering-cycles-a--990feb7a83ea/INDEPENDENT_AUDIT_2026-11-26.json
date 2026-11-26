@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:58:31.621944Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Coverage is the complete union of the n-bit Hamming balls of radius two about the cyclic windows, including wraparound at L<n. Both frozen C++ listings test this predicate and traverse the stated finite domains; they were inspected, not executed. Independently, from /workspace/branches run python3 audit4.py /workspace/source/2026/11/02/rotation-classes-of-shortest-binary-radius-two-covering-cycles-a--990feb7a83ea (NumPy; replay output audit4.out). The independent search compares every L-bit integer with every cyclic rotation before testing one representative per orbit. It constructs repeated-word windows, checks coverage by removing targets differing at zero, one or two positions, and sums the first-return rotation periods to recover the indexed counts. It matches all 44 length rows and every field of all 14 orbit rows, with zeros for every shorter length. The minima, indexed counts and orbit totals are (10,110,11), (14,28,2), (20,20,1). Full periods also follow from minimality: otherwise the shorter period supplies the same circular windows. The sole order-nine representative is the given 20-bit string; its complement and reverse were tested directly among its rotations. This is exhaustive only for the specified orders, radius and bounded lengths.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chung–Cooper note every shortest length-M cycle has M distinct rotations. Ta–Vu give constructive asymptotic upper bounds for fixed alphabet and radius as n grows.",
+          "The nearby complete binary census cd1d48014b9f treats radius one, order seven, and reports length 22, 132 indexed cycles and six rotation classes."
+        ],
+        "reasoning": "Full orbit size and asymptotic upper bounds are broader results about different statistics. A census of radius-one optima does not enumerate radius-two optima; the predicates and minimal lengths differ.",
+        "searches": [
+          "Chung–Cooper §5 statement 10",
+          "Ta–Vu arXiv:2606.29236 abstract and Table 1",
+          "Resultary cd1d48014b9f"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, both C++ files, README.txt, both CSV files and VERIFICATION.md",
+        "arXiv:math/0310385 and arXiv:2606.29236",
+        "DOI:10.1007/s10623-025-01726-5",
+        "Resultary cd1d48014b9f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Knowledge of the minimum implies every optimal rotation orbit has full period. The generic rotation lower bound is attained at n=9 in the independently reproduced census but not by logical implication from a single known example."
+        ],
+        "reasoning": "With no upper bound on the number of indexed optima matching the rotation lower bound, the minima plus one witness each cannot distinguish one orbit from several. The exhaustive exclusion and canonical representative list supply genuinely additional facts.",
+        "searches": [
+          "Chung–Cooper §5 statement 10 and Table 1",
+          "Chee et al. Appendix A p. 5461"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Chung–Cooper define cyclic q-ary strings with consecutive windows forming a radius-R covering code, exactly the frozen predicate at q=2,R=2.",
+          "Chee et al. list 00010010001110110111 for (9,2), and 00111011010010 for (8,2), a rotation of 00011101101001 in the frozen census."
+        ],
+        "reasoning": "The known words are witnesses in the same equivalence problem, not counts of all possible witnesses. Rotation is the only identification here, and reversal and complement are verified symmetries within the sole order-nine orbit, not quotiented out in advance.",
+        "searches": [
+          "Chung–Cooper arXiv:math/0310385 §1 cyclic covering codes",
+          "Chee et al. DOI:10.1007/s10623-025-01726-5 Appendix A; twenty-bit example",
+          "Resultary binary radius-two shortest covering-cycle rotation census"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact single entries in Table 1 at n=7,8,9 and R=2 are 10,14,20. Appendix A contains examples rather than a table of all optimal rotation representatives.",
+          "Ranked local census/representative queries surfaced the radius-one match but no separate exact radius-two census."
+        ],
+        "reasoning": "The known minimum lengths were deliberately excluded from the originality claim. The exact assessed table contains 11, 2, 1 shortest-cycle classes and 14 representatives; that is a different table from one of optimal lengths or a list of selected examples.",
+        "searches": [
+          "Chung–Cooper §5 Table 1 binary R=2 row, arXiv HTML offset 40400",
+          "Chee et al. Appendix A exact (n,R) examples",
+          "Resultary shortest radius-two census and 00010010001110110111"
+        ]
+      },
+      "rationale": "The supported distinct claim is the complete shortest-cycle census modulo rotation (not the minima or a new order-nine example). The closest available primary table and appendix give the minima and witnesses, and a generic lower bound; they do not give the number of orbits. No exact or dominating census was found in the checked sources. This is a bounded assessment rather than a guarantee of priority.",
+      "residual_risks": [
+        "Older unindexed exhaustive searches or unpublished enumeration tables could report the same count. No claim of historical priority is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same model and exact minima; generic orbit bound only in relevant passages",
+          "evidence": "Cyclic string definition, exact R=2 row values 10,14,20, and at least M indexed rotations.",
+          "identifier_or_url": "https://arxiv.org/html/math/0310385",
+          "material_read": "§1 definition, §5 statement 10 at offset 33000 and Table 1 at offset 40400",
+          "method": "OA HTML passage and table comparison",
+          "title": "De Bruijn Cycles for Covering Codes",
+          "trigger": "Original model and plausible exact census table"
+        },
+        {
+          "assessment": "Known optimal witness, no exhaustiveness in the examples list",
+          "evidence": "Lists 00111011010010 for (8,2) and 00010010001110110111 for (9,2) among very small sequences used for bounds.",
+          "identifier_or_url": "DOI:10.1007/s10623-025-01726-5",
+          "material_read": "Appendix A, printed p. 5461, OA offset 59550",
+          "method": "OA full-text appendix comparison",
+          "title": "Constructions of covering sequences and 2D-sequences",
+          "trigger": "Known optimal example and potential classification"
+        },
+        {
+          "assessment": "Asymptotic construction/length results, not a finite orbit census in the passages examined",
+          "evidence": "Explicit constructions within a constant factor of the sphere-covering bound for sufficiently large n at fixed alphabet and radius.",
+          "identifier_or_url": "arXiv:2606.29236",
+          "material_read": "Abstract p. 1 offset 0 and Table 1 p. 4 offset 16800",
+          "method": "OA PDF pertinent passages",
+          "title": "Near-Optimal Covering Sequences",
+          "trigger": "Potentially dominating covering result"
+        },
+        {
+          "assessment": "Different radius, no coverage of this census",
+          "evidence": "Radius one at n=7, shortest length 22, 132 indexed cycles, six rotation classes.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-complete-classification-of-minimum-length-binary-radius-one-cove--cd1d48014b9f",
+          "material_read": "Mirrored Finding and parameter scope",
+          "method": "Local indexed-source and passage comparison",
+          "title": "Complete classification of minimum-length binary radius-one covering cycles",
+          "trigger": "Closest indexed census with overlapping order"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For optimal cyclic covering sequences, counting all designs up to rotation is a natural classification beyond minimum length and construction. These are three consecutive benchmark orders from the foundational table, not arbitrary isolated examples. The exact census tells a researcher when another shortest design can be sought, establishes optimal-design rigidity at order nine, and supplies all canonical inputs at the two nearby orders. Its finite scope does not diminish those uses.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

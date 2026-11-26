@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python verify.py` from the directory containing this document. Python 3 standard library only.
+## correctness
 
-The program performs the following checks:
+PASS
 
-- All \(2536\) allowed approval-interval profiles for one through four agents, compared to **all** set partitions of those agents.
-- \(5000\) deterministic-seed profiles of five through eight agents, each compared to exhaustive labeled set partitions.
-- \(1250\) additional deterministic-seed profiles for nine, ten, eleven, twelve and fifteen agents, independently checked by enumeration of all flexible-type split counts, rather than by repeating the dynamic-programming recurrence.
-- For every computed feasible instance, the returned minimum and maximum witness partitions are directly checked for disjointness, full coverage, approved group sizes and the claimed number of groups.
+A choice of split counts t_s yields N_s=a_s+b_s−t_s+t_{s−1}, which is automatically nonnegative for 0≤t_s≤b_s. Divisibility by s is sufficient as well as necessary because within-size labels can be grouped arbitrarily. The predecessor y must have residue t−a_s−b_s modulo s; on that residue the additive transition cost is the sum of a function of t and y/s. Thus each extremum needs only one optimally scored predecessor on that residue, equivalently optimizing m(y)+floor(y/s) or M(y)+floor(y/s). Since the sum of all state-array lengths is n+∑b_s, scanning even the full arrays at each next stage is linear, as are the timestamp operations and retained parent storage. At s=1 the residue is unique, and at s=n the only allowed output state is zero. Parent traversal and batching distinct labels into groups realizes both bounds, including n=1. Explicit output is linear in the size of its label list. The frozen checker was inspected, not executed; its finite brute-force comparisons are corroboration, not the general proof.
 
-All these checks completed successfully under Python 3 in the scientific preparation. The included code can reproduce them. Finite tests do not certify the infinite-family theorem; the mathematical proof is in `RESULT.md`.
+## originality
 
-The complexity proof assumes word-RAM operations on \(O(\log n)\)-bit integers. Priority against all possible unpublished or differently named results is not verified. Independent audit: not yet performed.
+PASS
+
+The general pair-approval orientation equivalence and the interval feasibility algorithm are antecedents, but the inspected statements do not give an algorithm for both extrema and labeled witnesses in time linear in the explicit input, even on the size-label path. The surviving claim is the adjacency-specific, residue-compressed optimization bound, not the orientation model, unrestricted hardness, or the existence of some polynomial-time interval algorithm.
+
+## value
+
+PASS
+
+Two witnesses may differ materially even when feasibility is easy: they bracket the range of feasible coalition fragmentation and certify the endpoints. Obtaining both extrema at input/output scale exploits a natural adjacency restriction and is materially stronger than constructing one feasible partition in polynomial time.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

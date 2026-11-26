@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:58:44.251018Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–72",
+        "Frozen VERIFICATION.md and verify.py (inspected, not run)"
+      ],
+      "rationale": "Quantification is over Boolean valuations of one letter at one root of a loopless undirected cycle, with depths 1 through n-1 indexed syntactically. The endpoint support B_j consists of j-2t modulo n for 0 <= t <= j. For any positive set, the valuation equal to its support union satisfies every negative whose support is not contained in that union. Consequently a minimal obstruction has exactly one negative, with pairs exactly the single-support containments; two positives of the same parity would make the smaller redundant. In even order the two parity chains lie on disjoint shores. In odd order n=2r+1 supports have size j+1 up to n-1; at e+o=n-2 for opposite-parity depths they are disjoint (opposite-parity integer endpoints could coincide modulo n only if separated by at least n) and partition the cycle. Nested enlargement gives the same cover above the threshold. Below it, a negative depth exceeding the same-parity positive by at least two has a new endpoint e+2 or o+2 absent from both supports, by distinct same-parity endpoints and the parity-specific walk bound. Once the union covers, the larger negative exceeds its same-parity support and its 0 (even) or 1 (odd) is absent from the opposite support (a full n-1 positive is excluded). This proves both directions. For e=2a, o=2b+1 the condition is a+b >= r-1, with a in 1..r-1 and b in 0..r-1. Each contributes r-a+r-1-b negatives; summing over b first gives (a+1)(2r-a)/2, then r(r-1)(2r+5)/6. At r=1 no a is available. With all depths at most r, the only candidate opposite-parity positives satisfying the threshold are r-1,r and neither can be exceeded by two. For r>=2 the depths r-1,r,r+1 do give a minimal triple. The proof is unrestricted in n; frozen finite checks cover only the documented ranges.",
+      "residual_risks": [
+        "The count is for the finite depth-indexed agenda only, not an infinite agenda with repeated full supports or an arbitrary modal language."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Nagai–Ono reduce both agendas in Theorem 3 to translates of one fixed set A. Theorem 3 uses a directed-step construction with an exterior root, or a translation-invariant frame with an offset set and a different modal pattern; its k-symmetry condition is reflection of offsets around k/2."
+        ],
+        "reasoning": "That condition is not the undirected cycle condition, and these fixed-size translated supports do not instantiate the two strictly size-growing parity chains in the frozen result. The existence and propagation of a local minimal inconsistency there are not a classification by depth here.",
+        "searches": [
+          "arXiv:2605.23321v1 §4, Theorem 3, Proposition 4.1, Lemma 4.3 and Proposition 4.4; Definition C.1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2605.23321v1",
+        "Resultary 285f8956400d, eac9243128cc, f7b79fec74bf, 73acc7ce4a63 and identical target 11b5943a0781"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Proposition 4.1's per-negative noncontainment in the positive union is precisely the same semantic mechanism. The earlier transversals use the three inequalities on gaps to classify deletion-minimal hits on maximal geodesics, without a designated negative member or a depth filtration."
+        ],
+        "reasoning": "The general cover test is used, not rediscovered as a contribution; deriving the sharp two-parity cover threshold, negative-level exclusions and first admissible depth needs the specific walk geometry. Equal cardinalities with geodesic triples alone give no support-preserving or depth-preserving correspondence. In particular geodesic triples can occur in even orders, whereas the modal obstruction disappears on every even cycle.",
+        "searches": [
+          "arXiv:2605.23321v1 Proposition 4.1 and Theorem 3",
+          "Resultary 285f8956400d, primary text offsets 0 and 4200–6446"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The search returned the assigned record itself as the exact agenda match. The half-circumference work compares worlds under fixed valuations; the pure necessitation result tests derivability and the noncontingency record studies pointed path theories with a different modality."
+        ],
+        "reasoning": "Classifying worlds, proof-theoretic reductions, or path theories does not classify sets of signed formulas jointly satisfiable by varying valuations at a fixed cycle root. The identical indexed record is not separate prior art.",
+        "searches": [
+          "Resultary: minimal inconsistent signed boxes / exact-length walk covers / odd-cycle three-premise spectrum",
+          "Resultary modal equivalence, pure necessitation reachability, and noncontingency records eac9243128cc, f7b79fec74bf, 73acc7ce4a63"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "For the earlier geodesic-transversal triple coefficient c_m, take m=2r+5. Its cap is r+1 and its gap-deficit budget is r-2, so c_(2r+5)=(2r+5)*binomial(r,2)/3=r(r-1)(2r+5)/6, with zero when r=1 by the negative-budget case."
+        ],
+        "reasoning": "This is exact numerical overlap across the full odd-order sequence after shifting order by 4, and is not evidence of a new sequence. It counts unrooted labelled vertex triples with bounded cyclic gaps hitting all maximal shortest paths of a different graph order, not indexed signed formulas at one root. No exact table of the latter was found besides the finding itself.",
+        "searches": [
+          "Resultary: cycle cubic triple census; Minimal geodesic-transversal spectra, 2026/11/8, 285f8956400d, Finding and Three points"
+        ]
+      },
+      "rationale": "The semantic covering test is prior and the numerical cubic also occurs previously as the triple coefficient for an unrelated shifted cycle problem. Credit is for the complete classification of signed-box depth triples on the symmetric irreflexive cycle, including their interpretation and sharp least depth, not for inventing the covering technique or a previously unseen integer sequence. No scope-preserving reduction from the inspected results establishes that classification.",
+      "residual_risks": [
+        "An equivalent theorem for nested cyclic support families could be unindexed or named differently.",
+        "There may be a bijection explaining the earlier shifted count, but none was established by the inspected statements."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior semantic reduction, not the asserted all-cycle depth spectrum",
+          "evidence": [
+            "Proposition 4.1 requires every negative translate to be not contained in the union of the positive translates.",
+            "Theorem 3 assumes coprime r,k and {0,k} subset A subset [0,k], with two frame-specific constructions, and the proof reduces to translates of A."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2605.23321v1",
+          "material_read": "Theorem 3 (p. 7, text offset about 23800), Proposition 4.1 and example (p. 8, offset 26650), Lemma 4.3 and Proposition 4.4 (pp. 8–9), Definition C.1 (p. 16)",
+          "method": "OA primary PDF, comparison of frames, agendas and the containment test",
+          "title": "Arrow-Type Impossibility for Genuinely Modal Judgments",
+          "trigger": "Same semantic cover method and minimal modal inconsistency on cyclic frames"
+        },
+        {
+          "assessment": "Exact shifted count overlap but not equivalent agenda or classification",
+          "evidence": [
+            "The triple criterion bounds all three clockwise gaps by ceil(m/2)-2; the proof counts nonnegative gap deficits and divides rooted counts by three."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-minimal-geodesic-transversal-spectra-of-cycles-and-a-re-entrant--285f8956400d/RESULT.md",
+          "material_read": "Finding (offset 0) and Three points / Spectrum and purity (offsets 4200–6446)",
+          "method": "Local-mirror primary result; substituted m=2r+5 and compared the classified objects",
+          "title": "Minimal geodesic-transversal spectra of cycles and a re-entrant purity exception",
+          "trigger": "Same cubic sequence after an order shift, with minimal triples on cycles"
+        },
+        {
+          "assessment": "Different invariants or languages; no identified covering theorem",
+          "evidence": [
+            "Fixed-color pointed equivalence, syntactic reachability, and path noncontingency types are not signed-agenda support covers."
+          ],
+          "identifier_or_url": "Resultary eac9243128cc, f7b79fec74bf and 73acc7ce4a63",
+          "material_read": "Statements of the local results",
+          "method": "Local-mirror comparison of objects, semantics and quantifiers",
+          "title": "Sharp half-circumference modal stabilization on two-colored cycles; Reachability normal form for multiple modal reductions in pure necessitation; Noncontingency on finite paths",
+          "trigger": "Related depth, modality and frame formulations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof",
+        "Nagai–Ono, arXiv:2605.23321v1 §4",
+        "Resultary 285f8956400d, Finding"
+      ],
+      "rationale": "Minimal inconsistency is a motivated obstruction in genuinely modal agendas. Here the classification decides all witnesses on an infinite standard family and reveals exactly how odd-cycle overlap creates a failure of pairwise consistency, including a sharp depth threshold that the numerical sequence alone cannot give. This is valuable as a classification and not merely as the evaluation of the cubic or as a new general aggregation impossibility result.",
+      "residual_risks": [
+        "Consequences beyond the single-letter symmetric-cycle agenda, including any new aggregation theorem, are not established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

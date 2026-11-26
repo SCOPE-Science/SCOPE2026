@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-The mathematical argument establishes a strict kernel derivative and the full parameter-to-observation bijection under its stated assumptions. Execute `python3 check_claim.py` in this directory using only the Python 3 standard library to compare the analytical formulas with the stationary two-state Markov moment equations and an independent future-moment quadrature.
+# Independent mathematical audit
 
-The checker tests 600 seeded physical parameter choices, each covering mean diffusivity, kurtosis, normalized square covariance and inverse reconstruction, including both sides of the trap and switching time scales. Its finite checks support but do not establish the theorem's universal monotonicity or the absence of overlooked earlier literature. No experimental-noise study or independent external audit is asserted.
+## correctness
+
+PASS
+
+An independent generator calculation gives V=bar D/kappa, M=E[S X²]=bar D delta/(kappa+lambda), and E[X^4]=3(V²+bar D delta M/kappa), by applying stationarity to X², SX² and X^4. For g(h)=Cov(X_0²,X_h²)/V², conditioning on the current bath state gives g'(h)=-2 kappa g(h)+2 bar D delta M exp(-2 lambda h)/V² with g(0)=2+K. Solving gives exactly C=2a+(K/3)(2a+F(lambda)). Differentiation of the integral for F gives a strictly negative derivative for every h>0, including at lambda=kappa. At fixed 0<K<3 the physical contrast constraint is exactly 0<lambda<kappa(3/K-1); the endpoints yield F=1 and F=F(kappa(3/K-1)) with contrast reaching 1 at the latter. The intermediate-value theorem and strict monotonicity give necessity, sufficiency and uniqueness of the unordered diffusivity pair and rate. Ordinary two-point positional covariance only uses V and kappa. The bound VERIFICATION.md and check_claim.py were inspected, not executed; the reported 600 finite tests are not the basis for the universal result.
+
+## originality
+
+PASS
+
+Pass is limited to the exact three-scalar inverse and its strict physical realizability region at a known positive lag, not the forward Markov-modulated OU moment framework or the general idea of diffusivity tomography. The inspected primary and indexed statements do not cover this inverse from these observables.
+
+## value
+
+PASS
+
+Every positional covariance at every lag is blind to contrast and rate. The exact inverse shows that excess kurtosis plus one lagged energy measurement restores identifiability and gives a sharp compatibility test separating the no-switching and zero-diffusivity boundaries. This is useful for deciding whether ideal stationary data can come from the model; it is not a claim of noise robustness, practical estimability or identification for asymmetric switching.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

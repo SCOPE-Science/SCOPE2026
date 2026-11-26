@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T13:32:22.607592Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–58",
+        "Frozen VERIFICATION.md and listed capacity and graph scripts and outputs inspected, not executed"
+      ],
+      "rationale": "Encode each rule as a labeled edge, with terminal rules going to one sink. Words are bounded by complete path count. Removing the r edges out of the start leaves budget e=p-r and at most M(e) continuations per head, counting the sink's empty continuation as one. Matching parallel chains give the maximum integer product over positive parts summing to p. M(p) increases strictly for p>=2 by increasing a part of a maximizing composition of p-1. At equality all p rules lie on complete paths and the word labels are collision-free. The case e=0 gives a single terminal layer; e=1 is impossible for p>=2 since at most p-1 paths would result. For e>=2 each maximizing suffix head must use every remaining edge by strict monotonicity. Distinct heads would have to reach each other, using an outgoing edge of the other, contradicting acyclicity. Thus there is one head per layer, inductively. The p=1 case requires exactly one terminal production at the start. Merging ones, replacing a part b>=5 by 3 and b-3, and replacing three twos by two threes give strict improvements; splitting a four into two twos preserves equality and yields the listed maximizing compositions. Mixed-radix labels yield exactly each exponent 0 through M(p)-1 once even over a unary alphabet. For the cover, the necessary count bound and the interval produced at the least feasible p coincide, giving the stated inverse and bounded additive remainder.",
+      "residual_risks": [
+        "The finite graph check is narrower than the advertised full rectangle: its loop range(2,min(p+2,6)) excludes larger vertex counts at low p (e.g. p=1,n=3). This reporting limitation does not affect the analytic proof and the scripts are not relied on as exhaustive evidence for the theorem.",
+        "The inverse is for a cover that may generate a strict superset, not necessarily minimum cost for exact generation."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hetzl–Shadman use the same arbitrary-block production cost and prove general and binary cover NP-completeness. Hetzl–Wolfsteiner bound finite linear grammars by 2^(p-1). The dissertation reports logarithmic production-size generation for arbitrary finite unary languages in longest word length."
+        ],
+        "reasoning": "Decision hardness, a looser count upper bound, and order-of-growth generation for a broader class do not settle the exact cover complexity of consecutive unary intervals or characterize capacity extremizers.",
+        "searches": [
+          "arXiv:2611.16562v1, Definitions 2.1–2.2 and Theorems 3.7, 4.6",
+          "Hetzl–Wolfsteiner (2019), Lemma 7",
+          "Wolfsteiner thesis (2020), p. 54; Bucher et al. (1981), Theorem 5"
+        ]
+      },
+      "checked_sources": [
+        "Primary literature and Resultary listed above",
+        "Related Resultary hits 2026/10/18/SCOPE-acyclic-quiver-height-determines-the-finite-field-free-algebra-p--58e297707cc3 and 2026/10/25/SCOPE-source-sink-feedback-edges-split-off-hamiltonian-path-spheres-in--41ac0ad7443c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The one-sink graph formulas are for a sum over starting vertices, and have different maximizing trunk parameters. The cited grammar upper bound gives 32 rather than 9 at p=6; the classical unary construction bound as summarized is logarithmic, not an exact inverse."
+        ],
+        "reasoning": "An upper bound on a larger all-start count gives at most a weaker fixed-start bound, not the sharp one or its equality condition. The new step is analyzing fixed-start equality and realizing it collision-free by mixed radix; the interval cover follows as a corollary of that result, not merely from the classical bound.",
+        "searches": [
+          "arXiv:2606.16095, Theorems 4.1, 4.11–4.12",
+          "Hetzl–Wolfsteiner 2019, Lemma 7; Wolfsteiner thesis, p. 54"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Hajac et al., §3 and Theorem 3.15 maximize all finite paths. Theorems 4.11–4.12 describe one-sink maximizing trunks and count paths to that sink from all starts."
+        ],
+        "reasoning": "Neither functional equals designated-start to designated-sink paths; at six edges the one-sink all-start maximum is 16 rather than 9. Reduction from a grammar to a fixed pair of endpoints also requires checking label collisions before identifying words with paths.",
+        "searches": [
+          "arXiv:2606.16095, fixed-endpoint versus total and all-start one-sink path functionals",
+          "Resultary: acyclic grammar production capacity, acyclic path count and budget"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact product-capacity hit is the audited record itself. The distinct same-day reachability-cuts Finding classifies maximal commutative subsemigroups in acyclic path semigroups; related quiver-height and Hamiltonian path results optimize or count different quantities."
+        ],
+        "reasoning": "The identical entry is not independent coverage. None of the inspected distinct entries supplies the edge-budget fixed-terminal capacity or a table of equality grammars; a standard integer-product table alone would not prove its connection to grammars.",
+        "searches": [
+          "Resultary production/edge budget and acyclic paths; 2026/11/22/SCOPE-sharp-production-capacity-and-rigid-extremizers-of-acyclic-regul--e6ccbb705eb1; 2026/11/22/SCOPE-reachability-cuts-classify-maximal-commuting-families-in-finite--4f50b8d357fb"
+        ]
+      },
+      "rationale": "Pass for the sharp production-count capacity, equality structure with injective word labels, and exact consecutive-unary cover threshold. The integer-product calculation is classical. The closest primary graph result gives different extremal path functionals, including the important one-sink count from all starts; neither that result nor the general cover results establishes the stated fixed-endpoint grammar theorem in the inspected material.",
+      "residual_risks": [
+        "No primary full text of Bucher et al. was obtained; the dissertation summary may omit stronger details. An older exact designated-endpoint graph theorem remains a possible priority risk. The examined sources are not an exhaustive search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material analogue but distinct objective",
+          "evidence": "Theorem 4.12 uses paths ending at the sink from every start, not from one designated start; its maximum at six edges is 16.",
+          "identifier_or_url": "https://arxiv.org/abs/2606.16095",
+          "material_read": "Primary PDF §3 p. 3 offset 7408; Theorem 3.15 pp. 17–18 offset 61631; Theorem 4.1 pp. 19–20 offset 66901; §4.4 and Theorems 4.11–4.12 pp. 26–27 offset 92600",
+          "method": "OA primary text, bounded passages",
+          "title": "The maximal dimensions of path and graph algebras",
+          "trigger": "Same edge-budget DAG and chain/trunk extremal phenomena"
+        },
+        {
+          "assessment": "Same framework and decision complexity, not the exact capacity in the examined results",
+          "evidence": "Allows arbitrary terminal blocks and counts productions; proves NP-completeness including a fixed binary alphabet.",
+          "identifier_or_url": "https://arxiv.org/abs/2611.16562v1",
+          "material_read": "Definitions 2.1–2.2 offsets 0 and 4200; Theorems 3.7 and 4.6 offsets 14048 and 26285",
+          "method": "OA primary text, bounded passages",
+          "title": "The Regular Cover Problem is NP-complete",
+          "trigger": "Same exact grammar model, production cost and cover problem"
+        },
+        {
+          "assessment": "Related looser bound for linear grammars",
+          "evidence": "At most 2^(p-1) words in the finite-language case.",
+          "identifier_or_url": "https://www.dmg.tuwien.ac.at/hetzl/research/oncovcomp.pdf",
+          "material_read": "PDF p. 1 offset 2945 and Lemma 7, printed p. 113 offset 21055",
+          "method": "OA primary text, bounded passages",
+          "title": "On the cover complexity of finite languages",
+          "trigger": "Earlier universal production versus cardinality bound"
+        },
+        {
+          "assessment": "Secondary account of a broader generation bound",
+          "evidence": "Attributes to Bucher et al., Theorem 5, logarithmic regular or linear production count in the longest word length for arbitrary finite unary languages.",
+          "identifier_or_url": "https://www.dmg.tuwien.ac.at/hetzl/teaching/d_wolfsteiner.pdf",
+          "material_read": "Printed p. 54, offset 150100",
+          "method": "OA thesis text",
+          "title": "Grammatical Complexity of Finite Languages",
+          "trigger": "Classical unary production-complexity comparison"
+        },
+        {
+          "assessment": "Exact primary theorem scope unresolved",
+          "evidence": "No inference of noncoverage from failed retrieval.",
+          "identifier_or_url": "https://doi.org/10.1016/0304-3975(81)90044-X",
+          "material_read": "No primary passage obtained; see thesis p. 54 for secondary evidence",
+          "method": "DOI and bounded lawful copy lookup",
+          "title": "Concise description of finite languages",
+          "trigger": "Possible stronger classical unary bound"
+        },
+        {
+          "assessment": "Different extremal invariant",
+          "evidence": "Classifies maximal commutative subsemigroups, not fixed-endpoint path capacity.",
+          "identifier_or_url": "2026/11/22/SCOPE-reachability-cuts-classify-maximal-commuting-families-in-finite--4f50b8d357fb",
+          "material_read": "Mirrored Finding",
+          "method": "Local published-record mirror",
+          "title": "Reachability cuts classify maximal commuting families in finite acyclic path semigroups",
+          "trigger": "Distinct same-day Resultary match on finite acyclic paths and multiplicities"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof",
+        "Hetzl–Shadman grammar model and Hetzl–Wolfsteiner Lemma 7"
+      ],
+      "rationale": "The exact maximum and structural equality theorem address a natural resource question in the regular-cover model: how many distinct words a production budget can buy, and what must happen in an optimal description. The collision-free unary realization turns that maximum into an exact inverse for a natural test family, substantially sharpening the older cardinality bound rather than merely restating integer-break arithmetic.",
+      "residual_risks": [
+        "Arbitrary-length labels cost one production; results need not transfer to single-letter rules or symbol cost. The exact cover corollary is for consecutive lengths, not arbitrary finite unary or larger-alphabet languages of the same cardinality."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

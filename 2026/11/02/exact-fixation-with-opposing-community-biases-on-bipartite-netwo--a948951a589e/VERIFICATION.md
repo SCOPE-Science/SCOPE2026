@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Mathematical and computational verification
+# Independent mathematical audit
 
-The proof is analytic and is reproduced in `RESULT.md`. The finite computation is an independent consistency test, not a certificate for an infinite theorem.
+## correctness
 
-Run `python3 verify.py` with Python 3 and its standard library. All arithmetic uses exact `fractions.Fraction` objects and all absorbing-chain solves use rational Gauss–Jordan elimination. The tests verify (1) 5760 state/parameter combinations on four biregular connected bipartite graphs, (2) 366 transient states across independently solved homogeneous absorbing Markov matrices, and (3) all 30 transient states of a five-vertex irregular path at product balance, also by exact-rational solving. These results do not test graphs of unbounded order and are not needed for the martingale proof.
+PASS
 
-Independent external audit and mathematical validation have not been performed. Previously established special cases are disclosed in the literature-comparison section.
+For a discordant U=0,W=1 edge the conditional relative drift of H=z_U^k_U z_W^k_W is proportional to (p_U/d_U)(z_U-1)+(q_W/d_W)(z_W^(-1)-1). It is zero by the stated A and z bases; z_U z_W=Q then makes the reverse orientation cancel too. Both positive bases are on the same side of 1, so the off-critical denominator is nonzero. At Q=1, the weighted mass with U weight c times degree, c=q_W/p_U, has both orientations balanced since cp_U=q_W and cq_U=p_W; degree cancellation is per edge and uses no biregularity. Strictly positive rates and connectedness give a positive-probability route to consensus from every transient state; finite state space gives almost-sure absorption. The two bounded harmonic functions at the consensus boundaries yield both formulas, including initial consensus. An independently written rational absorbing-chain solve matched all 30 transient states each on an irregular five-vertex critical path and a noncritical K_{3,2}. The shipped script was not executed.
+
+## originality
+
+PASS
+
+The surviving scope is independent receiver-class adoption rates in the biregular noncritical formula and the heterogeneous-response degree weighting at criticality. The analogous bithermal product-form argument, its uniform-rate specialization, and the alternating complementary-rate critical case are established coverage. The nearest partisan-voter model uses complementary rates and the inspected analysis does not supply the claimed four-rate absorption theorem. A plausible martingale paper could not be read and is an explicit residual risk, not evidence of novelty or a basis for rejection.
+
+## value
+
+PASS
+
+The result resolves fixation, not just drift or expected opinion at a given time, for a natural two-community process allowing distinct adoption and responsiveness rates. It provides a connectivity-independent law within the biregular class and a distinct weighted influence formula at product balance even for irregular graphs. The ability to separate opposing local preference from unequal class responsiveness, and still compute exact initial-state fixation, goes beyond the already-known single-bias and alternating-complementary cases.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

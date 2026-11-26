@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T20:58:21.644813Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The integrated kernel is v(x)/2 in one coordinate, v(x)=x(1−x), with total one-dimensional representer energy 1/12. Completing the square in the weights gives capture gᵀG⁻¹g; distinct interior sites give a nonsingular Gram matrix since the kernel correlation in at least one coordinate is strictly less than one. For the one-axis family the capture factorizes, with each shared coordinate contributing v(c)/4≤1/16, uniquely at c=1/2. Independently, the 1D subspace vanishing at both sites splits into three Dirichlet intervals. On an interval of length h the integral representer u(s)=s(h−s)/2 has energy ∫u=h³/12, proving the residual formula. Strict Jensen gives trisection and Q₁=2/27; optimal weights are 1/3 times 1/2 per shared coordinate. Degenerate pairs give at most the best one-site capture 16^(−d) and are strictly worse. For the diagonal pair, equal kernel means p/2^d and Gram correlation s^d give the stated weights and capture; the log derivative has the sign of 1−s−2s^(d+1), which decreases through zero exactly once. Under s=exp(−ℓ/d), normalized capture is 2 sech^(2d)(ℓ/(2d))/(1+exp(−ℓ)). Strict convexity of log cosh makes it strictly increasing at each fixed ℓ>0 with d; comparing attained maxima at the earlier maximizer gives strict increase. At d=1 the normalized maximum is 32/27. Its upper bound is 2, attained in the limit by ℓ=d^(1/4), so the ratio tends to 27/16. Writing α=−d log s_d gives α→∞, α/d→0 and α exp(α)~2d; inversion gives α~W₀(2d) and 1−2t_d~W₀(2d)/(2d). Independent numerical substitution gives t₂=0.3709720637607637, capture 0.005050140888736467 and error 0.001894303555707977. Symmetry here means reverse the same chosen coordinate orientation for both nodes (as in the stated equivalent-diagonal class), not reflecting one node alone. The claim does not extend to unrestricted site pairs. The supplied script and output were inspected, not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kacwin et al. give tensor reproducing kernels and cubature worst-case error for prescribed rules. Briol et al. optimize sampling distributions and study random-point quadrature performance."
+        ],
+        "reasoning": "The general kernels and error machinery can evaluate any prescribed pair but do not optimize these restricted node classes or compare their dimension-normalized optima. Random-node sampling and lattice performance do not cover a sharp deterministic fixed-budget geometry comparison.",
+        "searches": [
+          "arXiv:1802.08666 Theorem 5.4 and §7.1",
+          "arXiv:1706.03369 §2.1",
+          "\"Brownian bridge\" \"two-node\" cubature tensor product RKHS deterministic optimal quadrature points"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, assumptions and proof; VERIFICATION.md; verify.py and recorded output",
+        "arXiv:1802.08666, 2210.15959 and 1706.03369 at the indicated passages",
+        "Resultary --1c7b05ec88c4, --13f14d6dc85f and --15716724ea95"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact 1D risk plus tensor factorization already give the one-axis benchmark. The general prescribed-rule error yields Gram projection on the diagonal family but neither it nor the interpolation theorem gives the diagonal root, monotonicity of its maxima or the limiting capture ratio."
+        ],
+        "reasoning": "Do not claim the axis benchmark in isolation as the new mathematical mechanism. Substitution into a general error formula begins, but does not settle, the diagonal optimization or the strict dimension-wise comparison. A stronger deterministic tensor optimum would need a fresh implication check if located.",
+        "searches": [
+          "Resultary 2026/11/2 SCOPE-unique-optimal-i-i-d-two-node-design-for-brownian-bridge-kernel--1c7b05ec88c4",
+          "arXiv:1802.08666 §7.1",
+          "arXiv:2210.15959 Theorem 5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 1D iid result reports the same fixed-pair formula (1/12)∑h_i³. The 1D uniform-marginal coupling study minimizes an average conditional integral variance; the independent-noise record optimizes two observations of a 1D bridge."
+        ],
+        "reasoning": "Noiseless conditional integral variance is exactly the squared worst-case integration error for a fixed deterministic pair. Random-pair expectations subject to marginal constraints are not that optimization; positive noise changes the Gram problem, and interpolation power is for evaluating the interpolant, not integrating it. The one-dimensional spacing formula is shared, not an original tensor-diagonal result.",
+        "searches": [
+          "Resultary: optimal two point kernel quadrature Brownian bridge tensor RKHS worst-case error",
+          "Resultary: Brownian bridge kernel equally spaced interpolation points optimal cubature tensor product",
+          "arXiv:2210.15959 Theorem 5 and flat-limit discussion"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest indexed 1D studies --1c7b05ec88c4, --13f14d6dc85f and --15716724ea95 were compared using their Finding, Proof or Scope passages; they optimize iid sampling, a coupling with fixed uniform marginals, and noisy deterministic sites, respectively."
+        ],
+        "reasoning": "Their exact values do not give the reflected tensor-family root or the dimension law. The first gives the exact 1D building block; the other two same-day records were distinguished by objective and assumptions, not by inferring an order from the date.",
+        "searches": [
+          "Resultary: two-node cubature Brownian bridge tensor product kernel reflected diagonal one-axis captured energy 27/16",
+          "Resultary: optimal two point kernel quadrature Brownian bridge tensor RKHS worst-case error"
+        ]
+      },
+      "rationale": "The one-dimensional fixed-pair error and the general tensor-kernel cubature machinery are already available; the independent increment is the exact restricted-family tensor comparison including the optimizing diagonal separation and strict dimensional law. No compared statement covers that conjunction or demonstrably implies it without the geometry-specific optimization. This is provisional as to historical priority.",
+      "residual_risks": [
+        "The primary-literature search returned no useful exact match; it is not proof of absence. Historical spline cubature or fixed-budget Brownian sheet/bridge design could contain a covering result.",
+        "The known 1D integral variance and general tensor error formula must be credited; priority is not established for those components."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides general evaluation machinery, not restricted budget-two location optima.",
+          "evidence": "Theorem 5.4 supplies a tensor kernel; §7.1 supplies the worst-case error for a prescribed rule, in comparison of lattice, sparse-grid and QMC methods.",
+          "identifier_or_url": "https://arxiv.org/pdf/1802.08666",
+          "material_read": "Theorem 5.4 p. 21, offset 59854; §7.1 p. 28, offset 87034",
+          "method": "Lawful OA PDF, bounded passages",
+          "title": "Numerical performance of optimized Frolov lattices in tensor product reproducing kernel Sobolev spaces",
+          "trigger": "General tensor-kernel cubature and worst-case formulas"
+        },
+        {
+          "assessment": "Different functional and dimension.",
+          "evidence": "The theorem and limit optimize a 1D interpolation power function rather than the tensor integral residual.",
+          "identifier_or_url": "https://arxiv.org/pdf/2210.15959",
+          "material_read": "Theorem 5 p. 5, offset 21552; flat limit p. 6, offset 27733",
+          "method": "Lawful OA PDF, bounded passages",
+          "title": "Equally spaced points are optimal for Brownian Bridge kernel interpolation",
+          "trigger": "Related exact Brownian-bridge location optimum"
+        },
+        {
+          "assessment": "Optimizes a distribution of random quadrature nodes, not a fixed two-node geometry.",
+          "evidence": "The design variable in §2.1 is the sampling distribution.",
+          "identifier_or_url": "https://arxiv.org/pdf/1706.03369",
+          "material_read": "Abstract p. 1; §2.1 p. 2, offset 11560",
+          "method": "Lawful OA PDF, bounded passages",
+          "title": "On the Sampling Problem for Kernel Quadrature",
+          "trigger": "Kernel quadrature design via sampling"
+        },
+        {
+          "assessment": "Covers the 1D building block exactly; design theorem is for iid sampling in one dimension.",
+          "evidence": "One-dimensional fixed-site risk is (1/12)∑h_i³, used in an expected risk over two independent draws.",
+          "identifier_or_url": "2026/11/2/SCOPE-unique-optimal-i-i-d-two-node-design-for-brownian-bridge-kernel--1c7b05ec88c4",
+          "material_read": "Finding, scope and Proof beginning at offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Unique optimal i.i.d. two-node design for Brownian-bridge kernel quadrature",
+          "trigger": "Closest shared fixed-pair 1D risk formula"
+        },
+        {
+          "assessment": "Expected variance with uniform marginals, not deterministic tensor nodes.",
+          "evidence": "The optimal half-period shift attains expected variance 1/64 under the constrained 1D coupling.",
+          "identifier_or_url": "2026/11/22/SCOPE-unique-uniform-marginal-coupling-for-two-point-brownian-bridge-k--13f14d6dc85f",
+          "material_read": "Finding offset 0 and scope offset 1928",
+          "method": "Local Resultary mirror",
+          "title": "Unique uniform-marginal coupling for two-point Brownian-bridge kernel quadrature",
+          "trigger": "Same-day two-point Brownian-bridge quadrature optimum"
+        },
+        {
+          "assessment": "Positive observation noise and one dimension; no tensor-family comparison.",
+          "evidence": "The symmetric pair depends on the observation noise level.",
+          "identifier_or_url": "2026/11/22/SCOPE-unique-noncolliding-optimal-locations-for-two-noisy-brownian-bri--15716724ea95",
+          "material_read": "Finding beginning at offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Unique noncolliding optimal locations for two noisy Brownian-bridge observations",
+          "trigger": "Same-day deterministic two-location bridge design"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "One extra evaluation is the smallest budget for choosing between a one-coordinate split and a genuinely multivariate placement. Optimizing both classes proves a strict loss for every one-axis design, even with arbitrary weights, and the separation and monotone gain quantify the mechanism as more coordinates are used. The 27/16 factor is for captured representer energy, not total-error improvement or practical speedup; both captured fractions decay exponentially.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

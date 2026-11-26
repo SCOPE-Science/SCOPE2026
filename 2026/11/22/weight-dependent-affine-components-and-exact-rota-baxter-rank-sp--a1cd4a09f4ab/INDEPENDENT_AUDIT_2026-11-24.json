@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:13:45.210690Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–101",
+        "Frozen VERIFICATION.md and verify_weighted_rb.py, inspected only"
+      ],
+      "rationale": "For a=fR, b=gR and z=R(u), the tensor equality in the proof is equivalent to the original bilinear identity. If z is not in ku, the u and z coefficients vanish separately, forcing a=0,b=−λg or b=0,a=−λf. If z=cu, evaluation at y=u gives c(c+λ)=0. With z=0 the tensor a⊗b vanishes; with z=−λu at nonzero weight it is (a+λf)⊗(b+λg) that vanishes. Substitution proves sufficiency without any division by 2. The fixed row and column constraints give the stated dimensions, and for n≥3 no component is contained in another (in particular z can have a nonzero W part in F3 and F4). The only pairwise edges are 12, 24, 56, 36, so each connected triple is open and closed by the distinct value of g(z). For ranks, F1/F2 have an unrestricted m×m block; F3/F4 have one pivot and an h×m residual with h unused entries; F5 has two pivots, an h×h residual and 2n−3 unused entries; F6 has one pivot and an m×m residual. The four intersections remove exactly the blocks counted in the subtraction terms. Inclusion–exclusion works even when n=2 pieces are not maximal. Evaluation at full rank and summation give the invertible count and doubling; only nonzero-weight maps can be invertible. Independent replay: python3 /workspace/branches/independent_replay.py 3, using the actual bracket and image cardinalities rather than elimination; exhaustive in the listed F₂, F₃ and added F₄ small cases, e.g. n=2 over F₄ gives (1,6,0) at weight zero and (1,7,6) at every nonzero weight.",
+      "residual_risks": [
+        "Geometry is for the reduced locus and counts are labeled; no assertion about the defining ideal as a scheme or about automorphism orbits follows. Extension-field enumeration beyond the bounded F₄ case is not needed for the field-independent proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The structural theorem classifies Leibniz algebras, not weighted maps on them. The abelian-extension formalism of Mondal–Saha is a theory of extensions with chosen compatible operators, not this explicit census.",
+          "The low-dimensional comparison is credited by the frozen record; full text could not be checked, so this is not evidence about the paper's whole scope."
+        ],
+        "reasoning": "The usual Rota–Baxter-preserving extension setup does not exhaust lifts on a split algebra: for example at weight zero with W nonzero, R may send a vector of W to u while killing u and v, and need not descend to the two-dimensional quotient. Known cases n=2,3 do not alone imply the larger census.",
+        "searches": [
+          "arXiv:2307.09102, §§1–2",
+          "arXiv:2208.00560, §6",
+          "Zhang–Li–Zheng, Theorems 17 and 21 and §3 as cited in frozen record"
+        ]
+      },
+      "checked_sources": [
+        "Resultary a54e42eaa57d and identity match a1cd4a09f4ab",
+        "arXiv:2307.09102",
+        "arXiv:2208.00560",
+        "DOI 10.1155/2018/8540674 (bibliographic and frozen citation only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior local identity counts different maps; the algebra theorem supplies the form of the bracket only; the extension source gives a short-exact-sequence formalism."
+        ],
+        "reasoning": "None of these statements supplies the split by z relative to ku or the rank-shifted incidence counts of the six affine families. Once the spaces and intersections are found, their rectangular rank counts are standard, and the doubling is a consequence of matching total sizes rather than a separate classification theorem.",
+        "searches": [
+          "Resultary a54e42eaa57d, operator definitions and enumerated spectra",
+          "arXiv:2307.09102, Theorem 2.2",
+          "arXiv:2208.00560, §6, PDF p. 21"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Di Bartolo–La Rosa–Mancini explicitly identify S₂⊕k^(n−2), [e₂,e₁]=e₁; this is precisely the underlying algebra at characteristic not two.",
+          "The exact local rank census concerns preserving brackets and idempotent retractions, not the weighted Rota–Baxter equation."
+        ],
+        "reasoning": "Nonzero weights rescale to one class, so changing the particular nonzero weight is not a separate contribution. Bracket preservation is not an equivalent formulation of the weighted identity: the mixed bracket terms and the output z constrain different maps.",
+        "searches": [
+          "Resultary same-algebra rank census: a54e42eaa57d",
+          "arXiv:2307.09102, Theorem 2.2",
+          "Zhang–Li–Zheng, DOI 10.1155/2018/8540674"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The a1cd4a09f4ab entry is the assigned record itself. The distinct a54e42eaa57d entry gives rank polynomials for bracket-preserving maps and retractions."
+        ],
+        "reasoning": "Matching field, dimension and vector-space algebra are not matching counted sets. The standard rectangular Gaussian coefficient is a counting ingredient rather than a tabulation of these Rota–Baxter ranks.",
+        "searches": [
+          "Resultary: split/non-nilpotent one-dimensional-derived-ideal Leibniz families, endomorphisms and rank spectra; snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "Exact-finding IDs a54e42eaa57d and a1cd4a09f4ab"
+        ]
+      },
+      "rationale": "The supported contribution is the all-dimensional weighted operator and rank census, including reduced component incidence and the finite-field total and invertible counts. The split algebra and the small-dimensional classification credited in the record are not claimed as new; an earlier exact rank census on the same algebra concerns different operator equations. No verified source was found that already yields the weighted census.",
+      "residual_risks": [
+        "Cannot rule out a broader theorem in the inaccessible Zhang–Li–Zheng text or an unlocated all-dimensional weighted classification. Existing evidence does not establish that overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers algebra, not operator census",
+          "evidence": [
+            "In characteristic not two, the non-Lie nonnilpotent family is S₂⊕k^(n−2)."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2307.09102",
+          "material_read": "pp. 2 and 9, §2 Theorem 2.2",
+          "method": "Open-access primary PDF",
+          "title": "Non-nilpotent Leibniz algebras with one-dimensional derived subalgebra",
+          "trigger": "Same family and all-dimensional structural coverage"
+        },
+        {
+          "assessment": "Framework, not concrete rank classification",
+          "evidence": [
+            "Extensions defined by short exact sequences of algebras with operators."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2208.00560",
+          "material_read": "§6, PDF p. 21, definition of abelian extensions",
+          "method": "Open-access primary PDF",
+          "title": "Cohomology, deformations and extensions of Rota–Baxter Leibniz algebras",
+          "trigger": "Potential coverage through extension theory"
+        },
+        {
+          "assessment": "Different equations and rank counts",
+          "evidence": [
+            "Bracket preservation, with idempotence added for retractions."
+          ],
+          "identifier_or_url": "Resultary 2026/11/2/a54e42eaa57d",
+          "material_read": "RESULT.md finding and operator identities",
+          "method": "Local published mirror",
+          "title": "Endomorphism and retraction rank spectra of a split non-nilpotent Leibniz family",
+          "trigger": "Strongest local result on identical L_n"
+        },
+        {
+          "assessment": "Conservatively credit cited small-dimensional cases; broader passage-level coverage unconfirmed",
+          "evidence": [
+            "Frozen RESULT.md lines 121 and 130 identify the two- and three-dimensional comparison, weights zero and minus one."
+          ],
+          "identifier_or_url": "https://doi.org/10.1155/2018/8540674",
+          "material_read": "Bibliographic identification and frozen reference only; Theorems 17 and 21 and §3 not accessible",
+          "method": "Lawful DOI and publisher PDF attempted; no accessible identified repository copy recovered",
+          "title": "Rota–Baxter Leibniz Algebras and Their Constructions",
+          "trigger": "Exact low-dimensional overlap reported in frozen record"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, finding and proof",
+        "Structural classification Theorem 2.2 and same-family Resultary comparator"
+      ],
+      "rationale": "This is a natural split family from the structural theory of Leibniz algebras with one-dimensional derived ideal. A single calculation gives complete reduced incidence and labeled rank spectra in all dimensions, explaining why the nonzero fiber has two connected components and twice the rational points, and exactly when invertible maps occur. The ranks and component changes give reusable information about the parameter space beyond an existence construction or low-dimensional table.",
+      "residual_risks": [
+        "The value is a complete explicit family census, not a result for arbitrary Leibniz brackets or a claim about nonreduced geometry."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

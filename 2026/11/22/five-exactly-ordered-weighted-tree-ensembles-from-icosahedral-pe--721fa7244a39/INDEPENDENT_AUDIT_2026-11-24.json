@@ -1,0 +1,176 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:37:46.616977Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md §§ Finding, Assumptions and scope, Proof",
+        "VERIFICATION.md; verify_laplacian.py and verify_transfer_current.py (inspected, not executed)",
+        "python3 /workspace/branches/check2.py (independent exact coefficient and orbit run)"
+      ],
+      "rationale": "I reconstructed the icosahedral graph from exact golden-ratio coordinates and verified the given two-ring labeling, then enumerated all 125 perfect matchings by unique first-edge recursion. In an independent coefficient calculation, for each matching M and each subset S of it, contracting S and deleting M minus S counts exactly the trees with T intersect M=S. Summing by |S| gives the coefficients, with parallel edges retained. Grounded Laplacian determinants modulo the prime 2147483647 are exact counts since the total edge-subset bound is 2^30. The run /workspace/branches/check2.py recovers all five factorizations and multiplicities. It verifies the common value 5184000 and derivative 11404800 at t=1 and divides the adjacent differences by (t-1)^2, leaving coefficient vectors (6876,16158,14052,5358,756), (9500,20330,15906,5422,682), (8968,15480,9914,2788,290), (5376,9472,6208,1792,192). These exact coefficients prove the strict order on the entire stated domain except 1, where all matchings tie; this is not a sample of parameter values. The symmetric difference of two perfect matchings is a union of disjoint even cycles, so size four is exactly a single alternating four-cycle flip. The independently enumerated flip-isolated matchings are exactly the P5 class.",
+      "residual_risks": [
+        "The order is for product conductance weights on the specified graph and six-edge perfect matchings, not minimum additive cost, other graph families, arbitrary marked sets, or individual edge weights."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The matrix-tree and determinant lemma give a general evaluation method; the specialized graph families inspected do not include marked icosahedral perfect matchings. General graph-design work includes weighted tree objectives and matroid constraints or approximation guarantees rather than the exact six-edge products and all-contrast ordering here."
+        ],
+        "reasoning": "General formulas and algorithms credit the method and let one compute the numbers, but do not evaluate equality, distinguish the five specific polynomials, or certify an order throughout both t regimes without instance-specific work.",
+        "searches": [
+          "arXiv:1903.03575 pp. 1,3,9 weighted tree determinants",
+          "arXiv:1604.01116 §§4.1,5.1 weighted tree design",
+          "arXiv:math/9903025 Theorem 1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary:98a001e14839, 5b865b296968, e4854a4db07e, a9a0c959fdcb",
+        "arXiv:math/9903025, 1903.03575, 1604.01116",
+        "doi:10.1016/j.dam.2025.04.001",
+        "PII S0093600324003436 (bibliographic only)",
+        "Independent orbit enumeration in /workspace/branches/check2.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "All 120 verified icosahedral automorphisms give five matching orbits of sizes 5,20,60,30,10, each one polynomial class. An automorphism preserves the iid arrival law and maps terminal matchings equivariantly, so its five distinct kinetic probability classes are exactly those orbits as well. Across the same classes the exact kinetic probabilities order 30>10>60>20>5, whereas the weighted-tree order is 5>20>60>30>10 away from t=1."
+        ],
+        "reasoning": "Orbit invariance gives an upper bound of five classes, and the known frozen set identifies one orbit, but that alone does not make all five polynomials distinct or make the frozen set an optimizer; the alternate invariant's opposite preference emphasizes the difference. The uniform count fixes only the common specialization, and the product-weight ranking has to be proved separately.",
+        "searches": [
+          "Resultary:98a001e14839 and Resultary:e4854a4db07e Findings",
+          "Resultary:a9a0c959fdcb Finding",
+          "arXiv:1903.03575 determinant identities",
+          "Independent automorphism crosswalk in /workspace/branches/check2.py"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The flip record identifies the exact five isolated matchings, and the matching-complex record counts 125 perfect matchings. The dimer adsorption orbit partition agrees by the invariant crosswalk. The planar tree/dimer bijection uses an auxiliary graph, and the constrained-tree paper asks for minimum-weight trees containing a matching, not trees generating the full intersection-size distribution of a prescribed matching."
+        ],
+        "reasoning": "The partition is genuine overlap, but the kinetic ranking disagrees and the auxiliary-graph and constrained-tree properties are not equivalent to this marked-edge generating function. Even the total for trees containing a prescribed matching is just the coefficient of t^6.",
+        "searches": [
+          "Resultary icosahedral matching flip and orbit records 98a001e14839 and 5b865b296968",
+          "Resultary same-day dimer adsorption e4854a4db07e",
+          "arXiv:math/9903025 Theorem 1",
+          "doi:10.1016/j.dam.2025.04.001 pp. 1–2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The uniform loop-erased path table supplies 5184000 and the unmarked graph spectrum. The kinetic table gives five distinct probabilities, one per same orbit. The inaccessible polygonal-chain counting lead and the cited Ma–Yang hexagonal-chain work concern at least a closely related constrained-tree question, but no primary passage for the inaccessible lead was retrieved."
+        ],
+        "reasoning": "Neither inspected exact table has the marked intersection-size coefficients. The shared class sizes are meaningful via the orbit argument but not an evaluated polynomial table. A failed targeted catalogue lookup and inaccessible primary source do not count against coverage.",
+        "searches": [
+          "Resultary marked-edge polynomials, transfer current, icosahedral Laplacian spectra and flip matchings",
+          "Resultary:e4854a4db07e and Resultary:a9a0c959fdcb",
+          "doi:10.1016/j.dam.2025.04.001 p. 146 references; ScienceDirect PII S0093600324003436"
+        ]
+      },
+      "rationale": "The matching count, flip-isolated class and uniform tree baseline are known. The same-day adsorption work gives the same five classes as a partition of matchings, not just the same size multiset: the independent automorphism check finds a single graph-automorphism orbit in each polynomial class, and the adsorption probabilities are automorphism-invariant and take five distinct values. The adsorption ranking, however, is 30>10>60>20>5 by multiplicity label, in particular putting the tree-maximizing orbit last. The distinct finding is the five evaluated tree polynomials and their strict, contrast-independent ranking, not discovery of the orbit partition or of the isolated matchings. No same-day publication order is inferred.",
+      "residual_risks": [
+        "No exhaustive priority claim; unindexed equivalent coefficient or transfer-spectrum tables could exist. The related polygonal-chain paper was unavailable for detailed comparison. Same-day dates do not establish order."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact matching-subset overlap; different property",
+          "evidence": "125 matchings, five flip-isolated under four-cycle flips and a symmetry orbit; six-cycle flip graph centers rather than weighted tree counts.",
+          "identifier_or_url": "Resultary:2026/10/26/SCOPE-five-frozen-icosahedral-matchings-become-the-centers-under-six-c--98a001e14839",
+          "material_read": "RESULT.md offsets 0–4509 and 4509–9267",
+          "method": "Local mirror text",
+          "title": "Five frozen icosahedral matchings become the centers under six-cycle flips",
+          "trigger": "Exact same five flip-isolated matchings and graph"
+        },
+        {
+          "assessment": "Known matching count, different invariant",
+          "evidence": "The 125 matchings are counted as top-dimensional faces; the calculation concerns homotopy type.",
+          "identifier_or_url": "Resultary:2026/10/25/SCOPE-the-icosahedral-perfect-matching-complex-is-bigvee-43-s-2-vee-bi--5b865b296968",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror text",
+          "title": "The icosahedral perfect matching complex is bigvee 43 S2 vee ...",
+          "trigger": "Same matching census"
+        },
+        {
+          "assessment": "Exact class partition overlap, contrasting order and observable",
+          "evidence": "The iid single-use edge-clock rule preserves all graph automorphisms. Five distinct exact per-matching probabilities partition the five orbits; the five-member orbit has the smallest probability, not the largest.",
+          "identifier_or_url": "Resultary:2026/11/22/SCOPE-exact-kinetic-selectivity-and-jamming-time-law-for-icosahedral-d--e4854a4db07e",
+          "material_read": "RESULT.md Finding and Assumptions, offsets 0–3690; probability/count table",
+          "method": "Local mirror text, with independent automorphism crosswalk",
+          "title": "Exact kinetic selectivity and jamming-time law for icosahedral dimer adsorption",
+          "trigger": "Same five class sizes on the exact same 125 matchings"
+        },
+        {
+          "assessment": "Shared uniform baseline, not a weighted partition table",
+          "evidence": "The table concerns path lengths between vertices at distances 1, 2, 3 and gives total tree count 5184000. Publication order within the day is not established.",
+          "identifier_or_url": "Resultary:2026/11/22/SCOPE-exact-three-distance-loop-erased-length-laws-on-the-icosahedral--a9a0c959fdcb",
+          "material_read": "RESULT.md Finding, offsets 0–4287",
+          "method": "Local mirror text",
+          "title": "Exact three-distance loop-erased length laws on the icosahedral graph",
+          "trigger": "Same graph, exact uniform spanning-tree table and spectrum"
+        },
+        {
+          "assessment": "Auxiliary-graph bijection",
+          "evidence": "The related graph is formed using original vertices, edges, and faces; the matching itself is not the set of six original marked edges.",
+          "identifier_or_url": "https://arxiv.org/abs/math/9903025",
+          "material_read": "PDF p. 1 and p. 5 Theorem 1, offsets 0 and 14638",
+          "method": "OA PDF text",
+          "title": "Trees and Matchings",
+          "trigger": "Possible reformulation of weighted trees as matchings"
+        },
+        {
+          "assessment": "General tools, different evaluated families",
+          "evidence": "The determinant lemma treatment and cases include complete multipartite, Ferrers and threshold graphs.",
+          "identifier_or_url": "https://arxiv.org/abs/1903.03575",
+          "material_read": "PDF pp. 1,3,9, including offsets 6894 and 25908",
+          "method": "OA PDF text",
+          "title": "Linear Algebraic Techniques for Weighted Spanning Tree Enumeration",
+          "trigger": "Weighted matrix-tree and determinant methods"
+        },
+        {
+          "assessment": "Design framework rather than the exact classified example",
+          "evidence": "Handles candidate edge addition/deletion and matroid constraints rather than evaluating the five marked matching polynomials.",
+          "identifier_or_url": "https://arxiv.org/abs/1604.01116",
+          "material_read": "PDF §4.1 p. 7, §5.1 p. 13; offsets 17822 and 42145",
+          "method": "OA PDF text",
+          "title": "Maximizing the Weighted Number of Spanning Trees: Near-t-Optimal Graphs",
+          "trigger": "General weighted tree optimization"
+        },
+        {
+          "assessment": "Different problem on a constrained set of trees",
+          "evidence": "Asks for minimum-weight trees that contain a perfect matching, and cites Ma–Yang's enumeration in a hexagonal-chain family.",
+          "identifier_or_url": "https://doi.org/10.1016/j.dam.2025.04.001",
+          "material_read": "Accessible PDF pp. 1–2, offsets 0 and 4881, and p. 146 citations, offset 51408",
+          "method": "OA PDF text",
+          "title": "Finding spanning trees with perfect matchings",
+          "trigger": "Same terms, potentially a constrained-tree counterpart"
+        },
+        {
+          "assessment": "Access-limited related lead; identity with Ma–Yang citation not established",
+          "evidence": "The indexed title names polygonal chains and containing a perfect matching, not the specific icosahedron or full intersection polynomial.",
+          "identifier_or_url": "https://www.sciencedirect.com/science/article/abs/pii/S0093600324003436",
+          "material_read": "Indexed title only; no primary contents retrieved",
+          "method": "Lawful publisher retrieval unsuccessful (403 on both available routes)",
+          "title": "Enumeration of spanning trees containing a perfect matching in linear polygonal chains",
+          "trigger": "Nearby exact enumeration search result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding and Proof",
+        "arXiv:1604.01116 design framework",
+        "Resultary:98a001e14839 and e4854a4db07e Findings",
+        "Independent exact coefficient and orbit check"
+      ],
+      "rationale": "The graph, the all-vertices disjoint marking constraint and the spanning-tree partition function are natural independently of the resulting finite table. It is structurally useful that the full family has one strict order for both weakening and strengthening, with exactly the known flip-isolated orbit winning, unlike the adsorption weights on the same orbits. The evaluated polynomials provide full intersection-count statistics and a reproducible benchmark for network-design and tree-ensemble comparisons, not merely a count of matching types already known.",
+      "residual_risks": [
+        "No support for a general optimality principle on other graphs or for dynamic selection by a tree-weighting mechanism."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

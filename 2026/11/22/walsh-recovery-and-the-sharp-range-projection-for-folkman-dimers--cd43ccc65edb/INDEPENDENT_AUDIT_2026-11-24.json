@@ -1,0 +1,150 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:57:55.899870Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Each matching sends a base edge to the endpoint whose clone is matched, giving two incoming edges per vertex; within that orientation the two clone assignments at each of five vertices contribute a signed sum in {−2,0,2}, proving 32-divisibility. A vertex star flip gives a common minus sign, and the connected graph's star group has rank 19; fixing a spanning tree to positive signs covers every coset. Independent exact int64 replay python3 /workspace/review_checks/4.py (NumPy) uses clone-choice recursion instead of tournament assignments and a bit-tensor transform on both a different spanning tree and the specified BFS tree. It finds 768 matchings, reproduces the full reduced signed histogram in the BFS gauge and finds 1262164 zeros, 834988 nonzeros, least nonzero modulus 32 and maximum 768. The two gauges give common support-transform absolute sum 452160984. The full rank/nullity are these reduced counts times 2^19; there is no normalization factor in the convolution eigenvalues. The inverse transform of the support indicator vanishes off the orthogonal complement of the star group and its kernel ℓ¹ norm is 452160984/2^21. A convolution matrix's column and row absolute sums both equal this norm. Translation averaging of any projection onto the invariant range is again a projection onto that range (each conjugate is the identity there), cannot increase either norm, and gives the unique translation-invariant projection. The same argument holds over the reals since these characters are real. This establishes endpoint optimality, not just the norm of a selected projector.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kuperberg's inspected passage concerns perfect matching enumeration, in particular planar methods; Pippenger studies incidence graphs without doubled endpoints.",
+          "The three Resultary exact norms are 939/64, 93/16 and 83/8 for their respective individual hosts."
+        ],
+        "reasoning": "Generic matching algorithms and projection averaging do not determine the signed counts or the absolute Fourier sum of their support. The graph-specific catalogue papers are not a family theorem extending to this construction.",
+        "searches": [
+          "Kuperberg arXiv:math/9810091 p. 1",
+          "Pippenger UBC TR-2001-12 abstract",
+          "Resultary McGee, Heawood and dodecahedral convolution projections"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Assumptions, Proof and prior work; verify_independent.py and cpp_output.txt",
+        "Symmetry 17 (2025) 133 and 247",
+        "Resultary a2d03a669654, 706d7c9e0a96 and 0645b73a843d",
+        "arXiv:math/9810091",
+        "UBC TR-2001-12",
+        "Folkman DOI 10.1016/S0021-9800(67)80069-3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The McGee cage has 60 matchings and a different signed spectrum; the Heawood and dodecahedral results also have different endpoints.",
+          "The projection constant depends on the transform of the entire support indicator, not only its total mass or the known unsigned matching count."
+        ],
+        "reasoning": "Even knowing exact cardinality and general averaging does not imply the nonzero character set or its transformed ℓ¹ norm. A shared date of catalogue analogues does not settle priority or make distinct graphs synonymous.",
+        "searches": [
+          "Balasubramanian matching-polynomial PDF, offset 45850",
+          "Resultary McGee, Heawood and dodecahedral RESULT.md findings, each offset 0"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The p. 11 matching-polynomial result in Symmetry 17 (2025) 133 counts unsigned covers; it gives W(0), not the collection of signed characters.",
+          "Symmetry 17 (2025) 247 computes adjacency characteristic polynomials, not convolution on F₂^40."
+        ],
+        "reasoning": "Ordinary matching counts collapse edge coordinates and adjacency eigenvectors live on the vertex space. Neither is an equivalent encoding of the zero locus or the edge-space stable inverse.",
+        "searches": [
+          "Primary query: Folkman graph perfect matchings signed Walsh Fourier transform projection Boolean matching parity graph",
+          "Resultary: signed perfect matching spectrum and sharp range projection"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 768 entry is exact prior coverage. The adjacency spectrum article has a different table quantity. The matching-Walsh catalogue records give distinct graphs and constants; the assigned finding itself is not independent prior evidence."
+        ],
+        "reasoning": "No inspected independent table gives the Folkman edge-Walsh zero count 1262164·2^19 or the endpoint ratio 56520123/262144. Numerically exact but different quantities are not interchangeable.",
+        "searches": [
+          "Symmetry 17 (2025) 133 p. 11",
+          "Symmetry 17 (2025) 247 pp. 5 and 7",
+          "Resultary a2d03a669654, 706d7c9e0a96, 0645b73a843d"
+        ]
+      },
+      "rationale": "Pass the Folkman-specific signed edge-incidence spectrum, divisibility/gap and exact optimal endpoint constant. The unsigned count 768 is positively identified in prior work and already credited by the original; the graph construction, Fourier diagonalization and averaging method are not novel. Other signed-matching computations show substantive methodological overlap, not the same spectral or projection result.",
+      "residual_risks": [
+        "Folkman 1967 and the full Pippenger report were not inspected in full text; focused search had low yield. Unindexed signed matching calculations and any not-inspected stronger theorem remain priority risks."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Positive prior coverage of the count",
+          "evidence": "Explicitly says the Folkman graph exhibits 768 perfect matchings; also reports 172480 seven-dimer covers.",
+          "identifier_or_url": "https://mdpi-res.com/d_attachment/symmetry/symmetry-17-00133/article_deploy/symmetry-17-00133.pdf",
+          "material_read": "PDF p. 11, offset 45850",
+          "method": "OA PDF",
+          "title": "Matching Polynomials of Symmetric, Semisymmetric, Double Group Graphs, Polyacenes, Wheels, Fans, and Symmetric Solids in Third and Higher Dimensions",
+          "trigger": "Exact matching count on the same graph"
+        },
+        {
+          "assessment": "Adjacency rather than incidence-convolution spectrum",
+          "evidence": "The quantities are adjacency characteristic polynomials and spectra.",
+          "identifier_or_url": "https://mdpi-res.com/d_attachment/symmetry/symmetry-17-00247/article_deploy/symmetry-17-00247.pdf",
+          "material_read": "pp. 5 and 7, description of the polynomial and table",
+          "method": "OA PDF",
+          "title": "Spectral Polynomials and Spectra of Graphs Beyond Cubic and Icosahedral Symmetries",
+          "trigger": "Same graph and exact spectral table terminology"
+        },
+        {
+          "assessment": "Closest methodological analog; different graph",
+          "evidence": "60 perfect matchings and endpoint norm 939/64 for McGee.",
+          "identifier_or_url": "Resultary a2d03a669654",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Complete signed matching Fourier spectrum and sharp range projection (McGee cage)",
+          "trigger": "Same operator and sharp projection question"
+        },
+        {
+          "assessment": "Does not cover Folkman",
+          "evidence": "Heawood endpoint norm 93/16.",
+          "identifier_or_url": "Resultary 706d7c9e0a96",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Exact Walsh spectrum and optimal range projection for Heawood perfect matchings",
+          "trigger": "Same spectrum and projection questions for a different bipartite graph"
+        },
+        {
+          "assessment": "Does not cover Folkman",
+          "evidence": "Dodecahedral endpoint norm 83/8.",
+          "identifier_or_url": "Resultary 0645b73a843d",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Exact Walsh spectrum and optimal recovery for dodecahedral perfect matchings",
+          "trigger": "Same exact recovery invariant"
+        },
+        {
+          "assessment": "General enumeration context in inspected passage",
+          "evidence": "Perfect-matching enumeration in particular for plane graphs, not a claimed Folkman Walsh census.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/9810091",
+          "material_read": "p. 1, offset 360",
+          "method": "OA PDF",
+          "title": "An exploration of the permanent-determinant method",
+          "trigger": "Signed perfect matching enumeration methods"
+        },
+        {
+          "assessment": "Undoubled setting in abstract; no full-report judgment",
+          "evidence": "Matches in I(K_n) and I(K_{n,n}), not the stated doubled construction.",
+          "identifier_or_url": "https://www.cs.ubc.ca/tr/2001/tr-2001-12",
+          "material_read": "Report abstract, offset 0",
+          "method": "Official OA report page",
+          "title": "Enumeration of Matchings in the Incidence Graphs of Complete and Complete Bipartite Graphs",
+          "trigger": "Related complete-graph incidence construction"
+        },
+        {
+          "assessment": "Primary graph provenance; no verified full-text claim comparison",
+          "evidence": "No relevant full-text passage obtained.",
+          "identifier_or_url": "https://doi.org/10.1016/S0021-9800(67)80069-3",
+          "material_read": "Bibliographic and landing-page/abstract material only",
+          "method": "OA and repository attempt",
+          "title": "Regular line-symmetric graphs",
+          "trigger": "Original graph construction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The Folkman graph is a natural small semisymmetric test case and its doubled construction gives a local reason for strong Fourier divisibility. The rank and spectral floor quantify recoverable modes and ℓ² stability in the exact signed matching model, whereas the much larger sharp endpoint projection norm distinguishes a different functional-analytic cost. Even in a finite example that exact constant answers a natural optimization over all projections and cannot be recovered from matching-polynomial data or generic orbit averaging. This is a graph-specific result rather than novelty for the general Fourier method.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

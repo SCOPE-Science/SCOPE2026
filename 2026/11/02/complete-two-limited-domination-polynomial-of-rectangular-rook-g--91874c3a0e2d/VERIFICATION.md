@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,20 +19,24 @@
 }
 ---
 
-# Verification and limits
+# Independent mathematical audit
 
-The proof uses exact graph-adjacency/occupancy equivalences, a complete case distinction on fully omitted lines, support-graph classification and disjoint counting. A reproducible standalone C++17 program named `verify.cpp` independently constructs each original rook graph. It enumerates all subsets, checks dominating and two-limited constraints by direct adjacency, separately checks the omitted-square classification, and compares the complete frequency histogram to the polynomial.
+## correctness
 
-Command: `g++ -O3 -std=c++17 -Wall -Wextra -pedantic verify.cpp -o verify && ./verify`.
+PASS
 
-Observed outputs:
+The selected-cell constraint is r_i+c_j≤2, and domination forbids a full omitted row and column simultaneously. Without a full line every incidence degree is at most two. A row of degree two confines all omissions to its two columns; if both columns had extra omissions in different rows, a selected cross cell would see one row omission and two column omissions. Hence the only nonmatchings are the two-edge star, the 3-cell rectangle and the 4-cell rectangle, up to transposition. With a full row there can be at most two full rows, and any other row has at most one omission. Two full rows permit no extra omission; with one full row, two extra omissions in different columns violate the cross constraint, and in the same column give a nonfull column of degree at least three. Each surviving configuration satisfies both constraints directly. The families are disjoint for m,n≥4; the matching count chooses a bijection, each three-cell block has four choices, and the slab counts choose the indicated full lines and optionally one outside cell. The maximal exponents and their coefficients give the stated minimum and multiplicity, including the tied orientations on a square. Independent code testing rook adjacency directly in branches/38eca682-5783-4f93-b41a-da41a44cf453/independent_enum.py matched complete 4×4 and 4×5 histograms and classifications (553 and 1,036 feasible sets, with 12 and 6 minimizers); the proof handles all m,n≥4.
 
-```
-DIRECT_ALL_SUBSETS_OK 4 4 65536 553 minimum 8 minimizers 12
-DIRECT_ALL_SUBSETS_OK 4 5 1048576 1036 minimum 10 minimizers 6
-DIRECT_ALL_SUBSETS_OK 5 4 1048576 1036 minimum 10 minimizers 6
-DIRECT_ALL_SUBSETS_OK 5 5 33554432 2376 minimum 15 minimizers 20
-VERIFY_OK
-```
+## originality
 
-In total, 35,717,120 labelled subsets were tested. These checks are exhaustive only for the four specified finite grids. No finite enumeration is used as an infinite proof. The general statement follows from the proof in `RESULT.md`. No independent mathematical validation was commissioned or claimed.
+PASS
+
+Credit is limited to the complete classification of feasible complements and their size polynomial. The rectangular minimum, the minimizing slab classification, and the exact counts of minimizers are already covered by Resultary 3f6b93fa9eef, not just by the previously noted 4×4 special case. They are valid corollaries here but not distinct contributions.
+
+## value
+
+PASS
+
+The value is the rigidity of all feasible complements at the first capacity that permits nonmatching small components, and the resulting full size distribution. It reveals which nonextremal configurations are possible and distinguishes coincident powers arising from different shapes. This is materially stronger than the known optimum and covers a natural infinite graph family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

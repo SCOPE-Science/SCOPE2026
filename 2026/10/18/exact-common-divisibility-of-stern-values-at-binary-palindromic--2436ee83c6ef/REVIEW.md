@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The result defines a gcd across every canonical binary palindrome of a given length, with full quantifiers and no asymptotic extrapolation. The binary recurrence induces exactly two unimodular transfer matrices. Four explicit palindromic word templates have values \(\ell\), \(4\ell-12\), \(9\ell-42\), and \(16\ell-104\); their gcd is \(\gcd(\ell,2)\). Even binary palindromes are divisible by three, and Stern's recurrence gives \(s(n)\) even exactly for indices divisible by three. This provides the matching lower bound. All shorter lengths are enumerated exactly. A standalone verifier reconstructs the argument's four symbolic coefficients and tests all palindromes through length twenty-two. The check does not substitute for the symbolic proof.
+PASS
 
-## Originality — PASS, with residual risk
+Applying the binary recurrence to each fixed prefix, the middle zero block of length t=ell-8 and the reversed suffix gives ell, 4ell-12, 9ell-42 and 16ell-104. All four are canonical palindromes, including t=0. Subtracting multiples of ell gives a common divisor of ell and gcd(12,42,104)=2. The residue indicator of nonzero modulo three satisfies the Stern recurrence modulo two, so every even-length palindrome has even Stern value: mirrored digits cancel since 2=-1 modulo three. This gives the matching lower bound at even lengths. The short-length table exhausts the choices of a leading-one half word. Independent recurrence enumeration matched every short value and all gcds over 8190 canonical palindromes of lengths 1–24, plus 484 witness values for lengths 8–128. The four witnesses and parity argument, not the finite replay, prove the unrestricted law.
 
-Coons–Shallit (arXiv:1105.0086) provides a binary-pattern formula for individual Stern values. De Luca–De Luca (arXiv:1410.4085) gives reversal symmetry, continuants, and whole-level sums/extremes. Neither inspected statement or proof section supplies the fixed-length binary-palindrome gcd invariant and all its exceptional values. OEIS A002487 similarly treats the full sequence, not this derived gcd. Semantic searches of a published mathematics index and targeted literature searches yielded no equivalent or stronger covering theorem; those negative search outcomes do not establish global uniqueness. The possibility of an unindexed earlier elementary derivation remains.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The problem asks for the exact common divisibility forced by a natural digit-symmetry constraint inside a classical arithmetic recurrence. Each index family is exponentially large, and the theorem replaces an unbounded gcd computation with a complete formula, including an isolated factor-six exception. The four fixed palindrome templates provide uniform arithmetic witnesses and the mod-three parity obstruction explains the even-length residue. This is an exact self-contained structural classification, not a claimed density theorem or a computation at finitely many lengths.
+The supported distinct claim is the exact gcd on the reversal-fixed set in each canonical binary layer, including the three exceptions to gcd(ell,2). The ingredients of binary transfer and the even-length divisibility obstruction are not new; the strongest inspected comparisons do not give the uniform upper bound or the fixed-length classification.
 
-## Scientific boundaries
+## value
 
-No theorem concerning all other digital constraints or general bases is asserted. The originality assessment has residual literature risk. Numerical verification of finitely many lengths is not an infinite certificate. The result has been subjected to a self-review only.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Canonical binary palindromes are precisely the fixed points of a natural symmetry of Stern values. A gcd across a whole fixed-length layer detects exactly its common arithmetic obstructions, rather than a chosen pair or numerical sample. The classification separates the forced factor two from all additional length-specific factors and supplies a uniform bounded-size witness for sharpness. This gives a reusable test of common divisibility in these layers without computing exponentially many values.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

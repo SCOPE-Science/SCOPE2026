@@ -7,7 +7,7 @@ For arbitrary positive adjacent knot lengths, the sharp gain from discrete chang
 \boxed{\|H_\theta\|_{\mathrm{discrete}\,W^{2,1}\to\mathrm{derivative\,TV}}
 =\frac53\sup_{j\in\mathbb Z}\left(|1-\theta_j|+|\theta_j|\right).}
 \]
-Consequently the sharp constant is \(5/3\) for **every** (possibly spatially varying) convex choice \(0\le\theta_j\le1\), independent of arbitrarily strong knot-spacing contrasts. These and only these convex choices minimize the constant over all real linear blends. More generally, the exact nonconvex penalty is \((5/3)(1+2\sup_j\operatorname{dist}(\theta_j,[0,1]))\). The quantity \(\sum_j|a_j|\) equals the total variation of the distributional derivative of the piecewise-linear nodal interpolant, viewed as an atomic measure; the theorem therefore measures the exact roughness cost of replacing its derivative jumps by a continuous Hermite derivative. It is not a statement about geometric graph curvature.
+Consequently the sharp constant is \(5/3\) for **every** (possibly spatially varying) convex choice \(0\le\theta_j\le1\), independent of arbitrarily strong knot-spacing contrasts. These and only these convex choices minimize the constant over all real linear blends. More generally, the exact nonconvex factor is \((5/3)(1+2\sup_j\operatorname{dist}(\theta_j,[0,1]))\). If \(L\) is the continuous piecewise-linear nodal interpolant, then its distributional second derivative is the atomic measure \(D^2L=\sum_j a_j\delta_{x_j}\), with \(\delta_{x_j}\) denoting a point mass. The total variation of that measure is \(\sum_j|a_j|\). Thus the theorem measures the exact roughness cost of replacing the jumps of \(L'\) by a continuous Hermite derivative. It is not a statement about geometric graph curvature.
 
 ## Assumptions and scope
 
@@ -52,7 +52,7 @@ Summing over all cells (nonnegative sums; first finite, then monotone convergenc
 \]
 For bounded weights this proves the claimed bounded operator and the asserted \(L^1\) regularity.
 
-**3. Sharpness and quantifiers.** For any selected integer \(j\), choose all secant jumps zero except \(a_j=1\). Such data exist: choose constant secant slopes to the left of \(j\) and those slopes plus one to its right, and integrate to nodal values. This input has \(V_2(y)=1\). Formula (1) shows that its second derivative is supported on exactly two adjacent cells, with integrated absolute masses \((5/3)|\theta_j|\) and \((5/3)|1-\theta_j|\). Their supports do not overlap except at their common endpoint, so
+**3. Sharpness and quantifiers.** For any selected integer \(j\), choose all secant jumps zero except \(a_j=1\). Such data exist: choose constant secant slopes to the left of \(j\) and those slopes plus one to its right, and integrate to nodal values. This input has \(V_2(y)=1\). Formula (1) shows that its second derivative vanishes outside the two cells adjacent to \(x_j\), with integrated absolute masses \((5/3)|\theta_j|\) and \((5/3)|1-\theta_j|\), one of which is zero when \(\theta_j=0\) or \(1\). The cell interiors are disjoint, so
 \[
 \int_\mathbb R|(H_\theta y)''|\,dx
 =\frac53\left(|\theta_j|+|1-\theta_j|\right).
@@ -68,7 +68,7 @@ shows that every real blend has norm at least \(5/3\), with equality if and only
 
 ## Verification
 
-The standalone `curvature_transfer_check.py` uses exact rational arithmetic. It verifies both kernel integrals, the exact one-jump equality for convex and nonconvex weights, and 1,000 independently generated finite-jump cases with random rational mesh lengths, arbitrary real weights and discrete secant-jump vectors. These tests corroborate the displayed identities but do not replace the unrestricted analytic proof. Reproduce with `python curvature_transfer_check.py`; expected final line: `ALL_SECOND_ORDER_VARIATION_TRANSFER_CHECKS_PASS`.
+The standalone `curvature_transfer_check.py` uses exact rational arithmetic. It checks both kernel integrals, the one-jump equality for selected convex and nonconvex weights, and finite-cell estimates and mesh-length cancellation in 1,000 pseudorandom rational cases. These tests corroborate the displayed identities but do not replace the unrestricted analytic proof. Reproduce with `python curvature_transfer_check.py`; expected final line: `ALL_SECOND_ORDER_VARIATION_TRANSFER_CHECKS_PASS`.
 
 ## Relationship to prior work
 

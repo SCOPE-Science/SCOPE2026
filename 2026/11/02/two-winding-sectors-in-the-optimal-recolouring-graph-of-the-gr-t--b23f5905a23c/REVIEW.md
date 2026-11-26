@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** The object, named-colour convention and legal single-site move are explicit. The reduction to a proper three-colouring of the pentagon makes the signed-winding formula well defined. The standard cycle-winding lemma proves invariance for non-apex moves. Both independent complete enumerations prove invariance for every apex move and exhaust every legal graph state and edge. Their independent connectivity and symmetry-reduced BFS computations establish the claimed two components, degrees, radii and diameters. The five-colour threshold also follows from the established degeneracy-plus-two theorem after a concrete three-degeneracy elimination ordering.
+## correctness
 
-**Originality: PASS, with qualified historical priority.** The Mycielski construction, chromatic number four, general vertex-colouring reconfiguration model, cycle-winding invariant for three-colourings, and known total number of proper four-colourings are prior art. Cereceda–van den Heuvel–Johnson's exact theorems apply to the general connectivity bound or to three-colourings, not to the named four-colouring graph of the Grötzsch graph. The available relevant full texts on circular-colouring mixing and surface quadrangulations do not give the specific two-component state space or its full metric. The later winding theorem explicitly excludes colouring ratio four. A hidden special-case result under alternative topological nomenclature remains a residual priority risk.
+PASS
 
-**Value: PASS.** The Grötzsch graph is the smallest triangle-free four-chromatic example, and optimum-colouring reconfiguration is the natural reachability problem underlying single-site Glauber dynamics. The calculation identifies a genuine obstruction without frozen states: all \(12{,}480\) optimum colourings have legal moves, yet two sectors cannot communicate. Its explicit winding certificate explains the obstruction, and the sharp transition at five colours marks the exact palette needed for global reachability. This is a motivated complete finite classification, rather than a parameter chosen only because it is easy to enumerate.
+The reduction to the pentagon is proper because adjacent originals cannot both have apex colour and the replacement shadow sees both neighbours. The step sum is an odd multiple of three of magnitude at most five. The repaired apex proof compares projections in a common three-letter palette; summing over alternating blocks telescopes the internal changes, and the product of boundary factors is negative because the pentagon has odd length. The two sums are therefore opposite in that palette; the cofactor sign of the palette transposition gives exactly the stated normalization. Independently enumerated all 4^11 assignments and every one-coordinate neighbour with a state-membership index, verifying that both signs are nonempty and preserved on every edge, including all 2,280 apex edges. All-source unweighted shortest paths, without orbit pruning, confirm two sectors of 6,240 vertices and 22,620 edges each, with eccentricities 15/16/17 on 1,080/5,100/60 vertices per sector. The original degree census, fixed-apex connectivity and cross-edge counts agree. The 3-chromatic pentagon gives the standard obstruction to a 3-colouring of its Mycielskian, and the checked degeneracy order and spare-colour induction prove the stated five-colour threshold.
 
-The closest literature includes Cereceda, van den Heuvel and Johnson's *Connectedness of the Graph of Vertex-Colourings* (2005 report), Brewster and Noel's *Mixing Homomorphisms...* (2014 arXiv), Brewster and collaborators' 2015 circular-colouring dichotomy, Brewster and Moore's 2020 \(p/q<4\) winding criterion, and Mohar–Simonyi–Tardos on surface quadrangulations (2010 arXiv). The numerical count of colourings is known, but the exchange-sector claim is not a mere restatement of that count. Complete historical priority is not asserted; the proof is computer-assisted and applies only to the finite named graph.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+For the repaired claim only. The October 26 Resultary result already proves the two chambers and most of the advertised census, and all-source distances make the remaining eccentricity summaries auxiliary rather than a substantive new claim. It does not supply the displayed per-state pentagon winding rule or its apex transition proof. No inspected source gives that lift or a stronger result that supplies it mechanically.
+
+## value
+
+PASS
+
+The surviving finding replaces graph exploration with a structural obstruction and a complete direct test on an individual colouring. It explains why fixed-apex cycle winding can survive an apex recolouring and makes the colour-handedness of the known chambers usable without a precomputed state table. A repeat of the earlier enumeration alone would not pass.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

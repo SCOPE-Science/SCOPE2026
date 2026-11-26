@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:58:34.750953Z",
+  "axes": {
+    "correctness": {
+      "rationale": "After a common sign change and permutation the centered vector is (a,b,-c), c=a+b>0 and a≥b≥0. Convolving the two positive exponentials with the negative one yields the displayed positive-side divided difference and the negative-side exponential with coefficient c/((a+c)(b+c)). Differentiating u exp(-t/u)/(u+c) at fixed c converts the divided difference into a positive integral; integrating t^s gives the two powers of u with precisely the coefficients in (1) after division by Γ(s+1). The b=0 endpoint is integrable (the term u^{s+1} stays integrable with up to two logarithmic derivatives), and a=b uses the single derivative at a. Gamma duplication gives the claimed ratio. The two kernel curvatures are bounded below by 1/(2(s+2)) and 1/(2(s+2))−1/(s+1)^2, respectively, both positive at every s≥2. Differentiation of the positive mixture gives an average curvature plus the variance of its log-derivatives, so strictness holds on the full interval. For variance-normalized Y, Theorem 1 of arXiv:2602.03058v1, equation (6), applies at all real orders ≥2 and gives h(s)≥h(2)=0. Thus s h′(s)−h(s) starts nonnegative and strictly increases for s>2, giving strict growth of the norm ratio including comparisons with p=2. Replay: see RESULT.md, Steps 1–4, and the inspected verification/check_moments.py for optional finite diagnostics; its logged count is not an independent run or a continuum certificate.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1 gives a Gaussian lower bound at every individual real order ≥2 for sums with any number of coefficients. The broader two-order statement in §4.2 is conjectural.",
+          "The broader centered log-concave comparison uses L1/L2 normalizations and different order ranges; Corollary 3 uses Gamma constants for a range with p≤1."
+        ],
+        "reasoning": "Neither broad theorem compares the two Gaussian-normalized ratios at arbitrary 2≤p<q; a lower envelope alone gives no order monotonicity.",
+        "searches": [
+          "arXiv:2602.03058v1 Theorem 1 and §4.2",
+          "arXiv:2505.00944v1 Theorems 1–2 and Corollary 3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md",
+        "Resultary local search and 8e44a5956c55",
+        "arXiv:2602.03058v1",
+        "arXiv:2512.12254v1",
+        "arXiv:2505.00944v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The three-summand extrema in Proposition 5.3 concern changing the coefficient vector at fixed order subject to centering and variance constraints. §2.5 gives an exact moment identity. Theorem 1 supplies only the anchor in the frozen proof."
+        ],
+        "reasoning": "Extremal values at individual orders do not order the ratios for each fixed asymmetric vector; the divided-difference formula requires an additional positivity/curvature argument.",
+        "searches": [
+          "arXiv:2512.12254v1 §5 Proposition 5.3 and §2.5 equation (2.11)",
+          "arXiv:2602.03058v1 Theorem 1 and §4.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The comparison and the log-convexity approach are both explicit in §4.2 as a conjecture/strategy, with the paired-coefficient scale-mixture argument already described.",
+          "Equation (2.11) gives the related moment interpolation formula, not positivity of the normalized transform's curvature."
+        ],
+        "reasoning": "The formulation as a Gamma-normalized divided difference is prior, but the positivity proof for the resulting kernels is not in that formula. A zero coefficient gives a known symmetric subclass; when a,b>0 the vector (a,b,−a−b) cannot be partitioned into opposite pairs.",
+        "searches": [
+          "Primary literature lookup on three-summand exponential Gaussian moment comparison",
+          "arXiv:2602.03058v1 §4.2",
+          "arXiv:2512.12254v1 §2.5, equation (2.11)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The distinct same-day candidate determines two central-mass crossings between E−1 and a standard Gaussian; no matching weighted-sum finding surfaced among the compared results."
+        ],
+        "reasoning": "A crossing count for one centered exponential neither tabulates nor implies strict log-convexity of the Gaussian-normalized transform of the continuum of three-term centered sums. The shared date is not a priority argument.",
+        "searches": [
+          "Resultary semantic search for exponential-sum Gaussian-normalized moment comparison and log-convexity",
+          "Resultary local mirror: 2026/10/13/SCOPE-exactly-two-gaussian-central-mass-crossings-for-the-standardized--8e44a5956c55/RESULT.md"
+        ]
+      },
+      "rationale": "Pass for the arbitrary centered three-coefficient statement, particularly genuinely asymmetric vectors, and the strict all-real-order curvature/ratio conclusion. The moment formula, one-order inequality, and paired-coefficient comparison are not new. No inspected relevant result already proves the unrestricted three-coefficient cross-order claim.",
+      "residual_risks": [
+        "The targeted primary-literature and catalogue search is not a priority census. A differently formulated, unindexed Gamma-mixture or moment-ratio result may exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior one-order theorem and paired-coefficient case; more general question left conjectural",
+          "evidence": "||X||_p≥||G||_p sqrt(Var X) for p≥2; §4.2 proposes two-order comparison and log-convexity, with a scale-mixture explanation for paired coefficients.",
+          "identifier_or_url": "https://arxiv.org/html/2602.03058v1",
+          "material_read": "Theorem 1, equation (6), and §4.2 (HTML offsets 10300 and 49800–53777)",
+          "method": "OA primary HTML",
+          "title": "Moments of sums of exponentials, beyond CHS",
+          "trigger": "Same norm ratios and cited conjecture and prerequisite"
+        },
+        {
+          "assessment": "Covers moment interpolation and fixed-order optimization, not the all-order claim",
+          "evidence": "The fixed-order extrema vary coefficients; at orders 2 and 4 the moment is constant on the constraints.",
+          "identifier_or_url": "https://arxiv.org/pdf/2512.12254v1",
+          "material_read": "§2.5 equation (2.11), PDF p. 9; §5 Proposition 5.3, PDF p. 28",
+          "method": "OA primary PDF passage inspection",
+          "title": "Sharp inequalities for symmetric polynomials, Hunter’s conjecture, and moments of exponential random variables",
+          "trigger": "Same three-term constrained moments and divided differences"
+        },
+        {
+          "assessment": "Different orders and normalization",
+          "evidence": "Corollary 3 uses −1<p≤1≤q≤p₀ and Gamma constants, not two Gaussian-normalized orders above 2.",
+          "identifier_or_url": "https://arxiv.org/pdf/2505.00944v1",
+          "material_read": "Theorems 1–2 and Corollary 3, PDF pp. 4–5",
+          "method": "OA primary PDF passage inspection",
+          "title": "From simplex slicing to sharp reverse Hölder inequalities",
+          "trigger": "Plausible broader comparison for centered log-concave laws"
+        },
+        {
+          "assessment": "Different observable and law; not an equivalent result",
+          "evidence": "Central-mass crossings for E−1, rather than strict moment curvature across arbitrary centered three-term exponential sums.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-exactly-two-gaussian-central-mass-crossings-for-the-standardized--8e44a5956c55",
+          "material_read": "RESULT.md, finding",
+          "method": "Local mirror of the published record",
+          "title": "Exactly two Gaussian central-mass crossings for the standardized exponential",
+          "trigger": "Closest distinct catalogue comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This resolves the first genuinely asymmetric three-term class of a published two-order comparison problem, at all real orders in its proposed range, and proves the stronger curvature property. The positive density decomposition explains why the asymmetric case works without assuming the paired Gaussian-scale mixture; the finite number of terms does not make this just a finite order check.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

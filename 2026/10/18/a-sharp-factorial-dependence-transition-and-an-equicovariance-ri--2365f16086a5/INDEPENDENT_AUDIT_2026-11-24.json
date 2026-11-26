@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:57:22.254919Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The frozen claim that the covariance is always negative when r+s>n lacked the individual bound: e.g. n=4,r=1,s=5 gives C5 identically zero and covariance zero. The complete replacement RESULT.md now states strict negativity only for distinct lengths both at most n, with the zero case explicit. SLOGAN.txt also now specifies n>=4 for rigidity. Independently checked the repaired theorem: shifting marked cycle counts in the Ewens law leaves the normalizer ratio Fn(m), times the marking factors; q[a]=(n-a)/(D-a), D=n+theta-1, is strictly monotone in a with sign of increment 1-theta, giving all feasible product comparisons. For fixed r,s, summing log q[r+a]-log q[a] cancels the order 1/n terms and gives -(theta-1)rs/n²+O(n^-3), yielding the stated covariance limit. At theta=1 the ratio is constant and at theta=2 it is affine in marked size, giving respectively 0 and -4/(n+1)². For necessity, Cov(C1,Cs)=-theta²(theta-1)Fn(s)/(D(D-s)) for admissible s>=2. In subtracting the s=3 value from s=2 the remaining factor is 1-(n-2)/(D-3)=(theta-2)/(D-3); every denominator factor is positive, including at n=4. This proves the iff across the full domain. The frozen finite verification is corroboration only; its loops sample lengths at most n and cannot justify the original out-of-range wording. No frozen script was executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The exact joint law in da Silva–Jamshidpey–Tavaré includes the full range of n and theta; its conditioned factorial moment formula applies to a different law. The accessible Stark landing material concerns random injections. The Tavaré review DOI did not yield primary full text."
+        ],
+        "reasoning": "Classical exact moment evaluation supplies the raw covariance expressions and directly yields the sign test and expansion. It is not an existing uniformity/rigidity theorem: finding the nonzero parameter with simultaneous equalities and ruling out all others requires comparing distinct admissible pairs and proving sufficiency across all pairs.",
+        "searches": [
+          "Ewens random permutations covariance counts of cycles of distinct lengths theta factorial moments exact covariance asymptotic",
+          "arXiv:2006.04840: Ewens sampling formula; factorial moments",
+          "doi:10.1112/blms.12537: cycle counts",
+          "doi:10.37236/9496"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2006.04840",
+        "Resultary 38e40b444e08",
+        "Resultary 502128e50e90",
+        "doi:10.1112/blms.12537 (access attempted only)",
+        "doi:10.37236/9496 (abstract only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The unconditioned law determines individual covariances but supplies no uniformity criterion. Conditioning out C1 excludes the decisive pairs (1,2) and (1,3). The later derangement asymptotic does not identify exact pair equality at any parameter, and the same-day cumulant sign is a different statistic."
+        ],
+        "reasoning": "The supported contribution is not existence of a formula or its evaluation at a selected theta; it is necessity and sufficiency of theta=1,2 for an entire covariance profile, with explicit common nonzero value. No inspected source already gives this classification or a broader structural criterion from which it is a mere specialization.",
+        "searches": [
+          "arXiv:2006.04840, p. 1 Eq. (1) and §2.1 Eq. (6)",
+          "Resultary 38e40b444e08, RESULT.md Eq. (4)",
+          "Resultary 502128e50e90, RESULT.md Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:2006.04840 p. 1 Eq. (1): classical exact Ewens joint count law; shifting counts gives the exact mixed marked-cycle ratio. Its §2.1 Eq. (6) has an extra normalizer ratio for derangements."
+        ],
+        "reasoning": "Comparisons phrased in normalized factorial moments reduce to classical Ewens ratios, so no separate credit is given to those results. Equicovariance translates instead to a divided mixed difference [Fn(r+s)-Fn(r)Fn(s)]/(rs) independent of (r,s). The retrieved identities do not state or classify when this shape occurs.",
+        "searches": [
+          "Resultary: Ewens permutation cycle counts equicovariance theta=2",
+          "Resultary: Ewens cycles same covariance all cycle length pairs theta=2",
+          "Resultary: Ewens sampling formula mixed factorial moments product cycles lengths inequality"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 38e40b444e08 Eq. (4) gives the neighboring second-order coefficient in Ewens derangements for 2<=r<s, and a different scale at theta=1. Same-day Resultary 502128e50e90 gives two sign reversals of the third cumulant of C1,C2,C3; it uses the same classical cycle moment law."
+        ],
+        "reasoning": "Neither catalog record is an unconditioned equicovariance classification. The first changes the law, the second changes the invariant and the quantifiers; same-day dating alone is not evidence of priority or difference. A finite table could not establish the all-n, all-positive-theta claim.",
+        "searches": [
+          "Resultary: A sharp factorial-dependence transition and an equicovariance rigidity point in Ewens cycle counts",
+          "Resultary: Ewens covariance cycle counts Cov(C_r,C_s) asymptotic theta squared one minus theta",
+          "Resultary: Ewens cycle counts cross-length factorial moments sign transition theta=1 equicovariance"
+        ]
+      },
+      "rationale": "Credit the repaired finding only for classifying the positive theta that give equal covariance on all admissible distinct-length pairs in the unconditioned law for each n>=4. The classical law, marked moments, and direct sign and asymptotic calculations are acknowledged input or context, not separate originality credit. The strongest retrieved neighbor results do not classify this uniformity or establish a structural theorem covering it.",
+      "residual_risks": [
+        "Older statements of covariance-profile rigidity or equivalent formulations could be absent from the bounded searches. Full text of the Tavaré review and Stark article was not inspected."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Classical joint count law covers marked-moment computation; the related explicit marked-cycle formula in §2.1 conditions out one-cycles. Neither passage states unconditioned equicovariance rigidity.",
+          "evidence": [
+            "The joint law weighs count vectors by the product of (theta/j)^cj/cj! restricted to total size n; the derangement formula multiplies the moment expression by a ratio of distinct conditioning normalizers."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2006.04840",
+          "material_read": "p. 1 Eq. (1), offset 1810; p. 2 §2.1 Eq. (6), offset 7246",
+          "method": "OA primary-text literal locator and bounded reads",
+          "title": "Random derangements and the Ewens Sampling Formula",
+          "trigger": "Closest primary presentation of exact Ewens moments and possible stronger moment results"
+        },
+        {
+          "assessment": "Different conditioned law and no equality classification.",
+          "evidence": [
+            "The covariance is theta²(1-theta)/n²+O(n^-3) for fixed 2<=r<s away from theta=1, where the statement instead gives a parity-alternating factorial scale."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-singular-covariance-transition-for-cycle-counts-in-ewens-deran--38e40b444e08/RESULT.md",
+          "material_read": "Original RESULT.md Finding including Eq. (4), offset 0, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Resultary search and bounded local mirror text",
+          "title": "A singular covariance transition for cycle counts in Ewens derangements",
+          "trigger": "Strongest database overlap for the coefficient"
+        },
+        {
+          "assessment": "Uses shared moment inputs for a different conclusion; not judged by date.",
+          "evidence": [
+            "Third joint cumulant of C1,C2,C3 has sign of (theta-1)Q_n(theta) and a second root near 2n/5+24/35."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-two-exact-sign-reversals-in-the-third-joint-cumulant-of-ewens-sm--502128e50e90/RESULT.md",
+          "material_read": "Original RESULT.md Finding, offset 0, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Resultary search and bounded local mirror text",
+          "title": "Two exact sign reversals in the third joint cumulant of Ewens small cycle counts",
+          "trigger": "Material same-day dependence claim on the same Ewens law"
+        },
+        {
+          "assessment": "Unresolved review-literature risk; no inference of noncoverage from access failure.",
+          "evidence": [
+            "Bibliographic comparator identified; no decisive passage obtained."
+          ],
+          "identifier_or_url": "https://doi.org/10.1112/blms.12537",
+          "material_read": "No full text read",
+          "method": "OA retrieval attempts on DOI; direct and alternate configured route denied access and no repository copy was identified.",
+          "title": "The magical Ewens sampling formula",
+          "trigger": "Frozen citation to broader review of Ewens formulas and conditioning"
+        },
+        {
+          "assessment": "Different primary model based on accessible material; stronger implications from the full text were not checked.",
+          "evidence": [
+            "Abstract concerns random injections rather than an equicovariance classification for Ewens permutations."
+          ],
+          "identifier_or_url": "https://doi.org/10.37236/9496",
+          "material_read": "Landing page and abstract only",
+          "method": "Bounded lookup of cited article",
+          "title": "The component counts of random injections",
+          "trigger": "Frozen citation to broader component moment results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The admissible range removes the unavoidable incompatibility of pairs whose total length exceeds n. Classifying exact constancy within that range distinguishes an exceptional nonzero covariance profile from uniform-permutation cancellation and from the generic merely asymptotic coincidence of length coefficients. The precise finite-n classification, not re-evaluating the familiar sampling formula, is the useful contribution.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

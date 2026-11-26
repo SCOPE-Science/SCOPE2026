@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:53:53.974023Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md:4–49",
+        "VERIFICATION.md:19–23",
+        "verify.py:5–92 and verify_output.txt:1–13 (inspected, not executed)",
+        "Independent F_3 reproduction: enumerate the four entries in {0,1,2}, test the four ordered basis pairs by coordinate multiplication and permutation, then take matrix ranks modulo 3."
+      ],
+      "rationale": "Write d_i for the coefficient of e_i in R(e_i). On (e_i,e_i) the left side is Σ_j a_j r_{ji}²e_{σ(j)} and the right side is 2a_i d_i R(e_{σ(i)}). The basis vectors on the left are independent and every a_j is nonzero, so d_i=0 forces the entire input column to vanish. The e_{σ(i)} coefficient gives d_i²=2d_i d_{σ(i)}. In characteristic two there is no active column. Otherwise an active d_i propagates by d_{σ(i)}=d_i/2, giving exactly the 2^{|C|}=1 condition, impossible in characteristic zero. A scalar on each resonant cycle extends by this recurrence; the diagonal map then verifies the identity on equal basis pairs and trivially on unequal ones. This proves exactly 2^r supports and an r-dimensional diagonal locus over the stated field, with resonance equivalent to order divisibility in odd prime characteristic. Natural-basis changes are monomial because the independent squares force distinct natural-basis columns to have disjoint coordinate support. In the unweighted single resonant cycle, v=Σ e_i has v²=v and v e_j=e_{σ(j)}; for λ_{σ(i)}=λ_i/2 the map e_i↦λ_i v verifies the identity on all basis pairs, yielding rank one while the same diagonal coefficients yield rank n. An independent direct enumeration tested all 81 maps for the unweighted two-cycle over F_3, obtaining ranks 0,1,1,2,2, with both inputs active for every nonzero solution.",
+      "residual_risks": [
+        "The frozen checker checks the recurrence primarily on the diagonal and its ranks_nondiagonal output column counts nondiagonal maps rather than computing their ranks. The general proof, not that finite output, supplies the column-support equivalence; the independent F_3 check explicitly computed ranks."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Question 39 requests a graph-based classification on perfect evolution algebras rather than providing one. The maximal-nilindex classification uses nilpotent triangular structures; the complex dimension-two result is restricted instead by field and dimension."
+        ],
+        "reasoning": "The nilpotent class excludes these perfect permutation algebras, and the complex dimension-two classification only overlaps a low-dimensional nonresonant region. The graph-based setting of the survey is broader but open in the cited question.",
+        "searches": [
+          "arXiv:2610.22248v1 Question 39",
+          "arXiv:2601.08669v1 abstract/introduction",
+          "arXiv:1906.09098 §3 Theorem 3.3"
+        ]
+      },
+      "checked_sources": [
+        "Primary inspections above; Resultary derivation-dimension and nonmonomial two-dimensional Findings"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "R^{-1} satisfies the Leibniz law if R is invertible; the derivation equations imply the resonance criterion for invertible diagonal solutions on a cycle. Singular examples in characteristic three demonstrate why invertibility cannot be assumed."
+        ],
+        "reasoning": "The deduction that a zero diagonal coefficient kills the entire input column uses the Rota–Baxter square identity before assuming any diagonal form or inverse. This adds the necessity for all noninvertible and nondiagonal solutions; no inspected stronger theorem implies it.",
+        "searches": [
+          "Elduque–Labra §4; October cyclotomic-descent Finding and Proof; frozen RESULT.md:19–39"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact 11/8 indexed hit is the assigned record itself.",
+          "Theorem 4.1 relates derivations of perfect evolution algebras to graph balance, and its odd-characteristic criterion reduces to ord_p(2) dividing the cycle length. The indexed derivation record gives λ_{σ(i)}=2λ_i."
+        ],
+        "reasoning": "An invertible weight-zero Rota–Baxter map has a derivation as inverse, explaining the reciprocal profile. In general the two recurrences are reciprocal, not literally equal along the same arrow; the comparison sentence in RESULT.md:55 should be read as common resonance. Derivation results alone do not restrict the supports of singular Rota–Baxter maps.",
+        "searches": [
+          "Resultary: 2026/11/8/SCOPE-weight-zero-rota-baxter-resonance-and-attainable-supports-on-per--290b91c128f6",
+          "arXiv:1902.02191 §4 Theorem 4.1 and Corollary 4.3",
+          "Resultary: 2026/10/25/SCOPE-a-cyclic-graded-generating-function-for-derivation-dimensions-of--0cbe357d2aa7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The October Finding gives the complete diagonal rank-two and rank-one lines for the unweighted two-cycle in characteristic three. The November two-dimensional example has e_2²=e_1+e_2 and a characteristic-31 branch."
+        ],
+        "reasoning": "The first is exact coverage of the corresponding case, not of arbitrary weighted cycles, fields and dimensions. The second has a nonmonomial structure matrix and is outside scope. A finite table alone cannot give the all-field necessity theorem.",
+        "searches": [
+          "Resultary: 2026/10/26/SCOPE-cyclotomic-descent-and-the-characteristic-three-jump-for-rota-ba--4df239b34dd5",
+          "Resultary: 2026/11/2/SCOPE-all-weight-rota-baxter-operators-on-a-simple-two-dimensional-evo--25d556040b3d"
+        ]
+      },
+      "rationale": "The supported distinction is the all-operator active-input support theorem for every weighted permutation evolution algebra over every field. Derivations already give the resonance parameter and the invertible diagonal profiles after reciprocal correspondence; the earlier characteristic-three unweighted two-cycle record also gives the exact two branches for that instance. Neither entails the all-operator necessity, including singular nondiagonal maps on arbitrary weighted cycles. The E^2=E graph-classification question does not supply that conclusion. The novelty judgment is limited to this support classification and its general attainability, not to the recurrence as a numerical cycle condition or the isolated two-cycle example.",
+      "residual_risks": [
+        "Historical priority beyond the inspected graph, derivation, and Rota–Baxter sources is not established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Derivation resonance overlaps but not all weight-zero maps",
+          "evidence": "Graph balance and order of 2 control derivations; scalar progression is opposite along each arrow.",
+          "identifier_or_url": "arXiv:1902.02191",
+          "material_read": "§4 Theorem 4.1 and Corollary 4.3, PDF pp. 10–11, OA offsets 27500 and 29682",
+          "method": "Primary OA PDF text",
+          "title": "Evolution algebras, automorphisms, and graphs",
+          "trigger": "Exact-looking graph resonance for perfect evolution algebras"
+        },
+        {
+          "assessment": "Exact overlap only in its two-cycle setting",
+          "evidence": "Unweighted two-cycle, two weight-zero lines, of ranks two and one off the origin.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-cyclotomic-descent-and-the-characteristic-three-jump-for-rota-ba--4df239b34dd5/RESULT.md",
+          "material_read": "Finding and proof of the characteristic-three branches",
+          "method": "Primary local-mirror Resultary text",
+          "title": "Cyclotomic descent and the characteristic-three jump for Rota–Baxter operators",
+          "trigger": "Exact match to the diagnostic two-cycle case"
+        },
+        {
+          "assessment": "Provides motivation, not coverage",
+          "evidence": "The arbitrary-weight graph-based classification is posed as a problem.",
+          "identifier_or_url": "arXiv:2610.22248v1",
+          "material_read": "Question 39, PDF p. 25, OA offset 88166",
+          "method": "Primary OA PDF text",
+          "title": "Evolution algebras: a survey of results and a list of open problems",
+          "trigger": "Graph-theoretic Rota–Baxter classification on perfect evolution algebras"
+        },
+        {
+          "assessment": "Class excludes perfect permutation algebras",
+          "evidence": "Strictly triangular nilpotent structures are the input.",
+          "identifier_or_url": "arXiv:2601.08669v1",
+          "material_read": "Abstract and introduction pp. 1–2, OA offsets 244 and 5497",
+          "method": "Primary OA PDF text",
+          "title": "Rota-Baxter operators of nilpotent evolution algebras with maximal nilindex",
+          "trigger": "Title suggests evolution-algebra classification"
+        },
+        {
+          "assessment": "Complex dimension two, not modular cycle classification",
+          "evidence": "The classification here is of two-dimensional complex evolution algebras.",
+          "identifier_or_url": "arXiv:1906.09098",
+          "material_read": "§3 Theorem 3.3, PDF pp. 24–25, OA offset 83402",
+          "method": "Primary OA PDF text",
+          "title": "On chains and Rota-Baxter operators of evolution algebras",
+          "trigger": "Potential weight-zero low-dimensional precedent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md:4–17,19–49",
+        "arXiv:2610.22248v1 Question 39"
+      ],
+      "rationale": "Active inputs are a natural exact invariant of a graph-based operator problem. The theorem turns the nonlinear equations into a necessary support rule applying even to singular and nondiagonal solutions, realizes every permitted support, and gives an exact count and field dependence independent of all nonzero structure weights. This is useful structural information without claiming the full operator variety; the rank-one construction shows why the distinction matters.",
+      "residual_risks": [
+        "No claim of classifying arbitrary weights, structure matrices outside monomial type, or all off-diagonal ranks."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

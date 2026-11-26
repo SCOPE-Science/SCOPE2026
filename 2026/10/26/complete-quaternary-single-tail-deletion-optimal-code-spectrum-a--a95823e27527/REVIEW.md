@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Deletion-ball intersections reduce exactly to rooted suffix-tree parent–child edges and common-parent sibling cliques. Each terminal-letter component is partitioned into one four-element clique and six parent–child pairs, proving the upper bound seven. Equality enforces one choice per group. The two exhaustive cases for the short clique yield the local polynomial \(P\), and disjoint terminal-symbol components produce \(P^4\). The minimum and maximum total lengths follow from the extreme nonnegative coefficients of the explicitly computed polynomial. A complete independent search of all \(2^{16}\) local subsets confirms every local coefficient; the proof supplies the global implication.
+PASS
 
-## Originality
+Possible outputs retain the last symbol and, for longer words, are the unchanged word or its immediate suffix. Conflicts are exactly parent–child and sibling pairs in four disjoint suffix trees. In each tree a four-vertex clique (the root and its three children) and six length-3/length-4 pairs bound a code by seven words, attained by the root and all leaves. Equality forces one choice per block; the three sibling groups independently contribute x4(x4+2x3) unless the short selected word is their parent, in which case both leaves are forced. This gives the stated P and factors across terminal symbols. The rooted transfer recurrence also follows: choosing the root forbids every child, while excluding it allows at most one child, with no cross-branch conflicts among lower selections. Direct independent packing of the actual output masks recovered all seven local optimal profiles. Convolving them four times and weighting by word length gave 8,503,056 global optima of size 28, minimum length 88 with multiplicity 4096 and unique composition (4,0,12,12), and maximum length 104 with multiplicity 81.
 
-PASS on accessible evidence, subject to a concrete residual risk. The source paper of Cohen, Yaakobi, and Yakhini (2026), especially its Theorem 6, establishes the optimum cardinality but not the count or length-composition distribution of *all* maxima. The 2025 rank-modulation paper studies another error model. Related published results on maximum fixed-length deletion codes address different channel outputs, not nonrepeating variable-length suffix-tree codewords. Equivalent enumeration via classical rooted-tree packings could be unindexed; no uniqueness certification is claimed.
+## originality
 
-## Value
+PASS
 
-PASS. A complete classification of optimum codebooks is natural for the quaternary alphabet used for nucleotide rankings. The cardinality optimum alone gives no information about design diversity or the word-length budget. Here exactly \(4{,}096\) maximum codebooks attain the sharp total ranking length \(88\), a combinatorial decrease of 16 positions compared with an exhibited full-length-heavy optimal construction. The polynomial gives all intermediate tradeoffs without assigning unmeasured synthesis costs.
+Pass is restricted to the enumeration, composition and length extrema of all maximum labeled codes. The size 28 and existence of optima in precisely this model are prior work. The closest inspected exact classification records count different configurations, and the theorem giving the known maximum does not determine its full set of equality cases.
 
-## Scope and remaining risk
+## value
 
-No claims are made about arbitrary-position deletions, stochastic channels, optimal physical synthesis cost, or fixed-length codewords. A possible equivalent formulation in unindexed graph-packing literature remains open to human literature review.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact labeled optimum spectrum distinguishes cardinality-optimal selections that have very different total lengths and identifies the unique minimum-length composition. Four symbols is the first nontrivial profile case beyond the rigid three-symbol maximum, where the root and two length-three leaves are forced in each component. A designer or enumerative researcher can use the exact composition frequencies, rather than a single construction, to assess the cardinality–length tradeoff in this model.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

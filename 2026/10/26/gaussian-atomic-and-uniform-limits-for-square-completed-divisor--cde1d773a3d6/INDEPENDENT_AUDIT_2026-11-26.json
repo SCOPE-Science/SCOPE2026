@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:10:07.778732Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On a full block the sampling weight is (2m−1)/T², and conditional on m the shift is the uniform grid of mesh 1/(2m−1). The weighted bounded-Lipschitz grid error is O(1/T) even after multiplication by bounded statistics of m. Divisor factorization gives log D(m²)=log(3/2)ω(m)+H(m). Fixed bounded valuation patterns are congruence conditions; CRT gives their weighted geometric probabilities. For Erdős–Kac in a fixed class, truncate at T^(1/log log T) excluding primes dividing the modulus: CRT gives each fixed joint moment the independent-prime main term with total error T^(−1+o(1)), and the omitted primes have conditional mean O_q(1+log log log T) by Mertens and summing the counting errors. For each fixed lower-scale endpoint tT, the same normalized Gaussian law holds since replacing log log T by log log(tT) is negligible; partial summation gives it under the root weight. Thus the normalized ω is asymptotically independent of each finite valuation vector, not just marginally Gaussian. The weighted expectation of the discarded correction above B is bounded by 2 sum_(p>B)1/[p(p−1)]. This makes the correction tight, permits the finite-prime product limit and Slutsky replacement, and implies almost-sure finite support in primes in the model. The remaining incomplete block has O(1/T) mass. The zero and smallest positive atoms follow respectively from all valuations ≤1 and exactly one valuation equal to 2. A fresh rational enclosure (/workspace/branches/7b2beb61-f14c-4930-ace9-73fec79f60fd/atom_certificate.py) bounds the latter probability between 0.2007556808 and 0.2007562888, sufficient for the displayed rounding; it is a numerical check, not the limiting-law proof. The uploaded checker was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Levy–Squillace Thm. 2, PDF p. 2, and conditions (4)–(6) give a scalar Gaussian limit for ω under suitable perturbed sampling",
+          "Dixit–Murty Thm. 1.1 concerns truncated prime counts under uniform measure; Tenenbaum–Verwee Thms. 1.1–1.2 give one-dimensional additive-function limits"
+        ],
+        "reasoning": "These are genuine marginal overlap or general ingredients. Their inspected statements do not give asymptotic independence from the valuation field and from a conditional block variable.",
+        "searches": [
+          "arXiv:2405.06860 perturbation theorem",
+          "Dixit–Murty DOI 10.46298/hrj.2021.7433",
+          "Tenenbaum–Verwee DOI 10.1134/S008154382104012X, lawful HAL copy"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verification/check.py",
+        "Resultary November 8 matched record",
+        "Inspected primary articles listed above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For d≤T, T=ds+r with 0≤r<d, the total perturbation over multiples of d is s(d−r−1)/T² between 0 and 1/T, so the scalar weighted-root Gaussian marginal is covered",
+          "Joint convergence requires conditioning on fixed valuation patterns plus the uniformly summable correction tail and the conditional phase-grid estimate"
+        ],
+        "reasoning": "Separate marginal theorems do not imply factorization of the joint limit. The proof establishes that additional assertion, not an extrapolation from the known marginals.",
+        "searches": [
+          "Levy–Squillace conditions (4)–(6)",
+          "Tenenbaum–Verwee Thms. 1.1–1.2",
+          "Frozen Proof §§2–5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Mihoub, PDF p. 2, definition of s(n) and D and Thm. 2.1: identical arithmetic statistic, summatory mean only",
+          "2026/11/8/SCOPE-a-two-term-mean-for-the-divisor-ratio-on-square-completed-intege--0532cbd9760f, Finding and §3: same (2m−1) block weight and two-term mean"
+        ],
+        "reasoning": "The block reduction is common. A mean of D does not determine the joint law of centered log D, its prime-power correction and the normalized shift.",
+        "searches": [
+          "Focused literature lookup for square-completed divisor ratios and joint additive limits",
+          "arXiv:2602.20808v1",
+          "Resultary semantic searches for square-completion divisor ratio"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Both same-statistic matches report mean coefficients, not atomic masses. The zero atom is the classical squarefree Euler product; the first positive atom adds exactly one local mass ratio 1/[p(p+1)]."
+        ],
+        "reasoning": "There is no separate novelty claim for the classical squarefree constant, and no inspected table reports the marked correction distribution on this weighted input. A numerical prime sum is corroboration, not a novelty check by itself.",
+        "searches": [
+          "Resultary square-completion divisor-ratio and atom comparisons; closest matched November 8 Finding read",
+          "Mihoub Thm. 2.1"
+        ]
+      },
+      "rationale": "The supported distinct claim is the mutually independent Gaussian bulk, discrete prime-power correction and uniform within-block phase for this sampling, with explicit atoms of the correction. The weighted Gaussian marginal and additive correction framework overlap with known general theorems. The closest matching-statistic records compute summatory means; these neither imply weak joint convergence nor condition the Gaussian law on prime-power patterns. I found no equivalent joint statement in the inspected claims. This does not certify priority or assess the cited mean formulas.",
+      "residual_risks": [
+        "An unindexed joint theorem for several additive functions under conditional sampling could subsume part of the arithmetic argument; targeted retrieval was bounded. This result does not settle the cited summatory means, local atom convergence rates, or priority of the individual scalar ingredients."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Shared statistic, unrelated summatory assertion",
+          "evidence": "Thm. 2.1 is an X-log-X-order mean assertion, not a probabilistic limit.",
+          "identifier_or_url": "https://arxiv.org/pdf/2602.20808v1",
+          "material_read": "PDF p. 2, definition and Thm. 2.1, offsets about 5000–6450",
+          "method": "Open primary PDF targeted passages",
+          "title": "On the Asymptotic Behavior of a Multiplicative Arithmetic Function Related to the Divisor Function Over Perfect Squares Integers Generated by Shifting",
+          "trigger": "Same exact statistic"
+        },
+        {
+          "assessment": "Meaningful overlap in statistic and block identity, not the joint limit",
+          "evidence": "The asymptotic estimated is a sum of D, with leading scale X sqrt(log X).",
+          "identifier_or_url": "2026/11/8/SCOPE-a-two-term-mean-for-the-divisor-ratio-on-square-completed-intege--0532cbd9760f",
+          "material_read": "RESULT.md Finding and Proof §3",
+          "method": "Local Resultary search and matched-file reading",
+          "title": "A two-term mean for the divisor ratio on square-completed integers",
+          "trigger": "Same statistic and complete-block weight"
+        },
+        {
+          "assessment": "Covers root Gaussian marginal; no joint atomic or phase coordinate",
+          "evidence": "The multiple-density perturbations for (2m−1)/T² satisfy its bounds.",
+          "identifier_or_url": "https://arxiv.org/pdf/2405.06860",
+          "material_read": "PDF p. 2, Thm. 2 and conditions (4)–(6)",
+          "method": "Open primary PDF and explicit weight substitution",
+          "title": "A Generalization of the Erdős–Kac Theorem",
+          "trigger": "Potential domination of weighted Gaussian law"
+        },
+        {
+          "assessment": "Truncated uniform prime-count result related to one ingredient",
+          "evidence": "No within-square-block phase or joint correction in the theorem.",
+          "identifier_or_url": "https://doi.org/10.46298/hrj.2021.7433",
+          "material_read": "Thm. 1.1, PDF p. 3, and concluding remarks, p. 6",
+          "method": "Open primary PDF targeted passages",
+          "title": "A localized Erdős–Kac theorem",
+          "trigger": "Localized prime-count limit"
+        },
+        {
+          "assessment": "Covers one-dimensional additive laws under stated conditions, not three-coordinate independence",
+          "evidence": "The distribution and estimates track a single real additive function.",
+          "identifier_or_url": "https://doi.org/10.1134/S008154382104012X",
+          "material_read": "HAL submitted PDF Thms. 1.1–1.2, pp. 3–4",
+          "method": "Identified lawful alternate primary copy",
+          "title": "Effective Erdős–Wintner Theorems",
+          "trigger": "Atomic additive-function distributions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The Gaussian scale alone loses both the repeated-prime correction and the distance to the next square. The joint limit recovers both at their natural scales, showing precisely that neither carries limiting information about the Gaussian fluctuation, and gives concrete masses for the correction's most prominent starting atoms.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

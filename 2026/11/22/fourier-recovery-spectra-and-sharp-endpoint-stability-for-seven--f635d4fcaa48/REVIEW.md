@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** Cyclotomic minimal-polynomial divisibility identifies zero multipliers exactly with missing directions; elementary power sums classify all three-direction transversals into 35 affine and 98 quartic graphs. The eight-direction incidence counts yield the complete population, independently checked by a complete 85,900,584-mask enumerator. The Gaussian-period identities give the full rank-31 squared singular-value spectrum and exact idempotent kernel; averaging over translations proves global endpoint-projection optimality. Two additional exact enumerators checked every permutation and every spectral/kernel coefficient. No finite experiment is substituted for the stated symbolic proof.
+## correctness
 
-**Originality — PASS, with explicit scope.** Rédei–Megyesi and Lovász–Schrijver already imply the extremal direction threshold and class of nonlinear rank-31 masks; known orthomorphism enumerations supply the 133 transversal count. These are acknowledged, not presented as independent new theorems. The new focal claim is the full singular-value and exact sharp endpoint projection constant 193/49 for the extremal indicator convolution range, including optimality over all projections. The checked quartic-graph fourth-moment theorem proves a different \(\ell^2\)-to-\(L^4\) inequality and does not dominate the endpoint projection statement. Relevant published Weyl/Gabor analyses concern different operators. Bounded public and research-record searches identified no equivalent or stronger endpoint result. Residual risk: older finite-group idempotent norm tables could cover this small value.
+PASS
 
-**Value — PASS.** These masks are the natural noncollinear extremizers of finite-field direction uncertainty and give the smallest non-line convolution recovery dimension. Rank alone does not control robustness: the exact multiplicities, positive singular gap, and sharp best possible \(\ell^1/\ell^\infty\) range-projection amplification quantify recoverability in two different norm geometries. This is a motivated complete spectral-stability fact on an extremal family, not an arbitrary parameter slice.
+The seventh cyclotomic polynomial forces equal fibre counts at a Fourier zero; a blind projective direction therefore removes exactly six frequencies, and the trivial multiplier is 7. Normalizing three directions gives f and f-x permutations. Their first and second sums remove the degree-6 and degree-5 coefficients; the cubic case is impossible by its squared sum after depression, and in the quartic case the squared sum after translation removes the quadratic coefficient. The square/nonsquare test gives the 35 affine and 98 nonlinear graphs for a fixed triple; each nonlinear graph has precisely three blind directions. Independent enumeration of the 5040 permutation graphs confirmed these facts, and single-, pair- and triple-incidence counts recover the five rank populations, summing to 85,900,584. For the representative quartic, the two Gauss periods have sum -1 and product 2; the origin, the punctured diagonals and the two sign cases off the diagonals yield squared singular values 49,14,7,0 with multiplicities 1,12,18,18. A fresh exact cyclotomic calculation reproduced these and the kernel numerators 31 (once), -4 (18 times), 3 (30 times), with denominator 49. Both endpoint norms equal the kernel l1 norm (columns, respectively rows), and averaging any projection by translations preserves identity on the range and cannot increase either norm. The only resulting invariant projection has precisely the visible frequencies as its support. Thus 193/49 is sharp for arbitrary linear projections, and the pseudoinverse norm is 1/sqrt(7). The frozen verification programs were inspected, not executed; independent reproduction used the fixed-triple census and cyclotomic calculation rather than replaying the 85.9-million-subset program. Replay specifications: RESULT.md Proof 1–5 and the bounded procedures in VERIFICATION.md.
 
-The scope is seven-point unit-weight indicator convolution on the two-dimensional seven-element field; larger fields and arbitrary weights are not covered. Independent expert checking has not taken place.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the classical extremal geometry, the known orthomorphism count and the previously known zero-translation kernel. The distinct conclusion supported by the comparisons is the full additive-convolution singular-value law and sharp endpoint projection constant for the extremal masks. The global rank census is contextual and reconstructible from prior direction geometry plus transversal incidence counts, not a new general direction theorem.
+
+## value
+
+PASS
+
+The masks are selected intrinsically by the least nontrivial convolution rank, not by an arbitrary instance. The singular spectrum determines sharp l2 recovery stability and the endpoint constant determines the least amplification when projecting to admissible data, even without equivariance. Together the constants give reusable sharp stability information across the entire extremal affine orbit; the rank census situates it within the full population.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

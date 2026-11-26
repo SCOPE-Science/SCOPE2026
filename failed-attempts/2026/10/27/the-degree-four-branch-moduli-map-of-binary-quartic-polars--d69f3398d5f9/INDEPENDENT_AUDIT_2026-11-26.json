@@ -1,0 +1,150 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:08:22.912574Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md proof §§1–5; VERIFICATION.md and verify.py inspected",
+        "Independent exact checks: python3 -B /workspace/checks/2.py (even-normal-form identity, degeneration and fiber factorization); python3 -B /workspace/checks/2-prior.py (earlier printed coefficients)"
+      ],
+      "rationale": "Euler's identity excludes common zeros of the two partial derivatives for a squarefree binary quartic, so the polar map has degree three. Its fiber over [s:t] is cut out by t f_X−s f_Y; the fixed target-coordinate change to the discriminant variables does not affect j. The three-root normalization covers all quartics in scope. Independently, in the even normal form X^4+z X²Y²+Y^4, the discriminant of the pencil with both partials divided by two is −8z³(u^4+v^4)+(z^4+72z²−432)u²v². Exact invariants give the asserted j-map; the branch discriminant in this family is 27648 z^6(z−6)^6(z−2)^2(z+2)^2(z+6)^6, vanishing precisely at J=0 among smooth inputs. The even normal form is available by conjugating a double-transposition involution of the four points to x↦−x and rescaling the two paired roots. The harmonic orbit is represented by X^4+Y^4, with cubic-power polar and branch divisor u²v². The two numerators for Φ and Φ−1728, plus the pole at infinity, give the listed partitions. Their defects sum to six, and a transitive subgroup of A4 containing a 3-cycle has order divisible by both four and three, hence equals A4. The affine change produces the classical level-three j-projection as a cover, not a modular polynomial relation involving the original quartic's own j.",
+      "residual_risks": [
+        "The algebra is symbolic in characteristic zero. The pole at source j=∞ is a feature of the compactified rational map, not a claim about polars of singular quartics. No canonical isogeny involving the source quartic's elliptic curve is established."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Entropic Discriminant identifies the polar branch locus and, in Example 3, gives its full coordinate equation, finer information than its absolute invariant. Example 29 describes doubled ramification for the displayed harmonic case.",
+          "The broader Wronskian passage addresses critical points. The general Hurwitz literature query did not supply a decisive passage identifying this polar source coordinate."
+        ],
+        "reasoning": "The all-a equality of branch forms after the standard variable choice suffices for the invariant calculation on the full smooth family. No claim is made here that a generic Wronski or Hurwitz theorem states the precise polar moduli coordinate.",
+        "searches": [
+          "arXiv:1108.2925 pp. 2–3 and 17",
+          "arXiv:math/0108133",
+          "Hurwitz space degree three rational functions four simple branch points X0(3) cyclic isogeny cubic branched covers 4 branch points modular curve discriminant"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1108.2925",
+        "arXiv:math/0611041",
+        "arXiv:math/0108133",
+        "Resultary 4f19cb7c85c9; catalog summary only for e7a62692b128",
+        "/workspace/checks/2-prior.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In /workspace/checks/2-prior.py the five coefficients of the earlier H_A are used directly. Classical quartic invariants give (4I(H_A)^3−J(H_A)^2)/(J(f)^6 Δ₀(f))=4096. The exact rational difference j(H_A)−Φ(j(f)) cancels identically over Q(a).",
+          "The fiber factorization and branch cycles can be read off from the resulting rational function, whose reparameterization is Maier's tabulated function."
+        ],
+        "reasoning": "This is an explicit mechanical corollary of the prior finer formula on the very same universal family, not merely the observation that an invariant could in principle be computed from the definition of polars. Normal form and projective invariance transfer the calculation. The recognizable modular form is a useful presentation, but it follows here by a single affine reparameterization of that mechanically recovered function.",
+        "searches": [
+          "arXiv:1108.2925, Example 3 p. 3, exact printed branch coefficients",
+          "arXiv:math/0611041, Table 5 p. 13 and Table 7 p. 18"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Example 3 of The Entropic Discriminant computes the critical-value quartic for the same family X(X+2Y)(X+3Y)(X+aY) and displays its square at a=6.",
+          "The Wronskian in Eremenko–Gabrielov locates critical points on the source, not their images. The inspected topical Resultary hit 4f19cb7c85c9 instead concerns a plane quintic and a critical-value locus of three conics."
+        ],
+        "reasoning": "The entropic branch polynomial is the exact prior object, up to projective target coordinates and scalar. Neither a source-critical-point Wronski map nor a plane-quintic critical-value pencil is the same construction, so neither is the basis of the failure.",
+        "searches": [
+          "arXiv:1108.2925 §2, Examples 3 and 29",
+          "arXiv:math/0108133 pp. 1, 7",
+          "Resultary: binary-quartic polar branch quartic and source-to-branch j-map"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Maier gives j(3τ)=(t+27)(t+243)^3/t^3 in t=t_3(τ), and separately j(τ)=(t+27)(t+3)^3/t.",
+          "No exact catalog statement surfaced in the bounded search. The same-day result e7a62692b128, known here only from its catalog summary, concerns a degree-four affine threefold map with S4 monodromy, not the same cover."
+        ],
+        "reasoning": "The target modular function is exactly tabulated. The polar input coordinate is j(f)=1728+64t, not Maier's other j-projection. The catalog miss carries no weight against the verified implication from the earlier coordinate branch polynomial.",
+        "searches": [
+          "Maier arXiv:math/0611041 §3.2 Table 5 and Table 7",
+          "Resultary: binary quartic polar critical values, j=1728, and tetrahedral degree-four moduli"
+        ]
+      },
+      "rationale": "Sanyal–Sturmfels–Vinzant already print all five coefficients of the exact branch quartic for the same universal one-parameter input used in the frozen proof. Applying the classical I,J polynomials to those printed coefficients and cancelling gives the exact frozen j-map and exceptional locus, with no further polar geometry, family extension, or result-specific invariant theory needed. This implication was verified symbolically from the earlier printed coefficients, not inferred from a similar title or a failed search. The ramification and monodromy descriptions are consequences of the resulting rational function, and the modular identification compares it to an already tabulated projection by the displayed affine substitution. The prior text need not explicitly present the j-function for this to be stronger coverage under the comparison standard.",
+      "residual_risks": [
+        "Whether another text explicitly printed the combined polar/modular identification is unresolved. The disposition is based on demonstrated mechanical implication, not a claim of locating the exact assertion verbatim or of exhaustive priority review."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Finer previous result that mechanically implies the frozen j-map; does not need to print that j-map as such",
+          "evidence": [
+            "Example 3 gives the full branch quartic and its square at a=6.",
+            "Formal invariant substitution and cancellation using only the printed coefficients yields the exact frozen map."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1108.2925",
+          "material_read": "§2 pp. 2–3, Example 3 all five coefficients (offset 10922); Example 29 p. 17",
+          "method": "Bounded OA PDF passages and independent symbolic calculation on the printed coefficients",
+          "title": "The Entropic Discriminant",
+          "trigger": "Exactly the polar branch locus and the same one-parameter quartic"
+        },
+        {
+          "assessment": "Exact modular projection, not a claim about binary-quartic polars",
+          "evidence": [
+            "For t=t_3(τ), the expression in the frozen record is j(3τ); the other j-projection is different in these coordinates."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/0611041",
+          "material_read": "§3.2, Table 5, p. 13; Table 7, p. 18",
+          "method": "Bounded OA PDF passage inspection",
+          "title": "On Rationally Parametrized Modular Equations",
+          "trigger": "Exact classical level-three Hauptmodul formula"
+        },
+        {
+          "assessment": "Source critical points, not target critical values",
+          "evidence": [
+            "The Wronskian roots locate the critical points of the rational map."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/0108133",
+          "material_read": "pp. 1, 7, definition and rational-function interpretation for p=2",
+          "method": "Bounded OA PDF passage inspection",
+          "title": "Degrees of real Wronski maps",
+          "trigger": "Potentially broader cubic rational-map invariant"
+        },
+        {
+          "assessment": "Different source, target and branch locus",
+          "evidence": [
+            "Plane quintic polar, critical-value curve three conics, no binary-quartic j-map."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-a-three-conic-critical-value-pencil-for-a-quintic-polar-map--4f19cb7c85c9",
+          "material_read": "Mirrored RESULT.md Finding",
+          "method": "Resultary search and local-mirror statement inspection",
+          "title": "A three-conic critical-value pencil for a quintic polar map",
+          "trigger": "Closest indexed polar critical-value result"
+        },
+        {
+          "assessment": "Summary describes a different dimension and group; no full-statement exclusion asserted",
+          "evidence": [
+            "Summary describes an affine threefold map with two branch surfaces and S4 monodromy."
+          ],
+          "identifier_or_url": "2026/10/27/SCOPE-branch-geometry-and-full-symmetric-monodromy-of-the-shi-xu-zuo-p--e7a62692b128",
+          "material_read": "Resultary catalog summary only; mirror passage unavailable",
+          "method": "Resultary search and local-mirror retrieval attempt",
+          "title": "Branch geometry and full symmetric monodromy of the Shi–Xu–Zuo map",
+          "trigger": "Same-day degree-four branch and monodromy analogy"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and proof Steps 3–5",
+        "arXiv:1108.2925, Example 3",
+        "arXiv:math/0611041, Tables 5 and 7",
+        "/workspace/checks/2-prior.py"
+      ],
+      "rationale": "Both the polar and branch moduli are natural and the equality is a useful reformulation. Under the standard for a narrow exact invariant, however, the prior full coordinate branch formula on the same family already gives the exact fact by direct invariant substitution, and the level-three identification adds a coordinate comparison to a tabulated cover. No nonmechanical structural claim beyond that reformulation is established in the frozen record.",
+      "residual_risks": [
+        "This verdict does not dismiss the mathematical relevance of polar-branch geometry, or assess any stronger claim about a natural moduli construction or isogeny not made here."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

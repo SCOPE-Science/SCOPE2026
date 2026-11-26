@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:45:35.061103Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independently reproduced the entire finite claim with python3 /workspace/branches/replay_4.py, without executing the frozen programs. Coordinate lines give the six neighbors of each word (81 edges). Synchronous white-set reduction gives the same closure as legal successive forces: a force enabled at a smaller observed set remains enabled at a larger one unless its target is already observed. All sets of size at most two fail; exhausting the 2925 triples finds three successful signatures with counts 324, 648, 324. Orbits were independently keyed by the coordinate equality partitions on the three rows, sorted over coordinate permutations and minimized over a common row permutation. Such a key is complete since any matching coordinate partitions can be sent to each other by independent symbol permutations. All ten orbit sizes and complete forcing-round histories agree with orbit_table.json. Joining the buckets of triples containing a common retained pair gives exactly the jump edges; keeping only exchanges along a coordinate line gives the slide edges. Bitset layer searches from all 1296 states reach every state and reproduce all six orbit-wise sphere lists. Jump eccentricities are 3,4,3 by signature, slide eccentricity is 6 throughout, and only type (2,2,3) has a unique distance-four partner. Symmetry of distance makes that partner relation an involution. Intersecting the two move-rule spheres for the same endpoints over all 839160 unordered distinct pairs reproduces both distance distributions and gap counts 103356, 370008, 324648, 41148. As a witness, {000,001,112} and {000,120,222} have jump distance 2 and slide distance 5. The conclusion concerns this labeled finite graph only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The inspected Anderson–Kuenzel–Schuerger statements bound the power-domination number for products, including general and tree-factor settings.",
+          "Bjorkman et al. define the minimum-set single-exchange graph and include power domination among its eligible properties."
+        ],
+        "reasoning": "A scalar product bound or a general move definition specifies neither the feasible optimum triples of this base graph nor their exact adjacency-restricted distances.",
+        "searches": [
+          "Anderson–Kuenzel–Schuerger arXiv:2209.03930 §1, Cartesian products",
+          "Bjorkman et al., Definition 4.1 and Proposition 5.5"
+        ]
+      },
+      "checked_sources": [
+        "Bjorkman et al., DOI 10.1007/s44007-025-00187-5, Definition 4.1 and Proposition 5.5",
+        "Anderson et al., arXiv:2209.03930 §1",
+        "Resultary f3e583769206 and identical record 4e3e739b312a",
+        "Koh–Soh DOI 10.1016/j.akcej.2019.02.004 (full text not retrieved)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The published realization maps symbols to choices among a base vertex and two attached leaves.",
+          "The distinct same-base census uses eight-vertex states and has 504 slide components, in contrast to the connected slide graph on the power-dominating triples."
+        ],
+        "reasoning": "The corona bijection cannot transfer feasibility or distances to triples selected in the cube itself. Likewise connected domination is a different feasible-state condition, with different optimum size; identical relocation definitions do not induce the target graphs.",
+        "searches": [
+          "DOI 10.1007/s44007-025-00187-5 Proposition 5.5, hypotheses and construction",
+          "Resultary f3e583769206 full Finding, state family and both move rules"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Proposition 5.5 realizes H(d,3) as PD_TJ(G′∘2K₁) where G′ has d vertices.",
+          "The direct exact Resultary hit 4e3e739b312a is the identical assigned finding."
+        ],
+        "reasoning": "An isomorphism of a different reconfiguration graph to H(3,3) does not turn H(3,3) into that problem's base graph; in the published realization the output graph would have 27, not 1296, states. The assigned self-match is not independent coverage.",
+        "searches": [
+          "Resultary: minimum power-dominating triples on H(3,3), K₃ Cartesian cubed, Hamming reconfiguration graph, and jump/slide distances",
+          "Bjorkman et al., Proposition 5.5, DOI 10.1007/s44007-025-00187-5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Identical record 4e3e739b312a contains the exact tables.",
+          "Distinct same-day Resultary f3e583769206, Finding, contains a complete jump distribution and slide components for 11340 minimum eight-vertex connected dominating sets of the same cube."
+        ],
+        "reasoning": "The distinct table counts states with N[D]=V and connected induced subgraph, not sets allowed to complete observation by propagation. It is not a match to the distance or detour counts of the 1296 minimum triples.",
+        "searches": [
+          "Resultary: H(3,3) exact minimum power-domination census, three-factor K₃ product and jump/slide distance distributions"
+        ]
+      },
+      "rationale": "The distinct supported finding is the exact minimum power-dominating triple census on the ternary Hamming three-cube and its joint move-rule metric. The strongest checked Hamming realization theorem studies a different base graph, and the exact same-base near-match uses a different domination condition. Bounded searches found no covering classification; no historical priority or inference from same-day dates is asserted.",
+      "residual_risks": [
+        "Bounded Resultary queries and OA comparisons do not exclude inaccessible or unindexed exact classifications; some external literature lookups were deferred without results. Koh–Soh full-text coverage remains unresolved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defines the framework but does not cover optima on the target base graph",
+          "evidence": "PD_TJ(G′∘2K₁)=H(d,3); the ternary choices are in each attached leaf pair and base vertex.",
+          "identifier_or_url": "https://doi.org/10.1007/s44007-025-00187-5",
+          "material_read": "OA journal PDF, Definition 4.1 and Proposition 5.5 with its proof (extracted offsets 55714 and 62600)",
+          "method": "Read matched full-text passages",
+          "title": "Power domination reconfiguration",
+          "trigger": "Hamming graph realization and minimum power-domination reconfiguration"
+        },
+        {
+          "assessment": "Inspected bounds do not cover target census or metric",
+          "evidence": "Numerical lower bounds on the product power-domination number, including tree-factor results.",
+          "identifier_or_url": "https://arxiv.org/pdf/2209.03930",
+          "material_read": "§1, p. 2, offset near 5700",
+          "method": "Read OA PDF passage",
+          "title": "Graphs which satisfy a Vizing-like bound for power domination of Cartesian products",
+          "trigger": "General theorem for Cartesian products"
+        },
+        {
+          "assessment": "Distinct parameter; no coverage of power-domination triples",
+          "evidence": "Connected domination requires N[D]=V and connected D; 11340 optima of size eight, jump eccentricity nine and 504 slide components.",
+          "identifier_or_url": "2026/11/22/SCOPE-optimal-connected-domination-in-the-ternary-hamming-three-cube-o--f3e583769206",
+          "material_read": "Full Finding, offsets 0–2068",
+          "method": "Read bound Resultary mirror text",
+          "title": "Optimal connected domination in the ternary Hamming three-cube: one connected jump graph, 504 slide islands",
+          "trigger": "Same labeled cube and same exchanges; exact table potentially duplicative"
+        },
+        {
+          "assessment": "Full-text coverage unresolved; no exclusion based on access",
+          "evidence": "An exact result from the paper could not be assessed from retrieved full text.",
+          "identifier_or_url": "https://doi.org/10.1016/j.akcej.2019.02.004",
+          "material_read": "Bibliographic identification only; OA retrieval returned 403",
+          "method": "Lawful OA retrieval attempted",
+          "title": "On the power domination number of the Cartesian product of graphs",
+          "trigger": "Could include related Cartesian product classifications"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This natural nonbinary Cartesian monitoring graph gives a complete benchmark comparing the same feasible placements under local and unrestricted relocation. Neither the two diameters nor the marginal distance histograms determine the sharp three-move cost on matched endpoints; the exact attaining count and antipodal structure are independently useful. The value is the exhaustive, interpretable comparison at this specified cube, not an extrapolation to other Hamming graphs.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

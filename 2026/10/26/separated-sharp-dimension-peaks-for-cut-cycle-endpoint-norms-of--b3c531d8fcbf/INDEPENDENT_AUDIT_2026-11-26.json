@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:32:00.105703Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The incidence convention gives a symmetric orthogonal projection, and vertex exchanges establish connectivity for n>=7. Permuting ground-set labels is edge-transitive and only permutes or changes signs of edge coordinates, so the endpoint norms equal the absolute sum in one column. I reconstructed the dipole by solving an independent radial one-pole Laplacian system: for overlap k with the pole, the number of neighbors of overlap j is binom(3-k,j) binom(n-6+k,3-j); subtract the two pole solutions to obtain the dipole. This reproduces all four orbit potentials. Their sign ordering follows from the positive quadratic separation and the positive coefficients after shifting n by 8. Counting disjoint pairs between distinct ordered potential levels gives the displayed cut rational function, including automatically zero multiplicities for absent levels; at n=7 a separate full graph reconstruction gives TV=116/35. The trace makes every diagonal 2(N-1)/(Nd) in (0,1), so the cycle correction is exactly 1-4(N-1)/(Nd). Independent symbolic subtraction and shifting n by 9 give positive coefficients; exact comparisons of n=7,8,9 prove the unique distinct maxima, and expansion confirms both coefficients through order n^-2. Replay: python3 /workspace/review-checks.py (SymPy; section kneser). This is a mathematical and computational review, not proof-assistant validation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Kneser critical-group paper notes a Smith-group result for general rank but evaluates integral Laplacian invariants, not absolute current sums.",
+          "Resultary 8c057bfa2e76 treats all higher-rank J(n,k), with one-element-exchange adjacency instead of disjointness."
+        ],
+        "reasoning": "Neither a Smith form nor the endpoint result for one Johnson relation supplies the rank-three disjointness current signs and absolute sums. Spectral and association-scheme data can help compute them, but do not provide the evaluation or peaks in the inspected sources.",
+        "searches": [
+          "Resultary: general Kneser cut/cycle endpoint formulas",
+          "arXiv:1707.09115 introduction and §2.2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 6d5b49223730",
+        "Resultary 8c057bfa2e76",
+        "arXiv:2305.12582",
+        "arXiv:1707.09115"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The rank-two record excludes higher Kneser ranks and exploits the rank-two reduction; rank-three nonadjacent common-neighbor counts vary with intersection size.",
+          "The edge-transitive trace correction establishes the cycle norm given the cut norm, but not the cut norm or the separated peak locations."
+        ],
+        "reasoning": "The shared methods and the trace correction are credited. Rank-two strong regularity and one-element-exchange formulas do not specialize to KG(n,3); the extra absolute-value evaluation and successive-difference comparisons are necessary.",
+        "searches": [
+          "Resultary 6d5b49223730, Finding and proof §§1–4; 8c057bfa2e76, Finding and proof §§1–5",
+          "arXiv:2305.12582 Theorem 45; arXiv:1707.09115 §§1,2.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A column is the electrical dipole gradient; the Hamming-cube theorem evaluates the same type of operator on a different edge relation.",
+          "Resultary 6d5b49223730 uses precisely the electrical interpretation for KG(n,2)."
+        ],
+        "reasoning": "Replacing projection terminology by dipole total variation does not create novelty. The closest result with that interpretation applies to a different Kneser rank, with different current levels and different maxima.",
+        "searches": [
+          "Resultary: KG(n,3), rank-three Kneser disjointness, cut/cycle endpoint norms and electrical total variation",
+          "arXiv:2305.12582 §2.7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Material inspected overlap: Resultary 6d5b49223730 gives pair Kneser cut maximizing at n=8,9 and cycle maximizing at n=12. No distinct indexed rank-three exact match was identified in the bounded checks."
+        ],
+        "reasoning": "The overlapping parameter n=8 does not make a rank-two maximum a rank-three value. The different ranks, norm values, and cycle peak exclude identification with that record.",
+        "searches": [
+          "Resultary: KG(n,3) endpoint norms 257/77 and 143/35; title/structural aliases and general Kneser formulas"
+        ]
+      },
+      "rationale": "Prior art gives the edge-dipole representation and even the same type of calculation for the pair Kneser graph. Those are precedents, not the present theorem. The supported distinction is the evaluated rank-three absolute-current sum and its sharp dimension behavior, not the projection representation, trace correction, or method alone.",
+      "residual_risks": [
+        "A general-rank Kneser current table or less-indexed projection calculation may entail the rank-three evaluation; targeted corpus and primary full-text comparisons do not certify exhaustive priority.",
+        "No separate broad web lookup beyond the targeted primary-source inspections and configured corpus searches was used for this record."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same method, rank-two only; does not cover this rank-three theorem",
+          "evidence": "Cut norm 2(n-3)(n+6)/(n(n-1)), cut maxima n=8,9 and cycle maximum n=12; assumptions exclude rank above two.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-exact-minimal-cut-and-cycle-projections-on-pair-kneser-graphs--6d5b49223730",
+          "material_read": "RESULT.md Finding, proof §§1–4, relationship and limitations",
+          "method": "Local mirror, initial passage and portion at offset 7748",
+          "title": "Exact minimal cut and cycle projections on pair Kneser graphs",
+          "trigger": "Closest same-family norm and peak calculation"
+        },
+        {
+          "assessment": "Different adjacency",
+          "evidence": "One-element exchange defines J(n,k); disjointness defines KG(n,3).",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-exact-endpoint-hodge-norms-on-all-higher-rank-johnson-graphs--8c057bfa2e76",
+          "material_read": "RESULT.md Finding and proof §§1–5",
+          "method": "Local mirror text from offset 0",
+          "title": "Exact endpoint Hodge norms on all higher-rank Johnson graphs",
+          "trigger": "Possible all-rank dominating formula"
+        },
+        {
+          "assessment": "Different graph family",
+          "evidence": "Boolean Hamming-cube cut norm (n+1)/2.",
+          "identifier_or_url": "https://arxiv.org/abs/2305.12582",
+          "material_read": "§2.7, Theorem 45, p. 23",
+          "method": "OA paper text at offset 74619",
+          "title": "Cycle Spaces: Invariant Projections and Applications to Transportation Cost",
+          "trigger": "Primary exact endpoint projection precedent"
+        },
+        {
+          "assessment": "Different invariant; explicit spectral treatment is rank two",
+          "evidence": "Smith group and rank-two strongly regular parameters, not induced edge-space norms.",
+          "identifier_or_url": "https://arxiv.org/abs/1707.09115",
+          "material_read": "Introduction pp. 1–2 and §2.2 pp. 4–5",
+          "method": "OA paper text at offsets 0 and 7907",
+          "title": "The Critical Group of the Kneser Graph on 2-Subsets of an n-Element Set",
+          "trigger": "Kneser Laplacian calculations and wider-rank implications"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Rank three is the first subset rank beyond the strongly regular Kneser case, so the graph family and canonical electrical norm have a natural motivation. The absolute-current formula and sharp cutoff show complementary projections peak at different dimensions, quantitatively extending the rank-two comparison, rather than merely listing some graph computations. This is limited to the stated canonical endpoint norms, not arbitrary projection minimality, intermediate p, or general rank.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

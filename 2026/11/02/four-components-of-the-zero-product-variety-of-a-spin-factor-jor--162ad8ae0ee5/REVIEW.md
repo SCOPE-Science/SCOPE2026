@@ -1,15 +1,21 @@
-# Scientific review — spin-factor zero-product varieties
+# Independent mathematical audit
 
-## Correctness — PASS
-The four closed loci are obtained from the original two Jordan-product equations by a complete case split on the two scalar coordinates. The orthogonality hypersurface has a rank-at-least-two bilinear equation and is geometrically irreducible; the rank-one isotropic locus is the affine Segre cone over a smooth projective quadric and a projective line. Explicit points establish noncontainment, proving the exact four-component statement and all dimensions. Counting the annihilator of each first factor gives the point-count identity, and quadratic Gauss sums establish its discriminant-sensitive closed form. The self-contained checker exhaustively confirms twelve direct multiplication instances, including a genuine extension field.
+## correctness
 
-## Originality — PASS (with residual risks)
-Panyushev (arXiv:1210.3785v1), Section 6, posed the determination of all irreducible components and dimensions of simple Jordan zero-product varieties as an interesting problem, while proving related reduction and non-equidimensionality statements. The present theorem is narrower in algebra family and stronger in completeness: it gives exactly four components and dimensions for all spin factors, with an arithmetic census. Diniz–da Silva Souza (arXiv:1601.03351v1) studies the same bilinear-form Jordan family but its graded identities, rather than zero-product geometry. Search comparisons for alternative nomenclature, rank-one quadric and orthogonality parametrizations, finite-field counts, and broader Jordan-product fibers found no statement that implies this complete theorem. Search absence is not uniqueness proof; other unpublished or unindexed analyses and the unavailable full text of Grašič (2011) remain residual risks.
+PASS
 
-## Value — PASS
-The zero-product fiber of a simple Jordan algebra is a natural geometric invariant explicitly identified as a component-classification problem in the closest primary source. The result gives all components for an unbounded family, a sharp change from equidimensional to non-equidimensional geometry at \(\dim V=3\), a uniform codimension-three conclusion, and a discriminant-sensitive finite-field census. These are structural invariants, not numerical recomputations of an already stated theorem.
+The equations are ab+B(u,v)=0 and av+bu=0. When a=b=0 only orthogonality remains. With exactly one nonzero scalar the opposite factor vanishes; with both nonzero the vector equation gives (b,−v)=(b/a)(a,u) and the scalar equation then imposes F(a,u)=0. Conversely the entire rank-one isotropic cone, including zero rows, satisfies both equations. The orthogonality hypersurface is geometrically irreducible because a (1,1) polynomial factoring would have bilinear rank one, whereas B has rank n≥2; its dimension is 2n−1. The nonzero rank-one isotropic locus projectivizes to the Segre of the smooth geometrically irreducible F-quadric of dimension n−1 and a projective line. Its affine cone has dimension n+1, as do both axes. Nonisotropic unit-axis points, an isotropic point with both scalars nonzero, and an independent orthogonal vector pair (take the first vector nonisotropic) separate the four loci. The latter works also for n=2. This verifies all dimensions, equidimensionality at n=2 only, and ambient codimension 3. For finite fields, x=0 contributes q^(n+1), a=0 with u≠0 contributes (q^n−1)q^(n−1), and a≠0 contributes one solution per x plus q−1 extras on (q−1)N_B(1) norm-one-rescaled x. The parity signs in the norm count follow by additive orthogonality and G²=χ(−1)q: the nonzero t sum is −1 for n even or χ(−1)G for n odd. This uses finite-field characters, not primeness of q. Inspected the standalone direct-pair checker and its recorded prime/extension examples as corroboration, not proof of the general theorem. No scheme-radicality claim is needed or assessed.
 
-## Limitations
-The result concerns reduced zero-product varieties, not the original scheme's nilpotents; nondegenerate bilinear forms only; and fields of characteristic not two. The full literature is not guaranteed exhaustive and independent auditing is not performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Panyushev already defines exactly this zero-product variety, derives the two axis components, and obtains dimension lower bounds and non-equidimensionality in relevant cases. His inspected §6 explicitly leaves classification of all components and their dimensions open. The distinct contribution supported here is the full reduced classification, including the two non-axis loci and the n=2 boundary, and the resulting exact finite-field census. The Gauss-sum norm formula itself is classical and not credited as original.
+
+## value
+
+PASS
+
+This solves the component-classification question for a natural full family of simple Jordan zero fibers, down to the smallest included vector dimension and with uniform odd-characteristic scope. The Segre cone and the orthogonality hypersurface explain why different dimensions appear and lead to an exact discriminant-sensitive census. This is not merely the classical norm count or the already known two axes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

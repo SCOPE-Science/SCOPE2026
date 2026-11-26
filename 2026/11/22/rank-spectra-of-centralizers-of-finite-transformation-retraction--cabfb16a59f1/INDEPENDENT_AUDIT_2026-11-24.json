@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T14:49:44.691336Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–56, VERIFICATION.md lines 18–24, CHECK.py (inspected, not executed)",
+        "Independent direct enumeration: python3 /workspace/branches/reproduce.py 2; output /workspace/branches/reproduction.txt"
+      ],
+      "rationale": "From ef(x)=fe(x)=f(ρ_i) for x in B_i, a root must go to a root, and all of its block must land in the corresponding target block. Conversely these conditions give commutation and determine a unique root map g. For each hit target block the root is already an image point, and its M_j nonroot inputs are independently assigned. Choosing h nonroot targets and requiring each hit, with the root optional for these inputs, gives the displayed inclusion-exclusion factor W; separate target blocks contribute disjoint images. For idempotents, g is idempotent, so a hit target block lies in its own preimage and M_j≥b_j−1. Mark h nonroot image points and fix them; then all other M_j−h inputs go to any of the h+1 chosen image points. This is exactly V and fixes the entire image, hence is sufficient for idempotence. For rank one the only images are single roots. The rank-two cases are two roots, giving a surjection on the roots (or fixing the two targets for idempotents), or one root plus a nonroot of the same block. In the latter there are N choices of nonroot over all roots, and 2^N−1 allowed nonroot assignments (2^{N−1} after fixing it for idempotents). This proves both low-rank formulas including r=1 and N=0 with the stated conventions. Direct independent enumeration checks eight profiles, including both quoted profiles and low-rank degenerate cases. It confirms the profile-sensitive rank-three contrasts 108 vs 78 and 31 vs 19.",
+      "residual_risks": [
+        "The replay exhausts all maps at the listed profiles, not arbitrary n. Arbitrary unequal sizes are covered by the block decomposition and image counting proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Resultary 04da5425c718 explicitly concerns two-point blocks with cyclically restricted block shifts; its catalog formula is controlled by cyclic binary autocorrelation. The present fixed e is arbitrary and commuting maps can have non-bijective maps on its kernel-root indices.",
+          "Resultary 46b24971b86b concerns idempotents commuting with permutations. The only permutation that is a retraction is the identity, which in this setting gives all singleton kernels.",
+          "The frozen comparison of Dolinka–East Prop. 3.1–3.2 concerns totals for uniform partition idempotents without fixing a root section; Dolinka–East–Mitchell use rank for idempotent generating sets in a nonuniform partition setting."
+        ],
+        "reasoning": "Restricted cyclic block shifts, centralizing an invertible transformation, and preserving a partition without the root-section restriction are different settings, not supersets of the needed count in a way that determines its strata. The known regularity comparisons do not enumerate all centralizing maps by image rank.",
+        "searches": [
+          "Resultary: Cyclic-block transformation centralizers rank transfer and homometric fibers 04da5425c718 idempotent partition-preserving transformations cyclic block shifts rank formula general arbitrary unequal block sizes distinguished section",
+          "Resultary 46b24971b86b permutation centralizers",
+          "arXiv:1407.3312v2, arXiv:1504.02520, and André–Araújo–Konieczny 2011"
+        ]
+      },
+      "checked_sources": [
+        "Resultary cabfb16a59f1, 04da5425c718, 46b24971b86b, 70fcbccf178c",
+        "DOI 10.1016/S0021-8693(03)00499-X metadata and snippets; frozen source comparisons of arXiv:1407.3312v2, arXiv:1504.02520 and regular-centralizer literature"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For a fixed root map, the ordinary count needs exact occupancy of selected nonroot targets whereas the idempotent count needs fixing every image point. Rank identities use two disjoint image types; the second adds b_j−1 across possible blocks, explaining its dependence only on N.",
+          "At a generic nonsingleton kernel partition a root-to-nonroot block-preserving map can be a member of the partition endomorphism monoid but does not centralize e. Therefore partition idempotent enumerators cannot be specialized just by substituting the b_j."
+        ],
+        "reasoning": "The full image-rank refinement is obtainable by developing the standard normal form, but is not the same information as that structural characterization or marginal counts. Credit structural low-rank analysis and elementary occupancy; judge the combined image distributions and their change in profile sensitivity.",
+        "searches": [
+          "Araújo–Konieczny 2003 §§2 and 4; Dolinka–East arXiv:1407.3312v2 §§1 and 3; Resultary 04da5425c718 and 46b24971b86b"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For a commuting full map, preserving the kernel equivalence and carrying the root set into itself is precisely the same condition as commuting with the projection. The published 2003 terminology T(X,ρ,R) and characteristic-subset language match this structural setting. The frozen source inspection identifies §2 and §4 (including Thm. 4.8) as the root-section description and rank-one/two J-strata analysis; rank-two primary pages were not newly retrieved.",
+          "The exact indexed match cabfb16a59f1 is this assignment, not an earlier independent result."
+        ],
+        "reasoning": "Changing terminology to section-preserving equivalence maps does not create new structure; the novelty assessed is counting their image sizes, with and without requiring idempotence. The characteristic nature of strata is not a formula for their cardinalities.",
+        "searches": [
+          "Resultary: finite retraction centralizer image rank polynomial idempotent kernel blocks section",
+          "Araújo–Konieczny DOI 10.1016/S0021-8693(03)00499-X; T(X,ρ,R), characteristic rank-one/rank-two strata"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 70fcbccf178c synopsis tabulates image rank, domain size and image-bearing blocks for partial uniform-partition idempotents, not compositions commuting with a fixed projection. The reported Table 3 concerns unweighted uniform-partition idempotent totals.",
+          "The profiles (3,2,1) and (2,2,2) have matching rank-one and rank-two coefficients at fixed n,r but different rank-three coefficients on both sides, illustrating the exact invariant required of any covering table."
+        ],
+        "reasoning": "Neither data for a different monoid nor marginal totals for all its idempotents specify these rank-conditioned coefficients. No exact independent table for the joint pair at arbitrary unequal kernel sizes was identified in the inspected statements.",
+        "searches": [
+          "Resultary: retraction centralizer rank spectrum unequal block profiles, ids 70fcbccf178c, 46b24971b86b, 04da5425c718",
+          "Frozen comparison of Dolinka–East arXiv:1407.3312v2 Table 3 and Prop. 3.2"
+        ]
+      },
+      "rationale": "Credit the known root-section normal form and low-rank structural strata. The supported distinct content is the pair of complete image-cardinality distributions, refining that normal form for arbitrary sizes with simultaneous low-rank profile independence and explicit evidence of when it can fail. Verified catalog statements closest in subject change the commuting transformation or the ambient monoid; the primary citations available via frozen passage reports establish substantial background but no covering rank-weighted pair of formulas. This is not a priority claim for low-rank structural types or unweighted centralizer sizes.",
+      "residual_risks": [
+        "Exact low-rank and higher-rank coverage in the inaccessible full texts is not ruled out. Konieczny's earlier centralizer structure work is a specific possible source of an implicit enumeration.",
+        "Summaries resolve the advertised adjacent catalog scopes; they do not certify historical uniqueness."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_SAME_OBJECT_AND_STRUCTURAL_FORM; EXACT_ENUMERATION_UNRESOLVED_IN_FULL_TEXT",
+          "evidence": [
+            "Characteristic means invariant under all monoid automorphisms; the frozen work attributes the root-section description and characteristic low-rank strata to this paper."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/S0021-8693(03)00499-X",
+          "material_read": "Metadata and indexed snippets on T(X,ρ,R) and characteristic subsets; frozen AUDIT.json lines 77–89 reports §§2,4,6 and Thm. 4.8; no freshly accessible decisive rank-strata pages",
+          "method": "Targeted literature lookup and attempts at OA PDF and cited transcription; compare reported structure",
+          "title": "Automorphism groups of centralizers of idempotents",
+          "trigger": "Same centralizer and likely low-rank strata precedent"
+        },
+        {
+          "assessment": "REPORTED_FORMULAS_FOR_A_DIFFERENT_MONOID",
+          "evidence": [
+            "A uniform partition-preserving map need not preserve a distinguished root transversal."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1407.3312v2",
+          "material_read": "Frozen AUDIT.json lines 91–102 reports Prop. 3.1–3.2 and Table 3; fresh HTML/PDF retrieval unavailable",
+          "method": "Compare reported totals and the section-preservation predicate",
+          "title": "Idempotent generation in the endomorphism monoid of a uniform partition",
+          "trigger": "Fixed-partition idempotent enumerator"
+        },
+        {
+          "assessment": "BACKGROUND_WITH_DIFFERENT_INVARIANTS",
+          "evidence": [
+            "The reported results concern regular elements or minimum idempotent generating sets rather than the requested image-size distribution."
+          ],
+          "identifier_or_url": "https://www.academia.edu/23515318/Regular_centralizers_of_idempotent_transformations ; https://arxiv.org/abs/1504.02520",
+          "material_read": "Frozen source reports on regularity and idempotent generation; OA retrieval did not return full text",
+          "method": "Scope comparison, not assessment of uninspected full documents",
+          "title": "Regular centralizers of idempotent transformations; Idempotent rank in the endomorphism monoid of a non-uniform partition",
+          "trigger": "Same centralizer literature and possible more general partition counts"
+        },
+        {
+          "assessment": "ADVERTISED_SCOPE_DOES_NOT_COVER_ARBITRARY_FIXED_RETRACTIONS",
+          "evidence": [
+            "Cyclic restricted maps of two-point blocks with binary autocorrelation, not all commuting maps on arbitrary unequal kernel sizes."
+          ],
+          "identifier_or_url": "Resultary:04da5425c718",
+          "material_read": "Local catalog synopsis specifying cyclic block shifts and two-point blocks; mirror lookup timed out",
+          "method": "Compare its advertised statement and hypotheses to the root-map sums",
+          "title": "Cyclic-block transformation centralizers, rank transfer, and homometric fibers",
+          "trigger": "Most directly related distinct rank-polynomial result"
+        },
+        {
+          "assessment": "DISTINCT_OBJECTS",
+          "evidence": [
+            "The former counts retractions centralizing permutations; the latter counts partial uniform-partition idempotents without a fixed centralizer condition."
+          ],
+          "identifier_or_url": "Resultary:46b24971b86b; Resultary:70fcbccf178c",
+          "material_read": "Catalog statements",
+          "method": "Compare the fixed transformation, allowed maps and counted quantities",
+          "title": "Rank enumeration and minimum retraction size in permutation centralizer monoids; Joint rank, domain, and image-block spectrum of uniform-partition partial idempotents",
+          "trigger": "Earlier exact image-rank enumerations in nearby objects"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–46 and 51–56; independent proof and exact profiles"
+      ],
+      "rationale": "The polynomials provide a natural image-size invariant for all elements and all retractions in a standard transformation monoid with arbitrary unequal kernel blocks. They explain exactly why the two smallest positive strata do not distinguish profiles and exhibit the first possible distinction. This is useful beyond the already-known characterization of which maps commute, and does not require exhaustive listing of n^n transformations to obtain exact coefficients.",
+      "residual_risks": [
+        "The sum over root maps need not be computationally optimal, and profile differences at rank three are possible, not universal."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

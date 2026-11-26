@@ -1,0 +1,166 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T14:12:30.562209Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–32",
+        "Frozen VERIFICATION.md, lines 19–25",
+        "Frozen verify.py, lines 8–71 (inspected only)"
+      ],
+      "rationale": "With t rotations elapsed, co-moving holes are obtained by translating the complement of the current image by −t. A b at time t is inert if 0 is missing, and otherwise adds the hole labeled t while deleting the existing label t−r, if present. Up to 2r rotations, n>2r means no timestamp alias and no other possible deletion. Each effective b reduces rank by exactly one and makes 0 absent, so j effective b's need at least j−1 intervening a's. At equality the unique string is alternating; its timestamps 0,…,j−1 have no distance-r pair for j≤r. For T<2r each class modulo r has at most two timestamps, and adding the second displaces the first or is inert. The count of holes stays at most r even when ineffective letters occur. Therefore the next threshold needs at least 2r a's and r+1 b's. At length 3r+1 every b must add a new hole without deleting any; equivalently all b times are distinct and avoid distance-r pairs. The conflict graph on times 0,…,2r has a path 0–r–2r and r−1 disjoint edges. A maximum independent set must use both endpoints of the path and exactly one endpoint per edge; in particular there are no unaccounted leading or trailing a's. This proves existence, the exact literal-word enumeration, and the gap r+2 also at n=2r+1, without a synchronization hypothesis.",
+      "residual_risks": [
+        "The reported BFS of 130 thresholds and 6,138 constructive replays are source-reported finite corroboration, not an independent rerun. The proof makes no claim past deficiency r+1 or for n≤2r."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Don arXiv:1507.06070, Proposition 2 p. 11: under coprime distance, reset length at most (n−1)² and length at most n(n−k) to each prescribed k-subset",
+          "Pin HAL-00017720, pp. 1233–34: general length bounds for rank or subset compression"
+        ],
+        "reasoning": "These bounds neither fix the optimal intermediate length nor classify or count label strings. Don's coprimality requirement omits some of the stated domain, but even on the common domain it only gives bounds of a different form.",
+        "searches": [
+          "Words of prescribed rank; subset-compression bounds; 1-contracting automata with a full cycle and a rank-(n−1) letter"
+        ]
+      },
+      "checked_sources": [
+        "Resultary records above and the exact frozen finding",
+        "HAL-00017720",
+        "arXiv:1507.06070",
+        "arXiv:2008.12166v2",
+        "Springer chapter 10.1007/978-3-030-24886-4_5 (abstract)",
+        "Martyugin, Acta Cybernetica 19(2), 517–536 (2009), repository locator https://acta.bibl.u-szeged.hu/12877/; body not accessed"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At the smallest admissible n, the bottleneck target rank n−r−1 equals r≥2, never the terminal rank. The codimension-two result constrains a prescribed target with two defect uses; it has no r+1-defect conflict graph or shortest-label classification."
+        ],
+        "reasoning": "The lower bound must hold even with ineffective letters and the equality count depends on a three-vertex path at the exact rotation budget. Neither the known terminal formula, the general reachability upper bounds, nor the two-defect reachability census establishes those claims. No priority is inferred from same-day dates.",
+        "searches": [
+          "Compare the exact terminal reset theorem and the codimension-two/early-rank findings at their original RESULT.md Findings; compare Don Proposition 2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2026/11/2/SCOPE-exact-jump-distance-reset-thresholds-and-unique-shortest-words-f--982722496edf has the same letters after renaming, but addresses rank one and requires gcd(n,r)=1 for a reset",
+          "Behague–Johnson define the cycle and jump-one Černý map, arXiv:2008.12166v2, p. 1"
+        ],
+        "reasoning": "Resetting Q, collapsing some k-set, and minimizing the length to rank at most n−j on Q are different optimizations. Renaming the two generators of the same-family reset result does not convert rank one to any of these intermediate thresholds. Standard Černý is the jump-one case, not r≥2.",
+        "searches": [
+          "Resultary: cyclic one-point/defect-one jump, early deficiency frontier, exact shortest label-string counts; Černý relabelings"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/10/4/…--766d362d36d3: standard Černý profile 3s−2",
+          "2026/10/4/…--267316e1d983: Wielandt early profile 2s−1 and a unique alternating word for a different merging letter",
+          "2026/10/4/…--3d0ad329ab1e: codimension-two reachability with two defect-letter uses",
+          "Same-day 2026/11/8/…--7debf3d5fc46, …--139e56d5f521 and …--f30bf74315ec cover standard Černý post-half or target-specific codimension-two distances, and geodesic rank-loss words for path/cycle edge-collapse generators, respectively"
+        ],
+        "reasoning": "The coincident early length formula is not the same theorem: neither its generator family nor its first nonlinear threshold and optimizer set match. The same-day exact word spectra use local edge-collapse generators rather than the rotation and single merge alphabet, so word lengths and geodesic counts do not transfer by renaming states.",
+        "searches": [
+          "Resultary: exact early deficiency profile, early rank thresholds, codimension-two reachability, post-half compression and exact rank-optimal word spectra"
+        ]
+      },
+      "rationale": "No verified stronger result covers the exact first rank bottleneck and shortest literal-word census for this cyclic jump family. The examined same-family theorem gives terminal reset behavior; comparable early-rank and count theorems concern different generators, objectives or both.",
+      "residual_risks": [
+        "The chapter on minimum rank and the cited Martyugin full text remain uninspected. No claim is made about their full contents or absolute historical priority; the conclusion rests on the concrete available comparisons."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Gives terminal reset threshold and unique terminal word, not the early threshold/count.",
+          "evidence": [
+            "Coprime jump for synchronization; terminal objective."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-exact-jump-distance-reset-thresholds-and-unique-shortest-words-f--982722496edf",
+          "material_read": "RESULT.md, Finding",
+          "method": "Archived primary record",
+          "title": "Exact jump-distance reset thresholds and unique shortest words for cyclic one-point automata",
+          "trigger": "Identical transition structure"
+        },
+        {
+          "assessment": "Different goal and strength of bound.",
+          "evidence": [
+            "Reach each k-subset under the coprime condition in at most n(n−k) letters."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1507.06070",
+          "material_read": "PDF Proposition 2, p. 11, near offset 24800",
+          "method": "Primary PDF passage reading",
+          "title": "The Černý conjecture and 1-contracting automata",
+          "trigger": "Broader cyclic rank-(n−1) setting"
+        },
+        {
+          "assessment": "Studies collapsing some k-set and discusses given-set compression; not the exact full-image rank profile.",
+          "evidence": [
+            "Jump-one standard Černý example."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2008.12166",
+          "material_read": "v2 PDF pp. 1–3, offsets 0 and 5950 onward",
+          "method": "Primary PDF passage reading",
+          "title": "Synchronizing Times for k-sets in Automata",
+          "trigger": "Rendezvous and early compression terminology"
+        },
+        {
+          "assessment": "General polynomial bounds, not optimal word census.",
+          "evidence": [
+            "Bounds for prescribed word rank and for subset compression."
+          ],
+          "identifier_or_url": "https://hal.science/hal-00017720/document",
+          "material_read": "Printed pp. 1233–34",
+          "method": "Primary PDF passage reading",
+          "title": "Sur la longueur des mots de rang donné d'un automate fini",
+          "trigger": "General rank-threshold comparison"
+        },
+        {
+          "assessment": "Distinct alphabet and rank-geodesic optimization.",
+          "evidence": [
+            "Path/cycle edge-collapse monoids, not a cyclic permutation plus one available defect letter."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-exact-rank-optimal-word-spectra-of-path-and-cycle-flow-monoids--f30bf74315ec",
+          "material_read": "RESULT.md, Finding",
+          "method": "Archived primary record",
+          "title": "Exact rank-optimal word spectra of path and cycle flow monoids",
+          "trigger": "Same-day exact shortest-word counting by rank"
+        },
+        {
+          "assessment": "Different transitions and no coverage of the r+1 optimizer count.",
+          "evidence": [
+            "Wielandt merging letter identifies 0 and 1."
+          ],
+          "identifier_or_url": "2026/10/4/SCOPE-sharp-early-rank-thresholds-in-the-wielandt-automata--267316e1d983",
+          "material_read": "RESULT.md, Finding",
+          "method": "Archived primary record",
+          "title": "Sharp early rank thresholds in the Wielandt automata",
+          "trigger": "Same initial length formula and alternating word"
+        },
+        {
+          "assessment": "Abstract concerns minimum rank in strongly connected and Eulerian classes; full-text relationship not established.",
+          "evidence": [
+            "Minimum rather than intermediate rank in accessible description."
+          ],
+          "identifier_or_url": "https://link.springer.com/chapter/10.1007/978-3-030-24886-4_5",
+          "material_read": "Abstract; lawful full-text attempts at publisher and identified UTU route did not yield the body",
+          "method": "Abstract read and bounded OA retrieval attempts",
+          "title": "Words of Minimum Rank in Deterministic Finite Automata",
+          "trigger": "Close title involving short rank words"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and co-moving hole proof",
+        "Same-family indexed reset threshold and Don Proposition 2 for comparison"
+      ],
+      "rationale": "The rank threshold of a fixed alphabet is a natural exact invariant even for nonsynchronizing parameters. Beyond the elementary alternating lower bound, the timestamp argument explains the first non-linear cost and the shift from one literal optimizer to 2^(r−1), uniformly over the full cyclic family. It gives a meaningful explicit boundary and a complete optimizer classification not supplied by terminal reset bounds.",
+      "residual_risks": [
+        "No asserted downstream result for later rank thresholds or for n≤2r."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

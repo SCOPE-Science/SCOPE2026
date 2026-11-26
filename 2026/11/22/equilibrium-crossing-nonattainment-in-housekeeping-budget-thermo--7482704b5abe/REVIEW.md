@@ -1,22 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The universal inequality is Cauchy–Schwarz combined with the one-dimensional antiderivative/total-variation bound. Equality forces positive monotone velocity proportional to \(\sqrt{\sigma/\zeta}\). At an interior \(C^2\) nonnegative zero, this is bounded above by a constant times distance to equilibrium, so a finite-duration crossing contradicts Grönwall's inequality. Regularization by \(\sigma+\varepsilon^2\) gives admissible finite-time protocols of exactly the prescribed housekeeping budget and with excess energy approaching the lower bound. H¹ compactness after rescaling the time interval proves that every minimizing sequence has divergent duration. The nondegenerate quadratic zero gives a logarithmic divergence. Explicit three-state rate perturbation verifies \(\sigma(\lambda)=\lambda^2+O(\lambda^3)\), \(\zeta(0)=2/27\). The standard-library checker passed. The slow-driving approximation itself is not an exact finite-rate theorem.
+PASS
 
-## Originality — PASS (qualified)
+Cauchy–Schwarz gives the energy-budget bound after weighting path variation by sqrt(zeta sigma). A primitive of that weight bounds variation below by the endpoint length even for backtracking. To attain equality the velocity is nonnegative off the zero and equals (L/B)sqrt(sigma/zeta); it also vanishes almost everywhere on the zero level set. Taylor's theorem at the C² nonnegative interior minimum gives a velocity bounded by a multiple of distance to c, preventing a finite crossing. Integrating the positive regularized speed gives the exact budget and E=J_epsilon K_epsilon/B, so dominated convergence proves sharpness without attainment. Comparison near c with quadratic coefficients A±delta gives the logarithmic coefficient for a nondegenerate quadratic zero only. To test the claim for all minimizing sequences, rescale any bounded-time subsequence to [0,1], where times are bounded away from zero by B/max(sigma). The transform x↦integral_a^x sqrt(zeta) turns the weighted energy into a time-scaled squared derivative norm; compactness and lower semicontinuity then give a limiting admissible optimizer, a contradiction. More generally, the separated equality-time integral is locally finite iff p<2, under the stated isolated-zero power law and continuity/positivity away from c; its inverse gives an absolutely continuous path when finite. For the ring, differentiating stationarity at zero gives pi'=(-2,1,1)/9 and the clockwise current derivative 1/3. The cycle affinity is 3 lambda and the equilibrium score has variance 2/9 and relaxes at rate 3, giving the stated sigma and zeta expansions. The finite source code was inspected but not executed. All optimization and nonattainment conclusions concern the leading functional, not the finite-speed master equation.
 
-Sugie, Loutchko and Kobayashi, *Optimal Driving between Nonequilibrium Steady States under a Dissipation Budget*, arXiv:2611.14891v1, establish the positive-housekeeping weighted-length inequality and positivity-dependent entropic-time equality, but their analysed nonzero-budget paths are in positive-housekeeping regions; their equilibrium-only discussion has zero stationary budget. The new boundary case crosses an isolated EPR zero with a strictly positive fixed budget, separating an unattained infimum from the attainable optimal protocol. Kamp and Proesmans, arXiv:2506.14416v1, consider an inequivalent fixed-duration total-EP functional. Semantic searches of published mathematical records and accessible local claims found related results on entropy-optimal flows and dissipative Markov rings, but no covering implication. Literature search cannot rule out an unindexed singular thermodynamic-length or variational-control treatment; novelty therefore has residual priority risk.
+## originality
 
-## Value — PASS
+PASS
 
-An equilibrium point embedded inside a driven nonequilibrium control path is physically unavoidable when changing the sign of a cycle affinity, even when end states dissipate. The result identifies the sharp failure of finite-time optimizer existence, an exact attainable versus unattainable threshold in the order of the housekeeping zero, and a logarithmically diverging near-optimal duration. A concrete irreducible three-state continuous-time Markov generator demonstrates that the singularity is physical rather than an artificial metric choice. It clarifies a resource-budget frontier in a new stochastic-thermodynamic geometry.
+The housekeeping-budget length bound and the equality law in the positive-rate geometry are not new. The distinct contribution is the sharp positive-budget crossing result where the prior entropic-time change is singular, including duration divergence for all minimizing sequences, finite admissible protocols achieving the infimum in the limit, the power-law threshold, and a physical example. The decision is bounded by the inspected primary and catalogue evidence.
 
-## Closest literature, scope and risks
+## value
 
-- Sugie, Loutchko and Kobayashi (2026, arXiv:2611.14891v1): base functional and positive-rate inequality; no isolated-zero positive-budget crossing theorem in the inspected HTML manuscript.
-- Kamp and Proesmans (2025, arXiv:2506.14416v1): finite-duration, total-EP functional, not the asserted free-duration stationary-housekeeping-budget problem.
-- Residual risks: mathematical variational optimal-control literature may contain an equivalent general singular-weight theorem; a full independent search/review remains necessary.
-- The finding is restricted to a leading-order friction model. No exact master-equation optimum, multidimensional rerouting criterion or independent certification is asserted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The positive-weight formula alone can suggest a finite optimal protocol even when the required physical time diverges. The result resolves this boundary for a physically realizable simple Markov model, distinguishes sharp infimum from an achieved optimum, and quantifies how the time required for one explicit exactly budgeted approximation grows. The critical vanishing order and all-sequence obstruction are usable diagnostics for leading-order optimization; no exact finite-speed physical guarantee is made.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

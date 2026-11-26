@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification record
 
-The main result is established by the exact characteristic polynomial and degree-two Schur stability argument in `RESULT.md`. The reproducible `verify.py` checks the complex trace and determinant, the symbolic Schur margin and positivity identity, exact factorizations of the transition endpoints, and the monotonicity derivative. It independently constructs the real four-dimensional iteration for multiple positive step sizes and 37 angles per step and checks the spectral-radius classification and direct recurrence agreement; the test suite reports the number of successful checks when executed.
+# Independent mathematical audit
 
-Run `python verify.py` after installing the packages specified in `requirements.txt`. The program uses fixed deterministic test inputs and contains no external network operations. Finite tests do not certify the infinite-parameter theorem; the analytic proof supplies that justification.
+## correctness
 
-Limitations: this work has not undergone independent audit or validation; its conclusions do not extend automatically to unequal primal/dual steps, alternate extrapolation, nonlinear proximals, arbitrary surrogate operators, finite precision, or nonzero forcing.
+PASS
+
+The exact frontier is correct, but the frozen opening is misleading if read as saying the angle provides information beyond the norm at fixed step size. In this family (I−R)^T(I−R)=2(1−cos θ)I, so the norm and the cosine identify one another. The complete repaired RESULT gives the equivalent norm thresholds and clarifies their dependence on the step size. Independently reconstructing the complex two-by-two update gives P=2u−2u²t²z and Q=u²(1−t²z). The determinant modulus is strictly below one. For roots a,b, the Schur difference equals (1−|a|²)(1−|b|²)|1−a conjugate(b)|²; hence its positive, zero or negative sign decides both strict stability and the exact radius-one boundary. Expanding yields the prefactor (1+c) times the sign factor c−H(t), with c=cos θ. At c=−1 the two roots are 1 and (1+t²)/(1+t)², including for t above the matched cutoff. Factoring H±1 and differentiating proves the two transitions and strict monotonicity; substitution gives H(2)=−11/25. Replay: repairs/1/RESULT.md Proof and the frozen verify.py lines 8–59, inspected but not executed. Its finite angle grid cannot establish the equality cases, which are covered by the algebra. Applies only to the exact, constant, equal-step primal-first quadratic iteration with extrapolation one.
+
+## originality
+
+PASS
+
+The distinct supported claim is the full necessary-and-sufficient rotational frontier with its exact neutral cases and two transition steps, equivalently the joint norm/step threshold for this particular family. The overlap with existing mismatched-adjoint Chambolle–Pock convergence theorems concerns the algorithm and sufficient conditions, not this frontier. The assessment is bounded to examined evidence and is not a determination of historical priority.
+
+## value
+
+PASS
+
+For a standard splitting algorithm, the exact model tests what generic sufficient mismatch estimates miss. The frontier identifies a sharp safe region, distinguishes a fixed-point obstruction from an expanding mode, and yields explicit changes in angular tolerance, including convergence at a substantial mismatch beyond familiar matched sufficient step restrictions. The purpose survives the clarification that in this rotation family the norm is already a complete angular parameter at each fixed t.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Scientific review: Frobenius descent of the Segre-cubic node–plane graph Jacobian
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The geometric incidence is the classical ten-node/fifteen-plane graph of the Segre cubic, with node labels complementary triples and plane labels perfect matchings. The exact \(10\times15\) matrix satisfies \(II^{\mathsf T}=4I_{10}+2J_{10}\), so the \(25\)-vertex graph is connected and its Laplacian has the stated characteristic polynomial. The matrix-tree count \(2^{29}5^8\) agrees with the product of the full integral Smith invariant factors. To calculate Frobenius coinvariants, the proof uses the degree-zero divisor lattice, not the ordinary vertex-orbit quotient. The precise \(24\times49\) integer presentation \([R\mid C]\) is justified and computed for all eleven partitions of six. The verifier checks all \(720\) label permutations and compares Smith forms at three different root choices. The standard perfect critical-group pairing justifies the abstract fixed/coinvariant equivalence. No finite experiment is being promoted to a theorem about an infinite parameter space: the finite enumeration is exhaustive because all Frobenius permutations lie in eleven conjugacy classes.
+PASS
 
-## Originality — PASS, with historical-priority qualification
+In the standard symmetric model, in characteristic at least seven the nodes have three plus and three minus coordinates (the six squares agree and the coordinate sum vanishes). The planes set matched coordinate pairs to be negatives of one another. Thus a node lies on a plane exactly when all matched pairs cross its triple partition. There are six matchings per node, four compatible nodes per plane, and two matchings shared by any distinct nodes. This gives II^t=4Id+2J and the stated connected Laplacian spectrum; the tree count is 2^29*5^8. The coordinate S6 is the split automorphism group and the twists realize every conjugacy class: any such permutation is the image of a continuous cocycle from the procyclic Galois group for the constant automorphism group. Independently generating the incidence and all eleven permutations, I took partial sums to express the Laplacian columns and permutation differences in the integral basis e_i-e_(i+1), and computed exact column Hermite then Smith forms. All eleven rows (and their orders) match, including C4+C8+C80 for a six-cycle and C2^3+C20 for (3,2,1). The perfect equivariant monodromy pairing identifies the dual of the coinvariants with the fixed group; it implies the same abstract invariant factors, not a canonical fixed-to-coinvariant isomorphism. Finite étale descent of the finite abstract group with its Galois action gives precisely this fixed group on k-points.
 
-Dolgachev (arXiv:1501.06432v1, §2) and Avilov (arXiv:1812.11363v1, §2) supply the Segre geometry and Galois action; neither paper contains a graph-Laplacian Smith decomposition or the eleven Frobenius-critical-group calculations. The published *Integral Frobenius coinvariants of the Segre cubic node–plane incidence* computes the cokernel of the rectangular incidence map \(\mathbb Z^{15}\to\mathbb Z^{10}\), not the reduced graph Laplacian, and its order \(64\) cannot contain the proposed \(5\)-primary and much larger \(2\)-primary invariant. The published *Frobenius spectra of the sixty node–plane incidence flags of trace Segre cubics* computes orbit lengths and rational incidence, not integral divisor equivalence. General graph-Jacobian theory and formulas for design incidence spectra do not supply the exact integer structures without further Smith computation. Searches for graph Jacobians, Segre Levi graphs, Smith factors, and equivalent formulations did not reveal this table. An unindexed earlier arithmetic graph-Jacobian/Smith classification remains possible; the search does not certify global priority.
+## originality
 
-## Value — PASS
+PASS
 
-This is not a mere rebranding of the already-known rectangular incidence group or the eleven finite-set Frobenius orbits. The graph Jacobian is the canonical integral divisor-equivalence invariant of the entire Segre node–plane incidence geometry, and the **full eleven-case arithmetic descent** determines its finite étale Galois-module rational-point groups, which neither a graph spectrum nor finite-set orbit counts determine. The fine arithmetic variation is concrete: order \(160\) for type \((3,2,1)\), order \(800\) for \((5,1)\), and order \(2560\) for \((6)\). The result supplies a complete object-level classification useful when arithmetic graph Jacobians or component groups associated to this exact configuration are studied. It does not claim an identification with the Segre threefold's Picard/Brauer/Néron–Severi groups.
+The strongest inspected overlap already classifies all eleven coinvariants of the rectangular node–plane incidence map, not those of the connected graph Laplacian. Neither that result, the finite flag spectra nor the inspected geometric work supplies or implies the eleven graph-critical-group rows.
 
-## Sources and remaining limitations
+## value
 
-Primary geometric references are Dolgachev (2015) and Avilov (2018). Closest published integral comparison: *Integral Frobenius coinvariants of the Segre cubic node–plane incidence* (published research record, November 2026); closest published finite-orbit comparison: *Frobenius spectra of the sixty node–plane incidence flags of trace Segre cubics* (published research record, November 2026). Potential residual risk is an unindexed earlier sandpile-group Smith calculation for the same \((10_6,15_4)\) Levi graph, possibly couched in design theory. Characteristics below seven and any identification of the graph Jacobian with cohomology of the threefold are outside scope.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The canonical bipartite graph keeps the whole incidence configuration. Its finite divisor-class quotient is a precise descent invariant, not a rephrasing of flag splitting. The 6-cycle and (4,1,1) rows both have order 2560 but have different invariant factors; the integral classification therefore records useful information even beyond rational class counts, and accounts for every allowed twist.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

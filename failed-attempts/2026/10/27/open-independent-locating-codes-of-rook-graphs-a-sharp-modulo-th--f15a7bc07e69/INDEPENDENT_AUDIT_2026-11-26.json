@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:17:17.516039Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–49",
+        "Frozen VERIFICATION.md, check.py and check_output.txt (read, not executed)",
+        "Fresh enumeration source and recorded output: /workspace/branches/94409aa3-f707-4161-b37b-f34016d46890/rook_signature_audit.py and rook_signature_audit.txt. Replay with runpy.run_path on the script and call the returned show(m,n) for 1<=m<=4, 1<=n<=5 and (3,6),(5,2)."
+      ],
+      "rationale": "The degree-one condition forces selected components to be dominoes, and line sharing would connect two components. In the line-graph model R_{a,b}=L(K_{a,b}), selected cells correspond to edges forming vertex-disjoint two-edge paths in K_{a,b}; selected sets in a row or column are the selected edges incident to its endpoint. Two unused rows give identical signatures in a used column, two unused columns likewise, and intersecting unused lines cause non-domination. With an unused row, any horizontal domino causes a singleton signature collision with its selected mate; hence only vertical dominoes are possible. With full coverage, each unselected signature is the disjoint union of two nonempty endpoint sets and cannot equal a selected singleton. A same-line collision is impossible by disjointness of the other endpoint sets. A collision in different rows and columns would force crossed row/column sets to agree, hence each must be the singleton at the intersection, contradicting that every selected edge has an endpoint of selected degree two. With one unused row and all vertical dominoes, singleton, doubleton and triple signatures separate selected cells, unused-row cells and other cells; a triple's unique full selected column pair and its third cell recover the two coordinates. Transposition handles one unused column. The full-coverage constraints are h+2v=a and 2h+v=b. Partitioning and matching the labeled rows and columns yields a!b!/(2^(h+v)h!v!). The unused-line counts follow by reserving that line and assigning unordered pairs to the other side. The component weights XY^2/2 and X^2Y/2 give the EGF, dropping empty components as required for positive side sizes. For a=1 the rook graph is K_b: selected degree one forces two cells, and locating permits at most one unselected cell, so b=2 or 3 with counts 1 and 3. The transposed case and R_{1,1} agree, as does the square specialization.",
+      "residual_risks": [
+        "Finite enumeration checks all subsets only on the stated boards, rejecting odd cardinalities by the selected-degree condition. The general classification and counts rely on the analytic proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The older rectangular induced-matching polynomial includes all line-disjoint domino profiles, but does not test signature injectivity. E.g. on a 3×4 board horizontal dominoes at (0,0),(0,1) and (1,2),(1,3) give the same signature {(0,0)} to (0,1) and (2,0).",
+          "Seo–Slater's criterion needs girth at least five, whereas every nondegenerate rook board has a 4-cycle or a triangle. The inspected Cappelle et al. results concern other graph classes; no exact rook result was found in those passages."
+        ],
+        "reasoning": "The profile count supplies combinatorial weights but not admissibility; these broader/nearby results are not the basis of the exact indexed overlap.",
+        "searches": [
+          "Resultary rook induced-matching polynomial and dissociation profile queries",
+          "Seo–Slater Theorem 3.3 and Section 4",
+          "Cappelle et al. arXiv:2103.07972v4 abstract and Section 2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary exact rectangular OLD-oind record 19eb63d0a182",
+        "Resultary induced matching 3b0a0b2213f8 and dissociation records 5b561377e5d2 and 3a4eb8e0ebb5",
+        "Seo–Slater 2017",
+        "Cappelle et al. arXiv:2103.07972v4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Summing the indexed full-span weights as unordered labeled components gives exp((XY^2+X^2Y)/2)-1. Adding the absent line mark to each of the two pure orientations gives the two remaining exponential terms. No extra combinatorial restriction is needed beyond the indexed cases and the one-line correction.",
+          "On one line the graph is complete: a valid set is a pair, so there is at most one outside vertex with its common pair signature. The only positive cases are line lengths 2 and 3."
+        ],
+        "reasoning": "The few differences in exact format and degenerate domain are a mechanical generating-function transformation and textbook boundary cases; neither supplies an original remainder.",
+        "searches": [
+          "Exact indexed RESULT.md Finding and proof at offsets 0 and 3261",
+          "Frozen EGF and one-line cases"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Under R_{a,b}=L(K_{a,b}), a line-disjoint domino is a two-edge path and disjoint line sets are disjoint path vertices. Full span or a single unused vertex with all paths centered on the other side is precisely the frozen characterization.",
+          "The matching indexed Finding specifies identical factorial counts and uniform size after mapping its path-center orientation to the frozen horizontal/vertical convention."
+        ],
+        "reasoning": "The line-graph reduction preserves selected degree, signatures and labeled counts. This is the same class of codes rather than an analogy to Cartesian path grids.",
+        "searches": [
+          "Resultary: open-independent locating codes of rectangular rook graphs and two-edge path packings",
+          "Matching indexed RESULT.md Finding and proof"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/11/2/SCOPE-exact-open-independent-locating-codes-of-rectangular-rook-graphs--19eb63d0a182 gives symbolic all-size counts for a,b>=2, covering the frozen example values and every nondegenerate size enumerator.",
+          "The fixed 4×4 dissociation result 5b561377e5d2 and rectangular maximal-dissociation result 3a4eb8e0ebb5 concern distinct observables and do not tabulate OLD-oind codes."
+        ],
+        "reasoning": "The exact hit is stronger evidence than matching individual table rows, since it agrees as an all-parameter symbolic census. Other rook-graph tables cannot be taken as OLD-oind tables.",
+        "searches": [
+          "Resultary exact rectangular OLD-oind classification",
+          "Resultary fixed rook dissociation table and rectangular maximal-dissociation searches"
+        ]
+      },
+      "rationale": "A distinct indexed rook-code result explicitly matches the complete rectangular-family classification and counts for both sides at least two. The one-dimensional cases are immediate complete-graph cases, and the EGF, square specialization and examples follow from the same factorial census. The older induced-matching and dissociation results alone do not cover the locating criterion. This is exact indexed coverage, not a claim of publication priority.",
+      "residual_risks": [
+        "The surveys do not identify earliest priority. One focused dissociation search was unavailable, and the original record's uncited predated general rectangular all-dissociation claim was not verified. Neither is needed for the exact indexed OLD-oind overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact classification/census overlap for a,b>=2",
+          "evidence": "Disjoint two-edge paths span both sides, or exactly one side has an unused vertex and all paths are centered on the other. Factorial counts and sizes match. It is catalogued later, which does not establish the relationship or priority of the results.",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-open-independent-locating-codes-of-rectangular-rook-graphs--19eb63d0a182",
+          "material_read": "RESULT.md Finding offset 0 and proof offset 3261",
+          "method": "Local mirror",
+          "title": "Exact open-independent locating codes of rectangular rook graphs",
+          "trigger": "Exact Resultary rook-code hit"
+        },
+        {
+          "assessment": "Covers profile weights, not open-signature injectivity",
+          "evidence": "Induced matching polynomial counts all line-disjoint horizontal and vertical dominoes, including examples inadmissible for locating.",
+          "identifier_or_url": "2026/10/25/SCOPE-induced-matching-polynomials-of-rook-graphs-and-minimum-strong-t--3b0a0b2213f8",
+          "material_read": "RESULT.md coefficient statement around offset 280",
+          "method": "Local mirror",
+          "title": "Induced matching polynomials of rook graphs and minimum strong transversals",
+          "trigger": "Earlier rectangular domino profile hit"
+        },
+        {
+          "assessment": "Different class and observable",
+          "evidence": "Fixed 4×4 comparison, not a rectangular OLD-oind profile criterion.",
+          "identifier_or_url": "2026/10/18/SCOPE-dissociation-polynomials-distinguish-the-shrikhande-and-4-times4--5b561377e5d2",
+          "material_read": "RESULT.md finding at offset 71",
+          "method": "Local mirror",
+          "title": "Dissociation polynomials distinguish the Shrikhande and 4×4 rook graphs",
+          "trigger": "Dissociation-profile terminology"
+        },
+        {
+          "assessment": "Not all dissociation sets and not OLD-oind",
+          "evidence": "Includes isolated selected cells and dominoes with a maximality test, not the required open signatures.",
+          "identifier_or_url": "2026/11/8/SCOPE-maximal-dissociation-sets-of-rook-graphs-an-exact-two-star-packi--3a4eb8e0ebb5",
+          "material_read": "RESULT.md finding at offset 0",
+          "method": "Local mirror",
+          "title": "Maximal dissociation sets of rook graphs: an exact two-star packing classification",
+          "trigger": "Rectangular dissociation-profile search"
+        },
+        {
+          "assessment": "Related conditions in other regimes",
+          "evidence": "Theorem 3.3 assumes girth at least five; later passages concern trees and infinite grids rather than complete-factor products.",
+          "identifier_or_url": "https://doi.org/10.5614/ejgta.2017.5.2.2",
+          "material_read": "Theorems 3.3–3.5 pp. 185–186 and §4 pp. 187–189",
+          "method": "Lawful journal OA PDF, offsets about 18800, 23559 and 26755",
+          "title": "Open-independent, open-locating-dominating sets",
+          "trigger": "Primary definition and general criteria"
+        },
+        {
+          "assessment": "Related family results, not exact rook census in inspected text",
+          "evidence": "Planar subclasses, P4-tidy families and complementary prisms; the inspected planar bipartite restriction uses high girth.",
+          "identifier_or_url": "https://arxiv.org/abs/2103.07972",
+          "material_read": "v4 abstract and Section 2 passage around offset 15473",
+          "method": "Lawful OA arXiv full text",
+          "title": "Open-independent, open-locating-dominating sets: structural aspects of some classes of graphs",
+          "trigger": "Cited primary family classifications"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and counting proof",
+        "Exact indexed rook-code Finding 19eb63d0a182"
+      ],
+      "rationale": "The sharp signature criterion is meaningful for the natural rook family and would be of interest apart from overlap. Here the identical classification and census are covered. The added generating-function form, examples and complete-graph boundary do not establish an independent worthwhile unknown exact fact.",
+      "residual_risks": [],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:47:15.274589Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md:5–105",
+        "VERIFICATION.md:18–24",
+        "verify.py:18–91"
+      ],
+      "rationale": "With period-one Zak measure dx dθ/(2π), the integer modulation calculation yields the bounded Walnut form with overlaps only at shifts 0, ±1. The partition of unity of the hat gives A₀+2A₁=q, and the squared arithmetic progressions on a cell give q−A₀=L_q+2qx(1/q−x). Thus the symbol is q−D(1−cos θ), and its continuous essential range is [q−2 max D,q]=[L_q,q]. For an independent density check, set V=|2U−1| for U uniform on [0,1]; V is uniform and D=L_q+(1−V²)/(2q). Conditional on V=v the arcsine density has support [L_q+v²/q,q]. Integrating gives √q/[π√(q−λ)] times the integral of (q(λ−L_q)−v²)^(−1/2) from v=0 to min(1,√(q(λ−L_q))). It is π/2 below the breakpoint and the stated arcsine above it. This construction normalizes the density. The breakpoint C_q=L_q+1/q lies strictly inside the band for q≥2. The upper-side change from the smooth lower branch uses arcsin((1+qδ)^(−1/2))=π/2−arctan√(qδ), giving the sign, coefficient, and O(δ^(3/2)) remainder. Absolute continuity of the pushforward makes the inverse image of any Lebesgue-null set null, so every scalar spectral measure is absolutely continuous. The uniform V formula gives ED=q/3 and Var(D)=1/(45q²); E(1−cos θ)=1 and E(1−cos θ)²=3/2 then give both moments. D/q→1/3 uniformly and the limit (2+cos θ)/3 has the claimed arcsine law. The supporting script was read, not run.",
+      "residual_risks": [
+        "The probability law uses uniform normalized Zak measure, not a trace or the spectral measure of every vector. Noninteger redundancy and other modulation steps are outside the derivation."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hasannasab–Lemvig's integer-oversampling theorem gives the frame property for 0<b≤1, ab=1/q, a<n, which includes a=1/q, b=1 and n=2.",
+          "Buck et al.'s centered order-two spline is the hat; the sharp Bessel bound is q at 1/q translation. Stangl–Frederick's inspected curve regime has b≥3/2, outside this modulation step."
+        ],
+        "reasoning": "Frame criteria and bounds locate existence and spectral edges, not the normalized in-band density. The earlier access limitation for the Hasannasab–Lemvig paper is no longer current: its theorem passages were checked.",
+        "searches": [
+          "arXiv:2609.13116v1 §7 Thms. 7.1–7.2",
+          "arXiv:2603.16986v1 Cor. 4.4.1 and Remark 5.2(3)",
+          "arXiv:2609.00481v2 p. 2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary:85d806d9ebbd",
+        "arXiv:2603.16986v1",
+        "arXiv:2609.13116v1",
+        "arXiv:2609.00481v2",
+        "DOI:10.1016/0019-3577(96)85088-9"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known symbol immediately gives the same integral definition and supports moment calculations. The actual density evaluation has to resolve the moving endpoint v≤min(1,√(q(λ−L_q))), generating the two intervals and the nonanalytic term.",
+          "The inspected spline frame criterion supplies no integral evaluation. The older Janssen paper plausibly covers bounds or explicit duals but could not be checked in full."
+        ],
+        "reasoning": "The exact symbol determines the law in principle, as it does every spectral integral. The supported content is the explicit evaluation and cusp, not a re-notation of the symbol or a claim that the law is independent of it. No inspected stronger closed-form spectral-distribution result gives that evaluation as a parameter substitution.",
+        "searches": [
+          "Resultary:85d806d9ebbd proof §1 and relationship to prior work",
+          "arXiv:2609.13116v1 Thm. 7.1",
+          "Janssen 1996 DOI:10.1016/0019-3577(96)85088-9"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "85d806d9ebbd uses the same unnormalized hat and the same lattice, with Φ_q=q−2c_q(t)(1−cos(2πω)), c_q=(q²−1)/(6q)+x−qx², x={qt}/q.",
+          "Set θ=2πω and D=2c_q to get the frozen symbol on the same probability space. Both sharp bounds are explicit in the dual record."
+        ],
+        "reasoning": "The symbols and bounds are equivalent, not merely related by a lattice parameter coincidence. The indexed Finding concerns spatial tails of S_q^(−1)g, not an evaluation of the normalized distribution of S_q's multiplier.",
+        "searches": [
+          "Resultary: integer oversampled centered hat spline Gabor Zak spectral law density square root cusp shoulder arcsine pushforward two branches spectral distribution moments",
+          "Resultary:85d806d9ebbd Finding and proof §1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact symbol and sharp pair of bounds appear in the dual record, but its explicit asymptotic concerns dual cell masses; its spectral-statistics comment supplies no exact distribution or cited match.",
+          "Buck et al.'s [0,q] is a spectrum of a Gram block and their transferred bound is the upper Bessel bound; it is not a probability law of the frame operator."
+        ],
+        "reasoning": "A known Gram-block spectral interval is not a histogram or exact table for this normalized fiber law. No matched density was established in the bounded comparisons.",
+        "searches": [
+          "Resultary: hat Gabor Zak-fiber density, arcsine law and shoulder; checked 85d806d9ebbd",
+          "arXiv:2603.16986v1, Cor. 4.4.1 and Remark 5.2(3)"
+        ]
+      },
+      "rationale": "The sharp bounds and exact multiplier are not distinct contributions: both are in the same-day canonical-dual record 85d806d9ebbd for identical parameters, and the sharp upper bound also appears in the published-lineage Buck et al. calculation. Moment and limit checks are short consequences of the symbol; no new frame-property result is supported. The frozen record's expressly identified main contribution is the exact normalized Zak pushforward law, in particular the two elementary density branches and their sharp interior cusp. The known multiplier specifies the input to that calculation, but neither it nor an inspected general frame theorem evaluates this pushforward in closed form or supplies its branch switch and coefficient. The closely related dual record's reference to spectral statistics elsewhere names no matching source or formula. Pass is for the original density finding, not priority on its supporting bounds, symbol, or general technique.",
+      "residual_risks": [
+        "Janssen's full text and the unnamed source for related statistics in 85d806d9ebbd remained unresolved. The comparisons establish concrete partial overlap, not the historical priority of the density."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage of bounds and scalar multiplier, different main theorem; no chronological priority inferred",
+          "evidence": "Φ_q=q−2c_q+2c_q cos(2πω); exact bounds as in frozen record; stated theorem on spatial truncation of the canonical dual.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-canonical-dual-truncation-law-for-integer-oversampled-hat--85d806d9ebbd/RESULT.md",
+          "material_read": "RESULT.md offsets 0–4760 and 6830–9365, Finding, scope, proof §1 and prior-work comparison",
+          "method": "Resultary search and local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Sharp canonical-dual truncation law for integer-oversampled hat Gabor frames",
+          "trigger": "Identical window, lattice and frame operator"
+        },
+        {
+          "assessment": "Prior sharp upper bound, not the normalized operator density",
+          "evidence": "Their p equals q; sharp Bessel bound p for a=1/p, with order-two centered hat.",
+          "identifier_or_url": "https://arxiv.org/pdf/2603.16986v1",
+          "material_read": "PDF p. 2 spline convention, p. 11 Cor. 4.4.1, p. 15 Remark 5.2(3)",
+          "method": "OA versioned PDF passage inspection",
+          "title": "On the structure of the Gram matrix for Gabor systems generated by B-splines",
+          "trigger": "Exact bound at the same integer parameters"
+        },
+        {
+          "assessment": "Broader frame criterion, not a quantitative spectral density in the passages inspected",
+          "evidence": "For 0<b≤1 at ab=1/q the B-spline frame iff a<n includes the target parameter choice.",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.13116v1",
+          "material_read": "PDF §7, p. 15 and following, Thms. 7.1 and 7.2",
+          "method": "OA versioned full-text passage inspection",
+          "title": "The zero set of the Zak transform of B-splines with applications to Gabor frames",
+          "trigger": "Earlier integer-oversampling theorem, noted as inaccessible in frozen comparison"
+        },
+        {
+          "assessment": "Checked regime excludes b=1",
+          "evidence": "The stated analysis is for ab=1/q and b≥3/2.",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.00481v2",
+          "material_read": "v2 PDF p. 2, stated curve regime",
+          "method": "OA PDF passage inspection",
+          "title": "Stangl–Frederick preprint on B-spline Gabor frames",
+          "trigger": "Possible sharp frame characterization at integer redundancy"
+        },
+        {
+          "assessment": "Residual risk, not a finding of noncoverage",
+          "evidence": "The accessible description addresses frame bounds and minimal duals; no theorem passage was obtained for the precise spectral law.",
+          "identifier_or_url": "https://doi.org/10.1016/0019-3577(96)85088-9",
+          "material_read": "Abstract/identification, not full text",
+          "method": "Bounded lawful retrieval via DOI and available OA routes",
+          "title": "Some Weyl-Heisenberg frame bound calculations",
+          "trigger": "Classical frame bounds and duals at integer redundancy; possible exact symbol antecedent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md:5–43,72–101",
+        "Resultary:85d806d9ebbd Finding and proof §1"
+      ],
+      "rationale": "For this standard redundant spline frame, spectral endpoints tell nothing about the fraction of fibers with a given gain. An exact normalized gain law resolves that question and exhibits a one-sided square-root cusp strictly inside the band rather than merely an edge singularity. That feature is visible for every integer q≥2, and neither endpoint nor the limiting arcsine law reveals it. The exact density is useful without a claim to a new Zak formalism, frame region, or dual-window construction.",
+      "residual_risks": [
+        "This is a law over uniformly weighted fibers, not a universal law of responses to all input signals; the comparison does not extend to other windows or lattices."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

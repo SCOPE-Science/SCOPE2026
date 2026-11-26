@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Run `python3 verify.py` with standard-library Python 3. It exhaustively checks one-line permutations grouped by cycle type for \(2\le n\le8\), computes exactly the subwords through the guaranteed maximum length, and checks prescribed-length witness construction for all observed words. It also checks 4,560 deterministic twelve-letter constructions and the fixed-point-free involution threshold for six even orders. The expected stdout is in `checks.txt`.
+## correctness
 
-The unrestricted proof is the combinatorial directed-edge packing argument, not extrapolation from finite enumeration. The relative CW argument uses the published homotopy type of the complete injective-word complex. No independent mathematical audit has been performed. Results concerning higher homology, full homotopy type, and priority against inaccessible literature are outside this verification.
+PASS
+
+For k <= c(lambda), choose k increasing positions outside the prescribed values since 2k <= n. The required arrows are vertex-disjoint two-label blocks. A cycle of size ell accepts any t <= floor(ell/2) such blocks and ell−2t spare labels: allocate within these capacities and close each list cyclically. This works for all cycle sizes and yields the exact word and falling-factorial cell counts. There are no relative cells below dimension c. A nullhomotopy of an i-sphere in the ambient space can be deformed into the common (c−1)-skeleton when i+1 <= c−1 by relative cellular approximation; paths give path connectivity for c >= 2. The ambient wedge theorem was checked in arXiv:1908.03394, Theorem 1.2; reduced homology vanishes in the range with any coefficient group. Each transposition contributes at most one letter to an increasing subsequence. This proves the sharp skeleton cutoff, not sharp connectivity. Reviewer-authored `python3 /workspace/independent_reproduction.py perm` (Python 3.12.3) compared exact word sets through n=8 and longest increasing subsequences over all perfect matchings at n=2,4,6,8,10,12 (10,395 matchings at n=12). The frozen verifier searches for absence only through n=8; its last two printed sharpness lines cover witness construction, not exhaustive absence. The proof does not rely on finite checks.
+
+## originality
+
+PASS
+
+Earlier positive-probability extension of acyclic constraints covers the short-word existence conclusion for types with every part at least k+1, in particular the corresponding range for one long cycle. It does not cover arbitrary short cycles, fixed points, or the uniform capacity and its exact involution boundary. No equivalent or dominating result for the combined general statement was identified in the inspected sources. The ambient theorem and the elementary direction of the involution obstruction are not claimed as separate innovations.
+
+## value
+
+PASS
+
+A computable cycle-type condition controls every exact-letter cell in a growing range and gives nontrivial integral and homotopical connectivity in a naturally defined family. The bound works with a mix of long and short parts and provides a sharp skeletal cutoff for an infinite class, rather than extrapolating a finite homology census. It does not determine higher groups or claim that the connectivity bound is sharp.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

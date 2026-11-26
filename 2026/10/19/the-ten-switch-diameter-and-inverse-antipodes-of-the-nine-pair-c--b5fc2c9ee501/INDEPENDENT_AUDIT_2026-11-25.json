@@ -1,0 +1,160 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:09:09.506064Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–59 and VERIFICATION.md",
+        "verify_python.py, verify_cpp.cpp, verify_python.out and verify_cpp.out (inspected; supplied programs not executed)",
+        "/workspace/audit_replay/crown_distances.py and crown_distances.out",
+        "repairs/5/RESULT.md and VERIFICATION.md"
+      ],
+      "rationale": "A legal alternating-square switch swaps the columns of exactly two rows and must avoid the two forbidden diagonal matches; filtering the swapped permutations against the complete derangement set implements precisely this adjacency. Conjugation preserves adjacency, so one source of every cycle type suffices for eccentricity, not a quotient path. Independent lexicographic enumeration, sorted-key swap membership and sparse unweighted shortest paths covered all retained vertices, all switches and every cycle type for n=4 through 9. The degree-sum check Σ[binom(n,2)−n+c₂(π)] corroborated the edge totals. All six order/size/radius/diameter rows and all eight full nine-symbol profiles matched both frozen outputs. The only distance-ten shell has size one, on type (3,3,3), and its vertex is the inverse. Inversion is a fixed-point-free involution on those 2240 sources, giving 1120 pairs. The small-order per-type rows in the repair match the complete C++ recorded profiles; the finite radii and diameters are also independently reproduced. All n from four through eight have diameter at most n and the known ninth case has diameter ten, proving exactly the repaired least-size claim.",
+      "residual_risks": [
+        "This is an exhaustive finite computation and proves no distance formula for n>9. The nine-symbol output alone would not establish a first occurrence without the smaller searches."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dyer–Jerrum–Müller's diameter-at-most-n lemma assumes chordal bipartiteness. Bonamy et al. define the same switch but the inspected statements address connectivity or reconfiguration complexity by graph class.",
+          "Jain's same-object work was identified but its full text was not retrieved."
+        ],
+        "reasoning": "The crowns under consideration contain an induced six-cycle, so the stronger general diameter lemma on chordal bipartite graphs is inapplicable. No whole-document noncoverage claim is made about Jain.",
+        "searches": [
+          "Dyer–Jerrum–Müller arXiv:1501.07725 Lemma 2",
+          "Bonamy et al. arXiv:1904.06184 pp. 1, 3, 5",
+          "Primary web search: P Jain Transpositions in Derangements graph diameter shortest paths full text 10.13140/RG.2.2.35817.42088"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 2026/11/8 unique-antipodes and 2026/11/2 inverse-triangle detour; related two-hole slides",
+        "arXiv:1501.07725 Lemma 2",
+        "arXiv:1904.06184",
+        "DOI:10.22034/as.2025.22570.1763",
+        "Jain DOI:10.13140/RG.2.2.35817.42088 (bibliographic identification only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The inverse-triangle formula 2k+2⌈k/2⌉ gives distance ten for k=3, with endpoints restricted to products of disjoint three-cycles and their inverses.",
+          "Moshtagh–Shaveisi join derangements differing at every position, not pairs differing by a legal two-position swap."
+        ],
+        "reasoning": "A specified endpoint pair gives a lower bound at n=9 but cannot yield upper bounds for every pair at smaller n. The apparent alternate derangement-graph literature has different edges, and its statements cannot be used as distances in the switch graph.",
+        "searches": [
+          "Resultary inverse-triangle detour Finding and scope",
+          "Resultary unique-antipodes Finding, assumptions and limitations",
+          "Moshtagh–Shaveisi DOI:10.22034/as.2025.22570.1763, abstract and adjacency"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The indexed nine-symbol record explicitly identifies its legal position swaps with alternating four-cycle switches on perfect matchings of K₉,₉ minus the diagonal matching.",
+          "The two-hole crown record concerns size-(n−1) matchings and single-edge slides, even though one state count coincides with the nine-symbol order."
+        ],
+        "reasoning": "The nine-symbol graphs are exactly isomorphic with the same distance, not just numerically similar. A slide graph is not equivalent; the overlap does not supply the smaller-order exclusion.",
+        "searches": [
+          "Resultary: crown perfect-matching four-cycle switches and nine-symbol derangement transposition graph",
+          "Resultary: crown graph derangement transposition switch graph K n n minus diagonal perfect matchings n 4 5 6 7 8 diameter 3 4 6 7 8 first diameter exceeds n smallest obstruction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed nine-symbol result states 133496 vertices, 1835568 edges, radius eight, diameter ten, the eight eccentricities and exactly 1120 inverse pairs of cycle type (3,3,3). It gives the exact distance histogram for the exceptional type.",
+          "Its scope expressly concerns exactly nine labels, not a list of smaller diameters. The matched derangement count alone is the classical order sequence, not a distance sequence."
+        ],
+        "reasoning": "The frozen core at n=9 is already covered. No smaller-order distance table or least-order classification was verified in the compared material. The repaired claim does not assign historical priority from the later indexed path.",
+        "searches": [
+          "Resultary: exact crown switch census and diametral inverse pairs",
+          "Resultary: smaller-order exclusion and least size with diameter exceeding part size"
+        ]
+      },
+      "rationale": "Applies to the repaired first-occurrence conclusion and its smaller-order exclusion, not to the frozen headline classification at n=9. The strongest verified same-graph source gives the entire nine-symbol eccentricity and antipode classification, and the indexed inverse-triangle detour verifies a relevant witness family. Neither yields all-pair diameter upper bounds for crowns with parts of size 4 through 8 or identifies the smallest violating size. The exact smaller-order results are required to turn a known obstruction into a sharp first occurrence.",
+      "residual_risks": [
+        "Jain's same-object preprint was not verified at statement level; unindexed small-crown tables could overlap the surviving remainder. No historical priority inferred from catalog dates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage of n=9 core; does not give the smaller-order exclusion",
+          "evidence": [
+            "Identifies the crown and derangement formulations explicitly, states precise diametral pairs and multiplicities, limits scope to exactly nine labelled symbols."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-unique-antipodes-in-the-nine-symbol-derangement-switch-graph--6d5778bc7d5d/RESULT.md",
+          "material_read": "Finding, assumptions and complete shortest-path certificate; relationship and limitations",
+          "method": "Local Resultary search and bounded mirror reads near offsets 0 and 6018",
+          "title": "Unique antipodes in the nine-symbol derangement switch graph",
+          "trigger": "Exact graph, distance and antipode count"
+        },
+        {
+          "assessment": "Partial endpoint overlap, not all-pair diameter",
+          "evidence": [
+            "Distance formula evaluates to ten for k=3; does not address all pairs or certify that smaller crowns never exceed their part sizes."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-an-exact-linear-derangement-swap-detour-between-inverse-triangle--a01ace1f3db3/RESULT.md",
+          "material_read": "Finding and endpoint assumptions, near mirror offset 603",
+          "method": "Local Resultary search and bounded mirror comparison",
+          "title": "An exact linear derangement-swap detour between inverse triangle products",
+          "trigger": "Restricted exact distance formula containing the exceptional pair"
+        },
+        {
+          "assessment": "Graph-class hypothesis excludes the crowns",
+          "evidence": [
+            "Upper bound n is for chordal bipartite graphs; three corresponding crown labels contain an induced six-cycle."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1501.07725",
+          "material_read": "Chordal-bipartite definition p. 4 and Lemma 2 p. 5",
+          "method": "Bounded OA PDF passages near offsets 17037 and 18981",
+          "title": "On the switch Markov chain for perfect matchings",
+          "trigger": "The nominal diameter bound for matching switches"
+        },
+        {
+          "assessment": "Relevant general framework, not finite crown exclusion",
+          "evidence": [
+            "A flip is an alternating four-cycle exchange; the inspected results do not compute the small crown distance spectrum."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1904.06184",
+          "material_read": "Definition p. 1, chordal-bipartite connectivity p. 3 and complexity theorem p. 5",
+          "method": "Bounded primary PDF inspection",
+          "title": "The Perfect Matching Reconfiguration Problem",
+          "trigger": "Same flip operation on graph classes"
+        },
+        {
+          "assessment": "Different adjacency relation",
+          "evidence": [
+            "Edges require f(i)≠g(i) for every i. Legal transpositions leave n−2 positions unchanged and are not its edges for n≥4."
+          ],
+          "identifier_or_url": "https://journals.yazd.ac.ir/article_3888_ddb3a8155bb4b1a8754627860dd0fab3.pdf",
+          "material_read": "Abstract, page 1 near offset 205",
+          "method": "Primary title lookup and bounded OA PDF passage",
+          "title": "Some results on the graph of derangements",
+          "trigger": "Plausibly same-object title flagged by indexed record"
+        },
+        {
+          "assessment": "Unresolved same-object comparison; not counted as negative evidence",
+          "evidence": [
+            "Both full-text routes returned HTTP 403; bounded search identified no separate lawful open copy."
+          ],
+          "identifier_or_url": "https://www.researchgate.net/publication/354533290_Transpositions_in_Derangements",
+          "material_read": "Bibliographic identification only; primary theorem passages not retrieved",
+          "method": "Primary title/DOI lookup and bounded direct/VPN OA attempts",
+          "title": "Transpositions in Derangements",
+          "trigger": "Same graph cited by the indexed nine-symbol record"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "repairs/5/RESULT.md Finding and finite tables",
+        "Dyer–Jerrum–Müller Lemma 2 and the indexed nine-symbol endpoint"
+      ],
+      "rationale": "The repaired result supplies a sharp minimum size for failure of a natural numerical switching-diameter bound on a standard family just outside the known chordal-bipartite hypothesis. Exact smaller-order maxima are necessary to distinguish a least obstruction from merely finding a large counterexample. This is a motivated complete finite exclusion, not a claim of novelty for recomputing the known nine-symbol table.",
+      "residual_risks": [
+        "The minimum-order result gives no asymptotic diameter or mixing-time implication."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

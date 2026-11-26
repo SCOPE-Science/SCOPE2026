@@ -1,13 +1,21 @@
-# Geometric review
+# Independent mathematical audit
 
-**Correctness — PASS.** The published Mori cone and weak Fano theorem, together with the complete twenty-seven-curve cone of a cubic del Pezzo surface, reduce the null-curve classification to eleven explicit disjoint smooth rational curves. The six conics on the cubic del Pezzo include one non-extremal class. Exact intersection arithmetic and an independent configuration check are reproduced in `verify.py`. The normal-bundle sequences and characteristic-zero contraction theorems establish eleven distinct ordinary double points.
+## correctness
 
-**Originality — PASS, residual risk.** The full primary Mori-cone source already gives numerical decompositions of the six conic classes and does not support claiming these class identities as new. The original statement concerns the complete *geometric* anticanonical exceptional locus, its eleven disjoint components, and its eleven ordinary double points. The prior weak-Fano theorem proves positivity and volume but not this singularity basket. A classical unindexed anticanonical model may contain overlapping information.
+PASS
 
-**Value — PASS.** Exact node count and analytic type for a genus-eight weak-Fano contraction are structural features with a surprising distinction between ten extremal-ray generators and eleven geometric exceptional curves. This goes beyond a mere numerical recomputation or formula substitution.
+Reconstructed the argument from the same-object Mori cone and the surface restrictions. The (1,1) scroll is the graph of the pencil through q0; choosing six general plane points first makes the open set nonempty, and no second (1,1) section can pass through the five lifted points because its restriction would be a conic through all six. On its blow-up the six null conics have pairwise intersection zero and self-intersection -1. An irreducible null curve different from them would have a class in their nonnegative span yet meet each nonnegatively, forcing every coefficient to vanish. For a null curve outside S, S·A_i=0 and S·B_i=-1 force a class in the A_i span, hence a vertical curve; exceptional-plane curves have positive anticanonical degree and only the five special strict fibers are null. The fibers are disjoint from S and one another. The sixth conic class is the average of the five A_i+B_i expressions, hence in the relative interior of the face and nonextremal. The strict fibers have normal O(-1)^2 from blowing up one point of a fiber; for each conic the two degree -1 terms in the normal sequence split because H^1(O)=0. Basepoint freeness and the connected-fiber construction give the birational small contraction; the local contraction of O(-1)^2 yields a node. Disjointness and connected fibers give distinct nodes; normality and birationality give an isomorphism outside the listed fibers. The resulting Cartier canonical class is crepant, with ample negative and volume 14. The frozen symbolic interpolation is supplementary, not evidence of completeness or local analytic type.
 
-Limits: only general complex points; no positive-characteristic or degenerate-point classification. The proof is mathematical and symbolic; there is no independent validation.
+## originality
 
-Closest references: Bolognesi–Massarenti–Poma (2023), Proposition 3.6; Grange–Postinghel–Prendergast-Smith (2022), Theorem 6.3.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Pass for the explicit complete geometric locus and eleven-node analytic basket. The older same-object work materially covers the scroll, the entire cone and even the numerical decomposition of the sixth conic, not the geometric exhaustiveness or analytic contraction type. Those require ruling out curves represented by nonextremal classes, then computing normal bundles and separating images; a ray census is not that classification.
+
+## value
+
+PASS
+
+Identifies every singular fiber of a natural weak Fano contraction, gives analytic types, and exhibits why knowing all ten extremal rays still misses one irreducible exceptional curve. The exact singularity basket is useful in comparing small resolutions and degree-14 models.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

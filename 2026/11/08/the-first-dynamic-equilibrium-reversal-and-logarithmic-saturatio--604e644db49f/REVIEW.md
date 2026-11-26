@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness (C): PASS
+## correctness
 
-The claim uses the original ladder definitions, not a one-dimensional surrogate. The published equations (3.9), (4.2) and (4.4) are independently transcribed. The algebraic identity \((1-t)/(1+t)=q(1-q)\) follows exactly from the root polynomial and yields a controlled Lambert function asymptotic, with the normalization \(S_b=2b\rho_\star^{(b)}\). The numerical cutoff is certified through ten strict comparisons of **exact rational intervals**, with analytic trapezoid and Taylor bounds; there is no assumption that rounded numerical signs are exact. The checker was executed from its actual local path. The proof expressly distinguishes the finite cutoff from a global no-recrossing statement. Residual correctness risk is limited to potential unnoticed transcription or mathematical error, not an asserted external proof certification.
+PASS
 
-## Originality (O): PASS, with historical risk
+The two ensembles have the same graph-distance compatibility and normalization 2b, but different measures on terminal configurations. From the cited exact formulas, put A(t)=sum_{k=b}^{2b−1} t^k(1+t); it increases strictly from 0 to 2b and the equilibrium root solves A(t)=1. Logarithmic differentiation at that root gives S=b/[t A'(t)], reproducing the stated reciprocal and giving monotone algebraic bounds. My independent /workspace/branches/audit_ladder.py used dyadic root brackets, those polynomial derivative bounds, and the composite midpoint rule rather than the frozen trapezoid code. For the dynamic term it enclosures e^v for v=−P_b or v=2H_b−1/b by the positive Taylor series with directed integer rounding, bounds the remainder by 7/6 times term 41 for 0<=v<=6, and reciprocates. From |P'|<=2b, |P''|<=2b² and e^P<=1, the scaled midpoint error is at most b³/(4N²). For N=4096 every exact comparison was strict: S−J<0 at b=1,...,9, with S_9−J_9 in [−0.0001030740,−0.0000813480], and S_10−J_10 in [0.0026574377,0.0026872401]. Separately q=t^b satisfies −log q=2b artanh(q(1−q)); q(1+q)<=1 bounds q uniformly away from 1. For x=2bq, this yields x=O(log b), then x+log x=log(2b)+O(log² b/b), and monotone inversion gives x=W(2b)+O(log² b/b). Substitution in 1/S gives 1+1/x+O(q). The derivative of x/(1+x) is O(1/log² b) near W(2b), giving the asserted O(log b/b) error. Expanding 1/(1+W) with W(z)=log z−log log z+O(log log z/log z) gives the stated second coefficient. This verifies the first crossing, not that all b>=10 have the same strict ordering. The cited dynamic limit is background, not a new deduction from the ten comparisons.
 
-The 2023 source (arXiv:2312.02747) fully derives and owns the underlying exact density formulas, the limiting values, and the numerical reversal interval implicit in its table (dynamic larger at \(b=5\), equilibrium larger at \(b=10\)). No credit is taken for these. Table 1 omits the close \(b=9\) case and does not prove the least integer crossing. The fully rational separation establishes that missing mathematical boundary. The same source proves only equilibrium convergence to one, without the quantified \(W(2b)\) and logarithmic deficit. The Lambert function asymptotic for the one-dimensional model is known in arXiv:2302.08852, but that article has different governing equations; the distinct ladder asymptotic is proved here. arXiv:2302.08791 is also one-dimensional. Searches of published mathematical records and original literature did not reveal an exact all-ten comparison or a two-row logarithmic rate; a later, unindexed equivalent derivation remains possible. This is a constrained priority judgment, not a claim that a search establishes uniqueness.
+## originality
 
-## Value (V): PASS
+PASS
 
-The paper compares two physically motivated probability ensembles and illustrates opposite orderings for separate blockade values, but leaves a narrow finite transition bracket unresolved. Certifying the *first* integer reversal at \(b=10\) is a natural sharp finite cutoff, especially because the difference at \(b=9\) is less than \(10^{-4}\). The independent asymptotic \(1-S_b\sim1/\log b\) quantifies the extremely slow approach to saturation and explains why the equilibrium model can differ markedly from the dynamic parking limit at large blockade. These jointly answer motivated questions directly prompted by the source's comparison, rather than introducing an arbitrary numerical slice.
+The distinct contributions supported by the available comparison are the certified first crossing at b=10 and the quantitative two-row equilibrium expansion. Do not credit as new the exact ladder formulas, the already tabulated reversal signs at separated ranges, limiting coverage or the general Lambert-W mechanism. The strongest indexed match is the identical record; the nearby variance result and one-dimensional asymptotic literature do not directly supply the two-row claims. Primary body/table retrieval was limited, leaving explicit priority risk.
 
-## Limits and closest prior literature
+## value
 
-Došlić–Puljiz–Šebek–Žubrinić (arXiv:2312.02747): known formulas and partial table, closest. Krapivsky–Luck (arXiv:2302.08852): already develops the Lambert-\(W\) mechanism in one dimension, not the two-row density. Došlić et al. (arXiv:2302.08791): earlier one-dimensional model. The current work neither proves a global uniqueness-of-crossing theorem for every \(b\ge10\) nor replaces independent peer assessment.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For this shared admissibility rule, dynamic sampling and uniform sampling of maximal configurations are different scientific ensembles. Locating their first strict inversion resolves what the older widely spaced samples could not, including the close sign at nine. The asymptotic also quantifies the slow static approach to its limit, which matters for finite blockade ranges where a qualitative limit alone is not predictive.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

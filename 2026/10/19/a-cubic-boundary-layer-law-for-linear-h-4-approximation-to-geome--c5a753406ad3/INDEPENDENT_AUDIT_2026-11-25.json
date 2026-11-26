@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:10:29.007567Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 35–99",
+        "Frozen VERIFICATION.md, check_h4.py and check_h4_output.txt, inspected only",
+        "Independent replay: python3 /workspace/review_evidence/finite_checks.py 5; 16 rational checks via direct coefficient convolution of the squared residual and independent cubic solve giving c=0.35749836837820489079 and kappa=0.23332309372759549252"
+      ],
+      "rationale": "Coercivity on the finite-dimensional candidate space gives existence; strict convexity and injectivity give uniqueness for each 1<p<infinity over complex coefficients. Conjugating coefficients and taking the (m+1)-reciprocal conjugate of the residual both preserve its norm. The second transformation sends (a,b) to (1+conj(b),conj(a)-1), using (1-z)f_m=1-z^(m+1); their fixed-point restrictions give real b=a-1. Then the residual has endpoints e=(1+t)/2 and m interior coefficients t. Parseval plus the finite correlation sums gives exactly the claimed quartic, and F_m'(-1)<0<F_m'(0) locates its unique minimum in (-1,0), proving the zero is real and >1. With u=-mt the rescaled objective m(F_m(-u/m)-3/8) and its first derivative equal Q(u) and Q'(u) up to O(1/m) on compact u intervals. Since Q''(u)=8u^2-12u+6>0 and Q'(0)<0<Q'(1), derivative signs at fixed bracketing points trap the global minimizers and give u_m=c+O(1/m) by the mean value theorem. Substitution proves the two sharp expansions, with positive kappa=-Q(c).",
+      "residual_risks": [
+        "Finite exact tests do not prove the general quartic or asymptotics; universality rests on the scalar reduction and proof. Only the symmetry is claimed for every p."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The former treats linear approximants for general generators and supplies root reductions and estimates; the latter bounds products of interior zeros in terms of error and inner factor."
+        ],
+        "reasoning": "These estimates do not identify the exterior zero here. General optimality equations can be applied to this family, but they do not specify the exact scalar quartic and length-scaling limit without the reciprocal reduction, coefficient sum, and asymptotic analysis.",
+        "searches": [
+          "Centner–Cheng–Felder arXiv:2305.16068v1 Sec. 4, Props. 4.1–4.3",
+          "Bénéteau et al. arXiv:2511.08000v1 Sec. 4, Prop. 4.7 and following"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2305.16068v1",
+        "arXiv:2310.16010v1",
+        "arXiv:2511.08000v1",
+        "Resultary 3911c0a6fb2a and 5397a5ef85ee"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general results supply bounding or projection tools; the two most related indexed sharp laws take different asymptotic limits. The known H^2 benchmark has exterior displacement 1/m, rather than 2c/m."
+        ],
+        "reasoning": "The simultaneous first-order zero and minimum-error terms are not a parameter substitution into those inequalities or laws. The key new evaluation comes from retaining the m-cubic autocorrelation growth at t of order 1/m.",
+        "searches": [
+          "Statement comparison of Sec. 4 in arXiv:2305.16068v1, arXiv:2511.08000v1 and Resultary records 3911c0a6fb2a and 5397a5ef85ee against the frozen quartic and cubic-law statements"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Example 2.0.11 uses 1+z+z^2 and p=4 for a norm comparison, not minimization of the residual over linear inverse polynomials. Examples 2.0.12–13 are degree-zero cases."
+        ],
+        "reasoning": "The same short sum and exponent do not give the same objective. Equivalent polynomial residual and boundary norm formulations of the tested degree-one problem were considered; the inspected examples do not evaluate that optimum.",
+        "searches": [
+          "Geometric-sum generator/degree-one H^4 inverse; Cheng–Felder arXiv:2310.16010v1 Examples 2.0.11–2.0.13",
+          "Resultary literal cubic and geometric-sum name searches"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 3911c0a6fb2a gives a logarithmic boundary layer for fixed generator 1-z as p grows; 5397a5ef85ee gives an H^2 growing-approximant-degree law for fixed boundary zeros."
+        ],
+        "reasoning": "The first includes, up to rotating z to -z, the m=1 generator and is a real reciprocity/degree-one precedent. Its main limit varies p, not m. In the second the norm, approximating degrees and generator regime differ. Neither indexed statement is an all-length fixed-p=4 evaluation.",
+        "searches": [
+          "Resultary: geometric sums, linear Hardy optimal approximants, reciprocal symmetry and boundary layer",
+          "Resultary: stated cubic and exact problem searches"
+        ]
+      },
+      "rationale": "The supported distinct content is the fixed-degree H^4 all-length calculation with its sharp zero and minimum-error asymptotics for geometric-sum generators. General metric-projection and reciprocity methods and single small-length precedents are not by themselves new.",
+      "residual_risks": [
+        "A related degree-one calculation or equivalent growing-generator limit may exist under another indexing vocabulary; the searches and inspected passages do not certify worldwide priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General root analysis, not the evaluated geometric-sum quartic or asymptotic law",
+          "evidence": [
+            "Degree-one reductions and root estimates are stated for arbitrary generators; the disk-root bounds do not determine the present exterior zero."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2305.16068v1",
+          "material_read": "Sec. 4, Props. 4.1–4.3, text offset around 20800",
+          "method": "Lawful OA passage inspection",
+          "title": "Optimal Polynomial Approximants in H^p",
+          "trigger": "General degree-one Hardy optimizer results"
+        },
+        {
+          "assessment": "Overlapping input/technique, different objective or degree",
+          "evidence": [
+            "Example 2.0.11 is a norm comparison; Examples 2.0.12–2.0.13 involve degree-zero approximants."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2310.16010v1",
+          "material_read": "Examples 2.0.11–2.0.13, offset around 13200",
+          "method": "Lawful OA passage inspection",
+          "title": "More Properties of Optimal Polynomial Approximants in Hardy Spaces",
+          "trigger": "Identical three-term geometric sum and degree-zero reciprocal precedents"
+        },
+        {
+          "assessment": "Bounds for products of interior roots do not determine the displayed exterior asymptotic",
+          "evidence": [
+            "The bound uses the approximation error and inner factor, and refers to roots inside the disk."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2511.08000v1",
+          "material_read": "Sec. 4, Prop. 4.7 and following, offset around 48000",
+          "method": "Lawful OA passage inspection",
+          "title": "Metric projections, zeros of optimal polynomial approximants, and some extremal problems in Hardy spaces",
+          "trigger": "Potential general bounds determining zero behavior"
+        },
+        {
+          "assessment": "Related single generator, different limit and constants",
+          "evidence": [
+            "For fixed 1-z as p tends to infinity, the zero approaches -1 at a logarithmic rate and E_p^p is asymptotic to (2 pi p)^(-1/2)."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-a-logarithmic-boundary-layer-for-linear-optimal-polynomial-appro--3911c0a6fb2a",
+          "material_read": "Mirrored RESULT.md opening statement, offset 0",
+          "method": "Resultary retrieval and local mirror inspection",
+          "title": "A logarithmic boundary layer for linear optimal polynomial approximants",
+          "trigger": "Exact degree-one Hardy boundary layer and reciprocity"
+        },
+        {
+          "assessment": "Different norm and growth regime",
+          "evidence": [
+            "The H^2 result grows the approximant degree for fixed boundary zeros."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-additive-squared-multiplicity-law-and-legendre-boundary-profiles--5397a5ef85ee",
+          "material_read": "Mirrored RESULT.md opening statement, offset 0",
+          "method": "Resultary retrieval and local mirror inspection",
+          "title": "Additive squared-multiplicity law and Legendre boundary profiles",
+          "trigger": "Exact optimal approximation and near-boundary asymptotics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 19–33, 73–93 and 101–109",
+        "Earlier general root bounds and the different indexed asymptotic regimes listed above"
+      ],
+      "rationale": "The geometric sums give a natural degree-one approximation test as the boundary zeros of the generator change with length. The result explicitly measures the difference from Hilbert-space optimization in the first nonlinear even norm: the optimized zero displacement is about 0.715/m rather than 1/m, and the sharp first error correction is also determined. The scalar symmetry exposes why complex minimization does not require an extra complex search; the exact correction is more than a norm-comparison bound or numerical trend.",
+      "residual_risks": [
+        "The calculation is not a classification for arbitrary generators, higher approximant degrees or growing p."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

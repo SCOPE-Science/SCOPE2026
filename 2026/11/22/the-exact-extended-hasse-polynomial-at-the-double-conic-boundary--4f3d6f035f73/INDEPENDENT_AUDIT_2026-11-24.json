@@ -1,0 +1,175 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:02:49.568128Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS for the final repaired claim. Frozen Step 4 has a real proof gap: when ε_p=1, knowing m−1 distinct smooth roots and degree m does not force the remaining multiplicity to occur at a=2; a known smooth root could repeat. This does not make the statement false. The complete replacement proof and corresponding reproducibility notes are in /workspace/repairs/1/RESULT.md and VERIFICATION.md. On re-audit, in u=X²,y=Y²,z=Z² the target takes [u^{p−1}y^mz^m] of (u²+bu+c)^{p−1}. For formal roots r,s, its middle u coefficient is ∑r^js^{p−1−j}=(r−s)^{p−1}=(b²−4c)^m by the characteristic-p binomial identity. The discriminant is (a−2)((a+2)(y+z)²−4yz). Extracting [y^mz^m] and using binom(2j,j)=(−4)^j binom(m,j) in F_p gives (a−2)^m(−4)^m H_m(a+2). Vandermonde yields H_m(1−t)=(−1)^mH_m(t); 4^m=1, yielding exactly the claimed normalized coefficient on all of A¹, without inverting any boundary parameter. The plane Čech calculation uses F_a^{p−1}, even exponents kill the off-diagonal terms, and permutation symmetry gives the scalar. The derivative equations give precisely 2,−2,−1 as singular. H_m(0)=1 and H_m(1)=(−1)^m; the classical distinct F_{p²} roots give m−ε_p smooth zeros and exactly m+ε_p at 2. In characteristic seven H_3(−3)=28, giving multiplicity four. Frobenius is invertible or zero on the smooth genus-three H¹, so its stable rank and the Cartier kernel give the asserted p-rank and a-number; cubing triples the boundary order. The frozen verification file and unchanged verify_extended_hasse.py were inspected: the reported script compares three coefficient vectors at p=5,7,11,13,17,19,23,29; uploaded code was not run and the uniform proof is independent of those finite samples. No Lean or expert attestation is asserted.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ohashi treats general smooth Ciani curves: Lemma 3.1 gives the square-completed quartic and a Möbius transform of its branch points, and the degree-eight quotient isogeny gives the superspecial criterion.",
+          "Auer–Top §3 gives the m distinct Legendre Deuring roots and a divisibility statement implying splitting over F_{p²}."
+        ],
+        "reasoning": "The general smooth theory supplies the quotient geometry and root criterion, and supplies a route to calculation. Its displayed Legendre models do not give the scalar for the fixed plane Čech basis: comparison under a change of coordinates/differential needs its multiplicative factor. The repaired result extracts the discriminant power and evaluates the remaining coefficient (including its normalization) before any parameter inversion. A statement of geometric vanishing or a recipe to compute a coefficient is not the evaluated uniform factorization. The external query did not provide a decisive general coefficient formula; that is not a proof none exists.",
+        "searches": [
+          "Resultary: general coefficient formula Ciani quartic Hasse-Witt matrix Hasse invariant parameters",
+          "arXiv:2201.12996v1 §3",
+          "Websearch: Ciani quartics all characteristics Hasse quartic coefficient hypergeometric Cartier Manin matrix Ciani family superspecial general formula discriminant"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_extended_hasse.py; both replacement files under repairs/1",
+        "arXiv:1212.2708v1",
+        "arXiv:math/0106273v1",
+        "arXiv:2201.12996v1",
+        "Resultary exact coefficient and boundary records identified above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Smooth symmetric Ciani quotients share the same Legendre supersingularity criterion, so this part is already implied by Ohashi and Deuring theory.",
+          "The p=7 coefficient polynomial alone already implies the example multiplicity four, regardless of whether that source discusses it.",
+          "The double-conic Resultary finding treats stable reduction and quadratic monodromy, not the Hasse coefficient."
+        ],
+        "reasoning": "The fixed-characteristic examples and smooth geometric criterion are explicitly credited, not disclaimed on wording grounds. The additional identity fixes the power and its excess at a singular parameter for all p simultaneously; this needs the characteristic-p central-coefficient and binomial evaluation, or an equally normalized differential computation, beyond reading the smooth quotient criterion.",
+        "searches": [
+          "arXiv:2201.12996v1 Lemma 3.1 and §3 degree-eight isogeny",
+          "arXiv:math/0106273v1 §3 Deuring polynomial",
+          "Resultary characteristic-seven direct Hasse entry --37fdc8ec2df8",
+          "Resultary double-conic boundary --272edc07ef21"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Badr–Saleem use the same symmetric family under the Kuribayashi name.",
+          "With coherent square roots and r=s=t=a, the quotient Legendre parameter of Ohashi's Lemma 3.1 is −1/(a+1), the reciprocal of −a−1. Auer–Top give the Legendre root criterion and normalized elliptic polynomial."
+        ],
+        "reasoning": "The two Legendre coordinates are equivalent for smooth supersingularity; the binomial polynomial is reciprocal up to the factor t^m. The geometric zero criterion does not by itself fix the polynomial coefficient, the multiplicity of its known smooth zeros, or its vanishing order along the excluded locus. In particular a change of Legendre parameter or differential cannot be ignored when comparing normalized coefficients.",
+        "searches": [
+          "Resultary: symmetric Kuribayashi quartic Hasse polynomial double conic boundary multiplicity",
+          "arXiv:1212.2708v1 Introduction",
+          "arXiv:2201.12996v1 Lemma 3.1",
+          "arXiv:math/0106273v1 §3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "At p=5, symmetric specialization of the quotient equations yields (a−2)^2(a²+3a+3)=a⁴−a³+2.",
+          "At p=7, b=a in the two-parameter Hasse entry yields 2a(a−2)^2(3a³+4a²+4a+1)=2a(a−2)^4(3a+2).",
+          "At p=11, r=s=a in the distinct same-day two-parameter entry yields 2a(a−2)^5(5a²+4a+4)(a²+10a+10)."
+        ],
+        "reasoning": "These are exact overlapping entries, not merely nearby titles: they recover the p=5,7,11 instances, including the coefficient's boundary orders 2,4,5 respectively after extension. Their stated smooth domains do not invalidate this polynomial implication. They cannot establish the all-prime identity, which is the surviving claim. No independent uniform table or all-prime formula was found in the inspected material.",
+        "searches": [
+          "Resultary: focused characteristic-five, characteristic-seven and characteristic-eleven Ciani Hasse coefficient queries",
+          "2026/11/2/SCOPE-six-rational-low-5-rank-curves-in-the-characteristic-five-ciani--38e95fbca73c",
+          "2026/11/8/SCOPE-five-hasse-divisor-components-and-seven-transverse-superspecial--37fdc8ec2df8",
+          "2026/11/22/SCOPE-eight-hasse-components-and-25-reduced-superspecial-parameters-in--bcd036ddc1d1"
+        ]
+      },
+      "rationale": "Pass only the supported uniform exact polynomial identity in the specified full-line normalization and the associated scheme multiplicity. The smooth superspecial criterion, the elliptic input and the individual p=5,7,11 coefficient specializations are not new content. The strongest prior exact overlap gives even the boundary exponent at p=7 by polynomial specialization. The distinct same-day p=11 overlap is credited as mathematical coverage of that characteristic without inferring chronology. No inspected prior statement evaluates the normalized full-line coefficient uniformly in p or mechanically gives that uniform factor by specifying parameters in a stronger coefficient formula.",
+      "residual_risks": [
+        "The cited Oct. 26 characteristic-five census full record was unavailable; additional characteristic-five overlap would concern an already credited instance.",
+        "Priority of the distinct same-day characteristic-eleven record relative to the target was not determined.",
+        "Bounded searches cannot exclude an earlier uniformly normalized quartic Hasse identity that would specialize to this factorization. The pass is not an exhaustive priority claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior family and characterization of smooth parameter domain, different invariant",
+          "evidence": [
+            "Displays the same one-parameter quartic with a≠−1,±2 in its smooth analysis."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1212.2708v1",
+          "material_read": "Introduction, OA offset 1200",
+          "method": "OA HTML passage",
+          "title": "Classification of 1-Weierstrass points on Kuribayashi quartics, I (with two parameters)",
+          "trigger": "Same symmetric pencil under another name"
+        },
+        {
+          "assessment": "Core classical input, not the plane-quartic coefficient identity",
+          "evidence": [
+            "The m distinct supersingular Legendre parameters are roots of (−1)^m∑binom(m,j)^2 x^j. The divisibility statement for H_p(−x) implies splitting over F_{p²}."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/math/0106273v1",
+          "material_read": "§3, offsets 17450–22147; Proposition 3.1 consequence and Proposition 2.7 cross-reference",
+          "method": "OA HTML passages",
+          "title": "Legendre elliptic curves over finite fields",
+          "trigger": "Exact elliptic polynomial, its roots and field of definition"
+        },
+        {
+          "assessment": "Fully relevant smooth-fiber antecedent; inspected equations do not give the normalized plane coefficient",
+          "evidence": [
+            "Explicit quartic completion of the square, reciprocal Legendre parameter after diagonal specialization, degree-eight isogeny and criterion via all three elliptic quotients."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2201.12996v1",
+          "material_read": "§3 Lemma 3.1 and proof, offsets 11700–16061; degree-eight isogeny and criterion near 16200",
+          "method": "OA HTML passages",
+          "title": "On the maximality of genus-3 nonhyperelliptic curves of Ciani type",
+          "trigger": "General smooth Ciani quotient models and superspeciality"
+        },
+        {
+          "assessment": "Verified exact p=5 special case",
+          "evidence": [
+            "Specializing the equations to the fully symmetric diagonal recovers a⁴−a³+2."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-six-rational-low-5-rank-curves-in-the-characteristic-five-ciani--38e95fbca73c",
+          "material_read": "RESULT.md offsets 0 and 2180",
+          "method": "Resultary and local mirror passages",
+          "title": "Six rational low-5-rank curves in the characteristic-five Ciani family",
+          "trigger": "General characteristic-five quotient Hasse equations"
+        },
+        {
+          "assessment": "Strongest earlier exact overlap: p=7 formula and boundary multiplicity follow by restriction",
+          "evidence": [
+            "Coefficient λ on b=a factors as 2a(a−2)^4(3a+2) in F_7[a]."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-five-hasse-divisor-components-and-seven-transverse-superspecial--37fdc8ec2df8",
+          "material_read": "RESULT.md offsets 400 and 2600",
+          "method": "Resultary and local mirror passages",
+          "title": "Five Hasse-divisor components and seven transverse superspecial parameters for a characteristic-seven Ciani quartic family",
+          "trigger": "Direct Hasse–Witt coefficient for a containing two-parameter family"
+        },
+        {
+          "assessment": "Verified same-day p=11 special case; no date-based priority inference",
+          "evidence": [
+            "The A entry on r=s=a is 2a(a−2)^5(5a²+4a+4)(a²+10a+10)."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-eight-hasse-components-and-25-reduced-superspecial-parameters-in--bcd036ddc1d1",
+          "material_read": "RESULT.md offsets 200 and 2600",
+          "method": "Resultary and local mirror passages",
+          "title": "Eight Hasse components and 25 reduced superspecial parameters in characteristic eleven",
+          "trigger": "Distinct indexed characteristic-eleven coefficient formula containing the diagonal"
+        },
+        {
+          "assessment": "Prior study of the boundary, different invariant",
+          "evidence": [
+            "Computes stable reduction and quadratic monodromy."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-the-octahedral-hyperelliptic-limit-and-exact-quadratic-monodromy--272edc07ef21",
+          "material_read": "RESULT.md Finding",
+          "method": "Resultary and local mirror passage",
+          "title": "The octahedral hyperelliptic limit and exact quadratic monodromy at the double-conic Ciani boundary",
+          "trigger": "Same singular double-conic boundary"
+        },
+        {
+          "assessment": "Potential additional characteristic-five overlap, not used as statement-level evidence",
+          "evidence": [
+            "Catalogue describes smooth marked-Ciani p-rank strata; the actual comparison relies on the distinct and accessible Nov. 2 formula above."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-exact-parity-dependent-p-rank-strata-of-characteristic-five-ciani--4f47b96584ec",
+          "material_read": "Indexed description only; requested local-mirror RESULT.md unavailable",
+          "method": "Resultary metadata and local-mirror read attempt",
+          "title": "Exact parity-dependent p-rank strata of characteristic-five Ciani quartics",
+          "trigger": "Frozen cited rank census of the containing marked Ciani family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The nonreduced double-conic fiber is a distinguished geometric boundary of the chosen pencil. A smooth supersingularity criterion gives no order of collision with it. For computations of the extended divisor on this parameter line, the exact normalization and the extra boundary order in the supersingular Legendre case give an all-prime description of the local scheme length and smooth count; both distinguish genuine collisions from the high base multiplicity. This value is for the uniform boundary invariant, not the known smooth criterion or recomputation in a few characteristics.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

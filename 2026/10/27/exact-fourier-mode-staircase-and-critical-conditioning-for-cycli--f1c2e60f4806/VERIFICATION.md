@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification of the cyclic Bergman kernel spectrum
+# Independent mathematical audit
 
-The analytical proof is contained in `RESULT.md` and uses no unprovided external lemma. Key checks are normalization of the Bergman kernel, cyclic Fourier residue filtering, exact summation of a geometric series and its first weighted moment, strict sign control of consecutive-eigenvalue ratios, hyperbolic-sine monotonicity of the transition parameter, strict endpoint ordering of the smallest eigenvalue, and a uniform boundary scaling expansion.
+## correctness
 
-Run `python3 check_bergman_spectrum.py` with standard Python 3; no third-party packages are required. The recorded output was:
+PASS
 
-`PASS: 177 finite DFT, extrema, and limiting-profile cases`
+The repaired finding claims exactly the minimum and maximum classification, expressly allowing other ties. With the stated Gram convention the roots-of-unity filter picks exponents j modulo N, and summation gives the positive eigenvalues. Adjacent ratios decrease with j and cross one at j=T_N(q). The hyperbolic-sine derivative and the two endpoint expansions establish the attainable staircase range. Strict log-concavity and the strict endpoint ratio place the unique minimum at N-1, including N=2. For fixed c, the error in j log(1-c/N) is O_c(1/N) on the whole grid; this and the denominator limit give the uniform profile. Its derivative changes sign only at x_c, and its positive equal endpoint values give the limiting minimum. Evaluation at x_c gives the condition number and its small/large-c limits. Synthesis uses the Gram quadratic form, so its condition number is the square root of the Gram ratio.
 
-Finite cases compare the spectrum of the complex Gram matrix via an independent direct discrete Fourier transform with the algebraic eigenvalue formula, and compare the extremizing modes and finite-size boundary profiles against their analytic forms. These checks do not prove the uniform \(N\to\infty\) limit or mathematical originality. The uniform limit is justified in the proof from expansions with \(c\) held fixed. No independent audit or validation has been performed.
+## originality
+
+PASS
+
+The repaired contribution is the exact extremal-mode staircase and the uniform many-node Bergman conditioning law. Cyclic Fourier filtering is standard, and the available same-kernel projection theorem gives the residue norms and hence the basic finite eigenvalue formula. Its fixed-orbit high-monomial-degree optimization does not already give this extremal-mode classification or many-node scaling. The strongest same-day match inspected has a different kernel and boundary scale.
+
+## value
+
+PASS
+
+For normalized interpolation on a regular ring the worst upper mode changes discretely with radius, while the worst lower mode never changes. This affects sharp finite synthesis bounds; the uniform critical profile determines the limiting conditioning with an explicit dependence on how close to the boundary the nodes are. Fixing the overbroad degeneracy wording retains both useful results, beyond the finite spectrum computation alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

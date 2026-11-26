@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The target, two orderings, metric, parameters and equality cases are specified exactly in `RESULT.md`. The proof reduces the problem to the common two-dimensional invariant span, proves equal squared Frobenius norms through equal trace/determinant, derives the exact signed difference through a direct projector polynomial calculation, and proves the rate sign with strict monotonicity of the hyperbolic cotangent expression. Symbolic, rational and numerical checks in `verify.py` independently exercise the critical identity and do not substitute for the analytic argument.
+## correctness
 
-## Originality — PASS, with residual historical uncertainty
-The defining claim is an exact for-all-positive-steps signed Frobenius-error comparison of **two reversed symmetric Strang compositions** of arbitrary noncommuting rank-one orthogonal dissipators. The inspected full text of Blanes–Iserles–Macnamara studies positivity-preserving splittings without presenting this projector-specific ordering formula. Classical Strang consistency does not determine the sign of two leading error constants or the exact global sign. The closest located published finite-state comparison instead concerns a directed-cycle Lie-versus-Strang **stationary total-variation** error; another concerns exact two-state three-factor splittings, whose one-dimensional dissipator geometry does not imply a strict two-projector result. Searches by aliases, order reversal, rank-one projectors and Frobenius norm found no exact broader claim in reviewed sources. A historical-priority risk survives because exhaustive older projector-product literature was not inspected.
+PASS
 
-## Value — PASS
-Ordering otherwise identical symmetric three-factor schemes changes finite-step accuracy for noncommuting dissipators. The exact sign law gives an actionable choice at **every** step length for an important minimal reversible heat-transfer problem, rather than a small-step heuristic. The equality and strictness cases show when order choice does and does not matter. The result does not claim universality beyond the Frobenius metric, rank-one projectors or one-step comparison.
+The exact rate-ordering theorem survives. The repaired RESULT.md keeps the theorem, defines the removable Δ=0 case (a=b, z=0), specifies the symmetric uniform-measure heat path for z=1/4, and corrects the material misstatement that the two-state comparison concerns collinear generators. Independent derivation: on span(u,v) both symmetric products have identical trace and determinant, so the squared-error difference is -2 tr(E_h D), D=S_A-S_B. Set α=1-X, β=1-Y, A=1-X², B=1-Y². Direct projector algebra with PQP=zP and QPQ=zQ gives D=(αB−βA)(PQ+QP)−α²BzP+β²AzQ. Thus tr(PD)=−β²Az(1−z), tr(QD)=α²Bz(1−z), and tr(D)=0. Since E_h is a scalar identity minus L times 2aP+2bQ−(a+b)I on the span, contraction yields the boxed formula. r coth(rh/2) is strictly increasing because sinh(s)cosh(s)−s>0 for s>0. The commuting endpoints give exactness, equality for a=b follows from the factorization, and h=0 is handled directly. The h^6 coefficient follows from r coth(rh/2)=2/h+r²h/6+O(h³), L=h+O(h²), and the other two squared factors starting at a²b²h⁴. The repaired proof and references were rechecked; supplied verification output is supplementary, and the recorded verifier was not executed.
 
-## Independent assessment and limitations
-No independent proof audit or exhaustive historical-priority certification was performed. The supplementary numerical tests sample finitely many parameters; the proof supplies the continuum statement.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The revised finding claims the signed all-positive-timestep Frobenius identity for two orthogonal rank-one dissipators and the resulting ordering in that setting. The qualitative faster-outer rule also occurs under different hypotheses in a distinct same-day irreversible-chain result, and a primary paper gives a local/regime-specific comparison on a similar bidirectional path. Both are now credited, as is the actual two-state noncommuting factorization. The exact continuous Frobenius result is not implied by the inspected materials. No prior order within the catalogue date is inferred.
+
+## value
+
+PASS
+
+The comparison resolves an equal-cost order choice for a natural pair of noncommuting elementary dissipations, including the smallest symmetric heat path with two distinct edge actions. The exact sign holds at every positive timestep, not just near zero. It detects a difference even though the two products have identical spectra and Frobenius norms; no stronger norm or trajectory-level advantage is claimed. The corrected literature framing leaves this contribution intact.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

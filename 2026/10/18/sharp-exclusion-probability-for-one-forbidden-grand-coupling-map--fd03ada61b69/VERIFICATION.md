@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Finite and analytic verification
+# Independent mathematical audit
 
-The claim is the sharp probability of nonrepresentability of a row-normalized independent-uniform stochastic matrix when one prescribed deterministic map is disallowed. The analytical argument has five independently articulated steps in `RESULT.md`: (1) support-polytope criterion with constructive coupling, (2) exact coordinate density envelope, (3) Dirichlet-simplex integral coefficient, (4) gamma concentration plus uniform integrability, and (5) exponentially small exceptional-corner contribution. The \(n=2\) boundary is treated separately. No computer enumeration is offered as a proof for all \(n\).
+## correctness
 
-Run `python verify.py` with Python 3, NumPy and SciPy. An actual execution completed **259 finite checks**: 240 linear-programming comparisons for \(n=2,3\), 10 numerical density identities for the \(n=3\) Irwin–Hall ratio, six Dirichlet importance-sampling corrections, and three logarithmic normalization checks. Very-near-boundary LP instances are excluded only when the sign is at or below a specified numerical tolerance, to prevent treating a solver-tolerance decision as mathematical evidence. The sampled importance ratios, ordered by dimensions \(5,8,12,20,40,80\), were \(0.956741,0.977207,0.984713,0.991160,0.995598,0.998153\). These estimates support but cannot establish their infinite-dimensional limit.
+PASS
 
-The independent-uniform input distribution and exact \(\mathrm{Beta}(a,b)\) Dirichlet comparison marginals are crucial: substituting Dirichlet-distributed transition rows changes the event probability. The error term in the asymptotic is an unspecified relative \(o(1)\). No independent audit has been performed.
+Verified the full one-map equivalence and relative asymptotic analytically. The cube cut by sum x_i <= n-1 is integral: at a vertex on the cut, at most one coordinate is not at a cube bound, and the integer right-hand side forces that coordinate to be integral too. Lifting its binary law to row marginals uses the positive 1-x_i denominators. For a=n-1 the uniform-sum density bound and ratio Jacobian give (a/n!) d^(a-1)(1-d)^(-n), with equality up to 1/2; the Dirichlet mass constant is exactly 1/(n^n(na)!). The Gamma representation implies nM and n sum d_i^2 tend to 1 and the n-scaled slack tends to 0, giving log W=n+1/2+o_P(1). For an explicit integrability check, on T>=na/2 bound exp(r nM) by exp(2r max G_i/a) for fixed r>1. On max G_i>2a, the union bound in expectation and a Gamma tilt of 1/4 give at most n exp(-a/2)(3/4-2r/a)^(-a), exponentially small for large a. The lower-Gamma-tail event T<na/2 contributes at most exp(rn+na/2)2^(-na-1). The remaining simplex corners have beta power b-n=(n-1)(n-2) and are exponentially negligible on the n^2 scale. The n=2 case needs no corner bound: continuity and row exchangeability give probability 1/2. The result is exactly for one fixed, not necessarily injective, map and normalized iid uniform rows.
+
+## originality
+
+PASS
+
+The supported increment is the sharp general-n nonrepresentability probability for one preassigned map, including the e^(1/2) correction, not the sampling model, the n=2 answer, or a solution for all permitted map sets. The closest inspected full-text prior solves n=2 and gives a sufficient proper-subset obstruction, not the full simplex criterion or the asymptotic under this distribution.
+
+## value
+
+PASS
+
+Resolves a natural and explicitly asked subcase of the published probability question. Separating the integral normalization from the concentrating row-normalization product produces a nontrivial sharp multiplier, not merely an order estimate or recomputation of the two-state case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:08:47.740916Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–101, VERIFICATION.md and verify.py (inspected without executing supplied code)",
+        "/workspace/branches/102e22d1-508a-4485-8761-899e6ff17e70/independent_census.py"
+      ],
+      "rationale": "For each input the lower approximation is the complement of the upper approximation of the complementary input. With F=[n], nonfull upper values are the empty value, 2n singleton/co-singleton pairs, 2(2^n−n−2) one-full values, and n(n−1) distinct-index co-singleton/co-singleton values. Every one has a full-complement representative. The only inputs with both coverages nonfull are ({i},F\\{i}) and their shore swaps, all with distinct images. The full/full value exists by selecting the same singleton index on both shores. Thus there are 1+2(2^(n+1)+n²−n−3)+2n images. The one-full values whose nonfull coverage is (F,F\\{i}) or its swap have 1+sum_{k=2}^{n−2} binom(n−1,k)=2^(n−1)−n preimages; both orderings give 4n distinguished fibers. All others save the central fiber are singleton, and subtraction from 4^n gives the claimed c_n. For K_{n,n}, a proper nonempty subset of a single shore yields one-full coverage, with full complementary coverage; the empty subset and full/full value finish the count. The n=1 crown has two isolated vertices, and n=2 has two disjoint edges. Independent exhaustive neighborhood enumeration at n=3,4 returned crown/biclique counts 45/27 and 91/59, and the full crown fiber histograms 44 singletons plus one size 20, and 74 singletons plus 16 of size 4 and one size 118. These are examples, not the proof.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Järvinen–Radeleczki, p. 3, §§4–5 synopsis: subdirect products, irredundant-covering characterization, and Dedekind–MacNeille completions."
+        ],
+        "reasoning": "The general statements use the same underlying approximation notions but do not count the image or preimages here. In particular an irredundant clique cover inducing the crown tolerance is impossible: every edge must be a block and neither endpoint is private to it when n≥3.",
+        "searches": [
+          "arXiv:1303.6332, §§2,4–5",
+          "DOIs 10.3390/math14020369, 10.5206/mase/article/view/23201, 10.1007/s10700-020-00245-z"
+        ]
+      },
+      "checked_sources": [
+        "Resultary records b1b4dc7b9990, 80b1c1990293, f889b5906330, e0bbe5363d74, 2b287c9e586f and the self-hit",
+        "Järvinen–Radeleczki arXiv:1303.6332"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "80b1c1990293, Finding: 2^k T_G(3,2) for dual incidence orders; Järvinen–Radeleczki compare the rough-set order with its completions."
+        ],
+        "reasoning": "The incidence order changes both the relation and the ground set, adding edge elements; the completion can add pairs. Neither theorem supplies the labeled neighborhood image or its preimages. The known baseline identifies only one term of the difference.",
+        "searches": [
+          "Resultary: rough-set cardinalities of graph-incidence orders Tutte evaluation",
+          "arXiv:1303.6332, p. 3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The identical 18dfb63d218e hit is the record under review. Distinct results concern closed-neighborhood forests, paths or clique bouquets."
+        ],
+        "reasoning": "Counting (U(X),U(V−X)) instead of (L(X),U(X)) is an invertible relabeling. The matching-deleted biclique is cyclic, triangle-free, and has no cut vertex for n≥3, so it is not a forest, path, or clique bouquet. Those families do not give this census.",
+        "searches": [
+          "Resultary: crown graph deleting perfect matching closed-neighborhood tolerance approximation pairs fibers",
+          "Resultary: rough observation pairs closed-neighborhood graph tolerance exact image fiber census"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "b1b4dc7b9990, Finding: 3+2 sum_i(2^(n_i)−2) for complete multipartite tolerance; the matching-deletion census match is the identical record."
+        ],
+        "reasoning": "The multipartite formula contains the exact baseline but not the crown; nonadjacency is not transitive there. No separate exact crown table or uniform family entry was identified.",
+        "searches": [
+          "Resultary: rough-set lattice of a complete multipartite tolerance normal form symmetries reconstruction",
+          "Resultary: crown graph deleting perfect matching closed-neighborhood tolerance approximation pairs fibers"
+        ]
+      },
+      "rationale": "The biclique baseline is prior. The surviving claim is the exact increase and complete inverse-fiber census for the crown under the same reflexive tolerance. The inspected statements do not cover that claim on the evidence available.",
+      "residual_risks": [
+        "A specialized enumeration may exist under other terminology; several cited rough-graph papers could not be checked in full. This is not a priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers baseline only",
+          "evidence": "Multipartite formula specializes to 4·2^n−5 for two size-n shores.",
+          "identifier_or_url": "2026/10/18/SCOPE-the-rough-set-lattice-of-a-complete-multipartite-tolerance-norma--b1b4dc7b9990",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local published record mirror",
+          "title": "The rough-set lattice of a complete multipartite tolerance",
+          "trigger": "Exact comparison count"
+        },
+        {
+          "assessment": "Different relation and ground set",
+          "evidence": "Counts pairs for a dual incidence poset with edge-elements.",
+          "identifier_or_url": "2026/10/18/SCOPE-rough-set-cardinalities-of-graph-incidence-orders-are-a-tutte-ev--80b1c1990293",
+          "material_read": "RESULT.md Finding, offset 700",
+          "method": "Local published record mirror",
+          "title": "Rough-set cardinalities of graph-incidence orders are a Tutte evaluation",
+          "trigger": "Potential exact general graph census"
+        },
+        {
+          "assessment": "Distinct restricted families",
+          "evidence": "Forest, path and clique-bouquet hypotheses respectively exclude the crowns in the stated range.",
+          "identifier_or_url": "f889b5906330; e0bbe5363d74; 2b287c9e586f",
+          "material_read": "Corresponding RESULT.md Findings, offset 0",
+          "method": "Local published record mirror",
+          "title": "Forest-wide ambiguity gap; Tribonacci path census; clique-bouquet spectra",
+          "trigger": "Exact graph tolerance counts and fiber sizes"
+        },
+        {
+          "assessment": "Framework and order structure, not a specialization furnishing the claimed count",
+          "evidence": "Irredundant-covering criterion, subdirect-product characterization and completion results.",
+          "identifier_or_url": "https://arxiv.org/pdf/1303.6332",
+          "material_read": "Abstract and p. 3 §§4–5 synopsis and §2 definitions, offset 9130",
+          "method": "OA PDF passages",
+          "title": "Rough Sets Determined by Tolerances",
+          "trigger": "General theory with same approximation pair"
+        },
+        {
+          "assessment": "Coverage unresolved in unread text",
+          "evidence": "Full text not inspected; no inference of absence.",
+          "identifier_or_url": "10.3390/math14020369; 10.5206/mase/article/view/23201; 10.1007/s10700-020-00245-z",
+          "material_read": "Landing/abstract only for the first; no full passages verified for the latter two",
+          "method": "Bounded lawful retrieval attempts",
+          "title": "Categorical Structures in Rough Set Theory and Information Systems; A study on rough graphs; Rough approximation models via graphs based on neighborhood systems",
+          "trigger": "Cited rough graph/approximation prior work"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 5–28 and 62–97"
+      ],
+      "rationale": "Deleting a canonical sparse matching from a symmetric graph gives an exact quadratic net gain rather than merely a qualitative change. The inverse-fiber classification identifies exactly where the remaining indistinguishability sits, including the boundary n=3; the baseline or the image size alone does not give this distinction.",
+      "residual_risks": [
+        "No claim about arbitrary matching deletions or an application to data processing is tested."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

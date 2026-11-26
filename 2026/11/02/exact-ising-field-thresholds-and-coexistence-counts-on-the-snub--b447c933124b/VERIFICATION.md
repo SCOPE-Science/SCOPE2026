@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Reproducible exact checks
+# Independent mathematical audit
 
-With Python 3 and no third-party dependencies, in the same directory run:
+## correctness
 
-```text
-python3 verify_geometry.py snub_edges.txt
-python3 verify_field_census.py snub_edges.txt
-```
+PASS
 
-The geometry check derives all 60 edges through exact equality in the cubic ring \(\mathbb Z[t]/(t^3-t^2-t-1)\), verifies degrees and 32 triangles, and compares with `snub_edges.txt`. Decimal approximations are used only to validate a wide distance gap, not to choose graph edges.
+For the repaired text, corrected the coordinate-parity ambiguity: all six permutations are used and exactly four sign triples per permutation satisfy the stated parity match. Restriction to even permutations would yield only 12 vertices. A standard-library rational-bracket calculation independently verified the real coordinate ordering, 60 shortest pairs, 5-regularity, 32 triangles and the exact labelled edge file. A direct-edge, integer histogram over every pair of complementary configurations reproduced every B_k and N_k; it fixes bit 23 off in 2^23 masks and adds their complements, checking every sector size against binomial(24,k). This uses neither frozen recurrence. Reduction H/J=60−2|δ(S)|−(h/J)(2k−24) and spin reversal reduce positive h to down-spin counts j≤12, and the two affine sector slopes in j are 2h/J−10 and 2h/J−2. They vanish only at 5 and 1 respectively. The census gives 18 at h=0 and throughout the low field, 201 from sectors 8..12 at h=J, 3 at the plateau M=8, 5302 at h=5J and 1 beyond it. No symmetry quotient is taken. The repaired geometric verification notes distinguish approximate original coordinate sorting/gap checking from exact distance equality and give an exact interval remedy; the theorem and labelled data are unchanged.
 
-The first census traverses the entire \(2^{24}\)-state hypercube in Gray order, updating a cut when one bit toggles. The second independently traverses all masks using the lowest-element deletion recurrence, storing exact cuts as bytes (bounded above by 60). Both yield all 25 maximum cuts and their multiplicities. The field check computes the rational lower envelope of every affine sector energy and confirms there are no additional positive transition fields, with exact coexistence counts. The supplied `verification_output.txt` was produced by running both programs on the supplied edge file.
+## originality
 
-The result is specific to a finite 24-vertex graph; no extrapolation to infinite thermodynamic systems is verified. Independent review was not performed.
+PASS
+
+Bounded to the 2026-11-02 finding: the demonstrated earlier coverage is the known high-field/independence portion, which is explicitly excluded. The strongest current-catalogue match completely overlaps even the low-field counts, but bears a later visible date (2026-11-08); it does not establish earlier coverage of the frozen claim, and the records' provenance is unresolved. The closest older same-body primary source discusses zero-field specific heat rather than the exact field-resolved maxima or coexistence. The repaired text distinguishes those findings and now credits the full later overlap. The pass concerns the exact finite low-field/cut classification beyond the prior independence data, not priority over all sources or a claim to currently unique catalogue content.
+
+## value
+
+PASS
+
+The snub cube was already a finite benchmark for frustrated antiferromagnetism. The full constrained-cut classification supplies the ground states under every uniform field, notably the one-third plateau, exact coexistence at the low field, and its magnetization-resolved counts; these are useful exact benchmarks not determined by high-field saturation data or heat capacity comparisons. The fixed-size histograms also explain the lower envelope rather than only checking a few fields. Value is assessed for the frozen-date contribution, not for recomputing the earlier independence counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

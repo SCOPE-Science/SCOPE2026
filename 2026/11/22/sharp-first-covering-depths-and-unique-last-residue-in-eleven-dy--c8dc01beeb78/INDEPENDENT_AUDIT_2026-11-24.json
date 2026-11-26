@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T13:08:54.473563Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md:5–46",
+        "VERIFICATION.md:19–27",
+        "check.py:12–116, inspected rather than executed",
+        "census.json: rows 1–11",
+        "reviews-evidence/04_stern_pull.py; 04-small.out, 04-mid.out, 04-end.out; replay with python3 -I 04_stern_pull.py 1 11 PATH_TO_CENSUS_JSON"
+      ],
+      "rationale": "The Stern recurrence gives S(2n)=(a,a+b), S(2n+1)=(a+b,b) for S(n)=(a,b). Each move is invertible modulo 2^k and preserves the condition that at least one coordinate is odd. The start (0,1) is fixed by the zero move, so fixed-length binary words with leading zeros give exactly the stipulated half-open prefix, and the first distance and least numerical index are correctly identified by breadth-first order and binary tie order. Independently computed via a synchronous predecessor recurrence: at each pair (a,b), take the minimum of twice the previous least index at (a,b-a) and twice that at (a-b,b) plus one, with infinity marking absence. This is exact by splitting indices into even and odd. The whole primitive grid was counted and the complete distance histograms, extreme layers and least indices agreed for all eleven k. The radii are (2,5,8,11,14,18,20,23,26,30,33); each final layer has size one, with (1,0) at k=1 and (-1,-1) thereafter. In particular the last index at k=11 is 4,920,978,067, between 2^32 and 2^33.",
+      "residual_risks": [
+        "The finite computation covers k=1 through 11 only; it proves no continuation of the last-residue pattern and no all-source directed diameter statement."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Reznick Lemma 4.5 proves eventual positivity for arbitrary fixed modulus, and Theorems 4.6–4.7 concern asymptotic equidistribution",
+          "Binary-digit-weight independence gives asymptotic coverage even jointly with weight classes"
+        ],
+        "reasoning": "The broader modulus and augmented distribution claims do not furnish a sharp rooted finite threshold or tell which ordered state is last.",
+        "searches": [
+          "arXiv:math/0610601 §4",
+          "Resultary 2026/11/8 record 9c2ceec9f9d1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:math/0610601 §4",
+        "Resultary 9c2ceec9f9d1, 57068b08083f, 67fcd3f4bd6d, 655e46fed4c6, 2026/9/7/SCOPE014",
+        "Focused primary-literature lookup"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known transfer rules count paths but do not report the first nonzero count for each rooted target",
+          "The mod-nine result estimates discrepancy for (1,2), not last states for dyadic moduli"
+        ],
+        "reasoning": "The graph is a credited premise. Computing the first visits to every state and finding the actual histogram endpoint and least index is additional finite mathematical evidence, rather than a substitution into a previously stated exact bound.",
+        "searches": [
+          "Reznick §4; Resultary records 9c2ceec9f9d1, 57068b08083f, 67fcd3f4bd6d"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Reznick §4, Lemmas 4.4–4.5 use the identical two generators and primitive space",
+          "Resultary 2026/9/7/SCOPE014 computes a diameter on PSL(2,13) using elementary shears and inverses"
+        ],
+        "reasoning": "The present statistic is positive-generator shortest distance from (0,1) in an action on vectors, not a symmetric all-pairs word metric on group elements. The same graph in Reznick does not itself supply distances.",
+        "searches": [
+          "Primary literature: exact dyadic Stern pair coverage and positive modular shear word lengths",
+          "Resultary: Stern dyadic residue spectra and exact modular shear graph diameters"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary record 67fcd3f4bd6d tabulates single-coordinate residues modulo eight",
+          "Record 655e46fed4c6 concerns discrepancy modulo the prime 11, based on its summary",
+          "No distinct table with the eleven rooted distances and indexed last pairs was found in the bounded searches"
+        ],
+        "reasoning": "Single-coordinate marginals cannot encode full ordered pair coverage, and the prime 11 discrepancy is not a table modulo 2^11. A search miss is not a priority proof.",
+        "searches": [
+          "Resultary: exact Stern dyadic residue spectra and finite covering depths",
+          "Primary literature: Stern pair first covering depths and last indices"
+        ]
+      },
+      "rationale": "The ordered pair graph and its eventual coverage are known. The extra claim is the exact rooted out-eccentricity, last-layer uniqueness and earliest binary index at every exponent in the stated range. The closest inspected exact and asymptotic results do not give this combined statement or imply the finite values without an additional exhaustive calculation.",
+      "residual_risks": [
+        "An unindexed exact positive-shear distance table or stronger theorem may exist.",
+        "The same-day discrepancy hit was assessed only from its summary; the catalog and primary searches are bounded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact setup and eventual positivity covered; no matching finite distance and least-index statement in the inspected section",
+          "evidence": "Length-r walks correspond to dyadic block counts; eventual positivity and asymptotic equidistribution are the conclusions.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0610601",
+          "material_read": "§4, pp. 9–11; Lemmas 4.4–4.5 and Theorems 4.6–4.7",
+          "method": "ArXiv full-text passage comparison",
+          "title": "Regularity properties of the Stern enumeration of the rationals",
+          "trigger": "Same primitive pair graph and Stern-index counts"
+        },
+        {
+          "assessment": "Asymptotic augmented coverage, not sharp finite covering depths",
+          "evidence": "Adds a digit-weight coordinate to the primitive modular pair process.",
+          "identifier_or_url": "Resultary 2026/11/8, 9c2ceec9f9d1",
+          "material_read": "Finding and Proof §§1–3",
+          "method": "Local mirror source inspection",
+          "title": "Binary-digit-weight independence for Stern diatomic residues",
+          "trigger": "Same consecutive-pair transfer moves"
+        },
+        {
+          "assessment": "Different modulus and observable",
+          "evidence": "Sharp discrepancy for the count of the specified pair (1,2) modulo 9.",
+          "identifier_or_url": "Resultary 2026/10/26, 57068b08083f",
+          "material_read": "Finding and transfer-state proof passage",
+          "method": "Local mirror source inspection",
+          "title": "Sharp non-square-root dyadic discrepancy for a Stern residue pair modulo nine",
+          "trigger": "Exact dyadic ordered-pair analysis"
+        },
+        {
+          "assessment": "Table concerns s(n) mod 8 alone",
+          "evidence": "Consecutive pairs are used as internal states, not as the tabulated observable.",
+          "identifier_or_url": "Resultary 2026/11/2, 67fcd3f4bd6d",
+          "material_read": "Finding and ‘Transfer states’ proof passage",
+          "method": "Local mirror source inspection",
+          "title": "Complete modulo-eight residue spectra of Stern’s diatomic sequence on dyadic blocks",
+          "trigger": "Plausibly overlapping exact table at k=3"
+        },
+        {
+          "assessment": "Available summary concerns a specified pair modulo prime 11; no whole-source exclusion inferred",
+          "evidence": "Modulo 11 and modulo 2048 are distinct, and discrepancy is not a covering depth.",
+          "identifier_or_url": "Resultary 2026/11/22, 655e46fed4c6",
+          "material_read": "Catalog summary only; source unavailable",
+          "method": "Local catalog lookup",
+          "title": "First prime square-root discrepancy for consecutive Stern pairs",
+          "trigger": "Same-day hit mentioning consecutive pairs and 11"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md:5–34",
+        "Independently checked distance histograms and last indices",
+        "Reznick §4"
+      ],
+      "rationale": "For a canonical integer sequence and a natural family of nested moduli, the rooted depth is exactly the minimum binary index budget needed to realize all allowed consecutive residues. The census resolves the sharp cutoffs, identifies the obstruction and its exact occurrence, and reaches far enough to exhibit two four-step increases rather than giving only tiny examples of eventual coverage. These are useful finite benchmarks distinct from a new asymptotic theorem.",
+      "residual_risks": [
+        "No asymptotic claim or evidence of a universal last residue is credited."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

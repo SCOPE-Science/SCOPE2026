@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness (PASS).** The general cover-graph lemma is proved by expanding each basic \(B;\le\) step to a descent without looped upper endpoints and an unrestricted ascent, and by showing each permitted cover arc is a valid basic step. On a tree, strong connectivity forces every edge bidirectional; reachability from a selected minimal point is equivalent to the absence of precisely those looped upper endpoints lying on outward downward traversals. The simple polynomial follows from freely choosing loops at minimal points, and the subdirectly-irreducible polynomial follows from finite inclusion-exclusion over candidate minimal roots. The proof handles the one-point case and arbitrary finite trees. Separate enumerative checks in `checker.py` examined every labelled poset and loop set through five vertices.
+## correctness
 
-**Originality (PASS within inspected evidence).** Alvarez's arXiv:2505.08014 and its open-access journal text prove the foundational finite \(Z\)-connected and \(Z\)-rooted dual characterisations. Those are explicitly prior. Searches of the original text and related records did not identify the local cover-digraph equivalence combined with the all-tree forced-vertex condition and weighted loop-number formula. Previously established results for level-complete/ordinal-sum finite frames include their own simple/SI counts; those more restricted claims are not advanced here. The all-orientations Hasse-tree theorem is compared by implication, not by wording. A similar oriented-tree theorem in earlier graph literature remains a priority risk.
+PASS
 
-**Value (PASS).** The finite rootedness problem from the new temporal-Heyting duality becomes a complete, reproducible classification for the natural class of posets with acyclic cover graphs. In particular, the exact subdirect-irreducible count uses a family of obstruction sets that may overlap nontrivially; the four-point branching example already separates it sharply from simplicity. Counting all loop choices by degree gives more than a decision procedure and is useful for constructing small simple and subdirectly-irreducible semantic test frames. No contribution is claimed for the already known abstract duality or chain special cases.
+Alvarez's finite-transit definitions and Corollaries 3 and 4 identify simplicity and subdirect irreducibility with Z-connectivity and Z-rootedness. Here Z is the closure of B;≤, where xBw exactly when w≤x and (w,x] has no looped vertex. Every upward cover is one such step and every downward cover from an unlooped upper endpoint is one; conversely any B;≤ step is a saturated descent through unlooped upper endpoints followed by a saturated ascent. Therefore the cover digraph gives exactly Z for any finite poset. On a tree, deletion of an undirected edge separates the graph, so strong connectivity requires every downward arc and is equivalent to loops only at minima. A universal root can be moved down to any minimal vertex beneath it by using an upward path back to the original root. From a selected minimal root, every path is realizable exactly when every outward downward cover is allowed, which means avoiding precisely its Fᵣ. The Boolean families of allowed decorations have intersection enumerators (1+t)^(n−|∪Fᵣ|), giving the asserted weighted inclusion–exclusion. The one-vertex transit has a two-element algebra and two admissible decorations for each property. The independent check in /workspace/branches/frozen_math_replay.py (argument 1) tested Z directly on 2,154 oriented labeled tree/decorations through four vertices, including coefficient checks, and passed. The uploaded checker was inspected, not executed; its counting assertions evaluate the polynomials at t=1.
 
-**Residual scientific limitations.** The weighted polynomial is for distinct loop decorations on one fixed underlying poset, not a Burnside orbit count; it is not an all-poset classification of simple/SI algebras. Historical priority and independent mathematical verification remain open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass for the explicit forbidden-set classification and weighted enumerators on arbitrary finite Hasse-tree posets. The foundational Z characterizations are Alvarez's, and earlier indexed congruence-lattice work covers a graph-incidence subclass. Neither inspected statement gives the all-Hasse-tree weighted decoration law; priority is not certified for restricted families or unexplored equivalent formulations.
+
+## value
+
+PASS
+
+For a naturally specified dual-frame family, the result turns a transit test for each individual algebra into a classification of all decorations with numbers of loops tracked. Root-specific constraints distinguish simple from merely SI decorations even on small mixed-orientation Hasse trees. The useful output is the family classification and exact polynomial, not a new characterization of arbitrary temporal Heyting algebras.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

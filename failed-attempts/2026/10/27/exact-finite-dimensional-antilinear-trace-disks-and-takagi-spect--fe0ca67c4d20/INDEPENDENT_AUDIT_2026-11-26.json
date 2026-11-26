@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:21:20.383962Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Conjugating the orthonormal-frame coordinates under the specified inner-product convention gives the complex conjugate of tr(W^T C W); skew perturbations contribute zero. Takagi congruence gives the sum of the weighted squares of the frame entries, bounded by sum_i s_i p_i with p_i the projection diagonal (0<=p_i<=1, sum p_i=k). The leading k coordinate frame attains the leading partial sum. For k=1 an isotropic vector on the first two coordinates gives zero, including when the second weight vanishes; if both vanish then C=0. For even k the 2x2 unitary blocks give zero diagonal in UU^T. For odd k>=3 the residual triple cancels using cos(2 theta)=-c/(a+b) in [-1,0], with an all-zero exception harmless. For example at n=k=3 and weights (4,2,1), the last construction gives trace 6*(-1/6)+1=0 while the identity gives 7. The path-connected complex Stiefel manifold and common-phase action then supply exactly the closed disk, including k=n and zero radii. Successive differences and Takagi uniqueness give the classification. VERIFICATION.md and verify_trace_disks.py were inspected; the package's 1,056 cases / 10,560 checked frames are recorded toleranced evidence, not an independent rerun. The exact hand check above is replayable by evaluating tr(DUU^T) for U=(cos(theta) I_2+i sin(theta) [[0,1],[1,0]]) direct-sum 1.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "bde8f36b6108 states a generalized-singular-value formula for all Hilbert spaces of dimension at least two and explicitly the closed disk for every finite-dimensional admissible rank; it also treats infinite-dimensional attainment and Schatten properties.",
+          "Majumdar–Müller gives the shape in infinite dimension; Kołaczek–Müller provides rank-one disk and a separate compression result."
+        ],
+        "reasoning": "Only the indexed Hilbert-space result both contains the finite top rank and identifies all the radii; the earlier literature supplies ingredients and overlapping cases.",
+        "searches": [
+          "Resultary bde8f36b6108, Finding/Assumptions and symmetric reduction",
+          "arXiv:2610.16823v1, Definition 7.1/Theorem 7.2",
+          "DOI 10.1007/s00020-024-02768-5, Corollary 2.2 and Theorem 2.4"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_trace_disks.py",
+        "Resultary bde8f36b6108",
+        "arXiv:2610.16823v1",
+        "DOI 10.1007/s00020-024-02768-5",
+        "arXiv:2105.04621",
+        "arXiv:2508.04347v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The symmetric antilinear part of M conjugation has matrix C, with C* = conjugate(C), so its square is CC*. Its positive square root has eigenvalues exactly the frozen Takagi singular values. Finite-dimensional boundary attainment is stated in the indexed result."
+        ],
+        "reasoning": "The general formula specializes literally to the claimed radii, the same skew invariance, and the same reconstruction. Together with classical Takagi, equal profiles are equivalent to unitary congruence of the symmetric matrices. Neither infinite-dimensional disk shape alone nor the classic rank-one statement implies the full frozen theorem.",
+        "searches": [
+          "Resultary bde8f36b6108, mirror offsets 0–3775",
+          "Majumdar–Müller Section 7 and Kołaczek–Müller Corollary 2.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "bde8f36b6108 uses the same normalized orthonormal-frame sums, with the opposite convention for the inner product; conjugation leaves its centered disks unchanged.",
+          "The Chan–Li–Poon setting is complex-linear; top-rank scalar trace there would be fixed, not an antilinear disk."
+        ],
+        "reasoning": "Different notations and conventions do not change the closed disk in this finite antilinear setting; higher-rank compression and constrained q-ranges are different objects.",
+        "searches": [
+          "Resultary: finite-dimensional antilinear trace-frame disks",
+          "Resultary: all-rank Takagi partial-sum radii",
+          "arXiv:2105.04621, joint k-numerical ranges"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Indexed record bde8f36b6108 displays R_k=(sigma_1+...+sigma_k)/k and sigma_k=kR_k-(k-1)R_(k-1), and expressly includes all finite ranks."
+        ],
+        "reasoning": "The exact functional identity, not a finite table at sampled matrices, is the meaningful lookup for continuous matrix inputs. It was found.",
+        "searches": [
+          "Resultary exact normalized trace-frame radius and singular-profile reconstruction"
+        ]
+      },
+      "rationale": "The primary papers inspected cover the rank-one disk or the infinite-dimensional shape, not the full stated finite profile. However, a distinct indexed result bde8f36b6108 explicitly contains the all-rank finite-dimensional theorem including top rank, inverse profile and skew invisibility within its general Hilbert-space statement. Unitary congruence is an immediate Takagi consequence. No distinct finite claim survives this statement-level comparison. Its visible November 2 date is later than the frozen October 27 date: this is a finding of present duplicate coverage, not evidence of earlier publication, order of discovery, or dependence.",
+      "residual_risks": [
+        "Priority between the exact matching records is not established and the visible dates do not make the broader record chronologically prior.",
+        "The tested excerpts are not a comprehensive survey of every equivalent formula in numerical-range or congruence literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Contains the full finite claim. The date does not establish priority for this matching result.",
+          "evidence": [
+            "Explicit finite-dimensional closed disks, k allowed to equal dimension, successive-difference inverse and invisibility of the skew component."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-trace-frame-numerical-ranges-recover-the-symmetric-antilinear-si--bde8f36b6108/RESULT.md",
+          "material_read": "Finding, assumptions and symmetric reduction, offsets 0–3775",
+          "method": "Local mirror at snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Trace-frame numerical ranges recover the symmetric antilinear singular profile",
+          "trigger": "Very close Resultary statement with broader domain"
+        },
+        {
+          "assessment": "Same range concept; the inspected theorem assumes infinite dimension and does not specify the exact radius",
+          "evidence": [
+            "The proof chooses vectors in successive infinite-dimensional complements, an argument not covering finite top rank."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.16823v1",
+          "material_read": "Definition 7.1, Theorem 7.2 and its zero-frame argument, around offset 63197",
+          "method": "Open-access primary text, bounded located passage",
+          "title": "Some Generalized Numerical Ranges of Real-linear Operators on Hilbert Spaces",
+          "trigger": "Same trace-range definition and disk theorem"
+        },
+        {
+          "assessment": "Rank-one shape and a zero-compression theorem, not all frame-sum radii",
+          "evidence": [
+            "Corollary 2.2 gives the disk for dim H>=2; Theorem 2.4 concerns P_L A P_L=0 under a dimension bound."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00020-024-02768-5",
+          "material_read": "Corollary 2.2 (PDF p. 3, offset 7265 nearby), Theorem 2.4 (PDF pp. 4–5)",
+          "method": "Primary PDF, extracted passages",
+          "title": "Numerical Ranges of Antilinear Operators",
+          "trigger": "Natural rank-one precedent"
+        },
+        {
+          "assessment": "Different operator class; no evidence of the antilinear profile in the inspected passage",
+          "evidence": [
+            "Treats complex-linear operator tuples and k<dim H."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2105.04621",
+          "material_read": "Abstract, offset 0",
+          "method": "Open-access primary text scope check",
+          "title": "Joint k-numerical ranges of operators",
+          "trigger": "Potential overlap under alternate k-range terminology"
+        },
+        {
+          "assessment": "Ordinary numerical ranges in the passages inspected",
+          "evidence": [
+            "The scope in those passages is the ordinary numerical range for real-linear operators."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2508.04347v1",
+          "material_read": "Abstract and Introduction, offsets 0 and 3282",
+          "method": "Open-access primary text scope check",
+          "title": "Real linear operators and numerical ranges",
+          "trigger": "Nearby real-linear numerical range theory"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The finite normalized trace profile would be a useful invariant, particularly at top rank, if it were not already available in the indexed general result. The finite specialization and the congruence reformulation add no independent mathematical information to that coverage. The elementary proof validates the finding but does not supply a substantively different result.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

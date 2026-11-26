@@ -1,19 +1,21 @@
-# Review of the Coxeter-graph metric-basis exchange classification
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-A complete finite proof was checked on two independent graph models: the layered 21-cycle-vertex-plus-seven-hub model, and the Fano nonline-disjointness model. An explicit graph isomorphism was verified in executable code. Exhaustion of all \(3{,}276\) landmark triples and \(20{,}475\) quadruples certifies exactly \(7{,}728\) minimum resolving sets. The full \(7{,}728\)-vertex exchange graph has \(155{,}904\) edges; BFS from every configuration exhaustively verifies all \(29{,}857{,}128\) unordered pairs, the diameter, radius and \(449{,}820\) forced one-step detours. The independent Fano model reproduces the geometry by 29 symmetry-orbit representatives and independently verifies the 336 action permutations. The classical Coxeter group order 336 is cited for completeness of this automorphism group.
+PASS
 
-## Originality: PASS (with residual priority risk)
+I checked the Fano-nonline and three-layer graph descriptions by finding an isometry of their distance matrices, without using the supplied isomorphism. A resolving set must meet the separator set for each unordered vertex pair; independent bitset enumeration found zero resolving triples and 7,728 resolving quadruples, and monotonicity excludes smaller sets. Grouping bases by their three-subsets constructs each exchange edge exactly once; the independent count is 155,904 with the entire stated degree histogram. Full distance-preserving backtracking found all 336 graph automorphisms: every surviving branch respects pairwise equality of distances and injectivity, and all choices are exhausted. The 29 resulting base orbits have multiplicities 18×336, 9×168, 2×84. One exact BFS per orbit, weighted by the orbit size and halved for off-diagonal unordered pairs, reproduces the five distance counts, radius, diameter, eccentricity frequencies and all 449,820 detours, including the breakdown by distance. Each exchange can increase intersection with a target by at most one, so the Johnson term is a true lower bound. The explicit bases sharing two landmarks violate the matroid basis-exchange axiom: none of the four target-directed intermediate candidates resolves, and independent BFS gives distance three. The independent group search removes reliance on the cited group order for this census.
 
-The scalar Coxeter metric dimension \(4\) appears in Bailey (2013), Tables 2 and 3, and is credited; it is not a new claim. Bailey's inspected full article discusses minimum-size computation via distance-matrix row separation and orbit representatives but does not give the number of all minimum configurations, their 29 orbit sizes, or the exchange graph. The Bailey–Cameron survey (2011) gives general background; standard Coxeter constructions and symmetry are older. No stronger implication covering these exact 28-vertex configuration results emerged from searches for resolving-set counts, bases, token-exchange reconfiguration or sensor-location terminology. Unindexed censuses remain possible, as does coverage in an inaccessible 2026 metric-base thesis. A failed search is not treated as proof of priority.
+## originality
 
-## Mathematical value: PASS
+PASS
 
-Complete optimizer classification on a canonical distance-transitive cubic graph is a motivated structural objective. The exact orbit decomposition and full exchange metric demonstrate that all optimal landmark choices communicate but that \(449{,}820\) unordered pairs cannot do so in the Johnson lower-bound number of moves. The resulting sharp one-step detour and failure of matroid exchange distinguish this family from ordinary combinatorial basis systems. This is an exact finite structural result, not an asserted generalization.
+The supported addition is the full minimum-basis and exchange-geometry classification of the 28-vertex Coxeter graph, rather than its known metric dimension or the symmetry-reduced search method. The most similar identified catalog statements differ in the underlying graph or basis predicate, and the inspected prior same-graph metric-dimension tables do not provide the census or exchange distances. This is a best-of-knowledge decision, with a specifically identified thesis access risk.
 
-## Limitations
+## value
 
-The theorem is restricted to the 28-vertex Coxeter graph and uses executable exhaustive finite certificates; the distance theorem is not independently proven by a general symbolic path classification. The full 2026 thesis was not accessible. Independent scholarly audit has not been carried out.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exchange graph describes how optimal resolving sets on a canonical cubic graph can be reconfigured without using extra landmarks. Among more than 29 million pairs it gives a uniform sharp one-step detour bound, classifies exactly where lengthening occurs by distance, and certifies a non-matroid obstruction. This distinguishes structural behavior not implied by the known dimension or abstract Johnson adjacency, and supplies an exact reference for comparing other graph families.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

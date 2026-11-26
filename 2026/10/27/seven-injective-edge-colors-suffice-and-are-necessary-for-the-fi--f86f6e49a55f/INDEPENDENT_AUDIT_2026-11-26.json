@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:29:01.211940Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md certificate and both source checkers and recorded outputs, read without executing submitted code",
+        "Independent replay: python3 /workspace/branches/reproductions/check2.py; stdout in /workspace/branches/reproductions/replay.txt"
+      ],
+      "rationale": "Orient each cube edge from its even-parity endpoint and generate it once from that endpoint and the changed bit, then sort by the frozen order key. Shared-endpoint edges cannot conflict in the triangle-free cube. For disjoint edges only the two cross-pairs of opposite parity can be joined; Hamming distance one exactly detects a connector in those pairs. The independent replay checked the literal 80-color list in RESULT.md against all 1120 conflicting pairs and obtained sorted class sizes 11,11,11,11,12,12,12. For the lower bound, edge transitivity lets any nonempty packing be moved to one through (0,1). A separate increasing-index enumeration, without the submitted coloring-based clique pruning, examined every anchor packing up through size 13 by intersecting the remaining compatibility lists and removing earlier indices. There were 51 compatible other edges, 12 packings of size 12 through the anchor and none of size 13. A still larger packing would include a 13-edge subpacking. Thus classes contain at most 12 edges, giving the lower bound ceil(80/12)=7. The checks use disjoint-connector conflicts, not proper or strong edge-color conflicts.",
+      "residual_risks": [
+        "The replay is an exact finite proof for the specified cube and convention; it does not classify all partitions or cubes of other dimensions."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 5.10 gives exact power-of-two dimension packing cases and Table 1 gives a lower bound of ten for Q5. The catalogue parity-split theorem gives a packing bound in general dimensions and the exact maximum of 12 for Q5.",
+          "The inspected degree bound gives at most 30 at maximum degree five. The specific Filomat article could not be read from a lawful available copy."
+        ],
+        "reasoning": "None of the inspected stronger-dimensional or general statements provides a seven-part partition of the five-cube. The unavailable product-graph text remains a literature risk, not evidence that it is noncovering.",
+        "searches": [
+          "Brešar et al. arXiv:2406.04020v1 §5.1, Table 1 and Theorem 5.10; Tian–Wang arXiv:2610.04891v1 pp. 1–2; Resultary d4fb72f17bca Finding",
+          "Bhanupriya–Dominic–Sunitha DOI 10.2298/FIL2312963K, product-graph coverage"
+        ]
+      },
+      "checked_sources": [
+        "Resultary d285e3a47bb6 and d4fb72f17bca exact Findings; related 96aea6130e79 on packing",
+        "arXiv:2403.00750v1 §1",
+        "arXiv:2406.04020v1 §5.1",
+        "arXiv:2610.04891v1 pp. 1–2",
+        "DOI 10.2298/FIL2312963K (bibliographic only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "80 edges and the known cap of 12 per packing force at least seven color classes.",
+          "The known census and orbit only specify maximum individual packings. A compatible global covering by disjoint classes, including four classes of size 11 for equity, requires additional evidence, supplied by the checked 80-entry certificate."
+        ],
+        "reasoning": "The old packing bound plus the definition immediately supplies the lower bound. The maximum-packing input is not a partition theorem, and no general theorem inspected forces the upper bound; the upper and equity evidence establish distinct content.",
+        "searches": [
+          "d285e3a47bb6 and d4fb72f17bca Findings and scope; arXiv:2403.00750v1 §1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Brešar–Samadi explicitly give the equivalence with partition into edge-open packings. Tian–Wang use line-graph distance two or common triangle. The cube has no triangles.",
+          "d285e3a47bb6 defines edge-open packings by exactly the same third-edge test."
+        ],
+        "reasoning": "Ordinary strong edge coloring adds incident-edge conflicts and is not an equivalent invariant. Under the actual equivalence, packing number optimizes one class, while injective edge chromatic index optimizes a partition of all edges.",
+        "searches": [
+          "Resultary: Q5 injective edge index, edge-open-packing partitions and disjoint connector conflicts",
+          "Brešar–Samadi arXiv:2403.00750v1 §1; Tian–Wang arXiv:2610.04891v1 pp. 1–2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact earlier five-cube catalogue Finding gives rho=12 and 80 maximum packings, all four stars in one orbit; the parity-split record gives the same exact packing data, and the later packing record also concerns the optimizer orbit.",
+          "The inspected table's Q5 entry is a packing lower bound, not a chromatic index.",
+          "The supplemental exact-title search returned no hits; this does not establish noncoverage."
+        ],
+        "reasoning": "The catalogue covers the packing invariant exactly. No inspected catalogue statement or table gives the seven-color optimum/equitable partition for the same conflict rule.",
+        "searches": [
+          "Resultary exact Q5 edge-open packing/partition and equitable seven-color searches; d285e3a47bb6, d4fb72f17bca, 96aea6130e79",
+          "arXiv:2406.04020v1 Table 1",
+          "External search for ‘Injective edge coloring of product graphs and some complexity results’ 10.2298/FIL2312963K hypercube Cartesian product"
+        ]
+      },
+      "rationale": "Published catalogue results already prove the 12-edge packing bound and therefore the seven-color lower bound; neither is credited as new. The supported distinct finding is the injective edge index itself, proved by the global seven-class partition, with the more specific equitable sizes. The strongest inspected packing results concern the size and orbit of individual packs, not their partitioning into seven classes. The inspected general coloring bound does not come close to implying the upper bound. This is a best-of-knowledge assessment; it does not claim absolute priority.",
+      "residual_risks": [
+        "The product-graph article remained inaccessible, and bounded searches do not exclude an unindexed equivalent partition or stronger cube theorem. The established prior packing bound is explicitly credited."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the full packing premise of the coloring lower bound, not the partition conclusion",
+          "evidence": "rho=12, 80 maximum packings in one orbit, four vertex-disjoint three-edge stars with their centers in one side.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-the-five-cube-has-exactly-eighty-maximum-edge-open-packings--d285e3a47bb6/RESULT.md",
+          "material_read": "Finding, Assumptions and initial construction, offset 0–2213",
+          "method": "Bounded local-mirror primary read",
+          "title": "The five-cube has exactly eighty maximum edge-open packings",
+          "trigger": "Exact graph, conflict convention and optimal packing size"
+        },
+        {
+          "assessment": "Packing theorem, not a coloring theorem in the inspected passages",
+          "evidence": "Parity-lift edge-open-packing lower bound in dimensions d>=2^k−1 and the exact Q5 pack value and optimizer count.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-parity-split-hamming-stars-improve-hypercube-edge-open-packing-w--d4fb72f17bca/RESULT.md",
+          "material_read": "Finding, scope, and start of proof §1, offset 0–2835",
+          "method": "Bounded local-mirror primary read",
+          "title": "Parity-split Hamming stars improve hypercube edge-open packing, with an exact five-cube census",
+          "trigger": "Potential general cube theorem and exact same-parameter census"
+        },
+        {
+          "assessment": "Explicitly establishes the terminology equivalence",
+          "evidence": "An injective edge coloring is a partition into edge-open packings.",
+          "identifier_or_url": "https://arxiv.org/abs/2403.00750",
+          "material_read": "§1, p. 2 around PDF offset 5740",
+          "method": "Bounded original OA PDF passage",
+          "title": "Edge open packing: complexity, algorithmic aspects, and bounds",
+          "trigger": "Equivalent partition terminology"
+        },
+        {
+          "assessment": "The inspected cube results address packing and do not establish the needed partition",
+          "evidence": "Q5 packing lower bound ten; exact packing for cube dimensions that are powers of two.",
+          "identifier_or_url": "https://arxiv.org/abs/2406.04020",
+          "material_read": "§5.1 p. 22 around PDF offset 92800, Table 1 and Theorem 5.10",
+          "method": "Bounded original OA PDF passages",
+          "title": "Induced matching vs edge open packing: trees and product graphs",
+          "trigger": "Primary cube-specific packing table and general theorem"
+        },
+        {
+          "assessment": "Equivalent conflict rule here, but not a bound of seven for Q5",
+          "evidence": "Distance two or common triangle; bound 2(Delta−1)^2−Delta+3 for Delta>=4.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.04891",
+          "material_read": "pp. 1–2, PDF offsets 0–4196",
+          "method": "Bounded original OA PDF passages",
+          "title": "Tian–Wang, arXiv:2610.04891v1",
+          "trigger": "Equivalent line-graph variant and possible dominating general upper bound"
+        },
+        {
+          "assessment": "Potentially relevant, not assessed as covering or not covering",
+          "evidence": "The attempts did not yield an identified lawful readable copy; no theorem statement obtained.",
+          "identifier_or_url": "https://doi.org/10.2298/FIL2312963K",
+          "material_read": "Bibliographic identification only; no article full text retrieved",
+          "method": "Direct/VPN OA attempts, DOI repository recovery, and an exact-title open-copy search",
+          "title": "Injective edge coloring of product graphs and some complexity results",
+          "trigger": "Plausible prior result for Cartesian products including a cube specialization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The five-cube is a natural symmetric product graph in the existing hypercube packing literature. Partitioning all 80 edges subject to the known two-step interference constraint is a different exact problem from finding one largest class, and a researcher working on injective edge coloring of cubes reasonably needs to know whether this packing-based lower bound is attainable in dimension five. The answer, with a balanced optimum witness, closes that specific gap rather than re-computing the known packing number. No broad product formula is claimed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

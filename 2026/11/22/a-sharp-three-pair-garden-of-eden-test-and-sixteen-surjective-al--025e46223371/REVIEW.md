@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The conservation premise is equivalent to four-output single-site flip equations, which are necessary on an eight-site ring and sufficient at all even ring sizes. The two exact independent linear systems both produce 174 ordered Boolean solutions. Global surjectivity is equivalent to absence of the empty subset in a complete finite eight-vertex two-output-block presentation; the complete reachable-subset closure gives 16 surjective and a 4/84/70 sharp obstruction histogram for the remaining 158. Eight reversibles are explicit site permutations; the other 166 have verified periodic collision certificates, including the eight surjective nonreversibles. These are finite exact proofs with standalone programs, not inferences from a search cutoff.
+PASS
 
-## Originality — PASS within inspected evidence
+The corrected finding retains the exact 174/16/8 counts and sharp 4/84/70 shortest-obstruction distribution. For even rings of length at least eight, a bit flip affects four distinct outputs and any six-bit context is available on the eight-ring. These flip equations and the constant-input conditions are necessary there and sufficient on every sufficiently long even ring by starting from zero and inserting the ones one at a time. Repeating any shorter even-ring input to a longer multiple preserves both parity and the local windows, establishing the remaining lengths. Importantly, the frozen line 17's assertion that both rational ranks are 17 is false: the eight-ring system has rank 17/free dimension 15, while the system of flip equations with the four individual constant-bit constraints has rank 19/free dimension 13. An independent exact row reduction gives both ranks and equality of the two Boolean solution sets, with 174 pairs. Path labels in the eight-state graph are precisely finite output pair-words, since the five-symbol input fragments overlap in three symbols. The subset automaton reaches the empty set exactly on an unattainable word; full finite reachability and compactness of nested bilateral preimage constraints prove the surjectivity test at all lengths. Independent exact enumeration confirmed the 16 onto rules and 4/84/70 minimum depths. Mapping coordinates by the eight matching-parity pairs gives local inverse permutations. All other 166 pairs were independently checked against the supplied periodic collision data (80/76/10 witnesses of lengths 2/4/6); periodic repetition makes them full-shift collisions, not obstructions to onto-ness. The repaired RESULT.md corrects the rank assertion and short-ring proof; the repaired check_surj.py removes the unrelated absolute module search path. Replay with those two replacements in a copy of the source directory, keeping the original verify.py and collision_witnesses.json alongside them. Independent replay did not execute the uploaded code. This PASS is for the corrected files, not the frozen rank assertion.
 
-The 2024 Makuracki et al. presentation already classifies reversible systems in a larger nonuniform family, so the number eight of reversible alternating pairs is not claimed as independent novelty. Their reversible classification does not imply which additional noninjective systems are surjective, nor does it imply the first-forbidden-output-block distribution. The full 2025 Wolnik et al. paper gives the conservation graph framework, but a graph enumerating admissible local rules does not settle the global image-language subsets. published-finding corpus searches on surjectivity, nonreversibility, period-two number conservation and three-pair Garden-of-Eden blocks returned no equivalent 16/158 classification; that absence is not a proof of historical priority. The related 2026 barriers-and-blocks source was only accessible by abstract, a recorded risk.
+## originality
 
-## Value — PASS
+PASS
 
-For a canonical minimal nonuniform extension of number-conserving traffic dynamics, global onto-ness is not equivalent to reversibility: precisely half of the onto rules have collisions. The complete 174-rule classification and sharp three-pair finite test are motivated structural and decision-theoretic facts, not arbitrary sample computations. They distinguish an infinite-system property from periodic injectivity and give a uniform exact observability cutoff.
+Credit is limited to the exact bilateral image classification for the number-conserving alternating four-input subclass: the sixteen onto pairs, the noninjective onto cases, and the sharp three-pair test and histogram. The conservation graph, the general image-language method and the reversible subset are not separately claimed as original. The strongest inspected indexed matches solve different rule classes; the available primary material gives conservation or short finite-block dynamics rather than the exact full-shift census. Repairing the ranks and proof exposition does not create or enlarge the originality claim.
 
-## Limitations and prior literature
+## value
 
-Only binary, two-periodic, four-consecutive-input rules satisfying all-ring number conservation are covered. The 2024 complete reversibility theorem already dominates the reversible subset; priority for the new surjectivity result remains provisional pending broader historical inspection, especially the inaccessible 2026 paper. Computations are finite-state proofs because the subset-automaton transition relation is exhaustive and logically equivalent to bi-infinite global surjectivity.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The short neighborhood and smallest nontrivial spatial period give a natural conserving subclass in which infinite-system onto-ness can be compared directly with reversibility. The exact classification demonstrates that half of the onto rules have collisions, and a witness of at most three even-aligned pairs diagnoses every failure of onto-ness, with three necessary for 70 cases. This sharp finite criterion and structural distinction have independent use beyond a count of conserving assignments. The repair preserves those conclusions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

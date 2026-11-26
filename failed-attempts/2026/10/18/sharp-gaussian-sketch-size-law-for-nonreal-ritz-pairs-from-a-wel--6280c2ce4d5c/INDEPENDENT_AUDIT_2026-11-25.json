@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:02:01.495753Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The exact integral and leading asymptotic are correct, but the frozen P₂ decimal is false. Put a=(y²+8)/(4√2) and H=√(a²+1+y²). At s=2 the inner x integral is exactly 1/[H(H+a)], so symmetry gives P₂=(1/π)∫_0^∞1/[H(H+a)]dy. Independent high-precision integration yields 0.113286148578841749617298…; the integral over [0,30] is 0.113224898589171211338918…, and the omitted tail is 0.0000612499896705382783802703…. This reproduces and explains the wrong headline decimal: verify.py:41 truncates y at 30 without a tail correction, and verification_output.txt:1 reports that truncated value. Replay with python -B /workspace/branches/audit-replay.py 5 (mpmath; no frozen script executed). Checking the analytic rest independently, the Euclidean compression has off-diagonal √(2/3) and residual row (0,1/√3); the sketched update gives discriminant (y²+8+4√2x)/3. Gaussian regression, changing W to W(I+ηηᵀ)^(1/2), gives the stated normalized density. In the Laplace coordinates t=u/s and y=w/√s, the integrand after factoring out 3^(-(s+1)/2) is bounded by (1+(2√2u/3+w²/2)/4)^(-2) for s≥4, integrable over u≥0 and real w. This justifies the stated prefactor by dominated convergence; the failure is in the asserted finite-s numerical conclusion, not the integral or rate.",
+      "status": "FAIL"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "In 71e006218203, h=δ/(2√2t)=√2, q=1+h²=3. The event b>h+u²/(4h) with b=−x,u=y yields exactly the frozen integral. The broader prefactor q/(h√(3πs)) q^(−s/2) reduces to √(3/(2πs))3^(−s/2).",
+          "The angular formula is stated for s≥3, but the direct density/parabola derivation holds for s≥2. Independently 32bec7a0c8b8 gives an all-symmetric-3×3 s=2 exact formula covering the frozen input."
+        ],
+        "reasoning": "The stronger results already yield this exact example with no residual case required. The earlier method and real-Schur articles do not establish the claimed rate in the inspected passages.",
+        "searches": [
+          "Resultary 71e006218203, Finding and Proof §§1–4",
+          "Resultary 32bec7a0c8b8, Finding and s=2 formula",
+          "arXiv:2407.03208v1 §3.2; arXiv:2610.22261"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py and verification_output.txt",
+        "Resultary 71e006218203, 32bec7a0c8b8 and 86f8010d501f",
+        "arXiv:2407.03208v1; doi:10.1137/23M1565413; arXiv:2610.22261, 2306.06481 and 2604.01037v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Direct substitution h=√2 in the broader parabola integral yields every correct finite-s claim and the broad Laplace result gives the exact same asymptotic constant. Correcting 0.113224898589… only computes a decimal of this already covered integral.",
+          "Earlier documented warnings about loss of real Ritz values do not by themselves imply a sharp probability law."
+        ],
+        "reasoning": "The issue is stronger exact mathematical coverage, not the loose implication that because a phenomenon is known its quantitative law must be known. No distinct corrected claim remains.",
+        "searches": [
+          "71e006218203, Proof §§1–4 and 32bec7a0c8b8, general exact s=2 expression",
+          "Nakatsukasa–Tropp §6.8; de Damas–Grigori §3.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Diagonalize the Euclidean trial compression using (q₂−q₁)/√2 and (q₁+q₂)/√2; the normal q₃ couples equally to both, with t=1/√6. The rotated data match 71e006218203 exactly at α=2−√(2/3), δ=2√(2/3), μ=2; real iid Gaussian sketches are invariant under this rotation.",
+          "The quarter-law record uses fixed-length, uniformly directed cross-coupling rather than iid Gaussian rows. The 2024 paper proves/notes the possibility of nonreal output for symmetric input, not its probability here."
+        ],
+        "reasoning": "The discriminant event for the sketched Petrov–Galerkin map and for the broader symmetric family are the same event under orthogonal coordinates, unlike the ensemble in the quarter-law record.",
+        "searches": [
+          "Resultary: exact Gaussian sketched Ritz law, discriminant, regression and spectral pollution; 71e006218203 and 86f8010d501f",
+          "Nakatsukasa–Tropp, doi:10.1137/23M1565413, §6.8"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The first two distinct indexed findings give stronger exact laws, not just similar numerics or similar titles. The first includes dimensions n>s with the identical embedded three-coordinate model and the second treats every symmetric 3×3 input at s=2. Neither prints the correct P₂ decimal for the frozen example."
+        ],
+        "reasoning": "These are stronger indexed formulas, not a lookup of the same frozen record. The missing rounded decimal and the respective catalogue dates do not erase coverage; catalogue dates alone do not establish historical priority.",
+        "searches": [
+          "Resultary exact Gaussian probability and sharp exponential suppression: 71e006218203, 32bec7a0c8b8, 86f8010d501f"
+        ]
+      },
+      "rationale": "The surviving exact law and asymptotic are directly covered by an indexed broader Gaussian symmetric model, while its s=2 value is an evaluation of the covered probability (also within an independent general s=2 formula). The distinct Resultary records carry 2026-11-08 path dates, after the frozen record's 2026-10-18 path date. This establishes mathematical coverage at review, not historical priority or derivation in either direction. The older primary literature independently establishes the phenomenon and the extraction method, not this sharp rate.",
+      "residual_risks": [
+        "The origin and directional relationship of the overlapping results are not established. The audit does not find that the combination of formulas was historically known before the frozen result; full historical priority is separate from the observed coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct stronger coverage; does not establish priority",
+          "evidence": "Identical t-coupled symmetric compression with h=√2 after diagonalizing the frozen Euclidean compression. The density applies for s≥2 explicitly; the theorem states angular quadrature for s≥3. Same transformed integral and leading constant.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exponential-suppression-of-nonreal-sketched-ritz-pairs-in-a-fixe--71e006218203/RESULT.md",
+          "material_read": "Finding, Assumptions, Proof §§1–4; offsets 0–5152",
+          "method": "Local Resultary mirror passage inspection",
+          "title": "Exponential suppression of nonreal sketched Ritz pairs in a fixed symmetric model",
+          "trigger": "Sharp Gaussian law and exact same discriminant event"
+        },
+        {
+          "assessment": "Covers s=2 specialization, not s→∞",
+          "evidence": "Any real symmetric 3×3 input, any orthonormal trial pair and a real 2×3 iid Gaussian sketch; exact angular law if the Ritz gap and both residual couplings are nonzero, as they are here.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-sharp-1-sqrt-2-3-complex-pair-bound-for-minimally-sketched-sym--32bec7a0c8b8/RESULT.md",
+          "material_read": "Finding and exact probability formula, offsets 0–2005",
+          "method": "Local Resultary mirror passage inspection",
+          "title": "A sharp 1−√(2/3) complex-pair bound for minimally sketched symmetric Ritz matrices",
+          "trigger": "General exact minimal-sketch probability"
+        },
+        {
+          "assessment": "Different non-Gaussian ensemble",
+          "evidence": "Isometric sketch on the trial plane with fixed-length, uniformly directed cross-coupling.",
+          "identifier_or_url": "Resultary:86f8010d501f",
+          "material_read": "Finding and model, offsets 0–3496",
+          "method": "Local Resultary mirror passage inspection",
+          "title": "A sharp one-quarter law for nonreal sketched Ritz pairs",
+          "trigger": "Same event under potentially equivalent sketch distribution"
+        },
+        {
+          "assessment": "Method precedent, not a sharp law in the inspected passages",
+          "evidence": "Sketched Petrov–Galerkin condition and formula for the associated oblique projection.",
+          "identifier_or_url": "https://arxiv.org/html/2407.03208v1",
+          "material_read": "§3.2 and §5.2 (offsets 44078 and 71757)",
+          "method": "OA article passage inspection",
+          "title": "Randomized Implicitly Restarted Arnoldi method for the non-symmetric eigenvalue problem",
+          "trigger": "Same extraction map"
+        },
+        {
+          "assessment": "Qualitative phenomenon already documented",
+          "evidence": "Symmetric input can give nonreal Ritz estimates because the sketched reduced problem need not be similar to a symmetric one.",
+          "identifier_or_url": "doi:10.1137/23M1565413",
+          "material_read": "§6.8, p. 20 (offset 230024 in repository copy)",
+          "method": "OA Oxford repository copy, passage inspection",
+          "title": "Fast and Accurate Randomized Algorithms for Linear Systems and Eigenvalue Problems",
+          "trigger": "Symmetric input and nonreal sketched Ritz values"
+        },
+        {
+          "assessment": "Positive prior context for artifact and remedies; does not resolve priority of exact law",
+          "evidence": "Abstract describes nonreal eigenpairs and real-Schur treatment; inspected probability references concern whitening, embedding or sparse-sketch experiments.",
+          "identifier_or_url": "https://arxiv.org/html/2610.22261",
+          "material_read": "Abstract and probability contexts located near offsets 4370, 12268 and 77734",
+          "method": "OA HTML passage inspection",
+          "title": "Real-Arithmetic Sketched Eigensolvers for Symmetric Matrices",
+          "trigger": "Directly related symmetric sketched nonreal spectrum literature"
+        },
+        {
+          "assessment": "Different target, performance of matrix-function approximation",
+          "evidence": "Describes outlying values, not this exact real-Gaussian discriminant law in the passages read.",
+          "identifier_or_url": "https://arxiv.org/pdf/2306.06481",
+          "material_read": "§6 p. 12 and conclusions p. 18 (offsets 59229 and 89108)",
+          "method": "OA PDF passage inspection",
+          "title": "Sketched and Truncated Polynomial Krylov Methods: Evaluation of Matrix Functions",
+          "trigger": "Spurious sketched Ritz values"
+        },
+        {
+          "assessment": "Different randomization and objective",
+          "evidence": "Complex-Gaussian tests and bounds on refined eigenpairs rather than the negative-discriminant probability.",
+          "identifier_or_url": "https://arxiv.org/html/2604.01037v1",
+          "material_read": "Model at offset 3167 and Theorem 3 at offset 50554",
+          "method": "OA HTML passage inspection",
+          "title": "Stabilizing the Rayleigh–Ritz procedure by randomization",
+          "trigger": "Randomized Ritz extraction in another Gaussian ensemble"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The general question of exact real-Gaussian spectral pollution is worthwhile, but this record's corrected single example gives no scientific contribution distinct from the broader indexed law. The only prospective remainder, a corrected decimal for one sketch size, is ordinary quadrature of the covered formula. The small example can be illustrative, but neither it nor the changed decimal by itself gives an independent result warranting a repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

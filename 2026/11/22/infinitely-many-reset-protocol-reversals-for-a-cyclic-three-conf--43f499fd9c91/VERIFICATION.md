@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification and reproducibility
 
-The companion standalone `verify.py` requires Python 3, NumPy, and SciPy. Run it from the directory containing this file using `python verify.py`. It checks the exact formulas against two separate mathematical representations: (1) a real matrix-square-root solution of the coupled backward equations with phase-specific boundary conditions, and (2) an independent spatial finite-difference solution with separate reset operators. It reports 1,221 passing assertions and prints finite-difference comparisons at distances one and five for unit diffusion, switching and reset rates.
+# Independent mathematical audit
 
-All analytic claims about infinitely many crossings are proved from the derived exact cosine, its nonzero amplitude, and its strictly positive spatial frequency. Spatial discretization does not constitute an infinite-distance proof. The matrix tests are numerical consistency checks, not independent formal certification. The stated theorem requires all rates and the initial/reset distance strictly positive; it does not address finite-sample inference or classify more general gates.
+## correctness
+
+PASS
+
+Reconstructed both backward problems with the gate generator acting on columns. For Q's eigenvectors 1,z,conjugate(z), K=sqrt((rI−Q)/D) has eigenvalues k0,k,conjugate(k); e0 has coefficient 1/3 in each mode. For joint resetting the no-reset absorption transform at r is exp(−Kx)K^−1e0/(e0^T K^−1e0), from the two Neumann and one Dirichlet data. Its stationary average gives the stated renewal mean. For position-only resetting the bounded solution is h+exp(−Kx)c; the reflecting conditions force Kc=t e0 and the stationary projection of the equation forces π exp(−Ka)c=−1/r, hence t=−3k0 exp(k0a)/r. The z coefficient of h is −k0 exp((k0−k)a)/(κk). The Dirichlet condition cancels the remaining constant in the difference, giving exactly the stated real part. A fixed block has uniformly positive chance of absorption (reset to a, reach the open gate and hit zero during a reset-free interval), giving uniformly finite means and uniqueness of the bounded backward solution by stopping. Re(k)^2−Im(k)^2=(r+3γ/2)/D>k0² and arg(k) is strictly between −π/12 and 0, so the claimed phase, starting sign, and every simple positive zero follow. The proof never subtracts large simulated means to infer high-index reversals.
+
+## originality
+
+PASS
+
+The closest actual side-by-side reset comparison is for an irreducible two-state gate and gives the opposite kind of conclusion: a fixed ordering for every distance. The closest distinct catalogue record concerns a persistent two-state gate's reset count, not ordering between protocols. The examined general framing distinguishes the two semantics but supplies no spatial complex-mode ordering law for the directed cycle. This is a bounded assessment, not a priority claim.
+
+## value
+
+PASS
+
+This gives an explicit counterexample to extrapolating the familiar two-state ordering to a natural nonreversible gate. At every positive rate triple the exact formula specifies which protocol to choose at any given distance and why the advantage can alternate even when the absolute difference is exponentially small. The repeated changes, not merely evaluation of one mean, are the substantive phenomenon.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

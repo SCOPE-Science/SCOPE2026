@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:11:01.277222Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md",
+        "Frozen verify.py (inspected only)",
+        "/workspace/review_evidence/4/moment_check.py (independent exact replay)"
+      ],
+      "rationale": "Write S=2(1+rho^2). In the conditional squared norm, multiplying the cross term by the entry-square sampling weight and summing over j yields −2 alpha ||Ax||^2/S; the squared update yields 2 alpha^2 ||Ax||^2/S because both entries in each row are nonzero. The least singular value 1−rho gives the stated theta in (0,1), and iteration, Jensen for orders at most two, and summable Markov bounds followed by Borel–Cantelli establish all the decay assertions. For the two rare choices of weight rho^2/S each, the updated coordinates jointly form W x with W having diagonal 1−alpha and off-diagonal −alpha/rho. The conditional pth moment is at least (rho^2/S) 2^(1−p/2) ||W x||^p. For rho<alpha/(1−alpha) the least singular value is alpha/rho−(1−alpha), giving exactly L_p and a uniform-in-state lower bound at each step. For fixed p>2, L_p tends to infinity as rho tends to zero, while rho<epsilon/(2+epsilon) enforces the strict condition-number bound. This verifies the quantifier order and finite-time finiteness (four finite update matrices). Independent exact arithmetic gave 11/9, 323/404, and 6561/6464 and checked the quadratic-form identity at the rational example on the two basis vectors and their sum.",
+      "residual_risks": [
+        "The rational replay is finite; the analytic bounds establish the all-time and real-order conclusions. Divergence is asserted for the selected sufficiently small rho, not for every rho and not simultaneously for all p>2 at one rho."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The original theorem does cover mean-square contraction; the latter paper includes the entrywise scheme as a singleton-block case and controls expected squared error. The related Resultary result proves a sharp fourth-moment threshold for its different family."
+        ],
+        "reasoning": "Second moment bounds control p≤2 and do not bound p>2 above or below. Even transfer of fourth-moment growth to p≥4 by moment monotonicity keeps the same matrix and fixed relaxation and says nothing about 2<p<4. No inspected stronger result subsumes the complete theorem.",
+        "searches": [
+          "arXiv:1810.05251, Algorithm 1 and Theorem 1",
+          "arXiv:1912.13291, Algorithm 1 and Theorem 8",
+          "Resultary searches above"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1810.05251",
+        "arXiv:1912.13291",
+        "Resultary b877d5a709e2 and 7aae3ae6dda3",
+        "Bounded Resultary and literature searches specified above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The original selection rule gives probability of order rho^2 to the off-diagonal choices but gives no uniform pth-moment lower bound. The indexed fourth-moment theorem has fixed order and relaxation on the orthogonal-row family."
+        ],
+        "reasoning": "The p>2 result requires showing both rare updates together furnish a lower bound in every direction, not merely that some updates have large operator norm or that one order grows on another matrix. The verified least-singular-value estimate supplies that missing implication.",
+        "searches": [
+          "arXiv:1810.05251 Theorem 1 and proof",
+          "Resultary b877d5a709e2 RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary b877d5a709e2 has the same entry sampling and qualitative moment split for order four and relaxation 1/2 on [[1,r],[r,−1]], of condition number one. Resultary 7aae3ae6dda3 uses a different symmetric-block sampling rule for one-step progress."
+        ],
+        "reasoning": "The indefinite example cannot be turned into this near-identity SPD scheme by a sign/permutation symmetry preserving the independent equation and coordinate choices: in particular its two distinct rows are orthogonal, whereas the SPD family's row inner product is 2rho. Orthogonal changes mixing coordinates do not in general preserve entry sampling. The result also differs in order and relaxation scope; date does not decide the comparison.",
+        "searches": [
+          "Resultary: entry-weighted doubly stochastic Gauss-Seidel higher moment p-th moment growth near identity",
+          "Resultary: near identity entry sampled Gauss-Seidel fourth moment instability exact same update all real p",
+          "Web: \"doubly stochastic Gauss-Seidel\" \"higher moments\" p-th moment convergence instability"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest indexed record is b877d5a709e2, with a different family and a fourth-moment threshold; no inspected table gives the bounds in this record."
+        ],
+        "reasoning": "No standalone table check applies to the uniform dynamical theorem. The illustrative rational factors are substitutions into the analytic bounds and are not relied on as original invariants.",
+        "searches": [
+          "Resultary: near identity entry sampled Gauss-Seidel fourth moment instability exact same update all real p"
+        ]
+      },
+      "rationale": "The entry-weighted rule and mean-square convergence are prior results. The inspected fourth-moment Resultary theorem is a close companion, but neither it nor the other sources establishes or entails the joint all-orders, arbitrary-relaxation, near-identity positive-definite result with a uniform-in-initial-state arbitrarily large lower factor.",
+      "residual_risks": [
+        "The literature query returned no additional relevant source; this is not proof of exhaustive novelty. Later or unindexed work on higher moments of the same update could affect priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the sampling rule and mean-square part, not the higher-order lower bound in the inspected theorem",
+          "evidence": [
+            "Samples entry (i,j) by its squared weight and uses the residual divided by that entry; linear convergence theorem concerns expected squared error."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1810.05251",
+          "material_read": "Algorithm 1, p. 9; Theorem 1 and proof, pp. 10–11",
+          "method": "Bounded primary PDF inspection (offsets 27175, 28993 and 32108)",
+          "title": "A Linearly Convergent Doubly Stochastic Gauss-Seidel Algorithm for Solving Linear Equations and A Certain Class of Over-Parameterized Optimization Problems",
+          "trigger": "Primary source for exactly this randomized update"
+        },
+        {
+          "assessment": "Covers block and singleton cases for squared error, not the p>2 phenomenon in the inspected theorem",
+          "evidence": [
+            "Mean-square estimate is for an expected squared error quantity."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1912.13291",
+          "material_read": "Algorithm 1, p. 2; Theorem 8, p. 6",
+          "method": "Bounded primary PDF inspection (offsets 8153 and 19572)",
+          "title": "A doubly stochastic block Gauss-Seidel algorithm for solving linear equations",
+          "trigger": "Potential broader block coverage"
+        },
+        {
+          "assessment": "Material overlap, but not an equivalent or dominating result",
+          "evidence": [
+            "The sharp threshold uses [[1,r],[r,−1]], relaxation 1/2, and order four, with exact condition number one. The frozen claim uses SPD matrices tending to I and every requested p>2 and fixed relaxation in (0,1)."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-sharp-fourth-moment-instability-threshold-for-entry-sampled-ga--b877d5a709e2",
+          "material_read": "RESULT.md, Finding, beginning at offset 0",
+          "method": "Published record read through local mirror",
+          "title": "A sharp fourth-moment instability threshold for entry-sampled Gauss–Seidel",
+          "trigger": "Strongest indexed conceptual match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof",
+        "arXiv:1810.05251, Algorithm 1 and Theorem 1",
+        "Resultary b877d5a709e2, Finding"
+      ],
+      "rationale": "The example identifies the threshold order across solver instances: mean-square convergence and almost-sure convergence coexist with arbitrarily fast pth-moment growth for any requested order above two, even when the SPD matrix is arbitrarily close to the identity. This rules out a condition-number-based inference of tail or moment control for this sampling scheme and isolates the concrete cause, rare division by tiny entries, uniformly over initial directions.",
+      "residual_risks": [
+        "This is an exact-arithmetic counterexample with no claim on safeguarded or finite-precision implementations, or on exact pth-moment growth rates."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

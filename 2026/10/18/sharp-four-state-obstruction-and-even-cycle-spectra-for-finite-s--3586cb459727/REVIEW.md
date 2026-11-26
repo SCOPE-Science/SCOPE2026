@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-On a finite discrete state space, forward regional proximality is exactly pair-mergeability and backward regional proximality is the diagonal whenever a surjective map is present. The identities \(a^2=a\), \(ab^2=b^2a\), and \(aba=a\) lead to disjoint normal forms \(b^k\) and \(b^ka b^e\) with \(e=0,1\), proving the precise \(6m\) monoid size and rank spectrum. The two kernel matchings are the adjacent pairs of the even cycle. The universal three-state obstruction follows because the unique unrelated pair in a nontransitive symmetric relation would form a proper invariant subset. The proof is complete for every integer \(m\ge2\). The finite checker passed but is not treated as an infinite proof.
+PASS
 
-## Originality — PASS, subject to stated priority risk
+In the finite discrete definitions the diagonal is an admissible neighborhood, so forward RP is exactly the union of the map kernels. Backward RP is contained in the diagonal and contains it since the monoid contains identity. Direct composition gives a²=a, ab²=b²a, aba=a and b^(2m)=1; moving even shift powers to the left and removing successive a's gives exactly b^k and b^k a b^e (e=0,1). The rank-m forms are distinguished by their values at 0 and 1 and are distinct from the 2m shifts. Their two fiber matchings alternate around C_(2m); m≥2 makes 0 and 2 nonadjacent. The cyclic shift supplies minimality and forces any invariant probability to be uniform, which a does not preserve; ab and ba disagree at 0. In any monoid action nonmergeability is forward invariant by composition; on three points failure of transitivity would leave just one nonmergeable pair, an invariant proper set. At most two points is immediate, and a single generator of a finite minimal action must be a cyclic permutation. The frozen verify.py and VERIFICATION.md were inspected, not executed; their finite checks do not prove the unbounded or arbitrary-generator assertions. Independent exact closure and kernel checks for n=4,6,8,16 passed in section 1 of python3 -B /workspace/review-evidence/rederive.py.
 
-The recent commutative-semigroup work proves equivalence and equality of forward/backward relations under commutativity and mentions older nonabelian examples, so nontransitivity itself is acknowledged as pre-existing. Schaefer's work already identifies kernel-graph edges with **nonmergeable** pairs and studies their graphs. The additional exact statements here are the complete cyclic family of mergeability graphs, an explicit sharply two-generated monoid of order \(6m\), and the universal four-state minimality bound. The inspected sections of these primary papers do not present those linked quantitative conclusions. No directly covering result was located in the checked records, but incomplete indexing of finite automaton constructions leaves an independent priority risk. The conclusion is based on implications and explicit constructions, not just unmatched titles.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The new commutative-action equivalence theorem motivates determining the first finite obstruction outside its hypothesis, and distinguishes forward from backward regional proximality. A minimum-four-state witness alone would be small; the same argument simultaneously gives every even-cycle relation, exact monoid order/rank, and sharp generator number. These facts supply a finite, fully inspectable boundary example and translate between topological regional proximality and synchronization graph invariants. It is not a solution to the invariant-measure question.
+The kernel-graph interpretation is established and the abstract C4 complement with two maps generating its hull is covered. The literature also already exhibits nontransitive regional proximality for noncommutative infinite actions. The supported distinct result is the complete minimal two-generator family with both relations and explicit monoid and rank counts, together with the sharp finite-state obstruction in the specified class; it is not a claim to have discovered the kernel-graph framework, the abstract four-vertex hull, or noncommutative nontransitivity generally.
 
-## Limits and closest literature
+## value
 
-The closest sources are Blahodatna–Detmold–Glasscock–Le (arXiv:2610.10397v1, Definition 1.1, Theorems B/C, Section 7.2) and Schaefer (arXiv:1601.04295v2, Section 2). The graph-theoretic framework and general possibility of nontransitivity are explicitly credited to prior work. Uninspected equivalent automata examples are the main residual risk. No external independent priority or proof audit has occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A sharp smallest counterexample is natural for the commutativity boundary of regional proximality. The family does more than test one small example: the two matchings give an explicit infinite class of chordless cycles with a small closed monoid, complete forward/backward relations and exact rank spectrum. These data make the obstruction readily usable without mistaking it for a counterexample in the invariant-probability class.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

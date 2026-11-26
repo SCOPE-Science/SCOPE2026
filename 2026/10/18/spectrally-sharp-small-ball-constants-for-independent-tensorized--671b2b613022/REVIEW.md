@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness
-**PASS.** Orthogonal invariance reduces each independently drawn Gaussian tensor test to a sum of independent Gaussian products. For matrix rank at least two the integrable characteristic function has a continuous density, and ball rescaling supplies the exact leading constant. At rank one the product-normal \(K_0\) logarithmic singularity, dominated convergence on a unit ball, and its integrable logarithmic majorant supply the exact logarithmic coefficient. Tail integration gives the necessary-and-sufficient moment threshold including the divergent endpoint. Strict Jensen inequality establishes uniqueness of the flat singular spectrum as the leading-constant minimizer at each finite rank. Normal-characteristic-function comparison proves strict degradation relative to independent dense Gaussian probes. Direct special-case computation gives \(\pi\) versus one for rank two and two probes.
+## correctness
 
-## Originality
-**PASS, with bounded priority risk.** Güttel–Kressner–Vandereycken (arXiv:2211.12175, Section 3.3) prove only a one-tensor-probe anti-concentration bound and identify the multi-probe issue. Bujanović–Kressner (arXiv:2004.06433) provide general confidence bounds but not sharp small-ball constants. Shao–Nakatsukasa (arXiv:2607.10377, Remark 2.5) already establish the qualitative rank-two removal of the logarithm and provide a different full-block upper bound; neither the rank-dependent exact constants nor the singular-spectrum minimizer follows from that statement. The older published product-normal density and a prior numerical least-squares error-tail result use related tools but do not determine this independent-probe matrix-singular-value classification. Other mathematically equivalent results may exist outside the inspected literature; no independent priority check has occurred.
+PASS
 
-## Value
-**PASS.** Error validation in tensorized sketching has a clear failure-risk objective: how many independent cheaply factored probes are needed to avoid missing a fixed residual? The answer quantifies not just a rate but its unavoidable rank-one logarithmic penalty, all moment cutoffs (two probes for finite mean and three for finite variance), the exact finite-rank cost versus dense validation, and the best possible singular-spectrum dependence at each rank. The two-probe rank-two penalty \(\pi\) is a concrete, nontrivial numerical benchmark. Matrix rank distinguishes the leading logarithmic behavior even when the fixed separable residual has spatial operator stable rank one, clarifying a limitation of older stable-rank-only bounds. An asymptotically ill-conditioned matrix shows why a rank-only rate cannot be turned into a uniform finite-threshold guarantee. No claim is made for generic dependent block sketches or sketch-selected approximants.
+Rechecked the repaired claim. After SVD the independent scalars are sums of s_k G_k H_k. Conditioning on the G_k gives variance sum s_k²G_k²>0 almost surely and characteristic function product (1+s_k²t²)^(-1/2). For rank at least two this is integrable and gives the stated positive continuous origin density. The joint density is a product, and the Euclidean ball scales by (sqrt(ell)*F/tau)^ell; tail integration then proves the stated moment iff, including divergence at equality. For normalized weights w_k=s_k²/F² the Fourier integral for F f_M(0) is minimized pointwise at equal w_k by strict concavity of log(1+w_k t²); equality of the integral forces the flat spectrum. The beta integral gives the gamma ratio. A second check uses the conditional normal density: F f_M(0)=(2π)^(-1/2) E[(sum w_k G_k²)^(-1/2)], finite for rank≥2 by the bound using min(w_k)*chi-square_r. Strict Jensen gives the dense comparison since this variance is nonconstant with mean one. At flat rank the variance is chi-square_r/r and the negative half moment gives the same gamma ratio and limit. At r=ell=2 the scalar law for M=I_2 is Laplace and the leading constants are π and 1. The rank-one comparison has normalized density (log(1/|x|)+O(1))/π, and coordinatewise 1+|log|y_j|| bound after rescaling to a unit ball gives the product logarithm and exact coefficient. The fixed independent separable-residual normalization cancels the scalar L² factor.
 
-## Evidence and residual limits
-The relevant primary theorem statements and available adjacent proofs in the four papers identified in `RESULT.md` were compared by observable, dependence structure, normalizations, and conclusion; see the corresponding structured originality checks in `AUDIT.json`. One prior research item concerns least-squares coefficient-error ratios from tensorized sketches, a different observable with a related product-normal mechanism. The standalone verifier passed 38 focused finite checks. Analytic asymptotics, not finite experiments, support the theorem. Independent validation remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The repaired distinct scope is the exact fixed-spectrum, rank-at-least-two leading law for independent bilinear observations, its sharp spectrum-constrained comparison and its moment implications. The sources checked provide scalar rate bounds, crossed-block results, or the already credited rank-one radial argument. None of those statements or proofs supplies the rank-at-least-two origin-density coefficient and spectral extremum for this statistic. No separate originality is assigned to rank one or to the qualitative disappearance of the logarithm.
+
+## value
+
+PASS
+
+The leading coefficient of this validation failure probability is a natural quantity not determined by rank-only bounds. The sharp spectrum-constrained optimum and its strict dense-probe gap at each finite rank quantify the cost of tensorization even when the logarithmic loss is absent. The law also yields exact probe-count thresholds for finite inverse moments. The repair preserves those conclusions and does not claim convergence of an approximation fitted on the probes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

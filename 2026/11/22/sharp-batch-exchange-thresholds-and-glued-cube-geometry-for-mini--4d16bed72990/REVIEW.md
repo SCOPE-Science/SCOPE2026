@@ -1,21 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For all labelled complete tripartite graphs with \(2\le a\le b\le c\), triangle-incidence counting gives the sharp minimum \(ab\). Equality forces exactly one removed edge per triangle and excludes edges with lower incidence multiplicity. The resulting binary exact-one equations classify all optimizers: one when \(b<c\), \(2^a\) when \(a<b=c\), and \(3\cdot2^n-3\) when \(a=b=c=n\). Family intersections are exactly the three pure sides. Batch-exchange Hamming distances prove the first nontrivial threshold and the three glued antipodal cubes, with the claimed edge count and diameter. The standalone `verify.py` checked 405579 feasible-bounded edge subsets on five small graph instances, balanced exact-one solutions for \(n=2,3,4\), and optimum-exchange metrics through \(n=7\). Finite computations are corroborative, not infinite proofs.
+PASS
 
-## Originality — PASS, priority provisional
+Counting the abc triangles by deleted-edge incidences proves the ab lower bound. Equality forces exactly one deletion per triangle, only on largest-incidence sides. This gives the unique minimum or independent switches at A in the first two cases. In the balanced exact-one equations, two differing AB rows have a nonzero constant difference and hence are constant 0/1 rows; subtraction against either forces every AB row constant, AC complementary, BC zero. Column variation is the symmetric case. A constant AB matrix either is a pure side or leaves a C-split. Two families meet only at their common pure-side state. Within a family the batch cost is class size times Hamming distance. Across two balanced families the only overlap is on AB, of size (n−p)(n−q), so the cost n(p+q)−pq exceeds n for p,q≥1 and n≥2. This proves both sharp thresholds and that the cubes are glued solely at the specified corners. The antipodal corner distance is n, so leaving a cube cannot shorten its internal metric; for distinct cubes the two shortest routing options have lengths s and 3n−s, for s the sum of distances to their shared corner. All integers 0≤s≤2n are realized, giving diameter floor(3n/2). Independent exact-one branching and BFS gave balanced (count, diameter) (9,3), (21,4), (45,6), (93,7) at n=2,3,4,5; it also checked representative asymmetric cases.
 
-Zhao and Li (arXiv:2611.08547v1, 2026-11-05) treat the complete multipartite extremal edge bound, but their Theorem 2 does not classify optimizers or their exchanges. Amarnani, De Burgos and Broughton (arXiv:2307.08824v1, 2023-07-17) establish triangle packing/covering equality on a broader host class, including a decomposition of triangle covers in Section 2; the numerical optimum is therefore known. Their Section 2 implicitly covers the complete-tripartite optimizer families, so those are treated as known structural inputs. Their inspected text did not discuss optimum-preserving batch-exchange graphs, thresholds, glued-cube metric geometry, or diameter. Related published mathematical results on Hamming triangle-free vertex sets and batch-induced-matching reconfiguration concern different objects and do not dominate this claim.
+## originality
 
-Historical-priority risk remains: Lakshmanan, Bujtás and Tuza (2012), *Small Edge Sets Meeting all Triangles of a Graph*, was available only as bibliographic information and abstract, not full text, and unindexed equivalent results are possible. A failed keyword search is not proof of uniqueness.
+PASS
 
-## Value — PASS
+The distinct contribution is the first connected optimum-preserving batch graph and its exact geometry. The scalar optimum and the broader transversal description are prior coverage; the minimum-family description is treated as a specialization with equality, not independently claimed. No inspected statement covers the exchange metric, subject to the stated access and indexing limitations.
 
-The optimal configurations of a classical triangle-edge-transversal problem are assembled into an exact reconfiguration geometry, yielding the smallest move budget permitting any nontrivial exchange. The balanced case yields a concrete family of highly constrained optimum states with a three-cube amalgamation, exact size, edge count and distance diameter. These features matter beyond the already-known scalar bound.
+## value
 
-## Limitations
+PASS
 
-Exactly three partite classes, each of order at least two; only optimum-preserving atomic batch exchanges are studied. No statement is made about intermediate configurations inside a batch, higher multipartite graphs, or independent audit. The preceding historical-priority risk is not resolved.
+In a natural family of extremal graph problems the minimum exchange size determines when any optimum can be changed at all; at the onset the result gives the full labelled state graph and worst-case distance. The balanced three-cube gluing captures a genuine qualitative change from the single cube with two tied classes, beyond the scalar optimum or the number of optima.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

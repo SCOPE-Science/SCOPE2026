@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:02:42.516242Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Translate the first landmark to zero and permute coordinates so the second differs on h coordinates. Count words by their two block weights (i,j), fold their two distances, divide by two for the free antipodal action, then remove the two landmark classes. Interior coordinate counts give at least h per complement orbit away from the central layer; the one possible self-complementary count pair still gives at least h because the second block is larger. Toggling one of the h differing coordinates exhibits the exact smallest class (1,h-1) if 2<=h<n/2. For h=1 each nonlandmark pair has an interior second-block count, so its product of binomial factors is at least n-1; the class (1,2) attains this. Line 45's literal wording about 'a binomial factor equal to one' is imprecise (the first factor is always one); the product and the intended bound are as just shown. For even n=2m and h=m, if both block counts are interior the orbit count is at least m^2, except the halved central count which is still at least 2m for even m>=4. When one is an endpoint, swapping the two blocks gives a disjoint complement orbit of size at least m with the same signature. The neighbors of a attain 2m. At n=4 the self-complementary class contributes the exceptional two vertices. The resulting comparison across h proves the optimizing separations; shell sizes n and half the central binomial coefficient give the claimed unordered-pair counts. Independent replay: python3 /workspace/review_checks/folded.py uses BFS from the Cayley quotient generators, and matches every coefficient as well as minima and optimal-pair counts for n=4..14. The frozen scripts and bounds were inspected; the universal proof is the counting argument, not finite checking.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The distance-regular graph survey specifies the folded-cube family via its intersection array (terminal c_D=D in odd dimension and n in even dimension); the distance-matrix algebra determines each p^h_(r,s).",
+          "The anonymity paper supplies the k-antiresolving definition and exact results for grids, cylinders, tori and two-dimensional Hamming graphs, not the antipodal quotient."
+        ],
+        "reasoning": "Established distance-regular parameters determine these counts for every fixed dimension and so arithmetically determine each finite minimum. The parameter statement does not supply the extremal inequalities across all h and dimensions; computing a table from it is distinct from proving the uniform minimum evaluation.",
+        "searches": [
+          "van Dam, Koolen and Tanaka arXiv:1410.6294v1 §§4.6, 5.3",
+          "Fernández et al. arXiv:2304.00849v1 §§2–3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen result, originality notes and finite checker sources; van Dam–Koolen–Tanaka arXiv:1410.6294v1 §§4.6 and 5.3; Fernández et al. arXiv:2304.00849v1 §§2–3; Resultary 37798fff7d40, 597962c38287, 6e986f39a793 and the identical target"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known counts give the inputs and permit exact finite computations; the ordinary profile pushforward covers the displayed enumerable formula.",
+          "The frozen lower bounds distinguish one-interior and two-interior block counts, the halved self-complementary case, and the even diametral swap with distinct orbits; a neighbor support attains the resulting minima."
+        ],
+        "reasoning": "The surviving claim is a closed sharp extremal theorem on those parameters as n varies, not the mere ability to compute them. It is not a parameter substitution into the inspected statements; neither the ordinary theorem nor the distance-regular array entries assert the needed lower bound on all positive merged cells.",
+        "searches": [
+          "Compare Resultary 37798fff7d40 and 597962c38287 actual findings; arXiv:1410.6294v1 pp. 27, 30; arXiv:2304.00849v1 pp. 2–4; frozen RESULT.md lines 41–55"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The ordinary-cube two-marker finding already gives binomial(h,i) binomial(n-h,j) and signatures (i+j,h-i+j); the earlier arbitrary marked-cube result supplies a more general coordinate-count census.",
+          "In the quotient the class counts are pair-sphere intersections p^h_(r,s) with two detected singleton cells excluded."
+        ],
+        "reasoning": "Sending each distance to min(d,n-d), dividing by two and deleting the sensors produces exactly the frozen polynomial from the old data. In contrast, a minimum over merged positive cells is not an image of the ordinary minimum: at the even midpoint the two block-order orbits merge and can double the sharp lower bound.",
+        "searches": [
+          "Folded/projective hypercube two-landmark k-antiresolving distance-vector classes and pair-sphere intersections",
+          "Resultary ordinary cube two-marker colour-refinement profiles 37798fff7d40 and 597962c38287"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The identical hit 86f632bfcc10 is this record. The distinct 6e986f39a793 covers the folded-cube distance-matrix spectrum and four-periodic quadratic embeddings.",
+          "Earlier exact tables identified in the comparison are distance-regular parameters or ordinary-cube profiles, not the quotient minima-by-separation table."
+        ],
+        "reasoning": "A one-matrix distance spectrum is not the pair-sphere intersection census or a table of its least positive entries. The decision does not presume that a catalog miss proves historical novelty.",
+        "searches": [
+          "Resultary folded cube pair-distance landmark profiles and parity minimum",
+          "Resultary 6e986f39a793 Finding and Assumptions"
+        ]
+      },
+      "rationale": "The folded profile counts are classical pair-sphere intersection numbers and the displayed polynomial is a direct aggregation of the earlier ordinary-cube profile. Do not credit either the binomial input or the folded enumerator as an independent novelty claim. The supported distinct claim, consistent with the frozen originality scope, is the all-separations smallest-positive-class evaluation after folding, including the even central exception and the parity-controlled optimal two-landmark geometry. Existing profile data determine individual values but the inspected sources give no uniform minimum theorem or inequality implying that sharp classification.",
+      "residual_risks": [
+        "The underlying 1992 Bussemaker–Neumaier source and Brouwer–Cohen–Neumaier monograph were not independently read; the inspected survey supplies the relevant array, not a negative claim about those originals.",
+        "An earlier closed-form minimum of folded-cube intersection numbers under other terminology remains possible. No historical-priority certification is implied."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact dominating parameters for enumeration, but no inspected uniform extremum conclusion.",
+          "evidence": [
+            "Defines pair-sphere intersections and identifies folded cubes among the antipodal-folded families with the array given by alpha=0."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1410.6294v1",
+          "material_read": "§4.6 p. 27 offsets 100791–101399; §5.3 p. 30 offsets 110500–114623; cited bibliography p. 101",
+          "method": "OA PDF extraction and passage comparison",
+          "title": "Distance-Regular Graphs",
+          "trigger": "Known folded-cube array might dominate the pair-sphere counts"
+        },
+        {
+          "assessment": "Direct input implies the folded polynomial by aggregation, but not the optimized minimum theorem as stated.",
+          "evidence": [
+            "The ordinary-cube profile multiplies two binomial coefficients; the broader arbitrary-marker orbit statement likewise recovers ordinary distance vectors."
+          ],
+          "identifier_or_url": "Resultary 37798fff7d40 and 597962c38287",
+          "material_read": "First RESULT.md Finding offsets 0–4824; second Finding/Proof offsets 0–4295",
+          "method": "Published-result mirror, compare actual count and distance formulas",
+          "title": "Exact two-marker colour-refinement depth on Boolean hypercubes; Marked Boolean cubes: exact colour-refinement orbit profiles",
+          "trigger": "Exact unquotiented antecedent of the displayed polynomial"
+        },
+        {
+          "assessment": "Scope differs; no folded-quotient two-landmark theorem in the compared passages.",
+          "evidence": [
+            "Uses the smallest nonempty distance-equivalence class for k; explicit families include torus, cylinder and two-dimensional Hamming graphs."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2304.00849",
+          "material_read": "§2 p. 2 offset 11273 onward; §3 pp. 3–4 offset 16900 onward",
+          "method": "OA PDF passage comparison",
+          "title": "On the (k,ℓ)-anonymity of networks via their k-metric antidimension",
+          "trigger": "Closest primary antiresolving definition and exact graph-family results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The worst nonempty distance-signature class is a natural exactly-two-landmark anonymity invariant. Uniformly locating its minimum over cropped joint profiles and proving all optimizing separations reveals a parity-dependent geometry not given by a one-landmark shell size or the unquotiented minimization. This goes beyond recomputing individual intersection tables; no claim about arbitrary landmark counts or empirical privacy follows.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

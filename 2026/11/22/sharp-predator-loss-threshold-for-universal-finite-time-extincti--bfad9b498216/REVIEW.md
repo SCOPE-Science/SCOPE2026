@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The transformed prey coordinate obeys the exact forced linear equation \(q'=-a(s,p)q-cp\), with \(q=s^{1-r}\). A decreasing biomass functional bounds the predators; the strictly negative strong-Allee drift gives integrable prey abundance on any hypothetical global positive orbit. Integrating factors then contradict global positivity at \(\mu\leq(1-r)bL\), including the critical case. Above threshold, strict exponential comparison produces a constructive small-predator no-hit wedge; continuous dependence extends it to every initial prey density below the Allee threshold. A large-predator comparison proves a separate finite-hit region. A direct exact rational certificate and illustrative ODE integrations pass in `verify.py`. Residual mathematical risk is confined to the stated deterministic pre-hit smooth region and no claim is made about infection-positive dynamics.
+PASS
 
-## Originality — PASS (literature-bounded)
+For q=s^(1-r), the pre-hit equations give q'=-a q-cp with c=(1-r)d and 0<a<=beta. The biomass s+(d/e)p is nonincreasing; consequently neither variable blows up and the Allee term alone forces uniform exponential decrease of s while positive. A finite maximal pre-hit solution must tend to s=0, since p stays positive on any finite interval and otherwise the smooth interior solution extends. On an infinite pre-hit trajectory the exponential bound makes s and s^r integrable, so the exact predator equation gives p(t)~C exp(-mu t), C>0. Because a-beta is O(s+p), the integrating factor has exp(integral a)~C' exp(beta t), C'>0. The cumulative forcing in the exact q identity diverges for mu<=beta, linearly at equality. For mu>beta and s<=delta sufficiently small, p(t)<=p0 exp(-lambda t) with lambda=mu-e delta^r>beta. Integrating q'>=-beta q-cp gives the strictly positive barrier when cp0<q0(lambda-beta). For any other fixed 0<s0<L, continuous dependence on the predator-free orbit up to a finite time with 0<s<delta brings a whole interval of positive seeds into the strict barrier. Conversely q'<=-cp and p>=p0 exp(-mu t) force a hit when cp0>mu q0. The earlier exponential estimates also give convergence of both species to zero for every infinite-lifetime orbit.
 
-The June 2026 source's Section 6 assumes a predator density bounded away from zero before the extinction event; it does not provide an endogenous predator-mortality boundary for universal finite-time collapse or prove a nonextinction wedge. Earlier SIP articles (2023 and 2025) concern related ecological models and numerical or conditional extinction statements. The 2022 AIMS paper and 2018 nonsmooth-herd-response work establish finite-time predation and separatrix phenomena, but have different prey growth and predator feedback; they are recognized as prior broad concepts, not presented as absent. Searches for mortality threshold, asymptotic/finite extinction, and equivalence aliases in mathematical research records and open literature found no equivalent theorem in the checked material. Risk remains from inaccessible/unindexed stronger general results and incomplete full-text verification of the 2022 and 2018 studies. No independent priority certification is claimed.
+## originality
 
-## Value — PASS
+PASS
 
-This class of sublinear predation models is used precisely to distinguish abrupt finite-time population collapse from long-term decline. The source's lower-bound-on-predator sufficient condition alone does not settle what happens when predator abundance decays endogenously. The exact threshold \(\mu=(1-r)bL\) demonstrates that even a predator heading to extinction can guarantee finite prey exhaustion below the threshold, while above it two extinction clocks coexist at identical parameter values; it is a nontrivial ecologically motivated classification, not a generic local linear stability calculation.
+Finite-time extinction in related nonsmooth predator–prey systems and a persistent-predator criterion for this exact family are known. The supported distinct result is the endogenous mortality threshold, including equality, and existence of both hit-time behaviors for every fixed sub-Allee prey initial value above it.
 
-## Limits and closest literature
+## value
 
-See the full model and Theorem 6.2 in arXiv:2606.17586v1, the related arXiv:2505.01952 and arXiv:2308.06772, the AIMS Mathematics 2023 prey-herd article, and the 2018 nonsmooth functional-response work. The result is for infection-free initial data and does not imply behavior on the full infected state space. Full priority may be affected by published variants not accessible in the consulted sources.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact loss-rate cutoff distinguishes finite-time extinction from mere asymptotic decay under endogenous predator dynamics, without an imposed persistence bound. The critical equality and the contrasting seed outcomes above it provide a useful qualitative classification even without a global seed separatrix.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

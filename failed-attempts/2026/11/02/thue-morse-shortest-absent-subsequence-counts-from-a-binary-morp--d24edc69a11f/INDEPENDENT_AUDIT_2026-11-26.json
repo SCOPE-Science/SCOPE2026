@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:01:07.999654Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Every length-m binary target embeds one symbol per image block. Greedy matching of a length-(m+1) word succeeds iff some block is the first to consume two symbols; its two symbols are then exactly the indexed ordered pair in the statement. The all-constant targets show absence is possible. Counting prefixes by their last symbol gives updates (p+q,q) or (p,p+q), starting at (1,1). Distinct subsequences of the source ending in a newly appended symbol are exactly the old distinct subsequences with that symbol appended, so their endpoint counts plus one obey the same updates. With the right-to-left matrix product M_k, M_{k+1}=(JM_k)^2, det(JM_k)=-1, and Cayley–Hamilton gives a_{k+1}=2+t_k^2 and t_{k+1}=a_k t_k, with (a_0,t_0)=(2,1); a_k+t_k is the sum of all entries. The logarithmic recurrence has characteristic roots 2 and -1 and the bounded forcing log(1+2/t_j^2); division by 2^k gives the stated absolutely convergent series, and the sum a_k+t_k has the same exponential base as t_k. This is an unrestricted algebraic check of RESULT.md lines 42–91; checker.py was inspected, not run. The packaged finite test is not an independent run or an all-order proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3.4 of the inspected absent-subsequence PDF gives the one-position-per-arch characterization, subject to general MAS conditions. Every block of this binary morphism is exactly one complete arch.",
+          "Fixed k-binomial equivalence and occurrence counts for infinite-word factors concern a different quantity."
+        ],
+        "reasoning": "General arch machinery covers the structural criterion in this simple setting; the exact ordered-pair specialization is also explicit in the indexed record. The binomial-factor work does not give the variable-length distinct support count claimed here.",
+        "searches": [
+          "Kosche–Koß–Manea–Siemer, arXiv:2108.13968, general arch characterization",
+          "Lejeune–Leroy–Rigo, arXiv:1812.07330, Thue–Morse binomial complexity"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and checker.py",
+        "Distinct Resultary record ending 9824aedbf416",
+        "arXiv:2108.13968",
+        "Flaxman–Harrow–Sorkin, EJC 11 R8",
+        "arXiv:1310.7288",
+        "Leroy–Rigo–Stipulanti, ORBi 2268/205077",
+        "arXiv:1812.07330"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Matched Step 2 states #SAS(mu(b))=e^T M_{b_1}...M_{b_h}e for every binary source. Row counts for the last letter evolve by adding the other coordinate to the appended-letter coordinate.",
+          "The matched trace relations give D_{k+2}=D_{k+1}(D_k^2+2) with D_0=1,D_1=2."
+        ],
+        "reasoning": "Ordinary distinct-subsequence endpoint counts u_c update by replacing u_c by 1+u_0+u_1; setting p_c=u_c+1 gives exactly the published transfer. Thus the identity is an immediate consequence even though not printed there. Taking logs of the matched trace recurrence and applying the roots 2 and -1 to the bounded forcing yields the displayed limit series; this is not a separate new enumeration.",
+        "searches": [
+          "Matched record Step 2, arbitrary-source transfer sum, and Step 3, trace renormalization",
+          "Flaxman–Harrow–Sorkin and Collins, distinct subsequence counting"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Matched record Steps 1–3: same ordered-pair exclusion, all-level A_{k+1}=2+A_kD_k and D_{k+1}=D_k(A_k-D_k), (A_0,D_0)=(3,1)."
+        ],
+        "reasoning": "Set A_k=a_k+t_k=s_{k+1} and D_k=t_k, where a_k and t_k are the frozen traces. Substitution in both directions gives identical recurrences and initial values. The source transfer uses the transpose matrices with reversed multiplication convention, which leaves their total entry sum unchanged.",
+        "searches": [
+          "Resultary: shortest absent subsequences of Thue–Morse and complementary-pair transfer recurrences",
+          "2026/11/2/SCOPE-quadratic-recurrence-for-shortest-absent-subsequences-of-thue-mo--9824aedbf416/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matched record's two-state initial conditions and recurrence fix exactly the same integer sequence at every dyadic level, not just a matching prefix of small values."
+        ],
+        "reasoning": "An all-level indexed exact enumeration is decisive coverage of the table and removes any need to infer equivalence from numerical agreement alone.",
+        "searches": [
+          "Resultary indexed Thue–Morse shortest-absence enumeration; exact matched recurrence and values"
+        ]
+      },
+      "rationale": "A distinct same-day indexed result states exactly the general local characterization and equivalent all-level Thue–Morse recurrence. Its arbitrary-source transfer formula also gives the general D(v)+1 identity by the standard distinct-subsequence endpoint update, with just a shift of the two initial counts. The growth-base series is obtained by solving the scalar logarithmic recurrence already implied by the matched trace formulas. This is demonstrable scientific overlap and direct implication, not a finding about which record came first.",
+      "residual_risks": [
+        "The same-day records do not establish priority order.",
+        "The literature search was bounded; exact coverage in other terminology was not exhaustively assessed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent for the main enumeration; exact arbitrary-source transfer implies the count bridge",
+          "evidence": [
+            "Explicit general transfer sum and A_{m+1}=2+A_m D_m, D_{m+1}=D_m(A_m-D_m)."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-quadratic-recurrence-for-shortest-absent-subsequences-of-thue-mo--9824aedbf416/RESULT.md",
+          "material_read": "Finding and proof Steps 1–3; in particular offsets 1750–4039",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4, bounded passages",
+          "title": "Quadratic recurrence for shortest absent subsequences of Thue–Morse",
+          "trigger": "Strongest distinct indexed result on the same object"
+        },
+        {
+          "assessment": "Broader structural coverage, not the dyadic trace enumeration",
+          "evidence": [
+            "Theorem 3.4 characterizes shortest absent subsequences using one position per arch subject to the MAS conditions; numbering differs from the frozen citation in the inspected version."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2108.13968",
+          "material_read": "PDF pp. 3, 5–7, arch definitions and Theorems 3.1 and 3.4",
+          "method": "OA PDF passages, offsets near 8000, 15000 and 18500",
+          "title": "Absent Subsequences in Words",
+          "trigger": "General SAS results able to dominate the structural criterion"
+        },
+        {
+          "assessment": "Different extremal problem",
+          "evidence": [
+            "Alternating binary words attain the fixed-length maximum with Fibonacci counts."
+          ],
+          "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v11i1r8/pdf",
+          "material_read": "PDF pp. 1–2",
+          "method": "OA PDF passages, offsets 0 and 4508",
+          "title": "Strings with maximally many distinct subsequences and substrings",
+          "trigger": "Cited exact distinct-subsequence enumeration"
+        },
+        {
+          "assessment": "Different measure and question",
+          "evidence": [
+            "Expected count under a uniform random binary source, not a prescribed morphism iterate."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1310.7288",
+          "material_read": "PDF p. 1",
+          "method": "OA PDF passage near offset 577",
+          "title": "The Number of Distinct Subsequences of a Random Binary String",
+          "trigger": "Cited binary distinct-subsequence work"
+        },
+        {
+          "assessment": "Different word family",
+          "evidence": [
+            "The recurrences enumerate scattered subwords of binary and Fibonacci numeration representations."
+          ],
+          "identifier_or_url": "https://orbi.uliege.be/bitstream/2268/205077/1/postprint%20auteur.pdf",
+          "material_read": "PDF p. 1 and §3 around p. 7",
+          "method": "OA PDF passages, offsets 0 and 17000",
+          "title": "Counting the number of non-zero coefficients in rows of generalized Pascal triangles",
+          "trigger": "Cited exact scattered-subword counts"
+        },
+        {
+          "assessment": "Different invariant; no whole-document noncoverage asserted from the abstract",
+          "evidence": [
+            "Fixed-depth binomial equivalence classes of factors and occurrence counts rather than distinct shortest absent subsequences of complete iterates."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1812.07330",
+          "material_read": "Abstract, PDF p. 1",
+          "method": "OA PDF passage at offset 0",
+          "title": "Thue–Morse binomial complexity (Lejeune–Leroy–Rigo)",
+          "trigger": "Same morphism, related counting language"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "An exact enumeration of this family is a natural goal, but the package repeats its decisive all-level recurrence. The general count bridge is just the already available transfer with shifted endpoint counts, and the limiting base follows by routine solution of a first-order forcing term in a linear logarithmic recurrence with roots 2 and -1. No independently useful non-mechanical remainder justifies a repaired finding.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

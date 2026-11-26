@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact projection follows by an orthogonal Fourier-residue decomposition of the cyclic kernel dictionary. Strict positivity of the conditional variance proves the unique optimizer, Abelian estimates of the positive coefficient series prove the universal Gamma limit, and a direct quadratic calculation and expansion prove the ordinary Bergman refinement. Direct Gram-matrix and asymptotic diagnostics pass 347 checks with the embedded standard-library checker. The high-degree theorem is analytic, not an extrapolation from numerical evidence.
+## correctness
 
-**Originality — PASS, best-knowledge.** Accessible sections of Qian (2022, arXiv:2201.07228), including Theorem 2.1 and its main proof, establish existence for *freely placed* kernel sections but not an explicit regular-orbit monomial capture law. Qu–Qian–Deng (2020, arXiv:2006.03290) also addresses general existence; its full text was not available for inspection, so the assessment is limited to its accessible abstract and remains a priority risk. Gröchenig–Ortega-Cerdà (2021, arXiv:2109.11825) concerns Fock polynomial sampling, rather than the disk power-kernel cyclic monomial projection. Closest mathematical record comparisons distinguish fixed-angular-orbit projection from two-ring Gram determinant optimization, two-free-node quadratic Bergman approximation, and finite polynomial conditioning. Searches for general equivalent projection formulas, conditional negative-binomial representations, and Gamma limits did not reveal a direct prior statement. Search incompleteness is not a novelty proof.
+PASS
 
-**Value — PASS.** The exact optimal radius and captured-energy law solve a natural infinite family of structured kernel-dictionary approximation problems, including all integer disk Bergman powers. The first asymptotic constant is independent of the angular orbit size and Fourier residue, while the next term in the classical Bergman case precisely records residue aliasing. The result gives a quantitative, sharp benchmark for structured kernel approximation without claiming an unrestricted optimum.
+Grouping the orthonormal kernel expansion by degree modulo m produces mutually orthogonal one-dimensional blocks; only residue j meets the target, and its squared coefficient divided by the squared block norm gives the stated capture. A common rotation only changes coefficient phases. The logarithmic derivative in u is q minus the tilted mean of the residue quotient; its derivative is minus the strictly positive variance. The mean runs from zero to infinity. Hence q=0 has an unattained supremum 1, and q>=1 has a unique positive maximizer. Independently, the residue generating function equals rho^(-j)/m times the root-of-unity filter of (1-rho)^(-beta) at rho=u^(1/m). Only its k=0 term is singular at u=1, yielding F(u)~m^(beta-1)(1-u)^(-beta) and a tilted mean asymptotic to beta/(1-u). With the coefficient asymptotic and u_*^q -> exp(-beta) this gives the stated Gamma constant at fixed m,j,beta. For beta=2 let a=A/m and delta=1-u. The stationarity equation becomes q=2/delta-2+(1-a)(1-delta)/(1-(1-a)delta); it gives delta=2/q-(2+2a)/q^2+O(q^-3), and logarithmic expansion of the capture yields the relative correction -a/q. The equation also gives the correct B=0 linear case; direct differentiation gives the displayed quadratic for B>0. Replay: from /workspace, python -B branches/independent_reproductions.py 4 (SymPy, mpmath); checks aliasing numerically at 12 parameters and the ordinary Bergman expansions symbolically. The analytic argument, not these diagnostics, covers all positive beta and the limit. No unrestricted-node optimum, double-scaling uniformity, or formal certification is asserted.
 
-**Limitations and risk.** No claim is made for variable orbit sizes in the Gamma limit, arbitrary kernel node placement, or angular perturbations. An older cyclic-kernel or circulant projection theorem could be equivalent. The 2020 preprint was only accessible at abstract level. There is no independent review.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass the explicit regular-orbit monomial optimization and sharp capture asymptotics, particularly the residue-sensitive refinement. Neither the Fourier filter, the general log-partition variance identity nor negative-binomial scaling is itself new. The inspected existence and sampling theorems and the related jet asymptotic do not give these optimized quantities for the conditional residue model.
+
+## value
+
+PASS
+
+The regular orbit is a natural symmetric kernel dictionary for rotationally invariant analytic spaces. The evaluated radius and 1/q capture quantify the best achievable high-degree approximation by this dictionary, and the first correction distinguishes targets in different Fourier residues even though the leading law cannot. This is an independently useful sharp benchmark, not a claim of a new existence or Fourier theorem. Its value is limited to the prescribed dictionary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

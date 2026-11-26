@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:08:56.889832Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–25; VERIFICATION.md; verify.py (inspected, not executed)",
+        "Independent partial numerical corroboration: python3 /workspace/audit-evidence/tridegree_quartic.py. For different coefficients over F_101 the binary-quartic invariants give the same monic degree-24 squarefree critical-value polynomial for both rulings. The genericity proof above is independent of either finite-field checker."
+      ],
+      "rationale": "The pullback of (1,1) is anticanonical, so every line maps isomorphically to one ruling fiber. Its branch quadratic is a square, giving exactly two choices above each branch point of either ruling map; a smooth (2,2) curve gives four branch points in each ruling. To check genericity independently, coefficient evaluation at any fixed t is surjective onto (2,2) forms, and evaluation of the first t derivative is independently surjective. At a prescribed singular point three jet conditions hold; a degenerate Hessian adds one condition by surjectivity on two-jets. For two distinct singular points the two first jets impose six conditions if both coordinates differ (move the points to (0,0) and (∞,∞)), and five when they share a ruling (three along the ruling, two normal derivatives). Point and pair dimensions are respectively two, four and three, so these bad fiber loci have codimension at least two; they are avoided by a general one-parameter family. Requiring a singular point with zero t derivative adds an independent fourth condition for (t,u,v) of dimension three. Thus the total branch surface is smooth with at most one ordinary node per singular fiber. A common zero of the three quadratic coefficients is excluded by three independent conditions at a point of the two-dimensional ruling base. Completing the square then gives the finite double cover locally as z²=D. Smoothness of the total branch surface implies smoothness of D=0, and either ruling quartic has a repeated root exactly at a singular fiber, then a unique double root giving simple projection ramification. A smooth (4,4) divisor is connected by the restriction sequence and has genus nine. For each ruling the étale splitting cover corresponds to η=O_B(1,1)⊗r*O(−1), using the Veronese square map. The section divisor of r*O(1) is precisely the transverse intersection a=b=0: at c≠0 the root coordinate is proportional to b/c, which vanishes simply on B. Restriction from the surface in degree (1,1) is an isomorphism on sections, and the Koszul sequence excludes any such section vanishing on that intersection. Thus η is nontrivial, giving connectedness, genus 17 and degree eight in each ruling. Over smooth fibers these two covers identify the relative lines, so the normalized closure has exactly these two components. Riemann–Hurwitz gives 24 distinct branch values, identical for the two rulings since the nodal fibers are the same; étaleness doubles each simple ramification point, giving local double transpositions. A branch node gives A1 on the del Pezzo double cover.",
+      "residual_risks": [
+        "No claim for every smooth branch divisor, the full global monodromy group, the intermediate Jacobian, or extra vertical Hilbert-scheme components. The additional modular calculation tests only the critical-value polynomials for one specialization."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "LT has a degree-eight discriminant lift and eight/eight monodromy patterns in its example, with 12 branch values; Chachay's theorem is the enriched count on a single smooth quartic del Pezzo."
+        ],
+        "reasoning": "General identification of the components of a split conic, and knowledge of the 16 lines fiberwise, do not by themselves give connectedness or ramification of both line covers over this t-line. The target does not claim a new general Prym construction.",
+        "searches": [
+          "Lehmann–Tanimoto arXiv:1912.04369, Example 10.7; Chachay arXiv:2603.16315, Theorem 1.4; literature query on conic-bundle Pryms"
+        ]
+      },
+      "checked_sources": [
+        "Frozen prior-work section and primary/Resultary passages above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 24-value statement is not an originality basis; two local transpositions follow once the degree-eight cover is identified as the étale splitting lift of a simply ramified degree-four map."
+        ],
+        "reasoning": "The sources do not in the inspected statements perform that family-specific identification for both rulings, establish the nontrivial splitting cover on their (4,4) bases, or give a stronger theorem establishing the full claim. Genus and ramification deductions then are standard and are not independent novelty claims.",
+        "searches": [
+          "DKZ p. 1–2, Chachay Theorem 1.4, LT Example 10.7, and Resultary b4e86d518790 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "DKZ arXiv:2611.04983 identifies the same coordinate degree-four del Pezzo fibrations. LT Example 10.7 constructs an étale double cover of a degree-four discriminant curve, but for a different degree-four del Pezzo fibration with 12 branch values."
+        ],
+        "reasoning": "The appropriate equivalent description is the two ruling-conic-bundle component covers of this threefold. The inspected same-family source does not compute them; the analogous construction is not a dominating parameter case (different family and branch degree).",
+        "searches": [
+          "Resultary: triquadratic K3, quartic del Pezzo, connected line cover, genus 17",
+          "Literature: (2,2,2) double covers of (P¹)³, (4,4) discriminant, discriminant Prym cover"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "b4e86d518790 concerns three different base directions' degree-24 singular-parameter polynomials and universal coefficient monodromy S24³. 6eecb2c62f8f concerns line/configuration lattices on individual finite-field surfaces."
+        ],
+        "reasoning": "The 24 singular-parameter count overlaps exactly, but the three independent polynomials are not the two ruling component covers over a single chosen base direction. Neither index entry supplies a table of those covers or their genera.",
+        "searches": [
+          "Resultary b4e86d518790 and 6eecb2c62f8f; same-family reference arXiv:2611.04983"
+        ]
+      },
+      "rationale": "The line-cover theorem is a distinct concrete calculation in the (2,2,2) branch family. The ambient fibration, individual surface lines, general component-cover method, and the 24-value discriminant datum are known or overlap an indexed result. The material surviving content is the identification of the two connected moving line curves in this family, their genera and the synchronized ramification. No inspected distinct result establishes this package for this family; this is not a claim that the conic-bundle pattern or the number 24 is new by itself.",
+      "residual_risks": [
+        "A specialized earlier conic-bundle or Prym calculation could supply additional coverage; the comparison is bounded. No relative priority is assigned to the common same-day singular-parameter datum."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "closely analogous construction, not the same family or line scheme",
+          "evidence": "A four-sheeted discriminant branched at 12 values, an étale degree-eight lift, and two monodromy orbits on intersection profiles.",
+          "identifier_or_url": "arXiv:1912.04369",
+          "material_read": "Example 10.7, pp. 52–53, conic discriminant and intersection-profile monodromy",
+          "method": "OA PDF offsets 180200, 182330, 184420, 187180",
+          "title": "Classifying sections of del Pezzo fibrations, I",
+          "trigger": "strong structural analogue for degree-four fibrations"
+        },
+        {
+          "assessment": "same ambient object, not the relative line-cover computation",
+          "evidence": "Identifies the three coordinate projections as degree-four del Pezzo fibrations.",
+          "identifier_or_url": "arXiv:2611.04983",
+          "material_read": "pp. 1–2, family and fibration description",
+          "method": "targeted OA PDF passages",
+          "title": "Algebraic ellipticity of double covers of (P¹)³",
+          "trigger": "same branch family and degree-four del Pezzo fibrations"
+        },
+        {
+          "assessment": "counts lines on one surface, no relative family result in the theorem",
+          "evidence": "A quadratic enrichment of the degree-four del Pezzo line count.",
+          "identifier_or_url": "arXiv:2603.16315",
+          "material_read": "p. 3, Theorem 1.4",
+          "method": "targeted OA PDF passage",
+          "title": "A Quadratically Enriched Count Of Lines In Smooth Del Pezzo Surfaces Of Degree 2 And 4",
+          "trigger": "16 lines on degree-four del Pezzo"
+        },
+        {
+          "assessment": "partial overlap; relative line-cover conclusion not in stated theorem",
+          "evidence": "24 distinct roots per direction and product S24³ over universal coefficients, rather than monodromy of eight lines over one fixed t-line.",
+          "identifier_or_url": "Resultary b4e86d518790",
+          "material_read": "Finding and scope",
+          "method": "local mirror offset 0, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Independent symmetric monodromy of the three genus-one discriminants of a triquadratic K3 surface",
+          "trigger": "same family and exact singular-parameter count"
+        },
+        {
+          "assessment": "adjacent finite-field fiberwise result",
+          "evidence": "W(D5)-equivariant configuration of sixteen lines and ten conic classes, not a connected cover over a complex base.",
+          "identifier_or_url": "Resultary 6eecb2c62f8f",
+          "material_read": "Finding",
+          "method": "local-mirror statement",
+          "title": "Integral Frobenius conic-support lattices for quartic del Pezzo surfaces",
+          "trigger": "lines and conic-fibration classes"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen finding and reconstructed relative-line and torsion arguments; conic-bundle precedent of Lehmann–Tanimoto"
+      ],
+      "rationale": "Determining how all sixteen fiberwise lines assemble into moving curves in a natural Fano threefold gives their minimal connected families and genuine base-change information. The two connected splitting covers and the synchronization of their ramifications are more informative than merely counting lines or singular fibers.",
+      "residual_risks": [
+        "The result is a family-specific geometric invariant, not a general classification of monodromy or rational sections."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

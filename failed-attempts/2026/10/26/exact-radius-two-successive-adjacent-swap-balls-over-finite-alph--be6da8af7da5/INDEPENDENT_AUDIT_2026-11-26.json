@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:41:01.589943Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–83, VERIFICATION.md lines 19–25, verify_adjacent_radius_two.py lines 11–122 and verification_output.txt lines 1–26 inspected as text; the uploaded script was not executed.",
+        "Independent bounded replay radius2_independent_check.py constructed distinct outcomes by two successive adjacency expansions, tested both pointwise expressions and exact means on q=2 through n=10, q=3 at n=2–7 and q=4 at n=2–6, and recovered the binary maxima and n=5 list. The binary reduction and the flip argument above give an all-length check not dependent on the finite test."
+      ],
+      "rationale": "The stated conclusions hold. At radius two a sequential pair of disjoint swaps is one batch and an overlapping pair is two single-swap batches, so the metric ball equals the two-batch ball with total size at most two. Active singles and disjoint pairs have distinguishable supports of sizes two (adjacent) and four, giving 1+b+binom(b,2)-s with the center included. A triple contributes two new rotations if all distinct, one changing its separated endpoints if its endpoints differ but exactly one adjacent pair is equal, and zero otherwise. Those supports also identify the triple, giving the correction h+d. Under uniform letters p=(q-1)/q, an active edge has mean p, disjoint pairs contribute binom(n-2,2)p^2 in expectation, and the per-triple bonus is p+p(q-2)/q=2p^2. For q>=3 the simultaneous pointwise maxima of the three contributions require all adjacent pairs and all distance-two pairs to differ; choosing each symbol thereafter to avoid the preceding two gives the stated count. For binary boundary bits a_i, put N=n-1 and F=1+3b+binom(b,2)-a_1-a_N-3 sum(a_i a_{i+1}). This formula follows from h=sum|a_i-a_{i+1}|. The frozen proof has a localized false bound at N=6,z=5: with the only 1 interior, the neighboring zero-pair count C_0 is 3, not at least 4. The correct bound 3 still proves strict loss since the polynomial term vanishes. Independently, if b>=4 and a zero remains, filling it gains at least b-3>0 (at most two new neighboring one-pairs for an interior site, or one pair and one endpoint penalty). For N>=6, b<=3 gives F<=13<2+binom(N,2). For N=5, b<=2 gives F<=8; b=3 costs at least two in endpoint and adjacent-one penalties, since the only nonadjacent triple of ones is 10101, so F<=11<12. Thus only the all-one boundary pattern maximizes for N>=5. For N=4, exact evaluation by b gives value 8 precisely at 1111, 1011 and 1101; for N=3 the unique best bit pattern is 101. At N=2 all nonzero patterns tie at 3 and at N=1 only 1 attains 2. Each boundary pattern corresponds to two complement words, recovering the complete small-length lists. The singleton case is immediate. The PASS is for independently reconstructed conclusions, not for the literal N=6 intermediate bound.",
+      "residual_risks": [
+        "Do not reuse the literal C_0>=4 assertion for N=6,z=5. Neither the proof nor the finite experiments extend the two-batch equality to larger radii or decide optimal code cardinalities."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The indexed result gives the same local count and an exact transfer matrix for the complete size distribution. It explicitly gives the binary values and maximizing multiplicities at n=2,3,4,5 and 2+binom(n-1,2) with only the alternators at n>=6.",
+          "Kovačević–Goyal–Kiah Proposition 5 bounds the same radius-two ball under its two-batch description but does not count its exact local overlaps; Proposition 6 computes the mean only for one-batch disjoint spheres. The multipermutation paper gives fixed-composition bounds in the inspected section."
+        ],
+        "reasoning": "The older bounds alone do not settle the exact results. The indexed finding is decisive because it explicitly determines the center statistics and binary rigidity, with a broader full-distribution result.",
+        "searches": [
+          "arXiv:2509.06692 Sec. 1.2 and Propositions 5–6",
+          "Indexed Kendall-ball spectrum equations (1)–(4)",
+          "Buzaglo–Yaakobi–Etzion–Bruck, Error-Correcting Codes for Multipermutations, Sec. IV.A–B"
+        ]
+      },
+      "checked_sources": [
+        "Assigned record 4 Finding and proof",
+        "Resultary ranked lookup and indexed Kendall-ball spectrum Finding",
+        "arXiv:2509.06692",
+        "arXiv:1905.02752",
+        "Error-Correcting Codes for Multipermutations, ISIT 2013"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The indexed mean reduces to 1+(n-1)p+(n-2)(n+1)p^2/2 using (q-1)/q^2=p(1-p). The n=1 addition to either account is the single center in each ball.",
+          "For the only short exact-list cases not fully printed in the indexed Finding, its pointwise formula at binary n=4,5 reduces to the boundary-bit expression in the correctness check. At n=4 the unique maximizing pattern is 101; at n=5 the three patterns 1111, 1011, 1101 yield precisely the six named labeled words.",
+          "The same-day record alone is not treated as explicit binary coverage: the later indexed result separately supplies the sharp all-length binary result and the short-length multiplicities."
+        ],
+        "reasoning": "The explicit labels at lengths 4 and 5 are immediate evaluations of an equivalent known pointwise formula after the maxima are known, and the length-one case is degenerate. There is no separate unknown exact remainder after comparing both sources.",
+        "searches": [
+          "Frozen record 4 RESULT.md Finding and mean calculation",
+          "Indexed Kendall-ball spectrum equations (1)–(4) and binary extrema paragraph"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Record 4 writes t=s and counts e for triples with exactly one equal adjacent pair. Since h=d+e, the two formulas are pointwise identical; their nonbinary extremizers and means coincide.",
+          "Indexed Eq. (1) writes the same size as binom(m-K,2)+2m-K-C-2A with m=n-1, K=m-b, C=constant triples and A=aba triples with a!=b. The identities s=d+A and d+e+C+A=n-2 give exact equivalence.",
+          "The successive and Kendall tau sequence definitions agree within each composition. The disjoint single-batch model is narrower; all three labels must not be conflated."
+        ],
+        "reasoning": "The comparisons concern distinct outputs of zero, one or two swaps, not edit histories or an exactly-two-operation sphere. The identities hold for all shared words and fields of the claims.",
+        "searches": [
+          "Assigned frozen record 4 RESULT.md lines 3–41",
+          "2026/11/22/SCOPE-exact-radius-two-kendall-ball-spectra-for-multiset-words--4c63e213834d",
+          "arXiv:2509.06692 Sec. 1.2",
+          "arXiv:1905.02752 Sec. 3.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed transfer matrix counts all centers by their three local statistics; the binary maximum and its maximizing multiplicity are also stated directly. This is not simply an agreement in a finite test table.",
+          "The exact-two sphere match and the Ulam/LCS match have different output sets and do not decide this record."
+        ],
+        "reasoning": "The catalogue identifies exact all-length coverage and includes the largest possible center sizes in the binary specialization.",
+        "searches": [
+          "Resultary lookup for exact radius-two adjacent-swap ball sizes and maxima",
+          "2026/11/22/SCOPE-exact-radius-two-kendall-ball-spectra-for-multiset-words--4c63e213834d",
+          "2026/11/22/SCOPE-complete-maximizers-of-exact-two-adjacent-swap-spheres-over-nonb--228c8deb5a52",
+          "2026/10/26/SCOPE-an-exact-radius-two-ulam-ball-around-alternating-balanced-binary--79265e1ef491"
+        ]
+      },
+      "rationale": "Record 4 already carries the equivalent local formula, mean and nonbinary extremum in a different triple notation. The binary rigidity and small cases materially distinguish this record from record 4, but are themselves covered by the verified distinct indexed Kendall-ball spectrum result, including explicit large-n rigidity and small-n values and multiplicities. Its pointwise formula mechanically gives the two short exact lists. This is a judgment of demonstrated overlap in the reviewed corpus, not historical anticipation by a later-dated document or an inference of order from the same-day labels.",
+      "residual_risks": [
+        "The comparisons prove coverage in the reviewed corpus, not the chronology or derivation of overlapping packages. Earlier inspected primary papers do not independently establish anticipation of the entire exact classification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact overlap of the central formula, mean and nonbinary classification; no full binary classification as a finding",
+          "evidence": "The correction -t+2d+e equals -s+h+d and the aggregate formulas agree.",
+          "identifier_or_url": "Assigned frozen record 4, RESULT.md",
+          "material_read": "Finding, assumptions and proof, lines 3–56",
+          "method": "Direct frozen-source read and triple-type comparison",
+          "title": "Exact radius-two Kendall swap balls for words with repeated symbols",
+          "trigger": "Distinct same-day claim for the same ball"
+        },
+        {
+          "assessment": "Pointwise equivalent and broader; later dated, not evidence of earlier priority",
+          "evidence": "Identical count after changing local statistics; explicitly states values 2,3,6,8 with maximizing counts 2,6,2,6, and alternating rigidity thereafter.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-radius-two-kendall-ball-spectra-for-multiset-words--4c63e213834d",
+          "material_read": "Finding equations (1)–(4), including binary extrema, and local-count proof",
+          "method": "Local mirror at 36a7204b5741b75430355c38bf9bf0ef7468c2a4; offsets 0–2257 and 700–4691",
+          "title": "Exact radius-two Kendall-ball spectra for multiset words",
+          "trigger": "Closest indexed statement and explicit binary rigidity"
+        },
+        {
+          "assessment": "Same definitions and related bounds; exact successive formula not established in these passages",
+          "evidence": "The paper defines B^(s), proves inclusion of the two-batch ball, and bounds overlap choices; its exact sphere average is for disjoint supports.",
+          "identifier_or_url": "https://arxiv.org/abs/2509.06692",
+          "material_read": "Sec. 1.2 pp. 4–5, Prop. 5 pp. 9–10 and Prop. 6 pp. 10–11",
+          "method": "OA PDF offsets 14860, 31350 and 36150",
+          "title": "Bounds on Codes Correcting Adjacent Transpositions",
+          "trigger": "Earlier primary source on the same metric and two-batch balls"
+        },
+        {
+          "assessment": "Same metric on fixed compositions; no exact volume statement in inspected section",
+          "evidence": "Defines the minimum number of adjacent swaps for two sequences of equal multiplicities.",
+          "identifier_or_url": "https://arxiv.org/abs/1905.02752",
+          "material_read": "Sec. 3.2, PDF pp. 6–7",
+          "method": "OA PDF offset 22037 onward",
+          "title": "Kendall Tau Sequence Distance: Extending Kendall Tau from Ranks to Sequences",
+          "trigger": "Alias for successive adjacent-swap distance"
+        },
+        {
+          "assessment": "Restricted fixed-composition results, not the delivered binary all-length classification",
+          "evidence": "Discusses radius-one sizes and radius-two bounds for a fixed-composition family.",
+          "identifier_or_url": "Buzaglo–Yaakobi–Etzion–Bruck, ISIT 2013",
+          "material_read": "Sec. IV.A–B",
+          "method": "OA PDF offsets 25200–33121",
+          "title": "Error-Correcting Codes for Multipermutations",
+          "trigger": "Earlier repeated-symbol radius-two bounds"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 24–35 and 61–79",
+        "Indexed Kendall-ball spectrum binary classification and Eq. (1)",
+        "Assigned record 4 Finding"
+      ],
+      "rationale": "The alternating rigidity is a meaningful coding-metric fact, and would be a valuable remainder relative to record 4 alone. But the full indexed spectrum already determines it and the small-n cases, leaving only explicit labels at two tiny lengths obtained by immediate evaluation and the trivial singleton. Fixing the proof-bound typo does not restore a distinct exact finding, so no scientific repair is submitted.",
+      "residual_risks": [
+        "The negative judgment is about this package's distinct contribution, not the mathematical usefulness of the binary theorem itself."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

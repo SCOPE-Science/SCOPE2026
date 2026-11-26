@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The necessity direction follows from positive-equivalence transitivity, the three-vertex block-size limit, and the two saturated profiles. The sufficiency direction uses an explicitly instantiated Hall relocation lemma: either an unused full triple of movable vertices provides a buffer, or at least two edge components provide one movable vertex each. The lemma checks singleton and multiple-box Hall inequalities. The graph-profile count and top coefficient follow by labeled component enumeration. A standalone exhaustive enumerator checks small cases, but correctness of the unlimited statement rests on the proof.
+PASS
 
-## Originality
+The all-positive trace forces each nontrivial component into one triple; a cycle cannot realize a trace with just one negative cycle edge. Thus the components are paths on three vertices and single edges, and each needs its own triple. In the two excluded saturated profiles one can force m−1 full path triples, leaving the selected query forced positive in the last triple. For sufficiency, consider the Hall condition on vacant slots: slots in two distinct boxes jointly admit every mover, and slots in one nonfree box with t vacancies need t movers originating outside it. A spare free box supplies three movers, and in the saturated case the q≥2 single-edge boxes each supply one, enough for any two-leaf path box and for every single-edge box. Staying at the fixed endpoint versus moving to a different box realizes each required sign without affecting positive queries. Counting labelled components gives the stated factorial expression; the two top-degree profiles for m≥2 give the top coefficient, and m=1 leaves only the empty support. An independent partition-trace census of all 8 and 32,768 supports for m=1 and m=2 agreed (coefficients 1 and 1,15,105).
 
-PASS under checked accessible material. Prior accessible results for refinement-closed partition families do not imply the fixed triple-size class, which is not refinement-closed. Earlier finite two-block partition work does not cover arbitrarily many prescribed three-point blocks. Ailon–Begleiter–Ezra (2014, Section 5.2) explicitly prove only broad linear VC bounds for partitions with at most a specified number of arbitrary-size blocks, which do not imply the sharp characterization for equal triple blocks. The inspected later active-clustering papers use the same equality oracle but prove approximation and recovery/query-complexity results rather than a full static shattered-support characterization or shattering polynomial. The published published-finding corpus search returned graph-partition, clustering and triple-packing records with different mathematical objects/invariants. Historical priority is not exhaustively resolved, particularly across older work on set-partition shattering and equivalence relations.
+## originality
 
-## Value
+PASS
 
-PASS. Equality of cluster membership is a basic interactive partition query. Imposing exactly three elements per block is a natural balanced partition restriction, yet introduces global packing obstructions: the disjoint-union component condition alone is not enough, and precisely two saturated profiles fail. The classification determines every possible shattered support for all block counts, an exact VC dimension, and all coefficients of a support enumerator including the maximum-support count. This is a structural counting result rather than merely a small finite census.
+The forest obstruction and even the list of permitted component shapes are not new in isolation. The distinct claim is the exact-size completion criterion (including both saturation failures and sufficiency for all other profiles), with its resulting exact dimension and support census. The strongest inspected broader or nearby claims do not imply that completion criterion.
 
-## Boundaries
+## value
 
-No conclusion about adaptive Littlestone dimension, arbitrary block sizes, optimal interactive recovery, or historical priority beyond the inspected sources. Finite verification does not replace the infinite-parameter argument.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A complete support classification for a natural constrained equivalence class distinguishes actual shattering from mere feasibility of the all-positive trace. The explicit saturation obstructions and completion proof add content beyond a dimension estimate; the exact census then reports how often each support size occurs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

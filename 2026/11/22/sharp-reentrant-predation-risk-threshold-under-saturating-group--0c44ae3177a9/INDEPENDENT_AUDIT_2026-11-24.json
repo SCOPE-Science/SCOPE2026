@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T14:46:41.533298Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On x>0 the hazard is positive and logarithmic differentiation gives H−b, with H=G(x^p)/[x(x^p+a)(1+x^p)] and G(z)=−z²+Bz−a. For p≤1, G<0; otherwise G has a positive interval iff B>2√a, equivalently √a<(p−1)/(p+1). At equality G has one isolated double zero, compatible with strict functional decrease when b=0. In the positive interval, writing y=log x gives log H as log(e^(py)−z_−)+log(z_+−e^(py))−y−log(e^(py)+a)−log(e^(py)+1); each nonlinear term after incorporating its sign has strictly negative second derivative. With log H going to −∞ at both ends there is a unique unimodal positive hump. This implies exactly the two intersections for 0<b<b_c (two support endpoints for b=0), and the −,+,− derivative signs. At b=b_c the second derivative of H at its maximum is strictly negative, so R′ has a quadratic zero, R‴<0 there and the point is a horizontal inflection. At a↑a_c, the two z-roots coalesce at t, the vertex value is p(a_c−a)+O((a_c−a)^2), and the denominator converges uniformly to t^(1+1/p)(1+t)^2 across the hump. For a↓0 with p>1 fixed set x=a^(1/p)u; positivity requires u^p>1/(p−1), and the rescaled positive value is bounded by (p−1)/u. Together with local uniform convergence to F_p and an interior positive test value, these exclude escaping maximizers. Differentiating F_p in w=u^p gives the stated quadratic with one positive root. Independent `python /workspace/replay_checks.py 2` verifies that quadratic symbolically and isolates the two exact positive roots in the p=2 example, numerically reproducing the peak and both stationary coordinates. Conditional capture success is nonincreasing, constant at b=0; the assertions concern the continuous model, not integer or empirical estimates.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Turner–Pitcher explicitly address combined attack avoidance and dilution. Frozen RESULT.md lines 99–103 describe Wrona–Dixon as separating encounter and dilution empirically, and Ale–Brown as treating power-law attraction and endogenously chosen vigilance; decisive primary text for these comparisons was not independently retrieved."
+        ],
+        "reasoning": "A general multiplicative model gives the log-derivative comparison; it does not automatically force a single positive hump or specify either endpoint scaling. The reported power-law/endogenous-vigilance setting changes the response family and what optimizes, rather than embedding this separate Hill-plus-exponential classification as a stated special case.",
+        "searches": [
+          "Turner–Pitcher DOI:10.1086/284556; Wrona–Dixon DOI:10.1086/285153",
+          "Ale and Brown 2007, The contingencies of group size and vigilance"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, REVIEW.md, VERIFICATION.md, CHECK.py",
+        "Resultary 0c44ae3177a9 and 12f4960f5d1e (catalogue)",
+        "Cresswell–Quinn DOI:10.1111/j.1365-2656.2010.01775.x (abstract passage); Turner–Pitcher 1986, Ale–Brown 2007 and Wrona–Dixon 1991 (bounded attributions/access limits stated above)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A generic attack-abatement framework motivates a competition of factors; its log-derivative test is background. The retrieved Cresswell–Quinn abstract treats differences among flock-size thresholds, and the same-day catalogue result changes the observable to per-predator intake while varying patch clumping."
+        ],
+        "reasoning": "Thresholds for other observables/functions do not prove the strict log-concavity of H on its positive support; they do not imply the critical-point counts including tangency or maxima asymptotics. The distinct claim needs the Hill-specific sign reduction and compact rescaled-maxima argument.",
+        "searches": [
+          "Cresswell–Quinn DOI:10.1111/j.1365-2656.2010.01775.x, Turner–Pitcher DOI:10.1086/284556, Ale–Brown 2007, Resultary 12f4960f5d1e"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Exact and alias searches returned the assigned entry 0c44ae3177a9. The Cresswell–Quinn abstract considers thresholds in empirical attack rate, success rate or dilution by redshank flock size. The bound equation concerns H=R′/R+b, not unimodality of R′ or predator intake."
+        ],
+        "reasoning": "Rephrasing the claim as attenuation competing with encounter log-elasticity and one-victim dilution leaves the same mathematical function. An empirical threshold for attack, capture success or dilution is not the global parameter threshold for the product of these specific factors.",
+        "searches": [
+          "Resultary: exact title, Hill/reentrant predation, exponential capture attenuation, attack abatement, Cresswell–Quinn and Ale–Brown",
+          "DOI:10.1111/j.1365-2656.2010.01775.x, primary abstract"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The returned exact scope match is the assigned entry. Distinct same-day 12f4960f5d1e describes a square-root predator-tracking crossover in two-patch allocation and per-predator feeding. The primary search surfaced the Cresswell–Quinn empirical study, not a returned analytic threshold table for this family."
+        ],
+        "reasoning": "Neither returned distinct statement contains the explicit a_c, the single positive-support maximum b_c or the two small-baseline/coalescence laws. The lookup only supports this limited comparison, not a guarantee that there is no such table.",
+        "searches": [
+          "Resultary: Hill saturating encounter and single-victim dilution with exponential conditional capture and sharp a_c,b_c",
+          "Primary lookup for Hill-family group-size risk thresholds"
+        ]
+      },
+      "rationale": "Combined attraction/avoidance, dilution and group-size risk thresholds are not new. The distinct supported contribution is the exact sharp and unique attenuation threshold, complete continuous critical-point diagram and two endpoint laws for the specified Hill factor and separate exponential capture term. Available ecological statements do not cover that mathematical combination; the underlying attack-abatement literature has residual full-text uncertainty.",
+      "residual_risks": [
+        "No independent full-text comparison of Cresswell–Quinn, Turner–Pitcher, Ale–Brown or Wrona–Dixon was achieved. The most material remaining priority risk is an earlier analytically equivalent attack-abatement treatment in those or unindexed papers, not shown by the evidence available here.",
+        "The same-day mirror result was compared at its available catalogue statement only; inaccessible material is not negative evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantive overlap of motivation and thresholds but no model-specific general theorem in the accessible passage",
+          "evidence": [
+            "The abstract asks whether flock-size thresholds in ‘attack rate, success rate or dilution’ differ for redshank flocks hunted by sparrowhawks."
+          ],
+          "identifier_or_url": "https://doi.org/10.1111/j.1365-2656.2010.01775.x",
+          "material_read": "Retrieved abstract passage; Wiley and identified alternate full text not retrieved",
+          "method": "Primary lookup; bounded retrieval attempts at Wiley article/PDF and identified Docslib alternate",
+          "title": "Predicting the optimal prey group size from predator hunting behaviour",
+          "trigger": "Closest retrieved primary statement on group-size thresholds with the same three effects"
+        },
+        {
+          "assessment": "Credit combined avoidance and dilution; exact prior coverage not decidable from the accessible material",
+          "evidence": [
+            "The named combination of avoidance and dilution is prior even if no Hill-specific phase diagram is established by the accessible statement."
+          ],
+          "identifier_or_url": "https://doi.org/10.1086/284556",
+          "material_read": "Title and frozen comparison at RESULT.md lines 99–103; full text not retrieved",
+          "method": "Targeted DOI OA request and frozen statement comparison",
+          "title": "Attack abatement: A model for group protection by combined avoidance and dilution",
+          "trigger": "Strong historical conceptual precedent"
+        },
+        {
+          "assessment": "Reported power-law attraction with endogenous vigilance is different; whole-text overlap not determined",
+          "evidence": [
+            "The specified Hill law has both a positive baseline and an upper saturation, and the attenuation is exogenous."
+          ],
+          "identifier_or_url": "Ale and Brown (2007), Evolutionary Ecology Research 9, 1263–1276",
+          "material_read": "Frozen RESULT.md lines 101,113; cited open transcription not independently retrieved",
+          "method": "Targeted retrieval attempt and bounded comparison to the frozen account",
+          "title": "The contingencies of group size and vigilance",
+          "trigger": "Theoretical attraction/dilution treatment with a different response law"
+        },
+        {
+          "assessment": "Different hazard, variables and target conclusion in the available statement",
+          "evidence": [
+            "The indexed statement treats two-patch prey clumping, square-root predator tracking and saturating feeding, with a crossover in per-predator intake."
+          ],
+          "identifier_or_url": "Resultary 12f4960f5d1e",
+          "material_read": "Catalogue statement only; mirror Finding not retrieved",
+          "method": "Resultary and targeted mirror attempt",
+          "title": "A sharp reentrant predation crossover under square-root patch tracking",
+          "trigger": "Closest distinct same-day reentrant-predation hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a model motivated by separately observed encounter, capture and dilution effects, a unique bounded adverse-risk interval is a meaningful structural alternative to universal dilution protection. The two sharp thresholds indicate when a reversal can exist, and the asymptotics quantify how its attenuation tolerance varies near baseline extremes. This is useful model behavior, not a claim of fitted capture rates, a discrete ecological optimum or field verification.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

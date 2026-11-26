@@ -1,0 +1,88 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:37:54.274955Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In the specified orthonormal-coordinate realization the face free generators are exactly the roots annihilated by a supporting objective. Rank two in a simple triangle-free graph forces two edges, and their Gram area squared is 3 for intersecting edges and 4 otherwise. A fixed pair yields one face per chamber of the contracted arrangement. A wedge collapses to a universal vertex; a disjoint pair collapses to two adjacent universal vertices, because in a complete bipartite graph each merged block includes both types of vertices. The rest remains a biclique. The joins give acyclic-orientation counts B2 and 2B3, respectively; the pairs themselves have multiplicities p·C(q,2), q·C(p,2), and 2·C(p,2)·C(q,2). This gives exactly the asserted formulas. At fixed p the two leading coefficients have common factor p!·C(q,2)·(p+1)^(q−2) and multipliers p and p(p−1); the other wedge has base p. This checks the frequency and mean. B2(0,b)=2^b, B2(1,b)=2·3^b and B3(0,b)=3^b give the thin two-vertex formulas, including four squares and eight rhombi at p=q=2. The seven-case checker was inspected, not executed; it is finite corroboration only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Grujić pp. 5–6 identifies each rank-k flat with a subspace X^F and explicitly identifies the arrangement restricted to X^F with the arrangement of Γ/F. Thus the proof gives a(Γ/F) for each flat, not merely a total in which the information about F has been lost."
+        ],
+        "reasoning": "For dimension two the type being counted is a function of the very same flat. The rank-two flat is a pair and its two-root Gram area class is determined by incidence, so no new counting theorem is needed.",
+        "searches": [
+          "Grujić arXiv:1604.06931, flats, contracted arrangement, Theorem 1.1 and equations (6)–(8)"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check_faces.py",
+        "Grujić arXiv:1604.06931",
+        "Chapoton–Pilaud arXiv:2201.06896",
+        "Resultary acb360f5de22, 6da55fe20d54, 07308b86f132 (catalogue comparisons)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At rank two the only simple triangle-free flats are wedge and matching edge pairs. In K_(p,q) their contractions are literally K1 joined to a smaller biclique and K2 joined to a smaller biclique. In general χ_(K_j∨H)(t)=(t)_(falling j)χ_H(t−j) by reserving the j distinct colors."
+        ],
+        "reasoning": "Substitution into the per-flat formula gives the displayed multiplicities, with the area labels supplied by a two-by-two Gram determinant. Coloring one fixed side by j color classes immediately gives the finite sum in powers (s+j)^b, whose unique largest base gives the ratio. The separate area labels and the missing printed ratio do not add a nonmechanical step.",
+        "searches": [
+          "Grujić arXiv:1604.06931, Eq. (7)–(8) and proof of contracted arrangement",
+          "Chapoton–Pilaud arXiv:2201.06896, Proposition 36"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Chapoton–Pilaud study precisely this zonotope up to translation in the shuffle of point polytopes. The K_(2,q) facet-area result and the K_(p,q) symmetric-edge-polytope f-polynomial are not equivalent to the assigned histogram."
+        ],
+        "reasoning": "Using the point-polytope shuffle description does not change the metric classes here; changing from the graphical zonotope to the symmetric edge polytope does change the object.",
+        "searches": [
+          "Resultary complete bipartite graphical zonotope square rhombus two-face area and thin-side square frequency",
+          "arXiv:2201.06896, Point(m) star Point(n) and Proposition 36"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The parameter-count tables and formulas in the inspected sections concern vertices and facets; the square-condensation hit is for panhandle matroid base polytopes, and the biclique area-condensation hit concerns facets of a thin biclique."
+        ],
+        "reasoning": "No independent direct table of the assigned two-face area counts was identified. The coverage determination instead uses the per-flat formula and its proof.",
+        "searches": [
+          "Resultary square-frequency and graphical-zonotope area matches acb360f5de22, 6da55fe20d54, 07308b86f132; matched assigned item excluded",
+          "Chapoton–Pilaud arXiv:2201.06896, Propositions 100–101"
+        ]
+      },
+      "rationale": "The distinction between the unrefined f-vector and the metric histogram is real, but the strongest prior gives the count separately for the exact flat indexing each metric class, before summation. The complete claimed histogram is a direct evaluation of those existing contributions using rank-two incidence and two elementary join substitutions; the limit then follows by keeping the unique largest base in a finite standard coloring sum. This is demonstrated coverage by implication, not a claim that a published table explicitly prints the area split.",
+      "residual_risks": [
+        "An explicitly printed earlier metric histogram was not located; the finding of prior coverage rests on the exact specialization above, not exhaustive priority attribution."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct combinatorial coverage by implication",
+          "evidence": "The restriction to X^F is H_(Γ/F), so it already gives the exact number of chambers attached to each individual rank-two flat.",
+          "identifier_or_url": "https://arxiv.org/pdf/1604.06931",
+          "material_read": "Theorem 1.1 and pp. 5–6, Eqs. (6)–(8) and paragraph identifying X^F and Γ/F; OA offsets 13150–15220 for the decisive passage",
+          "method": "OA PDF passage",
+          "title": "Counting faces of graphical zonotopes",
+          "trigger": "Exact individual-flat contributions behind the claimed metric enumeration"
+        },
+        {
+          "assessment": "Same object and established combinatorial description; no metric split in passages read",
+          "evidence": "The ordered-partition description and vertex/facet enumerations support the family equivalence, not a direct area table.",
+          "identifier_or_url": "https://arxiv.org/pdf/2201.06896",
+          "material_read": "p. 1; Proposition 36, p. 10; Propositions 100–101, pp. 18–19",
+          "method": "OA PDF passages",
+          "title": "Shuffles of deformed permutahedra, multiplihedra, constrainahedra, and biassociahedra",
+          "trigger": "Exact same biclique graphical zonotope under the shuffle name"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The uniform area statistic is natural, but this exact refinement is mechanically supplied by established per-flat counting plus routine edge classification and coloring. The thin-side limit adds only a dominant-term extraction from that finite sum. No independent mathematical gap, nonroutine estimate, or consequence that needs this precise evaluation is established beyond these applications.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

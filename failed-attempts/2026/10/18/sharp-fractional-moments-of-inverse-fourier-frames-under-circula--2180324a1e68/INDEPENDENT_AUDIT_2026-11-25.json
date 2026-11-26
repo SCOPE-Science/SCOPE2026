@@ -1,0 +1,153 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:44:34.287385Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md:4–27,29–56",
+        "VERIFICATION.md:1–23",
+        "verify.py"
+      ],
+      "rationale": "The two sharp finiteness thresholds themselves are correct. The Lagrange column norm is bounded above by a binomial constant times its squared denominator inverse and below by that inverse from its leading coefficient. For fixed p>0 powers of a sum of N nonnegative terms are comparable with the sum of their powers. Thus the numerator density reduces to one-point chord exponents β−2p (the other pair factors are bounded); the integral is finite if β−2p>−1, even including multi-node collisions. A separated single-pair collision proves necessity and logarithmic divergence at equality. Conditional diagonalization of the Gaussian covariance compares the conditional loss moment to T^p for every p>0. Multiplication of rows by unit phases proves integer band-translation invariance, and cofactor orthogonality proves the stated unmodified CUE mean. However, the Finding's unqualified assertion that the error lacks finite variance at β=2 is false for the coefficient error e itself: it is centered with finite covariance τ²I_N in the unmodified CUE case. It is the squared error ||e||² whose variance is infinite, as the preceding moment thresholds correctly imply. Also, Step 5's exact two-node formula needs G≡1 (or an equivalent law of the gap). Under the stated general G it is false: at N=2, β=2, G=1+T⁻¹ lies between 1 and 2. Under the unmodified law E₀T=2 and E₀T⁻¹=3/4 by the elementary sine integrals, so the tilted mean is (2+1)/(1+3/4)=12/7, not 2. The checker was read, not executed; its reported 70 finite checks concern unmodified two-node moments, cofactor orthogonality and trace identities and do not test arbitrary G.",
+      "residual_risks": [
+        "The failure flags the wording of the frozen finding and the unqualified exact two-node statement, not a counterexample to either finiteness threshold."
+      ],
+      "status": "FAIL"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Morris's integral evaluates the unmodified one-point singular-weight integrals as a gamma product on the whole admissible domain, not just their existence.",
+          "The square-size volume-sampling inverse-Gram mean follows from the equality case in Lemma 4.9 after removing sample-Gram normalization."
+        ],
+        "reasoning": "The evaluation is stronger for the one-point integrals that govern this question. No additional angular estimate is needed for arbitrary G since its positive upper and lower bounds preserve finiteness.",
+        "searches": [
+          "Forrester–Warnaar arXiv:0710.3981, Eqs. (1.17)–(1.18)",
+          "Nouy–Michel arXiv:2312.14057v4, Lemma 4.9",
+          "Belhadji–Bardenet–Chainais arXiv:2310.09437v2, Section 2.3"
+        ]
+      },
+      "checked_sources": [
+        "Forrester–Warnaar arXiv:0710.3981 Eqs. (1.17)–(1.18)",
+        "arXiv:1202.3184v2",
+        "arXiv:2609.29286",
+        "arXiv:2312.14057v4",
+        "arXiv:2310.09437v2",
+        "arXiv:math/0410034",
+        "Resultary 323dcae74731, 5fb2ea549d24, 3e6c13d40bc2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The substitution (n,a,b,γ)=(N−1,(β−2p)/2,(β−2p)/2,β/2) is in the Morris convergence domain exactly on the finite side for N≥3; for N=2 it is the ordinary one-variable beta integral.",
+          "On the other side keep other nodes a fixed distance from the distinguished gap to obtain the divergent scalar integral. Fixed-dimensional Gaussian norm-moment equivalence transmits exactly the same threshold, and bounded tilts do not change it."
+        ],
+        "reasoning": "The reduction, parameter substitution and one-dimensional endpoint check mechanically produce the claimed transition from known material, even without a prior source writing the exact same operator formula.",
+        "searches": [
+          "arXiv:0710.3981 p. 7, Eqs. (1.17)–(1.18), offsets 23240–26411",
+          "RESULT.md:29–56",
+          "arXiv:2312.14057v4 p. 11"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In finite dimension T^p is comparable to the sum of the p-th powers of the individual squared Lagrange denominators, since the leading coefficient supplies the lower bound and the coefficients of each monic numerator are uniformly bounded on the circle.",
+          "After conditioning by rotation at one node each denominator moment is exactly a Morris integral in N−1 variables, up to the original normalizer."
+        ],
+        "reasoning": "This is a fixed-node or reduced Palm characteristic-polynomial moment, not the moment of a characteristic polynomial at an independent angle. The conditioning shifts the exponent from −2p to β−2p and recovers exactly the frozen endpoint.",
+        "searches": [
+          "arXiv:0710.3981, literal Morris integral, Eqs. (1.17)–(1.18)",
+          "arXiv:1202.3184v2, Theorem 3.3",
+          "Resultary 323dcae74731"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 323dcae74731 treats the analogous independent-node matrix at threshold p=1/2, not β>0; it is dated later. The two-frequency sketch 5fb2ea549d24 concerns independent phases and different shape, and same-day 3e6c13d40bc2 concerns circular number variance.",
+          "The exact Morris integral formula has the needed exponents after fixing one node, independently of whether the corresponding operator terminology appears in a catalogue."
+        ],
+        "reasoning": "None of the inspected indexed neighbors covers the full repulsive theorem. The classical integral entry, coupled with the coefficient comparison, is the material coverage, not the later independent-node entry or same-day dating.",
+        "searches": [
+          "Resultary for inverse Fourier Gram trace, circular repulsion and fractional moments",
+          "Resultary 323dcae74731, 5fb2ea549d24, 3e6c13d40bc2",
+          "Classical Morris integral gamma-product table in arXiv:0710.3981 Eq. (1.18)"
+        ]
+      },
+      "rationale": "The central claimed fractional-moment transition is an elementary consequence of the classical Morris circular Selberg integral. For W_j=∏_{i≠j}|z_i−z_j|⁻² the standard inverse Vandermonde coefficient formula gives ∑W_j≤T≤binom(2N−2,N−1)∑W_j. Thus finiteness is equivalent to that of the sum of the E[W_j^p]. The bounded positive weighting G gives equivalence of these integrals with G=1. In the latter ensemble fix z_j by rotation, then rotate the remaining nodes to place the fixed factor at −1. The unnormalized moment is exactly M_{N−1}(a,a,γ) of Forrester–Warnaar Eqs. (1.17)–(1.18), with a=(β−2p)/2 and γ=β/2. The classical admissibility condition is exactly β−2p>−1 for γ>0; outside it a single gap already diverges, with the remaining nodes in separate arcs. For N=2 this is the one-variable circle beta integral. This does not rely on any literal appearance of the Gram-trace wording in a prior paper: the standard coefficient formula gives two-sided comparability, not merely a one-way analogy. The bounded tilt and Gaussian extension are immediate comparisons, and the CUE first moment is explicitly known. No independently distinct original remainder of the frozen theorem was identified.",
+      "residual_risks": [
+        "The 1982 thesis is credited on the basis of the inspected formula and attribution in the later account, not claimed as directly read.",
+        "The external specialist search wave was deferred; a prior paper explicitly stating the same operator theorem could also exist. The conclusion already follows from the verified classical implication and does not depend on that search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Gives the decisive existing stronger one-point integral evaluation",
+          "evidence": "Eqs. (1.17)–(1.18) give the circular integral with |1+e^(iθ)|^(a+b) and pair exponent 2γ, with Re(a+b+1)>0 and the stated bound on Re γ. They credit W. G. Morris's 1982 thesis for the formula and proof; the thesis was not separately inspected.",
+          "identifier_or_url": "https://arxiv.org/pdf/0710.3981",
+          "material_read": "p. 7 Eqs. (1.16)–(1.19), assumptions and attribution after Eq. (1.19), offsets 23240–26411; bibliography [113], offset 153037",
+          "method": "OA PDF",
+          "title": "The importance of the Selberg integral",
+          "trigger": "Possible classical exact evaluation of the controlling singular-weight integral"
+        },
+        {
+          "assessment": "Independent phases, not the repulsive model",
+          "evidence": "Theorem 3.3 covers real p≥1 for inverse spectral-power moments, not just integer orders as suggested in the frozen comparison.",
+          "identifier_or_url": "https://arxiv.org/html/1202.3184v2",
+          "material_read": "Theorem 3.3, HTML offset 24800",
+          "method": "OA primary HTML",
+          "title": "Asymptotic Behavior of the Maximum and Minimum Singular Value of Random Vandermonde Matrices",
+          "trigger": "Known related inverse Vandermonde moment result"
+        },
+        {
+          "assessment": "Independent-uniform risk divergence, not positive repulsion",
+          "evidence": "Divergence of inverse squared singular-value means yields infinite expected risk in the iid model.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.29286",
+          "material_read": "PDF p. 9 Theorem 6, offset 29080",
+          "method": "OA primary PDF",
+          "title": "Non-asymptotic Analysis of Expected Reconstruction Risk for Trigonometric Polynomial Models",
+          "trigger": "Same Fourier reconstruction-risk setting"
+        },
+        {
+          "assessment": "Already covers the benchmark as credited",
+          "evidence": "The normalized inverse-Gram mean bound is an equality for almost surely full-rank design; square size gives the frozen constant after normalization.",
+          "identifier_or_url": "https://arxiv.org/pdf/2312.14057v4",
+          "material_read": "Section 4, p. 11 Lemma 4.9, offset 45200",
+          "method": "OA primary PDF",
+          "title": "Weighted least-squares approximation with determinantal point processes and generalized volume sampling",
+          "trigger": "Exact CUE inverse-Gram benchmark"
+        },
+        {
+          "assessment": "Known density, not used as an inverse-moment theorem",
+          "evidence": "The Vandermonde repulsion law is the classical circular β ensemble; the θ-normalization constant is immaterial for convergence.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0410034",
+          "material_read": "Opening and Eq. (1.1), p. 1, offset 800",
+          "method": "OA primary PDF",
+          "title": "Matrix models for circular ensembles",
+          "trigger": "Parameter and ensemble identification"
+        },
+        {
+          "assessment": "Closest indexed statement is the independent-phase boundary, not the assigned repulsive model",
+          "evidence": "For consecutive-frequency square matrices under iid uniform nodes the threshold is p<1/2, with additional tail bounds.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-critical-inverse-moments-and-logarithmic-tails-of-random-fourier--323dcae74731",
+          "material_read": "RESULT.md, offset 0",
+          "method": "Local Resultary mirror at commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Critical inverse moments and logarithmic tails of random Fourier matrices",
+          "trigger": "Closest indexed inverse trace threshold"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md:4–24,29–56,61–67",
+        "arXiv:0710.3981 Eqs. (1.17)–(1.18)",
+        "arXiv:2312.14057v4 Lemma 4.9"
+      ],
+      "rationale": "The boundary is relevant for design risk, but the frozen contribution is a routine transfer of a classical singular-weight integral through the standard inverse Vandermonde formula, followed by elementary comparisons for the tilt and the noise. The normalization benchmark is known. The work reports neither a new tail asymptotic, a quantitative estimate beyond the implication, nor a new regime not controlled by those comparisons. Correcting the two wording errors would not leave a distinct valuable mathematical result under the audit standard.",
+      "residual_risks": [
+        "The direct proof may be pedagogically useful; this is not a finding that the reconstruction problem is unmotivated."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

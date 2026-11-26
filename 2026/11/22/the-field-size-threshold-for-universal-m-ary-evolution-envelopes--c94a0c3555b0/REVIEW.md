@@ -1,21 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof is reconstructed from the independent values of a symmetric multilinear map on basis multisets; no diagonal polarization or factorial invertibility is used. The pure-tensor span is dual to degree-\(m\) homogeneous polynomial evaluation. The infinite-field polynomial-identity argument and the inductive finite-field root-counting lemma establish the entire positive range. A basis of evaluation columns yields a natural-basis algebra, an injective homomorphism, and the stronger inclusion \(\mu_E(E^m)\subseteq\phi(A)\). At \(m\ge q+1\), Frobenius gives a universal identity in every diagonal \(m\)-ary algebra; the specified two-dimensional tensor violates it. The strict boundary, dimension-one exception, and arbitrary-characteristic cases have been checked explicitly in the proof. Three standalone exact-arithmetic programs replay successfully; they corroborate but do not substitute for the infinite argument.
+PASS
 
-## Originality — PASS (qualified)
+RESULT.md lines 23–91 give a characteristic-free proof. The independent coordinates of a symmetric multiplication are its values on basis multisets, not the coefficients of its diagonal polynomial. The annihilator of the span of the pure tensors is exactly the space of homogeneous degree-m polynomials vanishing at all K-points. For finite K of order q and m≤q, induct on the number of variables: restriction to the last-coordinate hyperplane vanishes identically by induction, so factor off that variable. On the chart where it is 1, the remaining polynomial has degree ≤m−1<q in each variable; repeated root counting and homogeneity force zero. This includes equality m=q, even in small characteristic. The infinite-field identity principle gives the other positive case. From a basis of N evaluation columns, express the multiplication as a sum of pure forms times vectors v_j; their defining linear forms separate points since all pure forms lie in their span. Defining the jth natural-basis power to be the embedded v_j preserves multiplication and places every ambient product in the embedded image, proving ideal closure and the quotient assertion. For m≥q+1, the natural-basis coordinate difference between the two claimed products factors as a^(m−q−1)(a^q b−a b^q)=0, so the identity holds even for arbitrary-dimensional natural-basis algebras. The two distinct basis multisets have assigned outputs e_1 and 0 in the counterexample, which survives zero padding to every n≥2. In dimension one there are no mixed natural-basis products. Independently enumerated the pure-span over F_4 in dimension two using representatives (1,t) and (0,1), checking rank 4,5,5,5 in arities 3–6 and the failure of the explicit output vector to lie in the span at arities 5 and 6. Replay: python3 -B /workspace/reproductions/check.py 5; output /workspace/reproductions/5.log. Only finite corroboration; the frozen scripts were inspected rather than executed.
 
-The motivating arXiv:2609.32784v1 proves the binary case and explicitly presents \(m\)-ary ideal-embedding as Question 4.7. Its suggested characteristic restriction is sufficient but does not give the sharp finite-field threshold or Frobenius obstruction. Classical projective Reed–Muller theory already determines the low-degree homogeneous-evaluation rank, and this is credited. Comparisons searched the same statements through aliases (higher arity, diagonal symmetric tensors, pure powers, finite-field Reed–Muller evaluation), not just exact titles. Accessible ranked research records on binary evolution envelopes concern distinct binary algebras and do not imply the universal higher-arity result. The claim of historical novelty remains qualified: later or unindexed specialized literature might contain an equivalent extension, and only the pertinent portions of the primary full text were accessible in this inspection.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result addresses an explicit open extension in contemporary evolution-algebra research and replaces a characteristic-dependent expectation with a sharp field-cardinality phase boundary. It offers a uniform constructive envelope and identifies the exact obstruction to universal embeddings, including counterexamples even at the subalgebra level. It also explains why higher-arity symmetric multilinear tensors, rather than diagonal polynomial powers, are essential in small positive characteristic. These are structural classifications and genuine boundaries, rather than isolated low-dimensional calculations.
+The sharp algebra-embedding classification survives comparison with the binary predecessor, the closest distinct indexed finite-field envelope, and the classical homogeneous-evaluation boundary. Neither the polynomial rank nor the binary theorem is new. The surviving claim is the characteristic-free universal ideal embedding with this exact threshold, together with the obstruction even to a subalgebra embedding.
 
-## Closest work and residual risk
+## value
 
-- Costoya–Fernández Ouaridi–Viruel, *Commutative algebras are ideals of evolution algebras*, arXiv:2609.32784v1, Theorem 2.1 and Question 4.7. The binary construction and the open higher-arity problem are explicitly prior work.
-- Sørensen, *Projective Reed–Muller codes*, DOI:10.1109/18.104317: classical finite-field evaluation dimension background, not a new claim here.
-- Published related algebraic envelope and multilinear-code results were searched for stronger implications; no checked source established the same universal criterion. Priority may still be affected by literature not indexed or not available in full.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This addresses a specifically posed higher-arity extension. The sharp distinction between field size and characteristic is consequential (for example F_4 permits arity four in characteristic two); the uniform constructive bound and the universal identity obstructing even subalgebra embeddings answer different parts of the embedding problem. This is not simply a dimension calculation for a code or an individual algebra.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:14:33.018236Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–49",
+        "Frozen verify.py, verify_output.txt, and VERIFICATION.md (read only)"
+      ],
+      "rationale": "While there has been no failure, occupied spaces are an interval about m. Until the left side fills, the next left vacancy is at distance L+1 when L places on the left are filled; the backward move therefore tracks the recurrence for b exactly up to that cap. If car i is first to fail, all n−m right spaces are occupied, L<m−1, and b_i=L. Since i−2=L+n−m, even an increment at every remaining index gives b_n≤L+n−i=m−2. Conversely, complete success fills all m−1 left places and has achieved that level. Recording the increment indices yields the threshold subsequence, and any witness subsequence forces the greedy score to reach each threshold by the corresponding index. Each elementary vector is feasible because i_j≥j+1, and the vectors have different equal-size supports, so none dominates another. The union of their principal upsets is precisely the success set. Each vector has the stated total quota. Inserting the new maximum into the k descent gaps or the final gap preserves k descents; the other gaps add one. The two ordered gap lists match the two quota ranges, and deletion uniquely reverses each step. This proves both the bijection and Eulerian tail, including the all-success case m=1, n=1, and the single maximal-threshold strategy at m=n. The recorded finite enumeration is corroboration only.",
+      "residual_risks": [
+        "For arbitrary preference vectors the interval invariant need not hold; no extension to those vectors is being validated."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 4.2 realizes principal upsets by a preference chosen from a supplied strategy, not by determining the upset for a fixed unanimous preference. The §5 opening and §8 distinguish the unsolved general antichain question from the solved total-quota problem. The earlier paper uses a common fixed backward bound."
+        ],
+        "reasoning": "Upward closure and principal-upset realizability do not classify the generators for this fixed preference. A bound shared by all cars cannot enumerate their independent quotas.",
+        "searches": [
+          "arXiv:2610.20267v1, §4 Theorem 4.2 and §5 opening, Theorem 5.4, Corollary 5.5; §8",
+          "arXiv:2405.07522v1, abstract"
+        ]
+      },
+      "checked_sources": [
+        "Ferrari–Verciani arXiv:2610.20267v1, specified passages",
+        "arXiv:2405.07522v1, abstract",
+        "Resultary targeted searches and material indexed comparisons"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For unanimous preference the excess interval is [2,m] with excess j−1 at j. Specializing the nested sets in Theorem 5.4 gives exactly positive quotas 1,…,m−1 on an increasing set of m−1 post-first car indices, zero elsewhere.",
+          "The frozen interval proof shows every successful strategy dominates one of these vectors, not just that they minimize total quota."
+        ],
+        "reasoning": "A total-quota minimizer is componentwise minimal, but a componentwise-minimal element may have larger total quota. The special-case domination argument closes that gap and enables the independent Eulerian enumeration; it is not implied by listing the minimizers.",
+        "searches": [
+          "arXiv:2610.20267v1, Lemma 2.1, Theorem 5.4 and Corollary 5.5, compared to frozen RESULT.md lines 31–46"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Section 8 identifies quota vectors with inversion sequences and asks about the associated permutations. Frozen RESULT.md lines 36–46 instead uses the maximum length of a subsequence meeting the thresholds 1,2,…, and a gap insertion encoding that maps this specific score to descents.",
+          "Closest indexed outcome-permutation comparison, Resultary 0c01af7493c0, counts preference inputs in frustrated parking, via right-to-left maxima."
+        ],
+        "reasoning": "All vectors already encoding permutations does not imply that the success threshold is a descent-statistic threshold; the statistic and the encoding must agree. Another parking model's output permutation is not the statistic-preserving encoding of these quota vectors.",
+        "searches": [
+          "Resultary semantic searches for unanimous ρ-Naples quota strategies, the greedy threshold statistic, and parking/permutation correspondences",
+          "arXiv:2610.20267v1, §8"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Corollary 5.5 specializes to the exact count C(n−1,m−1) for total-quota minimizers. No matching Eulerian success table for individual quotas was identified among the inspected results; the other indexed records concern preference outcome fibers, shattering, preference multiplicities, or a dimer model."
+        ],
+        "reasoning": "The binomial count by itself is prior coverage of one subclass, and the Eulerian numbers themselves are classical. The latter table is relevant here only through the identification of its tail with the entire successful-strategy count.",
+        "searches": [
+          "Resultary lookup of Eulerian distributions in ρ-Naples strategies and unanimous minimal elements",
+          "Relevant parking catalogue records 0c01af7493c0, ccaa619de469, 9be7b6e973cd, 7c8260765cf2",
+          "arXiv:2610.20267v1, Corollary 5.5"
+        ]
+      },
+      "rationale": "Ferrari–Verciani already give exactly these minimum-total profiles, their quota totals and their binomial count in the unanimous specialization. The supported contribution is showing that there are no additional componentwise-minimal successful profiles, giving an explicit threshold test for the whole upset, and obtaining the Eulerian-tail success count and a compatible permutation encoding. Neither the original model nor the Eulerian recurrence is claimed as new.",
+      "residual_risks": [
+        "The indexed comparisons do not exhaust parking or inversion-sequence literature.",
+        "No claim is made that the custom insertion map is the usual inversion-sequence encoding or that no other Eulerian statistic can be identified with this greedy statistic."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact antecedent for minimum total and its minimizing strategies. No coverage by these statements of exclusion of higher-total componentwise minima or the descent-tail link.",
+          "evidence": "The single excess interval yields the same rho^I minimizers; §8 raises the link to permutations and the minimal-elements question rather than supplying the claimed correspondence.",
+          "identifier_or_url": "https://arxiv.org/html/2610.20267v1",
+          "material_read": "Lemma 2.1 (offset 10232), Theorem 4.2 (offset 28234), opening of §5 (33500), Theorem 5.4 and Corollary 5.5 (44528), and §8 (88680)",
+          "method": "Bounded primary HTML passage inspection and specialization to constant preferences",
+          "title": "A new generalization of parking functions: ρ-Naples parking functions",
+          "trigger": "Same parking model, strongest primary source, and overlapping explicit minimal profiles"
+        },
+        {
+          "assessment": "Common backward limit rather than individual quotas; no broad claim about uninspected passages",
+          "evidence": "The number of preceding spots checked is a fixed common number in the model described there.",
+          "identifier_or_url": "https://arxiv.org/html/2405.07522v1",
+          "material_read": "Abstract, offset 504",
+          "method": "Primary HTML abstract inspection for the model distinction",
+          "title": "A new approach to Naples parking functions through complete parking preferences",
+          "trigger": "Earlier Naples parking model"
+        },
+        {
+          "assessment": "Analyzes a different parking rule and input set",
+          "evidence": "It counts preference words by prescribed output order using right-to-left maxima, not successful variable-quota strategies for a unanimous preference.",
+          "identifier_or_url": "2026/10/25/SCOPE-outcome-fibers-and-modal-parking-orders-of-frustrated-parking-fu--0c01af7493c0",
+          "material_read": "Indexed outcome-fiber statement",
+          "method": "Configured Resultary search and statement comparison",
+          "title": "Outcome fibers and modal parking orders of frustrated parking functions",
+          "trigger": "Closest indexed parking/permutation comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Ferrari–Verciani arXiv:2610.20267v1, §§5 and 8",
+        "Frozen RESULT.md, lines 10–26 and 31–46"
+      ],
+      "rationale": "Unanimous preferences provide a natural nontrivial class for the stated unresolved general antichain problem. The new exclusion of all other componentwise minima gives an exact description of a successful upset that can have exponentially many generators. The greedy score also converts every successful-strategy count in the class to a classical permutation distribution instead of enumerating its elements or reasoning just about quota minimizers.",
+      "residual_risks": [
+        "The combinatorial identification is for the unanimous case; no prediction of the antichain or enumeration for other preferences follows."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:36:02.326331Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 24–82",
+        "Bóna–Maga–Richey, arXiv:2606.06655v2, Fact 2.9, equation (2.12)",
+        "Frozen VERIFICATION.md, verify.py and verification_output.txt, inspected as evidence without executing the uploaded code"
+      ],
+      "rationale": "The all-length argument is sound. Independently, let F and A be the first-hit and avoidance generating functions with letter weights x/2 and xy/2. Decomposing any string gives 1=A(1-x(1+y)/2)+F. Appending the target to an avoiding string gives a first-hit string followed by the residual suffix corresponding to a unique nonempty self-overlap; dividing by the target weight gives A=F times the sum of reciprocal border-prefix weights. This establishes the stated bivariate function, including the full-word term. Integrating the y derivative divided by x weights each contribution by 1/tau; subtracting half the integrated x derivative uses almost-sure hitting and tau>=1. The result is the stated strictly positive kernel times the signed border polynomial at T=2/x. If the last nonzero coefficient d_b is positive, unit prefix increments imply d_j>=1-(b-j), so all earlier negative terms together are bounded by T^b sum_{h>=2}(h-1)/T^h=T^b/(T-1)^2<T^b for T>2. Negation handles the other sign, and all zero coefficients give exact equality. The geometric hitting tail and integrable endpoints justify the operations; this is not inferred from finite testing.",
+      "residual_risks": [
+        "VERIFICATION.md miscounts the examples: the script and output show nine automaton comparisons for lengths at most four and one longer integral-only example. These are supplementary numerical tests, not proof premises."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The alphabet-general catalog theorem compares E[N_a/tau] and E[N_b/tau] by the longest border with unequal a,b prefix counts. For binary words their difference is 2q_w-1 and the prefix-count difference is d_j. The extension is listed under 2026/11/8 and explicitly refers to ‘An earlier binary border-imbalance classification’.",
+          "Bóna–Maga–Richey Theorem 3.8 expresses q via a weighted sum of finite-length avoidance frequencies; it does not order these frequencies by the longest unbalanced border."
+        ],
+        "reasoning": "The general catalog theorem does cover the mathematical statement, but available provenance points to an extension of an earlier binary classification, not to a prior stronger theorem. The distinct avoidance results concern different observables. Catalog dates alone do not decide priority.",
+        "searches": [
+          "Resultary record SCOPE-border-parikh-lexicographic-ordering-of-first-hit-letter-proport--8ab1bd835fc2",
+          "arXiv:2606.06655v2, Theorem 3.8",
+          "arXiv:2409.09024v1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2606.06655v2",
+        "arXiv:2409.09024v1 (abstract)",
+        "Resultary entries 8ab1bd835fc2 and 1a5dfd679652"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Fact 2.9 gives the bivariate generating function; Proposition 3.3 says balanced borders imply rho_w=q_w=1/2. The Chandgotia–Marcus–Richey–Wu abstract describes autocorrelation, avoidance counts and symbolic dynamics."
+        ],
+        "reasoning": "An exact generating function permits evaluation but its derivative yields a potentially mixed-sign integral. The proof that shorter negative terms cannot cancel the leading one uses the unit-increment constraint, not merely the earlier formula or the known sufficiency.",
+        "searches": [
+          "arXiv:2606.06655v2, Fact 2.9, Proposition 3.3 and Conjecture 6.1",
+          "arXiv:2409.09024v1, abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Definition 2.5 defines q_w as E[Q(tau_w)] with Q(t)=N(t)/t. Conjecture 6.1 states the rho balanced-border equivalence and adds, ‘The same holds with rho_w replaced by q_w.’"
+        ],
+        "reasoning": "The zero-bias equivalence is precisely the conjectured q part. The sign identifies a direction when bias is nonzero. Neither the ratio of expectations nor the long-run avoidance statistic is equivalent.",
+        "searches": [
+          "Resultary: first-hit stopped letter proportions; longest border imbalance; limiting avoidance letter frequency",
+          "arXiv:2606.06655v2, Definition 2.5 and Conjecture 6.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The catalog's long-border domination record addresses a restricted comparison for rho, explicitly not first-hit proportions. Equation (3.8) addresses patterns without proper borders; the stronger matching catalog entry is discussed separately above."
+        ],
+        "reasoning": "Finite examples or the no-proper-border formula cannot give the all-length sign law with mixed proper borders. No earlier exact record covering that sign law was identified in these comparisons.",
+        "searches": [
+          "Resultary: stopped frequency and border Parikh ordering; contrast with long-border domination of avoidance frequency",
+          "arXiv:2606.06655v2, equation (3.8)"
+        ]
+      },
+      "rationale": "The distinct contribution is necessity for the stopped q statistic and the strict sign classification, not the published sufficiency, generating function, or a result for limiting avoidance frequency. The strongest distinct catalog match is a finite-alphabet extension: it demonstrably covers the binary statement by specialization, but its own prior-work section describes the binary classification as earlier, and the materials inspected do not establish it as prior coverage of this finding.",
+      "residual_risks": [
+        "Earlier unindexed or differently formulated results may exist. The inspected catalog extension's reference to an earlier binary classification is not independent proof of priority; the disposition is limited to the distinct support found in the inspected record."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same q problem, one direction proved, full sign rule not supplied in the inspected statements",
+          "evidence": "Conjecture 6.1: ‘The same holds with rho_w replaced by q_w’; Proposition 3.3 is the balanced-borders sufficiency.",
+          "identifier_or_url": "https://arxiv.org/abs/2606.06655v2",
+          "material_read": "Definition 2.5 p. 4, Fact 2.9 p. 5, Proposition 3.3 p. 9, Theorem 3.8 p. 11, Conjecture 6.1 p. 20",
+          "method": "Lawful OA full-text passages",
+          "title": "Letter frequency in shifts of finite type with one forbidden word",
+          "trigger": "Identical statistic and explicit conjecture"
+        },
+        {
+          "assessment": "Demonstrable extension; not established as prior coverage",
+          "evidence": "Uniform IID alphabet of size at least two; sign of Q_a-Q_b determined by the longest unequal border count; text acknowledges an earlier binary classification.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-border-parikh-lexicographic-ordering-of-first-hit-letter-proport--8ab1bd835fc2/RESULT.md",
+          "material_read": "Finding, scope and prior-work section (text offsets 0 and 5724)",
+          "method": "Local catalog mirror",
+          "title": "Border-Parikh lexicographic ordering of first-hit letter proportions",
+          "trigger": "Strongest directly subsuming statement"
+        },
+        {
+          "assessment": "Different observable, irrespective of same-day order",
+          "evidence": "Restricted limiting avoidance bias, expressly excluding the stopping-time statistic.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-long-border-domination-of-letter-bias-for-binary-one-word-shifts--1a5dfd679652",
+          "material_read": "Finding and scope",
+          "method": "Local catalog mirror",
+          "title": "Long-border domination of letter bias for binary one-word shifts",
+          "trigger": "Same-day border-domination match"
+        },
+        {
+          "assessment": "Background in the inspected passage; no whole-document exclusion based on the abstract",
+          "evidence": "Autocorrelation and symbolic dynamics rather than the specific stopped empirical fraction in this passage.",
+          "identifier_or_url": "https://arxiv.org/abs/2409.09024v1",
+          "material_read": "Abstract (p. 1)",
+          "method": "Lawful OA text",
+          "title": "Shifts of Finite Type Obtained by Forbidding a Single Pattern",
+          "trigger": "Earlier overlap and avoidance framework"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Bóna–Maga–Richey, Conjecture 6.1 and Proposition 3.3",
+        "Frozen RESULT.md, Finding and Proof"
+      ],
+      "rationale": "This resolves a precise published open direction for a natural stopping-time statistic, and gives a strict sign criterion even for globally balanced words and mixed border imbalances. The one-step bound supplies a uniform explanation of why cancellation cannot occur. No resolution of the avoidance-frequency conjecture is claimed.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

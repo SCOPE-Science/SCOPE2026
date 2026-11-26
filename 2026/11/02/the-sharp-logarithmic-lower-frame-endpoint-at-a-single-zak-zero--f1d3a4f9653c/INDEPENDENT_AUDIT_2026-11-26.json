@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:18:30.108172Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, assumptions and equations (1)–(5), Gaussian argument; VERIFICATION.md analytic reproduction steps",
+        "Hart–Heil–Katz–Northington, DOI 10.1007/s00041-025-10190-7, §§4.2–4.3"
+      ],
+      "rationale": "The lattice shift reduces deletion to index zero, and Zak unitarity turns synthesis into multiplication of a mean-zero polynomial by φ. The weighted negative Fourier norm dualizes to a point remainder: any representing function h satisfies φ̄h=ψ−d, and square integrability forces d=ψ(p) by the nonintegrable two-dimensional r^−2 singularity. Conversely subtract that constant and apply Cauchy–Schwarz to recover the synthesis inequality. In a spatial annulus of radius 2^−i the contribution of shell j is at most min(2^(j−i),1) times a_j=2^j‖ψ_j‖_2. The low-frequency part is bounded by convolution with a summable kernel; the high-frequency tail is the adjoint discrete Hardy inequality, giving the square cost Σ(1+j)^2 a_j^2. Monotonicity yields all β≥1. For β<1 the disjoint normalized frequency blocks all equal one at p, have real point remainders of the same sign, and lie in modulus below 1/2 on the relevant outer annuli once j≥i+K. Their weighted norm squared is o(N^3) while the annular remainder norm squared is bounded below by a constant times N^3, excluding the inequality. Completeness after deletion follows since an annihilator multiplied by φ̄ must be constant and 1/φ is not square integrable. The displayed point remainders divided by φ̄ give biorthogonals. For this complete minimal family, Riesz–Fischer is equivalent to Besselness of the biorthogonals; that Bessel bound gives the lower analysis bound by synthesis and completeness, and conversely the lower analysis bound applied to finite sums of biorthogonals gives their Bessel bound. The Gaussian expansion also checks directly by the Jacobi product: with q=e^−π and z=πξ−iπx only 1+q exp(2iz) vanishes in the cell; its derivative factor at p is −2π(u+iv), and the remaining prefactor is q^(1/4) times ∏_(ℓ≥1)(1−q^(2ℓ))^3, yielding the frozen coefficient.",
+      "residual_risks": [
+        "The modulus comparison is global and two-sided; neither a multiple zero nor a merely qualitative isolated zero is covered. No finite computation is used as an infinite proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zikkos's complete-minimal-family theorem and Gaussian application require summability of scaled biorthogonal squared norms and give no necessary condition.",
+          "Hart et al. provide one-deletion exactness and confirm the normalized Gaussian's zero and its first-order expansion.",
+          "The older Nyquist paper treats complete minimal systems after deletion, recovery of L² functions, and summability and convergence in Hilbert scales; the inspected passage defining the Bargmann scale uses a parameter in an algebraic radial weight, not the displayed radial coefficient logarithm."
+        ],
+        "reasoning": "Existence, exactness, and recovery by a summation method do not themselves bound the weighted synthesis map below at the requested endpoint. The general theorem here concerns the two-sided distance comparison, not all critical-density windows.",
+        "searches": [
+          "Zikkos arXiv:2606.00764v1, Theorems 1.1 and 1.2",
+          "Hart–Heil–Katz–Northington DOI 10.1007/s00041-025-10190-7, Theorem 4.2 and Corollary 4.3",
+          "Lyubarskii–Seip DOI 10.1007/BF01261606, pp. 128–130 and introduction's scale/section guide"
+        ]
+      },
+      "checked_sources": [
+        "Zikkos arXiv:2606.00764v1",
+        "Resultary 9a4e258e09c2",
+        "Hart–Heil–Katz–Northington DOI 10.1007/s00041-025-10190-7",
+        "Lyubarskii–Seip DOI 10.1007/BF01261606 (bounded GDZ passages)",
+        "Sano–Takahashi arXiv:2210.10282"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Inserting dual norm growth into the sufficient series gives each dyadic lattice annulus a contribution comparable to j^(1−2β), convergent precisely for β>1 and harmonic at β=1.",
+          "Failure of that series to converge is not failure of the lower bound: a Bessel family need not have summable squared norms. The independent endpoint estimates and counterfamily address precisely this gap."
+        ],
+        "reasoning": "The checked combination directly covers the strict sufficient range for the Gaussian. Exactness, a spatial critical Hardy estimate, or the qualitative summability statements inspected do not supply the Fourier-log point-remainder estimate or its sharp converse.",
+        "searches": [
+          "Resultary 9a4e258e09c2 plus Zikkos Theorem 1.1",
+          "Hart et al. Theorem 4.2/Corollary 4.3; Sano–Takahashi Theorem 1; Lyubarskii–Seip pp. 128–130"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The synthesis inequality is for a zero-mean polynomial after deletion, but its dual tests ψ−ψ(p), not an independently mean-zero ψ or a spatial logarithmic weight.",
+          "The inspected Sano–Takahashi result has a spatial logarithm; the older Gabor paper states sharp summability in a Bargmann/Schwartz scale, with a 1/2 scale-index boundary for Theorem 1 (printed p. 130)."
+        ],
+        "reasoning": "Fourier-side logarithmic regularity and the unique singularity-cancelling constant are essential to equivalence. Neither a spatial logarithm nor a named sharp summability scale is the same assertion without a norm comparison and both implication directions.",
+        "searches": [
+          "Critical Nyquist Gabor expansions and polynomial-log coefficient weights; Lyubarskii–Seip DOI 10.1007/BF01261606",
+          "Point-remainder Fourier logarithmic Hardy/Pitt inequality on the torus; comparison with Sano–Takahashi arXiv:2210.10282, Theorem 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matching Resultary record proves squared dual norm C_G log R+O(1), uniform in direction and in the deleted atom, and does not claim a sharp threshold for these weights.",
+          "The inspected formula and test provide only β>1, not a tabulated or stated result at β=1 or below."
+        ],
+        "reasoning": "For this analytic problem an exact theorem or coefficient-norm formula is the relevant indexed comparison, rather than a finite numerical census. The nearest checked formula is substantial but does not decide the claimed endpoint.",
+        "searches": [
+          "Resultary one-atom-deleted Gaussian critical Gabor weights and log growth; inspected 9a4e258e09c2",
+          "Zikkos Theorem 1.1 for an explicit sufficient test"
+        ]
+      },
+      "rationale": "Credit exactness and the simple-zero geometry, the existence of some positive weights, and sufficiency for β>1 in the Gaussian case to the verified antecedents and their combination. The distinctive result is the endpoint β=1 and matching necessity below it, with the sharp threshold extending to all windows with a quantitatively simple single Zak zero. The strongest inspected statements do not entail this distinction; overlap with equivalent critical logarithmic inequalities or uninspected portions of the Nyquist summability paper remains a qualified risk.",
+      "residual_risks": [
+        "The whole Lyubarskii–Seip work was not inspected, and earlier equivalent Fourier inequalities under different terminology remain possible. The access gap and bounded literature coverage do not establish any absolute priority claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Sufficient test and existence, not necessity or exact boundary",
+          "evidence": "Sufficient convergence of the sum of squared dual norms divided by squared weights.",
+          "identifier_or_url": "https://arxiv.org/abs/2606.00764v1",
+          "material_read": "§1, Theorems 1.1 and 1.2, pp. 1–2",
+          "method": "Primary OA PDF passage",
+          "title": "The Gaussian Gabor system at the critical density is a weighted lower semi frame",
+          "trigger": "Same one-deletion system and weighted lower semi-frame property"
+        },
+        {
+          "assessment": "Covers input to the known sufficient test, not the endpoint",
+          "evidence": "Squared dual norms C_G log R+O(1), uniform for large R; no optimal-weight assertion.",
+          "identifier_or_url": "Resultary 9a4e258e09c2",
+          "material_read": "Mirrored RESULT.md, theorem and scope",
+          "method": "Configured local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Sharp logarithmic asymptotics of critical Gaussian Gabor biorthogonals",
+          "trigger": "Exact norm growth for the same dual family"
+        },
+        {
+          "assessment": "Covers precise Zak geometry and exactness; not the radial weight classification",
+          "evidence": "Simple Gaussian Zak zero at (1/2,1/2), local expansion and integrability conditions.",
+          "identifier_or_url": "https://doi.org/10.1007/s00041-025-10190-7",
+          "material_read": "§§4.2–4.3, pp. 12–14, Theorem 4.2 and Corollary 4.3",
+          "method": "Primary OA PDF passages",
+          "title": "Overcomplete Reproducing Pairs",
+          "trigger": "Same one-deletion exact system and sourced simple Gaussian zero"
+        },
+        {
+          "assessment": "Inspected passages cover complete minimality, summability and distinct indexed scales; no whole-paper noncoverage finding",
+          "evidence": "Printed p. 129 describes deletion and L² recovery; p. 130 discusses sharpness in the X_(1/2) scale and defines the algebraically weighted Bargmann scale in (1.4).",
+          "identifier_or_url": "DOI 10.1007/BF01261606; GDZ PPN375375147_0005, page texts 00000131–00000132",
+          "material_read": "Abstract and printed pp. 128–130; additional printed p. 141 retrieval timed out",
+          "method": "Lawful GDZ OCR alternate after publisher access failed; bounded passage comparison",
+          "title": "Convergence and Summability of Gabor Expansions at the Nyquist Density",
+          "trigger": "Highly plausible broader Gaussian threshold in Nyquist expansion Hilbert scales"
+        },
+        {
+          "assessment": "Adjacent Hardy result with different norm and logarithm placement",
+          "evidence": "Spatial log(a/|x|) in a two-dimensional critical inequality, rather than Fourier frequency weights and a Zak point remainder.",
+          "identifier_or_url": "https://arxiv.org/abs/2210.10282",
+          "material_read": "§2, Theorem 1, pp. 3–4",
+          "method": "Primary OA PDF passage",
+          "title": "Sano–Takahashi study of critical Hardy/Sobolev inequalities",
+          "trigger": "Critical two-dimensional Hardy result with a logarithm"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and equations (2)–(5)",
+        "Zikkos Theorem 1.1 and Resultary 9a4e258e09c2"
+      ],
+      "rationale": "This is a sharp endpoint left undecided by the available individual-biorthogonal summability criterion. It distinguishes the harmonic divergence of that sufficient test from failure of a lower semi-frame, settles the converse with an explicit counterfamily, and identifies a transferable mechanism for every window with a single quantitatively simple Zak zero.",
+      "residual_risks": [
+        "No optimality over arbitrary weighting schemes, zero geometries or lattice densities is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

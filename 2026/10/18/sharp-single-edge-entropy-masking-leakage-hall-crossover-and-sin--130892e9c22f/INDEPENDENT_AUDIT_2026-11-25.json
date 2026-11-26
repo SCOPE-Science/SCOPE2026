@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T16:38:01.106558Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For t>0 the entropy minimizer is the positive diagonal scaling of the kernel. The ordinary rows and columns factor with their residual marginals, and the four block masses x,y,z,w are x,p-x,q-x,1-p-q+x. Cross odds xw=t yz follow from scaling invariance and yield the unique feasible positive solution. A hard zero is feasible iff p+q<=1; at x=0 the proportional residual-block condition minimizes the entropy also on the Hall boundary by continuity or by strict convexity on the remaining positive support. Comparing the soft and hard solutions, each block has a constant sign of entrywise difference and absolute mass change x, so TV=2x exactly. An independent upper bound follows from w>=x and yz<=((p+q)/2-x)^2, giving x<=sqrt(t)(1/2-x), with equality exactly at p=q=1/2. For p+q<=1-kappa, the same quadratic increases with pq for fixed s=p+q and along p=q=s/2 increases with s: its x derivative is positive at the root while the s derivative is -(1-t)x-ts/2. The slack maximizer is s=1-kappa, and rationalizing its root gives the recorded formula. Fixed positive kappa gives x_max=(1-kappa)^2 t/(4 kappa)+O_kappa(t^2); when kappa/sqrt(t) tends to u the limit x_max/sqrt(t)=(sqrt(u^2+1)-u)/2 follows by division of the denominator by sqrt(t). Solving the worst-case TV inequality gives the stated sharp M budget. For the rate, row updating differentiates to -D_r^{-1}P_t and column updating then to -D_c^{-1}P_t^T, giving the stated product. Whitening splits the matrix into the orthogonal marginal directions (singular value 1) and one residual rank-one term (singular value |x-pq|/sqrt(p(1-p)q(1-q))). Its square is the nongauge rate. Applying the two displayed AM-GM inequalities to the four positive masses gives the sharp bound; for t<1 both must be equalities, equivalent to x=w,y=z and p=q=1/2. At t=1, all rates vanish, while the leakage is still maximized only at p=q=1/2. The proof's description of two nonzero singular values should be read as at most two at this endpoint; its formula and conclusion correctly include the zero value. As an exact balanced check, t=1/9 gives x=1/8, TV=1/4, and lambda=1/4. Read RESULT.md lines 11–65, VERIFICATION.md and verify.py. The 8,467 recorded finite assertions were not rerun; the proof covers all finite dimensions. The factor is local and for a full sweep on log scaling modulo constants, not a global iteration count.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Hilbert projective diameter of the positive exceptional-cell kernel is log(1/t); two half-step Birkhoff coefficients multiply to the square of tanh(log(1/t)/4). The quotient derivative inherits this bound, and the balanced binary calculation attains it.",
+          "Generic entropic LP penalty and constrained Sinkhorn results bound objective or plan errors or handle hard supports. Their inspected bounds and limit statements do not give the one-cell uniform TV constant or the transition from t to sqrt(t) across Hall slack."
+        ],
+        "reasoning": "The rate part is mechanically supplied by established scaling theory plus a balanced example, and is credited as prior-covered. Leakage against the hard support, with a worst case taken over marginals possibly on the boundary, is not a finite-projective-diameter perturbation bound.",
+        "searches": [
+          "Idel arXiv:1609.06349 Appendix B Theorem B.6 and equation (68)",
+          "arXiv:1806.01879 Theorem 1; arXiv:2403.05054 Theorem 1; arXiv:2404.00003 and arXiv:2207.02977 hard support"
+        ]
+      },
+      "checked_sources": [
+        "Idel arXiv:1609.06349 Appendix B",
+        "Corless et al. arXiv:2404.00003 Theorem 1",
+        "Tang et al. arXiv:2403.05054 Theorem 1",
+        "Baradat–Ventre arXiv:2207.02977 p. 2",
+        "Weed arXiv:1806.01879 Theorem 1",
+        "Resultary 312bdfd301f9 and cbaed52067d7 originals",
+        "Warrens DOI:10.1007/s11336-008-9070-3 located but original passages unavailable from the PMC and publisher routes"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Putting cross odds R=1/t into the binary projective figure recovers the same rate expression, not the extremal TV leakage. The hard-support paper sets K_11=0 from the start and gives a convergence result, not sharp finite-penalty approximation.",
+          "The exact finite-slack optimizer and crossover use both the sharp Hall-feasible marginal optimization and the hard-plan comparison TV=2x; these are not evaluated by the retrieved fixed-marginal coupling or generic penalty statements."
+        ],
+        "reasoning": "The surviving contribution concerns the interaction of finite masking with the feasible hard boundary, including positive slack and its shrinkage at the critical scale. A rate formula alone, or an odds equation at prescribed marginals alone, does not establish this dimension-free leakage classification.",
+        "searches": [
+          "Idel Appendix B; Corless et al. arXiv:2404.00003 Theorem 1; Resultary 312bdfd301f9 and cbaed52067d7 original RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The positive plans have a four-block binary odds representation, which also turns the residual singular value into the absolute phi correlation of the block table.",
+          "Original Resultary cbaed52067d7 states the corresponding binary entropy coupling equation Theta(z)=h(X), hence the same scalar relation under h(X)=log(t)."
+        ],
+        "reasoning": "The scalar odds relation and the binary-rate formulation are not new. The frozen TV question instead compares the soft matrix to a hard-zero entropy optimizer and maximizes this comparison under Hall feasibility, with a separate moving-slack regime. The retrieved binary coupling statement concerns maximum-entry sensitivity, not the hard-mask minimax.",
+        "searches": [
+          "Resultary: finite one-edge penalty, hard structural zero, aggregated odds, binary entropic coupling, TV leakage and local rate",
+          "2x2 fixed odds-ratio association / Yule colligation; DOI:10.1007/s11336-008-9070-3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Later originals 312bdfd301f9 and cbaed52067d7 overlap in the exact binary rate and scalar odds equation, respectively.",
+          "The target is an analytic continuum of positive marginals and Hall slacks, not a finite association-coefficient table."
+        ],
+        "reasoning": "The overlapping indexed statements were read and do not furnish the complete soft-vs-hard TV and slack extrema; their later dates are not used to dismiss the demonstrated overlap or to establish earlier priority.",
+        "searches": [
+          "Resultary: one-cell masking, binary projective contraction, exact balanced odds and entropy coupling sensitivity"
+        ]
+      },
+      "rationale": "Credit the dimension-free hard-mask TV minimax, its penalty budget and Hall-slack crossover, and their exact joint comparison with the local rate. Do not credit the odds equation, general local derivative, or the worst-rate number in isolation: the rate bound is a Birkhoff specialization and equality at the balanced binary plan is immediate from its spectrum. The known contraction and scaling statements and the closest catalogue originals do not give the sharp hard-mask TV comparison on the Hall-feasible marginal domain or its slack-dependent maximization.",
+      "residual_risks": [
+        "The original Birkhoff text was not accessible, but the coefficient was verified via the explicit Idel statement and is credited as prior.",
+        "The exact local-rate paper by Lehmann et al. DOI:10.1007/s11590-021-01830-0 and sparse-cost arXiv:2405.20528 were not retrievable in the attempted full-text routes. No whole-document noncoverage is inferred.",
+        "A specialized earlier contingency-table or finite entropic support-perturbation result could contain the remaining extremal hard-mask comparison; the attempted Warrens paper access does not settle that issue. No exhaustive priority claim is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Mechanically yields the rate bound; no hard-mask TV comparison",
+          "evidence": [
+            "The coefficient is bounded by tanh(Delta/4), and the exceptional-cell kernel has Delta=log(1/t)."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1609.06349",
+          "material_read": "Appendix B, Theorem B.6 and Eq. (68), pp. 86–87, offset 247362",
+          "method": "OA primary text of Idel's review; direct original Birkhoff full text was blocked",
+          "title": "A Review of Matrix Scaling and Sinkhorn's Normal Form for Matrices and Positive Maps",
+          "trigger": "Classical projective-rate bound for the same kernel"
+        },
+        {
+          "assessment": "Covers hard support and constrained scaling, not finite-to-hard sharp error",
+          "evidence": [
+            "Convergence for fixed prior-zero cells interpreted by infinite costs."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2404.00003",
+          "material_read": "Theorem 1 and nearby zero-support discussion, p. 4, offset 26500",
+          "method": "OA primary passage",
+          "title": "Algorithms for Constrained Optimal Transport",
+          "trigger": "Hard excluded entries in constrained Sinkhorn"
+        },
+        {
+          "assessment": "Hard-support degeneration, not positive one-cell perturbation at varying slack",
+          "evidence": [
+            "Hard non-scalability and boundary cases without linear convergence are treated, not the finite-t minimax."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2207.02977",
+          "material_read": "p. 2, offset 3452, degeneracy and boundary convergence discussion",
+          "method": "OA primary passage",
+          "title": "Convergence of the Sinkhorn Algorithm when the Schrödinger Problem Has No Solution",
+          "trigger": "Potential Hall-boundary comparison from degenerate support"
+        },
+        {
+          "assessment": "General error bounds, not this one-edge sharp TV and slack crossover",
+          "evidence": [
+            "Tang et al. bound l1 plan error to a unique constrained-LP optimum. Weed's general entropic penalty bound concerns objective error and includes problem-dependent scales."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2403.05054 ; https://arxiv.org/pdf/1806.01879",
+          "material_read": "Tang et al. Theorem 1 p. 3 offset 18784; Weed Theorem 1 p. 4 offset 14501",
+          "method": "OA primary theorem passages",
+          "title": "A Sinkhorn-type Algorithm for Constrained Optimal Transport; An Explicit Analysis of the Entropic Penalty in Linear Programming",
+          "trigger": "General entropic penalty estimates potentially dominating the leakage result"
+        },
+        {
+          "assessment": "Substantial component overlaps; the statements concern global binary projective rate or finite-contrast fixed-marginal sensitivity, not Hall-feasible soft-to-hard minimax leakage",
+          "evidence": [
+            "The projective coefficient reaches the Birkhoff bound at the balanced binary row target. The coupling uses Theta(z)=h(X), the same equation when h(X)=log(t)."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-sharp-marginal-sensitive-projective-contraction-and-sweep-orderi--312bdfd301f9 ; 2026/11/22/SCOPE-sharp-maximum-entry-stability-of-fixed-marginal-binary-entropy-c--cbaed52067d7",
+          "material_read": "Original mirrored RESULT.md Findings and matching binary statements",
+          "method": "Local catalogue mirror",
+          "title": "Sharp marginal-sensitive projective contraction and sweep ordering; Sharp maximum-entry stability of fixed-marginal binary entropy couplings",
+          "trigger": "Strongest exact catalogue matches for binary rate and odds relation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Replacing an actual forbidden cell with a finite big-M penalty is a natural operation. The result gives the exact worst-case error budget in the transport plan, shows that Hall equality changes the penalty exponent, and determines the transition in the same regime where the local iteration can be slowest. The uniform TV constant and moving-slack behavior provide precise information not supplied by a projective bound or an odds identity at a single pair of marginals. This is not a new general Sinkhorn complexity bound.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

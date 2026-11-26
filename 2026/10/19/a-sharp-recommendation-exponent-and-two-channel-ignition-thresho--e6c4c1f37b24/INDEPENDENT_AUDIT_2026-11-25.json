@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:16:15.569663Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At the fully inactive state the derivative of each supplying channel is d[−log(1−z d^{α−1})], weighted by d p_d / E d; the active matrix has diagonals B_L(r), off-diagonals B_L(λr), and eigenvalues B_L(r) ± B_L(λr). In RESULT.md line 64, 'their sum' must mean the sum of the two B_L terms, not the sum of the eigenvalues; the stated threshold uses the correct Perron eigenvalue. It grows strictly from zero and exceeds one at the upper endpoint by −log(1−u)>u (or diverges from d=1 if λ=0). Uniformly in L, its linear term at small r is (1+λ)r H_{L,τ−1−α}/H_{L,τ−1} with relative O(r); the harmonic sum gives both sharp vanishing rates and constants. In the convergent case compact uniform convergence and the same strict endpoint gap bracket the positive limit root. At α=0, −d log(1−z/d) decreases strictly with d, yielding the exact cutoff reversal. At r=1/2, the isolated multiplier lies in (1/2,log 2]; increasing leakage therefore gives a unique interior ignition point, with λ_c=2−4/e at L=1. Independent bounded finite differencing reproduced the Jacobian to 6.23e−9 at one point; sample roots at τ=2.5, λ=0.5, α=0 increased from 0.50714609 at L=1 to 0.55845947 at L=64. Frozen code was inspected, not executed. All quantifiers are for the local incidence multiplier of the deterministic map, not nonlinear stability at equality, branching criteria, or eventual cascade size.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Joo–Lebowitz pp. 4–6 gives threshold z/⟨C²(k)⟩ for SIS edge-strength saturation; Giuraniuc et al. pp. 2–3 gives degree-reweighted moment criticality; Yang et al. pp. 2–3 obtains threshold 1/A for fixed contacts."
+        ],
+        "reasoning": "These precede the exponent-moment and degree-neutralization ideas. They concern different governing operators; a degree-neutral leading term at α=0 does not entail that the exact cutoff threshold strictly increases.",
+        "searches": [
+          "Joo–Lebowitz arXiv:cond-mat/0402065 degree saturation",
+          "Giuraniuc et al. arXiv:cond-mat/0603689 topology-dependent interaction",
+          "Yang et al. arXiv:physics/0609150 fixed contacts"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check.py (inspection only)",
+        "arXiv:2610.13839v1; arXiv:cond-mat/0402065; arXiv:cond-mat/0603689; arXiv:physics/0609150",
+        "Distinct indexed Resultary findings identified in source_inspections"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The first-order degree term is z d^α, leading to the same harmonic moment and suggesting α=τ−2. At α=0 that term is exactly constant with d, whereas the finite-appeal −d log(1−z/d) is strictly decreasing and gives the opposite conclusion to simply extrapolating the first-order independence of cutoff.",
+          "The cited coupled threshold and positive example establish the broader coupling phenomenon, not the leakage window in the printed attention recurrence."
+        ],
+        "reasoning": "The underlying map, moment heuristic and Perron criterion are prior inputs. The all-cutoff inequalities and admissible root analysis use actual finite-appeal properties not supplied by the prior threshold statements.",
+        "searches": [
+          "arXiv:2610.13839v1 Eq. (3) against Eq. (2) and §3.3",
+          "Resultary 2026/10/13/SCOPE-an-exact-coupled-reproduction-threshold-for-a-fifteen-compartmen--55d93d6c81b2, offsets 0 and around 6600"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "P* = P/d^{1−α} in §3.3 is receiver-degree visibility scaling; it applies to the bases of the powers in Eq. (2).",
+          "Resultary 2026/10/13/SCOPE-an-exact-coupled-reproduction-threshold-for-a-fifteen-compartmen--55d93d6c81b2 treats an exact coupled next-generation threshold of a compartmental model, not this incidence map."
+        ],
+        "reasoning": "This is genuinely the published recurrence with a stated symmetric specialization, not a new cascade map. A two-type positive eigenvalue crossing is shared, but a generic next-generation model does not exhibit the same finite-degree logarithmic weights.",
+        "searches": [
+          "arXiv:2610.13839v1 §2.1 eqs. (2)–(3), §3.3",
+          "Resultary: exact coupled reproduction threshold, component multipliers below one; two-channel heterogeneous threshold"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest indexed precedents at 2026/10/13 and 2026/11/8 have distinct compartmental and two-channel hypergraph models, respectively. The primary paper's Eq. (3) gives P_SS I_0 E[d²]/E[d] in the small-appeal isolated regime, not a table or exact implicit finite-appeal root for the parameterized family."
+        ],
+        "reasoning": "No exact statement-level catalog or formula coverage was found in the examined records; this is a bounded check, not an absence claim.",
+        "searches": [
+          "Resultary: exact coupled reproduction threshold, two-channel heterogeneous threshold; local-mirror passages of closest hits",
+          "arXiv:2610.13839v1 §2.1 and §3.3"
+        ]
+      },
+      "rationale": "The primary paper supplies the recurrence and its recommendation modification; its stated threshold is small-appeal and decoupled. The exponent boundary is already suggested by the degree-moment calculation, and spectral coupling is standard. The supported distinct contribution is the exact finite-appeal coupled threshold for this recurrence, especially the strict cutoff reversal absent from the first-order criterion, together with the sharp cutoff rates and physically admissible leakage window. The inspected alternative models and indexed results do not supply this combination or the exact finite-cutoff ordering.",
+      "residual_risks": [
+        "Nonexhaustive literature comparison; a broader analysis of finite-appeal logarithmic HMF thresholds could subsume the exact calculation.",
+        "No novelty credited to the map, the general two-channel spectral-crossing mechanism, or the first-order degree-moment argument in isolation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact recurrence is prior; finite log threshold conclusions are not in the inspected threshold derivation",
+          "evidence": "The powers are dΘ, with edge-weighted Θ. Eq. (3) assumes small P_SS, no denier activity, and early-time uniform inactivity; §3.3 divides contact probabilities by d^{1−α}.",
+          "identifier_or_url": "https://arxiv.org/html/2610.13839v1",
+          "material_read": "§2.1 Eq. (2) and small-appeal Eq. (3), OA offsets 9600–14972; §3.3 offsets 21310–27743",
+          "method": "Bounded primary text inspection",
+          "title": "Modelling the complex dynamics of online disinformation cascades",
+          "trigger": "Primary source of the exact map and attention modification"
+        },
+        {
+          "assessment": "Mechanism precedent, different model",
+          "evidence": "Threshold z/⟨C²(k)⟩ and finite threshold under appropriately saturated connectivity.",
+          "identifier_or_url": "https://arxiv.org/pdf/cond-mat/0402065",
+          "material_read": "pp. 4–6, eqs. (2)–(11), (16)–(17)",
+          "method": "Bounded primary PDF text inspection",
+          "title": "Behavior of susceptible-infected-susceptible epidemics on heterogeneous networks with saturation",
+          "trigger": "Degree-dependent saturation threshold"
+        },
+        {
+          "assessment": "Mechanism precedent, not the stated recurrence",
+          "evidence": "Degree-dependent Ising interactions change the effective moments and critical classes.",
+          "identifier_or_url": "https://arxiv.org/pdf/cond-mat/0603689",
+          "material_read": "pp. 2–3 eqs. (1), (9), (12)",
+          "method": "Bounded primary PDF text inspection",
+          "title": "Criticality on networks with topology-dependent interactions",
+          "trigger": "Degree-weighted moment criticality"
+        },
+        {
+          "assessment": "Different single-channel topology-independent threshold",
+          "evidence": "Fixed contacts yield mean-field threshold 1/A.",
+          "identifier_or_url": "https://arxiv.org/pdf/physics/0609150",
+          "material_read": "pp. 2–3, eqs. (7), (16)–(17)",
+          "method": "Bounded primary PDF text inspection",
+          "title": "Epidemic spreading on heterogeneous networks with identical infectivity",
+          "trigger": "Attention saturation and neutralization of degree effects"
+        },
+        {
+          "assessment": "Coupled instability precedent, not the same threshold",
+          "evidence": "A compartmental next-generation system can be unstable while each separated subsystem is subcritical.",
+          "identifier_or_url": "2026/10/13/SCOPE-an-exact-coupled-reproduction-threshold-for-a-fifteen-compartmen--55d93d6c81b2",
+          "material_read": "Local-mirror RESULT.md, finding and coupled-growth construction, offsets 0 and around 6600",
+          "method": "Resultary lookup and bounded passage inspection",
+          "title": "An exact coupled reproduction threshold for a fifteen-compartment model",
+          "trigger": "Exact coupled threshold and subcritical components"
+        },
+        {
+          "assessment": "Different model and claim",
+          "evidence": "Two-channel hypergraph ODE and critical extinction profile, not receiver-degree recommendation or the finite-cutoff logarithmic root.",
+          "identifier_or_url": "2026/11/8/SCOPE-sharp-heterogeneous-critical-extinction-profiles-for-a-two-chann--afbd5e688ab5",
+          "material_read": "Local-mirror RESULT.md, finding at offset 0",
+          "method": "Resultary lookup and bounded passage inspection",
+          "title": "Sharp heterogeneous critical extinction profiles for a two-channel system",
+          "trigger": "Two-channel heterogeneous Perron result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A researcher applying this published map can misread first-order cutoff independence at complete suppression as an exact fact. The strict reverse cutoff effect and the admissible leakage window answer concrete questions left by that approximation; the sharp regimes delimit when a finite-cutoff threshold extrapolates to a positive limit. The value is confined to analyzing this deterministic mean-field incidence map.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

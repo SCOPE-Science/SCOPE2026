@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:01:40.417199Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With the unique c fixed first, every a-before-b pair in the remaining word contributes once for each rotation starting at or before that a, i.e. p_r times. Thus T is the displayed sum, and T/(a+b+1) is the averaged matrix entry. Subtracting the covariance term a^{-1} sum_{r<s}(s-r)(t_s-t_r) leaves a sum of identical pointwise quadratic bounds; the covariance vanishes exactly for constant t_r (automatic when a=1). Completing the square gives the stated nearest-integer rule with both tied choices allowed. If T is nonzero, the first a contributes b+t(b-t-1), at least b; equality requires t=0 or b-1 and all later a's after all b's. This gives both claimed words including their coincidence at b=1. Vanishing means there is no ordered ab pair, giving the claimed unique zero. The proof does not assert that the rest of the spectrum is contiguous. Independent replay: `cd /workspace && python3 review_replay.py 4` evaluated literal rotation counts on 3,418 necklaces in all 36 compositions 1<=a,b<=6 and checked the formula and entire extremizing sets. This bounded check corroborates the proof; the frozen script and its larger recorded run were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The earlier averaged binary ab formula is composition-only and explicitly does not extend generally to larger alphabets; the ternary section supplies equivalence-preserving rewrites.",
+          "The balanced-word literature cited concerns numerical binary rotations or counts of balanced words."
+        ],
+        "reasoning": "Neither binary rotation majorization nor ternary equality-preserving rewrites supply an order on the ternary abc entry and both sharp boundaries at fixed content.",
+        "searches": [
+          "arXiv:2110.14858, Theorem 4.11, Remark 4.12 and Section 5",
+          "arXiv:1501.00871, Theorems 1.2–1.3",
+          "arXiv:2211.09417, p. 1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, proof and references",
+        "arXiv:2110.14858",
+        "Local Resultary 0b67a9f3e612 and 0d4f8c02fe70",
+        "arXiv:1501.00871",
+        "arXiv:2211.09417, p. 1",
+        "DOI 10.1142/S179383090900035X (unavailable primary text)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general average directly yields the interpretation of T/n, not its extremum. Theorem 5.4 tests equivalence of special ternary configurations with two c's; the binary dispersion result does not optimize this weighted sum over linear suffixes."
+        ],
+        "reasoning": "The new step is the monotone-coordinate covariance bound for the maximum and the first-a contribution with sharp equality for the gap, not a substitution into a known bound.",
+        "searches": [
+          "arXiv:2110.14858 Definition 4.1, Theorems 4.2, 4.11 and 5.4",
+          "Resultary 0b67a9f3e612, Finding and scope"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Poovanandran–Simpson–Teh Definition 3.13 and Theorem 4.2 identify T/n as their observable.",
+          "Binary rotation dispersion (0b67a9f3e612) studies the variance of scattered 01 counts; multiletter 2-binomial rotation spectra (0d4f8c02fe70) counts distinct classes, not numerical abc values."
+        ],
+        "reasoning": "Normalization does not create novelty, but even after normalization the two mirror objectives and the fixed-content singleton-marker extrema differ. Same-day dating of 0d4f8c02fe70 was not used to infer priority.",
+        "searches": [
+          "arXiv:2110.14858, circular scattered-subword averaging and ternary Parikh equivalence",
+          "Resultary mirror 0b67a9f3e612 and 0d4f8c02fe70"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed fixed-content spectrum in 0d4f8c02fe70 is for the number of 2-binomial rotation classes, not ternary abc counts. The primary paper's examples and ternary equivalence results do not tabulate these extrema."
+        ],
+        "reasoning": "A table of cases could corroborate or predate individual values but would not subsume the unbounded formulas and level sets. No applicable exact table was identified in the inspected material.",
+        "searches": [
+          "Resultary mirror 0b67a9f3e612 and 0d4f8c02fe70",
+          "arXiv:2110.14858 Sections 4–5"
+        ]
+      },
+      "rationale": "The average itself is established. The fixed-content singleton-marker maximum, all equality cases and the first positive value with its full level set are distinct from the inspected results, which concern binary averages/variance, ternary equivalence, or counts of rotation classes rather than the magnitude of this ternary entry.",
+      "residual_risks": [
+        "An older implicit extremal formulation may exist; Jenkinson's paper could not be inspected in full, and its comparison is qualified by the limited description."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the observable, not the extremal classifications",
+          "evidence": [
+            "Averages over conjugacy classes",
+            "Binary composition-only ab count",
+            "Ternary equivalence criterion for xacyca and xcayac"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2110.14858",
+          "material_read": "pp. 7–9 and 11–17: Definition 3.13, Remark 3.14, Definition 4.1, Theorems 4.2 and 4.11, Remark 4.12 and Section 5 including Theorem 5.4",
+          "method": "Lawful arXiv primary text, targeted passages",
+          "title": "Counting Subwords in Circular Words and Their Parikh Matrices",
+          "trigger": "Same observable and ternary alphabet"
+        },
+        {
+          "assessment": "Distinct, no broader coverage",
+          "evidence": [
+            "Mean and sharp population variance of binary scattered 01 counts",
+            "Scope excludes higher alphabets and other patterns"
+          ],
+          "identifier_or_url": "Resultary 0b67a9f3e612",
+          "material_read": "RESULT.md Finding and scope, offsets 0–4870 and 8153 onward",
+          "method": "Local Resultary mirror",
+          "title": "Sharp rotation-dispersion bounds for binary circular Parikh counts",
+          "trigger": "Closest indexed extremal result for rotation-averaged subsequences"
+        },
+        {
+          "assessment": "Different invariant, not the same record",
+          "evidence": [
+            "Counts distinct 2-binomial equivalence classes among rotations; expressly distinguishes the averaged Parikh matrix"
+          ],
+          "identifier_or_url": "Resultary 0d4f8c02fe70",
+          "material_read": "RESULT.md Finding and scope",
+          "method": "Local Resultary mirror",
+          "title": "Sharp 2-binomial rotation spectra for fixed multiletter content",
+          "trigger": "Same-day multiletter fixed-content rotation result"
+        },
+        {
+          "assessment": "Binary numerical-rotation extremum only",
+          "evidence": [
+            "Bounds on partial sums and products of base-2 rotation values, not ternary subsequences"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1501.00871",
+          "material_read": "Section 1, Theorems 1.2–1.3, pp. 2–4",
+          "method": "Lawful arXiv primary text",
+          "title": "The most unbalanced and balanced words",
+          "trigger": "Possible stronger rotation-orbit majorization"
+        },
+        {
+          "assessment": "Specific access limitation; no negative full-text inference",
+          "evidence": [
+            "Accessible secondary description concerns balanced binary words"
+          ],
+          "identifier_or_url": "https://doi.org/10.1142/S179383090900035X",
+          "material_read": "No full text; Vesti's quoted description only",
+          "method": "Lawful DOI and repository retrieval attempts",
+          "title": "Jenkinson's balanced-word majorization paper",
+          "trigger": "Possible prior rotation majorization theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The first ternary scattered-subsequence entry beyond pair counts is a natural statistic not fixed by the composition. A single marker gives the simplest nontrivial fixed-content setting. Knowing when splitting the b-run is optimal, including ties, and knowing exactly which necklaces are invisible or produce the least nonzero signal gives useful structural information for distinguishing circular words. This is not merely evaluation of the average on a few test words.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

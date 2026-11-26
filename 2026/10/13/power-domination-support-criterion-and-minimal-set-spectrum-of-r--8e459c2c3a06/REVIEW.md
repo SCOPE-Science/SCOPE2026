@@ -1,19 +1,21 @@
-# Scientific review: rectangular rook-graph power domination
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The full unseen-cell set after initial observation is the Cartesian rectangle of empty rows and columns. An observed cell has exactly zero, the number of empty rows, or the number of empty columns as unseen neighbors. This proves both the no-force obstruction when both numbers exceed one and the one-round propagation when either equals one. The support-threshold equivalence is therefore exact for every pair of dimensions at least two. Inclusion–exclusion counts each set uniquely by row and column support. A deletion-witness argument classifies all inclusion-minimal sets; the Stirling-number sum counts surjections in the non-square case, and an explicit overlap correction counts partial permutations in the square case. The companion exhaustive checker independently reconstructs forcing and matches every coefficient and minimal-set count for all nine boards with dimensions two through four and the board \(3\times5\).
+PASS
 
-## Originality
+After neighborhood observation the unseen cells are exactly the empty-row by empty-column rectangle. With both dimensions at least two, every observed vertex has zero or at least two unseen neighbors; with one dimension one and the other positive, each unseen cell has a forcing witness along its column or row, respectively, in the same simultaneous round. With a dimension zero no force is needed. Exact support counting via inclusion–exclusion forbids i specified rows and j columns and leaves (a−i)(b−j) free cells. This also removes the empty selection, with H(0,0)=1. Minimality under the disjunction of the two thresholds requires each cell to be indispensable for every satisfied threshold. This produces the three claimed types, and the joint type forces a square and a partial permutation. On m<n, m−1 rows chosen with singleton occupancies give m n^(m−1) sets and the column family is counted by surjections onto at most m−2 rows; the second type is nonempty precisely when m≥3. On a square, the two singleton families overlap in m²(m−1)! partial permutations. Thus the two extremal formulas include the thin-board boundary and the long-set example. Fresh exhaustive direct adjacency/forcing replays checked 135,696 subsets on six boards, including 2×6 and transposed 5×3, checking both polynomials, minimality and the parallel-round statement; for 3×5 the minimum-family count is 75 and the size-four count is 15. Finite enumeration is corroboration, not the unrestricted proof.
 
-**PASS, subject to stated residual risk.** The 2008 graph-product work treats different products/factors, not an all-set enumerator for complete-by-complete Cartesian products. Soh and Koh's 2014 paper already proves the minimum size, and that value is expressly excluded from the novelty claim. The indexed lemma/theorem passages inspected from it do not state the new all-set or inclusion-minimal-set counts, but its unavailable complete text remains a risk. The 2015/2018 graph-product study concerns numerical bounds and forcing for other products; the 2018 general polynomial paper computes other graph families, not this full Cartesian-product family. Ordinary rook domination is strictly more restrictive and not equivalent. Other previously recorded results on crown, book, and threshold graphs do not cover these objects/invariants. Searches under rook, Cartesian, power-domination polynomial, inclusion-minimal, upper parameter, and row/column support aliases identified no dominating prior statement; nonhits alone were not treated as originality proof.
+## originality
 
-## Value
+PASS
 
-**PASS.** The new structural theorem provides the complete cardinality distribution of viable sensor placements and the exact inclusion-minimal spectrum on every rectangular board. A square board has a single possible inclusion-minimal cardinality, whereas rectangular boards with short side at least three admit two separated cardinalities; the gap grows without bound on \(R_{3,n}\). This distinguishes optimum-size monitoring from configurations where no individual sensor can be deleted, an intrinsic combinatorial and network-placement distinction. The count of every viable and every irreducible configuration is substantially stronger than the known minimum-number formula.
+The scalar minimum is known and receives no originality credit. The supported contribution is the structural all-set and inclusion-minimal classification, including closed counts and the minimal-set spectrum, not the general polynomial definition or inclusion–exclusion technique. Later catalogue findings explicitly duplicate the support criterion and all-set polynomial, but their inspected findings do not give the inclusion-minimal spectrum. Accessible primary evidence on older diameter-two and product results does not establish coverage of the spectrum; the plausible inaccessible statements are named as residual risks, not treated as negative evidence.
 
-## Sources and limitations
+## value
 
-Closest primary comparison: K. W. Soh and K. M. Koh (2014), DOI 10.1080/09728600.2014.12088762, Theorem 3.3 (minimum number only in accessible excerpt). Also inspected Dorbec et al. (2008), DOI 10.1137/060661879, the available complete author-hosted text; Benson et al. arXiv:1510.02421, graph-product scope; Brimkov et al. arXiv:1805.10984v1, complete HTML body; and ordinary rook domination. The full 2014 text could not be accessed, and differently indexed older specializations may exist. Full mathematical proof is supplied; finite enumeration is corroboration only. Independent audit has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A closed histogram of all successful and all deletion-minimal placements on a standard graph family extends the previously known minimum. In particular the minimal spectrum distinguishes small optimum placements from long irreducible ones, with an unbounded ratio on 3×n boards. The support criterion and counts permit direct evaluation and isolate a meaningful distinction from ordinary or connected domination.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

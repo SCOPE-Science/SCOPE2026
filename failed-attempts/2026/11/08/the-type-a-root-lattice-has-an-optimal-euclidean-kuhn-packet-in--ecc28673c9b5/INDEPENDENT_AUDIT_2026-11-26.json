@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T15:24:46.905186Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The inequalities for roots e_i-e_j require coordinate range at most one. Conversely, for integer sum-zero z the inner product on this range-bounded set is at most the sum of positive coordinates of z, which is half its l1 norm and at most half its squared Euclidean norm. This gives the exact Voronoi cell, the projection of [0,1]^N, whose norm maximum occurs at a projected indicator with cardinality nearest N/2. The simple roots are a lattice basis by the partial-sum inversion t_i=x_1+...+x_i. Within the open cube in t, the simplex for σ is the closure of t_{σ(1)}>...>t_{σ(n)}. Put t_0=t_N=0. Since x_j=t_j-t_{j-1}, the interior coordinate floors are m_1=0, m_N=-1, and m_j=-1 precisely when p_{j-1}<p_j for internal j; this gives k=-sum m and all vertices v in m+{0,1}^N with sum zero. Each such vertex has displacement from c=m+(k/N)1 given by a weight-k binary vector minus its mean, hence squared radius k(N-k)/N. Affine independence makes the sphere unique and ball convexity gives the radius upper bound without asserting pointwise minimum enclosing spheres. For any independent frame the translates of the packet by the sublattice it spans triangulate H. If a simplex has vertices v_i in a radius-R ball about c and x=sum λ_i v_i, then sum λ_i||x-v_i||²=sum λ_i||v_i-c||²-||x-c||²≤R². Thus some lattice vertex is at distance at most R and μ≤κ, giving equality for the exhibited basis. The inverse permutation bijection, ascent counting and symmetry give the Eulerian multiplicities and balanced peak, including the two equal central radii when N is odd. The finite checker was inspected, not executed. Its finite norm identities are not a substitute for the universal proof; its Voronoi sample uses integer test points and is only a very weak supplementary check.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Koca et al. identify A_n Delaunay cells as fundamental-weight polytopes; their centered vertices are the Weyl orbits of projected weight-k indicators. Lam–Postnikov identify the alcove and Stanley/Sturmfels triangulations of the corresponding hypersimplices, with Eulerian normalized volumes. Kim gives the projected-cube Voronoi cell."
+        ],
+        "reasoning": "A lattice Delaunay hypersimplex is (m+[0,1]^N)∩H with integer m of sum -k; its sphere has squared radius k(N-k)/N. Its boundary walls are x_j∈Z, among the same alcove walls since x_j=t_j-t_{j-1} and x_N=-t_n. Consequently the whole fixed-frame triangulation refines these Delaunay cells. Every one of its full-dimensional simplices therefore uses the enclosing Delaunay sphere, whose radius is at most μ. This gives κ≤μ in the original common-frame invariant, and Xue supplies the reverse inequality. Neither the projected-cube statement by itself nor the extended-invariant statement does this.",
+        "searches": [
+          "Koca et al. arXiv:1804.05836 pp. 1,5–6",
+          "Lam–Postnikov arXiv:math/0501246v2 §§1–2",
+          "Kim arXiv:2304.10186v1 §7 Lemma 10",
+          "Xue arXiv:2610.39034v1 Proposition 2.4 and §3"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.39034v1",
+        "arXiv:math/0501246v2",
+        "arXiv:1804.05836",
+        "arXiv:2304.10186v1",
+        "Resultary 02dc3e790185"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The standard k-th hypersimplex has vertices 1_S with |S|=k, and its alcove triangulation has Eulerian number <N-1,k-1> simplices. All shifts m of sum -k differ by lattice translations, which preserve the alcove arrangement. The common simple-root packet has exactly one representative for each orbit of full-dimensional alcoves under these lattice translations."
+        ],
+        "reasoning": "For an alcove of type k, translate its containing shifted hypersimplex by a lattice vector to a fixed representative of type k. The translated alcove is unique because the original containing cell is unique in its interior and the chosen shift fixes m. Conversely each alcove in that representative has a unique packet translate by taking integral parts of its t coordinates in its interior. Thus exactly the already counted Eulerian number of packet simplices have type k. The projected indicator norm is the same sphere radius k(N-k)/N. For the pointwise label the floor of x_j=t_j-t_{j-1} is -1 iff the position of j-1 precedes the position of j, with the last boundary floor always -1. So the type is the stated inverse-ascent index by direct coordinate reading; the peak counts then follow from the classical counts. This settles the triangulation match and the implication rather than inferring novelty or coverage from coincident radii.",
+        "searches": [
+          "Lam–Postnikov §§1–2, Theorem 2.7, comparator with frozen RESULT.md §§2–3",
+          "Koca et al. pp. 5–6 fundamental-weight coordinates",
+          "Xue Proposition 2.4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Xue's original invariant uses all permutation simplices of one independent lattice frame; his extended arbitrary periodic triangulation result is a different invariant. Lam–Postnikov use the type-A affine Coxeter arrangement and the alcove triangulation of hypersimplices in consecutive-sum coordinates."
+        ],
+        "reasoning": "Take t_i=Σ_{j≤i}x_j and t_0=0 on the zero-sum hyperplane. The inverse map is t↦Σ_i t_i(e_i-e_{i+1}), exactly the frozen basis, not an isometric identification with a coordinate Euclidean lattice. In these coordinates the alcove walls are t_i-t_j∈Z (including j=0), the consecutive-sum walls in x. Within (0,1)^n only t_i=t_j cut the interior. Ordering the t_i gives the very prefix-sum simplices of the frozen packet; whole-space alcoves are its lattice translates. This verifies the specific common-frame equivalence, not merely existence of another triangulation.",
+        "searches": [
+          "Fei Xue arXiv:2610.39034v1 introduction, Proposition 2.4 and §3",
+          "Lam–Postnikov arXiv:math/0501246v2 §§1–2, Theorem 2.7",
+          "Type-A Delaunay hypersimplices arXiv:1804.05836 pp. 1,5–6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The separate Resultary A4 record gives κ=μ=√(6/5) and the 120 unordered directed-path minimizing frames in rank four. No direct all-rank κ table was identified. Lam–Postnikov give the all-rank Eulerian counts of unit alcoves per hypersimplex, and the ordinary root-lattice radius is classical."
+        ],
+        "reasoning": "The rank-four match is outside the claimed new range and is not evidence of all-rank priority by its date. The hypersimplex counts, however, do determine the exact spectrum of this packet, via the explicitly identified common-frame coordinate equivalence and translation argument.",
+        "searches": [
+          "Resultary local comparison for all-dimensional A_n simple-root Kuhn packets and Eulerian sphere spectrum",
+          "Resultary 02dc3e790185 Finding",
+          "Lam–Postnikov arXiv:math/0501246v2 §1 Eulerian volume and §2 triangulations",
+          "Kim §7 Lemma 10 classical covering-radius geometry"
+        ]
+      },
+      "rationale": "The result is a direct consequence of existing type-A alcove triangulation and root-lattice Delaunay geometry in partial-sum coordinates, together with Xue's general comparison. The prior sources need not name κ for this mechanical implication. Critically, the older triangulation is not an arbitrary periodic triangulation: its restriction to a unit cube in the partial-sum coordinates is literally the packet from the one fixed simple-root basis. The same identification transfers the classical Eulerian hypersimplex counts to the packet's spheres. The exhibited adaptation is correct but does not leave a distinct exact invariant or claim under the scientific originality standard.",
+      "residual_risks": [
+        "Older Delaunay references cited in the primary papers were not independently inspected. No historical priority for the κ terminology or for explicit printing of the reformulated equality is inferred. The decision is based on the demonstrated implication from the specific known triangulation and cell geometry."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Original invariant and comparison; coordinate case alone does not cover A_n",
+          "evidence": [
+            "Independent lattice frame fixed for all permutations; μ≤κ; the broader ellipsoid equality refers to an extended triangulation invariant."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.39034v1",
+          "material_read": "Introduction, Proposition 2.4, §3 coordinate-lattice cases, HTML offsets 0, 13612, 23943",
+          "method": "Primary OA HTML passages",
+          "title": "On κ-covering minima",
+          "trigger": "Definition and lower bound for the actual common-frame invariant"
+        },
+        {
+          "assessment": "Supplies the triangulation and Eulerian counts in coordinates that identify it with the simple-root packet",
+          "evidence": [
+            "Integer translates of root walls define alcoves, and alcoved polytopes such as hypersimplices triangulate by those alcoves; §2 identifies the Stanley, Sturmfels, alcove and circuit triangulations. The count per hypersimplex is its Eulerian normalized volume."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/0501246",
+          "material_read": "§1 introduction and §2 Theorem 2.7, offset 22547 in extracted source; introduction PDF lines 23–37 independently checked",
+          "method": "Primary OA paper passages, arrangement compared in consecutive partial sums",
+          "title": "Alcoved Polytopes I",
+          "trigger": "Whether the classical hypersimplex triangulation is the very same fixed-frame packet"
+        },
+        {
+          "assessment": "Supplies the hypersimplex cell shapes and radius shells",
+          "evidence": [
+            "A_n Delaunay cells are fundamental-weight polytopes. The S_N orbit of the k-th fundamental weight consists of 1_S-(k/N)1 for |S|=k."
+          ],
+          "identifier_or_url": "arXiv:1804.05836",
+          "material_read": "PDF p. 1 around offset 1267, and pp. 5–6 around 16192 and 17569",
+          "method": "Primary OA PDF passages",
+          "title": "Explicit Construction of the Voronoi and Delaunay Cells of W(A_n) and W(D_n) Lattices and Their Facets",
+          "trigger": "Actual root-lattice Delaunay cells and spheres, not a generic Voronoi citation"
+        },
+        {
+          "assessment": "Classical projected-cube formula; not the packet proof by itself",
+          "evidence": [
+            "The origin Voronoi cell is the orthogonal projection of the N-cube onto the zero-sum hyperplane."
+          ],
+          "identifier_or_url": "arXiv:2304.10186v1",
+          "material_read": "§7 Lemma 10 around HTML offset 35360",
+          "method": "Primary OA HTML passage",
+          "title": "Algebraic Characterization of the Voronoi Cell Structure of the A_n Lattice",
+          "trigger": "Classical covering radius in the correct normalization"
+        },
+        {
+          "assessment": "Rank-four overlap only; not used to infer all-dimensional coverage or date priority",
+          "evidence": [
+            "κ=μ=√(6/5) in A4 with 120 unordered directed-path minimizing frames."
+          ],
+          "identifier_or_url": "Resultary 02dc3e790185",
+          "material_read": "Local-mirror RESULT.md Finding",
+          "method": "Resultary search and exact local mirror statement",
+          "title": "Optimal Kuhn packets in the A_4 root lattice: exactly 120 directed-path frames",
+          "trigger": "Closest direct κ packet classification in the local indexed record set"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Knowing sharp behavior of κ on a canonical infinite family is a good question, and the fixed-frame/relaxed distinction matters. But the partial-sum coordinate map simply writes the classical Delaunay-refining type-A alcove triangulation in its natural lattice frame. Equality and the shell counts attach known radii and Eulerian volumes to those same simplices. No independently unknown invariant, mechanism or classification remains in the frozen claim, so no repair is proposed.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

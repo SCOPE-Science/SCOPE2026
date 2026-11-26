@@ -1,19 +1,21 @@
-# Scientific review of the two-species acoustic recording theorem
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The two species' independent no-call probabilities yield the objective. Exact integration gives the two edge-window intensities. Their second derivatives and the strict concavity of the logarithmic detection factors prove a unique split inside the proposed family. The critical global step is not inferred from finite optimization: at that split, the positive weighted intensity is strictly convex over the night, and the chosen edge windows are precisely its unique top-measure set. The supporting-line inequality for the concave logarithmic objective proves global optimality and uniqueness among **all measurable recording sets**. One-sided derivative signs give nonoverlapping sharp thresholds. Reflection and a uniform small-budget expansion yield the two limiting statements. A standalone computational checker passed 11,846 finite assertions; no numerical result is used as an infinite proof.
+PASS
 
-## Originality — PASS, provisional to inspected evidence
+For arbitrary measurable E independence gives the product of the two positive Poisson detection probabilities. Reintegrated both rates on E_x. With c=1-exp(-kappa(H-B))>0, U'=ac exp(-kappa x) and V'=-bc exp(-kappa(B-x)); both second derivatives are negative. Each log-detection function is increasing strictly concave, so the split objective is strictly concave. Its gradient supplies the positive convex switching weight w on the whole night. The derivative is w(x)-w(H-B+x); equal levels in the interior, or the one-sided derivative inequalities at the ends, imply E_x takes exactly the largest w values by strict convexity. Level sets at the threshold have measure zero. Comparing any E of measure B by the two supporting-line inequalities proves strict global optimality unless equality almost everywhere, without a relaxation or grid assumption. Checked U(0)=as, V(0)=bh, U(B)=ah, V(B)=bs and both endpoint derivative tests. The decreasing phi_s maps positive amplitudes onto (0,1/s); the right side is strictly inside this range. Equality belongs to the appropriate one-window regime, and the two endpoint criteria cannot hold together. Symmetry and the uniform rescaled limiting positive quadratic with unique maximizer 1/2 establish the two balance statements. Inspected VERIFICATION.md and check.py without executing the source. An independent bounded probe (numerical integration of each window and direct endpoint derivative root, H=2, B=kappa=b=1) gives critical amplitude 15.717171299688161, terminal-only probability at a=20 of 0.4640603908858238, and symmetric probability 0.14592277036360785. The proof, not either numerical probe, establishes all measurable sets and positive parameters.
 
-Full article text inspected for Skalak et al. (2012, https://doi.org/10.1111/j.2041-210X.2011.00177.x), Stahlschmidt and Brühl (2012, https://doi.org/10.1111/j.2041-210X.2012.00188.x), Petitot et al. (2014, https://doi.org/10.1002/ece3.1207), and Balantic and Donovan (2019, https://doi.org/10.1002/ece3.5579). The closest is Balantic and Donovan's weighted hourly optimization, but that algorithm ranks hourly species-priority scores; it does not prove the exact global continuous optimum for the joint **both-species** detection probability under opposed exponential rates. The ecological survey papers discuss seasonal/diurnal detectability and empirical effort allocation, not the sharp three-regime theorem. Searches against published mathematical research records returned related single-species survey timing, Fisher-information experiments and Poisson counting optimizations, but no implication covering this stated result. The familiar threshold-set technique is not represented as independently novel. Residual risk remains from uninspected general variational theorems or historical scheduling results in other terminology.
+## originality
 
-## Value — PASS
+PASS
 
-Under a natural single-device data/storage budget and two temporally complementary targets, the theorem replaces arbitrary measurable-window search with one scalar equation and predicts an exact transition from split dusk/dawn monitoring to one-sided recording when one target is sufficiently common. This is a motivated complete classification, not merely a numerical optimum or a tiny improvement. It also proves that at vanishing recording budget the optimal split is asymptotically balanced regardless of fixed species intensity imbalance, revealing a counterintuitive regime transition. These claims are mathematical reference results; no real wildlife species is asserted to have the stipulated exponential time profile.
+The distinct supported claim is the unique measurable edge-supported optimizer with its exact two one-window amplitude boundaries and limiting split for opposite exponentials. The concave support inequality/top-measure rule and the Poisson objective are not claimed as innovations. The same-day seasonal concentration result is a material conceptual overlap, not an equivalent mathematical statement.
 
-## Closest coverage and limitations
+## value
 
-The closest inspected algorithmic source is Balantic and Donovan (2019); its weighted, discrete adaptive score is not the same objective. General supporting-hyperplane/bathtub principles provide proof tools and may offer a general theoretical framing, but an explicit competing classification was not found. Model restrictions: two independent Poisson calling species, exactly opposite exponential intensity shapes, perfect detection, fixed recording-time measure and no minimum window size/switching penalty. Priority should receive independent review.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Fixed recording effort and the need to confirm both targets give a natural allocation problem. Temporal complementarity does not force a balanced split: saturation can make one end sufficient, a sharp counterpoint to the equal leading-order split when effort is small. The theorem gives the exact regimes and proves that no arbitrary fragmented schedule improves them. Its value is a model benchmark, not empirical validation or a recommendation for unspecified species.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

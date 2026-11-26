@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The exact target law follows from independent uniform candidate proposals followed by acceptance against \(1-d_i/D\), and the conditional probability of first rejection is exactly \(1/n\) for every possible history. This implies independent Bernoulli rejections, an almost-sure logarithmic total by exponential concentration and dyadic Borel--Cantelli, and a deterministic histogram-TV bound. The standard uniform recursive process has independent per-vertex future attachments; Poisson approximation at macroscopic birth rank and concentration of histogram counts prove the almost-sure shifted geometric empirical limit. The included exact rational and simulation checks replay but are not used as an infinite proof.
+PASS
 
-## Originality
+Conditionally on the full joint past, a fresh uniform proposal is rejected with probability sum_i(d_i/D)/n=1/n. Repeating without updating degrees until acceptance gives exactly Q_i, and the first proposals themselves are independent choices for the uniform comparison. Deterministic conditional rejection probabilities imply independence by iterated conditioning. The log moment generating function is m(e^t-1) log N+O_m,t(1); choosing small signed t gives summable tail bounds on dyadic N, and monotonicity interpolates because consecutive dyadic logarithms have ratio tending to one. Changing H targets alters at most two final vertex degrees per edit, so histogram TV is at most 2H/N. For uniform attachment a nonseed birth rank i has independent Bernoulli increments, m per old count n from i to N-1. On ranks i/N bounded away from zero the Poisson approximation is uniform (the summed squared probabilities are O(1/N)), and its mean is uniformly m log(N/i)+o(1). A Riemann sum and removal of the lower-rank cutoff yield the exponential–Poisson mixture m^r/(m+1)^{r+1}. Each coordinate is 2/N-Lipschitz in each of m(N-2) independent choices; concentration, Borel–Cantelli and truncation of a probability limit give almost-sure TV convergence, then transfer by the coupling. The fixed seed contributes only 2/N and m=1 also obeys every estimate.
 
-**PASS (provisional).** Bandyopadhyay--Sen, arXiv:2508.18144v2, Theorems 2.3--2.6, obtain the empirical geometric law only at \(m=1\) and explicitly state that they could not derive or conjecture the \(m>1\) law. Bandyopadhyay--Joshi, arXiv:2512.12408, also restrict the displayed empirical law to \(m=1\). The classical uniform recursive geometric law alone does not imply the new coupling; actual published research-record repository, source and alias searches found no covering statement. Relevant risks include older general near-uniform recursive graph couplings and unindexed priority results.
+## originality
 
-## Value
+PASS
 
-**PASS.** The result resolves the precise missing empirical distribution in a model explicitly studied for multi-edge arrivals and strengthens it with a quantitative pathwise transfer principle. Degree statistics are a central natural observable for evolving networks; the formula distinguishes arrival multiplicity and is not an arbitrary finite slice. It does not solve the corresponding inverse-de-preferential problem or stronger graph-structure comparison.
+The uniform law and the de-preferential m=1 geometric limit are prior. In the exact sequential repeated-target model the all-fixed-m law, especially m>1, and the quantitative pathwise transfer are distinct from the available primary statements.
 
-## Scientific limitations
+## value
 
-The statement is for fixed \(m\), the stated sequential linear kernel, and multigraph attachments. It makes no independence or external verification claim; the simulations and finite exact checks do not prove the asymptotics by themselves. Historical priority remains subject to independent specialist review.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Answers an explicit empirical-law question for multiple sequential attachments and gives a pathwise error guarantee that explains why the limiting histogram is the uniform one, despite nonuniform conditional transitions. The classical mixture on its own is not the contribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

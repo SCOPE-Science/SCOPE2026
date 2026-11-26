@@ -1,13 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** A feasible cycle orientation decomposes into independent monotone left/right runs between consecutive fixed direct voters: any nontrivial directed cycle would otherwise be an adjacent 2-cycle or the full cycle, and the full circuit is blocked by the gurus. This bijection proves the product law, full joint polynomial, uniform-cuts covariance and coefficient tally formula. A direct counting argument proves the two-guru tie bound. The standalone verifier exhaustively compared independently enumerated full delegation functions with the factorized predictions for 1418 configurations, all using exact integers/rationals. The universal conclusion is analytic; finite testing is only supporting evidence.
+## correctness
 
-**Originality — PASS, bounded by inspected sources.** The primary 2022 winner-determination paper explicitly proposes delegation-counting variants as an open direction. The strongest related 2023 branching work counts single source-to-sink connections in a random branching and computes fractional weights but does not give the joint winner-tally distribution or sharp two-opposed-guru tie-location law. Other inspected works address a priori power indices or competence-dependent random networks. Semantic research-record searches and accessible historical claim titles found no covering statement or equivalent formula. Generic rooted-forest identities may imply parts of the counting method; the specific full distribution and extremal application are the contribution. Some unindexed or uninspected specialized literature may overlap.
+PASS
 
-**Mathematical value — PASS.** Counting the delegations making a candidate a winner is explicitly motivated as an important problem in the foundational paper. The complete coefficient formula resolves it for an infinite canonical family, the covariance Laplacian identifies a structural measure of election uncertainty, and the antipodal-versus-adjacent guru theorem proves a sharp and nontrivial placement effect, not a prescribed numerical slice. The result does not assert a general arbitrary-network counting algorithm.
+A full directed circuit cannot pass through a guru, and on the interior of an arc the only directed cycle possible is an adjacent clockwise/counterclockwise two-cycle. Excluding that pair forces a prefix pointing to the first endpoint followed by a suffix pointing to the second; every cut is feasible and the uniform law makes distinct cuts independent. The weight vector is the deterministic term plus the sum of each cut variable times e_i−e_{i+1}. The discrete uniform variance m(m+2)/12 gives the stated Laplacian, with two separate contributions for parallel arcs at k=2. Same-ballot arcs have constant contribution with multiplicity and opposite-ballot arcs give one copy of every intervening tally; coefficient sums give exactly the two thresholds. The convolution bound counts arithmetic operations, not bit operations. In the two-guru case the central sum on an even cycle is attained once for every value of the shorter cut variable, so the tie probability is the reciprocal of one plus the longer arc interior length. Its equality cases and the symmetry of the win probabilities follow, including zero-length interiors. A separate bounded enumeration found no mismatch for all 218 root sets on n=3,…,7 and all 3,212 associated ballot patterns; the proof does not depend on that finite check.
 
-**Limitations.** Fixed gurus, a simple undirected cycle, unit votes, uniform valid orientations; not endogenous guruship, correlated or nonuniform delegations, or global random network models. Source coverage cannot prove absolute novelty. Independent validation was not carried out.
+## originality
 
-**Closest sources.** Bentert et al. (arXiv:2205.05482), Utke and Schmidt-Kraepelin (arXiv:2307.01174), Colley et al. (arXiv:2301.02462), and Berinsky et al. (arXiv:2107.11868).
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The unmarked count and the underlying rooted-forest structure are standard; the supported distinct claim is the explicit joint component-size and tally laws for this conditional election model and the sharp opposing-guru positional tie consequence. Neither the inspected general decision/branching work nor the closest cycle record supplies these marked formulas under the stated sampling law. The elementary uniform-sum calculation alone is not claimed as original.
+
+## value
+
+PASS
+
+The exact winner count is a tractable, natural special case of a proposed counting problem and the joint law also supplies coalition uncertainty without re-enumerating orientations. Most notably, with two opposing gurus both candidates have the same strict-win chance, yet guru locations change the tie probability by nearly a factor of two. That sharp dependence is a useful benchmark for delegation models beyond just counting forests.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

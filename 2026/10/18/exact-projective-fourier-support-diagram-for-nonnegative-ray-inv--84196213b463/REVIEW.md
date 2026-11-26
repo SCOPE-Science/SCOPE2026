@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The Fourier calculation is an exact sum over each multiplicative ray. Because the additive character sum has the two values \(q-1\) and \(-1\), the entire problem reduces to the real conditions \(a\ge0,b_i\ge0\) and \(\widehat f_i=a-S+q b_i\). The proof exhausts the three signs of \(a-S\), proves the exceptional impossibilities at \(s=q\) and \(s=q+1\), and constructs positive rational witnesses for each permitted triple. The nonzero frequency-origin coefficient is handled separately. Finite checks are supporting evidence, not proof.
+## correctness
 
-## Originality — PASS (residual prior-formula risk)
-The 2016 wavelet decomposition addresses Fourier bandwidth, while the 2023 ray-type tiling paper supplies a more general Fourier representation but studies complementary positive-definite tilings, not an existential support-pair classification for all nonnegative ray weights. A classification of feasible integers needs the positivity case split, the special \(s=q\) gap, and explicit witnesses. Searches for equivalent formulations, projective support weights, and positivity yielded no indexed duplicate among the examined results. Because the transform identity itself is known, this is the principal residual originality risk: a published implicit or explicit specialization may already supply the same diagram. No independent priority certification is claimed.
+PASS
 
-## Mathematical value — PASS
-The ray-invariant cone is a natural projective subspace of finite-field signals that appears in wavelet bandwidth and finite-field tiling analysis. The full attainability diagram is a discrete exact invariant, with two distinct central-mass regimes and a noninterval spectral gap at \(s=q\); the construction and impossibility statements together resolve every projective support cardinality for this class. The result makes no claim of a general downstream theorem.
+The unnormalized nontrivial character sum on a punctured line is q−1 if the frequency is orthogonal to the line, and −1 otherwise. This holds for prime powers because a nonzero F_q coefficient bijectively permutes the additive character's summation field. Each nonzero frequency is orthogonal to exactly one line, so after relabeling its Fourier coefficient is a−S+qb_i; the Fourier origin is positive. If a>S, all dual rays survive. If a=S>0, exactly the active rays survive. If 0≤a<S, write c=(S−a)/q and m=q+1−r; m counts active weights equal to c, with sum S=qc+a. At a>0, all s can equal c only for s=q+1; otherwise m≤s−1. At a=0, if s<q then m≤s−1, if s=q then m=q or m≤q−2, and if s=q+1 then m≤q−1. The constructions in RESULT.md lines 38–41 have the claimed positive weights, sums and numbers of matches, including q=2, s=0 with a>0, and r=0 for the constant function. The displayed union of counts is exact. The word 'isolated' on line 18 describes the separate cancellation mechanism a=S; the count r=s is not always separated numerically from the interval and can overlap it. The finite checker was inspected, not executed, and is not used to infer the theorem over all prime powers.
 
-## Closest literature and limitations
-Iosevich et al., arXiv:1601.03473v1, Sections 2–4: Fourier zeros on projective directions and wavelet decomposition. Kiss et al., DOI 10.1007/s43670-023-00073-7, Sections 2–3: ray-type and line-transform identities under additional positive-definite tiling constraints. The results are closely related and the risk of an unlocated equivalent corollary remains. The present claim is limited to nonnegative ray-invariant functions on \(\mathbb F_q^2\).
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The line-transform and ray-support framework are prior. The actual inspected claims do not supply a complete existential diagram under this nonnegative real constraint, including the exact center-dependent exclusion and witnesses. This pass is for the diagram, not priority for the Fourier identity or a negative assessment of every unsearched source.
+
+## value
+
+PASS
+
+This is a natural complete refinement of finite-field uncertainty and bandwidth for nonnegative amplitudes: it distinguishes input support on rays from origin membership and classifies every Fourier support count, not just a lower bound. In the same s=q zero-center slice, one and every count from three up are attained but two is impossible, a useful obstruction that a monotone uncertainty bound cannot encode. The necessary sign and sum constraints and the explicit realizers give a reusable sharp benchmark for projective support feasibility. The elementary prior transform is not itself the contribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

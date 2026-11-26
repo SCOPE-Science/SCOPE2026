@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:40:21.669454Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–63; VERIFICATION.md and verify.py, inspected without execution",
+        "Independent replay: high-precision bisection of the fold, value gap, and budget equations"
+      ],
+      "rationale": "For the forced-sum mathematical model the classification is correct. Given an occupied coordinate, moving a little load from it to any zero coordinate strictly increases the value because f'(0)=1>f'(x) for x>0. At an interior unequal optimizer the common derivative allows only the two levels a in (1,2), b>2; two high coordinates have a positive tangent second variation, so exactly one is high. Stationarity gives a-1=d/(exp(d)-1) for d=b-a. The Finding defines this as u but then writes Greek nu without a separate definition; these denote the same function, unambiguously fixed by the stationarity equation in Proof §2. Its strict convexity follows from (d-2)exp(d)+d+2 having zero value and slope at zero and positive second derivative for d>0. The budget has a strictly increasing branch from 4 for n=2, and one fold for n>=3. A fixed-budget variation in the high-versus-low directions excludes the decreasing branch since the second variation has sign T_n'/u'; differentiating the stationarity identity twice gives a nonzero third derivative at the fold, excluding it too. For n>=3 the value gap is strictly negative at the fold and strictly positive at 2n, where the cubic variation in direction (n-1,-1,...,-1) excludes equality. On the upper branch before 2n the gap derivative is f'(a)-f'(S/n)>0 since both arguments are between one and two and a<S/n. Compactness, the candidate list and the strict root then give all global optima including threshold equalities. For n=2 the sole unequal branch merges continuously into equal at S=4; for n>=3 the tie has d_c>d_f>0. This also yields the stated high-load limit. Independent decimal calculations give n=3: S_f=5.7456435767327244, S_c=5.7743134717251248, d_c=1.3974995195938845, and optimum F_3 at S=7 of 0.7718350579247905.",
+      "residual_risks": [
+        "The result is conditional on the exact forced-sum Steele response, not a validation of a real plant or reactor model."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Ricker result applies to every integer m>=2 and every real S>0; it gives the same equality and permutation statements. The Poisson result strengthens the lower bound to n+1<B_c(n) and gives the continuous two-coordinate onset rate and the same asymptotic F_n limit.",
+          "The wildlife comparison proves the shared n=2 threshold and coexistence near load 2n for n>=3, not uniqueness of the global crossing."
+        ],
+        "reasoning": "The decisive stronger coverage stems from identical optimization, not a general reliability analogy or the physiological origin of the function. The original Steele paper could not independently be checked; that access issue is not part of the FAIL reason.",
+        "searches": [
+          "Resultary 7678a45b7053, d6c7f813eac2, ac2d67993139 Findings; Steele doi:10.4319/lo.1962.7.2.0137"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 7678a45b7053, d6c7f813eac2, ac2d67993139",
+        "doi:10.4319/lo.1962.7.2.0137, attempted without full-text access"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Ricker theorem uses the same u(d), a(d), b(d), budget S_m(d), fold S_m'=0 and unequal-minus-equal root. Its positive d at crossing and two-versus-many cases match exactly.",
+          "The Poisson result expressly states n-1 moderate loads tending to 1, one load equal to S-(n-1)+o(1), and limiting value (n-1)/e."
+        ],
+        "reasoning": "The Ricker root identification and optimizer classes imply the full frozen switch theorem, with the claimed high-load property following from the branch formula and also stated in the Poisson comparison. The n=3 example at S=7 is just an evaluation of the identified optimizer. No distinct, valuable mathematical remainder is isolated by renaming stock as irradiance or correcting u/nu.",
+        "searches": [
+          "Resultary 7678a45b7053, d6c7f813eac2, ac2d67993139 bounded Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "7678a45b7053 Finding maximizes the exact same sum of x exp(-x) with nonnegative coordinates and compulsory total stock S; substitute m=n.",
+          "d6c7f813eac2 Finding has exactly the same objective and simplex by the Poisson exactly-one probability; substitute B=S.",
+          "ac2d67993139 Finding maximizes sum x_i exp(-c x_i) on the unit simplex; put y_i=c x_i and multiply the objective by c."
+        ],
+        "reasoning": "These are exact changes of names, or in the wildlife case a positive rescaling, preserving every maximizer. The Ricker and Poisson comparisons therefore cannot be dismissed as adjacent biological models.",
+        "searches": [
+          "Resultary: fixed-sum unimodal resource allocation, Poisson slotted ALOHA split load across channels maximize sum lambda exp(-lambda) fixed traffic overloading one channel hot spot equal occupancy global optimal allocation",
+          "Resultary 7678a45b7053, d6c7f813eac2, ac2d67993139"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "7678a45b7053 gives S_c(3)=5.774313471725… and d_c(3)=1.397499519594…, and it defines these through the same scalar functions for every m.",
+          "d6c7f813eac2 independently tabulates the same illustrative three-coordinate crossover."
+        ],
+        "reasoning": "The matching numbers are corroborative only. The decisive exact overlap is the analytic parameterization and unique root on the same increasing branch, not decimal agreement.",
+        "searches": [
+          "Resultary 7678a45b7053 and d6c7f813eac2, threshold passages in Findings"
+        ]
+      },
+      "rationale": "The complete mathematical claim is equivalent to the theorem in distinct record 7678a45b7053, including the exhaustive all-load optimizer classification, the exact transition equations and the jump. Record d6c7f813eac2 gives the same mathematical optimization with a stronger lower bound for the transition and also gives the high-load limit. This is demonstrable same-model coverage, not inferred chronological priority: the entries share a date, which does not establish order. The photosynthetic interpretation does not change the optimization or add a tested biological consequence.",
+      "residual_risks": [
+        "Same-day catalog dating does not establish which result appeared first. The coverage finding is independent of any such ordering."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent full transition theorem",
+          "evidence": [
+            "Non-discardable S, f(x)=x exp(-x), all integer m>=2; exact n=2 and n>=3 regimes and identical threshold construction and example."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-a-first-order-ricker-recruitment-allocation-transition-on-three--7678a45b7053/RESULT.md",
+          "material_read": "Finding and assumptions, offset 0 through 4100 including optimizer classes and threshold equations",
+          "method": "Bounded local-mirror passage",
+          "title": "A first-order Ricker recruitment allocation transition on three or more identical spawning habitats",
+          "trigger": "Same scalar response and sharp module-count onset under another application"
+        },
+        {
+          "assessment": "Same fixed-total model; stronger transition lower bound and explicit high-load limit",
+          "evidence": [
+            "n+1<B_c(n)<2n, discontinuous asymmetric switch, high-load value (n-1)/e."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-a-unique-crowding-transition-in-poisson-single-visit-pollination--d6c7f813eac2/RESULT.md",
+          "material_read": "Finding clauses 1–4 and assumptions, offset 0 through 3645",
+          "method": "Bounded local-mirror passage",
+          "title": "A unique crowding transition in Poisson single-visit pollination",
+          "trigger": "Same objective via a Poisson exactly-one probability"
+        },
+        {
+          "assessment": "Exact model by rescaling, partial theorem overlap",
+          "evidence": [
+            "Exact n=2 switch and global imbalance ahead of loss of local balance for n>=3; no uniqueness of that switch in its Finding."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-a-subcritical-symmetry-breaking-law-for-encounter-limited-wildli--ac2d67993139/RESULT.md",
+          "material_read": "Finding and assumptions, offset 0 through 3714 including initial proof",
+          "method": "Literal location plus bounded local-mirror passage",
+          "title": "A subcritical symmetry-breaking law for encounter-limited wildlife crossings",
+          "trigger": "One-high structure and continuous versus subcritical allocation under exponential success"
+        },
+        {
+          "assessment": "No full-text conclusion drawn; not needed for identical-objective coverage",
+          "evidence": [
+            "Frozen RESULT.md cites this as model provenance, not as the fixed-sum theorem."
+          ],
+          "identifier_or_url": "https://doi.org/10.4319/lo.1962.7.2.0137",
+          "material_read": "No independently retrieved original full-text passage; access denied at publisher/DOI",
+          "method": "Bounded lawful primary retrieval attempts",
+          "title": "Environmental control of photosynthesis in the sea",
+          "trigger": "Primary cited source of the physical response law"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–23 and 63–77",
+        "Resultary 7678a45b7053 and d6c7f813eac2, Findings"
+      ],
+      "rationale": "The exact transition is useful within the model but the frozen finding adds no distinct scientific result to the fully equivalent allocation theorem. It translates the same normalized objective, constraint and root into a new application name. It introduces neither a photoinhibition-specific constraint or theorem nor empirical calibration/validation, and a numerical evaluation of the known branch does not supply a meaningful remainder.",
+      "residual_risks": [
+        "A different photoinhibition allocation model with additional physical constraints would require its own analysis; no such claim is audited here."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

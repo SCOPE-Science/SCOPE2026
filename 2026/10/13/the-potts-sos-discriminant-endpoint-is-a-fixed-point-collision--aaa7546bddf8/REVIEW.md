@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof separates fixed points from genuine period-two points before counting. The exact factorization of \(f_\theta(f_\theta(z))-z\), the quadratic discriminant, and the fixed-point resultant give a complete classification inside the stated sector. At the double-root endpoint, direct substitution proves that the root also satisfies \(f_\theta(z)=z\), and an exact derivative identity gives multiplier \(-1\). The bundled verifier reproduces every critical symbolic identity.
+## correctness
 
-## Originality
-PASS, with a stated residual source-access risk. The motivating 2019 full text explicitly reports \(D=0\), a negative middle coefficient, and a nontranslation-invariant endpoint measure on \(r=\theta^2\), but it does not perform the fixed-point exclusion at the repeated root. Exact searches for the critical polynomial, the numerical threshold, period-two aliases, and the fixed-point collision found no covering statement. The 2021 Potts–SOS paper treats translation-invariant extremality, not this periodic endpoint. The 2022 same-model follow-up was identifiable but not available in verified full text; searchable metadata did not expose an equivalent correction.
+PASS
 
-## Value
-PASS. Whether a symmetry-broken periodic state survives exactly at a critical coupling is a natural phase-boundary question, not an arbitrary parameter slice. The result changes the endpoint from closed to open in the source's explicit existence branch, identifies the collision mechanism, and supplies a sharp square-root order-parameter law. The scope is narrow but structurally motivated by the source's own critical value.
+The published equations (16)–(19) give exactly the stated positive scalar map at k=2, r=theta^2. Independently, for a distinct putative pair put a=sqrt(z), b=sqrt(t), S=a+b and B=ab. Taking positive square roots and subtracting the two equations gives B=theta(S+2); adding them gives S=2(1-theta^2)/(theta(theta+2)), B=2(2theta+1)/(theta+2). Conversely these sum/product relations imply the original pair equations by reversing the addition/subtraction. Their discriminant is -4P/(theta^2(theta+2)^2). Since P(0)=-1, P(1)>0 and P'>0 for theta>0, the only distinct positive pair occurs for 0<theta<theta_c, where both S and B are positive and the discriminant positive. At equality a=b, and the same pair equations establish a fixed point. The square-root recursion g(a)=(2+theta*a^2)/(2theta+a^2) has derivative -2a(a-theta)/(2theta+a^2) at that fixed point, equal to -1 by a^2=2theta(a+1). Conjugacy by squaring preserves this multiplier. The fixed-point multiplier crosses -1: locally the fixed root a(theta) has a'=(a^2-2a)/(2(2theta+a^2))<0 at collision, and a^2-2theta(a+1) has strictly negative derivative there (a>theta), so g'+1 increases across zero. Squaring the two positive roots gives the stated z_± and separation S*sqrt(S^2-4B), with the claimed coefficient by the simple zero of P. The independent symbolic replay /workspace/replay_1.py confirms the alternate algebra and frozen numerator/resultant/endpoint identities; theta_c=0.323591553488076213378..., z_c=1.417790578988352431989..., amplitude 17.26768495321154022.... At theta=1 the map is constant and the classification still holds. The result is about this boundary-law recursion, not all types of periodic or other Gibbs measures; on this line Eq. (16) in fact forces z0=t0=1 in that particular four-variable recursion.
 
-## Closest literature and limitations
-The closest source is M. A. Rasulova, DOI:10.1134/S0040577919040081, whose periodic branch and discriminant are the premises of the calculation. The earlier arXiv:1803.00768 is a precursor; arXiv:2104.00973 concerns translation-invariant extremality. DOI:10.29229/uzmj.2022-2-14 is a later same-model periodic paper whose full text was not available for comparison. The accepted claim therefore does not assert a global phase classification and does not rule out other branches of the full boundary-law system.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The original source and its preprints have the reduced map, the critical polynomial and approximate threshold, and the positive-discriminant branch. The distinct supported result is that the critical double root is actually fixed and not a nontranslation-invariant period-two state, with the verified flip multiplier and explicit separation law. The nearest inspected same-model result concerns a different threshold for non-extremality on translation-invariant measures, not this issue. A plausible 2022 same-model text remains unread.
+
+## value
+
+PASS
+
+The disputed coupling is the one singled out in the original source as supporting a symmetry-broken periodic state at equality. Checking the actual orbit rather than the sign of its discriminant changes that phase-boundary conclusion and gives the mechanism and quantitative rate of disappearance. The result is a correction at a canonical branch endpoint, not a routine numerical threshold refinement or an arbitrary restriction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

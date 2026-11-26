@@ -1,15 +1,21 @@
-# Scientific review: opposite global and local leaf regressions
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem has exact integer ranges \(n\ge3\), \(2\le k\le n\), and admissible \(s\). Conditioning on the Pólya-marked arrival sequence produces independent uniform recursive trees inside and outside vertex \(k\); the original parent of \(k\) is uniform among the earliest \(k-1\) outside vertices. Counting that edge's deletion of a leaf gives the displayed conditional global formula, with the \(k=2\) singleton-outside boundary isolated explicitly. The global covariance is independently derived by a growth recurrence. The local covariance follows from beta-binomial moments. Exact-rational exhaustive and parameter-grid checks passed. Infinite-dimensional assertions rely on proof, not enumeration.
+## correctness
 
-## Originality — PASS with a stated limitation
-Mahmoud–Smythe (1991) treat *internal* leaves and size of rooted subtrees, so those local moments are prior work. Leckey–Neininger (arXiv:1202.2439, sections 2–3) give the second-vertex decomposition and global leaf marginal law; \(k=2\) can be derived from their decomposition and is included as a boundary, not a separate discovery. The assessed distinct point is the **global** conditional regression for every vertex \(k\ge3\) and universal anti-association with increasing subtree-size scores, contrasted against the local sign. A published result on root degree versus global leaves (a different local observable) does not imply the descendant-subtree regression. Originality searches also tested aliases and equivalences; the complete body of the especially relevant Mahmoud–Smythe 1991 article could not be read because available text extraction returned essentially a cover sheet. It could contain an implicit stronger joint claim; novelty is not independently certified.
+PASS
 
-## Mathematical value — PASS
-The subtree-size statistic quantifies descendant family size, while global and within-family leaf counts measure distinct branching complexity. Their opposite conditional regression signs have an interpretable structural cause: a marked subtree's connecting edge consumes one potential outside leaf, and outside-tree leaves depend on the available complement. The theorem gives the complete finite-size boundary classification, exact covariance in every dimension, and signs for **all** nonconstant monotone subtree-size scores. This is a natural whole-versus-part dependence question rather than an arbitrary parameter slice or a mere verification of known moments.
+Under the uniform-parent growth rule, conditional on all marked arrivals, a new vertex's parent is uniform among earlier members of its own class, and those parent choices factor. The color-path probability depends only on class counts. Hence after relabeling by arrival order the two induced trees are independent recursive trees even given just S=s. There is precisely one crossing edge, from the parent of k, chosen independently among the first k−1 unmarked labels. Interior leaf status agrees with whole-tree status; that crossing edge removes an outside leaf exactly when its tail was an outside leaf. The unmarked tree of size N≥2 has rank-i leaf probability (i−1)/(N−1); averaging over its first k−1 vertices gives (k−2)/[2(N−1)]. At k=2 the only candidate is the outside root, a leaf iff N=1. Together with the singleton leaf convention this proves both regressions, including k=n and n=3. The beta-binomial S−1 law with urn parameters (1,k−1) gives ES=n/k, P(S=1)=(k−1)/(n−1), and the stated variance; substitution in Cov(S,U) verifies the exact formula. For the global covariance, write I for attachment inside and F for attachment to a nonleaf. Then E[IF|T_t]=(S_t−U_t)/t, and the S_t E[F|T_t] and L_t E[I|T_t] terms cancel their S_t L_t/t parts. Subtracting mean products gives C_{t+1}−C_t=−(k−1)/[2t(t−1)] and C_k=0. The monotone-score sign follows by the two-independent-copies covariance identity: nonconstant monotone scores differ at support endpoints, as do the regressions in the asserted strict cases. Corroborated the formulas for 197 parameter pairs by an independent integer-state Markov enumeration on (S,U,L), using the four attachment-class sizes U, S−U, L−U, and t−S−L+U. Replay: python3 /workspace/branches/reproduce_discrete.py.
 
-## Scope and residual risks
-No full conditional stochastic order is asserted. The decomposition holds only for uniform recursive attachment. The local beta-binomial moments and second-vertex special case have substantial prior coverage. The 1991 predecessor was not fully readable, and additional unindexed multivariate identities may exist; neither absence from an index nor source partition is uniqueness evidence. Same-model correctness and originality review do not substitute for independent checking.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct contribution is the exact global whole-tree leaf regression for arbitrary k≥3 and its covariance and monotonicity consequences. The classical urn and internal subtree law, local leaf moment ingredients, and the k=2 specialization are not new claims. The closest inspected prior recursive-tree split is at vertex 2; an earlier regression on singleton root branches conditions on a different variable. No verified existing theorem was found that fixes the k≥3 outside-leaf correction or covers the full joint comparison. Bounded retrieval does not establish priority.
+
+## value
+
+PASS
+
+Conditioning on the size of a fixed branch makes its own leaf count grow in expectation but makes the average global leaf count fall. Computing and explaining the crossing-edge correction resolves this natural distinction, identifies the exceptional label and singleton boundaries, and proves the signs for all monotone scores. This is a useful exact dependence statement, stronger than a lone numerically verified correlation and not just an application of a marginal leaf mean.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

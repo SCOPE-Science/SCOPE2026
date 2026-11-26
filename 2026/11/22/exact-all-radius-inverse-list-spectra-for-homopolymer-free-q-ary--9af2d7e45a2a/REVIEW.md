@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact q-ary inverse-list formula is established by a bijection using the unique greedy leftmost embedding, with independently counted initial, internal and terminal gaps. The proof explicitly covers arbitrary deletion counts and treats distinct parents rather than embeddings. Strict monotonicity follows from positive power-series coefficients, and the support threshold follows from the exact binomial count. The standalone checker independently enumerated 70,295 receiver configurations, verified 2,260 automaton cases, and checked 2,016 spectrum parameter combinations. These finite checks corroborate the all-length analytic proof, not replace it.
+PASS
 
-## Originality — PASS (qualified)
+For fixed nonempty receiver y, matching greedily assigns each admissible parent a unique prefix, internal skipped blocks and suffix. A skipped block must avoid the next matched symbol; the first skipped symbol of an internal block must also differ from the previous matched symbol. A prefix of length s>0 has (q-1)(q-2)^(s-1) choices. An internal block for unequal targets has (q-2)^s choices including s=0; for equal targets it has (q-1)(q-2)^(s-1) choices and s>=1. The suffix has (q-1)^s choices. These counts respect both adjoining matched positions, so concatenation and the greedy decomposition are inverse. Multiplying gives the exact excess-length series, including m=1 and d=0, with no count of deletion masks. Coefficients a_t of (1+z)/(1-(q-2)z)^m are positive, and C(t)-(q-1)C(t-1)=a_t proves strict ordering and exact support. If d>0, either r>0 and the prefactor is at least two, or r=0 and C(d)>1. Independently choosing the initial letter and the equality locations gives the class sizes and binomial law; the LLN and the lattice-normalized binomial CLT give the threshold and stated floored window. At m>=d+1 the last nonzero class is r=d with C(0)=1. Independent finite enumeration verified each receiver size and adjacency-class multiplicity in 42 parameter configurations (8,901 receivers).
 
-The closest full-text comparison is Atashpendar et al. (2018): their initial-mask methodology concerns unrestricted binary supersequences and embedding multiplicities; the present q-ary homopolymer-free all-radius inverse-list spectrum is not stated there. Takemoto and Nozaki (2020) study binary run-length-limited single-insertion/deletion codes, while Benerjee and Banerjee (2023) study homopolymer-free **Hamming** code bounds. The checked indexed summaries concern different read-deletion channels, unconstrained descendant spheres and unrelated universality indices. The binary one-deletion run-limited case is previously covered in a separate record and is not the substantive q-ary all-radius claim. Exact equivalent or implicit regular-language results remain a historical-priority risk; a failed search is not proof of novelty.
+## originality
 
-## Value — PASS
+PASS
 
-The exact receiver-to-source list spectrum measures reconstruction uncertainty under a biologically motivated source constraint for arbitrary deletion numbers. Its strict defect hierarchy, all-radius feasible-output distribution, absence of singleton observations, and Gaussian threshold address meaningful structural questions that are not supplied by ordinary source-to-output deletion sphere counts or Hamming packing bounds. It does not claim a deletion-correcting code cardinality.
+Pass for the explicit all-radius coefficient law and the resulting adjacency-ordered inverse spectrum for linear adjacency-distinct q-ary parents. Greedy matching and regular-language rationality are established ideas. The closest same-day inverse-spectrum work uses a genuinely different source constraint; no chronological priority is inferred from its date.
 
-## Limitations and closest literature
+## value
 
-The source alphabet is q-ary with at least three symbols; words are linear, nonempty at the receiver, and only restricted by unequal adjacent source letters. Exact posterior weights depend on deletion-mask multiplicities and are not addressed. Independent verification has not been performed. The closest comparisons are arXiv:1802.00703, arXiv:2012.13536, and arXiv:2305.10741, as analyzed in `AUDIT.json`.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exact inverse-list size for a receiver is a natural uncertainty measure in a deletion channel with a nearest-neighbor constraint. The result collapses variation across q^m outputs to one easily measured statistic, gives the complete sorted nonzero sizes and their exact frequencies at every radius, and distinguishes impossible observations from possible ones, including a sharp feasibility window. Those are independently useful even though the derivation uses elementary enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

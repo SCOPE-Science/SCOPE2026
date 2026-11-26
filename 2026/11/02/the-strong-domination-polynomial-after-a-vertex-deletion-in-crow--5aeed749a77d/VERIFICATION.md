@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,21 +19,24 @@
 }
 ---
 
-# Verification details
+# Independent mathematical audit
 
-Run `python3 verify.py` using Python 3.8 or later; no external packages are required. The code builds the graph \(K_{n,n}-M-a_0\) from the edge rule, computes all residual degrees from adjacency, then checks each of its \(2^{2n-1}\) subsets directly against the degree-based strong-domination definition. It separately expands the four-case symbolic polynomial using integer binomial coefficients and compares all coefficients.
+## correctness
 
-Observed complete checks (all passed):
+PASS
 
-```text
-REMOVAL_ALL_SUBSETS_OK n=3 subsets=32 first=2 count=1 total=13
-REMOVAL_ALL_SUBSETS_OK n=4 subsets=128 first=3 count=7 total=53
-REMOVAL_ALL_SUBSETS_OK n=5 subsets=512 first=3 count=10 total=225
-REMOVAL_ALL_SUBSETS_OK n=6 subsets=2048 first=3 count=15 total=945
-REMOVAL_ALL_SUBSETS_OK n=7 subsets=8192 first=3 count=21 total=3905
-REMOVAL_ALL_SUBSETS_OK n=8 subsets=32768 first=3 count=28 total=15937
-REMOVAL_ALL_SUBSETS_OK n=9 subsets=131072 first=3 count=36 total=64513
-VERIFY_OK
-```
+Deleting a₀ leaves b₀ and all aᵢ at degree n−1 and all other bⱼ at degree n−2. If b₀ is not selected, no selected B-neighbor can strongly dominate a missing aᵢ, so all of A′ is selected; that suffices, since n−1≥2 and a remaining bⱼ misses at most one member of A′. With b₀ selected, every missing aᵢ is covered, and respectively zero, one, or at least two selected aᵢ force all bⱼ, just the matching-index bᵢ, or none of the other B-vertices. The four disjoint contributions give the polynomial coefficientwise. At n=3 only A′ is minimum; for n≥4 the minimum is three, with (n−1)+C(n−1,2)+[n=4] possibilities. Substitution at z=1 gives the stated total. Direct independent enumeration over the residual adjacency and degree condition for n=3,…,7 matched every coefficient; for example n=4 gave (0,0,0,7,20,18,7,1) and the five totals were 13,53,225,945,3905.
 
-There are \(174752\) directly examined subsets in total. This is exhaustive for the tested finite orders, not for all orders. The unconditional result for arbitrary \(n\ge3\) is established by the case-by-case degree proof in `RESULT.md`, which also treats the smallest cases. The checker does not independently certify the proof, the prior-work priority, or a larger graph class.
+## originality
+
+PASS
+
+The strongest inspected comparisons concern scalar stability, ordinary or other domination predicates, or different graph families. None evaluates or mechanically implies the all-size strong-domination polynomial of Kₙ,ₙ−M−v. This is a bounded best-of-knowledge assessment, not a priority guarantee.
+
+## value
+
+PASS
+
+The crown is a natural matching-deleted complete bipartite family, and vertex deletion produces one high-degree B-vertex and asymmetric domination constraints. An exact all-cardinality polynomial answers more than scalar sensitivity, including the n=3 and n=4 boundary effects, the shapes and exact counts of minimum sets, and total-set counts. The elementary proof does not make the finer enumerator a substitution into a prior result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

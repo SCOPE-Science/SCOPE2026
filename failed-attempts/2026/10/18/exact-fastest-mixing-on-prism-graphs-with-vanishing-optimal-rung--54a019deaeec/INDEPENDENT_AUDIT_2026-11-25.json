@@ -1,0 +1,154 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:15:47.391230Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, scope and proof, lines 4–63",
+        "Frozen VERIFICATION.md, lines 19–26 and verify_prism.py, lines 40–109; supplied checks inspected, not executed"
+      ],
+      "rationale": "Averaging over cycle rotations/reflections and layer interchange preserves admissibility and cannot increase the norm off constants. For the invariant weights, the weighted Laplacian is a Kronecker sum, with eigenvalues a d_j and a d_j+2b where d_j=2−2cos(2πj/n). The least nonstationary Laplacian eigenvalue is min(aδ,2b), with zeros counted, and the largest is aΔ+2b. If t bounds the modulus and g=1−t, then a≥g/δ, b≥g/2, and aΔ+2b≤2−g. Consequently g≤2δ/(Δ+2δ). At equality both weight constraints are tight, which proves uniqueness in the invariant class. The proposed weights realize the bounds and are feasible: Δ+δ−4=δ>0 for even n, and equals 2(1−cos(π/n))(1+2cos(π/n))>0 for odd n, including n=3. Thus the attained norm is Δ/(Δ+2δ) for all n≥3. The stated asymptotic weights and modulus follow from δ=4π²/n²+O(n⁻⁴), Δ=4+O(n⁻²); the equal-edge benchmark has gap δ/4 for large n. No uniqueness outside the natural invariant class is needed for the proof.",
+      "residual_risks": [
+        "The recorded characteristic-polynomial and numerical LP tests are finite; the independent analysis uses the spectrum and the active inequalities, not those recorded test outcomes."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "That theorem takes finite connected simple vertex- and edge-transitive factors; C_n (n≥3) and K_2 qualify. It defines C=Σd_i/α_i and E=Σβ_i/α_i, then gives τ=min(1/C,2/(E+1)), SLEM 1−τ, optimal probabilities τ/α_i, holding 1−Cτ, and invariant uniqueness under the coordinatewise automorphism groups."
+        ],
+        "reasoning": "The family and uniqueness hypotheses include all named prism cases. The conditional unrestricted-uniqueness clause is not needed for this coverage.",
+        "searches": [
+          "Resultary exact two-sided mixing on Cartesian products with possibly unequal factors",
+          "Local mirror RESULT.md of 78a82f1ea5ed, Finding and Assumptions, offset 0–4021"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 78a82f1ea5ed, 7683d92029e0 and 090eb4b47c29",
+        "arXiv:0709.0955 and 1008.2588",
+        "Boyd–Diaconis–Xiao 2004"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Putting (d,α,β)=(2,δ,Δ) and (1,2,2) gives C=2/δ+1/2 and E=Δ/δ+1. Because Δ+δ>4, τ=2δ/(Δ+2δ). Hence τ/δ, τ/2, 1−Cτ, and 1−τ are exactly the frozen rim weight, rung weight, holding probability, and SLEM.",
+          "The coordinatewise groups here are exactly the frozen natural symmetries. The claimed order and coefficient for the vanishing rung share, as well as the other asymptotic coefficients, are immediate substitutions of the cycle cosine expansion.",
+          "Jafarizadeh's semi-cycle construction uses full and straight seams between vertex sets; its stated geometry is not the general prism geometry."
+        ],
+        "reasoning": "The full frozen optimum is a mechanical corollary of the indexed theorem; no independent uncovered claim in the prism statement survives merely by restating its asymptotics.",
+        "searches": [
+          "Resultary 78a82f1ea5ed, product theorem",
+          "arXiv:0709.0955, Theorem 3.1 and §3.2",
+          "arXiv:1008.2588, §§III.B, III.D"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The product result minimizes exactly the symmetric stochastic norm with diagonal holding allowed; its J denotes the all-ones matrix, so J/N is exactly the stationary projector in the prism claim.",
+          "Boyd et al.'s edge-transitive theorem uses one orbit; it covers the cube case C_4 square K_2 but not the general prism by that theorem."
+        ],
+        "reasoning": "This is an equality of feasible sets and objectives, not a continuous-time or no-holding analogy.",
+        "searches": [
+          "Fastest mixing Markov chain on unequal Cartesian factors, cyclic prism, circular ladder, C_n square K_2 transition weights",
+          "arXiv:0709.0955, §3.2 and equations (12)–(13)",
+          "Resultary 78a82f1ea5ed"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "78a82f1ea5ed indexes an exact formula that specializes to the entire frozen family. 7683d92029e0 is a corroborating zero-floor specialization for n≥4; 090eb4b47c29 restricts to zero holding and is not the same optimization."
+        ],
+        "reasoning": "Exact formula coverage is documented even though a literal prism table is unnecessary. The no-holding hit cannot replace the general-product comparison.",
+        "searches": [
+          "Resultary prism, circular ladder, and Cartesian-product exact fastest mixing"
+        ]
+      },
+      "rationale": "The exact prism claim is demonstrably covered by a distinct indexed product theorem. In Resultary 78a82f1ea5ed both factors qualify, and no extra hypothesis is required for the value, weights or invariant uniqueness. Its optimization domain matches exactly, and the specialization gives all three probabilities and the same SLEM for every n≥3. The indexed general record has a later path date than the frozen prism, so this is an equivalent-coverage finding, not a claim that the general result predates the prism mathematically or that its authorship or provenance is established. Older primary treatments inspected here do not themselves give the entire result.",
+      "residual_risks": [
+        "This comparison establishes direct indexed mathematical coverage, not chronological priority, direction of derivation or provenance. Partial formula extraction in the multipartite paper does not affect the decisive product-theorem comparison."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage by specialization, independently of path-date priority.",
+          "evidence": [
+            "No equal-factor assumption; optimal norm 1−τ, weights τ/α_i and unique coordinatewise-invariant optimum over all supported symmetric stochastic matrices."
+          ],
+          "identifier_or_url": "Resultary 78a82f1ea5ed; https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-two-sided-mixing-and-fiedler-edge-rigidity-on-cartesian-gr--78a82f1ea5ed/RESULT.md",
+          "material_read": "RESULT.md Finding, Assumptions, and beginning of proof, offsets 0–4021",
+          "method": "Local published-record mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Sharp two-sided mixing and Fiedler-edge rigidity on Cartesian graph products",
+          "trigger": "Directly broader claim allowing unequal Cartesian factors"
+        },
+        {
+          "assessment": "Different feasible set; not the reason for the originality failure.",
+          "evidence": [
+            "Requires zero diagonal; the optimal holding in the frozen problem is positive."
+          ],
+          "identifier_or_url": "Resultary 090eb4b47c29",
+          "material_read": "RESULT.md Finding and scope",
+          "method": "Local published-record mirror",
+          "title": "Exact fastest mixing without holding on every cyclic prism",
+          "trigger": "Exact same graph family"
+        },
+        {
+          "assessment": "Its zero-floor case includes the frozen optimum for n≥4, corroborating the broader overlap.",
+          "evidence": [
+            "Rim and rung lower bounds can both be zero in the indexed formula."
+          ],
+          "identifier_or_url": "Resultary 7683d92029e0",
+          "material_read": "RESULT.md Finding and scope",
+          "method": "Local published-record mirror",
+          "title": "Five-facet fastest mixing on circular ladders with two mandatory edge flows",
+          "trigger": "Exact same family with two lower bounds"
+        },
+        {
+          "assessment": "Same symmetry and product-spectrum tools, but the inspected formulas do not solve the unequal-factor family generally.",
+          "evidence": [
+            "Product examples use equal factors; the one-weight theorem is edge-transitive."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0709.0955",
+          "material_read": "§3.1 Theorem 3.1 and §3.2 equations (12)–(13), PDF pp. 8, 10–11; offsets near 27700 and 34300",
+          "method": "OA primary PDF inspection",
+          "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+          "trigger": "Classical exact product theorem candidate"
+        },
+        {
+          "assessment": "Same objective and admissible weights, not a prism allocation in the material read.",
+          "evidence": [
+            "Nonnegative symmetric stochastic matrices with edge support, minimizing SLEM."
+          ],
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fmmc.pdf",
+          "material_read": "§§1.1.1–1.1.3, PDF pp. 2–3, offset around 4600",
+          "method": "Author-hosted OA primary PDF inspection",
+          "title": "Fastest Mixing Markov Chain on a Graph",
+          "trigger": "Normalization and general framework"
+        },
+        {
+          "assessment": "General graph construction differs; a possible small coincident case is not used.",
+          "evidence": [
+            "Full all-to-all and straight one-partner seams are specified between neighboring sets."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1008.2588",
+          "material_read": "§§III.B and III.D, PDF pp. 6, 8, offsets near 15888 and 21347",
+          "method": "OA primary PDF geometry passages; extraction of formulas unreliable",
+          "title": "Fastest Mixing Markov Chain on Symmetric K-Partite Network",
+          "trigger": "Semi-cycle geometry could coincide with the prism"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and asymptotics",
+        "Indexed product theorem 78a82f1ea5ed, exact substitution recorded above"
+      ],
+      "rationale": "A prism is a natural benchmark and the allocation is mathematically correct. As a separate research finding, however, the exact weights and value require only substituting two factors into the verified indexed coverage, and the vanishing-rung coefficient follows by a routine expansion. This provides a useful example, not an independent exact invariant or other substantive surviving contribution under the stated scientific-value criterion.",
+      "residual_risks": [
+        "This is not an assessment of the historical significance of a possible first derivation. No claim is made that the prism or its SLEM is an uninteresting object."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The derivation first reduces the threshold to the maximum distance bisector, then factors uniform Hamming-coordinate choices into independent three-point increments. The sharp probability bound uses the maximum-atom contraction under convolution, with a separate equality classification for ternary and binary increments. The counting argument identifies distinct critical-failure sets, not merely multiple vertex pairs producing the same set. Direct finite checks confirm the formulas on 61 mixed profiles and do not replace the unrestricted proof.
+## correctness
 
-## Originality — PASS (provisional priority)
-Garijo–González–Márquez (2013) already gave the general maximum-bisector formula for the resolving number, and the metric-dimension-threshold terminology was used in 2022 for the same parameter. Laird–Tillquist–Becker–Lladser (2019) established a uniform Hamming-graph resolvability decision criterion. Those are explicit antecedents. The assessed contribution is a sharp and completely classified *mixed-alphabet* bisector maximization and the count of all largest failure sets; the examined source material does not state it. Search cannot exclude equivalent expressions under alternative terminology. This is not a claim that general resolvability tests or the invariant are new.
+PASS
 
-## Mathematical value — PASS
-The worst-case guarantee for an arbitrary selection of landmarks is a natural robustness invariant, distinct from optimizing a carefully selected metric basis. The result makes the guarantee explicit for arbitrarily many unequal complete-graph factors, identifies discrete phase changes at alphabet sizes three, four, and five, and exactly counts critical failing sets. The equality classification explains why pairs of binary coordinates can dominate singleton coordinates and why ternary factors retain several different worst cases. This structural account does not follow numerically from known metric-dimension estimates.
+A failing set is contained in a bisector of an unresolved pair, so a maximum failure must fill a largest bisector. On the set of differing axes, normalized bisector size is the zero atom of an independent sum, with masses 1/q_i at each sign and (q_i−2)/q_i at zero. For q_i>=4, its unique maximum atom bounds the convolution, and equality requires the remaining sum to vanish surely, impossible with any other active axis (all remaining signs can be positive). For q_i=3, the bound is 1/3 with equality exactly when the remaining sum is supported on −1,0,1, i.e. at most one other active axis. Binary-only even supports of size 2s yield binom(2s,s)/4^s, strictly decreasing for s>=1, and odd supports give zero. These observations give each of the five rows and all maximizing supports. Each bisector depends essentially on exactly its listed support, so distinct supports cannot collide. Within a pair of ternary axes every permutation projection is realized by assigning one matched row/column zero and opposite signs on the other rows/columns. The binary–ternary case allows any ordered distinct ternary values in its two binary rows. The singleton and binary-pair counts follow by excluded letters and parity, respectively. Thus the table counts distinct sets, not vertex pairs. Independent enumeration over symbol pairs and relative orientations verified each regime, e.g. (2,2,3,5,5) gives max size 180 and 20 sets, (2,2,4,4) gives 32 and 14 and (2,3,3) gives 6 and 24. Replay: python3 /workspace/review-evidence/replay.py 4. The recorded 61-profile run is separate evidence.
 
-## Closest literature and residual risks
-The general resolving-number identity (Garijo et al., arXiv:1309.0252, Proposition 2.1), the Hamming resolvability linear-system characterization (Laird et al., arXiv:1907.05974, Theorem 2.3), and the metric-dimension-threshold paper (Korivand et al., DOI:10.1155/2022/1838719) are the closest sources compared. A closed-form equivalent from unindexed bisector/concentration work remains possible, and the 2019 general criterion logically permits an implicit calculation without supplying the maximized formula.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The graph-general maximum-bisector identity is prior, and a criterion for testing individual landmark sets in uniform Hamming graphs is also prior. The distinct content is the sharp mixed-alphabet evaluation, with its exact equality supports and deduplication into a count of distinct critical failures. In particular the binary/ternary competition and the four-symbol versus two-binary tie are not ordinary metric-dimension facts or direct evaluations of a uniform-alphabet theorem.
+
+## value
+
+PASS
+
+The exact worst-case guarantee makes a different prediction than ordinary metric dimension. Its dependence on the alphabet mix is structural: two binary axes can dominate ternary axes, and they can tie four-symbol axes. The additional characterization and count specify which landmark choices attain failure at the sharp boundary, not just the existence of such failures.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

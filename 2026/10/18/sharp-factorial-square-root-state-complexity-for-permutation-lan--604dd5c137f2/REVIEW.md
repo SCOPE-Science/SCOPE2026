@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
-A complete DFA for the fixed-word square root acts on the input permutation group, so the general upper bound is \(n!\). The binary witness uses a cycle and transposition, which generate all permutations; the original DFA is minimal. The key lower-bound lemma is checked directly in both cases for \(d(0)\): every nonidentity right translation changes the characteristic function of \(\{g:g^2(0)=0\}\). Consequently all \(n!\) reachable group states are pairwise distinguishable. The two-state boundary and optimality of a binary rather than unary alphabet are separately proved. Exact finite group enumeration and direct state-pair separation independently corroborate the proof. Risk: the finite checks are not a proof for unbounded \(n\); the complete argument is written in RESULT.md.
+## correctness
 
-## Originality: PASS within examined evidence
-Caron et al., *New tools for state complexity*, Section 5.2, Theorem 3, compute \(n^n-\binom n2\) for unrestricted deterministic automata and note alphabet restrictions; this result uses a full transformation monoid, so neither their upper-bound extremizer nor their binary-alphabet obstruction gives the exact restricted-permutation maximum. Onishchenko's 2026 result gives a nondeterministic \(n^3\) theorem, not a restricted deterministic one. Hospodár–Mlynárčik study the concatenation square, which differs from \(\{w:ww\in L\}\), and treat other operations on permutation languages. The named primary texts and scientific-record similarities inspected yielded no implication establishing this \(n!\) bound or its two-letter optimality. Risk: no finite set of searches proves absence of an unindexed or differently worded theorem.
+PASS
 
-## Value: PASS
-This determines a natural operational state-complexity extremum on a major automata subclass for all \(n\), including the previously ambiguous small-state cases, and proves the optimal input-alphabet size. The factorial-versus-unrestricted \(n^n-\binom n2\) contrast is structural: invertible transitions force the input transition monoid to a group, and the right-stabilizer argument shows the upper bound cannot be reduced.
+The finite permutation transition monoid is a group, and the DFA on that group accepts exactly when the induced permutation squared sends the initial point into the final set. For n≤2 the squares are identities, and feasible minimal input sizes 1 and 2 exist (a unary swap with one final state has size 2). The cycle and adjacent transposition generate S_n, and its action with one final point separates the original n states. For the root final set T={g:g²(0)=0}, a right stabilizer element d lies in T because the identity lies there. If d is nonidentity and fixes 0, left multiplication by the transposition t=(0 a) for a point a moved by d yields t∈T but (td)²(0)=d(a)≠0. If d moves 0 to x, then d(x)=0, and t=(0 a) with a outside {0,x} gives (td)²(0)=a≠0. Triviality of the right stabilizer separates g and h by a left continuation t g^(-1) for d=g^(-1)h; every such continuation is a positive word because the generators have finite order. Unary squaring simply changes the generator to its square on the original n states, so cannot attain n! for n≥3. Frozen artifacts/check_square_root.py and its stored output were inspected without execution; their finite n≤6 verification is corroboration, not the proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The transformation-state construction, the generators and related operation results are existing tools. The distinctive claim is the exact deterministic permutation-class maximum and binary witness, including a proof that bijective continuations alone separate all n! states. Neither the unrestricted result nor the inspected near catalogue claims give this separation.
+
+## value
+
+PASS
+
+The permutation restriction forbids the general witness's noninjective transition and continuation. Identifying exactly when the natural group construction pays its full factorial cost, with the smallest possible alphabet, closes a natural worst-case question. The stabilizer witness resolves a distinction the trivial transition-count upper bound alone cannot address.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

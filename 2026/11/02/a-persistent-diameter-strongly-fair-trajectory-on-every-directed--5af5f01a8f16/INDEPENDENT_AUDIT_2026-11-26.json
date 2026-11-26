@@ -1,0 +1,94 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:12:04.936331Z",
+  "axes": {
+    "correctness": {
+      "limitations": "Existential deterministic scheduler with potentially unbounded gaps; the theorem gives no probability of failure under random activation and does not refute bounded-fairness results.",
+      "rationale": "Starting at the unit singleton j, full copies first to j+1 and then to j leave the singleton at j+1; j−1 is distinct from both j and j+1 for n≥3. Each block starts with untouched zero and one anchors. Repeating the actual arc into i leaves the source unchanged and differs from full copy at its endpoint by (1−p_i)^N times the starting difference. Each finite N_m can make that error at most 2^(−m−4), and full copy is 1-Lipschitz in the sup norm, so the block-entry error is strictly below 1/8. The actual anchors never change within their block, proving the diameter bound also at every individual activation. Each arc appears twice per ideal rotation and each real block is finite and nonempty. On two vertices the gap is at most max_i(1−p_i)^t times its initial value, where the intended bound is [max_i(1−p_i)]^t; nested extrema then imply convergence. One vertex cannot fail, and strong connectivity for n≥3 needs at least n arcs, so the three-vertex three-arc example is minimal in both respects.",
+      "replay_paths": [
+        "Frozen RESULT.md, Steps 1–4 (analytic reconstruction above); VERIFICATION.md and verify_cycles.py inspected as finite exact-rational consistency checks, not executed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Proposition 9 is existential on some strongly connected puppet-free graph, not universal on this graph class.",
+          "Theorem 18 uses stronger m-bounded fairness (m≥|A|−1), so it neither covers nor contradicts the failure under strong fairness alone."
+        ],
+        "reasoning": "A counterexample quantified over some graph does not imply any specified oriented cycle. The bounded-fair hypothesis cannot be replaced by mere infinite recurrence of each arc.",
+        "searches": [
+          "CONCUR 2024 paper Proposition 9, Construction 10 and Theorem 18; primary stochastic-matrix-product comparison lookup"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_cycles.py",
+        "10.4230/LIPIcs.CONCUR.2024.7",
+        "Resultary 2e44dd8b777b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Construction 10 keeps the endpoint opinions respectively below L and above U throughout, so its all-time diameter exceeds U−L. For the illustrated seed (0,1/2,1), L=1/16 and U=15/16 already give an all-time gap greater than 7/8.",
+          "That construction alternates influence into the middle agent from two different neighbors; there is no such vertex on the oriented cycle."
+        ],
+        "reasoning": "The prior already implies quantitative persistence on its own graph, not just qualitative nonconvergence. It does not directly imply the graph-family result or the minimal arc count.",
+        "searches": [
+          "CONCUR 2024, Proposition 9 and Construction 10, pp. 7:7–8"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Published CONCUR paper, Definitions 1–2, gives the same weighted linear arc updates; equivalently, products of fixed row-stochastic single-row update matrices.",
+          "The mixed-media ring catalogue hit 2e44dd8b777b has median/averaging agents, not the same update family or activation condition."
+        ],
+        "reasoning": "The matrix-product and opinion-update descriptions are equivalent here; changing the description is not a novelty. The known median/averaging ring is not an equivalent instance.",
+        "searches": [
+          "Resultary: Aranda Construction 10 and strongly fair asynchronous cycle non-consensus",
+          "Primary search: Aranda Betancourt Díaz Valencia Proposition 9 Construction 10 strongly fair asynchronous opinion non-consensus directed cycle stochastic matrix product consensus"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The concrete prior witness is 1↔2↔3 (four arcs); the frozen minimal witness is an oriented triangle (three arcs). No exact equivalent directed-cycle witness was evidenced in the bounded catalogue check."
+        ],
+        "reasoning": "A finite exact witness comparison applies to n=3. A table of examples alone could not establish the all-size and arbitrary-weight statement; the decisive graph difference here is one incoming arc at every vertex.",
+        "searches": [
+          "Resultary directed-cycle and strong-fairness finite or structural witnesses",
+          "CONCUR 2024 Figure 1a and Construction 10"
+        ]
+      },
+      "rationale": "Pass the structural and parameter-uniform claim: every oriented cycle of length at least three, including the minimal three-arc graph, every fixed interior set of weights, and the specified unit-singleton seed with uniform separation. Credit Aranda et al. both the earlier strongly fair failure and the already implicit all-time positive diameter on their four-arc graph; the quantitative-gap feature alone is not original.",
+      "residual_risks": [
+        "The comparison is bounded; priority against specialized unlocated stochastic matrix-product results is not established.",
+        "The frozen wording describing prior work as qualitative should not be read as denying its demonstrable uniform gap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior existential and quantitative overlap; different graph and quantifier",
+          "evidence": "The four-arc bidirected path keeps the two end agents on opposite sides of thresholds. Theorem 18 assumes m-bounded fairness.",
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.CONCUR.2024.7",
+          "material_read": "Article pp. 7:4–6 (definitions and Figure 1a); pp. 7:7–9 (Proposition 9, Construction 10 and fair-delay comparison); p. 7:11 (Theorem 18)",
+          "method": "Official LIPIcs OA PDF, bounded passage inspection",
+          "title": "Fairness and Consensus in an Asynchronous Opinion Model for Social Networks",
+          "trigger": "Identical dynamics and prior strongly fair nonconsensus"
+        },
+        {
+          "assessment": "Different dynamics",
+          "evidence": "Mixed median/averaging ring, not the fixed-weight asynchronous oriented-cycle problem.",
+          "identifier_or_url": "Resultary 2e44dd8b777b",
+          "material_read": "Indexed finding and model comparison",
+          "method": "Local Resultary search",
+          "title": "Exact consensus reliability from directional runs in mixed media",
+          "trigger": "Closest ring and opinion catalogue hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This identifies a sharp failure boundary in network size and arc count and shows that the lack of consensus under infinite edge recurrence does not require a vertex influenced by competing neighbors. The all-activation bound excludes convergence by more than a non-consensus subsequence.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

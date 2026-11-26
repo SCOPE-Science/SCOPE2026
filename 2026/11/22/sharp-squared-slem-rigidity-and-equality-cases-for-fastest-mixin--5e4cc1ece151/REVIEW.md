@@ -1,19 +1,21 @@
-# Scientific review: sharp squared-SLEM rigidity on a path
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof reconstructs the feasible symmetric stochastic tridiagonal kernels, gives the normalized cosine mode, and verifies the exact nonnegative dual-slack identity with strict interior equality conditions. Squared spectral norm control yields the global energy estimate; the complete alternating-mode diagonalization checks that the constant is attained and precisely identifies equality. Centered partial sums provide the coordinate recovery bound, and the alternating family witnesses the optimal square-root exponent. The analytical proof includes all lengths \(n\ge3\), all admissible zero edges and boundary weights. The standalone finite checker passed on 4,899 matrices, but is not an infinite proof.
+PASS
 
-## Originality — PASS on inspected evidence
+For n≥3 the first cosine vector has unit norm, zero sum and P_*y=cy, with c>0. For z_j=(c+cos((2j−1)π/n)/c)/n, product-to-sum gives z_j+z_{j+1}=2y_jy_{j+1} and summation gives ∑z_j=c. Row stochasticity and symmetry yield yᵀPy−c=∑P_jj(y_j²−z_j). The summands have coefficients zero at the endpoints and strictly positive in the interior because cos((2j−1)π/n)<c there. Therefore s²−c²−||(P−P_*)y||²=(s²−||Py||²)+2c(yᵀPy−c) is a sum of nonnegative terms. Equality forces all interior holding probabilities to vanish, hence the alternating family. The product with y is the negative discrete derivative of the weighted deviations with u₀=u_n=0. To prove sufficiency, test the perturbation on normalized cosine modes: each edge difference for mode r is proportional to sin(irπ/n), and multiplying by the alternating sign and taking the discrete derivative gives −2t sin(rπ/n)v_(n−r), also at the endpoints because the sine differences at i=0,n vanish. Hence the (r,n−r) block squares to [cos²(rπ/n)+4t²sin²(rπ/n)] times the identity; the unpaired even-size mode has eigenvalue −2t and the constant stays fixed. For |2t|≤1 the first pair has maximal nonconstant modulus, including |2t|=1, proving the equality, sharp coefficient and exact formula. The positive edge differences show uniqueness of P_* from the squared bound; the centered indicator on the first i sites gives the stated prefactor for edge recovery. Taylor expansion at t=0 has strictly positive quadratic coefficient, so the inverse exponent 1/2 is optimal for each fixed n. None of these steps requires an irreducible or aperiodic chain.
 
-The exact path optimizer and value are established by Boyd–Diaconis–Sun–Xiao (2006); the general graph framework is Boyd–Diaconis–Xiao (2004). Fill–Kahn (2011) provides time-by-time mixing comparisons from designated starts. None of the inspected relevant claims states the sharp squared spectral *remainder* for arbitrary nonuniform path weights, its iff alternating equality family, or the quantitative edge recovery with sharp exponent. Searches considered formulations through tridiagonal kernels, absolute spectral radius, parameter inverse stability, dual inequalities, and alternating weights. The available indexed crown-graph stability finding is for a different graph, and does not logically dominate the path-specific sharp identity. Publication priority is not independently established; uninspected general semidefinite error-bound results may contain equivalent statements.
+## originality
 
-## Value — PASS
+PASS
 
-Fastest-mixing path weights are a basic design model for load balancing. This global inequality is a quantitative performance-to-design guarantee, not merely a restatement that uniform edge weights are optimal: the sharp energy coefficient, complete equality family, all-edge recovery bound, and proof that a square-root rate is unavoidable are structural information. The statement compares *every* admissible edge-weight vector and has a concrete operational interpretation in diagnosing near-optimal mixing designs.
+Credit classical path optimality and the cosine certificate. From the Rayleigh inequality for this same test vector the squared norm inequality alone follows mechanically. The supported distinct result is the sharp all-feasible equality classification, its exact contraction factor along the entire equality family, and the resulting quantitative inverse estimate with explicit normalization and an attaining sharp exponent. No equivalent prior classification or sharp path inverse theorem was established by the available comparisons.
 
-## Scientific limitations
+## value
 
-The setting is symmetric, uniform-stationary and path-supported; no directed or general-graph result follows. Pointwise edge-recovery constants may be conservative, although the energy coefficient and recovery exponent are sharp. The complete original five-page path theorem was inspected, while the full 23-page general-graph SDP article and every piece of subsequent literature were not. The numerical checker supplies only finite supporting tests.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The squared-deficit equality classification describes exactly which paths saturate the stability constraint, even away from the known optimum. The matching explicit perturbations and coordinate bounds quantify how far a near-optimal kernel can move on any edge and explain why the excess rate can only recover the kernel at square-root scale. This is additional information not supplied by the optimizer or by the mechanical inequality alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

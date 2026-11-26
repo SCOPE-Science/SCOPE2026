@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:27:36.221896Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the exact directed bouquet and positive m and k, complementing turns AND into OR. Write r for the initial hub bit, u for the OR of the m two-cycle and k last three-cycle bits, and v for the OR of the k first three-cycle bits (all in the complement). The hub bits at times 0 through 3 are r, u, r OR v, and r OR u; from time 4 onward they are r OR u OR v, by the lag-two/lag-three recurrence. From time 2 onward the full configuration is occupied iff the current hub bit and its two predecessors are one; time 1 additionally requires every individual first three-cycle bit to be one. This partitions the labelled states directly: r=u=1 contributes time 0 for the fully occupied initial state, time 1 for the other states with all first bits one, and time 2 for the remaining first-bit assignments. For r=0, u=v=1 the hit is at 3. For r=1, u=0 the hit is at 4 regardless of first bits; for r=0,u=1,v=0 it is at 5; and for r=u=0,v=1 at 6. The one case r=u=v=0 stays unoccupied. The independent block weights reproduce (1,P-1,P(Q-1),P(Q-1),Q,P,Q-1) and one never-hit state, where P=2^(m+k)-1 and Q=2^k. This also proves sharpness, excludes other fixed points and cycles, and gives each of times 2 and 3 mass (1-2^(-m-k))(1-2^(-k))/2, uniformly approaching 1/2 in m≥1. I inspected the verifier and the stored samples rather than executing uploaded code. Its 33 pairs are the tested subset given by m≤7, k≤5 and n≤16, with 299696 states; the finite replay is corroboration only. The partition above reproduces the all-parameter result.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The exponent controls height and the loop number constrains the period; gcd(2,3)=1.",
+          "Gao–Chen–Başar's rose hypothesis requires equal lengths, and the perturbation question concerns recurrent orbits rather than arbitrary states.",
+          "No readable primary text was obtained for the generalized-exponent paper."
+        ],
+        "reasoning": "The broader network theorem recovers the transient length 6 by inserting hub tours of lengths 2 and 3, with a first-to-last three-cycle vertex walk obstruction at length 5. It does not give the labelled shell sizes. No negative whole-document claim is made about Hu–Yuan–Chen.",
+        "searches": [
+          "Jarrah et al., arXiv:0805.0275, Definition 2.6 and Lemma 2.7",
+          "Gao–Chen–Başar, arXiv:1603.04415, abstract and Definition 5",
+          "Hu–Yuan–Chen, The Generalized Exponent Sets of Primitive, Minimally Strong Digraphs (I), Ars Combinatoria 82"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify_rose.py and verification_output.txt",
+        "Resultary fa747d13f051 and 69663e16f4ca",
+        "Jarrah–Laubenbacher–Veliz-Cuba arXiv:0805.0275",
+        "Gao–Chen–Başar arXiv:1603.04415",
+        "Hu–Yuan–Chen primary OA attempt"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The consecutive-length theorem gives only the final two shells at a=2, while the frozen formulas cover all states and allow both multiplicities to vary independently.",
+          "Neither period divisibility nor the transient-height theorem determines the earlier labelled populations."
+        ],
+        "reasoning": "The recurring period and sharp horizon are not credited as novel, nor are the overlapping late shells at m=k=1. The remaining complete enumeration and its limit law require the disjoint-block occupation census and are not a mechanical specialization of the inspected results.",
+        "searches": [
+          "Resultary 69663e16f4ca, RESULT.md Finding",
+          "Jarrah et al., Definition 2.6 and Lemma 2.7",
+          "Gao–Chen–Başar, Definition 5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "De Morgan complementation identifies AND extinction with full OR occupation; at time t each vertex sees the initial support through walks of length exactly t.",
+          "Jarrah et al. define height as the least time at which all states are periodic (p. 3), and connect it to the dependency graph exponent (Lemma 2.7)."
+        ],
+        "reasoning": "The equivalent statistic counts initial supports intersecting every time-t walk-predecessor set, and differences those counts across t. A walk exponent alone tests when all singleton supports suffice, not how many supports suffice at each earlier time.",
+        "searches": [
+          "Resultary: mixed directed 2/3-cycle bouquets and extinction/hitting-time shells",
+          "Jarrah–Laubenbacher–Veliz-Cuba, arXiv:0805.0275, conjunctive/disjunctive dynamics and dependency-graph exponent"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact hit for fa747d13f051 is the frozen record itself.",
+          "Distinct record 2026/11/22/SCOPE-three-state-late-extinction-shells-on-consecutive-directed-cycle--69663e16f4ca gives the last a extinction shells for two hub-sharing cycles of lengths a,a+1."
+        ],
+        "reasoning": "At a=2 the comparator is exactly the m=k=1 graph and yields N5=3 and N6=1, a real overlap. Its stated scope does not include the entire histogram or the multiple-petal graphs.",
+        "searches": [
+          "Resultary: complete first-hit census for synchronous conjunctive directed bouquet; consecutive directed cycle hub bouquets and last extinction shells"
+        ]
+      },
+      "rationale": "The genuinely distinct claim is the complete labelled first-hit law for arbitrary positive multiplicities. The known exponent/period method accounts for the maximal delay and fixed points, and a distinct same-day Resultary record genuinely covers the last two shells in the single m=k=1 case. That overlap is credited; it does not imply the remaining shells or arbitrary multiplicities. No evidence establishes broader exact coverage, and the same-day date does not resolve priority on the overlap.",
+      "residual_risks": [
+        "No readable original for Hu–Yuan–Chen; no negative coverage inference drawn.",
+        "The broader ordinary web lookups were deferred; evidence is bounded by the inspected papers and catalogue.",
+        "Priority for the demonstrated same-day small-case overlap is unresolved; other unindexed exact laws could exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers general height/exponent and period machinery, not the stated shell distribution",
+          "evidence": "Height is the least time by which every state is periodic; height equals the graph exponent in the strongly connected conjunctive case; the period divides the loop number.",
+          "identifier_or_url": "https://arxiv.org/abs/0805.0275",
+          "material_read": "PDF p. 3 (offset 7900) and p. 7, Definition 2.6 and Lemma 2.7 (offset 22000)",
+          "method": "Bounded primary OA PDF passages",
+          "title": "The Dynamics of Conjunctive and Disjunctive Boolean Networks",
+          "trigger": "General theory could imply the transient result"
+        },
+        {
+          "assessment": "Similar geometry and dynamics, different hypotheses and target statistic",
+          "evidence": "The rose has equal-length cycles; the perturbation study starts with recurrent orbits and flips one coordinate.",
+          "identifier_or_url": "https://arxiv.org/abs/1603.04415",
+          "material_read": "PDF p. 1 abstract and p. 6, Definition 5 (offset 38400)",
+          "method": "Bounded primary OA PDF passages",
+          "title": "Stability Structures of Conjunctive Boolean Networks",
+          "trigger": "Conjunctive networks on cycle roses"
+        },
+        {
+          "assessment": "No inference of noncoverage",
+          "evidence": "No primary mathematical passage could be compared.",
+          "identifier_or_url": "https://combinatorialpress.com/ars-articles/volume-82-ars-articles/the-generalized-exponent-sets-of-primitive-minimally-strong-digraphs-i/",
+          "material_read": "Cited article was located; no extractable PDF text in the bounded direct and VPN attempts",
+          "method": "Lawful OA access attempts at the cited article",
+          "title": "The Generalized Exponent Sets of Primitive, Minimally Strong Digraphs (I)",
+          "trigger": "Possibly relevant primitive-digraph generalized exponents"
+        },
+        {
+          "assessment": "Material partial coverage, not the full mixed-multiplicity census",
+          "evidence": "With two petals of lengths a,a+1 it gives the final a shells. Setting a=2 gives N5=3 and N6=1.",
+          "identifier_or_url": "2026/11/22/SCOPE-three-state-late-extinction-shells-on-consecutive-directed-cycle--69663e16f4ca",
+          "material_read": "RESULT.md, Finding, offset 0 (mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4)",
+          "method": "Resultary search and bounded mirror text",
+          "title": "Three-state late extinction shells on consecutive directed cycle bouquets",
+          "trigger": "Strongest distinct overlapping Resultary claim"
+        },
+        {
+          "assessment": "Self-hit, not a separate prior",
+          "evidence": "Same 2/3-cycle multiplicities and complete first-hit histogram.",
+          "identifier_or_url": "fa747d13f051",
+          "material_read": "Catalogue claim and frozen Finding",
+          "method": "Resultary search and frozen text comparison",
+          "title": "A six-step hitting-time census for Boolean dynamics on mixed directed cycle bouquets",
+          "trigger": "Exact Resultary hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The family is the mixed bouquet of the two smallest coprime directed cycle lengths; the parameter sweep keeps that dynamical mechanism while varying both multiplicities without bound. A full labelled transient-time distribution rather than an exponent is useful here: it identifies which initial patterns actually need the worst-case horizon and shows that typical starts instead concentrate on two early steps. These are distinct exact facts not supplied by fixed-point or primitive-exponent results. No broader digraph significance is needed or claimed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T13:19:35.209246Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Analytically checked the normalized line-distance reduction: the foot of each axis has norm 1+r, and with nonparallel directions only the offset difference along the unit common normal controls distance. The given cone yields k=(1-3c^2)/(1+3c^2) for neighboring normals. Fixing the three gap signs and optimizing first over disks gives the simplex dual by bilinear minimax; each dual vector is already in the correct perpendicular plane. Cyclic or pair averaging is valid by convexity and reduces all eight patterns to the two reported values. In the mixed case f'(0)=q+2(k-2)<0; f'(1/2)=q+2(1-2k), whose zero in the required range is k*. The interior second derivative is positive for -1/2<k<1 and solving f'=0 with the negative sign before squaring gives the displayed minimizer. The identity comparing g/q with 1 changes sign precisely at k=0. The witnesses lie on the actual unit circles and the three signed gaps equal the dual optimum on the interior branch; on the boundary branch the third gap is 2k and exceeds 1+q/2 except at equality. At c=0 the coinciding normals allow gaps of absolute size (1,1,2) with the same mixed upper bound 1. In all cases q<sqrt(3), g<=1+q/2<2, so the conversion to radius is finite and increasing. The orthogonal and parallel-limit values follow by substitution and g'(0)=1/(3 sqrt(2)) (derivative in k at the interior minimizer a=1/3), checking the claimed one-sided orthogonal comparison. Contact assertions are about the explicit maximizers, not uniqueness. Inspected the archived numerical diagnostic; the proof, not that finite grid, gives the uniform law.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Glazyrin derives p_3=3+2 sqrt(3) using an unrestricted tangent-ball bound, with equilateral ball centers. The rigidity summary concerns near-global optima and a parallel equality case."
+        ],
+        "reasoning": "The global bound limits all c uniformly, and the conical optimum approaches it as c goes to 1, but the directions at c=1 are excluded and a uniform bound does not give a sharp value at c<1. The six-cylinder problem imposes different constraints and has a different optimization variable set.",
+        "searches": [
+          "arXiv:2611.00251v1 p_3 passage",
+          "arXiv:1805.09833v2 C_6 rotation passage",
+          "Resultary 82d19fd30b04"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Resultary 953b1cb63fb8 and 82d19fd30b04",
+        "Glazyrin arXiv:2611.00251v1, relevant excerpt",
+        "Ogievetsky–Shlosman arXiv:1805.09833v2, relevant excerpt"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The tangent-ball bound yields an upper bound independent of c. The six-cylinder passage varies a half-space triple while holding the other triple fixed. The rigidity summary controls closeness to the parallel global optimum, not the exact active-set thresholds."
+        ],
+        "reasoning": "None of these inspected statements supplies the offset minimax upper bound with equality witnesses for a prescribed nonparallel direction triple. They do not imply the switch between sign patterns at orthogonality or the explicit mixed-contact boundary.",
+        "searches": [
+          "Glazyrin arXiv:2611.00251v1 at HTML offset near 4000",
+          "Ogievetsky–Shlosman arXiv:1805.09833v2 at HTML offset near 3997",
+          "Resultary 82d19fd30b04 indexed statement"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The target is 953b1cb63fb8 itself. Related 82d19fd30b04 treats radius ratios with unrestricted directions and rigidity near a parallel optimum. Ogievetsky–Shlosman arXiv:1805.09833v2 uses a half-space triple within a symmetric six-cylinder construction."
+        ],
+        "reasoning": "Optimizing line distances over all independent offsets at fixed conical directions is equivalent to the stated radius problem; it is not equivalent to the unrestricted optimum or to pairs and triples arising within a six-cylinder construction. Other parametrizations of the same direction cone remain a residual risk.",
+        "searches": [
+          "Resultary: cone-directed tangent cylinders, three prescribed directions, sharp radius and two contact transitions",
+          "Public web search on the fixed-direction three-cylinder law"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The only retrieved index statement with the two given transition parameters was the exact frozen item. Glazyrin's p_3 is a number for unrestricted directions, not a table or formula in c."
+        ],
+        "reasoning": "The p_3 value coincides with the limit of this law, which supplies neither the values in the open interval nor a fixed-direction contact transition.",
+        "searches": [
+          "Resultary: 953b1cb63fb8 and near-matching cylinder optimization entries",
+          "Glazyrin arXiv:2611.00251v1 excerpt for p_3"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the fixed conical direction family with arbitrary offsets, its sharp radius and its two changes in optimum pattern or active contacts. No originality credit for the skew-line distance formula, minimax or the global unrestricted radius.",
+      "residual_risks": [
+        "Unindexed or older equivalent cone parametrizations could affect priority.",
+        "Primary passage access did not extend to all further requested offsets; the 82d19fd30b04 comparison is limited to its indexed statement. No absence inference is based on those limits."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the unrestricted global bound, not a fixed nonparallel cone law in the passage inspected",
+          "evidence": [
+            "p_3=3+2 sqrt(3); tangent-ball reduction and equilateral ball-center optimum."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.00251v1",
+          "material_read": "OA text around HTML offset 4000 (context starts near 3780); additional offset retrieval timed out",
+          "method": "OA paper passage",
+          "title": "Upper bounds for packings of cylinders around the unit sphere",
+          "trigger": "Exact result for three cylinders"
+        },
+        {
+          "assessment": "The passage is about a six-cylinder family, not optimization over arbitrary offsets of three axes at fixed directions",
+          "evidence": [
+            "A half-space triple can be rotated while holding the other three cylinders fixed in C_6."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1805.09833v2",
+          "material_read": "OA text near offset 3997 (context starts near 3777); further offset retrieval timed out",
+          "method": "OA paper passage",
+          "title": "The Six Cylinders Problem: D3-symmetry Approach",
+          "trigger": "Symmetry-related triples of tangent cylinders"
+        },
+        {
+          "assessment": "Summary covers unrestricted-optimum rigidity and known global scale; no whole-record exclusion",
+          "evidence": [
+            "Three positive radius ratios, unrestricted Descartes-scale maximum and parallel axes at maxima."
+          ],
+          "identifier_or_url": "Resultary 82d19fd30b04",
+          "material_read": "Indexed summary; matching mirror not available and linked file retrieval timed out",
+          "method": "Resultary plus attempted file retrieval",
+          "title": "Sharp square-root rigidity and twisted skew witnesses for three cylinders",
+          "trigger": "Related exact three-cylinder packing statement"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The symmetric direction family interpolates between coplanar, orthogonal and nearly parallel regimes while leaving configurations themselves unrestricted in their offsets. The law gives exact achievable clearances where the unrestricted bound is too coarse, detects a genuine change of sign pattern and the onset of three-way contact, and shows orthogonality is not locally optimal. The explicit disk-to-circle equality witnesses are essential; this is not a substitution into a general unrestricted theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

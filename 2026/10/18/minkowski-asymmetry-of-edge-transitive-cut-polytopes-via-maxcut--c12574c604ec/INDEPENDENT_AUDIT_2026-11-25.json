@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:18:55.692180Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The repaired theorem classifies the affine hull, not the global center set. The signed orbit vertices have independent nontrivial edge characters for simple graphs, so their average 0 is interior and switching preserves the polytope. Averaging any feasible centers over switchings gives 0. Centered containment is determined by the negative diagonal radial point p=−1/s, where s≥1 automatically since the signed cut polytope is in the unit cube. The polar relation D_G=−K° makes the optimum face precisely the set of normalized inequalities tight at p. For any minimizing b, the switched reflection at each vertex is p+((s+1)/s)T_σ b, so any dual optimizer a yields a·T_σ b≥0 for all signs. This has average zero, and orthogonality gives a_e b_e=0 coordinate by coordinate. Conversely, all active facet inequalities at p remain equalities under any switched displacement supported outside E_*; the finitely many inactive facets retain positive slack for all sufficiently small displacements. This shows the exact affine dimension, not just forced equations. Finite-union avoidance of proper hyperplanes yields a single optimizer with every coordinate in E_* nonzero. The all-graph argument includes s=1, isolated vertices and disconnected simple graphs. Edge transitivity gives a full-support uniform optimizer by averaging maximum cuts, recovering rigidity and the numerical background. The triangle with pendant edges verifies that center freedom actually occurs: the polytope is a product and s=3, leaving one [1/4,3/4] center coordinate per bridge. The frozen support checker was inspected, not executed; the VERIFICATION output is labeled expected and pertains to the numerical cases only. The corrected proof does not use those checks.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "230587b7259c gives fixed K5-edge coordinates and an exact center polytope/dimension in an edge-maximal K_(3,3)-minor-free family containing K5",
+          "91bfcfc76045 gives the odd-girth asymmetry and an optimal half-edge center in K5-minor-free graphs",
+          "Šámal gives x(G)=m/M in edge-transitive graphs; Proença et al. provide weighted nonnegative MaxCut/fractional-cover gauge duality"
+        ],
+        "reasoning": "These explain important overlapping classes and dual numerical quantities, but the minor-free hypotheses do not cover arbitrary simple graphs, and the nonnegative cover duality is not a characterization of the affine hull of all reflection centers. A facet test for individual candidate centers is standard; the graph-specific reduction to exactly the union of active edge supports uses switch-induced character orthogonality and the converse slack argument.",
+        "searches": [
+          "Resultary 230587b7259c and 91bfcfc76045",
+          "Šámal arXiv:0911.2589 Lemma 2.1; Proença et al. arXiv:2311.15346 §3.1 Proposition 8"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py; both corrected documents under /workspace/repairs/2/",
+        "Resultary 8b1ea7ca3db1, 230587b7259c and 91bfcfc76045",
+        "arXiv:0911.2589, 2311.15346, 1706.02516 and 1501.05407; classic cut-polytope and multipartite skeleton comparators"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier Turán proof has the same dual constraints for every sign pattern and its uniform coefficients are an exact optimum on the edge-transitive class",
+          "The related K5 proof uses orthogonality of switched pentagon normals, then uses strict triangle slack to give dimension in a minor-free family",
+          "The repaired theorem requires the union of supports over all radial-optimal vectors for any simple graph, including graphs with nonunique centers and no transitivity"
+        ],
+        "reasoning": "The K5 work anticipates the method and its restricted conclusions specialize consistently. It does not identify arbitrary-graph active coordinate supports or prove that no additional affine constraints appear when the optimum face varies with the graph. The repair proves the two directions from first principles. No earlier inspected theorem implies that general criterion by specializing its stated hypotheses. Same-day dates do not order the overlapping K5 case.",
+        "searches": [
+          "8b1ea7ca3db1, Finding and proof, offsets 0–6025",
+          "230587b7259c, Finding and proof steps 1–3, offsets 0–5236",
+          "Resultary and primary comparison of radial-facet/switching center criteria"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "8b1ea7ca3db1 gives the exact Turán extremum 2M/(2M−m) and an explicit uniform extremizer",
+          "Deza–Dutour arXiv:1706.02516, §2.1, gives F_S(δ_T)=δ_(S△T)",
+          "The optimum set in the repair is an exposed face of −K°, where K is the signed cut polytope"
+        ],
+        "reasoning": "For all simple nonempty graphs switching identifies all centered reflected vertices with p=−1/s; the gauge at −1 is max a·1 under 1+a·x^σ≥0. Positivity of the Fourier transform of the edge-shell function is precisely these constraints, establishing s=τ−1. The original ratio is therefore covered. The repaired statement instead uses the support of that exposed face to determine the entire affine hull of primal minimizing centers; computing only the gauge cannot do that.",
+        "searches": [
+          "Resultary: exact MaxCut formula; center and switching aliases; cut/metric cones",
+          "Resultary: cut polytope arbitrary graph all Minkowski centers center locus dimension active facets at radial point switching characters unique minimizing center",
+          "Primary queries on cut-polytope Minkowski asymmetry / coefficient of symmetry and center dimension"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Šámal's table gives the cubical numbers for complete graphs, odd cycles and Petersen",
+          "91bfcfc76045 covers K3 and K4 numerically; 230587b7259c covers K5 with uniqueness as an explicit base case"
+        ],
+        "reasoning": "These are credited examples, not an independent table or theorem of affine center hulls for arbitrary graphs. The earlier numeric equivalence makes the complete-graph values covered even before computing centers. No general exact database of center supports was identified.",
+        "searches": [
+          "Resultary: complete-graph and multipartite asymmetry values; arbitrary-graph center dimension",
+          "Šámal arXiv:0911.2589 Corollary 2.2; catalogue 230587b7259c K5 comparison"
+        ]
+      },
+      "rationale": "Reassessment of the delivered repair: the supported distinct claim is the all-graph affine-hull formula from the support of the full Boolean edge-shell optimum face. The original numerical claim is covered by exact duality and is credited as such in the repair. Closest existing cut-polytope center results apply in special minor-free classes and the earlier optimization theorem gives a value and an extremizer in a special class, not the general support-to-center rule in both directions.",
+      "residual_risks": [
+        "A general theorem on reflection centers of diagonal sign-orbit polytopes could imply the repaired support criterion. The bounded searches did not identify such a theorem; no global priority claim is made.",
+        "Do not credit the earlier edge-transitive numerical result, its complete-graph cases or the earlier restricted K5 center classification as separate innovations of the repair."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact prior coverage of the numerical theorem; not all-center characterization",
+          "evidence": "Q(σ)=1+Σa_e σ_uσ_v≥0 and max(1+Σa_e)=2M/(2M−m); a uniform optimum exists, and uniqueness in that record concerns the dual extremizer for odd cycles.",
+          "identifier_or_url": "Resultary 8b1ea7ca3db1",
+          "material_read": "Finding and proof, offsets 0–6025",
+          "method": "Local mirror passages",
+          "title": "Turán constants of Boolean edge shells on edge-transitive graphs",
+          "trigger": "Same numerical value after the affine-polar reduction"
+        },
+        {
+          "assessment": "Overlapping numerical optimization, not affine center classification",
+          "evidence": "For edge-transitive graphs the fractional cut-cover value equals 1/b(G), where b=MaxCut/|E|, and the following corollary gives exact complete-graph cubical numbers.",
+          "identifier_or_url": "https://arxiv.org/pdf/0911.2589",
+          "material_read": "p. 4, Lemma 2.1 and Corollary 2.2, offset 12080",
+          "method": "OA primary PDF passage",
+          "title": "Cubical coloring — fractional covering by cuts and semidefinite programming",
+          "trigger": "Equivalent edge-transitive cut parameter and complete-graph values"
+        },
+        {
+          "assessment": "Material overlap in method and cases, not the general criterion",
+          "evidence": "Switched pentagon tests pin all K5 edges and strict triangle slack yields affine dimension outside their union for maximal K_(3,3)-minor-free graphs containing K5.",
+          "identifier_or_url": "Resultary 230587b7259c",
+          "material_read": "Finding and proof steps 1–3, offsets 0–5236; Relationship offset 4483",
+          "method": "Local mirror passages",
+          "title": "A fivefold asymmetry barrier and center-dimensional transition for K_(3,3)-minor-free cut polytopes",
+          "trigger": "Closest prior comparison for center pins and free-coordinate count"
+        },
+        {
+          "assessment": "Partial numeric overlap only",
+          "evidence": "Value 1 for bipartite graphs and g/(g−2) for odd girth g in its minor-free class, with an optimal half-edge center but no general support criterion.",
+          "identifier_or_url": "Resultary 91bfcfc76045",
+          "material_read": "Finding and Relationship, including offset 4788",
+          "method": "Local mirror passages",
+          "title": "Odd girth determines the Minkowski asymmetry of K5-minor-free cut polytopes",
+          "trigger": "Same invariant and overlapping classes"
+        },
+        {
+          "assessment": "Standard symmetry used in repair",
+          "evidence": "Switching takes δ_T to δ_(S△T); multipartite automorphisms give graph symmetries, not reflection center dimensions.",
+          "identifier_or_url": "https://arxiv.org/pdf/1706.02516",
+          "material_read": "p. 3, §2.1 and Remark 1, offset 9368",
+          "method": "OA primary PDF passage",
+          "title": "Generalized cut and metric polytopes of graphs and simplicial complexes",
+          "trigger": "Switching equivalence"
+        },
+        {
+          "assessment": "Weighted gauge duality, not center geometry in inspected result",
+          "evidence": "MaxCut and fractional cut covering are dual gauges on the nonnegative orthant; proposition gives max formulas and weak-duality inequalities, not centers under switching.",
+          "identifier_or_url": "https://arxiv.org/pdf/2311.15346",
+          "material_read": "§3.1, Proposition 8, p. 9, offset 44120",
+          "method": "OA primary PDF passage",
+          "title": "Weighted fractional cut covers and maximum-cut gauge duality (Proença et al.)",
+          "trigger": "Plausible more general gauge-duality source"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The repaired statement answers a distinct structural question for the natural cut polytope: which edge coordinates must every optimal center share, and how many independent degrees of freedom remain? One exposed dual optimum face certifies that exact affine dimension for arbitrary simple graphs, beyond transitive or specified minor-free families. The converse neighborhood result is essential: absence of a pinned coordinate means a genuine locally free center direction, as the connected triangle-with-bridges example illustrates. It is not merely a numerical restatement of a known cut invariant.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

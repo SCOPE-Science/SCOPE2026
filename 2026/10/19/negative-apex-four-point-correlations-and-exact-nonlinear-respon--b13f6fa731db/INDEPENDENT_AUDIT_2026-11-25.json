@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:54:49.490639Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Summing each apex gives a constant times exp(AB·log cosh(2G/T)/2); at the specified R this cancels the rung exactly. The leg-spin law is the product of two stationary zero-field Ising chains with independent bond increments of mean ρ. The conditional apex mean is u(A+B)/2, with conditional independence across sites. For distinct sites all mixed moments in the cumulant may use these means, and cumulants add over the independent legs. In one leg with ordered gaps a,b,c the fourth moment is ρ^(a+c); the adjacent pairing cancels it and the two crossed pairings both equal ρ^(a+2b+c). Multiplying the one-chain cumulant by 2(u/2)^4 gives exactly the negative crossed factorization. In the density, using S_i²=1 gives repeated-index cumulants −2, −2C_ij, −2C_ij² and −2C_ij C_ik for patterns 4, 3+1, 2+2, and 2+1+1. With their ordered multiplicities and the 24 permutations of four different sites, each summand is absolutely summable after anchoring; translation multiplicities divided by N tend to one for fixed offsets. An independent transfer-matrix check uses a dimensionless apex tilt x=h/T. The leg Markov operator in the symmetric basis 1,(A+B)/√2,AB has eigenvalues 1,ρ,ρ². The site tilt is cosh(x) times 1+(u/2)(A+B)tanh(x). Put t=tanh(x), v=u/√2. The simple eigenvalue λ(t) near 1, excluding cosh(x), satisfies λ−1=v²t²ρ/[λ−ρ−v²t²ρ³/(λ−ρ²)]. Expanding λ=1+a t²+b t⁴+O(t⁶) gives a=v²ρ/(1−ρ) and b=v⁴ρ⁴/[(1−ρ)²(1−ρ²)]−v⁴ρ²/(1−ρ)³. The fourth pressure derivative in x is −2−16a+24b−12a², exactly the displayed density. The positive-temperature spectral gap at zero gives analytic pressure near zero and bounded boundary corrections to the block log generating function and its derivatives, justifying the thermodynamic response. The third h derivative of magnetization is the density divided by T³; the cubic Taylor coefficient has the further factor 1/6. 3+2ρ−3ρ²=3(1−ρ²)+2ρ>0, and 1−ρ∼2e^(−2J/T) yields −3u⁴e^(6J/T)/8 at fixed u. Read VERIFICATION.md and verify.py without executing them; the recorded 38 checks include finite periodic comparisons at lengths 30 and 60, not a proof of the limit.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hutak et al. give the exact decoration transformation and zero of the effective rung in the same trimer-rung model. Chapman et al. include top-only field and broader correlation analysis. Yin's retrieved v3 abstract concerns marginal phase transitions in decorated ladders and exponentially small crossover widths, not an evaluated apex fourth cumulant; the keyword miss is not a full-text exclusion."
+        ],
+        "reasoning": "The known zero-field ladder solution supplies the starting measure. The field-dependent transfer method can generate derivatives but in the inspected same-model passages does not identify the explicit cubic response, its strict sign and asymptotic, or an arbitrary-site connected formula.",
+        "searches": [
+          "Hutak et al., arXiv:2008.03753, equations (1), (2), (7)",
+          "Chapman–Tomasello–Carr, arXiv:2405.20749, equations (1), (2), §3",
+          "Yin, arXiv:2006.08921v3, abstract and literal susceptibility locator"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Chapman et al., arXiv:2405.20749",
+        "Hutak et al., arXiv:2008.03753",
+        "Yin, arXiv:2006.08921v3",
+        "Resultary 40ac4bb02a8c summary"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The decoupling and one-chain moment identities enable the distinct-site calculation. For the uniform response, repeated sites contribute nontrivially and cannot be obtained by summing only the distinct-site factorization. The prior susceptibility calculation is linear, not a supplied fourth-order evaluation."
+        ],
+        "reasoning": "The frozen rational response and crossed identity are concrete fourth-order evaluations, not a reparameterization of prior pair correlations. Evaluating the tilt or summing repeated-index and crossed terms is the additional work. The strong-leg consequence is attributed to that density, not to a new compensation mechanism or a finite-temperature phase transition.",
+        "searches": [
+          "Chapman et al. arXiv:2405.20749, §3 apex-field susceptibility and §5 correlations",
+          "Hutak et al. arXiv:2008.03753, compensated leg-decoupling equations (2) and (7)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Chapman et al. treat the same Hamiltonian, show the effective rung vanishes, and apply a uniform top-only magnetic field. Section 3 uses centered finite differences for linear susceptibility; §5 treats two-point correlations. The indexed negative four-spin result 40ac4bb02a8c concerns a kinetic three-temperature Glauber chain, not the equilibrium ladder."
+        ],
+        "reasoning": "A two-point susceptibility or a factorization defect on a different stochastic system does not equate to this connected apex four-point function or the fourth derivative of apex-field pressure. The third magnetization derivative, cubic Taylor coefficient and integrated fourth cumulant here are equivalent after the temperature and factorial conversions.",
+        "searches": [
+          "Resultary: compensated decorated Ising ladder or Toblerone, apex four-spin cumulant, nonlinear apex response",
+          "Primary search: Ising Toblerone decorated two-leg ladder compensation apex top spin four point connected correlation cubic nonlinear susceptibility Chapman Hutak",
+          "Chapman–Tomasello–Carr, arXiv:2405.20749, §§3 and 5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The bounded indexed returns surfaced no same-model formula. The closest negative four-spin indexed result was 40ac4bb02a8c; its full passage was unavailable in the mirror and only its summary is used. The primary search returned Chapman et al. and Hutak et al., compared at statement level."
+        ],
+        "reasoning": "The exact targets are a four-index function for all positive gaps and a rational kernel in u and ρ, not an integer sequence or finite numerical table. A numerical linear-response curve cannot decide equality of the fourth-derivative formulas.",
+        "searches": [
+          "Local Resultary search for the exact connected four-apex factorization and integrated density at compensation",
+          "Primary search for exact apex nonlinear susceptibility in the same model"
+        ]
+      },
+      "rationale": "Compensation and the independent-leg reduction are known and not credited. The statement-level comparison separates that mechanism, two-point functions and linear apex susceptibility from the evaluated distinct-site connected four-point and cubic-response formulas. No equivalent evaluated result or dominating assertion was found in the inspected sources.",
+      "residual_risks": [
+        "The bounded primary and local-index lookups do not establish global priority; an explicit prior specialization under different terminology remains possible.",
+        "The closest indexed four-spin result could only be compared using the available summary. Yin was inspected for context, not exhaustively."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive near match for model, compensation, pair correlations and linear susceptibility, but not an evaluated fourth-order formula in the inspected passages.",
+          "evidence": "Section 3 includes a top-only field and describes zero-field linear susceptibilities via centered finite differences; §5 uses two-point correlations.",
+          "identifier_or_url": "https://arxiv.org/abs/2405.20749",
+          "material_read": "Eq. (1) p. 3, Eq. (2) p. 5, §3 pp. 8–10 (offsets about 19000–28464), §5 pp. 15–17 (38600–43800)",
+          "method": "OA PDF targeted passages",
+          "title": "Bifurcation in correlation length of the Ising model on a Toblerone lattice",
+          "trigger": "Same Hamiltonian and apex-field response"
+        },
+        {
+          "assessment": "Covers the known rung elimination and decoupling; does not supply the evaluated apex-field response in those passages.",
+          "evidence": "Tracing out the apex yields a temperature-dependent rung term with an explicit zero.",
+          "identifier_or_url": "https://arxiv.org/abs/2008.03753",
+          "material_read": "Eqs. (1) and (2), pp. 1–2 (offsets 0–10190), Eq. (7), pp. 2–3 (16000–20937)",
+          "method": "OA PDF targeted passages",
+          "title": "Low-temperature thermodynamics of the two-leg ladder Ising model with trimer rungs: A mystery explained",
+          "trigger": "Original decoration reduction and exact compensation"
+        },
+        {
+          "assessment": "Contextual comparison only, not a full-document negative result.",
+          "evidence": "The abstract addresses marginal phase transitions and separate control of the transition scale and crossover width by rung and leg parameters.",
+          "identifier_or_url": "https://arxiv.org/pdf/2006.08921",
+          "material_read": "v3 abstract, offset 0, and literal lookup for susceptibility with no hit",
+          "method": "OA PDF opening and keyword locator",
+          "title": "A paradigm of spontaneous marginal phase transition at finite temperature in one-dimensional ladder Ising models",
+          "trigger": "Cited broader decorated-ladder work"
+        },
+        {
+          "assessment": "Summary indicates a different model and observable; full-text limitation retained.",
+          "evidence": "A negative four-spin defect is reported for a kinetic Glauber chain rather than a compensated equilibrium ladder with an apex-field response.",
+          "identifier_or_url": "2026/10/25/SCOPE-a-four-spin-obstruction-to-two-point-factorization-in-a-periodic-three-temperature-Glauber-chain--40ac4bb02a8c",
+          "material_read": "Local indexed summary; full RESULT.md unavailable through the mirror",
+          "method": "Local Resultary search and mirror attempt",
+          "title": "A four-spin obstruction to two-point factorization in a periodic three-temperature Glauber chain",
+          "trigger": "Closest indexed negative four-spin comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The compensated point is motivated by the ladder's established correlation and linear-response behavior. The crossed identity identifies both spatial dependence and strict sign of the first non-Gaussian connected statistic at four distinct sites. The integrated formula handles repeated sites and gives an exact nonlinear susceptibility with a quantitatively different strong-leg divergence, usable for checking transfer calculations and comparing responses. It is not a claim of a phase transition or of a sign theorem outside the specified scope.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

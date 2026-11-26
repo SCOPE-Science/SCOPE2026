@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -18,8 +21,6 @@
 
 # Reproduction and limits
 
-Run `python verify.py` with Python 3.9 or later. No third-party libraries are used. The script constructs each finite group by an explicit multiplication operation; it forms Brandt products directly, compares products in both orders for every pair, enumerates all cliques by a recursive extension algorithm, and separately checks whether each clique is inclusion-maximal. It then computes the predicted polynomials from integer multinomial coefficients, inclusion–exclusion and finite polynomial multiplication. The two methods are independent in their construction of the tested graph and the prediction.
+Run the accompanying `verify.py` with Python 3.9 or later. It uses only the standard library. For each of ten finite examples over the trivial, cyclic, Klein four or symmetric group of degree three, it constructs Brandt multiplication and computes the commuting graph, recursively enumerates every clique, and compares its size-coefficient dictionary with the inclusion–exclusion formula. The program's `cliques` assertion in `run_case` is the check for the corrected finding. The script also checks maximal-clique quantities and a graph isomorphism, which are outside the corrected finding. The expected final marker for the whole script is `VERIFY_OK 10 independent finite multiplication checks`.
 
-The code checks the groups \(C_1,C_2,C_3,C_4,C_2\times C_2,S_3\), with the index sizes shown in each printed case, for a total of ten configurations. It also checks all ordered pairs of labeled nonzero elements in \(B_2(C_4)\) against those of \(B_2(C_2\times C_2)\) under an explicit label bijection. The expected final output ends with `GRAPH_ISOMORPHISM_OK C4_vs_V4 n=2` and `VERIFY_OK 10 independent finite multiplication checks`.
-
-These computations exhaust the **specified finite configurations only** and establish neither the theorem for arbitrary groups nor publication priority. The universal statement is proved in `RESULT.md` from direct semigroup multiplication, closure of maximal commuting sets, and a finite inclusion–exclusion identity. No independent audit has been performed.
+The tests exhaust the indicated finite examples only. The proof in `RESULT.md` uses the exact local commutation rule and inclusion–exclusion on the occupied sources and targets. No finite run proves the arbitrary-group statement or establishes priority.

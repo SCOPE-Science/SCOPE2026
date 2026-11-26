@@ -1,15 +1,21 @@
-# Self-review — cubic Walsh lattice phase
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact third Walsh kernel is \((S_N^3-(3N-2)S_N)/6\); finite-difference telescoping yields the stated boundary-binomial formula. The large-dimensional expansion applies the standard fourth-cumulant local binomial correction, evaluates the two continuum Gaussian terms exactly, and adds the derivative-jump Bernoulli terms at zero and both moving nonzero roots. Uniform error control makes the remainder \(O(1)\). The density of the fractional phases along each parity yields the sharp limsup and liminf. Complete rational finite checks through dimension 400 and finite log-binomial phase comparisons support, but cannot replace, the analytic proof.
+## correctness
 
-## Originality — PASS (best-knowledge assessment)
-Defant et al. (arXiv:2208.06467; arXiv:2302.00233) already prove the general invariant-projection formula and first-order asymptotics. A public degree-two Walsh result supplies a separate one-root order-one phase law; its inspected full statement expressly does not cover degree three. Relevant searches for third Krawtchouk absolute moments, exact projection constants, equivalent sign-sum formulations and stronger coverage did not reveal the present two-root correction. Pointwise Krawtchouk WKB is not an L1 averaged phase theorem. An uncatalogued equivalent result is still a bibliographic risk; the novelty conclusion is not externally certified.
+PASS
 
-## Value — PASS
-The cubic chaos projection constant is a natural geometric invariant. Identifying the sharp order-\(\sqrt N\) parity/lattice correction and its exact extremal subsequences significantly refines the previously established \(N^{3/2}\) growth; a universal second coefficient does not exist. The result gives a general structural explanation of the oscillation, not an arbitrary finite computation.
+The known projection formula reduces the question to the cubic sign-sum polynomial (S^3-(3N-2)S)/6. Marking negative signs gives the signed generating polynomial binom(N,3)(1-z)^3(1+z)^(N-3); one cumulative sum removes one factor (1-z). Splitting the positive-S half at the strict outer-root threshold and then doubling establishes the finite identity, including on-lattice roots and zero. The normalized first local Stirling correction is -H4/(12N); the central remainder is integrably summable and the tails follow from binomial concentration. Expanding the absolute value in 2t/N leaves a discrepancy only within O(1/N) of the outer roots, contributing O(N^(-3/2)) to the normalized lattice sum; replacing the first-order perturbation by its integral costs the same order by bounded variation. The continuum coefficient is (8 phi_a-4 phi_0) - (144 phi_a-18 phi_0)/12. The derivative jumps are 6 phi_0 at zero and 12 phi_a at each outer root. Integrating against the periodic B2 gives the coefficient -h^2/2 times the jumps, with smooth remainder O(h^3) from the bounded periodic primitive. This gives a uniform O(1) after restoring N^(3/2)/6. The extrema follow from the exact Bernoulli range and are approached on N=12m^2+1 (odd, phase tending to 1/2) and N=12m^2 (even, integral phase), respectively.
 
-## Limits
-Real homogeneous degree three only. Neither higher degrees nor all-order asymptotics are established. Originality remains subject to independent bibliographic review.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the projection-kernel reduction and the leading Gaussian–Hermite limit to Defant et al. The supported increment is the quantitatively uniform cubic lattice-phase expansion and its exact oscillatory limits and finite boundary identity. There is a distinct catalogue record with exactly the same phase coefficient, extrema and boundary identity, plus parity bands; it is listed later and only states an o(sqrt(N)) remainder. This is demonstrable equivalent coverage of the second-order law, not evidence that it preceded the assigned record, and not an independent priority determination. No inspected earlier source establishes the cubic correction.
+
+## value
+
+PASS
+
+The leading projection-constant scale masks a real, order-sqrt(N) obstruction to a constant second coefficient. Resolving the independent parity and outer-root phases with a bounded error gives sharp dimension-sensitive information about a natural norm invariant; this is not just a more accurate evaluation of its Gaussian limit. The finite identity also treats root-on-lattice dimensions without asymptotic assumptions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

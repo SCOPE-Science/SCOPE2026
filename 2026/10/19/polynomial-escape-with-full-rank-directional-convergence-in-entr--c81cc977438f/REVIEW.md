@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** At \(W=aI_d+bJ\), the exact identity \(WW^\mathsf T=(a^2+b^2)I_d\) reduces the published balanced operator to a scalar and fixes the spectral entropy gradient by radial differentiation. The resulting planar ODE proves invariance and forward completeness. A trapped interval for \(a\), monotonicity and divergence of \(|b|\), and an exponentially stable rescaled equation for \(b^2(a-1)\) yield the sharp time scale, loss equivalent, full-rank direction, and entropy asymptotics. The standalone tests exercise finite instances; all-time conclusions rest on those explicit estimates.
+PASS
 
-## Originality
+For W=aI+bJ, put R²=a²+b². Then the balanced metric operator is N R^(2−2/N) times the identity. At a scaled orthogonal matrix, left/right orthogonal invariance of entropy forces its ambient gradient to be radial (reduce by orthogonal multiplication to RI and use conjugation invariance there). The pair quotient at equal singular values is N R^(2−2/N); scaling gives the gradient (d−1)(1−1/N)W/(2R²). Combining this with the diagonal gradient gives the two ODEs with the claimed c. The boundaries 1 and the positive solution of Na(a−1)=c trap a, while B=|b| keeps its positive initial value as a lower bound and satisfies B′≤c B^(1−2/N). Thus the orbit is complete, invertible, and B diverges, since bounded B would have a positive lower bound on B′. In the clock dτ=R^(2−2/N)dt, the stable equation for a−1 has forcing ca/R²→0, so a→1; the equation for B²(a−1) has limiting damping N and forcing c, giving the stated lag. In physical time (B^(2/N))′→2c/N, hence B has the asserted equivalent. This yields the full-rank normalized direction, loss equivalent, and log coefficient −d(d−1)(N−1)/(4β), with no claim of generic behavior. Independent finite checks (`python3 review_checks/finite_checks.py 2`) compared ambient entropy directional derivatives and integrated with log(B/B₀) as clock in depths 2, 3 and 5. These are normalization and rate checks, not substitutes for the asymptotic proof.
 
-**PASS with residual priority risk.** Treviño's October 2026 paper proves almost-everywhere unboundedness of the general finite-temperature deep-linear flow for depths greater than two but explicitly states that escape rates, directions, and loss decay are open; it treats finite-temperature depth two separately. It does not provide this conformal-skew invariant family or its polynomial and loss-decay equivalents. Chen–Kotwal–Menon analyze only spectral losses; Menon–Yu provide entropy and metric geometry. Those established premises are acknowledged rather than claimed. Although general gradient-flow machinery makes the reduction accessible, no equivalent complete statement was found in the inspected sources or targeted record searches. Independent priority verification remains necessary.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The invariant family is singled out by equal singular values, preservation of the observed diagonal by skew perturbations, and a canonical orthogonal complex structure, not by an arbitrary parameter slice. It supplies simultaneously the exact escape exponent, the observed-loss decay exponent, and the full-rank limiting direction in a recently investigated flow, including the separately delicate depth-two case. It is a nongeneric explicit test family, not a theorem about almost all initial conditions.
+The shared entropy and flow geometry, generic unboundedness for N>2, and unboundedness of the free energy on a static zero-loss family are prior. In the inspected sources, none gives or implies the joint quantitative asymptotics for this finite-temperature conformal-skew trajectory. The pass is for the trajectory and its rates and direction, not for the entropy formula or an assertion about generic escape.
 
-## Closest literature and limitations
+## value
 
-The closest result is Treviño, arXiv:2610.05551v1, especially Sections 2, 11, 12.4 and 12.5. Supporting geometry is Menon–Yu, arXiv:2509.09088, and Chen–Kotwal–Menon, arXiv:2512.06137. The result assumes even width, finite positive inverse temperature, and nonzero skew-complex initial perturbation; it neither settles general rank-pattern behavior at infinity nor supplies independent validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The conformal-skew family is selected by the compatibility of equal singular values and a skew perturbation of the observed diagonal, not by a numerical parameter choice. The result gives an explicit benchmark where every singular value escapes, completion loss nevertheless tends to zero at a sharp rate, and the normalized limit has full rank. In particular it supplies concrete finite-temperature depth-two trajectories without purporting to address general depth-two or generic dynamics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

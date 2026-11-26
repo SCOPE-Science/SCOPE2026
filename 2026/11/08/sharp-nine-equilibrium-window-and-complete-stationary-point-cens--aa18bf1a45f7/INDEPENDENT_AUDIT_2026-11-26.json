@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:55:24.609510Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md:24–77",
+        "VERIFICATION.md:1–19",
+        "checker.py:4–53 (inspection only)",
+        "Independent integer endpoint and interval signs: at h=1/10 use the cubics 250y³+75y²−60y−12, 375y³+450y²+120y−2, and 125y³+375y²+180y+22. For line 1 test (−58,−57), (−19,−18), (45,46), in hundredths, for saddle/source/saddle; for line 2 test (−79,−78), (−44,−43), (1,2), in hundredths, for saddle/source/saddle; for line 3 test (−244,−243) and (−37,−36), in hundredths, for sink and saddle, and substitute y=−1/5 exactly for the third root, a sink. Multiply by 100³ to evaluate cubic endpoints as integers; interval substitution into the determinant factors and trace certifies the type signs."
+      ],
+      "rationale": "Expanding P−2Q gives the three concurrent line factors; the restricted Q cubics give all equilibria in both directions. Their critical values (or discriminant signs) give the three stated open intervals. Each derivative has two distinct zeros, so at zero discriminant there is a double root, not a triple root. The common point (1/5,−2/5) satisfies Q=1/6−h and contributes exactly two duplicate counts at h=1/6. The interval ordering gives nine exactly in the asserted window and the stated counts 8, 6, and 7 at its lower endpoint, upper endpoint, and just above it. The top-degree factors are three distinct directions and each restricted Q has a nonzero cubic term, ruling out intersections at infinity. On a line x=my+b, the determinant reduces to (P−2Q)_x times the derivative of the restricted Q; determinant zeros thus require a critical value or the concurrent point. The full trace is 5x−5x²+(15/2)y². Its zeros on lines one and two occur at parameter values 0, 1/30, or 1/6 only. For line three, writing c=y+1, positive determinant requires |c|>√13/5 and then 15c²−12c+1>0, so the trace is negative. Consequently no positive-determinant branch can cross the imaginary axis. Independent exact sign brackets at h=1/10 establish 5 saddles, 2 sources, and 2 sinks; the types persist throughout the window.",
+      "residual_risks": [
+        "The frozen checker samples a midpoint for trace and determinant, despite its interval-arithmetic comment, and does not use most of the listed expected counts in its assertions. The independent interval signs and all-parameter reasoning above do not rely on either behavior. No global separatrix or orbit classification, formal verification, or expert attestation is established."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Proposition 7.2 excludes periodic orbits for the exact family but gives no real-equilibrium count. The same-day invariant-square record counts boundary equilibria for a quartic six-parameter family."
+        ],
+        "reasoning": "Neither cycle exclusion nor the boundary analysis in a different family yields an all-parameter census or the local type split.",
+        "searches": [
+          "Resultary: Gasull Giacomini Proposition 7.2 equation (16) no periodic orbits and any prior equilibrium census or partial root analysis",
+          "Gasull–Giacomini arXiv:2210.15803 pp. 23, 27; Llibre–Zhao DOI 10.1088/1751-8113/40/47/012"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md:82–90",
+        "Resultary records with suffixes aa18bf1a45f7 (self), d9a0fbcc188c, 90178de4c9e1, 8539bd511b04",
+        "arXiv:2210.15803 equation (16), Proposition 7.2 and reference [34]",
+        "Llibre–Zhao publisher landing page for DOI 10.1088/1751-8113/40/47/012"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior paper gives the field, invariant cubic and cofactor, and uses N_{α,g}=2k²≥0 to exclude cycles. The generic Bézout bound gives at most nine isolated complex intersections but no reality, attainment, or stability."
+        ],
+        "reasoning": "The all-h count requires the restricted cubic critical values and concurrency correction, and the local types require Jacobian signs; none follows from the no-periodic-orbit assertion or the degree bound.",
+        "searches": [
+          "Gasull–Giacomini, equation (16) and Proposition 7.2",
+          "Resultary: Gasull Giacomini equation (16) nine distinct real equilibria sharp parameter interval five saddles two sources two sinks"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact indexed match is this same frozen finding; the independent Nagumo census concerns a coupled three-site system and diffusion instead of equation (16) and parameter h."
+        ],
+        "reasoning": "Equilibria and stationary points are the same algebraic zeros, but those other systems are not formulations of this one.",
+        "searches": [
+          "Resultary: Gasull Giacomini equation (16) exact real equilibrium count for all parameter h cubic planar vector field stationary points",
+          "Resultary: Gasull Giacomini equation (16) nine distinct real equilibria sharp parameter interval five saddles two sources two sinks"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The radical-endpoint hit is the frozen finding itself (rank 11). The other inspected nine-point entry concerns a six-dimensional discrete neuron map. The inspected original passage gives neither a type/count table nor parameter breakpoints for equilibria."
+        ],
+        "reasoning": "The endpoint and nine-point matches outside the source are either self-reference or a different object; no exact independent tabulation was identified.",
+        "searches": [
+          "Resultary: 19/6 - 13 sqrt(13)/15 and 1/6 equilibrium window for Gasull Giacomini invariant cubic flow",
+          "Gasull–Giacomini arXiv:2210.15803, adjacent text to equation (16) and Proposition 7.2"
+        ]
+      },
+      "rationale": "The family, invariant cubic, and absence of periodic orbits are prior work. The distinct supported contribution is the exact all-real-parameter distinct-equilibrium census, including the radical window, coincidence correction, and local types inside the maximal window. The inspected near matches do not supply that claim or a theorem implying it. This is a best-of-knowledge assessment, not a priority guarantee.",
+      "residual_risks": [
+        "Section 4 of Llibre–Zhao was not accessible in the retrieval attempted and may contain partial or equivalent equilibrium information. Unindexed prior work remains possible. Neither the access limit nor the lack of a catalog hit establishes novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the system and cycle exclusion, not the census in the material read",
+          "evidence": "Equation (16) is specified for all real h with an invariant cubic and cofactor; Proposition 7.2 states no periodic orbits.",
+          "identifier_or_url": "https://arxiv.org/pdf/2210.15803",
+          "material_read": "PDF p. 23, equation (16), surrounding discussion and Proposition 7.2 (text offsets 61100–66263); p. 27, ref. [34]",
+          "method": "OA PDF bounded text inspection",
+          "title": "Number of Limit Cycles for Planar Systems with Invariant Algebraic Curves",
+          "trigger": "Exact vector field and known no-periodic-orbit result"
+        },
+        {
+          "assessment": "Unresolved for §4; no negative claim about its contents",
+          "evidence": "Identified as source [34] for the example by Gasull–Giacomini.",
+          "identifier_or_url": "https://doi.org/10.1088/1751-8113/40/47/012",
+          "material_read": "Publisher landing page/abstract only; §4 not retrieved",
+          "method": "Lawful OA attempt at the publisher PDF and repository-copy check",
+          "title": "Algebraic limit cycles in polynomial systems of differential equations",
+          "trigger": "Gasull–Giacomini trace the example to §4"
+        },
+        {
+          "assessment": "Different field and observable; date not used to distinguish coverage",
+          "evidence": "Six parameters and equilibria restricted to the boundary of a square.",
+          "identifier_or_url": "2026/11/8/SCOPE-sharp-eleven-equilibrium-boundary-chamber-in-a-quartic-invariant--d9a0fbcc188c",
+          "material_read": "RESULT.md finding and assumptions, initial passage",
+          "method": "Resultary search and local mirror read",
+          "title": "Sharp eleven-equilibrium boundary chamber in a quartic invariant-square flow",
+          "trigger": "Same-day exact equilibrium classification"
+        },
+        {
+          "assessment": "Different field",
+          "evidence": "Coupled three-site system with diffusion d.",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-equilibrium-census-and-sharp-pinning-fold-on-a-three-site--90178de4c9e1",
+          "material_read": "RESULT.md finding and assumptions, initial passage",
+          "method": "Resultary search and local mirror read",
+          "title": "Exact equilibrium census and sharp pinning fold on a three-site Nagumo system",
+          "trigger": "All-parameter equilibrium census"
+        },
+        {
+          "assessment": "Different object",
+          "evidence": "Discrete neuron map in six dimensions, not the planar cubic flow.",
+          "identifier_or_url": "2026/11/17/SCOPE-sharp-nine-equilibrium-and-four-sink-bounds-in-a-heterogeneous-n--8539bd511b04",
+          "material_read": "RESULT.md finding and assumptions, initial passage",
+          "method": "Resultary search and local mirror read",
+          "title": "Sharp nine-equilibrium and four-sink bounds in a heterogeneous network",
+          "trigger": "Nine equilibria and local types"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md:3–32,34–77 and 82–86",
+        "Gasull–Giacomini equation (16) and Proposition 7.2"
+      ],
+      "rationale": "This is a full parameter classification for a naturally identified, previously studied no-cycle family, not a chosen sample or arbitrary slice. It identifies exactly when the complex intersection ceiling is realized by distinct hyperbolic real points and resolves both a fold endpoint and the three-line coincidence where naïve addition overcounts. The sharp window and type split give usable constraints for further phase-portrait analysis without claiming a global classification.",
+      "residual_risks": [
+        "Value is specific to this planar family and its equilibria, not a general invariant-curve census method or a new limit-cycle theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Scientific review: tetrahedral transition in cube–octahedron convex hulls
+# Independent mathematical audit
 
-## Correctness — PASS
-For every real \(1<t<3\), each of the fourteen displayed generating points is an exposed vertex. The determinant of any four candidate tetrahedron corners is affine in each corner, giving the rigorous reduction to \(1001\) vertex quadruples. The exact integer-polynomial certificate, independently computed by two determinant implementations, gives eighteen sign-normalized classes, with maximum \(\max\{16,t^2(t+3)\}\). The proof bounds all other classes strictly throughout the open parameter interval, identifies the explicit equality configurations, and excludes nonvertex maxima using the absence of shared three-vertex subsets among all ten potential maximizers. Two exact polyhedral dissections give the containing volumes and the uniquely minimized volume fraction. The attached checker replays the claimed finite certificate; infinite-parameter conclusions rest on polynomial inequalities, not sample tests.
+## correctness
 
-## Originality — PASS with specified limits
-The motivating 2013 account of simplex-generated zonotopes introduces the regular rhombic-dodecahedral geometry but does not calculate maximum contained tetrahedra across the stated convex-hull interpolation. The closest published exact tetrahedral result studies the **intersection** of a cube with a parameterized octahedron, which is polar to the present convex hull after scaling; its inscribed-tetrahedron assertion does not transfer under polarity to this one. The published five-dimensional simplex-generated-zonotope bound is also distinct by dimension and object. Specific similarity searches of published results, equivalent-polar formulations, tetrahedron optimizer variants, and exact volumes yielded no exact or dominating claim. This is a qualified best-knowledge comparison, not proof of historical uniqueness; unindexed classical tables and the full original 1996 large-cube determinant article were not exhaustively ruled out.
+PASS
 
-## Mathematical value — PASS
-The object is a canonical interpolation of dual Platonic solids through the rhombic dodecahedron, not a randomly selected point configuration. The complete extremal law applies to every real interpolation parameter and unrestricted tetrahedra. A nontrivial switch between two geometrically distinct optimizing orbits produces the unique least efficient shape in the family; the exact cube and octahedron limits and the dodecahedral fraction provide calibrations. The optimizer rigidity and sharp volume-fraction minimum are structural rather than merely a finite enumeration of special instances.
+Verified the volume law and all unrestricted equality cases on the open interval 1<t<3. Signed coordinate and cube-diagonal linear functionals expose all 14 vertices. Separate affinity reduces the maximum to vertex quadruples. An independent exact replay interpolated the homogeneous 4×4 determinants from t=0,1,2,3 (degree at most three), recovering all 18 classes, all 1001 multiplicities, exactly the two alternating and eight opposite-axis configurations, and maximum pairwise intersection two among these ten. The strict inequalities in RESULT.md:66 exclude every other class throughout the open interval. A positive maximizing determinant expanded over support vertices is an average of signed determinants ≤ that maximum; two support choices at one corner would give distinct maximizing quadruples sharing three vertices, impossible. For the volume dissections, representative side planes are x+(t−1)y=t for t≤2 and x+y+(t−2)z=t for t≥2; all generators satisfy their halfspace inequalities, and signed permutations give the exterior faces of the respective pyramid unions. This gives 8t and 4t², agreeing at t=2. The fraction decreases to τ and increases thereafter, and the independently recomputed decimals agree. Endpoint equality counts are not asserted. Replay for the finite and decimal checks: python review_evidence/finite_checks.py (section labelled 2); the continuum and rigidity steps are analytic.
 
-## Closest literature and limitations
-The primary literature is Živaljević (2013), arXiv:1307.5138. Closest published mathematical comparisons are *Sharp tetrahedral-volume profile in the cube–octahedron intersection family* (2026) and *The largest simplex in every five-dimensional simplex-generated zonotope* (2026), both inspected in their published full research statements/proofs. The explicit result is restricted to three dimensions and \(1<t<3\); it leaves endpoint maximizers, other affine-body families, and independent historical verification open. The numerical checker cannot on its own prove the finite reductions or continuum inequalities; those steps are supplied analytically in `RESULT.md`.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass for the full parameter transition and optimizer rigidity of the frozen claim, not for an isolated t=2 calculation. A later record explicitly covers the entire claim and more; this establishes equivalent present catalogue coverage, not earlier publication. The same-day four-generator zonotope result gives exactly the t=2 slice; the order of those two records is not determined. No inspected earlier result gives or implies the varying-hull transition.
+
+## value
+
+PASS
+
+The natural hull interpolation has a discrete switch of optimizing geometry and a uniquely least efficient shape, at a crossover distinct from the facet-regime change at t=2. The exact profiles and no-nonvertex equality result are useful in simplex packing/shape comparisons beyond the special rhombic dodecahedron or a finite enumeration alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,174 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:31:20.169194Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With independent coordinate inputs and real symmetric L, PBH tests injectivity of evaluation on each eigenspace. The one-edge change is (t−1)bbᵀ, b=e_000−e_100. With z_j=(−1)^x_j, the fixed eigenspaces at 2 and 4 are spanned by (z_2,z_3) and (z_1(z_2−z_3),z_2z_3), respectively. Constants give the sole zero mode because all t>0 considered give a connected positive network. The remaining space is spanned by z_1,z_1(z_2+z_3),z_1z_2z_3; in an orthonormal basis the diagonal 2,4,6 has a rank-one perturbation with every coordinate of its perturbation vector nonzero. For t≠1 no perturbed eigenvalue can equal a diagonal entry (the determinant lemma gives values −4(t−1),4(t−1),−4(t−1)), and none can repeat: a repeated eigenspace would contain a nonzero vector orthogonal to the perturbation vector, hence an eigenvector of the unperturbed diagonal matrix, which is impossible. The evaluation determinant at 2 forces opposite transverse parities and excludes singletons. Those parities also make the evaluation rows at 4 independent: the even row is (0,1), the odd row has nonzero first entry. A vector of the moving space vanishing on such a pair must be proportional to z_1(z_2−s)(z_3−s), where s=z_2=z_3 at the even site. Its support is the opposite transverse edge, and a transverse unit neighbor outside the support has exactly one nonzero support neighbor. The Laplacian applied to it is nonzero there, ruling out an invisible eigenvector. This proves the sixteen placements (four choices from each class). At t=1 the eigenvalue-2 and eigenvalue-4 spaces both have dimension three and their three-row evaluations on the stated triple have determinants of moduli four; the one-dimensional modes are visible. Independent replay: python3 /workspace/reproduce_reviews.py 3 (SymPy 1.14.0) directly constructed the Laplacian, reproduced the characteristic polynomial, and used exact Gram determinants of full Kalman matrices for all sixteen predicted placements. Each determinant vanishes to order four in δ=t−1 at zero and its remaining factor has no real roots in (−1,0) or (0,∞). Sum-of-squared-minors gives the exact rank interpretation. The script additionally checked all pairs at t=1/2,1,2 and the uniform triple; analytically excluded placements rely on the fixed PBH eigenspace, not on those samples.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Distance-regular graphs satisfy a necessary diameter/leader-count bound; for the uniform cube this forces at least three leaders. Graph-compatible family controllability is characterized by zero forcing. The graph-distance rank bound is independent of individual edge weights although the actual Kalman rank is not."
+        ],
+        "reasoning": "The uniform bound does not cover this weighted symmetry breaking. A guarantee for every graph-compatible matrix is stronger but includes the uniform Laplacian, where no pair works, and its failure does not imply failure for a fixed positive nonunit weight. Weight-invariant rank lower bounds cannot encode the exact jump at one.",
+        "searches": [
+          "Zhang–Camlibel–Cao CDC-ECC 2011 §V Thm. 1",
+          "Monshizadeh–Zhang–Camlibel arXiv:1403.4868 Thm. IV.4",
+          "Yazıcıoğlu–Abbas–Egerstedt DOI 10.1109/TAC.2016.2546180"
+        ]
+      },
+      "checked_sources": [
+        "Resultary exact identity 64180d9dff2f; comparisons 45657af810d8, 876293fe84cf, 30587e524e61, c616233acddb, and summary a7a6781d41c6",
+        "Zhang–Camlibel–Cao CDC-ECC 2011",
+        "Yuan et al. ncomms3447",
+        "arXiv:1403.4868",
+        "Yazıcıoğlu–Abbas–Egerstedt DOI 10.1109/TAC.2016.2546180"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The direction-wise weighted record operates in dimensions d≥6, weighting every edge of a direction alike, and distinguishes unrestricted multiplicity two from requiring three dedicated sites. Bipartite defect results are for complete bipartite graphs. The one-detuning Petersen summary has a different graph and minimum."
+        ],
+        "reasoning": "Even knowing the surviving double eigenvalues, rank drops on specific site selections would require checking every eigenspace, including moving modes; no inspected implication supplies that step. Generic nonzero polynomial rank, if available, would not rule out isolated additional exceptional weights. No relative priority within the same day is inferred.",
+        "searches": [
+          "arXiv:1403.4868 §IV and Yuan et al. pp. 2–3",
+          "Resultary c616233acddb (direction-weighted hypercubes), 30587e524e61 (bipartite defect), and same-day Petersen summary a7a6781d41c6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The all-weight sixteen-pair hit was the assigned entry 64180d9dff2f. The Petersen entry a7a6781d41c6 uses the same defect theme but concerns a ten-vertex graph and four-site sets according to the indexed summary.",
+          "The minimum-rank-of-B formulation for symmetric dynamics gives the maximal eigenspace multiplicity, not evaluations on coordinate selections."
+        ],
+        "reasoning": "A freely chosen B and a dedicated vertex selector are not equivalent input constraints. Rotating or translating a defective edge within Q3 only relabels the two parity classes; it cannot turn Petersen or complete bipartite supports into the cube or supply the parity law.",
+        "searches": [
+          "Resultary similarity search: Q3 one edge defect/detuning, opposite transverse-parity dedicated actuator pairs, all positive nonunit weights",
+          "Yuan et al. ncomms3447 pp. 2–3 equations (3)–(4)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Both homogeneous cube records give binomial(d,floor(d/2)) and the weight-one shell at d=3, thus exactly three sites there, but not a nonunit-defect table. Yuan et al. tabulates chain, ring, star and complete graph, not Q3. The single-link actuator-set-polynomial record concerns K_{p,q}."
+        ],
+        "reasoning": "Credit the earlier exact homogeneous minimum and optimal construction; the shell in these Findings is not the specific adjacent-edge triple used in the assigned proof. The other tables do not enumerate any fixed Q3 defect class.",
+        "searches": [
+          "Resultary 45657af810d8, 876293fe84cf, 30587e524e61 and exact cube defect entry 64180d9dff2f",
+          "Yuan et al. Table 1, p. 4"
+        ]
+      },
+      "rationale": "The supported distinct claim is the exact coordinate-pair table as one parity rule for every positive nonunit weight, not the homogeneous minimum, the PBH method, or unrestricted multiplicity-based controllability. Inspected results and related one-link defect records do not yield that classification.",
+      "residual_risks": [
+        "Literature and indexed comparisons are bounded; a one-edge weighted-cube or equivalent leader-selection theorem may be unindexed.",
+        "Petersen comparison is at summary level; no whole-document exclusion. Unweighted minimum is established elsewhere, and no priority for it is asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Necessary bound covers homogeneous minimum lower bound here; does not give coordinate pairs for the defective cube",
+          "evidence": [
+            "Diameter d and m leaders require dm≥n−1 for distance-regular graphs; Q3 has d=3, n=8."
+          ],
+          "identifier_or_url": "https://skoge.folk.ntnu.no/prost/proceedings/cdc-ecc-2011/data/papers/0872.pdf",
+          "material_read": "§V Theorem 1, p. 762, OA offset 31331",
+          "method": "OA conference PDF passage",
+          "title": "Controllability of Diffusively-Coupled Multi-Agent Systems with General and Distance Regular Coupling Topologies",
+          "trigger": "Potential published homogeneous cube and broad placement result"
+        },
+        {
+          "assessment": "Fixed-matrix unrestricted input count, not a dedicated placement theorem; Table 1 is not for cubes",
+          "evidence": [
+            "N_D is defined as min rank(B), and for symmetric A is given by maximum eigenvalue multiplicity."
+          ],
+          "identifier_or_url": "https://www.nature.com/articles/ncomms3447.pdf",
+          "material_read": "pp. 2–3 equations (3)–(4), p. 4 Table 1; OA offsets 10568, 13771, 14518, 25394",
+          "method": "OA article PDF passages",
+          "title": "Exact controllability of complex networks",
+          "trigger": "Possible multiplicity-based implication for every fixed weight"
+        },
+        {
+          "assessment": "Family quantifier is not the defective one-edge family; the converse can fail on a fixed subclass",
+          "evidence": [
+            "A zero forcing set characterizes controllability of the graph-compatible matrix family Q(G)."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1403.4868",
+          "material_read": "Matrix-family definition p. 2 and Theorem IV.4 p. 4, OA offsets 14042 and 36123",
+          "method": "OA arXiv PDF passages",
+          "title": "Zero forcing sets and controllability of dynamical systems defined on graphs",
+          "trigger": "Potential broad exact dedicated-actuator classification"
+        },
+        {
+          "assessment": "Across-weight lower bound does not decide nonunit exact placement",
+          "evidence": [
+            "The lower bound δ_L is independent of the weights while rank(Γ) depends on weight values."
+          ],
+          "identifier_or_url": "https://ece.umn.edu/users/ayasin/Publications_files/TAC17.pdf",
+          "material_read": "Abstract and p. 5, OA offsets 0 and 39665",
+          "method": "OA author PDF passages",
+          "title": "Graph Distances and Controllability of Networks",
+          "trigger": "Across-weight exact rank versus lower bound"
+        },
+        {
+          "assessment": "Covers homogeneous minimum and a shell placement, not detuned pairs",
+          "evidence": [
+            "Unweighted minimum binomial(d,floor(d/2)); in d=3 actuate all weight-one vertices."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-sharp-coordinate-actuator-placement-on-every-binary-hypercube--45657af810d8/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Original Markdown via local mirror",
+          "title": "Sharp coordinate-actuator placement on every binary hypercube",
+          "trigger": "Exact homogeneous cube coverage"
+        },
+        {
+          "assessment": "Direct homogeneous special case, but excludes weighted edges",
+          "evidence": [
+            "Unit-weight cube; binomial minimum and middle Hamming sphere in odd dimension."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-central-shell-actuator-placement-for-boolean-hypercube-con--876293fe84cf/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Original Markdown via local mirror",
+          "title": "Sharp central-shell actuator placement for Boolean hypercube consensus",
+          "trigger": "Second matching unweighted cube result"
+        },
+        {
+          "assessment": "Analogous question but different graph class",
+          "evidence": [
+            "The one-link-defect result is for K_{p,q}; Q3 is bipartite but not complete bipartite (it has 12, not 16, edges across two four-vertex shores)."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-exact-actuator-set-polynomials-for-a-single-link-defect-in-compl--30587e524e61/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Original Markdown via local mirror",
+          "title": "Exact actuator-set polynomials for a single-link defect in complete bipartite graphs",
+          "trigger": "Closest fixed-detuning actuator-set-polynomial approach"
+        },
+        {
+          "assessment": "Direction-wise weights in d≥6, not one defective edge in d=3",
+          "evidence": [
+            "One weight applies to a whole dimension class; maximum multiplicity two is not sufficient for two coordinate leaders in the covered regime."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-parity-obstruction-to-multiplicity-optimal-coordinate-control--c616233acddb/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Original Markdown via local mirror",
+          "title": "A parity obstruction to multiplicity-optimal coordinate control on weighted hypercubes",
+          "trigger": "Exact weighted hypercube parity law under potentially broader weights"
+        },
+        {
+          "assessment": "Material method-level analogue; no verified whole-document exclusion or within-day priority",
+          "evidence": [
+            "Indexed statement is about 104 four-vertex sets on the Petersen graph for positive nonunit weights, not sixteen two-site sets on Q3."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-single-edge-detuning-and-the-exact-104-set-Petersen-controllabil--a7a6781d41c6",
+          "material_read": "Indexed summary only; RESULT.md unavailable in the configured local mirror",
+          "method": "Resultary semantic result and attempted original Markdown access",
+          "title": "Single-edge detuning and the exact 104-set Petersen controllability result",
+          "trigger": "Distinct same-day single-edge-detuning overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The cube is a basic graph with multiple symmetric diffusion modes, and a single perturbed edge is a natural test of exact dedicated placement under broken symmetry. The result decides all location choices and every positive weight, rather than one generic rank example or an unmotivated small search. The lack of extra exceptional weights and the precise transverse control rule are useful when a pair of sites must be chosen without knowing the detuning magnitude. No robustness or quantitative control-energy bound is claimed near t=1.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

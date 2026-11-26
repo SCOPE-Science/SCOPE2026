@@ -1,15 +1,21 @@
-# Self-review: Two-layer rigidity of signed double Italian domination on crown graphs
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact closed-neighborhood identities establish a universal weight-two lower bound. Equality forces matched-pair duplication; integer sums at weight three force exactly one exceptional matching index. Each converse is checked against all open-neighborhood defender requirements, not merely the closed-sum inequalities. The parity-sensitive Roman exclusion is proved by counting forbidden label compositions. Independent direct-graph and symbolic-convolution programs agree on their overlapping finite ranges. The proof is infinite-family; computations are only corroboration.
+## correctness
 
-## Originality — PASS (priority provisional)
-The 2023 foundational signed double Italian paper was inspected in full relevant sections; it treats cycles, stars and Petersen rather than this crown census. The closest published-finding corpus signed double Roman crown theorem was read in full; it already settles the stronger Roman minimum and the duplication necessary at its lower bound, and those facts are credited. It does not imply the additional Italian optimum configurations or the weight-three census. Published ordinary Italian, perfect double Italian and signed total crown enumerators use different predicates. The 2025 survey was only accessible in excerpt. Unindexed exact tables remain a risk.
+PASS
 
-## Mathematical value — PASS
-The result solves a natural low-weight enumeration problem on an infinite, highly symmetric matching-deleted graph family. The complete one-mismatch classification at the next possible weight is a structural stability statement and supports a precise count of optimum Italian labelings that violate Roman defense. Neither a whole-polynomial result nor a general domination theorem is claimed.
+On the crown K_{n,n}−M each deleted pair has closed sums B+a_i−b_i and A+b_i−a_i adding to W, so W≥2. At W=2 their equality to one gives (n−2)(1−B)=0 and duplication with common sum 1. For n≥4, such a vector has at least two negatives; opposite-shore positive total 1+r with r≥2 supplies rescue for every −1 and, after subtracting its paired 1, for every 1. Examples at n=4 and 5 extend by appending a duplicated −1,1 block at each two-size increment. At W=3, n≤3+(n−2)B≤2n gives B=1 or 2 for n≥4. In the B=1 orientation the differences are 0 or 1 and sum to 1, allowing only (2,1) or (3,2). The common vectors sum to 0 or −1 and have at least two negatives, so both total positive sums are ≥3; the unmatched 1, where present, sees positive sum r≥2. Counts follow by shifting each common label by 1, including the 2n choice of mismatch shore and slot. A duplicated weight-2 vector obeys the Roman rescue tests exactly when a 3 or at least two 2s occur; counting the other cases gives the parity formula. The table's 'Excluded Roman minima' header means Italian minima excluded from the Roman class, not Roman minima. At n=3 and W=3, B may also be 0 or 3, but B=0 would require all three differences to be exactly 1, forcing b_i≥1 and contradicting B=0, and B=3 is symmetric. With B=1 only the (2,1) mismatch can have two common labels with the prescribed sum, namely (−1,1) in either order, and the mismatched 1 then fails rescue; B=2 is symmetric. The n=3 W=2 possibilities leave only permutations of (−1,−1,3). Replay: RESULT.md 29–41 and python3 /workspace/reproductions/crown.py, which independently groups the shores by sum to enumerate weight 2–4 for 3≤n≤6 and checks both predicates on explicit graph neighborhoods. Its weight-2 (Italian,Roman) counts are (3,3),(12,0),(40,30),(90,30), and Italian weight-3 counts 0,48,140,420. For n=4 the script finds no Roman functions at weights 2,3 and 42 at weight 4. Supplied code and transcript were inspected, not executed.
 
-## Closest literature and limitations
-Foundational source: Almulhim, *AIMS Mathematics* 2023, DOI 10.3934/math.20231580. Nearest same-graph prior source: published published-finding corpus signed double Roman crown theorem (2026), which covers the scalar Roman minimum. The claim is limited to two Italian weight layers for connected crowns and does not establish priority beyond searched literature.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The surviving new contribution on inspected evidence is the signed Italian layer classification and enumeration, especially the one-mismatch next layer; the Roman minimum and its weight-2 duplicated structure, and the scalar Italian minimum where implied by it, are credited as known. The exclusion formula quantifies the Italian-versus-Roman difference, not a new Roman minimum theorem.
+
+## value
+
+PASS
+
+The exact low-weight classification on an infinite canonical family improves on a scalar minimum: every optimum synchronizes the deleted matching and every next-layer labeling has exactly one constrained defect. The parity-dependent split from Roman optimality explains concretely how the two established predicates differ on crowns. The classification does not pretend to give the entire polynomial.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

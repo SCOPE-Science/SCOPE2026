@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:01:12.010983Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–90",
+        "Frozen VERIFICATION.md and verify.py, inspected as recorded evidence",
+        "/workspace/replay/restart_rates.py"
+      ],
+      "rationale": "The substitution w=rho^4/(16 D0 t) gives the normalized Gamma(beta,1) law against rho d rho. Substitution in the radial equation gives the time derivative and flux O(rho^(4-2 alpha)) at the origin. Differentiating the renewal equation cancels the reset terms, giving H'=exp(-rt) F'<0. The stationary complement is E[exp(-ra/G)] for G Gamma(beta,1), so it is continuous and strictly decreases from 1 to 0 and agrees with the stated Bessel transform. At equality the stationary limit is approached from above, never reached in finite time. The positive independent gamma increment as beta increases strictly decreases the stationary inside mass at fixed r, so r_c increases. In scaled time x=r_c t the exact excess is B times the integral over s>=x of exp(-(1-epsilon)s-ar_c/s) s^(-beta-1). Putting s=x+v bounds the relative correction in the non-exponential factor by (ar_c+(beta+1)v)/x, giving a uniform endpoint estimate for r near r_c. The Bessel derivative gives C=r_c h'(r_c)>0. At x=L-(beta+1)log L+xi the excess is epsilon B exp(-xi)(1+o(1)), while h-q=-C epsilon+O(epsilon^2). Opposite signs at offsets bracketing log(B/C) prove the crossing law. Independent log-gamma-variable quadrature returned illustrative median rates 6.32171847633020, 4.01024550580277, and 1.92181205567281.",
+      "residual_risks": [
+        "The clock limit fixes a, q and beta; no joint limit as q approaches an endpoint or reset mechanism changes is proved. The quadrature corroborates the rates, not the theorem."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The strongest inspected equations give three interpretations and a median threshold, not a fixed-offset clock for the continuum of gamma shapes and arbitrary quantile.",
+          "A general conditional mechanism would use -F'(t) asymptotic to d t^(-p) and a nonzero stationary slope, giving the coefficient -p by endpoint expansion."
+        ],
+        "reasoning": "The general Poisson renewal representation is an input, not itself a prior endpoint clock theorem. No dominating published endpoint quantile theorem was established in the checked material.",
+        "searches": [
+          "Literature lookup for a general restart quantile asymptotic",
+          "arXiv:2609.24427v1, Sec. 2.4, Eqs. (47)–(51)"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.24427v1, Sec. 2.4",
+        "Resultary 82659e25c406, RESULT.md",
+        "General restart-quantile literature lookup"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At q=1/2 for each of the three prior free laws, renewal differentiation followed by endpoint expansion gives the corresponding log-log term and intercept from the prior inputs.",
+          "The cited passage itself only describes logarithmic divergence and does not give the continuous-beta fixed-offset result."
+        ],
+        "reasoning": "Do not count the known threshold or sole leading logarithm as original. The median special cases follow from prior inputs plus an asymptotic calculation, not by equating their stated asymptotic to the sharper claim. The arbitrary-quantile shape-ordered window remains distinct on the checked evidence.",
+        "searches": [
+          "Sandev et al., arXiv:2609.24427v1, Eqs. (47)–(51) and the paragraph on divergent threshold times"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sandev et al. use inside-radius mass, allow re-entry and discuss the time to reach median occupancy.",
+          "The catalogue radial-threshold process resets at a first hit, not at an independent Poisson age."
+        ],
+        "reasoning": "The inside-mass median is an exact special-case match in variables; first-passage and state-triggered resetting are not equivalent to this observable.",
+        "searches": [
+          "Sandev et al., arXiv:2609.24427v1, Sec. 2.4, occupancy versus survival",
+          "Resultary record 82659e25c406, radical difference between Poisson and radial-hit resetting"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The catalogue hit concerns a threshold-triggered squared-Bessel resetting problem and stationary and count observables.",
+          "The prior median rate examples overlap, but the new invariant is a two-term crossing clock and its fixed-offset window, not a table of rates."
+        ],
+        "reasoning": "There is positively established overlap for median rates; no compared catalogue entry supplied the full clock. This is not an exhaustive negative database claim.",
+        "searches": [
+          "Resultary search for a Poisson-reset disk-occupancy quantile clock; closest distinct record 82659e25c406",
+          "arXiv:2609.24427v1, Sec. 2.4 threshold examples"
+        ]
+      },
+      "rationale": "Credit the known Poisson renewal law, the three conventional free laws and median threshold, and the already reported leading logarithmic divergence to prior work. Those prior equations also supply the inputs from which the sharper median special cases can be derived. The supported distinct contribution is the explicit fixed-offset second-order window (including its intercept) for arbitrary fixed quantile and continuous gamma shape, together with the shape-order comparison. The strongest checked literature and catalogue comparisons do not establish that full statement.",
+      "residual_risks": [
+        "A general endpoint-quantile asymptotic published under other terminology could cover the calculation. Literature and catalogue lookup were bounded; this is not a global priority certificate."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct median threshold coverage; supplies inputs to the three median asymptotic special cases, does not state the full window",
+          "evidence": [
+            "Three free masses, exponential-age renewal law and stationary threshold",
+            "Qualitative logarithmic divergence with no explicit log-log correction or intercept"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2609.24427v1",
+          "material_read": "Sec. 2.4, HTML offsets 20837–27634, Eqs. (47)–(51) and divergence discussion",
+          "method": "Bounded reading of primary OA article",
+          "title": "Heterogeneous planar diffusion with axisymmetric power-law decaying diffusion coefficient under stochastic resetting",
+          "trigger": "Exact antecedent for the three conventional interpretations and median crossing"
+        },
+        {
+          "assessment": "Different reset trigger and invariant",
+          "evidence": [
+            "The radial hit drives reset, and the results concern stationary laws and reset-count fluctuations."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-planar-power-diffusion-universality-under-radial-threshold-reset--82659e25c406",
+          "material_read": "RESULT.md opening statement",
+          "method": "Local Resultary search and mirror read",
+          "title": "Planar power diffusion universality under radial threshold reset",
+          "trigger": "Nearest distinct catalogue model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, critical window and clock",
+        "arXiv:2609.24427v1, Sec. 2.4"
+      ],
+      "rationale": "The leading log is insensitive to the stochastic prescription. The cancellation in the exact relaxation excess changes the algebraic exponent by one relative to the isolated no-reset term; the clock resolves that exponent experimentally in principle and gives a quantitative offset rather than a leading-order divergence only. The three log-log coefficients and shape dependence distinguish models that the leading law alone cannot distinguish.",
+      "residual_risks": [
+        "The correction is an asymptotic statement for the idealized model; no empirical resolvability or uniform finite-distance error guarantee is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

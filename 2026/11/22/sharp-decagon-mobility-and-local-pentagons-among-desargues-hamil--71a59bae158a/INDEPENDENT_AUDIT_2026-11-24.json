@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T12:07:29.326059Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At each cubic vertex the edge omitted by a Hamiltonian cycle gives one perfect matching edge, and two distinct matchings give an alternating two-regular difference on their active vertices. Thus a move requires testing connectivity of the entire difference, not just its size. A fresh exact enumeration branches on all 1024 subsets of spokes: after deleting the endpoints of selected spokes, a rim has either an even cycle (two matchings), a disjoint union of even paths (one forced matching), or an odd path (no matching). This exhausts the possibilities without relying on the frozen matchers. It gives 36 complementary (10,10) factors and 24 Hamiltonian factors. All 276 unordered pairs give 84 connected differences of size 10, 60 connected of size 18 and 132 disconnected, size counts 10:84, 12:60, 16:60, 18:60, 20:12. All states have seven neighbours and their two-step balls are the whole state set. The local degrees are five twos and two zeros; the degree-two vertices form one simple pentagon, giving 24*5/3=40 triangles. Pairwise intersections independently give two common neighbours for all 192 nonadjacent pairs, and 60/24 adjacent pairs with two/zero; the local structure alone is not used to infer the nonadjacent count. An explicit isomorphism to the subset incidence graph transports the states, and enumerating the coordinate action and exact edge images checks state transitivity and edge orbits of sizes 60 and 24. These are exhaustive finite checks, not a general claim about other graphs. Replay: python3 -B /workspace/reproductions/3.py.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dyer–Jerrum–Müller, abstract: switch chain for bipartite perfect matchings.",
+          "Tutte–Coxeter record, Finding: same single-decagon move, but 144 Hamiltonian states and diameter four on a different graph.",
+          "Takaoka publisher landing evidence, not full text; the frozen citation describes two-edge switches."
+        ],
+        "reasoning": "A general matching switch chain or a result for a different base graph does not establish the exact smaller graph's exchange lengths and neighbourhood structure. Full-text limitations on the general reconfiguration citation remain.",
+        "searches": [
+          "arXiv:1501.07725",
+          "doi:10.3390/a11090140",
+          "2026/11/2/SCOPE-decagon-trades-connect-all-hamiltonian-cycles-of-the-tutte-coxet--2d918f37db93"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and both Python verifier sources (read only)",
+        "Resultary local mirror records identified above",
+        "Dyer–Jerrum–Müller PDF abstract",
+        "Takaoka publisher landing evidence"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier records respectively change the admissible move length/state filter, the state encoding and legality rule, or the underlying graph."
+        ],
+        "reasoning": "A static Hamiltonian count or a list of matching states does not mechanically give the classification of full pairwise differences, the pentagonal links, or the symmetry edge orbits. No prior statement supplying that transition structure was established.",
+        "searches": [
+          "Desargues matching record Finding",
+          "Desargues edge-Kempe record Finding and Proof 3",
+          "Tutte–Coxeter trade record Finding and proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The indexed same-claim hit 2026/11/22/SCOPE-sharp-decagon-mobility-and-local-pentagons-among-desargues-hamil--71a59bae158a is the frozen record itself.",
+          "2026/11/2/SCOPE-hexagon-isolation-and-octagon-bridges-in-desargues-perfect-match--f46dd29846e2, Finding: 60 matchings with length-6/8 flips."
+        ],
+        "reasoning": "In matching coordinates the target changes five matching edges simultaneously and keeps only matchings with connected complements. Neither a 24-state matching class nor a six- or eight-edge flip classification specifies those length-ten adjacencies.",
+        "searches": [
+          "Resultary: Desargues Hamiltonian decagon trades and matching complements",
+          "Public search: Desargues graph Hamiltonian cycles reconfiguration alternating-cycle exchange switch ten-cycle"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/10/26/SCOPE-a-desargues-component-inside-the-desargues-edge-kempe-graph--5e4cc13d96d8, Finding and Proof 3: explicit 20-state component isomorphism and certificate of 36 adjacencies in a 32-state colouring quotient.",
+          "The public search surfaced static graph/generalized Petersen material rather than a distinct table of the target exchanges."
+        ],
+        "reasoning": "An explicit table for a bichromatic colouring quotient is not a table for Hamiltonian edge sets. The exact Resultary hit was self-identity, not a previously distinct database entry. The search does not rule out another differently indexed table.",
+        "searches": [
+          "Resultary: Desargues matching and Kempe state listings; Tutte–Coxeter decagon trade graph",
+          "Public search: Desargues graph Hamiltonian cycles reconfiguration alternating-cycle exchange switch ten-cycle"
+        ]
+      },
+      "rationale": "The static 24-cycle count and matching-complement model are background. The distinct claim is the first legal exchange length and the complete independent local, metric and orbit counts for the induced Hamiltonian state space. The closest same-move and same-graph records each differ on a hypothesis decisive for the transition graph; the result is not implied by either. Bounded best-of-knowledge judgment, not historical certification.",
+      "residual_risks": [
+        "The available Takaoka passage was not full text.",
+        "An unindexed exact adjacency table or an equivalent classification under other tour or matching nomenclature may exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Close analogue, different base graph",
+          "evidence": [
+            "144 states, 504 trades, degree seven, diameter four on the 30-vertex graph."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-decagon-trades-connect-all-hamiltonian-cycles-of-the-tutte-coxet--2d918f37db93",
+          "material_read": "RESULT.md Finding and proof, offset 0",
+          "method": "Local Resultary source mirror",
+          "title": "Decagon trades connect all Hamiltonian cycles of the Tutte–Coxeter graph",
+          "trigger": "Identical decagon trade rule"
+        },
+        {
+          "assessment": "Different states and move lengths",
+          "evidence": [
+            "All 60 perfect matchings, length-six and length-eight alternating flips."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-hexagon-isolation-and-octagon-bridges-in-desargues-perfect-match--f46dd29846e2",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary source mirror",
+          "title": "Hexagon isolation and octagon bridges in Desargues perfect-matchings",
+          "trigger": "Same graph and matching-complement reduction"
+        },
+        {
+          "assessment": "Table is for a different move graph",
+          "evidence": [
+            "32 edge-colouring states modulo colours, component graph D disjoint union six K2; certificate lists 36 adjacency pairs."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-a-desargues-component-inside-the-desargues-edge-kempe-graph--5e4cc13d96d8",
+          "material_read": "RESULT.md Finding and Proof 3, offset 0",
+          "method": "Local Resultary source mirror",
+          "title": "A Desargues component inside the Desargues edge-Kempe graph",
+          "trigger": "Potential explicit comparable adjacency table"
+        },
+        {
+          "assessment": "General context, not the target classification in the material read",
+          "evidence": [
+            "Switch chain on matchings of bipartite graphs."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1501.07725",
+          "material_read": "PDF page 1 abstract, passage offset 519",
+          "method": "Open-access paper text",
+          "title": "On the switch Markov chain for perfect matchings",
+          "trigger": "Matching exchange literature"
+        },
+        {
+          "assessment": "Unresolved full-text access, not negative evidence",
+          "evidence": [
+            "No inspected theorem passage from the source; the frozen record describes it as two-edge switches."
+          ],
+          "identifier_or_url": "https://doi.org/10.3390/a11090140",
+          "material_read": "Publisher landing evidence only; text extraction not available",
+          "method": "Lawful publisher page and identified PDF attempts",
+          "title": "Complexity of Hamiltonian Cycle Reconfiguration",
+          "trigger": "Same storage of configurations as Hamiltonian cycles"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The Desargues graph is a natural small symmetric cubic graph and single-cycle trades are the canonical components of perfect-matching differences. Imposing Hamiltonicity can forbid short trades; pinning down the first allowed length, two-step reachability and the two local kinds of moves tells a researcher how the Hamiltonian constraint changes that dynamics. Neither the static count nor an arbitrary enumeration cutoff is the contribution.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

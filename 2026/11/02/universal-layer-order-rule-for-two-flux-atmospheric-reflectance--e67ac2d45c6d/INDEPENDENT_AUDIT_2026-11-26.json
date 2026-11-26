@@ -1,0 +1,153 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:58:53.123665Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–75",
+        "Frozen VERIFICATION.md and verify.py",
+        "Independent direct fraction evaluation of the three-layer example from its parameters"
+      ],
+      "rationale": "The adding map f_i(x)=r_i+t_i^2 x/(1-r_i x) is strictly increasing on [0,1], with f_i(1)<=1 and equality only at r_i+t_i=1. Write its projective matrix as I+r_i[[-w_i,1],[-1,0]]. The commutator of two such matrices is h[[0,1],[1,0]], h=r_i r_j(w_j-w_i). If the reverse product acting on (x,1) gives (c,d), the difference between the two stack albedos is h(d-cx)/(d(d+hx)). Both denominators are positive by factoring them as the denominators of the two physical adding steps. For x<1 the factor 1-x(c/d) is positive. For x=1 it can vanish only if both sheets are lossless: a lossy outer sheet has f_i(1)<1, and a lossy inner sheet gives the strictly increasing outer sheet an argument below 1. Two lossless sheets have w_i=w_j=2, so unequal-index swaps remain strict even at white backing. Equal indices commute. The prefix is strictly increasing, so any adjacent inversion can be strictly improved, while equal-index swaps preserve the value; reversing the sign argument gives the minimum. Passivity gives w>=2 and the fixed-point equation p^2-wp+1=0 gives the indicated decreasing index p. Iterating the same sheet from a black backing converges to its unique fixed point in [0,1]. For Kubelka–Munk with a=1+K/S, b^2=a^2-1, s=sinh(theta), c=cosh(theta), and D=as+bc, the claimed reduction follows from D^2+s^2-b^2=2asD. The positive-thickness lossless limit gives r+t=1 and w=2. As an independent illustrative check, exact fraction composition of all six example orders yields BAC=204/437 and CAB=159/428 as the unique maximum and minimum. The frozen script was inspected, not run; universality follows from the swap proof.",
+      "residual_risks": [
+        "The result requires reciprocal symmetric passive two-flux layers with positive r and t; opaque, purely transmitting, angle-dependent, asymmetric, or spectrally mixed cases do not follow by this proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hébert–Hersch–Becker's abstract describes pairwise and multilayer composition, including Kubelka's model",
+          "The frozen record credits Kubelka Eq. (26) with the same index in a three-sheet transmittance comparison; that exact primary passage was not recovered",
+          "The general matrix-ordering paper gives sorting-time solvability under simultaneous triangularizability, while its unrestricted nonnegative linear objective is strongly NP-hard"
+        ],
+        "reasoning": "An adding formula alone does not compare noncommuting products; a transmittance ordering would not directly settle all-backing reflectance and strict equality. The nearest general matrix theorem does not apply as noted above. An inaccessible optical passage is not a finding of noncoverage.",
+        "searches": [
+          "Kubelka DOI 10.1364/JOSA.44.000330 and lawful publisher/Harvard ADS full-text routes",
+          "Hébert–Hersch–Becker DOI 10.1364/JOSAA.24.002628, author-hosted abstract",
+          "DOI 10.4230/LIPIcs.ISAAC.2024.44 Theorems 5–6"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md optical swap and relation to prior work",
+        "Kubelka DOI 10.1364/JOSA.44.000330 (access limit)",
+        "Hébert–Hersch–Becker DOI 10.1364/JOSAA.24.002628 (abstract only)",
+        "ISAAC 2024 DOI 10.4230/LIPIcs.ISAAC.2024.44",
+        "Resultary 184f0c7de82e and 739609cf945d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact factor in the optical pairwise swap has a strict sign for unequal indices even at x=1",
+          "Lossless pairs all have w=2 and commute; no further equality case at white backing",
+          "Composition and a three-layer transmittance comparison as described do not already state this reflectance comparison; the matrix ordering setup has a materially different hypothesis and objective"
+        ],
+        "reasoning": "To settle the stated result, one needs a sign uniform in the lower suffix and preserved by arbitrary prefixes, as well as the exact equality analysis. The inspected statements do not supply these, and no implication from the distinct relaxation-ordering results was identified.",
+        "searches": [
+          "DOI 10.4230/LIPIcs.ISAAC.2024.44 §1, Theorems 5–6",
+          "Hébert–Hersch–Becker author-hosted abstract",
+          "Frozen RESULT.md relation to Kubelka 1954 Eqs. (10), (18), (19), (26)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The problem is ordering linear fractional maps with a fixed substrate, not ordering affine maps or minimizing a linear functional of matrix-product entries",
+          "Distinct optical w give no common invariant line: common fixed points would solve p^2-w_i p+1=p^2-w_j p+1=0, which would force p=0, and infinity is not fixed"
+        ],
+        "reasoning": "The absence of a common invariant line excludes simultaneous triangularization, including over the complex numbers. Therefore even reducing a ratio question to linear product comparisons would not put a heterogeneous stack under the inspected general O(n log n) ordering theorem. The exact reflectance sort is equivalently decreasing semi-infinite albedo or, for Kubelka–Munk layers, increasing K/S.",
+        "searches": [
+          "Monotone Möbius composition-sorting and optimal ordering of positive or nonnegative 2x2 matrix products",
+          "DOI 10.4230/LIPIcs.ISAAC.2024.44, Theorems 5 and 6",
+          "Resultary search for two-flux reflectance by semi-infinite albedo or intrinsic index"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Local mirror record 184f0c7de82e RESULT.md offsets 340–2892 orders periodic quadratic Blaschke maps for an asymptotic relaxation quantity",
+          "Local mirror record 739609cf945d RESULT.md offsets 245–3389 likewise orders periodic Blaschke relaxations, not surface albedo"
+        ],
+        "reasoning": "The exact research-record query targets a symbolic rearrangement theorem, not a numerical table. The closest indexed analogues change both the family of maps and the optimized observable, and provide no covering optical theorem.",
+        "searches": [
+          "Resultary search for all-backing two-flux layer sorting by intrinsic or semi-infinite albedo",
+          "Resultary search for Möbius composition-ordering and pairwise exchange rules"
+        ]
+      },
+      "rationale": "The supported distinct claim is the arbitrary-stack, every-backing reflectance rearrangement with strict unequal-index swaps and complete equality cases, not the adding law or the optical index. No inspected stronger statement implies it: the related matrix-ordering theorem requires simultaneous triangularizability and optimizes a linear scalar objective, not these projective ratios. The strongest available optical comparison describes a composition framework; the unresolved full-text historical comparisons are stated limits, not evidence of noncoverage.",
+      "residual_risks": [
+        "The older Kubelka primary comparison and the full Hébert–Hersch–Becker text could not be independently inspected, and historical optical-coating priority is not established. The 2015 two-flux survey and Plass et al. (1973) were not independently compared at passage level. None of these limits substitutes for scientific evidence of existing coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Full-text limit; the frozen record's account of the three-sheet transmittance example is attributed to it and is not independent primary evidence",
+          "evidence": [
+            "Publisher landing page identifies 44(4), 330–335; publisher full text was unavailable and ADS did not yield a readable scan",
+            "The frozen record credits Eqs. (10), (18), (19) with adding formulas and Eq. (26) with the optical index in a transmittance comparison"
+          ],
+          "identifier_or_url": "10.1364/JOSA.44.000330",
+          "material_read": "Publisher bibliographic/abstract page only; the claimed Eq. (26) was not independently accessed",
+          "method": "Lawful publisher and Harvard ADS routes and targeted author-copy search",
+          "title": "New Contributions to the Optics of Intensely Light-Scattering Materials. Part II: Nonhomogeneous Layers",
+          "trigger": "Classical optical adding source and potentially close intrinsic-index comparison"
+        },
+        {
+          "assessment": "The read material establishes a composition framework but cannot exclude a theorem in the full text",
+          "evidence": [
+            "Calculates two-layer/interface composition and extends to three or more bifaces, with Kubelka as a special case"
+          ],
+          "identifier_or_url": "10.1364/JOSAA.24.002628",
+          "material_read": "Author-hosted abstract, HTML offsets 55–1686, not the article body",
+          "method": "Public author-hosted publication page; publisher full text unavailable and a repository attempt returned 403",
+          "title": "Compositional reflectance and transmittance model for multilayer specimens",
+          "trigger": "Closest later two-flux composition framework"
+        },
+        {
+          "assessment": "Different objective and restrictive tractability hypothesis; does not imply the optical sort",
+          "evidence": [
+            "Theorem 5 assumes simultaneously triangularizable 2x2 matrices and nonnegative determinants for O(n log n) under a linear scalar objective",
+            "Theorem 6 concerns hardness of the unrestricted linear-objective extension"
+          ],
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.ISAAC.2024.44",
+          "material_read": "ISAAC 2024 proceedings PDF pp. 1 and 5–6, Theorems 5–6; decisive passage near offset 18000",
+          "method": "Lawful proceedings PDF, locate and read around simultaneous triangularizability",
+          "title": "Composition Orderings for Linear Functions and Matrix Multiplication Orderings",
+          "trigger": "Specific general matrix-product ordering candidate"
+        },
+        {
+          "assessment": "Different maps and asymptotic objective",
+          "evidence": [
+            "Periodic quadratic Blaschke maps and neutral relaxation constants"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-sharp-schedule-ordering-and-logarithmic-relaxation-for-neutral-p--184f0c7de82e",
+          "material_read": "RESULT.md offsets 340–2892",
+          "method": "Resultary local mirror",
+          "title": "Sharp schedule ordering and logarithmic relaxation for neutral periodic maps",
+          "trigger": "Strong composition-ordering catalogue analogue"
+        },
+        {
+          "assessment": "Different maps and asymptotic objective",
+          "evidence": [
+            "Periodic critical relaxation coefficients, not reflectance at variable backing"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-optimal-ordering-and-exact-critical-relaxation-in-periodic-blasc--739609cf945d",
+          "material_read": "RESULT.md offsets 245–3389",
+          "method": "Resultary local mirror",
+          "title": "Optimal ordering and exact critical relaxation in periodic Blaschke compositions",
+          "trigger": "Related composition-ordering catalogue result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding, strict adjacent-swap proof and three-layer example",
+        "Classical optical composition baseline as far as accessible"
+      ],
+      "rationale": "A fixed collection of physical layers and an uncertain substrate give a natural ordering problem. A single scalar sort resolves both global extrema at every albedo, handles all ties, and reveals that raw sheet reflectance can choose the wrong order and that thickness drops out of the homogeneous-layer criterion. These properties are useful rather than a mere alternative matrix representation.",
+      "residual_risks": [
+        "This is a result for a model and a fixed multiset, not evidence of a practical engineering optimum or ordering for broadband/angular transport."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

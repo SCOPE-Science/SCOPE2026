@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:34:58.293576Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For arbitrary base field, fixing rank u fixes the dimension of ker A. Relative position of ker A and im B is exhausted by intersection dimension v−t, and independent source and target basis changes exhaust the choices of surjection B and injection on Y/ker A. Conjugating by the unipotent off-diagonal S,T changes only C, by SB−AT. The entire kernel of C ↦ (ker B → X/im A) consists of such changes: first extend the im A-valued part on ker B, then factor the remainder through B. The restriction/quotient map is onto. By complementary extensions, the Levi stabilizer acts independently and fully on the two residual spaces, so w gives exactly one orbit per admissible tuple. Counting choices of the intersection, its projection and its lifts produces q^{t(b−u−v+t)}; multiplying the injection counts and constant C-fibre count verifies every cardinality factor. Projection of im N to Y has dimension v with kernel im A+C(ker B), so the rank and Jordan formulas follow, and the uniform quotient-map distribution proves conditional independence. The balanced summand is h[(2 times sum over ell from 0 to m of min(ell+1,h))−min(m+1,h)] for m=max(u,v) and h=n−m+1. Independent symbolic summation of its two polynomial pieces gave the claimed parity formulas. Independent image-cardinality enumeration, via python /workspace/branches/independent-reproductions/algebra_reproduction.py, verifies all 4096 triples for (q,a,b,c)=(2,2,2,2) and 6561 for (3,2,2,1). The finite checks are corroboration only; the classification proof uses the full parabolic, not just the unipotent radical or the incidence-algebra unit group. The bundled checker was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Goodwin–Hille–Röhrle's (1,a,1) family includes (1,1,1), exactly the three-block shape with arbitrary positive block dimensions in their setup over the algebraic closure.",
+          "Bardestani–Mallahi-Karai–Ram–Salmasian give a Macdonald coefficient formula for the counts by ambient Jordan type on parabolic radicals. Karp–Thomas similarly develop compatible-flag counts from Jordan forms."
+        ],
+        "reasoning": "The first result covers the finite-type geometric problem, but descent and stabilizer cardinalities need more. Jordan type remembers only u+v+w and t. For instance in three singleton blocks, an isolated A, B or C of rank one gives three distinct parabolic orbits of the same ambient partition (2,1). Knowing aggregate masses does not give the four-label census or orbit numbers.",
+        "searches": [
+          "arXiv:0711.3711v1 Table 2, Theorem 1.1",
+          "arXiv:2503.15440v4 Theorem 1.15, F^mu_lambda",
+          "arXiv:2207.12590 q-Whittaker partial flags and Jordan forms"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:0711.3711v1",
+        "arXiv:2503.15440v4",
+        "arXiv:2207.12590",
+        "Resultary SCOPE-rank-spectra-of-square-zero-elements-in-three-block-parabolic-ra--d1f94ed041a2",
+        "Resultary SCOPE-square-one-conjugacy-class-spectra-in-three-block-unipotent-radi--07228f5d7751"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The square-zero summand recovers the present cardinality algebraically by Gaussian symmetry in the rank-map count. For the later square-one result, grouping its q^d-sized unipotent classes by the Levi orbit of (A,B) and residual-map rank reproduces the same t=0 product in characteristic two.",
+          "In t>0 the new lift count for im B relative to ker A is G_q(b−u,v−t)G_q(u,t)q^{t(b−u−v+t)}, rather than simply counting a subspace of ker A."
+        ],
+        "reasoning": "The restricted numerical implication is exact and credited. The AR representation framework can produce normal forms, but its cited classification does not evaluate finite-field stabilizers at the relevant labels or give the displayed all-t cardinality and two parity polynomials by simple substitution.",
+        "searches": [
+          "Goodwin–Hille–Röhrle §2 Lemma 2.2 and Appendix A for passage from AR data to finite-field orbit sizes",
+          "Resultary earlier square-zero theorem and proof steps 1–2; later square-one theorem and proof steps 1–3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A parabolic orbit is an isomorphism class of a flag with a nilpotent map lowering that flag. Goodwin–Hille–Röhrle encode these over an algebraically closed field using Δ-filtered modules; their Lemma 2.2 and Appendix A describe correspondence and AR data.",
+          "In characteristic two N²=0 iff (1+N)²=1, but conjugating 1+N by the three-block unipotent group leaves A,B themselves fixed. This is not the full-parabolic action."
+        ],
+        "reasoning": "Identify the exact action and coefficient field before importing module or group results. Unipotent classes may be grouped by the Levi action, but a square-one spectrum at most covers t=0 and characteristic two.",
+        "searches": [
+          "Resultary: rank-spectra of square-zero elements in three-block parabolic radicals; square-one conjugacy spectra",
+          "Goodwin–Hille–Röhrle arXiv:0711.3711v1, §2 and Appendix A, filtered-module and quiver classification"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "In the earlier square-zero record, the i=u,j=v,h=w summand is R_q(a,b,u)R_q(b−u,c,v)q^{ac−(a−u)(c−v)}R_q(a−u,c−v,w): exactly the current cardinality formula at t=0.",
+          "The indexed square-one conjugacy spectrum gives q^{ac−(a−u)(c−v)} unipotent class sizes in characteristic two at t=0; it is a later record, with a different acting group."
+        ],
+        "reasoning": "The exact older t=0 count is known at the elementary-stratum level, not an independent new count here. No inspected table establishes the positive-t per-orbit sizes or the full balanced polynomial.",
+        "searches": [
+          "Resultary: four-rank parabolic orbit sizes complete three-level incidence algebras / Gaussian product",
+          "Resultary SCOPE-rank-spectra-of-square-zero-elements-in-three-block-parabolic-ra--d1f94ed041a2, exact summand"
+        ]
+      },
+      "rationale": "Pass for the explicit all-t finite-field conjugacy census with cardinalities and balanced-level count. Exclude from novelty the established orbit finiteness and quiver/module classification, the Jordan marginals, and the exact previously published numerical t=0 element-count summand. The earlier t=0 source does not assert its rank fibre is a single full-parabolic orbit, and the general finite-field per-orbit factor for t>0 is not supplied there.",
+      "residual_risks": [
+        "Older finite-field quiver/stabilizer computations or a tabulation derived from AR data may contain an equivalent full three-block census; no historical exclusivity is inferred. The general structural problem and exact square-zero element counts must not be represented as new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct geometric finite-type/quiver precedent; not the asserted finite-field cardinalities",
+          "evidence": [
+            "Table 2 includes (1,a,1); at (1,1,1) the dimension vector may be (a,b,c) in the notation of this audit."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/0711.3711v1",
+          "material_read": "§1 Table 2 and Theorem 1.1; §2 Lemma 2.2; Appendix A, offsets 0–10190, 14500–19694 and 24400–28388",
+          "method": "OA primary HTML passages",
+          "title": "Orbits of parabolic subgroups on metabelian ideals",
+          "trigger": "Contains exactly the three-block action among its metabelian orbit problems"
+        },
+        {
+          "assessment": "Direct prior coverage of the numerical t=0 summand, not conjugacy completeness or t>0 census",
+          "evidence": [
+            "Uses AB=0 and counts each residual rank h on ker B to X/im A."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-rank-spectra-of-square-zero-elements-in-three-block-parabolic-ra--d1f94ed041a2/RESULT.md",
+          "material_read": "Finding, Assumptions, Proof steps 1–2, offsets 0–3434",
+          "method": "Published record via local mirror",
+          "title": "Rank spectra of square-zero elements in three-block parabolic radicals",
+          "trigger": "Exact t=0 specialization and same residual block rank"
+        },
+        {
+          "assessment": "Later, restricted t=0 characteristic-two result, under the unipotent group rather than full parabolic",
+          "evidence": [
+            "Unipotent orbits are cosets in the long block of dimension ac−(a−u)(c−v)."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-square-one-conjugacy-class-spectra-in-three-block-unipotent-radi--07228f5d7751/RESULT.md",
+          "material_read": "Finding, Assumptions and Proof steps 1–3, offsets 0–7615",
+          "method": "Published record via local mirror",
+          "title": "Square-one conjugacy class spectra in three-block unipotent radicals",
+          "trigger": "Close distinct conjugation census with exact formula overlap at t=0"
+        },
+        {
+          "assessment": "Contains the Jordan type marginals, not the labelled orbit census",
+          "evidence": [
+            "Theorem 1.15 gives F^mu_lambda(q) via a Macdonald coefficient at partitions mu and lambda."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2503.15440v4",
+          "material_read": "§1.2 and Theorem 1.15 p. 7, especially offsets 31570–33302",
+          "method": "OA primary PDF theorem passages",
+          "title": "Counting F_q-points of orbital varieties in ad-nilpotent ideals of type A_n",
+          "trigger": "Broader parabolic nilradical counts by Jordan type"
+        },
+        {
+          "assessment": "Supports context on Jordan-form and compatible-flag counting",
+          "evidence": [
+            "Expands q-Whittaker functions in terms of compatible partial flags and obtains a Jordan-form correspondence."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2207.12590",
+          "material_read": "Abstract, offset 0–2164",
+          "method": "OA primary PDF abstract; no entire-paper exclusion inferred",
+          "title": "q-Whittaker functions, finite fields, and Jordan forms",
+          "trigger": "Finite-field partial flag counts for nilpotent maps"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The first complete block-poset case with a nontrivial composite and a residual long block is natural. Counting each full-parabolic orbit, not merely its ambient Jordan label, gives usable exact sizes for all dimensions and field orders and an explicit field-independent balanced count. The positive-composite dimension factor and conditional distribution make this more than another marginal calculation or the already known square-zero slice.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

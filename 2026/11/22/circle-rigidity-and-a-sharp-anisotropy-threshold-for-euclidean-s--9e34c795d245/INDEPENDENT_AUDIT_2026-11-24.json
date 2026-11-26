@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:33:30.378462Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Put s≤T for the two side lengths and let d be the shorter diagonal. The best boundary-only tree costs 2s+T. For d<T, the two opposite short sides plus that diagonal give a strictly cheaper tree. For d≥T, boundary-first Kruskal achieves the boundary-only tree; in particular the decisive equality does not force a shortcut. This uses chords between consecutive sample vertices, not oval arcs. For a circle the diagonals are strictly longer; on a noncircle the radius along a regular arc has a nonzero derivative somewhere. Orienting toward increase, the gain |u+v|−2|u| equals |v|−|u| up to a quadratic error for nearby points and is strictly positive. This persists on an open set. The modulo-π half-gap and mid-angle are independent by the uniform torus shear. In the ellipse coordinates with z=tan δ, d² is at least both side-length squares exactly for q_k² z≥2h_k and 2h_k z≤r_k², with the unrestricted interval when h_k=0. This gives the stated clipped arctangent and its uniform mid-angle integral. Using r_k² q_k²−h_k²=k², the interval is empty iff 3h_k²>k²; its equality is a singleton separation, and the equality set in mid-angle has zero measure. Hence the exact orientation fraction is H(k), with onset strictly above sqrt(3); at sqrt(3) the axis-endpoint pair has diagonals 2 and 2sqrt(3) and sides 2, so a boundary-only tie really occurs. Only ties in the deciding comparison matter, not the repeated opposite side lengths. Each arctangent argument increases off the axes with k, and a neighborhood of an axis stays unsaturated for every finite comparison, giving strict increase. At fixed nonaxial t the product of the arguments tends to 4, and the uniform first-order expansion near k=1 averages to 16/π². The bounded independent replay python3 /workspace/independent_sanity.py checked best boundary-only versus best overall cost by enumerating all 16 trees for 5,766 grid configurations away from numerical decision ties. This corroborates rather than proves the law.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bose et al. minimize the set of essential constraints for a plane forest and give general graph inclusions and algorithms.",
+          "Kamousi–Chan–Suri use independent random activation of fixed master points and study expected MST length."
+        ],
+        "reasoning": "The graph and random-input settings do not give the probability of an antipodal edge forced in every MST for two jointly paired geometric samples or its aspect-ratio derivative and threshold.",
+        "searches": [
+          "Toussaint 1980 Relative Neighbourhood Graph, abstract",
+          "Bose et al. arXiv:1607.01294 abstract and introduction",
+          "Kamousi–Chan–Suri, Stochastic Minimum Spanning Trees in Euclidean Spaces"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 9e34c795d245 (same record) and 6d9b8e208f33",
+        "Toussaint 1980, doi:10.1016/0031-3203(80)90066-7",
+        "arXiv:1607.01294",
+        "Kamousi–Chan–Suri, Stochastic Minimum Spanning Trees in Euclidean Spaces",
+        "arXiv:math/9409222"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Classical cut/cycle criteria and the RNG inclusion already supply the network optimality tools; Ravi et al. give kMST optimization on, among other inputs, points on a convex boundary."
+        ],
+        "reasoning": "An algorithm or general screening rule can check an individual configuration. It does not identify the nonconstant-radius obstruction or the ellipse conditional interval whose collapse yields the threshold and exact fraction. The claim is not novelty of Kruskal or of the edge test.",
+        "searches": [
+          "Toussaint 1980 RNG inclusion as a possible alternate derivation",
+          "Ravi et al., Spanning trees short or small, arXiv:math/9409222"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Toussaint’s relative-neighborhood graph includes Euclidean MST edges and can screen a longer side when its relative lune contains a vertex, under the strict comparison.",
+          "The matching Resultary result 9e34c795d245 is the frozen item itself."
+        ],
+        "reasoning": "The graph inclusion is an older route to edge exclusion, but asserts neither which ovals evade the event universally nor the law of that event over ellipse parameters.",
+        "searches": [
+          "Resultary: circular rigidity among centrally symmetric ovals, antipodal-pair MST",
+          "Euclidean minimum spanning tree parallelogram diagonal antipodal pairs ellipse circle centrally symmetric convex boundary shortcut probability anisotropy aspect ratio square root 3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "9e34c795d245 is identical. The distinct record 6d9b8e208f33 concerns three independent ellipse points and angle events determining a Steiner junction in the collapsing regime."
+        ],
+        "reasoning": "The exact angular-threshold record for Steiner triples has different terminals and allows a Steiner junction; its probability does not measure a forced diagonal in a four-terminal MST.",
+        "searches": [
+          "Resultary: ellipse antipodal-pair shortcut probability and sqrt(3) all-separation threshold",
+          "Resultary: sharp angular threshold reflected pair law collapsing ellipse Steiner triples"
+        ]
+      },
+      "rationale": "The known proximity-graph screening and spanning-tree criteria are ingredients, not new claims. The inspected nearby results do not cover the probabilistic ellipse invariant, all-separation aspect-ratio threshold, or rigidity among smooth centrally symmetric ovals. Assessment is scoped to checked evidence.",
+      "residual_risks": [
+        "The bounded search does not establish historical priority, especially for the elementary four-point observation. The generic 1991 Euclidean MST lead was not text-readable and was not assessed as absent coverage. The probability and threshold are affirmative distinctions in the checked mathematical comparisons, not inferences from search silence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known screening framework, not the distribution or classification",
+          "evidence": "RNG is a superset of MST and a subset of DT.",
+          "identifier_or_url": "https://cgm.cs.mcgill.ca/~godfried/teaching/mir-reading-assignments/RNG.pdf",
+          "material_read": "p. 1, abstract, passage around offset 699",
+          "method": "OA primary PDF",
+          "title": "The Relative Neighbourhood Graph of a Finite Planar Set",
+          "trigger": "General Euclidean MST screening might cover the rigidity test"
+        },
+        {
+          "assessment": "Different constrained algorithmic problem",
+          "evidence": "Finds a minimum set of constraints so an edge-constrained Euclidean MST contains a supplied forest; introduction gives MST⊆RNG⊆Gβ⊆GG⊆DT.",
+          "identifier_or_url": "https://arxiv.org/abs/1607.01294",
+          "material_read": "v2 pp. 1–2, abstract and introduction near offsets 0 and 4289",
+          "method": "OA primary PDF",
+          "title": "Essential Constraints of Edge-Constrained Proximity Graphs",
+          "trigger": "General geometric proximity-graph inclusion and MST problem"
+        },
+        {
+          "assessment": "Different geometry and event",
+          "evidence": "Three i.i.d. eccentric anomalies and all angles less than β, yielding a collapsing-limit probability and a three-terminal Steiner event at β=2π/3.",
+          "identifier_or_url": "2026/11/17/SCOPE-sharp-angular-threshold-and-reflected-pair-law-for-collapsing-el--6d9b8e208f33",
+          "material_read": "RESULT.md Finding, offsets 0–1767",
+          "method": "Local published-record mirror",
+          "title": "Sharp angular-threshold and reflected-pair law for collapsing-ellipse Steiner triples",
+          "trigger": "Nearest distinct ellipse threshold result in the index"
+        },
+        {
+          "assessment": "Different random input and statistic",
+          "evidence": "A fixed master set, independent activation probabilities, expected MST length.",
+          "identifier_or_url": "https://tmc.web.engr.illinois.edu/stoch_scg.pdf",
+          "material_read": "p. 1 abstract, offsets approximately 970–1450",
+          "method": "OA PDF passage",
+          "title": "Stochastic Minimum Spanning Trees in Euclidean Spaces",
+          "trigger": "Probabilistic Euclidean spanning trees"
+        },
+        {
+          "assessment": "Algorithmic kMST/diameter problems, not the inspected ellipse law",
+          "evidence": "The abstract includes polynomial exact optimization for convex-boundary points when a specified number of nodes must be spanned.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/9409222",
+          "material_read": "First-page abstract and opening of §1",
+          "method": "OA primary PDF",
+          "title": "Spanning trees short or small",
+          "trigger": "Minimum spanning trees on convex-region boundary points"
+        },
+        {
+          "assessment": "Not judged regarding coverage",
+          "evidence": "No mathematical passage extracted; it is not used as evidence of noncoverage.",
+          "identifier_or_url": "https://pub.ista.ac.at/~edels/Papers/1991-06-EuclideanMinimumSpanningTrees.pdf",
+          "material_read": "Bibliographic lead only; PDF text not readable by OA extraction",
+          "method": "Lawful OA PDF extraction on direct and alternate routes",
+          "title": "Euclidean Minimum Spanning Trees, Discrete & Computational Geometry 6 (1991), 407–422",
+          "trigger": "Generic Euclidean MST search hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Antipodal pairing produces a natural four-point test of when Euclidean optimal connections leave the sampled boundary cycle. The universal rigidity, uniform-angle frequency, sharp onset of positive-measure saturation, and first variation describe one concrete geometric mechanism at several levels; the near-circle coefficient and all-separation threshold are not routine restatements of a graph criterion. Probability is only for independent uniform eccentric anomalies modulo antipodes, not arclength.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

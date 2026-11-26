@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:28:46.131662Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Checked the hypotheses and conclusion of Acan Theorem 4.1: with k=K+1 the minimum degree in the induced length-at-least-k diagram is at least k with high probability, so the original degree exclusion is valid. In the spacing proof, the uniform origin should be understood as the angle of a distinguished sampled endpoint, not a uniformly chosen external cut; this is consistent with the formula for the first endpoint. I independently checked the marked theorem without the spacing or core reduction. Conditional on any matching of the original unsorted iid angles, the n endpoint pairs are iid, so each pair's shorter-arc length A has density 2 on (0,1/2) and its midpoint is independent Haar. For r prescribed marked chords with scaled lengths y_i bounded by B, the set of midpoint arrays whose arcs intersect has Haar measure O_r(B/n). Off this set the r chords do not cross each other. Each remaining independent chord crosses i with probability 2(y_i/n)(1−y_i/n) and crosses both i and h with probability 2y_i y_h/n². The probability of any double contribution is O_r(B²/n); the single-category multinomial degree vector therefore tends to independent Poisson(2y_i) variables, uniformly on bounded lengths and separated arcs. In the mixed factorial integrals, (n)_r(2/n)^r tends to 2^r, giving precisely du multiplied by 2 exp(−2y)(2y)^j/j! dy in class j, with factorization across classes and tests. Moment determinacy and bounded higher factorial moments give the joint compact-window count laws. For full tightness, d conditional on A=a is Bin(n−1,2a(1−a)); integrating shows the expected mass of class j above scaled length B is at most 2∫_B^∞ (2y)^j exp(−y/2)/j! dy for n≥2(j+1). This establishes the finite-measure topology and, by a void probability, the maximum formula for positive t. At t=0 the event is zero total count, since all lengths are positive almost surely; its probability tends to e⁻¹. The supplied VERIFICATION.md and check_chords.py were inspected without execution. Their finite matching, beta-moment and seeded diagnostics are not evidence of the limit beyond the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2026/10/25 result uses fixed sites and short combinatorial counts, with Gaussian crossing decoupling; the 2026/10/18 spatial process uses positions on a fixed cycle for near-antipodal combinatorial classes.",
+          "Paguyo gives quantitative marginal normal and simple-chord Poisson approximations, not a joint continuous mark theorem."
+        ],
+        "reasoning": "Neither fixed-site marks nor other chord length classes dominate the physical iid-endpoint, fixed-low-degree claim. The extra unmarked fluctuation conclusions address a separate observable.",
+        "searches": [
+          "Resultary: Gaussian–Poisson decoupling for local chords and global crossings; spatial Poisson limits for near-diametral chords",
+          "Primary literature: marked Poisson limits in random chord diagrams and physical arc spacings",
+          "Paguyo arXiv:2104.01134v2, Theorems 1.1–1.2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, check_chords.py",
+        "Acan arXiv:1501.01489v1",
+        "Flajolet–Noy RR-3914",
+        "Paguyo arXiv:2104.01134v2",
+        "Resultary 30537820a0d6, 8fd313fa5d9e, d7315075b295"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Acan's exclusion and short-length count conclusions supply the unmarked degree count result when combined with the simple interior-pair estimate.",
+          "Acan does not track the locations of the short chords; the fixed-site spatial record concerns a different length regime, and the continuous deletion result does not track simultaneous rare degrees."
+        ],
+        "reasoning": "Assigning conditionally independent Gamma marks to known Poisson counts is not justified by any of those count theorems. The necessary asymptotic simultaneous marking can be proved with disjoint exponential gap blocks, or directly by controlling the probability one other random chord contributes to two short arcs. The maximum law is a consequence of the new marked law, not a separate novelty claim.",
+        "searches": [
+          "Acan, Theorems 4.1–4.2 and proof of Theorem 4.1",
+          "Resultary 30537820a0d6, 8fd313fa5d9e and d7315075b295, findings and assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Acan's length counts intervening endpoints, not circumference fraction, and his cutoff theorem validates the fixed-degree reduction.",
+          "Conditioning on the random matching of iid angles gives the same ensemble as independent chords with iid endpoints, as in the distinct same-date conditional deletion record; its stated observables are for Gaussian fluctuations involving a distinguished chord and the crossing count, not all rare low-degree chords."
+        ],
+        "reasoning": "The aliases expose a real overlap in unmarked counts and in the underlying iid-angle ensemble. They do not identify the marked process with either prior theorem.",
+        "searches": [
+          "Resultary: fixed short chord lengths, low crossing degree, physical arc Gamma marks and angular locations",
+          "Acan arXiv:1501.01489v1, Theorems 4.1–4.2",
+          "Resultary d7315075b295, conditional Gaussian deletion noise"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The nearest inspected exact count formulas and limiting tables concern structural counts and crossings, or counts of fixed combinatorial lengths.",
+          "The one-chord Beta spacing law conditional on combinatorial length and the one-chord binomial crossing law conditional on physical length are standard marginal computations."
+        ],
+        "reasoning": "This claim is a joint scaling limit, not an exact invariant at a fixed n. A marginal formula or matching table cannot supply the spatial and mark factorization, even if it gives the correct limiting density at one chord.",
+        "searches": [
+          "Resultary: physical arc marks, fixed short-length tables or count formulas",
+          "Flajolet–Noy RR-3914, introduction and Theorem 3",
+          "Acan, Section 4"
+        ]
+      },
+      "rationale": "Credit Acan for the core and the independent Poisson count laws, and the indexed results for other chord fluctuations and spatial combinatorial marks. The supported distinct increment is the joint law for fixed crossing-degree classes in physical angle and physical short-arc length, with independent Gamma marks and control of the entire marked mass. This is not a claim to originality for the degree-count Poisson marginal, the Gamma integral by itself, or fixed-site localization in a different length regime.",
+      "residual_risks": [
+        "A general marked-process result for short random geometric arcs or an earlier physical-spacing chord theorem could imply the law and was not ruled out exhaustively.",
+        "The unmarked counts and the global core exclusion are prior; the novelty assessment is restricted to the simultaneous physical marks."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage of unmarked part and valid proof dependency",
+          "evidence": "Length is the smaller intervening endpoint count; k²=o(n) ensures the induced long-chord minimum degree; fixed short-length counts converge jointly to independent Poisson(1) variables.",
+          "identifier_or_url": "https://arxiv.org/pdf/1501.01489v1",
+          "material_read": "PDF pp. 1, 3, 9–11; length definition, Theorem 4.1 and proof passage, Theorem 4.2",
+          "method": "OA original PDF, targeted passages",
+          "title": "On a uniformly random chord diagram and its intersection graph",
+          "trigger": "Exact combinatorial model, core bound and low-length count laws"
+        },
+        {
+          "assessment": "Unmarked structural and crossing laws in inspected statements",
+          "evidence": "Theorem 3 treats mean, variance and normal limit for crossings, not a rare-chord space/length process.",
+          "identifier_or_url": "https://algo.inria.fr/flajolet/Publications/FlNo00.pdf",
+          "material_read": "Abstract and introduction, PDF pp. 5–6; Theorem 3, p. 10",
+          "method": "OA report PDF, targeted passages",
+          "title": "Analytic Combinatorics of Chord Diagrams",
+          "trigger": "Classical exact and asymptotic matching statistics"
+        },
+        {
+          "assessment": "Stronger rate information for separate marginals",
+          "evidence": "The normal approximation for crossings and Poisson approximation for simple chords do not include the simultaneous continuous positions or short-arc marks.",
+          "identifier_or_url": "https://arxiv.org/pdf/2104.01134v2",
+          "material_read": "Theorems 1.1–1.2, PDF pp. 3–4",
+          "method": "OA original PDF, theorem passages",
+          "title": "Convergence rates of limit theorems in random chord diagrams",
+          "trigger": "Poisson approximation for the adjacent-endpoint class"
+        },
+        {
+          "assessment": "Prior fixed-site counts and crossing decoupling",
+          "evidence": "Independent fixed short-length counts decouple from the crossing statistic; no random physical spacings or physical locations.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-gaussian-poisson-decoupling-for-local-chords-and-global-crossing--30537820a0d6/RESULT.md",
+          "material_read": "Finding, assumptions, proof and prior-work passages",
+          "method": "Local Resultary search and mirrored statement",
+          "title": "Gaussian–Poisson decoupling for local chords and global crossings",
+          "trigger": "Joint short-chord counts and spatial analogue"
+        },
+        {
+          "assessment": "Different rare regime and mark convention",
+          "evidence": "Near-antipodal combinatorial chords on the fixed cyclic grid, marked by normalized index rather than by a randomized short arc.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-spatial-poisson-limits-for-near-diametral-chords-and-independent--8fd313fa5d9e/RESULT.md",
+          "material_read": "Finding, proof §§1–7 and prior-work offset 7925",
+          "method": "Local Resultary search and mirrored statement",
+          "title": "Spatial Poisson limits for near-diametral chords and independent Gaussian crossings",
+          "trigger": "Spatial Poisson chord process"
+        },
+        {
+          "assessment": "Same model, distinct statistic and regime; no chronological inference",
+          "evidence": "Tracks one distinguished chord's oriented arc fraction and order-n crossing degree together with Gaussian crossing/deletion fluctuations, not a Poisson process of all fixed-low-degree chords.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-conditional-gaussian-deletion-noise-for-crossings-of-random-circ--d7315075b295/RESULT.md",
+          "material_read": "Finding, assumptions and proof §§1–5",
+          "method": "Local Resultary search and mirrored statement",
+          "title": "Conditional Gaussian deletion noise for crossings of random circular chords",
+          "trigger": "Distinct same-date finding in equivalent endpoint ensemble"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result explains in physical coordinates where the rare low-degree chords occur and how long they are. It resolves the needed joint spatial independence despite shared potential crossing partners, distinguishes physical length from combinatorial distance, and controls extremes as well as bounded windows. Those conclusions are useful beyond the already-known class counts.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

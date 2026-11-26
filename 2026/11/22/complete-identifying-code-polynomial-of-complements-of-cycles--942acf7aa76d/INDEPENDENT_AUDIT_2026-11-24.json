@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:31:20.625809Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The closed trace is S minus the intersection of S with the distance-two auxiliary edge indexed by v. For n>=5 these edges are distinct and form one odd cycle or two even-case components of length m=n/2. Equal empty edge traces mean at least two unselected edges, and equal singleton traces mean an isolated selected vertex; size-two traces distinguish their unique edges. Distinct traces force |S|>=3, so all closed traces are nonempty. In each auxiliary component runs of unselected vertices are separated by at least two selected vertices and at most one unselected run over the whole graph has length two. This gives the stated binomial expressions by counting ordered selected gaps, marking one of r singleton zero runs in A or the unique double zero run in B. It works for the m=3 components of n=6, for which B is empty. The label weights and factor 2 in the even case follow from the distinguishable components and the global one-defect allowance. At z=1 the generating function for A is -x f'/f and for B is x times the derivative of x^4/f, with f=1-x-x^3. At its positive simple zero rho the pole of x^4/f has coefficient rho^3/(1+3rho^2) in front of (1-x/rho)^(-1); multiplication by the coefficient index gives exactly c m lambda^m. The other two reciprocal roots are conjugate with modulus beta=lambda^(-1/2), and the even-parity cross term is bounded by O(n (lambda beta)^(n/2)), with sqrt(lambda beta)<1.2. Independent subset enumeration of the original closed-neighborhood condition (`python3 /tmp/opencode/frozen_checks.py cycles`) matched every size coefficient for orders 5..16. Independently, a four-state ordinary auxiliary-cycle transition T forbidding 010 has det(I-xT) equal to the first published factor, and det(I-x^2 exterior-square(T)) equal to the second (evaluated symbolically as a 6-by-6 determinant). The original step swaps the parity pairs while advancing one; the differing location of the empty-edge marker is just a cyclic shift in any closed walk. For eigenvalues lambda_i of T this parity-swapping advance has eigenvalues lambda_i and pairs ±sqrt(lambda_i lambda_j), justifying the product determinant. Frozen checker and requirements were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2020 abstract announces identifying-code minima on the same cycle complements; the full text was unavailable through the publisher/PDF routes and no OA repository copy was located. The 2015 complementary-prism graph has 2n vertices and added matching edges. The HAL manuscript studies a minimum for OLD codes of ordinary cycles."
+        ],
+        "reasoning": "Extremal size, different graph constructions, and the zero-defect restriction are not broader results yielding the desired coefficients. Full-text inaccessibility limits the comparison with the 2020 paper, not the correctness assessment.",
+        "searches": [
+          "Nikandish–Khani Nasab–Dodonge DOI:10.1142/S1793830920500469, indexed abstract and lawful full-text paths",
+          "arXiv:1507.05083 p. 1",
+          "Argiroffo et al., HAL-02017469 pp. 4–5"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py, requirements.txt and same-record review evidence",
+        "Resultary 2cf44e5818fe and self-match 942acf7aa76d",
+        "DOI:10.1142/S1793830920500469 indexed abstract",
+        "DOI:10.1016/j.ejc.2004.09.005 bibliographic metadata",
+        "HAL-02017469",
+        "arXiv:1507.05083"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Minima give only the least possible exponent, whereas the prior OLD census gives the coefficients of the zero-defect subfamily. The latter cannot by itself determine the number of codes with one empty auxiliary edge; those dominate the total asymptotically."
+        ],
+        "reasoning": "Counting a unique marked double-zero run with all other runs singleton and gaps constrained gives additional coefficients, and the pole order changes the leading term. Neither a prior extremal value nor direct specialization of the prior OLD theorem supplies this signed change to the normalized growth (a new positive term of order n lambda^n).",
+        "searches": [
+          "Resultary 2cf44e5818fe Finding and proof",
+          "Nikandish et al. DOI:10.1142/S1793830920500469 indexed abstract",
+          "HAL-02017469 Lemma 3 and Table 2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "After changing the marked variable from omitted-set to code size, the previous ordinary-cycle OLD formula is exactly A_n or A_m^2. A one-defect configuration is excluded by ordinary OLD total domination. The 2006 cycle paper's detailed radius comparison could not be independently inspected."
+        ],
+        "reasoning": "An empty auxiliary edge is permitted once by identification, while singleton edge traces must remain distinct. An enumeration of near-total domination alone does not enforce the latter no-isolated-selected constraint. The complement-cycle result therefore includes, but is not equivalent to, the ordinary-cycle zero-defect census.",
+        "searches": [
+          "Local Resultary searches for OLD cycle censuses and one-defect/near-total domination enumerations",
+          "Resultary 2cf44e5818fe, Finding and proof",
+          "DOI:10.1016/j.ejc.2004.09.005, radius-identifying cycle scope"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2cf44e5818fe supplies the exact A polynomial after the variable reversal; the assigned 942acf7aa76d is not an independent match. No distinct matching combined A+B or A^2+2AB table was verified in the searched results."
+        ],
+        "reasoning": "The largest verified overlap is credited coefficient by coefficient; it omits the auxiliary configurations with one empty edge. B is not a renaming of those OLD coefficients.",
+        "searches": [
+          "Local Resultary complement-cycle identifying-code, ordinary-cycle OLD exact census, and one-defect cycle searches"
+        ]
+      },
+      "rationale": "An earlier exact OLD-cycle polynomial gives precisely the zero-defect portion under an explicit change of weights; existing minimum-size results are not claimed as new. The distinct claim is the full closed-neighborhood identifying-code polynomial on the complement, including the one-defect counts and their growth. No inspected available statement gives those additional terms. The closest complement-cycle minimum paper was not accessible in full, so this is a best-of-knowledge decision rather than blanket priority.",
+      "residual_risks": [
+        "The unread 2020 full text may contain stronger coverage than its abstract; the unread 2006 radius theorem may give more exact odd-cycle information than verified here. Equivalent one-defect enumerations under different terminology may have escaped bounded searches."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent to the zero-defect subcensus after variable reversal, not the full complement-cycle polynomial",
+          "evidence": "Counts independent omitted sets under cycle-square spacing; total domination excludes an empty edge trace.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-an-exact-census-of-open-locating-dominating-codes-on-cycles--2cf44e5818fe",
+          "material_read": "RESULT.md Finding and proof, offsets 0–6348, and prior-work/limitations after offset 6348",
+          "method": "Local Resultary mirror",
+          "title": "An exact census of open locating-dominating codes on cycles",
+          "trigger": "Exact overlap of the ordinary-cycle OLD portion"
+        },
+        {
+          "assessment": "Minimum-size overlap verified at abstract level; full-text stronger coverage unresolved",
+          "evidence": "Abstract expressly mentions minimum identifying-code cardinalities of cycle and path complements, not an all-size census.",
+          "identifier_or_url": "https://doi.org/10.1142/S1793830920500469",
+          "material_read": "Indexed abstract and bibliographic availability metadata; primary full text not accessible",
+          "method": "Publisher, DOI and official PDF requests blocked; OpenAlex OA locations checked",
+          "title": "Minimum identifying codes in some graphs differing by matchings",
+          "trigger": "Same graph family and code convention"
+        },
+        {
+          "assessment": "Possible extremal overlap; no full-text comparison claimed",
+          "evidence": "The catalogue identifies a study of cycle identifying codes. This is not evidence ruling out an equivalent theorem in the unread article.",
+          "identifier_or_url": "https://doi.org/10.1016/j.ejc.2004.09.005",
+          "material_read": "Citation metadata only; radius theorem not retrieved",
+          "method": "HAL metadata without attachment and blocked publisher/PDF routes",
+          "title": "Identifying codes of cycles",
+          "trigger": "Potential equivalent odd-cycle radius formulation"
+        },
+        {
+          "assessment": "Minimum for OLD codes of the ordinary cycle, not this degree-by-degree complement census",
+          "evidence": "Gives a stated cycle OLD domination-number formula, not an all-size count with the one-defect allowance.",
+          "identifier_or_url": "https://uca.hal.science/hal-02017469/document",
+          "material_read": "pp. 4–5, Lemma 3 and Table 2",
+          "method": "Accessible HAL primary manuscript",
+          "title": "Argiroffo et al. on locating domination of cycles",
+          "trigger": "Ordinary-cycle OLD minimum as close context"
+        },
+        {
+          "assessment": "Different graph and extremal result",
+          "evidence": "Complementary prism combines the cycle and its complement with matching edges and addresses the order of minimum codes.",
+          "identifier_or_url": "https://arxiv.org/abs/1507.05083",
+          "material_read": "p. 1, abstract and graph scope",
+          "method": "Targeted OA arXiv PDF",
+          "title": "Identifying Codes in the Complementary Prism of Cycles",
+          "trigger": "Similar title/graph family and convention"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The graph family already motivates minimum-size questions, and the complete labelled size distribution resolves a different exact invariant. The distinction from ordinary-cycle OLD counts is substantial: one exceptional unselected edge changes the growth by a factor linear in n, on both parities, and can change the minimum degree. The correction is a structural explanation, not just another small computed case.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

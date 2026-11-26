@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:39:08.909173Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Assumptions and Proof; frozen VERIFICATION.md and verify.py, inspected but not executed"
+      ],
+      "rationale": "Affine barycentric columns have a zero at their own facet index and are Dirichlet(1,…,1) on the remaining n-1 entries. The normalized oriented volume is the determinant. The mean determinant follows from multilinearity and the spectrum of (J-I)/(n-1). For the square, independence allows replacing the random rank-one column outer products by their means in the squarefree coefficient only. Scaling by n(n-1), the summed moment matrix has diagonal 2(T-t_i) and off-diagonal T-t_i-t_j. A rank-two update of TI gives nT^(n-2)(T²-∑t_i²): in the 2×2 reduction the diagonal is (n,0) and the off-diagonals are (T²-∑t_i²)/T and -n/T. Only T^n contributes to the required squarefree coefficient, giving n n!, even at n=2. The interior moment comes from n! det((I+J)/(n(n+1))); the exact ratio tends to e², and its square root tends to e. Squaring the signed determinant expansion gives precisely the derangement sum by the 2:1 ratio of repeated-entry to distinct-entry moments. The n=2 transposition and n=3 positive derangement terms give the stated signs; at n=4 and n=5 both parities occur and adding disjoint transpositions extends to all higher n. Permutation matrices are limit points with positive-probability relative neighborhoods of constant sign. The variance follows from the two moments, not from any claim about the unsigned first moment.",
+      "residual_risks": [
+        "The checker alone is finite; the squarefree determinant argument is the all-dimensional proof. No sign probabilities at n≥4 or unsigned first moments were validated."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The overlapping record gives the stratified formula and also treats an arbitrary iid facet-label mixture. Reitzner–Schütt–Werner decompose surface sampling over facet assignments and use conditional moment integrals E_{k,f}."
+        ],
+        "reasoning": "The local record explicitly evaluates the relevant term. The inspected earlier section gives an integration framework with repeated labels allowed, not an evaluated exact distinct-facet moment. The local iid boundary comparison is not the frozen iid interior comparison.",
+        "searches": [
+          "Facet-diversity record, Finding and Assumptions",
+          "Reitzner–Schütt–Werner arXiv:1911.05917 §3.3 Lemma 3.1"
+        ]
+      },
+      "checked_sources": [
+        "Exact facet-diversity Resultary Finding and Dirichlet proof passages",
+        "arXiv:1911.05917 §3.3",
+        "arXiv:1008.3944 Lemma 4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Rademacher's iid covariance identity evaluates the interior comparison using the uniform simplex covariance. The overlapping theorem and that interior identity give the exact ratio, with the limit following from (1+2/(n-1))^(n-1). Its facet entry moments give (n(n-1))^n times the stratified moment as the signed sum."
+        ],
+        "reasoning": "The e² comparison and equivalent pair sum need no new evaluation once the covered moment is substituted. The signed mean follows from the deterministic mean matrix, and the sign threshold is an elementary parity/support observation.",
+        "searches": [
+          "Rademacher arXiv:1008.3944, Lemma 4 and proof",
+          "Facet-diversity record RESULT.md Finding and Proof, offsets near 2848 and 3993"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The facet-diversity record draws one independent normalized uniform point per facet, sets d=n-1, and gives C_d=(d+1)!/((d+1)^d d^(d+1)), exactly the frozen second moment."
+        ],
+        "reasoning": "Both are affine-invariant normalized squared volumes with the same sample distribution. The additional case n=2 in the frozen record is deterministic and equals one.",
+        "searches": [
+          "Resultary exact opposite-facet simplex squared moment, zero-diagonal Dirichlet matrix and signed derangements",
+          "2026/10/18/SCOPE-exact-facet-diversity-law-for-squared-volumes-of-random-inscribe--1f9c53607051, RESULT.md Finding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The facet-diversity theorem is an exact indexed family of moment values; the inspected searches did not identify a second source listing the signed sum as such."
+        ],
+        "reasoning": "The absence of a separately indexed combinatorial wording is immaterial to the exact indexed evaluation under the equivalent probabilistic model.",
+        "searches": [
+          "Resultary 2026/10/18/SCOPE-exact-facet-diversity-law-for-squared-volumes-of-random-inscribe--1f9c53607051",
+          "Resultary weighted derangement-pair signed sum and zero-diagonal Dirichlet determinant moment"
+        ]
+      },
+      "rationale": "A distinct same-date Resultary theorem explicitly states the exact shape-independent opposite-facet moment with the identical law for every nontrivial dimension. Its scope is bigger on boundary sampling. The interior e² ratio and signed derangement expansion are direct implications using known iid covariance and the entry second moments; n=2 is deterministic. This establishes material equivalent coverage, not which same-day work appeared first. The other signed statistics are elementary consequences of the same model, not a surviving distinct main result.",
+      "residual_risks": [
+        "Calendar date alone does not establish which same-date result preceded the other. Earlier equivalent results under different matrix or simplex nomenclature may exist; the established overlap does not rely on those possibilities."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Explicit equivalent moment, with additional iid boundary model; same UTC date, priority unresolved",
+          "evidence": "C_d=(d+1)!/((d+1)^d d^(d+1)) and Dirichlet moments for independent zero-diagonal barycentric variables.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-exact-facet-diversity-law-for-squared-volumes-of-random-inscribe--1f9c53607051/RESULT.md",
+          "material_read": "Finding and Assumptions, offsets 0–2379; proof passages near 2848 and 3993",
+          "method": "Configured local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact facet-diversity law for squared volumes of random inscribed simplices",
+          "trigger": "Same opposite-facet Dirichlet sampling and squared moment"
+        },
+        {
+          "assessment": "Closely related earlier integration framework, no displayed exact evaluation in checked passage",
+          "evidence": "Conditional moments indexed by facet tuples, including repeated labels, are represented by integrals E_{k,f}.",
+          "identifier_or_url": "https://arxiv.org/pdf/1911.05917",
+          "material_read": "§3.3, Lemma 3.1, PDF pp. 14–16, offsets 51205 and 59110",
+          "method": "OA PDF passages",
+          "title": "The convex hull of random points on the boundary of a simple polytope",
+          "trigger": "Boundary simplex volumes conditioned on facet assignments"
+        },
+        {
+          "assessment": "Covers the iid second moment, not stratification by different facets",
+          "evidence": "Second volume moment expressed by a covariance determinant for identically distributed independent samples.",
+          "identifier_or_url": "https://arxiv.org/pdf/1008.3944",
+          "material_read": "Lemma 4, PDF p. 4, offset 7484; proof p. 15, offset 33550",
+          "method": "OA PDF passages",
+          "title": "On the monotonicity of the expected volume of a random simplex",
+          "trigger": "Known exact iid interior moment method"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and Proof",
+        "Facet-diversity Finding",
+        "Rademacher Lemma 4"
+      ],
+      "rationale": "The second-moment constant would be useful for comparing sampling designs, but the constant is already exactly covered for the nontrivial cases. The e² limit and derangement sum respectively apply an iid-moment substitution and expand the same determinant; the signed auxiliary statistics do not provide a substantially different invariant or new comparison that merits credit as a standalone remainder.",
+      "residual_risks": [
+        "No repair was submitted. Higher moments or unsigned volume might pose different questions but were not established here."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

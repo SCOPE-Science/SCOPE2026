@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:28:16.657172Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–72, VERIFICATION.md and check.py"
+      ],
+      "rationale": "The one-dimensional exact consistent mass divided by its row-sum lump is the symmetric matrix with diagonal 2/3 and off-diagonal 1/3. Its symmetric and antisymmetric eigenvalues are 1 and 1/3. Tensorization and the strictly positive physical scale give positive definite blends at both endpoints and throughout. The opposite-corner products of normalized tensor eigenvectors are (−1)^k/2^d for antisymmetric degree k. For t=(1−α)/α the resulting sum F(t) has d+1 linear factors in the denominator and cancels its t⁻¹ term; its t⁻² coefficient is −(1−1/3)^d, so the numerator degree is exactly d−1. Also F(t)=−S(log t)/t for S the d-th forward difference with the stated binomial sign of f(x)=1/(1+exp x). Its integral representation by f^(d) over the fixed box of side log 3 is exact. Integration by parts in each x-moment through degree d−2 leaves no boundary terms, since every derivative used there has order at least one and decays exponentially. A polynomial with roots at all sign changes would have nonzero integral against S after matching signs, contradicting those moments if the number of sign changes were at most d−2. The degree bound proves exactness and simplicity. Reflecting x to −x−d log 3 gives parity (−1)^(d+1), yielding the stated α involution and the even-dimensional fixed root. In d=3 the numerator in the given denominator is −8+192t−216t² (the constant and linear coefficients follow at t=0, the leading one from infinity); this independently gives the stated roots and the negative–positive–negative signs. The α=0 entry is trivially zero because the inverse is diagonal, not an extra interior zero. The supplied exact finite checker was read for scope; the review does not infer the all-d theorem from it.",
+      "residual_risks": [
+        "Signs are in exact arithmetic for an unassembled constant-density orthotope, not statements about a global assembled matrix or solver stability."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "BRAS uses local mass inverses in a preconditioner and considers spectral estimates. Structured Bernstein inversion concerns a different mass family and gives matrix inversion structure."
+        ],
+        "reasoning": "An inverse formula or spectral bound is not itself a statement about the number and simplicity of zeros of a particular entry as the blend varies.",
+        "searches": [
+          "Krzysik–Southworth–Wimmer arXiv:2607.12138, local inverse and Schwarz spectral bounds",
+          "Allen–Kirby arXiv:1907.05773, structured Bernstein mass inversion"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.21820v1",
+        "arXiv:2607.12138",
+        "arXiv:1907.05773",
+        "Resultary 4dfcd3e1072c and 54366c995acd"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "m₄=52α³−78α²+27α has the same two interior roots (39±3√13)/52; the same-day spectrum record does not count zero crossings of a signed linear combination of reciprocal eigenvalues."
+        ],
+        "reasoning": "The known formula directly covers the worked example; it does not dominate dimensions d>3. Knowing eigenvalues for the blend makes the Walsh sum accessible but does not supply its sign-changing zero count.",
+        "searches": [
+          "Matched hexahedron numerator m₄ in Hanukah §4; compare wave-spectrum and heat-propagator statements in the mirror"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The evaluated logistic-forward-difference formulation is exactly equivalent after t=exp x and a nonvanishing multiplier. The comparison located no exact all-order finite-difference count. Hanukah uses the same blend convention and the same opposite-corner entry for the eight-node hexahedron."
+        ],
+        "reasoning": "The finite-difference alias is material to originality independent of FE terminology. The located quantitative overlap is d=3; it implies neither the degree-dependent count nor the involution in general.",
+        "searches": [
+          "Opposite-corner entry of the exact consistent/lumped tensor mass blend; equally spaced logistic finite differences and zero counts",
+          "Hanukah arXiv:2611.21820v1 Eqs. (2.8), (4.1)–(4.2)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The identical title and slug refer to the assigned record itself. The distinct same-day mode-switching result gives the spectrum and switches for the same blend but maximizes wave frequencies. A related sign-count record concerns the far-end entry of a one-dimensional heat propagator as time varies."
+        ],
+        "reasoning": "Neither distinct finding is a table or census for these inverse-entry roots: the wave mode and heat-propagation quantities differ from the audited entry.",
+        "searches": [
+          "Published Resultary mirror, blended multilinear mass, inverse-entry sign reversals and related finite-element signed couplings"
+        ]
+      },
+      "rationale": "The d=3 case follows from Hanukah's exact formula and is not credited as distinct. The targeted comparison supports only the arbitrary-dimensional exact sign-count and pairing theorem as distinct; related local inverse and mode-switching results do not give that theorem. A separately published equivalent logistic finite-difference theorem remains a priority risk.",
+      "residual_risks": [
+        "An unindexed equivalent theorem about equal-step finite differences of the logistic function, or the corresponding alternating rational sum, could cover the general count. The finite literature comparison is not a historical-priority certificate."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "covers d=3 exactly, not an all-dimensional zero-count statement in the matching passages",
+          "evidence": [
+            "Same (1−α) lumped plus α consistent convention; opposite-corner numerator m₄=52α³−78α²+27α."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2611.21820v1",
+          "material_read": "v1 pp. 5 and 9, Eq. (2.8) and §4 Eqs. (4.1)–(4.2), offsets about 26400 and 53000",
+          "method": "OA PDF text",
+          "title": "Direct Element-Level Mass Matrix Inversion",
+          "trigger": "same element-level blend and exact inverse in d=3"
+        },
+        {
+          "assessment": "spectral/preconditioning application, not a matching entry-zero result in the inspected statement",
+          "evidence": [
+            "The BRAS approximation uses exact element-local inverses with averaging."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2607.12138",
+          "material_read": "PDF p. 1 abstract",
+          "method": "OA PDF text",
+          "title": "Broken-space Additive Schwarz Mass Inverse Approximations and (Block) Preconditioning",
+          "trigger": "motivating exact element-local mass inverses"
+        },
+        {
+          "assessment": "different matrix family",
+          "evidence": [
+            "Structured inverse of the univariate Bernstein mass matrix, with context on simplicial cells."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1907.05773",
+          "material_read": "PDF p. 1 abstract",
+          "method": "OA PDF text",
+          "title": "Structured Inversion of the Bernstein Mass Matrix",
+          "trigger": "related structured finite-element mass inversion"
+        },
+        {
+          "assessment": "same blend, different observable",
+          "evidence": [
+            "Generalized wave spectrum and mode switches, including cube thresholds 3/4 and 27/28."
+          ],
+          "identifier_or_url": "4dfcd3e1072c",
+          "material_read": "RESULT.md Finding",
+          "method": "published local mirror",
+          "title": "Exact mode-switching thresholds for blended-mass multilinear waves",
+          "trigger": "distinct same-day record for the same mass blend"
+        },
+        {
+          "assessment": "propagator rather than inverse, varying time rather than blend",
+          "evidence": [
+            "A far-end one-dimensional Dirichlet heat-propagator entry has n−2 crossings near lumping."
+          ],
+          "identifier_or_url": "54366c995acd",
+          "material_read": "RESULT.md Finding",
+          "method": "published local mirror",
+          "title": "Laguerre-controlled sign reversals in near-lumped finite-element heat propagation",
+          "trigger": "exact sign reversals of a related FE matrix entry"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md theorem, moment proof and limits",
+        "Hanukah §4 and the distinct same-blend Resultary spectrum finding"
+      ],
+      "rationale": "This isolates how large the number of sign changes of an inverse coupling can be while positive definiteness persists for a canonical scalar element model. The exact dimension dependence, simplicity, and root pairing are the significant structural data. The familiar d=3 example is illustrative, not an independent contribution or evidence of numerical instability.",
+      "residual_risks": [
+        "Arbitrarily many reversals require mathematical tensor dimensions above the usual physical dimensions. The result gives no guarantee about assembled discretizations or algorithms."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

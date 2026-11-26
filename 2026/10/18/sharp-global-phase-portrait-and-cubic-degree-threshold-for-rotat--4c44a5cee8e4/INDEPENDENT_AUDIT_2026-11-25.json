@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:52:24.479619Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Rotation weights leave just z and z² conjugate(z) in degree at most three. In a radial–tangential frame the real derivative columns, up to common rotation, are a+3bs and i(a+bs); their determinant is m+4cs+3ds². Minimizing on s≥0 gives precisely the strict inequality in the Finding, including singularity at equality. It is sufficient since the squared-radius image H(s)=s|a+bs|² runs strictly increasingly from zero to infinity and each angular map is a rotation; the local smooth inverses then give the global smooth inverse. The fixed-radius quadratic has roots of opposite signs; H(s)−s determines strict monotonic radial motion on either side, and at the positive root H′ is also the multiplier in ordinary radial distance. The two constructions have |a|<1, s*=1, Q(1)=2 and the specified circle rotation. A commuting real-linear map must commute with the nonreal linear part and so is a complex scalar; the cubic term forces unit modulus. No degree-two equivariant term exists. The verification note and checker were inspected, not executed; the exact identities and boundary checks follow from the displayed proof and arithmetic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The period-n theorem gives a differentiable planar homeomorphism with exact finite cyclic symmetry, unique fixed local attractor and a least-period-n point.",
+          "The discrete Markus–Yamabe spectral condition is imposed everywhere, unlike attraction only at the origin."
+        ],
+        "reasoning": "Finite cyclic constructions do not imply exact full rotational symmetry, a polynomial of optimal degree, or a smooth inverse. The claimed examples have expanding radial and neutral tangential eigenvalues on the invariant circle, so the global spectral hypothesis does not apply.",
+        "searches": [
+          "arXiv:1201.4818v2, Theorem 3.1",
+          "arXiv:1405.6877, Theorem 2 and introductory discrete Markus–Yamabe condition"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–51, VERIFICATION.md and verify.py",
+        "Resultary 19f3f27a2804 (indexed summary only)",
+        "arXiv:1202.0779v1 and revised arXiv:1202.0779",
+        "arXiv:1405.6877",
+        "arXiv:1201.4818v2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The v1 proof explicitly says Fix(f)={0} implies Fix(R)={0}; the revision instead conditions global attraction on Fix(R)={0} and allows invariant circles.",
+          "The cubic example with a=−1/2+i/4 and b=−1/2−i/4 has Fix(f)={0}, R(1)=1, and full invertible linear symmetry group SO(2)."
+        ],
+        "reasoning": "The correct general radial theorem applies after the fixed radii are determined but does not establish the sharp cubic classification. The period-two construction also avoids the reflections that occur in the naive real-coefficient constant-twist construction. The example is a concrete counterexample to the inference in v1, not a contradiction of its revision.",
+        "searches": [
+          "arXiv:1202.0779v1 Proposition 4.2, p. 11; revised arXiv:1202.0779 p. 11",
+          "arXiv:1201.4818v2 Theorem 3.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The revised 2012 text and the 2014 review treat fixed points of the radial map as invariant circles, with rotation on each circle; these are qualitative for general equivariant embeddings.",
+          "The strongest Resultary similarity hit reported, 19f3f27a2804, is indexed as a cosine normal-return map with threshold (√97−7)/8, not the SO(2) cubics."
+        ],
+        "reasoning": "Identifying radius dynamics is prior, but does not give this coefficient range, the single explicit separating radius or the radial multiplier. The closest indexed summary concerns a different map and is not evidence of an equivalent theorem.",
+        "searches": [
+          "Resultary semantic comparison for rotationally equivariant cubic maps, global invertibility and invariant circle",
+          "arXiv:1202.0779v1 §4.1 and revised arXiv:1202.0779 §5",
+          "arXiv:1405.6877 §5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The nearest catalogue summary has an unrelated return map; the revised 2012 proposition's table catalogs admissible local Jacobians at the origin, not cubic coefficients for a global inverse."
+        ],
+        "reasoning": "No relevant exact table is identified: this is a continuum of coefficients and a uniform all-period realization rather than a finite entry enumeration. The nearest catalogue entry was not available in full and no noncoverage conclusion relies on its summary alone.",
+        "searches": [
+          "Resultary semantic catalogue check for the coefficient inequality, degree threshold and prescribed rotation periods; nearest indexed record 19f3f27a2804",
+          "arXiv:1202.0779, Proposition 4.2 and Appendix C as characterized by that proposition"
+        ]
+      },
+      "rationale": "The qualitative radial reduction and the phenomenon of local but not global attraction are established antecedents. The distinct supported claim is the sharp all-coefficient smooth-invertibility and phase-portrait classification in the cubic rotational class, together with exact SO(2) realizations at the lowest admissible polynomial degree, including period two. No inspected statement yields this package. The frozen attribution of an erroneous fixed-point implication is correct for arXiv:1202.0779v1 specifically; the later version replaces that claim by a correct fixed-radius condition.",
+      "residual_risks": [
+        "Unlocated explicit cubic classifications in equivariant dynamics cannot be excluded.",
+        "The author PDF of the polynomial Markus–Yamabe paper was unavailable, and the unrelated indexed return-map hit was only available as a summary. These are scope limits, not evidence of absence or of priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "v1 makes the invalid implication as cited; revised text gives correct qualitative radial reduction and annuli description",
+          "evidence": [
+            "v1: ‘Fix(f) = {0} implies Fix(R) = {0}’; revision: ‘If Fix(R) = {0} then the origin is a global attractor’ and other fixed radii are invariant circles."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1202.0779v1",
+          "material_read": "v1 §4.1, Proposition 4.2 and proof, p. 11, offset 21401; revised version p. 11, offset 20700, at https://arxiv.org/pdf/1202.0779",
+          "method": "Targeted OA PDF reading, with versions distinguished",
+          "title": "Global Dynamics for Symmetric Planar Maps",
+          "trigger": "Exact frozen cited version and potentially decisive fixed-radius claim"
+        },
+        {
+          "assessment": "Prior qualitative radial and symmetry framework; not the cubic classification",
+          "evidence": [
+            "Fixed radial values are invariant circles; discrete Markus–Yamabe requires a strict spectral bound at every point; Theorem 2 is about finite cyclic symmetry."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1405.6877",
+          "material_read": "p. 1 and §5, p. 11; Theorem 2",
+          "method": "Targeted OA PDF reading",
+          "title": "Discrete Symmetric Planar Dynamics",
+          "trigger": "Potential broader radial classification and spectral result"
+        },
+        {
+          "assessment": "Strong qualitative precedent, distinct group and map class",
+          "evidence": [
+            "Exact Z_n symmetry and least period n for each n≥2; no stated cubic degree or full SO(2) result."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1201.4818v2",
+          "material_read": "Theorem 3.1, HTML offset about 20981",
+          "method": "Targeted primary-text reading",
+          "title": "A Local but Not Global Attractor for a Z_n-Symmetric Map",
+          "trigger": "Closest prior period-realization theorem"
+        },
+        {
+          "assessment": "No assertion of whole-document noncoverage",
+          "evidence": [
+            "The related global spectral assumption in the review would exclude the cubic examples under consideration."
+          ],
+          "identifier_or_url": "https://cmup.pt/cmup/islabour/Contents/PPt/SymmPlanarMaps.pdf",
+          "material_read": "Full text not obtained; related hypothesis checked in the 2014 review",
+          "method": "Lawful OA access attempts and targeted comparison with the published review",
+          "title": "The Discrete Markus–Yamabe Problem for Symmetric Planar Polynomial Maps",
+          "trigger": "Potential polynomial-class antecedent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a classification across the entire first nonlinear rotational polynomial class, not a selected numerical example. It locates the singular global-inverse boundary, the entire basin boundary and rotation dynamics, and gives minimal-degree counterexamples to inferring global attraction from a unique local sink, even for a smooth global inverse and exact continuous rotational symmetry.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

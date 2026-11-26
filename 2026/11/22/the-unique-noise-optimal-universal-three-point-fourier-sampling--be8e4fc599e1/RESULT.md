@@ -6,7 +6,7 @@ For the unnormalized cyclic Fourier matrix
 \[
 F_{25}=\bigl(e^{2\pi i rc/25}\bigr)_{r,c\in\mathbb Z_{25}},
 \]
-select three distinct sample positions \(R\) and any three distinct, unknown Fourier frequencies \(C\). The worst squared lower sampling bound is
+choose three distinct sample positions \(R\) before the three-frequency support \(C\) is specified. For a given support, the restricted Fourier matrix maps its three amplitudes to the three samples. The worst squared lower sampling bound over supports is
 \[
 \gamma(R)=\min_{C\subset\mathbb Z_{25},\ |C|=3}
 \lambda_{\min}\bigl(F_{25}[R,C]F_{25}[R,C]^*\bigr).
@@ -42,7 +42,9 @@ The complete affine row-orbit table is:
 
 ## Assumptions and scope
 
-All indices are residues modulo 25; frequency and sampling sets are *unordered* sets of cardinality three, with no repetitions. The Fourier matrix is **unnormalized**: every matrix entry has absolute value one, so row-Gram diagonal entries are three. The least eigenvalue is of the Hermitian three-by-three row Gram matrix; no additional factor of 25 or 3 is inserted. The objective first asks for invertibility for **every** unknown three-frequency set, then maximizes the least squared singular value. Arbitrary complex signal amplitudes are allowed. The claim is for order 25 only, with no inference to larger prime squares.
+All indices are residues modulo 25; frequency and sampling sets are *unordered* sets of cardinality three, with no repetitions. The Fourier matrix is **unnormalized**: every matrix entry has absolute value one, so row-Gram diagonal entries are three. The least eigenvalue is of the Hermitian three-by-three row Gram matrix; no additional factor of 25 or 3 is inserted. The objective asks for invertibility on **each fixed support** and maximizes the worst squared singular value across supports. With the support supplied for amplitude recovery, the worst Euclidean noise amplification of a universal design is \(\gamma(R)^{-1/2}\). The claim is for order 25 only, with no inference to larger prime squares.
+
+Universal invertibility does not identify an unknown support from three samples. For a universal design, two different three-frequency supports each map their amplitude space onto \(\mathbb C^3\). A generic sample vector therefore has distinct preimages with exactly those two supports; amplitudes need not vanish, since a zero amplitude for either inverse map confines the sample vector to a proper hyperplane.
 
 ## Proof
 

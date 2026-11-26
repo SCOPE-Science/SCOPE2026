@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:30:21.362434Z",
+  "axes": {
+    "correctness": {
+      "rationale": "No pair dominates since each closed neighborhood has seven vertices. The independently reconstructed minimum family consists of the 32 triples in the two stated translation orbits. A one-vertex exchange between independent dominating sets is a slide: the new set must dominate the removed vertex, and no unchanged vertex was adjacent to it, so the arrival vertex is adjacent to it. In coordinates, the cross-orbit overlap shifts are D={(0,0),(1,2),(3,1)} with no two-vertex overlaps within an orbit. The triangles are the 32 stated faces and each primal edge is in two faces. The displayed linear map has unit determinant and sends D to D'={(0,0),(0,3),(1,0)}, proving the graph isomorphism. The separately written /workspace/branches/409e5724-a412-4f41-9e56-88ea883e24de/independent_structural_check.py reconstructed all 32 and 48 masks matching the frozen certificate and independently checked the map and all-source distances (1,3,6,9,9,4). Analytically, two steps within a part project to Cayley differences D'-D' minus zero, exactly the standard Shrikhande connection set C, so the even levels have sizes 1,6,9. D' reaches three vertices at distance one and D'+C reaches twelve distinct vertices including those three, giving nine at distance three. The remaining four are at distance five because the even part is exhausted within four steps. Translation and part swap with coordinate negation give the same layers from every start. The frozen verifiers were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The toroidal-shattering record classifies the larger a priori family of ordinary minimum dominating sets and supplies the edge-disjoint Cayley isomorphism.",
+          "The induced-matching record also finds the Dyck graph as a Shrikhande exchange graph, but its states are maximum induced matchings and its move exchanges edges. Bonsma distinguishes jumping from sliding in independent-set reconfiguration."
+        ],
+        "reasoning": "The induced-matching theorem is not direct coverage; matching ambient and target graphs does not identify the state graphs. The shattering theorem does supply the same concrete state family and face incidence. Independence and domination turn single exchanges into slides, so this stronger-family statement does determine the claimed graph.",
+        "searches": [
+          "2026/11/22/SCOPE-the-toroidal-shattering-complex-of-minimum-domination-in-the-shr--332b27986fe0",
+          "2026/11/8/SCOPE-the-dyck-graph-from-maximum-induced-matchings-of-the-shrikhande--baaa11a134da",
+          "arXiv:1402.1587"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, certificate.json, verify_enumeration.py and verify_structural.py",
+        "Resultary 2026/11/22 record 332b27986fe0 and 2026/11/8 record baaa11a134da",
+        "Brouwer Shrikhande graph profile",
+        "arXiv:2303.06299 and arXiv:1402.1587"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The catalogue M inverse sends T_0 to F_0 and T_1 to F_1. For the frozen translation map L, the product L M acts by (a,b) -> (-b,-a). The affine map K(a,b)=(1-b,1-a) preserves the Shrikhande edges and fixes F_0 and F_1 setwise."
+        ],
+        "reasoning": "The catalogue vertexwise inverse sends T_j+t to F_j+M^(-1)t. Composing on triangles with K gives exactly F_j+L(t), as in the frozen statement. Thus the explicit map differs only by a target symmetry. The radius, diameter and uniform layers are direct graph invariants of the already determined triangle dual; the exact replay corroborates them but does not establish distinct coverage.",
+        "searches": [
+          "Toroidal shattering complex, Proof §§1–2 coordinate matrix",
+          "Brouwer Shrikhande triangle dual",
+          "arXiv:2303.06299, i-graph definition"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The catalogue Finding and Proof §§1–2 say all ordinary domination optimizers are the 32 triangles of H with Cayley differences disjoint from the original graph, and give the coordinate isomorphism M (rows (1,1) and (2,3)) from G to H.",
+          "Brewster, Mynhardt and Teshima define an i-graph using precisely the move relation on the symmetric difference."
+        ],
+        "reasoning": "All these ordinary optimizers are independent because the two connection sets are disjoint, so they are also precisely the independent optimizers. A one-vertex exchange means a common edge of H; domination of the removed vertex forces the new vertex to be its original-graph neighbor. Thus the two notions of adjacency coincide with face-dual adjacency, without any further enumeration.",
+        "searches": [
+          "Resultary: Shrikhande minimum independent domination optimizer triples, triangle dual, Dyck reconfiguration",
+          "2026/11/22/SCOPE-the-toroidal-shattering-complex-of-minimum-domination-in-the-shr--332b27986fe0",
+          "arXiv:2303.06299"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Brouwer's Shrikhande profile explicitly names the graph of triangles sharing an edge as the Dyck graph.",
+          "The catalogue table of permitted third vertices lists exactly the six optimizer triples at the origin, and its Finding gives all 32 as a triangle family."
+        ],
+        "reasoning": "Once the optimizer triangles are known on the same labels, the graph profile gives exact graph identification, not a numerical resemblance. Its intrinsic graph statistics, including the distance profile, are then fixed and recoverable from the graph without another result about independent domination.",
+        "searches": [
+          "Brouwer Shrikhande graph profile, triangle-adjacency graph",
+          "Toroidal shattering complex, optimizer classification table in Proof §1"
+        ]
+      },
+      "rationale": "A distinct Resultary theorem identifies the entire optimizer family as the triangles of an explicitly isomorphic edge-disjoint copy of Shrikhande on the same labels. Under that identification the exchange condition is mechanically the triangle-dual adjacency, and the slide condition is automatic by domination. Combining it with the known recognition of that dual gives precisely the frozen graph. Even the displayed correspondence is the catalogue coordinate map up to an affine symmetry of the target. This is demonstrable coverage by a distinct record and a known graph identification, not an assertion that the later-indexed catalogue result had priority over the frozen result.",
+      "residual_risks": [
+        "The relative times of first discovery or derivation are not established by later catalogue dates, and no publication-priority claim is made.",
+        "The failed originality verdict is based on an explicit implication from inspected sources, not on a failed search or inaccessible literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the claimed state graph through the automatic exchange/slide equivalence and known triangle dual",
+          "evidence": "All 32 ordinary optimizers are the triangles of H, G and H are edge-disjoint, and M is a labeled Cayley isomorphism. The table and witness include the frozen T_0,T_1.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-the-toroidal-shattering-complex-of-minimum-domination-in-the-shr--332b27986fe0/RESULT.md",
+          "material_read": "Finding, Assumptions, Proof §§1–3 through the optimizer classification table and coordinate matrix; mirrored offsets 0–5027 and companion targeted passages",
+          "method": "Targeted local mirror passages, commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "The toroidal shattering complex of minimum domination in the Shrikhande graph",
+          "trigger": "Same labels, optimizer triples and toroidal incidence"
+        },
+        {
+          "assessment": "Materially related but different states and move; not used as the decisive implication",
+          "evidence": "The states are 32 maximum induced matchings and the graph uses two-edge exchanges.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-the-dyck-graph-from-maximum-induced-matchings-of-the-shrikhande--baaa11a134da/RESULT.md",
+          "material_read": "Finding and translation-orbit/triangle-incidence comparison, offsets 22, 2846 and 5935–6243",
+          "method": "Targeted local mirror passages",
+          "title": "The Dyck graph from maximum induced matchings of the Shrikhande graph",
+          "trigger": "Same ambient and target graphs and an exchange relation"
+        },
+        {
+          "assessment": "Exact known target identity",
+          "evidence": "The graph whose vertices are the triangles of Shrikhande and whose edges are pairs of triangles sharing an edge is the Dyck graph.",
+          "identifier_or_url": "https://jaanos.github.io/tables/graphs/Shrikhande.html",
+          "material_read": "Triangle-adjacency statement at extracted offset 1050",
+          "method": "Lawful public page passage",
+          "title": "Shrikhande graph profile",
+          "trigger": "Known identification of the triangular-face dual"
+        },
+        {
+          "assessment": "Covers the definition of the reconfiguration operation; the specific optimizer classification comes from another source",
+          "evidence": "Adjacent vertices of an i-graph differ in two vertices of the original graph which are adjacent to each other.",
+          "identifier_or_url": "https://arxiv.org/abs/2303.06299",
+          "material_read": "PDF p. 1, definition near extracted offset 1600",
+          "method": "Targeted lawful arXiv passage",
+          "title": "Reconfiguration of Minimum Independent Dominating Sets in Graphs",
+          "trigger": "Equivalent i-graph terminology and general construction"
+        },
+        {
+          "assessment": "Terminology, not this specific graph classification",
+          "evidence": "Token sliding moves along a graph edge, unlike unrestricted token jumping subject to independence.",
+          "identifier_or_url": "https://arxiv.org/abs/1402.1587",
+          "material_read": "PDF p. 2, model definitions near offset 4800",
+          "method": "Targeted lawful arXiv passage",
+          "title": "Independent Set Reconfiguration in Cographs",
+          "trigger": "Check jump/slide aliases in the comparison"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The choice of the optimum-configuration graph is natural and the exact slide diameter would be useful if unknown. Here, however, the whole graph follows mechanically from the indexed exact optimizer-to-triangle identification and the known dual. The alternative coordinate map is just a target symmetry, and the remaining narrow numerical invariants are distance data computed from that already determined graph. No independently useful unresolved invariant remains in the submitted claim.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

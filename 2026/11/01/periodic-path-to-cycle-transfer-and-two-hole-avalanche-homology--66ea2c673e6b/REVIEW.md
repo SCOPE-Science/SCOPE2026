@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The path dynamics are explicitly determined by a translation-and-truncation formula. All firing sets from time \(d\) onward are contained in earlier ones. The nerve comparison uses a physical witness in the second repeated block, thereby proving both implications without incorrectly identifying the path with a cycle at the graph level. For two holes, each nerve facet is the complement of an edge in a graph that decomposes into \(g\) cycles (or \(K_2\) components). The ordinary cycle-independence calculation is reconstructed via path deletion and a null-cofibre argument. Joins determine integral torsion-free cohomology, and the explicit dimension shift follows from Björner–Tancer duality. The proof is valid for all stated integer parameters, including \(L=2\), and does not extrapolate the verifier's finite experiments. Risk: standard interpretations of the augmented empty face and the \(L=2\) exception require the explicitly stated conventions; both are accounted for.
+## correctness
 
-## Originality — PASS, with residual uncertainty
-Full-text examination of Riihimäki–Smith, arXiv:2606.26786v1, §§2–3, found the basic nerve construction, the cyclic two-occupant classification, a single-residue path case, and a consecutive cyclic-support classification, but not the arbitrary-motif repeated-path-to-cycle transfer or the general two-hole repeated-path formula. The cycle-only subcases with \(\gcd(d,h)=1\) are covered up to cyclic relabeling, and the antipodal two-hole cyclic sphere appears as a published conjecture. These are explicitly not presented as independent novelty. A full primary result from the closest indexed complementary-residue cycle study was inspected and has coprime, nonperiodic cyclic hypotheses; it does not imply the repeated-path transfer or the noncoprime two-hole family. A previously recorded mathematical claim on perfect difference-set cyclic avalanche supports was compared; it concerns different configurations and does not include these states. published-finding corpus searches on motifs, periodic paths, Alexander duality, and gcd ranks did not identify an equivalent transfer statement. Because novelty cannot be proven by unsuccessful searches, unindexed coverage and indirect derivability remain residual risks.
+PASS
 
-## Value — PASS
-The central general statement connects a finite *terminating* sandpile dynamics on arbitrarily long paths to nonterminating cyclic dynamics via a precise nerve identification, yielding a useful reduction for every binary motif after two repetitions. Its two-hole instance produces a complete, naturally parameterized integral homology classification. For \(d=3g\) and \(h=g\), ranks grow as \(2^g\) in increasing degree, revealing nontrivial higher-dimensional avalanche topology of long directed paths. This adds a structural and quantitative family to the emerging study of binary avalanche homology. The claim does not inflate familiar cycle or duality results into separate discoveries.
+Binary supports translate right by one per round and truncate at the sink. Replacing a predecessor i by i+d shows F_t⊆F_{t-d} for t≥d. A common residue a for any intersection of the first d supports lifts to the physical vertex a+d (0≤a<d), so no intersections are lost at the sink for k≥2. The nerve has the claimed translates of -R and inversion identifies the cycle complex; nonempty intersections are simplices. Independently, residue reduction has a simplicial section a↦a+d, with the composite contiguous to the identity because original and section vertices share the same first-period firing simplex. For two holes the complements of the facets are edges of g disjoint C_L (K2 for L=2), so the nerve is the Alexander dual of their independence complex. Cone deletion of the second path vertex gives the three-step suspension recurrence; in the cycle cofibre one side of the map is contractible or the source sphere has strictly smaller dimension. L=3,4,5 give three points, two contractible components and a circle, respectively, and K2 gives S⁰. The join therefore has integral reduced cohomology of rank b in degree gs-1, and duality shifts it to degree d-gs-2 as claimed, including degree-zero cases. The frozen mod-two checker was inspected, not run, and is not evidence of integral torsion-freeness; the integral argument is decisive.
 
-## Closest literature and limitations
-Riihimäki–Smith (2026) is the motivating original source. The previously indexed complementary-residue theorem is restricted to coprime cycle lengths and circular intervals. Classical independence-complex topology and combinatorial Alexander duality are ingredients; no originality is claimed for them. The reported conclusion is nonequivariant, binary, and requires at least two repetitions. The original source contains special cases and closely related cyclic computations, so possible implicit previous reductions should be reassessed independently before publication.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the known cyclic and particular path cases and standard topology. The distinct content supported by the comparison is arbitrary binary repeated sink-path transfer with the first-period nerve, and its uniform two-hole application including noncoprime separations. The nearest periodic lifting result concerns cycles on both sides; the nearest two-hole classification concerns coprime shifts. Neither supplies the requisite no-boundary-loss equivalence for all motifs on terminating paths.
+
+## value
+
+PASS
+
+One common second-block witness turns a terminating dynamical system into a finite-period homotopy calculation for every binary motif and every k≥2. This is useful beyond the previously classified small motifs. The two-hole case converts the arithmetic of separation into explicit integral ranks, including exponentially many classes in growing degree, without a size-dependent path computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

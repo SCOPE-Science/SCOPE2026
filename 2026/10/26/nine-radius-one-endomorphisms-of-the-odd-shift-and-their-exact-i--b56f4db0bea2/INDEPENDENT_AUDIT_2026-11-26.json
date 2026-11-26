@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:06:49.141518Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, Assumptions and Proof §§1–5",
+        "Frozen VERIFICATION.md and verify.py inspected without execution"
+      ],
+      "rationale": "The gap condition is equivalent to support on a single parity, including the zero point and finitely supported points. The only relevant local triples are 000, 001, 010, 100 and 101. The first bit must vanish. If 010 has output one, any active bit for 001, 100 or 101 could be tested on the opposite parity alongside a distant isolated one, violating preservation; the remaining map is identity. Otherwise the three off-center bits are free and act by the eight two-input functions vanishing at (0,0), onto the opposite phase with a harmless shift of coarse index if needed. All five triples occur, so distinct permitted truth tables give distinct restricted maps, and the three irrelevant bits give eight codes per map. Projection, identity and binary difference are onto; the rise/fall images avoid 11 and have explicit predecessors obtained by reading the target directly or shifting it. AND outputs avoid 101, and a preimage of a target b avoiding it is a_k=b_(k-1) OR b_k. Complementing yields the OR image avoiding 010. These three proper coarse languages, the zero image and the full odd shift are distinct, as can be checked using 11, 101 and 010 on the unique nonzero phase. Under the square of the spatial shift, each phase is the corresponding coarse shift; the entropy of their union is the maximum of the two equal coarse entropies. The coarse adjacency polynomials are t^2-t-1 and t(t^3-2t^2+t-1); the cubic's derivative is (3t-1)(t-1), with opposite signs of the cubic at the golden ratio and 2. The entropies therefore have the stated strict ordering and half-log normalization. For difference, fixing one coarse coordinate fixes the entire antecedent recursively in both directions. Nonzero outputs determine their source phase, while at zero the two constant choices on each phase yield three antecedents after counting the common all-zero point just once.",
+      "residual_risks": [
+        "The phase-index shift does not alter the image or fibre count. The checked entropies are spatial image entropies, not entropies of temporal CA dynamics."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The S-gap theorem treats structural and conjugacy questions rather than fixed-radius endomorphisms. The hard-core result assumes a minimum gap of k≥2 zeros, while the odd shift permits gaps of one zero and prohibits gaps of even size."
+        ],
+        "reasoning": "Higher radius on a different domain is not a stronger statement about the present maps. The inspected S-gap conjugacy criterion does not enumerate local maps or preserve a fixed radius under arbitrary conjugacy. Salo's nonuniform CA paper remains a bounded access risk.",
+        "searches": [
+          "Ahmadi Dastjerdi–Jangjoo arXiv:1108.3242, abstract and Theorem 4.1",
+          "Salo 2014 DOI 10.1016/j.tcs.2014.07.031",
+          "Resultary 2026/10/26/SCOPE-radius-two-rigidity-across-binary-hard-core-shifts-with-sharp-fo--824122558fbf"
+        ]
+      },
+      "checked_sources": [
+        "Salo MathOverflow answer 429936 and comment 1106199",
+        "Resultary records 0234835f8973, 824122558fbf, d4f1725c3486 and 5f94d5a31b27, Findings",
+        "Ahmadi Dastjerdi–Jangjoo arXiv:1108.3242, abstract and Theorem 4.1",
+        "Salo 2014 DOI 10.1016/j.tcs.2014.07.031, limited access"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The explicit prior Rule 18/90 observation gives a non-shift restriction. The new census also excludes all mixed active center/off-center truth tables and identifies separate rise/fall, AND and OR images through explicit coarse forbidden words."
+        ],
+        "reasoning": "Accept only the census and its image/entropy classification as the distinct package. The binary derivative recurrence explains why the onto and fibre observations for this one map are elementary once the prior restriction is known; they do not imply completeness or determine the proper images.",
+        "searches": [
+          "MathOverflow comment 1106199 and adjacent answer 429936, 2022-09-07",
+          "Even-shift catalogue 0234835f8973, Finding",
+          "Frozen RESULT.md §§2–5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The odd-X parity suspension is equivalently the kink-free shift avoiding all 10^(2n)1, including adjacent ones. Salo's comment on that formulation states F18(X)⊆X and equality with F90 on X."
+        ],
+        "reasoning": "The recognized alternative formulation gives precisely the already-known XOR map on the same domain, not the classification of the other allowed truth tables. No directly matching census was identified in the bounded searches.",
+        "searches": [
+          "Resultary: odd-shift or odd-zero-gap binary shift, elementary cellular automata preserving it, centered-radius-one restricted endomorphism census",
+          "Focused literature search for odd-shift radius-one cellular automata/endormorphisms and Rule 18",
+          "Salo, MathOverflow answer 429936 and comment 1106199"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The even-shift table reports 16 codes, eight maps and three onto maps. The full-shift spatial image catalogue has 19 entropy levels and contains the related spectral roots. The cyclic Rule 18 record deals with reachability and counts on indexed finite rings."
+        ],
+        "reasoning": "Even-gap and odd-gap constraints lead to different allowed triples and global maps. Common entropy roots for other ensembles are not a table of restricted image subshifts; there is also a factor 1/2 in the odd-shift entropy normalization. Dates are not the basis for these scope distinctions.",
+        "searches": [
+          "Resultary local exact CA census/image-entropy search",
+          "2026/10/25/SCOPE-complete-radius-one-factors-and-entropy-spectrum-of-the-binary-e--0234835f8973",
+          "2026/10/27/SCOPE-exact-nineteen-value-spatial-image-entropy-spectrum-of-elementar--d4f1725c3486",
+          "2026/11/2/SCOPE-exact-cyclic-one-step-image-and-density-counts-for-elementary-ru--5f94d5a31b27"
+        ]
+      },
+      "rationale": "The supported distinct claim is the complete centered-radius-one odd-shift self-map census with exact image languages and spatial entropy spectrum. Salo's Rule 18/90 equality is explicitly prior; the fibre formula is an elementary derivative consequence once the phase split is observed, not an independent priority claim. The closest exact table uses the even shift, and the full-shift or finite-ring spectra do not determine which restricted maps preserve the odd shift or what their image languages are.",
+      "residual_risks": [
+        "Salo's 2014 full text was not inspected; no claim about its unread passages.",
+        "A previously unindexed exact odd-shift table remains possible; the Rule 18/90 equality is already known."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Explicitly covers the equality and preservation for the named rule, not the complete census in the inspected passage",
+          "evidence": "Salo describes X by forbidding kinks and states F18(X)⊆X and F18|X=F90|X.",
+          "identifier_or_url": "https://mathoverflow.net/questions/429911/mysteries-of-wolframs-rule-18#comment1106199_429936",
+          "material_read": "Answer 429936 and attached comment 1106199 on the kink-free shift",
+          "method": "Lawful public page",
+          "title": "Mysteries of Wolfram's rule 18 — Ville Salo answer and comment",
+          "trigger": "Exact odd-shift domain and Rule 18/90 restriction"
+        },
+        {
+          "assessment": "Close analogue but different domain and class counts",
+          "evidence": "Even gaps give counts of 16 codes, eight restricted maps and three onto maps, with its own proper image constraints.",
+          "identifier_or_url": "2026/10/25/SCOPE-complete-radius-one-factors-and-entropy-spectrum-of-the-binary-e--0234835f8973",
+          "material_read": "Finding and scope, mirror RESULT.md offset 0",
+          "method": "Local catalogue and source mirror",
+          "title": "Complete radius-one factors and entropy spectrum of the binary even shift",
+          "trigger": "Nearest exact enumeration on a parity-gap binary shift"
+        },
+        {
+          "assessment": "Does not cover the odd-gap shift",
+          "evidence": "Requires at least k≥2 zeros between ones; an odd gap of length one is allowed in the frozen domain.",
+          "identifier_or_url": "2026/10/26/SCOPE-radius-two-rigidity-across-binary-hard-core-shifts-with-sharp-fo--824122558fbf",
+          "material_read": "RESULT.md Finding at offset 0 and relation to prior work at offset 7387",
+          "method": "Local catalogue and source mirror",
+          "title": "Radius-two rigidity across binary hard-core shifts",
+          "trigger": "Possible dominating radius/onto classification"
+        },
+        {
+          "assessment": "Structural/conjugacy results, not a fixed-radius census in the inspected passages",
+          "evidence": "Theorem 4.1 gives a conjugacy criterion rather than a local-map or image classification.",
+          "identifier_or_url": "https://arxiv.org/abs/1108.3242",
+          "material_read": "Abstract and Theorem 4.1, PDF pp. 1 and 8, offsets 0 and 25135",
+          "method": "Lawful open-access primary paper",
+          "title": "Dynamics and Topology of S-gap Shifts",
+          "trigger": "Broad symbolic-dynamics results for S-gap domains"
+        },
+        {
+          "assessment": "Full-text coverage not established; does not support a negative inference",
+          "evidence": "The frozen citation points to discussion of odd shifts and nonuniform CA surjectivity, but the inspected material does not decide census overlap.",
+          "identifier_or_url": "https://doi.org/10.1016/j.tcs.2014.07.031",
+          "material_read": "Landing/abstract material only; full text not recovered",
+          "method": "Lawful primary and alternate-copy retrieval attempts",
+          "title": "Realization problems for nonuniform cellular automata",
+          "trigger": "Cited original odd-shift and surjectivity discussion"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and Proof §§2–5",
+        "Salo 2022 restriction observation as the known baseline"
+      ],
+      "rationale": "This is a complete natural small-radius classification for a standard sofic shift, not just a code count: it identifies the exact proper image subshifts, two distinct images of equal entropy, every onto map and the exceptional zero fibre. These are reusable facts about closure and factor behavior of the odd shift; the easy XOR restriction alone does not supply them.",
+      "residual_risks": [
+        "No assertion about temporal entropy or higher-radius self-maps."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The cubic is smooth: its five explicit partial derivatives have no common nonzero projective zero in characteristic two. The displayed conjugate planes restrict the cubic to the product of three distinct linear factors. Both remaining line equations vanish identically on the cubic. Completeness uses the full \(5797\)-element Grassmannian \(\mathrm{Gr}(2,5)(\mathbf F_4)\): the exact coefficient test of \(F(su+tv)\) identifies eight and only eight subspaces. A second independent construction from rational point pairs yields the same eight. Rank computations give exactly two triangles and two isolated vertices; Frobenius has four two-cycles; only the two triangles can define split three-line plane sections. The checker output and full source are included. The result does not extrapolate to extension fields not enumerated.
+PASS
 
-## Originality — PASS (best-knowledge, limited)
+The partials force x1=0, then x4=x3=x2, then x2=x5=0, even over the algebraic closure. An independent point-pair calculation uses the unique leading-1 representatives of all 341 projective points over F4 and gets 81 points on X. Each pair determines a five-point line; a line occurs in ten pairs of cubic points exactly when all its five points lie on X. A nonzero restricted binary cubic has at most three projective zeros. The eight resulting lines equal the eight explicit equations, with graph 2K3+2K1 and four Frobenius transpositions. Exact subspace enumeration also reproduces the list from 5797 two-spaces. Intersections checked over F4 suffice geometrically since matrix rank does not change after extension. Substitution into the cubic gives the stated three distinct linear factors on each plane. Any three distinct coplanar lines form a graph triangle and any two of its sides span the plane, so no other split section is possible. The two planes meet only at [0:0:1:0:0], outside X, and descent would require a Frobenius-fixed line, of which there are none.
 
-Debarre–Laface–Roulleau (arXiv:1510.05803, Section 4.5.4) give the **same cubic**, its lack of \(\mathbf F_2\)-lines, and point counts over extensions. Their data together with the Galkin–Shinder point-count identity (arXiv:1405.5154, Theorem 5.1 and Corollary 5.2) **already imply the cardinality eight over \(\mathbf F_4\)**. Accordingly neither nonexistence over \(\mathbf F_2\) nor the line cardinality eight is the original assertion. The supported difference is the explicit complete collection of equations, its intersection graph, the two conjugate reducible plane sections and their uniqueness. We inspected the relevant primary material, searched variant descriptions and indexed findings, and found no implication giving that more detailed configuration. A specialized unindexed classification remains a residual risk; negative searches do not establish uniqueness.
+## originality
 
-## Value — PASS
+PASS
 
-The first field extension on which an explicit line-free cubic threefold acquires lines is a natural arithmetic-geometric invariant of its Fano surface. The two conjugate three-line plane sections and a disjoint conjugate pair provide actual geometric structure beyond the known zeta function: which rational lines meet, which arrange into reducible plane sections, and how Frobenius exchanges them. These data can inform explicit constructions of rational curves, incidence divisors, and auxiliary plane sections over the first splitting field. The finite classification is motivated by the published line-free example, not by a generic arbitrary enumeration. No downstream theorem is asserted.
+The line-free example over F2 and the line count eight over F4 are prior or direct implications of prior work, as the source acknowledges. The supported distinction is the complete explicit configuration and its incidence and split sections over the first extension carrying lines. The strongest available comparisons do not establish that configuration.
 
-## Limitations and prior comparison
+## value
 
-The result is restricted to the specified smooth cubic over \(\mathbf F_2\) and its lines/planes over \(\mathbf F_4\). The full geometric Fano surface and later extensions are not classified. The closest source is the original Debarre–Laface–Roulleau construction; Roulleau (arXiv:1304.4076) concerns zeta algorithms under different rational-line and characteristic assumptions. The Galkin–Shinder identity is broader for **counts** but does not specify individual line incidences or the two plane equations. No independent audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The field cutoff is motivated intrinsically by the known line-free example. At the first extension carrying lines, the complete incidence diagram and the two particular conjugate split plane sections capture geometry absent from a mere line count. The equations give exact witnesses that can be used to study or compare this example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:25:39.359897Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof Steps 1–5",
+        "Frozen VERIFICATION.md and verify.py, finite diagnostic scope"
+      ],
+      "rationale": "Verified the full one-map equivalence and relative asymptotic analytically. The cube cut by sum x_i <= n-1 is integral: at a vertex on the cut, at most one coordinate is not at a cube bound, and the integer right-hand side forces that coordinate to be integral too. Lifting its binary law to row marginals uses the positive 1-x_i denominators. For a=n-1 the uniform-sum density bound and ratio Jacobian give (a/n!) d^(a-1)(1-d)^(-n), with equality up to 1/2; the Dirichlet mass constant is exactly 1/(n^n(na)!). The Gamma representation implies nM and n sum d_i^2 tend to 1 and the n-scaled slack tends to 0, giving log W=n+1/2+o_P(1). For an explicit integrability check, on T>=na/2 bound exp(r nM) by exp(2r max G_i/a) for fixed r>1. On max G_i>2a, the union bound in expectation and a Gamma tilt of 1/4 give at most n exp(-a/2)(3/4-2r/a)^(-a), exponentially small for large a. The lower-Gamma-tail event T<na/2 contributes at most exp(rn+na/2)2^(-na-1). The remaining simplex corners have beta power b-n=(n-1)(n-2) and are exponentially negligible on the n^2 scale. The n=2 case needs no corner bound: continuity and row exchangeability give probability 1/2. The result is exactly for one fixed, not necessarily injective, map and normalized iid uniform rows.",
+      "residual_risks": [
+        "No uploaded script was run. The infinite limit is supported by the analytical estimates, not by finite importance sampling. No quantitative remainder bound was reviewed or claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Question 7.4 concerns arbitrary permitted sets of maps. Its preceding sufficient obstruction with all selected entries above 1-1/n covers only part of the one-map exclusion region. The earlier preprint concerns attainable coalescence numbers."
+        ],
+        "reasoning": "The broader formulation is a question with partial answers, not a theorem implying the sharp large-n one-map probability.",
+        "searches": [
+          "Grimmett–Holmes, Coalescence in Markov Chains, Question 7.4 and Proposition 7.5",
+          "arXiv:1907.05605, introductory summary",
+          "Literature lookup on one forbidden map under normalized independent uniform matrix entries"
+        ]
+      },
+      "checked_sources": [
+        "Resultary published-record searches",
+        "doi:10.1007/s10959-026-01500-w",
+        "arXiv:1907.05605"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A cut-cube argument alone does not imply the probability. The row normalization induces the factor product_i(1-d_i)^(-n); its quadratic bulk term supplies a limiting multiplier e^(1/2), and its simplex corner must be controlled."
+        ],
+        "reasoning": "Even granting the elementary marginal-polytope criterion, the closest prior obstruction and exact two-state value do not give the multiplicative asymptotic.",
+        "searches": [
+          "doi:10.1007/s10959-026-01500-w, Remark 2.4, Question 7.4, Proposition 7.5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The published probability of representability is 1-q_n; its row law is identical. The one-map nonrepresentability event is sum_i(1-p_{i,f(i)})<1, not an event in uniform Dirichlet rows."
+        ],
+        "reasoning": "Compared the complement under the same sampling law and the equivalent simplex-deficit statement. No distinct matching Resultary record surfaced in the bounded lookup.",
+        "searches": [
+          "Resultary: one forbidden grand-coupling map, normalized uniform sampling, support criterion and factorial asymptotic",
+          "doi:10.1007/s10959-026-01500-w, Remark 2.4 and Section 7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No matching sharp equivalent surfaced; the exact n=2 value of 1/2 is already published."
+        ],
+        "reasoning": "The target is an asymptotic over all n, not a lookup of small-n probabilities; the exact known case is credited separately.",
+        "searches": [
+          "Resultary ranked searches on the row law, sharp factorial equivalent and exact support inequality",
+          "doi:10.1007/s10959-026-01500-w, Proposition 7.5"
+        ]
+      },
+      "rationale": "The supported increment is the sharp general-n nonrepresentability probability for one preassigned map, including the e^(1/2) correction, not the sampling model, the n=2 answer, or a solution for all permitted map sets. The closest inspected full-text prior solves n=2 and gives a sufficient proper-subset obstruction, not the full simplex criterion or the asymptotic under this distribution.",
+      "residual_risks": [
+        "Equivalent rare-event estimates indexed under different simplex or coupling terminology may have been missed. Only the identified relevant passages of the earlier preprint were inspected."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers sampling and n=2, not the reviewed sharp asymptotic",
+          "evidence": [
+            "Remark 2.4 normalizes iid uniform variables rowwise. Question 7.4 asks for the probability for general permitted sets. Proposition 7.5 gives representability probability 1/2 for n=2 with one map removed."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s10959-026-01500-w",
+          "material_read": "Remark 2.4, p. 6; Question 7.4 and surrounding discussion, p. 21; Proposition 7.5, p. 22",
+          "method": "Bounded open-access journal full-text comparison",
+          "title": "Coalescence in Markov Chains",
+          "trigger": "Same sampling model and forbidden-map probability question"
+        },
+        {
+          "assessment": "The inspected discussion addresses a different invariant",
+          "evidence": [
+            "It describes the set K(P) of attainable coalescence numbers, not the sharp probability for the normalized-uniform law."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1907.05605",
+          "material_read": "Introductory summary, PDF p. 3",
+          "method": "Bounded open preprint PDF reading",
+          "title": "Non-coupling from the past",
+          "trigger": "Related coalescence questions by the same authors"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Grimmett–Holmes, Question 7.4 and Proposition 7.5",
+        "Frozen RESULT.md, Steps 3–5"
+      ],
+      "rationale": "Resolves a natural and explicitly asked subcase of the published probability question. Separating the integral normalization from the concentrating row-normalization product produces a nontrivial sharp multiplier, not merely an order estimate or recomputation of the two-state case.",
+      "residual_risks": [
+        "The result is limited to a single omitted map and supplies no simultaneous omission or coalescence-time theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T14:34:48.175555Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 18–62",
+        "VERIFICATION.md",
+        "prism_twofactor_verify.py",
+        "/workspace/branches/frozen_review_checks.py"
+      ],
+      "rationale": "The cubic complement bijection counts labelled undirected edge subsets exactly once. If a perfect matching has rungs, each unmatched rim run is an even path and has the same unique matching on both rims. With no rungs the only extra cases are the two opposite phases for even n, whose complements each follow a connected zigzag around the base. For a nonempty base matching of size k, deleting its edges partitions the base into k paths; the complement closes each doubled path into one cycle using its two endpoint rungs. The empty base matching gives two rims. Counting marked cyclic gaps gives k m_{n,k} = n binom(n-k-1,k-1) for k>0. The quotient by z has positive coefficients and, if real-rooted, all its roots would be negative. Newton applied to the coefficient triple at degrees 0,1,2 gives (d-1)b^2 >= 2dac. Both displayed parity factorizations of the opposite defect are positive for m>=4; the explicit factorizations for n=3 through 7 (quadratic discriminant 29 at n=7) give the other direction. There is always a zero at 0; for n>=8 the claim is existence of nonreal zeros, not absence of real ones. An independent bounded check, `python3 /workspace/branches/frozen_review_checks.py` (section 5, passes), exhausts the edge subsets that can be perfect matchings for n=3..7, counts complement components by disjoint sets, and recovers both Newton factors symbolically. The proof supplies all orders; the supplied checker was inspected, not executed.",
+      "residual_risks": [
+        "The direct independent census has a finite range; all-order validity rests on the combinatorial and Newton arguments, not that census."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cao–Lu–Zhao's result, as located in the frozen audit's primary comparison, is about how many edge-disjoint two-factors can be packed in a percolated graph, not the number of cycles within every fixed spanning factor.",
+          "Ordinary matching-polynomial root theorems treat M_n, not M_n-1+z^2+2[even n]z; the additive change is not a known root-preserving operation and here destroys real-rootedness.",
+          "The neighboring Resultary record 35e50b8c53e9 counts maximal matchings by size, not complement-cycle counts of perfect matchings."
+        ],
+        "reasoning": "The available broader graph and matching statements have either a different grading, a different operation, or a different quantified object. They do not yield this threshold.",
+        "searches": [
+          "Resultary cutoff and prism matching/cycle-polynomial matches",
+          "arXiv:2607.20157, theorem 1.2",
+          "arXiv:2003.09602 exact-paper retrieval"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary: 4301789dd769 (self), 35e50b8c53e9 (nearby)",
+        "arXiv:2003.09602",
+        "arXiv:2607.20157",
+        "OEIS A124349",
+        "DOI 10.37236/9214",
+        "Frozen RESULT.md lines 66–81 and AUDIT.json source comparisons"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The present formula implies the older Lucas-plus-parity scalar via z=1 and the Hamiltonian count via [z]. The converse is not supported: for n>=8 there are at least four coefficient slots but these give only two constraints.",
+          "Even a possible prior enumeration would not, by itself or by the classical real-rootedness of M_n, supply the all-order Newton-defect sign for the transformed polynomial."
+        ],
+        "reasoning": "The strongest supported distinct contribution is the all-order cutoff for the component enumerator, with its verified derivation and the finer distribution compared to the available scalar theorem.",
+        "searches": [
+          "Compare Lekshmi–West arXiv:2003.09602's stated enumeration, A124349 and Cao–Lu–Zhao theorem 1.2 with F_n and Newton's test"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cubic complementation makes this exactly a histogram of perfect matchings graded by the number of cycles in their complements; the available Lekshmi–West count does not grade them.",
+          "The Baldridge–Lowrance–McCarty terminology denotes a different invariant detecting even perfect matchings, not this component histogram (frozen AUDIT.json, source_inspections)."
+        ],
+        "reasoning": "The grading is substantive: it is not the cardinality of prism perfect matchings, which is always n, and only the explicit paired-rim correspondence links it to base-cycle cardinality.",
+        "searches": [
+          "Resultary: prism C_n square K_2 spanning two-factor component polynomial and the real-rootedness cutoff",
+          "arXiv:2003.09602",
+          "DOI 10.37236/9214"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 4301789dd769 is this identical assigned finding, not independent coverage. Nearby 35e50b8c53e9 is a different census by its indexed description.",
+          "A124349 indexes directed Hamiltonian counts, twice [z]F_n; it neither counts higher-component factors nor supplies a root table for F_n."
+        ],
+        "reasoning": "One coefficient and the scalar total do not replace the full labelled census, even though they are exact checks of it. No separate matching table for the entire grading is evidenced by these sources.",
+        "searches": [
+          "Resultary: prism cycle-count polynomial / complete maximal matching polynomial of cycle prisms",
+          "OEIS A124349 (comparison recorded in RESULT.md and AUDIT.json)"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the full complement-cycle refinement together with the uniform real-zero boundary. The same-graph total matching count and the connected-factor coefficient are credited prior coverage; the available statements do not determine the distribution or the threshold. The strongest same-graph older paper remains only partially accessible, not ruled out in full.",
+      "residual_risks": [
+        "The full Lekshmi–West proof was not obtained; neither an unindexed refinement nor older coverage under alternative graph-polynomial terminology is excluded.",
+        "The adjacent Resultary record was inspected only by its indexed description. The deferred separate literature lookup supplied no results and is not negative evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Partial access; scalar count covered; full-proof refinements not ruled out",
+          "evidence": [
+            "Scalar prism count L_n+2[even n] agrees with F_n(1)."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2003.09602",
+          "material_read": "Abstract and scalar theorem as recorded in frozen AUDIT.json, lines 86–96; not the article body",
+          "method": "Compared the recorded stated theorem; attempted exact arXiv PDF and abstract routes for the same article without obtaining readable additional text",
+          "title": "The Number of Perfect Matchings in Möbius Ladders and Prisms",
+          "trigger": "Exact graph family and complement bijection"
+        },
+        {
+          "assessment": "The compared theorem is not covering",
+          "evidence": [
+            "Estimates edge-disjoint two-factor packing in random spanning subgraphs."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2607.20157",
+          "material_read": "Theorem 1.2 comparison from frozen AUDIT.json lines 73–84; no new full-text inspection",
+          "method": "Compared quantified objects in the recorded primary-source evidence with the frozen claim",
+          "title": "Matchings and Near-Optimal 2-Factor Packings in Percolated Vertex-Transitive Graphs",
+          "trigger": "Potential broader two-factor theorem"
+        },
+        {
+          "assessment": "Indexed statement has a different grading; no whole-text exclusion claimed",
+          "evidence": [
+            "Grades maximal matchings by size, not perfect matchings by complementary cycles."
+          ],
+          "identifier_or_url": "Resultary 2026/10/12, 35e50b8c53e9",
+          "material_read": "Indexed description; exact linked RESULT could not be retrieved",
+          "method": "Local Resultary comparison and exact-record reader attempt",
+          "title": "Complete maximal matching polynomial and minimum size multiplicities of cycle prisms",
+          "trigger": "Different nearby indexed exact census on the same graph family"
+        },
+        {
+          "assessment": "Covered special coefficient only",
+          "evidence": [
+            "Each undirected Hamiltonian two-factor yields two directions."
+          ],
+          "identifier_or_url": "https://oeis.org/A124349",
+          "material_read": "Sequence description and formula comparison recorded in frozen AUDIT.json lines 98–107",
+          "method": "Compare directed and undirected counts",
+          "title": "Numbers of directed Hamiltonian cycles on the n-prism graph",
+          "trigger": "Exact count for one coefficient"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 5–16, 22–58",
+        "Lekshmi–West scalar comparison",
+        "OEIS A124349 coefficient comparison"
+      ],
+      "rationale": "Spanning two-factors are a natural prism invariant beyond the total and Hamiltonian coefficient. The distribution is uniformly exact and supplies a sharp, all-order change in zero geometry, contrasting with the unmodified cycle matching enumerator. The first-three-coefficient obstruction explains the boundary without fitting a finite table and is potentially useful for comparing nearby component polynomials.",
+      "residual_risks": [
+        "The conclusion concerns simple circular prisms and does not imply failure of coefficient log-concavity or a threshold for other graph families."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

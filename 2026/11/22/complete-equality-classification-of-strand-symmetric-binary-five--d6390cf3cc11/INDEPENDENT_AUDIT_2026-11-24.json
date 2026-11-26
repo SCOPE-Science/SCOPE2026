@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:44:58.399528Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independent exact enumeration in checks/binary_avoidance.py covered all 14893 unions of at most six of the 16 reverse-complement orbits. For each candidate, repeatedly take the allowable starts of a walk with one extra vertex, intersecting with retained vertices. A nonempty fixed point has walks of arbitrarily large length and hence a cycle; reaching empty yields the exact maximum length in vertices of the retained DAG. No candidate of fewer than six orbits survived. Independently counted avoiding strings of each length m+4 to evaluate the tail sum of the first-hit time: P(T≥m) is the count divided by 2^(m+4), since the first m five-words must all avoid the selected set. Compared every orbit-label/length/exact-fraction tuple against the frozen table, and checked the complementation involution directly for each of the ten sets. All rows match, the involution has no fixed points, and path counts are 6:4, 8:4, 10:2. In a DAG each retained walk is a path, so the sharp guaranteed-hit windows have lengths L+5. Replay: python3 checks/binary_avoidance.py; output in checks/binary_avoidance.out. No conclusions beyond the binary five-word graph and stipulated uniform model.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Hexagon paper's odd-order bound is ordinary necklace minimum plus q (10 here), with equality with the ordinary minimum only in even order. Its finite checks concern even orders.",
+          "The ILP formulation minimizes cardinality, maximum path, and expected path statistics; it returns optimized selections."
+        ],
+        "reasoning": "Neither an obstruction at cardinality 8 or 10 nor an optimizer for a lexicographically best selection determines the full equality stratum, particularly optima with worse path length or first-hit time.",
+        "searches": [
+          "\"A Parity Theorem for Reverse-Complement-Invariant Minimum Decycling Sets\" Babanskyy de Bruijn corrected identifier",
+          "https://hexagonmath.org/2611.00240v1 Theorems 1.1, 3.1; §9",
+          "doi:10.1101/2024.01.25.577301 §4.2–4.3"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.1101/2024.01.25.577301",
+        "https://github.com/Kingsford-Group/mdsscope (README)",
+        "doi:10.1093/bioinformatics/btae629 (journal full text and supplement not independently read)",
+        "https://hexagonmath.org/2611.00240v1",
+        "arXiv:math/0311399v1",
+        "Resultary d6390cf3cc11, 7a42240bea9d, 7253333c6ec9"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A prior method has the same symmetry constraint and a related killed-walk objective, but the observed result presents particular optimal and greedy witnesses, not all cardinality-optimal sets. Preprint p. 11 shows explicitly a single k=5 design.",
+          "Babanskyy explicitly disclaims an exact odd-order premium and gives no order-five equality census."
+        ],
+        "reasoning": "The distinct statement is the set of ALL cardinality minimizers together with their exact statistics and symmetry quotient. Neither optimizing further within that set nor proving a general nonsharp lower bound implies how many minimizers have each performance value.",
+        "searches": [
+          "Marçais–Elder–Kingsford preprint §4.2, pp. 9–11, and §4.3/Table 3, p. 12",
+          "Babanskyy, Hexagon 2611.00240v1 §§3,8,9"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Burstein–Kitaev give the unconstrained unavoidable-family minimum by the number of rotation classes; at binary order five it is 8.",
+          "Marçais–Elder–Kingsford optimize symmetric minimum feedback vertex sets and discuss random walks killed at selected vertices."
+        ],
+        "reasoning": "Unavoidable five-factors, deleted vertices of the overlap digraph, and symmetric feedback vertex sets describe the same avoidance obstruction when the symmetry is imposed. The ordinary minimum and optimizing one solution are distinct from classifying all symmetric minimizers.",
+        "searches": [
+          "arXiv:math/0311399v1 §2 Theorem 2.4 and Table 1",
+          "doi:10.1101/2024.01.25.577301 §4.2",
+          "\"k-nonical space: sketching with reverse complements\" author preprint GitHub software \"decycling\" Table 3 Marçais Elder Kingsford"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Preprint Figure 3 shows one ILP solution. Table 3 gives one rounded triple for each of two greedy procedures and the ILP for each k; the order-five row has cardinality 12 for all three. It does not enumerate tied sets or give exact first-hit fractions. The plain edge-length definition in §4.2 and the nilpotence index differ by one, so the table's raw path numbers (5,5,6) should not be treated as a histogram using the frozen vertex convention.",
+          "The exact index hit is the assigned finding itself. The six-mer window census and the order-five shortest covering-word count concern different objects. The linked repository README describes generation of a selected set by its ILP, not a published ten-set table."
+        ],
+        "reasoning": "The actual prior table covers optimum size and particular performance comparisons only; it does not establish the ten labelled sets, complement pairs or complete distribution. Repository and journal-supplement coverage is not exhaustively excluded.",
+        "searches": [
+          "doi:10.1101/2024.01.25.577301 Figure 3 and Table 3",
+          "https://github.com/Kingsford-Group/mdsscope README MDS ILP",
+          "Resultary d6390cf3cc11 (identical target), 7a42240bea9d, 7253333c6ec9"
+        ]
+      },
+      "rationale": "The ten-set equality classification, five complement pairs and full path/first-hit profile are the supported contribution. Minimum cardinality 12 and short optimized examples are credited to Marçais–Elder–Kingsford. Their lawful preprint was inspected, including its actual Table 3 and single-solution ILP formulation. The parity reference points to a genuine Hexagon paper; the prefix arXiv in the frozen reference is wrong. The correct paper proves a weaker odd-order obstruction, not this exact classification.",
+      "residual_risks": [
+        "Uninspected supplementary or optimizer outputs and unindexed exact tables may have additional cases; priority is not guaranteed.",
+        "Correct the ancillary citation prefix to Hexagon (not arXiv); this does not affect the proof. Report path values with a convention rather than identifying the prior raw ILP table entry with a path measured in vertices."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers minimum size and selected optimized performance, not equality census in examined sections",
+          "evidence": "k=5 size 12 for both greedy procedures and ILP; figure gives one ILP-selected set; rounded path and expectation summaries by procedure only.",
+          "identifier_or_url": "doi:10.1101/2024.01.25.577301; https://storage.prod.researchhub.com/uploads/papers/2024/01/28/2024.01.25.577301.full.pdf",
+          "material_read": "Preprint §§4.2–4.3, pp. 9–12, Lemma 4, Figure 3, killed-walk objective, Table 3",
+          "method": "OA CC-BY preprint, located and read at offsets 42750, 49540, 54430",
+          "title": "k-nonical space: sketching with reverse complements",
+          "trigger": "Same symmetry, five-word experiment, possible exact census or table"
+        },
+        {
+          "assessment": "Journal-specific and supplement content remains unverified",
+          "evidence": "No negative inference from retrieval failures.",
+          "identifier_or_url": "doi:10.1093/bioinformatics/btae629; PMC11549021",
+          "material_read": "Citation only for journal version; see same-paper preprint inspection",
+          "method": "Lawful OA routes attempted via PMC, publisher, Europe PMC, and PMC OAI/BioC; landing page, retrieval errors, or no usable article",
+          "title": "k-nonical space: sketching with reverse complements (journal version)",
+          "trigger": "Published version and supplements might tabulate additional minimizers"
+        },
+        {
+          "assessment": "Matching implementation context, not an inspected comprehensive output archive",
+          "evidence": "README describes ILP generation of a set and labels the associated experiment configuration; it does not document an enumeration of all optimal order-five sets.",
+          "identifier_or_url": "https://github.com/Kingsford-Group/mdsscope",
+          "material_read": "README author citation and MDS ILP description, offsets 1100 and 2200 onward",
+          "method": "OA website mode on the author-linked repository",
+          "title": "mdsscope (companion code repository)",
+          "trigger": "Possible distributed optimizer/results from matching original study"
+        },
+        {
+          "assessment": "Genuine comparison, weaker bound; the distinct arXiv ID written in the frozen reference resolves to an unrelated paper",
+          "evidence": "Odd bound N_q(k)+q, and six binary assurance rows for even k=2,4,6,8,10,12, not binary k=5.",
+          "identifier_or_url": "https://hexagonmath.org/pdf/2611.00240v1",
+          "material_read": "Title page, Theorems 1.1 and 3.1, §§8–9, Appendix Table 1 description",
+          "method": "OA Hexagon PDF, decisive treatments at pp. 2, 5, 10–11, 15",
+          "title": "A Parity Theorem for Reverse-Complement-Invariant Minimum Decycling Sets in q-ary de Bruijn Graphs",
+          "trigger": "Broader result and potentially exact binary assurance table"
+        },
+        {
+          "assessment": "Unconstrained minimum, not constrained equality classification",
+          "evidence": "The minimum binary order-five unavoidable-family size in Table 1 is 8, without reverse-complement closure.",
+          "identifier_or_url": "https://arxiv.org/html/math/0311399v1",
+          "material_read": "§2, Theorems 2.3–2.4 and Table 1",
+          "method": "OA HTML, offset 9600 onward",
+          "title": "On unavoidable sets of word patterns",
+          "trigger": "Equivalent unavoidable-word formulation and exact minimum table"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is the complete equality layer of a previously posed symmetric feedback-vertex optimization problem. It quantifies which worst-case and fair-bit first-hit behaviors are possible at the fixed minimum cardinality, including the spread of exact guarantees and differences among sets with the same longest path. This is a natural finite benchmark, not a biological estimate or an arbitrary slice.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

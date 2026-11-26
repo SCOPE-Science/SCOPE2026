@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:38:20.129471Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The substitution emits 0 at each even position, and a 1 never has an adjacent 1. The length-three patterns at even and odd starts are disjoint, so counting occurrences of longer factors can be done separately by starting parity. The quarter-length suffix D_(j−2) starts with 010 when its size is at least four, hence each occurrence desubstitutes on even block boundaries until 01 in D₃, which occurs exactly at 0,4,6. Lifting gives 0,2q,3q for q=2^(j−2); right-aligning within those copies gives at least three occurrences of every shorter suffix. For length 2k the even encoding uses all k-factors and the odd one omits just the final k-factor occurrence; for length 2k+1 the even encoding omits that occurrence and the odd encoding uses all (k+1)-factors. Each encoding is injective, and deletion of a suffix occurrence cannot yield a singleton at lengths ≤K=2^(j−3), since that suffix occurs at least three times. In particular length 2K has no singleton; all shorter factors are nonunique because any occurrence extends within the finite word to length 2K. At length 2K+1 only the odd class can be unique and is in exact correspondence with the preceding four starts through i↦2i+1. Direct base case D₃ has starts 1,2,3,5 at length 3. This proves the claim for all n≥3. An independent exact suffix-array/LCP calculation and suffix hit-count check passed at orders 3–14 (`python3 /workspace/branches/frozen_review_checks.py`); that check is not an infinite proof or formal certification.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "a64ede970c54 also excludes every longer minimal unique substring, which the frozen claim does not address.",
+          "Banbara et al., Theorem 30 and Corollary 32: two smallest attractors and fixed occurrence parity, respectively.",
+          "Kishi et al. give a general occurrence-preserving morphism framework, with applications to other named words; Charalampopoulos et al. give generic SUS algorithms."
+        ],
+        "reasoning": "The attractor theorem concerns factor coverage by positions and does not give singleton multiplicities. The fixed-parity lemma is already in the literature. Arbitrary-word SUS algorithms do not provide this closed form. A generic unrestricted occurrence-preservation hypothesis cannot simply be assumed here: φ(11)=0000 contains three occurrences of φ(1)=00 versus two occurrences of 1 in 11. The decisive dominating coverage is instead the complete classification in a64ede970c54.",
+        "searches": [
+          "Resultary: finite period-doubling words all shortest unique substrings exact start positions repetitions factor correspondence",
+          "arXiv:2602.16152v3, Section 4",
+          "arXiv:2605.18034v1, abstract and introduction",
+          "arXiv:2605.04826, abstract and introduction"
+        ]
+      },
+      "checked_sources": [
+        "Resultary a64ede970c54 and 86b62049d181",
+        "arXiv:2602.16152v3",
+        "arXiv:2605.18034v1",
+        "arXiv:2605.04826"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "All four minimal unique substrings in the distinct indexed record have equal length; its proof also uses the interval map [i,j)↦[2i+1,2j).",
+          "The parity corollary alone says nothing about equality of multiplicities after truncating a boundary occurrence."
+        ],
+        "reasoning": "Every unique substring contains a factor minimal among its unique subfactors, and a globally shortest unique substring is necessarily minimal. Thus the complete MUS list mechanically implies absence of shorter unique factors and the precise four shortest witnesses. The implication is one-way: knowing the shortest list alone does not prohibit longer minimal ones.",
+        "searches": [
+          "a64ede970c54, RESULT.md Finding, Assumptions and proof",
+          "arXiv:2602.16152v3, Theorem 30 and Corollary 32"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary a64ede970c54, RESULT.md Finding and Assumptions, gives four minimal unique substrings of length N/4+1 starting at N/4−1, 3N/8−1, N/2−1, 3N/4−1, for N=2^n and n≥3."
+        ],
+        "reasoning": "Minimal under taking proper factors is not generally the same as globally shortest. Here the stronger theorem specifies every minimal unique substring and gives them all the same length, so those four are also exactly all globally shortest unique factors. The claimed starts agree identically after substituting N=2^n.",
+        "searches": [
+          "Resultary: period-doubling words shortest unique substrings unique factors finite morphic word exact length positions",
+          "Resultary: period-doubling finite word MUS minimal unique factor suffix occurrence parity string attractor exact recurrence",
+          "web: period-doubling words shortest unique factor shortest unique substring exact occurrence multiplicities finite D_n"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "a64ede970c54 is a distinct indexed finding whose actual RESULT.md gives the exact same numbers, factors via starts, and length for every dyadic order in scope.",
+          "Resultary 86b62049d181 gives infinite-word limiting factor frequencies rather than multiplicities in finite iterates."
+        ],
+        "reasoning": "The index hit is confirmed by the actual source statement, not just an exact-looking title or small table. The infinite-word frequency result is not dispositive about finite singleton occurrences.",
+        "searches": [
+          "Resultary: period-doubling words shortest unique substrings unique factors finite morphic word exact length positions",
+          "Resultary: period-doubling finite word MUS minimal unique factor suffix occurrence parity string attractor exact recurrence"
+        ]
+      },
+      "rationale": "A distinct indexed Resultary finding gives the complete minimal unique substring classification for the same complete iterates and all n≥3, and it demonstrably includes every frozen conclusion. This is a coverage decision, not a finding of earlier priority: the catalogue entry is later-dated, and the available records do not establish chronology of discovery, dependence, or authorship. No earlier exact theorem was established in the external literature inspected.",
+      "residual_risks": [
+        "Exact coverage is established, but no priority order of discovery or independent provenance is inferred from catalogue dates.",
+        "The bounded external comparison does not resolve whether the full finite-word result was available earlier under other terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strictly stronger statement with exact coverage; later catalogue date does not show earlier priority.",
+          "evidence": [
+            "Exactly four minimal unique substrings at the stated starts and length N/4+1 for N=2^n, n≥3; lift [i,j)↦[2i+1,2j)."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-all-four-minimal-unique-substrings-of-every-finite-period-doubli--a64ede970c54/RESULT.md",
+          "material_read": "Finding, Assumptions and proof (text offsets 0 and 5000).",
+          "method": "Local Resultary lookup and matching source inspection through the local mirror.",
+          "title": "All four minimal unique substrings of every finite period-doubling word",
+          "trigger": "Strongest distinct indexed claim for the identical finite word family and factors."
+        },
+        {
+          "assessment": "Exact precedent for parity, but the inspected classification is of attractors, not all shortest unique factors.",
+          "evidence": [
+            "Corollary 32 states same parity for all occurrences of a length-at-least-three substring."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2602.16152v3",
+          "material_read": "Section 4, Theorem 30, p. 10 at text offset 47468, and Corollary 32, p. 11 at offset 51501.",
+          "method": "Targeted open PDF passages.",
+          "title": "The Smallest String Attractors of Fibonacci, Period-Doubling, and Thue–Morse Words",
+          "trigger": "Same finite period-doubling words; possible occurrence-based implications of attractor classification."
+        },
+        {
+          "assessment": "Related general framework; stated applications in the passages are to Fibonacci and Thue–Morse words.",
+          "evidence": [
+            "Describes an occurrence-preservation characterization and applications to minimal unique substrings."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2605.18034v1",
+          "material_read": "Abstract and introduction, pp. 1–2.",
+          "method": "Targeted open PDF passages.",
+          "title": "On Occurrence-Preserving Morphisms",
+          "trigger": "Potential general desubstitution theorem for unique substrings."
+        },
+        {
+          "assessment": "Generic algorithmic guarantee, not a classification of the period-doubling iterates in the passages inspected.",
+          "evidence": [
+            "Defines global shortest unique substrings and gives packed-input algorithms."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2605.04826",
+          "material_read": "Abstract and introduction, offsets 1221 and 3008.",
+          "method": "Targeted open PDF passages.",
+          "title": "Faster Algorithms for Shortest Unique or Absent Substrings",
+          "trigger": "Same shortest-unique observable."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The observable itself is natural and the formula would make a good exact benchmark. As a standalone narrow result for acceptance it supplies no additional invariant, threshold, or witness beyond the existing complete minimal-unique list, from which every stated benchmark datum follows immediately. No separately useful new consequence beyond that list is established here.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

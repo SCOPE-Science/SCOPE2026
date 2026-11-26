@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:01:22.474298Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md:2–176, VERIFICATION.md, verify.py and verify_output.txt inspected; supplied script not run",
+        "Repaired RESULT.md, REVIEW.md and SLOGAN.txt",
+        "Fresh replay: python3 /workspace/branches/7cfe7b08-fc13-4d0e-92e7-ed0d82b98b74/independent_check.py 4 ; repeat with argument 5. Logs independent_check_n4.txt and independent_check_n5.txt; direct palettes 1–4 at n=4,5, no <=3 colors, exact comparison of all 16 normalized forms and their 24 namings"
+      ],
+      "rationale": "Re-audited repaired RESULT.md: size-two neighborhoods N(b_2) and N(a_(n-1)) separate the respective same-shore pair of colors, and the four cross-edges force all four core colors distinct. It follows for a four-color optimum that the last two B colors are unavailable on the first n-1 A vertices. The allowed binary prefixes start with two different colors, and the third fixes the repeated symbol. Repeating the singleton after that would leave no singleton, so the entire interior A block must repeat the third color. The final A vertex may instead use c_2, which is absent from the first n-1 A vertices. The reverse suffix argument on B excludes c_0 throughout and c_1 except at b_1 and forces the claimed symmetric pattern. Only pendant endpoints can use colors from the other shore, and these choices are proper because each has its single neighbor in a different color. All prefix and suffix singleton conditions hold, including at the full blocks and degrees one and two. For n>=4 both interior blocks are nonempty, so the four binary choices are individually recoverable and no assignments duplicate. Naming the core multiplies 16 by 4!. The n=3 boundary in the repair is verified separately: each pendant endpoint has three permissible choices, and a triple beginning with two distinct colors always has a singleton, giving 9 normalized or 216 named colorings.",
+      "residual_risks": [
+        "The independent enumeration has only two sizes; completeness for every n>=4 is proved by the binary-prefix and suffix argument."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 8(d) of Pradhan–Sharma gives chi_pcf=4 when the earlier cases do not apply. Observation 3 and the paragraph after the theorem describe a construction and algorithm for one optimum.",
+          "Inspected foundational planar/outerplanar, basic-classes, and later planar-girth passages are not optimizer enumerations for this family."
+        ],
+        "reasoning": "A chain-graph optimum-finding algorithm provides an optimum but does not yield the complete optimum space. The classification of named assignments is a further question.",
+        "searches": [
+          "arXiv:2608.10874v2 §4.3, pp.15–16, Observation 3 and Theorem 8",
+          "arXiv:2202.02570v1; arXiv:2203.01088v1; arXiv:2401.14590v1 relevant scope passages"
+        ]
+      },
+      "checked_sources": [
+        "Pradhan–Sharma arXiv:2608.10874v2 §4.3",
+        "Resultary 24fe2313d105 and 5c2e597efa59",
+        "Fabrici et al. arXiv:2202.02570v1; Caro et al. arXiv:2203.01088v1; Anderson et al. arXiv:2401.14590v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Observation 3 puts unique colors on the universal vertices a_1 and b_n, and one other color on each of the rest of the two shores. This is precisely t=c_1 and s=c_2 with neither endpoint reusing a cross-shore color.",
+          "The prior lower bound rules out three colors but does not classify four-color solutions; the stated algorithm terminates upon providing one optimum."
+        ],
+        "reasoning": "The scalar and one solution follow directly and are credited. The four-color equality analysis is additional: e.g., a_n=c_2 is valid in the repaired classification but never appears in the prior disjoint-shore construction, even after renaming colors. Necessity of the binary interior blocks and the exact count are not obtained by substituting in Theorem 8.",
+        "searches": [
+          "arXiv:2608.10874v2 §4.3 original PDF offset 47800 ff. (Observation 3, Theorem 8 and proof)",
+          "Resultary 5c2e597efa59 stated family and exact count"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Pradhan–Sharma §4.3 defines chain graphs by nested neighborhoods and uses the same open-neighborhood PCF condition.",
+          "H_n is a chain graph with two degree-one and 2n-2 degree-at-least-two vertices, so falls directly into the four-color case of Theorem 8."
+        ],
+        "reasoning": "Equivalent ordered-neighborhood terminology exposes exact broader coverage of the scalar. The repaired claim is a classification of complete assignments, not a new value.",
+        "searches": [
+          "Local Resultary queries for proper conflict-free coloring with half graph, chain graph, Ferrers graph and split graph",
+          "Websearch: published proper conflict-free coloring chromatic number exact results half graphs chain graphs Ferrers graphs bipartite permutation graphs"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The crown theorem gives its scalar threshold for a distinct family. The same-day crown polynomial gives 384 named four-colorings at order parameter 4 and 24 binom(n,2) at parameter n>=5.",
+          "H_4 has 10 edges, whereas the four-by-four crown has 12; their named counts cease to agree at n>=5."
+        ],
+        "reasoning": "The numerical coincidence at n=4 is not a table match for the same graph. The crown count does not resolve the half-graph census. No order or priority is inferred from the same date.",
+        "searches": [
+          "Local Resultary crown PCF record 24fe2313d105, Finding offset 0",
+          "Local Resultary crown PCF polynomial 5c2e597efa59, Finding offset 0"
+        ]
+      },
+      "rationale": "For the frozen version the scalar contribution is covered: a pre-existing chain-graph theorem gives exactly four and its proof already constructs one optimal pattern. That is a concrete prior-coverage fail for any novelty claim on the scalar, not a mathematical defect. The corrected result explicitly attributes the scalar and the construction, and asserts novelty only for the full optimal family and census. Those remain distinct on the inspected evidence. In particular the prior construction uses disjoint colors on the shores and supplies one normalized form, while the repaired theorem gives every normalized form including those with cross-shore endpoint reuse and proves there are exactly sixteen.",
+      "residual_risks": [
+        "An equivalent optimizer description in a differently indexed source remains possible. Peer-reviewed status of the preprint was not established and is unnecessary to the documented public prior coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Preprint publicly dated August 2026; exact scalar coverage and one canonical optimizer, but no full census in the examined section",
+          "evidence": [
+            "Theorem 8(c) requires at most two vertices of degree >=2 for the three-color case; H_n fails that condition. Observation 3 assigns unique colors to both universal vertices and separates the palettes across shores."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2608.10874v2",
+          "material_read": "Title page and PCF definition (offset 0); §4.3 pp.15–16, Observation 3, Theorem 8 and proof plus algorithm paragraph (offset 47800 ff.)",
+          "method": "Targeted web search followed by original OA PDF passage",
+          "title": "Complexity and algorithms for proper conflict-free coloring in graphs",
+          "trigger": "Identical invariant on the broader chain-graph class"
+        },
+        {
+          "assessment": "Different graph family, exact count only coincides at n=4",
+          "evidence": [
+            "K_(n,n) minus a perfect matching has a different edge count at n=4, and its 24 binom(n,2) result at n>=5 differs from the fixed 384."
+          ],
+          "identifier_or_url": "Resultary 5c2e597efa59",
+          "material_read": "Finding offset 0, graph C_r and four-color counts",
+          "method": "Local mirror original result",
+          "title": "Proper conflict-free coloring polynomial of crown graphs",
+          "trigger": "Same-day exact optimizer enumeration with numerical 384 overlap"
+        },
+        {
+          "assessment": "Different graph family; same scalar does not establish optimizer coverage",
+          "evidence": [
+            "Applies to crowns and gives 2,3,4 for n=2,3,>=4 respectively."
+          ],
+          "identifier_or_url": "Resultary 24fe2313d105",
+          "material_read": "Finding offset 0",
+          "method": "Local mirror original result",
+          "title": "Exact proper conflict-free chromatic number of crown graphs",
+          "trigger": "Earlier indexed value of four on a related bipartite family"
+        },
+        {
+          "assessment": "Inspected passages concern planar, basic-classes and planar-girth results, respectively; no full-document exclusion inferred from keywords",
+          "evidence": [
+            "Caro et al.'s scope includes trees, cycles, hypercubes and subdivisions of complete graphs; the cited planar-girth passage imposes girth at least 11."
+          ],
+          "identifier_or_url": "arXiv:2202.02570v1; arXiv:2203.01088v1; arXiv:2401.14590v1",
+          "material_read": "Respectively p.2 and §5 (offsets 6817, 26589), p.1 (offset 0), and p.2 (offset 5788)",
+          "method": "Bounded OA text passages and literal terminology comparison",
+          "title": "Proper conflict-free and unique-maximum colorings of planar graphs with respect to neighborhoods; Remarks on proper conflict-free colorings of graphs; The forb-flex method for odd coloring and proper conflict-free coloring of planar graphs",
+          "trigger": "Cited foundational and broader exact PCF sources"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired RESULT.md Finding and Proof",
+        "Pradhan–Sharma arXiv:2608.10874v2 §4.3",
+        "Independent exact small-case comparison"
+      ],
+      "rationale": "The repaired result determines the complete minimum-coloring space on the canonical nested bipartite family. It explains why the 16 color-permutation classes persist as the graph grows and identifies exactly where cross-shore palette sharing can occur. This is a natural optimizer classification not supplied by the known scalar or by a single chain-graph optimum construction.",
+      "residual_risks": [
+        "Not a theorem for arbitrary chain graphs or an enumeration modulo graph automorphisms."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

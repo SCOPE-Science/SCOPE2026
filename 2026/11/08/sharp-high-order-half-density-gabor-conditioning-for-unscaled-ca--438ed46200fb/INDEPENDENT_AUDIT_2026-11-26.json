@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:59:10.501618Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–57",
+        "Frozen VERIFICATION.md and CHECK.py inspected, not executed; reported checks compare finite spline implementations and sampled symbols, not an all-order proof, expert attestation, independent audit or Lean verification.",
+        "Hasannasab–Lemvig arXiv:2609.13116, Theorem 7.1"
+      ],
+      "rationale": "Separating j even and odd gives two Parseval coefficient sums on the unit Zak torus: their windows have squared moduli |ZB_n(x,nu)|² and |ZB_n(x,nu+1/2)|², with lattice shifts contributing only unimodular factors. Hence the exact optimal bounds are the min and max of their sum; continuity removes an essential-extremum ambiguity. This gives A_2=1 and B_2^up=2 with the prescribed normalization. The Fourier aliases of a cardinal spline at reduced frequency t have magnitude s(t)^n times (|t|/|t+ell|)^n. For |t|<=3/8 the nonleading ratios are at most 3/5 and have uniformly bounded square sum, so the error amplitude relative to the unique leading alias is O((3/5)^n), also after taking squared moduli. On [1/8,3/8] the two nearest distances are nu and 1/2−nu. On the outer intervals one distance is at most 1/8, all its subleading ratios are at most 1/7, and s(1/8)>s(1/4). For L=log(s) on the central interval, L' is bounded away from zero and L'' bounded, so (s^(2n))''>0 for large n. Symmetric convexity gives the leading minimum 2s(1/4)^(2n) uniformly in x; any frequency staying a fixed positive distance away has an exponentially larger leading term. For the maximum, partition of unity gives |ZB_n|<=1 and equality at zero; the other component at any chosen frequency pair with distance at least 1/4 has amplitude bounded by a constant times s(1/4)^n, using the bounded square sum of alias ratios even at a tie. These estimates prove all prefactors and frequency localization claims. Hasannasab–Lemvig Theorem 7.1 supplies the frame property at every n>=2, not only large n.",
+      "residual_risks": [
+        "No claim of an exact finite-order minimizing frequency or time. The condition number is the frame-bound ratio, not the square root associated with the analysis map."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hasannasab–Lemvig Theorem 7.1 proves frame iff a<n for integer oversampling ab=1/q with q>=2 and 0<b<=1. This directly covers the same lattice for every n>=2, but gives positivity, not the n-dependent sharp minimum and maximum.",
+          "The frame region N/2<=a<N, b<1/a in arXiv:1503.02160 reaches only N=2 at a=1. The Gaussian approximation in arXiv:1708.04803 scales the windows with order, so the fixed-lattice unscaled width grows differently. Kloos–Stöckler's bound asymptotic is for exponential splines of order two approaching density one; Stangl–Frederick Theorem 3 is also fixed order two and b>=3/2."
+        ],
+        "reasoning": "The nearest stronger frame-set theorem covers exactly what is qualitative in this record. It does not supply a quantitative coalescing two-fiber analysis as the unscaled order increases; the other sources vary a different parameter or use dilated windows.",
+        "searches": [
+          "Hasannasab–Lemvig arXiv:2609.13116, Zak zero criterion and Theorem 7.1",
+          "Christensen–Kim–Kim arXiv:1503.02160 and 1708.04803",
+          "Stangl–Frederick arXiv:2609.00481; Kloos–Stöckler arXiv:1311.7359"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 438ed46200fb (self), b60cc263b217, 9b8013d10bf9",
+        "arXiv:2609.13116, 1503.02160, 2609.00481, 1708.04803, 1311.7359"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Positivity imposes no exponential rate. Even the exact classical symbol does not distinguish local and global minimizers without uniform alias estimates and the central convexity argument. Order scaling and approaching critical density at fixed order are different asymptotic procedures."
+        ],
+        "reasoning": "The surviving claim is the rate and prefactor 2 for the lower bound (and corresponding condition ratio prefactor 1/2), the upper-bound control in a fixed normalization, and minimizing-frequency localization, not any inference of novelty for the frame property itself.",
+        "searches": [
+          "Statement comparison to Hasannasab–Lemvig Theorem 7.1 and zero-set theorem; Christensen–Kim–Kim order scaling; Kloos–Stöckler critical-density bound; Resultary b60cc263b217"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 438ed46200fb is the frozen record itself. Resultary b60cc263b217 computes exact Zak extrema for the centered order-two hat at a=1/(2b), 1<=b<=3/2. Its window translates the frozen B_2, but neither the varying-order regime nor the target b=1/2 is in that statement.",
+          "Resultary 9b8013d10bf9 studies only the B_3 Zak zero set for 1/2<=lambda<=1. It does not determine the positive two-component minimum uniformly in order."
+        ],
+        "reasoning": "A translation of the same spline is equivalent, and scalar normalization only rescales both bounds; neither turns a fixed-order, different-aspect optimization into this order asymptotic. A Zak zero alone does not give the two-fiber extremum.",
+        "searches": [
+          "Resultary: cardinal B-spline sharp Gabor frame bounds, Zak minima, and fixed half-density conditioning as order grows",
+          "Primary search for order-dependent sharp bounds under integer oversampling / fixed half-density Weyl–Heisenberg frames"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary b60cc263b217 provides exact bounds only for a fixed order and a different aspect-ratio interval; arXiv:2609.13116 resolves zero sets and frame status, not an order-indexed table of exact optimal bounds. No independent all-order exact formula for the target extrema was identified in the inspected sources."
+        ],
+        "reasoning": "An exact order-uniform bound formula could mechanically give the leading constants, but the available fixed-order formulas and zero sets do not determine those data.",
+        "searches": [
+          "Resultary exact Zak extrema and half-density frame-bound formulas",
+          "Primary search for exact order-uniform extrema at fixed lattice; arXiv:2609.13116 and 1311.7359 results inspected"
+        ]
+      },
+      "rationale": "The supported distinct finding is the sharp fixed-lattice order-growth conditioning law for the unscaled, integral-one spline, with absolute leading constants and minimizing-frequency localization. The Zak formula, spline Fourier transform, and frame existence are prior machinery, not new claims.",
+      "residual_risks": [
+        "Bounded searches do not establish historical priority. An uninspected order-uniform exact Zak extremum or locked-lattice estimate under Weyl–Heisenberg or spline terminology could prove coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Actual same-lattice frame existence coverage, not sharp asymptotic extrema",
+          "evidence": "Theorem 7.1 specializes using q=2, a=1, b=1/2; a<n holds throughout n>=2.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.13116",
+          "material_read": "Zero-set scope and oversampling criterion PDF p. 2, offset about 5100; Theorem 7.1 p. 15, offset about 52000",
+          "method": "OA PDF bounded passages",
+          "title": "The zero set of the Zak transform of B-splines with applications to Gabor frames",
+          "trigger": "Order-uniform Zak and frame theorem at the exact target lattice"
+        },
+        {
+          "assessment": "Different regime",
+          "evidence": "N/2<=a<N excludes high order at a=1.",
+          "identifier_or_url": "https://arxiv.org/abs/1503.02160",
+          "material_read": "PDF p. 2, offset about 3900, stated frame region",
+          "method": "OA PDF bounded passage",
+          "title": "B-spline Gabor frame-set results by Christensen, Kim and Kim",
+          "trigger": "Potential all-order frame theorem"
+        },
+        {
+          "assessment": "Fixed-order statement, not target asymptotic",
+          "evidence": "Theorem 3 treats Q_2 for ab=1/q and b>=3/2.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.00481",
+          "material_read": "PDF pp. 1–3 including Theorem 3, offsets 0 and about 7000",
+          "method": "OA PDF bounded passages",
+          "title": "The frameset of the second-order B-Spline along ab=1/q",
+          "trigger": "B-splines at integer oversampling"
+        },
+        {
+          "assessment": "Order growth, but with dilation",
+          "evidence": "The windows are scaled to approximate a Gaussian; this changes width at fixed lattice and is not scalar multiplication alone.",
+          "identifier_or_url": "https://arxiv.org/abs/1708.04803",
+          "material_read": "PDF pp. 1–2, offsets 0 and about 3900",
+          "method": "OA PDF bounded passages",
+          "title": "B-spline approximations of the Gaussian, their Gabor frame properties, and approximately dual frames",
+          "trigger": "High-order B-spline frames"
+        },
+        {
+          "assessment": "Different parameter limit",
+          "evidence": "The cited order-two lower-bound asymptotic is for exponential splines as lattice density tends to criticality.",
+          "identifier_or_url": "https://arxiv.org/abs/1311.7359",
+          "material_read": "PDF p. 1, offset about 700, family and bound regime",
+          "method": "OA PDF bounded passage",
+          "title": "Zak transforms and Gabor frames of totally positive functions and exponential B-splines",
+          "trigger": "Frame-bound asymptotics from Zak methods"
+        },
+        {
+          "assessment": "Substantive fixed-order comparison, but not covering; no same-day priority inference",
+          "evidence": "Exact optimal bounds at order two for a=1/(2b), 1<=b<=3/2, not an increasing-order statement on the target lattice.",
+          "identifier_or_url": "Resultary 2026/11/8/SCOPE-two-zak-fiber-transitions-in-sharp-half-density-hat-spline-gabor--b60cc263b217",
+          "material_read": "Finding and lattice/window assumptions",
+          "method": "Local mirror RESULT.md, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Two Zak-fiber transitions in sharp half-density hat-spline Gabor bounds",
+          "trigger": "Closest distinct exact half-density bounds in the catalogue"
+        },
+        {
+          "assessment": "Restricted overlap only",
+          "evidence": "The specific claim concerns only B_3 and lambda between 1/2 and 1.",
+          "identifier_or_url": "Resultary 2026/11/8/SCOPE-a-sharp-unique-zero-threshold-for-the-quadratic-b-spline-zak-tra--9b8013d10bf9",
+          "material_read": "Indexed scope and claim for B_3",
+          "method": "Local Resultary catalogue comparison",
+          "title": "A sharp unique-zero threshold for the quadratic B-spline Zak transform",
+          "trigger": "B-spline Zak extrema/zero-set alias"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–22 and 41–57",
+        "Hasannasab–Lemvig Theorem 7.1 as the qualitative same-lattice comparator"
+      ],
+      "rationale": "The lattice is a canonical redundancy-two oversampling where existence alone can conceal growing ill-conditioning. The exact exponential rate and factor distinguish stability of increasingly broad standard cardinal windows from mere positivity or an unspecified asymptotic rate, and the limiting bad-frequency location identifies where conditioning is lost. This answers the motivated fixed-lattice question without conflating it with variance-normalized Gaussian approximations.",
+      "residual_risks": [
+        "The bounds do not resolve optimal lattice design or other oversampling ratios."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

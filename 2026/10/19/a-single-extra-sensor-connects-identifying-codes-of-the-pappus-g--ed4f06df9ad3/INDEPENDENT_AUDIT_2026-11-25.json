@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T18:50:44.928512Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md:5–56",
+        "VERIFICATION.md:19–31",
+        "verify_incidence.cpp",
+        "verify_lcf.py",
+        "incidence_output.txt",
+        "lcf_output.txt",
+        "Independent census and saved output"
+      ],
+      "rationale": "Reconstructed the finite proof: a candidate meets each closed neighborhood for domination and each pairwise symmetric difference for separation. These tests are necessary and sufficient. Every subset has one 18-bit mask; at fixed weight every legal adjacency is exactly a swap of one present and one absent bit, independent of their distance in Pappus. Read both frozen programs and their output; the C++ census generates all layers, while the LCF cross-check independently covers all code counts but only the k=9 and k=10 exchange graphs. A separately written program (not a run of the frozen code) checked the incidence/LCF isomorphism, exhausted 262144 subsets, found 52638 codes and none below size nine, and reproduced every code count, edge count and component size in the table. At k=9 it reproduced 1028 vertices, 3780 edges, two 514-vertex components with selected point counts 0–4 and 5–9, and the all-line and all-point centers. BFS from each code gave per-component eccentricities 4:1, 5:27, 6:81, 7:243, 8:162, hence radius four and diameter eight in each component. The incidence graph is self-dual via point (x,y) ↔ line (m=x,b=−y); this also explains the symmetry of the component profiles. Each k=10,…,18 was checked to have exactly one component. Replay: python3 /workspace/branches/26b49bef-4acf-427d-bec8-6353c7f4631b/independent_census.py; saved output is independent_census.out in that directory.",
+      "residual_risks": [
+        "Finite certificate for exactly this graph and closed-neighborhood identification; distances are within components, and there is no claim here for token sliding or k>18."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The three-regimes result states the minimum identifying-code counts but no table of larger identifying-code layers in the inspected Finding. Balbuena et al. give general existence and size bounds for cubic graphs, not exchange-graph components."
+        ],
+        "reasoning": "General bounds do not determine the minimum-layer multiplicities or positive-size connectivity. The thesis move scope is reported as graph-adjacent in the frozen record, but its content was not independently retrieved; no negative inference rests on that reported restriction.",
+        "searches": [
+          "Resultary: Pappus locating-code and identifying-code exchange regimes",
+          "Balbuena–Foucaud–Hansberg cubic girth-at-least-five bounds; Teshima identifying-code reconfiguration thesis access"
+        ]
+      },
+      "checked_sources": [
+        "Two exact related Resultary Findings",
+        "Balbuena–Foucaud–Hansberg and Kovács et al. primary passages",
+        "Teshima lawful access attempts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Kovács et al. classify the host graph; the known minimum-layer census supplies neither connectivity at size ten nor a condition permitting connectivity to be propagated to larger sizes."
+        ],
+        "reasoning": "Identifying validity is monotone under adding vertices, but fixed-cardinality jumps are not arbitrary additions. Knowledge of R9 alone does not certify that every larger code contains a smaller code or that the larger layer connects. The full checked layers establish the distinct threshold claim, not just a renaming of the exact minimum-layer facts.",
+        "searches": [
+          "Resultary: Pappus minimum codes and exchange graph connectivity beyond the minimum",
+          "Cubic tricirculant classification and general identifying-code bounds"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The separate reproduction verifies that both graph representations are isomorphic. The later two-514-state-islands result states the same minimum token-jump components and geometry, as well as a separate token-slide result."
+        ],
+        "reasoning": "Graph isomorphism preserves closed-neighborhood signatures and unrestricted exchanges; representing the objects as hitting sets does not distinguish the minimum-size claim from the later exact match. The locating-dominating versus identifying predicates and jumps versus slides must be kept separate; those alternative predicates/moves do not supply the larger identifying-code jump layers.",
+        "searches": [
+          "Resultary: Pappus graph, identifying codes, token jump, exchange graph, connectivity",
+          "Incidence versus LCF representation; closed-neighborhood signatures versus hitting sets"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Later 2026-10-26 result gives the exact 1028, 3780, 514+514 and point-count split. Later 2026-11-08 result also gives 1890 edges per component, radius, diameter and eccentricities. Neither inspected result states the table for k=10 through 18."
+        ],
+        "reasoning": "These are demonstrated exact overlaps at k=9, not merely numerical coincidences. Their later record dates do not settle reading or priority history, and they do not decide the extra-sensor threshold. A census of cubic graphs alone cannot encode these reconfiguration layers.",
+        "searches": [
+          "Resultary: Pappus identifying codes 1028, 514, token jumping, exchange graph"
+        ]
+      },
+      "rationale": "The supported distinct result is the exact one-extra-sensor threshold and census of the larger token-jump layers of Pappus. Two later indexed records contain substantial exact overlap at minimum size, including its geometry in one case; that subclaim is not exclusive to the frozen record. Neither comparison established coverage of the larger identifying-code layers. General graph/code bounds do not determine their component structure.",
+      "residual_risks": [
+        "A prior exact reconfiguration or computer-search table may exist outside the inspected index and sources.",
+        "Teshima's full text remained unavailable; the earlier move convention was not independently verified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact overlap at minimum size, not the full frozen threshold",
+          "evidence": "Gives 1028 minimum ID codes and an exchange graph with 3780 edges and two 514-code components, split at four/five selected points.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-three-locating-code-exchange-regimes-in-the-pappus-graph--489e5a87d0d8",
+          "material_read": "RESULT Finding",
+          "method": "Resultary queries and local mirror",
+          "title": "Three locating-code exchange regimes in the Pappus graph",
+          "trigger": "Same graph and exact minimum identifying-code exchange counts"
+        },
+        {
+          "assessment": "Exact minimum-layer jump geometry overlap; separately studies sliding",
+          "evidence": "Same two minimum jump components with 1890 edges each, radius four, diameter eight and the same eccentricity profile; no all-layer ID-code census in the finding inspected.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-two-514-state-islands-and-108-frozen-minimum-identifying-codes-o--72b7354986c2",
+          "material_read": "RESULT minimum-code jump and slide findings",
+          "method": "Resultary queries and local mirror",
+          "title": "Two 514-state islands and 108 frozen minimum identifying codes",
+          "trigger": "Exact Pappus minimum jump components and distance statistics"
+        },
+        {
+          "assessment": "Size bounds, not the fixed-graph reconfiguration census",
+          "evidence": "Gives cubic graph bounds rather than Pappus exchange-layer or distance statistics.",
+          "identifier_or_url": "arXiv:1407.7263",
+          "material_read": "PDF p. 3, offset 9174",
+          "method": "Open primary passage",
+          "title": "Locating-Dominating Sets and Identifying Codes in Graphs of Girth at least 5",
+          "trigger": "General cubic identifying-code theory"
+        },
+        {
+          "assessment": "Host-graph classification",
+          "evidence": "Places Pappus among cubic symmetric tricirculants, without a code-reconfiguration statement in the inspected passage.",
+          "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v19i2p24/pdf/",
+          "material_read": "PDF p. 2, offset 3540",
+          "method": "Open primary passage",
+          "title": "Classification of Cubic Symmetric Tricirculants",
+          "trigger": "Pappus graph and equivalent graph descriptions"
+        },
+        {
+          "assessment": "Unresolved implication risk, not negative evidence",
+          "evidence": "The frozen description uses graph-adjacent replacements; independent source verification of that comparison was not possible.",
+          "identifier_or_url": "https://dspace.library.uvic.ca/items/740e5c10-d1aa-4992-970b-3711b397f7f5",
+          "material_read": "No full text obtained via DSpace/OA and webpage attempts; frozen RESULT citation and description read",
+          "method": "Lawful retrieval attempts and accessible frozen citation",
+          "title": "The i-Graph and Other Variations on the gamma-Graph",
+          "trigger": "Identifying-code reconfiguration dissertation; plausible different move rule"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md:5–28,38–52",
+        "Independent full exchange-layer census"
+      ],
+      "rationale": "An identifying sensor placement must preserve both domination and distinct signatures through each reconfiguration. The unweighted Pappus graph is a natural small symmetric test case in which optimal layouts separate into two geometrically structured regions. Computing the exact next layer and the remaining layers answers the operationally meaningful fixed-size question of how much spare capacity is needed to move between arbitrary valid placements; the answer is exactly one sensor. This conclusion is not just another count of minimum solutions.",
+      "residual_risks": [
+        "No claim that this spare-capacity result generalizes to other cubic graphs or to local sensor moves."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

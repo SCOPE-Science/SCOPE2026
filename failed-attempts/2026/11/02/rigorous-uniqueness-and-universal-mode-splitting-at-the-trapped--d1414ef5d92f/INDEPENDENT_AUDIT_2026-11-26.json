@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:52:14.098803Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the stationary law by separating the stationary telegraph response and independent OU noise. For the tilted U law, integrating the derivative of u^(1/2)(1-u)^ell exp(-beta u) gives 1/2-(ell+1/2) E[U]-beta(E[U]-E[U^2])=0. With beta=1/(2t), at the crossing this implies E[U^2]=(2ell+1)t^2 and h'=(1-ell)/beta using dE[U]/d beta=-Var(U). The large-beta expansion and strict positive derivative at every zero give existence and uniqueness; analyticity and the negative covariance derivative give the strict slope. Bracketing against the point mass at U=1 and the ell=1 uniform-Y formula gives the endpoint limits. In the truncation argument the four derivative sign blocks bound the Gaussian derivative to at most three sign changes by the Laplace-transform/Rolle argument. In the limit a violation would require FIVE alternating nonzero values (the text says four in one sentence); the stated bound and mode classification follow. Oddness, the negative tail derivative and analyticity exclude extra maxima, and a symmetric unimodal compact input for ell>=1 smooths to a strictly unimodal one. The critical fourth derivative is negative by the moment identity; the heat equation and the even expansion of f'/x give the squared-mode derivative -3 and the fixed-ell quadratic remainder. These are all-parameter arguments, not conclusions from the recorded finite diagnostics.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The October 26 exact thermal unimodality threshold record applies Gaussian total positivity to the global mode count.",
+          "The convolution of Sevilla–Meléndez Mora, Eq. (19), gives the thermal smoothing representation but not an exhaustive peak theorem in the inspected section.",
+          "Nondegenerate even heat flow gives the same -3 local derivative directly as the ratio (f^(4)/2)/(f^(4)/6)."
+        ],
+        "reasoning": "General heat-flow tools do not supply nondegeneracy in this model on their own, but they do explain why the local coefficient is not a new model-specific invariant beyond the previously established splitting.",
+        "searches": [
+          "Resultary 6d553895bf81, global threshold and mode-count proof",
+          "arXiv:2608.21781 §III Eq. (19)",
+          "Gaussian variation diminishing and even heat flow"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md; verify.py inspected, not executed",
+        "Resultary a2f1e937192b, 6d553895bf81, 74aa462f03c1",
+        "arXiv:2602.08436",
+        "arXiv:2404.02480",
+        "arXiv:2608.21781"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "a2f1e937192b derives the covariance parameter derivative and transverse root derivative; the root is simple for 0<ell<1.",
+          "74aa462f03c1 applies the covariance derivative to strict parameter monotonicity."
+        ],
+        "reasoning": "Implicit differentiation of h=1, with t=1/(2 beta), transforms those identities into t_c'=Cov(U,log(1-U))/(1-ell). The derivative display is immediate; joint analyticity of the tilted beta integral locally for ell>0 gives the analytic IFT upgrade. The derivative formula need not be printed verbatim to be covered in substance.",
+        "searches": [
+          "Resultary a2f1e937192b Proof, covariance derivative and transverse crossing",
+          "Resultary 74aa462f03c1 Proof, covariance derivative"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The October 26 thermal-modality record states z_*^2=(3/2)(theta_c-theta)+O((theta_c-theta)^2), a strictly ordered unique critical threshold, and no further critical points in the symmetric trap.",
+          "Sabhapandit–Majumdar Eqs. (94)–(96) describe the same telegraph-trap law and central-curvature condition."
+        ],
+        "reasoning": "Use the same dimensionless active excursion for the mode position and theta=2t for thermal smoothing. The expansion, global regime count and uniqueness then agree; the published numerical phase diagram alone would not imply them.",
+        "searches": [
+          "Resultary a2f1e937192b, RESULT.md Finding and Proof",
+          "arXiv:2404.02480 §4.1.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Earlier indexed Findings a2f1e937192b and 6d553895bf81 contain the exact-mode claims in the symmetric trap, not merely plotted critical temperatures.",
+          "Distinct same-day record 74aa462f03c1 states the unique smooth decreasing curve, exhaustive global mode count, and squared opening coefficient 3 with little-o error. The examined journal-preprint phase diagram establishes the implicit criterion and endpoint asymptotics, not the proof of uniqueness."
+        ],
+        "reasoning": "The exact equation and endpoint plots are separately credited. The decision uses exact statement overlap with earlier indexed findings, not a match of titles, numbers, or dates alone.",
+        "searches": [
+          "Resultary thermal modality, exact threshold and square-root splitting: a2f1e937192b, 6d553895bf81, 74aa462f03c1",
+          "arXiv:2602.08436 §V.A.1 Eqs. (95)–(98)"
+        ]
+      },
+      "rationale": "Equivalent prior coverage in the October 26 Resultary record a2f1e937192b is material and extends beyond the known implicit phase diagram: the same Gaussian-smoothed symmetric trap has a unique ordered threshold with exhaustive mode count and the same square-opening law, including the quadratic remainder after setting theta=2t. The two derivative identities there yield the displayed covariance slope by implicit differentiation; the analytic rather than smooth description is the routine analytic IFT at the established simple root. Neither formal repackaging nor the exact display of the derivative is a distinct surviving scientific finding. A further same-day overlap confirms duplication of content, not chronological priority.",
+      "residual_risks": [
+        "This is a source-bounded assessment; it does not assign priority between same-day records or certify first historical publication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material equivalent coverage",
+          "evidence": "Strict ordering and unique threshold; no further critical points; (3/2)(theta_c-theta) plus quadratic error; covariance and transverse derivative identities.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-universal-square-root-splitting-and-exact-modality-of-thermally--a2f1e937192b",
+          "material_read": "RESULT.md Finding and Proof passages on crossing, mode count, and splitting",
+          "method": "Indexed record and local full-text passages",
+          "title": "Universal square-root splitting and exact modality of thermally smoothed trapped run-and-tumble laws",
+          "trigger": "Exact candidate for threshold and opening"
+        },
+        {
+          "assessment": "Covers global modality by total positivity",
+          "evidence": "Uses Gaussian total positivity to prove an exhaustive mode count.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-exact-thermal-unimodality-threshold-for-a-harmonically-trapped-r--6d553895bf81",
+          "material_read": "Mode-count proof passage",
+          "method": "Indexed record and local full-text passage",
+          "title": "Exact thermal unimodality threshold for a harmonically trapped run-and-tumble model",
+          "trigger": "Global mode theorem candidate"
+        },
+        {
+          "assessment": "Material same-day overlap; priority not inferred",
+          "evidence": "Unique smooth strictly decreasing critical curve, global mode count, covariance derivative and coefficient 3 in the squared opening.",
+          "identifier_or_url": "2026/11/2/SCOPE-rigidity-of-the-thermal-mode-boundary-and-exact-peak-opening-in--74aa462f03c1",
+          "material_read": "RESULT.md Finding and relevant Proof within offsets 0–11259",
+          "method": "Local source passage comparison",
+          "title": "Rigidity of the thermal mode boundary and exact peak opening",
+          "trigger": "Distinct exact-scope duplicate"
+        },
+        {
+          "assessment": "Earlier implicit criterion and asymptotics, not the full global proof in these passages",
+          "evidence": "The zero-curvature equation, the phase diagram and the endpoint limits.",
+          "identifier_or_url": "arXiv:2602.08436",
+          "material_read": "§V.A.1 pp. 19–20 Eqs. (95)–(98), offsets 108896 and 113873",
+          "method": "OA PDF section inspection",
+          "title": "Exact Stationary State of a d-dimensional Run-and-Tumble Particle in a Harmonic Potential",
+          "trigger": "Same one-dimensional thermal boundary"
+        },
+        {
+          "assessment": "Covers curvature criterion and numerical transition diagram",
+          "evidence": "Expresses the same smoothed density and center-curvature equation through hypergeometric functions.",
+          "identifier_or_url": "arXiv:2404.02480",
+          "material_read": "§4.1.1 pp. 21–22 Eqs. (94)–(96), offset 67745",
+          "method": "OA PDF section inspection",
+          "title": "Noninteracting particles in a harmonic trap with a stochastically driven center",
+          "trigger": "Equivalent telegraph-trap convention"
+        },
+        {
+          "assessment": "Covers the convolution formula; no global count established by the inspected passage",
+          "evidence": "Stationary thermal law is written as the Gaussian convolution of the athermal law.",
+          "identifier_or_url": "arXiv:2608.21781",
+          "material_read": "§III Eq. (19), p. 5 offset 35639",
+          "method": "OA PDF section inspection",
+          "title": "Nonequilibrium statistics of harmonically trapped run-and-tumble particles: An exact convolution approach",
+          "trigger": "Exact thermal smoothing of the same input"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "A rigorous global peak count and a quantitative nondegenerate transition are meaningful for this density. Those advances are already covered. The residual exact derivative display is a one-step rearrangement of the existing identities, and changing from smooth to analytic at a simple root of a jointly analytic integral adds no independently useful barrier, regime, or observable. No distinct valuable remainder is established.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

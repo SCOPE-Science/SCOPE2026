@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T19:50:33.794585Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Assumptions and equations (1)–(5); frozen AUDIT.json, REVIEW.md, METADATA.json, SLOGAN.txt, VERIFICATION.md and verify.py (inspected, not executed)",
+        "Independent exact rational enumeration for orders 2–6 and p=1/2,2/3 confirmed both marginals and (4); independent finite product and tail bound confirmed the normalization of the (1,1) coefficient. Replay: /workspace/branches/d5a70132-8dd6-41bd-a574-d798fe075e5f/bounded_recompute.py"
+      ],
+      "rationale": "The source/sink indicators are original-edge absence events, since any nontrivial directed path into a vertex has a last original incoming edge, and the outgoing statement is dual. The two marginal products follow from disjoint incoming and disjoint outgoing edge families. A minimal indicator at i and maximal indicator at j share one edge if j<i and none otherwise; their positive covariance is p q^(n+i−j−2) in the shared case. The resulting weighted geometric sum gives (4), including n=2. For the joint generating function, differentiating the two-copy edge-pair interpolation gives the product of finite differences multiplied by pq. For edge j→i the difference factors are (1−z)(1−w) with the selected indicators removed, and the two remaining absence events fix disjoint edge-pair coordinates with probability q^(n+i−j−3). For a central pair, the first L minimal and last L maximal indicators use disjoint coordinates, none fixed by conditioning, so their conditional joint PGF is exactly F_L(z)F_L(w). Each other minimal/maximal indicator has at most one incident coordinate made non-marginal by conditioning; after a union bound its additional contribution on the closed unit bidisk is O_p(q^(L−1)). The noncentral pairs up to gap L have at most 2L positions per gap, and the larger gaps have a geometric tail O_p(n q^(n−2+L)). With L of order log n and q^L≤n^−3, this bounds the integrated error uniformly by O_p((1+log n)q^(n−1)). The full weight sum multiplied by pq is n q^(n−1)+O_p(q^(n−1)); replacing F_L by F adds only a geometric error. This gives the normalization in (1), vanishing correction on either marginal axis, and Cauchy extraction gives (2) and the strictly positive leading (1,1) cell in (3).",
+      "residual_risks": [
+        "The finite checks cannot establish the uniform PGF expansion. The analytic error bound is for fixed p strictly between zero and one and is not asserted to be optimal; a particular coefficient may have a zero leading rank-one contribution."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The original model's one-set minimality events at p=1/2 are independent, with probabilities 2^−(i−1). The expected-posts result sums one-site post probabilities. The sparse paper proves a joint CLT for p=c/n, besides the exact finite covariance."
+        ],
+        "reasoning": "Marginals do not specify dependence. A first moment of posts, even if endpoints correspond to unique minima/maxima individually, is not a joint law for the two counts. The sparse Gaussian asymptotic has a different regime and does not supply the dense exponential dependence kernel.",
+        "searches": [
+          "Albert–Frieze author manuscript, Sections 2 and 3, especially printed pp. 24–26",
+          "Bombelli–Seggev–Watson, arXiv:0809.2258v2, Section 3",
+          "Resultary sparse correlation record, Proof §§1–4"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and supporting source comparisons; author manuscript and arXiv pages identified above; Resultary sparse record and bounded searches",
+        "Specific source comparison: /workspace/branches/291affbc-8874-420d-b0d1-ee531a66392c/af-comparison.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The sparse record's finite shared-edge covariance and finite geometric sum agree exactly with frozen (4). Its site-index kernel is weighted on a strict triangular support and has rank n−1, not one as a full matrix. The post proof computes individual probabilities of being comparable to all vertices; it does not compute the joint PGF of the boundary counts."
+        ],
+        "reasoning": "The older all-p finite identity implies (4) outright and its scalar leading term but not the rank-one PGF expansion. The rank in (1) is a factorization over generating-function variables, not a restatement or rescaling of the site covariance matrix. The frozen text presents (4) as supporting evidence, not the basis of the contribution.",
+        "searches": [
+          "Resultary sparse source–sink correlation RESULT.md, Proof §1 exact covariance",
+          "arXiv:0809.2258v2, expected-posts theorem proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Taking transitive closure makes the same source and sink counts into minimal and maximal element counts. The original paper supplies the marginal law; the closest sparse ordered-DAG record studies these very counts and has an all-p finite covariance identity."
+        ],
+        "reasoning": "The ordered-DAG and random-graph-order names describe identical counts in this construction. A finite count covariance under either name must be credited; it is not the full joint signed correction.",
+        "searches": [
+          "Resultary: random graph orders dense ordered random acyclic graph minimal maximal sources sinks joint distribution exponential dependence pgf covariance",
+          "Web: random graph orders minimal maximal joint distributions correlation sources sinks fixed edge probability acyclic digraph"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact p=1/2 marginal distribution in the original paper is not a joint table. The nearest related Resultary hit gives an exact covariance and a sparse asymptotic, not a dense joint transform. The record matching the rank-one correction is the present target itself."
+        ],
+        "reasoning": "Neither a single-marginal table nor the exact mixed second moment yields all bivariate coefficient corrections. This search does not rule out other tabulations.",
+        "searches": [
+          "Resultary: random graph orders dense ordered random acyclic graph minimal maximal sources sinks joint distribution exponential dependence pgf covariance",
+          "Albert–Frieze Section 3 marginal count distribution and table"
+        ]
+      },
+      "rationale": "The one-variable law is known, and the exact finite covariance (4) already appears in the proof of an earlier public Resultary record, even though that record's main asymptotic regime is sparse. Do not count (4) as novel. The substantive frozen result is (1), the full first dense joint-to-product correction with rank-one factorization, with (2)–(3) as consequences. The compared results do not give that correction. This is a qualified assessment against inspected evidence, not global priority certification.",
+      "residual_risks": [
+        "The 1995 Brightwell logical-limit and 1997 Bollobás–Brightwell structural papers cited in the frozen record were not independently inspected in full; their appearance in the bibliography or abstracts is not a negative comparison. An unindexed derivation of the dense correction could affect priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Model and marginal distribution known, not the dense joint-to-product kernel",
+          "evidence": [
+            "p. 26 derives the independent minimal indicators at edge probability 1/2; its displayed marginal law is univariate."
+          ],
+          "identifier_or_url": "https://www.math.cmu.edu/~af1p/Texfiles/RANDGRAPHORD.pdf",
+          "material_read": "Printed pp. 20 and 24–26, model, Section 2 and Section 3 minimal indicators",
+          "method": "Lawful author PDF, rendered pages inspected when text extraction was unavailable",
+          "title": "Random Graph Orders",
+          "trigger": "Origin of the exact model and likely existing extremal count laws"
+        },
+        {
+          "assessment": "Expected post count and Euler-product control, not the claimed joint boundary expansion",
+          "evidence": [
+            "Proof 3.4 sums probabilities of one vertex being a post; each such probability is a product of two finite Euler products."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/0809.2258v2",
+          "material_read": "Abstract and Introduction (offset 0), Lemma 2 and opening of Proof 3.4 in Section 3 (offsets 18200–21317)",
+          "method": "Original open HTML and comparison of original statistic and proof",
+          "title": "A Computation of the Expected Number of Posts in a Finite Random Graph Order",
+          "trigger": "Same model, Euler products and exponential boundary effects"
+        },
+        {
+          "assessment": "Directly covers equation (4), not equations (1)–(3)",
+          "evidence": [
+            "Identical finite formula q^(n−1)(np−1+q^n)/p; the subsequent Gaussian analysis sets p=c/n."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-strictly-decreasing-source-sink-correlation-curve-in-sparse-or--0b9f13ffe69e/RESULT.md",
+          "material_read": "Proof §§1–4, especially the exact site covariance and geometric sum in §1",
+          "method": "Local Resultary mirror and exact equation comparison",
+          "title": "A strictly decreasing source–sink correlation curve in sparse ordered random DAGs",
+          "trigger": "Identical source/sink random variables and possible earlier all-p exact covariance"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, equations (1)–(3) and interpolation proof; original marginal and prior finite covariance comparisons"
+      ],
+      "rationale": "The uniform bivariate result quantifies the dependence left after two natural boundary counts have become asymptotically independent. It determines the leading signed joint law, including the simultaneous unique-minimum/maximum excess, far beyond one covariance or two marginal distributions. Its scale and factorization follow from explicit edge sharing and localization, not from an arbitrary parameter slice or numerical estimate.",
+      "residual_risks": [
+        "No claim of sharpness of the remainder, uniformity in edge density, or novelty/value based on the already known finite covariance."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

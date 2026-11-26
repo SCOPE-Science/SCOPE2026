@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T14:46:20.650417Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–47, VERIFICATION.md lines 19–29 and verify.py (inspected, not executed)",
+        "Independent checks: python3 /workspace/branches/reproduce.py 1; output /workspace/branches/reproduction.txt"
+      ],
+      "rationale": "For a nonempty induced biclique subgraph, the same-side relation on its vertex set is equality or nonadjacency, so an isomorphism either respects the occupied sides or swaps them. This also works for singleton and edgeless domains. The global degrees differ if a>b, so only the sparse within-side bijections extend, each by completing a permutation on each side; their independent choices multiply to R_aR_b. A swap consists of independent partial injections A→B and B→A with at least one nonempty, giving (1+C)^2−1. The coefficients of C are positive in every rank 1,…,b, so N has positive support 1,…,2b, and its leading coefficient is the square of binom(a,b)b!. For a=b both global orientations occur, yielding 2R_a²−1 with the empty map counted once. Independent direct enumeration of actual full automorphisms and their restrictions, plus all adjacency-pattern-matched partial injections, agrees for eight pairs and recovers the stated K_{3,2} polynomials.",
+      "residual_risks": [
+        "The opening phrase 'all bijections between vertex-induced subgraphs' must be read as induced-subgraph isomorphisms, as explicitly defined in the scope and used in the proof. Finite tests are not the all-size proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 9ed7bdcfaad0 catalog statement: 'For a finite equivalence relation whose occurring class sizes have minimum positive gap δ, every partial symmetry missing fewer than δ points extends to a full automorphism; the first nonextendible rank is exactly n−δ. A sharp factorial–binomial formula counts every map at this boundary, and paired finite generating formulas enumerate all partial maps and all extendible ones in every rank.'",
+          "For the size list (a,b), the positive gap is δ=a−b, so the boundary n−δ is 2b. No equal-size assumption excludes this case.",
+          "By contrast the homogeneous count cd9dfc7a9f4c covers balanced bicliques only, and the complete multipartite metric count aab2f4eae4e5 has the extraneous condition f²=0."
+        ],
+        "reasoning": "The match is the unrestricted finite equivalence-relation family, not the homogeneous or square-zero statements. Its expressly advertised hypotheses and outputs already give the substantive coverage; the result is not failed just because the full text did not load.",
+        "searches": [
+          "Resultary 9ed7bdcfaad0, cd9dfc7a9f4c, aab2f4eae4e5; partial symmetries and rook-polynomial enumerators of complete multipartite graphs"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 9ed7bdcfaad0, cd9dfc7a9f4c, aab2f4eae4e5, a7f069aa0ebe",
+        "Frozen comparisons of arXiv:1506.02093 and arXiv:1809.04422 (primary texts not freshly recovered)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The equivalence-class matching for two classes has only the preserving orientation and the swapping orientation, omitting empty sides. In the preserving orientation ordinary rook factors give R_aR_b. For the swap the two rectangular rook factors are 1+C, with the all-empty intersection removed, so subtracting the extension polynomial gives C(C+2). The rank support and boundary coefficient follow immediately from these factors."
+        ],
+        "reasoning": "Even if the explicit two-class factored expression is not printed in the more general record, it is an elementary two-orientation reduction of the class-count case that it advertises. No novel threshold, boundary population or remaining independent claim was identified. No relative timing between distinct same-day records is asserted.",
+        "searches": [
+          "Resultary 9ed7bdcfaad0 via literal identified local mirror passage attempt and precise catalog comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Associate to K_{a,b} the equivalence relation x∼y iff x=y or xy is a nonedge. This is exactly the two-class relation with sizes a,b. For distinct x,y, xy is an edge iff x is not equivalent to y; both preservation tests thus agree in both directions, on every domain and image including singletons and the empty set. The same translation applies to global automorphisms and their restrictions.",
+          "The Resultary 9ed7bdcfaad0 indexed statement is about partial symmetries and full automorphisms of finite equivalence relations and expressly enumerates all maps and all extendible ones by rank."
+        ],
+        "reasoning": "The bijection is the identity on the actual partial maps, not an analogy or a match of numerical parameters. It preserves both tracts of the enumeration and all extension obstructions.",
+        "searches": [
+          "Resultary: sharp extension defect threshold and rank profiles for finite equivalence relations minimum class-size gap all-rank formulas rank extendible partial symmetries 9ed7bdcfaad0",
+          "arXiv:1506.02093 and arXiv:1809.04422; partial induced graph isomorphisms and rank distributions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed general theorem's paired generating formulas determine each coefficient of F and E; subtracting determines each coefficient of N. Its boundary count applies at the same rank 2b.",
+          "The separate biclique reconstruction synopsis a7f069aa0ebe uses total counts at ranks one, two and four rather than the full extendibility split."
+        ],
+        "reasoning": "For this parameterized invariant a prior exact generating formula is the analogue of an exact table. The broad formula is the material match; the low-rank reconstruction hit by itself is not.",
+        "searches": [
+          "Resultary 9ed7bdcfaad0 all-rank formulas; a7f069aa0ebe biclique reconstruction from rank counts; cd9dfc7a9f4c homogeneous rank census"
+        ]
+      },
+      "rationale": "A distinct indexed result, 9ed7bdcfaad0, advertises the maximum nonextendible rank, its exact population, and the all-rank total and extendible enumerators for finite equivalence relations with unequal class sizes. The exact translation preserving the maps, ranks, and extension predicate makes the frozen result the two-class specialization. The advertised result is strong coverage evidence independently of which same-day item appeared first; historical priority and the exact notation of its formulas are not established here.",
+      "residual_risks": [
+        "The broad theorem's mirror full text was unavailable, so its exact notation and relative priority were not verified. The catalog states the scope and covered quantities explicitly; the disposition rests on that and the exact reduction, not the retrieval failure."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "ADVERTISED_BROADER_COVERAGE_OF_TWO_CLASS_SPECIALIZATION",
+          "evidence": [
+            "Missing fewer than δ points forces extension; boundary n−δ; exact boundary count and all-rank ordinary and extendible counts. For two classes, δ=a−b and n=a+b."
+          ],
+          "identifier_or_url": "Resultary:9ed7bdcfaad0",
+          "material_read": "Complete catalog theorem synopsis specifying both generating formulas and the boundary population; identified RESULT.md passage unavailable",
+          "method": "Local Resultary search and attempted local mirror lookup; identity-on-maps and parameter comparison",
+          "title": "Sharp extension-defect threshold and rank profiles for finite equivalence relations",
+          "trigger": "Distinct claim on the exact complement-equivalent object with broader class-size patterns"
+        },
+        {
+          "assessment": "BALANCED_CASE_COVERED",
+          "evidence": [
+            "K_{a,a} is homogeneous; K_{a,b} for a>b is not, since singleton cross-class maps do not extend."
+          ],
+          "identifier_or_url": "Resultary:cd9dfc7a9f4c",
+          "material_read": "Indexed statement on the homogeneous family; frozen source comparison",
+          "method": "Local search and hypothesis comparison",
+          "title": "Rank spectra and Gaussian deficiency laws for finite homogeneous graph partial automorphisms",
+          "trigger": "Rook-factor enumeration for homogeneous graphs"
+        },
+        {
+          "assessment": "STRICTLY_DIFFERENT_SUBFAMILY",
+          "evidence": [
+            "The catalog counts only f²=0. Matched two-way singletons forming a transposition give an asymmetric-biclique nonextendible map with f²≠0."
+          ],
+          "identifier_or_url": "Resultary:aab2f4eae4e5",
+          "material_read": "Indexed scope and stated maximum square-zero rank in the biclique case",
+          "method": "Local search and compare the predicate with extension",
+          "title": "The complete square-zero rank distribution of multipartite partial-isometry monoids",
+          "trigger": "Same complete multipartite graph family and rank invariant"
+        },
+        {
+          "assessment": "LOW_RANK_TOTALS_OVERLAP_ONLY_IN_AVAILABLE_STATEMENT",
+          "evidence": [
+            "The indexed claim concerns ranks one, two and four, not the extension predicate."
+          ],
+          "identifier_or_url": "Resultary:a7f069aa0ebe",
+          "material_read": "Catalog scope describing low-rank reconstruction",
+          "method": "Local search and compare enumerated strata",
+          "title": "Four-point reconstruction from the rank spectrum of biclique partial automorphisms",
+          "trigger": "Direct same-object and same-day spectrum overlap"
+        },
+        {
+          "assessment": "PRIOR_STRUCTURAL_BACKGROUND; FULL_TEXT_COMPARISON_UNRESOLVED",
+          "evidence": [
+            "The reported object is partial induced-subgraph isomorphisms; membership and structural claims do not themselves state the extension-count formula."
+          ],
+          "identifier_or_url": "arXiv:1506.02093; arXiv:1809.04422",
+          "material_read": "Frozen RESULT.md lines 55–57 and frozen audit source notes; fresh primary retrieval did not return text",
+          "method": "Compare the reported object, ideals/idempotents and membership statements with the actual rank split",
+          "title": "Graphs and Their Associated Inverse Semigroups; Inverse monoids of partial graph automorphisms",
+          "trigger": "Primary sources on precisely the object counted"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–23, 37–47; Resultary 9ed7bdcfaad0 advertised theorem and exact two-class reduction"
+      ],
+      "rationale": "Global extension obstructions are a meaningful invariant, and the factored biclique formula is a useful example. As a standalone contribution, however, it is a direct complement translation and two-class reduction of an already indexed full rank-and-extension classification. The factorization is the routine product of two independent partial matchings; no independent extremal phenomenon or refined invariant survives this comparison.",
+      "residual_risks": [
+        "Rejection as a finding does not dispute the correctness or pedagogical usefulness of the example."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

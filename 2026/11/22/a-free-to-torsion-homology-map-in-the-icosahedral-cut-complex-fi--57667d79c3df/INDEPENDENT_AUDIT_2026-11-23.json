@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T17:46:30.216452Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, verify_icosahedral_cut_transition.py and verification_output.json",
+        "Replay: python /workspace/independent_checks/cut_complex.py"
+      ],
+      "rationale": "An independent exact computation identifies the frozen edge list with the two pentagonal rings of an icosahedron, enumerates faces by component unions, and performs top-down augmented integral unit elimination with a different pivot order. The stage-6 residual has six degree-3 and 26 degree-4 generators and no differential. Stage 5 has one generator in each of degrees 4 and 5 and thirty in degree 6, with a single coefficient -2 (the sign is basis-dependent). Unit elimination is integral: replace the pivot row basis vector by the normalized pivot column and clear its entry from the remaining columns. The chain identity splits off this two-term summand. Over F2, writing P for the stage-5 degree-5 boundary and Q for the stage-6 degree-4 boundary, the rank of the block map (P,i;0,Q) is 756; subtracting rank P=461 and rank Q=294 gives 1 on homology. Direct parity and span tests also validate the recorded 44-simplex cycle. Natural UCT applies with no H3 Tor term on either side, so the integral map is surjective with index-two kernel. The field H3 obstruction is below the pure dimension 5, which rules out shellability and Cohen–Macaulayness. No geometric collapse or wedge decomposition follows from the chain elimination.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The cut-complex papers cover nesting and family-specific examples, including six-cut grid graphs. The complete codimension-one skeleton criterion of II, Theorem 2.16, does not apply to the six-cut icosahedron: only 432 of 792 possible dimension-4 simplices occur."
+        ],
+        "reasoning": "The icosahedron is not a grid graph and the general structural results checked do not provide the integral groups and image in question.",
+        "searches": [
+          "ordinary k-cut complex icosahedral graph icosahedron six cut topology homology inclusion torsion cut complexes Bayer",
+          "arXiv:2407.08158v1 §§2,5"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2304.13675v1",
+        "arXiv:2407.08158v1",
+        "Resultary a96727170cea, fcba8eb68c6e and 32d255a801a9"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 4.4 gives the six-cut facets from five-cut ridge incidence and makes the calculation possible, but does not imply surjectivity without a new computation. Separate integral groups, or rational persistence ranks, cannot distinguish zero from nonzero image into Z/2."
+        ],
+        "reasoning": "A target torsion group and an inclusion alone do not establish the precise integral image.",
+        "searches": [
+          "arXiv:2304.13675v1 Definition 2.7 and Theorem 4.4",
+          "Published November 1 icosahedral five-cut finding, Resultary a96727170cea"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The icosahedral forest filtration and two-independence results are different complexes; ordinary cut faces correspond to existence of a disconnected k-set in the complement, not to an induced-forest condition or to independent k-sets.",
+          "Combinatorial Alexander duality reverses the comparison on dual complexes but requires the corresponding cohomology map; it does not evaluate that map."
+        ],
+        "reasoning": "Neither another icosahedral filtration nor a change of homology formulation identifies this map.",
+        "searches": [
+          "Resultary: ordinary graph cut complexes regular icosahedral graph 12 vertices integral 2 torsion five-cut six-cut homology filtration induced inclusion persistence free torsion",
+          "Bayer et al., arXiv:2304.13675v1, §§1–2 and Theorem 4.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed November 1 five-cut record reports H4=Z/2 and H6=Z^30 at stage 5; the separate ordinary three-cut record concerns stage 3. Table 1 catalogs other graph families."
+        ],
+        "reasoning": "These do not constitute a table of stage-6 integral homology or of the six-to-five map. The match to the frozen record itself is not antecedent evidence.",
+        "searches": [
+          "Resultary: icosahedral graph ordinary cut integral homology complete filtration table six-cut stage 5 stage 6",
+          "arXiv:2304.13675v1 Table 1"
+        ]
+      },
+      "rationale": "Stage-5 homology and the nesting are prior. The exact adjacent-stage induced map and stage-6 integral groups are not supplied by the identified work; the strongest claim is the actual surjection onto the torsion class, not the discovery of torsion in cut complexes.",
+      "residual_risks": [
+        "The older target record was compared at the level of its indexed statement; a prior unpublished or unindexed compatible inclusion computation is not excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies framework, not the specific calculation",
+          "evidence": [
+            "Definition 2.7 gives nesting and the complement predicate; Theorem 4.4 recovers facets from ridge incidences."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2304.13675v1",
+          "material_read": "Introduction, Table 1, Definitions 2.6–2.7, Theorems 2.4 and 4.4",
+          "method": "public arXiv HTML",
+          "title": "Topology of Cut Complexes of Graphs",
+          "trigger": "foundational definition and exact adjacent stages"
+        },
+        {
+          "assessment": "The six-cut result described is for a different graph class",
+          "evidence": [
+            "Theorem 2.16 requires a complete codimension-one skeleton; the six-cut results in §5 concern grids."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2407.08158v1",
+          "material_read": "Introduction and §2 definitions and skeleton criteria; §5 scope from the introduction",
+          "method": "public arXiv HTML",
+          "title": "Topology of Cut complexes II",
+          "trigger": "six-cut results and general criteria"
+        },
+        {
+          "assessment": "overlaps exactly at the target group",
+          "evidence": [
+            "Indexed statement gives only ordinary five-cut integral homology and consequences at that stage."
+          ],
+          "identifier_or_url": "Resultary a96727170cea",
+          "material_read": "indexed result statement, compared to the cited result in the frozen record",
+          "method": "Resultary search",
+          "title": "Integral two-torsion in the five-cut complex of the icosahedral graph",
+          "trigger": "same graph and exact target"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "November 1 five-cut torsion finding; independently reconstructed chains and image"
+      ],
+      "rationale": "The known torsion provides a reason to study these exact adjacent stages. The map answers whether the torsion class already has a lift from a torsion-free group at the preceding stage; stage-wise and rational data cannot answer this. The full integral calculation is also a reproducible nonshellable example on a natural graph.",
+      "residual_risks": [
+        "A finite exact invariant on one graph, not a classification of all cut filtrations."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:55:19.134256Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–54; VERIFICATION.md and artifacts/check.py (inspected)",
+        "Independent replay: python3 /workspace/replay/3.py (standard library), enumerating colour multisets and checking depth feasibility"
+      ],
+      "rationale": "With exclusive colours each root is represented by its nonnegative count vector. A full monochromatic star separates different supports, and a monochromatic star at the smaller threshold separates thresholds on one support; both constants differ from every test. There are d(2^q−1)+2 semantic hypotheses. The q singleton colours are statically shattered at every cap. For the upper bound, use real nonnegative-weight affine thresholds. For q+1 affinely dependent examples, take a nonzero dependence with coefficient sum zero and prescribe negative labels on the negative coefficients and positive labels on the positive ones. The strict inequalities for the negatives violate the dependence. For affinely independent examples, represent a coordinate direction by a linear combination of the examples with coefficient sum zero. Reverse that labeling; the weighted sum of the affine scores is then strictly negative, contradicting nonnegative weight in that coordinate. This also proves the static bound for boundary scores equal to zero. A full online depth k uses at least 2^k distinct hypotheses, yielding the cap-one upper bound. At d=2 a depth q+1 requires precisely 2^q positives at the root, but the empty, singleton, twice-monochromatic and distinct-colour queries have respectively 1, 2^(q−1)+1, 2^q+1 and 2^q+1 positives. None equals 2^q for q≥2. At d=3 the queries 2e_q followed by e_q on the positive branch and 3e_q on the negative branch separate four full blocks of witnesses: q in the support at thresholds 1, 2 or 3, or threshold 1 without q (including the empty trace via the false constant). In each block the other membership bits are queried independently with (t−1)e_q+e_i in the threshold-t block, and with e_i in the no-q block. These are legal queries, realizing every path of depth q+1. The size bound excludes q+2. Independently enumerated distinct functions and exact decision-depth feasibility for q=2,3,4 and all three caps; static upper bounds also checked exhaustively at q=2,3. The all-q conclusion uses the proof, not these samples.",
+      "residual_risks": [
+        "Exclusive colours, a single qualified test per nonconstant hypothesis, and d≤3 are essential to the asserted transition. The theorem does not cover arbitrary description-logic formulas or larger caps."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Funk–Jung–Voellmer §4 gives a complete Occam fitting algorithm for a larger class with bounds on numbers and syntax size; the proof bounds the VC dimension of its fitting hypothesis space polynomially. Theorem 6 treats Occam fitting with bounded outdegree or bounded feature domains.",
+          "5cec5be4d532 compresses positive graded multi-test stars; 533e4477e12f preserves finite-Heyting modal values via successor selection."
+        ],
+        "reasoning": "The Occam bounds are on a different and broader fitted space and do not give an exact d=2 upper bound or a d=3 adaptive tree. Semantic compression excludes no particular root split of the hypothesis class and is not an online dimension theorem. A broader nonnegative-affine static upper bound does apply, as the record's proof itself shows; exact online ranks do not follow from it.",
+        "searches": [
+          "arXiv:2605.07452v1, Algorithm 2, Theorems 4 and 6, proof of Theorem 4",
+          "arXiv:2412.17345v1 abstract",
+          "Resultary: 5cec5be4d532, 533e4477e12f"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2605.07452v1 relevant theorem and proof passages; arXiv:2412.17345v1 abstract",
+        "Resultary IDs 125316c6bc5b, 5cec5be4d532, 5145b7c65b25, 533e4477e12f and bc4e901cf546",
+        "Frozen RESULT.md lines 56–66"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The cardinality upper bound gives q at cap one and q+1 at cap three, but only q+1 at cap two. The exact cap-two exclusion instead depends on impossibility of a balanced first split, and the cap-three lower bound depends on the four witness blocks with q−1 independent bits each."
+        ],
+        "reasoning": "Known counting and Static VC tools cover ingredients and would not justify priority by themselves. A compression result, equal dimensions for ordinal comparisons, or polynomial static fitting bound does not imply those two adaptive statements; the verified witnesses and obstruction supply the new evaluated transition.",
+        "searches": [
+          "Funk–Jung–Voellmer, Theorems 4 and 6",
+          "Resultary 5cec5be4d532 and 5145b7c65b25 Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The target tests are exactly Boolean-weight subset-sum thresholds on nonnegative integer vectors with bounded total and two constants. They can also be expressed in the positive multi-test graded-star language. The same-day ordinal-comparison record instead treats one coordinate at a time on a product of binary/ternary alphabets."
+        ],
+        "reasoning": "A product of coordinate ranges is not the simplex of count vectors with shared budget; arbitrary subset sums are not coordinate comparisons. The ordinal formula therefore cannot be substituted here. An exact depth theorem on the identical sparse multiset threshold class would be equivalent regardless of language; no such theorem appeared in the inspected evidence.",
+        "searches": [
+          "Resultary one-step graded colour and shattering transition; IDs 125316c6bc5b, 5145b7c65b25, 5cec5be4d532",
+          "Funk–Jung–Voellmer, arXiv:2605.07452v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "125316c6bc5b is the identical frozen finding. The 5145b7c65b25 Finding tabulates dimensions for ordinal coordinate threshold tests with Ldim=floor(log2(2a+b+2)); bc4e901cf546 has a three-leaf Gödel-modal preservation threshold, not a VC or online table. 5cec5be4d532 gives two-letter semantic-profile counts."
+        ],
+        "reasoning": "Neither the numeric three-leaf match nor the presence of a different exact rank formula establishes agreement on this class. No distinct returned record tabulated the same depths; same-day candidates were compared on substance, not presumed later.",
+        "searches": [
+          "Resultary: 125316c6bc5b, 5145b7c65b25, bc4e901cf546, 5cec5be4d532"
+        ]
+      },
+      "rationale": "The distinct content supported by the comparison is the uniform exact online plateau and transition for the one-test count class, coupled with an unchanged static rank. The generic VC and class-size methods, including the nonnegative affine-threshold obstruction, and the ambient bounded fitting setting are not asserted to be new.",
+      "residual_risks": [
+        "The primary-text check was targeted, not an exhaustive appendix or literature survey. An equivalent online threshold-class theorem under alternate terminology may not have been indexed or retrieved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers broader static/Occam context, not the exact restricted adaptive ranks in inspected theorems; keyword absence alone is not proof",
+          "evidence": [
+            "Theorem 4 allows g in Omega(k) intersect O(2^p(k)) for a complete Occam algorithm; Theorem 6 gives an Occam guarantee under bounded outdegree or bounded domains."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2605.07452v1",
+          "material_read": "Algorithm 2, Theorems 4 and 6 and beginning of the proof of Theorem 4 (HTML offsets 24140–26717, 27990–29790, 88980–90719)",
+          "method": "Original arXiv HTML, literal VC-dimension and Littlestone location followed by bounded offset read of decisive passages",
+          "title": "Bounded Fitting for Expressive Description Logics",
+          "trigger": "Qualified number restrictions, shattering, and bounds for bounded outdegree"
+        },
+        {
+          "assessment": "Different mathematical invariant in a broader language",
+          "evidence": [
+            "Every pointed model admits an equivalent induced rooted substar with at most k binomial(m,floor(m/2)) terminal successors; also exact two-letter semantic-profile counts."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-sperner-optimal-compression-of-positive-graded-modal-stars-and-t--5cec5be4d532",
+          "material_read": "Finding in local mirrored RESULT.md",
+          "method": "Resultary and local mirror",
+          "title": "Sperner-optimal compression of positive graded modal stars and their exact two-variable spectrum",
+          "trigger": "Closest overlap in the use of graded tests on capped stars"
+        },
+        {
+          "assessment": "Different class and example domain; not an implication",
+          "evidence": [
+            "One-coordinate tests on a binary/ternary product give the displayed floor-log formula, rather than the subset-sum count tests in the frozen record."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-binary-ternary-ordinal-comparisons-exact-static-and-online-shatt--5145b7c65b25",
+          "material_read": "Finding",
+          "method": "Resultary and statement comparison",
+          "title": "Binary-ternary ordinal comparisons: exact static and online shattering",
+          "trigger": "Same-day exact VC and online dimensions for finite threshold tests"
+        },
+        {
+          "assessment": "Visible subject is characterization by examples; no full-document exclusion",
+          "evidence": [
+            "The abstract investigates what labeled examples can describe about description-logic concepts."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2412.17345",
+          "material_read": "First-page PDF abstract only",
+          "method": "Bounded attempted OA passage retrieval; PDF preview available",
+          "title": "On the Power and Limitations of Examples for Description Logic Concepts",
+          "trigger": "Example-based comparison in description logic"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md first-three-cap theorem and depth witness",
+        "Independent proof checks and /workspace/replay/3.py"
+      ],
+      "rationale": "A single graded restriction is a natural minimal class in which static and adaptive complexity can separate while holding the number of colours fixed. The first cap admitting that separation is a useful benchmark: two successors attain exactly the cardinality at which a deeper tree could exist, but no legal split is balanced; three enable a uniform adaptive tree for arbitrarily many colours. This identifies the structural cause of the gap rather than merely counting hypotheses or exhibiting isolated small examples.",
+      "residual_risks": [
+        "The value is the sharp benchmark for this restricted class; it is not a learning-complexity claim for unrestricted graded languages."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

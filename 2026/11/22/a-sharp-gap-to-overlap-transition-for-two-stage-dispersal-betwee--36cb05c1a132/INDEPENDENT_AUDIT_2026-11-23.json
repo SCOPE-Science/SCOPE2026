@@ -1,0 +1,152 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:48:34.757323Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Under independent uniform departure and two independent same-rate exponential stages, normalize x=λL and z=λd. The arrival density is [F(t)−F(t−x)]/x and the objective derivative is the difference of its values at z+x and z. There is zero probability for z≤−x and strict increase for −x<z≤0. On 0≤z≤x the derivative has sign H=F(z+x)−2F(z); g(z+x)/g(z)=e^(−x)(1+x/z) is strictly decreasing, so H begins positive and can cross zero only once, on its descending part. The sign at x is that of (1+2x)e^(−x)−1. In the tail the derivative has the sign of x(e^x+1)−(e^x−1)(1+z). These signs prove the unique global optimum, including the touching case at the unique positive root of e^x=1+2x. The tail derivative of the optimal phase is positive by sinh(x)>x, and the interior phase increases because H_z<0 and H_x>0 at the root. Continuity at the transition follows by taking limits in the interior-root equation, which has only z=x at the transition. The short-duration phase tends to 1; in the interior F(z_*)=F(z_*+x)/2<1/2 and tends to 1/2 at long duration. At synchrony the short-duration mean integrates the leading F(t)=t²/2+O(t³) to x²/6; at optimum the local density tends to g(1)=1/e and its mass is x/e+o(x). The one-stage phase is log(2−e^(−x))∈(0,x); the proof's incidental claim of positive derivative for all negative phases should read −x<z<0, since the objective is zero for z≤−x. This does not affect the result. VERIFICATION.md and checker.py were inspected, not executed; the reported 39007 finite assertions are supplementary.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The ecological sources address dispersal when ponds are active, experimentally varied hydroperiods, or transient network connectivity, respectively.",
+          "An Erlang queueing article returned by the search failed OA retrieval (403); no theorem claim is inferred from the snippet."
+        ],
+        "reasoning": "General interval endpoint calculus can characterize an extremum by equal endpoint densities, but it does not give the exact threshold, the two phase formulas or the penalty. The inspected ecological models do not give the single independent departure-plus-delay objective.",
+        "searches": [
+          "doi:10.1038/s41598-024-56632-y, pp. 1–2",
+          "doi:10.1371/journal.pone.0306578, p. 1",
+          "doi:10.1038/s41598-020-79162-9, p. 2",
+          "Erlang and queueing fixed-width interval search"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and checker.py",
+        "Resultary records 934b8edf4525, 60a157a6fd78 and 1ba6d64035f0",
+        "Ecology papers doi:10.1038/s41598-024-56632-y, doi:10.1371/journal.pone.0306578 and doi:10.1038/s41598-020-79162-9"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The stationary renewal record reports a finite optimum for three Erlang phases and not for two in its two-detection event; the frozen result has a finite single-arrival optimum and can show a positive gap already at two.",
+          "The fixed-width correlated-Gaussian result optimizes a corresponding probability but for another distribution; no transfer of its maximizing interval yields these Erlang formulas."
+        ],
+        "reasoning": "The gap condition tests the derivative exactly when two windows touch, a model-specific balance. Standard convolution formulae are inputs; the endpoint sign calculation, comparison to the one-stage model and scale-separated asymptotic supply the distinct exact result.",
+        "searches": [
+          "Mirrored Resultary 934b8edf4525 offset 150, 60a157a6fd78 offsets 150 and 2450, and 1ba6d64035f0 offset 0",
+          "Frozen RESULT.md, proof of the derivative sign regimes and asymptotic"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equivalently P_x(z)/x is the Erlang-2 density smoothed by the centered triangular probability kernel (x−|t|)_+/x², since the difference of two independent uniform times has that density.",
+          "Resultary 934b8edf4525 concerns calls in both windows of a stationary renewal process; 60a157a6fd78 compares different exit laws on a competence interval. Neither has the same objective as this convolution mode."
+        ],
+        "reasoning": "Maximum fixed-width probability, location of this smoothed mode, and best phase staggering are aliases for this event. Requiring two renewal detections, replacing the departure convolution by a bare Erlang variable, or comparing two CDFs at a fixed interval changes the optimization.",
+        "searches": [
+          "Local Resultary semantic lookup for stage-dependent timing gaps and exact fixed-width concentration of arrival laws",
+          "Primary literature maximize probability that an Erlang/Gamma arrival time falls in a fixed-length interval by choosing the interval start; optimal interval placement, queueing or detection-window scheduling"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Indexed near matches 934b8edf4525, 60a157a6fd78 and 1ba6d64035f0 concern stationary renewal calls, matched-mean stochastic exit, and a correlated-Gaussian product, respectively."
+        ],
+        "reasoning": "An all-duration formula rather than an isolated numerical root is being assessed. None of the inspected indexed analogues has the arrival law and the equal-window optimization needed for an exact formula match.",
+        "searches": [
+          "Resultary index for exact Erlang timing thresholds, competence windows and optimal fixed-width intervals"
+        ]
+      },
+      "rationale": "The precise two-stage equal-window optimizer, sharp change from gap to overlap and short-duration synchrony penalty were not supplied by the inspected antecedents. Standard Erlang calculus, interval endpoint balancing, and the ecological relevance of timing are not the distinct claims.",
+      "residual_risks": [
+        "Equivalent interval-concentration or scheduling results may be unindexed or use probability terminology not covered by the focused search; one Erlang queueing source was inaccessible.",
+        "The same-day timing and competence-window records have materially different objectives; their dates do not establish priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantial timing analogy, not equivalent coverage.",
+          "evidence": [
+            "Both windows must contain calls of one stationary Erlang-renewal process; it studies the spacing of detections, rather than one departure and delayed arrival."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-three-renewal-stages-are-the-sharp-onset-of-a-finite-optimal-gap--934b8edf4525",
+          "material_read": "Mirrored RESULT.md near offset 150.",
+          "method": "Bounded local mirror read of the mathematical objective and main conclusion.",
+          "title": "Three renewal stages are the sharp onset of a finite optimal gap",
+          "trigger": "Same general Erlang/window/gap language and stage threshold."
+        },
+        {
+          "assessment": "Different objective and parameter comparisons.",
+          "evidence": [
+            "It compares mean-matched elapsed-time laws for exit in a competence interval, rather than choosing one arrival interval for the uniform-plus-Erlang law."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-two-boundary-competence-window-phase-diagram-for-matched-mean-re--60a157a6fd78",
+          "material_read": "Mirrored RESULT.md offsets 150 and 2450.",
+          "method": "Bounded local mirror reads of the interval event and comparisons.",
+          "title": "Two-boundary competence window phase diagram for matched-mean residence times",
+          "trigger": "Exponential and Gamma stages with a time-window probability."
+        },
+        {
+          "assessment": "Different distribution; no common optimization theorem covering the phase diagram was found there.",
+          "evidence": [
+            "The variable is a product of correlated Gaussians, not an Erlang variable with uniform departure noise."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-unique-optimal-fixed-width-intervals-for-correlated-gaussian-pro--1ba6d64035f0",
+          "material_read": "Mirrored RESULT.md offset 0, statement.",
+          "method": "Bounded local mirror read.",
+          "title": "Unique optimal fixed-width intervals for correlated Gaussian products",
+          "trigger": "Exactly an optimal fixed-width probability interval, but possibly a different law."
+        },
+        {
+          "assessment": "Asynchronous metacommunity dynamics, not the frozen arrival model.",
+          "evidence": [
+            "The model treats migration between active ponds and studies biodiversity dynamics on a stochastic landscape."
+          ],
+          "identifier_or_url": "https://doi.org/10.1038/s41598-024-56632-y",
+          "material_read": "OA PDF pp. 1–2, offsets 1544 and 10100.",
+          "method": "Bounded primary passage reads.",
+          "title": "Both local stability and dispersal contribute to metacommunity sensitivity to asynchronous habitat availability",
+          "trigger": "Cited ecological antecedent involving asynchronous active sites."
+        },
+        {
+          "assessment": "Experimental motivation, not a proof of optimum phase.",
+          "evidence": [
+            "A mesocosm experiment varies flooding depth and drought duration."
+          ],
+          "identifier_or_url": "https://doi.org/10.1371/journal.pone.0306578",
+          "material_read": "OA PDF p. 1 near offset 950.",
+          "method": "Bounded primary passage read.",
+          "title": "Freshwater wetlands for flood control: How manipulating the hydroperiod affects plant and invertebrate communities",
+          "trigger": "Hydroperiod and drought-duration motivation."
+        },
+        {
+          "assessment": "Different connectivity/dispersal framework in the inspected model.",
+          "evidence": [
+            "It models transient or dynamic connectivity through a spatial network rather than here optimizing one fixed-length arrival window."
+          ],
+          "identifier_or_url": "https://doi.org/10.1038/s41598-020-79162-9",
+          "material_read": "OA PDF p. 2 around offset 9200.",
+          "method": "Bounded primary passage read.",
+          "title": "A probabilistic approach to dispersal in spatially explicit meta-populations",
+          "trigger": "Probabilistic dispersal under time-dependent connectivity."
+        },
+        {
+          "assessment": "Unresolved, not evidence of either prior coverage or its absence.",
+          "evidence": [
+            "No statement-level evidence available from this item."
+          ],
+          "identifier_or_url": "Exact title in focused primary-literature search; publisher full text not retrieved",
+          "material_read": "No full text; search title only used to triage relevance.",
+          "method": "Attempted OA retrieval, HTTP 403.",
+          "title": "The Queueing Theory of the Erlang Distributed Interarrival and Service Time",
+          "trigger": "Erlang queueing hit under possible interval-optimization terminology."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The idealized model distinguishes synchrony, overlap, touching and a strictly advantageous positive gap, with an exact crossover and unbounded relative cost of synchrony despite vanishing absolute success. The one-stage contrast identifies sequential transport as the mechanism within this family, rather than treating the threshold as an arbitrary calendar setting. This is an exact timing benchmark, not a field management or population-persistence prediction.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

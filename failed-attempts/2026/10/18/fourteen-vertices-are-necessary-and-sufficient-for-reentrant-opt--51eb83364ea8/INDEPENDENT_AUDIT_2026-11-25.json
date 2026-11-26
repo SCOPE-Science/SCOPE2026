@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:52:22.549845Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In the fixed-root tree model the only vertices whose reachability is changed by vaccinating v are its descendants, each reached without the intervention with probability p to the power of its root depth. A deeper candidate is strictly dominated by its root-neighbor ancestor at every interior p. If one eligible candidate is optimal at two parameters but not at an intermediate one, fix one competitor that beats it strictly in the middle. Their nonzero difference has two distinct interior roots even if either endpoint is a tie. Their two disjoint branch profiles have combined size at most 12 for n<=13; each tail is exactly a positive composition of the branch size minus one, including the empty tail. I reproduced the exhaustive bound with an independently written standard-library certificate at /workspace/review-evidence/4_profile_certificate.py, run with python3. Bit-mask separators generate all 6144 ordered pairs; ordinary Descartes leaves 150, and exact integer coefficients of (1+t)^d Q(t/(1+t)) give zero variations for 140 and one for 10, none with two. Since t>0 corresponds exactly to 0<p<1, the certificate also excludes isolated multiple roots that could affect the tie-inclusive definition. The 14-vertex witness gives the stated quartic times -p^2; the quartic is positive at 0 and 1 and negative at 1/2, with exactly two positive roots by Descartes. These are simple and the switch intervals and strict dominance follow. Decimal bisection independently agrees with the stated roots. The reviewed frozen code was not executed; its recorded exact checks are consistent with the separate polynomial certificate.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Risk monotonicity under vaccination and expected infection-subtree size are established model ideas; the cited works do not give the pairwise crossing cutoff.",
+          "Rooted-tree exact SIR equations in the cited Markov model and reliability polynomials for diffusion likewise do not give the fixed-root comparison census."
+        ],
+        "reasoning": "These broader models and methods supply background, not two-root exclusion at combined size twelve. The exact relevant coverage comes from the indexed gateway polynomial result, not a claim that any SIR or reliability theorem implies the cutoff.",
+        "searches": [
+          "Floyd–Kay–Shapiro 2008, Theorem 3.1 and Corollary 3.2",
+          "DuBois 2011, dissertation Chapter 3.1",
+          "arXiv:1001.0595",
+          "arXiv:2108.07128v1",
+          "arXiv:1403.7074v2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verification/reentry_check.py",
+        "Resultary 5f97596b5f38, 9ba80a93d3d8, c84204c65b93 and 0dffbe31b8d3",
+        "Floyd–Kay–Shapiro author manuscript",
+        "DuBois dissertation",
+        "arXiv:1001.0595",
+        "PLOS DOI 10.1371/journal.pone.0115826",
+        "arXiv:2108.07128v1",
+        "arXiv:1403.7074v2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The indexed proof maps p=t/(1+t), giving exact coefficients and at most one sign variation for every nonzero pair difference at the lower sizes.",
+          "Its exact 14-site construction has two strict changes with simple positive roots in (0,1)."
+        ],
+        "reasoning": "Though the gateway Finding describes strict reversals, its proved root-exclusion is stronger and directly rules out the frozen tie-inclusive reentrance. The indexed witness gives sufficiency under the same objective once the edges are viewed as undirected and blocked by vaccinating the branch heads. The distinct quartic construction here proves the same existence threshold; no extremality or other mathematical reason for requiring those particular roots is established.",
+        "searches": [
+          "Resultary 5f97596b5f38, Finding and integer Descartes certificate at offset 3500 onward",
+          "Frozen RESULT.md, neighbor reduction and fixed-competitor continuity argument"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The gateway theorem states 14 is the first size for twice-reversing optimality on a fixed-source tree with two outbound root edges. Its exact objective is the sum of branch depth counts times p to the root depth.",
+          "The second witness profile there is (1,2,1,1,2), rather than (1,2,1,1,1,1); both use (1,1,4) on the first branch."
+        ],
+        "reasoning": "Direct the rooted edges outward. Removing a root-neighbor and closing its root edge remove exactly the same terms from expected reach. For any violation with more than two original branches, keep the fixed competitor that strictly wins in the middle and both complete branches. The resulting two-branch problem has no more vertices or extra constraints. The threshold is not changed by the intervention language or by allowing additional branches.",
+        "searches": [
+          "Resultary: fixed-source rooted-tree vaccination/transmissibility target reversals and gateway closure",
+          "Resultary 5f97596b5f38, Finding and proof sections 1–3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The gateway source exhausts 3056 unordered distinct pairs of feasible branch profiles of total size up to 12 and verifies at most one transformed-coefficient variation in every case.",
+          "The related vaccination entry starts from a uniform seed and studies a single optimum switch; the phylogenetic entries concern different objectives."
+        ],
+        "reasoning": "There are 32 equal-profile pairs in the relevant size bound; including these and both orders of each unequal pair makes 2*3056+32=6144. The equal pairs cannot yield a loss of optimality against that fixed competitor. The exact census covers the same polynomials, not just matching extremal numbers.",
+        "searches": [
+          "Resultary 5f97596b5f38, Proof section 3",
+          "Resultary 9ba80a93d3d8, c84204c65b93, 0dffbe31b8d3"
+        ]
+      },
+      "rationale": "The sharp threshold and underlying complete two-profile comparison are mathematically covered by the distinct indexed 14-site gateway-closure finding. Root-neighbor vaccination and closing the corresponding outbound root edge have exactly the same benefit. The indexed integer certificate excludes every pair with two interior roots, not just two strict reversals, and so also covers the original's broader definition with ties. The original uses a different 14-vertex witness, but not a distinct threshold or an independently motivated exact invariant of that witness. This is a finding of substantive equivalent coverage in the inspected corpus, not a conclusion about which work was disclosed first or borrowed from which.",
+      "residual_risks": [
+        "The matched 14-site entry has a later catalogue path date; deposit and public-disclosure chronology were not established. The assessment credits the verified known mathematical coverage without attributing priority or dependence.",
+        "Bounded primary-literature searches cannot establish exhaustive coverage outside the inspected sources."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent sharp threshold; stronger root-count certificate also handles ties. Distinct witness and unresolved disclosure order.",
+          "evidence": [
+            "The count is 3056 unordered distinct profiles; every polynomial difference has at most one transformed coefficient variation. The witness difference is -p^2(2p-1)(p^2+p-1)."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-fourteen-habitat-sites-are-the-sharp-onset-of-twice-reversing-ga--5f97596b5f38/RESULT.md",
+          "material_read": "Finding and assumptions, offsets 0–3291, and polynomial reduction and exact census, offsets 3500–6307",
+          "method": "Local Resultary mirror",
+          "title": "Fourteen habitat sites are the sharp onset of twice-reversing gateway containment priorities",
+          "trigger": "Exact 14-vertex threshold in an equivalent fixed-source branch objective"
+        },
+        {
+          "assessment": "Standard model precedent, not comparison among vaccine targets",
+          "evidence": [
+            "The passage deletes incident transmissions under vaccination and proves no collateral increase in individual infection risk."
+          ],
+          "identifier_or_url": "https://personal.math.vt.edu/floyd/research/papers/epidemics.pdf",
+          "material_read": "Theorem 3.1 and Corollary 3.2 p. 6, offset 18450",
+          "method": "Lawful OA author manuscript",
+          "title": "Some elementary properties of SIR networks, or, Can I get sick because you got vaccinated?",
+          "trigger": "Related percolation and vaccine monotonicity result"
+        },
+        {
+          "assessment": "Subtree objective background, distinct stochastic setting and conclusion",
+          "evidence": [
+            "Expected infection-subtree size is used to guide group vaccination under uncertain initial infection and to bound outbreak reduction."
+          ],
+          "identifier_or_url": "https://api.drum.lib.umd.edu/server/api/core/bitstreams/5e421ab1-ed23-4f50-a2aa-87f8eada1881/content",
+          "material_read": "Chapter 3.1, printed pp. 17–18, offset 50900",
+          "method": "Lawful institutional dissertation copy",
+          "title": "Using and Manipulating Probabilistic Connectivity in Social Networks",
+          "trigger": "Closest literature on expected subtree sizes as an intervention objective"
+        },
+        {
+          "assessment": "Individual infection probability, not the tree vaccination cutoff",
+          "evidence": [
+            "The stated NP-hard task computes a susceptible individual's infection probability."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1001.0595",
+          "material_read": "Abstract p. 1, opening offset",
+          "method": "Lawful OA PDF",
+          "title": "Finding an individual's probability of infection in an SIR network is NP-hard",
+          "trigger": "Related complexity of SIR objectives"
+        },
+        {
+          "assessment": "Different intervention and feasible set",
+          "evidence": [
+            "Allocates a fixed supply between two separated populations to minimize combined expected final epidemic size."
+          ],
+          "identifier_or_url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0115826",
+          "material_read": "Introduction and Optimal Vaccination Allocation for Two Populations, pp. 2 and 10",
+          "method": "Lawful OA paper passages",
+          "title": "Optimal Vaccination in a Stochastic Epidemic Model of Two Non-Interacting Populations",
+          "trigger": "Related parametric vaccine optimum"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "A first possible size for this sort of reentrance is a meaningful finite boundary, and the abstract tree proof is sound. In the inspected corpus that boundary is already mathematically covered, including two-root exclusion and a minimal two-switch witness. Recasting edge closure as vertex vaccination preserves the exact two-profile objective. The remaining different quartic witness and its precise switch points do not answer a motivated further question, such as classifying all minimal witnesses. No separately valuable new remainder was established.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

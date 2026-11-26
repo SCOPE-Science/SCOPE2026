@@ -1,0 +1,168 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:45:32.469424Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–47; VERIFICATION.md, verify.py and VERIFY_OUTPUT.txt (inspected, not executed)"
+      ],
+      "rationale": "Normalized angular monomials diagonalize the radial indicator, and squared radius t has Gamma(n+1,1) density at degree n. Integrating the derivative of t^(n+1)e^(−t) gives (n+1)!(λ_(n+1)−λ_n)=F(n). Also λ_(n+1)≤b_m λ_n/(n+1) gives eventual strict decay to zero. For an exponential sum with r distinct exponents and nonzero coefficients, divide by the first exponential and differentiate, leaving r−1 terms; Rolle with multiplicities inductively gives at most r−1 real zeros counted with multiplicity. This verifies the required bound directly because the endpoint terms all alternate and there are 2m terms, or 2m−1 when the zero endpoint is omitted. For k local-maximum plateaux not beginning at zero, there are at least 2k−1 strict reversals in the nonzero first differences: one inside each pair of entrance and exit signs, and one between plateaux. If the first plateau begins at zero, there are at least 2k−2; both bounds imply k≤m using distinct roots between samples with opposing signs. This handles ties without an extrapolated starting sign. At a global maximizing index n>0, F(n−1)≥0≥F(n); a zero in [n−1,n] always places n in the specified floor-and-successor set, including when the zero is an integer. Positivity and decay ensure a maximum exists. For sharpness take intervals [jL,jL+1]. At n=jL−2 and jL+2 the new-to-old endpoint ratio on interval j has logarithm −3/(2jL)+O(L⁻²) and 5/(2jL)+O(L⁻²), respectively. After dividing by (n+1)!, the main signed contribution has magnitude comparable to L^(−3/2) by Stirling; each other ring is exponentially small by k−j−j log(k/j)>0. Hence there is a local maximum in each disjoint peak window for L large at fixed m.",
+      "residual_risks": [
+        "The numerical file tests strict peaks and finite samples; the proof supplies the plateau cases and universal claims. Candidate cardinality is not a bound on the cost of finding or certifying real roots."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Galbis and Nicola–Tilli supply upper norm bounds for broader symbol classes; Dewage–Ólafsson gives eigenvalue integral maps. Halvdansson’s Prop. 2.3 is an erfc asymptotic under dilation of finite annular unions in decreasing spectral order. Later 41fa2b45e61f covers strict peaks in C^d, with all a_j>0 and sharpness at prescribed observation mass."
+        ],
+        "reasoning": "Broader symbol/radius coverage for a norm inequality or rearranged asymptotic is not stronger for oscillation in natural degree order. The indexed shell-count theorem genuinely extends the strict modal statement in dimension and sharpness at fixed mass, but does not state the plateau certificate or include a disk, and its catalog listing does not establish earlier priority.",
+        "searches": [
+          "Galbis arXiv:2102.02031v1 Theorem 1; Dewage–Ólafsson arXiv:2107.01465 §2; Nicola–Tilli arXiv:2207.08624 Theorem 1.1; Halvdansson arXiv:2502.11805v1 Proposition 2.3; Resultary 41fa2b45e61f"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 00185e1fcc1d, 41fa2b45e61f, 0c0c5a98ddf3 and 4a0d7bb6b91c; arXiv:1907.00848, 2102.02031, 2107.01465, 2207.08624, 1106.2333v1, 2502.11805v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "00185e1fcc1d bounds the number of distinct zeros of the same real endpoint sum on the domain containing all sampled indices, yields the same sign-reversal bound and constructs strict sharp examples. The earlier primary sources examined do not combine this zero localization with all-m sharpness."
+        ],
+        "reasoning": "Continuity between n−1 and n gives the frozen finite candidate rule directly from the later indexed zero bound, and zero filtering handles plateaux. Counting multiplicities follows by the classical multiplicity form of Rolle. Thus the theorem overlaps even where the exact certificate wording differs. Earlier unimodality, asymptotic profiles and upper norm envelopes do not decide or yield the full sharp finite-index theorem.",
+        "searches": [
+          "Compare 00185e1fcc1d Finding and Proof, offsets 0–4964, with frozen RESULT.md lines 14–22 and 30–44; Yu Theorem 3; Halvdansson Proposition 2.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "00185e1fcc1d gives identical λ_n and uses the same endpoint sum under x=s+1, including a disk as the first component.",
+          "λ_n divided by the total length of E is the mass function of a Poisson mixture with uniform rate on E. Yu Theorem 3 on p. 4 gives preservation of unimodality, monotonic decrease, log-concavity and log-convexity for the respective mixing densities."
+        ],
+        "reasoning": "The later radial-mask theorem is exact mathematical overlap. Classical Poisson-mixture unimodality supplies a one-component antecedent and general variation diminution explains the oscillation bound, but the stated Theorem 3 does not cover arbitrary separated m-component uniform supports, all-m attainment or endpoint-root norm selection.",
+        "searches": [
+          "Resultary: all-m Gaussian annular localization, radial mask spectral peaks, endpoint exponential-sum zeros and norm candidates; 00185e1fcc1d",
+          "Poisson mixture of the uniform law on E; Yu arXiv:1106.2333v1, Theorem 3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Knutsen locates the top mode among adjacent degrees for one fixed-area ring. Later 0c0c5a98ddf3 gives an exact single-ring degree and tie formula. Same-day 4a0d7bb6b91c classifies the special two-unit-ring asymptotic at centers T±δ√T (δ≠1). The all-m indexed result 00185e1fcc1d states a root bound but not the explicit candidate set."
+        ],
+        "reasoning": "One ring and the restricted two-ring asymptotic are covered special problems; neither determines the exact norm candidates of an arbitrary finite annular union. The same-day record is treated as mathematical overlap in its regime, with no asserted ordering from its date.",
+        "searches": [
+          "Resultary: 00185e1fcc1d, 41fa2b45e61f, 0c0c5a98ddf3, 4a0d7bb6b91c",
+          "Knutsen arXiv:1907.00848 §3.1, single-ring mode location"
+        ]
+      },
+      "rationale": "The closest exact indexed overlap, 00185e1fcc1d, is a later-catalogued statement of the same sharp spectral mode cap for strict peaks and the same endpoint-sum distinct-root bound. Its stated ingredients directly imply the plateau ceiling and floor-and-successor certificate; these are not mathematically independent inventions relative to that record. The date evidence does not establish priority for the common theorem. The strongest earlier inspected primary results concern single rings, general norm bounds, broad variation-diminishing tools, or large-scale decreasingly rearranged profiles. They do not supply the full sharp all-m natural-order result with an explicit exact finite norm certificate. The pass concerns that supported theorem as a whole, not priority for the classical tool, the single-ring case or the overlapping claims in other records.",
+      "residual_risks": [
+        "The two later-catalogued all-m records establish material mathematical overlap but do not by date alone determine priority. The certificate is an immediate corollary of the ingredients in 00185e1fcc1d.",
+        "An earlier use of classical total positivity on this exact mask class could have equivalent coverage; no worldwide priority assertion is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantive equivalence for the cap; the later record’s ingredients also entail the candidate rule",
+          "evidence": [
+            "Distinct root bound 2K−1, or 2K−2 with disk; zero-filtered difference sign changes and all-K strict sharpness."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-sharp-spectral-mode-cap-for-finite-radial-gaussian-masks--00185e1fcc1d/RESULT.md",
+          "material_read": "Finding, assumptions, root proof, mode bound and sharpness proof, offsets 0–4964",
+          "method": "Local mirror and exact variable shift x=s+1",
+          "title": "Sharp spectral mode cap for finite radial Gaussian masks",
+          "trigger": "Same annular union, degree-ordered spectrum and endpoint polynomial"
+        },
+        {
+          "assessment": "Broader in dimension and prescribed-mass sharpness, narrower in plateau and disk coverage; no exact norm-candidate assertion in the theorem",
+          "evidence": [
+            "At most q strict maxima and q−1 strict interior minima; all a_j>0; sharp at every normalized observation mass."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-a-sharp-shell-count-law-for-angular-momentum-peaks-in-gaussian-f--41fa2b45e61f/RESULT.md",
+          "material_read": "Finding, assumptions and opening proof, offsets 0–2548",
+          "method": "Local mirror; compare d=1 and the exact parameter restrictions",
+          "title": "A sharp shell-count law for angular-momentum peaks in Gaussian Fock localization",
+          "trigger": "Higher-dimensional theorem covering positive inner radius and strict peaks"
+        },
+        {
+          "assessment": "Single-annulus antecedent, not the arbitrary-union theorem",
+          "evidence": [
+            "One ring, unimodal profile, maximum among adjacent degrees and norm asymptotic."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1907.00848",
+          "material_read": "§3.1, p. 6, around offset 18100",
+          "method": "Primary PDF comparison of maximum location and hypothesis",
+          "title": "Daubechies’ Time-Frequency Localization Operator on Cantor Type Sets I",
+          "trigger": "Classical explicit annular Gaussian spectra and norm localization"
+        },
+        {
+          "assessment": "Different asymptotic rearranged spectral problem",
+          "evidence": [
+            "An erfc approximation with O(1/R) error after dilation, distinguishing unordered modes in the proof."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2502.11805v1",
+          "material_read": "p. 8, Proposition 2.3 and opening proof; offsets 25250–27454",
+          "method": "Primary PDF comparison of dilation, error bound and spectral ordering",
+          "title": "Empirical plunge profiles of time-frequency localization operators",
+          "trigger": "Finite unions of annuli and spectral shape"
+        },
+        {
+          "assessment": "Unimodality/shape preservation antecedent, not the full multimodal sharpness and norm certificate",
+          "evidence": [
+            "Unimodal, decreasing, log-concave or log-convex mixing densities yield the corresponding shape for the Poisson mixture."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1106.2333v1",
+          "material_read": "Theorem 3, p. 4, and context, offsets 12470–14411",
+          "method": "Primary PDF comparison via uniform mixing density on E",
+          "title": "On Normal Variance-Mean Mixtures",
+          "trigger": "Poisson-mixture variation-diminishing antecedent"
+        },
+        {
+          "assessment": "Norm bounds under symbol constraints, not selection of degree indices for this norm",
+          "evidence": [
+            "The theorem bounds localization-operator norms under symbol constraints, without classifying degree-ordered local maxima."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2207.08624",
+          "material_read": "p. 3, Theorem 1.1, near offset 9300",
+          "method": "Primary PDF statement comparison",
+          "title": "The norm of time-frequency and wavelet localization operators",
+          "trigger": "Potentially stronger Gaussian norm theorem"
+        },
+        {
+          "assessment": "General bound, not exact root-based candidate reduction",
+          "evidence": [
+            "A radial-symbol norm inequality covering a broader class."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2102.02031v1",
+          "material_read": "Theorem 1, near offset 4642",
+          "method": "Primary HTML statement comparison",
+          "title": "Norm estimates for selfadjoint Toeplitz operators on the Fock space",
+          "trigger": "Radial Fock Toeplitz norm bounds"
+        },
+        {
+          "assessment": "The diagonal eigenvalue integrals are prior; the inspected passage does not locate or count all maxima on arbitrary masks",
+          "evidence": [
+            "Quasi-radial eigenvalue integral representation."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2107.01465",
+          "material_read": "§2, around offset 7000",
+          "method": "Primary HTML statement comparison",
+          "title": "Toeplitz operators on the Fock space with quasi-radial symbols",
+          "trigger": "Broad radial eigenvalue calculus"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–27 and 34–44; indexed 00185e1fcc1d and 4a0d7bb6b91c"
+      ],
+      "rationale": "The theorem bounds the number of high-concentration degree bands by the number of radial components, with equality possible for all m. The exact finite candidate set eliminates dependence of the count of spectral evaluations on large endpoint radii and covers ties and disk components. This addresses arbitrary separated radial masks, not only particular numerical examples or a norm envelope, while making no claim of bounded computational effort for isolating the roots.",
+      "residual_risks": [
+        "The result is radial, finite-component, one-complex-dimensional and Gaussian; no conclusion about signed or nonradial masks."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:43:13.590592Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md:5–86",
+        "VERIFICATION.md:19–27",
+        "checks/check.py:9–52",
+        "Barreto-Souza et al. (2023), Definition 2, Definition 3 and eq. (11)"
+      ],
+      "rationale": "A direct reconstruction avoids reliance on symbolic cancellation: for X geometric with tail r and independent Z with tail q, put U=min(X,Z) and V=X−U. The mass at U=k,V=0 is (1−r)(qr)^k, and at U=k,V=l>=1 is (1−r)(qr)^k(1−q)r^l. These factor exactly into Geo(qr) and the stated innovation mass. Adding the independent next innovation therefore yields the claimed stationary pair with identical marginals, and symmetry gives detailed balance for the stationary Markov path, not a single common variable for every time. In the Gram array J, J_(i,j+1)=r J_(i,j) for j>i. At j=i the discrepancy J_(i,i)−J_(i,i+1)/r is w_i K²q>0, where w_i is the mass of U at i. Thus the next off-diagonal determinant is −r J_(i,i+1) times the discrepancy at i+1, while farther determinants have proportional columns. At the diagonal the Gram vectors at i and i+1 are independent because only the latter has a nonzero coordinate i+1; Cauchy–Schwarz is strict. All masses are positive and row normalization preserves signs. Common-shock conditional upper-tail functions are nondecreasing and both strictly increase between W=0 and W>=max(a,b) for a,b>=1, giving strict lag-one quadrant dependence. Shared future innovations and thresholds preserve order and give nonnegative upper-tail covariance at arbitrary lags. The recorded symbolic and finite grid checker was inspected, not relied on or run.",
+      "residual_risks": [
+        "No endpoint parameters, nongeometric marginals or fixed whole-path common-shock representation are covered; strictness claimed and checked at lag one only."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Proposition 5 gives one-step transitions and Proposition 7 the general consecutive-pair pgf. The accessible older-paper context establishes the topic of reversibility but did not yield an exact usable full-text result covering these hypotheses."
+        ],
+        "reasoning": "Knowing a generating function or kernel determines all its entries, so the pair distribution is not new. It does not already characterize the signs of all adjacent minors or the decomposition; the proof uses extra structure of the interior geometric specialization, including conditioning on how the minimum is reached and a rank/ratio argument.",
+        "searches": [
+          "Barreto-Souza et al. (2023), Proposition 5 at p. 701 and Proposition 7/eq. (9) at p. 703",
+          "Littlejohn (1992, 1996) lawful identified-source retrieval attempts"
+        ]
+      },
+      "checked_sources": [
+        "Barreto-Souza et al. (2023), DOI 10.1007/s11749-023-00849-y",
+        "Littlejohn (1992) and (1996), limited accessible material",
+        "Resultary 432ee3779417 and f623657d6910",
+        "RESULT.md:92–100"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier pgf specializes and factors algebraically, so the representation and pair symmetry build directly on prior model formulas. The prior Poisson–Lindley item treats only a fixed output-column pair. In the present proof the innovation's jump from its atom at zero to geometric positive support gives strict diagonal discrepancies, and the common-shock Gram structure controls the remaining diagonal signs."
+        ],
+        "reasoning": "Credit the original pgf, transitions and the elementary inference of reversibility from symmetry. The exact three bands across every adjacent row/column pair are the distinct conclusion supported here; neither a general pgf formula nor a separate model's two-output test states a determinant sign theorem applying in this regime.",
+        "searches": [
+          "2023 primary paper Propositions 5 and 7; RESULT.md:54–86,94–96",
+          "Resultary 432ee3779417, Finding and Limitations"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2023 recursion is independent geometric threshold minification followed by iid additive innovations, with the stated geometric-marginal specialization. Its introduction describes the older work as involving a thickening operator."
+        ],
+        "reasoning": "The means-to-tails change of variables is an exact reformulation of the same 2023 model, not an originality claim. A common minification label does not establish the same older kernel; whether the older papers can be reduced to this precise additive model remains unresolved.",
+        "searches": [
+          "Barreto-Souza et al., DOI 10.1007/s11749-023-00849-y, Definitions 2–3 and eq. (11)",
+          "Littlejohn (1992, 1996), minification/reversibility paper identities"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The first Resultary item is the identical frozen finding, not separate prior coverage. The independent same-day item concerns Poisson–Lindley stationary minification and output columns 0 and 1, and explicitly leaves general column minors and reversibility open. The exact-term scan did not locate a matching statement; this is not evidence of global absence."
+        ],
+        "reasoning": "The relevant comparison is to an exact sign classification for this model, not a finite parameter grid or a minor test for a different marginal. The distinct mirror hit demonstrates nearby work, but its restricted sign criterion does not coincide with the geometric whole-array law.",
+        "searches": [
+          "Resultary local mirror: geometric minification signed minors f623657d6910; likelihood-ratio reversal in Poisson–Lindley minification 432ee3779417",
+          "Barreto-Souza et al. OA exact-term scan: TP2, total positivity, adjacent minors"
+        ]
+      },
+      "rationale": "The geometric model, its one-step transitions and its general consecutive-pair generating function are explicitly prior art. The strongest exact-model overlap supplies the unfactored distribution; the frozen analytic contribution is its consecutive-pair structure and uniform all-index signed-minor law, including the strict negative neighboring band alongside monotonicity and reversibility. The inspected same-day nearby result is for another model and a restricted column pair. This supports the distinct minor classification, not historical priority for reversibility or minification generally.",
+      "residual_risks": [
+        "Full Littlejohn statements were unavailable after bounded lawful attempts. Historical reversibility and kernel overlap remain possible. Same-day records do not establish chronology; the broad search was non-decisive and does not certify novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage of model, transitions and unfactored pair PGF; full sign law not in the inspected statements",
+          "evidence": [
+            "Definition 2 gives the threshold-plus-innovation recursion; Def. 3 and eq. (11) specify geometric stationarity; Propositions 5 and 7 give the transition and joint PGF formulas."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s11749-023-00849-y",
+          "material_read": "OA pp. 696, 701, 703–704 at offsets 4000,19039,23332,27000; Definitions 2–3, Propositions 5 and 7, eqs. (9), (11)",
+          "method": "OA full-text passages",
+          "title": "Non-linear INAR(1) processes under an alternative geometric thinning operator",
+          "trigger": "Same exact model and one-step pair PGF"
+        },
+        {
+          "assessment": "Exact implications for the frozen kernel unresolved",
+          "evidence": [
+            "The 2023 introduction places this work among minification constructions with thickening; it is not a substitute for Littlejohn's exact hypotheses and conclusions."
+          ],
+          "identifier_or_url": "https://doi.org/10.2307/3214793",
+          "material_read": "Bibliographic/abstract-level material and the 2023 paper's characterization on p. 696; no usable same-paper full text obtained",
+          "method": "Bounded lawful identified-source attempts and secondary full-text context",
+          "title": "Discrete minification processes and reversibility",
+          "trigger": "Historical reversible discrete minification"
+        },
+        {
+          "assessment": "No statement-level negative conclusion possible",
+          "evidence": [
+            "The historical question and geometric-tail domain are relevant; whether the exact additive-minification kernel or determinants are covered was not resolved."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/S0304-4149(96)00090-7",
+          "material_read": "Bibliographic material and 2023 introduction at offset 4000; no usable same-paper full text",
+          "method": "Lawful OA attempts; publisher page returned 403",
+          "title": "A reversibility relationship for two Markovian time series models with stationary geometric tailed distribution",
+          "trigger": "Historical geometric-tail reversibility could overlap"
+        },
+        {
+          "assessment": "Related but nonmatching model and quantifiers",
+          "evidence": [
+            "Poisson–Lindley stationary model with a reversal for output columns 0 and 1; does not classify all higher-column minors or characterize reversibility."
+          ],
+          "identifier_or_url": "Resultary:2026/11/22/432ee3779417",
+          "material_read": "RESULT.md Finding/Assumptions at offset 0 and Limitations at offset 8200",
+          "method": "Local Resultary mirror",
+          "title": "A critical likelihood-ratio reversal in the Poisson–Lindley minification model",
+          "trigger": "Same-day signed-minor analysis for a stationary minification chain"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md:5–28,65–86",
+        "Barreto-Souza et al. (2023), Definition 3 and Proposition 7",
+        "Resultary 432ee3779417"
+      ],
+      "rationale": "This is an exact dependence boundary for a natural existing two-parameter chain, not merely a new algebraic presentation of its pgf or one small example. It locates every adjacent failure of likelihood-ratio order while explaining why stochastic monotonicity, reversibility, and positive quadrant dependence coexist with those failures throughout the interior. The shared-shock derivation gives a useful reason for both strict positive quadrant dependence and the zero and negative determinant bands.",
+      "residual_risks": [
+        "The claim concerns adjacent one-step minors and ordinary quadrant dependence, not an all-lag signed-minor classification."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

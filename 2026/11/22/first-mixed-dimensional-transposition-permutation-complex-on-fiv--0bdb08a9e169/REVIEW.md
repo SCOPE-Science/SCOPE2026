@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The ten transposition words on five letters yield exactly 124 cells with face vector \(5,20,48,41,10\). The explicitly specified free-face matching removes 60 pairs and leaves four critical cells in dimensions \(0,2,2,3\). The attached standard-library program verifies every incidence, directed Hasse acyclicity, all integral unit pivots and the zero residual boundary. Since the remaining two-skeleton is \(S^2\vee S^2\), the null boundary of the three-cell determines a null attaching class through the Hurewicz isomorphism. Parameters two through four are verified by the same exhaustive method and establish the minimality claim.
+PASS
 
-## Originality: PASS, with priority uncertainty
+With one cell per distinct ordered subsequence, signed deletion gives the integral cellular differential; the checked f-vector for n=5 is (5,20,48,41,10). Independent reconstruction verifies acyclicity of the oriented Hasse graph and all 60 unit cancellations, leaving a zero differential and critical dimensions 0,2,2,3. All 60 ordered pairs and all four ordered critical entries agree with the supplied JSON. The matching gives a Morse CW model with a single vertex and 2-skeleton S²∨S². In that model the only 3-to-2 boundary must be zero: the integral cancellation gives H3=Z and the 3-chain group is Z with no higher groups. Thus the 3-cell has zero degrees on both 2-cells, and by Hurewicz its attaching class in π2(S²∨S²) is zero. This proves the actual wedge, not just its Betti numbers. In n=2,3,4 the independent critical dimensions (0), (0,1), (0,2,2,2) give the stated point, circle, and three 2-spheres. Purity follows from generation by full words; nonzero homology below dimension four contradicts pure Boolean-cell shellability.
 
-Elizalde–Hanlon–Hersh (arXiv:2610.07303) study pattern avoidance, not the transposition conjugacy class. Chacholski–Levi–Meshulam (arXiv:1908.03394) establish the relevant topology and two-generator theorem, which does not imply the ten-generator computation. Libman (arXiv:2309.06808) proves contractibility for all permutations with at least one fixed point, a strict superset of the transpositions for five letters, which does not determine this subcomplex. The closest checked public five-letter affine-family result has a different generating set and face vector, and the five-letter cyclic-dihedral word family has only degree-two homology. Targeted indexed searches for synonyms, parameters, exact tables and stronger general theorems found no covering claim; unindexed equivalents remain possible.
+## originality
 
-## Mathematical value: PASS
+PASS
 
-The natural transposition conjugacy class provides a canonical comparison to the full injective-word complex and to recently studied selected-word subcomplexes. This is the smallest parameter at which two nonzero positive homology dimensions coexist in the class. The mixed sphere wedge and resulting nonshellability are structural facts, rather than a rephrased cell count or an arbitrary sparse slice. The integral attaching-map verification is essential.
+The exact small-n classification of the transposition class is distinct from generic wedge realizability, results for two generators, and calculations for different generator sets. The closest inspected conjugacy-class calculation concerns 3-cycles on six letters; the earlier mixed-dimensional calculation on five letters uses the affine group and is not this complex.
 
-## Limits
+## value
 
-No statement is made for all alphabet sizes, no integral equivariant module is determined, and no independent validation or absolute publication-priority certificate is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A single cycle type in the symmetric group is a canonical choice of generators, and topology of this subcomplex is not controlled by the full group or fixed-point complex. The low-order cutoff gives an exact test case in which a pure permutation-word complex has homology in two non-top degrees; the integral wedge identifies its topology more precisely than a rank calculation and is reusable as a benchmark for broader cycle-type families.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

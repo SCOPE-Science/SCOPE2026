@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:13:41.676496Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, definitions and Proof Steps 1–4, lines 9–80",
+        "Frozen VERIFICATION.md and verify.py, inspected, not executed",
+        "Independent replay: python /workspace/review-evidence/seqpav_census.py; exact output n=2–11 beneficial=0, n=12 tested=224224 beneficial=6, one orbit and the stated witness"
+      ],
+      "rationale": "Independently exhausted the cases by generating compositions of the entire participating profile over seven ballot types, then deleting each feasible unordered pair of types. The verifier computes whole-committee scores with exact doubled harmonic weights (0,2,3), compares supersets conditional on each winning singleton, and checks all Cartesian outcome comparisons separately from the frozen algorithm. The count of visited pairs agrees with the bijection between a remaining electorate and an independent multiset of two ballots, namely 28 binom(n+4,6). Every tested size from n=2 to 11 gives zero beneficial pairs (the optional empty remainder at n=2 also gives zero); n=12 gives six among 224224, with one canonical candidate-relabeling representative. Independently tracing that witness gives first-stage supports (5,5,5) after abstention and (7,5,6) before, and winner sets {AB,AC} and {AB}, respectively. The A ballot is indifferent and the AC ballot weakly gains in all outcomes and strictly in one. Each appended unanimous ballot contributes one identical first-round vote and one identical doubled second-round marginal to every applicable choice, so the example extends to all larger sizes. No voter coalition exists for n<2.",
+      "residual_risks": [
+        "Certificate is for three candidates, two seats, exactly two abstainers, nonempty approval ballots and retention of all ties. The result is existential across electorates of a given size, not universal across profiles; it need not hold under a deterministic tie-break."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1 protects global ABC scoring rules against group abstention, not their sequential implementations. Theorem 2 and Corollary 1 give unilateral failures at k>=3; Remark 1 and the additional restricted-profile statements concern individual participation."
+        ],
+        "reasoning": "Neither a global score-improvement proof nor an individual response result can be applied to coordinated deletion evaluated with all greedy ties. An intermediate profile can alter all cross-set Kelly comparisons.",
+        "searches": [
+          "arXiv:2312.08798v1, Theorems 1–2, Corollary 1, Remark 1 and laminar-profile discussion",
+          "Focused web search for seqPAV two-abstainer group participation"
+        ]
+      },
+      "checked_sources": [
+        "Bullinger–Dong–Lederer–Mehler, arXiv:2312.08798v1, cited passages",
+        "Resultary 63e8f9463810"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At the new witness, completion of the A-first and C-first paths after abstention produces alternative winning committees. Global PAV and unilateral small-k participation do not exclude this weak-for-all plus strict-for-one coalitional gain."
+        ],
+        "reasoning": "The cited statements do not imply any finite two-person lower bound or minimum-case count. Exact exhaustive exclusion and construction in this domain supply the missing result.",
+        "searches": [
+          "arXiv:2312.08798v1 Theorem 1 and Remark 1",
+          "Resultary 63e8f9463810, parameter scope"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary paper's definitions identify seqPAV as the greedy Thiele rule and use set-valued Kelly comparisons. The relevant catalogue hit 63e8f9463810 likewise uses seqPAV/Kelly no-show but with one abstainer, four candidates and three seats."
+        ],
+        "reasoning": "The shared definitions are prior; translating greedy increments to harmonic-score rankings changes neither rule nor preference. Unilateral failure with a different committee size cannot be renamed into a joint failure for two seats.",
+        "searches": [
+          "Resultary: seqPAV, Kelly abstention, group participation, twelve voters and two abstainers",
+          "arXiv:2312.08798v1, pp. 3–4, definitions of sequential Thiele rules and Kelly extension"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed exact census has first unilateral failure at seven voters and twelve minimal labeled-candidate profiles in one orbit. It does not enumerate three-candidate two-seat profiles marked with a pair of abstainers; no such table is present in the inspected primary passages."
+        ],
+        "reasoning": "The number twelve in the near match counts profiles, not total voters, and its unit of enumeration is not a profile/coalition pair.",
+        "searches": [
+          "Resultary 63e8f9463810, mirrored RESULT.md Finding",
+          "arXiv:2312.08798v1, participation statements and examples, pp. 3–5"
+        ]
+      },
+      "rationale": "The same-rule Kelly literature covers different assertions: global PAV group participation, and sequential participation for single voters. The closest indexed census with all ties uses four candidates, three seats and one abstainer. The exact first two-voter failure at twelve total voters and its six-instance minimal orbit thus remain distinct in the inspected sources.",
+      "residual_risks": [
+        "The bounded catalogue and literature searches do not prove priority or exclude unindexed enumerations. The all-ties convention and Kelly notion with an existential strict comparison are essential to the comparison."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact preference setting already known; no reviewed theorem covers this pair threshold and minimum-case census",
+          "evidence": [
+            "Global ABC scoring rules satisfy group participation.",
+            "Sequential results and k<=2 remark are about individual participation."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2312.08798v1",
+          "material_read": "PDF pp. 3–5; definitions around text offsets 20500–23700, Thm. 1 around 26200, Thm. 2 around 30500, Cor. 1 and Remark 1 around 35950, laminar-profile material around 39150",
+          "method": "OA primary PDF text and surrounding passages",
+          "title": "Participation Incentives in Approval-Based Committee Elections",
+          "trigger": "Introduces Kelly group participation and addresses seqPAV / sequential Thiele"
+        },
+        {
+          "assessment": "Related exact census in a different domain with a different counting unit; later catalogue date",
+          "evidence": [
+            "Four candidates, three seats, one abstainer; minimum seven total voters, twelve anonymous labeled-candidate profiles in one orbit."
+          ],
+          "identifier_or_url": "Resultary 63e8f9463810, 2026/11/08 RESULT.md",
+          "material_read": "Finding and domain statement in mirrored RESULT.md",
+          "method": "Local Resultary search and mirror",
+          "title": "The sharp seven-voter Kelly no-show boundary for four-candidate seqPAV",
+          "trigger": "Exact seqPAV/Kelly no-show census"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md witness, exact count and limitations",
+        "arXiv:2312.08798v1, Theorems 1–2 and Remark 1"
+      ],
+      "rationale": "Two seats are the natural low-size boundary at which known individual participation results prompt the joint-abstention question. Two abstainers and three candidates are the smallest nontrivial coalition and candidate-choice domains for this distinction. A sharp lower bound with a unique minimal orbit explains how a greedy all-ties choice correspondence breaks group participation even here, and the representative isolates exactly where Kelly weak-versus-strict comparisons enter. This is more useful than an isolated brute-force example without certified minimality or symmetry information.",
+      "residual_risks": [
+        "This is a controlled finite classification, not a claim about arbitrary electorate rules, coalition sizes or tie-breaks."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

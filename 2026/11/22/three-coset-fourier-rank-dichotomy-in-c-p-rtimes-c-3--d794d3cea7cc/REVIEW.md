@@ -1,12 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The representation list is complete because three linear blocks and \((p-1)/3\) three-dimensional blocks have total squared dimensions \(3p\). The determinant formulas are verified by explicit cyclic-permutation expansions. Cyclotomic nonvanishing uses only \(\Phi_p\), and the transversal-zero case is precisely a subgroup coset. Each exceptional block contributes one rank, correctly weighted by its representation multiplicity. The count partitions all \(\binom{3p}{3}\) supports. Exact matrix and coefficient checkers were extracted from this deliverable and executed for the declared finite examples; the infinite case follows symbolically. Limits: no assertion about weights, condition numbers or groups beyond the stated family.
+## correctness
 
-## Originality — PASS under bounded comparison
-The published affine three-tap theorem already determines the mixed two-normal/one-dilation case, and the subgroup-coset equality case follows from classical nonabelian uncertainty. Both are expressly acknowledged. The newly distinguished content is that **every other** three-coset transversal has rank exactly \(3p-2\), with no other loss level, and that there are exactly \(p^2(p-1)\) such supports. The inspected original full texts of Alagic–Russell and Arezoomand–Taeri, the published affine theorem and dihedral classification do not state or imply this order-three-complement transversal law. Broader unindexed literature might; the abstract-only Bell–Minei comparison remains a disclosed priority risk. Searches and direct statement/implication comparisons are detailed in `AUDIT.json`.
+PASS
 
-## Value — PASS
-Three-coset transversals are the smallest support pattern that detects all quotient classes in the first prime Frobenius groups with a noninversion complement. Their exact rank defect is a natural nonabelian uncertainty and Cayley convolution invariant. The sharp gap from a two-dimensional kernel to a \(2p\)-dimensional kernel, the precise subgroup geometry and infinite closed multiplicity formulas supply reusable algebraic-recovery benchmarks. This is not claimed to solve general arbitrary-weight rank problems.
+The three-dimensional blocks are irreducible because the normal generator has three distinct eigenlines and the complement cycles them. Inequivalence follows from the eigenvalue orbits, and the dimension-square sum gives completeness. For one quotient coset each character of N sees three distinct p-th roots, which cannot vanish by the prime cyclotomic polynomial. For the two-coset block only the diagonal and cyclic terms contribute; summing their exponents gives constant coefficient 3 and coefficient 1 on the six distinct nonzero residues. This remains nonconstant as a coefficient vector at p=7. For one point per coset, the three positive determinant terms are 1 and the three negative terms have exponents k d, kt d, kt^2 d with d=u+tv. The nonzero-d determinant cannot vanish; the two nontrivial quotient characters vanish exactly for this transversal occupancy. The zero-d condition says the normalized third point is the square of the second, and subgroup averaging has rank equal to index p. Counting choices of the occupied cosets and their points, and solving the one linear equation in each transversal for its last point, gives all three stated multiplicities. The finite modular replay's Hadamard bound follows from at most three ones per row and is below the modulus even for size 39.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Credit previous coverage of two-normal-coset invertibility, the general block method, and the uncertainty lower bound and subgroup equality examples. The distinct contribution is the classification of all transversals, in particular the precise rank 3p-2 outside subgroup cosets, and the complete exact census. No inspected distinct source directly yields that classification and census.
+
+## value
+
+PASS
+
+The full classification identifies exactly when uniform three-tap convolution on this family is invertible, when all rank loss is accounted for by quotient characters, and when subgroup averaging attains the uncertainty bound. The sharp coset criterion and exact census distinguish geometric obstructions within the same natural occupancy class; they add information beyond the general lower bound, known invertibility case, or individual examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

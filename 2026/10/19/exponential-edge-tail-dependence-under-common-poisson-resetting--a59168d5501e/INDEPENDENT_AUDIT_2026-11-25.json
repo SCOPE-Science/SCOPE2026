@@ -1,0 +1,157 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:27:55.558010Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 23–88",
+        "Frozen VERIFICATION.md lines 19–25 and check.py lines 20–104"
+      ],
+      "rationale": "At the two deterministic observation times the age is positive almost surely. The future clock is independent of the stationary age; discarding paths with a new reset changes a joint CDF by at most 1-exp(-s/log N). At fixed dimensionless age a=rA, the conditional correlation is (1+s/(a log N))^(-1/2), hence (1-rho_N)log N tends to s/(2a). The conditional sample second moments have relative error O_P(N^(-1/2)); multiplying by b_N times the Gaussian maximum shows the error on the edge scale is O_P(log N/sqrt N). Conditioning the second normal on the first at b_N+v/b_N gives limiting increment mean -2 lambda_a^2 and variance 4 lambda_a^2, with lambda_a^2=s/(2a). For v>=x the first-normal rescaled density equals (N phi(b_N)/b_N) exp(-v-v^2/(2b_N^2)) and is dominated by a constant times exp(-v); integration by parts of the joint-tail intensity gives the two displayed union terms. Raising the one-pair no-hit probability to N and boundedly integrating over a gives the displayed mixture with Gumbel marginals. For finite s>0, its diagonal coefficient V_s=2 Phi(lambda_A) is nonconstant; the square of its Laplace transform at half the argument is strictly less than the transform at the argument, violating Gumbel max-stability. Inclusion-exclusion at high h and bounded Taylor expansion give chi=2-E[V_s]. Equivalently it is P(|B_A|>sqrt(s/2)) for standard Brownian motion at independent A~Exp(1); its characteristic function is 1/(1+u^2/2), giving the Laplace tail exp(-sqrt(s)). The claimed order of limits is respected throughout. Inspected the proof and numerical-check design; did not run the supplied script.",
+      "residual_risks": [
+        "V_N(t)>0 almost surely refers to a fixed deterministic observation time, not simultaneously to reset epochs. No exchange of the N and threshold limits, nor fixed physical lag asymptotic, is certified."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Biroli et al. give the stationary exponential-age mixture and one-time extreme statistics under common complete Poisson resets.",
+          "De Mauro et al. allow general renewal intervals, but the relevant age-mixture observables are single-time. The inspected edge-gap result is likewise for fixed-rank gaps within a snapshot."
+        ],
+        "reasoning": "A more general reset clock or access to a single-time joint position law does not specify the temporal maximum copula; the two observations in the claim share particle increments when no reset intervenes.",
+        "searches": [
+          "arXiv:2211.00563 v3 Eqs. (3)–(4)",
+          "arXiv:2509.06658 introduction and conclusion",
+          "2026/11/8/SCOPE-sharp-stationary-edge-gap-correlation-envelope-under-common-rene--34ec84bb2b61"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2211.00563",
+        "arXiv:2308.16709",
+        "arXiv:2509.06658",
+        "Hüsler–Reiss original DOI access attempts and OA attribution",
+        "The three identified Resultary records"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The inputs from the Brownian-gas and free-edge papers are distinct and both should be credited. The scalar tail integral can be read as the familiar Laplace position tail at an independent exponential time."
+        ],
+        "reasoning": "The comparison gives the inputs, not a dominating temporal resetting result: the derivation still needs negligible intervening resets at the chosen lag, joint control of both empirical widths, conditioning and averaging for the extremal limit, and identification of the diagonal upper tail of that mixture. The distinct claim is this combination and its dependence interpretation, not any of the input identities.",
+        "searches": [
+          "arXiv:2211.00563 v3 pp. 1, 3",
+          "arXiv:2308.16709 p. 7, Eqs. (38)–(42)",
+          "arXiv:2509.06658 pp. 2, 27"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Le Doussal Eqs. (38)–(42) give the two-time Hüsler–Reiss extreme law for free diffusion from a prescribed start, at logarithmic lag scaling.",
+          "The stationary law here is an integral over the age parameter and fails the diagonal max-stability identity; no deterministic Hüsler–Reiss parameter can express that mixture."
+        ],
+        "reasoning": "The conditional law matches free diffusion with deterministic age after standardization; both the age and its effect on the two-time correlation must remain random in the unconditional limit. This is not an alternative centering of a fixed Hüsler–Reiss law.",
+        "searches": [
+          "Resultary semantic lookups for standardized edge dependence under shared Brownian resets, exponential-age Hüsler–Reiss mixtures, and two-time exceedances",
+          "arXiv:2308.16709 §4.1.1",
+          "doi:10.1016/0167-7152(89)90060-0"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest exact laws inspected govern stationary rare excursions under partial contraction, same-time far tails of two tagged positions under mixed-batch resets, and stationary gap correlations, respectively."
+        ],
+        "reasoning": "None of these is a tabulation or exact expression for two-time, self-normalized maxima in the population-first limit. The partial-reset state and tagged-pair exceedance events are different even when a shared clock appears.",
+        "searches": [
+          "Resultary focused common-reset Brownian gas, two-time edge, and tail-dependence comparisons",
+          "2026/10/18/SCOPE-dilogarithmic-rare-excursion-law-for-a-brownian-gas-with-frequen--4da625e6e09e",
+          "2026/10/26/SCOPE-sharp-pair-exceedance-prefactor-and-singular-tail-dependence-und--6eb1adb91d8a",
+          "2026/11/8/SCOPE-sharp-stationary-edge-gap-correlation-envelope-under-common-rene--34ec84bb2b61"
+        ]
+      },
+      "rationale": "The supported contribution is the stationary common-clock temporal edge law after self-normalization, including the loss of max-stability under age mixing and the exact lag dependence of the limiting joint upper tail. Neither the underlying resetting model and stationary position mixture, nor the fixed-age Hüsler–Reiss law, nor the resulting scalar Laplace-integral identity in isolation is new.",
+      "residual_risks": [
+        "A general or unindexed temporal resetting specialization could remain outside these comparisons. Original Hüsler–Reiss full text was not retrieved; conditional prior coverage is verified via the OA derivation. No priority verdict is intended."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage of model and one-time results",
+          "evidence": "Conditionally independent Gaussian positions mixed over an exponential age; density, order statistics, and spacings are one-time observables.",
+          "identifier_or_url": "https://arxiv.org/abs/2211.00563",
+          "material_read": "Accessed v3, abstract p. 1; p. 3 Eqs. (3)–(4) and discussion",
+          "method": "OA PDF passage inspection",
+          "title": "Extreme statistics and spacing distribution in a Brownian gas correlated by resetting",
+          "trigger": "Same physical model and stationary age"
+        },
+        {
+          "assessment": "Exact fixed-age conditional machinery is prior",
+          "evidence": "The bivariate edge law is Hüsler–Reiss and is derived for free diffusion, not a shared stationary random reset age.",
+          "identifier_or_url": "https://arxiv.org/abs/2308.16709",
+          "material_read": "§4.1.1 p. 7 Eqs. (38)–(42), citation on p. 43",
+          "method": "OA PDF passage inspection",
+          "title": "Dynamics at the edge for independent diffusing particles",
+          "trigger": "Same fixed-age Brownian two-time edge scaling"
+        },
+        {
+          "assessment": "Broader reset family, different observables",
+          "evidence": "Computes single-time positional observables including extremes by averaging over elapsed time since reset.",
+          "identifier_or_url": "https://arxiv.org/abs/2509.06658",
+          "material_read": "Introduction p. 2 and conclusion p. 27",
+          "method": "OA PDF passage inspection",
+          "title": "Dynamically emergent correlations in Brownian particles subject to simultaneous non-Poissonian resetting protocols",
+          "trigger": "More general renewal age mixture"
+        },
+        {
+          "assessment": "Original full text unavailable; conditional law credited",
+          "evidence": "Le Doussal explicitly identifies the bivariate law as Hüsler–Reiss.",
+          "identifier_or_url": "https://doi.org/10.1016/0167-7152(89)90060-0",
+          "material_read": "No original passage retrieved; Le Doussal p. 7 and p. 43 supply the formula and attribution",
+          "method": "Lawful DOI and publisher access attempted; corroboration in OA arXiv:2308.16709",
+          "title": "Maxima of normal random vectors: between independence and complete dependence",
+          "trigger": "Original Gaussian limit law"
+        },
+        {
+          "assessment": "Different reset map and asymptotic event",
+          "evidence": "Contracts X by a factor at reset; analyzes stationary large deviations, not two-time standardized extremes.",
+          "identifier_or_url": "2026/10/18/SCOPE-dilogarithmic-rare-excursion-law-for-a-brownian-gas-with-frequen--4da625e6e09e/RESULT.md",
+          "material_read": "Finding at offset 0",
+          "method": "Published Resultary local-mirror passage",
+          "title": "Dilogarithmic rare-excursion law for a Brownian gas with frequent weak common resetting",
+          "trigger": "Common resetting and exact asymptotic tails"
+        },
+        {
+          "assessment": "Different notion and order of limits",
+          "evidence": "Mixed batch result is at fixed N for contemporaneous tagged positions and excludes full synchronous resetting.",
+          "identifier_or_url": "2026/10/26/SCOPE-sharp-pair-exceedance-prefactor-and-singular-tail-dependence-und--6eb1adb91d8a/RESULT.md",
+          "material_read": "Finding and regime details at offsets 0–4768 and 4600–7996",
+          "method": "Published Resultary local-mirror passages",
+          "title": "Sharp pair-exceedance prefactor and singular tail dependence under batch resetting",
+          "trigger": "Same tail-dependence terminology and shared resets"
+        },
+        {
+          "assessment": "Different observable",
+          "evidence": "Correlations of distinct fixed-rank gaps in one stationary snapshot, not temporal maximum dependence.",
+          "identifier_or_url": "2026/11/8/SCOPE-sharp-stationary-edge-gap-correlation-envelope-under-common-rene--34ec84bb2b61/RESULT.md",
+          "material_read": "Finding at offset 0",
+          "method": "Published Resultary local-mirror passage",
+          "title": "Sharp stationary edge-gap correlation envelope under common renewal resetting",
+          "trigger": "Common-age effect on edge statistics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–24, 59–88 and 93–97",
+        "Le Doussal arXiv:2308.16709 §4.1.1",
+        "Biroli et al. arXiv:2211.00563 p. 3"
+      ],
+      "rationale": "Removing the fluctuating common width would naturally suggest using a usual fixed-parameter max-stable edge law, yet stationary age still controls short-time persistence through the correlation scale. The exact non-max-stable limit and lag coefficient quantify that residual common-environment effect, distinguishing the free-edge conditional law from what a stationary two-time measurement sees. The scale and observable are motivated by the existing logarithmic Brownian edge dynamics and observable removal of one-time width fluctuations.",
+      "residual_risks": [
+        "Value concerns the specified Poisson common-reset regime and ordered coefficient, not all temporal tails or general renewal resetting."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

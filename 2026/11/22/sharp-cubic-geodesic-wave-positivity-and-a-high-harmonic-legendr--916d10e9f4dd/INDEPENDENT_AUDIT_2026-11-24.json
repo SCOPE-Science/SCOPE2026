@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:30:13.716954Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a>0 on the unit round S², applying the Legendre recurrence three times gives only degrees n±3 and n±1 in T₃Pₙ; the displayed four rational coefficients are positive for n≥3, and at n=2 the lower outer term is absent. At n=0 and n=1 the negative coefficients are respectively −3/5 at degree 1 and −1/5 at degree 0. Normalization at 1 gives the convex combinations; the absolutely summable nonnegative expansion justifies applying the multiplier to the whole supported cone. The exponential moment recurrence follows by integrating the Legendre derivative identity and the angular Sturm–Liouville equation; the boundary terms are zero (the derivative difference vanishes at the endpoints and the latter equation has a sin(θ) factor). Together with A₀ and A₁ this gives every Aₙ>0. Independently, exp(−a arccos t)=exp(−aπ/2)exp(a arcsin t) has a convergent nonnegative power series on [−1,1] with all monomial coefficients positive; the tⁿ term contributes positively to Pₙ and powers of t have nonnegative Legendre coefficients by recurrence. The mixed-product expansion thus forces Bₙ>0 for n≥2. The elementary sin(4θ)−sin(2θ) and sin(5θ)−sin(θ) integrals give the signs of B₀ and B₁ as those of a²−8 and a²−5, respectively. Schoenberg's criterion gives the iff including its endpoint; all positive degrees survive there, so both parities are infinite and strict positive definiteness follows. At equality all RKHS elements have zero mean, while above it the RKHS contains all finite spherical harmonic sums, giving exactly the stated uniform-density transition. RESULT.md, VERIFICATION.md and check.py inspected; the reported 230 assertions are supplementary, not a fresh replay or an all-degree proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gneiting gives the Schoenberg/strictness criteria and the unmodulated geodesic powered exponential.",
+          "The S³ result uses a²+4≥3m²; at m=3 this gives a²≥23 even after restricting to S²."
+        ],
+        "reasoning": "The general criteria do not determine the moment signs of the modulated family. The sufficient restriction from S³ loses the sharp part of the S² damping interval and does not give the Legendre cone.",
+        "searches": [
+          "Gneiting arXiv:1111.7077, Theorem 1 and pp. 19–20",
+          "Resultary 543d6b941b9f: all-integer-frequency damped waves on S³"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and verification package",
+        "Local Resultary index and mirrors 509c2a9eeeb8, 48ddeabbb4c7, 6cdf07e0f672, 543d6b941b9f",
+        "arXiv:1111.7077",
+        "arXiv:1812.05542"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The first-harmonic record tests e^(−aθ)(1+b cos θ); the two second-harmonic records test cos 2θ modulation, with one pure-wave cutoff a≥sqrt(3). The S³ threshold differs as above."
+        ],
+        "reasoning": "Neither the lower-frequency sign tests nor the higher-dimensional sufficient restriction supplies the necessary-and-sufficient third-harmonic signs. The distinct step is resolving the signed mixed product uniformly in degree and the two low-mode exceptions, not merely applying Schoenberg's theorem.",
+        "searches": [
+          "Resultary 509c2a9eeeb8, 48ddeabbb4c7, 6cdf07e0f672, 543d6b941b9f",
+          "Gneiting Theorem 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact cubic hit 916d10e9f4dd is the bound record itself. The closest separate S² statements use cos θ or cos 2θ, not cos 3θ.",
+          "Kähler's inspected linearization results concern products within a Jacobi or generalized-Chebyshev family, not the sign of the mixed product in the Legendre basis."
+        ],
+        "reasoning": "The covariance and kernel criteria are equivalent formulations here, as are the cone multiplier test and mixed linearization signs when testing all basis rays. The matched neighboring records use different multiplier polynomials; there is no equivalence by normalization or frequency relabeling.",
+        "searches": [
+          "Resultary: cubic damped cosine geodesic covariance S²; mixed Legendre/Chebyshev multiplier",
+          "Kähler arXiv:1812.05542, pp. 2 and 15"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The only exact indexed match found is the target itself; distinct S² entries give other modulation frequencies. The inspected product formulas do not tabulate this mixed sign transition."
+        ],
+        "reasoning": "No distinct exact damping cutoff or equivalent all-degree mixed-product sign table was identified in those comparisons.",
+        "searches": [
+          "Resultary: cubic-wave threshold and Legendre/Chebyshev cone sign cutoff",
+          "arXiv:1812.05542 mixed linearization comparison"
+        ]
+      },
+      "rationale": "Best of current knowledge, neither the sharp third-harmonic S² threshold with its exact endpoint spectrum nor the mixed T₃Pₙ positivity cutoff is covered by the inspected sources. Standard criteria and the Legendre recurrence are not credited as new.",
+      "residual_risks": [
+        "Older mixed-basis coefficient identities or a broader damped-wave result under different terminology could cover part of the claim; the inspected sources do not establish such coverage or exhaustive priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identical record",
+          "evidence": "Same positive-damping threshold, degree-zero endpoint exception and n≥2 multiplier cutoff.",
+          "identifier_or_url": "Resultary 916d10e9f4dd",
+          "material_read": "Indexed statement and frozen Finding",
+          "method": "Local Resultary and frozen text comparison",
+          "title": "Sharp cubic geodesic-wave positivity and a high-harmonic Legendre cone on S²",
+          "trigger": "Exact cubic match"
+        },
+        {
+          "assessment": "Different harmonic",
+          "evidence": "The modulation is 1+b cos θ.",
+          "identifier_or_url": "Resultary 509c2a9eeeb8",
+          "material_read": "Finding, mirror offset 0",
+          "method": "Targeted local mirror read",
+          "title": "A two-frequency Schoenberg test for cosine-modulated geodesic exponentials on the two-sphere",
+          "trigger": "Same sphere and damped modulation"
+        },
+        {
+          "assessment": "Different harmonic",
+          "evidence": "The modulation is through cos 2θ.",
+          "identifier_or_url": "Resultary 48ddeabbb4c7",
+          "material_read": "Finding, mirror offset 800",
+          "method": "Targeted local mirror read",
+          "title": "A sharp Schoenberg staircase for second-harmonic modulation of geodesic exponentials",
+          "trigger": "Nearby S² Schoenberg staircase"
+        },
+        {
+          "assessment": "Different harmonic",
+          "evidence": "Second-harmonic positivity, not cubic; the compared second-harmonic results include pure cos 2θ.",
+          "identifier_or_url": "Resultary 6cdf07e0f672",
+          "material_read": "Finding, mirror offset 0",
+          "method": "Targeted local mirror read",
+          "title": "Sharp two-sided positivity and a complete Legendre-mode staircase",
+          "trigger": "Distinct nearby S² cutoff record"
+        },
+        {
+          "assessment": "Nonsharp sufficient restriction only",
+          "evidence": "The threshold a²+4≥3m² pertains to S³.",
+          "identifier_or_url": "Resultary 543d6b941b9f",
+          "material_read": "Finding, mirror offset 1200",
+          "method": "Targeted local mirror read",
+          "title": "Sharp damping thresholds and a finite Schoenberg test for geodesic waves on the three-sphere",
+          "trigger": "Higher-dimensional all-frequency coverage could imply S² signs"
+        },
+        {
+          "assessment": "Framework and unmodulated family",
+          "evidence": "The general spectral and parity conditions do not evaluate the cubic modulation.",
+          "identifier_or_url": "https://arxiv.org/abs/1111.7077",
+          "material_read": "Theorem 1, pp. 7–8; powered exponentials, pp. 19–20",
+          "method": "Targeted OA PDF read",
+          "title": "Strictly and non-strictly positive definite functions on spheres",
+          "trigger": "General spherical characterization and geodesic exponentials"
+        },
+        {
+          "assessment": "Same-family products, not this mixed-product sign result",
+          "evidence": "A nonnegative same-family linearization cannot eliminate the negative P₁ component in T₃=8P₃/5−3P₁/5 without additional comparison.",
+          "identifier_or_url": "https://arxiv.org/abs/1812.05542",
+          "material_read": "pp. 2, 15 (OA offsets 7507–9382 and 56100–57163)",
+          "method": "Targeted OA PDF read",
+          "title": "Nonnegative and Strictly Positive Linearization of Jacobi and Generalized Chebyshev Polynomials",
+          "trigger": "Potential stronger product-positivity theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a natural sign-changing isotropic wave, the exact threshold distinguishes admissible from inadmissible covariance parameters and specifies the critical loss of constants without loss of strict positive definiteness. The mixed multiplier also acts on the entire high-degree Schoenberg cone despite failing as a multiplier of the full cone, a structural property useful independently of the exponential family.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

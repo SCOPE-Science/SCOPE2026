@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:21:25.586905Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Conditioning on the independent storm bit gives F(x,y)=p(x+y)+(1−2p)xy. Disjoint sibling subtrees use independent primitive bits. Write c=1−2p, u=F(q,q), d=u−q=−c q(1−q), k=p+cq and v=F(u,q)=u+kd. The balanced root probability is u+2kd+cd², while the comb root is u+k(1+k)d. Their gap is d[k(1−k)+cd]=p(1−p)d. Linearity of expectation adds u−v=−kd to this gap because the count includes the root; the resulting gap is −(p²+cq)d. The factor p²+cq=(1−q)p²+q(1−p)² is positive in the open square. The formulas also give the correct edge behavior: both differences vanish at q=0,1, but at p=0,1 only the root gap need vanish. Four leaves are minimal: root splits of 1+3 and 2+2 give the two shapes, with only one shape at each smaller leaf count. A separate exact 128-assignment polynomial enumeration agreed; the frozen CHECK.py was inspected, not run. The argument is for a single binary update, not a water-balance prediction.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Peter et al. route continuous water balance through reservoirs, comparing topology and storage thresholds but not an independent binary threshold.",
+          "The leaky-storage record studies deterministic steady outlet curves and nonidentifiability, not binary Bernoulli trees. The accessible Hui–Lund material concerns storage allocation in parallel reservoirs."
+        ],
+        "reasoning": "These are related topology and outlet problems, not general covering results for the two different expectations in the frozen model. The Hui–Lund full-text risk remains.",
+        "searches": [
+          "Peter et al. arXiv:1404.4232 §§2.1, 2.6.1, 3.2.1",
+          "Hui and Lund DOI 10.1061/(ASCE)WR.1943-5452.0000469",
+          "Resultary 5728ab86094d, leaky-storage outlet visibility"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 10f2436fe315, 3bfb3e754f27, 5728ab86094d",
+        "Peter et al. arXiv:1404.4232",
+        "Amarù–Gaillardon–De Micheli, Majority-Inverter Graph",
+        "Hui–Lund DOI 10.1061/(ASCE)WR.1943-5452.0000469 (abstract scope only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Root/count competition uses the correction u−v on top of the outlet difference and strict positivity of (1−q)p²+q(1−p)².",
+          "The comparison records match neither the output rule nor the expected count over all three internal nodes."
+        ],
+        "reasoning": "Standard majority and linearity are tools, but the robust opposing signs, unique common crossing for all interior q, and minimal four-leaf scope are not supplied by the inspected results.",
+        "searches": [
+          "Majority-Inverter Graph, algebraic identities, pp. 1–2",
+          "Resultary 10f2436fe315, 3bfb3e754f27 and 5728ab86094d"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The majority identity in the circuit paper uses shared inputs; it is not the random-tree comparison with fresh independent local bits.",
+          "Resultary 10f2436fe315 and 3bfb3e754f27 have a 1/2 crossing for other tree reliability statistics, but neither uses this gate rule or tree pair."
+        ],
+        "reasoning": "Renaming the model as a random majority circuit is legitimate, but does not identify it with shared-input Boolean associativity, site-survival fragmentation, or isolation-free reliability.",
+        "searches": [
+          "Resultary: balanced vs comb, four leaves, independent Bernoulli majority gates and outlet/internal-count reversal",
+          "Amarù–Gaillardon–De Micheli, Majority-Inverter Graph, associativity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The eight-entry majority table determines a single update, not the jointly parameter-weighted 128-input comparison. The indexed degree-matched tree constructions have eight vertices, distinct sample spaces and distinct exact polynomials.",
+          "Independent enumeration reproduced both exact bivariate differences, but is correctness evidence only."
+        ],
+        "reasoning": "No applicable published exact table for the two topology polynomials was identified; the standard local truth table does not tabulate the requested aggregate quantities.",
+        "searches": [
+          "Resultary exact four-leaf probability and count reversal comparisons; 10f2436fe315 and 3bfb3e754f27",
+          "Three-input majority truth table; Majority-Inverter Graph"
+        ]
+      },
+      "rationale": "The inspected exact gate algebra, hydrological models and indexed reliability reversals do not state or directly imply the paired outlet/count result under independent fresh Bernoulli storm inputs. This is a bounded best-of-knowledge distinction, not a priority certificate.",
+      "residual_risks": [
+        "Hui–Lund full text was unavailable by the lawful routes tried. Related Boolean reliability work may use different terminology. Neither absence of an indexed match nor exact enumeration establishes priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different physical dynamical model",
+          "evidence": "Water balance, 42 simulations of six network topologies, and avalanche transitions in normalized storage, not a Bernoulli parameter crossing.",
+          "identifier_or_url": "https://arxiv.org/pdf/1404.4232",
+          "material_read": "§2.1 pp. 3–4; §2.6.1 p. 8; §3.2.1 pp. 10–11, offsets 9873–15293, 29268 and 39764",
+          "method": "Lawful OA PDF passages",
+          "title": "Flood avalanches in a semiarid basin with a dense reservoir network",
+          "trigger": "Spill cascades and topology-dependent flood metrics"
+        },
+        {
+          "assessment": "Relevant algebra, not a weighted tree count result",
+          "evidence": "The Boolean associativity axiom reuses a shared input; the compared drainage nodes have distinct local inputs.",
+          "identifier_or_url": "https://si2.epfl.ch/demichel/publications/archive/2014/PID3143501.pdf",
+          "material_read": "Opening model description and associativity axiom, available OA offsets around 14800 and 26200",
+          "method": "Lawful OA PDF passages",
+          "title": "Majority-Inverter Graph: A Novel Data-Structure and Algorithms for Efficient Logic Optimization",
+          "trigger": "Possible direct majority-gate algebra implication"
+        },
+        {
+          "assessment": "Accessible scope differs; full-text implication not established or ruled out",
+          "evidence": "Storage allocation in parallel reservoirs. Full-text attempts returned HTTP 403; no lawful OA copy was identified.",
+          "identifier_or_url": "https://doi.org/10.1061/(ASCE)WR.1943-5452.0000469",
+          "material_read": "Bibliographic/abstract-level scope only; full text not obtained",
+          "method": "DOI and publisher access attempts plus lawful OA recovery",
+          "title": "Flood Storage Allocation Rules for Parallel Reservoirs",
+          "trigger": "Plausible drainage objective comparison"
+        },
+        {
+          "assessment": "Analogous phenomenon, different statistic and model",
+          "evidence": "Expected largest surviving fragment; gap p⁵(1−p)²(2p−1).",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-eight-habitat-patches-are-the-sharp-threshold-for-a-degree-match--10f2436fe315",
+          "material_read": "Indexed finding and exact reversal comparison",
+          "method": "Local Resultary comparison",
+          "title": "Eight Habitat Patches Are the Sharp Threshold for a Degree-Matched Reversal",
+          "trigger": "Sharp tree-size threshold and 1/2 crossing"
+        },
+        {
+          "assessment": "Different reliability statistic, not a majority circuit",
+          "evidence": "Conditional isolation-free reliability gap p⁵(1−p)(1−2p)/[1−(1−p)⁸].",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-eight-patches-are-the-sharp-threshold-for-a-degree-matched-rever--3bfb3e754f27",
+          "material_read": "Indexed finding and exact reversal comparison",
+          "method": "Local Resultary comparison",
+          "title": "Eight Patches Are the Sharp Threshold for a Degree-Matched Reversal",
+          "trigger": "Independent-input reliability reversal"
+        },
+        {
+          "assessment": "Different deterministic model and question",
+          "evidence": "Steady outlet-curve kinks and capacity nonidentifiability; neither the Bernoulli confluence rule nor a root/count reversal.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-sharp-outlet-visibility-and-capacity-nonidentifiability-in-leaky--5728ab86094d",
+          "material_read": "Indexed model and finding",
+          "method": "Local Resultary comparison",
+          "title": "Sharp Outlet Visibility and Capacity Nonidentifiability in Leaky Storage Trees",
+          "trigger": "Same-date drainage tree and outlet metric"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The smallest shape-dependent setting already gives a structural counterexample to treating outlet spill as a proxy for the number of spilling confluences. The opposite rankings persist over whole open parameter regions, with a threshold independent of headwater probability; the result is not a single favorable numerical instance. Its utility is as an exact benchmark for the stylized threshold model, not an engineering prescription.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

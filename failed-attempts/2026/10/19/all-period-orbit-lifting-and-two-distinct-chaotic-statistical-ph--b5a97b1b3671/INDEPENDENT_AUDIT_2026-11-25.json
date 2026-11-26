@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:32:27.481120Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 27–72; VERIFICATION.md; verify_signed_logistic.py inspected",
+        "Independent exact replay: python /tmp/opencode/review2_exact.py. At orders 1–12 intersected the graph of the tent iterate with the diagonal explicitly and iterated the signed states in exact rational arithmetic. The n=12 counts were 8191 and 8191; odd n gave only zero in the sign-reversing case."
+      ],
+      "rationale": "On nonzero periodic amplitudes there is no visit to the absorbing zero. Substituting the two branches gives logistic amplitude and an independent action on sign (identity for -a, transposition for +a). Sign return requires a multiple of the amplitude period and, for +a, an even time. This gives the least periods and number of lifts, with zero counted separately. At odd n the positive-parameter fixed count is 1; at even n both counts are 2P_n-1. Taking formal logarithms gives the stated zeta products; the correction in the positive case has coefficient -(-1)^n/n. The full-tent conjugacy at a=4 gives an intersection with the diagonal in every one of the 2^n monotone full branches, and no duplicate periodic point at shared branch boundaries. This gives both rational zetas. The transfer operator averages over one inverse point per dyadic subinterval; the averages converge uniformly for continuous densities and in L1 for all densities by contraction and approximation. All powers have the unique arcsine ACIP after conjugacy and are mixing. The sign actions give two mixing ergodic ACIPs and their mixtures at -4, versus equal sign weights and the unique square-invariant conditional densities at +4. The latter measure is ergodic because the square is ergodic on each half and the halves exchange; its sign correlation is (-1)^n. The exchange is a mod-null statement, since endpoints mapping to zero do not literally swap. Entropy is log 2 by the invariant-half conjugacies (for the square in the positive case) and the iteration identity.",
+      "residual_risks": [
+        "Exact finite replay covers the endpoint only; the formal all-parameter result and the measure conclusions follow analytically. Nothing claims uniqueness among singular measures or any mixing classification away from a=4."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The product-count theorem does not require logistic dynamics, continuity, or hyperbolicity. The finite-fiber extension result gives finite cycles of exact components over an exact base, and here the permutations are constant."
+        ],
+        "reasoning": "The orbit statements are a specialization of the broader product formula. At a=4, exactness of the tent map and its square applied separately to the constant sign fibers gives the stated ACIPs without any nontrivial extension classification; the zero collapse is null for ACIPs.",
+        "searches": [
+          "Pakapongpun–Ward arXiv:1001.0314 §2 Eq. (2)",
+          "Galli–Lenci arXiv:2203.11822v3 pp. 3–4"
+        ]
+      },
+      "checked_sources": [
+        "Pakapongpun–Ward arXiv:1001.0314; Galli–Lenci arXiv:2203.11822v3; DOI 10.1142/S0218127422502418 metadata and access attempts; Resultary 1b4dbfe9d320 and 997ff0d2228d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The identity fiber has two fixed points in every iterate, and the transposition fiber has 1+(-1)^n. On the collapsed zero fiber, replace these by one. Thus the two uncollapsed product zetas are zeta_L(t)^2 and zeta_L(t)zeta_L(-t); their factors for the redundant fiber states are corrected by 1-t and (1-t^2)/(1-t)=1+t. At the full tent, zeta_L(t)=1/(1-2t). The invariant density on each half is the same classical arcsine density; equality of half masses in the transposition case follows just from invariance."
+        ],
+        "reasoning": "Each formula is obtained by direct substitution, a single known-fiber correction, or a classical two-component mixture argument. No new full-period phenomenon beyond the identity/transposition product survives this comparison. The unavailable original exact-family paper is not needed for the implication.",
+        "searches": [
+          "arXiv:1001.0314 §2 Euler product and Eq. (2); arXiv:2203.11822 exact extension theorem; frozen 2022 map citation DOI 10.1142/S0218127422502418"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The map from the product to [-1,1] sending (r,s) to s r intertwines the dynamics on the nose, identifying just the two points at r=0. Pakapongpun–Ward §2 gives fixed-point multiplication and the gcd/lcm orbit law for arbitrary Cartesian products."
+        ],
+        "reasoning": "Pairing a p-cycle with either two singleton cycles or one 2-cycle gives exactly the asserted period law. The only non-product point is the single identified zero, whose orbit is explicit.",
+        "searches": [
+          "Resultary: switched or signed logistic orbit lifting, sign reversal and zeta",
+          "Web: Pakapongpun Ward Orbits for products of maps direct product lcm gcd fixed point dynamical zeta open access"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The first matched record treats a polynomial modular skew map with all-iterate fiber factorization. The second treats sign reversal in a symmetric Lorenz map with an attractor correction and additional hypotheses."
+        ],
+        "reasoning": "Neither inspected indexed statement is the exact signed-logistic family or a table of its zetas. The adverse originality decision instead follows from an applicable published general product identity.",
+        "searches": [
+          "Resultary 2026/10/18/SCOPE-periodic-point-lifting-and-a-sharp-two-cycle-phase-diagram-for-a--1b4dbfe9d320",
+          "Resultary 2026/11/17/SCOPE-attractor-corrected-sign-reversal-zeta-identity-for-symmetric-lo--997ff0d2228d"
+        ]
+      },
+      "rationale": "The frozen family is literally the Cartesian product of L_a with the identity or transposition of a two-element set, with only the two states at amplitude zero identified. An inspected prior direct-product theorem gives the all-period and fixed-point assertions immediately; the collapsed fiber changes the zeta by the reciprocal Euler factor of the new orbit divided by that of the old fiber. Substituting the classical full-tent count gives the rational functions. The endpoint statistical claims are the standard direct-sum/product consequences of the classical full-tent mixing and uniqueness for the base and its square, with a constant sign permutation. This is failure by verified stronger coverage and immediate implication, not a finding that the formulas were printed in the 2022 exact-family paper or that the proof is wrong.",
+      "residual_risks": [
+        "Exact-family priority is unresolved: no relevant primary pages of the original 2022 work were available. This does not affect the independently evidenced direct-product implication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Verified stronger coverage of the product mechanism",
+          "evidence": "F_(T1 x T2)(n)=F_T1(n) F_T2(n); orbit contributions use gcd(d1,d2) at lcm(d1,d2); each orbit contributes (1-t^period)^(-1).",
+          "identifier_or_url": "https://arxiv.org/abs/1001.0314",
+          "material_read": "§2 pp. 2–3; fixed-point product, Eq. (2) and Euler-product passage at PDF offsets 6690–8155",
+          "method": "OA primary PDF",
+          "title": "Orbits for products of maps",
+          "trigger": "Potential dominating product-orbit and zeta formulas"
+        },
+        {
+          "assessment": "Applicable structural antecedent, not an explicit computation for this map",
+          "evidence": "For a fiber-surjective extension of an exact base, components are partitioned into finite cycles of atoms with exact return maps; constant identity and transposition give the elementary two-sign cases here.",
+          "identifier_or_url": "https://arxiv.org/abs/2203.11822",
+          "material_read": "Retrieved v3 pp. 3–4 around offset 6000",
+          "method": "OA primary PDF",
+          "title": "Extensions of exact and K-mixing dynamical systems",
+          "trigger": "Broader exact finite-fiber statistical theorem"
+        },
+        {
+          "assessment": "Exact-family holdings unresolved; not evidence against novelty by itself",
+          "evidence": "The frozen bibliography attributes the defining piecewise map to this work; independent access did not verify its claimed restriction to shorter periods or numerical statistics.",
+          "identifier_or_url": "https://doi.org/10.1142/S0218127422502418",
+          "material_read": "Bibliographic metadata and frozen description only; relevant primary passages unavailable",
+          "method": "Tried lawful DOI, publisher, author manuscript and alternate recovery",
+          "title": "Multistability Analysis of a Piecewise Map via Bifurcations",
+          "trigger": "Original exact family and possible exact prior statement"
+        },
+        {
+          "assessment": "Different polynomial modular skew map",
+          "evidence": "All-n fiber-count factorization and zeta identity use an integer-gain fiber, not the signed logistic map.",
+          "identifier_or_url": "2026/10/18/SCOPE-periodic-point-lifting-and-a-sharp-two-cycle-phase-diagram-for-a--1b4dbfe9d320",
+          "material_read": "RESULT.md, opening statement offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Periodic-point lifting and a sharp two-cycle phase diagram for a modular skew map",
+          "trigger": "Closest indexed exact lifting analogue"
+        },
+        {
+          "assessment": "Different family and hypotheses",
+          "evidence": "An attracting odd-orbit correction for a symmetric increasing-branch Lorenz map under nonperiodic-critical-point and nonneutrality assumptions is not the product-and-zero correction here.",
+          "identifier_or_url": "2026/11/17/SCOPE-attractor-corrected-sign-reversal-zeta-identity-for-symmetric-lo--997ff0d2228d",
+          "material_read": "RESULT.md, opening statement offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Attractor-corrected sign-reversal zeta identity for a symmetric Lorenz map",
+          "trigger": "Closest indexed sign-reversal zeta analogue"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md sections 1–5; Pakapongpun–Ward §2; Galli–Lenci exact-extension framework"
+      ],
+      "rationale": "This is a useful illustrative example of a mixing map combined with an independent periodic sign, but the asserted exact invariants are mechanically forced once the two branches are written in amplitude/sign coordinates. The all-period and zeta formulas require only known product formulas and replacement of a two-point zero fiber; the endpoint tally and statistical contrast require only the standard full-tent formulas and a fixed two-point permutation. No additional coupled-dynamics result, obstruction, or nonroutine invariant is established by the frozen claim.",
+      "residual_risks": [
+        "The value verdict is for this exact claim; it makes no assertion about variable sign cocycles, parameter-dependent ergodic measures, or other genuinely coupled variants."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

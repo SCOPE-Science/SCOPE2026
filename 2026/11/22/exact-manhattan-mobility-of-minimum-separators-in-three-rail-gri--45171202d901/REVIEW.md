@@ -1,22 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is an all-length theorem for a specifically defined three-rail grid and fixed middle-row terminals. Three disjoint terminal paths force the cardinality-three lower bound, while an internal column realizes it. The possible row coordinates are characterized both by explicit detours outside the bounds and a left/right cut partition inside the bounds. All and only legal slides change one feasible triple coordinate by one. A no-cycle blocking argument supplies monotone geodesics and the exact Manhattan metric. Optimizing the explicitly proved eccentricity formula yields the stated radius and diameter. Independently written, standalone checkers confirm every cut and every pairwise distance in directly enumerated graphs through nine columns, then confirm the full coordinate geometry through 24 columns. The computations are corroboration, not proof of the infinite claim.
+PASS
 
-## Originality — PASS, qualified
+Three disjoint rail routes force one selected vertex per row in a minimum cut and an internal column attains size three. A gap of at least two columns between adjacent-row selections admits a two-rail detour; differences of at most one give a left/right partition with no surviving crossing edge. Legal slides are one-coordinate unit steps. The coordinatewise meet is feasible; for comparable states, increasing a least current coordinate among those still below target cannot be blocked by a smaller coordinate, since such a tight blocker would itself have to increase for the target to be feasible. Thus paths via the meet attain L1. Each central layer has 12 edges and its next interface 4. In target layer q the worst distance is 2+|i-q|+|j-q|+|k-q|, convex in q, so only the two endpoint layers are needed. The radius lower bound comes from the sum of the endpoint distances and is attained by the stated parity-dependent central states; the two extreme triples attain diameter 3n−5, including n=3. The proof is for all n≥3. Independent bounded check: python /workspace/branches/grid_independent.py, exhaustive two- and three-vertex deletions, original-grid slides and all-pairs Floyd–Warshall for n=3,…,10. Frozen scripts and recorded output were inspected, not executed.
 
-The primary 2023 minimum-separator reconfiguration paper proves a general shortest-slide algorithm and canonical-path confinement, which we explicitly credit: pathwise displacement is not claimed as an algorithmic novelty. It does not identify the three-row middle-terminal separator space, prove its global connectivity, or calculate its state count, edge count, eccentricities, radius, and diameter. The 2020 precursor treats broader (not necessarily minimum) separator reconfiguration and graph-class algorithms; accessible text does not identify the exact target family. Searches for aliases involving 3-by-\(n\) grids, strip vertex cuts, Cartesian products and the exact formulas, together with relevant indexed-record searches, yielded no covering result. This is evidence of originality, not a proof of global priority. The 2020 full document was not materially inspected, and unindexed or differently named prior calculations remain possible.
+## originality
 
-## Value — PASS
+PASS
 
-A three-rail rectangular grid is a natural small-width planar network in which the terminals have three internally disjoint routes. The theorem classifies every minimum failure set and proves that local reconfiguration never requires temporary loss of minimum-cut optimality. The exact \(3n-5\) worst-case relocation length and all-configuration eccentricity formula make a quantitatively sharp benchmark for shortest separator rearrangement, supplementing general complexity/algorithmic results. The statement is not an arbitrary finite slice: it is uniform across the entire length parameter. It does not claim a general downstream theorem or applications not proved by this model.
+Qualified to the full quantitative slide geometry of this specific three-rail family. The coordinate constraints overlap strongly with two same-day records, and the Manhattan metric conditional on reachability specializes the general canonical-path theorem. Neither point is a new method. The combination of unrestricted all-pairs reachability and explicit slide order, size, eccentricities, radius and diameter was not covered by the inspected results.
 
-## Closest sources and limitations
+## value
 
-- Gomes et al., *Minimum Separator Reconfiguration*, arXiv:2307.07782 (first public 2023-07-15), sections on canonical paths, forward-motion and shortest token slides: https://arxiv.org/abs/2307.07782
-- Gomes, Nogueira and dos Santos, *Some Results on Vertex Separator Reconfiguration*, arXiv:2004.10873 (first public 2020-04-22): https://arxiv.org/abs/2004.10873
+PASS
 
-The claim is restricted to middle-row terminal endpoints and minimum-cardinality cuts under token sliding. There is no assertion about arbitrary terminals, more rows, or token-jump geodesics. Independently performed review is not claimed.
+The thin rectangular network is a natural smallest setting with three disjoint rail routes. Its exact state count and slide geometry distinguish feasibility, travel cost and central configurations under optimum preservation, giving a uniform sharp benchmark rather than a list of verified examples or a general algorithm evaluated at one size.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

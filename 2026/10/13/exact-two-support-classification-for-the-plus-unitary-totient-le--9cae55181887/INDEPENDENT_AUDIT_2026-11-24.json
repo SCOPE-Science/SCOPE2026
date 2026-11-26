@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:05:55.278366Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 20–72",
+        "VERIFICATION.md; verify.py (inspected, not executed); verification_output.txt",
+        "/tmp/opencode/frozen-independent-checks.py, totient"
+      ],
+      "rationale": "The exact block factorization defines the unitary totient without a squarefree hypothesis. For one prime power A, (M−1)(A−1)=2 gives the two pairs for A=2,3. With two distinct-prime blocks A=x+1, B=y+1, the equation is kxy=x+y+2, k=M−1≥1. If x=1 then A=2 and y is positive and even, so (k−1)y=3 is impossible; the symmetric case is identical. If x,y≥2 then 2xy−x−y−2=(x−2)(2y−1)+3y−4>0, so k=1. The factorization (x−1)(y−1)=3 gives A,B=3,5 in either order. Direct substitution confirms all three ordered pairs (N,M). Independently enumerating prime powers and products of powers of different primes through 10^6 gave 367460 unique eligible N and precisely (2,3),(3,2),(15,2), in agreement with the recorded output. Replay: `python3 /tmp/opencode/frozen-independent-checks.py totient`. The classification is proved without this cutoff.",
+      "residual_risks": [
+        "No claim for three or more distinct primes."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Yamada's Theorem 1 bounds M when N1≥23 or N1=19; Theorem 2 requires ω(N1)≥4, with N1 containing precisely the primes appearing to the first power.",
+          "The low-support observation with possible composites 15 and 255 concerns ordinary φ, not unitary φ*."
+        ],
+        "reasoning": "Bounds on M in a restricted N1 range do not classify all prime powers and pairs of arbitrary exponents. Applying an ordinary φ statement would first require independent control of nonsquarefree inputs.",
+        "searches": [
+          "arXiv:2303.16853, Theorems 1–2 and discussion of Lehmer's ordinary φ classification"
+        ]
+      },
+      "checked_sources": [
+        "Yamada arXiv:2303.16853v3, pp. 1–2 and bibliography",
+        "OEIS A047994, A361966",
+        "Resultary record 434b91af23ae"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Unitary divisor-sum bounds concern σ*(N)=MN±1, not Mφ*(N)=N+1. The compared unitary-totient inequalities have ranges or sign restrictions as stated above."
+        ],
+        "reasoning": "Neither replacing σ* with φ*, swapping signs, nor retreating to squarefree N is logically valid. The actual low-support result uses the two-block divisibility and positive-factor argument, not a special case of the inspected bounds.",
+        "searches": [
+          "arXiv:2303.16853, p. 2, Theorems 1–4 and immediately following comparison",
+          "Resultary consecutive two-support comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The target is exactly φ*(N) | N+1 with 1≤ω(N)≤2; M is then uniquely determined. Subbarao's conjecture as stated by Yamada is φ*(N) | N−1.",
+          "Yamada p. 2 quotes the 2010 unitary result for N=Mφ*(N)+1 with M≥4, an opposite-sign condition."
+        ],
+        "reasoning": "Moving the 1 across the equation reverses the sign; the stated unitary Lehmer conjecture and the quoted lower bounds do not give the plus classification.",
+        "searches": [
+          "Resultary queries for φ*(N) dividing N+1, low prime support, unitary Lehmer",
+          "arXiv:2303.16853, pp. 1–2, unitary Lehmer definition and sign conventions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A047994 is the unitary totient value table and definition. A361966 gives finite inverse rows, for example preimages 9,15,18,30 at 8.",
+          "Resultary 2026/10/13/SCOPE-mersenne-factor-parametrization-of-consecutive-two-support-unita--434b91af23ae parametrizes consecutive equal unitary totients, including a bounded total-prime-factor corollary."
+        ],
+        "reasoning": "A finite forward/inverse table confirms specific values, but cannot exclude all other arbitrary prime powers. The catalogue match uses two consecutive arguments with equal unitary totient, a distinct predicate.",
+        "searches": [
+          "Resultary searches for the support-two solution and unitary totient N+1",
+          "OEIS A047994 and A361966"
+        ]
+      },
+      "rationale": "The inspected comparisons do not give the unrestricted-exponent, low-support plus-sign classification. In particular Yamada's quoted 2010 result is written N=Mφ*(N)+1, which means Mφ*(N)=N−1, not N+1. Yamada's own ± bounds are related but do not classify these cases.",
+      "residual_risks": [
+        "The 2010 paper was not available in full in this check; its specific cited result was checked indirectly. The bibliography of the frozen record differs from Yamada's for that title. An older differently phrased result may remain unindexed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Problem framing and bounds, not the asserted low-support plus-sign classification",
+          "evidence": [
+            "The quoted Subbarao and 2010 results use N−1 after rearranging; Thm. 2 is for ω(N1)≥4."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2303.16853",
+          "material_read": "pp. 1–2, especially definition (1.1), Thms. 1–4 and discussion (text offsets 3010–8497); bibliography refs. 21 and 27",
+          "method": "OA arXiv PDF passage inspection",
+          "title": "On Lehmer's problem and related problems",
+          "trigger": "Same ± unitary-totient equations"
+        },
+        {
+          "assessment": "The specific quoted theorem is an opposite-sign bound; broader contents not established",
+          "evidence": [
+            "N=Mφ*(N)+1, M≥4 in Yamada's report."
+          ],
+          "identifier_or_url": "V. Siva Rama Prasad, C. Goverdhan and H. A. Al-Aidroos, Proc. Jangjeon Math. Soc. 13 (2010), 279–288 (Yamada ref. 21)",
+          "material_read": "Yamada p. 2 attribution and bibliography; not the 2010 primary text",
+          "method": "Indirect statement-level comparison via lawful OA Yamada PDF",
+          "title": "On Lehmer’s totient problem and its unitary Analogue",
+          "trigger": "Title matches a cited unitary Lehmer comparator; the venue/pages differ from the frozen bibliography"
+        },
+        {
+          "assessment": "Values, not unrestricted plus-sign solution classification",
+          "evidence": [
+            "The row at 8 contains 15."
+          ],
+          "identifier_or_url": "https://oeis.org/A047994 and https://oeis.org/A361966",
+          "material_read": "Definitions and listed inverse rows",
+          "method": "Public OEIS pages",
+          "title": "Unitary totient and inverse unitary totient table",
+          "trigger": "Exact values and inverse table"
+        },
+        {
+          "assessment": "Different equation with consecutive arguments",
+          "evidence": [
+            "Qualifying inputs satisfy φ*(n)=φ*(n+1), and the small Ω corollary gives (20,21)."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-mersenne-factor-parametrization-of-consecutive-two-support-unita--434b91af23ae",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary search followed by local mirror read",
+          "title": "Mersenne-factor parametrization of consecutive two-support unitary totients",
+          "trigger": "Closest distinct Resultary unitary two-support claim"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and symbolic proof",
+        "Yamada, unitary-totient branch of the ± equation"
+      ],
+      "rationale": "Fixing support at one or two is a natural first classification for an explicitly studied arithmetic equation. The theorem identifies the only composite solution in that layer and rules out all nonsquarefree composites there, without a size or exponent cutoff. The sign and the distinct-prime parity obstruction are essential; it is not a recomputation of table entries.",
+      "residual_risks": [
+        "The increment is modest; no implication for higher-support cases is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

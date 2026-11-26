@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact stationary matrix is derived and inserted into the master equation, and full rank follows from two explicitly positive block determinants. A faithful-state dissipative commutant argument proves uniqueness for every stated strictly positive parameter triple. The established X-state concurrence formula reduces to two branches; the second is strictly excluded, and the first is positive precisely under the stated sharp inequality. The companion checker independently assembles the complete Liouvillian and checks 442 assertions. Numerical checks supplement, not replace, the algebraic proof.
+PASS
 
-## Originality — PASS, qualified
+Reconstructed the full-space stationary-state argument. Writing the state entries as A,B,T,w,z as in RESULT.md, the reset transfers the two lower diagonal entries T to the corresponding upper positions and damps w,z. In the two parity blocks the off-diagonal equations are (r+4ih)w=iJ(A−T) and rz=iJ(B−T); both population balances use 2J Im(w)=2J Im(z)=rT. The proposed entries satisfy these identities and trace one. The two reordered block determinants are J²(r²+4J²+16h²)/(4Q²) and J²(r²+4J²)/(4Q²), hence faithfulness. The adjoint fixed-point dissipation identity then forces commutation with the local reset matrix units and their adjoints, so a fixed point must be I⊗G. Commutation with H requires [X,G]=[Z,G]=0 because J,h>0; this proves full-kernel uniqueness, not merely uniqueness within X-states. The standard spin-flip branches give |z|²−AT<0 and |w|²−BT=J²(16h²−4J²−r²)/(4Q²); equality is PPT/separable. Thus the normalized concurrence and the strictly positive-rate boundary are correct. The r=0 generator is excluded. The bundled checker and VERIFICATION.md were inspected but not executed; validation here is algebraic.
 
-The most relevant prior one-sided Ising result resets in the Ising interaction eigenbasis and proves separability. The present result resets in the transverse-field eigenbasis after mapping its Hamiltonian by local Hadamard rotations, which cannot map the prior reset channel into this one; it instead has a nonempty entangled region. The established global-reset two-spin paper, noninteracting global-reset ensemble, and discrete-time resetting paper do not state or imply this specific marginal-preserving local-reset threshold. Statement-level database searches for alternative parameterizations and reset bases found these as the nearest results, not an equivalent classification. A wider, unindexed master-equation result might implicitly cover the special model and remains a publication-priority risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result gives a complete and exact phase boundary, identifies a field threshold below which all reset rates are separable, and identifies a single finite reset-rate entanglement death above it. It is a controlled counterexample to extrapolating the all-parameter separability of an interaction-aligned one-sided reset channel to other single-qubit reset preparations. The difference is a physically meaningful basis orientation, not arbitrary parameter slicing.
+The closest matched one-sided classification uses an inequivalent reset axis. Full-system reset concurrence and general open-system methods do not give this stationary phase boundary. The positive-field, positive-rate classification survives the bounded comparison; this is not a priority assertion.
 
-## Closest literature and limitations
+## value
 
-Kulkarni and Majumdar (arXiv:2307.07485) prove global-reset entanglement in an interacting pair. The one-sided Ising/discord classification (published-finding corpus research record 1d75ced6406d) proves a different aligned-reset separability theorem. Magoni et al. (arXiv:2202.12655) treat noninteracting global resets. Wald et al. (arXiv:2410.11497) analyze discrete-time full-state resets. This claim is limited to the specified exactly pure, continuous-time, one-sided replacement map, equal positive fields and no additional decoherence. Publication priority still needs independent review.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The reset orientation is a physically and mathematically motivated distinction, not a parameter relabeling. The exact field threshold, rate threshold and equality case turn the contrast with stationary separability under aligned one-sided resetting into a usable quantitative classification. Full-space uniqueness rules out attributing the effect to a chosen initial parity sector.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Scientific assessment: an alternating-group directed-forest quotient
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The definition is the full directed-forest complex of the complete loopless bidirected five-vertex graph, not the multipath or undirected graphic forest complex. Barycentric whole-flag orbit cells rigorously model the ordinary nonfree group quotient because the action is without inversions after subdivision. `verify.py` reconstructs 1,295 original nonempty faces and 53,845 flags, reduces them to 908 even-label quotient cells, checks every signed integral boundary square, executes 451 unit-pivot cancellations, and obtains one zero-cell and five zero-differential three-cells. An independent signed Burnside–Lefschetz calculation gives quotient Euler characteristic \(-4\). The complete-source shellability theorem establishes simple connectivity of the original complex, and every three-cycle fixes an arc supported on its two untouched labels; Armstrong therefore makes the orbit fundamental group trivial. The Hurewicz and homological Whitehead theorems yield the five-three-sphere wedge. No computation is mistaken for an infinite theorem.
+PASS
 
-## Originality — PASS relative to inspected evidence
+Use the barycentric subdivision: whole strict flags are simplices, with their vertex order given by increasing face cardinality. The group preserves cardinalities, so stabilizers fix cells pointwise and the quotient cellular differential is the signed whole-flag deletion formula, not a simplicial complex of separate face orbits. The independent reconstruction tests indegree and underlying forest, builds flags by submask recursion, checks both consecutive boundary products, and gives integral Smith ranks (26,180,245) for quotient cell counts (27,206,425,250), with all nonzero Smith factors units. Hence the images are primitive and the quotient has H0=Z, H3=Z^5 and no other homology. A direct fundamental-group check contracts a spanning tree, then uses triangular relations with exactly one surviving edge generator until all 206 edges give trivial elements. This independently verifies the simple connectivity established in the frozen proof by shellability of the labeled complex and Armstrong's fixed-point criterion. Since H2 vanishes, Hurewicz gives pi2=0 and identifies pi3 with H3; representing an integral basis by sphere maps and using homological Whitehead proves the wedge. For S5 the analogous check gives cell counts (19,121,226,125), Smith ranks (18,103,123), all nonzero factors units, and all 121 edge generators trivial. Its quotient is therefore a wedge of two 3-spheres. On rational chains the residual involution's coinvariants compute that further quotient, and averaging identifies them with invariants, so the plus and minus eigenspaces have dimensions two and three.
 
-Kozlov's 2001 Section 6 treats the identical complete directed-forest complex but the **full \(S_5\) quotient**, not the intermediate \(A_5\) quotient; the alternating-group symbols inside his proof concern edge-label orders. Engström (2005) and Jojić (2011) establish the original complex and shellability but no even-permutation geometric quotient homotopy type. The closest publicly recorded five-label calculation establishes only the full symmetric quotient \(S^3\vee S^3\), which cannot imply the integral homotopy type of its branched index-two predecessor. The difference is verified directly, not inferred from missing title hits. Residual risk: equivalent unpublished or unindexed parity-quotient calculations.
+## originality
 
-## Value — PASS
+PASS
 
-The five-label case is the first with the nonabelian simple rotational group \(A_5\). It yields a natural parity-sensitive refinement of the complete symmetric orbit problem studied by Kozlov. The result shows that passing from the icosahedral even-label group to all permutations identifies three of five rational top classes with their negatives; this is a full **integral homotopy** classification, including fundamental group and torsion exclusion, not only a rational character count. The precise \(A_5\) comparison is mathematically motivated, unlike an arbitrary graph slice or an increment in the number of labels.
+The prior full symmetric quotient on this exact complex and the labeled shellability are substantial overlaps and are credited. Pass the exact integral homotopy type of the intermediate alternating quotient, with the residual involution's eigenspace dimensions as a refinement, not the already known integral full symmetric quotient or the general flag or transfer methods.
 
-## Limits and closest material
+## value
 
-The result does not extend to arbitrary \(n\), does not assert geometric collapse, and does not characterize an integral residual-involution lattice. Relevant materials read include Kozlov (2001) Section 6, Engström (2005) Section 2, Jojić (2012) Sections 1–2, the public full-symmetric five-label result and its companion review/verification, and Armstrong's orbit-space theorem statement. All finite computations are reproducible from source with standard-library Python. There is no independent external mathematical audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+At the first branching case of the full symmetric quotients, the index-two intermediate orbit space distinguishes what survives full relabeling from what is lost under an odd permutation. The integral sphere-wedge type additionally resolves whether torsion or lower-dimensional topology appears under this nonfree action, information not supplied by rational character counts or the labeled homotopy type.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

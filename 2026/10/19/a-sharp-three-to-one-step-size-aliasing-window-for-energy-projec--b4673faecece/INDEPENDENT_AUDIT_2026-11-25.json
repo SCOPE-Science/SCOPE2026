@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T18:33:08.875005Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Identify the plane with C. The step is multiplication by P_m(iz)/|P_m(iz)|; the stage-chain weights telescope to Taylor's coefficients, and stages one and two span the plane for m≥2. For m=1,2 the imaginary part is positive; at the only positive imaginary-part zero for m=3,4 the real parts are −2 and −1/2; for m=5 the imaginary part is z[(z²−10)²+20]/120. The continuous phase derivative numerator is Re(conj(P_m(iz))P_(m−1)(iz)); independent rational convolution in /workspace/check_frozen_math.py reproduces all five polynomials. For m=4 the minimum of x³−6x²+144 on x≥0 is 112, so all phases up to degree four are strictly increasing and their limits are at most 2π, never attained. For degree five F'(x)=4x²(x−12), and the two disjoint exact brackets (6,7) and (15,16) give the only positive phase turning points. The real part is respectively negative and positive there; the upper-half-plane phase tends to 0 at zero and π/2 from below at infinity. The three open monotonicity intervals have phase images (0,max), (min,max), and (min,π/2). Adding each finite critical step once gives the claimed counts, including two (not three) at π/2. Multiplication by a unit complex number preserves energy, and within (0,π) identical rotations entail identical angles. The frozen support was inspected, not executed; the independent script checks finite algebra and diagnostics, not the universal conclusion by sampling.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Najafian–Vermeire's stage-span projection is general; here full span gives radial normalization. Calvo et al. Eq. (7) ensures unit modulus on the same oscillator and removes dissipation for their projected method."
+        ],
+        "reasoning": "These results cover the projection and invariant mechanism, not the shape of the argument of the degree-five Taylor polynomial or comparison with all lower degrees.",
+        "searches": [
+          "arXiv:2409.18328 p.1",
+          "Calvo et al., reposited full text, §§3–3.1.1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify_phase.py (inspected, not run)",
+        "Independent /workspace/check_frozen_math.py oscillator()",
+        "Resultary records 8aca49edd71e and 246d4796943a",
+        "arXiv:2409.18328",
+        "Calvo et al. full-text §§3–3.1.1",
+        "Chen and van der Houwen–Sommeijer OA access attempts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Unit modulus is immediate under radial normalization; Calvo et al. explicitly separate phase and modulus. Their local dispersion order and the general projection statement impose no monotonicity or quantitative root count for the phase over all z>0."
+        ],
+        "reasoning": "To extract the exact claim one must resolve a sign-changing phase derivative polynomial, locate its roots on opposite sides of the right-angle phase transition, and count finite preimages of each monotone branch including the limit at infinity. This is a nontrivial global distinction from standard local phase-error formulas or exact energy conservation.",
+        "searches": [
+          "arXiv:2409.18328 projection framework",
+          "Calvo et al. Eqs. (6)–(7), §§3.1–3.1.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same inverse-multiplicity question can be phrased as the positive-ray intersection count for P_m(iz), or as injectivity of the unwrapped numerical phase modulo 2π; radial projection leaves those rays unchanged.",
+          "Calvo et al. Eqs. (6)–(7) use the same oscillator amplification/phase language and P_3 in §3.1, but the projected factor combines two stability functions rather than retaining the ray of one Taylor predictor."
+        ],
+        "reasoning": "Comparing numerical phase rather than the energy projection alone is essential. The inspected dispersion expansion is about phase defect near z=0, not the number of finite positive z on a prescribed ray.",
+        "searches": [
+          "Resultary: planar oscillator Taylor phase global step-size injectivity and aliasing",
+          "Calvo et al., doi:10.1007/s10444-014-9355-2, §§3–3.1.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Record 8aca49edd71e addresses order loss for two uncoupled oscillators with two invariants, not inverse phase counts for one oscillator. Record 246d4796943a realizes prescribed continuous-time phase sensitivity with polynomial vector fields. Calvo et al. supply the Taylor cubic and local phase coefficients, not a table of global positive-ray crossings through degree five."
+        ],
+        "reasoning": "Known Taylor coefficients are input data, not the critical angles or the exact counts. The relevant exact lookup is the global polynomial-phase statement and its closed endpoints, not approximation order or continuous-time phase sensitivity.",
+        "searches": [
+          "Resultary projection and oscillator-phase matches 8aca49edd71e and 246d4796943a",
+          "Calvo et al. §3.1 Taylor polynomial and phase coefficients"
+        ]
+      },
+      "rationale": "The known projection and phase-lag frameworks already give the normalized-amplification interpretation and the conservation mechanism. The supported distinction is the sharp all-positive-step inverse-multiplicity law for the Taylor polynomials, including the degree cutoff. The closest retrieved projection/dispersion paper uses different projection directions and a local dispersion-order question, despite using a Taylor cubic predictor for one method.",
+      "residual_risks": [
+        "The historical phase-fitting papers at doi:10.1155/2012/236281 and doi:10.1137/0724041 were unavailable as full text in the attempted routes; an earlier equivalent global calculation is not ruled out.",
+        "This decision uses the cited passages and mathematics, not a whole-document absence finding or priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General projection already known; the inspected statement does not give the Taylor phase counts",
+          "evidence": [
+            "Projects orthogonal search directions onto the RK stage span to preserve invariants without changing step size."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2409.18328",
+          "material_read": "OA PDF p.1 abstract",
+          "method": "Bounded OA PDF reading",
+          "title": "Quasi-Orthogonal Runge-Kutta Projection Methods",
+          "trigger": "General projection used in the frozen record"
+        },
+        {
+          "assessment": "Direct overlap in oscillator phase and energy analysis; different projection and output",
+          "evidence": [
+            "Numerical phase is arg R(iν), the projected stability function is an affine blend of two RK stability functions satisfying a unit-modulus equation, and the Taylor cubic Bogacki–Shampine example is analyzed by expansions in ν around zero."
+          ],
+          "identifier_or_url": "https://zaguan.unizar.es/record/69435/files/texto_completo.pdf?version=1 (doi:10.1007/s10444-014-9355-2)",
+          "material_read": "PDF pp.7–9, §3 Eqs. (6)–(7), §§3.1–3.1.1, text offset 17600–22542",
+          "method": "Lawful author-institution repository full-text passages after publisher route failed",
+          "title": "Runge–Kutta projection methods with low dispersion and dissipation errors",
+          "trigger": "Closest same oscillator/projection/dispersion comparison"
+        },
+        {
+          "assessment": "Different oscillator system and claim",
+          "evidence": [
+            "Two uncoupled oscillators yield third-order local projection correction and second-order accumulated error."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-sharp-third-order-loss-under-two-invariant-quasi-orthogonal-rung--8aca49edd71e/RESULT.md",
+          "material_read": "Finding and assumptions at offset 0",
+          "method": "Resultary and bounded local mirror reading",
+          "title": "A sharp third-order loss under two-invariant quasi-orthogonal Runge–Kutta projection",
+          "trigger": "Closest catalogue projection hit"
+        },
+        {
+          "assessment": "No content verdict from title alone",
+          "evidence": [
+            "The title identifies oscillator phase/amplification fitting but does not state global inverse step counts."
+          ],
+          "identifier_or_url": "doi:10.1155/2012/236281",
+          "material_read": "Indexed title only; full text not obtained",
+          "method": "DOI and direct lawful publisher OA routes returned HTTP 403",
+          "title": "A New Family of Phase-Fitted and Amplification-Fitted Runge-Kutta Type Methods for Oscillators",
+          "trigger": "Possible primary phase-fit overlap"
+        },
+        {
+          "assessment": "No content verdict from title alone",
+          "evidence": [
+            "Phase errors are relevant to the question, but the indexed title does not settle all-step injectivity."
+          ],
+          "identifier_or_url": "doi:10.1137/0724041",
+          "material_read": "Indexed title only; full text not obtained",
+          "method": "DOI and SIAM OA routes returned HTTP 403; alternate copy could not be verified",
+          "title": "Explicit Runge–Kutta (–Nyström) Methods with Reduced Phase Errors for Computing Oscillating Solutions",
+          "trigger": "Possible primary phase-error overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The step-size identification question is intrinsic to exactly energy-normalized oscillator propagation. Degree five is the first failure and permits three distinct finite steps for the same projected map without any phase wrapping. The entire interval, turning points and boundary counts form a useful exact benchmark separating invariant preservation from phase identifiability. The independently useful feature is the global classification, not the textbook unit-modulus projection identity, and it need not promise accurate elapsed-time integration at those unrestricted steps.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

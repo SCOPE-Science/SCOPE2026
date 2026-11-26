@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:48:54.775349Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Re-audited /workspace/repairs/5/. The original maximality argument for a proper bridge asserted incompatible phases after extension, but p-apart starts can share a phase; it is the insufficient length of any putative mixed border that prevents closedness. The repair proves both extensions stay in same-letter runs. Every unary border of either extension has length at most t, occurs twice or more in its enlarged end-run and at least once at the other end. A mixed witness must have starts exactly p apart, by its unique phase and the intervening-copy argument, so its length would be 2t+1−ℓ≤t and it would be unary when this length is positive. For t=ℓ one can add a following 1 to a zero bridge or a preceding 0 to a one bridge, yielding a complete return to a mixed border at shift p. Mixed-border witnesses at shift p extend wherever available, leaving only the full word; unary maximal factors are exactly the full runs. The three disjoint families therefore give (k−1)p+3. For a cut inside a run of length ℓ at offset u, incoming and outgoing same-symbol bridge contributions are bounded by ℓ−1−u and u−1, leaving room for that run's unique crossing occurrence. At a run boundary no run crosses and at most one pair per symbol can contribute. The whole interval contributes one at every cut, and both symbols' full bridge families cross each c=mp, attaining p−1. This includes unit runs (no same-symbol bridges) and finite word endpoints; the all-k result is symbolic. Independent corroboration: python /workspace/branches/mcs_independent.py (216 instances with 1≤a,b≤6 and 2≤k≤7). It computes the longest proper border by the prefix function and checks for an earlier overlapping repeat before the suffix. This suffices: any shorter border has an extra occurrence ending at the end of a longer proper prefix border. Frozen scripts and logs were inspected, not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Types 1 and 5 of the RLE paper are maximal repetitions; Lemma 4 gives exact unary-border intervals [M+1,min(hp,hq)] with possibly the top length removed. The arbitrary-word internal-query paper gives a 3(s−1) bound and a binary lower construction of floor((s−1)/2), not a sharp bound in terms of this family's period."
+        ],
+        "reasoning": "Equal same-symbol run heights make visibility equivalent to adjacency, and equal right flanks for zero-runs or equal left flanks for one-runs remove the full-run length. The published RLE results supply much more than an instance-specific algorithm; this review credits the bridge classification as a direct specialization. The unrestricted cut bounds neither specialize to p−1 for length kp nor characterize where it is attained.",
+        "searches": [
+          "arXiv:2607.02838, Theorem 1 and Section 4 Definition 4, Lemmas 3–6",
+          "arXiv:2611.11552, Theorem 12, Corollary 13, Proposition 14"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2607.02838 §§2,4",
+        "arXiv:2611.11552 Theorem 12, Corollary 13, Proposition 14",
+        "Resultary 5387a5bb0a25, 86be57deefbe, 721addc2bb68, fd3768a38473, 7dac807522c9, fd25863004b2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The word has RLE size 2k, but the exact cut result depends on where the unary-border intervals begin and end relative to a cut. An enumerator can evaluate any fixed instance. The general exact bridge representation gives eligible t but no evaluated local maximum for this family."
+        ],
+        "reasoning": "The arithmetic total follows readily from the family list. The sharp cut bound requires a further local comparison: a run that crosses adds one but removes one from the largest possible same-letter bridge contribution, and period boundaries permit all opposite-symbol bridge choices at once. Neither a generic cut bound nor an occurrence list alone gives those assertions without this additional analysis.",
+        "searches": [
+          "arXiv:2607.02838 §4, PDF pp. 5–7, especially Lemma 4",
+          "arXiv:2611.11552 pp. 12–13; Resultary 7dac807522c9 and fd25863004b2 Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source MCS test uses available one-letter extensions, with occurrences (not distinct strings) as objects. The RLE paper's valid consecutive border occurrences yield the same closed substring intervals.",
+          "The binary and arbitrary-alphabet four-run records 5387a5bb0a25 and 86be57deefbe cover the equal-block k=2 occurrence list; their scope is four runs, whereas k≥3 has at least six."
+        ],
+        "reasoning": "The complete-return reformulation of closedness and RLE unary-border intervals are equivalent machinery for the list. Four-run results cannot directly specialize to k≥3, and counting distinct factors in an infinite periodic word is a different statistic.",
+        "searches": [
+          "Resultary: MCS endpoints, maximal closed substrings in binary two-run powers and internal gap density",
+          "arXiv:2607.02838, §2 and Section 4 Definition 3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "5387a5bb0a25 gives the four-run count 5+min(a,c)+min(b,d)−1_{c≤a}−1_{b≤d}; equal lengths give a+b+3 for k=2. The two five-run records classify different input families. The two super-half-density records treat unrestricted binary maxima or their lower bounds, with a finite table only through n=14 in fd25863004b2."
+        ],
+        "reasoning": "A global maximum over all binary words of a given length is not the maximum over cuts of this particular word family and can be larger. No distinct all-parameter table for p−1 on equal-block powers was found in these sources.",
+        "searches": [
+          "Resultary: binary maximal-closed-substring cut density, period powers and exact endpoint tables",
+          "Resultary 5387a5bb0a25, 721addc2bb68, fd3768a38473, 7dac807522c9, fd25863004b2"
+        ]
+      },
+      "rationale": "PASS for the narrowed contribution: the exact uniform internal-cut maximum p−1 on equal-block powers with k≥3, including equality at each block junction. The unary bridge representation is directly covered by the broader RLE Lemma 4 after substituting equal heights, and the remaining families and total count are a short periodic specialization, not a separate novelty claim. The repair expressly credits this coverage and uses the list to prove the distinct local cut statistic.",
+      "residual_risks": [
+        "The relevant primary papers were materially accessible; the comparison does not exclude all unpublished or differently named periodic-case formulas.",
+        "No priority order is inferred from dates of same-day related records. Credit is limited to the exact cut theorem, not the covered bridge specialization or general enumeration."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly covers unary bridge intervals under equal-height specialization; not an evaluated sharp cut formula",
+          "evidence": [
+            "Only adjacent equal-height occurrences are visible, and the top length is removed if one corresponding flank agrees.",
+            "Types 1 and 5 are maximal repetitions; a mixed repetition of exponent at least two in this periodic family must have period p by the unique phase of its mixed repeated block."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2607.02838",
+          "material_read": "Theorem 1, §2 Definition 1 and Lemma 1, §4 Definition 4 and Lemmas 3–6, especially p. 6",
+          "method": "OA PDF text, classification passage offset 16080",
+          "title": "Compact Enumeration of Maximal Closed Substrings in Run-Length Encoded Strings",
+          "trigger": "Broader exact RLE representation of the same MCS object"
+        },
+        {
+          "assessment": "General upper and lower bounds do not evaluate p−1 here",
+          "evidence": [
+            "Reports 3(s−1) upper bound and a binary floor((s−1)/2) lower construction; the optimal general constant is not resolved."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2611.11552",
+          "material_read": "Theorem 12 on p. 12 and Corollary 13 and Proposition 14 on p. 13",
+          "method": "OA PDF theorem and construction passages",
+          "title": "Internal Queries for Maximal Closed Substrings",
+          "trigger": "Closest general cut-crossing theorem"
+        },
+        {
+          "assessment": "Covers the k=2 list, not the k≥3 cut theorem",
+          "evidence": [
+            "Substituting c=a,d=b recovers the runs, bridges and whole word for two periods."
+          ],
+          "identifier_or_url": "Resultary 5387a5bb0a25; 86be57deefbe",
+          "material_read": "Findings and endpoint specialization",
+          "method": "Resultary and local mirror text",
+          "title": "Exact maximal-closed-substring spectrum for binary four-run words; The exact maximal-closed-substring spectrum of four-run words over larger alphabets",
+          "trigger": "Earlier complete endpoint spectrum on two repeated blocks"
+        },
+        {
+          "assessment": "Five-run rather than all equal two-run block powers",
+          "evidence": [
+            "One result treats the symmetric word 0^a1^b0^c1^b0^a; the other arbitrary positive five-run lengths."
+          ],
+          "identifier_or_url": "Resultary 721addc2bb68; fd3768a38473",
+          "material_read": "Findings including run pattern and occurrence families",
+          "method": "Resultary and local mirror text",
+          "title": "Maximal closed substrings of symmetric five-run binary words; Exact maximal closed substring occurrences for asymmetric five-run words",
+          "trigger": "Distinct same-day exact endpoint classifications"
+        },
+        {
+          "assessment": "Unrestricted binary cut density, not the exact periodic-family law",
+          "evidence": [
+            "The persistent lower bound floor(n/2)+1 for n≥13 uses an eight-run construction; the other gives finite global maxima through n=14."
+          ],
+          "identifier_or_url": "Resultary 7dac807522c9; fd25863004b2",
+          "material_read": "Findings, construction/table scopes",
+          "method": "Resultary and local mirror text",
+          "title": "Persistent strict half-density for binary maximal closed substrings; The first super-half cut density of maximal closed substrings",
+          "trigger": "Distinct same-day exact or sharp cut-density results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Uniform equal-block powers are a natural compressed input model for internal reporting. The sharp worst local output depends on the period alone, independent of k, while the total grows linearly in k; this contrast and the equality locations give a distinct structural benchmark not supplied by the generic n-dependent bound. The local bridge/run tradeoff, rather than merely re-running an enumerator or counting known families globally, is the point of the repaired contribution.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

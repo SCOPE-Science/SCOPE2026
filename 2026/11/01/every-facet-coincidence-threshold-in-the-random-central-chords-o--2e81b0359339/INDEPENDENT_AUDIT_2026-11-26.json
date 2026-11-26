@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:57:09.694061Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The chord law is for the central line with Haar direction; T=1/max_i|U_i|. Normalized independent Gaussians give squared coordinates with Dirichlet parameters 1/2, and inclusion–exclusion of exceedances gives the exact CDF. For k<d the translation by a=t^(−2) and scaling by δ=1−ka gives Jacobian and remaining-mass power δ^(k+(d−k)/2−1); the fixed-simplex beta integral gives Γ((d−k)/2)/Γ((d+k)/2). Together with k^(k/2) from the limiting coordinate densities and δ∼2ε/√k, this yields precisely B_(d,k). At k=d the direct (d−1)-simplex volume gives the same formula. Earlier overlap terms and the extracted local factor are analytic across the active threshold (fixed domain, uniformly positive coordinate arguments, with an integrable fixed beta weight). Thus the nonzero right-onset term determines the claimed integer differentiability, and no other term at the threshold cancels it. The left upper-end tail is a separate complement-event simplex, of mass coordinate sum da−1, with the same limiting density and coefficient. There are no boundary atoms. The d=3 closed form checks by conditioning on one coordinate and integrating by parts. The code and VERIFICATION.md report finite simulations and quadratures, not an all-dimensional proof; these were inspected, not rerun.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Dirichlet limit paper includes more general concentration sequences, but its conclusions are scaled large-dimension weak limits, not a finite-dimensional exact distribution.",
+          "The covariance record covers arbitrary positive symmetric shape and two possibly different thresholds, with conditional beta probabilities. Its explicit boundary polynomial is for shape 1, not 1/2; it does not analyze overlaps of any order up to d.",
+          "Lawful retrieval of the two older chord/intercept papers did not yield full text; their exact sampling and coverage were not adjudicated."
+        ],
+        "reasoning": "Wider concentration parameters or affine sampling do not suffice; covering this result would require exact finite-dimensional max or overlap local behavior in the specified directional law.",
+        "searches": [
+          "arXiv:0803.3518, equations (34), (36)–(38) and Corollary 3.1",
+          "Resultary 93f5621be126, Finding and proof §§1–5",
+          "DOIs 10.2307/3213189 and 10.1007/s10474-010-0067-x"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and central_chord_checker.py",
+        "arXiv:0803.3518, 1110.0671 and 1401.7950",
+        "Resultary 93f5621be126 and summary 33fb29274ae4",
+        "Coleman and Steinerberger DOI access attempts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The available beta ingredients directly describe one-coordinate probabilities and give a representation of the two-coordinate tail. A pair-count covariance cannot recover higher factorial moments needed by inclusion–exclusion in arbitrary d.",
+          "Weak limits at the typical maximum scale do not fix cusp coefficients at M=1/k. Sharp differentiability needs both analyticity of already-active terms and a nonvanishing coefficient of the new term; the upper endpoint requires the other side of the central simplex."
+        ],
+        "reasoning": "Credit the known distributional representation and low-order ingredients; the all-order local expansions and exact smoothness classification are not directly implied by the inspected literature or catalogue statements.",
+        "searches": [
+          "arXiv:0803.3518 §3, increasing-dimension scope",
+          "Resultary 93f5621be126 §§1–5, beta conditioning and pair-density expansion",
+          "Finch and Ciccariello sampling definitions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Setting M=max_i U_i² gives T=M^(−1/2). Thus a fixed-dimensional Dirichlet(1/2,…,1/2) maximum law with knots at M=1/k and their precise local expansions would give the same finding by a smooth change of variable.",
+          "Bose–Dasgupta–Maulik treat maxima of Dirichlet vectors, but in a weak-limit normalization as dimension increases. Finch's cube variable is separation of supporting planes, not the radial distance through the center."
+        ],
+        "reasoning": "The maximum alias is a genuine equivalence, unlike projection widths or affine-line chord densities. The inspected maximum result does not determine the local expansions at positive finite-dimensional knots.",
+        "searches": [
+          "Resultary: finite-dimensional distribution maximum largest coordinate symmetric Dirichlet exact threshold order statistic overlap probabilities",
+          "Primary literature lookup on central cube chords and maximum-coordinate thresholds; arXiv:0803.3518 §3",
+          "arXiv:1110.0671, width definition"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "93f5621be126 gives exact covariance and shape-1 two-tail formulas; its q(a,a) at shape 1/2 is the target's two-coordinate event after substituting a=t^(−2), but the statement is not a table of its knot coefficients or of the maximum CDF.",
+          "The same-day cube-section summary treats minimal vertex count and conditional section geometry, not a catalogue of central chord lengths; only the summary was accessible.",
+          "The inspected width moments and the regular-octahedron chord density are exact data on different observables."
+        ],
+        "reasoning": "A numerical or exact table for a different polytope observable cannot cover the hierarchy. Genuine one- and two-coordinate overlap ingredients are credited without extending them to all k or to sharp CDF regularity.",
+        "searches": [
+          "Resultary exact finite-dimensional maximum and thresholds search; inspected result 93f5621be126",
+          "Closest same-day cube-section summary 33fb29274ae4",
+          "arXiv:1110.0671 and arXiv:1401.7950, openings"
+        ]
+      },
+      "rationale": "The supported distinct claim is the exact fixed-dimensional knot hierarchy and upper-end asymptotic for the central chord law. The maximum-coordinate alias, Gaussian normalization, individual beta tails, and basic inclusion–exclusion are standard. The inspected same-distribution maximum paper concerns growing dimension, and the closest catalogue source covers one- and two-coordinate tails as ingredients of a count covariance, not all overlap coefficients or the CDF singularities. The unavailable random-intercept papers remain explicit risks to historical priority, not negative evidence.",
+      "residual_risks": [
+        "Full texts of Coleman (1981) and Steinerberger (2011) remained unavailable through lawful OA attempts; overlap in sampling or distribution formulas is unresolved.",
+        "Exact fixed-dimension Dirichlet-maximum distributions may be indexed under spherical extrema or spacing statistics; the bounded search and inspected statements do not establish exhaustive priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same maximum model; large-dimension weak laws, not fixed-dimension knots",
+          "evidence": "Normalized gamma variables give the Dirichlet representation and after centering and scaling the maximum satisfies extreme-value limits as dimension increases.",
+          "identifier_or_url": "https://arxiv.org/abs/0803.3518",
+          "material_read": "Abstract, §3 pp. 8–9, OA offsets 34400–42666, Corollary 3.1 and equations (34), (36)–(38)",
+          "method": "Primary OA PDF passages",
+          "title": "Maxima of Dirichlet and triangular arrays of gamma variables",
+          "trigger": "Exact same maximum under the squared-coordinate reduction"
+        },
+        {
+          "assessment": "Related known one- and two-coordinate ingredients, not the maximum hierarchy",
+          "evidence": "The covariance formula uses p(b) and q(a,b) and subsequent sign crossing; exact polynomial tails in its Finding are for shape 1.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-one-crossing-covariance-law-for-threshold-exceedances-in-symmetr--93f5621be126/RESULT.md",
+          "material_read": "Finding, assumptions and proof §§1–5, offset 0",
+          "method": "Resultary local mirror",
+          "title": "One-crossing covariance law for threshold exceedances in symmetric Dirichlet samples",
+          "trigger": "Same symmetric Dirichlet law and pair exceedance"
+        },
+        {
+          "assessment": "Summary concerns another statistic; no full-text verdict",
+          "evidence": "The described event is minimal vertex count of a central section, with its conditional normal geometry, rather than maximum coordinate or radial length.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-sharp-rare-event-law-and-conditional-normal-geometry-for-minimal--33fb29274ae4",
+          "material_read": "Catalogue summary only; full mirror passage unavailable",
+          "method": "Local index; mirror attempted",
+          "title": "Sharp rare-event law and conditional normal geometry for minimal-vertex cube sections",
+          "trigger": "Distinct same-day cube directional probe result"
+        },
+        {
+          "assessment": "Different observable",
+          "evidence": "Width is defined as separation of the two supporting planes orthogonal to a uniform direction, not the section of the line through the origin.",
+          "identifier_or_url": "https://arxiv.org/abs/1110.0671",
+          "material_read": "PDF p. 1, abstract and definition, OA offset 1000",
+          "method": "Primary OA PDF passage",
+          "title": "Width Distributions for Convex Regular Polyhedra",
+          "trigger": "Uniform directional cube measurement"
+        },
+        {
+          "assessment": "Different polytope and sampling integral",
+          "evidence": "The density concerns the octahedron and uses the isotropic correlation integral over spatial origins and directions, not just central directions in cubes.",
+          "identifier_or_url": "https://arxiv.org/abs/1401.7950",
+          "material_read": "Abstract and §1 Eq. (1), offset 0",
+          "method": "Primary OA PDF passage",
+          "title": "The chord-length probability density of the regular octahedron",
+          "trigger": "Polytope chord densities and facet regimes"
+        },
+        {
+          "assessment": "Coverage unresolved",
+          "evidence": "The reported subject is several kinds of random intercept through boxes; the exact sampling law and formulas could not be compared.",
+          "identifier_or_url": "https://doi.org/10.2307/3213189",
+          "material_read": "Bibliographic description in frozen source; no primary full text retrieved",
+          "method": "Lawful OA direct/VPN and DOI recovery attempts",
+          "title": "Intercept lengths of random probes through boxes",
+          "trigger": "Potential 3D overlap if a centroid-based intercept model is included"
+        },
+        {
+          "assessment": "Coverage unresolved",
+          "evidence": "No lawful readable copy was obtained, so the title and bibliographic subject do not settle the model or conclusions.",
+          "identifier_or_url": "https://doi.org/10.1007/s10474-010-0067-x",
+          "material_read": "Bibliographic description in frozen source; no primary full text retrieved",
+          "method": "Lawful OA direct/VPN and DOI recovery attempts",
+          "title": "Extremal uniform distribution and random chord lengths",
+          "trigger": "Potential high-dimensional cube chord overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "There is a natural geometric question at every radius where another coordinate can reach the boundary, also visible in an exact Dirichlet maximum law. The hierarchy identifies where the CDF is nonanalytic, how much differentiability survives, the signed nonzero amplitude, and where the upper tail terminates. This is more informative than the standard representation or support bounds, and is useful independently of finding elementary CDF formulas in every dimension.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

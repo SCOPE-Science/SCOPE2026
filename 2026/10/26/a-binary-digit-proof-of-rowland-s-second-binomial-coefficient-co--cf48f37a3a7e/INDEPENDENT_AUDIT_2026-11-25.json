@@ -1,0 +1,80 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:31:55.675836Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For positive n and odd prime p, the binomial identity gives p E_p(n)=C-A with C=binom(n-1,2p-1) and A=(p+1)(n_1-1) times the indicator of p dividing n. Lucas modulo p gives zero if p does not divide n and n_1-1 modulo p otherwise, so p divides C-A. Since A is even and p odd, Lucas modulo 2 then gives the mask condition, also for n<2p. For the printed floor sum, fix digit e_h of j and let f_h be the h-th zero position of m-1, indexed from zero. Exactly the first r=f_h-h one positions of m contribute, with coefficient 2^(h+1) plus the terms 2^(h+a-1) for 2<=a<=r, which sums to 2^f_h even when r=1. Thus j fills exactly the complementary bits of m-1 without carries, yielding a bijection onto all 2^z mask classes, including the residue n=0 modulo 2^L via n-1. Dividing the defining equality by two gives the stated fractional part. The proof is universal; the independent limited check through p=47 and the larger author-recorded checks in VERIFICATION.md/verify.py are corroboration only; the uploaded script was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The lookup surfaced the original paper and mirrors rather than a later general proof. The periodicity result discussed in the original concerns existence of periods, not identification of the low-bit classes."
+        ],
+        "reasoning": "A period or Lucas parity criterion by itself does not prove that the printed floor sums enumerate precisely those classes. No stronger proof of the deposition claim was located.",
+        "searches": [
+          "Web: \"Two binomial coefficient conjectures\" Rowland \"Conjecture 2\" proof solved",
+          "Rowland arXiv:1102.1464v1, Section 3"
+        ]
+      },
+      "checked_sources": [
+        "Rowland, arXiv:1102.1464v1, Section 3",
+        "Local Resultary semantic index",
+        "Targeted primary-literature web lookup"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Rowland separates the proposition and fractional-part consequences from the conjectured explicit parametrization, and refers to a proof of Conjecture 2 as future context."
+        ],
+        "reasoning": "The prior proposition and Lucas account for the arithmetic reduction, but do not supply the equality between the unusual floor sum and the carry-free binary set. That equality is the decisive new proof step relative to the inspected prior work.",
+        "searches": [
+          "Rowland arXiv:1102.1464v1, Section 3, proposition preceding Conjecture 2 and discussion after it"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The original gives the same correction, floor-sum classes and range 0<=j<2^z as a conjecture. The extra i=0 summand contributes zero. No materially overlapping indexed proof was identified."
+        ],
+        "reasoning": "The digit-deposition identity matches the full literal floor-sum set, not only an equivalent-looking fractional-part formula or a parity criterion disconnected from that set.",
+        "searches": [
+          "Resultary: Rowland 2011 Conjecture 2 exact floor-sum residue classes binary mask digit-deposition E_p(n) integrality parity",
+          "Rowland arXiv:1102.1464v1, Section 3, pp. 8–9"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No materially overlapping indexed result was identified; the primary paper already gives the numerical classes 6 and 0 modulo 8 for p=3."
+        ],
+        "reasoning": "The known small example is not the all-p theorem; the finite samples in the frozen package are not a priority claim or an exhaustive catalogue.",
+        "searches": [
+          "Resultary: exact proof of Rowland 2011 Two binomial coefficient conjectures Conjecture 2 floor-sum residue-class formula",
+          "Rowland arXiv:1102.1464v1, Section 3"
+        ]
+      },
+      "rationale": "The supported distinct contribution is a proof of the full floor-sum residue-set equivalence in Rowland's printed Conjecture 2. The Lucas arithmetic and already known preliminary fractional-part reduction are not credited as the novelty. No covering proof was identified in the bounded comparisons.",
+      "residual_risks": [
+        "A later or unindexed equivalent proof under another title remains possible. The bounded lookup does not establish global publication priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same conjecture, not an antecedent proof of the floor-sum equality",
+          "evidence": [
+            "The interval 0<=j<2^{|2p|_0} and modulus 2^{floor(log_2(2p))+1} match; the later paragraph distinguishes what follows from a proof of Conjecture 2."
+          ],
+          "identifier_or_url": "https://ericrowland.github.io/papers/Two_binomial_coefficient_conjectures.pdf (arXiv:1102.1464v1)",
+          "material_read": "Section 3, printed pp. 8–9, including Conjecture 2, its parameter range, and subsequent fractional-part discussion",
+          "method": "Bounded reading of the author's open PDF text, near text offset 28000",
+          "title": "Two binomial coefficient conjectures",
+          "trigger": "Primary source of the exact conjecture and preliminary congruence reduction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This resolves an explicitly posed all-prime conjecture, explaining why its floor-sum list has no duplicate residues and replacing an implicit search with a single mask test. The value lies in explaining and exhausting the exact printed parametrization, not in recomputing examples or applying Lucas alone.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

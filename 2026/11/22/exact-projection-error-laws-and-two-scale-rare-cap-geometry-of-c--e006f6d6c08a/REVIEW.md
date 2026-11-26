@@ -1,12 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The crown halfspace description is a verified combinatorial antecedent. Exact pointwise projection follows by checking nonnegativity and every remaining crown inequality and observing that the constructed displacement is normal to the sole violated halfspace. Beta convolution of independent simplex margins supplies the conditional joint distribution, while a regular-simplex tight-frame identity gives the full covariance spectrum. The joint high-dimensional limit follows from an exponential endpoint calculation and gamma-variable central limit theorem. The standalone checker independently reconstructs the projection for 1,050 rational configurations and 96 constrained numerical optimizations. Limitations: these finite checks do not prove all dimensions; the analytic proof does.
+## correctness
 
-## Originality — PASS, provisional bibliographic priority
-The most relevant prior crown theorem determines the removed-volume fraction, sharp Hausdorff gap, and random-direction width statistics but does not identify the uniform-interior nearest-point map or its vector-valued distribution. A related sparse-paving hypersimplex theorem gives a scalar beta law by the same cap mechanism; it does not encompass this non-matroid crown root polytope or its joint tangential and residual-vector law. The deleted-biclique theorem supplies single-block missing-vertex distances, not the present matching-deleted pointwise projection. The full text of each compared research record was inspected, and the root-polytope and matching-polytope literature was reviewed. A more general unindexed truncation/projection result remains a specific historical-priority risk.
+PASS
 
-## Mathematical value — PASS
-The crown product is a natural root-polytope approximation where earlier work has quantified exponentially small volume loss and nonvanishing Hausdorff distance. The new finding determines the **entire random interior Euclidean approximation error**, including exact metric projection, finite-dimensional radial/directional statistics, a rank-deficient covariance operator, and two independent rare-event geometric fluctuation scales. These quantities make the existing metric-volume discrepancy operational at randomly sampled points and provide exact sampling/uncertainty descriptions; they are not a numerical recomputation of the known volume or Hausdorff radius. The standard beta convolution and frame identities are acknowledged as proof tools rather than independent mathematical discoveries.
+Assessment of /workspace/repairs/2/{RESULT.md,VERIFICATION.md,SLOGAN.txt}. The frozen Finding's 'exponentially thin normal layer' sentence is false as a thickness assertion: the exact conditional tail implies Pr(D_n≤a_n | D_n>0)≤(2n−2)a_n/h_n, tending to zero for a_n=o(1/n), including exponentially small thickness. The repair distinguishes exponentially small volume, n^(-1) depth and n^(-1/2) imbalance. For the corrected theorem, weighted Hall constraints reduce to the singleton inequalities (any two rows see all columns); at most one strict violation is possible. Orthogonal projection along the doubled centered coordinate normal preserves each block sum, nonnegativity follows from delta≤min(p_i,q_i), and each other paired sum stays ≤1−delta+delta/(n−1). Therefore it is the nearest point even at cell boundaries. On the cap the initially independent marginal deficits have joint density proportional to u^(n−2)v^(n−2) restricted to u+v<1 (they are no longer independent there). Jacobian S gives independent S and W with the displayed beta laws. Integrating the triangle gives one cap probability 1/binom(2n−2,n−1); the depth tail gives moments and the mean-zero tight frame of normalized doubled normals has operator Pi_{H+}/(n−1). Consequently the ambient covariance eigenvalues and null dimensions agree. Gamma CLT and the ratio map give sqrt(8n)(W−1/2) asymptotically standard normal, independently of (2n−2)(1−S); S→1 and the sign of 1−2W do not change the Gaussian assertion. A layer c_n/n for c_n→∞ captures asymptotically all conditional mass; a layer o(1/n) captures none. Independent exact replay python /workspace/branches/independent_math_1_4.py 2 checks all product points of the quarter grid at n=3,4,5, including the variational nearest-point inequality against every surviving vertex for cap points, and covariance entries at n=3..24. The frozen checker was inspected, not run. Its QPs start at the proposed projection, and the factorial checks independently test cap normalization but not moment denominators; the replacement scientific notes now state these limits.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The repair credits the prior crown contact point and its mechanical cap-interpolation consequences, rather than claiming original projection or scalar/vector radial statistics in isolation. The supported distinct claim is the exact conditional joint geometry of depth and transverse imbalance and its asymptotic independence at distinct scales. No compared source computes or gives an applicable stronger statement for this observable on these caps.
+
+## value
+
+PASS
+
+For the natural crown metric–volume example, the surviving exact conditional joint law distinguishes the distribution of an interior point's normal error from its transverse imbalance and quantifies both with scales and a joint limit. Knowing only the apex gap and cut volume does not give that geometry. This is a useful exact description of typical points under the rare-event sampling law; it does not present the standard beta/gamma identities or cap homothety as independent research contributions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

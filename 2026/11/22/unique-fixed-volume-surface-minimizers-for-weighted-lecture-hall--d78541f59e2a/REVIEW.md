@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof directly recovers the known Euclidean facet-area formula from the barycentric gradients of the simplex. The objective in log reciprocal weights has a strictly positive Hessian on every nonzero direction and is coercive under the zero-sum constraint. The unique stationary point solves the stated tridiagonal equations; reversal and a strict comparison of the first two derivatives force the endpoint inequalities. The dimension-three radical solution follows by a one-variable differentiation and exact algebra. The included rational-Gram checker reproduced 900 distinct weight instances and the numerical stationarity diagnostic passed all 11 tested dimensions. These computations corroborate, but do not replace, the all-parameter analytical proof.
+PASS
 
-## Originality — PASS (best-knowledge)
+The simplex has volume ∏s_i/n!, and each facet has area nV times the norm of the gradient of the vanishing barycentric coordinate. This gives precisely the two end terms and the adjacent-pair norms in the stated objective. Normalize the product, and use t_i=log(1/s_i) with ∑t_i=0. Weighted Cauchy–Schwarz bounds the second directional derivative of each edge norm below by (e^{2u}h²+e^{2v}k²)/sqrt(e^{2u}+e^{2v}), so the full Hessian is positive definite. The objective dominates exp(max t_i), and max t_i≥||t||∞/(n−1) on the constraint, proving coercivity. Equating derivatives and summing gives the Euler system with multiplier M_n/n; strict convexity gives its unique positive normalized solution. Reversal preserves the objective. If y_1≥y_2, for n≥3 the difference of the first two derivatives is positive because the subtracted term y_2²/sqrt(y_2²+y_3²) is strictly smaller than y_2≤y_1 and the shared-edge contribution is nonnegative. For n=2 reversal yields equality; for n=3 the reduced equation 2r²−1=sqrt(1+r²) selects r=√5/2, giving M_3=5(2/√5)^{1/3}. Scaling proves the ratio and its exact equality condition at every prescribed positive volume. The finite Gram and numerical KKT checks in VERIFICATION.md were inspected, not rerun; they are not needed for the proof.
 
-The directly overlapping 2026 lecture-hall metric result already gives the **full arbitrary-weight surface-area identity**, which is appropriately credited. It studies Steiner coefficients and power-weight asymptotics, not the fixed-volume global minimizer, exact rigidity of the endpoint weights, or the three-dimensional shape ratio. Olsen's 2018 survey and Brändén–Solus's 2019 paper emphasize enumerative and algebraic properties of this family. Related anisotropic minimization of even-cycle root polytopes and cyclic chainlink polytopes concerns geometrically different objects, so neither implies the new exact optimization result. A broad unindexed orthoscheme isoperimetric theorem could still affect priority.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-For the complete natural family of positive real lecture-hall weights in every dimension, the finding supplies the sharp fixed-volume Euclidean surface-area principle, a unique computable optimizer, and strict shape constraints that disprove the naive equal-leg optimum except in dimension two. The exact three-dimensional extremal ratio illustrates a genuine nonuniform geometric phenomenon. This is a family-wide variational classification and a motivated metric invariant, not a recomputation of the previously known boundary formula.
+The known exact area formula and standard convex optimization tools are not the contribution. The distinct supported finding is the all-dimensional fixed-volume optimizer with shape, sharp ratio and equality conditions. No inspected antecedent states or already implies that classification.
 
-## Scope and priority limits
+## value
 
-The result does not optimize discrete integer sequences or claim radical closed forms in dimensions greater than three. The directly relevant previously published surface formula is not new. The literature comparison is a best-knowledge priority assessment and is not independent validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Weighted chain simplices are a natural Euclidean family with a known general surface formula. That formula alone does not distinguish the standard equal-weight shape from its competitors at fixed volume. The uniqueness and strict end-weight comparison resolve this for every dimension, and the Euler characterization determines the sharp scale-free constant even without radicals for n≥4.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

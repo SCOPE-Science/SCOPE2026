@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:57:24.920973Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md §§Finding, Assumptions and Proof",
+        "ternary_lottery_witnesses.json, all entries",
+        "verify_ternary.py and VERIFICATION.md, inspected without running supplied code",
+        "/workspace/branches/frozen_replay.py, ordinal 3"
+      ],
+      "rationale": "Exhaustively and independently checked the supplied JSON as data. The canonical ordering is the lexicographically least sorted sequence of base-3 column codes under row permutations. Explicitly expanded every representative under both row and column permutations, marking all 531441 labeled profiles with no intersection between representative orbits. Checked each positive unique support and exact normalization with cleared integer denominators; checked the six expected envy inequalities, EFX by removal of each comparison bundle's least-valued good for the evaluating agent, and nondomination against the own-utility vectors of all 81 complete allocations. All 5053 witnesses pass, including the illustrative lottery; 392 profiles have all three levels in every row, and the support histogram is (1123,2091,1772,67). Relabeling preserves every condition, so this is exhaustive for the claimed finite domain. Replay: `python3 /workspace/branches/frozen_replay.py 3`.",
+      "residual_risks": [
+        "This proves existence on the specified alphabet only. The 67 four-point certificates do not show that any profile requires four. Deterministic PO does not imply fractional PO."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bu et al. prove a positive result with stronger fractional PO and more agents, but the singleton alphabet is bi-valued.",
+          "Panchapakesan–Vaish have a positive three-agent result for lexicographic goods, not the fixed additive alphabet. Aziz rules out the general positive-additive guarantee at this market size, with values outside {1,2,3}."
+        ],
+        "reasoning": "None of these larger theorems dominates all of the frozen hypotheses and conclusion simultaneously; in particular, fractional PO on a narrower valuation class does not cover this theorem.",
+        "searches": [
+          "Aziz arXiv:2608.08966v1, Theorem 5",
+          "Bu et al. arXiv:2410.06877v2, Theorem 5.1",
+          "Panchapakesan–Vaish arXiv:2610.14994v1, Theorems 3.1 and 4.4",
+          "Resultary 2026/10/25, alphabet-cardinality boundary Finding"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 2026/10/25 alphabet-cardinality record",
+        "Aziz arXiv:2608.08966v1",
+        "Bu et al. arXiv:2410.06877v2",
+        "Panchapakesan–Vaish arXiv:2610.14994v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The three levels in the local negative witness's first row have unequal gaps, unlike {1,2,3}; ordering alone does not preserve comparisons of additive bundle sums.",
+          "Positive rescaling cannot collapse a row using three distinct values to two; 392 canonical profiles have that property in every row.",
+          "Neither the general subsidy reduction nor simple convexity in the six ordered envy coordinates establishes the stated guarantee with four support points."
+        ],
+        "reasoning": "The match in agent and good count does not entail a result on this alphabet, and the finite check resolves a remaining compatibility question rather than filling in a number already dictated by a theorem.",
+        "searches": [
+          "Comparison of the local alphabet-cardinality witness with the frozen exact value set",
+          "Bu et al. definition of bi-valued utilities and Theorem 5.1",
+          "Panchapakesan–Vaish Theorem 3.1 and Corollary 3.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Aziz §6 imposes the same three conditions, with ordinary PO and complete allocations, and rules out an EF convex mixture in the displayed instance.",
+          "The closest local record also uses the same definitions, but its no-lottery witness uses common alphabet {1,3,4}.",
+          "Panchapakesan–Vaish's subsidy reduction rephrases construction, but it is conditional on appropriate envy-freeable allocations after agent-specific rescaling."
+        ],
+        "reasoning": "Complete EFX plus deterministic PO, not EFX with unassigned goods, EF1 or separate ex-post witnesses, is the required support restriction. Exact matching definitions do not make the underlying valuation classes coincide.",
+        "searches": [
+          "Local Resultary: three agents four goods ex-ante EF ex-post EFX Pareto optimal lotteries, trivalued singleton values",
+          "Literature lookup for ex-ante EF, EFX, PO and trivalued goods",
+          "Aziz §6 and Panchapakesan–Vaish Theorem 3.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The local record's witness rows are (4,3,3,1), (4,3,3,3), (4,4,4,3), not a table of witnesses or a guarantee on {1,2,3}.",
+          "Aziz's table deals with one negative profile using values up to five. The subsidy paper gives a generic support bound n(n−1)+1, seven here.",
+          "There is no numerical sequence invariant to check in OEIS: the applicable exact-table check is for a matching finite-domain census or certificate, not a sequence of values."
+        ],
+        "reasoning": "The inspected exact data do not encode the frozen domain's 5053 witness lotteries or a matching analytical existence theorem.",
+        "searches": [
+          "Local Resultary ranked comparison and matched 2026/10/25 record",
+          "Exact valuation matrices and support bounds in Aziz §6 and Panchapakesan–Vaish Corollary 3.1"
+        ]
+      },
+      "rationale": "The distinct finding is the joint EF/EFX/integral-PO guarantee, with four support points sufficient, on the fixed smallest consecutive positive three-level alphabet at the four-good, three-agent size. The closest indexed material gives a three-level counterexample on a different numerical alphabet; available positive theorems restrict the valuations in different ways or have extra hypotheses. No inspected prior statement or mechanical implication establishes this fixed-domain theorem.",
+      "residual_risks": [
+        "Bounded comparison does not establish bibliographic priority or rule out unpublished finite censuses."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different numerical alphabet; does not resolve the fixed positive domain",
+          "evidence": "Two levels suffice for compatibility; its three-level no-lottery witness uses {1,3,4}.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-three-singleton-value-levels-are-necessary-and-sufficient-for-fa--29d907b084eb/RESULT.md",
+          "material_read": "RESULT.md, offsets 0–8883, Finding and proof/witness",
+          "method": "Configured local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Three singleton value levels are necessary and sufficient for failure",
+          "trigger": "Strongest local match for the same size and all three fairness/efficiency criteria"
+        },
+        {
+          "assessment": "Shows incompatibility on a larger domain, not the claim",
+          "evidence": "Witness rows (1,1,2,4), (4,5,4,4), (3,4,2,5) and ruling out all lotteries over complete EFX/PO outcomes.",
+          "identifier_or_url": "https://arxiv.org/pdf/2608.08966v1",
+          "material_read": "§6, Theorem 5 and proof, pp. 19–21",
+          "method": "OA PDF passage inspection",
+          "title": "Best-of-Both-Worlds Fairness and Pareto Optimality",
+          "trigger": "Same three conditions and same agent/good parameters"
+        },
+        {
+          "assessment": "Stronger efficiency, narrower value types",
+          "evidence": "Theorem applies to a two-value set and grants an ex-ante EF, ex-post EFX/fPO lottery.",
+          "identifier_or_url": "https://arxiv.org/pdf/2410.06877v2",
+          "material_read": "pp. 2, 4, and §5 Theorem 5.1, p. 10",
+          "method": "OA PDF passage inspection",
+          "title": "Best-of-Both-Worlds Fair Allocation of Indivisible and Mixed Goods",
+          "trigger": "Broader positive best-of-both-worlds guarantee"
+        },
+        {
+          "assessment": "Conditional general reduction; different unconditional valuation class",
+          "evidence": "Theorem 4.4 covers lexicographic goods; Corollary 3.1's general support bound is seven at three agents.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.14994v1",
+          "material_read": "p. 7, Theorem 3.1 and Corollary 3.1; p. 12, Theorem 4.4",
+          "method": "OA v1 PDF passage inspection",
+          "title": "Best-of-Both-Worlds Fair Division via Subsidies",
+          "trigger": "Plausible general reduction and positive three-agent EFX/PO guarantees"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, certificate and independent orbit/utility check",
+        "Aziz Theorem 5",
+        "Resultary 2026/10/25 three-level counterexample",
+        "Bu et al. Theorem 5.1"
+      ],
+      "rationale": "The first consecutive positive integer alphabet beyond the known bi-valued guarantee settles a meaningful compatibility boundary in the same small market that already permits impossibility. The comparison with the nearby {1,3,4} counterexample shows that the actual levels, not just their cardinality, matter. The certificate gives an exact finite benchmark for identifying which domains allow ex-ante fairness with complete EFX/PO support, plus a usable uniform support bound.",
+      "residual_risks": [
+        "No threshold is proved for general triples of real values or more goods, and there is no optimality claim for the support bound."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

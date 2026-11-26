@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:00:21.869522Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 7–119; independent analytic reconstruction. CHECK.py and VERIFICATION.md read, not executed; recorded numerical outputs are supplementary only."
+      ],
+      "rationale": "Both marginals integrate to one by circular translation. The projection onto uniforms commutes with the reflected-walk transition, so the pure n-step density discrepancy is scaled by ε^n; the reflected increments alternate signs, giving the stated lag kernel and TV bound. Markov conditioning at the two boundary states gives the bound by the essential density discrepancy; endpoint rectangles shrinking to Lebesgue points give equality even for infinite supremum. For maximal correlation the corresponding centered operator norm is on real sine/cosine blocks with eigenvalues ±ε|fhat_a(k)|. Riemann–Lebesgue and the strict triangle inequality yield a attained nonzero maximum less than one for the unmixed generator. The oscillatory gamma integral with the tail integrated by parts gives leading phase exp(−iπ(1−a)/2) and power k^(−(1−a)), uniformly locally in a with error O(k^−1). If n(1−a)>1, the lag Fourier series is absolutely summable. Otherwise its real coefficients are eventually positive and bounded below by a constant times k^(−n(1−a)), including at odd n where the limiting phase has positive cosine. At zero the Fejér means then diverge, since the weights at k up to half the order are at least 1/2. This rules out essential boundedness also at equality. For even lag the nonnegative series attains the absolute discrepancy supremum at zero, and Parseval gives the two-step rational formula. At a_m the summed error after raising magnitudes to power 2m is bounded uniformly by a summable k^(−1−a_*) for a positive a_* near the boundary, leaving the zeta pole with residue ε^(2m)c(a_m)^(2m)/m in the variable a_m−a. Taking a=1−1/L for L≥2 and sufficiently small ε gives the claimed separation; L=1 allows any a>0.",
+      "residual_risks": [
+        "Interior parameters only; the residue is for fixed ε and m. No exact odd-lag supremum is asserted.",
+        "The description of copula smoothness is at the CDF level: the first partials are continuous (differences of a continuous primitive of the periodic density), not an assertion of a bounded or smooth density or of C² across the singular line."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Longla gives sufficient bounded-density and positive-minorization criteria, and distinguishes upper and lower ψ under mixtures.",
+          "Cohen–Lin give a symmetric convolution example with ρ-mixing but without Doeblin; here the kernel is Doeblin and the delayed quantity is upper ψ."
+        ],
+        "reasoning": "Eventual mixing criteria assume boundedness at some lag instead of identifying the first such lag. The other separation reverses the relevant presence of Doeblin and does not estimate a singular cusp cutoff.",
+        "searches": [
+          "Longla doi:10.1007/s44199-022-00045-1 §2.2.1 and arXiv:1310.8241 Theorems 3–4; Cohen–Lin arXiv:2601.17738; Lalancette–Zimmerman Fourier and product sections."
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2204.04336, 2509.26635, 1310.8241 and 2601.17738",
+        "doi:10.1007/s44199-022-00045-1",
+        "Targeted public search and local Resultary exact-mixing search, including 201ee12aa592 and d3cec9569f5f."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The generic convolution product provides the lag Fourier coefficients; the positivity of the even coefficients plus the norm identity yields the series where summable.",
+          "No inspected broader result gives the strict power-cusp cutoff (especially endpoint/odd-lag necessity) or its parameter-uniform critical residue."
+        ],
+        "reasoning": "Young or absolute convergence alone provides only sufficiency. Essential unboundedness at the reciprocal-integer boundary and the pole require the phase and uniform remainder analysis; neither is entailed by minorization or by a spectral correlation bound.",
+        "searches": [
+          "arXiv:2509.26635 signed-sum product and Fourier passages; Longla Theorem 2.2.3 and upper/lower ψ distinction; Resultary lagwise mixing search."
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Lalancette–Zimmerman (2022) §2.1 equation (4) covers the same density construction for arbitrary univariate generators. Their 2025 follow-up gives signed sums under the bivariate copula product.",
+          "The power generator here is mixed with uniform regeneration; the even-lag walk is additive in reflected increments, not the same as an ordinary additive one-step walk."
+        ],
+        "reasoning": "These are equivalent formulations of the underlying copula and product, not of the claimed boundedness threshold and boundary asymptotic. The upper relative-mixing coefficient is not lower ψ or total variation. The exact assigned Resultary hit is the record itself, not a prior match.",
+        "searches": [
+          "Resultary and targeted public literature search for delayed upper-ψ, singular circle power-cusp kernels, alternating signed convolutions and mixing coefficients; arXiv:2204.04336 and 2509.26635."
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 201ee12aa592 gives spectral/uniform mixing envelopes for an exponential-quadratic copula; d3cec9569f5f gives exact absolute-regularity coefficients and a lagwise extremizer switch for a ratio-polynomial copula."
+        ],
+        "reasoning": "Neither exact entry concerns this singular generator or states the upper-ψ infinite plateau, cutoff, or pole. These are related but different families, and same-day indexing does not establish priority.",
+        "searches": [
+          "Resultary for sharp finite relative-mixing lag, exact even-lag coefficients and boundary poles of circle copulas; exact lagwise coefficients and envelopes in closely related local matches."
+        ]
+      },
+      "rationale": "The rotating/reflected copula construction, signed convolution product and relevant Fourier representation are covered; regeneration and the spectral formula are direct operator consequences, not independently novel ingredients. The retained distinction is the quantitative cusp calculation: first finite relative-mixing lag, including odd lags and equality, exact finite even-lag values with the explicit critical pole, and the resulting arbitrarily long initial plateau of infinite ψ under arbitrarily small one-step ρ. No inspected statement establishes that classification for this generator.",
+      "residual_risks": [
+        "Classical singular convolution literature may give an equivalent boundedness or residue result under other notation. A bounded search cannot certify priority, and the general construction and lag convolution are already covered."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the parent construction, not the cusp-specific classification in the cited passage.",
+          "evidence": "c_f(u)=f((sum_j u_j) mod 1) for arbitrary univariate densities.",
+          "identifier_or_url": "https://arxiv.org/abs/2204.04336",
+          "material_read": "PDF p. 3, §2.1 Eq. (4), offset about 7800.",
+          "method": "OA PDF passage.",
+          "title": "A new family of smooth copulas with arbitrarily irregular densities",
+          "trigger": "Same copula family."
+        },
+        {
+          "assessment": "Substantial coverage of mechanism, not a stated sharp power-cusp mixing boundary.",
+          "evidence": "The bivariate family is closed under the copula product, with generator the density of a signed sum of independent draws.",
+          "identifier_or_url": "https://arxiv.org/abs/2509.26635",
+          "material_read": "Fourier passage PDF p. 9 (offset 37800); bivariate product PDF p. 16 (offset 72722).",
+          "method": "OA PDF passages.",
+          "title": "A Tractable Family of Smooth Copulas with Rotational Dependence",
+          "trigger": "Broader convolution and Fourier mechanism."
+        },
+        {
+          "assessment": "Sufficient eventual conditions and distinct lower-ψ guarantees, not exact lag classification.",
+          "evidence": "Bounded upper lag density and a lag density bounded away from zero imply ψ-mixing; upper ψ does not automatically inherit mixture lower-ψ conclusions.",
+          "identifier_or_url": "https://doi.org/10.1007/s44199-022-00045-1; https://arxiv.org/abs/1310.8241",
+          "material_read": "Theorem 2.2.3 §2.2.1, PDF p. 7; previous mixture article definitions and Theorems 3–4, PDF pp. 3–4.",
+          "method": "OA PDF passages.",
+          "title": "On Some Mixing Properties of Copula-Based Markov Chains; On Mixtures of Copulas and Mixing Coefficients",
+          "trigger": "General copula relative-mixing and mixture criteria."
+        },
+        {
+          "assessment": "Different separation and no matching cusp threshold.",
+          "evidence": "Produces a symmetric circle example with ρ-mixing and without Doeblin.",
+          "identifier_or_url": "https://arxiv.org/abs/2601.17738",
+          "material_read": "PDF p. 1 discussion of the main results, offset about 500.",
+          "method": "OA PDF passage.",
+          "title": "Doeblin’s Condition, ρ-Mixing and Spectra of Convolution Operators on the Circle",
+          "trigger": "Closest public circle convolution separation."
+        },
+        {
+          "assessment": "Material theme overlap; different objects or coefficients.",
+          "evidence": "Exponential-quadratic spectral and uniform-density envelopes; ratio-polynomial total-variation extrema, respectively.",
+          "identifier_or_url": "Resultary 201ee12aa592 and d3cec9569f5f",
+          "material_read": "RESULT.md Findings at mirror offsets about 650 and 500, respectively.",
+          "method": "Local Resultary mirror.",
+          "title": "Sharp spectral/uniform mixing envelopes and sharp lagwise absolute-regularity extrema (two related records)",
+          "trigger": "Closest distinct local exact mixing results."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md theorem and §§3–5 of proof; Longla relative-mixing comparisons and Cohen–Lin circle separation."
+      ],
+      "rationale": "The parameterized example gives a sharp counterexample to interpreting rapid total-variation regeneration or small maximal correlation as control of relative event dependence. It separates the quantities for a prescribed number of lags, then identifies mathematically how the separation ends, including the precise blow-up of even-lag values. The cutoff and transition are meaningful for interpreting uniform density error in singular copula models, irrespective of the known Fourier and regeneration tools used to derive them.",
+      "residual_risks": [
+        "Specific power cusp on the circle; no universal delay under all forms of regularity and no empirical statistical claim."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

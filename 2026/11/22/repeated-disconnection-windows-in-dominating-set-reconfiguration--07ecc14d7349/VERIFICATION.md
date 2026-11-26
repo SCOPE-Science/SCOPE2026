@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Finite verification and mathematical scope
+# Independent mathematical audit
 
-The standalone `verify.py` constructs the complete-graph subdivision directly from its closed neighborhoods. It independently enumerates all vertex masks for leaf counts 2 through 5, checks domination, computes the all-cardinality census as a cross-check, and compares each budget-restricted addition/deletion graph's component count against the theorem. Run `python3 verify.py` with Python 3 standard library.
+## correctness
 
-Observed replay: `n 2 subsets 8 dominating 5 component_budgets 3 PASS`; `n 3 subsets 64 dominating 39 component_budgets 5 PASS`; `n 4 subsets 1024 dominating 513 component_budgets 8 PASS`; `n 5 subsets 32768 dominating 12305 component_budgets 9 PASS`; final `VERIFY_OK`. These are finite checks only; the all-integer theorem uses the rigorous domination criterion, minimal-set classification and explicit TAR paths in `RESULT.md`. No third-party or independent mathematical audit was performed.
+PASS
+
+The token graph is the vertex-edge incidence graph of K_n. With omitted originals R of size at least two, every internal edge-vertex of R must be selected and these vertices suffice to dominate R. With one omitted original, an incident selected edge lets its other endpoint be deleted, so this case never gives a minimal state. With none omitted, the only minimal state is the all-original set U. Each exact internal-edge state D_R is minimal: dropping an edge leaves it undominated; dropping an original leaves an unselected edge from it to R undominated. The sizes start at b_2=n-1 and b_3=n and rise by r-1. At budget n, distinct minima indexed by pairs have union size n-|R∩R'|+2≥n+1, so no common size-n neighbor; every nonminimal size-n state attaches to exactly one minimum. U and any triples at that ceiling are isolated. At k≥n+1 a subceiling D_R with |R|≥3 can add an omitted original and delete its incident selected edge-vertices, reaching D_(R minus that original) with peak b_r+1. Pair minima connect to U with peak n+1. Thus all non-ceiling minima and all nonminimal states lie in one core; ceiling minima are isolated. This also covers n=2,3, empty budgets, and budgets beyond the vertex count. In the prose the n-3 exceptional budgets are the losses after first connectivity, not a count including the two initial nonempty disconnected budgets for n≥4.
+
+## originality
+
+PASS
+
+The supported distinct claim is the all-budget ordinary-domination TAR component census and repeated losses after first connectivity. The minimum domination number, incidence-graph identification, static size counts and general reachability methods are not credited as new. No distinct covering claim was found in the inspected evidence.
+
+## value
+
+PASS
+
+The count exposes an unbounded number of distinct connectivity losses caused by new maximal-budget minimal states, despite continued connectivity of the old core. This is a structural obstruction within a natural infinite graph family, not a static enumeration: it gives each exceptional budget, counts its isolated states, and separates first from permanent connectivity at linear versus quadratic scales.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

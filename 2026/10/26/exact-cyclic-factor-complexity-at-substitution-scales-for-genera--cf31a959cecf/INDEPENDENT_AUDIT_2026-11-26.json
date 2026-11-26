@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:03:16.720035Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–48",
+        "Frozen VERIFICATION.md, verify.py and counts.csv (29 data rows)"
+      ],
+      "rationale": "At length N=q^k a factor crosses at most one aligned block boundary. Since precisely 00, 01, 10 occur as adjacent letters of the block coding, the suffix-plus-zeros and zeros-plus-prefix families exhaust the factors, including aligned blocks and the all-zero word. Shifting through an internal zero preserves the necklace and passing a one decreases the suffix weight or increases the prefix weight by one, so each family supplies one class at each of its weights. The two interior-weight representatives reverse each other since the substituted one-block is palindromic. Its one-positions are the base-q expansion with digits (q−1) times the binary digits of the one index; the internal gap at index j is (q−2)q^{v_2(j)}+1 by carrying. For the prefix representative, the complementary wraparound gap is the only gap congruent to 1 modulo q−1, so rotations cannot shift its position relative to the sequence of internal gaps. The two classes coincide exactly when the latter sequence is its own reversal. If m is a power of two then v_2(j)=v_2(m−j) throughout. For odd m>1, j=1 fails, and for m=2^s u with odd u>1, j=2^s fails. This includes the empty gap list at m=1 and handles k=0 with only the two extreme classes. Counting gives 2^{k+1}−k. The suffix family has N distinct linear words from their differing terminal zero-run lengths, proving the ratio limit without an assumption on ordinary complexity.",
+      "residual_risks": [
+        "The finite checker and its generated table were inspected, not rerun. The comparison at arbitrary base and level uses the two-family and gap argument, not extrapolation from the table."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Proposition 17 gives c_x(K^n)=2 for an aperiodic fixed point of a binary uniform substitution with images u0v and u1v. The two Cantor images disagree at both endpoints. The indexed 2-Abelian article abstract treats regularity in another quotient."
+        ],
+        "reasoning": "The one-discrepancy theorem does not specialize to these images, and the general inequality c≤p cannot yield the vanishing ratio. The unavailable 2-Abelian full text is not counted as negative evidence.",
+        "searches": [
+          "arXiv:1402.5843, §5.1, Proposition 17",
+          "Generalized Cantor sequence complexity, DOI 10.1016/j.tcs.2022.09.025"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1402.5843",
+        "arXiv:1703.04063",
+        "DOI 10.1016/j.tcs.2022.09.025 (abstract only)",
+        "Resultary c6514954a16e and 1c52709974f8"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The square-root lengths (b−1)b^j cannot be powers of b for b≥3, and a classification of that special subset supplies no rotation test for all factors here. No inspected prior theorem gives the distinction between interior weights with palindromic and nonpalindromic ruler-gap prefixes."
+        ],
+        "reasoning": "The actual missing implication is the per-weight reversal-versus-rotation collision criterion after anchoring the exceptional gap; it does not follow by reindexing any compared formula.",
+        "searches": [
+          "arXiv:1402.5843, p. 4 and Proposition 17",
+          "Resultary c6514954a16e and 1c52709974f8, Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cyclic complexity and conjugacy of factors are exactly the rotation-only quotient used here. Abelian weight profiles and k-Abelian endpoint/count data are different. Even at q=3,n=3 the rotated factors 001 and 010 have different scattered 01 counts (2 versus 1), so the 2-binomial statistic is not the necklace label."
+        ],
+        "reasoning": "Counting oriented cyclic gap sequences modulo cyclic displacement is an equivalent formulation. Neither the Abelian nor the 2-binomial quotient directly counts those gap necklaces.",
+        "searches": [
+          "Cyclic Complexity of Words, arXiv:1402.5843, p. 4",
+          "On the k-Abelian Complexity of the Cantor Sequence, arXiv:1703.04063, pp. 1–2",
+          "Resultary 1c52709974f8, Finding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-morphism square-root record gives rotations of one word among nonzero square roots at length (b−1)b^k, not all contiguous factors at powers of b. The other indexed record gives 2-binomial profiles at 3^k. The supplied counts.csv is the frozen record's own verification output, not an independent prior database match."
+        ],
+        "reasoning": "The nearest inspected matches do not provide the asserted count at the assigned scale in the specified quotient. This is bounded indexed evidence, not a universal absence claim.",
+        "searches": [
+          "Local Resultary semantic lookup for generalized Cantor word rotation/necklace count at geometric lengths; matches c6514954a16e and 1c52709974f8",
+          "Classical and generalized Cantor complexity sources arXiv:1703.04063 and DOI 10.1016/j.tcs.2022.09.025"
+        ]
+      },
+      "rationale": "The credited claim is the substitution-scale rotation count, particularly the exact power-of-two criterion for a single class at interior weight. The closest cyclic-complexity theorem inspected has a one-site-discrepancy hypothesis absent here. The closest same-word and same-scale results classify different equivalence relations or use a distinguished subset of words at different lengths. No source inspected gives or mechanically implies the frozen per-weight classification or total. The ratio limit is a corollary, not a separate basis for originality.",
+      "residual_risks": [
+        "The inaccessible 2-Abelian article could contain a relevant ancillary statement not visible in the abstract. The Resultary and primary-source checks are bounded; unindexed necklace-complexity work remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_INVARIANT_DIFFERENT_HYPOTHESIS",
+          "evidence": [
+            "Defines the same conjugacy quotient and establishes the geometric-scale count in a one-discrepancy setting, not the Cantor two-discrepancy setting."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1402.5843",
+          "material_read": "p. 4 (offset 13900), §5.1 Proposition 17, p. 13 (offset 49900)",
+          "method": "OA primary PDF passages; compare exact image hypothesis",
+          "title": "Cyclic Complexity of Words",
+          "trigger": "Identical invariant and theorem on uniform substitutions at their scales"
+        },
+        {
+          "assessment": "SAME_WORD_DIFFERENT_QUOTIENT",
+          "evidence": [
+            "Theorem 2 concerns 3-regularity of k-Abelian complexity, which uses endpoint and short factor-count information."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1703.04063",
+          "material_read": "pp. 1–2 (offset 500), definitions and Theorem 2",
+          "method": "OA primary PDF passages; compare equivalence relations",
+          "title": "On the k-Abelian Complexity of the Cantor Sequence",
+          "trigger": "Exact classical Cantor morphism and complexity results"
+        },
+        {
+          "assessment": "ABSTRACT_ADJACENT_FULL_TEXT_UNAVAILABLE",
+          "evidence": [
+            "The abstract describes regularity results for 2-Abelian complexity."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.tcs.2022.09.025",
+          "material_read": "Indexed abstract only; publisher full-text attempt returned 403 and no lawful repository copy was located in the bounded lookup",
+          "method": "Bibliographic and OA availability check; no full-text inference",
+          "title": "On the 2-Abelian Complexity of Generalized Cantor Sequences",
+          "trigger": "Generalized Cantor sequences across bases"
+        },
+        {
+          "assessment": "ROTATIONAL_RESULT_ON_DIFFERENT_WORD_SET_AND_SCALE",
+          "evidence": [
+            "Nonzero square roots of length (b−1)b^k rotate to one word."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-square-root-multiplicities-in-generalized-cantor-words--c6514954a16e",
+          "material_read": "Mirrored RESULT.md, Finding",
+          "method": "Local Resultary mirror; compare factor universe and length",
+          "title": "Exact square-root multiplicities in generalized Cantor words",
+          "trigger": "Same morphism and explicit rotational characterization"
+        },
+        {
+          "assessment": "SAME_SCALE_DIFFERENT_QUOTIENT",
+          "evidence": [
+            "Theorem records profiles of weight and scattered 01 counts, not conjugacy classes."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-ternary-length-2-binomial-spectra-of-the-binary-cantor-word--1c52709974f8",
+          "material_read": "Mirrored RESULT.md, Finding",
+          "method": "Local Resultary mirror; compare statistics",
+          "title": "Ternary-length 2-binomial spectra of the binary Cantor word",
+          "trigger": "Same classical word and same ternary-power lengths"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 7–14 and 29–48",
+        "arXiv:1402.5843, definition and related substitution-scale theorem"
+      ],
+      "rationale": "Rotation classes are a standard refinement of weight classes and a coarsening of ordinary factor complexity. The natural substitution scales give a complete exact comparison for every base, including a nontrivial criterion for when the two reflected candidates are actually rotations and a vanishing fraction of distinct linear factors after quotienting. The class count and its per-weight structure provide useful test data and a structural characterization, not just selected computed values.",
+      "residual_risks": [
+        "The result does not evaluate all lengths or prove a limit over all lengths; the comparison is at powers of the substitution length."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

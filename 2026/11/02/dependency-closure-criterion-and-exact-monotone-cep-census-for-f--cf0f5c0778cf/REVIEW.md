@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Every Boolean congruence on a finite powerset is indexed by the union of its kernel atoms. Toggling one input atom proves that the kernel is stable under the unary operator exactly when its atoms are forward closed under the essential-dependency graph. Every subalgebra arises from a partition. The restriction of a global kernel contains a local block exactly when it contains every atom of that block. The least global compatible kernel extending a local block set is the reachability closure, yielding both implications of the criterion. The general proof does not depend on finite tests. The independent direct-congruence and graph algorithms agree for all 8,000 monotone maps, as well as 500 seeded arbitrary maps; exact Burnside counts agree with canonical orbit enumeration.
+PASS
 
-## Originality — PASS, with explicit risks
+A Boolean congruence is determined by the atoms in its kernel ideal, and f respects it iff those atoms are forward closed: necessity uses a witnessing single-atom toggle, and sufficiency factors any equivalent pair into such toggles. On an invariant partition algebra the analogous statement uses whole blocks and the induced dependency graph. Restriction of a global kernel collapses exactly the blocks wholly contained in it, so the least globally compatible kernel containing the local blocks extends the local congruence iff reachability has not swallowed an outside block. All Boolean subalgebras arise from partitions; no monotonicity is needed. For the census I generated scalar tables by enumerating antichains of minimal true inputs (20) and tested actual congruence relations by related pairs and exact restriction, with no graph criterion or frozen source code. The complete labelled counts reproduced 8000, 5249/2751 pass/fail, 4273/2586 normal pass/fail, 4520 nonadditive passes and 729 additive passes. Canonical conjugates gave 1440/492 total/failing orbits; fixed totals/failures were 8000/2751, 200/65 and 20/3 for identity, transpositions and 3-cycles. The auxiliary normal closure totals were 32/13 pass/fail.
 
-The closest primary work, Gyenis–Molnár–Öztürk (arXiv:2603.17724v1), establishes CEP phenomena for congruential modal logics but neither the monotone eight-element conditional count nor this graph/partition criterion. Gyenis–Molnár (arXiv:2402.07293v1) constructs CEP-failing varieties with monotonicity-related properties; it does not give the finite enumeration. The particularly close public published-finding corpus census “Eight elements are the sharp finite CEP threshold for Boolean frames” counts all unary functions, including exactly 1,216,800 CEP failures, and gives 45/13 closure-operator counts. Neither total determines the 2,751 monotone failures or 492 failure orbits, and the published general statement does not supply the dependency-closure characterization. It is the strongest coverage risk and was inspected in full. Searches cannot rule out equivalent older finite-algebra dependency tests or tabulations not indexed under this vocabulary.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Monotonicity is a central structural relaxation of additive modal operators in this literature. The first Boolean carrier with possible CEP failure is the smallest natural place to measure whether monotonicity still permits CEP. The 8,000-map exact census, sharp orbit-count refinement, and rigorous distinction between additive and nonadditive CEP-passing maps answer this motivated question, not an arbitrary parameter slice. The general dependency criterion explains obstructions as unwanted collapse of an additional partition block and supplies a reusable decision procedure beyond the census. The work does not assert broad complexity improvements, generated-variety CEP, or historical uniqueness.
+The supported contribution is the partition-relative dependency criterion and the monotone and normal-monotone strata and orbits on the first possible carrier. Neither the first CEP failure carrier nor the unrestricted or normal closure-operator census is new here.
 
-## Limits and independent status
+## value
 
-Prior published unrestricted counts and literature descriptions are not independently re-certified. Finite numerical verification cannot replace the universal proof. Historical-priority risk remains for equivalent terminology; no outside peer or independent audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Isotonicity and normality are intrinsic operator hypotheses in the CEP literature, not artificial filters. The first carrier on which failure is possible gives an interpretable cutoff, and count and orbit frequencies distinguish the consequences of these hypotheses without conflating algebras and varieties. The minimal-kernel reachability criterion also provides an explicit obstruction and an explicit extension when one exists.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

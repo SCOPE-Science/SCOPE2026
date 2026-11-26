@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:40:42.201153Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 3–90",
+        "VERIFICATION.md",
+        "check.py lines 8–79"
+      ],
+      "rationale": "Inverting the selected 2×2 covariance with off-diagonal ρ^(j−i) gives the stated conditional diagonals inside the interval, and the farther covariance coordinate is a multiple of the nearer one outside, so the exterior diagonals reduce to 1−t^distance. After one pivot these latter diagonals increase strictly with distance, including the exact midpoint tie. For ε=1−t, (1−t^k)/(kε) is the average of 1,t,...,t^(k−1), between 1−(k−1)ε/2 and 1. This bounds both factors and the denominator of the bridge term uniformly, even for short gaps. Summing and scaling gives the uniform objective F(x,y)=x²/2+(1−y)²/2+(y−x)²/6 with error O(nε+1/n). Its strictly convex minimum is 1/10 at (1/5,4/5). The discrete greedy domain converges to the two reflected half-edges, including midpoint ties; on (x,1), 0≤x≤1/2, F=1/8+(2/3)(x−1/4)². Compactness and density give exactly the claimed extreme values 1/8 and 1/6 and the limiting optimizing sites (up to reflection), so the ratios are 5/4 and 5/3. Finally 1−t^(j−i) increases strictly with separation, proving unique finite determinant maximization by the endpoint pair. The analytic argument is sufficient; recorded finite checks were inspected, not rerun.",
+      "residual_risks": [
+        "The ratios require n(1−ρ²)→0; fixed ρ and noisy pivots are outside scope. Convergence to the two best greedy sites means convergence to that set, not a preferred reflection."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The frozen comparison credits the generic maximum-residual-diagonal rule, general pivot-order/tie effects, and trace-norm performance analyses. The cited primary passages were not retrieved."
+        ],
+        "reasoning": "These general observations do not determine the kernel-specific optimum and greedy minimum and maximum over ties with uniform control as n and ρ vary.",
+        "searches": [
+          "Liu–Matthies arXiv:1505.06195",
+          "Chen–Epperly–Tropp–Webber arXiv:2207.06503",
+          "RESULT.md lines 95–98"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary indexed findings 4293b65a498d and 579efcd9ed6a",
+        "Baldi Antognini–Zagoraiou DOI metadata",
+        "RESULT.md lines 95–108 and its cited OU and Cholesky references as attributions"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The three-point result compares randomized determinant-weighted choice with sequential residual-diagonal Cholesky, not the deterministic determinant maximizer with the trace-optimal pair. The available OU-design synopsis describes a different noise regime and an unrestricted prediction objective."
+        ],
+        "reasoning": "Neither comparison mechanically yields the two restricted sharp ratios: the grid-uniform bridge limit, allowable greedy sites, and distinct restricted extrema have to be established. The determinant identity itself is elementary and not an originality claim.",
+        "searches": [
+          "Resultary 579efcd9ed6a and 4293b65a498d",
+          "RESULT.md lines 79–101"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Schur-complement trace is the sum of noiseless conditional variances, the grid counterpart of an OU IMSPE criterion. Resultary 4293b65a498d concerns two equally noisy observations and a high-noise separation law. The historical OA attempts did not yield decisive text."
+        ],
+        "reasoning": "Credit the equivalent objective and do not claim the unrestricted location limit as new. The available noisy-model statement does not optimize over the constrained farthest-endpoint choices in the stated limit.",
+        "searches": [
+          "Resultary: exponential covariance two-sensor integrated posterior variance design",
+          "Baldi Antognini–Zagoraiou, doi:10.1016/j.jspi.2010.03.027",
+          "Mukherjee, Purdue dissertation AAI3043760"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 579efcd9ed6a reports a sharp 6/5 comparison for three-point correlation matrices and determinant-weighted sampling. Resultary 4293b65a498d reports noisy OU design."
+        ],
+        "reasoning": "Neither indexed statement tabulates the large-grid noiseless 5/4 and 5/3 envelope. Same-day status of the OU-design hit does not determine priority.",
+        "searches": [
+          "Resultary: Cholesky greedy pivots, trace penalties and determinant comparison"
+        ]
+      },
+      "rationale": "Credit the AR(1) conditional covariance, maximum-residual-diagonal rule, and historical OU design setting to prior work. The supported distinct claim is the sharp simultaneous grid-limit envelope over allowed greedy tie choices and the trace cost of deterministic determinant maximization on this same family. The strongest available related statements do not give these comparisons; this is a bounded judgment, not a priority guarantee.",
+      "residual_risks": [
+        "Historical OU design and cited Cholesky primary passages were unavailable in the lawful retrieval attempts. An unlocated equivalent design or explicit efficiency comparison remains possible; no claim of new OU site placement or generic tie pathology is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Unresolved exact overlap for unrestricted design",
+          "evidence": "Metadata identifies the paper; it proves no noncoverage.",
+          "identifier_or_url": "https://doi.org/10.1016/j.jspi.2010.03.027",
+          "material_read": "DOI citation metadata; no theorem or appendix text",
+          "method": "DOI landing page and targeted lawful OA attempt",
+          "title": "Exact optimal designs for computer experiments via Kriging metamodelling",
+          "trigger": "Prior OU integrated prediction design"
+        },
+        {
+          "assessment": "Plausible design antecedent; no full-text verdict",
+          "evidence": "No decisive passage obtained.",
+          "identifier_or_url": "https://docs.lib.purdue.edu/dissertations/AAI3043760/",
+          "material_read": "Citation and overlap attribution in frozen RESULT.md lines 98 and 107 only",
+          "method": "Targeted OA retrieval unsuccessful",
+          "title": "Optimal designs for estimating the path of a stochastic process",
+          "trigger": "Historical OU/Markov optimal-design priority"
+        },
+        {
+          "assessment": "Materially related, not exact coverage on the available statement",
+          "evidence": "Equally noisy observations, midpoint symmetry and high-noise separation rather than noiseless maximal-diagonal pivot ties.",
+          "identifier_or_url": "2026/11/22/SCOPE-strict-interior-two-sensor-design-and-a-high-noise-separation-la--4293b65a498d",
+          "material_read": "Indexed finding summary",
+          "method": "Local Resultary; targeted mirror request timed out",
+          "title": "Strict interior two-sensor design and a high-noise separation law",
+          "trigger": "Same exponential covariance and two-site prediction objective"
+        },
+        {
+          "assessment": "Related but different comparison on available evidence",
+          "evidence": "Three-point correlation matrices and determinant-weighted random selection, sharp 6/5 bound.",
+          "identifier_or_url": "2026/11/8/SCOPE-sharp-one-fifth-trace-error-gap-between-sequential-Cholesky-pivo--579efcd9ed6a",
+          "material_read": "Indexed finding summary",
+          "method": "Local Resultary",
+          "title": "Sharp one-fifth trace-error gap between sequential Cholesky pivots and determinant-weighted selection",
+          "trigger": "Closest indexed greedy/determinant trace comparison"
+        },
+        {
+          "assessment": "Generic prior overlap credited; exact OU constants not assessed from full text",
+          "evidence": "Frozen comparison attributes general input-order and tie dependence.",
+          "identifier_or_url": "arXiv:2207.06503",
+          "material_read": "Frozen RESULT.md lines 95–106 attribution only",
+          "method": "Targeted OA retrieval did not provide passages",
+          "title": "Randomly pivoted Cholesky: Practical approximation of a kernel matrix with few entry evaluations",
+          "trigger": "Prior generic pivot-order effects"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 14–25 and 48–90"
+      ],
+      "rationale": "This is a natural normalized covariance family with ubiquitous first-pivot ties. The best possible tie still leaves a 25% asymptotic trace penalty, and an endpoint or central start incurs a 2/3 excess over optimal; determinant maximization selects the same asymptotically worst trace choice. These sharp comparisons distinguish criteria and quantify a practical tie-choice effect, beyond identifying the already-studied optimum.",
+      "residual_risks": [
+        "No claim about other ranks, random ties, other kernels, or unconstrained rank-two approximation."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

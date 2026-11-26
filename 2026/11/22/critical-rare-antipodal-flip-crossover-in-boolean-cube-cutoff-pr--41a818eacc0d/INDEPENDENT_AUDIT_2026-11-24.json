@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:22:52.976876Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The continuous-time law is a mixture of the product measures with coordinate means b and −b, where b=exp(−2t/n); the Poisson parity gives the weight difference h_t=exp(−2γ_n t). Walsh orthogonality gives the two binomial terms in the exact chi-square, with the odd levels multiplied by h_t². At the stated time b=a/√n and h_t→h also for θ=∞. The two log likelihoods under uniform measure have joint limit ±aZ−a²/2 (the Taylor remainder is O(n b³)); the exact second moments are bounded, so expectations of absolute deviations converge. Pairing z and −z gives the integral of max(|A(z)|,hB(z)) over positive z. The positive zero of A and B>0 around that zero yield strictness even when the smaller parameter is zero. Gaussian-integrable Taylor bounds give the two late coefficients, with E|Z²−1|=4φ(1). The finite-n law is sandwiched between its antipodal symmetrization and its pure-product endpoint in TV. The early symmetrized profile tends to 1 by applying bounded convergence to min(likelihood,1); the late product profile tends to 0. At each fixed c the two endpoint limits are strictly between 0 and 1, so the order-n scale is genuine even without convergence of the rates. The closing conclusions are for fixed parameters as stated, not a simultaneous limit h→0 and a→0.",
+      "replay": "python3 /workspace/branches/frozen_math_replay.py, check 4: analytic Gaussian tail crossings give 0.206743690615, 0.273066429900, and 0.382924922548 at a=1 for h=0, exp(−1/2), and 1. These diagnostics are not the limit proof. The frozen script was inspected, not executed; 4533 is the recorded finite-check count.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Nestoridi p. 1: uniformly selected k-coordinate flips, cutoff for k=o(n); Collevecchio–Griffiths pp. 1, 5: nonlocal discrete-time models with a three-step analysis; Baran–Šarković p. 1: randomly twisted graphs, no cutoff; folded-edge Finding: optimized gap under a conductance budget."
+        ],
+        "reasoning": "The first two do not give the required likelihood asymptotic with an independent rare full-complement clock; the graph and gap results address different questions. A spectral-gap formula is not a TV profile.",
+        "searches": [
+          "arXiv:1507.05690 (fixed-cardinality subsets)",
+          "arXiv:2002.09059 (long-range cube walks)",
+          "arXiv:2610.21976 (randomly twisted cube)",
+          "2026/10/13/SCOPE-sharp-antipodal-price-threshold-and-edgewise-rigidity-for-folded--bf23d5d98989"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, SLOGAN.txt, METADATA.json, REVIEW.md, VERIFICATION.md, verify.py",
+        "Three local Resultary Findings and the primary literature passages itemized above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The ordinary-cube TV endpoint is classical. The even-cycle fraction-one case gives the cosh functional form. The nonlocal paper's inspected passages concern other step distributions and time scales."
+        ],
+        "reasoning": "Endpoint values do not determine the TV of the biased mixture: absolute deviation from one depends on the joint likelihoods at antipodes and cannot be linearly interpolated. The late endpoint expansions are consequences of their formulas; the additional finding is strict ordering and the different leading behavior for every fixed positive bias in the same natural family.",
+        "searches": [
+          "Diaconis–Graham–Morrison DOI:10.1002/rsa.3240010105",
+          "Local unicyclic and adjacent-edge Findings",
+          "arXiv:2002.09059"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Unicyclic RESULT.md Finding: odd-cycle Gaussian tilt, even-cycle Gaussian-times-cosh law indexed by the cycle-edge fraction; at fraction one the cosh endpoint coincides. The result is measured in the periodic class."
+        ],
+        "reasoning": "The h=0 cube law indeed factors through the antipodal quotient. Neither that quotient nor the cycle-edge parameter encodes the bias between the two product laws for 0<h<1. Endpoint coincidences are real but not an equivalent interpolation.",
+        "searches": [
+          "Local Resultary: antipodal complement/Boolean-cube cutoff and parity Gaussian–cosh quotient profiles",
+          "2026/10/18/SCOPE-parity-dependent-gaussian-cosh-cutoff-profiles-for-unicyclic-edg--2ee94cfb912f"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest indexed comparators are the two different-model entries above and the adjacent-edge Gaussian profile, 2026/10/18/SCOPE-gaussian-cutoff-profile-for-adjacent-edge-heat-bath-on-a-binary--830668ca52c2. The returned 41a818eacc0d entry is the assignment itself."
+        ],
+        "reasoning": "This is an asymptotic family rather than a tabulated invariant. The indexed endpoint and gap results are genuine overlap/background, but are not exact entries for the biased family; the identical target hit is not an independent predecessor.",
+        "searches": [
+          "Local Resultary: folded-hypercube antipodal conductance, parity-cosh cutoff and Gaussian noisy product profiles"
+        ]
+      },
+      "rationale": "Credit the ordinary-cube endpoint and the already available Gaussian–cosh endpoint. The supported distinct contribution is the finite-intensity parity-bias crossover for a superposed global Poisson clock, including strict TV ordering and the singular change of late-window exponent, with the companion chi-square crossover and bounding profiles uniform over clock rates. No inspected source covers that package under these dynamics; this is a bounded priority judgment.",
+      "residual_risks": [
+        "Limited comparison of older folded/quotient cube literature; the classical endpoint paper was not read in full.",
+        "The named checks do not establish historical uniqueness. The exact identical target hit was not counted as an independent result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Endpoint overlap; different interpolating family",
+          "evidence": "Even-cycle periodic-class profile is Gaussian times cosh with cycle fraction α, reducing to cosh at α=1.",
+          "identifier_or_url": "2026/10/18/SCOPE-parity-dependent-gaussian-cosh-cutoff-profiles-for-unicyclic-edg--2ee94cfb912f",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local published mirror",
+          "title": "Parity-dependent Gaussian–cosh cutoff profiles for unicyclic edge-toggle walks",
+          "trigger": "Same Gaussian–cosh expression"
+        },
+        {
+          "assessment": "Different objective",
+          "evidence": "Conductance allocation maximizing an unnormalized Laplacian gap; price threshold at t=d, not a TV limit.",
+          "identifier_or_url": "2026/10/13/SCOPE-sharp-antipodal-price-threshold-and-edgewise-rigidity-for-folded--bf23d5d98989",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local published mirror",
+          "title": "Sharp antipodal-price threshold and edgewise rigidity for folded hypercube mixing",
+          "trigger": "Same coordinate and antipodal edges"
+        },
+        {
+          "assessment": "Ordinary endpoint analogue",
+          "evidence": "L² comparison with independent bit refreshment, not shared complement parity.",
+          "identifier_or_url": "2026/10/18/SCOPE-gaussian-cutoff-profile-for-adjacent-edge-heat-bath-on-a-binary--830668ca52c2",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local published mirror",
+          "title": "Gaussian cutoff profile for adjacent-edge heat bath on a binary cycle",
+          "trigger": "Noisy product chain"
+        },
+        {
+          "assessment": "Different step mechanism",
+          "evidence": "Uniform fixed-size subsets in discrete time, cutoff for k=o(n).",
+          "identifier_or_url": "arXiv:1507.05690",
+          "material_read": "PDF p. 1, offset 430",
+          "method": "OA paper",
+          "title": "A non-local random walk on the hypercube",
+          "trigger": "Simultaneous coordinate flips"
+        },
+        {
+          "assessment": "No implication in inspected passages",
+          "evidence": "Near-perfect mixing in at most three steps for the long-range models discussed there.",
+          "identifier_or_url": "arXiv:2002.09059",
+          "material_read": "PDF pp. 1, 5, offsets 330, 13430",
+          "method": "OA paper",
+          "title": "Three steps mixing for general random walks on the hypercube at criticality",
+          "trigger": "Broader nonlocal walks"
+        },
+        {
+          "assessment": "Different graphs",
+          "evidence": "Random twists give absence of cutoff, not superposed Poisson clocks on the ordinary cube.",
+          "identifier_or_url": "arXiv:2610.21976",
+          "material_read": "PDF p. 1, offset 500",
+          "method": "OA paper",
+          "title": "Mixing time of the lazy and simple random walk on a randomly twisted hypercube",
+          "trigger": "Motivating cube modification"
+        },
+        {
+          "assessment": "Credit ordinary tilt; no whole-paper exclusion",
+          "evidence": "The credited endpoint is reproduced directly by the h=1 likelihood argument.",
+          "identifier_or_url": "doi:10.1002/rsa.3240010105",
+          "material_read": "Citation and frozen comparison; publisher and DOI full text inaccessible",
+          "method": "OA retrieval attempts and frozen RESULT.md §§3, Relationship to prior work",
+          "title": "Asymptotic analysis of a random walk on a hypercube with many dimensions",
+          "trigger": "Classical endpoint cited by the record"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A parity clock with a bounded expected number of flips on the mixing scale can change the entire limiting TV profile without moving the cutoff. The strict continuum, explicit asymptotic coefficients and uniform-in-rate cutoff distinguish two consequences of this natural perturbation that endpoint profiles or a spectral gap alone cannot quantify. The result is modest and elementary and claims neither new endpoints nor a general theorem for nonlocal walks.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

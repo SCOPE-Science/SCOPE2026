@@ -1,0 +1,159 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:58:19.249471Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–62; VERIFICATION.md and verify.py (bounded rational checks, not used as a continuum proof)"
+      ],
+      "rationale": "A homogeneous BV input is a constant plus the superposition of unit steps against its finite signed derivative measure. The operator fixes constants; integrating the step error against the total variation measure bounds both norms, and individual steps certify sharpness. After rescaling and reflecting, t lies in [0,1/2] at h=1. The reconstructed unit step is a cumulative distribution with constant densities W, Z-W, 1-Z on [-1,0], [0,1], [1,2] respectively, where W=max(0,1/2-t/alpha) and Z=min(1,1/2+(1-t)/alpha). The integrated error is the mean absolute distance of this distribution from t. Direct integration gives the frozen formula; as the region changes from W>0,Z=1, the derivative first has sign of t(alpha+3t-4), then is either 2t-1 (if W has clipped) or (1-2t)/alpha (if Z has become interior). Thus the maximum is at phase zero or one half, changing at alpha=3/2. The essential uniform error is the larger of the two one-sided jump discrepancies. The lower trace U=(1-t)W+tZ is at most 1/2 on the chosen half-cell; on the first region it is a convex quadratic with vertex (2-alpha)/4, on the W=0 region it is t, and on the both-interior region it equals 1/2. The minimum therefore occurs at the first clipping point t=alpha/2 for alpha<=2/3 and at the vertex for alpha>=2/3. At alpha=2 the profile allows all phases and the formula gives 1/2. This yields both sharp coefficients, including the ties and exact 49/96 at the unique constrained bandwidth 3/2. Summing averaged adjacent differences gives total variation diminution, and centered masses plus affine interpolation reproduce affine functions locally.",
+      "residual_risks": [
+        "The conclusions only cover the specified centered rectangular averages of width <=2h on the real-line uniform grid with scalar BV inputs; no other reconstruction family or bounded-domain setting is certified."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kumar–Devaraj allow varying averaging endpoints and general kernels. Their uniform estimates depend on moduli and absolute moments. Nochetto–Salgado use centered rectangular patches on a Cartesian Q1 grid and prove TVD and L1 error bounded by an unspecified geometric constant. The averaged-kernel generalized sampling paper gives variation diminution for a related family.",
+          "Kristensen–Rindler give area-strict approximation and trace control with adapted affine pieces; Ern–Guermond use a broken-space projection and averaging with regularity-dependent estimates."
+        ],
+        "reasoning": "These broader methods cover the operator framework or related shape/rate properties. The inspected theorems do not determine the sharp BV-to-L1 and BV-to-essential-L-infinity norms or their changing maximizing phases.",
+        "searches": [
+          "arXiv:1709.03274 §§1–2.2",
+          "Nochetto–Salgado arXiv:1211.1069 §§3–4",
+          "arXiv:1710.04621 §3",
+          "arXiv:1211.1792 Theorem 1 and arXiv:1505.06931 Theorem 5.2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–30 and 64–76; Resultary entries and primary PDF passages listed above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Continuous-function modulus/derivative estimates and geometric-constant L1 bounds are not sharp step-discrepancy identities. The periodic squared L2 result concerns intervals with two jumps and cannot recover the sharp L1 or essential uniform norm by norm comparison.",
+          "The frozen constants need the distinct optimizations of the expected absolute distance and the one-sided discrepancy, with different maximizing phases."
+        ],
+        "reasoning": "Specializing the known operator determines neither the exact best constants nor the threshold crossover. The frozen jump calculation and the supremum over all phases are substantive and necessary; the two familiar shape properties are ancillary.",
+        "searches": [
+          "Kumar–Devaraj arXiv:1709.03274 Theorems 2.1 and 2.3",
+          "Nochetto–Salgado arXiv:1211.1069 Theorem 3.9",
+          "Resultary 869435d2d52e Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact Resultary hit 82353e3e1dc4 is the same record.",
+          "Equation (1.1) in arXiv:1709.03274 gives precisely this operator when w=1/h, a_k=-alpha/2, b_k=alpha/2 and the kernel is the cardinal linear hat. Its Theorems 2.1 and 2.3 concern asymptotic/continuity-based estimates."
+        ],
+        "reasoning": "The same reconstruction is obtained with identical endpoints, box normalization and weights; this precludes treating the operator as novel. The sharp constants are statements about a different input seminorm and include jump inputs outside the continuous-function comparison.",
+        "searches": [
+          "Resultary exact title and box-averaged uniform linear hat BV queries",
+          "Primary search: Kantorovich sampling linear B spline hat centered interval bounded variation BV sharp L1 error constant total variation sampling operator step functions",
+          "Kumar–Devaraj arXiv:1709.03274 equation (1.1)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Distinct 869435d2d52e gives sharp squared L2 error 3/(28N) for periodic BV and fixed full-cell width alpha=1, with two-jump arcs. Distinct d70327ec81c9 gives an exact BV-to-L1 error with parity-sensitive phases for the Bernstein–Kantorovich operator on [0,1]."
+        ],
+        "reasoning": "This is an exact continuum family, so the exact-catalogue comparisons are more relevant than numerical tables. The first comparison does not use either asserted norm or optimize width; the second uses a different non-translation-invariant operator. Neither covers even the same exact phase optimization.",
+        "searches": [
+          "Resultary exact constants and sharp phase transitions for box-averaged hats",
+          "Resultary mirrors 869435d2d52e and d70327ec81c9"
+        ]
+      },
+      "rationale": "The operator itself already occurs as an exact specialization of a generalized Kantorovich sampling series, and the shape and approximation-order background are not credited as new. The supported distinct contribution is the two sharp homogeneous-BV norm constants over the full width interval, with jump witnesses and the resulting constrained bandwidth choice. The closest exact catalogue comparison uses a different norm and periodic inputs; the closest general published operator result treats continuous-function estimates and does not supply these constants.",
+      "residual_risks": [
+        "Bounded catalogue and primary literature checks cannot settle historical priority for unindexed or other equivalent formulations. No priority is inferred from shared catalogue dates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Self-match, not separate priority evidence.",
+          "evidence": "Same constants, step witnesses and optimal width.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-l-1-l-infty-error-frontier-for-box-averaged-hat-interpolat--82353e3e1dc4",
+          "material_read": "Finding, local mirror offset 144",
+          "method": "Resultary catalogue and mirror",
+          "title": "Sharp L1–L-infinity error frontier for box-averaged hat interpolation of BV functions",
+          "trigger": "Exact operator, norms and width thresholds"
+        },
+        {
+          "assessment": "Same construction at alpha=1 but different exact problem, not dominating coverage.",
+          "evidence": "Periodic squared L2 bound 3/(28N) and two-jump extremizers.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-periodic-bv-to-l-2-error-of-box-averaged-hat-interpolation--869435d2d52e",
+          "material_read": "Mirrored RESULT.md offsets 0 and 6561",
+          "method": "Resultary catalogue and mirror",
+          "title": "Sharp periodic BV-to-L2 error of box-averaged hat interpolation",
+          "trigger": "Closest distinct exact bound for the same interpolation construction"
+        },
+        {
+          "assessment": "Different operator, Bernstein–Kantorovich on a compact interval.",
+          "evidence": "Parity effects in the maximizer for its sharp L1 error.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-integrated-bv-error-and-parity-locked-jump-locations-for-k--d70327ec81c9",
+          "material_read": "Mirrored Finding at offset 0",
+          "method": "Resultary catalogue and mirror",
+          "title": "Sharp integrated BV error and parity-locked jump locations for Kantorovich approximation",
+          "trigger": "Similar exact BV integrated error and jump-phase extremum"
+        },
+        {
+          "assessment": "Exact operator coverage; the inspected estimates do not cover the BV constant formulas.",
+          "evidence": "General integration intervals (k+a_k)/w to (k+b_k)/w weighted by the sampled kernel. Theorem 2.3 is a modulus-and-moment bound for bounded uniformly continuous inputs.",
+          "identifier_or_url": "https://arxiv.org/pdf/1709.03274",
+          "material_read": "PDF pp. 1–3, equation (1.1) and Theorem 2.1; p. 8, Theorem 2.3",
+          "method": "Primary literature query and OA PDF passages",
+          "title": "Approximation by generalized Kantorovich sampling type series",
+          "trigger": "Broader family with exactly the frozen sampling operator as a specialization"
+        },
+        {
+          "assessment": "TVD background for a related arrangement with averaged kernels; not a sharp BV interpolation error theorem.",
+          "evidence": "The general bound is V(output)<=||chi||_1 V(input); it is TVD for normalized nonnegative kernels.",
+          "identifier_or_url": "https://arxiv.org/pdf/1710.04621",
+          "material_read": "PDF pp. 7–8, variation bound and discussion following its proof",
+          "method": "OA PDF passages",
+          "title": "Convergence in variation for the generalized sampling series and applications to sampling Kantorovich operators",
+          "trigger": "Variation diminution in related generalized sampling"
+        },
+        {
+          "assessment": "Constructional overlap and L1 rate with an unspecified geometric constant.",
+          "evidence": "Two-dimensional TVD Q1 interpolation from centered patch averages; Theorem 3.9 bounds L1 error by c h TV.",
+          "identifier_or_url": "arXiv:1211.1069",
+          "material_read": "PDF pp. 1–5, especially §3 and Theorem 3.9, and §4.2 pp. 7–8",
+          "method": "OA PDF passage inspection",
+          "title": "A Total Variation Diminishing Interpolation Operator and Applications",
+          "trigger": "Closely related centered-box Cartesian interpolation"
+        },
+        {
+          "assessment": "General existence/density, not a fixed-grid sharp norm.",
+          "evidence": "Adapted countably many rectangles and simplices, with area-strict approximation and trace control.",
+          "identifier_or_url": "arXiv:1211.1792",
+          "material_read": "PDF p. 2, Theorem 1",
+          "method": "OA PDF passage inspection",
+          "title": "Piecewise affine approximations for functions of bounded variation",
+          "trigger": "Piecewise-affine BV approximation framework"
+        },
+        {
+          "assessment": "Different averaging and regularity estimates.",
+          "evidence": "Broken-space projection plus averaging, with local Sobolev-based error estimates.",
+          "identifier_or_url": "arXiv:1505.06931",
+          "material_read": "PDF p. 2 construction description; pp. 9, 13, Theorems 3.2 and 5.2",
+          "method": "OA PDF passage inspection",
+          "title": "Finite element quasi-interpolation and best approximation",
+          "trigger": "Finite-element quasi-interpolation error estimates"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–30 and 33–62; primary reconstruction and rate comparisons in arXiv:1709.03274 and arXiv:1211.1069"
+      ],
+      "rationale": "A single bandwidth must trade integrated error against oversmoothing and the worst pointwise jump discrepancy. An unspecified convergence constant cannot choose the width or locate the worst shock relative to the mesh. The two different phase thresholds give a meaningful exact design rule: up to alpha=3/2, increasing width improves the worst uniform error without paying more integrated error, and immediately beyond it the sharp integrated coefficient increases. This is a complete family-specific result, not an arbitrary single-width computation.",
+      "residual_risks": [
+        "No optimality is claimed against alternative kernels, larger bandwidths, other grid geometries, or all TVD reconstruction methods."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

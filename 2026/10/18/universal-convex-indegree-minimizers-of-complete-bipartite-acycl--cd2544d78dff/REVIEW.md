@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof's exact adjacent-swap difference is \(\Delta\varphi(i)-\Delta\varphi(j)\). Strict convexity makes every unbalanced, nonterminal deviation improvable, and all remaining tile-words have the same cost. Canonical side-words classify every acyclic orientation of a complete bipartite graph without confusing a topological order with an orientation. The run-factorial argument counts labelled orientations accurately, including the endpoints \(m=1\) and \(t=0\). An independent literal-edge enumeration verified 52 graph/function tests with 13,638 acyclic orientations; finite checks are not a proof for arbitrary sizes.
+## correctness
 
-## Originality — PASS, with residual uncertainty
-Borsik–Madarasi's inspected general indegree-optimization manuscript proves hardness/algorithms but not this exact biclique minimizer family and count. West's exhaustive biclique orientation coding concerns independently reversible edges, and Cameron et al. enumerate *all* biclique acyclic orientations by poly-Bernoulli numbers. Neither inspected primary treatment gives the present convex-cost universal minimizer classification or the factorial count. Searches for equivalent formulations and relevant mathematical records identified no covering statement. Priority still carries the usual possibility of unindexed alternative terminology or independent derivations.
+PASS
 
-## Value — PASS
-This is a complete solution to a natural nontrivial optimization and exact multiplicity question on bicliques of unbounded order. A common optimizer family simultaneously solves **every** strictly convex separable indegree objective, sharply contrasting general-graph hardness. The majorization structure and labelled multiplicity formula are more informative than a single numerical optimum or a parameter substitution.
+The orientation fixes the relative order of every opposite-part pair, so changes between topological orders can only permute labels within same-letter runs. An AB/BA swap after prefix counts (i,j) has cost difference Δφ(i)−Δφ(j), retaining all other indegrees. A prefix with A-surplus ≥2 has a future B; at the last A before the first such B the pre-pair surplus is ≥1 and the swap improves. A prefix with B-surplus ≥2 while an A remains similarly has a strictly improving BA swap at the first subsequent A. Consequently every even prefix of length ≤2m must have zero surplus in an optimum: a negative even surplus there cannot occur after all m A's, and positive even surplus is excluded globally. Thus each pair is balanced and all excess B's trail. Each tile starting at (j,j) contributes {j,j+1}; the tail contributes t copies of m, giving the stated value and multiset. Each improving exchange is an integer balancing transfer, terminates by strict decrease of sum of squares, and certifies majorization, so convex costs with flat increments may have extra ties but cannot undercut the tiled words. The multiplicity per word divides m!(m+t)! by its run factorials: a tile change creates one length-2 run and no length-3 run can arise except from the tail; the final run factors are t! and (t+1)!, with 0!=1. The weighted change count at a fixed final tile is (1+1/2)^(m−1), proving the formula including m=1 and t=0. The independent Boolean-row enumeration used nesting (equivalent to no directed 4-cycle, hence no cycle because a longer shortest cycle would have a chord). It checked all 13 packaged sizes, 104334 assignments and 13638 acyclic orientations: every indegree vector dominates the target for every hinge, and equality for all hinges selects exactly the labelled tile-generated masks. The computed counts at (2,3) and (3,3) were 27 and 162.
 
-## Scientific limits
-Only common strictly convex costs and simple complete bipartite graphs are covered. The independent audit remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit West's exhaustive alternating-block representation and the earlier total orientation counts. The distinct supported claim is the simultaneous strict-convex minimizer class, least-majorized multiset, and exact filtered count over all bicliques. The strongest checked general optimization statements do not establish a least-majorized acyclic orientation in general; the matching biclique statements encode or enumerate the whole orientation class, not this optimizer subset.
+
+## value
+
+PASS
+
+This resolves a natural unbounded graph family for a general acyclic convex optimization problem where the optimizer can otherwise depend on the cost. It gives the common optimizer set, a certificate by balancing transfers, and the exact number of distinct optimal orientations rather than orders or all orientations. The simultaneous hinge/majorization bound is a usable strengthening of one-off quadratic optimization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

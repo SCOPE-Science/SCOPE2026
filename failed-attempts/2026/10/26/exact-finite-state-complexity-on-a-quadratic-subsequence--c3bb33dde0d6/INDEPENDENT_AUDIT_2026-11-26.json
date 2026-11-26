@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:33:48.673264Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In S0 each of the 2s output fields costs 2|v|+2 bits; non-self-loop target fields can only increase cost. For total stored output L and input length k, n<=kL, so every description costs at least 4s+2L+k>=4+2 sqrt(2n). One state with outputs 0^a and the empty word, fed 0^(2a), costs 2a+4+2a and produces 0^(2a^2). Equality in the real bound forces 2n to be a square because the cost is integral; the even square root is 2a. This verifies the result for every n>=1, including descriptions with unreachable states. Inspected the encoding source and frozen VERIFICATION.md; no enumeration is needed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The product lower-bound proof works for arbitrary output strings by using only their lengths; unary structure enters the matching one-state witness. The EPTCS paper's Theorem 4.1 is a different theorem, on state-size hierarchy, not the TCS unary theorem with the same number."
+        ],
+        "reasoning": "The prior asymptotic bound for all unary lengths does not logically imply the exact subsequence by itself. The prior proof and fixed encoding, not a change of model or relabeling a hierarchy theorem, supply the sharper conclusion.",
+        "searches": [
+          "Roblot thesis Theorem 26 and Corollary 27",
+          "arXiv:1008.1667 pp. 40–42 and Theorem 4.1",
+          "TCS 412 (2011) 5668–5677, Section 4"
+        ]
+      },
+      "checked_sources": [
+        "Roblot MSc thesis Theorem 26",
+        "Calude–Salomaa–Roblot TCS 2011 Theorem 4.1",
+        "arXiv:1008.1667",
+        "Bounded Resultary comparison",
+        "Frozen RESULT.md and VERIFICATION.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Write M for the longest transition output length and k for the input length. The prior proof explicitly gives Mk>=n and cost>=2M+k. The same prior encoding charges two delimiter bits per field and at least two fields, so cost>=2M+k+4 without requiring any further bound. Minimizing 2M+k at fixed Mk gives k=2M and equality in Mk>=n requires n=2M^2. The prior one-state witness has a block-output self-loop and a second loop for padding; on the exact product use only the first loop and set the unused output empty, achieving the equality cost."
+        ],
+        "reasoning": "Restoring explicitly known overhead, taking equality in a one-line AM–GM step and omitting an unused output are mechanical refinements of the prior proof. No new constraint on an optimal transducer, independent lower-bound mechanism or distinct construction is needed.",
+        "searches": [
+          "TCS Theorem 4.1 proof, Eq. (5), pp. 5673–5674",
+          "Roblot thesis pp. 17–18, Eq. (2.1)",
+          "arXiv:1008.1667 p. 40 encoding lengths"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Both closest theorems use the same C(0^n) object and fixed standard encoding, and bound it by 2 floor(sqrt(n)) and 4 floor(sqrt(n))+alpha. The frozen claim gives an equality characterization for a sharper real lower bound."
+        ],
+        "reasoning": "Unary, constant-zero and C(0^n) are equivalent here. The prior statements are coarser numerically; the concrete proof comparison below is needed rather than declaring their statements identical.",
+        "searches": [
+          "Resultary: C(0^n), unary transducer description cost and exact S0 lower bound",
+          "Roblot MSc thesis Theorem 26 and Calude–Salomaa–Roblot TCS Theorem 4.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The reviewed Resultary returns concern different automata complexity measures. The inspected journal table is of short strings only and is for the alternative S1 encoding, not a numerical certificate for S0 at arbitrarily large quadratic lengths."
+        ],
+        "reasoning": "No matching exact table was established in the material checked; failure of lookup is not evidence of novelty and does not affect the concrete implication test.",
+        "searches": [
+          "Resultary: exact unary binary-transducer complexity, 2 sqrt(2n)+4 and n=2a^2",
+          "TCS Table 5 adjacent to Theorem 4.1"
+        ]
+      },
+      "rationale": "Neither inspected prior unary theorem prints the exact equality subsequence, but the closest published prior proof already uses the same storage-versus-input product bound and one-state block-output witness under the same S0 encoding. Retaining the mandatory four delimiter bits, applying AM–GM with its equality condition, and dispensing with the unused loop's nonempty padding output gives the frozen claim directly. The basis is demonstrated mechanical derivation from the prior proof, not failure to retrieve literature or a claim that the exact numbers were printed there.",
+      "residual_risks": [
+        "The exact numbers might separately have been printed elsewhere; the disposition does not depend on that possibility.",
+        "No claim is made about other encodings or exact values away from the equality subsequence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same proof structure; coarse bounds printed",
+          "evidence": [
+            "Uses longest output M and input k with Mk>=n, cost>=2M+k; a one-state repeating block plus unit-output padding loop gives the upper bound."
+          ],
+          "identifier_or_url": "https://www.cs.auckland.ac.nz/~tkr/MScTKRoblot.pdf",
+          "material_read": "Printed pp. 17–18, Theorem 26, Eq. (2.1), proof and Corollary 27; extracted offsets 46574–48918",
+          "method": "Compared lower-bound inputs and one-state witnesses, not just asymptotic statement",
+          "title": "The Computation of Finite-State Complexity",
+          "trigger": "Cited exact-object unary thesis theorem"
+        },
+        {
+          "assessment": "Directly supplies proof mechanism; no printed exact quadratic equality in the inspected passage",
+          "evidence": [
+            "Uses the same Mk and 2M+k inequalities and a single-state block-output transducer; the text notes that a more detailed analysis can close the constants."
+          ],
+          "identifier_or_url": "10.1016/j.tcs.2011.06.021; author PDF https://calude.net/cristianscalude/cristianAssets/pdf/fsc.pdf",
+          "material_read": "Section 4 Theorem 4.1, Eq. (5) and proof, and adjacent Table 5; extracted offsets 28100–30284",
+          "method": "Compared hypotheses on S0, longest-output argument and one-state construction with the claimed equality case",
+          "title": "Finite state complexity",
+          "trigger": "Potential journal coverage beyond the conference paper"
+        },
+        {
+          "assessment": "Supplies the precise overhead required to sharpen the prior unary proof",
+          "evidence": [
+            "An output field has length 2|v|+2; self-loops have no target field; |sigma|+|p| is the description length."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1008.1667",
+          "material_read": "Printed pp. 40–42, encoding definition and Theorem 4.1",
+          "method": "Checked delimiter count, self-loop omission and description length convention",
+          "title": "Finite-State Complexity and the Size of Transducers",
+          "trigger": "Exact S0 coding cost"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Constant words are a natural benchmark and the equality proof is correct, but this exact subsequence comes from retaining the fixed encoding overhead in the existing unary lower-bound proof and using its block loop without padding. It yields no distinct structural insight about optimal finite-state descriptions beyond that routine optimization. No valuable independent remainder was established.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

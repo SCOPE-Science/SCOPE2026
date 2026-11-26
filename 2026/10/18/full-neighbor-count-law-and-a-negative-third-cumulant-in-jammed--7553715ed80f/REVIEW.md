@@ -1,15 +1,21 @@
-# Review of the jammed tree-neighborhood law
+# Independent mathematical audit
 
-## Correctness
-PASS. The infinite random greedy process is well defined by the factorial suppression of decreasing-time dependency paths. Removing the root leaves independent cavity branches, each with survival equation \(u'=-u^{\Delta-1}\). Conditioning on the root's independent attempt time produces the exact coordination polynomial and joint-neighbor moments. Elementary substitutions give the explicit covariance, third cumulant and strict sign proof; a controlled logarithmic expansion gives the large-degree empty-star enhancement. Exact symbolic identities, quadrature, and independently seeded finite-tree simulations are documented in the standalone verification script. Simulations are corroborative rather than proof.
+## correctness
 
-## Originality
-PASS within the inspected published and indexed comparisons, with meaningful residual bibliographic risk. Penrose–Sudbury already establish the marginal and pair correlation, so those are not independently claimed. Their relevant full-text theorems do not state a full local neighbor-count law or the negative three-neighbor cumulant. The fully examined Dehling–Fleurke–Külske article treats the occupation density, not these higher-order statistics. Gouet–Sudbury (2008) and Fan–Percus (1991) discuss correlations and may have broader equivalent implications; their full texts were inaccessible. No search result or database partition is treated as proof of unique novelty.
+PASS
 
-## Mathematical value
-PASS. A complete local coordination distribution is a natural structural statistic in jammed monomer adsorption and underlies neighborhood morphologies beyond density and pair correlation. The strict opposite signs of second- and third-order connected correlations prohibit simplistic interpretation of positive pair association as purely positive higher-order dependence. The \(\log\Delta\) enhancement identifies an asymptotically growing relative failure of the independent-site approximation for an exact, physically interpretable local void event. These are model-structural facts, not arbitrary parameter recomputations.
+Strictly decreasing self-avoiding time paths have a summable factorial tail, so a finite causal region determines each state almost surely. Deleting the center gives independent branch occupation times with survivor u, which solves u'=−u^(Delta−1) by the independent children and uniform attempt density. Given the uninterrupted cavity count k>0, the root remains blocked with probability one minus the expected earliest occupation time among those k branches. Its survivor at time t is ((u(t)−a)/(1−a))^k; averaging gives exactly the positive-count coefficients. When the center succeeds, all neighbors stay vacant. The zero-count event equals occupied center by terminal maximality, giving (1−a²)/2. This also reconstructs the intervention PGF, including the Delta=2 case and the logarithms in the cubic at Delta=3. For a fixed k-tuple, the analogous conditional calculation gives m_k=(1−a)^k−∫_a^1(s−a)^k s^(1−k) ds. Independently evaluated the first three integrals and checked the covariance, cumulant, and rational-factor identities in exact symbolic algebra. The covariance is positive since sinh(2s)>2s for s=−log a>0. The cumulant is −a²F(a)/4, and the strict two-term artanh bound gives F(a)>(1−a)^4(a³+7a²+9a+7)/(1+a)^3>0 for 0<a<1. The supporting large-degree ratio follows from Delta p=log Delta+o(1) and Delta p²=o(1). In the repair, differentiation of the explicit Q_{d,k} reproduces the center-deletion term and the k neighbor-deletion terms, with initial value one; expansion of z^X by the vacancy indicators recovers the law. No finite-tree simulation is needed for any of these claims.
 
-## Scope and residual risks
-The conclusions concern the infinite regular tree with independent first arrival times. Inaccessible historical correlation papers leave an originality risk; the full theorem is proved here and no independent validation is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The repaired contribution is a strict all-degree third-cumulant sign, not the star law itself, the one-site or pair law, or the high-degree empty-star ratio. The closest previous machinery solves the needed vacancy probabilities, but it does not state this sign; obtaining it requires combining the evaluated moments and proving a separate inequality with cancellations. No inspected source or indexed claim established the same sign in this model. The connected-set and other multisite papers with inaccessible full text remain specific access risks, not negative evidence.
+
+## value
+
+PASS
+
+Coordination statistics of a jammed star probe dependence beyond the known marginal and parity-sensitive pair correlations. The strict negative mixed third cumulant for every regular degree, coexisting with positive pair covariance, supplies an exact higher-order test that a model calibrated only to pair statistics cannot infer. The uniform sign is substantive, rather than a numerical example or the recomputation of the known density and its empty-star consequence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

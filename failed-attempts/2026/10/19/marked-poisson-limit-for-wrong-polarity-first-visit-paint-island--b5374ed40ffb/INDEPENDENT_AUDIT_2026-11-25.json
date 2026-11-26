@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:38:31.310021Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The centered iid displacements across pairs of runs oscillate in both directions, so every fixed level is hit. In the distance-to-target variable the drifts are -v and +v. Substituting the constant plus decaying mode with exponent sqrt(v^2+2Df)/D verifies the two backward equations and both target values. Bounded stopping identifies the solution; strong Markov at T_x then gives the spatial kernel, whose derivative is G_D. For the stated right-continuous modification one can use the finite-state chain with these finite-dimensional distributions. At any fixed level the Brownian component immediately crosses upward after first hitting, giving right continuity there almost surely. In the exponential coupling, the j-th start is the sum of the first j positive lengths, the preceding negative lengths and any initial negative length. It converges to the j-th rate-f/(2v) Poisson arrival, and its mark converges to an independent unit exponential. In fact a_D <= f/(2v) bounds every coupled start below in index by the corresponding limiting start in position, so only finitely many indices can ever enter a bounded window, and fixed boundaries have probability zero in the limit. This also proves the joint count-and-width statement, with full widths and no use of finite observation time. The frozen verify.py checks the backward equations on a grid (using the analytic asymptotic plus fraction at its far boundary), the matrix exponential, and finite rate scalings. It does not verify the point process and was not run; the proof is decisive.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sezik et al. give the orientation-resolved finite-time, one-point first-visit probability in Fourier variables in Eq. (22); Eqs. (34)–(35) instead concern integrated volumes and their ratio. The p. 3 island description gives width order D_x/nu_0, not a joint law.",
+          "The indexed micropaint result states the marked process as well as a compound-Poisson minority-length limit and moment convergence.",
+          "No readable full text of the Ahn–Meini paper was obtained through the DOI and its identified repository route; this is not negative evidence."
+        ],
+        "reasoning": "The qualitative paint description and the general ladder-process setting must be credited, but neither is relied on as direct proof of a prior marked law. The distinct indexed record explicitly supplies that law.",
+        "searches": [
+          "Run, Tumble and Paint, arXiv:2603.24277v1, Section IV and Eqs. (22), (34)–(35)",
+          "Ahn and Meini, DOI:10.1080/15326349.2019.1704785",
+          "Local Resultary, Poisson micropaint islands, mirrored RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "Mirrored Resultary micropaint RESULT.md, Finding and marked-limit proof",
+        "Sezik et al., arXiv:2603.24277v1, pp. 2–3, Section IV, Eqs. (22), (34)–(35)",
+        "Ahn–Meini DOI and repository access attempted; full text unavailable"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The indexed result's coupling proof has start locations converging to sums of independent rate-q/(2v) exponentials, with length/D converging to independent Exp(v) marks.",
+          "The only material difference in initial conditions is that the indexed theorem starts positive."
+        ],
+        "reasoning": "For a negative initial sign, the exact common generator yields a first negative holding length Exp(b_D), independent of the remainder after the first transition. Its translation of all positive-start islands is o_P(1), and the initial island is excluded. Thus the added case is mechanically implied. A bounded-window count or a vague-limit convention does not distinguish these atomless-boundary limits.",
+        "searches": [
+          "Mirrored micropaint RESULT.md, Finding and proof of the marked limit",
+          "arXiv:2603.24277v1, Eq. (22) and p. 3 island discussion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Poisson micropaint islands in a weakly diffusive run-and-tumble trajectory, mirrored RESULT.md, Finding, characters 510–2280: same a_D=q/(s_D+v) and b_D=(s_D+v)/(2D), and PPP intensity (q/(2v)) du times v exp(-vz) dz for z=length/D.",
+          "Run, Tumble and Paint, p. 2: orientation changes at alpha/2; f is the actual flip rate, not the tumble rate."
+        ],
+        "reasoning": "Converting the flip-rate convention and pushing the intensity through w=vz yields exactly the asserted kernel and marked law, with no change of dynamics. Splitting by right- versus left-painted regions or by length units does not produce an independent theorem.",
+        "searches": [
+          "Local Resultary: weakly diffusive run-and-tumble first-visit paint islands; spatial generator and marked Poisson widths",
+          "arXiv:2603.24277v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The full Finding, not merely a search hit, explicitly gives the two off-diagonal rates, limit start intensity q/(2v), and independent scaled length marks Exp(v). Its indexed path is distinct from the assigned record."
+        ],
+        "reasoning": "This is exact database coverage after normalizing marks. The catalog dates alone do not establish who derived the result first.",
+        "searches": [
+          "Local Resultary: micropaint islands, wrong-polarity first-visit paint, marked Poisson",
+          "2026/11/2/SCOPE-poisson-micropaint-islands-in-a-weakly-diffusive-run-and-tumble--f786e91714be/RESULT.md, mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4"
+        ]
+      },
+      "rationale": "A distinct published Resultary entry gives the same spatial generator and the same full marked limit at positive initial sign. Setting q=f and changing marks from z=length/D to w=vz sends v exp(-vz) dz to exp(-w) dw and leaves the start rate unchanged. The other deterministic initial sign adds an independent Exp(b_D) delay that tends to zero and an excluded start at zero; it is not a distinct island-limit theorem. This is a failure to establish a distinct contribution against the current indexed evidence, not proof that the later-dated entry has chronological priority or that the frozen theorem is false.",
+      "residual_risks": [
+        "The distinct indexed record carries a later catalog date; derivation independence and chronological priority are not established.",
+        "The full breadth of general Markov-modulated Brownian ladder and renewal limits was not resolved. This does not weaken the demonstrated equivalent indexed coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Explicit equivalent coverage, and the opposite initial sign is a vanishing delay; priority unresolved",
+          "evidence": "The theorem prints a_D=q/(s_D+v), b_D=(s_D+v)/(2D) and PPP((q/(2v)) du times v exp(-vz) dz) with z=length/D.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-poisson-micropaint-islands-in-a-weakly-diffusive-run-and-tumble--f786e91714be/RESULT.md",
+          "material_read": "Finding including initial condition, rate matrix and complete marked limit; proof passage on the finite-window coupling",
+          "method": "Local Resultary search followed by mirrored full-text passages, notably offsets 510–2280 and the proof near 6774",
+          "title": "Poisson micropaint islands in a weakly diffusive run-and-tumble trajectory",
+          "trigger": "Indexed same-process, same-observable and same-small-diffusion match"
+        },
+        {
+          "assessment": "Same model and prior one-point transform and scale identification; the inspected statements do not give the marked joint limit",
+          "evidence": "Eq. (22) is identified in the text as giving the full state-dependent visit probability after inverse transformation; the introduction identifies islands of size about D_x/nu_0.",
+          "identifier_or_url": "https://arxiv.org/pdf/2603.24277v1",
+          "material_read": "Model and flip convention (p. 2), island-scale discussion (p. 3), definition and Fourier expression for the one-point probabilities (Section IV, Eq. (22)), and integrated volumes (Eqs. (34)–(35))",
+          "method": "Read relevant open PDF passages, including offsets 13910 and 38900",
+          "title": "Run, Tumble and Paint",
+          "trigger": "Primary same-model and same-paint observable source"
+        },
+        {
+          "assessment": "Unresolved breadth, not a basis for the failure",
+          "evidence": "DOI and recovery route both returned no readable copy.",
+          "identifier_or_url": "10.1080/15326349.2019.1704785",
+          "material_read": "No primary full-text passage recovered",
+          "method": "Lawful DOI and identified repository access attempts",
+          "title": "Matrix equations in Markov modulated Brownian motion: theoretical properties and numerical solution",
+          "trigger": "General first-passage phase theory plausibly subsuming the fixed-D Markov kernel"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The marked process is a scientifically useful observable for completed first-visit deposition: on a fixed window the number of negative islands remains of order one even though their widths are of order D/v. Start intensity, width law and their limiting independence cannot be read off from the minority color fraction alone. This evaluates the significance of the island law, not the originality of re-stating it; the equivalent coverage prevents acceptance.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

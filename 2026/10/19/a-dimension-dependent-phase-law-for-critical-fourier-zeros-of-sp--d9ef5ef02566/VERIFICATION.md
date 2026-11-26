@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the shell Fourier phase law
+# Independent mathematical audit
 
-The domain is integer \(d\ge2\), fixed dimension as \(n\to\infty\), with unnormalized Fourier frequency. A direct calculation yields the shell transform \((2\pi)^{d/2}|\xi|^{-d}[f_{d/2}(|\xi|)-f_{d/2}(q|\xi|)]\) and the energy identity \(E'(x)=2(d-1)f'(x)^2/x\). The strictly positive integral of this derivative is the critical nonstandard lemma: it forces simple radial zeros, their localization between consecutive \(J_{d/2-1}\) zeros, and the nondegenerate stationary-point count. The fixed-order Bessel expansion gives the parity-dependent critical phase, and an explicit change of variables gives the limiting density. These are analytic arguments for all zero indices, not finite extrapolations.
+## correctness
 
-Execute `python checks/shell_phase_check.py`, `python checks/shell_phase_distribution.py`, and `python checks/shell_transform_3d.py` with Python, SciPy, and NumPy installed. The first checker was run from this package and reported `COMPARISONS_PASSED 40`; the second evaluated the entire \(n=400\) stationary-point list in five dimensions and reported `DISTRIBUTION_CHECKS_PASSED`. The third independently integrates the radial Fourier kernel in dimension three for 32 cases and reports `DIRECT_INTEGRAL_CHECKS_PASSED 32`. Human-readable run outputs are embedded under `checks/check_output.txt` and `checks/distribution_output.txt`, and `checks/transform_output.txt`. They test finite samples and cannot prove weak convergence, uniqueness for all indices, or literature originality.
+PASS
 
-The earlier planar stationary-point theorem remains prior work. A possibly relevant 1974 spherical-shell diffraction paper was available only at abstract level; independent publication priority and independent mathematical audit have not been performed.
+Polar radial integration and the Bessel differentiation rule give (2 pi)^(d/2) x^-d [f(x)-f(qx)] with f=x^(d/2)J_(d/2); at zero the volume is positive. From f''+f=(d-1)f'/x, the energy f^2+f'^2 increases strictly in the integral sense. It yields alternating signs of the difference at consecutive extrema and strict |f'(x)|>|f'(qx)| at any zero, so all crossings in a gap have the same orientation and are simple. The first gap before alpha_1 has no root by monotonicity. Implicit differentiation makes q x_n(q) strictly increasing; it tends to 0 at q=0 and alpha_n at q=1 (the limiting sign of F_q/(1-q) at any fixed interior point is the derivative sign, opposite to the sign at the left endpoint). At stationary points q x_n=alpha_m, the second derivative is X^2 f''(alpha_m)/f'(X) and is nonzero. The fixed-order Bessel expansions give alpha_j=pi(j+gamma)+O(1/j), alternating extrema of magnitude proportional to alpha_j^((d-1)/2), and uniform normalized profile cos(pi u)+O(1/n) in the gap. Equating critical heights gives the two parity limits, and expansion of alpha_m/X gives the stated first correction, with a uniform O(1/n) unscaled bound by the gap endpoints. A Riemann sum on each parity away from m/n endpoints suffices for weak convergence, since the omitted fractions can tend to zero. The cosine change of variables gives the stated integrable density and central window law, including epsilon=0 and 1/2. The midpoint behavior and the d=3 reduction follow directly.
+
+## originality
+
+PASS
+
+The supported distinct claim is the parity-resolved high-index phase and radius correction, and the resulting dimension-dependent density and central-window law. Credit exact overlap in the zero and stationary-point censuses with the two inspected Resultary records dated after this frozen record, and earlier planar census background acknowledged by the frozen record. Those facts are not credited as the distinctive contribution. The historical diffraction comparison remains limited but does not by itself defeat the phase-law claim.
+
+## value
+
+PASS
+
+The phase law resolves information lost in both the finite census and the uniform unscaled distribution of radii. It supplies a quantitative way to predict where critical zeros accumulate within a Bessel gap, separates the two interleaved sequences and explains the change from suppression in dimension two to an integrable midpoint singularity in dimensions four and above. This is a motivated quantitative asymptotic for a natural family of transforms.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

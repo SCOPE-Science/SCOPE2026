@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:32:01.637779Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 9–48 and 52–143",
+        "Frozen VERIFICATION.md, requirements.txt and verify.py (read, not executed)"
+      ],
+      "rationale": "The total/imbalance equations and the Lyapunov derivative follow from the original ODE. The zero-derivative set fixes both totals, not the contrasts; invariance forces xy=0 and then x=y=0. Compact positive-orthant sublevels give global convergence. For an independent slaving check let z=(N-2n,H-2h), E=X²+Y² and M=(2iωI-A)^(-1)q. The quadratic stable response is P₂=(E/2) Im(M exp(2iθ)); the determinant is nh(4cγ-3pρ)+4iω(cn+γh). The adjugate times q has components -(2pnh/ω)(2γh+ρn+2iω) and (2ρnh/ω)(2cn-ph+2iω). Period-averaged entropy dissipation gives κ=(ρc|M₁|²+pγ|M₂|²)/8. Squaring cancels the cross terms in (2γh+ρn)² and (2cn-ph)² and gives the claimed rational coefficient, including 9/65 at unit parameters. To check transfer to all unbalanced positive data, write r=z-P₂. Then r'=Ar+O((E+|r|)|r|+E²), while the exact contrast equations give |(log E)'|→0 and E>0. The stable convolution bound with kernel exp(-λ(t-s)) is O(E(t)²), by bounding E(s)²/E(t)² by exp(2δ(t-s)) for any 0<2δ<λ at sufficiently late times. Thus z=P₂+O(E²) on these orbits. Substituting into the radial equation and subtracting its zero-mean periodic part via the displayed near-identity energy correction gives (1/E_corrected)'→κ. The resulting E=O(t^(-1)) and θ'=ω+O(E) give the unwrapped phase bound. The balanced plane is invariant with Hurwitz linearization and exponential approach.",
+      "residual_risks": [
+        "No uniform rate as parameters reach the coexistence boundary; strictly positive initial abundances are essential to the stated proof.",
+        "The phase remainder is a bound, not a coefficient of log t. Finite numerical trajectory diagnostics were not used as proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Proposition 2.4 and the appendix give convergence and the same entropy dissipation but not the quantified ringdown; the introduction distinguishes qualitatively from persistent coevolutionary oscillations.",
+          "The cited asymmetric-interaction PLOS comparator's full text was not retrieved in bounded OA attempts."
+        ],
+        "reasoning": "Neither global convergence alone nor generic critical-Hopf or persistent-cycle theory fixes this model's second-harmonic coefficient. The positive finding of coverage is from the exact same-model catalogue result, not from the unsuccessful broader search.",
+        "searches": [
+          "arXiv:2609.04834v1, Introduction, Proposition 2.4 and Appendix A.2",
+          "Primary-literature lookup on matching-type predator–prey damped cycles and weak-focus laws",
+          "PMC5042472 (cited asymmetric interaction comparator)"
+        ]
+      },
+      "checked_sources": [
+        "Resultary record 313456e89717",
+        "arXiv:2609.04834v1, Proposition 2.4 and Appendix A.2",
+        "PMC5042472 bibliographic comparison and access attempt"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The indexed proof gives theta' = ω+O(R²) on the tracked center orbit and exponential tracking. Integrating with R²=O(1/t) yields the O(log t) bound; normalized and raw weighted contrasts have asymptotically equal angles up to the choice of lift, because their positive relative scale tends to one. Exponential tracking affects the angle by o(1)."
+        ],
+        "reasoning": "The other record does not report a logarithmic phase coefficient, but the frozen result does not claim such a coefficient either. Its bound is mechanically implied, leaving no distinct quantitative remainder in the frozen Finding.",
+        "searches": [
+          "Resultary 313456e89717, proof steps 2–4 and limitations",
+          "arXiv:2609.04834v1, Proposition 2.4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The indexed record calls the equilibrium abundances u,v; set u=n and v=h. Its raw R²=(n₀−n₁)²+(pn/(ρh))(h₀−h₁)² satisfies E/R²→ρ/(4n), since both totals converge to their positive equilibrium values.",
+          "Its linear stable matrix J is A and its second-harmonic forcing F=(ω/(4pn))(-p,ρ)^T=(ρ/(8n))q. Thus W=(ρ/(8n))M and D=c|W₁|²+(pγ/ρ)|W₂|²=ρκ/(8n²)."
+        ],
+        "reasoning": "These coordinate and coefficient identities apply for the full parameter regime, not just the unit benchmark. They convert tR²→1/(2nD) exactly into tE→1/κ.",
+        "searches": [
+          "Resultary matching-type predator–prey sharp algebraic damping and raw type-contrast law; record 313456e89717",
+          "arXiv:2609.04834v1, §2.2.2 and Appendix A.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The distinct catalogue entry states the all-parameter transfer-coefficient law; its unit benchmark tR²→260/9 gives tE→65/9 by dividing by four."
+        ],
+        "reasoning": "The match is to the theorem as well as the exact numerical invariant. The identical frozen entry is not counted as independent coverage. The later date does not establish prior publication.",
+        "searches": [
+          "Resultary matching-type damping lookup; SCOPE-sharp-algebraic-damping-in-a-symmetric-matching-type-predator-pr--313456e89717, Finding and Exact normalization"
+        ]
+      },
+      "rationale": "A distinct available Resultary record, 313456e89717, gives equivalent all-positive nonsymmetric damping and coefficient for the same ODE, not only the same exponent or a shared benchmark. The rational expression is a simplification of its transfer coefficient and the O(log t) phase bound follows by integrating the estimate in its proof. The equal-type exponential branch is also explicit there. The indexed equivalent is dated later than the frozen record; this is a finding of existing equivalent coverage at review, not a finding of earlier publication, provenance, or lack of independent derivation by the frozen record.",
+      "residual_risks": [
+        "Broader weak-focus literature was not exhaustively retrieved or compared. This cannot undo or establish the positive finding of equivalent indexed coverage.",
+        "Relative source dates are October 18 and November 22, 2026; priority and independence of derivation are not adjudicated."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact model and global convergence, not the sharp damping law",
+          "evidence": [
+            "The entropy derivative has the same squared total-density deficits; the frozen proof supplies an explicit zero-derivative invariant-set argument."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.04834v1",
+          "material_read": "PDF pp. 2, 7, 37–38, Introduction, §2.2.2 Proposition 2.4 and Appendix A.2",
+          "method": "Open primary PDF passages",
+          "title": "Eco-evolutionary cycles in a matching type predator-prey interaction",
+          "trigger": "Identical ODE and positive coexistence premise"
+        },
+        {
+          "assessment": "Equivalent rate and coefficient; phase bound follows from its proof, no priority determination",
+          "evidence": [
+            "The same strictly positive nonsymmetric initial-data class has tR²→1/(2nD); coefficient and angle conversions are given above."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-algebraic-damping-in-a-symmetric-matching-type-predator-pr--313456e89717",
+          "material_read": "RESULT.md Finding, scope, proof steps 2–5 and limitations; offsets 0–4989 and 5200–8091, with the transfer/angle passage reread at 2520–5375; snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Configured Resultary lookup and bounded local-mirror source reading",
+          "title": "Sharp algebraic damping in a symmetric matching-type predator–prey model",
+          "trigger": "Exact match to model, sharp amplitude and parameter regime"
+        },
+        {
+          "assessment": "Unresolved, not evidence for or against coverage",
+          "evidence": [],
+          "identifier_or_url": "PMC5042472",
+          "material_read": "Bibliographic identification; further full text not obtained",
+          "method": "Bounded OA retrieval attempt",
+          "title": "Evolutionary Diversification of Prey and Predator Species Facilitated by Asymmetric Interactions",
+          "trigger": "Frozen citation to an asymmetric-interaction analogue"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Findings and phase/balance comparison",
+        "arXiv:2609.04834v1, qualitative cyclic behavior and convergence"
+      ],
+      "rationale": "The model-specific nonlinear relaxation theorem answers a quantitative question left by global convergence with imaginary linear modes. Distinguishing the symmetric sink from algebraic damping for every unbalanced positive orbit, with a parameter-dependent timescale, is mathematically useful. This value does not make the already covered claim distinct.",
+      "residual_risks": [
+        "The result is not a rate for a stochastic or spatial model or for a parameter limit."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

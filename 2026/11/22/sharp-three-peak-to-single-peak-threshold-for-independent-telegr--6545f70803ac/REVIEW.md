@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The known single-filter invariant beta law [Duong–Auffenberg–Steidl, Theorem 3.2, arXiv:2611.17625v1] is the only imported stochastic premise. Independently driving both filters makes the stationary sum its self-convolution. The exact change of variables in the convolution establishes equation (1). The quadratic \(B_u(s)\) has strictly negative logarithmic second derivative by identity (3). For \(0<\alpha\le1/2\), positivity and Hölder preserve the strict log-convexity of the integral. Central and endpoint beta-function asymptotics locate the peaks and force a unique valley. Direct integrand monotonicity handles \(1/2\le\alpha<1\), an exact triangle handles \(\alpha=1\), and a centered-interval layer-cake argument handles \(\alpha>1\). Uniform near-edge hypergeometric expansion and strict convexity yield \(2-s_\alpha\sim4(1-2\alpha)\). The independent checker completed 1,341 consistency conditions; finite checks are not presented as an infinite proof.
+PASS
 
-## Originality — PASS within checked evidence
+The known single-coordinate law normalizes each independent response to fα(x)=Cα(1−x²)^(α−1) on (−1,1), so the sum is an even, absolutely continuous convolution with no boundary mass. On (0,2), substituting x=s/2+(1−s/2)u separates the power (1−s/2)^(2α−1) and the positive quadratic B_u(s) in the proof. For α≤1/2 each kernel is strictly log-convex because log B_u is strictly concave and has exponent α−1<0, while the log of the power contributes convexity; pointwise strictness and Hölder yield strictness for the integral. The two endpoint neighborhoods in the convolution contribute the stated s^(2α−1) divergence below threshold and logarithms at equality. At the outer edge the remaining fixed-domain integral has a finite positive limit, so the exponent 2α−1 gives all three boundary regimes. Divergence at both ends of the half-support and strict log-convexity give precisely one subcritical minimum. For 1/2≤α<1 the fixed-domain kernel is strictly decreasing; α=1 is triangular. For α>1, layer-cake overlap lengths are nonincreasing, and for any interior positive separation a positive-measure set of pairs of half-widths has |r−t|<s<r+t, giving strict decrease. For α>1/2, L² translation continuity gives a finite continuous center. The strictly negative critical log derivative at each fixed interior s and continuity in α put the subcritical minimizer to its right for α close to 1/2. Writing ε=2−s and δ=1−2α, the log derivative in ε is −δ/ε+(1−α)/(2−ε/2)+O(ε) uniformly near criticality, since the hypergeometric factor is analytic at an argument of order ε². Its zero gives δ/ε→1/4. The finite checker was inspected, not executed.
 
-The 2026 source supplies one-filter invariant marginals, but neither the independent sum nor its phase boundary. Ratanov's accessible 2021 text establishes single-filter invariant densities. Kolesnik's 2014 paper computes unfiltered telegraph-position sums, not stationary filtered sums. Lefèvre–Utev's 2013 symmetric unimodal convolution result is inapplicable below the individual-density unimodality threshold \(\alpha=1\); it therefore cannot settle the three-peak phase or critical boundary layer. Actual semantic searches and previously recorded claims found no matching or dominating result. An equivalent special-function analysis in historical probability literature remains possible, and the complete 2022 Ratanov journal manuscript could not be inspected.
+## originality
 
-## Value — PASS
+PASS
 
-An observable sum of two independent finite-speed stationary channels is a natural multichannel extension of the OU-K model. Its stationary shape changes at \(a/\theta=1/2\), even though each individual stationary channel remains U-shaped until \(a/\theta=1\). The theorem classifies *all* switch-rate regimes, proves a nontrivial strict shape invariant (half-support log-convexity), and computes a sharp boundary-layer motion of the unique valleys. The distinction is relevant when interpreting the modes of aggregated finite-speed signals rather than single-channel marginals. No estimator improvement or claim about unequal channels is inferred.
+The one-coordinate beta law and the broad three-to-one phenomenon in a distinct switching model are not claimed as new. The supported distinct claim is the full two-iid-beta convolution shape result, including strict half-support log-convexity up to threshold and the sharp valley law. The closest indexed switching result is materially related, but its complete-graph model is not the line-graph process of the two independent filters. Its full line-graph comparison was not accessible and remains a stated priority risk.
 
-## Sources and remaining risks
+## value
 
-References [1]–[4] in RESULT.md support the stochastic premise and relevant comparison classes. The 2022 Ratanov publisher version [5] was restricted, and a prior implicit special-function shape theorem is not excluded. The result requires independent and identically parameterized filters; numerical checks are finite and do not provide independent assessment.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The result locates an exact modality transition even though both input densities remain U-shaped on either side near the threshold. It distinguishes density divergences from atoms, proves that no additional extrema occur, and quantifies how the two genuine valleys disappear into the support boundaries. The precise law is useful for interpreting the stationary shape near critical switching.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

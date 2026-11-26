@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:05:20.291031Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Assumptions and Proof, lines 52–102",
+        "Frozen VERIFICATION.md and verify.py",
+        "/workspace/branches/f1e09c33-aa06-4569-bd9f-c6b82a3d6d99/independent_check.py and reproduction.txt"
+      ],
+      "rationale": "The Schur assumptions make A positive definite. In the stated coordinates the boundary-to-v covariance vanishes. The retained principal block and positive last variance make the compressed covariance positive definite. An independent proof uses the conditional law of (u,v) given q: the marginal of q and the conditional mean agree for both Gaussians; the exact conditional precision is the rotation of the uncorrected T, and the compressed conditional covariance is its inverse with off-diagonal deleted. If r is the conditional correlation, standardizing both variances gives correlation matrix [[1,r],[r,1]] versus the identity, and r^2/(1-r^2) is the squared off-diagonal of the conditional precision divided by det(T). That off-diagonal is c det(T)/(b^2+c^2), proving the stated delta and the two directed KL formulas, including exact coupling invariance and the c=0 criterion. At eigenvalues 1 and kappa the off-diagonal magnitude is at most (kappa-1)/2, with equality exactly at equal diagonals in the aligned basis. The first aligned diagonal is kappa b/(b^2+c^2); solving for equal diagonals gives p=1/(kappa^2+1) for kappa>1. Such orientations admit a positive beta with beta^2/alpha<det(T)/b. The scalar case is exact, and the example has det(S)=epsilon and trace(S)=5/4+epsilon as claimed. The frozen scope paragraph describes u as the normalized direction of the inverse's complement component; literally it is the negative of that normalized vector for beta>0, but the aligned line and compression are unchanged by sign. An independent direct-matrix reproduction of 300 random SPD cases found maximal absolute KL identity errors below 2.1e-15, and corroborated a kappa=3 extremizer and the Schur-boundary family. The uploaded script was inspected, not executed.",
+      "residual_risks": [
+        "Exact-real, centered, three-dimensional covariances only; numerical checks do not certify the sharp bound or accuracy in floating-point Lanczos near singularity."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fifen et al. Theorem 13 gives a sufficient approximation-to-exact KL bound of (kappa_B-1)^2/2 per dimension for its scalar inverse-covariance approximation, and the coupled construction uses Schur quantities in its error bounds. Proposition 14 gives exact block error and norm estimates.",
+          "Zhang et al. Theorem 1 bounds reverse KL in terms of forward KL over general multivariate Gaussians."
+        ],
+        "reasoning": "Neither general bound determines a per-matrix law or exact equality orientation at a specified condition number of the uncorrected complement. The broader Gaussian reverse-KL bound takes a divergence as input, not the tridiagonal precision data.",
+        "searches": [
+          "Fifen–Karambal–Hennig arXiv:2609.10080v1, Theorem 13 and Proposition 14",
+          "Zhang et al. arXiv:2102.05485v5, Theorem 1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.10080v1",
+        "arXiv:2102.05485v5",
+        "Resultary 2dff41c8b944 and f43e22e45d82"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Conditioning on the resolved coordinate and standardizing leaves covariance eigenvalues 1 plus or minus |r|, so the earlier k=2 result gives the compressed-to-exact KL in terms of the effective condition number K_eff=(1+|r|)/(1-|r|). The Gaussian formula gives the other direction once this correlation is known.",
+          "The relation of K_eff to c^2 det(T)/(b^2+c^2)^2, the original-coordinate equality orientation, and the constant-loss family with diverging Schur condition number are not provided by the scalar envelope or the cross-term bounds."
+        ],
+        "reasoning": "The pointwise plug-in Gaussian computation once the conditioned correlation is known is routine. The supported content is the exact identification of that conditional invariant for a specific boundary-aligned operator and its sharp relation to the original uncorrected condition number, not a repackaging of the same trace-matched 2D envelope.",
+        "searches": [
+          "2dff41c8b944, 2D scalar-isotropic specialization and stated scope",
+          "Fifen et al. Prop. 14 primary HTML offsets 75750–79527 and surrounding displayed equations",
+          "Zhang et al. arXiv:2102.05485v5, directed divergence comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fifen et al. Proposition 14 writes the covariance error in a boundary-aligned block form. With one remaining bulk direction the trace-matched diagonal equals the exact diagonal, so only a cross term remains. This is the stated compression when the boundary direction is the same.",
+          "Resultary 2dff41c8b944 studies a scalar-isotropic bulk; f43e22e45d82 is also one-direction scalar-isotropic. Neither inspected statement gives the pointwise law in the original entries a,b,c, independent of alpha,beta, for the coupled 3-by-3 operator."
+        ],
+        "reasoning": "Credit exact construction overlap, not just motivation. The covariance error identity is not an identity for Gaussian KL; passing to the coupled distribution and its conditional precision changes which complement condition number is relevant.",
+        "searches": [
+          "Resultary: Gaussian KL, trace-matched inverse covariance, boundary-aligned Lanczos and sharp condition number",
+          "Fifen–Karambal–Hennig arXiv:2609.10080v1, Proposition 14 Eqs. (39)–(42)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2dff41c8b944 Finding, offsets 0–3192, gives the exact k=2 envelope (K-1)^2/(4K) - log((K+1)/(2 sqrt(K))) for approximation-to-exact divergence in its own trace-matched Gaussian problem. It limits its claim to that direction.",
+          "The frozen formula is a continuum rather than a table of instances. The exact earlier formula is a genuine match of one envelope, not just a sampled value."
+        ],
+        "reasoning": "At the frozen extremizer the exact conditional covariance has equal diagonals. The conditional compressed covariance is then precisely the trace-matched scalar and K equals kappa_2(T). The overlapping two-dimensional envelope is credited rather than being treated as newly derived.",
+        "searches": [
+          "Resultary 2dff41c8b944, exact finite-dimensional envelope at k=2",
+          "Resultary f43e22e45d82, sharp dimension-dependent isotropic KL"
+        ]
+      },
+      "rationale": "The distinct supported contribution is the exact law for this coupled compression as a function of its original complement entries, uniform over the admissible boundary coupling, with sharp orientation in that original complement and a fixed-loss Schur-degeneration witness. The compressed covariance construction itself is a specialization of Fifen–Karambal–Hennig (with the same aligned direction); the numeric reverse-envelope function is already known in an overlapping scalar-isotropic problem, and the standardized conditional Gaussian relation is classical. Neither is credited as a separate original claim. They do not supply the required dependence on the uncorrected T for this boundary-aligned operator.",
+      "residual_risks": [
+        "The exact comparison is bounded to the inspected statements and implications, not a priority determination or exhaustive search. No novelty is claimed for the construction, general Gaussian identities, or the already matched numeric reverse envelope."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same compression under the alignment, generic norm and one-way KL bounds rather than the frozen exact condition law",
+          "evidence": [
+            "One-dimensional remaining bulk makes Eq. (40) exact for its variance; Eq. (39) then leaves only the off-diagonal error."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2609.10080v1",
+          "material_read": "Theorem 13 around HTML offsets 69550–75750 and Proposition 14 Eqs. (39)–(42) around 75750–80750",
+          "method": "Scoped OA primary full-text reading and specialization to m=1,d=3",
+          "title": "Stochastic Lanczos Quadrature for Computational Uncertainty in Linear Algebra",
+          "trigger": "Same boundary-aligned coupling-corrected covariance construction"
+        },
+        {
+          "assessment": "Exact reverse envelope overlap; original operator and parameter mapping differ",
+          "evidence": [
+            "Its exact k=2 specialization also applies to the standardized conditional pair under K_eff; its general input is scalar-isotropic, with no pointwise coupling claim."
+          ],
+          "identifier_or_url": "2dff41c8b944",
+          "material_read": "RESULT.md Finding and Assumptions, offsets 0–3192 at snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local Resultary mirror and explicit k=2 and conditional standardization comparisons",
+          "title": "Sharp condition-number KL envelope for trace-matched Gaussian inverse covariance",
+          "trigger": "Same analytic sharp approximation-to-exact envelope when k=2"
+        },
+        {
+          "assessment": "Related scalar-isotropic envelope in one direction",
+          "evidence": [
+            "Does not state the coupled cross-only 3-by-3 law in the original tridiagonal entries."
+          ],
+          "identifier_or_url": "f43e22e45d82",
+          "material_read": "RESULT.md, Finding and hypotheses",
+          "method": "Local mirror statement-level comparison",
+          "title": "Sharp dimension-dependent KL cost of trace-matched isotropic inverse covariance",
+          "trigger": "Additional nearby sharp Gaussian KL catalogue entry"
+        },
+        {
+          "assessment": "General reverse-versus-forward comparison, not the aligned-operator condition law",
+          "evidence": [
+            "The forward divergence constraint is the input to the bound, rather than uncorrected complement condition number or orientation."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2102.05485v5",
+          "material_read": "PDF p. 3, Theorem 1 near offset 24300",
+          "method": "Read lawfully available primary PDF and compared hypotheses",
+          "title": "On the Properties of Kullback-Leibler Divergence Between Multivariate Gaussian Distributions",
+          "trigger": "General results on comparing directed Gaussian KL divergences"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 22–50",
+        "Fifen et al. Proposition 14",
+        "Resultary 2dff41c8b944"
+      ],
+      "rationale": "The smallest case with an actual boundary-to-bulk deletion is a motivated test of how to interpret a coupled Lanczos approximation. The invariant shows which local geometry controls relative entropy, even while the coupling-corrected Schur matrix is made arbitrarily ill-conditioned. This gives a mechanism and a quantitative witness that a Schur-based bound can be very pessimistic; it does not rely on a marginal numeric gain or on reciting the previously known scalar-isotropic envelope.",
+      "residual_risks": [
+        "No higher-dimensional error guarantee, solver accuracy claim or finite-precision robustness is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

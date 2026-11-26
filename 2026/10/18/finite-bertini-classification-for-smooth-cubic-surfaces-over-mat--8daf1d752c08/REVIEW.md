@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. All \(2^{20}-1\) cubic coefficient vectors are partitioned into \(141\) orbits under a generating set for the exact projective group. The degree-five gradient-map rank test and ternary rank test are algebraic-closure smoothness criteria because their derivative ideals are homogeneous regular sequences precisely in the smooth case. Exact enumeration of all \(15\) rational hyperplanes for \(36\) smooth orbits gives the complete weighted table. A separate Gröbner-basis implementation checks all surface and plane-section classifications with no discrepancies. The degree-two minimality argument follows from the alternating polar form and a nonsingular conic section.
+## correctness
 
-## Originality
-PASS under documented best-knowledge comparison, subject to priority risk. Karaoğlu already tabulates the \(36\) smooth projective cubic-surface classes and their point counts; the surface representatives and class total are prior work. Kadyrsizova et al. study characteristic-two cubic surfaces, and Asgarli–Duan–Lai investigate finite-field Bertini existence. The newly calculated datum is the full rational hyperplane geometric-smoothness distribution, including the two-class obstruction and exact nine-value spectrum, not implied *as a stated classification* by the inspected texts. It is algorithmically derivable from the prior complete representative table; an unindexed derivation or tabulation remains a substantive residual risk. Search evidence cannot establish unconditional priority.
+PASS
 
-## Value
-PASS. Finite-field Bertini existence is a motivated geometric question, and the exact classification pinpoints the smallest-degree smooth surface examples where every rational hyperplane section is singular. The nine-stratum spectrum and equivalence with the extremal rational-point locus add genuine incidence information beyond class counts. The fact is a natural full classification for the smallest base field, not an arbitrary parameter restriction.
+In characteristic two the odd cubic degree in Euler's identity puts every common gradient zero on the cubic. Absence of projective gradient zeros is equivalent to the quadrics forming a regular sequence in the surface and plane rings. The quotient Hilbert series is respectively (1+t)^4 and (1+t)^3, so the degree-five and degree-four multiplication maps are surjective exactly in the smooth cases; a common projective zero gives a nonzero evaluation quotient in those degrees. A separate exact implementation using adjacent swaps and elementary shears partitioned all 1,048,575 nonzero forms into 141 orbits, with 36 smooth orbits and 322,560 equations. It checked all 15 planes of each smooth representative and recovered each row of the table and the h=0 iff 13 or 15 points characterization. The exceptional orbit sizes are 28 and 1,680. For minimality choose a transverse section of the rational plane; for a smooth quadric the polar form is nondegenerate (a radical of dimension ≥2 would contain a geometric isotropic vector). A rational vector of norm 1 exists, since if the quadratic function were zero on all F2 vectors its polar form would vanish. Its polar perpendicular hyperplane cuts a conic whose one-dimensional polar radical has norm 1, so is geometrically smooth.
 
-## Scientific limitations
-The results concern \(\mathbf F_2\) rational hyperplanes, geometric smoothness, and projective equivalence; they do not determine extension-field hyperplane sections or abstract automorphism classes. The prior-surface classification and total equation count are acknowledged. Historical unindexed priority remains possible. The checks are reproducible but are not independent external validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the prior smooth-surface classification and the known exceptional surface itself. The h-spectrum and zero-section locus directly overlap a different Resultary entry dated October 26, later than the assigned October 18 record. That is actual equivalent content, not evidence of earlier priority. Earlier inspected results do not enumerate this section invariant; the exact earlier Karaoğlu tables remain an access risk. The point-count equivalence and minimum-degree argument were not stated in the overlapping text inspected.
+
+## value
+
+PASS
+
+Rational geometric transversality at the smallest field is a natural quantitative finite-field Bertini invariant. The complete distribution specifies exactly how existence can fail, and the two minimal-degree exceptional orbits and point-count test provide reusable witnesses and a check on bounds. The value is the section incidence computation, not reproducing the already known list of 36 surfaces.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

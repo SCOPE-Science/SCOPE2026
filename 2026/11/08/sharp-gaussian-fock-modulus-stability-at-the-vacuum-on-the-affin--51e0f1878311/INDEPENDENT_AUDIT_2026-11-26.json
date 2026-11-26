@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T15:34:32.124157Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 4–57",
+        "VERIFICATION.md lines 18–22 and CHECK.py lines 8–58, inspected but not run"
+      ],
+      "rationale": "Orthogonality of 1 and z gives the exact squared phase distance; rotational invariance reduces the moduli to t=||F|| and s=|a|/t. For s<1, strict E|s+sqrt(1-s^2)Z|>s follows by taking the real part (the imaginary part is almost surely nonzero); strict Cauchy–Schwarz gives m(s)<1. The derivative of t/(t^2+1-2tm) has sign 1-t^2. Thus t=1 uniquely maximizes the ratio for each s<1. For the Rice formula, polar integration gives the radial density 2r exp(-r^2-2x) I_0(2sqrt(2x)r) for |Z+sqrt(2x)|, with x=s^2/[2(1-s^2)]. Integrating the power series termwise gives the mean exp(-2x) sum_k (2x)^k Gamma(k+3/2)/(k!)^2 before rescaling; this is the Bessel expression in the proof. Differentiating that expression yields the stated factor 2x I_0-(2x+1) I_1 for m''. The Riccati equation for q=I_1/I_0 and barrier b=2x/(2x+1) give a strictly positive excess 3/(2x+1)^2 at any putative first contact. Hence m lies strictly below its endpoint chord inside (0,1). The resulting optimum is attained only at s=0,t=1, i.e. a=0, |b|=1, and has value 2.9646965828533536. Non-unimodular constants, including zero, have ratio one; unimodular constants give both norms zero.",
+      "residual_risks": [
+        "The finite quadrature and Bessel mesh are corroboration only; the endpoint and strictness assertions use the analytic comparison. Nothing here controls the full Fock space's optimal constant."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Frozen RESULT.md line 63 describes finite full-space stability at 1 and square-restricted coercivity",
+          "Resultary 0c208bfa6615 concerns singular values of the real differential of squared intensity at Hermite modes"
+        ],
+        "reasoning": "A finite full-space bound with unspecified optimum cannot imply the sharp smaller-space bound. A linearized or squared-modulus estimate does not control this global unsquared ratio at all affine competitors.",
+        "searches": [
+          "Bertolini et al. arXiv:2605.20527",
+          "Bortolotto–Ramos arXiv:2608.26365",
+          "Resultary: 0c208bfa6615 linearized Gaussian Fourier intensity"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–11, 14–57 and 62–73",
+        "Resultary 51e0f1878311 and 0c208bfa6615",
+        "arXiv:2605.20527, arXiv:2608.26365, PMC4047631 and MathWorld Rice Distribution, with OA access limits stated above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "RESULT.md lines 38–55 isolate the only use of an upper bound for I_1/I_0",
+          "The proof also needs the unique t=1 scale reduction and a strict endpoint chord to exclude all displaced affine competitors"
+        ],
+        "reasoning": "A good enough prior Bessel bound would imply the curvature step, and the record does not need priority for that step. No stronger result fixing the complete affine extremum or providing an equivalent optimized inequality was established in the compared material.",
+        "searches": [
+          "Amos-type bounds for modified Bessel function ratios PMC4047631",
+          "Rice Distribution (MathWorld); Fock comparators arXiv:2605.20527 and 2608.26365"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "RESULT.md lines 18–30, 47–57 reduce the exact ratio to a strict chord bound for normalized noncentral Gaussian mean",
+          "Search identified Amos-type Bessel-ratio bounds; it did not provide an equivalent strict normalized mean chord with the affine extremizer statement"
+        ],
+        "reasoning": "An already established normalized Rice chord with matching endpoints and strictness would be strong antecedent evidence. The Rice identity itself gives a mean, not that extremal comparison.",
+        "searches": [
+          "Resultary: affine Gaussian Fock modulus vacuum sharp constant first-degree coherent displacement Rice mean",
+          "Primary literature: Rice noncentral chi distribution normalized mean fixed second moment Rician modulus convexity normalized noncentrality chord sharp lower upper bound Bessel I1 I0 Amos"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact catalogue hit 51e0f1878311 is the frozen record itself",
+          "The classical Rayleigh mean sqrt(pi)/2 gives the lower-bound witness, not global optimality"
+        ],
+        "reasoning": "There is no applicable tabulation required for this continuous variational problem; equality and the upper bound, not the decimal of a known mean, are the exact claim checked.",
+        "searches": [
+          "Resultary: exact affine Gaussian Fock vacuum constant 51e0f1878311, normalized Rice mean"
+        ]
+      },
+      "rationale": "The supported distinct claim is the sharp global unsquared ratio and exact equality set for the affine subspace, not the Rice mean formula, an isolated Bessel ratio bound, or existence of some Fock stability constant. The strongest Gaussian phase-retrieval candidates concern full-space existence, a squared restricted inequality, or the differential of squared intensity. No inspected statement determines the global affine ratio and equality. Known Bessel-ratio bounds may supply the convexity ingredient, a plausible partial implication explicitly separated from the norm and two-parameter optimization.",
+      "residual_risks": [
+        "The original flagged papers and Rice/Bessel passages could not be recovered. A prior equivalent normalized Rice-mean inequality or sharper published Fock theorem remains possible; no priority certification is made, and search misses are not evidence of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Available comparison is an existence theorem, not an evaluated sharp affine ratio; no whole-paper noncoverage assertion",
+          "evidence": [
+            "RESULT.md line 63 identifies full Fock competitors and unspecified sharp constant"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2605.20527",
+          "material_read": "Frozen comparison at lines 62–69 and bibliographic identification; original passage retrieval timed out",
+          "method": "Reference-led OA passage attempt",
+          "title": "L2-Stability for STFT phase retrieval",
+          "trigger": "Same vacuum reference and Gaussian phase ambiguity"
+        },
+        {
+          "assessment": "The squared observable and competitor restriction do not match the global unsquared affine model",
+          "evidence": [
+            "RESULT.md line 63"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2608.26365",
+          "material_read": "Frozen comparison at lines 62–71; original passage retrieval timed out",
+          "method": "Reference-led OA attempt",
+          "title": "A complex-analytic proof of square-restricted stable phase retrieval in Fock space",
+          "trigger": "Closely related Fock coercivity statement"
+        },
+        {
+          "assessment": "Treat Bessel-ratio bounds as established antecedent methods; whether a cited formula implies the exact strict chord was not passage-verified",
+          "evidence": [
+            "Bessel-ratio application is isolated in RESULT.md lines 38–49"
+          ],
+          "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4047631/",
+          "material_read": "Search identification; bounded OA theorem retrieval timed out",
+          "method": "Targeted literature search and OA website query",
+          "title": "Amos-type bounds for modified Bessel function ratios",
+          "trigger": "A prior stronger upper bound on I_1/I_0 could replace the key analytic estimate"
+        },
+        {
+          "assessment": "Distinct local squared-intensity invariant, not an equivalent global modulus result; no priority inference from date",
+          "evidence": [
+            "Real differential and its transverse singular values"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-linearized-gaussian-fourier-intensity-spectra-at-every-her--0c208bfa6615",
+          "material_read": "Catalogue summary only",
+          "method": "Resultary",
+          "title": "Exact linearized Gaussian Fourier intensity spectra at every Hermite mode",
+          "trigger": "Same-day vacuum and Hermite modes"
+        },
+        {
+          "assessment": "Classical mean formula is background, and was verified independently; no negative claim about the reference as a whole",
+          "evidence": [
+            "Polar Gaussian mean and strict chord have different mathematical roles"
+          ],
+          "identifier_or_url": "https://mathworld.wolfram.com/RiceDistribution.html",
+          "material_read": "Reference and frozen discussion at lines 32–49 and 63; OA access attempt timed out",
+          "method": "Reference-led OA attempt",
+          "title": "Rice Distribution",
+          "trigger": "Possible equivalent normalized modulus inequality"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 3–11 and 47–66"
+      ],
+      "rationale": "The constant-plus-first-mode truncation is the first nontrivial test of vacuum modulus stability and a natural calibration for any full-space inequality. The result not only provides a sharp constant but identifies a maximally displaced affine competitor (zero vacuum component, unit first mode) and excludes every coherent offset. A global benchmark of this kind is not supplied by a local singular value or by evaluating a Rayleigh mean at one challenger.",
+      "residual_risks": [
+        "This is a model-space benchmark, not a claim of sharp noisy recovery or of the optimum for higher Fock truncations."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

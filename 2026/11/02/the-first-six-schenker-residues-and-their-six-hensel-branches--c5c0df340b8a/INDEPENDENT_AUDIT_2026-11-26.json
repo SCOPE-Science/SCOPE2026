@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:08:11.467518Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 29–88; VERIFICATION.md; verify_schenker.cpp and schenker_census.csv; repaired RESULT.md, Proof and Verification",
+        "Miska arXiv:1401.1717v1 Theorem 1, HTML offset 6200 and following",
+        "Independent replay: python3 /workspace/branches/c890d395-5669-4105-8b23-dc6b47d369ed/independent_scan.py, with NumPy; independent_scan.out in the same directory records the scan and exact checks."
+      ],
+      "rationale": "In the narrowed claim p=2339 is fixed; at level one the six known unit residues have been independently reproduced. For arbitrary positive indices prime to p the normalized sum n^(-n) A_n is a sum of successive falling-factorial products in 1/n. Modulo p the terms of length at least p vanish, and terms extended past n if n<p also vanish, so the unit-index level-one test depends only on n modulo p. Modular Horner evaluation uses coefficients n!/j!, updating the coefficient by multiplication by j at each descending step; the intermediate multiplications are within uint64 bounds for the supplied modulus and indices. The independent exact scan through 2339 agreed using both the truncated exponential and the recurrence B_j(r)=j B_(j-1)(r)+r^j, and p=2 gives one root from A_1=2. For the six roots the computed Q values are divisible by p and their divided residues 843, 1662, 1732, 24, 685, 1079 are nonzero. The six next-level roots in the repair were also checked directly by Horner evaluation modulo p^2. Miska Theorem 1's final clause uses exactly p not dividing r, p dividing A_r, and Q not zero modulo p^2; it yields one solution class at each level above each root. Every higher root must reduce to one of the six, so this yields exactly six, with the direct level-two representatives unique. No finite scan is being extrapolated to infinitely many levels.",
+      "residual_risks": [
+        "Only unit indices at 2339 are classified by the repaired finding. Infinite depth uses an established theorem, not a computation or formal certification. The retained census is evidence for the previously established level-one result."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1 gives a general conditional unique-lifting theorem and treats singular cases separately. The accessible broader preprint includes the classical h=X specialization and supplies general valuation and periodicity results. The 2017 journal article and its identified alternate did not yield readable full text for the table comparison."
+        ],
+        "reasoning": "The conditional results do not by themselves decide which of these six level-one roots are nondegenerate. An exact higher-level census including this case would cover the repair, but was not established by the checked passages.",
+        "searches": [
+          "Miska arXiv:1401.1717v1, Theorem 1 and Section 4",
+          "Miska arXiv:1508.01987v1, Sections 7 and 7.1",
+          "DOI 10.1142/S1793042117500890 and its identified ResearchGate copy"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 007dd404ce57",
+        "Miska arXiv:1401.1717v1 and arXiv:1508.01987v1",
+        "OEIS A219546",
+        "Four bounded Resultary comparisons on Schenker root counts and literature/lifting matches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier census already answers the m=6 existence instance with minimality. It explicitly does not claim higher-power classification. Miska's final theorem assertion requires a nonzero Q modulo p^2 to infer a unique branch; a root modulo p does not supply that hypothesis."
+        ],
+        "reasoning": "No novelty attaches to either the existence instance or to the general lifting implication. The repaired theorem adds the six verified premises and exact next-level classes, resolving which behavior occurs for every branch at the fixed prime.",
+        "searches": [
+          "Resultary 007dd404ce57, original Finding and scope",
+          "Miska arXiv:1401.1717v1, Theorem 1 final assertion and Section 4 Question 4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier published record uses the same sum and same unit-root count, and its 2339 and six roots exactly match the frozen claim. A higher-power congruence is equivalently a valuation threshold v_p(A_n)>=k."
+        ],
+        "reasoning": "A change to valuation language does not distinguish the claims at k=1. At k>=2 the repair makes a statement about the size and structure of the solution sets not present in the earlier level-one result.",
+        "searches": [
+          "Resultary searches for least prime with six Schenker-sum zero classes and the six nonzero residues at 2339",
+          "Miska arXiv:1401.1717v1, definition and Theorem 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier Resultary census gives the exact first occurrence 2339 and the full level-one root set. A219546 lists primes with any root and its linked table lists terms of that sequence, not counts or lifts. Miska's Table 1 has multiplicities through five and does not list these higher-level digits."
+        ],
+        "reasoning": "Exact tabulation covers the level-one claim whether or not it is independently recomputed. The second-level list at this particular prime is not given in the exact tables inspected.",
+        "searches": [
+          "Resultary 007dd404ce57, exact first-six census",
+          "OEIS A219546, definition and table description",
+          "Miska arXiv:1401.1717v1 Table 1"
+        ]
+      },
+      "rationale": "The repaired contribution is limited to the six nondegenerate branches and explicit residues modulo the square at 2339. It credits the original multiplicity-six threshold and root set to record 007dd404ce57. Neither that record nor the inspected conditional lifting theorem supplies the six required nonvanishing tests or exact level-two list. This is not a priority judgment beyond the inspected sources.",
+      "residual_risks": [
+        "The particular 2017 journal tables were not independently accessible. Equivalent unindexed classifications or computations may exist. No new general Hensel criterion is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the original first-prime census exactly; no higher-power result",
+          "evidence": [
+            "Least prime 2339, exactly the same six residues, smaller primes excluded exhaustively; scope explicitly confined to the finite census."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-the-first-schenker-prime-with-six-nonzero-zero-classes--007dd404ce57",
+          "material_read": "RESULT.md Finding, finite exclusion and scope, offsets 0–5677, mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Published record mirror",
+          "title": "The first Schenker prime with six nonzero zero classes",
+          "trigger": "Strongest exact overlap with frozen least-prime and zero-set claims"
+        },
+        {
+          "assessment": "General theorem and partial multiplicity table; no six-branch classification at 2339 in the inspected claims",
+          "evidence": [
+            "The final clause of Theorem 1 gives all-depth uniqueness above a unit root satisfying Q nonzero modulo p squared. The table reaches multiplicity five at 593, and Question 4 asks for multiplicity at least m."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1401.1717v1",
+          "material_read": "Definition near offset 0; Theorem 1 near offset 6200; Table 1 near 22600; Section 4 Question 4 near 25011",
+          "method": "Original OA HTML passages",
+          "title": "A note on p-adic valuations of the Schenker sums",
+          "trigger": "Exact multiplicity question and the theorem used in the repaired proof"
+        },
+        {
+          "assessment": "Binary prime membership, not exact multiplicities or branches",
+          "evidence": [
+            "The comments define membership by divisibility of some Schenker sum of index below the prime; the linked b-file is a table of terms of that prime sequence."
+          ],
+          "identifier_or_url": "https://oeis.org/A219546",
+          "material_read": "Displayed terms near offset 429 and comments, linked table description and example near offset 675",
+          "method": "Original public database entry",
+          "title": "Schenker primes",
+          "trigger": "Exact database which might cover the finite data"
+        },
+        {
+          "assessment": "General framework allowing the classical specialization; no inspected assertion of the six lift digits",
+          "evidence": [
+            "h=X yields the classical sums, so the broader framework is not dismissed as a different object."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1508.01987v1",
+          "material_read": "Section 7, defining h-Schenker sums near offset 8100; Section 7.1, valuation and periodicity material near 275000",
+          "method": "Original OA preprint passages",
+          "title": "Miska preprint containing h-Schenker sums and their arithmetic",
+          "trigger": "Potential stronger valuation result covering h=X"
+        },
+        {
+          "assessment": "Residual comparison risk only; no negative evidence inferred",
+          "evidence": [
+            "The distinct arXiv preprint passages above were available, but are not used as a substitute for exact table entries in this paper."
+          ],
+          "identifier_or_url": "https://doi.org/10.1142/S1793042117500890 ; ResearchGate publication 311447024",
+          "material_read": "No lawful full text recovered for this specific journal article; exact tables not independently read",
+          "method": "Publisher/OA lookup and identified ResearchGate public alternate, both unavailable",
+          "title": "Arithmetic properties of generalizations of Schenker sums",
+          "trigger": "Potential exact tables for a specialization including the classical sequence"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Miska arXiv:1401.1717v1, Theorem 1 nondegenerate and singular alternatives",
+        "Resultary 007dd404ce57, scope",
+        "Repaired RESULT.md, exact arithmetic and branch theorem"
+      ],
+      "rationale": "The known first six-root prime supplies a canonical, nonarbitrary place to test persistence of several roots in a valuation problem. The presence of six roots modulo p does not determine whether any are singular, which would permit different prime-power counts. Certifying each nondegenerate branch gives the exact class count at every depth and concrete second-level representatives usable in subsequent valuation calculations. The valuable part is this classification, not the reproduced census or the application of a textbook theorem without checking its premises.",
+      "residual_risks": [
+        "The repair makes no claims about larger multiplicities, other primes, non-unit indices or new lifting methods."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

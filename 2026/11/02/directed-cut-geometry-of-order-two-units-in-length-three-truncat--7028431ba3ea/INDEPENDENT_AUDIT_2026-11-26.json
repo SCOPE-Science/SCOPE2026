@@ -1,0 +1,165 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:41:27.237884Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–48",
+        "VERIFICATION.md, verify.py and CHECK_RESULTS.txt (inspected, not executed; CHECK_RESULTS.txt is frozen evidence, not this review's replay)",
+        "python3 /workspace/branches/reproduce_finite.py 5: GF(4) path-coordinate products and all cuts on five examples; 640 for the triangle, 7936 for the four-cycle, and 7340032 for the mixed two-loop/reciprocal-arrow case"
+      ],
+      "rationale": "The arrow ideal is the radical: it is nilpotent and the quotient is a product of copies of the field. A full unit squaring to 1 has semisimple coordinates 1 on every field extension, but this argument does not eliminate possible infinitesimal diagonal coordinates in the full scheme. In 1+J write u=u1+u2 by path length. Then (1+u)^2=1+u1^2; each length-two path (a,b) is a distinct basis vector with coefficient c_a c_b, including when ab and ba exist or when a=b is a loop. The defining ideal therefore consists of these monomials, leaving p2 path coordinates free. Adding the loop variables to the ideal kills the genuine loop nilpotents (no linear monomial lies in the original quadratic ideal), and the remaining edge ideal is the intersection of the primes killing the complement of each maximal independent support. This proves the scheme and component statements over any characteristic-two field. A compatible set of nonloop arrows has disjoint source and target sets, hence lies in a directed cut; every cut is compatible. Doubling undirected edges gives the undirected cut size, with p2=sum deg(v)^2, so the dimension computes MaxCut. Assigning nonzero values on a support and arbitrary path coordinates gives the exact finite-field census. The fourth power is trivial and a composable pair supplies a nonzero square because path coordinates are separate, giving the exponent criterion. For an oriented cycle, trace of the two-state matrix [[1,q-1],[1,0]] counts compatible cyclic words, with initial traces 2 and 1 and the stated recurrence; the directed triangle gives 32 and 640.",
+      "residual_risks": [
+        "The raw arithmetic replay is finite and does not test nilpotents or all fields; these are established by the monomial-ideal proof. The full unit group is covered only at field-valued points, not scheme-theoretically. The NP-hardness premise is standard simple unweighted MaxCut; cited full text was unavailable."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Graphical groups allow arbitrary simple conflicts, not loop squares. The quiver commutator-spectrum result uses the same composability graph but studies alternating commutator brackets, not the square of one radical element. The quantum complete intersection has different relations, and the tripotent result is a radical-square-zero problem for a^3=a. The cited module varieties and odd-characteristic algebra anti-involutions concern other objects."
+        ],
+        "reasoning": "The arbitrary-graph count is broader as a support count, but not as a characterization of schemes attached to original multiquivers. In characteristic two the commutator statistic alone cannot recover a loop square, since an alternating self-bracket always vanishes.",
+        "searches": [
+          "Resultary graphical groups 3e561a32bdb5, composability graphs 003c97167e0e, radical-cube-zero Jordan census 7f6201de1b8d and tripotent components e78c20362889",
+          "arXiv:1407.2672v1, arXiv:1407.3045v1 and arXiv:1502.01512v1"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary matches for graphical groups, cyclic square roots, composability graphs, quantum complete intersection and tripotents",
+        "arXiv:1407.2672v1, 1407.3045v1, 1502.01512v1",
+        "MaxCut DOI attempted as recorded"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "An arbitrary graphical group knows maximum independent set and squarefree equations but has no directed vertex cuts attached to an underlying quiver. The truncation basis supplies the extra diagonal loop squares and the independent path coordinates. The reduction to standard MaxCut uses the separate equality between compatible arrow support size and a directed cut size."
+        ],
+        "reasoning": "The standard background and the known count remove novelty of the support enumeration as such. To obtain the normalized quiver geometry one still needs the full square coefficient calculation and the radical computation before comparing with the known squarefree locus. Translating the maximum component dimension into the natural cut problem on Q is not a stated implication of the inspected sources.",
+        "searches": [
+          "Resultary graphical group square-map proof around 3730; quiver commutator-spectrum Finding; truncated path algebra path basis arXiv:1407.2672v1 pp. 1–2; Garey–Johnson–Stockmeyer DOI 10.1016/0304-3975(76)90059-1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The graphical square map sends x to the products x_i x_j in one coordinate per edge, and gives q^{|E|} I_Gamma(q-1). In the quiver model the products for distinct arrows agree for opposite composability directions, but diagonal loop products c_a^2 can occur, and the number of free central coordinates is p2."
+        ],
+        "reasoning": "Put loops to zero and choose a single product equation per conflict edge. Then on field points the normalized count is exactly q^{p2-|E(Gamma_Q)|} times the graphical-group count for Gamma_Q; the graphical equations likewise give the same reduced arrangement up to an affine factor. This is genuine coverage of the support enumeration, not a coincidence of polynomials. It does not give the original scheme's nonzero loop nilpotents or the dimension interpretation on Q. This comparison concerns loci and does not assert isomorphism of the full groups.",
+        "searches": [
+          "Resultary search for algebra-group involutions, characteristic-two square-zero radical loci, composability graphs and independence-polynomial counts",
+          "Resultary graphical groups 3e561a32bdb5, Finding and multiplication law"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "For oriented cycles the zero-target formula q^n(I_{n-1}(q-1)+(q-1)I_{n-3}(q-1)) is the same count: split cyclic independent sets on whether one chosen vertex is used. The graphical count gives the same general reduced support polynomial after the affine factor change."
+        ],
+        "reasoning": "The cycle recurrence and its explicit values do not constitute independent evidence of novelty. Neither formula classifies the arbitrary quiver's unreduced scheme with loops or supplies its directed-cut interpretation.",
+        "searches": [
+          "Resultary cycle square-root census 792e17e844e1, Finding",
+          "Resultary graphical-group involution census 3e561a32bdb5"
+        ]
+      },
+      "rationale": "The independent-support census has genuine coverage in the broader graphical square-map model after loops are eliminated and the trivial central factor is adjusted. The distinct supported result identifies the normalized quiver involution scheme including loop nonreducedness, and interprets its component dimension as MaxDiCut of the original multiquiver. No matched source was found giving that combined identification for general truncated path algebras. No priority is inferred from same-day catalogue dates.",
+      "residual_risks": [
+        "The exact squarefree arrangement and support-count method are shared with known graphs and standard monomial-ideal theory. A stronger quiver-square theorem outside the inspected sources might cover the novel remainder. Unavailable MaxCut source was not used as evidence of novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent reduced point/support equations after affine factor, not original scheme or quiver cut result",
+          "evidence": "One central coordinate per simple edge, square product x_i x_j, and formula q^{|E|} I_Gamma(q-1).",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-characteristic-two-graphical-groups-involution-classes-and-maxim--3e561a32bdb5/RESULT.md",
+          "material_read": "Finding and multiplication law at mirror offset 0; square-map proof around 3730",
+          "method": "Local Resultary mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Characteristic-two graphical groups: involution classes and maximal elementary abelian subgroups",
+          "trigger": "Same independence-polynomial involution count and maximal supports"
+        },
+        {
+          "assessment": "Same graph, different equation",
+          "evidence": "Enumerates radical centralizer ranks and commuting pairs, not the normalized involution locus.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-composability-graphs-determine-radical-commutator-rank-spectra-i--003c97167e0e/RESULT.md",
+          "material_read": "Finding, mirror offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Composability graphs determine radical commutator-rank spectra in truncated path algebras",
+          "trigger": "Identical path truncation and composability invariant"
+        },
+        {
+          "assessment": "Covers cycle zero-square count and more targets in that family",
+          "evidence": "Exact R(0)=q^n(I_{n-1}(q-1)+(q-1)I_{n-3}(q-1)), identical to normalized count in characteristic two.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-singular-square-root-fibers-and-square-image-entropy-in-cyclic-l--792e17e844e1/RESULT.md",
+          "material_read": "Finding, mirror offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Singular square-root fibers and square-image entropy in cyclic Loewy-three Nakayama radicals",
+          "trigger": "Matching cyclic radical square-map specialization"
+        },
+        {
+          "assessment": "Different relations and locus",
+          "evidence": "Reduced square-zero locus is a quadric cone times affine space for a quantum complete intersection, not the free truncated path-basis model.",
+          "identifier_or_url": "2026/11/8/SCOPE-a-six-stratum-jordan-census-and-principal-right-ideal-count-for--7f6201de1b8d",
+          "material_read": "Finding, mirror offset 0",
+          "method": "Local Resultary mirror",
+          "title": "A six-stratum Jordan census and principal right ideal count",
+          "trigger": "Closest square-zero geometry on a related radical-cube-zero algebra"
+        },
+        {
+          "assessment": "Different equation and radical length",
+          "evidence": "Studies a^3=a in kQ/J^2, not normalized g^2=1 in kQ/J^3.",
+          "identifier_or_url": "2026/11/2/SCOPE-characteristic-two-tripotent-components-and-independent-sets-in--e78c20362889",
+          "material_read": "Finding, mirror offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Characteristic-two tripotent components and independent sets",
+          "trigger": "Characteristic-two quiver scheme with independent-set structure"
+        },
+        {
+          "assessment": "Background basis/model, not square-zero group geometry in the inspected passages",
+          "evidence": "Defines truncation and uses its path basis to study module and homological results.",
+          "identifier_or_url": "https://arxiv.org/abs/1407.2672v1",
+          "material_read": "pp. 1–2 around OA offset 2700",
+          "method": "Bounded OA primary text inspection",
+          "title": "Truncated path algebras are homologically transparent",
+          "trigger": "Same algebra class and standard basis"
+        },
+        {
+          "assessment": "Module representation varieties, not the normalized involution scheme",
+          "evidence": "Classifies components for J^2=0 module varieties.",
+          "identifier_or_url": "https://arxiv.org/abs/1407.3045v1",
+          "material_read": "p. 1 offset 0",
+          "method": "Bounded OA primary text inspection",
+          "title": "The geometry of finite dimensional algebras with vanishing radical square",
+          "trigger": "Similar quiver component classification"
+        },
+        {
+          "assessment": "Different meaning of involutive and different characteristic",
+          "evidence": "Uses an algebra anti-involution over a finite field of odd characteristic, not order-dividing-two elements in characteristic two.",
+          "identifier_or_url": "https://arxiv.org/abs/1502.01512v1",
+          "material_read": "p. 1 offset 0",
+          "method": "Bounded OA primary text inspection",
+          "title": "Supercharacters of involutive algebra groups",
+          "trigger": "Apparent terminology overlap with involutions in algebra groups"
+        },
+        {
+          "assessment": "Not independently checked at the primary-source level; standard MaxCut premise, not a suspected quiver-locus theorem",
+          "evidence": "Access failed; the frozen quiver reduction itself was checked explicitly.",
+          "identifier_or_url": "https://doi.org/10.1016/0304-3975(76)90059-1",
+          "material_read": "Citation only; no full text retrieved",
+          "method": "Lawful OA direct/VPN and repository attempts",
+          "title": "Some simplified NP-complete graph problems",
+          "trigger": "Cited NP-hardness premise for MaxCut"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding and Steps 1–4",
+        "Resultary graphical group and cycle comparisons"
+      ],
+      "rationale": "The normalized involution scheme is a natural unit-group invariant, and passing to finite-field counts alone hides loop nilpotents. The all-multiquiver scheme classification distinguishes these features and relates its largest component to a natural optimization problem on the original quiver, not just to a computation on sample graphs. The cut complexity and general reducedness criterion supply value beyond the overlapping support census and cycle specialization.",
+      "residual_risks": [
+        "No classification of conjugacy classes, all unit-group scheme nilpotents, or longer truncation is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

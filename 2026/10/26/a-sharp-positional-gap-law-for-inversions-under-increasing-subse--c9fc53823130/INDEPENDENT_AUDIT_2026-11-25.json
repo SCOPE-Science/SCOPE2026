@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:49:57.879139Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–76 and 80–82",
+        "Frozen verify_gap_law.py and verification_output.json (inspected; original replay path is python3 verify_gap_law.py in the source directory, not executed here)",
+        "Independent bounded n=8,k=4 enumeration using direct inversion tests and sorted-mark tests"
+      ],
+      "rationale": "For any one unmarked position its rank in the k+1 values consisting of that position and the marks stays uniform after conditioning on the relative order at the marks. If it lies after j of the marks, its total expected comparisons contributing inversions with the marks are [j(j+1)+(k−j)(k−j+1)]/[2(k+1)]=k/2−j(k−j)/(k+1). Unmarked pairs remain fair and marked pairs lose precisely 1/2 each. This gives the claimed gap law including exterior gaps (j=0,k). All k+1 gap sizes form a weak composition of n−k, so linear optimization gives the exact central-gap equality cases, including the coincident endpoints for k=n. For uniform marks each gap has mean (n−k)/(k+1); the weight sum is k(k−1)(k+1)/6. Averaging produces (3), and tilting by Z/EZ then gives (4). As a separate bounded check, enumeration of all 40320 permutations and all 70 marked sets for n=8,k=4 yielded minimum 39/5 only at (1,2,7,8), maximum 11, and mixture mean 47/5; the counts were exact integers before division. The rank and gap arguments establish the arbitrary-size formulas.",
+      "residual_risks": [
+        "The bounded enumeration does not prove the all-size statement. The result is only a conditional first moment and derived covariance, not a distributional ordering or a law conditioned on longest-subsequence length."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The former uses general mixed moments of pattern counts, with explicit covariances (21)–(23) including Cov(X123,X132); the latter concerns the fluctuations of full fixed-length pattern profiles."
+        ],
+        "reasoning": "These results concern counts combined across many positions. Applying mixed-moment methods to the covariance may be possible, but no inspected theorem gives the complete conditional layout dependence or sharp central-gap extremizers.",
+        "searches": [
+          "Janson–Nakamura–Zeilberger arXiv:1312.3955 §3.1",
+          "Even-Zohar arXiv:1811.07883 introduction"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:math/0407353",
+        "arXiv:1312.3955",
+        "arXiv:1811.07883",
+        "Resultary record 74c814f06015"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The mixture identity does give the formal conversion from the averaged mean to a covariance. Averaging over marks loses information: for example, (2,3,4,5) and (1,2,7,8) have different conditional means despite entering the same mixture with equal weights."
+        ],
+        "reasoning": "The existing conversion and general summed-moment results do not directly imply either the exact gap weights or placement equality cases. Credit is for resolving those before averaging.",
+        "searches": [
+          "Pinsky Proposition 1 and mixture identity",
+          "Janson–Nakamura–Zeilberger mixed-moment statements, §3.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Pinsky's prescribed-pattern mixture, after averaging over positions, is exactly the size-biased law with density Z/EZ used in the record."
+        ],
+        "reasoning": "The same averaged law does not specify how E[I|E_S] changes as the positions move. The fully indexed gap coefficients and sharp equality geometry are the comparison target.",
+        "searches": [
+          "Focused literature lookup for inversion means conditional on prescribed increasing positions",
+          "Pinsky arXiv:math/0407353 §1, Eqs. (1.1) and (1.3)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The catalogue hit gives rank-resolved fixed-point covariance with the subsequence count, not inversion covariance or the conditional inversion mean.",
+          "Table 1 reports expected counts of 123, 312 and 321 for uniformly sampled 132-avoiding permutations at n=1,…,10; it is not the full-uniform prescribed-position model."
+        ],
+        "reasoning": "Same mixture does not equate the distinct observables; neither the database claim nor the table provides exact coverage even after matching some parameters. No priority is inferred from the fixed-point record's same-day date.",
+        "searches": [
+          "Resultary comparison for conditional inversion and increasing-subsequence mixtures; strongest hit 74c814f06015",
+          "Janson–Nakamura–Zeilberger §3.2.1 Table 1"
+        ]
+      },
+      "rationale": "The distinct content is the complete dependence of the inversion mean on prescribed marks, with sharp optimal placement and equality conditions. The uniform marked mixture and size-bias identity were already in Pinsky. General mixed-pattern moment methods are relevant to the covariance; the covariance is not treated as a separate novelty claim or as evidence for the sharper positional law.",
+      "residual_risks": [
+        "An uninspected specialization of mixed-pattern or linear-extension methods may cover related results. Targeted search and bounded inspections do not certify historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage of mixture and size-bias identity, not the fixed-layout inversion comparison in the inspected text",
+          "evidence": [
+            "μ(σ)=k! Z(σ)/(n! binom(n,k)); compares μ to uniform."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/0407353",
+          "material_read": "§1, pp. 2–4, eqs. (1.1),(1.3), Proposition 1; extracted offsets 5187, 7600, 10396",
+          "method": "OA PDF passage inspection",
+          "title": "Law of large numbers for increasing subsequences of random permutations and an approximation result for the uniform measure",
+          "trigger": "Same marked-subsequence law"
+        },
+        {
+          "assessment": "Relevant general methodology and explicit examples; not fixed-mark gap laws",
+          "evidence": [
+            "Example Cov(X123,X132)=n(n−1)(n−2)(18n²−51n−109)/21600; Table 1 uses a 132-avoiding ensemble."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1312.3955",
+          "material_read": "Mixed-moment discussion, §3.1 pp. 6–7, (21)–(23) around offset 23763; §3.2.1 Table 1 at offset 26189",
+          "method": "OA PDF passage inspection",
+          "title": "On the Asymptotic Statistics of the Number of Occurrences of Multiple Permutation Patterns",
+          "trigger": "Mixed moments may include inversion-pattern covariance"
+        },
+        {
+          "assessment": "Studies aggregate pattern profiles and their asymptotic fluctuations",
+          "evidence": [
+            "The k-profile records pattern densities, not locations of a marked increasing subsequence."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1811.07883",
+          "material_read": "Introduction pp. 1–2, extracted offset 2834",
+          "method": "OA PDF passage inspection",
+          "title": "Patterns in Random Permutations",
+          "trigger": "Related covariance structure of permutation patterns"
+        },
+        {
+          "assessment": "Same mixture, different statistic and theorem",
+          "evidence": [
+            "Covariance with fixed-point indicators and EμF>1, rather than inversions and positional gaps."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-a-rank-dispersion-law-for-fixed-points-under-increasing-subseque--74c814f06015",
+          "material_read": "RESULT.md, opening passage at offset 0; mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Resultary lookup and local mirror reading",
+          "title": "A rank dispersion law for fixed points under increasing subsequence conditioning",
+          "trigger": "Nearest catalogue hit with the same size-biased law"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, (1)–(4)",
+        "Pinsky §1"
+      ],
+      "rationale": "Inversions quantify how much ordering remains when a selected subsequence is forced to increase in a permutation otherwise sampled uniformly. The exact all-size formula answers how every forced-position layout changes that observable; all unused positions go in a middle gap to maximize the reduction, while moving them outside the marked interval eliminates their contribution. Pinsky's natural mixture motivates the averaged diagnostic, but cannot substitute for this placement information. The result also works for k growing with n.",
+      "residual_risks": [
+        "The central-gap statement optimizes a first moment only; the review claims no corresponding optimization of tails or full distributions."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

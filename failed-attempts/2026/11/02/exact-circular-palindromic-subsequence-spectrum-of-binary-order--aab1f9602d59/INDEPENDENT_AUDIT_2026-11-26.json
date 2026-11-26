@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:36:49.172164Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Colliding shifted suffixes force complementary feedback bits for states u and u+16. This is sufficient for bijectivity, and checking that the zero state has a 32-element orbit is equivalent to using every length-five window exactly once. The unique zero window gives one root per cycle, with neither reversal nor complement quotiented; primitivity gives 32 distinct traversals each. For the interval recurrence a palindrome omits at least one endpoint if they differ; when they match one can enclose an optimal interior palindrome, and removing the outer pair from any candidate that uses an endpoint bounds its length by the interior optimum plus two. Empty and singleton intervals supply the base cases. An independently written replay at /workspace/branches/c13e1fd2-1bb8-4491-ac22-0524e09b43c5/reproduce.py exhausts 65536 feedback tables, validates distinct windows and all 65536 root values, and agrees byte-for-byte with frozen summary.json (including all 22 supported joint cells, all margins, the optimal-root counts and examples). It also checks both DP values by explicit subsequences through length eight. The cycle-list SHA-256 is e8b5746482780303fec542789b123a2d51a892f460137bb9f8a96c85fec30421. Independent replay uses feedback, not the frozen supplemental Euler-tour DFS, which was inspected but not executed. The reproduced best-root support is 25 through 29, with 76 cycles at 25; the minimum rooted value is 19, so the two deletion bounds are 7 and 13. The frozen code asserts the margins and computes the joint table, rather than asserting every joint cell against a separate hard-coded table; the independent comparison checks the actual supplied artifact.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Müllner–Ryzhikov treat scattered subsequences in arbitrary circular words and general bounds/conjectures. Cooper–Heitsch treat skew for the lexicographically least de Bruijn sequence, and Chowdhury et al. optimize a common palindrome of two strings."
+        ],
+        "reasoning": "None of those inspected statements supplies the exact restricted census. The precise coverage comes from the catalogue computation on the identical finite domain.",
+        "searches": [
+          "arXiv:1901.07502v1 Abstract and §1",
+          "arXiv:1003.5939 and arXiv:1110.5296 introductory problem statements"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, checker.py and summary.json",
+        "Resultary 1b65d6c3c2e3, beadc73c229a, 8196e282ed1c",
+        "arXiv:1901.07502v1, arXiv:1003.5939, arXiv:1110.5296",
+        "OEIS A318916"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The previous checker loops over the same canonical word set, takes each cut, computes pp=pair_dp(cut,false), checks pp against independently_via_lcs(cut,false), and updates p=max(p,pp)."
+        ],
+        "reasoning": "Add root_hist[pp]++, update the minimum over pp and aggregate that minimum with p; counting ties for p is likewise a counter. This computes the purported new tables as bookkeeping of the very same exhaustive verified computation, not as a different scientific census.",
+        "searches": [
+          "1b65d6c3c2e3 verify.cpp offsets 2400–3814; RESULT.md Verification around offset 5750; VERIFICATION.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "1b65d6c3c2e3 uses the same rotation classes and defines its P as the maximum palindromic scattered-subsequence length over all cuts. Deletions at a specified cut equal 32 minus its LPS length.",
+          "beadc73c229a and 8196e282ed1c instead measure contiguous palindromic factorization or distinct contiguous factors and maximum factor length."
+        ],
+        "reasoning": "The old P is exactly Lambda; its anti-LPS joint variable is not delta. The identical parameter in the contiguous-factor results does not give an equivalent statistic.",
+        "searches": [
+          "Web: longest palindromic subsequence de Bruijn cycle order 5 binary circular exact distribution",
+          "Resultary: circular palindrome deletion, palindromic subsequence and order-five de Bruijn spectrum"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A318916 gives 24 at 32 over all binary circular words, not 25 over the de Bruijn subset. The October 18 marginal is exactly 25:76, 26:114, 27:1380, 28:286, 29:192. Its CSV header is cycle,anti_lps,pal_lps, with one row per cycle and no per-cut columns."
+        ],
+        "reasoning": "The best-root marginal is an explicit indexed table match. The worst-root, rooted, and delta/Lambda tables are not merely read off this published marginal; the decisive evidence for them is the all-cuts loop.",
+        "searches": [
+          "OEIS A318916 n=32",
+          "Resultary 1b65d6c3c2e3 Finding, cycles.csv and verify.cpp"
+        ]
+      },
+      "rationale": "The October 18 catalogue record 1b65d6c3c2e3 gives the same optimal-root palindrome histogram and the same sharp lower bound on precisely these cycles. Its archived verified exhaustive loop calculates the same palindromic length pp at every one of the 65536 cuts, by both interval DP and LCS. The old CSV saves only the two best-root statistics, not the new tables. Nonetheless all remaining numbers are a mechanical reaggregation of the already computed per-cut quantity: in the very same inner loop count pp and update a minimum, then count the (minimum, existing p) pair at the end of each cycle. No new input, palindrome test, optimization or enumeration is required. This is not a claim that the rooted or worst-root table is printed in the earlier report. The decision rests on exact prior coverage of the headline and the actual archived all-cuts computation, not on the catalogue dates or on the mere availability of a general DP.",
+      "residual_risks": [
+        "The web query yielded generic LPS results; lack of a printed rooted or worst-root table was not established exhaustively. This does not affect the exact prior headline or the archived loop evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Explicit best-root overlap and mechanically extractable remaining tables",
+          "evidence": "Identical published best-root marginal and every individual cut's LPS computed and checked in verify.cpp.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-joint-circular-palindrome-and-antipalindrome-deletion-spectrum-o--1b65d6c3c2e3",
+          "material_read": "RESULT.md Finding, Verification and Limitations; cycles.csv header/sample; verify.cpp main loop at offset 2400; VERIFICATION.md audit account",
+          "method": "Resultary search and local mirror at 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Joint circular palindrome and antipalindrome deletion spectrum",
+          "trigger": "Same exact family, circular cuts and scattered palindrome statistic"
+        },
+        {
+          "assessment": "Broader question, no matching census in inspected passage",
+          "evidence": "Discusses the circular-word conjectures and upper constructions without the order-five window constraint.",
+          "identifier_or_url": "https://arxiv.org/html/1901.07502v1",
+          "material_read": "Abstract and §1, offsets 450–4491",
+          "method": "OA arXiv text",
+          "title": "Palindromic Subsequences in Finite Words",
+          "trigger": "General circular scattered palindrome optimization and prior LPS identity"
+        },
+        {
+          "assessment": "Different class of words",
+          "evidence": "The minimum is 24 at length 32 among all binary circular words.",
+          "identifier_or_url": "https://oeis.org/A318916",
+          "material_read": "Sequence definition and displayed terms",
+          "method": "Public sequence page",
+          "title": "Minimum longest palindromic subsequence among binary circular words",
+          "trigger": "Exact length-32 optimal-root statistic"
+        },
+        {
+          "assessment": "Neither statistic is scattered LPS",
+          "evidence": "First counts contiguous palindrome blocks per root; second counts distinct contiguous palindrome strings and their maximum length.",
+          "identifier_or_url": "Resultary bead c73c229a (beadc73c229a); Resultary 8196e282ed1c",
+          "material_read": "Both local-mirror Findings at offset 0",
+          "method": "Resultary search and local mirror",
+          "title": "Cyclic palindromic factorization spectrum and complete joint palindromic spectrum of order-five de Bruijn cycles",
+          "trigger": "Same-day matching family and spectrum terminology"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "A census of root sensitivity in the natural order-five family could be useful as a reference. But the headline sharp bound and best-root distribution were already known, and the remaining histograms just change the counters on an existing exhaustive, validated per-root computation. The record shows no substantive new exact investigation or structural insight beyond that reaggregation; independent agreement strengthens reproducibility, not the scientific increment.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

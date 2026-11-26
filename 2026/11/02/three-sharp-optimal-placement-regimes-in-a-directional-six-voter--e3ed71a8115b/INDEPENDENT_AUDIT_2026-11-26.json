@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:01:37.083169Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Opposite fixed endpoints decouple the two arcs. Updating the interior sites from one endpoint in sequence to copy its opinion is a positive-rate path to the one-interface set, by sweeping away all other walls. A one-interface state remains in that set and the resulting reflecting walk is irreducible (with a singleton state on the one-edge arc). The arc count ratios are q and 1/q, so the stationary variance is the sum of the two truncated-geometric variances and is invariant under q to 1/q. Logarithmic differentiation twice gives W_L; at q=1 the uniform laws give (V_1,V_2,V_3)=(2,3/2,4/3), proving strictness at that endpoint. For q<1 the two exact differences have signs opposite P and Q at z=q+1/q. Each z-2 shifted polynomial has one Descartes sign change and a negative constant, establishing existence and uniqueness of a root above 2; opposite signs at z=27/10 strictly separate the roots. The map back to q reverses their ordering, and the sign comparisons give all three minimizing placements and the two exact ties. A separate exact symbolic and 16-state-generator replay, /workspace/branches/649dd4b5-5b89-417a-8842-335f1ed67568/replay_record3.py, with output in replay_record3_results.txt in the same directory, reproduced the factorizations, roots and all three q=4/9 fractions and verified V_2<V_3<V_1. Here the strict intermediate optimum is the discrete placement a=2 at fixed q, not an optimum over q. The uploaded checker was inspected but not executed. The general-in-q proof is analytic and does not rest on the finite generator comparisons.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mobilia–Petersen–Redner give independent reflected walls and uniform arc laws for unbiased copying.",
+          "Yildiz et al. cover directed networks and second moments, but the inspected placement objective concerns expected opinion. The Resultary alternating-fixed-opinion theorem covers q=1, including the two-zealot case."
+        ],
+        "reasoning": "General second-moment equations can be specialized to compute the variances, but solving and comparing them in the bias parameter is not supplied by the inspected statements. Unbiased placement results cannot imply the strict intermediate optimum for directional rates.",
+        "searches": [
+          "arXiv:0706.2892, Section IV.A",
+          "Yildiz et al., OPRE-2011-01-026, directed stubborn-agent model",
+          "SCOPE-convex-order-optimal-spacing-of-alternating-fixed-opinions-on-a--0818534115ca"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–85, VERIFICATION.md and check_voter.py",
+        "Resultary SCOPE-7a62f42560d9, SCOPE-8485192e6353 and SCOPE-0818534115ca",
+        "arXiv:0706.2892 Section IV.A",
+        "OPRE-2011-01-026 pp. 1, 6–7, 27–28"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Differentiating log Z_m twice in log r yields W_m, and flipping one count leaves its variance unchanged. Thus the earlier full stationary law mechanically gives V_a for any a, as well as the absolute numerical witness when evaluated.",
+          "The earlier mean and endpoint-risk monotonicity does not order V_1,V_2,V_3; the frozen proof reduces those signs to distinct sextic and cubic factors and proves uniqueness and ordering of their roots."
+        ],
+        "reasoning": "This is a new symbolic optimization of an already determined scalar invariant. A bias-dependent exact law entails the numerical inputs but does not mechanically give the existence, order and completeness of the three minimizing regimes from the earlier optimizations.",
+        "searches": [
+          "SCOPE-7a62f42560d9 mirrored RESULT.md offsets 100 and 3700, exact law and placement objective",
+          "Frozen RESULT.md lines 47–81"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier count in the opinion-biased model is 1+I+J, with independent arc counts having the same geometric ratio. The directional model at the same ratio has a count distributed as 1+I+(b-1-J), up to exchanging arc labels.",
+          "The same-day finite-strength anchor record uses deterministic steady-state polarization and edge disagreement, not stationary stochastic total-count variance."
+        ],
+        "reasoning": "The laws need not agree, but the variance does agree identically. Different local rates therefore do not establish originality for the variance. The inspected earlier placement theorem optimizes mean and endpoint probabilities; neither is equivalent to minimizing this variance.",
+        "searches": [
+          "Resultary: directional voter cycles, two opposing zealots, stationary count variance and placement thresholds",
+          "SCOPE-bias-reverses-optimal-zealot-spacing-on-voter-model-cycles-while--7a62f42560d9",
+          "SCOPE-sharp-spatial-polarization-and-disagreement-placement-laws-for-t--8485192e6353"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The general exact generating function already subsumes a finite table of numerical variances for each placement and bias; the unbiased record compares the placements at q=1.",
+          "The exact rational q=4/9 witness is a reproducible instance of the strict intermediate regime, not an independent table discovery."
+        ],
+        "reasoning": "The substantive comparison is the continuum of positive rates, with multiplicities and ordering of the minimum-crossing boundaries. The prior exact probabilities provide inputs, not that regime table.",
+        "searches": [
+          "Resultary: exact C6 placement thresholds, stationary voter variance and strongly biased placement",
+          "SCOPE-bias-reverses-optimal-zealot-spacing-on-voter-model-cycles-while--7a62f42560d9, Finding and exact law",
+          "SCOPE-convex-order-optimal-spacing-of-alternating-fixed-opinions-on-a--0818534115ca, Finding"
+        ]
+      },
+      "rationale": "The supported distinction is the full six-cycle minimum-variance classification, including the strict intermediate regime and the two ordered algebraic boundaries. The count-variance function itself and isolated evaluations of it are covered by the earlier opinion-biased-cycle law under reflection of one arc count. No separate originality is assigned to that variance formula, to the unbiased case, or to the fact that bias changes some placement objectives. The earlier exact law does not classify the crossings or the global minimum as bias varies.",
+      "residual_risks": [
+        "An earlier exact variance-minimum classification for opinion-biased voter cycles would cover this phase diagram via the proven variance equivalence. The focused primary-literature search did not return a relevant match, which does not establish historical priority.",
+        "The replay verified the stationary generator at a single witness bias for each placement; the all-rate classification rests on the analytic identities and root arguments."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent variance function after reflecting one count, distinct stated optimization",
+          "evidence": "Independent same-ratio truncated geometrics and E[t^X]=t Z_a(rt) Z_b(rt)/(Z_a(r) Z_b(r)); placement results concern the mean and both endpoint probabilities.",
+          "identifier_or_url": "2026/10/26/SCOPE-bias-reverses-optimal-zealot-spacing-on-voter-model-cycles-while--7a62f42560d9",
+          "material_read": "Mirrored RESULT.md, offsets 100 and 3700, finding, generating function, and arc detailed balance",
+          "method": "Resultary catalogue and local OA mirror",
+          "title": "Bias reverses optimal zealot spacing on voter-model cycles while endpoint risks grow together",
+          "trigger": "Strongest earlier exact stationary count law for biased rings and placement"
+        },
+        {
+          "assessment": "Different stochastic and statistical objects; date does not decide priority",
+          "evidence": "Deterministic finite-strength anchors and spatial polarization or edge disagreement, not fixed-agent stationary variance of a count.",
+          "identifier_or_url": "2026/11/2/SCOPE-sharp-spatial-polarization-and-disagreement-placement-laws-for-t--8485192e6353",
+          "material_read": "Mirrored RESULT.md offset 116, finding",
+          "method": "Resultary catalogue and local OA mirror",
+          "title": "Sharp spatial-polarization and disagreement placement laws for two finite-strength opinion anchors on a cycle",
+          "trigger": "Same-day cycle placement result with sharp comparisons"
+        },
+        {
+          "assessment": "Covers the unbiased overlap only",
+          "evidence": "Convex-order and variance placement for unbiased copying, with the two-zealot case included.",
+          "identifier_or_url": "2026/11/8/SCOPE-convex-order-optimal-spacing-of-alternating-fixed-opinions-on-a--0818534115ca",
+          "material_read": "Mirrored RESULT.md offset 89, finding",
+          "method": "Resultary catalogue and local OA mirror",
+          "title": "Convex-order optimal spacing of alternating fixed opinions on a finite voter cycle",
+          "trigger": "Exact voter-count variance placement with alternating zealots"
+        },
+        {
+          "assessment": "Covers the domain-wall construction at equal rates, not the directional phase boundaries",
+          "evidence": "Independent segments, a single reflected random-walking wall per segment, and a uniform stationary interface position.",
+          "identifier_or_url": "https://arxiv.org/abs/0706.2892",
+          "material_read": "Section IV.A, PDF p. 5, OA offset 30869",
+          "method": "Targeted lawful OA PDF text",
+          "title": "On the Role of Zealotry in the Voter Model",
+          "trigger": "Primary precedent for the opposite-zealot arc decomposition"
+        },
+        {
+          "assessment": "Broad covariance method but different placement objective",
+          "evidence": "Directed stubborn-agent dynamics and second-moment analysis; the inspected placement material addresses expected opinions.",
+          "identifier_or_url": "https://web.mit.edu/Asuman/Desktop/asuman/www/documents/voter-submit.pdf",
+          "material_read": "OPRE-2011-01-026, pp. 1, 6–7, 27–28, OA offsets 1368, 15048, 70905",
+          "method": "Targeted lawful OA manuscript text",
+          "title": "Discrete Opinion Dynamics with Stubborn Agents",
+          "trigger": "General directed-network stationary covariance and placement framework"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Stationary total-count fluctuations are a natural objective not captured by expected support or extreme-event probabilities. The first cycle with a genuinely intermediate spacing shows that neither endpoint placement is always best, on a nonempty open interval with exact boundaries and ties. This is a meaningful minimal model and a complete classification within it, not evidence of a larger-cycle phase law.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

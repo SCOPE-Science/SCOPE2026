@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:21:34.079083Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, lines 20–44 (analytic argument and declared model)",
+        "VERIFICATION.md; frozen verify.py (inspected, not executed)",
+        "arXiv:2310.11218v1, Proposition 2.2, p. 4",
+        "Separate direct finite-field replay: python3 /workspace/branches/0609f625-89d5-4909-a482-2bded560c457/replay_finite_field.py; F_64 modulus 0x75, embedded F_4 roots [30,31], counts (N_1,N_3,B_3)=(1,1,0) for both"
+      ],
+      "rationale": "Aubry–Herbaut–Monaldi Proposition 2.2 gives the stated upper bound: 2*sqrt(2)<1+sqrt(8)<4 ensures the ceiling is 4. Independently, for r>=4 the proper-divisor contribution to N_r is at most the sum of N_d for 1<=d<=floor(r/2). Hasse–Weil gives N_d<=(21/4)*4^d for d>=1, so this sum is at most 7*2^r, and r*B_r>=4^r+1-15*2^r>0. For the example the pole of order 9 precludes an Artin–Schreier coboundary even over the algebraic closure. Infinity is totally ramified with a single rational point above it; its different exponent 10 gives genus 4. In F_4, x^9 is 0 or 1 and has absolute trace zero. In F_64, every x^9 lies in the subfield F_8 and likewise has trace zero because the subfield extension has degree 2. Omega has trace one in both fields, since the degree F_64/F_4 is odd. The affine equation is smooth and has no affine points in either field by the trace criterion for y^2+y, hence N_1=N_3=1 and B_3=(N_3-N_1)/3=0. This establishes the threshold exactly.",
+      "residual_risks": [
+        "The direct count covers the explicit example and the two named fields only. The all-degree upper bound and smooth projective geometry are established analytically, not inferred by enumeration."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The published upper bound gives rho(4,4)<=4, and its exact table covers genera 1–3, not 4.",
+          "The distinct exact-threshold record also determines P_C(T)=(1-2T)^4(1+2T+4T^2)^2 and B_1=1, B_2=4, B_3=0, B_4=54."
+        ],
+        "reasoning": "The general upper bound alone does not establish equality without a realizable obstruction. The indexed theorem contains both directions and the same realization, and supplies more information on that curve.",
+        "searches": [
+          "arXiv:2310.11218v1 Proposition 2.2 and Table 1",
+          "Bars–Lario–Vrioni Remark 3.6",
+          "Indexed exact-threshold Finding"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md",
+        "arXiv:2310.11218v1",
+        "Lario DS table",
+        "Bars–Lario–Vrioni Remark 3.6",
+        "Distinct Resultary threshold, witness and point-count passages above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The published proposition mechanically gives the upper bound here; a candidate DS polynomial does not alone give the lower bound.",
+          "The indexed record proves the same exact trace obstruction by x^9∈F_8 in F_64, and states the same exact threshold."
+        ],
+        "reasoning": "The real contribution over the published general bound would be a realized obstruction. That much is already explicitly supplied by the distinct indexed result for the very same equation, so the submitted package is not a new specialization or a different witness.",
+        "searches": [
+          "arXiv:2310.11218v1 Proposition 2.2",
+          "Lario’s genus-four DS list and Bars–Lario–Vrioni Remark 3.6",
+          "Indexed exact-threshold RESULT.md Finding and witness proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The indexed Finding states the same rho definition, all genus-four curves over F_4, threshold 4, and the exact equation y^2+y=x^9+omega with B_3=0.",
+          "The older DS framing studies equality of rational point counts over F_4 and F_64."
+        ],
+        "reasoning": "For the prime extension degree 3, N_3-N_1=3B_3, so this witness's missing degree is precisely diophantine stability for F_64/F_4. Field convention, witness and universal quantifiers agree in the two exact threshold records. They are distinct records; their displayed dates are not a priority adjudication.",
+        "searches": [
+          "Resultary exact rho(4,4), genus four over F_4, Artin–Schreier missing degree 3",
+          "2026/11/8/SCOPE-an-explicit-genus-four-artin-schreier-curve-proves-the-exact-clo--80cfbdd1b23f",
+          "Bars–Lario–Vrioni, Diophantine stability for curves over finite fields"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Lario's table includes N=1 with characteristic polynomial (T-2)^4(T^2+2T+4)^2 for GF(64)/GF(4); its introduction distinguishes candidates from explicit lists at this base field.",
+          "The frozen point counts force exactly that polynomial: maximal trace over F_64 forces every eigenvalue to have cube 8; the trace 4 over F_4 forces four eigenvalues 2 and two conjugate pairs of primitive-cube-root multiples of 2."
+        ],
+        "reasoning": "This is exact overlap at the level of viable zeta/diophantine-stability data. A candidate polynomial alone is not a previously realized curve, and the website passage does not give the witness equation. Exact realized coverage comes from the indexed theorem, not from confusing the candidate with an existence certificate.",
+        "searches": [
+          "https://web.mat.upc.edu/joan.carles.lario/DS.html, Genus 4; GF(64)/GF(4)",
+          "arXiv:2310.11218v1 Table 1",
+          "Bars–Lario–Vrioni Remark 3.6 and [Lar21]"
+        ]
+      },
+      "rationale": "A distinct indexed record gives the identical universal threshold, the identical explicit genus-four Artin–Schreier witness over F_4 and the same absence of degree-three points, and it determines additional closed-point counts and the zeta numerator. The later displayed catalogue date does not establish earlier public priority, duplication lineage, or the chronological order of discovery. This is a verdict of substantiated equivalent coverage in available results. The older DS table is exact at the candidate Weil-polynomial level but is not itself evidence of a previously exhibited equation.",
+      "residual_risks": [
+        "Catalogue dates and matched content do not settle historical priority or provenance between the two records.",
+        "The inspected older table is candidate data; other earlier realizations are not ruled out."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Upper bound verified; no genus-four value in the inspected table.",
+          "evidence": "The bound is max(2,ceil(4 log_q(1+sqrt(2g)))); the exact table states genera 1–3.",
+          "identifier_or_url": "https://arxiv.org/abs/2310.11218v1",
+          "material_read": "Proposition 2.2, p. 4, OA offset 11200; Table 1, p. 2, offset 5300",
+          "method": "Lawful OA exact statement and table inspection",
+          "title": "Closed points on curves over finite fields",
+          "trigger": "Source of the universal upper bound; possible exact threshold table"
+        },
+        {
+          "assessment": "Contains the exact candidate Weil polynomial but no displayed model for that entry.",
+          "evidence": "N=1 and (T-2)^4(T^2+2T+4)^2; introduction separates genus-four explicit F_2 lists from candidate polynomials for other fields.",
+          "identifier_or_url": "https://web.mat.upc.edu/joan.carles.lario/DS.html",
+          "material_read": "Introduction near offset 390; Genus 4; GF(64)/GF(4) near offset 94000",
+          "method": "Lawful OA web table passage",
+          "title": "Curves over Finite Fields with Diophantine Stability",
+          "trigger": "Exact genus and extension of the witness obstruction"
+        },
+        {
+          "assessment": "Candidate-polynomial coverage in the inspected passage, not the identical threshold and explicit equation.",
+          "evidence": "Remark 3.6 refers to the genus-four candidate list; [Lar21] identifies Lario's DS resource.",
+          "identifier_or_url": "Bars–Lario–Vrioni, Diophantine stability for curves over finite fields",
+          "material_read": "Remark 3.6, p. 11, OA offset 46900; [Lar21] reference p. 18, offset 73272",
+          "method": "Lawful OA targeted passage comparison",
+          "title": "Diophantine stability for curves over finite fields",
+          "trigger": "Primary source clarifying candidate versus realized DS data"
+        },
+        {
+          "assessment": "Demonstrably covers the entire submitted finding and adds further closed-point information; priority not established.",
+          "evidence": "The same smooth projective model y^2+y=x^9+omega proves B_3=0; theorem explicitly states rho(4,4)=4 and the zeta numerator and further B_r counts.",
+          "identifier_or_url": "2026/11/8/SCOPE-an-explicit-genus-four-artin-schreier-curve-proves-the-exact-clo--80cfbdd1b23f",
+          "material_read": "RESULT.md Finding, Assumptions and initial proof, offsets 0–2533, and zeta discussion near 4484; mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Resultary search and local mirror statement comparison",
+          "title": "An explicit genus-four Artin–Schreier curve realizes the sharp closed-point threshold rho(4,4)=4",
+          "trigger": "Strong exact catalogue match in object, threshold and witness"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, upper bound and lower-bound witness",
+        "Lario's genus-four DS candidate entry",
+        "Indexed exact-threshold Finding and explicit proof"
+      ],
+      "rationale": "A natural genus-four sharp threshold and explicit extremal witness would be valuable if the obstructing curve were not already known. The available exact result supplies both, with the same model and additional zeta data. Neither the finite confirmation of its traces nor the direct use of the published upper bound leaves a distinct exact fact or materially new argument to preserve as a repair.",
+      "residual_risks": [
+        "This is a judgment of incremental scientific contribution, not a dismissal of the motivation or mathematical utility of the exact threshold itself."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

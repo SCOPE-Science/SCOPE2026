@@ -1,11 +1,21 @@
-# Research review: exact cut–inversion regression and joint dependence
+# Independent mathematical audit
 
-**Correctness — PASS.** Reversal and complement symmetries give the exact conditional regression and zero covariance for every permitted finite model. A two-weight martingale array with deterministic brackets proves the joint Gaussian limit, and the independent-switch Poisson limit proves the critically dependent occupation/inversion pair. The standard-library exhaustive checker passed 5,560 exact-rational assertions on independent direct inversion counts. Finite tests are not proofs of infinite-sample statements.
+## correctness
 
-**Originality — PASS against examined evidence.** Jiang defines the model and studies mixing. The closest published-finding corpus record, *Three-scale inversion laws for correlated-label inverse riffle shuffles*, already proves the marginal inversion limits and the spin representation, which are fully credited. Neither its full theorem nor the two additional inspected published records asserts the conditional cut-size regression, joint cut/inversion Gaussian independence, or exact zero-covariance versus critical dependence contrast. The bivariate conclusion is not implied by marginal convergence alone; the new conditional and cross-bracket arguments are necessary. Historical priority risk remains from older Markov-binomial, inversion-generating-function or clumpy-shuffle literature.
+PASS
 
-**Value — PASS.** Cut size is a defining variable of the inverse-riffle mechanism. Learning the full joint dependence of its packet count and inversion statistic is motivated by understanding one-step disorder. The universal regression and the parameter-scaled independence transition distinguish uncorrelatedness from independence in a natural Markov shuffle. A new mixing theorem or a general downstream theorem is not claimed.
+For one inverse shuffle from the ordered deck, reversal at fixed cut exchanges I with K(n−K)−I; complement symmetry gives zero covariance from the regression. The constant one-label word forces I=0, while a word starting 1 then all zeros has positive probability and I>0. The signed-word expansion has coefficients a_i=n+1−2i, quadratic term −W²/8 and linear multiplier 1/4. In the many-switch limit, the martingale differences have conditional variance h(1+p). The geometric-tail coefficient replacement yields squared L² errors O(h⁻²) and O(n²/h²+n/h³) for the constant and linear profiles, negligible on scales n/h and n³/h. Omitting j=1 gives a normalized cross-bracket O(1/n), not an exactly zero finite bracket, and the diagonal brackets tend to 1 using the exact sum of squares n(n²−1)/3. The O((nh)⁻¹/²) maximal increments give Lindeberg in every projection. The centered quadratic term is negligible by E[W²]=O(n/h) and nh→∞. This recovers both stated normalizations and independence. In the Poisson regime the word represented by its constant-grid sign path gives exactly the normalized occupation and ordered inversion area; these maps are continuous at distinct interior jumps. The bounded statistics preserve zero covariance, while positive probability of zero occupation forces zero area and a single positive-to-negative switch gives positive area with positive probability.
 
-**Limitations.** One inverse-riffle step only, no mixing-time or quantitative convergence bound, prior scalar inversion CLTs and telegraph inversion limits explicitly credited. Related historical work may contain implicit general joint identities. No external/independent audit performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+On inspected evidence, the distinct contribution is the named two-statistic joint theorem with its regime change and finite conditional regression. The exact same-model marginal inversion laws, identity, and weighted-martingale setup are existing inputs, not novel here. The evidence does not establish historical priority.
+
+## value
+
+PASS
+
+The natural cut records the two packet sizes and inversions measure reordering in the same shuffle. Exact decorrelation is compatible with dependence for every finite size and in one natural scaling window, yet the coordinates are jointly Gaussian and independent in another. This determines when an independence approximation for the two observables is defensible; the easy symmetry alone or a marginal CLT would not do so.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

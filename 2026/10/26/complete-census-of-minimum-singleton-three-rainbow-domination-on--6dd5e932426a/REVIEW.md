@@ -1,23 +1,21 @@
-# Scientific review of the prism minimum-function census
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof applies to every integer \(n\ge3\). Cubic neighborhoods force the uncolored vertices to form an independent set and permit at most one uncolored vertex per rung. For deficits of zero, one, or two, the uncolored support is exhausted by its empty rungs and alternating runs. A directly derived \(3\times3\) two-terminal color kernel counts the precise positive colorings of each run, including length one and length two. The analysis separately treats adjacent holes, nonadjacent holes, odd circumference, and even circumference. Matrices are multiplied only where endpoint-color constraints require them, and every pair of holes is counted once in the final formulas. Small graph cases are included rather than extrapolated. The complete minimum-number formula follows by locating the first positive coefficient, without relying on an external minimum-weight theorem.
+PASS
 
-Exact direct graph enumeration and an independently implemented constraint-graph color counter match the displayed coefficients in all tested orders. These finite computations are checks, not the infinite argument.
+At weight n+2 the zeros are an independent set, with exactly one per rung outside the two completely colored rungs. For a run, the two end-neighbor colors and the run's positive colors in between form a sequence whose sliding triples must have all three colors, so the first two distinct labels force the rest by period three. Its endpoint matrix is 2I if the run length is 2 mod 3, J−I otherwise. For adjacent holes there are 108 colorings per unordered pair, including n=3. With nonadjacent holes the zero-row difference between the two run ends changes parity by n−4. Thus for odd n one hole shares its constrained vertex and one does not, giving 144 colorings per pair; summing gives 108n+144(C(n,2)−n)=36n(2n−3). For 6|n, two orientations have both endpoints shared, two neither. For the shared case the count before free colors is tr(R_p R_q), correctly using symmetry to reverse one run. The directed-distance counts are 288,180,180 for the three residues of d mod 3, each occurring n/3−1 times, and the directed sum must be halved even for opposite holes. Adding adjacent holes gives 108n(n−2). This proves the replacement without assuming the minimum theorem. The same kernel gives the frozen rest of the table: no holes require both cyclic periods two and three; one hole shares the endpoint iff n is even; for the remaining even two-hole cases the trace values reduce to 6 and 0, with 180 at one distance residue and 72 at the other two. No falsity is alleged for those removed branches.
 
-## Originality — PASS, subject to bibliographic uncertainty
+## originality
 
-The closest primary source is Lange, arXiv:2610.06906v1, Theorem 19 and its proof. It gives the **minimum weight** in the identical singleton model on the identical graph family, but no number of optimal functions, and does not determine the next two coefficients of the weight distribution. Its Theorem 7 describes the equality structure for regular graphs, not the full near-extremal color multiplicities. Those earlier results alone cannot imply the formulas at weights \(n+1\) and \(n+2\), and the present combinatorial run-kernel argument supplies the missing count.
+PASS
 
-Žerovnik's 2026 cylindrical-graph study provides bounds and constructive examples rather than the same coefficient formulas in its accessible sections. A 2026 exact prism-dominion article instead enumerates **ordinary dominating sets** and has a modulo-four, not modulo-six, classification. Related Roman domination on complete-clique prisms concerns different labels and a different graph. A targeted search of scholarly indexing and public mathematical-result records found no equivalent formula. This does not establish publication priority; the complete Žerovnik PDF could not be checked, and unindexed results remain a risk.
+The earlier same-model minimum-weight theorem and the distinct indexed census have substantial coverage of the frozen claim. Neither determines the two repaired branches where weight n+2 is nonoptimal. The full cylinder paper was recovered via the open static PDF, and its relevant theorems are bounds/exact weights, not the claimed counts. The repair claims only the nonminimum weight-(n+2) cases, not either minimum invariant or priority.
 
-## Mathematical value — PASS
+## value
 
-The new formulas resolve an intrinsically motivated refinement of a recently determined minimum parameter: how many named-color configurations attain the optimum, for every circumference. The theorem provides a full extremal classification and additionally determines the two adjacent weight layers for all circumferences. It distinguishes three growth regimes—constant, linear, and quadratic—via a transparent finite local kernel. These are cardinalities of naturally defined optimizing objects, not arbitrary graph indices or merely small finite tables.
+PASS
 
-## Limitations and relationships
+The two nonminimum branches finish a natural low-weight coefficient across all circumferences, after accounting for the complementary classes where the optimum census already supplies it. These are exhaustive symbolic counts for infinite classes, not an arbitrary set of extra examples, and the contrast between odd (one shared hole) and even (two or none) explains the differing multiplicities. A researcher using low-weight terms of the labeling polynomial cannot substitute the optimum count for these branches.
 
-Weights above \(n+2\) are not covered; the classical multicolor-per-vertex rainbow model is not covered. Literature comparisons are best-knowledge, not an independent bibliographic or mathematical audit. No claim of independent mathematical validation is made.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

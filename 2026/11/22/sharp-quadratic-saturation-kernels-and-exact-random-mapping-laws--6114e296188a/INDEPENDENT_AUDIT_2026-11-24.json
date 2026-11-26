@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T12:31:58.028626Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–48 and VERIFICATION.md; verify.py inspected, not executed",
+        "Flajolet–Odlyzko, Random Mapping Statistics; Soria, Distribution of Image Points in Random Mappings §2"
+      ],
+      "rationale": "In an orbit observed through f^d(x), the first repeat, if any, has index t+c and repeats the entry at t; subsequent equalities are determined by that transient length and period. Summing d-c+1 over c=1,...,d gives the repetition-type count. For each such c, the deepest required type (d-c,c) needs a c-cycle with a chain of length d-c in its component, and these d forced blocks are disjoint and each uses d vertices. Exactly those blocks cannot realize the window with no repeat. With just one extra vertex, no new cycle longer than d fits outside them, and the only way to make a longer orbit in a forced component is to append the extra vertex at the tip of its chain (or mark a vertex on the bare d-cycle). The d choices of cycle length are exactly the isomorphism classes. All components are rigid except the untouched bare d-cycle when that chain was extended elsewhere, yielding the factor 1+(d-1)/d by orbit-stabilizer, also valid at d=1. In the labeled SET of directed cycles of rooted trees, qualifying c-components have EGF (T^c-H_{d-c-1}^c)/c. Requiring at least one from each disjoint class multiplies the total mapping EGF by the stated occupancy factors. Absence of the no-repeat type means c<=d in every component and all heights at most d-c; applying the same occupancy rule with these truncated tree classes gives precisely B_d. Its subtraction therefore has no overcount. At rho=1/e the analytic tree branch has a dominant square-root with 1-T~sqrt(2(1-z/rho)); the product is analytic in z and T there and its limiting factors are positive. Singularity transfer divides the leading coefficient by that for (1-T)^(-1), while B_d is entire and negligible by Cauchy's bound on a circle beyond rho. The recurrence H_j(rho)=h_{j+1} gives the stated product; independent evaluations match all four displayed probabilities.",
+      "residual_risks": [
+        "Infinity denotes a finite non-repetition window, not a genuinely infinite orbit. The transfer is for fixed d, with no finite-n independence assertion. Reported finite checks are corroboration only."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fixed-sentence polynomial-time counting includes this definable event. The prior papers develop decorated tree and cycle EGFs, bounded-height trees, and tail/cycle singularity methods."
+        ],
+        "reasoning": "The scope of the counting algorithm dominates the frozen predicate-free fixed-depth setting; efficiency is not a new claim. A general counting framework and ordinary maximum-tail statistics do not state the exact all-cycle-length simultaneous occupancy with the no-repeat correction or the minimum classification.",
+        "searches": [
+          "arXiv:2608.30580v2 Theorem 1, §3 and §§8.1.2–8.1.6",
+          "Flajolet–Odlyzko DOI 10.1007/3-540-46885-4_34, §3.2 and Theorem 6",
+          "Soria 1996 §§2 and 4"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary/SCOPE catalogue",
+        "Frozen RESULT.md lines 50–59",
+        "arXiv:2608.30580v2",
+        "Flajolet–Odlyzko DOI 10.1007/3-540-46885-4_34",
+        "Soria 1996 seminar"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The existing theorem implies polynomial-time evaluation for fixed d; cycle and tree species plus height truncation are known.",
+          "This result additionally identifies the precise forced components, shows that seeing all repeated patterns at the lower bound excludes the unrepeated window, and derives the subtraction G_d-B_d by conditioning every height cap on its cycle length."
+        ],
+        "reasoning": "The algorithm and standard transfer can be applied after independently expressing the simultaneous event in component classes. They do not alone imply the sharp d^2+1 cutoff, exact extremal classification, or all-profile product without that analysis.",
+        "searches": [
+          "Kuželka arXiv:2608.30580v2, Theorem 1 and profile/cycle EGF construction",
+          "Flajolet–Odlyzko §3.2 and Theorem 6",
+          "Soria seminar §2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kuželka's bounded forward profiles include the same equality-only types when predicates are absent.",
+          "The deepest repeated type per cycle length c is equivalent to requiring at least one c-cycle component of height at least d-c; the extra no-repeat window adds existence of an orbit with transient plus period greater than d."
+        ],
+        "reasoning": "Logical conjunction of profile-existence sentences and occupancy of these functional-digraph classes are equivalent. The known profile construction supplies the language for this equivalence; it does not optimize minimum carrier size for the conjunction or state the resulting extremal classes.",
+        "searches": [
+          "Resultary bounded unary orbit type, saturation kernel and all-profile realization searches",
+          "Kuželka arXiv:2608.30580v2 §§8.1.2–8.1.6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The sharp d^2+1 saturation record hit is identical to the assigned record. The indexed distinct same-day record concerns colored permutations and a de Bruijn-based minimum; its full text remained unavailable. The random-mapping examples inspected are not counts of the conjunction of all depth profiles."
+        ],
+        "reasoning": "Even with the same bounded-profile framing, a permutation has transient length zero, whereas every d>=2 instance here requires a nontrivial tail. The distinct indexed result therefore cannot directly tabulate these arbitrary-function counts. The source identity and the shared date were not used to infer priority.",
+        "searches": [
+          "Local Resultary/SCOPE catalogue for saturation and universal bounded profiles; records 6114e296188a and 33e2bbb0da78",
+          "Flajolet–Odlyzko Random Mapping Statistics, tail and cycle statistics"
+        ]
+      },
+      "rationale": "General one-variable unary-function counting, bounded forward profiles and the cycle-of-trees/singularity framework are prior. The supported distinct result is the minimal all-profile carrier and its exact classification, together with the specialized all-profile coefficient formula and fixed-depth saturation probability. No earlier equivalent joint result was found in the statements inspected.",
+      "residual_risks": [
+        "Historical random-mapping literature is extensive; an older equivalent joint-height event could be described with different terminology. The distinct colored-permutation record's comparison is restricted to the indexed statement."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers fixed-depth counting tractability and profile methods, not the distinct tight carrier, formula and limit in the material examined",
+          "evidence": [
+            "Bounded forward profiles include predicates and equality tests; cycle and in-tree EGFs aggregate profile constraints."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2608.30580v2",
+          "material_read": "Theorem 1 p. 6 offset 23632; §3 pp. 8–9 offsets 30950–35096; §§8.1.2–8.1.6 pp. 21–27 offsets 76600–102559",
+          "method": "Primary OA PDF passage reads",
+          "title": "Unary Functions, Automorphisms, and Unlabeled First-Order Model Counting",
+          "trigger": "Stronger model-counting theorem and exact forward-profile machinery"
+        },
+        {
+          "assessment": "Strong antecedent for functional-digraph height truncation and tail/cycle asymptotics, not the inspected simultaneous saturation statement",
+          "evidence": [
+            "Theorem 6 uses the bounded-height tree recurrence for maximum tail length; §3.2 concerns tail and cycle statistics."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/3-540-46885-4_34",
+          "material_read": "Abstract p. 329 offsets 417–1041; §3.2 pp. 338–339 offsets 29850–33320; Theorem 6 pp. 342–343 offsets 42450–46928",
+          "method": "Primary full PDF decisive passage reads",
+          "title": "Random Mapping Statistics",
+          "trigger": "Classical statistics potentially covering the requirement on cycle lengths and tree heights"
+        },
+        {
+          "assessment": "Prior decomposition and limit methods, different target parameter",
+          "evidence": [
+            "Functional components are cycles of rooted trees; general distributional methods are described for the image-point setting."
+          ],
+          "identifier_or_url": "https://algo.inria.fr/seminars/sem96-97/soria.html",
+          "material_read": "§2 offsets 1300–4799 and §4 offsets 4799–7763",
+          "method": "Primary seminar HTML passage reads",
+          "title": "Distribution of Image Points in Random Mappings",
+          "trigger": "General random-map decomposition and probability framework"
+        },
+        {
+          "assessment": "Known scope is colored permutations, materially different; no exclusion based on unread full text",
+          "evidence": [
+            "Requires q>=2 colors and permutations and uses a de Bruijn-type classification; permutations have no transient chains."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-universal-colored-permutation-profiles-and-a-de-bruijn-cir--33e2bbb0da78",
+          "material_read": "Catalogue summary; exact local file was unavailable and OA retrieval timed out",
+          "method": "Local Resultary comparison, with attempted exact primary passage retrieval",
+          "title": "Sharp universal colored permutation profiles and a de Bruijn circuit result",
+          "trigger": "Strongest distinct catalogue hit for universal bounded one-point profiles"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–27 and 32–45",
+        "Kuželka arXiv:2608.30580v2 Theorem 1 and model-profile sections"
+      ],
+      "rationale": "Realizing all bounded equality patterns is a natural small-carrier problem for unary term tests, and the exact quadratic size and classification give both minimum witnesses and the obstruction at the preceding size. The same orbit condition gives a concrete fixed-depth event in random mappings, for which the formula and strictly positive limit determine prevalence rather than just saying that a count exists. The exact symmetry factor and the no-repeat exclusion are structurally informative.",
+      "residual_risks": [
+        "No growing-depth random-map law or extension to richer signatures is justified here."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

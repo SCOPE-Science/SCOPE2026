@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:02:44.697486Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the parity action from the local Lagrange polynomials and independently checked the exact Fourier trace, determinant, Schur–Cohn residual and compensation identity with audit-support/simpson_symbol.py. For 0<d<1 the determinant modulus is at most 1−d+d²<1 and the residual is strictly positive off the constant block, where the two eigenvalues are 1 and 1−2d. Reflection and a commuting two-node translation transfer this to the second half of the Courant interval. At f=1 the cyclic permutation has a unique normalized invariant but no general convergence, consistent with the Finding. Simpson integration and subtracting the two parity weightings give the exact checkerboard extremum. Products preserve the Simpson row precisely when the ordered scalar equation holds; the given radical solves it with both displacements nonresonant. The supplied finite checker was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lemma 3, PDF pp. 9–10, sets p=1−exp(iω) and normalizes the Schur residual by 16λ²(1−λ)², obtaining λ²(2−λ)|p|⁴/64, exactly the factorization in the Finding's proof after undoing the normalization. It explicitly concludes strict contraction for p≠0 and interior λ.",
+          "§3.3 extends the shift mechanism by commutation; earlier chapter access did not yield readable text."
+        ],
+        "reasoning": "The relevant persistence and asymptotic ingredients are stronger than a bare power-boundedness theorem and already cover the nonzero modes exactly.",
+        "searches": [
+          "arXiv:2610.19806v1 Lemma 3 and Theorem 3.2",
+          "Ferretti and Perrone 2007 finite-element interpolation stability",
+          "doi:10.1007/s00211-012-0505-5",
+          "doi:10.1515/caim-2016-0024"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and verification support",
+        "arXiv:2610.19806v1",
+        "Resultary 75a44cdbc7aa",
+        "Ferretti–Perrone (2007), indirect",
+        "10.1007/s00211-012-0505-5, bibliographic only",
+        "10.1515/caim-2016-0024, bibliographic only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Sum equations (7)–(8) over elements: the off-diagonal entries of the resulting stochastic two-by-two matrix are d(2−d) and d². Their ratio immediately gives the stationary even weight d/2. Iteration discards all other modes by Lemma 3; subtract the elementary Simpson row to obtain the sharp bias (take parity-extreme data). Multiplying two of these same two-by-two matrices into the Simpson row gives exactly the ordered compensation polynomial."
+        ],
+        "reasoning": "Neither the stability mechanism nor an additional independent conservation theorem is needed beyond that source and the elementary operations on its zero mode; the radical is just a quadratic root.",
+        "searches": [
+          "arXiv:2610.19806v1 equations (7)–(8), Lemma 3, §§3.2–3.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:2610.19806v1 §3.1 equations (7)–(8) give the same periodic even/odd interpolation; §§3.2–3.3 give sign reversal and even shifts.",
+          "Resultary parity-obstruction record 75a44cdbc7aa studies C¹ knot spline interpolation, not repeated nodal advection."
+        ],
+        "reasoning": "The sign convention and reduction modulo a shift of two nodes identify the same stencil; the similar spline record is a different map.",
+        "searches": [
+          "Ferretti–Mehrenberger quadratic nodal semi-Lagrangian Fourier stability and parity mass",
+          "Ferretti–Perrone quadratic semi-Lagrangian interpolation",
+          "Resultary parity and periodic quadratic interpolation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Strongest adjacent indexed result: https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-sharp-variation-gain-and-parity-obstruction-for-periodic-quadrat--75a44cdbc7aa . Its Finding is about odd-cycle spline variation gain and even-cycle compatibility, not mass or translated updates."
+        ],
+        "reasoning": "No distinct exact indexed match was established in this search; the primary-paper implication is decisive regardless.",
+        "searches": [
+          "Resultary searches keyed by Ferretti–Mehrenberger, Ferretti–Perrone, Hamiaz et al., and Ferretti semi-Lagrangian–Galerkin"
+        ]
+      },
+      "rationale": "The earlier paper gives both the same zero-mode matrix through its printed stencil and the same strict Fourier contraction, including the exact Schur residual. The stationary mass, resonances, bias and compensation equation are direct two-by-two algebra from that earlier update, not a distinct result beyond its implications. The paper does not explicitly state Simpson conservation or the compensation curve; this is a finding of coverage by implication, not a claim of verbatim prior publication.",
+      "residual_risks": [
+        "Whether an older explicit mass classification exists was not established; the prior implication found does not depend on such a source.",
+        "Semantic index results do not prove absence of other records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers by specialization and direct algebra; not an explicit conservation statement",
+          "evidence": "Printed Lagrange update and exact normalized Schur discriminant; reflection and even shift argument.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.19806v1",
+          "material_read": "§3.1 equations (7)–(8), Lemma 3 pp. 9–10 (text offsets 24200–28140), §§3.2–3.3 and Theorem 3.2",
+          "method": "Lawful primary PDF, read decisive passages by offset",
+          "title": "Stability of the P2 Semi-Lagrangian scheme",
+          "trigger": "Same method, element stencil, offsets and stability regime"
+        },
+        {
+          "assessment": "Different interpolant and invariant",
+          "evidence": "Periodic C¹ knot spline, gain n/2 and parity compatibility, not a quadratic nodal update.",
+          "identifier_or_url": "Resultary 75a44cdbc7aa",
+          "material_read": "Finding and prior-work section, RESULT.md offsets 0 and 6200",
+          "method": "Local published mirror",
+          "title": "Sharp variation gain and parity obstruction for periodic quadratic interpolation",
+          "trigger": "Strongest adjacent indexed periodic quadratic/parity finding"
+        },
+        {
+          "assessment": "Unresolved for historical priority",
+          "evidence": "Introduction describes a partial eigenvalue estimate on [0,1].",
+          "identifier_or_url": "Ferretti–Perrone (2007), Applied and Industrial Mathematics in Italy II, pp. 339–350",
+          "material_read": "No chapter text; account in the 2026 paper introduction",
+          "method": "Lawful retrieval attempt and qualified indirect comparison",
+          "title": "On the stability of semi-Lagrangian advection schemes under finite element interpolations",
+          "trigger": "Earlier treatment of same discretization"
+        },
+        {
+          "assessment": "No full-text inference",
+          "evidence": "Readable full text not obtained.",
+          "identifier_or_url": "10.1007/s00211-012-0505-5",
+          "material_read": "DOI/publisher metadata only",
+          "method": "Lawful publisher retrieval attempt",
+          "title": "On the relationship between semi-Lagrangian and Lagrange–Galerkin schemes",
+          "trigger": "Possible general conservation implication"
+        },
+        {
+          "assessment": "No full-text inference",
+          "evidence": "No readable copy on those routes.",
+          "identifier_or_url": "10.1515/caim-2016-0024",
+          "material_read": "Bibliographic information only",
+          "method": "Lawful publisher and repository attempts",
+          "title": "The semi-Lagrangian method on curvilinear grids",
+          "trigger": "Earlier semi-Lagrangian conservation discussion"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The difference between reconstructed and conserved mass is physically motivated, and the formula is pedagogically useful. But the exact same prior stencil and strict contraction already dictate the entire fixed-grid classification; the two-step result is a single multiplication of the published zero-mode matrices, with no additional stability or useful smooth-grid conclusion. Under the scientific standard this is a mechanically implied exact invariant, not a surviving distinct contribution.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

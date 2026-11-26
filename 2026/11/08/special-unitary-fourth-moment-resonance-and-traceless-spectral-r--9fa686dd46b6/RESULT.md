@@ -1,70 +1,65 @@
-# Special-unitary fourth-moment resonance and traceless spectral rigidity
+# Sharp fourth-moment bounds and determinant-phase rigidity on the special unitary group
 
 ## Finding
-For the first real matrix-coefficient space on \(\mathrm{SU}(n)\), the sharp fourth-moment embedding is Gaussian-bounded in every dimension \(n\ge3\) except \(n=4\), where a determinant invariant raises its sharp fourth-power constant from \(3\) to \(7/2\). For traceless Hermitian coefficients on \(\mathrm{SU}(4)\), the ratio is exactly affine in the normalized determinant, and its sharp minimum and maximum occur at the distinct eigenvalue-multiplicity patterns \(3+1\) and \(2+2\).
 
-## Assumptions and scope
-Equip \(\mathrm{SU}(n)\) with probability Haar measure. For every complex \(n\times n\) matrix \(A\ne0\), \(n\ge3\), define \(f_A(U)=\operatorname{Re}\operatorname{tr}(A^*U)\), \(S=\operatorname{tr}(AA^*)>0\), \(Q=\operatorname{tr}((AA^*)^2)\), \(r=Q/S^2\), and \(d=\operatorname{Re}\det A/S^2\). We study the attained ratio \(K_n(A)=\mathbb E f_A^4/(\mathbb E f_A^2)^2\), the fourth power of the \(L^2\)-to-\(L^4\) norm along \(f_A\). No restriction to diagonal or normal matrices is imposed in the first theorem.
+Equip \(\mathrm{SU}(n)\) with probability Haar measure, and let \(n\ge3\). For any nonzero complex \(n\times n\) matrix \(A\) define \(f_A(U)=\operatorname{Re}\operatorname{tr}(A^*U)\) and \(K_n(A)=\mathbb E f_A^4/(\mathbb E f_A^2)^2\). The full range of \(K_n\) is
+\[
+\begin{cases}
+[3n/(n+1),3],& n\ne4,\\
+[12/5,7/2],& n=4.
+\end{cases}
+\]
+In all dimensions the minimum is attained exactly at rank one. For \(n\ne4\) the maximum is attained exactly by positive multiples of unitary matrices. For \(n=4\) it is attained exactly by positive multiples of **special** unitary matrices. Thus the fourth power of the sharp \(L^2\)-to-\(L^4\) embedding norm on this real coefficient space exceeds the Gaussian ratio \(3\) only in dimension four. The distinction between unitary and special-unitary extremizers is essential even at a fixed singular spectrum.
 
-The exact formulas are
+## Assumptions and normalization
+
+The coefficient space is that of the real parts of the fundamental matrix coefficients, with no trace, Hermitian or normality constraint on \(A\). With \(S=\operatorname{tr}(AA^*)\), \(Q=\operatorname{tr}((AA^*)^2)\), \(r=Q/S^2\) and (in dimension four) \(d=\operatorname{Re}\det A/S^2\), the normalized moment identities are
 \[
 \mathbb E f_A^2=\frac{S}{2n},\qquad
 K_n(A)=\begin{cases}
-\dfrac{3n^2}{n^2-1}\left(1-\dfrac{r}{n}\right),&n=3\text{ or }n\ge5,\\[3pt]
-\dfrac{16}{5}-\dfrac45 r+8d,&n=4.
+\dfrac{3n^2}{n^2-1}\left(1-\dfrac rn\right),& n\ne4,\\[3pt]
+\dfrac{16}5-\dfrac45r+8d,& n=4.
 \end{cases}
 \]
-Their complete sharp intervals are \([3n/(n+1),3]\) for \(n=3\) or \(n\ge5\), and \([12/5,7/2]\) for \(n=4\). In every dimension the lower extremizers are exactly rank-one matrices. Outside dimension four, the upper extremizers are exactly matrices with all singular values equal. In dimension four the upper extremizers are exactly \(A=cV\), where \(c>0\) and \(V\in\mathrm{SU}(4)\). Thus \(n=4\) is the unique dimension at least three with fourth-moment amplification greater than the Gaussian ratio \(3\).
-
-For traceless Hermitian \(A\ne0\) in dimension four, \(d=\det A/S^2\) is real and
-\[
-K_4(A)=\frac{14}{5}+\frac{56}{5}d,
-\qquad -\frac1{48}\le d\le\frac1{16},
-\qquad \frac{77}{30}\le K_4(A)\le\frac72.
-\]
-Lower equality holds exactly for unitary conjugates and nonzero real multiples of \(\operatorname{diag}(1,1,1,-3)\); upper equality holds exactly for conjugates and nonzero real multiples of \(\operatorname{diag}(1,1,-1,-1)\). All intermediate ratios in both unrestricted and Hermitian ranges are attained.
+These identities are consequences of known group integration formulas; the sharp optimization over all complex coefficients is the subject here.
 
 ## Proof
-**Moment selection and normalization.** Write \(Z=\operatorname{tr}(A^*U)\). Multiplication of \(U\in\mathrm{SU}(n)\) by any central \(n\)-th root of unity shows \(\mathbb E Z^p\overline Z^{\,q}=0\) unless \(n\) divides \(p-q\). For \(n\ge3\), the second moment therefore equals \(\mathbb E f_A^2=\tfrac12\mathbb E|Z|^2=S/(2n)\). At fourth order the only allowed unbalanced monomial in any dimension \(n\ge3\) is \(Z^4\) or \(\overline Z^4\), and that occurs only when \(n=4\). Balanced moments agree with \(\mathrm U(n)\), since scalar rotation preserves their integrands and the unitary Haar law decomposes into scalar times special-unitary Haar law. The order-two unitary Weingarten formula gives
-\[
-\mathbb E|Z|^4=\frac2{n^2-1}\left(S^2-\frac Qn\right).
-\]
-When \(n=4\), the invariant subspace of \((\mathbb C^4)^{\otimes4}\) under \(\mathrm{SU}(4)\) is the alternating determinant line. Orthogonal projection onto its normalized Levi-Civita tensor gives \(\mathbb E Z^4=\overline{\det A}\), including the factor \(1/4!\) that cancels the \(4!\) determinant contractions. Expanding \(f_A^4=(Z+\bar Z)^4/16\) yields the displayed formulas: the balanced contribution is \(6\mathbb E|Z|^4/16\), and in dimension four the extra term is \(\operatorname{Re}\det A/8\).
 
-**Unrestricted optimization.** If \(x_1,\dots,x_n\) are the squared singular values divided by \(S\), then \(x_i\ge0\), \(\sum x_i=1\), and \(1/n\le r=\sum x_i^2\le1\), with equality only at uniform singular values and rank one, respectively. This proves the range and equality classes when \(n\ne4\).
-
-For \(n=4\), \(|d|\le\sqrt{x_1x_2x_3x_4}\le1/16\). Thus
+**Moment reduction.** Write \(Z=\operatorname{tr}(A^*U)\). Multiplication by a central \(n\)-th root of unity makes \(\mathbb E Z^p\bar Z^q\) vanish unless \(n\mid(p-q)\). Balanced moments equal their \(\mathrm U(n)\) versions, since multiplication by a scalar preserves the integrands and scalar times special-unitary Haar gives unitary Haar. In particular \(\mathbb E|Z|^2=S/n\). For the fourth balanced moment, \(Z^2\) is the trace coefficient of \(U^{\otimes2}\) with coefficient \((A^*)^{\otimes2}\). On the symmetric and exterior squares (inequivalent irreducible \(\mathrm U(n)\)-representations), the squared Hilbert–Schmidt norms of the restricted coefficients are \((S^2+Q)/2\) and \((S^2-Q)/2\). Indeed, the projections are half the sum and difference of identity and the transposition of tensor factors, and the trace of \((AA^*)^{\otimes2}\) times the transposition is \(Q\). Schur orthogonality divides each squared norm by its dimension, \(n(n+1)/2\) and \(n(n-1)/2\), and removes cross terms. Hence
 \[
-\frac72-K_4(A)=\frac45\left(r-\frac14\right)+8\left(\frac1{16}-d\right)\ge0,
+\mathbb E|Z|^4=\frac{2}{n^2-1}(S^2-Q/n).
 \]
-with equality exactly at four equal singular values and positive real determinant, equivalently \(A=cV\) with \(c>0\), \(V\in\mathrm{SU}(4)\). For the opposite bound, AM--GM on the six pair products yields
+At second order there is no unbalanced term for \(n\ge3\). At fourth order the only permitted unbalanced terms are the pure fourth powers for \(n=4\). Haar averaging \(U^{\otimes4}\) in that dimension projects onto the normalized alternating determinant line, so \(\mathbb E Z^4=\overline{\det A}\). Expanding \((Z+\bar Z)^4/16\) gives the stated balanced term \(6\mathbb E|Z|^4/16\) and the additional term \(\operatorname{Re}\det A/8\) in dimension four.
+
+**Unrestricted optimization.** Let \(x_i\) be the squared singular values divided by \(S\). Then \(x_i\ge0\), \(\sum_i x_i=1\), and \(r=\sum_i x_i^2\in[1/n,1]\). Equality on the left means equal singular values, and on the right rank one. This gives both extremal values and classes for \(n\ne4\).
+
+In dimension four, \(|d|\le\sqrt{x_1x_2x_3x_4}\le1/16\). Therefore
+\[
+\frac72-K_4=\frac45(r-1/4)+8(1/16-d)\ge0.
+\]
+Both terms vanish exactly when the singular values are equal and \(\det A\) is positive real, which is precisely \(A=cV\) with \(c>0\) and \(V\in\mathrm{SU}(4)\). To bound the minimum for all determinant phases, apply AM–GM to the six pair products:
 \[
 1-r=2\sum_{i<j}x_ix_j\ge12\sqrt{x_1x_2x_3x_4}.
 \]
-Consequently
+This gives the exact lower endpoint and the bound
 \[
-K_4(A)-\frac{12}{5}=\frac45(1-r)+8d
-\ge\frac45(1-r)-8\sqrt{x_1x_2x_3x_4}
-\ge\frac2{15}(1-r)\ge0.
+K_4-\frac{12}{5}=\frac45(1-r)+8d\ \ge\ \frac{2}{15}(1-r)\ge0.
 \]
-Equality forces \(r=1\), i.e. rank one. This also supplies a quantitative lower stability bound.
-
-**Traceless Hermitian optimization.** Let \(A=A^*\), \(\operatorname{tr}A=0\). Newton's identities for its four real eigenvalues give \(Q=S^2/2-4\det A\), hence \(r=1/2-4d\) and \(K_4=14/5+56d/5\). Scale to \(S=1\) and pair the eigenvalues as \((a+b)/2,(a-b)/2,(-a+c)/2,(-a-c)/2\). Then \(a^2+(b^2+c^2)/2=1\). Put \(s=a^2\in[0,1]\), \(t=b^2\ge0\), \(u=c^2\ge0\). Since \(t+u=2(1-s)\),
-\[
-16\det A=(s-t)(s-u)=3s^2-2s+tu,
-\qquad 0\le tu\le(1-s)^2.
-\]
-It follows that \(16\det A\ge3(s-1/3)^2-1/3\ge-1/3\), with equality exactly at \(s=1/3\), \(tu=0\), giving the \(3+1\) eigenvalue pattern. Similarly \(16\det A\le(2s-1)^2\le1\), with equality exactly at the \(2+2\) pattern. Both extrema occur. The sharp deficit identities are \(K_4-77/30=(56/5)(d+1/48)\) and \(7/2-K_4=(56/5)(1/16-d)\). The coefficient domain is connected after normalizing \(S=1\), so continuity gives every intermediate attained ratio.
-
-## Verification
-The standalone file `su4_fourth_checker.py` independently inverts the order-two unitary Weingarten Gram matrix, checks the normalized alternating-tensor contraction, runs 12,000 exact-rational diagonal spectral checks including the traceless restriction, verifies all sharp endpoint examples, and compares the formulas to an independent QR-generated numerical Haar sample on \(\mathrm{SU}(4)\) (48,000 matrices). It reports `ALL_SU4_FOURTH_MOMENT_CHECKS_PASSED`. Numerical sampling does not establish the general theorem; that rests on the preceding invariant-tensor, Newton-identity, and AM--GM proofs.
+Rank one attains equality at \(12/5\), and conversely equality there forces \(r=1\). The normalized coefficient domain \(S=1\) is connected and \(K_n\) is continuous on it, so the extrema bound the entire attained intervals.
 
 ## Relationship to prior work
-Collins and Śniady (first public preprint 26 February 2004) give the unitary Weingarten integration machinery used for the balanced moments; these integrations are prior work. Borisenko, Voloshyn and Chelnokov (2018) provide general special-unitary polynomial and trace generating integrals, including determinant-charge corrections. Their formulas supply broad moment-computation machinery; the present claim is the sharp real fourth-moment embedding with the complete spectral equality classification, the strict isolated dimension-four Gaussian excess, and the exact constrained traceless-Hermitian determinant interval. Those optimization assertions are not stated in the inspected primary texts. A sufficiently explicit unindexed consequence of general integration formulas remains a novelty risk.
 
-## Limitations
-Only fourth moments of real fundamental matrix coefficients for \(n\ge3\) are addressed. The results do not cover higher tensor representations, mixed-degree coefficients, or higher even moments. The trace-zero Hermitian classification is specific to dimension four. No independent mathematical audit or exhaustive claim of bibliographic priority is made.
+Collins and Śniady give the unitary Weingarten formula; the balanced integrals above are special cases. Borisenko, Voloshyn and Chelnokov give stronger general special-unitary integration identities, including the determinant-charge terms used here. These are not new moment evaluations in the sense of new integration machinery. The optimized sharp range depends on controlling the determinant term together with the singular spectrum and on the exact phase constraint on the upper extremizers. This is a statement about the unrestricted coefficient space, not about only the single coefficient \(A=I\).
+
+The size-four trace-zero Hermitian determinant interval is not claimed as a second optimization result. In fact, for its four eigenvalues regarded as a centered sample, sample kurtosis is \(b_2=4Q/S^2\). The bounds \(1\le b_2\le7/3\) (the upper bound is Dalén's sample-kurtosis bound at sample size four, as reported in Cox, §2.1) and Newton's identity \(\det A/S^2=1/8-Q/(4S^2)\) already give the sharp interval \([-1/48,1/16]\), realized by the one-outlier and balanced two-point samples respectively. Inserting this into the pointwise fourth moment merely produces a restricted example of the moment identities.
+
+## Verification and limitations
+
+The accompanying `su4_fourth_checker.py` is a finite diagnostic: it inverts the order-two unitary integration Gram matrix, checks the alternating contraction and rational profiles and endpoint examples, and compares selected coefficients with QR-based Haar samples on \(\mathrm{SU}(4)\). Some checks concern the attributed restricted example. Run with Python and NumPy and SymPy installed. Numerical agreement is not used to prove the bounds or their equality conditions. The theorem concerns fourth moments for \(n\ge3\) on the fundamental real coefficient space only; it does not assert higher-order or other representation analogues or exhaustive literature priority.
 
 ## References
-1. B. Collins and P. Śniady, *Integration with respect to the Haar measure on unitary, orthogonal and symplectic group*, arXiv:math-ph/0402073, first submitted 2004-02-26, especially Section 2.2 and Corollary 2.4. https://arxiv.org/abs/math-ph/0402073
-2. O. Borisenko, S. Voloshyn and V. Chelnokov, *SU(N) polynomial integrals and some applications*, arXiv:1812.06069, first submitted 2018-12-14, especially Sections 2, 3.1 and 3.2. https://arxiv.org/html/1812.06069v1
+
+1. B. Collins and P. Śniady, *Integration with respect to the Haar measure on unitary, orthogonal and symplectic group*, arXiv:math-ph/0402073, §2.2, Corollary 2.4. https://arxiv.org/abs/math-ph/0402073
+2. O. Borisenko, S. Voloshyn and V. Chelnokov, *SU(N) polynomial integrals and some applications*, arXiv:1812.06069, §§2 and 3.1. https://arxiv.org/html/1812.06069v1
+3. J. Dalén, *Algebraic bounds on standardized sample moments*, Scandinavian Journal of Statistics 14 (1987), 155–162.
+4. N. J. Cox, *Speaking Stata: The limits of sample skewness and kurtosis*, Stata Journal 10 (2010), 482–495, §2.1, equation (2). https://doi.org/10.1177/1536867X1001000311

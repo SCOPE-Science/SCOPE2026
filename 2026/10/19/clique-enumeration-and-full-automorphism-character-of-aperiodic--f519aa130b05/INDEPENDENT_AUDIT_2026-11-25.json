@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T17:03:42.101184Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§ Finding, Proof, Verification; VERIFICATION.md and verify.py (read, not executed)",
+        "python3 /workspace/reviews/replay3.py"
+      ],
+      "rationale": "Distinct matrix units commute exactly when both cross-products vanish. For a clique with an off-diagonal vertex, its exact nonempty source and target sets are disjoint; maximality forces their whole rectangle and all unused diagonal entries. Adding any omitted unit conflicts with a present entry. The diagonal clique is the only other facet. Counting ordered supports gives M; inclusion-exclusion for covering every row and column gives C, with the diagonal subset independent. At z=-1 only supports partitioning [n] survive, each contributing (-1)^(n+1). The fixed-clique character follows by colouring permutation cycles, with the swap allowing two alternating colourings only on even cycles; the all-unused colouring accounts for the diagonal clique. For the full automorphism assertion, diagonal vertices have degree (n-1)^2 and off-diagonal ones degree (n-1)^2-1. After removing an index relabeling, each pair of orientations is fixed as a set by its two diagonal nonneighbors. At a shared endpoint two off-diagonal units commute precisely when both arrows point in or both point out, so the orientation swap choices on incident pairs must agree. The edge-incidence graph of K_n is connected (n=2 has just one choice of pair), giving exactly global transpose or identity. Finally the d-colour tensor permutation character is d^(number of cycles); its Schur–Weyl decomposition over Q gives the claimed Specht multiplicities. The bounded independent replay reproduced all cliques, maximal cliques, alternating sums and the fixed-clique counts for n=2..5; at n=4 it returned 1,16,66,72,7.",
+      "residual_risks": [
+        "The finite replay does not establish the all-n claim; the structural and cycle proofs do."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kumar–Dalal–Pandey Lemma 3.10 uses source-target cuts, Theorem 3.14 gives the clique number, and Theorem 4.7 gives the full automorphism group.",
+          "Araújo–Bentz–Konieczny §6 studies maximum clique size for the full symmetric inverse semigroup.",
+          "The indexed arbitrary-group theorem gives F_{n,G}; setting G=1 gives F_{n,1}=zM_n."
+        ],
+        "reasoning": "The later theorem covers the maximal-size enumerator exactly, but neither a maximum-size theorem nor the all-group facet-size polynomial supplies all clique ranks or the fixed-point values by permutation cycle type.",
+        "searches": [
+          "arXiv:2010.05000",
+          "arXiv:1205.1664",
+          "Resultary 2026/11/22/4fb43e2cf90b, RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2010.05000",
+        "arXiv:1205.1664",
+        "Resultary 2026/11/22/4fb43e2cf90b (full Finding and assumptions)",
+        "Frozen RESULT.md lines 3–39, 100–114"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The cut proof provides the key structural ingredient; completing compatible diagonals/rectangles is a short argument. The rational Specht expression is a standard consequence once the character is known. Conversely, exact support coverage (surjective on both sides) must be counted for C, and fixed ordered cuts under transpose must be counted by parity of cycles for the character."
+        ],
+        "reasoning": "The exact all-clique polynomial and the explicit joint action values are not parameter substitutions in the prior clique-number or automorphism theorems. They are substantive enumerations using the attributed structure.",
+        "searches": [
+          "arXiv:2010.05000, Lemma 3.10 and Theorem 4.7",
+          "Resultary 2026/11/22/4fb43e2cf90b, statement of F_{n,G}"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "At trivial structure group the indexed diagonal and rectangular normal forms, with absorbing zero removed, are precisely D and K_{S,T}.",
+          "A pairwise commuting subset generates a commutative semigroup, so inclusion-maximal graph cliques correspond to inclusion-maximal commutative subsemigroups upon adjoining zero."
+        ],
+        "reasoning": "This is equivalent facet data, not merely an analogous cut theorem; it does not count arbitrary cliques or give an equivariant enumerator.",
+        "searches": [
+          "Resultary exact-title search for Clique enumeration and full automorphism character of aperiodic Brandt commuting graphs; broader Brandt maximal commutative subsemigroups search",
+          "Resultary 2026/11/22/4fb43e2cf90b, RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matching indexed record gives the exact maximal-size polynomial in equivalent form. The inspected Brandt paper instead gives adjacency, extremal clique results and the group, not a table of ranks of all cliques or a table of fixed facets."
+        ],
+        "reasoning": "Credit the exact indexed overlap explicitly; the known clique number or maximal-size spectrum is not a table of all-clique coefficients or permutation characters.",
+        "searches": [
+          "Resultary title and broader Brandt commuting-clique/subsemigroup comparison",
+          "arXiv:2010.05000, clique results and automorphism section"
+        ]
+      },
+      "rationale": "The independently distinct portion is the all-clique rank enumerator, its evaluation, and the full-group action on facets. Do not credit the group, the source-target principle, or Schur–Weyl duality as discoveries. An indexed broader result gives exact equivalent coverage of the facet classification, maximal-clique count and M after specializing to the trivial group; that overlap is real, but the identified result is dated later than this frozen record and does not give C or the character. This is a bounded comparison, not a priority certification.",
+      "residual_risks": [
+        "Exact earlier enumerations under graph-polynomial or subsemigroup-complex terminology are not ruled out; the available record dates do not certify independent discovery."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior cut ingredient, maximum result and full automorphism theorem",
+          "evidence": [
+            "Lemma 3.10 uses disjoint source-target rectangles for off-diagonal cliques; Theorem 4.7 identifies S_n times C_2 with relabeling and transpose."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2010.05000",
+          "material_read": "Lemma 3.10 p.7, Theorem 3.14 p.8, Theorem 4.7 pp.14–15",
+          "method": "OA full-text passage comparison",
+          "title": "On the Commuting Graphs of Brandt Semigroups",
+          "trigger": "Identical aperiodic commuting graph; extremal cliques and automorphisms"
+        },
+        {
+          "assessment": "Different graph and extremal quantities",
+          "evidence": [
+            "Examines clique number for the symmetric inverse semigroup, not the facet action or C_n for the omitted-zero Brandt graph."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1205.1664",
+          "material_read": "Abstract and §6 p.18",
+          "method": "OA full-text passage comparison",
+          "title": "The Commuting Graph of the Symmetric Inverse Semigroup",
+          "trigger": "Related inverse semigroup clique invariants"
+        },
+        {
+          "assessment": "Exact overlap on facets, count and M at G trivial; later displayed date, no all-clique/facet-character conclusion in the inspected findings",
+          "evidence": [
+            "With G=1, P_G(z)=z and |G|=1, hence F_{n,1}(z)=zM_n(z); adjoining/removing zero identifies the two normal forms."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-maximal-commutative-subsemigroups-of-brandt-semigroups-exact-siz--4fb43e2cf90b/RESULT.md",
+          "material_read": "Finding and assumptions, offsets 0–5200: statement, polynomial, two normal forms and maximality argument",
+          "method": "Published record via local full-text mirror",
+          "title": "Maximal commutative subsemigroups of Brandt semigroups: exact size spectra and a Gaussian law",
+          "trigger": "Matching Brandt cut classification under subsemigroup terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md: clique and character formulas",
+        "Known clique and group results in arXiv:2010.05000"
+      ],
+      "rationale": "For the standard Brandt graph, the rank counts determine the face vector of its clique complex, while the fixed-facet character determines the representation and supports orbit calculations for subgroups. Neither follows from knowing the largest rank, the maximal rank distribution alone, or the automorphism group alone. In particular the dependence on parity of permutation cycles for orientation reversal is concrete equivariant data; the value is not in rederiving the group or restating the cut description.",
+      "residual_risks": [
+        "The conclusions are enumerative, not claims about clique-complex topology or about arbitrary Brandt structure groups."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

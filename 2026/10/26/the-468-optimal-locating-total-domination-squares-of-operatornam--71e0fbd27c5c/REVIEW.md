@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof reconstructs the open-neighborhood definition, the part-size lower bound, the equality structure of five-point blocking sets and five-line covering sets, the necessary-and-sufficient projective parameters, and all allowed one-vertex exchanges. Pair-incidence counting independently rules out nontrivial five-point blockers; no enumeration is substituted for the general incidence argument. A self-contained Python implementation exhausts all candidate cardinality splits up to ten and verifies the exact 1,872 states and 468 four-cycles; a separately implemented C++ checker agrees.
+## correctness
 
-**Originality — PASS with residual risk.** Héger–Takáts (2012) analyze metric resolution on the same incidence graph and report a metric dimension of eight at order three, but that weaker and differently constrained optimization does not determine locating-total minima, equality cases or exchanges. Héger–Nagy (2016) analyze ordinary domination of projective planes; their reviewed structural theorems do not cover locating-total constraints. The indexed material available for Henning–Jafari Rad (2012) concerns general locating-total bounds and other graph classes, and no exact order-three projective-plane claim was identified; the full publisher article was not accessible. Targeted literature and mathematical-record searches did not find an equivalent 1,872-state or 468-component classification. Search absence is not uniqueness proof; unindexed or inaccessible treatments remain possible.
+PASS
 
-**Value — PASS.** The unique order-three projective plane is the first projective plane beyond the Fano plane and a canonical 26-vertex regular incidence graph. The theorem determines a naturally motivated exact monitoring/location invariant, its full equality family, and a sharp obstruction to reconfiguration. Ordinary total domination requires eight vertices, while locating-total domination requires ten; the optimal solution space is neither completely frozen nor connected but has precisely 468 independent four-state mobility islands. This geometry is not conveyed by an ordinary domination count or a metric dimension value alone.
+The 13-by-13 incidence constraints require at least four members on each side. Incidence and pair counts for a four-point blocking set force a full line, whose four disjoint triples of singleton-signature lines would require at least eight selected lines. Duality handles the reverse split. For a five-point blocking set the corresponding counts give a_3+3a_4=3; two distinct three-secants would cover all five points, precluding a third, so a full line is forced. Dually the line side consists of a full pencil and one extra line. The four pairs of lines with a duplicated singleton signature force q to lie off the full line with q≠p, and the extra line must resolve the pair at x=pq∩ℓ. Conversely the line signatures are then separated; on the point side, t singles out one of the two remaining points of each other pencil line, and qx has just one outside point other than q. Different shores have disjoint nonempty signatures. Under a one-vertex exchange the full line and pencil cannot change because two distinct ones would require seven elements in a six-element union; the unchanged side then fixes x. The two independent choices of p and t thus yield a square for each of 13×9×4 triples. An independent affine-plane implementation checked all possible splits through size ten, and reconstructed all swaps by common nine-element subsets, including checking that no cross-shore swap appears. It found exactly the 1,872 states and 468 four-vertex components of degree two.
 
-**Limitations.** No extension to higher-order planes or nonminimum intermediate sets is asserted. The exhaustive verifiers cover exactly the order-three instance; theoretical completeness follows from the projective-plane proof. Publisher access restrictions leave a residual literature risk, and independent audit remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Readable prior statements and the closest Resultary records concern different invariants. Even the matches to 1,872 and 468 count different objects. The minimum and the exchange structure for ordinary locating-total domination were not found in the bounded comparison. No claim of exhaustive priority is made.
+
+## value
+
+PASS
+
+The small natural incidence graph is a clean case where domination and location impose different constraints. The classification converts these constraints into an explicit geometric label and shows that optimal swaps preserve it, revealing severe reconfiguration disconnectivity that the minimum cardinality alone would not detect. The exact exceptional combinatorics provide a useful test case for reconfiguration questions on other incidence graphs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

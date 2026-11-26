@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:57:35.244914Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md Finding and proof §§1–4, including corrected support direction and sharpness construction",
+        "VERIFICATION.md and verify.py inspected without executing the frozen script"
+      ],
+      "rationale": "Reconstructed the full product-group argument. With unnormalized Fourier transform using the positive exponential, conjugate values on opposite sites give 1+2 Σ Re(a_j ζ_j^{k_j}). All coordinates minimize independently, so positive definiteness is exactly Q=Σ q_{n_j}(a_j)≤1/2. The deficit is (1−2Q)/c+(2/c)Σ(q_n(a)−c Re a). For odd n=m, the two roots closest to −1 give q_m(u+iv)≥cu+s|v|, with equality to cu exactly on the nonnegative real ray. For n≠m in the odd-factor regime, q_n(a)−c Re a is the translated root polygon's support in direction (u,−v). Its half-plane offsets are cos(π/n)−c ν_x for the outward unit normals ν. The smallest offset, attained in a nearest-normal direction, equals cos(π/n)−c for n odd or (1−c)cos(π/n) for n even. These are positive. In the all-even regime q_n≥u, with equality precisely in the normal wedge at the rightmost vertex: u≥0 and |v|≤u tan(π/n). Equality in the sum gives the stated simplex in each case; the nonnegative weights of the even vertices are determined uniquely by (u_j,v_j). Zero characters require Q=1/2 and a minimum in every active coordinate. There are two residues per active odd coordinate; an even coordinate has its antipodal residue plus, at a wedge boundary, the previous residue for v>0 or the next for v<0. For sharp leakage constants the perturbed coordinate uses the corresponding nearest normal while the original real active coefficient is reduced to keep Q=1/2. For the imaginary constant, the repair corrects the false assertion that both minimizing residues stay minimizing. The strict gap to all other residues persists locally, so the pair still contains the minimum, and for v≠0 only one attains it. Thus q_m=cu+s|v| there; at u=(1/2−s|v|)/c this gives exact sharpness with just that coordinate occupied. This is an analytic all-orders argument, including n=3 and single-factor groups.",
+      "residual_risks": [
+        "Finite floating-point examples are corroboration only. Fourier-zero counts refer to optimizers; sharp stability is asserted only when there is an odd order."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Finite spectral-set bounds and general Fourier/semidefinite optimization are available. The periodic interval problem gives a one-dimensional real even extremum via finite programs."
+        ],
+        "reasoning": "A scalar bound or optimization representation does not determine which mixed-order coordinates can carry complex mass, nor the exact tangent deficit constants. No inspected stronger theorem establishes those assertions for product stars.",
+        "searches": [
+          "Kolountzakis–Révész arXiv:math/0312218 §0.4 Theorem 4",
+          "Gorbachev–Manoshina arXiv:math/0211291 Theorem 2",
+          "arXiv:1307.5703 §§3–4"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:math/0211291",
+        "arXiv:math/0312218",
+        "arXiv:1307.5703",
+        "Resultary 0d1998cbddb0, 7553e12c9845, 4ee4fb06cb90, e8ddc54a784b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General positivity and theta formulations give access to Fourier minimization, and periodic interval and root-support problems give other explicit examples. The present proof identifies the face using equality in independent regular-polygon supports and obtains the sharp constants from the minimum translated half-plane offsets."
+        ],
+        "reasoning": "These steps compute the equality and stability structure, not just the already available general optimization variables. The root-support matches cannot be substituted for a coordinate star because additional roots couple coordinates and change the minima.",
+        "searches": [
+          "arXiv:1307.5703 Theorems 2 and 4; arXiv:math/0211291 Theorem 2; indexed A₂/A₃ optimizer findings 4ee4fb06cb90 and 7553e12c9845"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Taking the Cayley exclusion set to be the complement of the star puts the scalar problem in a graph-theta formulation. Symmetrization gives a real positive-definite function of the same mass; this does not preserve the full complex equality set. The complex block formulation supplies constraints, not a face classification."
+        ],
+        "reasoning": "The scalar optimum is not assessed as a standalone novelty. Equivalence of objectives under real symmetrization does not imply equivalence of the two sets of optimizers, as the nonreal even vertices demonstrate.",
+        "searches": [
+          "Resultary: Turán mass / nearest-neighbor coordinate star / complex optimizer face on finite tori",
+          "DeCorte–de Laat–Vallentin arXiv:1307.5703 Theorems 2 and 4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The five-point cross is the same support shape in two dimensions but the matched Fourier-moment problem optimizes an L⁶ moment. Indexed parity locking and hexagonal optimizer faces use A₃ or A₂ root supports. The separated five-site cyclic finding treats {0,±1,±3}, not the Cartesian coordinate star."
+        ],
+        "reasoning": "Identical sparsity shape or a parity-dependent face alone is not equivalent coverage; the objective, group and support constraints determine distinct feasible faces. None of those findings gives the mixed-order simplices and sharp coefficientwise deficit here.",
+        "searches": [
+          "Resultary 0d1998cbddb0, 7553e12c9845, 4ee4fb06cb90, e8ddc54a784b"
+        ]
+      },
+      "rationale": "Pass for the precise mixed-order complex optimizer and sharp stability classification, not the scalar Turán bound in isolation. Prior finite-group results give the variational framework and one-coordinate analogues. The closest indexed optimizer findings change the support, group or objective; none of the inspected actual statements covers the complex simplices, Fourier-zero description and coefficientwise sharp deficit in this problem. The repair corrects the proof without changing the statement.",
+      "residual_risks": [
+        "An equality or sensitivity description may exist under different theta or circulant-matrix terminology.",
+        "A cited older continuous-domain hexagon result was not relied on; neither access limits nor the support difference alone certify global priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Periodic interval, real even setting",
+          "evidence": "A(p/q)=S₁(p,q)=S₂(p,q) and a piecewise-linear extremizer; no mixed product or complex optimizer description in those passages.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0211291",
+          "material_read": "PDF p. 1 definition; p. 2 Theorem 2 (around text offset 2800)",
+          "method": "Open full-text PDF passages",
+          "title": "Turan Extremum Problem for Periodic Function with Small Support",
+          "trigger": "Early periodic Turán problem with finite LP solution"
+        },
+        {
+          "assessment": "General upper bound, not complex equality/stability theorem",
+          "evidence": "For Ω contained in H−H with H spectral, the sum is at most |H|f(0).",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0312218",
+          "material_read": "§0.4 Theorem 4, PDF p. 3 (offset 12626)",
+          "method": "Open full-text PDF passage",
+          "title": "Turán's extremal problem for positive definite functions on groups",
+          "trigger": "General finite-abelian-group bounds"
+        },
+        {
+          "assessment": "Variational and block-SDP formulations",
+          "evidence": "Real positive type and excluded generators give theta; a complex block-SDP provides a general representation, not these specialized faces.",
+          "identifier_or_url": "https://arxiv.org/pdf/1307.5703",
+          "material_read": "PDF pp. 4–5, Theorems 2 and 4 (text offsets 13802 and 16446)",
+          "method": "Open full-text PDF passages",
+          "title": "Fourier analysis on finite groups and the Lovász theta-number of Cayley graphs",
+          "trigger": "Strongest equivalent scalar optimization framework"
+        },
+        {
+          "assessment": "Different objective",
+          "evidence": "Optimizes a Fourier synthesis L⁶ moment for a Laurent polynomial, rather than normalized positive-definite mass.",
+          "identifier_or_url": "0d1998cbddb0",
+          "material_read": "Mirrored Finding",
+          "method": "Local published-record mirror",
+          "title": "Sharp sixth Fourier moment and complete extremizers for the five-point cross",
+          "trigger": "Same two-dimensional support shape"
+        },
+        {
+          "assessment": "Different support and group",
+          "evidence": "Twelve-root A₃ support on a sum-zero subgroup; even mass 4 and an even face of dimension six.",
+          "identifier_or_url": "7553e12c9845",
+          "material_read": "Mirrored Finding",
+          "method": "Local published-record mirror",
+          "title": "Parity locking and a six-dimensional optimizer face for the finite-torus Turán problem",
+          "trigger": "Complex optimizer parity classification"
+        },
+        {
+          "assessment": "Different support and resonance",
+          "evidence": "Seven-point A₂ root hexagon, with a four-dimensional face at divisibility by three; not a Cartesian coordinate star.",
+          "identifier_or_url": "4ee4fb06cb90",
+          "material_read": "Mirrored Finding and stated literature risk",
+          "method": "Local published-record mirror",
+          "title": "Exact hexagonal Turán masses and optimizer face rigidity on finite tori",
+          "trigger": "Finite-product optimizer face in two dimensions"
+        },
+        {
+          "assessment": "Different support; no full complex classification in stated scope",
+          "evidence": "Uses sites 0, ±1, ±3 and describes exact mass and real-even optimizers.",
+          "identifier_or_url": "e8ddc54a784b",
+          "material_read": "Mirrored Finding and stated scope",
+          "method": "Local published-record mirror",
+          "title": "Exact cyclic Turán mass for the separated five-site support",
+          "trigger": "Indexed finite cyclic Turán classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired RESULT.md Finding, optimizer faces, zero counts and sharpness proof",
+        "DeCorte–de Laat–Vallentin variational formulation for context"
+      ],
+      "rationale": "The coordinate star is the intrinsic nearest-neighbor support of a product of cycles. The result shows how parity changes the full complex equality set, gives the exact transform zeros (hence the ranks for the associated circulant positive semidefinite kernels), and quantifies with sharp constants the penalty for imaginary or off-minimum-order mass. These are structural and perturbative facts not supplied by the scalar value alone.",
+      "residual_risks": [
+        "Only nearest-neighbor support on a direct product is covered. No sharp all-even stability theorem is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

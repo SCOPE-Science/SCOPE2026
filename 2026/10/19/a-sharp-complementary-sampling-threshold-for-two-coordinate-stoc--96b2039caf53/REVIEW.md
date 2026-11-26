@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim fixes the exact two-coordinate saddle, unbiased oracles, joint coordinate law, repeated-pair independence and constant stepsize. Four explicit transition matrices yield two exact averaged Gram identities, with coefficients \(1+2\eta^2\) and \(1-2\eta^2+8\eta^4\). Their balanced mixture gives \(q_r(\eta)\), and independent sampling across iterations proves the exact finite-horizon moment formula by conditional expectation. The factorization \(q_r(\eta)-1=2\eta^2(1-2r+4r\eta^2)\) proves the sharp boundary for every nonzero start; the independently computed mean-transition matrix establishes the mean/mean-square split. The companion exact-rational script reproduces 4,864 parameter-pair checks. Finite enumeration is not substituted for the symbolic proof.
+## correctness
 
-## Originality — PASS
-The closest literature includes Beznosikov et al. (arXiv:2201.12206, Algorithm 4 and Appendix A.4), whose coordinate method uses a **full-operator predictor**; Gorbunov et al. (arXiv:2111.08611, Sections 3--4), whose framework gives generic bounds for same-/independent-sample extragradient; and Chavdarova et al. (arXiv:1904.08598, Theorem 1 and Appendix C.1), who already establish stochastic bilinear divergence for **matched two-player component oracles**. The latter divergence alone is explicitly *not* claimed as novel. Emmanouilidis et al. (arXiv:2403.07148) reshuffle component indices **between** SEG steps, with the same index used within each step. The present rank-one scalar-coordinate oracles correct by **complementary** predictor/corrector indices. An existing exact scalar-strength bilinear coupling law does not contain it: that model's nonzero stage matrices are scalar multiples of a full-rank skew operator, whereas the present stage matrices have rank one and are nilpotent. Actual topical and alias searches identified no implication or exact table covering the complete threshold. Residual risk remains that equivalent calculations exist outside the inspected and indexed sources; search absence is not proof of uniqueness.
+PASS
 
-## Value — PASS
-A practically meaningful question is whether two cheap coordinate-oracle calls should use matching, independent, or complementary player coordinates. The theorem gives a complete answer at the smallest nontrivial rotating saddle: an exact phase boundary in the stage coupling and stepsize and an unusually clear warning that convergence of the mean update can coexist with exponential divergence of mean-square error. This is a motivated structural boundary result, without claiming higher-dimensional algorithmic guarantees.
+For A_i=2P_iJ each one-step matrix is I−ηA_j+η²A_jA_i. A_i²=0, while the two complementary products are −4 times their respective corrector-coordinate projections. The two same-coordinate Gram matrices average to (1+2η²)I; the complementary average is (1−2η²+8η⁴)I. Weighting by the balanced pair probabilities and conditioning on the current iterate gives the exact factor q_r and its kth power. q_r−1=2η²(1−2r+4rη²); at zero step or the positive endpoint the error moment is constant, not converging to the saddle for a nonzero start. Mean iteration uses the averaged matrix (1−2rη²)I−ηJ, whose squared norm factor is (1−2rη²)²+η². At r=1/2 this tends to zero under iteration precisely for 0<η<1 despite second-moment growth for every η>0. Marginal oracle unbiasedness is for fixed inputs; no conditional unbiasedness at the random predictor is assumed for coupled pairs. The supplied check was inspected but not run. /workspace/branches/61ea2ef6-f9c3-4247-b7c9-d90de9e9e5b0/replay_frozen_coordinate_gram.py is a separate 1,760-case exact-rational replay with boundary checks; continuum validity comes from the symbolic Gram identities.
 
-## Scientific limitations and strongest proximity
-The finding applies only to a two-dimensional, homogeneous, unconstrained zero-sum bilinear model with balanced coordinate marginals and i.i.d. paired samples. It does not establish almost-sure results, random-reshuffling theory across steps, or strong-monotonicity extensions. Prior works on stochastic bilinear divergence and scalar-strength stage coupling are close conceptually, but their operator matrices differ essentially. The exact oracle definitions and proof prevent this from being a reformulation of their stated claims.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The closest inspected coupling frontier concerns multiplying a full skew field by a scalar slope. Its nonzero oracle matrices have rank two and its transition matrices lie in the commuting algebra span{I,J}; neither describes the rank-one nilpotent coordinate factors or their noncommuting products. Prior divergence for independent stochastic extragradient is not the novelty. The supported distinction is the exact necessary-and-sufficient pairing window and simultaneous mean/second-moment separation for the two-stage single-coordinate oracle.
+
+## value
+
+PASS
+
+This is a complete stability classification of a minimal nontrivial one-coordinate-per-call model, with identical call marginals but qualitatively different second-moment behavior depending on pairing. The mean/moment split shows why a first-moment analysis misses instability. The practical interpretation is limited to this bilinear test problem and does not claim a general optimizer guarantee.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

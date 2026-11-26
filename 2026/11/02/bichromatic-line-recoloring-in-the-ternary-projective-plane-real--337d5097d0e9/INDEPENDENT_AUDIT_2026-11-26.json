@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:57:19.817323Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A color class blocks all lines and contains no line. If a smaller class existed, it could be extended to a line-free five-set: at most four candidate points complete a collinear triple at each step. The five-point incidence equations require three trisecants, which together contain at least six class points. Six points instead force four trisecants; any pair must meet in the class or exhaust it, and no three concur. Thus the class is the six corners of a line frame. Conversely each frame has four trisecants, three bisecants and six unisecants, proving admissibility; the frame is recovered from the class. Exactly the four distinct missing frame-line points are forbidden additions. This gives cubic degree and the disjointness double-cover relation: disjoint six-sets leave one point to flip. Arc transitivity can also be checked without computation: take frame lines x=0, y=0, z=0, x+y+z=0; the three legal additions are the projective points with all coordinates nonzero and exactly one sign different, permuted transitively by the coordinate permutations. The fresh standard-library enumeration over 8192 labeled colorings and 715 four-line choices independently confirms the frame classification, both full graphs and all required metrics and stabilizer data; replay with python3 /workspace/branches/894eb9e5-e685-4e9b-a82b-59ab30dcfb1f/pg3_independent_reproduction.py (matching .out in that directory). It finds H connected and nonbipartite, girth 12 and diameter 8; R connected and bipartite, girth 12, 702 edges, diameter 13 and the claimed shell profile at all roots. Conder–Nedela's complete census distinguishes H from F234A, so this is not an unsupported fingerprint-isomorphism inference. The cited F468 bipartite double cover of the connected nonbipartite Wong graph is necessarily canonical: if one fiber were monochromatic in the bipartition, all would be by covering along paths, forcing the base bipartite; otherwise each fiber has one vertex in each part and every lifted edge crosses. I inspected the frozen scripts without running them. The second frozen script covers the affine incidence reconstruction, connectivity, nonbipartiteness and stabilizers, not metric recomputation on its own.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Conder–Nedela p. 6 attributes the complete census to Conder–Dobcsányi and identifies Wong's graph as the second of the two order-234 entries; p. 13 calls F468 the double cover of Wong's graph.",
+          "Wong's original full text was not obtained through the lawful OA retrieval and alternate-source lookup; the bibliographic record cannot establish the original adjacency representation."
+        ],
+        "reasoning": "The census theorem is used as a prior tool; it does not specify what the PG(2,3) reconfiguration graph is without proving its geometry, arc-transitive action, connectivity and distinguishing invariants.",
+        "searches": [
+          "Conder–Nedela, symmcubictypes.pdf, complete classification and Wong graph",
+          "Conder–Dobcsányi, trivalent symmetric graphs through 768",
+          "Wong (1967) DOI 10.1007/BF01112454, original construction"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and both verify_*.py files",
+        "Conder–Nedela author's full-text preprint and the cited census provenance",
+        "Wong DOI 10.1007/BF01112454 (landing material only)",
+        "Resultary 2ff15d411d81 and 17c865f9e680",
+        "Fresh PG(2,3) enumeration script and output"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Legal flips from a six-red configuration add one of three points, and the new six-blue class is disjoint from the old red class; this gives adjacency of the quotient and a canonical double, not adjacency by replacing one point in the old six-set.",
+          "F234B identification uses the frame action to get the hypotheses of the census; neither table entries nor aggregate metric equality alone infer it."
+        ],
+        "reasoning": "Known geometry and known graph census cover separate parts of the proof. The checked statements do not mechanically identify the one-point move graph or its quotient from the two tables alone; the reviewed result establishes that identification with the concrete incidence realization.",
+        "searches": [
+          "Census and cover statements versus the legal reconfiguration move, quotient by color exchange, and projective neighbor action",
+          "Earlier blocking-set exchange model versus disjointness; later flip-defect model versus F468"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2ff15d411d81 identifies the same 234 minimum nontrivial blocking sets as frame-corner sets. Its edges replace one point of a six-set, making a 6-regular graph of diameter 6, not the 3-regular H with disjoint endpoints.",
+          "17c865f9e680 studies the same 468 named proper bicolorings under the same one-point flips and gives 702 edges and the same distance profile; its result is on geodesic defect and does not give the Foster identification in the material compared."
+        ],
+        "reasoning": "Switching from bichromatic color classes to minimum nontrivial blocking sets is exactly equivalent for the smaller color class. The move rules, by contrast, are materially different for the earlier blocking-set record. The later geodesic result is genuine overlap on the model and metrics, not a distinct model or proof of priority.",
+        "searches": [
+          "Resultary: PG(2,3) minimum nontrivial blocking six-sets, quadrilateral frames and bicoloring flips",
+          "2ff15d411d81 and 17c865f9e680, exact Findings"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Appendix p. 19 gives F234A bipartite, girth 6 and diameter 14; F234B nonbipartite, girth 12 and diameter 8. Appendix p. 21 gives F468 bipartite, girth 12 and diameter 13.",
+          "The exact catalogue geometry hit has different edges. The exact later flip-model hit includes the shell profile but does not name F234B/F468 in the material compared."
+        ],
+        "reasoning": "Exact abstract-graph identifications and their tabulated metrics are prior. The distinguishable new information is the bridge from the coloring model to the known abstract graph, not another calculation of girth and diameter.",
+        "searches": [
+          "Conder–Nedela Appendix F234A, F234B, F468",
+          "Resultary foci: 2ff15d411d81 and 17c865f9e680"
+        ]
+      },
+      "rationale": "Pass for the explicit realization of the Foster graphs by the disjointness and one-point bicoloring moves, not for the abstract graphs, their known invariants, or the standalone frame classification. A distinct earlier catalogue record already identifies the same 234 geometric six-sets, and a later one studies the identical flip graph. The available compared statements do not identify that flip graph as F468 or its disjointness quotient as Wong's graph; the original Wong article remains an access risk.",
+      "residual_risks": [
+        "Original Wong full text unavailable; it or another historical source may give the same disjoint-frame realization under a group or incidence formulation.",
+        "Catalogue dates do not establish historical priority; both the earlier exact geometry overlap and later exact flip-model overlap are material."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact prior abstract graphs and invariants; no point-coloring construction in inspected evidence",
+          "evidence": "Two census entries at 234; F234B is Wong's graph, and its double cover is F468; table specifies the required differing invariants.",
+          "identifier_or_url": "https://www.math.auckland.ac.nz/~conder/preprints/symmcubictypes.pdf",
+          "material_read": "PDF pp. 6 and 13, offsets 14944–15170 and 35192; appendix entries pp. 19 and 21, offsets 54288 and 60968",
+          "method": "Lawful author's OA preprint; bounded full-text and table inspection",
+          "title": "A more detailed classification of symmetric cubic graphs",
+          "trigger": "Exact abstract-graph census and cover"
+        },
+        {
+          "assessment": "Original geometric representation unresolved, not negative evidence",
+          "evidence": "Article identity was resolved; no actual adjacency passage was accessible.",
+          "identifier_or_url": "https://doi.org/10.1007/BF01112454",
+          "material_read": "Bibliographic/landing record only; scientific full text not retrieved",
+          "method": "Lawful OA resolver and repository-copy lookup",
+          "title": "Determination of a class of primitive permutation groups",
+          "trigger": "Original Wong graph potentially described through projective configurations"
+        },
+        {
+          "assessment": "Exact coverage of the six-set family, different move graph",
+          "evidence": "The same 234 frame six-sets are vertices; replacing one point gives degree six, not the cubic disjointness relation.",
+          "identifier_or_url": "2026/10/25/…--2ff15d411d81/RESULT.md",
+          "material_read": "Finding: minimum blocking-set classification and edge definition",
+          "method": "Local Resultary mirror",
+          "title": "The six-regular exchange graph of minimum nontrivial ternary projective blocking sets",
+          "trigger": "Earlier and geometrically exact catalogue match"
+        },
+        {
+          "assessment": "Exact overlap on graph as a coloring model and its stated counts/profile; Foster identification not given in the compared result",
+          "evidence": "468 proper named bicolorings and 702 legal one-point edges with the same profile, studied for a different geodesic conclusion.",
+          "identifier_or_url": "2026/11/22/…--17c865f9e680/RESULT.md",
+          "material_read": "Finding: coloring and flip rule, counts and shell profile",
+          "method": "Local Resultary mirror",
+          "title": "A sharp two-flip geodesic defect for the proper bicolorings of the ternary projective plane",
+          "trigger": "Identical point-coloring reconfiguration object"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The vertices and local moves are the natural proper two-colorings and single-point changes of a small projective plane, not a slice selected by matching census numbers. Identifying this reconfiguration graph and its color-swap quotient as named symmetric graphs explains its exact transition geometry and relates a coloring question to independently developed graph theory. This remains useful even with the separate six-set classification and Foster metrics already known; re-enumerating those metrics alone would not pass.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,98 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:39:53.589328Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The causal factorization C_t=D(I−tS)^−1 proves compactness; pointwise order on positive matrices gives increasing norms (strict for 0<t<1, by testing on a nonnegative compact norm maximizer). In the inverse quotient, expanding the zero-extended difference squares gives t times the free gradient energy plus (1−t)^2 times the unweighted mass. The ground-state substitution v_n=sqrt(n+1)f_n gives conductance sqrt(n(n+1)) and diagonal Hardy excess (n+1)r_n, with r_0=7/4−sqrt(2)>0 and r_n nonnegative and of order (n+1)^−4 for n>=1. The sine test on the shortened logarithmic interval has mass a/2+O(1), gradient energy at most π²/(2a)+O(a^−2), summable Hardy excess O(a^−2), and exponentially small confining term. For the liminf, normalize discrete mass to L; O(1/L) excess gives vanishing f_0, bounded local H^1 of the interpolant at x_n=log(n+1)/L, and exponentially small mass on x>=1+δ for every δ>0. The mass comparison on [0,R] is with the sum truncated to x_n<=R: replacing 1/(n+1) by log((n+2)/(n+1)) costs O(1)/L on compacts, and max mesh width is O(1/L). For R>1, the tail bound recovers the full discrete mass. Thus the normalized limit lies in H_0^1(0,1), and on intervals away from zero the conductance tends to the continuum coefficient one. Sharp Dirichlet Poincaré yields π² in the reciprocal-squared norm gap, and differentiation of E^−1/2 at E=1/4 gives the stated 4π². The independent finite-section sandwich under originality also proves the main limit without this mesh argument. Read VERIFICATION.md and check.py; did not execute the uploaded code.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gao treats weighted finite Hardy inequalities and general p>=2 under weight conditions; the unweighted p=2 case is a specialization. The related Oct. 11 indexed record treats fixed higher finite-section singular values and explicitly points to the finite Hardy literature for j=1."
+        ],
+        "reasoning": "The decisive broader theorem is not a fixed-t spectral statement or merely the endpoint norm 2. It quantifies the missing sharp finite-section gap, which is enough to derive the frozen joint limit.",
+        "searches": [
+          "Gao arXiv:0712.1777v1 Theorem 1.1; Huang arXiv:2609.10598 p. 27; Resultary finite Cesàro singular values"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, check.py",
+        "Gao arXiv:0712.1777v1",
+        "Huang arXiv:2609.10598",
+        "Resultary indexed Oct. 11 result listed in source_inspections"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Put δ=1−t, L=log(1/δ), m_−=floor(δ^−1L^−4), m_+=ceil(δ^−1L^4). The leading m_− block dominates t^{m_−}A_{m_−} entrywise, hence ||C_t||>=t^{m_−}||A_{m_−}||. The rows through m_+ use no later columns and are dominated by A_{m_+}; remaining rows have norm at most ||(I−P_{m_+})D||||(I−tS)^−1||<=1/((m_++1)δ). Thus ||C_t||<=||A_{m_+}||+1/((m_++1)δ).",
+          "The additive tail and the lower multiplicative loss are O(L^−4), and log m_±/L→1. Applying the same prior asymptotic on both sides gives exactly the frozen 4π²."
+        ],
+        "reasoning": "The two inequalities are direct positive-matrix comparisons and the resolvent bound. No new asymptotic input is needed for the scalar gap after invoking Gao.",
+        "searches": [
+          "arXiv:0712.1777v1, original Theorem 1.1 and classical Hardy constant definition"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For the m by m unit-weight triangular Cesàro matrix A_m, Gao's μ_m is the squared 2→2 norm, since the matrix is nonnegative and absolute values suffice. With λ_k=1, Λ_k=k, L in Gao's hypotheses equals 1 and (1.8) reduces at p=2 to k/(k+1)<=1; the other weight conditions are immediate. With p=q=2 the formula gives μ_m=4−16π²/log²m+O(log^−3 m). Thus ||A_m||=2−4π²/log²m+O(log^−3 m)."
+        ],
+        "reasoning": "Finite cutoff and exponential damping are not identical operators, but they bound the same endpoint gap at two cutoffs whose logarithms are asymptotically identical. The squared-versus-unsquared distinction accounts for the factor four.",
+        "searches": [
+          "arXiv:0712.1777v1, Gao, pp. 2–3, Eq. (1.1), Theorem 1.1",
+          "arXiv:2609.10598, Huang, p. 27"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact same-title first hit was the assigned record. The strongest distinct related indexed statement covers j>=2 for finite sections, not this compact top singular value. Gao supplies the exact finite-section normalization and coefficient outside the index search."
+        ],
+        "reasoning": "A self-hit is not prior evidence; the continuous-parameter limit has no exhaustive finite table. The failure instead rests on the explicit prior asymptotic and its mathematical implication.",
+        "searches": [
+          "Configured Resultary lookup for the logarithmic norm gap of generalized Cesàro operators and finite Hardy/Cesàro asymptotics",
+          "2026/10/11/SCOPE-logarithmic-spectral-edge-of-higher-singular-values-of-finite-ce--502b7b013a69"
+        ]
+      },
+      "rationale": "The frozen coefficient is mechanically implied by the known sharp finite Hardy constant, via positivity and a causal finite-section comparison with errors smaller than the main gap. The different parameter and the different standalone proof do not make the exact norm invariant distinct.",
+      "residual_risks": [
+        "The assessment does not establish the earliest version of the finite Hardy law; Gao refers to Ackermans, whose thesis was not independently inspected.",
+        "The verified finite-section implication suffices regardless of whether a source explicitly printed the damped asymptotic."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive prior implication",
+          "evidence": "Gao's weight hypotheses hold with unit weights; the squared-norm coefficient is 16π² at p=2.",
+          "identifier_or_url": "https://arxiv.org/pdf/0712.1777v1",
+          "material_read": "p. 2 Eq. (1.1), p. 3 Theorem 1.1 and weight conditions (offsets near 5700 and 9300)",
+          "method": "Bounded OA PDF passages",
+          "title": "Finite sections of weighted Hardy’s inequality",
+          "trigger": "Potential exact finite-section bound with same sharp coefficient"
+        },
+        {
+          "assessment": "Confirms the unweighted specialization attributed to Gao",
+          "evidence": "The finite p=2 constant is the squared norm, not the operator norm.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.10598",
+          "material_read": "p. 27, OA offset near 99000",
+          "method": "Bounded OA PDF passage",
+          "title": "Finite Hardy Phase Theory for Power Means",
+          "trigger": "Cross-check finite Hardy normalization"
+        },
+        {
+          "assessment": "Related, not by itself decisive at j=1",
+          "evidence": "Its fixed-j>=2 law has coefficient 4π²j²; its note refers the top singular value to finite Hardy-constant literature.",
+          "identifier_or_url": "2026/10/11/SCOPE-logarithmic-spectral-edge-of-higher-singular-values-of-finite-ce--502b7b013a69",
+          "material_read": "RESULT.md offsets 0–4315",
+          "method": "Configured local mirror passages",
+          "title": "Logarithmic spectral edge of higher singular values of finite Cesàro matrices",
+          "trigger": "Strongest distinct indexed neighboring result"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The operator is natural and the log-coordinate proof is mathematically useful, but the frozen contribution is the single scalar invariant and does not state an additional result about singular-vector profiles, higher modes, or improved error. The invariant is mechanically inherited from the finite Hardy asymptotic, so it does not survive as an independent exact finding under the standard. No repair is claimed.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

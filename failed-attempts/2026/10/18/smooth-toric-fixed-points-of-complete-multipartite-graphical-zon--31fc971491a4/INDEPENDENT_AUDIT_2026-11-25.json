@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:40:26.679794Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md proof and lattice scope",
+        "VERIFICATION.md and verify.py (inspected)",
+        "Independent replay: python /workspace/branches/finite_math_replay.py, multipartite()",
+        "arXiv:math/0609184 Prop. 3.5(8)–(9) and proof of Prop. 5.2"
+      ],
+      "rationale": "An acyclic orientation determines a unique word of colors: linear extensions differ by swaps of incomparable vertices, and distinct colors are adjacent in the graph and comparable in the orientation. The consecutive monochromatic blocks give the cover relations: any two vertices in consecutive blocks are joined by an edge with no intervening vertex on a directed path; vertices in more distant blocks are related by paths through intermediate blocks. The cover graph is connected. Writing s_j for block sizes, its edge surplus over n−1 is sum over interior j of (s_j−1) plus sum over consecutive pairs of (s_j−1)(s_{j+1}−1), proving the stated tree cases including two blocks. A non-tree is nonsimplicial by its facet count; a tree's signed root normals form a lattice basis by leaf deletion, so the dual normal cone is smooth in any characteristic. For r≥3 the all-color projection removes the two-block term. Ordered labeled blocks contribute e^{x_i}−1, with x_i for singleton interiors; the two displayed resolvents sum exactly these transitions, with coefficient multiplied by the product of the class factorials. Independently enumerating all orientations and computing transitive closure and cover edges, without classifying by blocks, gave (smooth,total)=(58,78),(288,426),(1240,2286) in the three stated examples.",
+      "residual_risks": [
+        "Checks concern the normal fan, not the face fan or a toric edge embedding. Finite counts do not establish the all-parameter statement; the block argument does."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "PRW gives the cover-facet and tree-cone theorems, including the graphical vertex-reachability correspondence. Chapoton–Pilaud treat the whole multipartite family of faces and give the exact vertex block model. Carballosa–Khera–Reyes and Sun give total-orientation results, not a literal smoothness refinement."
+        ],
+        "reasoning": "The broad tree theorem by itself does not count smooth vertices, but the prior explicit ordered-partition preposet for this exact multipartite family makes the restriction local between consecutive blocks.",
+        "searches": [
+          "arXiv:math/0609184 Prop. 3.5(8)–(9), proof of Prop. 5.2",
+          "arXiv:2201.06896 Props. 48–50",
+          "arXiv:2303.09021 Thms. 2.5, 3.4",
+          "arXiv:2605.04006v1 abstract"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:math/0609184",
+        "arXiv:2201.06896",
+        "arXiv:2303.09021",
+        "arXiv:2605.04006v1 (abstract)",
+        "local Resultary and mirrored statements of matched records"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Chapoton–Pilaud's ordered-partition preposet deletes exactly the within-block relations for a vertex; therefore the Hasse edges are the complete bipartite graphs between successive blocks. PRW then tests the tree condition. An interior block of size ≥2 and one chosen vertex from each neighbor produce a four-cycle; singleton interiors produce the tree immediately. The tree incidence basis gives integral regularity without an additional classification.",
+          "In the prior count for an allowed color word let m_i be the number of interior i positions and e_i the number of endpoint i positions. To enforce singleton interiors, select labels for those m_i ordered positions, then map the remaining labels surjectively onto the e_i labeled endpoint positions. The factor is (a_i)_{m_i} Surj(a_i−m_i,e_i), with zero for a_i<m_i. Its EGF is x_i^{m_i}(e^{x_i}−1)^{e_i}. Summing the same allowed words by the standard adjacency matrix yields the displayed smooth series. For r≥3 the separate two-position term vanishes identically after all-color projection."
+        ],
+        "reasoning": "This is an explicit short specialization of the previously established block model and local cone theorem and a routine restriction of the prior labeled word enumeration, not an independent gap that survives mechanical implication. The cited overlap is older primary mathematics, regardless of the later catalogue dates.",
+        "searches": [
+          "arXiv:2201.06896 p. 11–12 preceding Prop. 48 and Props. 48–50",
+          "arXiv:math/0609184 p. 11 and p. 17",
+          "later RESULT.md §Proof 2 of 8f89ea9f58cd"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Chapoton–Pilaud encode the vertices with the same ordered monochromatic block partitions, forbidding equal consecutive colors. PRW identifies simplicial cones with tree posets. A later Resultary item 8f89ea9f58cd states precisely the blockwise degree-surplus calculation and singleton-interior condition in simple-vertex language."
+        ],
+        "reasoning": "Graphical root normals from a tree are a basis of the stated lattice. Thus simplicity and toric regularity coincide here; recasting the former in toric language adds no additional local invariant.",
+        "searches": [
+          "local Resultary for multipartite graphical zonotope smooth fixed points, simple vertices, simplicial chambers, singleton color blocks",
+          "arXiv:2201.06896 §1.4",
+          "arXiv:math/0609184 Prop. 3.5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Proposition 50 gives the exact all-parameter total count as a sum of surjection products over words with adjacent colors unequal and all colors present. Thm. 3.4 gives a separate formula for totals. In the later catalogue the result 8f89ea9f58cd gives the general simple block criterion; 57511bb89831 gives a bipartite specialty, and an indexed K_{2,2,2} item reports 288 of 426 in that case."
+        ],
+        "reasoning": "The total EGF is the prior word count using the EGF for the number of surjections onto labeled blocks. A later exact special case alone would not settle the general result, and no earlier literal smooth-series table was located.",
+        "searches": [
+          "local Resultary for total and simple vertex counts, K_{2,2,2} and the multipartite family",
+          "arXiv:2201.06896 Prop. 50",
+          "arXiv:2303.09021 Thm. 3.4"
+        ]
+      },
+      "rationale": "The mathematics is correct, but the strongest earlier sources supply both the exact multipartite block-poset model and the general tree/facet criterion. They mechanically give the singleton-interior rule, and the smooth series is the ordinary word-count transfer formula with interior block weights restricted to the degree-one term. The unrefined count is explicitly covered by prior work. No earlier literal printing of the refined matrix expression was found; the failure is for mechanical implication, not a claim of verbatim prior publication. The substantial later catalogue overlap is not used to infer earlier priority.",
+      "residual_risks": [
+        "No earlier literal statement of the exact refined matrix series verified. No pre-October-18 source was established for the frozen record's assertion about an earlier explicitly enumerated two-color smooth specialization. Neither point affects the demonstration of mechanical implication from earlier general and multipartite results."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "supplies tree test and reachability, combined with exact multipartite model",
+          "evidence": "Cover relations give exactly the facets; tree-posets are exactly full-dimensional simplicial cones; the poset at a graphical vertex is the transitive closure of its acyclic orientation.",
+          "identifier_or_url": "arXiv:math/0609184",
+          "material_read": "Prop. 3.5(8)–(9), PDF p. 11 offset 39700; proof of Prop. 5.2, p. 17 offset 56500",
+          "method": "primary open PDF passages",
+          "title": "Faces of Generalized Permutohedra",
+          "trigger": "general simple-vertex and acyclic orientation classification for graphical zonotopes"
+        },
+        {
+          "assessment": "exact earlier model; explicit total count; mechanical smooth refinement with tree criterion",
+          "evidence": "For vertices each block is contained in a color class, no consecutive blocks are contained in the same class, and the preposet is obtained by deleting within-block relations. The exact total count sums products of surjection numbers over the same words.",
+          "identifier_or_url": "arXiv:2201.06896",
+          "material_read": "§1.4 Definition 47, ordered-partition preposet correspondence, Propositions 48–50, PDF pp. 11–12 offsets 54250–59122",
+          "method": "primary open PDF passages",
+          "title": "Shuffles of deformed permutahedra, multiplihedra, constrainahedra, and biassociahedra",
+          "trigger": "same complete multipartite graphical zonotopes, ordered color words, exact counts"
+        },
+        {
+          "assessment": "covers encoding and exact labeled totals, not a stated smoothness refinement",
+          "evidence": "The source-removal codes encode acyclic orientations and yield a closed all-parameter count.",
+          "identifier_or_url": "arXiv:2303.09021",
+          "material_read": "Thm. 2.5 p. 7 offset 20200; Thm. 3.4 p. 15 around offset 50413",
+          "method": "primary open PDF passages",
+          "title": "Encoding and Enumerating Acyclic Orientations of Graphs",
+          "trigger": "exact multipartite orientation enumeration cited in frozen result"
+        },
+        {
+          "assessment": "describes total orientation counting and asymptotic results; no claim about the body beyond inspected text",
+          "evidence": "The abstract states an integral for total orientation counts and studies chromatic/Tutte evaluations and asymptotics.",
+          "identifier_or_url": "arXiv:2605.04006v1",
+          "material_read": "Abstract, PDF p. 1 offset 1537",
+          "method": "open primary PDF abstract",
+          "title": "Sun's work on acyclic orientations of complete multipartite graphs",
+          "trigger": "additional exact multipartite orientation enumeration hit"
+        },
+        {
+          "assessment": "substantially equivalent structural criterion, dated after frozen record, no general smooth EGF in inspected passage",
+          "evidence": "The degree surplus formula gives singleton interiors and no adjacent nonsingleton blocks; formally the same criterion in both two-block and at-least-three-block cases.",
+          "identifier_or_url": "2026/11/17/SCOPE-the-first-disconnected-simple-vertex-strata-of-complete-multipar--8f89ea9f58cd",
+          "material_read": "Mirrored RESULT.md §Proof 2, offset 4716",
+          "method": "local Resultary and mirrored primary result",
+          "title": "The first disconnected simple-vertex strata of complete multipartite graphical zonotopes",
+          "trigger": "exact general simple-vertex classification in another indexed result"
+        },
+        {
+          "assessment": "equivalent criterion for two colors only, later catalogue date",
+          "evidence": "Gives exact simple-vertex counts for K_{a,b} with a,b≥2 and singleton interiors for the appropriate block words.",
+          "identifier_or_url": "2026/11/2/SCOPE-degree-spectrum-and-isolated-simple-vertices-of-complete-biparti--57511bb89831",
+          "material_read": "Mirrored RESULT.md around offset 3545",
+          "method": "local Resultary and mirrored primary result",
+          "title": "Degree spectrum and isolated simple vertices of complete bipartite graphical zonotopes",
+          "trigger": "possible coverage of stated two-color background and counts"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding and proof",
+        "arXiv:2201.06896 Props. 48, 50",
+        "arXiv:math/0609184 Prop. 3.5"
+      ],
+      "rationale": "Smooth fixed points form a natural invariant and the transfer formula is a convenient exposition, but the purported new refinement applies the existing tree criterion to the existing exact block model and changes only the allowed weights of the interior positions. Under the stated standard this routine restriction, already mechanically implied without a new classification or enumeration step, does not establish an independently useful unresolved fact; the illustrative small exact values are coefficients of the same restriction. No genuine surviving valuable remainder in the assigned claim was found to repair.",
+      "residual_risks": [
+        "This judgment is specific to the submitted fixed-point result, not to finer strata, adjacency, or other questions about these normal fans."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

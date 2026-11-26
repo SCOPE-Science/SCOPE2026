@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:21:16.591831Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Fix a velocity direction by symmetry. Conditional on the transverse displacement y of the uniform point, the distance to the first boundary is Uℓ with U uniform on (0,1) independent of the chord ℓ=2√(R²−|y|²); angular momentum preserves ℓ on reflection. The y marginal is weighted by the chord's length, not uniform over impact parameters. Changing to ℓ gives its density s_{d−2} ℓ²(R²−ℓ²/4)^((d−3)/2)/(4v_dR^d). Thus the conditional count tail is the average of the chord CDF at L/(k−1+U), L=hV. The chord CDF near zero is s_{d−2}x³/(12v_dR³), and is bounded everywhere by C_d(x/R)³ (use the small-support density bound below R and probability ≤1 above R). Averaging (k−1+U)^−3 yields one half the difference (k−1)^−2−k^−2. The chord CDF in dimension three is exactly (x/(2R))³ on [0,2R], proving the exact formula on the stated L range, including equality at the boundary. The uniform cubic bound gives both limits under E[V³]<∞ and dominates the summation for the extra-hit expectation; the differences telescope. The strictly positive k^−3 tail gives finiteness almost surely and fractional-moment convergence exactly below 3 via increments of k^p. Rayleigh E[V³]=3√(2π)σ³/2 gives the planar constants. The optional interval comparison follows by the Gaussian tail bound/asymptotic integrated at its lower endpoint; chords there are bounded away from zero. Inspected the checker and frozen notes without executing uploaded code. The independent chord-CDF argument proves the limits, not the finite quadratures.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The integrator paper gives an away-from-grazing collision bound proportional to 1/sin φ_min and a method-specific aggregate bound, and discusses rejecting or truncating trajectories with multiple collisions. The open-circle source treats holes, survival and periodic/creeping orbit geometry."
+        ],
+        "reasoning": "A bound conditioned away from the grazing singularity cannot establish the tail dominated by grazing; aggregate expected counts do not give a third-moment cutoff. The open planar problem does not dominate the all-dimensional closed-ball statement.",
+        "searches": [
+          "arXiv:2404.16584 §3.4, Proposition 3.1 and Lemma 4.4",
+          "Bunimovich–Dettmann §§2–3, DOI 10.1080/10586458.2024.2423180"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "arXiv:2404.16584",
+        "Bunimovich–Dettmann, DOI 10.1080/10586458.2024.2423180, lawful author copy",
+        "Resultary 333b4d53f982"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Classical geometric data do imply constant flight length and enable a planar calculation. To obtain the target one must integrate the random initial phase over the chord-length-biased law and control the resulting small chords uniformly in travel distance and count to exchange limits and expectations under only E[V³]<∞."
+        ],
+        "reasoning": "The inspected sources provide inputs and a collision recursion but not a broader theorem whose substitution yields the displayed coefficients, uniform integrability bound and sharp moment threshold.",
+        "searches": [
+          "Open-circle PDF Eqs. (25), (27)–(30)",
+          "Reflected-substep arXiv:2404.16584 §3.4 and Lemma 4.4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bunimovich–Dettmann Eqs. (25)–(30) give fixed impact angle, the flow and boundary invariant measures, and the time/number relation for escape in the open circle. Leimkuhler–Sharma–Tretyakov §3.4 discuss a recursion over collisions in a substep."
+        ],
+        "reasoning": "The target is the distribution of a count at a prescribed time under a uniform volume start in a closed billiard. The count to escape and the measure of trajectories surviving to a prescribed collision number are different random variables. A boundary-section start would also remove the chord-length bias and cannot be equated with the given law.",
+        "searches": [
+          "Ball billiard collision-count tails, grazing, reflected substeps (Resultary)",
+          "ball billiard uniform interior point chord length internally generated random rays number of collisions fixed time grazing cubic tail specular probability third moment in sphere",
+          "Bunimovich Dettmann A Billiard in an Open Circle and the Riemann Zeta Function arxiv preprint same paper invariant measure angle survival P(t) math"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest indexed hit is an induced polygonal symplectic-billiard return clock, 8·2^k−4+4G for a dyadic block, with variance 32, not any coefficient of the closed-ball count. No exact formula or numerical table for the target appeared in the relevant returned records."
+        ],
+        "reasoning": "Matching the terms billiard, collision and exact count does not match the phase measure, geometry or time/count statistic. The catalog evidence is limited to the inspected returns.",
+        "searches": [
+          "Resultary fixed-step reflection workload and grazing-count laws; inspected necktie-billiard match 333b4d53f982"
+        ]
+      },
+      "rationale": "The distinctly supported theorem is the sharp count law in a closed ball for uniform independent starting position and isotropic velocity, including the cubic fixed-step heavy tail, the moment cutoff, and the fixed-count small-step constants. The classical constant-chord dynamics and phase-volume measure, as well as the identification of high speed and grazing as sources of multiple reflections, are not contributions here. The closest open-circle source was recovered and read in a lawful author-hosted version. Its count to escape through a hole does not coincide with the count in a prescribed time for a closed reflecting wall.",
+      "residual_risks": [
+        "Not a priority determination: an unlocated stochastic-geometry or billiards derivation of an equivalent closed-ball count law is possible.",
+        "No implication about the runtime moments of a complete integrator; the proof is for one unmodified free-flight/specular substep."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Motivates the observable and provides different finite-time or nongrazing controls",
+          "evidence": "§3.4 identifies high speed or grazing and allows recursion; the implementation described rejects trajectories with more than one collision. The angle bound is proportional to 1/sin φ_min.",
+          "identifier_or_url": "https://arxiv.org/pdf/2404.16584",
+          "material_read": "§3.4, pp.12–14; Proposition 3.1 and Remark 3.1, pp.15–16; Lemma 4.4 and Remark 4.1, pp.20–23",
+          "method": "Lawful arXiv PDF",
+          "title": "Numerical integrators for confined Langevin dynamics",
+          "trigger": "Same recursive reflection substep and grazing workload"
+        },
+        {
+          "assessment": "Classical setup supplied; the cited statistics are hole escape and survival, not the closed billiard workload law",
+          "evidence": "τ=2 cos ψ and the flow measure is normalized dx dy dϑ. N is defined as the minimum number of boundary reflections before escape into the hole.",
+          "identifier_or_url": "https://people.maths.bris.ac.uk/~macpd/corr/circ2.pdf (DOI 10.1080/10586458.2024.2423180)",
+          "material_read": "pp.9–10, offsets 27000–31447, Eqs. (25)–(30) and start of §3",
+          "method": "Lawful author-hosted full-text PDF identified after publisher denied access",
+          "title": "A Billiard in an Open Circle and the Riemann Zeta Function",
+          "trigger": "Strong plausible overlap on constant chords and count/time statistics in the disk"
+        },
+        {
+          "assessment": "Not the same dynamics or starting measure and not a count at fixed travel distance",
+          "evidence": "Its dyadic-block clock counts induced returns from a one-dimensional section in a polygonal symplectic billiard.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-dyadic-block-collision-clocks-and-rare-staircases-in-the-n--333b4d53f982",
+          "material_read": "Mirrored Finding at offset 0",
+          "method": "Configured Resultary lookup and local mirror, commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact dyadic-block collision clocks and rare staircases in the necktie symplectic billiard",
+          "trigger": "Closest indexed collision-clock comparator"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The count of recursive reflections is a natural workload observable in reflected transport. The precise positive tail explains why expected excess workload can be cubic-small yet each step still has an infinite third moment, even with deterministic bounded nonzero speed. The dimension-independent exponent, explicit geometric and speed coefficient, and exact 3D range make this a quantitative benchmark rather than an angle-bound estimate.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

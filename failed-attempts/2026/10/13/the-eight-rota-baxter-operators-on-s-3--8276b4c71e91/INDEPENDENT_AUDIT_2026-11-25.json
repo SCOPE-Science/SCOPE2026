@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:44:32.357384Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md:3–146,148–386",
+        "VERIFICATION.md and artifacts/verify.py",
+        "Independent enumeration recipe and counts as stated"
+      ],
+      "rationale": "The census, maps, orbits, and cyclic descendants are correct. A clean check embeds the descendant into the direct product by g↦(gB(g),B(g)); its closure follows from the identity, and projecting the second factor gives the kernel–image size rule. Values are constant on the sets Kg (right cosets in standard terminology, though the record calls them left): B(kg)=B(g) for k in the kernel. In the order-two kernel case, applying the identity to (r,s) excludes B(r)=r. In the bijective case theta(u)=B^{-1}(u)u is an endomorphism; every nontrivial endomorphism of S3 fixes a nonidentity element (an implementer of an inner automorphism, any nonidentity element for the identity automorphism, or the image transposition for order-two image), excluding bijectivity of u↦theta(u)u^{-1}. For a splitting map B(hl)=l^{-1}, the graph above is H×L; the involution swaps the coordinates, proving the stated pairing. Independently enumerated all 46,656 arrays of six outputs using lexicographic three-letter permutations and composition p[q[i]], filtering by the identity on all 36 pairs. This gives (6,1):1, (2,3):3, (3,2):3, (1,6):1; inner conjugation gives orbits in that order with sizes 1,3,3,1, involution reverses that ordering, and each proper split has orders 1,2,3,3,6,6. The frozen checker was inspected but not executed.",
+      "residual_risks": [
+        "The terminology for Kg in the proof is reversed, not the actual factorization used."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Main theorem p. 2 gives four brace classes with additive C3⋊C2 when p=3,q=2. Lemmas 3.5, 3.7, 3.10 (pp. 6–7) give respectively p=3, p=3, and p(q−2)+1=1 regular subgroups of projection image sizes 3,2,6; trivial projection supplies the remaining unique subgroup. The size-two and size-three projections have cyclic regular subgroup. Theorem 3.6 and Proposition 3.8 identify the corresponding orbit counts."
+        ],
+        "reasoning": "The correspondence preserves projection image size, identifies the regular subgroup with the descendant group, and preserves the conjugation action. Thus it implies both the total eight and the entire orbit and kernel-image census, not just four abstract types.",
+        "searches": [
+          "Acri–Bonatto DOI 10.1080/00927872.2019.1709480 / arXiv:1908.03228, main theorem and §3.3",
+          "Bardakov–Gubarev arXiv:2103.01848v1, S3 examples and involution"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1908.03228 pp. 2,4,6–7",
+        "arXiv:2105.00428v1 pp. 5–6,20–21",
+        "arXiv:2103.01848v1 pp. 2,16–18",
+        "Resultary b3c007d0d19c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Example 7.3 already exhibits the two proper splitting representatives and their cyclic descendants. The earlier exhaustive brace classification shows their conjugates plus the elementary structures exhaust the maps. In difference coordinates (a,b)=(gB(g),B(g)), tilde sends (a,b) to (b,a) with reindexing g↦g^{-1}."
+        ],
+        "reasoning": "The swap exchanges the two elementary factor graphs and the two known proper classes H×L and L×H. What is left beyond prior coverage is a self-contained rederivation and this direct relabeling, not a distinct census or quotient theorem.",
+        "searches": [
+          "arXiv:2105.00428v1 Example 7.3; arXiv:1908.03228 main theorem, §3.3; arXiv:2103.01848v1 introduction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Acri–Bonatto identify regular subgroups of Hol(A) with brace structures and Aut(A)-conjugation with brace isomorphism (Theorem 1.3, PDF p. 4).",
+          "The RB descendant has lambda_g=conj_{B(g)}. Conversely every brace on S3 lifts its homomorphism lambda:(S3,∘)→Aut(S3) uniquely through conj:S3≅Aut(S3). This gives a map B satisfying the RB equation; uniqueness and naturality make it an Aut(S3)-equivariant bijection."
+        ],
+        "reasoning": "An isomorphic descendant abstract group alone would be too coarse, but a brace with specified additive group retains lambda. The complete centerless additive group makes all brace data equivalent to the original operators here.",
+        "searches": [
+          "Acri Bonatto skew braces of size pq classification, regular subgroups Hol(S3), weight-one maps on a complete group",
+          "arXiv:1908.03228, Theorem 1.3 and §3.3; arXiv:2105.00428v1, Proposition 3.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Q8 catalogue hit concerns a different group. The specialist published subgroup lists (13), (15), and (18) already enumerate the necessary entries at (3,2)."
+        ],
+        "reasoning": "The primary classified table of subgroups is determinative even without an explicit catalogue entry labeled as S3 group operators.",
+        "searches": [
+          "Local Resultary S3 Rota–Baxter census and nearby Q8 classification b3c007d0d19c",
+          "Acri–Bonatto arXiv:1908.03228 §3.3 exact subgroup lists and p,q formulas"
+        ]
+      },
+      "rationale": "The census is covered by the earlier classified regular subgroups/skew braces of order pq, specialized at p=3, q=2. This is an equivariant bijection on this group, not just a coincidence of descendant isomorphism types. The stated involution quotient is the immediate coordinate swap on the already classified splitting graphs and the two elementary graphs.",
+      "residual_risks": [
+        "A separate explicit RB census may also exist; no such source is needed for the established prior coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the full census under the equivariant complete-group correspondence",
+          "evidence": "Regular-subgroup counts by projection image 3,2,6 are 3,3,1, with the additional trivial-projection subgroup; conjugacy and cyclic cases are explicit",
+          "identifier_or_url": "https://arxiv.org/pdf/1908.03228; DOI 10.1080/00927872.2019.1709480",
+          "material_read": "PDF p. 2 main theorem (offset 6200), p. 4 Theorem 1.3, and §3.3 pp. 6–7 (offset 19700), especially Lemmas 3.5, 3.7, 3.10",
+          "method": "Lawful OA author preprint recovered by DOI and decisive passages read",
+          "title": "Skew braces of size pq",
+          "trigger": "Direct potential coverage via complete-group equivalence"
+        },
+        {
+          "assessment": "Provides the comparison bridge and both proper representatives; the exhaustive counts come from the order-pq classification",
+          "evidence": "a∘b=aB(a)bB(a)^{-1}; both proper examples have cyclic descendants",
+          "identifier_or_url": "https://arxiv.org/abs/2105.00428v1",
+          "material_read": "Theorem 2.6, Proposition 3.1, Example 7.3 (pp. 5–6, 20–21)",
+          "method": "Lawful OA arXiv PDF passage",
+          "title": "Rota-Baxter groups, skew left braces, and the Yang-Baxter equation",
+          "trigger": "Operator-to-brace correspondence and existing S3 splits"
+        },
+        {
+          "assessment": "Covers the equivalence operations and extension examples, not by itself a census",
+          "evidence": "S3 inversion and extension/nonextension examples",
+          "identifier_or_url": "https://arxiv.org/abs/2103.01848v1",
+          "material_read": "Introduction, Example 7.6 and Proposition 7.8",
+          "method": "Lawful OA PDF passages",
+          "title": "Rota-Baxter operators on groups",
+          "trigger": "Standard involution and source's S3 discussion"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md:22–119,388–435",
+        "arXiv:1908.03228 §3.3 and arXiv:2105.00428v1 Example 7.3"
+      ],
+      "rationale": "The natural operator census would have value if it filled a gap, but here all exact counts and structures follow mechanically from an existing classification under an exact equivalence. The two-class quotient adds only interchange of the two coordinates of known graphs. The short direct proof and enumeration are pedagogical checks, not a new independently needed finite invariant.",
+      "residual_risks": [],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

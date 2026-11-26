@@ -1,15 +1,21 @@
-# Scientific review: parity-filtered independent-set learning
+# Independent mathematical audit
 
-## Correctness — PASS
-The arbitrary-graph trace characterization follows in both directions from a single-vertex parity correction and monotonicity of the wrong-parity subsets. The universal two-value VC bound comes from deleting one vertex of a maximum independent set; the top-value equivalence uses the fact that a maximum independent set dominates the graph. The path specialization treats the unique maximum independent set at odd orders, the no-`101` spacing obstruction at even orders, and the two exceptional small orders. The online upper argument uses the all-positive branch and the last-answer reversal on a unique maximum independent set. The lower argument combines even/odd endpoint branches; the four residue classes meet the upper bounds. Every claimed quantifier and small-order boundary is covered. Independent Python and C++17 finite computations match the formulas. The finite tests are not offered as the proof of the infinite theorem.
+## correctness
 
-## Originality — PASS with historical-priority qualification
-A 2021 runlength-limited-sequence paper gives entropy/capacity and weight-constraint results, rather than online learning ranks. A 2021 binary-string VC paper concerns translates of a single infinite string, a different hypothesis relation. The closest inspected fixed-weight independent-path finding determines ranks for one weight at a time, and does not determine the union of all allowed weights of a specified parity. The inspected antihole geodesic-convexity finding concerns all independent sets of a cycle supplemented by its whole vertex set, not a path with weight parity. Searches for parity-filtered independent-set shattering and online dimension produced no stronger covering claim. Unindexed equivalent results or alternative terminology remain a genuine possibility, not a demonstrated absence.
+PASS
 
-## Value — PASS
-The universal private-neighbor condition gives a structural, graph-wide characterization of all VC-shattered supports of two natural parity-restricted hereditary concept families and a sharp independence-number dichotomy. The all-order path theorem shows an infinite period-four phenomenon: on every even path of length at least six, exactly one parity-restricted family has a one-round adaptive advantage despite the identical static dimensions of the two parities. This distinguishes adaptive from static restrictions in a standard runlength-limited binary language; it is not an arbitrary small-parameter computation or mere renaming of fixed-weight results.
+For an independent support S, a wrong-parity positive trace Y can be realized iff at least one vertex outside S can join Y, since any realization must contain such a vertex and just one corrects parity. The maximal wrong-parity traces are S itself or the single deletions from S, according to parity. Removing a vertex from a maximum independent set gives a universal corrector and the lower VC bound; at maximum size the only allowed correctors for single deletions must be external private neighbors. On odd paths the unique maximum set has no such neighbors. On even P_(2k), k private witnesses would exhaust the complement and rule out every 101 pattern, requiring n>=3k-2, impossible for k>=3. The cases n=1,2,4 agree with the listed explicit trace families. Online, a depth-alpha complete tree would have a maximum independent set along the all-positive branch, so it requires matching parity. On odd paths of order at least three, flipping the last answer would require a corrector adjacent to at most the last queried vertex of that unique maximum set; every external vertex is adjacent to two, so the leaf is impossible. Endpoint querying on P_n gives P_(n-1) with the same parity and P_(n-2) with opposite parity; the base cases and the four residue classes attain the corresponding upper bounds. Independently checked direct graph traces on all 1099 labeled graphs of orders 1–5 and solved exact finite path VC and complete-tree existence for both parities through n=12 (python3 /workspace/checks/finite_review.py 4; /workspace/checks/4.txt). This finite verification corroborates rather than proves the graph and path theorems; no general-graph online formula is asserted.
 
-## Literature and limits
-Closest directly compared items: Kovačević–Vukobratović, arXiv:2105.04617 (2021); Johnson, arXiv:2101.06490 (2021); *Fixed-cardinality independent path concepts: sharp VC rank and near-saturation online growth* (published 2026 research record); and *Parity-sharp VC and Littlestone dimensions of antihole geodesic convexity* (published 2026 research record). Full proof text of the two published research records and relevant primary text of the two papers were inspected. The graph-wide part does not give a general-graph online rank, the path theorem does not supply the full shattering polynomial, and historical priority remains open to further literature checking.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Fixed-weight, maximal-independent, and independent-dominating path theorems handle materially different hypothesis families. The private-neighbor terminology is standard; what is distinct in the available evidence is its exact equivalence to shattering maximum supports for parity-restricted independent sets, the full support criterion, and the all-length period-four online dimension. This is not a priority certification and the inaccessible comparisons are retained explicitly.
+
+## value
+
+PASS
+
+Parity is a natural global restriction on the independent-set language. The trace criterion converts shattering into an explicit graph property, with a sharp one-unit VC dichotomy. The exact path ranks separate adaptive from static querying in an infinite family and show the parity of the advantage alternating modulo four; a rank for a single weight or a mere cardinality estimate would not reveal this.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

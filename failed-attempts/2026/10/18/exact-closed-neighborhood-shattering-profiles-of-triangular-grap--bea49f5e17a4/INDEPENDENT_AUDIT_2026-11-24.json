@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:31:37.838161Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A closed-neighborhood trace on the selected edges is the union of the two endpoint stars of its center. The empty trace needs two unused labels; they also allow padding any trace that uses fewer than two stars. Each singleton trace forces a leaf endpoint, hence all components with edges are stars. The full trace places a limit of two components. Three selected leaves in a larger star need three centers; two selected leaves from a three-edge star together with an edge in a second component do too. These exclusions and the star-center/leaf realizations give precisely the six types and both directions of the classification. The placement factors are 1, 3, 3, 4, 30 and 90, with 90 obtained by choosing an unordered split into two triples and a center on each. The two-extra-label condition gives the stated thresholds; the empty support is shattered for all n>=2 since a center exists. The comparison to the open J(7,2) example is supported by the primary source. An independent direct comparison of all traces on supports of size at most five for 2<=n<=8 checked 155,989 supports, including the jump from zero shattered four-sets at n=7 to 2520 at n=8. The supplied script and verification notes were inspected, not executed. The proof, not the bounded replay, gives the all-n ceiling.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Adler–Benediktsson–Macpherson prove an open-relation bound and give a four-support example in J(7,2). Corollary 3.8 provides finite VC dimension for quantifier-free formulas in the graph language, including E(x,y) or x=y. Bousquet et al. and Coudert et al. use closed neighborhoods but give general results, not this profile in the inspected passages."
+        ],
+        "reasoning": "Quantifier-free boundedness covers the relation only qualitatively; it does not determine the exact coefficient sequence or the cutoff for each n. The decisive complete coverage is in the matched catalogue theorem.",
+        "searches": [
+          "arXiv:2007.16042, Theorems 3.6–3.7 and Corollary 3.8",
+          "arXiv:1407.5833, closed-neighborhood hypergraph and identifying codes",
+          "arXiv:2405.07588, graph VC-dimension computation"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_shattering.py",
+        "SCOPE-20261108-08634914be96",
+        "SCOPE-20261018-43076c96fc46",
+        "arXiv:2007.16042v1",
+        "arXiv:1407.5833",
+        "arXiv:2405.07588"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Figure 4 is for open J(7,2). The catalogue theorem reaches closed VC dimension four first at n=8, by the same two-disjoint-path support using six labels and requiring two unused labels."
+        ],
+        "reasoning": "The primary open construction and boundedness do not mechanically imply the closed classification. The matching catalogue record directly gives the whole closed statement, not a looser bound. The dates attached to the two catalogue paths do not establish priority or independence.",
+        "searches": [
+          "arXiv:2007.16042, abstract, Theorem 3.7, Figure 4 and Corollary 3.8",
+          "SCOPE-20261108-08634914be96, closed Finding and assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The closed catalogue theorem imposes exactly the condition n>=v(A)+2 and the same six support types. Its alternative coefficients include n binom(n-1,2)=3 binom(n,3), and binom(n,2) binom(n-2,2) binom(n-4,2)=90 binom(n,6). The same-day open-neighborhood catalogue entry excludes the center from the trace."
+        ],
+        "reasoning": "The closed objects and all boundary thresholds agree after elementary counting identities. The open variant does not agree because using a selected edge as its own center removes that edge from the open trace.",
+        "searches": [
+          "Resultary closed-neighborhood triangular graph shattering / rank-two Johnson radius-one balls",
+          "SCOPE-20261108-08634914be96/RESULT.md",
+          "SCOPE-20261018-43076c96fc46/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The local mirror gives an exact symbolic profile with the same thresholds and placement counts, not merely sampled VC values."
+        ],
+        "reasoning": "The matched polynomial supersedes finite table comparisons; agreement holds for every n and size j.",
+        "searches": [
+          "Resultary complete closed-neighborhood shattering polynomial of triangular graphs",
+          "SCOPE-20261108-08634914be96, exact profile in Finding"
+        ]
+      },
+      "rationale": "A distinct Resultary entry contains the identical closed-neighborhood support criterion, complete coefficient profile and VC sequence. Distinctness for this whole Finding is therefore not established; its comparison with open neighborhoods is also not a surviving separate claim (the open example is prior work, and the closed threshold is in the match). This is an actual same-regime comparison, not an inference of earlier priority from a catalogue date. The primary literature inspected does not by itself establish prior exact coverage of the closed result.",
+      "residual_risks": [
+        "Actual chronology and the relationship of the two exact closed catalogue records are unresolved; documented duplicate coverage is not a priority ruling.",
+        "Other equivalent formulations may exist outside the inspected literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact equivalent support classification, polynomial and VC-dimension profile; relative priority unresolved",
+          "evidence": [
+            "Same six support graphs and two unused labels; alternative products for the same labeled placements."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-complete-closed-neighborhood-shattering-polynomial-of-triangular--08634914be96",
+          "material_read": "RESULT.md Finding and parameter conditions, offset 0",
+          "method": "Local repository mirror",
+          "title": "Complete closed-neighborhood shattering polynomial of triangular graphs",
+          "trigger": "Exact same-object catalogue result"
+        },
+        {
+          "assessment": "Different neighborhood relation, not the closed result",
+          "evidence": [
+            "The center is excluded; the open J(7,2) comparison is supported independently by Adler et al."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-exact-open-neighborhood-shattering-profiles-of-triangular-graphs--43076c96fc46",
+          "material_read": "Open profile and trace convention",
+          "method": "Local Resultary comparison",
+          "title": "Exact open-neighborhood shattering profiles of triangular graphs",
+          "trigger": "Close same-graphs and same-invariant catalogue match"
+        },
+        {
+          "assessment": "Exact open results plus qualitative closed boundedness, not closed support enumeration",
+          "evidence": [
+            "Figure 4 exhibits open J(7,2); Corollary 3.8 bounds VC dimension of quantifier-free formulas over Johnson graphs."
+          ],
+          "identifier_or_url": "arXiv:2007.16042v1",
+          "material_read": "Abstract; Theorems 3.6–3.7 and Figure 4 (offsets 25102,46186); Corollary 3.8",
+          "method": "OA primary PDF text",
+          "title": "Vapnik-Chervonenkis Dimension and Density on Johnson and Hamming Graphs",
+          "trigger": "Same Johnson graphs and near-equivalent relation"
+        },
+        {
+          "assessment": "Same general convention, not a triangular-graph profile in inspected material",
+          "evidence": [
+            "Graph VC dimension is defined by the family of closed neighborhoods."
+          ],
+          "identifier_or_url": "arXiv:1407.5833",
+          "material_read": "Closed-neighborhood hypergraph definition and nearby identifying-code framework, p. 2, offset 9665",
+          "method": "OA primary PDF text",
+          "title": "Identifying codes in hereditary classes of graphs and VC-dimension",
+          "trigger": "General closed-neighborhood VC framework"
+        },
+        {
+          "assessment": "General algorithms and bounds, not the exact family theorem in inspected material",
+          "evidence": [
+            "The algorithms compute graph VC dimension using closed neighborhoods."
+          ],
+          "identifier_or_url": "arXiv:2405.07588",
+          "material_read": "Abstract, and general bounds near Corollary 1 and Lemma 2, p. 5 (offset 14885)",
+          "method": "OA primary PDF text",
+          "title": "Practical Computation of Graph VC-Dimension",
+          "trigger": "General exact computation for the same relation"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The mathematical classification is intrinsically useful: it gives all shattering witnesses and a complete labeled profile for a natural graph family, and it isolates why adding the center changes the exact VC threshold. The failed originality assessment records that these useful facts do not distinguish the submission from the matched catalogue theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

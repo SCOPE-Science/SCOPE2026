@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:09:55.041185Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–37; frozen VERIFICATION.md, verify.py and verification_output.txt",
+        "/workspace/branches/f9d9ebb7-23ad-42f2-86fa-3bbb7b16b710/independent_replay.py and independent_replay_output.txt"
+      ],
+      "rationale": "For positive odd k, every composite maps to a prime and every odd prime maps to an even composite. A cyclic itinerary avoiding 2 therefore alternates and has even length. More generally any odd cycle needs a prime-to-prime step, necessarily 2→k+2; determinism gives uniqueness. Continuing the five-step itinerary forces 2k+2, then q=P⁺(k+1), then k+q. If q=2 the return was at step three; otherwise k+q≥4 is composite and maps to 2 exactly when it is a power of two. Conversely the stated conditions close the itinerary, and primeness, q>2, and q≤k+1<k+2 keep all five states distinct, including the two composites. The independent direct replay from 2 and largest-prime-factor arithmetic test agreed for all 100001 odd shifts through 200001, yielding exactly [5,21,51,59,1365,16271,87381].",
+      "residual_risks": [
+        "The computation is only for the stated inclusive interval; classification for all positive odd k rests on the itinerary proof, not that scan."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Das Lemma 2.2 uses that p+k is even composite for odd k and prime p>k to prove descent of φ_k²(p), not the period-five arithmetic equivalence.",
+          "Dubickas is a plausible general-comparison source; the attempted copies provided no accessible full theorem passage."
+        ],
+        "reasoning": "Eventual periodicity and descent do not select the five-step return from 2 or establish the required largest-factor/power-of-two constraints.",
+        "searches": [
+          "Das, arXiv:2312.06629v1, Lemma 2.2 and Figure 2",
+          "Dubickas, A Class of Bounded Iterative Sequences of Integers, DOI 10.3390/axioms13020107"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, proof and related work",
+        "Das Lemma 2.2 and finite Figure 2 discussion",
+        "Resultary exact short-period and fixed-shift records",
+        "Dubickas access attempts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The short-period paper gives the period-three itinerary (2,2^a+1,2^{a+1}) at k=2^a−1 with prime 2^a+1; it does not analyze the q>2 route from 2k+2.",
+          "The second-step descent is a known ingredient, while the five-cycle criterion requires identifying the only odd-length possible itinerary and ruling out early returns and state collisions."
+        ],
+        "reasoning": "The known local transition explains the simple alternation lemma, but the inspected prior statements neither give nor classify the five-state itineraries; the all-shift necessity and sufficiency are not credited as a recomputation of a finite occurrence plot.",
+        "searches": [
+          "Prior short-period RESULT.md, offsets 0 and 3578",
+          "Das arXiv HTML, Lemma 2.2, offset 6646–8206"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact short-period record counts actual integer states of the same map and classifies periods up to four.",
+          "A prime-compressed itinerary deletes intervening composites; the five-state orbit here has three prime states and two composite states."
+        ],
+        "reasoning": "Matching the actual period convention is necessary; neither a four-state upper scope nor a bare compressed period gives the actual five-state list or its criterion.",
+        "searches": [
+          "Resultary: Das map shifted largest-prime-factor, period-five or five-state loops, odd shifts",
+          "Resultary 2026/11/8/SCOPE-exact-short-period-classification-for-a-shifted-largest-prime-fa--9c96b12d92f9"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Das plots the least shift for each period from 1 to 50; the inspected text does not list the period-five point, its orbit or all qualifying shifts.",
+          "The Resultary k=20735 record lists only periods 4, 6, 8, 10 and 12 for its fixed shift. The frozen seven-term list is independently reproduced on its stated interval."
+        ],
+        "reasoning": "Even an exact match for the least shift in Figure 2 would not cover either the full bounded list or an all-parameter equivalence. The finite list is supporting data, not the claimed basis of novelty.",
+        "searches": [
+          "Das arXiv:2312.06629v1 PDF page 6, Figure 2 discussion",
+          "Resultary 2026/10/4/SCOPE-thirty-six-distinct-loops-for-das-s-map-at-k-20735--c588f79a1e3b",
+          "Frozen verification_output.txt and independent replay"
+        ]
+      },
+      "rationale": "The map and the elementary odd-prime to even-composite transition are established ingredients. The nearest exact classification for actual states stops at four, and the inspected period-occurrence data are finite. The supported distinct result is the complete period-five arithmetic criterion with its unique ordered itinerary for all positive odd shifts, not a new map or novelty of its parity observation in isolation.",
+      "residual_risks": [
+        "The exact period-five point in Das's plot was not extracted. The full Dubickas text was unavailable, and an unindexed equivalent criterion is possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strongest exact prior classification; stops at four",
+          "evidence": "Classifies periods up to four and gives the period-three Fermat-prime itinerary.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-short-period-classification-for-a-shifted-largest-prime-fa--9c96b12d92f9/RESULT.md",
+          "material_read": "Finding and scope at offset 0; period-three proof at offset 3578",
+          "method": "Resultary and local mirror",
+          "title": "Exact short-period classification for a shifted largest-prime-factor map",
+          "trigger": "Identical map and actual-state primitive periods"
+        },
+        {
+          "assessment": "Same map and known parity ingredient; finite occurrence plot is partial data",
+          "evidence": "Odd k yields an even-composite image of p>k in Lemma 2.2. Figure 2 plots least k for periods 1 through 50; its period-five point was not resolved from the extracted passage.",
+          "identifier_or_url": "https://arxiv.org/abs/2312.06629v1",
+          "material_read": "HTML definition; Lemma 2.2 at offsets 6646–8206; PDF p. 6 text, offset 15648",
+          "method": "Lawful OA HTML and PDF passages",
+          "title": "A Family of Iterated Maps on Natural Numbers",
+          "trigger": "Original map, odd-shift transition and finite period data"
+        },
+        {
+          "assessment": "One fixed odd shift, not a classification",
+          "evidence": "Thirty-six cycles with periods 4, 6, 8, 10 and 12.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-thirty-six-distinct-loops-for-das-s-map-at-k-20735--c588f79a1e3b/RESULT.md",
+          "material_read": "Finding at offset 0",
+          "method": "Resultary and local mirror",
+          "title": "Thirty-six distinct loops for Das's map at k=20735",
+          "trigger": "Potential indexed exact period census"
+        },
+        {
+          "assessment": "Exact coverage unresolved",
+          "evidence": "Bibliographic identification and topical relevance only; no decisive theorem passage retrieved.",
+          "identifier_or_url": "https://doi.org/10.3390/axioms13020107",
+          "material_read": "Landing or abstract only; MDPI and identified ResearchGate routes did not supply full text",
+          "method": "Lawful OA attempts",
+          "title": "A Class of Bounded Iterative Sequences of Integers",
+          "trigger": "Related general maps and compressed dynamics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen necessity-and-sufficiency proof",
+        "Prior exact classification through period four"
+      ],
+      "rationale": "Period five is the next unclassified primitive period in the same-map short-period program, not a selected numerical slice. The criterion replaces a cycle search with one primality test, one largest-prime-factor evaluation and one power test, produces the unique orbit, and explains why odd periods are exceptional. The finite scan is supplemental, not the value claim.",
+      "residual_risks": [
+        "Even shifts, longer odd periods and infinitude of qualifying shifts remain outside the result."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

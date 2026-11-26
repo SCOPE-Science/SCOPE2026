@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:34:25.017487Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The uniquely determined distance vector with minimum j at b is a↦max(j,d(a,b)). Its nearest set is exactly the closed radius-j ball at b. The finite extension property realizes each such vector arbitrarily many times (add new points mutually at distance 1); homogeneity determines the complete type by the vector. Thus the polynomial is exactly the three unordered radius-wise size marginals. For n>=t, m>=1 and the subset-of-parts encoding filled by ones gives p(t)>=2^k>=n². The size-t radius-two balls preserve the chosen unordered set of m distinct refinements in the isometry type; the optional residual ball is distinguishable since r<t. Radius two and radius three are fixed, leaving at most p(n) polynomial values among binom(p(t),m) distinct hierarchies. The binomial lower bound follows by bounding each product factor (P-i)/(m-i)>=P/m; the partition upper bound follows from the Euler product and e^x-1>=x. Finally m log n is of order n/log n and dominates the O(sqrt(n)) subtraction. No upper bound or claim of a new small collision is part of the Finding.",
+      "replay": "python3 /workspace/review_checks.py 2; generated labeled two-layer set partitions, deduplicated to isometry types, and directly checked ternary extensions through n=6. The type/fiber counts agree with the frozen census there, including n=5 with 27 types and 26 fibers. Independent Euler-product coefficients at t=860 give p(t)=77169232591877674590168543277 and the stated lower-bound exponent at n=10^6 is about 13488.52. Frozen scripts and recorded output were read, not rerun.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Boalch gives the exact total-count generating product ∏_s (1-u^s)^(-p(s)) and identifies its combinatorial weight classes.",
+          "Kaneiwa DOI 10.3836/tjm/1270473566 is a highly relevant prior asymptotic analysis; identified lawful PDF routes did not yield inspectable full text, and no unread theorem is attributed."
+        ],
+        "reasoning": "The already verified broader enumeration supports conditioning on any prescribed outer size profile by taking the corresponding coefficients in the separate factors. For the stated profile it supplies the with-repetition count directly. General total enumeration alone also gives the elementary bound A001970(n)/p(n)^2 by taking both size marginals.",
+        "searches": [
+          "arXiv:2410.23358 Cayley double partition Euler transform",
+          "Kaneiwa 1979 An asymptotic formula for Cayley's double partition function Tokyo journal p(2;n) DOI"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md:5–63, VERIFICATION.md, verification program and saved output",
+        "OEIS A001970",
+        "arXiv:2410.23358 pp. 10–11",
+        "Resultary 9a251e700cfe and cc0fbcfb3a13",
+        "arXiv:2208.11770 Example 3.20"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "With the fixed multiplicity m at weight t, [x^m](1-x)^(-p(t))=binom(p(t)+m-1,m); choosing each color at most once gives exactly [x^m](1+x)^p(t)=binom(p(t),m).",
+          "Flattening the colors yields an integer partition of n, and nothing else in the polynomial varies once the outer sizes are fixed."
+        ],
+        "reasoning": "The known combinatorial description plus a single pigeonhole gives the precise quantitative claim in the proposed parameter regime. The elementary encoding p(t)>=n² and standard Euler bound for p(n) then reproduce the second inequality and rate. There is no new information such as a distribution of fibers, an optimum attained by specific marginals, or a structural characterization of extremizers.",
+        "searches": [
+          "OEIS A001970 comments (p(s) copies of part s) and product formula",
+          "Boalch arXiv:2410.23358 pp. 10–11, OA offsets 24600–27423",
+          "Frozen RESULT.md Proof §§2–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "OEIS A001970 describes parts of weight s colored by the p(s) partitions of s; Boalch pp. 10–11 describes the same objects as multisets of integer partitions of total n.",
+          "Each ultrametric hierarchy is exactly such a multiset, with the outer radius-two sizes giving the color-blind partition and the radius-one sizes the flattened color contents."
+        ],
+        "reasoning": "This exact correspondence respects isometry, including unused distance levels. It is not the distinct plane-partition problem or a coincidence of small coefficients.",
+        "searches": [
+          "Resultary graded singleton ultrametric types, radius-wise ball sizes and hidden nesting",
+          "OEIS exact search 1,3,6,14,27,58,111,223",
+          "arXiv:2410.23358 pp. 10–11 (partitions of partitions)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A001970 gives the exact hierarchy totals matching RESULT.md through n=8, the colored count rule, and the Cayley product. This is not a table of maximum fibers.",
+          "9a251e700cfe gives the known five-point collision with all-arity type counts and all radius-wise size multisets; cc0fbcfb3a13 uses one-type feasibility matrices to recover levelwise ball counts."
+        ],
+        "reasoning": "The finite fiber collision overlaps but does not imply growth by itself. The known exact table matters because its stated combinatorial enumeration supplies the fixed-profile family count, not because the listed numbers coincide.",
+        "searches": [
+          "https://oeis.org/A001970 comments and formula",
+          "Resultary 9a251e700cfe and cc0fbcfb3a13"
+        ]
+      },
+      "rationale": "The two-marginal fiber problem is meaningful and the proof is correct, but its claimed quantitative advance is already a routine fixed-outer-partition specialization of Cayley's known colored/double-partition enumeration. In that exact prior model a part of size s has p(s) possible colors (the internal size partition). Fix the outer partition to m parts of size t and one part of size r if r>0, and, for the residual part, fix one color. The cited multiset-of-colored-parts description gives binom(p(t)+m-1,m) possible types, including the narrower binom(p(t),m) distinct-color subfamily. The remaining marginal has at most p(n) values by definition. Hence the exact finite lower bound in the Finding, even its version with distinct refinements, follows mechanically from the known enumeration, the standard ball/type dictionary and one pigeonhole. The displayed exponential estimate just uses standard partition bounds for this coefficient. This is demonstrable mathematical implication, not a claim that Cayley's text explicitly discusses model-theoretic types, or a rejection based on unavailable sources.",
+      "residual_risks": [
+        "The exact historical occurrence of the displayed graded-type wording is undetermined, as is any more precise published fiber asymptotic. The conclusion is coverage by direct implication, not verbatim prior publication. Kaneiwa's full text was unavailable in the inspected routes."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact enumeration of the underlying objects",
+          "evidence": "a(n) counts partitions with p(s) colors of a part of size s; product ∏(1-x^s)^(-p(s)). Example distinguishes repeated and distinct colors at weight 2.",
+          "identifier_or_url": "https://oeis.org/A001970",
+          "material_read": "Comments, worked example at n=4, formula and references",
+          "method": "Exact sequence lookup and original database page",
+          "title": "Functional determinants; partitions of partitions",
+          "trigger": "Exact numerical hierarchy count and potentially identical multiset object"
+        },
+        {
+          "assessment": "Direct relevant broader enumeration",
+          "evidence": "What Cayley called partitions of partitions are unordered multisets of partitions of total sum n; the product and first coefficients are stated explicitly.",
+          "identifier_or_url": "https://arxiv.org/pdf/2410.23358",
+          "material_read": "pp. 10–11, offsets 24600–27423; Kaneiwa bibliographic reference p. 24",
+          "method": "Open-access primary text",
+          "title": "Counting the fission trees and nonabelian Hodge graphs",
+          "trigger": "Independent primary formulation of the same hierarchy enumeration"
+        },
+        {
+          "assessment": "Strong finite overlap, not the quantitative rate on its own",
+          "evidence": "A unique first five-point collision retains all-level ball sizes and numerical type counts. No same-day priority inference.",
+          "identifier_or_url": "Resultary 2026/11/22/SCOPE-finite-arity-saturation-and-the-first-hidden-nesting-collision-o--9a251e700cfe",
+          "material_read": "RESULT.md Finding and five-point witnesses around offsets 0 and 1900",
+          "method": "Local indexed mirror",
+          "title": "Finite-arity saturation and the first hidden-nesting collision of ultrametric type counts",
+          "trigger": "Exact finite non-reconstruction phenomenon with the same size marginals"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": "The counterexample is for filtered chain isomorphism, not directly the graded-type polynomial.",
+          "identifier_or_url": "https://arxiv.org/pdf/2208.11770",
+          "material_read": "Example 3.20 p. 21 around offset 72900",
+          "method": "Open-access primary text",
+          "title": "Ephemeral Persistence Features and the Stability of Filtered Chain Complexes",
+          "trigger": "Another small ultrametric non-reconstruction witness"
+        },
+        {
+          "assessment": "No evidence inferred from unavailable full text",
+          "evidence": "The decision rests on the independently inspected exact colored enumerations, not on this paper's unread theorem.",
+          "identifier_or_url": "https://doi.org/10.3836/tjm/1270473566",
+          "material_read": "Bibliographic identification only, no theorem verified",
+          "method": "Identified Project Euclid download/PDF and lawful alternate access attempts",
+          "title": "An Asymptotic Formula for Cayley's Double Partition Function p(2;n)",
+          "trigger": "Asymptotics of exactly the same aggregate sequence"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Quantifying nesting ambiguity is motivated, but the presented lower bound extracts one elementary colored-partition coefficient and divides by the total number of possible marginals. It does not identify particular large fibers or reveal geometry, optimal scales or a matching upper bound. The parameter choice and exclusion of repeated colors offer a weaker version of the immediate with-repetition count without a separate scientific reason to prefer that restriction. There is no independently valuable remainder that can be saved by rephrasing the same bound.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

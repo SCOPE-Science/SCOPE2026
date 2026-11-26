@@ -1,15 +1,21 @@
-# Scientific review: Lindblad half-line late absorption
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact half-line Green function is expanded at both square-root band edges, with the physical branch and decay poles separated. Its two \(t^{-3/2}\) amplitude contributions give a positive mean \(t^{-3}\) absorption flux; cross-band oscillations integrate one order lower. The resulting \(t^{-2}\) defective tail gives precisely the conditional moment boundary at order two and the \(2C_m\) truncated-second-moment logarithmic coefficient. Differentiating the explicit coefficient yields a strictly decreasing polynomial in squared loss, proving a unique maximizer; differentiation of the independent total-absorption integral shows the opposite response at unit coupling. These computations apply to each fixed positive parameter value. The standalone SciPy/NumPy checker reports 66 successful finite/identity checks but is not a substitute for the band-edge argument.
+## correctness
 
-## Originality — PASS, best-knowledge
-Riberi (arXiv:2605.08056) proves the Green function, exact propagators and full eventual absorption, but the inspected mathematical statements and appendices do not give the present integrated late-time coefficient, sharp conditional moment cutoff, logarithmic second-moment constant, or optimization of the rare-late coefficient. Friedman–Kessler–Barkai (arXiv:1611.05676) obtain oscillatory cubic detection laws under repeated **projective measurements** on the full lattice; the Lindblad sink and precise coefficient do not follow from that renewal-measurement formula. Didi–Barkai (arXiv:2108.13047) instead study measurement-induced motion and a different asymptotic exponent. The cubic exponent by itself is established in other models and is not claimed as novel. Closely related published-result searches and the available prior mathematical findings did not identify equivalent implication coverage. Priority outside inspected literature remains uncertain.
+PASS
 
-## Value — PASS
-The total absorption probability and the late-event tail answer different physical design questions. The theorem quantitatively separates them at unit coupling, computes exactly which surviving absorption-time moments exist, and gives the uniquely extremal rare-late coefficient for each start site. The coefficient's finite-site dependence and \(\eta_m^{\mathrm{tail}}<1\) provide a structurally meaningful contrast with overall absorption optimization; maximizing late events is not itself a recommended design goal.
+The decaying root recurrence gives the free boundary resolvent −2q^m/Ω; the rank-one sink multiplies it by (1−iηq)⁻¹. On the upper rim of the band q=e^{ik}, and the denominator has real part 1+η sin k>0, including at η=1. Differentiating f(q)=q^m/(1−iηq) gives d_m=f′(1) and f′(−1)=(−1)^{m−1}conj(d_m). The Puiseux terms at Laplace frequencies 0 and −2iΩ are proportional to the square roots with phases −π/4 and +π/4 before inversion, respectively; inverse Laplace transformation gives the displayed conjugate phase factors in K_m. With smooth edge cutoffs, analytic terms are smooth and the next singular order is 3/2; the smooth complement is rapidly decaying by repeated integration by parts (even for m=1 its derivatives at large energy are integrable). Thus the amplitude error is O(t⁻⁵ᐟ²) for fixed parameters. In κ|K_m|² the constant part is 2C_m/t³; the interference oscillates with nonzero frequency and its integrated contribution is O(t⁻³). This yields the exact defective tail and both moment statements. Plancherel on the causal boundary resolvent gives the eventual absorption integral: the band gives the term invariant under η↦1/η and the two real-q exterior intervals give the finite-distance term. Differentiating gives the positive total-absorption slope. The tail derivative numerator m²−3(2m−1)η²−(m−1)²η⁴ is strictly decreasing in η², and its signs at η=1/√3 and η=1 locate the unique root, with equality at the first endpoint only for m=1. Expansion gives η_tail=1−1/m+O(m⁻²). For the atom at infinity, the free-sine-transform interaction picture converges since K_m is integrable; its limit is proportional to [sin(mk)−iη sin((m−1)k)]/(1−iηe^{ik}), nonzero in L², so some mass indeed escapes.
 
-## Scope and risks
-Only fixed-parameter half-line nearest-neighbor Lindblad absorption is covered. The instantaneous \(t^3\) flux oscillates; only the integrated tail has a scalar asymptotic. A more general unlocated band-edge asymptotic theorem might encompass the statement, and no literature-wide or independent priority determination is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact model, resolvent, propagator and total-absorption formula are existing, and the slope of total absorption at matching loss is already implied by Riberi's integral and appears explicitly in a matching catalogue record. The distinct supported claim is the fixed-site integrated late-time coefficient and its sharp moment and loss-optimization consequences; the comparison of opposite response signs depends on that new tail calculation, not a new total-absorption theorem.
+
+## value
+
+PASS
+
+The exact defective late-mass amplitude makes quantitative a rare-event objective that the total absorption integral cannot answer. It resolves how the two interfering band edges enter late probabilities, sets the sharp scale of the truncated second moment, and separates the loss optimizing unusually late absorption from local improvement of total detection. The exception-free fixed-parameter result at η=1 is useful where a boundary mode meets the continuum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

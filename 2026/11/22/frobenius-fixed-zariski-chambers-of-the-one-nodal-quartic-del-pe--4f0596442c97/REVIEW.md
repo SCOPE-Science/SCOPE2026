@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The geometric list of thirteen negative curves is proved via adjunction, degree bounds and the obstruction to an irreducible conic through three collinear points. The negative-definite support criterion follows from disjointness of selected \((-1)\)-curves and the exact Schur complement at the unique \((-2)\)-curve. The exact verifier rebuilds all thirteen Picard vectors, checks \(8192\) subsets using both integral principal minors and the Schur condition, enumerates \(1920\) Weyl transformations and the \(48\)-element root stabilizer, then reproduces the ten row polynomials and the \(30\) orbits by two methods. The link to field-rational chambers follows from Galois uniqueness of Zariski negative supports and construction with invariant ample divisors. This is a complete finite calculation for the stated geometric configuration, not an inference from sample values.
+## correctness
 
-## Originality — PASS, historical priority provisional
-Bauer--Funke--Neumann's Proposition 1.1 is the geometric support-chamber correspondence; Derenthal--Joyce--Teitler study generalized del Pezzo root systems and nonsplit nef cones; Bauer--Schmitz study chamber volumes. An earlier one-nodal quartic calculation already gives \(285\) chambers and the complete geometric support polynomial; those exact statements are not claimed as new. An earlier *smooth* quartic Frobenius classification concerns \(393\) supports on sixteen \((-1)\)-curves and the full \(W(D_5)\), whereas here the effective configuration contains a distinguished \((-2)\)-curve and only twelve \((-1)\)-curves, with its different \(48\)-element stabilizer. Targeted formula, equivalent-formulation, and published-record searches yielded no exact ten-class table or \(30\)-orbit classification for the one-nodal geometry. Searches cannot certify complete historical priority; unindexed work remains a risk.
+PASS
 
-## Mathematical value — PASS
-A one-nodal quartic del Pezzo resolution is a natural geometric degeneration, and Frobenius-stable Zariski chambers measure the descent of possible negative supports of big divisors. The ten-class classification refines both the geometric count and the Weyl stabilizer by precise rational linear-series behavior. The reduction from \(285\) geometric to only three rational chambers for one order-four class is substantial; the \(30\)-orbit count organizes all configurations under geometric monodromy. No realization for every type over each base field or analytic volume interpretation is asserted.
+Adjunction and Cauchy–Schwarz give d<=2 for a nonexceptional (-1)-curve and d<=1 for a (-2)-curve; the collinear triple excludes the irreducible conic through all five centres. The twelve listed (-1)-curves and the triple line R exhaust the list. The root meets four disjoint curves A=(E1,E2,E3,L45), which are intrinsically preserved as a set. The other eight curves are B=(L14,L24,L34,E5) and C=(L15,L25,L35,E4). In the intersection graph A_i meets B_i,C_i, and between B and C intersections occur exactly on unequal indices. The connected bipartite graph on B and C therefore forces a common index permutation and an optional interchange of B,C. The A3 reflections realize index swaps, and beta interchanges B,C, independently confirming the S4×C2 convention and full stabilizer. The support test is the negative identity block with optional scalar Schur complement -2 plus the number of selected A_i. For each invariant negative matrix M, solving (-M)b=(Aample·C_i) gives a strictly positive rational invariant vector: the negative part of b would contradict positive definiteness and the nonpositive off-diagonal of -M, and a zero coordinate contradicts the positive right side. This makes P=Aample+sum b_iC_i big nef and orthogonal exactly to the support; adding an invariant positive component sum realizes the chamber. A new exact rational-pivot Gram enumeration, using the three quadruples rather than Weyl-matrix closure for the action, confirms all ten rows, all three boundary supports, and 30 direct group orbits.
 
-## Limits and closest literature
-The statement is conditional on the indicated geometric five-point one-triple configuration and on the actual Frobenius class. Its novelty is limited to the invariant-chamber table and full root-stabilizer orbit decomposition, not the known support polynomial, Weyl-root theory, chamber correspondence or chamber-volume criterion. See `RESULT.md` for mathematical definitions, source-specific comparisons, and reproducibility.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The 285 geometric polynomial and the ten-class arithmetic type space are prior. The specific representation on the 285 negative supports, ten fixed cardinality polynomials, and orbit count 30 were not covered by the inspected stronger classifications or closest catalogue records.
+
+## value
+
+PASS
+
+The natural descent problem has Picard-lattice and geometric chamber classifications but needs a different permutation character to determine each rational big cone's support patterns. The graded table fills that finite gap for the full intrinsic stabilizer, including a minimal three-chamber type and a precise four-component non-nef support despite the absence of fixed individual (-1)-curves there. The root changes the permitted patterns, so the smooth classification is not a substitute.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

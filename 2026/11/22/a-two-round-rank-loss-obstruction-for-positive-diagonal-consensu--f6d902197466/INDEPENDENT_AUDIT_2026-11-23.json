@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:57:25.394769Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The positive diagonal block on the m leaf rows has rank m, including when some spoke weights vanish, so each factor loses at most one dimension on any input subspace. For singular A and B the left null line of A and the right null line of B are obtained by solving at the leaf coordinates. Normalize each hub coordinate to 1 (if it were zero the entire vector would vanish); the pairing is 1+sum_i (b_i/a_i)(e_i/d_i)≥1. Thus the latter line is outside im(A), so B is injective on im(A). If a rank drop occurs, its factor is singular and the resulting product image is inside that factor's image; the next factor cannot drop rank, whether it is singular or invertible. Rank cannot increase under continued left multiplication. Starting from m+1 dimensions and reaching one requires m separated drops, so T≥2m-1. Rank one here means all rows agree because their row sums are one. As an independent exact check of the m=2 witness, the rows of A2 A1 are (1/4,1/4,1/2), (1/2,1/2,0), (5/12,5/12,1/6); applying A3 sends each to (1/3,1/3,1/3). Each factor is admissible with zeros allowed on some spokes. I inspected the frozen verification notes and verify_star.py without executing it. Its 25 finite tests are diagnostics, not the universal argument. The record proves a lower bound on exact consensus, not an all-sizes attaining construction of its own.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1 gives positive-diagonal averaging in at most n(n-1)/2 rounds on any bidirectional spanning-tree graph. The proof builds a tree by absorbing one leaf in at most the current tree diameter additional rounds, so taking nested stars of orders 2,...,n gives a 2n-3 upper bound in the very class being audited. Ko's restricted pairwise result counts at least n-1 rank-loss exchanges."
+        ],
+        "reasoning": "The matching upper bound and hence the witness's achievability are covered as corollaries, even though the general bound printed in the theorem is larger. An upper bound does not rule out fewer rounds; the pairwise counting result neither requires gaps between drops nor applies to simultaneous unrestricted star factors.",
+        "searches": [
+          "arXiv:1302.6668, Theorem 1 and its recurrence, PDF pp. 2–3",
+          "Caltech Ko thesis, Theorem 5.1 and Corollary 5.2",
+          "DOI:10.1137/120862478"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1302.6668",
+        "Ko Caltech thesis 5763",
+        "DOI:10.1137/120862478 (attempted only, no original passage)",
+        "Resultary ace060b21935",
+        "Resultary 10a1ce0364ec",
+        "Resultary f6d902197466 (identical finding)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The matching upper bound depends on the diameter of a controlled construction; the rank obstruction applies to every admissible sequence. The earlier n-1 rank count in a restricted family lacks the nonzero pairing of each singular star factor's left null line with another one's right null line."
+        ],
+        "reasoning": "It is the new separation argument that changes a one-drop-per-factor obstruction into the sharper universal time bound. The rank-product analogues do not induce it through any of the inspected support or factor reductions.",
+        "searches": [
+          "Hendrickx–Shi–Johansson, proof of Theorem 1, pp. 2–3",
+          "Ko thesis, §5.1 rank argument",
+          "Resultary two-round matching averaging, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Transpose converts row-stochastic factors to the column-stochastic convention, with product order reversed; bidirectional star sparsity and total product rank are preserved. Ko's general formulation targets arithmetic averaging and lacks the positive-diagonal constraint; his rank bound in §5.1 is in a restricted symmetric pairwise model."
+        ],
+        "reasoning": "The comparison is with product rank one or exact agreement, not just arithmetic averaging; changing row/column convention cannot remove the mismatch in the factor restrictions and lower bounds.",
+        "searches": [
+          "Resultary: positive-diagonal finite-time star consensus, two-round product rank",
+          "Hendrickx–Shi–Johansson arXiv:1302.6668",
+          "Ko, Caltech thesis, Definition 1.1 and §5.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "f6d902197466 was the identical finding, not independent coverage. ace060b21935 computes rank loss after two random perfect-matching averaging rounds, whereas 10a1ce0364ec studies image-rank transitions of random idempotent maps. The two-leaf numerical upper bound is concretely covered by the prior theorem."
+        ],
+        "reasoning": "Neither distinct rank-product catalogue result supplies an all-dimensions star consensus lower bound. This lower bound is structural rather than a table of optimum times or a small-case matrix search.",
+        "searches": [
+          "Resultary f6d902197466, ace060b21935, 10a1ce0364ec",
+          "arXiv:1302.6668, star specialization"
+        ]
+      },
+      "rationale": "The distinct result is the unrestricted positive-diagonal star lower bound and the two-factor transversality that enforces it. Three-round average achievability on three vertices is already implied by Hendrickx–Shi–Johansson; their proof in fact supplies a matching upper bound for every star. Neither is credited as a distinct novelty of this record. The inspected unrestricted existence and restricted rank-count results do not imply the new lower bound.",
+      "residual_risks": [
+        "The full Ghosh–Lee result could not be inspected; an equivalent lower bound in that or other minimum-time consensus work cannot be excluded.",
+        "No priority conclusion is drawn from catalogue dates or absence of particular keywords."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers existence and mechanically implies the matching upper bound; not the unrestricted lower bound",
+          "evidence": "Proof explicitly ends the leaf extension in T+diam(G_T) rounds; successive nested stars have diameter 1 at order two and 2 thereafter.",
+          "identifier_or_url": "https://arxiv.org/pdf/1302.6668",
+          "material_read": "Abstract and Theorem 1 with diameter-based recurrence, PDF pp. 1–3 (text offsets 12200–23554 for the theorem and proof comparison)",
+          "method": "Lawful OA original PDF passages",
+          "title": "Finite-time consensus using stochastic matrices with positive diagonals",
+          "trigger": "Same admissible stochastic-matrix model; minimum-time comparison"
+        },
+        {
+          "assessment": "Overlap in rank counting for pairwise symmetric exchanges, different model and no stated round separation",
+          "evidence": "The §5.1 bound counts at least n-1 50–50 factors, in contrast to separated rank drops of arbitrary factors on a star.",
+          "identifier_or_url": "https://thesis.caltech.edu/5763/01/consensus.pdf",
+          "material_read": "Definition 1.1 and §1.5, printed pp. 6–7 (offset 16780); Theorem 5.1 and Corollary 5.2, printed pp. 30–31 (offset 60000)",
+          "method": "Lawful OA thesis passages",
+          "title": "On Matrix Factorization and Scheduling for Finite-Time Average-Consensus",
+          "trigger": "Earlier rank argument and optimal graph factor schedules"
+        },
+        {
+          "assessment": "Unresolved scope and priority risk, not evidence of noncoverage",
+          "evidence": "No mathematical statement credited to the unavailable text.",
+          "identifier_or_url": "https://epubs.siam.org/doi/10.1137/120862478",
+          "material_read": "No original passage available on attempted DOI/publisher routes",
+          "method": "Lawful OA availability check; the publisher denied access",
+          "title": "Optimal Finite-Time Consensus on Fixed and Periodic Graphs",
+          "trigger": "Potentially related minimum-time design on a fixed graph"
+        },
+        {
+          "assessment": "Different factor topologies and probabilistic assertion",
+          "evidence": "Two random perfect-matching rounds of pairwise arithmetic averaging, not arbitrary positive-diagonal star factors.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-two-round-matching-averaging-spectrum-and-logarithmic-rank--ace060b21935",
+          "material_read": "RESULT.md Finding, mirror offset 0",
+          "method": "Bounded local mirror reading",
+          "title": "Exact two-round matching averaging spectrum and logarithmic rank loss",
+          "trigger": "Closest stochastic two-round rank analogue"
+        },
+        {
+          "assessment": "Finite-set map rank transitions, not the supported positive-diagonal matrix model",
+          "evidence": "Image sizes under random idempotent map products rather than linear rank drops on a prescribed star.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-exact-rank-transitions-and-sharp-synchronization-of-random-fixed--10a1ce0364ec",
+          "material_read": "RESULT.md Finding, mirror offset 0",
+          "method": "Bounded local mirror reading",
+          "title": "Exact rank transitions and sharp synchronization of random fixed-point maps",
+          "trigger": "Distinct same-day rank-product near-hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The admissible factor class is natural in finite-time consensus, and the question concerns the minimum number of rounds, not just finite-time existence. The null-space geometry proves a strict improvement over counting individual singular factors and shows exactly why the intervening rounds are necessary. Together with the already available star construction from the tree recurrence this determines the minimum over the stated unrestricted class. The value is in the universal obstruction, not the rational three-node witness by itself.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

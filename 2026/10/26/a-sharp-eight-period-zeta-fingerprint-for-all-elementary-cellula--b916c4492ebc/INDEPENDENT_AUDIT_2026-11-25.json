@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:51:42.059096Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Sections 1–5 of the proof; VERIFICATION.md; verify.py inspected, not executed",
+        "Frozen rule_catalog.csv and class_recurrences.csv read as data; independently reproduced by independent_record3_check.py and direct recurrence-shape checks"
+      ],
+      "rationale": "For a length-n word w, sample a labeled predecessor path at successive boundaries of copies of w. The resulting path in the four-state Boolean relation R_w forces a directed cycle. Conversely a directed cycle lifts to a repeating predecessor for w^infinity, possibly with period a multiple of n. Thus count words with cyclic relations once each, not input paths, rotations modulo shift, or self-loops only. The relation automaton gives P(n)=e_I T^n f, including formal P(0)=1. For a proposed recurrence of degree d, its defect at index n=k+d is e_I T^k v for a fixed vector v. Cayley–Hamilton for the N-state matrix proves all defects vanish if they vanish for k=0 through N-1. A separate exact checker reconstructed the relation graphs and checked those defects, all class assignments and initial data, and all table counts at periods 1–8. An additional data check confirmed each of the 31 recurrences has c0=1 and exactly d initial terms starting with 1. Expanded-phase cycle detection independently agreed at all 2048 rule/period pairs for periods 1–8. All 256 rules were verified: 31 distinct eight-term vectors, max N=2375, max degree 56. Rules 7 and 25 have common prefix (2,4,5,12,22,43,79) and eighth counts 148 and 156. Within-class initial terms and recurrence therefore suffice for equality at all periods, while the sharp witness defeats every earlier prefix. Formal logarithms identify equality of these sequences with equality of the zeta functions.",
+      "replay_paths": [
+        "Frozen package: rule_catalog.csv and class_recurrences.csv alongside RESULT.md and verify.py; frozen checker not executed in this audit.",
+        "Independent replay: independent_record3_check.py uses the two frozen CSV files and standard-library exact arithmetic; run without --sample for the complete check. Check c0=1 and that initial_values has degree entries for each recurrence row."
+      ],
+      "residual_risks": [
+        "The finite check certifies all periods only in conjunction with the cycle criterion and Cayley–Hamilton. No claim about temporal periodicity, cyclic rings with fixed input length, topological conjugacy, or larger rule spaces is established. The 2048 independent comparisons are rule/period pairs, each aggregating a complete word enumeration at that period."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Manada–Kashyap give general zeta-count identities and formulas in finite-state shift theory, including the PFT setting.",
+          "Salo examines elementary rules in connection with regularity, weak inverses and equal-period predecessor obstructions."
+        ],
+        "reasoning": "General zeta formulas do not by themselves imply the number of distinct rule spectra or the sharp pair. A regularity or equal-period predecessor criterion does not compute the bilateral image fixed-point counts for all rules and periods.",
+        "searches": [
+          "Manada–Kashyap arXiv:0904.2375",
+          "Salo arXiv:2209.13373"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and both CSV tables",
+        "Resultary 9af6bc7e78bc and 192521493abb",
+        "arXiv:0904.2375 and arXiv:2209.13373"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The PFT/sofic theory supplies a method for evaluating zeta functions, not the evaluated list of equivalences or the optimal common prefix for these 256 rules.",
+          "Same-period restriction available in the ring comparator cannot be imposed on the assigned cyclic-relation criterion; even when a fixed n count is known, it does not prove sequence equality beyond n."
+        ],
+        "reasoning": "The census and sharp cutoff require exact family-specific calculations and all-period certificates. They are not obtained just by specializing a rationality theorem or transferring the eight-cell cutoff.",
+        "searches": [
+          "0904.2375, zeta definition and PFT rationality",
+          "2209.13373, periodic-preimage passages",
+          "192521493abb, Finding and Assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "9af6bc7e78bc gives the exact zeta function of the bilateral Rule 110 one-step image, explicitly not temporal or input counts. It overlaps one entry.",
+          "192521493abb uses finite ring-image languages with a same-length cyclic predecessor, not membership of a periodic point in the bilateral image."
+        ],
+        "reasoning": "Formal log equivalence between zeta and fixed-count sequence makes the Rule 110 overlap exact. Ring membership is stricter: for Rule 60 (adjacent-bit XOR), the period-one constant-1 output is produced by an alternating bilateral input but not by a one-cell cyclic input. Similar terminology and the same cutoff therefore do not establish equivalence.",
+        "searches": [
+          "Resultary: elementary cellular automaton spatial one-step image periodic points, spatial zeta functions, Rules 7 and 25"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact catalog hits: 9af6bc7e78bc (Rule 110 only) and 192521493abb (100 classes of indexed cyclic-ring image languages, Rules 57/99 witness). No exact all-rule bilateral count-spectrum table was retrieved."
+        ],
+        "reasoning": "The catalog comparators do not encode the same sequence for all rules. Positive-period bilateral output membership permits larger predecessor periods and uses counts, while the ring table compares sets of same-length outputs.",
+        "searches": [
+          "Resultary: all elementary cellular automaton rule-image periodic count tables and sharp zeta fingerprint",
+          "Resultary: Rules 7/25"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the complete 256-rule classification into 31 all-period spectra and the sharp eight-term prefix. Rationality and the finite-state counting framework are prior theory. A distinct same-day source gives the exact Rule 110 spatial zeta function, which covers that entry but not the census. The strongest other family-level exact catalog result has a superficially identical cutoff but tests equality of a different invariant.",
+      "residual_risks": [
+        "A comprehensive equivalent count or zeta table in unlocated literature remains possible. Results of bounded searches do not establish historical priority, even for the Rule 110 overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact one-rule overlap; no ordering inferred from the shared catalog date",
+          "evidence": [
+            "Zeta and initial counts for the Rule 110 bilateral one-step image; outputs not preimages or temporal points."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-exact-spatial-dynamical-zeta-function-and-least-periods-of-the-r--9af6bc7e78bc",
+          "material_read": "Mirrored RESULT.md Finding and spatial scope, offsets 0 and 840",
+          "method": "Local mirror passage inspection",
+          "title": "Exact spatial dynamical zeta function and least periods of the Rule 110 image",
+          "trigger": "Exact same spatial invariant on a member of the family"
+        },
+        {
+          "assessment": "Different invariant, no implication of matched bilateral count spectra",
+          "evidence": [
+            "100 classes of indexed cyclic-ring image languages; sharp witness Rules 57 and 99."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-sharp-eight-cell-test-for-equality-of-cyclic-image-languages-o--192521493abb",
+          "material_read": "Mirrored RESULT.md Finding and ring-image assumptions, offsets 115 and 1732",
+          "method": "Local mirror passage inspection",
+          "title": "A sharp eight-cell test for equality of cyclic image languages of elementary cellular automata",
+          "trigger": "All-rule exact classification with same numeral eight"
+        },
+        {
+          "assessment": "General method and framework, not an ECA catalogue or cutoff",
+          "evidence": [
+            "Zeta expressed through counts of periodic sequences; rationality for periodic-finite-type shifts."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0904.2375",
+          "material_read": "PDF p. 1 general formula, p. 2 definition, p. 5 rationality consequence",
+          "method": "OA primary passage inspection at offsets 451, 12472 and 41032",
+          "title": "The Zeta Function of a Periodic-Finite-Type Shift",
+          "trigger": "General finite-state zeta formulas and rationality"
+        },
+        {
+          "assessment": "Related existence questions but not the all-rule zeta-spectrum classification",
+          "evidence": [
+            "Equal-period preimages are considered for regularity questions, not a census of all bilateral image outputs fixed by the shift."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2209.13373",
+          "material_read": "PDF pp. 1–2, regularity and weak inverses, periodic point conditions and ECA equal-period predecessor passages",
+          "method": "OA primary passage inspection at offsets 230, 4289 and 5528",
+          "title": "On von Neumann regularity of cellular automata",
+          "trigger": "Systematic ECA treatment and periodic-predecessor obstructions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and recurrence tables",
+        "Resultary 9af6bc7e78bc and 192521493abb"
+      ],
+      "rationale": "This is a complete census of a natural small family for a standard dynamical invariant, with a minimal comparison prefix and an explicit witness. The verified tables let a researcher identify equal zeta functions or calculate higher-period counts without redoing every count, and the proof correctly distinguishes periodic outputs from equally periodic input rings. The contribution is the full certified classification, not general rationality or a count from a single cutoff.",
+      "residual_risks": [
+        "Zeta equality is weaker than conjugacy and does not classify image languages or regularity; usefulness is within the stated small exact family."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

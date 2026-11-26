@@ -1,0 +1,173 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:11:57.602341Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–41 and 45–49",
+        "VERIFICATION.md lines 19–23; read verify.py, including the separate round simulator, without executing it",
+        "Independent bounded check: python3 /tmp/opencode/frozen_review_graphs.py; round-0/1 totals on the four mixed cases were (27,4), (1881,151), (3847,204), and (3891,186)"
+      ],
+      "rationale": "An edge is initially observed in the line graph exactly when it meets the set T of selected endpoints. An observed edge wholly in T has no unobserved neighbor, while an observed boundary edge xy with y outside T has exactly deg(G[V\\T],y) unobserved neighbors. Since nonempty S meets at least two parts, every uncovered vertex has an observed boundary edge to a covered vertex in a different part. The induced uncovered complete multipartite graph is either edgeless, a star (every edge can be forced simultaneously at a leaf), or of minimum degree at least two (no force can begin). For fixed uncovered counts, choose the uncovered labels, then apply inclusion–exclusion over missed labels among the remaining vertices; the empty remaining vertex set contributes zero after subtracting the empty selection. This verifies both size and round exponents, with zero measured after initial domination. An independent direct propagation enumeration agreed coefficientwise with the bivariate formula on (1,1,2), (1,2,3), (2,2,2), (1,1,1,3), and separately on the bipartite example (3,3).",
+      "residual_risks": [
+        "The enumeration is finite corroboration. It is not used in place of the general residual-degree and inclusion–exclusion proofs."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2026/11/22/SCOPE-an-edge-endpoint-forest-criterion-and-the-complete-power-dominat--df97bef8930a, RESULT.md opening: minimum-degree-two root graphs have power domination iff the uncovered induced graph is a forest",
+          "Brimkov et al. introduce the power-domination polynomial, separating domination from forcing",
+          "Varghese's 2011 thesis is identified by the catalogue but its mathematical text was not obtained"
+        ],
+        "reasoning": "Every mixed multipartite root in scope has minimum degree at least two; a complete multipartite forest is exactly edgeless or a star. This is actual broader structural coverage by a later catalogue record. The polynomial definition by itself supplies no family formula.",
+        "searches": [
+          "Resultary: edge-endpoint forest criterion for power domination of line graphs",
+          "arXiv:1805.10984v1 Abstract/§1",
+          "CUSAT catalogue biblionumbers 74398 and 63431"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary and mirrored RESULT.md passages for triangular graphs and the endpoint–forest criterion",
+        "arXiv:1805.10984v1 Abstract/§1",
+        "Mertens Article 24.3.7 pp. 2, 5, 8",
+        "arXiv:2106.13496v1 §6",
+        "Soh–Koh DOI attempts and Varghese CUSAT catalogue"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The later forest condition reduces to stars and edgeless residuals; it does not state the mixed multipartite round-indexed inclusion–exclusion",
+          "Mertens Theorem 4 uses the closed-neighborhood domination condition, not propagation",
+          "The two Soh–Koh DOI retrievals did not yield paper text"
+        ],
+        "reasoning": "Neither the edge-cover tool for ordinary domination nor scalar product results imply the round-separated mixed-family coefficients. The structural implication from the later endpoint criterion is credited, independently of chronology.",
+        "searches": [
+          "2026/11/22/SCOPE-an-edge-endpoint-forest-criterion-and-the-complete-power-dominat--df97bef8930a",
+          "Mertens Article 24.3.7 pp. 2, 5, 8",
+          "10.1080/09728600.2014.12088762; 10.1016/j.akcej.2016.02.004"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2026/10/26/SCOPE-power-domination-of-triangular-graphs-star-forest-rigidity-and-f--b7c1b689a10e, RESULT.md opening: at most two uncovered vertices in K_n and a full edge-cover sum",
+          "arXiv:2106.13496v1 §6 defines the middle graph on original vertices and original edges"
+        ],
+        "reasoning": "Triangular graphs are the all-singleton case; their uncovered pair and polynomial are genuine boundary overlap, not the mixed family. The middle graph has a different vertex set and forcing process, despite the related terminology.",
+        "searches": [
+          "Resultary: triangular graphs / complete graph line graphs / star-forest rigidity",
+          "arXiv:2106.13496v1 §6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The triangular analogue counts only L(K_n), with an edge-cover sum indexed by zero to two uncovered vertices",
+          "Mertens enumerates ordinary domination in a rectangular rook graph via edge covers"
+        ],
+        "reasoning": "The strongest retrieved catalogue formula is for a strict boundary family. A rook domination table can enumerate the zero-round part for a two-part family, not the positive one-round coefficient in mixed multipartite line graphs.",
+        "searches": [
+          "Local Resultary mixed multipartite line-graph and all-singleton polynomial comparison",
+          "Mertens, JIS 27 (2024), Article 24.3.7, Theorem 4"
+        ]
+      },
+      "rationale": "Pass for the mixed multipartite joint cardinality/propagation enumerator and its structural classification as assessed against the accessible earlier statements. The later general endpoint–forest result covers the feasibility condition and explains its specialization, but does not supply earlier priority or the round-resolved polynomial. The same-day all-singleton result is a boundary analogue and is outside the claim; ordinary rook domination and scalar power domination are not the joint enumerator.",
+      "residual_risks": [
+        "Uninspected Varghese thesis may contain earlier coverage of all or part of the structural claim; the Soh–Koh paper texts were not recovered. The comparison does not establish exhaustive priority.",
+        "Chronological priority is not inferred from any same-day catalogue date."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Particular all-singleton boundary, not equivalent to the mixed scope",
+          "evidence": [
+            "At most two uncovered vertices; polynomial sum binom(n,u) F_(n-u)(z) for u=0,1,2"
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-power-domination-of-triangular-graphs-star-forest-rigidity-and-f--b7c1b689a10e",
+          "material_read": "RESULT.md opening, offset 0",
+          "method": "Resultary and local mirror",
+          "title": "Power domination of triangular graphs: star-forest rigidity and further enumerative results",
+          "trigger": "Same-day match for the selection and enumerator"
+        },
+        {
+          "assessment": "Later structural coverage; not earlier priority and not the target bivariate polynomial",
+          "evidence": [
+            "For root minimum degree at least two, power domination is equivalent to acyclicity of the uncovered induced graph"
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-an-edge-endpoint-forest-criterion-and-the-complete-power-dominat--df97bef8930a",
+          "material_read": "RESULT.md opening, offset 0",
+          "method": "Resultary and local mirror",
+          "title": "An edge-endpoint forest criterion and the complete power domination result for line graphs",
+          "trigger": "Broader plausible line-graph theorem"
+        },
+        {
+          "assessment": "Framework overlap; no mixed-family formula in inspected passage",
+          "evidence": [
+            "Defines the polynomial and domination/forcing step distinction"
+          ],
+          "identifier_or_url": "arXiv:1805.10984v1",
+          "material_read": "Abstract and §1 around offset 500",
+          "method": "OA passage",
+          "title": "Power domination polynomials of graphs",
+          "trigger": "Original general enumerator"
+        },
+        {
+          "assessment": "Ordinary two-part domination, not one-round power domination",
+          "evidence": [
+            "Rook placements are represented by edge covers of the complete bipartite root"
+          ],
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL27/Mertens/mertens6.pdf",
+          "material_read": "pp. 2, 5 (Theorem 4), 8",
+          "method": "OA PDF passages",
+          "title": "Domination Polynomial of the Rook Graph",
+          "trigger": "Closest edge-cover enumeration precedent"
+        },
+        {
+          "assessment": "Middle graphs, with scalar results on different graphs",
+          "evidence": [
+            "Vertex set V(G) union E(G)"
+          ],
+          "identifier_or_url": "arXiv:2106.13496v1",
+          "material_read": "§6, around offset 47180",
+          "method": "OA passage",
+          "title": "Some Families of Graphs with Small Power Domination Number",
+          "trigger": "Possible confusion with generalized line-graph constructions"
+        },
+        {
+          "assessment": "Exact scope not independently verified",
+          "evidence": [
+            "Retrieval produced HTTP 404/403; frozen record attributes scalar background only"
+          ],
+          "identifier_or_url": "10.1080/09728600.2014.12088762; 10.1016/j.akcej.2016.02.004",
+          "material_read": "Citation details; no primary theorem text recovered",
+          "method": "DOI and repository lookup yielded no accessible copy",
+          "title": "A note on power domination problem in diameter two graphs; Power domination of the cartesian product of graphs",
+          "trigger": "Scalar and rook product precedents"
+        },
+        {
+          "assessment": "Unresolved priority risk, not negative evidence",
+          "evidence": [
+            "Catalogue identifies Seema Varghese's 142-page dissertation"
+          ],
+          "identifier_or_url": "https://opac.cusat.ac.in/cgi-bin/koha/opac-detail.pl?biblionumber=74398; http://unionopac.cusat.ac.in/cgi-bin/koha/opac-detail.pl?biblionumber=63431",
+          "material_read": "Catalogue metadata, not thesis text",
+          "method": "Indexed university catalogue and lawful full-text lookup; catalogue pages timed out and no thesis copy was located",
+          "title": "Studies on some generalizations of line graph and the power domination problem in graphs",
+          "trigger": "2011 thesis plausibly contains earlier line-graph results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–27 and 33–41",
+        "Independent bivariate coefficient checks"
+      ],
+      "rationale": "Two selected sets of the same size can require different propagation effort. The exact joint distribution, valid for arbitrary mixed part sizes, identifies precisely when propagation can start and why it then terminates in one round; it is more informative than the minimum number or ordinary domination polynomial. The residual classification isolates the obstruction from three occupied uncovered parts, absent in the rook case.",
+      "residual_risks": [
+        "The result makes no computational-efficiency claim and does not analyze forcing rules other than ordinary one-neighbor power domination."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claimed objective is the exact worst-case expected squared mean-zero error after two independent edge draws, not a power of the mean update. The derivation begins with the direct nine-term matrix \(M_2=\sum_{i,j}p_ip_jW_iW_jW_i\). Reflection averaging yields the exact positive-semidefinite quadratic remainder \(d^2C\), and a positive leading odd eigenvector makes this remainder strictly costly for an asymmetric law. The three-dimensional invariant decomposition yields the explicit one-variable radical. Every stationary point supports a strictly convex Rayleigh quadratic with matching value and derivative, proving global uniqueness without assuming convexity of the entire objective. The one-round benchmark and the strict three-vertex minimality certificate were separately reconstructed. Symbolic and reproducible numerical checks are provided in `verify.py`.
+PASS
 
-## Originality — PASS, with priority risk
+This PASS refers to the corrected finding, not the original decimal 0.77455285319149403… . Enumerating the nine ordered two-draw outcomes by applying half-averages to coordinate variables and taking the Hessian of the expected squared norm independently gives the stated restricted blocks and the reflection remainder d^2 C. For 0<b<1, the top eigenvector in the odd block has entries alpha>beta>0 and quadratic form (alpha-beta)^2/2 against C; hence every asymmetric law is strictly worse. Boundary laws without a connected support preserve a mean-zero vector. At an interior stationary point the top vector supports a quadratic with strictly positive second derivative and zero first derivative, so that point strictly beats every other b. The repaired proof makes the isolation exact: on [0.39,0.4], Q'>0 and 7-10b>0, and F' has the sign of Q'^2-4(7-10b)^2 Q=16P, whose signs at the endpoints are negative and positive. The independent algebra and numerical replay gives b*=0.3943218483533837932040… and F(b*)=0.7745528531914939319452… . The one-round odd block dominates the even eigenvalue for 0<b<1, G' vanishes only at 2/5, and the antisymmetric probability perturbation maps its unequal-coefficient top vector nontrivially into the even sector, excluding equality. For P3 the reflected remainder has eigenvalues 3/8 and 9/8 on disagreement, and the one-round factor is uniquely minimized by the maximal p1*p2; P2 has a single edge. Repaired RESULT.md and verify.py give corrected digits, an exact signed sextic check and the correct number of two-draw outcomes. Frozen support was read, not run; the independent Hessian, exact sign and numerical replay is /tmp/opencode/frozen-review-replay.py (gossip). The result does not concern adaptive choice, different laws in the two rounds, or another horizon.
 
-The 2004 and 2006 papers of Boyd, Ghosh, Prabhakar and Shah establish the randomized pair-average model and optimize the one-round eigenvalue/averaging-time proxy; they do not state the exact two-draw minimax objective's four-path optimizer. The 2013 paper of Mangoubi, Mou, Liu and Morse optimizes contact relaxation weights and periodic schedules, not an i.i.d. fixed half-averaging edge law for a fixed two-step mean-square criterion. Published indexed records involving deterministic two-round stochastic filters or finite-horizon star gossip address different operators. No covering result was identified from the primary texts and indexed searches examined. An unindexed derivation or a broader finite-horizon random-product theorem could change priority; absence of a search match is not a proof of uniqueness in the literature.
+## originality
 
-## Value — PASS
+PASS
 
-It is natural to design pairwise averaging by minimizing the one-round spectral factor because that leads to an SDP and an asymptotic averaging-time guarantee. This theorem isolates the first path where the exact two-message minimax policy provably differs, supplies both unique policies with an algebraic equation, and gives a generalizable reflection-plus-Rayleigh certificate for a nonconvex probability-dependent second moment. The small absolute two-round performance gain, approximately \(3.7751\times10^{-5}\), is expressly acknowledged; the motivated contribution is a sharp minimal structural boundary, not a practically large speedup. No claim is made for other horizons, graphs or scheduling models.
+The corrected claim is the exact, unique minimax horizon-two optimizer, its strict separation from the one-round law, and path minimality under the stated iid protocol. The self-match is not evidence of a separate result; the strongest distinctly indexed exact horizon-two results concern isotropic input, and the inspected classical sources optimize a one-round eigenvalue or study long-run convergence. None of that coverage supplies the claimed deterministic worst-input optimizer. The repairs leave the objective, exact optimizer and minimality unchanged.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The absolute gain is only about 3.7751e-5, but the exact gain matters as a strict counterexample to a natural and widely usable one-round spectral design surrogate. The result identifies the first path where two iid minimax rounds require another law, supplies both unique designs and excludes every possible asymmetric improvement; neither a numerical optimization nor an isotropic average would settle that question. No practical speedup claim is needed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

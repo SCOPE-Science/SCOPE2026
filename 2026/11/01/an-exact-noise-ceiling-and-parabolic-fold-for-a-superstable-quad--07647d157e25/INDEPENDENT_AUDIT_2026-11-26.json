@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:10:32.899976Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§1–4 and VERIFICATION.md",
+        "Frozen symbolic_check.py and verify.py, inspected rather than executed",
+        "Independent resultant, radical and tangency checks"
+      ],
+      "rationale": "For an arbitrary trap [a,u],[v,w], separation and the input extremes give 0<u<v≤1, v≤1−u²−ε and u≥1+ε−v²; thus pε(u)≤0 without any equality assumption on the endpoints. At tangency write v=1−ε−u², u=1+ε−v² and 4uv=1. Then s=u+v=(√11−1)/2 and d=v−u=√(s²−1), giving ε=d(s−1)/2, the claimed radical, with positive gap d. The resultant and double-root identities were also independently reproduced. At criticality the residual quadratic in pεc=(u−uc)²H is decreasing and positive even at u=1; ∂εp≥0.9 on the required rectangle excludes all traps above threshold. Below it, strict convexity up to uc and positivity of p′ between uc and sε give the two admissible crossings; pε(3ε+ε²)>0 locates the lower crossing beyond the magnitude of the negative endpoint. Direct interval images now give exact swapping and the two derivative classifications. The even-step reachable intervals from the cycle points are nested (zero input returns each point), and their closed limit is exact by continuity and compactness. Its upper endpoint cannot be below u− by pε≤0 and cannot exceed u− by containment; the image extrema force the remaining endpoints. Taylor expansion in ε and u gives the square-root coefficient; for the critical recurrence from below the increments of 1/(uc−um) tend to B/2. This proves the all-input interval statement, not a random-measure or global boundedness result.",
+      "residual_risks": [
+        "The frozen numerical description overstates upper-branch image coverage: the script checks both directed interval images for the lower branch at 23 samples; upper-branch checks are separate. This does not affect the analytical proof.",
+        "The exclusion proof is only assessed for 0<ε≤1/20, and critical slowing is one-sided in two-step return time."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bounded-noise Hénon work gives set-valued reachability and boundary-map bifurcations in a two-dimensional noise model. The stationary-density theorem assumes an order-preserving C² diffeomorphism."
+        ],
+        "reasoning": "The nonmonotone scalar quadratic and the universal exclusion of separated interval traps do not fall directly under the inspected hypotheses and conclusions.",
+        "searches": [
+          "arXiv:2504.02776 introduction and §2",
+          "arXiv:2510.15057 §1.1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1811.03994",
+        "arXiv:2504.02776",
+        "arXiv:2510.15057",
+        "Resultary 46dbd0563009 and dd9acbf9570b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Neutral fixed points of composed extremal maps supply the tangency ansatz, but a tangency alone neither bounds arbitrary slack endpoints nor proves that loss of trap precedes band contact."
+        ],
+        "reasoning": "The threshold requires deriving and excluding the scalar inequality for every candidate pair and proving exact attainability on the correct root branches. The fold normal form itself is not a novelty claim.",
+        "searches": [
+          "Sato et al., arXiv:1811.03994 Eq. (12)",
+          "Lamb–Rasmussen–Tey, arXiv:2504.02776 §2; Tey et al., arXiv:2510.15057 §1.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Writing x=r(y−1/2) with r=1+√5 converts the logistic parameter r to 1−x² and rescales additive noise by r. Sato et al. instead compute a support transition near the period-three logistic parameter 3.83."
+        ],
+        "reasoning": "The logistic formulation is equivalent only at the corresponding period-two parameter and with the rescaled input. The inspected period-three statement is not that equivalent claim.",
+        "searches": [
+          "Bounded-noise logistic and quadratic two-cycle comparisons; arXiv:1811.03994",
+          "Resultary search for additive bounded noise and quadratic two-cycle traps"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest inspected Resultary analogues 46dbd0563009 and dd9acbf9570b are deterministic piecewise-quadratic two-cycle cusp/census results with no additive input or interval-trap threshold, including the same-day record. Eq. (12) is used for a different numerical noise threshold, approximately 0.000251396."
+        ],
+        "reasoning": "Neither inspected exact record nor the nearby numerical computation supplies the claimed scalar threshold or its invariant bands. No precedence is inferred from a shared date.",
+        "searches": [
+          "Targeted local Resultary comparisons for quadratic two-cycles, folds and bounded-noise thresholds",
+          "arXiv:1811.03994 p. 4, Eq. (12) and its reported threshold"
+        ]
+      },
+      "rationale": "The bounded-noise extremal-map fold mechanism and the parabolic asymptotic are standard. The supported distinction is the exact robust period-two interval threshold, its proof of necessity against slack inclusions, and the strictly positive gap at loss of trapping. No covering result was located in the checked statements.",
+      "residual_risks": [
+        "Specialized unpublished or unindexed noisy-logistic calculations at 1+√5 or in a different normalization remain possible. The search is bounded and does not certify priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Closest mechanism; different period and conclusion",
+          "evidence": [
+            "Uniform bounded noise near a period-three attractor; neutral fixed point of a three-step extremal composition; numerical transition at a=3.83."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1811.03994",
+          "material_read": "p. 2 (offsets 8200–9000) and p. 4 around Eq. (12) (offset 21000)",
+          "method": "Open primary PDF passages",
+          "title": "Dynamical characterization of stochastic bifurcations in a random logistic map",
+          "trigger": "Affinely related noisy logistic map and extremal composition"
+        },
+        {
+          "assessment": "Framework overlap; no covering scalar classification in inspected passages",
+          "evidence": [
+            "Two-dimensional bounded-noise reachability; support/minimal invariant set correspondence under a density hypothesis."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2504.02776",
+          "material_read": "Introduction and §2, offsets 400 and 9556",
+          "method": "Open primary PDF passages",
+          "title": "Bifurcations of the Hénon Map with Additive Bounded Noise",
+          "trigger": "Boundary fold and minimal invariant sets"
+        },
+        {
+          "assessment": "Hypotheses do not cover the quadratic with a turning point",
+          "evidence": [
+            "Order-preserving C² diffeomorphism; fold at a boundary of a minimal interval."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2510.15057",
+          "material_read": "§1.1 pp. 4–5, offsets 11555 and 12865",
+          "method": "Open primary PDF passages",
+          "title": "Anticipating bifurcations of random dynamical systems through tails of stationary densities",
+          "trigger": "Extremal maps and one-dimensional support folds"
+        },
+        {
+          "assessment": "Thematic overlap only",
+          "evidence": [
+            "Deterministic cycle census and cusp slowing; no additive noise or interval-trap threshold."
+          ],
+          "identifier_or_url": "Resultary 46dbd0563009",
+          "material_read": "Mirrored RESULT.md opening claim",
+          "method": "Local Resultary catalogue and mirror",
+          "title": "Exact two-cycle cusp, bistability and global convergence in a fixed-point-free system",
+          "trigger": "Closest same-day catalogue comparison"
+        },
+        {
+          "assessment": "Different model and asymptotic",
+          "evidence": [
+            "Deterministic coexisting cycles and n⁻¹ᐟ² slowing, no robust trapping claim."
+          ],
+          "identifier_or_url": "Resultary dd9acbf9570b",
+          "material_read": "Mirrored RESULT.md opening claim",
+          "method": "Local Resultary catalogue and mirror",
+          "title": "A cusp of coexisting two-cycles in a fixed-point-free quadratic system",
+          "trigger": "Related catalogue fold and slowdown"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen trap definition, global exclusion and fold theorem",
+        "Sato et al. Eq. (12), as a close numerical comparison"
+      ],
+      "rationale": "The superstable quadratic two-cycle is a natural test case for robust support dynamics. The exact cutoff is a usable benchmark distinguishing loss of alternating confinement from band collision: even at the last admissible noise, the bands have a gap greater than 0.58. Showing that no slack trap survives and calibrating the one-sided slowdown make this more than a local normal-form computation.",
+      "residual_risks": [
+        "Not a classification of every invariant set or of stochastic bifurcations under arbitrary noise laws."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

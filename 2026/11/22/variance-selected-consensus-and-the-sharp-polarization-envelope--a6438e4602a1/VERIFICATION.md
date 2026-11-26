@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and mathematical checks
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3.10 or newer. The program requires no third-party packages.
+## correctness
 
-The checker evaluates \(m\), \(q\), \(v\), neutral velocities, \(G\), and all three exact moment equations using arbitrary-precision rational arithmetic for 1,400 nonnegative empirical configurations of size one through fourteen. It then independently evolves eight empirical configurations using Runge–Kutta with a step of \(0.02\) for 72 time units and checks both the invariant and the predicted consensus. The executable prints pass counts when all assertions succeed.
+PASS
 
-The proof does not depend on simulations: the invariant follows from exact integration of the source's transport drift and the limit follows from \(\dot v=-2mvG\) with \(m\ge m_0>0\) and \(G\ge1/2\). The sharp extremal condition is the pointwise inequality \(x^2\le x\) on \([0,1]\). Tests cannot certify unrelated models, nonzero selection, noise, or a claim of historical novelty.
+For positive initial mean, the velocity is locally Lipschitz in the characteristic position and the two moments on m≥m₀/2; q∈[0,1] gives inward boundary velocities. Local characteristic iteration gives the probability evolution, and monotonicity of m extends it globally. Independently, differentiating q+m² gives the single integral ∫2(x+m)V dμ=∫(q−x²)dμ=0. Writing V=v/[2(x+m)]−(x−m)/2 gives m′=vG/2 and v′=−2mvG, so m≥m₀ and G≥1/2, giving variance decay and convergence to the stated Dirac mass in W₂. Jensen and x²≤x give the exact extremizers at each interior mean. The all-zero initial law is separately stationary by convention, and the empirical law proof uses the full-sum degree normalization, not leave-one-out or stochastic fixation. The independent unequal-mass example in python3 /workspace/independent_checks.py (section 2) verifies the neutral moment identities with L²=102497/264600; the characteristic/moment argument establishes the universal claims.
+
+## originality
+
+PASS
+
+Bounded pass for the arbitrary-law first integral, exact selector and fixed-mean rigidity, not for general convergence, the transport model, or the endpoint mixture value. The primary equation implies the new conservation law via a short extra model-specific cancellation, and the primary convergence theorem can then replace the convergence part of the proof. No inspected prior theorem supplies the arbitrary-law conservation or selector as a restriction; the primary two-atom invariant alone does not establish conservation for other laws.
+
+## value
+
+PASS
+
+The invariant computes the previously unspecified limiting cooperation for arbitrary laws, including continuously supported ones, and shows exactly which heterogeneous laws can maximize or minimize it at fixed mean. This is an exact observable and structural equivalence of moment-matched initial distributions, not another numerical trajectory or a restatement of convergence. It is limited to the stipulated deterministic neutral model.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T23:30:50.558980Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 3–81 (claims, local-rule and energy proofs)",
+        "VERIFICATION.md, verify.py and verification_output.txt (read the prior finite certificate, not executed)",
+        "Independent replay: python3 /workspace/audit_checks/majority.py (SymPy 1.14.0 available for exact algebra and root checks)"
+      ],
+      "rationale": "In signs, 2A+I implements open-neighbour majority with tie retention, with no zero local field. For its symmetric matrix H, the two-time energy -s(t)^T Hs(t-1) strictly decreases unless s(t+1)=s(t-1); the finite state space yields eventual periods at most two. For n≥3, the two horizontal neighbours are distinct. An indexed closed walk on overlapping column pairs is determined by its column at each labeled position; no quotient by rotations enters the trace. With a pair of time layers the two local equations are exactly F(x)=y and F(y)=x, with y forced by x. An independent signed-column implementation, using a join of allowed local updates and mutual reachability, reproduced the cyclic SCC sizes, confirmed that the ten two-vertex components are loopless directed 2-cycles, and found a loop in each large strongly connected core, proving primitivity. It reproduced the listed trace counts through n=8, and direct checks through n=5. Exact integer characteristic polynomials via SymPy's DomainMatrix computation, not the frozen Newton-trace routine, give nonzero parts of degrees 16 and 72 and confirm the specified irreducible Perron factors. Positive integer vectors give the two rational Collatz–Wielandt brackets. Exact polynomial root counts show exactly one root of the respective specified factor in each bracket and none of the other factors there; the cubic is increasing above 2. The resulting roots are about 2.20556943040059 and 3.45791276275055. For a primitive core its Perron eigenvalue is algebraically simple with a strict spectral gap, so its trace powers have leading coefficient one; the bounded small-component counts do not affect the asymptotics or the vanishing fixed fraction among recurrent configurations.",
+      "residual_risks": [
+        "The SCC and characteristic identities are computer-assisted finite facts. Direct enumeration of bounded n is corroboration; the indexed closed-walk bijection and spectral arguments give the unbounded conclusions.",
+        "The fraction concerns recurrent configurations, not random starting configurations or relative basin sizes."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general period bound credited to Goles–Olivos is corroborated by Local Certification of Majority Dynamics p. 2. The original DOI text was not retrieved.",
+          "Jen is identified as the transfer-method precedent; the PDF and HTML text could not be retrieved. Lemoy–Mozeika–Seki p. 1 specifies a noisy one-dimensional majority-3 automaton with a self vote."
+        ],
+        "reasoning": "A period bound locates recurrence in Fix(F²) but cannot evaluate its cardinality. The transferred local constraints depend on the three-row boundary and degree pattern. A generic cylindrical transfer prescription does not itself give the special cycle components, determinant factors or Perron separation.",
+        "searches": [
+          "Goles–Olivos DOI 10.1016/0012-365X(80)90121-1",
+          "Jen DOI 10.1007/BF01221109",
+          "arXiv:2309.01852v1 p. 2 and arXiv:1311.4388v1 p. 1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 83–93",
+        "Resultary 0611c6832e1e exact mirror passages",
+        "arXiv:2309.01852v1 p. 2; arXiv:1311.4388v1 p. 1",
+        "DOI lookups specified in source_inspections"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The later finding solves the same n≥3 fixed-point enumeration and uses the same cubic for the growth factor; limitations exclude two-cycle counts.",
+          "The frozen claim gives the second transfer graph with two independent local update constraints and its own 200-state core, yielding an asymptotic separation that the Q_n formula alone cannot establish."
+        ],
+        "reasoning": "The accessed general dynamics results and exact fixed-side comparison do not furnish the graph-specific exact two-step census. A later record shows overlap for the fixed side but is not evidence of earlier coverage. Remaining gaps concern uninspected historical sources, not a demonstrated equivalent theorem.",
+        "searches": [
+          "Resultary 0611c6832e1e mirror RESULT.md offsets 237 and 5828, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "Compared with frozen RESULT.md lines 23–39 and 48–71"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In signs the update uses symmetric weights 2A+I. On the even-degree row this is equivalent to a tie-breaking self-vote, while an integer majority margin on an odd-degree row remains unchanged.",
+          "Resultary 0611c6832e1e uses the same open-neighbour tie-retention rule, graph and labeled fixed configurations."
+        ],
+        "reasoning": "The fixed part is the same function under the alternative formula, not a neighboring graph or a new parameter. In contrast P_n counts F²-fixed configurations, not only primitive two-cycle orbits (which number (P_n-Q_n)/2). A fixed-state census alone does not determine P_n.",
+        "searches": [
+          "Resultary search for majority dynamics, fixed points and two-time counts on C_n × P_3 or three-row cylinders",
+          "Exact-graph and majority census literature lookup"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact later fixed-state statement gives F_n=5+2(-1)^n+S_p(n)+S_q(n)+S_r(n) for the same labeled configurations and includes p(X)=X³-2X²-1. Its limits expressly exclude two-cycle counts.",
+          "The older majority counting paper was reached at the bibliographic landing page; the identified open PDF had no extractable text. The frozen report describes a two-row circular-prism comparison."
+        ],
+        "reasoning": "This is a direct exact-count overlap on Q_n. The located material does not give a prior all-size P_n count on the three-row cylinder or the degree-13 factor. A two-row count, if confirmed, lacks the middle even-degree row and does not imply these numbers.",
+        "searches": [
+          "Resultary 2026/11/22 0611c6832e1e, matched RESULT.md Finding and Limitations",
+          "Agur–Fraenkel–Klein DOI 10.1016/0012-365X(88)90005-2"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the exact fixed and two-step census and the algebraic growth comparison for mixed-degree three-row cylinders, especially the 200-state two-step core and its Perron equation. The period-two bound and transfer method are established precedents and not credited. A later exact fixed-state record covers the same Q_n and its cubic but explicitly excludes the two-cycle census; it is recorded as substantive overlap, not earlier priority.",
+      "residual_risks": [
+        "Jen and Agur–Fraenkel–Klein may contain more extensive exact examples than the retrieved material establishes; inaccessible text is not evidence against coverage.",
+        "The literature and index checks are bounded and cannot rule out an unindexed earlier exact three-row census."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct Q_n overlap in later record, no P_n coverage",
+          "evidence": "Exact power-sum F_n formula on C_n × P_3, cubic X³-2X²-1; limitations exclude two-cycle counts.",
+          "identifier_or_url": "Resultary 0611c6832e1e",
+          "material_read": "Local mirror RESULT.md, Finding offset 237 and Limitations offset 5828, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local Resultary search and matched source passage",
+          "title": "An edge-addition entropy jump for majority fixed points on three-row cylinders",
+          "trigger": "Exact same fixed-state object, rule and circumference range"
+        },
+        {
+          "assessment": "Classical period bound credited, no claim of independently reading original full text",
+          "evidence": "General period-two assertion corroborated by the later arXiv source; own correctness proof reconstructs it.",
+          "identifier_or_url": "https://doi.org/10.1016/0012-365X(80)90121-1",
+          "material_read": "Bibliographic reference and theorem scope reported by frozen record; DOI retrieval timed out",
+          "method": "Attempted OA reading and source comparison",
+          "title": "Periodic behaviour of generalized threshold functions",
+          "trigger": "Prior general synchronous period theorem"
+        },
+        {
+          "assessment": "Corroborates period bound, not an exact census in the passage read",
+          "evidence": "Majority dynamics reaches a fixed point or period-two behaviour on any graph.",
+          "identifier_or_url": "https://arxiv.org/abs/2309.01852",
+          "material_read": "v1 p. 2, OA offset 6461",
+          "method": "Primary paper passage inspection",
+          "title": "Local Certification of Majority Dynamics",
+          "trigger": "Directly relevant broad majority-dynamics convergence theorem"
+        },
+        {
+          "assessment": "Transfer precedent acknowledged, exact example coverage unresolved",
+          "evidence": "The frozen comparison reports a general cylindrical transfer approach, not a verified three-row majority computation.",
+          "identifier_or_url": "https://doi.org/10.1007/BF01221109",
+          "material_read": "Method scope from the frozen report; identified publisher PDF and HTML not retrieved",
+          "method": "Lawful OA retrieval attempts",
+          "title": "Cylindrical cellular automata",
+          "trigger": "General transfer method could have treated the specific cylinder"
+        },
+        {
+          "assessment": "Older exact-count scope not independently verified",
+          "evidence": "The frozen comparison describes the circular prism with two rows; no exact three-row statement obtained.",
+          "identifier_or_url": "https://doi.org/10.1016/0012-365X(88)90005-2",
+          "material_read": "Landing page; identified open PDF without extractable text",
+          "method": "OA access attempts",
+          "title": "The number of fixed points of the majority rule",
+          "trigger": "Potential classical exact-count precedent"
+        },
+        {
+          "assessment": "Different graph and local update",
+          "evidence": "Noisy one-dimensional rule uses the cell and its two nearest neighbours.",
+          "identifier_or_url": "https://arxiv.org/abs/1311.4388",
+          "material_read": "v1 p. 1, OA offset 1278",
+          "method": "Primary paper passage inspection",
+          "title": "Transfer matrix analysis of one-dimensional majority cellular automata with thermal noise",
+          "trigger": "Transfer-matrix counting with a majority rule"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 3–42 and 44–78",
+        "Independent count and spectral checks in /workspace/audit_checks/majority.py"
+      ],
+      "rationale": "The natural comparison after a period-two theorem is the relative growth of the two types of recurrence. The first width with a mixed tie rule on this family supplies a specific nontrivial test, and the exact counts distinguish the fixed and recurrent growth rates rather than merely verifying the known bound or enumerating several small sizes. The trace formulas give every labeled size, including a parity correction, and the limiting ratio answers the recurrence question without asserting anything about attraction basins.",
+      "residual_risks": [
+        "No wider strip, basin-size result or uniform transient bound is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,162 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:38:31.349860Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Once an anchor proposes, every site in its footprint is covered even if that attempt is rejected, so the process covers by time t exactly when the independent first-proposal bits have no cyclic run of ell zeros, with zero probability q=e^(-t) per bit. Every allowed cyclic word has a 1 and thus uniquely specifies the trailing-zero states at the labeled anchors; the trace counts each word with exactly its Bernoulli weight. It also gives the correct endpoint values at q=1 and q=0. For the dominant eigenvalue near 1, multiplication of the characteristic equation by Lambda-q telescopes to (1-Lambda)Lambda^ell=(1-q)q^ell. The simple root is analytic at 0 and 1-Lambda=O(q^ell), hence log Lambda=-q^ell+q^(ell+1)+O(q^(2ell)). Scaling the remaining eigenvalues by q gives ell-1 bounded branches tending to the simple nontrivial ell-th roots of unity, so their trace contribution is exponentially negligible in the critical window. Taking q=n^(-1/ell)e^(-x/ell) then exponentiating gives the positive stated term and the O(n^(-1)+n^(-2/ell)) remainder, uniformly on compact x sets. Independent standard-library replay /workspace/branches/e4c9f591-58d4-4535-9a71-eab0b6d16d77/replay_ring_cover.py produced 54 exact rational transfer/enumeration equalities and bounded high-size checks (replay_results.txt in the same directory); they support but do not substitute for the asymptotic proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Campos–Teixeira's fixed-length specialization gives the leading Gumbel law after converting rate one globally to rate one per anchor. Chen–Xia's local-dependence total-variation theorem is quantitative for the entire count of long-run starts, not only its limiting law.",
+          "Godbole's runs paper was located bibliographically; its full theorem was not available through the inspected JSTOR route and it is not relied on for the decision."
+        ],
+        "reasoning": "A leading weak limit alone would not imply the correction. In contrast the stronger quantitative bound centered at the exact run-start mean controls the empty-event error at order n^-1, below the claimed correction scale.",
+        "searches": [
+          "arXiv:2401.15208 Theorem A discrete-torus Poisson arc coverage",
+          "arXiv:1601.04455 Theorem 1.5 structured coupon collectors",
+          "arXiv:math/0410169 Theorem 3.1 and local-dependence definition",
+          "Godbole 1991 Poisson approximations for runs and patterns of rare events longest runs circle error (1-p) n p pdf author"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, check.py and check_results.txt",
+        "arXiv:math/0410169",
+        "Inoue–Aki 057_2_0353.pdf",
+        "arXiv:2401.15208, arXiv:1601.04455, arXiv:2209.03992",
+        "Resultary b0e9f34d56db, 0335952f8ba4, c6c931f4bc72"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 3.1 bounds total variation of the count by the within-neighborhood cross-pair term plus the product-intensity term, times (1-e^(-lambda))/lambda, with the Palm error zero under the paper's local-dependence condition.",
+          "Let I_i indicate the word 1 followed by ell zeros starting at i on the circle, of probability h=(1-q)q^ell. Take the fixed cyclic window-overlap neighborhood A_i of at most 2ell+1 starts. I_i is independent of the process restricted outside A_i (disjoint bits). Distinct starts in A_i are mutually exclusive, since one required 1 is in the other's required zeros. For the simple process Xi of starts, Palm conditioning therefore changes nothing outside A_i, the cross-pair term vanishes, and the product-intensity term is at most (2ell+1)n h^2."
+        ],
+        "reasoning": "With lambda=nh the theorem directly gives P(Xi empty)=exp(-nh)+O_ell(n h^2). Subtract q^n for the all-zero word. In the critical window nh=e^(-x)-n^(-1/ell)e^(-(1+1/ell)x), and n h^2=O(n^-1) uniformly on compact x intervals. Taylor expansion yields the exact coefficient, sign and O(n^-1+n^(-2/ell)) remainder in the Finding. This uses a standard circular run-start representation and a direct evaluation of a general theorem, not an unproved speculative implication from an inaccessible paper.",
+        "searches": [
+          "arXiv:math/0410169 Theorem 3.1, Section 2 local dependence and Lemma 2.2",
+          "Inoue–Aki pp. 353–355 Bernoulli circles and Type-II long runs"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A site remains uncovered precisely if its ell incoming anchor bits are all zero. After swapping binary names, zero Type-II circular runs of length at least ell is the coverage event.",
+          "Except for the all-zero word, any long cyclic zero run has one start preceded by a 1. Thus coverage equals the empty run-start process with the all-zero word removed (probability q^n)."
+        ],
+        "reasoning": "The first-arrival reduction loses no kinetic information relevant to the cover time. Counting starts rather than the individual uncovered sites captures clusters of overlapping sites without changing the zero-count event except for the explicit degenerate word. The finite trace is a representation of the existing circular-run distribution.",
+        "searches": [
+          "Inoue–Aki, Joint Distributions of Numbers of Success Runs of Specified Lengths in Linear and Circular Sequences, Type-II runs",
+          "Poisson approximation circular runs run starts Godbole Bernoulli n p^k (1-p) Arratia Goldstein Gordon coin head runs error circular longest run",
+          "arXiv:math/0410169 Theorem 3.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Inoue–Aki give circular joint probability or generating-function formulas encompassing the exact zero long-run probability.",
+          "Alternating-rate dimer coverage gives the same equal-rate even-n ell=2 fractional correction, a real overlap; the adsorption result studies accepting only wholly vacant dimers and last successful deposition. The independent-extreme-clocks record is for continuum spacings."
+        ],
+        "reasoning": "The catalog match supports overlap for a special case only and its date does not settle priority; different adsorption and continuum models are not equivalent. The exact finite probability for general ell is already covered by circular-run laws, whether or not written as this specific trace.",
+        "searches": [
+          "Resultary 0335952f8ba4: Poisson late-availability and cyclic dimer adsorption jamming",
+          "Resultary b0e9f34d56db: fractional Gumbel corrections alternating-rate dimer coverage",
+          "Resultary c6c931f4bc72: independent extreme clocks for circular coverage",
+          "Inoue–Aki exact Type-II circular-run distribution"
+        ]
+      },
+      "rationale": "The exact law is the known zero-count event for circular Bernoulli runs, given a standard finite-state representation here. More decisively, the sharp positive correction with its stated uniform remainder is a direct consequence of a published local-dependence Poisson bound applied to the standard nonoverlapping starts of runs of length at least ell. This is coverage by implication, not a claim that the same coefficient is explicitly printed in a particular earlier covering paper.",
+      "residual_risks": [
+        "Janson (1988), Koutras et al. (1995), Godbole (1991), and the attempted original Arratia–Goldstein–Gordon texts were not available in readable full text through the bounded channels used. These are limitations on earliest explicit priority only. The disposition relies on the accessible original Chen–Xia theorem and its direct specialization, not on the inaccessible works."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Quantitatively implies the correction via circular long-run starts",
+          "evidence": "Theorem 3.1 uses total variation of Xi's total count and (1-e^(-lambda))/lambda times the cross-pair and product intensities; the Palm discrepancy vanishes for local dependence. Exact application given above.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0410169",
+          "material_read": "Section 2 local-dependence definition and Lemma 2.2, p. 4 PDF offset 12921; Section 3 count specialization and Theorem 3.1, offsets 23000–26139",
+          "method": "Bounded OA original PDF passages",
+          "title": "Stein's method, Palm theory and Poisson process approximation",
+          "trigger": "A local-dependence Poisson bound may resolve the full correction rather than only the limiting distribution"
+        },
+        {
+          "assessment": "Covers exact circular run counts; no claim made that these pages state the sharp correction",
+          "evidence": "Type-II runs have length at least k, with trials arranged circularly; zero count gives the finite law after relabeling bits and respecting the constant-word case.",
+          "identifier_or_url": "https://www.ism.ac.jp/editsec/aism/pdf/057_2_0353.pdf",
+          "material_read": "pp. 353–355, PDF offsets 0 and 4995, definitions and exact probability/generating-function result description",
+          "method": "Bounded OA PDF passages",
+          "title": "Joint Distributions of Numbers of Success Runs of Specified Lengths in Linear and Circular Sequences",
+          "trigger": "Exact distribution of long Bernoulli runs on a circle"
+        },
+        {
+          "assessment": "Direct leading-limit overlap only in the compared theorem",
+          "evidence": "Globally rate-one Poisson proposals and fixed R=ell give (ell T_global/n)-log n converging to Gumbel; T_global equals n times the frozen time in law.",
+          "identifier_or_url": "https://arxiv.org/pdf/2401.15208",
+          "material_read": "pp. 1–3, definition and Theorem A, PDF offsets 0 and 7150",
+          "method": "Bounded OA PDF passages",
+          "title": "Covering Distributions",
+          "trigger": "Same discrete-circle arc coverage with choice of clock normalization"
+        },
+        {
+          "assessment": "Acceptance rule is prior; these passages do not evaluate the frozen correction or establish the frozen description of a finite-ring discussion",
+          "evidence": "Retains a segment if any constituent site is new.",
+          "identifier_or_url": "https://arxiv.org/pdf/2209.03992",
+          "material_read": "p. 1, PDF offsets 843–2449, model and finite-interval discussion",
+          "method": "Bounded OA PDF passage",
+          "title": "Random Sequential Covering",
+          "trigger": "Same acceptance rule for dimers and longer segments"
+        },
+        {
+          "assessment": "Broader setting and leading coupon limit, not the decisive coefficient comparison",
+          "evidence": "Independent random subsets, and classical singleton-coupon Gumbel limit.",
+          "identifier_or_url": "https://arxiv.org/pdf/1601.04455",
+          "material_read": "Abstract, p. 1; Theorem 1.5 p. 4, offsets 0 and 14049",
+          "method": "Bounded OA PDF passages",
+          "title": "Speed and concentration of the covering time for structured coupon collectors",
+          "trigger": "Broader independent random-subset coupon results"
+        },
+        {
+          "assessment": "Exact special-case overlap for even n, ell=2, a=b=1; no priority inferred",
+          "evidence": "Relative correction n^(-1/2)e^(-3x/2) and the equivalent exact transfer probability.",
+          "identifier_or_url": "2026/11/2/SCOPE-fractional-gumbel-corrections-and-a-logarithmic-symmetry-crossov--b0e9f34d56db",
+          "material_read": "RESULT.md offsets 0–5252 and prior-work discussion at 8105",
+          "method": "Resultary search and local mirror",
+          "title": "Fractional Gumbel corrections and a logarithmic symmetry crossover in alternating-rate dimer coverage",
+          "trigger": "Same correction in the equal-rate dimer case"
+        },
+        {
+          "assessment": "Different acceptance rule and stopping time",
+          "evidence": "Requires both endpoints vacant and studies the last successful deposition, not monotone full coverage.",
+          "identifier_or_url": "2026/10/25/SCOPE-poisson-late-availability-and-a-gumbel-jamming-time-for-cyclic-d--0335952f8ba4",
+          "material_read": "RESULT.md opening claim, offset 0",
+          "method": "Resultary search and local mirror",
+          "title": "Poisson late-availability and a Gumbel jamming time for cyclic dimer adsorption",
+          "trigger": "Similar cyclic dimer Gumbel asymptotic"
+        },
+        {
+          "assessment": "Unresolved, not relied on for a negative inference",
+          "evidence": "Title and bibliographic relation only.",
+          "identifier_or_url": "https://doi.org/10.2307/3214248",
+          "material_read": "Bibliographic record only; no readable full text obtained",
+          "method": "Bounded lawful DOI/publisher and author-page attempts",
+          "title": "Random coverings of the circle by arcs with restricted endpoints",
+          "trigger": "Plausible earlier closely related discrete-circle result"
+        },
+        {
+          "assessment": "Unresolved details; the finite-law comparison does not rely on this paper",
+          "evidence": "Cited as earlier circular-binomial runs work.",
+          "identifier_or_url": "https://www.cambridge.org/core/journals/journal-of-applied-probability/article/abs/runs-on-a-circle/1380D08A85F8F94B8292A6993FE44B0D",
+          "material_read": "Bibliographic and publisher record; no full-text theorem retrieved",
+          "method": "Bounded OA publisher attempt and citation in Inoue–Aki",
+          "title": "Runs on a circle",
+          "trigger": "Directly related prior circular run distribution"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "A sharp cluster-induced bias in a cover-time law is a natural diagnostic, and the proof is correct. Here the full surviving increment beyond the leading Gumbel law is however already supplied by the standard empty-run-start Poisson approximation at its exact mean, with an error one order scale below the correction. Evaluating the trace for the established finite run law and expanding that mean are useful exposition but do not supply a distinct scientific result under the review standard.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

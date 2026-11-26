@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,64 +18,25 @@
   "schema_version": 1
 }
 ---
-The proof is analytic. The checker replays exact rational instances of the displayed family.
 
-For
-\[
-A_M=
-\begin{pmatrix}
--1&M\\
-0&-1
-\end{pmatrix},
-\qquad
-B=e_2,
-\qquad
-\sigma=1,
-\]
-the Cayley factor is
-\[
-C_M=
-(A_M+I)(A_M-I)^{-1}
-=
-\begin{pmatrix}
-0&-M/2\\
-0&0
-\end{pmatrix},
-\qquad
-C_M^2=0.
-\]
+# Independent mathematical audit
 
-The exact solution is
-\[
-P=
-\begin{pmatrix}
-M^2/4&M/4\\
-M/4&1/2
-\end{pmatrix},
-\]
-and after one ADI column,
-\[
-P_1=
-\begin{pmatrix}
-M^2/8&M/4\\
-M/4&1/2
-\end{pmatrix}.
-\]
-The checker reconstructs
-\[
-R_0=e_2e_2^{\mathsf T},
-\qquad
-R_1=\frac{M^2}{4}e_1e_1^{\mathsf T},
-\qquad
-R_2=0,
-\]
-and verifies
-\[
-P-P_1=\frac{M^2}{8}e_1e_1^{\mathsf T}.
-\]
+## correctness
 
-For \(M=6\), it checks the exact residual amplification factor \(9\).
+PASS
 
-The arbitrary-\(M\) conclusion and one-dimensional minimality are proved symbolically in `RESULT.md`; finite replay is supporting evidence only.
+For exact real-shift ADI with E=I and P0=0, use Z=sqrt(2 sigma)(A-sigma I)^(-1)b and b_new=b+sqrt(2 sigma)Z; expansion of the Lyapunov residual after the positive update ZZ^T gives b_new b_new^T. At sigma=1, A=-I+MN with N=e1 e2^T and N^2=0 yields C=(A+I)(A-I)^(-1)=-(M/2)N. Thus b0=e2, b1=-(M/2)e1, b2=0, and the spectral and Frobenius residual norm ratios are both M^2/4 (9 at M=6). Direct solves for the two columns give Z1=sqrt(2)(-M/4,-1/2)^T and Z2=sqrt(2)(M/4,0)^T, so P1=Z1Z1^T and P2=P1+(M^2/8)e1e1^T. Substitution gives zero residual at P2; Hurwitz stability gives uniqueness. This verifies the Loewner inequalities and exact termination independently of the supplied verifier. The scalar multiplier (a-sigma)/(a+sigma) has modulus <1 for a,sigma>0, ruling out growth in dimension one. R2 has rank zero, not one; the norm equality still holds for rank at most one. The frozen verification notes and verify.py were inspected, not run; in particular verify.py lines 30–42 check supplied P and P1 by substitution and define P2 from P-P1, rather than independently constructing the ADI columns. The ratio is a multiplicative change, not an additive increase, and exact termination does not assert finite-precision behavior.
 
-Unproved limits include finite-precision behavior and sharp residual bounds under additional dissipativity, numerical-range, or eigenvector-conditioning assumptions.
+## originality
+
+PASS
+
+The matrix/right-hand-side family and exact solution are prior, as are the ADI recurrence, residual factorization and nonnormal Cayley overshoot. The supported distinct claim is the sharp, dimension-minimal counterexample for ADI residual norms: arbitrary prescribed first ratio at one fixed spectrum with immediately following exact termination and Loewner improvement. No checked statement gives that consequence as a residual-monotonicity or fixed-spectrum result. The proof is short but needs the choice of a shift matching the Jordan eigenvalue, exploiting the resulting nilpotent map on a specified right-hand side rather than merely restating a norm or convergence bound.
+
+## value
+
+PASS
+
+A motivated minimal counterexample to spectrum-only control of the commonly monitored ADI residual, even for shifts that solve exactly after the next step. The exact magnitude and two positive updates separate transient norm growth from deterioration of the Gramian approximation. Its value is that concrete obstruction, not the known matrix family, routine inverse, or new general ADI theory.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

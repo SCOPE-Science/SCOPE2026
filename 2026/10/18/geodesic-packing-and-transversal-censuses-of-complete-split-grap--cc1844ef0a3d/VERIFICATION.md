@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Run `python3 verify_split_geodesics.py` with a Python 3 standard-library installation. The program reconstructs adjacency for each labelled complete split graph, enumerates shortest paths and removes non-maximal paths using contiguous-subpath testing. A disjoint-path dynamic program computes its entire packing-size distribution; an independent vertex-mask traversal counts every inclusion-minimal transversal. The executable compares both with the formula derived in `RESULT.md`, checks both scalar extremal parameters, and tests the packing–transversal gap.
+## correctness
 
-Successful execution recorded:
+PASS
 
-`VERIFICATION_OK exhaustive_profiles=22 vertex_subsets=3592 packing_dp_states=15576 maximal_geodesics=414 arithmetic_profiles=5000`
+The frozen formulas are mathematically correct. In the replacement the claim is narrowed to the labelled packing multiplicities. Diameter is two, so the maximal paths are exactly the clique edges and the three-vertex paths with two independent endpoints and a clique center; single vertices extend, and every cross edge extends because s≥2. A type (t,u) uses 2t independent vertices and t+2u clique vertices. Choosing t centers, assigning unordered pairs from the independent set to these distinct centers, and choosing a size-u matching on unused clique vertices gives exactly A_{r,s}(t,u) with no extra t! divisor. This counts each packing once and includes the empty one. At fixed t the greatest size is floor((r+t)/2), so the leading coefficient only receives contributions from t=h and, for odd r+h, t=h−1, with u fixed in each case. In the saturated case h=r the coefficient reduces to the stated factorial ratio. The formal exponential generating function counts singleton unused vertices and the two types of path blocks. The retained comparison facts are correct: a maximal safe complement is I or one independent vertex with one clique vertex, including at r=1 and at the coincident degrees when s=2; comparison with the packing maximum gives the stated gap. The replacement marks those facts, feasible types, and optimum size as known specializations.
 
-Exhaustive cases have \(1\le r\le5\), \(2\le s\le6\) and \(r+s\le9\). Arithmetic cases have \(1\le r\le50\) and \(2\le s\le100\). These are finite checks, not an exhaustive verification of the infinite theorem. The symbolic proof is supplied in `RESULT.md`; independence and external certification are not asserted.
+## originality
+
+PASS
+
+The frozen novelty claim fails in material part: the packing number and existence-side maximum-type classification follow from 483fcd9cfba1, and the inclusion-minimal transversal census and minimum cases follow from e5c4e05a4d10. Combining those results gives the gap and equality boundary. A complete replacement at /workspace/repairs/4/RESULT.md credits those implications and claims only the surviving labelled packing polynomial and multiplicities, including the exact number of maximizers. Those counts are not supplied by the inspected capacity or transversal classifications, and the closest counting theorem excludes singleton parts and hence the maximal clique-edge blocks. The pass applies to the narrowed replacement, not the frozen originality claims.
+
+## value
+
+PASS
+
+The retained result counts solutions of the natural geodesic packing problem by size and path type on the standard split family, rather than rederiving the known feasible sizes. Multiplicities measure how many optima are available: at fixed r throughout s≥2r the optimal size is constant while the number of maximizing packings varies with s. The exact coefficients also describe how the two possible types share the optimum in the odd-parity regime. This is a useful exact invariant in its own right; previously implied transversal and maximum-size results are not credited as the contribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

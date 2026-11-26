@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:35:18.862332Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The proof as frozen contains a false identity in the localization step (RESULT.md line 52): restricting a full order to the first two parts need not produce exactly the same matching. For A={x,x'}, B={y}, C={z}, use x<y<z<x'. The full order produces only (y,x), but the restricted order also produces (x',y). This is a defect in the submitted proof, not a counterexample to the Finding: every full-order pair lies before the first vertex of a third part and survives restriction, so only containment in the restricted matching is needed by downward closure. Conversely an order on a chosen pair can be extended with other vertices last; each later vertex sees at least two earlier neighbours, one from each part, also for singleton parts. In a fixed bipartite order starting in A, let x be its first vertex and y the first B vertex. If at least two A vertices precede y then all pairs target y. If only x precedes y, inspect the next vertex, if any. If it belongs to B then all pairs target x; if it belongs to A then (y,x) is the unique arrow in that direction and all other arrows target y. Together with the symmetric orders, these are contained in the displayed base/flap facets; the facet witness orders are valid. For a,b>=2, distinct same-family patches are disjoint and opposite patches meet in the two orientation vertices only. In each flap the paired lower face contains the tip and another base vertex, so cannot be in another patch, and descending size removes every coface except the specified one. Base collapse pairs subsets of size at least two avoiding a chosen root with their root extensions; all flap edges already remain fixed. The resulting patch trees are joined at orientation vertices and form a connected graph with (V,E)=(2ab,4ab-a-b). For one singleton the entire complex is the other patch and collapses to a point by leaf deletions; for two singletons the complex is two isolated vertices. The equivariant cycle lattice follows from the short exact simplicial chain sequence from the direct sum of pairwise overlap complexes to the direct sum of patch complexes to the union. Map each overlap generator labelled (v,w) to its copy in the w patch minus its copy in the v patch. This is natural even under part swaps; H_1 of a patch vanishes and H_0 is one copy of Z, giving exactly the displayed incidence kernel. H_0 follows from the component set. Thus the stated theorem is independently recoverable by the specific correction above. Inspected verify_faces.py, verify_collapses.py, both recorded outputs and VERIFICATION.md; no source script run. Finite face/mod-2 and free-face checks do not prove localization universally or check equivariance. Scope is the full complex of the unfilled simple graph, not the clique complex.",
+      "status": "FAIL"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The exact multipartite decomposition, wedge ranks and H_0 action are indexed under n_i>=2. The Nov 1 finding gives elementary collapses on every K_(a,b) with a,b>=2 with the same 2ab and 4ab-a-b graph counts. KOW gives the same star facets and contractibility for b>=2, S^0 for b=1, and the discrete complex on oriented incidences for complete graphs."
+        ],
+        "reasoning": "No restriction to equal part sizes is needed. The two-part graph models do not alone imply multipartite localization, but the multipartite statement plus the induced-subgraph observation in claim_vs_prior_implication does. The pieces with one singleton use KOW's exact star facets, not an inference that every contractible complex collapses.",
+        "searches": [
+          "2026/11/8/SCOPE-component-decomposition-of-full-strong-morse-complexes-of-comple--68f488c908f8",
+          "2026/11/1/SCOPE-complete-bipartite-strong-morse-complexes-collapse-to-doubled-gr--61b4d432e9c2",
+          "arXiv:2609.06844v1, Theorem 7.1 and Proposition 10.2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–78 and verification package",
+        "arXiv:2609.06844v1 §§3–4, 7, 10",
+        "Four distinct Resultary records itemized in source_inspections, mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The multipartite proof's first-two-part support lemma uses only the existence of one earlier vertex from each of two different parts. KOW's star has a base simplex with one tip flap per leaf, each tip unique to its own flap. The canonical bipartite cycle lattice is already natural under all part-pair isomorphisms from incidence labels."
+        ],
+        "reasoning": "For an induced subgraph G of H in the one-dimensional setting, the strong complex of G is the induced subcomplex of the strong complex of H on the arcs of G: restrict any witnessing order and each retained arc still has its unique earlier neighbour; extend an order on G with remaining vertices last for the converse. Enlarge each singleton part to size two, apply the Nov 8 exact decomposition, then restrict to original arcs; each bipartite summand restricts to exactly its original pair complex by the same observation. For a star with at least two leaves, collapse each unique tip onto a chosen vertex of its nonempty base face (pair every face containing the tip but not the chosen vertex with its extension in decreasing size), then collapse the base. The two isolated orientations for a singleton pair account for the extra binomial term. Disjoint union assembles the previously specified bipartite collapses and degree-one modules and the component permutation immediately gives the augmentation kernel.",
+        "searches": [
+          "2026/11/8/SCOPE-component-decomposition-of-full-strong-morse-complexes-of-comple--68f488c908f8",
+          "2026/10/18/SCOPE-strong-morse-complexes-of-complete-bipartite-graphs-have-a-canon--02d78a7c4a7a",
+          "2026/11/1/SCOPE-complete-bipartite-strong-morse-complexes-collapse-to-doubled-gr--61b4d432e9c2",
+          "arXiv:2609.06844v1 §7"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "KOW §3–4 sets the descending-domination and full-complex conventions. The multipartite finding has exactly the embedded pairwise subcomplex decomposition for all part sizes at least two. The same-date bipartite finding gives H_1 as the automorphism-equivariant kernel with generators the two arcs per edge and boundary w-v, with additional module data."
+        ],
+        "reasoning": "All three use the same downward-closed filtration complexes on unfilled graphs, not the pure variant. For the multipartite theorem the symbol coprod is a disjoint union of realizations (only the empty face in common as abstract complexes), exactly the target convention. The H_1 isomorphisms are on the same labelled integral module, including part swaps; an unoriented-edge cycle rank alone would not have been equivalent.",
+        "searches": [
+          "arXiv:2609.06844v1",
+          "2026/11/8/SCOPE-component-decomposition-of-full-strong-morse-complexes-of-comple--68f488c908f8",
+          "2026/10/18/SCOPE-strong-morse-complexes-of-complete-bipartite-graphs-have-a-canon--02d78a7c4a7a"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Indexed analytic component and rank formulas apply directly to K_(2,2,2), giving three copies of a rank-five connected graph; the indexed collapse formulas supply actual graph spines, including the smallest nonsingleton case. The Oct 25 collapse is for m,n>=3 and does not by itself cover the size-two cases."
+        ],
+        "reasoning": "No tabulation of finite examples is needed to establish exact overlap: these are all-size analytic formulas on the nonsingleton range. The highlighted octahedral calculation is their direct substitution. The frozen verification logs are not evidence of originality.",
+        "searches": [
+          "2026/11/8/SCOPE-component-decomposition-of-full-strong-morse-complexes-of-comple--68f488c908f8",
+          "2026/10/25/SCOPE-strong-morse-complexes-of-complete-bipartite-graphs-with-two-lar--e87b142f25a3",
+          "2026/11/1/SCOPE-complete-bipartite-strong-morse-complexes-collapse-to-doubled-gr--61b4d432e9c2"
+        ]
+      },
+      "rationale": "The principal exact localization is already covered on all-nonsingleton inputs by a distinct indexed theorem using the same order argument, and the unrestricted statement follows by induced restriction. The claimed pair-collapse and labelled integral module are also covered by distinct indexed statements; the singleton collapses are obtained directly from the published star facets. These are actual coverage and implication findings, not conclusions about which record originated the ideas. The later and same-date labels are not used to infer discovery order. No nonroutine surviving remainder was found.",
+      "residual_risks": [
+        "No discovery chronology or journal-publication status is established. Existing indexed comparison material provides mathematical coverage independently of historical priority.",
+        "There may also be earlier treatments of the general decomposition; that question is not resolved by the bounded search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Definitions plus exact star and complete-graph boundary cases, not a multipartite decomposition theorem",
+          "evidence": [
+            "Theorem 7.1 lists the base and single-tip star facets; Proposition 10.2 gives the zero-skeleton of the dominance complex on K_n."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2609.06844v1",
+          "material_read": "§3 near offsets 12780 and 13500, §7 Theorem 7.1 and its facets at offsets 35100–39299, §10 Proposition 10.2 near offset 91500",
+          "method": "OA arXiv HTML passage inspection",
+          "title": "Complexes of strong discrete Morse matchings",
+          "trigger": "Same full strong complex and boundary families"
+        },
+        {
+          "assessment": "Principal overlap, extends to singleton inputs by induced restriction; no priority inference",
+          "evidence": [
+            "Pairwise embedded decomposition, first-two-part support lemma, wedge ranks and H_0 permutation augmentation module."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-component-decomposition-of-full-strong-morse-complexes-of-comple--68f488c908f8",
+          "material_read": "Finding, scope and Proof, RESULT.md offsets 0–5862",
+          "method": "Configured Resultary lookup and local-mirror passage inspection",
+          "title": "Component decomposition of full strong Morse complexes of complete multipartite graphs",
+          "trigger": "Identical exact decomposition on all-nonsingleton inputs"
+        },
+        {
+          "assessment": "Exact bipartite summand coverage, stronger character results; same-date record not discarded",
+          "evidence": [
+            "Full automorphism module on two opposite incidence labels with boundary [w]-[v]; all a,b>=2."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-strong-morse-complexes-of-complete-bipartite-graphs-have-a-canon--02d78a7c4a7a",
+          "material_read": "Finding, RESULT.md offsets 0–2413",
+          "method": "Configured Resultary lookup and local-mirror passage inspection",
+          "title": "Strong Morse complexes of complete bipartite graphs have a canonical doubled-edge cycle lattice",
+          "trigger": "Same integral equivariant H_1 formula"
+        },
+        {
+          "assessment": "Same bipartite simplicial collapse conclusion",
+          "evidence": [
+            "Connected graph with 2ab vertices and 4ab-a-b edges; same arced vertex convention and target-star/flap generators."
+          ],
+          "identifier_or_url": "2026/11/1/SCOPE-complete-bipartite-strong-morse-complexes-collapse-to-doubled-gr--61b4d432e9c2",
+          "material_read": "Finding, scope and facet-family opening, RESULT.md offsets 0–2322",
+          "method": "Configured Resultary lookup and local-mirror passage inspection",
+          "title": "Complete bipartite strong Morse complexes collapse to doubled graph spines",
+          "trigger": "Explicit simple-homotopy claim for all nonsingleton pairs"
+        },
+        {
+          "assessment": "Narrower overlapping collapse conclusion",
+          "evidence": [
+            "The collapse graph has the same order and size for a,b>=3, not all a,b>=2."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-strong-morse-complexes-of-complete-bipartite-graphs-with-two-lar--e87b142f25a3",
+          "material_read": "Local-mirror finding",
+          "method": "Configured Resultary lookup and local-mirror passage inspection",
+          "title": "Strong Morse complexes of complete bipartite graphs with two large parts",
+          "trigger": "Pairwise collapse on large parts"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The principal structural result explains a strong topological obstruction on a connected natural graph family, gives a one-dimensional model and records its integral symmetry, all of substantive mathematical use. Once the overlapping indexed results are accounted for, the elementary singleton bookkeeping and direct sums alone do not justify a repaired new contribution.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:42:38.687760Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–35",
+        "Frozen VERIFICATION.md and verify.py, inspected but not executed",
+        "Catsigeras et al., arXiv:1108.1501v2, Example 5.1 and Proposition 5.3"
+      ],
+      "rationale": "In coordinates (u,q)=(x+y,y/(x+y)) the radial coordinate multiplies by alpha and the interior angular coordinate follows doubling, giving every finite binary prefix on admissible nondyadic angles. The displayed q_k lies strictly inside its binary cylinder and retains a factor of seven in its denominator. At the first disagreement of two prefixes of length n−1, identical initial fibers and identical prior symbols give identical current fibers. The two next values differ by at least the smaller endpoint value of phi2−phi1, delta, so the difference is observed by time n−1 even if the images overlap. The branch linear parts have infinity-norm row-sum bound max(2alpha,lambda1,lambda2). Thus points in the same length-n cylinder and initial cube of diameter 1/(floor(1/epsilon)+1) cannot be separated by time n−1. The bounds squeeze the fixed-scale growth rate. At q=1 the update is q'=1, not 0 under the usual mod-1 convention; the interior coding construction excludes this endpoint and the upper bound uses Lipschitz estimates directly. The entropy is on the admissible domain, not the limiting fiber on the singular line.",
+      "residual_risks": [
+        "The scale delta is parameter dependent; no uniform positive scale as either fiber multiplier tends to one.",
+        "No parameter endpoint or attractor-restricted entropy claim."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3 gives a skew-product upper estimate, not an exact lower bound for arbitrary overlapping contractions. Example 2 gives exact log 2 for another three-dimensional skew product. The other paper's exact log 2 example has a two-point attractor.",
+          "For this family's touching case the published k0 is 2, and for strict overlap k0 is at least 2."
+        ],
+        "reasoning": "The prior method is transferable after checking the gap, but neither the broader upper theorem nor the particular prior examples state the matching lower bound for this exact family. Topological entropy of a contracting skew product cannot in general be inferred from the itinerary count alone.",
+        "searches": [
+          "arXiv:math/0505019v3, Theorem 3 and Example 2",
+          "arXiv:math/0504187v1, Example",
+          "arXiv:1108.1501v2, Proposition 5.3(3)"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1108.1501v2",
+        "arXiv:math/0505019v3",
+        "arXiv:math/0504187v1",
+        "Local Resultary 8c42130d5e50 and focused catalogue searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Catsigeras et al. have k0=1 for disjoint images, so their lower bound and the ordinary itinerary upper estimate already yield log 2 there. Their stated lower bound is strictly weaker for touching and overlap.",
+          "Kruglikov–Rypdal explicitly compare f(x1,y) and f(x2,y) for the same fiber input y and derive the lower bound from the uniform 1/2 gap. Here the affine endpoint computation verifies an analogous pointwise gap throughout overlap even though the sets of fiber outputs are not separated."
+        ],
+        "reasoning": "This is an application of a prior separation argument, not a new general technique. The substantive comparison is the stronger model-specific conclusion in regimes not settled by the published bound and the fixed-scale estimate with its own explicit delta.",
+        "searches": [
+          "arXiv:1108.1501v2, Proposition 5.3(3) and proof",
+          "arXiv:math/0505019v3, Example 2 (offsets 48700–50600)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The target is the separated-set growth on points avoiding the discontinuity, not the entropy of the symbolic shift in isolation or a map on the attractor.",
+          "Kruglikov–Rypdal likewise use a triangular base with angular doubling, but their fiber maps are identity and an interval exchange; the latter has an internal fiber partition, unlike the affine contractions here."
+        ],
+        "reasoning": "The same angular mechanism does not give an equivalent three-dimensional system or the claimed entropy across the specified affine-overlap parameters. Uniform separation at equal inputs is the shared mechanism and should be credited.",
+        "searches": [
+          "Resultary searches for Catsigeras Example 5.1, piecewise contracting skew-product entropy and the Cantor-to-interval transition",
+          "arXiv:1108.1501v2, Example 5.1 and Proposition 5.3",
+          "arXiv:math/0505019v3, Examples 1–2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest indexed log 2 plateau claim is for a one-dimensional tent composition and different parameters p,t,s. The ranked results did not yield an entry specifying the same family and regime."
+        ],
+        "reasoning": "An identical entropy number and a plateau are not equivalent coverage of a parameter-family statement on another dynamical system; the bounded search is not a census.",
+        "searches": [
+          "Local Resultary semantic comparisons for Example 5.1, exact logarithmic entropy and overlap regimes",
+          "Resultary 8c42130d5e50, Finding and proof"
+        ]
+      },
+      "rationale": "Credit the exact separated-set entropy for the specific Catsigeras et al. family in the touching and overlap regimes, not exact log 2 for contracting maps in general, the synchronous-fiber method, or the earlier disjoint-regime lower bound. Kruglikov–Rypdal's Example 2 already uses uniform separation of images of equal initial fiber values to turn maximal itinerary growth into metric entropy in a related model. The inspected statement and examples do not give the equality across this continuous affine fiber family's overlap transition.",
+      "residual_risks": [
+        "A subsequent treatment of the same family or an unindexed statement of an applicable general gap criterion may exist. The proof mechanism itself is demonstrably prior and no priority is assigned to it."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact model, weaker lower bound in connected-attractor regimes",
+          "evidence": "Attractor fiber is [0,1] when the multipliers sum to at least one; bound is (log 2)/k0 with strict inequality in the defining test for k0.",
+          "identifier_or_url": "https://arxiv.org/html/1108.1501v2",
+          "material_read": "Example 5.1, Proposition 5.3(3), entropy definition and proof; offsets 52163–73398",
+          "method": "Primary full-text passages",
+          "title": "On the Asymptotic Properties of Piecewise Contracting Maps",
+          "trigger": "The exact map and previously available entropy bound"
+        },
+        {
+          "assessment": "Prior exact entropy and same-fiber gap argument on a different fiber rule",
+          "evidence": "Example 2 uses identity and an interval exchange, compares images at the same y with a gap of 1/2, and notes that a contracting modification is possible.",
+          "identifier_or_url": "https://arxiv.org/html/math/0505019v3",
+          "material_read": "Theorem 3; Examples 1–2, especially offsets 45258–50600",
+          "method": "Primary full-text passages",
+          "title": "Entropy via multiplicity",
+          "trigger": "General skew-product estimate and close angular-doubling example"
+        },
+        {
+          "assessment": "Prior positive-entropy contraction, not this transition",
+          "evidence": "Two-dimensional example with a two-point attractor.",
+          "identifier_or_url": "https://arxiv.org/html/math/0504187v1",
+          "material_read": "Example, offset 0",
+          "method": "Primary full-text passage",
+          "title": "A piece-wise affine contracting map with positive entropy",
+          "trigger": "Earlier exact contracting log 2 example"
+        },
+        {
+          "assessment": "Different dynamical system",
+          "evidence": "One-dimensional tent composition with thresholds in p,t,s.",
+          "identifier_or_url": "Resultary: 8c42130d5e50",
+          "material_read": "RESULT.md Finding and proof, offsets 0–7526",
+          "method": "Local mirror full-text passages",
+          "title": "Sharp entropy collapse and a full-measure attracting basin",
+          "trigger": "Closest indexed log 2 plateau"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and assumptions",
+        "Catsigeras et al., Example 5.1 and Proposition 5.3(3)",
+        "Kruglikov–Rypdal, Entropy via multiplicity, Example 2"
+      ],
+      "rationale": "For the published example the best stated lower bound can be much smaller than the exact entropy when fiber images overlap. Resolving that gap for the whole open parameter region, even at a fixed separation scale, shows that the connected attractor and branchwise contraction do not diminish information production of admissible trajectories. The interest is the qualitative transition test in a natural literature example and its quantitative answer, not the mere existence of another positive-entropy contraction.",
+      "residual_risks": [
+        "This is a model-specific application, not a general theorem for overlapping skew products."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

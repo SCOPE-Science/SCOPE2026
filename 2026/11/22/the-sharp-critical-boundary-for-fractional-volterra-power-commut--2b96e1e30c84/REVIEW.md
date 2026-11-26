@@ -1,15 +1,21 @@
-# Scientific review: fractional Volterra power-commutator boundary
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof fixes a dense initial domain for the unbounded power multiplier; derives the exact triangular kernel with its sign and normalization; factors the Hilbert–Schmidt integral; and proves boundedness, equality of norm and essential norm, nonattainment, and unboundedness in the three mutually exclusive parameter regions. The critical gamma expression is the mass of a positive integrable convolution kernel obtained under a unitary map. Weakly-null translated interval plateaus establish sharp essential norm, not merely noncompactness. A fixed nonnegative dilation test forces unboundedness below the boundary. Both the Hilbert–Schmidt pole and cutoff logarithm follow from the same integrable profile. The 17 numerical checks passed; proofs do not depend on them.
+## correctness
 
-## Originality — PASS, qualified
-The August 2021 Carvalho-Neto–Fehlberg source addresses boundedness/compactness of unweighted Riemann–Liouville integration, not commutators with singular power multiplication. Fernandez–Fahad (2022) is a conjugation-based structural treatment of weighted fractional calculi. The inspected published Hardy power-commutator result concerns the classical Hardy average and positive powers, yielding a spectral asymptotic rather than a critical essential-norm formula. Direct searches for Mellin, Volterra, power-commutator, alternative kernel normalization, and gamma-function norm uncovered no theorem implying the complete trichotomy and paired energy residues. The 2008 Bernardis–Lorente specialized Riemann–Liouville commutator article concerns weighted norm estimates and may have more relevant contents than its abstract reveals; its full text remained inaccessible. This is a residual historical-priority risk rather than proof of uniqueness.
+PASS
 
-## Mathematical value — PASS
-Power singularities are a natural boundary-stress test of fractional smoothing. The theorem identifies the exact transition from Hilbert–Schmidt regularization to unboundedness, exhibits a noncompact critical operator with a sharp unattained norm, and matches two different divergences by one precise coefficient. The distinction between critical boundedness, lack of compactness, and diverging Hilbert–Schmidt energy is not supplied by the ordinary unweighted fractional-integral compactness statement. The result is a complete natural parameter classification, not a numerical table or a manufactured isolated example.
+On the common test core the compositions give the positive kernel (y^beta-x^beta)(x-y)^(alpha-1)/Gamma(alpha) on y<x. Squaring and putting y=xz gives x^(2(alpha+beta)-1) times the z integral; its endpoints have orders z^(2beta) and (1-z)^(2alpha). This yields the supercritical Hilbert–Schmidt norm and density gives uniqueness. Below the line, unit-norm dilations supported in a scaled compact subinterval have output norm on a scaled interval to their right bounded below by c epsilon^(alpha+beta), so there is no bounded extension. At alpha+beta=0 the logarithmic unitary conjugates the kernel to the positive right-translation average with density h(s)=(exp(alpha s)-1)exp(-s/2)(1-exp(-s))^(alpha-1)/Gamma(alpha). Its finite mass bounds the norm; normalized long plateaus asymptotically realize the mass by restricting the s integration to [0,R] and then sending the plateau length and R to infinity in that order. Translating the plateaus away from zero makes them weakly null without losing this lower bound, proving essential norm equality. For any nonzero g the translation norm decreases on a positive-measure set of s because of lost mass on [0,s], proving nonattainment under the strictly positive density. Substitution z=exp(-s) evaluates the mass as the stated positive difference of beta integrals divided by Gamma(alpha). Finally, with j(z)=(z^(-alpha)-1)^2(1-z)^(2alpha-2), the exact truncated energy is Gamma(alpha)^(-2) times the integral from epsilon to 1 of j(z) log(z/epsilon). Both j and |log z|j are integrable, giving the stated cutoff coefficient and bounded remainder. The same coefficient arises by dominated convergence of the Hilbert–Schmidt numerator as beta tends to -alpha from above.
 
-## Scope and limitations
-The results require \(0<\alpha<1/2\), \(-1/2<\beta<0\) and Lebesgue \(L^2(0,1)\). The calculation does not determine other Schatten thresholds, non-power symbols, general \(L^p\) spaces, or uniqueness against every historical source. Independent validation remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+After comparing ordinary and weighted fractional integrals, power commutators and fractional Volterra boundary laws, the supported distinct claim is the concrete singular-power commutator trichotomy with exact operator and essential norms on the critical line and the common Hilbert–Schmidt coefficient. The tools of one-sided convolution, homogeneity, and beta integration are not claimed as new. Older weighted commutator literature is materially relevant but no verified coverage of this exact bundle was found; the named access limitations remain.
+
+## value
+
+PASS
+
+The singular power multiplier creates a natural homogeneity boundary where compactness disappears but boundedness survives. The simultaneous sharp norm, nonattainment, and agreement of the energy divergence under parameter approach and spatial cutoff give quantitative information that a weighted boundedness estimate alone would miss. The proof explains the agreement through the same remaining ratio integral, rather than through unrelated numerical fits.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

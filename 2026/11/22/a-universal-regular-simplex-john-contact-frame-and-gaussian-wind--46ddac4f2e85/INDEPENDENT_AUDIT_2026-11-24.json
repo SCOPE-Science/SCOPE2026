@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:05:11.493540Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The radical gives u,c>0 and c-u=t; using v²=u²+dcu reduces the remaining identity to (c+du)(c+u/d)=1. The squared radius on the ellipsoid's boundary is exactly 1-dcu(s-1/d)², proving containment and the precise spherical contact latitude; the cutting plane touches only at -e₁ in normalized coordinates. The transformed sphere normal at a contact is v² times the contact vector. The flat point and a regular transverse simplex give d+1 unit vectors of mutual inner product -1/d. Equal weights d/(d+1) have zero weighted first moment and identity second moment. For any affine-normalized competitor y+A B with A positive definite, the contact inequalities give tr A≤d, hence det A≤1; equality forces A=I and all contact pairings with y zero, hence y=0. This verifies global uniqueness without imposing symmetry. At t=1-η the leading semiaxes are 2dη/(d+1)² and √(2η)d/(d+1); integrating the slice density gives the stated thin-cap limit. At t→-1 the ellipsoid and cap tend to the ball. For t=λ/√d the radical implies √d u→α, √d c→β, and d(1-v²)→β² from the normalization identity. The scaled ball-coordinate density tends to the normal density (the gamma prefactor converges and the powers are dominated by a Gaussian), yielding the claimed pointwise occupied fraction. Differentiation using β²-λβ=1 gives (log G)'=h-β; the strictly positive variance of the normal tail gives h(h-λ)<1 and therefore h<β. Mills asymptotics give G(+∞)=√(2π)/e and G(λ)∼-λ at -∞. Only the limit profile is asserted monotone; d+1 contacts support a certificate, not a claim that there are only d+1 contact points. Replay: RESULT.md §§1–4; the supplied checker was inspected, not executed, and its high-dimensional check inserts the Gaussian denominator, so it is not a test of the cap CLT itself.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 2 is a criterion on already identified weighted contacts; the symmetric lens uses two curved latitudes at |u₁|=1/√d; the frustum theorem uses linearly scaled transverse sections."
+        ],
+        "reasoning": "The generic criterion does not supply this support geometry. The closest inspected exact classifications do not have a planar contact paired with a spherical latitude or the cap section law √(1-x²).",
+        "searches": [
+          "arXiv:1207.7246, Theorem 2",
+          "Resultary 02e413e91d3d and 07410bf05003"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check_cap_john.py",
+        "arXiv:1207.7246",
+        "Resultary 46ddac4f2e85, 8f18f059a757, 02e413e91d3d, 07410bf05003",
+        "DOI 10.1287/moor.7.2.253 (retrieval attempted)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The classical theorem implies optimality once the new contact and containment equations are proved. The outer cap limit has no 1/√d occupied-volume scale and neither its value nor its logarithmic derivative at zero agrees with G."
+        ],
+        "reasoning": "The Gaussian denominator is classical; the numerator and its cancellation against the normal hazard derivative depend on the specific inscribed axes, not on the prior outer asymptotic.",
+        "searches": [
+          "arXiv:1207.7246, Theorem 2",
+          "Resultary 8f18f059a757, Finding and Assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The enclosing-cap result gives a piecewise Todd outer ellipsoid and a cap/outer-ellipsoid window e^{-(max(λ,0))²/2}/Φ̄(λ). At zero that profile is 2 and increasing, while this inner-ellipsoid profile is 2e^{-1/2} and decreasing."
+        ],
+        "reasoning": "Switching from outer containment to inner containment changes the optimization and objective. Taking a reciprocal does not turn an outer ellipsoid into an inner one; neither resulting outer ratio matches the scale or value of this window.",
+        "searches": [
+          "Focused primary search: maximum-volume inscribed ellipsoid of a spherical cap",
+          "Resultary 8f18f059a757",
+          "Todd, DOI 10.1287/moor.7.2.253"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact catalogue hit is the frozen record itself. The checked neighboring entries tabulate or derive different ellipsoids, not the finite-d cap John formula and its window."
+        ],
+        "reasoning": "This is a continuous all-dimension formula, not a finite table lookup. The self-match is not independent evidence of coverage.",
+        "searches": [
+          "Resultary exact record 46ddac4f2e85 and neighboring records 8f18f059a757, 02e413e91d3d, 07410bf05003"
+        ]
+      },
+      "rationale": "The strongest inspected same-cap result is for the opposite containment problem, and the closest inspected inner-ellipsoid results concern other bodies. Credit the classical John criterion; the explicit cap certificate and sharp decreasing occupied-fraction window are distinct on the checked evidence.",
+      "residual_risks": [
+        "Todd's primary full text was unavailable in the checked copies. A classical half-ball or more general truncated-ellipsoid result not located in the bounded search could cover some finite-dimensional subclaims. A search miss does not settle historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General criterion, not cap-specific coverage",
+          "evidence": "The two required weighted identities are I=Σλₖuₖ⊗uₖ and 0=Σλₖuₖ.",
+          "identifier_or_url": "https://arxiv.org/pdf/1207.7246",
+          "material_read": "Page 1, Theorem 2; OA offset 2500",
+          "method": "Open author PDF passage",
+          "title": "An Arithmetic Proof of John's Ellipsoid Theorem",
+          "trigger": "Foundational nonsymmetric John criterion"
+        },
+        {
+          "assessment": "Closest same-body result; opposite optimization",
+          "evidence": "States the outer profile and piecewise outer axes, including the unit ball at cut height ≤-1/d.",
+          "identifier_or_url": "Resultary 8f18f059a757",
+          "material_read": "RESULT.md, Finding and Assumptions, starting at offset 0",
+          "method": "Indexed record and local mirror",
+          "title": "Strict monotonicity and dimensional scaling of enclosing-ellipsoid excess volume for Euclidean ball caps",
+          "trigger": "Same cap, volume ratio and Gaussian scaling"
+        },
+        {
+          "assessment": "Different body and contact geometry",
+          "evidence": "Two curved constraints with normalized latitudes |u₁|=1/√d.",
+          "identifier_or_url": "Resultary 02e413e91d3d",
+          "material_read": "RESULT.md, Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Exact John ellipsoids and contact latitudes of symmetric ball lenses in all dimensions",
+          "trigger": "Exact inner ellipsoid and contact latitude"
+        },
+        {
+          "assessment": "Linear transverse scaling does not cover the cap",
+          "evidence": "The hypotheses concern homothetic frusta with linearly scaled sections.",
+          "identifier_or_url": "Resultary 07410bf05003",
+          "material_read": "RESULT.md, Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Universal John ellipsoids of homothetic frusta",
+          "trigger": "Potential general section-scaling theorem"
+        },
+        {
+          "assessment": "No full-text determination; outer formula independently compared via the accessible cap record",
+          "evidence": "The attributed formula changes regime at t=-1/d and solves outer containment.",
+          "identifier_or_url": "https://doi.org/10.1287/moor.7.2.253",
+          "material_read": "Citation and the enclosing-cap record's attribution; primary text not read",
+          "method": "Bounded publisher and cited author-copy attempts, both HTTP 403",
+          "title": "On Minimum Volume Ellipsoids Containing Part of a Given Ellipsoid",
+          "trigger": "Closest classical truncated-ellipsoid citation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A one-sided cut is a natural nonsymmetric test of optimal inscribed ellipsoids. The exact formula is paired with a minimal-size John certificate that works at all cuts, and a nontrivial sharp occupied-volume profile showing a 1/√d loss even at central cuts. The strict limiting monotonicity and matching thin-cap constant add quantitative information rather than restating the generic contact criterion.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

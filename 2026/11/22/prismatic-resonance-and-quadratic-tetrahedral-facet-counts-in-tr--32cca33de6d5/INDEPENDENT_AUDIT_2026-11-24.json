@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:39:21.405121Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS applies only to the complete corrected files under /workspace/repairs/4, not to the frozen prism classification. The frozen finding is false at n=4: the facet over the second-coordinate edge from 1 to i has its two caps rotated by π/2. A quadrilateral side would require a shared outward edge normal of the triangles, and there is none. More generally the caps have relative angle 2π/n, a symmetry only at n=3; otherwise their horizontal edge normals strictly alternate. This gives six triangular side faces and two triangular caps, with each vertex incident to four faces, giving the octahedral graph and face structure. The b=0 family has the same cap geometry after exchanging the coordinates. Independently, normalizing support to cos(π/n) constrains the three coefficients w_j=b+aω^j to the polar polygon W. For a pair of edge contacts with directed offset m, the remaining coefficient lies strictly inside W for 0<m<n/3: its modulus is 2cos(π/3+δ) with δ≥π/(3n), strictly below the inradius. It is outside for m>n/3 and is another W vertex at each allowed endpoint. Thus there is no five-vertex facet, all six-vertex facets are counted by n(1+1_{3|n}), and all other facets are tetrahedra. Complementary component planes give affine independence of the two-edge tetrahedra; counting starting edges and strict offsets gives 3n floor((n−1)/3). The same constraints express b+aμ_3⊂W, establishing the polar interpretation including zero-scale placements. The frozen checker counted contacts but did not test prism type. The new checker tests contact counts and the cap-face structure over 3≤n≤80; run python3 /workspace/repairs/4/verify_facets.py, with output in /workspace/checks/facets4_audit.out. It is numerical corroboration, not the all-n proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Choi–Choi impose general position (no vertical faces and restrictions including no five defining hyperplanes meeting at a point), and study the maximal-placement silhouette. Six active constraints at a dual vertex violate that hyperplane condition.",
+          "Barvinok–Lee–Novik report Smilansky's continuous B_2 classification at HTML offset 12620. B_2 has frequencies 1,3 and includes every circle parameter, not a finite orbit.",
+          "That paper cites M. Li, Faces of bicyclic polytopes, as an unpublished undergraduate project (bibliography at HTML offset 79629); the project was not inspected. A search citation labelled Combinatorial types of bicyclic polytopes was also not lawfully recovered in full."
+        ],
+        "reasoning": "A continuous-hull facet description does not imply the facet structure after sampling; even n=4 with frequencies 1,3 is a discrete problem. The silhouette analysis omits the nongeneric six-contact structure and is not a classification of all vertices of the full placement polytope. Possible earlier discrete coverage, particularly for 3∤n, remains unresolved, not ruled out by titles or access failures.",
+        "searches": [
+          "arXiv:2611.08556, p. 2 and Theorem 4",
+          "arXiv:1104.5168, definitions of U_k and B_k and reported B_2 classification",
+          "Focused lookup for finite bicyclic-polytope facet classifications, Li and Smilansky, and targeted Combinatorial types of bicyclic polytopes lookup"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_facets.py",
+        "Corrected /workspace/repairs/4/RESULT.md, VERIFICATION.md and verify_facets.py",
+        "arXiv:2611.08556",
+        "arXiv:1104.5168",
+        "Resultary corrected octahedral/orbit lookup and sharp-largest-triangle finding",
+        "Li and bicyclic-polytope literature leads, limited as described"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known maximal-scale classification implies the number of b=0 six-contact placements when 3|n, but does not establish the cap-face combinatorics of their dual facets, exhaust all six-contact placements, or enumerate two-edge contacts.",
+          "The exact two-edge count requires deciding whether the forced third corner is inside the regular polygon for every directed offset; the cap structure additionally requires comparing two normal fans."
+        ],
+        "reasoning": "The repaired result uses a separate support inequality and structural cap argument; it is not obtained by restating the known optimizer count or applying a published silhouette bound to a regular polygon. Verified overlap is credited explicitly in the repaired files.",
+        "searches": [
+          "arXiv:2611.08556, p. 2 and Theorem 4",
+          "Resultary sharp largest equilateral triangles, Finding and initial proof",
+          "arXiv:1104.5168, B_2 passage and bibliography"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In the placement polar, vertices with two corners on host vertices and the third strictly inside correspond to 2+2 facets; when all three are on host vertices the dual facet has six vertices. Zero-scale placements at host vertices also have six active constraints in this model.",
+          "If 3∤n the same vertex set is (x,x^q), x∈μ_{3n}, with q≡0 mod 3 and q≡1 mod n. Up to conjugating the second coordinate, q is n−1 if n≡1 mod 3, and q=n+1 if n≡2 mod 3. In both cases gcd(q,3n)=3.",
+          "The indexed hit ending 32cca33de6d5 is the assigned record itself and repeats the old prism wording."
+        ],
+        "reasoning": "The placement-contact and finite-orbit formulations are genuine aliases, not independent novelty. The cyclic alias covers the coprime branch only; the resonant branch has a different group structure. No distinct equivalent matching result was demonstrated by the corrected-term and orbit queries.",
+        "searches": [
+          "Resultary semantic queries for octahedral/triangular-antiprism facets, equilateral containment duals, and the finite bicyclic N,q orbit",
+          "arXiv:2611.08556, p. 2, containment silhouette and contact restrictions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed largest-triangle result gives exact maximal radii and symmetry-orbit counts of maximizing geometric triangles. In the divisible case its n/3 maximizing centered triangles give n labeled parameter points, precisely the b=0 branch.",
+          "The identical target hit is not an earlier table; no matching all-n table of the corrected facet types or the incidence-specific tetrahedra was demonstrated."
+        ],
+        "reasoning": "A table or formula covering all feasible placements with the indicated active constraints would be relevant, but maximal scale alone omits both the zero-scale branch and the interior-third-corner placements. The centered maximal-scale count is acknowledged as covered, not claimed as a new enumeration on its own.",
+        "searches": [
+          "Resultary semantic lookup for regular-polygon triangle-containment counts and corrected octahedra",
+          "2026/10/18/SCOPE-sharp-largest-equilateral-triangles-in-every-regular-polygon--b61be1edd78b, RESULT.md Finding",
+          "arXiv:2611.08556, general-position and silhouette passages"
+        ]
+      },
+      "rationale": "Assessed the repaired classification, not the false old prism count. The placement-polytope interpretation and the centered maximal-scale family when 3|n are credited to earlier work. The distinct surviving claim classifies all six-vertex facets by type and count and gives the exact two-edge tetrahedral count, including the nongeneric resonances. No broader theorem demonstrated to imply that claim was found; the finite bicyclic alias has residual access risk.",
+      "residual_risks": [
+        "An earlier discrete bicyclic treatment could cover part of the coprime branch; the Li project and the potentially related search listing were not available as verified primary statements.",
+        "The bounded search cannot rule out an unindexed equivalent formula, especially one expressed entirely through triangle-placement contacts."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct placement framework, but general-position silhouette results do not provide the full degenerate dual classification",
+          "evidence": [
+            "No five defining hyperplanes may meet at a point under the stated hypotheses; Theorem 4 concerns an O(n) decomposition of the silhouette into chains and steps."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2611.08556",
+          "material_read": "PDF p. 2, text offsets 5700–8797, and Theorem 4 passage on p. 5",
+          "method": "OA primary PDF passages by literal location and bounded offset",
+          "title": "The Containment Polytope of a Triangle and a Convex Polygon",
+          "trigger": "Same similarity-containment model and possible general face results"
+        },
+        {
+          "assessment": "Partly overlapping optimal placements, not all feasible contacts or dual face types",
+          "evidence": [
+            "For 3|n, scale one requires the center to be zero and all corners to be polygon vertices; there are n/3 maximizing geometric triangles."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-sharp-largest-equilateral-triangles-in-every-regular-polygon--b61be1edd78b",
+          "material_read": "RESULT.md Finding and divisible-case proof, offsets 0–3600",
+          "method": "Resultary lookup and local mirrored finding text",
+          "title": "Sharp largest equilateral triangles in every regular polygon",
+          "trigger": "Same triangle and host for all n, including resonant maximizing contacts"
+        },
+        {
+          "assessment": "Continuous-body context; does not establish finite-sample facet classification",
+          "evidence": [
+            "Reports Smilansky's full facial structure of continuous B_2; cites Li's unpublished Faces of bicyclic polytopes."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1104.5168",
+          "material_read": "Definitions near HTML offset 0, B_2 discussion at 12620, and bibliography at 79629",
+          "method": "OA primary paper discussion and bibliography",
+          "title": "Neighborliness of the symmetric moment curve",
+          "trigger": "Possible broader trigonometric facial classification for finite orbit formulation"
+        },
+        {
+          "assessment": "Continuous B_2 comparison verified at the level of the citing account; no inference about the whole 1985 paper",
+          "evidence": [
+            "The accessible account identifies the body as B_2, not a finite orbit of the audited parameters."
+          ],
+          "identifier_or_url": "Israel J. Math. 52 (1985), 115–128",
+          "material_read": "Secondary account in arXiv:1104.5168 only, not original full text",
+          "method": "Read the accessible citation and scope passage",
+          "title": "Convex hulls of generalized moment curves",
+          "trigger": "Smilansky facial classification cited in the trigonometric literature"
+        },
+        {
+          "assessment": "Parameter conventions and results unknown",
+          "evidence": [
+            "The citation alone gives no hypotheses or facet count."
+          ],
+          "identifier_or_url": "M. Li, unpublished undergraduate research project (2007), cited in arXiv:1104.5168",
+          "material_read": "Bibliographic entry only",
+          "method": "OA citation and focused literature lookup; no readable copy of the project established",
+          "title": "Faces of bicyclic polytopes",
+          "trigger": "Plausible discrete polytope overlap for 3∤n"
+        },
+        {
+          "assessment": "Actual statement and even bibliographic match of the suggested URLs were not confirmed",
+          "evidence": [
+            "No accessible statement mentioning the orbit parameters or incidence counts was obtained."
+          ],
+          "identifier_or_url": "https://www.academia.edu/56005523/Combinatorial_types_of_bicyclic_polytopes",
+          "material_read": "Search label only; no authenticated theorem passage",
+          "method": "Lawful OA direct/VPN attempts on indexed URLs and targeted alternate-copy lookup",
+          "title": "Combinatorial types of bicyclic polytopes (search citation label)",
+          "trigger": "Plausible stronger discrete facial classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The corrected result identifies exactly how symmetry creates nonsimplicial facets in a natural family of containment duals outside the general-position model; it distinguishes actual prisms from octahedra despite the same number of vertices. The exact number of two-edge tetrahedra quantifies a quadratic family of dual vertices representing two exact boundary-corner contacts. These are useful invariants of the full placement problem and are not supplied by a maximum-scale computation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

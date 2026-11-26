@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T19:32:46.316984Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With both residual shores nonempty the four independent input functionals (the endpoint values and the residual sums) map bijectively to the four output cell values. Hence im B is precisely the four-cell-constant space and rank B^(t+1)=rank M^t. If both shores are even, the two off-diagonal blocks of M are H=[[0,1],[1,1]]. H^2+H+I=0, so M^3 swaps the shores, M^6=I and M^2 has no nonzero fixed vector because H^2-I is invertible. Thus the fixed-space dimensions for powers 1,2,3,6 are 0,0,2,4, ruling out period two and proving the stated counts. The minimal polynomial on this image is (t^2+t+1)^2 and the complement is killed in one step. If both shores are odd, the two blocks are J=[[0,0],[1,0]]; the ranks are N,4,2,0 and force two length-three nilpotent blocks and the zero singletons. In the mixed case, M^2 has the two rank-one idempotent blocks JH,HJ and M swaps their image lines. This gives J_2(1), while N,4,3,2,2,... forces one length-three nilpotent block and N-5 zero singletons. Kernel dimensions of the successive nilpotent powers give exactly the successive differences in the stated first-entry populations. The last relevant shell is nonempty except in even-even at m=n=2, and Fitting projection gives exactly q^(N-r) points per recurrent state, hence the stated basins. The intact operator A has rank two and A^3=(mn mod 2)A, with shore swap on its image if both shores are odd. These are finite-field statements for the synchronous loop-free update only.",
+      "replay": "Use the displayed four-cell matrix for arbitrary shore sizes, with the two blocks H and J above; on the odd and mixed cases take kernel dimensions from the power ranks, and use fixed spaces for the even case. Independent bounded tests checked 25 adjacency/module rank cases and exhaustively classified 10,256 states in 13 finite test cases over F2 and F4. Frozen verify_ranks.py, verify_orbits.py and verification_output.txt were inspected, not executed. The tests corroborate the all-size proof, not extrapolation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Johnson calculation constructs the same local module from an adjacent pair in a square-zero adjacency setting; the hypercube even-dimension theorem gives precisely the same periodic companion and cycle-count formulas over F_(2^h). The familiar Fitting decomposition applies to any finite-field linear map once all its ranks and restriction are known."
+        ],
+        "reasoning": "A square-zero intact adjacency covers the mechanism behind even-even but does not describe the mixed intact rank ladder or odd-odd intact involution and their changed nilpotent parts. General automata theory converts modules to counts, not graph support to all parity-resolved modules. A characteristic polynomial alone would also not supply the nilpotent block lengths.",
+        "searches": [
+          "Resultary: missing exactly one biclique cross edge adjacency characteristic polynomial rank equitable partition XOR finite field order and nilpotent",
+          "Resultary: one-edge deleted hypercube missing edge parity transition six cycles and biclique single missing edge majority three basin responses"
+        ]
+      },
+      "checked_sources": [
+        "2026/11/1/SCOPE-a-missing-edge-parity-transition-in-hypercube-xor-dynamics--0ddebf65b6fe",
+        "2026/10/26/SCOPE-one-edge-defects-create-universal-six-cycles-in-nilpotent-johnso--6ee185cd61fc",
+        "2026/11/1/SCOPE-a-one-edge-majority-defect-has-three-exact-basin-responses--4c37e2b972d1",
+        "2026/11/22/SCOPE-one-triangle-edge-switches-the-jordan-phase-of-biclique-parity-d--a32991e726e7 (finding and quotient proof)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Johnson and hypercube local-basis proof for square-zero A already supplies the abstract six-periodic block. In the hypercube even case the complement consists of length-two nilpotent blocks, whereas even-even bicliques have singleton zero blocks. The majority proof retains individual bits on certain ties, rather than forcing a four-dimensional linear image."
+        ],
+        "reasoning": "No novelty is assigned to the abstract six-cycle module or the generic basin formula. The graph-specific characterization of image and ranks across all parity pairs and in particular the creation of two-cycles versus the destruction of intact periodicity need this different graph computation.",
+        "searches": [
+          "Published Johnson six-cycle result, Proof steps 1–3",
+          "Published missing-edge hypercube result, Finding and even-dimension proof",
+          "Published one-edge majority defect, Finding and Proof step 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same one-edge-deleted biclique appears in the November 1 open-neighborhood majority theorem. The finite-field XOR update also equals a coordinatewise binary neighbor sum on any F2 basis; it is not majority with retention on ties."
+        ],
+        "reasoning": "The same support graph does not give an equivalent map under renaming, nor are temporal cycles graph cycles. The two-dimensional hypercube is K_2,2, and deleting an edge yields the four-vertex path P4. This is the concrete m=n=2 overlap, not the general biclique.",
+        "searches": [
+          "Resultary: complete bipartite biclique missing edge neighbor XOR parity dynamics six-cycle extinction",
+          "Web: complete bipartite graph minus one edge characteristic polynomial adjacency finite field parity XOR finite dynamical systems missing edge complete bipartite 6 cycles"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The hypercube theorem includes the exact counts 1,(q^2-1)/3,(q^4-q^2)/6 and its own entry-time shells. The indexed same-biclique intra-shore added-edge theorem has a four-phase Jordan table with periods up to four, not the deleted cross-edge census."
+        ],
+        "reasoning": "The periodic part of one row is prior. The two edits give different four-cell quotient maps, so their transient and periodic tables cannot be used interchangeably. No same-rule all-shore cross-deletion table was located in the inspected material.",
+        "searches": [
+          "Resultary: complete bipartite biclique missing edge neighbor XOR parity dynamics six-cycle extinction",
+          "Resultary: missing exactly one biclique cross edge adjacency characteristic polynomial rank equitable partition XOR finite field order and nilpotent"
+        ]
+      },
+      "rationale": "The four-dimensional six-periodic companion block and its finite-field orbit census are already known; even the boundary m=n=2 is covered by Q2 with one edge removed. The original contribution is the graph-specific, complete three-phase classification under deletion of a biclique cross-edge, including the nilpotent filtration and basin shells throughout the two regimes not supplied by the known six-periodic block.",
+      "residual_risks": [
+        "The even-even block mechanism is known, and general finite linear-algebra methods are routine. An unindexed modular spectral or equitable-partition analysis of the identical deleted biclique may cover the specific remaining rank profiles; the search is not exhaustive."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly covers the even-even abstract recurrent census and m=n=2 graph, but not the all-parity biclique theorem",
+          "evidence": [
+            "For even dimension d it has C((X^2+X+1)^2) and J_2(0) blocks; Q2=K_2,2 is the reversible boundary."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-a-missing-edge-parity-transition-in-hypercube-xor-dynamics--0ddebf65b6fe/RESULT.md",
+          "material_read": "Finding, assumptions, local-module equations and even-dimension proof",
+          "method": "Read the mirrored record, compared companion and nilpotent blocks and the Q2 boundary",
+          "title": "A missing-edge parity transition in hypercube XOR dynamics",
+          "trigger": "Same additive rule, characteristic-two finite fields and one deleted edge"
+        },
+        {
+          "assessment": "Prior mechanism and binary orbit census in the square-zero regime; different graph and transient ranks",
+          "evidence": [
+            "It computes A^2=0 using exterior algebra and B|U in endpoint-and-neighbor basis, with a possibly nonzero second-entry shell."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-one-edge-defects-create-universal-six-cycles-in-nilpotent-johnso--6ee185cd61fc/RESULT.md",
+          "material_read": "Finding, assumptions and proof through the square-zero and four-dimensional periodic subspace calculations",
+          "method": "Read mirrored proof and compared the local module and preperiodic counts",
+          "title": "One-edge defects create universal six-cycles in nilpotent Johnson parity dynamics",
+          "trigger": "Same one-edge destruction of square-zero adjacency and same binary six-periodic block"
+        },
+        {
+          "assessment": "Nonlinear majority, not the additive system",
+          "evidence": [
+            "Majority retains old values on ties and has precisely one primitive two-cycle, in contrast to the characteristic-two rank regimes."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-a-one-edge-majority-defect-has-three-exact-basin-responses--4c37e2b972d1/RESULT.md",
+          "material_read": "Finding, scope and four-coordinate reduction",
+          "method": "Read mirrored statement and equations and compared the two rules",
+          "title": "A one-edge majority defect has three exact basin responses",
+          "trigger": "The identical support graph and a three-regime exact census"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A biclique is a natural uniform interaction graph and one cross-edge deletion is its smallest bipartite defect. The precise recurrence and transient invariants show a sharp change not captured by the already known universal six-periodic block: mixed parity produces primitive two-cycles, whereas odd-odd removes all nonzero recurrent behavior despite an unedited oscillatory module. The all-size, all-characteristic-two-field counts quantify these alternatives including their sharp entry times and basins. Value is in the complete phase classification, not a new general method for linear automata.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

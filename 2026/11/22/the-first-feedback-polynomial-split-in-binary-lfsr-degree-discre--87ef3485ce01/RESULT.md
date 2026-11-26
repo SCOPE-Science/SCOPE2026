@@ -23,7 +23,7 @@ H_k(p)=\max_{1\le r\le M}\Delta_p(r).
 | `0x3b` | \(86/31\) | 15 |
 | `0x3d` | \(80/31\) | 9 |
 
-Thus the exact degree-five peak spectrum, counting distinct primitive polynomials, is \(68/31:1,70/31:1,80/31:2,86/31:2\). In particular, the reciprocal primitive pair `0x25` and `0x29` has **different** peaks; replacing a primitive generator by its inverse need not preserve this degree-histogram extremum in a fixed polynomial-basis representation.
+Thus the exact degree-five peak spectrum, counting distinct primitive polynomials, is \(68/31:1,70/31:1,80/31:2,86/31:2\). In particular, the reciprocal primitive pair `0x25` and `0x29` has **different** peaks when each cycle is measured in its own natural power basis. Reciprocity replaces a generator by its inverse and changes the basis used to measure degree. Inverting the generator alone with the basis held fixed preserves the peak.
 
 ## Assumptions and scope
 
@@ -47,6 +47,8 @@ This is a maximum over a finite, explicitly complete set of integer computations
 **3. Exact exhaustive certificate.** The accompanying `verify_peak.py` enumerates all \(2^{k-1}\) possible masks for each \(k=2,3,4,5\), retains **only** full-length orbits, and computes the score range for every admissible window length and start. It also implements a second sliding-histogram evaluation and asserts agreement with direct independent recounts at all \(111\) primitive-polynomial/horizon pairs. The checked primitive-mask sets are \(\{\texttt{0x7}\}\), \(\{\texttt{0xb},\texttt{0xd}\}\), \(\{\texttt{0x13},\texttt{0x19}\}\), and \(\{\texttt{0x25},\texttt{0x29},\texttt{0x2f},\texttt{0x37},\texttt{0x3b},\texttt{0x3d}\}\). Their maximum score ranges are respectively \(2,12,48\) for degrees two through four, and \(140,136,160,172,172,160\) for the six degree-five masks. Division by \(2M\) yields all fractions in the theorem.
 
 For concrete boundary witnesses at \(k=5\), at the extremal length \(r=15\) for `0x25`, the smallest and largest integer scores are \(30\) (at starting state index \(t=6\)) and \(170\) (at \(t=29\)), giving \((170-30)/62=70/31\). For its reciprocal `0x29`, \(r=14\) gives scores \(42\) (\(t=2\)) and \(178\) (\(t=8\)), giving \((178-42)/62=68/31\). The exhaustive loops exclude any larger score range at other lengths. Bit reversal of six coefficient bits sends `0x25` to `0x29`, confirming reciprocity.
+
+**4. Fixed-basis inversion.** For a primitive generator \(\alpha\) and a fixed basis, write \(d^+_t\) for the degree label of \(\alpha^t\) and \(d^-_t\) for that of \(\alpha^{-t}\) in the same basis. Then \(d^-_t=d^+_{-t}\). A window of length \(r\) starting at \(t\) in the inverse cycle has the same histogram as the forward window starting at \(-t-r+1\) modulo \(M\). This start transformation is a bijection, so every score range and hence the peak are unchanged. By contrast, representing \(\alpha^{-1}\) as the residue of \(X\) modulo the reciprocal polynomial measures its powers in the basis \(1,\alpha^{-1},\ldots,\alpha^{-(k-1)}\), rather than \(1,\alpha,\ldots,\alpha^{k-1}\).
 
 ## Verification
 

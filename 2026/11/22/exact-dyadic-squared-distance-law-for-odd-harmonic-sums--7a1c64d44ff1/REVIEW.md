@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The formula includes odd-length parity and even-length midpoint pairing. For the even case, a complete unit-class sum establishes \(W_k\equiv m\pmod{2^{\nu_2(m)+1}}\), uniformly in exponent, and the uniformly convergent geometric expansion isolates a unique lowest valuation. The exact rational checker confirms 3,240 pairs up to index 80, with modular equivalences; the written proof handles all indices.
+## correctness
 
-**Originality — PASS with priority risk.** Both 2016 original-question pages and their substantive available mathematical answers were read and compared. They establish the special zero-origin valuation and aligned-block instances, while this theorem is the full two-index squared-distance identity. Exact searches of published mathematical-finding records for shifted odd harmonic sums, squared-distance isometries, midpoint valuations, and congruence fibers returned no implication covering this two-parameter law; nearby collision laws concern other objects. This is best-knowledge originality, not a proof of historical uniqueness.
+PASS
 
-**Value — PASS.** A single-point valuation does not determine the valuation of differences of two points with equal valuations. The theorem instead supplies the entire congruence equivalence relation for every modulus and every pair of odd-harmonic indices, and an unexpected quadratic index metric, for a classical rational sequence. The classification is useful in exact modular computations, not merely a chosen isolated numerical example.
+Put n=b−a>0 and c=b+a. For n odd, both sides have valuation zero. For n=2m, c is even and positive; pairing the denominators c±(2i−1) gives O_b−O_a=2cT with T=Σ_{i=1}^m 1/(c²−(2i−1)²). An independent direct congruence proves the key valuation without an infinite series: for s=ν₂(m), put f(x)=1/(c²−x²) on odd x. For every r≥1 the square difference (x+2^r)²−x² is divisible by 2^{r+1}, so the same holds for the difference of the corresponding f-values since their denominators are units. Induction by pairing odd representatives x and x+2^r in modulus 2^{r+1} now gives Σ_{x odd mod 2^{s+1}}f(x)≡2^s mod 2^{s+1}, starting with f(1) odd. The m odd denominators' deviations comprise m/2^s complete systems, so T≡m mod 2^{s+1} and ν₂(T)=s. Thus ν₂(2cT)=ν₂(nc). The written proof instead obtains the same congruence from inverse even-power sums; its geometric series converges since c is even, and its tail is divisible by 2^{s+2}. This covers every shifted interval with a≥0, including a=0; for equal indices both congruences hold trivially. An independent exact-fraction test matched all 820 pairs with 0≤a<b≤40, e.g. O₃−O₁=8/15. The finite test is corroboration, not the proof.
 
-The closest literature is the July 2016 MathOverflow solution for the zero-origin case; the main residual risk is an unpublished or implicit two-variable generalization by the same elementary method.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct claim is the valuation for every pair of nonnegative indices and the resulting square-collision equivalence, not the fixed-start formula, the aligned-block case, or the reversal-pairing technique. The inspected sources contain all three of those antecedents but do not cover the arbitrary-interval valuation.
+
+## value
+
+PASS
+
+The theorem gives a usable exact two-point invariant of a classical rational sequence: two harmonic values collide modulo 2^r exactly when their indices have equal squares at that modulus. It also evaluates all shifted intervals without computing their denominators or sums. This is structurally stronger than the one-point and aligned-block valuations, and not a numerical slice or a repackaging of the reversal trick alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

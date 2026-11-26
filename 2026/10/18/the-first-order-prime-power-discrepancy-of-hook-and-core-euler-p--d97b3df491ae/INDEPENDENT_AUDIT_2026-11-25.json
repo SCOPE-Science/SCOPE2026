@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:36:50.248482Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In Q_p[[q]], let U=E(q)^{p^{2a}}/E(q^{p^a})^{p^a} so F_t−C_t=C_t(U−1). For n=p^ju with p∤u and S_j=1+p+…+p^j, logarithmic expansion of each Euler factor gives log E coefficient −σ_1(n)/n. The log U coefficient is −p^{2a−j}S_jσ_1(u)/u for j<a. For j≥a, S_j−S_{j−a}=p^{j−a+1}S_{a−1} gives −p^{a+1}S_{a−1}σ_1(u)/u; this also matches j=a−1. Thus division by p^{a+1} gives the negative filtered Lambert series modulo p, with terms below j=a−1 killed. For k≥2, k(a+1)−v_p(k!)≥ka+1≥a+2, including p=2,a=1. All nonlinear exponential terms vanish at the needed precision; coefficientwise finiteness follows from zero constant term in the logarithm. As U and C_t have integer coefficients, the resulting Z_p divisibility is integer divisibility. Frobenius gives C_t≡E(q^{p^{2a}})/E(q) mod p, with constant term 1, so the first normalized nonzero residue is −1 at degree p^{a−1}. A distinct direct truncated binomial expansion checks 873 coefficients in nine cases, including p=2,a=1,2,3: python3 /workspace/branches/independent_replay.py 1. The finite replay is corroboration, not the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sharma establishes modulus t for prime powers and p² in the prime case.",
+          "The later staircase tracks the first disagreement at every modulus p^r and sharp residues at powers p^j, not the full collection of residues at a fixed order.",
+          "Han's hook identities supply the generating-function framework; Han–Ono's t=3 theorem concerns equality of zero sets."
+        ],
+        "reasoning": "Neither a congruence nor a staircase of first nonzero degrees fixes later coefficients at the same precision. The p-adic lifting technique is established, but these statements do not evaluate the filtered Euler logarithm after cancellation.",
+        "searches": [
+          "arXiv:2610.01422 v1, pp. 2–5",
+          "Han arXiv:0804.1849v3 and 0805.1398v1, abstract; Han–Ono arXiv:0805.2461v1 Thm. 1.1",
+          "Resultary 2026/10/25 staircase 08aedacaf7e0, Finding and Proof"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.01422v1",
+        "arXiv:0804.1849v3, 0805.1398v1, 0805.2461v1",
+        "Resultary ec029e7a5238, b999001ced11, a948733bc473, 2f4761034551, 08aedacaf7e0"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "ec029e7a5238 telescopes the Euler ratio; all factors except the last are 1 mod p^{a+2}. It evaluates the last factor only far enough to obtain the first nonzero term.",
+          "b999001ced11 computes the full intermediate congruence mod p² as a ratio of Euler products, then works modulo q^{p^{a−1}+1} to extract the first witness. It does not evaluate the resulting mod-p residue series explicitly.",
+          "The same-day a948733bc473 and 2f4761034551 cover exact moduli and first obstructions but do not establish the complete residue; their day-level dates do not give priority."
+        ],
+        "reasoning": "The older reduction is strong method-level overlap. Raising the unspecified intermediate ratio is not an explicit residue law (and naive linearization of a 1+2G ratio would miss the G² term). Computing the base Euler-product error by collecting unit divisor terms, or equivalently the formal log cancellation and exponentiation above, is additional work. The statements already proved give divisibility and first-degree sharpness, not the claimed all-coefficient evaluation.",
+        "searches": [
+          "Local Resultary proof passages ec029e7a5238 offset 1011 and b999001ced11 offset 1933",
+          "Later 08aedacaf7e0, Finding and Proof",
+          "arXiv:2610.01422v1 proof of Props. 1–2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The quotient U−1 multiplied by C_t is the unnormalized discrepancy; C_t is invertible modulo p, so specifying either normalized series specifies the other.",
+          "The prior exact lifts use the same Euler ratio and reduce to E(q^{p^{a−1}})^p/E(q^{p^a}); their sharpness computations take the term of degree p^{a−1} only."
+        ],
+        "reasoning": "The all-index formula is equivalent to evaluating the entire first residue of U, a stronger task than its valuation or leading monomial. A change from differences to ratios does not eliminate that task.",
+        "searches": [
+          "Resultary: hook/core first p-adic discrepancy, full normalized coefficient residue, exact universal modulus and staircase",
+          "arXiv:2610.01422v1 Thm. 1 and Props. 1–2",
+          "Resultary 2026/10/12 ec029e7a5238 and 2026/10/13 b999001ced11, Proof"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Archived exact records give optimal uniform moduli and first witnesses; the later staircase includes first indices and selected exact residues at finer moduli.",
+          "The October 12 record reports bounded verification of valuations and the first sharp term, not a law for the all-index residue."
+        ],
+        "reasoning": "These exact entries cover the boundary data in the new claim, but do not constitute a tabulation or formal-series identity for the normalized coefficients at arbitrary degree.",
+        "searches": [
+          "Resultary: coefficient gcd and first-witness results for hook/core Euler products; full discrepancy series formulation",
+          "Local Resultary Findings ec029e7a5238, b999001ced11, a948733bc473, 2f4761034551 and 08aedacaf7e0"
+        ]
+      },
+      "rationale": "The supported distinction is the explicit all-index mod-p residue, not the modulus, first obstruction, or their sharpness, which already occur in Resultary. Prior proofs reduce the comparison to a fixed base Frobenius ratio at q^{p^{a−1}}, but give its leading term only, not the divisor-sum law for all its contributions. The log evaluation and dyadic-safe reduction add information beyond those prior statements. The inspected motivating full text proves weaker congruences and does not supply the missing error series in the relevant passages.",
+      "residual_risks": [
+        "A pre-existing general Frobenius-error formula for this Euler product could provide implicit coverage not identified in inspected sources.",
+        "Same-day catalogue ordering and results in differently indexed sources are unresolved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prime-power criterion and prime-case lift, not the explicit normalized residue in the inspected passages",
+          "evidence": [
+            "Modulo t criterion; mod p² for t=p."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.01422v1",
+          "material_read": "p. 1 abstract, Thm. 1 and Props. 1–2 pp. 2–3 and proofs pp. 3–5",
+          "method": "OA PDF passage extraction",
+          "title": "A Prime-Power Dichotomy for Nekrasov–Okounkov Hook Lengths and t-Core Partitions",
+          "trigger": "Same pair and prime-power congruence"
+        },
+        {
+          "assessment": "Prior coverage of sharpness and a reduction used to establish it, not full error evaluation",
+          "evidence": [
+            "Only the last ratio factor contributes mod p^{a+2}; leading coefficient of that ratio is −p in degree p^{a−1} before powering."
+          ],
+          "identifier_or_url": "Resultary 2026/10/12 ec029e7a5238",
+          "material_read": "Finding and Proof from offset 1011",
+          "method": "Local Resultary mirror passage read",
+          "title": "Sharp one-step p-adic lift for prime-power hook/core congruences",
+          "trigger": "Exact uniform lift and same first sharp coefficient"
+        },
+        {
+          "assessment": "Same first index and residue, not the first-order all-index law",
+          "evidence": [
+            "Intermediate congruence mod p² is an unevaluated ratio; computation of the witness truncates at q^{p^{a−1}+1}."
+          ],
+          "identifier_or_url": "Resultary 2026/10/13 b999001ced11",
+          "material_read": "Finding and prime-power Proof from offset 1933",
+          "method": "Local Resultary mirror passage read",
+          "title": "Optimal coefficient gcd for the hook-length and core series",
+          "trigger": "Exact coefficient content and same signed earliest witness"
+        },
+        {
+          "assessment": "Covered sharpness and modulus consequences, day-level priority unresolved",
+          "evidence": [
+            "Exact universal modulus and first obstruction, with non-prime-power cases also covered."
+          ],
+          "identifier_or_url": "Resultary 2026/10/18 a948733bc473 and 2f4761034551",
+          "material_read": "Both Findings",
+          "method": "Local Resultary mirror passage read",
+          "title": "Exact universal congruence moduli; optimal congruence moduli and first obstructions",
+          "trigger": "Same-day records with apparently matching prime-power sharpness"
+        },
+        {
+          "assessment": "Later first-witness refinement, not an all-coefficient series",
+          "evidence": [
+            "First disagreement at every p^r; same sharp residue −p^{a+1} at degree p^{a−1}."
+          ],
+          "identifier_or_url": "Resultary 2026/10/25 08aedacaf7e0",
+          "material_read": "Finding and Proof passages",
+          "method": "Local Resultary mirror passage read",
+          "title": "Exact p-adic first-discrepancy staircase for hook-length and core series",
+          "trigger": "Stronger precision regimes for first obstructions"
+        },
+        {
+          "assessment": "Inspected statements furnish the setting and a t=3 zero-set comparison, not the proposed precision",
+          "evidence": [
+            "Euler powers in terms of hooks; t=3 vanishing equivalence in Han–Ono."
+          ],
+          "identifier_or_url": "arXiv:0804.1849v3, 0805.1398v1 and 0805.2461v1",
+          "material_read": "First-page abstracts of the Han papers; Han–Ono Thm. 1.1 p. 2",
+          "method": "OA PDF passage extraction",
+          "title": "Hook-length expansions and vanishing results",
+          "trigger": "Foundational hook and core formulas, possible comparison identity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The coefficient gcd and first witness leave open which other coefficients achieve the sharp valuation. The law gives an explicit uniform test for each coefficient, incorporating both the dividend's filtered divisor sums and the partition prefactor, with no exclusion of the dyadic case. This is a natural next-precision invariant of the known sharp hook/core comparison, not a new presentation of the first witness or a bounded computation. Higher normalized orders and distribution results are not claimed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

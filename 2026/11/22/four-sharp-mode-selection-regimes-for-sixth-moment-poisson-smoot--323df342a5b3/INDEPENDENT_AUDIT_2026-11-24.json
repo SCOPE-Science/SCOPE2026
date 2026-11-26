@@ -1,0 +1,167 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:53:04.205156Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–103",
+        "Frozen VERIFICATION.md, lines 18 onward",
+        "Frozen artifacts/verify.py (located at its stated nested path and inspected; source replay entry point)",
+        "Independent signed multinomial enumeration and rational cubic-threshold checks"
+      ],
+      "rationale": "With each cosine scaled by √2, input energy is a²+b², and each Fourier character in the sixth moment carries the common coefficient 1/8 before multinomial counting. For a nontrivial signed balance, writing n/m=p/q in lowest terms, the absolute net signed counts are a positive integer multiple of (p,q). Their sum must be even and ≤6 because unused occurrences cancel in pairs. This gives (p,q)=(2,1) with multiplier two, (3,1) and (5,1) with multiplier one, and no other distinct-frequency cases. Recounted multinomial coefficients and phases independently; the phase-dependent terms maximize exactly at the stated congruences in each mixed case, giving the displayed F_k and factor (5/2)ρ^{6m}. For the nonresonant and octave cases set q=z²/(1+z²). At t=3/c_k, the cubic minus one is q²(B+Cq) with B and B+C negative. At a smaller t the value for q>0 is strictly smaller; above the threshold the derivative in q is quadratic with opposite signs at 0 and 1, hence exactly one interior maximum. This includes ρ=1 and excludes a pure high mode, even there. Verified the linear energy slopes by −c_k/(2B). In the third/fifth harmonic cases direct differentiation gives the stated P_3 and P_5; each has one sign variation in descending powers (ignoring zeros), positive constant and negative leading term for 0<u≤1. They each have one positive root and improve on both pure endpoints. The implicit roots have z=u/2+O(u³) and u/10+O(u³); the omitted second-order term vanishes by the Taylor expansions of the polynomials. This gives the small-radius energy fractions. The independent signed counts and fractional coefficient checks substantiate coefficients and normalization; the signed-balance and polynomial arguments cover the infinite domains.",
+      "residual_risks": [
+        "The statements assume normalized circle measure and real-valued inputs; no claim for unrestricted complex inputs or ρ=0."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "On S¹ the Frank–Ivanisvili theorem gives the global L²→L⁶ contraction boundary ρ≤1/√5, not the exact restricted norm or optimizers. The Ivanisvili et al. theorem inspected is for linear polynomials under ultraspherical measures with 6≤p≤q.",
+          "A constrained-circle Fourier-extension search hit was inaccessible in full text; the returned description appears to concern an unsmoothed bound, which is not a verified coverage determination."
+        ],
+        "reasoning": "A full-space norm upper bound does not solve the circle's two-mode weighted extremum, and the linear ultraspherical result does not specialize to this plane. The inaccessible item is retained as a risk, not used to infer absence of coverage.",
+        "searches": [
+          "Frank–Ivanisvili arXiv:2101.06209, Theorem 1.1",
+          "Ivanisvili et al. arXiv:2004.05567, Theorem 3.1",
+          "Primary literature: sharp circle L²→L⁶ estimates with constrained Fourier support"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 6e8aaec258be, ebfd25bec609, 1425405cb653, cf7aadc4e8b8",
+        "arXiv:2101.06209, Theorem 1.1",
+        "arXiv:2004.05567, Theorem 3.1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The L⁴ real result already has a lower-mode threshold with relative parameter u≤1/2 under its convention and persistent third-harmonic mixing, but no sixth-moment octave/fifth balance. The L⁴ analytic statement includes a constant mode; the higher-even-moment study's fifth harmonic is at L¹⁰, not L⁶."
+        ],
+        "reasoning": "Changing the output exponent changes the signed frequency balances and thus the objective and phase constraints. The variational reduction follows from the antecedent moment formula, but neither that formula nor those optimization results yield the required uniqueness and threshold/onset assertions by simple specialization.",
+        "searches": [
+          "Resultary ebfd25bec609, real Poisson L²→L⁴ Finding",
+          "Resultary 1425405cb653 and cf7aadc4e8b8, activation Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The unsmoothed sixth-moment Finding already gives the real two-tone resonance expansion and equality cases. Multiply the input amplitudes by ρ^m,ρ^n to recover the weighted moment objective, but not the solution of that weighted optimization from its unsmoothed norming vectors.",
+          "For k=3 the higher-even-moment Finding analyzes local activation in the complex analytic space with exponents 0,m,3m near ρ^{2m}=1/3."
+        ],
+        "reasoning": "The zero-constant real two-tone inputs have conjugate pairs of modes. Modulating them into analytic polynomials gives four coupled coefficients and does not recover the three-term analytic input or its Poisson weights. The local three-term activation from a positive threshold is not equivalent to the unique positive real two-tone mixture at every positive radius.",
+        "searches": [
+          "Resultary: real two-tone sixth-moment Poisson norm and resonant activation",
+          "Resultary 6e8aaec258be and cf7aadc4e8b8, Findings"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest matched exact listings tabulate the unsmoothed real sixth-moment equality cases, real Poisson L⁴ optimizers, analytic three-frequency L⁴ thresholds, or local analytic higher-moment activation.",
+          "No independent entry in these checked matches tabulates the real two-tone L⁶ optimizers at all Poisson radii."
+        ],
+        "reasoning": "The matching unsmoothed list is exact antecedent coverage only at ρ=1 and for the moment polynomial; the remaining entries differ in the input space, exponent, or scope in radius.",
+        "searches": [
+          "Resultary: exact sixth-moment Poisson two-tone thresholds and phase equality",
+          "Resultary 6e8aaec258be, ebfd25bec609, 1425405cb653, cf7aadc4e8b8"
+        ]
+      },
+      "rationale": "The sixth-moment resonance identity and the unsmoothed endpoints are already covered. Applying that identity after a diagonal change of amplitudes directly gives the one-variable variational reduction, which is not counted as distinct on its own. The supported distinct claim is the global optimizer classification as damping varies: sharp thresholds with endpoint uniqueness, all-radius third/fifth mixing and phase conditions, and the corresponding onset laws. The best-of-knowledge comparison found close analytic and semigroup analogues but no checked statement covering this classification.",
+      "residual_risks": [
+        "A prior unindexed treatment of the weighted sixth-moment optimizer could exist.",
+        "One search hit was inaccessible; no claim of exclusion is made.",
+        "Catalogue date does not resolve priority between same-day related records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct overlap in the unsmoothed norm and resonance formula; not all-radius optimization.",
+          "evidence": [
+            "2:1, 3:1 and 5:1 phase-dependent terms and unsmoothed equality cases"
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-sixth-moment-resonance-trichotomy-and-strict-lower-norm-cancella--6e8aaec258be",
+          "material_read": "RESULT.md, Finding, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Sixth-moment resonance trichotomy and strict lower-norm cancellation for real two-tone Fourier planes",
+          "trigger": "Exact antecedent for the same moment and space"
+        },
+        {
+          "assessment": "Same real input space, output exponent four; analogous but not covering.",
+          "evidence": [
+            "Nonresonant pure-mode threshold and persistent third harmonic in L⁴"
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-resonant-persistence-and-sharp-mode-selection-for-two-frequency--ebfd25bec609",
+          "material_read": "RESULT.md, Finding, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Resonant persistence and sharp mode selection for two-frequency circular Poisson smoothing",
+          "trigger": "Nearest real two-tone Poisson comparison"
+        },
+        {
+          "assessment": "Analytic constant-bearing L⁴ problem, with local rather than complete resonant amplitude classification.",
+          "evidence": [
+            "Two thresholds off n=2m; all three coefficients activate in the resonant case"
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-two-sharp-activation-thresholds-for-analytic-three-frequency-poi--1425405cb653",
+          "material_read": "RESULT.md, Finding, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Two sharp activation thresholds for analytic three-frequency Poisson smoothing",
+          "trigger": "Poisson mode-selection thresholds in adjacent space"
+        },
+        {
+          "assessment": "At k=3, local activation for a different analytic space; no all-radius claim for the real plane.",
+          "evidence": [
+            "In the analytic {1,z^m,z^{3m}} space activation occurs locally just above ρ^{2m}=1/3, with the new coefficient of order δ^{3/2}"
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-first-resonance-activation-at-every-higher-even-fourier-moment--cf7aadc4e8b8",
+          "material_read": "RESULT.md, Finding, offset 0",
+          "method": "Resultary local mirror",
+          "title": "First-resonance activation at every higher even Fourier moment",
+          "trigger": "Strong same-day related sixth-moment 3:1 activation claim"
+        },
+        {
+          "assessment": "Full-space contraction boundary, not the restricted exact norm.",
+          "evidence": [
+            "For S¹ and exponents 2 and 6 the global contraction condition is ρ≤1/√5"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2101.06209",
+          "material_read": "Theorem 1.1, p. 2, offset near 6789",
+          "method": "Bounded OA PDF passage",
+          "title": "Hypercontractivity of the semigroup of the fractional Laplacian on the n-sphere",
+          "trigger": "General Poisson hypercontractivity theorem"
+        },
+        {
+          "assessment": "Different measures, exponents, and polynomial class.",
+          "evidence": [
+            "Theorem concerns linear polynomials with 6≤p≤q"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2004.05567",
+          "material_read": "Theorem 3.1, p. 8, offset near 31266",
+          "method": "Bounded OA PDF passage",
+          "title": "Hypercontractivity on the unit circle for ultraspherical measures: linear case",
+          "trigger": "Cited possible broader circle treatment"
+        },
+        {
+          "assessment": "No conclusion about detailed coverage, especially at the unsmoothed endpoint.",
+          "evidence": [],
+          "identifier_or_url": "https://www.sciencedirect.com/science/article/pii/S0022123623003762",
+          "material_read": "Search description only; no primary text retrieved",
+          "method": "Two lawful OA retrieval attempts, HTTP 403",
+          "title": "Sharp Fourier extension on the circle under arithmetic constraints",
+          "trigger": "Support-restricted L⁶ hit from primary-literature search"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–44 and 74–103",
+        "Resultary 6e8aaec258be and ebfd25bec609"
+      ],
+      "rationale": "The classification reveals which resonance balances matter to mode selection under smoothing, not just to the moment expansion. The lower mode persists up to different sharp thresholds generically and at the octave, whereas positive mixtures survive arbitrarily strong damping at the third and fifth harmonics with different onset scales. Exact optimizer and phase uniqueness conditions are useful for norming-function analyses and are not supplied by a full-space contraction bound or an unsmoothed maximum.",
+      "residual_risks": [
+        "The result is restricted to sixth moments of two real nonzero frequencies with the stated multiplier, not a general semigroup or many-frequency classification."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

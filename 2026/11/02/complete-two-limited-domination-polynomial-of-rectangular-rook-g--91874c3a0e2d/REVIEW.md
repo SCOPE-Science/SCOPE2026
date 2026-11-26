@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is a complete set-count formula for \(m,n\ge4\). For a selected grid square, the exact number of omitted neighbors is its omitted row degree plus its omitted column degree, giving the criterion \(r_i+c_j\le2\). The independent dominance criterion excludes simultaneous fully omitted row and column. Every feasible omission pattern is derived by a complete split into the cases with and without a full omitted line; the case split includes equality boundaries and permits coinciding exponents without confusing distinct configurations. Direct independent enumeration of all \(35,717,120\) subsets across four small grid sizes found exact agreement with the formula and the optimizer counts. The symbolic case argument proves the unrestricted result; finite checks are corroboration.
+## correctness
 
-## Originality — PASS (priority provisional)
-The closest same-invariant source is Tepeh (2026), Section 4 Proposition 6: it proves the minimum for \(K_{k+2}\square K_{k+2}\), including the known \(4\times4\) case. That result neither counts nor characterizes all feasible sets and does not imply their size distribution. Božović et al. (2026) introduce the notion and give generic bounds and the equivalent regular-graph \((1,t)\) formulation, not this enumerator. Mertens (2024) computes the ordinary rook domination polynomial, which does not encode the added selected-vertex capacity restriction. Equivalent rook/line/Hamming descriptions, near published results, and available mathematical finding records were queried; no stronger covering statement was identified. Search cannot establish historical uniqueness; non-indexed literature remains a residual risk.
+PASS
 
-## Mathematical value — PASS
-The recent limited-domination parameter has already been evaluated at the level of minimum cardinalities for some Cartesian products. A complete all-set enumerator on a canonical two-coordinate Hamming/rook family is a substantially finer, natural invariant: it gives an exact finite structural classification of omission patterns, every cardinality count, and exact extremal multiplicities for all rectangular dimensions. The finite exceptional support shapes and whole-line obstruction expose why the constrained polynomial differs sharply from the known ordinary rook domination polynomial. This is not asserted to generalize to arbitrary graphs or to solve unrestricted parameter complexity.
+The selected-cell constraint is r_i+c_j≤2, and domination forbids a full omitted row and column simultaneously. Without a full line every incidence degree is at most two. A row of degree two confines all omissions to its two columns; if both columns had extra omissions in different rows, a selected cross cell would see one row omission and two column omissions. Hence the only nonmatchings are the two-edge star, the 3-cell rectangle and the 4-cell rectangle, up to transposition. With a full row there can be at most two full rows, and any other row has at most one omission. Two full rows permit no extra omission; with one full row, two extra omissions in different columns violate the cross constraint, and in the same column give a nonfull column of degree at least three. Each surviving configuration satisfies both constraints directly. The families are disjoint for m,n≥4; the matching count chooses a bijection, each three-cell block has four choices, and the slab counts choose the indicated full lines and optionally one outside cell. The maximal exponents and their coefficients give the stated minimum and multiplicity, including the tied orientations on a square. Independent code testing rook adjacency directly in branches/38eca682-5783-4f93-b41a-da41a44cf453/independent_enum.py matched complete 4×4 and 4×5 histograms and classifications (553 and 1,036 feasible sets, with 12 and 6 minimizers); the proof handles all m,n≥4.
 
-## Caveats
-The special \(4\times4\) minimum was previously known. Historical priority is provisional; independently performed mathematical audit is outstanding. The proof is specific to two-limited domination with both dimensions at least four.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit is limited to the complete classification of feasible complements and their size polynomial. The rectangular minimum, the minimizing slab classification, and the exact counts of minimizers are already covered by Resultary 3f6b93fa9eef, not just by the previously noted 4×4 special case. They are valid corollaries here but not distinct contributions.
+
+## value
+
+PASS
+
+The value is the rigidity of all feasible complements at the first capacity that permits nonmatching small components, and the resulting full size distribution. It reveals which nonextremal configurations are possible and distinguishes coincident powers arising from different shapes. This is materially stronger than the known optimum and covers a natural infinite graph family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

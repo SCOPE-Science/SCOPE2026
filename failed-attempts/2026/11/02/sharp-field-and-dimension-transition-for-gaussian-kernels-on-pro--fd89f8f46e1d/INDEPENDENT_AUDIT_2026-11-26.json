@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:30:08.314348Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Incidence counting gives the nonconstant singular value s=q^((d-1)/2). On the zero-sum space, the half-constant contrast has eigenvalue gamma=(v-1)2^p-k-q^d3^p, and each paired nonconstant singular space gives -2^p ± s(3^p-1), with multiplicity v-1 each. The plus mode has exactly one crossing. Gamma decreases from -1 for q>=3 and for (q,d)=(2,2). For binary d=3,4 I independently bracketed the transverse root and obtained rational upper bounds -15906713/15625000 and -125361721/500000000 for gamma there. For d=5,6,7 the listed rational witnesses give gamma lower bounds 88976967/250000000, 7416389/250000000 and 11390161/125000000, with the transverse mode strictly negative. Replay: /tmp/opencode/pg-incidence-independent-certificate.py uses a 10^-9 grid, with (m/10^9)^b <= A^a for each bare power A^(a/b), and integer square roots for s. This also checked the needed quarter-power/log inequalities. For d>=8 the Taylor witness p=4/2^d gives gamma>1.12-8/2^d-1.022>0 and s(3^p-1)<1; for binary d>=5 the normalized derivative comparison is positive up to sigma<1/4. Strict lower negative type follows by applying the integral representation of x^r (0<r<1) to Gaussian kernels on the distinct Euclidean representatives, which also excludes larger exponents once a zero mode occurs. At p=0 the hollow unit off-diagonal matrix gives strict negative type. The centered Gram rank gives the two endpoint dimensions, and distinct representatives give strict positive definiteness at each bandwidth including the endpoint. At the binary contrast root gamma'(0)=2^d log(4/3)-2 log 2, and the witness gives p=O(2^-d); the quadratic remainder is O(2^d p^2), yielding the claimed error. The frozen checker was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bailey situates symmetric design incidence graphs among bipartite diameter-three distance-regular graphs; Mirafzal's S(q,n,1) is this graph for n=d+1 but the cited theorem evaluates ordinary distance eigenvalues only.",
+          "Resultary 5381d9b6d286 treats every finite projective plane and so covers the d=2 specialization, but no higher-dimensional switch."
+        ],
+        "reasoning": "The general frameworks and ordinary spectra do not themselves state the higher-dimensional root comparison. The same-date result directly covers it without having to infer it from general theory.",
+        "searches": [
+          "arXiv:1707.02899v2, Bailey §1",
+          "arXiv:2111.05239, Mirafzal §3 and Theorem 3.1",
+          "arXiv:1509.01196v2, Aalipour et al."
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check.py",
+        "Resultary:8b7cd3306234 and 5381d9b6d286",
+        "arXiv:0901.0695v3, 1108.0451, 1112.5657, 1707.02899v2, 1509.01196v2 and 2111.05239"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Its contrast equation is (v-1)2^p-(v-k)3^p-k=0. Substitution gives exactly (2^(d+1)-2)2^p=(2^d-1)+2^d3^p; the comparator root is s(3^p-1)=2^p.",
+          "Its proof gives gamma(0)=-1, gamma'(0)=N log(4/3)-2 log 2 and gamma''=O(N) for N=2^d, along with p~1/(N log(4/3))."
+        ],
+        "reasoning": "Substitution in these estimates yields the frozen O(N^-2) contrast error. Expanding the shared transverse root gives its other binary scale. Neither recovers an uncovered substantive remainder.",
+        "searches": [
+          "Resultary:8b7cd3306234, RESULT.md Finding and binary asymptotics"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Distinct Resultary 8b7cd3306234 uses conditional negative type and explicitly states its equivalence to positivity of the Gaussian kernel for every bandwidth. It gives the same switch, endpoint ranks and strict positivity.",
+          "Li–Weston Theorem 5.4 and Sánchez §2 give general p-negative-type threshold tools; Murugan Theorem 3.1 gives a determinant approach under row symmetry."
+        ],
+        "reasoning": "Renaming the largest negative-type exponent as the Gaussian cutoff is exact by the all-bandwidth criterion, not a new formulation of the classification.",
+        "searches": [
+          "Resultary: projective incidence graph Gaussian kernel negative type binary transition",
+          "Resultary: generalized roundness and critical Hilbert dimension of finite projective planes",
+          "arXiv:0901.0695v3; arXiv:1108.0451; arXiv:1112.5657"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "8b7cd3306234's Finding gives the full parameter formulas, as well as beta(4,2) ≈ 0.335837815721, beta(5,2) ≈ 0.140368396171 and competing sigma(5,2) ≈ 0.234723152537.",
+          "The projective-plane record 5381d9b6d286 gives the exact d=2 root and endpoint dimension."
+        ],
+        "reasoning": "The matching catalogue entry gives functions of (d,q), not just coincident numerical examples. It is distinct from the assigned record fd89f8f46e1d.",
+        "searches": [
+          "Resultary: binary characteristic phase transition in projective incidence Gaussian kernels",
+          "Resultary: exact generalized roundness and critical Hilbert dimension"
+        ]
+      },
+      "rationale": "A distinct, published same-date Resultary record states the same theorem on the same graph, including the full all-bandwidth cutoff, the q=2,d=5 switch, strict Gaussian positivity and both endpoint nullities and embedding dimensions. This establishes equivalent coverage, not chronological priority or identity of the two records. The tighter binary asymptotic error displayed here is an immediate estimate from that record's Taylor argument, not an independent surviving claim.",
+      "residual_risks": [
+        "The date establishes neither priority nor direction of dependence between the distinct records. Older equivalent formulations could also exist; this does not affect the demonstrated overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact substantive overlap; relative order not established",
+          "evidence": "Same domain, both equations and switching regimes, strict positivity and nullities v-1 and 1 with dimensions v and 2v-2.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-binary-characteristic-phase-transition-in-projective-incidence--8b7cd3306234/RESULT.md",
+          "material_read": "Finding and spectral proof (offsets 0–4420); binary Taylor passage (~7121–7658)",
+          "method": "Resultary search and exact record in the local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "A binary characteristic phase transition in projective incidence Gaussian kernels",
+          "trigger": "Potential exact overlap on both competing modes"
+        },
+        {
+          "assessment": "Covers d=2, not the higher-dimensional switch",
+          "evidence": "The root is determined by sqrt(q)(3^p-1)=2^p and the endpoint dimension is v.",
+          "identifier_or_url": "Resultary:5381d9b6d286",
+          "material_read": "Mirrored Finding, offset 0",
+          "method": "Resultary search and local mirror",
+          "title": "Exact generalized roundness and critical Hilbert dimension of finite projective planes",
+          "trigger": "Projective-plane specialization"
+        },
+        {
+          "assessment": "Ordinary distance-spectrum antecedent, not a powered-distance threshold result",
+          "evidence": "The inspected theorem concerns p=1; the review derives the powered spectrum directly rather than relying on its printed simplification.",
+          "identifier_or_url": "https://arxiv.org/abs/2111.05239",
+          "material_read": "§3 definition of S(q,n,1); quotient matrices and Theorem 3.1, pp. 9–10, offsets ~18400–23000",
+          "method": "Open primary PDF, focused passage reading",
+          "title": "On the distance eigenvalues of design graphs",
+          "trigger": "Same projective point–hyperplane graph family"
+        },
+        {
+          "assessment": "General tools, not the particular phase diagram",
+          "evidence": "Strictness at smaller exponents, finite zero-sum formulation, and row-symmetry determinant criterion respectively.",
+          "identifier_or_url": "arXiv:0901.0695v3; arXiv:1108.0451; arXiv:1112.5657",
+          "material_read": "Li–Weston Theorem 5.4 (~36950); Sánchez §2 (~11800); Murugan Theorem 3.1 (~6420)",
+          "method": "Open full texts, focused comparisons",
+          "title": "Strict p-negative type of a metric space; On the supremal p-negative type of a finite metric space; Generalized roundness of vertex transitive graphs",
+          "trigger": "Equivalent metric geometry and general threshold criteria"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The exact switch and endpoint rank are meaningful invariants of a natural incidence metric, but the separately available classification already supplies those facts. The only apparent increment, making the error in the leading binary scale explicit in big-O form, follows routinely from the same Taylor estimates and gives no new obstruction or geometric parameter. No independently valuable remainder is supported for repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

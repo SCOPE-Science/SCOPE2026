@@ -1,79 +1,66 @@
-# Saturated parallel-edge bundles reverse loop covariance in regular configuration graphs
+# Saturated parallel-edge bundles reverse loop covariance in regular configuration multigraphs
 
 ## Finding
 
-Let integers \(n\geq 3\) and \(d\geq 2\) satisfy \(nd\) even. Form the \(d\)-regular configuration-model multigraph by uniformly pairing the \(nd\) distinguishable half-edges, grouped into \(n\) labeled vertices with \(d\) half-edges each. Write \(L\) for its total number of loops; a loop consumes two half-edges at one vertex. Let \(M_{uv}\) be the number of non-loop edges between distinct vertices \(u,v\). For every integer \(2\leq r\leq d\), put
+Let integers \(n\ge3\) and \(d\ge2\) satisfy \(nd\) even. Pair the \(nd\) distinguishable half-edges uniformly, with \(d\) half-edges at each of \(n\) labeled vertices. Let \(L\) count loops, and let \(M_{uv}\) count edges between distinct vertices \(u,v\). For \(2\le r\le d\), define
 \[
-P_r=\sum_{1\leq u<v\leq n}\binom{M_{uv}}r.
+P_r=\sum_{u<v}\binom{M_{uv}}r,\qquad
+p_r=\prod_{j=0}^{r-1}\frac{1}{nd-(2j+1)},\qquad
+B_r=\binom n2\binom dr^2 r!.
 \]
-Thus \(P_r\) counts unordered bundles of \(r\) parallel edges, with multiplicity if more than \(r\) edges connect the same pair. Define
+The extension to **higher bundles \(3\le r\le d\)** gives the exact finite-size covariance
 \[
-p_r=\prod_{j=0}^{r-1}\frac{1}{nd-(2j+1)},\qquad B_r=\binom n2\binom dr^2r!.
+\boxed{\operatorname{Cov}(L,P_r)=B_rp_r\,\frac{r\{2d-r-1-nd(d-r)\}}{(nd-1)(nd-2r-1)}.}
 \]
-Then, **for every permitted \(n,d,r\)**,
-\[
-\boxed{\operatorname{Cov}(L,P_r)
-= B_rp_r\,\frac{r\{2d-r-1-nd(d-r)\}}{(nd-1)(nd-2r-1)}.}
-\]
-Consequently \(\operatorname{Cov}(L,P_r)<0\) for every \(2\leq r<d\), but \(\operatorname{Cov}(L,P_d)>0\). In particular, for \(d=2\) the ordinary double-edge count has positive covariance with loops, whereas for every \(d\geq3\) it has negative covariance. The sign switch occurs **exactly at saturation** of the two endpoint degrees, for all admissible \(n,d\), not merely in a large-graph limit.
+It is strictly negative for \(3\le r<d\) and strictly positive for \(r=d\ge3\). Thus the reversal occurs exactly when the bundle exhausts both endpoints. In the saturated case the bundle is a two-vertex component. The formula also holds at \(r=2\), but that case, including the positive sign at \(d=2\) and negative sign for \(d\ge3\), is prior work [4,5]. It is included to show the full spectrum, not as a new result.
 
-At fixed \(d\), along admissible \(n\to\infty\), the exact rates are
+For fixed \(d,r\), along admissible \(n\to\infty\), the formula yields
 \[
-\operatorname{Cov}(L,P_r)
-\sim -\frac{r(d-r)\binom dr^2r!}{2d^{r+1}}\,n^{1-r}
-\quad(2\le r<d),
+\operatorname{Cov}(L,P_r)\sim
+-\frac{r(d-r)\binom dr^2r!}{2d^{r+1}}\,n^{1-r}\qquad(2\le r<d),
 \]
 \[
-\operatorname{Cov}(L,P_d)
-\sim \frac{d!(d-1)}{2d^{d+1}}\,n^{-d}.
+\operatorname{Cov}(L,P_d)\sim \frac{d!(d-1)}{2d^{d+1}}\,n^{-d}.
 \]
-The positive covariance is a much smaller finite-size correction than the negative unsaturated terms.
+The positive saturated contribution decays faster than the negative unsaturated contributions. At \(r=2\) the rates also follow from the prior exact formula.
 
 ## Assumptions and scope
 
-All underlying half-edge pairings have equal probability. The generated multigraph is not uniform over vertex-labeled multigraphs with the same degree sequence. Loops are counted as single edges and have degree contribution two; \(P_r\) counts \(r\)-subsets of parallel non-loop edges, not just pairs of vertices having at least \(r\) edges. The hypotheses \(n\ge3\), \(d\ge2\), \(nd\) even, and \(2\le r\le d\) are essential to the displayed theorem; the factor \(nd-2r-1\) is then positive. In the excluded two-vertex saturated case \(n=2,r=d\), the events \(L>0\) and \(P_d>0\) are incompatible, and their covariance is strictly negative.
+All half-edge pairings have equal probability; vertex-labeled multigraphs with the same degree sequence need not be equally likely. Loops count as single edges and contribute two to the degree. The statistic \(P_r\) counts \(r\)-subsets of parallel non-loop edges, not just vertex pairs with at least \(r\) edges. Under the hypotheses above, \(nd-2r-1>0\). If instead \(n=2\) and \(r=d\), then \(L\) and \(P_d\) cannot both be positive, and both have positive means, so their covariance is strictly negative.
 
 ## Proof
 
-A specified collection of \(r\) disjoint matched half-edge pairs appears with probability \(p_r\): reveal its pairs sequentially, and note that after \(j\) pairs there are \(nd-2j-1\) possible partners for the next exposed half-edge. For a fixed unordered pair of vertices, the number of elementary \(r\)-bundle events is \(\binom dr^2r!\), because one chooses \(r\) half-edges from each endpoint and a bijection. Summing indicators yields
-\[
-\mathbb E P_r=B_rp_r>0.
-\]
-Similarly, \(\mathbb E L=n\binom d2/(nd-1)\).
+A specified set of \(r\) disjoint matched half-edge pairs has probability \(p_r\): after revealing \(j\) such pairs there are \(nd-2j-1\) possible partners for the next specified half-edge. For each unordered vertex pair there are \(\binom dr^2r!\) elementary bundle events, corresponding to choosing the half-edges at each endpoint and pairing them by a bijection. The indicators sum to \(P_r\), even when more than \(r\) parallel edges are present. Hence \(\mathbb E P_r=B_rp_r\). Counting possible same-vertex pairs likewise gives \(\mathbb E L=n\binom d2/(nd-1)\).
 
-Condition on any elementary \(r\)-bundle event. Exactly \(r\) half-edges at each of its two endpoints are already paired across, and all remaining \(nd-2r\) half-edges are still paired uniformly. The number of eligible same-vertex half-edge pairs among them is
+Condition on any one elementary bundle event. The remaining \(nd-2r\) half-edges are paired uniformly. The residual degrees are \(d-r\) at the two endpoints and \(d\) elsewhere. Thus the conditional number of eligible same-vertex pairs is
 \[
-(n-2)\binom d2+2\binom{d-r}2
-=n\binom d2-r(2d-r-1).
+(n-2)\binom d2+2\binom{d-r}2=n\binom d2-r(2d-r-1).
 \]
-Every eligible pair is joined with probability \(1/(nd-2r-1)\). Hence the conditional expected number of loops is the same for every elementary bundle event, and indicator summation gives the exact size-biased identity
+Each residual same-vertex pair is matched with probability \(1/(nd-2r-1)\). The conditional loop expectation is independent of the choice of bundle event. Summing over those events gives
 \[
 \frac{\mathbb E[LP_r]}{\mathbb E P_r}
 =\frac{n\binom d2-r(2d-r-1)}{nd-2r-1}.
 \]
-Subtracting \(\mathbb E L\) and simplifying,
-\[
-\frac{\operatorname{Cov}(L,P_r)}{\mathbb E P_r}
-=\frac{r[2d-r-1-nd(d-r)]}{(nd-1)(nd-2r-1)}.
-\]
-This proves the formula without an approximation.
+Subtracting \(\mathbb E L\) and multiplying by \(B_rp_r\) gives the covariance. At saturation the bracket in its numerator is \(d-1>0\). Otherwise \(nd(d-r)\ge3d>2d-r-1\), giving the strict negative sign. In probabilistic terms, a saturated bundle removes the endpoints altogether and raises the expected loop count on the remaining uniformly paired regular graph relative to the original expectation; an unsaturated bundle leaves two partially depleted vertices, for which the reduction in the number of eligible loop pairs dominates.
 
-If \(r=d\), the numerator bracket equals \(d-1>0\). If \(r\le d-1\), then \(d-r\ge1\) and \(nd(d-r)\ge3d>2d-r-1\), making it strictly negative. All other factors are positive. Finally, for fixed \(d,r\), use \(B_r\sim n^2\binom dr^2r!/2\), \(p_r\sim (nd)^{-r}\), and expand the final rational factor. For \(r<d\) its leading term is \(-r(d-r)/(dn)\); for \(r=d\), it is \((d-1)/(dn^2)\). These yield the two asymptotic constants.
+For fixed \(d,r\), \(B_r\sim n^2\binom dr^2r!/2\) and \(p_r\sim (nd)^{-r}\). The rational factor in the covariance is asymptotic to \(-r(d-r)/(dn)\) for \(r<d\), and to \((d-1)/(dn^2)\) for \(r=d\). This proves both rates.
 
 ## Verification
 
-The accompanying `verify.py` enumerates every pairing for \((n,d)=(2,2),(2,3),(2,4),(2,5),(2,6),(3,2),(3,4),(4,2),(4,3),(5,2),(6,2)\), checks the exact covariance for every \(2\leq r\leq d\), and tests the predicted sign across all admissible \(2\leq n<50\), \(2\leq d<15\). It uses rational arithmetic throughout and reports `VERIFY_OK`. The two-vertex cases are boundary checks, not part of the claimed theorem. The proof above covers all admissible parameters; enumeration does not replace that proof.
+The accompanying `verify.py` can be run with Python 3 and the standard library. It directly enumerates every matching for the listed cases with at most twelve half-edges and compares exact rational covariances for every \(2\le r\le d\). It checks additional signs for admissible \(2\le n<50\), \(2\le d<15\), and exercises the excluded two-vertex saturated case. These checks corroborate the proof but do not replace it.
 
 ## Relationship to prior work
 
-The configuration model and the pairing probability for prescribed disjoint edges are standard. Angel, van der Hofstad, and Holmgren (2016), particularly their equations (1.2), (1.6), and (3.1), study loop counts and the double-edge pair statistic, with asymptotic independent-Poisson limits; these are credited rather than claimed here. Janson (2019), Sections 3–5 (especially (5.8)), analyzes configuration-model multigraphs and multiple-edge defects using exact prescribed-pair probabilities and switchings. The present statement isolates the **entire multiplicity-indexed mixed covariance spectrum** for regular degrees, including the finite-order reversal at \(r=d\), plus its different orders of decay. These claims are not stated in the inspected portions of those papers. Chodrow (2019) studies a different, uniformly weighted multigraph model and an expected adjacency matrix; its sampling law must not be conflated with uniform pairing.
+Angel, van der Hofstad, and Holmgren [1] study loops and the pair statistic \(P_2\), with Poisson approximations. Janson [2] uses factorial moments for loop and parallel-pair counts, and [3] records exact probabilities of prescribed disjoint pairs. The Poisson-scale statements do not give the finite corrections here. More directly, [4] gives an exact all-degree-sequence covariance for \(L\) and \(P_2\), including its regular degree sign classification; specializing to a regular sequence gives exactly the \(r=2\) slice above. The distinct same-date record [5] also treats that pair statistic, with no claim here about within-day order. Neither pair-statistic identity determines the joint moments for \(r\ge3\). The contribution is the finite higher-bundle covariance and the saturation threshold and rate for those bundles, derived using the standard prescribed-pair probabilities.
 
 ## Limitations
 
-This result concerns the regular stub-pairing configuration model, not an arbitrary prescribed degree sequence, a simple graph conditioned on no loops, or a uniformly weighted vertex-labeled multigraph. Its sign result does not imply association or independence of the random variables. The multiplicity-saturated positive effect is of order \(n^{-d}\), so it is invisible to leading Poisson approximations. A broad historical literature exists on factorial moments of random pairings; while the inspected sources do not state the exact all-\(r\) covariance sign transition, historical priority cannot be certified by a finite literature search. No independent mathematical audit is claimed.
+The formula concerns uniform half-edge pairings under a regular degree sequence. It does not assert a sign threshold for irregular degree sequences or for a different sampling law. A covariance sign alone does not prove independence, association, or a stochastic ordering. The inspected prior sources do not establish historical priority beyond their stated results.
 
 ## References
 
-1. S. Janson, *Random graphs with given vertex degrees and switchings*, arXiv:1901.09744 (first public version 2019-01-28), especially Sections 3–5 and equation (5.8). https://arxiv.org/abs/1901.09744
-2. O. Angel, R. van der Hofstad, and C. Holmgren, *Limit laws for self-loops and multiple edges in the configuration model*, arXiv:1603.07172 (first public version 2016-03-23), especially equations (1.2), (1.6), and (3.1). https://arxiv.org/abs/1603.07172
-3. P. S. Chodrow, *Moments of Uniform Random Multigraphs with Fixed Degree Sequences*, arXiv:1909.09037 (first public version 2019-09-19). https://arxiv.org/abs/1909.09037
+1. O. Angel, R. van der Hofstad, and C. Holmgren, *Limit laws for self-loops and multiple edges in the configuration model*, arXiv:1603.07172, equations (1.2), (1.6), and §3.
+2. S. Janson, *The probability that a random multigraph is simple*, arXiv:math/0609802, §7, particularly Theorem 7.1 and Remark 7.2.
+3. S. Janson, *Random graphs with given vertex degrees and switchings*, arXiv:1901.09744, equation (5.8).
+4. *A sharp degree-two covariance reversal for loop and parallel-pair counts*, Resultary record `2026/10/18/SCOPE-a-sharp-degree-two-covariance-reversal-for-loop-and-parallel-pai--3cf215ef6662`.
+5. *A finite-size sign reversal between loops and parallel-edge pairs*, Resultary record `2026/10/26/SCOPE-a-finite-size-sign-reversal-between-loops-and-parallel-edge-pair--8bb0aaf4e210`.

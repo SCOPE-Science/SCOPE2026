@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is a uniform exact equality for all odd integers \(m\ge5\), not an extrapolation from experiments. The lower bound applies to **every** correspondence: select a representative square label at each target point, examine jumps of \(s=(m\mp1)/4\), and observe that distortion below \(2\pi(m-1)/(4m)\) forces every jump to exchange bipartition classes of a four-cycle. The jump permutation has odd orbit lengths, an impossibility. The upper bound comes from a surjective four-consecutive-block map and explicit bounds for same, adjacent, and opposite block pairs. All normalizations, parity arguments, wrap-around cases, and \(m=5\) were reconstructed. `check_odd_polygon.py` passed exact integer regression checks for 199 odd orders and exhaustive searches of 48,780 small surjective maps; computation does not replace the infinite proof.
+PASS
 
-## Originality — PASS (best-knowledge assessment)
+I reconstructed both bounds in the integer metric obtained by multiplying all unit-circumference distances by 4m. Choose s with 4s=m±1; a step-s edge has distance 4s, and square vertices of the same parity have distance either 0 or 2m. Both discrepancies are at least m−1. Thus distortion strictly below m−1 would force an alternating parity assignment along the step-s cycle, which is odd (in fact gcd(s,m)=1). This applies to any correspondence by selecting one square image for each vertex without requiring the selection to be surjective. For the four-block graph, same-block distances are ≤4k≤m−1; adjacent-label discrepancies are at most m−2 using source distances in [4,2m−2]; opposite-label pairs are separated in either direction by at least k+1 steps, so their discrepancy is ≤2m−4(k+1)≤m−1. The block sizes are positive for both residues, including m=5 and m=7. Undoing the scale multiplies distortion by 2π/(4m); halving distortion gives π(m−1)/(4m).
 
-The closest primary work is Lim–Mémoli–Smith's circle-sample distance question (arXiv:2105.00611, Appendix C) and Talipov's exact divisible and two-/three-vertex results (arXiv:2210.09971, Theorems 3.1–3.3). The former proves only consecutive-cardinality comparisons directly applicable here, and the latter cannot specialize to four versus odd \(m\ge7\). The closest published exact square-to-sample result explicitly handles \(4k+2\) target counts, not odd counts. The new statement is therefore not implied by any of these inspected results, even after translating notation and matching all metrics. Relevant indexed-result and scholarly searches were negative for a covering all-odd formula; unindexed or subsequent work remains possible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The exact pairwise Gromov–Hausdorff metric for regular circle samples is an explicitly posed natural problem. Completing the missing odd target-cardinality family for the first non-simplex source order produces a full infinite classification of square-to-regular-sample distances together with a structural parity obstruction genuinely different from the previously known fiber packing in even cardinalities. This is not a one-instance computation, a numerical bound, or a corollary of the published even case. The result does not solve arbitrary cardinality pairs or classify all optimal correspondences.
+The exact m=5 endpoint is already known, and consecutive blocks are not a new type of construction. The supported distinct contribution is the uniform odd family, in particular m≥7, and its parity lower bound for arbitrary correspondences. None of the closest inspected statements implies that family.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+This is a natural infinite slice of the exact-distance problem for regular circle samples. It supplies the entire missing odd portion of the square-source profile and a graph obstruction that controls arbitrary correspondences rather than only the explicit upper-bound map. Its value does not rest on the already known endpoint.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

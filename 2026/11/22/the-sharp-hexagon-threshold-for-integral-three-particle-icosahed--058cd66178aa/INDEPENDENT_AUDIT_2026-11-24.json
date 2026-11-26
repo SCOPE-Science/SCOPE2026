@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:09:25.177415Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The reduced Świątkowski complex in weight 3 has no degree-4 term; its top homology is the integral kernel, with exactly 14080 columns and 31680 rows in the top differential. A cycle's fundamental chain is the sum of its incoming-to-outgoing half-edge differences. By naturality from the disjoint union of the three circles with one particle per component, the signed tensor product represents the actual geometric torus, not merely an abstract closed vector. Independent exact replay: run python3 /workspace/audit-evidence/1/recompute.py with the co-located frozen BASIS_CERTIFICATE.json as its argument. The replay builds the graph from two pentagons and two poles, checks the frozen edge set, enumerates cycles by subsets and permutations (20,30,72,240 at lengths 3–6), obtains all 700 triples, checks the listed 110-element minor has determinant +1, reduces every short torus against the first 100 rows over the integers, and independently obtains mod-2 rank 13970 using a different local anchor and row order. Mod-2 rank is a lower bound for rational boundary rank, so the kernel has rank at most 110. The unit minor gives a primitive subgroup of the chain group of rank 110, hence all of the kernel. Its first 100 generators are exactly the triangle triples and are saturated already, with quotient Z^10. No cycle in a disjoint triple can exceed length 6 on 12 vertices. Neither the supplied verifier nor a numerical rank result was used as a substitute for this check.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem IV.2 is the planar two-particle H2 result, not a three-particle integral basis theorem.",
+          "The 2019 paper specifies wheels, K3,3, K2,p and degree restrictions for its graph families; these do not cover icosahedral three-particle H3."
+        ],
+        "reasoning": "Planarity is shared but particle number and hypotheses matter. Even a theorem of unfiltered product generation would not imply the shorter saturated rank-100 span or exhibit the ten hexagons.",
+        "searches": [
+          "Maciążek–Sawicki, arXiv:1606.03414, Theorem IV.2",
+          "Maciążek–Sawicki, DOI 10.1007/s00220-019-03583-5, Introduction and §5.1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary local mirror: 058cd66178aa, 13180a65bc87, 1f6dc454009e, 9577f13395e9, e639d9bcab3d",
+        "DOI 10.1007/s00220-019-03583-5",
+        "arXiv:1606.03414",
+        "arXiv:1708.02351",
+        "arXiv:2005.08286"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Reduced chains are a quasi-isomorphic, functorial model, not a precomputed icosahedral kernel.",
+          "The product-cycle construction has applications to other families without a short-cycle primitivity criterion for this graph."
+        ],
+        "reasoning": "The unfiltered homology model specifies a computation, but does not mechanically evaluate the graph-dependent rational rank certificate plus the integral minor and short span.",
+        "searches": [
+          "An–Drummond-Cole–Knudsen arXiv:1708.02351, Theorem 4.5, Definition 4.7 and Proposition 4.9",
+          "Maciążek–Sawicki 2019, §5.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cuboctahedral 13180a65bc87 has a rank-20 short-product subgroup inside rank 24 and a length-six threshold; dodecahedral 1f6dc454009e has rank 26 and a length-ten threshold. Pappus 9577f13395e9 and Nauru e639d9bcab3d have one missing non-product generator.",
+          "Maciążek–Sawicki distinguishes product tori and non-product classes in H3 for K3,3."
+        ],
+        "reasoning": "These are comparisons for the same kind of integral length filtration or torus generation, not equivalent labeled or relabeled instances of the icosahedral graph. Same-day publication dates do not order the results.",
+        "searches": [
+          "Resultary semantic comparison: three-particle top graph-braid homology, integral disjoint-cycle product span, hexagon threshold",
+          "Maciążek–Sawicki, DOI 10.1007/s00220-019-03583-5, Introduction and §§5.1, 5.5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact Resultary hit 058cd66178aa is the assigned record itself; the distinct nearby graph computations have other graph parameters.",
+          "Theorem 1.1 gives leading Betti asymptotics for particle number going to infinity over a field, not a table for weight 3."
+        ],
+        "reasoning": "No distinct exact row was located. Even a matching Betti number would cover only the rank, not the named integral filtration or basis.",
+        "searches": [
+          "Resultary exact icosahedral three-particle and cycle-length/Bett​​i-series comparison",
+          "An–Drummond-Cole–Knudsen arXiv:2005.08286, Theorem 1.1"
+        ]
+      },
+      "rationale": "The exact graph-specific integral basis and minimal cycle-length threshold were not found in the inspected coverage. Distinct same-day results treat other graphs; general methods and product-generation results do not supply this rank, saturation and sharp threshold together.",
+      "residual_risks": [
+        "Bounded literature and catalogue comparison cannot exclude an unindexed computation or finer unpublished table. No chronological inference is made from the same-day catalogue analogues."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related, not covering the target graph and filtration",
+          "evidence": "Graph families are specified; H3 for K3,3 even has a non-product generator.",
+          "identifier_or_url": "https://doi.org/10.1007/s00220-019-03583-5",
+          "material_read": "Introduction p. 3, §5.1 p. 28, §5.5 p. 42 (offsets about 10000, 84200, 130000)",
+          "method": "OA full-text passage inspection",
+          "title": "Non-abelian Quantum Statistics on Graphs",
+          "trigger": "Plausible general product-cycle coverage"
+        },
+        {
+          "assessment": "Different particle number and degree",
+          "evidence": "For planar graphs the result treats two-particle H2.",
+          "identifier_or_url": "https://arxiv.org/abs/1606.03414",
+          "material_read": "Theorem IV.2, p. 19, text near offset 48500",
+          "method": "OA PDF passage inspection",
+          "title": "Homology groups for particles on one-connected graphs",
+          "trigger": "Planar graph product-torus theorem"
+        },
+        {
+          "assessment": "Asymptotic, not exact weight 3",
+          "evidence": "The theorem gives a field-valued leading asymptotic and the stable range is a separate question.",
+          "identifier_or_url": "https://arxiv.org/abs/2005.08286",
+          "material_read": "Theorem 1.1 and discussion, pp. 1–2",
+          "method": "OA PDF passage inspection",
+          "title": "Asymptotic homology of graph braid groups",
+          "trigger": "Possible spanning rank formulas for finite graphs"
+        },
+        {
+          "assessment": "Prior chain model only",
+          "evidence": "Differences of half-edges have differential e(hi)−e(hj); reduction at non-isolated vertices is a quasi-isomorphism.",
+          "identifier_or_url": "https://arxiv.org/abs/1708.02351",
+          "material_read": "Theorem 4.5 near text offset 8900; Definition 4.7 through Proposition 4.9 at 72700–74898",
+          "method": "OA PDF passage inspection",
+          "title": "Subdivisional spaces and graph braid groups",
+          "trigger": "General integral graph-configuration model"
+        },
+        {
+          "assessment": "Different graph instances, not duplicate coverage",
+          "evidence": "Cuboctahedral length-six/rank-24 and dodecahedral length-ten/rank-26 are different filtered lattices; Pappus and Nauru have non-product complements.",
+          "identifier_or_url": "Resultary 13180a65bc87; 1f6dc454009e; 9577f13395e9; e639d9bcab3d",
+          "material_read": "Each local RESULT.md Finding",
+          "method": "Local published-record mirror statement comparison",
+          "title": "Cuboctahedral three-particle top homology and the sharp hexagon threshold; dodecahedral, Pappus and Nauru comparison records",
+          "trigger": "Same-day exact filtration and top-degree analogues"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The icosahedron is a natural highly symmetric graph, and short disjoint cycles give geometrically localized commuting-travel motions for three particles. A Betti number alone cannot say which such motions account for the full integral lattice. The computed threshold and primitive short sublattice distinguish the 100 triangle products from the ten necessarily longer generators and give reusable exact data for comparing graph geometry and product generation. It is a motivated finite cutoff, not a general graph theorem or a table lookup.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

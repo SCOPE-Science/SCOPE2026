@@ -1,7 +1,7 @@
 # The exact \(L^4\) heat square-function contraction boundary on complete bipartite graphs
 
 ## Finding
-Let \(m,n\) be arbitrary positive integers, and let \(K_{m,n}\) have unweighted edges and counting measure on its vertices. Write \(L\) for its combinatorial graph Laplacian, \(T_t=e^{-tL}\), and \(Ff=|V|^{-1}\sum_{v\in V}f(v)\). For any real or complex Hilbert space \(\mathcal H\), including the scalar case, put
+Let \(m,n\) be arbitrary positive integers, and let \(K_{m,n}\) have unweighted edges and counting measure on its vertices. Write \(L\) for its combinatorial graph Laplacian, \(T_t=e^{-tL}\), and \(Ff=|V|^{-1}\sum_{v\in V}f(v)\). Fix any **nonzero** real or complex Hilbert space \(\mathcal H\), including the scalar case, and put
 \[
 G_2(f)(v)=\left(\int_0^\infty\|t\partial_tT_tf(v)\|_{\mathcal H}^2\,\frac{dt}{t}\right)^{1/2}.
 \]
@@ -14,7 +14,7 @@ Then the following condition is necessary and sufficient for the sharp \(L^4\) e
 The best constant in the contractive cases is exactly \(1/2\), attained by every nonzero mean-zero Laplacian eigenfunction. For \(\max\{m,n\}\ge3\), the operator constant is strictly greater than \(1/2\), as witnessed below. This result does not determine that larger sharp constant.
 
 ## Assumptions and scope
-The two parts \(A\) and \(B\) have \(m\) and \(n\) vertices respectively. All \(mn\) edges have weight one. The Laplacian is \(Lf(v)=\sum_{w\sim v}(f(v)-f(w))\), and the \(\ell^4\) norm is taken with counting measure; uniformly normalized vertex measure gives the same ratio. Let \(\mathcal H\) be any real or complex Hilbert space, with real inner product \(\operatorname{Re}\langle\cdot,\cdot\rangle\) in the complex case. Constants are annihilated by \(G_2\), so it suffices to consider mean-zero inputs. The result concerns the vertical heat \(q=2\) square function at spatial exponent four, not a discrete-time or gradient square function.
+The two parts \(A\) and \(B\) have \(m\) and \(n\) vertices respectively. All \(mn\) edges have weight one. The Laplacian is \(Lf(v)=\sum_{w\sim v}(f(v)-f(w))\), and the \(\ell^4\) norm is taken with counting measure; uniformly normalized vertex measure gives the same ratio. In the complex case all inner products in the deficit calculation are taken with their real part. Constants are annihilated by \(G_2\), so it suffices to consider mean-zero inputs. For the excluded Hilbert space \(\{0\}\), every input is zero and the inequality is vacuous for all \(m,n\), with best nonnegative constant zero. The result concerns the vertical heat \(q=2\) square function at spatial exponent four, not a discrete-time or gradient square function.
 
 ## Proof
 Write the mean-zero input uniquely as
@@ -39,28 +39,30 @@ Define \(\beta_i=\operatorname{Re}\langle u_i,a\rangle\), \(\gamma_j=\operatorna
 \begin{aligned}
 \Delta(f)={}&4(1-\rho_A)\sum_{i=1}^m\|u_i\|^2\beta_i
  +4(1-\rho_A^2)\sum_{i=1}^m\beta_i^2\\
-&+4(1-\rho_B)\sum_{j=1}^n\|v_j\|^2\gamma_j
+ &+4(1-\rho_B)\sum_{j=1}^n\|v_j\|^2\gamma_j
  +4(1-\rho_B^2)\sum_{j=1}^n\gamma_j^2.
 \end{aligned}
 \]
-If \(m\le2\), either every \(u_i=0\), or \((u_1,u_2)=(h,-h)\), whence \(\sum_i\|u_i\|^2\beta_i=0\). The corresponding statement applies to \(n\le2\). Hence if \(m,n\le2\), \(\Delta(f)\ge0\) for every input. Moreover, equality holds precisely when every \(\beta_i\) and every \(\gamma_j\) vanishes (the condition is vacuous on singleton parts). Equivalently, every available two-vertex within-part contrast is real-inner-product orthogonal to its between-part mode. Taking any nonzero single-eigenvalue mean-zero input gives equality and establishes sharpness.
+If \(m\le2\), either every \(u_i=0\), or \((u_1,u_2)=(h,-h)\), whence \(\sum_i\|u_i\|^2\beta_i=0\). The corresponding statement applies to \(n\le2\). Hence if \(m,n\le2\), \(\Delta(f)\ge0\) for every input. Moreover, equality holds precisely when every \(\beta_i\) and every \(\gamma_j\) vanishes (the condition is vacuous on singleton parts). Equivalently, every available two-vertex within-part contrast is real-inner-product orthogonal to its between-part mode. Taking any nonzero single-eigenvalue mean-zero input gives equality and establishes sharpness; such an input exists, for instance in the between-part mode along a unit vector of \(\mathcal H\).
 
-Conversely, assume first that \(m\ge3\). On three \(A\)-vertices take the scalar contrast \((u_1,u_2,u_3)=(2,-1,-1)\), with all other contrasts zero. Set \(a=-\delta\) and \(b=m\delta/n\), where \(\delta=1/4\). Thus \(f\) is mean-zero, with no \(B\)-contrast. Because \(\sum_i u_i^3=6\) and \(\sum_i u_i^2=6\), the exact deficit is
+Conversely, assume first that \(m\ge3\). On three \(A\)-vertices take the real scalar contrast \((u_1,u_2,u_3)=(2,-1,-1)\), with all other contrasts zero. Set \(a=-\delta\) and \(b=m\delta/n\), where \(\delta=1/4\). Thus \(f\) is mean-zero, with no \(B\)-contrast. Because \(\sum_i u_i^3=6\) and \(\sum_i u_i^2=6\), the exact deficit is
 \[
 \Delta(f)=24(1-\rho_A)\delta\bigl((1+\rho_A)\delta-1\bigr)
 =-\frac32(1-\rho_A)(3-\rho_A)<0.
 \]
-Consequently \(\|G_2(f)\|_4^4>\|f\|_4^4/16\). If instead \(n\ge3\), interchange the two parts. All cases follow. The real scalar witness also applies to every nonzero Hilbert space by multiplying by a fixed unit vector.
+Consequently \(\|G_2(f)\|_4^4>\|f\|_4^4/16\). If instead \(n\ge3\), interchange the two parts. The real scalar witness works in every nonzero real or complex Hilbert space by multiplying by a fixed unit vector.
 
 ## Verification
-The standalone file `checker.py` verifies the eigenvalue cross-term integration identity with exact fractions, the two-part fourth-power expansion, and the explicit strict witness on every ordered pair \((m,n)\) with \(1\le m,n\le20\) and \(\max\{m,n\}\ge3\). It also checks rational complex-valued inputs in all four contractive part-size cases. The infinite all-size theorem follows from the algebraic proof, not from finite enumeration. Execute `python3 checker.py` with the Python standard library.
+The standalone standard-library file `checker.py` uses the closed-form spectral coefficients to compare the two fourth-power deficit formulas and check the strict witness with exact rational arithmetic on ordered pairs \((m,n)\) with \(1\le m,n\le20\) and \(\max\{m,n\}\ge3\). It separately compares sample complex deficits with floating-point tolerances in the four contractive part-size cases. These are finite checks of the algebra and examples, not an independent evaluation of the heat integral or a proof of the all-size classification. The heat integral is evaluated in the proof.
 
 ## Relationship to prior work
-Lai, Li and Li, *Optimal orders for Hilbert-valued Littlewood--Paley functions of symmetric semigroups*, arXiv:2611.10710 (first posted November 7, 2026), define this continuous-time vertical square function, prove general spatial \(L^p\) bounds, and identify the exact \(L^2\) coefficient \(1/2\). Their general bounds do not decide when that same coefficient works at spatial exponent four. Earlier work on graph Littlewood--Paley functionals by Feneuil, arXiv:1404.1353, concerns discrete fractional Markov functionals and \(L^p\) boundedness under graph hypotheses; no exact complete-bipartite classification was established from the material inspected. A previously recorded finite-graph threshold result covers all graphs with at most three vertices and an amplifying four-vertex path, but does not imply this complete classification over arbitrary complete bipartite part sizes. The present theorem identifies the exact bipartite family boundary and supplies a nonnegative identity in the contractive regime.
+Lai, Li and Li, *Optimal orders for Hilbert-valued Littlewood–Paley functions of symmetric semigroups*, arXiv:2611.10710, study the vertical square function and general spatial \(L^p\) bounds, including the exact \(L^2\) coefficient \(1/2\). Those general estimates do not decide when the same coefficient works at spatial exponent four on complete bipartite graphs. Feneuil, arXiv:1404.1353, studies discrete graph Littlewood–Paley functionals under graph hypotheses. A related small-graph classification treats graphs of order at most three and an amplifying four-vertex path. A related cycle classification also concerns the case \(K_{2,2}=C_4\) and reports a general cubic obstruction. A sufficient obstruction from a nonzero mixed moment \(\sum u^3v\) of unequal positive heat eigenvalues can explain failure on the larger bicliques, using the same cubic moment as in the witness here. The exact deficit calculation above gives the positive direction, the full Hilbert-valued equality condition there, and the size-dependent witness deficit in one identity.
 
 ## Limitations
-The sharp norm in the amplifying cases is not computed. This is a classification only for complete bipartite graphs with the combinatorial Laplacian and the vertical \(q=2\) heat square function at spatial \(p=4\). It does not classify general connected graphs, normalized-degree Laplacians, other graph weightings, other \(p,q\), or discrete-time Littlewood--Paley functions. Prior mathematical literature may contain an unindexed equivalent special-case computation; the earlier discrete-time primary source was not inspected in full.
+The sharp norm in the amplifying cases is not computed. This is a classification only for complete bipartite graphs with the combinatorial Laplacian and the vertical \(q=2\) heat square function at spatial \(p=4\). It does not classify general connected graphs, normalized-degree Laplacians, other graph weightings, other \(p,q\), or discrete-time Littlewood–Paley functions. The exact extent of overlap with related classifications is not settled by catalogue summaries or bibliographic descriptions.
 
 ## References
-1. X. Lai, B. Li, J. Li, *Optimal orders for Hilbert-valued Littlewood--Paley functions of symmetric semigroups*, arXiv:2611.10710, submitted 2026-11-07, https://arxiv.org/abs/2611.10710 .
-2. J. Feneuil, *Littlewood-Paley functionals on graphs*, arXiv:1404.1353, submitted 2014-04-04, https://arxiv.org/abs/1404.1353 .
+1. X. Lai, B. Li, J. Li, *Optimal orders for Hilbert-valued Littlewood–Paley functions of symmetric semigroups*, arXiv:2611.10710. https://arxiv.org/abs/2611.10710
+2. J. Feneuil, *Littlewood–Paley functionals on graphs*, arXiv:1404.1353. https://arxiv.org/abs/1404.1353
+3. *Four vertices are necessary and sufficient for fourth-norm amplification*, related catalogue record. https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-four-vertices-are-necessary-and-sufficient-for-fourth-norm-ampli--10b68babaeff
+4. *A cubic spectral obstruction and the exact heat square-function boundary on finite cycles*, related catalogue record. https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-a-cubic-spectral-obstruction-and-the-exact-heat-square-function--8c9eaae9692f

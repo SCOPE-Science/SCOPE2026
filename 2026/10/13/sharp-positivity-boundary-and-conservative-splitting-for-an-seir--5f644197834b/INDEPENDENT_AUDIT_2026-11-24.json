@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:34:58.322651Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Summing the four printed living updates cancels transmission, progression and recovery and gives d^+-d=h*mu*i^++alpha*h*(r^+-r). Substituting r^+-r=h*(gamma*i^+-alpha*r)/(1+alpha*h) proves the one-step nonnegativity condition with equality allowed, and separately the condition for nondecreasing deaths. The living updates are nonnegative and at least one stays positive for finite h whenever the current living fraction is positive. For alpha=0 the mortality increment is nonnegative. For any fixed positive h, alpha and other stated rates, start with e=i=d=0 and 0<r<1: the exact death residual is -alpha^2*h^2*r/(1+alpha*h). Perturb e,i,d upwards while reducing s; continuity gives strictly interior counterexamples for this same h and rates. In the balanced update the waning transfer is bounded by r; the subsequent four nonnegative transfers occur with opposite signs in donor and recipient, giving zero net mass change and nondecreasing deaths. Expanding each transfer to first order at fixed 1-d>0 gives the continuous SEIRSD vector field and O(k^2) local defect for h=k+O(k^2). Setting alpha=0 makes the updates coincide exactly. The stated domain excludes d=1 where q is not defined; the balanced state map can be extended there by fixing the all-deceased vertex since q is bounded by beta on the punctured simplex and all updated living coordinates tend to zero. Independent exact replay `python3 /workspace/review_replay.py 1` reproduces both vectors, including deaths -58583/161600 and 243/161600. The frozen checker was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pairwise gain-loss/Patankar methods already ensure positivity and conservation for properly matched transfers. Remark 2 of arXiv:2607.10858v1 notes a positivity caveat for residual recovered population in another SIR step.",
+          "Indexed balanced-waning-flux record SCOPE-97ec10d72620 instead treats a continuous-time SIRCm convergence identity."
+        ],
+        "reasoning": "Transfer matching explains the repair, not the exact nonconservative mortality flux of the printed update before repair. The specific map that coincides at alpha=0 and the sharp failure boundary are not supplied by the inspected general method.",
+        "searches": [
+          "Resultary: pairwise matched transfer gain loss Patankar epidemic model simplex preserving immunity waning deaths",
+          "arXiv:2607.10858v1 Sec. 4 and Remark 2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2606.15201v1",
+        "arXiv:2508.16766v1",
+        "arXiv:2607.10858v1",
+        "SCOPE-7c36ca1bb120",
+        "SCOPE-2e5cd3c8c9f4",
+        "SCOPE-97ec10d72620",
+        "SCOPE-b8a749ca1d0f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The target states simplex preservation but pairs old recovered inflow with updated recovered outflow, then defines deaths as a residual. In the same section it explicitly sets alpha=0 in its Sec. 5 experiments.",
+          "The displayed equations permit the exact negative-death witness in the frozen record; the target's asserted structural guarantee does not already give its sharp boundary."
+        ],
+        "reasoning": "Distinguish the primary formula and the prior general conservation approach from a correction of its advertised all-state property. There is no inference of bad trajectories in the published alpha=0 experiments.",
+        "searches": [
+          "arXiv:2606.15201v1 Sec. 4.1 Eqs. (7)–(8)",
+          "SEIRSD nonstandard finite difference waning immunity positivity death compartment mismatch recovered current next step update"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The four-compartment predecessor writes an analogous unmatched waning term in mortality in Eq. (9), with r at the old time in susceptible inflow and the new time in recovered outflow. The susceptible formula in Eq. (10) appears to use the new time, although the text calls this a rewriting. This is direct structural prior art.",
+          "The frozen feasibility statement is equivalently a bound on the residual death budget after the mixed-time loss of recovered population, not a general new conservation identity."
+        ],
+        "reasoning": "The analogous correction in SIRSD warrants excluding the mismatch mechanism from novelty by itself, but that precursor does not classify the exact positive-state boundary of the five-coordinate SEIRSD map with its sequential exposed/infected updates or give the stated replacement.",
+        "searches": [
+          "Resultary: SIRSD Zinihi Ehrhardt Sidi Ammi Eq 9 10 recovered current next time step mortality",
+          "arXiv:2508.16766v1 Sec. 5 Eqs. (9)–(10)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest indexed sharp threshold, SCOPE-7c36ca1bb120, concerns a different reduced three-compartment SIR step with residual recovered population; its indexed date is 2026-11-22. SCOPE-2e5cd3c8c9f4 addresses a different forward SEIR step with boundary positivity and mass conservation but no mixed-time waning flux.",
+          "Same-day SCOPE-b8a749ca1d0f concerns an infection decay multiplier, not the death feasibility frontier. The assigned frozen record is not counted as another result."
+        ],
+        "reasoning": "An exact finite map/sign frontier does not transfer just because another model has a sharp threshold or uses a residual compartment. Comparison is by equations and quantifiers, not catalogue date alone.",
+        "searches": [
+          "Resultary: (1+alpha h)d+h[mu(1+alpha h)+alpha gamma h]i+ >= alpha^2 h^2 r feasibility boundary",
+          "Resultary: universal alpha=0 positivity boundary five-coordinate sequential normalized SEIRSD NSFD map"
+        ]
+      },
+      "rationale": "The unmatched mortality correction is closely anticipated by the earlier SIRSD paper and general paired-transfer positivity methods are established. The supported distinct contribution is the exact equivalence for the particular published five-coordinate SEIRSD recurrence, including the obstruction for every positive h at every positive immunity-loss rate, and a sequential replacement retaining the original permanent-immunity update. The source's numerical experiments with alpha=0 are outside the negative-death cases.",
+      "residual_risks": [
+        "The older SIRSD comparison relies on legible extracted equation indices, not verification that its apparent discrepancy is a typographical error.",
+        "General conservative NSFD discretization is prior art, including related SEIARD work cited by the record; this audit does not claim priority for that methodology or exhaust unseen implementations of this precise split.",
+        "Ranked lookup is not an exhaustive search for equivalent formula-level corrigenda."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact source map; its structural assertion does not give the corrected theorem",
+          "evidence": [
+            "The recovered inflow to susceptible uses r^n, the recovered loss uses r^{n+1}, and deaths are a residual.",
+            "The text sets alpha=0 for Sec. 5."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2606.15201v1",
+          "material_read": "Sec. 2 Eqs. (4)–(6); Sec. 4.1 Eqs. (7)–(8), offsets 30000–34500, including alpha=0 experiment statement at about 32710",
+          "method": "Compare levels in each gain/loss and the residual definition; check contemplated experimental parameter scope",
+          "title": "A Koopman-PINN Framework for Epidemic Models: Parameter Inference and Forecasting",
+          "trigger": "Exact map and advertised invariant simplex"
+        },
+        {
+          "assessment": "Prior four-compartment analogue with an apparent time-index discrepancy between displays",
+          "evidence": [
+            "Eq. (9) includes an omega*(r^{n+1}-r^n)/phi contribution to the death formula; Eq. (10) appears to use r^{n+1} for the susceptible addition."
+          ],
+          "identifier_or_url": "arXiv:2508.16766v1; https://imacm.uni-wuppertal.de/fileadmin/imacm/preprints/2025/imacm_25_13.pdf",
+          "material_read": "Sec. 5 Eqs. (9)–(10), printed pp. 9–10, extracted offsets 30500–35410",
+          "method": "Compare mortality term and recovered time levels across displayed updates",
+          "title": "A Koopman Operator Framework for Nonlinear Epidemic Dynamics: Application to an SIRSD Model",
+          "trigger": "Same authors' earlier unmatched-flow mortality update"
+        },
+        {
+          "assessment": "Established design principle and related caveat; not this specific defect and repair",
+          "evidence": [
+            "Pairwise nonnegative transfers provide conservative flux accounting; the SIR residual recovered update can lack nonnegativity."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2607.10858v1",
+          "material_read": "Sec. 4 and Remark 2, offsets roughly 14000–19279",
+          "method": "Compare the flux construction and the residual-compartment failure with the actual five-coordinate formulas",
+          "title": "Structure-Preserving Neural ODEs via Nonstandard Finite Difference Discretization",
+          "trigger": "General matching method and residual-compartment caveat"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Population-simplex feasibility is a meaningful structural requirement of the printed numerical method. Its failure is not just normalization error or a single large-step artifact; the exact frontier distinguishes feasible inputs, and for each step there are valid strictly interior states that return negative deaths. The matched variant preserves the established permanent-immunity use case and corrects temporary-immunity feasibility without claiming higher accuracy, universal stability, or an improvement in epidemiological inference.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

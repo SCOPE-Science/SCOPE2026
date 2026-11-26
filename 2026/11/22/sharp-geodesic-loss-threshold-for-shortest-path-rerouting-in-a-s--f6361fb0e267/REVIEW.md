@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The supplied proof reduces shortest-path changes to adjacent swaps and a single forbidden two-block facet, derives connectivity by monotone cross-inversion growth, and counts edges through a one-to-one facet-boundary matching. At an extreme Hamming layer, target-order insertion sorting never creates the forbidden first/last coordinate, and uses exactly Kendall distance. At every interior layer, fixed pairwise relations force a geodesic to pass through the forbidden facet; an explicit valid six-step route and parity prove exact distance six between a pair of Kendall distance four. Small cases and boundaries are included. The `verify.py` checker reconstructs both permutation graphs and cube route changes, performs exhaustive extreme-layer metric tests through length six, and verifies witness distances through length eight. Finite checks corroborate rather than establish the infinite proof.
+PASS
 
-## Originality — PASS (subject to historical-priority limits)
+A B-before-A geodesic exists, so puncturing the cube leaves distance n between endpoints. All shortest routes flip each label once and changing one intermediate vertex exchanges adjacent flips. A route is forbidden exactly when all A labels precede all B labels. Every valid ordering can bubble all B labels left without losing its cross inversion, then sort within blocks, proving connectivity. The k!(n−k)! forbidden permutations each have exactly one edge to a valid neighbor, by swapping across the block boundary; the neighbor uniquely recovers its forbidden predecessor. The degree and edge counts follow, including the single degree-zero vertex at n=2. For a singleton A, inserting the non-A first target label never places A first; the rest of adjacent insertion realizes Kendall distance. Reversal handles singleton B. In the interior four-label witness the two fixed A-before-B orders make the initial and final opposite cross inversions mutually exclusive. A four-swap path could change only discordant pairs and would have to lose one cross inversion before obtaining the other; all external labels retain their orders, so the intervening state is forbidden. Parity rules out length five, and the six displayed adjacent swaps retain at least one cross inversion at every step. Independent direct enumeration of cube vertex sequences corroborated counts, both extreme-layer isometries, and the existence of distance-4-versus-6 pairs through n=6; the proof establishes all n.
 
-The closest full-text sources are Asplund et al. (2017), Proposition 27, and Gajjar et al. (2021/2022/2024), Theorem 5: both address the intact hypercube rather than deletion of one intermediate vertex and the resulting induced facet complement. The permutahedral non-leaving-face theorem concerns vertices *inside* a face, not outside it. The classical faulty-cube path-length theorem concerns endpoint routing, not reconfiguration of shortest routes. Relevant publication and indexed-result searches found no direct proof or stronger result implying this sharp weight threshold. Lack of hits cannot certify novelty; historical priority remains the principal uncertainty, particularly from parabolic-facet graph theory.
+## originality
 
-## Value — PASS
+PASS
 
-The question arises from fault-tolerant rerouting of equally short paths in hypercube networks. The theorem distinguishes mere reconfiguration connectivity from preservation of optimal update length and identifies the exact fault layer at which this distinction first occurs. The explicit four-letter witness establishes a real minimal detour, while the degree and edge census quantifies the extent of the fault. The result does not infer global maximum detours from its one explicit family.
+The distinct supported claim is the single-vertex-deletion metric classification, with the explicit exact detour. The unrestricted permutation model and Kendall formula are credited to prior work; deleting a facet can change the induced metric. Indexed adjacent results help delimit the contribution but do not establish this classification. Primary theorem passages and some comparator bodies were not accessible; exact priority is not guaranteed.
 
-## Scientific limitations
+## value
 
-No exact metric on all interior-layer pairs, diameter formula, or universal excess bound is asserted. The available non-leaving-face primary material did not include the whole publisher PDF, although the relevant theorem and statement were inspected. The fault-tolerant routing comparison used its publisher abstract only. Future independent priority and proof review may identify additional coverage.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The natural first fault in a standard shortest-path reconfiguration model can preserve the length and connectivity of routes while changing the metric between them. The exact extreme-versus-interior classification and smallest parity-allowed detour witness are structural information not supplied by the simple counts or unrestricted metric. They pinpoint the first dimension and layers where the distinction matters.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

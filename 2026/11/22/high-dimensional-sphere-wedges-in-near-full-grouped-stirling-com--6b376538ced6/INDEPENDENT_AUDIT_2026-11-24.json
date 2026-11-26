@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:44:41.602932Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In a near-full color factor the missing vertex gives a 0-cell and a single moving robot gives an edge, with unavailable vertices exactly the endpoints. With r groups the covering condition is empty intersection of these supports. The resulting product subcomplex is a deformation retract of the thin-diagonal complement: on a disallowed cube project from its diagonal corner, or from the center if the whole cube has a main diagonal. In either case nondiagonal rays stay nondiagonal and boundary points stay fixed, so descending-dimensional retractions glue along the boundaries. Normalize the sum of radial coordinates on the product star to one; the target is the join of r m-point sets, and the removal is exactly one barycenter in each of the m all-equal facets. Projecting each punctured facet to its boundary deletes just those open facets. The full join is (r−2)-connected with free top homology of rank (m−1)^r. For each deleted facet j the join of differences between label j and alternatives in each factor, with two distinct alternatives in the first two factors, is an integral cycle supported on exactly that one deleted facet among the m deleted facets, with coefficient ±1 there. The relative map is surjective over Z, so only the asserted top homology remains. Since r≥4 leaves the two-skeleton unchanged, the punctured join is simply connected, and Hurewicz and homological Whitehead give the integral wedge description. The supplied finite checker was inspected, not executed; its recorded mod-two ranks do not establish the integral or homotopy conclusions.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The stabilization theorem applies to the simple star when k=n=r and establishes discrete/continuous homotopy equivalence. Revelli–Scheirer give cell counts for the exact near-full family and defer the star homology to later work."
+        ],
+        "reasoning": "Broad subdivision equivalence covers the model reduction, but does not identify the topology of the continuous complement. The near-full counts give Euler characteristic, not connectivity, possible lower-degree homology or torsion.",
+        "searches": [
+          "arXiv:2407.07854, Theorem 1.2 and (n,n)-subdivision condition",
+          "arXiv:2602.09884, §4"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_grouped.py",
+        "arXiv:2602.09884",
+        "arXiv:2407.07854",
+        "Chettih dissertation Chapter V and Appendix A.4",
+        "Resultary 6b376538ced6 (self), b2f11a665451 and f44f44547ca4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The existing statements provide an equivalence or counting formula, not the facet-deletion calculation and integral surjectivity needed to determine lower homology and connectivity.",
+          "The dissertation's Appendix A.4 calls a generator that assigns a single downstream destination per occupied start, omitting valid simultaneous moves from the center into two different arms while a third point stays in the remaining arm. Its numerical H₁ report is not reliable coverage of the full product-cell model. Independently, for m=r=3 the empty-common-support cubical model already has cell counts (60,126,72), Euler characteristic 6, inconsistent with only H₁ of rank 13 for that model."
+        ],
+        "reasoning": "Do not generalize from the reported three-particle calculation or from cell counts. Even with the known stabilization theorem, the explicit deleted-facet cycles and the unchanged two-skeleton in r≥4 are needed for the uniform homotopy result.",
+        "searches": [
+          "arXiv:2602.09884, discussion after Table 2",
+          "arXiv:2407.07854, Theorem 1.2",
+          "Chettih, §5.2 and Appendix A.4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "No-r-equal configurations of r labeled points are exactly the thin-diagonal complement; the grouped support test gives its largest contained cubical complex.",
+          "Chettih reports a calculation for three labeled points with only triple equality forbidden, outside r≥4, not a general star theorem."
+        ],
+        "reasoning": "The no-r-equal alias is genuinely equivalent here; ordinary collision-free configurations and arm permutation quotients are not. The dissertation's small-rank coincidences are not evidence for higher r or for matching homological degree.",
+        "searches": [
+          "Resultary: near-full grouped Stirling star complexes and no-r-equal star spaces",
+          "arXiv:2407.07854, definitions and Theorem 1.2",
+          "Chettih, Dancing in the Stars, Chapter V and Appendix A.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Table 2 gives 252, 744, 792 and 312 cells for m=3,r=4. Their alternating sum is −12, consistent with 13 degree-three spheres, but it does not determine that homotopy type.",
+          "6b376538ced6 is the assigned result itself; the closest other exact catalogue items concern arm quotients of pairwise-distinct star particles or S_(2,2,2)(K₄)."
+        ],
+        "reasoning": "The tabulated cell counts for the exact parameter instance are genuine existing evidence, not a tabulation of the invariant claimed here. The other catalogue items have different models even where parameter ranges overlap.",
+        "searches": [
+          "arXiv:2602.09884, Table 2",
+          "Resultary: grouped Stirling star wedge; b2f11a665451 and f44f44547ca4"
+        ]
+      },
+      "rationale": "The cubical/continuous equivalence in this regime is covered by prior stabilization, and the cubical counts are established in the initiating paper. Neither determines the integral homotopy type or computes the rank uniformly as a top-homology invariant without the new argument. The surviving claim is the uniform wedge classification for r≥4.",
+      "residual_risks": [
+        "The initiating paper mentions forthcoming work on the most relevant star homology but does not identify a manuscript to inspect; its contents and any possible overlap remain unknown.",
+        "The bounded comparison cannot rule out earlier equivalent diagonal-complement formulations. The current decision is not a priority determination or an audit of the dissertation's computations beyond the noted comparison."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact model and partial enumeration; no homotopy coverage",
+          "evidence": "Counts cells for r colors with n−1 robots and tabulates the four-group three-arm case; explicitly defers star homology to a forthcoming manuscript.",
+          "identifier_or_url": "https://arxiv.org/abs/2602.09884",
+          "material_read": "§4, pp. 18 and 20–21, including Table 2 and ensuing discussion",
+          "method": "OA PDF passages at offsets 60837, 68275 and 75838",
+          "title": "Grouped Stirling complexes",
+          "trigger": "Initiating source, same exact near-full color vector and star"
+        },
+        {
+          "assessment": "Proves applicable discrete model equivalence, not the wedge theorem",
+          "evidence": "The discretization is the largest product cubical subcomplex in the no-k-equal space; every simple graph meets the (n,n) subdivision condition.",
+          "identifier_or_url": "https://arxiv.org/abs/2407.07854",
+          "material_read": "Introduction and Theorem 1.2, pp. 1–3",
+          "method": "OA PDF sections and exact (n,n) applicability",
+          "title": "Abrams' stabilization theorem for no-k-equal configuration spaces on graphs",
+          "trigger": "Plausibly broader theorem in equivalent topological notation"
+        },
+        {
+          "assessment": "Same type of problem outside r≥4; code does not enumerate all allowed product cubes",
+          "evidence": "Section 5.2 claims H₁ of rank 13 and no higher homology for the three-label Y case. The generator selects one destination per start; a two-direction move from the branching vertex is a missing admissible cube.",
+          "identifier_or_url": "https://scholarsbank.uoregon.edu/server/api/core/bitstreams/3028c141-3515-4fd2-98fa-18de56a8271c/content",
+          "material_read": "Chapter V §§5.1–5.3, pp. 55–57; appendix common generator pp. 63–64 and A.4 pp. 66–67",
+          "method": "OA PDF excerpts beginning at offsets 115879, 126620, 128245 and 132000; comparison to the admissible cubical cells",
+          "title": "Dancing in the Stars: Topology of Non-k-Equal Configuration Spaces of Graphs",
+          "trigger": "Exact star configurations with three labels; apparently conflicting small computation"
+        },
+        {
+          "assessment": "Same parameters but different spaces",
+          "evidence": "Concerns labeled pairwise-distinct particle configurations and their arm-permutation quotients, with circle wedges, not configurations permitting up to r−1 equal points.",
+          "identifier_or_url": "2026/11/8/SCOPE-sharp-stabilization-of-symmetry-quotients-of-ordered-star-graph--b2f11a665451",
+          "material_read": "Finding, mirror offset 0",
+          "method": "Resultary search and local mirror",
+          "title": "Sharp stabilization of symmetry quotients of ordered star graph configuration spaces",
+          "trigger": "Strongest distinct Resultary hit with same star size and number of labels"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result supplies an all-parameter integral homotopy classification in a natural existing family for which counts alone leave the topology undetermined. It gives connectivity, rules out lower homology and torsion, and identifies the wedge multiplicity by a short structural argument.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

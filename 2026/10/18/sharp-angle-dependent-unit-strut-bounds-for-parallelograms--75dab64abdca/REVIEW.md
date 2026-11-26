@@ -1,15 +1,21 @@
-# Scientific review: sharp angle-dependent unit-strut bounds for parallelograms
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The parameterization of a nondegenerate parallelogram gives the *unique* inward-side candidate for an equidistant unit witness on a given edge. Solving two affine coordinate inequalities yields exactly two quadratic feasibility inequalities and two side-length bounds. The only feasible vertex-only boundary triple is explicitly excluded under the source definition. For the fixed-angle infimum, the large-cosine branch follows from the separate bounds on both side lengths; the small-cosine branch uses a strictly convex quadratic on a compact interval and proves uniqueness at equality. The special \(60^\circ\) configuration is rejected, rather than mislabeled as an attained optimum. A separate arithmetic/geometric checker corroborates these steps for 720 parameter triples and additional sharp cases. The proof is analytic for all real input parameters, not extrapolated from the tests.
+PASS
 
-## Originality — PASS, with residual risk
+For the side of length a the only inward candidate has height h=sqrt(1-a^2/4) and parallelogram coordinates (1/2-ch/(as), h/(bs)). Existence requires a<=2; containment is equivalent to h<=bs and 2ch<=as, including the valid midpoint when a=2. Squaring nonnegative quantities gives exactly the stated bounds. The opposite side is congruent; interchanging side types gives the other inequalities. A forbidden vertex requires a=2c,b=1 or the transpose, and feasibility of both side types then forces c<=1/2 and 1+16c^2(1-c^2)>=4, hence only c=1/2,a=b=1. For c>=1/2 the length floors give the sharp perimeter bound; equality forces a=b=2c and yields admissible nonvertex witnesses except at the excluded triple, approached by rhombi from above. For c<=1/2, ordering a<=b, the inequality b^2+4s^2a^2>=4 and strict convexity of (1-x)^2+4s^2x^2 on [0,1/2], with x=a/(a+b)>0, force the stated sharp bound and equality only at a=b. For c<1/2 this rhombus has witnesses in the relative interiors of the opposite sides. The two branches agree at c=1/2 and increase strictly in c, giving the unique square global equality. The check is analytic; checker.py uses exact rational predicates but high-precision tolerances for geometry and perimeter comparisons, and its recorded PASS is finite corroboration only.
 
-The nearest source, Nikonorov and Nikonorova, arXiv:2209.05940, introduces unit side struts and proves the coarse universal lower bound \(3\). Its Theorems 1–3 and relevant proofs do not present an iff classification for parallelograms, an exact angle-resolved perimeter minimum, or the loss of attainment at the \(60^\circ\) nonvertex threshold. In Balestro et al., arXiv:2010.06315, the farthest-point minimax quantity is not an equivalent formulation of sidewise unit struts. Targeted searches for these exact parameters, geometric aliases, and proposed equality cases located no stronger direct coverage. Unindexed specialized calculations and papers not read in full remain the principal risk; no claim is made that negative search results prove uniqueness.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The strut condition arises from an established perimeter-extremal question. A complete two-parameter classification of the natural centrally symmetric quadrilateral subfamily answers both membership and sharp optimization questions, yielding a rigid square global minimum and a genuine angle-dependent transition where a limiting witness becomes an inadmissible vertex. The exact exceptional boundary cases are necessary for the source definition and cannot be omitted as cosmetic qualifications. The result does not resolve the general polygon conjecture, and that narrower scope is explicit.
+The edge-strut definition and a general polygon bound are established; the distinct contribution is the complete parallelogram feasible set including witness exclusion, together with the sharp angle-resolved perimeter and equality/attainment classification. The available exact trapezoid profile is for two legs and permits vertex witnesses; it neither reproduces these statements nor contains this model as a matching specialization.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+This gives a natural complete classification for the first all-side centrally symmetric quadrilateral model of an established strut problem. In particular it identifies where the active obstruction changes and why the minimum is not attained at exactly 60 degrees; these facts are not conveyed by the global lower bound alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:31:18.042199Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–45; VERIFICATION.md; verify_gapped_qary.cpp inspected",
+        "Independent exact replay: python /tmp/opencode/review5_exact.py 1 10; python /tmp/opencode/review5_exact.py 11 13 (NumPy; full-byte comparison and adjacent run test, no hashing)"
+      ],
+      "rationale": "Independently constructed the 39-coordinate count array for every ternary word at lengths 1–13. Choosing r increasing positions in n-r+1 slots and adding j to the j-th position (zero-indexed) bijects onto admissible choices with successive gaps at least two. Counts fit unsigned bytes, since the largest total by order at n=13 is binomial(11,3)=165. Sorting exact 39-byte keys gave injectivity at 3–12 and exactly 12 size-two runs at 13, four on each two-letter support. Class counts at n=13 were 1,594,311 total and 1,594,299 singletons. A letter map pushes forward deck coordinates by summation; given distinct deck mates, map differing letters to 0 and 1, and, if present, a third used letter to 2. The resulting distinct ternary mates contradict injectivity at 3–12, or support rigidity at 13. Singleton letter counts force identical support within a class; on a given two-letter support ternary enumeration shows exactly four doubletons. This also precludes larger classes. Taking exactly one representative from every class gives both codebook formulas. The degenerate length-two assertion holds because admissible indices are then singletons only.",
+      "residual_risks": [
+        "The supplied C++ was not executed; its explicit short-length injectivity assertion starts at n=5, though it computes and reports n=3,4. The independent exhaustive check explicitly confirmed 27 and 81 distinct profiles at those lengths. There is no claim beyond length 13 or for exact-length-three-only decks."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Golm et al. give binary threshold data. Rigo et al. study gapped-binomial complexity for infinite sequence languages and equivalence-preserving rules."
+        ],
+        "reasoning": "The inspected general rules do not provide a complete fiber census in the language of all ternary words. Binary injectivity does extend by projection through 12 and is not the claimed new obstruction.",
+        "searches": [
+          "Golm et al. arXiv:2201.12671v2 §III; Rigo et al. ISIT 2023 Lemma 6.1 and Proposition 6.2"
+        ]
+      },
+      "checked_sources": [
+        "Golm et al. arXiv:2201.12671v2; Rigo–Stipulanti–Whiteland ISIT 2023; Resultary 5d691b245815; exact binary-projection comparison"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The ternary words 2210202121022 and 2201212020122 have equal decks after every binary letter map, but their ternary 01 counts are 4 and 3. For the maps isolating 0 or 1 this uses the binary doubleton 0001010000100 / 0010000101000; the map isolating 2 gives identical images."
+        ],
+        "reasoning": "Thus applying the known binary list in each projection cannot by itself rule out three-color candidates: the full colored profiles carry additional data. Once the ternary obstruction has been verified, the higher-alphabet count and codebook formulas are direct consequences, not separate originality claims.",
+        "searches": [
+          "Golm et al. §III and binary catalogue match 5d691b245815; comparison with full ternary multiplicity profiles"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Golm et al. gap convention matches the admissible index spacing; Rigo et al. express the same multiplicity-observation idea as gapped binomial equivalence. The inspected binary result is G(3)=13 and a witness pair."
+        ],
+        "reasoning": "Changing terminology does not change the reconstruction model. The known binary threshold and witness do not settle support rigidity for a three-letter deck.",
+        "searches": [
+          "Resultary: one-gap three-deck, 1-gap 3-binomial equivalence, ternary length 13",
+          "Web: gapped deck ternary nonbinary alphabet 13 reconstructibility collision three deck gap Golm Chrisnata binary census doubletons"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The catalogue comparison contains all four binary doubletons, 8188 binary profiles, and further context and code-orbit results. It is dated later in the catalogue; the date does not itself determine priority."
+        ],
+        "reasoning": "There is exact coverage of the binary portion, but no ternary-support exclusion or all-q formula in that matched statement.",
+        "searches": [
+          "Resultary 2026/10/26/SCOPE-four-minimal-binary-one-gap-three-deck-collisions-and-universal--5d691b245815"
+        ]
+      },
+      "rationale": "Credit the published binary threshold and an ambiguity example, as well as binary classification where documented. The distinct supported contribution is the exclusion of every length-13 ambiguous pair with ternary support, giving the complete arbitrary-alphabet class census by projection. The strongest matches do not establish that statement; neither short-length injectivity nor the binary collision list is needed as a novelty claim.",
+      "residual_risks": [
+        "The frozen prose does not substantiate its attribution of all four binary doubletons to a separate earlier source. The prior threshold and witness and the catalogue overlap are verified; scholarly priority of the full binary list is unresolved. An alternate cited Chrisnata et al. source could not be inspected in full. No exhaustive historical novelty is asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Binary threshold and one witness verified",
+          "evidence": "Reports G(3)=13 and gives 1101111010111 and 1110101111011; does not list four classes in the inspected passage.",
+          "identifier_or_url": "https://arxiv.org/html/2201.12671v2",
+          "material_read": "§III, HTML offsets 27000–31945",
+          "method": "OA primary text",
+          "title": "The Gapped k-Deck Problem",
+          "trigger": "Same gap model and binary threshold"
+        },
+        {
+          "assessment": "Related general equivalence methods and different language",
+          "evidence": "The complexity examples focus on Thue–Morse and Sturmian languages; inspected rules are not a census of all length-13 ternary words.",
+          "identifier_or_url": "https://orbi.uliege.be/bitstream/2268/302524/1/isit2023.pdf",
+          "material_read": "Abstract p. 1; p. 5 offset 42402, Lemma 6.1 and Proposition 6.2",
+          "method": "OA proceedings PDF",
+          "title": "Gapped Binomial Complexities in Sequences",
+          "trigger": "Equivalent gapped-binomial terminology and broader alphabet methods"
+        },
+        {
+          "assessment": "Exact binary overlap, no all-alphabet rigidity in the matched result",
+          "evidence": "Four binary doubletons, 8184 singleton classes and 8188 distinct binary length-13 decks.",
+          "identifier_or_url": "2026/10/26/SCOPE-four-minimal-binary-one-gap-three-deck-collisions-and-universal--5d691b245815",
+          "material_read": "RESULT.md, binary census and context-substitution statements",
+          "method": "Local Resultary mirror",
+          "title": "Four minimal binary one-gap three-deck collisions and universal context substitution",
+          "trigger": "Complete binary class overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md; independently verified ternary census and projection; compared with Golm et al. binary threshold"
+      ],
+      "rationale": "At the first nontrivial length where the observation loses information, proving that every collision is supported on only two symbols gives an exact confusability census at every alphabet size. This natural boundary is directly usable for finite zero-error code sizing and counting maximizers, including at q=4; it is not merely one more witness or a small unmotivated slice.",
+      "residual_risks": [
+        "The class count does not address noise tolerance or efficient encoding, and the finite base computation has no force at longer lengths."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

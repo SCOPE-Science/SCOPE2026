@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The integral normal form proves equality of every positive graded piece with a free rank-\(n\) module. The explicit nonvanishing chart, local equation \(z^n-1\) and Frobenius decomposition certify each wild fiber scheme-theoretically, not solely at the level of closed points. The homological context uses the standard dimension-one Cohen–Macaulay regularity calculation. The exact checker corroborates selected finite parameters and characteristic factorizations; these computations are not a substitute for the infinite proof.
+## correctness
 
-**Originality — PASS, qualified.** Prior work by Zaare-Nahandi explicitly studies generic circulant minor ideals and free resolutions, and Beelen–Ghorpade–Hasan studies generic determinantal varieties. These prior results are credited; neither the available full 2008 survey nor the inspected 2015 primary preprint implies the asserted wild-characteristic curvilinear fiber classification. A plausible original 2002 paper could contain it, but its full text was unavailable for a decisive exclusion. Thus unknown equivalent work remains a substantive risk, not a certified absence.
+PASS
 
-**Mathematical value — PASS.** When the characteristic divides the circulant order, roots of unity cease to be reduced and classical Fourier decomposition ceases to diagonalize the algebra; a full integral scheme identification and exact local lengths resolves this natural modular degeneration. The 2-linear resolution and Hilbert function are supporting context, not a claim that standard homogeneous algebra is new.
+With cyclic subscripts the minor on rows i+j,j and columns j,0 gives x_i x_j = x_0 x_{i+j} for i,j nonzero; if a subscript is zero the relation is tautological. Conversely all minors equate products with the same subscript sum. In degree d>0 the resulting n normal forms x_0^(d−1)x_s have independent images t^d z^s in Z[t,z]/(z^n−1), so span and are independent integrally. In particular x_i^n=x_0^n covers Proj by D_+(x_0); degree-zero localization is exactly Z[z]/(z^n−1), which is finite free of rank n and gives the given morphism. Over an algebraically closed positive-characteristic field, factorization through (z^m−1)^(p^a) and Chinese remaindering give exactly the proposed Artin factors and no other associated support. This includes a=0 and m=1. Over a field x_0 is regular, and the Artinian reduction is k⊕W where W has dimension n−1 in degree one and square zero. The minimal resolution reduces along x_0, and the Koszul complex on W has in homological degree i>0 homology only in internal degree i+1: its scalar-to-linear differential is injective as each nonempty wedge expands into a disjoint nonzero set of monomials. The resulting rank is (n−1) binom(n−1,i)−binom(n−1,i+1)=i binom(n,i+1). This gives the characteristic-independent Betti numbers and the stated Hilbert series. The supplied script and verification note were inspected statically, not replayed; the integral calculation supplies the general check.
 
-Closest literature: R. Zaare-Nahandi (2002, 2004, 2008) and P. Beelen, S. R. Ghorpade, S. U. Hasan (2015). Limitations: one circulant block and 2-minors only; no higher-rank analog, no complete comparison with inaccessible 2002/2004 original full texts, and no independent validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported contribution is the integral determinantal identification and hence the exact wild fibers. The target is the classical diagonalizable group D(Z/n), whose local fibers are immediate once that target is recognized, but the assertion that the all-minor projective scheme realizes it integrally is the distinctive comparison. The inspected pluri-circulant Fourier diagonalization identifies the split non-wild case and confirms contextual Betti numbers there. Its hypotheses exclude the new fiber regime. Neither that reduction nor Cohen–Macaulayness or constant Betti numbers can identify the wild completed local rings. No matching integral identification was established in the accessible material; this pass does not credit a new homological formula or establish priority.
+
+## value
+
+PASS
+
+For the natural rank-one circulant section, invertible Fourier diagonalization loses its force exactly in wild characteristic. The result gives the actual integral family and precise nilpotent thickness at each wild point, distinguishing geometric support from scheme length and supplying a model usable under base change. These facts are not supplied by dimension or Hilbert data alone. The standard calculations about the target and the Betti numbers are context, not the reason for acceptance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

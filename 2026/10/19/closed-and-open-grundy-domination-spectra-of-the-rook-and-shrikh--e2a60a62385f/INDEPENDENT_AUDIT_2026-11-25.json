@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T17:20:53.300973Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§ Finding, Assumptions, Proof; VERIFICATION.md; check_certificate.py, verify_coverage.py, verify_selected_sets.cpp (read, not executed); recorded coverage_output.txt, selected_output.txt and certificate_output.txt",
+        "python3 /workspace/reviews/replay4.py"
+      ],
+      "rationale": "The covered-set recurrence counts exactly the completed sequences: the neighborhoods contributing terms are precisely legal next vertices, each term increases coverage strictly, and the full set terminates with one empty continuation. A previously used vertex has zero gain, so this counts ordered distinct vertices without a separate exclusion condition. I rebuilt both graphs from their coordinates and directly traversed the sequence tree without merging states. The checks confirmed degree six, pairwise two common neighbors, and respectively eight and zero 4-cliques. In ascending length order, the rook-closed coefficients were (11712,114048,266112) at lengths 4–6, the Shrikhande-closed coefficients (192,10176,127296,492480,48384) at lengths 3–7, and both open cases (1920,103680,1658880) at lengths 4–6, with no others. These also give the four Grundy maxima. I additionally verified an explicit open-neighborhood incidence isomorphism in the replay. It acts by one bijection on selecting vertices and another on covered vertices; hence each open sequence has the same successive gains and termination under transport. It does not preserve closed neighborhoods.",
+      "residual_risks": [
+        "The sequence tree exhausts the four finite instances, not any larger family. No new conclusion about the frozen selected-state program was inferred from the separate replay."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The grid-like/toroidal graph paper gives a length-(m+n−2) closed-neighborhood construction for K_m square K_n, hence a lower bound of six, not the coefficient at six or an upper bound from that passage.",
+          "The later indexed rook papers give an open maximum formula specializing to six at (4,4); the aspect-ratio paper counts longest sequences for |m−n|=1 rather than the completed sequence spectrum at (4,4)."
+        ],
+        "reasoning": "These cover bounds and some endpoints; the double-cover isomorphism covers equality in full generality but still does not evaluate even one of the open polynomials numerically. The searches do not support generalizing the spectra from the common strongly regular parameters alone.",
+        "searches": [
+          "arXiv:1607.00248 §3, p.5",
+          "arXiv:1808.02051 §7",
+          "Resultary 2026/10/25/13948cc3f404 and 2026/11/2/a940a5d5285f"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md §Relationship to prior work",
+        "arXiv:1808.02051",
+        "arXiv:1607.00248",
+        "Resultary 8347d3b6f02e, 13948cc3f404, a940a5d5285f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A known double-cover isomorphism sends each pair (center, covered point) to a pair preserving adjacency, so set unions grow and complete under the same choices. The rectangular rook endpoint construction only certifies existence of a long sequence. Neither gives the numbers of legal completions of each length from the empty union."
+        ],
+        "reasoning": "The assertion of equal open polynomials is a prior implication, regardless of verbal formulation. Their exact common polynomial and the two separate closed polynomials are not mere numeric specializations of the compared results.",
+        "searches": [
+          "arXiv:1808.02051 §7, printed p.17",
+          "arXiv:1607.00248 §3, p.5",
+          "Resultary 8347d3b6f02e, 13948cc3f404 and a940a5d5285f"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "An open sequence is a list of blocks of a neighborhood incidence structure, increasing the union at each step and ending with all points.",
+          "Cores of Cubelike Graphs states that these two double covers are isomorphic. They are the connected incidence graphs; an isomorphism can be taken to preserve the two parts by composing with the side-swap of a double cover if necessary.",
+          "The later Resultary record also gives separate vertex permutations for the neighborhood incidence isomorphism."
+        ],
+        "reasoning": "Isomorphism of the block/point incidence structures directly transports all legal open sequences, coefficient by coefficient. The independent bijections do not carry an added self-point in each block to the corresponding self-point, so they do not establish a closed-spectrum match. Min/max or zero-forcing duality does not supply the number of all ordered completions.",
+        "searches": [
+          "arXiv:1808.02051 §7 (bipartite double covers)",
+          "Resultary 2026/11/1/8347d3b6f02e",
+          "Frozen RESULT.md references on Grundy and zero forcing"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The close indexed Findings give incidence structure, topology, maximal lengths or special-aspect longest counts rather than the complete three coefficient lists for these four cases. The published double-cover passage asserts isomorphism but does not tabulate any of the coefficients here."
+        ],
+        "reasoning": "The open equality may be read off structurally without a table; the numerical polynomials and closed contrast still require determining the legal ordered growth through completion, not just the endpoint data or the isomorphism type assertion.",
+        "searches": [
+          "Resultary semantic search for rook/Shrikhande Grundy dominating and total dominating sequence spectra",
+          "Resultary records 8347d3b6f02e, 13948cc3f404, a940a5d5285f",
+          "arXiv:1808.02051 §7"
+        ]
+      },
+      "rationale": "Credit the exact coefficient lists and quantitative closed/open comparison. Do not credit equality of the open spectra as an independent new fact: it follows immediately from the prior isomorphism of bipartite double covers, even though the older source does not state sequence polynomials. Likewise the closed rook lower bound six and the general sequence frameworks are prior; the full coefficient comparisons, not the bare equal-open assertion or endpoints, are the distinct contribution supported here.",
+      "residual_risks": [
+        "An earlier exact enumeration in an appendix or under incidence-design or sequence terminology is not ruled out. No claim of new open incidence equivalence or historical first discovery is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Existing covering structural theorem for equal open spectra; not coefficient evaluation",
+          "evidence": [
+            "The bipartite double covers of the Shrikhande and 4×4 rook graphs are isomorphic."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1808.02051; DOI:10.1016/j.ejc.2020.103092",
+          "material_read": "§7, printed p.17, near OA offset 66650",
+          "method": "OA full-text passage comparison",
+          "title": "Cores of Cubelike Graphs",
+          "trigger": "Two specified graphs may have isomorphic open-neighborhood systems"
+        },
+        {
+          "assessment": "Rook closed length-six lower bound, not exact rank polynomial",
+          "evidence": [
+            "Displayed K_m square K_n construction has length m+n−2."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1607.00248",
+          "material_read": "§3 p.5, near OA offset 17350",
+          "method": "OA full-text passage comparison",
+          "title": "Dominating sequences in grid-like and toroidal graphs",
+          "trigger": "Pre-existing Cartesian product Grundy results include the rook graph"
+        },
+        {
+          "assessment": "Exact structural overlap, later indexed record; no coefficient comparison",
+          "evidence": [
+            "Separate permutations of neighborhood centers and points witness the incidence isomorphism; the result concerns the complexes and their homotopy type."
+          ],
+          "identifier_or_url": "Resultary 2026/11/1/8347d3b6f02e",
+          "material_read": "RESULT.md Finding and incidence bijections",
+          "method": "Resultary lookup and mirror passage comparison",
+          "title": "Projective-plane summands in the open neighborhood complexes of the rook and Shrikhande graphs",
+          "trigger": "Same two graphs and open incidence equivalence"
+        },
+        {
+          "assessment": "Covers rook open maximum, not full counts",
+          "evidence": [
+            "The maximum formula specializes to six at p=q=4."
+          ],
+          "identifier_or_url": "Resultary 2026/10/25/13948cc3f404",
+          "material_read": "RESULT.md Finding and parameter range",
+          "method": "Resultary lookup and statement comparison",
+          "title": "Grundy total domination of rectangular rook graphs via incidence",
+          "trigger": "Larger family includes square rook graph"
+        },
+        {
+          "assessment": "Same open endpoint, not this polynomial",
+          "evidence": [
+            "The longest-sequence counts apply only to the aspect-ratio difference one case."
+          ],
+          "identifier_or_url": "Resultary 2026/11/2/a940a5d5285f",
+          "material_read": "RESULT.md Finding and range of the counting statement",
+          "method": "Resultary lookup and statement comparison",
+          "title": "A one-step aspect-ratio anomaly in Grundy total domination of rook graphs",
+          "trigger": "Later exact longest-sequence count might include the tested square graph"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md: four spectrum assertions and graph parameters",
+        "arXiv:1808.02051, known double-cover isomorphism",
+        "Independent replay of all four sequence trees"
+      ],
+      "rationale": "This canonical minimal strongly regular parameter collision permits a comparison that holds size, degree and pairwise intersection parameters fixed. The complete ordered sequence counts quantify what closes differently: the closed rook case has no completed triples or length-seven sequences, while Shrikhande has 192 and 48384 respectively, with different coefficients also on their shared support. The independently useful exact invariant consists of the three distinct polynomials; value is not assigned to recomputing the known consequence that the open spectra coincide or to recovering the rook lower bound.",
+      "residual_risks": [
+        "A two-graph quantitative example, not a theorem on all graphs with shared intersection parameters or a complexity claim."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

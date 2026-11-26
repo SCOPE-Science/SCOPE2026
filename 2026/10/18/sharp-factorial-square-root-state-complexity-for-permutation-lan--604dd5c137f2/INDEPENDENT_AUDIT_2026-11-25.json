@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T17:11:22.444305Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The finite permutation transition monoid is a group, and the DFA on that group accepts exactly when the induced permutation squared sends the initial point into the final set. For n≤2 the squares are identities, and feasible minimal input sizes 1 and 2 exist (a unary swap with one final state has size 2). The cycle and adjacent transposition generate S_n, and its action with one final point separates the original n states. For the root final set T={g:g²(0)=0}, a right stabilizer element d lies in T because the identity lies there. If d is nonidentity and fixes 0, left multiplication by the transposition t=(0 a) for a point a moved by d yields t∈T but (td)²(0)=d(a)≠0. If d moves 0 to x, then d(x)=0, and t=(0 a) with a outside {0,x} gives (td)²(0)=a≠0. Triviality of the right stabilizer separates g and h by a left continuation t g^(-1) for d=g^(-1)h; every such continuation is a positive word because the generators have finite order. Unary squaring simply changes the generator to its square on the original n states, so cannot attain n! for n≥3. Frozen artifacts/check_square_root.py and its stored output were inspected without execution; their finite n≤6 verification is corroboration, not the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3 gives the exact unrestricted n^n−binom(n,2) value; the witness uses the full transformation monoid including a contraction. Onishchenko treats nondeterministic complexity of the same operation."
+        ],
+        "reasoning": "Neither enlargement to arbitrary deterministic inputs nor a bound in the nondeterministic output model certifies the sharp permutation-input deterministic value.",
+        "searches": [
+          "10.23638/DMTCS-22-1-9, §5.2, Lemma 5 and Theorem 3",
+          "arXiv:2605.02957, p. 1"
+        ]
+      },
+      "checked_sources": [
+        "Four targeted Resultary searches and mirror findings 087cc2ea55ea, 1f4f06cc0df8, c2c292048dbb",
+        "10.23638/DMTCS-22-1-9 §5.2",
+        "10.1007/978-3-030-48516-0_10 definition and abstract",
+        "arXiv:2605.02957 p. 1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Caron et al. identify the same cycle/transposition as generators of S_n in Lemma 7. Their Lemma 5 selects continuations from the full transformation monoid, with prescribed images not required to be injective. The binary permutation right-quotient finding uses the same generators but no acceptance-on-squaring predicate."
+        ],
+        "reasoning": "Reachability restricts mechanically to the permutation subgroup, but separability by arbitrary transformations does not imply separability by permutations; the right-stabilizer computation for the square predicate supplies the missing step.",
+        "searches": [
+          "Caron et al., §5.2, pp. 14–16, Lemmas 4–7",
+          "Resultary mirror 1f4f06cc0df8, finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Caron et al. use exactly the fixed-word equation xx∈L. Hospodár–Mlynárčik use L^k=LL^(k-1), so their square is concatenation; the existential-power Root operation noted by Caron et al. is also different."
+        ],
+        "reasoning": "Under the finite-group recognition reformulation, the operation replaces the accepting subset by its preimage under squaring. That gives closure and a group-size bound, not the trivial right stabilizer needed for an exact maximum.",
+        "searches": [
+          "Resultary searches for fixed-word square root and permutation-language state complexity",
+          "10.23638/DMTCS-22-1-9, §5.2",
+          "10.1007/978-3-030-48516-0_10, definition of power and square"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The mirrored findings give n³−n²+n for symmetric-difference automata, a binary accepting-state spectrum for permutation right quotients, and a quadratic value for a particular subsequence ideal, respectively. None gives a factorial deterministic root maximum over n-state permutation DFAs."
+        ],
+        "reasoning": "These are exact results but differ in model, operation, or class of inputs. A bare factorial sequence is not a state-complexity classification.",
+        "searches": [
+          "Resultary/published SCOPE: 087cc2ea55ea, 1f4f06cc0df8, c2c292048dbb",
+          "10.23638/DMTCS-22-1-9, Theorem 3"
+        ]
+      },
+      "rationale": "The transformation-state construction, the generators and related operation results are existing tools. The distinctive claim is the exact deterministic permutation-class maximum and binary witness, including a proof that bijective continuations alone separate all n! states. Neither the unrestricted result nor the inspected near catalogue claims give this separation.",
+      "residual_risks": [
+        "Other group-language literature might express the stabilizer identity in different terminology; the search cannot exclude unindexed results.",
+        "The catalogue has related findings at the same date; the inspected statements differ and the dates alone establish no priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the general construction and generators, but does not prove separability under only permutation continuations.",
+          "evidence": [
+            "Lemma 5 prescribes images of arbitrary transformation h; Theorem 3 gives n^n−binom(n,2); Lemma 7 adds a contraction to two permutations."
+          ],
+          "identifier_or_url": "10.23638/DMTCS-22-1-9",
+          "material_read": "§5.2, printed pp. 14–16; direct PDF text around offsets 46160–53185, operation, Lemmas 4–7 and Theorem 3.",
+          "method": "Lawful OA direct PDF; located and then read by offset.",
+          "title": "New tools for state complexity",
+          "trigger": "Same root operation and known exact unrestricted DFA bound."
+        },
+        {
+          "assessment": "The sharp square cited is a different operation.",
+          "evidence": [
+            "Defines L^0={epsilon}, L^k=LL^(k−1) and calls the second power square."
+          ],
+          "identifier_or_url": "10.1007/978-3-030-48516-0_10",
+          "material_read": "Abstract and exact definition passage, PDF pp. 1–2, text offset about 4900.",
+          "method": "Lawful direct Springer PDF passage.",
+          "title": "Operations on Permutation Automata",
+          "trigger": "Same input class and a sharp result named square."
+        },
+        {
+          "assessment": "Studies NFA complexity, not the frozen permutation-DFA extremum.",
+          "evidence": [
+            "Introduces the NFA problem and reports the unrestricted DFA result as prior work."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2605.02957",
+          "material_read": "p. 1, definition and introduction.",
+          "method": "Direct OA arXiv PDF.",
+          "title": "Nondeterministic state complexity of square root",
+          "trigger": "Same root operation and exact state complexity."
+        },
+        {
+          "assessment": "No equivalent claim in these passages; posting date was not used to exclude any.",
+          "evidence": [
+            "The parity-automaton result and subsequence ideal use different classes; the permutation result computes right-quotient accepting-state complexity."
+          ],
+          "identifier_or_url": "087cc2ea55ea; 1f4f06cc0df8; c2c292048dbb",
+          "material_read": "Mirrored RESULT.md findings, offset 0 in each record.",
+          "method": "Local Resultary search and local mirror passages.",
+          "title": "Closest published Resultary findings on root and permutation state complexities",
+          "trigger": "Same fixed-word root or same binary permutation witness construction."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The permutation restriction forbids the general witness's noninjective transition and continuation. Identifying exactly when the natural group construction pays its full factorial cost, with the smallest possible alphabet, closes a natural worst-case question. The stabilizer witness resolves a distinction the trivial transition-count upper bound alone cannot address.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

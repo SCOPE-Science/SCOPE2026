@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T15:02:02.710485Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 25–54 and frozen verify.py lines 131–143, inspected only",
+        "/workspace/repairs/4/RESULT.md and VERIFICATION.md",
+        "python3 /workspace/independent_checks.py 4: exact witness and unordered-partition checks of both five- and both six-vertex examples and all connected labelled four-vertex graphs"
+      ],
+      "rationale": "The original complement and block arguments are correct: every possible successful pair leaves at most two vertices, forcing the large block and triangles for four classes. At three classes the feasible omitted one-block sizes give profiles (1,1,n-2), (1,2,n-3), and (2,2,n-4), with an n=6 perfect matching counted three times and thus a subtraction of twice its count. The genuine repaired claim concerns nondetermination and minimality rather than these formulas. The size bound from distinct witnesses excludes omissions of size at least three for n=5. Direct pair tests give six feasible pairs in both P5 and K2,3, but a triangle only in the former. A four-block partition at order five is precisely one doubleton with the other three vertices singleton, and the three partner unions require the three corresponding omitted pairs; K2,3 also explicitly has a valid three-block partition. On three vertices all singleton classes can partner; the exhaustive six connected isomorphism types on four vertices give (number of feasible pairs, C_s) equal to (0,3), (2,4), or (4,4); the polynomial therefore still determines C_s. The original six-vertex pair has no feasible triple, with identical omitted-set counts but distinct spectra; the witness and partition computations independently match all stated coefficients.",
+      "residual_risks": [
+        "Minimum order refers to connected simple graphs of order at least three by definition of the repaired problem. No general classification of equal-polynomial pairs at larger orders is asserted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "7b990ea0b4cf includes n>=5, all three-block corrections, and classification by triangles. 9a591f121323 covers the full spectrum at n>=7, even allowing singleton multipartite parts.",
+          "The distinct same-day complete multipartite record ce9f854da57b overlaps the n>=7 specialization, with singleton parts also allowed; the Oct. 12 record already gives the multipartite scalar maximum.",
+          "The motivating primary paper discusses general bounds and paths, with upper and lower bounds for odd paths in Theorem 5.1 and the exact even case in Theorem 5.3."
+        ],
+        "reasoning": "The universal census covers known background for checking the obstruction. It does not identify two connected five-vertex graphs with equal set enumerator and different coalition number, or establish that no such obstruction exists at lower orders. The same-day result is acknowledged as equivalent on the overlap without inferring order from its date.",
+        "searches": [
+          "Resultary 7b990ea0b4cf, 9a591f121323, ce9f854da57b and 3825ce52b94d",
+          "Alikhani–Ghanbari arXiv:2607.22686 §§2–3 and §5"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 9a591f121323, 7b990ea0b4cf, ce9f854da57b, 3825ce52b94d, 315739371089 and frozen self-match 53a39dcf0c0b",
+        "arXiv:2607.22686, arXiv:1309.1315 Definition 1, arXiv:2209.01795 Theorem 6.1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At n=6 the published formula already subtracts 2m_3. The elementary bipartition count is unchanged at six because complementary small omissions have sizes at most two. Three-block path/triangle and four-block star are immediate from the existing block profiles and permitted omitted blocks.",
+          "The set polynomial remembers only e at defect at most two. In the five-vertex examples P5 and K2,3 give realizable H of the same size but different triangle status; on four vertices this status-based obstruction cannot be assumed and the separate complementary-pair test gives the necessary lower bound."
+        ],
+        "reasoning": "The unrepaired additions are either already explicit or routine transfer. In contrast, the fact that a census depends on t and m_2 does not alone imply that these vary on realizable feasible-pair graphs at fixed e; the explicit pair and exhaustively justified lower-order boundary answer that question.",
+        "searches": [
+          "7b990ea0b4cf Finding and Proof Lemmas 2–4",
+          "9a591f121323 Finding and Proof Steps 2–5",
+          "315739371089 Finding and Proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier records use admissible-pair graph and two-deletion graph for exactly the same H.",
+          "The earlier three-block formula and triangle criterion recover the frozen n=6 count, and the n>=7 enumerator is identical because -e+(n-2)e=(n-3)e."
+        ],
+        "reasoning": "Those different phrasings give the same universal results, not an independent contribution. The repaired question is instead a collision of the size enumerator on actual connected graphs, with a sharp lower bound on the order of such a collision.",
+        "searches": [
+          "Resultary: super-coalition number not determined by the super-domination set polynomial, connected graphs same polynomial different spectra and minimum order",
+          "Resultary 9a591f121323 and 7b990ea0b4cf, Findings and enumerator proof steps"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "315739371089 supplies the complete multipartite set enumerator. Theorem 6.1 counts minimum sets for complete, complete-bipartite and star families. These supply part of the values for one side of the five-vertex comparison.",
+          "The exact six-vertex collision search surfaced the frozen record itself. The nearest genuinely different exact records give spectra or partition counts, not the exhibited equal-polynomial obstruction at the minimum order."
+        ],
+        "reasoning": "No earlier matching table resolving the collision and its minimal order was established. The exact counts for individual multipartite graphs are background, not a new claim or evidence of absence elsewhere.",
+        "searches": [
+          "Resultary: P5 and K2,3 same super-domination polynomial z^5+5z^4+6z^3, different super-coalition number",
+          "Resultary 315739371089 multipartite super-dominating-set enumerator",
+          "Ghanbari–Jäger–Lehtilä arXiv:2209.01795 Theorem 6.1"
+        ]
+      },
+      "rationale": "The repaired statement is the first connected obstruction to recovering the coalition number from the size-only super-domination polynomial, with an additional six-vertex obstruction even to recovering the three-block coefficient. The earlier enumerator results are credited and not claimed afresh. Their dependence on more than |E(H)| does not by itself exhibit a realizable collision, let alone its first order; matching source checks did not establish an earlier exact collision and cutoff.",
+      "residual_risks": [
+        "Nondetermination and cutoff comparison is bounded; there may be an unindexed example pairing these invariants. The full text of DOI 10.22049/cco.2019.26587.1122 was not retrieved; citation context concerns the scalar super-domination number rather than coalition partitions."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact original spectrum at n>=7 and broader multipartite scope; no matching first obstruction.",
+          "evidence": [
+            "Gives c2=2^(n-1)-1-n-e, c3=binom(n,2)+(n-3)e+m2, c4=t for n>=7."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-universal-matching-triangle-enumerator-for-super-coalition-parti--9a591f121323",
+          "material_read": "RESULT.md Finding offset 0 and Proof Steps 2–5",
+          "method": "Published record via local mirror",
+          "title": "Universal matching–triangle enumerator for super-coalition partitions at deficiency two",
+          "trigger": "Highest universal census match"
+        },
+        {
+          "assessment": "Already gives the exact six-vertex correction and triangle criterion; credited for the six-vertex census used in the repair.",
+          "evidence": [
+            "For n>=5 its three-block formula includes -2*1_(n=6)*m3 and the further n=5 correction; optimal four-block partitions are a triple of singletons and a complement."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-a-triangle-criterion-and-exact-optimal-partition-census-for-supe--7b990ea0b4cf",
+          "material_read": "RESULT.md Finding offset 0 and Proof Lemmas 2–4",
+          "method": "Published record via local mirror",
+          "title": "A triangle criterion and exact optimal-partition census for super coalitions near maximal super domination",
+          "trigger": "Decisive exceptional n=6 comparison"
+        },
+        {
+          "assessment": "Overlaps the original special case when n>=7; does not answer the repaired comparison.",
+          "evidence": [
+            "Formulas apply to all positive part sizes and reduce to the frozen specialization when all parts have size at least two."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-super-coalition-partition-polynomials-of-complete-multipartite-g--ce9f854da57b",
+          "material_read": "RESULT.md Finding and Proof Steps 1–4",
+          "method": "Published record via local mirror",
+          "title": "Super-coalition partition polynomials of complete multipartite graphs",
+          "trigger": "Distinct same-day match"
+        },
+        {
+          "assessment": "Supplies the notion, bounds and some scalar family values; does not establish the paired invariant cutoff. The universal-vertex assertion is not used.",
+          "evidence": [
+            "Theorem 3.6 asserts C_s=3 for a universal vertex; published record 3825ce52b94d gives K_(1,2,2,2) as a counterexample. For paths, Theorem 5.1 gives 3<=C_s<=4, and Theorem 5.3 gives equality 4 for even n>=4."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2607.22686",
+          "material_read": "PDF pp. 3, 5, 8, 10–11: Definitions 2.1–2.3, Theorems 3.1, 3.6, 5.1–5.3",
+          "method": "Lawful primary PDF passage inspection",
+          "title": "Super Coalition Number in Graphs",
+          "trigger": "Initiating primary paper and its exact small-graph/family statements"
+        },
+        {
+          "assessment": "Supplies the multipartite half of the shared polynomial, not the cross-graph obstruction.",
+          "evidence": [
+            "Characterizes feasible omitted pairs for complete multipartite graphs."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-all-super-dominating-sets-of-complete-multipartite-graphs--315739371089",
+          "material_read": "RESULT.md Finding and Proof",
+          "method": "Published record via local mirror",
+          "title": "All super dominating sets of complete multipartite graphs",
+          "trigger": "Exact size polynomial and feasible omissions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired RESULT.md Finding and proof",
+        "Published census 7b990ea0b4cf and exact set-enumerator result 315739371089"
+      ],
+      "rationale": "A natural inverse question is whether the previously computed set enumerator already determines coalition data without tracking vertex labels. Finding the smallest connected obstruction makes the precise loss of information usable, and the six-vertex pair shows loss not only of the maximum but also of the three-block frequency. This is a realizability counterexample and a motivated exact cutoff, not a small-table recomputation of the prior general census.",
+      "residual_risks": [
+        "Does not classify all collisions beyond the exhibited witnesses or give a new universal partition-spectrum formula."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

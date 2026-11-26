@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:27:56.268414Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On expanding the squared norm, diagonal terms sum to one, and every nontrivial effective sign character has mean zero after conditioning on the hashes and internal signs. Independence up to four coordinates per leaf is sufficient to ensure orthogonality of the single-factor and two-factor pair characters. A composed hash difference is zero with probability q and takes each nonzero value with probability s. For the two-factor pair character, the two orientations have independent-factor collision probability q²+(m−1)s² each, and their intersection has probability q²+(g−1)s² because 2Δ=0 mod m; thus the expected squared sum of their indicators is 2U, not just twice the single collision probability. Summing the paired squares gives 2q(a+b)+2Uab (including m=1). Positive coefficients and Cauchy–Schwarz force both factors to have constant coordinate magnitude at equality. The limits mq→2 and mU→1 give the stated sequential limiting constant, not a uniform cap of 10. Independent exact replay: python -B /workspace/review_replay.py 2 enumerates all composed hash images and effective relative signs, with exact rational factors at d=2 and widths 1–5, and directly reconstructs each four-entry tensor sketch and its moments. The proof, not this finite example, covers arbitrary fixed unit factors and widths.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Khan–Pratap–Sharma Theorem 11 gives unbiasedness and a degree-dependent variance upper bound for the very estimator under review.",
+          "Ahle et al. §4.1 derive recursive second-moment guarantees by composition of moment properties."
+        ],
+        "reasoning": "Broader input and degree ranges for an upper bound do not imply equality, the two-torsion correction, or the maximizing magnitudes in the separable rank-one case. The inspected results do not determine those quantities.",
+        "searches": [
+          "arXiv:2609.18577 Theorem 11",
+          "Ahle et al., Oblivious Sketching of High-Degree Polynomial Kernels, §4.1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.18577 Theorem 11",
+        "Ahle et al. §4.1",
+        "arXiv:2505.08146v2 Theorem 9",
+        "PMLR 337 Sharma et al. p. 2",
+        "Resultary 5d3610a27f37"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "An exact general collision-profile formula would give the result after finding q,s: the coefficient of 2ab is the sum of squared difference masses plus its restriction to two-torsion. No inspected prior statement supplies that exact profile identity for composed hashes.",
+          "Even under an exact ordinary nonrecursive law, adapting it by conditioning on the leaf vectors requires the leaf norm-square and bucket-fourth-power moments and recombining variances; the uniform difference formula by itself does not reproduce the recursive covariance."
+        ],
+        "reasoning": "A rederivation using established tools is possible, but the inspected variance inequalities do not mechanically produce the exact parity-sensitive coefficients and joint sharpness. Originality is attributed to the exact benchmark rather than to its short derivation.",
+        "searches": [
+          "arXiv:2505.08146v2 Theorem 9",
+          "arXiv:2609.18577 Theorem 11",
+          "Ahle et al. §4.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Composing the layers gives a one-convolution sketch with composed, not uniform, factor difference law. Ordinary TensorSketch has uniform differences and yields 2(a+b)/m+2(m+g)ab/m² for the same separable input.",
+          "Pham–Pagh Theorem 9 states a nonrecursive upper bound; the complex-to-real variant changes the sign distribution."
+        ],
+        "reasoning": "Equivalence at the level of convolution implementation does not imply equality of distributions. In particular a one-convolution sketch with independent uniform bucket coordinates cannot substitute for the composed case when m>1.",
+        "searches": [
+          "Resultary: exact variance recursive TensorSketch trace estimation rank one",
+          "arXiv:2505.08146v2 Theorem 9",
+          "PMLR 337 Sharma et al."
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 5d3610a27f37 gives exact Walsh-pattern variance for a tensor-product sign trace probe on arbitrary symmetric matrices."
+        ],
+        "reasoning": "That exact indexed law belongs to a different estimator: it does not use CountSketch buckets, circular convolution, or independent internal and leaf hashes. The checked index evidence supplies no exact law for the submitted construction.",
+        "searches": [
+          "Resultary: exact variance and tensor sign trace, recursive TensorSketch collision law"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the exact law and sharp benchmark of this real three-layer separable rank-one estimator. The sketch, moment method and nonrecursive collisions are not claimed as contributions. The inspected prior bounds and alternative probes do not provide the displayed variance.",
+      "residual_risks": [
+        "A broader exact covariance theorem under a different sketching or random-convolution terminology was not ruled out. The bounded primary-source checks are not a priority certification.",
+        "An exact law stated for arbitrary symmetric composed-hash difference profiles, if already available together with the standard composed collision law, could cover the narrow contribution."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct estimator precedent, bound rather than equality",
+          "evidence": "Proves unbiasedness and a degree-dependent variance upper bound via composition across 2p−1 layers.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.18577",
+          "material_read": "PDF p. 12, Theorem 11",
+          "method": "OA PDF passage",
+          "title": "Accurate Trace Estimation with Fewer Random Bits via Recursive TensorSketch",
+          "trigger": "Same recursive trace estimator"
+        },
+        {
+          "assessment": "General second-moment framework, not the exact target",
+          "evidence": "Johnson–Lindenstrauss moment properties yield recursive guarantees.",
+          "identifier_or_url": "https://thomasahle.com/papers/tensorsketch-joint.pdf",
+          "material_read": "§4.1, p. 24",
+          "method": "OA PDF passage",
+          "title": "Oblivious Sketching of High-Degree Polynomial Kernels",
+          "trigger": "Foundational recursive construction and moment analysis"
+        },
+        {
+          "assessment": "Different hash law and stated upper bound",
+          "evidence": "Unbiasedness and upper bound proportional to (3^p−1)/D.",
+          "identifier_or_url": "https://arxiv.org/html/2505.08146v2",
+          "material_read": "Theorem 9, HTML offset 52949",
+          "method": "OA HTML passage",
+          "title": "Tensor Sketch: Fast and Scalable Polynomial Kernel Approximation",
+          "trigger": "Nonrecursive variance with relevant collision counting"
+        },
+        {
+          "assessment": "Different sketch distribution and bound",
+          "evidence": "Complex-to-real TensorSketch, not the submitted all-real construction.",
+          "identifier_or_url": "https://proceedings.mlr.press/v337/sharma26b.html",
+          "material_read": "PDF p. 2",
+          "method": "OA PDF passage",
+          "title": "Improving TensorSketch Using Complex Random Variables",
+          "trigger": "Alternative variance-improvement result"
+        },
+        {
+          "assessment": "Different estimator",
+          "evidence": "Exact Walsh-pattern variance for a tensor Rademacher trace probe, with no buckets or recursive composition.",
+          "identifier_or_url": "Resultary 5d3610a27f37",
+          "material_read": "Finding",
+          "method": "Resultary search and mirrored record",
+          "title": "Exact variance and invisible directions of tensor sign trace probes",
+          "trigger": "Strongest exact-variance catalogue hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The variance is a directly relevant accuracy measure for a published estimator. This is a natural low-rank input class rather than an arbitrary parameter slice. The parity-sensitive exact law and attaining inputs give researchers a finite-width benchmark for cost of recursion and for assessing general upper bounds; a coarse bound or a nonrecursive benchmark would not serve that purpose.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

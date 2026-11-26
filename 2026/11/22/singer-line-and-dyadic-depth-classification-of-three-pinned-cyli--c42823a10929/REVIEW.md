@@ -1,25 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact claim is for arbitrary primitive irreducible \(P\in\mathbb F_2[z]\) of degree at least three and every three-site input cylinder on the bilateral full shift. The proof identifies the annihilator of the spatial image with the intersection of the pinned-character space and the principal ideal \((P^n)\), then computes the exact multiplicity of each of the seven nonzero characters. A two-adic cancellation argument distinguishes the all-equal-residue rank-two stage and the solitary pair or Singer-line rank-one stages. The smallest divisible trinomial gives both the universal span bound and the matching Frobenius-scaled witness. All multiplicity, quantifier and equality-boundary cases were reconstructed, including the case of an empty relation space at the first positive time. The bundled independent kernel, divisibility and formula checks agree in 207,628 cases; this is supporting finite evidence, not a replacement for the proof.
+PASS
 
-## Originality — PASS within investigated sources
+On the bilateral binary shift the dual of the stated forward local rule is multiplication by P, not its reciprocal. The nonzero endpoints also give a two-sided inhomogeneous recurrence, proving surjectivity and giving nd free bits for the time-n kernel. For a fixed output the possible pin values form a coset of the pin projection of that kernel, so the obstruction dimension is the codimension of that projection, equivalently dim(span(z^a,z^b,z^c) intersect (P^n)). Monomial shifts are units, including for negative sites. An eligible pair has exponent gap q times an integer; removing its 2-power leaves a simple root by differentiation. An eligible triple must have three different residues. After removing its common Frobenius power the derivative cannot vanish: it is a monomial if just one reduced exponent is odd, and vanishing for two odd reduced exponents would force coincident residues modulo the odd order q. Thus the triple multiplicity is exactly H_-. In the equal-residue case the three eligible pairs form one dimension-two subspace, with two tied smaller multiplicities and one strictly larger one, giving the two drops as stated. For an obstruction of depth h, a pair costs span at least qh; a triple costs at least m(P)h. Primitivity writes 1+alpha as alpha^v with 2<=v<q, proving existence and m(P)<q; degree proves m(P)>=d. A minimal trinomial has multiplicity one (otherwise halve both exponents) and scaling its exponents by the largest dyadic h with m(P)h<=L gives the matching last obstruction at n=h. The n>=1 convention gives the first full time 1 when L<m(P). Independently enumerated the residues by repeated doubling and reduction for the two example polynomials: their nonzero cycles have lengths 7 and 31, and lexicographic search by (v,u) first hits (3,1) and (8,3). Inspected check_singer.py and VERIFICATION.md without executing the bundled script. The three implementation paths cover 207628 finite cases by their loop bounds, not arbitrary degrees or spans.
 
-The qualifying source [1] studies entropy, trace growth and characteristic-polynomial dynamics, rather than the finite-time image of cylinders with three fixed input coordinates. The relevant full-text sections of [1] and the qualitative additive-cellular-automaton cylinder-return result in [2, Lemma 18] were examined. The nearest published published-finding corpus entries concern cyclic Rule 150 necklace predecessor degrees, parity torus transients, and finite-volume dyadic transient distributions; none states or implies the Singer-line case distinction and sharp minimal-trinomial global span formula for primitive irreducible polynomials of arbitrary degree. Accessible historical claims were checked only for mathematical overlap; an uninspected older broad classification of linear cellular automata remains a priority risk. The result is not claimed to be exhaustively historically unique, and the standard Singer-line and finite-field divisibility facts themselves are not claimed as novel.
+## originality
 
-## Value — PASS
+PASS
 
-This is a natural complete classification of finite-time loss of three-coordinate information under a large algebraically defined family of additive cellular automata. It separates collinear versus noncollinear three-site patterns at the first nontrivial projective rank and shows that a single intrinsic trinomial span determines the worst-case reachability clock for every spatial diameter. The primitive cubic has line span three, while an explicit primitive quintic has span eight, showing that the new arithmetic parameter does not simply equal local-rule degree. These statements are stronger than a routine qualitative transitivity consequence and make meaningful distinctions among sparse initial constraints.
+Best-of-knowledge pass for the stated degree-at-least-three classification and sharp m(P) cutoff. The Rule 150 analogue is substantial overlap in mechanism and shape but is a fixed degree-two rule outside this scope. The available comparisons do not supply the independent residue-line test, the varying least-trinomial-span invariant, and the associated sharp all-L conclusion for primitive polynomials of arbitrary degree. Duality and Frobenius multiplicity alone are not claimed as original.
 
-## Limits and closest prior literature
+## value
 
-The field, primitive-polynomial and three-pin restrictions matter. Earlier qualitative transitivity theorems and entropy formulas do not yield the exact formula, but earlier specialized works on linear cellular automata could affect historical attribution. Independent review is outstanding; finite checks cover just two polynomials and bounded spans.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This completely classifies the first pin count at which a genuinely ternary dependence can occur in this natural infinite-volume recurrence family. It distinguishes immediate full reachability from one or two exact stages of obstruction, and gives both a sharp universal span bound and a realizing triple for every diameter. The cutoff uses an intrinsic invariant that demonstrably need not equal the degree, rather than recomputing a selected finite window.
 
-## References
-
-[1] Castronuovo, Dennunzio, Kari, Margara, *Topological Entropy of Group Cellular Automata is Effectively Computable*, arXiv:2611.16746 (2026), https://arxiv.org/abs/2611.16746.
-
-[2] Dennunzio, Formenti, Grinberg, Margara, *Additive Cellular Automata Over Finite Abelian Groups: Topological and Measure Theoretic Properties*, MFCS 2019, DOI:10.4230/LIPIcs.MFCS.2019.68, https://drops.dagstuhl.de/storage/00lipics/lipics-vol138-mfcs2019/LIPIcs.MFCS.2019.68/LIPIcs.MFCS.2019.68.pdf.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

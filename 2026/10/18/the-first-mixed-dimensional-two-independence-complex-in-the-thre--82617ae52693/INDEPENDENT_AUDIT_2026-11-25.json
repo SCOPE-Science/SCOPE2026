@@ -1,0 +1,189 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:36:57.560574Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 17–78",
+        "VERIFICATION.md; both supplied rook verification scripts and recorded outputs",
+        "python3 /workspace/branches/review1_rook.py; /workspace/branches/review1_rook.out"
+      ],
+      "rationale": "A face is exactly a set with no selected triple that spans at least two edges: degree ≥2 gives such a triple and conversely. Each row therefore contributes at most two cells. I independently enumerated faces as tuples excluding these triples, reapplied the published pivot orders, and topologically sorted the full directed Hasse graph; the cell and matching counts agree for all six widths, including one critical vertex in every case. For n≤5 all critical positive-dimensional cells are in one dimension, giving the claimed wedges by the discrete Morse CW theorem. At n=6 I independently reduced the original oriented simplicial boundaries over Q, not the Morse differential: ranks of ∂4 and ∂5 are 443 and 90, giving b4=540−443−90=7. In the Morse CW model the only possible nonzero boundary is the integral map Z^7→Z^113. The full b4=7 forces it to be zero over Q and therefore over Z. The 3-skeleton is a wedge of 3-spheres and is 2-connected; Hurewicz identifies π3 with integral H3, so the zero degree vector of every 4-cell makes its attaching map null-homotopic. Thus this proves the integral homotopy claim, not just agreement of field Betti numbers.",
+      "residual_risks": [
+        "Replay uses the stated pivot orders as certificates rather than claiming their existence for larger boards. No conclusion for n≥7."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sawant's tree theorem does not reach boards with a rook 4-cycle.",
+          "The identical Ind_2 construction for triangular graphs uses L(K_n); the multiple chessboard result has four rows and independently specified capacities."
+        ],
+        "reasoning": "None of the compared hypotheses gives a general theorem from which the exact three-row rook homotopy types follow.",
+        "searches": [
+          "Sawant arXiv:2605.25150v1 Theorem 3.6",
+          "Ghosh–Selvaraja arXiv:2505.06614",
+          "Resultary …--e5fcc431769b and …--352b61db3ab2"
+        ]
+      },
+      "checked_sources": [
+        "The Resultary Finding and Assumptions passages listed in source_inspections",
+        "arXiv:2605.25150v1, 2505.06614, and 2505.06457, passages as specified"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Three-cut facets are complements of disconnected triples, not subsets avoiding connected triples.",
+          "The capacity-two M_2(K_{3,5}) result is a wedge of 91 five-spheres, using a distinct rule; ordinary graph-product independence forbids all attacking pairs."
+        ],
+        "reasoning": "Neither a related complement construction nor an inclusion of capacity complexes transports a wedge decomposition or yields the integral attaching-map conclusion.",
+        "searches": [
+          "Resultary three-cut …--bd50464fc17f and capacity-two matching …--ea5e14157f12",
+          "arXiv:2505.06457"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In L(K_{3,n}), a face is a selected edge set of K_{3,n} whose nontrivial connected components are edges or two-edge paths.",
+          "An adjacent pair is allowed, unlike ordinary rook independence. A selected 2×2 rectangle satisfies the separate cap-two inequalities but is forbidden in this complex."
+        ],
+        "reasoning": "Forbidden 3-paths in the induced rook graph are another name for the same rule, but ordinary and capacity-constrained chessboards are not that rule.",
+        "searches": [
+          "Resultary: two-independence / dissociation complex of a rook graph and generalized chessboard / capacity-two matching",
+          "arXiv:2605.25150v1, §3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The nearest exact Ind_2 rook census entry concerns K_4□K_4 and the Shrikhande graph, not K_3□K_n.",
+          "The four-cube has a mixed 16 S^3 plus one S^4 wedge; the exact three-row rook neighborhood table uses common neighbors and different degrees."
+        ],
+        "reasoning": "An exact match must have both the same board sequence and the same induced-component condition. The observed mixed-degree entries do not meet both tests.",
+        "searches": [
+          "Resultary: three-row rook two-independence mixed-dimensional wedge n=6",
+          "Resultary …--cfdca22c256f, …--7de342dd28f1 and …--64d6d7500883"
+        ]
+      },
+      "rationale": "The closest comparisons use the same two-independence construction on other graphs, or use different face rules on rook graphs. The inspected primary results and exact catalogue statements did not cover the six stated homotopy types or the first mixed degree in this particular sequence. This verdict does not assert the first such phenomenon among all graphs.",
+      "residual_risks": [
+        "The focused external literature query was unavailable; its failure is not evidence of absence. Some related paper comparisons are abstract-level only. An unlocated theorem for the cross-coupled face condition remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Trees only in the relevant theorem",
+          "evidence": "The rook graphs with n≥2 contain a 4-cycle and are outside the hypothesis.",
+          "identifier_or_url": "https://arxiv.org/html/2605.25150v1",
+          "material_read": "§3, Theorem 3.6, around offset 48639",
+          "method": "OA bounded theorem passage",
+          "title": "On the Vertex Decomposability of r-Independence Complexes of Trees",
+          "trigger": "Exact two-independence construction"
+        },
+        {
+          "assessment": "Related but no applicable theorem identified in inspected passage",
+          "evidence": "Discusses shellability for graph classes; the abstract does not state this three-row rook classification.",
+          "identifier_or_url": "arXiv:2505.06614",
+          "material_read": "v3 PDF p.1 abstract; title differs from the frozen bibliography",
+          "method": "OA abstract inspection",
+          "title": "Ghosh–Selvaraja, higher independence and shellability",
+          "trigger": "Potential structural coverage for higher independence complexes"
+        },
+        {
+          "assessment": "Different independence construction",
+          "evidence": "Ordinary independence and products involving a path factor.",
+          "identifier_or_url": "arXiv:2505.06457",
+          "material_read": "PDF p.1 abstract",
+          "method": "OA abstract inspection",
+          "title": "On independence complexes of graph products",
+          "trigger": "Same product-graph terminology"
+        },
+        {
+          "assessment": "Different face condition",
+          "evidence": "Facets are complements of disconnected triples; stated ordinary homology is in degree mn−5.",
+          "identifier_or_url": "Resultary 2026/10/11 …--bd50464fc17f",
+          "material_read": "RESULT.md Finding and Assumptions",
+          "method": "Local mirror",
+          "title": "Integral and equivariant homology of three-cut complexes of rook graphs",
+          "trigger": "Rook graph complex with triples in its definition"
+        },
+        {
+          "assessment": "Same graphs, different complex",
+          "evidence": "Common open neighbor criterion; multiple degrees 1, 2, n−2 at n≥5.",
+          "identifier_or_url": "Resultary 2026/10/25 …--64d6d7500883",
+          "material_read": "RESULT.md Finding and Assumptions",
+          "method": "Local mirror",
+          "title": "Complete integral homology of three-row rook neighborhood complexes",
+          "trigger": "Exact three-row rook sequence and multi-degree homology"
+        },
+        {
+          "assessment": "Ordinary independence only",
+          "evidence": "At most one selected square per row or column.",
+          "identifier_or_url": "Resultary 2026/10/11 …--41bf4d1d3187",
+          "material_read": "RESULT.md Assumptions",
+          "method": "Local mirror",
+          "title": "Independence complexes of the Shrikhande and 4×4 rook graphs",
+          "trigger": "Rook independence under a potential alias"
+        },
+        {
+          "assessment": "Cap-two matchings allow forbidden rook faces",
+          "evidence": "Separate row and column degree caps are weaker than r_i+c_j≤3 at every selected cell.",
+          "identifier_or_url": "Resultary 2026/10/11 …--ea5e14157f12",
+          "material_read": "RESULT.md Finding and Assumptions",
+          "method": "Local mirror",
+          "title": "The two-matching complex of K_{3,5} is a wedge of 91 five-spheres",
+          "trigger": "Same board family under a closely related matching rule"
+        },
+        {
+          "assessment": "Different board and capacity rule",
+          "evidence": "One rook per column with row capacities (1,1,1,2); at six columns 53 three-spheres and one four-sphere.",
+          "identifier_or_url": "Resultary 2026/11/8 …--352b61db3ab2",
+          "material_read": "RESULT.md Finding and Assumptions",
+          "method": "Local mirror",
+          "title": "Integral homotopy classification of four-row (1,1,1,2) multiple chessboards",
+          "trigger": "Mixed wedge at six columns in a chessboard family"
+        },
+        {
+          "assessment": "Different board parameter",
+          "evidence": "The rook case is K_4□K_4, not part of the reviewed sequence.",
+          "identifier_or_url": "Resultary 2026/10/18 …--cfdca22c256f",
+          "material_read": "RESULT.md Finding and Assumptions",
+          "method": "Local mirror",
+          "title": "Second independence homotopy distinguishes the Shrikhande and rook graphs",
+          "trigger": "Same-day work on exact Ind_2 of a rook graph"
+        },
+        {
+          "assessment": "Same phenomenon, different graph",
+          "evidence": "Ind_2(Q_4) is a wedge of 16 three-spheres and one four-sphere.",
+          "identifier_or_url": "Resultary 2026/10/18 …--7de342dd28f1",
+          "material_read": "RESULT.md Finding",
+          "method": "Local mirror",
+          "title": "The two-independence complex of the four-cube is a mixed-dimensional wedge",
+          "trigger": "Same-day mixed-dimensional Ind_2 finding"
+        },
+        {
+          "assessment": "Strong thematic overlap but different sequence",
+          "evidence": "For L(K_6), wedge of 24 two-spheres and 10 three-spheres, not L(K_{3,6}).",
+          "identifier_or_url": "Resultary 2026/11/1 …--e5fcc431769b",
+          "material_read": "RESULT.md Finding and Assumptions",
+          "method": "Local mirror",
+          "title": "Mixed-dimensional two-independence homotopy of the triangular graphs",
+          "trigger": "Same Ind_2 rule on a natural line-graph family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding and assumptions",
+        "Independent Morse and rational-boundary replay",
+        "Comparisons with rook matching and triangular-graph complexes above"
+      ],
+      "rationale": "Rook graphs connect product and matching-complex questions, and allowing precisely adjacent pairs is a natural relaxation of nonattacking rook placement. The cutoff answers a structural question: concentrated positive homology does not persist even throughout the small three-row boards. The exact integral wedges identify the first counterexample and actual attaching behavior, which a mod-two table or a single isolated example would not give.",
+      "residual_risks": [
+        "No infinite pattern, general shellability claim, or priority for mixed wedges across all graphs is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

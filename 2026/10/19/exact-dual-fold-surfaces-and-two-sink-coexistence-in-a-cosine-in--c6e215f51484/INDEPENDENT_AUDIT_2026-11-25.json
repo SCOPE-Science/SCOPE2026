@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:06:53.496639Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For u=x/b the left fixed-point equation is h_b(u)=1−a, h_b(u)=(1−bu)/cos(πu/2). Its derivative numerator Q_b goes from −b to (π/2)(1−b), and Q'_b=(π²/4)(1−bu)cos(πu/2)>0. Thus h_b drops from 1 to its unique minimum m_b and increases to infinity, giving exactly the advertised intersections for levels in (0,1). Reflection of the interior fixed-point equations gives c=h_(1−b)((1−x)/(1−b)), not a global conjugacy of the discontinuous map. The endpoints and assigned switch value are not fixed. Both interior branches have positive multipliers. Strict convexity/concavity of F−x gives the stated ordering of slopes in the two-root cases, and at tangency F'=1, F''≠0 and the respective a or c derivative is a positive cosine. At the left fold the displacement is positive on either side, so it attracts from the left and repels to the right locally; the signs reverse at the right fold. Evaluating h at the previous minimizer proves strict decrease of m_b in b; h_1(u)=(1−u)/sin((π/2)(1−u))>2/π, and continuity at each fixed u<1 followed by u→1 gives the limiting minimum 2/π. The implicit root near (b,u)=(0,0) is analytic and odd in b because Q_(−b)(−u)=−Q_b(u), so u_b=4b/π²+O(b³) and m_b=1−2b²/π²+O(b⁴); reflection gives the other endpoint law. The exact rational witness follows from 3·297²=264627>250000=500², testing x=1/6 and 5/6 and the branch ends. This proves the closed census on the stated open parameter cube, all-breakpoint coexistence, and local stability, not full basins or higher periods. The deposited verifier was inspected, not executed; its finite grid is supplemental.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "e0bdfaa72c7e Finding: two fold thresholds, same ordering of attracting and repelling fixed points, four-point regime limited to d<1/2 and d<b<1−d in the separate fractional-power Eq. (15) map",
+          "Lawnik–Moysis–Volos §4.2 has convex/concave branches and numerical parameter plots for the cosine member"
+        ],
+        "reasoning": "Generic shape explains why there can be at most two roots per branch and orders stability when they exist. The fractional-power result does not cover cosine through a demonstrated parameter specialization; its restrictions do not establish thresholds or four-root attainability for this map. The inaccessible follow-up supplies no evidence either way.",
+        "searches": [
+          "Resultary: Lawnik Moysis Volos fractional power fixed-point phase diagram Equation 15 breakpoint four fixed points",
+          "Resultary: cosine piecewise interval map two attracting fixed points fold thresholds endpoint asymptotics",
+          "DOI 10.1007/s11071-024-09349-6, publisher and PDF attempts"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "DOI 10.3390/sym15071311 Eq. (20) and §4.2",
+        "Resultary e0bdfaa72c7e, ea85f36942c0, 7a01e2354ca8",
+        "DOI 10.1007/s11071-024-09349-6 (attempted only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The primary discussion says the branches are convex and concave, respectively, and determines regions numerically",
+          "The power-map theorem classifies saddle-nodes and coexistence under power-specific restrictions"
+        ],
+        "reasoning": "The known intersection principle neither solves the cosine tangency equation uniquely at every breakpoint nor determines the exact parameter thresholds, or the 2/π² scaling. These require the cosine derivative numerator, reflected equation and endpoint expansion. Fold multiplier +1 is generic; the value added is its exact location and how the branches jointly partition this family.",
+        "searches": [
+          "DOI 10.3390/sym15071311 §4.2 after Eq. (20)",
+          "Resultary e0bdfaa72c7e, Finding and proof, mirror offset 0"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Original Eq. (20) has left value (a−1)cos(πx/(2b))+1 and right value c cos(π(x−1)/(2−2b)); x=b is assigned left",
+          "The right interior fixed-point equation is exactly the reflected left level problem with b→1−b and 1−a→c"
+        ],
+        "reasoning": "The sign convention and reflected parameter names do not create another map or two independent underlying minimization problems. The original numerical fixed-point-free test is the intersection of the strict inequalities a>A(b), c<C(b) in the exact algebraic formulation; its sampled regions are not an exact threshold formula.",
+        "searches": [
+          "Resultary: Lawnik Moysis Volos cosine interval map fixed point fold thresholds",
+          "Lawnik–Moysis–Volos DOI 10.3390/sym15071311, Eq. (20) and §4.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-map published figures are numerical, for selected parameters",
+          "The exact indexed e0bdfaa72c7e partition is for Eq. (15); later cosine records ea85f36942c0 and 7a01e2354ca8 concern, respectively, primitive two-cycles and a boundary specialization"
+        ],
+        "reasoning": "No exact matching table or statement was established in the bounded search. Numerical plots do not encode the fold equality cases or the full open-cube census; a two-cycle result is a different period and c=0 does not cover c∈(0,1).",
+        "searches": [
+          "Resultary: cosine piecewise interval map two attracting fixed points fold thresholds endpoint asymptotics",
+          "Resultary: Lawnik Moysis Volos cosine interval map fixed point fold thresholds",
+          "DOI 10.3390/sym15071311 §4.2 pp. 8–9"
+        ]
+      },
+      "rationale": "Lawnik–Moysis–Volos already state the exact map, branch geometry and numerical fixed-point-free regions. An earlier indexed result proves an exact two-fold census with identical local stability ordering for the fractional-power member, but its threshold formulas and breakpoint restrictions do not imply those for cosine. The supported distinct part is the exact cosine-specific partition and endpoint constants, in particular two sinks attainable at every interior breakpoint. The judgment does not grant novelty to generic convex/concave root counting.",
+      "residual_risks": [
+        "The 2024 follow-up full text was not independently accessible; no claim of its noncoverage or of exhaustive priority is made.",
+        "The bounded semantic searches did not establish another same-map complete partition; they are not proof that none exists."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL COVERAGE",
+          "evidence": "Exact cosine formula and switch convention, convex/concave geometry and numerical plots; the inspected discussion does not give the dual cosine folds or the endpoint laws.",
+          "identifier_or_url": "10.3390/sym15071311; https://mdpi-res.com/d_attachment/symmetry/symmetry-15-01311/article_deploy/symmetry-15-01311.pdf?version=1687852452",
+          "material_read": "§4.2 Eq. (20) and discussion, pp. 8–9, PDF text offsets about 32500–35796",
+          "method": "lawful publisher OA PDF text located by Eq. (20)",
+          "title": "A Family of 1D Chaotic Maps without Equilibria",
+          "trigger": "original same-object equation, convention and fixed-point claim"
+        },
+        {
+          "assessment": "ANALOGOUS RESULT FOR A DIFFERENT MAP",
+          "evidence": "Exact census and local stability types for Eq. (15), with breakpoint restrictions through its power parameter; no cosine specialization.",
+          "identifier_or_url": "e0bdfaa72c7e",
+          "material_read": "Finding, scope and proof, mirror offset 0",
+          "method": "Resultary local mirror",
+          "title": "Complete fractional-power fixed-point phase diagram for a discontinuous interval family",
+          "trigger": "earlier exact two-fold/four-root partition within the same map family"
+        },
+        {
+          "assessment": "UNRESOLVED ACCESS",
+          "evidence": "The frozen record reports an abstract covering a different construction, but this was not independently established in the comparison.",
+          "identifier_or_url": "https://doi.org/10.1007/s11071-024-09349-6",
+          "material_read": "No independent mathematical passage retrieved",
+          "method": "publisher/DOI page and PDF attempts encountered redirect failures; Crossref lookup returned HTTP 406",
+          "title": "Discrete one-dimensional piecewise chaotic systems without fixed points",
+          "trigger": "closely related 2024 follow-up by overlapping authors"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The original cosine family's published numerical equilibrium-free diagrams leave a natural exact classification gap. The sharp thresholds let a researcher choose or exclude fixed points and simultaneous sinks without parameter-grid uncertainty, including near either highly asymmetric breakpoint. Equality cases and the quadratic size of the coexistence windows at the corners add information not recoverable from a representative four-point example or the generic curvature bound. Value is local fixed-point geometry, not a claim about global chaos or security.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

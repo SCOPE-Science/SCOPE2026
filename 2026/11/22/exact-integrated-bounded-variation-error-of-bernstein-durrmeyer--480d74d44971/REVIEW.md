@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof derives a symmetric normalized Markov kernel, an exact crossing-mass formula for a unit jump, and its equality with a binomial mean absolute difference. The derivative with respect to the paired-Bernoulli disagreement probability is strictly positive, uniquely locating the maximizing jump at the midpoint. An exact central-binomial telescoping identity evaluates the maximum; the signed-derivative decomposition proves the global BV norm and equality rigidity. The checker corroborates low-degree formulas and signed finite-jump inequalities. Risk: the strict monotonicity and BV measure argument are analytic; numerical checks alone would not suffice.
+## correctness
 
-## Originality — PASS, with historical risk
-Wang and Zhou (2009), extending Zeng and Chen (2000), prove pointwise BV estimates for Durrmeyer–Bézier kernels, not the exact integrated scalar operator norm and equality classification. Öksüzer–Karsli–Taşdelen Yeşildal (2016) study image variation and convergence in variation, not \(\|M_nf-f\|_1\). Berdysheva–Dyn–Farkhi–Mokhov (2022), section 6.2, provide nonsharp integrated bounds for generalized integral operators; Liu (2014) gives pointwise rates for another modification. An existing sharp point-sampled Bernstein integrated norm concerns a different operator. Searches for binomial-absolute-difference, integrated-BV and alias formulations did not expose a dominating result. The complete 2000 Zeng–Chen and 1987 Guo papers were not inspected; their accessible descriptions do not resolve all possible historical overlap. Search absence is not proof of novelty.
+PASS
 
-## Value — PASS
-Integrated BV error gives an exact operator-independent calibration for arbitrary jump-bearing inputs. The full-degree formula, unique worst discontinuity, and \(\sqrt2\) asymptotic contrast with point-sampled Bernstein approximation connect signed-jump reduction, symmetric kernels and the mean absolute deviation of a binomial law. This is a complete natural worst-case invariant, rather than a chosen numerical instance or routine restatement of variation diminution.
+The nonnegative symmetric kernel is normalized in each variable. On either side of a unit jump its error has a definite sign, so integration gives twice the cross-cut mass. Integration of the Bernstein basis gives binomial tails with m=n+1, and the tail-sum formula for two independent Bin(m,s) variables yields E_n(s)=E|X-Y|/m. Each of the m Bernoulli differences is symmetric on ±1 with probability u=s(1-s) each and is otherwise zero. Differentiating the product law leaves m times the expected integer second difference of |.|, giving 2m Pr(S_(m-1)=0)>0 for the unnormalized expectation. This includes m=1, and the strictly largest response is at s=1/2. There X-Y has law Bin(2m,1/2)-m; summing positive deviations with (j-m)binom(2m,j)=m[binom(2m-1,j-1)-binom(2m-1,j)] telescopes to m binom(2m,m)/4^m. The signed derivative representation and Fubini bound the error by the integral of jump responses against |Df|. Equality forces |Df| to be supported exclusively at the midpoint, hence exactly the stated nonzero centered jumps plus constants modulo null sets. Stirling gives the stated correction and n=0 gives 1/2. An independently written standard-library calculation (`/workspace/reproductions/bernstein.py`) checked 375 degree/location pairs through n=24, comparing Bernstein antiderivatives with the random walk conditional on its number of nonzero moves and checking the strict midpoint maximum on the test mesh. The universal assertions are analytic, not an inference from that mesh.
 
-## Limits
-Classical real, unweighted one-dimensional Bernstein–Durrmeyer approximation only; no independent replication or historical-priority guarantee.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct content is the explicit coefficient at every finite degree and the exact equality family. Same-operator coverage exists for the reduction to a maximum over jump responses and for the asymptotic coefficient/localization. These overlapping claims and the underlying positive-kernel reduction are not credited as new. The strongest historical lead reports earlier sharp one-step work but the available statement comparisons do not establish that the central-binomial coefficient and unique finite-degree extremizer are covered for this kernel.
+
+## value
+
+PASS
+
+The exact coefficient calibrates the intrinsic integrated smoothing error of a canonical positive Markov kernel for every degree, not just the leading rate. The norm is actually attained, and rigidity says that only a centered discontinuity can realize it at any finite degree. Those two finite assertions furnish information that a rate or convergence of maximizing locations cannot supply.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

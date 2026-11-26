@@ -1,0 +1,175 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:09:43.359562Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 4–49",
+        "VERIFICATION.md and loewy_rank_verify.py (inspected, not executed)",
+        "Independent replay: python3 /workspace/branches/rank_and_word_replay.py (record 3 output)"
+      ],
+      "rationale": "For an ordered tuple with all products zero the joint image W lies in the common kernel K. On the locus of the two exact ranks the maps to W and K are regular: locally a nonzero maximal minor of the horizontal or vertical concatenation gives the corresponding Grassmannian chart. Recovering the flag from the tuple therefore inverts the incidence-bundle parametrization on the reduced stratum. Its fiber is the open subset of Hom(V/K,W)^ell where the horizontal concatenation is onto and the vertical concatenation is injective. The two rank inequalities are necessary and sufficient: for a≥b use an injective first map covering b basis vectors of W and the unused slots in the other ell−1 maps to hit the rest; for b≥a use a surjective first map and assign the remaining input vectors to distinct slots in the other maps. This works over every field and handles equality; a single zero rank forces the other to be zero. The flag dimension a(n−a)+b(n−a−b) plus the affine fiber dimension ell·a·b gives the claimed formula. A dense flag chart and the open bundle give rationality, and the nonempty open inherits geometric integrality and smoothness. For counting, simultaneous lattice inversion over allowable target image U and required contained kernel T counts maps from (V/K)/T into U in each term. The two Möbius signs and powers yield exactly the given sum and the flag choice gives the Gaussian prefactor. Transposition exchanges the horizontal and vertical ranks. A clean-room rank-one enumeration and explicit span counting for n=3, ell=2 agrees cell by cell at q=2,3,4, totaling 148, 1665, and 9136 respectively. The zero tuple at n=0 is included; no reducedness claim about the whole scheme is needed.",
+      "residual_risks": [
+        "The independent census uses dimensions where a single square-zero operator has rank at most one; the arbitrary-dimensional result rests on the flag parametrization and inversion, not those finite checks."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "7465760ed8a5 counts the same ordered closed-product tuples simultaneously by each individual rank and both exact joint dimensions.",
+          "Morrison gives rectangular-map geometry for two loops, Schröer classifies components of a matching two-loop ambient family, and Huang gives other pair counts; these inspected passages do not state the full framed joint census. Ram's zero-kernel condition is observability for a different pair of maps. The inspected component and Lusztig nilpotent quiver results concern different strata or conditions."
+        ],
+        "reasoning": "Actual dominance holds for the double-flag formula, not merely because the earlier primary papers treat quivers or broader ambient equations. A component classification or an unrefined count does not by itself yield the required point count.",
+        "searches": [
+          "Resultary 7465760ed8a5 double-flag enumeration; square-zero geometry and paired-matrix counting via Morrison §V, Schröer arXiv:math/0211293 and Huang arXiv:2110.15566; quiver and module varieties via arXiv:1407.3045 and arXiv:1701.01797; Ram arXiv:1509.08053"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 22189f7169b1, 6318719c095b, 7465760ed8a5 and 6deaf49eec33",
+        "Morrison §V; Schröer pp. 1, 3; Huang §3.1; Ram Def. 2.3; arXiv:1407.3045 and arXiv:1701.01797"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For each fixed target subspace of dimension i in 22189f7169b1, the inner kernel inversion of the frozen formula counts injections from a b-space into an ell·i-space, giving exactly the product of q^(ell·i)−q^j for j=0,…,b−1 in that source.",
+          "In 7465760ed8a5 set t=a, k=n−b and m=ell and sum each individual rank independently. Each sum of R_q over its rank is the number of all rectangular maps; the product thus gives the frozen q-power q^(ell·i·(b−j)). The two orders of choosing the flag give the same Gaussian prefactor."
+        ],
+        "reasoning": "These are exact algebraic identities for the counts, including degenerate ranks, not title or parameter matches. The first source's exact same open flag bundle also gives rationality by restricting to a dense trivializing flag chart. The second recovers the arithmetic theorem by a marginal of a stronger result.",
+        "searches": [
+          "Compare 22189f7169b1 offsets 200–2442 and 7465760ed8a5 offsets 230–2587 with RESULT.md lines 21–46"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In 22189f7169b1 take d=n, r=ell, c=b; its top dimension is n−a and its socle dimension is n−b. Its flag fiber and dimension agree with the frozen theorem.",
+          "6318719c095b takes radical dimension t=a and socle dimension k=n−b; it gives the matching joint distribution and transposition duality.",
+          "6deaf49eec33 refines by individual ranks and intersection dimension of the two images. That does not specify the rank of the vertical concatenation."
+        ],
+        "reasoning": "Top dimension and socle dimension are invertible changes of coordinates at fixed n, so the first two matches preserve the entire joint profile. The same-day two-loop image-intersection result does not preserve that information. On a fixed canonical flag the fiber is also an ell-Kronecker space without simple source/sink summands, but the original module can have a residual semisimple summand of dimension n−a−b.",
+        "searches": [
+          "Resultary exact title and aliases for radical dimension and socle codimension, framed top–socle profiles and square-zero local modules; compare 22189f7169b1, 6318719c095b and 6deaf49eec33"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "22189f7169b1 gives the exact Gaussian formula across all q,n,ell,a,b, 6318719c095b gives the same profile, and 7465760ed8a5 gives a finer all-parameter count."
+        ],
+        "reasoning": "A published coefficient formula parametrizes every table cell; there is no need for a literal printout of all finite-field profiles to demonstrate coverage.",
+        "searches": [
+          "Resultary joint radical/socle profile, exact top/socle census, double flag and individual-rank refinement"
+        ]
+      },
+      "rationale": "The exact claim has equivalent coverage in distinct indexed records. In particular the joint top–socle census has the same framed objects, feasible pairs, flag-bundle geometry and an algebraically identical point count. The double-flag enumeration explicitly counts a strictly finer profile and taking its marginal yields the frozen coefficient. This is a finding of substantive corpus coverage, not an attribution of historical priority. The compared exact records have later catalogue path dates; those dates are not evidence that the frozen author obtained the mathematics from them or that they were published first. The older primary literature inspected below was not shown to give the exact full profile.",
+      "residual_risks": [
+        "No chronology beyond catalogue path dates or relationship between the equivalent records was established; the verdict concerns verified coverage, not priority.",
+        "Historical Hall/quiver counting literature was not exhaustively surveyed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent coverage, not historical priority evidence",
+          "evidence": "Identical feasibility and reduced flag-bundle stratum; its inner factor counts injective stacked maps, exactly the frozen inner Möbius sum.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-joint-top-socle-census-of-square-zero-local-algebra-representati--22189f7169b1",
+          "material_read": "RESULT.md Finding and assumptions, offsets 200–2442",
+          "method": "Local mirror passage and formula comparison",
+          "title": "Joint top–socle census of square-zero local algebra representations",
+          "trigger": "Equivalent top and socle parameters; same geometry and ordered tuples"
+        },
+        {
+          "assessment": "Equivalent arithmetic distribution with additional asymptotic scope",
+          "evidence": "After t=a and k=n−b the Möbius profile is the same; transposition gives the same duality.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-radical-socle-profiles-and-a-finite-field-duality-law-for--6318719c095b",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Local mirror statement comparison",
+          "title": "Exact radical–socle profiles and a finite-field duality law for square-zero local modules",
+          "trigger": "Exact profile under dimension rather than codimension convention"
+        },
+        {
+          "assessment": "Stronger arithmetic coverage",
+          "evidence": "Individual ranks enter through a product of rank-counting functions; summing each restores the power counting all rectangular maps.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-double-flag-enumeration-of-pairwise-annihilating-square-zero-mat--7465760ed8a5",
+          "material_read": "RESULT.md Finding, scope and proof §1, offsets 230–2587",
+          "method": "Local mirror formula comparison and marginalization",
+          "title": "Double-flag enumeration of pairwise annihilating square-zero matrix tuples",
+          "trigger": "Potential dominating full individual-rank count"
+        },
+        {
+          "assessment": "Different refinement",
+          "evidence": "The two individual ranks and image intersection do not specify the common kernel codimension.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-joint-jordan-rank-and-radical-image-intersection-census-for-squa--6deaf49eec33",
+          "material_read": "RESULT.md Finding and proof, offsets 0–4447",
+          "method": "Local mirror hypothesis and invariant comparison",
+          "title": "Joint Jordan-rank and radical-image intersection census for square-zero two-loop modules",
+          "trigger": "Same-day closely related framed rank census"
+        },
+        {
+          "assessment": "Prior rectangular-map structure, not exact joint framed enumeration in inspected passages",
+          "evidence": "Uses two rectangular maps from a radical complement to the radical and discusses modules, components and open orbits.",
+          "identifier_or_url": "https://msp.org/pjm/1980/91-1/pjm-v91-n1-p17-s.pdf",
+          "material_read": "Abstract p. 199 and §V pp. 211 onward near offset 29779",
+          "method": "OA primary text comparison",
+          "title": "The scheme of finite-dimensional representations of an algebra",
+          "trigger": "Prior structural geometry for the two-loop square-zero algebra"
+        },
+        {
+          "assessment": "Component and Jordan-type results rather than the joint dimensions here",
+          "evidence": "The parameters u,v in V(n,u,v) are nilpotency exponents, not a,b.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0211293",
+          "material_read": "Abstract p. 1 and Jordan stratification passages p. 3, near offset 5293",
+          "method": "OA primary text comparison",
+          "title": "Varieties of pairs of nilpotent matrices annihilating each other",
+          "trigger": "Same ambient equations at nilpotency exponents two"
+        },
+        {
+          "assessment": "Different counts and conditioning",
+          "evidence": "The general AB=BA=0 count fixes nullity of one operator and does not impose both squares zero or fix both joint dimensions.",
+          "identifier_or_url": "https://arxiv.org/pdf/2110.15566",
+          "material_read": "Abstract p. 1 and §3.1 p. 8, offsets 381 and 24727",
+          "method": "OA primary text comparison",
+          "title": "Mutually annihilating matrices, and a Cohen–Lenstra series for the nodal singularity",
+          "trigger": "Exact finite-field annihilating-matrix counts"
+        },
+        {
+          "assessment": "Different map system",
+          "evidence": "Observability imposes the common-kernel condition on iterates CA^i, not an arbitrary ell-family.",
+          "identifier_or_url": "https://arxiv.org/pdf/1509.08053",
+          "material_read": "Introduction p. 1 and Definition 2.3 p. 3, offsets 900 and 7091",
+          "method": "OA primary text comparison",
+          "title": "Counting zero kernel pairs over a finite field",
+          "trigger": "Plausible equivalent zero-kernel condition"
+        },
+        {
+          "assessment": "Ambient and fixed-top geometry, not the exact framed arithmetic profile in passages read",
+          "evidence": "Describes irreducible components for J²=0 and fixed-top module varieties.",
+          "identifier_or_url": "https://arxiv.org/pdf/1407.3045",
+          "material_read": "Abstract p. 1 at offset 111 and fixed-top Grassmannian discussion near offset 1896",
+          "method": "OA primary passage comparison",
+          "title": "Bleher–Chinburg–Huisgen-Zimmermann on module varieties for algebras with radical square zero",
+          "trigger": "Potential dominating geometry for general algebras with J²=0"
+        },
+        {
+          "assessment": "Different nilpotent quiver varieties",
+          "evidence": "Point counts of Lusztig nilpotent quiver varieties via Kac polynomials do not identify the same exact loci in the inspected passage.",
+          "identifier_or_url": "https://arxiv.org/pdf/1701.01797",
+          "material_read": "Abstract p. 1, offset 116",
+          "method": "OA primary passage comparison",
+          "title": "Bozec–Schiffmann–Vasserot on counting points of nilpotent quiver varieties",
+          "trigger": "Potential general point-counting framework"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 4–31 and 36–55",
+        "Morrison §V and the scope of the compared component and pair-counting results"
+      ],
+      "rationale": "The theorem addresses a natural family of representation varieties over arbitrary fields. The radical and socle together specify which canonical flag occurs; the exact labeled arithmetic profile, sharp simultaneous feasibility and structure of all reduced strata are informative beyond a rank identity, one field or a component count. This is a judgment of mathematical usefulness of the theorem, not of added originality against the equivalent indexed results.",
+      "residual_risks": [
+        "No conclusions on closure incidence, representation isomorphism classes or the entire representation scheme are derived."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Scientific review: uniform cubic-center period crossover
+# Independent mathematical audit
 
-## Correctness — PASS
-The invariant \(H=\tfrac12 e^{\beta x^2}y^2+\int_0^x e^{\beta s^2}(s+\gamma s^3)ds\) has zero derivative along the stated polynomial flow. Its strictly increasing, proper even potential gives exactly one periodic oval per positive turning amplitude. The time-preserving canonical coordinate transforms the system to an odd restoring force for which \(G(q)/q\) is strictly increasing, proving monotonicity by an exact period quadrature. The normalized boundary-layer formula is obtained by changing \(u=A^2-x^2\) in the exact physical-time period integral. Its Taylor expansion and the exponentially small complementary region yield an \(O_\beta(A^{-4})\) *relative* remainder, uniform in \(r=\gamma A^2/(1+\gamma A^2)\in(0,1)\); all three coefficient integrals are evaluated exactly. The standalone program confirms the algebraic identities and 18 representative numerical quadratures. No finite experiment is used to prove a universal assertion.
+## correctness
 
-## Originality — PASS within inspected evidence
-The Appis–Llibre classification theorem covers global-center **existence** for these cubic parameters, not amplitude-dependent period monotonicity or the quantitative uniform two-term law. The two closest publicly accessible cubic period results already cover \(\gamma=0\) by direct specialization, so that axis is explicitly removed from the novelty claim. The first is for a velocity-only cubic factor and has no \(-\gamma x^3\) restoring term; the second likewise has no positive cubic restoring term. The inspected quintic theorem yields strict period decrease and a related **leading-order** high-amplitude law for a genuinely different polynomial field, but no present cubic \(\gamma A^2\) crossover coefficient. The new theorem's simultaneous \(\gamma>0\) asymptotic and exact first relative correction are not implied by those results. General Liénard period-function criteria are a residual equivalence risk; unindexed general theorems or other primary literature could change priority.
+PASS
 
-## Mathematical value — PASS
-The turning-amplitude period is a natural invariant of the global foliation; existence of periodic levels alone does not determine it. An actual two-scale transition, between inverse-amplitude and inverse-square-amplitude behavior, is resolved with a uniform estimate valid even for amplitude-dependent restoring strength. The first correction distinguishes the axis crossover quantitatively rather than merely changing the principal power. Strict monotonicity completes period uniqueness for the entire positive-parameter family. This is a motivated global dynamical classification with an explicit sharp correction, not a parameter renaming or finite table.
+The displayed energy is conserved, proper, and has a smooth connected level oval through each (A,0); the vector field never vanishes there. The unchanged-time coordinate q(x) with q'=exp(beta x²/2) eliminates the squared-velocity term. The derivative of xq'(x)/(1+beta x²) is strictly less than q' for x>0. With G'=1+(beta+3gamma)x²+beta gamma x⁴ this gives qG'-G>0 and strict increase of G/q, hence strict decrease of the scaled canonical period integral. Dividing its inner integral by 1-s² leaves a positive smooth factor on local amplitude ranges including s=1, so the period is smooth. The cubic coefficient in the canonical force is gamma+beta/3; expanding the integral yields the stated -(beta+3gamma)A²/8 small-amplitude correction. To check the large-amplitude coefficient, the turning coordinate u=A²-x² yields the exact integrand 2(1-u/A²)^(-1/2)(E0-rE1/A²)^(-1/2) for A sqrt(1+gamma A²) T. For u<=A, a first-order Taylor expansion has error bounded by a constant times A^(-4)u² E0^(-1/2), uniformly in r in [0,1]. For A<=u<=A²/2 the two correction factors are bounded. Beyond A²/2 the weighted exponential integral in the second denominator is bounded below by half its integral over [u/2,u]; the first denominator leaves only an integrable endpoint factor. Both tails are exponentially small uniformly in r. With v=beta u, f(v)=(exp(v)-1)^(-1/2), the needed moments are integral f=pi and integral v f=2pi log 2 by z=exp(-v) beta integrals. Since (exp(v)-1)^(-3/2)=-2f'-f, integrating v times this identity gives 2pi(1-log 2), which yields the stated r-dependent coefficient. Thus the normalized remainder is uniform for fixed beta even when gamma varies with A. The endpoints of the strictly decreasing period are 2pi and 0, proving the claimed bijection and uniqueness at each period.
 
-## Closest literature and limits
-The relevant defining article was read through its full publicly available introduction, center classification theorem, and global-center proof; its publication date is the verified public date of April 5, 2024. The closest three publicly available mathematical results were read in full RESULT form and compared by parameter reductions and implication. A general 2013 period-function paper was accessible through its abstract; it may contain broader sufficient criteria but was not used to infer full-text noncoverage. The \(\gamma=0\) axis is previously covered, and neither uniqueness of cycles in larger cubic families nor uniformity as \(\beta\to0\) is asserted. Independent audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The global center, the restoring-free two-term result, and same-family leading and monotonicity assertions have direct overlap in the inspected records. The supported distinct claim is the gamma>0 explicit relative correction with a uniform O_beta(A^-4) error across the crossover, not these overlapping portions taken separately.
+
+## value
+
+PASS
+
+The positive-restoration term changes the large-amplitude period scale. An explicit correction and an error bound valid through gamma A² of order one, as well as in its small and large regimes, quantify when fixed-parameter laws can be used and what they miss. This is an original-time period invariant in a classified natural cubic family, not merely reidentifying its phase portrait or recomputing the known restoring-free coefficient.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

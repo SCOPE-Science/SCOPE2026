@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** The self-energy follows by explicit inversion of the peripheral \(2\times2\) dimer blocks, and the one-channel scattering equation yields the stated rational transmission probability. Four cubic endpoint signs and degree three classify every in-band perfect-reflection root with the sharp \(m=3\) threshold. The complete embedded \(\ell^2\) eigenspace follows from decay on the free wire and a rank-one hub constraint. The weak-flux expansion has two transverse local half-height crossings and supplies the stated nonsymmetric coefficients. The verifier independently solves full internal linear scattering systems and passed 345 checks. These finite checks do not prove the universal statements; the arguments in RESULT.md do.
+## correctness
 
-**Originality: PASS on inspected evidence, with historical priority risk.** Relevant full-text sources include the 2005 parallel triple-dot and N-dot analysis (https://arxiv.org/abs/cond-mat/0508727), the 2006 open Aharonov–Bohm ring analysis (https://arxiv.org/abs/cond-mat/0610197), the 2006 side-chain wire study (https://arxiv.org/abs/cond-mat/0609082), and the 2010 side-coupled continuous-ring study (https://arxiv.org/abs/1010.1118). These address generic Fano/BIC mechanisms or different device topologies; the examined materials do not supply the exact magnetic common-hub bouquet transmission polynomial, the sharp three-loop in-band census, or its explicitly asymmetric \(m\)-dependent width. General finite-rank Schur-complement theory is acknowledged; the general method is not claimed to be new. An earlier equivalent bouquet specialization remains possible.
+PASS
 
-**Mathematical value: PASS.** A natural family of flux-threaded quantum graph interferometers has an exact all-size phase boundary for the number of complete reflection notches, a simultaneous protected BIC census, and a calculable nonsymmetric response to weak flux. The sharp minimum \(m=3\) and inverse-loop-width scaling distinguish the structural classification from routine enumeration of a few resonances; the exact all-size count and linewidth are meaningful in coherent transport design. The result is one-particle scattering, not a finite-temperature transport or interacting-electron theorem.
+For the stated wiring and gauge, the pair Schur term is 2(E+c)/(E²−1), so the hub diagonal resolvent is (E²−1)/F_m. Matching left and right plane waves across the wire contact gives transmission (4−E²)/(4−E²+V²) with V this resolvent. F_m(−1,c)>0>F_m(1,c) at generic flux; the two outer roots are separated from the central root by ±1. The signs at ±2 and at infinity then give the three, threshold two/one, and uniform one-notch regimes; an edge root at equality is excluded. Square summability inside the band forces both lead tails, then the contact and hub, to vanish. The sole freedom is in the dimer ±1 eigenspaces, with one linear constraint proportional to 1±e^{iφ}, giving dimensions m−1 (the record's eigenfunction counts are multiplicities) and the stated rank drops. At c=±1 the common factor cancels and the remaining quadratic poles are outside the open band for m≥3. With E=−1+sε the leading cubic term is 2ε[m−(m−1)s] and E²−1=−2sε+O(ε²); this gives the stated reflection profile. The two transverse half-level roots have denominators m−1±1/√3, and the conversion ε=φ²/2+O(φ⁴) gives the claimed full width and ratio. These expansions hold at fixed m, not uniformly in m. The frozen verification and full-system numerical checker were inspected; the reported 345 assertions are supporting samples, not an independently replayed proof.
 
-**Closest-prior and limits.** The 2005 parallel-dot, 2006 open-ring, 2006 Fibonacci-wire and 2010 side-ring studies establish the physical context but use different geometries/observables. Prior specific BIC symmetry principles do imply that destructive coupling can protect modes, not the polynomial root census or exact asymmetric half-widths here. The one-contact graph is exactly specified and the source dates are based on first public arXiv versions rather than later journal metadata. Full historical novelty cannot be certified against every obscure article.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass for the exact open-system classification, particularly its full propagating-band census, endpoint threshold and asymmetric weak-flux scaling. The Schur method, Fano/BIC mechanisms, and even the corresponding closed-device spectral determinant are not distinct claims. No temporal priority is inferred from catalog dates.
+
+## value
+
+PASS
+
+The natural finite magnetic side device provides an exact benchmark for how compact dark-state multiplicity and propagating reflection can coexist without tracking each other. The smallest bouquet with one notch at every generic flux and the explicit asymmetric collapse toward exact transparency are useful parameter boundaries not supplied by a generic Fano ansatz. The contribution is these quantitative distinctions, not the elementary reduction alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

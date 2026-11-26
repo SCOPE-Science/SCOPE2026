@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof establishes the signless-Laplacian walk decomposition, distance-two positivity, the exact distance-three factor, and strictly decreasing edge cubics for all strictly positive real weights. The pivotal inequality is \(c_e^2<2(d_u+d_v)b_e\), proved from local incident-weight squares, not inferred from finite trials. Positive-definiteness of the RK4 scalar polynomial covers diagonals. The supplied exact-rational script independently checks 629 finite trees and 16,090 vertex pairs. Finite tests are supplementary only.
+## correctness
 
-## Originality
-PASS on evidence inspected, with residual priority risk. Full result statements for unweighted trees (published-finding corpus 2026/10/25) and unweighted bipartite graphs (published-finding corpus 2026/11/8) were compared, along with the general first-root technique of Horváth–Song–Terlaky (2014) and positivity-preserving graph-Laplacian integration of Blanes–Iserles–Macnamara (2021). Those conclusions do not state the arbitrary-real-weight criterion or prove the weighted strict edge discriminant. Weighted graph approximations, uncatalogued work, and independent priority assessment remain unresolved.
+PASS
 
-## Value
-PASS. Heterogeneous conductances are intrinsic to diffusion discretization and reaction/transport networks, rather than an artificial extra parameter. The exact local nonreentrant criterion yields an all-timestep positivity guarantee while distinguishing independent edge and three-path failure mechanisms under rate imbalance. It is limited to completed classical RK4 on undirected trees, not a universal SSP method bound.
+Bipartite conjugation turns Laplacian powers into weighted walk sums with the sign set by distance parity. Uniqueness of paths gives the distance-three coefficient and the positive distance-four entry. For distance two, the contribution of two stays alone gives a quadratic coefficient at least 2s²/3; its discriminant with the lower-order terms is strictly negative. For an edge, enumerate the one-edge walk with stays and the three possible backtracking families (across the edge, or via a neighbor on either side). In the weighted degree notation x,y,s=x+y, these give 3xy ≤ c ≤ 2s²−3xy and b ≥ s(c−xy). Thus c²/(c−xy) ≤ c+3xy/2 < 2s², which gives a strictly negative discriminant for g′ and hence a unique positive zero of g. The scalar RK4 sum-of-squares identity gives positive diagonals, entries beyond distance four are zero, and L annihilates the constant vector. This proves the inclusive minimum horizon and permanent failure past it, including trees with no three-edge path. Independently computing the matrix polynomial at the path threshold confirmed the (1,1,1) and (4,1,1) examples and the latter's cubic; (2,1,1) also gives a genuinely nonuniform path-controlled example, with all three edge polynomials positive at h=1/2. Replay: python3 /workspace/replay/checks.py 5. The frozen log is only a finite supplementary check.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The local formula and nonreentry mechanism for unit weights are already covered. The supported increment is the sharp all-step theorem including arbitrary heterogeneous symmetric conductances and the conductance-dependent edge bound, not the first identification of edges and three-edge paths. The best-of-knowledge comparison uses the matching catalog statements; unavailable full texts do not certify noncoverage.
+
+## value
+
+PASS
+
+Heterogeneous conductances arise naturally in graph diffusion. An exact row-stochasticity horizon, expressed by finite local scalar tests and excluding any recovery of positivity, answers more than a sufficient initial step bound. The checked nonuniform paths demonstrate that the active obstruction can change with weights on fixed topology. The result makes no claim about internal stages, stability radii or cyclic weighted networks.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

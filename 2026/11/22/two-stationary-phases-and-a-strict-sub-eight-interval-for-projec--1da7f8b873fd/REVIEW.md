@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is a complete exact profile for a fixed natural family. Axial/diagonal facet areas yield the seven-generator projection body. Enumeration of every generator determinant and two exact clipping formulas gives the rational invariant. Descartes substitutions prove one critical root in each open geometric regime; exact endpoint signs, continuous derivatives at the cuboctahedron and a positive Bernstein certificate prove the extremum and eight-level crossing statements. The supplied exact-algebra verifier and independent three-dimensional hull checks passed; numerical root approximations are not being used as proof.
+## correctness
 
-## Originality — PASS, with historical limits
-The primary source by Saroglou (2011) is a class-level projection-body invariant theorem; its entire text was not available for direct comparison, although its publisher abstract and a related arXiv theorem were accessible. Gantapara and coauthors' 2014 complete truncation-model paper addresses packings, orientation and asphericity. Relevant published full RESULT documents address directional brightness extrema (`f41e9f8b3783`), silhouette vertex counts (`23b7c8205147`), maximal tetrahedra (`9ba1a511dacf`) and the single regular truncated-octahedron projection-body volume (`ef8f8ba8bf3f`). That known special-case value is explicitly credited. None of the inspected statements supplies the full rational projection-volume law, its two unique interior stationary points or its non-zonoidal sub-eight interval. Actual published-finding corpus and primary-source searches were performed, but unindexed priority and an inaccessible general brightness manuscript remain risks; lack of a hit alone does not demonstrate novelty.
+PASS
 
-## Mathematical value — PASS
-This concerns an established affine-invariant volume, not an arbitrary constructed statistic. The cube–octahedron interpolation passes canonical solids and the regular truncated octahedron while keeping cubic symmetry. Two strict interior turning points, an unexpectedly nonregular global minimum, and a full non-zonohedral sub-eight region distinguish the exact profile from a routine isolated evaluation; the result gives a natural benchmark for projection-body inequalities and geometric deformation studies.
+At 1<=t<=2 the axial facet is a diamond of area 2(t-1)^2 and the diagonal facet is an octant triangle with three disjoint corners removed; for 2<=t<=3 axial facet area loses four right triangles, and the diagonal facet is a cut-corner triangle with area sqrt(3)(3-t)^2/2. Removing six disjoint caps from the octahedron or eight tetrahedra from the cube gives the two V(t) formulas. Cauchy's area formula pairs antipodal facets, giving the three axial and four diagonal symmetric generators with the specified coefficients and no residual factor of two. I enumerated determinant magnitudes using the alternate diagonal representatives (1,±1,±1); the independent sum is 8a^3+96a²b+192ab²+128b³. The replay python /workspace/reproduce_frozen.py independently factors both derivatives and gives their common t=2 value 108/125. The two displayed bijective rational substitutions give one coefficient sign change each, with opposite signs at the interval endpoints; this proves exactly one critical point in each interval. The denominators have opposite signs before cubing, producing the asserted decrease/increase/decrease. As an independent upper-bound check on [2,3], set s=3-t. The profile is (8-3s^4+3s^6/4)/(1-s³/6)^2; subtract its numerator from nine times the denominator to obtain 1-3s³(1-s)-s^6/2, at least 47/256 on [0,1] since s³(1-s)<=27/256. Hence the value 9 is unique at 1. Monotonicity, P(3/2)=127/16<8, P(2)=207/25>8 and P(3)=8 give the unique global minimum and both level-eight crossings, including no additional crossings strictly after t=2. The diagonal facet vertices for 1<t<2 are the permutations of (1,t-1,0); their centroid is (t/3,t/3,t/3) and central symmetry forces t=3/2, so the strict interval contains nonzonotopes. The independent replay confirms all displayed critical/crossing approximations; root counts are analytical, not inferred by numerical sampling. Frozen checker inspected, not run.
 
-## Scope and limitations
-Only the specified three-dimensional family and the nonpolar projection-body volume are covered. No universal Petty or Brannen inequality is proved. Primary-source access was limited for two identified works; independent mathematical validation remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best of current knowledge, the distinct result is the full two-branch classification with globally compared stationary phases and a precise strict sub-eight interval. The first-branch support function and mechanically determined volume numerator, the regular truncated octahedron value, and the endpoint values are credited as covered components. The originality verdict is not for any of those components alone.
+
+## value
+
+PASS
+
+The interpolation joins two canonical solids and crosses a facet-combinatorics change, and the eight benchmark is independently motivated by the sharp zonoid bound. An exact two-regime classification detects a nonregular minimizer and a secondary maximum while isolating all sub-eight members. This is substantially more than tabulating endpoints, recomputing the regular special member, or inferring an unspecified neighborhood from continuity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

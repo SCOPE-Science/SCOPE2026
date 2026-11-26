@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Computational and deductive verification
+# Independent mathematical audit
 
-Run `python3 verify_free2.py` using Python 3 with only standard-library modules. The script generates each reduced-row-echelon subspace of the ambient space for \((r,q)=(1,2),(1,3),(2,2),(2,3)\), uses the explicit ordered-word product to check closure, and separately tests left and right multiplication by each standard basis element to determine ideal status. It compares every dimension coefficient and every projected-dimension count against both formulas.
+## correctness
 
-The ambient subspace enumerations contain respectively \(5\), \(6\), \(2825\) and \(56632\) subspaces. At \((r,q)=(2,2)\), the exact subalgebra dimension profile is \((1,15,59,99,43,3,1)\), giving \(221\) subalgebras and \(77\) ideals; at \((r,q)=(2,3)\), the profile is \((1,40,238,508,157,4,1)\), giving \(949\) subalgebras and \(229\) ideals. The script also evaluates the Gaussian formulas for several larger parameters, including nonprime prime powers as integers in the combinatorial formulas only.
+PASS
 
-These finite checks do not establish the identities for arbitrary \(r\) or \(q\). Their proof requires the graph classification, the tensor-subspace dimension and the uniform Gaussian estimates given in `RESULT.md`. The code performs exhaustive arithmetic only over the prime fields \(\mathbb F_2\) and \(\mathbb F_3\); it does not implement the field \(\mathbb F_4\), and evaluating the closed formula at \(q=4\) is not an exhaustive algebra enumeration over that field. No independent external audit has been performed.
+The repaired finding is the fixed-q concentration and ratio, with the finite enumerators retained only as attributed input. The graph map from U to W/T parametrizes all linear subspaces, including nongraded ones, and the required tensor subspaces have dimensions u² and 2ru−u². For m=r², zero projection contributes G_m to both totals. Gaussian Pascal gives S_1=[r choose 1]_q(G_m−G_{m−1}); completing the square bounds the sum of higher subalgebra strata by O_q(r(m+1)q^(m²/4−m/4)). In the positive-projection ideal terms the free tensor dimension is (r−u)², giving a bound with exponent m²/4−r³+O(r²). Both totals are negligible relative to G_m on these respective tails since G_m is bounded below by q^floor(m²/4) and comparable above to it with fixed-q constants. This yields the two concentration limits and the ratio with leading constant q−1.
+
+## originality
+
+PASS
+
+Pass applies to the repaired asymptotic claim only. The original presentation of the complete finite-field enumerators as part of the novelty fails against exact statement-level catalog coverage: record 48b9d8c23c72 uses the identical tensor-square product and gives the two identical joint spectra. The replacement attributes those formulas and claims only the opposite typical projections and the sharp ideal/subalgebra proportion, not stated in the matching source or mechanically obtained by renaming its parameters.
+
+## value
+
+PASS
+
+With the exact graph census credited to prior work, the concentration limits explain how the one-direction strata change when imposing ideal closure. They determine not just that ideals are rarer, but that the probability a uniform subalgebra is an ideal is asymptotic to (q−1)q⁻ʳ with that leading constant, despite the enormous numbers of both types. This is a quantitative structural difference for a natural free family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

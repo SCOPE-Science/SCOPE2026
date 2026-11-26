@@ -2,7 +2,7 @@
 
 ## Finding
 
-Consider the deterministic seasonal two-patch fishery defined below. There is an exact critical protected-area fraction \(R_c\in(0,1)\), above which **every finite constant harvesting effort is sustainable** in the sense of a strictly positive globally attracting yearly biomass, whereas each \(0<R<R_c\) has a unique finite maximum sustainable effort \(E_*(R)\). More precisely, as the protected fraction increases toward \(R_c\) from below,
+Consider the deterministic seasonal two-patch fishery defined below. There is an exact critical protected-area fraction \(R_c\in(0,1)\), at and above which **every finite constant harvesting effort is sustainable** in the sense of a strictly positive globally attracting yearly biomass. For each \(0<R<R_c\), the sustainable efforts are \(0\le E<E_*(R)\), so the unique finite cutoff \(E_*(R)\) is a supremum, not a sustainable effort itself. As the protected fraction increases toward \(R_c\) from below,
 
 \[
 \boxed{\lim_{R\uparrow R_c}(R_c-R)E_*(R)=\frac{mR_c(1-R_c)(2+mR_cT)}{q(1+mR_cT)}.}
@@ -37,7 +37,7 @@ Then the yearly total biomass \(N_n\) follows
 N_{n+1}=\frac{rF(E,R)N_n}{1+\beta N_n}.
 \]
 
-By *sustainable* we mean that every positive yearly initial stock converges to a **strictly positive** fixed point. Thus the boundary \(rF=1\) is not sustainable: every positive trajectory eventually goes to zero there. \(E_*(R)\) is the threshold where \(rF=1\); sustainability for \(R<R_c\) holds exactly when \(0\le E<E_*(R)\).
+By *sustainable* we mean that every positive yearly initial stock converges to a **strictly positive** fixed point. Set \(s=rF(E,R)>0\). Then \(N_{n+1}^{-1}=s^{-1}N_n^{-1}+\beta/s\). If \(s>1\), every positive trajectory converges to \((s-1)/\beta\); if \(s\le1\), the reciprocals diverge and biomass converges to zero. At equality the reciprocals increase by exactly \(\beta\) per year. \(E_*(R)\) is the threshold where \(rF=1\), so it is excluded from the sustainable interval.
 
 The constant \(q\) merely converts harvesting effort into an instantaneous mortality rate. There is no finite exogenous equipment limit on \(E\); “all finite efforts” does not claim a mathematically admissible infinite effort.
 

@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T19:53:50.688232Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The curvature-active set is exactly the kernel of within-cell second differences. Interpolating k² at the knots makes the other second differences strictly positive; independent active rows and positive multipliers give an open projected region with local derivative P_m. The Gram matrix scaled by 9 has endpoint/interior diagonals 14/19 and off-diagonals 4. After normalizing by its diagonal, the largest absolute off-diagonal row sum is 8/19; finite Neumann powers of degree less than |i−j| cannot contribute to the (i,j) entry. This proves a uniform exponential bound. For a centered row, every coefficientwise subsequential limit solves the infinite tridiagonal equation with the source at the origin, and the bounded solution is unique by strict diagonal dominance on ℓ∞. Its coefficients are g_h=9r^{|h|}/(3√33), where 4r²+19r+4=0 and −1/2<r<0. The uniform bound applies also to the interpolated row, so dominated convergence justifies passing to the absolute sum. Each three-site block directed away from a knot h on one side contributes |g_h|, since the two interior weights have its sign and the next knot has the opposite sign. This gives (9+2√33)/11. On the whole infinite grid, shifts by three sites preserve the spline space, all knot rows have this same mass, and interpolating output rows cannot increase it; the sign input attains it in ℓ∞. The statement concerns shift invariance by a whole cell, not by one sample. The full convex cone projection is continuous piecewise affine, so its global coordinatewise constant is the maximum derivative norm on its full-dimensional regions. The second-difference map is onto: any active pattern with all other curvatures positive is realizable, and giving strictly positive active multipliers yields an open region. Appending a site with inactive final curvature extends each derivative by direct sum with the identity, proving L_{n+1}≥L_n. The result is an exact norm of the infinite face projector and only a lower bound for the full convex-regression sensitivity.",
+      "status": "PASS",
+      "verification": "Inspected CHECK.py without executing it. Independent rational tridiagonal solves produced centered-row sums 21/13 at m=2, 431/239 at m=4, 8013/4333 at m=6, and 145991/78503 at m=8 (also checked odd sizes 3,5,7). Replay /workspace/branches/e3ecf1e1-c7f5-4960-87e4-bf83549ca479/finite_row_recheck.py, companion RECHECK.md. Finite agreement corroborates the Gram construction, not the limiting proof or the unrestricted optimal constant."
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Passenbrunner Theorem 1.4 gives order-dependent upper bounds uniformly in knots for continuous periodic orthoprojection.",
+          "The related Shen–Wang manuscript §III Theorem 3.1 gives a uniform coefficient Lipschitz upper estimate of 3 for penalized convex spline fitting on the binned design. The exact SIAM DOI article was not accessible; the author PDF was not verified as a version of it."
+        ],
+        "reasoning": "An upper estimate alone cannot give the exact loss amplification of a particular face or a positive lower bound at that value. In the single-observation-per-bin, zero-penalty limit the related manuscript's estimate supplies at most an upper bound and does not dominate the new lower bound in its logical direction.",
+        "searches": [
+          "Primary search: Lipschitz convex B-spline convex regression uniform bound projection sup norm Lipschitz least squares Wang Shen convex sequence",
+          "arXiv:1608.06720v2 Theorem 1.4; doi:10.1137/120887837; related exact author manuscript ACC12_conv0204.pdf"
+        ]
+      },
+      "checked_sources": [
+        "Resultary local index and exact primary files 45dce1453393 and ce52dee09ef7",
+        "Passenbrunner arXiv:1608.06720v2 §§1.1–1.2 and Theorem 1.4",
+        "Shen–Wang related author manuscript §II and Theorem 3.1",
+        "Bibliographic identification of doi:10.1137/120887837"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier exact convex-regression source gives the general active-set mechanism and works out spacing two for its lower bound; it does not optimize all spacings or supply the 19/9 and 4/9 discrete period-three kernel. The broader results examined provide upper control for different or more general models, not a dominating lower bound."
+        ],
+        "reasoning": "Lawful primary comparisons show no theorem substituting to give this radical. Exact maximization over row signs and summation of the three-site kernel remain necessary. The improvement is from approximately 1.7071 to 1.86265 and concerns only a proven lower bound for the nonlinear projector.",
+        "searches": [
+          "Resultary 45dce1453393 §§1–2,5; ce52dee09ef7 Finding and Assumptions; Passenbrunner Theorem 1.4; Shen–Wang Theorem 3.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact earlier Resultary 45dce1453393 treats the same Euclidean projection onto the cone of convex sequences. Its active-set projectors and row sums are the same formulation, but its asymptotic construction is alternating, with spacing two.",
+          "The exact earlier Resultary ce52dee09ef7 uses piecewise-affine periodic functions on a continuum, the Lebesgue inner product, and measures output slope rather than fitted sample coordinates."
+        ],
+        "reasoning": "The knot-space counting-measure Gram inverse is another formulation of the period-three local derivative; a continuous periodic mass matrix and slope functional are not the same operator. The earlier two-site-cell computation cannot identify three-site-cell row mass without a different Green kernel and sign calculation.",
+        "searches": [
+          "Resultary: convex least squares regression equally spaced sup norm Lipschitz sensitivity discrete spline orthoprojector periodic knots five-point nonlocal instability rough-input slope amplification",
+          "Primary search: convex regression equally spaced sup norm Lipschitz projection convex sequences discrete least squares discrete linear spline orthoprojector regular grid operator norm calculator period three 33 Lipschitz"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest exact local record gives L_2 through L_5 as 1,4/3,7/5,11/7 and an asymptotic alternating-face bound of 1+1/√2. The separate continuous-spline record concerns a different slope gain. The indexed corpus returns the stated period-three coefficient in the target record."
+        ],
+        "reasoning": "Neither finite optimal values through five points nor the earlier two-site-cell asymptotic constant tabulates the centered knot row for the three-site-cell projector, which starts at seven points. No independently applicable earlier exact table was found in the bounded inspection.",
+        "searches": [
+          "Resultary local query for period-three curvature, discrete spline projection and convex-regression sensitivity; exact Resultary 45dce1453393 §§1–2,5 and ce52dee09ef7 Finding"
+        ]
+      },
+      "rationale": "The closest exact convex-sequence result gives a weaker alternating-face lower bound and does not optimize this period-three face. Known continuous-spline bounds and constrained convex spline stability theory do not determine the exact discrete coefficient or the improved lower bound. This is a bounded comparison, not a claim of historical uniqueness or of a new general stability theory.",
+      "residual_risks": [
+        "Earlier discrete least-squares spline or Green-function literature under other terminology may contain the same exact norm or a dominating convex-regression lower bound.",
+        "The exact SIAM convex-spline article was inaccessible; the related author manuscript is not represented as that article."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct antecedent, not the claimed spacing-three constant",
+          "evidence": "Finite comparisons go through five sites; the asymptotic example activates alternating second differences and gives 1+1/√2.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-five-point-nonlocal-instability-and-a-persistent-lower-bound-for--45dce1453393/RESULT.md",
+          "material_read": "§§1–2 and 5 in RESULT.md",
+          "method": "Exact primary Resultary local mirror",
+          "title": "Five-point nonlocal instability and a persistent lower bound for convex least-squares projection",
+          "trigger": "Same cone and directly comparable sharp finite values and asymptotic bound"
+        },
+        {
+          "assessment": "Different measure and output functional",
+          "evidence": "Continuous periodic piecewise-affine subspace, Lebesgue L² and output slope for bounded input.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-sharp-rough-input-slope-amplification-for-periodic-linear-spline--ce52dee09ef7/RESULT.md",
+          "material_read": "Finding and Assumptions",
+          "method": "Exact primary Resultary local mirror",
+          "title": "Sharp rough-input slope amplification for periodic linear-spline orthoprojection",
+          "trigger": "Exact projection gain of regularly spaced linear splines"
+        },
+        {
+          "assessment": "General upper bound in a continuous setting",
+          "evidence": "The projection uses the integral inner product; Theorem 1.4 states a knot-independent L∞ bound depending on spline order.",
+          "identifier_or_url": "https://arxiv.org/abs/1608.06720v2",
+          "material_read": "§§1.1–1.2, pp.1–3; Thm. 1.4 (OA offsets 0 and 7922)",
+          "method": "Bounded primary PDF text inspection",
+          "title": "Orthogonal projectors onto spaces of periodic splines",
+          "trigger": "General spline projector bounds"
+        },
+        {
+          "assessment": "Uniform upper estimate, no exact period-three coefficient",
+          "evidence": "Second differences constrain the coefficients, a first-difference penalty is rescaled by K_n/n, and the coefficient sensitivity to binned inputs is at most 3 in Theorem 3.1.",
+          "identifier_or_url": "https://jinglai-shen.github.io/research/ACC12_conv0204.pdf",
+          "material_read": "§II (OA offsets 0, 7953) and §III Theorem 3.1 (offset 39647)",
+          "method": "Bounded inspection of lawful author-hosted PDF of the related manuscript",
+          "title": "Convex Regression via Penalized Splines: A Complementarity Approach",
+          "trigger": "Alternate convex coefficient-cone formulation with uniform sup-norm sensitivity"
+        },
+        {
+          "assessment": "Coverage unresolved; no whole-document conclusion",
+          "evidence": "The separate author PDF has a different title and was not treated as the exact DOI paper.",
+          "identifier_or_url": "https://doi.org/10.1137/120887837",
+          "material_read": "Indexed bibliographic identification only; no article full text",
+          "method": "Primary search followed by exact DOI OA attempt (HTTP 403)",
+          "title": "Uniform Convergence and Rate Adaptive Estimation of Convex Functions via Constrained Optimization",
+          "trigger": "Potential stronger convex-spline sup-norm theory"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The explicit realizable face produces an algebraic discrete spline benchmark and a substantially stronger constraint on any proposed global sup-norm bound. It connects the actual local derivative of convex regression to a sharp row-sign mechanism; it is neither merely an unmotivated sample-size example nor a claim that the unrestricted sharp asymptotic value has been determined.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

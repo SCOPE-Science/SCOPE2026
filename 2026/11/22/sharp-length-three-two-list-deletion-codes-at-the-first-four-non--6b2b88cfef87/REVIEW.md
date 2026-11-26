@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (C): PASS
+## correctness
 
-The claimed domain is exact one-deletion decoding from length-three words over a labeled alphabet. Deletion histories that yield the same word are identified, and decoding lists consist of distinct codewords. The universal bound follows from a complete classification of shadow cardinalities one, two and three, the diagonal incidence restriction, and exact double counting. The four explicit constructions are tested against **all** possible received words by a standalone deterministic Python checker. The checker also tests the cyclic action, the conflict triangles, and the precise receiver-list histograms. No solver optimality assertion is used in the proof. Boundary values \(q=4,5,6,8\) are fully covered; no conclusion is made for unlisted alphabet sizes.
+PASS
 
-## Originality (O): PASS against the inspected literature, with residual risk
+With duplicate deletion histories collapsed, a two-output word has an adjacent repeated pair and uses exactly one diagonal receiver. Constants also use one diagonal receiver. Thus A+B≤2q and A≤q for the one- and two-output strata, and the complete receiver incidence count E≤2q², giving 3|C|=E+(A+B)+A≤2q²+3q. An independent receiver-side exhaustive insertion check reproduced (q, size, E, number of list-one receivers, number of list-two receivers) = (4,14,30,2,14), (5,21,48,2,23), (6,30,72,0,36), (8,50,126,2,62), with no empty or overfull receivers. The six-symbol equality conditions and its cyclic construction check out; a three-output word with a diagonal output cannot occur in an equality case because constants and two-output words exhaust the diagonal capacity. The two displayed conflict triangles have distinct edge witnesses (20,24,23) and (43,63,03), and the cyclic action is free, so the nondivisibility arguments apply to all optima of the other three sizes. The enumeration is over receivers of the exhibited codes only, not over all codebooks; the general bound provides optimality.
 
-The precise claim is four exact **list-two** capacities, cyclic perfect two-list saturation at six symbols, and two nondecomposable optimal code examples. Chee–Ge–Ling (2010), arXiv:1008.1343, Section 6, treats perfect **list-one** deletion codes, and its single-coverage size spectrum does not establish these distinct double-coverage claims. Kiah–Wei–Zeng (2026), arXiv:2609.21395, treats fixed-list asymptotic bounds, and its Theorem 28 at length three and list size two is weaker. Song–Cai–Nguyen (2022), arXiv:2201.02013, treats binary codes under the stronger combined deletion–substitution channel. Dawson–Seberry–Skillicorn (1984) studies directed packings with different block and incidence conditions. Direct equivalent-formulation, broader-result, exact small-table, and implication comparisons are detailed in `AUDIT.json`. Previously recorded Steiner-class examples settle other alphabet congruences only. The residual possibility of a hidden two-fold directed-packing result or an unindexed finite table is real, not resolved by a failed search.
+## originality
 
-## Mathematical value (V): PASS
+PASS
 
-The four chosen sizes are not arbitrary consecutive parameter increments: they are the *first* alphabet sizes in each of the four residue classes modulo six omitted by classical Steiner triple-system existence conditions (after excluding the trivial two-symbol boundary). The theorem resolves the exact finite-block channel ambiguity capacity in each first case, rather than offering a mere lower bound. The six-symbol case is a cyclic two-fold perfect covering, while five- and eight-symbol **optimal** codes exhibit a conflict-triangle obstruction to decomposition into two unique-decodable codes. These structural differences make the small benchmarks relevant to future design constructions in non-Steiner alphabet classes. The work does not claim a uniform formula for all alphabet sizes, a classification of all optimal codebooks, or downstream asymptotic improvements.
+The strongest indexed overlap shares the formula and exact deletion model, but the stated Steiner alphabet classes exclude all four alphabets here. Credit the shared bound/framework, not a second independent priority claim for it. The scoped four constructions and exact capacities, with the noted structural witnesses, are not established by the inspected coverage. This is a bounded finding, not certification of priority.
 
-## Limitations and external verification
+## value
 
-The checked assertions are finite and exact; the universal upper bound is symbolic. External literature access and indexing cannot rule out unindexed equivalent statements. The code and proof have been reviewed in the same scientific-review channel; no independent audit or independent validation has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The four sizes are motivated first representatives beyond the usual Steiner classes, not an arbitrary sample. The universal upper bound cannot decide sharpness there. Concrete saturation, symmetry and odd-cycle witnesses distinguish genuine list-two packing from simply combining unique codes and give reusable test cases for future general constructions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

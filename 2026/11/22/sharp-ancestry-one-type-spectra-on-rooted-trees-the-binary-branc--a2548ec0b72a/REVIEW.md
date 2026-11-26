@@ -1,11 +1,21 @@
-# Scientific review: sharp ancestry one-type spectra
+# Independent mathematical audit
 
-**Correctness — PASS.** For nonempty descendant-mark supports, laminarity gives at most \(2m-1\) sets and equality of supports implies equality of all ancestor comparisons; for empty supports, the deepest marked ancestor supplies at most \(m+1\) types. Explicit full-binary gate–mark–terminal constructions attain \(4m\) distinct types on exactly \(4m\) vertices, and the same analysis yields the equality hierarchy and path value \(2m+1\). The finite checker enumerates all labelled rooted trees through six vertices and all distinct nonempty parameter subsets, and checks binary/path extremizers through twelve marks. No finite computation is used to infer an infinite theorem.
+## correctness
 
-**Originality — PASS within inspected evidence.** The exact constant, separation of paths from binary trees, minimum witness order and saturation criterion are not stated in the relevant passages examined in Dreier–Mählmann–Toruńczyk (2026), who establish general polynomial type bounds, or Campbell–Köhler (2026), whose theorem reconstructs laminar trees by MSO transductions. published-finding corpus comparisons with fixed-variable theories of homogeneous ancestry trees, unary one-types of the universal poset, clade-query dimensions and bounded-morphism counts did not establish equivalent implication coverage. The laminar bound \(2m-1\) and basic tree facts are classical and are not presented as new. Historical priority remains provisional because older ancestor-comparison or landmark-signature work may not be indexed.
+PASS
 
-**Value — PASS.** The problem asks for the exact realized quantifier-free one-variable spectrum, a concrete parameter of finite-model type compression, not just an existence bound. The rigidity criterion identifies precisely when every possible structural class occurs, and the sharp transition from paths (\(2m+1\) types) to binary trees (\(4m\) types) gives a natural branching boundary together with minimum-size witnesses. This supplies a usable exact refinement in a tractable ancestry language.
+Equality and the two directed strict-ancestry comparisons with each mark determine a type. The nonempty descendant-mark supports are laminar, giving at most 2m−1; equal nonempty supports put their vertices on one path to a shared mark, and no mark between the vertices can change their ancestor profile without changing the support. With empty support the deepest marked ancestor, or its absence, selects at most m+1 further signatures. The equality case saturates both counts: the support family contains all singletons and the whole set and its inclusion tree is full binary. Singleton supports force pairwise incomparable marks, so the remaining types require exactly an unmarked strict descendant for each mark and an unmarked vertex incomparable with all marks. Attaching mark-terminal pairs at the hierarchy leaves and one extra offshoot realizes all profiles in 4m vertices of outdegree at most two, including m=1; fewer vertices cannot realize 4m types. On a path the m+1 gaps and m marks are attained by alternation. Conjunctions isolate individual type classes, and arbitrary unions give exactly 2^t definable sets.
 
-**Scope and risk.** All constants are in the signature \(\{\prec,=\}\) with the strict ancestor relation. Higher quantifier ranks and additional predicates are excluded. The cited primary HTML passages were inspected, but no exhaustive historical-priority search or independent review was conducted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The classical laminar bound and familiar tree representations are not claimed as new. The precise strict-ancestry signature count, simultaneous extremizers and equality criterion are distinct from the closest inspected results, including distinct same-day catalogue records.
+
+## value
+
+PASS
+
+The quantitative drop from binary trees to paths and the exact equality conditions identify which parts of a rooted tree are distinguishable by unary formulas over named vertices. The spectrum is useful for exact type and definability bounds, and least-order attainment and joint saturation add structural information beyond applying a laminar-family inequality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,151 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:26:31.240978Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Assumptions and scope, Proof; VERIFICATION.md, verify.py, verification_output.txt",
+        "Independent replay: python3 /workspace/branches/independent_checks.py 4; bit-mask image stabilization, exact matrices H_0,H_1,H_2, and labeled representative period histogram {1:3,3:1,4:6}."
+      ],
+      "rationale": "On each shore the update of a color class is uniform and depends exactly on presence of its successor color on the opposite shore. Images of supports are therefore the stated quotient on 49 ordered pairs. Independent bit-mask iteration gives successive image sizes 49,16,10,10, and reproduction of all three depth matrices. The stable image of a finite map is its periodic set. On a support cycle the maps between consecutive color supports on each shore must be bijections, since cardinality is nonincreasing and returns; transporting one labeled representative per starting color therefore measures the exact return time for the full configuration. Equal singletons are fixed; full/full rotates each color by one; distinct two-color supports alternate and the two-step return swaps the two occupied colors on each shore. The lifted periods are thus 1,3,4, and periodic support entry coincides with labeled configuration entry. Each support pair contributes the product of onto-function counts; the matrices give the displayed D_r and R_p, the primitive orbit counts and zeta product. Every depth is at most two and all periods divide twelve. A monochromatic 0 shore facing a shore with both 0 and 1 enters the equal-singleton set after exactly two updates; for a=b=1 all unequal pairs enter after one. Full support on both shores has probability tending to one by the displayed onto counts.",
+      "residual_risks": [
+        "The proof's last comment about adding 'either color in either part' is too broad literally: the singleton-support part must stay monochromatic for the given witness. The preceding displayed construction, with color 0 repeated on that part and both colors on the other, proves sharpness for every claimed size. The classification does not extend by itself to other update rules or graphs."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "64a0fe0513b5 refines each entry depth by eventual period and states an additional conditional limit. 29320e9e89df compares both rules and its CCA census agrees. Earlier 3a5ba3a58c93 assumes at least three nonempty shores and thus excludes the biclique. The primary arbitrary-graph theorem characterizes synchronization by conservative increments and gives activity via circulation."
+        ],
+        "reasoning": "The joint biclique theorem truly dominates the frozen marginals. The earlier many-part theorem is outside the parameter domain, and the general synchronization theorem is broader only in graphs, not in the requested exact observables.",
+        "searches": [
+          "Resultary 64a0fe0513b5, 3a5ba3a58c93 and 29320e9e89df",
+          "arXiv:1610.07320, Theorem 3"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 64a0fe0513b5",
+        "Resultary 3a5ba3a58c93",
+        "Resultary 54f879326e9f",
+        "Resultary 29320e9e89df",
+        "arXiv:1610.07320",
+        "Frozen RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The catalogue finding explicitly states the same orbit counts, sharpness for max(a,b)>=2, occurrence thresholds and F^14=F^2; its table also gives the a=b=1 sharp case. It states the same unconditional three-cycle probability limit."
+        ],
+        "reasoning": "The only further invariant, the zeta function, is the standard Euler product with exponents given by the exact primitive orbit counts; this does not need the frozen analysis independently. By contrast, the general circulation/ activity theorem alone does not give this transient table.",
+        "searches": [
+          "Resultary 64a0fe0513b5, Finding (offset 0) and Proof",
+          "arXiv:1610.07320, Theorem 3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "64a0fe0513b5 prescribes exactly simultaneous advance iff a successor-color neighbor is already present, with labeled, nonempty biclique shores. Its U_m and R_m are the frozen U_2(m) and U_3(m). Same-day 54f879326e9f instead updates by Greenberg–Hastings; it has one fixed state and 2U_2(a)U_2(b) period-four states at three colors."
+        ],
+        "reasoning": "The joint biclique census is the identical dynamics and labeling convention. Greenberg–Hastings is not equivalent even when eventual periods coincide: its unconditional nonzero advance, recurrent multiplicities and transient clocks differ.",
+        "searches": [
+          "Resultary: three-color synchronous cyclic cellular automaton complete bipartite recurrent period and entry depth",
+          "Resultary 64a0fe0513b5, Finding and assumptions; 54f879326e9f, Finding; arXiv:1610.07320 eqs. (1)–(2)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact table lists (depth,period)=(0,1),(0,3),(0,4),(1,1),(1,4),(2,1), with respective counts 3,sw,6uv,6+3(u+v+uv),3(uw+sv),6(u+v)+3(s+w) in frozen notation; no other pairs occur."
+        ],
+        "reasoning": "Summing the depth-one entries, taking the single depth-two entry and summing the three recurrent entries reproduce all frozen depth counts identically for every positive shore size. The recurrent rows individually reproduce R_1,R_3,R_4.",
+        "searches": [
+          "Resultary 64a0fe0513b5, mirrored RESULT.md Finding, offset 0"
+        ]
+      },
+      "rationale": "A distinct published Resultary finding, 64a0fe0513b5, gives the complete joint depth-and-eventual-period table on the same labeled bicliques with the same CCA rule. Its depth and recurrent marginals are exactly the frozen record's, and it additionally states the sharp transient cutoff, exact orbit counts, F^14=F^2 and a stronger probability conclusion. The zeta product follows immediately from those primitive counts. This is verified coverage in the published corpus, not an assertion about earlier priority: the matching entry is listed 2026/11/1, later than the frozen record.",
+      "residual_risks": [
+        "The strongest matching entry is dated later; the relative provenance and actual historical priority remain unresolved, independent of exact coverage. Older lattice full texts were not available in the bounded attempts and the single broad lookup did not supply usable additional evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage including finer joint census; later catalogue date, not evidence of earlier priority.",
+          "evidence": [
+            "Six-row table, sharp cutoff and orbit counts in Finding; conditional oscillatory-transient limit."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-exact-six-class-census-and-one-step-oscillatory-transients-for-t--64a0fe0513b5",
+          "material_read": "RESULT.md Finding and assumptions, offset 0; proof passages including support reduction and census, offsets 0 and 4900",
+          "method": "Local publication mirror and exact marginalization of source table",
+          "title": "Exact six-class census and one-step oscillatory transients for three-color cyclic dynamics on bicliques",
+          "trigger": "Exact matching support, update and census"
+        },
+        {
+          "assessment": "Adjacent but excludes two shores.",
+          "evidence": [
+            "At least three nonempty parts; periods one and three rather than the biclique's period-four behavior."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-two-step-three-cycle-collapse-in-multipartite-cyclic-competition--3a5ba3a58c93",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local publication mirror",
+          "title": "Two-step three-cycle collapse in multipartite cyclic competition",
+          "trigger": "Earlier multipartite CCA result"
+        },
+        {
+          "assessment": "Distinct Greenberg–Hastings update, so not coverage by itself.",
+          "evidence": [
+            "At q=3 the fixed and period-four populations are 1 and 2U_2(a)U_2(b)."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-parity-selective-periodic-excitation-on-complete-bipartite-graph--54f879326e9f",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local publication mirror",
+          "title": "Parity-selective periodic excitation on complete bipartite graphs",
+          "trigger": "Same underlying graph and a period-four census"
+        },
+        {
+          "assessment": "The CCA census agrees with the direct overlap. Equal eventual periods do not make the overall dynamics equivalent.",
+          "evidence": [
+            "States equality of eventual period by initial coloring, but distinct transient clocks and recurrent counts."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-matched-eventual-periods-but-different-transient-clocks-for-thre--29320e9e89df",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local publication mirror",
+          "title": "Matched eventual periods but different transient clocks for three-color cyclic and Greenberg–Hastings dynamics",
+          "trigger": "Direct comparison of the rules on the same graph"
+        },
+        {
+          "assessment": "General synchronization and activity, not joint labeled first-entry and period counts in the inspected theorem.",
+          "evidence": [
+            "Separate CCA and GHM rules; conservative increment form criterion and circulation activity law."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1610.07320",
+          "material_read": "Abstract, equations (1)–(2), Theorem 3, printed p. 4",
+          "method": "Open preprint passage inspection and comparison of exact outputs",
+          "title": "Limiting behavior of 3-color excitable media on arbitrary graphs",
+          "trigger": "Strongest inspected general primary theorem for the same CCA"
+        },
+        {
+          "assessment": "Earlier full-text coverage unresolved.",
+          "evidence": [
+            "Both are cited in lattice contexts. Failed retrieval does not establish absence of a biclique result."
+          ],
+          "identifier_or_url": "arXiv:patt-sol/9303002; DOI 10.1016/j.tcs.2004.03.018",
+          "material_read": "Frozen bibliographic and scope descriptions only; primary full texts not obtained independently",
+          "method": "Bounded lawful legacy arXiv and DOI/publisher attempts",
+          "title": "Asymptotic Behavior of Excitable Cellular Automata; Dynamic of cyclic automata over Z^2",
+          "trigger": "Frozen references on cyclic excitation and periodicity"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md complete recurrent and depth censuses; Resultary 64a0fe0513b5 Finding and exact table"
+      ],
+      "rationale": "The lifted period four and exact transient depths are natural dynamical observables. Here the joint table in an available finding already gives both, and the zeta product is mechanically determined from its orbit counts. The record has no separately valuable unresolved invariant beyond that table and its immediate consequences.",
+      "residual_risks": [
+        "This does not deny the mathematical interest of the biclique dynamics or of the finer joint classification as such."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

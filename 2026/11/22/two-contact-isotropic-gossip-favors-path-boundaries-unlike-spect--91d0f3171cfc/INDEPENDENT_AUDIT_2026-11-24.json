@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:09:54.344265Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 38–85; VERIFICATION.md, lines 19–25; verify.py (inspected, not executed)"
+      ],
+      "rationale": "With centered covariance C=I−11ᵀ/n, the conditional two-contact loss for ordered edges e,f is tr(CP_eP_fP_e)=tr(P_eP_f)−1=n−3+(v_eᵀv_f)². The squared inner products are 1, 1/4 and 0 for identical, incident and disjoint edges. Equivalently the loss is tr((I−L_p/2)²)−1=n−3+tr(L_p²)/4. The unsigned incidence Gram matrix gives B_G≽I/2; the simplex KKT signs and normalization are correct. On the path the tridiagonal recurrence with zero exterior coordinates yields the displayed product of factors 1−r^i and 1−r^(m+1−i), all strictly positive; summing shows S_m/m→2/3 and hence both boundary and bulk limits. Subtraction gives q_1−q_2 proportional by a positive factor to r^(m−1)−r>0 for m≥3. For the separate gap benchmark the centered ramp gives an upper Rayleigh bound; the parabolic law attains it because its weighted Laplacian is triangular on polynomial-degree flags, with eigenvalues c k(k+1). Equality forces the centered ramp eigenvector and recursively determines the weights. At m=1 the only law gives loss zero, and m=2 is reflection-symmetric. At m=3 direct substitution gives losses 23/16 and 13/9, difference 1/144, with center-edge masses 1/4 and 2/5 for the two objectives.",
+      "residual_risks": [
+        "Requires independent draws from the same fixed law and covariance I, not arbitrary worst-case initial disagreement or an adaptive schedule. The recorded 297 checked cases/groups include numerical comparisons of radicals and asymptotics; not all are exact rational assertions. The general result is analytic."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The subcubic support theorem includes paths and gives the equivalent unique optimizer in resolvent form; its Relationship passage treats the two-contact quadratic and explicit path optimum as from an earlier path calculation. Classical Laplacian/absolute connectivity optimizes a different long-run surrogate."
+        ],
+        "reasoning": "Subcubic theory applies to paths and thus the normalized inverse is shared; the source’s own comparison provides direction of mathematical dependence, without relying on a day-level timestamp. The path law’s asymptotic boundary profile contrasts with a separate known spectral objective.",
+        "searches": [
+          "Resultary df3bd66e1e95; Boyd et al., 2004 and 2006; Boyd, Convex Optimization of Graph Laplacian Eigenvalues"
+        ]
+      },
+      "checked_sources": [
+        "Indexed and primary work in source_inspections; Resultary deterministic Gini/path-sweep, synchronous matching, and strongly regular records cited by frozen RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Second-moment and mean-projection methods make the trace reduction natural, but the cited spectral SDP does not yield the alternating finite-horizon solution. The degree-three result's support guarantee and inverse formula use the same stated objective, while its own prior-work passage identifies the explicit path optimum as already supplied."
+        ],
+        "reasoning": "The standard ingredients and broad related theorem are not counted as new here. The assignment gives an exact all-length boundary comparison between distinct objectives in the stated iid model; no earlier independent equivalent path result was established in the inspected sources.",
+        "searches": [
+          "Boyd et al. 2004 SDP and 2006 moment analysis; Resultary df3bd66e1e95 Finding, Proof §1 and Relationship; earlier Gini, matching and strongly regular records in the frozen bibliography"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The objective equals n−3+‖L_p‖_F²/4, so Frobenius/minimum trace-square design is an equivalent search formulation. Boyd et al. optimize the second eigenvalue, not the Frobenius norm. Resultary df3bd66e1e95 reproduces the two-contact quadratic and explicitly credits an earlier path calculation."
+        ],
+        "reasoning": "A shared projection model or weighted path alone is not equivalence: the objective, isotropic law, time horizon, and iid constraint must coincide. The structured same-objective overlap is attributed to prior path work rather than presented as an independent discovery of the path law.",
+        "searches": [
+          "Resultary: twice iid randomized gossip, isotropic squared disagreement, path optimum",
+          "Published literature: weighted path Laplacian minimizing Frobenius norm under fixed total weights; absolute algebraic connectivity of trees"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "df3bd66e1e95 includes an exact four-vertex path benchmark. d96e8c040b54 optimizes worst-case initial contraction on the same P4 edge-update regime and gives center-edge mass about 0.394321848, not isotropic 1/4. 91c25b1a740a uses deterministic edge permutations."
+        ],
+        "reasoning": "The worst-case and sweep outcomes are not equivalent exact tables; the subcubic benchmark is overlap but not a separate all-length boundary law.",
+        "searches": [
+          "Resultary: P4 isotropic two-contact gossip, worst-case contraction, exact sweep, synchronous matchings"
+        ]
+      },
+      "rationale": "The exact two-contact isotropic path optimizer and its alternating boundary profile relative to the spectral-gap benchmark are the distinct supported finding. Neither independent averaging projections nor weighted spectral-gap design are new. The strongest indexed match explicitly treats a prior two-contact path calculation with this same objective and a path-specific optimum as a supplied input, and describes its own contributions as the broader support threshold and resolvent. The passage does not give the exact prior title, but the specified objective and path optimum, together with its exact P4 benchmark, point to the assigned result; there is no separate closed-form boundary classification in the matched finding. Same-day dates do not establish order. No verified independent anticipation of the path boundary finding was found in the bounded comparison.",
+      "residual_risks": [
+        "The subcubic source does not name the earlier path record; precise attribution and chronology are not proved by the day labels. The full primary Fiedler article was not used to decide coverage of the finite-horizon result. Older optimal Laplacian-weight or randomized projection literature could contain an unindexed equivalent."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "material overlap and broader support, with explicit prior path credit",
+          "evidence": "An earlier two-contact path calculation establishes the strictly convex quadratic objective and an explicit path-specific optimum. New claims there are the subcubic support threshold and degree-four counterexample.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-a-sharp-degree-three-full-support-law-for-optimal-two-contact-ra--df3bd66e1e95/RESULT.md",
+          "material_read": "Finding, Proof §1, Verification and Relationship to prior work",
+          "method": "local-mirror offsets 0–3988 and 6100–9106, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "A sharp degree-three full-support law for optimal two-contact randomized gossip",
+          "trigger": "strongest indexed overlap, same exact iid objective"
+        },
+        {
+          "assessment": "known spectral optimization; no two-contact path boundary theorem in these passages",
+          "evidence": "Optimizes the second-largest eigenvalue of the expected matrix.",
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/gossip_opt.pdf",
+          "material_read": "pp. 3–4, convergence-rate and SDP sections",
+          "method": "OA PDF offsets 14445 and 23006",
+          "title": "Analysis and Optimization of Randomized Gossip Algorithms",
+          "trigger": "same interaction and optimization framework"
+        },
+        {
+          "assessment": "related mean-square/convergence analysis, different design result",
+          "evidence": "Averaging time is controlled by the second eigenvalue; the inspected moment discussion does not solve the isotropic two-contact path program.",
+          "identifier_or_url": "https://web.stanford.edu/~balaji/papers/06randomizedgossip.pdf",
+          "material_read": "Abstract p. 1; second-moment discussion p. 5",
+          "method": "OA PDF offsets 1200 and 29846",
+          "title": "Randomized Gossip Algorithms",
+          "trigger": "same stochastic projections and second moments"
+        },
+        {
+          "assessment": "worst-case rather than isotropic",
+          "evidence": "Worst-case optimum has center-edge probability about 0.394321848, distinct from 1/4.",
+          "identifier_or_url": "Resultary d96e8c040b54",
+          "material_read": "Finding and assumptions",
+          "method": "local-mirror offsets 0–3702",
+          "title": "Four vertices first separate spectral and two-step randomized gossip",
+          "trigger": "same horizon and path, potentially equivalent optimizer"
+        },
+        {
+          "assessment": "background for the spectral benchmark",
+          "evidence": "Identifies maximum algebraic connectivity under weight allocation as an existing design criterion and cites Fiedler's work on trees.",
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/cvx_opt_graph_lapl_eigs.pdf",
+          "material_read": "Relevant absolute-connectivity problem identification and references",
+          "method": "OA PDF targeted text and bibliography",
+          "title": "Convex Optimization of Graph Laplacian Eigenvalues",
+          "trigger": "absolute-connectivity comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen path and spectral comparison, including the all-m sign and limit identities; published spectral-design framework"
+      ],
+      "rationale": "The design distinction is structural, not the small numerical gain on P4: the unique finite-budget optimum reverses the first-two-edge ordering of the gap optimum on every path with at least three edges and has an explicit alternating, exponentially decaying boundary correction. That supplies a precise regime where standard spectral design uses the wrong spatial bias for the stated risk.",
+      "residual_risks": [
+        "No asserted superiority for long horizons, worst-case initial data, or changes to the allowed sampling scheme."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

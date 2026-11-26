@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:04:53.763292Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Substituting r=γh/(1+γh) gives the absolutely summable coefficients (1−r)r^k[1+ak−a(k+1)r]; projection onto residue classes mod n gives the asserted kernel. For a forward row shift the bracket exceeds the diagonal bracket by aj(1−r^n), so the diagonal controls positivity. Independent replay /workspace/branches/replay_4.py reconstructed all six exact Bernstein minima for dimensions 2–4, checked the five-cycle witness and directly inverted circulants at rational r for three sizes, and recomputed both n=5 endpoints and c*. The n=5 value at r=3/5 is strictly negative; H_(n+1)−H_n=r^n[1−an(1−r)] is strictly negative there for n≥5. With H_n(0)=1 and H_n(1)=n, two roots are forced and Descartes' two-sign-change bound makes them simple and exhaustive. Pointwise limits on compactly bracketed fixed r locate the lower root at 1/a; bracketing the upper root on r=1−c/n reduces its scaled limit to the unique strictly positive zero of e^c−1−(a/√2)c. Thus the asymptotic claims do not rely on numerical fitting. Unit row sums follow from R(0)=1; at zero the map is I, and at either positive boundary only the diagonal vanishes. The analysis is for exact end steps on uniform one-way cycles, not general or internal-stage positivity.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The radius about 2.414 bounds a general guaranteed step, with no statement ruling in or out particular larger steps on this generator. The indexed same-map statements specialize to undirected complete multipartite graphs and stars."
+        ],
+        "reasoning": "Neither the uniform sufficient guarantee nor the other graph families decide this generator's sharp lower boundary or the size-dependent recovery branch.",
+        "searches": [
+          "arXiv:1510.04303 §3, absolute monotonicity",
+          "Resultary complete multipartite TR-BDF2 and Alexander on stars, dc2fd2585c8b, d0a93c681dc5"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1510.04303 §§3,6.2",
+        "Resultary 1260be3011dc, 5b0558f2856d, d0a93c681dc5, dc2fd2585c8b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The generic coefficient criterion and FFT or stochastic interpretation do not give the sign of the wrapped sum. Different rational functions change residue-class coefficients, and changing the graph family changes the meaning of powers of its transition matrix."
+        ],
+        "reasoning": "Reduction to H_n, all-n signs, and the scaled root bracketing remain independent of those known statements. The common Monotonicity/SSP radius matches the limiting lower scale but not the finite-size or reentrant result.",
+        "searches": [
+          "arXiv:1510.04303 §§3,6.2; Resultary 1260be3011dc, dc2fd2585c8b"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The L-stable TR-BDF2 end step shares the rational function. Periodic upwind at speed 1 and spacing 0.01 is exactly this directed generator at n=100 and with rate 100. The reported diagnostics are error and TVD experiments, not all-entry matrix sign boundaries."
+        ],
+        "reasoning": "This is materially the same method on a member of the family after scaling, rather than merely a similarly named problem, but does not supply the positivity classification.",
+        "searches": [
+          "Bonaventura–Della Rocca arXiv:1510.04303 §§3,6.2 (TR-BDF2; periodic first-order upwind)",
+          "Resultary same-map Alexander/SDIRK and TR-BDF2 records d0a93c681dc5, dc2fd2585c8b"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-day directed-cycle Radau IIA record has a different map, cutoff at six with exact recovery set at six, and a small-step obstruction for larger dimensions. The same-day backward Padé heat result concerns the inverse of I+hL+h²L²/2 and undirected cycles, with a sharp C8 recovery statement."
+        ],
+        "reasoning": "Neither tabulates or proves the Alexander/TR-BDF2 two positive-length windows on the one-way cycles; these differences are in the actual statements, not inferred from date or title.",
+        "searches": [
+          "Resultary: directed cycle positivity, Alexander SDIRK2, TR-BDF2, sharp onset and recovery; 1260be3011dc, 5b0558f2856d",
+          "Primary literature lookup for exact Alexander/TR-BDF2 uniform directed-cycle positivity"
+        ]
+      },
+      "rationale": "The L-stable rational function, its method-wide positivity bound, and its use on periodic upwind advection already exist. The matched primary coverage and related catalogue claims do not establish the same map's complete dimension-dependent cyclic positivity region, including the sharp five-state loss/recovery threshold and the upper asymptotic law. No global publication-priority claim is supported.",
+      "residual_risks": [
+        "Search coverage is bounded. Related classical positivity work (including Horváth) was not independently reviewed in full, and an older equivalent specialized cycle analysis is not ruled out."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct overlap in method and one spatial example, no stated exact cyclic classification",
+          "evidence": [
+            "L-stable SSP coefficient about 2.414; §6.2 periodic advection with first-order upwinding at 100 locations, assessing TVD and errors."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1510.04303",
+          "material_read": "§3 pp. 11–12 (offset near 26000), §6.2 pp. 21–22 (offset near 48150)",
+          "method": "OA full-text PDF passages",
+          "title": "Monotonicity, positivity and strong stability of the TR-BDF2 method and of its SSP extensions",
+          "trigger": "Identical L-stable function and a one-way cycle via periodic upwind"
+        },
+        {
+          "assessment": "Different functions and, in the latter case, graph orientation",
+          "evidence": [
+            "Radau IIA positivity for n≤5 and {0} union [τ,∞) at six; inverse quadratic heat map with a C8 threshold."
+          ],
+          "identifier_or_url": "Resultary 1260be3011dc and 5b0558f2856d",
+          "material_read": "Finding statements",
+          "method": "Local index and mirror",
+          "title": "Radau IIA on directed cycles and second-order Padé heat steps on undirected cycles",
+          "trigger": "Strong same-day matches on cycle positivity recovery"
+        },
+        {
+          "assessment": "Different graph families, also later records",
+          "evidence": [
+            "Undirected star forbidden bands and complete multipartite negative self-transition intervals with unconditional positivity up to order five."
+          ],
+          "identifier_or_url": "Resultary d0a93c681dc5 and dc2fd2585c8b",
+          "material_read": "Finding statements",
+          "method": "Local index and mirror",
+          "title": "Alexander SDIRK2 on stars and TR-BDF2 on complete multipartite graphs",
+          "trigger": "Same rational map and exact sign recovery"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This separates a useful sufficient timestep restriction from exact endpoint positivity on a standard model of periodic transport. It explains why a stochastic endpoint can recover beyond a forbidden band, gives the smallest such cycle and exact entry diagnostics, and distinguishes an order-one initial bound from order-n recovery. These are structural and directly useful facts, not sample-specific sign tests.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

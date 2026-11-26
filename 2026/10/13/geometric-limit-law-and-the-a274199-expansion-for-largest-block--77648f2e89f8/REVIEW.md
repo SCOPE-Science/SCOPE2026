@@ -1,18 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The shortest-border decomposition is exact: a shortest border must be unbordered, and an unbordered matching prefix and suffix cannot hide a shorter border. This makes the first \(r\) peeled pairs an exact renewal construction with weights \(u_m(q)q^{-2m}\). The resulting tail probabilities converge to \(s_q^r\), the empty-center mass vanishes because its renewal coefficients are summable, and dominated convergence gives the exact mean.
+## correctness
 
-The coefficient proof is independent of numerical fitting. The normalized shortest-border weights satisfy a triangular formal-series recursion. Constrained compositions satisfy the same recursion after normalization, and the composition counts are identified by induction with the defining stabilized reverse row of A274190. The verifier independently checks all finite identities used as regression evidence.
+PASS
 
-## Originality
-PASS. The 2022 thesis proves only existence of the limiting expected width and tabulates numerical values. The 2023 primary paper explicitly labels the A274199 expansion as Conjecture 5. The foundational 2018 block-palindrome paper supplies the greedy factorization rule but no random-word limit theorem.
+The shortest border is unbordered, since a border of it would be a shorter border of the original; it cannot overlap its copy, since a nonempty overlap would border it. Conversely an unbordered v in v z v is the shortest border, so each r-layer event counts uniquely by the r lengths and blocks and arbitrary center. Its probability is the r-fold product sum restricted by total peeled length at most n. Monotone passage to the unrestricted sum gives s_q^r. The first two exact terms plus the geometric tail give a strict bound below one (at q=2, at most 7/8; the bound decreases thereafter). Empty-center probabilities are summable over positive even half-lengths, since each complete peel has a unique positive length composition and the sum over layers is s_q/(1-s_q). The limiting width and its mean then follow, the mean by summable domination of the tail probabilities. For the series, the first-part recurrence for constrained compositions gives H_m=F_m/(1+B) with the same triangular recurrence and initial term as a_m; therefore B=S/(1-S) formally. To justify evaluation, for any 0<rho<1 the sum of absolute coefficient norms at radius rho of the a_m is at most product_{j>=1}(1+rho^j)-1, by the triangular recurrence. Thus S is continuous there. The coefficient series B converges for 0<=x<1/2 by the unrestricted composition bound; the identity (1−S)B=S there, together with nonnegative coefficients and S(1/2)=s_2<1, permits passage to the endpoint by monotone convergence. Finally splitting constrained compositions by last part K+1 gives the A274190 recurrence after setting d=N−K; take counts to be zero for negative d, with the empty composition counted for d=0. The reverse row then stabilizes at d once K+1>=d. The b_0 offset accounts for the separate constant 1 in the mean.
 
-OEIS A330886 already records the binary numerical asymptotic constant, and A274199 records the coefficient sequence and a constrained-composition observation. Those records are therefore treated as close prior evidence, not as novelty support. Neither checked record supplies the all-alphabet geometric law or the proof connecting the defining A274190 reverse row to the expected width.
+## originality
 
-Residual risk remains that an unindexed or unpublished note contains the same renewal derivation.
+PASS
 
-## Value
-PASS. The result resolves the explicit expected-width series conjecture and simultaneously determines the full limiting distribution. The geometric law is a structural explanation, not merely a longer coefficient table: every limiting width probability is determined by the same shortest-border renewal parameter.
+Credit the known greedy factorization, finite-width recurrence, existence of the limiting mean, the conjectured coefficient sequence, and the already recorded composition model. The distinct contribution supported by the comparison is the proof linking the unbordered-word renewal series to A274199 and hence resolving Conjecture 5. The explicit geometric law and mean formula are useful consequences of the recurrence mechanism, not an independently new mechanism; the distribution is not itself part of Conjecture 5.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The proof settles a published all-alphabet expansion conjecture and explains the coefficients by an exact transformation of the shortest-border law. It gives actual limiting probabilities, not just approximate means or fitted coefficients. The value assessment rests on the normalization/composition argument, not on reproducing the existing table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

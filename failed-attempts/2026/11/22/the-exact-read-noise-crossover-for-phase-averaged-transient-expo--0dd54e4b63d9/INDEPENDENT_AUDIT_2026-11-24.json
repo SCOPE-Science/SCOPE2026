@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:48:41.603209Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§ Assumptions and scope, Proof and Verification; VERIFICATION.md and check.py inspected without execution",
+        "Independent replay: /workspace/branches/audit_5_phases.py"
+      ],
+      "rationale": "For a uniform grid phase the probability of sharing a bin at lag d is (1-d/h)_+. Integrating this against 2(T-d) gives the two stated overlap energies. With x=h/T and r=R²/(νT), differentiation gives signs of 3r-2rx-x² and r+2x-3x², whose single positive roots meet x=1 at r=1. This proves the unique global optimum for r>0. The stationary equations give the two efficiencies, 1/3 at crossover, and the claimed limits. An independently written rational interval-intersection integration passed 600 phase integrals and five exact stationary efficiencies (python3 /workspace/branches/audit_5_phases.py). This is a known-template squared SNR objective, not blind detection probability.",
+      "residual_risks": [
+        "Finite replay is diagnostic; the universal result follows analytically. The model excludes dead time, unknown-time trials, and additional noise terms."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The source treats h_other>0 and r_other≥0, proves uniqueness, and gives Q=h_other(1-r_other)-(1+3r_other), reducing to r-1.",
+          "Its short branch is 3h_other/(h_other+sqrt(h_other²+3h_other)) at zero floor, equal by rationalization to sqrt(r²+3r)-r. Its zero-floor long branch is (1+sqrt(1+3h_other))/3."
+        ],
+        "reasoning": "The broader mathematical theorem includes the exact optimizer and crossover via its explicitly allowed zero-floor branch, although it was motivated by another design model.",
+        "searches": [
+          "Resultary: phase-averaged matched-filter exposure optimization",
+          "f7545d2ff30b/RESULT.md offsets 0–5819"
+        ]
+      },
+      "checked_sources": [
+        "Resultary matched-filter exposure/read-noise searches",
+        "f7545d2ff30b/RESULT.md local mirror, Finding through Proof §4",
+        "Frozen RESULT.md §§ Finding and Relationship to prior work"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Zero floor gives the source derivative numerators 3r-2rx-x² and r+2x-3x² after h_other=r. Substitution of r=x²/(3-2x) or r=3x²-2x in the common objective yields 1-2x/3 or 1/(3x²).",
+          "The source gives the zero-floor limits x∼sqrt(3h_other) at small h_other and x∼sqrt(h_other/3) at large h_other."
+        ],
+        "reasoning": "Even the efficiency not singled out in the other Finding is a mechanical evaluation of its already determined optimal objective. A distinct original mathematical remainder is not established.",
+        "searches": [
+          "f7545d2ff30b/RESULT.md Finding and Proof §§3–4, offsets 0–5819"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "With r_other=0, the source gives x(1-x/3)/(x+h_other) or (1-1/(3x))/(x+h_other). Setting h_other=R²/(νT)>0 gives both branches of the frozen f_r.",
+          "For Gaussian independent noise, known-template squared SNR and scalar amplitude Fisher information differ by the fixed square of the amplitude; the normalized objectives above establish the identity directly."
+        ],
+        "reasoning": "Equal dimensionless functions on all x>0, with an admissible positive source parameter for every frozen r>0, imply equal optimal values and locations. This is not a claim that physical dead time equals read noise.",
+        "searches": [
+          "Resultary: phase-averaged matched-filter exposure optimization",
+          "Resultary: read-noise transient crossover",
+          "Local mirror f7545d2ff30b/RESULT.md, Finding and Proof §§1–3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned the assigned record itself and a distinct record f7545d2ff30b. The latter's closed-form classification, not a numerical table, is the covering indexed result."
+        ],
+        "reasoning": "The complete formula is already represented in the index as a specialization; neither the self-hit nor unrelated neighboring exposure records are counted as coverage.",
+        "searches": [
+          "Resultary: read-noise transient crossover",
+          "Resultary f7545d2ff30b full Finding, local mirror"
+        ]
+      },
+      "rationale": "Demonstrated coverage by the distinct indexed same-day record f7545d2ff30b, not the assigned record itself. In that theorem's zero-floor branch r_other=0, set its normalized dead time h_other to this record's read-to-background variance ratio r, and identify the dimensionless exposure x. The entire normalized objective is then identical, and the source's optimizer, threshold, uniqueness and asymptotics specialize exactly. The efficiencies follow by evaluating this same objective at the same optimum using the source's stationary equations. The physical mechanisms are different, but no new mathematical case remains. The common publication date does not establish temporal priority.",
+      "residual_risks": [
+        "No relative priority inferred between the two same-day records. Cited primary literature was not independently inspected to full text; an earlier source could also cover the result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the complete mathematical optimization at zero noise floor after parameter substitution; same-day date does not settle priority.",
+          "evidence": [
+            "Finding: J_{h,r}(x) with denominator (x+h)(1+rx), h>0 and r≥0",
+            "Proof §§3–4: single optimum, Q threshold, and stationary equations enabling direct evaluation of the efficiency"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-a-sharp-longer-than-transit-exposure-threshold-under-dead-time-a--f7545d2ff30b/RESULT.md",
+          "material_read": "Finding, Assumptions and scope, Proof §§1–4, offsets 0–5819",
+          "method": "Local mirror literal Finding lookup, bounded passages and algebraic specialization",
+          "title": "A sharp longer-than-transit exposure threshold under dead time and independent noise floors",
+          "trigger": "Same box transit, phase average, unique exposure optimum and event-duration threshold"
+        },
+        {
+          "assessment": "No independent whole-paper verdict; not needed for the demonstrated overlap.",
+          "evidence": [
+            "The frozen discussion is not independently inspected primary evidence; unavailability is not used to decide originality."
+          ],
+          "identifier_or_url": "DOI 10.1088/0004-6256/138/3/956; arXiv:1303.7408, 1406.5790, 1505.04285",
+          "material_read": "Frozen RESULT.md § Relationship to prior work and cited identifiers only; independent primary passage attempts did not return usable text",
+          "method": "Lawful OA passage attempts",
+          "title": "Cited astronomical observing literature",
+          "trigger": "Transient observing, matched detection and sky/read-noise optimization"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md §§ Finding, Proof and Limitations",
+        "f7545d2ff30b/RESULT.md Finding and Proof §§1–4"
+      ],
+      "rationale": "The read-noise interpretation is physically useful, but the submitted theorem contributes the same exact objective and optimizer as a zero-floor specialization of a distinct indexed result. The amplitude sign and noise mechanism reinterpretation require no new mathematical case, and the efficiency is obtained by immediate substitution. No separate observational or methodological result is demonstrated.",
+      "residual_risks": [
+        "This judgment is about incremental scientific value of the submitted finding, not the usefulness of the model as a design benchmark."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

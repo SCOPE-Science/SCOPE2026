@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,17 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducible finite verification
 
-Execute `python3 verify.py` (standard library only). The script constructs all seven lines of the Fano plane, verifies its point-pair and point-degree axioms, obtains the fourteen-vertex incidence graph and all shortest-path distances, and builds the 42 distinct eight-vertex equidistance masks by incidence. It then tests the forbidden-set condition and a separate direct distance-signature predicate on each of the 16,384 vertex subsets; all agree. The exact resolving cardinality coefficients and the 168 minimum bases are recovered. Geometry tests reconstruct the 84 three-point/two-line bases, its dual 84 sets, all 168 Fano collineations, a polarity, 336 full graph automorphisms, and the unique orbit of bases.
+# Independent mathematical audit
 
-Expected final lines:
+## correctness
 
-```text
-VERIFY_OK Heawood vertices=14 edges=21 42_equidistance_8_sets
-VERIFY_OK all_masks=16384 nonresolving=4796 resolving=11588
-VERIFY_OK polynomial=5:168,6:1890,7:3096,8:2961,9:2002,10:1001,11:364,12:91,13:14,14:1
-VERIFY_OK metric_dimension=5 bases=168 split=84+84 full_automorphism_group=336 base_orbits=1
-```
+PASS
 
-Limits: This is a complete finite enumeration for this fixed fourteen-vertex graph, not a proof for an infinite graph family. The verification script is independently implementable, but no third-party mathematical audit or external certification is asserted.
+For a same-type pair, five of its own part and three of the opposite part are equidistant; the 42 sets are distinct by the omitted pair and the sizes in each part. Bipartite parity handles opposite-type pairs, and the empty selection is also excluded by the same-type obstructions. With two chosen lines, the three two-point signature classes each require one chosen point. Three noncollinear points give distinct signatures for all lines; collinear points give three duplicate pairs, which two chosen lines cannot eliminate. Choosing a,b on the two lines away from their intersection leaves exactly one noncollinear choice of c outside their union. Thus the classification gives 84 bases and 84 duals. In the vector model, x,a,b are a vector basis and the eligible c is x+a+b, giving transitivity of GL(3,2) on the first type; polarity exchanges the two types. The connected bipartition shows that the 168 collineations and their 168 duals exhaust the automorphisms. A separate vector/kernel-line construction with BFS and distance-signature enumeration tested every one of the 16384 subsets. It gave 11588 resolving sets, precisely the stated rank counts, and 4796 nonresolving subsets, exactly the union of the 42 obstruction subcubes. The orbit and geometric classification also matched independently. Replay: /workspace/branches/753da2d3-ada6-41f4-998e-1b0133646dad/independent_check.py. No frozen script was executed.
+
+## originality
+
+PASS
+
+Distinct contribution supported: the full cardinality polynomial for ordinary vertex resolving sets of the fixed Heawood graph, the corresponding equal-distance blocker census, and the complete base geometry and orbit in this setting. Neither the known metric dimension nor the general resolving-set criterion is new. A catalogue result with matching minimum geometric configurations resolves edges and does not give the vertex census. This is a bounded best-of-knowledge comparison.
+
+## value
+
+PASS
+
+The Fano incidence graph is the exceptional smallest projective-plane case of an established resolving-set problem. Its exact rank counts answer how many labelled sensor placements of each size work, rather than only giving the minimum size. The 42 equal-distance obstructions explain why every placement of size at least nine works, and the 84+84 geometric classification and single orbit give a concise description of the optimal placements. This is a complete natural finite invariant with a checkable structural interpretation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

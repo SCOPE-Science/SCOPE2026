@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:08:27.658648Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md lines 4–82; VERIFICATION.md lines 19–25; checked source verify.py and separately read verification_output.txt, ending VERIFICATION_OK. The uploaded script was not executed.",
+        "Independent finite check enumerated all subsets of the forward edges incident with the two new points, for every gap placement and n=0..5; retained only edge sets containing the endpoint edge of every two-edge path. Per-placement counts matched both formulas. Totals were 4,42,260,1280,5606,23070, with the stated comparable splits."
+      ],
+      "rationale": "Finite induced extensions of the fixed named antichain are realizable by the Fraïssé extension property, and their diagrams identify complete types by ultrahomogeneity. At gap i the legal unary count u_i=2^i+2^(n-i)-1 excludes a nonempty subset on both sides, which would compare old points. Each such type has arbitrarily many realizations, since copies in the same gap can be kept mutually incomparable; summing gives U_n. For x<y, fix l,m,r old points left, middle and right. Incomparable x,y permit otherwise independent unary choices except the middle witness x≺a≺y, giving J=u_l u_(l+m)-2^(l+r)(4^m-3^m). With x≺y, allowed left/middle/right local status alphabets have sizes 3/4/3. If there is neither an old point below x nor an old point above y, no old-vertex comparison is forced and one gets 2^(l+r)4^m choices. If some old point is below x, then no right parameter can have an incidence; middle parameters may only be unrelated or below y. The dual case is disjoint and yields, in total, H=2^(l+r)4^m+(3^l+3^r-2^l-2^r)2^m. These restrictions account for every length-two transitivity condition; the rest follow from these. As a separate summation check, put S_b=sum_(m=0)^n (n-m+1)2^(n-m)b^m. Then I_n=U_n^2+sum_i u_i^2-2(S_4-S_3), with S_4=4·4^n-(n+3)2^n and S_3=9·3^n-(2n+8)2^n. Also C_n=2S_4+4[z^n]((1-3z)^(-1)-(1-2z)^(-1))/((1-2z)(1-z)), where the coefficient applies to the entire rational difference. This gives the displayed closed forms, including (2,2,4) at n=0. The leading terms 8·4^n, (32/3)4^n and U_n~4·2^n give 3/7, 4/7 and 7/6 under the asserted type-counting conventions.",
+      "residual_risks": [
+        "Finite verification is supplementary; exact transitivity classification and summation, not finite data, establish the universal result. No interpretation as a probability on random realized elements."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The DOI landing/abstract concerns homogeneous linearly ordered posets, with no accessible full text on the tried routes. Resultary 8b01eae861b0 covers a more general two-level base in the pure poset, specializing to the pure antichain for an empty level."
+        ],
+        "reasoning": "A theorem about the homogeneous structure establishes the setting, not this census. A broader finite enumeration would dominate only if it kept the marked antichain, specified relative linear extension and recorded new-pair comparability. No such dominating statement was obtained in the examined evidence; the inaccessible text is not negative evidence.",
+        "searches": [
+          "Dolinka–Mašulović DOI 10.1016/j.ejc.2012.06.006; Resultary pure height-two parameter spectra 8b01eae861b0; bounded literature search for marked antichain linear-extension-weighted enumeration."
+        ]
+      },
+      "checked_sources": [
+        "Resultary b2905fad4231, 0e3750d26245, 3d742ffe8f7d, 8b01eae861b0, c129c67e8cca and ccb5376d619c; Dolinka–Mašulović DOI landing/abstract."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Over a chain the old comparisons allow transitivity paths already legal inside the base; in the frozen antichain any path ordering two old vertices must be rejected. In the reduct each incidence diagram is counted once, even if it affords many choices of ordered gaps; the frozen incomparable subtraction 2^(l+r)(4^m-3^m) requires the middle interval."
+        ],
+        "reasoning": "Neither deleting the old chain relations nor expanding a pure type by a fixed number creates the frozen classes. One needs the extra marked-gap transitivity analysis; the exact expression and both relative frequencies are not mechanically implied by the inspected distinct results.",
+        "searches": [
+          "Compare chain Finding and related-work passages of 0e3750d26245 (offsets 0–4470 and 4470–7470) and pure-antichain Finding of 3d742ffe8f7d (offsets 0–4183)."
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same invariant can be viewed as summing possible interleavings of the two marked vertices over all pure partial-order diagrams extending the base, with the linear order on the base held fixed. Resultary 3d742ffe8f7d counts pure diagrams, not their possible interleavings."
+        ],
+        "reasoning": "The weighted view is genuinely equivalent to the frozen claim, but the weights are not a universal multiplier: even at a fixed underlying old antichain, required comparisons can force or prohibit placements, and inclusion of a middle witness changes the split. The pure count is not the equivalent weighted count.",
+        "searches": [
+          "Resultary: named-antichain ordered poset pair-type spectra; primary search: finite poset enumeration weighted by distinguished compatible linear extension, two marked vertices and antichain base."
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "b2905fad4231 is the identical record. 0e3750d26245 gives comparable fraction 5/14 and pair-to-unary-square ratio 7/5 over a named chain, and its related-work passage mentions the separate antichain result and 3/7. The exact antichain count of 3d742ffe8f7d is 4·4^n+6·3^n-8·2^n+1 with comparability fraction 1/2, in the reduct. The other examined tables use height-two, disjoint-chain or standard-example bases in the reduct."
+        ],
+        "reasoning": "Neither a companion's cross-reference nor same-day indexing establishes priority. The distinct tables do not enumerate the same marked finite diagrams, and no independent exact match was verified for the full ordered-antichain census.",
+        "searches": [
+          "Resultary exact records b2905fad4231, 0e3750d26245, 3d742ffe8f7d, 8b01eae861b0, c129c67e8cca and ccb5376d619c."
+        ]
+      },
+      "rationale": "The generic linearly ordered poset and the underlying finite extension method are prior. Best of checked evidence, the distinct contribution is the exact relation-split census for the ordered expansion of a named antichain and its normalized limits. The chain companion is a substantial same-day overlap and explicitly mentions the 3/7 antichain limit by reference; it does not deliver the antichain census or 7/6 ratio. The pure-poset counts do not supply the weights from possible linear placements.",
+      "residual_risks": [
+        "An older equivalent marked linear-extension-weighted count is not excluded. Full text of the structure paper was inaccessible on tried routes. Bounded comparison, not historical priority adjudication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantial overlap in setting and method, but different base; cites rather than derives the antichain 3/7 result",
+          "evidence": "Chain limit 5/14 and ratio 7/5; mentions separate antichain result with limit 3/7.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-exact-two-point-extension-spectra-over-chains-in-the-generic-lin--0e3750d26245/RESULT.md",
+          "material_read": "Finding and derivation offsets 0–4470; related-work offsets 4470–7470",
+          "method": "Local Resultary mirror",
+          "title": "Exact two-point extension spectra over chains in the generic linearly ordered poset",
+          "trigger": "Same-day comparison, same structure, named base and exact ordered-pair census"
+        },
+        {
+          "assessment": "Pure-poset reduct omits the named linear relation",
+          "evidence": "Pair total 4·4^n+6·3^n-8·2^n+1 and asymptotic comparable fraction 1/2.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-exact-two-point-and-fixed-arity-type-spectra-over-antichains-in--3d742ffe8f7d/RESULT.md",
+          "material_read": "Offsets 0–4183, Finding and scope",
+          "method": "Local Resultary mirror",
+          "title": "Exact two-point and fixed-arity type spectra over antichains in the random poset",
+          "trigger": "Same named antichain and exact type census"
+        },
+        {
+          "assessment": "Generalizes the base in the reduct only, not the ordered extension count",
+          "evidence": "Empty level specializes to the pure-antichain census.",
+          "identifier_or_url": "Resultary 8b01eae861b0",
+          "material_read": "Offsets 0–4420",
+          "method": "Local Resultary mirror",
+          "title": "Exact ordered-pair type spectrum over complete height-two parameter posets",
+          "trigger": "Broader base class covering the pure-antichain case"
+        },
+        {
+          "assessment": "Ordered coordinates do not mean an additional named linear extension",
+          "evidence": "Different named base configurations in the pure poset.",
+          "identifier_or_url": "Resultary c129c67e8cca; ccb5376d619c",
+          "material_read": "Findings and parameter scope",
+          "method": "Local Resultary mirror",
+          "title": "Ordered-pair spectra over disjoint two-chains; exact ordered-pair type spectra over standard-example posets",
+          "trigger": "Same-day ordered-coordinate pair-type enumerations"
+        },
+        {
+          "assessment": "Supports structural background only on the available evidence; no claim about unread full text",
+          "evidence": "Bibliographic/abstract topic is classification of countable homogeneous linearly ordered posets.",
+          "identifier_or_url": "https://doi.org/10.1016/j.ejc.2012.06.006",
+          "material_read": "Landing/abstract only; secondary full-text link returned HTTP 403",
+          "method": "Lawful DOI and identified alternate retrieval attempts",
+          "title": "Countable homogeneous linearly ordered posets",
+          "trigger": "Same homogeneous structure and possibly broader classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Assigned RESULT.md lines 4–31 and 40–82; Resultary pure-antichain record 3d742ffe8f7d and ordered-chain companion 0e3750d26245."
+      ],
+      "rationale": "Adding a named linear extension to a standard homogeneous poset changes how finite partial-order types are weighted by possible gaps. The exact enumeration measures that effect: comparability changes from the pure-poset limit 1/2 to 3/7, while the complete pair count is asymptotically 7/6 of the square of the single-point count. These are usable invariants for comparing the structure and its reduct, with a complete natural base family rather than an isolated small case.",
+      "residual_risks": [
+        "No claim concerning higher arity, arbitrary bases, or probabilities on realized pairs."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

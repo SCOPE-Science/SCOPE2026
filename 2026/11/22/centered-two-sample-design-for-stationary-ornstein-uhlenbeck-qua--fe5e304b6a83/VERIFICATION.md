@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Verification of the two-site OU energy theorem
+# Independent mathematical audit
 
-Run `python verify.py` in this directory after installing packages in `requirements.txt`. This checks exact rational/algebraic matrix reductions with SymPy; symbolic centered-eigenvalue, collision-derivative and endpoint-derivative identities; and the first seven nonzero coefficients of the analytic hyperbolic power-series certificate. The infinite-tail coefficient positivity is proved for every integer index in `RESULT.md`, not inferred from the tested coefficients.
+## correctness
 
-Numerical tests performed: 7,958 direct matrix-trace comparisons of centered and shifted pairs at equal gaps over eight dimensionless horizons; eight finite-horizon optimization comparisons including exact matrix evaluation; and high-precision computation of the unique long-horizon gap and gain, with three large-horizon convergence checks. Random finite tests are supplementary only and do not establish universal optimality. The actual output was:
+PASS
 
-```
-PASS symbolic matrix identity, centered spectrum, endpoint derivatives, positive-series coefficients
-PASS 7958 independent centered-vs-unrestricted placements and finite-horizon checks
-Asymptotic gap: 2.554928950095267006479 limiting score: 2.018185556085661528264
-```
+Gaussian conditioning followed by whitening gives a quadratic form in two independent standard normals plus a constant. Wick's identity gives the claimed explained variance and the dimensionless change of variable contributes exactly lambda^(-2). An independent way to check the margin identity is to start from the whole-line whitened Gram matrix and subtract the two tails. These are z/2 and v/2 times rank-one projections onto K^(1/2)e_1 and K^(1/2)e_2, respectively. The vectors have norm one, inner product r, and whole-line Gram quadratic form one in both directions. Squaring and taking the trace gives the stated margin penalty; at fixed gap only U=z+v matters and minimizing it strictly favors equal margins. In the centered eigenbasis the collision score is (1-exp(-L))^2 with the same strictly positive right derivative; at the endpoint both eigenvalue derivatives are strictly negative (the weaker sign uses sinh L>L) and both eigenvalues are positive. Thus every optimum is strictly interior. For the limiting log-concavity certificate the hyperbolic numerator reduces to (cosh(4d)-1)/8+2d sinh(2d)-d^2 cosh(2d)-2(cosh(2d)-1); its Taylor expansion gives the displayed coefficients, starting positive at n=2 with strictly increasing bracket. The positive excess above 2 therefore has strictly concave log and tends to zero at either end of its positive interval. A fixed competitor with limiting score above 2 rules out subsequences of finite-horizon maximizing gaps tending to zero or infinity; along any remaining convergent subsequence the boundary correction vanishes. The limiting maximizer is unique, not claimed unique at finite L. Independent bisection of 1/d+h'(d)/h(d)-2/(1-exp(-2d)) on [2.4,2.8] gives 2.5549289500952668 and limiting score 2.0181855560856614 in double precision. This corroborates, but does not certify all digits of, the quoted decimal.
 
-The core nonstandard assertions are checked by the written proof: strict centering from AM–GM and monotonicity in the margin sum; strict interiority from signed endpoint derivatives; uniqueness of the limiting gap from positivity of all power-series coefficients and strictly concave log excess; convergence of arbitrary optimal gaps by excluding zero and escaping infinity. The theorem does not claim finite-horizon gap uniqueness or independent validation.
+## originality
+
+PASS
+
+Best of current knowledge: the distinct result is exact centering/interiority and the limiting separation for the stationary exponential kernel and the integrated-square conditional-variance objective. The Gaussian quadratic-form identity and related designs in other sampling models are not novel parts of the claim.
+
+## value
+
+PASS
+
+The nonlinear integrated energy is a natural measurement target. A global reduction from unconstrained two-site placement to one scalar gap is useful independently of the long-horizon theorem; the latter shows that optimal sites keep a finite separation in correlation-length units even on arbitrarily long intervals, and quantifies the absolute risk reduction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

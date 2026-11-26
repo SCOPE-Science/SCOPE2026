@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:59:10.603640Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Equation (4) and Algorithm 2 of arXiv:2609.11751v1 use independently sampled evaluation and update losses and projected feedback-gradient descent; the null step is only for the other branch. The ratio here is (B/A)(1−AP)², so the affine gain update is a strict convex combination with 1/A and preserves the interior. The four slopes lie in (0,1−2η], not the open-upper interval in RESULT.md line 57 (equality at A=B=1); the contraction bound in the actual proof is unchanged. The common contraction yields the unique stationary marginal. Centering at p*=1/μ gives a zero-mean innovation independent of the old centered gain, though not of the fresh slope; the mixed second-moment term vanishes from the old gain's zero mean. Its variance is 4η²νs²/μ² and the squared-slope expectation is 1−4ημ²+4η²ν². Solving gives the stated V; conditional linear regression gives the geometric correlation. Then M=s²/(μ²−ην²), with positive denominator, and M>1 iff η>b/ν² since μ²−s²=b. The admissible open window is nonempty iff (1+b²)²>8b³, and the quartic has just one root above one by the sign of 4b(b²−6b+1). Bisection gives 7.739425778114425627…; the rational example gives 18225/17024. For an independent pathwise check, summing the conditional linear gain recursion and applying the bounded martingale-difference strong law gives time-average P→1/μ. For each fixed ε>0, the bounded observations log(|1−AₖPₖ|+ε) differ in time average from their conditional means by a vanishing martingale average. Those means are a concave sum of logs of the positive affine factors 1−p+ε and bp−1+ε, so Jensen bounds the limsup by their value at 1/μ. Letting ε decrease to zero gives the asserted negative upper bound, agreeing with the frozen stationary-coupling proof. Replay: RESULT.md Proof §§1–4 plus arXiv:2609.11751v1 §3.1, Eq. (4) and Algorithm 2; packaged checker read as text only. The multiplier concerns a fresh test at an invariant marginal, not the expectation growth rate of the actual iterate, and the almost-sure bound is not an exact Lyapunov exponent.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3.3 (p. 7 PDF offset 28900) is a convergence guarantee under noise and batch hypotheses, not a formula for the invariant learned-gain variance or fresh-test amplification.",
+          "Resultary 021cc30589a6 compares static population proposals under curvature distributions by fixed-step stability thresholds."
+        ],
+        "reasoning": "A result for broad curvature distributions but fixed steps does not cover the dependence on online gain η in this learned-step chain. Likewise convergence under large-batch conditions does not establish the quantitative all-admissible-gain pathwise bound in the stated one-sample setting.",
+        "searches": [
+          "Primary paper arXiv:2609.11751v1, §3.1 and Theorem 3.3; Resultary 021cc30589a6 fixed-target stability regimes"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.11751v1",
+        "Resultary 021cc30589a6",
+        "Resultary 472ee7d72553",
+        "Resultary 240e3393377a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Resultary 472ee7d72553 gives actual squared-state growth with almost-sure contraction in fixed-step Gaussian zeroth-order descent.",
+          "Resultary 240e3393377a has a residual noise boundary and almost-sure convergence for noisy reflection with polynomial steps."
+        ],
+        "reasoning": "Actual moment growth in a different fixed-step optimizer, or a threshold on a residual under decaying steps, neither supplies a stationary learned P nor implies its fresh-test multiplier. Conversely the frozen result does not assert actual second-moment growth.",
+        "searches": [
+          "Compare the recurrence and observable in arXiv:2609.11751v1, Resultary 021cc30589a6, 472ee7d72553 and 240e3393377a"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The cited algorithm's scalar reduction is a random affine recursion with slope 1−2ηAB. The fixed-target Resultary record optimizes expected feedback at fixed p and gives 1/E[A]."
+        ],
+        "reasoning": "Contractive random affine or linear stochastic-approximation formulations supply generic tools; neither switching names nor replacing the learned p by its mean preserves its prospective second moment. The variance correction νVar(P) is essential to the stated crossing.",
+        "searches": [
+          "Resultary and primary literature: OSGM ratio-feedback stationary gain, random affine gain, curvature contrast and independent fresh-test multiplier",
+          "Resultary 021cc30589a6; arXiv:2609.11751v1 Eq. (4), Algorithm 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The static ratio feedback record has fixed-target factors, not the root of b⁴−8b³+2b²+1 for an admissible learned-gain crossing.",
+          "The distinct same-date records have exact boundaries for Gaussian two-point descent and noisy Krasnoselskii–Mann reflection, respectively."
+        ],
+        "reasoning": "The matched exact records optimize or classify different dynamics or observables. None of these exact statements gives the prospective-vs-actual classification for this two-sample, two-curvature ratio-feedback recurrence. Same date does not establish order.",
+        "searches": [
+          "Resultary: OSGM phase boundary, stationary learned stepsize, pathwise versus moment thresholds; compared 021cc30589a6, 472ee7d72553, 240e3393377a"
+        ]
+      },
+      "rationale": "The supported distinction is the exact gain/curvature region for fresh-test amplification from the invariant learned stepsize of the specified OSGM ratio branch, together with an all-admissible-gain bound on the actual typical trajectory. The algorithm, the fixed population target, generic random affine stationarity, and the general notion of a pathwise-versus-moment distinction are not new claims.",
+      "residual_risks": [
+        "Broader invariant-moment or Lyapunov estimates for random affine stochastic approximation may subsume proof sublemmas; exact source-specific phase coverage was not identified.",
+        "The inspected current preprint gives the algorithm rule; the earliest Optimization Online PDF was not separately compared version by version. Search does not certify historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Source rule matches exactly in the ratio branch; stated source convergence regime does not cover this prospective phase",
+          "evidence": [
+            "Line 5 of Algorithm 2 uses a null-step comparison for hypergradient feedback only; line 6 is projected feedback descent; Theorem 3.3 uses batch/noise conditions."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2609.11751v1",
+          "material_read": "Section 3.1 Eq. (4) and Algorithm 2, p. 6 (PDF offsets 22000 and 24177; corroborated HTML offset 22710); Theorem 3.3, p. 7 (PDF offset 28900)",
+          "method": "Read OA passages and compared the formulas and branches",
+          "title": "Stochastic Gradient Methods with Online Scaling",
+          "trigger": "Algorithm and possible stronger convergence theorem"
+        },
+        {
+          "assessment": "Covers the population target and static quadratic-risk threshold, not the learned-gain phase",
+          "evidence": [
+            "The ratio-feedback population minimizer is 1/E[A]; the factors are for fixed steps."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-sosgm-feedback-curvature-stability--021cc30589a6",
+          "material_read": "RESULT.md, statement, fixed-target consequences and assumptions, offsets 0–7916",
+          "method": "Read local-mirror primary result passages",
+          "title": "Population feedback targets and sharp curvature-stability thresholds in stochastic OSGM",
+          "trigger": "Same feedback and scalar curvature-stability model"
+        },
+        {
+          "assessment": "Related conceptual phenomenon, but fixed step and actual state second moment",
+          "evidence": [
+            "Gaussian two-point descent on an isotropic quadratic; sharp dimension-dependent amplification in the actual squared iterate."
+          ],
+          "identifier_or_url": "Resultary 472ee7d72553",
+          "material_read": "RESULT.md theorem and model, starting at offset 0",
+          "method": "Local-mirror comparison",
+          "title": "Sharp pathwise/mean-square gap for Gaussian zeroth-order descent",
+          "trigger": "Distinct same-date sharp typical-vs-moment phase result"
+        },
+        {
+          "assessment": "Different residual, update and polynomial steps",
+          "evidence": [
+            "Noisy Krasnoselskii–Mann reflection; sharp expected residual boundary and almost-sure convergence."
+          ],
+          "identifier_or_url": "Resultary 240e3393377a",
+          "material_read": "RESULT.md theorem and model, starting at offset 0",
+          "method": "Local-mirror comparison",
+          "title": "Sharp mean-square noise boundary and almost-sure collapse in a noisy reflection iteration",
+          "trigger": "Distinct same-date sharp expected-risk versus pathwise result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact region identifies when variance in a genuinely online learned step changes the sign of an independent squared-error diagnostic, although the population target remains squared contractive and actual optimizer paths decay. The natural diagnostic and coupled-path comparison justify the scalar model; there is no claim of actual coupled mean-square divergence, field-scale optimizer performance, or general conditioning guarantees.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

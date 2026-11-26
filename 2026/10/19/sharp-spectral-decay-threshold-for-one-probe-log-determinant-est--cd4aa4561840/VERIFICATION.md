@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -18,10 +21,4 @@
 
 # Verification
 
-The scientific claim concerns an ideal eigenpair-deflation, exact-quadratic-form estimator. No implementation of random Nyström sketching or Lanczos truncation is purported to prove the result.
-
-The accompanying `verify.py` is self-contained (Python 3 standard library). Execute `python verify.py`. It tests finite-spectrum shifted-tail inequalities with exact rational arithmetic; explicit finite geometric spectra on both sides of the threshold; the integer minimizer in an infinite-geometric risk formula; large-budget power-law allocation through deterministic tail quadrature; and sample second moments of Gaussian quadratic-form errors. The observed total was 7,205 checks with no failures. For the stochastic comparisons, the random seed and tolerance are specified in the program.
-
-The universal sharp threshold follows from the analytic shifted-tail inequality and an explicit finite witness, rather than enumeration. The infinite-geometric optimizer follows from the adjacent-risk ratio, and the polynomial asymptotics from the integral test and a unique interior minimizer. Infinite-series validity follows from summability, not the existence of an infinite-dimensional standard Gaussian vector.
-
-Independent audit has not been performed.
+The exact squared error follows from the variance of a centered real Gaussian square and the square summability of the power-law log spectrum. The integral comparison in `RESULT.md` gives uniform convergence of the scaled objective on interior compact intervals and also excludes sequences of optimal allocations approaching either endpoint. The remaining unique minimum is found by differentiation, and evaluation at that minimum gives the leading risk constant. These arguments do not require numerical experiments, an infinite-dimensional standard Gaussian vector, or a certificate for randomized deflation or quadrature. No program run is needed to replay the calculation.

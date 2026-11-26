@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:36:08.133092Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Assumptions and scope, Proof; VERIFICATION.md; verify_fock.py and recorded verify_fock_output.txt (inspected, not replayed)"
+      ],
+      "rationale": "Set t=pi*rho^2, a_k=t^k/k!, and p_k=a_k/sum(a). The Gram diagonal is (m+1)p_k; the centered regular polygon makes the Gram diagonal by Fourier orthogonality. The Rayleigh bounds on the two extremes and Hadamard give the three fixed-radius optima. Equality for the condition ratio requires equality in both Rayleigh bounds. The least a_k is an endpoint, so equality for the lower Rayleigh bound makes an endpoint basis vector an eigenvector and forces all angular power sums of orders 1 through m to vanish; Hadamard equality does so directly. Newton identities then force a rotated regular polygon. For t<T_m the least diagonal is the last one and increases strictly after normalization (logarithmic derivative (m-mu)/t), while for t>T_m the first one decreases strictly. For the condition ratio below T_m, the maximum is over k<m (a_m<a_0) and each a_k/a_m decreases; above T_m the maximum is over k>0 and each a_k/a_0 increases. This includes m=1. The optimal determinant has logarithmic derivative (m+1)(m/2-mu)/t; mu' is positive variance divided by t and its limits are 0 and m. At T_m the symmetric endpoint terms agree; the geometric means of the outer factorial pairs are strictly smaller than the means of the retained inner pairs, proving a_k>a_{m-k} for 1<=k<m/2. This gives strict separation for m>=3 and equality for m=1,2. For the asymptotic put b=a_m/sum(a). Then mu=t(1-b) and mu'=1-b(1+m-mu). A Poisson Chernoff bound gives b exponentially small uniformly for m/2<=t<=0.6m, so mu'=1+o(1) there, mu(0.6m)>m/2 eventually, and the root displacement is asymptotic to (m/2)b(m/2). Stirling yields the stated displacement and T_m=m/e+log(2*pi*m)/(2e)+o(1). The modal term at floor(t) is asymptotic to exp(t)/sqrt(2*pi*t) in both cases, and a_0 is the minimum at both optimum radii; their quotient gives exactly the stated prefactor and exponential rate. The proof's sign convention on the Gram off-diagonal phase is conjugated relative to the customary evaluation matrix; conjugation leaves every spectral and equality argument unchanged.",
+      "residual_risks": [
+        "Conclusion only for m+1 nodes on a common origin-centered circle with truncated kernel normalization; no unrestricted planar or multiring optimality. The recorded floating-point diagnostics are not used to prove the theorem."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The separate Resultary theorem allows positive weights of fixed total mass and gives the same sharp E and squared-conditioning optimum in the equal-weight case. Proposition 6.4 of the Fock sampling paper rules out a uniformly bounded MZ family with n+1 points for degree n. Karvonen–Särkkä–Tanaka optimize truncated-kernel determinants in an approximate Fekete framework including real univariate Gaussian kernels."
+        ],
+        "reasoning": "The weighted theorem mathematically subsumes the E/condition subclaim regardless of date. The asymptotic uniform sampling obstruction is not a finite-degree optimizer, and the general Fekete objective is not the exact radial classification for this normalized centered circle.",
+        "searches": [
+          "Resultary 413970b27bf4",
+          "arXiv:2109.11825 Proposition 6.4",
+          "arXiv:1912.07316 Eq. (1.1)"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 413970b27bf4",
+        "arXiv:2109.11825, 1912.07316, 1504.02118",
+        "Coherent-state circle DOIs 10.1103/PhysRevA.48.2213 and 10.1103/PhysRevA.50.4293 (bibliographic only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The indexed Nov. 1 record states the E/condition radius, the same sharp condition quantity and its growth, but not the determinant-optimal root or the D/E quotient. The determinant-design paper supplies the determinant criterion, not this factorial sequence's exact one-ring radial optimization."
+        ],
+        "reasoning": "Knowing the minimax endpoint balance and the exponential size of the optimal condition number leaves open which t maximizes the determinant and the loss at that t. The assigned theorem requires separately obtaining the truncated mean equation, proving strict separation, and controlling its boundary correction. Neither an objective definition nor the weighted minimax theorem yields that comparison.",
+        "searches": [
+          "Resultary 413970b27bf4 Finding",
+          "arXiv:1912.07316 Eq. (1.1), arXiv:2109.11825 Proposition 6.4, arXiv:1504.02118 §3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kernel-normalized evaluation in P_n appears in Gröchenig–Ortega-Cerdà, PDF pp. 1–3. The weighted finite polynomial evaluation theorem in Resultary 413970b27bf4 matches the regular polygon and t=(m!)^(1/m) optimum. Pan treats ordinary Vandermonde conditioning with general knots, not both factorially weighted design criteria."
+        ],
+        "reasoning": "The factorially scaled Vandermonde and truncated coherent-state Gram formulations refer to the same design only with the same diagonal weights and truncation. Standard Fourier diagonalization is not original. Ordinary Vandermonde bounds and the weighted E/condition result do not give the determinant-optimal scalar root or the relative penalty.",
+        "searches": [
+          "Resultary: optimal circular Gaussian Fock polynomial sampling, factorial radius and conditioning",
+          "arXiv:2109.11825; arXiv:1504.02118; DOI 10.1103/PhysRevA.48.2213 and 10.1103/PhysRevA.50.4293"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest indexed exact formulas are the factorial radius sequence and sharp conditioning asymptotic in 413970b27bf4. Its Finding and comparison do not tabulate or determine the determinant radius sequence or the corresponding relative loss."
+        ],
+        "reasoning": "This is an exact all-degree formula overlap, not merely matching sample values. A catalogue statement listing the E radius alone does not identify the second radius or its asymptotic correction.",
+        "searches": [
+          "Resultary 413970b27bf4, Finding and comparison at offsets 0 and 3828",
+          "arXiv:2109.11825, finite evaluation and Proposition 6.4"
+        ]
+      },
+      "rationale": "The supported distinct claim is the sharp determinant-versus-least-eigenvalue/conditioning comparison, including the unique determinant radius, strict separation for all m>=3, and the sharp exponential relative conditioning loss. There is substantial exact overlap of the least-eigenvalue and conditioning component with a separately indexed, weighted theorem, which is credited rather than treated as novel in isolation. The weighted theorem does not supply the distinct determinant half or the comparison. Relative catalogue dates are not proof of priority.",
+      "residual_risks": [
+        "Older coherent-state-circle full texts were not available for comparison; differently worded prior exact determinant results remain possible. Exact partial coverage in the later indexed weighted work is established, but the catalogue chronology does not establish historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantial equivalent E/condition component; no determinant comparison in the matched statements",
+          "evidence": [
+            "Regular polygon with equal weights gives the optimum even among positive weights of fixed total mass; t=(m!)^(1/m); identical condition optimum and large-m growth."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-optimal-circular-sampling-of-gaussian-fock-polynomials-unique-fa--413970b27bf4/RESULT.md",
+          "material_read": "Finding and comparative passage, offsets 0 and 3828",
+          "method": "Read local mirror",
+          "title": "Optimal circular sampling of Gaussian Fock polynomials",
+          "trigger": "Exact optimal radius and condition formula, with broader weights"
+        },
+        {
+          "assessment": "Same framework, different conclusion",
+          "evidence": [
+            "Finite reproducing-kernel normalized evaluations; absence of uniformly bounded square MZ families, not the exact constrained design comparison."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2109.11825",
+          "material_read": "PDF pp. 1–3, offset 2456; Proposition 6.4, p. 17, offset 56034",
+          "method": "Read bounded OA PDF passages",
+          "title": "Marcinkiewicz–Zygmund Inequalities for Polynomials in Fock Space",
+          "trigger": "Same polynomial kernel and normalization"
+        },
+        {
+          "assessment": "Related criterion on a different kernel and domain",
+          "evidence": [
+            "Approximate Fekete points maximize a truncated-kernel Gram determinant; the Gaussian example uses a real univariate setting."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1912.07316",
+          "material_read": "PDF pp. 2–3, Eq. (1.1) and surrounding text, offset 3929",
+          "method": "Read bounded OA PDF passage",
+          "title": "Kernel-based interpolation at approximate Fekete points",
+          "trigger": "Truncated kernel Gram determinant designs"
+        },
+        {
+          "assessment": "Vandermonde context, not a covering result",
+          "evidence": [
+            "General-knot ordinary Vandermonde conditioning does not supply the factorially weighted radial comparison."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1504.02118",
+          "material_read": "§3, p. 3, offset 12017",
+          "method": "Read bounded OA PDF passage",
+          "title": "How Bad Are Vandermonde Matrices?",
+          "trigger": "Equivalent matrix formulation for angular sampling"
+        },
+        {
+          "assessment": "Unresolved comparison risk, not clean exclusion",
+          "evidence": [
+            "Titles identify circular coherent-state representations; no verified statement of either optimization is available from this check."
+          ],
+          "identifier_or_url": "10.1103/PhysRevA.48.2213; 10.1103/PhysRevA.50.4293",
+          "material_read": "Bibliographic identification; no primary full text inspected",
+          "method": "Lawful OA retrieval attempted; access unsuccessful and no OA copy located",
+          "title": "Coherent states on a circle and quantum interference; One-dimensional coherent-state representation on a circle in phase space",
+          "trigger": "Plausible equivalent circular coherent-state Gram design"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen theorem, assumptions and full proof; Fock MZ obstruction and matched weighted circular result"
+      ],
+      "rationale": "A natural exactly solvable square design class separates volume from worst-case stability without comparing different node counts or normalizations. The angles are forced to agree for all objectives, while changing only the optimal radius causes a quantified exponential loss, not just a finite-degree inequality. The all-degree optimizer comparison and asymptotic prefactor are useful even though the E/condition component also appears in a broader theorem.",
+      "residual_risks": [
+        "No extension to unrestricted sampling or claim that either ring design is uniformly well conditioned."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

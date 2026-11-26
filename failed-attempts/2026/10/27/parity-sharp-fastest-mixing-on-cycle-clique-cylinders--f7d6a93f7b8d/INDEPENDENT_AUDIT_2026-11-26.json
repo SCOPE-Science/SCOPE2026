@@ -1,0 +1,150 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:27:28.644707Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Averaging by the graph action preserves feasibility and does not increase the convex SLEM norm, so the invariant solution gives the global value. For nonnegative directional weights a,b the full product spectrum has nonconstant displacements from 1 ranging between min(a s_n,mb) and a L_n+mb; the formula still holds on the boundary (including repeated eigenvalue 1). A gap gamma therefore requires at least a=gamma/s_n and b=gamma/m. These minima are jointly feasible precisely when gamma meets the spectral constraint gamma(2+L_n/s_n)≤2 and capacity constraint gamma(2/s_n+(m−1)/m)≤1. Either tight constraint forces both weights, proving uniqueness only in the invariant class. The spectral bound is tighter iff L_n+2s_n/m≥4, automatic when n is even; when n is odd this is m≤8 cos²(pi/(2n)), giving the n=3 equality at m=6 and the 7/8 cutoff for odd n≥5. At the Metropolis weights a=b=1/(m+1), the exact gap is min(s_n,m,2(m+1)−L_n−m)/(m+1). For m≥3 the third numerator is ≥m−2 and the first dominates eventually; for m=2 it is 4−L_n, zero on even cycles and the smallest numerator for odd cycles. Taylor expansion gives the stated ratios (m+1)/2 and 6. Replay by the spectrum and inequalities in frozen RESULT.md lines 39–91; verification materials were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "7101f830512c treats H □ K_s with a connected regular vertex- and edge-transitive H and allows holding. The graph C_n is such an H, including C_3.",
+          "78a82f1ea5ed gives tau=min{1/C,2/(E+1)} for its general Cartesian products; here C=2/s_n+(m−1)/m, E=L_n/s_n+1.",
+          "Clique lifts in arXiv:2501.02421 connect entire fibers, not coordinate-matching edges."
+        ],
+        "reasoning": "Both indexed results apply to these factors with the actual stochastic constraints; the similarly titled clique-lift paper instead has different support.",
+        "searches": [
+          "Resultary 2026/11/2/7101f830512c",
+          "Resultary 2026/11/2/78a82f1ea5ed",
+          "arXiv:2501.02421 Theorem 1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "arXiv:0709.0955, 1008.2588, 2501.02421",
+        "DOI 10.1007/s00440-023-01257-x",
+        "Resultary 7101f830512c, 78a82f1ea5ed, e4329dfc81c4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The first general formula compares beta+2 alpha to 2d+2 alpha(s−1)/s and takes weights Gamma/alpha and Gamma/s. Substitution gives exactly both objective branches and the parity condition. In invariant coordinates, the same tight inequality forces the weights even at a tie.",
+          "The Boyd et al. product Laplacian spectrum also immediately gives the heuristic SLEM when the two weights are set to 1/(m+1)."
+        ],
+        "reasoning": "The odd-cycle integer threshold and the limiting heuristic ratios follow from those formulas by elementary trigonometry and expansion. Neither changes the problem or requires a separate rigidity analysis; no unrestricted uniqueness is claimed in the frozen result.",
+        "searches": [
+          "arXiv:0709.0955 pp. 6–11",
+          "Resultary 7101f830512c Finding",
+          "Resultary 78a82f1ea5ed Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The coefficient 2 alpha/M in 7101f830512c equals Gamma with H=C_n, s=m, d=2, alpha=s_n, beta=L_n.",
+          "The published Boyd et al. formulation uses the same two-sided eigenvalue modulus and the same uniform-target symmetric stochastic constraints."
+        ],
+        "reasoning": "The spectral contraction and SLEM differ by subtraction from one. No switch to a one-sided relaxation rate, lazy-only optimization, or continuous-time graph is needed for the exact coverage.",
+        "searches": [
+          "Resultary fastest mixing holding transitions on clique-layer Cartesian products",
+          "arXiv:0709.0955, SLEM definition, Corollary 2.2 and Cartesian-product section"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "e4329dfc81c4 gives the cylinder cutoff with zero holding imposed; it also matches the optimum in the regime where the unconstrained optimum exhausts the row capacity."
+        ],
+        "reasoning": "This is partial exact indexed problem coverage (not a table of observations); it does not cover the positive-holding optimal regime. Full coverage instead comes from the two general product formulas.",
+        "searches": [
+          "Resultary C_n □ K_m seven-to-eight holding or nonholding threshold",
+          "Resultary e4329dfc81c4 Finding"
+        ]
+      },
+      "rationale": "Two distinct indexed theorems cover the central claim by direct substitution, and the earlier published discrete-time symmetry and product-spectrum approach reduces it to the same elementary capacity calculation. The indexed theorems are dated Nov. 2, after the Oct. 27 frozen record; the finding is mathematical coverage, not a determination of who first derived it. The Metropolis comparison is a substitution into the same product spectrum, not a distinct surviving theorem.",
+      "residual_risks": [
+        "The two general indexed theorems are later-dated; the comparison establishes mathematical coverage, not earlier priority or dependence.",
+        "The Indrani et al. full text was unavailable. That access limit does not affect the verified coverage from the indexed theorems."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIRECT_GENERALIZATION",
+          "evidence": "Its two-way denominator and optimizer on H □ K_s specialize to the claimed result with H=C_n.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-holding-transitions-in-fastest-mixing-on-clique-layer-prod--7101f830512c/RESULT.md",
+          "material_read": "Finding and graph/holding hypotheses",
+          "method": "Resultary lookup and local mirror read, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Sharp holding transitions in fastest mixing on clique-layer products",
+          "trigger": "Closest general indexed discrete-time theorem"
+        },
+        {
+          "assessment": "DIRECT_GENERALIZATION",
+          "evidence": "The tau formula is identical for the given factors; conditional unrestricted rigidity is stronger than needed here.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-two-sided-mixing-and-fiedler-edge-rigidity-on-cartesian-gr--78a82f1ea5ed/RESULT.md",
+          "material_read": "Finding, C and E parameters and optimizer scope",
+          "method": "Resultary lookup and local mirror read, same snapshot",
+          "title": "Sharp two-sided mixing and Fiedler-edge rigidity on Cartesian graphs",
+          "trigger": "Indexed general Cartesian-product claim"
+        },
+        {
+          "assessment": "PARTIAL_COVERAGE",
+          "evidence": "Same threshold, but imposed no holding does not solve the full feasible class in positive-holding regimes.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-seven-to-eight-layer-spectral-transition-in-fastest-non-holdin--e4329dfc81c4/RESULT.md",
+          "material_read": "Finding and zero-holding constraint",
+          "method": "Resultary lookup and local mirror read, same snapshot",
+          "title": "A seven-to-eight layer spectral transition in fastest non-holding mixing",
+          "trigger": "Exact graph and integer cutoff"
+        },
+        {
+          "assessment": "IMPLIES_REDUCTION_NOT_EXPLICIT_CYLINDER_FORMULA",
+          "evidence": "Same norm and orbit reduction, with Cartesian spectrum. Explicit one-orbit formulas and cycle-mesh or hypercube examples are not an explicit cylinder cutoff.",
+          "identifier_or_url": "https://arxiv.org/abs/0709.0955",
+          "material_read": "PDF pp. 2, 6–8, 10–11 (offsets 5000, 22000, 27600, 34200)",
+          "method": "Bounded OA PDF inspection",
+          "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+          "trigger": "Foundational FMMC on graphs with symmetries"
+        },
+        {
+          "assessment": "DIFFERENT_TOPOLOGY",
+          "evidence": "No clique edges within the layers; interlayer connections are complete bipartite.",
+          "identifier_or_url": "https://arxiv.org/abs/1008.2588",
+          "material_read": "§III, extracted offsets 14000–19000",
+          "method": "Bounded OA PDF inspection",
+          "title": "Fastest Mixing Markov Chain on Symmetric K-Partite Network",
+          "trigger": "Cyclic multipartite fastest-mixing result"
+        },
+        {
+          "assessment": "DIFFERENT_INTERLAYER_EDGES",
+          "evidence": "Across each base edge all pairs in the two cliques are joined, unlike a perfect matching.",
+          "identifier_or_url": "https://arxiv.org/abs/2501.02421",
+          "material_read": "§§3.1–3.2, extracted offsets 14600–19700",
+          "method": "Bounded OA PDF inspection",
+          "title": "Fastest Mixing Reversible Markov Chain: Clique Lifted Graphs and Subgraphs",
+          "trigger": "General clique-layer SLEM result"
+        },
+        {
+          "assessment": "RELATED_DIFFERENT_SCOPE",
+          "evidence": "Lazy-chain relaxation estimates, including two matched cliques, not the exact two-sided general cycle-cylinder solution.",
+          "identifier_or_url": "https://doi.org/10.1007/s00440-023-01257-x",
+          "material_read": "pp. 1018–19 and §1.3.4, p. 1031",
+          "method": "Bounded OA paper inspection",
+          "title": "Geometric bounds on the fastest mixing Markov chain",
+          "trigger": "Matched clique example"
+        },
+        {
+          "assessment": "FULL_TEXT_NOT_VERIFIED",
+          "evidence": "The cited objective is algebraic connectivity with a weight-sum constraint according to the frozen record; no independent whole-paper exclusion is made.",
+          "identifier_or_url": "https://doi.org/10.29121/ijoest.v10.i4.2026.781",
+          "material_read": "Frozen bibliographic citation and description only; publisher returned HTTP 403",
+          "method": "Lawful OA retrieval attempt",
+          "title": "Algebraic Connectivity and Exact Laplacian Spectra of Generalized Graph Products",
+          "trigger": "Frozen reference on weighted Cartesian products"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The parity threshold is useful when choosing stochastic weights, but at this scope it is a direct cycle-eigenvalue substitution into the existing two-branch product optimum, with no additional sharp graph invariant beyond that specialization. The heuristic factors are obtained by substituting common edge weights and expanding the same two spectral endpoints. The record claims no new unrestricted uniqueness, separate rigidity, or independently motivated exact feature that survives the covered product formula.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

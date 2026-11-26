@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:08:51.567330Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Proof; verify.py; verification_output.txt",
+        "Independent replay: python3 independent_binary_trigram.py; independent_binary_trigram_output.txt"
+      ],
+      "rationale": "The optimum enumeration is complete: the length-ten word 0001011100 covers all eight trigrams, and testing all 2,040 binary words of lengths 3–10 covers every possible shorter witness. Each greedy step branches over all ordered pairs at the global maximum overlap and reduces the active multiset by one, which proves the worst-length recurrence by induction. An independently written exact checker covered all 255 input sets and 7,405 memoized greedy states. It reproduced 10/7, exactly masks 31, 87, 234 and 248, and the eight size maxima 1, 1, 7/5, 4/3, 10/7, 11/8, 4/3, 7/5. For the explicit five-trigram witness the window count alone rules out length six, and 0100011 attains seven; the listed merges realize ten using overlaps 2, 2, 1, 0, each globally maximal.",
+      "residual_risks": [
+        "The exhaustive certificate applies only to distinct binary trigrams under the stated merge convention; it gives no bound for other lengths or alphabets."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "PDF p. 3 defines k-SCS with arbitrary finite alphabet and arbitrary ties; Theorems 4.1 and 5.1 on p. 6 give 9/5 for length three over unrestricted alphabets and a witness using A, B and X."
+        ],
+        "reasoning": "The unrestricted-domain bound implies only 9/5 as an upper bound for binary inputs. Its witness is not binary and it does not force the sharp binary cases. The direct Resultary comparator, not this broader theorem, is decisive.",
+        "searches": [
+          "Chukhin, Kulikov, Mihajlin and Smal, arXiv:2608.20018v2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and finite certificate",
+        "Resultary f43f5caa07c5, RESULT.md and census.csv",
+        "arXiv:2608.20018v2, definitions and Theorems 4.1 and 5.1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Resultary comparator states the headline theorem and equality classification outright; its length-pair table supplies the remaining profile. The primary unrestricted-alphabet theorem does not entail either."
+        ],
+        "reasoning": "The exact coverage relies on the distinct all-binary record and its table, not on the broad theorem, shared method, identical witness alone, or a claim about chronological priority.",
+        "searches": [
+          "Resultary comparator RESULT.md and census.csv",
+          "arXiv:2608.20018v2, Theorems 4.1 and 5.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Comparator RESULT.md, Finding and Assumptions at offsets 0–1695: nonempty subsets of binary trigrams, ordered maximum suffix-prefix overlap, arbitrary ties, masks 31, 87, 234, 248 and single reversal/complement orbit."
+        ],
+        "reasoning": "Despite the title's wording, the actual claim is about words of length three, not three-input sets. The domains, optimization and tie rules match. In particular the active words remain substring-free: a third word newly contained across a merge would overlap its left input by more than the chosen overlap, contradicting global maximality. Thus a difference in treatment of complete shorter overlaps cannot separate the findings.",
+        "searches": [
+          "Resultary: binary length-three greedy shortest common superstring, sharp ratio and equality cases",
+          "2026/11/8/SCOPE-sharp-binary-three-word-greedy-superstring-ratio-and-all-equalit--f43f5caa07c5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The census contains one row for each mask 1–255, with cardinality, optimal length and worst greedy length. Grouping by cardinality and comparing ratios by integer cross products yields maximum (G,O) pairs (3,3),(4,4),(7,5),(8,6),(10,7),(11,8),(12,9),(14,10). Exactly masks 31, 87, 234 and 248 attain 10/7."
+        ],
+        "reasoning": "The size profile, even where not separately stated, is a direct aggregation of an exact all-input table, not a new statistic requiring additional enumeration or theory.",
+        "searches": [
+          "Resultary comparator census.csv at snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4"
+        ]
+      },
+      "rationale": "A distinct indexed Resultary record states the same binary-trigram sharp ratio, four equality cases and symmetry orbit, and contains a complete 255-mask census that gives the same eight size maxima. No distinct mathematical content in the declared finding survives that comparison. The comparator's displayed November 8 date is later than the frozen record's October 18 date; this is demonstrable equivalent coverage, not evidence of earlier discovery or priority by the comparator.",
+      "residual_risks": [
+        "Relative discovery and public priority are unresolved; displayed record dates alone do not establish provenance of the shared finding.",
+        "The general web lookup provided no stronger decisive evidence; the verdict rests on positively verified exact coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent coverage of the complete finding; relative discovery priority not determined.",
+          "evidence": [
+            "10/7, four same masks, same involutions, identical size profile by exact table aggregation."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-binary-three-word-greedy-superstring-ratio-and-all-equalit--f43f5caa07c5",
+          "material_read": "RESULT.md Finding and Assumptions, offsets 0–1695; census.csv headings and mask/length data.",
+          "method": "Local mirror exact text and rational reduction of the tabulated lengths.",
+          "title": "Sharp binary three-word greedy-superstring ratio and all equality cases",
+          "trigger": "Direct same-domain exact-result match in Resultary search."
+        },
+        {
+          "assessment": "Nonsharp broad bound for the binary problem; does not supply the binary census in the inspected result.",
+          "evidence": [
+            "9/5 over arbitrary finite alphabets; lower-bound construction uses three symbols."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2608.20018v2",
+          "material_read": "PDF p. 3 definition and p. 6 length-three theorems and construction, text offsets near 8715 and 18284–19674.",
+          "method": "Open-access primary text and comparison of quantifiers and witness alphabet.",
+          "title": "The Greedy Superstring Algorithm Achieves Ratio 2 for Strings of Length 6 Already",
+          "trigger": "Close primary theorem for the same length and arbitrary ties."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and explicit witness",
+        "Resultary f43f5caa07c5, Finding and complete census"
+      ],
+      "rationale": "The sharp binary restriction, small sharpness witness and complete equality classification are mathematically well motivated. But the audited finding provides no additional invariant, classification or independently useful unknown case beyond the existing exact coverage. The census reproduction corroborates those numbers; it is not a distinct valuable result under this audit standard.",
+      "residual_risks": [
+        "This judgment concerns additional scientific content, not the usefulness of the shared classification or which work first derived it."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

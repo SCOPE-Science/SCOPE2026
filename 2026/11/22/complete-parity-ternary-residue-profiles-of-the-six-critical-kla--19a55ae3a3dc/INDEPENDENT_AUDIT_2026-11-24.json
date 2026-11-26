@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:45:32.677279Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–67",
+        "VERIFICATION.md",
+        "check_orbits.py",
+        "Independent record3.py and record3.log"
+      ],
+      "rationale": "Reduction from the integer orbit agrees with finite modular reachability because each reachable state comes from a finite word. The valuation of 4^(3^j)-1 is j+1 (cubing raises this valuation by exactly one), hence 2 has order 2*3^(k-1) modulo 3^k and generates the units. The unit seeds 10 and 2 for the first two listed triples, and the A-orbits A^j(0)=(2^j-1)a when a is nonzero, cover the claimed ternary classes except for the missing class in each of the four surjective cases. The displayed B or C in each such case maps the full projection at level k-1 onto the missing class at level k; in the two restricted cases all generators preserve the allowed classes. Splitting parity then gives the first pair directly from A and B, and the middle two shell laws from the last parity-resetting C followed solely by B. The identities are B^t(C(x))+1=2*3^t(3x+2) and B^t(C(x))=2*3^t(3x+1), respectively. They yield the special residues at t>=k; the remaining shells have exactly 3^(k-t-1) terms. In the two restricted cases the leading parity comes from A, and the opposite one from C followed by B, with mod-18 classes 9/15 and 0/6 preserved by B. For (1,6,0), words consisting only of B starting at 0 are also covered, since C(0)=0 can be inserted first. The special classes merge modulo 6 exactly as stated. Independent set saturation compared against arithmetic progression shell sets for all six triples at levels 1 through 10: 60 exact equalities, with sizes [4,5,3,5,4,3] at k=1 and [12,14,8,14,12,8] at k=2 in listed triple order. Replay: python3 -I /workspace/branches/independent-checks/record3.py; record3.log in that directory. Frozen checker inspected, not executed.",
+      "residual_risks": [
+        "The fractions concern the finite quotients, not existence or equality of a natural density. They do give upper bounds on upper asymptotic density by containment in periodic residue sets. The finite computation is diagnostic, not the general proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Shamazov–Talambutsa list the same six free-semigroup bases, attributed to Klarner, and address freeness and ordinary density. The inspected Klarner–Rado passages treat recursive binary operations. The same-day 300caf6b7e85 states surjectivity modulo m exactly when 6 does not divide m for (0,2,3)."
+        ],
+        "reasoning": "The identification of the six triples is prior; an ordinary-density argument or a surjectivity criterion alone does not resolve the nonsurjective exact residue sets. The latter record has a larger modulus scope but gives weaker information on the frozen moduli.",
+        "searches": [
+          "Shamazov–Talambutsa arXiv:2507.06875, p. 2 and §§4.1–4.2",
+          "Klarner–Rado 1974, Theorem 11 and closing recursive examples",
+          "Resultary 300caf6b7e85, full versus nonfull images at all moduli"
+        ]
+      },
+      "checked_sources": [
+        "Resultary d99bdb4892d0, 300caf6b7e85 and the exact target mirror",
+        "Shamazov–Talambutsa arXiv:2507.06875",
+        "Klarner–Rado 1974 OA PDF",
+        "Klarner 1982 and Lagarias 2016 access checks",
+        "Frozen residue predicates and independent conjugacy comparison"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the (0,2,3) system modulo m_k the word B^k(C(0)) reaches -1. Conversely, choose j>=1 with 2^j=1 modulo 3^(k-1); then A(B(A^j(-1)))=6(1-2^j) reaches 0 modulo m_k. Thus the seeds 0 and -1 have equal modular forward images. The d=1 reflection maps those two seeds to -1 and 0 in the (1,0,2) system, so applying it to the (0,2,3) image gives the entire seed-0 (1,0,2) row."
+        ],
+        "reasoning": "Both middle rows are covered by the same already-stated exact law and an elementary quotient argument. The same reduction pairs the other four without making their profiles follow from the middle law, and the inspected prior freeness, density or locality statements do not determine their exact images.",
+        "searches": [
+          "Resultary d99bdb4892d0 specialized at u=1",
+          "Shamazov–Talambutsa affine conjugacy §4.1 with seed change checked in the quotient"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For h_d(x)=-x-d, h_d^{-1}(sx+b)h_d=sx+(s-1)d-b. Taking d=2,1,3 pairs (0,3,10) with (2,1,0), (0,2,3) with (1,0,2), and (2,0,15) with (1,6,0), respectively. Direct substitution sends the corresponding exact residue predicates into each other at each k."
+        ],
+        "reasoning": "The pairings are exact modulo m_k; the affine maps change the seed and do not conjugate the pointed nonnegative integer orbits. There are three inequivalent profile families here, since the three limiting fractions are different. A seed argument is needed to transport a known generator-orbit image rather than merely rename coefficients.",
+        "searches": [
+          "Resultary: exact modulus 2*3^k images for the six Klarner critical triples and affine orbit conjugacy",
+          "Shamazov–Talambutsa arXiv:2507.06875 §4.1, (16)–(17)",
+          "Frozen exact residue predicates, lines 23–25"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Distinct same-day d99bdb4892d0 gives exact images of the orbit generated by 2x, 3x+2, 6x+3 modulo 2*3^b*u, with b>=1 and u odd coprime to 3, and count u(3^(b+1)+1)/2. The exact matching six-triple entry is the frozen record itself."
+        ],
+        "reasoning": "Setting u=1 recovers the full (0,2,3) row, not just its cardinality or limit. Neither inspected comparator gives the 2/3 or 4/9 profile. Catalog evidence establishes this overlap, not the first date on which the (0,2,3) formula was obtained.",
+        "searches": [
+          "Resultary d99bdb4892d0 and 300caf6b7e85",
+          "Resultary search by all six coefficients, local residue profiles and exact fractions"
+        ]
+      },
+      "rationale": "Credit the exact fixed-coordinate six-triple comparison through its distinct 2/3 and 4/9 profiles; do not claim five unrelated novel laws. A distinct same-day Resultary record already supplies the entire (0,2,3) row by specialization, and (1,0,2) follows from that exact image by affine conjugation with a finite-quotient seed argument. All six profiles form three pairs under affine residue bijections. The two other profile laws are not covered by the inspected catalog entries or literature. No priority order is inferred within the same date.",
+      "residual_risks": [
+        "The frozen references do not identify the historical source of the exact (0,2,3) image; exact same-day catalog coverage is confirmed without deciding chronology. Klarner's 1982 and Lagarias's 2016 full texts were not checked, and an earlier equivalent table cannot be ruled out."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage of (0,2,3), with transported implication for (1,0,2)",
+          "evidence": "Exact mixed-prime image and count at modulus 2*3^b*u; u=1 recovers the middle law and shells.",
+          "identifier_or_url": "Resultary d99bdb4892d0",
+          "material_read": "Mirrored RESULT.md offsets 0–5139 and 5200–7513",
+          "method": "Local Resultary search and mirror",
+          "title": "Exact mixed-prime residue images of a Klarner affine orbit",
+          "trigger": "Exact same-day profile with broader modulus scope"
+        },
+        {
+          "assessment": "Broader scope for a weaker invariant",
+          "evidence": "Full residue image iff 6 does not divide the modulus, not exact nonsurjective images.",
+          "identifier_or_url": "Resultary 300caf6b7e85",
+          "material_read": "Mirrored Finding at offsets 0 and 499",
+          "method": "Local Resultary search and mirror",
+          "title": "A sharp congruence locality dichotomy for a Klarner affine orbit",
+          "trigger": "Same orbit and all moduli"
+        },
+        {
+          "assessment": "Six bases and affine conjugation already known; different counting/density problem",
+          "evidence": "Lists the six triples, attributes them to Klarner, discusses free semigroups and ordinary density, and gives affine normalization.",
+          "identifier_or_url": "https://arxiv.org/abs/2507.06875",
+          "material_read": "PDF p. 2; §§4.1–4.2, pp. 8–9, formulas (16)–(17) and discussion",
+          "method": "OA PDF passage inspection",
+          "title": "On orbit sets generated by semigroups of one-dimensional affine functions",
+          "trigger": "Canonical six triples, normalizations, and possible general coverage"
+        },
+        {
+          "assessment": "Inspected results concern different binary operations",
+          "evidence": "Examples and bounds for constructions with 2x+ny or 1+mx+ny, not these exact unary-generator profiles.",
+          "identifier_or_url": "https://msp.org/pjm/1974/53-2/pjm-v53-n2-p13-p.pdf",
+          "material_read": "Printed pp. 445–446; pp. 461–462 Theorem 11; closing passage at extracted offset 39000",
+          "method": "OA PDF passage inspection",
+          "title": "Arithmetic properties of certain recursively defined sets",
+          "trigger": "Early recursive-set arithmetic background"
+        },
+        {
+          "assessment": "Residual historical priority risk, not evidence of noncoverage",
+          "evidence": "Full texts not inspected; the accessible Shamazov–Talambutsa passage attributes the list to Klarner.",
+          "identifier_or_url": "DOI 10.1016/0021-8693(82)90010-2; DOI 10.4169/amer.math.monthly.123.08.753",
+          "material_read": "1982 bibliographic/abstract material only; no 2016 full text obtained",
+          "method": "Lawful DOI lookup and public search",
+          "title": "A Sufficient Condition for Certain Semigroups to Be Free; Erdős, Klarner, and the 3x + 1 Problem",
+          "trigger": "Historical original semigroup source and later exposition"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and all-k proof",
+        "Shamazov–Talambutsa arXiv:2507.06875 §4.1",
+        "Resultary d99bdb4892d0 and 300caf6b7e85"
+      ],
+      "rationale": "The six coefficient choices are the canonical critical free affine-semigroup bases, not a slice chosen after seeing numbers. Their exact local obstructions distinguish the two additional laws 2/3 and 4/9 from the known 3/4 branch, and the residue formulas determine where the missing mass lies, including the exceptional first level. Exact orbit images are usable in further modular and density-bound investigations; rephrasing the known middle law alone would not warrant this verdict.",
+      "residual_risks": [
+        "Restricted to the moduli 2*3^k and seed 0; no determination of the ordinary asymptotic densities or word multiplicities."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

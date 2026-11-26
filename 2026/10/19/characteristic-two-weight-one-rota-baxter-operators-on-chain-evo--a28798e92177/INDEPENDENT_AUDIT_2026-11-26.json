@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:18:18.182282Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The bilinear weight-one identity on diagonal basis pairs forces successive columns by iterated squaring, and the terminal equation is automatic from Q^n=0. For an off-diagonal pair with column separation d, coefficient comparison and injectivity of Frobenius give a_(t+d) a_t^(2^d) = a_(d+1) a_t^(2^(d+1)) for t+d<=n-1. Every such equation is realized already by a pair starting at e_1. The first nonzero interior coefficient at j forces a_1 in {0,1}; the equations at t=j then propagate period j-1 with the stated Frobenius exponents. Concatenation of the exponent sums proves sufficiency for every t,d, without requiring perfectness. The terminal first-column coefficient is free. The least nonzero row and its shifts give the stated ranks, including the empty interior at n=2. With standard column conventions the triangular matrix is lower rather than upper triangular; that wording in the rank proof does not affect any calculation. A fresh bounded checker (branches/7131221e-51e8-4a7b-a76a-ce3dd300187b/reproduce_independent.py) matched accepted columns and the increasing-rank counts (1,3,12,12,36) for (q,n)=(4,4) and (1,1,2,2,2,8) for (2,5). The frozen checker was inspected, not executed; finite checks are not an arbitrary-field proof. Frozen independent audit, Lean and expert statuses were not performed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Qaralleh–Mukhamedov–Khakimov, §2 and §5.1/Theorem 5.2, covers weight one for a structural family containing the chain, but in characteristic zero.",
+          "The follow-up explicitly treats local weight-zero operators over characteristic-zero fields (abstract and §2)."
+        ],
+        "reasoning": "A broader multiplication family does not dominate the field hypothesis. Local weight zero is also a different operator property, not a classification of these weight-one maps.",
+        "searches": [
+          "arXiv:2601.08669v1",
+          "arXiv:2606.22623v1",
+          "\"Rota-Baxter\" \"characteristic 2\" evolution algebra weight one operators"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Resultary 72ec49d4282b",
+        "arXiv:2601.08669v1",
+        "arXiv:2606.22623v1",
+        "doi:10.1007/s40879-025-00833-w (title only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 5.2 uses a characteristic-zero rational recurrence; characteristic two cancels the two diagonal cross terms and forces a different recurrence by squaring.",
+          "The exact matching Resultary parameterization directly yields the same rank counts via shifted leading coefficients."
+        ],
+        "reasoning": "No specialization of the characteristic-zero theorem gives the characteristic-two periodic support; the rank formula is a consequence of the parameterization, not a separate priority claim.",
+        "searches": [
+          "arXiv:2601.08669v1, §5.1/Theorem 5.2",
+          "Resultary 72ec49d4282b, RESULT.md §§4–5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 72ec49d4282b, RESULT.md offsets 0–5451, matches the periodic first nonzero coefficient/support, Frobenius exponents, and unrestricted terminal coefficient over arbitrary characteristic-two fields."
+        ],
+        "reasoning": "The matching Frobenius normal form is equivalent for the same product and weight, not just an analogous triangular recurrence. Its catalog placement is later; the exact overlap is confirmed but earlier coverage is not established by it.",
+        "searches": [
+          "Resultary: characteristic-two chain evolution algebra, weight-one Rota–Baxter, Frobenius normal form",
+          "arXiv:2601.08669v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Finite-field census and §§4–5 (offsets 0–9415) contain the exact total q^2+2(n−2)q(q−1) and the same full distribution, in all dimensions and over all finite even fields."
+        ],
+        "reasoning": "This is exact catalog duplication of the census, not a small-parameter coincidence. Its later catalog listing is not evidence of earlier availability or independent priority.",
+        "searches": [
+          "Resultary 2026/11/2/SCOPE-characteristic-two-frobenius-normal-forms-for-weight-one-rota-ba--72ec49d4282b, RESULT.md"
+        ]
+      },
+      "rationale": "The supported contribution is the characteristic-two weight-one Frobenius-support classification and census for the unperturbed chain. The inspected earlier weight-one theorem assumes characteristic zero. A distinct later-dated catalog record is a full statement-level match, including ranks, and is credited as such; there is no evidence here that it preceded the frozen finding. This is a bounded assessment, not a claim to historical priority or uniqueness in the current catalog.",
+      "residual_risks": [
+        "Exact duplication in a later catalog entry, with no established historical link or priority.",
+        "Bounded literature search and inaccessible weight-zero article; other equivalent formulations may be unindexed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Does not cover the characteristic-two claim",
+          "evidence": [
+            "Explicit characteristic-zero field hypothesis and rational weight-one recurrence."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2601.08669",
+          "material_read": "Abstract, §2 p. 4, §5.1/Theorem 5.2 pp. 13–15, v1",
+          "method": "Lawful OA PDF, bounded passage reading",
+          "title": "Rota-Baxter operators of nilpotent evolution algebras with maximal nilindex",
+          "trigger": "Earlier weight-one classification in a broader structural family"
+        },
+        {
+          "assessment": "Equivalent full classification and census; later catalog path, historical relationship unresolved",
+          "evidence": [
+            "Same characteristic, weight and product; identical admissible columns, total and ranks."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-characteristic-two-frobenius-normal-forms-for-weight-one-rota-ba--72ec49d4282b",
+          "material_read": "RESULT.md offsets 0–9415, including Finding, finite-field census and §§4–5",
+          "method": "Configured Resultary search and local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Characteristic-two Frobenius normal forms for weight-one Rota–Baxter operators on chain evolution algebras",
+          "trigger": "Strongest exact catalog match"
+        },
+        {
+          "assessment": "Different field and operator property",
+          "evidence": [
+            "Local weight zero and characteristic zero."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2606.22623",
+          "material_read": "Abstract p. 1 and §2 p. 3, v1",
+          "method": "Lawful OA PDF, bounded passage reading",
+          "title": "Local Rota–Baxter operators of weight zero on nilpotent evolution algebras with maximal nilindex",
+          "trigger": "Related possible generalization"
+        },
+        {
+          "assessment": "Not assessed beyond title; not a basis for exclusion",
+          "evidence": [
+            "Indexed title specifies weight zero."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s40879-025-00833-w",
+          "material_read": "Indexed title only",
+          "method": "Lawful article/PDF retrieval attempted; redirect failure, no alternate repository copy found",
+          "title": "Rota Baxter operators of weight zero with non-matrix images …",
+          "trigger": "Primary-search hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Weight one on the standard nilpotent chain is a natural boundary of the established characteristic-zero classification. The Frobenius recurrence explains the exact admissible supports even over imperfect fields and yields the complete finite-field ranks, rather than extrapolating from a handful of dimensions. It does not purport to classify perturbed chains or automorphism orbits.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

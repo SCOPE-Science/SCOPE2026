@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:04:43.525846Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For n>=4 all leaves form a general-position set and all proper leaf subsets extend to it. A set of size at least three cannot use both a core and its private leaf, since that core lies on every path from its leaf to a third selected vertex. After rotating a selected core to 0, index the other occupied fibers. A pair of those indices with a shortest cycle route through 0 is forbidden, since pendant endpoints add the same lengths to both cycle routes. Put m=floor(n/2). The m-1 distinct matched pairs (-s,m-s), 1<=s<=m-1, are forbidden pairs: the route through 0 has length m, including an equally short route when n is even. At most n-m other fibers may be occupied. Equality is realized by the leaves at 1,...,m and, for odd n only, at -m, together with core 0. Two positive indices have a strictly shorter route avoiding 0, while in the odd case a route through 0 from -m to any positive listed index has length >m. No selected leaf is interior to a geodesic. Any extension retains the selected core and would exceed the established cardinality bound. Since ceil(n/2)+1<n for n>=4, only all leaves achieve n. The missing-size count between the two largest maximal cardinalities is floor(n/2)-2 for n>=6, with n=4,5 having no gap. Replay: RESULT.md lines 19–45. The frozen enumeration and matching script and recorded outputs were inspected, not executed; the finite checks do not establish the all-n result or say every smaller cardinality occurs.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The corona theorem gives gp(C_n corona K1)=n but not the second-largest size. The lower general-position paper studies the smallest maximal set and the base cycle. The earlier catalogue classifies the feasible rooted selections in the whole one-leaf corona."
+        ],
+        "reasoning": "An all-set structural classification of this graph is stronger than the extremal part at issue, unlike a formula for its maximum value alone or a smallest-maximal result on the base cycle.",
+        "searches": [
+          "Ghorbani et al. arXiv:1903.04286 Section 4.1 Theorem 4.3",
+          "Di Stefano et al. arXiv:2306.09965v2 Definition 1.2 and Proposition 2.3(i)",
+          "Resultary eea66c0e3a48 structural classification"
+        ]
+      },
+      "checked_sources": [
+        "Resultary eea66c0e3a48",
+        "arXiv:1903.04286",
+        "arXiv:2306.09965v2",
+        "DOI 10.1007/s00025-024-02133-3",
+        "arXiv:2603.06930",
+        "MathWorld Sunlet Graph"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A root at one of k>=3 selected support sites is allowed iff its preceding and following gaps a,b have a+b>n/2; other sites may take leaves. The prior counting argument explicitly bounds the remaining gap sum d by k-2<=d<=floor((n-1)/2)."
+        ],
+        "reasoning": "Immediately k<=ceil(n/2)+1 for any set containing a root. For n=2m take root-adjacent gaps 1,m and m-1 other unit gaps; for n=2m+1 take 1,m and m other unit gaps. Select just that root with leaves at other supported sites. This attains the bound by the earlier rule and is maximal since any extension still contains a root. Proper leaf sets extend, so there is no intermediate maximal size. This is a direct extremal consequence, not an independently unknown invariant.",
+        "searches": [
+          "Resultary eea66c0e3a48 RESULT.md offsets 4286–5886: root eligibility and root-marking constraints"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "eea66c0e3a48 classifies general-position sets of the same one-leaf cycle corona and states the unique all-leaf maximum for n>=4.",
+          "Sun and crown can be used as aliases but also occur for other graphs; the corona C_n with one private pendant per core fixes the object."
+        ],
+        "reasoning": "The matching proof and the older cyclic gap description encode the same obstruction from an occupied core on a shortest route. The exact corona construction, not a name collision, establishes equivalence.",
+        "searches": [
+          "Resultary: sunlet, cyclic gaps, maximal general position, cycle corona K1",
+          "MathWorld Sunlet Graph entry, construction and aliases"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The ordinary polynomial counts all GP sets. Rather gives the six-sunlet polynomial with a positive size-five coefficient, consistent with the missing maximal size five because a proper leaf subset need not be maximal.",
+          "The prior catalogue paper contains an exact rule for every supported set, not merely coefficients."
+        ],
+        "reasoning": "No novelty inference follows from not seeing a maximal spectrum table in the ordinary polynomial literature. The all-n catalogue structure is sufficient even without tabulating this spectrum.",
+        "searches": [
+          "Resultary eea66c0e3a48 for exact sunlet GP counts and root eligibility",
+          "Iršič et al. DOI 10.1007/s00025-024-02133-3",
+          "Rather arXiv:2603.06930 six-sunlet example"
+        ]
+      },
+      "rationale": "Shown covered: the earlier Resultary classification eea66c0e3a48 explicitly gives the unique maximum and its root-eligibility rule directly implies the sharp next-largest maximal size and hence the gap. The matching is an alternate proof, not a distinct spectrum finding.",
+      "residual_risks": [
+        "The earliest mathematical priority of the structural classification was not exhaustively determined; the decision rests on an explicit earlier catalogue result, not on a presumed gap in primary literature or on inaccessible evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Unique maximum stated; next-largest maximal size and gap directly implied",
+          "evidence": "A root at i_j may be selected iff 2(g_{j-1}+g_j)>n. A leaf may always be selected instead; no further constraints. The upper and lower bounds on the remaining gap sum appear in the root-marking count.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-general-position-polynomials-of-sunlet-graphs-via-cyclic-gaps--eea66c0e3a48/RESULT.md",
+          "material_read": "Opening finding at offset 0 and root rule/counting at offsets 4286–5886",
+          "method": "Local Resultary mirror",
+          "title": "General-position polynomials of sunlet graphs via cyclic gaps",
+          "trigger": "All-set structural result for the identical sunlet family"
+        },
+        {
+          "assessment": "Prior coverage of the maximum size, not the other maximal sizes",
+          "evidence": "gp(G corona H)=n(G)rho(H), with rho(K1)=1 by definition.",
+          "identifier_or_url": "arXiv:1903.04286",
+          "material_read": "Section 4 definition and Section 4.1 Theorem 4.3, pp. 8–9, offsets 23615 and 25716",
+          "method": "Bounded OA PDF text",
+          "title": "The general position problem on Kneser graphs and on some graph operations",
+          "trigger": "A broader theorem for coronas"
+        },
+        {
+          "assessment": "Different extremum on the base cycle",
+          "evidence": "Lower general-position number is the smallest maximal size; the base cycle gives 2 for even n and 3 for odd n.",
+          "identifier_or_url": "arXiv:2306.09965v2",
+          "material_read": "Definition 1.2 and Proposition 2.3(i), offsets 5505 and 14380",
+          "method": "Bounded OA arXiv text",
+          "title": "Lower General Position Sets in Graphs",
+          "trigger": "Maximal GP sets under alternate invariant name"
+        },
+        {
+          "assessment": "Counts all GP sets, not inclusion-maximal ones",
+          "evidence": "Each size coefficient enumerates all general-position subsets of that size.",
+          "identifier_or_url": "10.1007/s00025-024-02133-3",
+          "material_read": "pp. 1–2 definition, offset 321",
+          "method": "Bounded OA full-text passage",
+          "title": "General Position Polynomials",
+          "trigger": "Could counts be the claimed maximal spectrum?"
+        },
+        {
+          "assessment": "Finite ordinary-polynomial example, not maximal spectrum",
+          "evidence": "The polynomial includes 6x^5 as well as x^6; the discussion is about log-concavity.",
+          "identifier_or_url": "arXiv:2603.06930",
+          "material_read": "p. 29 six-sunlet example, offset 95625",
+          "method": "Bounded OA PDF text",
+          "title": "Explicit Formulas and Unimodality Phenomena for General Position Polynomials",
+          "trigger": "Exact polynomial of the same graph at n=6"
+        },
+        {
+          "assessment": "Terminology check only",
+          "evidence": "The cycle-with-pendants construction can be called a sun or crown in some sources, with conflicting uses.",
+          "identifier_or_url": "https://mathworld.wolfram.com/SunletGraph.html",
+          "material_read": "Opening definition and aliases, offset 146",
+          "method": "Bounded public page text",
+          "title": "Sunlet Graph",
+          "trigger": "Variant names and potentially different objects"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "A large gap in a maximal spectrum of subcubic graphs is a mathematically natural phenomenon. Here, however, the exact endpoint is obtained mechanically from the older same-family classification by bounding the remaining positive gaps and choosing unit gaps. The matching offers a clean restatement but no demonstrated structural or classification gain beyond that known result.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

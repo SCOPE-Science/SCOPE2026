@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:40:58.846071Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–75; VERIFICATION.md and verify.py inspected as supplied evidence, not executed",
+        "Replay: /workspace/branches/f3bec6be-5320-437d-88fd-5176aee6ff29/record4_independent_check.py"
+      ],
+      "rationale": "With U=Σu_i, V=Σv_j, hat integration gives diagonal blocks diag(u_i V/3), diag(v_j U/3) and cross block u vᵀ/6. Block multiplication verifies the inverse: diagonal terms 3/(u_i V) or 3/(v_j U), a same-shore all-ones correction 1/(UV), and cross entries −2/(UV). For U_k of weight w=u_k/U, the dimensionless kernel endpoints (multiply by UV) are (1+3/w,−2) on incident edges and (1,−2) on other edges. Absolute affine integration gives ((3+w)²+4w²)/(6(1+w))+5(1−w)/6=g(w). Interpolation of endpoint kernels strictly lowers the evaluation norm below the larger endpoint bound at interior points because the endpoint kernels have opposite signs on a positive-length segment. Sign inputs attain the vertex evaluation norms, which give the essential supremum by continuity. Symmetry gives the L¹ norm by duality. As g decreases strictly, the optimum for fixed a,b comes from maximizing the smallest factor to 1/max(a,b), with the frozen statement's exact condition on both shores, not necessarily uniformity on the smaller shore. Small positive factors approach the unattained supremum 7/3. Since P1=1 the negative part of each row integrates to (g(w)−1)/2. Three independent rational configurations agree exactly with the matrix and row-integral identities.",
+      "residual_risks": [
+        "Rational checks are bounded tests; the matrix and kernel identities establish the assertion for arbitrary positive real factors."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "3e0b8abda735 gives an exact inverse-mass-matrix deficit and norming-point criterion for weighted bipartite graphs, including the atom-free rank-one family by setting vertex masses to zero. e72b2b6a5e15 gives a general norm bound <3 but not the sharp restricted formula. Grigorieff–Sloan study interval splines and quadrature-defined projection. The cited quantum-graph report's full mass-matrix section was inaccessible."
+        ],
+        "reasoning": "The deficit theorem is the same projector after setting constant edge mass equal to arclength and excluding atoms; the uniform bound and interval work alone do not give the frozen law. The report access issue is not the basis of the verdict.",
+        "searches": [
+          "Resultary exact weighted bipartite edge deficit: 3e0b8abda735",
+          "Resultary dimension-free metric-graph linear-spline stability: e72b2b6a5e15",
+          "Grigorieff–Sloan DOI 10.1017/S0004972700032263",
+          "Arioli–Benzi DOI 10.1093/imanum/drx029"
+        ]
+      },
+      "checked_sources": [
+        "Resultary records 01f1cffc69a6, 3e0b8abda735, bffa78eb183c and e72b2b6a5e15",
+        "Grigorieff–Sloan pp. 307–310",
+        "Arioli–Benzi retrieval attempted, no Section 5 evidence"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the broader atom-free deficit, the edge term is ℓ_ij a_ki a_kj/(a_ki+a_kj) for inverse entry magnitudes a. In units 1/(UV) these endpoint magnitudes are 1+3/w or 1, and 2. Their incident and nonincident masses are wUV and (1−w)UV."
+        ],
+        "reasoning": "The deficit is 2w(w+3)/(3(w+1))+2(1−w)/3=2/3+4w/[3(1+w)], giving g(w) and the same norming points and sign inputs. Monotonicity and the two simplex constraints give exactly the fixed-size optimization, and P1=1 gives the negative excursion. This is a specialization of the general rule and independently a weighted row-copy application of the star result.",
+        "searches": [
+          "3e0b8abda735 RESULT.md, exact bipartite deficit at offset 1081",
+          "01f1cffc69a6 RESULT.md, proof passage starting at offset 2910"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The star record Proof gives the exact leaf row kernel (inverse endpoints 3δ_ki/ℓ_i+1/S and −2/S) and leaf norm (7S+3ℓ_i)/(3(S+ℓ_i)). The cloning record gives pointwise star kernel cloning and the negative excursion for the unit-edge subcase."
+        ],
+        "reasoning": "For a U-vertex, set ℓ_i=u_i V and S=UV in the leaf kernel, reversing the edge coordinate to start at the leaf. Its endpoint values are exactly those of the graph's U-row on every U_iV_j, independent of j; summed edge lengths are ℓ_i. This identity also holds on the other shore with ℓ_j=v_j U. One can verify the copying without inverting the new mass matrix: put the star inverse leaf coefficients on the U-vertices and its center coefficient identically on all V-vertices. In the reproducing equations, tests at U_i aggregate to the star leaf equation; each V_j equation is v_j/V times the star center equation, with right side zero. This works for two leaves as well by the same row identity. The exact vertex law is the star law twice, not merely a similar scalar formula.",
+        "searches": [
+          "Resultary weighted metric star shortest-arm law: 01f1cffc69a6",
+          "Resultary bipartite spline kernel cloning: bffa78eb183c"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The explicit star row coefficient formulas and integrated row norm cover all positive arm fractions in their stated domain; the unit-edge K_{p,q} record gives a direct equal-factor check, V₁(p)=(7p+3)/(3(p+1))."
+        ],
+        "reasoning": "No separate numerical database is needed: the explicit star row formula is a symbolic table for this purpose, via the exact weighted replication above. The unit-edge formula alone would not settle heterogeneous lengths.",
+        "searches": [
+          "01f1cffc69a6 RESULT.md, Proof, star inverse coefficients and leaf row law",
+          "bffa78eb183c RESULT.md, Finding, vertex kernel norm"
+        ]
+      },
+      "rationale": "The exact vertex law is equivalent, shore by shore, to the already tabulated weighted star leaf law: all copies of each edge have the same kernel at a vertex of the other shore and their measures simply add. The general weighted bipartite deficit also recovers the full endpoint norm and norming points by direct substitution. This comparison is about scientific coverage, not priority inferred from a date.",
+      "residual_risks": [
+        "The exact history of the rank-one formula is not determined; the overlap assessment compares mathematical implications. Independent access to the cited Arioli–Benzi section was not obtained."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Weighted star leaf rows reproduce both shores of the frozen graph after edge-mass aggregation",
+          "evidence": "B_0j=−2/S, B_ij=3δ_ij/ℓ_i+1/S and leaf norm (7S+3ℓ_i)/(3(S+ℓ_i)).",
+          "identifier_or_url": "2026/10/18/SCOPE-exact-shortest-arm-law-for-continuous-linear-spline-projection-o--01f1cffc69a6",
+          "material_read": "RESULT.md Finding and Proof, offset 2910 through the leaf law and optimization",
+          "method": "Local mirror passage inspection and explicit kernel correspondence",
+          "title": "Exact shortest-arm law for continuous linear spline projection on metric stars",
+          "trigger": "Same scalar law and exact signed kernel row"
+        },
+        {
+          "assessment": "Broader exact formula including this family, with norming vertex criterion and extremizers",
+          "evidence": "3 minus the minimum of vertex deficits given by inverse mass entries; atoms may be absent.",
+          "identifier_or_url": "2026/11/8/SCOPE-a-sharp-uniform-projector-bound-and-an-exact-bipartite-edge-defi--3e0b8abda735",
+          "material_read": "RESULT.md Finding, Exact bipartite deficit, offset 1081 and following",
+          "method": "Local mirror passage inspection and specialization",
+          "title": "A sharp uniform projector bound and an exact bipartite edge-deficit formula on metric graphs",
+          "trigger": "General weighted result on the same projector"
+        },
+        {
+          "assessment": "Unit-edge overlap, not itself a theorem for arbitrary unequal lengths",
+          "evidence": "A row at a vertex in the p-shore is a 1/q copy of the corresponding p-leaf star row on each copy of the arm.",
+          "identifier_or_url": "2026/11/2/SCOPE-all-degree-kernel-cloning-for-spline-projection-on-bipartite-met--bffa78eb183c",
+          "material_read": "RESULT.md Finding, offset 606 onward, and degree-one specialization",
+          "method": "Local mirror passage inspection",
+          "title": "All-degree kernel cloning for spline projection on bipartite metric graphs",
+          "trigger": "Exact unit-edge subfamily and star relation"
+        },
+        {
+          "assessment": "Different setting in the inspected paper sections",
+          "evidence": "Intervals with quadrature inner products and discussion of continuous interval-projection stability.",
+          "identifier_or_url": "https://doi.org/10.1017/S0004972700032263",
+          "material_read": "Full-text access; pp. 307–310 (offsets 0, 4300, 7400) on domain and formulation",
+          "method": "Lawful OA full-text passages",
+          "title": "Stability of discrete orthogonal projections for continuous splines",
+          "trigger": "Endpoint stability for continuous spline spaces"
+        },
+        {
+          "assessment": "Relevant access gap; no conclusion about whole-paper coverage",
+          "evidence": "Retrieval returned HTTP 403; the supplied synopsis is not primary evidence.",
+          "identifier_or_url": "https://doi.org/10.1093/imanum/drx029",
+          "material_read": "No independent Section 5 passage; frozen bibliography and synopsis only",
+          "method": "Lawful DOI, publisher and report retrieval attempts",
+          "title": "A finite element method for quantum graphs",
+          "trigger": "Graph finite-element mass matrices for this setting"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen norm and optimization claims",
+        "Weighted star leaf law and general bipartite edge deficit"
+      ],
+      "rationale": "Sharp stability and positivity defects of graph splines are useful, but in this family the vertex norms reduce directly to the known star leaf rows and the global extrema are consequences of the simplex constraints. The frozen record does not establish an independently useful exact invariant beyond this reduction.",
+      "residual_risks": [
+        "This verdict does not assess other length matrices, higher degrees or a genuinely broader weighted cloning theorem."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

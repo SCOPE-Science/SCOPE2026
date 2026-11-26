@@ -1,0 +1,166 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:28:08.512918Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–109 and VERIFICATION.md and verify.py inspected without executing the frozen code",
+        "Independent /workspace/branches/c03538aa-291e-4729-b849-1646e17fa44c/independent_moment_check.py and independent_moment_check.log: 740 bounded exact-rational checks at N≤6 and finite-s comparisons",
+        "Reproduced N=3, m=2 witness: d₁=9/64, d₂=3/32, b₂=−3/32, E[X₁²X₂²]=16384/27; weak-reset example approaches 512/81"
+      ],
+      "rationale": "The variance assumption d₁>0 implies gamma+rp log(a)<0 since 1-a²<-2 log(a). The marginal Poisson strong law makes each backward propagator decay exponentially, providing a stationary stochastic integral; solutions coupled to the same future noise and marks contract, giving uniqueness. Given the whole mark history, the independent Brownian noises give independent centered Gaussians with variance V_i=2D∫₀^∞ exp(2 gamma t)a^{2N_i(t)}dt. Tonelli and the k! time orderings yield a product of k positive integrals over successive durations, with Laplace exponent d_j for j distinct active coordinates and b_j for j copies of one coordinate. Each duration contributes the reciprocal of its exponent if positive and infinity otherwise, including equality. The marginal Gaussian even-moment factor is (2k−1)!!. Exchangeability gives F_{j+1}−F_j=(1-a²)E[I_{j+1}a^{2H_j}], whose next difference is no larger by swapping selectors and including the extra multiplier. Hence F_j/j is nonincreasing; the same holds for p(1-a^{2j})/j. This reduces each test to its last denominator. For k≥2 a proper batch has positive probability of partially meeting the k tags, so strict convexity of a^{2h} below its endpoint chord gives F_k>p(1-a^{2k}). Concavity places the mixed threshold at or below the variance threshold, and full batches give equality with the scalar threshold. Expanding (1-s)^{2H_j} uses E H_j=jp and E H_j(H_j−1)=j(j−1)pu; d_j=λjs[2κ−1−2(j−1)u]+O(s²). Taking the product gives the limit and the sign of d_k proves off-boundary divergence. The scalar expansion analogously gives κ=k−1/2. Strict comparison of limiting boundaries concerns k≥2 as in the preceding separation statement; for k=1 they coincide.",
+      "residual_risks": [
+        "Exact arithmetic at bounded N is corroboration, not a proof of general finiteness. The weak-reset claims are off the limiting equality boundaries; at fixed s the exact exponent tests apply. Stationary-law uniqueness here is asserted under the stated sufficient variance condition, not conversely."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General polynomial-process results give finite-time moment closure; they do not by themselves prove existence of a stationary moment or divergence at a critical eigenvalue. The batch-selection paper resets to zero; Galla's fractional multiparticle example resets coordinates synchronously and studies a diffusion approximation. The targeted vector-functional query did not return a relevant theorem."
+        ],
+        "reasoning": "The complete-reset case a=0 and synchronized case m=N are meaningful boundaries, but neither implies the proper-batch law on 0<a<1. A broader stationary theorem if found could cover some product formulas; generic moment closure is not that theorem.",
+        "searches": [
+          "Cuchiero–Keller-Ressel–Teichmann arXiv:0812.4740 §2",
+          "Galla arXiv:2602.21635 multiparticle section",
+          "de Mauro–Majumdar–Schehr arXiv:2601.20077 model",
+          "Literature query: positive integer moments joint mixed multivariate exponential functionals Lévy additive processes product formula Salminen Vostrikova finiteness stationary resetting compound Poisson"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:math/0511265 Theorem 2",
+        "arXiv:0812.4740 §2",
+        "arXiv:2602.21635 multiparticle section",
+        "arXiv:2601.20077 model",
+        "arXiv:cond-mat/9902068 equations (9)–(11)",
+        "Resultary 612587350f45, 6eb1adb91d8a and 4da625e6e09e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "On integer orders in the contraction regime the scalar product is a direct implication of the classical theorem and is credited as such. Applying conditional Gaussianity and ordered time increments to the exchangeable vector functional separates the rates by active-set size. The proper-batch inequality is strict because the hypergeometric tagged count has interior mass, and the weak-reset coefficient needs its second factorial moment. Neither of those conclusions is obtained by using only scalar cutoffs or synchronized approximations."
+        ],
+        "reasoning": "The generator and ordered integrals are established ideas, not standalone innovations. The exact dependence on co-selection, with the strict stationary mixed-versus-pure gap and its scaling, is the supported noncovered result on the evidence inspected.",
+        "searches": [
+          "Bertoin–Yor Theorem 2 and proof",
+          "Cuchiero–Keller-Ressel–Teichmann Definition 2.1 and abstract",
+          "de Mauro et al. complete batch model and Galla fractional multiparticle model",
+          "Frozen RESULT.md §§2–5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The one-coordinate clock thins to rp. Its conditional variance divided by 2D is the exponential functional of ξ_t=−2 gamma t−2 log(a)N(t), whose integer Laplace exponents are b_j. For gamma≤0 this is a subordinator and the pure product follows exactly from Bertoin–Yor Theorem 2 and the Gaussian factor. Their scalar integration method also explains the pure formula more generally here.",
+          "In the expanding scalar regime the indexed Pareto-exponent record has exact variance and a fourth-moment-loss wedge; its tail theorem implies the scalar even-moment cutoff in its overlapping regime. The marginal transformation N,m→rp discards all co-selection data."
+        ],
+        "reasoning": "Changing the renewal description or calling the model fractional contraction does not make its marginal mathematics new. The corresponding vector exponential functional in proper batches depends on the entire mark, not on the one-dimensional Laplace exponent alone.",
+        "searches": [
+          "Bertoin–Yor arXiv:math/0511265 §3.1 Theorem 2",
+          "Resultary 2026/10/26/SCOPE-exact-moment-loss-wedge-and-pareto-exponent-reversal-under-frequ--612587350f45",
+          "Manrubia–Zanette arXiv:cond-mat/9902068"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed values closest to the result concern scalar variance and moment loss, joint extreme excursions for resets to zero, or a dilogarithmic rate function for a simultaneous fractional reset clock without linear drift. The primary papers inspect different multiparticle slices; none of the read statements tabulates the proper-batch mixed and pure boundaries jointly."
+        ],
+        "reasoning": "Variance, tail rate, or a table of lower-order synchronized correlations cannot encode the sequence d_j and its proper-batch strict comparison. Small exact numerical reproductions commissioned here do not supply prior coverage.",
+        "searches": [
+          "Local Resultary fractional and batch resetting comparisons: 612587350f45, 6eb1adb91d8a, 4da625e6e09e",
+          "Galla arXiv:2602.21635 and de Mauro et al. arXiv:2601.20077"
+        ]
+      },
+      "rationale": "Scalar moment products and moment loss are substantially covered by standard exponential-functional machinery or overlapping scalar results; the one-particle law is not the distinct contribution. The supported claim is the exact proper-batch mixed spectrum together with its strict separation from scalar moments and the resulting near-critical scaling. Known complete-batch selection, synchronized fractional resets and general finite-time moment closure do not state those results under the same assumptions.",
+      "residual_risks": [
+        "The nondiagnostic literature queries do not exclude a more general vector-functional stationary-moment formula. The review does not establish exhaustive historical priority for the mixed product or its proof ideas."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exactly implies the scalar pure moments for gamma≤0, and uses the classical independent-increment mechanism; inspected theorem is scalar and assumes a subordinator",
+          "evidence": "Equation (4) gives k! divided by the product of q+Φ(j); the case q=0 is the infinite horizon.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0511265",
+          "material_read": "§3.1, Theorem 2, equations (3)–(7) and proof start, offsets 9800–14737",
+          "method": "OA primary PDF",
+          "title": "Exponential functionals of Lévy processes",
+          "trigger": "Possible exact prior product via exponential functionals"
+        },
+        {
+          "assessment": "Finite-time polynomial moment structure, not a stationary cutoff in the inspected result",
+          "evidence": "Polynomial subspaces are invariant under the semigroup and permit finite-dimensional moment computations.",
+          "identifier_or_url": "https://arxiv.org/pdf/0812.4740",
+          "material_read": "Abstract and §2 Definition 2.1, PDF pp. 1,4, offsets 0 and 7800",
+          "method": "OA primary PDF",
+          "title": "Polynomial processes and their applications to mathematical finance",
+          "trigger": "Possible general affine or jump-process moment coverage"
+        },
+        {
+          "assessment": "Synchrony and approximate dynamics, not exact mixed/pure thresholds for proper batches",
+          "evidence": "The multiparticle example resets all jointly, while batch resetting is a different selection mechanism.",
+          "identifier_or_url": "https://arxiv.org/html/2602.21635",
+          "material_read": "Model setup and Multi-particle systems section, offsets 0 and 12720",
+          "method": "OA primary text",
+          "title": "A diffusion approximation for systems with frequent weak resetting",
+          "trigger": "Same fractional reset and frequent weak limit"
+        },
+        {
+          "assessment": "Exact complete-reset correlations, not positive reset factors and expanding-drift moment thresholds",
+          "evidence": "At a reset the selected coordinates are returned to the origin.",
+          "identifier_or_url": "https://arxiv.org/pdf/2601.20077",
+          "material_read": "Abstract and model passage, offsets 733 and 9337",
+          "method": "OA primary PDF",
+          "title": "Tuning the strength of emergent correlations in a Brownian gas via batch resetting",
+          "trigger": "Same uniform batch selection and exact correlations"
+        },
+        {
+          "assessment": "Related scalar power-law moment divergence, not joint proper-batch formula",
+          "evidence": "Scalar random multipliers generate a moment-divergence threshold.",
+          "identifier_or_url": "https://arxiv.org/pdf/cond-mat/9902068",
+          "material_read": "p. 3, equations (9)–(11)",
+          "method": "OA primary PDF",
+          "title": "Stochastic multiplicative processes with reset events",
+          "trigger": "Earlier scalar multiplicative resetting and stationary divergence"
+        },
+        {
+          "assessment": "Overlapping scalar cutoffs and wedge; no distinct-coordinate spectrum or comparison with it; catalogued later",
+          "evidence": "Exact Pareto exponent, variance and scalar fourth-moment-loss wedge specialize to the coordinate marginal in the shared parameter region.",
+          "identifier_or_url": "2026/10/26/SCOPE-exact-moment-loss-wedge-and-pareto-exponent-reversal-under-frequ--612587350f45",
+          "material_read": "Finding for the scalar model, exact variance, Pareto exponent and weak-reset comparison",
+          "method": "Local Resultary mirror",
+          "title": "Exact moment-loss wedge and Pareto exponent reversal under frequent resetting",
+          "trigger": "Strongest indexed scalar overlap after thinning"
+        },
+        {
+          "assessment": "Pair extreme excursions for resets to zero, different from fractional stationary moment gap",
+          "evidence": "The exact comparison uses joint exceedances with full resetting of each selected coordinate.",
+          "identifier_or_url": "2026/10/26/SCOPE-sharp-pair-exceedance-prefactor-and-singular-tail-dependence-und--6eb1adb91d8a",
+          "material_read": "Finding and model assumptions",
+          "method": "Local Resultary mirror",
+          "title": "Sharp pair-exceedance prefactor and singular tail dependence under batch resetting",
+          "trigger": "Indexed joint batch tails might imply moment boundaries"
+        },
+        {
+          "assessment": "A different clock mark structure and a different statistic, not distinguished by date",
+          "evidence": "The rare-excursion large-deviation law concerns a common fractional clock without the linear drift and proper batches of the frozen theorem.",
+          "identifier_or_url": "2026/10/18/SCOPE-dilogarithmic-rare-excursion-law-for-a-brownian-gas-with-frequen--4da625e6e09e",
+          "material_read": "Finding and model assumptions",
+          "method": "Local Resultary mirror",
+          "title": "Dilogarithmic rare-excursion law for a Brownian gas with frequent resetting",
+          "trigger": "Same-day indexed fractional weak-reset statement"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 17–51 and 82–109",
+        "Galla multiparticle section; de Mauro–Majumdar–Schehr batch model"
+      ],
+      "rationale": "Proper batches interpolate between independent marginal histories and complete synchrony. The result identifies exactly when a natural observable of collective fluctuations is integrable even though the corresponding scalar moment diverges, and quantifies the gap at every relevant order and in a near-critical weak-reset regime. This is a substantive distinction, not just a new way to write a scalar recurrence.",
+      "residual_risks": [
+        "The theorem does not classify all mixed monomials or distributional tail constants."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

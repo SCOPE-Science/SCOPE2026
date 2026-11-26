@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:59:04.364587Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For ordinary variation on the open half-line understood as |Df| mass, a bounded representative equals a constant plus the signed Stieltjes integral of right-tail steps almost everywhere. The projection residual annihilates constants; the triangle inequality bounds it by the integral of the step norms against |Df|. A maximizing step attains the bound, and equality forces concentration of |Df| on the maximizing locations, so a unique location gives exactly the claimed nonconstant extremizers. Orthonormality, the integral of e^(-x)L_k(x) over [t,infinity), and subtraction of the first n+1 squared coefficients give R_n(t)=e^(-t)-e^(-2t)B_n(t). It is positive inside since a step cannot agree with a polynomial almost everywhere, and tends to zero at both ends. Differentiating gives R_n'=e^(-t)(2e^(-t)Q_n-1). The independent replay constructs B_n,Q_n over rationals, isolates and exhausts the positive roots of Q_n'-Q_n by Sturm sequences, and uses exact exponential intervals to count the stationary roots between them and compare their residuals. Counts are (1,1,1,3,3,3); the unique winners are root 1 through degree 4 and root 3 at degree 5, whose squared margin over root 1 exceeds 0.0000521944. Distinct successive maximizing locations and the pointwise nesting inequality also give strict decrease of the sharp norms over these degrees. Replay: python3 /workspace/branches/844146e3-8c0c-49b0-9eef-00e14b2d01d7/audit_laguerre_independent.py; see audit-run.txt there. The frozen script was not executed. No higher-degree, other-weight, or complex-valued classification is checked.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Tang–Zhou give an expansion in the exponential-measure basis in a discrete least-squares setting.",
+          "Wang's inspected statements concern analytic-function coefficient decay and convergence of Laguerre projection or interpolation."
+        ],
+        "reasoning": "A sharp continuous residual result allowing exponential Laguerre weight and BV inputs could dominate this finite classification. Discrete design stability and approximation rates for analytic functions do not describe the jump maximizer in that class.",
+        "searches": [
+          "Primary-literature lookup for sharp BV Laguerre projection error and maximizing jump locations",
+          "arXiv:1403.6579, eq. (2.20)",
+          "arXiv:2304.05744, PDF pp. 1–2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and verification package",
+        "Local Resultary and the primary hard-edge coefficient record",
+        "arXiv:1403.6579",
+        "arXiv:2304.05744",
+        "PII S0377042722006513 (search lead and access attempt only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The single-coefficient record can specialize to the first omitted coefficient L_6 at cutoff 5, whereas the squared residual uses all k>=6.",
+          "The standard expansion gives a way to express the residual but no ordering of its local maxima."
+        ],
+        "reasoning": "The distinction is not a relabeling of degree: none of the cited statements compares the summed squared residual at its first and third critical locations. Independent exact root exhaustion and comparison supply that missing ordering.",
+        "searches": [
+          "Hard-edge transition record, alpha=0 specialization, primary statement",
+          "arXiv:1403.6579, eq. (2.20), and arXiv:2304.05744, opening results"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The closest indexed result gives sharp BV-to-scalar bounds for an individual generalized Laguerre coefficient and locates its maxima via Laguerre zeros.",
+          "Parseval identifies this record's objective with the supremum of a joint squared coefficient tail, not a single coefficient."
+        ],
+        "reasoning": "The sharp norm can be phrased as a step maximum, a weighted projection error, or an l2 tail of coefficients. Taking the sum of individually optimized coefficient squares does not enforce a common t and does not recover the maximizer of the sum at a common t.",
+        "searches": [
+          "Local Resultary lookup for exponential Laguerre BV projection, optimal jumps, and sharp coefficient bounds",
+          "2026/11/8/SCOPE-a-hard-edge-transition-for-sharp-generalized-laguerre-bounded-va--e0cc28c7853e, primary statement"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest retrieved exact Laguerre extrema are in the indexed single-coefficient statement; neither it nor the inspected projection literature gives the joint-tail stationarity or winner table."
+        ],
+        "reasoning": "A table of sharp projection-tail optimizers through degree five would cover the branch test if paired with the stationary branches. A table of individual coefficient extrema or zeros of L_n does not tabulate the stationary equation e^t=2Q_n(t) or the residual on its branches.",
+        "searches": [
+          "Local Resultary lookup for finite-degree exponential Laguerre BV extrema and the hard-edge transition",
+          "Primary-literature lookup for exact Laguerre BV truncation norms and extremizers"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the sharp continuous projection-residual classification and first branch relocation through degree five. The variation-to-step argument, classical Laguerre identities and sharp single-coefficient analysis are not claimed as new. The closest indexed coefficient record was compared by formula and objective.",
+      "residual_risks": [
+        "The publisher lead S0377042722006513 was not verified in full text.",
+        "A sharp projection-tail theorem for BV functions could be missed by bounded searches under alternate terminology; no such covering theorem was established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantial overlap for individual coefficients, not the sharp joint projection residual",
+          "evidence": "Maximizers for a given coefficient are located using zeros of a generalized Laguerre polynomial. At alpha=0 the index-6 objective contains just one of the tail coefficients in the degree-five residual.",
+          "identifier_or_url": "2026/11/8/SCOPE-a-hard-edge-transition-for-sharp-generalized-laguerre-bounded-va--e0cc28c7853e",
+          "material_read": "Original finding, mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4, offset 0",
+          "method": "Local Resultary search and primary record mirror",
+          "title": "A hard-edge transition for sharp generalized Laguerre bounded-variation coefficients",
+          "trigger": "Closest indexed overlap in weight family, BV extremizers, and finite-degree maximizers"
+        },
+        {
+          "assessment": "Same basis, but discrete sampling and least-squares stability rather than the continuous sharp BV norm",
+          "evidence": "Equation (2.20) gives the expansion while the surrounding results concern randomized collocation and stability of the design matrix.",
+          "identifier_or_url": "https://arxiv.org/abs/1403.6579",
+          "material_read": "PDF p. 2 (OA offset 6800), p. 8, equation (2.20) and context (offset 25000)",
+          "method": "Lawful OA primary PDF",
+          "title": "On discrete least square projection in unbounded domain with random evaluations and its application to parametric uncertainty quantification",
+          "trigger": "Same exponential Laguerre basis and projection terminology"
+        },
+        {
+          "assessment": "Inspected analytic convergence results have a different function class and objective",
+          "evidence": "The passages concern coefficient decay and convergence for analytic projection/interpolation, not extremal discontinuous BV functions at a fixed degree.",
+          "identifier_or_url": "https://arxiv.org/abs/2304.05744",
+          "material_read": "PDF pp. 1–2, OA offsets 0 and 6100",
+          "method": "Lawful OA primary PDF",
+          "title": "Convergence analysis of Laguerre approximations for analytic functions",
+          "trigger": "Continuous Laguerre projections and truncation error"
+        },
+        {
+          "assessment": "Exact scope unverified; no statement of noncoverage is inferred",
+          "evidence": "The accessible description mentions coefficient decay, projection convergence, and quadrature, without a finite-degree BV optimizer statement.",
+          "identifier_or_url": "https://www.sciencedirect.com/science/article/pii/S0377042722006513",
+          "material_read": "Search result description only; OA request returned HTTP 403",
+          "method": "Primary-literature search and lawful OA retrieval attempt",
+          "title": "2023 Laguerre coefficient and projection-convergence article (publisher identifier)",
+          "trigger": "Search hit also mentions projection convergence and coefficient decay"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact norm for continuous polynomial projection of variation-bounded data is a natural approximation invariant, and the optimizer geometry matters independently of the size of the norm. The degree-five switch disproves selecting the first stationary jump even within a short natural nested family, and certifies why a close numerical comparison has a strictly different winner. Proving the first switch and identifying all extremizers through it is useful finite structural information, not significance inferred from a tiny improvement in error.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

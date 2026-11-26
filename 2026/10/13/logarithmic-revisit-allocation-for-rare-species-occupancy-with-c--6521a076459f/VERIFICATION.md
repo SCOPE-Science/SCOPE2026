@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification instructions and limits
+# Independent mathematical audit
 
-Run `python verify.py` with Python 3 (standard library only) from the same directory as this document. The script performs 72 exact rational checks of the history-likelihood Fisher information against its latent-missing-information representation, 84 exact rational checks of the false-positive-free Bernoulli reduction and the sufficient one-visit-optimality inequality, and four numerical diagnostics for the logarithmic scaling regime.
+## correctness
 
-Expected successful output:
+PASS
 
-`VERIFY_OK identity_cases=72 false_positive_free_cases=84 rare_prevalence_tests=4`
+The variance decomposition of the latent occupancy score yields I_k=(1−R_k)/[ψ(1−ψ)], where R_k=E_P[(1−ψ+ψ L_k)^{-1}], and gives a complete-information bound independent of k. Since J_1>0 and J_k tends to zero at fixed ψ, a finite maximizing integer exists. With T=log(1/ψ), a design just above T/d has ψL_k diverging in P-probability by the law of large numbers and R_k tending to zero by boundedness. Below (1−ε)T/d, 1−R_k is bounded uniformly by (ψ/(1−ψ))^θ M_θ^k, exponentially small in T for small fixed θ because the derivative of log M_θ at zero is d. Above (1+ε)T/d, the bound from complete information gives a strictly worse leading constant than the design at (1+η)T/d with 0<η<ε. This confines every maximizer and squeezes the normalized optimum to d. At f=0, the event of any detection is sufficient, with probability ψa_k where a_k=1−(1−p)^k. For k≥2, a_k/k≤p(1−p/2), so the upper bound on J_k is strictly below J_1 for the claimed sufficient range ψ<p/(2−2p+p²).
 
-The proof in `RESULT.md` establishes the domain-wide statements. The finite tests independently check critical normalization identities and inequalities but cannot certify arbitrary positive probabilities or the limiting formulas. Assumptions include fixed known detection rates, conditionally independent visits, homogeneous equal-cost designs, and an idealized large-budget local Fisher-information criterion. The noncommuting parameter limits, finite-budget constraints, and unexamined specialized literature are expressly outside the verified claim.
+## originality
+
+PASS
+
+The model and the general idea of repeating visits under false positives are not new. The inspected sources do not give the directed-KL scale for every full-history maximizer, the matched limiting information constant, or its contrast with the one-visit regime. The strongest indexed overlap already accounts for qualitative divergence by a symmetry, so qualitative divergence alone is not credited.
+
+## value
+
+PASS
+
+The result resolves the number of repeats and the leading information payoff in a motivated sites-versus-visits problem, rather than merely detecting that repeats become desirable. The contrast with zero false positives shows which idealization changes the order of the optimal allocation even when a positive false-positive rate is small.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

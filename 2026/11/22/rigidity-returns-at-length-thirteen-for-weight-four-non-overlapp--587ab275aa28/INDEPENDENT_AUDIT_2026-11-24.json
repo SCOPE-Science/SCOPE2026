@@ -1,0 +1,178 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T12:25:07.506777Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–35; VERIFICATION.md; verify.py, inspected not executed; forcing.tsv columns and all 55 rows",
+        "Independent replay: python3 -B /workspace/review_reproduction.py nonoverlap /workspace/source/2026/11/22/rigidity-returns-at-length-thirteen-for-weight-four-non-overlapp--587ab275aa28/forcing.tsv; 55 orbits, 89 candidates, one 1-to-0 solution in 56 recursive calls, all 55 certificate rows reproduced; reversed code checked independently"
+      ],
+      "rationale": "All 715 weight-four words have rotation orbit size 13 by primality and nonconstancy. For a nonzero cyclic shift, one of the two words' proper prefixes is the other's suffix, so a code uses at most one word from each of 55 necklaces. Length-one overlaps require opposite symbols at each word's endpoints and the same starting symbol throughout any nonempty code. Reversal exchanges the two uniform orientations and preserves non-overlap. In the 1-to-0 orientation the thresholds are equivalent to 13 times every proper prefix weight exceeding four times its length. Complementing with a proper prefix gives the strict reverse inequality for suffixes, proving compatibility. In each necklace the minimum of the integer cyclic partial sums with increments 13w_j−4 is unique among the 13 starting positions, since 13 does not divide 4k for 0<k<13. The rotation after the minimum has all proper partial sums positive and is the threshold representative, so the code attains 55. For rigidity, the independent bit-mask reconstruction filters self-overlaps, tests both directions of every proper overlap and partitions the 89 candidates into all 55 orbits. Every size-55 code must choose exactly one from each. The independent exhaustive domain search gives exactly one solution with 1-to-0 endpoints and it equals the threshold code. Independent replay verifies each of the 55 supplied singleton-forcing rows against all remaining compatible representatives; the reverse solution is distinct and there are no other orientations.",
+      "residual_risks": [
+        "The exhaustive certificate concerns length 13 and weight four only. The general strict-density construction does not prove a classification at other lengths."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chee et al. compare general constructions and numerical performance; Blackburn's n|q equality theorem is for the unrestricted q-ary problem.",
+          "The precise indexed all-length classification applies to weight three, a different composition."
+        ],
+        "reasoning": "An unrestricted code-size theorem or a weight-three structure theorem does not specialize to excluding different weight-four size-55 codebooks. The coprime-composition argument gives an extremizer, not a universal classification.",
+        "searches": [
+          "arXiv:1209.0236 Theorem 3.3 and Table I; arXiv:1303.1026 Theorem 4",
+          "2026/11/2/SCOPE-exact-capacity-and-rigidity-of-weight-three-binary-cross-bifix-f--153a0585e8dd",
+          "Resultary coprime composition and maximal code classification search"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md Finding, construction and prior-work section",
+        "Resultary indexed Findings and primary PDF sections listed in source_inspections"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "When gcd(n,w)=1, cyclic sums of the increments n·letter−w have a unique minimum over one circle: two equal partial sums at a proper separation k would force n|wk. Rotating after the minimum supplies a strict-density representative in every necklace, and density separates prefixes and suffixes.",
+          "The older certificates at n=12 are finite upper obstructions. They do not contain a rigidity proof for n=13."
+        ],
+        "reasoning": "The size 55 and explicit threshold construction are standard consequences, but the unique strict-density representative in an orbit need not be that orbit's only unbordered candidate. Excluding alternative choices across 55 groups requires the finite forcing argument and is the distinct claim reviewed.",
+        "searches": [
+          "Coprime-composition primitive necklace bound and cycle-lemma comparison",
+          "arXiv:1112.3168v1 §3.1; indexed length-12 deficit Findings and proof comparisons"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The classification concerns all oriented necklace transversals subject to pairwise proper prefix–suffix inequalities in both directions.",
+          "Indexed ...--2de292f43a6b and ...--3de6902e3f58 concern allowed cuts of individual circles rather than pairwise compatibility among different necklaces."
+        ],
+        "reasoning": "Cross-bifix-free is the relevant code synonym. Prefix-normal cuts and prefix-density are related at the level of roots, but classifying individual allowable cuts does not classify compatible selections of one root from every necklace. The Dyck construction uses a similar prefix/suffix height separation under different composition.",
+        "searches": [
+          "Resultary fixed-weight-four non-overlapping and cross-bifix-free binary code searches",
+          "Resultary four-marker and four-one necklace prefix-normal cuts",
+          "Bilotta–Pergola–Pinzani, arXiv:1112.3168v1, §3.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Both indexed weight-four tables determine M_4(n) only through n=12 and obtain 39 versus 40 necklaces at n=12.",
+          "The exact length-13 Resultary hit ...--587ab275aa28 is the assigned record itself, not a separate source of coverage."
+        ],
+        "reasoning": "The length-12 upper certificates address a different instance, and the numerical optimum alone at length 13 would not identify all codebooks.",
+        "searches": [
+          "2026/11/2/SCOPE-the-first-four-one-non-overlapping-necklace-deficit-occurs-at-le--75674e0f29dd",
+          "2026/10/25/SCOPE-first-primitive-necklace-packing-deficit-for-constant-weight-fou--03fc08f0d34c",
+          "Resultary weight four length thirteen and maximum-codebook searches"
+        ]
+      },
+      "rationale": "Pass is for the complete labeled optimizer classification at (n,w)=(13,4), not for obtaining the value 55 by the standard coprime-composition rotation construction. The strongest exact indexed weight-four tables stop at length 12, the all-length optimizer classification found concerns weight three, and the same-day four-marker prefix-normal records study individual cuts of a necklace rather than compatibility across a codebook.",
+      "residual_risks": [
+        "No broader all-maximizers theorem covering (13,4) was found in the bounded searches; this is not a historical priority guarantee. The review does not credit the size or strict-density construction as distinct contributions."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related method, no weight-four length-13 optimizer classification in the relevant construction passage",
+          "evidence": [
+            "Odd length 2m+1 has weight m+1 in the stated construction; m=6 gives weight 7, not 4."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1112.3168",
+          "material_read": "Section 3.1, pp. 3–4, construction and height argument",
+          "method": "OA primary PDF text near offset 9850",
+          "title": "A new approach to cross-bifix-free sets",
+          "trigger": "Prefix/suffix height construction via Dyck paths"
+        },
+        {
+          "assessment": "General cross-bifix-free constructions and size comparisons, not the stated fixed-weight census",
+          "evidence": [
+            "The inspected theorem and table compare unrestricted construction sizes and numerical optimality."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1209.0236",
+          "material_read": "Theorem 3.3 and Table I, p. 4",
+          "method": "OA primary PDF text near offset 25700",
+          "title": "Cross-Bifix-Free Codes Within a Constant Factor of Optimality",
+          "trigger": "Known finite optima and general cross-bifix-free bounds"
+        },
+        {
+          "assessment": "Different hypothesis and optimization class",
+          "evidence": [
+            "The equality theorem assumes n divides q for q-ary codes without the fixed-weight constraint."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1303.1026",
+          "material_read": "Theorem 4, p. 8",
+          "method": "OA primary PDF text near offset 18319",
+          "title": "Non-overlapping codes",
+          "trigger": "General exact optimum under divisibility"
+        },
+        {
+          "assessment": "Exact nearby data through length 12; no length-13 coverage",
+          "evidence": [
+            "M_4(12)=39 against 40 primitive necklaces, with a six-necklace obstruction."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-the-first-four-one-non-overlapping-necklace-deficit-occurs-at-le--75674e0f29dd",
+          "material_read": "Finding and scope, length-12 obstruction account",
+          "method": "Local-mirror RESULT.md, offset 0",
+          "title": "The first four-one non-overlapping necklace deficit occurs at length twelve",
+          "trigger": "Closest exact same-weight table"
+        },
+        {
+          "assessment": "Upper cutoff n=12; no length-13 coverage",
+          "evidence": [
+            "Exact values through length 12 with a 39-clique upper certificate there."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-first-primitive-necklace-packing-deficit-for-constant-weight-fou--03fc08f0d34c",
+          "material_read": "Finding and scope",
+          "method": "Local-mirror RESULT.md, offset 0",
+          "title": "First primitive-necklace packing deficit for constant-weight-four non-overlapping binary codes",
+          "trigger": "Second exact same-weight finite claim"
+        },
+        {
+          "assessment": "Different fixed weight",
+          "evidence": [
+            "Its all-length labeled optimizer classification is for weight three."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-exact-capacity-and-rigidity-of-weight-three-binary-cross-bifix-f--153a0585e8dd",
+          "material_read": "Finding and scope",
+          "method": "Local-mirror RESULT.md, offset 0",
+          "title": "Exact capacity and rigidity of weight-three binary cross-bifix-free codes",
+          "trigger": "Closest indexed all-length fixed-weight optimizer theorem"
+        },
+        {
+          "assessment": "Single-circle criterion, not a maximum-codebook theorem",
+          "evidence": [
+            "Prefix-maximal roots are characterized by adjacent gaps."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-four-marker-circular-prefix-normality-an-exact-gap-criterion-and--2de292f43a6b",
+          "material_read": "Finding and theorem",
+          "method": "Local-mirror RESULT.md, offset 0",
+          "title": "Four-marker circular prefix-normality",
+          "trigger": "Same weight and nearby four-one root notion"
+        },
+        {
+          "assessment": "Counts roots under a different condition, not sorted families of mutually compatible words",
+          "evidence": [
+            "Counts ordinary linear prefix-normal cuts within a single necklace."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-the-exact-prefix-normal-cut-spectrum-of-binary-necklaces-with-fo--3de6902e3f58",
+          "material_read": "Finding and assumptions",
+          "method": "Local-mirror RESULT.md, offset 0",
+          "title": "Exact prefix-normal cut spectrum of four-one binary necklaces",
+          "trigger": "Same weight and necklace cuts"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and proof; forcing.tsv; independently regenerated domain sizes and forcing replay",
+        "Indexed length-12 findings ...--75674e0f29dd and ...--03fc08f0d34c"
+      ],
+      "rationale": "Length 13 is the first instance after the documented strict loss at length 12 and thus a motivated first test of rigidity at resumed full packing. The nontrivial fact is that even though 31 candidate orbits have multiple initially admissible rotations, every globally compatible maximum selection is forced up to reversal. This determines all maximum labeled codebooks, not merely another tabulated size.",
+      "residual_risks": [
+        "The result does not make a general rigidity claim for larger lengths or explain the classification uniformly across compositions."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-The exact scope is the first nonlinear radical layer of the regular algebra in all characteristics \(p\ge5\). Filtered automorphisms preserve the truncated relations by Frobenius. A nondegenerate binary quadratic is equivalent over a field extension to \(xy\); the degree-by-degree coordinate elimination is finite and does not change lower-degree terms. The resulting power ranks are \((p-t)^2\). For rank-one quadratics, triangular elimination removes all x-divisible higher terms, with the surviving pure-y coefficients remaining uniformly distributed because their input-to-output map is triangular with diagonal one. Residual order \(s\) is stable, and a truncated unit \(s\)-th root exists because \(s<p\). The two chain decompositions give the Jordan tensor-sum rule without modular failure because every relevant sum of chain lengths minus one is below \(p\). Symbol counting and the residual-fiber calculation sum to the full claimed layer. The exact-arithmetic checker independently constructs multiplication matrices over small prime fields. It supports but does not replace the general proof.
+PASS
 
-## Originality (PASS; qualified)
+In the truncated polynomial presentation, all maximal-ideal elements have pth power zero, so any invertible first-order coordinate substitution extends to an automorphism. A nondegenerate symbol becomes xy after extension and a scalar normalization; each higher homogeneous term xU+yV is removed by correcting x and y in degree one less. The ranks are then (p−t)² by counting the image monomials. For a rank-one symbol, after setting it to x², successively substituting x−H/2 removes each xH of lowest unwanted degree and fixes y. Free pure-y inputs add to the residual polynomial, giving fibers of size q^(p²−p−3). For a coordinate-independent check of s, the gradient ideal is well-defined since derivatives of x^p and y^p vanish. Under an automorphism the chain rule applies with invertible Jacobian. The gradient quotient of x²+h(y) has dimension s−1 for nonzero h of order s<p, and dimension p for h=0, so s is intrinsic. Taking a truncated s-th root of the unit in h and, if necessary, adjoining a root of its leading coefficient gives x²+y^s. On each pair of exponent chains, the tensor sum is multiplication by u+v in k[u,v]/(u^a,v^b). For i<min(a,b), the determinant of its middle pairing from grade i to a+b−2−i has factorial ratios with arguments at most a+b−2, so the characteristic-zero strings survive here since a+b−1<p. This gives the displayed lengths including b_j=1 for h=0. The discriminant-zero cone has q² points including zero, and the residual-order fibers give both stated multiplicities and the full layer sum. An independent bounded p=5 run checked direct matrix ranks on transformed representatives of the nondegenerate type and all three residual orders. The all-p and all-extension conclusions rely on the proof, not the finite checks.
 
-The 2007 foundation discusses modular Jordan types along first-order \(\pi\)-points, not the full quadratic leading locus. The 2011 direct rank-two discussion likewise assumes nonzero linear radical terms. The inspected 2018 complete-intersection classification concerns linear forms and a different characteristic regime. Two directly relevant published exact censuses already settle characteristic three and are credited and excluded. These do not imply the infinite-prime classification, the residual-order partitions, or the finite-field counts for \(p\ge5\). Existing formal Morse splitting and short-length Jordan tensor sums are used as standard inputs; the novelty assessment concerns their complete synthesis for the natural first nonlinear layer and its arithmetic stratification. A hidden equivalent general theorem in modular group algebras or singularity theory remains a historical-priority risk.
+## originality
 
-## Value (PASS)
+PASS
 
-The regular module is a canonical representation-theoretic object. First-order elements have a uniform free-module Jordan type, while the first nonlinear layer is precisely where that rigidity breaks. The result supplies a complete, all-characteristic family of Jordan types and frequencies, exhibits a sharp dichotomy between nondegenerate and rank-one quadratic symbols, and identifies an internal residual-order hierarchy invisible to the quadratic symbol alone. The exact profile is a natural finite-group-algebra invariant, not a cherry-picked numerical slice.
+Credit the known characteristic-three censuses, formal splitting, and small-chain Jordan rule. The distinct contribution is the first nonlinear layer distribution for rank two and p≥5, especially the singular rank-one strata, their lift multiplicities, and their conversion into a full spectrum over every extension.
 
-## Closest comparisons and limitations
+## value
 
-Carlson–Friedlander–Pevtsova (2007), Öztürk Kaptanoğlu (2011), Altafi–Iarrobino–Khatami (2018), and the two published complete characteristic-three censuses are the decisive comparators. The characteristic-three statements are entirely prior. General historical priority is not independently certified. No assertion is made for elements with zero quadratic symbol or for other modules; finite numerical tests do not prove the all-prime result.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is a natural full finite-field census on the first layer not controlled by nonzero linear direction. It shows both rigidity of the smooth quadratic strata and exactly how higher lifts can change a singular quadratic multiplier, with all power-rank data and the number of occurrences over every extension. The joint classification and weights are useful beyond merely evaluating a known rule on a few normal forms.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

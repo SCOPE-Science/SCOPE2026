@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Exact orthogonality on the five-character group yields the full quartic moment including both fifth-order phase resonances. Because the neighboring-average multipliers have opposite signs, the quotient decreases strictly in each independent resonance cosine, reducing the global four-real-dimensional optimization to one nonnegative amplitude ratio. A sextic derivative and two exact coefficient sign certificates prove a unique global maximum; phase congruences give every equality case. The bundled checker verifies algebra, exact sign certificates, finite examples, and the difference-operator equivalence. Finite experiments are not the proof.
+PASS
 
-## Originality
+With the normalized measure, the four nontrivial real-conjugate character coefficients have exactly seven unordered quartic resonances. The two mixed non-pairing contributions are 8 Re(u^3 v) and 8 Re(v^3 conjugate(u)); M inserts the two distinct real multipliers a>0>b. With r>0 the norm quotient is strictly decreasing in each resonance cosine (negative numerator slope, positive denominator slope, and numerator and denominator both positive). The phase map has determinant 10, so both cosines can be -1 and this is necessary at any two-mode optimizer. The resulting N/D derivative has the stated sextic numerator; the interval substitution 4t/(1+t) yields six positive coefficients then one negative, and P(4+t) has only negative coefficients. The resulting unique root is a strict global maximum, including the limiting one-mode endpoints; r=4 already beats b^4>a^4. The angles solving the two congruences are indexed modulo ten, reached by translations (increment two) and sign (increment five). Delta is onto the real mean-zero space by its four nonzero Fourier multipliers and M Delta is the stated difference. Independent `python3 /workspace/branches/frozen_review_checks.py` (section 4, passes) enumerates the resonance counts, certifies the algebra and signs exactly, and evaluates the norm as 0.863476459984369237616776... and r as 3.62064679016703604.... The source's displayed norm decimal is illustrative and differs in its last quoted digit, not in its exact specification. The bundled checker was inspected, not executed.
 
-PASS against presently inspected evidence, with residual bibliography risk. The full accessible HTML text of Jiao--Luo--Zanin--Zhou, arXiv:2609.15768, introduction, Theorem 2.5 and Sections 2--3 gives a general upper constant but not this exact pentagonal best constant or equality classification. The complete published proofs of the closest four-state cyclic-convolution norm and five-state cyclic Hilbert-transform norm were inspected. The former works on a different modulus; the latter treats a distinct sign Fourier multiplier, with quartic critical equation and norm 1.202320949..., although its quartic resonance method is closely related. Targeted searches for pentagonal real \(\ell^4\) contraction, the two-frequency resonance sextic, and equivalent one-coordinate Naor--Schechtman formulations found no implication that determines this exact value. No matching exact five-cycle neighboring-average norm was found; this does not certify worldwide priority.
+## originality
 
-## Value
+PASS
 
-PASS. Even a single coordinate of a dimension-independent convolution inequality has a nontrivial sharp modulus-specific constant. The five-cycle is the first odd cyclic group with two nonconstant Fourier modes of different multiplier magnitudes, so its real \(\ell^4\) behavior cannot be reduced to a single scalar multiplier. The theorem quantifies the resulting nonlinear-to-spectral gap, provides a sharp finite-state coefficient for an established inequality, and classifies the worst modes exactly. This is a motivated exact invariant rather than arbitrary parameter fitting.
+Best-of-knowledge pass for this real five-state neighboring-average optimum and its equality profile, not for the Fourier resonance method or convolution inequality generally. The two closest indexed sharp norms differ by modulus or by multiplier. The actual statements available in the frozen comparisons supply neither this root nor the scale ratio of its equality profile.
 
-## Limits and nearby literature
+## value
 
-The conclusion is real-valued and specific to one neighboring-average step on the five-cycle; it does not cover complex inputs, arbitrary moduli, or the full product-group inequality. The cited general paper's first public version is 14 September 2026. Older finite-chain \(\ell^p\) operator-norm formulas may be indexed differently; the corresponding published full RESULTS were inspected and compared by operator, polynomial and equality conditions.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is a natural first odd cyclic modulus with distinct nonconstant spectral magnitudes, in an established neighboring-average inequality. The exact L4 value, not merely contractivity, exhibits a strict nonlinear versus spectral gap and distinguishes a rigid mixed-frequency worst profile from individual eigenfunctions. The precise finite-state coefficient and extremizer remain independently useful without a claim about the general product constant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

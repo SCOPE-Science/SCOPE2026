@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The finite lemma is a complete ternary enumeration of all \(3^n\) words through length thirteen, not sampling. Two independent exact profile constructions agree on every nonsingleton word pair, verify the length-thirteen twelve-doubleton census and the support-two property, and confirm injectivity from lengths three through twelve. The proof independently converts this finite classification into an all-alphabet statement using deterministic projections. No finite computation is used as an unjustified proof for arbitrary alphabet size.
+PASS
 
-## Originality — PASS against inspected literature, with residual risk
+Independently constructed the 39-coordinate count array for every ternary word at lengths 1–13. Choosing r increasing positions in n-r+1 slots and adding j to the j-th position (zero-indexed) bijects onto admissible choices with successive gaps at least two. Counts fit unsigned bytes, since the largest total by order at n=13 is binomial(11,3)=165. Sorting exact 39-byte keys gave injectivity at 3–12 and exactly 12 size-two runs at 13, four on each two-letter support. Class counts at n=13 were 1,594,311 total and 1,594,299 singletons. A letter map pushes forward deck coordinates by summation; given distinct deck mates, map differing letters to 0 and 1, and, if present, a third used letter to 2. The resulting distinct ternary mates contradict injectivity at 3–12, or support rigidity at 13. Singleton letter counts force identical support within a class; on a given two-letter support ternary enumeration shows exactly four doubletons. This also precludes larger classes. Taking exactly one representative from every class gives both codebook formulas. The degenerate length-two assertion holds because admissible indices are then singletons only.
 
-Golm et al. (2022, arXiv:2201.12671) already establish the binary \(G(3)=13\) threshold and a witness. The full **four binary doubletons** are also known from an earlier binary classification; neither this binary result nor the shorter-length injectivity is claimed as new. Rigo et al. (2023, ISIT, DOI 10.1109/ISIT54713.2023.10206676) study related binomial equivalence in languages of infinite words. The new point is the nonexistence of any length-thirteen ambiguous q-ary pair whose combined alphabet uses three or more symbols, which forces the exact family of \(4inom q2\) doubletons on every \(q\)-symbol alphabet. Relevant search results did not reveal a broader theorem implying this conclusion. An inaccessible or unindexed equivalent result is a remaining bibliographic risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Alphabet-robust unique reconstruction and the exact confusability census matter directly to selecting codebooks for a gapped-read channel. The first nontrivial ambiguity boundary is a natural finite cutoff, and the four-symbol specialization is a meaningful DNA-alphabet case. The theorem supplies the exact optimum and counts all labeled maximum codebooks, not merely one new collision witness.
+Credit the published binary threshold and an ambiguity example, as well as binary classification where documented. The distinct supported contribution is the exclusion of every length-13 ambiguous pair with ternary support, giving the complete arbitrary-alphabet class census by projection. The strongest matches do not establish that statement; neither short-length injectivity nor the binary collision list is needed as a novelty claim.
 
-## Limitations
+## value
 
-Computationally assisted finite base case; no independent audit, no claimed efficient encoder, and no classification beyond length thirteen. The full code and exact proof reduction are supplied.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+At the first nontrivial length where the observation loses information, proving that every collision is supported on only two symbols gives an exact confusability census at every alphabet size. This natural boundary is directly usable for finite zero-error code sizing and counting maximizers, including at q=4; it is not merely one more witness or a small unmotivated slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

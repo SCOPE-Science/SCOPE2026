@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness: PASS
-The five-mode autocorrelation Parseval identity is exact because frequency differences range from \(-4\) to \(4\). Magnitude majorization and the known/specially verified reflected RMS inequalities reduce all maxima to nonnegative palindromic vectors. The three coordinate-boundary maxima are exactly \(15/7\), \(15/7\), and \(9/4\); the all-one interior vector yields \(17/5\), forcing strictly positive parameters. Both stationary equations and their elimination have been reconstructed symbolically and verified by exact polynomial identities in the bundled checker. The quartic has a unique positive zero; the remaining quartic factor is strictly positive. Consequently the sole positive stationary point is the global maximum. Equality phases follow from the positive lag-one correlation, and the finite-group claim uses nine distinct frequency-difference residues when \(N\ge9\).
+## correctness
 
-## Originality: PASS (best-knowledge scientific assessment)
-The majorant literature proves phase domination but not this coefficient-energy-constrained sharp five-mode value. The published reflected-RMS result proves the symmetry reduction, which is duly credited; it does not evaluate the resulting two-variable optimization. Published sharp four-mode and differently shaped five-mode results do not imply the present quartic. A recorded eight-point cyclic computation has a different constant due to Nyquist aliasing and neither states nor implies the nonaliasing result. Actual focused semantic and exact-formula searches found no covering five-consecutive-mode result, though unindexed older analyses remain possible. This is a limited literature comparison, not a publication-priority certification.
+PASS
 
-## Mathematical value: PASS
-Sharp \(\Lambda(4)\) constants and the structure of their extremizers measure the exact amplification of Fourier synthesis by spectral geometry. The five-term arithmetic progression is the first uncomputed step in a natural progression of exact small-bandwidth norm calculations; its sharp constant is distinct from the flat-coefficient value and the four-mode value. A quartic root and complete equality classification hold simultaneously on the continuous circle and infinitely many cyclic grids, with a sharp nonaliasing threshold. The result has mathematical content beyond a finite numerical experiment.
+Reaudited repairs/4/RESULT.md. The frozen last sentence of the Finding called K^(1/4) the fourth-power norm; the corrected text distinguishes the operator norm K^(1/4) from its fourth power K. For M fixed, Parseval and triangle inequality give the nonnegative autocorrelation majorant. Reflection-pair RMS preserves mass and increases each nonnegative lag correlation by Cauchy–Schwarz and AM–GM. On the reflected symmetric boundary α=0 or β=0 the effective three-term ratio is 1+8t−14t² for t in [0,1/2], giving 15/7; when γ=0 it is 1+(1+6t(1−t))/2 for t in [0,1], giving 9/4. Both are below even the flat five-mode trial 17/5. Thus compactness gives a positive symmetric maximizer. Saturation at lags four and two forces every original maximizing magnitude vector to be symmetric as well. Section 4 of python3 -B /workspace/review-evidence/rederive.py independently obtained F from the two-sum fibers and performed exact rational elimination in x². The x² stationary value is the stated rational function of y; after substitution the remaining derivative is the negative of the stated first quartic times a strictly positive rational factor. Descartes and the sign change give one positive root; compactness and the boundary bounds therefore yield the unique optimizing ratios. The exact expression for K and the rounded ordinates agree. Lag one forces constant phase increments once magnitudes are positive, and affine phases suffice in all lags. The nine differences are distinct for every N≥9. The frozen verify.py and VERIFICATION.md were inspected, not executed; the original calculations and independent symbolic checks support the polynomial identities, not by themselves global optimality.
 
-## Residual limitations
-The theorem does not apply to order-eight grids where an autocorrelation Nyquist collision occurs. No generalization to arbitrary progression lengths is asserted, and publication priority is not independently established.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The corrected claim distinguishes literature-covered reductions from the exact canonical five-mode optimization and its full equality conditions. The exact same-object Nikolskii literature checked is asymptotic in degree; the exact same-degree point-evaluation result has a different objective. None of the inspected sources determines the sharp amplitude profile and fourth-moment constant for the five consecutive complex coefficients. This is a bounded statement-level assessment, not a claim of historical priority.
+
+## value
+
+PASS
+
+The degree-four interval is a canonical finite Fourier/Nikolskii problem, not a searched selection of irregular parameters. The exact algebraic value distinguishes the nonflat maximizing polynomial from the flat Dirichlet trial and the boundary spectra, and gives every complex optimizer. For this natural fixed-degree question the interior two-parameter solve, explicit constant and equality classification are mathematically useful beyond the standard majorant and symmetry reductions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

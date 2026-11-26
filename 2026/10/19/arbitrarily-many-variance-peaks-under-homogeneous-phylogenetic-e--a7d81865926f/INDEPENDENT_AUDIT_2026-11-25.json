@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T18:45:39.870019Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 8–53; VERIFICATION.md and verify.py inspected, not executed",
+        "Independent replay: python3 /workspace/review-replay.py phylo"
+      ],
+      "rationale": "The selected stems depend on disjoint independent sets of tips. Their Bernoulli variances add and differentiation gives k(1-p)^(k-1)[2(1-p)^k-1] for each unit squared-length coefficient. A new stem of length k^(-1/4) contributes order sqrt(k) at p=c/k with limiting signed coefficient e^(-c)(2e^(-c)-1), positive at c=1/4 and negative at c=1, while old terms are bounded there. At old positive endpoints the new derivative tends to zero exponentially, so induction preserves disjoint strict sign brackets. A binary scaffold has the clades as pendant subtrees; for one clade one may put a spare tip across the root so that the clade has an incoming stem. Assigning small positive lengths to all remaining edges preserves the derivative brackets by finite polynomial dependence. In each bracket an interior maximizer exists and is strict, since the variance polynomial is nonconstant and any fixed level has only finitely many preimages. The mean formula is an edge sum of nondecreasing concave functions. For the 100,514-tip example, integer interval multiplication and squaring (outward rounding at scale 10^32, independent of the supplied Decimal verifier) reproduce derivative pairs approximately (+0.9296875,-0.5), (+15.89502604,-1.14168436), (+203.51060288,-4.46131721), with certified margins at least 1/2. Differentiating the Bernoulli product law gives a sum of n conditional-expectation differences, each bounded by the range width. Applied to 2XZ+Z^2 and 2 EX EZ+(EZ)^2 this gives 6nLη+3nη², independently checked to be less than 1.60e-7. The original six signs therefore persist.",
+      "residual_risks": [
+        "Proof concerns at least m peaks and does not count all critical points. Positive lengths are not constrained to be ultrametric. No claim for correlated extinction or rarefaction."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Nipperess–Matsen's variance formulas concern a subset of given size. Steel–Wicke–Mooers examine species-specific biodiversity-change metrics under extinction."
+        ],
+        "reasoning": "Neither fixed-size sampling nor moments for species-specific contributions state an unbounded number of strict maxima in total rooted diversity under a varying iid probability.",
+        "searches": [
+          "Resultary: arbitrarily many strict interior variance peaks positive branch lengths rooted binary common survival probability",
+          "Resultary: phylogenetic diversity variance multimodal nonunimodality extinction risk exact examples",
+          "arXiv:1208.6552",
+          "arXiv:2602.16059"
+        ]
+      },
+      "checked_sources": [
+        "Resultary e04d268d2b3a and dc795447ff47",
+        "Faller–Pardi–Steel arXiv:0708.0425",
+        "Nipperess–Matsen arXiv:1208.6552",
+        "Steel–Wicke–Mooers arXiv:2602.16059"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Faller–Pardi–Steel give edge variance plus ancestor–descendant covariance terms. With disjoint stems and homogeneous probabilities their formula reduces exactly to the skeleton variance used here."
+        ],
+        "reasoning": "Credit the general moment formula and its special case; it neither gives derivative dominance at an inserted scale nor positivity-preserving strict brackets. The induction exploiting those two facts is the distinct conclusion.",
+        "searches": [
+          "Resultary: rooted phylogenetic diversity variance independent random extinction survival edge-based variance formula Faller Pardi Steel",
+          "arXiv:0708.0425, Eq. (2), Lemma 1.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Record e04d268d2b3a gives two strict maxima with common extinction probability and a positive-edge bifurcating ten-tip witness."
+        ],
+        "reasoning": "Replacing extinction probability q by 1-p preserves interior maxima; this is genuine prior two-peak coverage, not a different model. It does not supply arbitrary m or the three-peak witness.",
+        "searches": [
+          "Resultary: two separated variance peaks ten-tip ultrametric phylogeny common extinction positive length",
+          "Resultary: rooted phylogenetic diversity variance common survival probability multiple interior maxima"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact-example query returned related entries, not the three designated clades and six signs; e04d268d2b3a and dc795447ff47 give ten- and eight-tip two-peak witnesses, respectively."
+        ],
+        "reasoning": "Those quantified examples do not match the 100,514-tip positive-length certificate or its three-peak conclusion. A bounded catalogue search is not a proof of uniqueness.",
+        "searches": [
+          "Resultary: 100514 leaves clade sizes 2 512 100000 variance peaks",
+          "Resultary: arbitrarily many strict interior variance peaks positive branch lengths rooted binary common survival probability"
+        ]
+      },
+      "rationale": "The classical variance identity and the existence of two peaks are prior. The surviving distinct claim is unbounded peak count in the strictly positive full binary class, with a certified three-peak witness. Neither the prior two-peak construction nor the exact moment framework itself supplies this conclusion.",
+      "residual_risks": [
+        "A construction for separated-scale Bernoulli sums outside phylogenetic indexing or an equivalent unindexed example may remain. Literature coverage is bounded, not priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior partial coverage: two strict peaks",
+          "evidence": "Ten-tip strictly bifurcating positive-edge witness, with exact variance and derivative signs; no arbitrary-m construction in the inspected text.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-two-separated-variance-peaks-for-future-rooted-phylogenetic-dive--e04d268d2b3a/RESULT.md",
+          "material_read": "Finding, assumptions and proof text through mirror offset 4195",
+          "method": "Local mirror statement comparison",
+          "title": "Two separated variance peaks for future rooted phylogenetic diversity",
+          "trigger": "Same statistic, iid common extinction probability and positive binary tree"
+        },
+        {
+          "assessment": "Later related two-block result, not covering",
+          "evidence": "Variance a²q(1-q)+b²q^m(1-q^m) and an eight-taxon, exactly-two-peak positive-edge example.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-two-variance-peaks-in-future-phylogenetic-diversity-a-sharp-two--dc795447ff47/RESULT.md",
+          "material_read": "Finding and assumptions through mirror offset 3473",
+          "method": "Local mirror statement comparison",
+          "title": "Two variance peaks in future phylogenetic diversity: a sharp two-block model",
+          "trigger": "Related exact low-leaf-count example"
+        },
+        {
+          "assessment": "Covers variance framework, not the audited modal-complexity statement",
+          "evidence": "Disjoint stems have no cross covariance; homogeneous descendant probabilities give the same summands.",
+          "identifier_or_url": "https://arxiv.org/pdf/0708.0425",
+          "material_read": "PDF pp. 3–5, especially Eq. (2) and Lemma 1.1",
+          "method": "OA full-text passages and specialization to disjoint stems",
+          "title": "Distribution of phylogenetic diversity under random extinction",
+          "trigger": "Primary result for the same survival model and statistic"
+        },
+        {
+          "assessment": "Different sampling law",
+          "evidence": "A random subset of a given size, rather than an iid subset with a continuously varying parameter.",
+          "identifier_or_url": "https://arxiv.org/pdf/1208.6552",
+          "material_read": "PDF p. 2, sampling definition and aim",
+          "method": "Identified alternate OA manuscript after DOI page returned 403",
+          "title": "The mean and variance of phylogenetic diversity under rarefaction",
+          "trigger": "Potentially broader exact moment results"
+        },
+        {
+          "assessment": "Different target quantity in inspected statements",
+          "evidence": "Species-specific indices rather than peak count of variance of total rooted diversity.",
+          "identifier_or_url": "https://arxiv.org/pdf/2602.16059",
+          "material_read": "PDF pp. 2–3",
+          "method": "OA full-text passage comparison",
+          "title": "Properties of biodiversity indices that incorporate future extinction risk",
+          "trigger": "Related independent-extinction means and variances"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof steps 2–4",
+        "Prior Resultary ten-tip two-peak example e04d268d2b3a"
+      ],
+      "rationale": "The prior two-peak examples rule out unimodality only; this construction rules out every universal finite modal bound while retaining binary topology, positive lengths and homogeneous survival. It distinguishes the complexity of variance from the simple concave mean, and supplies finite parameters with a sign margin rather than relying on plotted peaks.",
+      "residual_risks": [
+        "Separated clade sizes and tiny other lengths are existence devices; empirical prevalence and near-ultrametric behavior are unestablished."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

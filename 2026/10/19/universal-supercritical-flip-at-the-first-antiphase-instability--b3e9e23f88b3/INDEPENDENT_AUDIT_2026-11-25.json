@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:19:21.812093Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In the bipartite orientation K is positive definite (tree incidence has full column rank), with off-diagonal adjacency equal to that of the connected line graph. Thus A^(1/2)KA^(1/2) has a simple positive top mode and every transverse fixed-point multiplier at h=2/Lambda is in (-1,1). The weighted left vector is Av. Independently, any local two-cycle x,y must satisfy M(sin x+sin y)=0 by adding the two map equations; M is invertible and componentwise sine is injective in a small real chart, so y=-x. This gives exact antipodality and reduces uniqueness to the displayed Lyapunov–Schmidt equation, without relying on generic center-manifold uniqueness. The analytic transverse component starts at cubic order because the linear splitting is invariant for all h and the map is odd. The projected equation is -delta u + [(2+delta)/6] sum(a_e v_e^4) u^3 + O(u^5); after division by u the implicit equation in u^2 gives one nonzero pair for small positive delta, none for small negative delta. The even Jacobian at the pair gives the square for the return derivative. The simple critical eigenvalue perturbation adds (h Lambda/2) sum(a_e v_e^4) u^2 = 3 delta + O(delta^2) to -1-delta, giving the stated multipliers; the transverse spectral gap persists. This includes the one-edge tree and makes no equality or global claim. Replay: RESULT.md lines 16–49; verify_flip.py and VERIFICATION.md were inspected, not executed. The numerical checks are illustrations rather than a proof or a uniqueness certificate.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The generic flip criterion assumes a simple crossing and a nondegenerate coefficient of the appropriate sign; it does not evaluate either for a graph family. Chen–Bruna's scalar derivative criterion and matrix-factorization cases are not an all-dimensional result for this map. Schaeffer–McCalla treat strict-saddle avoidance; Cohen et al. report oscillation of neural-network training near the stability edge."
+        ],
+        "reasoning": "These results cover general mechanism, one-dimensional specializations or different objectives, not the all-tree weighted amplitude and transverse attraction.",
+        "searches": [
+          "Generic local flip theorem",
+          "arXiv:2206.04172 Thm. 1 and Lemma 1",
+          "arXiv:1908.01753v1 p. 1; arXiv:2103.00065 pp. 1–2, 5"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify_flip.py",
+        "arXiv:2610.10993v1",
+        "arXiv:2206.04172",
+        "arXiv:1908.01753v1",
+        "arXiv:2103.00065",
+        "Resultary 6551b6fac988 and 32d3c49b541d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The tree edge result proves a simple linear instability, whereas the frozen proof evaluates the weighted cubic using Av as left mode and uses the invertible transverse restriction. The path formulas agree when the weights are specialized to one and the Perron vector becomes the path eigenvector."
+        ],
+        "reasoning": "A fixed-point multiplier crossing -1 does not determine the existence or stability of the branch. The graph-specific strict positive coefficient and persistence of the transverse gap across the whole tree class are necessary computations beyond the known threshold and path special case.",
+        "searches": [
+          "arXiv:2610.10993v1 Cor. 5.3 proof; arXiv:2206.04172 Lemma 1; Resultary 6551b6fac988"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Huygens preprint treats the same tree map and identifies the multiplier 1-h Lambda and failure of strict descent above threshold. Chen–Bruna explicitly give stable oscillation for gradient descent on a one-dimensional sine potential; translation to its local minimum and step rescaling give the one-edge map."
+        ],
+        "reasoning": "The first paper establishes the instability edge but not its period-two successor. The scalar sine result is genuinely equivalent at one edge, not on a branching tree with transverse directions.",
+        "searches": [
+          "arXiv:2610.10993v1 §5 Cor. 5.3 and §7",
+          "arXiv:2206.04172 §4 Lemma 1 and Appendix D Cor. 1; gradient-descent sine potential"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 6551b6fac988 states the same local attracting branch profile and return multiplier on unit-weight finite paths, after converting lambda_N(h-h_N) to delta. Resultary 32d3c49b541d instead gives a cyclic triangle with a transverse multiplier above 1."
+        ],
+        "reasoning": "The unit-path statement is real exact specialization coverage, independent of catalogue dating, but does not establish the weighted branched-tree sign/profile. The triangle result is outside the assumptions and illustrates that reduced-mode attraction need not extend transversely.",
+        "searches": [
+          "Resultary: supercritical flip, discrete Huygens path/tree, top-mode profiles and transverse dynamics"
+        ]
+      },
+      "rationale": "Credit is restricted to the automatic sign, full local attraction and explicit weighted-mode profile for the entire positive weighted-tree class after the known stability threshold. Neither generic flip theory, the one-edge sine oscillator, nor the exact unit-path specialization is itself credited as new. No inspected stronger result established the all-tree claim.",
+      "residual_risks": [
+        "This is a bounded comparison to exact primary and catalog matches, not an exhaustive priority statement about gradient-map bifurcations. The cited Scholarpedia page was unavailable on the bounded attempt; generic flip theory is not credited as new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers sharp fixed-point edge, not postcritical local branch",
+          "evidence": "For h>2/Lambda, 1-h Lambda<-1 at antiphase and strict descent fails locally.",
+          "identifier_or_url": "https://arxiv.org/html/2610.10993v1",
+          "material_read": "§5 Cor. 5.3 and proof at HTML offsets 47050–50847; §7 around 73839",
+          "method": "Primary OA HTML passage comparison",
+          "title": "Morse–Smale dynamics in discrete Huygens networks",
+          "trigger": "Same weighted-tree system and stability edge"
+        },
+        {
+          "assessment": "Explicit one-edge equivalent; no all-tree coverage in the decisive statements",
+          "evidence": "Cor. 1 applies the even negative fourth derivative case to sine; shifting its minimum and rescaling the step gives x-h(2a)sin x.",
+          "identifier_or_url": "https://arxiv.org/pdf/2206.04172",
+          "material_read": "Thm. 1 and Lemma 1, pp. 5–6; Appendix D Cor. 1, p. 30, offsets 123285–124444",
+          "method": "Primary OA PDF passage comparison",
+          "title": "Beyond the Edge of Stability via Two-step Gradient Updates",
+          "trigger": "Exact post-edge oscillations for gradient dynamics"
+        },
+        {
+          "assessment": "Different precritical conclusion",
+          "evidence": "Almost-sure avoidance of strict saddles with the extended allowed step, not postcritical attraction.",
+          "identifier_or_url": "https://arxiv.org/pdf/1908.01753v1",
+          "material_read": "p. 1 statement of main aim and result",
+          "method": "Primary OA PDF passage comparison",
+          "title": "Extending the Step-Size Restriction for Gradient Descent to Avoid Strict Saddle Points",
+          "trigger": "Cited gradient step-size theorem"
+        },
+        {
+          "assessment": "Empirical threshold dynamics, not the stated theorem",
+          "evidence": "Sharpness hovering around 2/eta and nonmonotone loss are not a local two-cycle formula.",
+          "identifier_or_url": "https://arxiv.org/pdf/2103.00065",
+          "material_read": "pp. 1–2 and 5, offsets 762, 8158, 28686 and surrounding discussion",
+          "method": "Primary OA PDF passage comparison",
+          "title": "Gradient Descent on Neural Networks Typically Occurs at the Edge of Stability",
+          "trigger": "Plausible broader post-edge coverage"
+        },
+        {
+          "assessment": "Material special-case coverage",
+          "evidence": "Unit-weight paths: attracting branch, top-mode displacement and return multiplier agree under parameter conversion.",
+          "identifier_or_url": "Resultary 6551b6fac988",
+          "material_read": "Mirrored RESULT.md offsets 438–2838",
+          "method": "Local mirror",
+          "title": "Supercritical flip onset and explicit eigenmode profile in finite paths",
+          "trigger": "Near-exact branch result for the same network model"
+        },
+        {
+          "assessment": "Different cyclic topology, different outcome",
+          "evidence": "Triangle has a return multiplier 1+(63/10)delta^2+O(delta^3)>1 off the invariant symmetry line.",
+          "identifier_or_url": "Resultary 32d3c49b541d",
+          "material_read": "Mirrored RESULT.md offsets 604–1916",
+          "method": "Local mirror",
+          "title": "Transversely unstable period-doubling cycles in the discrete Huygens model",
+          "trigger": "Related postcritical cycle and transverse eigenvalues"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The known stability edge leaves open whether its first nonlinear successor on a weighted tree is attracting or repelling, and whether transverse directions spoil attraction. The result settles both locally without generic-weight assumptions, and the explicit Perron-weighted branch gives a graph-dependent spatial prediction and a return-rate coefficient immediately above the edge. The scalar and unit-path cases alone would not provide that class-wide conclusion.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

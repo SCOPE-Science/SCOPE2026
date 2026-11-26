@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T20:05:04.865574Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 19–98 and supporting AUDIT.json, METADATA.json, REVIEW.md, SLOGAN.txt, VERIFICATION.md and verify.py",
+        "Zhu–Degnan–Steel, arXiv:1101.1311, group elimination on p. 4, Lemma 4.2 and Theorem 4.5"
+      ],
+      "rationale": "The event is the union over proper common clades of size at least three in two independent rooted labeled YHK trees; a prescribed joint probability in one tree must therefore be squared. Recomputing the size-three and size-four first moments gives 1/(6n)+(1/2+6/25)/n². Two distinct triples must be disjoint, and their unordered-pair correction is 1/(72n²). A prescribed nested triple has conditional probability 1/6 given its four-clade in one tree; the four possible triples contribute the pair correction 2/(75n²). For a compatible intersection with disjoint maximal clades of sizes k_i, conditional group elimination bounds the one-tree probability by a product of O(n^{1-k_i}) terms. Squaring and summing over labels gives O(n^{sum_i(2-k_i)}). This bounds all compatible three-event patterns by O(n^-3), including a four-clade containing a triple plus a disjoint triple; no four-clade can contain two distinct triples. The same bound makes the disjoint triple/four and distinct-four pair terms negligible. For 5≤k≤n−5, sum the exact means using binom(n,k)≥binom(n,5) and the summability of 1/[k²(k+1)²]; k=n−j for 1≤j≤4 has mean O(n^-2-j). These bounds justify Bonferroni and give 1259/1800. They also bound the non-unique-triple alternatives by O(n^-2); division by the leading probability and label exchangeability give the conditional statements.",
+      "replay": "For a separate finite exact check, grow the YHK tree by splitting a uniform leaf with a uniform new label. For prescribed disjoint groups of sizes a,b, multiply the pair probability at n by n(n−1). The recurrence has terms (n−a−b)(n−1−a−b)q_(n−1)(a,b), a(a−1)q_(n−1)(a−1,b), and b(b−1)q_(n−1)(a,b−1); a singleton imposes no additional clade condition. Exact rational computation gives q_7(3,3)=13/3150, q_8=139/88200 and q_9=29/39200 and agrees with the reported formula through n=49. The universal bounds are analytic, not inferred from this check. The packaged verify.py was read, not executed.",
+      "residual_risks": [
+        "Asymptotic, not an exact finite-n formula. Requires independent rooted binary YHK samples on the same label set; neither cherries nor the root clade enter the count."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zhu–Degnan–Steel treat fixed labeled clade events in one YHK tree. Bryant–Steel treat uniform unrooted tree comparison with a fixed tree. The full Steel–Penny article was not accessible."
+        ],
+        "reasoning": "The one-tree formulas supply inputs, but their stated conclusions neither sum the two-tree intersections nor control this union remainder. A Poisson approximation for the other model/statistic cannot give these two coefficients.",
+        "searches": [
+          "arXiv:1101.1311, Lemma 4.2 and Theorem 4.5",
+          "arXiv:0810.0868, main result and Poisson approximation",
+          "DOI:10.1093/sysbio/42.2.126"
+        ]
+      },
+      "checked_sources": [
+        "Resultary hit for the reviewed claim",
+        "arXiv:1101.1311",
+        "arXiv:0810.0868",
+        "DOI:10.1093/sysbio/42.2.126 (access attempt)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Squaring the one-tree probabilities obtains pattern probabilities but does not turn the first moment into the probability of at least one; double triples and nested triple/four pairs already change the n^-2 coefficient."
+        ],
+        "reasoning": "The actual consequence needs the pattern sums and the uniform three-intersection and size-tail bounds. The nearest inspected results do not state that aggregate conclusion.",
+        "searches": [
+          "arXiv:1101.1311, pp. 4 and 6–8",
+          "arXiv:0810.0868, pp. 1 and 6–7"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Resultary match is the assigned finding itself, not independent evidence of priority. The focused literature query produced no usable equivalent source."
+        ],
+        "reasoning": "The equivalent comparison statistic is overlap restricted to proper rooted clades of size at least three. Unrestricted overlap and unrooted splits retain different events.",
+        "searches": [
+          "Resultary: second-order probability of at least one shared proper non-cherry clade in two independent rooted Yule–Harding–Kingman trees; common triples, quartets and nested clade events",
+          "Literature: \"common clade\" \"Yule\" two independent phylogenetic trees shared clades probability"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The corpus match is the reviewed result. The inspected formulas are exact for prescribed clades in one tree, not a table or expansion of the two-tree union."
+        ],
+        "reasoning": "An exact entry for the union, or a generating function already resolving it with its error terms, would cover the coefficient; the formulas compared do not provide that. This was not an exhaustive table search.",
+        "searches": [
+          "Local Resultary search for second-order shared proper non-cherry clades, common triples, quartets and nesting",
+          "arXiv:1101.1311, fixed-set marginal and paired probability formulas"
+        ]
+      },
+      "rationale": "The inspected exact one-tree calculus is credited in full. The contribution is the second-order probability of a size-restricted overlap in two independent samples, not a new clade marginal, an expectation of shared clades, or a general Poisson approximation. The nested and unordered double-triple corrections distinguish it from those statements. Bounded comparison only; the 1993 full text could not be checked.",
+      "residual_risks": [
+        "The full 1993 comparison remains unresolved; an unindexed equivalent expansion could exist.",
+        "No priority claim is made for the one-tree probability identities or for general overlap/Poisson approximations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides the one-tree inputs, not the stated aggregate two-tree expansion",
+          "evidence": [
+            "The group-elimination property is conditional on a specified group being a clade; the theorem enumerates compatible one-tree paired events, including nesting."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1101.1311",
+          "material_read": "PDF p. 4 and pp. 6–8; group elimination, Lemma 4.2, and Theorem 4.5",
+          "method": "Lawful OA PDF passages",
+          "title": "Clades, clans and reciprocal monophyly under neutral evolutionary models",
+          "trigger": "Exact YHK probabilities and conditional deletion used by the proof"
+        },
+        {
+          "assessment": "Different probability law and comparison statistic",
+          "evidence": [
+            "Considers uniform unrooted model and split overlap with a fixed reference tree."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0810.0868",
+          "material_read": "PDF pp. 1 and 6–7, main problem and Poisson comparison",
+          "method": "Lawful OA PDF passages",
+          "title": "Computing the distribution of a tree metric",
+          "trigger": "Possible prior coverage by a tree-comparison distribution theorem"
+        },
+        {
+          "assessment": "Potential historical coverage not resolved; not counted as non-covering",
+          "evidence": [
+            "Access limitation only; no conclusion about the full 1993 statements."
+          ],
+          "identifier_or_url": "https://doi.org/10.1093/sysbio/42.2.126",
+          "material_read": "No independent full-text passage; overlap lead from the frozen comparison",
+          "method": "Lawful full-text retrieval attempt returned HTTP 403",
+          "title": "Distributions of tree comparison metrics—some new results",
+          "trigger": "Plausible historical overlap with partition metrics under multiple tree laws"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, finding and Bonferroni terms",
+        "Zhu–Degnan–Steel one-tree clade framework"
+      ],
+      "rationale": "Cherries have order-one expected overlap, so the first agreement larger than a cherry is a motivated, much rarer benchmark. The second coefficient measures a real distinction between single-clade frequency and the union probability: both nesting and two disjoint triple collisions affect it at the same order. The conditional uniform unique-triple description identifies the typical agreeing structure rather than only its rate.",
+      "residual_risks": [
+        "This is a topology-only null benchmark, with no inference, branch-length, or general-model claim."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

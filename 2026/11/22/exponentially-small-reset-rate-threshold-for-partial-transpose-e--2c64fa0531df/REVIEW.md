@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact Poisson-age integral and product-channel comparison establish a unique finite PPT-to-NPT boundary. The two-dimensional vacuum–single-excitation partial-transpose compression gives a matching upper bound. A complete Johnson-incidence decomposition of the remaining cross terms, combined with a uniform lower bound on the positive diagonal pinching, gives the matching lower spectral bound. The crucial factor of two in the asymptotic is obtained from the boundary-layer integral \(\int_0^1u^{lpha+1}((1+u)/2)^{n-2}du\sim2/n\). Full matrix construction for \(n\le7\) and numerical quadrature for larger witness blocks corroborate—not prove—the infinite-size statement.
+## correctness
 
-**Originality — PASS, qualified.** Kulkarni–Majumdar's Poisson-reset calculation concerns unitary evolution and two interacting qubits; Gao et al. concern W-state preparation; Wald et al. consider discrete-time gate resetting; Li–Sang–Hsieh concern depolarizing random circuits. Relevant prior results supply methods and motivation but neither state nor directly entail the specific continuous-time W-state stationary partial-transpose threshold with its sharp exponential prefactor. Prior published and indexed findings on other reset states and bipartite probes do not imply this W-state result. The reviewed search is not an independent priority certification and may miss a broader noisy-symmetric-state theorem.
+PASS
 
-**Value — PASS.** The result gives a natural complete one-cut PPT/NPT phase boundary at every finite qubit number and identifies an unexpected exponentially decreasing critical reset frequency in an exactly specified depolarizing model. The sharp asymptotic is resolved by a nontrivial operator-norm comparison of a single incidence block against every other coherence sector, rather than a parameter-specific numerical witness. This concerns a small spectral entanglement signal and does not claim practical resource resilience.
+For r1<r2 the older exponential age has the law of the younger age plus an independent mixture of zero and an exponential of rate r1; the mixture of additional local channels preserves PPT. The strictly PPT mixed-state limit and the NPT pure-W limit, together with continuity, give one positive finite boundary with PPT at equality. For the primary compression, applying the single-site channel gives p q^m on the vacuum, and on the first-qubit-one symmetric singleton it gives p q^(m−2)[2q²+(m−1)(p²+u²)]/n. Both equal 2^(−n) at u=0 and their beta-average corrections are o(2^(−n)): on u≤1/2 their derivatives are bounded by a polynomial times (3/4)^n, and on u≥1/2 the p factor makes their integrals O(n^(−2)). The primary coherence has two factors of u and an endpoint integral asymptotic to 2/n, so its scaled magnitude tends to 2c. The other off-diagonal blocks are subset-incidence matrices between k and k+1. They have constant row and column sums, hence the stated norm, with ratio to the primary block bounded by O(√n) times the k=1 integral ratio O(1/n). After pinching the first-qubit diagonal blocks, the low-u segment u≤n^(−2) alone supplies the lower bound (1−o(1))2^(−n)I by the Pauli expansion and beta mass n^(−2α_n); contributions at higher u are positive semidefinite in the pinching. This yields the matching full-matrix lower bound to the primary-block Rayleigh upper bound. The finite-size interval property and sign tests for fixed c on both sides of 1/2 then give the claimed threshold limit.
 
-**Closest literature and remaining limits.** See Kulkarni–Majumdar (arXiv:2307.07485), Gao et al. (arXiv:2307.06116), Wald et al. (arXiv:2410.11497), and Li–Sang–Hsieh (Phys. Rev. B 107, 014307). No general multipartite separability result is claimed; broader noise-spectral literature may contain an implicit reduction. The exact scaled equality value requires a second-order study.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct claim is the all-size one-cut threshold and, especially, the quantitative crossover 2^n λ_min→1−2c at r/γ=c n^(3/2)2^(−n) for the common-age mixture of locally depolarized W states. The renewal identity, local channel formula, and partial-transpose machinery are not new. Related reset thresholds at a fixed size or for GHZ states do not cover this asymptotic.
+
+## value
+
+PASS
+
+The threshold and crossover quantify a naturally posed stationary entanglement transition: the critical rate is exponentially small with a precise n^(3/2)/2 prefactor multiplying γ2^(−n), and the scaled eigenvalue describes behavior on both sides. The result is informative precisely because the oldest, nearly mixed part of the ensemble and the rare young coherent part contribute on the same scale here.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

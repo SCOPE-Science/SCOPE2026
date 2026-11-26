@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:18:27.534758Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–65",
+        "Frozen VERIFICATION.md and verify_hardcore_crown.py (inspected, not executed)"
+      ],
+      "rationale": "Mixed independent sets are exactly the k missing pairs, giving the exact polynomial. On Re z >= 0, 2|1+z|^n >= 2+n|z|^2 > |kz^2-1| for 1<=k<=n, so the conclusion is strict. For z=-x, strict convexity on [0,1] and the signs at 0, 1/n and 1 give exactly two distinct roots there (the second is at the endpoint exactly when k=1); at n=3 even the largest k gives 2(2/3)^3+3/9=25/27<1. Above 1 the even case is positive; in the odd case (x-1)^(n-1)/x increases from zero to infinity, so the function rises and then falls to -infinity, with exactly one additional root. In the crown case the scalar sign limits at x=u/n and x=c/sqrt(n) bracket the ordered roots on separated scales; the outer odd root tends to 2 and satisfies n log(x-1)=log(2n)+o(1), giving the claimed expansion. Local uniform convergence of Z(u/n) to 2 exp(u)-1 and its simple zeros justify the fixed-mode lattice and identification of the real mode. The proof is exact; no sampled complex points or finite numeric tolerances are used to validate the universal assertions.",
+      "residual_risks": [
+        "No extension asserted to nonmatching deletion, unequal shores, or uniform approximation in j; the supplied numeric tests would not establish such conclusions."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Brown–Cameron p. 15 proves equal-part complete multipartite stability; p. 11 Prop. 3.2 concerns adjoining pendant vertices. Chen–Ning–Tu Thms. 2–4 concern intact complete bipartite graphs."
+        ],
+        "reasoning": "The former's equal-sized parts and the latter's intact shores do not permit matching defects. The corona operation does not implement this edge deletion.",
+        "searches": [
+          "Brown–Cameron arXiv:1802.02478",
+          "Chen–Ning–Tu arXiv:2505.24381"
+        ]
+      },
+      "checked_sources": [
+        "Brown–Cameron arXiv:1802.02478",
+        "Chen–Ning–Tu arXiv:2505.24381",
+        "MathWorld Independence Polynomial and Crown Graph",
+        "Resultary ea494ab50b5c, 0b1672d7ae9e, 0e03524115c2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The intact balanced transformation gives 2y^n-1, whereas deletion adds k(y-1)^2. Even k=1 creates an endpoint root at z=-1, and the crown has a second interior negative root on a scale not in the intact formula."
+        ],
+        "reasoning": "The intact zero formula gives a lattice at k=0 only. Ruling out crossings for the perturbation and identifying the extra real zeros and their scales require new estimates, not just a parameter substitution in the intact theorem.",
+        "searches": [
+          "Chen–Ning–Tu Section 2 and Brown–Cameron p. 15; compare transformed polynomial"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary ea494ab50b5c is the same deletion family but counts dissociation and maximal dissociation sets; 0b1672d7ae9e is the same crown hard-core model but treats covariance/precision at positive fugacity; 0e03524115c2 is a preorder-polytope support polynomial on a crown poset."
+        ],
+        "reasoning": "None of those polynomial or probabilistic claims is the stated full complex independence-polynomial zero geometry. The self-hit d2b5937e8ed9 is not an independent comparison.",
+        "searches": [
+          "Resultary matching-deleted biclique and crown hard-core zero geometry searches",
+          "Literature query on crown roots/stability and matching-edge deletion"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Both MathWorld passages identify the crown independence polynomial; the equation/recurrence data are not exposed in the text rendering. The frozen record expressly credits the crown formula. No inspected table passage states the zero census or the scales."
+        ],
+        "reasoning": "Do not credit enumeration as distinct or rely on the table's text rendering to verify the specific formula. The formula is independently derived in the correctness check.",
+        "searches": [
+          "MathWorld Independence Polynomial (crown row)",
+          "MathWorld Crown Graph, independence polynomial, Eq. (8)",
+          "Resultary exact crown-zero family comparison"
+        ]
+      },
+      "rationale": "Credit the already-known crown enumerator and stability of the intact balanced graph. The supported distinct content is the all-matching-defect strict stability and parity-resolved zero census, together with the resolved near, intermediate and outer crown-root scales. The intact expression has a similar lattice limit, but does not establish persistence for the crown polynomial or the other real-root scales.",
+      "residual_risks": [
+        "The bounded general literature lookup returned no usable additional primary source. That is not negative evidence of prior coverage.",
+        "The exact MathWorld equation was not readable in the text rendering; the known enumerator is credited regardless."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Intact complete multipartite special case and distinct graph operations.",
+          "evidence": "Prop. 3.2 concerns attaching leaves; p. 15 gives r(1+x)^n-(r-1) for r equal parts; p. 20 asks about complete bipartite stability.",
+          "identifier_or_url": "https://arxiv.org/pdf/1802.02478",
+          "material_read": "PDF pp. 11, 15, 20",
+          "method": "OA full-text passages",
+          "title": "On the Stability of Independence Polynomials",
+          "trigger": "Strong general stability precedent"
+        },
+        {
+          "assessment": "Contains the k=0 baseline, not a matching edge-deletion result.",
+          "evidence": "Polynomial (1+x)^m+(1+x)^n-1, giving 2y^m-1 in the balanced transformed variable.",
+          "identifier_or_url": "https://arxiv.org/html/2505.24381",
+          "material_read": "Introduction, Theorems 2–4 and Section 2, offsets 500 and 4500",
+          "method": "OA full-text passages",
+          "title": "The stability of independence polynomials of complete bipartite graphs",
+          "trigger": "Closest published stability study"
+        },
+        {
+          "assessment": "Table and numbered crown formula identified; math cells did not render in extracted text.",
+          "evidence": "Crown graph recurrence row and Crown Graph Eqs. (8)–(9); no zero claims in those passages.",
+          "identifier_or_url": "https://mathworld.wolfram.com/IndependencePolynomial.html ; https://mathworld.wolfram.com/CrownGraph.html",
+          "material_read": "Crown recurrence table around offset 2119; Crown Graph independence-polynomial paragraph around offset 2196",
+          "method": "OA public page text",
+          "title": "Independence Polynomial; Crown Graph",
+          "trigger": "Exact crown polynomial credit"
+        },
+        {
+          "assessment": "Same family with other subsets; same model at physical activity; different crown polynomial, respectively.",
+          "evidence": "Dissociation rather than independence; inverse covariance rather than fugacity zeros; H_m(t) rather than Z_{n,k}(z).",
+          "identifier_or_url": "Resultary ea494ab50b5c, 0b1672d7ae9e, 0e03524115c2",
+          "material_read": "Findings at offset 0; precision-sign discussion at 5535 and 5844; support enumerator at 418",
+          "method": "Catalogue search and bounded local mirror passages",
+          "title": "Dissociation and maximal-set polynomials; six-pair precision-sign cutoff; crown-preorder support enumerators",
+          "trigger": "Closest catalogue graph/model/root matches"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and proof",
+        "Intact balanced comparison in Chen–Ning–Tu"
+      ],
+      "rationale": "A matching is a natural controlled perturbation of complete bipartite exclusion. Knowing it preserves strict left-half-plane nonvanishing but changes the exact real-zero geometry is informative: the crown has two separated inner scales and a parity-dependent outer branch, with an explicit fixed-mode complex limit. This is a usable classification for the family, not just an independence-polynomial tabulation or a phase-transition claim.",
+      "residual_risks": [
+        "Finite-model zero geometry only; no physical positive-fugacity transition or uniform spectral gap is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

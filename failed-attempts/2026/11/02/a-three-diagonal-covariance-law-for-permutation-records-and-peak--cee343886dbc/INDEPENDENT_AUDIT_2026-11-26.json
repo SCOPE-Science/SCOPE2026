@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:59:50.768602Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–69",
+        "Frozen VERIFICATION.md, lines 19–25",
+        "Frozen verify.py, lines 12–74",
+        "Separate exact enumeration of all 46,230 permutations of sizes 3–8 confirmed every kernel entry and the total covariance"
+      ],
+      "rationale": "For i<=j-2 the record and peak use disjoint observations; for i>=j+2 the insertion rank determining the record is independent of the preceding internal order, which determines the peak. On the three remaining diagonals the respective joint probabilities are 1/((j-1)(j+1)), 1/(j+1) and zero. For the first probability, given R_(j-1), the first j-1 maximum has density (j-1)x^(j-2), and the two new observations produce a peak at j with probability (1-x^2)/2 conditional on this maximum. The second joint event is precisely that the first j+1 maximum occurs at j; the third is impossible. Subtracting 1/(3i) gives the frozen kernel, including the zero at j=2,i=1. The column sum is 1/(3j(j-1)(j+1)); partial fractions telescope to the stated total. The independent insertion ranks give the record variance. For two peaks at lag two, conditioning on the shared observation x yields joint probability integral_0^1 ((1-x^2)/2)^2 dx=2/15 and covariance 1/45; lag one is incompatible and greater lags are independent. Summing gives peak variance 2(n+1)/45 for n>=4 and the separate 2/9 at n=3. The claimed correlation and its asymptotic then follow with the stated n>=4 convention.",
+      "residual_risks": [
+        "The uploaded script was inspected, not executed. The separate exhaustive finite check concerns sizes 3–8 only; the all-size result rests on the proof.",
+        "The model excludes endpoint peaks and ties; the correlation formula using 2(n+1)/45 starts at n=4."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1.4 uses exterior peaks and record totals; Theorem 1.9 includes interior peaks and left-to-right and right-to-left minima. Billey–Burdzy–Sagan enumerate permutations with a specified peak set but do not track the record positions in that count."
+        ],
+        "reasoning": "These are broader types of enumeration in different directions, not positional joint laws for the exact indicators. Boundary conventions and maxima versus minima must be matched before differentiating an aggregate generating function; even a compatible joint aggregate law would not determine the covariance at each position.",
+        "searches": [
+          "Ji arXiv:2310.01053, equation (1.17) and Theorems 1.4 and 1.9",
+          "Billey–Burdzy–Sagan arXiv:1209.0693, definition and peak-set enumeration"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, proof and cited comparisons",
+        "Resultary 9c70121babad",
+        "arXiv:2310.01053 and arXiv:1209.0693"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The catalogue theorem explicitly includes the local kernel and its total. Its prior-work section says aggregate generating functions recover the aggregate covariance; the exact conversion to the frozen convention was not independently established in the passages read."
+        ],
+        "reasoning": "The exact kernel already implies the per-peak effects and total. Dividing by the independently known marginal standard deviations gives the frozen correlation, with its asymptotic following from the harmonic variance and linear peak variance. No position-marked implication from Ji is needed to show the overlap.",
+        "searches": [
+          "Resultary 9c70121babad, Finding, Proof and Relationship to prior work",
+          "Ji arXiv:2310.01053, equations (1.17)–(1.18) and Theorem 1.9",
+          "Frozen variance and correlation derivation for n>=4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "9c70121babad, Finding, uses upper left-to-right records including the first position and precisely the same strict interior peaks of a uniform permutation."
+        ],
+        "reasoning": "The comparison requires no change of variables: its three explicit noncentral and central diagonal entries and all off-diagonal zeros agree at each pair of indices. Reversal would instead turn left-to-right records into right-to-left records; complement pairs lower records with valleys. Those aliases do not undermine the exact match, which already uses the frozen conventions.",
+        "searches": [
+          "Resultary: three-diagonal record–peak covariance, strict interior peaks and upper records; 9c70121babad",
+          "Primary websearch: joint distribution, left-to-right maxima, peaks, permutations"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "9c70121babad explicitly provides all three rational diagonals, the zeros, the column sums and the total, symbolically for every n>=3. The peak tables of the literature comparison are only for the peak marginal."
+        ],
+        "reasoning": "The catalogue formula covers the entire position-resolved invariant, not just tabulated small sizes. A table of the peak marginal by itself would not have constituted equivalent coverage.",
+        "searches": [
+          "Resultary indexed 9c70121babad, exact record–peak kernel",
+          "arXiv:1209.0693, prescribed peak-set counts"
+        ]
+      },
+      "rationale": "The distinct Resultary record 9c70121babad states the same position-resolved theorem, not merely a related aggregate, and gives the same strictly positive column sums and total covariance on the identical full domain. The frozen correlation is a normalization by the marginal variances and does not leave an independent scientific contribution. This is a finding of equivalent coverage, not priority: the comparison record is catalogue-dated November 8 and the frozen record November 2; dependence or a chronology beyond those dates is not inferred. Published aggregate formulas are also relevant, but the direct indexed kernel, not an unverified implication from a count generating function, is decisive here.",
+      "residual_risks": [
+        "Neither the catalogue overlap nor its later date establishes priority or provenance between the two records. Findings about inaccessible earlier papers remain unresolved.",
+        "The catalogue's attribution of the aggregate to prior generating functions is not used as a verified match of the upper-record/interior-peak generating function."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact scientific coverage of the whole positional kernel, column sums and aggregate covariance",
+          "evidence": [
+            "Same four kernel cases and exact (n-2)(n+1)/(12n(n-1)), for n>=3 with strict interior peaks"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/36a7204b5741b75430355c38bf9bf0ef7468c2a4/2026/11/8/SCOPE-a-three-diagonal-record-peak-covariance-kernel-in-uniform-random--9c70121babad/RESULT.md",
+          "material_read": "Finding, assumptions, proof, and Relationship to prior work, offsets 0–6140",
+          "method": "Local mirror, statement and proof comparison",
+          "title": "A three-diagonal record–peak covariance kernel in uniform random permutations",
+          "trigger": "Exact matching invariant and sample space in a distinct catalogue record"
+        },
+        {
+          "assessment": "Substantial aggregate overlap but not the position-resolved theorem in the passages read; peak and record conventions matter",
+          "evidence": [
+            "Exterior peaks and left-to-right maxima in (1.17); interior peaks and minima in Theorem 1.9"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2310.01053",
+          "material_read": "Equation (1.17) and Theorem 1.4, (1.18), at HTML offsets 15241–15655; Theorem 1.9 at offset 20200",
+          "method": "Primary HTML passages",
+          "title": "The (alpha,beta)-Eulerian Polynomials and Descent-Stirling Statistics on Permutations",
+          "trigger": "Potential prior aggregate generating function combining records and peaks"
+        },
+        {
+          "assessment": "Relevant exact marginal enumeration, not a joint record–peak count in the inspected statements",
+          "evidence": [
+            "Counts permutations with a fixed strict interior peak set"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1209.0693",
+          "material_read": "Peak definition at HTML offset 2241; prescribed peak-set count at 3115",
+          "method": "Primary HTML passages and literal term lookup",
+          "title": "Permutations with given peak set",
+          "trigger": "Potential exact position-based count dominating the kernel"
+        },
+        {
+          "assessment": "Unresolved scope; not used to decide the verdict",
+          "evidence": [
+            "Title identifies descents and maxima, but does not establish a joint record–peak law"
+          ],
+          "identifier_or_url": "https://doi.org/10.1515/puma-2015-0002",
+          "material_read": "Bibliographic identification only; full text not accessible in the attempt",
+          "method": "Direct and VPN OA retrieval attempted",
+          "title": "Equivalence classes of permutations modulo descents and left-to-right maxima",
+          "trigger": "Potential joint positional classes related to peak events"
+        },
+        {
+          "assessment": "Unresolved as an originality comparison, not evidence of absence",
+          "evidence": [
+            "Known peak-count setting; the frozen marginal variance was independently derived instead"
+          ],
+          "identifier_or_url": "https://doi.org/10.2307/3215267",
+          "material_read": "Bibliographic identification; no readable full text retrieved in this review",
+          "method": "OA/repository lookup",
+          "title": "Peaks and Eulerian numbers in a random sequence",
+          "trigger": "Classical peak moments and potential historical overlap"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–39 and 43–69",
+        "Resultary 9c70121babad, Finding"
+      ],
+      "rationale": "As mathematical content the complete position-resolved law is structurally useful for mixed second moments of weighted sums of two classical permutation statistics. It identifies pairwise independence off the three diagonals and an exact cancellation within every column that accounts for the order-one total. This is value of the full structural result, not an independent value claim for routine correlation normalization or for duplicating the indexed theorem.",
+      "residual_risks": [
+        "Pairwise independence off the diagonals does not imply independence of the vectors or a higher-order mixed law."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

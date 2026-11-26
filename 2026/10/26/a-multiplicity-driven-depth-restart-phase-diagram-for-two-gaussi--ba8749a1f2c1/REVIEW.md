@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** A normalized-gain comparison strictly orders independent Gaussian probes by their trailing-to-leading coordinate ratio. This yields exact success distributions for both policies. The real Cauchy law gives the two-dimensional formulas; a conditional chi-square integral gives the three-dimensional formulas. Taking inverse arctangents establishes the pointwise contrast frontier, and proved endpoint asymptotics show that its global minimum exists and lies strictly between one and two. A positive-factor quadratic comparison proves the single three-dimensional crossing. The direct verifier checks algebraic identities and finite experiments without serving as the universal proof.
+## correctness
 
-**Originality — PASS (best-knowledge, not independent).** Random-start power iteration, its sensitivity to eigenvalue ratios and multiplicities, and generic breadth-versus-depth computational comparisons are established in the cited literature. The inspected relevant sections and associated searches did not reveal an implication to the *exact fixed-two-product, normalized-gain restart versus depth* angular-success phase diagram. The claim does not assert that the one-start Cauchy or chi-square distributions themselves are novel. Closest material: Tropp–Webber (2023), section 2 and its rank-error comparisons; Del Corso (1997), random-start power-method eigenvector errors; Wang–Zhang–Zhang (2015), randomized power and block Lanczos analyses; and the classical Kuczyński–Woźniakowski (1992) framework. Residual risk: an equivalent multistart versus depth theorem in older numerical linear algebra or order-statistic literature could cover the narrow frontier. That remains for independent assessment.
+PASS
 
-**Value — PASS.** At equal two-product cost, the theorem answers a concrete algorithm-selection question exactly, including an unusual reentrant regime where the winner depends nonmonotonically on requested accuracy. Adding just one trailing eigendirection changes that phase structure to a single analytic crossover. This provides a transparent, sharp diagnostic of depth/breadth and target-tolerance tradeoffs rather than an arbitrary numerical example.
+In the eigenbasis the tangent after j products is S/κ^j, where S=||Y||/|Z|. Squared normalized gain is λ²(κ²+S²)/(1+S²), strictly decreasing in S, so the observable selector implements the minimum of two independent ratios. The folded-Cauchy and χ²₂ conditional tails give the four probabilities. For m=1 the arctangent comparison has no branch ambiguity since u<2u−2u²/π<π/2. The contrast tends to 2 from below at zero and diverges at π/2, giving an attained interior minimum strictly between 1 and 2 and precisely the stated endpoint/interior comparisons, including depth at small positive tolerances for κ=2. No uniqueness of the minimum or of the pair of crossings is used. For m=2 both sides of the comparison of denominators are positive, and squaring gives κ²(1−ε²)>2, including strict restart advantage at κ=√2. Independent evaluation corroborated H≈1.939103469629 and the three signs at κ=1.95; that does not establish uniqueness or replace the analytic argument.
 
-**Limitations.** These are specified policies, not optimal oracle algorithms; additional Krylov postprocessing, prior spectral knowledge, or alternative selection rules may outperform both. Dimensions and Gaussian inputs are restricted as stated. The decimal for the sharp contrast is numerical, while its analytic minimum definition is exact. Independent audit and literature validation have not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the exact comparative frontier and the multiplicity-dependent reentrant witness, not the Gaussian start laws, power filtering, or minimum-of-two identity. The closest inspected catalogue record changes the sketch distribution and compares an integrated Frobenius loss, and the inspected literature compares depth and breadth using low-rank or subspace bounds rather than this exact equal-budget angular decision. No direct stronger coverage was established.
+
+## value
+
+PASS
+
+At fixed product cost, the natural operational comparison asks whether improving an existing ray beats trying a second start. The exact tolerance-dependent reversal at both ends when κ is near 2 in dimension two, versus at most one crossing after adding a trailing direction, gives a useful counterexample to assuming a monotone policy preference or treating the spectral ratio alone as decisive. This value is confined to the two observable policies; it is not an oracle lower bound or a proposal that either policy is optimal.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:11:44.004214Z",
+  "axes": {
+    "correctness": {
+      "limitations": "The maximum assertion concerns a pair of elements of R itself, not equality in M_m(R) for m>1. The independent replay uses characteristic coefficients to identify nilpotents and checks every fixed first factor in five prime-field matrix instances, and direct products in the local and triangular examples. Finite enumeration is corroborative; for the dual-number example the exact count follows from M_2(F2) by 256-to-one pair fibers, giving 28672. No formal verification.",
+      "rationale": "The unique Fitting decomposition counts all linear maps on a k-space by dimension j of their nilpotent summand, giving q^(k²)/|GL_k|=sum_{j=0}^k N_j/|GL_j|. Consecutive subtraction gives N_k=q^(k²-k), including N_0=1. Write fixed rank-r A=P diag(I_r,0)Q and conjugate AB by P. Its upper r-square block is uniform as B varies, and the product is nilpotent exactly when that block is. Thus each fixed A has q^(n²-r) successful B. Averaging q^(-rank A)=q^(-n)|ker A| by summing the individual zero-vector probabilities gives q^(-n)(2-q^(-n)). The kernel of the surjection M_m(R)→M_m(R/J) is nilpotent: a power of a matrix in M_m(J) has entries in the corresponding power of J. An element whose image is nilpotent therefore has a power in a nilpotent ideal, and is itself nilpotent. Equal-sized quotient fibers push the sampling forward without bias, and the independent Wedderburn factors give the product. For m=1 each factor f(Q)=(2Q-1)/Q² is decreasing for Q≥2 and strictly below one, so 3/4 is attained only for a single F2 factor. The example has basis 1,x,y,xy, radical spanned by x,y,xy with cube zero, and xy≠yx.",
+      "replay_paths": [
+        "/workspace/replay/products.py"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sarma–Subedi give local and product formulas for commutative rings, the commutative equality case and formulas in triangular families.",
+          "The separate same-day record treats all numbers of independent factors in semisimple rings; the later rectangular law treats arbitrary rectangular finite-field factors and the complete-profile record treats all product lengths in every finite unital ring."
+        ],
+        "reasoning": "The literature on commutative or triangular families alone does not imply the arbitrary formula. The stronger semisimple result does, with the nilpotent ideal fact, and the later complete-profile statement gives it directly.",
+        "searches": [
+          "arXiv:2610.07892v1 Theorems 2.12, 2.15, 2.22, 2.24",
+          "Resultary 1e0ec2625b3a, 11977e975fa2, 57a121d9f066"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.07892v1",
+        "Fine–Herstein official article record 10.1215/ijm/1255454112",
+        "Resultary 1e0ec2625b3a",
+        "Resultary 11977e975fa2",
+        "Resultary 57a121d9f066"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Set the product length to two in 1−(1−q^(−n))^k, giving exactly (2q^n−1)/q^(2n). Apply it to each matrix factor of M_m(R/J). Nilpotence is equivalent across the quotient, since a nilpotent image gives a power in a nilpotent ideal; independent uniform elements descend to independent uniform elements.",
+          "The complete-profile record starts with the all-ring formula and gives the same conclusion by specialization alone."
+        ],
+        "reasoning": "The radical extension and equality condition are useful consequences, but the former needs only the elementary lifting identity and the latter comparison of decreasing positive factors. They do not support a distinct surviving research claim here.",
+        "searches": [
+          "Resultary 1e0ec2625b3a RESULT.md Finding and offsets 2250–4116",
+          "Resultary 57a121d9f066 RESULT.md Finding",
+          "arXiv:2610.07892v1 §2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same-day record gives Pr(CB nilpotent | C)=q^(-rank C), exactly the fiber cardinality after multiplication by q^(n²). It reads matrix products through the probability of killing an independent uniform vector."
+        ],
+        "reasoning": "The fixed-rank identity and its application to the pair average are not distinct from the matched record. The field comparison is the n=1 case over F_(q^n) of the same formula.",
+        "searches": [
+          "Nilpotent-product probability, fixed-rank conditional law, matrix rings and their semisimple quotients",
+          "Resultary 2026/10/18/SCOPE-nilpotent-product-probabilities-in-finite-semisimple-rings--1e0ec2625b3a Lemma 2 and matrix law"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected catalogue statements give respectively the exact rank-law and semisimple pair probability, the same fiber count as the square specialization of q^(mn-r), and the exact arbitrary-ring probability as the two-factor specialization of the full profile."
+        ],
+        "reasoning": "These are genuine mathematical overlaps in separate records, not just titles, matching sample values, or the frozen record itself. Listing dates do not establish research priority.",
+        "searches": [
+          "Configured Resultary semantic search for the nilpotent-product law over finite matrix and unital rings",
+          "2026/10/18/SCOPE-nilpotent-product-probabilities-in-finite-semisimple-rings--1e0ec2625b3a",
+          "2026/10/25/SCOPE-rectangular-nilpotent-product-law-over-finite-fields-and-its-sem--11977e975fa2",
+          "2026/10/26/SCOPE-complete-nilpotent-product-probability-profiles-of-finite-rings--57a121d9f066"
+        ]
+      },
+      "rationale": "Distinctness of the frozen claim is not established. A separate same-date Resultary record states the identical fixed-rank fiber law and a stronger product-length law on all semisimple factors. The all-ring pair formula then follows by the standard nilpotent-radical quotient reduction (without a new count); the promised maximum is a one-variable consequence of the formula. A distinct later catalogue entry explicitly gives the general-ring law for every product length. This is demonstrated equivalent/stronger coverage, not proof of earlier priority or a mathematical error. The later entries alone would not settle priority.",
+      "residual_risks": [
+        "No ordering or priority finding between distinct same-date catalogue records.",
+        "Fine–Herstein full text was not recovered; the exact overlap assessment instead rests on the available semisimple and full-profile primary statements."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct commutative coverage, not all full matrix rings in these statements",
+          "evidence": "Local residue-field formula, product formula and commutative equality at F2; triangular and scalar-diagonal triangular cases.",
+          "identifier_or_url": "https://arxiv.org/html/2610.07892v1",
+          "material_read": "§2.2 offsets 11247 and 19230, and §2.3 offset 25228; Theorems 2.12, 2.15, 2.22, 2.24",
+          "method": "Lawful OA primary passages",
+          "title": "Nilpotent product probability of finite rings",
+          "trigger": "Same invariant, direct commutative instances and sharp bound"
+        },
+        {
+          "assessment": "Classical background; no full-text absence inference",
+          "evidence": "The accessible record concerns the count of individual nilpotent matrices.",
+          "identifier_or_url": "10.1215/ijm/1255454112",
+          "material_read": "Official article record and accessible description only; full text not recovered",
+          "method": "Project Euclid and lawful mirror retrieval attempted",
+          "title": "The probability that a matrix be nilpotent",
+          "trigger": "Classical nilpotent-matrix count"
+        },
+        {
+          "assessment": "Exact rank law and stronger semisimple law; equivalent pair claim via standard quotient reduction",
+          "evidence": "Pr(CB nilpotent | C)=q^(-r), and nonnilpotent probability for k factors in a single matrix factor is (1−q^(−n))^k.",
+          "identifier_or_url": "2026/10/18/SCOPE-nilpotent-product-probabilities-in-finite-semisimple-rings--1e0ec2625b3a",
+          "material_read": "RESULT.md Finding and Lemma 2, matrix law, offsets 2250–4116",
+          "method": "Configured Resultary search and local mirror",
+          "title": "Nilpotent-product probabilities in finite semisimple rings",
+          "trigger": "Closest same-day distinct catalogue record"
+        },
+        {
+          "assessment": "Exact fiber overlap by taking equal dimensions",
+          "evidence": "For fixed rank-r rectangular A the number of successful rectangular B is q^(mn-r).",
+          "identifier_or_url": "2026/10/25/SCOPE-rectangular-nilpotent-product-law-over-finite-fields-and-its-sem--11977e975fa2",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Configured Resultary search and local mirror",
+          "title": "Rectangular nilpotent-product law over finite fields and its semisimple consequences",
+          "trigger": "Potential rectangular generalization of rank fibers"
+        },
+        {
+          "assessment": "Direct stronger law; later catalogue date is not priority evidence",
+          "evidence": "For all finite unital rings P_k(R) is the product of the factors 1−(1−q_i^(−n_i))^k.",
+          "identifier_or_url": "2026/10/26/SCOPE-complete-nilpotent-product-probability-profiles-of-finite-rings--57a121d9f066",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Configured Resultary search and local mirror",
+          "title": "Complete nilpotent-product probability profiles of finite rings",
+          "trigger": "Potential direct all-ring overlap"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The invariant and full-matrix count are naturally motivated and useful, but the matched stronger semisimple formula and identical fiber law already supply the substance of the computation. The remaining radical extension is a direct standard quotient argument, with the equality case and local example routine consequences. No distinct valuable residual claim is established.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

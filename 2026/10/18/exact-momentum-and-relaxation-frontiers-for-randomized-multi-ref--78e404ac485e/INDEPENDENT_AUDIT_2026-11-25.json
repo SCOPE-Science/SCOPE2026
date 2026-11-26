@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:34:01.853361Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Assumptions and scope and Proof",
+        "Frozen VERIFICATION.md, verify.py and verification_output.txt (inspected, not executed)",
+        "/workspace/branches/frozen_recheck.py, momentum()"
+      ],
+      "rationale": "Each coordinate has i.i.d. scalar multiplier a=1 or 1−2α before momentum; its draw count has odd parity with probability q=[1−(1−2/m)^r]/2. Within-step coordinate correlations do not enter the sum of squares. For β<1 the mean companion B is Schur by the quadratic Jury inequalities. The Lyapunov entries satisfy W22=W11 and W12=(μ+β)W11/(1+β), yielding the stated impulse energy. In the squared-error convolution, innovations are martingale differences. The nonnegative kernel mass is below one exactly when 1−α−α(1−2q)β−β²>0; an exponentially weighted kernel yields decay there. At or above unit mass with β<1, exponential tilting to unit mass gives an aperiodic renewal with finite mean and summable forcing positive at its first index. The renewal limit is strictly positive, unweighted at equality and exponentially growing in the unweighted sequence above it. For β≥1 the mean roots are either a conjugate pair with modulus √β, or positive reals both >1 (use product β and p(1)=1−μ>0); the synchronized nonzero initialization cannot decay. Jensen therefore excludes mean-square convergence. For β>0 the covariance operator squared maps any nonzero positive semidefinite matrix to a positive definite one: rank-one inputs with nonzero first coordinate have two noncollinear output vectors in one step, and an input with zero first coordinate has nonzero first coordinate after one step. This also justifies the spectral factor interpretation. At β=0 the radius v is simple. Eliminating the lower covariance entries gives ρ'(0)=2μ(v−μ)/v and at α=1/2 the second derivative 2q/(1−q). Parity gives the asserted r-monotonicity and m=2 plateau. Independent symbolic elimination and exact-rational covariance trajectories at q=1/2, α=3/4 (β=2/5, 1/2, 3/5) checked the derivatives and decay/critical/growth example. The critical iterates round to 0.75 at the sampled large indices from unit initial error; the limit is exactly 3/4, as the critical recurrence preserves s_k−u_k/2+s_(k−1)/4=3/4 and u_k tends to half the limiting s_k. Replay: python -B /workspace/branches/frozen_recheck.py 2.",
+      "residual_risks": [
+        "Finite covariance iterates are illustrative; asymptotic conclusions use the full renewal argument. No inference is made about almost-sure divergence or general matrix geometries."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Han–Su–Xie Theorem 4.1 gives a sufficient inequality; for m=2,r=1,α=1/2 it allows β<(√3−1)/4, not the exact β<1/√2.",
+          "Theorem 4.2 controls the mean instead; Bollapragada–Chen–Ward give sufficient batch conditions. The Agaskar paper full text was not retrieved."
+        ],
+        "reasoning": "The broader DR theorem already covers the iteration but not its exact instability side or equality. General covariance machinery requires the scalar parity law and a critical-limit argument; a first-moment result does not imply mean-square stability.",
+        "searches": [
+          "arXiv:2207.04291, Algorithm 2, Theorems 4.1–4.2",
+          "arXiv:2206.07553, minibatch heavy ball",
+          "Agaskar–Wang–Lu, exact Kaczmarz MSE"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 8daa12e2ac15, e894b5e60aeb, e2fbb7bd2830",
+        "Han–Su–Xie arXiv:2207.04291",
+        "Alderman–Luikart–Marshall arXiv:2401.09415",
+        "Bollapragada–Chen–Ward arXiv:2206.07553",
+        "Agaskar–Wang–Lu repository locator (access attempted)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Remark 7.4 establishes momentum-free tightness; the published KGSM paper poses critical-region and Euclidean-error questions; the exact Resultary KGSM record gives special-case nondecay."
+        ],
+        "reasoning": "These cover the corresponding baseline and threshold specialization, but none of the inspected results turns a generic stability condition into all reflection-count dependence plus the positive limiting moment and rate transition. A determinant vanishing at one is not enough for that implication.",
+        "searches": [
+          "Han–Su–Xie §4 and Remark 7.4",
+          "Alderman–Luikart–Marshall §4.2",
+          "Resultary e894b5e60aeb, exact equality case"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "8daa12e2ac15 treats I₂ with two reflections; q=1/2 gives identical derivatives and transition including quadratic worsening at α=1/2.",
+          "Zero smoothing in e894b5e60aeb gives the raw unrelaxed orthogonal update; at r=1 and α=1/2 the coordinate-hit probability is q=1/m."
+        ],
+        "reasoning": "The two exact special cases must be credited. They neither supply the arbitrary-(α,q) frontier nor span the q<1/2 local derivatives; nondecay at a special-case equality is not its general strictly positive limit.",
+        "searches": [
+          "Resultary 8daa12e2ac15 and e894b5e60aeb (raw DR momentum, smoothed orthogonal Kaczmarz)",
+          "arXiv:2401.09415, zero-smoothing limit of KGSM"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The first two indexed formulas match the stated specializations. Later e2fbb7bd2830 uses Gaussian rank-one rows, not coordinate reflection parity."
+        ],
+        "reasoning": "These are direct exact-formula checks, not just numerical comparisons; neither supplies the full two-parameter Bernoulli coefficient classification. No table is needed to decide the continuous frontier.",
+        "searches": [
+          "Resultary exact mean-square frontier and local acceleration: 8daa12e2ac15, e894b5e60aeb, e2fbb7bd2830"
+        ]
+      },
+      "rationale": "The exact boundary and phase classification for all relaxation parameters and reflection parities, including positive finite critical limit, and the local rate law for q<1/2 survive the antecedent checks. Do not credit the unrelaxed single-reflection stability special case, the q=1/2 local sign transition, the basic covariance method, or the momentum-free tightness claim as new.",
+      "residual_risks": [
+        "A general scalar random-recurrence treatment could encode the same stability condition; the inspected sources do not settle global priority. The Agaskar full-text access gap remains."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact local overlap for q=1/2",
+          "evidence": "I₂, two reflections, derivative and α=1/2 transition; not the unrestricted frontier.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-underrelaxed-randomized-douglas-rachford-gains-mean-square-accel--8daa12e2ac15/RESULT.md",
+          "material_read": "Finding and proof, mirror offsets 0–4074 and 8200–11823",
+          "method": "Resultary search and local mirror",
+          "title": "Underrelaxed randomized Douglas–Rachford gains mean-square acceleration from momentum",
+          "trigger": "Identical method and local acceleration"
+        },
+        {
+          "assessment": "Exact prior stability special case",
+          "evidence": "Zero smoothing and π=1/m match α=1/2,r=1; special-case nondecay is reported, not the general critical positive limit.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-exact-mean-square-stability-frontier-for-geometrically-smoothed--e894b5e60aeb/RESULT.md",
+          "material_read": "Finding and proof, mirror offsets 0–3973 and 3900–7891",
+          "method": "Resultary search and local mirror",
+          "title": "Exact mean-square stability frontier for geometrically smoothed Kaczmarz on orthogonal systems",
+          "trigger": "Single-reflection DR as unrelaxed Kaczmarz"
+        },
+        {
+          "assessment": "Same iteration and a sufficient bound; no unrestricted exact frontier in checked material",
+          "evidence": "γ₁+γ₂<1 is sufficient; the next theorem addresses the mean. Remark 7.4 covers zero-momentum sharpness.",
+          "identifier_or_url": "https://arxiv.org/pdf/2207.04291",
+          "material_read": "Algorithm 2 and Theorems 4.1–4.2 pp. 11–13; Remark 7.4 p. 28",
+          "method": "OA PDF passage inspection",
+          "title": "Randomized Douglas–Rachford Methods for Linear Systems: Improved Accuracy and Efficiency",
+          "trigger": "Original method and possible exact frontier"
+        },
+        {
+          "assessment": "Overlapping method, not the exact region in inspected text",
+          "evidence": "Zero smoothing recovers heavy ball; the critical region is posed as a question.",
+          "identifier_or_url": "https://arxiv.org/pdf/2401.09415",
+          "material_read": "Equation (9) p. 3 and §4.2 pp. 22–23",
+          "method": "OA PDF passages",
+          "title": "Kaczmarz with geometrically smoothed momentum",
+          "trigger": "Potential equivalent heavy-ball frontier"
+        },
+        {
+          "assessment": "Related sufficient conditions",
+          "evidence": "Identifies Kaczmarz as sampled SGD; batch analyses do not report the method-specific parity boundary.",
+          "identifier_or_url": "https://arxiv.org/pdf/2206.07553",
+          "material_read": "Framework and Kaczmarz comparison around p. 3",
+          "method": "OA PDF passages",
+          "title": "On the fast convergence of minibatch heavy ball momentum",
+          "trigger": "Broader stochastic quadratic momentum theory"
+        },
+        {
+          "assessment": "Technical coverage unverified",
+          "evidence": "The retrieval failure is not negative evidence.",
+          "identifier_or_url": "https://dash.harvard.edu/entities/publication/73120379-2750-6bd4-e053-0100007fdf3b",
+          "material_read": "Citation only; no full-text passages retrieved",
+          "method": "Lawful direct and alternate route attempts both returned HTTP 429",
+          "title": "Randomized Kaczmarz algorithms: Exact MSE analysis and optimal sampling probabilities",
+          "trigger": "Potential exact MSE antecedent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Limitations",
+        "Han–Su–Xie Theorems 4.1–4.2",
+        "Resultary partial overlaps 8daa12e2ac15 and e894b5e60aeb"
+      ],
+      "rationale": "Identity systems isolate the intrinsic effect of reflection and inertia without conditioning. A sharp second-moment boundary, positive critical plateau and explicit mean/second-moment separation give useful benchmarks for method design and for interpreting weaker sufficient bounds. The local acceleration sign versus relaxation also delineates when a small momentum perturbation is helpful; the known two-coordinate behavior alone does not establish its persistence at other parities.",
+      "residual_risks": [
+        "The result is local in momentum for acceleration and not normalized by reflection cost. It supplies neither global tuning recommendations nor a result for nonidentity geometry."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

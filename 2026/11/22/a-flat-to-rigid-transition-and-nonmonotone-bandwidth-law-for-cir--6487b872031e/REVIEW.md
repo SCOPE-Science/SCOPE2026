@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-All assertions refer to full circular distributional variation and normalized Lebesgue \(L^2\). The Jordan decomposition of a zero-total-mass derivative measure reduces the operator norm to arcs with variation two. The exact arc autocorrelation gives an explicitly integrated polynomial in width and length, whose derivative is positive before the half-circle endpoint and zero on a natural plateau for short windows. The Hilbert equality condition and strict nonzero-frequency multiplier bound prove *all* extremizers; no finite grid is used to infer infinite-domain uniqueness. The bandwidth derivative gives the unique global peak. The packaged exact-rational and symbolic checker reports 7,354 assertions, including separate Fourier comparisons. Risks: changing the meaning of variation at the periodic seam, or replacing the forward by centered averaging, would change the statement; both are fixed explicitly in the result.
+PASS
 
-## Originality — PASS (qualified)
+Reconstructed on the real BV quotient by constants with normalized Haar L². The two Jordan parts of Df have equal mass V(f)/2; their normalized product coupling integrates ordered dipoles δ_s−δ_t, whose periodic primitives are the oriented arc indicators. The integral of their images under E=I−A_a is a bounded L² integral and its mean norm gives the arc upper bound; dividing the attained arc energy by V(1_I)²=4 gives sharpness. Independently, the overlapping lengths of an arc d≤1/2 with shift h∈[0,1] are (d−h)_+ and (d+h−1)_+. Expansion of the residual energy gives −2/a times the integral of the overlap plus 2/a² times the integral against (a−h), leaving a single −2h/a² weight. The two weighted integrals are dp³/p·(1/2)−p³/3 (i.e. dp²/2−p³/3, p=min(a,d)) and ae²/2−e³/6, e=(a+d−1)_+. For a≤1/2 the derivative of the energy at d<a is 1−d²/a² and the energy for d≥a is 2a/3; complements extend the maximizing lengths to [a,1−a]. For a>1/2 before d=1−a the same strict increase holds, and after that, a² times the derivative is a²−d²−2ae+e²=1−2d, using a+(1−a)=1. Thus only d=1/2 maximizes, yielding the stated polynomial branch. The two formulas meet at a=1/2 with value 1/12; a=1 gives mean subtraction and sharp value 1/16. For equality, the Hilbert variance identity forces almost surely one common residual vector and maximal length. Each nonzero Fourier mode of A_a has multiplier of modulus strictly below one (a positive-length average of nonconstant unit phases), so equal residuals imply equal ordered derivative dipoles. That determines both endpoints, including the semicircle case, so both Jordan laws are point masses. Differentiating the second squared norm gives (1−4a³)/(24a³) and unique maximum at 4^(−1/3), value (1−4^(−1/3))/4. All scope restrictions are necessary for this audit; centered windows change the phase of the multiplier. The auxiliary checker was inspected as finite evidence, not executed.
 
-Angeloni–Vinti's 2016 full article treats convolution-operator estimates and convergence in variation, not the present sharp one-sided circular BV-to-L2 residual. The investigated 2014 Dron–Zhuk primary results are formulated as L2 error/modulus-of-smoothness inequalities for *modified* Steklov operators. Discrete cyclic window variation amplification and Hardy–Steklov weighted bilinear norms likewise do not contain this operator-error norm by implication. Direct searches for one-sided boxcar/Steklov BV L2 sharp constants, extremizer lengths, and the half-circle phase boundary did not expose an equivalent theorem. The older Zhuk–Puerov 2009 full text could not be read; its title is closely related to Steklov L2 errors, so an unindexed antecedent remains possible. This absence of a direct match is evidence-limited, not a proof of novelty.
+## originality
 
-## Value — PASS
+PASS
 
-The exact sharp all-bandwidth norm and complete equality classification separate two genuinely different regimes: all arc lengths in a nontrivial interval are worst for short windows, whereas only semicircles are worst for long windows. In addition, the uniquely most damaging bandwidth lies strictly between half-circle and full-circle width: even the sharp error is nonmonotone under increased smoothing. These features are natural for moving-average approximation of BV jump signals, not an arbitrary finite grid or numerical constant. The closed form supplies a precise benchmark for one-sided convolution error analysis.
+Best of knowledge, for the explicit forward-boxcar norm, exact all-width maximizers and equality classification. The general diameter reduction for an operator applied to zero-mass signed derivatives is not new; the nontrivial comparison is the subsequent maximization of the forward-boxcar residual with periodic wraparound. The closest classical sharp periodic averaging paper inspected measures a modulus of smoothness and uses modified centered kernels, not the real-TV residual norm.
 
-## Limits and closest literature
+## value
 
-The general convolution-BV approximation results of Angeloni–Vinti (2016) and the modified-Steklov L2 approximation inequalities of Dron–Zhuk (2014) are complementary but not directly covering on the reviewed material. Zhuk–Puerov (2009) was identifiable through reliable metadata only, so priority remains qualified. No claim is made for centered boxcars, generalized Steklov kernels, complex variation or other exponents.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Forward moving averaging is a canonical approximation operator and the TV constraint is natural for jump signals. The exact optimal error for every width, the collapse of the family of maximizing arcs to one separation, and the strict interior worst width are structural, not a single sampled improvement. The equality classification makes the result usable as a sharp benchmark and exposes when nonmonotonic sharp error can occur.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

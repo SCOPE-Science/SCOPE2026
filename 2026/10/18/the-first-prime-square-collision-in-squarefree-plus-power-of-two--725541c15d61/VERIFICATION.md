@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -16,4 +19,4 @@
 }
 ---
 
-The standalone `verify.py` performs exhaustive residue checks for \(1\le d\le20\) and all candidate primes below \(1024\), enumerates all \(2^{18}\) exponent subsets for the special modulus \(25\), and checks the collision correction in a finite rational product model with sixteen other primes. It must return `VERIFY_OK`. The proof of infinite prime relative densities requires Siegel–Walfisz and the fixed-shift moment bound stated in `RESULT.md`; finite tests do not establish those results. No independent audit has been performed.
+The standalone `verify.py` checks the prime-square collision exhaustively for differences \(1\le d\le20\), enumerates all \(2^{18}\) exponent subsets for the special modulus \(25\), and checks the correction in a finite rational product model with sixteen other primes. Its success line is `VERIFY_OK 18 1 39 262144 16`. The infinite product-model identification in `RESULT.md` uses the prime number theorem in fixed progressions and a Brun–Titchmarsh bound for the square-divisor tail. The strict sign follows from the positive infinite-product event in the proof, not from an extrapolation of the finite computation.

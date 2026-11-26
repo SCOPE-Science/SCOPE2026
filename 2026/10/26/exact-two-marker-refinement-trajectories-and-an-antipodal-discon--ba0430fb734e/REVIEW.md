@@ -1,9 +1,21 @@
-# Scientific self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The walk-unfolding characterization proves equality of every refinement partition with the capped two-landmark metric signature. Necessity and sufficiency of the truncation thresholds follow from the two cycle arcs and distinguish the antipodal reflection case. The final checker performs 124,542 independently generated round-partition comparisons for 2,024 size/separation configurations; it does not substitute for the all-size proof.
+## correctness
 
-**Originality — PASS, qualified.** Arvind et al. (arXiv:1502.01255), inspected for their definitions, introductory structural theorems and applicability criteria, do not assert the exact two-marker cycle-time law. Kluge (arXiv:2204.01054), Section 4.2 and Theorem 4, proves the stronger **terminal discreteness** assertion for every nontrivial prime-order circulant after suitable two-marker individualization, and that covered subclaim is acknowledged. His general theorem does not determine individual rounds, sharp depth depending on \(t\), composite lengths, or antipodal residual orbits. Accessible historic claims in cycle powers, two-marked hypercubes, and Hamming graphs do not imply the precise theorem for two-marked simple cycles. Residual risk: an elementary special treatment of two-marked cycles may exist in specialized or nonindexed literature.
+PASS
 
-**Mathematical value — PASS.** The finite-cycle family is canonical for the counting-logic/colour-refinement connection; the theorem fully describes all rounds and a sharp, nonmonotone landmark-separation phase diagram, including an antipodal symmetry obstruction. These details quantify the individualization cost that general terminal partition results do not provide.
+A depth-r initially coloured walk tree determines the retained-colour refinement class and detects each marker exactly when its distance is at most r. With neither visible the trees coincide; with one visible reflect around that marker; with both visible, distinct vertices at equal distances to both would satisfy y=-x and y=2t-x modulo n, so this can happen only in the antipodal case and then precisely within a colour-preserving reflection orbit. For cap c=r+1 in the nonantipodal case, c<t leaves the two neighbours of 0 unresolved, and if c>=t but 2c<n-t, the consecutive positions c,c+1 on the long arc are both capped in both coordinates. Conversely both caps can hold at at most one long-arc position if 2c>=n-t, and a one-cap pair has at most one candidate, since the candidate in the direction of the other marker is at distance at most |j-t|<c when j<c is the exact distance. The antipodal orbit has index j and the capped pairs of (j,t-j) distinguish all orbits iff 2c>=t. A stable partition remains stable thereafter, so these are the exact first stable rounds, including the initially stable C3 and C4 cases. An independently written synchronous refinement check passed 2,499 configurations, 3<=n<=100, and 74,650 round comparisons, including first stability and terminal cells; the unbounded result follows from the proof, not the enumeration. The supplied verifier was inspected, not executed.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Supported as a distinct exact two-marker trajectory and stopping-depth theorem for simple cycles, not as priority for prime-order discreteness, the notion of a resolving set, or the general type of two-distance formula.
+
+## value
+
+PASS
+
+Two-marker initialization is a natural finite-round refinement benchmark. The full partition law permits predicting discrimination at every round; the competing separation and long-arc constraints and the sharp antipodal drop are not predicted by eventual discreteness or stable orbit results alone. This gives a useful exact test case for analysis of individualization and refinement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

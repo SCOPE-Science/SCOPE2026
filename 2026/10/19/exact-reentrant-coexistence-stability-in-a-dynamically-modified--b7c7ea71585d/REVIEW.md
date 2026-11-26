@@ -1,15 +1,21 @@
-# Review of the reentrant ecological coexistence stability theorem
+# Independent mathematical audit
 
-## Correctness
-PASS. The equilibrium equations are solved exactly, the monotonicity of the strength-to-modifier parametrization is proved on its precise biological domain, the Jacobian is explicitly derived, and the quartic Hurwitz criterion gives every strict stability and instability case. The algebraic factorization at the natural nullification strength identifies both transition speeds. `verify.py` supplies an independently expanded characteristic determinant, symbolic identities and finite supplementary spectral checks. The two transition speeds are not claimed to establish nonlinear cycles.
+## correctness
 
-## Originality
-PASS, subject to literature-indexing limitations. The closest primary paper by Van Giel et al. (arXiv:2408.14209v1) was inspected across its main text and supplementary Sections S1–S4. It provides the exact nullification equilibrium and numerical parameter maps, but no fourth-order local stability inequality or exact pair of speed boundaries. The 2026 follow-up by Van Giel et al. (arXiv:2601.15144v1) was inspected and concerns a stochastic spatial agent-based model rather than this four-dimensional differential equation. Semantic research-index searches found related ecological and predator–prey stability results, but not a stronger theorem implying this exact modifier-speed spectral classification. Standard Routh–Hurwitz algebra is acknowledged as background, not claimed as original.
+PASS
 
-## Value
-PASS. The complete negative-strength spectral test replaces a simulated stability map with an exact necessary-and-sufficient analytical criterion. The two radical transition speeds at the source's own interaction-nullification threshold make the parameter dependence identifiable and show that instability is confined to an intermediate speed window, robust to perturbations in modification strength. This supplies a precise local ecological stability boundary relevant to the model's stated motivation without asserting global conclusions.
+For the repaired claim in /workspace/repairs/5/RESULT.md. Solving the three linear per-capita equations leaves a single admissible interval for h=m; β(m) has positive derivative there and ranges from −∞ to zero. Differentiating the vector field and expanding its characteristic polynomial reproduces all coefficients and their reductions; positivity follows on the full interval. The Routh first column gives two sign changes for either sign of AB−C when Δ<0; at AB=C the absence of axis roots justifies continuity. For Δ=0 the factorization gives exactly a simple imaginary pair and a Hurwitz quadratic. At m=0 the determinant's quadratic factor has two distinct positive roots and the remaining root is negative; simple-root persistence proves the local parameter interval. Replay: `python /workspace/check_5.py` reproduces the identities and independently tests the frozen overstatement. The frozen Finding and Step 3 asserted nonlinear local asymptotic stability iff the Jacobian is Hurwitz. That is false at β=−9: in the normalization q_z=1 and left-right product 1, the real cubic coefficient Re G21 is between −2.938 and −2.937 at the lower speed and between −72.727 and −72.726 at the upper speed (exact operations in Q(√3679)[iν] and rational bracketing of √3679). With a stable transverse pair, the negative center-manifold radial cubic makes the nonlinear equilibrium locally asymptotically stable at the thresholds too. The repair retains only the proved full spectral classification and the strict-sign nonlinear implications. The cubic calculation diagnoses the original error; the repaired result does not rely on it.
 
-## Limits and risks
-At each crossing only the linear spectrum is classified; a nonlinear Hopf branch, attracting oscillations, extinction basins and global persistence are not established. The original 2024 model and its 2026 spatial analogue were checked, but unindexed specialist work may exist. This is a self-review and not independent certification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The source owns the ODE, nullification state and qualitative intermediate-speed phenomenon. The supported distinct remainder is the parameter-wide local spectral criterion and exact pair of algebraic boundaries, not the prior model, equilibrium, classical Hurwitz test, or observed cycles.
+
+## value
+
+PASS
+
+The special point is selected by the source's interaction-nullification mechanism, not numerical convenience; the source's numerical diagrams motivate locating two reentrant thresholds exactly. The repaired result gives a usable local test at every negative modifier strength, determines the whole linear spectrum's stability type and proves persistence near nullification. These are independent of conjectures about cycles or population survival.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T23:33:40.487092Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–53 (criterion, construction and witness rederived)",
+        "Frozen VERIFICATION.md and verify_stars.py (inspected, not executed; recorded 49,055 comparisons and 1,022 patterns are ancillary)",
+        "Chen–Zwicker arXiv:2402.05884 Observation 2, p. 18"
+      ],
+      "rationale": "For 2≤k≤m−1 there is exactly one bundle containing the hub and r=m−k+1 leaves; all other bundles are singleton leaves. Only a leaf can be removed from the hub bundle since r≥2. Common nonnegative additivity therefore gives exactly the inequality min(outside) ≥ c + sum(inside) − max(inside), with no additional constraints from singleton comparisons. Every r-subset has an outside leaf among the first r+1 and its r−1 smallest terms sum to at least the first r−1 weights. The r smallest leaves attain both bounds simultaneously, proving the criterion including ties and zeros. At k=m the hub and a least leaf form an edge and the hub can be removed; the other endpoints are automatic. In (3) the first new leaf is at least 9, and consecutive new leaves differ by a_r plus the difference of two signs, at least a_r−2>0; this verifies the strict ordering directly. The intermediate gaps are ±1 and leaf order and positivity persist in a neighbourhood. The witness has thresholds with gaps −1,+1,−1 in order k=2,3,4. For a connected graph with a common additive valuation, k=v−1 is always feasible by pairing a globally least-valued vertex with a neighbour and deleting the neighbour in envy comparisons; Chen–Zwicker verify the stronger arbitrary-monotone guarantee used in the manuscript. Thus for v≤5 at most two consecutive counts are eligible for infeasibility, so the separation phenomenon cannot occur on fewer vertices.",
+      "residual_risks": [
+        "The fixed-profile criterion uses common nonnegative additivity and the existence result counts nonempty bundles only. Robustness is under small perturbations of the one common profile."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chen–Zwicker prove the outer-EF1 universal star spectrum with m−2 middle no entries. The tree result of Bousquet et al. characterizes the binary universal yes counts by k≥τ(T)+2 (apart from the trivial single-agent case); the star has τ=m−2. The indexed complete-bipartite counting result treats fixed common binary valuations on a broader graph family."
+        ],
+        "reasoning": "Universality is stronger in profile quantification only for counts that are always feasible. A universal no is a counterexample somewhere, not the infeasibility of every profile. A binary fixed-profile counting result does not cover arbitrary weighted positive distinct integers or their strict perturbation stability.",
+        "searches": [
+          "Chen–Zwicker arXiv:2402.05884 Observation 2 and §5 Lemma 3",
+          "Bousquet–Connor–Totschnig–Zeitoun arXiv:2608.29902 §4 Definition 6 and Theorem 7",
+          "Resultary complete-bipartite common binary outer-EF1 findings"
+        ]
+      },
+      "checked_sources": [
+        "Resultary weighted-star and complete-bipartite results identified above",
+        "arXiv:2402.05884",
+        "arXiv:2608.29902"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general endpoint guarantee supplies the lower-bound argument for witness size once two separated failures are exhibited. The universal negative results give no way to prescribe the success and failure choices jointly, and the ordinary-EF1 witnesses are built using a forbidden deletion."
+        ],
+        "reasoning": "The endpoint implication is credited, as is the related ordinary-EF1 phenomenon. The strict weighted outer construction still has to realize independent sign choices while preserving leaf order and outer connectivity; no stronger inspected theorem produces this finding.",
+        "searches": [
+          "Chen–Zwicker Observation 2 and Lemma 3",
+          "Bousquet et al. Definition 6 and Theorem 7",
+          "SCOPE-arbitrary-instance-level-ef1-spectra-on-weighted-stars-and-an-ex--cf4e9c55c026 proof of arbitrary binary word"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The ordinary-EF1 record gives h+Σ_{i≤r}w_i−max(h,w_r)≤w_{r+1} for the canonical bundle. Its arbitrary-realization proof chooses the hub strictly larger than the entire leaf sum and deletes it; its yes steps use equality."
+        ],
+        "reasoning": "In the reviewed outer model the hub is not eligible for r≥2, so the canonical remainder instead is h+Σ_{i<r}w_i. The dominant-hub profiles from the ordinary theorem fail the outer criterion throughout the intermediate range. The two problems agree on profiles where the largest selected leaf already dominates the hub, but the published construction inspected here is not on that slice.",
+        "searches": [
+          "Resultary: instance-level EF1 spectra of weighted stars, common additive valuations and outer deletion",
+          "SCOPE-arbitrary-instance-level-ef1-spectra-on-weighted-stars-and-an-ex--cf4e9c55c026 RESULT.md Finding and proof"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier universal table for the five-leaf star has all three intermediate counts marked no. The indexed ordinary weighted-star statement realizes arbitrary patterns but uses the unrestricted deletion threshold; the indexed complete-bipartite count is for binary profiles."
+        ],
+        "reasoning": "None of these is the same one-profile outer spectrum classification. In particular the universal table is consistent with the middle success at k=3 for the frozen witness.",
+        "searches": [
+          "Chen–Zwicker §5 Lemma 3 star table",
+          "Resultary: arbitrary instance-level weighted-star and exact complete-bipartite binary EF1 spectra"
+        ]
+      },
+      "rationale": "The supported distinct claim is the exact weighted fixed-profile criterion and arbitrary strict spectra for outer EF1, including the minimal two-gap witness. Prior universal star spectra and an exact ordinary-EF1 weighted-star catalogue match are material overlap. They do not yield the submitted criterion or establish those spectra under connectivity-preserving deletion.",
+      "residual_risks": [
+        "A focused provider query added no relevant sources; absence of returned items and catalogue dates do not establish priority. A specialized fixed weighted profile theorem may remain unlocated."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact universal endpoints and obstructions, not the fixed-profile spectrum",
+          "evidence": "There are m−2 intermediate universal no counts for a star, with common additive obstructions; the last two counts are always yes.",
+          "identifier_or_url": "https://arxiv.org/pdf/2402.05884",
+          "material_read": "Observation 2 p. 18 and §5 Lemma 3 p. 20",
+          "method": "Primary OA text, statement and star table",
+          "title": "Cutsets and EF1 Fair Division of Graphs",
+          "trigger": "Direct outer-EF1 star spectrum and general endpoint proof"
+        },
+        {
+          "assessment": "Broader graphs, but a binary universal statement",
+          "evidence": "The cutoff is τ(T)+2 for common binary additive valuations; the hub plus m−3 leaves is a bad set with three remaining components on a star, yielding τ=m−2.",
+          "identifier_or_url": "https://arxiv.org/pdf/2608.29902",
+          "material_read": "§4 p. 13, Definition 6 and Theorem 7",
+          "method": "Primary OA passage inspection",
+          "title": "Fair Division of Graphs: Beyond Traceability",
+          "trigger": "Broader binary tree spectrum could specialize to stars"
+        },
+        {
+          "assessment": "Overlapping phenomenon; different deletion semantics and proof construction",
+          "evidence": "The unrestricted threshold subtracts max(h,w_r) and the constructed hub value is 1+Σw_i; the proof of arbitrary words relies on deleting that hub.",
+          "identifier_or_url": "2026/11/8/SCOPE-arbitrary-instance-level-ef1-spectra-on-weighted-stars-and-an-ex--cf4e9c55c026",
+          "material_read": "RESULT.md Finding and canonical/constructive proof, including offsets 3550–6290",
+          "method": "Resultary and local-mirror passages at snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Arbitrary instance-level EF1 spectra on weighted stars and an exact counting formula",
+          "trigger": "Closest weighted fixed-profile spectrum match"
+        },
+        {
+          "assessment": "Binary fixed-profile case overlaps but does not imply the nonbinary result",
+          "evidence": "Counts outer-EF1 allocations for common binary profiles on complete bipartite graphs, of which stars are a special case.",
+          "identifier_or_url": "2026/11/8/SCOPE-universal-outer-ef1-spectra-and-exact-counting-on-complete-bipar--592f301d301f",
+          "material_read": "RESULT.md Finding on universal spectra and exact counts for common binary profiles",
+          "method": "Resultary and local-mirror passage inspection",
+          "title": "Universal outer-EF1 spectra and exact counting on complete bipartite graphs",
+          "trigger": "Closer deletion semantics, broader graph family, possible fixed-profile overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md criterion, construction and six-vertex example",
+        "Chen–Zwicker arXiv:2402.05884 Observation 2 and Lemma 3"
+      ],
+      "rationale": "The result resolves the sharp fixed-instance question behind the universal star spectrum. It yields both a test for arbitrary common nonnegative weights and a complete robust classification, not just an isolated pathological example. The six-vertex boundary gives a smallest connected graph on which failures in a fixed profile can form separated intervals; the endpoint theorem alone does not furnish such an example. This distinction between fixed and universal spectra prevents a false implication from the graph-wide spectrum conjecture.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

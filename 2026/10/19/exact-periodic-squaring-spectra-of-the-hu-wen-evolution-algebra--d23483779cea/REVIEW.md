@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The claim follows from a checked multiplication formula for the two-dimensional stable square, a nonsingular skew-product conjugacy when \(\lambda\ne2\), and a separately derived affine-drift iterate at \(\lambda=2\). Cyclicity of finite-field multiplicative groups gives the exact root counts; the fiber-return argument gives the full periodic locus; Möbius inversion gives exact least-period counts. Original-table enumeration over seven fields, with extension-field arithmetic, confirms 636 fixed-iterate instances and the periodic-locus formula. Finite verification is not treated as the proof.
+## correctness
 
-**Originality — PASS, with historical risk.** Hu and Wen determine idempotents (the first iterate), not the family-wide higher iterate spectra. A published study of automorphisms of the same algebras addresses linear stabilizers, not this nonlinear dynamical invariant; its full proof was checked. A broad evolution-algebra survey uses the linear evolution operator, which is mathematically different from elementwise squaring. Searches under finite-field squaring dynamics, periodic points, skew products, and the displayed family did not identify a statement implying both explicit \(F_m\) formulas. A hidden equivalence in older finite-field skew-product literature remains a possible historical risk; the review does not certify priority independently.
+PASS
 
-**Mathematical value — PASS.** The idempotent-free but non-solvable exceptional member raises a natural question: does it support other periodic elements under repeated squaring? The theorem gives a complete answer in every odd finite field, with all cycle lengths and multiplicities, and proves a sharp resonance law forcing all nonzero periods to be divisible by \(p\). The formula across all parameters separates additive drift from multiplicative fiber behavior. This is a motivated dynamical invariant, not a simple count of idempotents.
+Original basis multiplication gives E²=span(e1+e3,e2+e3), with products 0,u,−u+lambda v as stated. All periodic points lie there. Writing c=lambda b, the c=0 fiber maps to the origin. On c≠0 use z=a/c: the map is the direct product (c,z)→(c²,(2/lambda)z−1/lambda²). This independently verifies both iterate formulas. At lambda≠2 the affine factor has one fixed center and acts about it by multiplication by t; its m-th iterate fixes q points if t^m=1 and one otherwise. At lambda=2 it is translation by −1/4, whose m-th iterate fixes q points exactly when p divides m. The scalar power factor fixes gcd(2^m−1,q−1) nonzero values. Squaring is a permutation exactly on the odd-order subgroup among the periodic c values, and the affine factor is a permutation, giving 1+qh. The two factors' least periods combine by lcm: at lambda=2 any point over c≠0 has period lcm(k,p), with k the c-period, so the k-step fiber return may be the identity if p divides k. Möbius inversion and the cycle factors yield the stated zeta, and the small-field examples follow. RESULT.md line 73 means the exceptional (second), not the first, displayed count. Independent original-table enumeration matched 270 fixed-iterate comparisons and 20 periodic-locus counts over F3, F5, F7 and F9 with the irreducible relation theta²=2 over F3. The checks are finite; the product argument gives the unrestricted result.
 
-**Scope and limitations.** The result is restricted to the displayed three-dimensional family and odd finite fields. General preperiodic-tree structure and characteristic two are unaddressed. Full-text historical comparisons cannot exclude every alternative formulation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The algebra, its stable square and idempotents are already known, and scalar power-map periodicity is standard. The supported contribution is the complete, field- and parameter-dependent nonlinear iterate spectrum, obtained by separating the base power map from affine fiber resonance. Neither the power-map method nor the idempotent-free exception alone is new.
+
+## value
+
+PASS
+
+Hu–Wen's idempotent-free, non-solvable example naturally raises the question of what survives under repeated squaring over finite fields. The explicit exact cycle multiplicities distinguish base arithmetic from multiplicative or additive fiber periods, and show that identical total periodic-locus sizes can hide very different spectra. This resolves a motivated entire-family invariant rather than merely exhibiting the simple exceptional p-cycle or applying a scalar gcd formula to a single example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

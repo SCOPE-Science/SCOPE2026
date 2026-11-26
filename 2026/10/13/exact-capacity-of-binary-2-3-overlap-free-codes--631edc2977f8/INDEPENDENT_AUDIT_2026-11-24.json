@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:50:07.265723Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At n>=6 the first and last three bits are disjoint positions. If P and S are the prefix and suffix projections of a code, P and S are disjoint and the initial pairs of P avoid the terminal pairs of S, including for self-overlap. Conversely all compatible boundaries in P×S can be filled independently in the middle. For b distinct initial binary pairs in P, a=|P|<=2b and |S|<=2(4-b)-t, where t counts P-arcs exiting those b pair states. Singletons and two-state subsets of the displayed de Bruijn graph contain at most one and two arcs, respectively, bounding the products by 10 and 9. For b=3 there are at most two suffixes, so a<=5 suffices; at a=6 every outgoing arc is used, including one entering the missing state from another state, so at most one suffix survives. Empty P or b=4 gives zero. The displayed prefix and suffix sets give 2×5=10, including at n=6 with empty middle. Independent enumeration of all 256 prefix sets gives the same maximum and direct ordered-pair construction checks passed at n=6,7,8. Replay by running python3 /workspace/branches/34e9da9b-0bba-4797-8e9f-ce7d1f7568bc/boundary_exhaust.py. Enumeration covers the whole boundary kernel, not all lengths directly; the projection and lifting arguments cover those.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Stanovnik Proposition 3 reduces all n>6 to n=6 here. Proposition 4 at (q,n,t1,t2)=(2,6,2,3) gives only |C|<64/3, not 10. The separate exact displayed (1,2) result and the upper bound of Proposition 5 have different first forbidden length.",
+          "Yang–Ding prove validity and cardinality for their construction; that is not a universal upper bound. Blackburn et al.'s relevant exact results start the forbidden range at one."
+        ],
+        "reasoning": "The strongest inspected general lifting statement leaves the base optimum to be determined and the general numerical bound does not close that gap; construction cardinalities do not rule out larger codes.",
+        "searches": [
+          "arXiv:2411.02899, Propositions 3–5",
+          "Yang–Ding Theorems 3.2 and 3.4",
+          "arXiv:2211.10309 Theorems 2 and 5"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2411.02899",
+        "DOI 10.1587/transfun.2025EAL2050",
+        "arXiv:2211.10309",
+        "DOI 10.1109/TIT.2023.3319010 (bibliographic only)",
+        "Resultary bbe740f0d38c, 8b603a44ba02, 47abd3220a26"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "If the exact length-six maximum were already 10 in a prior result, Stanovnik's lift would give the full formula directly. In the inspected sources the base maximum is not supplied by the lift or the general upper bound.",
+          "The new upper-bound step accounts for disjoint three-bit boundaries and eligible two-bit states jointly, not simply using a family size or changing an exponent in a prior formula."
+        ],
+        "reasoning": "The symbolic sharp kernel calculation resolves the missing extremum; no displayed result for other overlap intervals has been shown to imply it.",
+        "searches": [
+          "Stanovnik arXiv:2411.02899, Proposition 3 and adjacent general bound (OA offset 14600)",
+          "Yang–Ding Construction 3.1 and Theorem 3.4",
+          "Blackburn et al. arXiv:2211.10309, Theorems 2 and 5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The inclusive (t1,t2)-overlap-free convention with t1=2,t2=3 and self-overlaps maps exactly to disjoint initial and terminal states at lengths two and three.",
+          "(1,3)-overlap-free codes also forbid length-one overlaps, and weakly mutually uncorrelated codes with restrictions through n-1 impose additional lengths when n>=6. Neither class is identical to the audited one."
+        ],
+        "reasoning": "The relevant equivalent terminology is the inclusive restricted interval [2,3]. Broader or narrower forbidden-length sets must not be identified with it.",
+        "searches": [
+          "Stanovnik arXiv:2411.02899",
+          "Yang–Ding DOI 10.1587/transfun.2025EAL2050",
+          "Resultary: binary (2,3)-overlap-free / restricted overlap exact maximum"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-day conventional non-overlapping record is for variable lengths through ten; the other same-day length-six optimum of ten is for two-grain error correction. The November item forbids lengths one through seven and has a different kernel and range.",
+          "The published exact formulas inspected for other overlap intervals are not a table of the binary [2,3] optimum."
+        ],
+        "reasoning": "Even a matching numeric value of ten at length six is not a match absent the same overlap constraints. No matching entry was established by the indexed searches; they are not exhaustive.",
+        "searches": [
+          "Resultary: minimum total length of maximum cardinality binary non-overlapping codes bbe740f0d38c",
+          "Resultary: exact length six two-grain codes 8b603a44ba02",
+          "Resultary: sharp capacity forbidding overlaps one through seven 47abd3220a26",
+          "Stanovnik arXiv:2411.02899, Eqs. (4)–(5) and §3"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the exact unrestricted six-bit maximum 10 under only lengths 2 and 3, with a matching symbolic upper bound. The all-length multiplier after that base case is known and is not credited as a novel lifting theorem. No inspected prior statement or straightforward implication establishes the sharp base case.",
+      "residual_risks": [
+        "The Cai–Wang–Feng full text was not available through the lawful attempts. Exact [2,3] coverage elsewhere or an uninspected stronger consequence is not excluded by the bounded search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known lifting and nonsharp general bound, not the audited base value",
+          "evidence": "Proposition 3 gives q^(n-2t2) times the base optimum when n>2t2; at binary length six Proposition 4's denominator is floor((12-2)/(6-3))=3.",
+          "identifier_or_url": "https://arxiv.org/pdf/2411.02899",
+          "material_read": "Displayed introductory exact cases, Propositions 3–5 pp. 3–4 (decisive OA offset 14600)",
+          "method": "Original OA PDF bounded passages",
+          "title": "Codes with restricted overlaps: expandability, constructions, and bounds",
+          "trigger": "Exact same code convention, general boundary reduction and upper bounds"
+        },
+        {
+          "assessment": "Construction and its size, not sharp unrestricted optimality",
+          "evidence": "Theorems certify the validity of the constructed family and calculate its size; the definition includes coinciding words.",
+          "identifier_or_url": "https://doi.org/10.1587/transfun.2025EAL2050",
+          "material_read": "Definition, Construction 3.1, Theorems 3.2 and 3.4 pp. 2–3 (OA offsets around 7400 and 14800)",
+          "method": "Original OA PDF bounded passages",
+          "title": "Q-Ary (t1,t2)-Overlap-Free Codes",
+          "trigger": "Inclusive same restriction and possible exact construction theorem"
+        },
+        {
+          "assessment": "Relevant exact families impose overlap length one",
+          "evidence": "The (1,k) restrictions include length one and cannot be used as sharp upper bounds for the larger audited class.",
+          "identifier_or_url": "https://arxiv.org/abs/2211.10309",
+          "material_read": "Theorem 2 p. 3; Theorem 5 and example pp. 4–5",
+          "method": "Original OA PDF theorem passages",
+          "title": "Constructions and bounds for codes with restricted overlaps",
+          "trigger": "Exact optima for nearby intervals"
+        },
+        {
+          "assessment": "No full-text comparison; only stated title scope is known",
+          "evidence": "Title indicates the (1,k) interval, with first forbidden length one.",
+          "identifier_or_url": "https://doi.org/10.1109/TIT.2023.3319010",
+          "material_read": "Title and bibliographic material only",
+          "method": "Lawful OA direct and alternate retrieval attempts; HTTP 202 and no repository copy",
+          "title": "Constructions and Bounds for q-Ary (1,k)-Overlap-Free Codes",
+          "trigger": "Possible exact statements in nearby coding literature"
+        },
+        {
+          "assessment": "Different optimization domains",
+          "evidence": "Variable-length conventional overlap restrictions; two-grain error-correction optimum at length six; and 744*2^(n-14) for forbidden lengths one through seven, respectively.",
+          "identifier_or_url": "Resultary bbe740f0d38c, 8b603a44ba02, 47abd3220a26",
+          "material_read": "Mirrored Findings and scopes",
+          "method": "Resultary local semantic search and mirror",
+          "title": "Resultary conventional non-overlap, two-grain and length-one-through-seven findings",
+          "trigger": "Nearest ranked exact optimizations, two of them same-day"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Lengths two and three form the shortest nontrivial consecutive interval starting at two. Length six is forced by the nonintersecting boundary reduction, not an arbitrary finite slice. The exact base value determines the optimal rate coefficient for every longer binary code with that restricted-overlap interval; the sharp bound answers an extremal question that neither lifting nor a construction size alone resolves.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

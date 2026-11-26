@@ -1,0 +1,152 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:49:18.100766Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–56",
+        "VERIFICATION.md, check_exhaustive.py, check_exhaustive.txt, check_extension.py and check_extension.txt (inspected, not executed)",
+        "Independent single-insertion certificate: insert either symbol at every position in the two candidate squares, de-duplicate, require greedy embedding of 1010, and test the squares of {010,100,110,101}; complement for deficient 01",
+        "Independent finite census testing all literal square-root candidates through floor(|S|/2), comparing each mixed root to feasible longer roots"
+      ],
+      "rationale": "Root containment agrees with complete-square containment: copy an embedding twice in one direction; in the other, if the first embedded X ends in the first Y, use it, otherwise the entire second X lies in the second Y. The first X need not literally cross the junction, but the suffix argument still applies. A mixed deficient root needs length at least two and a maximum root needs length at least three. At host length six, the only possible length-three square fills the host, so every shorter root is contained in its root. At length seven, if the deficient root is 10, a feasible root of length three must avoid 10, hence lies in {000,001,011,111}; the unary options leave too few letters of the other kind for 1010. A bounded independent insertion check gives the following complete list among insertions that contain 1010: from 001001, hosts 0010010, 0010101, 0101001, 1001001, where the first and last are rejected by extensions 010 and 100; from 011011, hosts 0101011, 0110101, 0110110, 1011011, where the last two are rejected by extensions 110 and 101. Complementing gives the other four qualifying words; their stated reversal/complementation orbits follow. A separate bounded census of all 255 binary hosts through length seven agreed. In Wₘ the two ones force each mixed root to have exactly one 1; if the root is 0ᵃ10ᵇ then its square must fit a+b zeros in the single central zero position. Thus 10 embeds as a square and cannot extend; all mixed roots have length at most two. The 2m+1 zeros and two ones then give maximum root length m for m≥3.",
+      "residual_risks": [
+        "The census is exhaustive only through length seven. The separate central-gap proof gives the infinite family; the reviewed claim does not identify all maximal roots in arbitrary larger inputs."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The longest-square literature optimizes length on arbitrary inputs. A catalogue result exhibits widely separated lengths of two maximal common subsequences of two different strings."
+        ],
+        "reasoning": "Optimizing length does not classify all inclusion-maximal squares. A common-subsequence gap for one pair of strings or cuts does not prove maximality of a square across all cuts of a single host.",
+        "searches": [
+          "Inoue–Inenaga–Bannai arXiv:2006.00216, objective and split characterization",
+          "Bannai–I–Köppl arXiv:2202.07189v1, abstract and §1",
+          "Resultary maximal common subsequences over disjoint alphabets"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md prior-work section",
+        "arXiv:2601.12200v1, 2006.00216, 2202.07189v1",
+        "Resultary two-run power, maximal common subsequence, permutation-power and shuffle-square primary statements",
+        "Primary-literature search for mixed maximal binary square roots and gap examples"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At e=2 and (a,b,k)=(10,1,3), the earlier indexed formula gives longest mixed root 0^10 1 of length 11 and unary root 0^15. The former is maximal since any proper superroot would still be mixed, so qualitative existence of a mixed maximal but nonmaximum root is covered. Observation 2.2 in Gong et al. guarantees some maximal square saturates the even count of a fixed letter."
+        ],
+        "reasoning": "Do not treat qualitative existence as novel. The previously certified longest-mixed versus overall length ratio in two-run powers is at most 3/2 for e=2 and k≥2, from the prior formula; that comparison does not establish unbounded ratio for a mixed maximal root, or the minimum length and equality hosts. The saturation observation does not provide the quantitative central-gap witness. Catalogue dates alone do not settle priority.",
+        "searches": [
+          "Resultary exact longest repeated subsequences of binary two-run powers, RESULT.md Finding and proof at offsets 0–5436 and verification/example around 5216",
+          "Gong et al. §2.2 Observation 2.2 and §3 algorithm"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary paper explicitly equates root and full-square order in Lemma 3.1, and §2.2 characterizes maximality by failure of right, left and inner one-letter extension."
+        ],
+        "reasoning": "Those equivalent definitions and tests are prior. A maximal-square construction can find some maximal square, but does not by itself determine the smallest host admitting the strict mixed-root gap or the equality hosts.",
+        "searches": [
+          "Gong–Liyanage–Sopp–Zhu, arXiv:2601.12200v1, §2.2, §3, Lemma 3.1",
+          "Resultary search for maximal versus maximum concatenated square subsequences, mixed binary roots, and one-letter extension obstruction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The identical catalogue hit is the frozen finding, not an independent precedent. The other tables/formulas concern length optima in equal-run powers, counts by root length in permutation powers, or interleaved shuffle squares."
+        ],
+        "reasoning": "None of these catalogue statements enumerates the minimal binary hosts for the stated predicate. Nontrivial powers of a two-run block cannot have length seven with a repeated period, and shuffle embeddings do not implement concatenation.",
+        "searches": [
+          "Resultary search for the seven-letter binary obstruction, exact equality hosts and mixed-root maximality",
+          "Indexed exact binary two-run powers, cyclic permutation-power square spectra, and two-marker binary shuffle-square spectra"
+        ]
+      },
+      "rationale": "Credit the known root-order and one-letter extension criteria and the earlier indexed implication that a mixed maximal root can be deficient. The supported distinct claims are the sharp binary threshold with all eight minimal hosts and the unbounded ratio with a fixed-length mixed maximal root in the exhibited family. Neither inspected prior result yields these quantitative statements.",
+      "residual_risks": [
+        "Kosowski's full text was not recovered from the cited DOI route. The primary-literature search was non-diagnostic; an earlier unindexed exact classification or unbounded witness remains possible. The verified qualitative overlap should be credited when describing the distinct result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the root-order and maximality tests and computation of a maximal square; not the two quantitative results here",
+          "evidence": "Definition 2.1 introduces one-letter extensions; Observation 2.2 guarantees maximal squares saturating an even letter count; Lemma 3.1 identifies the two containment relations.",
+          "identifier_or_url": "https://arxiv.org/html/2601.12200v1",
+          "material_read": "§2.2 and opening of §3, offsets 9000–11858; Lemma 3.1, near 14883",
+          "method": "Versioned open-access primary text, located and read relevant sections",
+          "title": "Computing Maximal Repeating Subsequences in a String",
+          "trigger": "Same maximal square problem and root-order criterion"
+        },
+        {
+          "assessment": "Maximum-length computation rather than classification of inclusion-maximal mixed roots",
+          "evidence": "Maximizes length of an ordered subsequence XX; analyzes prefix/suffix splits.",
+          "identifier_or_url": "https://arxiv.org/pdf/2006.00216",
+          "material_read": "PDF pp. 1–2, offsets 791 and 6332",
+          "method": "Open-access PDF passages",
+          "title": "Longest Square Subsequence Problem Revisited",
+          "trigger": "Generic longest-square objective and decomposition"
+        },
+        {
+          "assessment": "Broader periodic and subperiodic length optimization, not the minimal-host obstruction",
+          "evidence": "Treats longest periodic/subperiodic subsequences including squares.",
+          "identifier_or_url": "https://arxiv.org/html/2202.07189v1",
+          "material_read": "Abstract and §1, opening offset 0",
+          "method": "Open-access HTML passage",
+          "title": "On the longest periodic subsequence problem",
+          "trigger": "Broader periodic-subsequence optimization"
+        },
+        {
+          "assessment": "Implies qualitative mixed maximal/maximum separation; does not supply threshold, equality set or unbounded ratio",
+          "evidence": "Prior formula is e times the maximum of floor(k/e)(a+b), floor(ka/e), floor(kb/e). With (a,b,k,e)=(10,1,3,2), the length-11 mixed root is inclusion-maximal yet the length-15 unary root is feasible.",
+          "identifier_or_url": "2026/11/8/SCOPE-exact-longest-repeated-subsequences-of-binary-two-run-powers--d0386f1167a3",
+          "material_read": "RESULT.md Finding, run-capacity proof, and example vicinity, offsets 0–5436 and 5216 onward",
+          "method": "Indexed local-mirror primary passages",
+          "title": "Exact longest repeated subsequences of binary two-run powers",
+          "trigger": "Same binary repeated-root objects and explicit mixed-versus-unary length gap"
+        },
+        {
+          "assessment": "Related phenomenon for two input strings, not concatenated repeated roots in one host",
+          "evidence": "Gives two maximal common subsequences with lengths differing by h−1.",
+          "identifier_or_url": "2026/11/8/SCOPE-the-one-or-two-maximal-common-subsequence-law-for-disjoint-alpha--a809100b9cd3",
+          "material_read": "RESULT.md Finding at offset 0 and example near 5758",
+          "method": "Indexed local-mirror primary passages",
+          "title": "The one-or-two maximal common subsequence law for disjoint alphabets",
+          "trigger": "Potential broader maximal/maximum length separation"
+        },
+        {
+          "assessment": "Restricted host family and counts by length rather than containment-maximal roots",
+          "evidence": "Counts square-subsequence roots by length in cyclic permutation powers.",
+          "identifier_or_url": "2026/11/2/SCOPE-square-subsequence-spectra-of-cyclic-permutation-powers--0d48ff0900f8",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Indexed local-mirror primary statement",
+          "title": "Square-subsequence spectra of cyclic permutation powers",
+          "trigger": "Exact indexed square-root spectra"
+        },
+        {
+          "assessment": "Different embedding relation",
+          "evidence": "Equal copies are interleaved, unlike the ordered concatenation XX here.",
+          "identifier_or_url": "2026/11/2/SCOPE-complete-root-multiplicity-spectrum-of-two-marker-binary-shuffle--ee8a475fe7fb",
+          "material_read": "RESULT.md opening and definition at offset 0",
+          "method": "Indexed local-mirror primary statement",
+          "title": "Complete root-multiplicity spectrum of two-marker binary shuffle squares",
+          "trigger": "Two-marker obstruction and exact binary root statistics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen sharp threshold, equality table and Wₘ family",
+        "Gong et al. maximal-square problem, algorithm and root-order lemma",
+        "Earlier indexed two-run mixed/unary optima"
+      ],
+      "rationale": "Recent maximal-square algorithms make it natural to ask how small a binary input can already contain a genuinely mixed maximal solution shorter than the maximum and whether the distinction can be arbitrarily large. A smallest-host classification with all equality cases and an all-m fixed-two-marker construction answer these questions; the mixed requirement rules out trivial unary deficiencies. The quantitative statements add to the known qualitative overlap without claiming to predict any algorithm's output.",
+      "residual_risks": [
+        "No approximation claim is made about an algorithm for selecting a maximal square, and no optimal ratio as a function of arbitrary host length is asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:17:08.584790Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The existence and diameter claims hold for every fixed f≥4 and δ>0. The geometry can be checked directly from RESULT.md §1: choose R>4 large enough that arcsin(4/R)<δ. The projected initial three normals surround zero strictly (each successive angular gap, including the wraparound gap, is <π). With their positive vertical coordinates and the downward base normal they positively span in 3D. The three side planes at offset 1 and the base z=0 bound a full-dimensional tetrahedron. The normal recurrence follows from roots R and exp(±iθ); its positive coefficients express the new normal in the interior of the normal cone at the current top vertex. A sufficiently shallow cut removes just that vertex, creates a triangle, and preserves simplicity. Side facet neighbors have index difference at most three by induction. Their horizontal dot products for differences 1, 2, 3 are −1/R, 2/R²−1, 3/R−4/R³, respectively; the vertical contribution is ≤1/R², so the normalized dot products are <4/R, and base-side dihedrals are acute. For the graph, at k≥5 the new vertices U_k,W_k,T_k link to W_(k−1),U_(k−2),U_(k−1), respectively, with H differences 3; the replacement triangle has differences 1,1,2. The base tetrahedron and the two exceptional steps k=3,4 obey the same bound by direct substitution. Consequently the specified endpoints are at distance at least ceil((2k−1)/3). Every intermediate distance layer separating endpoints has at least three vertices by 3-connectivity. Euler and minimum degree three yield V≤2f−4 also for nonsimple polytopes, giving the matching universal upper bound. CHECKER.py was inspected, not executed; it checks finite graphs only and is not needed for the argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The unrestricted diameter bound, credited in RESULT.md §4, holds without any metric restriction.",
+          "The Li–Wang–Yu construction, credited in RESULT.md §1, supplies angles and facet counts without using graph distance."
+        ],
+        "reasoning": "An unrestricted sharp diameter bound and an angle-constrained existence theorem separately do not guarantee the same realizations attain both. A stronger result classifying the actual chain as extremal would cover the joint claim; direct inspection of the cited primary texts was not available to resolve that possibility.",
+        "searches": [
+          "Resultary: iterated truncations and Klee–Santos diameter extremizers",
+          "Klee, Paths on polyhedra II; Santos, Diameter of polytopes and the Hirsch Conjecture, exercise 1",
+          "Li–Wang–Yu, arXiv:2611.09021v1"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md §§1–4 and references",
+        "VERIFICATION.md",
+        "CHECKER.py",
+        "Resultary candidate statements c226876306e4 and b7684ce37d93"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The incidence rule makes reconstruction of any fixed graph possible, but the all-k lower bound uses the nonconstant height H with each edge increment at most 3 and endpoint difference 2k−1.",
+          "The classical bound supplies only the upper bound for each realization."
+        ],
+        "reasoning": "The joint conclusion uses a comparison of endpoint height with all edge increments, not a replacement of parameters into the angle estimate or classical diameter upper bound. A known exact diameter for this specific chain would imply the main theorem; no such identification was established.",
+        "searches": [
+          "Li–Wang–Yu arXiv:2611.09021v1 §2 versus RESULT.md §§2–4",
+          "Klee (1966), Paths on polyhedra II, and Santos exercise 1 versus the explicit extremal pair"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "RESULT.md §§1–3 distinguishes the known realization and incidence rule from the new extremal-distance assertion.",
+          "Resultary 2026/11/17/SCOPE-facet-graph-diameter-and-nine-rigid-antipodes-in-chains-of-ideal--b7684ce37d93 concerns facet–ridge graphs of ideal right-angled 24-cell chains."
+        ],
+        "reasoning": "An equivalent result could describe a farthest pair in the same truncation chain without angle language. The related 24-cell result instead measures facet–ridge distance for a different family and dimension; it does not identify the vertices, adjacencies, or distances here.",
+        "searches": [
+          "Resultary: near-right angles with sharp 3-polytope graph diameter",
+          "Resultary: Li–Wang–Yu successive apex truncations graph diameter",
+          "Li–Wang–Yu arXiv:2611.09021v1 §2, truncation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/11/22/SCOPE-sharp-three-polytope-graph-diameters-under-arbitrarily-small-dih--55d932ec6624 was the identical record.",
+          "2026/11/22/SCOPE-an-asymptotically-sharp-one-third-law-for-obtuse-dihedral-edges--c226876306e4 studies counts of obtuse dihedral edges, not shortest-path diameters."
+        ],
+        "reasoning": "The self-hit is not distinct coverage. The nearby obtuse-edge statistic concerns a different invariant even with similar geometric restrictions. The finite range in the supplied checker is not a published diameter table or proof of the uniform statement.",
+        "searches": [
+          "Resultary: exact near-right diameter claim",
+          "Resultary: rational-height certificate for the truncation chain"
+        ]
+      },
+      "rationale": "Pass for the simultaneous angle-constrained extremal diameter at every facet count and its explicit pair/height argument in the given chain, not for the realization in isolation or the classical diameter bound. Neither the comparison with those known ingredients nor the indexed candidates establishes prior coverage of the joint claim. This is a best-of-knowledge judgment with unresolved primary-source access risk.",
+      "residual_risks": [
+        "A prior identification of the same combinatorial truncation chain as diameter-extremal would cover the compatibility claim even if stated without dihedral angles.",
+        "Relevant primary full texts could not be inspected in this review; catalogue searches do not exclude earlier or unindexed work."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Geometry is already credited and independently checkable; coverage of the graph claim in the primary text remains unresolved.",
+          "evidence": [
+            "RESULT.md lines 16–36, 66–70; primary lookup unavailable."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2611.09021",
+          "material_read": "Frozen RESULT.md §§1, 2 and prior-work comparison; no primary passage retrieved.",
+          "method": "Literal-query OA retrieval and bounded arXiv HTML lookup attempted.",
+          "title": "Infinitely many convex polytopes with dihedral angles bounded above by π/2+δ",
+          "trigger": "Exact geometric construction; plausible prior evaluation of the graph"
+        },
+        {
+          "assessment": "Upper bound credited; equivalence of earlier extremizers with this chain not established.",
+          "evidence": [
+            "RESULT.md lines 55–61, 66–75."
+          ],
+          "identifier_or_url": "https://msp.org/pjm/1966/17-2/pjm-v17-n2-p08-p.pdf",
+          "material_read": "Citation and attributed statement in RESULT.md §§4 and prior-work comparison; no retrieved primary passage.",
+          "method": "Literal-query OA and bounded publisher PDF lookup attempted.",
+          "title": "Paths on polyhedra. II",
+          "trigger": "Classical sharp diameter bound and possible extremal-chain construction"
+        },
+        {
+          "assessment": "Not used as independent evidence about this truncation chain.",
+          "evidence": [
+            "RESULT.md lines 61 and 77."
+          ],
+          "identifier_or_url": "https://www3.math.tu-berlin.de/combi/MDS/summerschool12-material/santos_problems.pdf",
+          "material_read": "Exercise 1 locator as cited in RESULT.md; no primary passage retrieved.",
+          "method": "Literal-query OA retrieval attempted.",
+          "title": "Diameter of polytopes and the Hirsch Conjecture",
+          "trigger": "Independent classical comparison for upper bound"
+        },
+        {
+          "assessment": "The returned statements concern different invariants or a different dimension and incidence graph.",
+          "evidence": [
+            "Obtuse-edge proportion versus vertex distance; facet–ridge distance of ideal 24-cells versus vertex–edge distance of convex 3-polytopes."
+          ],
+          "identifier_or_url": "Resultary: c226876306e4; b7684ce37d93",
+          "material_read": "Indexed statements returned for the two candidates.",
+          "method": "Local statement search and object/invariant comparison.",
+          "title": "Near-right obtuse-edge count and ideal 24-cell facet-graph diameter",
+          "trigger": "Closest distinct catalogue results returned for angle and chain diameter searches"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This resolves whether a stringent geometric restriction costs any graph diameter: it does not, even with arbitrarily small positive dihedral excess and at every facet count. The all-order Lipschitz potential certifies an explicit extremal pair without shortest-path searches and isolates the combinatorial reason the realization is sharp.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

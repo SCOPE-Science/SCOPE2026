@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:51:30.815929Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 29–103",
+        "Frozen VERIFICATION.md, recorded checks only",
+        "Frozen verify_jacobi_bv.py, lines 9–113, inspected only",
+        "Independent spot checks computing the affine step profile at p=.01,.1,.5,1,2,10,100"
+      ],
+      "rationale": "The input variation is unweighted distributional variation on the open interval. The beta moments orthogonalize 1,t,t²−1/(2p+1), and integrating the two nonconstant kernel terms over a step gives derivative A_p(a)(1+cat), with the stated positive prefactor. Its integrated absolute value equals A_p(a) times 2 or c|a|+1/(c|a|), depending on whether the affine zero is in the interval. The derivative on the second branch has sign opposite to Q_c(a²); for c>3 its exact signs at c^−2,c^−1,1 are +,−,+, so the larger root gives the unique positive off-centre local maximum. Comparison at a=c^(−1/2), using the displayed strict logarithmic bounds, makes this maximum strictly exceed the center for every p>0. Stieltjes superposition gives the exact BV norm and equality forces support on the two maximizing points. The two affine profiles agree in sign near zero but disagree on an endpoint interval, so no choice of two nonzero signed masses makes their signs agree almost everywhere. Only single jumps extremize. The beta normalization and root behavior (1−u_+ is of order p near zero; u_+∼1/c at infinity) give all stated limits. For p=1 the larger root is (12+√69)/75 and yields the stated decimals. Independent bounded scans of the step profile at seven shapes agreed with the radical optimum to 1e−9 in gain; this does not replace global proof.",
+      "residual_risks": [
+        "Numerical grids do not establish off-centre optimality between sample points or parameter values. Those assertions follow from the analytical comparison."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "0c312599056c covers every α>−1 and treats general BV via signed measures",
+          "68d5f845db4a concerns pointwise range of projected monotone data; 50de2eabbe22 concerns degree three with a central optimal jump",
+          "Kaber's inspected results address a fixed sign input, overshoot and central steepness rather than this norm"
+        ],
+        "reasoning": "Neither a pointwise range theorem nor a different degree is used to reject the claim. The prior exact theorem, not broad background on projection, covers it on the same full domain.",
+        "searches": [
+          "Resultary 0c312599056c, 68d5f845db4a, 50de2eabbe22",
+          "Kaber, The Gibbs Phenomenon for Jacobi Expansions, §3 and Proposition 2",
+          "arXiv:1109.0968v1 and arXiv:2006.00667v1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 0c312599056c, 68d5f845db4a and 50de2eabbe22",
+        "Kaber 2006, §3 and Proposition 2",
+        "arXiv:1109.0968v1 and arXiv:2006.00667v1, opening abstracts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior proves exactly two step maximizers and represents (Pf)' as the Df integral of A_p(a)(1+cat)",
+          "Equality in its supremum bound forces Df to live on the two maximizers; because ca_p>1 and the signed affine profiles cannot agree in sign both near zero and near an end if both coefficients are nonzero, equality in its first triangle inequality then rules out a two-jump extremizer"
+        ],
+        "reasoning": "The all-input equality wording is more explicit in the frozen record; it follows mechanically from the prior optimal step classification and affine formulas. The previous source even gives stronger root asymptotics. No substantive distinct claim survives.",
+        "searches": [
+          "0c312599056c, proof: Orthogonal kernel and jump response, Global maximization, Extension to arbitrary bounded variation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Set p=α+1=r, c=k, u_+=z_+; Γ(α+3/2)/(√π Γ(α+1))=1/B(1/2,p)",
+          "The previous B=k²+1−2r equals c²−c+4 and 2r+1=c−2, giving exactly the same radical"
+        ],
+        "reasoning": "The weights, projector, BV domain and unweighted variation seminorm are identical under renaming. The entire formula, not only the Legendre case, is identical.",
+        "searches": [
+          "Resultary exact quadratic Jacobi projection gain in total variation and off-centre jumps",
+          "0c312599056c, RESULT.md offset 0–4816"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "0c312599056c lists 1.6331820958… at α=0 and exact limits 5/3 and √(2/(πe)); its closed formula gives every intermediate shape",
+          "At offset 4816 onward the prior gives z_+=1/(2r)+O(r^−2), so √c a_p→1 follows immediately"
+        ],
+        "reasoning": "This is a prior analytic result for exactly the same numerical invariant, not a coincidental matching table entry or a discrete-grid limit.",
+        "searches": [
+          "Resultary lookup for the all-weight BV gain, radical extremizer and Legendre coefficient 1.6331820958",
+          "0c312599056c, Finding and Singular parameter limits"
+        ]
+      },
+      "rationale": "The distinct, earlier Resultary record 0c312599056c directly proves the same attained norm for the entire parameter range, with the same two unique step locations, the same uniform-weight value, and both norm limits. Its root asymptotic also gives the stated location limit. The one-new-looking equality refinement for arbitrary BV extremizers is an immediate consequence of that record's same two maximizing atoms, displayed affine profiles and variation triangle inequality. This is demonstrable mathematical coverage of the final claim, not an inference from a title, external inaccessibility or a conjecture about historical authorship.",
+      "residual_risks": [
+        "The earlier exact record establishes coverage for this review; no exhaustive historical attribution to the first author is claimed. The near discrete-regression hit 8e003f620576 was available only as a catalogue summary and is not used to establish coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct exact coverage and mechanical implication of the remaining equality wording",
+          "evidence": "Same radical and prefactor under p=α+1, same two strictly off-centre optimal step locations, same arbitrary-BV sharp norm and norm limits; displays the two sign-incompatible affine profiles.",
+          "identifier_or_url": "0c312599056c",
+          "material_read": "Mirrored RESULT.md offsets 0–4816 and 4816–6336: Finding, proof of optimization and BV extension, singular limits",
+          "method": "Local primary text at snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact Jacobi-weighted quadratic projection gain in total variation",
+          "trigger": "Decisive earlier result for the same projector and seminorm"
+        },
+        {
+          "assessment": "Different objective",
+          "evidence": "Optimizes projected range for nondecreasing [0,1]-valued data, not integrated output derivative over BV.",
+          "identifier_or_url": "68d5f845db4a",
+          "material_read": "Finding at mirror offset 0",
+          "method": "Local primary text",
+          "title": "Sharp two-branch monotone range envelope for quadratic symmetric Jacobi projection",
+          "trigger": "Common quadratic step response"
+        },
+        {
+          "assessment": "Distinct degree",
+          "evidence": "Degree three has a central extremizing jump, which neither contradicts nor duplicates the degree-two statement.",
+          "identifier_or_url": "50de2eabbe22",
+          "material_read": "Finding at mirror offset 0",
+          "method": "Local primary text",
+          "title": "Cubic Legendre projection: sharp bounded-variation amplification",
+          "trigger": "Exact same-day BV norm for nearby Legendre degree"
+        },
+        {
+          "assessment": "Different input and objective in inspected passages",
+          "evidence": "Odd truncations of a fixed sign input, central steepness and Gibbs overshoot, not the stated all-input degree-two TV optimum.",
+          "identifier_or_url": "https://www.acadsol.eu/en/articles/10/2/3.pdf",
+          "material_read": "§3 Proposition 1 near offset 17000 and Proposition 2, p. 143, near offset 25200",
+          "method": "OA PDF text",
+          "title": "The Gibbs Phenomenon for Jacobi Expansions",
+          "trigger": "Jacobi jumps and overshoot used as background"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof §§2–4",
+        "Resultary 0c312599056c, Finding and proof"
+      ],
+      "rationale": "A sharp projector amplification would be useful if unknown, but this exact entire-family invariant, extremal step locations and parameter limits are already supplied by 0c312599056c. The remaining explicit all-input rigidity is just the equality test in the same variation triangle inequality for two already-known affine profiles, a routine deduction rather than a distinct useful gap. A rewritten account of that deduction would not rescue the original finding.",
+      "residual_risks": [
+        "This valuation concerns the frozen claim; it does not rule out substantive new results for other degrees, weights or variation norms."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

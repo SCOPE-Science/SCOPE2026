@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The overlap weight is calculated from symmetric displacements, with the correct Jacobian and beta integral yielding horizontal mass \((d+2)/(4(h+k))\). Young–Minkowski then reduces the full operator to the classical Carleman operator, whose Mellin multiplier has norm \(\pi\) without a nonzero maximizing vector. A two-scale family of horizontal plateaus and vertical logarithmic boxes gives sharpness. Horizontal translation invariance proves equality of the essential and ordinary norms. Standard-library numerical checks independently verify the geometric constants in dimensions \(1\) to \(5\); they are not used as infinite-dimensional proof.
+PASS
 
-## Originality — PASS, subject to priority limitations
+For z=(w,s) in the doubled epigraph put H=s−|w|²/2. The vertical section through horizontal displacement a of the centered overlap has length 2H−|a|² for |a|<sqrt(2H). Radial integration yields precisely 2^(d/2+2)V_d H^((d+2)/2)/(d+2). Flattening the epigraph has Jacobian one and the gap at x+y is h+k+|u−v|²/2. Reintegrating the resulting horizontal kernel gives mass (d+2)/(4(h+k)). Minkowski and Young reduce the norm bound to Carleman on the positive half-line; its logarithmic Fourier multiplier pi/cosh(pi xi) has essential supremum pi and equals pi only on a null set. For sharpness, first dilate a normalized nonnegative horizontal bump at a fixed log plateau in height; its translated autocorrelations converge to one and are dominated by one, so the Rayleigh quotient tends to (d+2)/4 times the Carleman plateau quotient. Then widen the log plateau to attain the limit pi. The complex-input convolution inequality follows by domination and Tonelli, and Cauchy–Schwarz gives absolute existence of each convolution integral. Strictness for nonzero data follows from the strict Carleman norm bound. For d>=1 horizontal translations commute with the flattened operator and converge weakly to zero, so no compact subtractand reduces its norm. This independently verifies the constant, strict nonattainment, and the finite-rank obstruction.
 
-The inspected recent boundary-weighted Fourier paper defines the relevant weight and general analytic setting, but its inspected material does not provide the present exact parabolic-epigraph sharp norm, strict nonattainment, or equal essential norm. Earlier inspected Paley–Wiener papers treat Schatten and Hardy/Nehari questions without proving this assertion. Searches of related research records for the paraboloid, Carleman reduction, overlap weight, and essential-norm variants returned no equivalent implication. The Carleman multiplier itself is classical and receives no novelty credit. Search absence is not proof of global priority: an unindexed equivalent computation remains possible.
+## originality
 
-## Value — PASS
+PASS
 
-A genuinely curved, unbounded Fourier support geometry acquires a sharp closed-form weighted-convolution constant for every dimension, including a no-extremizer phenomenon and a complete operator-ideal obstruction to compact approximation. The exact Macbeath-volume reduction gives a reproducible benchmark for the recently studied convex-domain Fourier inequalities, not a numerical example or arbitrary special slice.
+The same convex-domain Hankel family and the classical Carleman norm are prior. The supported distinct claim is the sharp epigraph evaluation with nonattainment and essential norm, not the introduction of that Hankel family or of the half-line method. The inspected results do not imply this evaluation.
 
-## Closest sources and limits
+## value
 
-Bampouras–Perfekt, arXiv:2608.19806 (geometry and Fourier inequality family); Bampouras–Perfekt, arXiv:2409.04184 (higher-dimensional Hankel classes); Bampouras, arXiv:2504.05986 (Paley–Wiener Nehari and Hardy estimates); classical Carleman operator. The result is limited to isotropic parabolic epigraphs; finite numerical tests do not certify the continuum theorem, and publication priority remains contingent on the unindexed literature.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The epigraph is a natural unbounded curved test domain for an existing weighted inequality. The exact all-dimensional best constant, absence of extremizers and the sharp compact-approximation obstruction answer quantitative questions that mere boundedness does not. There is a substantive reason to know the exact value and whether compact approximations can reduce the error.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

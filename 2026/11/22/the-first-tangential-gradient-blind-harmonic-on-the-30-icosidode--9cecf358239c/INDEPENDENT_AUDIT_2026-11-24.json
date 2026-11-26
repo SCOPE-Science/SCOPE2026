@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:49:48.367924Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–40; verify_h3.py, lines 10–124; VERIFICATION.md, lines 19–23",
+        "Fresh reproduction: python3 /workspace/branches/e61f124e-906f-416f-a3cb-df0fcc44e57a/recheck.py; recheck_evidence.txt in the same directory"
+      ],
+      "rationale": "The normalized midpoints are (u+v)/(2φ) for v·u=φ, with squared length one. On homogeneous degree-ℓ polynomials the tangential gradient in ambient coordinates is ∇H(w)−ℓH(w)w. A fresh reconstruction selects the edges exactly, checks the 30 distinct reduced unit nodes, forms denominator-cleared harmonic bases and reduces via φ→23 in F₁₀₁. Since φ²−φ−1 vanishes at 23 and 2φ is invertible there, the ranks (3,5,7,9,11,12) give characteristic-zero lower bounds by lifting nonzero minors. Degrees 1–5 reach their full dimensions. The sextic is a sum of solid zonal harmonics and is invariant by vertex permutation. Half-turns about the midpoint directions fix the nodes and act as −I on the respective tangent planes, forcing zero tangential gradients. Directly, with q=φ+2, the sums of t_v²,t_v⁴,t_v⁶ at e₁ are 4q, 12q²/5, 8q³/5; hence F₆(e₁)=−132q³/5≠0 (85 mod 101). Thus the degree-six rank is at most 12 independently of reduction; equality and the claimed kernel line follow.",
+      "residual_risks": [
+        "The nonzero modular minors establish lower bounds, not upper bounds; the exact symmetry argument establishes the remaining upper bound. No stability or rank claim is made for higher degrees; degree zero is deliberately excluded."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cohan's accessible extract describes expansions adapted to the icosahedral representations, not a verified gradient-rank theorem.",
+          "Allasia et al. construct interpolants for prescribed manifold jets in Cᵏ, not in a fixed harmonic degree.",
+          "Hitchin addresses degree-three nodal geometry at icosahedron vertex orbits rather than the derivatives at edge midpoints."
+        ],
+        "reasoning": "Symmetry forces criticality for invariant harmonics but does not prove that samples detect every nontrivial component. Neither a general scattered-data interpolation construction nor a nodal-set result supplies that missing lower-rank information.",
+        "searches": [
+          "Cohan, DOI 10.1017/S0305004100033156, symmetry-adapted harmonic expansions",
+          "arXiv:1705.01032, §2, equations (1)–(2)",
+          "arXiv:0706.0088 p.1, icosahedral harmonics and nodal sets"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2309.15774",
+        "arXiv:1705.01032",
+        "arXiv:0706.0088",
+        "Cohan DOI 10.1017/S0305004100033156 (extract only)",
+        "Resultary 9cecf358239c and 320ad4e07c86"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A nonzero invariant harmonic of degree six and the midpoint stabilizer together imply T₆ has a nonzero kernel by the half-turn argument; this implication is explicitly credited.",
+          "The same invariant has nonzero scalar sample F₆(e₁), so the two kernels cannot be identified by sharing the same nodes."
+        ],
+        "reasoning": "The covered implication is a defect by degree six. Lower bounds 3,5,7,9,11,12 are additional to that implication and to scalar information. They exclude earlier defects and additional invisible harmonics at six.",
+        "searches": [
+          "arXiv:2309.15774 p.1 and Cohan DOI 10.1017/S0305004100033156",
+          "Resultary 320ad4e07c86, Finding / Assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The equivalent data are two tangent directional derivatives, or the three ambient components of the projected gradient, at the 30 directions of icosahedral order-two axes.",
+          "Baez identifies the orbit but does not sample harmonics; Allasia et al. solve scattered derivative matching in a flexible smooth-function space."
+        ],
+        "reasoning": "Changing among tangent coordinates does not change rank. Changing to ambient derivatives without projection, scalar samples, mixed jets, or arbitrary smooth interpolants changes the question. None of the latter formulations transfers the required exact ranks.",
+        "searches": [
+          "arXiv:2309.15774 p.1, icosidodecahedral edge-center directions",
+          "arXiv:1705.01032, first-derivative and Hermite–Birkhoff interpolation",
+          "Resultary derivative sampling, orbit and same-node matches 9cecf358239c and 320ad4e07c86"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "320ad4e07c86 gives exact scalar Legendre–Gram spectral information for fifteen antipodal representatives of the same orbit.",
+          "9cecf358239c is the assigned result's catalogue entry, not a distinct source.",
+          "Cohan's full text was not obtained; detailed tables there were not assessed."
+        ],
+        "reasoning": "The scalar Gram matrix is EℓEℓ* up to normalization for a value map Eℓ, whereas the present profile requires the derivative map Tℓ. Even the scalar 15×15 Gram singularity at ℓ=6 is automatic from dim H₆=13 and does not by itself indicate loss of injectivity of E₆. No distinct matching derivative-rank table was established.",
+        "searches": [
+          "Resultary 320ad4e07c86 (same 30 nodes) and 9cecf358239c (exact self-match)",
+          "Cohan DOI 10.1017/S0305004100033156 (possible historical harmonic tables)"
+        ]
+      },
+      "rationale": "The 30-node geometry and degree-six icosahedral invariant are established background. Its gradient vanishing on this orbit also follows directly from known symmetry and is not credited as an independent novelty. The distinct contribution is the derivative-only rank profile: all five preceding positive degrees are injective and exactly one line is lost at six. The strongest distinct same-node sampling record concerns scalar values, not these differential measurements.",
+      "residual_risks": [
+        "Cohan's full text and any additional historical symmetry tables were not inspected; they could overlap more than the extract shows. No absolute priority or originality of the sextic invariant is asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Geometry covered, rank not given by the passage",
+          "evidence": "Its 30 vertices are at the centers of edges of the icosahedron.",
+          "identifier_or_url": "https://arxiv.org/pdf/2309.15774",
+          "material_read": "p.1, offset 150",
+          "method": "OA PDF passage comparison",
+          "title": "The Icosidodecahedron",
+          "trigger": "Same 30 directions and orbit geometry"
+        },
+        {
+          "assessment": "Prior context for invariant harmonics; full-statement coverage unresolved",
+          "evidence": "The extract describes harmonic expansions for the representations; no conclusion about unseen sections is drawn.",
+          "identifier_or_url": "https://doi.org/10.1017/S0305004100033156",
+          "material_read": "Indexed extract only",
+          "method": "OA and lawful alternate retrieval attempts; no readable full copy obtained",
+          "title": "The spherical harmonics with the symmetry of the icosahedral group",
+          "trigger": "Classical icosahedral harmonic decomposition and possible critical orbit results"
+        },
+        {
+          "assessment": "Different class of unknown functions and interpolation objective",
+          "evidence": "The target is an H∈Cᵏ(U) matching jets, constructed using cardinal basis functions; it is not restricted to Hℓ.",
+          "identifier_or_url": "https://arxiv.org/pdf/1705.01032",
+          "material_read": "Abstract p.1 and p.2 equations (1)–(2), Definition 2.2, offsets 8100–10249",
+          "method": "OA PDF passage comparison",
+          "title": "Hermite-Birkhoff interpolation on scattered data on the sphere and other manifolds",
+          "trigger": "Potential broader theorem on derivative measurements"
+        },
+        {
+          "assessment": "Scalar point-value Gram spectra, not derivative-only rank",
+          "evidence": "K_k has entries P_k(x_i·x_j) on antipodal representatives, and the principal asserted worst conditioned positive-definite degree is 12.",
+          "identifier_or_url": "2026/11/1/SCOPE-the-unique-worst-conditioned-exact-degree-harmonic-sampler-on-th--320ad4e07c86/RESULT.md",
+          "material_read": "Finding and Assumptions and scope, offsets 0–3065",
+          "method": "Local Resultary mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "The unique worst-conditioned exact-degree harmonic sampler on the icosidodecahedron",
+          "trigger": "Strongest distinct same-orbit exact sampler match"
+        },
+        {
+          "assessment": "Different node condition and degree",
+          "evidence": "The result there is about degree-three nodal sets and icosahedron vertices, not common tangential critical points at edge centers.",
+          "identifier_or_url": "https://arxiv.org/pdf/0706.0088",
+          "material_read": "p.1, offset 0",
+          "method": "OA PDF passage comparison",
+          "title": "Spherical harmonics and the icosahedron",
+          "trigger": "Possible icosahedral harmonic orbit result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and exact rank proof",
+        "Baez, arXiv:2309.15774",
+        "Same-orbit scalar sampling comparison 320ad4e07c86"
+      ],
+      "rationale": "The orbit is a standard symmetric sampling grid and the observable is natural for derivative-only reconstruction. Despite many more nominal tangent measurements than harmonic dimensions, the first invariant degree has a blind direction. Identifying the full kernel and confirming that earlier degrees really are injective gives a useful exact sampling boundary, stronger than observing symmetry-forced failure at six alone.",
+      "residual_risks": [
+        "Injectivity is not a quantitative condition-number estimate; no universal claim about scattered nodes, mixed jets, or other orbits."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

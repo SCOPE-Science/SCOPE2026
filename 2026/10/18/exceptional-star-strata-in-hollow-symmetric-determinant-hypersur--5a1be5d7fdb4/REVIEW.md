@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof uses the exact projective Jacobian criterion: off-diagonal partial derivatives are twice the corresponding adjugate entries. Corank at least two forces all derivatives to vanish; for corank one, the adjugate is a rank-one symmetric tensor and its off-diagonal vanishing forces a coordinate-supported kernel, exactly a zero star. The corank-two locus is irreducible by a Gram parametrization from products of irreducible isotropic quadrics of dimension at least three. Its dimension and degree agree with the published zero-block determinantal theorem. The n linear stars are distinct, and their intersections with the rank locus follow from restricting all minors, not just comparing underlying points. An explicit family of rank-deficient witnesses establishes the generic nondegenerate three-variable transverse slice; a Schur complement yields the star transverse quadratic form. The singular codimension and Serre criterion imply normality. The complete finite-field n=5 test independently agrees with the exact Jacobian support, without being used as an infinite proof.
+PASS
 
-## Originality — PASS (qualified)
+In characteristic zero, only the off-diagonal adjugate entries enter the hollow Jacobian. At corank one the adjugate is a nonzero multiple of vvᵗ; vanishing off the diagonal means the kernel is a coordinate line. This gives exactly the n zero stars in addition to the corank-two locus. The isotropic Gram parametrization and its orthogonal fibers give an irreducible corank-two cone of dimension N−3, and the cited degree formula specializes to binom(n+1,3). A full-rank complementary block gives a point of each star outside the corank-two locus. Killing the star variables leaves exactly the complementary determinant among all (n−1)-minors. Its primeness follows from the cited hollow rank theorem at size n−1 and rank n−2; in particular it is not merely set-theoretically irreducible. Two stars leave a free hollow block of size n−2. Schur complements give the exact star quadratic and the 2×2 symmetric residual determinant; at the specified kernel W, the three indicated hollow perturbations map onto Sym²(W*), which proves the generic surface-double-point description. Singular codimension excludes repeated factors and intersections of distinct factors and gives normality by R1 and S2. Independent finite replay over F₃ at n=5 gave 2,421 corank-at-least-two and 2,340 rank-four star matrices in the Jacobian support, out of 59,049 total matrices. Exact rational checks of the witness ranks and transverse directions for 5≤n≤12 agree, but the uniform conclusions follow from the symbolic argument. The supplied script was read, not run. This validates reduced support only, except for the explicitly determinantal scheme intersections.
 
-The closest directly applicable literature is El Maazouz–Sturmfels–Sverrisdóttir, *Gram Matrices for Isotropic Vectors*, Theorem 2.5/Corollary 2.6. It already establishes the primeness, codimension and degree of the corank-two component, which are therefore explicitly not claimed as separately new. Its two-by-two zero-block example determines seven singular components for a different matrix family. The inspected one-by-one-block results do not state the full singular Jacobian support and its n extra linear stars, their intersections, or their generic transverse models. Huang's generic multilinear determinant and Kerner–Vinnikov's local representation results address different implications. published-finding corpus and source searches found no exact covering statement. The novelty risk of a short, implicit deduction from the existing Gram theorem combined with elementary Jacobian theory is significant but does not by itself exhibit a previously stated classification.
+## originality
 
-## Value — PASS
+PASS
 
-The result is a complete and uniform singular-component classification of a natural projective determinantal family already studied in its rank strata. It proves a non-equidimensional connected singular support, identifies n unexpected corank-one singular components, and determines their scheme-theoretic incidence with the higher-corank component and their distinct generic transverse dimensions. This supplies geometric information not encoded in the degree or irreducibility of the known rank loci. The n=4 reducible rank-two boundary explains why the n≥5 range is geometrically meaningful, rather than an arbitrary parameter cutoff.
+The irreducibility, codimension, primeness and degree of Y_n are exact prior coverage. The distinct contribution supported by this review is the complete hollow Jacobian support and incidence with its excess rank-(n−1) strata, including the two uniform and different generic normal forms.
 
-## Limits and sources
+## value
 
-The statements hold only in characteristic zero; the result concerns reduced singular support and generic transverse germs, not the full Jacobian scheme. Closest sources: arXiv:2411.08624 (preprint 2024, relevant sections inspected); CaltechTHESIS 7656 (2013); arXiv:1009.2517 (2010); and arXiv:2610.02585 (2026, related but different off-diagonal Gram maps). The lack of identified equivalent literature is not a proof of universal novelty.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Removing diagonals from a natural determinantal hypersurface creates lower-dimensional singular components at corank one that are invisible to the usual corank criterion. The incidence and contrasting generic quadratic forms give a usable description of the non-equidimensional singular set, beyond recomputing known Gram rank invariants.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

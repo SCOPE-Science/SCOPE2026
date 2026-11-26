@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the first-passage crossover
+# Independent mathematical audit
 
-The exact-algebra portion of `verify_crossover.py` uses rational arithmetic for four values of the contracting slope, three values of the repelling excess and trajectory indices from negative time through forty positive steps. It checks the prescribed switch and the finite geometric-sum equality.
+## correctness
 
-The floating-point portion independently iterates the state, obtains the positive crossing without using a closed-form solution, and compares the first passage with numerical inversion of the explicit integral at five crossover parameters and five sweep rates. It also reports the normalized logarithmic error along two near-neutral hyperbolic parameter paths. Both portions completed without assertion failures.
+PASS
 
-Run `python verify_crossover.py` with Python 3. The exact recurrence and analytical bracketing in `RESULT.md` provide the mathematical proof. Finite trajectory tests do not prove an asymptotic limit, and the implementation does not validate perturbed nonlinear maps or other observation thresholds.
+With q=1−a the tracking formula first becomes nonnegative at n0=ceil(1/q), including the case of equality, and any bounded difference from the negative-time frozen branch eliminates the homogeneous term proportional to a^n. The continuation satisfies v[n+1]=b v[n]+n, b=1+δ, and is strictly increasing. Direct summation gives v[n]=(b^n−1−nδ)/δ²+c(b)b^n for δ>0 with c bounded at b=1; the neutral sum is n(n−1)/2. At h=√ε and δ/h→κ the convolution is uniformly a Riemann sum on compact rescaled time intervals; for δ=κh exactly, the kernel and grid errors are O(h). The derivative of Hκ at the threshold is strictly positive, so discrete bracketing gives the claimed limit and O(1) iteration error. Hκ increases strictly in κ for positive t and depends continuously on κ including at zero. For R=Lδ²/ε→∞, integers with n log b=log R±η+O(log b) have nδ=O(log R), and x[n]/L→exp(±η); rounding is negligible precisely because δ→0. This proves the additive-log limit without replacing log(1+δ) by δ.
+
+## originality
+
+PASS
+
+The closest prior swept nonsmooth example is continuous time with fixed unstable rate; the closest discrete nonsmooth theorem is frozen-parameter divergence. Neither supplies the jointly scaled discrete passage law. The positive finding supported here is the finite-κ crossover with its iteration error and the near-neutral additive-log law, not logarithmic fold delay itself.
+
+## value
+
+PASS
+
+This gives a quantitative benchmark at a motivated loss-of-hyperbolicity boundary of a swept border collision. It separates the neutral square-root time scale from the exponential-growth regime, locates the crossover, and retains the exact discrete multiplier in the additive-log law where a continuous-rate replacement can lose precision. It is a useful exact model result, not a universal tipping claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

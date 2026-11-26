@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:45:00.599466Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On exactly the listed 18 edges, simultaneous majority with unchanged ties defines a deterministic successor for each of the 2048 labelled states. The suffix starting at the first occurrence of the first repeated state is the entire least-period orbit; its start index is the least entry time. The independent fresh trajectory census reproduced 20 fixed states and 61 unordered two-cycles, the full orbit-level basin spectrum and all time-by-period counts. In particular the 48 depth-six starts all fix, and exhaustive checks gave F^8=F^6 but not F^7=F^5. The graph action commutes with the update because adjacency and current-bit ties are invariant under relabelling; filtering all degree-preserving vertex permutations by edge preservation exhausts automorphisms. The 12 surviving permutations give the reported period/class-size/basin-size signatures, with six spatial fixed classes and eleven two-cycle classes. Replay: python /workspace/branches/cef202a4-d94b-485b-a7fd-71a970bad7f4/fresh_majority_check.py; recorded fresh output fresh_majority_check.json in the same directory. This is exact finite enumeration, not a formal proof checker or a theorem on other graphs.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kuhlman et al. give a synchronous symmetric threshold period bound; the two accessible versions explicitly state only fixed points and 2-cycles as possible limit sets.",
+          "The Goles–Olivos DOI was accessible as a landing page, not full text."
+        ],
+        "reasoning": "The tie convention corresponds to a symmetric threshold system with self weight 1 at even-degree vertices, forcing an odd total voting weight. Thus period ≤2 is covered. The theorem does not evaluate the Herschel attractor counts, depths or automorphism classes. For citation precision the inspected arXiv versions number the corollary 3.2 (v1) and 3.4 (v2), not 3.6; this does not affect the finite proof.",
+        "searches": [
+          "arXiv:1108.2974v1 Theorem 3.1 and Corollary 3.2; v2 Corollary 3.4",
+          "Goles–Olivos DOI 10.1016/0012-365X(80)90121-1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1108.2974 v1 and v2",
+        "Goles–Olivos DOI landing page",
+        "Resultary d2fd4ae979a1 (same record), b113126832b9, a364b0d2169d, 8cd2964a9d93"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general theorem gives existence of a state-dependent s with F^(s+2)(x)=F^s(x). It does not give s=6 uniformly or failure at s=5. The closest same-graph and same-rule records change exactly one of those two decisive inputs."
+        ],
+        "reasoning": "Even given the universal period restriction, the explicit populations, maximum delay, basin sizes and spatial class counts require graph-specific information and are not consequences of the cited period theorem or of either comparator's census.",
+        "searches": [
+          "arXiv:1108.2974 v1 Theorem 3.1 and Corollary 3.2",
+          "Resultary Herschel excitation and Bidiakis majority comparator Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary b113126832b9 studies the same Herschel graph under three-colour cyclic and Greenberg–Hastings rules on 3^11 states, not majority on 2^11 states.",
+          "Resultary 8cd2964a9d93 studies the 14-vertex Heawood graph, not an alternative label for Herschel."
+        ],
+        "reasoning": "A relabelling must preserve both the graph order and the local rule to preserve the labelled dynamics up to conjugacy. Neither three-colour excitation on Herschel nor majority on Heawood is equivalent.",
+        "searches": [
+          "Resultary: Herschel graph strict-neighbor majority, fixed points, two-cycles, six-update basins",
+          "Herschel graph synchronous binary majority dynamics attractors basins fixed points two-cycles"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "d2fd4ae979a1 is the assigned record. a364b0d2169d tabulates Bidiakis-cube majority with six updates and 20 fixed points but 103 two-cycles, not 61; its graph has 12 vertices. The Heawood record gives 58 fixed points and 1653 two-cycles with a two-step clock."
+        ],
+        "reasoning": "Agreement on an isolated cutoff or fixed-point count does not give a matching all-orbit table for this 11-vertex graph. No distinct matching table was identified in this bounded comparison.",
+        "searches": [
+          "Resultary: complete Herschel majority basin census and periodic-entry clock",
+          "Resultary d2fd4ae979a1, b113126832b9, a364b0d2169d, 8cd2964a9d93"
+        ]
+      },
+      "rationale": "The new claim is the joint clock, orbit-level basin and symmetry census on the explicit Herschel graph, not the general eventual period bound. The closest distinct published records match either the graph or the majority rule and several output statistics, but not both. The Resultary exact hit is this record itself.",
+      "residual_risks": [
+        "No priority order is inferred for the distinct same-day comparators. A graph catalogue or unindexed calculation could contain the same census.",
+        "The OA Goles–Olivos landing page was not the complete article."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers possible least periods, not graph-specific basin data",
+          "evidence": [
+            "For every state some s satisfies F^(s+2)(x)=F^s(x)."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1108.2974",
+          "material_read": "v1 Theorem 3.1 and Corollary 3.2, PDF pp. 4–5; v2 Corollary 3.4, PDF p. 6",
+          "method": "OA PDF passages including v1 text near offset 20047",
+          "title": "Bifurcations in Boolean Networks",
+          "trigger": "Potential general coverage of tie-retaining synchronous majority"
+        },
+        {
+          "assessment": "Full text unavailable in lookup; not used to exclude specific coverage",
+          "evidence": [
+            "Kuhlman et al. v1 introduction credits Goles and Olivos and explains its extension."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/0012-365X(80)90121-1",
+          "material_read": "DOI landing page only; related theorem corroborated in Kuhlman et al.",
+          "method": "OA lookup",
+          "title": "Periodic behaviour of generalized threshold functions",
+          "trigger": "Earlier symmetric-threshold period theorem"
+        },
+        {
+          "assessment": "Same graph, different local rules and size of state space",
+          "evidence": [
+            "Exact period agreement between two three-colour dynamics, not a binary majority census."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-matched-excitation-period-basins-on-the-herschel-graph-despite-u--b113126832b9",
+          "material_read": "Finding and model comparison",
+          "method": "Resultary and local mirror",
+          "title": "Matched excitation-period basins on the Herschel graph",
+          "trigger": "Closest same-graph indexed record"
+        },
+        {
+          "assessment": "Same cutoff and number of fixed points, not same graph or census",
+          "evidence": [
+            "103 two-cycles and 7/29 spatial class counts on 12 vertices."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-a-sharp-six-update-majority-clock-and-complete-basin-census-on-t--a364b0d2169d",
+          "material_read": "Finding",
+          "method": "Resultary and local mirror",
+          "title": "A sharp six-update majority clock and complete basin census on the Bidiakis cube",
+          "trigger": "Closest same-day exact clock and census on another graph"
+        },
+        {
+          "assessment": "Different graph of order 14",
+          "evidence": [
+            "Two-update entry bound; 58 fixed configurations and 1653 two-cycles."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-two-step-majority-projection-and-exact-attraction-basins-on-th--8cd2964a9d93",
+          "material_read": "Finding",
+          "method": "Resultary and local mirror",
+          "title": "A two-step majority projection and exact attraction basins on the Heawood graph",
+          "trigger": "Similarly named graph and identical types of invariants"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The Herschel graph is a canonical small non-Hamiltonian polyhedral graph with both odd- and even-degree update sites. A reproducible complete benchmark identifies which periods attract which starts, distinguishes maximum delay from orbit lengths, and detects that sharp delays occur only in fixed-point basins. Neither the universal period bound nor another graph's isolated counts supply this information.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

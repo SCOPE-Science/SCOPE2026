@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:59:23.322490Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof §§1–4, and VERIFICATION.md",
+        "Frozen pal_cycle_dfs.py, pal_cycle_fsr.cpp, pal_euler_n5.py and pal_cycle_orbits.py, inspected but not executed",
+        "Independent replay: python3 /workspace/branches/4a0e3ec2-2c96-4563-868d-a102ebc49bff/record2_check.py (completed output record2_check.out in the same directory)"
+      ],
+      "rationale": "A de Bruijn rotation class has one root at its unique 00000, and the rooted windows trace an Euler circuit on the graph of 4-bit vertices and 5-bit edges. Conversely a rooted Euler circuit gives exactly one such rotation class. The frozen feedback encoding also exhausts all classes: for a fixed 4-bit tail the two incoming 5-bit states must append opposite bits, leaving one Boolean choice. The independent rooted Euler traversal found 2048 cycles. Its span histogram was {7:200, 8:192, 9:856, 10:128, 11:392, 12:32, 13:200, 15:48}. In the same order the orbit pairs (size 2 count, size 4 count) were (14,43), (4,46), (6,211), (0,32), (6,95), (0,8), (2,49), (0,12), with no other orbit sizes. The independent test of all palindromes at lengths 14,15,16,17 removed the distinct edges of each candidate and tested the residual directed Euler-trail balance, endpoints and weak connectivity; its extendible counts were 0,6,0,0. The centered subpalindrome property rules out all longer even lengths from 14 onward and odd lengths from 17 onward, including beyond one period. The unique all-zero window is flanked by 1 on both sides, so the span cannot be less than 7. Both frozen extremizers were verified among the rooted cycles at their claimed lengths.",
+      "residual_risks": [
+        "The exact enumeration and cutoff are for binary order five; neither is a theorem about the distributions at higher orders."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chang–Wang show the count of CR sequences is a multiple of 2^((n+3)/2) for odd n≥5 and study linear complexity. The wider joint palindrome census in 8196e282ed1c counts each length and longest span over the same 2048 rotation classes."
+        ],
+        "reasoning": "A global divisibility constraint on CR counts does not yield the per-span bins. The broader joint census does give the longest-span counts as a marginal, but is dated 2026-11-02, after the frozen record.",
+        "searches": [
+          "Chang–Wang arXiv:2408.01794 §3 and Thm. 3.6",
+          "Resultary 8196e282ed1c Counting and verification passages"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2408.01794",
+        "arXiv:2401.14341",
+        "arXiv:1608.08480",
+        "Resultary 8196e282ed1c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The standard rotation-class count is 2^(2^(5−1)−5)=2048. The known CR criterion constrains allowable orbit sizes. An exhaustive per-cycle census containing canonical words and their spans is sufficient data to derive the orbit table by normalizing the complemented and reversed words."
+        ],
+        "reasoning": "The total and orbit-size alternatives are prior implications. Neither one allocates cycles and stabilizers by maximum span. The reported later census supplies the marginal outright, and the orbit refinement would be mechanically computable from its claimed per-cycle artifact if complete; that possibility is distinct from evidence of prior publication.",
+        "searches": [
+          "Chang–Wang Introduction pp. 1–2 and Thm. 3.6 p. 11",
+          "Resultary 8196e282ed1c Finding and enumeration, offsets 0–7623"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Chang–Wang define CR de Bruijn cycles by complement and reversal agreeing up to shift and cite the inequivalence of a cycle with its complement or its reversal separately. Thus, in this order, exactly the CR rotation classes lie in size-two orbits. Orientable and unoriented variants instead impose conditions on reversal pairs of fixed-length windows."
+        ],
+        "reasoning": "The size-two concept is not new, and splitting the exact count of CR cycles by their longest palindromic factor would be an equivalent census. A reversal class of individual windows is not a dihedral equivalence class of full cycles and does not determine maximum spans.",
+        "searches": [
+          "Chang–Wang arXiv:2408.01794, CR de Bruijn sequences",
+          "Gabrić–Sawada arXiv:2401.14341, orientable sequences",
+          "Burris–Motta–Shipman arXiv:1608.08480, unoriented de Bruijn sequences"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "8196e282ed1c states exactly the same eight longest-span frequencies and maximum 15. Its text says a canonical-cycle census is in full_census.tsv; the artifact itself was not checked. The primary search did not add a relevant document."
+        ],
+        "reasoning": "The verified later marginal is genuine exact overlap, not a mere topical match. The quoted statements do not provide the per-span orbit multiplicity table, and no earlier exact table was identified in the inspected sources. The unproductive primary query is not negative proof.",
+        "searches": [
+          "Resultary 8196e282ed1c",
+          "Primary search for the maximum-palindrome-span distribution and complement/reversal orbits of binary order-five de Bruijn cycles"
+        ]
+      },
+      "rationale": "The de Bruijn count, the orbit-size mechanism and closely related reversal conventions have prior coverage. The span-resolved orbit census is distinct in the inspected literature. A later indexed census explicitly reproduces the entire longest-span marginal and could support a derived orbit breakdown if its stated cycle-level data are used; it is not evidence of earlier coverage, and the recorded finding inspected does not report the span-resolved orbit counts.",
+      "residual_risks": [
+        "The later exact marginal and the possibility of deriving the table from its data are recorded separately from priority. An earlier equivalent enumeration or dataset was not ruled out by the bounded search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Existing symmetry mechanism, not joint span-orbit table",
+          "evidence": "Inequivalence under complement or reversal separately, CR classes in odd order, and a CR count divisibility result.",
+          "identifier_or_url": "https://arxiv.org/pdf/2408.01794",
+          "material_read": "Introduction p. 1, offsets 1000–4959; Theorem 3.6 p. 11 and following comparisons",
+          "method": "Open primary PDF passages",
+          "title": "Efficient generation of odd order de Bruijn sequence with the same complement and reverse sequences",
+          "trigger": "Direct comparison for CR classes and orbit counts"
+        },
+        {
+          "assessment": "Different fixed-window exclusion problem",
+          "evidence": "Orientability disallows repeated order-length factors up to reversal; the frozen standard cycles contain all order-length words.",
+          "identifier_or_url": "https://arxiv.org/pdf/2401.14341",
+          "material_read": "Introduction and definition p. 1, around offset 430",
+          "method": "Open primary PDF passage",
+          "title": "Efficient Construction of Long Orientable Sequences",
+          "trigger": "Closest reversal-exclusion convention"
+        },
+        {
+          "assessment": "Different use of unoriented equivalence",
+          "evidence": "Unoriented words allow a length-n factor class to be covered by either reading direction, with each order-length palindrome read forwards once in an optimal sequence.",
+          "identifier_or_url": "https://arxiv.org/pdf/1608.08480",
+          "material_read": "Abstract and §1, p. 1, including offsets 3050–4123",
+          "method": "Open primary PDF passages",
+          "title": "An Unoriented Variation on de Bruijn Sequences",
+          "trigger": "Possible reversible-window reformulation"
+        },
+        {
+          "assessment": "Verified exact later marginal; no explicit orbit refinement in the inspected passages",
+          "evidence": "Same anchored domain of 2048 cycles, same eight frequencies and maximum 15; text identifies a full per-cycle census artifact.",
+          "identifier_or_url": "8196e282ed1c",
+          "material_read": "RESULT.md Finding and enumeration, offsets 0–7623",
+          "method": "Local Resultary mirror",
+          "title": "Complete joint palindromic spectrum of binary order-five de Bruijn cycles",
+          "trigger": "Direct exact match for the longest-span marginal"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and independent exhaustive census",
+        "Comparison with Chang–Wang's CR symmetry criterion and Resultary 8196e282ed1c"
+      ],
+      "rationale": "The longest reversible factor distinguishes cycles whose order-length factor sets are identical. The span-resolved orbit census records both an exact extremal boundary and how often local palindromic structure coexists with global complement/reversal symmetry. It gives a reproducible baseline for this complete finite class rather than sampling arbitrary sequences or recounting a known total.",
+      "residual_risks": [
+        "No extension to larger orders or downstream theorem is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

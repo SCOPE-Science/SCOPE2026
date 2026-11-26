@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:04:37.428049Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–61; VERIFICATION.md, checks.txt and verify.py inspected, not executed",
+        "Independent exact replay: python /workspace/branches/replay_frozen_math.py (PASS, record 5 section)"
+      ],
+      "rationale": "Integrating each bridge covariance section gives k(t)=t(1-t)/2 and Var(J)=1/12. Gaussian elimination gives the gain from the positive-definite noisy Gram matrix, even at repeated sites. I independently reproduced its offset derivative: at fixed gap the sign on the positive offset half depends only on a factor strictly increasing with squared offset. Thus any off-center interior critical point is a minimum, never a maximum, and reflection reduces the candidates to the center or domain endpoints in offset. The latter have at most one informative reading and are strictly dominated by two midpoint readings. The centered derivative has one simple root of 3d^2-(4+8 eta)d+1 in (0,1/3), with the gain rising before and falling after it. Its stationarity equation gives the exact risk, strict noise monotonicity and high-noise scale, with positive gap at every finite positive variance. This proves uniqueness up to exchange of the readings.",
+      "residual_risks": [
+        "No claim for correlated noise, more readings or path IMSE. The supplied rational comparisons are not used to prove the continuum maximum."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The mesh theorem covers every number of sites and allows arbitrary allocation of total precision, repetitions and inactive sites.",
+          "Santin's equal spacing is a noiseless supremum power-function theorem; Cai–Lam–Scarlett give noisy quadrature error bounds."
+        ],
+        "reasoning": "The mesh theorem truly enlarges the feasible class under the same scalar integral loss. The interpolation and rate theorems neither yield nor refute the finite-noise formula.",
+        "searches": [
+          "ID 374266bc7b99 Finding and assumptions; arXiv:2210.15959 §2 and Theorem 5; arXiv:2202.10615 abstract"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md",
+        "Resultary IDs 374266bc7b99, 1c7b05ec88c4, 689f315478aa, 41e0234034fd",
+        "arXiv:2210.15959, 1604.05375, 2202.10615"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At n=2, W in (0,2/3) gives noncollision and the gap interval. With W=2d and P=2/eta, the theorem's risk ((1-W)^3+W^3/4)/12+W^2/P reduces to 1/12-d(1-d^2)/4 by the stationarity equation; checked exactly. That equation yields strict monotonicity and the exact two limits, or the theorem's W limits can be specialized directly."
+        ],
+        "reasoning": "The specialization covers the optimum, minimum, limits and strict inequality against collocation. The frozen offset argument is a direct proof in a smaller class, not a distinct design theorem.",
+        "searches": [
+          "ID 374266bc7b99 mirrored RESULT.md, Finding offset 0"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Use n=2 and precision budget P=2/eta. The theorem's optimal p_i=P/2=1/eta satisfies the frozen per-observation constraint. With W=2d the equation (1-W)^2-W^2/4=8W/P becomes 3d^2-(4+8 eta)d+1=0, and its nodes are (1±d)/2."
+        ],
+        "reasoning": "Precision is inverse variance. The broader problem's unique optimizer is feasible in the equal-variance subclass, so the restriction achieves the same risk and inherits uniqueness.",
+        "searches": [
+          "Resultary: 2026/11/22/SCOPE-universal-optimal-sensing-meshes-under-a-brownian-bridge-precisi--374266bc7b99",
+          "arXiv:1604.05375 Eqs. (18)–(20)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The distinct same-day mesh theorem matches exactly by specialization. ID 15716724ea95 is the frozen record itself. ID 1c7b05ec88c4 optimizes over a law for two i.i.d. noiseless sites. The two path-design IDs optimize a different loss."
+        ],
+        "reasoning": "Exact matching evidence is the precision-budget formula, not an identical title, the bound record itself, or a noiseless random-node design.",
+        "searches": [
+          "Resultary IDs 374266bc7b99, 15716724ea95, 1c7b05ec88c4, 689f315478aa and 41e0234034fd"
+        ]
+      },
+      "rationale": "A distinct indexed precision-budget theorem gives exact stronger coverage and already implies the whole deterministic two-equal-noise quadrature result. This comparison is an algebraic specialization of statements checked in the mirror, not a deduction about historical priority from dates.",
+      "residual_risks": [
+        "The exact match's same-day date does not settle chronological priority. Verified coverage, not dates, is the basis of the decision.",
+        "The bounded literature comparison does not exclude an earlier equivalent classical c-optimal design."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact stronger statement",
+          "evidence": "Unique equal-precision, centered equally spaced design, W equation and closed-form minimum risk; specializes exactly at n=2, P=2/eta.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-universal-optimal-sensing-meshes-under-a-brownian-bridge-precisi--374266bc7b99/RESULT.md",
+          "material_read": "Finding, assumptions and beginning of proof, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Universal optimal sensing meshes under a Brownian-bridge precision budget",
+          "trigger": "Potential arbitrary-site-count and arbitrary-precision generalization"
+        },
+        {
+          "assessment": "Different objective; matches only a noiseless node limit",
+          "evidence": "Supremum power function and a differential-operator kernel parameter, not independent measurement noise.",
+          "identifier_or_url": "https://arxiv.org/abs/2210.15959",
+          "material_read": "§2 Eq. (3), Theorem 5 Eqs. (14)–(15)",
+          "method": "OA PDF",
+          "title": "Equally spaced points are optimal for Brownian Bridge kernel interpolation",
+          "trigger": "Exact bridge node design"
+        },
+        {
+          "assessment": "General methodology, not the two-site classification in inspected material",
+          "evidence": "Scalar response conditional MSE and integrals as a possible target.",
+          "identifier_or_url": "https://arxiv.org/abs/1604.05375",
+          "material_read": "Eqs. (18)–(20) and conclusion, PDF offsets 17000 and 62500",
+          "method": "OA PDF",
+          "title": "Optimal Designs for Longitudinal and Functional Data",
+          "trigger": "General noisy scalar-response criterion"
+        },
+        {
+          "assessment": "Different goal in inspected passage",
+          "evidence": "Average-case bounds and lower bounds, not exact location optimization.",
+          "identifier_or_url": "https://arxiv.org/abs/2202.10615",
+          "material_read": "Abstract p. 1",
+          "method": "OA PDF",
+          "title": "On Average-Case Error Bounds for Kernel-Based Bayesian Quadrature",
+          "trigger": "Noisy quadrature designs"
+        },
+        {
+          "assessment": "Different feasible design class",
+          "evidence": "Optimizes a sampling law for noiseless i.i.d. random nodes.",
+          "identifier_or_url": "2026/11/2/SCOPE-unique-optimal-i-i-d-two-node-design-for-brownian-bridge-kernel--1c7b05ec88c4",
+          "material_read": "Finding and assumptions, offset 0",
+          "method": "Resultary and local mirror",
+          "title": "Unique optimal i.i.d. two-node design for Brownian-bridge kernel quadrature",
+          "trigger": "Same kernel, target and number of nodes"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–19, 29–58; mesh theorem's Finding"
+      ],
+      "rationale": "Independently of coverage, global two-reading calibration of locations under measurement noise is a natural exact design problem. A strict all-noise statement distinguishing the optimum from boundary and replication choices is scientifically interpretable; it is not a table recomputation of an individual case. Its design benefit does not supply a distinct remaining claim once the mesh theorem is credited.",
+      "residual_risks": [
+        "No distinct surviving claim in the frozen record was established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

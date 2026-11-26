@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T13:37:38.880685Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For all q≥2 and n≥5, profile equality from a fixed source is equality of the signed local trigram changes. A fresh exhaustive six-letter calculation by full local histogram subtraction reproduced 38,880 input operations, 38,580 distinct interior differences, 38,280 singleton fibers and 300 double fibers in seven orbits (six of size 30 and one of size 120), and checked that every input symbol remains visible after cancellations. Equal differences therefore share their entire symbol set, and no collision or larger fiber over any alphabet escapes by using more than six letters. The three slot marginals, each e_f−e_c in the interior, identify the ordered change even in a double fiber. They fix the two letters of every two-letter template and the two edited letters of the three-letter template, leaving no orbit stabilizer. The loss is consequently 6q(q−1)+q(q−1)(q−2) globally. At the four ends the nonzero slot-marginal sets are respectively {1}, {1,2}, {2,3}, {3}, giving exactly q−1 results per boundary position and no intertype or interior collision. Adding these to the interior inventory gives the stated capacity. An order-five Euler/de Bruijn linearization covers every context, and right padding preserves it; n(q−1) gives the stated lower bracket. The exact first length is not claimed. Independent certificate: /workspace/branches/63d13ad0-20fd-4ad1-9e9d-8854ad43c2df/audit_local_changes.py. The supplied scripts and recorded verification were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "En Gad §2, pdf p. 5, offsets 16450–21390, explicitly handles substitutions as one-substring edits, but decomposes far-separated changes with t≥2 and L>k=2⌈log_q n⌉+2 on long-substring-unique sources. The article's local bookkeeping is compatible with, but does not count, collisions of literal length-three observations."
+        ],
+        "reasoning": "Long-spectrum uniqueness and conflict-graph hashing do not imply the fixed-L=3, arbitrary-source collision formula or its attainment. Kiah et al.'s code/reconstruction formulation also differs in the optimization and channel.",
+        "searches": [
+          "Kiah–Puleo–Milenkovic, Codes for DNA Sequence Profiles",
+          "En Gad, Polynomially larger deletion codes by linear hashing of substring counts, arXiv:2609.19493v2"
+        ]
+      },
+      "checked_sources": [
+        "Relevant Resultary indexed findings",
+        "Kiah–Puleo–Milenkovic introduction",
+        "En Gad arXiv:2609.19493v2 §2–2.1",
+        "Frozen record 3 local collision proof"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For two-grams, row and column sums separate the edits, and the two-neighbor local model has one colliding pair per ordered replacement. The trigram problem has four neighbors and seven collision templates, including a three-symbol orbit. No inspected prior supplies their inventory."
+        ],
+        "reasoning": "The known signed-window formalism and standard universal-word construction are reused; neither determines the number of distinct local vectors after all cancellations, which is the key independent result.",
+        "searches": [
+          "En Gad §2–2.1 (local replacements and counts)",
+          "Kiah–Puleo–Milenkovic introduction",
+          "record 3 RESULT.md, Finding and proof §§1–3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A spectrum/ordered k-gram multiplicity vector is the same observable at k=3; taking differences relative to a fixed word leaves image cardinality invariant. Kiah et al. introduction uses profiles in a coding and reconstruction problem; En Gad §2 defines spectra in an argument about multi-edit conflicts."
+        ],
+        "reasoning": "Counting distinct outputs from a fixed source and maximizing over that source is different from counting inverse reconstruction fibers or finding an error-correcting family. Reversal and alphabet relabeling only permute histogram coordinates.",
+        "searches": [
+          "\"one-substitution\" dinucleotide profile capacity oriented k-gram counts trigram profile q-ary mutation ball",
+          "arXiv:1502.00517v1 (sequence profiles)",
+          "arXiv:2609.19493v2 §2 (substring spectra)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact ordinal-4 hit is this same record, not independent prior evidence. The distinct deletion item treats another edit; ordinal 3 treats the identical one-substitution operation on two-gram profiles. No matching table was evidenced in the search."
+        ],
+        "reasoning": "A deletion changes length and total histogram mass; the bigram projection does not recover trigram changes or their fibers. Standard de Bruijn tables certify existence of covering sources, not the capacity. Same-day dates establish no priority.",
+        "searches": [
+          "Local Resultary: one-substitution trigram profile capacity finite alphabet",
+          "SCOPE-sharp-q-ary-one-deletion-trigram-profile-capacity-and-saturation--cac09d3624b5",
+          "SCOPE-sharp-one-substitution-dinucleotide-profile-capacity-and-de-brui--34ff8f27117b"
+        ]
+      },
+      "rationale": "The supported advance is the exact q-ary, fixed-source, one-change image cardinality for oriented trigrams, with the seven collision types and global sharpness. The histogram identity and existence of de Bruijn words are established tools. No inspected equivalent or stronger result covers the collision census or capacity.",
+      "residual_risks": [
+        "The full matching one-deletion Resultary record did not load; no statement beyond its indexed scope is inferred.",
+        "Short-spectrum mutation work outside the inspected corpus could contain equivalent collision counts. The bounded literature search does not establish absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related observable, different objective",
+          "evidence": [
+            "Coding and reconstruction from substring traces, with sequence/profile equivalence, rather than counting the fixed-source one-letter image."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1502.00517v1",
+          "material_read": "Abstract and introduction, offset 0",
+          "method": "Primary OA HTML",
+          "title": "Codes for DNA Sequence Profiles",
+          "trigger": "Same overlapping count vectors and noisy channels"
+        },
+        {
+          "assessment": "Different spectral regime, edit comparison and objective",
+          "evidence": [
+            "A constant-fraction long-substring-unique family; conflicts from pairs with multiple edits; chosen L>2⌈log_q n⌉+2."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2609.19493v2",
+          "material_read": "§2 and §2.1, offsets 16450–21390",
+          "method": "Primary OA PDF; literal location and bounded passage",
+          "title": "Polynomially larger deletion codes by linear hashing of substring counts",
+          "trigger": "Local spectrum changes include replacements"
+        },
+        {
+          "assessment": "Exactly two-grams, not a general k-gram theorem",
+          "evidence": [
+            "q(q−1)(q²−1) interior vectors and two endpoints, rather than the trigram count and four boundary types."
+          ],
+          "identifier_or_url": "SCOPE-sharp-one-substitution-dinucleotide-profile-capacity-and-de-brui--34ff8f27117b",
+          "material_read": "Frozen RESULT.md, Finding and local collision proof",
+          "method": "Resultary lookup and bound original",
+          "title": "Sharp one-substitution dinucleotide-profile capacity and de Bruijn extremizers",
+          "trigger": "Closest indexed same edit"
+        },
+        {
+          "assessment": "Deletion problem in the available statement; full-text scope unverified",
+          "evidence": [
+            "One deletion is not one length-preserving substitution."
+          ],
+          "identifier_or_url": "SCOPE-sharp-q-ary-one-deletion-trigram-profile-capacity-and-saturation--cac09d3624b5",
+          "material_read": "Indexed finding summary only; matching file request timed out",
+          "method": "Local Resultary and bounded mirror access attempt",
+          "title": "Sharp q-ary one-deletion trigram-profile capacity and saturation",
+          "trigger": "Closest indexed same observable"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The raw number of single substitutions does not measure the number of distinguishable short-read histogram observations. The result measures the loss exactly via collision classes and gives optimal sources at every sufficiently large length. The all-alphabet finite-support argument and sharp construction make this a useful benchmark beyond a small-alphabet census; no code cardinality, reconstruction theorem, or exact first length is inferred.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

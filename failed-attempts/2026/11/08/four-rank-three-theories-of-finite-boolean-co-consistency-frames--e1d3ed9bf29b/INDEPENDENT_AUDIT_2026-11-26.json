@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:52:45.560603Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The four-cell formulas count all distinct third vertices, correctly removing A and B only where they realize a candidate pattern. In particular the 11 count for c>0 must exceed two for a distinct pair, and the repeated-vertex 11 condition is n≥2. Truncating each cell at two preserves these conditions; for a split of a total at least four the capped splits are exactly (0,2),(1,2),(2,2),(2,1),(2,0), so the 4-by-5 bounded table argument suffices at arbitrary n. Nested sets of realized atomic extension types yield the two-round pointed and then three-round unpointed types because equality choices are recorded and counting is unavailable. Independent direct bitset enumeration (branches/replay_03.py) reproduced all seven rows from domain adjacency and the first n=1,…,8 theories, without using the cell-count code. The rank-two and rank-three disjointness witnesses separate all four cases, with the last witness equivalent to the existence of a set containing and missing at least two atoms. No uploaded script was run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "938cb5f89dc7 has cutoff eight at rank three in the full Boolean operations language; 5a1786b1ea8a and 528aebaa99cd have cutoff six in full-domain meet-relation and inclusion-only signatures, respectively."
+        ],
+        "reasoning": "These are different structures or stronger languages and do not give the sharp cutoff four by a rank-three reduct argument. The proper-domain disjointness theorem, not the stronger operation signatures, gives it by the elementary extension construction.",
+        "searches": [
+          "Resultary 938cb5f89dc7, 5a1786b1ea8a, 528aebaa99cd",
+          "arXiv:cs/0407045v2 §6.2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 5e30ab2bf66e, 069a2c03aeb3, 8a5c62b9a4d8, 938cb5f89dc7, 5a1786b1ea8a, 528aebaa99cd",
+        "arXiv:2607.25977v1",
+        "arXiv:cs/0407045v2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For n,m≥4 the proper-world graphs are three-round equivalent by 5e30ab2bf66e. The extra vertex is isolated for ¬R, and ¬R is irreflexive on both domains. For small n, existence of two/three disjoint nonempty worlds detects two/three atoms; the rank-three conjunction of two disjoint worlds both meeting a set and two disjoint worlds both missing it detects four."
+        ],
+        "reasoning": "An EF correspondence for the disjointness graphs remains a partial isomorphism for their complements as relational structures; adding matched isolated vertices preserves all atomic facts. The stated classification follows from the cited result and these simple boundary formulas, with no new high-rank transfer assumption.",
+        "searches": [
+          "5e30ab2bf66e, published Finding offset 0",
+          "arXiv:2607.25977v1 §§3.2, 5, 6.7"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "5e30ab2bf66e proves three rank-three classes n=2, n=3, n≥4 for the simple disjointness graph of nonempty proper subsets. The full set is the only extra vertex here."
+        ],
+        "reasoning": "Complement the edge predicate by literal negation and adjoin one isolated disjointness vertex. Matching the extra vertex costs no moves of the prior strategy, so the upper cutoff is rank-preserving, not merely a formally similar parameter result.",
+        "searches": [
+          "Resultary: finite nonzero-powerset disjointness/co-consistency, three-round EF atom cutoff",
+          "5e30ab2bf66e, RESULT.md Finding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matching full-frame rank-three record is the assigned record itself; 5e30ab2bf66e gives the operative numerical cutoff in the proper-world presentation. 8a5c62b9a4d8 and 069a2c03aeb3 use the same frames but state modal results."
+        ],
+        "reasoning": "The previous zero-divisor cutoff is a direct match after the one-vertex extension, not a coincidence of the number four. Modal counts and strict modal-logics descent cannot decide the rank-three first-order comparison.",
+        "searches": [
+          "Resultary: four-atom rank-three cutoff for finite intersection and Boolean zero-divisor graphs",
+          "5e30ab2bf66e",
+          "8a5c62b9a4d8",
+          "069a2c03aeb3"
+        ]
+      },
+      "rationale": "A distinct prior published finding on Boolean-ring zero-divisor graphs, 5e30ab2bf66e (2026-11-02), mechanically implies the asserted four-atom stabilization. Its proper nonempty subset domain becomes the current domain by adjoining just the full set, an isolated vertex in the disjointness signature. Passing to the named relation R is rank-preserving negation. For n,m≥4 use the prior three-round strategy for real proper-subset moves and match the two extra isolated vertices whenever selected; this preserves equality and every cross-edge and uses at most three moves on the old graphs. The n=1,2,3 separations and strict boundary then follow directly from the elementary disjoint-set witnesses, not a new stabilization theorem. The matching indexed target itself supplies no priority evidence; the zero-divisor record is distinct and earlier.",
+      "residual_risks": [
+        "The primary literature search was bounded and does not locate historical first priority. That uncertainty does not affect the demonstrated implication from the identified prior theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisively covering by adjoining a single isolated vertex",
+          "evidence": "Three rank-three classes: n=2, n=3 and all n≥4 for the graph on nonempty proper subsets.",
+          "identifier_or_url": "5e30ab2bf66e",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Published Resultary body via local mirror",
+          "title": "Three-round collapse of Boolean ring zero-divisor graphs at four atoms",
+          "trigger": "Matching cutoff in the proper-subset disjointness formulation"
+        },
+        {
+          "assessment": "Exact motivating frames, modal rather than first-order cutoff",
+          "evidence": "aRb iff a∧b≠0; nonzero-state modal models; finite hierarchy comparison.",
+          "identifier_or_url": "https://arxiv.org/abs/2607.25977",
+          "material_read": "v1 §§3.2, 5, 6.7 (PDF-text offsets 16733, 29052, 65248)",
+          "method": "Open-access PDF passages",
+          "title": "The Internal Modal Logic of Forcing",
+          "trigger": "Exact co-consistency signature and modal hierarchy"
+        },
+        {
+          "assessment": "Different domain and operations; cutoff eight at rank three",
+          "evidence": "Threshold 2^q for the full Boolean operations signature on the full powerset.",
+          "identifier_or_url": "938cb5f89dc7",
+          "material_read": "RESULT.md offsets 0 and 2408",
+          "method": "Published Resultary body via local mirror",
+          "title": "Sharp atom-visibility threshold for finite Boolean algebras",
+          "trigger": "Prior bounded-rank classification in a related signature"
+        },
+        {
+          "assessment": "Same frame, different modal validity invariant",
+          "evidence": "Strict modal logics inclusion and bounded-morphic quotient comparison.",
+          "identifier_or_url": "069a2c03aeb3",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Published Resultary body via local mirror",
+          "title": "Every finite stage of the internal forcing logic hierarchy is strict",
+          "trigger": "Exact frame family"
+        },
+        {
+          "assessment": "Different ternary signature and full powerset",
+          "evidence": "Meet graph M(X,Y,Z) iff X∩Y=Z; cutoff six.",
+          "identifier_or_url": "5a1786b1ea8a",
+          "material_read": "RESULT.md offsets 0 and 136",
+          "method": "Published Resultary body via local mirror",
+          "title": "Sharp rank-three threshold for finite powerset meet-semilattices",
+          "trigger": "Related rank-three cutoff"
+        },
+        {
+          "assessment": "Different binary relation and full powerset",
+          "evidence": "Inclusion-only language; cutoff six.",
+          "identifier_or_url": "528aebaa99cd",
+          "material_read": "RESULT.md offset 0",
+          "method": "Published Resultary body via local mirror",
+          "title": "Seven rank-three theories of finite Boolean inclusion posets",
+          "trigger": "Alternative bare binary signature"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The signature question is natural, but the precise frozen invariant follows by a routine one-vertex extension plus negation from an existing sharp proper-world classification. The explicit table is a useful alternative verification, not a demonstrated independently motivated new invariant. No substantial separate remainder is established by the frozen record.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

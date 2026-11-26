@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:42:35.471616Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–64 and displayed tables",
+        "Frozen VERIFICATION.md and verify.py (inspected, not executed)",
+        "/workspace/audit_evidence/recompute.py: turan; output recompute.out"
+      ],
+      "rationale": "The first three coefficients give Δ_m(1)=m(m−3)/2, excluding m=1,2,3 for strict log-concavity. For m=4–7, (1+q)^m/(1−q²)^{2m} gives separate parity polynomials of degree ≤2m−1: the top integers of the binomial polynomials are nonnegative even for t=−1 in the odd branch, where all terms vanish. Thus each Turán parity polynomial, including the n=0 convention used in the certificate, has degree ≤4m−2. Each displayed rational factor becomes polynomial after cancellation against the squared products and has degree ≤4m−2. Independently generated coefficients, by successive steps a[n]+=a[n−j] for j=1,2 repeated m times, verified all eight tabulated identities with integer equality at 4m−1 distinct arguments each, hence as polynomial identities. The same independent data also give positive constant and nonnegative Newton-basis coefficients, a second positivity certificate. The actual factors are positive on t≥0. For propagation, positive log-concave sequences have nonnegative Toeplitz two-minors by the ratio test (zeros below the support give no negative minors), and convolution multiplies those matrices. In Cauchy–Binet for rows n,n+1 and columns 0,1 the intermediate columns 0,1 contribute Δ_u(n)v(0)²>0 while other terms are nonnegative. A_m=A_4 A_{m−4} and the four consecutive bases thus cover every m≥4.",
+      "residual_risks": [
+        "The finite identity evaluations are sufficient by the proved polynomial degree bounds, not by extrapolating observed log-concavity. The theorem is only for two allowed denominations."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "For k=2m allowed colored types and lcm D=2, the required gcd condition holds for m≥3. The theorem gives strict eventual log-concavity for n≥(2/k)∏_{i=1}^k(1+iD/k). For example, this gives n≥28 at m=3 and n≥77 at m=4."
+        ],
+        "reasoning": "This is verified prior coverage of the eventual range, including for an m that fails the all-index requirement. It leaves low-index signs unresolved and neither asserts nor implies the all-index theorem without additional validation.",
+        "searches": [
+          "Gajdzica arXiv:2206.04752v1, Theorem 5.6 and its multiset hypotheses"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1703.01955v1, arXiv:2206.04752v1, DOI 10.1017/prm.2026.10154",
+        "Resultary 48027f9dc065 and related b8196a7e7b34"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The eventual bound could reduce an all-index proof to further finite checks for the four bases, combined with strict convolution closure, but does not decide them by itself.",
+          "Conjecture 5.10 uses the full binary generating function; Theorem 1.1 uses all part sizes."
+        ],
+        "reasoning": "The sharp low-index obstruction and a certificate covering the low-index signs and all bases are genuine additional inputs, neither available from eventual positivity alone nor inherited by deleting factors from the unrestricted products.",
+        "searches": [
+          "Gawron–Miska–Ulas Conjecture 5.10",
+          "Gajdzica Theorem 5.6",
+          "Bringmann–Kane–Pahari–Rolen Theorem 1.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The claim is the restricted-partition counting function of the multiset 1^m,2^m, or coefficients of (1+q)^m/(1−q²)^{2m}.",
+          "The other sources use products over all powers of two or all positive integers, respectively."
+        ],
+        "reasoning": "The multiset formulation identifies the genuinely overlapping literature. Infinite products have extra factors that can change the signs of adjacent Turán determinants; the matching threshold in a conjecture about a different sequence is not equivalent coverage.",
+        "searches": [
+          "Gajdzica arXiv:2206.04752v1, repeated allowed parts as colors",
+          "Gawron–Miska–Ulas arXiv:1703.01955v1, m-colored binary partitions",
+          "Bringmann–Kane–Pahari–Rolen DOI 10.1017/prm.2026.10154"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Nearest catalogue records found, 48027f9dc065 and b8196a7e7b34, concern arithmetic residue/density properties of unrestricted binary partitions."
+        ],
+        "reasoning": "These arithmetic records do not state or tabulate the sharp two-denomination all-index inequality. The frozen factorization data are a proof component, not independent priority evidence.",
+        "searches": [
+          "Resultary: strict log-concavity, two-level colored binary partitions, first two denominations, threshold four"
+        ]
+      },
+      "rationale": "The complete strict all-index threshold for the two-denomination product was not established in the inspected sources. General eventual restricted-partition theorems cover a substantial tail, but not the low-index signs or the sharp bi-quantified boundary; papers about unrestricted binary or unrestricted ordinary colored partitions use different coefficient sequences.",
+      "residual_risks": [
+        "Broader web literature searches were deferred; this does not count as negative evidence. An earlier exact low-index classification for this multiset remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different sequence and result status",
+          "evidence": "States the corresponding strict all-index threshold as a conjecture for the product over all powers of two.",
+          "identifier_or_url": "https://arxiv.org/pdf/1703.01955v1",
+          "material_read": "PDF pp. 2,17,31, offsets 5920,82930,152406, defining product and Conjecture 5.10",
+          "method": "OA primary PDF passage inspection",
+          "title": "Arithmetic properties of coefficients of power series expansion of a binary infinite product",
+          "trigger": "Same terminology and apparent m=4 threshold"
+        },
+        {
+          "assessment": "Effective eventual coverage, not all-index coverage",
+          "evidence": "The gcd condition is met by 1^m,2^m for m≥3, but the cutoff is positive and leaves the decisive small indices unresolved.",
+          "identifier_or_url": "https://arxiv.org/pdf/2206.04752v1",
+          "material_read": "PDF pp. 17,21, offsets 66110,78861, multicolor definition and Theorem 5.6",
+          "method": "OA primary PDF passage inspection, followed by parameter specialization",
+          "title": "Log-concavity of the restricted partition function and the new Bessenrodt–Ono type inequality",
+          "trigger": "General result with repeated colored part sizes may cover the same coefficients"
+        },
+        {
+          "assessment": "Different unrestricted generating product",
+          "evidence": "All positive part sizes are included; its exception at (k,n)=(3,1) does not supply signs in the restricted sequence.",
+          "identifier_or_url": "https://doi.org/10.1017/prm.2026.10154",
+          "material_read": "Publisher PDF pp. 2–3, offsets 4288 and 7677, generating function and Theorem 1.1",
+          "method": "OA primary PDF passage inspection",
+          "title": "Strict log-concavity of k-coloured partitions",
+          "trigger": "Broader-looking all-index strict log-concavity theorem"
+        },
+        {
+          "assessment": "Different question and generating product",
+          "evidence": "Congruences at residues 36 and 62 modulo 128 for the full two-colored binary sequence; no log-concavity theorem.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-positive-density-three-square-obstruction-for-two-colored-bina--48027f9dc065",
+          "material_read": "RESULT.md Finding, mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Resultary search and mirror passage inspection",
+          "title": "A positive-density three-square obstruction for two-colored binary partitions",
+          "trigger": "Strongest same-day binary-colored-partition catalogue match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, complete boundary and exact proof",
+        "Gawron–Miska–Ulas Conjecture 5.10; Gajdzica Theorem 5.6 as an eventual benchmark"
+      ],
+      "rationale": "Parts 1 and 2 form the first binary-partition truncation in which parity competes with smoothing by colors. A uniform, sharp threshold for this natural case distinguishes initial obstructions from eventual log-concavity and determines precisely how many colors remove every obstruction. It is a useful base case and comparison for binary truncations, not a proof for the full binary product.",
+      "residual_risks": [
+        "Adding denominations need not preserve the strict property; no such downstream inference is used to assess value."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

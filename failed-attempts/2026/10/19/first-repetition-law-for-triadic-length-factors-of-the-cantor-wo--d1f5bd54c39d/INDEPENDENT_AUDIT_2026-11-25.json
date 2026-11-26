@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:30:17.677579Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–43; VERIFICATION.md; verify.py",
+        "Independent reproduction: python3 /workspace/reproductions/5.py; /workspace/reproductions/5.txt"
+      ],
+      "rationale": "For n=3m the initial blocks U,0^n,U with U=B0^mB suffice. At starts i<n the rightmost one is at n−1−i; at n the factor is zero; at starts n+r for 0<r≤2m the leftmost one is at n−r. For a cross comparison before 5m, i<m includes a one from the first B plus all the ones of the second B, whereas the right-side window takes only a prefix of B0^m. For i≥m the rightmost one is at most 2m−1, whereas the right-side window has a one at or beyond 2m: its first one for r≤m and its last one for m<r<2m. The last start to check, 5m, and the start m both give 0^mB0^m. Earlier distinctness makes m the unique earlier partner. Length one follows from 101. This proves the entire infinite family; the independent digit-generated rolling integer check uses exact factor encodings and reproduced each collision through k=8.",
+      "residual_risks": [
+        "Finite corroboration does not extend the theorem to other lengths, other origins, or other morphisms."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The indexed complete result partitions every n≥2 into m<n≤2m, 2m<n<3m and n=3m, over m=3^j for j≥0.",
+          "Nicholson–Rampersad explicitly evaluate other words: Thue–Morse, Fibonacci and Tribonacci."
+        ],
+        "reasoning": "The broader indexed theorem truly dominates the frozen length slice; the published results for other morphisms do not.",
+        "searches": [
+          "Resultary 66d12ac759d2, Finding and Assumptions and scope, offset 0",
+          "Nicholson–Rampersad arXiv:1507.08206, Theorems 1, 6, 10, 16"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 66d12ac759d2",
+        "Nicholson–Rampersad arXiv:1507.08206",
+        "Chen–Lü–Wu DOI 10.1016/j.tcs.2015.12.022 (abstract-level only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The all-length formula explicitly includes the pair (m,5m). The cited Cantor-like complexity article was accessible only as a landing page/abstract."
+        ],
+        "reasoning": "Substituting j=k−1 gives every frozen triadic instance and the witness without an extra lemma. The ordinary factor-count formula attributed to the other article would not determine origin-anchored repetition, but its full contents were not assessed.",
+        "searches": [
+          "Resultary 66d12ac759d2, Proof §§3–4; Chen–Lü–Wu DOI 10.1016/j.tcs.2015.12.022"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "inrc, inr and I count starts beginning at the origin until the first duplicated factor, i.e. the zero-based later index j of the first collision."
+        ],
+        "reasoning": "The indexed all-length result uses exactly this statistic, the start symbol 1, identical literal contiguous factors and the same zero-based origin. Unrestricted nrc, shortest prefix covering all factors and ordinary factor complexity are not aliases.",
+        "searches": [
+          "Local Resultary: initial non-repetitive complexity and first repetition of the binary Cantor fixed point",
+          "Nicholson–Rampersad arXiv:1507.08206, PDF p. 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The three-case formula records I(3m)=5m and the witnesses are respectively (0,2m), (3m,3m+1), (m,5m); it also gives I(1)=2.",
+          "The proof states 0^m A0^m at both required starts and proves earlier distinctness."
+        ],
+        "reasoning": "This is an exact indexed match for the entire frozen theorem, not just a sequence of agreeing sampled numbers. The catalogue date is later; priority is not decided by this comparison.",
+        "searches": [
+          "Local Resultary result 66d12ac759d2, Finding and Proof §§3–4, offsets 0 and 4850"
+        ]
+      },
+      "rationale": "The distinct indexed record 66d12ac759d2 gives the complete all-length formula for precisely the same origin-anchored invariant and fixed point. The third case is the full frozen theorem, including the earlier matching start and the n=1 case. This is demonstrable catalogue coverage; it does not mean the later-dated record had historical priority over the frozen record. No claim of earlier anticipation or dependence is made.",
+      "residual_risks": [
+        "No claim about chronological priority or dependence is supported. The cited Cantor-like article was not accessible in full, and the check does not exhaust prior literature; neither limitation negates the exact indexed overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage by a distinct stronger entry; no historical priority inference",
+          "evidence": "For n=3m its steps 3 and 4 give pair (m,5m) after pairwise distinct starts 0 through 5m−1, and the all-length result gives I(1)=2.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-complete-initial-non-repetitive-complexity-of-the-binary-cantor--66d12ac759d2/RESULT.md",
+          "material_read": "Finding and Assumptions and scope at offset 0; distinctness and matching upper bounds at 4850; prior work and limitations at 7270",
+          "method": "Local mirrored text, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Complete initial non-repetitive complexity of the binary Cantor word",
+          "trigger": "Same fixed point and first collision law at all lengths"
+        },
+        {
+          "assessment": "Same invariant and evaluations for other words",
+          "evidence": "Origin-anchored definition matches the frozen one; explicit formulas inspected concern Thue–Morse, Fibonacci and Tribonacci, not the Cantor fixed point.",
+          "identifier_or_url": "https://arxiv.org/abs/1507.08206",
+          "material_read": "PDF p. 2 definitions; Theorem 1, p. 4; Theorems 6, 10, 16 on pp. 8, 9, 11",
+          "method": "Primary OA PDF text",
+          "title": "Initial non-repetitive complexity of infinite words",
+          "trigger": "Original statistic and possible explicit Cantor evaluation"
+        },
+        {
+          "assessment": "No full-text verdict; advertised complexity is different",
+          "evidence": "The cited p_C(n) counts all factors, whereas the frozen quantity uses their order of first appearance.",
+          "identifier_or_url": "https://doi.org/10.1016/j.tcs.2015.12.022",
+          "material_read": "Landing page/abstract only; cited Section 3 not accessed",
+          "method": "DOI landing page and lawful OA retrieval attempt",
+          "title": "On the permutation complexity of the Cantor-like sequences",
+          "trigger": "Cited factor complexity for the same object"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Proof, Relationship to prior work; Resultary 66d12ac759d2, Finding and Proof §§3–4"
+      ],
+      "rationale": "The statistic and triadic scales are natural, but the precise slice and matching starts are already supplied by the indexed all-length treatment using the same block mechanism. The frozen statement does not isolate an independently useful additional gap relative to that coverage. The 5/6 ratio to ordinary factor complexity follows from the same covered formula.",
+      "residual_risks": [
+        "The judgment is about incremental content of this frozen slice against available evidence, not the value of the all-length problem or the historical contribution of the frozen proof."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

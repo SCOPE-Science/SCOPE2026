@@ -1,17 +1,21 @@
-## Correctness
+# Independent mathematical audit
 
-PASS. The 14 squarefree supports match the formulas in Section 7 of the cited primary paper. A complete minimal-transversal recursion and an exhaustive check of all 27,405 four-subsets agree on exactly 130 minimal covers, all of size four. The stored order passes the shelling criterion checked directly in facet language for every earlier/current pair.
+## correctness
 
-## Originality
+PASS
 
-PASS, within the stated scope. The primary paper proves purity and gives the general facet count, but asks explicitly whether this complex is shellable. Its full text does not supply an order for \(n=5\). Targeted published-finding corpus searches returned only unrelated complexes, not this generator system or a matching order. The conclusion is limited to \(n=5\), and no claim is made for all parameters.
+A facet is precisely the complement of an inclusion-minimal transversal of the 14 given monomial supports on 30 vertices. Independent enumeration used an unrestricted minimal-transversal recursion, so it could detect larger minimal covers; it agreed with the separate exhaustive check of all 27,405 four-subsets and returned 130 covers, all of size four. The frozen JSON contains each exactly once. For every earlier/current facet pair the independent checker found an earlier facet whose intersection with the current facet is a ridge containing the given pair intersection (8,385 pairs). This makes the intersection with the preceding union pure of codimension one at each step. Pure shellability gives Cohen–Macaulayness over any field. This proves the finite case only. Replay: python3 -B /workspace/branches/9c130b87-3191-42d6-8492-c3876e4e7ba6/independent_n5_check.py; output in independent_n5_check_output.txt in the same directory. The frozen verifier was not used to generate independent evidence.
 
-## Value
+## originality
 
-PASS. The n=5 case addresses a specific published open question. The complete 130-facet order and reproducible verifier provide an exact finite certificate, rather than only an assertion based on a partial enumeration.
+PASS
 
-## Closest literature and limitations
+Credit the explicit n=5 shelling and its consequence in arbitrary characteristic, not the known purity or count. The primary paper asks for shellability of exactly this complex, and the bounded comparisons found no shelling of the same complex or stronger covering result.
 
-Ramkumar–Sammartano, arXiv:2109.09002v1, Section 7 and Questions 7.13/9.7. The paper already gives the general pure codimension-four facet count and Cohen–Macaulayness in characteristic zero; neither statement supplies a shelling order. Database novelty checks were targeted rather than exhaustive. The result does not establish shellability for general \(n\).
+## value
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+This exact finite witness answers the published shellability question at the explicitly displayed n=5 example of the same natural family. It proves the field-independent CM consequence there and provides a reproducible comparison point for general shelling strategies. The value is the structural shelling, not re-counting known facets or extrapolating from one n.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

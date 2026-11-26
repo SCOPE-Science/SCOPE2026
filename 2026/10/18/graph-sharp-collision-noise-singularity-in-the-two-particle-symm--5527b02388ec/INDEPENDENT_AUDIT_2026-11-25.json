@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:14:32.216787Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Detailed balance for D_x↔S_xy uses rates 2a and a+1; separated moves have rate a both ways. The resulting collision probability is (a+1)/(na+1), yielding the displayed variance. The centered reversible Poisson formula gives the covariance integral and the 2T normalization. With z=ah and one double-state coordinate pinned, the Dirichlet conductances on double-to-edge transitions diverge like 2/(na), and separated conductances converge to 2/n. The pinned energy is uniformly coercive because the entire configuration graph is connected and its conductances are uniformly bounded below for 0<a≤1. Bounded maximizers collapse to zero on the connected double-and-edge subgraph. Dropping the nonnegative fast-edge energy gives the upper limit along any convergent subsequence; the zero extension of an arbitrary nonedge test vector gives the lower bound. The linear term there tends to −(2/n)1ᵀz and the energy is (2/n)zᵀ(−K_G)z. Holding one walker fixed along a finite path of possible moves of the other proves accessibility of killing from each nonedge, so the finite killed operator is invertible and its inverse on 1 gives the strictly positive mean killing times. For example, P_3 has one nonedge with killing rate 2 and coefficient 1/3. For complete graphs the two-state relaxation rate is 2(na+1). On cycles the proposed hitting-time quadratic solves the interior second-difference equation and both endpoint equations, including n=3; the centered Poisson solution obeys u(r)−u(0)=−ρ_0 t_r by stopping at collision. Summing gives the stated rational covariance. Direct differentiation gives the displayed polynomial; its constant term is positive for n≥4 and at n=3 the sole positive derivative zero gives the claimed maximum. The analytical proof does not rely on rerunning the frozen finite checks.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The former gives directional weak-diffusion spectral-gap asymptotics and a principal killing exponent. The latter gives two-particle Fourier–Laplace transition results on the integer line and infinite-volume site-occupation covariances."
+        ],
+        "reasoning": "The least killed eigenvalue does not specify the Green form, which weights all eigenspaces by their overlaps with the constant vector. Infinite-line transition transforms and site-occupation laws do not yield the stationary finite-graph collision indicator or the stated periodic cycle formula by specialization.",
+        "searches": [
+          "Kim–Sau arXiv:2412.01489, Theorems 2.3–2.4 and §5.4",
+          "Carinci–Giardinà–Redig arXiv:1711.11283, Theorems 2.8 and 2.16"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Kim–Sau arXiv:2412.01489 v2",
+        "Carinci–Giardinà–Redig arXiv:1711.11283",
+        "Resultary 1d184916699e, ef4ea58edfd5, 63ed21b70fd1 and 0c601a6eed5c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The frozen proof scales the observable-specific centered linear term along with the Dirichlet energy; after collapsing the fast region the surviving linear term has coefficient −2/n on every nonedge. It is this projection, not the principal eigenvalue of the shared killed process, that gives the Green quadratic form. The cycle formula also imposes the two reactive boundaries in the finite relative-displacement chain and uses its stationary weights."
+        ],
+        "reasoning": "Neither closest source supplies the projected forcing and its normalization or the exact finite-cycle stationary Poisson calculation. Once the Green formula is established its completeness corollary is immediate, but the main formula itself is not a routine substitution into the cited gap or line results.",
+        "searches": [
+          "arXiv:2412.01489, Theorem 2.3 and proof of Theorem 2.4 compared with frozen RESULT.md lines 46–79",
+          "arXiv:1711.11283, Theorems 2.8 and 2.16 compared with frozen RESULT.md cycle calculation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kim–Sau use the same killed dynamics in the unweighted setting, with killing when a jump takes the pair to distance below two. The reviewed coefficient uses 1ᵀ(−K_G)⁻¹1, equivalently the sum of the mean adjacency hitting times."
+        ],
+        "reasoning": "This identifies the correct prior alias at the operator level; the known survival exponent and the integrated collision covariance are not equivalent operator statistics.",
+        "searches": [
+          "Resultary: two-particle symmetric inclusion process finite graph integrated stationary covariance collision indicator killed nonadjacent pair hitting time coefficient",
+          "arXiv:2412.01489 §5.4: killed independent walkers at graph distance at least two"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The compared indexed finite-graph completeness result concerns collision-conditioned walkers and exclusion (1d184916699e). The cycle hit ef4ea58edfd5 counts accepted exclusion hops, not SIP time in collision. The indexed covariance records 63ed21b70fd1 and 0c601a6eed5c concern exclusion reservoirs and asymmetric inclusion site occupancies, respectively."
+        ],
+        "reasoning": "The full-text findings for these hits compare different processes or observables. Neither a common graph family nor a common completeness boundary gives exact prior coverage of the limit or the cycle coefficients.",
+        "searches": [
+          "Resultary: finite connected graph two-particle symmetric inclusion collision covariance weak diffusion positive limit iff graph noncomplete",
+          "Resultary: all-size cycle C_n two-particle symmetric inclusion collision integrated covariance rational formula",
+          "Resultary: triangle versus four-cycle weak-diffusion collision covariance integrated covariance maximum monotonicity"
+        ]
+      },
+      "rationale": "The killed nonedge walk is already used in finite-graph SIP spectral-gap work and is not new here. The distinct result is the collision observable's exact Green quadratic form and its consequences, including the exact finite cycle response. The examined stronger-looking work gives a different observable, operator statistic, setting, or process; none of the examined claims determines this formula as a corollary.",
+      "residual_risks": [
+        "The comparisons are bounded. Another potential-theoretic treatment may evaluate the same Green coefficient or finite-cycle formula; the shared killed process in Kim–Sau is an important antecedent. Unhelpful search returns were not treated as negative evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantive overlap of killed operator; different target",
+          "evidence": "Killing on entry to distance below two is used to express a principal eigenvalue/survival exponent, not an integrated stationary collision covariance.",
+          "identifier_or_url": "https://arxiv.org/pdf/2412.01489",
+          "material_read": "v2 Theorem 2.3 p. 7; §5.4 pp. 37–39, including proof of Theorem 2.4",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "One- and Two-Particle Spectral Gap Identities for the Symmetric Inclusion Process and Related Models",
+          "trigger": "Same graph model and weak-diffusivity mechanism"
+        },
+        {
+          "assessment": "Different domain and covariance observable",
+          "evidence": "Fourier–Laplace transform on the infinite lattice and time-dependent site-occupation covariance from a homogeneous product law.",
+          "identifier_or_url": "https://arxiv.org/pdf/1711.11283",
+          "material_read": "Theorem 2.8 p. 8; Theorem 2.16 p. 12",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "Exact formulas for two interacting particles and applications in particle systems with duality",
+          "trigger": "Closest exact two-particle formulas"
+        },
+        {
+          "assessment": "Different conditional path-law question",
+          "evidence": "The result compares collision-conditioned independent paths with exclusion, not time occupation of collisions under inclusion.",
+          "identifier_or_url": "Resultary 1d184916699e",
+          "material_read": "Mirrored RESULT.md finding",
+          "method": "Local Resultary and mirror passage inspection",
+          "title": "Density-dependent rigidity for exact exclusion conditioning",
+          "trigger": "Finite-graph completeness classification with two walkers"
+        },
+        {
+          "assessment": "Different process and observable",
+          "evidence": "Accepted-hop cumulants for SSEP on cycles, not stationary collision time under SIP.",
+          "identifier_or_url": "Resultary ef4ea58edfd5",
+          "material_read": "Mirrored RESULT.md finding",
+          "method": "Local Resultary and mirror passage inspection",
+          "title": "Diffusive-time theta crossover for two-particle exclusion activity on a cycle",
+          "trigger": "Exact two-particle cycle dynamics"
+        },
+        {
+          "assessment": "Different process and observable",
+          "evidence": "Site covariance in an exclusion model with reservoirs.",
+          "identifier_or_url": "Resultary 63ed21b70fd1",
+          "material_read": "Mirrored RESULT.md finding",
+          "method": "Local Resultary and mirror passage inspection",
+          "title": "Spectral fluctuation and exact covariance laws for exclusion with sitewise reservoirs",
+          "trigger": "Finite-graph pair covariance"
+        },
+        {
+          "assessment": "Different setting and statistic",
+          "evidence": "Stationary site-occupation covariance of an asymmetric one-dimensional model.",
+          "identifier_or_url": "Resultary 0c601a6eed5c",
+          "material_read": "Mirrored RESULT.md finding",
+          "method": "Local Resultary and mirror passage inspection",
+          "title": "Periodic-rate broadening of long-range anticorrelations in asymmetric simple inclusion",
+          "trigger": "Inclusion covariance near a graph-periodic setting"
+        },
+        {
+          "assessment": "Finite supporting checks, not executed",
+          "evidence": "The source reports small-graph generator, Poisson, and small-a comparisons; these do not by themselves prove the arbitrary-graph or all-cycle laws.",
+          "identifier_or_url": "VERIFICATION.md; verify.py",
+          "material_read": "Verification record and the exact rational generator and killed-walk checks",
+          "method": "Read-only source inspection",
+          "title": "Frozen collision verification",
+          "trigger": "Distinguish frozen finite checks from the proof"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Collision time is a basic stationary observable for two attracting particles. Its instantaneous variance vanishes on every graph, so the separation between a positive long-time noise limit on noncomplete graphs and a vanishing one on complete graphs cannot be read from statics. The exact coefficient identifies how each nonedge contributes and distinguishes observable persistence from spectral-gap control. The cycle formula makes that distinction quantitative and locates the triangle exception.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

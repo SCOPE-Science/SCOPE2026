@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:09:54.710824Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Detailed balance gives π_{k+1}/π_k=(n−k)(a+bk)/(k+1). The sign above one is a concave quadratic in k (decreasing affine at b=0), with initial sign na−1 and limiting sign negative at k=n. If na≥1 there is one modal component. If na<1 the first edge is strictly downhill, and a separated positive-count component exists exactly when at least one k≥1 edge strictly rises, i.e. b>min h(k). The positive edges form one block; exact ties can widen a plateau but cannot create a second rising block. In particular equality at b_c gives a nonincreasing law and n=2 allows a second mode at the upper endpoint. With c=1−na, the derivative of h has sign (1+a)k²+2ck−nc, which gives z_* and the clipped two-candidate rule. At a=λ/n with fixed 0<λ<1, z_*=√(cn)−c+O(n⁻¹ᐟ²), h(z_*)=c/z_*² and integer rounding costs O(n⁻⁵ᐟ²) by the second derivative near z_*; this gives the stated expansion. The minimizing k is an edge index, not necessarily the exact position of a mode. The mean-field drift has opposite signs at 0 and n and is concave (strictly decreasing affine when b=0), so it has one feasible zero. The conventional 1/(n−1) comparison is not a bifurcation in that imported ODE. Frozen checker and recorded results were read but not executed; the candidate test there uses a float square root. `python3 /workspace/branches/review_reproduction.py 2` separately verified exact derivative signs, ties at every adjacent-mass equality in its finite grid, and strict and plateau modal witnesses.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Brugevin–Zanette specify one-site death/immigration and ordered-pair birth and study in particular bimodal active-period durations, which are not stationary count modes.",
+          "Foxall gives convergence and monotonicity; He–Luczak–Ross analyze total-variation cutoff in another scaling. The stationary distribution formula or ergodicity alone is not the sharp onset classification.",
+          "No inspectable primary modal-classification section could be retrieved from either Stone or Nieddu through the lawful routes tried."
+        ],
+        "reasoning": "The qualitative epidemic and logistic context does not show earlier exact equivalence. The decisive stronger result is the indexed finite-capacity count-mode theorem, not a general statement that bimodality sometimes occurs.",
+        "searches": [
+          "Brugevin–Zanette arXiv:2605.27100 §II and active-period discussion",
+          "Foxall DOI 10.1239/aap/1401369707 pp. 1–2,7",
+          "He–Luczak–Ross arXiv:2407.18446 Thm. 1.2",
+          "Nieddu et al. DOI 10.1098/rsif.2022.0253; Stone et al. DOI 10.1007/s00285-007-0136-0"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, checker.py",
+        "Resultary 0844626cea2d, 2a6ad2f00da6, 3b90542efddc, 9db1c6e6196c",
+        "arXiv:2605.27100 and 2407.18446",
+        "DOI 10.1239/aap/1401369707; 10.1239/aap/1396360112 abstract/introduction (absorbing chain and quasi-stationarity)",
+        "DOI 10.1098/rsif.2022.0253, 10.1007/s00285-007-0136-0 and 10.1103/PhysRevE.101.032303 (full texts not inspected)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Divide B_N by N−1: the finite threshold is exactly b_c and the stated B_N expansion gives b_c=1/n+2√(1−λ)n⁻³ᐟ²+O(n⁻²).",
+          "With d=1−na, the indexed continuous minimizer is n√d/(√(n+1)+√d); rationalizing and using n+1−d=n(1+a) gives (√(d(n+1))−d)/(1+a). The indexed ratio monotonicity and initial-edge sign give the same one-/two-mode classifications and strict inequalities.",
+          "The indexed statement refines the expansion and provides exact lattice correction and importation dependence; the frozen rational example and the convention for a positive local plateau add no separate theorem."
+        ],
+        "reasoning": "Under the explicit rate change, the finite threshold, boundary and weak-importation location are all already covered in the current corpus. The distinction from previously studied activity-duration or quasi-stationary modal phenomena remains valid, but is not a distinct contribution beyond this exact comparison.",
+        "searches": [
+          "0844626cea2d Finding and Proof §§1–4",
+          "Brugevin–Zanette arXiv:2605.27100 §II; exact count-mode source comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The indexed logistic chain has λ_j=(N−j)(α+νj/(N−1)), μ_j=μj, and the same strict-rise test after k=t.",
+          "N=n, μ=δ, ν=(n−1)β gives the frozen process exactly for positive β. The zero-β endpoint has strictly decreasing ratios and adds no separate difficulty."
+        ],
+        "reasoning": "Both chains concern the unconditioned stationary count, not individual configurations, peak heights, quasi-stationary modes or active-period lengths. The normalized within-population parameter in the indexed result is (n−1)b.",
+        "searches": [
+          "Local Resultary finite SIS/modal-threshold searches",
+          "2026/11/22/SCOPE-exact-finite-capacity-two-mode-boundary-for-a-logistic-immigrati--0844626cea2d, RESULT.md offsets 0–4765",
+          "Brugevin–Zanette arXiv:2605.27100, §II"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "0844626cea2d gives B_N=(N−1) min_{1≤t<N}[(1+a)t+1−Na]/[t(N−t)], strict threshold and tie behavior, two clipped candidates, an exact lattice correction, and the weak-immigration √N onset index.",
+          "The earlier reversibility record gives infected-set stationary densities, the same-day three-site path record concerns a quasi-stationary law, and the triadic record uses triple instead of pairwise terms."
+        ],
+        "reasoning": "0844626cea2d overlaps at the equation and theorem level; the other records are not substitutes for it. The November 22 and November 2 catalog labels are disclosed separately from the overlap and do not license an accusation or an inference of earlier exact publication.",
+        "searches": [
+          "Resultary 0844626cea2d, 2a6ad2f00da6, 3b90542efddc, 9db1c6e6196c"
+        ]
+      },
+      "rationale": "The current indexed corpus records the exact same count-mode theorem, with a stronger lattice formula and more precise asymptotics, in 0844626cea2d. The difference between SIS and finite-capacity logistic terms is a rate normalization, not a different transition law or statistic. This is a finding of demonstrable coverage, not a ruling about who derived it first: the equivalent indexed record has a later catalog path. The inaccessible earlier papers do not justify the negative decision and no earlier exact theorem is inferred from them.",
+      "residual_risks": [
+        "Stone and Nieddu remain open earlier-literature comparisons after attempted lawful retrieval; their inaccessibility did not determine the verdict.",
+        "The overlap does not determine provenance or who first obtained the theorem. The scientific judgment is against treating the frozen theorem now as a distinct finding in addition to the equivalent indexed one."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same stationary law and onset theorem after rate normalization; stronger lattice result; later catalog date does not settle derivation priority",
+          "evidence": [
+            "Its λ_j and μ_j agree on the complete count state space after reparameterization.",
+            "Its B_N, clipped t_c and asymptotic incipient edge location yield the frozen statements."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-exact-finite-capacity-two-mode-boundary-for-a-logistic-immigrati--0844626cea2d",
+          "material_read": "RESULT.md Finding, Assumptions, Proof §§1–4 (mirror offsets 0–4765); prior work/limits around 7350–9825",
+          "method": "Local Resultary search and mirror reads",
+          "title": "Exact finite-capacity two-mode boundary for a logistic immigration population",
+          "trigger": "Exact cross-formulation two-mode criterion and finite-size asymptotics"
+        },
+        {
+          "assessment": "Same population mechanism in another normalization; the inspected bimodality passages concern activity lengths, not this threshold",
+          "evidence": [
+            "§II selects one site for immigration/death and an ordered pair for birth; p. 3 defines corresponding rates.",
+            "The bimodality passages around offset 41379 describe short and long active periods."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2605.27100",
+          "material_read": "PDF §II, pp. 2–3, offsets 8900–16909, and active-period bimodality passages located on pp. 5–6",
+          "method": "OA PDF; model read by offset and literal bimodal locator",
+          "title": "Logistic dynamics of small populations with demographic stochasticity",
+          "trigger": "Directly relevant earlier logistic population model and possible modal theorem"
+        },
+        {
+          "assessment": "Unresolved earlier published coverage, not evidence either way",
+          "evidence": [
+            "The publisher and deposited-text attempts did not expose the relevant full text. The frozen author's description of a continuous shape indicator was not treated as independent primary evidence."
+          ],
+          "identifier_or_url": "https://doi.org/10.1098/rsif.2022.0253",
+          "material_read": "No usable primary result passage; frozen RESULT.md prior-work characterization only",
+          "method": "DOI/publisher/PMC alternatives including an attempted OA BioC text and a targeted lawful-copy search",
+          "title": "Characterizing outbreak vulnerability in a stochastic SIS model with an external disease reservoir",
+          "trigger": "Especially plausible earlier exact or approximate count-shape comparison"
+        },
+        {
+          "assessment": "Could not independently assess exact modal coverage",
+          "evidence": [
+            "PDF redirects and no lawful alternate full text retrieved."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00285-007-0136-0",
+          "material_read": "No primary PDF passage; citation and model attribution from frozen record",
+          "method": "Publisher PDF and lawful repository recovery attempts",
+          "title": "A stochastic model for head lice infections",
+          "trigger": "Earlier source of the finite SIS count equilibrium with an external reservoir"
+        },
+        {
+          "assessment": "Ergodicity/monotonicity, not a verified count-mode theorem",
+          "evidence": [
+            "Distinguishes the spontaneous-infection equilibrium from the absorbing-process quasi-stationary law."
+          ],
+          "identifier_or_url": "https://doi.org/10.1239/aap/1401369707",
+          "material_read": "Primary pp. 1–2 and 7, offsets 538, 5791, 28391",
+          "method": "OA PDF",
+          "title": "Convergence and monotonicity for a model of spontaneous infection and transmission",
+          "trigger": "General comparison for spontaneous infection and stationary convergence"
+        },
+        {
+          "assessment": "Different scaling and observable",
+          "evidence": [
+            "Fixed self-infection parameters and total-variation mixing cutoff, not weak-importation stationary modes."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2407.18446",
+          "material_read": "Primary pp. 1–2, Definition 1.1/Theorem 1.2, offsets 0 and 8902",
+          "method": "OA PDF",
+          "title": "Cutoff for the logistic SIS epidemic model with self-infection",
+          "trigger": "Large-population asymptotics with immigration"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The exact local-mode question and square-root onset would be valuable as a distinct classification, but the theorem, two-candidate rule and scale are already furnished by the exact indexed population-count theorem. Reexpressing the rates in epidemic notation and giving a rational witness do not add a new scientific conclusion or a viable narrower repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

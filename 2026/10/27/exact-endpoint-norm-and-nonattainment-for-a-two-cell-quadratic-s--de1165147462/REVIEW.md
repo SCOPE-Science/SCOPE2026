@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The five-dimensional piecewise-polynomial Gram matrix and inverse were independently reconstructed with exact rational arithmetic. Kernel evaluation reduces to two explicit quadratics. Endpoint integration is exact because all four roots lie in the relevant half-cells. The infinite row-norm supremum is controlled by an exact Bernstein-convexity argument and 29 rational integral upper certificates, each strictly below \(9/4\), against a proved endpoint lower bound exceeding \(9/4\). Measurable attainment and continuous nonattainment follow from equality conditions in the integral triangle inequality. The separate Python certificate was executed against the actual standalone script in this package.
+## correctness
 
-**Originality — PASS, with residual risk.** Primary-source comparison finds that Shadrin's knot-independent bound and its lower-continuity corollary (2001), the L-spline study of Kayumov (2004), and the general inverse-Gram/maximal-kernel/a.e. convergence results of Passenbrunner–Shadrin (2013) do not supply the exact present fixed-mesh value or the unique-endpoints/nonattainment classification. Semantic mathematical searches on aliases, constants, norms and kernel formulations gave no implication-equivalent result. Earlier degree-one spline-projection comparisons instead cover degree-one spaces or periodic splines; neither implies the degree-two, fixed-mesh identity. An earlier unindexed finite computation could exist. General boundedness is not claimed as new.
+PASS
 
-**Mathematical value — PASS.** Uniform boundedness of spline orthoprojectors is classical, but identifying the *sharp constant*, the *maximizing kernel rows*, and *nonattainment by continuous functions* for the smallest nontrivial continuous quadratic spline space gives an exact base case for second-order spline stability and a reproducible benchmark for least-squares finite-element kernels. The concrete invariant belongs to a canonical five-dimensional space fixed by the equally split interval; it is not a fitted or arbitrary parameter slice. It does not claim the general de Boor bound or extrapolate to arbitrary meshes.
+Independently use normalized cell coordinates u,v in [0,1] going from each outer endpoint toward the knot. The unit-cell polynomial kernel is F(u,v)=1+3(2u-1)(2v-1)+5(6u^2-6u+1)(6v^2-6v+1). Each half has mass 1/2, giving uncoupled kernel 2F, and enforcing equality of the traces removes the one-dimensional Riesz normal for their difference. Its squared norm is 36, so the correction is -F(u,1)F(v,1)/9 on the same cell and +F(u,1)F(v,1)/9 on the opposite cell, in agreement with the endpoint polynomials in physical coordinates. Direct Gram inversion also recovered the full frozen kernel. At x=0 each piece has two simple roots strictly in its half; the two negative masses computed from discriminants 2784 and 96 are 29 sqrt(174)/625 and sqrt(6)/25. Reproduction of 1 yields the stated constant. For global control, quadratic Bernstein interpolation on ten intervals covers the entire left half. Independently bounded each nonzero-endpoint control occurrence using a second Bernstein subdivision in the integration variable, integrating the sum of absolute control coefficients against its positive basis functions, with the cell weight 1/2. All 29 upper bounds were at most 30089/13824 < 9/4, while the exact endpoint value is >9/4 (replay: python3 /workspace/branches/frozen_math_recheck.py 4). Here all occurrences other than the distinguished K(0,*) row are bounded; grid points are not being used as a proxy for untested x. Convexity with the Bernstein coefficients forces strict inequality off x=0 on the left and off x=1 on the right by reflection. The output is continuous, so essential and ordinary output suprema coincide; the sign of the endpoint row attains the norm for measurable inputs and is approximable for this integral by continuous bounded inputs, smoothing around the simple roots. At equality a continuous input would have to match the sign up to a single phase almost everywhere on the nonzero set of the maximizing row. A sign change makes that incompatible with continuity, for both real and complex inputs. The frozen checker was read, not run.
 
-Closest source: Shadrin, Acta Mathematica 187 (2001), §§0.2, 4.1, 4.3 and 4.5. See `RESULT.md` references. Limits: historical coverage may be incomplete, and independent audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The checked distinct result is the sharp global operator norm, exact maximizers and attainment distinction for the finite two-element continuous quadratic projection. Knot-sequence-independent boundedness and related spline kernel bounds are prior; no exact covering result for this space was verified.
+
+## value
+
+PASS
+
+The first symmetric two-element C0 quadratic space is a natural finite-element stability benchmark fixed before computation. Its sharp norm quantifies the largest possible excursion of a projected bounded input, and the strict endpoint classification and continuous nonattainment describe how such excursions can be approached. In particular, by preservation of constants, the norm fixes the sharp overshoot (C-1)/2 for inputs in [0,1], useful without any extrapolation to other knots or continuity orders.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:34:01.360087Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–39; VERIFICATION.md; checker.py; certificate.json; checker_output.txt",
+        "Independent reproduction: python3 /workspace/reproductions/1.py; /workspace/reproductions/1.txt"
+      ],
+      "rationale": "The N=2^k cyclic k-windows are distinct, so each must be hit. A mark hits exactly k of these windows. With N/k marks each window must be hit exactly once, forcing successive cyclic gaps at least k and hence all exactly k. Thus equality is equivalent to a successful residue modulo k. I reconstructed each stated cycle independently by partitioning the k-bit words into rotation orbits, taking the primitive root of each orbit's least element, and concatenating the sorted roots. The length-k window test verified the de Bruijn property of every reconstructed cycle. Direct cyclic substring slicing and incidence checks for every factor length through k give successful residues [0], [0,1], [0,1,2,3], and [4] at k=1,2,4,8. A longer window contains a length-k window, whose occurrence is already hit. At k=16 the independent scan of all starts gives exactly the eight recorded starts for each of the six factors. The missing residue sets are {9,10,11}, {10,11,12}, {13,14,15}, {3,4,5}, {0,1,2}, {6,7,8}, whose union is all residues. Hence every equality candidate fails and the minimum is at least 4097, not necessarily equal to 4097.",
+      "residual_risks": [
+        "These exhaustive checks and the bound do not find an attractor of size 4097 or address the minima of other order-16 cycles. The successful k=8 residue is tied to the frozen Lyndon indexing."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 29 applies to prime orders and the unfolding with last p−1 positions prefixed; the following paragraph points out nonprime divisor lengths shift marks.",
+          "The indexed linear order-four census proves every cycle has at least eight good length-19 cuts with a four-position full attractor.",
+          "The Mantaci et al. DOI and lawful repository-copy routes did not yield inspectable full text."
+        ],
+        "reasoning": "The prime theorem includes binary k=2, and projecting a good length-19 cut implies circular attainment at order four for every such cycle: all circular length≤4 factors occur in that cut, and longer ones contain a length-four window. Neither comparison reaches composite k=8 or 16. No full-text conclusion is drawn about the inaccessible proposition.",
+        "searches": [
+          "arXiv:2407.15599, Theorem 29 and paragraph following its proof",
+          "Resultary b89f933847cc, Finding and Assumptions, offset 0",
+          "Mantaci et al. DOI 10.1016/j.tcs.2020.11.006, targeted Proposition 41 retrieval"
+        ]
+      },
+      "checked_sources": [
+        "Whittington arXiv:2407.15599 §5; Mantaci et al. DOI 10.1016/j.tcs.2020.11.006 (abstract-level); Banbara et al. arXiv:2602.16152 introductory passage; Resultary b89f933847cc and 664e6800e498"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Whittington's periodic sharp covering handles length k, and the theorem adding shorter coverage is explicitly prime-order. The nearby linear census gives a projected circular solution only at order four.",
+          "The inspected Banbara et al. p. 1 introduction passage describes asymptotic de Bruijn attractor size, not a canonical order-16 equality decision."
+        ],
+        "reasoning": "Count and projection arguments explain some of the lower-order positive cases, but cannot exclude all order-16 residues. That negative result uses actual small-factor incidence for the specified canonical word, not a specialization of those positive or asymptotic statements.",
+        "searches": [
+          "arXiv:2407.15599 §5, prime theorem and composite-order caveat; Resultary b89f933847cc",
+          "Banbara et al. arXiv:2602.16152, introduction, de Bruijn passage"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Whittington distinguishes length-k-only sharp attractors from k-attractors hitting factors through length k; the text exhibits a length-two factor missed by a sharp length-three attractor in a particular unfolding.",
+          "The frozen cycle uses lexicographically ordered primitive Lyndon roots, and must hit all circular factor lengths."
+        ],
+        "reasoning": "The Lyndon/FKM labels refer to the same canonical cycle. For an equally spaced circular candidate, hitting factors through length k suffices for full coverage, but sharp length-k coverage alone does not. A linear hit in a sufficiently long unfolding can project to a circular hit, while a failure for one linear cut does not show circular failure.",
+        "searches": [
+          "Whittington, Online String Attractors, arXiv:2407.15599, §5, PDF pp. 17–18",
+          "Local Resultary: Lyndon/FKM de Bruijn cycles, circular attractors and density equality"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The located order-four table concerns linear cuts. The catalogue summary of 664e6800e498 concerns all cycles at order five, with attractor minimum seven, not the dyadic orders eight or sixteen.",
+          "No matching order-16 six-factor table or canonical order-eight residue classification was located; the original's reference to a different order-eight nonattainment example does not give a specific locator."
+        ],
+        "reasoning": "The located tables do not classify the frozen cycle at either decisive order. A different cycle at order eight, if confirmed, would not classify F_8 or imply the order-sixteen obstruction. A ranked-search miss is not proof that no exact table exists.",
+        "searches": [
+          "Local Resultary and focused literature lookups for canonical order sixteen and its length-thirteen residue obstruction",
+          "Local Resultary: binary order eight cyclic circular de Bruijn cycle attractor nonattainment size 32 spacing residue arbitrary canonical lexicographic",
+          "Resultary b89f933847cc and 664e6800e498"
+        ]
+      },
+      "rationale": "The density/spacing observation and some small-order attainments have predecessors or are elementary. The supported distinct content is the exact canonical order-eight equality residue and the obstruction to full circular lower-bound attainment at canonical order sixteen, which together identify the first failure along the specified dyadic sequence. The inspected prime-order result, earlier linear order-four census, and nearby order-five circular computations do not cover those conclusions.",
+      "residual_risks": [
+        "The precise independently studied noncanonical order-eight example and Mantaci et al. Proposition 41 were not resolved in accessible primary text. Bounded searches do not settle priority or exclude an unindexed canonical order-16 calculation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prime-order coverage plus an explicit nonprime difficulty; no exact k=16 result in the inspected passages",
+          "evidence": "Theorem 29 concerns primes and a specified linear unfolding; immediately after the proof the paper points out the phase shifts from words at nontrivial divisor lengths.",
+          "identifier_or_url": "https://arxiv.org/abs/2407.15599",
+          "material_read": "§5, PDF pp. 17–18, offsets 62450, 62900 and 66100–66254",
+          "method": "Primary OA PDF text",
+          "title": "Online String Attractors",
+          "trigger": "Closest prior result on Lyndon-generated de Bruijn words"
+        },
+        {
+          "assessment": "Implies frozen k=4 attainment via projection but not either decisive higher order",
+          "evidence": "Each cyclic order-four word has at least eight cuts with a four-position attractor on the length-19 unfolding.",
+          "identifier_or_url": "Resultary b89f933847cc",
+          "material_read": "Finding and Assumptions and scope, offset 0",
+          "method": "Local mirrored RESULT.md, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Complete attractor-rank profile of binary order-four de Bruijn unfoldings",
+          "trigger": "Directly relevant same-order small-score census"
+        },
+        {
+          "assessment": "Different parameter in visible summary; no whole-record inference",
+          "evidence": "The summary treats the 2048 order-five cycles and minimum size seven.",
+          "identifier_or_url": "Resultary 664e6800e498",
+          "material_read": "Catalogue summary only; RESULT.md absent from local mirror",
+          "method": "Local index and mirror attempt",
+          "title": "Complete minimum circular-attractor census of binary order-five de Bruijn cycles",
+          "trigger": "Same circular invariant on de Bruijn cycles"
+        },
+        {
+          "assessment": "Full-text result unresolved, not used as negative evidence",
+          "evidence": "Visible abstract introduces the circular invariant; no inspected primary proposition substantiates the precise earlier-example comparison.",
+          "identifier_or_url": "https://doi.org/10.1016/j.tcs.2020.11.006",
+          "material_read": "Abstract-level material only; Proposition 41 unavailable",
+          "method": "DOI landing page and lawful Pisa repository-copy attempt, including configured direct/VPN retrieval; repository HTTP 403",
+          "title": "A Combinatorial View on String Attractors",
+          "trigger": "Foundational circular invariant and potentially relevant Proposition 41"
+        },
+        {
+          "assessment": "Asymptotic background in the relevant passage",
+          "evidence": "The cited discussion describes smallest attractor size asymptotically approaching n/log n for de Bruijn words; it is not an exact canonical circular order-16 calculation.",
+          "identifier_or_url": "https://arxiv.org/abs/2602.16152",
+          "material_read": "PDF p. 1, introduction, de Bruijn passage at offset 4524",
+          "method": "Primary OA PDF passage",
+          "title": "The Smallest String Attractors of Fibonacci and Period-Doubling Words",
+          "trigger": "Cited introductory comparison with de Bruijn words"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Proof and Limitations; Whittington arXiv:2407.15599 §5, especially the questions preceding Theorem 29"
+      ],
+      "rationale": "This is a motivated exact obstruction, not an arbitrary cutoff: dyadic orders have an integral density lower bound, and the canonical Lyndon construction is a natural test case after the known prime-order result. The four preceding attainment cases and the six-factor obstruction at sixteen locate the boundary within this family, and sharply separate guaranteed sharp covering from full covering. The obstruction is small enough to be reused or compared in studying other constructions.",
+      "residual_risks": [
+        "The result does not refute existence of some different tight order-16 cycle and does not quantify the optimum beyond the strict lower bound."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

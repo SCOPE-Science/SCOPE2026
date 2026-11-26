@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,15 +19,24 @@
 }
 ---
 
-# Verification notes
+# Independent mathematical audit
 
-The complete argument is in `RESULT.md`; the executable `verify.py` checks identities from the orbit reduction and the two-step Jacobian using exact SymPy algebra. It then compares polynomial roots with the derived stability inequalities for seven rational parameter pairs and six nonzero squared orbit amplitudes; it also tests the shift recurrence for those pairs and six additional contraction values for boundary identities. On the supplied code the observed outcome is:
+## correctness
 
-```
-PASS: exact map recurrence, return polynomial, Schur reductions, boundary factorizations;
-PASS: 68 rational-parameter recurrence and finite spectral checks
-```
+PASS
 
-Run with `python3 verify.py` after installing SymPy. There is no randomness or external download, and no third-party paper is embedded.
+The shift forces the alternating coordinates. Subtracting the two recurrence equations gives (u-v)(u+v+Q)=0; the nonzero factor branch leaves h=(u-v)^2/4 and gives exactly one unordered orbit for h>0, with no exceptional division. Writing D=delta^2, the two-step derivative has trace 1+E-D-4h, principal-minor sum E and determinant D. Independent stability replay: map lambda=(1+s)/(1-s) and clear denominators. The ascending cubic coefficients are 4h, 2(1-E+2D+2h), 4(1-D-h), 2(1+E-2h); the Routh determinant (a2*a1-a3*a0)/8 is (1-D)(1-E+2D)-4Dh. The two upper bounds force h<1-D, because W_flip is at most 1-D for E<=1-2D and W_NS is at most 1-D for E>=1-2D. Positivity is therefore precisely the stated sink strip and width bounds. At the flip boundary division by lambda+1 gives lambda^2+(E+D)lambda-D, strictly Schur in the strict flip case (endpoint sums 1+E and 1-E-2D); at the other boundary the complementary factor to lambda-D is lambda^2-((E-1)/D)lambda+1, with strictly nonreal unit roots in the stated strip. At equality the pair coalesces at -1. The square completion E-1+2D=(sigma+delta)^2+(3delta-1)(1+delta) gives the exact dichotomy and puts both real interface roots inside the strip for 0<delta<1/3.
 
-The infinitude of real parameter choices is covered by the proof, not by the finite spectral tests. The generic Schur reduction and its quadratic inequalities are mathematical facts invoked and algebraically expanded in the proof. Exactly on a spectral stability boundary, the theorem asserts only a unit-circle multiplier configuration; no nonlinear stability or criticality beyond that is certified.
+## originality
+
+PASS
+
+The inspected same-family work establishes the fixed-point period-doubling origin and observes both motivating losses numerically, but not the all-parameter primitive-two return-spectrum wedge and exact interface. Do not credit the map, the fixed-point flip locus, or the qualitative numerical observations as new.
+
+## value
+
+PASS
+
+The natural family and two observed exit mechanisms predate the calculation. The result replaces single-orbit parameter surveys with an exhaustive existence and attraction criterion, locates an exact contraction cutoff between possible mechanism types, and identifies the exceptional double multiplier. A researcher studying higher-period origins or local boundaries needs the precise wedge rather than just the fixed-point flip locus.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

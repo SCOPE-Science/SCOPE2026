@@ -1,11 +1,21 @@
-# Review: The first nonsquarefree index admitting integer hyperharmonics
+# Independent mathematical audit
 
-**Correctness — PASS.** The identity \(h_n^{(r)}=P_n(r)/n!\), with \(P_n\) the derivative of the integer rising-factorial polynomial, is exact. All fourteen prime-power congruences and the joint CRT residue are verified using pure integer arithmetic. Since congruent orders have congruent polynomial values modulo \(45!\), the displayed progression gives infinitely many exact integers. The minimality conclusion uses the published theorem excluding all even or prime-power indices, combined with the least odd squareful integer having two distinct prime factors: \(3^2\cdot5\).
+## correctness
 
-**Originality — PASS, with substantial residual risk.** The 2008 foundational paper did not construct integers; the 2017 nonintegrality theorem gives the lower bound only; the 2020 existence theorem uses the squarefree index \(33\). The 2025 density-paper abstract names \(33\) and \(39\), not \(45\), and targeted semantic and bibliographic comparisons located no equivalent CRT theorem. The *full 2025 paper was not accessible*; a previously published index-\(45\) certificate, table or stronger covering theorem within it remains a material risk. A failed search is not a proof of novelty.
+PASS
 
-**Value — PASS.** The result answers a natural first-index question across all nonsquarefree integers, and gives a sharp boundary and a positive-density infinite family rather than an unmotivated single numerical example. It is a complete first-occurrence result for this structural index class, not a purported classification of every admissible index or order.
+The binomial–harmonic identity cancels one factor per summand and gives P_n(r)/n! with P_n the derivative of the rising factorial. An independent product-rule recurrence (python3 /workspace/audit_evidence/hyperharmonic.py) checked the printed factorial and residue, all 14 local zeros and congruences, P_45(R) mod 45!, and three exact rational samples. The integer polynomial makes the root persist for every k≥0; the full integrality set is periodic modulo 45!, so its natural density exists and is at least 1/45!. The lower exclusion can be proved independently of access to the cited theorem. If p divides n and the interval r,…,r+n−1 has a unique entry of maximum p-adic valuation, the product omitting that entry is the unique derivative term of least valuation. For each power p^j, removing the maximal entry leaves at most floor((n−1)/p^j) multiples, by spacing. Thus v_p(P_n(r))≤v_p((n−1)!)<v_p(n!). For even n use p=2: two distinct equal-maximum 2-adic valuations would have a higher valuation between them. For n=p^a, exactly one entry is divisible by p^a. Any odd nonsquarefree n with two prime factors is at least 3²·5=45, so these exclusions cover all smaller nonsquarefree indices >1.
 
-The relevant earlier papers are cited in RESULT.md. Finite checker output verifies the explicit arithmetic certificate and rational evaluations; universality follows from the proof. Independent validation of the mathematical arguments and completeness of the literature search has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass for the least nonsquarefree index 45 and an explicit positive residue class at that index, not for the derivative reformulation or the prior exclusions. The closest distinct indexed result fully classifies the orders at 45 but is recorded on 2026-11-02, after the 2026-10-27 frozen record. It gives mathematical overlap but no demonstrated earlier priority; the inspected earlier literature establishes other indices and methods but not the needed root at 45. Publication priority is bounded by the available evidence.
+
+## value
+
+PASS
+
+Nonsquarefreeness marks exactly the regime not previously represented by the squarefree index 33. The first feasible odd nonsquarefree non-prime-power index is shown to work, and the local certificate converts what could have been an isolated large computation into an explicit set of integer orders of positive density. No claim of exact density or of the first index overall is needed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

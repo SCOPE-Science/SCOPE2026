@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact two-way composition formula is derived from the defining prime-power formulas for Euler's totient and the Carmichael function. In particular the \(p\)-power factor cancels because \(b\ge2\), the odd Carmichael part of \(u\) divides \(\varphi(u)\), and the inequality \(c(a+t-1)\le\max(t,c(a))+t-1\) is checked in all three boundary cases. When \(u>1\), the resulting quotient has positive 2-adic valuation; when \(u=1\), an exact exponent computation yields the stated Fermat-prime classification. Independent finite implementations of the arithmetic functions agree over 1830 cases, including boundary values. The proof, not the finite computation, supplies the unrestricted quantifiers.
+## correctness
 
-## Originality — PASS
-The original Banks–Luca–Saidak–Stănică paper treats global counting and typical sizes, and its construction of some solutions is not a necessary-and-sufficient classification for \(2^a p^b\) with \(b\ge2\). OEIS A123101 records only the equality sequence, computations, and citations. Other identified work studies common *values* rather than commuting compositions. Explicit searches for Fermat prime power equality, quotient parity, and exponent independence did not identify a covering theorem; this cannot rule out unindexed earlier work. The reviewed claim is stronger than any visible table and is not inferred merely from the absence of matching titles.
+PASS
 
-## Value — PASS
-The published equality set has been studied analytically, but its exact structure on unbounded fixed-prime-support families is meaningful. A single theorem gives an all-exponents classification, a sharp Fermat-prime threshold, a 2-adic exclusion for all other odd primes, and a stabilization in one prime exponent. These are structural restrictions on the natural original equation, not arbitrary numerical fibers or known-table reproduction. The theorem makes no claim regarding the existence of further Fermat primes or the whole equality set.
+For p−1=2^t u with u odd, write c(j)=v₂(λ(2^j)), T=max(t,c(a)), S=a+t−1 and λ(u)=2^h K with K odd. The first iterates have the common odd part p^(b−1)u; p divides neither u nor λ(u) since λ(u)≤u<p. Thus the composed numerator is 2^L p^(b−2)uφ(u), L=T+t−1, and the denominator is 2^E p^(b−2)lcm(u,K), E=max(t,c(S),h). Cancellation works also at b=2. The lcm divides uφ(u). For u>1 its quotient into uφ(u) has valuation f=v₂(φ(u))≥1; h≤f and c(S)≤L (for a≤2 use c(S)≤S−1, for a≥3 use c(S)=a+t−3). Therefore L+f−E≥min(L,f)≥1. For u=1 the exponent is t−1 at a=1,2 and max(0,t−(a−2)) at a≥3. This proves the integer quotient, b-independence, parity obstruction and exact equality classification, including p=3 and the first qualifying a. The frozen verifier was inspected, not executed: lines 88–102 compare both compositions directly in the finite sweep, whereas the extra threshold assertions at lines 103–106 evaluate formula() only (the sweep itself reaches the 257 threshold). The proof does not depend on the script.
 
-## Sources and residual risk
-Sources checked: DOI 10.1007/BF02942044 (open full relevant primary text); OEIS A123101 (entry/table/code); DOI 10.4064/aa122-3-1 (publisher description and abstract); mathematical publication metadata. Earlier elementary or unindexed related characterizations remain a residual overlap risk. The 2005 journal issue gives no verified full calendar day; a 2006-01-10 bibliographic full date is used for the archived source record, and a 2006-09-27 full date is visible for OEIS A123101.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact local quotient and unbounded equality classification survive the statement-level comparisons. The best matches treat the same equation globally or enumerate bounded examples, or use Fermat primes in different equations; no inspected source supplies or implies the full local parity obstruction and threshold. This is a best-of-knowledge assessment, not a priority guarantee.
+
+## value
+
+PASS
+
+The two-prime-power family isolates the 2-adic contribution to a studied composition equation while allowing arbitrarily large exponents on both primes. The result gives an exact obstruction for all odd parts u>1 and a least qualifying 2-adic exponent otherwise, connecting a natural arithmetic coincidence to Fermat primes. This is useful beyond reproducing finite entries or merely exhibiting another sufficient construction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

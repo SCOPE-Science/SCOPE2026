@@ -1,0 +1,175 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:09:00.532096Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 4–85; VERIFICATION.md; CHECK.py (inspected, not run)",
+        "/workspace/branches/replay_frozen_checks.py (argument 4)"
+      ],
+      "rationale": "Left translating the support preserves rank. Independently, on two cyclic cosets one can pair the Fourier mode j on the rotation coset with mode −j on the other; a acts by opposite phases and b switches cosets, with the return phase (−1)^j. This yields the stated 2×2 symbol, paired again at −j, with fixed modes 0 and n giving the four scalar characters. For even j the determinant condition is the union of congruences n divides (j/2)(r±u), nested because n is dyadic, yielding max(A/2−1,0) eligible singular blocks when A is even and zero when A=1. Both terms of the symbol vanish together exactly when j times each difference is congruent to n mod 2n; common difference valuation t in [1,k−1] gives 2^(t−1) zero blocks. When j is odd, a sum of squared cosines can vanish only for r=u=n, so every odd block then adds its full nullity. The four scalar tests contribute 1, 2, or 3 according to mixed, even/even, or odd/odd parities. For the mean, odd/odd congruence union tails are 2^(2−j) for powers 2^j with j≥2; for halved even differences the union tail is 2^(1−j)−2^(1−2j), before removing both zero axes. Removing those axes and adding the zero-block corrections gives the stated moment. Ordered anchors have exactly four presentations per unordered support. An independent exact characteristic-zero rank calculation checked 617 supports (every normalized r,u,w at n=4 and every r,u at one deterministic offset at n=8), including the two full difference-pair sums 148 and 856.",
+      "residual_risks": [
+        "Kernel dimension is geometric zero multiplicity, not algebraic zero multiplicity for the directed case. E.g. n=8, S={a,a³,b,a⁶b} has a nonzero nilpotent j=2 block of rank one, and its two regular copies distinguish the multiplicities. The frozen modular rank run is finite corroboration only; a modular zero does not certify complex singularity."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Behajaina–Legrand's Thm. 3.1 assumes inverse-closed identity-free S. Dobson's construction studies automorphisms of special digraphs. The accessible abstract for Wu et al. limits the graph object to finite simple graphs and concerns faithful transitive dicyclic or semidihedral actions."
+        ],
+        "reasoning": "Even a broad formula on simple undirected graphs would leave generic non-inverse-closed and identity-containing supports outside that scope. It may cover the inverse-closed loopless subfamily; full-text equivalence on that subfamily is unresolved. None of these statements covers the aggregate mean over all balanced supports of the frozen theorem.",
+        "searches": [
+          "generalized quaternion groups Cayley digraph spectrum convolution group ring rank nullity four element support census Dobson Minchenko Wanless Behajaina Legrand",
+          "\"Singular graphs with dicyclic or semi-dihedral group action\" Wu Yang Feng open PDF",
+          "arXiv:2202.11398 Theorem 3.1"
+        ]
+      },
+      "checked_sources": [
+        "DOIs 10.37236/1724, 10.26493/1855-3974.502.566, 10.1080/03081087.2022.2159919 (access limits above)",
+        "arXiv:2202.11398",
+        "Resultary 7e543c7b14d3, d4787ab578c7, 4c46c48edabe, 0f28cf825a80"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The common two-dimensional representation technique gives determinants on individual modes; the odd-dicyclic result resolves a different congruence and support census. The sharp bound ν≤3n can also be seen from the Frobenius norm squared 4|G| and operator norm ≤4, so the bound alone is not the distinct claim."
+        ],
+        "reasoning": "What remains is the exact five-case rank classification with zero-block corrections and its exact population/first-moment formulas. They are not implied by integrality criteria or by the general rank bound, and an odd-index formula cannot be specialized to powers of two.",
+        "searches": [
+          "arXiv:2202.11398 Theorem 3.1",
+          "DOI 10.37236/1724 theorem passage",
+          "7e543c7b14d3 RESULT.md Finding",
+          "DOI 10.1080/03081087.2022.2159919 (abstract and access attempts)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The operator is regular left multiplication by the sum of the taps, also a Cayley adjacency operator up to transpose. The odd-index dicyclic catalogue record 7e543c7b14d3 and odd generalized-dihedral record d4787ab578c7 give analogous exact balanced-support results within different assumptions."
+        ],
+        "reasoning": "The same rank problem is obtained under the adjacency/group-ring translation, not necessarily the same algebraic eigenvalue multiplicity. The odd-index results cannot yield the dyadic nesting or even/odd Fourier split at these indices.",
+        "searches": [
+          "Resultary: balanced four-tap convolution generalized quaternion Q_{4n} exact nullity first moment supports",
+          "Resultary: generalized quaternion group convolution exact rank nullity census four taps Cayley graph spectrum"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Minchenko–Wanless list classifies connected integral quartic Cayley graphs up to graph isomorphism, while catalogue record 4c46c48edabe treats attainable weighted ranks on Q8, outside n≥4, and 0f28cf825a80 concerns variable weights on the ten-element dihedral group. The catalogue's odd dicyclic census is explicit but parametrically disjoint."
+        ],
+        "reasoning": "A rank-spectrum table with variable weights, or a list restricted to integral undirected graphs, does not count all unweighted distinct two-plus-two supports with their original multiplicities. No matching dyadic nullity census appeared in these bounded checks.",
+        "searches": [
+          "Resultary: powers of two generalized quaternion balanced two plus two support nullity exact first moment",
+          "Quartic integral Cayley graphs DOI 10.26493/1855-3974.502.566",
+          "Resultary: generalized quaternion group convolution exact rank nullity census four taps Cayley graph spectrum"
+        ]
+      },
+      "rationale": "The precise all-support dyadic valuation strata, populations and closed first moment survive the comparison. General Fourier blocks and the extremal rank bound in isolation are standard or elementary. Dicyclic graph singularity is the closest external overlap risk, but the available statement is for finite simple graphs, and its full text was not successfully opened. Neither that scope nor the checked integrality papers gives the complete directed or looped coefficient-one census and its first moment. Closest indexed complete analogues use odd cyclic index or the different generalized-dihedral group law; they do not extend by substitution.",
+      "residual_risks": [
+        "Unverified restricted overlap with Wu et al. on simple Cayley graphs. A more general directed group-ring or Fourier rank census could overlap; no global priority assertion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different theorem on selected digraph automorphisms",
+          "evidence": [
+            "Constructs non-normal Cayley digraphs and studies permutation automorphism structure, not geometric zero multiplicities of every balanced support."
+          ],
+          "identifier_or_url": "DOI 10.37236/1724",
+          "material_read": "PDF pp. 1 and 6, offsets 0 and 17440",
+          "method": "Open primary PDF passages",
+          "title": "Some non-normal Cayley digraphs of the generalized quaternion group of certain orders",
+          "trigger": "Same group and directed Cayley geometry"
+        },
+        {
+          "assessment": "The stated exhaustive list is for connected integral quartic graphs only; specific quaternion examples in the full table not independently verified",
+          "evidence": [
+            "Abstract gives lists up to graph isomorphism, not the unrestricted directed/supportwise nullity census."
+          ],
+          "identifier_or_url": "DOI 10.26493/1855-3974.502.566; https://amc-journal.eu/index.php/amc/article/download/502/818",
+          "material_read": "PDF opening/abstract p. 1; extraction limited to 2873 characters",
+          "method": "Open PDF abstract passage",
+          "title": "Quartic integral Cayley graphs",
+          "trigger": "Four-regular Cayley graph classification"
+        },
+        {
+          "assessment": "Prior spectral technique and integrality criterion on a restricted class",
+          "evidence": [
+            "Theorem 3.1 uses S inverse-closed and identity-free, and its criterion characterizes integer spectra."
+          ],
+          "identifier_or_url": "arXiv:2202.11398",
+          "material_read": "Abstract p. 1 and Thm. 3.1 p. 5, offset 19643",
+          "method": "Open primary PDF passages",
+          "title": "On Cayley graphs over generalized dicyclic groups",
+          "trigger": "Same generalized group setting and Fourier machinery"
+        },
+        {
+          "assessment": "Closest unresolved restricted overlap; the abstract's finite-simple-graph assumption excludes generic supports here and does not determine the whole paper's covers/noncovers",
+          "evidence": [
+            "The abstract defines the problem for finite simple graphs with faithful transitive dicyclic or semidihedral action, and determines singularity in that class."
+          ],
+          "identifier_or_url": "DOI 10.1080/03081087.2022.2159919",
+          "material_read": "Publisher abstract excerpt via indexed Ingenta result; frozen AUDIT lines 120–129 as recorded additional abstract evidence; no full text read",
+          "method": "DOI, identified Ingenta and ResearchGate copies attempted through configured reader; all unavailable, no OA repository copy identified",
+          "title": "Singular graphs with dicyclic or semi-dihedral group action",
+          "trigger": "Directly addresses singularity and nullity with dicyclic action"
+        },
+        {
+          "assessment": "Same support allocation, different group-index regime",
+          "evidence": [
+            "Treatment is for odd p, with exact singular values and maximum 3p on p² supports; the dyadic group index is not allowed."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-singular-value-and-nullity-census-for-balanced-dicyclic-four-tap--7e543c7b14d3",
+          "material_read": "RESULT.md opening Finding and census",
+          "method": "Local catalogue mirror",
+          "title": "Singular-value and nullity census for balanced dicyclic four-tap convolution",
+          "trigger": "Closest exact four-tap support census"
+        },
+        {
+          "assessment": "Odd generalized-dihedral groups, not dyadic generalized quaternion groups",
+          "evidence": [
+            "Different involution relation and exact strata on an odd-order cyclic base."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-balanced-four-tap-generalized-dihedral-convolution-three-nullity--d4787ab578c7",
+          "material_read": "RESULT.md Finding",
+          "method": "Local catalogue mirror",
+          "title": "Balanced four-tap generalized-dihedral convolution",
+          "trigger": "Exact balanced four-tap analogue"
+        },
+        {
+          "assessment": "Boundary and weight change, not same census",
+          "evidence": [
+            "All nonempty Q8 supports and attainable ranks with arbitrary nonzero complex tap values."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-complete-antipodal-occupancy-fourier-rank-spectrum-on-q-8--4c46c48edabe",
+          "material_read": "RESULT.md Finding",
+          "method": "Local catalogue mirror",
+          "title": "Complete antipodal-occupancy Fourier-rank spectrum on Q8",
+          "trigger": "Neighboring quaternion rank classification"
+        },
+        {
+          "assessment": "Different group, variable weights",
+          "evidence": [
+            "Attainable ranks for fixed four-point supports on the ten-element dihedral group, not the unweighted dyadic census."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-exact-four-tap-fourier-rank-geometry-on-the-ten-element-dihedral--0f28cf825a80",
+          "material_read": "RESULT.md Finding",
+          "method": "Local catalogue mirror",
+          "title": "Exact four-tap Fourier-rank geometry on the ten-element dihedral group",
+          "trigger": "Exact four-point rank classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 14–28, 62–82"
+      ],
+      "rationale": "This is an exact all-scale sparse convolution rank classification, not a repeated singularity test. Every support is singular but asymptotically half lose just one dimension, while a log-growing mean reflects a range of much larger kernels and extremizers have an explicit subgroup geometry. Such distinctions are useful for rank-sensitive filtering and not apparent from the common first scalar zero or integrality criteria.",
+      "residual_risks": [
+        "No weighted-support or general spectral classification is asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

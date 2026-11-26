@@ -1,16 +1,21 @@
-# Review
-## Correctness
-PASS. Conditioning a uniform Dirichlet spacing vector on a positive minimum threshold produces an exact affine shrinkage toward the equal-spacing vector. Majorization then proves the real-power sign theorem. Integer powers reduce to finite Beta moments, and the Greenwood formulas follow algebraically. Independent direct simplex integration for dimensions two and three agrees with the closed mixed moment.
+# Independent mathematical audit
 
-## Originality
-PASS, with an older-literature risk. The closest full minimum-spacing source treats an asymptotic extreme-value law and contains no Greenwood statistic. The closest complete Greenwood source treats additive spacing tests and asymptotic efficiencies and contains no minimum-spacing statistic. Targeted exact-form and semantic searches did not locate the power-one sign transition, the integer-power covariance formula, or the threshold-conditioned Greenwood mean.
+## correctness
 
-Older spacing or Dirichlet order-statistic literature could contain an equivalent mixed moment under different notation; this remains the principal residual risk.
+PASS
 
-## Value
-PASS. Minimum spacing detects a local near-collision, whereas Greenwood and its power-family relatives measure global unevenness. The result shows exactly how these two notions of irregularity interact: concave powers align with a large minimum, convex powers oppose it, and the classical squared-spacing statistic has a closed finite correlation and a transparent threshold regression.
+Translating and scaling the threshold simplex gives P(M>t)=(1−mt)^(m−1) and D|M>t=(1−u)e+uX with u=1−mt and e the barycenter. On every nonconstant ray the sum of powers decreases strictly toward e for a>1 and increases strictly for 0<a<1, by strict convexity or concavity. Integrating the conditional-mean difference against survival proves the three signs, including the trivial constant at a=1. For integer q, the k-th term uses E[X₁^k]=k!(m−1)!/(m+k−1)! and a beta integral; it contributes q!(m−1)!m^(−(q−k))/(m+q)! to E[MP]. Subtracting E[M]E[P] gives the stated bracket. The q=2 covariance, normalized correlation, and conditional Greenwood mean follow with E[G]=2/(m+1) and the indicated variance formulas. In the fixed-q limit, expansion of the factorial ratios gives variance coefficient (2q)!−(q!)²(q²+1), strictly positive as the variance of Y^q−q q!Y for Y exponential of mean one and q≥2. Its combination with the leading covariance and Var(M) yields the stated normalized limit.
 
-## Closest literature and limitations
-The extreme-spacing literature supplies the marginal minimum-spacing asymptotics; the Greenwood literature supplies asymptotic theory for squared and additive spacing statistics. The theorem is finite-sample under the uniform-simplex null. Its closed covariance formula is integer-power specific, although the sign theorem covers every real positive power.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the classical minimum survival law, the known subtraction/residual construction and the Greenwood marginal moments. The checked prior work on the same simplex gives ordered-spacing or square-sum marginals and an exact-minimum residual construction, not the real-power covariance transition and explicit mixed-moment and correlation formulas. Nearby Resultary records change at least one of the two statistics. The pass concerns the particular dependence statements and their evaluations, not priority for the conditional simplex law.
+
+## value
+
+PASS
+
+The canonical minimum-gap and spacing-dispersion summaries measure different departures from evenness. The result quantifies their dependence uniformly in sample size, distinguishes concave from convex powers, and supplies directly usable null covariance and correlation instead of requiring a new simplex integral for each size. The q=2 magnitude and the threshold response provide more information than the sign alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:21:29.613737Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Choose a Weierstrass point w as base for the theta divisor C−w in the genus-two Jacobian. Its intersections with the 2-torsion are exactly the six classes o_i=[w_i−w], since 2P∼2w precisely at the ramification points. The tropes come from 2-torsion translates of this theta divisor. Label the two classes of vertices by a copy each of J[2]; incidence is translation by the six o_i. Therefore the Levi graph is the Cayley graph on F₂⊕J[2] with generators (1,o_i). There is no dependency of weight 2 or 4: the o_i are distinct, and an equality between sums of disjoint pairs would identify two different effective degree-two divisors, each a pair of distinct Weierstrass points, outside the unique hyperelliptic pencil. Odd-length relations are impossible by the first coordinate. Thus the six generators in dimension five form one circuit and the graph is exactly the folded six-cube, independently of the parameters (this argument works in odd characteristic as well). I built the graph using the five unit vectors and their sum. Its exact Laplacian characteristic polynomial gives the stated spectrum and connectivity, and the cofactor determinant is 3·2^72. Exact Smith form gives 1(12), 2(4), 4, 16(4), 32(9), 96. The 96 incidences give cycle rank 65.",
+      "replay": [
+        "python3 /workspace/audit_recompute.py 2 (python-flint and SymPy)"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Proposition 2.12 gives mod-2 rank 12 at r=5. Proposition 1.9 gives all odd-primary factors from the nonzero eigenvalues, here exactly C3. The arithmetic classification covers all eleven Frobenius types, including identity."
+        ],
+        "reasoning": "The published Cayley graph propositions supply partial invariants, not the higher 2-adic exponents; the identity case of the broader arithmetic classification covers the complete statement about the integral group.",
+        "searches": [
+          "arXiv:1912.06919 Propositions 1.9 and 2.12",
+          "Resultary cb0c19041c53, fixed-group table and Relationship to prior work"
+        ]
+      },
+      "checked_sources": [
+        "Resultary cb0c19041c53 and 5ecd94cdc2b8; assigned f8e311198345 self-hit",
+        "arXiv:math/0701669 §4.2",
+        "arXiv:1912.06919 Propositions 1.9 and 2.12",
+        "Focused literature query for Kummer/folded six-cube critical groups (only related material)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For the identity action K(Γ)^id=K(Γ) integrally, with no comparison of orders needed. The earlier Kummer block-complex record studies mod-two homology and rook-graph neighborhood realization; incidence-only cokernels and block-complex homology do not present this critical group."
+        ],
+        "reasoning": "The first comparison gives a direct identity implication, whereas the other Kummer invariants do not. The asserted new content cannot be saved by dropping the re-proved odd-primary case: the identity row covers every 2-power exponent as well.",
+        "searches": [
+          "cb0c19041c53 RESULT.md Finding, scope, and Relationship to prior work",
+          "Resultary 5ecd94cdc2b8 Finding",
+          "arXiv:1912.06919 Proposition 1.9"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kumar describes the 16 nodes and 16 six-point tropes. The particular Kummer biplane realizes the folded six-cube, and the six-generator circuit proof gives the same graph for geometric Jacobian Kummers in characteristic zero and odd characteristic. Mere Menon parameters do not give this identification."
+        ],
+        "reasoning": "The identity fixed group in the odd-characteristic record is the entire group of this same abstract unweighted graph. The difference of geometric ground fields does not separate the graph invariants.",
+        "searches": [
+          "Resultary: integral critical group Kummer node–trope Levi graph Menon design folded six-cube",
+          "Kumar arXiv:math/0701669 §4.2",
+          "Gao et al. arXiv:1912.06919 Proposition 2.12"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "f8e311198345 is the assigned record (self-match). The distinct cb0c19041c53 table explicitly lists 2^4,4,16^4,32^9,96 and order 3·2^72 in row 1^6, with powers denoting multiplicities. Its prior-work paragraph excludes the total group from its claimed fresh content."
+        ],
+        "reasoning": "The distinct entry supplies exactly the invariant, not an order-only check or the Smith form of the incidence matrix. Equivalent coverage is certain; chronology within the publication date is not.",
+        "searches": [
+          "Local Resultary: critical group of the Kummer node–trope Levi graph / folded six-cube"
+        ]
+      },
+      "rationale": "There is concrete equivalent coverage of the complete invariant in a distinct indexed record: cb0c19041c53 lists exactly 2(4), 4, 16(4), 32(9), 96 in its identity Frobenius row and expressly treats the total group as existing content, not as its new fixed-group classification. The two records have the same publication date; that fact does not establish which appeared first or any dependence, and this review makes neither finding. The defect is exact substantive coverage of the standalone finding, not a suspicion based on table parameters or an unresolved search. Gao et al. additionally cover the odd-primary factor and mod-2 rank, but those partial results alone would not establish the entire Smith form.",
+      "residual_risks": [
+        "The older complete geometric calculation referred to by cb0c19041c53 is not identified by that paragraph. No order or dependence between the two same-date records is inferred. Neither uncertainty changes the exact statement-level equivalence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact mathematical coverage, no established chronology",
+          "evidence": "Row 1^6 displays the full invariant factors and exact order; the comparison explicitly says its fresh content is the eleven fixed-subgroup structures, not the total critical group. Both publication dates are 2026-11-22.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-eleven-arithmetic-fixed-critical-groups-of-the-genus-two-kummer--cb0c19041c53/RESULT.md",
+          "material_read": "Finding and scope, offset 0; Relationship to prior work and Limitations, offset 7958; METADATA.json publication_date",
+          "method": "Local Resultary and local mirror passage inspection",
+          "title": "Eleven arithmetic fixed critical groups of the genus-two Kummer node–trope graph",
+          "trigger": "Distinct exact numerical match in a stronger classification"
+        },
+        {
+          "assessment": "Genuine partial coverage; not a claim about the entire paper",
+          "evidence": "Odd Sylows follow from the eigenvalues; folded cube mod-2 rank is 12 at r=5.",
+          "identifier_or_url": "https://arxiv.org/abs/1912.06919",
+          "material_read": "§1 Proposition 1.9 (HTML offset 13906); §2.2 Proposition 2.12 (p. 9, HTML offset 38600)",
+          "method": "Lawful OA passage inspection",
+          "title": "Sandpile Groups of Cayley Graphs of F₂^r",
+          "trigger": "General theorem on the same folded cube"
+        },
+        {
+          "assessment": "Geometric configuration, not the Smith group in the passage inspected",
+          "evidence": "Sixteen nodes and sixteen tropes, each incident with six objects of the other type.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0701669",
+          "material_read": "§4.2, p. 10, offset near 29500",
+          "method": "Lawful OA passage inspection",
+          "title": "K3 surfaces associated with curves of genus two",
+          "trigger": "Classical Kummer geometry underlying graph identification"
+        },
+        {
+          "assessment": "Different invariant on related incidence data",
+          "evidence": "Identifies the block complex with the open-neighborhood complex of the 4×4 rook graph and studies mod-two cycles, not the Levi graph Laplacian.",
+          "identifier_or_url": "2026/10/25/SCOPE-the-240-shortest-mod-two-one-cycles-of-the-kummer-biplane-and-it--5ecd94cdc2b8",
+          "material_read": "Finding, passages around offsets 45 and 418",
+          "method": "Local Resultary and local mirror passage inspection",
+          "title": "The 240 shortest mod-two one-cycles of the Kummer biplane and its block complex",
+          "trigger": "Related earlier Kummer biplane result"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The full Smith group is a natural and potentially useful invariant of the Kummer configuration. The frozen record, however, adds no mathematical content beyond the exact identity row already contained in the distinct indexed classification, and the other stated data follow from the standard folded-cube or biplane model. As a scientific finding rather than a reproducibility check, it has no distinct surviving result to repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T23:33:35.290029Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 3–72 (semantics and all-k proof)",
+        "VERIFICATION.md and checker.py (inspected, not executed; exact bounded checks are corroboration)"
+      ],
+      "rationale": "On an S5 cluster, every contingency value is constant. XOR with a cluster-constant bit preserves variation, so an outer contingency on a normal form tests only the local linear parity. Induction gives existence even for nested formulas and infinite clusters. On singletons with valuations 0 and e_i one recovers the constant and k local coefficients. On a cluster with an affine basis for the full span every nonzero parity varies, giving the sum T of all modal coefficients. For span s-perp only s among the nonzero parities is constant, so testing that hyperplane recovers T XOR b_s; testing all but one gives the omitted b_s from T. This establishes uniqueness and the fixed teaching family of size D=k+2^k using at most k+1 worlds. With at most k worlds the span is proper, so the number of varying parity indicators 2^k-2^(k-dim L) is even; the all-modal XOR vanishes. Conversely a combination vanishing on all such examples has zero constant and local parts by the singletons, and b_s=T for every s by the hyperplanes, making its relation space exactly one-dimensional. The full-span cluster violates the relation. For k=1 the hyperplane is the zero space and the omitted-test construction needs no hyperplane examples. Fewer than D labels give fewer than D linear constraints on a difference and cannot identify any target. That proves the class counts, both cutoff directions and optimality over the full stipulated fragment.",
+      "residual_risks": [
+        "The pure-XOR fragment and one universal S5 cluster per evaluation are essential to the argument; it does not establish analogous counts for primitive modalities or another Boolean basis."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Modal Fragments treats contingency as a bundled connective and discusses open affine cases; inspected passages do not give the one-agent XOR/contingency free formula space.",
+          "Krebs–Meier prove a two-agent affine satisfiability result with primitive modal operators. Ding–Yang Example 4.3 places contingency in a general theory of bundled operators.",
+          "Humberstone's accessible abstract concerns the broader logic and relative expressivity of noncontingency; full text was not obtained."
+        ],
+        "reasoning": "The broader frameworks clarify expressivity and semantics but the accessed statements do not compute the span or rank of the precise cluster-constant indicators and local parity under XOR, nor do they teach a target formula with a fixed finite set of pointed examples.",
+        "searches": [
+          "arXiv:2603.05055 pp. 1–2, 16, 24, 30",
+          "arXiv:2512.17378 §3",
+          "arXiv:2603.26268 Example 4.3",
+          "Humberstone DOI 10.1305/ndjfl/1040248455"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–28 and 80–96",
+        "Resultary 69587faa1873 actual passages and f721419c88bd, 000da32ebd0d indexed statements",
+        "arXiv:2603.05055, arXiv:2512.17378, arXiv:2603.26268 bounded passages",
+        "OEIS A073113"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier replacement of each class by a marked affine basis gives the present upper testing bound by translation into the broader language. Its lower bound concerns realizing a full theory on fewer worlds and uses (marked valuation, hull) separation.",
+          "The new lower testing witness is one formula vanishing on every frame with at most k worlds, not a separately chosen separator for every pair of models. The restricted rank calculation on hyperplane rows gives exactly one lost direction and an explicit common teaching family."
+        ],
+        "reasoning": "Preservation of a whole theory under compression implies the upper bound; failure of compression alone does not give one formula separating a full-span model from all smaller models in an XOR-only language, where conjunction of arbitrary separators is unavailable. Once the formula-space dimension is known the teaching lower bound is elementary, but it and the explicit upper family depend on the separately established basis and evaluation ranks.",
+        "searches": [
+          "Resultary 69587faa1873, exact separator, optimal compression and counting paragraphs at offsets 4850–6950",
+          "Compared with frozen RESULT.md lines 22–28 and 46–72"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier one-agent S5 language allows affine Booleans and primitive box and diamond. On a nonempty S5 class it expresses contingency as NOT(diamond phi XOR diamond NOT phi). Its classified signature is the marked valuation and the affine hull.",
+          "Its separation argument uses an affine form zero on one hull, nonzero at some valuation of the other, when the marked valuation is shared. Because both classes contain that marked valuation, the separating possibility has the same truth as the contingency of that form in the pair of compared models."
+        ],
+        "reasoning": "Thus the affine-hull model invariant transfers even to the restricted tests for model separation. However, counting semantic functions expressed by a restricted Boolean/modal basis is not counting its test inputs up to pointed-theory equivalence. Equal separating power on pairs of models need not give equal spaces of formula functions.",
+        "searches": [
+          "Resultary lookup for one-agent affine parity S5, contingency and affine-hull signatures",
+          "Resultary 69587faa1873 matched RESULT.md, offsets 4850–6950"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A073113 lists the numerical formula 2^(2^k+k), without the modal interpretation.",
+          "69587faa1873 counts pointed theories as 2^k times a sum of Gaussian binomial coefficients, not formula classes. Nearby indexed entries f721419c88bd and 000da32ebd0d concern test identification on nonreflexive rooted stars and one-variable depth counts on irreflexive cliques, respectively."
+        ],
+        "reasoning": "The OEIS count does not identify the formula vector space; the Gaussian-binomial expression counts signatures, and the two nonreflexive comparisons measure different tasks or use non-S5 frames. No accessed formula-count or teaching table gives the claimed exact invariant.",
+        "searches": [
+          "OEIS A073113",
+          "Resultary search for k+2^k dimension and teaching, and exact world cutoff",
+          "Resultary 69587faa1873, f721419c88bd and 000da32ebd0d"
+        ]
+      },
+      "rationale": "The earlier affine-hull signature result materially covers the model compression upper bound and already gives enough to obtain sharp compression of individual theories in the restricted language. Credit that overlap. The supported distinct claim is the algebra of formula functions for the smaller XOR/contingency basis, its exact dimension and optimal variable-fixed formula teaching, and the one-dimensional loss and explicit separating identity at k worlds. The earlier result counts pointed theories and does not give these formula-space facts.",
+      "residual_risks": [
+        "An earlier equivalent formula-space result under noncontingency or modal algebra terminology cannot be excluded; Humberstone's full text was not obtained.",
+        "The compression principle is not credited as novel. This assessment is about the restricted formula functions, one relation at the cutoff, and optimal teaching, not a claim of historical priority for the affine-hull signature or numerical sequence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers model-signature and compression phenomena, not the formula-space or fixed teaching claim",
+          "evidence": "Affine-form separator, affine-basis compression, and Gaussian-binomial count of marked affine hulls.",
+          "identifier_or_url": "Resultary 2026/10/18 69587faa1873",
+          "material_read": "Matched RESULT.md offsets 0–2943 and 4828–7803, including independent focus at 4850–6950; mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local Resultary lookup and exact mirror passage inspection",
+          "title": "Affine-hull signatures and optimal models for the one-agent parity modal fragment",
+          "trigger": "Same one-agent S5 affine model invariant and optimal world bound"
+        },
+        {
+          "assessment": "Direct context for affine and bundled questions, no inspected statement of this basis count",
+          "evidence": "Contingency is bundled, a different contingency fragment is discussed, and questions remain on affine cases.",
+          "identifier_or_url": "https://arxiv.org/abs/2603.05055",
+          "material_read": "pp. 1–2, 16, 24, 30; offsets 3369, 6164, 59450, 90600, 112980",
+          "method": "OA bounded passages",
+          "title": "Modal Fragments",
+          "trigger": "Strong primary survey on Boolean-basis and modal operator restrictions"
+        },
+        {
+          "assessment": "Different operator basis, two agents and computational invariant",
+          "evidence": "NP-hardness for affine modal satisfiability using two equivalence relations.",
+          "identifier_or_url": "https://arxiv.org/abs/2512.17378",
+          "material_read": "§3, p. 4, offset 9154",
+          "method": "OA bounded passage",
+          "title": "When Symmetry Yields NP-Hardness: Affine ML-SAT on S5 Frames",
+          "trigger": "Closest recent affine S5 satisfiability theorem"
+        },
+        {
+          "assessment": "General bundled framework, no inspected fixed-vocabulary formula count",
+          "evidence": "Contingency is included as a bundled operator.",
+          "identifier_or_url": "https://arxiv.org/abs/2603.26268",
+          "material_read": "Abstract and Example 4.3, pp. 1 and 7, offsets 0 and 29282",
+          "method": "OA bounded passages",
+          "title": "A General Theory of Propositional Modal Bundled Modalities",
+          "trigger": "General theory could subsume a noncontingency normal form"
+        },
+        {
+          "assessment": "Historical relevance retained; exact coverage remains unresolved",
+          "evidence": "Abstract treats noncontingency logic and expressive weakness, without the present formula count in the inspected passage.",
+          "identifier_or_url": "https://doi.org/10.1305/ndjfl/1040248455",
+          "material_read": "Accessible abstract; DOI and identified Project Euclid full text not obtained",
+          "method": "OA retrieval attempts and abstract inspection",
+          "title": "The Logic of Non-Contingency",
+          "trigger": "Historical noncontingency logic potentially containing an equivalent normal form"
+        },
+        {
+          "assessment": "Numerical overlap only",
+          "evidence": "Records the generic integer expression but not the modal invariant.",
+          "identifier_or_url": "https://oeis.org/A073113",
+          "material_read": "Sequence entry at offset 0",
+          "method": "Database passage",
+          "title": "a(n) = 2^(2^n+n)",
+          "trigger": "Exact numerical sequence match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 5–28 and 44–72",
+        "Resultary 69587faa1873 matched model-compression statements"
+      ],
+      "rationale": "The restricted language is a natural precise affine test case for expressive power with a genuinely bundled operator. Its dimension classifies arbitrary syntax, the evaluation-rank loss identifies exactly what small-world testing misses, and one optimal nonadaptive family works for all targets. Counting the model signatures does not answer any of those evaluation-rank questions. The contribution is a structural classification and sharp boundary, not the bare numerical sequence.",
+      "residual_risks": [
+        "The theorem neither decides general affine modal satisfiability nor gives formula length bounds or an extension to other agents or frame classes."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

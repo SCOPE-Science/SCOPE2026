@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:59:20.166134Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, Assumptions and Proof §§1–4",
+        "Frozen VERIFICATION.md and verify.py inspected, without execution. Replay of reported finite checks: python3 verify.py in the source package."
+      ],
+      "rationale": "For rooted terminal counts the seed is deterministically L_2=1. If the size is m and the count is k, the increment is 1 minus a Bernoulli(k/m) variable. The mean m/2 and variance recursion V_{m+1}=(1−2/m)V_m+1/4 follow; the variance is m/12 from m=3 onward. For s≥t the conditional centered mean at s is ((t−1)/(s−1))(L_t−t/2). Given the shared tree the branches are independent even when a tested time is t itself. The conditional means multiply to the stated rank-one covariance; the t=2 and t=n cases and the strictly increasing correlation follow independently of the limit. The same integer-order-preserving transition applied with common uniforms proves stochastic order of the whole future count paths. Both future path laws depend on the shared tree only through L_t; conditional independence and the scalar monotone covariance identity give the asserted association. For the Gaussian claim (m−1)(L_m−m/2) is a martingale with increment m(L_m/m−B_{m+1}). The diagonal predictable variances use m²(1/4−(L_m/m−1/2)²), and only m<t contributes off diagonal. The expected normalized error from replacing each conditional Bernoulli variance by 1/4 is O(1/n), and the increments after normalization are O(n^{−1/2}). The quadratic sums tend to 1 and α³ respectively, so the martingale CLT in fixed projections gives the stated limit, including the zero-variance projection at α=1.",
+      "residual_risks": [
+        "Tests reported in the package have finite scope; the proof, not these tests, establishes association of general bounded increasing trajectory functionals and Gaussian convergence. These facts concern rooted terminal counts, not all degree-one vertices."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first defines the exact shared-prefix model, in a detection and estimation setting. Bäumler et al. Appendix A cites the one-tree variance 1/12 (Janson), but couples by copying a parent with constant probability at every step. Its paired leaf correlation is α(1+α)/(3−α), not the fork-time α³. The Janson primary theorem could not be inspected after lawful direct and alternate requests."
+        ],
+        "reasoning": "Neither marginal Gaussian asymptotics nor the constant per-arrival coupling supplies the claimed fork kernel. The negative originality decision rests instead on the earlier exact same-model proof and asymptotics.",
+        "searches": [
+          "Rácz–Sridhar arXiv:2004.13537, correlated randomly growing graphs",
+          "Janson DOI 10.1002/rsa.20046, degree-count asymptotics",
+          "Bäumler–Rácz–Ross–Sridhar arXiv:2606.02472, Appendix A"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary records 99a911c57a5d and 3469578c4e97",
+        "arXiv:2004.13537 and 2606.02472 at inspected passages; Janson cited comparison as qualified above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "§1 establishes K_m(k,k+1)=1−k/m and K_m(k,k)=k/m; its rooted start gives mean m/2 and V_{m+1}=(1−2/m)V_m+1/4. §2 gives the conditional regression for any end time; taking it at s and u gives the claimed product and hence rank one.",
+          "§3 iterates the same monotone maps and conditions on the count at the fork; the coupling gives coordinatewise order simultaneously at all future times, and the same conditional covariance formula therefore applies to increasing functions of those paths. §4 already states/proves the bivariate cubic limit. Subtracting the root-leaf indicator in either component is an O(1) perturbation."
+        ],
+        "reasoning": "The change from the scalar unrooted result to the frozen rooted kernel and trajectory association amounts to a seed substitution and direct consequences of the earlier proof. The weak limit is implied even without the seed calculation.",
+        "searches": [
+          "99a911c57a5d Proof §§1–4 (opened at offset 2585)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The October 18 prior record uses the same fixed edge, fork time and independent continuations; it includes the root when its undirected degree is one. Its covariance is zero through t=3, then [t(t−1)^2−12]/[12(n−1)^2] at equal final time. The frozen rooted count has 1 instead of 2 at size 2 and positive covariance already for t=3."
+        ],
+        "reasoning": "The two count processes have the same scalar transition kernel with different deterministic starts; they are not an exact relabeling of the finite count. The prior proof's conditional dynamics can nevertheless be used unaltered except for the seed.",
+        "searches": [
+          "Resultary: shared-prefix uniform-attachment trees exact cross-branch covariance terminal leaf counts fork time; cubic fork-time correlation",
+          "99a911c57a5d, Finding and Proof §§1–4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "99a911c57a5d has a same-model cubic limit and scalar association, with the unrooted finite formula. Same-day 3469578c4e97 gives a covariance kernel for degree profiles under per-step shared parenting, not the shared-prefix cross-time formula."
+        ],
+        "reasoning": "No separate literal exact finite table for the rooted statistic was identified in these checks. The strongest indexed coverage is through the underlying transition proof in the October record, not through the differently coupled same-day record.",
+        "searches": [
+          "Resultary: cross-branch trajectory association; rank-one cross-time covariance; matches 99a911c57a5d and 3469578c4e97"
+        ]
+      },
+      "rationale": "There is strong earlier indexed coverage in the same shared-prefix fixed-edge model. The earlier theorem counts undirected degree-one vertices, so its finite numerical formula is not identical; however, its proof gives exactly the same transition, arbitrary-time regression, and common-uniform monotone coupling. Replacing deterministic initial count 2 by 1 gives the rooted variance by the same recursion; selecting possibly different end times in the already available regressions gives the cross-time product immediately. The earlier coupling preserves order at each step and thus already orders whole paths, so using coordinatewise monotone path functionals in the same scalar conditioning argument is direct. The earlier cubic Gaussian law also transfers without any further limit proof by the single possible root discrepancy, bounded by one. This is a decision about demonstrable implications of the earlier record, not literal equality of rooted and unrooted statistics.",
+      "residual_risks": [
+        "No exact temporal or global priority assertion is made about all related documents. The earlier same-model proof, not the unavailable Janson primary text, grounds mathematical coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive: different definition of finite leaf statistic, but gives the identical Markov update, conditional-mean identity, monotone coupling and cubic Gaussian law",
+          "evidence": [
+            "§1 deterministic unrooted seed L_2=2 and update x→x+1−Bernoulli(x/m); §2 arbitrary-t to n conditional regression; §3 integer order preserved at every update; §4 shared increments lead to α³."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-cubic-memory-of-shared-ancestry-in-leaf-counts-of-correlated-uni--99a911c57a5d/RESULT.md",
+          "material_read": "Finding and Assumptions (offset 0), Proof §§1–4 (opened at offset 2585)",
+          "method": "Local Resultary mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Cubic memory of shared ancestry in leaf counts of correlated uniform-attachment trees",
+          "trigger": "Strongest same-model overlap and implication"
+        },
+        {
+          "assessment": "Different coupling and kernel indexing",
+          "evidence": [
+            "Outdegree-profile Gaussian covariances under per-arrival coupling; the zero-degree coefficient is α(1+α)/[12(3−α)]."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-a-rational-cross-tree-covariance-kernel-for-correlated-uniform-a--3469578c4e97",
+          "material_read": "RESULT.md Finding and generating function, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "A rational cross-tree covariance kernel for correlated uniform attachment",
+          "trigger": "Distinct same-day cross-tree kernel"
+        },
+        {
+          "assessment": "Exact model background; inspected material concerns detection/time estimation",
+          "evidence": [
+            "Trees evolve together until a shared time and independently afterward conditional on the common tree."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2004.13537",
+          "material_read": "pp. 1–2, abstract and UA model definition, offsets 600 and 5700",
+          "method": "OA PDF passages",
+          "title": "Correlated randomly growing graphs",
+          "trigger": "Shared-prefix model antecedent"
+        },
+        {
+          "assessment": "Single-tree variance attribution read in a secondary source; primary theorem scope remains unverified",
+          "evidence": [
+            "The comparison paper credits Janson for the variance 1/12. This access limitation is not evidence of absence and is not used to justify FAIL."
+          ],
+          "identifier_or_url": "DOI:10.1002/rsa.20046; https://www2.math.uu.se/~svantejs/papers/sj155.pdf",
+          "material_read": "Primary text unavailable in attempted copies; secondary discussion after Appendix A eq. (A.4) of arXiv:2606.02472",
+          "method": "Lawful author-manuscript and alternate/publisher attempts failed; OA comparison paper read",
+          "title": "Asymptotic degree distribution in random recursive trees",
+          "trigger": "Earlier single-tree degree-count limit"
+        },
+        {
+          "assessment": "Different per-arrival correlation mechanism",
+          "evidence": [
+            "Each arrival copies the parent's label with probability α. The marginal limit variance is 1/12 and the difference variance is (1−α)(3+α)/[6(3−α)], giving the rational correlation rather than the shared-prefix cubic correlation."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2606.02472",
+          "material_read": "p. 1 abstract (offset 0); Appendix A eqs. (A.4)–(A.5) and remarks",
+          "method": "OA PDF abstract and appendix passages",
+          "title": "Correlated uniform attachment trees",
+          "trigger": "Paired leaf-count Gaussian limit in related model"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Proof §§1–4; Resultary 99a911c57a5d Proof §§1–4"
+      ],
+      "rationale": "Shared-tree memory is a motivated observable, and the earlier cubic law is useful. For this frozen result the difference is the deterministic seed count induced by excluding the root. The cross-time covariance is the product of the same earlier regressions at two endpoints, and the path-association refinement uses the whole-path order already built into the prior scalar proof. The changed finite cutoff is a direct consequence of the altered initial count. The exact refinements therefore do not supply a separate, non-mechanically-implied invariant or phenomenon of sufficient scientific value under the review standard.",
+      "residual_risks": [
+        "This does not discount the shared-prefix model, the use of rooted leaves for other questions, or the pedagogical utility of stating the consequences together."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

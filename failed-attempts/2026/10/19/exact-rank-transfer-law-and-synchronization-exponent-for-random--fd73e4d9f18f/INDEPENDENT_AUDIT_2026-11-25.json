@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:17:00.902292Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Every idempotent is a retraction onto its fixed image B. For a specified A, choosing B by |B| and |A∩B|, using inclusion–exclusion to hit all selected additional targets, and giving every point outside A∪B an arbitrary image in B counts each map once, including empty-assignment cases. Rank cannot grow and each lower positive rank can be reached. Conditional on the past, the next rank depends only on |A|; normalization and multiplication give the count law, including the empty product. Nested injectivity events are strict via a retraction collapsing the added input. On transient ranks the triangular matrix has distinct positive eigenvalues with the rank-two one maximal. A direct positive jump to two, followed by rank preservation, matches the spectral upper bound; constants give finite absorption and first-step conditioning gives the mean recursion. An independent enumeration by kernel partitions weights each partition by the product of its block sizes and counts blocks meeting A; `python /workspace/independent_checks_1_4.py 1` agrees with every joint factor/output rank transition at n=1..8. It reproduces K4, two-step counts, direction counts 48 and 36 and mean 19229/5440. Below n=4 unequal ranks include a constant or the identity, establishing minimality. Finite enumeration is corroboration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dalal–Schmutz use unrestricted uniform maps and obtain an exact rank chain and diagonal eigenvalues under a different measure. Araújo–Bentz–Cameron study strong factorization; Sarkar–Singh characterize unit-regularity. Bugay's cited representative-set criterion is qualitative, and Theorem 4 concerns quasi-idempotent generating ranks."
+        ],
+        "reasoning": "None of these results alone specializes to the constrained sampling law. The indexed component count is the relevant stronger quantitative input; the older sources explain the structural and stochastic context, not priority for that count.",
+        "searches": [
+          "Dalal–Schmutz DOI 10.37236/1642, §2",
+          "arXiv:1910.08335 §3; arXiv:2106.08063 §3; Bugay DOI 10.12958/adm2223 pp. 188–190"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 10a1ce0364ec",
+        "Resultary 0e04e0804e5b",
+        "DOI 10.37236/1642",
+        "DOI 10.12958/adm2223",
+        "arXiv:1910.08335",
+        "arXiv:2106.08063"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Exact components and rank weights determine the mixed one-step law, and independence gives its powers. Each component diagonal is nonincreasing by injectivity, extended by zero above its rank; for the comparison s to s+1 the rank-s component gives strict decrease. The same transient triangular argument applies to the mixed matrix, and first-step conditioning gives the stated mean.",
+          "The sole new-looking rank-one witness is already a direct coefficient of the pair formula; constants and identities rule out smaller size immediately."
+        ],
+        "reasoning": "The fixed-rank asymptotic is not itself a formula for mixed products, but the covered counts imply the frozen rate directly, with an accessible rank-two state, by the same spectral calculation. No independent surviving claim of the frozen scope was identified.",
+        "searches": [
+          "Resultary 10a1ce0364ec, Proof steps 1–2 and 4–6",
+          "Resultary 0e04e0804e5b, exact pair formula"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "10a1ce0364ec counts the image of a specified s-set under a uniformly random rank-u retraction, by the hypergeometric intersection and occupied-target inclusion–exclusion. Its proof counts a specified set before the restriction to s≤u used for its chain; that conditional count also applies to s>u, with t>u impossible."
+        ],
+        "reasoning": "For fixed s, the hypergeometric weights satisfy C(u,a)C(n−u,s−a)/C(n,s)=C(s,a)C(n−s,u−a)/C(n,u). Multiplying the component by C(n,u)u^(n−u), the number of rank-u idempotents, gives precisely the frozen u-summand. Sum over u, with the deterministic constant and identity components supplying u=1,n. No averaging of powers of transition matrices is asserted.",
+        "searches": [
+          "Resultary: exact rank transitions and sharp synchronization, random retractions; 10a1ce0364ec Finding and Proof steps 1–2",
+          "random idempotent transformations product rank finite set exact distribution synchronization exponent"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "10a1ce0364ec gives an exact formula, not merely numerical examples. 0e04e0804e5b gives exact counts by both factors' ranks and product rank when the product is idempotent; rank-one products are always idempotent. At n=4, t=1 and (post-rank, pre-rank)=(3,2),(2,3), its L is zero and the prefactor gives 48,36."
+        ],
+        "reasoning": "The order convention is reversed when matching the two displayed rank labels. The adjacent theorem directly includes the asymmetry witness, not the unrestricted all-rank two-factor count.",
+        "searches": [
+          "Resultary 10a1ce0364ec, exact component matrix",
+          "Resultary 0e04e0804e5b, Finding and Step 1"
+        ]
+      },
+      "rationale": "The all-idempotent ensemble is not the fixed-rank ensemble, but its frozen claims are covered by a direct rank-mixture of exact indexed component counts and the same triangular argument, with the highlighted rank-one order asymmetry also covered by a distinct indexed pair theorem. This assesses present statement-level coverage. The indexed records consulted for those reductions have later dated paths than the frozen record and do not establish earlier priority.",
+      "residual_risks": [
+        "Ayık–Bugay 2015 primary full text was unavailable in the bounded DOI/repository check; the referenced criterion was checked in Bugay (2024).",
+        "The indexed match dates do not support attribution or precedence. Unrelated web hits supply no negative evidence about earlier sources."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact component count yields the frozen kernel as a mixture; no priority finding",
+          "evidence": "Same per-image intersection and occupancy enumeration; strict injectivity diagonal and simple rank-two mode.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-exact-rank-transitions-and-sharp-synchronization-of-random-fixed--10a1ce0364ec/RESULT.md",
+          "material_read": "Finding, assumptions and Proof steps 1–6 (mirror offsets 0–7274)",
+          "method": "Local mirror and explicit hypergeometric conversion",
+          "title": "Exact rank transitions and sharp synchronization of random fixed-rank retractions",
+          "trigger": "Strongest exact rank-transfer and sharp tail match"
+        },
+        {
+          "assessment": "Directly covers the highlighted rank-one counts only",
+          "evidence": "Its restriction (ef)^2=ef is automatic for constant products.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-exact-one-sided-idempotence-rank-spectrum-in-the-full-transforma--0e04e0804e5b/RESULT.md",
+          "material_read": "Finding and product-idempotence criterion (mirror offsets 0–3606)",
+          "method": "Local mirror and rank-one specialization",
+          "title": "Exact one-sided idempotence rank spectrum in the full transformation monoid",
+          "trigger": "Possible exact two-factor overlap"
+        },
+        {
+          "assessment": "Same statistic, different factor measure",
+          "evidence": "Kernel C(n,j)S(i,j)j!/n^i for unrestricted uniform maps; main n-growth result for mean synchronization.",
+          "identifier_or_url": "https://doi.org/10.37236/1642",
+          "material_read": "Abstract, introduction and §2, pp. 1–2",
+          "method": "OA PDF",
+          "title": "Compositions of Random Functions on a Finite Set",
+          "trigger": "Closest older stochastic model"
+        },
+        {
+          "assessment": "Qualitative preservation and generating ranks, not transfer law",
+          "evidence": "The qualitative criterion is attributed to Ayık–Bugay, DOI 10.1080/00927872.2013.847947.",
+          "identifier_or_url": "https://doi.org/10.12958/adm2223",
+          "material_read": "pp. 188–190, representative-set criterion and Theorem 4",
+          "method": "OA PDF",
+          "title": "Quasi-idempotents in certain transformation semigroups",
+          "trigger": "Product-rank criterion and idempotent terminology"
+        },
+        {
+          "assessment": "Different theorem",
+          "evidence": "Strong factorization under group action, not random rank coefficients.",
+          "identifier_or_url": "https://arxiv.org/abs/1910.08335",
+          "material_read": "§3, pp. 12–13, especially Lemma 3.1",
+          "method": "OA PDF",
+          "title": "Primitive Permutation Groups and Strongly Factorizable Transformation Semigroups",
+          "trigger": "Rank-specific structural results"
+        },
+        {
+          "assessment": "Different theorem",
+          "evidence": "Classifies structural element properties, not random products.",
+          "identifier_or_url": "https://arxiv.org/abs/2106.08063",
+          "material_read": "Abstract and §3, Theorem 3.4",
+          "method": "OA PDF",
+          "title": "Unit-regular and semi-balanced elements in various semigroups of transformations",
+          "trigger": "Nearby structural transformation results"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The synchronization problem has a natural precedent in Dalal–Schmutz; uniform idempotent factors add representation structure and a natural image-rank observable. A complete transition law, hitting-time distribution and a measurable order effect are useful for that mathematical problem. This intrinsic utility is distinct from, and does not override, the lack of an uncovered finding.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

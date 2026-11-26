@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:31:12.772714Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At kappa=m the column generator has nonzero eigenvalues -gamma(1+m) ± i gamma delta, and the exact stationary left probability is p=(delta^2+delta+m^2+m)/((1+m)^2+delta^2). The stationary covariance is p times the difference between the L-to-L transition probability and p. Its value and derivative at zero are p(1-p) and -gamma(1-delta)p, giving exactly the cosine and sine coefficients in the record with B/A tending to m. The first zero is at phase pi/2, and the subsequent first trough at pi/2+arctan(omega/Gamma) with the same phase shift; each later trough is reduced by exp(-2 pi Gamma/omega). The trough prefactor is of order delta, so only the exponential contributes to delta log M. For fixed reservoir occupancies, maximizing delta^2-(kappa-m)^2 proves precisely frequency optimality, not amplitude or detectability optimality. The checks are analytic; the supplied checker and verification notes were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Amann et al. Eqs. (9)–(10) give general relaxation modes, and Eq. (15) discusses oscillation.",
+          "The cited Chen full text could not be retrieved. A differently titled search lead reports general three-state correlation and spectrum formulas, but is not a verified match to the citation or result."
+        ],
+        "reasoning": "Generic damped oscillation is covered. The inspected general equations do not specialize by a change of notation to the optimized weak-contrast trough law: the generator, amplitude cancellation at small contrast, first trough and geometric decrease of later troughs matter.",
+        "searches": [
+          "arXiv:1001.0528v1",
+          "DOI:10.1142/S0219477507003830",
+          "On characterization of reversible Markov processes by monotonicity of the fluctuation spectral density"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2605.20166v1",
+        "arXiv:1001.0528v1",
+        "10.1142/S0219477507003830 (access attempts only)",
+        "Resultary 98c0d0cf35be (self-hit)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The former supplies the physical model and rates; the latter supplies the general two-mode decomposition, not a limiting phase or earliest/global negative extremum on the tuned transport path."
+        ],
+        "reasoning": "Credit both inputs. The specific frequency selection and the comparison of every negative trough determine an additional quantitative diagnostic, not a new general three-state correlation theorem.",
+        "searches": [
+          "arXiv:2605.20166v1 Sec. II, Eqs. (3)–(4); Sec. IV.3",
+          "arXiv:1001.0528v1 Eqs. (9), (10), (15)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The two-mode transition relaxation of Amann et al. gives the stationary covariance upon choosing the conditioned state and multiplying by its stationary weight; it establishes the oscillation mechanism.",
+          "Fiusa et al. give the transport generator with the Coulomb-blockade sector; the inspected excursion statistics are not the first negative trough of the stationary occupancy covariance."
+        ],
+        "reasoning": "The covariance and transition-relaxation forms are equivalent here. Neither equivalence removes the need to determine the phase on the optimized path and take the singular limit of its minimum.",
+        "searches": [
+          "arXiv:1001.0528v1, Eqs. (9), (10), (15)",
+          "arXiv:2605.20166v1, Sec. II and IV.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact catalogue hit was the same record, not independent evidence. Fiusa et al.'s stationary and excursion formulas are for other statistics than this asymptotic."
+        ],
+        "reasoning": "There is no applicable finite table for the limit of a continuous-time global extremum as contrast vanishes. The available exact catalogue match is a self-hit, not prior coverage.",
+        "searches": [
+          "Resultary lookup for tuned three-state double-dot weak-contrast negative covariance; 98c0d0cf35be"
+        ]
+      },
+      "rationale": "The supported distinct claim is the singular visibility law for the frequency-maximizing path of this physical model, including the phase-dependent constant for the first zero and the global negative minimum. The model, equilibrium populations, generic two-mode covariance and possibility of oscillation are prior ingredients. The inspected prior statements do not supply the tuned asymptotic; the finite nonzero limiting phase and the sharp rate for the global extremum require the parameter-dependent amplitude and extremum calculation.",
+      "residual_risks": [
+        "Uninspected Chen full text or work on nearly degenerate three-state chains may contain a stronger quantitative visibility law; exhaustive priority is not established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Model prior; inspected statistics differ from the lag-minimum asymptotic",
+          "evidence": [
+            "Transition generator and excursion/counting observables"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2605.20166v1",
+          "material_read": "Sec. II Eqs. (3)–(4), around offset 11200; Sec. IV.3, around offset 37700",
+          "method": "Original OA HTML, bounded passages",
+          "title": "Stochastic trajectories and excursions in a double quantum dot system",
+          "trigger": "Same physical rates and Coulomb-blockade model"
+        },
+        {
+          "assessment": "Subsumes two-mode relaxation and oscillation, not the tuned limit",
+          "evidence": [
+            "Conditional occupation is a stationary part plus two decaying modes"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1001.0528v1",
+          "material_read": "Eqs. (9), (10), (15), around offsets 7800 and 10650",
+          "method": "Original OA HTML, bounded passages",
+          "title": "Can one identify non-equilibrium in a three-state system by analyzing two-state trajectories?",
+          "trigger": "General three-state oscillating observable"
+        },
+        {
+          "assessment": "Unresolved, not evidence of noncoverage",
+          "evidence": [
+            "The frozen record describes a general formula, but the tuned weak-contrast specialization could not be checked there"
+          ],
+          "identifier_or_url": "https://doi.org/10.1142/S0219477507003830",
+          "material_read": "No full text independently available; frozen record reports an abstract",
+          "method": "DOI and lawful publisher OA attempts returned 403; differently titled search lead not verified",
+          "title": "On the monotonicity of fluctuation spectra for three-state Markov processes (as cited)",
+          "trigger": "Potential general formula for the same class of correlations"
+        },
+        {
+          "assessment": "Identical record, not independent priority evidence",
+          "evidence": [
+            "Same tuning and the same two limits"
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-an-exponentially-hidden-negative-correlation-signal-in-weakly-bi--98c0d0cf35be",
+          "material_read": "Finding, assumptions and proof of frozen RESULT.md",
+          "method": "Resultary identification checked against frozen title and statement",
+          "title": "An exponentially hidden negative-correlation signal in weakly biased double-dot transport",
+          "trigger": "Exact catalogue hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The path is selected before calculation by the unique maximum oscillation frequency. Even there a mathematical sign-change diagnostic is delayed by order 1/delta and its greatest negative signal is exponentially small, with explicit phase-sensitive exponent. This quantifies the gap between oscillatory spectrum and a usable magnitude without making a measurement-precision or control-optimality claim.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

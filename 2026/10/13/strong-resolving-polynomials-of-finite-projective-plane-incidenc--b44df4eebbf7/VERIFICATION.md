@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,23 +19,24 @@
 }
 ---
 
-# Reproduction and proof boundary
+# Independent mathematical audit
 
-From the directory containing `verify.py`, run `python3 verify.py` with Python 3.8+ and no third-party dependencies.
+## correctness
 
-The program constructs \(\mathrm{PG}(2,2)\) and \(\mathrm{PG}(2,3)\) using normalized nonzero vectors and equation \(a\cdot b=0\) over prime fields; independently computes graph distances, enumerates mutually maximally distant pairs, confirms they agree exactly with the nonincidence relation, counts all independent complements by exhaustive subsets, and compares every coefficient with the closed form. It also checks inclusion-maximal independent sets.
+PASS
 
-Recorded output:
+A strong-resolving set must hit each MMD pair: a non-endpoint landmark would extend a geodesic past one of the pair's maximally distant endpoints. Conversely a shortest path through any prescribed pair extends to a geodesic with MMD endpoints; a chosen endpoint resolves the original pair. In a plane incidence graph the nonincident point–line pairs are at diameter three, whereas same-side pairs and incident pairs have neighbors witnessing failure of maximality. Thus a complement is allowed exactly when all its selected points lie on all its selected lines. Two points have only one common line, so every mixed complement has a singleton side. Counting the pure sides and both mixed orientations, subtracting the duplicated empty set and duplicated incident pairs as appropriate, yields the displayed polynomial. The mixed stars have size at most q+2<n and are inclusion-maximal exactly when the entire pencil or row is present. The two full pure sides are also maximal. Complementation gives the two bases, the 2n larger inclusion-minimal resolvers, and their size gap q²−1. The argument uses only the plane axioms. Independent computations matched the full distributions at q=2 and q=3 and checked strong resolution directly on all 16,384 subsets at q=2.
 
-```text
-VERIFY_OK PG(2,2) points=7 lines=7 MMD_edges=28 all_independent_sets=332 strong_bases=2
-VERIFY_OK PG(2,2) independent_counts={0: 1, 1: 14, 2: 63, 3: 112, 4: 84, 5: 42, 6: 14, 7: 2}
-VERIFY_OK PG(2,2) maximal_independent_sets={4: 14, 7: 2}
-VERIFY_OK PG(2,2) exhaustive_strong_resolvers=16384 count=332 poly={7: 2, 8: 14, 9: 42, 10: 84, 11: 112, 12: 63, 13: 14, 14: 1}
-VERIFY_OK PG(2,3) points=13 lines=13 MMD_edges=117 all_independent_sets=16721 strong_bases=2
-VERIFY_OK PG(2,3) independent_counts={0: 1, 1: 26, 2: 208, 3: 728, 4: 1534, 5: 2600, 6: 3432, 7: 3432, 8: 2574, 9: 1430, 10: 572, 11: 156, 12: 26, 13: 2}
-VERIFY_OK PG(2,3) maximal_independent_sets={5: 26, 13: 2}
-VERIFY_FINISHED all invariants established
-```
+## originality
 
-For \(q=2\), the direct test considers all unordered vertex pairs and all \(16384\) candidate landmark sets; it does not merely check an MMD-derived formula. For \(q=3\), all possible independent point/line subsets are enumerated and compared with the formula. Neither finite instance certifies the claim for arbitrary \(q\). The self-contained proof in `RESULT.md` establishes the general theorem from the axioms of a finite projective plane. No independent external mathematical audit has yet been performed.
+PASS
+
+The MMD/vertex-cover reduction is standard and not credited as new. The claim supported as distinct is the full all-order enumerator and exact classification of inclusion-minimal strong resolvers for arbitrary finite projective planes. The closest same-auxiliary-graph theorem gives domination-sequence invariants, and the closest same-enumerator result concerns a different incidence family. No inspected statement covers the bound claim.
+
+## value
+
+PASS
+
+Strong metric dimension alone cannot distinguish the two pure minimum configurations from the much larger inclusion-minimal ones. The full structural census on a canonical graph family gives both every cardinality and an unbounded q²−1 gap between minimum and merely inclusion-minimal certificates. Its dependence only on the plane order, without a field or coordinate hypothesis, gives a useful all-plane invariant and exact check for other methods.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

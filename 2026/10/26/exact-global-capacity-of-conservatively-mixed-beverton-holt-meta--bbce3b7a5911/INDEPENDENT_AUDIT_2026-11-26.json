@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:53:14.741778Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–80",
+        "Frozen VERIFICATION.md lines 19–35 and verify.py lines 65–129",
+        "repairs/1/RESULT.md, Finding, Proof, Reproduction and scope"
+      ],
+      "rationale": "The frozen mathematics is correct; the repair narrows the contribution and specifies the geometry as the relative interior of a polytope. For all fixed positive stochastic D the positive Perron vector supplies a small strict lower solution (the column sums of the linearization exceed one); the growth bounds supply an upper solution. Strict subhomogeneity excludes a first-touch scaling between two distinct positive fixed points, and the iterated bounds can contain every positive initial state. In both versions, C−2B is the sum of a_i(s_i−1)^2, so the smaller root t is in (0,1); 1+b_i y_i*=s_i/t gives both the common derivative and the balance sum_i[g_i(y_i*)−y_i*]=C−B(t+t⁻¹)=0. Writing g_i as (s_i²/b_i)(1−1/(1+b_i z)) and subtracting its tangent gives exactly the displayed signed quadratic loss with denominator 1+b_i z. Summing uses equal pre- and post-recruitment totals and gives the factor 1−τ, not 1+τ. Equality forces y=y*, whence x=x*, and conversely Dx*=y* is sufficient by equilibrium uniqueness. Positive rank-one columns y*/N* realize this map. Scaling columns by x_j* gives precisely row marginals y* and column marginals x*. The last row and column are determined by the leading (p−1)×(p−1) block; the positive product array shows positivity removes no affine dimension. Any zero-entry feasible array is on a relative supporting hyperplane, so the repaired relative-interior statement is exact. At z=K the same loss formula yields equality exactly at common r, since g_i'(K_i)=1/(1+r_i). The benchmark follows from a=(1,1), s=(2,3), B=5, C=15. The frozen verify.py is a replay path for that benchmark and finite numerical equilibrium cases; it was inspected, not executed, and does not prove uniqueness of a maximizing matrix.",
+      "residual_risks": [
+        "The stated loss formula is an equilibrium result for fixed positive conservative matrices; the repaired claim does not extend it to transient or adaptive policies."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Resultary adaptive bound holds pathwise for arbitrary sequences of stochastic matrices and is attained by a constant rank-one policy that has positive columns in this case.",
+          "Grumbach et al. give a closed-form optimum over a scalar symmetric dispersal family for two patches with growth before dispersal."
+        ],
+        "reasoning": "Constant positive stochastic matrices are an immediate subcase of the adaptive scalar result, while the scalar symmetric two-patch optimization does not extend to the full matrix domain. Neither compared bound is the exact equilibrium-gap identity.",
+        "searches": [
+          "Web: Beverton–Holt metapopulation exact global maximum equilibrium total abundance over all conservative dispersal matrices rank-one optimal arbitrary patches; compare ‘population size’ ‘constant dispersal’",
+          "Resultary 0d23b062c337 proof §§1–6",
+          "DOI 10.1007/s00285-023-01984-8 p. 4 and Corollary 1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 0d23b062c337",
+        "DOI 10.3390/math14193624",
+        "DOI 10.1007/s00285-023-01984-8",
+        "PMC10904506 and PMID 41344394 access attempts",
+        "repairs/1/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the adaptive result, if N_t tends to the ceiling, then D_t x_t tends to y*. Under a constant D and the established equilibrium convergence this already implies Dx*=y*; sufficiency follows from the fixed point.",
+          "Its quantitative inequality compares to an optimum at the current total and uses a curvature lower bound. Bravo de la Parra's two-patch rank-one family supplies strict improvement over the isolated total, not the deficit from the global optimum for each D."
+        ],
+        "reasoning": "The fixed optimizer condition and dimension alone have direct prior-implication and standard-geometry explanations. The repaired mathematical addition is an equality with explicit patch-dependent weights and no uniform-curvature slack, obtained by computing the exact recruitment remainder and applying the two equilibrium balances. It is not obtained by specializing the existing one-sided bound.",
+        "searches": [
+          "Resultary 0d23b062c337 §§2–6 (local mirror offsets 2100–7688)",
+          "DOI 10.3390/math14193624 pp. 14–15, §§5–6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 0d23b062c337 uses a local growth factor 1+r_i and coefficient c_i=r_i/K_i in the notation of the frozen paper; its A/B, smaller root, y* and ceiling agree by substitution.",
+          "Bravo de la Parra has the same conservative discrete-time dispersal timing, with TRAPA defined as the summed positive equilibrium."
+        ],
+        "reasoning": "Model names and growth notation do not separate the capacity theorem from the adaptive result. The repair only claims the fixed-matrix deficit and the precise optimizer geometry as its focus.",
+        "searches": [
+          "Resultary: Beverton-Holt metapopulation exact global maximum total positive-equilibrium abundance over all strictly positive column-stochastic dispersal matrices; rank-one attainment, optimizer family dimension, exact quadratic-rational deficit, heterogeneity gain",
+          "DOI 10.3390/math14193624 §6 and two-patch finite-dispersal construction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary gives the exact general ceiling and the same Q(√5) two-patch example, including optimal allocation and ceiling.",
+          "The material §6 passage instead gives a lower bound by a uniform curvature constant on bounded simplexes; the inspected result does not give the rational deficit or the exact transportation optimizer description."
+        ],
+        "reasoning": "The exact matching example reinforces the scalar overlap; it is not a distinct remainder or evidence for novelty. The repaired gap formula is an all-matrix equality, not a new table value.",
+        "searches": [
+          "Resultary 0d23b062c337 Finding and Verification",
+          "Local mirrored RESULT.md searches for deficit, quadratic-rational, exact identity, all maximizing dispersal matrices"
+        ]
+      },
+      "rationale": "The frozen presentation does not pass originality as a new global-capacity theorem: a separate published Resultary result supplies the same ceiling, allocation, rank-one attainment and strict gain condition, with broader adaptive coverage and the same exact two-patch example. This is claim coverage, not a priority finding. The repaired paper credits that coverage and treats the scalar ceiling as setup. The surviving claim is the exact, pointwise matrix-equilibrium loss formula and its explicit full optimizer geometry. Adaptive allocation rigidity implies the condition Dx*=y* for a constant optimizer but supplies a different, one-sided quantitative bound, not the exact matrix-equilibrium loss. The transportation-polytope dimension is a standard geometric argument; it is the combination with the exact dynamical loss, not an originality claim for general transportation-polytope theory, that survives.",
+      "residual_risks": [
+        "Neither catalogue date nor the matching exact example establishes historical priority or provenance.",
+        "Uninspected topical references and an older equivalent exact loss formulation remain coverage risks. The unsuccessful broad search is not evidence of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct broad coverage of the frozen capacity and amplification claims; weaker quantitative comparison than the repaired exact gap",
+          "evidence": "The optimal allocation has common derivative and solves the same conservation equation. §6 uses strong concavity to bound H(N)−sum f_i(y_i) from below and obtains allocation convergence. It does not solve the weighted rational gap as an equality.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-adaptive-dispersal-population-ceiling-for-beverton-holt-pa--0d23b062c337/RESULT.md",
+          "material_read": "Finding; §§1–6 and exact benchmark, especially offsets 2100–7688",
+          "method": "Bounded local mirror passages at commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Sharp adaptive-dispersal population ceiling for Beverton–Holt patches",
+          "trigger": "Strongest indexed exact capacity match with broader control class"
+        },
+        {
+          "assessment": "Same framework, positive equilibrium convergence and a two-patch improvement construction",
+          "evidence": "The finite-choice condition gives d_1+d_2=1, permitting exact rank-one scalar reduction for a range of gains; the paper describes explicit asymmetry conditions for two patches.",
+          "identifier_or_url": "https://doi.org/10.3390/math14193624",
+          "material_read": "Abstract; pp. 14–15 two-patch finite-dispersal construction; §6 Conclusions (PDF offsets 70340 and 78063)",
+          "method": "Publisher landing and DOI routes failed to furnish material text; lawful publisher PDF at https://mdpi-res.com/d_attachment/mathematics/mathematics-14-03624/article_deploy/mathematics-14-03624.pdf recovered and inspected",
+          "title": "Dispersal and Total Population Size in Discrete-Time Metapopulation Models",
+          "trigger": "Closest earlier primary literature using the same growth and migration timing"
+        },
+        {
+          "assessment": "Exact optimum in a different, narrower model",
+          "evidence": "Corollary 1 handles interior and boundary maxima for scalar symmetric two-patch dispersal; the discrete model uses growth before dispersal.",
+          "identifier_or_url": "https://doi.org/10.1007/s00285-023-01984-8",
+          "material_read": "PDF printed p. 4 and p. 10 Corollary 1 (text offsets 8000 and 25100)",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "The effect of dispersal on asymptotic total population size in discrete- and continuous-time two-patch models",
+          "trigger": "Plausible primary exact optimum for constant dispersal"
+        },
+        {
+          "assessment": "Unresolved; not negative evidence",
+          "evidence": "The attempted page did not provide extractable article text.",
+          "identifier_or_url": "PMC10904506",
+          "material_read": "No substantive passages recovered",
+          "method": "Lawful PMC access attempt",
+          "title": "Optimal dispersal and diffusion-enhanced robustness in two-patch metapopulations",
+          "trigger": "Cited optimum over another dispersal model"
+        },
+        {
+          "assessment": "Unresolved; not negative evidence",
+          "evidence": "The returned page did not provide the paper text.",
+          "identifier_or_url": "PMID 41344394",
+          "material_read": "No substantive passages recovered",
+          "method": "Lawful PubMed access attempt",
+          "title": "Dispersal in multi-patch metapopulations: The impact of patch number and network topology",
+          "trigger": "Cited multi-patch comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "repairs/1/RESULT.md Finding and Proof",
+        "Resultary 0d23b062c337 proof §6"
+      ],
+      "rationale": "The repaired claim measures how far a given fixed dispersal policy falls short, not just whether a maximizer exists or whether unequal growth can help. The weighted patch costs distinguish where inefficiency occurs and are exact away from the optimum; the adaptive curvature inequality cannot provide those costs. The optimizer geometry tells an investigator which distinct fixed dispersal networks are equivalent at optimal equilibrium, rather than privileging one rank-one choice. The elementary transport dimension calculation is useful in this combined result, not an independent contribution; no value is claimed for republishing the scalar ceiling or the numerical benchmark.",
+      "residual_risks": [
+        "One still needs an equilibrium allocation to evaluate the identity for a given D; this is not a closed-form equilibrium solver for every D or a sensitivity theorem for constrained dispersal."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

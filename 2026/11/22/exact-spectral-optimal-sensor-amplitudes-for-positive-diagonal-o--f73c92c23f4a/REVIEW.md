@@ -1,13 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-All required quantifiers and boundaries are explicit: every integer dimension at least two, every consecutive horizon at least dimension minus one, and every strictly ordered positive stable spectrum. Generalized Vandermonde minors and Cauchy–Binet prove strict total positivity of the actual finite Gram matrix; cofactor signs make its conjugated inverse strictly positive. A Rayleigh quotient bounds the inverse top eigenvalue below by the sum of its entries. A precisely constructed positive vector is a Perron eigenvector with equality, and the equality case forces every squared sensor magnitude. The zero-coordinate, too-short-horizon and repeated-eigenvalue cases are handled separately. Exact rational verification checks the illustrative example and 885 exact rational diagnostic assertions in total; it is not substituted for the infinite family proof.
+## correctness
 
-## Originality — PASS, qualified
-The focal 2026 dynamical-sampling paper covers the frame Gramian and forcing-error reconstruction but not the sharp free sensor-amplitude design. The 2025/2026 optimal-dynamical-frames paper optimizes the count of generating vectors. Wu's 2026 sampling optimization holds the generating vectors fixed and varies observation times and weights. A 2008 nonnegative network allocation theorem has a different linear gain-budget constraint and does not directly imply this inverse-Gram, reciprocal-square sensor optimization. Published related finite-horizon sensor and spectral-scaling records use differing objectives (determinant or condition number), not the all-dimension sharp E-optimal allocation. The component matrix techniques are classical and are credited. Residual risk: an older general diagonal-scaling theorem could implicitly contain the result; novelty is supported by specific comparisons, not certified by search absence.
+PASS
 
-## Mathematical value — PASS
-The smallest eigenvalue of a dynamical Gramian controls the worst-conditioned reconstruction direction, and optimizing its true value differs from maximizing determinant or minimizing condition number. The result solves the unrestricted single-sensor modal amplitude allocation exactly for every dimension and finite horizon, proves uniqueness up to phases, and yields closed rational allocations for rational modal spectra. It is a natural full classification rather than an arbitrary fixed-size example.
+With times 0,…,N the phase-free frame matrix is DCD for D=diag(|g_i|). C=VVᵀ with V_ik=a_i^k. For each minor, the Cauchy–Binet terms are products of positive generalized Vandermonde determinants (ordinary Vandermonde on the ordered positive nodes times a Schur polynomial with nonnegative coefficients and at least one positive monomial). N+1≥n ensures nonempty sums. Cofactors give the strict checkerboard sign of C⁻¹, hence H>0 entrywise. For an independent certificate, let p_i=|g_i|² and t>0. When p has full support, W≥tI iff diag(p)≥tH by inversion, congruence and the checkerboard signature. If any p_i vanishes, the smallest eigenvalue is zero. The all-ones test gives t≤1/L. The proposed p attains it because diag(r)−H is the positive semidefinite weighted graph Laplacian with quadratic form (1/2)∑ H_ij|x_i−x_j|². Equality forces (diag(p)−tH)1=0, so exactly p=r/L; phases are immaterial. In the three-mode example, the columns of V⁻¹ are coefficients of 8x²−10x+3, −16x²+16x−3 and 8x²−6x+1; applying the checkerboard signs to their coefficient Gram gives the displayed H and L=2097. When the horizon is shorter the rank is at most N+1; when two modes coincide their projected orbit spans at most one direction. Both listed degeneracies give zero.
 
-## Independent status
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Pass for the exact discrete finite-horizon E-optimal allocation, including uniqueness and validity at every admissible horizon. The row-sum form and its sign argument are not new as general design ideas: Chen–Belabbas explicitly have the exact analogous law for the infinite continuous-time Cauchy kernel, and the same-day finite continuous-time result deploys essentially the same argument for an exponential integral kernel. Neither inspected statement contains the finite discrete kernel. The remaining distinct content is the exact allocation for every consecutive finite discrete horizon and the needed strict inverse-sign proof for that family, not a new general optimization principle.
+
+## value
+
+PASS
+
+Finite consecutive observations under a unit-energy constraint are a natural sensor-design problem. The exact worst-mode bound and unique amplitude allocation give a horizon-specific benchmark down to the minimum number of observations without performing a sensor optimization. A continuous integral or infinite-time limit need not give the same amplitudes for the actual discrete horizon; the inverse-sign certificate explains why an exact simple law still works there.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

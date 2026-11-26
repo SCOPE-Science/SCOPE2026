@@ -1,19 +1,21 @@
-# Scientific review: exact nullspace-risk frontier
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The residual is an exact product of independent random scalar factors, giving its second moment without approximation. Removing the component parallel to the rank-one forward direction produces a true martingale with explicitly computed conditional covariance. Orthogonality of its increments proves the finite-horizon and limiting covariance identities. Direct summability and the martingale second-moment bound justify almost-sure and mean-square convergence, respectively. Algebra yields the step-size threshold, unique residual-optimal step, and divergence at the residual-stability endpoint. A standard-library exact-rational verifier reproduces 5,579 tests across several nontrivial row and coordinate configurations, including full-path enumeration. Finite tests do not replace the proof.
+PASS
 
-## Originality
+Reassessed complete /workspace/repairs/3/RESULT.md, not the original wording. RESULT.md:22,32 of the frozen record overstate two implications: positive trace is not almost-sure nonselection, and the stable interval allows a zero multiplier moment q. For u=(4,5), v=(3,4), η=1/400 the samples (1,1),(2,2), of probability 1/16, hit x† exactly and stop, although 0<q<1 and the overall floor is positive. For u=(1,1), v=(1,1,1), η=1, q=0; the original risk rises from 1/3 to 2/3 only on the first update. The replacement gives the correct quantifiers and q=0 coverage. Independently, the scalar residual multiplies by 1−ηu_I²v_J² with square mean q. The nullspace-projected increment has zero conditional mean by uniform coordinate sampling and conditional covariance η²U₄s_k²H/c with H=Σv_j²(Pe_j)(Pe_j)ᵀ. Summing uncorrelated increments and adding the orthogonal residual component gives the two risk identities and the covariance. L² norms of the full increments are summable by q<1; this proves L² and almost-sure convergence and justifies the limiting moments. The sign of the increment of risk is the sign of (1−q)q^k(η−η_risk), and the residual-optimal step minimizes the strictly convex quadratic q. The repaired normalized-step scope is valid since U₄/U₂≤max_i u_i². Direct substitution for the original two-row example gives q=65/128 and F=17/126; scaling the data scales the coupled iterates and the two stopping limits hold. The original verifier was inspected, not executed, and its finite path counts do not prove convergence. The new absorption witness is verified by its two rational updates in the repaired file.
 
-PASS, qualified by the stated bibliographic risk. The qualitative failure of minimum-norm selection by underdetermined randomized coordinate solvers is known from Ma--Needell--Ramdas and Jin--Liu, and is not the claimed novelty. Han--Xie gives broad residual and expected-iterate convergence guarantees. Xia--Zhou's new doubly sampled scheme and regularization conclusions are the direct source. The finding instead proves a joint exact finite-time residual/reconstruction law, full random-solution covariance, sharp mismatch frontier for positive-versus-negative reconstruction progress, and an exact two-row counterexample satisfying the original source's step-size condition. Primary full-text comparisons and searches did not reveal this complete stronger joint statement. An unindexed equivalent derivation remains possible; originality has not received independent confirmation.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. Distinguishing data consistency from minimum-norm recovery is essential to iterative regularization. The exact risk-transition point is strictly inside the residual-stable interval, so an algorithm can improve the usual residual diagnostic while deteriorating the quantity of interest. The explicit conservative-step counterexample identifies the extra nullspace-control requirement in a current result, and the limiting covariance gives a reproducible benchmark against which future regularization mechanisms can be tested. The quantitative frontier is structurally motivated rather than a superficial parameter substitution.
+Assessed the repaired arbitrary-v, full-covariance and constant-step frontier claim. The same two-row example/floor and an entire all-ones scalar risk subfamily have direct published coverage, acknowledged in the replacement. Neither that coverage nor the other checked sources supplies the general-v covariance and threshold comparison. This is best-of-knowledge, not exhaustive priority.
 
-## Closest sources, scope and residual risks
+## value
 
-Compared directly: Xia--Zhou, arXiv:2610.15399v1 (Algorithm 1, Assumption 2.1 and Theorems 2.1/3.1); Ma--Needell--Ramdas, arXiv:1503.08235 (existing qualitative minimum-norm failure); Jin--Liu, arXiv:2405.13340 (random feasible limit and added selection assumptions); Han--Xie, arXiv:2208.05437 (general pseudoinverse-free randomized convergence). The scope is exact rank-one finite-dimensional dynamics with independent uniform row/column samples and constant step; no general-matrix or finite-precision theorem is claimed. The counterexample to a regularizing assertion holds for aligned vanishing noise, not arbitrary noisy data.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For this standard residual-fitting rule the full covariance describes where unresolved reconstruction error persists, not just how the scalar residual decays. The sharp frontier and divergent floor give a quantitative distinction between choosing a step for residual and for reconstruction across weighted rank-one problems. The repaired scope separates this broader stability phenomenon from the counterexample within the conservative bound and does not rely on the already covered all-ones example for its scientific value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

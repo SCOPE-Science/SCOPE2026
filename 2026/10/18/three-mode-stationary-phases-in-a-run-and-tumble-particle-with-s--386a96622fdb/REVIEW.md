@@ -1,21 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Finding reviewed:** Three-mode stationary phases in a run-and-tumble particle with saturating rates.
+## correctness
 
-## Correctness — PASS
+PASS
 
-The right/left transport equations and integrability imply a zero-flux stationary density. Differentiating it yields the exact log-derivative with a positive prefactor and the sign-controlling polynomial \(Q(y)\), where \(y=\tanh^2(ux)\). The fourfold hyperbolic-tangent identity is elementary and verified independently. Strict concavity \(Q''(y)=-2(5k+m)-6ky<0\), the endpoint \(Q(1)=-8m-2n<0\), and origin sign conditions prove the exhaustive one-/two-/three-maximum cases for \(g=4u\), including degenerate flat cases. The rational witness has \(Q(0)=-3/16\), \(Q(1/4)=49/256\), and \(Q(1)=-7/2\), hence exactly two simple positive roots, producing precisely three nondegenerate local maxima and two minima. The implicit function theorem gives persistence in the full parameter space. The standalone checker passed 6,407 rational and independent numerical derivative checks. The infinite-domain modal classification is proved analytically; the checks are corroborating evidence.
+For an integrable stationary state, bounded speeds make the constant total flux integrable and hence zero. The two state fluxes then equal a single positive J with J'/J = gamma_-/v_- - gamma_+/v_+. This integrand is odd with a strictly negative limit at +infinity; the bounded inverse-speed prefactor is even, so the normalized positive density exists, is even, and has exponential tails. Differentiating the prefactor gives the k*t*(1-t^2) term. Applying tanh(2s)=2 tanh(s)/(1+tanh(s)^2) twice gives the fourfold identity, so on x>0 the logarithmic derivative has exactly the sign of Q(t^2). Q''=-2(5k+m)-6ky<0 and Q(1)=-8m-2n<0. Thus a positive interior hump following Q(0)<0 gives precisely two simple positive-side critical points, a minimum then a maximum; a zero hump produces no sign change. Q(0)>0 or Q(0)=0<Q'(0) gives one positive-side maximum and a central minimum; in all other cases the center is a strict maximum (including Q(0)=Q'(0)=0). At the witness, the three signs are exact and the central curvature ratio is -3/2. For independent changes of g and u, nondegeneracy preserves the two positive critical points and the central curvature. To exclude new points, use a uniform negative derivative sign near zero, uniform negativity in the far tail from k*(1-t^2)<m, and a compact sign gap away from the two simple roots. Independent bisection reproduces x_-=0.070608603683463302 and x_+=0.197881464185248041 (python3 /workspace/review-evidence/check_tree_and_particle.py). The supplied VERIFY.py and verification notes were inspected as recorded checks, not executed; the reproduction is not the trichotomy proof.
 
-## Originality — PASS with residual priority risk
+## originality
 
-Jain and Chatterjee, *Run-and-tumble particle with saturating rates*, arXiv:2405.13521 (first posted 22 May 2024), provide the model and stationary solution. Their modal discussion uses an explicitly assumed maximum count of two in deriving an origin-curvature criterion. It supplies neither the fourfold-steepness cubic trichotomy nor an admissible three-peak stationary example. Monthus, arXiv:2103.08885, supplies the broader zero-current formula but not the stationary peak classification. Bressloff, arXiv:2102.10372, studies a constant-speed inhomogeneous-switching trapping regime, not the joint varying-speed model. Published findings searches for stationary trimodality, aliases, exact parameters, and polynomial classification did not identify an identical or logically stronger prior result. The general stationary formula and previous mode calculations are acknowledged, rather than appropriated. Residual risk: an unlocated paper could previously have applied the general stationary formula to reveal three stationary peaks; independent priority review remains appropriate.
+PASS
 
-## Value — PASS
+The distinct accepted claim is the complete strict-maxima classification for every admissible choice on g=4u, including degenerate boundaries, with an explicit robust exact-three witness. Neither the general stationary law nor existence of multiple peaks by itself is credited as new. The closest prior paper supplies the extremum equation but assumes a two-maxima bound for its unimodal/bimodal criterion; related indexed results overlap in existence but do not classify this slice. This is a bounded best-of-knowledge comparison, not a priority certification.
 
-The number of stationary density maxima is a physically meaningful shape feature of active-particle localization. Existing origin-curvature analysis is insufficient when outer extrema coexist with a central peak; the proved three-mode region makes that mathematical limitation substantive, not cosmetic. The complete slice trichotomy, exact positive parameter witness, nondegenerate extrema, and open persistence establish a qualitative phase excluded by the earlier two-maximum assumption. This is more than a routine parameter substitution or an unexplained isolated computation.
+## value
 
-## Closest work and limits
+PASS
 
-Primary model and most directly implicated passage: Jain and Chatterjee (2024), arXiv:2405.13521, equations (1)–(17) and the discussion immediately before the assumed unimodal/bimodal criterion. General formula: Monthus (2021), arXiv:2103.08885, Section II. Related trapping geometry: Bressloff (2021), arXiv:2102.10372, Sections II–III. The complete peak count is restricted to \(g=4u\); nearby three-peak persistence does not establish a global bound for all steepness ratios. External independent validation and priority assessment have not been performed.
+The solvable fourfold slice gives an exact global diagnostic for the actual model, including transitions that origin curvature misses. The robust witness demonstrates that a central peak can coexist with two outer peaks, invalidating the unrestricted two-maxima assumption without relying on a singular speed limit. The trichotomy is not asserted off the slice, and the open witness is an exact result rather than a numerical plot.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

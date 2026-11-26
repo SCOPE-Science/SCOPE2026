@@ -1,21 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The continuous spore-production term evaluates \(IH\) at delayed time, while the printed finite-difference sum uses the current \(IH\) outside the history sum. Its zero-mesh limit is therefore a different integral operator. With \(\alpha\equiv1\) and \(IH(t)=t\), the difference is exactly the positive first moment of the sporulation kernel. The bundled symbolic checker verifies a strict shifted-gamma witness.
+PASS
 
-## Originality
+The publisher's Eq. (2.27), as used in (2.28), evaluates the signal at the current time outside the history sum. For a fixed time and input history, Riemann integrability of the summand's weight makes the result converge to a scalar times the current signal. Eq. (2.18) instead defines a weighted functional of past signal values. On an interval with nonnegative weight of positive mass strictly before the endpoint, a continuous nonnegative history that vanishes at the endpoint and is positive earlier makes the time-local limit zero and the history functional strictly positive. This proves operator inequivalence under the stated nondegeneracy and does not require a grid experiment. They can agree on special inputs, and no discrepancy is asserted when the weight vanishes. The frozen witness uses the same distinction and its strict sign follows from positive weight on a set of positive measure away from the endpoint. RESULT.md, VERIFICATION.md and the witness script were inspected, not executed. The scope is pointwise operator consistency on prescribed histories, not stability, convergence of coupled trajectories, implementation behavior, or a pathogen simulation.
 
-PASS. Consistent quadrature of a Volterra integral is standard. The accepted contribution is the source-specific diagnosis that the published rice-blast update converges to the wrong memory law and that the mismatch survives mesh refinement. The direct predecessor repeats the same indexing but does not identify it as an error. Exact-source, equation-number, correction, and delayed-product searches found no published repair.
+## originality
 
-## Value
+PASS
 
-PASS. The paper states that equation (2.28) is used for its simulations and then uses those simulations to fit the spore-deposition fraction and evaluate disease-severity agreement. The wrong continuum operator therefore bears directly on the central numerical and biological conclusions rather than on a cosmetic formula.
+The distinct result is the diagnosis of a specific published quadrature's different continuum operator. The general Riemann-sum calculation is standard and an earlier paper already printed the same kind of time-index replacement, but the inspected earlier passage does not identify it as a defect.
 
-## Closest literature and limitations
+## value
 
-The closest source is the authors' 2022 predecessor, which already prints the same structural replacement of a delayed host product by a current host product. That is prior art for the formula, not for the consistency diagnosis.
+PASS
 
-Unavailable implementation code could have silently corrected the time indices. The finding therefore establishes a publication-level reproducibility and mathematical-consistency defect, without asserting what an unpublished implementation did.
+The time discretization changes the type of input dependence rather than merely producing a finite-step error. Showing that mesh refinement cannot remove this mismatch at the operator level gives a concrete, consequential reproducibility check on the published scheme, independently of any empirical prediction.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

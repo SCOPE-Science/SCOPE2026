@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The canonical Bessel pair is normalized by its explicit origin value and derivative, has constant Wronskian, and satisfies the distributional reset equation. Integration gives unit mass, while exponential-reset regeneration identifies the unique invariant law. The nonstandard global peak-count step is derived from the strict decrease of the auxiliary energy \(E=q'^2-rx^\alpha q^2\), which forces strict log-concavity of the decaying branch; the growing branch is monotone. The scalar mode condition has a unique root. The opposite-side mass follows by integrating the ODE and identifying the standard hitting resolvent. An independent numerical implementation passed 112 assertions. All hypotheses and asymptotic boundaries are included in RESULT.md; the proof does not infer continuum uniqueness from numerical sampling.
+PASS
 
-## Originality — PASS, with residual risk
+For the stated nonsticky natural-scale extension the resolvent density u relative to speed measure solves u''-r|x|^alpha u=-r delta_b. Continuity of u and u' at zero follows from the absence of an atom or source there; at b only u' jumps by -r. The small-argument Bessel expansion gives q(0)=1 and q'(0)=-h; s' q-s q'=2h, producing the stated normalization and jump. Integrating the equation with u' vanishing at infinity gives total mass one, and the exponential-age resolvent is the unique stationary law (two starting laws can be coupled at their first common reset). For x>0, E=q'^2-r x^alpha q^2 has E'=-r alpha x^(alpha-1)q^2<0 and E tends to zero, so (log q)''=-E/q^2<0. The log of x^alpha q is strictly concave and its density branch vanishes at both endpoints, hence there is one critical point and strict increase/decrease on either side. Since x^alpha s is strictly increasing for 0<x<b, this proves both mode locations, including equality b=m where the right derivative is zero at b but the branch strictly decreases beyond b. q strictly decreases, s increases, and both start at one, proving the strict pointwise positive-side dominance. Integrating q'' gives negative mass q(b)/2; independently, the reset-age process must hit zero before being negative, after which symmetry and the memoryless age give the factor 1/2 (no zero atom). The bounded independent Bessel/quadrature comparison at alpha=r=1 gave m=0.88405046, normalized mass and the matching negative masses 0.34493523 and 0.06938266 for b=m/2 and b=2m, respectively. Numerical checks are corroborative; the uploaded checker was inspected but not run. Modes refer to the prescribed continuous Lebesgue density.
 
-The 2026 originating paper already supplies the centered distribution, modified-Bessel reduction, and the hitting transform, and formally writes an off-origin source term. The 2022 heterogeneous-resetting Green function explicitly treats nonzero resets but uses \(\partial_x(D\partial_x\rho)\) rather than the Itô forward term \(\partial_x^2(D\rho)\). Neither inspected stationary analysis gives the displaced-source two-mode theorem, exact pinning threshold, or opposite-side mass law for the specified conservative generator. The general resolvent method is established background. A broader theorem might entail some part of the formulas without using the same vocabulary, so independent priority review remains necessary.
+## originality
 
-## Value — PASS
+PASS
 
-Moving the reset point while keeping the physical mobility centre fixed is a natural control dimension for anomalously slow searchers. The theorem gives a complete phase classification of all stationary maxima for every positive sluggishness and rate, including the exact pinning boundary; this is stronger than plotting profiles or calculating a single parameter case. The crossing-probability identity ties the satellite peak's total mass to an independently meaningful first-passage observable. Such structure distinguishes the nonhomogeneous Itô model from both ordinary Brownian restarting and other heterogeneous diffusion conventions.
+Pass for the off-centre matched law and all-parameter mode classification of the specified natural-scale Itô reset model. The centered law, Bessel hitting transform and general reset resolvent are covered and properly distinguished. The opposite-side mass is an elementary consequence of the known hitting transform, symmetry and exponential age, useful as a check/corollary but not a separate originality basis.
 
-## Limits and closest sources
+## value
 
-The proof assumes one-dimensional nonsticky natural-scale diffusion, fixed positive rate, a point reset, and \(\alpha>0\). It does not cover alternative interface extensions, drifted heterogeneous diffusion, or random resetting sites. Closest primary sources: Frimpong–Bresque–Roldán (arXiv:2610.21962v1), §§3–5, 8; Lenzi et al. (arXiv:2201.05598v1), §§II–III. Potential implicit inclusion in a more general resolvent treatment is the main residual originality risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The singular mobility centre and independent reset location produce two observable modes, including one that switches exactly from diffusivity-selected to reset-site-pinned. This is a sharp global prediction, not a replot of a centered law or an arbitrary parameter slice. The exact density and opposite-side mass are useful tests for models with a different interface or noise convention.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

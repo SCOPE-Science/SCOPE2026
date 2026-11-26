@@ -8,7 +8,7 @@ For integers \(m,k\ge 1\) and residues \(0\le a<m\), \(0\le b<k\), let \(L_{m,k;
 \boxed{ku+t}
 \]
 
-states, independently of the chosen target residues. The quotient classes are given explicitly below. Moreover, for each fixed \(m,k,a,b\), the fraction of length-\(n\) binary strings belonging to \(L_{m,k;a,b}\) tends exponentially fast to \(1/(mk)\).
+states, independently of the chosen target residues. The quotient classes are given explicitly below. For completeness we also give a direct finite-state proof of the known density conclusion: for each fixed \(m,k,a,b\), the fraction of length-\(n\) binary strings belonging to \(L_{m,k;a,b}\) tends exponentially fast to \(1/(mk)\).
 
 For example, the exact state counts at \((m,k)=(3,2),(6,2),(8,3),(12,2),(24,3),(30,4)\) are respectively \(6,7,6,8,12,61\), for **every** target pair. The count is not the product of the minimal state counts for the two separate conditions: shared binary input causes an exact two-adic collapse.
 
@@ -48,11 +48,13 @@ Run `python3 check_minimize.py`, `python3 check_quotient.py`, and `python3 check
 
 ## Relationship to prior work
 
-Binary-coded unary languages and their state complexity provide recent context in Geffert, Hlaváč and Královič (2026). Charlier, Cisternino and Massuir (2019) prove \(2u+t\) states for the set \(m\mathcal T\), where \(\mathcal T\) is the Thue–Morse set of integers having even binary digit sum. **That is not the language here**: for instance \(6\in3\mathbb Z\cap\mathcal T\) but \(6\notin3\mathcal T\). In the special case \(m=2^t\), target \((a,b)=(0,0)\), and \(k=2\), the languages coincide, and that subcase is already covered by the 2019 result. The present claim concerns the intersection of independent value and input-digit-weight congruences, **all** moduli \(m,k\), **all** target residues, and its explicit quotient and uniformity. Alexeev's (2004) exact divisibility automata and the 2019 paper are indispensable antecedents, not novelty claims.
+Binary-coded unary languages and their state complexity provide context in Geffert, Hlaváč and Královič (2026), who study two-way automata. For the one-way problem, Alexeev's divisibility theorem already gives \(u+t\) for \(k=1\), \(a=0\). Charlier, Cisternino and Massuir (2019) prove \(2u+t\) states in binary for \(m\mathcal T+a\), where \(\mathcal T\) is the set of nonnegative integers of even binary digit sum and \(0\le a<m\). In general this is not the simultaneous residue language: for instance \(6\in 3\mathbb Z\cap\mathcal T\) but \(6\notin3\mathcal T\). However, if \(m=2^t\), \(k=2\) and \(b=|a|_1\bmod 2\) (the parity of the binary weight of \(a\)), the language is exactly the binary representations of \(2^t\mathcal T+a\): the low \(t\) bits are those of \(a\), and the remaining bits must have even weight. That subcase, including \((a,b)=(0,0)\), is already covered. The state-complexity contribution here is the joint congruence quotient for arbitrary moduli and both arbitrary targets, beyond these special cases.
+
+The uniform exponential density is a consequence of Gelfond's classical digit-sum theorem [6, 7], not a novelty claim. In radix two its coprimality condition on the digit-sum modulus is automatic. Each length-\(n\) word represents exactly one integer in \([0,2^n)\), so the power-saving error \(O(X^\lambda)\) for \(X\) integers, where \(\lambda<1\), becomes a frequency error \(O(2^{-n(1-\lambda)})\). If a modulus is one, one may use modulus two in its place and sum over the two residues. Section 4 supplies a direct argument using the same residue states as the state-complexity proof.
 
 ## Limitations
 
-This statement assumes radix two, most-significant-digit-first reading, leading zeros allowed, and a single joint target pair. It does not determine complexities after forbidding leading zeros, changing radix, or accepting unions of target pairs. Published priority cannot be proven by a database search; an unindexed equivalent or a stronger theorem outside the inspected sources remains possible. The 2026 two-way-automata stimulus was available in abstract/metadata form, not full text. No independent mathematical audit has been performed.
+This statement assumes radix two, most-significant-digit-first reading, leading zeros allowed, and a single joint target pair. It does not determine complexities after forbidding leading zeros, changing radix, or accepting unions of target pairs. An equivalent state-complexity result or a stronger theorem outside the inspected sources remains possible.
 
 ## References
 
@@ -61,3 +63,5 @@ This statement assumes radix two, most-significant-digit-first reading, leading 
 3. É. Charlier, C. Cisternino and A. Massuir, *Minimal automaton for multiplying and translating the Thue-Morse set*, arXiv:1910.08543 (2019), https://arxiv.org/abs/1910.08543 .
 4. B. Alexeev, *Minimal DFA for testing divisibility*, Journal of Computer and System Sciences 69 (2004), 235–243, https://borisalexeev.com/papers/dfa.html .
 5. É. Charlier, N. Rampersad, M. Rigo and L. Waxweiler, *State Complexity of Testing Divisibility*, arXiv:1008.1668 (2010), https://arxiv.org/abs/1008.1668 .
+6. A. O. Gelfond, *Sur les nombres qui ont des propriétés additives et multiplicatives données*, Acta Arithmetica **13**, 259–265, https://doi.org/10.4064/aa-13-3-259-265 .
+7. J. Morgenbesser, *General Gelfond problems for numeration systems* (2010), p. 135, equation (6.1), https://repositum.tuwien.at/handle/20.500.12708/10276 .

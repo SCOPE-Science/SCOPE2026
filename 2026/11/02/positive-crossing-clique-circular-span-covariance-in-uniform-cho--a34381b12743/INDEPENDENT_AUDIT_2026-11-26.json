@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:31:12.128152Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A uniformly marked and randomly oriented chord is a uniform distinct ordered endpoint pair, so the directed offset d is uniform and the remaining matching is uniform. The span is K+1 for K=min(d−1,2n−d−1). The conditional mean number of disjoint r-cliques is choose(n−1,r)/(2r−1)!!; one all-crossing pairing per 2r-set explains the denominator. For an r-clique containing the marked chord, choose r−1 endpoints on each arc and pair in the unique crossing order; the conditional probability of those pairs is 1/D_{n,r}. Multiplying the conditional expectation by K+1 and subtracting the product of the means gives the finite sum. The nonconstant profile g(k)=choose(k,r−1)choose(2n−2−k,r−1) has a zero initial range and strictly increases on its positive range (consecutive difference in the ratio numerator and denominator is (r−1)(2n−3−2k)>0 for k≤n−2). At n=r it jumps at the last atom. Positive mass on all K and the independent-copies identity certify strict covariance for every allowed n,r. For triangles, symmetry splits the weighted sum into twice the sum below d=n and its single central term; expansion in the power sums through degree five gives the polynomial in RESULT.md. Substitution with sum_d min(d,2n−d)=n² gives the stated covariance and leading n⁴/160. An independent exact enumerator in branches/d1e7a191-eba1-4837-a01b-dfb6fcb54ca2 checked all 15, 105, 945 and 10,395 matchings for n=3–6; the triangle covariances were 6/25, 32/35, 160/63 and 40/7, matching the formula. The finite replay is corroboration only; the supplied verifier was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Acan analyzes length-conditioned crossing degree and studies clique number, but the inspected results do not give the marked-length conditional mean count of r-cliques.",
+          "Chen et al. Theorem 1 and Corollary 4 give symmetries of maximum crossings and nestings even conditional on endpoint sets, not counts of r-crossings together with individual chord spans.",
+          "Acan–Pittel's opening treats the fixed-crossing sparse setting; Kasraoui–Zeng's opening treats pair crossings, nestings and alignments."
+        ],
+        "reasoning": "Degree does not determine pairwise crossings among the neighbors of the marked chord for r≥3; maxima and endpoint-set crossing/nesting symmetries do not retain the needed counts and spans.",
+        "searches": [
+          "Acan arXiv:1501.01489, marked chord length and degree, clique number",
+          "Chen–Deng–Du–Stanley–Yan arXiv:math/0501230, theorem and length passages",
+          "Acan–Pittel arXiv:1406.2867",
+          "Kasraoui–Zeng arXiv:math/0601081"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1501.01489, math/0501230, 1406.2867, math/0601081",
+        "Resultary length-class covariances cb8a3a4f935f, total-span and crossings 25d00b41e332, edge–triangle 7b9f44348870, motif covariance e0f610615813 and independent-endpoint span b12951dba4f4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Weighting the known length-class moments by step span recovers the known r=2 answer. For r≥3 one must separately require the other r−1 chords across the marked chord to cross one another; the endpoint-subset count, unique aligned pairing and its prescribed-pair probability give the new profile.",
+          "Counts or symmetries of largest crossings do not give this profile. A prior exact marked-chord r-clique count by span would dominate it, but none was identified in the compared material."
+        ],
+        "reasoning": "The result extends the earlier pair case by adding the mutual crossings of the other chords; it is not recovered from the pairwise covariance or from the triangle-edge mixed moment by renaming or summing those known statistics.",
+        "searches": [
+          "Comparison with 2026/10/18 length-class profile and total-span crossing count; arXiv:1501.01489 marked-chord law; Chen et al. Thm. 1 and Cor. 4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Acan identifies complete crossing families with cliques. In Chen et al., the endpoint ordering i_1<…<i_r<j_1<…<j_r with pairing i_a to j_a is the same family in linear order.",
+          "2026/10/13/SCOPE-an-exact-edge-triangle-correlation-gap-in-random-chord-intersect--7b9f44348870, offsets 747 and 4760, is a crossing-edge count versus triangle count result, not span versus triangles.",
+          "Interior-point versus endpoint-step shortest span differs by the constant n."
+        ],
+        "reasoning": "Changing span convention by n preserves covariance and rephrasing as r-crossings does not change the clique observable. Replacing span by the crossing-edge count changes the mixed moment.",
+        "searches": [
+          "Local Resultary: circular span with crossing cliques, triangle covariance in random chord intersection graph",
+          "arXiv:1501.01489 p. 25, offset 87835",
+          "arXiv:math/0501230 pp. 2–3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/10/18/SCOPE-exact-chord-length-covariance-phases-and-pell-zero-exceptions--cb8a3a4f935f gives pair crossings versus every length class; 2026/10/18/SCOPE-joint-gaussian-fluctuations-of-total-circular-chord-span-and-cro--25d00b41e332 explicitly gives the r=2 total-span mixed moment (offsets 689 and 3618).",
+          "2026/11/2/SCOPE-a-universal-negative-isolation-connected-motif-covariance-law-fo--e0f610615813 includes clique motifs but pairs them with the isolated-vertex count; 2026/11/2/SCOPE-a-brownian-bridge-length-law-for-crossings-of-independent-unifor--b12951dba4f4 uses independent endpoints and pair crossings."
+        ],
+        "reasoning": "These are the closest exact catalogue records returned. The length-class entries mechanically cover r=2, which is excluded. Neither same-day comparison changes the covariance partner to total discrete shortest span.",
+        "searches": [
+          "Local Resultary: length-class covariance, joint total-span crossings, exact chord triangle moments, higher motifs"
+        ]
+      },
+      "rationale": "The distinct supported content is the span mixed moment and its strict sign for all r≥3, with a triangle closed form. Earlier catalogue results cover the corresponding pairwise crossing statistic r=2 explicitly or by summing the length-class profile. Triangle versus edge counts, and clique number versus length, are not this mixed moment with total shortest endpoint-step span. Stronger higher-crossing enumeration examined concerns different statistics and gives no exact marked-span conditional profile from which this result follows mechanically. The historical assessment is bounded, not exhaustive.",
+      "residual_risks": [
+        "Higher-crossing enumerations beyond the checked statements could contain an equivalent marked-length conditional result; no document-wide or exhaustive exclusion is claimed.",
+        "The outward search returned no decisive result and does not count as evidence of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Shares fundamental model and constituent statistics; no target mixed moment in inspected passages",
+          "evidence": "Length and crossing degree are studied for a marked chord; complete crossing families are cliques, with clique-number results.",
+          "identifier_or_url": "arXiv:1501.01489",
+          "material_read": "Pages 3–4, offsets 9529, 13669; pp. 25–26, offsets 87835, 92007",
+          "method": "Primary OA PDF passages",
+          "title": "On a uniformly random chord diagram and its intersection graph",
+          "trigger": "Same uniform matching model, marked lengths and cliques"
+        },
+        {
+          "assessment": "Same r-crossing definition; theorem is about maximal crossing/nesting sizes, not marked-span mixed moment",
+          "evidence": "cr(P) and ne(P) are explicitly maximal sizes; their joint laws are symmetric even with fixed sets S,T of minima/maxima.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0501230",
+          "material_read": "Pages 2–4, offsets 4734 and 7600, definitions, Theorem 1, Corollary 4; literal length locator",
+          "method": "Primary OA PDF, bounded passages",
+          "title": "Crossings and Nestings of Matchings and Partitions",
+          "trigger": "Plausible earlier higher-crossing enumeration and exact formulas"
+        },
+        {
+          "assessment": "Exact coverage of r=2 via aggregation, not r≥3",
+          "evidence": "Gives crossing-pair count covariances with each exact length class.",
+          "identifier_or_url": "2026/10/18/SCOPE-exact-chord-length-covariance-phases-and-pell-zero-exceptions--cb8a3a4f935f",
+          "material_read": "Finding in RESULT.md offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Exact chord-length covariance phases and Pell zero exceptions",
+          "trigger": "Earlier exact length/crossing mixed fit"
+        },
+        {
+          "assessment": "Explicit r=2 covariance",
+          "evidence": "Covariance n³(n−1)²/[6(2n−3)(2n−1)] involves the crossing-pair count.",
+          "identifier_or_url": "2026/10/18/SCOPE-joint-gaussian-fluctuations-of-total-circular-chord-span-and-cro--25d00b41e332",
+          "material_read": "Offsets 689 and 3618 of RESULT.md",
+          "method": "Local Resultary mirror",
+          "title": "Joint Gaussian fluctuations of total circular chord span and crossings",
+          "trigger": "Earlier total span mixed moment"
+        },
+        {
+          "assessment": "Different covariance partner",
+          "evidence": "The partner of the triangle count is the number of crossing edges, not the total span.",
+          "identifier_or_url": "2026/10/13/SCOPE-an-exact-edge-triangle-correlation-gap-in-random-chord-intersect--7b9f44348870",
+          "material_read": "RESULT.md offsets 747 and 4760",
+          "method": "Local Resultary mirror",
+          "title": "An exact edge-triangle correlation gap in random chord intersection graphs",
+          "trigger": "Exact triangle mixed moment in same model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural geometric statistic and a natural intersection-graph motif statistic are coupled under the same matching. The universal strict sign for all higher cliques, including a unique maximal clique at n=r, and the exact higher-order mixed moment are useful quantities not fixed by the known pair result. The proof exposes a monotone marked-chord mechanism rather than merely computing a few cases. It does not assert stronger distributional association.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Each closed neighborhood in a rook graph is one entire row together with one entire column. Until the last move, maximum-length legality therefore forces exactly one newly represented row or column per move after the first; this yields a growing bipartite tree, and the last move produces precisely one of three forest patterns. The converse constructs a legal sequence from every such forest. The weighted matrix-tree cofactor establishes the required bipartite degree enumerator; its positive-exponent specialization gives the Stirling-number counts. Exhaustive finite tests agree in nine boards, including the exceptional \(2\times2\) case. Proof applies for every \(m,n\ge2\).
+## correctness
 
-**Originality — PASS (subject to residual historical risk).** The 2016 primary paper gives a construction of a sequence of length \(m+n-2\), and that known construction is not claimed as new. The 2023 primary paper concerns bipartite/co-bipartite complexity and chain graphs, not rook-graph maximum-support enumeration. Mertens's 2024 paper counts every rook dominating set, without identifying which supports admit a maximum-length legal ordering. The complete forest classification and exact new Stirling-number count are not implications of those theorems. Targeted indexed searches found no equivalent coverage; negative search evidence is not proof of priority. Published and unindexed equivalent work remains possible.
+PASS
 
-**Value — PASS.** The claim gives the entire labeled optimizer set census for a canonical infinite two-parameter Cartesian-product family. It distinguishes three structural types and an exceptional double-counting boundary, and refines the ordinary domination polynomial by a sequential optimality constraint. This is a complete classification, not a routine recomputation of the already known lower bound.
+A prefix dominates the union of its occupied rows and columns; until one side is full, legality is exactly introducing at least one new label. The first edge introduces two, so the prefix before the last edge has at most m+n−2 labels but at least as many labels as the full sequence length. Equality forces the prefix to use exactly m−1 rows and n−1 columns, introducing one new label at every step after the first. Its incidence graph is a tree. The last edge must introduce the missing column only (a column leaf), the missing row only (a row leaf), or both (a detached single edge). Conversely prune a leaf on the full side, or omit the detached edge, grow the remaining nonempty tree, then append the pruned edge: this is legal and dominating, including the one-edge prefix on 2×2. The weighted bipartite matrix-tree identity gives the degree-minus-one enumerator (∑x)^(b−1)(∑y)^(a−1). With the row variables set to 1, the full-support column monomials have total weight a^(b−1)b!S(a−1,b), so subtracting them gives exactly A; transpose for B. C uses the unconstrained bipartite tree count and has a unique detached edge except on 2×2, where there are two matchings, not four endpoint choices. Fresh exhaustive legal-order testing via actual closed neighborhoods on 2×2, 2×3 and 3×3 yielded (A,B,C) counts (2,2,2), (2,12,6), and (36,36,36).
 
-**Limitations and comparisons.** The result counts unordered maximum supports rather than their possible orderings; originality against unindexed work is unresolved. The most closely overlapping inspected primary source is the 2016 Cartesian-product paper for the known construction and Mertens (2024) for all rook dominating sets.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass for the exact three-type classification and census of unordered maximum supports. Do not credit the known m+n−2 construction or the rook-to-incidence-graph correspondence. The closest catalog and primary results change legality, the family of minimal sets, or the observable, and do not determine this classification.
+
+## value
+
+PASS
+
+Answers the natural extremizer question left by a length construction. It provides both a test for whether a given unordered support can attain that length and a uniform count by three distinct mechanisms, including the duplicated matching parametrization at the smallest board. The 3×3 discrepancy with ordinary domination shows that the sequential constraint contributes actual structure.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

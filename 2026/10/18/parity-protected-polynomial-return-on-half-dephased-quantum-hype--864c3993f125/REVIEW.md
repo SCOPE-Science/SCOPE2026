@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The critical lemma is the full fixed-algebra classification: the Hilbert–Schmidt dissipation identity forces commutation with each monitored rank-one projector; the parity block structure eliminates nonzero imaginary eigenvalues; distance-two connectivity forces a single scalar on the monitored block; and the residual unmonitored operator is supported entirely on the adjacency kernel. Every step has explicit hypotheses, including positive jump rates, nonzero real hopping, and the one-vertex edge case. Walsh diagonalization and parity pairing give the exact dimension. Contractivity and the absence of nonzero peripheral frequencies yield genuine convergence, not merely subsequential stationarity. The trace-preserving Hilbert–Schmidt projection then proves the final density matrix. Direct matrix constructions in `verify.py` agree for dimensions one through six; finite tests are not substituted for the all-dimension argument.
+## correctness
 
-## Originality — PASS, with specific residual risk
-The examined complete primary texts on the hypercube use distinct noise channels: coordinate-bit dephasing in Alagić–Russell and full-vertex dephasing in Strauch. Their long-time statements do not imply the site-selective surviving algebra or its exact return coefficient. Baumgartner–Narnhofer gives a broad abstract decomposition, which is accepted as prior framework, not claimed as a new result; its general statement does not evaluate the hypercube-specific projector, rank, or return probability. A prior half-dephased cyclic model has at most one dark vector and no central-binomial multiplicity. Previous Hamming-graph sink results treat absorption, and a hypercube telegraph model uses stochastic Hamiltonian sign switching. Searches for parity/sublattice dephasing, zero-energy dark states, and the central-binomial return law did not produce an equivalent result. This is not a uniqueness proof; a specialized explicit computation outside accessible literature remains possible. Exact statements and implications, not only titles, were compared in `AUDIT.json`.
+PASS
 
-## Mathematical value — PASS
-The result addresses a natural physical question: does monitoring **half** the sites of a coherent quantum network erase all preparation memory? On the canonical hypercube the answer reverses with dimension parity. More strikingly, a single initial unmonitored vertex has polynomial long-time return in even dimension despite exponentially many sites, in contrast with exponential return in odd dimension and under full-site dephasing. The exact all-state conditional expectation and unbounded decoherence-free matrix algebra quantify not only invariant populations but preserved coherences. These are nontrivial collective effects of spectral degeneracy and network connectivity, not arbitrary parameter slices or a simple finite enumeration.
+The real Hilbert–Schmidt dissipation identity forces peripheral eigenoperators to commute with each positively weighted rank-one projector. They are block diagonal with diagonal even block C. The commutator with the hopping Hamiltonian is off-diagonal, excluding nonzero imaginary eigenvalues. At zero, the two hopping block equations give [C,TT†]=0; off-diagonal entries of TT† at distance two connect the even words, forcing C scalar (automatic for d=1). The odd block differs from the same scalar by an arbitrary operator supported on ker T on both sides. Norm contraction excludes a Jordan block at zero. The adjoint generator reverses the Hamiltonian sign and has the same kernel, so the limiting spectral projection is indeed Hilbert–Schmidt orthogonal, giving the stated all-state formula including dark coherences. Complementary Walsh zero modes pair to give one odd-supported mode per pair in even d, and none in odd d. Even translations make the odd-site dark weight constant, so its square yields the 2/(πd) term by Stirling; the bright term is exponentially small. A direct d=2 check gives T all ones, rank(D)=1, odd-site return 1/3. The uploaded numerical checker was inspected, not run; the exact limit and asymptotic are proved analytically and do not establish a relaxation rate uniform in d.
 
-## Limitations and close literature
-The infinite-size law uses a fixed-size long-time limit first; no uniform mixing-time or experimental implementation claim is made. Specialized partial-monitoring literature might contain an equivalent calculation. Primary references are arXiv:quant-ph/0501169 (2005), arXiv:0808.3403 (2008), and arXiv:0806.3164 (2008). Independent audit and third-party validation remain unperformed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported contribution is the explicit trace-preserving stationary algebra, convergence and return law for individually monitored even vertices. General Lindblad structure, the Walsh spectrum and the overlapping dark multiplicity and localized dark weight are not independent originality claims. The strongest inspected halfcube result is for absorption, not trace-preserving dephasing; the bright block and fixed-point calculation are material differences. This is a best-of-knowledge assessment, not a priority certificate.
+
+## value
+
+PASS
+
+The explicit full limit distinguishes dark coherence retention from ordinary mixing, and predicts an order-1/d return where an exponentially small return might be expected on 2^d vertices. It also settles all initial states and arbitrary positive site strengths in the specified model without relying on uniform rates. This is informative without any claim about relaxation time.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

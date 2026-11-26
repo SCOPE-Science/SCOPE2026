@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:59:06.309607Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 50–91 and repaired /workspace/repairs/4/RESULT.md, Proof §§1–5",
+        "Frozen VERIFICATION.md and checks/check_all_orders.cpp, checks/check_sampled.py, and their saved outputs: inspected, not executed",
+        "Private replay: node /workspace/reviews/evidence/cycle-check.js; direct bounded corroboration"
+      ],
+      "rationale": "The frozen proof's line 83 incorrectly equates the number of labelled orientations to the Eulerian schedule count: at n=4,a=2 there are 6 orientations but 16 schedules. The replacement RESULT.md corrects this distinction, keeps the valid maximum-rank-cut argument, and verifies the count used for the uniform-permutation mean. In the repaired proof the incoming left/right wiring labels are B/A by induction across the earlier endpoint of each edge, and labels are restored at sweep boundaries. Walls can only move in the indicated directions or annihilate in opposite-class pairs. If a mixed pair lasted collision-free for ab sweeps, the lifted relative displacement would change by n(a+b) in increments at most one, forcing a collision. In H_A the rule copies the right bit; visits decrease along each contracted B-block, whose right endpoint copies the unread next block bit across its A-edge and propagates it through the block. The reverse statement holds in H_B. This proves conjugacy on bits, including constants and a=1 or b=1, rather than merely rotation of wall patterns. Fixed-point and primitive-orbit counts follow from the rotation gcd and Möbius inversion. Rank reversal and the Eulerian generating function at 2 give the exact mean and the simple pole at log 2 gives the coefficient and both asymptotics. Independently checked the actual one-step block shift, periodic-state membership, fixed-point counts through d=n, and orientation versus schedule histograms for every schedule and state at n=3..7 (5910 schedules; 695472 pairs). The repair also states the exact scope of the frozen Python verification rather than implying a direct symbol-by-symbol check by that program.",
+      "residual_risks": [
+        "Finite computations do not prove the all-n collision lemma. The proof excludes arbitrary schedule changes, simultaneous updates, exact basin sizes and an optimal entry bound."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Macauley–Mortveit connect order-equivalence classes to acyclic orientations and study cycle equivalence under shifts and reflections.",
+          "Kuhlman et al. construct long periods for the same thresholds on X-trees.",
+          "The sunlet RESULT.md Finding and scope, offset 0, give a periodic invariant union for the same local thresholds on a cycle with leaves, not a recurrent-set exhaustion."
+        ],
+        "reasoning": "Orientation equivalence transfers results among certain schedules but does not compute what each orientation does for this rule. The graph-specific X-tree and sunlet constructions do not yield the complete two-sector classification on simple cycles.",
+        "searches": [
+          "arXiv:0802.4412 §§2–3",
+          "arXiv:1108.2974 abstract and Proposition 4.4",
+          "2026/11/22/SCOPE-fibonacci-necklace-rotation-and-leaf-flipping-coexistence-in-seq--71f33c45dd42"
+        ]
+      },
+      "checked_sources": [
+        "Resultary records e79a108b9794, 4683274af27b, 71f33c45dd42",
+        "arXiv:0802.4412 and 1108.2974",
+        "Repaired /workspace/repairs/4/RESULT.md, Relationship to prior work and limitations"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The comparisons supply orders up to orientation-derived equivalences, an already solved natural scan, and a schedule histogram. They do not establish that any mixed-wall configuration must suffer a collision or identify the bit action with both sector rotations."
+        ],
+        "reasoning": "The orbit formulas and average are then consequences of the recurrence theorem and a known schedule count, not independent novelty claims. The recurrence theorem needs the wall annihilation/completeness and bit-propagation arguments.",
+        "searches": [
+          "arXiv:0802.4412, Theorem 3.3 and Proposition 3.4",
+          "Resultary e79a108b9794 and 4683274af27b, RESULT.md Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The natural-scan record, RESULT.md Finding at offset 0, gives exact image x_n=x_1, a rotation of n-1 bits and one-sweep entry for outsiders, plus basins.",
+          "The Rule 170 record, RESULT.md Finding at offset 0, specifies one rotation core for a different local rule, with the same Eulerian schedule census."
+        ],
+        "reasoning": "The natural scan is exactly a=n-1,b=1, so H_B is contained in H_A and the fixed-point formula becomes the known one for length n-1. The two-sector case when both lengths exceed one is not that theorem. For example n=4,a=b=2 gives six periodic states, versus eight at the natural scan, ruling out a universal equivalence to the latter.",
+        "searches": [
+          "Resultary: arbitrary fixed permutation, sequential (1,3) on C_n, two wall species and recurrent rotation sectors",
+          "2026/11/2/SCOPE-binary-necklace-attractors-and-triangular-run-basins-for-sequent--e79a108b9794",
+          "2026/11/22/SCOPE-eulerian-necklace-clocks-and-uniform-basins-for-sequential-rule--4683274af27b"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact Eulerian histogram is already present in the Rule 170 Resultary theorem; the count of unweighted orientations is not the histogram. The natural-scan source has the exact one-scan necklace counts."
+        ],
+        "reasoning": "The repaired claim does not present the Eulerian sequence or the natural-scan numbers as new exact data. The new quantity being averaged is 2^a+2^(n-a)-2 for this local rule on all schedules; none of the checked exact counts gives it for every a.",
+        "searches": [
+          "Resultary 4683274af27b, Finding",
+          "Resultary e79a108b9794, Finding",
+          "arXiv:0802.4412 §2.1"
+        ]
+      },
+      "rationale": "For the repaired claim the natural-scan recurrent set and single rotation are credited as an exact known specialization. The Eulerian count is also credited as a permutation statistic appearing for another local rule. The distinct result is the arbitrary-schedule explicit two-sector recurrence and period census for (1,3) on the simple cycle, with its consequent schedule-averaged population. Neither the general orientation/cycle equivalence principles nor the closest other-graph or other-rule classifications provide this surviving statement.",
+      "residual_risks": [
+        "An equivalent formulation in interacting particles or sequential binary dynamics could exist beyond the inspected statements. Same-day record dates alone say nothing about provenance or relative priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact special case and stronger transient/basin information for that scan only",
+          "evidence": "Image is the one boundary-equality sector and the n-1 bits rotate, with one-sweep entry off the image.",
+          "identifier_or_url": "2026/11/2/SCOPE-binary-necklace-attractors-and-triangular-run-basins-for-sequent--e79a108b9794",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Binary-necklace attractors and triangular-run basins for sequential bi-threshold cycles",
+          "trigger": "Identical rule and graph, known natural schedule"
+        },
+        {
+          "assessment": "General equivalence, not the periodic-state classification for these thresholds",
+          "evidence": "Acyclic orientations represent functional-equivalence classes of orders; shifts and applicable reflections imply cycle equivalence.",
+          "identifier_or_url": "https://arxiv.org/abs/0802.4412",
+          "material_read": "§2.1 p. 4, offsets 12497–13200; §3 Theorem 3.3 and Proposition 3.4, pp. 5–6, offsets 15250 and 18000–20728",
+          "method": "Open primary PDF passages",
+          "title": "Cycle Equivalence of Graph Dynamical Systems",
+          "trigger": "Could orientation equivalence reduce arbitrary schedules to known results?"
+        },
+        {
+          "assessment": "Same thresholds, different graph for inspected constructive result",
+          "evidence": "The proposition constructs period-c cycles on X-trees under a natural order; it is not the arbitrary simple-cycle recurrence theorem.",
+          "identifier_or_url": "https://arxiv.org/abs/1108.2974",
+          "material_read": "Abstract p. 1, offset 919 onward; §4 Proposition 4.4 p. 12, offsets 39879–41787",
+          "method": "Open primary PDF passages",
+          "title": "Bifurcations in Boolean Networks",
+          "trigger": "Bi-threshold systems and the exact (1,3) rule"
+        },
+        {
+          "assessment": "Exact Eulerian histogram overlap; different local rule and recurrent structure",
+          "evidence": "The n times Eulerian count is given for the sizes of one-rotation cores of Rule 170.",
+          "identifier_or_url": "2026/11/22/SCOPE-eulerian-necklace-clocks-and-uniform-basins-for-sequential-rule--4683274af27b",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Eulerian necklace clocks and uniform basins for sequential Rule 170",
+          "trigger": "Structural analogy and exact schedule-count match"
+        },
+        {
+          "assessment": "Different graph and does not claim periodic exhaustion",
+          "evidence": "Classifies a periodic invariant union on sunlets, allowing possible periodic points outside the union.",
+          "identifier_or_url": "2026/11/22/SCOPE-fibonacci-necklace-rotation-and-leaf-flipping-coexistence-in-seq--71f33c45dd42",
+          "material_read": "RESULT.md Finding and scope, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Fibonacci necklace rotation and leaf-flipping coexistence in sequential bi-threshold sunlets",
+          "trigger": "Same local thresholds and related graph with cyclic core"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired /workspace/repairs/4/RESULT.md, Finding and Proof §§1–5",
+        "Resultary natural-order record e79a108b9794 for the known restriction"
+      ],
+      "rationale": "For a standard local bi-threshold rule, the theorem gives the entire recurrent set and exact periods for arbitrary permutation schedules, going beyond long-cycle examples, general update-order equivalences and the known one-scan classification. The two opposed wall directions explain why the periodic core changes with schedule, and the exact average quantifies its size under uniform permutation sampling. Neither the corrected orientation distinction nor the known Eulerian census is itself the asserted contribution.",
+      "residual_risks": [
+        "The result does not describe arbitrary-schedule basin volumes or sharp transient depths."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

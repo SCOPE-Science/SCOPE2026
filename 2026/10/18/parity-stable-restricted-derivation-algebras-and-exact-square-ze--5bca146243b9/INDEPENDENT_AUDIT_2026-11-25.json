@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:58:57.020365Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The repaired result uses the exact common action (b,c)↦(ec,gc) over R=K[z]/(z^s) on A_{2s} and tA_{2s+1}, with constants providing a trivial complement in the latter. The condition on the coefficient of ∂t is vacuous at length 2s and exactly vanishing of its constant term at length 2s+1; this proves surjectivity, also at s=1. Faithfulness and the single intertwiner give restricted compatibility and all claimed operator consequences. The original rank formula is also correct: D²=0 iff eg=g²=0; the annihilator of (e,g) has codimension s−min(v(e),v(g)). With h=floor(s/2), among ranks ≤r the g=0 contribution is q^r, and nonzero g with v(g)=s−m, 1≤m≤min(h,r), contributes (q−1)q^{m−1+min(r,s−m)}. Differencing gives the stated low and high coefficients and the s=1 total. Fresh basis-matrix corroboration checked both lengths and their intertwiner for F₂ (s≤4) and F₄ (s≤3), saved as record3_matrix_check.py and record3_matrix_check.txt with the review work. These are bounded tests, not the all-field proof. The frozen verifier was inspected but not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Premet §§1.1–1.3, 2.1 uses p>2 and truncated powers p in a multivariable algebra.",
+          "Skryabin p. 1 counts nilpotent elements of finite-field Jacobson–Witt algebras and studies invariant ideals; the arbitrary ordinary truncations and their stable natural actions are not furnished by that statement.",
+          "The reduced rank-locus theorem 0ca161a05327 is stronger than the original enumeration."
+        ],
+        "reasoning": "The rank-variety result subsumes the rank census, but is about square-zero points; the modular-Witt sources examined do not identify the family of actions in this adjacent-length regime.",
+        "searches": [
+          "Premet arXiv:1405.2426; Skryabin, Nilpotent elements in the Jacobson-Witt algebra over a finite field; Resultary 0ca161a05327"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py; repaired RESULT.md; fresh bounded matrix checks",
+        "arXiv:1405.2426v3; Skryabin p. 1; Resultary 0ca161a05327, 1bb3999bc902, a51032612a86 and 5a8af6896d7d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "0ca161a05327 proves rank-locus isomorphisms using coefficient conditions and pivots of fW.",
+          "a51032612a86 identifies the brackets and analyzes centralizers; the repaired result identifies every operator on tA_{2s+1} with its partner on A_{2s} under one fixed linear map."
+        ],
+        "reasoning": "The common natural-module operator is not an implication of the abstract Lie isomorphism or of any square-zero census. This different representation-theoretic claim is the only contribution retained. Catalogue dates do not settle provenance or priority.",
+        "searches": [
+          "Local mirror 0ca161a05327 Finding and Proof; a51032612a86 Proof §4; repaired RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "a51032612a86 Proof §4 uses exactly the even-exponent shift and identifies both bracket algebras with the same algebra on R².",
+          "Its action of interest is adjoint, with adjoint-nullity distribution; the repaired action is on the two underlying truncated polynomial modules."
+        ],
+        "reasoning": "The ordinary isomorphism is equivalent and not new. The simultaneous natural-module equivalence is stronger and involves different representations; comparing bracket tables alone does not identify them.",
+        "searches": [
+          "Resultary: characteristic-two parity-stable truncated polynomial derivations, square-zero rank spectra and even–odd Lie isomorphisms"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "0ca161a05327 Finding states the identical formula, both parities, including both rank regimes.",
+          "1bb3999bc902 describes parity-matched reduced square-zero components and gives the same total; 5a8af6896d7d gives the even-length rank counts in a different summation form."
+        ],
+        "reasoning": "There is direct symbolic indexed coverage of the enumeration, not merely agreement at small s. No inspected table determines the simultaneous natural representation for arbitrary D.",
+        "searches": [
+          "Resultary: characteristic-two square-zero derivation rank distributions in even and odd truncated polynomial algebras"
+        ]
+      },
+      "rationale": "Pass is for the repaired simultaneous natural-representation statement only. The exact finite-field rank polynomial is covered by an indexed rank-variety classification, and the same ordinary Lie isomorphism is indexed in an adjoint calculation. The repaired result proves a single identification of the entire family of natural actions, including nonsquare-zero derivations, after adjoining a trivial line; neither equal square-zero rank fibres nor the ordinary bracket calculation provides this module equivalence.",
+      "residual_risks": [
+        "The scoped primary comparisons do not rule out an older modular Lie algebra treatment using different terminology for the same natural modules. No priority inference is made from relative catalogue dates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers original enumeration and gives stronger reduced rank-locus isomorphism; not a stable natural-module theorem for all D",
+          "evidence": "Reduced strata A^{2r−2}×(A²∖{0}) and G_m×A^{s−1}; identical q-polynomial for both truncation lengths.",
+          "identifier_or_url": "Resultary 0ca161a05327",
+          "material_read": "Finding, scope and proof through the rank criterion (local mirror offset 0 onward)",
+          "method": "Resultary index and mirrored text",
+          "title": "Parity-stable rank varieties of square-zero derivations of truncated polynomial algebras",
+          "trigger": "Exact rank-polynomial match"
+        },
+        {
+          "assessment": "Same bracket isomorphism, but material compared is adjoint, not stable equivalence of natural modules",
+          "evidence": "Maps A_j=D_{t^{2j}} to A'_j=D_{t^{2j+2}}, and matches the B_j unchanged using the mixed bracket.",
+          "identifier_or_url": "Resultary a51032612a86",
+          "material_read": "Finding and Proof §4, offsets 4400–5908 including part of §5",
+          "method": "Resultary index and mirrored text",
+          "title": "Adjoint-centralizer spectra and a characteristic-two parity isomorphism for truncated polynomial derivations",
+          "trigger": "Exact ordinary parity isomorphism"
+        },
+        {
+          "assessment": "Overlaps the square-zero census, not the repaired all-D claim",
+          "evidence": "Reports parity-matched reduced locus, rank preservation and equal total.",
+          "identifier_or_url": "Resultary 1bb3999bc902",
+          "material_read": "Finding",
+          "method": "Resultary index and mirrored text",
+          "title": "Parity-stable linear components in the characteristic-two square-zero locus",
+          "trigger": "Same square-zero parity and total count"
+        },
+        {
+          "assessment": "Even enumeration overlaps, does not identify the odd natural module",
+          "evidence": "Gives the rank enumerator in a different summation form for even truncation.",
+          "identifier_or_url": "Resultary 5a8af6896d7d",
+          "material_read": "Finding",
+          "method": "Resultary index and mirrored text",
+          "title": "Square-zero derivations of binary-characteristic truncated polynomial algebras",
+          "trigger": "Exact even-truncation rank counting comparison"
+        },
+        {
+          "assessment": "Different hypotheses and nilpotent cone",
+          "evidence": "Algebraically closed characteristic p>2; multivariable p-power truncation; invariant-theory nilpotent fibre.",
+          "identifier_or_url": "arXiv:1405.2426v3",
+          "material_read": "Abstract and §§1.1–1.3, 2.1, pp. 1–2",
+          "method": "OA PDF bounded passages",
+          "title": "Regular derivations of truncated polynomial rings",
+          "trigger": "Potential broader restricted Lie fibre theorem"
+        },
+        {
+          "assessment": "Counts a different set of operators and does not include the natural-module comparison",
+          "evidence": "Nilpotent derivations of W_n, stratified via invariant ideals and induced actions.",
+          "identifier_or_url": "https://shelly.kpfu.ru/e-ksu/docs/F1143899874/sskr032.pdf",
+          "material_read": "p. 1, statement and setup",
+          "method": "Author-hosted OA PDF passage",
+          "title": "Nilpotent elements in the Jacobson-Witt algebra over a finite field",
+          "trigger": "Potential finite-field rank or nilpotent census"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Passing from equal ranks or isomorphic Lie brackets to an explicit stable equivalence on natural modules answers a different, natural representation question. It transports simultaneous operator information and gives the exact effect on Jordan blocks and ranks of powers for arbitrary derivations and all truncation lengths in characteristic two. This is an independently usable structural result; the covered census contributes no novelty or value credit here.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

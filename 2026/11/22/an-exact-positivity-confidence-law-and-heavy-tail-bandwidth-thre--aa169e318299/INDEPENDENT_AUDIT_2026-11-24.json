@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:49:24.152436Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Assumptions, Proof §§1–4 and limitations",
+        "Frozen VERIFICATION.md, verify.py and requirements.txt, inspected without executing; replay path for the published numerical diagnostics is python verify.py with NumPy and SciPy"
+      ],
+      "rationale": "Whitening reduces the Gaussian nodes and the kernel distance to standard coordinates. Completing the square gives q_i=(1+2h)^(−d/2) exp(−h‖z_i‖²/(1+2h)); the Gram inverse has positive denominator and both numerators are positive precisely when |‖z_1‖²−‖z_2‖²|<(1+2h)‖z_1−z_2‖². Orthogonal sum/difference coordinates U,V are independent standard Gaussians. Conditional on V≠0, U·V/‖V‖ has a fixed N(0,1) law independent of V; the ratio is therefore |Z|/χ_d, equivalently |t_d|/√d. Independent chi-square normalization gives the stated beta probability and complementary beta survival function of H=(|Z|/χ_d−1)_+/2. For H>0 exactly one sign changes; H=0 is an atom with no sign change at positive h. The small-beta endpoint gives the stated c_d, and layer cake yields convergence exactly for positive p<d, including logarithmic divergence at p=d. At fixed beta endpoint z, substitution x=z s^(1/b) in the beta integral and the gamma ratio give z^b(1−z)^(−1/2)/√(πb), b=d/2, which checks the dimension asymptotic. Strict monotonicity follows by the positive ratio density and coupling χ²_{d+1}=χ²_d+G². The exact flat-limit checks at d=5 and d=6 are 1/2+4/(3π) and 43/(32√2), on opposite sides of 0.95. The infimum is one-sided because the Gram matrix at h=0 is singular.",
+      "residual_risks": [
+        "Exact-arithmetic sign law only; no claim of conditioning, integration accuracy, or positivity of a regularized, augmented or more-than-two-node rule.",
+        "RESULT.md describes 6,000 linear solves; the checker has 5×5×120=3,000 solves and up to two assertions per solve. This verification-description count is not a premise of the theorem or the overall assertion count."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Huszár–Duvenaud develop unconstrained Bayesian weights, including possible negative weights; Särkkä et al. supply Gaussian mean integration methodology.",
+          "The compared indexed settings are deterministic symmetric three-node designs for a uniform target, colliding iid uniform nodes with noisy errors, affine-exact minimum-norm weights, and flat three-Gaussian-node quadrature."
+        ],
+        "reasoning": "General formulas for computing the weights do not determine the random-design sign geometry. Different numbers of nodes, random versus fixed sites, and other weight objectives change the event, rather than giving a dominating parameter range.",
+        "searches": [
+          "arXiv:1812.08509 §3.9",
+          "arXiv:1204.1664 §3.1.1",
+          "arXiv:1504.05994, Gaussian kernel means and sigma-point treatment",
+          "Resultary --bf59562e8e52, --841cfe0433d1, --c97a80bc1618, --8b178211a3d8"
+        ]
+      },
+      "checked_sources": [
+        "ArXiv 1812.08509, 1204.1664, 1504.05994",
+        "Resultary --bf59562e8e52, --841cfe0433d1, --c97a80bc1618, --8b178211a3d8",
+        "Frozen RESULT.md, relationship to prior work"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The actual two-node determinant leaves the comparison of two radial kernel means with the off-diagonal entry. The decisive distribution step divides the independent projected normal by the length of the node difference.",
+          "The exact other sign results either take a flat three-node limit or use fixed symmetric nodes and a bounded uniform target."
+        ],
+        "reasoning": "The geometric random-sign reduction and its distribution, not the general inverse or the incomplete beta asymptotics, are the new comparison unit. The inspected priors do not imply that reduction as a known probability theorem.",
+        "searches": [
+          "arXiv:1812.08509 §3.9 and the general Bayesian weight and Gaussian mean passages cited above",
+          "Resultary --8b178211a3d8 and --bf59562e8e52, exact sign results under their own hypotheses"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The frozen beta law is equivalent to Pr(|t_d|<√d(1+2h)); that distributional alias follows once the interpolation sign event is identified.",
+          "Karvonen–Kanagawa–Särkkä Fig. 3 reports mean proportions positive in d=4, ℓ=1.5, n=2 through 1000, over 50 runs.",
+          "Resultary --8b178211a3d8 gives the exact all-positive probability for three iid scalar Gaussian nodes in the flat limit, with a target/proposal variance ratio."
+        ],
+        "reasoning": "Even at two nodes a sample average of proportions is not an exact analytic confidence formula. The same-day three-node result counts signs of limiting degree-two-exact weights and does not reproduce the two-node finite-shape event. A standard t CDF is an evaluation of the probability after the sign reduction, not a previous identification of the sign event.",
+        "searches": [
+          "Resultary searches for two-node Gaussian kernel quadrature, exact positivity probability and flat Gaussian sampling scale",
+          "arXiv:1812.08509 §3.9, Gaussian measure and Gaussian kernel experiment"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Fig. 3 summarizes a Monte Carlo experiment, not an exact two-node probability table.",
+          "--8b178211a3d8 gives an integral and numerical optimizer for the flat three-node case, not the matched-covariance finite-shape beta law. No matching exact indexed entries in the sources inspected."
+        ],
+        "reasoning": "Standard beta and t tables can yield particular numerical values given the law; they do not identify which quadrature event is represented or give its random shape threshold.",
+        "searches": [
+          "Resultary exact positivity and collision-law searches, with decisive Finding passages read",
+          "arXiv:1812.08509 Fig. 3 and surrounding text"
+        ]
+      },
+      "rationale": "The distinct claim is the all-dimension law for positivity of both unconstrained finite-shape weights, including the per-pair threshold distribution, tail and reliability cutoff. The inverse-Gram construction, Gaussian kernel means, and Student/beta distributional identities are known ingredients. The closest inspected random Gaussian design reports averaged proportions, not this event's exact law; the related indexed three-node result treats a different, flat-limit Lagrange sign criterion. The available statements neither give the standardized two-node sign reduction nor imply the claimed probability and threshold family by specializing parameters.",
+      "residual_risks": [
+        "An equivalent sign-angle or Student-t specialization in unindexed quadrature literature remains possible; this is a best-of-knowledge conclusion, not a priority certificate."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Close numerical precedent, not the exact law.",
+          "evidence": [
+            "Fig. 3 averages proportions over 50 trials, at d=4 and one length scale.",
+            "The nearby text reports empirical support for positivity of at least half the weights, not an exact both-positive probability."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1812.08509",
+          "material_read": "§3.9, pp. 10–11, PDF offsets 74000–80920 and 88600–95065",
+          "method": "OA original PDF, located and opened passages",
+          "title": "On the positivity and magnitudes of Bayesian quadrature weights",
+          "trigger": "Same random Gaussian design/kernel and numerical cases including two nodes"
+        },
+        {
+          "assessment": "Supplies the general weight method, not the sign probability.",
+          "evidence": [
+            "Weights need not be nonnegative or normalized; an example illustrates negative weights."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1204.1664",
+          "material_read": "§3.1.1, p. 4, offsets 21800–26711",
+          "method": "OA PDF passage",
+          "title": "Optimally-Weighted Herding is Bayesian Quadrature",
+          "trigger": "General unconstrained Bayesian weights and signs"
+        },
+        {
+          "assessment": "Known analytic kernel integration, not random sign laws.",
+          "evidence": [
+            "The Gaussian integration discussion relates quadrature to sigma-point rules and notes closed-form Gaussian means."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1504.05994",
+          "material_read": "p. 4, offsets 28500–33396",
+          "method": "OA PDF passage",
+          "title": "On the relation between Gaussian process quadratures and sigma-point methods",
+          "trigger": "Gaussian measure and squared-exponential kernel means"
+        },
+        {
+          "assessment": "Distinct exact statistic; the date provides neither ordering nor evidence of duplication.",
+          "evidence": [
+            "Three scalar Gaussian nodes; as h↓0 the weights approach the degree-two-exact interpolatory rule.",
+            "It optimizes an integral probability over the target/proposal variance ratio; the large-h positivity statement is qualitative, not the two-node threshold law."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-a-uniquely-optimal-gaussian-sampling-scale-for-positivity-of-thr--8b178211a3d8/RESULT.md",
+          "material_read": "Finding, Assumptions and opening of Proof §1, offsets 0–3267",
+          "method": "Resultary and original file via local mirror",
+          "title": "A uniquely optimal Gaussian sampling scale for positivity of three-node flat-kernel quadrature",
+          "trigger": "Same-day distinct indexed exact Gaussian sign result"
+        },
+        {
+          "assessment": "Different node laws, objectives, or weight constructions.",
+          "evidence": [
+            "Fixed symmetric three-node interval result, two uniform-node noisy quadrature result, and three-node affine-exact Gaussian benchmark respectively."
+          ],
+          "identifier_or_url": "Resultary --bf59562e8e52; --841cfe0433d1; --c97a80bc1618",
+          "material_read": "Each original RESULT.md, Finding, offset 0",
+          "method": "Resultary and local-mirror passage reads",
+          "title": "A one-crossing positivity diagram for symmetric three-node Gaussian kernel quadrature; A roughness threshold and exact noise tails for colliding-node kernel quadrature; A density-universal collision law and exact Gaussian positivity benchmark for affine least-squares quadrature",
+          "trigger": "Indexed exact neighboring threshold, tail and Gaussian positivity laws"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, scope and limitations",
+        "arXiv:1812.08509 §3.9 random Gaussian design experiment"
+      ],
+      "rationale": "The sign question is motivated for random unconstrained Bayesian quadrature, where prior numerical work measured positivity. This result gives a calibrated exact confidence in the smallest nontrivial design, not just an example of negative weights. The dimension-six uniform cutoff separates designs with and without a 95% guarantee across bandwidths, and the sharp shape-moment frontier identifies when a mean or variance of the required tuning parameter exists. These are independently useful design benchmarks despite the intentionally narrow setting.",
+      "residual_risks": [
+        "A positivity guarantee does not imply an accurate quadrature rule or an optimal bandwidth, especially close to the singular flat limit."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

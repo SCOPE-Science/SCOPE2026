@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T17:17:40.818079Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With a ≥ b ≥ 0 for the normal (a,b), integrating the uniform square cap gives the triangular cap fraction (a+b−q)^2/(8ab) up to b/a and thereafter the trapezoid fraction (a−q)/(2a) up to half the area. Maximizing the linear functional on the downwards first-quadrant hyperbola gives the same threshold, either at the axis endpoint or at the stated tangent point; reflection extends the support check to all directions. This candidate is convex (the first-quadrant graph is concave and decreases, and reflections yield a convex unconditional set). On the triangular branch the support is f(s)=s−2√α√(s²−1), s=a+b, strictly convex. Its critical point lies beyond the switch b/a=2α when α≤1/8: its sin(2θ)=4α/(1−4α) exceeds 4α/(1+4α²) at the switch. It reaches the diagonal at 1/8. After that f decreases up to the diagonal, including when α≥1/4 and the formal stationary point ceases to exist. The circumradius maximizes (x+y−1)^2+1−4α on the hyperbolic arc and hence occurs on axis or diagonal; their only tie in the open range is α*=3/2−√2, and strict convexity gives no additional contacts. To exclude translations, apply the inner and outer support inequalities to both u and −u; symmetry of the body yields a centered sandwich of the same shape and factor. Linear inner constraints on the positive-definite shape matrix and convex outer inverse-matrix constraints persist under averaging over the dihedral group. Convexity of xᵀM⁻¹x follows also by writing it as sup_y(2xᵀy−yᵀMy). The averaged matrix is scalar. The profile decreases up to α*, increases to 1/8, and above 1/8 factors exactly to √α+1/√2, strictly increasing. The exact minimum evaluated independently at high precision is 1.02216216905878774068. Affine equivariance follows because all cap areas and the original area scale by the same determinant. The frozen checker was inspected, not executed; the proof covers every allowed depth and affine sandwich, whereas the sampled checks cannot do so.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general contact criterion can certify an affine-optimal centered ball sandwich given appropriate contact data. General polytopal semialgebraicity describes depth sets but does not evaluate their radii. Floating–illumination duality compares a different body to the floating body."
+        ],
+        "reasoning": "These methods do not supply the exact contact extrema or optimize their ratio as a function of the cap parameter.",
+        "searches": [
+          "Grundbacher–Kobos Theorem 1.2; Brandenburg–De Loera–Meroni Propositions 5.7–5.8; Mordhorst–Werner §2"
+        ]
+      },
+      "checked_sources": [
+        "Gupta DOI 10.1090/proc/13573",
+        "arXiv:2607.02400v1",
+        "arXiv:2602.14847",
+        "arXiv:1709.02429",
+        "Resultary e3865b37f90a, 2824f0e13b41, acefdad229b3, 8376167378fb"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known contour supplies early-level boundary points and general symmetry/ellipsoid tools can justify centered optimality. The cap-dependent inradius extremum and circumcircle-contact switch still require computing global radii, and the all-level ratio still requires exact optimization."
+        ],
+        "reasoning": "Credit the deductive preliminaries; the singular depth and two geometric transitions are not mechanically provided by the inspected earlier statements.",
+        "searches": [
+          "Gupta Proposition 3.3 proof and Grundbacher–Kobos Theorem 1.2 compared against RESULT.md §§1–5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gupta gives min(xy,(1−x)y,x(1−y),(1−x)(1−y))>δ/2 on the unit square for small δ, matching the hyperbolic contour after normalization and closure.",
+          "Brandenburg–De Loera–Meroni identify the centerpoint set with one floating-body level; this does not compare all depths.",
+          "Ulam square levels use cap barycenters, and the square separation body uses mean-width growth on adjoining points."
+        ],
+        "reasoning": "Uniform square depth is the same underlying cap condition as the classical convex construction. The Ulam and separation bodies are not alternative parameterizations of it. The earlier contour is credited and is not the new optimization.",
+        "searches": [
+          "Resultary comparisons for square/parallelogram floating bodies, halfspace depth and affine roundness",
+          "Gupta Proposition 3.3 proof; Brandenburg–De Loera–Meroni §5.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Same-date record e3865b37f90a gives an exact disk-distance profile for triangular log-cosh levels. Same-date 2824f0e13b41 gives the cube–cross-polytope profile optimized at t=√d. Neither Finding is about halfspace depth. Square Ulam and separation records likewise give different profiles."
+        ],
+        "reasoning": "No inspected exact table or same-day statement matches the retained disk-distance function; date is not used to infer priority.",
+        "searches": [
+          "Resultary exact affine roundness of parameterized level sets and roundest square/parallelogram comparisons"
+        ]
+      },
+      "rationale": "The credited square contour and general affine-optimality principles are not new. No verified earlier statement or stronger quantitative theorem in the inspected evidence determines the full disk-distance profile, optimizing cap fraction and ordered inner/outer transitions. This is a comparison of the retained optimization only, not historical-priority certification.",
+      "residual_risks": [
+        "One broader literature lookup did not return usable results; this is not negative evidence.",
+        "Older unindexed equivalent results on the depth contour or its exact affine roundness may exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior contour, not affine depth optimization",
+          "evidence": "Unit-square product-of-distances contour for sufficiently small δ.",
+          "identifier_or_url": "DOI 10.1090/proc/13573",
+          "material_read": "Prop. 3.3 proof, printed pp.4393–4394, offset 26846",
+          "method": "Author-hosted OA PDF",
+          "title": "Convex floating bodies as approximations of Bergman sublevel sets on tube domains",
+          "trigger": "Same square contour"
+        },
+        {
+          "assessment": "Broader definitions and structure, not exact disk comparison",
+          "evidence": "Semialgebraicity; centerpoint set at the level 1/(d+1).",
+          "identifier_or_url": "arXiv:2607.02400v1",
+          "material_read": "§5.2, Propositions 5.7–5.8, offsets 71265,72064",
+          "method": "OA full-text passages",
+          "title": "From Ham-Sandwich to Centerpoints: Semialgebraic Algorithms for Cutting Polytopal Measures",
+          "trigger": "Halfspace-depth and polytopal floating bodies"
+        },
+        {
+          "assessment": "General ball-sandwich optimality criterion",
+          "evidence": "Uses contact/decomposition conditions; no cap optimization in inspected passage.",
+          "identifier_or_url": "arXiv:2602.14847",
+          "material_read": "Theorem 1.2, HTML offset 9555",
+          "method": "OA primary passage",
+          "title": "John-type decompositions for affinely-optimal positions of convex bodies",
+          "trigger": "Potential general implication for BM optimum"
+        },
+        {
+          "assessment": "Different comparator and distance",
+          "evidence": "Compares the floating body to a polar illumination body.",
+          "identifier_or_url": "arXiv:1709.02429",
+          "material_read": "§2, equations (2.4)–(2.6), offsets 7800–10199",
+          "method": "OA primary passage",
+          "title": "Floating and Illumination Bodies for Polytopes: Duality Results",
+          "trigger": "Floating body and a distance profile"
+        },
+        {
+          "assessment": "Different functional and family",
+          "evidence": "Level sets of a log-cosh boundary functional on centered triangles.",
+          "identifier_or_url": "Resultary e3865b37f90a",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Exact affine roundness of triangular log-cosh projection levels",
+          "trigger": "Same-date exact level-set BM profile"
+        },
+        {
+          "assessment": "Different geometric construction",
+          "evidence": "Intersections [−1,1]^d∩tB₁^d, minimized at t=√d.",
+          "identifier_or_url": "Resultary 2824f0e13b41",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Sharp Euclidean rounding of cube–cross-polytope intersections",
+          "trigger": "Same-date sharp affine rounding of a cube-based family"
+        },
+        {
+          "assessment": "Different body",
+          "evidence": "Boundary from cap barycenters, with parabolic and hyperbolic pieces.",
+          "identifier_or_url": "Resultary acefdad229b3",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Exact Ulam floating body of the square",
+          "trigger": "Similar square floating-body name"
+        },
+        {
+          "assessment": "Different contour variable",
+          "evidence": "Uses mean-width change for conv(Q∪{x}).",
+          "identifier_or_url": "Resultary 8376167378fb",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Exact area profile of the square separation body",
+          "trigger": "Square with parameterized contour"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The least affinely distorted central region in a depth filtration is a natural and invariant question. This result gives the whole profile for the affine class of parallelograms, rather than just a numerical best depth, and identifies two separate changes of contact pattern. The sharper information distinguishes the optimal trimming level from the inradius transition and shows why optimizing in a fixed square normalization is nevertheless affine-sharp. It does not extend to general polygons by this argument.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

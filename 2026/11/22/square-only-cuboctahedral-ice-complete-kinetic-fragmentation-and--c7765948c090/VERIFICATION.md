@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,19 +19,24 @@
 }
 ---
 
-# Exact verification and reconstruction
+# Independent mathematical audit
 
-Execute the two standalone scripts in this package using only Python 3 standard library:
+## correctness
 
-```
-python3 verify_line_graph.py
-python3 verify_coordinates.py
-```
+PASS
 
-**Line-graph construction.** The first script makes the cuboctahedral graph as the line graph of the labelled three-cube, identifies the six old cube-square faces, branches on all twenty-four directed cuboctahedral edges and retains precisely the orientations with two outgoing arrows per vertex. Its assertions establish exactly 600 states; per-square flippability 192; labelled active-face counts 144 for the empty set, 24 per singleton, 8 per distinct pair, 16 per transversal triple, 64 for all six and zero otherwise. It constructs the actual legal-move adjacency graph, proves by exhaustive BFS the component histogram 144, 72, 30, 16 and 1 in dimensions 0, 1, 2, 3 and 6; and checks 576 edges. An exact integer polynomial of degree eleven annihilates the kinetic adjacency on **every one** of its 600 standard-basis vectors. This annihilator is a spectrum consistency check; spectral multiplicities derive from the explicit hypercube decomposition.
+Independently checked RESULT.md lines 5–66, the two frozen verification programs, and ran the independently written standard-library script /workspace/branches/reproduce_square_ice.py. It selects two outgoing neighbors per vertex and enforces complementary choices on each shared edge when its second endpoint is visited. Thus every accepted assignment is an ice orientation, and each such orientation appears once. The coordinate construction checks all directed incidences belong to exactly one square; the enumeration returned 1 empty set with coefficient 144, six singletons each 24, all 15 pairs each 8, eight triples each 16 (all opposite-pair transversals), and the full set with coefficient 64. Reversal on a directed square preserves vertex balances and alters no edge of another square. Each component is therefore a free orbit of the commuting flips, exactly Q_d, with per-set multiplicity obtained by division by 2^d. Replay returned 600 states, 576 edges, the histogram {0:144,1:72,2:30,3:16,6:1}, and the exact isotropic spectrum including 224 zero eigenvalues. For any positive couplings tensor flip eigenvectors give the stated signed sums on each cube and RK eigenvalues given by twice subset sums. Only one six-cube realizes the kinetic minimum; every smaller cube omits at least three faces, so it cannot supply the first excitation. The full cube supplies the kinetic and RK gaps 2 min_i t_i; the RK zero count is one per cube, including isolated vertices.
 
-**Independent coordinate construction.** The second script independently constructs vertices by coordinate permutations of \((0,\pm1,\pm1)\), determines edges by Euclidean squared distance two, identifies square faces by fixed coordinate, and recursively assigns one of sixteen local orientation words to each of six faces. Its outgoing-arrow pruning is exhaustive, not sampling. It independently computes the identical joint-flippability coefficients, 600 states, 263 components and per-face marginal. Hypercube decomposition yields the exact isotropic eigenvalue/multiplicity table: \(\pm6:1\) each, \(\pm4:6\) each, \(\pm3:16\) each, \(\pm2:45\) each, \(\pm1:120\) each, \(0:224\). It also verifies \(\operatorname{Tr}(H_{\rm kin}^2)=1152\) and \(\operatorname{Tr}(H_{\rm kin}^4)=9936\) with unit couplings.
+## originality
 
-**Noncomputational proof obligations.** The displayed coefficient formula in RESULT.md matches both programs because each square edge is assigned once and the vertex coefficient enforces the complete ice rule. The disjoint-edge reversal lemma proves the graph is a disjoint union of hypercubes, and a tensor-product eigenbasis gives the weighted kinetic and RK statements for every positive choice of six couplings. No numerical extrapolation is used to prove the weighted formulas.
+PASS
 
-**Limits.** Script assertions are exhaustive only for this specified 12-vertex graph. They do not certify experimental preparation, larger graphs or independent scholarly originality. The zero-mode statements concern only the defined square-only RK operator, not a Hamiltonian with additional triangular flips.
+Best-of-knowledge pass for the joint labelled six-square activity and complete square-only sector census. The 600 and 192 marginal counts and the general square-plaquette Hamiltonian framework are antecedents, not part of this originality verdict. The indexed same-ensemble result gives a different Fourier invariant; the weighted cube and RK conclusions follow from the exact square-only census rather than an independent claim to tensor-product spectral machinery.
+
+## value
+
+PASS
+
+Separating quadrilateral resonance from the allowed triangular dynamics is a meaningful restricted model for the same curved-ice configuration space. The joint activity invariant identifies the entire fragmented Hilbert-space decomposition, including the rare six-cube and exact frozen fraction, and gives the full weighted excitation and RK degeneracy data, not just another computation of the known state total or marginal.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

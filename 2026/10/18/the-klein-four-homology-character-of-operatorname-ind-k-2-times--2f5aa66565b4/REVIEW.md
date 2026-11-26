@@ -1,23 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof explicitly defines the categorical graph product, the two commuting automorphisms, all invariant vertex-orbit types and their incompatibilities. Proposition 25 of [1] gives homology concentration in degree three and the identity character. The sheet swap fixed-point complex is the two-factor independence complex of [2]; the combined swap leaves exactly the diagonal index orbits. The coordinate-swap signed Lefschetz calculation has an exhaustive four-case partition by the number of selected diagonal and off-diagonal orbit types, with stars counted by inclusion–exclusion. The final representation multiplicities follow from finite-group character orthogonality, and the rational quotient claim follows from exact averaging. Direct enumeration of all independent faces for parameter values two and three independently checks every character value, and a distinct orbit-subset computation checks the difficult coordinate-swap trace for two through five. Remaining correctness risk is a hypothetical unnoticed combinatorial mistake in the general proof; finite runs alone do not establish the uniform theorem.
+PASS
 
-## Originality — PASS
+Proposition 25 gives concentration in degree 3 and the identity value B_q for the specified categorical graph. In the augmented Lefschetz sum an invariant independent face with r vertex orbits contributes (-1)^(r+1); degree 3 makes its contribution to the homology trace (-1)^r. For s the orbit graph is K_q x K_q, whose independence complex is a wedge of (q-1)^2 circles; for st only the q diagonal orbits are admissible, and no two can coexist, so the trace is 1-q. I independently counted the t sum by partitioning selections according to the sheets containing an off-diagonal orbit. Every off-diagonal orbit in one sheet conflicts with every such orbit in the other (at least one of the two orders of the second pair has both coordinates different from a fixed ordering of the first). With no off-diagonal orbit the signed sum is q-1: the empty/on-one-sheet contribution is -1 and the q matching diagonal singleton pairs contribute +q. With off-diagonal orbits on just one sheet, zero or one opposite diagonal gives a factor (1-1) from the freely selectable same-sheet diagonals. Two opposite diagonals force the same-sheet diagonal set empty and permit just the one off-diagonal pair containing both, for contribution -1 per unordered pair. Three or more opposite diagonals permit no off-diagonal pair. The two sheets give q-1-2 binom(q,2)=-(q-1)^2, including q=2. Sign-character inner products give the multiplicities. Barycentric subdivision eliminates inversions; the quotient chain complex is the orbit coinvariant complex, and over Q exact averaging identifies its homology with invariants. Inspected the frozen checker and its stored output, which report finite corroboration, not an all-parameter certificate; no uploaded code was executed.
 
-The closest source [1, Proposition 25] supplies the nonequivariant wedge rank, not the action of the sheet and coordinate symmetries. Its full Section 4 was inspected, including the proof and closing conjecture. The earlier two-factor classification [2] supplies only an auxiliary fixed-point input and likewise does not compute this four-element character. The nearest found indexed equivariant results concern different complexes (notably the rook-graph Čech complex and complete-bipartite Morse complexes), whose character formulas do not imply the exact independent-set orbit calculation here. Searches included the object, interchange aliases, the exact proposed traces, quotient invariants and representation language. Residual risk: a relevant but unindexed or inaccessible equivalent classification.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This gives the full representation for a natural symmetry subgroup of the 2023 complete-product independence-complex family, for every parameter value. The orientation signs distinguish sheet and coordinate interchange, and the invariant third Betti rank of the quotient cannot be inferred from previously known sphere counts. The difficult off-diagonal-orbit signed enumeration is a uniform structural calculation, not a single arbitrary finite numerical specimen. No larger automorphism-group result or orbit-space homotopy classification is claimed.
+The distinct finding supported by the comparison is the uniform character for the specified V4 action and its rational invariant/quotient ranks. The ordinary wedge and its Betti count are known, the sheet-flip character is covered by a distinct indexed result with both sizes arbitrary, and all four values at q=4 are covered by a larger natural symmetry calculation. None of these inspected statements establishes the uniform transpose and combined traces and hence the full all-q character. No priority is inferred from catalogue date labels.
 
-## Literature and limitations
+## value
 
-[1] O. Antolín Camarena and A. Carnero Bravo, arXiv:2307.12401, Sections 3.1 and 4, especially Propositions 8 and 25.
+PASS
 
-[2] S. Goyal, S. Shukla and A. Singh, arXiv:1905.06926, two-factor complete-graph categorical-product complex.
+The two involutions are intrinsic symmetries of the equal-factor categorical product, not arbitrary tested permutations. The result determines all simultaneous eigenspaces at every size and the precise rational homology of the full natural four-element orbit space, which the nonequivariant sphere wedge and the single-sheet-flip trace do not determine. The uniform transpose calculation, rather than a known q=4 table entry or elementary character inversion, supplies the substantive increment.
 
-No claim to independent audit or to comprehensive indexing is made. Finite checker outputs corroborate, but do not prove, the uniform argument.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

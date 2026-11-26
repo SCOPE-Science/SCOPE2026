@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T20:58:09.800687Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With x_s=√(a/b), s=at and h=A/(ax_s), the post-reset flow is y′=h+y−y³ and the age has exponential rate ρ=r/a; the chance of no reset in time s is e^{−ρs}, so the age mixture is stationary and unique. For h>0 the positive path increases to the stable root 1+O(h). The tail identity is m=∫₀^{y_+}e^{−ρτ_h(y)}dy. Subtracting log(1+y/h) from the hitting time leaves R_h≥0, with R_h(y)≤y²/[2(1−y²)] for y<1 and fixed-y limit −(1/2)log(1−y²), by domination of the positive remainder integrand. For ρ<1, y^{−ρ} dominates the rescaled integrand, and the interval above 1 contributes O(h)=o(h^ρ); substituting y² in the limiting integral gives the asserted beta coefficient. For ρ>1, y=hv makes (1+v)^{−ρ} an integrable majorant, and R_h(hv)→0, giving 1/(ρ−1). Independently, for λ in a fixed compact set and ρ=1+λ/L, the integral differs from ∫₀¹(1+y/h)^{−ρ}dy by O(h) uniformly: on [0,1/2] the integrand difference is bounded by C y²(1+y/h)^{−ρ}; on the rest each integral has O(h^ρ)=O(h) mass. With t=log(1+y/h)/L the comparison integral divided by hL is ∫₀^{log(1+1/h)/L}e^{−λt}dt, giving local uniformity and the log law at λ=0. Reflection gives oddness, and the susceptibility uses the difference quotient m/h, not differentiation through a divergent integral. This proof replays directly from the scalar hitting-time identity and the stated bounds. The supplied SciPy checks are finite corroboration only and were inspected, not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wang et al. derive phase selection, a slow-periodic window τ_s≪r^{−1}≪ω^{−1}, and a rate optimizing amplification, with r_opt scaling as (ω²/τ_s)^{1/3}. The low-frequency optimized response tends to a square-wave reference."
+        ],
+        "reasoning": "The general renewal representation covers the dynamics, but the low-frequency and phase-selection asymptotics do not cover h↓0 with fixed ρ>0 or with ρ near 1 by O(1/log(1/h)). They analyze a different observable in a different rate window.",
+        "searches": [
+          "arXiv:2611.01991v1 main low-frequency Eqs. (9)–(12) and supplement S2.2 Eqs. (S46)–(S56)"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.01991v1 main text and supplement S1/S2.2",
+        "Resultary exact hit and distinct field-cusp entry ending dc8c2f893c5e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Zero frequency and phase zero give the underlying exact average, while the published escape estimate determines a logarithmic scale but does not integrate the stationary distribution of all the earlier and later trajectory levels."
+        ],
+        "reasoning": "A sharp escape-time step would lose the dependence of subcritical amplitude on the full cubic trajectory and would miss the critical integration over logarithmic scales. Dominated convergence and a uniform estimate of the comparison integral, rather than setting ω=0 in a prior asymptotic result, yield the stated coefficients and crossover.",
+        "searches": [
+          "arXiv:2611.01991v1 supplement S1.1 Eqs. (S5)–(S6) and supplement S2.2 Eqs. (S46)–(S56); frozen proof §§2–5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact Resultary entry 2026/11/22/SCOPE-a-reset-rate-threshold-for-singular-static-response-at-an-unstab--54e826c3abd6 is the frozen finding.",
+          "Wang et al.'s periodic-drive renewal response with ω=0 and phase zero becomes r∫₀^∞e^{−rτ}x_A(τ)dτ in physical coordinates. By monotonicity and the tail integral this is exactly the normalized hitting-time mean, before asymptotic analysis."
+        ],
+        "reasoning": "The age-average and the hitting-time descriptions are equivalent at a static field. First-harmonic gain is not that stationary mean, and the equivalent integral alone does not give any of the asymptotic coefficients.",
+        "searches": [
+          "Resultary: deterministic cubic reset-to-origin stationary static mean, beta amplitude and critical window",
+          "arXiv:2611.01991v1 main §§ around Eqs. (1),(3)–(5), supplement S1.1–S1.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-record hit includes the beta amplitude, log law, linear law and exact crossover. The distinct mirrored field-cusp entry has state-dependent reset rate 1_{|x|≥1} and feedback D=αΓ^β; its Finding computes a stationary diffusivity-branch cusp with field order (β−1)^{5/2}."
+        ],
+        "reasoning": "The separate entry is not an equivalent stationary-mean law, and a formula for the limiting response of a deterministic family is not a tabulated finite value. The exact result surfaced only as the frozen record itself.",
+        "searches": [
+          "Resultary exact-claim search; Resultary exact title and ID dc8c2f893c5e for nearby field-cusp result"
+        ]
+      },
+      "rationale": "The same deterministic reset system with periodic forcing and its exponential-age renewal relation are prior. In fact freezing Wang et al.'s drive in the renewal equation gives the exact static mean integral. The new claim is the explicit weak-static-field trichotomy and the compact-uniform moving-rate profile, not that integral or the logarithmic escape-time mechanism. No distinct matching indexed or primary conclusion was established in the bounded comparison.",
+      "residual_risks": [
+        "Only targeted sources and passages were compared; an unindexed derivation of the same static asymptotics is not excluded.",
+        "The renewal representation is already implicit in the exact earlier equations, and is not original here."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly implies the static renewal formula, not the static weak-field asymptotic classifications inspected here",
+          "evidence": [
+            "Periodic drive A cos(ωt); S5–S6 renewal and long-time formulas; S8–S17 coherent harmonics; S46–S56 phase-selection estimates and slow-drive window"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.01991v1",
+          "material_read": "Main offset near 8000 Eqs. (1),(3)–(5), offset near 19500 Eqs. (9)–(12), discussion near 26600; supplement S1 near 50800 and S2.2 near 69900",
+          "method": "OA bounded HTML main and supplement passages",
+          "title": "Weak-Signal Amplification through Stochastic Resetting",
+          "trigger": "Identical cubic model with exact resetting at the origin and renewal analysis"
+        },
+        {
+          "assessment": "Different dynamics, observable and limits",
+          "evidence": [
+            "Positive-diffusivity self-consistency with D=αΓ^β and a local one-to-three stationary-root transition"
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-a-universal-field-cusp-at-the-continuous-to-discontinuous-resett--dc8c2f893c5e",
+          "material_read": "Mirrored RESULT.md Finding, offset 0–2421",
+          "method": "Resultary local search and local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "A universal field cusp at the continuous-to-discontinuous resetting transition",
+          "trigger": "Distinct indexed weak-field resetting transition"
+        },
+        {
+          "assessment": "Identical finding, not additional coverage",
+          "evidence": [
+            "Exact beta amplitude and logarithmic-window scaling profile (1−e^{−λ})/λ"
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-reset-rate-threshold-for-singular-static-response-at-an-unstab--54e826c3abd6",
+          "material_read": "Indexed summary and frozen Finding",
+          "method": "Resultary local search and frozen record",
+          "title": "A reset-rate threshold for singular static response at an unstable double-well equilibrium",
+          "trigger": "Exact indexed match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Separates regimes in which differentiating a stationary response through a reset-age average is valid from those where rare long growth intervals dominate. The exact beta amplitude and compact-uniform crossover quantify more than the instability exponent or escape scale; they give a sharp boundary between singular and ordinary static response in a natural model already used for periodic gain. The result does not claim noise robustness or finite-frequency predictions.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

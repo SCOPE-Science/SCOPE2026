@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The independently implemented bitmask and edge-list checkers enumerate every vertex subset of size at most four, directly test the locating and identifying predicates, generate every permitted one-vertex move, and explore the complete state graph from every state. Their independently reproduced census, distance distributions, affine-orbit profile, identifying-code equivalence, and explicit thirteen translated antipodal pairs support the exact finite theorem. The domain is precisely \(P_{13}\), not an infinite family.
+## correctness
 
-## Originality — PASS (best-knowledge with residual priority risk)
-The full-text arXiv:2112.01910 treats orientation-dependent locating domination rather than the minimum-code relocation graph of Paley-thirteen. The full-text arXiv:2307.10847 concerns shortest slides of ordinary dominating sets on trees and interval graphs, not identifying/locating sensors on Paley graphs. Searches against mathematical literature and relevant mathematical-result records for the graph, invariants, code aliases and exact numbers produced no covering implication. The closest Paley-specific records on neighborhood complexes and the closest related code reconfiguration records on other named graphs do not establish the stated thirteen antipodal pairs. Historical material not indexed or accessible remains a priority risk; search absence alone is not a novelty proof.
+PASS
 
-## Value — PASS
-The thirteen-vertex Paley graph is a natural vertex-transitive conference graph. Its full optimal sensor-placement reconfiguration provides a reproducible compact benchmark for retaining localization while relocating detectors. More importantly, the exact phenomenon that the stronger identifying codes are *precisely* the optimally locating states with maximum slide eccentricity, paired by a unique translation-equivariant antipodal involution, connects two separate code requirements with the global shortest-path geometry. The affine orbit decomposition makes the mechanism interpretable rather than a raw isolated number.
+Enumerated every subset of sizes 0–4 using open traces only at nonmembers, giving accepted counts (0,0,0,0,247). Closed traces at all thirteen vertices pick out 26 of the 247. Constructing both replacement graphs by pairwise symmetric difference and doing breadth-first search from every state gives connected jump and slide graphs, unordered distance histograms (1599,7995,15483,5304) and (858,3432,9087,13403,3588,13). The jump eccentricities are all four, and the slide eccentricities are five for 221 states and six for 26 states. The six affine orbit profiles agree with the frozen table. The endpoints of distance-six pairs are exactly the 26 identifying optima, each occurs once, and the unordered pairs are exactly the thirteen simultaneous translations of the displayed A,B, each intersecting in one point. This is exhaustive only for the labelled Paley graph of order thirteen, restricted to minimum locating-dominating sets.
 
-## Scientific limitations
-The result is finite and computer-assisted, with independently coded exhaustive checks but no independent human audit. The identity of exact prior results in unindexed or inaccessible materials cannot be ruled out.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge pass for the exact minimum-code exchange geometry, especially the identifying-code/antipode equivalence. The closest distinct indexed computation concerns a different predicate and move regime. The inspected general sources do not establish this profile or equivalence. No priority claim is based on the failed primary-literature lookup.
+
+## value
+
+PASS
+
+This canonical small strongly regular host is a natural test for the impact of locality of moves on optimal sensor placements. The useful structure is not just the size of a finite list: requiring adjacent moves raises the diameter and singles out precisely the optima that solve the stronger vertex-identification problem. The translated antipodal matching gives an exact bottleneck and a reusable benchmark for locating-code reconfiguration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

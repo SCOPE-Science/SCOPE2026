@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T14:10:46.051149Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–110; VERIFICATION.md and artifacts/verify.py and artifacts/verify_triangulation.py inspected as text",
+        "Independent moment and spectral derivation; bounded symbolic expansions in SymPy (replay: form the displayed F, factor its stated evaluations and use the substitution and positive denominator specified in the rationale)"
+      ],
+      "rationale": "The cube-plus-clique-simplex hull gives a Beta(p,q+1) law for the sum of the clique coordinates, with independent conditional uniform cube and simplex factors. The volume contrast eigenvalues are (q+1)(q+2)/(12D(D+1)) and 1/(D(D+1)). The block-constant covariance is a diagonal term on the independent block plus the rank-one covariance of its two conditional means. Its off-diagonal is nonzero, its upper-left entry is above both contrast eigenvalues, and its lower-right is below both. For the vertex law, a uniform binary cube vertex is selected with probability 2^q/(p+2^q), and otherwise a uniform clique vertex is selected. The contrast eigenvalues are 2^{q-2}/N and 1/N; the two block means again give a nonzero cross-covariance and the two diagonal bounds place both spectral extremes in the block-constant matrix. The determinants and trace ratios then give the stated U and T formulas. The monotone trace-ratio map on kappa>1 makes F_q the exact comparison polynomial. An independent symbolic expansion checked the leading coefficient, the q=2,3,4 factorizations, and the evaluations at 0, 2 and 2^q/q. For q>=4 the signs there are positive, positive and negative; positive cubic leading coefficient supplies the negative root and a root above 2^q/q, with the smaller positive root between 2 and 2^q/q. To check that the middle interval is nonempty even on the integer lattice, put q=4+m, t=q^2+k, p=t/q+z/(1+z); expanding -q^3(1+z)^3 F with 2^q replaced by t gives 112 nonzero coefficients, all positive, including constant 46080. This covers p in [t/q,t/q+1), including ceil(t/q). In the joint scale p~c*2^q/q both trace ratios diverge and their ratio tends to 3(1+c)^2/(16c); sampling at fixed c just to either side of 1/3 and 3 brackets the two known roots and gives their limits. Direct substitution likewise gives both fixed-parameter regimes.",
+      "residual_risks": [
+        "The supplied finite checks were not run; they do not certify the infinite claim. Boundary equality for integer p is characterized by the cubic and is not claimed to be explicitly classified for all q."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The same-family isotropic-constant record derives the beta slice and covariance determinant; its determinant-based affine invariant is not the Euclidean spectral condition number. The pyramid record compares the two measures for pyramids over repeated products and obtains a clique-windmill example; it does not give the complete-split parameter phase. The primary papers discuss perfect-graph stable-set polytopes and stable-set edge structure."
+        ],
+        "reasoning": "The volume formulas and geometric tools are antecedents, but the inspected broader statements do not identify the sign changes for these two condition numbers.",
+        "searches": [
+          "Resultary 0bd1214196a4 (isotropic constant for complete split graphs), e8f71c4a8c8b (multipartite moments), dfc1be3b34f4 (pyramid conditioning)",
+          "Hu–Laurent arXiv:1706.05496; Aliniaeifard et al. arXiv:1804.00360"
+        ]
+      },
+      "checked_sources": [
+        "Resultary fcb0d46d0db6, e8f71c4a8c8b, 0bd1214196a4, dfc1be3b34f4, b39706fc7ceb",
+        "Hu–Laurent and Aliniaeifard et al. above",
+        "Targeted discovery surfaced arXiv:1710.01295, p. 1: graph covariance kernels based on distance, not covariance of sampled polytope points"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The multipartite specialization gives volume moments; the isotropic-constant theorem controls a determinant, not a ratio of extreme eigenvalues; the different-family exponential versus quadratic result neither gives the variable-p sign pattern nor implies the joint-scale constants."
+        ],
+        "reasoning": "Obtaining the phase requires identifying extremal eigenvalues for both measures, then comparing their ratios and proving a two-root statement. None of the strongest inspected matches already performs or implies that conclusion.",
+        "searches": [
+          "Compare the Findings of Resultary e8f71c4a8c8b, 0bd1214196a4, dfc1be3b34f4 with RESULT.md equations for F_q and the sharp limits; Hu–Laurent p. 2 and Aliniaeifard et al. p. 2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The complete split graph is complete multipartite with parts (1,...,1,q). The distinct same-day e8f71c4a8c8b finding gives the all-degree volume moment law, covariance and inertia for that more general family. The assigned fcb0d46d0db6 hit is the self-match."
+        ],
+        "reasoning": "These are equivalent object descriptions in the given coordinates, but the single volume law does not encode the vertex-uniform spectral comparison.",
+        "searches": [
+          "Resultary: complete split and complete multipartite stable-set polytope covariance; cube joined to simplex; vertex/volume anisotropy",
+          "Frozen RESULT.md lines 50–54, cube with complementary clique-coordinate vertices"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact match is the target itself. b39706fc7ceb reports exact two-law covariance matrices and a Loewner sandwich for cactus graphical zonotopes, not stable-set polytopes. The all-degree moment source concerns volume only."
+        ],
+        "reasoning": "An exact moment table for one law is not a table of the two-law comparison; the claimed root thresholds and asymptotics are all-parameter results, not a list of examples.",
+        "searches": [
+          "Resultary fcb0d46d0db6 and neighboring records e8f71c4a8c8b, dfc1be3b34f4, b39706fc7ceb; primary-literature discovery on vertex versus volume covariance in stable-set polytopes"
+        ]
+      },
+      "rationale": "The audited contribution is the two-law comparison, including the sharp two-reversal phase and limiting constants, not the first computation of uniform-volume moments for this family. Distinct same-family Resultary results were inspected and materially overlap with the volume side. Neither supplies the distinct-vertex comparison or mechanically gives the cubic root classification and joint-scale thresholds. The same-day records are compared on content, not presumed chronology.",
+      "residual_risks": [
+        "No historical-priority or exhaustive literature conclusion is claimed. Alternate geometric presentations of iterated pyramids could contain related moment formulas; the passage comparisons support the distinct comparison result, not novelty of the constituent moments."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantive volume-side coverage, not coverage of comparison",
+          "evidence": [
+            "All-degree uniform-volume moments, covariance entries and Euclidean inertia are covered; no distinct-vertex/volume reversal threshold is given there."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-complete-moment-law-and-covariance-sign-recovery-for-multipartit--e8f71c4a8c8b",
+          "material_read": "Local mirror RESULT.md, Finding, offset 0",
+          "method": "Specialization to part sizes (1,...,1,q)",
+          "title": "Complete moment law and covariance sign recovery for multipartite stable-set polytopes",
+          "trigger": "Distinct same-day same-family match"
+        },
+        {
+          "assessment": "Same-family volume antecedent, different invariant",
+          "evidence": [
+            "The determinant and volume law enter an affine-invariant isotropic constant; the audited condition-number phase depends on spectra in fixed orthonormal coordinates under two laws."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-strict-isotropic-constant-interpolation-in-complete-split-graph--0bd1214196a4",
+          "material_read": "Local mirror RESULT.md, Finding and beta-slice/covariance determinant proof, offsets 0 and about 2200",
+          "method": "Comparison of invariant and sampling law",
+          "title": "Strict isotropic-constant interpolation in complete-split graph stable-set polytopes",
+          "trigger": "Same graph and exact covariance structure"
+        },
+        {
+          "assessment": "Related subject, no matching phase statement",
+          "evidence": [
+            "Clique windmills and cactus graphical zonotopes are different families; the latter result is a Loewner comparison."
+          ],
+          "identifier_or_url": "Resultary 2026/11/8: dfc1be3b34f4, b39706fc7ceb",
+          "material_read": "Local mirror opening Findings; pyramid specialization near offset 2200",
+          "method": "Comparison of geometry, parameters, and conclusion",
+          "title": "Exponential versus quadratic covariance conditioning in pyramids; A sharp vertex-volume covariance sandwich for cactus graphical zonotopes",
+          "trigger": "Same-day two-law covariance results"
+        },
+        {
+          "assessment": "Structural background, not the target spectral comparison in inspected passages",
+          "evidence": [
+            "Perfect-graph stable-set polytope descriptions and extension complexity in the first; edge and 1-skeleton structure in the second."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1706.05496 ; https://arxiv.org/pdf/1804.00360",
+          "material_read": "Both PDFs p. 2, offsets approximately 4805 and 6376",
+          "method": "Direct passage comparison",
+          "title": "On the Linear Extension Complexity of Stable Set Polytopes for Perfect Graphs; Stable set polytopes and their 1-skeleta",
+          "trigger": "Cited structural primary literature"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md phase and asymptotics",
+        "Distinct volume and two-law antecedents above"
+      ],
+      "rationale": "For a canonical full-dimensional graph polytope, choosing uniform vertices versus uniform volume changes which law is more anisotropic twice, even with Euclidean normalization fixed. The exact cubic determines borderline comparisons and the distinct exponential scales explain why fixed-parameter comparisons miss the intermediate regime. This is a usable all-family characterization rather than a routine moment calculation or a collection of small numerical examples.",
+      "residual_risks": [
+        "The result does not imply an affine-invariant ordering, and no application to arbitrary stable-set polytopes is asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

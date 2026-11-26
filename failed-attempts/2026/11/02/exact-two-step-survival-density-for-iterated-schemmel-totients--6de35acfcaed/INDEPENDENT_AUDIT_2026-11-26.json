@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:16:22.733452Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For n>1, a prime divisor at most m kills the first iterate; otherwise the only potential small prime divisors of the first iterate come from the factors p-m, because p^{a-1} cannot introduce one. This proves the support characterization for every exponent, including p-m=1. The unit is a survivor with D_m(1)=0. CRT permits l-1 or l-2 residues as l divides or does not divide m; evenness removes the zero factor at l=2 and Bertrand supplies a prime in (m/2,m) that does not divide m. The reduced class set therefore has density strictly between zero and one. Chang–Martin's fixed-modulus specialization gives the stated error and positive constant, with (s-1)zeta(s) tending to one. A zero second iterate makes the stopped sum equal the first iterate, strictly below n for n>1, so the inequality for E_m follows. The statement is for each fixed even m>=4. Independent bounded replay: python3 /workspace/reproductions/frozen_checks.py schemmel checks the defining count of consecutive totatives, rather than the factorization formula, for four m values through n=256; it does not test the asymptotic. Frozen verification code and notes were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3.4 treats arbitrary subsets of reduced classes and entails the exact exponent, constant and error at fixed modulus.",
+          "Landau's leading asymptotic for such semigroups is described in Ben Saïd–Nicolas §1."
+        ],
+        "reasoning": "Taking Q_m and the already identified CRT classes exactly specializes the stronger general analytic theorem.",
+        "searches": [
+          "arXiv:1908.00035 §3, Theorem 3.4 and (3.6)",
+          "Ben Saïd–Nicolas (2003), §1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Defant arXiv:1506.05426",
+        "Chang–Martin arXiv:1908.00035",
+        "Resultary f611bc4e0ee8 and f979d413e5d6",
+        "Ben Saïd–Nicolas, Colloq. Math. 98 (2003), §1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Neither Defant's infinitude theorem nor prime density alone counts surviving integers. The known L_m product makes survival equivalent to admitting only the known progression filter; the general counting theorem then supplies exactly the frozen estimate."
+        ],
+        "reasoning": "The remaining corollary requires only that D_m equals L_m when the depth-two iterate vanishes. No additional independent mathematical ingredient survives this comparison.",
+        "searches": [
+          "Defant, arXiv:1506.05426, formulas for L_m and stopped sum",
+          "Resultary f611bc4e0ee8",
+          "Chang–Martin arXiv:1908.00035, Theorem 3.4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary f611bc4e0ee8 gives the same gcd filter and prime density product in its classification for even m.",
+          "Defant's prime-power product and positivity criterion show directly that the Schemmel survivor indicator equals the indicator of a prime semigroup."
+        ],
+        "reasoning": "The earlier prime-base abundance classification is not itself a count over all integers; the exact translation to the prime support for positive second iterates uses multiplicativity and is independent of any small-base abundance exceptions.",
+        "searches": [
+          "Resultary: Schemmel iterates, prime-residue densities and low-index classifications",
+          "arXiv:1506.05426, definitions and abundance theorem"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "f611bc4e0ee8 states the matching factor for density among prime bases, not a table of survival counts among all integers.",
+          "f979d413e5d6 treats D_2 prime powers, outside the fixed m>=4 statement."
+        ],
+        "reasoning": "There is no single numerical table that could contain the full quantified theorem; the closest indexed formula matches its prime-level arithmetic ingredient.",
+        "searches": [
+          "Resultary local search, Schemmel prime residue and prime power records"
+        ]
+      },
+      "rationale": "The specific residue filter and density factor are already in the closely matching prime-base result. For the stated second iterate the passage from that prime filter to a monoid of integers is mechanical: positivity of L_m is the multiplicative indicator of being coprime to Q_m, and the surviving prime powers have exactly the same prime filter as the bases by the known prime-power formula. Chang–Martin then gives the stated main term, constant and error directly for that filter. The D_m bound is the immediate inclusion from the stopping definition. This is a coverage decision by implication, not a claim that Defant or the earlier prime-base record printed this exact asymptotic.",
+      "residual_risks": [
+        "Priority for the exact printed Schemmel-specific asymptotic is not determined; the negative conclusion rests on coverage by direct implication, not priority or unavailable full text."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers prime-level CRT conditions and infinitude; no asserted all-integer survival asymptotic in the inspected passages.",
+          "evidence": "Abundant prime-power construction avoids small prime divisors of the base and base-minus-m; the multiplicative formula gives the survivor reduction.",
+          "identifier_or_url": "https://arxiv.org/abs/1506.05426",
+          "material_read": "Definitions of L_m and D_m; pp. 8–9; Theorem 3.5, pp. 11–12; Corollary 3.1, p. 13 of preprint",
+          "method": "Lawful open primary PDF passages",
+          "title": "On Arithmetic Functions Related to Iterates of the Schemmel Totient Functions",
+          "trigger": "Same iterates, prime filter and abundance"
+        },
+        {
+          "assessment": "Same prime filter and density factor, not the all-integer counting statement as written.",
+          "evidence": "The finding uses gcd(p-m,P_m)=1 outside a finite set for abundance and prints the identical product over q not dividing m.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-prime-residue-density-and-sharp-low-index-classifications-for-sc--f611bc4e0ee8",
+          "material_read": "RESULT.md finding and prime-base criterion",
+          "method": "Local Resultary mirror",
+          "title": "Prime-residue density and sharp low-index classifications for Schemmel iterates",
+          "trigger": "Closest indexed arithmetic filter"
+        },
+        {
+          "assessment": "Covers the full analytic estimate for arbitrary sets of reduced classes.",
+          "evidence": "Main constant G_B(1)/Gamma(beta) and fixed-modulus error O(x/(log x)^(5/4-beta)).",
+          "identifier_or_url": "https://arxiv.org/abs/1908.00035",
+          "material_read": "Section 3 opening, Theorem 3.4 and equation (3.6)",
+          "method": "Lawful open primary PDF passages",
+          "title": "The smallest invariant factor of the multiplicative group",
+          "trigger": "Cited semigroup theorem and error"
+        },
+        {
+          "assessment": "General predecessor, not a Schemmel-specific theorem.",
+          "evidence": "Describes Landau's asymptotic for prime factors in specified arithmetic progressions.",
+          "identifier_or_url": "Colloquium Mathematicum 98 (2003), 223–247, Ben Saïd and Nicolas",
+          "material_read": "Abstract and §1, p. 223",
+          "method": "Lawful open PDF passages",
+          "title": "Sur une application de la formule de Selberg–Delange",
+          "trigger": "Older general prime support asymptotic"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The density conclusion is naturally motivated, but the frozen result is a direct use of the known local filter with a stronger semigroup counting theorem. The immediate upper bound does not determine the nondeficient count or establish a sharp rate for it. No nonroutine mathematical remainder is established.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

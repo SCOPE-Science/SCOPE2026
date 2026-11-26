@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:15:49.883011Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Whitening by the Gram square root makes exact least-squares line search an orthogonal projection onto the perpendicular sketch line. Hence energy after the first step multiplies by squared cosines of consecutive angles. Integrating the elliptical Gaussian radially gives the Poisson density on the doubled angle with parameter q; the doubled angle difference has parameter q² by Fourier multiplication. Integrating log(|1+exp(i·)|²/4) against this density gives 2 log((1+q²)/2) by the Poisson formula (the logarithmic singularity is integrable); the log products obey the stationary ergodic strong law. For the mean, the cosine-squared kernel acts on 1 and cos(2φ) with entries 1/2, q/2, q/2, (1+q²)/4 and on sin(2φ) by (1−q²)/4. Its larger block eigenvalue is the displayed G_mean. The principal function can be chosen as 1+β cos(2φ) with 0<β<1, since the irreducible block's larger eigenvalue is strictly below its maximum row sum (1+q)/2; positivity bounds all iterates of the constant function by multiples of that eigenfunction times the exponential rate. Every nonzero start has positive first-step mean energy. For signs the Gram entries give the stated absolute line overlap r; the map from line labels to the first label and the successive switch bits is a bijection, so the independent fair switches give the exact binomial moment and almost-sure factor. Orthogonal lines terminate almost surely upon switching, whereas a start parallel to one nonorthogonal sign line has a positive first-step zero event. The comparisons reduce to the endpoint sign identities in Proof: at u=0 and u=1 the mean rankings are opposite for every 0<q<1, while at u=1 the typical-path equality has the stated strictly increasing quintic factor (with equality at q_* only on that endpoint). Independent bisection gave q_*=0.13160844685660672 and spectral ratio 1.6980918606931625; the rational witness checks by substitution. Replay: frozen RESULT.md Proof and verify.py lines 11–78, read but not executed. The conclusions are asymptotic rates of squared residual, for nonzero starts and the stated sign exceptions, not one-step bounds or rates for inconsistent/higher-dimensional models.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lorenz–Schneppe–Tondji supply a one-step conditional energy identity and bounds; the Gaussian estimate in Lemma 3.16 assumes m>d>2.",
+          "Gower–Richtárik give a general expected error bound and identify Gaussian exact line search with random pursuit.",
+          "Altschuler–Parrilo give the rank-one Lyapunov log-pair integral; the isotropic example is explicit, but the inspected theorem does not compare these two laws by their mean energies."
+        ],
+        "reasoning": "For nondegenerate planar sketch lines, the log-pair theorem supplies the generic almost-sure framework and, after evaluating the log-cosine expectation, gives the same typical rates. Its integrability assumptions do not directly cover the zero-overlap signed case. One-step bounds do not determine the annealed spectral rate or prove the two rankings disagree.",
+        "searches": [
+          "arXiv:2306.01946 Thm. 3.13 and Lemma 3.16",
+          "arXiv:1506.03296 Table 1 and §6.3",
+          "arXiv:1905.07531 Thms. 2.1 and 5.1, Eq. (5.5) and Example 4"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py",
+        "Resultary ...433e68df3b50 and ...739d1784d937",
+        "arXiv:2306.01946, 1506.03296 and 1905.07531"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The closest exact mean law has isotropic-in-sketch-space Gaussian draws only. The rank-one formula is a log-integral for pair overlaps and does not evaluate the anisotropic crossing. The frozen comparison derives a signed mean sector boundary in (0,1) for every q and factors the all-angle typical threshold into a unique interior quintic root."
+        ],
+        "reasoning": "The known components provide useful starting expressions, but neither general theorem gives an inequality deciding the strict sign of the two differences uniformly across anisotropy and orientation. The comparison requires the signed-line overlap/switch law, the anisotropic log integration and the endpoint and threshold analysis. The distinct deliverable is the joint exact reversal diagram rather than a relabelled Gaussian second-moment formula.",
+        "searches": [
+          "Resultary ...433e68df3b50 Finding and Assumptions, offsets 0–3453",
+          "Altschuler–Parrilo arXiv:1905.07531 Eq. (5.5)",
+          "Frozen RESULT.md Sharp crossing geometry"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Gaussian mean-square record gives [t²+t+1+sqrt(t⁴−t²+1)]/[2(t+1)²] and explicitly excludes almost-sure claims. Its expected objective is one half of the squared residual here.",
+          "The one-column subspace-iteration record compares expected Frobenius errors for two sketches, not trajectories or almost-sure rates."
+        ],
+        "reasoning": "Substitution t=(1+q)/(1−q) identifies the Gaussian expected factor exactly. There is no analogous equivalence between a one-shot Frobenius observable and a long-run product of residual projection angles, nor does a Gaussian-only law identify a competing sign distribution.",
+        "searches": [
+          "Resultary: planar Gaussian/Rademacher random descent, random pursuit, exact line search, quenched/annealed Lyapunov and second moment reversal",
+          "Resultary 2026/11/8 ...433e68df3b50 and 2026/10/26 ...739d1784d937"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "One indexed record gives the exact Gaussian mean rate, and a distinct October 26 record gives a different expected-error angular comparison. No exact same-day counterpart or exact joint threshold was established from the bounded searches."
+        ],
+        "reasoning": "These are continuously parameterized rates, not a finite invariant census. The relevant exact index match must give the joint rates or their ordering for the same iterated observable, not merely a matching angle symbol or a single factor.",
+        "searches": [
+          "Resultary exact planar rates for Gaussian and fair signs; entries on the frozen record's displayed date",
+          "Focused literature lookup for anisotropic Gaussian vs sign annealed/quenched ranking"
+        ]
+      },
+      "rationale": "The supported distinct claim is the exact sector-dependent Gaussian-versus-sign comparison of the two asymptotic notions, including an all-angle typical-path advantage below a sharp conditioning threshold together with a strict opposite expected ranking in a nonempty sector. The Gaussian expected factor is indexed elsewhere and the rank-one exponent principle is already known; neither is credited as new in isolation.",
+      "residual_risks": [
+        "An unlocated explicit joint comparison or equivalent anisotropic rank-one product calculation remains possible.",
+        "Displayed catalogue dates do not establish priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact overlap for the Gaussian expected rate only",
+          "evidence": [
+            "States lambda_+(t), a two-state second moment transfer, and excludes almost-sure rates."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-mean-square-rate-of-planar-gaussian-random-direction-line--433e68df3b50/RESULT.md",
+          "material_read": "Finding, assumptions and start of proof, offsets 0–3453",
+          "method": "Indexed retrieval and mirrored passage inspection",
+          "title": "Exact mean-square rate of planar Gaussian random-direction line search",
+          "trigger": "Identical planar Gaussian exact line search and expected objective"
+        },
+        {
+          "assessment": "Different algorithm and observable; no demonstrated implication for this record",
+          "evidence": [
+            "Compares expected Frobenius error in a one-column subspace iteration problem."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-sharp-angular-crossover-between-gaussian-and-rademacher-one-colu--739d1784d937/RESULT.md",
+          "material_read": "Finding at offset 0",
+          "method": "Indexed retrieval and mirrored passage inspection",
+          "title": "Sharp angular crossover between Gaussian and Rademacher one-column subspace iteration",
+          "trigger": "Same two sketch families and an angular crossover"
+        },
+        {
+          "assessment": "Algorithm and conditional bounds; no exact joint asymptotic ordering in inspected statements",
+          "evidence": [
+            "Conditional expected-residual identity; Gaussian bound with d>2."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2306.01946",
+          "material_read": "Theorem 3.13 pp. 12–13, offsets 39500–42789; Lemma 3.16 pp. 13–14",
+          "method": "OA PDF passage inspection",
+          "title": "Linearly convergent adjoint free solution of least squares problems by random descent",
+          "trigger": "Same least-squares exact-line-search descent with Gaussian and Rademacher samples"
+        },
+        {
+          "assessment": "Expected-error bounds and equivalence, not the compared exact asymptotic rates",
+          "evidence": [
+            "Identifies Gaussian exact line search with random pursuit and gives a general spectral contraction bound."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1506.03296",
+          "material_read": "Table 1 p. 3; §6.3 p. 19",
+          "method": "OA PDF passage inspection",
+          "title": "Randomized Iterative Methods for Linear Systems",
+          "trigger": "General sketch-and-project framework and equivalent line-search algorithms"
+        },
+        {
+          "assessment": "Covers underlying nondegenerate log-rate principle, not the joint typical/expected sign comparison",
+          "evidence": [
+            "Logarithm of a pair overlap integrated against the driving law; explicit isotropic projection example."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1905.07531",
+          "material_read": "Thm. 2.1 p. 5, Thm. 5.1 p. 12, iid Eq. (5.5) p. 13 and the isotropic projection example",
+          "method": "OA PDF passage inspection",
+          "title": "Lyapunov Exponent of Rank One Matrices: Ergodic Formula and Inapproximability of the Optimal Distribution",
+          "trigger": "General direct almost-sure product formula"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Choosing sketch directions is a genuine algorithmic decision; typical squaring rates and rates of expected squared residual answer different questions. The exact two-dimensional phase boundaries delimit when those criteria prescribe different distributions, including the robust small-anisotropy regime and a fully exact positive witness. This is a motivated comparison, independent of novelty of the inherited update and not an assertion about wall-clock efficiency or higher dimensions.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

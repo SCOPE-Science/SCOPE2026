@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:32:18.571007Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–37 and 39–91",
+        "Frozen verify.py and VERIFICATION.md inspected, not executed; the supplied finite replay requires NumPy/SciPy"
+      ],
+      "rationale": "Set S=ΣRᵢ²/σ² and Wᵢ=Rᵢ²/(σ²S). The chi-square total is independent of the Dirichlet proportions, and selection depends only on the latter. For m>1, E[W_I^(−p/2)] is comparable to E[W₁^((α−p)/2)] since ΣWᵢ^(α/2) is uniformly bounded above and below by positive constants. The beta density gives p<d+α; S contributes p<md. Both endpoints are excluded, and m=1 reduces directly to the chi law. The selected direction is uniform and the selected measurement independent with finite nonzero moments of every positive order. Orthogonality gives the innovation as a norm lower bound, with the triangle inequality giving finite-time finiteness below threshold. For d≥2, E||Qv||^p=q_p||v||^p with q_p<1 provides a summable backward series in L¹ and finite p-moment by Minkowski or subadditivity. Synchronous contraction conditional on arbitrary finite initial displacements proves uniqueness without assuming second moments; for d=1 the update is a fresh draw. Orthogonality transfers divergence to stationarity. At α=2 the selected proportion is its size-biased beta; multiplying its negative moment by the independent chi-square negative moment gives the stated gamma formula (the m=1 simplification is consistent). At p=2 the innovation contributes mτ²/[σ²(md−2)] and the contraction is 1−1/d, giving the stated risk including the divergent cases.",
+      "residual_risks": [
+        "All claims rely on fresh independent sampling; neither a repeated fixed random design nor reuse of the offset is justified by this argument. The deterministic-seed Monte Carlo is illustrative, not decisive at the divergence boundary."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first result permits noncentral means for the rows, and its uniqueness and moment bounds use only i.i.d. projection/innovation pairs, strict directional contraction, and the innovation moment criterion. The second allows fresh Gaussian responses with fixed normalized projection directions but has no random-radius threshold."
+        ],
+        "reasoning": "Broader Gaussian row means alone do not contain the fresh-offset model; the applicable part is the actual general affine-contraction argument with its unchanged Q and verified transferred innovation integrability.",
+        "searches": [
+          "81db12815a13 proof offset 5204, unique-invariant and all-orders proof; 525a6be445a9 assumptions"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 81db12815a13 and 525a6be445a9",
+        "Gan and Wu arXiv:2608.22259v3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At x₀=0 with b_i=1 the known per-step theorem already gives the selected radius's entire finite-moment range, including endpoint divergence. The proof makes the contraction independent of b and treats invariant moments using exactly the innovation spectrum. Orthogonality gives the same finite-time and stationarity checks for fresh offsets."
+        ],
+        "reasoning": "This transfer does not average invariant laws of fixed-response chains. It averages only the one-step risk and applies the same projection contraction and innovation bounds to the i.i.d. fresh-response chain. None of the asserted invariants requires a new estimate specific to Gaussian response redraws.",
+        "searches": [
+          "81db12815a13 proof sections 3–5 (offset 5204)",
+          "Gan–Wu arXiv:2608.22259v3, pdf pp. 3–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "81db12815a13 Finding offset 0 gives p*=min(md,d+β) for finite times and the unique invariant law, with redrawn Gaussian rows and deterministic nonzero response b; Gan–Wu use a fixed noisy observed system."
+        ],
+        "reasoning": "Use b_i=1 and centered rows to identify the fixed-response innovation as U_I/R_I. The frozen offset yields an independent Gaussian multiplier of this innovation, with the same projection Q. This is an equivalence of the moment tests, not of the invariant distributions themselves.",
+        "searches": [
+          "Local Resultary: refreshed Gaussian Kaczmarz, norm-power selection and invariant moment frontier; 81db12815a13 and 525a6be445a9",
+          "Static doubly noisy randomized Kaczmarz: Gan and Wu arXiv:2608.22259"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "For β=2 the indexed one-step gamma expression at x₀=0 is proportional to Σ|bᵢ|^p and the finite-time and stationary risks use forcing ||b||²/[σ²(md−2)]. For b_i=1, the one-step quantity is exactly E R_I^(−p); Γ(z+1)=zΓ(z) gives md/(md−p) and the stated gamma ratio."
+        ],
+        "reasoning": "The selected-row inverse moment is an exact consequence of the displayed equality, not an analogy based on the same p*. For independently remeasured Gaussian b the conditional one-step risk averages over E||b||²=mτ² at each step.",
+        "searches": [
+          "Local Resultary 81db12815a13, Finding offset 0 and exact centered formula proof offset 5204"
+        ]
+      },
+      "rationale": "The frozen fresh-response chain is not the same chain as the fixed-response Resultary result. However, all claimed formulas and sharp moment boundaries transfer from its explicitly covered centered, constant-nonzero-response special case: changing the offset multiplies the same innovation by an independent scalar with every positive moment, preserves the projection contractions, and rescales the forcing in the risk recursion. The closest catalogue entry is dated later; the finding here is mathematical coverage in the material now available, not a claim of historical priority.",
+      "residual_risks": [
+        "The closest record has a later catalogue date; no claim about earlier authorship, order of discovery, or historical priority is made.",
+        "The literature check was bounded, and the keyword search did not supply an additional specialized primary passage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Mechanically covers exact quantities and moment tests under the independent-offset transfer; not identical response protocol",
+          "evidence": "Fixed nonzero b, p*=min(md,d+β), exact gamma expression and squared-norm recursion, projection contraction independent of b.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/36a7204b5741b75430355c38bf9bf0ef7468c2a4/2026/11/2/SCOPE-sharp-moment-thresholds-for-gaussian-noisy-norm-weighted-kaczmar--81db12815a13/RESULT.md",
+          "material_read": "Finding/assumptions offset 0; moment/affine-contraction and centered formula proof offset 5204",
+          "method": "Pinned local mirror bounded passages",
+          "title": "Sharp moment thresholds for Gaussian-noisy, norm-weighted Kaczmarz projections",
+          "trigger": "Same fresh Gaussian radius sampling and the same moment and risk laws"
+        },
+        {
+          "assessment": "Different fixed-normalized-direction model",
+          "evidence": "Unique invariant law with all finite moments; no random Gaussian radii.",
+          "identifier_or_url": "2026/11/8/SCOPE-gaussianity-is-exactly-a-nonorthogonality-graph-compatibility-co--525a6be445a9",
+          "material_read": "Finding and assumptions at offset 0",
+          "method": "Local mirror passage",
+          "title": "Gaussianity is exactly a nonorthogonality graph compatibility condition",
+          "trigger": "Fresh Gaussian measurement projection stationarity"
+        },
+        {
+          "assessment": "Fixed observed system, not fresh Gaussian row/response redraws",
+          "evidence": "Observed Ã=A+E and b̃=b+f; convergence to a neighborhood of a noiseless least-squares solution.",
+          "identifier_or_url": "https://arxiv.org/pdf/2608.22259",
+          "material_read": "v3 pp. 3–4, text offsets 10389–15352 and abstract",
+          "method": "OA PDF passages",
+          "title": "On Convergence Behavior of Randomized Kaczmarz-type Methods for Solving Doubly Noisy Linear Systems",
+          "trigger": "Closest cited doubly noisy randomized Kaczmarz analysis"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The two competing small-radius mechanisms and the stationary risk are worthwhile in stochastic projection methods. But the same threshold, radius formula and affine risk/uniqueness mechanism are already established by the comparison; adding an independent light-tailed multiplier neither uncovers a new sharp mechanism nor requires a new invariant estimate. The frozen record does not classify the fresh-response invariant law beyond those transferable facts.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

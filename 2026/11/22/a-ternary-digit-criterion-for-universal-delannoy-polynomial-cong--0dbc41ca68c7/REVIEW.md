@@ -1,15 +1,21 @@
-# Scientific review: universal Delannoy-polynomial congruences modulo nine
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim concerns all nonnegative indices and every integer polynomial argument, with an exact ternary-language criterion and finite-block count. The proof first uses the polynomial Lucas identity to rule out digit one. For admissible indices it reduces all nine argument residues to a single Legendre constant term \(A_m=(-1)^m4^{-m}\binom{2m}m\), applies an all-index binomial modulo-nine scaling identity and exact admissible-digit recurrences, and evaluates a six-state counting transfer by rational functions. The detailed formulas in RESULT.md prove unrestricted index and digit-length quantifiers. A self-contained verifier passed 9,282 exact diagnostic assertions, including 6,561 indices times all nine arguments modulo nine. Those finite checks support but do not replace the proof. Rational denominators are prime-to-three units, and the universal congruence is not conflated with coefficientwise polynomial congruence.
+## correctness
 
-## Originality — PASS (qualified)
-The closest full mathematical record, *A noncyclic base-13 fixed-divisor spectrum for Delannoy polynomials*, establishes the universal-in-argument problem only modulo the **first** power of an odd prime, including the necessary digits zero/two at three. It does not establish the adjacent-digit residue \(c(u)\), all-values congruence modulo nine, or the exact \(N_r\) count. Guo (arXiv:1412.7724), Sun (arXiv:1101.5386), and Pan (arXiv:1508.02046) study Delannoy/Legendre congruences but not this all-index fixed-divisor mod-nine classification. Rowland–Yassawi (arXiv:1310.8635) proves a broad automaticity framework; its general computability theorem is not itself an exact six-state classification of the present object. A complete \(3\)-adic *value image* for the central Delannoy sequence \(D_n(1)\) has a different quantifier. Searches of published records and primary literature did not reveal a statement covering the new congruence and exact count. This is not an exhaustive historical-priority certification; an unstated specialization of a general automatic congruence remains possible.
+PASS
 
-## Mathematical value — PASS
-This is the first natural prime-square layer of the universal fixed-divisor question for Delannoy polynomials, not an arbitrary numerical residue slice. At the first prime, the admissible set is described by independent forbidden digits, whereas the prime square creates a **neighbor interaction** in the input digit language. The theorem provides a compact necessary-and-sufficient test for every index, a complete simultaneous argument-value law, and an unexpectedly bounded, exact six-periodic fluctuation in the count below each power of three. This is useful to higher-order divisibility investigations of these classical polynomials even without a full prime-power classification.
+Vandermonde gives the binomial-square form, and coefficientwise Lucas factorization with Frobenius shows a ternary digit 1 forces D_n(1)=0 mod 3. For the remaining even n=2m, the linear coefficient 2m(2m+1) is divisible by 3, so multiples of 3 give 1 mod 9; Legendre reflection gives the class -1. For z=1 mod 3, P_{2m}(1+2z) has no odd powers and coefficients in Z_(3), so only the constant term A_m=(-1)^m 4^(-m) binom(2m,m) survives. In (1+T)^(3a) modulo nine the terms linear in 3T(1+T) have degree 1 or 2 mod 3, proving binom(3a,3b)=binom(a,b) mod 9. Together with the exact adjoining-factor ratio this gives increments q and 1+2q mod 3 in (A_m-1)/3 when adjoining a low digit 0 or 1 to q respectively, exactly the recursion for c. For the count, at a primitive cube root zeta the two-state weight transfer on terminal digit has columns (1,zeta^2) and (1,1). The first-digit vector (1,zeta) is a (1+zeta)-eigenvector, so the complete nontrivial Fourier moment at length r is (1+zeta)^r. The trivial moment is 2^r; averaging these and the conjugate yields exactly the given six-periodic defect, including r=0. An independent replay (python3 /workspace/checks/delannoy.py) uses direct binomial sums for all nine residues through n<3^5 and exact integer cyclotomic arithmetic for word counts through r=12. This is corroboration; the algebra proves both unbounded assertions. The supplied checker was inspected but not executed.
 
-## Literature comparisons and limitations
-The prime-level fixed-divisor result, the complete ternary value image, and the cubic-modulus sum-of-fourth-powers congruence were read in full; the first is the nearest predecessor, the second treats one argument with arbitrary index, and the third concerns weighted polynomial sums. Full-text PDF sections of Sun 2011, Guo 2014, Pan 2015, and Rowland–Yassawi 2013 were examined. The theorem treats only modulus nine, not all \(3^k\), and does not compute the entire fixed divisor. Earlier equivalent results may exist outside the examined sources. The proof and verifier are available in RESULT.md and verify.py.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The first-power digit restriction is exactly prior and not counted as new. The bounded search found general automaticity, prime-level digit results, and powerful valuations/range results at one argument, but no inspected earlier theorem giving the prime-square residue criterion with its universal-argument reduction or the exact enumeration. Known prime-power binomial computations furnish tools for the constant term; this is not a claim of new binomial scaling or new general automaticity.
+
+## value
+
+PASS
+
+Lifting the known all-argument fixed-divisor problem from three to nine is a natural first prime-square test. The formerly independent digit restrictions become a coupled language, simultaneously controlling all argument classes. The exact six-periodic discrepancy in the block counts is additional structural information, not a pointwise congruence experiment or a restatement of automaticity. No stronger claim about arbitrary primes or 27 is needed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

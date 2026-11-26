@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The finding is a complete deterministic, open-square classification of the published donation ODE. The payoff differences and the noise term reduce to a linear negative-feedback model with an additional strictly dissipative strategy term. The selected point satisfies the strategy nullcline, and the relative-entropy identity is exact. The environmental sign makes the dissipative term strict in the boundary regimes; compact entropy sublevels and LaSalle prove convergence. At the critical boundary, the center manifold has a computed quadratic attracting flow, with positive interior trajectories excluded from the strong-stable boundary. The standalone symbolic checker reproduces the identities and the numerical tests are supporting evidence only. Limits: no boundary-initial or stochastic-population conclusions, no claim that very large noise preserves physical weak-selection accuracy.
+PASS
 
-## Originality — PASS, limited to inspected sources
+The strategy payoff difference is r(1-2n), the noise-payoff difference is -2r, and its square gives the 4r^2 factor in the correction. The normalization and time scales match Chen–Wu–Guan v2 Eqs. (4), (9) and (14); equation numbering should be tied to that version rather than to the first-public date or current numbering. The vector field preserves the closed square and its faces; uniqueness keeps initially interior trajectories interior at finite times. Solving the strategy nullcline at x=x_* or on n=0,1 gives the stated X,N and sharp k_c, including theta=1 with no boundary threshold. The weighted Bernoulli divergence has derivative -4s^2r^2k^2(x-X)^2+2sr(n-N)(X-x_*). The face term is nonpositive in both strict boundary regimes. Sublevels bound x away from both frequency boundaries and exclude the unselected environmental endpoint(s); for a selected face the entropy extends to that face. The largest invariant set of zero derivative is the target because x=X forces n=N to persist. At zero noise the entropy is proper and strictly convex, with a single minimum; each positive regular level is a closed curve without equilibria, hence periodic. For an independent check of the critical asymptotics, use oriented u=x-x_* on the upper branch and u=x_*-x on the lower branch, and let v>0 be distance to the selected environmental face. At k=k_c the exact equations are u'=-lambda(t)(u-kappa*v), v'=-H*v(1-v)*u, where lambda=4s^2r^2k_c^2*x(1-x), H=epsilon(1+theta), kappa=1/(2sr*k_c^2)=|theta-1|/(1+theta). The global result gives u,v->0 and lambda->lambda_*>0. Then q=u/v solves q'=-[lambda-H(1-v)u]q+lambda*kappa. The bracket is eventually uniformly positive and the forcing in the equation for q-kappa tends to zero; variation of constants gives q->kappa. Thus (1/v)'=H(1-v)q->H*kappa, which gives both displayed inverse-time coefficients for every interior start. `python /workspace/review_replay.py 3` independently checks the exact entropy identity and the two signed critical slopes, not the infinite-time conclusion by simulation. The result is for the deterministic ODE; weak-selection modeling does not validate arbitrary formal noise or stochastic paths.
 
-The closest primary article, Chen–Wu–Guan (2026), contains the exact model, interior fixed-point location, and local Jacobian stability but does not state or imply the global selection theorem for all interior states, the resource saturation/depletion phase transition, or the critical inverse-time amplitude. The Weitz et al. 2016 resource-feedback paper treats neutral environmental cycles in the noiseless model, so it cannot imply strictly dissipative positive-noise selection. The Wang–Su–Wang–Plotkin 2026 stochastic-replicator work lacks the coupled environmental restoration equation. Related global Lyapunov results for adaptive incentive games use different equations and do not cover the source donation payoff model. The full foundational 2026 PRL source was not accessible (institutional access unavailable), leaving a documented priority risk; the actual model-specific primary manuscript was fully accessible and inspected.
+## originality
 
-## Value — PASS
+PASS
 
-The source article expressly identifies local damping of neutral oscillations but leaves unspecified the global fate and whether sufficiently strong environmental noise preserves the interior coexistence state. The exact all-initial-condition trichotomy, finite threshold for complete environmental selection under asymmetric restoration feedback, and universal critical slowing supply substantive qualitative and quantitative answers. They distinguish stabilizing moderately noisy dynamics from asymptotic resource exhaustion or saturation in the same equations, not merely a routine stability eigenvalue calculation.
+The same model, donation payoffs, noiseless centers and locally damped coexistence are prior. The supported distinct result is the all-interior positive-noise selection theorem across the two boundary transitions, especially the critical resource and cooperator amplitudes. The usual entropy and linearization tools are not new. No inspected statement implied this complete model-specific result; this is not a priority certificate.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The phase transition separates globally restored or depleted resource states from interior coexistence in the same deterministic model, a question not answered by a local damping calculation. The critical inverse-time amplitudes give measurable information about both variables and explain slow relaxation at the saturation threshold. These are global basin and rate results, not only an equilibrium root calculation; they do not claim biological validation outside weak selection.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

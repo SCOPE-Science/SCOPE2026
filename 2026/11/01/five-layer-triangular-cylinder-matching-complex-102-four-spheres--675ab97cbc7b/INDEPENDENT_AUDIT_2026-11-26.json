@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:13:31.762711Z",
+  "axes": {
+    "correctness": {
+      "rationale": "I independently generated every matching by deleting the least remaining vertex or pairing it with one of its remaining neighbors. Using the specified edge order and pivots, batch pairing followed by independent depth-first cycle detection gave face counts including the empty simplex (1,27,279,1399,3558,4338,2100,276), 5937 disjoint covers, all 11977 nonempty faces and 55209 directed incidences visited without a directed cycle, and critical counts one in degree 0 and 102 in degree 4. Forman's theorem now gives a CW complex with those cells: every four-cell attaches to a point, yielding the integral wedge, not merely a homology computation. The five triangles are the only triangle cycles and their adjacency graph is P5; the longitudinal matching fixes the row bijection on all columns once chosen on one column, giving precisely S3 times C2. For a fixed face with j edges and k permutation orbits, its contribution to the reduced simplicial trace is (-1)^(j-1)(-1)^(j-k)=(-1)^(k-1), also correct for the augmented empty face. A separate recursion on disjoint permitted edge orbits recovered the six traces (102,0,0;12,2,0); concentration in even degree four identifies them with the homology character. Inner products over the six classes give (10,7,9,8,19,15); all irreducibles are realized over Q. Independent exact replay: python3 /workspace/review_work/reproduce_5.py. The frozen checker was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 13 requires a chain of edge-sharing polygons of length at least four. Theorem 15 treats a line of edge-sharing triangles.",
+          "The open-width-three result imposes P3 as the cross-section."
+        ],
+        "reasoning": "In the target, the triangle layers are vertex-disjoint and connected by three longitudinal edges; it is also not an open P3 cross-section. Neither result is a general theorem specializing to this cylinder.",
+        "searches": [
+          "Bayer–Jelić Milutinović–Vega arXiv:2211.12559, Theorems 13 and 15, in particular Definition 14 for triangle lines",
+          "Chauhan–Sharma–Shukla arXiv:2609.27366 v1, open width-three introductory statements"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Resultary 574639d85961, da8762498878 and fb0b9d6e31bd",
+        "arXiv:2211.12559",
+        "arXiv:2609.27366"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Closing the cross-section of P3 square P5 adds five edges. The cited open-grid invariants do not determine the attaching maps of the resulting matching complex. The Euler characteristic gives a candidate reduced rank, not the cell concentration or equivariant traces."
+        ],
+        "reasoning": "General discrete Morse theory and Lefschetz/Hopf trace formulas are prior tools, but do not give the certificate or the fixed-face sums for this graph. Even a rank-102 group in degree four would not imply the five nonidentity character values.",
+        "searches": [
+          "Open three-row connectivity and homology in arXiv:2609.27366; exact open-grid and nearby cylinder RESULT.md statements; Bayer et al. Theorem 15"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The ordinary matching complex is the independence complex of the line graph; the result concerns disjoint original edges, not just maximum or perfect matchings.",
+          "The Resultary hit da8762498878 describes M(P3 square C5), not M(C3 square P5). These cylinders have equal vertex counts but 25 versus 27 graph edges, hence different line-graph vertex counts and different simplex censuses."
+        ],
+        "reasoning": "Neither swapping terminology nor taking the line-graph independence complex identifies these graphs or supplies the target traces. The broad web query yielded no usable primary evidence and is not counted as evidence of absence.",
+        "searches": [
+          "Local Resultary lookup for C3 square P5 / triangular three-by-five cylinder / ordinary matching complex and S3×C2 homology character",
+          "Initial focused primary-literature query for ordinary matching complexes of triangular cylinders"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "574639d85961, Finding and assumptions: M(P3 square P5) is a wedge of 16 four-spheres (22 edges in that graph).",
+          "da8762498878, Finding and assumptions: M(P3 square C5) is a wedge of 24 four-spheres and three five-spheres.",
+          "fb0b9d6e31bd, Finding: M(C3 square C4) is a wedge of 44 three-spheres with an S3×D4 character."
+        ],
+        "reasoning": "These are meaningful comparison entries, but all describe different line graphs and do not tabulate this 27-vertex matching complex or its character.",
+        "searches": [
+          "Local Resultary searches for exact five-layer triangular-cylinder homotopy and neighboring width-three matching-complex tables"
+        ]
+      },
+      "rationale": "The inspected matching-complex classifications concern materially different graph families. Neither the integral homotopy type nor the action on degree-four rational homology is supplied by the closest open-grid, triangle-line, or neighboring cylinder results.",
+      "residual_risks": [
+        "The focused web query produced only irrelevant results; indexed and inspected comparisons do not exclude an unindexed or inaccessible exact computation.",
+        "No chronological or publication-priority conclusion follows from the bounded comparison."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Nearest published index entry for the open benchmark; not covering",
+          "evidence": "Specifies P3 square Pn for 3≤n≤7; n=5 gives sixteen four-spheres.",
+          "identifier_or_url": "Resultary 2026/10/25/…574639d85961/RESULT.md",
+          "material_read": "Finding and Assumptions and scope, mirror offset 0",
+          "method": "Local mirror passage inspection",
+          "title": "Perfect discrete-Morse matchings for five three-row grid matching complexes",
+          "trigger": "Exact table for open width-three grids"
+        },
+        {
+          "assessment": "Other periodic direction, different graph",
+          "evidence": "P3 square C5 has 25 edges, not 27, and has five-dimensional as well as four-dimensional reduced homology.",
+          "identifier_or_url": "Resultary 2026/11/8/…da8762498878/RESULT.md",
+          "material_read": "Finding and Assumptions and scope, mirror offset 0",
+          "method": "Local mirror passage inspection",
+          "title": "Mixed-dimensional matching-complex homotopy on the pentagonal three-row cylinder",
+          "trigger": "Potential equivalent cylinder with fifteen vertices"
+        },
+        {
+          "assessment": "Adjacent character calculation, not a covering family",
+          "evidence": "Periodic longitudinal C4 factor, 44 three-spheres, S3×D4.",
+          "identifier_or_url": "Resultary 2026/11/17/…fb0b9d6e31bd/RESULT.md",
+          "material_read": "Finding, mirror offset 0",
+          "method": "Local mirror passage inspection",
+          "title": "The matching complex of C3 square C4",
+          "trigger": "Potential exact character family for triangle products"
+        },
+        {
+          "assessment": "Neither polygonal nor triangle-line theorem applies directly",
+          "evidence": "The cycles are glued along shared edges, unlike the vertex-disjoint triangle layers linked by longitudinal matchings here.",
+          "identifier_or_url": "https://arxiv.org/pdf/2211.12559",
+          "material_read": "PDF pp. 5–6 offset 10086, Theorem 13; pp. 10–11 offset 21512, Definition 14 and Theorem 15",
+          "method": "Primary open PDF passage inspection",
+          "title": "General polygonal line tilings and their matching complexes",
+          "trigger": "Published sphere-wedge results for chains of cycles including triangles"
+        },
+        {
+          "assessment": "Different boundary condition",
+          "evidence": "Estimates homology and connectivity of P3 square Pn, not C3 square Pn.",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.27366",
+          "material_read": "v1 abstract and introduction, PDF p. 1",
+          "method": "Primary open PDF passage inspection",
+          "title": "Homology of matching complexes of 3×n grid graphs",
+          "trigger": "Nearby open-grid homology theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a finite boundary-condition benchmark for the width-three matching-complex problem: at the same five layers the indexed open strip has sixteen four-spheres, while closing the width-three section yields 102. The exact acyclic certificate distinguishes a wedge from homology-only evidence, and the full row/reversal action makes it an equivariant benchmark as well. For example, the row action alone is seventeen copies of the regular rational S3 representation, but the trace 2 at transposition times reversal is additional information not available from this restriction or the rank. No claim for all lengths is needed for this precise comparison.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

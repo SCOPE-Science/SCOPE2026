@@ -1,23 +1,21 @@
-# Scientific review of the Clebsch blind-spot relocation theorem
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The sixteen-vertex graph is specified both by a Cayley XOR model and by an isomorphic empty/singleton/pair model. Translation and five-generator permutation automorphisms reduce the power-domination classification to six explicit small representatives. Their closed-neighborhood and forcing calculations show that every minimum set is exactly an independent triple or induced path, each with an initially unobserved triple that is itself a minimum set of the opposite type. The involution follows from two representative checks. The relocation edge numbers follow from two orbit-specific degree calculations. Finite exhaustive shortest-path verification uses explicit adjacency predicates and breadth-first search on all 320 states; each program recomputes all 51,040 pair distances and the sharp 160-pair locality penalty. Both standalone scripts completed successfully from the actual package files. The claimed scope is exactly finite and all boundary cases of sizes one through three were checked.
+PASS
 
-## Originality — PASS with residual historical priority risk
+The frozen mathematics and narrowed replacement agree on the slide and mixed-metric counts. From the five XOR generators, translations and generator permutations give exactly the two required minimum-placement orbits: translate a path center to zero; for an independent triple translate one member to zero and use transitivity on intersecting pairs of two-generator index sets. Explicit move legality is one replacement, with XOR in {1,2,4,8,15} for a slide. A separate exhaustive reproduction from the graph and propagation rule (branches/46c08968-162c-4d3f-8745-85ceb2dcef1a/independent_check.py) confirms the 320 minima and all 51,040 unordered distance pairs. It gives 1,120 slide edges, degrees 9 and 5, slide eccentricity six, a single last-layer placement equal to the antineighborhood, and the reported 12,560/27,520/10,800/160 gap counts. Each of the 160 involution pairs is disjoint and has jump distance three. The explicit six-slide and three-jump witnesses are legal. This is exhaustive for the given graph, not an assertion for other folded cubes or the complement. The supplied code was inspected, not executed; the repair leaves its inputs and numerical claims unchanged.
 
-The preprint arXiv:2201.01798v1 and its later complete journal text define and study general power-domination reconfiguration; their enumerated graph classes do not include the Clebsch graph or this blind-spot involution. The MathWorld and Brouwer graph references provide identification and strong regularity but do not provide power-dominating sets or their relocation distances. Other indexed Clebsch classifications concern distinct identifying, locating or metric-resolution predicates and do not imply the three-sensor power-domination result. Searches also covered folded-five-cube terminology and exact parameter/count variants. These comparisons support novelty under present evidence, but cannot exclude an unindexed or unpublished identical result.
+## originality
 
-## Value — PASS
+PASS
 
-The structural fact that the three vertices left unseen after initial observation form the unique farthest optimum under physically local rearrangement is a direct coupling between monitoring propagation and reconfiguration geometry, not a numerical census alone. The involution partitions 320 optima into 160 sharply extremal pairs; the two feasible induced-subgraph classes exhibit different slide degrees although unrestricted exchange is regular. This exact benchmark is naturally motivated by the cost of rearranging optimum sensor placements while retaining full network observability. No extrapolation to wider graph families is asserted.
+PASS only for the delivered narrowed theorem in repairs/4/RESULT.md and repairs/4/SLOGAN.txt. Originality of the frozen attribution fails: the minimum-placement classification and jump metric are covered by 99315adae8ca, and the very same antineighborhood involution on that family is covered by c9e2c260f397. These are distinct records, not the frozen record itself; their common catalogue date does not establish an ordering. The replacement explicitly credits both and claims the slide graph, unique slide-antipode interpretation and exact slide-versus-jump gaps only.
 
-## Closest sources and limitations
+## value
 
-- Bjorkman et al., *Power domination reconfiguration*, https://arxiv.org/html/2201.01798v1 (general framework, different exact graph families); later journal version https://doi.org/10.1007/s44007-025-00187-5 .
-- E. W. Weisstein, *Clebsch Graph*, https://mathworld.wolfram.com/ClebschGraph.html (graph identification and parameters only).
-- Brouwer, *Clebsch graph*, https://jaanos.github.io/tables/graphs/Clebsch.html (folded cube/complement distinction).
+PASS
 
-Computations are complete for this named graph but are not a classification of power domination on all strongly regular or folded-cube graphs. The possibility of an undetected historical equivalent remains. Both checkers are same-project computational verification, not external independent audit.
+The repaired theorem ties the unique most remote optimum under local sensor movement to a directly defined feature of initial observability: the three initially missed vertices. It quantifies exactly when local moves impose three extra steps and shows a meaningful structural contrast between the two symmetry orbits, despite jump regularity. This is useful independently of the known seed census and is a motivated fixed-graph metric benchmark, not a claim about physical grid movement or a wider family.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

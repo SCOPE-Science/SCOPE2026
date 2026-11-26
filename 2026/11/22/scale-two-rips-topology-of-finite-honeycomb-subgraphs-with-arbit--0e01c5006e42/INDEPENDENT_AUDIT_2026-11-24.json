@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T14:42:40.733102Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Use intrinsic shortest paths, not those of the ambient lattice. The same-color displacement vectors of length two are ±e1, ±e2, ±(e1-e2); their adjacency around a vertex is a six-cycle, giving two translation types of triangles, centered and alternating. A same-color pair has a unique midpoint by the absence of 4-cycles. In the alternating type the three midpoints are distinct and form, with the triple, an elementary hexagon; any 6-cycle must be of this type. A mixed clique with two vertices in each color would give a 4-cycle, and all other mixed cliques belong to one closed-neighborhood simplex. Deleting bonds or vertices cannot make new cliques and the three required midpoint paths certify that an exceptional triangle survives exactly with its whole face. In the centered core, pair a face of at least two neighbors with its cone from the center, in decreasing face size. The unique midpoint prohibits competing cofaces from other centered simplices; this collapses the core relative to G, not the full complex. Each exceptional triangular attaching loop becomes the original six-edge loop via midpoint paths, giving two disks per face. The first disks fill disjoint face interiors in the plane. A finite nonempty set of such faces has a boundary edge incident to only one remaining face (e.g. an extreme face in a lattice direction), so these disks can be collapsed one by one, each with one edge. The remainder is a connected graph with rank b-h, including the tree/single-vertex cases. The exact relative homology sequence gives the primitive rank-h boundary kernel: the relative 2-chains for the first disks inject because the planar filling has zero H_2, and the quotient H_1 is the free group in homology of the remaining graph. Each second attaching loop is null after the first disks and adds one S^2. This proves the integral map and wedge type, not only Betti numbers; a nonbridge deletion changes (b,h) to (b-1,h-t) with the metric recomputed. Bounded local adjacency and midpoint-type check replay: python3 /workspace/frozen_review_arithmetic.py (SymPy). Inspected VERIFICATION.md, verification_output.txt and verify_honeycomb.py; its recorded mod-two tests do not certify integral homotopy, and the frozen script was not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "70b9bc9b3abb gives the same formula when distinct six-cycles are edge-disjoint. Two neighboring honeycomb faces share a bond, a permitted example outside that hypothesis.",
+          "b8c8eb672f53 treats closed regular torus quotients; d6e392803a48 covers arbitrary overlap for vertex Rips of line graphs of high-girth source graphs."
+        ],
+        "reasoning": "There is no automatic passage from the torus classification to finite intrinsic-metric cutouts. Nor can a honeycomb with a degree-three vertex and no triangles be a line graph: a degree-three source vertex would give a triangle, and source maximum degree two yields only paths and cycles. The retrieved line-graph theorem does not dominate the present one.",
+        "searches": [
+          "Resultary overlapping-hexagon, girth-six and periodic honeycomb searches",
+          "70b9bc9b3abb",
+          "b8c8eb672f53",
+          "d6e392803a48"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify_honeycomb.py and verification_output.txt",
+        "Resultary 70b9bc9b3abb, b8c8eb672f53 and d6e392803a48 entries",
+        "Targeted OA attempts for the nearest mirror and primary passages"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The older edge-disjoint formula gives all no-overlap examples (including a single C6), but does not justify collapsing first disks on a shared-edge family. The planar collapse used here works with arbitrary shared edges. Once the classification is in hand, the bond-defect formula is a direct consequence rather than a separate novelty claim."
+        ],
+        "reasoning": "The scientific extension is the overlapping planar vertex case; credit the known no-overlap and periodic cases and the corresponding line-graph method.",
+        "searches": [
+          "70b9bc9b3abb indexed theorem",
+          "b8c8eb672f53 and d6e392803a48 indexed models",
+          "Frozen RESULT.md §§1–6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The construction is the clique complex of G squared, with G the finite subgraph; taking an ambient graph square before restricting vertices can retain length-two paths the theorem does not allow.",
+          "The cited girth-at-least-seven collapse excludes elementary hexagons; the C6 case is already known."
+        ],
+        "reasoning": "Compared graph-square, clique-complex and vertex-Rips language, and excluded ambient and line-graph metrics from equivalence.",
+        "searches": [
+          "Resultary: intrinsic scale-two vertex Rips complexes of finite honeycomb subgraphs with overlapping hexagons and deleted bonds",
+          "Literature: scale-two Vietoris-Rips clique complex graph girth six overlapping hexagons cycle graph powers homotopy theorem arbitrary graph",
+          "Adamaszek, arXiv:1104.0433, Proposition 2.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact all-subgraph formula hit is the assigned record 0e01c5006e42. The visually matching formula in 70b9bc9b3abb comes with an edge-disjointness restriction."
+        ],
+        "reasoning": "A table of Rips homology for finite windows would not settle homotopy or parametric integral inclusion maps for all deleted subgraphs. The relevant exact-results catalogue was examined instead.",
+        "searches": [
+          "Resultary: scale-two honeycomb Rips and hexagon packing exact classifications"
+        ]
+      },
+      "rationale": "The wedge formula itself has precedent for edge-disjoint hexagons. The supported distinction is the intrinsic vertex-Rips classification for all finite honeycomb subgraphs with adjacent faces and arbitrary deletions, including the natural integral kernel and the change under shared-bond removal. The available indexed results cover different hypotheses or different spaces, not this extension. This is best-of-knowledge, not a claim of historical priority.",
+      "residual_risks": [
+        "The closest indexed statements were available as summaries; no broader lemma in their full proofs was ruled out.",
+        "An unlocated general vertex-Rips two-cell theorem for girth six with arbitrary overlap could narrow the distinct contribution further to the planar collapse and integral map."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Genuine overlap on edge-disjoint cycles only as far as verified",
+          "evidence": "Summary explicitly assumes finite girth at least six and distinct six-cycles edge-disjoint, and gives b-h circles and h spheres.",
+          "identifier_or_url": "2026/10/11/SCOPE-a-hexagon-packing-classification-of-scale-two-graph-rips-complex--70b9bc9b3abb",
+          "material_read": "Resultary summary; exact mirrored theorem not retrieved",
+          "method": "Resultary and targeted OA mirror lookup",
+          "title": "A hexagon-packing classification of scale-two graph Rips complexes",
+          "trigger": "Same formula and scale"
+        },
+        {
+          "assessment": "Closed regular quotient, not general finite subgraphs",
+          "evidence": "Summary: for each L>=5 the periodic graph gives T^2 wedged with L^2 two-spheres.",
+          "identifier_or_url": "2026/11/8/SCOPE-scale-two-vietoris-rips-complexes-of-periodic-honeycomb-graphs--b8c8eb672f53",
+          "material_read": "Resultary summary; exact mirrored passage not retrieved",
+          "method": "Resultary and targeted OA mirror lookup",
+          "title": "Scale-two Vietoris–Rips complexes of periodic honeycomb graphs",
+          "trigger": "Identical local lattice and scale"
+        },
+        {
+          "assessment": "Same local mechanism for a different graph functor",
+          "evidence": "Summary states arbitrary hexagon overlap but the complex is that of L(G), not G.",
+          "identifier_or_url": "2026/11/8/SCOPE-hexagon-two-cell-model-for-scale-two-rips-complexes-of-line-grap--d6e392803a48",
+          "material_read": "Resultary summary; exact mirrored passage not retrieved",
+          "method": "Resultary and targeted OA mirror lookup",
+          "title": "Hexagon two-cell model for scale-two Rips complexes of line graphs of high-girth graphs",
+          "trigger": "Allows arbitrary overlap with two disks per hexagon"
+        },
+        {
+          "assessment": "Girth-seven baseline on available description; no full-text exclusion",
+          "evidence": "Frozen RESULT.md line 47 cites the collapse back to G at scale two for girth at least seven.",
+          "identifier_or_url": "https://arxiv.org/abs/1104.0433",
+          "material_read": "Frozen citation to Prop. 2.2 and §§2–3; no independent primary passage returned",
+          "method": "Targeted OA HTML and arXiv PDF alternate",
+          "title": "Clique complexes and graph powers",
+          "trigger": "Classical graph-square collapse result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a complete defect-tolerant topology calculation for a natural lattice, not an extrapolation from intact polyhexes. It identifies the actual cycles killed over the integers and explains the local but counterintuitive transition under a shared-bond loss: two 2-spheres disappear while a 1-cycle is created. The result gives a computable classification without convexity, inducedness or non-overlap assumptions.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

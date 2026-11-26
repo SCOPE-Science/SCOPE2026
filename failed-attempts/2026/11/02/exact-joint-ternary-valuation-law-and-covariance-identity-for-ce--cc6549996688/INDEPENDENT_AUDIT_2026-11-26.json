@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:17:49.801553Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the complete block 0 <= N < 3^L, the L ternary digits are independent and uniform. Legendre gives Y=s_3(N) since multiplying by 3 shifts digits; Kummer counts the outgoing carries of N+N, including a carry out of the highest sampled digit. An additional leading zero cannot produce a new carry. With incoming carry 0, digits 0,1 stay at 0 and digit 2 goes to 1; with incoming 1, digit 0 goes to 0 and digits 1,2 stay at 1. Weighting by u for an outgoing carry and v to the digit power gives the stated matrix and the endpoints (1,0) and (1,1)^T. For an independent covariance check, tilt each digit by weights 1,v,v^2; if q_j is the resulting digit probability, the carry probability obeys p_i=q_2+q_1 p_{i-1}. Hence p_i=[v^2/(1+v^2)](1-q_1^i). At v=1, d(q_1)/d(log v)=0 and the derivative of v^2/(1+v^2) equals its value, giving Cov(X,Y)=E X by differentiating the tilted E X. The carry transition has second eigenvalue 1/3, so Cov(c_i,c_j)=3^{-(j-i)}(1-3^{-2i})/4 for i<=j. Its geometric sum gives the stated exact variance; the independent digits give the moments of Y. For the CLT, tilt the matrix at u=e^s,v=e^t and divide by 3. Its simple leading eigenvalue is 1 at the origin, separated from 1/3. Locally the MGF is a leading eigenvalue to power L times an analytic prefactor equal to 1 at the origin, plus an exponentially small relative remainder. The second-order log expansion therefore uses the limiting per-L covariance in the record and yields its nondegenerate Gaussian limit; the bounded difference in the X center is immaterial. Independently replayed with Python 3 at /tmp/opencode/frozen_review_4.py: floor-sum factorial valuations for every input at each L=1..11, compared with polynomial propagation and exact rational moments. All matched (133 joint cells at L=11). This computational check is bounded; the digit argument establishes all L. The frozen verifier was inspected, not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Barat and Grabner, manuscript pp. 23–24, count multinomial carries with multiplicity and describe finite digital carry machinery. The passages read do not evaluate the frozen finite-length bivariate covariance. arXiv:2501.00850v1 concerns s_2(n) with s_3(n), a different pair."
+        ],
+        "reasoning": "The classical machinery and nearby joint limit are not by themselves the decisive coverage; the indexed law is on the same block with an equivalent companion statistic.",
+        "searches": [
+          "Barat and Grabner, DOI 10.1112/S0024610701002630, section 5",
+          "Straub, Amdeberhan and Moll, arXiv:0811.2028v1",
+          "Literature lookup for ternary carry counts and digit-sum joint laws"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Resultary records 1999135510ae and c99e090ba83a",
+        "Barat and Grabner, section 5",
+        "arXiv:0811.2028v1 (access attempt)",
+        "arXiv:2501.00850v1 (returned description only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For indexed P_L(a,b), F_L(u,v)=P_L(uv,v). Its matrix [[1+b,ab],[1,a(1+b)]] becomes the frozen [[1+v,uv^2],[1,u(v+v^2)]]. The indexed record states Cov(X,s_3(N))=E X and has an asymptotically independent Gaussian pair for (X,Z)."
+        ],
+        "reasoning": "The shear transports the exact moments and the limit as well as the distribution. No remaining frozen claim survives as a distinct result.",
+        "searches": [
+          "Indexed November 8 record, Finding and Proof Steps 1, 2, 4, 5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Indexed Finding and Proof Steps 1–2: Z=nu_3(binomial(3N,N)), X+Z=s_3(N), and the full (X,Z) transfer law on the same 3^L inputs."
+        ],
+        "reasoning": "(X,Z) and (X,Y) are related by the invertible integer shear (x,z) -> (x,x+z); the different coefficient names are not different joint information.",
+        "searches": [
+          "Resultary semantic lookup: ternary central and threefold binomial valuations, self-addition carries and digit sum",
+          "2026/11/8/SCOPE-joint-ternary-valuations-of-central-and-threefold-binomial-coeff--1999135510ae/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The first indexed record supplies an exact generating polynomial for all L, thus all finite joint cells. The second supplies exact joint counts with Catalan valuation X-nu_3(N+1), not this companion variable."
+        ],
+        "reasoning": "A separate table is not needed: the indexed polynomial generates precisely the finite joint law after substitution.",
+        "searches": [
+          "Resultary: 2026/11/8/SCOPE-joint-ternary-valuations-of-central-and-threefold-binomial-coeff--1999135510ae",
+          "Resultary: 2026/11/22/SCOPE-exact-joint-ternary-valuation-law-for-catalan-and-central-binomi--c99e090ba83a"
+        ]
+      },
+      "rationale": "Exact indexed coverage, not a correctness defect or a priority finding. Put Z=nu_3(binomial(3N,N)). The factorial identity binomial(3N,N) binomial(2N,N)=(3N)!/(N!)^3 gives Y=X+Z identically. The indexed record gives the full joint law of (X,Z) for the same uniform blocks, explicitly gives Cov(X,s_3(N))=E X, and gives the corresponding joint CLT. Changing coordinates mechanically recovers the complete frozen result. The index path date does not determine who obtained the mathematics first.",
+      "residual_risks": [
+        "The indexed overlap establishes equivalent coverage, not priority or dependence.",
+        "The literature inspection does not rule out an earlier equivalent result; Straub et al. lacked a decisive retrieved passage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent coverage",
+          "evidence": "X+Z=s_3(N); exact (X,Z) law, covariance identity in the frozen variables and joint Gaussian limit.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-joint-ternary-valuations-of-central-and-threefold-binomial-coeff--1999135510ae/RESULT.md",
+          "material_read": "Finding and Proof Steps 1, 2, 4, 5, local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local mirrored record passage",
+          "title": "Joint ternary valuations of central and threefold binomial coefficients",
+          "trigger": "Same central coefficient, prime and sampling block; threefold notation may obscure equivalence"
+        },
+        {
+          "assessment": "Adjacent, not the covering record",
+          "evidence": "Catalan companion is X-nu_3(N+1); the normalized fluctuations there coincide, unlike this nondegenerate pair.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-exact-joint-ternary-valuation-law-for-catalan-and-central-binomi--c99e090ba83a/RESULT.md",
+          "material_read": "Finding and Proof Steps 1–5, local mirror",
+          "method": "Local mirrored record passage",
+          "title": "Exact joint ternary valuation law for Catalan and central binomial coefficients",
+          "trigger": "Indexed joint ternary valuation law sharing the central coefficient"
+        },
+        {
+          "assessment": "General framework in passages read",
+          "evidence": "Multinomial valuations as carries with multiplicity and finite digital carry functions, not the evaluated frozen covariance in these passages.",
+          "identifier_or_url": "https://www.math.tugraz.at/~grabner/Publications/Binomial.pdf",
+          "material_read": "Section 5, manuscript pages 23–24, text offsets 84346–84529 and 84875",
+          "method": "OA manuscript passage",
+          "title": "Distribution of Binomial Coefficients and Digital Functions",
+          "trigger": "Published multinomial carry framework"
+        },
+        {
+          "assessment": "No passage-level conclusion",
+          "evidence": "Not used as negative evidence or to determine the verdict.",
+          "identifier_or_url": "https://arxiv.org/abs/0811.2028v1",
+          "material_read": "HTML access/query only; follow-up PDF retrieval timed out",
+          "method": "OA HTML then alternate PDF request",
+          "title": "The p-adic valuation of k-central binomial coefficients",
+          "trigger": "Cited adjacent valuation result"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The pairing of two natural arithmetic valuations and the exact covariance are mathematically useful, but the frozen record offers no independently useful unknown invariant beyond the indexed joint law and its explicitly stated digit-sum covariance. The change of variables is a factorial cancellation and a direct shear, not a new contribution. No distinct surviving claim is available for a repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

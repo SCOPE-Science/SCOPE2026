@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T13:26:21.321850Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof steps 1–4 and given initial and base values",
+        "Frozen VERIFICATION.md and verify_stern5_discrepancy.py, inspected for scope; neither used as a new run",
+        "/workspace/branches/b53e9949-cc60-41e2-b78c-b9533d319538/recompute_stern_mod5.py (independent replay: python3 <path>); all three vector identities 24/24, all twelve base pairs, direct Stern prefix extrema at 19 levels through r=18, and direct witness values −6 at 2190712 and 12 at 8693112"
+      ],
+      "rationale": "For the consecutive Stern pair the two children are the invertible maps L(a,b)=(a,a+b), R(a,b)=(a+b,b) modulo five. L fixes the initial pair (0,1), so leading zeroes preserve indexing. Lexicographic length-r words concatenate the L block and then the R block. A prefix completed in the second block has weight S_r(Lq) plus its internal prefix; this proves the three updates including empty and full prefixes. The independent finite recomputation confirms S_5=S_1, A_28=A_16−4 and B_28=B_16+4 at all 24 states. The S update propagates its period four, hence also period twelve. A constant translation of both arguments of either extremum passes unchanged through min/max, so the all-state extrema certificate propagates from r=16 by induction. The listed base pairs and witness discrepancies match. Consecutive dyadic bounds squeeze the running absolute maximum to (log_2 X)/3+O(1).",
+      "residual_risks": [
+        "The recomputation checks finite integer premises and examples, not the universal claim by itself; the latter uses the recurrence induction. This is not formal verification."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Earlier Resultary gives lag 12 with ±4 for r≥8, a strictly larger range than r≥16, and signed limsup and liminf at arbitrary N. Reznick reports the modulo-three theorem and a finite modulo-five check, not this resolution."
+        ],
+        "reasoning": "The established broader starting range includes every submitted dyadic identity.",
+        "searches": [
+          "Earlier Resultary record, Finding and Proof",
+          "Reznick, arXiv:math/0610601, end of Section 5"
+        ]
+      },
+      "checked_sources": [
+        "Distinct Resultary 17b06025c42e (full decisive passages as above)",
+        "Reznick arXiv:math/0610601, Section 5",
+        "Frozen RESULT.md, relationship and references"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier result has M_r=r/3+O(1) and m_r=−r/3+O(1); the submitted all-X absolute maximum follows by monotonicity between adjacent dyadic bounds."
+        ],
+        "reasoning": "The running-maximum formulation is a direct implication, not a separate advancement; the earlier Resultary result, not the early finite computation of Reznick, supplies decisive coverage.",
+        "searches": [
+          "Earlier Resultary record, exact all-state propagation and signed dyadic estimates",
+          "Reznick, Section 5 final discussion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Earlier Finding defines D by the same residues and n<N; (m_r,M_r) are (ell_r,u_r) with 0≤N≤2^r; its two witnesses agree exactly."
+        ],
+        "reasoning": "Notation and a different choice of twelve consecutive base levels do not define a different invariant.",
+        "searches": [
+          "Resultary meaning search for the modulo-five Stern lag-twelve extrema",
+          "2026/10/25/SCOPE-sharp-logarithmic-discrepancy-for-stern-residues-modulo-five--17b06025c42e"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier Finding gives base extrema for 8–19 with the same two explicit witnesses; its proof states the complete 24-state certificate at 16 and 28."
+        ],
+        "reasoning": "The earlier exact base table and recurrence recover the later table, including 20–27; no independent table contribution survives.",
+        "searches": [
+          "Earlier Resultary record, Finding and Proof including its description of CERTIFICATE.csv"
+        ]
+      },
+      "rationale": "A distinct earlier-dated Resultary record establishes the same residue-pair discrepancy on exactly the same inclusive prefix domain and the same shifts for every r≥8, covering the submitted r≥16 theorem. It explicitly supplies the same witness lengths and values, the same all-state 16-to-28 extremum certificate, and both signed dyadic asymptotics, which imply the submitted all-X estimate. This is demonstrated coverage, not a failure of retrieval or a defect in the mathematics.",
+      "residual_risks": [
+        "No global historical priority adjudication is made; the identified available coverage is sufficient. The cited Anders et al. paper and Lansing thesis were not independently retrieved to confirm the frozen scope summaries; no negative inference is drawn from that."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the frozen finding; stronger starting depth",
+          "evidence": "Explicit r≥8, paired signed asymptotics, witness lengths 2190712 and 8693112, and all-state 16-to-28 min/max/total certificate with the same binary child recurrences.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-sharp-logarithmic-discrepancy-for-stern-residues-modulo-five--17b06025c42e/RESULT.md",
+          "material_read": "Finding, Assumptions and scope, Proof (offsets 0–4468)",
+          "method": "Exact Resultary local-mirror passage",
+          "title": "Sharp logarithmic discrepancy for Stern residues modulo five",
+          "trigger": "Distinct indexed hit with same residues and shifts"
+        },
+        {
+          "assessment": "Precursor, not the exact modulo-five law",
+          "evidence": "Reports that no result had been found for d=5 and gives Mathematica bounds −5 and 11 for N≤2^19, following the modulo-three proof.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0610601",
+          "material_read": "Section 5 closing discussion, around p. 15 (offsets 42200–45766)",
+          "method": "Open primary PDF passage",
+          "title": "Regularity properties of the Stern enumeration of the rationals",
+          "trigger": "Original modular discrepancy motivation"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof",
+        "Reznick, Section 5 final discussion",
+        "Earlier Resultary 17b06025c42e, Finding and Proof"
+      ],
+      "rationale": "The discrepancy problem is well motivated by Reznick, but as a contribution the frozen finding only repeats known exact extrema and witnesses and takes a routine consequence of their dyadic growth. Rechecking the known table and narrowing its valid range does not add a worthwhile new result.",
+      "residual_risks": [
+        "The mathematical interest is specific to this residue difference; no analogous theorem for other moduli is implied. The submission adds no separate scientific advance over the earlier result."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

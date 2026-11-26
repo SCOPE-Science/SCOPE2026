@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:03:12.486570Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–119, frozen VERIFICATION.md and verify.py inspected, not executed",
+        "Independent boundary-derivative and marginal-cost calculation with bisection"
+      ],
+      "rationale": "The trace-exponential Hessian is an integral of positive squared norms in every nonzero symmetric direction. Injectivity of the Laplacian parametrization, compactness and orbit symmetry give the unique unrestricted optimizer with common cross and clique conductances. The quotient and two contrast spaces give the four stated eigenvalues. On the budget line the heat trace is strictly convex; its derivative is positive at the all-clique endpoint for r>1, and at the all-cross endpoint has the sign of r−R. This proves the strict support test, including equality. The denominator of R is strictly convex, with initial derivative a₀pq(q−p−2); it decreases throughout when q≤p and increases immediately for q≥p+2. For q=p+1 the unique minimum follows from exp((p+1)a₀t)=(2p+1)/p. Substitution gives the stated peak and expansion. The five-vertex witness's two times were independently bracketed from the orbit marginal costs (0.5622300102912 and 3.1987079650432).",
+      "residual_risks": [
+        "Minor notation mismatch: the Finding introduces u_p and writes ν_p in the peak formula. The proof explicitly defines ν_p=exp(a₀τ_p), which equals u_p, so the exact formula has an unambiguous mathematical reading.",
+        "The claim excludes r≤1, t=0, and nonuniform prices within an orbit."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Boyd's general framework handles symmetric convex functions of Laplacian eigenvalues; the heat trace lies in that framework.",
+          "The prism and complete-graph matching records give concrete heat-trace applications but their graphs do not contain these split graphs as an in-hypothesis specialization."
+        ],
+        "reasoning": "The framework explains convexity and supports a symmetry reduction. It does not establish the sign of the boundary derivative or the classification of its zero set by q−p.",
+        "searches": [
+          "Boyd, Convex Optimization of Graph Laplacian Eigenvalues, ICM 2006; finite-time heat trace on edge-orbit graphs in Resultary"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 7cfd411fbd51, 2c0941455571, 82f5b871dfb7, 0b9d2b9aa8a6",
+        "Sun et al., SIAM Review 48 (2006); Boyd, ICM 2006"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Even with the same eigenvalue decomposition, λ₂ uses the smallest mode only. The derivative of the heat trace has three weighted exponential contributions, whose balance can change twice.",
+          "Analytically the numerator/denominator comparison yields one interior maximum only for q=p+1 in the premium regime, and the height excess is asymptotic to (1−log 2)/(2p)."
+        ],
+        "reasoning": "General methodology and spectral-gap results can provide ingredients or a contrast, not the derivative sign diagram or its asymptotic window.",
+        "searches": [
+          "Resultary 7cfd411fbd51 gap summary compared to frozen eigenvalues; Boyd and Sun et al. scope passages; finite-time matchings 2c0941455571 and 82f5b871dfb7"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sun et al. and Resultary 7cfd411fbd51 optimize λ₂ of the weighted Laplacian. Minimizing heat trace, or the sum of positive-mode exponential decays, is not equivalent to maximizing the smallest nonzero Laplacian eigenvalue at finite time.",
+          "Resultary 0b9d2b9aa8a6 uses a grounded inverse trace with controllable diagonal entries, not an edge-conductance heat trace."
+        ],
+        "reasoning": "Same graph and symmetry do not make the objectives or variables equivalent. For q≥p, all-cross attains the optimal gap; with b>0, a drops and the eigenvalue pa yields a strictly lower gap. The finite-time window gives the opposite support choice.",
+        "searches": [
+          "Resultary: complete split graph premium edges, heat trace, fastest mixing and finite-horizon reactivation",
+          "Sun et al., DOI 10.1137/S0036144504443821"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact audit-record match is a self-hit. The distinct matching-edge records describe activation at a single over-time threshold rather than loss of support at large time.",
+          "The split-family gap record is indexed under a substantive same-family, same-price problem, but the summary refers to the asymptotic spectral gap, not the finite-time trace."
+        ],
+        "reasoning": "No distinct inspected index result supplies the exact split heat-trace criterion or two-transition phase. The gap record's retrieval limitation is not evidence of absence.",
+        "searches": [
+          "Resultary same-family 7cfd411fbd51 and finite-horizon orbit support 2c0941455571, 82f5b871dfb7; distinct split grounding 0b9d2b9aa8a6"
+        ]
+      },
+      "rationale": "Qualified pass for the exact finite-time support criterion and the exceptional intermediate funding window with its peak-price law. Known convex spectral methods and the common symmetry reduction are not new; the strongest same-family gap result concerns a different objective, and the closest finite-time indexed results are for different graph families and have one-way activation.",
+      "residual_risks": [
+        "Broad primary-literature lookup was unavailable; exact split-gap full text was unavailable. Conclusions are based on inspected material and the explicit objective comparison, not proof of absolute priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Gap problem, not finite-time trace",
+          "evidence": "Optimizes λ₂ under a linear weighted-rate budget.",
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fmmp.pdf",
+          "material_read": "§§1.1–1.2, pp. 682–683, text offsets 1000 and 3000",
+          "method": "Lawful OA primary PDF passages",
+          "title": "The Fastest Mixing Markov Process on a Graph and a Connection to a Maximum Variance Unfolding Problem",
+          "trigger": "Budgeted continuous-time edge conductance design"
+        },
+        {
+          "assessment": "Covers convex spectral framework, not observed exact phase diagram",
+          "evidence": "Symmetric convex objectives in Laplacian eigenvalues are within framework.",
+          "identifier_or_url": "https://www-leland.stanford.edu/~boyd/papers/pdf/cvx_opt_graph_lapl_eigs.pdf",
+          "material_read": "pp. 1–3, offsets 0 and 4000",
+          "method": "Lawful OA primary PDF passages",
+          "title": "Convex Optimization of Graph Laplacian Eigenvalues",
+          "trigger": "General spectral-design coverage"
+        },
+        {
+          "assessment": "Substantial problem overlap, documented objective differs; no whole-document exclusion",
+          "evidence": "Indexed claim maximizes algebraic connectivity, including q<p price transitions. Independent eigenvalue comparison shows a clique-free gap optimizer for q≥p.",
+          "identifier_or_url": "Resultary 7cfd411fbd51",
+          "material_read": "Indexed statement only; local mirror full text unavailable",
+          "method": "Resultary summary and unsuccessful bounded mirror retrieval; comparison also checked directly from eigenvalues",
+          "title": "A sharp price transition for continuous-time fastest mixing on complete split graphs",
+          "trigger": "Identical graph and edge price classes"
+        },
+        {
+          "assessment": "Different graph and phase",
+          "evidence": "K_m square K₂; premium matching edges initially deleted, then activate once.",
+          "identifier_or_url": "Resultary 2c0941455571",
+          "material_read": "Finding, mirror offsets 0–6423",
+          "method": "Bounded local mirror read",
+          "title": "Two-sided finite-horizon edge activation in priced complete prisms",
+          "trigger": "Exact heat trace under priced edge classes"
+        },
+        {
+          "assessment": "Different graph and phase",
+          "evidence": "Premium matching edges absent for r≥2 and switch on once for 1<r<2.",
+          "identifier_or_url": "Resultary 82f5b871dfb7",
+          "material_read": "Finding, mirror offsets 0–5465",
+          "method": "Bounded local mirror read",
+          "title": "Finite-horizon reactivation of costly matching edges in complete graphs",
+          "trigger": "Exact finite-time premium-edge support"
+        },
+        {
+          "assessment": "Different objective and decision variables",
+          "evidence": "Fixed edges, variable vertex ground gains; inverse trace and a varying gain budget.",
+          "identifier_or_url": "Resultary 0b9d2b9aa8a6",
+          "material_read": "Finding and exact objective in proof, offsets 0–4724",
+          "method": "Bounded local mirror read",
+          "title": "Reentrant clique grounding and a three-quarter-power imbalance law on complete split networks",
+          "trigger": "Same family and reentrant clique support"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md support and phase diagram, and checked gap-versus-trace comparison"
+      ],
+      "rationale": "The theorem decides support for all finite times, graph sizes, and premium prices in a natural two-orbit design problem without constraining conductances in advance. It identifies exactly when intermediate-time designs pay for edges omitted by optimal asymptotic-gap designs. The peak law quantifies how narrowly this distinction persists as the family grows.",
+      "residual_risks": [
+        "The mathematical design distinction is not a robustness or empirical performance guarantee."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

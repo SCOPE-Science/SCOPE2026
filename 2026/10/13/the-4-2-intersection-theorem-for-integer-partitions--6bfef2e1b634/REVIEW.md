@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof constructs a multiplicity-preserving four-element occurrence-label representation, proves that three prescribed labels determine at most one partition under the fixed-sum restriction, and derives the nontrivial-family bound of thirteen with all intersection cases covered. The general inequality then settles \(n\ge30\) and establishes largest-star extremizers. For \(4\le n\le29\), finite exact maximum-clique search is exhaustive with a proven greedy-coloring pruning bound. Counts are cross-checked against a separate partition recurrence; a separately written Bron--Kerbosch enumerator checks all 26 orders by listing every maximal clique, and direct subset brute force checks orders through thirteen. The finite calculation is not substituted for an infinite argument.
+## correctness
 
-## Originality — PASS, with residual risk
-Borg's 2016 Conjecture 1.6 specifies the canonical star expectation and explicitly supplies the known exception \((n,k,t)=(9,4,2)\). Borg's Lemma 3.1 implies the same thirteen-member bound for nontrivial families and is fully acknowledged as prior art; neither it nor his large-\(n\) theorem settles all intermediate orders. Person–Schweser's arXiv:2610.01747v1 gives large-part asymptotic statements and counterexamples for different parameter regimes, not this fixed-four-part all-order classification. Published-result searches and direct statements/implication comparisons found no covering theorem; unindexed equivalent finite work is a residual possibility.
+PASS
 
-## Value — PASS
-The classification resolves the smallest four-part, two-intersection regime with a genuine known exception, settles an explicitly motivated fixed-parameter instance of Borg's conjecture across every order, and identifies all high-order extremizers. This exact finite-to-infinite synthesis is not just a computation of arbitrary isolated parameters. The known exception and known general nontrivial bound are not presented as newly discovered subresults.
+Two fixed parts of sum s leave floor((n-s)/2) unordered completions when n-s>=2. For n>=30 the largest size exceeds 13, and sums 2 and (only at odd n) 3 are the sole maximal centers. The canonical occurrence labels encode multiset intersections, and a triple of labels can occur in at most one partition because it forces the remaining part. Thus distinct compatible partitions meet in exactly two labels. For a nontrivial family choose such a pair with common labels I and disjoint remainders A,B of size two, and a third member not containing I. Members containing I must pick at least one external label from this third member (at most four triple completions); members containing one label of I must pick one each from A and B (at most eight); those avoiding I must equal A union B (at most one). This proves the uniform cap and forces full stars at n>=30. I inspected both supplied graph searches and outputs, without running the uploaded code. The independent interval-cut/submultiset implementation /workspace/branches/partition_fixed_check.py was actually run: target clique exists and target+1 does not for each n=4..29, using only induced minimum-degree pruning and exhaustive include/exclude branching. It reproduced all 26 exact maxima, including 4 on the six vertices at n=9. The bounded run does not certify other k,t or classify small-order extremizers.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Credit the prior n=9 lower-bound example, small-order theorem, eventual optimality, tied odd-order star, and general nontrivial-family bound. The supported increment is the exact all-order fixed-(4,2) solution and explicit large-order classification, in particular the finite gap not decided by those results. No distinct indexed or published source inspected closes that gap.
+
+## value
+
+PASS
+
+This resolves a natural fixed-parameter case of a concrete prior conjecture, separating the actual exceptional maximum from merely a counterexample and connecting exhaustive small orders to an explicit finite structural cutoff. It is not a sampled list of arbitrary partition numbers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

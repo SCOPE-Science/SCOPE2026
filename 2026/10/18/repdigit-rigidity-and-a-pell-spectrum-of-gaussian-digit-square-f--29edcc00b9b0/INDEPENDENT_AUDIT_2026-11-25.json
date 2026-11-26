@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:39:21.327098Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The signed coordinate convention places a+it in the units position and it in the next m−1 positions. The fixed-point equations are a(a−1)=mt² and 2a=R_m(B), the latter using t≠0. The imaginary equation is impossible for m=1 by parity and for m≥3 since B²+B+1>2(B−1). At m=2 the two equations are equivalent to a=(B+1)/2 and B²−8t²=1; that equation forces odd B≥3 and ensures both digit bounds. For t>1, multiplication by 3−√8 keeps both integer coefficients positive and gives 0<3t−B<t, preserving norm; t=1 has exactly B=3. This proves all positive solutions are the stated powers, and negative t gives conjugation. The cosh identity then proves the exact count, including equality at a Pell base. An independent exact signed-digit scan over 2≤B≤50, 1≤m≤5 found exactly both signs at B=3 and 17 and no others; replay: python3 /workspace/checks/frozen_review_checks.py gaussian. This is a finite diagnostic, not the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Corollary 5 bounds the fixed-base search domain; Theorem 7 constructs real fixed points for odd bases"
+        ],
+        "reasoning": "Finiteness and an algorithm for each B do not yield a symbolic classification in unbounded B. A construction with zero imaginary coordinate does not cover any of the nonzero repdigits under review.",
+        "searches": [
+          "arXiv:2101.00560v1, Theorem 4, Corollary 5, Theorem 7",
+          "DOI 10.1216/rmj.2022.52.415"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2101.00560v1",
+        "DOI:10.1216/rmj.2022.52.415 (abstract only)",
+        "Resultary:02b0c1ffdc28"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior Gaussian results give exactly the correct map, a finite-base search, finite tables, and an odd-base real construction",
+          "The classical equation X²−8Y²=1 and its unit do not address whether a Gaussian repdigit point is fixed"
+        ],
+        "reasoning": "The new link is the equivalence between the fixed-point digit condition and the norm equation, including exclusion of every length except two. This link is not supplied by the existing bounds, finite tables or Pell arithmetic alone.",
+        "searches": [
+          "arXiv:2101.00560v1, Definition 1, Corollary 5 and Theorems 6–7",
+          "Resultary 02b0c1ffdc28, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 02b0c1ffdc28 concerns E_b(N)=(leading digit)×(sum of digit squares) for positive integers, including Pell-type families",
+          "The Gaussian map instead sums squares of complex digits, giving the coupled imaginary equation 2a=R_m(B)"
+        ],
+        "reasoning": "Despite overlapping uniform-digit and Pell terminology, the real positive-integer digit operation neither models nor implies the complex fixed-point condition. The classical square-triangular Pell parametrization only enters after the specific Gaussian digit reduction.",
+        "searches": [
+          "Resultary: uniform-digit/repdigit fixed points, Gaussian happy numbers, Pell spectra",
+          "arXiv:2101.00560v1, Definition 1 and Theorems 6–7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The tables classify bases 2 through 10; their base-3 2±11i in base-3 notation is the known 2±4i pair",
+          "The strongest distinct Resultary hit 02b0c1ffdc28 has a different digit map"
+        ],
+        "reasoning": "The base-3 pair is preexisting and not counted as original. The exact sequence of admissible bases and uniqueness of physical pattern length over all bases are outside the finite table.",
+        "searches": [
+          "arXiv:2101.00560v1, Theorem 6 and Tables 1–2",
+          "Resultary: Gaussian digit-square fixed points and Pell repdigits"
+        ]
+      },
+      "rationale": "The distinct result supported by the comparison is the necessary-and-sufficient all-base classification of this nonreal digit pattern, not the introductory Gaussian map, its known base-3 pair, or the classical Pell solution. No inspected result establishes that classification or renders it a special case of a complete known fixed-point classification.",
+      "residual_risks": [
+        "Unseen changes in the journal version and an unindexed all-base exact-family result remain possible; the comparison is not a priority certificate."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Partial coverage only",
+          "evidence": [
+            "Base-3 list includes 2±11i (base 3); Theorem 6 is restricted to B≤10; Theorem 7 concerns real fixed points"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2101.00560",
+          "material_read": "2021 open preprint; Definition 1 (p. 3), Corollary 5, Theorem 6 and Tables 1–2 (pp. 6–7), and Theorem 7",
+          "method": "Lawful OA primary PDF",
+          "title": "Gaussian Happy Numbers",
+          "trigger": "Originating paper on the very same map"
+        },
+        {
+          "assessment": "Comparison limited to accessible text; no determination about unseen additions",
+          "evidence": [
+            "Journal metadata identifies the same paper; the preprint text was used for statement-level comparison"
+          ],
+          "identifier_or_url": "https://doi.org/10.1216/rmj.2022.52.415",
+          "material_read": "Journal landing page and abstract, not the full text",
+          "method": "OA landing page and identified PDF attempted",
+          "title": "Gaussian Happy Numbers, journal version",
+          "trigger": "Check for additions to the original preprint"
+        },
+        {
+          "assessment": "Different dynamical map",
+          "evidence": [
+            "E_b multiplies the sum of ordinary squared digits by the leading digit"
+          ],
+          "identifier_or_url": "Resultary 02b0c1ffdc28",
+          "material_read": "Finding and definition of E_b",
+          "method": "Local Resultary search and original record passage",
+          "title": "A five-family classification of uniform-digit fixed points",
+          "trigger": "Strongest uniform-digit/Pell match in the indexed findings"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A one-digit real part and constant imaginary digits are a natural low-complexity nonreal test family for the Gaussian map. The result determines exactly when this family occurs and how sparse its bases are, rather than extending a table by a few points. The elementary proof and familiar Pell equation do not reduce the mathematical conclusion to a new name for an existing arithmetic sequence: the length obstruction and iff occurrence answer a fixed-point question. The result is not a spectrum of all nonreal fixed points.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

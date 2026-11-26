@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:33:07.621665Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For any integer q≥2 the generalized binomial is a single integer power of q, so integrality is equivalent to a nonnegative exponent. At width m the exponent at zero-based position j is G(m)-d(m,j), with d(m,j) the number of gaps in (j,j+m]. Binomidness requires the initial length-L sum of d to be at least every shifted length-L sum. The Frobenius bound follows by reflecting nongaps in [0,F] into gaps; checking candidate gaps through 5 by rejecting any sum of two positive nongaps gives exactly the eight lists. When m≥F the sequence d(m,j) decreases; when L≥F the initial block contains the full nonnegative support; and when s≥F the shifted sum is zero. I independently checked the other 172 inequalities by updating the sliding gap-window sums. All pass, including the noninterlaced <3,4> case. Shapiro's Definition 4 and Proposition 9/Corollary 10 support the all-level and pyramid interpretation. In the finding, 'fails closure under adding two' means precisely failure of positive-index closure n∈S implies n+2∈S for n≥1, as required by the divisibility criterion; it is not a claim of closure of the finite gap set or a condition at n=0. Replay recipe: /workspace/branches/independent-math.md, section 3.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Shapiro proves all levels for divisor chains and divisor products, and the initial level for all ComboSum sequences. The November 8 Resultary result establishes level two for ComboSum, not every level.",
+          "The October 26 interlaced theorem's boundary section explicitly gives a counterexample to the naive three-step extension. The same-day cyclotomic recurrence record establishes all-level binomidness under t dividing q^4 for its different recurrent family."
+        ],
+        "reasoning": "The first two levels do not reach the all-width conclusion; the known all-level classes must pass hypothesis tests on <3,4>, which they do not. The recurrence starts at f_1=q and obeys a prescribed second-order relation; it does not cover this indicator or give a general sufficient criterion for it.",
+        "searches": [
+          "two interlaced divisor chains binomid every level",
+          "ComboSum binomid at level two Shapiro",
+          "Shapiro Proposition 5(a), Theorem 15, Proposition 23 and Open Question 24"
+        ]
+      },
+      "checked_sources": [
+        "Shapiro, INTEGERS 23 (2023), A57",
+        "Resultary 5781f8464ab9 and its verification code; f731dc6f9e3c; 353261d6159b; 3012f8aa405b (self-match)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For <3,4>, f_3=f_4=q and f_5=1, excluding divisor chains and the positive-index two-step test.",
+          "With f_1=f_2=1, integer divisor-product factors at 3 and 4 would each equal q, forcing q^2 to divide f_12=q, impossible.",
+          "The earlier results for all ComboSum sequences stop short of the all-level question."
+        ],
+        "reasoning": "The seven covered cases are not the claimed originality. Failure of the specific all-level hypotheses together with an exact all-width proof of the remaining case supports only the bounded extension, not novelty against all conceivable general theorems.",
+        "searches": [
+          "Shapiro p. 6 Proposition 5(a), p. 11 Theorem 15, p. 16 Proposition 23 and Question 24",
+          "Resultary interlaced theorem §Finding",
+          "Resultary f731dc6f9e3c §Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "All columns binomid is Shapiro's definition of all-level binomidness, equivalent to full pyramid integrality by the stated row/column results.",
+          "The semigroup <3,4> is determined by gaps 1,2,5. The two-step criterion's equivalent test on the indicator sequence is exactly f_n divides f_{n+2} for n≥1, which fails at n=3."
+        ],
+        "reasoning": "Translation between gap counts, powers and full pyramid integrality does not evade an existing implication, but the exceptional semigroup fails the known hypothesis in those equivalent coordinates.",
+        "searches": [
+          "binomid all levels semigroup indicator sequence genus three",
+          "binomid <3,4> numerical semigroup indicators",
+          "Shapiro Definition 4, Proposition 9 and Corollary 10"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact Resultary match 3012f8aa405b is this frozen result. The earlier interlaced paper reports 159 finite numerical-semigroup indicator checks; its code tests the pattern n even or n≥2k+1 for k=2,...,54, not the gap set 1,2,5.",
+          "The distinct same-day recurrence theorem 353261d6159b does not tabulate numerical-semigroup indicators."
+        ],
+        "reasoning": "The strongest inspected plausible finite census in earlier work uses a family with all positive evens, which cannot include an example missing 2. It also does not establish the needed all-index guarantee for an exception to interlacing.",
+        "searches": [
+          "binomid <3,4> numerical semigroup indicators",
+          "binomid all levels semigroup indicator sequence genus three",
+          "5781f8464ab9/verify_binomid.py offset 500"
+        ]
+      },
+      "rationale": "Seven genus-at-most-three indicator families fall under the earlier two-step theorem. Credit that overlap. The main distinct content is the all-width proof for <3,4>, the first exception to that theorem's positive-index hypothesis, and thus the completed initial-genus boundary. Neither the inspected ComboSum results nor the all-level examples for a different recurrence supply this case.",
+      "residual_risks": [
+        "Other implicit sufficient criteria or unindexed work could settle this case; no exhaustive priority claim is made.",
+        "The focused external literature query was unavailable; that is not evidence of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage of conventions and initial level, not the exceptional all-level semigroup",
+          "evidence": [
+            "Every ComboSum sequence is binomid (Proposition 23); Question 24 asks whether this extends to every level.",
+            "Divisor-chain and divisor-product classes have all-level integrality under hypotheses that fail for <3,4>."
+          ],
+          "identifier_or_url": "https://math.colgate.edu/~integers/x57/x57.pdf",
+          "material_read": "Definition 4 and Proposition 5(a) p. 6; Proposition 9 and Corollary 10 p. 9; Theorem 15 p. 11; Proposition 23 and Open Question 24 p. 16",
+          "method": "Journal OA PDF bounded passages",
+          "title": "Divisibility Properties for Integer Sequences",
+          "trigger": "Original all-level question, definitions, and broad sufficient results"
+        },
+        {
+          "assessment": "Covers seven of eight cases; does not cover or test the exceptional indicator",
+          "evidence": [
+            "The hypotheses include f_n dividing f_{n+2} for n≥1.",
+            "The numerical examples have exponent 1 at all even indices. The text disproves the unqualified three-step analogue."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-interlaced-divisor-chains-are-binomid-at-every-level--5781f8464ab9",
+          "material_read": "Finding; Boundary at three-step divisibility and Verification (offset 3500); verify_binomid.py (offset 500)",
+          "method": "Resultary and local-mirror bounded reads",
+          "title": "Interlaced divisor chains are binomid at every level",
+          "trigger": "Known exact sufficient criterion and advertised finite semigroup tests"
+        },
+        {
+          "assessment": "Partial earlier coverage, not all levels",
+          "evidence": [
+            "The uniform guarantee stops at level two."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-every-combosum-sequence-is-binomid-at-level-two--f731dc6f9e3c",
+          "material_read": "Finding and level scope",
+          "method": "Resultary and local-mirror passage",
+          "title": "Every ComboSum sequence is binomid at level two",
+          "trigger": "Stronger result for the same general input class"
+        },
+        {
+          "assessment": "Thematic overlap, not coverage of genus-three semigroup indicators",
+          "evidence": [
+            "The theorem concerns f_0=-(t+1), f_1=q, f_{n+2}=-qf_{n+1}-q^2f_n and compares conditions t|q^4 and t|q^2."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-an-all-level-binomid-nondivisibility-family-of-cyclotomic-recurr--353261d6159b",
+          "material_read": "Finding, Relationship to prior work (offset 6500)",
+          "method": "Resultary and local-mirror passages",
+          "title": "An all-level binomid nondivisibility family of cyclotomic recurrences",
+          "trigger": "Distinct same-day all-level exception to divisibility properties"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The genus filtration gives a natural boundary in an existing all-level integrality question. The smallest semigroup outside the two-interlaced criterion is an actual positive instance at every width and index. The conductor reduction turns this bounded family into a result on infinitely many pyramid entries, rather than an empirical small-index extension or an exercise reproducing the seven covered cases. No claim about larger genus or the general ComboSum question is justified.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

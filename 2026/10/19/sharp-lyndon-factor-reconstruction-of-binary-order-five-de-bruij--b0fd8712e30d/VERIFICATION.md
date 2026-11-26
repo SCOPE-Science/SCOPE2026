@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-Run `python3 verify.py profiles.csv` with Python 3 and the included `profiles.csv`; no external dependencies are needed. The checker implements exhaustive Eulerian-circuit enumeration and, independently, a complete enumeration of local in/out edge matchings. It checks equal cycle sets, all five-factor universality properties, and agreement of direct-rotation and proper-suffix Lyndon tests for every circular factor of lengths \(1\) to \(19\).
+# Independent mathematical audit
 
-The complete finite checks establish \(2048\) distinct cyclic words; \(2047\) distinct signatures through length \(18\), with one doubleton; and \(2048\) distinct signatures through length \(19\). The checker regenerates the full table of \(2048\) rows, not just its frequency summaries. The code and table are part of this research package and were actually run together.
+## correctness
 
-Verified output:
+PASS
 
-```
-VERIFY_OK distinct_de_bruijn_cycles=2048 pairing_assignments=65536 independent_eulerian_enumeration=yes independent_lyndon_criteria=yes distinct_profiles_cutoff18=2047 unique_profiles_cutoff19=2048 sole_cutoff18_collision=2 cycles
-```
+The graph of four-bit vertices and five-bit edges gives a bijection between cyclic words of the required kind and Euler tours rooted at the unique edge 00000. The pairing-permutation argument is exhaustive: each tour prescribes exactly one in/out bijection per vertex and admissibility is exactly having a single orbit. I independently enumerated via last-exit trees, not the frozen pairing or depth-first programs. Each nonroot's final outgoing edge must point along a directed path to root 0000, since otherwise the last departure time strictly increases around a nonroot cycle. Conversely, order each nonroot's outgoing edges with the chosen tree edge last and put the 00000 loop first at the root. A traversal that stops early must stop at the root by degree balance. Any unused outgoing edge would imply an unused last-exit path to the root (unused indegree equals unused outdegree after a closed partial traversal), a contradiction. This justifies exhausting the 2^15 nonroot last-exit choices. The fresh code evaluated distinct circular factors as fixed-width integers, tested strict comparison against every bit rotation (equal rotations reject nonprimitive factors), reproduced all 2048 original CSV rows exactly, and obtained cutoff distinct-profile/collision-pair counts (2044,4), (2045,3), (2047,1), (2048,0) at 16–19. The sole 18-doubleton and its full common profile were reproduced, with respective 19-coordinates 1 and 2. Both words have the unique 00000 root, and truncation preserves their collision, so sharpness holds at every shorter cutoff. All binary strings through length five occur, yielding (2,1,2,3,6). Replay: python3 /workspace/audit_evidence/3_census.py /workspace/source/2026/10/19/sharp-lyndon-factor-reconstruction-of-binary-order-five-de-bruij--b0fd8712e30d/profiles.csv. This is finite exact arithmetic with a completeness argument, not a result for other orders or quotients.
 
-No statement for unbounded order or independent external certification follows from the finite verification.
+## originality
+
+PASS
+
+The nearest indexed record tabulates the number of components in the Chen–Fox–Lyndon factorization of linear rotations, not distinct Lyndon substrings by length. The inspected primary literature establishes the relevant predicate, counting questions and constructions, but not the separating profile or cutoff on this finite cyclic family. The independent census verifies the result, not novelty. The literature comparison is bounded and does not certify historical priority.
+
+## value
+
+PASS
+
+Both the object and invariant arise naturally: order-five binary de Bruijn cycles form a standard complete nontrivial family, ordinary circular factor complexity is identical across it, and distinct Lyndon-factor counts are an established refinement of word complexity. The first five coordinates are forced, so it is not evident that retaining just fourteen later counts suffices or that the last needed count is at 19. The exact collision and its resolution give a reusable sharp certificate for reconstruction from counts rather than positions; this is not merely a known cycle census or an arbitrarily selected cutoff.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

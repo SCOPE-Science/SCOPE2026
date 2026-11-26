@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:38:02.442430Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Condition on the initial case: k cases detect at zero; H then has r geometric single waits, and L has one parallel minimum and r-1 sums of single and parallel waits. For the two serial stages the survival is ((1-gamma)q^t-(1-q)gamma^t)/(q-gamma), gamma=q^k; inserting it in the mixture and factoring gives the claimed difference and zero at t=0. Its positive-time prefactor is strictly positive, and summation gives the stated mean gap. S_k increases strictly from 1 to k; 1<r<k first occurs at n=5,k=3. Both rational mean witnesses agree. Replacing the two stages by independent exponentials of rates beta and k beta gives the recorded continuous factorization and mean by integration. At r=k the continuous laws tie (the discrete hub placement is then strictly better). Stochastic order optimizes nondecreasing costs when the expectations are meaningful, not necessarily strictly for flat costs. A new bounded exact convolution check verified discrete cases n=3..7, all allowed budgets, three rational p values, times 0..8, and both mean witnesses; the source checker tests discrete state transitions, not the continuous theorem.",
+      "replay": "python3 /workspace/audit_checks/frozen_examples.py (record 4 check); frozen check_star_sentinels.py inspected, not executed",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Batlle specifies general Markovian fixed-deadline optimization; Heavey treats average delay over cascades and proves optimization/approximation results.",
+          "The unequal-rate star survival-gap formula covers the frozen continuous result exactly."
+        ],
+        "reasoning": "The first two frameworks do not assert all-deadline star dominance or the sharp discrete switch. The explicit stronger continuous formula covers that component only.",
+        "searches": [
+          "Batlle et al. §§2–3",
+          "Heavey et al. DOI 10.1609/aaai.v36i9.21260",
+          "Local Resultary unequal-rate SI star rank law"
+        ]
+      },
+      "checked_sources": [
+        "Batlle et al. arXiv:2011.01998",
+        "Holme arXiv:1708.06456v3 and arXiv:1803.10637",
+        "Heavey et al. AAAI-22",
+        "Local Resultary continuous unequal-rate star record"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At equal rates the catalogue sign becomes (m-k+1-k)beta=(n-2k)beta, with the same continuous prefactor after specialization.",
+          "Generic deadline optimization gives neither the simplification to a factor independent of t nor the change from k to S_k(q)."
+        ],
+        "reasoning": "The continuous branch is mechanically covered by the later overlapping statement. The rate-dependent discrete result is neither a substitution into that formula nor a consequence of comparing generic objective functions alone.",
+        "searches": [
+          "Batlle Markovian detection objective against frozen discrete factorization",
+          "Local unequal-rate continuous formula, equal-rate specialization"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The unequal-rate continuous star law gives the same equal-rate continuous gap after setting m=n-1 and alpha=beta.",
+          "Holme's SIR stopping-time or single-sentinel comparison is not the permanent SI discrete finite-deadline CDF comparison."
+        ],
+        "reasoning": "Survival-gap and CDF-gap formulations are equivalent with opposite difference conventions. Discrete geometric waits, however, give an S_k(q) factor not present in the continuous source.",
+        "searches": [
+          "Batlle et al., arXiv:2011.01998 §§2–3",
+          "Holme, arXiv:1708.06456 and arXiv:1803.10637",
+          "Local Resultary: sharp stochastic-order reversal for SI sentinel placement on a star"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Holme enumerates 3–7 vertex graphs under SIR and measures time to sentinel or extinction; a five-vertex star in that census is not a tabulation of this SI all-deadline identity.",
+          "The closest catalogue record provides a continuous rather than discrete star law."
+        ],
+        "reasoning": "Neither comparison is a known exact table of the discrete switches or an all-size discrete classification.",
+        "searches": [
+          "Holme, Three faces of node importance, small-graph census",
+          "Local Resultary: sharp stochastic-order reversal for SI sentinel placement on a star"
+        ]
+      },
+      "rationale": "The distinct result is the complete discrete-time all-deadline sign rule and its rate-dependent switch, with a continuous comparison. A separate catalogue theorem dated 2026-11-08 exactly generalizes the continuous component and is credited as equivalent at equal rates; that establishes overlap, not priority over this frozen record or coverage of its discrete contribution. The inspected earlier sources do not mechanically produce the discrete classification.",
+      "residual_risks": [
+        "A bounded review cannot exclude an older discrete-time implicit star comparison. Continuous-time general formulations may yield the star expression by exact evaluation; direct later catalogue coverage is already credited."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General continuous-time framework; no exact star classification in inspected material",
+          "evidence": "Maximizes Pr(T_D<=tau) over k monitored nodes with an initial-state distribution.",
+          "identifier_or_url": "https://arxiv.org/pdf/2011.01998",
+          "material_read": "abstract p. 1; §§2–3 pp. 2–3, text offset 9000",
+          "method": "lawful OA primary PDF passages",
+          "title": "Adaptive Test Allocation for Outbreak Detection and Tracking in Social Contact Networks",
+          "trigger": "Same deadline and monitoring objective in a general framework"
+        },
+        {
+          "assessment": "Different process and objective",
+          "evidence": "SIR; mean discovery includes stopping when the outbreak dies.",
+          "identifier_or_url": "https://arxiv.org/pdf/1708.06456v3",
+          "material_read": "abstract p. 1, §II.C p. 2, random starting configurations and census pp. 4–5 (offsets 12500, 15800, 32300)",
+          "method": "lawful OA primary PDF passages",
+          "title": "Three faces of node importance in network epidemiology: Exact results for small graphs",
+          "trigger": "Exact census includes very small stars"
+        },
+        {
+          "assessment": "Study restricted to single sentinel",
+          "evidence": "Randomly chosen source; compares SIR surveillance objectives for one sentinel.",
+          "identifier_or_url": "https://arxiv.org/pdf/1803.10637",
+          "material_read": "abstract/introduction p. 1 and source passage p. 3 (offsets 2901, 20500)",
+          "method": "lawful OA primary PDF passages",
+          "title": "Objective measures for sentinel surveillance in network epidemiology",
+          "trigger": "Random-source sentinel surveillance"
+        },
+        {
+          "assessment": "Average-delay objective but no inspected exact star CDF law",
+          "evidence": "MinDelSS minimizes average delay over a supplied cascade set.",
+          "identifier_or_url": "https://cdn.aaai.org/ojs/21260/21260-13-25273-1-2-20220628.pdf",
+          "material_read": "abstract p. 1 and problem definition pp. 2–3 (offsets 9500, 13000)",
+          "method": "lawful OA primary PDF passages",
+          "title": "Provable Sensor Sets for Epidemic Detection over Networks with Minimum Delay",
+          "trigger": "Detection-delay optimization under a sensor budget"
+        },
+        {
+          "assessment": "Exact continuous branch overlap; distinct discrete branch; later listed date",
+          "evidence": "Continuous survival-gap sign is (m-k+1)alpha-k beta for oriented edge rates.",
+          "identifier_or_url": "2026/11/8/SCOPE-sharp-stochastic-order-reversal-for-si-sentinel-placement-on-a-s--b32779fd2ae7",
+          "material_read": "RESULT.md Finding offset 0",
+          "method": "local publication mirror",
+          "title": "Sharp stochastic-order reversal for SI sentinel placement on a star",
+          "trigger": "Same graph, uniform seed and two monitor placements"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result exactly identifies when the intuitive hub-monitoring ranking fails simultaneously for every positive deadline. It distinguishes that phenomenon from an average-only ranking and shows it can disappear in the continuous-time model. This is a meaningful small-network benchmark for defensive monitoring objectives, not a general epidemiological recommendation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

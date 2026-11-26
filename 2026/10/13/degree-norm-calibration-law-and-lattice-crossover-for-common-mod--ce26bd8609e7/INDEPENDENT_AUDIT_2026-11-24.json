@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:42:43.904555Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, finding, assumptions and proof",
+        "Frozen VERIFICATION.md and artifacts/verify.py, inspected, not run"
+      ],
+      "rationale": "The phase of each basis amplitude has error ε times the induced edge count H. Squaring introduces independent fair bit strings, and the centered Gaussian characteristic function gives the stated kernel exactly. In centered vertex bits the linear term is (1/2)∑d_v(X_v−1/2), with variance S/16, and distinct quadratic edge terms are orthogonal with total variance m/16. Independent differencing doubles the variance. The normalized linear difference has variance 1/8, uniformly vanishing summand bounds and thus a Lindeberg CLT; the normalized quadratic difference tends to zero in L². For K_n, S=n(n−1)². In the complementary range write D=K−L, W=K+L, and the edge-count difference as D(W−1)/2. Vandermonde gives P(D=r)=4⁻ⁿ binom(2n,n+r), bounded by O(n⁻¹ᐟ²) uniformly and asymptotic to (πn)⁻¹ᐟ² on r=o(√n). With t=nσ and t√n→∞, truncate |tr|≤M where M→∞, M/(t√n)→0 and M²n⁻¹ᐟ³→0. On |W−n|≤n²ᐟ³ the kernel replacement has relative error o(1) on that window. The W tail is exponentially small unconditionally; on the good W event the omitted D sum is bounded by O(n⁻¹ᐟ²)∑_{|tr|>M}exp(−t²r²/32), which is o(n⁻¹ᐟ²Θ(t)) by Gaussian sums comparable to 1+1/t. This treatment does not assume independence of D and W, and includes t→∞ with the r=0 term. The three theta limits follow by a Riemann sum, continuity, and suppression of nonzero r. The star edge count divided by n tends to a fair hub bit divided by two, giving the stated two-point mixture and star/complete separation for c>0; at c=0 fidelity is exactly one.",
+      "residual_risks": [
+        "The crossover is asymptotic, not a finite-size theta identity. The general CLT is conditional on the stated graph hypotheses; the proof gives no uniform general-graph estimate outside this regime."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Numajiri et al. analyze graph-state fidelity under i.i.d. single-qubit Pauli noise and name correlated-noise models as an extension.",
+          "The exact-model source uses a lowest-order density-matrix approximation and analyzes Bell/GHZ extraction including postselection."
+        ],
+        "reasoning": "Neither broader topology coverage in a different channel nor extraction analysis implies the unmeasured full-state limits at vanishing shared phase width.",
+        "searches": [
+          "arXiv:2510.00548v1, pp. 1 and 7",
+          "arXiv:2402.00937v1, §§4.2, 5.2 and 6"
+        ]
+      },
+      "checked_sources": [
+        "Resultary bounded searches and local-mirror matches",
+        "arXiv:2402.00937v1",
+        "arXiv:2510.00548v1",
+        "arXiv:2602.13026v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Ideal star/complete graph-state equivalence is prior but does not conjugate the prescribed circuit-level angle errors.",
+          "The compared star/complete metrology study thresholds concern QFI or estimator variance, with independently sampled Gaussian widths in the noise study.",
+          "The lattice normalization uses the joint quadratic binomial difference, not a Pauli-error partition function."
+        ],
+        "reasoning": "The same graph families and shared-phase model individually are known; their exact limiting full-state fidelity comparison and crossover are not consequences of the inspected prior statements.",
+        "searches": [
+          "arXiv:2402.00937v1, §§4.2 and 6",
+          "arXiv:2602.13026v1, §C and Figure 7",
+          "arXiv:2510.00548v1, complete-graph discussion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Szymański et al. use a single phase π+ε in a run with ε centered normal of standard deviation σ. Centered symmetry makes the sign convention immaterial.",
+          "The complete-graph fidelity is the Gaussian-weighted coincidence sum of the quadratic binomial phase K(K−1)/2, not an extracted-state fidelity."
+        ],
+        "reasoning": "The model alias is an exact match; the prior analysis of this model does not provide the stated fidelity laws.",
+        "searches": [
+          "Resultary: degree-squared calibration, full graph-state fidelity, common Gaussian edge phase, theta crossover",
+          "arXiv:2402.00937v1, §4.2 and §6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest screened records include noise-induced reversal of tree fidelity extremizers (star/path under resource-qubit noise), sharp phase optimization on K_{1,1,c} (deterministic phase and pair negativity), and degree-weighted Kirchhoff vertex noise (heat-convolution regularity)."
+        ],
+        "reasoning": "No matching exact law surfaced in the bounded catalogue searches; none of the checked records shares both the observable and the model.",
+        "searches": [
+          "Resultary: complete-graph theta lattice crossover; common edge-phase star/complete fidelity; degree-weighted graph noise"
+        ]
+      },
+      "rationale": "The physical common Gaussian phase mechanism is prior. The supported distinct finding is the degree-norm law and complete-graph lattice crossover for full unmeasured overlap fidelity, including the quantitative hub exception and same-noise separation, not the introduction of shared phase errors or ideal star/complete equivalence.",
+      "residual_risks": [
+        "A differently indexed collective-spin echo or weighted-state overlap asymptotic could contain equivalent complete-graph behavior. Targeted passages and bounded searches do not establish global priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers model and ideal topology equivalence but not the degree-norm or theta laws.",
+          "evidence": "Within one run all phases are equal, π+ε with normal ε; the stated approximation retains orders through ε² and the later sections concern extraction.",
+          "identifier_or_url": "https://arxiv.org/pdf/2402.00937v1",
+          "material_read": "§4.2 p. 7, offsets 39741–42404; §5.2 p. 10 near 54461; §6 p. 11 near 62127",
+          "method": "Open-access primary PDF, targeted passages",
+          "title": "Useful entanglement can be extracted from noisy graph states",
+          "trigger": "Identical common-phase error premise"
+        },
+        {
+          "assessment": "Different noise channel, no implication of the asserted lattice asymptotic.",
+          "evidence": "States IID Pauli noise and proposes correlated noise for future work.",
+          "identifier_or_url": "https://arxiv.org/pdf/2510.00548v1",
+          "material_read": "pp. 1 and 7, near offsets 2502, 51269, 52992",
+          "method": "Open-access primary PDF, targeted passages",
+          "title": "Phase Transitions and Noise Robustness of Quantum Graph States",
+          "trigger": "Graph-state fidelity, including fully connected graphs"
+        },
+        {
+          "assessment": "Independent edge weights and different metrology observable.",
+          "evidence": "Gaussian edge weights are i.i.d.; comparison uses Fisher information and estimator variance thresholds.",
+          "identifier_or_url": "https://arxiv.org/pdf/2602.13026v1",
+          "material_read": "§C, p. 6 near offset 38183 and Figure 7, p. 7 near 39975",
+          "method": "Open-access primary PDF, targeted passages",
+          "title": "Weighted graph states as a resource for quantum metrology",
+          "trigger": "Star/complete Gaussian weighted-graph comparison"
+        },
+        {
+          "assessment": "Different observables and/or mechanisms.",
+          "evidence": "Tree resource-noise fidelity, deterministic phase terminal-pair negativity, and metric-graph stochastic convolution have no stated shared-angle full-state limit.",
+          "identifier_or_url": "2026/10/12/...fab352b6e5c2; 2026/10/12/...28b5ad3b8fec; 2026/10/13/...bb08944133fd",
+          "material_read": "Findings and relevant scope of the three matching records",
+          "method": "Resultary search and local mirror reading",
+          "title": "Nearby graph-noise and phase records",
+          "trigger": "Similar topology, phase, or degree-weighted noise"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, calibration theorem, crossover and star limit",
+        "arXiv:2402.00937v1, common phase and equivalent ideal representations"
+      ],
+      "rationale": "The results give a quantitative topology-dependent calibration tolerance for a specified correlated gate error, resolve when discreteness defeats a continuum approximation, and show sharply that ideal local-Clifford equivalence need not preserve noisy preparation fidelity. The hub example explains why the degree-norm CLT cannot be extended by treating its small-maximum-degree premise as cosmetic.",
+      "residual_risks": [
+        "No prediction for independent edge errors, active correction, or hardware fault-tolerance performance is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

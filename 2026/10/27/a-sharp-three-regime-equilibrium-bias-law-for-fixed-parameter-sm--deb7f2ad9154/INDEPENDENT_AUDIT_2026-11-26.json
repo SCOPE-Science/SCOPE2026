@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:31:05.858584Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At a joint fixed point the memory satisfies x−cᵢ=H(mᵢ), with H(m)=m+√ε m/√(φ²−m²) on |m|<φ, and primal stationarity is Σmᵢ=0. H is odd, strictly increasing, onto, and strictly convex for positive m. Its inverse h is odd, strictly increasing and strictly concave on positive arguments. Consequently 2h(x+a)+h(x−2a) has a unique zero, between −a and 0 by its endpoint signs; the two equal memories p>0 force the third to be −2p. Then H(p)+H(2p)=3a implies p<a and p<φ/2. For equal-curvature one- or two-client scalar quadratics the same inverse-score test gives the arithmetic mean by odd symmetry, even when the common curvature is not one. For φ<2a, p necessarily tends to φ/2. Writing δ=φ/2−p, the singular term in H(2p) is asymptotic to √(φε)/(2√δ), which balances 3(a−φ/2) and yields δ∼φε/[36(a−φ/2)²]. The regular contribution to H(p) is √(ε/3)+O(√ε δ), yielding the stated O(ε) remainder for x. At φ=2a the same singular term instead balances 3δ, giving δ³∼φε/36 and a negligible O(√ε) regular correction. For φ>2a the equation is regular in (p,√ε) at (a,0); differentiating gives the stated coefficient and O(ε) remainder on substitution in H(p)−a. For stability, qᵢ=(1−β)Ψ′(x−cᵢ−mᵢ)>0 and αᵢ=β−qᵢ lie in (0,1) under the sufficient hypothesis. At η=0 the simple slow eigenvalue 1 has right vector (1,(qᵢ/(1−αᵢ))ᵢ) and left vector (1,0,0,0). Differentiating the first row of the Jacobian gives its slope −Σqᵢ/[3(1−αᵢ)]<0, while all other eigenvalues start strictly inside the unit disk. This establishes local attraction for small positive η, not global convergence or a uniform choice of β as ε tends to zero. Replay via RESULT.md §§1–4; VERIFICATION.md and the attached diagnostic code were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Original SClip-EF convergence uses changing φ, ε, β and step size, not positive constant controls. Clip21 uses additive hard clipping of gradient minus memory. Revisiting Gradient Clipping analyzes direct clipping, including stochastic bias, without this distributed feedback."
+        ],
+        "reasoning": "The scheduled theorem cannot be specialized to iteration-time constants by choosing its schedule prefactors. In Clip21 stationarity forces the clipping increment to zero and the memory to equal the gradient, unlike the frozen smooth relaxed fixed point. Neither analysis dominates the fixed-control law.",
+        "searches": [
+          "arXiv:2310.16920v1 equations (5)–(11), Theorem 1",
+          "arXiv:2310.16920v3 equations (5)–(7), Algorithm 1, Theorem 1 and Corollary 1",
+          "arXiv:2305.18929 §5",
+          "arXiv:2305.01588 p. 6"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, REVIEW.md, VERIFICATION.md, verify.py",
+        "arXiv:2310.16920v1/v3, 2305.18929, 2305.01588",
+        "Resultary 6e87af5006ee, 9cd1f92c87f5, 7fbc9df4762d, eb8a64761b00"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Capped SPS reweights scalar quadratic centers by clipped curvature; equal curvatures yield equal weights there. The logistic proximal result has a cube-root cusp for a different objective and square-root branch separation. The fixed recurrence here requires solving (id+Ψ⁻¹)(m)=x−cᵢ and taking ε to zero near |m₃|=φ."
+        ],
+        "reasoning": "Neither those mechanisms nor the established recurrence by itself supplies the saturation balance at φ=2a, the expansion constants, or the feedback Jacobian test. The identified precedents do not imply the supported combined claim.",
+        "searches": [
+          "Yu–Jakovetić–Kar v3, Theorem 1 and Corollary 1",
+          "Clip21 §5",
+          "Resultary 6e87af5006ee and 7fbc9df4762d"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The fixed-point score h is exactly the derivative of the unit-scale Moreau envelope of y↦φ√(y²+ε): the proximity equation y+Ψ(y)=g gives h(g)=g−y. The equilibrium reduces to a robust-location equation for the three centers.",
+          "Yu–Jakovetić–Kar's equations give the same recurrence structure under time schedules; no fixed-gain singular limit was identified in the relevant inspected passages."
+        ],
+        "reasoning": "A prior result for this exact bounded implicit score at the asymmetric three-point sample would count as prior coverage even without algorithm terminology for the bias part. The bounded searches and checked statements did not identify it. General score monotonicity can give uniqueness but does not provide the phase constants or the full-state attraction claim.",
+        "searches": [
+          "Fixed-parameter SClip-EF and deterministic clipping/EF bias (Resultary)",
+          "Saturating robust-score/M-estimator critical laws (literature search)",
+          "arXiv:2310.16920v1 and v3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest inspected Resultary findings: capped SPS phase diagram 6e87af5006ee, three-atom multiplicative-oracle bistability 9cd1f92c87f5, logistic proximal cusp 7fbc9df4762d, and same-day composite ProxSPS flip threshold eb8a64761b00."
+        ],
+        "reasoning": "No identical fixed-feedback law was found in the ranked catalogue hits. Different dynamics can share saturation, minimal cardinality, or critical exponents without supplying exact coverage. A parameter table of finite examples would not settle the continuous asymptotic and local stability assertions.",
+        "searches": [
+          "Resultary searches on fixed-parameter SClip-EF, deterministic clipping/EF bias, hard clipping and saturation, robust-score/proximal critical laws"
+        ]
+      },
+      "rationale": "The supported distinct claim is the exact fixed-parameter equilibrium, its three-regime asymptotics and attainable attraction for this equal-curvature SClip-EF instance. The update, and clipping bias as a general phenomenon, are established prior art.",
+      "residual_risks": [
+        "Prior robust-location or smooth Huber work could contain an equivalent asymmetric three-point singular limit. The focused search did not settle all such coverage. The decision concerns the actual compared statements and is not a priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same recurrence structure; different parameter regime",
+          "evidence": "Time-dependent amplitude, smoothing, retention and primal step, with a convergence theorem for the prescribed power laws.",
+          "identifier_or_url": "arXiv:2310.16920v1",
+          "material_read": "p. 6 equations (5)–(11) and Theorem 1 schedule, offsets 24200–28359",
+          "method": "OA PDF passages",
+          "title": "Smoothed Gradient Clipping and Error Feedback for Distributed Optimization under Heavy-Tailed Noise",
+          "trigger": "Original algorithm"
+        },
+        {
+          "assessment": "Does not cover fixed positive parameters",
+          "evidence": "Amplitude and retention decay as powers −1/2, smoothing grows as power 3/5, step decays as power −1/5 in the stated regime.",
+          "identifier_or_url": "arXiv:2310.16920v3",
+          "material_read": "p. 6 equations (5)–(7) and Algorithm 1, offset 28000; pp. 7–8 Theorem 1/Corollary 1, offsets 31500–35688",
+          "method": "OA PDF passages",
+          "title": "Smoothed Gradient Clipping and Error Feedback for Decentralized Optimization under Symmetric Heavy-Tailed Noise",
+          "trigger": "Revised primary algorithm and convergence result"
+        },
+        {
+          "assessment": "Different fixed-point equation",
+          "evidence": "Memory update is vᵢ plus hard clipping of ∇fᵢ−vᵢ; its stationary increment vanishes exactly when vᵢ=∇fᵢ.",
+          "identifier_or_url": "arXiv:2305.18929",
+          "material_read": "§5 p. 4, offset 16900",
+          "method": "OA PDF passage",
+          "title": "Clip21: Error Feedback for Gradient Clipping",
+          "trigger": "Clipping and feedback stationary memory"
+        },
+        {
+          "assessment": "Contextual prior art, not relaxed EF",
+          "evidence": "Distinguishes deterministic full-gradient clipping from stochastic clipping bias.",
+          "identifier_or_url": "arXiv:2305.01588",
+          "material_read": "p. 6 offsets 45457–49393",
+          "method": "OA PDF passage",
+          "title": "Revisiting Gradient Clipping: Stochastic Bias and Tight Convergence Guarantees",
+          "trigger": "Prior bias results"
+        },
+        {
+          "assessment": "Related mechanism, distinct update",
+          "evidence": "Curvature-clipped weights in a stationary mean for sampled capped stepsizes.",
+          "identifier_or_url": "Resultary 2026/10/4, 6e87af5006ee",
+          "material_read": "RESULT.md Finding, offsets 0–3264",
+          "method": "Local Resultary mirror",
+          "title": "Exact curvature-clipping phase diagram for capped SPS on scalar quadratics",
+          "trigger": "Clipping changes a stationary target in quadratics"
+        },
+        {
+          "assessment": "Stochastic oracle without EF, distinct regardless of date",
+          "evidence": "Hard clipping with a three-atom multiplicative oracle and possible negative sampled curvature.",
+          "identifier_or_url": "Resultary 2026/11/22, 9cd1f92c87f5",
+          "material_read": "RESULT.md Finding, offsets 0–3386",
+          "method": "Local Resultary mirror",
+          "title": "Sharp three-atom bistability for unbiased multiplicative gradient noise",
+          "trigger": "Attracting clipping bias and minimal cardinality"
+        },
+        {
+          "assessment": "Distinct map and exponents' interpretation",
+          "evidence": "Critical score and branch splitting are for a logistic proximal map, not stationary feedback clipping.",
+          "identifier_or_url": "Resultary 2026/10/26, 7fbc9df4762d",
+          "material_read": "RESULT.md Finding, offsets 0–3398",
+          "method": "Local Resultary mirror",
+          "title": "Sharp proximal bifurcation and cusp laws for logistic spectral shrinkage",
+          "trigger": "Cube-root critical behavior and square-root law"
+        },
+        {
+          "assessment": "Distinct result, not an identity or priority inference",
+          "evidence": "A period-two cycle at a flip threshold, rather than a biased SClip-EF fixed point.",
+          "identifier_or_url": "Resultary 2026/10/27, eb8a64761b00",
+          "material_read": "RESULT.md Finding, offsets 0–2841",
+          "method": "Local Resultary mirror",
+          "title": "Sharp scalar flip threshold and nonvanishing cycles for composite ProxSPS",
+          "trigger": "Same-day fixed-parameter nonoptimal dynamics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The smallest biased scalar equal-curvature instance exposes an algorithmic failure mode rather than curvature heterogeneity or stochastic noise: with feasible constant gains even a locally attracting joint fixed point can miss the exact minimizer. The explicit saturation threshold distinguishes persistent bias from two quantitative vanishing-bias regimes, helping interpret what smoothing can and cannot correct in this fixed-control model. The result neither overturns scheduled convergence theorems nor proves global behavior.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

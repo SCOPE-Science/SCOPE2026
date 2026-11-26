@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The centralizer tensor equations give exactly two cases for a noncentral vector: a whole single part, or its own one-dimensional span. These cases exhaust all supports and imply the stated disjoint-clique join, with a nonzero number of mixed-support lines. The reverse reconstruction uses intrinsic universal vertices and the minimum noncentral component size; these recover the field order before any logarithm is used. A direct coordinate-bracket verifier independently checks twelve small finite-field cases. The theorem covers all odd prime-power fields by proof, not by extrapolating the experiments.
+## correctness
 
-## Originality
-PASS relative to inspected literature and searches, with residual risk noted. The 2023 construction and derivation computations of Godoy Molina–Lagos do not give commuting-graph reconstruction. The 2024 noncommuting-graph study addresses general properties and uses a different vertex convention. The 2025 Sriwongsa theorem proves a generic multipartite structure for projective noncommuting graphs of AC Lie algebras, but does not supply the full-vertex clique census together with an inverse algorithm recovering the field order and every block size across fields. Closest available records for other AC groups, CC rings, graphical groups, and complete multipartite graph statistics have different objects or implications. In particular, a projective multipartite characterization alone does not identify the specific clique sizes in the full commuting graph or prove the reconstruction algorithm without the tensor computations. Equivalent formulations elsewhere cannot be ruled out.
+PASS
 
-## Value
-PASS. Complete multipartite graphs are a natural large family in the graph-to-Lie construction. The theorem determines not merely a numerical invariant but the entire commuting graph and gives an explicit inverse recognition algorithm; the field and generating graph can be recovered from commutativity data alone. This is a structural rigidity statement valid in arbitrarily large dimensions and across distinct finite fields. The adjoint-rank and commuting-probability formulas are consequences of the same classification, not independent narrow assertions.
+Rechecked the proof in repairs/2/RESULT.md. Independent edge coordinates force the center to be exactly Z and give commuting quotient vectors V_i for single-part support and F_q x for mixed support, by equality of pure tensors. Mixed supports exist, so the least component after removing the c universal vertices has order b=c(q−1). Neither q nor N needs to be provided: q=1+b/c and the total graph order is cq^N. Larger components give the nonsingleton sizes with multiplicity; subtract their sum from N to count singletons, including the all-singleton case. The frozen forward formulas, ranks and probability are correct but are not retained as standalone contributions. A bounded direct bracket check in F_3[t]/(t²+1), for parts (2,1), enumerated quotient vector pairs using the two edge determinants: one nonzero component of order 80 and 81 of order 8, all cliques. Over the center of order 81 this gives 59049 vertices, recovered q=9 and parts (2,1); it also gave rank polynomial 81+6480z+52488z² and commuting probability 161/6561. The repaired proof, not this single replay case, covers all stated orders. Frozen scripts were read, not executed.
 
-## Closest sources and boundaries
-Godoy Molina–Lagos, arXiv:2308.00272 (construction, edge label choices, graph ideals, derivations); Chareh Khah Moghaddam–Erfanian–Shamsaki, arXiv:2406.15902 (general noncommuting graph); Sriwongsa, arXiv:2505.00726 (AC-Lie projective noncommuting graphs). The result is restricted to complete multipartite graphs with one independent central label per edge and odd finite fields. The full commuting graph includes central elements. A possible equivalent statement in unlocated graph-algebra or commutation-geometry literature remains the principal originality risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+This PASS concerns the repaired inverse classification only. The frozen forward census is covered by the general projective component result and the uniform scalar/central blow-up; the frozen adjoint-rank polynomial and commuting probability are direct specializations of known support-centralizer formulas. The repair explicitly credits the former and drops the latter as claims. No compared theorem recovers the unknown field and full multipartition from this abstract graph. The retained step is a decoding argument, not evaluation of a forward formula at given q and G.
+
+## value
+
+PASS
+
+The repaired statement is a natural complete inverse classification: it tests whether the bracket-zero relation alone retains the defining field and part multiset. The projective census at supplied parameters does not resolve possible cross-field collisions or separate singleton parts from mixed directions. The elementary decoding resolves both without external side information and gives an exact invariant a researcher comparing two such commuting graphs can use. The already-covered forward formulas would not justify acceptance by themselves.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:26:37.820042Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md proof §§1–6 and VERIFICATION.md",
+        "verify_lunar_five.py (inspected, not executed)",
+        "/workspace/branches/6e2dad83-aa7d-4d09-8df0-34723e0cf3ee/lunar_five_independent.py and check_4_15.csv, check_16_30.csv"
+      ],
+      "rationale": "Binary lunar convolution gives S=A+B, with zero in each nonunit factor. Increasing paths in the addition grid give |S|≥|A|+|B|−1; in the equality cases, each monotone path exhausts S in order, so swapping two steps forces a_(i+1)−a_i=b_(j+1)−b_j in every cell. The only possible sizes yielding five are (2,3), (2,4), (3,3); the latter two give a progression, which also factors as {0,t}+{0,t,3t}. For (2,3) write S=B∪(B+x); exactly one collision corresponds to x equaling exactly one of the three positive pairwise differences of B. This yields the two families, and each family visibly factors. In F1, y<x gives m=2x and y choices 1,…,x−1; y>x gives m=x+y with x≤floor((m−1)/2) and y=2x excluded. Both branches are injective internally and can duplicate only at the progression: the third sorted element from the lower branch is m/2, so the upper branch must have third 2x=m/2, not y=m/2 (which would give y=x). In F2 the first two positive entries recover the unordered {x,y}; their interchange changes the maximum unless x=y, which is excluded. For intersection with F2 the third positive entry must be the sum of the first two. In F1 this gives y=3x in the upper branch or, in the lower branch, matching the maximum forces x=2y. Thus there is exactly one intersection iff 4 divides m, in addition to the internal duplicate in F1. Inclusion–exclusion gives C_m and choosing the three interior digits gives P_m and the claimed proportion. Fresh enumeration of all eligible factor shapes for 4≤m≤30 reproduced the exact family union, intersection and counts, including the m=4 endpoint.",
+      "residual_risks": [
+        "Only the argument, not any finite enumeration, covers m>30 in this review. The frozen verifier's wider reported run is distinct recorded evidence."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gross connects sumset divisors with restricted compositions; Baily et al. prove degree-level almost-all indecomposability; Dismal Arithmetic lists some prime templates."
+        ],
+        "reasoning": "These cover frameworks, count different aggregates or give templates; they do not force the residue corrections or the exhaustive five-support forms.",
+        "searches": [
+          "Gross arXiv:1908.05220, pp. 1–3 and §8",
+          "Baily et al. JIS 28 (2025), §1.2",
+          "Applegate–LeBrun–Sloane arXiv:1107.1130, §2 and Table 3"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1107.1130",
+        "arXiv:1908.05220",
+        "JIS 28 (2025), Article 25.2.7",
+        "OEIS A087636",
+        "Resultary 7c3e964290e1 and 49ecb98a6ccf"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Convolution reduces multiplication to set addition; the one-dimensional extremal sumset equality handles some factor sizes. Large-degree almost-all indecomposability is over the full population."
+        ],
+        "reasoning": "The equality case does not classify (2,3) with |A+B|=5, which is above its lower bound of 4. Single-collision analysis and a distinct-support overlap count are needed, and an overall density tending to one yields no rate or exact count within this sparse slice.",
+        "searches": [
+          "Dismal Arithmetic convolution §2",
+          "Gross integer sumset composition and irreducibility §§1,8",
+          "Baily et al. degree asymptotic §1.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Applegate–LeBrun–Sloane §2 defines digit convolution giving A+B in base two; Gross §§1,8 uses the same irreducible finite-set interpretation.",
+          "Resultary 7c3e964290e1 counts lunar divisors of a specified block-support W_(h,n), with even support size 2n. Resultary 49ecb98a6ccf concerns ordinary products with carries."
+        ],
+        "reasoning": "The equivalent problem is reducible normalized five-point subsets of the nonnegative integers with fixed diameter m. Neither a divisor count on a specified even-size family nor an ordinary binary product classification answers it.",
+        "searches": [
+          "Focused literature lookup: five-element reducible integer sumsets, five-one binary dismal primes, Boolean polynomial support",
+          "Resultary search for exact lunar five-support composites"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A087636 aggregates n-digit entries over 10^(n−1)…10^n−1, with no fixed weight; Table 3 is a template list rather than the five-support table.",
+          "The Atlas Lean path surfaced in search, but the exact file text was not obtained from the page, raw path or contents endpoint."
+        ],
+        "reasoning": "The inspected totals cannot identify this binary weight slice. The uninspected file is a specific unresolved lead, not evidence of either coverage or absence.",
+        "searches": [
+          "OEIS A087636, definition and PARI code",
+          "Dismal Arithmetic, Table 3",
+          "Atlas Lean lunar-level-count.md file and contents endpoint",
+          "Resultary fixed-support census lookup"
+        ]
+      },
+      "rationale": "The arithmetic and sumset reduction are established. No inspected comparison supplies the complete two-family classification, their progression overlap and the resulting exact five-one count at fixed degree; existing unrestricted prime totals and higher-level decomposability results do not determine this slice.",
+      "residual_risks": [
+        "Uninspected Atlas Lean entry and differently indexed small sumset classifications remain possible equivalents. Bounded comparison does not certify historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Convolution is prior; inspected table differs from fixed-weight count",
+          "evidence": "Polynomial digit convolution; listed prime templates rather than all degree-m five-position composites.",
+          "identifier_or_url": "https://arxiv.org/abs/1107.1130",
+          "material_read": "Introduction p. 2, §2 pp. 4–5, Table 3 p. 11",
+          "method": "Bounded OA PDF passages",
+          "title": "Dismal Arithmetic",
+          "trigger": "Original operation and potential prime census"
+        },
+        {
+          "assessment": "Overlapping reduction and divisor framework, not the exact fixed-size census in the material read",
+          "evidence": "Minkowski sumset divisors, restricted compositions and relation of irreducible sets to lunar primes.",
+          "identifier_or_url": "https://arxiv.org/abs/1908.05220",
+          "material_read": "pp. 1–3, §8 p. 28",
+          "method": "Bounded OA PDF passages",
+          "title": "Maximally Additively Reducible Subsets of Integers",
+          "trigger": "Equivalent reducible sumset problem"
+        },
+        {
+          "assessment": "Different normalization and no exact fixed-weight count implied",
+          "evidence": "Almost-all degree-n indecomposability result.",
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL28/Jackson/jackson5.pdf",
+          "material_read": "§1.2 p. 4",
+          "method": "Bounded OA journal PDF passage",
+          "title": "Indecomposability Over the Max-Min Semiring",
+          "trigger": "Broader asymptotic potentially covering the sparse case"
+        },
+        {
+          "assessment": "Not this binary fixed-weight table",
+          "evidence": "The code sums the primality indicator from 10^(n−1) through 10^n−1.",
+          "identifier_or_url": "https://oeis.org/A087636",
+          "material_read": "Definition, terms, PARI code (web text offset 400 onward)",
+          "method": "OA website text inspection",
+          "title": "Number of n-digit lunar primes",
+          "trigger": "Exact count database cited in the frozen result"
+        },
+        {
+          "assessment": "Different counting object, irrespective of date",
+          "evidence": "Number of distinct divisors of W_(h,n)=3∑_j 2^(hj) with a 2n-point support, not a census over all five-point supports.",
+          "identifier_or_url": "2026/10/26/SCOPE-a-gap-invariant-quadratic-composition-formula-for-lunar-divisors--7c3e964290e1",
+          "material_read": "Original finding and proof passages, offsets 0–2461 and 5600 onward",
+          "method": "Local Resultary mirror inspection",
+          "title": "A gap-invariant quadratic composition formula for lunar divisors",
+          "trigger": "Closest same-day Resultary arithmetic finding"
+        },
+        {
+          "assessment": "Unresolved access; no coverage inference",
+          "evidence": "Search surfaced the file path; exact text unavailable, including a 415 from the contents endpoint.",
+          "identifier_or_url": "https://github.com/facebookresearch/atlas-lean/blob/main/blueprint/roadmap/Combinatorics/additive-combinatorics/sumsets-inverse-theorems/max-min-indecomposable-sequences-and-lunar-prime/lunar-level-count.md",
+          "material_read": "File path only; no statement obtained",
+          "method": "Lawful attempts at repository page, raw file and contents endpoint",
+          "title": "Atlas Lean lunar-level-count.md",
+          "trigger": "Potential competing exact table or theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen F1 and F2 classification and counting proof",
+        "Dismal Arithmetic and Baily et al. for the broader degree-count question"
+      ],
+      "rationale": "Five positions give a natural structural case beyond the size-four product of two two-point sets: a two-by-three factorization can now lose exactly one of six candidate sums, and representations can overlap both within and across structural families. The exact classification gives membership witnesses and a sparse-weight census inaccessible from unrestricted prime density; the parity slopes and divisibility corrections are useful concrete invariants of the family.",
+      "residual_risks": [
+        "No classification of factor multiplicities or of larger weights follows."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

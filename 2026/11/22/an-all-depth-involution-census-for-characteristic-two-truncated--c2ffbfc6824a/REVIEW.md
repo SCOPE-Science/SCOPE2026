@@ -1,9 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** The truncated group and depth are explicitly defined; the proof isolates the first square obstruction, uses the formal commutation \(f\circ f^2=f^2\circ f\) to eliminate intervening odd obstructions, and calculates the nonzero coefficient of each free-variable correction at even degree. The resulting number of conditions and the geometric tail give both closed totals. The weak convergence follows because almost every nonidentity square-one jet lies in an equally weighted shallow odd stratum. Independent finite exhaustive composition checks corroborate the depth histograms over four finite fields. Limit: only the displayed characteristic-two setting is proved.
+## correctness
 
-**Originality — PASS on inspected evidence; historical priority not independently certified.** Byszewski–Cornelissen–Tijsma address genuine formal torsion and break sequences. The published depth-one truncation theorem only handles \(r=1\), whose count is a special case here; it explicitly excludes all deeper depths. Pálfy classifies conjugacy classes in selected short quotients, rather than counts of involutions throughout the ramification filtration. The other accessible finite-quotient result resolves degree-five conjugacy classes only. A later power-commutator presentation reaches degree fifteen; full text was inaccessible, but the advertised bounded-level scope does not imply the all-level theorem. A pre-existing all-depth formula under another terminology remains possible.
+PASS
 
-**Mathematical value — PASS.** The natural ramification-depth filtration is an intrinsic invariant of finite Nottingham quotients, and the theorem gives all its order-two fibers uniformly in degree and extension field. It reveals an exact parity prohibition, a previously unquantified plateau of equally numerous shallow odd depths, and a nondegenerate limiting depth distribution. These go beyond a small finite census or a routine restatement of the known depth-one result.
+In F_q[[t]], writing f=t+A with leading term a t^(r+1), the linear copies of A cancel in f∘f−t and the first possible coefficient is (r+1)a² at degree 2r+1. This gives both even-depth cases, including equality 2r+1=m where the term is discarded. For odd r, a first nonzero term b t^k of f∘f−t at odd k would give a nonzero mixed coefficient (k−r−1)ab at degree r+k in the difference of the two compositions with f, contradicting commutation. At even k≥2r+2, perturbing the coefficient in degree s=k−r by u changes the degree-k obstruction by (s+r+1)au=au; all cross terms from higher coefficients or higher binomial powers occur later (2s−1>k), and later coefficients cannot change this equation. Hence exactly max(0,floor((m−1)/2)−r) coefficients are forced and all others following a are free. Summing the common shallow-odd weight and geometric unrestricted tail, with the admissible even boundary r=h for odd m=2h+1 and even h, gives both totals including the identity and covers m=3. At fixed q the remaining depths have O(1/m) relative mass, so the uniform odd-depth grid proves the weak limit. The frozen check.py and checked_output.txt were inspected as bounded supporting evidence, not executed; the arbitrary-field and arbitrary-depth conclusions are analytic.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The supported distinct result is the full characteristic-two finite-quotient depth histogram and its asymptotic law, not the previously counted depth-one stratum, a particular small quotient, or the formal torsion classification. No equivalent or dominating census was found in the compared passages.
+
+## value
+
+PASS
+
+This computes a natural torsion invariant of the whole filtration, including non-lifting elements missed by the formal classification. The equal shallow-depth multiplicity and its limit are structural information, rather than more data at a few arbitrary truncations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

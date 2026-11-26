@@ -1,0 +1,171 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:44:59.996864Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, Assumptions and Proof §§1–3",
+        "VERIFICATION.md and checks/check_logistic.py (inspected, not executed)",
+        "python3 /workspace/review_checks.py 1 (independent bounded quadrature)",
+        "Allison, Ebner and Smuts, arXiv:2108.07036v1, §2"
+      ],
+      "rationale": "For the ordinary joint MLE the location and scale score equations kill H(0) and H'(0) exactly, leaving the t^2 coefficient equal to the residual mean of h(y)=y^2 tanh(y/2)/2-y. For moments the leading coefficient is just minus the residual mean of g. Under the null, differentiating the population Stein identity gives centering of the raw frequency derivatives; their second-moment bounds and the one-dimensional Sobolev inequality give O_P(1) Taylor bounds for sqrt(n) H on [-1,1]. Root-n parameter errors times polynomial sample averages preserve these bounds for the fitted process. For |t|>1, the centered raw sum has second moment at most (1+|t|)^2, and the fit perturbation is stochastically bounded by O_P(1)(1+t^2). Integrating these Gaussian tails leaves no factor n, so the reduction is valid along every deterministic a_n tending to infinity. The regular logistic MLE expansion follows from the smooth likelihood, nonsingular information (odd location and even scale scores with positive variances), and concavity in inverse-scale/intercept coordinates; the moment expansion follows by the delta method. Parity removes both scale corrections in the leading means. Location gives influences g-X/3 and h-((pi^2-6)/6)g. The logistic beta integral and Stein identities give the stated positive variances; independent uniform-CDF quadrature reproduced them and the Gaussian-weighted multipliers 0.057086432202785874 and 4.8514073649406617. The scalar CLT, squaring and the zeroth/fourth Gaussian integrals give the two sharp limits, not just sequential limits.",
+      "residual_risks": [
+        "Only the raw statistic under the IID logistic null and the stated two fits; no control of bootstrap size, power, or general data-dependent tuning is asserted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The composite MMD theorem gives a kernel-dependent weighted sum of chi-squares, not a theorem for this diverging sequence of kernels.",
+          "The fitted KSD bootstrap theorem and bandwidth discussion concern calibration and bandwidth selection, not uniform high-precision Fourier Taylor control."
+        ],
+        "reasoning": "These general results do not imply an arbitrary changing weight, nor do they yield the special score cancellations and limiting constants without further proof.",
+        "searches": [
+          "large bandwidth asymptotic kernel goodness-of-fit Stein tests fitted parameters logistic",
+          "large bandwidth asymptotic goodness-of-fit Stein statistic increasing Gaussian frequency weight fitted parameters high bandwidth kernel tests",
+          "arXiv:2111.10275 Theorem 2; arXiv:2510.22792 Theorem 3 and §4.1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary and local RESULT.md mirror passages",
+        "arXiv:2108.07036v1",
+        "arXiv:2111.10275",
+        "arXiv:2510.22792",
+        "Henze–Klar (2002), public abstract only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 2.1 controls a fixed weighted L2 process; derivatives at frequency zero are not continuous functionals in that topology.",
+          "The Henze–Klar abstract identifies the inverse-Gaussian empirical-Laplace statistic; the putative large-weight result was not read from primary full text."
+        ],
+        "reasoning": "Taking a limit in a family of fixed-weight limit laws would at most give a sequential statement. The proof of the logistic rates needs exact finite-sample score cancellations and uniform stochastic remainder control; the older inverse-Gaussian setting as identified is not the same statistic.",
+        "searches": [
+          "arXiv:2108.07036v1, Theorem 2.1",
+          "Goodness-of-fit tests for the inverse Gaussian distribution based on the empirical Laplace transform Henze Klar full text"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The original paper defines the same fitted statistic and Gaussian weight exp(-a t^2); its Theorem 2.1 concerns a fixed positive weight.",
+          "Increasing Gaussian precision a is a shrinking frequency scale a^(-1/2), equivalently a broad spatial Gaussian kernel."
+        ],
+        "reasoning": "Rephrasing bandwidth in reciprocal-frequency or spatial language preserves the triangular problem; it does not turn a fixed-kernel Gaussian-process theorem into the claimed limit.",
+        "searches": [
+          "logistic Fourier-Stein goodness-of-fit Gaussian frequency weight diverging bandwidth",
+          "arbitrary diverging Gaussian bandwidth null limit Fourier Stein goodness of fit fitted estimators",
+          "Allison–Ebner–Smuts, arXiv:2108.07036v1, §§1–2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact logistic catalogue hit is the assigned record itself.",
+          "Closest distinct hits include 2026/11/22/SCOPE-a-gaussian-poisson-bandwidth-transition-for-the-pareto-min-chara--e3850722f1d5, 2026/11/22/SCOPE-a-logarithmic-high-bandwidth-mean-anomaly-for-the-scale-fitted-r--4669b08b9788, and 2026/11/22/SCOPE-sharp-large-weight-rank-one-collapse-and-an-exact-cancellation-s--328293f15bd9."
+        ],
+        "reasoning": "The Pareto and Rayleigh results cover different weights/statistics and the inverse-Gaussian cancellation result is sequential. None tabulates or implies the two logistic constants. A same-day date itself settles no priority question.",
+        "searches": [
+          "Resultary: logistic Fourier-Stein goodness-of-fit Gaussian frequency weight diverging bandwidth",
+          "Resultary: higher order score cancellations fitted maximum likelihood estimator high bandwidth Stein statistic"
+        ]
+      },
+      "rationale": "The distinct claim is the estimator-specific arbitrary-rate joint null limit with sharp powers and explicit constants for the same logistic Fourier–Stein test. Fixed-weight prior theory establishes the statistic and fitted null framework, not the shrinking-frequency regime. The strongest analogous large-weight studies inspected use different test processes or a different order of limits.",
+      "residual_risks": [
+        "The inverse-Gaussian Henze–Klar comparison could not reach theorem-level primary text. An unindexed equivalent endpoint theorem is not excluded by bounded searches."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage of the statistic and fixed-weight null limit, not the joint diverging-precision limit",
+          "evidence": [
+            "Gaussian weight exp(-a t^2); fixed weighted Hilbert-process convergence with estimator linear representations."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2108.07036v1",
+          "material_read": "§1, offset 8600; §2, Theorem 2.1, offset 17850",
+          "method": "OA HTML passages",
+          "title": "Logistic or not logistic?",
+          "trigger": "Originating paper, identical test"
+        },
+        {
+          "assessment": "Kernel-dependent fixed-test limit rather than this triangular limit",
+          "evidence": [
+            "Weighted sum of independent chi-square variables with weights depending on the chosen kernel."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2111.10275",
+          "material_read": "§3.2.2, Theorem 2, PDF p. 9, offset 30650",
+          "method": "OA PDF text",
+          "title": "Composite Goodness-of-fit Tests with Kernels",
+          "trigger": "Potential general kernel-null theorem"
+        },
+        {
+          "assessment": "Bootstrap and practice discussion, not the stated endpoint law",
+          "evidence": [
+            "The theorem addresses bootstrap behavior with estimated parameters."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2510.22792",
+          "material_read": "Theorem 3 (p. 4, offset 36488), §4.1 (p. 5, offsets 39603 and 41317)",
+          "method": "OA PDF text",
+          "title": "Composite goodness-of-fit test with the Kernel Stein Discrepancy and a bootstrap for degenerate U-statistics with estimated parameters",
+          "trigger": "Potential fitted-KSD bandwidth coverage"
+        },
+        {
+          "assessment": "Distinct statistic and bandwidth regimes",
+          "evidence": [
+            "Pareto min-characteristic statistic with exponential weight; regimes are governed by the bandwidth-to-sample-size ratio."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-gaussian-poisson-bandwidth-transition-for-the-pareto-min-chara--e3850722f1d5",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary and local mirror",
+          "title": "A Gaussian-Poisson bandwidth transition for the Pareto min-characteristic statistic",
+          "trigger": "Closest arbitrary-bandwidth fitted-test catalogue analogy"
+        },
+        {
+          "assessment": "Fixed-sample high-weight limit in a different model",
+          "evidence": [
+            "Rayleigh CDF–Stein with a^3 normalization and an anomalous mean."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-logarithmic-high-bandwidth-mean-anomaly-for-the-scale-fitted-r--4669b08b9788",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary and local mirror",
+          "title": "A logarithmic high-bandwidth mean anomaly for the scale-fitted Rayleigh statistic",
+          "trigger": "Close high-bandwidth Stein catalogue analogue"
+        },
+        {
+          "assessment": "Different statistic; limits are taken sequentially",
+          "evidence": [
+            "Generic and exact-cancellation regimes for an inverse-Gaussian CDF–Stein statistic."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-large-weight-rank-one-collapse-and-an-exact-cancellation-s--328293f15bd9",
+          "material_read": "RESULT.md offsets 0 and 7000",
+          "method": "Resultary and local mirror",
+          "title": "Sharp large-weight rank-one collapse and an exact cancellation for an inverse-Gaussian CDF–Stein statistic",
+          "trigger": "Closest estimator-cancellation analogue"
+        },
+        {
+          "assessment": "Different statistic confirmed; exact large-weight theorem not verified",
+          "evidence": [
+            "Weighted L2 tests based on the empirical Laplace transform of inverse-Gaussian observations."
+          ],
+          "identifier_or_url": "Henze and Klar, AISM 54 (2002), 425–444",
+          "material_read": "Landing-page abstract only; paper PDF not retrieved",
+          "method": "Lawful OA landing page and identified PDF route attempt",
+          "title": "Goodness-of-fit tests for the inverse Gaussian distribution based on the empirical Laplace transform",
+          "trigger": "Possible published large-weight methodological precedent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, Finding and Limitations",
+        "Allison–Ebner–Smuts, arXiv:2108.07036v1, statistic definition and Theorem 2.1"
+      ],
+      "rationale": "The same established test has two genuinely different rates depending only on how its nuisance parameters are fitted. The exact MLE cancellation explains the difference, and the sharp normalization and constants give a usable null calibration regime without selecting a sample-size-dependent growth window. This does not rest on a tiny numerical gain or on claiming improved test power.",
+      "residual_risks": [
+        "No favorable claim about finite-sample testing performance follows just from these null limits."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

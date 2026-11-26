@@ -1,20 +1,21 @@
-# Scientific review: sharp dyadic fluctuation laws for mixed Romanoff-type power sums
+# Independent mathematical audit
 
-## Correctness — PASS
-The precise domain is every fixed integer \(r\ge2\), dyadic cutoff \(2^N\) with integer \(N\ge2\), and positive integer indices \(a,b\). The proof identifies exactly \((N-1)\lfloor(N-1)^{1/r}\rfloor\) labeled pairs and exactly \(\binom{\lfloor(N-1)^{1/r}\rfloor}{2}\) two-representation collisions, with no other binary collision. The fractional-root block count is uniform in interval endpoints and has error \(O_r(K^{1-1/r})\); the dyadic-block perturbation argument preserves this error in the empirical secondary distribution. The exact enumerator passed 294 instances, without being used as an infinite proof. The proof does not rely on unpublished computational results.
+## correctness
 
-## Originality — PASS, subject to recorded risk
-Yan (arXiv:2610.13691v1), inspected through its accessible full HTML text, cites only Chen's leading asymptotic for the set cardinality and proves statements on prime-plus-set representations. The exact dyadic formula, multiplicity classification, and effective nondegenerate secondary limit law do not follow as logical conclusions from this first-order result. The Ding–Li and Chen articles address related Romanoff sets and representation functions; their available abstracts and summaries do not assert the present law, but their full texts were not accessible for complete exclusion. Targeted published-result searches including the formula, aliases, two-bit collision multiplicity, and uniform second-order oscillation found no matching statement; nearest records concern unrelated binary block counts, summatory floor functions, and digital fluctuations. An earlier implicit derivation via elementary root equidistribution is a genuine residual originality risk. Search failure alone is not treated as proof of novelty.
+PASS
 
-## Mathematical value — PASS
-The source's counting lemma is an essential quantitative input to current Romanoff-type density arguments. The theorem fixes the sharp second-order scale in the simplest asymmetric restricted-power family, derives a complete effective distribution of fluctuations, and proves that no constant second asymptotic coefficient exists. The boundary between \(r=2\) and \(r\ge3\) reflects a genuine competition between representation collisions and lattice cutoff error; the full range and uniform law are natural precise invariants, not arbitrary finite slices. It does not settle prime-representation density or optimality of the Kolmogorov convergence exponent.
+Positivity forces both integer exponents ≤t=N−1, and this condition is sufficient even on the diagonal where equal powers carry to one bit. There are ts labeled pairs. A two-bit value determines its unordered exponent positions uniquely, and a second labeling is available exactly when both distinct positions are r-th powers. One-bit values do not collide with two-bit values or with each other, so subtracting binom(s,2) gives the exact count for all allowed cutoffs, including t=1. Algebra gives Z=−{t^(1/r)}−s(s−1)/(2t); the extra term is a shift by −1/2 plus O(t^(−1/2)) for r=2 and O_r(t^(−1/r)) for r≥3. In a full block [k^r,(k+1)^r), count the corresponding integer interval [(k+α)^r,(k+β)^r); relative to its uniform target the error is O_r(k^(r−2)+1), uniformly in endpoints. The sum of these errors is O_r(K^(1−1/r)), and the single unfinished block is of that order at most. On a dyadic index block of size T, a threshold comparison can change only in a fractional-root interval of length O_r(T^(−1/r)); the difference of two prefix bounds gives O_r(T^(1−1/r)) exceptional indices. Summing these bounds proves the uniform-in-threshold rate and the shifts stated. Boundedness of Z gives an O(N) error, and its nondegenerate limiting law rules out convergence to any constant and hence a constant linear correction with o(N) remainder.
 
-## Closest literature and limitations
-1. Xiao-Hui Yan, *On a conjecture on Romanoff type representations*, arXiv:2610.13691v1 (2026-10-09); full HTML studied.
-2. Y.-G. Chen, *On Integers of the Form \(p+2^{k_1^{r_1}}+\cdots+2^{k_t^{r_t}}\), II*, DOI:10.1007/s11464-026-0057-0 (2026); leading counting asymptotic quoted by Yan, full text unavailable.
-3. Yuchen Ding and Liangxun Li, *On a conjecture on Romanoff type sumsets*, arXiv:2606.06118v2 (2026); abstract and accessible synopsis studied, full text unavailable.
-4. Relevant OEIS floor-root sequences (including A022554) found in a direct formula search are different summatory invariants; this finding does not rely on table omission.
+## originality
 
-The result is limited to exact dyadic cutoffs, fixed integer \(r\), and internal sumset counting, and independent external scientific validation has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Credit Yan's cited Chen lemma for the first-order count and do not claim novelty for fractional-root equidistribution as a proof ingredient. The distinct finding is the exact dyadic count and label collisions coupled to the quantitative distribution of the normalized secondary remainder, including the collision-induced shift at r=2 and failure of every constant linear correction. Inspected prior statements cover the leading scale or a different counting problem; Chen's inaccessible full text remains a real implication risk.
+
+## value
+
+PASS
+
+The value is identifying the exact size and distribution of the leading asymptotic's fluctuations in a natural subfamily of the general Romanoff set, not the routine binary-encoding argument alone. The square case has a different secondary law because collisions survive at linear scale; higher powers have no such shift. The nondegenerate law settles the natural question of whether a deterministic second coefficient exists at dyadic cutoffs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

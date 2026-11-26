@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,48 +18,25 @@
   "schema_version": 1
 }
 ---
-Let
-\[
-a=\alpha/2
-\]
-and
-\[
-C=(2\sigma)^q\Gamma(a+q)/\Gamma(a).
-\]
-The corrected survival is
-\[
-S_Z(t)
-=
-1-G(t/(2\sigma);a,1)
-+
-Ct^{-q}G(t/(2\sigma);a+q,1).
-\]
 
-Two independent derivations were checked:
+# Independent mathematical audit
 
-1. direct complementation of Proposition 2.4;
-2. conditioning on \(X\) in the quotient representation \(Z=X/Y\).
+## correctness
 
-The bundled checker verifies
-\[
-1-F_Z(t)=S_Z(t)
-\]
-and numerical differentiation of the CDF against the published density.
+PASS
 
-For \(\mathrm{SCHI}(1,3,1)\) at \(t=8\), it obtains
-\[
-S_Z(8)=0.3624233453475855\ldots,
-\]
-while the printed formula gives
-\[
--0.270399933969123\ldots.
-\]
+For σ,α,q,t>0, let B_q(t)=t^(−q)E[X^q 1_{X≤t}] and let G_a be the CDF of X. Conditioning on X and using P(Y≤u)=u^q for 0≤u≤1 gives S_Z=1−G_a+B_q, in agreement with the complement of the actual printed Proposition 2.4. The minus sign in the CDF is correct; the two minus signs in Corollary 2.1 (in the survival and in the hazard denominator after clearing positive factors) are not. Differentiation cancels the two density-at-t terms and gives f_Z=(q/t)B_q. Since the gamma upper tail is exponentially small and t^q B_q→C=(2σ)^qΓ(α/2+q)/Γ(α/2)>0, the correct S_Z and h_Z are asymptotic to Ct^(−q) and q/t, while the printed ones are asymptotic to their negatives. The heavy-tail conclusion of Proposition 2.5 is unchanged with the correct survival. Independent evaluation reproduces all nine SCHI Table 1 probabilities after rounding. For SCHI(1,3,1) at t=8, corrected survival and hazard are 0.36242334535 and 0.10913053882, versus −0.27039993397 and −0.14627020938 as printed. The printed survival crosses zero near 3.48777992429. Figure 2 explicitly labels that parameter choice as the black hazard and displays t=8 on a nonnegative hazard scale, inconsistent with the literal printed value; this does not identify the plotting implementation.
 
-It also verifies
-\[
-t^qS_Z(t)/C\to1
-\]
-and
-\[
-t\,h_Z(t)/q\to1.
-\]
+## originality
+
+PASS
+
+The correctly signed CDF and the quotient distribution are prior work, and the survival can be recovered directly from either. The supported distinct claim is the source-specific erratum: its two printed formulas disagree with its own Proposition 2.4 and give negative probabilities and hazards, while the actual table agrees with the repair. Neither the checked same-paper versions nor the bounded correction search disclosed an existing resolution of that discrepancy.
+
+## value
+
+PASS
+
+This erratum prevents using a negative claimed reliability or hazard in the tail of a published model. It supplies the correct formulas, identifies their positive asymptotics and checks which published numerical evidence remains valid. The substantive impact is an invalid probability and hazard in the publication, not the routine algebra of taking a complement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:52:43.823666Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, equations (1)–(6) and all optimizer regimes",
+        "Frozen VERIFICATION.md and verify.py inspected, not executed"
+      ],
+      "rationale": "With k=sqrt(r/D), renewal gives mean excursion duration (1-I_d)/r and success probability I_d=e^{-dk}G_p(k); the MFPT is their quotient. G_p(k) is the lower incomplete-gamma transform and is asymptotic to Gamma(p+1)/(Bk)^p. In (I_d^{-1}-1)/(Dk²), the subtraction introduces only relative factor 1-I_d tending to 1 uniformly for d>=0 as k grows. Small k diverges at least as T_0, and for d>0 large k diverges, proving compact attainment. If 0<p<2, let a=2-p. The trial k=a/d gives an O(d^a) minimum, excluding all bounded k by positivity of T_0 and its small-k divergence. For all minimizing sequences the rescaled objective is asymptotic to B^p/(D Gamma(p+1)) times e^v/v^a with v=dk. This diverges at both endpoints, so v remains in a compact interval and comparison with the trial forces v to the unique minimizer a. This gives both constants. For p>2 T_0 diverges at large k. For p=2 the exact transform gives T_0=B²/(2D)-1/(Dk²)+o(k^{-2}), i.e. below the tail limit at a finite k. Evaluating at that fixed k and using T_d>=T_0 excludes the entire large-k tail for small d. Continuity on the resulting common compact interval and comparison with every fixed k show every accumulation point optimizes T_0. The last successful excursion has the tilted offset density proportional to u^{p-1}e^{-ku}; k times that offset is a Gamma(p,1) truncated at Bk, converging in total variation. Dividing by dk tending to a gives the asserted Gamma(p, rate a) law for offset/d.",
+      "residual_risks": [
+        "The frozen numerical grid scan is diagnostic, not proof of global minimality. The analytic comparison covers this independently. The endpoint proof depends on the exact linearly vanishing power law on a finite interval, not simply asymptotic linear vanishing for an arbitrary density. There is no asserted optimizer uniqueness or Gamma limit at p=2."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first two sources give the general average MFPT formula in terms of a Laplace transform of the spatial law. The uniform optimum discussion includes finite optimum outside the support and increasing rate as the target approaches it; Eq. (29) concerns the opposite, far-target limit.",
+          "The third gives exponential tilting for the last successful launch and high-rate edge modes for the truncated Gaussian/exponential settings studied."
+        ],
+        "reasoning": "The general formulas give quantities to analyze, not the gap-uniform control of all global minimizers, the critical tail comparison, or the optimizer-coupled limit. The inspected nonvanishing edge models do not cover the compact linear edge at criticality.",
+        "searches": [
+          "Evans–Majumdar, arXiv:1107.4225 Eqs. (41)–(49)",
+          "Méndez–Flaquer-Galmés–Campos, arXiv:2401.01125 Eqs. (13)–(15), (20)–(29)",
+          "Julián-Salgado–Dagdug–Boyer, arXiv:2507.14483 §V"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md",
+        "arXiv:1107.4225, 2401.01125, 2507.14483",
+        "Resultary 5bffc09c6ba3 and 5923594c4d63"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For k tending to infinity, the prior tilt on the specified power-law density already gives convergence of k U_last to Gamma(p,1) by a change of variables and truncation. It gives no value of dk at a global optimum.",
+          "At p=2 the leading large-k transform gives a constant limiting MFPT, not coercivity or a finite minimum. The signed subleading term in the specified compact kernel establishes a strict interior advantage. For 0<p<2 the asymptotic must control all optimizers, not just stationary points at k=O(1/d)."
+        ],
+        "reasoning": "Do not claim the fixed-rate tilted law or its large-k change of variables as an independent discovery. The Gamma law on the gap scale follows from the new optimizer theorem. The transition at equality and global exclusion steps are not substitutions into the prior leading-order or uniform formulas.",
+        "searches": [
+          "arXiv:2401.01125 §III.A, uniform objective and stationary equation",
+          "arXiv:2507.14483 Eqs. (27)–(32)",
+          "arXiv:1107.4225 Eq. (47)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Correctly translating the target and support identifies the published uniform-interval problem with p=1. Evans–Majumdar Eq. (47) agrees with the objective for the same initial and reset law.",
+          "Resultary 5bffc09c6ba3 proves multiplicity of local extrema for discrete reset sites; 5923594c4d63 gives divergence of a critical rate for a population growth problem."
+        ],
+        "reasoning": "Neither a local stationary solution nor a growth-rate threshold is the optimizer of this averaged first-passage objective. The uniform formula mechanically supplies the input to the special p=1 computation, not equivalence to a theorem for all p or its critical endpoint.",
+        "searches": [
+          "Resultary: Brownian resetting to power-law spatial launch distributions, target-to-support gap and global optimal rates",
+          "arXiv:2401.01125 §III.A",
+          "arXiv:1107.4225 §IV.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The neighboring inspected catalog records 5bffc09c6ba3 and 5923594c4d63 concern respectively discrete local optima and a growth threshold. The frozen verification grid is a finite diagnostic of the theorem, not comparative literature or a universal parameter table."
+        ],
+        "reasoning": "The claim includes continuous parameters and a limit over all global minimizers, not a finite sample classification. No exact theorem-level catalog match was retrieved; unrelated tables or local optima would not decide coverage.",
+        "searches": [
+          "Resultary: compact power-law resetting edge",
+          "Resultary: edge-gap scaling and p=2 compactness",
+          "Resultary: successful-launch Gamma law at optimum"
+        ]
+      },
+      "rationale": "Credit the prior general distributed-reset MFPT transform and exponential successful-launch tilt, and the closely related exact uniform p=1 formula and stationarity equation. The supported distinct contribution is the all-global-minimizer edge-gap asymptotic over the subcritical power-law family, the finite-rate retention including p=2, and the launch-law limit coupled to that optimizing gap scale, not the renewal or tilting formulas themselves.",
+      "residual_risks": [
+        "The search is bounded and an equivalent endpoint theorem in distributed resetting or related Laplace asymptotics might remain unlocated. The p=1 edge asymptotic is closely derivable from the known exact formula and is not independently credited as novel. No date-based priority judgment is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Earlier exact distributed-reset mean transform; not the edge-gap optimization theorem",
+          "evidence": [
+            "For matching initial and reset laws the mean is r^{-1}[(integral P(z) exp(-sqrt(r/D)|z-x_T|) dz)^{-1}-1]."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1107.4225",
+          "material_read": "§IV.2, PDF p. 11, Eqs. (41)–(49); especially Eq. (47)",
+          "method": "OA primary passage inspection, offset 29148",
+          "title": "Diffusion with optimal resetting",
+          "trigger": "General distributed-reset mean could include the claimed theorem"
+        },
+        {
+          "assessment": "Exact underlying transform and uniform case, not the full power-law edge-gap theorem",
+          "evidence": [
+            "Exact mean and optimum equation for a uniform interval; optimum increases as the target approaches the interval. Eq. (29) is the far-target expansion, not a critical-edge statement."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2401.01125",
+          "material_read": "PDF p. 3 §II Eqs. (13)–(15); PDF pp. 3–5 §III.A Eqs. (20)–(29)",
+          "method": "OA primary passage inspection at offset 14000 and offsets 18500–35420",
+          "title": "First-passage time of a Brownian searcher with stochastic resetting to random positions",
+          "trigger": "Identical uniform special case and distributed optimizing rates"
+        },
+        {
+          "assessment": "Exact tilt already known and high-rate modes analyzed for other launch laws; no gap-scaled optimizer theorem here",
+          "evidence": [
+            "Last launch law is proportional to the prior launch density times exp(-sqrt(r/D)|z|). High-rate edge modes are given for the considered truncated densities."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2507.14483",
+          "material_read": "§V, PDF pp. 7–9, Eqs. (27)–(32)",
+          "method": "OA primary passage inspection at offsets 53077 and 61000",
+          "title": "Abrupt transitions in the optimization of diffusion with distributed resetting",
+          "trigger": "Closest comparison for optimal-rate transitions and final launch distribution"
+        },
+        {
+          "assessment": "Discrete sites, fixed initial launch, local rather than global minima",
+          "evidence": [
+            "At least N strict local minima using N discrete sites; does not assert they are all global."
+          ],
+          "identifier_or_url": "5bffc09c6ba3",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Local mirror passage inspection",
+          "title": "Unbounded multiplicity of local reset-rate optima in a Brownian search",
+          "trigger": "Same-day closest reset-rate optima Resultary hit"
+        },
+        {
+          "assessment": "Different process and optimization criterion",
+          "evidence": [
+            "The rate to bring principal population growth to zero scales as 4 delta^{-2} log²(1/delta) for the stated relocation model, not for mean first passage under a power-law launch distribution."
+          ],
+          "identifier_or_url": "5923594c4d63",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Local mirror passage inspection",
+          "title": "Double-logarithmic resetting cost near an absorbing habitat edge",
+          "trigger": "Similar critical-rate divergence near an absorbing edge"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof",
+        "arXiv:2401.01125 uniform benchmark",
+        "arXiv:2507.14483 successful-launch tilt and high-rate examples"
+      ],
+      "rationale": "A natural change in near-target launch density separates regimes with diverging and retained optimal reset rates. The critical exponent cannot be resolved just by the leading tail power because the critical limiting MFPT is finite; the endpoint proof identifies the strict finite-rate advantage for the exact law. Control of every global optimum, asymptotic constants, and the successful-launch law on the physical gap scale are useful beyond merely plotting minima or finding a candidate stationary rate.",
+      "residual_risks": [
+        "This exact family is a benchmark; robustness of the critical retention result to more general edge shapes is not established. The mean objective and conclusions depend on the stated initial/reset sampling convention."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

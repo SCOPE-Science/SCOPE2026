@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** A four-case one-part lemma, applied to the complete nine-case pair-weight table, proves the universal two-step result for all positive part sizes and thresholds. It gives exact finite cardinalities from disjoint weight classes and treats the degenerate regimes where one or both degrees fall below the threshold. The independently implemented exhaustive checker agrees for 301 parameter triples and is explicitly not the infinite proof. The entry-time, orbit-state and attractor-basin definitions are distinct and consistent.
+## correctness
 
-**Originality — PASS (bounded).** The 2013 general periodicity result proves eventual periods of at most two on arbitrary graphs, but permits much longer preperiods and does not provide the complete labelled-orbit, transient-depth and basin enumerations on bicliques. The 2013 predecessor-existence paper addresses computational accessibility of predecessor states, not these counts. A 2022 classification is restricted to trees and does not dominate the biclique family with two nontrivial parts. Indexed records about parity automata concern a different local rule. Full text of the 2012 reversible-graph-process article could not be obtained; its available abstract focuses on another graph-process aspect. Residual risk of an unindexed or independently known equivalent remains.
+PASS
 
-**Value — PASS.** A sharp universal two-step bound improves general graph-dependent relaxation estimates in an important dense graph class; the simultaneous closed orbit/basin census exposes parameter regimes with predominantly fixed or alternating states and separates genuine one- and two-step transients. This is a natural complete classification of the originally studied update rule, not a selected arbitrary finite case.
+A neighbor shore with j ones makes a current zero flip iff j>=k and a current one flip iff d-j>=k. This gives exactly the four stated actions, with the central class either all retain, all complement, or empty at d=2k-1. For two active shores, two central words stay central and repeat by the second update; a nonempty complemented word is never fixed. With no central word the first update is periodic, and with exactly one central word the second update is uniform. In the latter case the first update is nonperiodic exactly when the outer-class word was nonuniform, yielding Q2. Its central action decides whether the outer word's orientation agrees with the uniform word forced on the other shore, giving the basin coefficients. For s<k<=d the d-word is frozen; each of its outer words gives one fixed state, while each central word gives 2^s fixed or period-two states. This also supplies the uniform-basin counts implicit, not separately displayed, in this branch: each global constant has basin 2^s, since the frozen word must already equal that constant; there is no opposite uniform cycle. For k>max(a,b) all basins are singletons. Direct independent vertex-update replay gives (N1,N2;Q0,Q1,Q2)=(2,38;40,120,96) for (4,4,2), including 36 middle/middle states with both words complemented, and (2,2502;2504,392,1200) for (6,6,2). The replay also checks two one-inactive-shore examples and relevant basins.
 
-**Limitations.** This is limited to labelled synchronous binary graphs with common threshold, no self-neighbours, and complete bipartite connectivity. Numerical checks cover only finitely many sizes. Neither publication novelty nor correctness has been independently audited.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The general period-at-most-two conclusion is already known. The distinct mathematical content is the sharp uniform two-update entry bound on these bicliques together with the labelled orbit, depth and basin census. None of the inspected prior statements covers that combination or implies it directly.
+
+## value
+
+PASS
+
+Complete bipartite graphs are a natural dense test family for reversible synchronous dynamics. The explicit maximal depth and exactly which labelled states realize it, together with the division between uniform basins and isolated central attractors, answer more than the known general period bound. The exact classification distinguishes the degree regimes and includes a sharp witness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

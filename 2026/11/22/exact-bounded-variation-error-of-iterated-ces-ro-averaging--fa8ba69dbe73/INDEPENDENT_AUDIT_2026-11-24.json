@@ -1,0 +1,158 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:02:03.960620Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Interior finite variation gives a bounded representative, up to a constant, by integrating the single-jump kernels against Df. Conditioning on the product of m independent uniforms gives the iterated Hardy operator; the negative logarithm has the integer-shape gamma law. For a jump at s, the signed defect is nonnegative, zero for x<=s, and integrates to exp(-r) times the sum of r^k/k! for 1<=k<=m, where r=log(1/s). Its derivative in r is exp(-r)(1-r^m/m!), giving a unique interior maximum. Integration against total variation bounds the defect of every real BV function. Equality requires total variation supported on the unique maximizing s and that atom suffices, regardless of sign. The single-jump response strictly increases with m at fixed s and tends to 1-s; evaluating at the maximizing jump and then considering arbitrarily small s proves the strict bounds and C_m->1. At r_m, the Poisson upper-tail terms beyond m, divided by exp(-r_m), tend geometrically to the stated sum because r_m/m->1/e and all ratios are eventually uniformly below 1. The next Stirling term fixes the power and prefactor. Replay: python3 /workspace/independent_checks.py 5 uses a gamma-kernel quadrature and numerical maximization for six orders and stable incomplete-gamma deficit calculations at m=80,240,640; deficit/leading-term ratios were approximately 0.9885,0.9947,0.9973. This is finite corroboration only. The frozen verification and checker were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The inspected Albanese–Bonet–Ricker passages set up spectral and mean-ergodic problems on continuous-function and Lp spaces. They do not state the interior-variation approximation norm.",
+          "The exact same-iterate L2 result treats all positive m but its norm and sharp location equation differ. Attempts to read the three cited close papers did not retrieve primary text; their contents were not inferred from titles."
+        ],
+        "reasoning": "A bound in L2 can bound L1 from above on a unit interval, but generally cannot give this sharp L1 bound or its equality function. Mean-ergodic statements about Cesàro operators do not by themselves determine finite-order sharp error against the input.",
+        "searches": [
+          "arXiv:1310.5083 PDF pp. 1–3",
+          "Resultary e6c7c28f4c77 and 8c4c84cb95d7 Findings",
+          "10.1090/S0002-9939-08-09197-1; 10.1090/S0002-9939-09-10127-2; 10.24193/subbmath.2021.2.05 OA attempts"
+        ]
+      },
+      "checked_sources": [
+        "Resultary e6c7c28f4c77",
+        "Resultary 8c4c84cb95d7",
+        "Resultary 7824877894c7",
+        "Resultary 3a2a7c7e01f9",
+        "arXiv:1310.5083",
+        "Documat artículo 3098702 (metadata only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The L2 record gives a squared-norm deficit with prefactor (2/sqrt(2*pi*m))^(1/e), not the L1 prefactor. The Poissonized operator is e^{t(H-I)}, with a Bessel optimizer equation and deficit of order t^(-1/4)e^(-t/4).",
+          "Even knowing a kernel or pointwise Poisson formulas does not give the identification of the optimal derivative measure, uniqueness of its support, or the equivalent of the optimized two-tail deficiency. These require a sharp reduction and evaluation."
+        ],
+        "reasoning": "The sharp norm of an operator mixture cannot be inverted coefficientwise to recover the sharp norms of its constituent operators. Likewise, a standard kernel identity is an ingredient, not a published sharp optimization theorem in the examined scope.",
+        "searches": [
+          "Resultary e6c7c28f4c77 and 8c4c84cb95d7 Findings",
+          "arXiv:1310.5083 abstract and introductory scope",
+          "Poisson interval maximization query"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The jump response is precisely P(1<=Poisson(r)<=m). The mathematical equivalence uses the signed-measure representation of BV and the sharp integrated jump response; it is not an equivalence to a generic Hardy boundedness norm or to convergence of iterates to a boundary value.",
+          "The nearest L2 catalogue result has the same iterates but a different optimizer equation. The Poissonized result averages over the exponent of H, not over r in the jump-response probability."
+        ],
+        "reasoning": "Hardy and continuous Cesàro are aliases here, and a theorem for the exact derivative-measure kernel norm would cover the claim. The actual retrieved exact sharp formulae are for distinct norms or operators; standard Poisson probability evaluation does not state the optimized BV norm.",
+        "searches": [
+          "Resultary e6c7c28f4c77, 8c4c84cb95d7, 7824877894c7 and 3a2a7c7e01f9",
+          "sharp Hardy operator iterate difference identity bounded variation L1 exact norm Cesaro averaging single jump bounded variation error Galaz Fontes Solis Adell Lekuona PDF Hausdorff operator sharp approximation",
+          "Poisson distribution maximize probability interval 1 to n optimal mean geometric mean factorial n! maximum Poisson interval probability derivative minimize tail asymptotic"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The fixed-m L1 catalogue match was the audited record itself. The other exact records optimize an L2 defect, a Poissonized defect, forward/reflected composition, or a mixture with reflection.",
+          "The interval search located ordinary Poisson table or probability references, not a plausible exact optimizer or a table of sharp Hardy constants. No source-level inference about priority is drawn from those search results."
+        ],
+        "reasoning": "Tables at a specified Poisson parameter are not an optimization in the parameter, nor statements of the operator norm. None of the exact catalogue analogues matches both the operator and the sharp specification.",
+        "searches": [
+          "Resultary e6c7c28f4c77, 8c4c84cb95d7, 7824877894c7 and 3a2a7c7e01f9 RESULT.md Findings",
+          "Exact Poisson interval maximization literature query; retrieved STAT 414 Lesson 12 table reference"
+        ]
+      },
+      "rationale": "Best of current knowledge: the supported contribution is the exact all-order sharp unweighted interior-BV to L1 identity-defect norm, all equality cases, and the exact asymptotic scale with prefactor. Step decomposition, gamma iterates and Poisson series are classical tools. The strongest inspected same-day exact analogues change the norm or the operator and do not supply this sharp constant. Not a claim of publication priority.",
+      "residual_risks": [
+        "Galaz Fontes–Solís, Adell–Lekuona and Birou remain uninspected at full-text level; the access results alone do not imply absence or coverage.",
+        "An earlier sharp derivative-measure kernel theorem or equivalent optimized Poisson-interval calculation might be indexed under Hausdorff operators or probability. The bounded comparisons do not exclude it."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different norm, optimizer and exact deficit; same-day date cannot determine priority",
+          "evidence": [
+            "Sharp unweighted L2 response with unique jump determined by another equation; asymptotic for 1-C_m^2 with a different prefactor."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-exponential-saturation-of-the-sharp-bv-to-l2-hardy-iteration-def--e6c7c28f4c77",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local published mirror",
+          "title": "Exponential saturation of the sharp BV-to-L2 Hardy iteration defect",
+          "trigger": "Strongest same-operator exact norm match"
+        },
+        {
+          "assessment": "Different operator; same-day date cannot determine priority",
+          "evidence": [
+            "P_t=e^{t(H-I)}, Bessel jump equation, deficit equivalent to 2(2*pi*t)^(-1/4)e^(-t/4)."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-bessel-extremizers-and-a-quarter-rate-boundary-layer-for-poisson--8c4c84cb95d7",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local published mirror",
+          "title": "Bessel extremizers and a quarter-rate boundary layer for Poissonized Hardy averaging",
+          "trigger": "Sharp BV-to-L1 result for a function of Hardy iterates"
+        },
+        {
+          "assessment": "Distinct compositions or mixtures",
+          "evidence": [
+            "One record treats HR and RH with a sharp constant near 0.410507; the other treats mixtures of forward and reflected averaging."
+          ],
+          "identifier_or_url": "Resultary 7824877894c7; Resultary 3a2a7c7e01f9",
+          "material_read": "Both RESULT.md Findings, offset 0",
+          "method": "Local published mirror",
+          "title": "A sharp asymmetric Hardy–Copson composition error and its unique extremizers; Entropy-optimal balancing of forward and reflected Hardy averages",
+          "trigger": "Near exact sharp BV-to-L1 formulae"
+        },
+        {
+          "assessment": "Inspected passages give spectral and mean-ergodic scope, not the sharp defect",
+          "evidence": [
+            "Mean ergodic properties on continuous functions and Lp spaces; the cited passages state a different focus."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1310.5083",
+          "material_read": "PDF abstract on p. 1 and introduction pp. 2–3 around offset 5821",
+          "method": "Lawful OA full-text passages",
+          "title": "Mean ergodic properties of the continuous Cesàro operators",
+          "trigger": "Primary literature on the same continuous operator"
+        },
+        {
+          "assessment": "Unresolved primary-text access, not negative originality evidence",
+          "evidence": [
+            "AMS PDF yielded 403; Documat confirms the citation but explicitly has no full text."
+          ],
+          "identifier_or_url": "https://doi.org/10.1090/S0002-9939-09-10127-2",
+          "material_read": "No paper text; Documat bibliographic entry at https://documat.unirioja.es/servlet/articulo?codigo=3098702",
+          "method": "Lawful direct and alternate-route OA attempted; alternate public bibliographic page inspected",
+          "title": "Rates of convergence for the iterates of Cesàro operators",
+          "trigger": "Closest cited primary work on sharp iterate behavior"
+        },
+        {
+          "assessment": "Unresolved primary-text access",
+          "evidence": [
+            "AMS full text could not be retrieved (403)."
+          ],
+          "identifier_or_url": "https://doi.org/10.1090/S0002-9939-08-09197-1",
+          "material_read": "No paper text",
+          "method": "Lawful OA attempted",
+          "title": "Iterating the Cesàro operators",
+          "trigger": "Cited classical analysis of iterates"
+        },
+        {
+          "assessment": "Unresolved primary-text access",
+          "evidence": [
+            "Lookup did not yield a readable paper; not used to conclude noncoverage."
+          ],
+          "identifier_or_url": "https://doi.org/10.24193/subbmath.2021.02.05",
+          "material_read": "No paper text",
+          "method": "Lawful DOI/OA lookup attempted using the frozen citation",
+          "title": "Sharp inequalities for rates of convergence of iterates of some operators preserving constants",
+          "trigger": "Cited possible sharp broader theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The sharp BV-to-L1 defect is a natural endpoint quantity for prefix averaging; total variation supplies the normalization that is not provided by an L1-to-L1 Hardy norm. The formula determines for every order both the worst possible error and the unique scale and shape attaining it, and gives the exact rate and coefficient with which loss approaches the unit variation bound. This is a usable sharp benchmark for comparing discrete, weighted, or mixed averaging operators, without claiming any such generalization.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

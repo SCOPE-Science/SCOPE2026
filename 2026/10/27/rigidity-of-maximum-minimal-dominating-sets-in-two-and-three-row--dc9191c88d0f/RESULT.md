@@ -1,70 +1,39 @@
-# Rigidity of maximum minimal dominating sets in two- and three-row grids
+# The four maximum minimal dominating sets of even-length three-row grids
 
 ## Finding
-Let \(G_{h,n}=P_h\square P_n\), with \(h\in\{2,3\}\) and \(n\ge2\). A set \(D\subseteq V(G_{h,n})\) is *minimal dominating* if it dominates every vertex and deletion of any one of its vertices destroys domination. Write \(U_h(n)\) for the number of these sets having the largest possible size. Then
-\[
-\Gamma(G_{h,n})=\left\lceil\frac{hn}{2}\right\rceil,
-\qquad
-U_2(n)=\begin{cases}4&n\text{ odd},\\6&n\text{ even},\end{cases}
-\qquad
-U_3(n)=\begin{cases}1&n\text{ odd},\\4&n\text{ even}.\end{cases}
-\]
-Moreover, *every* such set is one of the following explicitly described sets, taking only the cases of the correct cardinality:
 
-1. A checkerboard parity class \(\{(i,j):(i+j)\equiv p\pmod2\}\) of cardinality \(\lceil hn/2\rceil\).
-2. If \(h=2\), either complete horizontal row \(\{(i,j):j=p\}\), for \(p\in\{0,1\}\).
-3. If \(n\) is even, either of the two period-four full-column patterns: take every row in columns \(i\equiv0,3\pmod4\), or every row in columns \(i\equiv1,2\pmod4\).
-
-The coordinates are \(0\le i<n\) and \(0\le j<h\). All listed sets are distinct when \(n\ge2\); there are exactly the asserted numbers of them.
+Let \(G=P_3\square P_n\) with even \(n\ge2\), and label vertices by \((i,j)\), \(0\le i<n\), \(0\le j<3\). There are exactly four inclusion-minimal dominating sets of maximum cardinality \(3n/2\). Two are the two checkerboards, consisting of all vertices with a fixed parity of \(i+j\). The other two consist of all vertices in columns \(i\equiv0,3\pmod4\) or in columns \(i\equiv1,2\pmod4\), respectively. The count distinguishes labelled vertex sets.
 
 ## Assumptions and scope
-Graphs are finite, undirected, and simple; Cartesian adjacency means that vertices differing by one in exactly one coordinate are adjacent. An external or self-private neighbor of a selected vertex \(v\) is a vertex \(u\in N[v]\) for which \(N[u]\cap D=\{v\}\). A dominating set is inclusion-minimal if and only if each selected vertex has such a witness. The finding concerns maximum *cardinality among inclusion-minimal* dominating sets, not minimum-cardinality dominating sets, and covers all \(n\ge2\) for the two fixed heights.
+
+Adjacency is Cartesian path adjacency: vertices differ by exactly one in one coordinate and agree in the other. The closed neighborhood is \(N[v]\). For a dominating set \(D\), minimality means that each \(v\in D\) has a private witness \(u\in N[v]\) with \(N[u]\cap D=\{v\}\), possibly \(u=v\). We maximize cardinality among sets minimal in this sense, not among minimum dominating sets.
 
 ## Proof
-First, each listed set has size \(\lceil hn/2\rceil\) and is minimal dominating. A checkerboard class is a maximal independent set. In a full horizontal row when \(h=2\), the opposite-row vertex in each column is a private witness. In either full-column pattern, adjacent omitted columns come in pairs, except possibly at an endpoint: every selected vertex has a horizontally adjacent omitted vertex whose other horizontal neighbor, when present, is also omitted. This vertex is its private witness, and all omitted vertices are dominated. The existing bipartite-grid upper-domination theorem gives \(\Gamma(G_{h,n})=\lceil hn/2\rceil\); the finite-state argument below also proves this value directly.
 
-For completeness, here is an exact finite-state induction proving that the displayed list is exhaustive for every \(n\). Encode column \(i\) by a bitmask \(v_i\in\{0,\ldots,2^h-1\}\), with one bit per selected row, and use a special symbol \(\bot\) for the nonexistent columns outside the graph. The condition that both vertices (when \(h=2\)), or all three vertices (when \(h=3\)), of column \(i\) are dominated and that each selected one has a private witness is determined by the five masks
-\[
-(v_{i-2},v_{i-1},v_i,v_{i+1},v_{i+2}).
-\]
-Indeed, domination depends only on adjacent columns, while a private witness lies in the closed neighborhood of its selected vertex and the witness's own closed neighborhood lies within distance two. The predicate `good` in `verify.py` is precisely this local test, with nonexistent vertices excluded from the witness search.
+Each checkerboard is an independent dominating set and is therefore minimal; it has size \(3n/2\). The two column patterns select exactly half the columns when \(n\) is even. Every omitted column is horizontally adjacent to a selected column. Each selected column has a neighboring omitted column whose other horizontal neighbor is omitted or absent: the omitted runs have length two in the interior and may have length one at an endpoint. For each selected vertex, the vertex in the same row in such a neighboring omitted column is a private witness. The four constructions are distinct, including at \(n=2\).
 
-Maintain a state of four consecutive masks, initialized to \((\bot,\bot,\bot,\bot)\). When appending a real mask \(v\), inspect the five-mask word consisting of the state followed by \(v\); validate its middle mask if real, shift left, and add \(\operatorname{popcount}(v)\) to the selected cardinality. For each state \(s\) and length \(k\), retain the maximum weight \(M_k(s)\) of admissible prefixes and the number \(C_k(s)\) of prefixes attaining that weight. These data evolve by an exact integer max-plus recurrence: a higher weight replaces the previous value and its count; tied higher weights add counts. After the last real mask, append \(\bot\) twice, which validates the final two columns without counting extra vertices. Discarding suboptimal prefixes at a fixed state is lossless because every possible continuation and its added weight depend only on that state.
+We prove exhaustiveness by a finite-state induction. Each real column is a three-bit mask. Write \(\bot\) for an absent column. For a column \(i\), whether every vertex in that column is dominated and each selected vertex there has a private witness is determined by the five masks \((v_{i-2},\ldots,v_{i+2})\): a witness can be only in column \(i\) or an immediate neighbor and its own closed neighborhood uses masks at distance at most two from \(i\). In this test an absent vertex is never used as a witness. The enclosed verifier implements the test by checking the closed-neighborhood intersections.
 
-The finite, exhaustive transition computation included in `verify.py` establishes the following identities for every reachable state \(s\), including equality of the state supports at the three displayed lengths:
-\[
-\begin{array}{c|c|c|c}
-h&k_0&\text{number of states}&M_{k_0+4}(s)-M_{k_0}(s)\\\hline
-2&12&123&4\\
-3&16&1285&6
-\end{array}
-\]
-and, for both heights,
-\[
-M_{k_0+8}(s)-M_{k_0}(s)=4h,
-\qquad C_{k_0+8}(s)-2C_{k_0+4}(s)+C_{k_0}(s)=0.
-\]
-These are identities over all states, not sampled initial graph orders. Let \(T\) denote four successive real-column transitions. The displayed weight-translation identity ensures that the maximizing transitions forming \(T\) are identical on the translated weight vectors at \(k_0\) and \(k_0+4\). Consequently, on their associated count vectors, \(T\) acts as one fixed integer linear transformation. Writing \(d=C_{k_0+4}-C_{k_0}\), the second-difference identity is exactly \(T(d)=d\). Inductively, for every \(q\ge0\),
-\[
-M_{k_0+4q}=M_{k_0}+2hq,
-\qquad C_{k_0+4q}=C_{k_0}+qd.
-\]
-The same reasoning after zero, one, two or three more real-column transitions applies in each residue class modulo four, and the final two \(\bot\)-transitions are also a fixed linear operation on counts once their maximizing transitions are determined. The program checks that the final maximal-cardinality counts at \(k_0+r\) and \(k_0+r+4\) are equal for \(r=0,1,2,3\). Thus their affine slope is zero, proving eventual period four; the explicit counts in those four residues are actually period two. The same exact recurrence checks all \(2\le n<k_0\). It also proves directly that the largest weight is \(\lceil hn/2\rceil\). This yields the displayed formulas for every \(n\ge2\).
+Keep the last four masks as a state, initially \((\bot,\bot,\bot,\bot)\). Append a real mask, test the middle column of the resulting five-mask window if real, shift the four-mask state, and add the weight (number of set bits) of the appended mask. At a state \(s\) and length \(k\), store the largest prefix weight \(M_k(s)\) and its multiplicity \(C_k(s)\). On a transition keep the better weight, or add the multiplicities on a tie. A lighter prefix at the same state cannot become optimal: subsequent constraints and increments depend only on the four retained masks. After the last real mask append \(\bot\) twice with zero weight, testing the last two columns. Take the greatest weight over surviving final states and sum the counts for ties. This is exactly the maximum size and number of maximum minimal dominating sets, by the private-witness characterization.
 
-Finally, the explicit listed constructions give exactly the same number of distinct sets as the proved total \(U_h(n)\), so no other maximal-cardinality minimal dominating set exists. This completes the classification.
+The relevant maximum-weight and count vectors have equal state supports of size \(1285\) at lengths \(16,20,24\). The exact identities checked by `verify.py` (use `proof(3,16)`) are, for every state in that support,
+\[
+M_{20}=M_{16}+6,\qquad M_{24}=M_{16}+12,\qquad C_{24}-2C_{20}+C_{16}=0.
+\]
+The additive weight identities are coordinatewise on the whole support. Let \(L\) denote the action on multiplicities of taking four real-column transitions, using only the maximizing paths from the weights at length \(16\). Adding a common constant to the initial weights preserves all maximizing paths and hence leaves this same integer linear action on multiplicities. Thus \(C_{20}=LC_{16}\), \(C_{24}=LC_{20}\), and \(L(C_{20}-C_{16})=C_{20}-C_{16}\). It follows inductively that at length \(16+4q\) the weight vector is \(M_{16}+6q\) and the count vector is \(C_{16}+q(C_{20}-C_{16})\).
+
+Taking zero or two further real-column transitions and then terminating also preserves the weight translation and acts by a fixed linear map on the corresponding count vectors. The finite certificate gives final weight and count \((24,4),(27,4),(30,4),(33,4)\) respectively at lengths \(16,18,20,22\). Hence in each even residue class the final count, affine in \(q\), has slope zero, and the final weight gains six per four columns. The even lengths \(2,4,6,8,10,12,14\) have terminal pairs \((3,4),(6,4),(9,4),(12,4),(15,4),(18,4),(21,4)\), from the same recurrence. This gives exactly four maxima of the asserted size at every even length. Since the four constructions already attain that size, the list is exhaustive.
 
 ## Verification
-Run `python3 verify.py` using Python 3.10 or later. The script has no external dependencies. It checks all claimed five-mask local tests, all max-plus transitions and state supports, the full period-four induction certificate, and the terminal count equalities, using exact unbounded integers. Separately, it directly examines original vertex subsets of the indicated extremal cardinality for \(2\le n\le8\) in both heights, and directly tests every listed pattern. Successful output ends with `VERIFY_OK`. These small enumerations are cross-checks, not the justification for the infinite claim: the induction is supplied by the statewise vector identities and linearity argument above.
+
+The unchanged standard-library Python 3.10+ file `verify.py` implements the five-mask predicate and exact integer certificate. Running it as supplied also checks other heights and parities; the argument here uses only the height-three state identities, the two even terminal residues, and the even base lengths. A bounded replay of just the height-three computation is `python3 -c 'import verify; print(verify.proof(3,16))'` from the directory containing the script. The finite computation certifies the state identities; the weight-translation and count-linearity induction supplies the unbounded conclusion. Direct small-graph enumeration in the script is secondary evidence.
 
 ## Relationship to prior work
-Sahbi's arXiv:2610.03785 establishes the largest cardinality \(\Gamma(G_{m,n})=\lceil mn/2\rceil\) for all rectangular grids, but does not enumerate or classify the maximizers. Burdett, Haythorpe and Newcombe (2023) study upper domination formulations and grids computationally, without this classification. OEIS A286847 and A290379 record the *total* number of minimal dominating sets of grids and ladders, respectively, summed over all sizes; those counts are not the top-cardinality coefficient or its structural description. The 2003 unique-independence/upper-domination theorem for bipartite graphs covers the uniqueness *aspect* of certain odd-area cases, not the nonunique enumerations or full two-height classification. The earlier upper-domination classification of circular ladders concerns \(C_n\square K_2\), where the cyclic boundary changes the classification: it does not imply the open-ladder results here.
 
-## Limitations
-Only heights two and three are classified. Experiments with taller grids are not theorems about their infinite families. The proof is a reproducible finite-state induction, not a hand classification of all local configurations; computational transcription and independent-review risks remain. The literature search cannot establish absolute historical priority, and the full text of every older related publication was not inspected. No independent audit is claimed.
+The known bipartite identity \(\Gamma=\alpha\), as recorded by Fischermann and Volkmann [1, Theorem 2.3], gives the scalar size bound by pairing consecutive columns and taking a checkerboard. On an odd-length three-row grid, uniqueness already follows from their Theorem 3.5: a serpentine Hamilton path has odd order and its unique largest independent set is the larger checkerboard, so this is also the unique maximum minimal dominating set. Neither fact gives the even-length classification. On the open ladder \(P_2\square P_n\) the complete classification and counts 4 for odd lengths and 6 for even lengths are already given in the earlier Resultary record [2]; no height-two finding is claimed here. That work uses the same five-column locality and a weighted automaton, with a ladder-specific potential and tight-language certificate. The present proof instead certifies the statewise weight translation and count evolution on the larger three-row masks. Prisms \(C_n\square K_2\) have cyclic rather than path boundaries. OEIS A286847 counts minimal dominating sets summed over cardinalities, not the four sets at maximum size. Burdett, Haythorpe and Newcombe [3] study optimization formulations rather than the exhaustive structural list here. The inspected comparisons do not establish absolute historical priority.
 
 ## References
-- R. Sahbi, *Upper Domination in Rectangular Grid Graphs and Its Relation to Sub-Quorum Colorings*, arXiv:2610.03785, first posted 2026-09-30, https://arxiv.org/abs/2610.03785.
-- R. Burdett, M. Haythorpe, and A. Newcombe, *Binary programming formulations for the upper domination problem*, Mathematical Methods of Operations Research 98 (2023), 155–168, https://doi.org/10.1007/s00186-023-00831-2.
-- A. Howroyd and E. W. Weisstein, OEIS A290379, *Number of minimal dominating sets in the n-ladder graph*, https://oeis.org/A290379.
-- A. Howroyd, OEIS A286847, *Number of minimal dominating sets in the grid graph*, https://oeis.org/A286847.
-- *Unique Independence, Upper Domination and Upper Irredundance in Graphs*, J. Combin. Math. Combin. Comput. 47 (2003), 237–249, https://combinatorialpress.com/jcmcc-articles/volume-047/unique-independence-upper-domination-and-upper-irredundance-in-graphs/.
+
+1. M. Fischermann and L. Volkmann, *Unique Independence, Upper Domination and Upper Irredundance in Graphs*, J. Combin. Math. Combin. Comput. 47 (2003), 237–249. https://combinatorialpress.com/article/jcmcc/Volume%20047/vol-047-paper%2018.pdf
+2. *All maximum minimal dominating sets of ladder graphs*, Resultary record `SCOPE-all-maximum-minimal-dominating-sets-of-ladder-graphs--ee60eed8ab77`. https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-all-maximum-minimal-dominating-sets-of-ladder-graphs--ee60eed8ab77
+3. R. Burdett, M. Haythorpe and A. Newcombe, *Binary programming formulations for the upper domination problem*, Math. Methods Oper. Res. 98 (2023), 155–168, doi:10.1007/s00186-023-00831-2.

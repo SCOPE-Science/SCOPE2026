@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:29:35.473636Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–67 and 69–70; VERIFICATION.md; verify.py (inspected, not executed)",
+        "Hindov–Nitzan–Olsen–Rydhe, arXiv:2610.19010v1, Theorem 1 and §4.2"
+      ],
+      "rationale": "Zero extension makes the full rectangular difference matrix injective (its first d rows are unit lower triangular), and Vandermonde gives the stated Gram entries. Conjugating by alternating signs gives the binomial path matrix. For a complementary cofactor with one source and one sink removed, match the remaining endpoints in increasing order. The relative offsets r_k-c_k are identically zero except for one block on which they are all +1 or all -1; in particular both signs never occur in the same cofactor. The specified schedule with a common first α-1 steps and up to two final advances cannot exchange paths: offsets that differ by one change the neighboring gap only once, and the source and sink gaps are both positive. No other endpoint permutation can be disjoint in this monotone time-position graph. Hence the path determinant is strictly positive; the two Cramer signs cancel after conjugation. For an independent constant check let v_j=binom(j+α-1,α) binom(d+α-j,α), interpreted as a polynomial of j. It has zeros on the two length-α exterior stencil layers and leading coefficient (-1)^α/(α!)², so Qv is the constant vector binom(2α,α) times one by the centered 2α-th difference. Summing v by Vandermonde gives binom(d+2α,2α+1). For s chosen as in the claim, s* a=||a||_1 and q>0; the energy projection coefficient onto Gs is u/q. Subtracting the projection yields qE-u², while C²-q is exactly the positive-weight pairwise phase energy. Equality forces a common phase and an exact projection, and the positive vector G1 shows the converse including zero. For a nonzero input the complete-graph sum is d²-|sum s|² and the distance to a common phase is 2(d-|sum s|), which proves the stated bound for every choice of phases at zero entries.",
+      "residual_risks": [
+        "No optimality of the stability coefficient is asserted. Conclusions depend on the full zero-extended stencil, including both boundary layers; they are not claims about arbitrary boundary conditions or norms."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Rambour–Seghier, §§1.3–1.4, give recursive exact inverses for symbols |χ0-χ|^(2p)h. Set χ0=1, h=1, p=α, N=d-1: the Toeplitz matrix is exactly Q.",
+          "Hindov–Lokharu treat an optimizer for a continuous weighted Sobolev problem, not complex coefficient phases in the finite difference energy."
+        ],
+        "reasoning": "Exact inversion of Q is already covered as an entry computation. The inspected general inverse theorems do not state strict positivity of these entries or decompose the complex ℓ¹ inequality's residual into a phase graph and an energy projection. The continuous uniqueness result has a different constraint and domain.",
+        "searches": [
+          "Exact Toeplitz inverse query: symbol (1-cos)^alpha, Rambour–Seghier; DOI:10.1016/S1631-073X(02)02549-9",
+          "arXiv:2605.25637v1 Theorem 1; arXiv:2610.19010v1 Theorem 1 and §4.2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.19010v1",
+        "arXiv:2605.25637v1",
+        "DOI:10.1016/S1631-073X(02)02549-9",
+        "Resultary 3240556c60ce"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Landau theorem proves C and exhibits attaining inputs, not a remainder for each complex input. The earlier recursive inverse machinery applies to Q, but does not give the strictly nonnegative phase splitting as an inequality consequence. The later exact identity does imply the frozen refinement, including the quantitative estimate once the pairwise phase identity is applied."
+        ],
+        "reasoning": "The abstract projection identity is textbook and the graph expansion is algebraic; the useful refinement combines them with the order-independent strict sign mechanism for precisely this inverse kernel and identifies what each term controls. This is not credited as a new projection principle, Green-inversion method or extremizer construction.",
+        "searches": [
+          "arXiv:2610.19010v1 Theorem 1 and §4.2; Rambour–Seghier Theorems 2–3; Resultary 3240556c60ce Finding and relationship"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 3240556c60ce gives exactly the same identity with a minimum over a complex projection coefficient c and K standing for G. Its proof/relationship compares to the Oct. 13 preprint; the available catalogue record is dated Nov. 1.",
+          "The minimum has coefficient c=(s* a)/(s*Ks)=u/q; its scope includes d=1, which adds no phase pairs. Thus it covers the frozen identity and implies the frozen phase bound via the same elementary complete-graph inequality."
+        ],
+        "reasoning": "This is genuine equivalent coverage in a separate later statement, not a distinct invariant; the date is not proof of discovery order. The earlier Landau theorem is an inequality with an equality example, not this identity.",
+        "searches": [
+          "Local Resultary: strict polyharmonic Green positivity, phase–shape/phase–amplitude Sobolev deficit and discrete Landau near-extremizers",
+          "arXiv:2610.19010v1, Theorem 1 and §4.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inverse entries and extremizer values have prior exact methods; these are coefficients of the claimed identity, not independently novel tables. The later local catalogue match actually indexes the same full identity."
+        ],
+        "reasoning": "A coefficient lookup or a sharp-constant table does not settle the phase and projection decomposition; the equivalent identity in the later catalogue is materially stronger evidence and is separately accounted for.",
+        "searches": [
+          "Local Resultary exact phase-shape deficit and Green entries (hit 3240556c60ce)",
+          "Rambour–Seghier §§1.3–1.4 exact inverse formulas; arXiv:2610.19010v1 §4.2 exact Landau samples"
+        ]
+      },
+      "rationale": "The sharp constant and a Landau extremizer are prior, and finite Toeplitz inverse formulas already cover the matrix as a special case. Neither is credited as new. The dated later Resultary record 3240556c60ce is a separate, mathematically equivalent statement of the central identity, not merely a similar title. Its available Nov. 1 catalogue provenance is later than the frozen Oct. 27 record and supplies no evidence that the equivalent formula predates the frozen result. The available earlier primary statements do not furnish the exact phase-sensitive deficit or its phase-stability conclusion. The pass is limited to that refinement and does not certify priority or independent discovery relative to the later match.",
+      "residual_risks": [
+        "The later exact match's relationship and actual discovery chronology are not established. A different earlier formulation of strict Green positivity or the exact phase remainder may remain unlocated. The inverse itself and the sharp constant are definitively not novel."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Constant and an extremizer are prior; inspected theorem and construction do not give the phase decomposition",
+          "evidence": "Same binomial constant; a_j=L_α^(d+α)(j) gives equality.",
+          "identifier_or_url": "https://arxiv.org/html/2610.19010v1",
+          "material_read": "Theorem 1 (OA offset 2430) and §4.2 (46580)",
+          "method": "OA primary HTML passages",
+          "title": "A sharp discrete Sobolev inequality and left inverses of higher order differences",
+          "trigger": "Same complex inequality and exact extremizer"
+        },
+        {
+          "assessment": "Exact inverse computation includes Q; distinct from the phase-deficit refinement",
+          "evidence": "Recursive formula computes entries of the inverse for |χ0-χ|^(2p)h for arbitrary integer p; specialize to χ0=1 and h=1.",
+          "identifier_or_url": "https://doi.org/10.1016/S1631-073X(02)02549-9",
+          "material_read": "pp. 705–706 abstract and summary (PDF offset 0); pp. 707–708 §§1.3–1.4 Theorems 2–3 (10600)",
+          "method": "OA publisher PDF",
+          "title": "Exact and asymptotic inverse of the Toeplitz matrix with polynomial singular symbol",
+          "trigger": "Potential general exact coverage of the same inverse kernel"
+        },
+        {
+          "assessment": "Continuous weighted problem",
+          "evidence": "Optimizer uniqueness and sign, without the finite complex phase graph or deficit in the claim.",
+          "identifier_or_url": "https://arxiv.org/pdf/2605.25637v1",
+          "material_read": "Theorem 1 p. 2 (OA offset 3700), optimizer sign argument p. 6 (14000)",
+          "method": "OA primary PDF passages",
+          "title": "On a class of sharp Sobolev type estimates with weights",
+          "trigger": "Possible equivalent stability or optimizer result"
+        },
+        {
+          "assessment": "Equivalent main theorem, broader d range; catalogue entry later than frozen record, historical ordering beyond record dates not established",
+          "evidence": "Same strict inverse positivity and binomial constant; identical two terms after minimizing over c; same complex equality cases.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-strict-polyharmonic-green-positivity-and-an-exact-phase-shape-so--3240556c60ce/RESULT.md",
+          "material_read": "Finding and assumptions offset 0; relationship and limitations offset 6200",
+          "method": "Local Resultary mirror",
+          "title": "Strict polyharmonic Green positivity and an exact phase–shape Sobolev deficit",
+          "trigger": "Strongest exact-match catalogue hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–22, 31–67",
+        "arXiv:2610.19010v1 Theorem 1 and §4.2",
+        "Rambour–Seghier §§1.3–1.4"
+      ],
+      "rationale": "At the known sharp endpoint the inequality alone does not measure how a complex sequence fails to attain equality. The exact weighted phase energy and the orthogonal energy residual distinguish phase misalignment from failure to lie on the phase-conditioned representer, for all support lengths and difference orders. Positivity makes the former a genuine full-coordinate rigidity test and produces an explicit all-input phase estimate, including arbitrary phases at zero coordinates. This is useful structure for near-extremizers, beyond computing the constant or just checking the published extremizer.",
+      "residual_risks": [
+        "The identity specializes classical projection and phase algebra, and the bound's coefficient can depend strongly on α and d. No dimension-free stability or extension to other stencils is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

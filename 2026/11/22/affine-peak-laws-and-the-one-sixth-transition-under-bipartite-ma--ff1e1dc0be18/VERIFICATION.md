@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-23.md",
+      "INDEPENDENT_AUDIT_2026-11-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,26 +19,24 @@
 }
 ---
 
-# Verification and scope
+# Independent mathematical audit
 
-The standalone standard-library Python file `verify_peak_law.py` checks the exact formula against two independently formulated finite enumerators. The first explicitly loops over every descending vertex permutation for all \(n=2,3,4\) and every matching-deletion count \(0\le m\le n\). The second dynamic program over subsets of already exposed vertices counts peak occurrences independently of the proposed initial-run decomposition, testing every \(m\) for \(n=2,3,4,5,6\) and also \((n,m)=(7,3)\). All tests use exact integer counts and rational probabilities.
+## correctness
 
-The checker also validates probability normalization, the degree-based exact mean, the full affine-mixture identity at each coefficient, and numerical consistency of the leading total-variation coefficient over several large orders and deletion fractions. Sample direct enumerated distribution: for \((n,m)=(3,3)\), \(\Pr(S=1,2,3)=(2/15,11/15,2/15)\).
+PASS
 
-Run:
+The descending-order side sequence gives q_{n,k} by sampling without replacement. Given initial run k, the first opposite-shore vertex is matched to a vertex outside the run with probability m(n-k)/n², and its mate wins the ensuing relative-order race against the other n−1 opposite-shore vertices with probability 1/n. The possible opposite-shore extra peak instead has unconditional (given starting shore) probability m/n² and forces k=1. To make disjointness explicit: if this opposite-shore peak is the first vertex of its shore, its unique mate is the globally first vertex and cannot be a late peak; otherwise each extra peak would have to precede the other. This fills the terse argument in the frozen proof without altering the result. The exact pgf and mixture follow. Expanding factors 1−j/(2n−j) using a quadratic bound in the sum of deficits gives the stated uniform polynomial remainder times 2^−k for k≤n/2; beyond there S≤L+1 and the geometric tail bound applies. The positive correction mass is 1/8+11ρ/8+max(1/4−3ρ/2,0), giving 17/48 at ρ=1/6. The degree mean follows by the probability 1/(degree+1) that a vertex is highest in its closed neighborhood. Direct independent permutation counts for all m at n=2,3,4 matched; the uploaded verifier was inspected, not run.
 
-```bash
-python verify_peak_law.py
-```
+## originality
 
-Successful run ends in:
+PASS
 
-```text
-INDEPENDENT_FULL_PERMUTATIONS_PASS 4 5
-INDEPENDENT_SUBSET_DP_AND_AFFINE_MIXTURE_PASS 6 7
-INDEPENDENT_SUBSET_DP_PASS 7 3
-FIRST_ORDER_TV_NUMERICAL_CROSSCHECK_PASS 500
-VERIFY_OK
-```
+The supported distinct claims are the exact all-m matching-deletion law and its uniformly sharp total-variation correction and transition. Neither the local-maximum reduction, general moments, nor the C6 special case is distinct.
 
-The verified finite checks cannot prove the uniform infinite-order asymptotic. That claim depends on the explicit initial-run and extra-peak proof and its summably uniform product expansion, provided in `RESULT.md`. The scientific correctness and originality judgments are same-model assessments, not independent certification. In particular, the full text of one older general local-maxima report was unavailable for historical-priority comparison.
+## value
+
+PASS
+
+An exact finite all-order law for a natural deterministic perturbation of a familiar graph gives more than a moment or a limiting distribution: deletion interpolates the entire law, and the sharp error quantifies a nonmonotone choice of density for geometric approximation. This is useful independently of its colouring interpretation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

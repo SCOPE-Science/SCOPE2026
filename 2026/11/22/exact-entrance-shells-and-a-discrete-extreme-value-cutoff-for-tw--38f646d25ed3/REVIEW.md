@@ -1,15 +1,21 @@
-# Scientific comparison and self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The identity \((F^t x)_i=\bigvee_{j=0}^t x_{i-t-j(s-1)}\) is proved by shift commutation and OR idempotence. Its residue-class saturation proves that the entire recurrent set is precisely the class-constant set, with sharp entrance time \(m-1\). A finite automaton counts the exact circular zero-run obstruction, and class independence gives the transient shells; direct preimage enumeration gives the basin weights. The critical Poisson law follows from explicit rare-block factorial moments. Direct exhaustive tests across 55 parameter pairs with \(n\le12\), independent transfer tests for 104 parameter cells, and exact phase-fiber checks all passed. Risks: the Poisson theorem is limited to fixed \(g,c\) and independent fair input; numerical checks do not establish the infinite limit, for which the factorial-moment proof is provided.
+PASS
 
-## Originality — PASS, with limitations
+Commuting shifts and OR idempotence give offsets t+j(s−1), j=0,...,t, in the t-step dependence. Within the rotated source class the order has period m because (s−1)/g is coprime to m. Every class saturates to its OR at time m−1; thereafter the class-constant states rotate bijectively, so this set is exactly the recurrent locus. For 0<=t<m, a zero class qualifies separately; a nonzero class qualifies precisely when its largest cyclic run of zeros is <=t. Every qualifying nonzero word gives a unique marked closed path in the run-length automaton because ones reset the state; an all-zero word has no closed path. This proves the trace census, and at t=m−2 exactly the m singleton words per class fail, including the m=2 boundary. The saturated map tests one bit of information per source class, so one phase with w active classes has (2^m−1)^w inputs and the orbit basin sums d disjoint phases. At t=h+c−1, any bad nonzero class is exactly an occurrence of 1 followed by h+c zeros. Overlaps are incompatible and disjoint blocks independent; for each fixed factorial moment j only O_j(m^(j−1)(h+c)) ordered start tuples are lost. The moments converge to those of Poisson(2^(−c−1)); applying the zero-count probability and independence across g classes gives the stated limit. The fixed g,c and sufficiently large h ensure admissible offsets and block lengths. Independent functional-graph peeling plus cyclic inclusion-exclusion and direct phase-fiber enumeration agreed across 45 systems and 32776 starts (3<=n<=11, all allowed s). Replay: python3 /workspace/branches/independent_reproduction.py 2.
 
-Jarrah–Laubenbacher–Veliz-Cuba (2008) describes the periodic necklace skeleton and associated cycle lengths on connected OR networks; this component is expressly excluded from novelty. Gao–Chen–Başar (2016) studies single-bit perturbation stability, not the complete labelled basin or first-entrance shell law. Gadouleau (2021) treats images, periodic points and fixed points of disjunctive networks, rather than the displayed forbidden-word transient census. Goles–Noual (2012) addresses scheduling and has been checked at title/abstract level only. Generic circular-run and Poisson approximation methods are known, but the complete two-jump network classification and gcd-sensitive clocks were not identified as pre-established in the inspected primary literature. Closest related indexed records concerned sequential bi-threshold cycle basins, cyclic Rule 178 relaxation, and contact dynamics on complete graphs; none implies this result without new analysis of the two-shift disjunctive map. Priority uncertainty persists for unindexed equivalent one-dimensional OR-rule results or inaccessible full texts; these are not represented as fully excluded.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The dynamics supplies an infinite arithmetic family in which changing a single input jump can change the sharp convergence time and every entrance-shell count without changing network size. Exact basin weights refine the familiar recurrent necklace classification, and the rare-block result determines a discrete asymptotic distribution for the time taken to reach recurrence. The classification is natural because the same denominator \(\gcd(n,s-1)\) controls connected cyclic classes, deterministic worst-case propagation, exact time populations, and stochastic entrance. It does not purport to be a broad graph theorem or a new Poisson approximation technique.
+The distinct contribution is the simultaneous network-specific transient and basin description, based on the exact moving-window reduction for arbitrary offsets. Periodic necklaces, exact Bernoulli circular-run counts considered in isolation, and dependent rare-block Poisson approximation are established and not new. No inspected result covers this full OR-network census by specialization.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+For the natural synchronous disjunctive system the result measures more than a known periodic skeleton: one gcd controls the full labelled entry distribution, phase weights, and the separation between sharp worst-case and stochastic clocks. Changing the second jump while keeping n fixed can change the entire distribution. The network-specific link to an exact run statistic makes the basin and transient law useful as benchmarks for disjunctive systems, even though the run formulas themselves are classical.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The character coefficient calculation is reconstructed from \(\chi_1\chi_\ell=\chi_{\ell-1}+\chi_{\ell+1}\), with the chosen Casimir normalization and squared-resolvent weights. Uniform convergence permits compact-group Fourier positivity. The maximum of the ratios exists by its strict excess over the limiting value \(2\). The exact derivative numerator has a single positive turning point. The adjacent-difference sextic is sign-changing exactly once for every integer degree (Descartes' rule and explicit coefficients), and strict unimodality proves the transitions are ordered and exhaustive. Finite Fourier holes imply strict distinct-point positivity through the non-atomic Haar argument, while missing representations prevent universal approximation. The standalone rational-arithmetic checker completed 3,748 assertions; symbolic differentiation and polynomial subtraction were separately checked. This self-review does not constitute independent verification.
+## correctness
 
-## Originality — PASS (best-knowledge)
-The primary compact-manifold Matérn construction (Borovitskiy et al., 2020) and the compact Lie-group spectral formulation (Azangulov et al., 2022) give the unmodulated kernel setting, not the sharp signed-character positivity transition. The closest published positive-type cone result for \(SU(2)\), *Finite positive-type and universality cones for character-polynomial Abel kernels on \(SU(2)\)* (2026), assumes geometric Abel coefficients \((\ell+1)r^\ell\), with an eventually affine coefficient tail. That result's finite-facet conclusion cannot imply the infinitely many active spectral obstructions for the squared-resolvent coefficients. The closest published no-skipping staircase for signed circular geodesic-exponential covariances uses a different Abelian group, second cosine harmonic and different weights. Full relevant statements and proof sections were read and compared, not inferred from titles. Search failure is not proof of historical uniqueness: an older equivalent under Casimir-resolvent or character-multiplier terminology remains a priority risk.
+PASS
 
-## Value — PASS
-A natural compact-Lie-group Matérn covariance family has a precise, all-parameter positive-definiteness cutoff whose limiting mode changes infinitely often. The exact one-by-one spectral switching law, unique algebraic transition parameters, asymptotic active degree, and contrast between strict positive definiteness and universal approximation provide a complete motivated phase diagram, rather than a routine special parameter check.
+With y=ell+1 the Peter–Weyl scalar has the sign of a_y+b(a_{y-1}+a_{y+1}); division by the irrep dimension does not change the sign. The neighbor-ratio tail is 2+12/y^2+O(y^-4), so the maximum is attained and exceeds 2. An independent exact symbolic check recovered both the x-derivative (the prime in Step 2 is partial_x at fixed q) and the polynomial for the adjacent difference. R_2>R_1; for q<=0 the displayed polynomial is positive on x>=2, while for q>0 it has a unique sign change in x>1 by its u-derivative and its value at u=1. Strict continuous unimodality precludes nonadjacent or triple maximizing ties. Descartes plus the endpoint signs gives a unique positive adjacent crossing; unimodality at a tie orders the next crossing strictly later. The crossings cannot accumulate at a finite q, since at any q beyond that bound all integer ratios from index 2 would then strictly increase, contrary to their tail. Scaling u=qt locates the continuous turning point at u/q tending to 3; the discrete maximum is one of its two integer neighbors. In this range the central second difference of a divided by a equals a''/a+O(q^-2)=12(x^2-q)/(x^2+q)^2+O(q^-2), giving the sharp large-mass formula. At a PSD threshold the finitely many missing blocks can only support a measure with a finite Fourier polynomial density; a nonzero finite atomic measure cannot have such a density. For uniform density, a missing matrix block annihilates the RKHS by a Haar-functional, whereas positive weights everywhere include all matrix coefficients. The supplied checker was inspected, not executed. Separate bisection on the exact-ratio expression at y=2,3 corroborated the given approximate roots.
 
-## Scope and remaining limitations
-Only one fundamental-character modulation and squared resolvent are classified. Arbitrary character masks, other Matérn powers and other compact groups are not covered. Numerical illustrations are subordinate to the analytic proof. Literature coverage is best-knowledge rather than an exhaustive historical priority determination.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Positive type and universality reductions are standard, and an every-mode staircase is already known on the same S^3 geometry for different radial weights and a different character mask. The exact unsuppressed staircase, transition polynomials and large-mass sharp boundary for the squared-resolvent weights do not follow from the inspected statements. Priority is assessed on that distinct content rather than on the existence of spectral switching in general.
+
+## value
+
+PASS
+
+The sharp one-parameter admissibility boundary is useful for a natural signed perturbation of a standard covariance. Which irreducible block goes singular is nontrivial and changes without skipping through an unbounded set of modes; the large-mass formula quantifies the loss of admissibility. The strict-positive-definiteness versus universality distinction describes what remains usable exactly at the boundary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

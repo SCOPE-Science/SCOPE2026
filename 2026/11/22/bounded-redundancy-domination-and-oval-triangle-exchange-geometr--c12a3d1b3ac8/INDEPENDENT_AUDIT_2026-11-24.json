@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:30:58.971398Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md Proof §§1–6, verify_python.py and verify_cpp.cpp (inspected)",
+        "/workspace/replay_ternary.py: field F3[a]/(a³-a-1), Singer translates of [1,2,4,10], 3536 post-forcing candidates, all 468 BFS profiles"
+      ],
+      "rationale": "For at most seven selected vertices, one or two points meet at most four or seven lines, forcing at least nine or six selected lines, and zero points forces all lines. Duality then leaves only (3,3), (3,4), (4,3). Three noncollinear points force four external lines; three collinear points force their common line and three external lines, all through the unselected fourth point, which violates the upper bound. For a triangle the external line forms (1,±1,±1) have no triple concurrence, cover exactly ten points, and meet outside points at most twice. Duality yields exactly the oval configurations, with external lines forced. The four extensions of the coordinate triangle to an oval and the four triangles per oval give 234 of each. For equal-type jumps, the external lines determine the point set as the complement of their union, and the point set in turn determines the lines; no same-side replacement is possible. A cross-type jump must be triangle inclusion, and its line exchange is with the unique oval tangent at the removed point. An independently written exact checker constructs Singer translates in PG(2,3), exhausts both classes of selected vertices through total size seven using mandatory line choices, compares literal one-token adjacency with inclusion, and computes every BFS profile. It finds precisely the two asserted families, 936 edges and the common profile (1,4,12,30,60,96,114,96,47,8); thus connectivity, radius and diameter all follow.",
+      "residual_risks": [
+        "The metric certificate is exhaustive for the single fixed projective plane, not a theorem for higher orders."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bishnu et al. define the outside-only (1,j) condition and give graph class/algorithmic results, not the fixed projective-plane census in the inspected scope",
+          "Chellali et al. landing page/abstract identifies foundational [1,2] theory; full text not retrieved"
+        ],
+        "reasoning": "An algorithmic or structural result for general graphs does not by itself establish this exact number or optimizer geometry.",
+        "searches": [
+          "Bishnu et al. arXiv:1410.3091v1, Abstract and §1.2",
+          "Chellali et al. DOI:10.1016/j.dam.2013.06.012"
+        ]
+      },
+      "checked_sources": [
+        "Resultary b513166e882c, 72387a8e16d3, 2ff15d411d81, 530956a71a6a",
+        "arXiv:1410.3091v1",
+        "DOI:10.1016/j.dam.2013.06.012 landing page and abstract only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "d_X(O,O')=2d_R(O,O') for oval vertices, since each oval-only edge goes through its shared triangle",
+          "d_X(O,T)=1+2 min over A containing T of d_R(O,A); this follows by taking the last step into T",
+          "The exact old oval metric with extension incidence determines all mixed distances, but the old aggregate oval sphere counts alone do not give the odd layer counts or show that these configurations optimize [1,2] domination"
+        ],
+        "reasoning": "Credit the entire oval metric as input; the evaluated odd layers are derived finite data rather than a new oval-only metric. Even complete older oval data would not classify the seven-vertex optimizers without the new domination proof.",
+        "searches": [
+          "b513166e882c Finding and metric proof (mirror around offset 4810), compared with frozen Proof §§1–6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "b513166e882c Finding defines the oval-only graph by three-point overlap",
+          "2ff15d411d81 concerns six-point minimal blocking sets, with degree 6 and diameter 6",
+          "530956a71a6a uses a different DET:OLD all-vertex and pair-separation criterion"
+        ],
+        "reasoning": "The pertinent alias is the triangle–oval incidence graph, or the clique incidence expansion of the old oval graph, not the old graph itself. Four-cliques of oval exchanges are exactly the four extensions of a common triangle: a pairwise-three-overlap family of four 4-sets either shares a fixed triple or lies in a common 5-set; in the latter case any collinear triple would be contained in one of four distinct 4-subsets, and there is no 5-arc in PG(2,3). This makes the abstract mixed graph recoverable from old full adjacency, not an unrelated new graph. The independent optimizer identification is the main distinction.",
+        "searches": [
+          "Resultary ternary projective oval exchanges, bounded domination, blocking-set exchanges",
+          "Focused primary search for the PG(2,3) triangle–oval incidence/exchange and [1,2] optimizer"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "72387a8e16d3 Finding enumerates 234 arcs/conics and blocking conic pairs; its 936 is a conic-pair class count, not the edge theorem",
+          "b513166e882c Finding gives the exact oval profile (1,12,60,114,47)",
+          "530956a71a6a has minima 20 and 18 for inequivalent locating variants"
+        ],
+        "reasoning": "The older exact sphere table accounts for the even half of the mixed profile, while the inspected static tables do not enumerate [1,2] minima or evaluate the mixed layers.",
+        "searches": [
+          "Resultary PG(2,3) arc/conic, domination, and oval distance table searches"
+        ]
+      },
+      "rationale": "The credited oval enumeration and oval-only metric are covered. The distinct claim is the [1,2] minimum-set classification and identification of its two-type reconfiguration graph, with evaluated mixed distances. The old oval graph is a halved graph, not itself the optimizer problem, and its scalar distance profile should not be counted again as new.",
+      "residual_risks": [
+        "A focused primary search did not return a decisive source; not evidence of absence. Chellali et al. full text was not obtained. External attribution of the earlier oval metric beyond the identified Resultary record is not resolved; no priority claim is inferred.",
+        "An earlier classification under a different name or a mixed clique-incidence table could have been missed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the even layers and supplies metric input for odd layers; different state interpretation, no [1,2] optimizer theorem in inspected passages",
+          "evidence": [
+            "234 ovals, degree 12, diameter 4, profile (1,12,60,114,47)"
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-a-blocking-set-obstruction-to-shortest-oval-exchanges-in-operato--b513166e882c",
+          "material_read": "Finding at offset 0 and distance formula around 4810",
+          "method": "Resultary mirror",
+          "title": "A blocking-set obstruction to shortest oval exchanges in PG(2,3)",
+          "trigger": "Exact strongest overlapping oval graph/metric"
+        },
+        {
+          "assessment": "Static conic pair incidence rather than bounded domination or token jumps",
+          "evidence": [
+            "234 arcs/conics; nontrivial blocking pairs split 702+936"
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-the-five-projective-types-of-blocking-unions-of-two-smooth-conic--72387a8e16d3",
+          "material_read": "Finding and Relationship at offset 6468",
+          "method": "Resultary mirror",
+          "title": "The five projective types of blocking unions of two smooth conics",
+          "trigger": "Coincident finite counts and conic pairs"
+        },
+        {
+          "assessment": "Outside-only definition overlaps; algorithmic and graph-class results do not give this exact plane census in audited passages",
+          "evidence": [
+            "Bounds, chordal hardness, and tree/split graph algorithms"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1410.3091",
+          "material_read": "PDF p.1 Abstract and §1.2 pp.2–3",
+          "method": "OA PDF passages",
+          "title": "(1,j)-set problem in graphs",
+          "trigger": "General same-definition domination literature"
+        },
+        {
+          "assessment": "Different all-vertex and separation constraints",
+          "evidence": [
+            "DET:OLD minimum 20, RED:OLD minimum 18, unlike the outside-only [1,2] condition"
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-exact-error-detecting-open-location-polynomials-on-the-ternary-p--530956a71a6a",
+          "material_read": "Finding and assumptions around offset 4400",
+          "method": "Resultary mirror",
+          "title": "Exact error-detecting open-location polynomials on the ternary projective-plane incidence graph",
+          "trigger": "Same plane and detector/neighbor-count terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and Proof §§1–6",
+        "Resultary oval-only metric b513166e882c",
+        "/workspace/replay_ternary.py"
+      ],
+      "rationale": "The exact optimizer geometry explains how an outside-only lower and upper neighbor count constrains seven-set exchanges in a natural symmetric incidence graph. The dual geometric classes and their single incidence move are not obtained just by recomputing the old oval metric. The mixed paths and exact diametral layer give useful reconfiguration data; the main value is the connection to the domination optimizers, not a bare table.",
+      "residual_risks": [
+        "Only a fixed order-three graph is assessed; old oval-only data carry no additional value credit."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

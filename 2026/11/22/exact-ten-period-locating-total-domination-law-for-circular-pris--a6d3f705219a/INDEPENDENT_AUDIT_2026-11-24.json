@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:57:09.264500Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Total domination makes all selected-neighbor signatures nonempty. Equal signatures of two unselected vertices then share a neighbor, so their cyclic column distance is at most two. For n>=5 the five consecutive columns are distinct and contain every neighbor needed for each forward comparison; iterating checks every possible collision, including at the wrap. Overlap of four-symbol states gives exactly the column words on a closed length-n walk and charges each column's population once. I independently implemented strip signatures as bitset intersections and computed exact sparse distances backwards from every terminal state. This gave 729 transitions and 41,728 finite entries in each of T^8 and T^18; all 65,536 state pairs satisfy identical finiteness and a weight shift eight on the finite ones. Multiplying by T^(n-8) transports this exact identity to every n>=8; it is not a conjectured pattern from trace samples. Independent direct subset enumeration gave minima 3,4,4,6,6,7 at n=3..8, and exact traces at n=5..18 agree with the claimed formula, completing the residue induction. The baseline cubic bound also follows by counting edges across S and its complement: at most 2|S| such edges and at least 2(2n-|S|)-|S|, since at most |S| outsiders can have distinct singleton signatures. Replay: python3 /workspace/reviews/reproduce.py 3; /workspace/reviews/reproduce-output.txt. The frozen verifier was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 2 gives ceil(2|V|/(d+2)) for regular graphs, yielding ceil(4n/5) for the prism. Theorem 5 supplies equality at residues 0,2,4 modulo 5 and the bound ceil(4n/5)+1 at residues 1,3.",
+          "The earlier exact construction for n=8+5t reaches that universal lower bound in the 3 mod 5 class."
+        ],
+        "reasoning": "The general cubic bound cannot establish the one-unit gap, and the known constructions do not determine which side of the bound is tight throughout the 1 mod 5 class.",
+        "searches": [
+          "Raza et al. Theorems 2 and 5, 10.1177/00368504211053417",
+          "Local Resultary prism locating-total domination 78f62d2dad3b"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_prism.py",
+        "Raza–Iqbal–Khan–Botmart 2021 OA full-text passages",
+        "Resultary 78f62d2dad3b and d64ba582ccee",
+        "Bounded websearch for circular prism locating-total domination (off-topic results)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Conjecture 2 puts +1 in both 1,3 classes modulo 5. The target instead has +1 only in 6 mod 10, disagreeing in 1,3,8 mod 10: n=11 gives 9 versus the conjectured 10, n=16 gives 14 under both.",
+          "The earlier n=8+5t formula corrects the 3 mod 5 predictions for n>=8; it has no values in the 1 mod 5 class."
+        ],
+        "reasoning": "The prior bound plus the counterfamily cannot imply the exact optimum on the remaining class. The new transfer certificate yields both optimality directions and the infinite propagation.",
+        "searches": [
+          "Raza Conjecture 2, 10.1177/00368504211053417, HTML offset about 15602",
+          "Resultary 78f62d2dad3b, RESULT.md finding and proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Raza et al.'s P_n=C_n square P_2 is exactly C_n square K_2. Both use total domination of all vertices and locate only unselected vertices via open-neighborhood signatures.",
+          "The prism total-identifying code variant distinguishes all vertices, so its seven-periodic law is not the same invariant or an exact specialization."
+        ],
+        "reasoning": "The equivalence with the older prism conjecture is exact at the level of graph and predicate, unlike the other same-graph domination variants. Compare the numerical statements directly.",
+        "searches": [
+          "Local Resultary locating-total domination on circular prisms and circular ladders",
+          "Raza et al. DOI 10.1177/00368504211053417, definition and prism section",
+          "Resultary total-identifying domination on prisms d64ba582ccee"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Table 3 lists signatures for particular witness sets, not exact optimization minima for all n. The article does separately state the exact values n=3,4 as 3,4.",
+          "The Resultary counterfamily is a verified exact partial table/formula for all n=8+5t, not the full residue law. The neighboring seven-period record tabulates another invariant."
+        ],
+        "reasoning": "Known small or branch values are credited, but those exact data do not specify the missing 1 mod 5 split.",
+        "searches": [
+          "Raza et al. Table 3 and small orders in the prism section",
+          "Local Resultary same-prism exact counterfamily 78f62d2dad3b and total-identifying d64ba582ccee"
+        ]
+      },
+      "rationale": "The same-graph Theorem 5 settles the 0,2,4 mod 5 classes and the 2026/11/2 counterfamily settles 3 mod 5 for n>=8 (n=3 was already known). The verified distinction is the remainder of the global classification: the 1 mod 5 class splits into the sharp lower-bound class 1 mod 10 and the genuine exception 6 mod 10. Neither the published conjecture nor the earlier counterfamily implies this. The theorem agrees with the conjecture at 6 mod 10, including n=16, and disagrees at n=11; the older upper bounds remain valid.",
+      "residual_risks": [
+        "Bounded web results do not establish absence; unindexed or unpublished classifications may exist. The positive distinction rests on actual comparisons with the strongest retrieved matches."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior exact cases and upper bounds; conjecture differs",
+          "evidence": "For n>=5, ceil(4n/5) in classes 0,2,4; upper bound one larger in classes 1,3, claimed exact in those classes in Conjecture 2.",
+          "identifier_or_url": "https://doi.org/10.1177/00368504211053417",
+          "material_read": "OA article: definition, Theorem 2 around offsets 4173–5773; prism definition and Theorem 5, Table 3, Conjecture 2 and initial cases in offsets 11100–16561",
+          "method": "Bounded OA HTML full-text passage reading",
+          "title": "Computing locating-total domination number in some rotationally symmetric graphs",
+          "trigger": "Exact same prism/predicate and conjecture"
+        },
+        {
+          "assessment": "Covers the 3 mod 5 branch from n=8, not the 1 mod 5 split",
+          "evidence": "For integer t>=0, gamma_t^L(C_(8+5t) square K_2)=7+4t=ceil(4(8+5t)/5).",
+          "identifier_or_url": "Resultary 2026/11/2/SCOPE-a-sharp-infinite-counterfamily-to-the-prism-locating-total-domin--78f62d2dad3b",
+          "material_read": "Matching local-mirror RESULT.md finding, construction and argument, offsets 0–7390",
+          "method": "Configured local Resultary search and OA mirror",
+          "title": "A sharp infinite counterfamily to the prism locating-total domination conjecture",
+          "trigger": "Exact same invariant on one infinite residue class"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": "Total-identifying signature distinctness extends to selected vertices, unlike ordinary locating-total domination.",
+          "identifier_or_url": "Resultary 2026/10/18/SCOPE-a-seven-periodic-total-identifying-domination-law-for-prism-grap--d64ba582ccee",
+          "material_read": "Finding and predicate comparison",
+          "method": "Local Resultary search and matching source inspection",
+          "title": "A seven-periodic total-identifying domination law for prism graphs",
+          "trigger": "Very close same-graph periodic domination law"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "It closes a specific published conjecture on a natural regular graph family and identifies the exact parity-sensitive exception to the general cubic bound. A finite integer identity controls all cycle lengths; value rests on the all-order optimum and sharp exceptional class, not merely on enumerating small prisms or reproducing the older 3 mod 5 counterexamples.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,107 +1,49 @@
-# Tetrahedral quartic singular schemes and six independent Artin–Schreier pairs
+# Relative edge-collision normal forms for tetrahedral quartics in characteristic two
 
 ## Finding
 
-Let \(k\) be an algebraically closed field of characteristic \(2\), with homogeneous coordinates \(x_1,x_2,x_3,x_4\) on \(\mathbf P^3_k\). For coefficients \(b_i\in k^\times\) and \(a_{ij}\in k\), \(1\leq i<j\leq4\), put
+Let \(k\) be algebraically closed of characteristic two. Fix the coordinate tetrahedron of \(\mathbb P^3_k\), and put
 \[
-Q=\sum_{i=1}^4 b_i x_i^2+\sum_{1\leq i<j\leq4}a_{ij}x_ix_j,
-\qquad F=x_1x_2x_3x_4+Q^2,
-\qquad X=V(F).
+Q=\sum_{i=1}^4 b_i x_i^2+\sum_{i<j}a_{ij}x_ix_j,\qquad F=x_1x_2x_3x_4+Q^2,
+\quad B=\operatorname{Spec}k[b_1^{\pm1},\ldots,b_4^{\pm1},a_{12},\ldots,a_{34}].
 \]
-This is the coordinate-tetrahedral family appearing in Catanese and Schütt's construction of twelve-nodal quartic surfaces. Write \(S=\{(i,j):a_{ij}=0\}\) and \(r=|S|\). The following conclusions hold for **every** coefficient choice satisfying \(b_1b_2b_3b_4\ne0\), not merely for a general member.
+Let \(\mathcal X=V(F)\subset\mathbb P^3_B\). On this entire marked base, including arbitrary simultaneous intersections of collision walls, the relative Jacobian scheme is the disjoint union of six finite locally free edge divisors of rank four, each cut out on its edge by \(Q^2\).
 
-1. The quartic \(X\) is geometrically integral and normal. Its complete reduced singularity basket is
+More precisely, fix a closed parameter point \(p\in B(k)\) with \(a_{ij}(p)=0\), and let \(t_0\in k^\times\) be the double root of \(Q|_{L_{ij}}(1,t)\) at \(p\). In \(A=\widehat{\mathcal O}_{B,p}\), set
 \[
-\boxed{2(6-r)A_1+rA_3.}
+\lambda=a_{ij}/b_j,\qquad \mu=t_0^2+(a_{ij}/b_j)t_0+b_i/b_j.
 \]
-At the two distinct singularities on an edge with \(a_{ij}\ne0\), the completed local surface ring is \(k[[U,V,W]]/(UV+W^2)\). At the single singularity on an edge with \(a_{ij}=0\), it is \(k[[U,V,W]]/(UV+W^4)\). The latter is an \(A_3\) rational double point. The six coordinate hyperplanes \(a_{ij}=0\) form the entire geometric collision discriminant of the twelve general nodes; all \(2^6\) zero/nonzero patterns occur.
-
-2. Over the ten-dimensional coefficient base
+The completion of \(\mathcal X\) at this marked-edge singularity, as an \(A\)-algebra, is
 \[
-B=\operatorname{Spec} k[b_1^{\pm1},\ldots,b_4^{\pm1},a_{12},\ldots,a_{34}],
+A[[U,V,s]]/\bigl(UV+(s^2+\lambda s+\mu)^2\bigr).
 \]
-the relative projective singular scheme defined by \(F\) and its four partial derivatives is **finite flat of degree \(24\)**. It is the disjoint union of six relative subschemes \(Z_{ij}\) on the six coordinate edges. Each \(Z_{ij}\) is cut on its edge by \(Q^2\), hence is a relative effective Cartier divisor of degree \(4\). Its geometric local lengths are \(2+2\) when \(a_{ij}\ne0\) and \(4\) when \(a_{ij}=0\). Thus the sum of local Tjurina lengths is constantly \(24\), even though the number of support points decreases from \(12\) to \(6\).
+Here \(\lambda,\mu\) can be included in a regular parameter system for this edge over \(A\), and the coordinates may be chosen with \(s=x_j/x_i-t_0\) and with the edge cut out by \(U=V=0\). The other transverse coefficients impose no additional terms in this completed equation. This is a local description at each colliding edge separately; it does not claim that twelve parameters from six different edges are simultaneously independent.
 
-3. On the generic open subset where all six \(a_{ij}\ne0\), the field obtained by adjoining the coordinates of **all twelve labeled singular points** has Galois group
-\[
-\boxed{(\mathbf Z/2\mathbf Z)^6}
-\]
-over the rational function field \(k(b_1,\ldots,b_4,a_{12},\ldots,a_{34})\). The action independently exchanges the two singularities on each coordinate edge. This is full six-fold elementary-abelian monodromy, not simply six separate quadratic equations.
-
-4. If the coefficients belong to \(\mathbf F_q\), for \(q=2^m\), then the one singular point on an edge with \(a_{ij}=0\) is \(\mathbf F_q\)-rational. On an edge with \(a_{ij}\ne0\), both singular points are \(\mathbf F_q\)-rational if and only if
-\[
-\boxed{\operatorname{Tr}_{\mathbf F_q/\mathbf F_2}
- \left(\frac{b_i b_j}{a_{ij}^{2}}\right)=0.}
-\]
-Otherwise they form one conjugate degree-two pair. Consequently the number of rational geometric singular points is exactly
-\[
-\#\operatorname{Sing}(X)(\mathbf F_q)
-=\#\{(i,j):a_{ij}=0\}
-+2\#\left\{(i,j):a_{ij}\ne0,\ \operatorname{Tr}\left(\frac{b_i b_j}{a_{ij}^2}\right)=0\right\}.
-\]
-Here \(\operatorname{Sing}(X)(\mathbf F_q)\) refers to the underlying singular-point support, not the length of its nonreduced Jacobian scheme.
-
-## Assumptions and scope
-
-The characteristic is **exactly** \(2\). The four diagonal coefficients of \(Q\) are required to be nonzero; that condition excludes the coordinate vertices from \(X\) and is essential to the six-disjoint-edge decomposition. The base \(B\) is the marked-coordinate coefficient parameter space, not a coarse moduli space of quartic surfaces. The term “collision discriminant” means the locus where a pair of *geometric singular supports* on a marked coordinate edge merges, not the non-étale locus of the already nonreduced relative Jacobian scheme. The assertion about Galois monodromy concerns the function field of this marked coefficient space.
+Geometrically, the collision walls are exactly \(a_{ij}=0\), independently specified for the six edges. All \(2^6\) strata occur. For \(r=\#\{(i,j):a_{ij}=0\}\), the fibre is normal and integral and has basket \(2(6-r)A_1+rA_3\). The relative Jacobian lengths are \(2+2\) on each uncollided edge and \(4\) on each collided edge.
 
 ## Proof
 
-**Step 1: the entire relative singular scheme.** In characteristic \(2\), differentiation kills every square. Thus
+**The six marked divisors.** The four partial derivatives of \(F\) are the four triple products. A coordinate vertex does not lie on the surface, since the value of \(F\) there is a unit square. Where \(x_i,x_j\) are both units in a dehomogenized chart, the two complementary coordinates lie in the Jacobian ideal (each occurs as a triple product times a unit), and they generate its derivative part. The remaining equation is \(Q^2\) on that edge. No other support is possible because the triple products vanish only where at most two coordinates are nonzero. Thus the six components are disjoint, even scheme-theoretically. The component on \(L_{ij}\) is entirely in \(x_i\ne0\) and in that chart has equation
 \[
-\frac{\partial F}{\partial x_i}=\prod_{h\ne i}x_h
-\qquad (i=1,2,3,4).
+\bigl(t^2+(a_{ij}/b_j)t+b_i/b_j\bigr)^2=0.
 \]
-The simultaneous vanishing locus of these four derivatives in \(\mathbf P^3\) is the union of the six coordinate lines \(L_{ij}\) on which precisely the coordinates \(x_i,x_j\) are permitted to be nonzero. Their pairwise intersections, when nonempty, are coordinate vertices. At the \(i\)-th vertex, \(F=b_i^2\ne0\). Hence the singular scheme \(V(F,F_{x_1},\ldots,F_{x_4})\) is supported away from the vertices and decomposes scheme-theoretically into six disjoint components
-\[
-Z_{ij}=V\bigl(x_h\ (h\notin\{i,j\}),\ (b_ix_i^2+a_{ij}x_ix_j+b_jx_j^2)^2\bigr)
-\quad\text{on }L_{ij}\cong\mathbf P^1.
-\]
-The quadratic factor does not vanish identically on any fiber because \(b_i,b_j\) are units. Its square cuts an effective degree-four Cartier divisor on each relative \(\mathbf P^1\), finite locally free of rank four over \(B\); the support avoids the vertices because the endpoint values are units. The six components are disjoint over \(B\), proving finite flatness of rank \(6\cdot4=24\).
+The polynomial is monic of degree four, so the quotient is free with basis \(1,t,t^2,t^3\) over the base ring. This gives the rank-24 Jacobian family over all six walls. The quadratic has two distinct roots exactly when \(a_{ij}\ne0\); its square prescribes the local lengths on each edge.
 
-**Step 2: locations, local types, and completeness.** Fix an edge \(L_{ij}\) and dehomogenize by \(x_i=1\). Set \(x_j=t\), and denote the remaining coordinates by \(u,v\). Then
-\[
-F=tuv+Q(t,u,v)^2,
-\qquad Q(t,0,0)=g(t):=b_i+a_{ij}t+b_jt^2.
-\]
-The roots of \(g\) are nonzero, as \(b_i,b_j\ne0\). Moreover the three local partial derivatives of \(F\) are \(uv,tv,tu\), so, at any root \(t_0\), the local Jacobian ideal is precisely \((u,v)\). The completed Tjurina algebra is therefore
-\[
-k[[t-t_0,u,v]]/(F,F_t,F_u,F_v)
-\cong k[[t-t_0]]/(g(t)^2).
-\]
-If \(a_{ij}\ne0\), then \(g'(t)=a_{ij}\ne0\); it has two distinct roots, each giving \(k[[s]]/(s^2)\). More strongly, \((u,v,Q)\) are formal coordinates near either root, so the exact local equation is \(UV+W^2=0\), after setting \(U=tu\) and \(V=v\).
+**Completed collision equation.** Use \(x_i=1\), write \(x_j=t=t_0+s\), and denote the two transverse coordinates by \(u,v\). The ambient completed ring is \(A[[s]][[u,v]]\). The relative equation is \(tuv+Q(t,u,v)^2\). Put \(D=A[[s]]\), a complete local ring. The equation has no terms linear in \(u,v\), and its transverse quadratic part has polar coefficient \(t\in D^\times\) because the remaining terms come from squares. The quadratic form over the residue field has two distinct isotropic lines: it is binary over the algebraically closed field, and distinctness follows from the nonzero polar coefficient. Each line lifts by Hensel's lemma in its slope chart since the derivative of the slope equation is the polar coefficient times a unit. The two lifted lines give a basis of \(D^2\), and a unit rescaling identifies the quadratic form with \(UV\).
 
-If \(a_{ij}=0\), then \(g(t)=b_j(t-t_0)^2\) has exactly one geometric root, giving \(k[[s]]/(s^4)\). To identify its analytic type (rather than merely its length), regard \(s=t-t_0\) as a formal parameter. The function \(F\) has no terms linear in \((u,v)\); its quadratic part in these two variables has a nondegenerate polar form because the coefficient of \(uv\) from \(tuv\) is the unit \(t_0+s\), whereas the square \(Q^2\) has zero mixed polar form. Over the complete Henselian ring \(k[[s]]\), its nondegenerate binary quadratic form is hyperbolic: it is hyperbolic modulo \(s\) because \(k\) is algebraically closed, and its isotropic directions lift by Hensel's lemma (the polar coefficient is a unit). A linear change in \((u,v)\) makes that form \(UV\). The higher terms in \((U,V)\) can then be removed successively by formal coordinate changes: every monomial of total \((U,V)\)-degree at least three is divisible by \(U\) or \(V\), so the linearization \(\delta(UV)=V\delta U+U\delta V\) eliminates each successive homogeneous degree, and the changes converge adically. The residual term is precisely \(F(s,0,0)=b_j^2s^4\); rescale \(s\) to obtain the completed equation \(UV+W^4=0\). This proves the asserted \(A_3\) type and the four-point Tjurina length.
+The coordinate changes so far preserve \((u,v)\). To remove any transverse homogeneous part of degree \(d\ge3\), write it as \(V\alpha+U\beta\) with \(\alpha,\beta\) homogeneous of degree \(d-1\). Substituting \(U+\alpha,V+\beta\) cancels it in degree \(d\) and introduces only terms of higher degree. The iterative substitutions stabilize modulo every transverse power and yield an invertible formal change; they fix \(D\) and preserve the edge ideal. Hence the completed equation is \(UV+Q(t,0,0)^2\). Expanding the edge quadratic about \(t_0\) gives \(Q(t,0,0)=b_j(s^2+\lambda s+\mu)\); scale one transverse variable and normalize the equation by the unit \(b_j^2\). The inverse substitutions \(a_{ij}=b_j\lambda\), \(b_i=b_j(\mu+t_0^2+\lambda t_0)\) prove the regular-parameter assertion while keeping all other base coordinates fixed.
 
-No other singularities exist by Step 1. Every stratum specified by a subset of the six equations \(a_{ij}=0\), with the other coefficients nonzero, is nonempty (choose \(b_i=1\)). Its basket is \(2(6-r)A_1+rA_3\). A hypersurface surface in \(\mathbf P^3\) is Cohen–Macaulay. Its singular locus here is finite, so it is normal if integral; indeed a reducible or nonreduced projective quartic in \(\mathbf P^3\) would have a positive-dimensional singular locus, contrary to Step 1. It is therefore geometrically integral and normal.
+**Fibres.** A nonzero mixed coefficient gives a simple edge root. In the fibre use \(Q\) as the third parameter along with \(u,v\), since the derivative in the edge direction is \(a_{ij}\ne0\); the factor \(t\) in \(tuv\) is a unit and can be absorbed into one transverse variable. The result is \(UV+W^2\), an \(A_1\). At a collision, \(\lambda=\mu=0\) in the closed fibre of the completed model, giving \(UV+s^4\), an \(A_3\). The six independently variable coefficients prescribe the walls (all zero/nonzero patterns are realized with \(b_i=1\)). There are no other singularities. A reducible or nonreduced projective hypersurface in \(\mathbb P^3_k\) would have a singular locus of positive dimension (two distinct hypersurface components meet in at least a curve; a repeated component is singular along a surface). Every fibre here is therefore reduced and integral, and Serre's criterion applies by the hypersurface Cohen–Macaulay property and regularity in codimension one. Over geometric fields the same argument applies directly.
 
-**Step 3: full generic monodromy.** Work over the function field \(K=k(b_1,\ldots,b_4,a_{12},\ldots,a_{34})\). For an edge \((i,j)\), its coordinate \(t\) solves \(b_jt^2+a_{ij}t+b_i=0\). The substitution \(z=b_jt/a_{ij}\) converts the equation to the Artin–Schreier equation
-\[
-z^2+z=\frac{b_ib_j}{a_{ij}^2}.
-\]
-Adjoin the square roots \(c_i\) of the four independent \(b_i\) to make a purely inseparable field extension \(K'/K\). Over \(K'\), the displayed Artin–Schreier class is equivalent modulo \(h^2+h\) to \(c_ic_j/a_{ij}\), since \((c_ic_j/a_{ij})^2=b_ib_j/a_{ij}^2\). Any nonempty \(\mathbf F_2\)-linear combination of the six classes has, along an edge-specific divisor \(a_{ij}=0\) included in that combination, a simple pole with nonzero residue coefficient. No rational function of the form \(h^2+h\) can have an odd-order pole: a pole of order \(d>0\) in \(h\) produces one of order \(2d\). Therefore all six classes are independent in \(K'/(\operatorname{AS}K')\). Their compositum has degree \(2^6=64\) and Galois group \((\mathbf Z/2)^6\). A purely inseparable field extension cannot reduce the degree of this separable compositum, so the same conclusion holds over \(K\).
+## Established cases and scope of the extension
 
-**Step 4: finite-field arithmetic.** Over \(\mathbf F_{2^m}\), \(a_{ij}=0\) makes \(g\) a quadratic in squares with a unique rational root, since squaring is bijective. If \(a_{ij}\ne0\), the Artin–Schreier equation from Step 3 is solvable over \(\mathbf F_{2^m}\) exactly when the absolute trace of its right side is zero. In the solvable case there are exactly two roots, and otherwise there is an irreducible degree-two pair. Summing edge by edge gives the formula in the Finding.
+- Catanese–Schütt, [*Singularities of normal quartic surfaces III*, §3.8, Example 19](https://arxiv.org/html/2206.03295v1), introduce the product-plus-square family, give the general twelve-node statement, and give the six-\(A_3\) Dwork example. Dolgachev–Kondō, [*Desmic quartic surfaces in arbitrary characteristic*, §7](https://arxiv.org/html/2505.01033v1), also cover a six-\(A_3\) all-mixed-zero subfamily. Those endpoint cases are not new here.
+- [*Exact 12-node chamber for the tetrahedral square-quartic family in characteristic two*](https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-exact-12-node-chamber-for-the-tetrahedral-square-quartic-family--f0a07bc20820) gives the exact open chamber, the Jacobian ideal formula and the simple-root local model. The relative rank-four edge algebra is a direct consequence of that ideal calculation once the vertices are removed. It is included here to identify the scheme whose support collides, not as a separate novelty claim.
+- [*The flat length-24 singular scheme and Cremona dual of primitive Heisenberg quartics in characteristic two*](https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-the-flat-length-24-singular-scheme-and-cremona-dual-of-primitive--2253bd84ce62) proves the paired-edge specialization of the fibre classification, with the same formal splitting argument over a fixed fibre. Its equal-diagonal and paired mixed coefficients force the edges to collide in pairs. Here the completion is over the full marked coefficient base; the formula accounts for any subset of colliding edges and retains both deformation coordinates at each collision rather than specializing them to zero.
+- [*Independent Frobenius splitting of twelve nodes on tetrahedral quartic K3 models*](https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-independent-frobenius-splitting-of-twelve-nodes-on-tetrahedral-q--7913d261353b) already covers the all-nonzero finite-field trace criterion and all 64 labelled splitting profiles. Neither this arithmetic classification nor the generic splitting group is claimed as a finding here.
 
-## Verification
+The walls classify collisions of geometric singular supports in the marked coefficient base; they do not classify the non-étale locus of an already nonreduced Jacobian scheme, projective-isomorphism classes, or singularities where some diagonal coefficient vanishes.
 
-The standalone file `verify_tetrahedral.py` performs exact computations in finite fields of characteristics two, with no third-party dependencies. It checks the **entire** set of \(2^6=64\) binary off-diagonal patterns with \(b_i=1\): enumerating every point of \(\mathbf P^3(\mathbf F_4)\), evaluating the quartic and its four partial derivatives, and comparing the resulting singular-point support with the six explicit edge quadratics. The seven counts of patterns according to the number of vanishing off-diagonal coefficients are \(1,6,15,20,15,6,1\). It separately checks the trace splitting criterion on all \(4{,}028\) triples of nonzero diagonal and arbitrary off-diagonal coefficients over \(\mathbf F_4\), \(\mathbf F_8\), and \(\mathbf F_{16}\). The successful terminal marker is `TETRAHEDRAL_CHAR2_64_SURFACES_4028_TRACE_CASES_PASS`.
+## Reproducibility
 
-The universal geometric classification, flatness, and Galois group are established by the symbolic arguments above; finite tests alone would not prove them.
-
-## Relationship to prior work
-
-Catanese and Schütt, *Singularities of normal quartic surfaces III* (arXiv:2206.03295, first submitted June 7, 2022), Section 3.8, Example 19, introduce the general \(\ell_1\ell_2\ell_3\ell_4+q^2\) construction, state the general twelve-node behavior, and separately discuss a special Dwork pencil with six \(A_3\) points. Their preceding *Part II* (arXiv:2110.03078, first submitted October 6, 2021) studies the characteristic-two Gauss map, Gaussian defects and singularity restrictions, including the relevant local \(A_1\) phenomenon. Dolgachev and Kondō, *Desmic quartic surfaces in arbitrary characteristic* (arXiv:2505.01033, May 2, 2025), Section 7, prove that a distinguished one-parameter characteristic-two Kummer quartic family has six \(A_3\) points. These results provide two endpoints and substantial background, but do not give the marked ten-parameter relative singular scheme, its six independent collision hyperplanes, full generic \((\mathbf Z/2)^6\) splitting-field monodromy, or the finite-field trace classification asserted here.
-
-The result does **not** claim novelty for the existence of a twelve-node quartic, the existence of the six-\(A_3\) special family, the normal-form definition of an \(A_n\) singularity, or the Artin–Schreier criterion itself. Its contribution is the combined exact global and arithmetic classification for this natural parameter family.
-
-## Limitations
-
-The hypothesis \(b_i\ne0\) is essential. When some \(b_i=0\), coordinate vertices may enter the surface, the singular components can meet, and the classification is not asserted. No classification of projective-isomorphism classes or Picard lattices is claimed. The Galois group concerns marked singular points over the coefficient function field, not the étale fundamental group of a coarse moduli space. An equivalent calculation in unindexed literature remains possible. The proof and finite tests have not undergone independent external mathematical validation.
-
-## References
-
-1. F. Catanese and M. Schütt, *Singularities of normal quartic surfaces II (char=2)*, arXiv:2110.03078v1, first public submission 2021-10-06. https://arxiv.org/abs/2110.03078
-2. F. Catanese and M. Schütt, *Singularities of normal quartic surfaces III (char=2, non-supersingular)*, arXiv:2206.03295v1, first public submission 2022-06-07, especially Example 19. https://arxiv.org/html/2206.03295v1
-3. I. Dolgachev and S. Kondō, *Desmic quartic surfaces in arbitrary characteristic*, arXiv:2505.01033v1, first public submission 2025-05-02, especially Section 7. https://arxiv.org/abs/2505.01033
-4. MSC2020, category 14J17, Singularities of surfaces or higher-dimensional varieties. https://mathscinet.ams.org/mathscinet/msc/msc2020.html?s=14J28
+`verify_tetrahedral.py` checks all 64 binary mixed-coefficient patterns at \(b_i=1\) by exact point evaluation over \(\mathbb F_4\). Its trace tests are supplementary checks of the arithmetic context. The normal forms and the finite flat relative statement are proved above, not inferred from the finite tests.

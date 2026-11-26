@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:31:37.660434Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The total mass of a fixed r-label set has Beta(ra_q,(q−r)a_q) law; its avoidance probability is the stated rising-factorial ratio. Counting ordered r-tuples gives the exact factorial moment. For fixed r the integral approximation to ∑ a_q/(qa_q+j) has error at most 1/q, and the full infinite sum of squared summands is at most 1/q²+a_q/q. Thus the logarithmic error is o(1), uniformly even before restricting to the window. For m=floor(b_q+s_q x), the floor error in 1+m/(qa_q) is O(1/(qa_q)); taking a_q times its logarithm gives log q+x+o(1). All fixed factorial moments converge to e^(−rx), giving the Poisson law and the Gumbel probability at zero. The centering and scale use the actual a_q and have the stated leading limits. Conditioning on a designated label being unseen tilts its Beta marginal by (1−P_i)^m, giving Beta(a_q,(q−1)a_q+m); the normalized conditional mean tends to e^(−1/κ) and variance is O(1/a_q). Since the expected number of unseen labels is bounded at each fixed window location, the probability of any atypical unseen mass at m=floor(b_q−Ls_q) tends to zero for fixed L. The last label lies in that set unless completion is already observed, whose limiting probability exp(−e^L) vanishes as L grows. This proves the last-label convergence and the joint statement without assuming independence between time and the latent mark. The unconditioned normalized marginal has mean one and vanishing variance. No integer-shape assumption, quenched limit or tail-moment convergence is required. verify.py was inspected, not executed; its finite checks are ancillary.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Neal gives Poisson occupancy and a completion law for deterministic triangular rate arrays satisfying the exponential-intensity criterion, not a terminal-probability theorem.",
+          "Johnson's gamma example and maximum theorem use a fixed parent distribution; these are gamma maxima, not maxima of exponential clocks divided by growing-shape gamma weights with a mark. The frozen review reports fixed-weight-law Fréchet coverage in Holst, but direct inspection of that work was unavailable."
+        ],
+        "reasoning": "Even allowing a random-rate extension by concentration of Neal's intensity, the prior broad theorem applies to the unmarked count and completion time only. No inspected stronger theorem gives the marked statement for the Dirichlet triangular array.",
+        "searches": [
+          "Neal, DOI 10.1239/jap/1222441818, Theorem 2.1, p. 622 and discussion p. 623",
+          "arXiv:2007.03569v2, Example 4.2 and Theorem 4.4",
+          "Holst exact-title lookup for a lawful OA copy of the cited manuscript"
+        ]
+      },
+      "checked_sources": [
+        "Assigned RESULT.md, VERIFICATION.md, AUDIT.json Holst entry and verify.py",
+        "Holst cited preprint retrieval and exact-title OA search",
+        "Neal DOI 10.1239/jap/1222441818",
+        "Johnson arXiv:2007.03569v2",
+        "Resultary mirror c547bf1901f9, 5623e019d5e4, eae0964c198a and 461e7c58350c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For t=b_q+s_q x, the independent gamma representation gives E[∑ exp(−t Z_i/(qa_q))]→e^(−x). Its variance is bounded by q(1+2t/(qa_q))^(−a_q)→0, because for θ=e^(1/κ)−1 one has κ log(1+2θ)>1. Replacing qa_q by the sum of the Z_i perturbs the underlying window time by o_P(s_q), so an intensity sandwich gives the unmarked Neal hypothesis in probability.",
+          "The earlier exact urn formula determines the distribution of empty events and hence permits the factorial-moment route. Its last-colour result only describes identity among least initial masses in a fixed-vector tail limit. Neither it nor the deterministic Zipf mark gives the tilted Beta law for the still-unseen Dirichlet coordinates and its use in the moving window to identify the latent winner."
+        ],
+        "reasoning": "The earlier methods materially account for the unmarked theorem, not merely its terminology. The terminal mark requires a separate, selection-sensitive calculation (posterior avoidance tilt and a cutoff that contains the eventual winner with high probability); it is not an implication of the checked unmarked theorems or the endpoint-rank law.",
+        "searches": [
+          "Neal Theorem 2.1 exponential-intensity hypothesis",
+          "Reinforced-urn SCOPE 5623e019d5e4, exact survival and rare-colour law and Proof §1",
+          "Marked Zipf SCOPE eae0964c198a, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier Pólya-urn record explicitly represents ordinary unit reinforcement with positive initial masses as one Dirichlet draw followed by conditionally iid labels; its proper-subset avoidance identity is exactly the starting formula here for equal masses.",
+          "An equivalent Poisson embedding uses Z_i iid Gamma(a_q,1), P_i=Z_i/∑Z_j and independent unit exponential E_i. The unnormalized first clocks E_i/Z_i have tail (1+t)^(−a_q). Their maximum and the latent Z_i of its maximizing index are different observables."
+        ],
+        "reasoning": "This identifies genuine equivalent prior models and formulas, rather than treating ‘Pólya’, ‘random weights’ and ‘Dirichlet’ as different problems. The shape regime and the latent terminal mark, not the sampling representation, distinguish the accepted claim.",
+        "searches": [
+          "Resultary exact title search: Strict coverage-time majorization and rare-colour tails for reinforced urns",
+          "Resultary: logarithmic Dirichlet concentration, marked Zipf coupon extremes and gamma maxima",
+          "Holst, Extreme Value Distributions for Random Coupon Collector and Birthday Problems, §§2 and 3.1 as cited"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact catalogue match is the assigned result itself. The distinct reinforced-urn record gives the full finite survival distribution and its tail as draws tend to infinity for fixed masses, plus symmetry of the remaining colour among minimal initial masses; it does not identify the final colour's latent probability when both q and shape grow.",
+          "The Zipf mark is endpoint rank under deterministic rates. The same-day gamma-calibration record fixes shape and concerns relative entropy for maxima of Gamma variables."
+        ],
+        "reasoning": "The exact finite survival formula is already known and determines the unmarked law; the two relevant marked or gamma comparisons do not provide a table or theorem for the latent winner in this regime. The distinct same-day finding was compared by its assumptions and not excluded on the basis of shared date.",
+        "searches": [
+          "2026/11/22/SCOPE-logarithmic-dirichlet-concentration-gumbel-coupon-completion-and--c547bf1901f9",
+          "2026/11/8/SCOPE-strict-coverage-time-majorization-and-rare-colour-tails-for-rein--5623e019d5e4",
+          "2026/11/2/SCOPE-marked-zipf-coupon-extremes-independent-gumbel-completion-time-a--eae0964c198a",
+          "2026/11/22/SCOPE-sharp-relative-entropy-calibration-of-gamma-maxima--461e7c58350c"
+        ]
+      },
+      "rationale": "The model, finite avoidance probabilities and unmarked extreme-value tools are established. The supported distinct conclusion is the logarithmic-shape completion window together with localization of the last label's latent mass at e^(−1/κ)/q. Existing exact probabilities and deterministic coupon criteria give direct routes to the unmarked limits after checking the intensity, but those comparisons do not identify the latent mass of the winner. The closest indexed reinforced-urn and marked-coupon findings were checked at statement level and distinguish different limits or different marks.",
+      "residual_risks": [
+        "Holst's primary text was not directly accessible. A broader earlier triangular-array or marked-extremes theorem could cover more than the inspected evidence establishes. The decision does not claim global priority for unmarked Gumbel coupon asymptotics, Poisson embedding, or the avoidance ratio."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Fixed-shape comparison is attributed to the frozen record, not independently verified here; no whole-paper exclusion asserted",
+          "evidence": "The frozen evidence describes a fixed positive weight distribution and its gamma/Pólya Fréchet specialization.",
+          "identifier_or_url": "https://www2.seas.gwu.edu/~simhaweb/intsci/course/modules/appendix/whyscientists/coupon.pdf",
+          "material_read": "No direct primary passage obtained; read the frozen RESULT.md prior-work discussion and AUDIT.json lines 83–94 reporting §§2–3 and Theorem 3.1",
+          "method": "Lawful OA retrieval attempts hit a certificate error; exact-title search did not identify an accessible alternate copy",
+          "title": "Extreme Value Distributions for Random Coupon Collector and Birthday Problems",
+          "trigger": "Closest earlier random gamma-weight coupon embedding and possible broader triangular-array implication"
+        },
+        {
+          "assessment": "General unmarked mechanism; does not cover terminal Dirichlet latent mass",
+          "evidence": "A deterministic row with ∑_i exp(−p_ni(b_n+y k_n))→g(y), k_n/b_n→0, gives Poisson unseen count and exp(−g(y)) completion CDF.",
+          "identifier_or_url": "https://doi.org/10.1239/jap/1222441818",
+          "material_read": "Theorem 2.1, p. 622, and discussion p. 623, text offsets 4000–8400",
+          "method": "Examined Cambridge OA PDF passages and tested the intensity condition against the gamma representation",
+          "title": "The Generalised Coupon Collector Problem",
+          "trigger": "Strong unmarked limit theorem for triangular coupon rates"
+        },
+        {
+          "assessment": "Covers the exact finite avoidance probability; fixed-mass tail and minimal initial mass symmetry are not the growing-shape latent-mass limit",
+          "evidence": "The proper-subset avoidance ratio is (A−a_S) rising t divided by A rising t. As t grows for fixed initial vector, sole unseen colour is asymptotically uniform over indices of smallest initial mass.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-strict-coverage-time-majorization-and-rare-colour-tails-for-rein--5623e019d5e4/RESULT.md",
+          "material_read": "Finding, assumptions, and proof of the exact distribution, offsets 0–2939",
+          "method": "Read indexed local mirror and specialized masses to a_q",
+          "title": "Strict coverage-time majorization and rare-colour tails for reinforced urns",
+          "trigger": "Earlier finding on the exact same reinforced sampling model and potential terminal overlap"
+        },
+        {
+          "assessment": "Fixed-parent maximum theorem; no growing-shape mixed exponential or terminal mark",
+          "evidence": "The gamma example concerns the ordinary gamma tail, and Theorem 4.4 uses a fixed parent under its von Mises and regularity assumptions.",
+          "identifier_or_url": "https://arxiv.org/abs/2007.03569v2",
+          "material_read": "Example 4.2, p. 8, offset 19700, Theorem 4.4, p. 9, offset 23000",
+          "method": "Read open PDF passages and compared the parent-distribution hypothesis",
+          "title": "Information-theoretic convergence of extreme values to the Gumbel distribution",
+          "trigger": "Potential general gamma extreme theorem"
+        },
+        {
+          "assessment": "Different mark and rate family",
+          "evidence": "The mark is an asymptotic endpoint rank for deterministic Zipf probabilities, not a latent conditional sampling probability.",
+          "identifier_or_url": "2026/11/2/SCOPE-marked-zipf-coupon-extremes-independent-gumbel-completion-time-a--eae0964c198a",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Read indexed local mirror",
+          "title": "Marked Zipf coupon extremes: independent Gumbel completion time and exponential terminal rank",
+          "trigger": "Closest indexed marked coupon maximum"
+        },
+        {
+          "assessment": "Different statistic and shape regime",
+          "evidence": "Fixed gamma shape and forward KL comparison for the maximum of gamma samples, not the marked maximum of mixed first-arrival clocks.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-relative-entropy-calibration-of-gamma-maxima--461e7c58350c",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Read indexed local mirror",
+          "title": "Sharp relative entropy calibration of gamma maxima",
+          "trigger": "Distinct same-day gamma/Gumbel result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The logarithmic regime is a natural scale where an individual rate concentrates about the uniform rate while the extreme discovery process still selects a label with an order-one relative mass bias. The actual-shape centering resolves the fluctuations at scale q, which need not be captured by the leading q log q equivalent alone, and the terminal-mass limit quantifies a phenomenon invisible in a Gumbel marginal. The conclusions are useful without suggesting a quenched theorem or extending beyond the specified window.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

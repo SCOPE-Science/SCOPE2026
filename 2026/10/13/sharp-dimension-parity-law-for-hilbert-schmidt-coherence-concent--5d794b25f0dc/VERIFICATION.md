@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,17 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-## Scope of checks
-The exact theorem follows from (i) a zero-diagonal, traceless Heisenberg contraction for each equatorial output observable, (ii) the maximum squared eigenvalue sum \(2\lfloor d/2\rfloor\) on the trace-zero spectral cube, and (iii) explicit SIO Kraus operators and strictly positive input states saturating the resulting dual-norm bound. These derivations are included in `RESULT.md` and are the proof for all dimensions.
+# Independent mathematical audit
 
-## Reproducible computation
-Run `python verify.py` using Python 3 and NumPy. The program constructs channel matrices at every integer dimension \(2\le d\le12\), checks \(\sum_j K_j^*K_j=I_d\), verifies diagonal-state preservation and the single-nonzero-entry property of all Kraus matrices, computes the full-rank input spectrum, and checks the sharp amplification ratio. Independently enumerates every extreme point of the zero-sum eigenvalue cube for these dimensions. Observed output:
+## correctness
 
-`VERIFY_OK dimensions=11 exact_spectral_vertices=passed Kraus_completeness=passed full_rank_saturation=passed incoherent_marginals=passed`
+PASS
 
-The enumeration is not an infinite-dimensional argument. Full correctness depends on the analytic polytope proof and Hilbert–Schmidt dual pairing, not on tests or logs.
+For a qubit, the maximum expectation of an equatorial Pauli observable is twice the modulus of its off-diagonal entry, whereas its Hilbert–Schmidt coherence is √2 times that modulus. The adjoint of a trace-preserving positive map preserves the order interval [−I,I], and diagonal-state preservation makes the adjoint image H of each such observable zero on the diagonal. For the trace-zero Hermitian contraction H, let r be the sum of its positive eigenvalues, also the sum of the absolute negative eigenvalues. If their counts are p and q, then Tr(H²)≤2r≤2min(p,q)≤2 floor(d/2). Pairing with the input off-diagonal part by Hilbert–Schmidt Cauchy–Schwarz proves the claimed factor. For equality put m=floor(d/2) and use the pair-folding Kraus matrices and the singleton on odd dimensions. Their initial supports partition all basis vectors, giving trace preservation, and the row and column sparsity gives strict incoherence. The input I/d+εZ has unit trace and minimum eigenvalue 1/d−ε>0; its paired entries give coherences ε√(2m) at input and √2 mε at output. This gives exact equality for all d≥2, including d=2,3; input with zero coherence maps to zero coherence by hypothesis.
 
-## Remaining verification limits
-No independent mathematical audit has been performed. No general-output-dimension constant is determined. One relevant paper's full text was not accessible, so its possible equivalent presentation has not been eliminated by whole-document inspection.
+## originality
+
+PASS
+
+The prior ancilla example already gives the amplification mechanism, including the even-dimensional lower bound and, with an unused basis state, the odd-dimensional lower mechanism. Neither that example nor the closest compared catalog records establishes the universal parity-sensitive upper bound for all diagonal-preserving d-to-qubit channels. Credit attaches to that exact class-wide bound and matching classification, not to nonmonotonicity, the even-dimensional witness in isolation, or the elementary trace-zero spectral inequality.
+
+## value
+
+PASS
+
+Knowing that Hilbert–Schmidt coherence is not generally monotone does not quantify the maximum attainable increase. The universal sharp bound for a natural fixed qubit output gives a complete dimension classification, including exact contractivity in dimension three and an odd-dimensional improvement over the unrefined √(d/2) estimate. Full-rank SIO saturation shows that neither boundary inputs nor larger operation classes are needed to attain it.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

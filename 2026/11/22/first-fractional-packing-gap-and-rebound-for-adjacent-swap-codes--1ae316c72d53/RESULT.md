@@ -2,9 +2,9 @@
 
 ## Finding
 
-Consider linear binary strings of length \(n\) avoiding adjacent ones, with a communication channel allowing **at most one adjacent transposition of two neighboring unequal bits**, including no error. Only transmitted strings must avoid `11`; the received string is unrestricted. Let \(M_n\) be the greatest cardinality of an error-correcting code whose distinct source words have disjoint complete sets of possible outputs. Let \(P_n\) be the optimum of the natural fractional *output-shadow packing* linear program, and let \(N_n\) count all labeled optimum codebooks, without quotienting by reversal.
+A transmitted binary word of length \(n\) must avoid `11`. The channel permits no error or one swap of two adjacent unequal bits. Words are linear, and received words may contain `11`. Write \(M_n\) for the largest code with disjoint sets of possible outputs, \(P_n\) for the fractional packing optimum of those output sets, and \(N_n\) for the number of labeled maximum codebooks.
 
-**Theorem (complete initial profile).** For each integer \(1\le n\le 10\), these invariants are as follows. All values are exact:
+The exact profiles through length ten are:
 
 | \(n\) | \(M_n\) | \(P_n\) | \(N_n\) |
 |---:|---:|---:|---:|
@@ -19,73 +19,52 @@ Consider linear binary strings of length \(n\) avoiding adjacent ones, with a co
 | 9 | 25 | \(126/5\) | 1260 |
 | 10 | 38 | \(115/3\) | 480 |
 
-The *first strict fractional gap* is at \(n=7\), where \(P_7-M_7=1/5\). Equality returns at \(n=8\), and strict gaps occur again at \(n=9\) and \(n=10\). All ten cases satisfy \(M_n=\lfloor P_n\rfloor\); **there is no assertion of an integer-rounding failure**. At \(n=7\), precisely four of the 56 maximum codebooks are invariant under word reversal, giving 30 reversal classes. At \(n=8\), none of the 24 maximum codebooks is reversal-invariant, giving 12 reversal classes.
+The first strict fractional gap occurs at \(n=7\); equality returns at \(n=8\), and strict gaps recur at \(n=9,10\). In all ten cases \(M_n=\lfloor P_n\rfloor\), so these gaps do not give a failure after rounding. At length seven, four of the 56 maximum codebooks are invariant under coordinate reversal, giving 30 reversal classes. At length eight, none of the 24 maximum codebooks is reversal-invariant, giving 12 classes.
+
+The fractional and optimizer profiles are the focus. The integer profile is a baseline for the gaps and census, and is already recoverable from the unrestricted fixed-weight table OEIS A085684 by the shortening below.
 
 ## Assumptions and scope
 
-All words are linear and coordinate positions are labeled. Define
+Let \(\mathcal F_{n,k}\) consist of the length-\(n\) binary words of weight \(k\) avoiding `11`, and let \(\mathcal F_n=\bigcup_k\mathcal F_{n,k}\). There are no endpoint constraints or wraparound swaps. For \(w\in\mathcal F_n\), define \(B(w)\) to consist of \(w\) itself and all words obtained by swapping one pair of adjacent unequal bits. In particular, the possible outputs are not restricted to \(\mathcal F_n\). The fractional packing problem is
 \[
-\mathcal F_{n,k}=\{w\in\{0,1\}^n:\ |w|_1=k,\ \text{no adjacent coordinates both equal }1\},\quad
-\mathcal F_n=\bigcup_{k=0}^{\lceil n/2\rceil}\mathcal F_{n,k}.
+P_n=\max\left\{\sum_{w\in\mathcal F_n}x_w:\ x_w\ge0,\quad \sum_{w:z\in B(w)}x_w\le1\ \text{for each possible }z\right\}.
 \]
-For every \(w\in\mathcal F_n\), define its complete radius-one adjacent-swap output set
-\[
-B(w)=\{w\}\cup\{w_1\cdots w_{i-1}w_{i+1}w_iw_{i+2}\cdots w_n:
-1\le i<n,\ w_i\ne w_{i+1}\}.
-\]
-**Outputs may contain `11`.** No circular wraparound swap is allowed, and neither deletions nor substitutions are permitted. A code \(C\subseteq\mathcal F_n\) corrects this channel if \(B(u)\cap B(v)=\varnothing\) for every two distinct \(u,v\in C\). The fractional packing program is
-\[
-P_n=\max\left\{\sum_{w\in\mathcal F_n}x_w:
- x_w\ge0,\ \sum_{w:\,z\in B(w)}x_w\le1\text{ for all }z\in\bigcup_{w\in\mathcal F_n}B(w)\right\}.
-\]
-Here a labeled codebook is an unordered *set of distinct codewords*. Its reversal is obtained by reversing every word; codebooks are not identified by reversal when computing \(N_n\). The theorem makes no assertion for \(n>10\).
+A labeled codebook is an unordered set of words with labeled coordinate positions; reversal is not quotiented out when defining \(N_n\). The table concerns only \(1\le n\le10\).
 
 ## Proof
 
-**1. Exact weight decomposition.** An adjacent swap preserves the number of ones. Hence output sets from distinct weights are disjoint, and both optimization problems split into independent fixed-weight problems. If \(M_{n,k}\), \(P_{n,k}\), and \(N_{n,k}\) denote the corresponding quantities for sources in \(\mathcal F_{n,k}\), then
-\[
-M_n=\sum_k M_{n,k},\qquad P_n=\sum_k P_{n,k},\qquad N_n=\prod_k N_{n,k}.
-\]
-The same product rule applies to the number of reversal-fixed optimal codebooks because reversal also preserves weight. Every allowed source is enumerated exactly once as a binary word of length \(n\) with the stated weight and forbidden factor.
+**Weight decomposition.** Every output has the same weight as its source. Thus the maximum sizes and fractional optima add over the weight blocks, whereas the counts of maximizers multiply. The counts of reversal-fixed maximizers also multiply, since reversal preserves weight.
 
-**2. Exact finite integer upper and lower bounds.** For a fixed \(n,k\), list all sources \(w_0,\ldots,w_{r-1}\) in lexicographic order and calculate their output sets \(B(w_i)\). Form the *confusability graph* with edge \(ij\) precisely when \(i\ne j\) and \(B(w_i)\cap B(w_j)\ne\varnothing\). Correcting codebooks are exactly its independent sets. For any subset \(S\) of vertices, let \(\alpha(S)\) be its independence number, and \(c(S)\) the number of independent sets with exactly \(\alpha(S)\) vertices. Initialize \(\alpha(\varnothing)=0\), \(c(\varnothing)=1\). For any chosen vertex \(v\in S\), put
-\[
-a=\alpha(S\setminus\{v\}),\qquad
-b=1+\alpha(S\setminus(\{v\}\cup N(v))).
-\]
-Then \(\alpha(S)=\max(a,b)\). For its number of maximizers, use the count of the exclusion branch if \(a>b\), the count of the inclusion branch if \(b>a\), or the sum of both counts if \(a=b\). These branches partition **all** independent sets according to whether they contain \(v\); there is no heuristic or search-timeout step. The supplied `verify.py` executes this recurrence exactly with arbitrary-precision integer bitmasks and memoization for all 40 nonempty pairs \((n,k)\) with \(1\le n\le10\). The supplied `certificate.json` includes an explicit independent-set witness for every pair. Its checker verifies every word and every pair of output balls, establishing attainability separately from the exhaustive upper bound and optimizer census.
+**Relation to unrestricted fixed-weight packing.** At fixed weight \(k>0\), write a source as the increasing tuple \(a_0,\ldots,a_{k-1}\) of positions of its ones, numbered from zero. Its separation constraints \(a_{i+1}-a_i\ge2\) say exactly that the shifted tuple \(b_i=a_i-i\) is strictly increasing in \(\{0,\ldots,n-k\}\). This gives a bijection to unrestricted weight-\(k\) binary words of length \(n-k+1\), and commutes with the respective reversals. For unrestricted words of equal weight, the adjacent-swap distance is \(\sum_i|a_i-a'_i|\): a swap changes one coordinate by one, and one can successively move a coordinate toward its target without collision. For a required left move, choose the first coordinate requiring one; a blocking predecessor would also require a left move. If only right moves remain, use the last coordinate requiring one. Thus the distance is preserved by shortening. Two radius-one balls in this graph intersect exactly when their centers are at distance at most two. It follows that the integer optimum, number of maximizing codebooks and reversal census in each block are precisely those of the unrestricted shorter problem.
 
-**3. Exact fractional upper and lower bounds.** For each fixed-weight instance, the certificate supplies two **nonnegative rational** vectors, \(x\) indexed by sources and \(y\) indexed by possible outputs. These satisfy
-\[
-\sum_{w:z\in B(w)}x_w\le1\quad\text{for every output }z,\qquad
-\sum_{z\in B(w)}y_z\ge1\quad\text{for every source }w,
-\]
-and \(\sum_w x_w=\sum_z y_z=P_{n,k}\). The first vector is a feasible primal packing; the second is a feasible dual covering. Weak LP duality proves that their common sum is *exactly* \(P_{n,k}\). All numeric entries are stored as integer or reduced fraction strings, and the standard-library checker recomputes every inequality and equality with exact rational arithmetic. Summing these values by weight yields the stated \(P_n\), with no numerical LP tolerance in the proof.
+The fractional optimum in each block is also preserved. After the same shift of coordinates, all strictly increasing received tuples give exactly the shorter unrestricted constraints, including zero error. A reachable non-strict tuple has a single repeated pair \((x,x)\), formed by moving one coordinate of a strictly increasing tuple by one. Its only possible shorter sources are obtained by replacing the pair with \((x-1,x)\) or \((x,x+1)\), retaining only strictly increasing tuples in range. If there is only one such source, its coefficient is bounded by the row at its no-error output. If both exist, the tuple with pair \((x-1,x+1)\) is strictly increasing, in range, and is one move from both. Its constraint implies the repeated-pair constraint by nonnegativity. Therefore the extra rows from outcomes containing `11` are redundant *for this reduction*; they remain in the stated channel and in the certificate. The weight-zero block has a single source and output.
 
-**4. Reversal census.** For \(n=7,8\), the checker enumerates every maximizing independent set at each weight using the same exhaustive inclusion/exclusion recurrence; it tests equality under the coordinate-reversal permutation of the source list. Multiplying the numbers of choices and of fixed choices across weights gives 56 total / 4 fixed at order seven, and 24 total / 0 fixed at order eight. Burnside's lemma for the two-element reversal group gives respectively \((56+4)/2=30\) and \(24/2=12\) orbits.
+**Exact integer and rational verification.** The supplied `certificate.json` gives explicit disjoint-ball codebooks and rational primal and covering-dual weights for all 40 weight blocks. The verifier enumerates all admissible sources and generates every possible output by a literal swap or no change. It forms the graph with edges between distinct sources whose output sets intersect. For any remaining vertex set \(S\) and selected vertex \(v\), every independent set either omits \(v\) (the problem on \(S\setminus\{v\}\)) or contains it (one plus the size on \(S\setminus(\{v\}\cup N(v))\)). The larger of the two branch optima gives the optimum, and their maximizing counts add in case of equality. The empty set has size zero and one maximizer. This recurrence counts all maximizing sets without duplication. The verifier also checks each listed codebook for admissibility and disjointness of its complete output sets.
 
-Every loop covers a finite, explicitly enumerated source/output set; these steps prove the full table for the **specified range**, not merely sample-based evidence. At the first gap, the sole nonintegral contribution comes from weight two: \(M_{7,2}=4\) versus \(P_{7,2}=21/5\). At \(n=8\), all weight contributions coincide. At \(n=9\), the nonintegral contribution comes from weight four, while at \(n=10\) it comes from weight two.
+The verifier checks the nonnegativity and all inequalities for the rational packings \(x_w\) and rational covers \(y_z\). The cover inequalities are \(\sum_{z\in B(w)}y_z\ge1\) for every source \(w\). In each block the two objective sums agree, proving optimality by weak duality. The exact rational arithmetic includes rows containing `11`. Summing the block optima gives the displayed fractional values. At the lengths with a gap, the only contributing blocks are \((n,k)=(7,2),(9,4),(10,2)\), with integer and fractional optima \((4,21/5),(4,21/5),(9,28/3)\), respectively.
+
+For \(n=7,8\), the recurrence also lists every maximizing set in each block and tests invariance under the coordinate-reversal permutation. Multiplying block counts gives 56 and 24 labeled optima, of which four and zero are fixed. Burnside’s lemma gives the displayed reversal classes.
 
 ## Verification
 
-Place `verify.py` and `certificate.json` in the same folder and run `python3 verify.py` with Python 3 and only the standard library. The verifier re-creates all \(\mathcal F_{n,k}\) and all output balls without relying on stored incidence matrices, checks the explicitly listed maximizing codebooks, exhaustively computes the exact integer optima and optimizer counts, and verifies each rational primal/dual certificate. It also enumerates the reversal-fixed optima at orders seven and eight. The expected terminal marker is `VERIFY_OK`, followed by the ten rows and the reversal counts. The code was executed against the actual packaged certificate and passed. In a separate implementation, each weight's integer optimum was independently reconstructed through mixed-integer output-incidence constraints, agreeing across all 40 weight instances; this auxiliary check is not required for the standalone proof.
+Run `python3 verify.py` with `certificate.json` next to it. The checker uses the Python standard library and `fractions.Fraction`; it requires no numerical optimizer. The expected marker is `VERIFY_OK`, followed by the ten rows and the reversal results at seven and eight. The shortening argument is proved above, but is not required by the verifier, which works directly with the original output sets. The certificate and checker concern only the displayed finite range.
 
 ## Relationship to prior work
 
-Sloane's publicly indexed adjacent-transposition code sequence OEIS A057608 (entry originally dated October 9, 2000) gives unrestricted binary code sizes, not the optimum obtained after forbidding `11` at the source. Gómez Soto, Leaños, Ríos-Castro and Rivera (2017 preprint, 2018 publication) solve the weight-two problem on *all* binary words, equivalent to a two-token path-graph packing; it does not determine the weight-two problem on the restricted independent-position language, let alone the other weights or fractional profiles. Kovačević (2018 preprint) studies bit-shift correction with \((d,k)\) run constraints; its main bounds are asymptotic and its precise finite source convention has prescribed endpoint markers, so neither its inequalities nor constructions yield this exact unguarded finite table. Kovačević, Kiah and Goyal (2025 preprint, subsequent revision) study unrestricted-alphabet adjacent transpositions, with general and asymptotic results, not these finite restricted LP and equality data.
+Write \(T(\ell,k)\) for the unrestricted length-\(\ell\), weight-\(k\) integer optimum. Then \(M_n=\sum_{k=0}^{\lceil n/2\rceil}T(n-k+1,k)\), with the weight-zero summand equal to one. The entries of OEIS A085684 through \(\ell=10\) (together with the trivial weight-zero case) give every integer value displayed above. For example, the five summands at \(n=7\) are \(1,3,4,3,1\). In particular, Gómez Soto, Leaños, Ríos-Castro and Rivera and OEIS A085680 give the weight-two integer summands via \(T(n-1,2)\). By contrast, the unrestricted aggregate OEIS A057608 sums the optima at a single common length and cannot be substituted for these fixed-weight data. These integer-size tables do not give the fractional optimum or the optimum-codebook and reversal counts used here.
 
-Castro, Klavžar, Mollard and Rho's 2010–2011 2-packing study counts Fibonacci-cube packings under **single-bit Hamming adjacency**, a different graph from the weight-preserving adjacent-swap channel here. Kulkarni and Kiyavash's 2012 fractional-shadow framework addresses **deletions**, a different output length, although its packing methodology motivates the natural relaxation here. Other published results on constrained-source deletion codes and directed weight-two shifts have different errors, and their exact statements do not imply the displayed values. The present contribution is the finite constrained-source exact profile, its first fractional gap and return to equality, and the labeled/reversal optimizer census—not the definition of shift correction, the general packing method, or unrestricted finite-code calculations.
+Kovačević studies runlength-constrained shift correction with prescribed boundary markers and primarily asymptotic bounds. Kovačević, Kiah and Goyal study adjacent-transposition bounds for unrestricted alphabets. The Fibonacci-cube 2-packing literature uses single-bit Hamming adjacency, and the deletion-shadow framework changes the received length. Related exact finite profiles for directed bit changes on Fibonacci words or adjacent swaps on Dyck words change the channel or the source. The contribution here is the exact fractional and optimizer census for the displayed adjacent-swap packing instances and the resulting first gap and return to equality; neither the packing framework nor previously known unrestricted integer values are claimed as new.
 
 ## Limitations
 
-No asymptotic capacity, general formula for all lengths, integer-rounding failure, or independent external mathematical audit is claimed. The values depend on exactly the stated source constraint, bidirectional single adjacent-swap channel, unmarked endpoints and output-alphabet convention. Although relevant primary full texts, public databases and closely related published results were compared, older or unindexed equivalent finite data may still exist; independent historical-priority review remains warranted.
+No result for \(n>10\), asymptotic capacity, or integer-rounding failure is asserted. The shortening comparison and the finite output certificates do not establish historical priority over all unindexed fixed-weight tables.
 
 ## References
 
-1. N. J. A. Sloane, OEIS A057608, *Maximal size of binary code of length n that corrects one transposition*, entry dated 2000-10-09, https://oeis.org/A057608.
-2. J. M. Gómez Soto, J. Leaños, L. M. Ríos-Castro, L. M. Rivera, *The packing number of the double vertex graph of the path graph*, arXiv:1711.03682 (2017), https://arxiv.org/abs/1711.03682; author-hosted full text: https://matematicas.reduaz.mx/~jmgomez/jmgomezweb/Publications_files/7-PackingGraph2018.pdf.
-3. M. Kovačević, *Runlength-Limited Sequences and Shift-Correcting Codes: Asymptotic Analysis*, arXiv:1803.06117 (2018), https://arxiv.org/abs/1803.06117.
-4. M. Kovačević, H. M. Kiah, K. Goyal, *Bounds on Codes Correcting Adjacent Transpositions*, arXiv:2509.06692 (first posted 2025), https://arxiv.org/abs/2509.06692.
-5. A. Castro, S. Klavžar, M. Mollard, Y. Rho, *On the domination number and the 2-packing number of Fibonacci cubes and Lucas cubes*, Computers & Mathematics with Applications 61 (2011), https://doi.org/10.1016/j.camwa.2011.03.012.
-6. A. A. Kulkarni and N. Kiyavash, *Non-asymptotic Upper Bounds for Deletion Correcting Codes*, arXiv:1211.3128 (2012), https://arxiv.org/abs/1211.3128.
-7. S. Wang, V. K. Vu, V. Y. F. Tan, *Codes for Correcting Asymmetric Adjacent Transpositions and Deletions*, arXiv:2301.11680 (2023), https://arxiv.org/abs/2301.11680.
+1. N. J. A. Sloane, OEIS A057608, https://oeis.org/A057608.
+2. J. M. Gómez Soto, J. Leaños, L. M. Ríos-Castro, and L. A. Rivera, *The packing number of the double vertex graph of the path graph*, https://arxiv.org/abs/1711.03682; see also OEIS A085680, https://oeis.org/A085680.
+3. M. Kovačević, *Runlength-Limited Sequences and Shift-Correcting Codes: Asymptotic Analysis*, https://arxiv.org/abs/1803.06117.
+4. M. Kovačević, H. M. Kiah, and K. Goyal, *Bounds on Codes Correcting Adjacent Transpositions*, https://arxiv.org/abs/2509.06692.
+5. A. Castro, S. Klavžar, M. Mollard, and Y. Rho, *On the domination number and the 2-packing number of Fibonacci cubes and Lucas cubes*, https://doi.org/10.1016/j.camwa.2011.03.012.
+6. A. A. Kulkarni and N. Kiyavash, *Non-asymptotic Upper Bounds for Deletion Correcting Codes*, https://arxiv.org/abs/1211.3128.
+7. OEIS A085684, triangle of unrestricted binary single-adjacent-transposition code sizes by length and weight, https://oeis.org/A085684.

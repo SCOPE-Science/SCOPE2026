@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification notes
+# Independent mathematical audit
 
-The derivation in RESULT.md uses an exact area Jacobian, an exact Gaussian-curvature identity, a two-root coarea transformation, elementary quadratic-form endpoint and saddle asymptotics, and an explicit algebraic inverse. All quantifiers require \(a>b>c>0\) and ordinary normalized Euclidean surface-area sampling.
+## correctness
 
-The included `check_curvature.py` requires Python 3, NumPy and SciPy. Running `python check_curvature.py` yielded `PASS 124 diagnostic assertions`. It independently compares the induced surface-area Jacobian with finite-dimensional tangent cross products, evaluates CDFs against a Sobol-weighted sphere quadrature, confirms the endpoint-density constants, checks Gauss–Bonnet mean curvature, and reconstructs axes for four sample ellipsoids. These finite numerical checks do not prove analytic asymptotics, eliminate historical priority risk, or constitute independent mathematical certification.
+PASS
 
-External independent mathematical audit: not performed.
+The frozen RESULT.md line 55 has a false consequence: the endpoints already determine the middle semiaxis b, since λ₂=√(k_-k_+). The corrected RESULT.md identifies the genuine residual family λ₁∈(m/r,m), λ₃=rλ₁; the density ratio resolves those two axes individually. Rechecked the surviving law and inverse. The linear sphere parameterization has area Jacobian abc√Q and first fundamental determinant (abc)^2 Q in a sphere-orthonormal frame; the second fundamental form is the sphere form scaled by 1/√Q, giving K=C/Q². The two axial roots give the integral on ℓ<q<λ₃ and the k-Jacobian q/(2k). Each extremal pole contributes a quadratic sublevel-area slope π divided by the square root of the product of the two eigenvalue gaps. For each saddle, scaling the coordinates and writing q−λ₂=ξη gives the log coefficient 1/√((λ₂−λ₁)(λ₃−λ₂)) before area weighting and the k-Jacobian; both saddles contribute. On the lower-q interval the fixed-quadrant substitution in the repaired proof removes the moving integration endpoint; above λ₂ the interval is already fixed. The separated regular densities are analytic, and there are no atoms. The ratio cancels Z and gives r^(7/2) times the square root of the ratio of gaps; T then gives the unique ordered spectrum. The frozen numerical checker and reported assertions were inspected but not relied on for the continuum argument. Repaired proof and formula preserve strictly ordered semiaxes, exact probability data and Euclidean surface-area sampling.
+
+## originality
+
+PASS
+
+The repaired claim is the constructive inverse from this particular area-uniform Gaussian-curvature observable and three endpoint statistics. Classical curvature, area and reweighted spherical quadratic-form ingredients do not alone constitute a novel density method. The inverse remains distinct on inspected evidence; removing the false middle-axis consequence does not create or broaden a novelty claim.
+
+## value
+
+PASS
+
+Sparse exact recovery under surface sampling is a natural inverse-geometry question. The endpoints specify one axis and the ratio of the other two, but cannot recover their absolute lengths separately; the normalization-free density ratio determines the remaining continuum of possible axis triples. That structural conclusion and the explicit reconstruction are useful without a total-area measurement. Neither noisy recovery nor extension to repeated semiaxes is established.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

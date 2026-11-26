@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:55:17.584373Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Assumptions and Proof; VERIFICATION.md; verify_anticanonical.py (inspected only)",
+        "Independent replay: python3 /workspace/reproductions/4.py (Python 3 and SymPy)"
+      ],
+      "rationale": "Writing g(a,b)=max(|2a+2b|,|a+2b|,|-a+b|,|-2a-b|), the dual lattice cone is exactly m>=g(a,b)+|c|. The pairs of consecutive planar boundary rays are oriented, have determinant one, and share a linear piece of g. Thus each sector has nonnegative integral coordinates in its two boundary generators; the spare degree and the height are supplied by the degree-one generators. The six nonzero planar vectors at first degree two cannot decompose in degree one, and the four first appearing at degree three are outside 2Q. For an independent all-degree Hilbert series calculation, partition the plane into the origin, positive rays, and open sectors. With A_i=t^d_i/(1-t^d_i), the series is (1+t)/(1-t)^2 times [1+sum A_i+sum A_i A_(i+1)]. Clearing the frozen denominator gives exactly the stated numerator. Exact direct lattice counts start 1,3,11,29,59,105,173. The dual vertices give Cartier index lcm(2,3)=6. The degree-one ratios use only z and have conic image closure, while three degree-two ratios give generators of the full torus function field. The first birational multiple is therefore two; nothing is inferred for a deformation.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 4.1 specifies the prism, its K-polystability and anticanonical volume, and the proof lists the ten polar vertices.",
+          "Grassi et al. describe lattice-point section bases and explicitly discuss anticanonical Hilbert/Ehrhart correspondence for the reflexive Gorenstein case."
+        ],
+        "reasoning": "Standard toric results identify the counting problem; the index-six example is not in the Gorenstein subclass. Neither source as inspected supplies the evaluated minimal generator count/weights or rational series.",
+        "searches": [
+          "Petracci–Villa, arXiv:2611.15330v1, Theorem 4.1 and proof",
+          "Grassi et al., DOI 10.1007/s12215-023-00922-3, §§3.3–3.4"
+        ]
+      },
+      "checked_sources": [
+        "Petracci–Villa, arXiv:2611.15330v1",
+        "Grassi–Gugiatti–Lutz–Petracci, DOI 10.1007/s12215-023-00922-3",
+        "Resultary distinct record fa3005b75022; same record 17ea70d4a367"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The primary polar has half-integral and third-integral equatorial vertices and integral tips, so the standard Cartier criterion immediately gives index six. Its volume gives the leading Hilbert asymptotic coefficient.",
+          "An actual integral-semigroup calculation and section-ratio calculation supply the exact ring and map assertions."
+        ],
+        "reasoning": "Index and leading asymptotic are already determined by published results and receive no originality credit. The volume, polarization and general section dictionary do not give evaluated low-degree lattice counts or an irredundant basis without a further calculation.",
+        "searches": [
+          "Petracci–Villa, proof of Theorem 4.1(i)–(iii), HTML at offset 59982",
+          "Grassi et al., §§3.3–3.4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The section Hilbert series is the Ehrhart series of the full rational polar bipyramid, not of the primal prism or just the planar polar.",
+          "The related Resultary record computes a local Hilbert–Samuel series for the qG deformation hull of the same X."
+        ],
+        "reasoning": "Using Ehrhart language is equivalent when the correct polar is counted. The deformation hull's maximal-ideal graded dimensions are unrelated to the section dimensions being counted on X.",
+        "searches": [
+          "Resultary: octagonal-prism anticanonical or section ring, Hilbert basis, Hilbert/Ehrhart series",
+          "arXiv:2611.15330v1, §4 Theorem 4.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact Resultary hit ending 17ea70d4a367 is this same record; the different matching entry ending fa3005b75022 tabulates deformation-hull data, not section data.",
+          "The primary paper gives an exact vertex list and volume but the passages checked do not give an anticanonical section table."
+        ],
+        "reasoning": "A list of vertices encodes the input but is not an evaluated Hilbert basis or Ehrhart table. The external lookup supplied no stronger comparator; it does not prove absence of unindexed tables.",
+        "searches": [
+          "Resultary: exact anticanonical ring of the Petracci–Villa octagonal prism",
+          "Focused primary-literature lookup for the octagonal-prism anticanonical ring"
+        ]
+      },
+      "rationale": "Pass for the evaluated anticanonical semigroup and section series and their low-degree map calculation for this specific X. The polytope, polar vertices and volume are prior; the Cartier index is a direct consequence of the published polar vertex denominators and is not credited as a distinct contribution. A closely related indexed result computes a different ring of the same variety.",
+      "residual_risks": [
+        "No exhaustive catalogue of all non-Gorenstein toric Fano threefold computations was inspected; an unindexed exact calculation could exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies primal and polar data, volume, and implies index; distinct from the evaluated section ring",
+          "evidence": "The proof lists the ten polar vertices and obtains volume 11/3 before discussing automorphisms.",
+          "identifier_or_url": "https://arxiv.org/html/2611.15330v1",
+          "material_read": "§4 Theorem 4.1 at offset 52436; proof of (i)–(iii) at offset 59982",
+          "method": "OA HTML passages",
+          "title": "K-stable Fano varieties can have obstructed deformations",
+          "trigger": "Primary exact construction of the same toric variety"
+        },
+        {
+          "assessment": "Standard correspondence rather than this evaluated example",
+          "evidence": "The lattice points index the monomial sections; the stated Hilbert/Ehrhart special case is for reflexive Gorenstein Fanos.",
+          "identifier_or_url": "https://doi.org/10.1007/s12215-023-00922-3",
+          "material_read": "§3.3 p. 7 offset 14939 and §3.4 p. 8 offset 17397 in OA PDF text",
+          "method": "OA paper passages",
+          "title": "Reflexive polygons and rational elliptic surfaces",
+          "trigger": "Plausible general anticanonical section/plenary Ehrhart coverage"
+        },
+        {
+          "assessment": "Different ring and grading on the same X",
+          "evidence": "The series is for the qG deformation hull and separates its nilpotent contribution, not anticanonical sections.",
+          "identifier_or_url": "2026/11/22/SCOPE-the-complete-hilbert-samuel-series-of-an-obstructed-toric-fano-d--fa3005b75022",
+          "material_read": "RESULT.md finding of the indexed record",
+          "method": "Resultary catalogue followed by local mirror",
+          "title": "The complete Hilbert–Samuel series of an obstructed toric Fano deformation hull",
+          "trigger": "Strongest distinct indexed same-variety Hilbert-series hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Petracci–Villa §4",
+        "Frozen RESULT.md §§Finding and Proof",
+        "Independent unimodular-sector series and low-degree section calculation"
+      ],
+      "rationale": "The central fibre of a specific obstructed K-polystable example is independently motivated. Its minimal section degrees, exact Hilbert function and change from a conic image to a birational map are useful precise invariants not supplied by the volume. The gap between the first birational multiple and the Cartier index is informative; it is not inferred from deformation behavior.",
+      "residual_risks": [
+        "Value is for the central toric fibre only, not a result about any deformation or a ring presentation with relations."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

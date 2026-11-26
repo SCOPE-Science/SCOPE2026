@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The finite-sample identity follows by expansion into a canonical degenerate order-two U-statistic; distinct pairs have zero covariance even when sharing one index. Parseval and the fourth Bernoulli polynomial give the exact closed covariance formula. For the functional limit, a single periodic Brownian bridge yields a joint Fourier series with common independent exponential coefficients. Lyapunov and Cramér–Wold establish multiscale Gaussian finite-dimensional limits, fourth-moment bounds give process tightness, and a uniform Komlós–Major–Tusnády approximation transfers the result to empirical point counts. The stated sufficient window range makes both coupling errors negligible. The extracted `verify.py` executed successfully with 770 finite diagnostics, which supplement rather than replace the proof.
+## correctness
 
-## Originality — PASS, subject to residual literature risk
-Aistleitner, Hörmann, and Manskova (arXiv:2610.11687v1, Theorems 1–2, Sections 2–4) prove a one-window distributional approximation, its diagonal variance and almost-sure range; their conclusions do not imply the **exact covariance for two arbitrary windows at finite sample size**, nor the **joint functional central limit theorem in the shrinking window-length parameter** without additional analysis. Andreanov and Grebenkov (arXiv:1205.2100v1) treat a related time-averaged quadratic increment functional of continuous Brownian motion for individual lag parameters, using nonperiodic integration; its scalar probability laws and cumulants do not cover the empirical circular point-count theorem. Targeted searches of mathematical records, aliases for mean-square displacement, Brownian quadratic variations and multiscale number variance returned no matching theorem. Standard Gaussian Fourier and coupling theorems are acknowledged ingredients. The possibility of an unindexed or differently formulated multiscale quadratic-functional theorem remains a genuine residual priority risk.
+PASS
 
-## Mathematical value — PASS
-The simultaneous scale-dependent law supplies a tractable covariance kernel for joint calibration of a natural measure of circular spatial uniformity and reveals a nontrivial integrated-Brownian process as its mesoscopic fluctuation field. It moves beyond the previously available individual-window scalar spectral law and diagonal variance; it also supplies an exact covariance at every finite sample size, useful independently of asymptotic scaling. No assertion is made that the displayed sufficient coupling range is sharp or that the proof techniques themselves are new.
+Expanding the integrated square gives a deterministic diagonal term Ns(1-s) and twice the sum of centered overlap kernels over unordered pairs. Conditioning eliminates all distinct-pair covariances, including pairs sharing an index. For folded lengths 0<=u<=v<=1/2 the integral of the product of the uncentered overlaps is 2 times the integral of (u-x)(v-x) from 0 to u, namely u^2v-u^3/3; centering subtracts u^2v^2. Multiplying by 2N(N-1) gives (1), with the complement symmetry exact and N=1 or zero folded length deterministic. The periodic bridge Fourier modes give common independent Exp(1) energies with summable weights. On shrinking scales the maximum normalized coefficient is O(sqrt(delta)), the variance of each finite combination has the stated limit, and the sum of its third moments tends to zero; the fourth increment moment is O(|t-r|^4), proving tightness. The limiting Gaussian covariance is that of twice integrated Brownian motion. The uniform bridge coupling error divided by delta^(3/2) is O_P(eta/delta+eta^2/delta^(3/2)) since the supremum bridge energy is O_P(delta); the assumed eta=O_P(log N/sqrt N)=o_P(delta) makes both terms vanish. This proves the process limit for fixed R under exactly the stated condition. Independently checked 225 rational mixed overlaps by exact piecewise-quadratic integration (python3 /workspace/check_frozen_math.py); frozen verification and checker inspected, not executed.
 
-## Closest sources and limitations
-The closest direct reference is arXiv:2610.11687v1 (first publicly available October 8, 2026); see its Theorem 1, Sections 2–4, and Lemma 4. The nonperiodic quadratic-functional comparison is arXiv:1205.2100v1, especially Sections 1–3. Classical KMT coupling and Gaussian quadratic-form methods are supporting background. The results require independent uniform circle points, fixed compact ranges of rescaled lengths and a mesoscopic window satisfying \(\delta_N\sqrt N/\log N\to\infty\); none of the generalizations to arbitrary point processes, smaller scales, or growing parameter ranges are proved.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The expectation, short-window exact finite-sample diagonal variance, bridge model and fixed-window laws are existing results. In particular the frozen literature discussion understates the prior diagonal overlap: Aistleitner–Hörmann–Manskova give the exact finite-N variance in §6, equation (17), not only the Lemma 4 bridge variance. The supported distinct claims are the explicit off-diagonal finite-N formula and the centered shrinking-window C([0,R]) limit at the stated coupling scale. Neither a fixed-scale series law nor a uniform first-order almost-sure law implies a multiscale centered Gaussian functional limit without the new triangular-array and tightness steps.
+
+## value
+
+PASS
+
+Repeated measurements of the number variance on a common sample are dependent. The mixed covariance makes that dependence explicit at finite N; the integrated-Brownian limit quantifies it uniformly across shrinking scales and specifies fluctuation geometry unavailable from one-window laws. This is a natural stochastic-process question, with a precise sufficient regime rather than an unsupported optimality claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

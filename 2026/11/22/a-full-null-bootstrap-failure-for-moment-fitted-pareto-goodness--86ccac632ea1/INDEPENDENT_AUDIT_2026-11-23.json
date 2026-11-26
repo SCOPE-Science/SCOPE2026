@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T17:54:42.353728Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Truncated strong laws on a countable set of truncation levels force the observed sample mean to diverge, so the fitted shape converges to 1 from above. The fitted CDF varies uniformly near 1 (its shape derivative is bounded by sup over x≥1 of x^(-1/2)log x on a neighborhood of 1). Glivenko–Cantelli gives the uniform observed discrepancy limit; maximizing x^(-β)-x^(-1) gives x*=β^(-1/(1−β)) and dβ as stated. The CvM integrand converges uniformly to the square of a bounded continuous function, so one can also pass to the weak limit of the fitted integration measure. The substitution u=1/x gives cβ=2(1−β)^2/[3(β+2)(2β+1)], as obtained from the three displayed fractions. Conditional on almost every data path, each bootstrap row has its own fitted shape. For any fixed K, choose a common finite L with the truncated mean at shape 1 greater than 2K; continuity gives mean >3K/2 along the row sequence eventually. Bounded concentration gives row-average truncations >K with probability tending to one, without any triangular-array untruncated LLN. Thus the bootstrap refit also converges to 1, and distribution-free DKW shows D*n→0 in conditional probability and W*n/n≤(D*n)^2→0. Nonnegativity and any fixed upper quantile level strictly between 0 and 1 imply the quantile limits, hence eventual rejection almost surely on those paths. This verifies the stated known endpoint, fixed subunit shape, and ideal conditional refitting only. Independently checked d(1/2)=1/4 and c(1/2)=1/30 exactly; a bounded illustration sampled X=(1−U)^(-2) with 24 independently refitted bootstrap replicates per n using U uniform. At n=4000 and 50000 the observed (KS,CvM/n) were (0.262197,0.034498) and (0.248342,0.033061), against empirical .95 bootstrap pairs (0.059398,0.001488) and (0.040694,0.000834). Replay with NumPy default_rng(5015), sorted fitted CDF values u_i, one-sided KS jump-end formulas, and CvM/n=mean((u_i−(i−1/2)/n)^2)+1/(12n²). The uploaded checker was read, not run; its shape grid and special-case tolerances are floating-point and its simulated statistic is KS only. Those observations do not affect the exact theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The comparative paper notes the finite-mean restriction and reports departure from nominal size at shape 1; the thesis's incorporated comparison has a corresponding discussion.",
+          "Ordinary EDF consistency under fixed discrepancy does not itself control the conditional law of each refitted bootstrap row with an approaching shape."
+        ],
+        "reasoning": "The known moment obstruction identifies why a fit can accumulate at 1, but the near-1 simulation-row model has a mean that depends on n. The exact conditional claim uses an additional fixed-truncation argument and distribution-free concentration, not a fixed-model consistency corollary.",
+        "searches": [
+          "arXiv:2211.10088 §§3.1–3.2, 4.1–4.2",
+          "Ndwandwe 2023 thesis, Chapter 2, incorporated comparison §§3–4"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2211.10088",
+        "arXiv:2301.09385",
+        "Ndwandwe 2023 thesis, hdl:10394/42324",
+        "Targeted Resultary and web searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier studies provide the estimator, observed size problems at the boundary, or the resampling convention, not a fixed-subunit-shape conditional comparison. At the earlier reported boundary β=1 the two claimed positive observed limits would instead be zero."
+        ],
+        "reasoning": "There is no transfer of the boundary simulations to the fixed-subunit theorem: the positive limiting bias, the triangular bootstrap limit, and the quantile comparison have different roles and are all established in the frozen proof.",
+        "searches": [
+          "arXiv:2211.10088 §§2.1, 3.2, 4.2",
+          "arXiv:2301.09385 introduction and §4.1",
+          "NWU thesis Chapter 2, incorporated comparison §§3–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2023 Fourier preprint uses a known endpoint of 1, a composite null with β>0, and the same fit Xbar/(Xbar−1). Its Section 4 uses pooled warp-speed calibration for simulation.",
+          "The 2022 comparison distinguishes the fixed-endpoint and estimated-endpoint problems; Sections 2.1 and 3.2 give the EDF definitions and moment fit/bootstrap."
+        ],
+        "reasoning": "This is equivalently a nonvanishing observed-to-fitted EDF gap paired with a vanishing conditional bootstrap gap after normalization, or a size-one pointwise null rejection result. Same-model simulations and a warp-speed calibration scheme do not state the latter result for ideal conditional quantiles.",
+        "searches": [
+          "Resultary: moment fitted Pareto infinite mean refitted parametric bootstrap Kolmogorov Smirnov Cramer von Mises rejection",
+          "Web: Pareto type I goodness of fit moment estimator infinite mean shape 1 Kolmogorov Smirnov Cramer von Mises bootstrap Ndwandwe Allison asymptotic failure"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The comparative study's null tables use shapes 1,2,5,10 rather than any fixed shape strictly below 1.",
+          "The closest non-self Resultary records involve MLE under increasing binning or differently normalized statistics; they do not contain the two EDF constants for this fit."
+        ],
+        "reasoning": "Finite null-size entries at 1 do not determine either of the two strictly positive population gaps for β<1 or an ideal conditional upper-quantile limit.",
+        "searches": [
+          "arXiv:2211.10088 §4.2 and simulation tables",
+          "Resultary: moment fitted Pareto infinite mean refitted parametric bootstrap Kolmogorov Smirnov Cramer von Mises rejection"
+        ]
+      },
+      "rationale": "Qualified pass for the exact fixed-shape separation and asymptotic size-one theorem under ideal conditional refitting, not for identifying the moment-existence restriction or the possibility of distortion.",
+      "residual_risks": [
+        "Related general parametric-bootstrap literature may contain an equivalent theorem under an estimator range restriction; no claim of priority for the inconsistency of the estimator itself. The main comparison used the open Fourier preprint rather than relying on uninspected publisher text."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior finite-mean warning and finite-sample shape-one distortion, not the frozen fixed-subunit result",
+          "evidence": [
+            "Section 2.1 gives KS and CvM; Section 3.2 discusses the adjusted method of moments; Section 4.2 attributes failures to achieve 5% at P(1,1) to the missing first moment."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2211.10088",
+          "material_read": "Open manuscript introduction, Section 2.1, and relevant estimator, resampling and shape-one discussion in Sections 3–4",
+          "method": "Primary PDF text; compared model, EDF formulas and null shapes",
+          "title": "Testing for the Pareto type I distribution: A comparative study",
+          "trigger": "Closest study of the same EDF tests and method-of-moments bootstrap"
+        },
+        {
+          "assessment": "Covers the fitting and resampling setting; the claim reviewed is for the EDF comparators, not the proposed Fourier tests",
+          "evidence": [
+            "Section 1 gives the known-endpoint null and mean-based fit. Section 4.1 generates a bootstrap sample from the fitted Pareto and evaluates the statistic on that sample, within a pooled warp-speed simulation."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2301.09385",
+          "material_read": "Open manuscript §1 and relevant §3–4 resampling and simulation passages",
+          "method": "Primary PDF text, compared individual bootstrap draw with pooled simulation calibration",
+          "title": "On a new class of tests for the Pareto distribution using Fourier methods",
+          "trigger": "Same known endpoint, fitted shape and bootstrap convention"
+        },
+        {
+          "assessment": "The inspected relevant chapter includes the finite-mean caveat and boundary simulations but no corresponding fixed-subunit-shape size-one result",
+          "evidence": [
+            "Chapter 2's incorporated Sections 3.2 and 4.2 give the moment bootstrap and explain the nonnominal P(1,1) sizes via the missing first moment."
+          ],
+          "identifier_or_url": "https://hdl.handle.net/10394/42324",
+          "material_read": "Open repository thesis introductory material and Chapter 2's relevant adjusted moment estimation, bootstrap algorithm and simulation discussion",
+          "method": "Full public PDF access from North-West University; inspected passages matched to the comparative paper",
+          "title": "On testing the assumption of the Pareto type I distribution",
+          "trigger": "Plausibly more detailed prior treatment of the same goodness-of-fit calibration"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For genuine heavy-tail null data, nominal calibration can fail as badly as possible even when every repetition refits. The two distinct exact EDF gaps and the conditional control distinguish this diagnostic from a generic warning about infinite means and specify which fitting workflow to avoid. It does not diagnose MLE, Fourier tests or boundary shape 1.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:15:01.821898Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–44; VERIFICATION.md; verify_doob.py, doob_census.cpp and verification_output.txt (inspected, not executed)",
+        "/workspace/branches/3f0d343f-18b0-4865-a9b2-dce00d6f3cb2/independent_doob_check.py, independent-reduced.txt and independent-local-shrikhande-detail.txt (independent code and outputs)"
+      ],
+      "rationale": "For pairs at distance two, centers at the query points give the singleton traces, and a midpoint gives the full trace. For an adjacent pair, a step away from either query point in a different Cartesian factor separates it from the other; d≥3 guarantees at least two factors. The union bound on two balls gives the empty trace. Thus the quadratic coefficient counts exactly pairs at distance at most two. For triples, the full trace places the support in a centered ball. Two query points in different arms have only the original center and their two-coordinate combination as common centers; a third arm, a second point in one arm, or the original center eliminates the latter. In the two-points-in-one-arm case the pair within that arm can be realized without the original center (for a nonadjacent Shrikhande pair use its other common neighbor). Mixed pair traces and singleton traces follow by choosing one or two coordinates accordingly; for a centered triple with two complete arms, the original-point singleton uses a third factor, available for d≥3. The single-arm cases reduce exactly to factor traces: for a center at outside distance r, the distance to any query equals r plus the selected-factor distance. Hence outside coordinates only add singleton and empty traces, all of which can be achieved when there is another factor. This justifies transferring the checked Shrikhande table (14 unique-center noncentral triples, plus nine centered triples with center multiplicities 1,1,1,3,3,3,3,3,3); no single complete arm has a doubleton trace. For four points in at least three arms, a triple in separate arms has only the original center. In at most two active factors the same distance decomposition embeds every trace into the template with spare factors, which suffices in the direction needed for nonshattering. The independent checker reproduced the local tables and found no shattered centered four-set among all 715, 1820 and 3876 candidates in the three templates. For the algebra, write g_i=3a_i with a_i=1 or 2. Splitting each weight-two index into two distinct unit copies, the mixed-arm terms account for 27[binom(d,3)+binom(d,2)−m], and the single-arm contribution adds 19m. The resulting T=27 binom(d+1,3)−8m is positive for d≥3. Vertex transitivity and reciprocal common-center weighting give 4^dT distinct triples. The cubic arithmetic then proves the fixed-diameter distinction.",
+      "residual_risks": [
+        "The finite checks verify reduced local obligations, not a prefix extrapolation. The proof uses closed radius-one balls, unrestricted centers and d≥3; it makes no claim at diameter two."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Krotov establishes the shared Hamming intersection array, sufficient for the two-distance counts but not the cubic trace counts.",
+          "Coudert et al. study general closed-neighborhood VC computation; the triangle-free (v,k,0,2) law is for strongly regular graphs of diameter two."
+        ],
+        "reasoning": "An algorithm for VC dimension or a narrower strongly regular law cannot give an explicit diameter≥3 Doob coefficient formula. The intersection array fixes the quadratic coefficient; it cannot enforce a cubic value that varies within that very array.",
+        "searches": [
+          "Primary search: Doob graphs VC-dimension shattering neighborhoods radius-one Hamming closed ball",
+          "Inspect Krotov arXiv:1810.03772 and Coudert et al., SEA 2024 article 8",
+          "Resultary 577545e367c7, universal open and closed shattering law for triangle-free strongly regular graphs"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 801970156750 (identical), 6c82fc864f93, 670b6697d463, 577545e367c7 and open-Hamming entry c2c444ddd1a2",
+        "Krotov arXiv:1810.03772; Adler et al. arXiv:2007.16042; Housholder et al. arXiv:2505.14641; Coudert et al. SEA 2024 article 8"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the product, an outside coordinate can supply an otherwise unavailable singleton trace to a support wholly in one factor.",
+          "The isolated Shrikhande cubic coefficient is 224; substituting d=2,m=1 in the d≥3 formula would instead give 304. The diameter-two difference therefore does not add across factors to give the formula."
+        ],
+        "reasoning": "Counting traces inside an isolated factor misses the enabling role of extra coordinates. The mixed-arm analysis, in-product single-arm table and absence of shattered quadruples are material, not a rescaling of the prior two graphs.",
+        "searches": [
+          "Compare the primary statements of Resultary 6c82fc864f93 and 670b6697d463 with the centered-trace table and product proof in frozen RESULT.md, lines 16–44"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The papers' adjacency predicates concern open Hamming neighborhoods. An inclusive radius-one ball is the closed neighborhood, while exact-distance-one neighborhoods exclude the center.",
+          "Resultary c2c444ddd1a2 tabulates open Hamming neighborhoods, not closed Doob supports."
+        ],
+        "reasoning": "Changing whether the center is included changes the attainable traces. Explicit closed-neighborhood results are compared separately; an open-neighborhood VC dimension or shattering count does not establish any of these coefficients.",
+        "searches": [
+          "Resultary: Cartesian product closed neighborhood shattering polynomial Doob Hamming Shrikhande additivity cubic defect 8m radius-one exact number of shattered triples",
+          "Primary search: Doob graphs Shrikhande Hamming closed neighborhoods shattering polynomial VC dimension radius one exact shattered triples 8",
+          "Adler–Benediktsson–Macpherson arXiv:2007.16042 and Housholder–Mangiapanello–Senger arXiv:2505.14641"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "801970156750 is the identical assigned record. Distinct 6c82fc864f93 gives all closed Hamming polynomials; 670b6697d463 gives exact diameter-two rook and Shrikhande polynomials with cubic terms 288 and 224."
+        ],
+        "reasoning": "The m=0 coefficient is already listed by specializing Hamming q=4. The mixed Doob products of diameter at least three are not among those tabulated graph families.",
+        "searches": [
+          "Resultary exact Doob polynomial and related closed Hamming, Shrikhande, and rook entries",
+          "Primary search: Hamming graphs closed neighborhood VC dimension exact shattering polynomial distance regular Shrikhande graph and Doob trace shattered set"
+        ]
+      },
+      "rationale": "The quaternary Hamming specialization and the separate diameter-two Shrikhande/rook comparison are prior catalogue results. Neither implies the uniform per-factor defect in all products of diameter at least three. The supported distinct claim is the mixed-Doob polynomial and its fixed-diameter separation, obtained by controlling trace interactions in the Cartesian factors.",
+      "residual_risks": [
+        "The bounded comparisons establish the specific distinctions above but do not rule out unindexed products literature or establish historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact m=0 coverage, not mixed Doob graphs",
+          "evidence": "The formula for H(d,q) at q=4 has the cubic coefficient 4^d·27 binom(d+1,3) for d≥3.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-closed-neighborhood-shattering-polynomials-of-all-hamming-graphs--6c82fc864f93",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary local mirror passage",
+          "title": "Closed-neighborhood shattering polynomials of all Hamming graphs",
+          "trigger": "Exact same invariant, includes the Hamming boundary case"
+        },
+        {
+          "assessment": "Diameter-two precedent, does not specialize or extend to the mixed-product theorem",
+          "evidence": "The two cubic terms are 224 for Shrikhande and 288 for the rook graph on 16 vertices, not the in-product defect of 8 per center.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-closed-neighborhood-shattering-polynomial-separation-of-the-sh--670b6697d463",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary local mirror passage",
+          "title": "A closed-neighborhood shattering-polynomial separation of the Shrikhande and rook graphs",
+          "trigger": "Exact invariant for the factors at diameter two"
+        },
+        {
+          "assessment": "Supplies the graph construction and known intersection array, not the closed-neighborhood cubic invariant",
+          "evidence": "D(m,n) is the Cartesian product of m Shrikhande and n complete-four factors and shares the array of H(2m+n,4).",
+          "identifier_or_url": "https://arxiv.org/abs/1810.03772",
+          "material_read": "PDF pp. 1–2, offsets 6800 and 11400",
+          "method": "OA primary full-text passages",
+          "title": "The existence of perfect codes in Doob graphs",
+          "trigger": "Primary work on exact products and common Hamming intersection array"
+        },
+        {
+          "assessment": "Open Hamming VC dimension at most three; not the closed Doob polynomial",
+          "evidence": "Studies the relation Exy, explicitly open neighborhoods, and notes only bounded closed-neighborhood VC dimension in the inspected passage.",
+          "identifier_or_url": "https://arxiv.org/pdf/2007.16042",
+          "material_read": "p. 1, offsets 1300–3425, statement of predicate and results",
+          "method": "OA PDF passage",
+          "title": "Vapnik-Chervonenkis dimension and density on Johnson and Hamming graphs",
+          "trigger": "Closest primary result on Hamming neighborhood shattering"
+        },
+        {
+          "assessment": "Open neighborhoods in Hamming and exact-distance Hamming graphs; no matching parameter/invariant in the inspected statements",
+          "evidence": "The neighborhood consists of adjacent vertices; results study VC thresholds for subsets of Hamming graph vertices, not closed-ball coefficient separation of Doob graphs.",
+          "identifier_or_url": "https://arxiv.org/pdf/2505.14641",
+          "material_read": "Abstract and §1 graph, shattering and neighborhood definitions, PDF pp. 1–2; offset 0",
+          "method": "OA PDF passage",
+          "title": "VC-dimension of subsets of Hamming graphs",
+          "trigger": "Recent direct Hamming-graph shattering comparison"
+        },
+        {
+          "assessment": "General computation rather than exact Doob polynomial theorem",
+          "evidence": "Formulates and computes graph VC dimension using closed neighborhoods, not the number of shattered supports by size in this family.",
+          "identifier_or_url": "SEA 2024, LIPIcs article 8",
+          "material_read": "PDF p. 1, around offset 500, abstract/problem definition",
+          "method": "OA primary PDF passage",
+          "title": "Practical Computation of Graph VC-Dimension",
+          "trigger": "Broader closed-neighborhood graph VC computation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, positivity and separation and limitations",
+        "Krotov on the common intersection array; prior finite Shrikhande/rook comparison 670b6697d463"
+      ],
+      "rationale": "This gives an exact graph-isomorphism invariant that distinguishes every member of a standard fixed-diameter family sharing both an intersection array and VC dimension. The per-factor arithmetic is a concise structural explanation and a way to recover the number of Shrikhande factors from trace counts, rather than just another enumeration of one tabled graph.",
+      "residual_risks": [
+        "Distinction is within the Doob family, not a complete invariant of general graphs. No other ball radius is included."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

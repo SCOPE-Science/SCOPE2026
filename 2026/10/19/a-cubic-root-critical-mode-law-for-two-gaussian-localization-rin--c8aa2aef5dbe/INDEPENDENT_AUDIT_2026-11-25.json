@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T18:48:25.683622Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, lines 4–61",
+        "VERIFICATION.md, lines 18–24",
+        "verify.py, lines 10–43 (inspected, not executed)"
+      ],
+      "rationale": "For R=sqrt(a), all integer maximizers have bounded x=(n-a)/R: for each Poisson integrand the ratio of successive terms is t/(n+1), which forces monotonicity outside the extreme endpoints of the two intervals. The radial Gaussian diagonalization has the given t=pi r^2 normalization. Stirling expansion gives the displayed cubic correction Q and a uniform O(R^-2) remainder after normalization by sqrt(2 pi) R/w; averaging over the symmetric fixed widths leaves the order-R^-1 term unchanged. For d<1 the strict quadratic maximum and the Lipschitz first correction, comparing to the integer nearest a, bound |x| by O(R^-1). For d>1 the two nondegenerate maxima solve x=d tanh(dx); their height difference from the odd correction is positive in favor of the lower index, since H_d(x_d)/F_d(x_d)=x_d(x_d^2-d^2-3)/6<0. Local optimization and lattice rounding affect that comparison only at O(R^-2). For d=1 the quartic loss and linear term bound maximizing |x| by O(R^-1/3), and the rescaled polynomial -y^4/6-4y/3 has unique maximizer -2^(1/3). The rescaled lattice mesh tends to zero. This proves the law for all maximizers, not finite-index uniqueness.",
+      "residual_risks": [
+        "The argument is for fixed positive w and d, not a crossover theorem with d depending on a. The archived finite quadrature tests are supplementary."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The close result fixes delta>0 and uses squared-radius widths 2 delta sqrt(N); its threshold is log((a+delta)/(a-delta))=2a delta. The fixed-width record requires delta_N=w/(2 sqrt(N)) tending to zero.",
+          "The other sources provide a leading Gaussian approximation or a two-term trace asymptotic, respectively."
+        ],
+        "reasoning": "Neither the fixed-delta theorem nor those broader statements control the argmax with a collapsing normalized annular width at the required order.",
+        "searches": [
+          "Resultary 6bb4d239ab20, Assumptions and scope and Proof Steps 1–2",
+          "Esmeral–Maximenko arXiv:1505.07906, Prop. 6.5",
+          "Oldfield arXiv:1404.2256, Thm. 2.4"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 6bb4d239ab20",
+        "arXiv:1202.5841",
+        "arXiv:1505.07906",
+        "arXiv:1404.2256",
+        "Focused mixed-Poisson mode literature search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The older Gamma expansion has the same local kernel and its mechanism explains the shared critical coefficient. Its fixed-delta mode theorem gives o(sqrt(N)) subcritical localization, not the O(1) drift here, and uses a difference of hyperbolic sines for the outer peaks rather than x=d tanh(dx)."
+        ],
+        "reasoning": "Applying the pointwise theorem with a varying delta would exchange limits without a justification. The present proof controls the normalized collapsing-width kernel and optimizes it, while reusing the underlying mechanism.",
+        "searches": [
+          "6bb4d239ab20 RESULT.md, theorem and Gamma expansion",
+          "Abreu–Dörfler p. 2; Esmeral–Maximenko Prop. 6.5; Oldfield Thm. 2.4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The annular integral is exactly a mixture of Poisson masses and a Gamma interval probability; Fock monomial and Gaussian Hermite mode formulations refer to the same radial spectrum.",
+          "October 18 record 6bb4d239ab20 uses that same spectrum and states the same critical coefficient but under a different width scaling."
+        ],
+        "reasoning": "The Fock and Poisson reformulations are not new mathematical objects. The distinct result is the actual fixed-width asymptotic, not a change of representation.",
+        "searches": [
+          "Resultary: radial two-annulus/Fock spectral mode, critical cubic-root drift",
+          "Primary-literature mixed-Poisson mode search",
+          "Abreu–Dörfler, arXiv:1202.5841"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed asymptotic statement gives exactly the coefficient -2^(1/3) and selects the lower mode under its own hypotheses."
+        ],
+        "reasoning": "There is no finite invariant to check in a numerical table; the exact indexed theorem match is partial in conclusions and differs in hypotheses.",
+        "searches": [
+          "Resultary local search and checked 6bb4d239ab20 Finding"
+        ]
+      },
+      "rationale": "Supported distinction: the fixed-area-width law, including its bounded subcritical drift and explicit fixed-width thresholds and peaks. The negative cubic-root coefficient and lower-branch selection as phenomena are already explicitly established in the closely related October 18 record and must not be credited here as new phenomena.",
+      "residual_risks": [
+        "A more general Poisson-mixture mode theorem uniform in the mixing widths could subsume part or all of the result. The bounded search did not exclude this."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material partial overlap, not the same width regime",
+          "evidence": "The same -2^(1/3) and lower-mode selection are explicit; a and delta stay fixed as N grows, and the subcritical and supercritical statements differ as above.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-universal-cubic-root-spectral-drift-at-a-two-annulus-fock-locali--6bb4d239ab20/RESULT.md",
+          "material_read": "Finding, fixed-width-in-scaled-coordinates hypotheses, theorem and Gamma expansion; offsets 0–4919, with critical argument in the subsequent portion",
+          "method": "Local source mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Universal cubic-root spectral drift at a two-annulus Fock localization threshold",
+          "trigger": "Closest statement-level hit"
+        },
+        {
+          "assessment": "Setup coverage",
+          "evidence": "The radial Hermite basis is established, not the maximizing-index law.",
+          "identifier_or_url": "https://arxiv.org/abs/1202.5841",
+          "material_read": "p. 2, radial Hermite diagonalization including unions of annuli",
+          "method": "Lawful OA PDF text",
+          "title": "An Inverse Problem for Localization Operators",
+          "trigger": "Original radial localization comparison"
+        },
+        {
+          "assessment": "Leading approximation",
+          "evidence": "The Gaussian-kernel approximation is not a critical mode-selection theorem.",
+          "identifier_or_url": "https://arxiv.org/abs/1505.07906",
+          "material_read": "Prop. 6.5, p. 13",
+          "method": "Lawful OA PDF text",
+          "title": "Radial Toeplitz operators on the Fock space and square-root-slowly oscillating sequences",
+          "trigger": "Potential general radial asymptotic"
+        },
+        {
+          "assessment": "Trace rather than pointwise coverage",
+          "evidence": "The theorem concerns trace asymptotics, not the maximizing Hermite index.",
+          "identifier_or_url": "https://arxiv.org/abs/1404.2256",
+          "material_read": "Thm. 2.4, p. 5",
+          "method": "Lawful OA PDF text",
+          "title": "Two-term Szegő theorem for generalised anti-Wick operators",
+          "trigger": "Potential general two-order result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–61",
+        "Resultary 6bb4d239ab20, Finding and Assumptions"
+      ],
+      "rationale": "Fixed area is a natural localization constraint and makes the normalized annuli shrink, with peak eigenvalues on a different scale from the earlier macroscopic-width theorem. Knowing the preferred Hermite degree and resolving its quartic-critical scale and the leading-order tie gives information the leading Gaussian limit cannot supply. The contribution is the fixed-area classification, not discovery of the universal coefficient in all settings.",
+      "residual_risks": [
+        "The conclusion is an index-selection law, not a width-uniform transition theorem or a priority claim for cubic drift itself."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

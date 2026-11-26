@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:51:24.854988Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The degree-weighted cosine modes satisfy the normalized adjacency eigen-equation, including the endpoint recurrence; the sum of degree-weighted squares is 2(n-1) for the extreme modes and n-1 otherwise. Distinct selected spectral values give a nonzero Vandermonde factor independent of location. The remaining ratio is d_j^m times the product of squared cosines, including m=n because the exceptional normalization cancels. By reflection it suffices to compare products on the first half with the endpoint threshold 2^(-m/2). For m=2 monotonicity and cos(pi/3)=1/2 give the cutoff and ties. For m=3 the minor lobe has maximum 2/(3sqrt(6)), and cos(pi/6) gives product sqrt(3)/4 in the increasing-in-cosine major lobe, above both the minor lobe and endpoint threshold. The small orders up to 6 give interior products at most 1/4 (for n=6 use cos(pi/5)cos(2pi/5)=1/4). For m=4 the cubic has stationary values on the signed pieces at y=(5±sqrt(7))/12; the minor-lobe maximum (10+7sqrt(7))/108 is below F(7/8)=21/64, and for n>=10 the first neighbor has y>7/8. The remaining exact products match the listed ties: n=4 interiors are all 1/4; n=5 all 0; n=6 the two (sqrt(5)±1)/16 values are below 1/4; n=7 only j=2,4 give 1/4 and the other internal products vanish; n=9 the odd indices give 1/4 by the half-angle values and the even interiors give zero. At n=8 the three first-half squared cosines lie in the three open intervals stated in the proof; the relevant pieces of F are monotone there with supremum 1/4, so none ties. In the general regime, n-1>2.5m^(3/2) places the first neighbor in the principal lobe and the cosine product exceeds 1-2pi^2/75>1/sqrt(2). Monotonicity is strict before the first zero; beyond it a nearest integer to pi/(2theta) is an admissible k, bounding one absolute cosine and hence the full product by 1/sqrt(2). The first neighbor also beats the endpoint threshold. The finite checker was inspected without execution; it is corroboration rather than the source of these uniform and exact comparisons.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Marques et al. give a Vandermonde times a diagonal eigenvector sampling matrix for general graph shifts. The full-band record maximizes over sensor locations using all M+1 modes and samples. Bulai et al. give full-rank one-vertex recovery in m iterates if the selected eigenvector evaluations are nonzero."
+        ],
+        "reasoning": "The pre-existing factorization supplies the reduction, not the trigonometric extremum. Full-band normalization does not allow the last factors to be removed without changing the optimizer; the full-band statement is compatible with the frozen m=n rows, but does not cover strict low pass. An observability rank theorem tests nonvanishing only, not the relative sizes of the products.",
+        "searches": [
+          "Marques et al., author manuscript Lemma 1, Eqs. (7)–(8)",
+          "Resultary October 11 full-band path theorem d0ca7333cb0f",
+          "Bulai et al., arXiv:2609.25472 pp. 21–28"
+        ]
+      },
+      "checked_sources": [
+        "Resultary e45b195df1c5, 4cbcd87a2ab9, 4d44b2ae0221, d0ca7333cb0f",
+        "arXiv:2609.25472 full primary PDF relevant passages",
+        "DOI 10.1109/TSP.2015.2507546 author PDF Lemma 1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Nov. 8 finding proves eventual inward migration for at least 4(r-1)^3 edges. The same-day 4d44b2ae0221 fixes an endpoint and optimizes the heat-sampling time interval. The October 11 full-band finding gives endpoint optimality for every injective spectral evolution."
+        ],
+        "reasoning": "The cubic bound applies to the same spatial optimization and implies eventual migration, but requires 4(m-1)^3+1 vertices; it does not deliver the O(m^(3/2)) guarantee over all m. The time-spacing objective varies a different Vandermonde factor at a fixed location. Neither it nor full-band endpoint optimality implies the low-pass optimization or general bound.",
+        "searches": [
+          "Resultary 4cbcd87a2ab9 Finding/Proof and 4d44b2ae0221 Finding/Assumptions",
+          "Resultary d0ca7333cb0f full-band Finding",
+          "Bulai et al. pp. 23–28"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary e45b195df1c5 (2026/11/2), Finding, gives d_x^K prod_{k=1}^{K-1}cos^2(pi k x/M) and all identical K=2,3,4 optimizer sets. Bulai et al. pp. 21–23 use the first modes of the normalized Laplacian."
+        ],
+        "reasoning": "Substituting M=n-1 and K=m proves identity of the later low-band spatial classification. The normalized Laplacian I-B selects exactly the same first low-frequency modes, but subspace equality does not make full rank, condition numbers, and determinants equivalent criteria. The Nov. 2 catalogue date does not establish earlier priority over the frozen Nov. 1 record.",
+        "searches": [
+          "Resultary: normalized path low-pass single-vertex determinant D-optimal sensor migration and exceptional ties",
+          "arXiv:2609.25472 finite-graph setup and normalized-Laplacian examples"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Nov. 2 e45b195df1c5 Finding lists the exact complete small-band table including ties. The Nov. 8 4cbcd87a2ab9 Finding gives the three-mode transition. The Paley–Wiener examples compare selected endpoint and distributed choices by frame bounds and condition numbers (including a six-mode example)."
+        ],
+        "reasoning": "The Nov. 2 table is actual equivalent catalogue coverage, but not demonstrated earlier coverage. A fixed-order frame-bound example does not constitute an exact determinant table of all maximizing vertices across all path orders. A search miss for the exact general cutoff is not evidence of absence.",
+        "searches": [
+          "Resultary: exact path sensor phase diagram, m=2,3,4 ties, determinant versus bandwidth and path order",
+          "Bulai et al. P_40 examples",
+          "Focused web search for the normalized-path D-optimal cutoff"
+        ]
+      },
+      "rationale": "The Vandermonde method and sampling framework are prior, and a later-dated Resultary finding explicitly states the identical m=2,3,4 classification including every tie. Another later-dated finding overlaps on the determinant ratio, three-mode transition, and eventual inward migration with a cubic sufficient cutoff. These are substantive equivalences, not independent evidence of earlier priority; catalogue dates alone do not establish research order. No inspected earlier statement supplies the exact low-band spatial table or the all-bandwidth O(m^(3/2)) sufficient cutoff. The full motivating Paley–Wiener paper was accessed for this review, and its relevant path comparisons optimize different quantities or concern different sensor sets. This PASS is limited to the supported normalized-path spatial classification and stronger quantitative localization, not the determinant reduction itself.",
+      "residual_risks": [
+        "The exact small-band table also occurs in a distinct later-dated catalogue entry; dates do not establish independent discovery or complete priority history.",
+        "An unindexed normalized-path determinant design or stronger cosine-product theorem could yet cover some or all of the statement. No claim is made of exhaustive historical certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identical complete two-, three- and four-mode spatial result; later catalogue date, no established earlier priority",
+          "evidence": "Same ratio with M=n-1, identical all-order sets and ties; no arbitrary-bandwidth cutoff in the inspected Finding.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-sharp-low-bandwidth-path-sensor-phase-diagram-for-three-temporal--e45b195df1c5",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Sharp low-bandwidth path sensor phase diagram",
+          "trigger": "Plausibly exact matching determinant table"
+        },
+        {
+          "assessment": "Overlapping eventual transition but not the smaller growth order; later catalogue date",
+          "evidence": "Same ratio and exact three-mode transition; sufficient number of edges 4(r-1)^3.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-low-pass-dynamical-frame-volume-transition-on-normalized-paths--4cbcd87a2ab9",
+          "material_read": "RESULT.md Finding and Proof, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Low-pass dynamical frame volume transition on normalized paths",
+          "trigger": "Possible dominating all-bandwidth result and same three-mode cutoff"
+        },
+        {
+          "assessment": "Different parameter optimized; same-day chronology not inferred",
+          "evidence": "Endpoint fixed; the adjustable variable is uniform time spacing.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-optimal-heat-sampling-intervals-on-normalized-paths-a-bandwidth--4d44b2ae0221",
+          "material_read": "RESULT.md Finding and Assumptions, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Optimal heat sampling intervals on normalized paths",
+          "trigger": "Same path, first m modes, heat and determinant design"
+        },
+        {
+          "assessment": "Full-band result only, common setting on the m=n diagonal",
+          "evidence": "All M+1 modes with M+1 consecutive samples; endpoints maximize and are unique as a maximizing pair for M>=4.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-universal-endpoint-optimality-for-dynamical-sampling-on-normaliz--d0ca7333cb0f",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Universal endpoint optimality for dynamical sampling on normalized paths",
+          "trigger": "Same spatial determinant objective, possibly all bandwidths"
+        },
+        {
+          "assessment": "Same low-pass subspace, no equal D-optimal classification in inspected statements",
+          "evidence": "One vertex gives full rank after m iterates if its selected eigenvector entries are nonzero; P_40 experiments compare frame/condition criteria using endpoints and distributed sensors.",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.25472",
+          "material_read": "PDF pp. 21–28, offsets 62181, 68169, 74647, 81637",
+          "method": "OA primary PDF passages",
+          "title": "Dynamical Sampling in Graph Paley–Wiener Spaces",
+          "trigger": "Closest earlier primary work on low-pass temporal sampling with normalized path examples"
+        },
+        {
+          "assessment": "Prior factorization, not a normalized-path spatial extremal result in the checked lemma",
+          "evidence": "y_i=Psi diag(v_i) xhat; assumed first K active modes for exposition but allows any known set of that size.",
+          "identifier_or_url": "https://www.engineering.upenn.edu/~aribeiro/preprints/2015_marques_etal.pdf",
+          "material_read": "Author PDF p. 3 Lemma 1, Eqs. (7)–(8), offsets 23100–26586",
+          "method": "OA literal lookup followed by bounded primary PDF passage",
+          "title": "Sampling of graph signals with successive local aggregations",
+          "trigger": "General mathematical reduction for one-node graph aggregation sampling"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Single-node sampling with equal-variance noise gives a natural determinant design problem. Exact spatial maximizers and ties decide whether sensors belong at the boundary or one vertex inward, and distinguish low-band from full-band behavior; this is not determined by a rank or observability test. The all-bandwidth sufficient threshold is useful even without sharpness because it guarantees inward localization on an explicit smaller-than-cubic length scale. The finding does not purport to maximize the least singular value or optimize the time spacing.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

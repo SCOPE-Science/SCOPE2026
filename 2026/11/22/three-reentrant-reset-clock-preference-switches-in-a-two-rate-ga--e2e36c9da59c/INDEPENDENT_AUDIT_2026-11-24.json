@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:17:17.035506Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The OU variance at age t is v_lambda=1-(1-q)e^(-lambda t). Gaussian Jeffreys divergence per coordinate is (v_lambda-q)^2/(2q v_lambda); the coordinates add conditional on the common cycle age. The renewal-reward normalization is multiplication by r for both clocks, not averaging time-stationary ages. After rescaling age, the rate difference divided by r is h_q(r)+h_q(r/K). The scalar reward has coefficient A=(1-q)^2/(2q^2)>0 at t^2. The exponential second moment is twice the deterministic square, yielding h_q(z)=A/z^2+O(z^-3); the bounded reward controls the tail in this expansion. At small z, subtract the exponentially approached equilibrium reward under the integral. Its integrated deficit is B=(1-q)/(2q)+(q/2)log q>0 (strict positivity also follows from v increasing from q to 1 and Jeffreys divergence increasing with v on this range). The deterministic deficit is O(exp(-1/z)), so h_q(z)=-Bz+o(z). Choose a<b with signs negative and positive. At a and b the fast-mode contribution vanishes as K tends to infinity, at sqrt(K) the negative term -B/sqrt(K) dominates the positive O(1/K), and at Kb the slow-mode contribution vanishes. The four increasing frequencies have strict signs for all sufficiently large K. On r>0 the difference is real analytic (Laplace transform of a bounded reward and analytic deterministic term), so the opposite signs in each disjoint bracket force genuine sign changes, not an interval of zeros. Independent exact-rational replay: python3 /workspace/checks/gaussian_signs.py. It expands the reward as (1-u)^2/4 times a geometric series in u/2, bounds the positive expectation tail and range-reduces alternating exponential bounds. Exact comparisons verify even the four quoted decimal intervals, with approximate centers -0.025869275301, +0.003482470973, -0.009486608021, +0.002579438354. These are normalized by r. Neither a full crossing count nor a total physical dissipation law follows.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The former Finding optimizes a scalar reward over all fixed-mean renewal laws, with deterministic and burst-like regimes; the latter Finding classifies optima under a minimum-interval constraint."
+        ],
+        "reasoning": "An optimizing envelope bounds competing clocks but does not compare two specified nonoptimizer clocks in general; the scalar optimization statements do not give crossing counts of a two-scale common-clock sum.",
+        "searches": [
+          "Resultary: fixed-mean renewal clock envelope, finite-width Gaussian endpoint divergence, two-point reset clock",
+          "SCOPE-sharp-renewal-clock-envelope-for-gaussian-endpoint-divergence--3fdf1f9dc897",
+          "SCOPE-a-sharp-two-point-reset-clock-transition-for-finite-width-gaussi--d2e40d6430d5"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2605.28445v1",
+        "31e22fdf4f67",
+        "3fdf1f9dc897",
+        "d2e40d6430d5",
+        "581ff25262aa (abstract only)",
+        "Resultary exact and alias searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Farago compares scalar periodic/Poisson rates in a limiting-width approximation; the resolved November 2 finding compares the two clocks at finite reset width for one harmonic relaxation rate. The distinct November 8 reference 85d09840dcfa was not resolved to full text by exact ID or title."
+        ],
+        "reasoning": "The prior scalar formulation can be reused per mode. To prove the two-mode counterexample it is necessary to control which scalar tail dominates at an intermediate cadence as K grows; a single-mode crossover location, or clock optimality at one fixed mean, does not provide the claimed alternation.",
+        "searches": [
+          "arXiv:2605.28445v1, teleportation-limit periodic versus Poisson rates",
+          "SCOPE-a-unique-reset-cadence-reversal-and-a-logarithmic-temperature-fr--31e22fdf4f67, Finding",
+          "Resultary: A unique reset-clock preference reversal in Gaussian endpoint divergence, 85d09840dcfa"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact two-rate search hit is the assigned record. Farago's scalar harmonic mode lies on a one-dimensional effective-temperature manifold. The single-mode finite-width Resultary Finding proves one crossing."
+        ],
+        "reasoning": "Endpoint Jeffreys and symmetric endpoint KL are equivalent here. A time dilation replaces r by r/lambda in one h curve; it does not produce the summed curve h_q(r)+h_q(r/K), and single-mode uniqueness is not stable under that sum.",
+        "searches": [
+          "Resultary: three reentrant reset-clock switches, two-rate or multimode Gaussian OU, common clock, time dilation",
+          "arXiv:2605.28445v1, equations (17)–(19)",
+          "SCOPE-a-unique-reset-cadence-reversal-and-a-logarithmic-temperature-fr--31e22fdf4f67"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact record matched itself. The distinct same-date match with suffix 581ff25262aa concerns an energy cumulant sign in a Poisson-clock model, at abstract level. The compared scalar clock source supplies no two-rate witness table; the four exact signs can instead be regenerated from the stated parameters."
+        ],
+        "reasoning": "The witness is not a standard dataset value, and differences in exact parameter values would not make a covered result distinct. Here the different same-date entry changes both observable and comparison, and the same record is not an independent antecedent.",
+        "searches": [
+          "Resultary: exact title and common-clock two-scale sign switches",
+          "Resultary: heterogeneous global reset sign crossover",
+          "arXiv:2605.28445v1, equations (17)–(19)"
+        ]
+      },
+      "rationale": "The evidenced result is the synchronized two-rate sign alternation, not the scalar conditional KL construction, renewal-reward formula, or single-mode reversal. No distinct dominating claim appeared in the compared statements.",
+      "residual_risks": [
+        "An unindexed multiscale sign-variation theorem might cover the underlying mechanism; this is not an exhaustive priority claim.",
+        "Full text of the distinct same-date match and the exact November 8 reference could not be independently inspected."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Scalar limiting-width clock comparison, not the two-rate crossing theorem",
+          "evidence": [
+            "Poisson and periodic rates are compared in the teleportation limit; the endpoint quantity is distinguished from implementation-dependent entropy."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2605.28445v1",
+          "material_read": "PDF p. 4, equations (17)–(19), around text offset 26400; one-dimensional effective-temperature description",
+          "method": "OA primary version-specific passage",
+          "title": "The Resetting Heat Engine: A Thermodynamic Cycle of Thermal Expansion and Compression",
+          "trigger": "Harmonic resets and the same endpoint KL comparison"
+        },
+        {
+          "assessment": "Proves one crossing at one relaxation scale",
+          "evidence": [
+            "A single OU mode and exactly one positive equality of Poisson and periodic rates for each finite width."
+          ],
+          "identifier_or_url": "SCOPE-a-unique-reset-cadence-reversal-and-a-logarithmic-temperature-fr--31e22fdf4f67",
+          "material_read": "Mirrored RESULT.md from offset 0, Finding and Assumptions and scope",
+          "method": "Resultary lookup and targeted mirror read",
+          "title": "A unique reset-cadence reversal and a logarithmic temperature frontier for Gaussian reset cycles",
+          "trigger": "Closest finite-width reversal theorem"
+        },
+        {
+          "assessment": "A one-mode optimization over laws, not two-mode ordering",
+          "evidence": [
+            "Fixed-mean deterministic optimum above threshold and burst-like extremizing laws below it."
+          ],
+          "identifier_or_url": "SCOPE-sharp-renewal-clock-envelope-for-gaussian-endpoint-divergence--3fdf1f9dc897",
+          "material_read": "Mirrored RESULT.md from offset 0, Finding",
+          "method": "Resultary lookup and targeted mirror read",
+          "title": "Sharp renewal-clock envelope for Gaussian endpoint divergence",
+          "trigger": "Potentially stronger renewal-clock comparison"
+        },
+        {
+          "assessment": "Different constrained optimization problem",
+          "evidence": [
+            "Renewal-law optimum subject to a minimum interval, rather than a crossing count for two specified common clocks."
+          ],
+          "identifier_or_url": "SCOPE-a-sharp-two-point-reset-clock-transition-for-finite-width-gaussi--d2e40d6430d5",
+          "material_read": "Mirrored RESULT.md from offset 0, Finding",
+          "method": "Resultary lookup and targeted mirror read",
+          "title": "A sharp two-point reset clock transition for finite-width Gaussian reset cycles",
+          "trigger": "Related fixed-mean minimax clock alias"
+        },
+        {
+          "assessment": "Different on the evidence read: cumulant sign, not a clock-preference difference",
+          "evidence": [
+            "Single sign change of a three-body connected energy cumulant under one Poisson clock."
+          ],
+          "identifier_or_url": "SCOPE-a-unique-three-energy-sign-crossover-under-heterogeneous-global--581ff25262aa",
+          "material_read": "Catalogue abstract; full text unavailable through the exact mirrored path",
+          "method": "Resultary indexed statement and mirror attempt",
+          "title": "A unique three-energy sign crossover under heterogeneous global resetting",
+          "trigger": "Distinct same-date heterogeneous common-reset sign match"
+        },
+        {
+          "assessment": "Unresolved citation, not identified with the independently checked November 2 record",
+          "evidence": [
+            "No exact matching full text recovered; no negative coverage finding drawn from unavailability."
+          ],
+          "identifier_or_url": "85d09840dcfa",
+          "material_read": "Frozen reference and description only; no independently resolved matching content",
+          "method": "Exact-title and ID lookup; exact mirror attempt",
+          "title": "A unique reset-clock preference reversal in Gaussian endpoint divergence",
+          "trigger": "Close reference cited in the finding"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Two relaxation scales under a common reset clock suffice to invalidate a natural generalization of one-scale uniqueness. The counterexample is structural for every nontrivial fixed reset width at sufficient separation, with an explicit finite witness; it is not the mere recomputation of one numerical preference. Its relevance is to a specified conditional endpoint benchmark, not to choosing an actuator protocol for total entropy.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

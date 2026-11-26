@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T19:26:58.844990Z",
+  "axes": {
+    "correctness": {
+      "independent_replay": [
+        "/workspace/branches/034d2e6d-4f31-46b7-b1ad-fb2211505741/ordinal2-check.md"
+      ],
+      "rationale": "The displayed limits, extremizer locations and normalization hold. The Sturm–Liouville primitive equals -(1-x²)^(λ+1/2) p'(x)/[n(n+2λ)]; its endpoint values vanish, and the Sonin energy derivative has sign -λ for x>0 off the zeros. It orders the absolute primitive values at zeros as stated. Dividing the classical norm by the square of the endpoint value gives h = 2^(2λ-1) Γ(λ+1/2)² Γ(n+1)/[(n+λ)Γ(n+2λ)], tending to (π/2)e^(-2τ) in the moving window. The odd-degree central derivative and even-degree center ODE give nM ∼ a_(floor(n/2),λ) ∼ n^(-λ) when λ≥0 tends to zero. On the negative side, the normalized endpoint hypergeometric expression tends to cos z in C¹ on compact intervals; the first rescaled zero tends to π/2 and the weighted derivative contributes n^(-2λ). The frozen differentiated-series majorant is too small near z=0 if read as a pointwise bound of order |z|^(2j) on differentiated summands. For j≥1 one may instead use 2^(1-j) j |z|^(2j-1)/[(1/4)_j j!], since |(-n)_j(n+2λ)_j|≤2^j n^(2j) and s=(1-cos(z/n))/2 obeys |s|≤z²/(4n²), |s'|≤|z|/(2n²). The resulting compact-set majorant is summable, so the claimed convergence and limits follow. The sign-changing τ=0 case is covered by the coinciding limits. BV integration by parts and a unit jump prove the sharp norm. The attached script was inspected, not run. The rejection is for prior implication, not a counterexample to the theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dunster assumes its Gegenbauer parameter is nonnegative and bounded. Equation (4.3) gives the Bessel representation through the endpoint and center, with the two coefficient functions headed by 1 and O(1/u) in §4. The estimates (5.5)–(5.7), (5.11)–(5.13), (5.29), (5.31) use continuous order-polynomial coefficients on fixed contours away from the singularity; on the compact shifted range [3/4,5/4] the bounds can be taken uniformly, including through θ=0 by the Cauchy bounds. Dunster also explicitly uses the shifted Gegenbauer order to treat the derivative in (4.33)–(4.35). Frenzen–Wong's published main theorem is a related Bessel expansion but its stated parameter convention is fixed; it is not relied upon for the moving window."
+        ],
+        "reasoning": "The original negative parameter is not a gap in coverage: use ν=μ-1/2 with μ=1+λ in Dunster, where ν stays in [1/4,3/4] and the normalization factors are nonsingular. This delivers the needed endpoint and center approximants for the very polynomial appearing in the primitive, for a wider window than λ log n→τ.",
+        "searches": [
+          "Web: Jacobi polynomials asymptotic expansion uniform in compact sets of both parameters alpha beta Frenzen Wong Elliott Bessel Darboux uniform when Gegenbauer parameter varies angular endpoint dominant first zero",
+          "Dunster arXiv:2209.10716v2, introductory parameter hypotheses, §4 Eqs. (4.3)–(4.5), (4.11), (4.21), §5.2 error bounds",
+          "Frenzen–Wong, 1985, main theorem and §2 parameter convention"
+        ]
+      },
+      "checked_sources": [
+        "Dunster arXiv:2209.10716v2",
+        "Wang arXiv:2111.03833v2",
+        "Sluchak arXiv:2611.04067v1",
+        "Frenzen–Wong, Canadian Journal of Mathematics 37 (1985)",
+        "Xiang–Liu comparison via Sluchak; primary text unavailable"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For μ=1+λ and θ=z/n, divide Dunster (4.3) for degree n-1 by its endpoint value. The leading term is Γ(μ+1/2)(2/z)^(μ-1/2) J_(μ-1/2)(z)+o(1), uniformly for bounded z including zero, with the latter interpreted by continuity. As μ→1 this is sin z/z. The angular derivative of p_n^(λ)(cos(z/n)) is -[(n+2λ)/(2λ+1)]sin(z/n) p_(n-1)^(μ)(cos(z/n)), hence tends to -sin z. Integrating from the endpoint value 1 gives cos z; its first simple zero at π/2 locates Wang's outermost maximizing zero for λ<0. Substitution in the exact primitive then gives nM ∼ n^(-2λ).",
+          "At θ near π/2, the large-argument leading term of the same Bessel representation is n^(-μ) [2^(1-μ)Γ(2μ)/Γ(μ)] (sin θ)^(-μ) times cos((n+λ)θ-μπ/2)+o(1) inside the oscillatory factor. The gamma prefactor in brackets tends to 1. Taking θ=π/2 for odd n, or π/2-π/[2(n+λ)] for even n, makes the cosine have modulus 1 and yields nM ≥ (1-o(1))n^(-λ). The matching upper bound for λ≥0 is the published Sonin comparison at the center: for even n, M≤|p_n(0)|/√[n(n+2λ)] and the exact parity value gives |p_n(0)|∼n^(-λ); for odd n the center is already the exact extremal zero and gives nM∼n^(-λ). The classical gamma-ratio norm then gives the coefficient limit on both sides."
+        ],
+        "reasoning": "All that remains on top of the existing expansions and extremum estimates is the derivative identity already used by those works, elementary Bessel specializations at half-integer order, integrating a local uniform limit to select the simple first zero, the central phase choice, and normalizing. This recovers both first-order primitive branches and their quotient for all the claimed sequences, not just the positive side or τ=0. It does not produce a genuinely new result to narrow the claim to either branch or to the kink in their quotient.",
+        "searches": [
+          "Dunster arXiv:2209.10716v2, Eqs. (4.3), (4.11), (4.21), §§5.1–5.2",
+          "Wang arXiv:2111.03833v2, Eq. (4.3), Theorem 4.1(iv)–(v) and its Sonin-energy proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The normalized primitive is a scalar multiple of Wang's weighted Gegenbauer–Gauss–Lobatto function. In angular coordinates the exact identity is G(cos θ) = -sin(θ)^(2λ+1) p_(n-1)^(1+λ)(cos θ)/(2λ+1), with endpoint-normalized p. Sluchak's §3 characterizes the sharp ordinary expansion-coordinate norm as this supremum divided by h, not divided by √h."
+        ],
+        "reasoning": "Absorbing normalization into the scalar factor turns the proposed problem into evaluating one weighted shifted-index polynomial at the extremal zeros identified by Wang. This is the same observable, including the negative-λ branch, not a comparison to a different orthonormal coefficient.",
+        "searches": [
+          "Resultary: sharp bounded variation Gegenbauer Jacobi coefficient Chebyshev limit weighted primitive moving parameter",
+          "Web: Gegenbauer Jacobi sharp coefficient bounded variation weighted primitive maximum ultraspherical moving parameter near Chebyshev regime lambda log n Sluchak Wang",
+          "Wang arXiv:2111.03833v2, Eqs. (4.1)–(4.3) and Theorem 4.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The corpus returned the frozen item itself, a Laguerre hard-edge transition and different Jacobi projection norms or Chebyshev projection errors. Sluchak treats fixed positive Gegenbauer parameter in §7, and Wang gives the exact ordering and fixed-parameter norm estimates, not a table of the two moving limits."
+        ],
+        "reasoning": "The exact phrased piecewise law is not in the inspected tables and should not be rejected merely because the corpus contains other transitions. The decisive stricter coverage is analytic implication from the cited uniform asymptotic, not a literal matching entry.",
+        "searches": [
+          "Resultary: sharp bounded variation Gegenbauer Jacobi coefficient Chebyshev limit weighted primitive moving parameter",
+          "Sluchak arXiv:2611.04067v1, §§3, 7 and discussion",
+          "Wang arXiv:2111.03833v2, Theorem 4.1(iv)–(v)"
+        ]
+      },
+      "rationale": "This is a direct leading-term corollary of published uniform Gegenbauer asymptotics applied to the shifted derivative index, plus Wang's exact maximizer comparison and the classical norm and BV duality. It matters that the shifted index is 1+λ, positive even on the negative side of the proposed window. Comparing only the unshifted index, or treating Dunster as a fixed-λ estimate, misses that coverage. The precise implication is detailed below; no exact match of phrasing is required.",
+      "residual_risks": [
+        "No assertion is made about the earliest occurrence of the exact Chebyshev-window formula in this notation. The conclusion is prior implication, not literal duplication.",
+        "Direct access to Xiang–Liu was limited; the demonstrated coverage uses Dunster and Wang independently of that paper."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Dominating asymptotic input, including when 1+λ moves through one",
+          "evidence": [
+            "The introduction takes a bounded nonnegative parameter. The Bessel expansion uses u=degree+parameter and order parameter−1/2; analytic endpoint continuation retains the error bound. The derivative index is explicitly used in §4."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2209.10716v2",
+          "material_read": "Introduction parameter scope; Theorem 3.2; §4 Eq. (4.3), coefficient expansions and derivative approximation; §§5.1–5.2 error-bound construction and Eqs. (5.29), (5.31)",
+          "method": "Open PDF text extraction and comparison of parameters and gamma factors",
+          "title": "Uniform asymptotic expansions for Gegenbauer polynomials and related functions via differential equations having a simple pole",
+          "trigger": "Uniform expansions may already provide both scales, using the derivative index"
+        },
+        {
+          "assessment": "Covers all maximizing locations and the center upper control used in the implication",
+          "evidence": [
+            "Its energy is proportional to the Sonin functional in the frozen proof; the positive and negative parameters reverse the ordering, and the odd positive case is an exact value."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2111.03833v2",
+          "material_read": "Theorem 4.1(ii)–(v), Eqs. (4.5)–(4.8) and the accompanying center/endpoint proof",
+          "method": "Open PDF text extraction and direct normalization comparison",
+          "title": "New error bounds for Legendre approximations of differentiable functions",
+          "trigger": "Same weighted primitive extremizers and exact finite-degree estimates"
+        },
+        {
+          "assessment": "Covers BV sharp duality and fixed-parameter examples but not the two-sided moving limit alone",
+          "evidence": [
+            "§3 proves that a unit jump attains the optimal bound, and §7 explicitly restricts to λ>0."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2611.04067v1",
+          "material_read": "Abstract, §2 normalization, §3 classical sharp primitive inequality and §7 Gegenbauer normalization",
+          "method": "Open PDF text extraction",
+          "title": "Bounds for Orthogonal Expansion Coefficients via Weighted Primitives",
+          "trigger": "Exact same sharp BV primitive functional"
+        },
+        {
+          "assessment": "Related fixed-parameter asymptotic, not used as the decisive moving-parameter comparison",
+          "evidence": [
+            "Uniformity is in θ; §2 describes the parameters as fixed."
+          ],
+          "identifier_or_url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/522E45A104866EC2064F19661B96136A/S0008414X0001854Xa.pdf/div-class-title-a-uniform-asymptotic-expansion-of-the-jacobi-polynomials-with-error-bounds-div.pdf",
+          "material_read": "Introduction, main theorem, first-zero corollary and §2 fixed parameter convention",
+          "method": "Open primary PDF text extraction",
+          "title": "A uniform asymptotic expansion of the Jacobi polynomials with error bounds",
+          "trigger": "Classic shift-compatible Bessel asymptotic as alternative broad coverage"
+        },
+        {
+          "assessment": "Not counted as independent coverage or noncoverage; decision does not depend on it",
+          "evidence": [
+            "Sluchak identifies the Jacobi BV primitive bound in Xiang–Liu Theorem 1 and the zero locations in Remark 1."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00211-020-01113-3",
+          "material_read": "Sluchak's publicly accessible description and theorem cross-references; primary full text not accessed",
+          "method": "Tried the exact primary OA route; inspected the explicit cross-reference in Sluchak §3/§7",
+          "title": "Jacobi coefficients for functions of bounded variation",
+          "trigger": "Possible stronger sharp Jacobi coefficient result"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The kink and the jump-location interpretation are natural and useful as an exposition. As a new mathematical finding, however, the first-order law is obtained by direct normalization and evaluation of already published uniform polynomial asymptotics at already known maximizers. No novel extremizer result, error bound or higher-order term remains in the frozen claim. Correcting the summand majorant would not supply such a remainder.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

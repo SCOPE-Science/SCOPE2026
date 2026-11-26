@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:10:57.043411Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–37; VERIFICATION.md; checker.py"
+      ],
+      "rationale": "A completed one-run bracketed by zeros has length km. Its visible preceding zero-run cannot exceed m, and if that zero-run is left-bracketed by a one it must have length exactly m (too short would expose the second forbidden family, too long the third). For a terminal one-run following a left-bracketed zero-run of length a, its visible length is at most ka. Conversely, these constraints let one fill the first and last partial runs into generators: an initial one-run can be a suffix of any sufficiently long generator, an initial zero-run can be lengthened as required, and a terminal zero-run can always be completed. This also treats words consisting of a single run. Thus avoidance suffices. Both one-letter end deletions of every proposed obstruction occur, including 0^m1^(km)0 across a generator boundary and 0^(m+1)1^(km) in a larger generator; this proves minimality. The lengths are r+2 and (k+1)m+2, giving the series, including cancellation for k=1. Intersecting with 10^+1^+ and pumping in the initial 1/zero-run proves nonregularity for every k. Bounded but infinitely often positive counts give growth entropy zero. In a separate bounded reproduction, I closed the set of concatenation suffixes of length at most 15 under appending generators with m<=16, collected factors through length 16 from each suffix-plus-generator, and identified absent words with admissible prefix and suffix of length one less. Larger generators can be replaced by m=16 for this bounded factor census (all observed runs or run fragments in such a generator still fit). The family lists matched for k=1,...,6, with respective cumulative counts 14, 15, 16, 15, 16, 16. This check does not prove the unbounded statement. The frozen checker was inspected, not run.",
+      "residual_risks": [
+        "The independent enumeration is bounded; the proof uses run extension for the unrestricted language."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The catalogue theorem is all-k and additionally states a deterministic context-free classification.",
+          "Reyes Lemma 5.3 proves absence for the nonmultiple one-run family only in the inspected passage; Wu–Zhang give the general minimal-forbidden framework."
+        ],
+        "reasoning": "The catalogue theorem covers the entire parameter domain, including k=1. General language-theory background or the first family alone would not supply the exact census.",
+        "searches": [
+          "Resultary 2026/11/17/SCOPE-complete-three-family-antidictionary-of-proportional-run-coded-s--5097b3ecbecb",
+          "Reyes arXiv:2611.10995v1; Wu–Zhang arXiv:2611.03758v1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 2026/11/17 exact overlap",
+        "Reyes arXiv:2611.10995v1",
+        "Wu and Zhang arXiv:2611.03758v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The older catalogue statement directly gives both the antidictionary and all claimed corollaries. Even from the list alone, counting the length progressions and pumping the regular slice 10^+1^+ recover the conclusions."
+        ],
+        "reasoning": "No distinct remainder of the frozen Finding survives the exact comparison.",
+        "searches": [
+          "Earlier catalogue RESULT.md at offset 350; Reyes Lemma 5.3; Wu–Zhang definition of growth entropy"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 2026/11/17 record and frozen claim use factors of concatenations of exactly 0^m1^(km), all k,m>=1.",
+          "Reyes defines the same X_k and distinguishes it from the full frequency shift."
+        ],
+        "reasoning": "The earlier catalogue theorem is about the identical language and minimal contiguous-factor convention; comparison to the ambient frequency shift alone would not be valid.",
+        "searches": [
+          "Local Resultary: proportional-run coded shifts, complete three-family antidictionary",
+          "Reyes, arXiv:2611.10995v1, Definition 5.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Local mirror of the 2026/11/17 result, RESULT.md offset 350, gives exactly the three families, count formula, rational length series, nonregularity and zero forbidden growth entropy."
+        ],
+        "reasoning": "This is a statement-level match, not a title hit or a recomputation from a finite table.",
+        "searches": [
+          "Meaning-based local Resultary lookup for the three families and length spectrum",
+          "Focused primary-literature search for the proportional-run antidictionary (no additional usable result)"
+        ]
+      },
+      "rationale": "An earlier dated distinct Resultary record provably states the same full theorem on the same coded system. The failure is existing exact coverage, not a proof defect or an unavailable source.",
+      "residual_risks": [
+        "The earlier dated mirrored statement establishes coverage relative to this frozen record, not authorship, derivation history, or earliest historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage",
+          "evidence": [
+            "Same three-family set, same all-k formula and length series, same stated nonregularity and zero growth entropy."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-complete-three-family-antidictionary-of-proportional-run-coded-s--5097b3ecbecb",
+          "material_read": "RESULT.md Finding, offset 350",
+          "method": "Local published-record mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Complete three-family antidictionary of proportional-run coded shifts",
+          "trigger": "Closest distinct catalogue result"
+        },
+        {
+          "assessment": "Same system; partial overlap",
+          "evidence": [
+            "Exact generator family; bad words 01^r0 for k not dividing r; X_k proper in the full frequency shift for k>=2."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2611.10995",
+          "material_read": "v1 Theorem C, p.3/offset 11200; Definition 5.2 and Lemma 5.3, p.10/offset 38600",
+          "method": "OA original PDF passages",
+          "title": "Frequency shifts: non-soficity, absence of specification and intrinsic ergodicity",
+          "trigger": "Exact input coded system cited by finding"
+        },
+        {
+          "assessment": "Framework rather than the exact census",
+          "evidence": [
+            "Minimal forbidden word and exponential-growth definitions."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2611.03758",
+          "material_read": "v1 introduction p.1/offsets 0 and 3300; p.4/offset 18700",
+          "method": "OA original PDF passages",
+          "title": "Generating Forbidden Words and Measures of Maximal Entropy for Subshifts",
+          "trigger": "Forbidden-growth and minimality comparison"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md",
+        "Reyes Definition 5.2 and Lemma 5.3",
+        "Earlier Resultary exact theorem"
+      ],
+      "rationale": "The complete minimal-obstruction description would be useful for this independently motivated family of non-sofic coded shifts, but as a proposed narrow exact invariant it is already available, as are its length and nonregularity consequences. The frozen record supplies no distinct scientifically useful remainder.",
+      "residual_risks": [
+        "No conclusion about the ambient full frequency shift or its entropy follows from this census."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

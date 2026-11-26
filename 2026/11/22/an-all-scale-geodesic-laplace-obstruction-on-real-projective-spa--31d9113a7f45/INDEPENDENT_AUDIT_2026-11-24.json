@@ -1,0 +1,166 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:22:49.763622Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On the projective line the π-periodic kernel has Fourier coefficients proportional to a[1−(−1)^k e^(−aπ/2)]/(a²+4k²), including k=0. They are positive and summable, and the zero-quadratic-form condition on finitely many distinct sites forces all Fourier moments to vanish, hence by consecutive Vandermonde rows all weights vanish. On RP² pull back to the even kernel on S². With f(t)=e^(−a arccos t) on [0,1] and g=(1−t²)f′, the Legendre equation gives ℓ(ℓ+1)I_ℓ=−2g(0)P_ℓ(0)−2∫_0^1g′P_ℓ for even ℓ≥2: the degree derivative term at 0 is zero by parity, the first differentiated Legendre term at 1 vanishes, and g is absolutely continuous with g(1)=0 and integrable derivative. In angle coordinates the last integral has smooth bounded amplitude a e^(−aθ)(a sin θ−cos θ). On [δ,π/2] the compact-angle expansion and Riemann–Lebesgue imply o(ℓ^−1/2); near zero the Bernstein bound combined with |P_ℓ|≤1 bounds its ℓ^1/2-scaled magnitude by C_a(ℓ^−1/2+√δ). The remainder is therefore little-oh after taking the limits in that order. Since g(0)=a e^(−aπ/2) and P_{2n}(0)=(−1)^n binom(2n,n)/4^n, the coefficient and sign are exactly as stated. A negative even eigenvalue from Funk–Hecke gives a negative integral quadratic form, whose finite weighted Riemann sums yield a negative finite Gram form (repeated projective sites can be merged). The isometric coordinate embedding transfers it to every higher projective dimension. This proves failure separately at each fixed a>0, not a uniform threshold in a; at a=0 the kernel would be constant, outside scope. The numerical CHECK.py was inspected, not executed; its finite quadratures are not used for the universal asymptotic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bilyk–Grabner supply the Jacobi sign test and a high/dimension-independent projective positivity result, and analyze geodesic Riesz powers.",
+          "Xiang's printed coefficient theorems give absolute bounds for endpoint and interior singularities; the interior bound has size O(log^μ(n)n^(−s−1/2)) in degree-normalized Jacobi coefficients, not a signed leading coefficient.",
+          "Sidi's cited article is expressly on asymptotic expansions for Legendre coefficients with interior and endpoint singularities; the original statements/formulas were not available via the identified publisher and alternate copy."
+        ],
+        "reasoning": "An absolute upper decay bound cannot itself decide direction of oscillation or positivity. Dimension-independent positivity characterization does not give fixed-plane non-PSD at all a. General signed asymptotics, if applicable to an interior |t| cusp and endpoint square roots with the anticipated normalization, could mechanically cover the leading term; applicability was not established from an inspected Sidi theorem.",
+        "searches": [
+          "arXiv:2410.22104v1, Theorems 1 and 7 and §6",
+          "arXiv:2006.01522v2, Theorems 1 and 3, Eqs. (31)–(32) and (42)–(43)",
+          "Primary literature: Jacobi spectral expansion interior algebraic singularities Shuhuang Xiang Legendre asymptotic coefficients scope exact leading term DOI gamma discontinuous cusp",
+          "DOI 10.1090/S0025-5718-2010-02454-8, Math. Comp. 80, 1663–1684, and identified manuscript page"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and CHECK.py",
+        "arXiv:1302.5790",
+        "arXiv:1411.0296",
+        "arXiv:2302.10623v1",
+        "arXiv:2410.22104v1",
+        "arXiv:2006.01522v2",
+        "DOI 10.1090/S0025-5718-2010-02454-8 (bibliographic and access attempts only)",
+        "Resultary:f4a1c3f0560e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known sign criterion reduces the problem to a coefficient but supplies not its value. For a fixed a, the calculation identifies the leading contribution from a e^(−aπ/2)|t| at the equator and proves a smaller remainder despite the square-root behavior at t=±1.",
+          "As a way to see exactly what another theorem would have to imply, the model term has ∫|t|P_ℓ(t)dt=−2P_ℓ(0)/(ℓ(ℓ+1)−2) for even ℓ≥2 by the Legendre operator; transferring its sign requires a smaller remainder for the other singular terms."
+        ],
+        "reasoning": "The positive definiteness criterion and dimensional restriction are standard corollaries of the signed result, not proofs of it. Inspected general absolute bounds and special kernels do not by direct substitution supply the exact leading amplitude and sign for this profile. Sidi is a stronger plausible route, but exact applicable hypotheses and constants could not be inspected and are not asserted either way.",
+        "searches": [
+          "arXiv:1302.5790, Props. 5.1–5.2",
+          "arXiv:1411.0296, Theorem 4(i)",
+          "arXiv:2410.22104v1, Theorem 1 and §6",
+          "arXiv:2006.01522v2, Theorem 3",
+          "DOI 10.1090/S0025-5718-2010-02454-8"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The projective claim is equivalent to non-PSD of the antipodally invariant pullback on S² for every fixed a>0 in the obstructed plane case; the sign test uses the even Legendre coefficients.",
+          "Robertson's six-point distance witness and Feragen–Lauze–Hauberg's equivalence show that it cannot be PSD simultaneously for all a.",
+          "Da Costa–Mostajeran–Ortega prove all-parameter failure for e^(−a d²), including on the circle."
+        ],
+        "reasoning": "Failure of simultaneous positivity means there exists a bad scale and cannot be exchanged with the quantifier 'for each a there is a witness'. Also the exponent d² cannot be substituted for d; the strict positivity on RP¹ explicitly separates the two formulations.",
+        "searches": [
+          "Resultary semantic searches: intrinsic geodesic Laplace on real projective spaces, all-positive-damping obstruction, alternating Legendre coefficient",
+          "arXiv:1302.5790, §5",
+          "arXiv:1411.0296, Theorem 4(i)",
+          "arXiv:2302.10623v1, Eq. (1), Theorem 3 and Corollary 3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact catalogue hit is the same assigned record, not independent prior.",
+          "Distinct same-day f4a1c3f0560e studies spherical tents (c−θ)_+, with an oscillatory order n^−5/2 Legendre term and a sharp spherical PSD boundary."
+        ],
+        "reasoning": "The tent record has a related interior kink mechanism, but one tent is not the antipodally symmetric exponential and its coefficient formula is not the signed projective Laplace coefficient. Transferring such a mechanism requires controlling the different profile and its endpoints. The shared date alone settles no ordering.",
+        "searches": [
+          "Resultary exact-title and related projective Laplace/Legendre coefficient searches",
+          "Resultary:f4a1c3f0560e, Finding and signed coefficient statement"
+        ]
+      },
+      "rationale": "The supported distinct claim is the separate obstruction at every positive damping, certified by a signed, normalized plane coefficient, with the projective line as the classical circle side of the boundary. General spectral criteria, earlier negative-type obstructions, the square-distance Gaussian result and standard Legendre asymptotics are not claimed as new. A general signed expansion theorem is a plausible priority risk: the particularly relevant Sidi paper was identified but not available to verify the coverage of its formulas. The accessible results compared below do not establish that signed specialization or an every-scale linear-distance conclusion. This is a bounded decision, not a certification of priority.",
+      "residual_risks": [
+        "Sidi's full text was unavailable through the identified lawful routes; an applicable general signed asymptotic from that article could subsume the precise plane coefficient and hence the higher-dimensional obstruction.",
+        "Uninspected general cut-locus spectral theorems or equivalent covariance results could also cover the exact claim. Search misses are not evidence against these possibilities."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers violation of negative type, not fixed-scale spectral failure for every damping",
+          "evidence": [
+            "Six projective points with coefficients (1,1,1,−1,−1,−1) violate the conditional negative inequality."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1302.5790",
+          "material_read": "PDF p. 9, §5 Props. 5.1–5.2, offset 20741",
+          "method": "Original OA PDF passage",
+          "title": "Crofton formulae and geodesic distance in hyperbolic spaces",
+          "trigger": "Explicit projective distance negative-type witness"
+        },
+        {
+          "assessment": "All-scales equivalence with conditional negative definiteness, not universal failure from non-negative-type distance",
+          "evidence": [
+            "The distance is conditionally negative definite iff the geodesic Laplacian is PD for all scale parameters."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1411.0296",
+          "material_read": "PDF p. 4, Theorem 4(i), offset 16644",
+          "method": "Original OA PDF passage",
+          "title": "Geodesic Exponential Kernels: When Curvature and Linearity Conflict",
+          "trigger": "Same Laplace kernel and potential PSD obstruction"
+        },
+        {
+          "assessment": "Squared geodesic distance; different kernel and different circle behavior",
+          "evidence": [
+            "Gaussian e^(−λd²) is non-PD on the circle at every λ; the result transfers to projective spaces by isometric circle embedding."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2302.10623v1",
+          "material_read": "PDF pp. 3–4 and 7–8, Eq. (1), Theorem 3, Corollary 3, offsets 6109, 10767 and 21913",
+          "method": "Original OA PDF passages",
+          "title": "The Gaussian kernel on the circle and spaces that admit isometric embeddings of the circle",
+          "trigger": "Prior all-parameter no-go on real projective spaces"
+        },
+        {
+          "assessment": "General test and projective power regimes; no individual-scale Laplace coefficient is obtained in the compared statements",
+          "evidence": [
+            "Jacobi coefficient sign criterion; nonnegative powers of cos²θ in the sufficiently large dimension characterization; geodesic Riesz powers in §6."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2410.22104v1",
+          "material_read": "PDF pp. 6–7 Theorem 1, pp. 14–15 Theorem 7, p. 20 §6, offsets 15794, 34500 and 49268",
+          "method": "Original OA PDF passages",
+          "title": "Positive definite singular kernels on two-point homogeneous spaces",
+          "trigger": "General projective-space spectral sign and Riesz analysis"
+        },
+        {
+          "assessment": "Strong absolute-rate context, not an inspected signed expansion theorem",
+          "evidence": [
+            "Theorem 3 bounds the magnitude of normalized Jacobi coefficients for an interior algebraic-logarithmic profile; theorem 1 is a boundary magnitude bound."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2006.01522v2",
+          "material_read": "PDF pp. 12 and 16, Theorems 1 and 3, Eqs. (31)–(32) and (42)–(44), offsets about 39613 and 57940",
+          "method": "Original OA PDF passages",
+          "title": "Convergence rates of spectral orthogonal projection approximation for functions of algebraic and logarithmatic regularities",
+          "trigger": "General Jacobi coefficient estimates on interior/endpoint singularities"
+        },
+        {
+          "assessment": "Highly relevant unresolved implication, not a whole-paper noncoverage determination",
+          "evidence": [
+            "Title expressly identifies simultaneous interior and endpoint singularities as its subject; actual applicable formulas were unavailable."
+          ],
+          "identifier_or_url": "https://doi.org/10.1090/S0025-5718-2010-02454-8",
+          "material_read": "Bibliographic identity and title, Math. Comp. 80 (2011), 1663–1684; theorem text not read",
+          "method": "Identified AMS PDF and Academia manuscript page 20243291 attempted by lawful routes",
+          "title": "Asymptotic expansions of Legendre series coefficients for functions with interior and endpoint singularities",
+          "trigger": "Plausible general signed expansion that could subsume the precise coefficient"
+        },
+        {
+          "assessment": "Similar mechanism for a different space and kernel, not an exact match",
+          "evidence": [
+            "Spherical (c−θ)_+, PSD iff d=1 or c≥π; oscillatory coefficient of order n^−5/2 for fixed 0<c<π."
+          ],
+          "identifier_or_url": "Resultary:f4a1c3f0560e",
+          "material_read": "Mirrored RESULT.md, Finding and coefficient claim",
+          "method": "Published-record local mirror",
+          "title": "A sharp dimension barrier for compactly supported geodesic tents",
+          "trigger": "Same-day related Legendre kink mechanism and decay order"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The distinction between lacking PSD simultaneously at all scales and failing at every possible scale is important in choosing intrinsic covariance kernels. The coefficient proof identifies why no damping repairs the projective-plane case and why failure does not extend to the projective line. The signed asymptotic adds a spectral diagnostic, not simply a conditional-negative-type counterexample or a finite test at one parameter. It need not provide a uniformly small finite witness to be useful.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

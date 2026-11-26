@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:39:30.356742Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The only centered balls have sizes 1, 4 and 6. On nonnegative inputs the squared maximal quotient is the maximum of the squared row-selection quotients; nonnegative Gram matrices allow a nonnegative top eigenvector, so no row-activity restriction is needed for the upper bound. Independently enumerated all 729 assignments by graph distances in /workspace/checks/replay_k33.py. For A the selected averaging matrix, the independent integer Bareiss check of 5616 I − 25(12A)^T(12A) established positive leading minors for exactly 727 assignments. The exceptions are (0,0,0,1,1,1) and its exchange. The 55 canonical selections and the six listed minima on the 54 strict types were reproduced exactly. On the exceptional assignment the mean-zero directions have squared singular values 1 and 1/16, each twice, and the class-constant Gram block is [[1,3],[3,25]]/16. Its top eigenvalue is simple, exceeds 39/25, and has positive vector (sqrt(17)−4,1); direct comparison confirms radius one is strictly active on the smaller class and radius zero on the larger. Thus the value and both labeled rays, as well as coordinate sign freedom, follow. The decimal 1.25919907274557… is correct. For general r the class-constant two-by-two block proves the attained test quotient B_r; the positive optimizer has 0<a<b since the largest eigenvalue exceeds 1 (test a=0) and a≥b gives quotient ≤1. Increasing r strictly improves its lower-class average, and the limiting matrix has norm sqrt(2). This does not prove full-norm sharpness for r≥4. Inspected the uploaded verification and script; the reproduction used independent code, not that script.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The older finite-graph papers supply exact constants for some exponents and families, but inspected strong ell² results are for complete graphs and stars. K_{3m} in arXiv:2005.03146 is a complete graph, not a biclique.",
+          "The two closer indexed exact-norm theorems concern K_{a,b} or K_{m,n} under thresholds b≥102400(a+1)^6 or n≥10^6(m+1)^6."
+        ],
+        "reasoning": "Stars, complete graphs and very unbalanced bipartite graphs do not include K3,3 or the entire balanced family. General bounds are not the strict comparisons needed for the equality classification.",
+        "searches": [
+          "Soria–Tradacete arXiv:1410.6204; González-Riquelme–Madrid arXiv:2005.03146 and 2011.02630",
+          "Indexed general complete bipartite cases 7051b95c80b8 and 37bcd1ad5dec"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_k33.py; independent replay_k33.py with exact integer arithmetic",
+        "Primary papers and local mirror records in source_inspections"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Q3 proof excludes 65534 assignments of specific eight-vertex matrices with row denominators 1,4,7,8. It contains no assertion about radius-two averages of size six or the strict bound for the other K3,3 row assignments. The shared two-dimensional block gives a test on both graphs but controls neither graph's full family by itself."
+        ],
+        "reasoning": "The technique transfers, but the upper bound and rigidity require a different graph-specific certificate. B_2 and B_3 as isolated candidate values do not give the full r-dependent attained bound with monotonicity.",
+        "searches": [
+          "Q3 record a9f8d17c9f13 proof of exclusion, offsets 1800–4843, and relation to K3,3 near offset 7215",
+          "Comparison of the C4, star and unbalanced-biclique scope with the frozen averaging family"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The cube record a9f8d17c9f13 gives the identical expression and t=sqrt(17)−4 on parity classes and explicitly notes the K3,3 radius-zero/one lower construction. However Q3 has eight vertices and balls of sizes 1,4,7,8, unlike K3,3, whose ball sizes are 1,4,6."
+        ],
+        "reasoning": "A matching numerical invariant and class-constant mechanism on a different graph do not identify the strong norm and six-coordinate equality conditions here.",
+        "searches": [
+          "Local Resultary lookups for centered strong ell² maximal norms on cubic bicliques, dipartition extremizers, equivalent radical and K2,2=C4",
+          "Targeted primary websearch on finite centered maximal operators and complete bipartite strong ell² bounds"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "97888c3c8e65 gives sqrt(7+2sqrt(10))/3 on C4, which equals B_2, with alternating extremizers. a9f8d17c9f13 gives the same K3,3 radical as an exact constant on Q3, and as a K3,3 lower value."
+        ],
+        "reasoning": "Credit the C4 equality as an exact indexed result and the K3,3 lower-value overlap. The C4 and Q3 records carry the same date as the frozen record, so date alone establishes no priority or sequence; the older C4 result inspected is ell¹. No exact K3,3 equality with its upper argument was identified in this comparison.",
+        "searches": [
+          "Local Resultary exact graph-norm claims for C4, Q3, K3,3 and balanced bicliques"
+        ]
+      },
+      "rationale": "The elementary two-class test value/profile has close indexed precedent, notably the same radical and eigenvector on the cube and an explicit mention of the K3,3 lower bound there. The exact K3,3 exclusion of other choices and equality classification, and the all-order balanced lower law, remain distinct in the inspected evidence. The same-day exact C4 match is not taken as evidence of chronological priority, nor credited to this record.",
+      "residual_risks": [
+        "Earlier unindexed calculations or a sharp general graph inequality may cover additional cases. The inspected exact C4 result does not establish the priority wording 'previously known'; only the mathematical match is confirmed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact for Q3, explicit lower-bound overlap only for K3,3",
+          "evidence": [
+            "Q3 integer certificate with scaled denominators 1,4,7,8; parity profile t=sqrt(17)−4."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-the-cubic-hypercube-has-a-sharp-parity-rigid-centered-maximal-hi--a9f8d17c9f13",
+          "material_read": "Finding, proof of winning block and exclusion (offsets 1800–4843), K3,3 comparison near offset 7215",
+          "method": "Local mirror",
+          "title": "The cubic hypercube has a sharp parity-rigid centered maximal Hilbert norm",
+          "trigger": "Same radical and parity profile"
+        },
+        {
+          "assessment": "Exact B_2 equality; same date leaves historical ordering unresolved",
+          "evidence": [
+            "B_2 radical and alternating extremizers; separates the earlier ell¹ calculation."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-exact-strong-ell-2-norm-and-all-extremizers-of-the-centered-maxi--97888c3c8e65",
+          "material_read": "Finding, offset 0, and prior-work passage offset 4844",
+          "method": "Local mirror",
+          "title": "Exact strong ell² norm and all extremizers of the centered maximal operator on C4",
+          "trigger": "K2,2 is C4 and the r=2 constant could be known"
+        },
+        {
+          "assessment": "Nonoverlapping parameter thresholds",
+          "evidence": [
+            "Strong ell² specifications subject to polynomial lower bounds on the large class."
+          ],
+          "identifier_or_url": "2026/10/26/7051b95c80b8 and 2026/11/1/37bcd1ad5dec",
+          "material_read": "Findings, offsets 0",
+          "method": "Local mirror",
+          "title": "Eventual exact Hilbert norms of maximal averages on unbalanced bicliques; Eventual exact Hilbert norm and extremizer rigidity for complete bipartite graphs",
+          "trigger": "Possible dominating exact biclique theorems"
+        },
+        {
+          "assessment": "Relevant background, C4 comparison is ell¹ rather than strong ell²",
+          "evidence": [
+            "C4 norm 23/12 in ell¹; p>1 bounds for complete graphs."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1410.6204",
+          "material_read": "Example 2.6 p.6, offset 19543; p.9 near offset 27720",
+          "method": "Primary OA PDF",
+          "title": "Best constants for the Hardy–Littlewood maximal operator on finite graphs",
+          "trigger": "Foundational exact finite-graph maximal norm work and C4"
+        },
+        {
+          "assessment": "Explains known strong-norm model families; not exact balanced biclique coverage in inspected results",
+          "evidence": [
+            "Stars and complete graphs; follow-up includes variation inequalities."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2005.03146 and https://arxiv.org/pdf/2011.02630",
+          "material_read": "Part I p.5, offsets 17068–19320; part II p.1",
+          "method": "Primary OA PDFs",
+          "title": "Sharp Inequalities for maximal operators on finite graphs, I and II",
+          "trigger": "Candidate exact strong ell² graph results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The first cubic balanced biclique is a natural highly symmetric strong-norm test beyond the four-cycle and unlike stars or complete graphs. Rigidity shows exactly when the class-constant lower test captures the nonlinear operator despite the global ball, supplying a useful exact comparison with the cubic cube. The balanced family gives a monotone lower comparison approaching sqrt(2), without claiming an unsupported upper bound. The finite certificate decides a well-motivated exact invariant, not an arbitrary enumeration.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

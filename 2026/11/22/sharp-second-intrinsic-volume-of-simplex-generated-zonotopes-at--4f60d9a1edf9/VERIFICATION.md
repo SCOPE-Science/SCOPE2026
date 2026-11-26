@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility checks
+# Independent mathematical audit
 
-The proof in `RESULT.md` is symbolic and holds for all permitted dimensions, including zero generators by continuity or the separate zero-weight case. Its only external mathematical input is the established sum-of-wedge-norms formula for zonotope intrinsic volumes.
+## correctness
 
-Run `python verify.py` with Python 3 and no external packages. The verifier performs an exact-fraction, nonregular configuration check, exact regular-simplex Gram/equality checks through dimension twelve, and 900 seeded floating-point checks across dimensions two through ten. It directly compares the weighted trace identity, the two nonnegative defects, and the full quantitative identity. Successful output begins `PASS:`.
+PASS
 
-Finite checks do not prove uniqueness or universal validity. The theorem's equality proof relies on a rank-one orthogonal-complement Gram matrix, not numerical extrapolation. No independent audit is claimed.
+For full-dimensional Z in dimension d≥3 represented by at most d+1 segments, use the Steiner-normalized area sum S=Σ a_i a_j sin θ_ij. Setting B=Σ w_ij sin²θ_ij, expansion gives A=A_*−Q/2 and B=B_*−E/2: tr(T²) includes the weighted squared inner products, and the diagonal terms cancel in L²−tr(T²). The angular weighted variance gives AB−S²=AH. Subtracting AB from A_*B_* gives the displayed identity and both nonnegative lower bounds, by writing the difference as A_*E/2+BQ/2 or B_*Q/2+AE/2. At equality Q=E=0, so all d+1 lengths are positive/equal, and the unit-direction Gram matrix is (d+1)/d times the orthogonal projection off a one-dimensional kernel. Its diagonal one forces all kernel magnitudes to be 1/√(d+1); column signs turn that kernel into the all-ones direction, and all signed off-diagonals equal −1/d. Conversely the simplex attains the bound. Sign changes just translate the zonotope. The checked zonotope convention gives mean width 2κ_(d−1)L/(dκ_d), so fixing L is equivalent to fixing mean width. RESULT.md lines 45–86 give an exact replay; verify.py is finite corroboration only and was not executed in the review.
+
+## originality
+
+PASS
+
+The distinct result is the sharp fixed-mean-width maximum allowing unequal generator lengths, plus an exact quantitative defect identity. No separate originality credit is given for the equilateral maximum, the wedge-area formula, or the characterization of a real unit-norm tight frame with d+1 columns as signed simplex directions.
+
+## value
+
+PASS
+
+This settles a concrete intermediate-index case of the fixed-mean-width problem when generator lengths are unrestricted. The equality and exact defect decomposition also distinguish geometric mechanisms of near equality: the squared deficit controls length dispersion and isotropy independently. The result does not extrapolate to higher intrinsic volumes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -32,7 +32,7 @@ so its ordinary and essential spectral radii are \(M_\mu\). No nonzero vector at
 
 ## Assumptions and scope
 
-The measure is positive and finite, is supported inside the open interval, and satisfies the finite reciprocal-square-root moment above. The matrix uses the \(t^k(1-t)^n\) convention of Bellavita–Chalmoukis–Daskalogiannis–Stylogiannis (2023). Reflection means the pushforward under \(t\mapsto1-t\). The assertion **does not** identify the complete Fredholm essential spectrum for arbitrary measures; it identifies a parameterized subset and a complete *reality-versus-nonreality* criterion. In the zero-measure case the trivial conclusions can be inserted separately.
+The measure is nonzero, positive and finite, is concentrated on the open interval, and satisfies the finite reciprocal-square-root moment above. The matrix uses the \(t^k(1-t)^n\) convention of Bellavita–Chalmoukis–Daskalogiannis–Stylogiannis (2023). Reflection means the pushforward under \(t\mapsto1-t\). The assertion **does not** identify the complete Fredholm essential spectrum for arbitrary measures; it identifies a parameterized subset and a complete *reality-versus-nonreality* criterion. For the zero measure, the spectral and norm identities hold for the zero operator, but norm nonattainment does not.
 
 ## Proof
 
@@ -56,7 +56,7 @@ Use the Paley–Wiener Laplace isometry (with a consistent Fourier normalization
  h\!\left(x+\ell_t\right),\qquad
 \ell_t=\log\frac{1-t}{t}.
 \]
-Thus \(\Gamma_\mu\) is unitarily equivalent to the Bochner integral \(A=\int_0^1A_t\,d\mu(t)\). The shift is unitary and the damping multiplier has supremum one; hence \(\|A_t\|=[t(1-t)]^{-1/2}\) and \(\|A\|\le M_\mu\).
+The shift is unitary and the damping multiplier has supremum one; hence \(\|A_t\|=[t(1-t)]^{-1/2}\). For each fixed \(h\), the map \(t\mapsto A_t h\) is continuous in \(L^2\) on \((0,1)\): translations are strongly continuous, and the multipliers converge strongly by dominated convergence on compact subintervals of \((0,1)\). Thus \(Ah=\int_0^1 A_t h\,d\mu(t)\) is a vector-valued Bochner integral with \(\|A\|\le M_\mu\); no Bochner integral in operator norm is needed. The polynomial matrix identities then show that \(\Gamma_\mu\) is unitarily equivalent to \(A\).
 
 **3. Explicit weakly null Fourier packets.** Fix \(\xi\in\mathbb R\). Let \(L_j=j\), \(R_j=j^2\), and set
 \[
@@ -78,7 +78,7 @@ Unitary conjugacy transfers the packets to disk \(H^2\). If \(A-\lambda I\) were
 
 ## Verification
 
-The standalone `check.py` verifies the Cayley transform and logarithmic scalar multiplier algebra symbolically, checks 192 exact rational matrix coefficients, and illustrates the controlled packet boundary and damping errors for a two-atom measure; it reports 199 passing checks. These finite calculations are auxiliary: the proofs for all indices, all finite positive measures and the full essential spectral inclusion are analytical and are given above. The power formulas and Fourier uniqueness require no numerical approximation.
+The standalone `check.py` checks the Cayley transform and logarithmic scalar multiplier algebra symbolically, compares 192 rational coefficients against a formal power series recurrence, and illustrates packet boundary and damping errors for a two-atom measure. These finite calculations are auxiliary: the proofs for all indices, all finite positive measures and the essential spectral inclusion are analytical and are given above. The power formulas and Fourier uniqueness require no numerical approximation.
 
 ## Relationship to prior work
 
@@ -86,7 +86,7 @@ Bellavita–Chalmoukis–Daskalogiannis–Stylogiannis (2023, Theorems 2–3 and
 
 ## Limitations
 
-No complete description of \(\sigma_{\mathrm{ess},F}(\Gamma_\mu)\) for arbitrary \(\mu\) is asserted. The Fourier curve can be a proper subset: for a single atom at \(t=1/2\), the operator is unitarily equivalent to multiplication by \(2e^{-2e^x}\), whose essential spectrum is \([0,2]\), whereas the Fourier curve consists only of \(2\). The result assumes positivity and the finite critical moment; it does not cover arbitrary signed/complex measures or higher Hardy exponents. The coefficient normalization, support conditions, and Fredholm definition are essential to the statement. Independent mathematical validation has not been performed.
+No complete description of \(\sigma_{\mathrm{ess},F}(\Gamma_\mu)\) for arbitrary \(\mu\) is asserted. The Fourier curve can be a proper subset: for a unit atom at \(t=1/2\), the operator is unitarily equivalent to multiplication by \(2e^{-2e^x}\), whose essential spectrum is \([0,2]\), whereas the Fourier curve consists only of \(2\). The result assumes positivity and the finite critical moment; it does not cover arbitrary signed/complex measures or higher Hardy exponents. The coefficient normalization, support conditions, and Fredholm definition are essential to the statement.
 
 ## References
 

@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact object and quantifiers are specified in `RESULT.md`. The published limit law yields independent two-ray wedge variables. Their small-ball coefficients are derived by localizing one exponential coordinate, with the two-coordinate overlap of smaller order. The exact exponential upper and lower bounds determine the large-tail decay, and elementary convexity and fixed polygon angle sum give the strict crossing. The standalone numerical program independently evaluates the wedge event. Risks: no uniform thresholds in the polygon parameter are claimed; the source limit theorem is used, not independently re-proved.
+## correctness
 
-## Originality — PASS, with stated historical risk
-The closest stronger source is Prochno, Schütt, Sonnleitner and Werner (arXiv:2404.02870v1; DOI:10.1007/s00208-025-03186-7), which establishes the full underlying limiting CDF. This distribution and Poisson argument are acknowledged rather than claimed. Its inspected theorem/proof/corollaries do not state the sharp small-error coefficient, exact least-angle tail rate, or the universal reversal versus the equiangular reference. Producing those claims requires additional geometric bounds and strict Jensen analysis; they are not numerical substitutions into a table. The related indexed regular-polygon Gumbel claim concerns growing polygon complexity rather than comparison over every fixed non-equiangular polygon. Full access to that indexed claim was unavailable; no historical priority guarantee is asserted.
+PASS
 
-## Mathematical value — PASS
-The theorem identifies a natural universal absence of stochastic ordering: the regular polygon is strictly worse for sufficiently rare extremely accurate boundary approximations but strictly better at suppressing extremely poor approximations. The exact small-ball signature and sharp tail exponent quantify the tradeoff and permit recovery of the smallest interior angle from the limiting error law. The observation applies to every non-equiangular convex polygon with at least four genuine vertices and is not a calculation for an arbitrarily selected example.
+The cited product CDF is equation (8) in the proof of Theorem 1 with perimeter one; rescaling the polygon gives n d_H/P. In a Poisson wedge let x,y be the first distances on its rays. All convex combinations of ray points have coordinates a,b≥0 with a/x+b/y≥1 in the ray basis, so radial scaling to equality cannot increase distance; the first-point segment is itself in the hull. Its distance is at least min(x,y)cos(α/2) by projection on the bisector. At fixed x>0 the distance divided by y tends to 1 in the acute case (the y-endpoint is nearest for small y) and to sin α in the obtuse case (the perpendicular foot is inside); the perpendicular formula at π/2 also tends to 1. The event D≤t lies in the two small-coordinate strips; their overlap is O(t²), and dominated convergence after rescaling one coordinate by t gives the coefficient 2ℓ(α). For the tail the point with equal ray coefficients xy/(x+y) gives the upper distance bound (x+y)cos(α/2)/2. The exponential-minimum lower bound and gamma-sum upper bound agree on logarithmic rate. The polygon product takes the smallest of those rates. The flat part of log ℓ ends at π/2, after which it is strictly convex; nonconstant angles averaging at least π/2 cannot all be in the flat part, so strict Jensen applies, including at m=4. The least angle is strictly smaller than the regular angle, giving the opposite sign in the tail. These strict inequalities transfer to the converging finite-n CDFs at each fixed threshold, not uniformly in threshold or sample size.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Credit the fixed-polygon sharp endpoint laws and their strict all-non-equiangular comparison with the regular polygon, not the full limiting distribution or Poisson construction, which are already established. The inspected catalogue and primary comparisons supply either a prior premise or a different limit/statistic, not the joint endpoint-and-crossing conclusion.
+
+## value
+
+PASS
+
+The exact asymptotics explain why non-equiangular polygons are favored at small errors but disfavored in the extreme tail, ruling out either first-order stochastic dominance for every such polygon at fixed m. The tail identifies a geometric parameter, the smallest angle, whereas the lower-tail coefficient combines all angles. This is useful information not supplied by mean comparisons alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

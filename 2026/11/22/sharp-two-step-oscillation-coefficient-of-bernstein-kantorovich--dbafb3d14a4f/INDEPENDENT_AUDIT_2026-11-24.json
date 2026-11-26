@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:52:32.075724Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md:5–50, 52–127",
+        "VERIFICATION.md",
+        "verify_kantorovich.py (inspected, not executed)",
+        "Independent exact-rational evaluation of the endpoint integrals at n=1–6"
+      ],
+      "rationale": "For cell means in [0,1], the second iterate is the expectation under P_x=b_n(x)A, where the stochastic matrix A averages Bernstein basis functions on successive cells. The increasing ratios of binomial basis functions give nonnegative two-by-two minors for both the x-indexed kernel and the averaged matrix (integrate the same minors over ordered cells); Cauchy–Binet preserves the signs in P. Its positive entries give a single negative-to-positive crossing of P_y−P_x for x<y, so its TV is the maximum upper-tail difference. Those upper tails are nondecreasing in x by the same ordering, making x=0 and 1 extremal. At the endpoints A's first and last rows are reflections; comparing t^j(1−t)^(n−j) and its reflected power on the first cell puts the positive part of P_1−P_0 exactly at j>n/2. The cell indicator therefore attains the TV upper bound with essential oscillation one. One step has disjoint endpoint cells modulo null sets. On the relevant upper half, consecutive p_{n,j} have ratio ≤1/n, so the first central term gives the even deficit and twice the first above-center term gives the odd deficit, both up to relative O(1/n). Rescaling by t=u/(n+1), the beta-density weight (j+1)u^j has E(1−u)=1/(j+2); the remaining factor (1−u/(n+1))^(n−j) differs from exp(−(n−j)u/(n+1)) by relative O(1/n) uniformly, and its average is exp(−1/2)(1+O(1/n)). This verifies both leading constants and the logarithmic order. Independent rational integration reproduced the six listed values, including n=1.",
+      "residual_risks": [
+        "The finite-degree check supplements, but cannot certify, the continuum endpoint maximization or degree asymptotics; those were checked through the proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Czudek's primary PDF abstract states Λ-variation diminution for Bernstein and Kantorovich polynomials. The frozen comparison identifies eigenstructure, convergence of iterates on differentiable functions, and variation-norm approximation as the other cited conclusions."
+        ],
+        "reasoning": "Eigenvalues and convergence or variation bounds do not determine an exact finite-power norm on real L∞ modulo constants. Data on the different input regularities or output norms do not imply the second-iterate TV maximum.",
+        "searches": [
+          "Czudek arXiv:1609.00973 Theorem 2",
+          "Cooper–Waldron DOI 10.1006/jath.2000.3464 §7",
+          "Heilmann–Raşa DOI 10.1007/s11117-016-0441-1 Theorem 1 and Example 1",
+          "Kivinukk–Metsmägi DOI 10.3176/proc.2011.4.01 Theorems 1–2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary entries ff055fe1e2d7, 5c225d99bdea, d70327ec81c9",
+        "Czudek arXiv:1609.00973, PDF p. 1 (abstract)",
+        "RESULT.md:129–142"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known oscillation/variation framework supplies bounds and the TV method supplies a norm representation. The present coefficient requires the second-iterate ordered cell kernel, its endpoint crossing and asymptotic evaluation of the resulting upper-half tail."
+        ],
+        "reasoning": "Nonexpansiveness alone gives at most one, which is already attained for the first iterate. The reported Durrmeyer estimator does not give the explicit central binomial scale for this cell kernel; sharing an order argument does not give the resulting constants.",
+        "searches": [
+          "ff055fe1e2d7 endpoint beta-law TV",
+          "arXiv:1609.00973; Kantorovich iteration and variation references in RESULT.md:129–142"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "ff055fe1e2d7 gives a one-step Jacobi-weighted Bernstein–Durrmeyer endpoint beta-law TV formula. 5c225d99bdea gives a BV-to-L¹ mean-mixing claim for iterated Kantorovich operators; d70327ec81c9 addresses integrated BV approximation and jump locations."
+        ],
+        "reasoning": "TV of the two-step cell transition rows is the oscillation norm here. Durrmeyer beta-law weights are not the Kantorovich cell averages of Bernstein polynomials. Changing from BV-to-L¹ mixing or approximation to the oscillation seminorm is likewise not a reparametrization.",
+        "searches": [
+          "Resultary exact Bernstein–Kantorovich second-iterate oscillation/endpoint overlap and parity-asymptotic comparison",
+          "External literature search for two-step Bernstein–Kantorovich oscillation contraction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest inspected endpoint-TV formula in the catalogue uses a different kernel and an exponential rather than super-exponential deficit. The frozen comparison provides six exact degrees only as examples."
+        ],
+        "reasoning": "A matching small-degree sequence would not by itself establish equality of the Markov norms for every n or the sharp parity-resolved tail asymptotics; no prior covering table was identified in the inspected results.",
+        "searches": [
+          "Resultary exact endpoint overlap/parity formula comparison, including ff055fe1e2d7"
+        ]
+      },
+      "rationale": "Endpoint TV and total positivity are shared techniques, not new principles. The supported distinct result is the exact endpoint overlap for the second iterate of the classical Kantorovich kernel with its parity-dependent, super-exponential deficit. The strongest catalogue and published matches inspected do not establish that specialization and asymptotic.",
+      "residual_risks": [
+        "The closest catalogue full text, Czudek's theorem passage and the cited eigenstructure and approximation passages could not be retrieved. The bounded comparison cannot rule out inaccessible or unindexed exact coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Closely related method, but different kernel, iterate count and degree scale in accessible statement",
+          "evidence": [
+            "Endpoint beta-law TV for Jacobi-weighted Bernstein–Durrmeyer, not the overlap of the reflected Kantorovich cell rows."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-sharp-oscillation-contraction-of-jacobi-weighted-bernstein-durrm--ff055fe1e2d7",
+          "material_read": "Indexed one-step endpoint beta-law formula and exponential deficit summary; local mirror unavailable and OA attempt timed out",
+          "method": "Resultary comparison and targeted retrieval attempt",
+          "title": "Sharp oscillation contraction of Jacobi-weighted Bernstein–Durrmeyer operators",
+          "trigger": "Sharp oscillation and exact endpoint TV statement"
+        },
+        {
+          "assessment": "States variation diminution, not a sharp two-step oscillation coefficient in the available passage",
+          "evidence": [
+            "The abstract identifies Λ-variation diminution for Bernstein and Kantorovich polynomials as the result."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1609.00973",
+          "material_read": "Primary PDF abstract, p. 1; Theorem 2 retrieval timed out; see also RESULT.md:131",
+          "method": "Targeted original-source inspection and passage retrieval attempt",
+          "title": "Bernstein and Kantorovich polynomials diminish the Λ-variation",
+          "trigger": "Variation contraction for the same family"
+        },
+        {
+          "assessment": "Related same-day record on a different norm; publication order not inferred",
+          "evidence": [
+            "BV-to-L¹ mean-mixing is not the claimed L∞/constants oscillation norm."
+          ],
+          "identifier_or_url": "5c225d99bdea",
+          "material_read": "Indexed statement identifying the BV-to-L¹ mean-mixing functional",
+          "method": "Resultary comparison",
+          "title": "Sharp BV-to-L¹ mean-mixing for iterated Bernstein–Kantorovich operators",
+          "trigger": "Same operator and multiple iterations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md:3–50, 96–123, 129–135"
+      ],
+      "rationale": "The first power shows no uniform oscillation contraction, whereas the second has a strictly positive deficit; the exact scale and even/odd constants quantify how weak that first uniform contraction becomes as degree grows. The formula and explicit extremizing input provide sharp information for Markov or approximation estimates that a qualitative mixing result cannot give.",
+      "residual_risks": [
+        "The result does not calculate higher-iterate norms or coefficients for other averaging kernels."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Finite proof verification
+# Independent mathematical audit
 
-Run `python3 verify_exhaustive.py` from the directory containing this file. The program builds all binary words at each length \(1\le n\le12\), partitions them under reverse complement, filters internally overlapping orbits, builds their pairwise compatibility graph, and uses an exact tie-preserving maximal-clique recursion to report both maximum weight and number of maximizing cliques. For every maximal-weight witness it can extract, it checks reverse-complement closure and all proper prefix–suffix comparisons word-by-word.
+## correctness
 
-Independently compile and run `g++ -O3 -std=c++17 verify_independent.cpp -o verifier && ./verifier`. This implementation uses integer-bit encoding and pivoted Bron–Kerbosch enumeration, unlike the first program's direct string comparisons and nonpivot enumeration. Their outputs agree at every tested length; at \(n=12\), each returns maximum \(42\) and exactly \(1134\) maximizing codebooks. The C++ implementation processes \(80\) valid orbit vertices and visits \(2048\) recursion nodes; Python visits \(5,210,780\) nodes. These node counts are implementation-specific, not external scientific results.
+PASS
 
-The explicit length-\(12\) list in `RESULT.md` consists of \(42\) distinct binary words; direct tests confirm closure under reverse complement and no proper prefix/suffix overlaps between any ordered pair. The code-to-clique bijection together with complete finite maximal-clique enumeration proves the stated closed finite range, including all optimizer counts, not an infinite extrapolation. No external independent audit or publication-priority certification has been performed.
+Closure means choosing whole reverse-complement orbits. Testing every ordered overlap within an orbit and between compatible orbits gives a bijection between admissible literal codebooks and cliques, with codebook cardinality equal to the sum of orbit sizes. Positive weights imply every maximizer is inclusion-maximal. The independently written integer enumeration retained all ties and returned M=(2,1,0,1,0,2,0,5,2,14,10,42), T=(1,2,1,2,1,2,1,2,4,6,96,1134) for n=1,...,12. The empty clique counts once when there are no eligible orbits, and n=1 has no proper nonempty overlap. All 1134 length-12 optima have 16 pairs; weight 42 then forces 10 fixed words. Separately, direct checks of the displayed length-12 witness found 42 distinct binary words, closure, 10 fixed words, and zero prohibited matches in 19404 ordered prefix/suffix comparisons.
+
+## originality
+
+PASS
+
+To the extent supported by inspected evidence, the distinct result is the exact weighted capacity and labeled equality-case census through length 12, including the length-12 composition. Nonempty feasibility and asymptotic rate are credited to the known strand-closed binary result, and ordinary non-overlap bounds and constructions are background. No inspected result supplies the claimed joint census by specialization.
+
+## value
+
+PASS
+
+Short block lengths matter for synchronization under explicit two-orientation closure. The census gives exact achievable cardinality where asymptotic rate does not help, a concrete drop from 14 to 10 when length goes from 10 to 11, and an equality-case constraint shared by all 1134 optima at length 12. These are useful benchmarks for constructions and for explaining the role of fixed versus paired words, not just another witness to known existence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

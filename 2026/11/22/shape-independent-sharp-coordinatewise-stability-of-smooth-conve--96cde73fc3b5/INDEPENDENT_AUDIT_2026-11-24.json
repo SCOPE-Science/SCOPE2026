@@ -1,0 +1,160 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:50:40.639386Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 3–60; VERIFICATION.md; verify.py, including the separate weighted norm formulas and tangent tests"
+      ],
+      "rationale": "For v=x−y and u=P_C(x)−P_C(y), the two nearest-point inequalities give ⟨u,v−u⟩≥0, hence ||2u−v||₂≤||v||₂. Writing u=(v+(2u−v))/2 and using the sharp comparisons between Euclidean and weighted coordinate norms gives each stated universal upper bound. A direct sharpness check in dimension at least two is to take a minimum-weight coordinate i, R=||w||₂, and the reflection in the hyperplane normal to w/R−e_i. It interchanges the unit vectors w/R and e_i. Averaging the reflection with the identity gives that hyperplane's projector, attaining the upper ratio on v=w in the maximum norm and v=e_i/w_i in the sum norm. For any compact full-dimensional C¹ body the support maximum in that direction provides a point with the requisite unique normal. Its rescaled body converges locally to the supporting halfspace by the first-order boundary graph; bounded nearest points converge by testing against approximants to points in the limit halfspace. Taking the two test offsets on the exterior side by a common normal translation transfers the hyperplane ratios to limiting body secants. Strict convexity strictly separates nonidentical projected points from each other's nonzero supporting normals, so with a nonzero residual the Euclidean ball inequality is strict; the other quotients are one (both inputs inside) or zero (coincident projected points). On a full-dimensional box coordinatewise clamping has exact coefficient one. The positive distance level of a box is C¹,¹, since its squared-distance function has Lipschitz gradient and nonzero gradient on that level. The rounded boxes converge at Hausdorff distance ε. The discontinuity and strict difference L_w>1 apply in dimensions n≥2; at n=1 intervals have coefficient one as stated in the scope.",
+      "residual_risks": [
+        "The argument is analytic; the floating-point verifier was only inspected. Equality for nonsmooth bodies in general is not claimed. The discontinuity example is not a one-dimensional claim."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Leobacher–Steinicke compute the tangent projection derivative on a C² submanifold. Bednarczuk–Rutkowski give local Hilbert-norm stability for parametrized polyhedral sets under regularity assumptions. Pathak studies Lp(μ) bounds on the magnitude of a randomly sampled projection."
+        ],
+        "reasoning": "The tangent derivative is genuine antecedent machinery and a route to the C² lower bound, but does not assert the C¹ convex-body halfspace limit or the global weighted two-point inequality. The other results differ in either norm, object, or the secant objective.",
+        "searches": [
+          "DOI 10.1007/s10455-021-09788-z Theorem C; DOI 10.1007/s00245-020-09706-y Theorem 7; arXiv:2607.05117 abstract and §1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 78696bf157c3, 0d0ca88a0040, a3fe218df88d",
+        "arXiv:1908.08742, 2607.05117; DOIs 10.1007/s10455-021-09788-z and 10.1007/s00245-020-09706-y",
+        "DOIs 10.1134/S0001434624010152 and 10.1155/S1085337503204103 (access limitations)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The ball proof determines a worst tangent normal; a general compact C¹ body's equality additionally requires attaining that support normal and transferring a two-input exterior-halfspace secant there. For a rounded box the target has the exact weighted modulus L_w all along the approximation; the ball–cube formula concerns a nonsmooth family and a different limiting value."
+        ],
+        "reasoning": "The antecedents supply standard or specialized ingredients. They do not subsume the full all-body equality, the finite-secant nonattainment claim, or the sharp rounded-box consequence in both weighted norms. The separate Euclidean firm-nonexpansivity upper bound itself uses a standard inequality.",
+        "searches": [
+          "Compare 78696bf157c3 Finding and Proof §§1–3, 0d0ca88a0040 Finding, and Leobacher–Steinicke Theorem C"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "78696bf157c3 exactly matches both weighted formulas for the ball. Weighted maximum and weighted sum norms are dual; the tangent hyperplane projector is symmetric. Balestro–Martini–Teixeira discuss Euclidean contraction and changing the projection metric."
+        ],
+        "reasoning": "The target keeps Euclidean projection and changes the norm of its secants. Norm duality transfers the tangent-operator equality, not by itself equality for all nonlinear projectors. A different metric's projection or a ball-only computation is not equivalent to this general body law.",
+        "searches": [
+          "Resultary sharp weighted coordinate sensitivity, dual norms, Euclidean ball clipping and smooth convex projection",
+          "Euclidean metric projection onto smooth convex body sharp Lipschitz constant infinity norm (1+sqrt n)/2 all convex bodies weighted coordinate maximum norm"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "78696bf157c3 has exactly the same coefficient for a ball and excludes arbitrary convex bodies. Same-day 0d0ca88a0040 has a jump from limiting value 2−2/n to one for unweighted maximum sensitivity of ball–cube intersections at the cube, for n≥3. Same-day a3fe218df88d gives an active-face formula for a weighted ℓ1 epigraph."
+        ],
+        "reasoning": "The ball formula and qualitative unweighted discontinuity are already present in these scoped settings. None is a catalogue formula for every C¹ body and both dual weighted norms, or for the specific smooth approximation with the universal coefficient.",
+        "searches": [
+          "Resultary exact formula for Euclidean ball clipping; rounded-box and smooth-body projection modulus"
+        ]
+      },
+      "rationale": "The ball precedent already gives the exact weighted factor and optimal directions, and a distinct same-day record also produces a qualitative unweighted Hausdorff discontinuity. Credit those overlaps. The surviving result is exact equality for every full-dimensional compact C¹ convex body in both dual weighted norms, the strict-convexity nonattainment statement in that class, and the sharp smooth-to-box realization of the discontinuity. The primary sources provide Euclidean estimates, coarse or distributional notions of stability, or local tangent regularity, not that quantified sharp statement.",
+      "residual_risks": [
+        "Goebel and the strong-convexity supporting-condition article were not available in full in the checks performed. An equivalent earlier operator-norm formulation is not excluded. The same-day results were compared on substance, not ordered by their dates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct overlap for balls; not the general theorem",
+          "evidence": "Both norm coefficients for the Euclidean ball and the limiting maximizer calculation.",
+          "identifier_or_url": "Resultary 2026/10/11/78696bf157c3",
+          "material_read": "RESULT.md Finding, Proof §§1–3 and scope",
+          "method": "Local published-finding mirror",
+          "title": "Sharp weighted coordinate sensitivity of Euclidean-ball clipping",
+          "trigger": "Identical factor and weights"
+        },
+        {
+          "assessment": "Qualitative overlap for the unweighted maximum norm; different and nonsmooth family",
+          "evidence": "For n≥3 the modulus tends to 2−2/n below the terminal radius, where it equals one.",
+          "identifier_or_url": "Resultary 2026/11/22/0d0ca88a0040",
+          "material_read": "RESULT.md Finding and Assumptions, starting at offset 0",
+          "method": "Local published-finding mirror",
+          "title": "Sharp coordinatewise stability of Euclidean projections onto ball–cube intersections",
+          "trigger": "Same-day projection modulus jump at a box"
+        },
+        {
+          "assessment": "Different object and norm comparison",
+          "evidence": "Weighted ℓ1 epigraph with unweighted coordinate maximum norm.",
+          "identifier_or_url": "Resultary 2026/11/22/a3fe218df88d",
+          "material_read": "Finding and active-face scope",
+          "method": "Local published-finding mirror",
+          "title": "Sharp endpoint stability and a golden-ratio phase transition",
+          "trigger": "Sharp coordinatewise projection modulus for another shape"
+        },
+        {
+          "assessment": "Euclidean contraction and a different generalization",
+          "evidence": "Contraction in Euclidean norm; changing the metric used to define nearest points is a separate question.",
+          "identifier_or_url": "https://arxiv.org/abs/1908.08742",
+          "material_read": "§1, p. 1, item (ii)",
+          "method": "Open primary PDF",
+          "title": "Convex analysis in normed spaces and metric projections onto convex bodies",
+          "trigger": "General body metric-projection theory"
+        },
+        {
+          "assessment": "Relevant C² local theorem, not the global C¹ claim",
+          "evidence": "On the manifold the projection derivative is the orthogonal tangent-space projector; off it the shape operator enters.",
+          "identifier_or_url": "https://doi.org/10.1007/s10455-021-09788-z",
+          "material_read": "Theorem C, printed p. 561",
+          "method": "Open primary PDF",
+          "title": "Existence, uniqueness and regularity of the projection onto differentiable manifolds",
+          "trigger": "Could supply the tangent lower bound"
+        },
+        {
+          "assessment": "Different stability problem",
+          "evidence": "Local Hilbert-space Lipschitz stability with varying parameters under polyhedral regularity.",
+          "identifier_or_url": "https://doi.org/10.1007/s00245-020-09706-y",
+          "material_read": "Theorem 7, p. 2168",
+          "method": "Open primary PDF",
+          "title": "On Lipschitz Continuity of Projections onto Polyhedral Moving Sets",
+          "trigger": "Potential broader sharp projection continuity result"
+        },
+        {
+          "assessment": "Distributional projection estimates, not weighted input-output moduli",
+          "evidence": "Lq(μ) versus Lp(μ) of the Euclidean length of the projected random point.",
+          "identifier_or_url": "https://arxiv.org/pdf/2607.05117",
+          "material_read": "Abstract and §1 opening and §1.1, pp. 1–2",
+          "method": "Open primary PDF",
+          "title": "On the metric projection onto a convex set: reverse Hölder inequalities and upper bounds",
+          "trigger": "Targeted literature search suggested optimal projection norms on closed convex sets"
+        },
+        {
+          "assessment": "Abstract describes an almost-everywhere strict contraction property; no whole-text exclusion",
+          "evidence": "The reported local Lipschitz constant is strictly less than one in a specified almost-everywhere sense.",
+          "identifier_or_url": "https://doi.org/10.1134/S0001434624010152",
+          "material_read": "Indexed abstract only; no primary text",
+          "method": "Targeted primary lookup; direct and alternate OA routing did not retrieve the article",
+          "title": "The Strong Convexity Supporting Condition and the Lipschitz Constant of the Metric Projection",
+          "trigger": "Title and abstract suggest sharp convex-set projection stability"
+        },
+        {
+          "assessment": "No primary-text exclusion",
+          "evidence": "The ball record characterizes it as radial projection in the norm defining the ball; that characterization was not independently confirmed from the primary text.",
+          "identifier_or_url": "https://doi.org/10.1155/S1085337503204103",
+          "material_read": "Citation in the prior finding; primary text unavailable",
+          "method": "Lawful direct and alternate OA retrieval attempts",
+          "title": "Goebel radial-projection reference cited in the ball-clipping finding",
+          "trigger": "Possible older norm comparison for ball clipping"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 9–17 and 36–60; comparison to 78696bf157c3 and 0d0ca88a0040"
+      ],
+      "rationale": "The result identifies an exact global worst-case stability coefficient for a broad body class from only the weights, not curvature or orientation. The strict-versus-limiting attainment distinction and the explicit smooth approximations to a clamping projector explain where this equality is seen and where it is lost. This goes beyond the earlier single-ball computation or a qualitative single-family discontinuity.",
+      "residual_risks": [
+        "No classification of finite attaining pairs for nonstrictly convex bodies or formula for arbitrary nonsmooth bodies is provided."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

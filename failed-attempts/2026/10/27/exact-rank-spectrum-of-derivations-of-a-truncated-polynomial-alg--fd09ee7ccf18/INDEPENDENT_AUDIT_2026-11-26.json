@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:05:43.579422Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In RESULT.md, admissible f=D(x) are exactly those with m x^(m−1) f=0: the rule f times formal differentiation descends precisely under this condition. For a nonzero f of valuation s, D(x^i)=i x^(i−1)f has leading degree s+i−1 for 1≤i≤m−s with p not dividing i. These nonzero columns have distinct leading degrees and hence are independent; all other columns vanish. The extra endpoint i=m when s=0 contributes nothing because p divides m in that case. The leading coefficient has q−1 choices and the m−s−1 trailing coefficients have q choices each. This proves the polynomial over every F_q and clarifies that the coefficient for t counts the stratum of valuation m−t, not the total coefficient of a repeated rank. The supplied verify_derivation_rank.py was read, not run; its scope is prime fields and the algebraic argument does not rely on those runs.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2026-10-25 Resultary result 0ca161a05327 gives characteristic-two rank counts on D²=0 for both parities of m. The 2026-11-08 result 11dd6f7a5eef treats D^(2^e)=0 in characteristic two."
+        ],
+        "reasoning": "These are genuine intersections, not dominating parameter ranges: nilpotence restrictions exclude, for example, x times differentiation. Jelisiejew's orbit classification in Proposition 2.14 treats a different invariant.",
+        "searches": [
+          "Resultary: square-zero and higher restricted nilpotence rank strata",
+          "arXiv:1511.08007, §§2.2–2.3"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1511.08007, §§2.2–2.3",
+        "Resultary 0ca161a05327",
+        "Resultary 0a31c6fc6432",
+        "Resultary 11dd6f7a5eef"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The dual formula expresses how coefficients act; it does not assert a rank formula by valuation. The canonical type count is dominating information only when m=p; the square-zero count supplies only part of the coefficient at a given rank."
+        ],
+        "reasoning": "No earlier general count verified here specializes to all m. Deriving the histogram from elementary monomial calculus remains routine, as assessed separately under value.",
+        "searches": [
+          "arXiv:1511.08007, Propositions 2.10 and 2.14",
+          "Resultary 0ca161a05327 and 0a31c6fc6432, Finding and Proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Rank and kernel dimension determine each other for these m-dimensional endomorphisms. Jelisiejew's Proposition 2.10 gives the dual action of a power-series derivation, not a kernel-dimension or rank histogram for this finite quotient."
+        ],
+        "reasoning": "Neither dualization nor exchanging rank and nullity makes the power-series or tangent-space statement an unrestricted histogram theorem.",
+        "searches": [
+          "Resultary: truncated polynomial algebra derivations, rank distributions and Witt operators",
+          "arXiv:1511.08007, §2.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 2026-11-22 catalog result 0a31c6fc6432 gives rational canonical type counts on F_q[x]/(x^p) for odd prime p."
+        ],
+        "reasoning": "Grouping those type counts by rank gives the special case m=p, but the catalog entry is later and does not treat arbitrary m. The earlier exact square-zero counts do not recover the full table.",
+        "searches": [
+          "Resultary: exact rank spectrum and rational canonical forms for one-variable Witt operators"
+        ]
+      },
+      "rationale": "No earlier statement or stronger enumeration covering the complete unrestricted all-m rank histogram was verified. The standard description of derivations is not claimed to be new; the explicit histogram is an elementary refinement. This limited finding on coverage is not a finding of substantive value or a certification of priority.",
+      "residual_risks": [
+        "No usable direct match from the bounded additional primary-literature search. An unindexed exercise, table, or explicit count in the characteristic-p vector-field literature may overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides structural background, not an unrestricted rank histogram",
+          "evidence": [
+            "Prop. 2.10: D^vee(f)=sum_i x_i (D_i contracted with f), with D_i=D(alpha_i). Prop. 2.14 compares automorphism-group orbits."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1511.08007",
+          "material_read": "§§2.2–2.3, Propositions 2.10 and 2.14, PDF pp. 7–8",
+          "method": "Compare the dual action and isomorphism criterion to the actual finite-quotient operator being counted",
+          "title": "Classifying local Artinian Gorenstein algebras",
+          "trigger": "Derivations and dual maps for local Artinian algebras"
+        },
+        {
+          "assessment": "Restricted count; not the claimed unrestricted count",
+          "evidence": [
+            "D²=0 in characteristic two; both even and odd truncation lengths are handled."
+          ],
+          "identifier_or_url": "Resultary 2026/10/25, 0ca161a05327",
+          "material_read": "RESULT.md, Finding and Proof, through offset 4181",
+          "method": "Compare allowed derivations, characteristic and truncation lengths",
+          "title": "Parity-stable rank varieties of square-zero derivations of truncated polynomial algebras",
+          "trigger": "Earlier exact rank count for the same algebra"
+        },
+        {
+          "assessment": "Covers m=p for odd p, and is cataloged later",
+          "evidence": [
+            "All rational canonical types on F_q[x]/(x^p) are enumerated for p odd."
+          ],
+          "identifier_or_url": "Resultary 2026/11/22, 0a31c6fc6432",
+          "material_read": "RESULT.md, Finding and Proof, through offset 5124",
+          "method": "Compare lengths and group types by their zero-eigenvalue blocks",
+          "title": "Complete rational canonical spectra of finite one-variable Witt derivations",
+          "trigger": "Finer invariant from which rank is recoverable"
+        },
+        {
+          "assessment": "Restricted, later result",
+          "evidence": [
+            "Counts characteristic-two ranks under D^(2^e)=0."
+          ],
+          "identifier_or_url": "Resultary 2026/11/08, 11dd6f7a5eef",
+          "material_read": "RESULT.md, Finding, through offset 3964",
+          "method": "Compare nilpotence constraints",
+          "title": "Higher restricted-nilpotence strata of truncated polynomial derivations",
+          "trigger": "Related more general restricted counts"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The object is natural, but the entire invariant is obtained by a routine leading-term calculation on the monomial columns of f times differentiation and the elementary count of coefficient strings in a valuation stratum. The divisibility boundary and adjacent rank collisions are immediate from the same calculation. Reinterpreting rank as the codimension of the kernel adds no mathematical problem, and the record supplies no concrete use or gap that makes this routine deduction a substantive contribution. The related square-zero and canonical-type problems involve additional constraints not solved here. No genuinely valuable surviving repair was identified.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

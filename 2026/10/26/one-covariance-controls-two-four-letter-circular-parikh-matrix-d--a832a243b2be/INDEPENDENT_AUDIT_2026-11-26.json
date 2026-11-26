@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:04:19.160825Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In RESULT.md lines 35–62, set N=P(u)−I for a uniformly rotated u. Any strictly increasing matrix path with k≥3 steps has at most one jump of length ≥2, since the total distance is at most four; length-one factors are fixed counts. The only path with two varying factors is 1→3→5 in N², giving precisely Cov(|u|_ab,|u|_cd). The rotations of w^p repeat the powers of all positional rotations equally. Linear Parikh matrices are products of elementary I+E_(i,i+1); alternating diagonal conjugation sends each generator to its inverse, so reversal gives the inverse product. Expanding (I+N)^p and (I+N)^−1 leaves exactly the same quadratic residual with coefficients binomial(p,2) and 1 respectively. For the block check, normalized X on cuts in a and b is 1−j/A and j/B for zero-based cut offsets j, and likewise Y on c and d. In abcd either Y=1 on a,b or X=1 on c,d; in acbd the normalized product sums only on a and d, giving (A+D)/2. Their centered moments give the two representatives in the table. Complementing either pair by swapping its letters negates its covariance and reaches all orders with relabelled sizes. For unit block lengths the six cyclic classes each have four distinct rotations, so all three asserted multiplicities follow. Positional duplicates and absent letters cause no extra terms. VERIFICATION.md and checker.py report finite exact rational checks; the uploaded checker was not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general power source computes powers of a fixed upper-triangular matrix; the circular paper's identity is restricted by alphabet size."
+        ],
+        "reasoning": "Neither is an all-alphabet formula for the discrepancy after rotation averaging or for simultaneous inverse/power vanishing.",
+        "searches": [
+          "arXiv:1808.04102v1 Theorem 3.1",
+          "arXiv:2110.14858v1 Propositions 4.7 and 4.9"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2110.14858v1 §4",
+        "arXiv:1808.04102v1 Theorem 3.1",
+        "Resultary local mirror 0b67a9f3e612"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General matrix powers and the linear inverse/reversal identity are ingredients. One must still isolate the surviving fluctuation product under averaging and compute the joint law by block order. The known binary single-count variance cannot specify that joint law."
+        ],
+        "reasoning": "No stronger inspected result gives the simultaneous defect or its exhaustive zero classification by specializing its hypotheses.",
+        "searches": [
+          "arXiv:1808.04102v1 Theorem 3.1",
+          "arXiv:2110.14858v1 §4",
+          "Resultary 0b67a9f3e612 Finding and Assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Propositions 4.7 and 4.9 of arXiv:2110.14858v1 use the same rotation-mean object but treat alphabet size ≤3. Example 4.10 exhibits both four-letter failures at [abcd] without an all-word equivalence.",
+          "The binary rotation-dispersion result 0b67a9f3e612 averages the same kind of positional rotation but concerns a single scattered count's variance."
+        ],
+        "reasoning": "Equality of the averaging convention does not bridge from a ternary identity or a binary variance to the cross-covariance for disjoint pairs in four letters.",
+        "searches": [
+          "Resultary: circular Parikh matrix covariance, inverse/reversal and power defects",
+          "arXiv:2110.14858v1 §4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published Example 4.10 gives top-right square-power difference 2−33/16 and reversal/inverse difference 0−1/16 for [abcd], matching κ=−1/16 for that sole case.",
+          "The inspected binary mirror has sharp single-count variance bounds but no six-order four-block table."
+        ],
+        "reasoning": "The exact example should be credited; it neither enumerates all permutations nor supplies the factorizations for arbitrary positive multiplicities.",
+        "searches": [
+          "Resultary: four-letter joint circular Parikh covariance and block-order signs",
+          "arXiv:2110.14858v1 Example 4.10"
+        ]
+      },
+      "rationale": "The primary paper supplies the framework, ternary identities and one four-letter failure. The common exact covariance with its all-word equivalence and the exhaustive block family are distinct from those results in the inspected sources.",
+      "residual_risks": [
+        "Targeted search cannot rule out an unindexed equivalent covariance identity or block-order calculation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct background and exact special case, not the general defect",
+          "evidence": [
+            "Alphabet size ≤3 in the identity statements; top-right failure in both matrices for [abcd]."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2110.14858v1",
+          "material_read": "Section 4, Propositions 4.7 and 4.9 and Example 4.10, pp. 10–11, including text offset 30600",
+          "method": "Located and read OA PDF passages",
+          "title": "Counting Subwords in Circular Words and Their Parikh Matrices",
+          "trigger": "Original circular Parikh reversal and power laws"
+        },
+        {
+          "assessment": "Linear word ingredients rather than a circular defect theorem",
+          "evidence": [
+            "Powers of upper-triangular matrices without rotation averaging."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1808.04102v1",
+          "material_read": "Theorem 3.1 p. 3, text offset 11000",
+          "method": "OA PDF passage",
+          "title": "Parikh Matrices for Powers of Words",
+          "trigger": "Potential all-length power formula"
+        },
+        {
+          "assessment": "Does not cover four-letter defects",
+          "evidence": [
+            "Exact variance bounds for scattered 01 counts at fixed binary content; no higher alphabet or joint second moment."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-sharp-rotation-dispersion-bounds-for-binary-circular-parikh-coun--0b67a9f3e612/RESULT.md",
+          "material_read": "Finding and assumptions, offset 0",
+          "method": "Local mirror full-text excerpt",
+          "title": "Sharp rotation-dispersion bounds for binary circular Parikh counts",
+          "trigger": "Closest indexed rotation second-moment result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This resolves the first alphabet size where the published circular laws fail: one scalar decides both identities for every word and power, including positive, negative and vanishing examples on a complete natural family. It turns two known failures into an exact criterion, not merely another counterexample or re-evaluation of [abcd].",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

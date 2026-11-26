@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:01:41.635412Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md:5–59",
+        "VERIFICATION.md",
+        "verify_cubic_fibers.py:40–74"
+      ],
+      "rationale": "Irreducibility makes A and A+I invertible. A square-zero summand has rank at most one and trace zero. A tripotent in characteristic two has eigenvalues 0,1, with a semisimple zero-primary part. Trace must be 0 or 1. With trace 1, multiplicity one for eigenvalue 1 gives rank(T)=1, impossible by rank(A)=3; multiplicity three gives T²=I, so T+I square-zero and rank(A+I)≤2, again impossible. With trace zero the identically zero primary case would give T=0, so the only target characteristic polynomial is X³+X, and this polynomial also suffices. For N=uv, square-zero is equivalent to v(u)=0. Expanding the rank-one determinant update with adj(XI−A)=X²I+XA+A²+bI gives the two other values v(Au)=b+1 and v(A²u)=c. Every nonzero u is cyclic; c≠0 ensures rank one. Scaling u cancels in uv and image lines recover the parametrization. The finite field centralizer is the multiplicative group of F_(q³), whose line stabilizers are the scalars; equivariance gives the asserted simple transitivity. The frozen checker and its finite scope were inspected, not executed. Its candidate totals also follow from (q²+q+1)(q²−1) per irreducible companion.",
+      "residual_risks": [
+        "No claim about reducible cubics or additional scheme structure is verified; the arithmetic checker was not an independent all-field proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Remark 2.1 allows any monic equal-trace target in any dimension for a nonderogatory matrix; its explicit algorithm, not merely the quantifier in the statement, is decisive in degree three.",
+          "Corollary 3.4 already gives the exact F2 existence predicate; Corollary 3.2 over all characteristic-two fields applies to X³+X²+λ, not directly to every nonzero trace cubic.",
+          "The diagonalizable-plus-square-zero paper addresses a different summand identity."
+        ],
+        "reasoning": "The general companion rule covers the asserted nonempty fibers by transposition; the directly prior binary obstruction is narrower, and the remaining general trace check needs only rank and the two possible multiplicities of the 1-primary part.",
+        "searches": [
+          "Danchev et al. arXiv:2403.15138v1, Remark 2.1",
+          "Phuc–Danchev arXiv:2611.24594v1, Theorem 3.1 and Corollaries 3.2, 3.4",
+          "Danchev et al. arXiv:2604.15286v1 abstract"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2403.15138v1",
+        "arXiv:2611.24594v1",
+        "arXiv:2604.15286v1 abstract",
+        "Resultary b1474f5803cc, 71d12e506077, 12297e2c3fe8",
+        "RESULT.md:31–59"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At each prescribed line, the transpose of the frozen perturbation is (c,b+1,0) in the last column, exactly the 2024 coefficient-replacement rule; there can be no other last column for the same monic target.",
+          "Equivariance and the regular action after quotient by scalars are the ordinary action of the multiplicative group of the cubic field on its one-dimensional base-field subspaces."
+        ],
+        "reasoning": "No new enumeration or classification step remains once the explicit general rule is specialized in the cyclic dual basis. The novel-looking formula is not independent of the known construction, and the count is the number of lines of a three-dimensional vector space.",
+        "searches": [
+          "arXiv:2403.15138v1, companion matrix display and perturbation display in Remark 2.1",
+          "RESULT.md:43–59, image-line formula and finite centralizer"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Remark 2.1 explicitly changes only the last column of a companion matrix, preserving its last entry for equal trace.",
+          "Every image-line rank-one perturbation becomes exactly such a last-column perturbation in the appropriate cyclic basis of A^t."
+        ],
+        "reasoning": "This transpose reformulation is equivalent at each line, not just an existence analogy; arbitrary line and uniqueness are checked by the cyclic-dual basis and the companion polynomial coefficients.",
+        "searches": [
+          "Resultary: rank-one square-zero perturbations, tripotent decomposition fibers for cubic companion matrices",
+          "arXiv:2403.15138v1, Remark 2.1 p. 3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "b1474f5803cc counts the same operation over all M4(F2); 71d12e506077 concerns a different operation for M3(F2); 12297e2c3fe8 concerns rank-one idempotent/nilpotent cubic fibers.",
+          "The assigned record itself is the index hit at the exact stated parameters."
+        ],
+        "reasoning": "No separate exact table with this projective presentation was established. A different operation in dimension three or a same-day spectrum in dimension four is not an exact match, and absence of a table does not undo implication from the earlier constructive rule.",
+        "searches": [
+          "Resultary: exact tripotent square-zero fiber spectra, rank-one cubic fibers, 3-by-3 binary boundary"
+        ]
+      },
+      "rationale": "The claimed added fiber classification, not merely existence, is mechanically implied by the explicit companion-column rule of Danchev–García–Gómez Lozano (2024), applied to the transpose with an arbitrary prescribed image line. To see this, choose φ in the dual with its values on (u,Au,A²u) equal to (0,0,1). In the cyclic basis (φ,A^tφ,(A^t)²φ) of the dual, the coordinates of evaluation at u are (0,0,1). Therefore the transpose of every rank-one update with image Ku has only a last column in this basis; conversely every nonzero such column transposes to an update with that image. Squaring to zero forces the last entry of that column to vanish. Changing the companion polynomial to X³+X now determines each entry of the unique column by Remark 2.1 itself, namely (c,b+1,0). Transposing gives v=cφ+(b+1)A^tφ, whose values are exactly the frozen ones by a=0 and Cayley–Hamilton. Thus the projective fiber, count and equivariant regular centralizer action are direct specializations and standard line counting, not an uncovered exact invariant. The trace obstruction beyond the prior binary example is an elementary rank reduction, not an independent substantive remainder. This is a scientific coverage decision, not an access failure or a claim that the literature states the projective wording verbatim.",
+      "residual_risks": [
+        "No priority ordering inferred from a same-day Resultary sibling. The failure rests on a written mathematical implication from the 2024 primary proof, not on an assumed exact table."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Mechanically implies the projective fiber in the irreducible cubic case",
+          "evidence": [
+            "The only change is in a last column, with each entry the difference between the old and new coefficients; last diagonal entry is zero in the perturbation."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2403.15138v1",
+          "material_read": "p. 3, Remark 2.1 and the companion/perturbation matrix displays (offset 8500)",
+          "method": "Lawful OA primary PDF, exact construction inspected",
+          "title": "On prescribed characteristic polynomials",
+          "trigger": "Strongest general perturbation overlap"
+        },
+        {
+          "assessment": "Binary existence criterion overlaps; arbitrary-field obstruction is for the specified cubic form. V1 dated November 18, before the frozen record date November 22.",
+          "evidence": [
+            "Corollary 3.4 excludes exactly X³+X²+1 over F2; Corollary 3.2 assumes A³+A²+λI=0."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2611.24594v1",
+          "material_read": "Theorem 3.1 and Corollary 3.2, pp. 5–6 (offset 18000); Corollary 3.4, pp. 6–7 (offset 22795)",
+          "method": "Lawful OA primary PDF",
+          "title": "A cubic obstruction to sums of tripotent and square-zero matrices",
+          "trigger": "Exact decomposition operation with a cubic obstruction"
+        },
+        {
+          "assessment": "Different identities in the advertised results; not relied on for a whole-document negative assessment",
+          "evidence": [
+            "Advertises diagonalizable-plus-square-zero for fields with more than three elements and 4-potent-plus-square-zero over F2."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2604.15286v1",
+          "material_read": "Abstract, p. 1",
+          "method": "Lawful OA primary abstract",
+          "title": "Matrices over finite fields of characteristic 2 as sums of diagonalizable and square-zero matrices",
+          "trigger": "Related finite-field decomposition with square-zero summands"
+        },
+        {
+          "assessment": "Different dimension or summand conditions",
+          "evidence": [
+            "Same operation on M4(F2) has 25 positive levels; the cubic analogues use diagonalizable or idempotent summands."
+          ],
+          "identifier_or_url": "b1474f5803cc; 71d12e506077; 12297e2c3fe8",
+          "material_read": "Mirrored RESULT.md Findings at offset 0",
+          "method": "Local Resultary and mirrored texts",
+          "title": "Resultary neighboring cubic and tripotent fiber Findings",
+          "trigger": "Exact spectra of the same operation and cubic analogues"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md:3–29,31–59",
+        "arXiv:2403.15138v1, Remark 2.1",
+        "arXiv:2611.24594v1, Corollary 3.4"
+      ],
+      "rationale": "The decomposition question is natural and the formula useful as an illustration, but the proposed value is the exact fiber and Singer count for this slice. The old constructive companion rule already fixes every possible fiber member after transposition, and the count and orbit are ordinary projective-line-space facts. The trace obstruction outside F2 adds only the short rank observation forced by A and A+I being invertible. No nonmechanical classification or independently valuable uncovered remainder is established; a provenance or wording change would not repair that.",
+      "residual_risks": [
+        "This assessment is limited to the stated irreducible cubic fiber, not general tripotent decomposition problems."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

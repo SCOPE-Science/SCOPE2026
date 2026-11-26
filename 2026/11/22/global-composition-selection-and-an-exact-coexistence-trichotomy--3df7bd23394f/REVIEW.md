@@ -1,11 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The global scalar composition equation is obtained by direct cancellation of the matched basal-resource growth terms, not by linearization. Its monotonic Möbius response establishes the complete global frequency basin classification. The equilibrium formulas follow necessarily and sufficiently from three zero-growth identities. The full transformed Jacobian factors into an autonomous composition eigenvalue and a strictly Hurwitz two-dimensional block for \(E\ge a\). Exact symbolic differentiation and two rational Jacobian witnesses were checked by the included standalone program. The continuous neutral family was checked symbolically. None of these finite witnesses substitute for the all-parameter proof.
+## correctness
 
-**Originality — PASS within inspected literature, with priority limits.** Chan and Wu [1] introduced the model and the transformation, and already studied general equilibrium branches and local stability. Those are not new here. The specific joint matched-basal-gain regime isolates a new closed global composition equation and an explicit all-regime classification including strict basins, exact coexistence coordinates and a normally attracting neutral curve. Hsu, Hwang and Kuang [2] previously treated a different ratio-dependent model without intraguild consumption and obtained degenerate coexistence, so neutral coexistence in general is known. No inspected statement covers the present global frequency law for the intraguild system. Analogous ecological neutrality results are not assumed to imply the exact stated theorem. Unindexed historical work is a remaining priority risk.
+PASS
 
-**Value — PASS.** Intraguild predation often produces complex coexistence dynamics. Matching basal-resource feeding is an ecologically interpretable control that separates competition through the shared resource from direct intraguild transfers. The theorem gives a sharp, non-local criterion for whether the weighted guild composition converges, depends on initial composition, or diverges toward exclusion, and identifies a structural regime forbidding local Hopf bifurcation without asserting global population persistence. The distinctions between composition and abundance, and between local and global conclusions, are necessary.
+The log ratio of my to z cancels the matched basal gain, giving v'=c3 v(1-v)(Delta-G(v)). G has endpoints 1 and e3/a3 and derivative m(e3-a3)/D(v)^2. The strict root conditions, monotone flow to the attractor or the endpoints on the stated sides, and the neutral case follow, including endpoint equality when there is no interior root. Positive states exist for all finite positive times: x is bounded above by logistic comparison and bounded away from zero on finite intervals by x'/x>=1-x-c; the positive consumers have bounded per-capita rates. At a positive equilibrium A=B=C=0, so w=Ec/L-a is positive precisely for L<Ec/a and then x>1-c; the inverse gives positive y,z. In the neutral case L is strictly decreasing, and the inequality cuts out an open interval if nonempty. The Jacobian splits off the real composition eigenvalue; the other block has trace -x-wc(E-a)/(a+w)^2<0 and determinant xwcE/(a+w)^2>0. This includes E=a and proves local stability, the saddle alternative, or local transverse attraction along the neutral curve, as appropriate. No Hopf crossing is possible in this positive-equilibrium family. The rational witnesses agree by substitution. The scope is relative composition, not global absolute abundance convergence; normal attraction is local along the interior curve, not uniform up to its endpoints. RESULT.md §§1–4, VERIFICATION.md and checker.py were inspected without executing the supplied script.
 
-The closest foundational literature is Chan and Wu, arXiv:2610.23995v1 (2026), Sections 2, 5, 6, and Hsu, Hwang and Kuang, *Journal of Mathematical Biology* 43 (2001), 377–396. Restrictions include matched basal feeding, strictly positive initial abundances, \(0<c<1\), \(E\ge a\), and exact deterministic rates. The result does not provide a global attractor theorem for all three abundances, stochastic persistence, or statistical inference.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Chan–Wu already gives the model, coordinates and general transformed equations; cancellation is an immediate specialization and is not independently original. The supported distinction is the combined global weighted-composition basin classification and exact viability, stability and normal-attraction trichotomy for the matched family, including the positive-equilibrium no-Hopf conclusion. The closest inspected sources do not state or supply this classification as a theorem under encompassing hypotheses.
+
+## value
+
+PASS
+
+Matching the competing basal gains is a mechanism-based restriction rather than a random numerical slice. The value is not the substitution: the result separates a global relative-composition prediction from the viability and full local stability of coexistence, and identifies the exact neutral threshold where a continuum replaces isolated equilibria. The stable transverse block also answers whether the broader model's Hopf mechanism can operate at coexistence under those restrictions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-A finite-dimensional all-parameter theorem is proved. The pivotal scalar inequality is obtained by differentiating a hyperbolic-cosine deficit and invoking the strictly concave logarithm of hyperbolic sine. The regular-simplex inradius supplies a sharp support-direction inequality; these together yield the universal phase. An explicit strict witness with a positive-radius Euclidean ball proves necessity, while a continuity argument at facet centroids classifies every maximal Voronoi face. Pointwise finite inclusion–exclusion gives the signed defect. The supplied standard-library numerical checker passed 456 parameter assertions, without being used as a proof of the infinite statements.
+PASS
 
-## Originality — PASS, with residual risk
+With alpha=2/p, log sinh(alpha t) concavity between alpha=1 and alpha=2 gives the claimed derivative sign; the sharp mixed coefficient is reached at equal positive inputs. The simplex inball, tested against the negative radial direction, gives max_i |q-v_i|² at least r²+R²+2rR/(d-1); the coefficients match exactly at p_d. For p>2 one instead uses l_p <= l_2 on the two scalar blocks. For |t|>=a the nearest apex vertical term is at most |t|^p; for |t|<a it is at most R^p. These cover the endpoint and all scales. Below threshold the explicit s satisfies s>lambda_d and s²>q_*, giving r_f<a<R and strict opposite inequalities at a base vertex (base distances <=s<1; both apex distances >1); the mixed/Euclidean Lipschitz bound supplies the claimed positive-volume open ball. All-base ties force q=g where a nearer apex beats the bases. In the horizontal plane on the facet-centroid-to-centroid segment, writing q-g=-u(v_i-g) for 0<u<=1/(d-1), the excluded squared distance minus a retained squared distance is 2uR²d/(d-1)>0. The retained distances cross the common apex distance a before u reaches zero. Downward closure and direct alternating summation on present apex indices give the exact nerve and sign. The frozen 456 checks use floating point and discrete samples; they were inspected, not rerun, and are not used for the universal result.
 
-The closest inspected primary manuscript (Shelley–Tartakovsky, arXiv:2610.25841v2, Section 5) provides a 3-dimensional five-site existence counterexample based on a smoothed bicone and dimension extensions by a product gauge, but not the sharp regular-simplex mixed-norm phase transition or the dimension-parity error law. Searches of mathematical records and targeted literature for the explicit exponent, axial pairs, equivalent covering inequality, and truncated Voronoi nerves did not reveal an equivalent result. This is evidence of noncoverage, not a proof of worldwide priority; unindexed \(\ell_p\) ball-intersection literature remains a genuine risk.
+## originality
 
-## Value — PASS
+PASS
 
-The sharp dimension-dependent exponent settles a geometrically natural universal covering question for all scales of a regular-simplex/axial-pair configuration. The counterphase has an explicit positive-measure witness and a dimension-parity signed inclusion–exclusion error, contrasting with the previously used fixed-dimensional embedding mechanism. The value is the structural sharp phase and its topological integration consequence, not merely a numerical experiment or isolated counterexample.
+Pass is for the exact dimension-dependent universal mixed-norm threshold and its constructive subthreshold nerve and signed error within this family, not for the general existence of counterexamples or for inventing the bicone mechanism. The strongest checked primary and catalogue comparators overlap substantially in mechanism but neither gives this phase theorem.
 
-## Closest literature and limitations
+## value
 
-Shelley–Tartakovsky, *Union of Translates of a Convex Body* (arXiv:2610.25841, 2026-10-19), introduced the target nerve question and a different smooth-norm counterexample. The result is restricted to the symmetric mixed-block norm, regular simplex, and centered axial sites, and it does not compute exact uncovered volumes. There has been no independent validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The theorem gives an exact dimension-dependent boundary for when this symmetric family can obstruct Voronoi-restricted volume inclusion–exclusion, not just an isolated counterexample. The universal side, positive-measure witnesses arbitrarily near the threshold, and dimension-dependent sign are useful quantitative and combinatorial information for this natural model.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-Almansi and spherical-harmonic decomposition reduce the unweighted Euclidean biharmonic concentration operator in dimension at least three to two-by-two positive generalized Gram eigenproblems. Direct determinant and trace algebra proves the exact eigenvalues and eigenvalue product. Strict monotone-likelihood-ratio ordering establishes both degreewise monotonicities. The large-degree expansions are forced by the Vieta product and trace, and the multiplicity-weighted threshold proof gives the sharp \(L^{d-2}\log L\) difference and its cancellation in the total count. The standalone checker passed 2,203 finite assertions; the analytical proof, not the experiments, supplies the infinite quantifiers.
+PASS
 
-## Originality (PASS, with remaining priority risk)
+Almansi separation and angular orthogonality give a complete direct sum of two regular radial modes per harmonic, with the same orthogonality after cutoff. For p=2m+d their full-ball radial Gram matrix has entries 1/(p+2i+2j) (i,j in {0,1}); the restricted matrix is t^(p/2) diag(1,t) G diag(1,t). Thus its determinant ratio is t^(p+2). An orthonormal radial basis after factoring out r^m is √p and √(p+4)((p+2)r²−p)/2. Integrating its two squared norms over the cutoff gives trace t^(p/2)[(p+2)²(1−t)²+8t]/4. Vieta gives the stated roots, distinct since t∈(0,1), and the inner and outer integrals are strictly positive on every nonzero radial polynomial. Tilting every coefficient-vector quotient by r² strictly decreases it; taking a maximizer in degree m+1 and a minimizer in degree m gives the two strict eigenvalue comparisons. The upper root is asymptotic to the trace, and dividing the product by it gives the lower root and both constants. Compactness follows from decay of the upper root. Taking logs gives cutoff degrees (L±2 log L)/ell+O(1); multiplying their separation (4/ell) log L+O(1) by the leading multiplicity 2(L/ell)^(d−2)/(d−2)! gives the stated difference coefficient. The cumulative multiplicity 2M^(d−1)/(d−1)!+O(M^(d−2)) yields cancellation of the two first-order shifts in the total; the second-order terms O(L^(d−3)(log L)^2) fit the remainder. These arguments include m=0 and retain multiplicities at cross-block collisions. The checker was read, not run.
 
-The closest exact polyharmonic Bergman source, Grzebuła (arXiv:1912.02035v1, 2019), develops reproducing kernels and zonal polyharmonics, without the present smaller-ball compression spectrum or logarithmic branch-counting asymptotics. Barrera-Castelán–Maximenko–Ramos-Vazquez (arXiv:2009.14301, 2020) supplies a general matrix model for radial Toeplitz operators in **planar polyanalytic** spaces; it is a genuine analogue, and the planar bare-matrix special case is not claimed as new. It does not settle the stated \(d\ge3\) real-biharmonic multiplicity-weighted count. Pessoa–Santos (2017) addresses upper-half-plane polyharmonic decomposition, not concentric real-ball restriction. The Steklov eigenvalue literature concerns a different fourth-order boundary problem. Relevant mathematical research-record and primary-literature searches yielded no equivalent high-dimensional sharp branch-counting law; incomplete indexing remains a priority risk.
+## originality
 
-## Mathematical value (PASS)
+PASS
 
-Higher-order harmonicity creates two radial degrees per spherical-harmonic type, with a determinant invariant and opposite quadratic prefactors. The resulting logarithmic discrepancy of the two eigenvalue-counting branches has a sharp nonzero coefficient, while the total count hides it by cancellation. This gives a precise Slepian-type spectral invariant for a natural fourth-order elliptic function space, with relevance to mode truncation and concentration stability. The contribution is an exact and asymptotically sharp classification for the natural concentric geometry, not merely a routine moment calculation.
+The radial block method and extremely close planar block formula are prior, as is the phenomenon of opposite logarithmic count corrections in other settings. The supported distinction is the ordinary real-ball d≥3 biharmonic operator with the dimension-dependent spherical multiplicities and sharp branch excess and total count. In even dimensions the radial eigenvalues can already be read by shifting the mode parameter of the bianalytic disk block: 2m+d=2(m+d/2−1)+2. That algebraic overlap is not a new block method or even a new scalar formula at those indices. The inspected disk results do not supply the real spherical-harmonic multiplicities or the resulting L^(d−2) log L coefficient for this operator.
 
-## Closest literature and limitations
+## value
 
-The theorem is limited to integer dimensions at least three, unweighted Euclidean-ball measure, and fixed concentric radius. General radial symbols, nonconcentric observations, higher polyharmonic orders and accidental cross-degree eigenvalue coincidences are not classified. The finite checker supports but cannot replace the proof; historical priority and independent validation remain unperformed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The two branch counts describe how many independent fourth-order modes actually concentrate in a concentric core. The leading total count alone conceals the opposite logarithmic shifts; the explicit excess coefficient quantifies a distinction absent from a single harmonic branch. The centered cutoff and ordinary biharmonic extension are natural choices, and the result uses the real dimension rather than merely restating a disk block calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

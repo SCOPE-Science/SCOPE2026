@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reduces extendability to a necessary and sufficient upper-interval condition. For two cells, only the all-zero state has an upper interval large enough to contain four decoder labels, ruling out four first messages. For three cells, all first-write representatives are forced into the radius-one lower ball; exact coverage of the three four-point upper intervals then forces the top vertex to share the zero label and each weight-two vertex to share the label of its antipode. The converse constructs monotone second writes directly. Exhaustive enumeration independently confirms zero valid two-cell decoders and exactly \(24\) valid three-cell decoders, all antipodal.
+## correctness
 
-## Originality
-PASS. The 1982 source gives the construction and formal WOM definition but not a uniqueness classification. The 2012 geometric-WOM paper calls it the canonical example and reproduces the same parity decoder without classifying alternatives. The inspected short-code catalogue records one canonical length-three mapping and explicitly presents itself as a list of known individual instances; it does not assert exhaustive uniqueness. OEIS A253548 records the minimum width and the standard example but not all valid decoder maps. Targeted literature and database searches found no source stating the antipodal-fiber rigidity or the count of \(24\) labeled decoders.
+PASS
 
-## Value
-PASS. This is a natural equality classification of the foundational smallest nontrivial WOM construction. It explains structurally why the celebrated parity decoder is forced rather than merely convenient, identifies its repetition-code coset geometry, and separates decoder rigidity from remaining encoder-choice freedom. The fact is small, exact, and reusable when the canonical three-cell WOM block is treated as a primitive in rewriting constructions.
+A first-write state must have all four labels in its upper interval. For n≤2 fewer than four states have an interval of size at least four. For n=3 exactly 000 and the three unit vectors qualify, so they must bear distinct labels. Each unit-vector interval has four states and is rainbow. The top vertex lies in all three and must take the label of 000; a weight-two vertex lies in two such intervals and must take the label of the remaining unit vector. Conversely these antipodal fibers give rainbow intervals; from 000 take the four light states as outputs both when starting and when the first write left it at 000, so a single state-dependent update function works. The parity map has kernel {000,111}, and labeling the four distinct fibers gives 4! maps. The proof is exhaustive on the exact Boolean cube.
 
-## Closest literature and limitations
-The closest sources display the same construction, decoder, or one stored mapping. None of the inspected material supplies the classification proof. The claim is deliberately limited to the generation-independent four-message, two-write, binary three-cell model; it does not classify full update functions, generation-aware decoding, or larger parameter sets.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The minimum three-cell construction, its decoder formula and codeword pairs are prior. The supported distinct claim is the converse that every generation-independent extendable decoder has precisely those four fibers, with 24 labeled maps. The inspected foundational papers and exact catalogues do not establish that converse; the assessed novelty is search-bounded.
+
+## value
+
+PASS
+
+It completes the equality case of the foundational optimal four-message WOM block, distinguishing forced decoding geometry from flexible encoder choices. The repetition-code cosets are a necessary structure, not just a convenient canonical choice, a useful fact when this small block is used in constructions. It is the rigidity, not the elementary multiplication by 4!, that carries value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

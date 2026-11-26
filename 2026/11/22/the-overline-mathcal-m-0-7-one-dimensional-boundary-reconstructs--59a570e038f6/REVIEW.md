@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The finite étale index scheme and its Frobenius action are unambiguously defined by Galois descent on the label-permutation action of \(S_7\). Stable seven-leaf trees correspond to compatible internal-edge bipartitions. Counting binary refinements proves the geometric totals of \(945\) zero-dimensional and \(1260\) one-dimensional strata. The attached independently generated stable-tree families agree with all compatible-split families. Exhaustive exact permutation decomposition over the fifteen partitions of seven proves fifteen distinct one-dimensional zeta spectra, eleven distinct zero-dimensional spectra and an optimal initial consecutive-degree cutoff of five. `verify_boundary7.py` and `CERTIFICATE.json` are complete local evidence; no experimental induction is used.
+PASS
 
-## Originality — PASS, qualified
+The strata are indexed by stable labelled-leaf trees; finite étale descent turns this finite permuted set into the stated index scheme, so extension counts are fixed points of the relevant powers, regardless of field characteristic. The geometric counts follow from binary tree leaf insertion (945) and counting single-edge contractions with three binary resolutions (945*4/3=1260). Independently rooted at leaf 6 and constructed all binary trees by recursive bipartitions on the other six leaves, encoding each by its non-root clades; deleting one clade enumerated all single-edge contractions. Relabelled each partition representative's powers, taking complements of image clades meeting leaf 6, and computed fixed sets directly. Complete cycle multiplicities were recovered by divisor inversion, not by the source program's orbit traversal. All first-five count rows and both complete spectra matched the frozen certificate. The fifteen one-dimensional rows are distinct; the only first-four collision group consists of (7),(5,2),(5,1,1), with fifth counts 0,210,1260. The zero-dimensional spectra give eleven types with precisely the four stated pair collisions. A finite permutation zeta function is determined by, and determines, its complete fixed-power counts, so these computations give the claimed logical implications and the specified consecutive cutoff.
 
-Maya–Mostovoy identify the stable-tree geometry; Castravet–Tevelev study a different \(S_n\)-equivariant Grothendieck-group representation; and the `admcycles` enumeration gives geometric stratum totals. Neither the inspected primary mathematical text nor targeted searches established the precise one-dimensional finite-etale Frobenius class character or its five-count reconstruction theorem. Exact comparison with the earlier six-point unsigned boundary incidence cokernel shows that it studies an integer-lattice map, not finite-field descent or these fifteen seven-marked Frobenius types. Residual risk: an older unindexed permutation-character table could contain an equivalent result.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The contrast between the highest-codimension stratum scheme and the one-dimensional boundary stratum scheme answers the natural arithmetic question of which geometric boundary observations recover a degree-seven étale marking algebra's splitting type. It supplies the exact first successful boundary dimension and a sharp, checkable minimal consecutive-extension observation threshold. This is a complete natural classification, not an arbitrary sample of a few finite fields or a mere update of a geometric total.
+The supported distinct claim is separation of the fifteen seven-point Frobenius types at a sharp consecutive cutoff by the one-dimensional stratum action, together with the precise failure of the zero-dimensional index to separate them. Standard descent, the tree model, geometric totals and analogous calculations for other actions are not credited as new.
 
-## Scope and qualification
+## value
 
-Counts refer to rational points of the finite schemes **indexing** boundary strata, rather than rational points inside those curves. All characteristics and all fifteen cycle partitions are covered; arbitrary nonconsecutive observing degrees are not optimized. The bibliography risk described above remains open.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The natural boundary index functor retains enough arithmetic information in dimension one to reconstruct a degree-seven finite étale algebra from five counts, while its trivalent boundary counterpart loses information even when all degrees are used. The exact cutoff and exact collision classes are useful for deciding what arithmetic data can be recovered from this boundary alone, rather than simply reproducing its geometric size.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

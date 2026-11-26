@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (C): PASS
-The affine vector field reduces exactly in orthogonal edge coordinates to \(\dot v=-\kappa_i v\) and \(\dot s=\omega_i-\mu_i v\). Solving yields a crossing condition affine in the incoming signed radial perturbation. Vanishing of its coefficient at the known unperturbed time gives a unique, finite real shear because \(C_i,\kappa_i,1-E_i>0\). Local transverse crossing persists on both sides of the vertex rays. The resulting fixed flight times give a genuinely exact—not linearized—radial return contraction. The explicit flow of the radial sections provides transverse line segments, and their phase convergence plus nonzero Jacobian proves a full **local** straight-line isochron foliation. The regular-polygon formula is an algebraic specialization. The verifier supplies supplementary finite checks only.
+## correctness
 
-## Originality (O): PASS, with bibliographic uncertainty
-Inspected Kai (2026), sections 2–5 in the full open-access article, including its construction formulas, propositions and simulations. It proves existence, period and transverse decay and shows shears alter transient paths; it does not solve for shears making **perturbed** edge-crossing times exactly constant, nor compute the consequent nonlinear isochron foliation. Inspected Park–Shaw–Chiel–Thomas (2018; arXiv manuscript), especially methods, explicit planar examples and discussion; its saltation/adjoint formula covers *infinitesimal* phase sensitivity generally, not this finite-amplitude parameter-selective statement. Mathematical-record searches for the exact model, radial sections, constant flight and phase response revealed nearby work on different smooth and hybrid oscillator classes, but no implication or equivalent construction for this model. An earlier but unlocated equivalent result remains possible; no claim of exhaustive bibliographic uniqueness is made.
+PASS
 
-## Value (V): PASS
-Phase synchronization is a natural design criterion for a polygonal oscillator whose existing three parameters separately control on-orbit speed, transverse decay and transient tangential drift. The result identifies **the only** shear values achieving a nonperturbative, edge-by-edge timing target while preserving prescribed cycle geometry and stability; moreover it computes the entire local isochron geometry, not merely its infinitesimal tangent. It covers arbitrary admissible polygons and continuous ranges of positive parameters, with a compact regular-polygon formula. This is a structural design theorem rather than a change of notation or a small finite census.
+Take s along the edge and V=n·x−C normal to it. An incoming radial displacement δ has (s,V)=(Aδ,Cδ), while an outgoing radial displacement δ′ has (1+(A+1)δ′,Cδ′). Solving V′=−κV and s′=ω−μV gives δ′=δ exp(−κt). At the on-cycle time the tangential matching condition is proportional to δ with shear coefficient C(1−E)/κ>0, so cancellation is exact and unique. On the reference edge the angular velocity is ωC/|x|²>0; both modes cross an adjoining ray in the same direction. Compactness over an edge, restricting the offset, and the simple section root with time derivative ω at δ=0 ensure the selected first crossing stays local. Even at a detuned finite shear the derivative of δ exp(−κt(δ)) at zero is E, so the period and transverse multiplier really are preserved. At tuning, the flight map transports each small incoming radial segment by an affine map with nonzero normal component at every intermediate time. These fixed-time lines are local coordinates, glue to the radial segments at crossings and synchronize under repeated revolutions (amplitude factor ∏E); distinct phases on the simple orbit cannot converge with zero relative time shift. Equal radii give A=−1/2 and the displayed coth formula. An independent exact-rational replay checks tuned and detuned ray identities on six unequal sectors with both signs of offset.
 
-## Closest prior literature and limits
-Kai, DOI 10.1007/s40435-026-02340-6, supplies the model and known orbit/decay results. Park et al., arXiv:1603.03503, supplies general nonsmooth infinitesimal phase response theory. The specific finite-amplitude straight-line tuning is not stated in either inspected full text. Conclusions are local and exclude nontransverse, global, or perturbed-switching regimes. Bibliographic priority awaits independent evaluation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The inspected earlier model and phase theory do not supply the edgewise finite-offset calibration and ensuing straight isochron foliation. A later Resultary item is demonstrably equivalent on the exact flight-time calibration, not independent priority evidence against this record; the earlier-priority judgment is bounded by the inspected sources.
+
+## value
+
+PASS
+
+This supplies an exact tuning rule and a usable local phase map for a motivated hybrid oscillator family without changing its geometric cycle, clock on the cycle, or linear stability. It identifies the precise parameter choice that removes finite-offset timing errors at every switch; this is appreciably stronger than calculating the linear response or verifying a regular polygon example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproduction and scope
+# Independent mathematical audit
 
-Execute `python3 verify_determinant.py` and compare its two deterministic output lines to `determinant_output.txt`. Its 833 exact integer determinants (all grid points \(t=0,\ldots,16\), \(u=0,\ldots,48\)) prove the polynomial identity by the stated bidegree bounds; this is not a floating-point experiment.
+## correctness
 
-Execute `python3 verify_recurrence.py`, save stdout, and compare it to `recurrence_output.txt`. The full rational-function coefficient recurrence is checked for \(5\le n\le80\), including all five maximum-set multiplicities.
+PASS
 
-Compile `verify_direct.cpp` with `g++ -std=c++17 -O3 verify_direct.cpp -o direct_check`; run `./direct_check` and compare stdout to `direct_output.txt`. Its brute-force enumeration of all \(2^n\) labelled subsets for \(5\le n\le18\) independently checks the local packing definition and every cardinality coefficient. The fourteen direct-census lines must also match the recurrence file's corresponding fourteen lines after its initial PASS line.
+For each n≥5 the closed neighborhoods are distinct-site cyclic five-windows. Summing their occupancies proves 5k≤3n; each admissible word contributes its summed deficit 3n−5k to the indexed closed-walk trace with no rotation quotient. Independently computed det(I−tM) by the disjoint directed cycle expansion: 44 simple cycles in the four-bit transition graph; each compatible collection contributes (−1)^(number of cycles) t^(total length) u^(total deficit). The surviving coefficients are exactly 1, −tu³, −t²u, −t⁴u², −2t⁵, +t⁷u, +t¹⁰. The formal trace identity gives N=−t∂_tD. With z=t⁵, expand −log D through u⁴ after pulling out (1−z)². For r=0 the t-derivative gives the positive multiples-of-five coefficient 10; for r=1,2,3,4 the respective A_n/n are (q+1)+(4/3)binom(q+1,2), 1, binom(q+2,2)+(7/4)binom(q+2,3), and (3/2)(q+1). These simplify to the printed formulas and show the floor bound is attained. Direct independent bit-window census matches all recorded cardinalities for n=5,…,18. The stored programs and outputs were read, not executed; the degree-bounded grid certificate is also valid in principle but the independent determinant calculation does not rely on it.
 
-The proofs of the infinite-family claims depend on the finite exact determinant identity together with symbolic formal-series extraction, not on extrapolating the finite experiments. Historical-literature novelty and independent audit remain unperformed externally.
+## originality
+
+PASS
+
+Credit the exact previously indexed A_{5q}=10 branch, not just analogous orbit work. The supported distinct content is the complete all-cardinality rational function and optimum census for the other residues, not the general transfer method, the zero-deficit count or the incidence upper bound. No inspected source implied the full series or the remaining residue laws.
+
+## value
+
+PASS
+
+The complete labelled census for a natural capacity constraint on a four-regular circulant also counts two-tuple dominating sets under size reversal. The evaluated degree-ten denominator gives a reusable exact benchmark beyond generic transfer existence, and the remaining residue branches show substantially different polynomial growth even close to the same density. Value does not rest on the known multiple-of-five case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,20 +1,21 @@
-# Review of Nash–egalitarian stable-marriage boundary
+# Independent mathematical audit
 
-## Correctness (C): PASS
-The complete finite-domain theorem is established by direct enumeration of every one of the \(46{,}656\) labeled strict three-pair profiles, every perfect matching within each profile, and every unordered pair of its stable matchings. Stability is checked using two independently written blocking-pair implementations. Every one of the \(8{,}304\) comparisons with unequal rank sums has the strictly correct Nash-product order; the minimum gap in every score stratum is positive. The exact optimizer-set histogram is \(43{,}728\) equality and \(2{,}928\) strict Nash-set containment. The twenty-four perfect matchings of the displayed four-pair witness are checked, with exactly two stable outcomes and opposite strict objective preferences. All arithmetic is integral and reproducible with `verify_nash_egalitarian_boundary.py`. The result makes no larger-market claim.
+## correctness
 
-## Originality (O): PASS, subject to priority risk
-The September 2, 2026 Desai–Rasheed–Ghalme–Gujar preprint defines exactly the Nash product used here and presents a polynomial-time optimization algorithm plus empirical comparisons with egalitarian matchings. Inspection of its main text and appendices did not reveal an all-profile three-pair ordering theorem, the complete optimizer-set count, or a sharp four-pair reversal. The published egalitarian-versus-regret result studies rank sums versus worst individual rank, whereas the published rank-maximal-versus-egalitarian census studies a lexicographic rank profile instead of the Nash product. Neither entails the present full pairwise Nash-versus-rank-sum implication. Prior small-market research on Nash versus regret is also not sufficient to imply Nash versus egalitarian when egalitarian optima form a proper subset of regret optima. Several exact-statement and equivalence searches in mathematical research records and public literature located these nearby comparisons but no stronger result covering the present claim. Unindexed sources may still contain an overlapping finite classification, and priority is not mathematically provable from search alone.
+PASS
 
-## Value (V): PASS
-The Nash welfare approach was expressly proposed to balance the egalitarian and other fairness criteria while preserving stability. The result identifies the complete initial market range in which a strong exact relation—agreement on *every strict ranking of stable alternatives*, not merely existence of a compatible optimizer—is forced by structure. It also identifies the precise first size at which the criteria can select disjoint unique stable matchings. The exact \(2{,}928/46{,}656\) tie-refinement incidence quantifies how the Nash objective resolves egalitarian ties, distinguishing practical selection differences from genuine fairness conflicts. The result is restricted and finite, but those bounds are a natural minimal structural threshold rather than an arbitrary parameter slice.
+I wrote and executed a separate exact enumeration covering every one of the 1, 16 and 46,656 labelled profiles at n=1,2,3. For each bijection I used the intersection of two preference-prefix edge bitmasks as the blocking test; each unavailable blocking pair is excluded precisely when one side does not strictly prefer it. The same prefixes give zero-based ranks; the product uses n-r, not n+1-r. Every strict pair is oriented by actual E, with ties retained and counted separately. The enumeration reproduced the stable multiplicities 34,080/11,484/1,092 at three pairs; of 14,760 total pairs 8,304 have strictly ordered E and all corresponding product differences are positive. The eight cells (lower,upper;count;minimum) are (2,3;288;162), (2,4;144;243), (3,4;1656;54), (3,5;504;108), (3,6;24;189), (4,5;3096;9), (4,6;648;45), (5,6;1944;6). The remaining pair counts are 3,696 E-only ties and 2,760 ties in both. At two pairs both stable pairs tie on both scores; there is no comparison at one pair. All 24 bijections on the four-pair example give exactly the two displayed outcomes and rank vectors, with (7,4096) and (8,4608); the forcing argument in the repaired proof also checks. Any strict reversal by definition needs at least two stable outcomes. The known optimizer-set census is reproduced but no longer a claimed novelty.
 
-## Closest evidence and limits
-- Desai et al., *Fair Stable Matching: A Nash Social Welfare Approach*, arXiv:2609.02354v1, September 2, 2026, full accessible main text and appendix: https://arxiv.org/abs/2609.02354
-- Irving, Leather and Gusfield, JACM 1987, DOI: 10.1145/28869.28871.
-- Published comparison of egalitarian and minimum-regret stable matchings: https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-sharp-coincidence-boundary-for-egalitarian-and-minimum-regret-st--57631882a89b
-- Published comparison of rank-maximal and egalitarian stable matchings: https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-sharp-three-by-three-conflict-layer-for-rank-maximal-and-egalita--c67e0358daf3
+## originality
 
-The finite computation is not an independent audit, and unindexed sources or supplementary tables are possible residual priority risks. The theorem does not extend to arbitrary larger markets.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Only the narrowed claim passes. The exact earlier matching boundary record has the same objectives, optimizer inclusion, optimizer counts and a four-pair reversal, but neither its statement nor its verifier establishes all strict pairwise comparisons. Global argmax inclusion imposes no order on the products of arbitrary nonmaximal alternatives, even leaving comparisons between equal-cost global minimizers and higher-cost outcomes open if several minimizers have different products. The additional quantified order is separately verified, and the new witness illustrates it at the known threshold with the minimum possible number of stable outcomes.
+
+## value
+
+PASS
+
+When ranking a menu of stable outcomes or applying an additional restriction that removes the unrestricted optimum, optimizer-set inclusion for that unrestricted set does not guarantee the relative ordering of the remaining outcomes. The all-pairs assertion still gives that comparison, with exact minimum differences and tie counts in the initial complete domain. The two-outcome example isolates the first obstruction without reliance on competing third outcomes. The utility of the repaired claim does not depend on repeating the older optimizer census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

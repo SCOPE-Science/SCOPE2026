@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:01:02.048547Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a root x, the grounded incidence operator sends a potential to its oriented edge differences, with inverse given by edge-to-vertex path incidence. Hence the inverse Laplacian is the sum over edges e of r_e d_e d_e^T, with d_e the indicator of the downstream set. This proves the Green kernel and S=∑ r_e s_e². Changing the root across uv changes only its own downstream set; equivalently the cut component on the opposite side gains a rank-one r·11^T block, extended by zero for its own root. Expanding the Frobenius norm yields the stated edge bracket. For consecutive u,v,w, splitting at the two path edges cancels both outside Green sums and leaves 4S(C,v)+r[a²+(c+d)²]+s[(a+c)²+d²], strictly positive with arbitrary positive resistances. Thus from a neighbor minimum the objective cannot fall along any path, and two minima cannot lie at distance two or more; adjacent ties are allowed (including the n=2 tree). Only the normalized differences are monotone. For the root objective, the dot product of two downstream indicators is zero for disjoint subtrees, and is the smaller subtree size for nested ones; squaring and summing over edge pairs gives ∑ r_v(2d_parent+r_v)s_v². This root calculation, the postorder subtree sums and the preorder one-edge updates all cost O(n) arithmetic operations with O(n) storage. As a hand check, the 3-vertex path with resistances (2,1) gives J=(21,5,12), normalized differences (-8,7). The five-vertex path (100,1,1,1) independently agrees with all reported objectives and chooses vertex 1 rather than the path 1-median vertex 2. Read RESULT.md, VERIFICATION.md, verify_tree.py and verification_output.txt; the frozen 635 trees and 3798 inversions are recorded finite evidence and were not rerun. Exact tie resolution and arithmetic operation counts do not imply numeric bit complexity or floating-point robustness.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general second-order formula is proportional to tr(Q_S^-2). Generic greedy selection uses submodularity over leader sets, not adjacency of vertices on a tree.",
+          "The star record covers all positive weighted stars (including one leader); the path record treats unweighted paths and excludes k=1."
+        ],
+        "reasoning": "The exact star problem is a subclass, while the path multi-leader solution is in a different leader budget and weight domain. The general metric and set-function guarantee do not imply strict along-path gradients or the one-edge updates.",
+        "searches": [
+          "arXiv:1905.09156 Theorem 5 and second-order leader selection",
+          "Resultary f35e91a6b553 and 4c199cd0a34e, RESULT.md Finding and scope"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify_tree.py, verification_output.txt",
+        "arXiv:1407.1569, 1412.6595, 1905.09156",
+        "Resultary f35e91a6b553 and 4c199cd0a34e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known inverse-square metric specifies what to optimize; its proof does not establish the new strict sign formula. For the original risk of median equivalence, the first-order distance sums on (100,1,1,1) are (406,106,105,106,109), unlike the inverse-square minimization."
+        ],
+        "reasoning": "It takes the rank-one edge-cut comparison and a strictly positive three-component difference to infer path unimodality. The exact O(n) operation count in turn needs the initial nested-edge expansion and all-root recurrences. These do not follow by plugging weights into an unweighted path or first-order theorem.",
+        "searches": [
+          "arXiv:1905.09156 Theorem 5; arXiv:1407.1569 eqs. (15)–(16); Resultary f35e91a6b553 and 4c199cd0a34e"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "First-order single-leader information centrality yields a path-resistance sum on trees; the five-vertex example selects distinct leaders under that sum and the inverse-square trace.",
+          "The path/ring optimizer uses a grounded first inverse, not its square."
+        ],
+        "reasoning": "The first-order objective involves only diagonal Green terms; the squared inverse also squares off-diagonal common-path weights. They cannot be identified by reweighting the displayed path objective or by renaming the coherence order.",
+        "searches": [
+          "Resultary: inverse-square grounded Laplacian, second-order coherence, weighted trees and single-leader optimization",
+          "arXiv:1407.1569, information-centrality characterization and eqs. (15)–(16)",
+          "arXiv:1412.6595, eq. (3)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact classifications exist for stars and multiple leaders on unweighted paths. The frozen finding has no standalone tabulated numeric invariant; its examples only illustrate the theorem."
+        ],
+        "reasoning": "Even a complete classification on stars or a gap formula for unweighted paths cannot encode the strict bracket law at arbitrary internal edges of branching weighted trees.",
+        "searches": [
+          "f35e91a6b553 RESULT.md, exact optimizer classification on weighted stars",
+          "4c199cd0a34e RESULT.md, exact gap-allocation classification"
+        ]
+      },
+      "rationale": "The second-order objective itself and general leader-selection algorithms are established. The verified distinct result is the strict resistance-normalized geodesic-gradient law for every positively weighted tree with one grounded leader, plus its exact all-root linear arithmetic algorithm. The weighted-star subclass and the multi-leader unweighted path result are real neighboring results, not prior coverage of that law.",
+      "residual_risks": [
+        "A graph-centrality theorem formulated directly for squared Green kernels or another specialized weighted-tree algorithm could overlap; this assessment does not exhaust that literature.",
+        "The outbound search did not add relevant evidence; no priority is inferred from unrelated results or date alone."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIFFERENT_FIRST_ORDER_OBJECTIVE",
+          "evidence": [
+            "Single leader maximizes information centrality; effective resistance on a tree sums edge resistances along the unique path."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1407.1569",
+          "material_read": "pp. 1, 3 and 6, OA offsets 1700–12135 and around 23800, eqs. (15)–(16)",
+          "method": "OA PDF primary passages",
+          "title": "Joint Centrality Distinguishes Optimal Leaders in Noisy Networks",
+          "trigger": "Single-leader centrality criterion and tree-median equivalence risk"
+        },
+        {
+          "assessment": "WEIGHTED_PATH_AND_RING_BUT_FIRST_INVERSE_TRACE",
+          "evidence": [
+            "The objective is a trace of the first grounded inverse."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1412.6595",
+          "material_read": "Abstract and p. 2, eq. (3), OA offset around 13055",
+          "method": "OA PDF primary passages",
+          "title": "Efficient, Optimal k-Leader Selection for Coherent, One-Dimensional Formations",
+          "trigger": "Exact weighted path algorithm"
+        },
+        {
+          "assessment": "EXACT_METRIC; NO_TREE_GRADIENT_IN_COMPARED_STATEMENT",
+          "evidence": [
+            "The second-order metric is proportional to tr(Q_S^-2); this expression is background, not the contribution under review."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1905.09156",
+          "material_read": "Theorem 5, p. 4 near OA offset 29100, and lead selection context",
+          "method": "OA PDF primary passages",
+          "title": "Submodularity in Systems with Higher Order Consensus with Absolute Information",
+          "trigger": "Second-order coherence with absolute information and known optimization results"
+        },
+        {
+          "assessment": "OVERLAPPING_PROPER_SUBCLASS",
+          "evidence": [
+            "Positive weighted stars and 1≤k≤m; no arbitrary-tree directional bracket law."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-exact-inverse-square-leader-placement-on-weighted-stars-and-pell--f35e91a6b553/RESULT.md",
+          "material_read": "RESULT.md exact classification and scope",
+          "method": "OA local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact inverse-square leader placement on weighted stars and Pell-type ties",
+          "trigger": "Same objective and single-leader cases within weighted stars"
+        },
+        {
+          "assessment": "DIFFERENT_DOMAIN_AND_LEADER_BUDGET",
+          "evidence": [
+            "Exact gap allocation on unweighted paths with 2≤k≤n, excludes k=1 and does not address weighted trees; comparison does not require relative chronology."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-optimal-multi-leader-placement-for-second-order-coherence--4c199cd0a34e/RESULT.md",
+          "material_read": "RESULT.md Finding and scope",
+          "method": "OA local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact optimal multi-leader placement for second-order coherence on an unweighted path",
+          "trigger": "Same-day distinct indexed theorem for exact inverse-square leader placement"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result supplies a complete optimizer topology and a practical inversion-free exact computation for a standard but less tractable objective than the classical weighted tree median. It explains when local descent is globally sound and exactly how ties can occur for arbitrary positive tree weights, not just for symmetric examples. A weighted path already separates the two criteria.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

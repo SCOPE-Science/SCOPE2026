@@ -1,135 +1,42 @@
-# Certified secant-sharpness reality boundary on Gr(2,6): 14 real vs 12 real + 1 pair
+# One nested secant interval gives a nonreal pair on Gr(2,6)
+
+## Finding
+
+For eight simple Schubert divisors on \(\mathrm{Gr}(2,6)\), one pair of nested secancy intervals suffices for failure of total reality, even when all 32 rational secancy parameters are distinct. The overlapping example below has exactly 14 complex solutions, all transverse: 12 real points and one nonreal conjugate pair. A specified disjoint-interval comparison instance has exactly 14 transverse real solutions. The disjoint case is a control, not a new general all-reality theorem. The claim does not quantify a smallest overlap length or describe a transition along an entire deformation.
+
+## Assumptions and parameters
+
+Use the real rational normal curve \(\gamma(t)=(1,t,t^2,t^3,t^4,t^5)\) and the Schubert divisor \(\{H:H\cap K_i\ne0\}\), where \(K_i\) is the four-plane spanned by the four curve points in group \(i\). The secancy interval is the ordinary real interval between the smallest and largest parameters in the group. Group indices start at zero.
+
+In instance A, group \(i\) is \(\{-7/5+2i/5+2j/25 : j=0,1,2,3\}\), for \(0\le i\le7\). In instance B retain these groups except for the following replacements:
+
+| Index | Parameters |
+|---|---|
+| 3 | \(6/25,13/50,7/25,3/10\) |
+| 4 | \(1/25,4/25,11/25,3/5\) |
+| 5 | \(61/100,17/25,19/25,21/25\) |
+
+The only overlap is the interval \((6/25,3/10)\) nested strictly inside \((1/25,3/5)\), of intersection length \(3/50\). All 32 parameters in each instance are pairwise distinct. Instance B is the one specified by the rational group table in the original data.
+
+## Proof
+
+**Equations.** For the parameters of group \(i\), form \(p_i(T)=\prod_j(T-t_{ij})\). The coefficient vectors \(a_i,b_i\) of \(p_i(T),Tp_i(T)\), padded to length six, span \(K_i^\perp\). Thus in Plücker coordinates \(P_{rs}\), indexed by \(0\le r<s\le5\), the divisor equation is \(\sum_{r<s}(a_{ir}b_{is}-a_{is}b_{ir})P_{rs}=0\). In the chart \(P_{01}\ne0\) write \(H=[I_2\mid M]\); substituting its minors gives eight quadratic equations \(F(M)=0\) in eight unknowns. This construction is equivalent to the determinant of the six-row matrix formed by stacking a basis of \(H\) over the four rows \(\gamma(t_{ij})\).
+
+**Local certificates.** Use the complex coordinate supremum norm with ordinary complex modulus on each coordinate. For each rational complex center \(x\) and rational complex preconditioner \(Y\), write \(J=F'(x)\) and \(F(x+u)=F(x)+Ju+H_2(u,u)\). Let \(e\), \(b\), and \(h\) be rational upper bounds on \(\|I-YJ\|_\infty\), \(\|YF(x)\|_\infty\), and the bilinear norm of \(YH_2\), respectively. The bounds use rational upward rounding of complex moduli. On the ball of radius \(r=10^{-6}\), the map \(z\mapsto z-YF(z)\) has derivative norm at most \(q=e+2rh\). The checker verifies \(q<1\) and \(b+qr<r\), so the ball contains a unique fixed point. Both \(Y\) and the Jacobian at the fixed point are invertible by the norm bounds on \(I-YF'(z)\); the fixed point is a simple zero. Real centers give real roots by conjugation and uniqueness. In B the two nonreal centers have an imaginary component exceeding the ball radius; their roots are therefore nonreal. The 14 balls in each instance are pairwise disjoint, with certified center separation exceeding 0.2975 in A and 0.3318 in B.
+
+One may also bound the Euclidean Smale \(\alpha\): \(\|J^{-1}F(x)\|_2\le\sqrt8\,b/(1-e)\) and the Euclidean bilinear norm of \(J^{-1}H_2\) is at most \(\sqrt8\,h/(1-e)\). Since the system is quadratic this gives \(\alpha_2\le 8bh/(1-e)^2\), checked below \(4.3\cdot10^{-9}\) in A and \(1.2\cdot10^{-2}\) in B. The simple-root and reality conclusions use the direct contraction bounds and do not depend on rounding a Smale threshold.
+
+**Global count.** To exclude the complement \(P_{01}=0\), append that equation to the eight divisor forms. Modulo the prime 1009 these nine forms have rank nine in both instances, with no denominators divisible by 1009. Eliminate the nine pivot variables and substitute the remaining six coordinates into the 15 Plücker quadrics. Products of these quadrics by all degree-two monomials span the entire degree-four space: the matrix rank is 126 in each instance, equal to the number of degree-four monomials in six coordinates. The elimination lifts over the rationals localized at 1009 and the full-rank minors are nonzero in characteristic zero. Hence every degree-four monomial belongs to the reduced characteristic-zero ideal. No point of the complex projective solution set lies on \(P_{01}=0\). The entire intersection is projective and contained in an affine chart, hence is zero-dimensional. A proper intersection of these eight hyperplane sections has length \(\deg\mathrm{Gr}(2,6)=14\) in the Plücker embedding. The 14 simple zeros already certified exhaust it. Conjugation now pairs the only two nonreal roots in B.
+
+## Verification and scope
+
+Run `python3 check_secant.py` with NumPy and SymPy. The script constructs the equations from the stated rational parameters, finds candidate centers, rationalizes them and their preconditioners, and checks every local inequality exactly. The floating-point search only supplies centers; neither exhaustion nor transversality follows from the search. For each case it prints modular ranks `9 126`, and reports the certified real/nonreal counts `14 0` and `12 2` respectively. The result establishes failure with one nested pair in this particular Schubert problem. It does not establish any necessary or sufficient condition for total reality with overlaps in general.
 
 ## Context
 
-The secant conjecture in real Schubert calculus asserts that an intersection
-of Schubert varieties on a Grassmannian is transverse with all points real
-when the defining flags are secant to a rational normal curve along pairwise
-disjoint intervals. Prior evidence is large-scale floating computation
-(terahertz-years) plus theorems for osculating flags (Mukhin–Tarasov–Varchenko),
-a square primal-dual formulation enabling certification, and a recent
-divisor/positivity form via Wronski operators. No prior source logs an
-alpha-certified disjoint-vs-overlapping sharpness pair for an explicit
-Gr(2,6) cell.
+The disjoint instance is covered by Karp–Purbhoo's divisor secant theorem (Theorem 1.8). García-Puente et al., Table 5, already observed 12-real instances of this same degree-14 Schubert problem, including at overlap number 3 as well as 4. Their overlap number is a point-in-interval statistic minimized over choices of cut of the real projective line, not a count of overlapping pairs. For the parameters above it is 4: at the cut at infinity the four points of group 3 are the only contributions; a cut inside the wide interval makes its spanning interval include the other six groups, while a cut outside it preserves these four contributions. The printed table does not specify the single-nested geometry of its 12-real cases. The point here is the explicit jointly disjoint point sets and the single nested pair of intervals, with exact local and global certification, not a first observation of overlap-associated nonreality or a minimal overlap number.
 
-## Definitions
-
-- `Gr(2,6)`: Grassmannian of 2-planes in `C^6`.
-- `P = (sigma_1)^8`: eight hypersurface Schubert conditions; complex degree 14
-  (Catalan number C_4).
-- `gamma(t) = (1,t,t^2,t^3,t^4,t^5)` in `C^6`: fixed rational normal curve.
-- Chart `H = [I_2 | M]`, `M in C^{2x4}` (8 unknowns). For each secant 4-plane
-  `K_i` spanned by `gamma` at four rational parameters, one quadratic equation
-  `f_i(M) = det([H; K_i]) = 0`. Total: 8 quadratics in 8 unknowns.
-- Instance A (disjoint): eight groups `c + {0, 0.08, 0.16, 0.24}` with centers
-  `c = -1.4 + 0.4k`, `k = 0..7`. All eight open intervals pairwise disjoint.
-- Instance B (single nested overlap): same as the base except group 4 is
-  `{0.04, 0.16, 0.44, 0.60}` (i.e. `6/25, 13/50, 7/25, 3/10`), group 3 is
-  `{0.24, 0.26, 0.28, 0.30}`, and group 6 starts at `0.61` (not `0.60`).
-  Open intervals are pairwise disjoint except one nested overlap
-  `I_3 = (0.24, 0.30)` inside `I_4 = (0.04, 0.60)` (length `0.06`).
-  All eight closed 4-point secant sets are pairwise disjoint.
-- Smale threshold: `(13 - 3*sqrt(17))/4 = 0.15767...`; certificates use the safe
-  lower bound `0.157671` (reported as `0.1577`).
-
-## Result
-
-For `P = (sigma_1)^8` on `Gr(2,6)` in the chart above with the logged rational
-secant parameters:
-
-(a) The disjoint-interval instance has 14 certified pairwise-disjoint
-transverse chart solutions, all real: each Smale alpha-certified with
-`alpha <= 4.3e-9`, each in an exact-rational Krawczyk real box (`r = 1e-6`),
-pairwise separation `dmin = 0.298`, exact nonzero Jacobian determinants.
-Count matches the known degree 14; no additional chart solutions were found in
-an 800-start search plus reseeds (global exactly-total conditional, see below).
-
-(b) The single-nested-overlap instance (one open-interval overlap of length
-`0.06`, all closed point sets disjoint) has 14 certified pairwise-disjoint
-transverse chart solutions: exactly 12 real plus one complex-conjugate pair.
-All 14 are Smale alpha-certified with `alpha <= 1.2e-2`; the 12 real ones each
-lie in an exact-rational Krawczyk real box (`r = 1e-6`); pairwise separation
-`dmin = 0.332`; exact nonzero `Q(i)` Jacobian determinants at all 14 centers.
-Count matches the known degree 14; no additional chart solutions were found in
-1500-2000-start searches plus an independent seed-777 reseed replay
-(`VERIFY_OK n=14 nreal=12 npair=1 dmin=0.3319`).
-
-Jointly: the disjointness hypothesis is sharp for this cell — the one-nested-
-overlap deformation turns certified all-reality into a certified reality drop
-(14 real vs 12 real + 1 pair).
-
-## Proof / evidence
-
-- System construction: exact-rational quadratic tensors built from the
-  determinant expansion `det([H; K_i])` (`build_solve.py`); verified by rebuild.
-- Alpha certification: exact `Q(i)` (resp. exact-Fraction complex) arithmetic
-  for `beta = ||J^{-1} F||`, `gamma <= ||J^{-1}|| * S` with the standard
-  quadratic majorant `S`; `alpha = beta*gamma` below threshold for all 14+14
-  solutions (`alpha_base.json` max `4.28e-9`; `alpha_narrow.json` max `0.0118`).
-- Reality: exact-`Fraction` interval Krawczyk `K(B) subset interior(B)` at
-  `r = 1e-6` gives existence plus uniqueness of a true zero in each real box,
-  hence real (`kraw_real.py` 14/14; `kraw_narrow.py` 12/12). The two remaining
-  instance-B balls have `|imag| >= 0.23` versus ball radii `~1e-12` and
-  conjugate centers to `1e-6`; the system has real rational coefficients, so
-  they form one complex-conjugate pair.
-- Transversality: `alpha < 0.1577` plus exactly invertible Jacobian (exact
-  nonzero determinants in `Q` / `Q(i)` at all centers) implies convergence to a
-  simple zero (Blum–Cucker–Shub–Smale alpha theory). Float determinants are a
-  cross-check only.
-- Separation: pairwise `dmin = 0.298` (A) / `0.332` (B) versus Newton
-  corrections `beta <= 5e-13` (A) / `<= 3.7e-12` (B); 14 disjoint balls each.
-- Independent replay: `verify_narrow.py` (fresh seed 777) gives
-  `VERIFY_OK n=14 nreal=12 npair=1 dmin=0.3319`; disjoint instance re-found with
-  14 real solutions from a fresh seed.
-
-## Limitations
-
-- What is rigorously certified: 14 pairwise-disjoint alpha/Krawczyk balls per
-  instance with the stated reality pattern and transversality *within the
-  chart* `H = [I|M]`.
-- What is not independently certified: no proof that further solutions do not
-  exist outside these 14 balls or outside the chart (no certified homotopy from
-  a generic 14-solution instance, no rigorous complement exclusion). The total
-  "14" is therefore: 14 certified disjoint solutions whose count matches the
-  known complex degree 14 of `(sigma_1)^8`, with no additional solutions found
-  in 800-2000-start searches plus reseeds — global exactly-total is conditional
-  on chart-containment/properness. The certified 14-ball reality patterns stand
-  regardless.
-- "Overlapping" means exactly one nested open-interval overlap of length
-  `0.06`; all other open pairs disjoint, all closed 4-point sets disjoint. It
-  is the minimal one-pair hypothesis violation tested, not a proven global
-  minimizer of overlap length.
-- The reality drop is shape-dependent: ~90 positional single-pair
-  slides/incursions near the tested bases retained all-reality; the drop
-  required the nested narrow-inside-wide shape.
-- Gamma bounds use the standard quadratic-only majorant; arithmetic is exact
-  rational / exact `Q(i)` apart from float absolute-value norms with large
-  margins.
-
-## Reproducibility
-
-- `python3 verify_narrow.py` — independent instance-B resolve (seed 777):
-  expect `VERIFY_OK n=14 nreal=12 npair=1 dmin=0.3319`.
-- `python3 run_cert_base.py` — exact-Fraction alpha certificates, instance A
-  (all `alpha <= 4.3e-9`); `python3 kraw_real.py` — real Krawczyk boxes, A.
-- `python3 recert_v2.py` — exact-`Q(i)` alpha + exact nonzero dets, instance B
-  (all `alpha <= 1.2e-2`, `dmin = 0.332`); `python3 kraw_narrow.py` — real
-  Krawczyk boxes for the 12 real solutions.
-- `python3 sep_trans.py` — separation matrix + transversality, instance A.
-- Parameters in `system_B_groups.json` (= `narrow_groups.json`); approximations
-  in `narrow_sols.npy` / `base_sols.pkl`; system builder in `build_solve.py`.
-
-## References
-
-- L. Garcia-Puente et al., The Secant Conjecture in the real Schubert
-  calculus, https://arxiv.org/abs/1010.0665
-- N. Hein et al., The monotone secant conjecture in the real Schubert calculus,
-  https://arxiv.org/abs/1109.3436
-- J. D. Hauenstein, N. Hein, F. Sottile, A primal-dual formulation for
-  certifiable computations in Schubert calculus,
-  https://arxiv.org/abs/1406.0864
-- N. Hein, Reality and Computation in Schubert Calculus,
-  https://arxiv.org/abs/1307.1833
-- S. N. Karp, K. Purbhoo, Universal Plucker coordinates for the Wronski map
-  and positivity in real Schubert calculus,
-  https://arxiv.org/abs/2309.04645
+- L. García-Puente et al., *The Secant Conjecture in the real Schubert calculus*, [arXiv:1010.0665](https://arxiv.org/abs/1010.0665).
+- N. Hein et al., *The monotone secant conjecture in the real Schubert calculus*, [arXiv:1109.3436](https://arxiv.org/abs/1109.3436).
+- J. D. Hauenstein, N. Hein, F. Sottile, *A primal-dual formulation for certifiable computations in Schubert calculus*, [arXiv:1406.0864](https://arxiv.org/abs/1406.0864).
+- S. N. Karp, K. Purbhoo, *Universal Plücker coordinates for the Wronski map and positivity in real Schubert calculus*, [arXiv:2309.04645](https://arxiv.org/abs/2309.04645).

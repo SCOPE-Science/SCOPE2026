@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T23:31:12.057252Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–58; algebra of odd moments and both orbit-partition inclusions checked directly",
+        "Frozen check_moments.py, check_refinement.py and both saved outputs inspected; the 864 configurations and 32,400 moment identities are recorded self-tests, not independent runs or the basis for the theorem"
+      ],
+      "rationale": "The initial singleton colours propagate distance-sphere membership to all vertices by round k, so the colour at k+1 gives the joint vector of each neighbour's landmark-overlap displacements as a multiset. Swaps (a,b) with a,b both in X can be added to an odd moment without changing it: their terms cancel in reversed pairs and the diagonal terms vanish. For odd |U| the all-s_i monomial in the resulting polynomial has coefficient (-1)^|U| n=-n. For even |U| the squared displacement at j has linear coefficient 1-2t_j on Boolean inputs and the other |U|-1 factors contribute a minus sign, producing -(n-2k) after summing over b. All other terms involve strict subsets of U, so induction at the same colour round determines every intersection count. Boolean inversion recovers the atom profile. The product of symmetric groups on the atoms acts transitively on each profile and fixes all marks. Conversely even the full coloured-graph automorphism subgroup cannot mix colours, so no classification of Johnson automorphisms is needed. Each atom contributes an independent binomial choice or an independent truncated geometric series for counting profiles. No marks gives one orbit, and the argument includes k=1 and the all-marked case; set complementation transports k>n/2 with the asserted bound.",
+      "residual_risks": [
+        "At n=2k the coefficient for even subsets vanishes and the argument makes no claim about that case. The bound is not claimed sharp."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The hierarchy theorem characterizes (m+1)-Tinhofer by orbit equality for up to m marks. The general complexity paper concerns individualization goals such as discreteness, amenability, compactness or refinability. The Johnson theorem of Arvind et al. is rank two."
+        ],
+        "reasoning": "The general results cover more graphs as frameworks or algorithms, not as a proof that higher-rank Johnson graphs satisfy the required orbit-equality hypothesis for all marks. The rank-two theorem has full mark quantification but cannot cover higher rank.",
+        "searches": [
+          "arXiv:2605.19702v1 Theorem 1.1",
+          "DOI:10.4230/LIPIcs.MFCS.2016.13 abstract and pp. 13:1–13:2",
+          "arXiv:1502.01255v3 §A.2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary and the two identified catalogue findings",
+        "arXiv:1502.01255v3",
+        "arXiv:2605.19702v1",
+        "MFCS 2016 DOI 10.4230/LIPIcs.MFCS.2016.13"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The two-anchor theorem gives data for two landmarks at a time. Pairwise intersections and single overlaps do not in general determine a multi-landmark Boolean profile. The submitted odd-neighbour moments explicitly extract arbitrary higher-order intersection counts."
+        ],
+        "reasoning": "Applying the two-mark result to every pair is not a derivation of the all-mark claim; nor does compact/partial-Tinhofer terminology replace the need to prove the higher-rank hypotheses. No dominating theorem deriving the unrestricted profile and time bound was found in the inspected material.",
+        "searches": [
+          "arXiv:1502.01255v3 §A.2",
+          "arXiv:2605.19702v1 Theorem 1.1",
+          "SCOPE-orbit-exact-two-anchor-counting-refinement-on-johnson-graphs--08b0d9c8ec84 RESULT.md Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Tinhofer (or the arbitrary-individualization orbit equality criterion) is the relevant reformulation of the qualitative conclusion. The closest Resultary theorem obtains orbit equality by k+1 for two marks, with the atom profiles specialized to four zones."
+        ],
+        "reasoning": "The same-graph partition equality yields a Tinhofer corollary via the general hierarchy criterion; that criterion does not prove the equality for the Johnson family. The bound concerns synchronous counting-refinement rounds, not the number of marks in a partial Tinhofer criterion.",
+        "searches": [
+          "Resultary: counting refinement and pointwise stabilizer on individualized Johnson graphs",
+          "arXiv:1502.01255v3 §A.2",
+          "arXiv:2605.19702v1 Theorem 1.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Two distinct Resultary entries give the two-mark case: SCOPE-orbit-exact-two-anchor-counting-refinement-on-johnson-graphs--08b0d9c8ec84 and SCOPE-two-marked-vertices-recover-johnson-graph-automorphism-orbits--affd2b3b0182. The first explicitly has the k+1 bound and four-zone profiles, including the balanced-case pairing."
+        ],
+        "reasoning": "This is a universal structural theorem rather than an invariant table. The closest catalogue matches are exact on the two-mark slice, not on arbitrary-length membership signatures. No priority judgment between catalogue records is inferred from dates alone.",
+        "searches": [
+          "Resultary: Johnson graph orbit-exact colour refinement, two anchors and arbitrary individualization"
+        ]
+      },
+      "rationale": "The new supported part is arbitrary individualization in higher off-middle rank with all membership atoms recovered within the stated refinement bound. Arbitrary marking in rank two is covered by prior Tinhofer work, and the two-mark higher-rank result directly overlaps catalogue statements. Neither subsumes unrestricted higher-rank marking.",
+      "residual_risks": [
+        "One provider search did not surface relevant additional sources and is not evidence of absence. Residual coverage could be phrased in terms of compactness, Tinhofer graphs, or synchronous refinement instead of profiles."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact partial coverage for two marks; includes balanced case outside the reviewed theorem",
+          "evidence": "For two marked vertices at n≥2k≥6, the stable colour is the stabilizer orbit by round k+1 with four-zone profile formulas.",
+          "identifier_or_url": "2026/10/25/SCOPE-orbit-exact-two-anchor-counting-refinement-on-johnson-graphs--08b0d9c8ec84",
+          "material_read": "RESULT.md Finding near offset 174",
+          "method": "Resultary lookup and local-mirror passage inspection",
+          "title": "Orbit-exact two-anchor counting refinement on Johnson graphs",
+          "trigger": "Closest same family, refinement, orbit and bound match"
+        },
+        {
+          "assessment": "Two-mark scope only",
+          "evidence": "Recovers pair-stabilizer orbits for two individually marked vertices.",
+          "identifier_or_url": "2026/10/18/SCOPE-two-marked-vertices-recover-johnson-graph-automorphism-orbits--affd2b3b0182",
+          "material_read": "RESULT.md near offset 396",
+          "method": "Resultary and local-mirror passage inspection",
+          "title": "Two marked vertices recover Johnson graph automorphism orbits",
+          "trigger": "Another direct Johnson overlap"
+        },
+        {
+          "assessment": "Covers qualitative rank-two property, not arbitrary higher rank",
+          "evidence": "J(n,2) is Tinhofer for all n, with the individualized stable partition defined for arbitrary marks.",
+          "identifier_or_url": "https://arxiv.org/pdf/1502.01255v3",
+          "material_read": "§A.2, PDF pp. 28–30, offsets 90019–97233, Theorem 30 (HTML Theorem 0.A.7)",
+          "method": "Primary OA text",
+          "title": "Graph Isomorphism, Color Refinement, and Compactness",
+          "trigger": "Known Tinhofer result for Johnson graphs"
+        },
+        {
+          "assessment": "General criterion, not proof of this Johnson instance",
+          "evidence": "(m+1)-Tinhofer is characterized by orbit equality for individualizations with up to m marks.",
+          "identifier_or_url": "https://arxiv.org/abs/2605.19702",
+          "material_read": "§1, p. 4, Theorem 1.1, offset 12360",
+          "method": "Primary OA text",
+          "title": "A Hierarchy of Tinhofer Graphs: Separations and Membership Testing",
+          "trigger": "General theorem potentially implying equivalent orbit exactness"
+        },
+        {
+          "assessment": "Related general algorithmic setting, not a dominating Johnson theorem in the inspected material",
+          "evidence": "Studies complexity of choosing individualizations achieving properties including amenability, compactness and refinability.",
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.MFCS.2016.13",
+          "material_read": "Abstract and pp. 13:1–13:2",
+          "method": "Primary OA text",
+          "title": "The Parameterized Complexity of Fixing Number and Vertex Individualization in Graphs",
+          "trigger": "Broader work on arbitrary individualization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–58",
+        "Two-anchor catalogue comparison",
+        "Tinhofer hierarchy criterion, arXiv:2605.19702v1 Theorem 1.1"
+      ],
+      "rationale": "Johnson graphs are a natural highly symmetric test family for individualized refinement. The theorem handles all landmark interactions at once (not just distance vectors or pairs), gives exact orbit sizes and counts, and bounds the number of rounds independently of the number of marks. The use of odd moments to recover higher-order intersections, with an explicit obstruction to the method on the middle layer, is a useful structural mechanism rather than a finite census or a rank-two restatement.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

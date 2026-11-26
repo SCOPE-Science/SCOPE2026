@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim concerns the continuous-time symmetric reversible \(00\leftrightarrow11\) dynamics on odd cycles with one closing-bond rate \(\varepsilon\). The staggered particle–hole map turns the ordinary bonds into symmetric exclusion exchanges on a path, whose fixed-\(K\) sectors are explicitly irreducible. Uniform sector averaging gives the exact effective birth-and-death generator. A pair-flip hypercube comparison diagonalizes that generator by Krawtchouk polynomials, with nonzero first-order rates \(4j(N-j)/(N(N-1))\). Finite symmetric-matrix perturbation supplies the \(O_N(\varepsilon^2)\) remainder, and the slow-time first moment establishes the coverage formula. The supplementary checker verifies exact sector identities and low eigenvalues on several odd lengths; finite enumerations are not substituted for the all-length proof. A finite-\(\varepsilon\) formula and a joint \(N\)-large/\(\varepsilon\)-small limit are not established.
+## correctness
 
-## Originality — PASS, qualified
-The leading spectral splitting and the slow-time coverage crossover are compared against Mercado et al., arXiv:2212.12286, which derive equilibrium densities for *uniform-bond* reversible dimer rings, and against Crampé et al., arXiv:1603.06796, and Mobilia, arXiv:cond-mat/0204148, whose reaction-diffusion/exclusion dynamics do not share the one weak pair-flip closing bond on an odd path. The alternating-sublattice conserved quantity and sector enumeration themselves are known and not claimed to be new. Chen and Stinchcombe, Phys. Rev. E 49 (1994), study diffusion plus a defective bond; their inaccessible full text is a residual overlap risk despite the model and geometry distinctions. Literature or indexing omissions and implicit consequences of more general spectral formulas remain possible. No publication-priority certification is asserted.
+PASS
 
-## Mathematical value — PASS
-The result determines every near-zero relaxation rate created by breaking an additional conservation law at one bond, as well as the sharp spectral gap and the explicit metastable coverage crossover. The complete closed-form eigenvalue family and observable noncommuting equilibrium limits quantify how a local topology-restoring perturbation destroys sector memory. This is physically motivated by the finite-size parity phenomena of reversible dissociative adsorption, and is not merely a special-case computation of a known density.
+Alternating site complementation turns exactly the N−1 rate-one reactions into adjacent swaps, and preserves the endpoint pair flip because both endpoints have odd indices. With m even-indexed sites, original even occupation gives K≡m (mod 2), so there are m+1 connected fixed-weight path classes; the endpoint flip connects all successive permitted weights at positive rate. The projected generator B averages endpoint vacancies/occupancies, obtaining b_k=(N−k)(N−k−1)/[N(N−1)] and d_k=k(k−1)/[N(N−1)]. An independent analytic spectrum check triangularizes B on 1,k,…,k^m, a basis by interpolation on the m+1 distinct permitted k's. In B k^j the terms of degree j+1 cancel, and the degree-j coefficient is −4j/N+4j(j−1)/[N(N−1)] = −4j(N−j)/[N(N−1)]. This proves all m+1 distinct eigenvalues including zero without assuming completeness of a parity-restricted polynomial family. The fast block of −L₀ is strictly positive for fixed N; on eliminating it by Schur complement, the small eigenvalue block is −εB plus O_N(ε²). Weyl bounds separate precisely m+1 small eigenvalues from the others, one staying zero. For the slow-time limit, write u=e^{s(L₀/ε+V)}h and Q=I−P; the Q-block is dissipative with fast gap at least g/ε. Variation of constants bounds Qu by e^{−gs/ε}||Qh||+ε||V||||h||/g, so the time-integrated perturbation of Pu from e^{sB}Ph is O_N(ε) on bounded s intervals. For empty start K=m, Bk=−4(k−N/2)/N and the averaged coverage is m/N+k/N², yielding the exact stated expression for each s>0. The isolated uniform K=m shell gives the lower plateau; the positive-rate uniform even-occupation stationary class has marginal 1/2. The fixed-N restriction is essential; no claim at s=0 or of an error uniform in N is made. The frozen CHECK.py is corroboration, not the source of the all-N proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Pass the specific fixed-odd-ring weak-closing-bond slow spectral splitting and empty-start coverage limit. The underlying reversible adsorption model, parity classes, and distance-two hypercube eigenvalues are established context, not the new claim. The main contribution is the exact reduction of the physical defect problem to the radial pair-flip chain and its spectral and coverage consequences. No inspected prior statement supplies that reduction for this defect.
+
+## value
+
+PASS
+
+Opening the closing bond produces a whole set of conservation-law sectors, not simply a small correction to uniform equilibrium. The result resolves how all the associated zero modes split when that bond is restored and identifies the particular mode observable in empty-start coverage, quantitatively explaining the noncommuting time and defect limits. An exact all-odd-N reduction and full leading slow spectrum are useful beyond just reading off equilibrium coverage or substituting into an auxiliary cube spectrum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

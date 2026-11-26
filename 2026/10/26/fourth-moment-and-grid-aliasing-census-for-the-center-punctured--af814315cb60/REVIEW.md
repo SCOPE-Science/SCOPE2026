@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim fixes a concrete finite Fourier support, probability normalization, binary coefficient domain and every sampling order. Parseval yields two independent integer autocorrelation/convolution expressions for each fourth moment. The standalone checker exhausts all 256 sign assignments and compares both independent contractions for orders three, four, five, then separately for the integer lattice. Its exact histograms prove every finite minimum, maximum and multiplicity, while the coordinate sum range proves equality of the order-five and all larger/infinite-order moments. Orbit construction explicitly closes five symmetry generators and partitions all 256 assignments, providing a complete two-orbit classification of the 24 continuous minimizers. Integer exactness rules out floating-point false minima; the proof makes no unsupported inference about nonbinary phases.
+## correctness
 
-## Originality — PASS, qualified by historical-priority risk
-Semantic searches of the published mathematical findings compared punctured square, binary phase-only fourth moments, finite-grid aliasing, equivalent sum/difference energy, and complete optimizer orbits. Relevant full statements inspected include the nine-mode **unpunctured** square spectrum, the eight-mode **three-dimensional cube**, and the fully populated four-by-four binary square. Neither these nor the separately inspected Katz–Ramirez autocorrelation paper or the two Golay/Z-complementary pair/set papers implies the exact punctured-square three-regime histogram or continuous two-orbit census. The eight-mode cube shares the numeric minimum 88 but its geometry and distribution differ. Older specialized array tables were not exhaustively available, leaving nonzero historical-priority uncertainty.
+PASS
 
-## Mathematical value — PASS
-The support is the unique symmetry-complete single-erasure mask of the smallest nontrivial square aperture, not an arbitrary selected coefficient slice. The complete enumeration determines the exact binary aperiodic merit-factor benchmark, reveals a new and pronounced ternary-grid aliasing gain, pinpoints the order-five stabilization cutoff analytically, and classifies all equality arrays up to meaningful aperture symmetries. The answer gives a reusable benchmark for missing-center planar arrays and a concrete boundary between finite cyclic and aperiodic Fourier optimization. The finite size is a scope limitation, not a substitute for mathematical motivation.
+With probability-normalized Haar or grid measure, expanding |P|^4 retains exactly ordered quadruples a,b,c,d whose vector a+b−c−d is zero, or zero modulo the grid order, with weight ε_a ε_b ε_c ε_d. This also gives the two contraction formulas by first grouping sums or differences. Independently enumerated all 8^4 quadruples, compressed their weights by the parity mask of the four indices, and evaluated the resulting integer sums on all 256 sign assignments for moduli 3,4,5 and on the integer lattice. All three histogram rows agree entry by entry (hence the minima, maxima and their counts). Values modulo 5 and on the integer lattice agree mask by mask. Analytically, two pair sums in [−2,2]^2 cannot collide modulo any n≥5 unless equal, proving all-orders stabilization for every mask. For the continuous moment I independently enumerated the entire group as the eight signed coordinate permutations, each combined with the eight sign/checkerboard modulations. Both types preserve |P|^4 averages (or permute the convolutions up to signs). The enumeration found 13 orbits, with exactly two minimum-88 orbits represented by `----+-+-` (8) and `----++-+` (16) in the frozen order. For n≥3 the eight characters are distinct, so the zero-displacement autocorrelation is 8 and the two quoted merit factors follow from 64/(M−64). The independent replay is `python3 /workspace/branches/review_replay.py 2`; the frozen checker was inspected, not executed.
 
-## Closest literature and residual risks
-Katz–Ramirez, arXiv:2307.14281v1, treats one-dimensional binary autocorrelation demerit-factor statistics; Pai–Chen, arXiv:2102.04043v1, and Zhang–Fan–Mesnager, arXiv:2107.11599v1, treat complementary sets/pairs rather than one erasure mask. Closest publicly available exact moment studies are the full nine-mode square, eight-mode three-dimensional cube and full four-by-four square entries cited in RESULT.md. No finding of an equivalent statement was located, but possible specialist array catalogs and arbitrary complex-phase optimizations are outside the verified coverage. Independent review remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct objective is the complete binary moment distribution through the order-three/order-four aliasing transition, including all ordered multiplicities and the stabilized histogram. There is real same-support coverage of the aperiodic extrema, minimizing masks (hence their coarser square orbits), and no-aliasing for orders at least five in Resultary 225492f9c9fb; those facts are not independent contributions here. Its date label is later, but the coverage assessment does not depend on priority. The exact near-grid distributions and full moment census are not supplied by the inspected prior statements.
+
+## value
+
+PASS
+
+The centrally deleted square is the symmetric one-erasure case of the natural 3×3 Fourier array. The invariant quantifies precisely how sampling changes the entire binary energy spectrum: order three lowers the attainable minimum, while order four has the same minimum as the stabilized problem but different optimizer multiplicities and intermediate energies. Hence the aliased census shows effects invisible from the known aperiodic extrema and serves as an exact benchmark for finite-grid versus continuous aperture calculations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

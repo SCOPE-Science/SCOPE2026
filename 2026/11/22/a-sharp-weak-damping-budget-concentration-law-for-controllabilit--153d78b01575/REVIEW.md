@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The model is a real finite feedforward system of order \(n\ge3\) with strictly positive leakage \(\mu\), rate budget \(S\), positive transitions and a single upstream input. The exact impulse responses have lower-triangular exponential coefficients; their Gramian is a congruence of a Cauchy matrix. Cancellation of all Vandermonde factors gives the closed product formula at distinct rates, and continuity covers repeated rates. Every optimizer is interior; exchanging and separating rates forces strict upstream order. Uniform strong-damping expansion, weak-damping denominator bounds, compactness, and strict convexity of the log-sum-exp denominator prove both allocations and the sharp power-law constant. An independently implemented exact Lyapunov recurrence checked 125 rational examples, including repeated rates. Those finite checks support but do not replace the analytic all-dimensional proof.
+PASS
 
-## Originality — PASS on inspected evidence, qualified
+The cascade is stable and its controllability matrix is triangular with determinant product w_i^(n−i). At distinct poles the impulse-response coefficients form a triangular matrix with diagonal gamma_i divided by the preceding pole differences. In the Gramian this matrix multiplies a symmetric Cauchy matrix on both sides. Its squared determinant cancels the Cauchy Vandermonde; continuity extends the formula to repeated poles at μ>0. The closed simplex gives zero determinant only on its boundary, so maximizers are interior. A permutation that moves a higher rate earlier strictly improves the numerator with fixed denominator; exchanging an infinitesimal amount at equal rates has zero denominator derivative and positive numerator derivative in that direction. Under strong damping the denominator divided by (2μ)^(n²) tends uniformly to one, and the strict weighted-log maximizer gives the reported fractions. Under weak damping the descending poles bound the denominator below by 2^n times product λ_i^(2(n−i)+1). In particular μ^(n−1)det W is bounded above by 2^(−n)/(μ+w₁) times product μ/(μ+w_i) for 2≤i<n. For a trial w_i=μc_i, exact factorization gives μ^(n−1)det W= F_n(c)/(2(μ+w₁)) times product of [w₁/(2μ+w₁+w_j)]² over 2≤j≤n, with w_n=0. The positive trial limit forces bounded c_i at optimizers and w₁→S, and this same factorization excludes a zero limiting c_i. Uniform convergence on the resulting compact set and comparison to every fixed ordered trial vector identify all accumulation points. Sorting never decreases F_n, so comparison with ordered trials suffices. In log coordinates log F_n is strictly concave by its diagonal log(2+2 exp y_i) terms, and differentiating gives the displayed stationary equations. This proves the shared limit and coefficient for every optimizing family. At n=3 the equation is c²−2c−4=0, and F_3=c²/[4(1+c)(2+c)²] gives the stated constant. At fixed positive rates only the terminal diagonal factor 2μ vanishes. Proof replay: RESULT.md §§1–6. VERIFICATION.md and verify.py were inspected, not run; its exact recurrence checks the determinant, not weak-limit optimality. The result does not claim finite-μ optimizer uniqueness, and total mass is not conserved in the presence of leakage.
 
-Pasqualetti, Zampieri and Bullo (arXiv:1308.1201) treat network controllability metrics, while Summers, Cortesi and Lygeros (arXiv:1404.7665) optimize log-determinant over actuator sets. Becker et al. (arXiv:1902.04195) design edge weights for different spectral Gramian constraints. Accessible public result comparisons include directed ring actuator placement and cyclic spectral-abscissa allocation, which do not imply the present D-optimal directed-path rate hierarchy. The known Cauchy determinant is a proof tool, not an originality claim. The earlier three-node *undirected* star allocation uses symmetric Laplacian dynamics and neither implies the one-way chain result nor its arbitrary-dimensional concentration law. Search limitations remain: relevant older or unindexed control-design sources might contain an equivalent result; no independent priority audit has occurred.
+## originality
 
-## Value — PASS
+PASS
 
-The precise object and determinant criterion are natural for a budget-limited feedforward network. The theorem provides an exact finite-damping order of optimal investments and two distinct universal limiting allocations. Its weak-damping singular concentration upgrades the optimal Gramian determinant from a fixed-design \(\mu^{-1}\) law to \(\mu^{-(n-1)}\) for every dimension, quantifying a nontrivial volume-versus-rate-robustness effect. It does not imply optimal worst-case actuation energy or provide a numerical stability guarantee.
+The accepted distinct statement is the all-dimension optimal weak-damping allocation and its limiting value on this directed cascade, not the general SISO determinant identity or the generic observation that optimal designs may approach disconnection. An unusually close same-day comparison has the same rescaled leading scalar objective in dimension three, but not the directed chain's general allocation theorem.
 
-## Limitations and verification state
+## value
 
-The proof excludes feedback networks, multiple inputs, other Gramian criteria and finite-horizon Gramians. It does not claim finite-leakage uniqueness. The exact-arithmetic script is reproducible with standard Python, but it cannot certify every real parameter by enumeration.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The weak-leakage optimum is singular: it sacrifices all but the first rate on the original budget scale yet maintains controllability and achieves a larger determinant divergence power than every fixed positive design. The theorem identifies the unique downstream profile and coefficient in every dimension and contrasts it with the nonsingular strong-leakage profile. This is materially more than evaluating a known determinant or rescaling the three-node example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

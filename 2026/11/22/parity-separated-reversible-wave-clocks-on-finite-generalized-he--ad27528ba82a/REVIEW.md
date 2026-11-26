@@ -1,13 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The universal distance recurrence for the incidence graph of an equal-order generalized hexagon implies the binary adjacency polynomials \(X^5(X+1)^2\) at even order and \(X^2(X+1)^4\) at odd order. The sharp degrees follow from geodesic distances six and five, respectively. The wave-block calculation independently establishes the exact periods \(48\) and \(12\); the kernel and Möbius formulas count every primitive temporal orbit. Both packaged checkers completed successfully on the exact files, including a direct 12-cycle adjacency test. The proof is all-family; finite tests are supporting diagnostics only.
+## correctness
 
-**Originality — PASS, qualified.** The full-text geometric sources describe the distance-regular parameters, code properties and reversible construction separately, not this combination's exact characteristic-two temporal period and fixed-space formula. The closest accessible records about projective planes, generalized quadrangles and partial geometries have incidence graphs with smaller diameter or different distance recurrences, so their formulas do not imply the hexagon statement. Semantic searches for generalized-hexagon characteristic-two wave periods and aliases revealed no covering statement. Source-index incompleteness and unindexed older equivalences remain risks, not evidence of uniqueness.
+PASS
 
-**Value — PASS.** This is a sharp all-realized-geometry parity classification for a canonical infinite geometric graph family: the global clock jumps from \(12\) to \(48\) with the order parity, and all possible primitive periods and their multiplicities are determined by finite incidence-kernel data. The diameter-six geodesic obstruction makes the classification structurally distinct from known diameter-three and four incidence-wave examples. This is a motivated invariant, not a selected graph sample.
+Over characteristic two, the distance recurrence gives A^7+A^5=0 for even q and A^6+A^2=0 for odd q. For distances j≤5 the leading A^j entry is one (unique geodesic); at distance six it is q+1, odd for even q. The triangular distance tests therefore prove the claimed minimal degrees 7 and 6, not merely annihilator bounds. On an adjacency block over R=F[X]/((X+λ)^j), T+T^{-1} acts by X and T sends (0,1) to (1,0). These generate R² under T, since the inverse is a polynomial in the invertible T. Thus T is cyclic with annihilator (Z²+λZ+1)^j, of degree 2j. The fixed dimension is the degree of its gcd with Z^k−1 on each such block, and second differences of H count the blocks. This gives the census regardless of whether the quadratic splits. The maximal unipotent and cubic primary blocks have orders 16 and 6 for even q, and 4 and 12 for odd q. Vectors of each smaller primary period occur in the corresponding submodules (and zero has period 1); direct sums realize the least common multiples, hence all divisors. Independent recurrence and direct wave powers on cyclic models checked exact orders and all 48 and 12 fixed spaces respectively.
 
-**Closest literature.** Exoo and Jajcay, *Dynamic Cage Survey* (2008 initial; 2013 revision), §2.2.3, supplies the geometry; Vlasov (arXiv:1311.4297, 2013), §3, supplies the general second-order reversible mechanism; Jazaeri (arXiv:2301.06593, 2023), §4.2, studies perfect codes on line graphs and states the generalized-hexagon intersection array. The accessible published related records concern projective-plane and strongly-regular-graph wave periods, not generalized-hexagon dynamics.
+## originality
 
-**Limitations.** No assertion of a unique isomorphism type, realizability at every integer order, universal Jordan block multiplicities, or independent third-party validation. Previously unindexed equivalent temporal results may exist.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The sharp characteristic-two exponents at both adjacency eigenvalues and their exact dynamical consequences for equal-order hexagons are not supplied by the strongest inspected matches. The generic reversible construction and the known intersection array are ingredients, not claims of novelty.
+
+## value
+
+PASS
+
+An exact uniform order, with a fourfold split by the geometry's order parity, classifies all globally possible temporal periods on these natural incidence graphs, independent of their size or the characteristic-two field extension. The sharp modular blocks explain the split and reduce the entire labelled census to finitely many adjacency ranks rather than orbit enumeration. Ordinary spectra or mere reversibility would not provide this information.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,11 +1,21 @@
-# Review of the Haar Gabor spectral theorem
+# Independent mathematical audit
 
-**Correctness: PASS.** A self-contained finite Walnut calculation reduces the full positive frame operator to a scalar cosine multiplier with rigorously enumerated positive-measure overlap counts. This establishes the complete spectrum, sharp bounds, spectral type and injective non-frame behavior for all real parameters in the claimed range. Exact rational checks tested 34,228 coefficient and endpoint assertions; they are supplementary evidence rather than a proof.
+## correctness
 
-**Originality: PASS, with historical risk.** Dai and Zhu's complete qualitative Haar frame-set theorem is acknowledged, as are standard Walnut and direct-integral methods. Their inspectable full text does not state the quantitative spectrum, the embedded eigenvalue transition, or the complete-but-nonframe classification. The closest indexed hat-spline spectral result has a distinct continuous window and different phase boundary. An older Janssen article describes exact bounds for unspecified windows; its inaccessible full text leaves a bounded priority risk but no identified covering implication.
+PASS
 
-**Mathematical value: PASS.** The theorem gives a complete exact spectral phase diagram over the natural first nontrivial Haar overlap range at fixed redundancy two. It identifies a positive spectral gap persisting to the boundary, its discontinuous collapse immediately beyond, and survival of completeness without uniform reconstruction stability. These are operator-theoretic properties not supplied by a binary frame-set test.
+On the exact lattice ab=1/2 set q=1/b=2a. Modulation Fourier orthogonality gives the Walnut shifts by q with overall factor 1/b. For b<=2 only shifts 0 and +/-q can overlap on positive measure. The translated signed products at shift q are -1 exactly on [q-1/2,1/2), so both off-diagonal coefficients are -M by a-periodicity and the diagonal is 2+M by removing a segment of length 2a. The overlap-count mean length in units of a is 2b-2, so M attains the adjacent integers on positive-measure sectors except at integral endpoints. Fourier series on q-spaced fibers gives multiplier (2+M-2M cos(theta))/b, with sectors {2/b}, [1/b,5/b], [0,8/b] for M=0,1,2 respectively. At b=3/2 only M=1 remains; beyond it the zero set of the M=2 multiplier is null, not a kernel. The nonconstant angular sectors push absolutely continuous densities to absolutely continuous spectral measures by change of variables on the two monotone half-circles, and the positive-measure constant sector gives infinite multiplicity. Independently checked each open overlap cell at six rational b, including b=3/2, b=2 and levels immediately on both sides of 3/2, using python3 /workspace/review_replay.py (section 3); this verifies the finite coefficient calculation only. Inspected the frozen rational checker rather than executing it.
 
-**Limits.** The result does not treat every lattice or prove novelty against inaccessible literature. The proof is analytical; the finite checker is not a substitute. The theorem is reviewed here without independent validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best of available evidence for the exact full-band and spectral-type classification, including the complete nonframe regime, not for the frame-set transition or the standard diagonalization method.
+
+## value
+
+PASS
+
+The density-two curve is natural for scalar periodic fiber analysis and the range is the full first-overlap regime, not an arbitrary example. The exact spectra give optimal stability and Bessel bounds and establish that crossing the known frame threshold destroys stable reconstruction abruptly without destroying completeness. The disappearance of a flat eigensector at the included endpoint also describes a spectral transition not encoded in the binary frame criterion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

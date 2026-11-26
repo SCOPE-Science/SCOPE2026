@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:09:59.440105Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–87; VERIFICATION.md; verify_gap_hist.py (inspected, not executed)",
+        "evidence/03_mobius.py and evidence/03_mobius.txt: independent full-support histograms, m=15 all units and Q=1,2,3,4,5,7,12,21, plus stress tests at other cofactors"
+      ],
+      "rationale": "For gcd(t,m)=1, powering permutes primitive m-th roots, hence the monic quotient is integral. Expanding U_m/(1-x^m) gives the stated coefficient word in each block. There are d-1 length-t blocks and a final length-(t-d+1) block. The j-th cyclic word cannot vanish: vanishing modulo x^m-1 would imply Phi_m divides the partial numerator P_j(x^r) after cancellation of U_m, and thus Phi_m divides nonzero P_j by the permutation of primitive roots, impossible for j<d. The last block is occupied by monicity even if it is shorter than a period. Inserting m positions preserves the first supported offset, moves the last support forward by m, and inserts exactly a full cyclic multiset of gaps, including wraparound; end-to-start boundary gaps are unchanged. Iterating from t=m+r gives the formula; the prime identity applies since p does not divide m. Independently reconstructed coefficients by truncated cyclotomic Möbius products, with no periodic word or division by Phi_m. All eight base and first-difference rows match, as do higher-Q arithmetic checks including composite multipliers; the sets of lengths and N_8=2Q follow directly from the matched rows.",
+      "residual_risks": [
+        "The finite replay validates table arithmetic; the universal statement uses the block-insertion argument, not extrapolation from the replay."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "0500051e2451 treats every m>=2 with a reduced residue r and Q>=1, including composite t",
+          "Cafure–Cesaratto give binary ±1 spectra; Zheng gives maximum-gap size and multiplicity in the odd-squarefree regime"
+        ],
+        "reasoning": "The general Resultary law specializes directly to all admissible m,t in the frozen quotient theorem and hence to the prime version. The primary results separately overlap certain cases or columns but are not the basis for the complete-coverage decision.",
+        "searches": [
+          "Resultary 0500051e2451 general cofactor theorem; 254e711748ba and 84be1e5dcc2a",
+          "arXiv:2611.22795v1, Theorem 1.1 and Proposition 5.1; arXiv:2507.19381v2, Theorem 1.2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 0500051e2451, 254e711748ba, 84be1e5dcc2a",
+        "Cafure–Cesaratto arXiv:2507.19381v2; Zheng arXiv:2611.22795v1; attempted ternary paper URL",
+        "Frozen RESULT.md table and prior-work section"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The independent published record supplies periodic insertion and fixed cross-block gap boundaries for the full theorem",
+          "Binary word machinery and ternary coefficient-value counts are not alone full spectra; the plausible broader implication from ternary coefficient blocks could not be examined directly"
+        ],
+        "reasoning": "No new instance remains to reconstruct as a repair: the broader record's theorem and explicit m=15 vectors already give each of the asserted consequences, including the composite t extension. Lack of access to the other paper neither supplies nor weakens this implication.",
+        "searches": [
+          "Resultary 0500051e2451 proof continuation offset 5636–8613",
+          "Cafure–Cesaratto Theorem 1.2 and word construction; Zheng Section 5; orbiserver.uni.lu ternary paper"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The separate record gives G_{m,mQ+r}=G_{m,m+r}+(Q-1)A_{m,r}, with A the cyclic support-gap histogram sum",
+          "Its intercept is N-QA, so adding A gives the frozen base B"
+        ],
+        "reasoning": "The shift of intercept is not a different statistic or theorem. Both count successive support exponent differences including one, and use the same period increment.",
+        "searches": [
+          "Resultary: affine gap profiles of cyclotomic substitution quotients, cyclic support words, Phi_15p",
+          "Resultary 0500051e2451, RESULT.md opening and proof"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "All eight slopes and all eight bases are the same after converting the coefficient of Q and the Q-intercept to increment and value at Q=1",
+          "Zheng's count of two times floor(p/m) gives N_8=2Q for m=15"
+        ],
+        "reasoning": "The exact table match is stronger than a coefficient-value count or a largest-gap count. The four support regimes are read off from positive entries in these same tables.",
+        "searches": [
+          "Resultary 0500051e2451 m=15 data in RESULT.md",
+          "arXiv:2611.22795v1, Theorem 1.1; frozen relationship-to-prior-work section citing the ternary paper's Table 9"
+        ]
+      },
+      "rationale": "A distinct published record, Resultary 0500051e2451, already covers the same general affine histogram and the complete m=15 table in a broader cofactor domain, with the same cyclic support construction. This is demonstrable equivalent coverage on the entire assigned domain, not merely a title match. Both records are dated the same day; the evidence does not resolve ordering or priority. The decision does not depend on an inaccessible ternary paper.",
+      "residual_risks": [
+        "No priority or authorship inference from identical publication dates.",
+        "The full ternary-paper blocks were not available; the overall coverage decision independently rests on the exact Resultary match."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Entire frozen finding covered by a distinct broader record; no same-day priority inferred",
+          "evidence": [
+            "All m>=2, Q>=1 and reduced r; full affine gap histogram; cyclic support words; same eight slopes and equivalent intercept table"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-universal-affine-gap-profiles-of-cyclotomic-substitution-quotien--0500051e2451/RESULT.md",
+          "material_read": "RESULT.md opening law and m=15 data; proof continuation offsets 5636–8613",
+          "method": "Local published-record mirror",
+          "title": "Universal affine gap profiles of cyclotomic substitution quotients",
+          "trigger": "Strongest same-statistic broader match and exact cofactor table"
+        },
+        {
+          "assessment": "Related cofactor/case-specific results, not the decisive full overlap",
+          "evidence": [
+            "m=35 full histograms and binary ±2 residue cases"
+          ],
+          "identifier_or_url": "Resultary 254e711748ba; 84be1e5dcc2a",
+          "material_read": "Opening findings",
+          "method": "Local published-record mirror",
+          "title": "Affine gap spectrum law and second largest gap for Phi_35p; binary semigroup gap spectra",
+          "trigger": "Related full-spectrum tables"
+        },
+        {
+          "assessment": "Explicit overlap in binary ±1 cases only",
+          "evidence": [
+            "Gap frequencies for lengths 2 through p-1 in the ±1 cases; construction using concatenated basic words"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2507.19381v2",
+          "material_read": "Theorem 1.2 and discussion, OA offsets 4700–8897",
+          "method": "OA HTML passage inspection",
+          "title": "Gaps in binary cyclotomic polynomials",
+          "trigger": "Binary gap histograms and cyclic word machinery"
+        },
+        {
+          "assessment": "Largest-gap column covered; inspected passages do not state the remaining histogram",
+          "evidence": [
+            "Maximum size phi(m), multiplicity 2 floor(p/m); restrictions on periodic-block zero runs"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.22795v1",
+          "material_read": "Theorem 1.1 and Proposition 5.1, OA offsets 2850–6450 and 19505–23490",
+          "method": "OA HTML passage inspection",
+          "title": "The totient bound and extremal gaps in cyclotomic polynomials",
+          "trigger": "General maximum-gap multiplicity and block structure"
+        },
+        {
+          "assessment": "Primary passage inaccessible; coefficient-block implication unresolved",
+          "evidence": [],
+          "identifier_or_url": "https://orbiserver.uni.lu/bitstream/10993/55534/1/ternary_cyclotomic_polynomials.pdf",
+          "material_read": "No full-text passage retrieved; frozen RESULT.md lines 91–92 describe sections and Table 9",
+          "method": "Bounded lawful direct and alternate-route OA attempts",
+          "title": "The ternary cyclotomic polynomials Phi_{3pq}",
+          "trigger": "Plausible same-cofactor coefficient construction"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md finding and proof; Resultary 0500051e2451 statement, table and period-insertion proof"
+      ],
+      "rationale": "The entire gap histogram of a natural cyclotomic family is a meaningful invariant, but this particular submission contributes neither a new evaluated case nor a distinct structural or computational method beyond the directly matching broader law, cyclic slope proof and table already represented in 0500051e2451. A repeat verification is not a new mathematical finding, and no surviving valuable remainder was identified to repair.",
+      "residual_risks": [
+        "This rejects duplicate scientific contribution, not the use of full gap histograms as a research object."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

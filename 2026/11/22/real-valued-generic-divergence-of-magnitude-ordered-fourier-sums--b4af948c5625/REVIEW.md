@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS (same-model).** The published input is Nielsen's complex finite-model theorem on odd cyclic products, whose tree/chirp frequency separation, stopped-walk bounds and exact threshold selection were inspected. The additional phase-coordinate realification has exactly two disjoint conjugate spectral slices for odd \(p\), with no coefficient-level rescaling. The identity is algebraic; the Haar success measure is at least \(1/(2p)\) after the source finite model. Independent coordinate blocks with separated coefficient levels amplify this to arbitrarily near full measure; regular-threshold stability and Baire's theorem give the exact dense \(G_\delta\) characterization in the real Banach space. The proof separately establishes finite spectral avoidance, norm control and all-tie-order divergence. Numerical finite checks confirm the new spectral identities but cannot verify the external existential input or infinite conclusions.
+## correctness
 
-**Originality — PASS relative to inspected evidence.** Nielsen (2026, arXiv:2609.03506) states all its function spaces are complex-valued; complex genericity does not logically imply real genericity. The same paper's finite odd-cyclic model is used, and the realification/positive-probability amplification is an additional derivation. Körner's circle and Walsh cases, and Grigoryan–Sargsyan's modified-data Vilenkin convergence, have different domains or conclusions. Published mathematical-record searches and accessible previous claims showed no exact real odd-base dense \(G_\delta\) statement. The closest substantive risk is unindexed folklore or an older real Vilenkin rearrangement theorem; no priority beyond inspected evidence is claimed.
+PASS
 
-**Value — PASS.** The real-signal restriction is mathematically consequential because taking real parts ordinarily changes coefficient magnitudes and destroys greedy threshold covariance. The exact two-slice identity repairs that obstruction, and the independent-block argument gives a full residual and almost-everywhere result, not just an isolated finite example. It clarifies stability limits of magnitude-based Fourier reconstruction for the real data class on a nonbinary compact group.
+Nielsen's cited finite input was checked in the original for odd p including composites and exactly the inclusive all-ties threshold. The new phase-coordinate polynomial has disjoint ±1 slices, so realification commutes with every threshold without taking the real part at the original frequencies. Orthogonality of the second phase harmonic gives the exact squared-projection average, hence positive measure independent of the source amplitude. In the block argument a witnessing threshold can be replaced by the smallest coefficient magnitude actually selected, so it selects no later block and all earlier ones. Norm bounds and arbitrarily large input amplitude are compatible because each scalar is fixed before choosing the next finite model. Block events are independent; finite amplification yields the zero-mean large-measure witness, and summable infinitely many blocks plus Borel–Cantelli prove spectral avoidance. Verified the real-space Baire step: a regular positive threshold has a uniform gap from all coefficient magnitudes by Bessel finiteness above half that threshold. The finite selected sums then vary uniformly, and strict superlevel measure persists by approximation from above in the level. Conversely a.e. unboundedness gives the finite-threshold witness to every open set condition via countability, even after discarding thresholds at least 1/k (only finitely many sums). Hence the divergence set itself is dense G-delta. Every full magnitude level is the same initial segment for all allowed enumerations, giving one common full-measure set.
 
-**Limits.** This is an odd-base product-group theorem conditional on the fully cited published complex finite-model result; it is not an independent proof of that source theorem and does not settle all compact groups or give explicit small dimensions. Full texts of some older published analogues could not be inspected, leaving a qualified historical-coverage risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The established distinction is the real-valued odd-base finite theorem and its real-space generic consequence. Nielsen supplies the complex result, including full ties and frequency avoidance. The exact conjugate-slice construction with high-measure amplification is required because the nonlinear threshold operation does not in general survive taking real parts on the original group coordinates.
+
+## value
+
+PASS
+
+Real Fourier data have conjugate ties, and density in the complex space does not settle the problem for real functions. The phase-coordinate identity gives an exact real construction compatible with the nonlinear threshold operation, and its finite high-measure outcome is strong enough for generic divergence and finite-spectrum avoidance on every odd base. This fills the real-valued gap rather than restating the established all-orderings corollary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

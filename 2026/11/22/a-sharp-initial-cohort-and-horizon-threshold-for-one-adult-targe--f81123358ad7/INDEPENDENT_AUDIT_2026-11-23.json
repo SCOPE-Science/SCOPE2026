@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:23:39.467575Z",
+  "axes": {
+    "correctness": {
+      "rationale": "After the intervention, the difference from the untreated adult cohort is exactly qA(s) exp[-μ(t-s)]; recruitment is unchanged. Thus the unique optimum is sought by maximizing A(s)H(T-s), with positive q an overall factor, and the derivative has the sign of H(T-s)-D(s), where D=A(s)/(βL_0 exp(-αs)). The explicit D in the result satisfies D'=exp[(α-μ)s][1+(α-μ)a]. In the delayed regime this is positive, including α<μ because a<H(T)<1/μ. The difference starts positive and ends negative, so the unique crossing is the strictly optimal interior time. If a≥H(T) and α≥μ, then D≥a. If α<μ, then D is a convex combination of a and 1/(μ-α)>H(T); in both cases the derivative is negative for s>0, also at threshold equality. At s=T/2 the integral term in D strictly exceeds H(s) for α>0, giving the strict half-horizon bound directly. The sign of the same crossing equation gives the stated strict a, α and T comparisons while interior. At α=0 the equation reduces to exp(2μs)=exp(μT)(1-μa); this is a formal constant-source limit, not the positive-loss cohort theorem. Solving a<H(T) gives all three horizon cases. An independent numerical evaluation of the equal-rate example gave s=0.5624831767 and a benefit ratio of 1.9155763157. VERIFICATION.md and impulse_benchmark.py were inspected; python3 impulse_benchmark.py is the optional frozen calculation path.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Agusto et al. §3.1/Theorem 3.1 formulates necessary conditions for a multi-state nonlinear vector-control optimization. Its discussion says it balances insecticide costs and reductions in mosquitoes or disease burden and obtains candidate schedules numerically, not sufficient conditions. The Barclay paper's body could not be accessed independently."
+        ],
+        "reasoning": "General impulse methods can reproduce a derivative identity in a linear special case, but the expressed necessary conditions and computed schedules do not give this global all-rate threshold and strict uniqueness. No conclusion about the full unavailable Barclay text is inferred from access failure.",
+        "searches": [
+          "Agusto et al., DOI:10.3934/math.20221075, primary text §3 and discussion",
+          "Lawful manuscript attempts for Barclay et al. DOI:10.1080/09670874.2018.1475690"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, impulse_benchmark.py, AUDIT.json",
+        "DOI:10.1007/s10340-024-01787-w",
+        "DOI:10.3934/math.20221075",
+        "DOI:10.1080/09670874.2018.1475690 (access limited)",
+        "DOI:10.1007/s00477-022-02326-8 (access limited)",
+        "Resultary f81123358ad7, a6b5f7a97228 and 62c94af69536"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Kummer et al. Journal of Pest Science 98 p. 467 varies time of day and intervention duration across 14- and 28-day scenarios using stochastic model realizations, with epidemiological targets. Agusto et al. p. 19618 explicitly cautions that necessary conditions need not be sufficient and calls its schedules candidates."
+        ],
+        "reasoning": "The stated objectives, dynamics and intervention choices cannot turn these reported schedules into the universal unique maximizer of the single-pulse integrated adult-day benefit. Neither the fixed choice of target nor the simple proportionality in pulse efficacy alone supplies the positive-loss timing law.",
+        "searches": [
+          "Kummer et al., DOI:10.1007/s10340-024-01787-w, adulticide scenarios",
+          "Agusto et al., DOI:10.3934/math.20221075, formulation and candidate schedule discussion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same-day air-cleaning record RESULT.md lines 19–40 is exactly equivalent in timing to the formal α=0 cohort limit with its slack horizon U and positive baseline b as the cohort horizon and mortality, and its factor G as impulse efficacy. The benefit shape is z(s)H(U-s), with constant recruitment. Resultary 62c94af69536 compares rank reversals of untreated adult census curves, without a pulse objective."
+        ],
+        "reasoning": "The exact equivalence is confined to constant emergence/α=0 and does not imply the declining-cohort classification or α-comparative statics. Adult census rankings are not integrated marginal benefits of intervention. A common catalogue date gives no priority ordering.",
+        "searches": [
+          "Resultary: protected immature cohort, one adult pulse and integrated adult-days",
+          "One impulse, exponential recruitment and finite cumulative adult abundance",
+          "Frozen finite-window record a6b5f7a97228"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The frozen f81123358ad7 formula is the only exact identity hit identified in the scoped catalogue check and is not independent evidence. 62c94af69536 and the nearby air-window statement give different formulas and domains, with the constant-source overlap noted above. The Kummer schedule comparisons are simulated scenarios."
+        ],
+        "reasoning": "No independent exact table or formula for the positive-loss cohort phase law was identified; this is a bounded finding, not evidence of worldwide absence.",
+        "searches": [
+          "Resultary: adulticide versus initial larval/adult cohorts, single fractional intervention, threshold ratio A_0/(βL_0)",
+          "Primary literature one-pulse exponential recruitment and integrated abundance"
+        ]
+      },
+      "rationale": "The finite declining cohort, sharp initial-cohort and horizon boundary, strict uniqueness and α-dependence are not covered by the inspected simulation, numerical impulse-control, or constant-source timing results. Linear dependence on a fixed fractional impulse is standard linear superposition; it is not new in isolation. Historical priority for the joint classification remains provisional.",
+      "residual_risks": [
+        "A stronger theorem on a single intervention in first-order systems with declining recruitment or an unread direct timing source might subsume the benchmark. The priority assessment is limited to available technical passages and bounded discovery."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIFFERENT_DYNAMICS_INTERVENTION_AND_OBJECTIVE",
+          "evidence": [
+            "Simulates repeated adulticide, compares selected times of day and numbers of days, and targets a transmission scenario."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s10340-024-01787-w",
+          "material_read": "Primary publisher PDF abstract and adulticide scenario prose, journal pp. 466–467, PDF offset 23100 onward",
+          "method": "Lawful publisher full text, bounded relevant passages",
+          "title": "Comparing the effectiveness of adulticide application interventions on mitigating local transmission of dengue virus",
+          "trigger": "Closest motivating timed adult intervention study"
+        },
+        {
+          "assessment": "BROADER_MODEL_DIFFERENT_OPTIMIZATION_CONCLUSIONS",
+          "evidence": [
+            "Balances application costs against mosquito abundance or disease burden; uses nonlinear discrete optimization, necessary conditions and numerical candidates."
+          ],
+          "identifier_or_url": "https://www.sciopen.com/local/article_pdf/10.3934/math.20221075.pdf",
+          "material_read": "Primary PDF §3.1/Theorem 3.1, optimization summary (offset 41643), discussion at offsets 96480–98745, journal pp. 19618–19619",
+          "method": "Lawful primary full-text passages",
+          "title": "Optimal impulse control of West Nile virus",
+          "trigger": "Plausible broader mosquito impulse control coverage"
+        },
+        {
+          "assessment": "ACCESS_LIMITED",
+          "evidence": [
+            "Frozen audit describes repeated applications and a population knockdown target; no independent whole-paper result inferred."
+          ],
+          "identifier_or_url": "https://doi.org/10.1080/09670874.2018.1475690",
+          "material_read": "No independently readable primary body",
+          "method": "Lawful publisher/manuscript access attempts; frozen comparison recorded separately",
+          "title": "Modelling optimal timing and frequency of insecticide sprays for knockdown in preparation for other control measures",
+          "trigger": "Potential earlier stage-structured intervention timing law"
+        },
+        {
+          "assessment": "ACCESS_LIMITED",
+          "evidence": [
+            "Not relied on for exclusion of prior coverage."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00477-022-02326-8",
+          "material_read": "No independently readable full text from attempted DOI route",
+          "method": "Lawful access attempt",
+          "title": "Modelling can reduce contamination from mosquito population control",
+          "trigger": "Related modeling of an intervention schedule"
+        },
+        {
+          "assessment": "EQUIVALENT_TO_CONSTANT_EMERGENCE_LIMIT_ONLY",
+          "evidence": [
+            "Mapping the slack horizon and baseline gives the formal constant-source fractional-impulse objective up to a constant; does not cover α>0."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-initial-load-threshold-and-amplitude-independent-optimal--a6b5f7a97228",
+          "material_read": "Frozen RESULT.md lines 6–40",
+          "method": "Direct reading and explicit scalar objective comparison",
+          "title": "A sharp initial-load threshold and amplitude-independent optimal air-cleaning window",
+          "trigger": "Same-day exact limited objective equivalence"
+        },
+        {
+          "assessment": "DIFFERENT_QUESTION",
+          "evidence": [
+            "Rank reversals of adult trajectories in declining populations, not intervention timing."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-two-adult-census-ranking-reversals-in-declining-two-stage-habita--62c94af69536",
+          "material_read": "RESULT.md finding, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Two adult-census ranking reversals in declining two-stage habitats",
+          "trigger": "Closest distinct cohort dynamics match from the indexed lookup"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The theorem identifies when protecting a recruiting cohort actually changes the timing choice and gives a strict bound and comparative statics across the entire idealized finite-horizon problem. It is a useful exact benchmark for more complex control models; it neither recommends a field schedule nor identifies an epidemic or operational optimum.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

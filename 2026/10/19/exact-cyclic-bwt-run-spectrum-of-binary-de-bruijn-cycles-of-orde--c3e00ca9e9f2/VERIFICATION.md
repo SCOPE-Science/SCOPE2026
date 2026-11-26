@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Finite exact verification
+# Independent mathematical audit
 
-Execute `python3 verify.py` in a directory containing the attached standalone source. Python 3 with its standard library suffices. The program exhausts the Eulerian circuits of the four-bit binary de Bruijn graph rooted at the unique `00000` edge, evaluates the sentinel-free cyclic BWT of each accepted cycle by full rotation sorting, and independently exhausts all \(65536\) pair-block BWT candidates with the LF single-cycle test.
+## correctness
 
-The verification asserts equality of the two complete sets of \(2048\) BWT output strings and of all six exact histogram cells. No randomized inputs, timeouts, heuristic search, floating-point calculations, precomputed external databases, or dependence on other artifact files are used.
+PASS
 
-Expected output:
+An order-five cycle uses all 32 labeled five-bit edges in the four-bit de Bruijn graph; the unique 00000 edge fixes a starting edge. The frozen DFS generates edge-label sequences, which may be rotated relative to a word written beginning with 00000, but still represent each cycle once. For an independent finite reproduction, python3 /workspace/branches/independent-05.py enumerates all 2^16 shift successors x=abcde ↦ bcde(a XOR f(bcde)). The two states with each tail must go to distinct successors in a cycle, so every order-five word induces exactly one such map; each map is a permutation, and orbit length 32 from state 0 is both necessary and sufficient. Because the first five bits of each rotation are all distinct, lexicographic row order is exactly integer state order. For each successor state y the last-column bit is the leading bit of its predecessor state, giving the full BWT without rotation sorting. This returned 20:38, 22:426, 24:840, 26:608, 28:130, 30:6, total 2048, mean 195/8 and variance 211/64. A separate literal rotation sort in that replay confirmed both printed witness words are order-five, begin with 00000, and attain 20 and 30 linear runs. The result does not quotient by reversal/complement and does not merge terminal runs. The frozen verify.py and VERIFICATION.md were inspected, not executed. The apparent published 18-run witness is not a counterexample: for L=1(0011)^7 010, direct LF calculation via LF(i)=16L_i+# earlier occurrences of L_i gives three cycles of lengths 22, 7 and 3, whereas a primitive 32-symbol cycle requires a single LF cycle.
 
-`VERIFY_OK order5 necklaces=2048 orientations=65536 independent_methods=2 bwt_sets_identical=2048 histogram=20:38,22:426,24:840,26:608,28:130,30:6`
+## originality
 
-The scope is solely binary de Bruijn cycles of order five, modulo rotation and not modulo reversal or complement. The count is based on linear runs in the full sentinel-free BWT last column. The proof's exhaustive coverage is established by the unique `00000`-edge rooting and the bounded graph traversal; machine logs alone do not establish coverage. External, independent scientific audit is not performed.
+PASS
+
+The pair-block encoding, the one-cycle test and the total 2048 are prior. The earlier 18–30 bounds do not give the table; the proposed earlier witness at 18 runs is an invalid single-word last column under the earlier inverse criterion itself. Two later dated catalog results are verified exact coverage (one by marginalization); their stated dates and contents do not establish publication of either result before this record. The pass is for the genuine run-refined census and verified minimum, not for uniqueness in today's catalog or for the previously known structural characterization.
+
+## value
+
+PASS
+
+Order five is a natural small binary de Bruijn census at which the accepted last columns have several distinct run counts and the proposed general lower-bound witness fails. The verified minimum 20 rules out the putative 18-run optimum; the exact multiplicities quantify the real spread and how many optimal cycles there are (38). The complete benchmark is useful for testing run-sensitive construction and extending to higher orders. No general-order lower bound or encoded bit cost is inferred.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

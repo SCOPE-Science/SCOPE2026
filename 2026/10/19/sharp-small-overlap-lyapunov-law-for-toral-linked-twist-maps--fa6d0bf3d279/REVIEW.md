@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The claim concerns the Lebesgue-a.e. top Lyapunov exponent for precisely the Wright–Niesen–Sturman equal-strip, full-twist family [1]. Its induced derivative is the product of the two positive integer-count shears, and the induced mean time is \((2-p)/p\). The cone inequalities are verified algebraically on the entire positive parameter domain; the all-integer union-bound estimate \(\mu_S(a\le N)\le Np\) yields the missing logarithmic lower moment. Jensen supplies the matching upper moment. These steps imply the sharp coefficient \(2\) by squeezing. Supplementary exact rational checks independently test representative matrix inequalities. A finite test is not used to infer an infinite result.
+## correctness
 
-**Originality — PASS (provisional literature priority).** In the fully inspected primary paper [1], the detailed computable exponent bounds are stated only when the width exceeds the root of \(p^3+p-1=0\); its generally valid matrix formula and Kac normalization do not alone imply the small-width asymptotic without the new short-return estimate. The inspected material of Springham–Sturman [2], including the main theorem, setup, induced-map discussion and concluding width remarks, proves correlation decay and hyperbolicity, not the stated sharp \(2p\log(1/p)\) limit. Semantic database searches against small overlap, return-time, Kac and Lyapunov formulations yielded no matching statement; closest results concern unrelated skew maps or general matrix cocycles. Remaining priority risk includes unexamined books and possible implicit formulations in older mixing literature. Non-detection is not proof of global uniqueness.
+PASS
 
-**Mathematical value — PASS.** The strip-overlap width is a structural parameter of a canonical chaotic-advection model, and the endpoint is outside the parameter regime where the principal source can calculate explicit bounds. A sharp logarithmic law quantifies how characteristic instability vanishes as overlap disappears. The universal first-return argument bypasses precisely the intricate small-overlap partition geometry identified as an obstacle by the source. The exact leading constant is not inferred from the source's fixed-width positivity and is useful for comparing thin-channel mixing models.
+For fixed 0<p<1, the invariant measure is normalized Lebesgue measure on R_p, not on the whole torus including the untwisted complement. Starting on the overlap, the horizontal iterates stay outside the vertical strip until the first horizontal return; the last horizontal shear and first vertical shear count as one full step. Subsequent vertical iterates stay outside the horizontal strip until the first full return. This gives T=G_S∘F_S, τ=a+b−1 and derivative V_{b/p}U_{a/p}. Conditional rotation Kac gives E a=E b=1/p, with preservation of overlap measure under F_S needed for the second equality. The cone v≥u/p≥0 is invariant since v′−u′/p=(b−1)u/p+[1+a(b−1)/p²]v. Within it the mass fraction on v is at least 1/(1+p), yielding expansion both by ab/[p²(1+p)] and by the minimal-matrix column bound 1+p^(−2)+1/(1+p). Positive products tested on (1,1) give the top ℓ¹ growth up to a factor 2. For each j≥1, conditioning on x makes x+j(y/p) mod 1 uniform; the probability of a horizontal hit at that time is p, whether or not other hit events are dependent. Union bounding the integers j<e^(−t)/p gives P(pa<e^(−t))≤e^(−t), and integrating proves E log a≥log(1/p)−1; symmetry gives the same bound for b. The two shear norms bound expansion above by (1+a/p)(1+b/p); Jensen and the Kac means give the stated upper bound. Ergodicity on the invariant union is the imported hypothesis verified for this family in the primary literature. Return-time normalization follows directly along the return subsequence from Birkhoff and the full-time almost-sure exponent. After division by 2/p−1, the lower thin-width branch has error −p+O(p²log(1/p)) and the upper error is O(p²log(1/p)), proving the claimed coefficient; the other lower branch proves positivity at every fixed p. verify.py was inspected as supplementary evidence, not run or used to prove the infinite-parameter inequality. No claim is made at the degenerate endpoint p=0 or for exceptional orbits.
 
-The theorem uses previously established ergodicity, not a new proof of it. The error term is \(O(p)\), not a second-order expansion. Originality warrants independent expert review, especially against quantitative statements in older linked-twist books.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct contribution is the sharp thin-strip law and matching all-width enclosure, not the return formalism, Kac factor, positivity, or the pointwise minimal-cone bound alone. The prior paper treats exactly the same family, but its partition-based estimators stop at positive widths and the available pointwise-minimum estimate loses a factor of two in the leading lower coefficient.
+
+## value
+
+PASS
+
+The law determines the actual rate of vanishing of the typical full-time exponent even though the individual shears diverge. The all-width enclosure is usable below the earlier return-partition cutoff, and the leading coefficient distinguishes typical return-size growth from the weaker estimate based only on the smallest possible return.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

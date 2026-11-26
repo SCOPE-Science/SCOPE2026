@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The infinite bilateral-language claim is supported by exact de Bruijn-to-subset automata, with product-automaton *exhaustive closure* deciding all-length equality and non-inclusions. The rational spectral bounds are certified by 350- and 418-coordinate strictly positive integer Perron witnesses, SCC decomposition, and coordinatewise integer inequalities reproduced by `verify.py`; this is not reliance on a numerical eigensolver. Independently coded exhaustive input-block enumeration through length 11 checks short witnesses and counts. The natural logarithm, bilateral setting and synchronous timing are explicit. Remaining uncertainty is limited to the risk of a programming error common to reasoning and checker; independent audit is not performed.
+## correctness
 
-## Originality — PASS within inspected evidence
-The published nineteen-value spectrum is a *first-image* catalog; it does not imply the entropy ordering of second images. The sharp twelve-symbol threshold compares a rule's *first versus second* image, not **between rules** at time two. Published equality of one-step cyclic languages for Rules 22 and 104 is prior art and is not claimed as new. A previous calculation of Rule 22's second-image entropy covers that individual number but does not give Rule 104's value, their two-way noncontainment or strict comparison. The 2015 paper develops finite-time process graphs without evaluating the present pair's entropy split. The 2024/2025 process-graph extension and a 2017 follow-up remained only partially accessible and are recorded as residual priority risks, not asserted to be completely noncovering. No inspected source contains a stronger implication delivering both noncontainments and the evaluated gap. A failed search alone is not used as a novelty proof.
+PASS
 
-## Value — PASS
-The 2026 complete one-step entropy classification identifies Rules 22, 104, 151 and 233 as the extremal proper-image rules. Distinguishing their second images is therefore a motivated refinement of a natural extremal class, not an arbitrary parameter slice. The comparison shows a nontrivial loss of information about subsequent spatial entropy when only the first-image subshift is known: equal one-step images need not give comparable second-step images. The strict entropy split is also opposite to the order suggested by the first observed forbidden-word length. The exact positive-vector certificates allow future work to build on this distinction quantitatively.
+Use the bit convention indexed by 4a+2b+c. An n-letter path in the labeled radius-t de Bruijn graph corresponds to an input block of length n+2t, and any such block extends to the full bilateral shift. The subset DFA counts distinct output words, not paths in the nondeterministic presentation. Closing the one-step product gave 15 reachable pairs with no acceptance mismatch in either direction; equality of languages implies equality of the compact image subshifts. At time two the product reached mismatches at 10111101 (only Rule 22) and 1010111 (only Rule 104). Independently reconstructing the reachable automata gives 360 and 418 states, and SCC sizes 350 plus ten singletons for Rule 22 and one component of 418 for Rule 104. Every state is reachable and accepting, so eA^n1 has exponential rate equal to the largest SCC spectral radius; singleton SCCs here have radius at most one. Both strict integer inequalities at each of the 768 vector coordinates in spectral_witnesses.json were checked against the reconstructed components. The resulting intervals (1.86746,1.86748) and (1.83426,1.83428) are disjoint. Direct finite-block enumeration checked the full first-loss sets as well as length-11 counts 1788 and 1770, and truth-table complementation gives Rules 151 and 233. Replay: the frozen verify.py and spectral_witnesses.json are in the same package directory. The script was inspected, not executed; the separate computation built the automata from length-3 and length-5 truth tables, explored the synchronized products, used Kosaraju SCCs, and read the bundled vectors only as data. The infinite conclusions use the finite automata and Perron argument, not extrapolation from word counts through length 11.
 
-## Scope and limitations
-No statement concerns third and later iterates, a universal property of elementary cellular automata, temporal entropy, cyclic-image capacities or independence. Historical priority versus inaccessible full texts and unindexed records is not certified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+One-step equality, the per-rule loss timings, the selected words as individual first-to-second losses, and the Rule 22 entropy are all covered or implied by identified prior/companion results. The claim worth evaluating is the cross-rule separation, principally the strict upper bound for Rule 104 below the known Rule 22 value, with explicit two-sided cross witnesses. That comparison was not found or implied by the inspected sources. The separate Rule 22 calculation supplies the identical rational band and should be explicitly cited alongside the prior art in the finding, not merely acknowledged in its supporting review. It is not part of the claimed novelty. This assessment does not resolve historical priority of all finite-time graph calculations.
+
+## value
+
+PASS
+
+The rules are a naturally singled-out class with an identical first-image language, not an arbitrary pair selected for a small numerical inequality. The certified second-step order shows that even within this class an earlier obstruction can coexist with strictly greater asymptotic spatial block growth. The extra quantitative bound and opposing cross-language witnesses make this a useful exact benchmark for finite-time image invariants, independent of the already known horizons and Rule 22 rate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

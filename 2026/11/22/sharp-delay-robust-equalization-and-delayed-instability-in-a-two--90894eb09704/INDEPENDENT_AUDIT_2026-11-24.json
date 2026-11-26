@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:45:26.666014Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md exact recurrence and Proof; VERIFICATION.md and verify.py, inspected statically",
+        "Satur arXiv:2602.17852v2, Eqs. (2)–(3) and §4"
+      ],
+      "rationale": "Subtracting and adding the two unnormalized weights gives v−β(1−v²)w/4 and 1+(2c−β)(1−v²)/4, with w the delayed imbalance. Each weight stays positive because c−β>−1 and each opposing share is less than one. For β<c the absolute recurrence is bounded by the window maximum times q=[4+β(1−ρ²)]/[4+(2c−β)(1−ρ²)]<1, where ρ<1 is the initial maximum. Each step is nonexpansive and every entry in the next full window is reduced by q. At β=c the two signed weights are 1−h_t and −h_t with 0<h_t<1 and the norm is nonincreasing. In an orbit beginning with norm M>0, equality |v_j|=M for j≥1 requires |v_{j−1}|=M with the same sign and v_{j−1−τ} of opposite sign and magnitude M. If j≥τ+1, successive immediate predecessors back to time zero contradict that delayed sign. This verifies the critical equality exclusion in the omega-limit proof: a limiting history of positive norm L would retain L in every forward window, impossible after 2τ+1 steps. To obtain exponential convergence there, write the characteristic equation as r^τ(r−A)=−H. For |r|≥1 the left modulus is at least 1−A≥H; at β=c equality requires r=1, which fails the equation. Thus the critical map is locally exponentially stable and the already globally convergent orbit eventually enters that neighborhood. For c<β<2c, at τ=0 the sole root is (4−β)/(4+2c−β) in (0,1). With ε=1/τ and r=exp(ε z), the root equation is e^z(e^{ε z}−A)+H=0. At ε=0 the root log[β/(2c−β)]+iπ has derivative −H≠0 and positive real part. Analytic continuation and expansion prove eventual instability at all sufficiently large integer delays with the stated first-order term.",
+      "residual_risks": [
+        "Exponential convergence is asserted for each fixed delay, not a common decay rate over unbounded delays or all histories approaching the boundary. The finite rational and complex-root grids in verify.py do not certify a universal statement and were not executed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Alboszta–Miękisz has small-delay stability and large-delay instability for delayed payoffs and a globally stable biological update with another lag placement. Ben Khalifa–El Azouzi–Hayel treats distributed delays in continuous time and a local Hopf mechanism."
+        ],
+        "reasoning": "Those results have different update maps and hypotheses; neither their linear conditions nor global theorem for a different map supply the strict backward-sign contradiction at the nonlinear endpoint here. Iijima full text could not be checked.",
+        "searches": [
+          "arXiv:q-bio/0409024, Eqs. (3.4), (4.3) and appendices A–B",
+          "arXiv:1703.06721, §III and characteristic equations (4)–(5)",
+          "DOI 10.1016/j.jtbi.2012.01.001"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and companion files",
+        "Resultary suffix 90894eb09704",
+        "arXiv:2602.17852v2",
+        "arXiv:q-bio/0409024",
+        "arXiv:1703.06721",
+        "DOI 10.1016/j.jtbi.2012.01.001 (abstract only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Satur's convergence theorem has time-independent positive coefficients. Its delay section introduces the feedback rule and leaves a full bifurcation analysis open. The discrete replicator precedents prove their results for different delays and nonlinear updates."
+        ],
+        "reasoning": "The static theorem cannot be iterated as a theorem about the varying coefficients. Linear large-delay criteria provide at most a local conclusion, not global critical equalization for the exact rational map. The distinctive content is the model-specific global/critical analysis with a sharp converse in the specified parameter extension.",
+        "searches": [
+          "Satur arXiv:2602.17852v2, homogeneous static convergence theorem and §4",
+          "Alboszta–Miękisz arXiv:q-bio/0409024, appendices A–B"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary's exact match (suffix 90894eb09704) is this same record. Satur uses normalized weights involving (1−p_i)/(n−1) and introduces c_i(t)=c_{i,max}−β p_i(t−τ)."
+        ],
+        "reasoning": "The two-agent normalization is exactly a specialization of the prior mechanism; equivalently write the signed-imbalance recurrence. The prior model statement is not a theorem about the phase boundary.",
+        "searches": [
+          "Resultary: two-agent normalized own-share delayed negative feedback equalization critical beta=c every finite delay, large-delay instability",
+          "Satur arXiv:2602.17852v2, Eqs. (2)–(3), §4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed hit is the frozen finding itself; no distinct equivalent was returned in the bounded query. Satur includes finite numerical runs, e.g. four unequally favored agents with τ=30."
+        ],
+        "reasoning": "Finite delayed trajectories do not tabulate or imply a global statement for all interior two-agent histories, parameters and finite lags.",
+        "searches": [
+          "Resultary exact-claim query above (limit 50)",
+          "arXiv:2602.17852v2 §4, numerical cases and bifurcation discussion"
+        ]
+      },
+      "rationale": "The supported distinct part is the sharp global two-agent all-delay boundary, including the nonlinear critical case, for Satur's delayed own-share normalization. The recurrence's large-delay linear mechanism uses standard methods and is not asserted as a general delay theorem. Inspected prior models do not imply this nonlinear all-interior history statement.",
+      "residual_risks": [
+        "Iijima's primary full text was unavailable; its exact implication remains unchecked. Catalogue and primary comparisons are bounded, not a claim of exhaustive historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same model after specialization; static theorem and delayed examples do not establish the finding",
+          "evidence": "§4 explicitly proposes delayed own-share favorability, gives simulations, and leaves a full bifurcation analysis open.",
+          "identifier_or_url": "https://arxiv.org/html/2602.17852v2",
+          "material_read": "Eqs. (2)–(3), offset 8600; §2 Theorem 1 near 14300; §4 offsets 107710–114415",
+          "method": "OA primary HTML passages",
+          "title": "Mean-field dynamics of attractive resource interaction: From uniform to aggregated states",
+          "trigger": "Exact originating map and possible existing sharp theorem"
+        },
+        {
+          "assessment": "Similar phenomena, materially different maps",
+          "evidence": "Appendix A studies large-delay instability of the social delayed-payoff model; Appendix B proves global attraction in the differently timed biological model.",
+          "identifier_or_url": "https://arxiv.org/pdf/q-bio/0409024",
+          "material_read": "pp. 4–6 models and Eqs. (3.4), (4.3); pp. 7–9 appendices A–B",
+          "method": "OA PDF passage reads",
+          "title": "Stability of evolutionarily stable strategies in discrete replicator dynamics with time delay",
+          "trigger": "Closest inspected discrete small/large-delay precedent"
+        },
+        {
+          "assessment": "Different time model and scope",
+          "evidence": "The continuous-time characteristic analysis concerns distributions of payoff delays, with Hopf bifurcation, rather than an all-history discrete statement.",
+          "identifier_or_url": "https://arxiv.org/pdf/1703.06721",
+          "material_read": "Abstract, §III equations (4)–(5), and conclusion p. 6",
+          "method": "OA PDF passage reads",
+          "title": "Hopf Bifurcations in Replicator Dynamics with Distributed Delays",
+          "trigger": "Delay criteria in a two-strategy system"
+        },
+        {
+          "assessment": "Unresolved full-text comparison",
+          "evidence": "No theorem text retrieved; no noncoverage inference from access failure.",
+          "identifier_or_url": "https://doi.org/10.1016/j.jtbi.2012.01.001",
+          "material_read": "Bibliographic landing/abstract only",
+          "method": "OA DOI/PubMed lookup and lawful public-page retrieval attempt",
+          "title": "On delayed discrete evolutionary dynamics",
+          "trigger": "Plausible prior discrete delay comparison"
+        },
+        {
+          "assessment": "Identity, not a distinct precedent",
+          "evidence": "Same mechanism, boundary and delayed linear instability.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-delay-robust-equalization-and-delayed-instability-in-a-two--90894eb09704",
+          "material_read": "Indexed summary and frozen Finding",
+          "method": "Resultary search and bound record read",
+          "title": "Sharp delay-robust equalization and delayed instability in a two-agent influence model",
+          "trigger": "Highest exact Resultary hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding, critical proof and Limitations; Satur §4"
+      ],
+      "rationale": "The model was already proposed with delayed feedback but explored numerically. A sharp boundary independent of finite lag, global convergence on the boundary, and demonstrable loss of linear stability beyond it answer a motivated qualitative question that static convergence and finite simulations cannot settle. The result does not offer an empirical prediction or assert a post-instability attractor.",
+      "residual_risks": [
+        "The instability interval permits negative instantaneous favorability while preserving positive update weights. Neither a first unstable delay nor persistent cycles are established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

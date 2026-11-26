@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is a full integral homotopy classification, not just a Betti-number calculation. The attached standalone program independently generates every prism graph automorphism, counts 313 nonempty forest faces and the genuine barycentric flag orbits, checks Burnside totals, checks the integral boundary identities, and performs 2127 explicit integer unit cancellations leaving only degrees zero and four of ranks one and two. A second computation eliminates the full quotient fundamental-group presentation by 365 valid Tietze steps. The known graphic-matroid shellability theorem makes the covering complex a wedge of 18 four-spheres. Armstrong's fixed-point theorem gives an independent fundamental-group argument. Consecutive Hurewicz and homological Whitehead then convert the verified invariant data to exactly two four-spheres. No numerical-rank or non-exhaustive inference is involved.
+## correctness
 
-## Originality — PASS against inspected sources
-The matroid independence-complex theorem in Ardila–Castillo–Samper (arXiv:1410.3870) supplies shellability but does not determine geometric automorphism orbit spaces. Published calculations for the forest complexes of \(K_{3,3}\), \(K_5\), and the octahedron were inspected at the statement and proof level. The nine-edge cubic \(K_{3,3}\) result, the closest comparison, gives a single four-sphere, but does not imply the prism's two four-spheres: the graphs are nonisomorphic, with different cycles, forest face counts and automorphism groups. Exact-object and synonym searches for the triangular prism, \(C_3\square K_2\), and \(\operatorname{GP}(3,1)\) did not disclose an equivalent indexed theorem. This is best-knowledge originality, not a proof that no unindexed publication exists.
+PASS
 
-## Value — PASS
-There are exactly two connected simple cubic graphs on six vertices, because their complements are the two possible two-regular simple graphs on six vertices. The other case, \(K_{3,3}\), already has a full-symmetry forest-quotient classification, while the prism's integral quotient topology was not determined by that result. The present result completes this first nontrivial cubic-graph pair and exhibits a concrete difference between full-symmetry quotients of identical-size rank-five graphic matroids: two top spheres instead of one. The passage from shellable labeled complexes to their nonfree geometric quotients requires actual fundamental-group and integral boundary checks; an octahedral comparison shows the quotient cannot in general be assumed torsion-free.
+The two layer triangles are the only three-cycles, and the connecting pairs constrain their permutations to agree. Thus both layer flip and simultaneous S3 generate the entire order-12 automorphism group. Independently enumerating forests by iterative leaf removal gives face totals (9,36,82,111,75), so the rank-five graphic matroid's shellable independence complex is a wedge of 18 four-spheres by its reduced Euler characteristic. In the barycentric quotient, rank-distinct flag vertices remove inversions and distinguish the different codimension-one faces of a cell, so integral signed deletion computes the ordinary orbit space. The independent ordered-set-partition flag enumeration and generator orbits give cell counts (41,405,1339,1722,750), all three consecutive boundary compositions zero, and exact nonzero Smith factors 1^40, 1^365, 1^974, 1^748, in ascending degrees. This gives free homology ranks (1,0,0,0,2), with no torsion. The simply connected labelled space and the fixed points of generators imply π₁=0 by Armstrong: the flip and a pair transposition fix vertical-edge vertices, and a cyclic pair rotation fixes the barycenter of their three-edge forest. Hurewicz then gives three-connectivity and identifies π₄ with H₄. Two sphere maps for an integral basis induce a homology equivalence of simply connected CW complexes, hence the claimed homotopy equivalence. The companion classification is legitimate: simple 2-regular complements on six vertices are C₆ or two triangles.
 
-## Closest literature and limitations
-Primary framework: Ardila, Castillo and Samper, *The topology of the external activity complex of a matroid*, arXiv:1410.3870 (first public 2014-10-14), especially Section 2 and Theorems 1.3 and 1.5. Closest already-published comparison: *A four-sphere survives both symmetry quotients of the \(K_{3,3}\) forest complex* (2026-11-17). Additional comparisons: the \(K_5\) full-symmetry quotient and the full octahedral forest quotient (2026-11-17). The theorem does not classify all graphic-matroid symmetry quotients, and an unindexed equivalent result remains possible. The verifier is reproducible exact finite arithmetic and the homotopy conclusion invokes standard theorems; no outside independent audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The apparent same-graph/full-group match uses a different simplicial complex. The nearest forest quotient is for the other connected cubic six-vertex graph. Broader fixed-space, character and shellability results do not establish this ordinary integral orbit-space type; in particular a free deck-group hypothesis fails for the full prism group. The accepted new fact is the prism quotient type, not graphic-matroid shellability or a general orbit method.
+
+## value
+
+PASS
+
+The prism is a canonical object, not a chosen enumeration sample: with K3,3 it exhausts the simple connected cubic six-vertex comparison. Its two-sphere quotient versus the companion's one sphere supplies an exact integral invariant that forest counts and general labelled shellability cannot give. This fills a natural small-case gap, including absence of torsion and the type beyond just a Betti number.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

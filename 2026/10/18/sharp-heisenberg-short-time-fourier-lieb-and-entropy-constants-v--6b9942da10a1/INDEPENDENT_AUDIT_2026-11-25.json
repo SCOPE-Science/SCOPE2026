@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:22:06.443641Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Checked the continuous transform in the specified 2π Fourier convention and reconstructed the Gaussian integral. The two phase-space Jacobians cancel. For fixed horizontal translation v the shear is confined to the span of j(v) and the central axis, a two-by-two block with determinant 4+ε²|v|²/4. Thus det M=2^d H, H=1+ε²|v|²/16. Since v is orthogonal to j(v), completing the square gives |v|²/2+c²/(2H). The modulation and central-translation Gaussian integrals leave the power H^(1−p/2) and the horizontal radial law πp|v|²/2 ∼ Gamma(n,1). At p=2 the joint spectrogram has mass one; direct expectation of its negative log gives E log H+n+1/2+d/2=d+E log H. The finite Gamma moments justify both quadratic expansions; dominated convergence gives sharpness. In the cited upper bound, the Young step acts on the nonzero functions |f̂|^(p′), |ĝ|^(p′) (with inversion of the first) with input exponents 2/p′ and output p−1, all strictly interior for p>2. Strict Young at those exponents rules out STFT equality. The entropy assertion is an infimum, not a global equality classification. The uploaded numerical support was inspected, not executed, and is not used as proof. In RESULT.md's intermediate Gaussian modulation integral, the differential is understood in the rescaled modulation coordinates (the reciprocal Jacobian belongs to the central translation).",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Christ proves sharp Heisenberg convolution Young and no interior extremizers, with diffuse Gaussian examples for convolution.",
+          "Dabra–Dasgupta–Gulia Thms. 5.1 and 6.2 are universal upper/lower bounds, not finite-width calculations or demonstrations of best possible constants."
+        ],
+        "reasoning": "The Heisenberg convolution result does not compute the Euclidean modulation norm of the pointwise product with a right translate. Euclidean STFT Gaussian saturation alone gives only the limiting model; one must still connect it to the sheared Heisenberg transform.",
+        "searches": [
+          "arXiv:1706.02005v1 §5 for sharp Young and contraction examples",
+          "arXiv:2608.20952v1 §§5–6 for the complete Lieb and entropy arguments"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2608.20952v1 §§5–6",
+        "arXiv:1706.02005v1 §5",
+        "Resultary e33efd4ab800",
+        "Emergent Mind sharpness-heisenberg-group-lieb-inequality summary"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At p>2 the proof has a Young step at (2/p′, 2/p′, p−1), so Christ's strict inequality already entails strictness of the STFT bound.",
+          "Remark 5.2 explicitly does not derive optimality of the norm constant. Neither primary passage gives finite-width STFT moments, exact entropy, or their deficits."
+        ],
+        "reasoning": "Separate prior strictness from the sharp supremum and distinguish the sharp entropy infimum from entropy nonattainment. The quantitative Gamma formulas require the translation-dependent determinant and radial averaging, not just substitution into the old inequalities.",
+        "searches": [
+          "arXiv:2608.20952v1 §5 Young exponents and Remark 5.2, §6 entropy; arXiv:1706.02005v1 §5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:2608.20952v1 §5 Thm. 5.1 and Remark 5.2, same right translation plus Euclidean modulation; §6 Thm. 6.2, normalized spectrogram",
+          "Resultary e33efd4ab800 Finding, finite-field Heisenberg STFT centered profile/chirp support and entropy"
+        ],
+        "reasoning": "The primary paper matches the normalization and inequality, but its remark withholds sharpness. The finite-field profile entropy invariant is not the continuous spectrogram or its sharp constant.",
+        "searches": [
+          "Resultary semantic searches: Heisenberg STFT sharp Lieb constant, Shannon sharpness, nonattainment, Gaussian Gamma formulas",
+          "Literature: Heisenberg group short time Fourier transform Dabra Dasgupta Gulia 2608.20952 sharp Lieb constant optimal entropy Gaussian sharpness unachieved contraction time frequency STFT"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest indexed formula is for finite-field central-profile/chirp support and entropy, and gives no Gamma expectation or continuous exponent."
+        ],
+        "reasoning": "The claim concerns continuous widths and real exponents, so a finite-value table does not imply it. The lookup also tested for an indexed closed form, not merely particular numerical parameter values.",
+        "searches": [
+          "Resultary semantic lookup for exact Gamma moments, entropy integrals and finite-ε deficits; inspected e33efd4ab800"
+        ]
+      },
+      "rationale": "The universal inequalities and the Young nonextremizer result are prior work, not credited here. The exact normalized Heisenberg-STFT Gaussian moment and entropy curves and their deficits supply a sharpness proof for a specific question explicitly left by the primary STFT paper. The one-step deduction of STFT nonattainment from interior Young nonattainment is not independently credited as an original mechanism. No checked source covers the distinct quantitative claim.",
+      "residual_risks": [
+        "Bounded indexed and primary-literature comparison does not exclude an unindexed equivalent Gaussian calculation or a more general contraction sharpness result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior bounds and proof ingredients; no sharpness sequence or finite-ε calculation in the checked arguments",
+          "evidence": [
+            "Offsets 46975 and 53669: Lieb bound and explicit limitation on its sharpness.",
+            "Offsets 55700–61534: entropy lower bound; Remark 6.3 discusses lattice STFT, a different domain."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2608.20952",
+          "material_read": "v1 §5 Thm. 5.1, PDF p. 15 and Remark 5.2 p. 17; §6 Thm. 6.2 pp. 17–19",
+          "method": "Primary open PDF text, located and read at relevant offsets",
+          "title": "Uncertainty Principles for the Short-Time Fourier Transform on the Heisenberg Group",
+          "trigger": "Identical STFT, Lieb and entropy inequalities"
+        },
+        {
+          "assessment": "Supplies the sharp convolution inequality and Young nonattainment, not the exact STFT Gaussian profile",
+          "evidence": [
+            "No nonzero interior Young extremizing triples; Gaussian limiting examples are for convolution."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1706.02005",
+          "material_read": "v1 §5, PDF pp. 8–9, near offset 29741",
+          "method": "Primary open PDF text",
+          "title": "On Young’s Convolution Inequality for Heisenberg Groups",
+          "trigger": "Potential implication from sharp Young or its Gaussian examples"
+        },
+        {
+          "assessment": "Different group and invariant",
+          "evidence": [
+            "Finite-field support/entropy for central-profile windows and quadratic chirps, not continuous Heisenberg Lieb and Shannon sharpness."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-central-profile-factorization-and-quadratic-chirp-spreading-for--e33efd4ab800",
+          "material_read": "Mirrored RESULT.md Finding and assumptions at offset 0",
+          "method": "Local Resultary search and local mirror",
+          "title": "Central profile factorization and quadratic chirp spreading",
+          "trigger": "Nearest indexed Heisenberg STFT entropy match"
+        },
+        {
+          "assessment": "Secondary restatement of the primary paper's open sharpness issue, not a solution or independent priority evidence",
+          "evidence": [
+            "The page says that the cited STFT proof does not establish whether the constant is optimal."
+          ],
+          "identifier_or_url": "https://www.emergentmind.com/open-problems/sharpness-heisenberg-group-lieb-inequality",
+          "material_read": "Background and quoted inequality, offsets 140–1720",
+          "method": "Open public page",
+          "title": "Sharpness of the Heisenberg-group Lieb inequality",
+          "trigger": "Literature search returned an entry on the identical sharpness question"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Resolves whether the known continuous Heisenberg-STFT bounds can be approached, despite the absence of maximizing pairs for p>2. The complete finite-width curve and leading defects quantify the effect of the noncommutative shear in every dimension, beyond an existence proof for a saturating sequence. No general stability or all-extremizing-sequences assertion is needed for this value.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

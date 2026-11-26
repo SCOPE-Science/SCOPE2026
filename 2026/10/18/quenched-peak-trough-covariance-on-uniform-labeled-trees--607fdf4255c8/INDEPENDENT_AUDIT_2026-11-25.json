@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:32:18.456322Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, local kernels, weighted-forest identity, finite and limiting formulas, path and sign passages; VERIFICATION.md and check.py (inspected, not executed)",
+        "Independent replay /workspace/branches/f57ad2bb-38f6-4f1d-a893-55970eecd388/independent_k10.py and k10-arithmetic.txt: c₁₀=−450907520021683689090629/11461319886925585103787360, with error ≤1/1742400; the exact endpoints lie inside the claimed interval (approximately −0.039342248743 and −0.039341100901)."
+      ],
+      "rationale": "Ranks of the iid atomless labels can be replaced by uniform priorities. Same-site indicators are incompatible; at distance one integrating x^(a−1)(1−y)^(b−1) on y<x gives the H₁ beta term, and at distance two conditioning on the shared priority z gives (1−z^a)(1−(1−z)^b)/(ab). Closed neighborhoods are disjoint at greater distances. In the forced-forest weighted Cayley sum, each forced edge contributes its two endpoint weights; contracting components gives one sum of weights per component and the remaining global multinomial power. Thus forcing one edge occurs with probability 2/n and gives an endpoint offset distributed by a fair two-way draw plus n−3 global draws; forcing a two-edge path occurs with probability 3/n² and gives a three-way offset (including the middle vertex) plus n−4 draws. The sums count ordered endpoints, and a length-two path has a unique middle, so the prefactors in the claimed finite average follow. The fixed-degree kernels are bounded and their binomial/multinomial inputs converge on the discrete state space to the stated Poisson laws. For the path the respective distance-one kernel values for degrees (1,2),(2,2) are 1/6,7/72, with ordered multiplicities 4,2(n−3); the distance-two values are −1/24,−7/360, with multiplicities 4,2(n−4). Including the diagonal yields (8n−37)/180 even at n=4. Truncating a Poisson input changes its law by the omitted tail mass δ, and the two-input total variation is at most 2δ. The expectation difference bounds sum to at most (1/4+20)δ≤21T₁₀, so the exact truncated certificate gives the advertised strict interval.",
+      "residual_risks": [
+        "This is expectation of a conditional covariance, not the covariance after integrating out the tree and not a statement about concentration or the sign on individual Cayley trees. The strict asymptotic sign need not be read as a claim for every finite n."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Minima in fixed lattices and regular fixed-branching trees; peak-set counts with leaves excluded; and tree labelings conditioned on a small number of peaks, respectively."
+        ],
+        "reasoning": "These frameworks do not yield the mixed quotient of conditional expectations and counts for all-neighbor leaf-inclusive extrema in uniform labeled trees. A fixed-graph enumeration does not by itself give the averaged finite degree laws or signed asymptotic coefficient.",
+        "searches": [
+          "Majumdar–Martin arXiv:cond-mat/0609735, §I and fixed-branching passage",
+          "Diaz-Lopez et al., arXiv:1708.08493 p. 1",
+          "Burdzy–Pal, arXiv:1606.08025 §6"
+        ]
+      },
+      "checked_sources": [
+        "Clark DOI 10.1155/IJMMS.2005.3867",
+        "arXiv:1708.08493",
+        "arXiv:cond-mat/0609735",
+        "arXiv:1606.08025",
+        "Published record f6e763b313bb"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Clark reports single-statistic moments for rooted extrema. The catalogue statement covers the local kernels for every tree but performs the covariance asymptotics for fixed complete arity and depth, not for uniform trees."
+        ],
+        "reasoning": "The local kernel identity is an input into, not a claimed closed evaluation of, the expectation. One must derive the forest-conditioned endpoint laws, insert all signed contributions and resolve the small nonzero coefficient. Negativity on complete branching trees is insufficient even for the sign of that expectation.",
+        "searches": [
+          "Clark DOI 10.1155/IJMMS.2005.3867, definition and Theorem 2.5",
+          "Catalogue f6e763b313bb, Finding and local covariance kernels"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Rank labeling and iid atomless labels are equivalent at fixed tree. Clark's local-extremum definition is instead a rooted three-vertex path pattern. Catalogue f6e763b313bb uses the same all-neighbor label convention but a fixed complete tree."
+        ],
+        "reasoning": "Clark's tree measure agrees but his observable does not; the fixed-tree covariance is the conditional integrand, not its expectation over uniform Cayley trees. The unconditional mixed covariance adds a nonnegative variance of the conditional mean.",
+        "searches": [
+          "Resultary: quenched peak trough covariance uniform labeled Cayley trees local extrema",
+          "Web: \"local extrema\" \"uniformly random labeled tree\" peak covariance trough peaks minima Cayley trees"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Catalogue f6e763b313bb, Finding and Proof eq. (1): exactly (8n−37)/180 on a path, and exactly the fixed-tree covariance decomposition (its E=H₁, B=2H₂). Its negative branching theorem treats complete rooted m-ary trees."
+        ],
+        "reasoning": "The path calculation and fixed-tree kernels are overlapping content. The fixed complete tree claim supplies no table or exact constant for the uniform labeled tree average; those geometries have different degree laws. The catalogue dates do not establish historical priority.",
+        "searches": [
+          "Resultary: uniform labeled Cayley tree averaged conditional covariance local maxima minima peaks troughs negative coefficient path positive covariance"
+        ]
+      },
+      "rationale": "Pass the explicit uniform-Cayley-tree averaged conditional covariance, its limiting coefficient and sign. The all-neighbor fixed-tree kernels and exact path formula are also recorded in a distinct later-dated catalogue result; the path value is a benchmark, not a separate novelty. The closest inspected results do not give the averaged formula or its signed coefficient.",
+      "residual_risks": [
+        "Earlier fixed-graph joint peak/valley enumerators or conditioned-degree generating functions could contain related implicit calculations. Bounded literature and catalogue comparisons do not certify priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different observable",
+          "evidence": [
+            "Defines a root-directed path i-j-k with j numerically larger than i,k; gives moments of M₁ and symmetric minimum result."
+          ],
+          "identifier_or_url": "https://doi.org/10.1155/IJMMS.2005.3867",
+          "material_read": "PDF pp. 2 and 4, offsets 2300 and 12300, extrema definition and Thm. 2.5",
+          "method": "Read open indexed copy at pdfs.semanticscholar.org/614f/db86ecddf595c98bd0fcde19ccead859aa5a.pdf",
+          "title": "Local extrema in random trees",
+          "trigger": "Nearly identical terminology and same uniform labeled tree model"
+        },
+        {
+          "assessment": "Different leaf convention and peak-only fixed-graph enumeration",
+          "evidence": [
+            "Enumerates labelings with given peak set; peak has degree at least two."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1708.08493",
+          "material_read": "p. 1, offset 0, definition and abstract",
+          "method": "Open original extracted PDF",
+          "title": "Counting Peaks on Graphs",
+          "trigger": "General graph peak enumeration"
+        },
+        {
+          "assessment": "Fixed-geometry minima, not the averaged mixed statistic",
+          "evidence": [
+            "Cayley-tree calculation is for a fixed branching number μ and includes maximally packed minima."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/cond-mat/0609735",
+          "material_read": "§I p. 1 offset 4000; Cayley-tree passage pp. 3–4 offset 18550",
+          "method": "Open arXiv PDF",
+          "title": "The Statistics of the Number of Minima in a Random Energy Landscape",
+          "trigger": "Minima moments in lattices and Cayley trees"
+        },
+        {
+          "assessment": "Conditions labelings on few peaks, not random-tree geometry average",
+          "evidence": [
+            "Section 6 treats random labelings of trees under small peak-count conditioning."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1606.08025",
+          "material_read": "p. 1 abstract and §6 p. 10 offset 27600",
+          "method": "Open arXiv PDF",
+          "title": "Twin Peaks",
+          "trigger": "Leaf-inclusive tree peak count and conditioning"
+        },
+        {
+          "assessment": "Exact overlap for path and fixed-tree kernel identity; no uniform labeled tree average in the stated theorem",
+          "evidence": [
+            "For m=1 states (8n−37)/180; for fixed m≥2 gives negative covariance and linear coefficient for complete m-ary trees."
+          ],
+          "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/8/SCOPE-branching-reverses-the-correlation-of-local-minima-and-maxima-in--f6e763b313bb/RESULT.md",
+          "material_read": "Finding, assumptions, and Proof through eq. (1), offset 0–4163",
+          "method": "Local record mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Branching reverses the correlation of local minima and maxima in random tree labelings",
+          "trigger": "Direct path and fixed-tree overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Q_n and c; exact rational replay; fixed-tree overlap assessed above"
+      ],
+      "rationale": "A natural paired local-extrema statistic in random tree geometry has contributions of competing signs. The exact average and strictly negative linear coefficient are not dictated by the path or complete-branching benchmarks. The comparison with the positive path sign illustrates that the averaged conditional dependence is sensitive to topology.",
+      "residual_risks": [
+        "The advance is the random-tree average, not a new path formula, not a general geometry criterion, and not an annealed covariance sign."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

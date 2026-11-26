@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:37:34.952659Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The initial unobserved edges are precisely those with both endpoints outside the sensor endpoint set C. The edge set of any residual cycle is a fort in the line graph: an outside edge either sees none or at least two edges of that cycle, so no force can be first. For a residual tree, process non-root vertices in postorder. At a current leaf, a second root-graph edge exists by minimum degree two; its other endpoint is either in C or has already had all its remaining edges observed, and thus this observed edge forces exactly the parent edge. Isolates need no forcing. This proves both directions for the full stated class. In Petersen, a failure is confined to the edges on the complementary vertices of some cycle. The five-cycles pair with complementary five-cycles, the six-cycles with complementary stars, and the longer cycles allow at most a single sensor edge; exhaustive independent enumeration confirms the 22 maximal failures and the polynomial. The 15 same-omitted-symbol pairs and the 140 other inclusion-minimal triples give the five optimum triangles and the size-40-plus-isolates profile at budget 3. At budget 4 every minimal triple can reach an optimum pair by adding a same-symbol sensor and removing the two other sensors, and any two optimum pairs connect through their union. At all larger budgets delete extras monotonically to a minimal pair or triple. Replay the separately written python3 /workspace/branches/95752fb1-339c-414c-851b-d5e5aae1e315/independent_check.py; full_run.json in that directory records the exact 32,768-mask exhaustion, both propagation and a forest check, and the component profiles. The original Python/C++ files and saved JSON were inspected, not executed; the finite reproduction is specific to Petersen.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Benson gives the generic closure identity and a scalar bound. Girish p. 5 gives a Petersen example and a fault-tolerant lifting construction, not an iff on all line-graph sensor sets. Bjorkman gives general reconfiguration definitions.",
+          "Kameri's Theorem 8.3 asserts a single sensor for L(K_n) for all n≥3. This is false under the stated ordinary rule already at n=5: the three edges of the complementary triangle remain unobserved, and every entering observed edge sees two of them. The theorem's illustrated K₄ case does not verify its generality."
+        ],
+        "reasoning": "The general tools and the incompatible complete-root scalar assertion do not subsume the present result. The counterexample is direct and follows from the rules without relying on the theorem being audited.",
+        "searches": [
+          "Benson arXiv:1510.02421v1 Observation 1.1 and Theorem 2.1",
+          "Girish et al. DOI 10.1038/s41598-026-54352-z lifting to line graphs and Petersen example",
+          "Kameri et al. DOI 10.1922/comdem.v4i1.19082 standard rules and graph operators",
+          "Bjorkman et al. DOI 10.1007/s44007-025-00187-5 power domination TAR"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–41, 43–64 and all supporting files",
+        "Benson et al., Girish et al., Kameri et al., and Bjorkman et al. scoped passages above",
+        "Local Resultary complete-root and Petersen neighboring records identified above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "On a complete root graph, the residual induced graph is complete and hence a forest iff at most two vertices remain; this recovers the earlier special case. On P, endpoint unions must arise from selected edges and a single token changes one edge, not necessarily one endpoint.",
+          "The minimum vertex FVS count alone does not give the sensor polynomial or the reconfiguration component profile. Likewise a general lifting construction for particular monitored sets does not decide the force-closure obstruction for arbitrary sensors."
+        ],
+        "reasoning": "The forest criterion is an exact equivalence beyond the complete-root rule, and the catalogue's vertex feedback sets cannot be converted by mere relabelling or a budget shift. To obtain the new census one still needs the edge-endpoint pullback and its obstruction, minimality and adjacency calculations.",
+        "searches": [
+          "Resultary triangular PDS RESULT.md offsets 0 and 4058, isolated-forest ZF RESULT.md offset 0",
+          "Resultary Petersen vertex FVS RESULT.md offsets 0–2514",
+          "Benson Observation 1.1 and Girish Theorem 2.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Benson et al. Observation 1.1 gives S power dominating iff N[S] zero forcing. The endpoint criterion amounts to asking whether the endpoint set of the selected root edges is a feedback vertex set.",
+          "The Petersen vertex FVS record acts directly on vertices of P, not on selected edges and their endpoint unions."
+        ],
+        "reasoning": "The compositions use related properties, but the selection variable, hitting constraints and transition moves are different. The general zero-forcing equivalence does not characterize N[S] in terms of a residual forest without the specific line-graph argument.",
+        "searches": [
+          "Benson et al. arXiv:1510.02421v1, power domination and zero forcing",
+          "Resultary: edge sensor endpoint deletion, feedback vertex set, line-graph zero forcing and Petersen reconfiguration"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/10/26/SCOPE-power-domination-of-triangular-graphs-star-forest-rigidity-and-f--b7c1b689a10e gives exactly the complete-root case; 2026/10/26/SCOPE-isolated-forest-zero-forcing-and-exchange-connectivity-of-triang--43c12b8642d1 also yields it using the general closure identity.",
+          "2026/11/22/SCOPE-petersen-feedback-set-tar-geodesics-and-an-eccentricity-trichoto--503caad49ec2 concerns ordinary vertex deletions, with minimum size 3 and 20 optimum states; same-day date does not settle chronology.",
+          "Distinct exact tables are the minimum 7-vertex zero-forcing sets of L(P) (suffix 4e6c2c9b2a97), edge-locating domination (5291df073dcf), and power domination on P rather than L(P) (6e981f3b14e6)."
+        ],
+        "reasoning": "None of these statements gives the maximal non-PDS edge sets of L(P), the omitted-symbol optimum classification, or the corresponding TAR components. Complete-root coverage is a substantive special case, not an arbitrary-root characterization.",
+        "searches": [
+          "Resultary triangular graph power domination and isolated-forest zero forcing",
+          "Resultary Petersen feedback sets, minimum zero forcing of L(Petersen), edge-location-domination and PDS enumerator of KG(5,2)"
+        ]
+      },
+      "rationale": "The general power-domination/zero-forcing reduction and the complete-root-graph special case are known, and the Petersen graph has closely related vertex feedback-set, line-graph zero-forcing, and location-domination enumerations. The supported different result is the endpoint-restricted forest criterion for all minimum-degree-two root graphs and its exact Petersen edge-sensor census and reconfiguration geometry.",
+      "residual_risks": [
+        "The bounded search does not establish historical priority or rule out an equivalent general endpoint/forest characterization under a different name."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Generic reduction, not the forest test",
+          "evidence": [
+            "Observation 1.1: S is power dominating iff N[S] is zero forcing; Theorem 2.1 concerns a general scalar bound."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1510.02421v1",
+          "material_read": "OA PDF p. 2 Observation 1.1 and p. 3 Theorem 2.1",
+          "method": "Primary statement inspection and implication analysis",
+          "title": "Power domination and zero forcing",
+          "trigger": "General equivalence and possible line-graph implication"
+        },
+        {
+          "assessment": "Exact prior complete-root special case; not the general theorem",
+          "evidence": [
+            "PDS iff at most two root vertices are not selected-edge endpoints. The ZF theorem recognizes complementary white-edge forests with an isolated vertex, which is available after domination when S is nonempty."
+          ],
+          "identifier_or_url": "Resultary 2026/10/26 IDs b7c1b689a10e and 43c12b8642d1 (full paths above)",
+          "material_read": "PDS RESULT.md offsets 0 and 4058; ZF RESULT.md offset 0",
+          "method": "Local mirror, specialize H to K_n and compare white-edge complements",
+          "title": "Power domination of triangular graphs: star-forest rigidity and full enumerators; Isolated-forest zero forcing and exchange connectivity of triangular graphs",
+          "trigger": "Exact known endpoint/forest characterization in a line-graph family"
+        },
+        {
+          "assessment": "Relevant constructive lifting; not an ordinary PDS family classification",
+          "evidence": [
+            "Example 3 monitors a Petersen instance and Theorem 2.2 lifts fault-tolerant sensor sets to line graphs."
+          ],
+          "identifier_or_url": "https://doi.org/10.1038/s41598-026-54352-z",
+          "material_read": "OA PDF p. 5 Example 3 and Theorem 2.2, offsets 24331–27781",
+          "method": "Original example and theorem scope comparison",
+          "title": "Fault-tolerance amplification in line graphs: a framework for resilient PMU placement in power networks",
+          "trigger": "Line-graph lifting with a Petersen example"
+        },
+        {
+          "assessment": "Conflicting claim in a special case, not coverage of the endpoint characterization",
+          "evidence": [
+            "The paper claims both ordinary and inverse power domination numbers are one on L(K_n) for n≥3 and illustrates L(K₄). For K₅ the unobserved complementary triangle disproves the ordinary assertion."
+          ],
+          "identifier_or_url": "https://doi.org/10.1922/comdem.v4i1.19082",
+          "material_read": "Ordinary rules on p. 3; Theorem 8.3 at PDF page 12 (printed p. 99), offsets 31995–33681",
+          "method": "OA original and independent K₅ countercheck",
+          "title": "Inverse Power Domination Problems on Graph Operators and Its Applications",
+          "trigger": "Plausible line-graph result under ordinary rules"
+        },
+        {
+          "assessment": "Common reconfiguration framework, not the named Petersen line-graph census",
+          "evidence": [
+            "The bounded TAR graph uses feasible sets up to the budget with one addition or deletion per move."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s44007-025-00187-5",
+          "material_read": "p. 2, TAR and bounded TAR definitions",
+          "method": "Original convention and claim comparison",
+          "title": "Power Domination Reconfiguration",
+          "trigger": "General TAR and token-jumping results"
+        },
+        {
+          "assessment": "Vertex FVS census related via endpoint pullback but distinct from selected-edge census",
+          "evidence": [
+            "Minimum deletion sets have size three with 20 optima; the size-four TAR graph has 160 states and the size-five graph has 400 states and is connected."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-petersen-feedback-set-tar-geodesics-and-an-eccentricity-trichoto--503caad49ec2",
+          "material_read": "Local RESULT.md finding, offsets 0–2514",
+          "method": "Local mirror and compare variables, budgets and adjacency",
+          "title": "Petersen feedback-set TAR geodesics and an eccentricity trichotomy",
+          "trigger": "Same root graph and forest deletion with an exact related TAR table"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The equivalence replaces a dynamic closure test by a structural forest test across a natural graph class. The Petersen specialization explains the obstruction family and gives a concrete separation of minimum-set exchange, a disconnected intermediate budget, and sharp permanent connectivity. The complete census is motivated by those structural and reconfiguration questions rather than being an arbitrary finite slice.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

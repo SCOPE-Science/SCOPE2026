@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:23:38.157569Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The exact weights are at least one with finite excess integrals, hence give Banach function norms and finite norms on finite-measure indicators. The minimum functions are sqrt(a) and a because each unit-weight region has infinite measure; the interval-swap involution makes the two targets equimeasurable and gives exact equality of their maximal functions for every a. On 16^(−N)≤a<16^(1−N), the target maximum is at most (16/3)4^(−N) and the squared source maximum is at least the n≥N+1 sum of 1/n², hence at least 1/(N+1). The source is admissible in the cited sense and the target-to-source maximal ratio tends to zero. Cauchy–Schwarz with the test function proportional to (v/w)1_E gives the exact squared fixed-E norm ∫_E v²/w, including an infinite supremum by truncation. In the aligned case the joint quotient has plateaus n² of mass 16^(−n). With D_j=(16/15)16^(−j) and D_j≤a<D_(j−1), the exact top-a integral is Σ_(n≥j)n²16^(−n)+(a−D_j)(j−1)²: any choice omitting higher plateaus cannot improve on taking them and part of the next one. The series gives this integral as a(j²+O(j)); j=log(1/a)/log(16)+O(1) gives the constant 1/(4 log 2), with natural logarithms. In the separated case each J_n has quotient integral one, and arbitrarily many whole J_n fit below every positive measure by going far enough into the tail. Thus the modulus is infinite, not merely bounded away from zero. Independently evaluated the aligned greedy formula at 24 exact rational scales; replay: python3 /workspace/branches/reproduce_frozen.py weights; log /workspace/branches/reproduction-weights.txt. The proof, not the finite check, establishes the asymptotic and extended-value claims.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mihula–Pándy give a necessary vanishing quotient for admissible X; their introduction's unweighted infinite-measure L^p-to-L^q examples and Remark 3.3's single weighted L¹ example with vanishing minimal fundamental function do not yield the matched-weight pair.",
+          "The variable-exponent work gives criteria for almost-compact embeddings of L^(p(·)) into L^(q(·)); its stated scope in the material inspected does not give the two fixed-exponent weighted configurations with the same marginal data."
+        ],
+        "reasoning": "General embedding and norm-decay conditions explain how to test a pair once the joint data are provided. They do not supply equal relevant marginals simultaneously with opposite local behavior and the particular sharp modulus.",
+        "searches": [
+          "arXiv:2511.19000 §§1, 3 and 4, especially Remark 3.3 and Proposition 4.1(ii)",
+          "Edmunds–Gogatishvili–Nekvinda arXiv:2101.00182v2, abstract"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2511.19000",
+        "Slavíková preprint 2010-353.pdf",
+        "arXiv:2101.00182v2",
+        "Resultary record 1573f37d0d28"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Proposition 4.1(ii) says vanishing localized modulus implies the vanishing max-target/max-source quotient, not its converse. Both weighted configurations have admissible source since its minimal function is sqrt(a)>0 for every a>0.",
+          "Even using the elementary weighted quotient criterion, the two opposite behaviors require choosing the same target spike distribution jointly with w in two different ways and computing their concentration; they do not follow from the proposition or the quoted examples."
+        ],
+        "reasoning": "Threading the joint quotient through the marginal constraint is the new witness, rather than restating the necessary test or claiming it was asserted to be sufficient.",
+        "searches": [
+          "Mihula–Pándy, arXiv:2511.19000, Proposition 4.1(ii), eq. (4.2); Definition 1.1 and admissibility definition in §3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The frozen small-support modulus is exactly Definition 1.1; the standard dual-norm reduction is to concentration integrals of the joint quotient v²/w, not of either weight separately.",
+          "Slavíková Theorem 3.1 characterizes almost-compact embeddings by bounded sequences converging almost everywhere to zero, rather than by two marginal indicator spectra on this infinite interval."
+        ],
+        "reasoning": "The relevant equivalent weighted formulation uses the decreasing rearrangement of v²/w. Equimeasurability of v alone preserves both Y indicator extrema but does not determine this joint rearrangement; the frozen construction makes that failure quantitative.",
+        "searches": [
+          "Mihula–Pándy arXiv:2511.19000, Definition 1.1 and Proposition 4.1(ii)",
+          "Slavíková, Almost-compact embeddings, Theorem 3.1",
+          "Weighted local norm decay, uniform absolute continuity and equimeasurable weight rearrangements"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The thematic mirrored Finding 2026/10/25/SCOPE-exact-orbit-period-distortion-and-extremizer-rigidity-for-square--1573f37d0d28 concerns a weighted orbit square-function norm on L¹ and separation of translated magnitudes, not local L²-to-L¹ decay or matched fundamental functions.",
+          "The ranked anisotropy result 5772bc742552 concerns a finite-dimensional weighted-l1 proximal map. The checked examples in the primary paper do not have the same pair or constants."
+        ],
+        "reasoning": "No exact record of the pair or its modulus was located in the bounded checks; the primary examples and the highest relevant catalogue finding differ on object, invariant, or both.",
+        "searches": [
+          "Resultary localized norm decay / extremal fundamental function / spatial alignment comparison",
+          "Mihula–Pándy, checked examples and Remark 3.3"
+        ]
+      },
+      "rationale": "The necessary target-to-source ratio and the basic weighted duality formula are not new. The supported distinct claim is a specific matched-marginal counterexample to sufficiency even with the entire individual extremal data fixed, with the sharp aligned modulus and the separated infinite modulus. No equivalent construction was established in the inspected literature or catalogue.",
+      "residual_risks": [
+        "Older weighted embedding examples with equimeasurable weights may be indexed under different terminology. This is a bounded comparison, not a historical priority certification.",
+        "No claim is made about global bounded inclusion or a general classification of non-rearrangement-invariant spaces."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Verified exact target-to-source test; no implication of the frozen converse witness",
+          "evidence": "Admissibility is positive minimum function for every positive measure. The proposition's implication is from local decay to a vanishing maximal-function quotient.",
+          "identifier_or_url": "https://arxiv.org/html/2511.19000",
+          "material_read": "Definition 1.1 in §1/OA offset about 9948; admissibility in §3/offset about 27957; Remark 3.3/offset about 30591; Proposition 4.1(ii), equation (4.2), §4/offset about 40265",
+          "method": "Direct OA HTML location and bounded passages",
+          "title": "Uniform decay of function norms",
+          "trigger": "Direct comparison to a necessary condition on identical extrema"
+        },
+        {
+          "assessment": "General characterization, not an exact paired-weight example",
+          "evidence": "Tests bounded source sequences converging almost everywhere to zero; rearrangement-invariant embeddings into L¹ are also discussed in the paper's scope.",
+          "identifier_or_url": "https://www2.karlin.mff.cuni.cz/kma-preprints/2010-pap/2010-353.pdf",
+          "material_read": "p. 2 scope; Theorem 3.1, p. 5/OA offset 13916",
+          "method": "OA PDF passage inspection",
+          "title": "Almost-compact embeddings",
+          "trigger": "Earlier framework for localized or almost-compact norm decay"
+        },
+        {
+          "assessment": "Scope background only; not evidence of whole-document noncoverage",
+          "evidence": "Announced necessary and sufficient results are for L^(p(·)) and L^(q(·)).",
+          "identifier_or_url": "https://arxiv.org/html/2101.00182v2",
+          "material_read": "Abstract/OA offset about 708",
+          "method": "OA HTML passage inspection",
+          "title": "Almost-compact and compact embeddings of variable exponent spaces",
+          "trigger": "Potential broader embedding criterion"
+        },
+        {
+          "assessment": "Spatial-overlap analogue, not matched extrema or an embedding result",
+          "evidence": "Uses an orbit square-function L¹ norm with translated magnitudes.",
+          "identifier_or_url": "2026/10/25/SCOPE-exact-orbit-period-distortion-and-extremizer-rigidity-for-square--1573f37d0d28",
+          "material_read": "Mirrored RESULT.md Finding at snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Configured Resultary search and mirror passage inspection",
+          "title": "Exact orbit-period distortion and extremizer rigidity for square functions",
+          "trigger": "Closest meaningful spatial-alignment catalogue hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This explicit witness isolates a missing datum in an actual necessary embedding test. It rules out all criteria based only on the four individual extremal functions for this setting, rather than merely exhibiting failure of one asymptotic ratio. Exact weight alignment, the quantified optimal decaying modulus, and divergence at every scale make the witness useful and reproducible.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

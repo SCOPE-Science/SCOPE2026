@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:13:26.456497Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed RESULT.md lines 47–109. Set u_n=log[(lambda+n^2)/(lambda+(n-1)^2)] and F_n=exp(u_n-u_{n+1}). For two exponential terms with one positive and one negative exponent, increasing both the positive exponent and the sum of exponents gives domination for every s>0: any lost negative-branch increment is compensated over an interval where the derivative is strictly larger. On the stated interval F_1<=1<F_2, F_n>1 for n>=2, and F(y)=(lambda+y)^2/[(lambda+y+1)^2-4y] decreases for y>=9 (derivative sign 3lambda+1-y). Its n=2 versus n=3 comparison has numerator 295-140lambda-30lambda^2. This gives the required two inequalities and strictness even at both endpoints: the F inequality is strict against mode 1 at lambda=1/2 and the positive exponent is strict against mode 3 at lambda=lambda_*. AM–GM gives R_2>1>R_0. The leading exponential for lambda<1/2 and the derivative at s=0 for lambda>lambda_* prove necessity. For s>1/2, absolute summability and Fourier positivity give w_n=a_|n|(1+bR_|n|) and hence the sharp cutoff, -2/3 at lambda=s=1. At the boundary the consecutive frequencies starting at 3 give an invertible Vandermonde system for any finite set of distinct points, while the missing second harmonic precludes uniform density of the RKHS. With strictly positive weights the trigonometric polynomials are in the RKHS. This does not assert maximality on the restricted order range s>1/2. CHECK.py was inspected, not executed; its bounded numerical and rational tests are not an infinite certificate. VERIFICATION.md records no independent, expert or Lean verification in the frozen evidence.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Laplace–Beltrami Matérn theorem yields the unmodulated weights by taking circle eigenvalues n^2. The periodization paper gives sampling and eigenvalue-decay results. The fractional-circle and Poisson-mask records cover other weights, in some cases broader modulation families."
+        ],
+        "reasoning": "Generality in the underlying manifold or in the modulation mask does not give domination of the shifted ratios for this polynomial-power weight. The fractional record's fixed-mode result for stretched-exponential weights does not give the claimed interval.",
+        "searches": [
+          "arXiv:2006.10160, Theorem 5",
+          "arXiv:1905.13522, p. 3",
+          "Resultary e14b214a4013",
+          "Resultary 2dc7842600c0"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and CHECK.py",
+        "Resultary 3df14ed06eed, 027cc81ac50f, e14b214a4013, 2dc7842600c0",
+        "arXiv:2006.10160",
+        "arXiv:1905.13522"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Mode-to-PSD conversion and a two-frequency spectral collapse occur in closely related work. At the Bessel upper endpoint F_2=F_3, while strict u_2>u_3 still forces unique locking for all s>0; the prior spectra do not yield these relations."
+        ],
+        "reasoning": "After crediting the standard positivity criterion, the new content is the uniform comparison and its sharp endpoint mechanisms, not a new principle of stationary-kernel positivity. Same-day dates alone do not establish ordering or eliminate the need for comparison.",
+        "searches": [
+          "Resultary 3df14ed06eed and e14b214a4013",
+          "arXiv:2006.10160, equations (18) and (20)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "3df14ed06eed uses geodesic exponential weights with a parity factor 1-(-1)^n exp(-pi a), and gives an active-mode staircase; 027cc81ac50f has a staircase for modulation by the second harmonic of the same geodesic family."
+        ],
+        "reasoning": "These share the shifted-ratio reformulation, but the base weights and resulting optimizing conditions differ. The web query was low-yield, not evidence of absence.",
+        "searches": [
+          "Web: (lambda+n^2) shifted ratio mode maximization Fourier covariance cosine modulation",
+          "Resultary 3df14ed06eed",
+          "Resultary 027cc81ac50f"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact matched statement was the frozen record itself. Distinct inspected entries classify modes or positivity for geodesic-exponential, stretched-exponential or Poisson weights."
+        ],
+        "reasoning": "A table or formula giving the maximizing index throughout the stated two-parameter domain could subsume the claim. The inspected results do not resolve that domain, and a match to the same frozen theorem is not separate coverage.",
+        "searches": [
+          "Resultary semantic search for Bessel-power mode locking and signed cosine modulation; frozen record 8f259558fbec; analogues 3df14ed06eed, 027cc81ac50f, e14b214a4013, 2dc7842600c0"
+        ]
+      },
+      "rationale": "The generic Fourier positivity reduction and the Matérn spectral family are known. The supported distinct result is the exact all-positive-orders parameter interval and unique active mode for the Bessel-power shifted-ratio family, with its corresponding threshold in the continuous-kernel regime. Neither the closest circle modulation records nor the inspected Matérn theorems imply that comparison of all modes and both endpoint obstructions.",
+      "residual_risks": [
+        "The search was bounded and may miss older equivalent Bessel-power inequalities or results indexed by a different name.",
+        "The same-date fractional-circle and Poisson entries have substantive methodological overlap; the inspected statements do not establish equivalence or within-day priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct methodological overlap, different base spectrum",
+          "evidence": "PSD cutoff uses geodesic exponential coefficients with an alternating parity factor and a varying active index.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-sharp-circle-covariance-modulation-threshold-and-an-unbounded-fo--3df14ed06eed",
+          "material_read": "RESULT.md finding and spectral threshold, from offset 0",
+          "method": "Local mirror",
+          "title": "Sharp circle-covariance modulation threshold and an unbounded Fourier-mode staircase",
+          "trigger": "Closest cited signed first-harmonic predecessor"
+        },
+        {
+          "assessment": "Not an implication",
+          "evidence": "Mode staircase is for exp(-a theta)(1+b cos(2 theta)).",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-exact-every-mode-staircase-for-even-harmonic-geodesic-exponentia--027cc81ac50f",
+          "material_read": "RESULT.md finding, from offset 0",
+          "method": "Local mirror",
+          "title": "Exact every-mode staircase for even-harmonic geodesic-exponential covariances",
+          "trigger": "Potential broader mode classification"
+        },
+        {
+          "assessment": "Strong analogue, not equivalent",
+          "evidence": "For weights exp(-t|n|^alpha), 0<alpha<1, harmonic k is controlling and frequencies +/-k vanish at the boundary. No polynomial Bessel-power locking interval follows.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-sharp-sign-cone-and-spectral-collapse-for-cosine-modulated-fract--e14b214a4013",
+          "material_read": "RESULT.md finding, from offset 0",
+          "method": "Local mirror",
+          "title": "Sharp sign cone and spectral collapse for cosine-modulated fractional circle kernels",
+          "trigger": "Same-day exact cosine thresholds and missing modes"
+        },
+        {
+          "assessment": "Different coefficient family",
+          "evidence": "Finite knot reduction is for weights r^|n|.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-finite-knot-positivity-cones-for-signed-periodic-poisson-covaria--2dc7842600c0",
+          "material_read": "RESULT.md finding, from offset 0",
+          "method": "Local mirror",
+          "title": "Finite-knot positivity cones for signed periodic Poisson covariances",
+          "trigger": "Arbitrary signed cosine masks"
+        },
+        {
+          "assessment": "Base weights known; shifted-ratio optimization not supplied by theorem",
+          "evidence": "Uses weights proportional to (2nu/kappa^2+lambda_n)^(-nu-d/2).",
+          "identifier_or_url": "https://arxiv.org/pdf/2006.10160",
+          "material_read": "Theorem 5, p. 7, equations (18) and (20), text offset 27300",
+          "method": "OA primary PDF",
+          "title": "Matérn Gaussian Processes on Riemannian Manifolds",
+          "trigger": "Prior construction of the unmodulated spectral family"
+        },
+        {
+          "assessment": "Different questions",
+          "evidence": "Periodization sizes and eigenvalue decay for sampling, not signed cosine active frequencies.",
+          "identifier_or_url": "https://arxiv.org/pdf/1905.13522",
+          "material_read": "p. 3, text offset 13900, summary of main results",
+          "method": "OA primary PDF",
+          "title": "Unified Analysis of Periodization-Based Sampling Methods for Matérn Covariances",
+          "trigger": "Related periodic Matérn spectrum"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The mode selection has a concrete use: it determines the largest admissible negative cosine modulation and the exact spectral defect in a standard circle covariance family. The exact interval simultaneously valid for all positive orders, with distinct failure mechanisms on its two sides, is an informative classification not supplied by the generic Fourier test.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

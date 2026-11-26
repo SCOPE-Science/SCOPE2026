@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T18:48:27.623663Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–114",
+        "Frozen VERIFICATION.md and verify.py; the reported 495 cases are original evidence, not a fresh independent run."
+      ],
+      "rationale": "For the symmetric nonnegative fixed-row-sum class with m>=2, positive L_i and H>=sum L_i, put h=H-sum L_i and Q=sum L_i^2. The star's positive eigenvector v=(Lambda,L_1,...,L_m) has eigenvalue Lambda by Lambda^2=h Lambda+Q, so Lambda is its Perron root, also at h=0. For D=M-M_star, D1=0 by the row constraints and symmetry. Thus v^T D v = (Lambda 1-v)^T D (Lambda 1-v) = g_per^T M_per g_per with g_i=Lambda-L_i>0, because the hub coordinate is zero and the star's peripheral block vanishes. Dividing by Lambda^2+Q via Rayleigh–Ritz proves both reported defect inequalities. Any nonzero peripheral block makes the defect strict; a zero block forces the star by the row sums. Evaluating the quadratic at 1 proves Lambda<=1 iff h+Q<=1; this is a condition for existence of an admissible matrix at or below threshold, with only the star at equality. The exact example's Rayleigh defect is 3/55. The universal decision is analytic; the submitted script was inspected and not executed.",
+      "residual_risks": [
+        "Scope is equal group proportions, positive peripheral row sums and dominant hub. No implication for final epidemic size or behavior at the critical threshold is used."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Appendix 8.1 gives a sharp optimization recipe, not a closed-form arbitrary-dimensional dominant-row solution.",
+          "Engel–Schneider–Sergeev Theorem 3.7 identifies the Perron-root range for general prescribed row sums and graph, without the symmetry requirement."
+        ],
+        "reasoning": "The SDP poses the same broader minimization, but requires an instance or an analytic certificate to compute the minimum and identify its unique optimizer. A range over general nonsymmetric matrices does not characterize the minimum over the smaller symmetric fixed-row-sum class.",
+        "searches": [
+          "Bizzotto–Ball–Britton, arXiv:2602.23885v2, Theorems 3.2 and 3.6, Appendix 8.1",
+          "Engel–Schneider–Sergeev, arXiv:1312.2782v1, §3.2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2602.23885v2",
+        "arXiv:1312.2782v1",
+        "Published Resultary two-contact-rate-classes record 39303f706ba1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For H=37/25 and L_1=L_2=2/5, the older general weighted-RMS lower bound is sqrt(523)/25<1=Lambda; the paper itself notes its general bound need not be sharp.",
+          "The two-rate optimizer condition forces all leaf mass to the hub exactly when all L_i=L, but cannot imply the leaf-specific defect or the generic unequal-leaf theorem."
+        ],
+        "reasoning": "Neither the available numerical lower bound nor the general optimization recipe supplies the exact analytic equality or a strict deficit for all competitors. At equal leaves, exact value and optimizer are direct prior coverage, not evidence of novelty.",
+        "searches": [
+          "Bizzotto–Ball–Britton, arXiv:2602.23885v2, Theorem 3.2(a), §4.1 and Appendix 8.1",
+          "Published two contact-rate-class theorem, RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "At equal proportions, reciprocal balance is literal matrix symmetry, and the paper's row-sum semidefinite minimization is exactly the present feasible optimization problem.",
+          "The published two-rate result reduces to h=H-mL and Lambda=(h+sqrt(h^2+4mL^2))/2 with the same forced hub star when all peripheral rows equal L."
+        ],
+        "reasoning": "Changing from next-generation matrices to symmetric fixed-row-sum matrices is not novelty. The equal-leaf problem is covered even if stated via a two-class reduction. Unequal leaves cannot be encoded in that two-class result, because the actual row totals, not merely the number of groups, determine Q and the individual defect coefficients.",
+        "searches": [
+          "Published Resultary comparison: two contact-rate classes, sharp epidemic threshold and optimizer rigidity",
+          "Bizzotto–Ball–Britton, arXiv:2602.23885v2, Appendix 8.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The catalogue match has an exact optimizer/minimum characterization only for two row-rate values. The inspected main paper tabulates no arbitrary dominant-row family; Theorem 3.6(a) is explicitly k=2 and Appendix 8.1 is an optimization recipe."
+        ],
+        "reasoning": "No finite numerical table can establish the universal real-parameter defect claim; the checked exact formula catalogue is the stronger comparison and covers the equal-peripheral subfamily only.",
+        "searches": [
+          "Resultary local search and published mirror 2026/10/18/SCOPE-exact-sharp-epidemic-threshold-and-optimizer-rigidity-for-two-co--39303f706ba1",
+          "Bizzotto–Ball–Britton, arXiv:2602.23885v2, Theorem 3.6 and Appendix 8.1"
+        ]
+      },
+      "rationale": "Credit is for the closed form and unique minimizer for arbitrary, including unequal, peripheral totals and the quantitative defect. The optimization problem itself is established, and a distinct same-day record already gives the full minimizer/value in the equal-peripheral subfamily. Neither the matched general optimization formulation nor the two-rate result states or implies the arbitrary heterogeneous formula and defect by direct specialization.",
+      "residual_risks": [
+        "No priority order is inferred from the two catalogue records' shared date.",
+        "This is a bounded priority check; a stronger fixed-row-sum symmetric optimization result or an equivalent diagonal-scaling formulation may exist beyond the inspected sources."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the formulation and some regimes, not the stated general exact solution",
+          "evidence": [
+            "Theorem 3.2 is RMS versus maximum, Theorem 3.6(a) is sharp for two types, and Appendix 8.1 gives the SDP without the dominant-row closed form or rigidity certificate."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2602.23885v2",
+          "material_read": "§3.1.2 Theorems 3.2 and 3.6, §4.1 sharpness discussion, Appendix 8.1",
+          "method": "Lawful OA full-text passages",
+          "title": "Bounds on R0 and final epidemic size when the next-generation matrix M is only partially known",
+          "trigger": "Cited same optimization under detailed balance"
+        },
+        {
+          "assessment": "Related, not covering the symmetry-constrained optimum",
+          "evidence": [
+            "The Perron-root set is defined by Aux(A)=B, without imposing reciprocal balance."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1312.2782v1",
+          "material_read": "Auxiliary matrix definition and §3.2, Theorem 3.7",
+          "method": "Lawful OA full-text passages",
+          "title": "On sets of eigenvalues of matrices with prescribed row sums and prescribed graph",
+          "trigger": "Possible broader fixed-row-sum characterization"
+        },
+        {
+          "assessment": "Direct special-case coverage; not temporal priority evidence",
+          "evidence": [
+            "With one hub and equal positive peripheral totals, the two-rate formula specializes exactly to Lambda, and the optimizer condition forces the same star."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-exact-sharp-epidemic-threshold-and-optimizer-rigidity-for-two-co--39303f706ba1",
+          "material_read": "RESULT.md theorem and optimizer conditions",
+          "method": "Resultary local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact sharp epidemic threshold and optimizer rigidity for two contact rate classes",
+          "trigger": "Direct published catalogue match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Assumptions and scope",
+        "arXiv:2602.23885v2, Appendix 8.1",
+        "Published two-contact-rate-classes result 39303f706ba1"
+      ],
+      "rationale": "This is an exact answer to a natural constrained minimization previously posed in general SDP form. In the heterogeneous dominant-row regime it replaces optimization with an explicit feasibility threshold, identifies the only minimizer, and bounds the loss away from the minimum by an interpretable peripheral mass defect. These are substantive beyond repeating the equal-peripheral example or a generic spectral estimate.",
+      "residual_risks": [
+        "Value is for the constrained matrix model and initial threshold, not an implementation recommendation or an analysis of general epidemiological outcomes."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

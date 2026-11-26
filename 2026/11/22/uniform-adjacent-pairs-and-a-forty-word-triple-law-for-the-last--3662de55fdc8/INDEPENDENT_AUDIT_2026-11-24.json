@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:07:00.363525Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Verified the recurrence independently: (5q+r)! is 5^q q! times the product of the factors not divisible by five. After removal of trailing zeros, the latter contributes (-1)^q r! modulo five with a compensating 2^(−q), giving 2^q r! modulo five; stripping zeros leaves an even integer for all indices at least two, so this also gives the stated mod-10 formula. The auxiliary e_1=0 is legitimate for the five children of index one. Applying the recurrence twice gives the two-coordinate carry for residue 4 and all five triple rows. Independently recomputed the exhaustive finite certificate: for each of the 64 starting states (a,b,t), for j=0,…,624 evaluate e_(625q+j) by applying e↦e+t+γ_digit, t↦5t+digit modulo four to the four padded base-five digits of j. Evaluate the next exponent with j+1 and the same prefix unless j=624, when the prefix is (b,t+1) and the suffix is 0000. Tally each target pair and (625t+j) mod 4. Over all 4096 entries the minimum and maximum are 4 and 16; every row totals 625. A separate single-digit carry tally verified each column sum 5, pair counts 20 of 320 in every cell, and every triple entry equal to the indicator formula with counts 0,4,8,16 on 24,24,4,12 cells respectively. Uniform stationarity and subtracting the common minorant 4/625 from each entry of P^4 yield contraction by 369/625 every four levels. A base-five greedy cutoff gives at most four complete descendant blocks of each size; the geometric sum of their errors is O(N^(1−δ)), and sorting child indices by n mod 5 applies the same bound to triples. The table proves the exact tail exclusions, with positive density for each allowed word. The finite prefix also does not add forbidden words: the three triples starting at 2,3,4 can be checked directly, and the auxiliary index one handles starts 5–9. Read VERIFICATION.md and verify.py without executing the frozen script; its comparisons beyond full factorials through 500 use the digit recurrence, not independent large full-integer factorials.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "In base 10 the digit sequence is 5-automatic. Sobolewski establishes its single-symbol frequencies, and notes that automaticity does not generally guarantee letter-frequency existence."
+        ],
+        "reasoning": "General automaton and morphism machinery makes a block analysis possible, but does not evaluate the specific carry-dependent frequencies, support size, or uniform discrepancy. Known single-index marginals impose no independence across indices.",
+        "searches": [
+          "Lipka arXiv:1806.02560v1 abstract/introduction",
+          "Sobolewski arXiv:1809.06947v1 Theorems 1–2 and §3",
+          "Gejima–Takamizo arXiv:2509.21948v2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Resultary 4fe2bd4eb307 and fa9f646a7cb7",
+        "OEIS A008904",
+        "arXiv:1806.02560, 1809.06947, 1904.10274 and 2509.21948v2 passages"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The trinomial digit-additive rule uses the same increment data at every digit position; the factorial rule adds the prefix residue q mod 4 at each step",
+          "The known individual digit distribution is uniform, consistent with both independent and dependent adjacent pairs"
+        ],
+        "reasoning": "There is no demonstrated reduction from the prior exact trinomial block counts or known one-index factorial frequencies to this law. One must account for the factorial-specific carry transitions and establish their state distribution.",
+        "searches": [
+          "Sobolewski Theorems 1–2 and §3",
+          "4fe2bd4eb307 Finding and Proof, digit product and increment"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "4fe2bd4eb307 Finding has 40 allowed words and the same density histogram, but no mass-1/20 cell with first and third symbols equal; the factorial law has four such cells",
+          "Sobolewski's k-digit strings are trailing positions within one n!, equivalent only at the single-symbol level"
+        ],
+        "reasoning": "Outer equality of a triple is invariant under any global alphabet bijection or reversal of index order. Thus the closest exact statistical analogue cannot be transformed into this factorial law by those operations, or by shifting indices. Multi-position suffix results do not concern these three input indices.",
+        "searches": [
+          "Resultary: forty-word triple spectrum and uniform adjacent pairs, central trinomial residues",
+          "arXiv:1809.06947v1 cross-index vs multi-digit factorial words",
+          "OEIS A008904 final nonzero digit of n!"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A008904 lists the same digit sequence, a finite digit table and single-symbol counts at decimal cutoffs, not a verified adjacent-word law in the passage inspected",
+          "4fe2bd4eb307 gives an exact triple law and stronger finite-cutoff analysis for central trinomial residues rather than factorial digits"
+        ],
+        "reasoning": "A finite prefix table can witness occurrence, not establish tail prohibition, asymptotic frequencies or power-saving discrepancy. The nearest catalogue frequency table is demonstrably non-equivalent cellwise.",
+        "searches": [
+          "OEIS A008904, opening terms, COMMENTS and LINKS",
+          "Resultary 4fe2bd4eb307 and fa9f646a7cb7"
+        ]
+      },
+      "rationale": "The evidence supports the explicit consecutive factorial joint law, not the already known decimal digit recursion or single-symbol uniformity. The closest exact analogue shares every headline multiplicity but has a different cellwise distribution and a different underlying indexed sequence. This is a best-of-knowledge comparison of inspected sources, not historical certification.",
+      "residual_risks": [
+        "Earlier automata and factorial-digit literature may contain unindexed joint-word analyses; inspections of adjacent papers were bounded",
+        "The same-day analogue is verified as a different law, not chronologically ordered"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Analogue, not equivalent by recoding or reversal; date does not establish precedence",
+          "evidence": "Its heavy cells have relative differences (0,1),(1,3),(2,1); none has outer equality. Its object is central trinomial residues.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-forty-word-triple-spectrum-of-central-trinomial-residues-modulo--4fe2bd4eb307/RESULT.md",
+          "material_read": "Finding and Proof digit product/digit increment, offsets 0–3839",
+          "method": "Resultary mirror passage",
+          "title": "Forty-word triple spectrum of central trinomial residues modulo five",
+          "trigger": "Identical support size and multiplicity histogram, same-day record"
+        },
+        {
+          "assessment": "Different natural sequence and word length",
+          "evidence": "Fixed-lag pairs and exact adjacent-pair counts concern central trinomial residues.",
+          "identifier_or_url": "fa9f646a7cb7",
+          "material_read": "Indexed result on two-point laws",
+          "method": "Resultary catalogue comparison",
+          "title": "All-lag two-point laws and exact logarithmic bias for central trinomial residues",
+          "trigger": "Related all-lag uniformity and exact blocks"
+        },
+        {
+          "assessment": "Covers automaticity and marginal uniformity, not consecutive-factorial joint words in these results",
+          "evidence": "The k digits in its theorem are the last nonzero suffix of a single factorial.",
+          "identifier_or_url": "https://arxiv.org/abs/1809.06947",
+          "material_read": "v1 p. 1, §2 Theorems 1–2, §3 p. 5; offsets 301, 5510–7986, 12913",
+          "method": "OA PDF passages",
+          "title": "On the last nonzero digits of n! in a given base",
+          "trigger": "Same sequence and frequency results for strings of digits"
+        },
+        {
+          "assessment": "Automaticity, not an evaluated joint distribution in the passage read",
+          "evidence": "Characterizes bases admitting an automatic last-nonzero factorial-digit sequence.",
+          "identifier_or_url": "https://arxiv.org/abs/1806.02560",
+          "material_read": "v1 p. 1 abstract/introduction, near offset 325",
+          "method": "OA PDF passage",
+          "title": "Automaticity of the sequence of the last nonzero digits of n! in a fixed base",
+          "trigger": "Same indexed sequence and foundational automaticity"
+        },
+        {
+          "assessment": "Irrationality rather than block frequencies in inspected material",
+          "evidence": "Defines the number with one last nonzero factorial digit per successive position.",
+          "identifier_or_url": "https://arxiv.org/abs/1904.10274",
+          "material_read": "v1 pp. 1–2, offset 0",
+          "method": "OA PDF passage",
+          "title": "Two Irrational Numbers That Give the Last Non-Zero Digits of n! and n^n",
+          "trigger": "This exact input ordering of digits as a decimal expansion"
+        },
+        {
+          "assessment": "Same sequence, no exact pair/triple frequencies in the read material",
+          "evidence": "Lists terms and single-digit counts at cutoffs 10^1 through 10^9 and a finite table link.",
+          "identifier_or_url": "https://oeis.org/A008904",
+          "material_read": "Offsets 0–3868, terms, comments, references and links through start of FORMULA",
+          "method": "Public website passage",
+          "title": "Final nonzero digit of n!",
+          "trigger": "Exact indexed sequence entry"
+        },
+        {
+          "assessment": "No word law in the inspected context; not a full-text exclusion",
+          "evidence": "Treats nonperiodicity and automaticity.",
+          "identifier_or_url": "arXiv:2509.21948v2",
+          "material_read": "pp. 1–2, passages near offsets 586 and 5966",
+          "method": "OA PDF passages",
+          "title": "Gejima–Takamizo article on nonperiodicity and automaticity of factorial digits",
+          "trigger": "More recent primary same-sequence comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The three-symbol law is the first place the adjacent pair uniformity fails to extend to a joint independence law; the exact forbidden words, per-cell frequencies, and effective natural-density estimate quantify that failure. This is structural information about a familiar deterministic number-theoretic sequence, not just another prefix count or a restatement of automaticity. The rate is a valid sufficient rate, not claimed optimal.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

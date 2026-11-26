@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T13:42:33.117622Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In the stated Gaussian normalization, angular orthogonality makes the Toeplitz operator diagonal on monomials, and polar integration gives the Gamma(k+d,1) expectation with multiplicity binomial(k+d−1,d−1). The derivative bound with c=β−η√(β²+ω²)>0 and the one-exponential coupling prove strict ordering. On [k/2,3k/2], the signed first Taylor moment is d and the second moment about k is k+d+d²; outside, gamma Chernoff bounds and Cauchy–Schwarz give exponentially small relevant tail terms. This proves λ_k=a0(k)+O(k^(−β−1)) and compactness. The derivative lower bound permits a fixed index shift in either direction, so the last degree with eigenvalue strictly above t is r(t)+O(1), including at threshold equality. Inverting the strictly decreasing scalar symbol yields r=t^(−1/β)H−1. For H the upper endpoint occurs at phase −ω log((1+η)^(1/β)); the lower occurs at π−ω log((1−η)^(1/β)); the range follows by continuity (these phase formulas resolve the endpoint order in the proof). Summing multiplicities gives the counting law, and at a jump the two one-sided errors of any continuous approximant cannot both be smaller than half the multiplicity; t^(−(d−1)/β) is comparable to that multiplicity. This covers d=1, where jumps have size one. From eigenvalues and multiplicities one gets the stated strong/weak Schatten cutoff. At q=d/β, the leading summand m_k λ_k^q is (1+η cos(ω log k))^q/((d−1)!k) with summable O(k^(−2)) error; the derivative of the smooth leading summand is O(k^(−2)), so a sum–integral comparison followed by translation-period averaging gives the critical logarithmic mean. The rank through degree K grows like K^d/d!, and a partial next block contributes O(K^(−1)); the factor 1/d therefore applies to the ordinary log-mean over every rank, proving the stated value for normalized Dixmier traces. Replay: python3 /workspace/branches/frozen_math_reproductions.py 3 (SciPy). Centered-variable quadrature, an independent inversion in the phase variable, and strict-threshold counts for three admissible tuples in d=1,2,4 agree with the bounds (largest sampled scaled count error <1.88); this does not test all dimensions or calculate the Dixmier limit numerically. The uploaded checker was inspected, not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Xu–Dong's Weyl theorems assume an asymptotically homogeneous principal term, and their non-Weyl example varies the radial weight for a pure-power symbol. SCOPE-20261102-b72687c89789 similarly varies the uniformly convex weight. Precise primary passage for Bommier-Hato et al. was not reliably extractable."
+        ],
+        "reasoning": "A larger class of weights does not extend the symbol hypothesis to the nonconvergent leading log cosine. The homogeneous-principal-part trace comparison is supported by a secondary locator only; no exhaustive primary exclusion is claimed.",
+        "searches": [
+          "Xu–Dong arXiv:2609.16970, Theorems 5.1–5.2 and Proposition 5.3",
+          "Bommier-Hato–Engliš–Youssfi arXiv:1107.3254, Theorem 7",
+          "Resultary: multidimensional Fock Weyl criteria and radial area density"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–76",
+        "arXiv:2609.16970 §§5.1–5.3 passages",
+        "arXiv:2609.20652 §6",
+        "arXiv:1107.3254 access and secondary evidence",
+        "Resultary: 0bc5b54dc8b5, 9530b76e3bef, ebaba7809767, 11aeb72ff555, b72687c89789, 8dcf61e17ffb, and the assigned self-hit"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Failure of the ordinary Weyl law in a variable-weight example does not imply an explicit fixed-weight profile. Log-log periodic leading oscillations are not averaged in the same way as log-periodic harmonic sums. The Bergman commutator precedent includes a periodic counting law with O(1) error and a measurable trace, on a different operator with no general-dimensional Fock inference in the inspected statement."
+        ],
+        "reasoning": "The underlying abstract period averaging is reusable, but does not give the requisite Gaussian eigenvalue approximation and dimension-dependent counting remainder. No previously established stronger conclusion implying the precise fixed-Gaussian family was verified.",
+        "searches": [
+          "Xu–Dong Proposition 5.3: varying weights",
+          "SCOPE-20261108-9530b76e3bef and SCOPE-20261011-0bc5b54dc8b5 RESULT.md Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bdarneh represents a radial operator by integral eigenvalues on homogeneous degrees. SCOPE-20261108-9530b76e3bef states the closest periodic count and trace average but its operator is a Bergman Toeplitz–shift commutator. SCOPE-20261026-8dcf61e17ffb uses a discrete measure on Bergman circles."
+        ],
+        "reasoning": "The radial representation is shared and applicable as a starting point, not a threshold estimate with index error O(1). A similar eigenvalue profile in another Hilbert space does not supply a spectral equivalence: fixed Gaussian gamma moments and degree multiplicities binomial(k+d−1,d−1) are decisive to this conclusion.",
+        "searches": [
+          "Resultary: log-periodic Toeplitz Weyl cycles, bounded counting error, and measurable critical trace",
+          "arXiv:2609.20652 §6, radial spectral representation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact fixed-Gaussian match was the frozen result itself. SCOPE-20261011-0bc5b54dc8b5 has a log-log periodic Fock symbol and a nonmeasurable operator; SCOPE-20261018-11aeb72ff555 gives a cluster interval and O(n^(−1/2)) tracking for a weighted one-dimensional pure-power setting."
+        ],
+        "reasoning": "The exact indexed analogues differ in phase scale or weight/symbol hypotheses; their recorded profiles and trace behavior are not the claimed γ-moment spectrum with the given root and remainder. An indexed copy of the assigned record is not a distinct predecessor.",
+        "searches": [
+          "Resultary: Gaussian radial Fock log-periodic Weyl root, full cluster interval and critical trace",
+          "Resultary: Fock periodic symbol trace versus oscillating weight"
+        ]
+      },
+      "rationale": "There are substantial prior analogues for individual parts, including the joint oscillating Weyl coefficient and measurable trace in a Bergman example. The distinct supported result is their explicit realization for this fixed standard Gaussian Fock Toeplitz family in every complex dimension, with an exact profile and multiplicity-optimal remainder. Radial diagonalization itself, failure of a scalar Weyl coefficient in general, and the abstract period-averaging mechanism are not assigned independent novelty.",
+      "residual_risks": [
+        "The Bommier-Hato–Engliš–Youssfi primary theorem could not be reliably inspected from the available rendering. A more general oscillatory spectral theorem or an unindexed equivalent could imply this special case. The assessment is confined to the checked passages and implications."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Constant-coefficient hypotheses fail here; obstruction uses a different parameter",
+          "evidence": "Asymptotically homogeneous symbols, with a quadratic-weight extension, and a separate pure-power example on a varying radial weight.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.16970",
+          "material_read": "Theorems 5.1 and 5.2 pp. 28–29, OA offsets 97661 and 103531; Proposition 5.3 p. 30, offset 106411",
+          "method": "Targeted OA PDF reading",
+          "title": "IDA symbols and Schatten–Lorentz theory for Toeplitz operators on weighted Fock spaces",
+          "trigger": "Closest primary Fock Weyl results and counterexample"
+        },
+        {
+          "assessment": "Representation antecedent, not the claimed asymptotic and trace",
+          "evidence": "Scalar action on homogeneous degrees with radial integral eigenvalues.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.20652",
+          "material_read": "§6 pp. 8–9, OA offset 24237",
+          "method": "Targeted OA PDF reading",
+          "title": "Toeplitz C*-algebras on radially weighted Fock spaces: commutativity and spectral representation",
+          "trigger": "Broader Fock radial hypotheses and spectral formula"
+        },
+        {
+          "assessment": "Exact primary scope remains a limitation; no full-text exclusion",
+          "evidence": "The secondary discussion identifies Theorem 7 with class A_{−2d} and polyhomogeneous leading part. HTML did not serve an inspectable alternate.",
+          "identifier_or_url": "https://arxiv.org/abs/1107.3254",
+          "material_read": "Primary PDF obtained but not reliably read via extracted layer; theorem scope located via secondary Resultary discussion, offset 6800",
+          "method": "Targeted OA PDF and HTML attempts, then secondary locator",
+          "title": "Dixmier trace and the Fock space",
+          "trigger": "Potentially stronger trace theorem on Fock space"
+        },
+        {
+          "assessment": "Same type of space but different log-log scale and opposite trace measurability",
+          "evidence": "Nonconstant log-log periodic radial profile leads to nonmeasurability of the operator at its critical order.",
+          "identifier_or_url": "SCOPE-20261011-0bc5b54dc8b5",
+          "material_read": "RESULT.md Finding offset 0 and relationship passage offset 6800",
+          "method": "Resultary mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "The logarithmic spectral filter for smooth radial Fock Toeplitz operators",
+          "trigger": "Closest comparable radial Fock trace result"
+        },
+        {
+          "assessment": "Close analogy, different space/operator; no direct specialization",
+          "evidence": "Periodic coefficient, O(1) remainder and measurable average for a weighted Bergman Toeplitz–shift commutator.",
+          "identifier_or_url": "SCOPE-20261108-9530b76e3bef",
+          "material_read": "RESULT.md Finding, mirror offset 0",
+          "method": "Resultary configured mirror",
+          "title": "Log-periodic Weyl counting with bounded remainder for a Bergman Toeplitz commutator",
+          "trigger": "Closest joint periodic count, small remainder, and trace result"
+        },
+        {
+          "assessment": "Different oscillation mechanism",
+          "evidence": "The pure-power symbol has a varying Hessian-bounded weight; the profile and cluster law concern that setting.",
+          "identifier_or_url": "SCOPE-20261102-b72687c89789",
+          "material_read": "RESULT.md Finding, mirror offset 0",
+          "method": "Resultary configured mirror",
+          "title": "A complete radial Weyl criterion for uniformly convex Fock weights …",
+          "trigger": "All-dimension correlated Weyl/profile and cluster behavior"
+        },
+        {
+          "assessment": "Different operator and space",
+          "evidence": "Log-periodic profile and explicit average from a discrete measure on geometrically spaced Bergman circles.",
+          "identifier_or_url": "SCOPE-20261026-8dcf61e17ffb",
+          "material_read": "RESULT.md Finding, mirror offset 0",
+          "method": "Resultary configured mirror",
+          "title": "Log-periodic Mellin spectra and measurable weak traces for geometric …",
+          "trigger": "Earlier log-periodic positive Toeplitz example with measurable critical power"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This symbol family separates two spectral properties in a fixed canonical space: the normalized counting function fills a nontrivial explicit interval while the critical normalized singular-value mean still converges. The optimal error against continuous counts uses the dimension-dependent jump size rather than just a coarse leading term. The all-dimensional relation among modulation, exact profile, and trace is useful beyond a one-off counterexample; no necessity of the amplitude constraint or arbitrary nonradial extension is claimed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

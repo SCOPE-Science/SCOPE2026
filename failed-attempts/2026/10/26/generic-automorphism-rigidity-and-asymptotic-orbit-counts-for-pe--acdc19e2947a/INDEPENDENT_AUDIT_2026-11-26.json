@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:08:41.311268Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Perfectness makes the target basis squares independent, so every isomorphism is monomial. A monomial M acts by A ↦ M A (M^(2))^(-1), with entrywise squaring multiplicative on monomial matrices. Every nonidentity diagonal tuple forces one distinct entry per column to vanish. If k points move, k(2n−k) ordered matrix positions move; each nontrivial coordinate orbit gives at most one free entry. Conditioning on invertibility costs at most γ_q^(-1); summing fixed-point probabilities gives the expectation bound. Burnside identifies the relative error with E(S−1), and each orbit contributes the same total stabilizer mass, giving the separately claimed class-uniform bound by s≤2(s−1) on s≥2. For k≤n/2 the rank-loss exponent is at least 3kn/4, and above n/2 it is at least 3n²/8, proving the stated fixed-field error. An independent n=2, q=3 replay at /workspace/branches/33f8145a-9743-4cd5-8fc3-e91fcc439adc/check_record4_small.py gives 48 invertible matrices, stabilizer frequencies 40 and 8 for orders 1 and 2, and 7 classes, 2 nonrigid. The uploaded verifier was inspected but not run; the finite check is not the general proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "October 25 Steps 2–4, Eqs. (5)–(12): rank-preserving action, quantitative sum of fixed-point fractions across all matrices, and corank-uniform counts",
+          "November 2 Finding and §§2–5: Pr(S>1) and E(S−1) are both asymptotic to binomial(n,2)(q−1)²q^(1−2n) at fixed q≥3"
+        ],
+        "reasoning": "Corank zero is exactly the perfect slice, and the pre-existing proof controls more than orbit count alone. The November 2 result is direct asymptotic coverage. Full-support fixed-n growing-field and binary-only records are different regimes, not decisive coverage.",
+        "searches": [
+          "Resultary: 2026/10/25/SCOPE-asymptotic-isomorphism-enumeration-and-corank-distribution-of-fi--340420fa11f4",
+          "Resultary: 2026/11/2/SCOPE-sharp-generic-rigidity-and-orbit-asymptotics-for-perfect-evoluti--8764d79e8d9d",
+          "arXiv:2610.22248"
+        ]
+      },
+      "checked_sources": [
+        "Outlined primary orbit and automorphism papers; survey",
+        "Local Resultary October 18, October 25, and November 2 comparisons above",
+        "Local Resultary 2026/10/25/SCOPE-sharp-large-field-rigidity-and-transposition-dominance-in-full-s--1dd6c2dc31bf and 2026/11/8/SCOPE-sharp-rare-symmetry-law-for-perfect-binary-evolution-algebras--c0b936280b48 (distinct scopes)",
+        "Frozen RESULT.md, VERIFICATION.md, and verify_generic.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "R_nq=q^(-n²) sum_(g≠1)|Fix(g)|; restricting to invertibles gives E(S−1)≤γ_q^(-1)R_nq",
+          "October 25 Eq. (7) yields the identical unrelaxed permutation term after summing by support; Eq. (9) and the constant-scalar term give an O_q(nq^(−n)) diagonal estimate",
+          "Class weighting follows from orbit–stabilizer with the displayed expectation bound"
+        ],
+        "reasoning": "This is an immediate consequence in the bound regime, not merely shared methodology or matched titles. The weaker scalar-column shortcut is elementary and does not leave a valuable distinct theorem to repair to.",
+        "searches": [
+          "October 25 RESULT.md offset 3150, Eqs. (6)–(10)",
+          "Wei–Zou Eq. (2.1)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sriwongsa–Zou Thm. 2.1/Cor. 2.1, PDF p. 3, and Wei–Zou Thm. 1.1/Cor. 1.1 and Eq. (3.1), PDF pp. 2–3 and 6"
+        ],
+        "reasoning": "Linear natural-basis isomorphisms of perfect algebras are exactly the same monomial action; transposed structure-matrix conventions preserve fixed-set counts.",
+        "searches": [
+          "Resultary semantic lookup for fixed-field perfect evolution algebra generic rigidity and monomial orbit asymptotics",
+          "arXiv:2202.01333",
+          "arXiv:2310.12368v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Wei–Zou's exact dimension-four table includes N(4,F₂)=908 but is not an asymptotic",
+          "October 18 Finding gives exact diagonal-stabilizer moments on the same uniform GL input but only for the diagonal subgroup"
+        ],
+        "reasoning": "Exact low-dimensional counts and diagonal-only moments do not on their own settle the full theorem. The directly overlapping indexed claims are the quantitative fixed-point and sharp asymptotic results above.",
+        "searches": [
+          "Resultary: 2026/10/18/SCOPE-sharp-scarcity-and-exact-diagonal-stabilizer-moments-for-random--00a124f91008",
+          "Wei–Zou arXiv:2310.12368v1 Thm. 6.1"
+        ]
+      },
+      "rationale": "The exact indexed comparison is stronger than a shared first-order count. The distinct October 25 corank-enumeration record proves a bound for the sum of nonidentity monomial fixed-point fractions on all matrices for this same fixed-field action. Restricting its numerator to GL and dividing by the GL density gives the mean-extra-stabilizer bound and rigidity; Burnside then gives both sampling versions. Its Eq. (7) already gives the very same support-k rank loss used here, and Eq. (9) gives an explicit diagonal bound of smaller asymptotic order than this record's diagonal term. The particular simple diagonal estimate and packaging as η do not provide a substantively distinct bound. The later November 2 entry also gives sharp asymptotic equivalents in exactly this regime. This is a statement-level overlap decision, not a claim to establish historical priority from catalogue timestamps.",
+      "residual_risks": [
+        "The review does not settle priority among public entries or identify every earlier binary asymptotic. The decisive fixed-field overlap is independent of binary chronology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers leading count and, by restriction, quantitative rigidity and class weighting",
+          "evidence": "The normalized sum is over all fixed matrices, with term-by-term orbit and scalar bounds.",
+          "identifier_or_url": "2026/10/25/SCOPE-asymptotic-isomorphism-enumeration-and-corank-distribution-of-fi--340420fa11f4",
+          "material_read": "Finding and Steps 2–4, especially Eqs. (5)–(12), offset 3150 onward",
+          "method": "Local Resultary search and matched-file reading",
+          "title": "Asymptotic isomorphism enumeration and corank distribution of finite-field evolution algebras",
+          "trigger": "Same fixed-q action and corank-zero slice"
+        },
+        {
+          "assessment": "Direct sharper asymptotic coverage, no same displayed η formula",
+          "evidence": "Matched first asymptotic terms for probability and mean excess, dominated by transpositions.",
+          "identifier_or_url": "2026/11/2/SCOPE-sharp-generic-rigidity-and-orbit-asymptotics-for-perfect-evoluti--8764d79e8d9d",
+          "material_read": "Finding and proof excerpts around Eqs. (3)–(7) and Burnside conclusion",
+          "method": "Local Resultary search and matched-file reading",
+          "title": "Sharp generic rigidity and orbit asymptotics for perfect evolution algebras",
+          "trigger": "Identical fixed-field perfect regime"
+        },
+        {
+          "assessment": "Same action and exact finite counts; inspected statements do not give the claimed asymptotic",
+          "evidence": "Monomial orbits, stabilizer sum, same fixed-point equation, dimension-four table.",
+          "identifier_or_url": "https://arxiv.org/pdf/2310.12368v1",
+          "material_read": "Thm. 1.1, Cor. 1.1, Eqs. (2.1), (3.1), Thm. 6.1",
+          "method": "Open primary PDF targeted passages",
+          "title": "Isomorphism Classes of Idempotent Evolution Algebras",
+          "trigger": "Primary orbit-counting framework"
+        },
+        {
+          "assessment": "Covers the monomial reduction, not the sampled generic statement",
+          "evidence": "Every isomorphism of perfect algebras is monomial.",
+          "identifier_or_url": "https://arxiv.org/pdf/2202.01333",
+          "material_read": "Thm. 2.1 and Cor. 2.1, PDF p. 3",
+          "method": "Open primary PDF targeted passage",
+          "title": "On Automorphism Groups of Idempotent Evolution Algebras",
+          "trigger": "Primary monomial rigidity reduction"
+        },
+        {
+          "assessment": "Background only",
+          "evidence": "Summarizes finite-dimensional counts and poses broader all-algebra questions.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.22248",
+          "material_read": "§1.3.4 and Questions 21–22",
+          "method": "Open primary PDF targeted passages",
+          "title": "Evolution algebras: a survey of results and a list of open problems",
+          "trigger": "Scope of earlier enumeration and rigidity questions"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Control of stabilizer expectation, including rare large stabilizers, is mathematically useful for leading orbit counts, and distinguishing uniform labels from uniform isomorphism classes is substantive. This merits study even though the present result is covered; the particular loose η rewrite is not a stand-alone contribution.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

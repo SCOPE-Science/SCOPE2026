@@ -1,11 +1,21 @@
-# Review of maximum induced-matching exchange classification
+# Independent mathematical audit
 
-**Correctness (C): PASS.** Every edge is uniquely associated with a starting column. Separation gives an upper bound by the independence number of the start-column cycle, attained by alternating rungs. The gap-two transition table enumerates every optimal realization, with explicit twisted-seam consistency. For odd order, first-horizontal-to-rung exchanges reach all-rung states, which communicate through a cyclic support move; direct local neighbor counts establish the degree polynomial and edge count. Two separately constructed stand-alone exhaustive programs confirm every formula for rung counts four through twelve. No computation is substituted for the all-order proof.
+## correctness
 
-**Originality (O): PASS, with residual historical uncertainty.** Exact all-order edge-exchange connectivity, component count and odd degree distributions are not implied by published general enumerative bounds, ordinary/maximum matching counts, perfect-matching flips, vertex independent-set exchanges or generic reconfiguration complexity. The closest same-object McSorley (1998) paper could only be inspected through its abstract; its full repository copy returned HTTP 403, so an earlier equivalent enumeration or exchange treatment cannot be excluded. The claim therefore emphasizes the precise optimum-exchange structure rather than sole priority for the scalar number.
+PASS
 
-**Value (V): PASS.** The Möbius ladders are a classical canonical cubic family. A full optimal interference-free edge-packing reconfiguration law shows that an even/odd change in circumference switches every optimum between complete local immobility and a connected configuration space with only degrees four, five and six. The extra modulo-four count distinction and exact incidence of legal exchanges follow from a succinct structural classification, not merely an isolated computation.
+Independent reconstruction: adjacent start columns always conflict, so the start support bounds the cardinality by floor(n/2), attained by alternating rungs. In a locally untwisted three-column window a gap of two allows R→R, R→H, and opposite-rail H→H, but not H→R; a gap of at least three gives no conflict in that direction. For n=4 test the two directions of the same pair, rather than discarding one. An even optimum uses an alternating support; the all-horizontal phase must alternate, and the single seam reversal closes it exactly for an odd number of selected edges. Distinct even supports or rail phases cannot differ by just one edge. Odd supports have one long gap and an R-prefix/H-suffix; one initial rail bit fixes a nonempty H-suffix, giving n choices per support. Changing the first H to a rung stays feasible, and all-rung supports are joined by the shift of two. For degree, deletion of an interior start merges two gaps of two, allowing only reinsertion at that start. Deletion next to the long gap merges gaps two and three, allowing exactly one genuinely new start on that side; the n=5 case has one surviving start and the same two insertions into its cyclic gap of five. Applying the transition rules gives unchanged-support counts 2,3,2,1 and changed-support counts 4,2,2,3 for h=0, h=1, 2≤h<m, h=m. Summing yields precisely the stated polynomial and edge count. The size, connectivity, and degree arguments respect the seam without defining a global untwisted rail.
 
-**Closest literature and limits.** Basavaraju et al., arXiv:1312.5180, give maximal induced-matching bounds; Rautenbach, arXiv:1507.04145, gives algorithmic bounds. McSorley, DOI:10.1016/S0012-365X(97)00086-1, is an inaccessible potential same-object enumeration source. Eto et al., arXiv:2111.13476, study a different vertex-token move rule. The statement is for \(n\ge4\) and does not classify shortest reconfiguration distances or nonoptimal sets. Independent audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Bounded evidence supports the whole-edge optimum-exchange dichotomy and exact odd degree classification as distinct from known move rules, matching-complex invariants, and ordinary matching enumeration. Priority for the scalar size and enumeration alone is not established.
+
+## value
+
+PASS
+
+On a canonical twisted cubic family the exact optimum move structure changes from complete immobility to connectivity, with the full one-step branching profile. This is information not contained in an optimal size or configuration count and is useful when comparing whole-edge move rules on ladder graphs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

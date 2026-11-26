@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:39:39.081270Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py and verify_dynamics.py",
+        "Corrected /workspace/repairs/1/RESULT.md and SLOGAN.txt",
+        "Replay: python3 /workspace/branches/independent_1.py; output /workspace/branches/independent_1.txt"
+      ],
+      "rationale": "For the repaired finding, recoloring introduces no conflict edge, so a random permutation thinned to currently conflicting vertices induces the uniform sequential process. A vertex survives exactly when last among its initial conflicting neighbors and itself; reversing order gives the initial same-part run within each color. Exchangeability of ordered prefixes conditioned on enough vertices of each color gives the falling-factorial evaluation. The accept-unused-identity coupling yields a uniform permutation and agrees with the replacement stream until its first collision. In the replacement stream the disjoint color subsequences are independent conditional on the marks and their laws do not depend on those marks. The first occurrence of a given color and the subsequent wait for a different part have geometric second moments bounded by 2k² and 2k²/ε². Consequently E[H²]≤4k³(1+ε⁻²) for the maximum completion time; summing the predictable collision hazards yields the stated upper bound. For a named color, the exact two-vertex tail is the color-occupancy factor times (NΣp_i²−1)/(N−1), giving the lower bound after dropping the factor and taking complements. It is at least ε/(N−1) in the upper bound's regime. Independent rational enumeration of actual activation with a valid maximum-unused-color rule matched all 183 tested joint tails and the marginal obstruction in four small distinct parameter cases. The coupling proof, not this finite check, gives the uniform bound.",
+      "residual_risks": [
+        "Fixed non-dominance margin; the bound is not a growing-color limit or an optimal leading constant. The finite replay checks the finite tails and obstruction, not the full coupling theorem."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The initiating paper treats general-graph peak reduction and stochastic bipartite limiting laws, including the complete bipartite boundary at edge probability one.",
+          "The multipartite run-law record gives general conditional laws, a fixed-palette qualitative limit and a growing-palette CLT, not the fixed-palette finite-profile TV sandwich."
+        ],
+        "reasoning": "The true broader reduction plus conditional formulas motivate the result but do not bound the color-resolved approximation uniformly at order 1/N.",
+        "searches": [
+          "arXiv:2611.17989v1 Lemma 1 and Proposition 9",
+          "arXiv:1708.08493 §§2–3",
+          "Resultary cd7af7620aee Finding and Proof"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.17989v1 and arXiv:1708.08493 at the passages listed",
+        "Resultary cd7af7620aee and 2484223143f3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The same-day record obtains fixed-palette convergence by convergence of conditional tails and tightness; it gives no sharp uniform rate relative to each finite part profile.",
+          "The upper bound here uses a coupled stopped stream, and the lower bound isolates the finite sampling discrepancy for two same-color vertices."
+        ],
+        "reasoning": "Weak limits or a conditional pgf do not mechanically yield that matching upper and lower rate. The repaired claim isolates the quantitative advance, without assigning within-day chronology.",
+        "searches": [
+          "cd7af7620aee Proof §§1–6 and limits; arXiv:2611.17989v1 Prop. 9"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "cd7af7620aee proves conditional independence given part-by-color counts, with tail Σ_i (m_ic)_j/(M_c)_j where eligible. Integrating exactly recovers the complete finite law; using uniformly injected prefixes rewrites that law in the frozen falling-factorial form.",
+          "2484223143f3 derives a first-run law for unmarked multipartite elimination fill, a different observable."
+        ],
+        "reasoning": "The finite conditional and unconditional descriptions concern the same stochastic law; they are explicitly credited. An exact law and a shared first-run description do not on their own give a uniform sharp-order estimate of joint error.",
+        "searches": [
+          "Resultary: exact colored runs, multipartite random priority peaks, multipartite Cholesky first run",
+          "de Panafieu et al. arXiv:2611.17989v1 Lemma 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest exact indexed law cd7af7620aee is acknowledged; graph-peak tables for joins and complete bipartite graphs do not give multicolor approximation errors.",
+          "The quantitative claim is a uniform bound over arbitrary admissible orders and sizes, not a finite numeric table."
+        ],
+        "reasoning": "A finite table cannot establish this uniform result. The inspected exact-law record covers the input law but not the comparison theorem.",
+        "searches": [
+          "Resultary: multipartite marked priority peaks, exact joint tails, geometric mixtures and sharp total-variation rate",
+          "Diaz-Lopez et al., Table 1"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the repaired sharp-order two-sided total-variation result, not for novelty of the exact law or the qualitative limit. The strongest overlapping text supplies the whole finite distribution by averaging conditional laws and obtains the same qualitative limit, but neither proves a finite-profile O(1/N) error nor the matching multicolor obstruction.",
+      "residual_risks": [
+        "Coverage of the same-day exact law is mathematical; chronological priority is unresolved. Bounded literature review does not exclude earlier equivalent quantitative bounds."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Mathematically covers finite distribution and qualitative limit; no within-day priority determined; rate not established there",
+          "evidence": "Conditional factorization with within-color hypergeometric tails, LLN-based fixed-palette limit, separate conditional CLT analysis.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-multipartite-random-priority-peaks-exact-colored-run-laws-and-a--cd7af7620aee/RESULT.md",
+          "material_read": "Finding and proof; initial offsets 0–6600 and later proof offsets 4100–9214",
+          "method": "Resultary local mirror",
+          "title": "Multipartite random-priority peaks: exact colored run laws",
+          "trigger": "Same graph, color-resolved run law, and limit"
+        },
+        {
+          "assessment": "Known reduction and boundary limit",
+          "evidence": "Random-order local maxima represent unchanged vertices; bipartite Erdős–Rényi limits include independent color contributions.",
+          "identifier_or_url": "https://arxiv.org/abs/2611.17989v1",
+          "material_read": "Lemma 1 pp. 5–6 (offsets 16700–22680); Proposition 9 p. 15 and proof (offsets 53863–60808)",
+          "method": "OA primary PDF",
+          "title": "The Exact Stabilization Time of Self-Stabilizing Coloring",
+          "trigger": "Identical dynamics and bipartite boundary"
+        },
+        {
+          "assessment": "Prescribed monochrome peak sets, not the marked joint TV estimate",
+          "evidence": "Peak-set counts for joins and explicit bipartite formulas.",
+          "identifier_or_url": "https://arxiv.org/abs/1708.08493",
+          "material_read": "Published pp. 185–187, extracted offsets 32000–39444, including Table 1",
+          "method": "OA primary PDF",
+          "title": "Counting peaks on graphs",
+          "trigger": "Peak statistics on graph joins and multipartite relatives"
+        },
+        {
+          "assessment": "Unmarked analogue, not multicolor synchronization",
+          "evidence": "Elimination fill deficit is determined by the unmarked initial same-part run; balanced geometric limit.",
+          "identifier_or_url": "2026/11/2/SCOPE-a-first-run-law-and-geometric-near-maximal-fill-for-complete-mul--2484223143f3",
+          "material_read": "Finding, assumptions and Proof §§1–4 (offsets 0–6331)",
+          "method": "Resultary local mirror",
+          "title": "A first-run law and geometric near-maximal fill for complete multipartite Cholesky",
+          "trigger": "Same first-run statistic"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired Finding and stopping-time and two-vertex arguments",
+        "Finite distribution and qualitative-limit comparison to cd7af7620aee"
+      ],
+      "rationale": "The repaired comparison gives information not conveyed by the qualitative law: it approximates the full vector of dependent finite color counts by independent variables at a uniform inverse-size rate without replacing the empirical part proportions by their limits. A single identified marginal discrepancy proves that rate cannot be improved in order, including all profiles with a fixed non-dominance margin. The error bound also transfers to observables such as the stabilization count.",
+      "residual_risks": [
+        "The upper constant may be loose; there is no claim that every derived observable itself has a sharp inverse-size approximation error."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

@@ -1,0 +1,136 @@
+{
+  "correctness": {
+    "rationale": "Every ordered deletion of P corresponds to a unique weakly increasing tuple of source-period indices. Its cumulative phase counts form a bijective weakly increasing q+1-valued sequence, whose rotations concatenate to the remainder. Only 0 and q share a rotation, yielding one r+1-sized fiber and otherwise unique output. The binomial-minus-r count follows for all q>=3 and r>=0, including r=0. Independent exhaustive positional masks and recursive complement construction passed 36 and 25 parameter cases respectively; neither finite checker is substituted for the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "failed",
+  "independent_validation": false,
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://arxiv.org/html/2603.20790v1",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-short-deletion-necklaces-of-permutation-powers-exact-orbit-count--16ccfbf22eda",
+        "The main paper presents generic enumeration algorithms but explicitly leaves closed-form special cases open. The circular work counts rotation classes under unrestricted masks, not linear outputs under prescribed deleted P."
+      ],
+      "reasoning": "An algorithm enumerating each finite instance does not supply the infinite closed form; unrestricted circular-necklace counts are not enough to recover linear outputs or prescribed-subsequence collision multiplicities.",
+      "searches": [
+        "Adamson Fleischmann Huch complement scattered factors periodic permutation powers exact count q any alphabet",
+        "arxiv:2603.20790 sections 3-5",
+        "published-finding corpus 2026/11/8/SCOPE-short-deletion-necklaces-of-permutation-powers-exact-orbit-count--16ccfbf22eda"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2603.20790v1",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-binomial-tail-law-for-complements-of-alternating-words--d7ef6cdd9c92",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-exact-embedding-multiplicity-spectrum-of-cyclic-permutation-powe--bcaf0c227997",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-short-deletion-necklaces-of-permutation-powers-exact-orbit-count--16ccfbf22eda",
+      "published-finding corpus semantic searches C(P^n,P) q-letter permutation complementary scattered factors binomial n+q-1 choose q minus n-1, one all-q theorem",
+      "published-finding corpus semantic searches one-alphabet-cycle deletion residues exactly concatenations of cyclic rotations with weakly increasing phases and one collision class",
+      "published-finding corpus semantic searches Adamson Fleischmann Huch complement scattered factors periodic permutation powers exact count q any alphabet",
+      "published-finding corpus semantic searches polynomial exact complement scattered factor size (012...q-1)^{r+1} deleting (012...q-1) equals binomial(r+q,q)-r"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-binomial-tail-law-for-complements-of-alternating-words--d7ef6cdd9c92",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-exact-embedding-multiplicity-spectrum-of-cyclic-permutation-powe--bcaf0c227997",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-short-deletion-necklaces-of-permutation-powers-exact-orbit-count--16ccfbf22eda",
+        "https://arxiv.org/html/2603.20790v1"
+      ],
+      "reasoning": "The claimed mapping of ordered deleted-embedding indices to monotone rotation-phase codes and its single (r+1)-to-one fiber is not a corollary of a binary run theorem, a survivor-embedding frequency histogram, or a Burnside formula for circular unconstrained deletion orbits. The exact general-purpose algorithm computes outputs but does not imply symbolic all-parameter characterization without this bijection.",
+      "searches": [
+        "one-alphabet-cycle deletion residues exactly concatenations of cyclic rotations with weakly increasing phases and one collision class",
+        "Adamson Fleischmann Huch complement scattered factors periodic permutation powers exact count q any alphabet",
+        "Full RESULT.md inspection of published-finding corpus cyclic-permutation multiplicity and circular necklace findings",
+        "arxiv:2603.20790 Sections 3-5"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-binomial-tail-law-for-complements-of-alternating-words--d7ef6cdd9c92",
+        "The binary work treats two-letter alternating hosts; its q=2 consequence is explicitly out of scope. The present remainder language is q rotation blocks with unique nonzero phase labels."
+      ],
+      "reasoning": "At q=2 there is exactly one nonzero rotation and the binary run theorem subsumes the result. At q>=3 there are multiple distinct nonzero phases, with the all-q weak-increase structure and polynomial coefficient not entailed by the binary statement.",
+      "searches": [
+        "C(P^n,P) q-letter permutation complementary scattered factors binomial n+q-1 choose q minus n-1, one all-q theorem",
+        "one-alphabet-cycle deletion residues exactly concatenations of cyclic rotations with weakly increasing phases and one collision class",
+        "published-finding corpus 2026/11/2/SCOPE-binomial-tail-law-for-complements-of-alternating-words--d7ef6cdd9c92"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-exact-embedding-multiplicity-spectrum-of-cyclic-permutation-powe--bcaf0c227997",
+        "Finite tables can be generated from the 2026 general algorithm but no inspected database or exact table supplies the all-length binomial-minus-linear count for arbitrary q."
+      ],
+      "reasoning": "The embedding-multiplicity theorem bins survivors by weak descents; it does not condition on deleting one ordered copy of the period. No same-object exact output table was encountered in the listed results.",
+      "searches": [
+        "C(P^n,P) q-letter permutation complementary scattered factors binomial n+q-1 choose q minus n-1, one all-q theorem",
+        "polynomial exact complement scattered factor size (012...q-1)^{r+1} deleting (012...q-1) equals binomial(r+q,q)-r",
+        "published-finding corpus 2026/11/2/SCOPE-exact-embedding-multiplicity-spectrum-of-cyclic-permutation-powe--bcaf0c227997"
+      ]
+    },
+    "rationale": "A complete all-q>=3 linear complement-language classification and exact output-count law have not been identified in the inspected primary paper or overlapping publications. The general 2026 algorithms alone are instance-wise; the previously established binary binomial-tail case is excluded. Other results count embedding multiplicities of survivors or rotationally identified outputs of arbitrary masks, without implying this distinct linear deletion-complement count. Residual risk: a classical shuffle identity may encode this specialization under different language.",
+    "residual_risks": [
+      "An unindexed classical shuffle-enumeration formula might be equivalent after nontrivial conversion.",
+      "Database similarity search and inspected papers are not exhaustive proof of novelty.",
+      "Independent expert review has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: provides generic algorithms and other special claims, but no permutation-power all-q phase formula",
+        "evidence": [
+          "arxiv:2603.20790v1, Sections 3,4,5",
+          "Conclusion explicitly identifies closed formulas in special cases as open direction"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2603.20790v1",
+        "material_read": "Abstract, introduction, Sections 3-5 including claims, algorithms, structural results and final open-problem paragraph",
+        "method": "Read complete accessible HTML research text and compared exact objects and implications",
+        "title": "(Sets of) Complement Scattered Factors",
+        "trigger": "Defining paper and closest general method"
+      },
+      {
+        "assessment": "COVERS_BINARY_ONLY; the newly claimed parameter range q>=3 is disjoint, with genuinely different rotation phase labels",
+        "evidence": [
+          "Source explicit q=2 result with arbitrary deleted alternating periods; two-letter specialization excluded"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-binomial-tail-law-for-complements-of-alternating-words--d7ef6cdd9c92",
+        "material_read": "Entire RESULT.md: theorem, proof, scopes and references",
+        "method": "Read full public text and evaluated q=2 specialization",
+        "title": "Binomial-tail law for complements of alternating words",
+        "trigger": "Direct binary alphabet specialization"
+      },
+      {
+        "assessment": "NOT_COVERING: it counts embeddings of survivors, not remainders conditioned on deleting period P",
+        "evidence": [
+          "Source closed formula E_{q,k}(u) by weak descents, no complementary-fiber theorem"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-exact-embedding-multiplicity-spectrum-of-cyclic-permutation-powe--bcaf0c227997",
+        "material_read": "Entire RESULT.md including weak-descent formula and proof",
+        "method": "Read full public statement, proof, limitations",
+        "title": "Exact embedding-multiplicity spectrum of cyclic permutation powers",
+        "trigger": "Same cyclic permutation host"
+      },
+      {
+        "assessment": "NOT_COVERING: circle/necklace outputs with unrestricted position deletion, unlike linear complement of fixed P",
+        "evidence": [
+          "Source uses cyclic rotation equivalence and unrestricted q-deletion masks; present claim uses linear residuals with P deletions only"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-short-deletion-necklaces-of-permutation-powers-exact-orbit-count--16ccfbf22eda",
+        "material_read": "Entire RESULT.md including mask orbit collision proof",
+        "method": "Read full public text and compared quotient, constraints, and parameters",
+        "title": "Short-deletion necklaces of permutation powers: exact orbit counts and the first phase-wrap collision",
+        "trigger": "Same periodic source and q deleted positions"
+      }
+    ],
+    "status": "PASS"
+  },
+  "previously_published_pending_reaudit": false,
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "20c8a8da-2741-4a36-935a-3b610a18d4a5",
+  "value": {
+    "rationale": "The 2026 defining paper calls for closed forms in natural complement-scattered-factor instances; this result supplies a complete infinite-family language theorem, a sharp polynomial output-count law for every alphabet size, and a full classification of all embedding collisions. The multiple nonzero rotation phases from q>=3 make the nonbinary structure genuinely richer than the known two-letter run theorem.",
+    "status": "PASS"
+  }
+}

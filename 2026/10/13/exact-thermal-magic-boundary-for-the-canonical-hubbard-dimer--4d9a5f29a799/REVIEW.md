@@ -1,12 +1,21 @@
-# Scientific review — exact thermal-magic boundary
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The four-dimensional canonical Hubbard Hamiltonian is reconstructed from Jordan–Wigner fermions. Three independent commuting four-qubit Pauli stabilizers select the two non-stabilizer eigenstate subspace, and the other eigenprojectors are themselves stabilizers. Free-state preservation under conditional Pauli measurement makes the logical-qubit test necessary; the direct stabilizer-mixture decomposition makes it sufficient. The encoded Bloch vector and the one-qubit octahedron yield the exact criterion. A complete derivative-sign argument and controlled elementary asymptotics prove uniqueness, monotonicity the reciprocal interaction duality, and the logarithmic/exponential limits. The packaged symbolic verifier checks the critical structural identities and samples but is not a substitute for the universal proof.
+## correctness
 
-## Originality
-**PASS, qualified.** Zavatti, Bellomia and Capone, arXiv:2605.18494v2, already derive the dimer eigenstates and its four-qubit magic setup; Sec. V and Fig. 4 identify and plot thermal magic death, and Appendix B attributes it to mixing the two non-stabilizer eigenstates. The new claim does **not** claim that observation or the one-qubit octahedron. It gives the exact full-thermal-state equivalence from a commuting-Pauli code projection, the analytic threshold and its strict monotonicity, and sharp parameter asymptotics absent in the inspected source. Relevant mathematical-record searches did not identify an equivalent statement. An unindexed or implicit priority claim remains a genuine risk; the foundational Clifford magic paper was inspected only at abstract level and is not used for a full-document noncoverage inference.
+PASS
 
-## Value
-**PASS.** A continuous magic-death contour previously explored numerically acquires an exact all-coupling formula and a unique interaction threshold at every positive temperature. The limiting logarithmic critical-temperature laws and exponential low-temperature onset describe two physically motivated regimes; the code projection isolates the precise spectral mixing responsible for loss of magic. No claim is made for unrestricted particle-number ensembles, different resource theories, dynamical quenches, larger systems, or robustness magnitude away from zero.
+An independent integer occupation-basis replay checked the fermion signs: on (d₊,s₋) the Hamiltonian is U I/2 + 2t(qZ−X), and the other two levels have energies U and 0. The replay also checked the three commuting Pauli syndromes and the signs of the logical Paulis. The +++ joint eigenspace is exactly the two-level block: the first two Paulis impose the sector and the third splits each complementary occupation pair. An encoded stabilizer mixture passes Pauli postselection; hence the logical block detects nonmembership of the full four-qubit polytope, regardless of weights on the other levels. The reverse implication follows by combining the encoded octahedron decomposition with the two complementary stabilizer projectors. The conditioned qubit has Bloch vector (1,0,−q)tanh(2tg/T)/g, yielding the claimed iff test, with the zero-temperature limit and U=0 case handled. At q>0 the test crosses once in T. For L=atanh(g/(1+q)), L'=(q−1)/(2qg); the derivative sign of g/L is the sign of qL/g−(q−1)/(2q), positive for q≤1 and also for q>1 by L>g/(1+q). Under q↦1/q, L is invariant and g is divided by q. The exact logarithm 2L=log((1+q+g)^2/(2q)) gives both endpoint equivalents and surjectivity, and q_c is exponentially small at low T, so the O(q_c) log correction and O(q_c²t/T) exponent correction go to zero, preserving the inverse prefactor. The free mixing interval has width g/(1+q), uniquely minimized at q=1.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The same-sector spectrum, thermal death and its explanation by mixing the two nonstabilizer states are prior. The distinct supported claim is an explicit all-U iff characterization of the full stabilizer boundary, together with its proved threshold properties and sharp inverse onset.
+
+## value
+
+PASS
+
+This closes an explicit boundary question in a previously plotted canonical strong-correlation example. An exact class membership test removes the need to solve a robustness program at every parameter, explains why the other energy levels cannot hide the magic in the selected block, and gives the low-temperature interaction onset with a prefactor that is not reliably read from a phase diagram. The contrast with the minimum-width two-level interval shows that the thermal crossing is not simply controlled by mixing geometry without its energy scale.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,184 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:15:56.305010Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 19–87",
+        "VERIFICATION.md",
+        "verify.py",
+        "witness.txt",
+        "/workspace/branches/reproduce_frozen_math.py, words()"
+      ],
+      "rationale": "The 36 literal length-four factors have 24 active overlap vertices. Contracting the forced paths leaves the bidirected prism; its tree cofactor is 75 and fixed-first-arc BEST gives 75*2^6=4800, with no rotation factor because 0120 appears exactly once. The transposition quotient has cofactor 5 with odd total voltage, so its 5*2^3 rooted tours lift to 40 symmetric cycles. In the three-cycle quotient the total voltage is zero, closing a lift too early. Six unique palindromic triples obstruct reversal, four individually fixed factors obstruct reversal followed by a transposition, and squaring reversal followed by a three-cycle yields a forbidden nonidentity relabeling. Burnside gives 820 and 410. An independent departure-order enumeration verified the witness file, 4800 tours, the full fixed-point multiset (4800 once, 40 three times, zero eight times), and both orbit totals; replay: python3 /workspace/branches/reproduce_frozen_math.py 3.",
+      "residual_risks": [
+        "Restricted to the specified literal-word family, with rotations identified and orientation initially retained. No formal proof-assistant certification."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Onto-function and required-letter theorems imply existence for this exact instance; their inspected statements are not Euler-tour or group-orbit counts. The word-pattern Hamiltonicity theorem works on normalized patterns. Chen–Kitaev's partial-word theorem allows a wildcard."
+        ],
+        "reasoning": "The classical existence results cover existence but not the counts. The distinct Resultary full census, not the general existence theorem, decides equivalent coverage.",
+        "searches": [
+          "arXiv:0805.1672 Theorem 4",
+          "arXiv:1008.2251 Theorem 11",
+          "arXiv:1711.07029 Theorem 2",
+          "arXiv:math/0311399 Theorem 3.8",
+          "doi:10.1051/ita/2020004"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 2e6d8e176d7d",
+        "Resultary 000c778d28d0",
+        "arXiv:0805.1672",
+        "arXiv:1008.2251",
+        "arXiv:1711.07029",
+        "arXiv:math/0311399",
+        "doi:10.1051/ita/2020004",
+        "doi:10.3390/math8050778 (bibliographic only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The other record uses all twelve operations and gives exactly three nonidentity elements with fixed cycles. A cycle cannot be fixed by two distinct transpositions, since their product is a three-cycle. Thus that census also gives exactly 120 cycles with order-two alphabet stabilizer and 4680 with trivial alphabet stabilizer."
+        ],
+        "reasoning": "Every census assertion in the Finding is explicitly covered or immediately implied by the distinct census. The classical BEST theorem alone is not a published substitute for this symmetry result; the frozen voltage proof is a separate derivation of a covered result.",
+        "searches": [
+          "2e6d8e176d7d RESULT.md fixed-point and orbit passages",
+          "Frozen RESULT.md forced-path reduction and Burnside proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "On a three-symbol alphabet, 'exactly three distinct symbols' and 'onto' give identical sets of literal words. Record 2e6d8e176d7d uses the unique 0120 window for rotation, and acts by S3 and reversal on the same cycles."
+        ],
+        "reasoning": "The arithmetic matches because the underlying objects and equivalences coincide, not because unrelated objects have the same size. Normalized word patterns and wildcard universal partial words, by contrast, are different objects.",
+        "searches": [
+          "Resultary: ternary surjection / onto words of length four, triangular-prism overlap and 4800 / 820 / 410 symmetry classes",
+          "Resultary records 2e6d8e176d7d and 000c778d28d0"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Record 2e6d8e176d7d reports 4800, 820, 410, 40 per transposition, no three-cycle or reversal fixed cycles, 20 full orbits of size 6 and 390 of size 12. Record 000c778d28d0 reports 4800 and the same witness. An exact-universal-cycle-enumeration article was identified, but its paper was not retrieved in the attempted OA routes."
+        ],
+        "reasoning": "The positive Resultary matches are decisive on coverage. A bounded web search and uninspected article cannot exclude an older source.",
+        "searches": [
+          "Resultary exact numbers 4800, 820, 410 and 40 transposition-fixed",
+          "Web literature query on ternary onto-word cycles and 4800",
+          "doi:10.3390/math8050778"
+        ]
+      },
+      "rationale": "A distinct indexed Resultary record, 2e6d8e176d7d, independently states and verifies the same full count and stabilizer census for the same 36 literal factors with the same rotation, relabeling and reversal conventions. Its orbit-size statement also yields the same stabilizer proportions. A second distinct record, 000c778d28d0, covers the 4800 count and the witness. These are demonstrable catalogue overlaps, not a finding of earlier publication or historical priority: the matched path dates are later than the frozen path date. The analytical prism/voltage argument is a distinction in proof, not a different counting or symmetry claim in the Finding.",
+      "residual_risks": [
+        "No inference about who obtained the result first, about derivation between records, or about earlier unindexed publications. Exact-enumeration paper not inspected beyond bibliographic identification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage, distinct indexed record; no priority inference",
+          "evidence": [
+            "The 0120 normalization yields exactly 4800 cycles, then 40 fixes per transposition and no other nonidentity fixes under S3×C2; the full orbit count is 410."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-exactly-4-800-ternary-surjection-universal-cycles-in-410-symmetr--2e6d8e176d7d/RESULT.md",
+          "material_read": "Finding and orbit-verifier passages, offsets 0, 4297 and 5552",
+          "method": "Bounded local mirror inspection",
+          "title": "Exactly 4,800 ternary surjection universal cycles in 410 symmetry classes",
+          "trigger": "Full numeric and symmetry match"
+        },
+        {
+          "assessment": "Equivalent labeled enumeration, not a second demonstrated symmetry enumeration",
+          "evidence": [
+            "Four-letter ternary words having exactly three distinct letters are the 36 onto words, and the reported witness is the frozen witness."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-exactly-4-800-ternary-universal-cycles-of-four-letter-words-with--000c778d28d0/RESULT.md",
+          "material_read": "Finding and comparison, offsets 0 and 5575",
+          "method": "Bounded local mirror inspection",
+          "title": "Exactly 4,800 ternary universal cycles of four-letter words with three distinct letters",
+          "trigger": "Exact labeled count and alternative family description"
+        },
+        {
+          "assessment": "Existence coverage only in the inspected statement",
+          "evidence": [
+            "An onto-function universal cycle exists precisely for word length greater than alphabet size."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0805.1672",
+          "material_read": "Theorem 4, p. 3, offset 6917",
+          "method": "Open primary paper passage",
+          "title": "Universal Cycles of Discrete Functions",
+          "trigger": "General theorem for onto words"
+        },
+        {
+          "assessment": "Applies to the exact object, not its orbit count",
+          "evidence": [
+            "The required-character hypothesis specializes to requiring all three symbols."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1008.2251",
+          "material_read": "Theorem 11, p. 12, offset 28037",
+          "method": "Open primary paper passage",
+          "title": "On Universal Cycles for new Classes of Combinatorial Structures",
+          "trigger": "Specified-letter existence theorem"
+        },
+        {
+          "assessment": "Existence result in the inspected statement",
+          "evidence": [
+            "The onto-function existence threshold is restated."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1711.07029",
+          "material_read": "Theorem 2, p. 2, offset 4685",
+          "method": "Open primary paper passage",
+          "title": "Universal Cycles of Restricted Words",
+          "trigger": "Onto-word and augmented onto-word coverage"
+        },
+        {
+          "assessment": "Different object",
+          "evidence": [
+            "The statement concerns Hamiltonicity of a normalized word-pattern graph."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0311399",
+          "material_read": "Theorem 3.8, p. 10, offset 29353",
+          "method": "Open primary paper passage",
+          "title": "On unavoidable sets of word patterns",
+          "trigger": "Potential pattern-overlap reformulation"
+        },
+        {
+          "assessment": "Different object",
+          "evidence": [
+            "Joker-enabled universal partial words are not cyclic words on the literal alphabet with each of the 36 factors used once."
+          ],
+          "identifier_or_url": "https://doi.org/10.1051/ita/2020004",
+          "material_read": "Opening definitions, p. 1, offset 798",
+          "method": "Open primary paper passage",
+          "title": "On universal partial words for word-patterns and set partitions",
+          "trigger": "Surjective-word alternative descriptions"
+        },
+        {
+          "assessment": "Unresolved; not used as evidence of coverage or noncoverage",
+          "evidence": [
+            "Title identifies possible exact enumerations, but no relevant theorem or table was inspected."
+          ],
+          "identifier_or_url": "https://doi.org/10.3390/math8050778",
+          "material_read": "Bibliographic result only; article and PDF attempts did not provide contents",
+          "method": "Bounded web literature discovery and OA retrieval attempt",
+          "title": "Lower Bounds, and Exact Enumeration in Particular Cases, for the Probability of Existence of a Universal Cycle or a Universal Word for a Set of Words",
+          "trigger": "Possible prior exact table"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and proof",
+        "Resultary 2e6d8e176d7d Finding and symmetry census"
+      ],
+      "rationale": "The first nonbinary onto-word extension is a natural finite test case, and the prism reduction and cover calculation give an informative structural explanation. However, the submitted exact invariant is fully covered, including the symmetry census; no separate general structural theorem or genuinely new invariant is established as the Finding. The covered census does not meet the incremental value standard for a narrow exact fact.",
+      "residual_risks": [
+        "A structural derivation can be useful exposition; this is not a negative judgment on the underlying enumeration problem or a historical-priority finding."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

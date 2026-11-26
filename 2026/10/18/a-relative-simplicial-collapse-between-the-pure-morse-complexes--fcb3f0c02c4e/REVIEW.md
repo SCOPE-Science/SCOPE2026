@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact mathematical assertion is a *relative simplicial collapse* of the pure acyclic matching complex of a tetrahedron onto the pure acyclic matching complex of its boundary. The standalone checker reconstructs all Hasse incidences, exhaustively lists the \(256\) optimal acyclic matchings in each complex, creates their complete downward-closed face sets, verifies the natural subcomplex inclusion and then applies each of \(3428\) claimed free-face pairs. Every pair's simplex-codimension, unique coface, maximal-coface and protected-target conditions are tested **before removal**, and the final face set is checked exactly equal to the target. All tests pass. This certificate proves a finite simplicial collapse and therefore a simple-homotopy equivalence, not merely equality of Euler characteristics or a numerical homology test. The four-link cone explanation agrees with the certificate. The conclusion holds for the specified tetrahedron only; no extrapolation is used.
+## correctness
 
-## Originality — PASS, with explicit remaining risk
-The strongest closely matching prior manuscript is Scoville (arXiv:2604.18172v1): its Table 1 and Theorem 22 already give the exact pure face vectors and abstract homotopy equivalences to \(\bigvee^{81}S^3\). Example 2.2 proves a simplicial collapse in the *two-simplex* case. The tetrahedral result in Theorem 22 instead uses homology and connectivity separately and does not identify the canonical inclusion as a collapse. The present certificate supplies an actual sequence of \(3428\) elementary pairs, a statement stronger than the cited equality of homotopy types. His Section 6 generalized matching complexes and their noncollapsible links have a different acyclicity condition. Chari–Joswig and Donovan–Lin–Scoville provide general background and different examples, not the specific relative tetrahedral collapse. Published-result searches for the exact inclusion, equivalent formulations, and stronger general collapse theorems found no covering assertion. Residual risk: an unindexed source could already establish this relative collapse, or a general theorem could imply it.
+PASS
 
-## Mathematical value — PASS
-The recently established pure-complex equivalence for a tetrahedron is qualitative and noncanonical; the geometry of the *natural embedding* matters when comparing simplex and boundary gradient data and their tetrahedral symmetries. A certified elementary collapse resolves that structural distinction in the first nontrivial test case and provides an explicit simple-homotopy refinement, including a concrete explanation through four collapsible acyclic links. It distinguishes the behavior from the generalized matching setting, whose corresponding link obstruction was observed in the cited source. The contribution is a motivated finite structural lemma, not a new sphere multiplicity, a routine re-expression of the known homology, or a claim about all dimensions.
+Reconstructed each Hasse diagram and enumerated all undirected matchings by recursively taking the first remaining cell as unmatched or pairing it with an available neighbor. For every matching, a three-color directed DFS tested for cycles after orienting matched incidences upward and the rest downward. This includes all sizes, so it independently proves maxima 7 and 6, with 256 optimal acyclic matchings each. Downward closure gives 11080 and 4224 nonempty faces. Translating the boundary's incidence indices gives exactly the apex-free induced subcomplex; the four links each have 1714 faces including the empty face. Independently replayed the submitted bitmasks, checking at each pair that neither face is in the target, that the larger contains the smaller with codimension one, and that the larger is the only proper coface of the smaller in the entire current complex. After all 3428 removals the remaining face set equals the naturally embedded target. Each pair belongs to just one apex since the lower face has an apex and at most one is possible. Removing the apex bit from each such pair except the last in each cone gives a link collapse to a vertex. The natural inclusion is therefore a simple-homotopy equivalence. It commutes with vertex relabelings and hence the induced integral homology isomorphism is equivariant, whether or not the sequence itself is equivariant.
 
-## Sources, uncertainty, and scope
-Full primary text consulted: Scoville, arXiv:2604.18172v1 (definitions, Example 2.2, maximal-facet proposition, Table 1, Theorem 22, Section 6); Chari–Joswig, arXiv:math/0011234v1 (definitions and small-complex examples); Donovan–Lin–Scoville, arXiv:1909.11440v2 (discrete Morse complex and strong homotopy examples). Targeted published-result searches also compared claims about tetrahedral ordinary (not pure) Morse complexes. No published equivalent relative collapse was identified. This absence is not proof of uniqueness. Independent scientific audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Scoville already gives the two pure homotopy types and face vectors. The distinct claim is an elementary collapse of the actual embedded boundary-pure subcomplex, with all its faces simultaneously retained. The closest prior relative results apply to different complexes, inclusions or dimensions.
+
+## value
+
+PASS
+
+This is the first simplex dimension in the cited comparison where the ordinary and pure constructions separate, with a motivated question left by the two independently known wedge types. A certified collapse answers the natural-map and simple-homotopy questions, and identifies the four actual apex links as collapsible even though the corresponding generalized links are not. The precise relative fact is useful independently of any higher-dimensional extension.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

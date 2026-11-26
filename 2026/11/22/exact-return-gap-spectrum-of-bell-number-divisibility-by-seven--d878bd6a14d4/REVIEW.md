@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness (PASS).** Touchard’s congruence exactly generates every ordinary Bell residue modulo seven. In the ring \(\mathbb F_7[X]/(X^7-X-1)\), exact binary exponentiation yields period \(137257\); explicit full-state mismatch at the two maximal proper divisors proves that it is the least period. The standalone checker traverses all \(137257\) residues, independently using direct indexing and a seven-element sliding state, and compares every of the fifty gap counts against the supplied CSV. The complete cyclic gap count and weighted length are respectively \(19608\) and \(137257\). Periodicity, not finite sampling, extends the result to every index. The gap-seven exclusion also has an independent symbolic proof.
+## correctness
 
-**Originality (PASS, qualified by historical access).** Levine–Dalton (1962) and Montgomery–Nahm–Wagstaff (2010) prove or discuss periods but do not report the fifty-entry consecutive-zero gap histogram. OEIS A146097 provides residue data only for a short prefix and the known period, not the whole cyclic gap table. Existing related findings on arbitrary simultaneous zero progressions or Bell observation-word multiplicities do not give first-return lengths with exactly zero-free interiors. The complete table of all fifty gap frequencies was not located by focused literature/published-source searches; no absence-of-search guarantee is claimed. Layman (1985) studies *consecutive zero strings* and might contain related extremal information, while Lunnon–Pleasants–Stephens (1979) may contain implicit cycle enumerations: full texts were not accessible. Priority of the extremal gap alone is NOT claimed independently of the histogram.
+PASS
 
-**Mathematical value (PASS).** The distribution of distances between consecutive divisible Bell numbers is a natural, non-one-point statistic. The complete finite exact census answers all fifty possible return lengths and frequencies, proves sharp interval coverage at modulus seven and isolates a structurally forbidden spacing. The precise full-period orbit is much longer than the available public 10,001-value table, and a period or one-point density does not determine a return-gap distribution. This is a sharply delimited arithmetic fact, not a general prime-variable law.
+Touchard's recurrence with the correctly reduced Bell seed determines every residue. The shift identity at P=137257 gives a period, also independently certified by exact return of the complete seven-term state. The frozen Step 2 checks least period of the full residues, not automatically that of their zero-indicator. The indicator assertion follows from the certified census itself: if its least period d properly divided P, P/d would divide the zero total 19608, impossible since 7·19608=P−1. The replay additionally checked indicator mismatches at n=9 for shift 29 and n=1 for shift 4733. It traversed every index of [0,P), compared all 50 CSV entries (which agree with the printed table) and counted the wrap gap of 12 once. Counts sum to 19608 and their weighted sum is P. The unique largest gap is 85736→85801, so the given 64-index interval is zero-free and 65 is the sharp universal window. Touchard implies that zeros seven apart force an intermediate zero at the next index, independently proving the exclusion of gap 7. Cyclic repetition gives each limiting frequency with denominator 19608.
 
-**Limits.** Exhaustive computation is justified because the period is rigorously established; no inference from partial enumeration is used. No claim of uniformity over primes, higher seven-adic valuation, or closed formulas for individual frequency counts. Potential undiscovered prior complete tables remain a risk; independent auditing was not performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best of available evidence, the supported distinct claim is the complete first-return distribution, especially its nonlocal tail and sharp 65-window, including the unique long gap's location. Do not credit the already known residue period, Touchard recurrence, or the trace-zero count as new. Available tables do not supply a full period, and the strongest nearby catalogue statement counts AP incidences without excluding intermediate zeros.
+
+## value
+
+PASS
+
+The residue period and density do not show how long Bell divisibility can be avoided. Seven gives a natural first prime case with a six-digit Bell cycle (the full periods at 2, 3 and 5 are 3, 13 and 781). The complete census yields an exact worst-case spacing, the unique witness, and frequencies usable as a fixed-prime benchmark for trace-sequence run or divisibility-spacing analysis. Those require resolving the order of the zeros, not simply evaluating a known count or lookup table. The merit is that finite invariant, not a claim of a new period theorem or general gap law.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

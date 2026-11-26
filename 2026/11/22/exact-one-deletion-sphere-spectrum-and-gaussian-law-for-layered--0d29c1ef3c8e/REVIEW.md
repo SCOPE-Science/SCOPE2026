@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The identity for the number of distinct one-deletion outputs follows from the previously established bond theorem and the exact layer-boundary classification. Maximal singleton runs give a unique combinatorial decomposition. Solving a two-state system proves the rational generating function for all lengths, while a minimum-component-length argument proves the full sharp support and maximal multiplicities. Independent Bernoulli cut indicators yield exact first and second moments and a valid two-dependent blocking central limit theorem. Direct deletion enumeration through length twelve and independent distribution recurrences through length thirty agreed with every tested consequence. Finite tests confirm but do not replace the general proof.
+PASS
 
-## Originality
+Directly in the layer composition, deleting in a part larger than one decreases its size by one, giving distinct vectors of unchanged part count. Deleting a singleton gives one fewer part; deleting two different singleton positions yields the same vector exactly when all parts from one to the other are singletons. Thus the statistic counts long parts plus runs of singleton parts. The two-component sequence GF gives the stated rational function; normalization is by 2^(n-1). A j-component sequence needs length at least j+floor(j/2); the minimal alternating construction can absorb any surplus, and at the maximum the slack is at most one. Separating the zero-slack placements and the one-unit surpluses gives the three residue counts, including n=1,2. Independent fair cuts give summands X_i(1-X_{i-1}X_{i+1}); summing the boundary and interior covariances gives 7(n-1)/64 for n>=5, with the small cases checked separately. Two gaps between retained blocks of size floor(n^(1/3)) make the block sums independent; the removed centered sum has variance o(n) by two-dependence, so the retained variance is asymptotic to 7n/64. The uniform block bound is o(sqrt(n)), giving Lindeberg and the claimed CLT.
 
-**PASS, within the inspected literature and accessible published-result records.** Homberger's 2012 general bond identity and unconditional symmetric-group distribution cover the pointwise volume formula, not the conditioned distribution on the layered class. Wu et al. (2026) provide the permutation-invariant deletion-coding setting but no layered-source volume spectrum. Kabela et al. (2021) establish the natural layered structure for distinct questions. The closest retrieved related exact-deletion-census results concern unrestricted permutation samples, unrestricted q-ary strings or other channels, and their statements do not imply the conditional rational law, sharp cutoff and Gaussian limit. An equivalent specialized enumeration outside the inspected index remains a residual priority risk.
+## originality
 
-## Value
+PASS
 
-**PASS.** The entire natural \(231,312\)-avoiding permutation class is described, not an ad hoc finite slice. Exact output-volume frequencies and extremizers quantify ambiguity in a constrained rank-order deletion channel. The contrast between typical volume \(3n/8+O(1)\) and the \(n-O(1)\) behavior for uniform unrestricted permutations is structurally consequential. The all-length rational law also gives exact finite-block frequencies and a fluctuation scale without enumerating exponentially many words.
+Credit the general deletion-bond identity and the established layered class. The supported distinct claim is the conditional exact law, sharp extremal counts and associated moments and normal limit in Av(231,312), not the general identity or the PID channel. Neither the unrestricted theorem nor the closest same-channel indexed records supplies that specialization.
 
-## Scope and closest sources
+## value
 
-The key antecedent is Homberger, *Counting Fixed-Length Permutation Patterns* (2012), Theorem 6 and Section 4; its general identity is acknowledged rather than repackaged. Wu et al., *Order-Optimal Systematic Permutation Codes for Correcting t Deletions* (2026), concerns encoder construction and motivates the PID model. Kabela et al., *Density maximizers of layered permutations* (2021), fixes the natural pattern class. No claims of optimal code size or independent validation are made. Novelty remains subject to an unindexed-specialization risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An all-length law for a natural hereditary source measures the spread of ambiguity after rank-order deletion, not merely the size of the language. It separates the typical layered volume near 3n/8 from nearly n for the unrestricted source, quantifies fluctuations and gives exact finite-block frequencies and extreme multiplicities. The result is useful even though it does not solve a code-packing problem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

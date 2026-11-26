@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,20 +19,24 @@
 }
 ---
 
-# Reproduction and scope
+# Independent mathematical audit
 
-This package supplies a self-contained finite exhaustive certificate for the exact first-super-half cut-density theorem. For each length \(2\le n\le14\), both programs enumerate all \(2^n\) binary words and all \(n-1\) internal cuts. A candidate interval crosses the cut only if it is closed and neither available one-character extension is closed. A nonempty proper border is a witness of closedness only when it occurs at exactly two starting positions, even if the occurrences overlap.
+## correctness
 
-Run, from the extracted directory:
+PASS
 
-```
-python3 verify_direct.py
-c++ -O2 -std=c++17 verify_bits.cpp -o verify_bits
-./verify_bits
-```
+The claim concerns positional occurrences and one-based internal cuts in indexed binary words. The proof tests all proper borders at all starting positions (including overlaps), then rules out closed one-letter extensions only on available sides. For a zero-based interval [i,j] the crossed one-based cuts are i+1 through j inclusive, so the difference marks at i+1 and j+1 count exactly the desired occurrences. A freshly written exact enumeration independently exhausts all words at lengths 2 through 14 and gives (1,1,2,2,3,3,4,4,5,5,6,7,8). The only pairs at eight crossings at length 14 are 00101110100011@8, 00111010001011@6, 11000101110100@6 and 11010001011100@8; reversal with g mapped to 14-g and complementation give the four distinct pairs from the first. The maximum at length 13 equals, rather than exceeds, its ceiling-half benchmark. This proves the finite first threshold and rigidity, not an asymptotic statement.
 
-The Python and C++ standard libraries suffice. The programs' full output should exactly match `direct_output.txt` and `bits_output.txt`; each terminates with `DIRECT_PASS` or `BITS_PASS` after its assertions. The Python implementation uses substring comparisons; the C++ implementation uses bit-level masks and precomputed closedness tables. Both independently produce the maximum crossing sequence and the four length-fourteen extremal word–cut pairs.
+## originality
 
-One witness is `00101110100011`, with its cut after position eight and the eight MCS intervals listed in `RESULT.md`. Reversal and complementation generate all other optimal pairs. The exact loops, not the saved output logs, establish finite completeness.
+PASS
 
-**Unproved limits:** no theorem is claimed for maximum cut density beyond length fourteen; there is no assertion of an asymptotic leading constant, independent validation, or prior-art absence over all publications. The source PDF arXiv:2611.11552v1, Section 7, supplies the motivating density bounds and definitions.
+The exact unrestricted finite maxima, the exclusion of earlier ceiling-half excesses, and the exhaustive classification at 14 survive the closest comparisons. The same-day persistent-density record already supplies F₂(14)≥8 and one representative of the very same orbit (hence all four witnesses by symmetry); no independent originality or chronological priority is credited for that construction. The construction does not show maximality, uniqueness, or absence of earlier excesses.
+
+## value
+
+PASS
+
+The binary cut-extremal function is the same local-density observable as in the published bounds. The stronger rounded half benchmark asks exactly when a cut first supports more than ceiling-half many occurrences. The first excess and the unique extremizer orbit distinguish an exact finite boundary from merely producing high-density examples, and supply a useful benchmark for future structural bounds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

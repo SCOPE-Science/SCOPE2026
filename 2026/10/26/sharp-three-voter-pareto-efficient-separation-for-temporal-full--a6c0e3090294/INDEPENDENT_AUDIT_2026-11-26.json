@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:36:18.942833Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 6–40",
+        "Frozen VERIFICATION.md and verify.py",
+        "Teh, arXiv:2609.35826v1, Definitions 2.1, 2.2 and 3.1",
+        "/workspace/independent_checks.py, elections()"
+      ],
+      "rationale": "The three triggers and the FJR and EJR+ quantifiers match the cited definitions. In the witness voter 3's maximum satisfaction fixes every chosen candidate; group {1,2} violates only the cohesion equality trigger for target one. It has no common approved candidate, and its singleton subgroups have cohesion entitlement zero. FJR has benchmark zero for those singletons (pick an empty-approval round at full horizon); for the pair, a one-round choice cannot satisfy both, and for the full horizon the two identical first rounds witness benchmark zero. With two voters, a non-maximal supporter count is Pareto-dominated roundwise, so the grand-coalition score is maximal; singleton FJR+ triggers are covered by EJR+. For three voters and at most two rounds, singleton triggers cannot occur; pair triggers require two unanimous pair rounds, hence EJR+ protects target one; a grand-coalition violation would require all-zero satisfaction at target one or two unanimous rounds at target two, both inconsistent with Pareto efficiency and the trigger. For one candidate the maximal total support equals actual total satisfaction on every group. Independent witness evaluation and 1056 reduced profile/outcome checks agree (python /workspace/independent_checks.py 2). The short-domain replay reduces arbitrary candidate sets to maximal supporter masks: dropping smaller masks preserves common-approval availability, per-round support maxima and Pareto comparisons, and no Pareto-efficient outcome chooses such a smaller mask.",
+      "residual_risks": [
+        "The universal two-voter argument is a proof, not an extrapolation from finite checks. The witness uses empty ballots; no minimum in the mandatory nonempty-ballot domain is established."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3.2 proves FJR+ implies both other axioms. Example 3.3 has five voters, three rounds and three candidates, all ballots singleton and nonempty."
+        ],
+        "reasoning": "The theorem is in the opposite direction to the restricted implication under audit. The larger example establishes existence but not the minima in the permissive ballot domain; padding or deleting voters changes entitlement denominators.",
+        "searches": [
+          "Teh, Theorem 3.2 and Example 3.3",
+          "Resultary temporal FJR+, FJR/EJR+ separation and low-parameter Pareto efficiency"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md",
+        "arXiv:2609.35826v1 and 2505.22513v1",
+        "Resultary eef17f7a8024"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Teh's four-voter witness group has sum six exceeding the electorate size five (strict trigger). The audited witness has sum three equal to the electorate size three, proper group, and rectangle (1,3) activating the second trigger."
+        ],
+        "reasoning": "Different trigger and domain allow shrinking the example, but neither implication nor the prior example supplies the all-horizon two-voter or arbitrary-candidate two-round nonexistence proofs.",
+        "searches": [
+          "Teh Definition 3.1, Theorem 3.2, Example 3.3; Phillips et al. Definitions 3.5 and 4.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The supporter-count/cohesion formula agrees with Teh's FJR+; the common-candidate safeguard and the min-over-round-subsets FJR benchmark are the inherited notions."
+        ],
+        "reasoning": "No novelty is claimed for these definitions or their supporter-mask formulation. The separation tests an equality trigger that is invisible to the strict-sum test.",
+        "searches": [
+          "Teh arXiv:2609.35826v1, Definitions 2.1–2.2 and 3.1",
+          "Phillips et al. arXiv:2505.22513v1, Definitions 3.5 and 4.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest catalogue comparison is a static approval-committee exact characterization with two ballot types and weighted FJR+; its separation uses a non-Pareto-optimal committee."
+        ],
+        "reasoning": "A ballot type is not a voter or a temporal round. This characterization does not calculate the temporal Pareto-efficient size boundary, and Teh's explicit larger witness is not a minimality table.",
+        "searches": [
+          "Resultary eef17f7a8024 and small temporal separation cases",
+          "Teh Example 3.3"
+        ]
+      },
+      "rationale": "The qualitative Pareto-efficient separation is prior. The distinct result is the sharp three-voter obstruction with the simultaneous short-horizon/candidate minima, plus the underlying universal Pareto-efficient EJR+ implication at smaller sizes.",
+      "residual_risks": [
+        "Limited literature coverage; the external broad search was not informative. No inference from lack of matching indexed results."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same definition and known qualitative result; different quantitative claim",
+          "evidence": "Approvals may be empty. The example uses (5 voters, 3 rounds, 3 candidates) with all singleton ballots and the strict sum trigger.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.35826v1",
+          "material_read": "Model and Definitions 2.1–2.2 pp. 3–4, offset 12726 onward; Definition 3.1 and Theorem 3.2 p. 5, offset 18838; Example 3.3 pp. 6–7, offsets 25148–31018",
+          "method": "OA primary full-text passages",
+          "title": "Full Justified Representation in Temporal Voting: Efficient Computation and Verification",
+          "trigger": "Defines FJR+ and establishes the closest Pareto-efficient separation"
+        },
+        {
+          "assessment": "Prior underlying axioms, not the FJR+ minimum",
+          "evidence": "The definitions give the same common-candidate EJR+ safeguard and proportional round-subset FJR benchmark.",
+          "identifier_or_url": "https://arxiv.org/abs/2505.22513v1",
+          "material_read": "Definition 3.5 p. 6, offset 24398; Definition 4.3 p. 10, offset 40004",
+          "method": "OA primary full-text passages",
+          "title": "Strengthening Proportionality in Temporal Voting",
+          "trigger": "Antecedent FJR and EJR+"
+        },
+        {
+          "assessment": "Related but different model and Pareto scope",
+          "evidence": "Two ballot types in static weighted committee representation; the separation is non-Pareto-optimal and the record gives an equivalence on its Pareto-optimal committees.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-an-exact-two-ballot-characterization-of-full-justified-represent--eef17f7a8024",
+          "material_read": "RESULT.md, static committee characterization and separation",
+          "method": "Local Resultary mirror",
+          "title": "An exact two-ballot characterization of full justified representation",
+          "trigger": "Close catalogue hit with FJR+, EJR+, Pareto and small parameters"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 19–40",
+        "Teh, Theorem 3.2 and Example 3.3"
+      ],
+      "rationale": "This locates exactly where the qualitative strengthening becomes observable under Pareto efficiency in the standard permissive model. The small witness isolates cohesion equality, and the arbitrary-horizon two-voter implication explains why an even smaller electorate cannot separate the axioms.",
+      "residual_risks": [
+        "Does not settle the minimum in the nonempty-singleton subdomain or general decision complexity."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

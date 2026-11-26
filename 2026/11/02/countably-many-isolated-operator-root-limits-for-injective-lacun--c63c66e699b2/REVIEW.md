@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact diagonal identity follows by multiplying bilateral shift weights; its logarithm is an exact finite lacunary geometric sum. Every diverging integer sequence admits a subsequence whose position in a geometric shell converges. The three possible shell positions and bounded-versus-diverging distance to a spike exhaust all coordinatewise limits, including negative and positive projection cuts. The proof constructs every claimed limit, identifies strong and weak convergence for bounded diagonal operators, and checks topology, numerical ranges and spectral radius separately. The included exact-arithmetic checker passed 18,600 finite assertions; it is supplementary rather than an infinite proof.
+## correctness
 
-## Originality — PASS (best knowledge; priority not certified)
-Ji and Yang's arXiv:2608.21553 introduced the asymptotic numerical range and characterized scalar cluster intervals for weighted shifts with weights bounded below. Their abstract states that disconnected operator cluster sets can occur. That general existential observation does not itself give the specific complete family of step limits, countably many isolated components, injectivity and dense-range boundary properties proved here. The dyadic bounded-below example in their Example 4.2 has only scalar cluster limits. Mathematical-record and literature queries for spike-weight and half-line projection formulations found no equivalent statement. A remaining priority risk is the paper's later example concerning disconnected cluster sets, whose full text was not accessible during this comparison; the present claim may be partly or fully anticipated by a stronger uninspected example.
+PASS
 
-## Mathematical value — PASS
-The exact topology of the operator-root cluster set tests whether bounded-below connectedness can survive under the weaker assumptions of injectivity and dense range. The answer is quantitatively negative: infinitely many isolated components coexist with identical compact interval-valued scalar asymptotic numerical ranges. This is a motivated boundary phenomenon, not merely another example with a disconnected two-point cluster set.
+For each basis vector the logarithm of the root entry is minus c/n times the spike sum on [k,k+n-1]. Take q^m<=n<q^(m+1) and extract a convergent ratio n/q^m. An interior ratio u yields exp(-cq/((q-1)u)) at every fixed k. At ratio 1, a fixed offset n-q^m=d gives the cut k<=-d, while a diverging offset gives alpha I. At ratio q, a fixed deficit q^(m+1)-n=d gives the cut k<=d, while a diverging deficit gives beta I. The initial prefix is constant in n for each fixed k. The sequences q^j-s, floor(u q^j), and q^j±j realize all steps, interior scalars, and endpoints, respectively. On the uniformly bounded diagonal family coordinate convergence is both weak and strong convergence, and diagonal subsequence extraction shows that every scalar limit along a unit vector comes from one of these operators. Testing entries s,s+1 isolates each step; the scalar interval is connected, and the steps have the stated strong limits at both ends. Negative-index windows give norm of each root and power equal to one; long negative blocks give numerical radius one. Strict positivity gives injectivity and puts every basis vector in the range. Since all cluster operators have norm at most beta<1, no norm-convergent subsequence is possible. The included checker was inspected, not rerun; its recorded 18,600 checks test finite spike sums, not the infinite theorem, for which the exhaustive analytical argument suffices.
 
-## Limitations
-Only the specified lacunary weights are classified. The construction does not address the general invariant subspace problem, and finite checks do not prove infinite assertions. Publication priority remains subject to broader full-text comparison and independent review.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass is for the exact geometrically spaced bilateral family, including two-sided accumulation of steps and the uniform gap between all weak/strong cluster norms and the norms of the roots. The existence of disconnected clusters, even the qualitative combination of an interval, countably many isolated steps and identical vector scalar ranges, is not new by itself.
+
+## value
+
+PASS
+
+Finite-ratio spikes occupy a materially different regime from the superlacunary example: earlier spikes retain nonzero normalized mass, so every strong cluster operator loses a fixed amount of norm even though every root has norm one. The full cut classification also gives two distinct strong accumulation limits for the isolated operators, not just another disconnection witness. This is a natural exact boundary example for how operator-root limits, scalar asymptotic numerical ranges and spectral radii can differ.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

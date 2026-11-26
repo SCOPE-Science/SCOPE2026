@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:03:00.525401Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§ Finding, Proof, Verification; VERIFICATION.md and stated verification artifacts",
+        "Independent census replay: branches/6a4fa906-f904-4b4a-b09e-a850c39b6595/independent_census.py with independent_census_m1.txt and independent_census_m2.txt"
+      ],
+      "rationale": "The all-positive trace forces each nontrivial component into one triple; a cycle cannot realize a trace with just one negative cycle edge. Thus the components are paths on three vertices and single edges, and each needs its own triple. In the two excluded saturated profiles one can force m−1 full path triples, leaving the selected query forced positive in the last triple. For sufficiency, consider the Hall condition on vacant slots: slots in two distinct boxes jointly admit every mover, and slots in one nonfree box with t vacancies need t movers originating outside it. A spare free box supplies three movers, and in the saturated case the q≥2 single-edge boxes each supply one, enough for any two-leaf path box and for every single-edge box. Staying at the fixed endpoint versus moving to a different box realizes each required sign without affecting positive queries. Counting labelled components gives the stated factorial expression; the two top-degree profiles for m≥2 give the top coefficient, and m=1 leaves only the empty support. An independent partition-trace census of all 8 and 32,768 supports for m=1 and m=2 agreed (coefficients 1 and 1,15,105).",
+      "residual_risks": [
+        "The independent census is bounded at m≤2; the unrestricted statement rests on the combinatorial proof, not finite testing or formal verification."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The refinement-closed theorem requires that every refinement remain in the concept class. The size-prescribed two-block record treats (2,3) on five vertices and gives VC dimension 2 and Littlestone dimension 3."
+        ],
+        "reasoning": "Neither refinement closure nor the (2,3) two-block calculation implies the all-m exact-triples statement; a similar dimension at a small size is not an equivalent support theorem.",
+        "searches": [
+          "Resultary 2203ea0ddc4a and 2b18e419d19e; Ailon–Begleiter–Ezra §5.2"
+        ]
+      },
+      "checked_sources": [
+        "Ailon–Begleiter–Ezra, JMLR 15 (2014), §5.2, p. 902",
+        "Resultary 2203ea0ddc4a",
+        "Resultary 2b18e419d19e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior forest necessity follows from equivalence transitivity. The refinement-closed result realizes traces by splitting positive components; it does not place the resulting fragments into full triples."
+        ],
+        "reasoning": "Even the two excluded profiles pass the at-most-three test. Exact triple packing needs the extra Hall relocation analysis; the final factorial enumeration is routine once the new classification is proved.",
+        "searches": [
+          "Ailon–Begleiter–Ezra §5.2, p. 902; Resultary 2203ea0ddc4a Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Same-cluster pair labels and pairwise equivalence indicators are the same representation. Ailon–Begleiter–Ezra use at most k classes, not classes of prescribed equal size.",
+          "Resultary 2203ea0ddc4a gives the same allowed nontrivial shapes for blocks of size at most three, not the exact-size completion condition."
+        ],
+        "reasoning": "Refinement can split a triple or leave an isolated vertex. It is valid for the at-most-three comparison but does not preserve the exact-three family.",
+        "searches": [
+          "Resultary comparison of exact triple-block pair equality with refinement-closed and size-prescribed partition concepts",
+          "Ailon–Begleiter–Ezra, §5.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest distinct indexed matches were 2203ea0ddc4a and 2b18e419d19e, whose actual findings lack the exact-triples exceptions and weighted support count. No matching exact-size support table was identified."
+        ],
+        "reasoning": "Numerical coincidences with general equivalence-relation counts would not establish coverage. The search is bounded, not proof that no matching table exists.",
+        "searches": [
+          "Local Resultary search for triple-partition shattered-pair graphs and exact-size partition shattering"
+        ]
+      },
+      "rationale": "The forest obstruction and even the list of permitted component shapes are not new in isolation. The distinct claim is the exact-size completion criterion (including both saturation failures and sufficiency for all other profiles), with its resulting exact dimension and support census. The strongest inspected broader or nearby claims do not imply that completion criterion.",
+      "residual_risks": [
+        "The literature and catalogue searches are not exhaustive; equivalent earlier packing formulations remain possible. Same-day dates for distinct catalogue records establish no priority order."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Partially covering: prior cycle argument and matching lower bound for a different class",
+          "evidence": "The section gives a Θ(n) bound from a full matching and impossibility on cycles, without a fixed-size completion condition.",
+          "identifier_or_url": "https://www.jmlr.org/papers/volume15/ailon14a/ailon14a.pdf",
+          "material_read": "§5.2, p. 902 (equivalence relations with at most k classes)",
+          "method": "Bounded OA full-text inspection",
+          "title": "Active Learning Using Smooth Relative Regret Approximations with Applications",
+          "trigger": "Published VC bound on the same pairwise clustering concept representation"
+        },
+        {
+          "assessment": "Covers the component restriction in a larger, refinement-closed family, not completion into exact triples",
+          "evidence": "Forests are shattered exactly when their component partition belongs to the refinement-closed family. Exact-three families fail the closure hypothesis.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-refinement-closed-partition-concepts-exact-shattering-supports-o--2203ea0ddc4a",
+          "material_read": "Finding and the at-most-three specialization",
+          "method": "Local Resultary search and mirror passage inspection",
+          "title": "Refinement-closed partition concepts: exact shattering supports",
+          "trigger": "Closest indexed structural result, including blocks of size at most three"
+        },
+        {
+          "assessment": "Related but not equivalent and not a dominating parameter case",
+          "evidence": "Reports VC dimension 2 and Littlestone dimension 3 for a two-block family with unequal sizes.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-first-adaptive-shattering-gap-for-size-prescribed-two-block-equi--2b18e419d19e",
+          "material_read": "Finding for (2,3) on five vertices",
+          "method": "Local Resultary search and mirror passage inspection",
+          "title": "First adaptive shattering gap for size-prescribed two-block equivalence concepts",
+          "trigger": "Nearby indexed claim using prescribed block sizes and pair equality"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, exact feasibility obstruction, constructive sufficiency, and support enumerator",
+        "Ailon–Begleiter–Ezra §5.2 as motivation for the pairwise concept"
+      ],
+      "rationale": "A complete support classification for a natural constrained equivalence class distinguishes actual shattering from mere feasibility of the all-positive trace. The explicit saturation obstructions and completion proof add content beyond a dimension estimate; the exact census then reports how often each support size occurs.",
+      "residual_risks": [
+        "This resolves the triple-block family only, not general size-constrained partitions or adaptive query complexity."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

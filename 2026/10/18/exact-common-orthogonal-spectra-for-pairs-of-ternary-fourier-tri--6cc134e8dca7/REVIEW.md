@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem identifies exactly when a three-term character sum over a spatial triple vanishes: its exponent evaluations must be the complete three-residue set. Writing the triple as \(a,a+u,a-u+t\) gives the iff criterion \(\langle h,t\rangle=0\) and \(\langle h,u\rangle\ne0\). All three differences of a frequency triple obey it exactly when the two sum functionals are constant and both difference functionals are bijections onto \(\mathbb F_3\). This proves the quotient-span obstruction and determines each count by disjoint affine-fiber choices; the ordering factor \(6\) arises only for independent quotient coordinates. Both exact powers and the plane histogram are also proved by elementary arithmetic without finite-to-infinite inference. The standalone modular checker verifies every possible pair in dimension two and further sampled pairs in dimensions three and four, exhaustively testing every frequency triple for each selected pair.
+PASS
 
-## Originality — PASS, best knowledge
+A sum of three cube roots of unity vanishes exactly when the residues are all distinct. For a frequency difference h, the residues after subtracting the first are 0, h·u_i, h·(t_i-u_i); their distinctness is equivalent to h·t_i=0 and h·u_i≠0. Thus B lies in one affine fiber parallel to W-perp and each u_i evaluation must be a bijection to F_3 on B. An evaluation constant on the fiber obstructs B. In rank one, arbitrary representatives of the three first-evaluation values give exactly one unordered B each. In rank two, the first evaluation fixes the labels and there are six possible permutations for the second; the joint fibers have size 3^(d-r-2). The resulting exponents equal r+3(d-r-s), with the factor six only for s=2. Reordering preserves each nonzero quotient class up to sign. The plane counts follow by separating line directions and the four directions of nonzero triangle sums; the triangle-line witness is obstructed because the line direction equals the triangle sum direction. Independent exact-residue enumeration of all 7056 ordered spatial pairs at d=2 found 4320, 2592, 108 and 36 pairs of respective multiplicities 0, 3, 6 and 27, with no pairwise discrepancy. The proof, not this replay, covers all d.
 
-Ferguson–Mayeli–Sothanaphan (arXiv:1904.04487, Sections 3, 4, 7.1) formulate simultaneous *Riesz* bases, which require invertibility but not orthogonality, and do not count common three-character Hadamard submatrices. Their exact cyclic universal-basis argument is for Riesz bases and does not subsume the vector-space tight-frame obstruction. Fallon–Kiss–Somlai (arXiv:2105.10575, Sections 1–3) prove spectrality/tiling implications and invoke standard Fourier-zero and equidistribution criteria, but not a two-triple common-spectrum count. The 2022 cyclic squarefree-order tiling/spectral work is also not a vector-space simultaneous multiplicity census. A published binary-vector-space three-point simultaneous-*Riesz*-basis result proves invertibility of common Fourier restrictions, not orthogonality, so it does not imply the ternary condition-number-one classification. Existing exact single-support cyclic three-spectra enumerations do not imply arbitrary pairs over the noncyclic groups \(\mathbb F_3^d\), \(d\ge2\). The standard root-sum criterion is credited, not claimed new. Indexed searching cannot rule out an older equivalent statement under different terminology.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This settles a natural simultaneous *perfect-conditioning* question for two sparse Fourier sampling apertures in every ternary vector dimension: the exact existence criterion and the exact number of choices are both structural quotient-span invariants. It identifies a concrete obstruction even though each aperture separately has an orthogonal character basis. At the first noncyclic order, \(4320/7056\) ordered pairs are incompatible; this dichotomy is absent from the available binary analogue. The complete four-level count gives a reproducible benchmark for multi-aperture spectral selection. No paper-sized consequence or general-characteristic claim is needed for the stated natural classification.
+The supported distinct result is the pairwise obstruction, exact unordered multiplicities and affine-plane census for orthogonal three-frequency spectra in the elementary abelian group F_3^d. The inspected sources provide analogous binary invertible-base counts or general character-vanishing tools; none gives this simultaneous ternary classification or a stronger count that specializes to it.
 
-## Closest literature and limits
+## value
 
-The strongest comparators are Ferguson–Mayeli–Sothanaphan (2019; simultaneous Riesz rather than orthogonal bases), Fallon–Kiss–Somlai (2021; spectrality and tiling rather than joint enumeration), the cyclic spectral-pair literature, and a published exact three-by-three Fourier-minor rank classification on prime affine planes. The latter classifies invertibility, not orthogonality, and does not determine spectra shared by two row triples. The theorem requires three *distinct* spatial and frequency points, the elementary abelian exponent-three setting, and unweighted orthogonality. It does not establish nonexistence of simultaneous nonorthogonal Riesz bases. Indexed-literature completeness and independent mathematical audit remain unverified.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Three is the natural first size for this character-sum rigidity in exponent three. The result determines when two individually spectral sampling sets fail to share an orthogonal basis and counts all common choices when possible, with a complete smallest-plane census. It separates the simultaneous orthogonal problem from the weaker simultaneous invertible one.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

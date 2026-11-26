@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:35:15.439226Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The named symbols are unit vectors 1,2,4. A minimal recovery subset is independent (otherwise one column could be dropped from its span), has at most three positions, and in a binary independent set uses every column in the target expression. Zero columns thus never occur in a minimal recovery and can be deleted. The frozen exchange peeling computes the greatest exchange-closed triple family: a triple with a missing label over one of its faces cannot be in any such subfamily, and a nonempty stable core satisfies the cited exchange criterion. Reproduced by a different state-space computation using `python3 -B /workspace/reviews/replay_1.py /workspace/source/2026/10/13/sharp-length-and-complete-optimizer-classification-for-three-req--42981a3371a2`. It builds independent sets by updating the span and solves a safety game on all disjoint histories of sizes 0 to 3. A state survives if every legal completion of one process stays in the surviving family, and each possible request label when there is a free slot has some surviving successor. Multiple completions are successive deletions. States removed in a given round can be forced to a failure in finitely many moves by an adverse deletion or arrival label, while the fixed point gives a policy. The empty state wins for 0 of 1716 length-7 multisets and 79 of 3003 length-8 multisets. Any shorter encoder would extend to seven by appending unused coordinates, and any length-8 winner with a zero column would shorten; no such cases are omitted. Winning entails full row rank because all named unit vectors are recoverable. The independent replay checked the exact 79 keys and all minimal-mask strong selections from witnesses.json against every disjoint chosen history of size 0, 1 or 2. It checked all 17 actual displayed table rows, with ten size-six, six size-three and one size-one orbit, and profile counts 48,24,7. The frozen verifier was inspected as evidence, not executed. The equivalence only permutes storage coordinates and, for the orbit statement, message labels; not arbitrary information bases.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Example IV.22 gives a three-strongly-online eight-column generator with labels (1,2,3,4,5,6,7,7), giving the upper bound already.",
+          "Riet et al. give a shortest-length statement under additional conditions for t=2, and ask about t≥3 and specific small dimensions in their conclusion."
+        ],
+        "reasoning": "The general model proves a criterion, not the exact (3,3) length or optimizer counts, and strong equivalence for a fixed family does not turn an arbitrary asynchronous policy into a strong family. Exact results for two requests or restricted code subclasses do not rule out length seven here.",
+        "searches": [
+          "arXiv:2605.09748v2 Theorem IV.17 and Example IV.22",
+          "Riet–Skachek–Thomas arXiv:1806.00592v3 Proposition VII.5 and concluding open questions"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py and all witnesses.json data",
+        "arXiv:2605.09748v2",
+        "arXiv:1806.00592v3",
+        "arXiv:2601.04041v2",
+        "Resultary records b5e4734a8413, 7401a8be219f, a938eedf9b5f, d7ec902390af and 4abf711d3224"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "An existing winning length-eight example proves no length-seven impossibility. The general history criterion requires solving a separate finite predicate on each class; its statement establishes none of the exhaustion counts. Finding strong families for all remaining optimum matrices is a further assertion requiring certificates."
+        ],
+        "reasoning": "This is not a mechanical specialization of an exact-length formula: the known characterization supports the proof method, while the search and strong certificates resolve nontrivial finite model questions not answered by the previous statements.",
+        "searches": [
+          "Düzgün et al. Theorems IV.10–12/17 and Example IV.22; indexed b5e4734a8413 and 7401a8be219f; Serving Every Symbol Lemmas 6 and 9"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The history-extension criterion is equivalent to asynchronous recovery and its complete-history form is the exchange condition. Strong online is equivalent to strong asynchronous for a fixed family of permitted recovery sets.",
+          "The frozen optimizer quotient preserves named unit requests; GL(3,2) row operations can map those unit vectors to general linear functionals and are not the stated equivalence."
+        ],
+        "reasoning": "The verifiable game and exchange core address the same property; the equivalences themselves are not the novelty. A static PIR/batch or all-symbol formulation changes arrival/completion rules or the set of requests and is not an alias of this game.",
+        "searches": [
+          "Resultary and literature: three-message three-request asynchronous binary batch length and strongly-online classification",
+          "arXiv:2605.09748v2 Theorems IV.10–11, Corollary IV.12 and Theorem IV.17"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Serving Every Symbol gives static P(3,3,2)=B(3,3,2)=ASP(3,3,2)=6 via its general three-request formulas.",
+          "Indexed a938eedf9b5f, d7ec902390af and distinct same-day 4abf711d3224 give static four-, five-, or six-request all-symbol/functional lengths, not asynchronous three-request lengths.",
+          "b5e4734a8413 gives exactly two labeled (5,2)-strongly-online service families on the single Example IV.22 generator, not a count of generators. 7401a8be219f treats expected time to obtain full span and identifies the seven-direction-plus-a-repeat structure for a different objective and quotient."
+        ],
+        "reasoning": "The strongest indexed overlaps share models or matrices, but neither static optimum constraints nor exact counts on a fixed example give the asynchronous 79/17 optimizer classification. Even a four-request static encoder of length seven does not ensure persistence under arbitrary departures. A fuller equivalence quotient for the span-time problem is also not a table of the requested named classes.",
+        "searches": [
+          "Resultary: exact small binary asynchronous batch codes; dimension-three all-symbol and functional exact length; strong online eight-column example",
+          "arXiv:2601.04041v2 Definition 2 and Lemmas 6 and 9"
+        ]
+      },
+      "rationale": "The length-eight existence witness and the general model/criteria are prior work. The supported addition is a sharp lower bound against all binary generators at (dimension,concurrency)=(3,3), the exhaustive set of optimal named generators and its orbit structure, and an admissible strongly-online selection at every optimum. The inspected exact static tables and service-family classifications do not establish it.",
+      "residual_risks": [
+        "An unindexed exact asynchronous enumeration or a differently named treatment of the same three-symbol game could remain. The bounded catalogue and primary-source comparisons are not exhaustive priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Existing exchange criteria and length-eight existence, not the lower bound or full classification.",
+          "evidence": [
+            "Theorem IV.10 concerns a subset-closed extendable family; IV.11/12 give the exchange form.",
+            "Theorem IV.17 is for the same fixed recovery family.",
+            "The sorted Example IV.22 matrix has columns (1,2,3,4,5,6,7,7)."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2605.09748v2",
+          "material_read": "Theorems IV.10–11 / Corollary IV.12, offsets 27800–35761; Theorem IV.17, 37600–42091; Example IV.22, 46000–51619",
+          "method": "OA HTML primary passages and model comparison",
+          "title": "Recovery Models for Linear Batch Codes",
+          "trigger": "Same model and exact length-eight example"
+        },
+        {
+          "assessment": "The earlier work motivates the finite parameters and distinguishes t≥3 open questions; the located shortest-length proposition is for t=2 under conditions C1/C2.",
+          "evidence": [
+            "Conclusion explicitly asks for optimal redundancy at specific t≥3 and shortest lengths at small k."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1806.00592v3",
+          "material_read": "Conclusion open questions at HTML offset 82900; located Proposition VII.5 around offset 58653",
+          "method": "OA HTML location and bounded concluding passage reading",
+          "title": "Batch Codes for Asynchronous Recovery of Data",
+          "trigger": "Foundational asynchronous length and redundancy problem"
+        },
+        {
+          "assessment": "Static recovery formulas do not decide asynchronous storage length.",
+          "evidence": [
+            "With k=3 and q=2 the static exact length is six from k+r and the smallest r with binomial(r,2)≥k."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2601.04041v2",
+          "material_read": "Definition 2, HTML offsets 9900–15302; Lemmas 6 and 9, 16800–20200",
+          "method": "OA HTML passage reading and specialization",
+          "title": "Serving Every Symbol",
+          "trigger": "Exact three-request general length formula and overlapping finite parameters"
+        },
+        {
+          "assessment": "Counts service families for one generator only.",
+          "evidence": [
+            "The two service multisets include the one in Example IV.22, not two extra code classes."
+          ],
+          "identifier_or_url": "b5e4734a8413",
+          "material_read": "Local mirror RESULT.md Finding, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Indexed search and local-mirror statement reading",
+          "title": "Exactly two (5,2)-strongly-online service multisets for the eight-column example",
+          "trigger": "Exact count on the same known optimum generator"
+        },
+        {
+          "assessment": "Different objective and quotient.",
+          "evidence": [
+            "Expected full-span time under uniform sampling; all seven directions with one repeated. This describes one of the present multiplicity profiles but does not prove asynchronous feasibility or its S3 orbits."
+          ],
+          "identifier_or_url": "7401a8be219f",
+          "material_read": "Local mirror RESULT.md Finding, same snapshot",
+          "method": "Indexed search and local-mirror statement reading",
+          "title": "Exact optimal coverage depth for binary length-eight dimension-three codes",
+          "trigger": "Same binary generator size and related exact optimizer multiset"
+        },
+        {
+          "assessment": "Distinct static service problems, including the same-day six-request record.",
+          "evidence": [
+            "The reported static lengths are 7, 10 and 11 at four, five and six requests, respectively, in the applicable binary cases."
+          ],
+          "identifier_or_url": "a938eedf9b5f; d7ec902390af; 4abf711d3224",
+          "material_read": "Local mirror RESULT.md Finding passages, same snapshot",
+          "method": "Indexed search and local-mirror statement reading",
+          "title": "Dimension-three four-request all-symbol lengths; Exact binary dimension-three five-request all-symbol lengths; Exact binary dimension-three six-request functional batch length",
+          "trigger": "Possible exact-table coverage at overlapping binary dimension"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Shortest length for small dimension and at least three active requests is an explicit prior research question. The first parameter beyond two active requests gives a meaningful model separator from the static length-six case. The complete list and the existence of a strong policy family for each optimum identify design options and resolve a model comparison exactly at the minimum, rather than merely reproducing an existing construction. No extension to longer lengths or other dimensions is claimed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

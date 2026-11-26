@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:22:41.254016Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md proof, assumptions and finite verification notes; VERIFICATION.md; frozen verify_subdivision_gas.py inspected, not executed",
+        "Own replay: python3 /workspace/review_checks.py; subdivision() tested the joint Gibbs histograms, marginal weights and conditional covariance for 128 host/activity combinations (all labeled four-vertex hosts at two activities)"
+      ],
+      "rationale": "For an occupied original subset A, exactly I(A)=Σ_{v∈A}d_v−e(A) midpoint sites are blocked. Summing over the other sites factors the original marginal into the stated Bernoulli law Q tilted by F=(1+c/n)^e(A). For K=|A|, 0≤F−1≤(c/2n)K(K−1)e^(cK/2). Expanding ordered pairs under Q, their weights contribute at most c²e^c, and the remaining independent mgfs at most exp[c(e^(c/2)−1)], giving exactly the displayed constant. Since EF≥1, normalization costs at most E(F−1) in total variation; F≤e^(cK/2) also bounds all fixed moments of K under the actual law uniformly. Uniform nq_v=c exp(−c d_v/n)+O_c(1/n) and Σq_v²=O_c(1/n) give the marked Poisson Laplace functional and the normalized partition limit by logarithms. Independently verify joint convergence by drawing a Bernoulli(p_n) array on all m_n midpoint sites independently of A and then deleting the blocked successes to produce Y_n. The deletion count has expectation at most np_n E K=O_c(1); the normalization is asymptotic to √(βcn), so the difference is negligible while the independent full array has the binomial CLT. The exact conditional mean mp_n−p_n I(A) gives the raw covariance: the internal-edge term tends to zero by uniform third moments; the other term uses uniform integrability of products of Poisson mark integrals (bounded by K²) and np_n→c. The Poisson covariance is ∫t c e^(−ct) μ(dt), giving the stated negative limit. With μ=δ_ρ, differentiating c e^(−ρc) verifies the unique maximum at 1/ρ of the limiting mean, not a finite-size extremum claim.",
+      "residual_risks": [
+        "Finite diagnostics do not prove distribution limits. Limits are at fixed c, and the claimed normal scaling uses β>0; the graph-uniform finite TV inequality has no density assumption. No uniform-in-c asymptotic optimization is implied."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The survey's abstract/§1 and Scott–Sokal's inspected partition identities are general. The Barbour–Brown PDF was not text-extractable and alternate routes did not yield inspectable passages."
+        ],
+        "reasoning": "General defining identities cover the model, but do not themselves yield this degree tilt or midpoint-count limit. General point-process approximation can address one ingredient but does not by itself supply the joint conditional-bulk and raw-covariance statement. No whole-paper noncoverage is inferred for the inaccessible material.",
+        "searches": [
+          "Primary hard-core/subdivision low-activity literature search; Davies–Kang arXiv:2501.03379v2",
+          "Scott–Sokal cond-mat/0309352",
+          "Barbour–Brown 1992, supplied manuscript URL and identified DOI/publisher routes"
+        ]
+      },
+      "checked_sources": [
+        "Scott–Sokal cond-mat/0309352",
+        "Davies–Kang arXiv:2501.03379v2",
+        "Resultary a437ed68cf76 (self), 4c890d66dbc6, d94ae62f6ccd, 8fa3d61abeab, 35d49f4086b4",
+        "Barbour–Brown 1992 access attempted; not read"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "8fa3d61abeab has Gaussian–Poisson decoupling with positive raw covariance 2e^(−x) in a circular geometric graph. Same-day 35d49f4086b4 has parity-conditioned Poisson monomers and parity-dependent covariances in a matching model."
+        ],
+        "reasoning": "These established structures are not equivalent after a parameter change: underlying laws, marks, observables and fluctuation scales differ. The Gibbs blocking identity, uniform TV/moment estimate and degree-mark computation are needed in this model. No priority inference follows from a shared date.",
+        "searches": [
+          "Scott–Sokal §3.1",
+          "Resultary 8fa3d61abeab and 35d49f4086b4; 4c890d66dbc6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The hard-core normalizer is the graph independent-set polynomial. Resultary 4c890d66dbc6 covers the same one-subdivision for independent dominating sets, with a restriction to U=∅ or δ(G[U])≥1."
+        ],
+        "reasoning": "Maximal independent sets and the Gibbs sum over all independent sets are different observables; the restricted polynomial cannot be read as the claimed equilibrium law at fugacity c/n.",
+        "searches": [
+          "Resultary local one-subdivision hard-core / independent-set and Poisson–Gaussian comparison",
+          "Scott–Sokal cond-mat/0309352 printed pp. 3–4 and §3.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed match a437ed68cf76 is the assigned record itself; the closest indexed subdivision polynomials count independent domination."
+        ],
+        "reasoning": "An exact finite population-count table on particular hosts would not cover a degree-profile sequence theorem. No independent exact indexed statement was identified; the two available polynomial statements count different configurations.",
+        "searches": [
+          "Local Resultary a437ed68cf76, 4c890d66dbc6, d94ae62f6ccd and 8fa3d61abeab"
+        ]
+      },
+      "rationale": "General hard-core partition identities, Poisson approximation, and joint Poisson–normal limits with residual covariance in other models are antecedents. The verified distinct package here concerns equilibrium occupation of the two vertex populations of a one-subdivision, with a graph-uniform labeled TV estimate, degree-profile intensity and explicit negative raw covariance across arbitrary dense hosts in scope. The examined earlier statements do not give this package.",
+      "residual_risks": [
+        "Priority remains provisional after bounded searches and scoped passages. In particular, the uninspected Barbour–Brown material and unlocated specializations of other hard-core results remain possible overlaps; failed retrieval is not evidence against them."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Model and partition framework precede the finding; inspected identities do not give the claimed asymptotics",
+          "evidence": "Identifies the graph hard-core partition function with the independent-set polynomial and derives general identities.",
+          "identifier_or_url": "https://arxiv.org/abs/cond-mat/0309352",
+          "material_read": "Printed pp. 3–4 and §3.1 pp. 36–37 (PDF text around offset 104000)",
+          "method": "OA author manuscript passages",
+          "title": "The Repulsive Lattice Gas, the Independent-Set Polynomial, and the Lovász Local Lemma",
+          "trigger": "Partition functions and general hard-core gas identities"
+        },
+        {
+          "assessment": "Strong same-graph overlap, distinct ensemble",
+          "evidence": "Independent domination polynomial is a sum of x^(|V|−|U|+|E(G[U])|) over U empty or with δ(G[U])≥1; counts maximal independent sets only.",
+          "identifier_or_url": "Resultary 4c890d66dbc6",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror RESULT.md passage",
+          "title": "Independent domination polynomial and induced matchings of once-subdivided graphs",
+          "trigger": "Exact same one-subdivision of arbitrary finite simple graphs"
+        },
+        {
+          "assessment": "Structural antecedent with different model and statistics",
+          "evidence": "Independent Gaussian component and Poisson isolation fluctuations, with raw covariance 2e^(−x), in a circular random geometric graph.",
+          "identifier_or_url": "Resultary 8fa3d61abeab",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror RESULT.md passage",
+          "title": "Joint Gaussian–Poisson decoupling at the circular isolation threshold",
+          "trigger": "Same limiting independence and nonzero limiting raw covariance structure"
+        },
+        {
+          "assessment": "Different ensemble and no corresponding midpoint Gaussian",
+          "evidence": "Tripartite matching monomer law with parity-conditioned Poisson and parity-dependent covariances.",
+          "identifier_or_url": "Resultary 35d49f4086b4",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror RESULT.md passage",
+          "title": "Parity-conditioned Poisson monomers and opposite covariance signs",
+          "trigger": "Same-day Poisson plus residual-covariance indexed hit"
+        },
+        {
+          "assessment": "Activity-weighted independent sets and local-occupancy framework; no direct coverage in the inspected material",
+          "evidence": "The passage describes the general model and occupancy methods, not the degree-marked subdivision laws.",
+          "identifier_or_url": "https://arxiv.org/html/2501.03379v2",
+          "material_read": "Abstract and §1 at HTML offset 0",
+          "method": "OA HTML passage",
+          "title": "The hard-core model in graph theory",
+          "trigger": "Primary search hit for broad hard-core coverage"
+        },
+        {
+          "assessment": "Access limitation, not evidence of noncoverage",
+          "evidence": "Supplied copy yielded no extractable text; alternate identified routes did not furnish the primary passages. The frozen record identifies Theorems 1.1 and 2.4 and a continuous torus example, not an independently verified source comparison.",
+          "identifier_or_url": "https://user.math.uzh.ch/barbour/pub/Barbour/BBrown_PointProcess.pdf",
+          "material_read": "No independent extractable theorem passage obtained",
+          "method": "Supplied OA manuscript and identified DOI/publisher alternatives attempted",
+          "title": "Stein's method and point process approximation",
+          "trigger": "Cited general point-process approximation with a hard-core example"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding, assumptions, and covariance calculation; structural comparison with Resultary 8fa3d61abeab"
+      ],
+      "rationale": "The model separates rare original-site occupancy from bulk midpoint occupancy without requiring graph symmetry. The marked law captures degree heterogeneity, and the nonzero raw covariance shows what disappears under Gaussian-scale independence. These are natural equilibrium observables; the explicit uniform bound and partition correction make the mechanism quantitative without implying a phase transition.",
+      "residual_risks": [
+        "No value claim rests on dynamics, zero-density Gaussian limits, or uniform control for growing c."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

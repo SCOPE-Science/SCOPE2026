@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The defining recurrence implies that \(a(n)\) depends only on the prime-exponent multiset. For each exponent partition \(\lambda\), the rearrangement argument proves that the least odd representative is obtained by assigning decreasing exponents to increasing odd primes. Therefore \(A(\lambda)\le m(\lambda)\) excludes the entire signature. The packaged verifier generates every integer partition through total size \(17\), evaluates the defining recurrence exactly, and checks all \(1211\) partitions. Every partition through \(16\) is excluded, while exactly three partitions at \(17\) survive. The least survivor is \(488462349375\), with exact recursive-divisor value \(523830280192\). Independent direct divisor-lattice recurrences reproduce this value and the source example's value.
+## correctness
 
-## Originality
-PASS. The 2020 primary source introduces ample numbers, explicitly remarks that odd ample numbers are rare, and gives the least odd ample example by numerical size, but it contains no statement about minimum \(\Omega\) or an exponent-signature boundary. The 2023 papers give general evaluation formulas and identities for the recursive-divisor function without the present finite-layer classification. OEIS A067824 records the function but not the multiplicity threshold. Focused searches for the exact integer, the exponent pattern, the \(\Omega\)-bound, low-multiplicity aliases, and stronger recursive-abundance statements found no covering result. The closest previously published ample-number results concern prime avoidance and support-existence, which do not imply a lower bound on total multiplicity. The residual risk is an unindexed observation or computation.
+PASS
 
-## Value
-PASS. The source itself singles out odd ample numbers as rare, making prime-factor complexity a natural structural question. \(\Omega\) is a standard intrinsic complexity invariant, and the theorem identifies its exact first possible layer rather than an arbitrary numerical cutoff. The boundary witness is different from the source's least odd ample integer by value, and the result additionally classifies the only three exponent multisets capable of occurring at the boundary.
+The divisor poset depends only on the exponent multiset. For a fixed signature the minimum odd representative uses the smallest distinct odd primes and assigns larger exponents to smaller bases by the swap inequality. It can support ample numbers exactly when its minimum is ample. Independently of the supplied recurrence code, let f count ordered factorizations into factors >1, with f(1)=1. The first-factor decomposition and induction give a(n)=2f(n) for n>1. For l factors, inclusion–exclusion on empty factor positions counts f by the product of weak exponent-allocation binomials, with l≤Ω. Enumerating signatures by the multiplicities of parts reproduced all 1,211 rows in the sense of the counts, strict subcritical inequalities and per-layer maxima; the three boundary triples (n, signature, a(n)) are exactly (488462349375, (8,4,2,1,1,1), 523830280192), (1139745481875, (7,4,3,1,1,1), 1163507844992), (3093594879375, (7,4,2,1,1,1,1), 3210476052352). The least of these proves sharpness and the boundary minimum, not an overall minimum by size. At Ω=0, a(1)=1, so 1 is nonample by equality (a minor imprecision in the proof's description of all lower layers as depleted, not an exception to the Finding).
 
-## Closest literature and limitations
-The closest literature is Fink's 2020 paper introducing ample numbers, together with the 2023 papers giving exact formulas for the recursive-divisor function and OEIS A067824. A previously published finite-support existence theorem for ample numbers is complementary: it supplies ample numbers on suitable supports but no minimum-multiplicity statement. The result does not classify higher \(\Omega\)-layers or all members within the three boundary signatures.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Known recursive-divisor formulas and odd-ample constructions give methods and examples, not this threshold under total multiplicity or the exact feasible signatures. The strongest same-recurrence Resultary result extremizes the numerator alone at fixed (Ω,ω), not its ratio to the least odd representative. The frozen result addresses a genuinely different extremum from Fink's least value of n and from minimum distinct-prime support.
+
+## value
+
+PASS
+
+Odd ample examples are rare, and the smallest known by size does not settle how many prime factors are necessary. The exact minimum Ω, its supporting exponent signatures, and a smaller-multiplicity witness than the known smallest-by-size example supply a natural and reusable boundary for further construction and classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

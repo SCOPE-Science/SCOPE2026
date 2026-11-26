@@ -34,7 +34,7 @@ The localization is also exact in its limit. Below \(a_*\), conditional on the u
 \[
  X=\sqrt{B_a/\varepsilon}\,(U-x_a),\qquad Y=A_a(a-V)/\varepsilon
 \]
-converge in total variation, conditionally on that branch and the upper-tail event, to normalized Lebesgue measure on \(\{(x,y):y\ge0,\ x^2+y<1\}\). The other branch follows by reflection. The strict and weak upper-tail events have the same probability because the distance law has no atoms at its diameter.
+converge in total variation, conditionally on that branch and the upper-tail event, to normalized Lebesgue measure on \(\{(x,y):y\ge0,\ x^2+y<1\}\). The other branch follows by reflection. The strict and weak upper-tail events have the same probability because the distance law has no atoms at any threshold.
 
 ## Assumptions and scope
 The curve has the exact Euclidean embedding \(P(t)=(t,t^2)\); the two samples are independent and uniform in the parameter \(t\), **not uniform by Euclidean arclength**. The parameter \(a\) is held fixed as \(\varepsilon\downarrow0\). The geometric diameter is the Euclidean diameter of the compact arc (equivalently, of its convex hull). The two distributions in the conditional conclusion are with respect to ordinary planar Lebesgue measure and are independent of which reflected branch is chosen. No uniform-in-\(a\) transition-window estimate is claimed.
@@ -44,7 +44,7 @@ The curve has the exact Euclidean embedding \(P(t)=(t,t^2)\); the two samples ar
 \[
  F(u,v):=\|P(v)-P(u)\|_2=(v-u)\sqrt{1+(u+v)^2}.
 \]
-Write \(d=v-u>0\), \(s=u+v\). At a point with both coordinates strictly inside the interval, stationarity of \(F^2=d^2(1+s^2)\) in \(u\) and \(v\) would require simultaneously \(ds=1+s^2\) and \(ds=-(1+s^2)\), an impossibility. Therefore every positive maximum has at least one boundary coordinate. Reflection \((u,v)\mapsto(-v,-u)\) reduces both boundary edges to \(v=a\). Set \(w=u+a\in[0,2a]\). Then
+For every fixed \(u\) and distance threshold \(\ell\ge0\), the equation \((v-u)^2(1+(u+v)^2)=\ell^2\) is a nonzero quartic equation in \(v\). Its solution set is finite, so the original distance law is atomless by Fubini. Write \(d=v-u>0\), \(s=u+v\). At a point with both coordinates strictly inside the interval, stationarity of \(F^2=d^2(1+s^2)\) in \(u\) and \(v\) would require simultaneously \(ds=1+s^2\) and \(ds=-(1+s^2)\), an impossibility. Therefore every positive maximum has at least one boundary coordinate. Reflection \((u,v)\mapsto(-v,-u)\) reduces both boundary edges to \(v=a\). Set \(w=u+a\in[0,2a]\). Then
 \[
  F(u,a)^2=(2a-w)^2(1+w^2).
 \]
@@ -74,7 +74,7 @@ Both are positive for \(a\ge a_*\), and the first derivative in \(u\) is zero. C
  D_a-F(x_a+h,a-\tau)
  =A_a\tau+B_a h^2+O_a(|h|^3+|h|\tau+\tau^2).
 \]
-The reflected maximizer has the same expansion. After \(h=\sqrt{\varepsilon/B_a}\,x\), \(\tau=(\varepsilon/A_a)y\), the local event converges to \(y\ge0,\ x^2+y<1\), whose Lebesgue area is \(4/3\). Each branch therefore contributes probability
+The reflected maximizer has the same expansion. In a sufficiently small fixed neighborhood, the remainder is bounded in magnitude by \((A_a\tau+B_a h^2)/2\) since \(\tau\ge0\); hence the rescaled event lies in a fixed bounded set. After \(h=\sqrt{\varepsilon/B_a}\,x\), \(\tau=(\varepsilon/A_a)y\), the local event converges to \(y\ge0,\ x^2+y<1\), whose Lebesgue area is \(4/3\). Each branch therefore contributes probability
 \[
  \frac1{2a^2}\frac{4}{3A_a\sqrt{B_a}}\varepsilon^{3/2}(1+o(1)).
 \]

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -18,6 +21,4 @@
 
 # Verification details
 
-The `artifacts/verify.py` verifier is standalone Python 3 code using only the standard library. It calculates the predicted full multiplicity counter, then independently enumerates every ordered pair in \(R^2\) and every target in \(R^2\) for primes \(5,7,11,13,17,19\). In every case it compares the complete counter including all zero-representation targets, the total ordered energy, and the inferred sumset cardinality.
-
-Expected output is included verbatim in `artifacts/verify_output.txt`. This is a finite arithmetic confirmation only. The universal proof rests on Hensel lifting, quadratic-character identities and the exact separate singular-locus count in the result. No independent audit has been performed, and a separate literature-priority proof is unavailable.
+The package's `artifacts/verify.py` and `artifacts/verify_output.txt` concern the aggregate two-sum multiplicity histogram, including zeros, and energy for the six listed small primes. They do not test the location of each exceptional fiber or any Fourier identity. The separate finite checks in the result compare the multiset at each fixed sum and give the two energy counts relevant to the order-five character example. The proof for all primes gives the individual exceptional lifts and treats primitive and imprimitive characters separately by their different orthogonality relations.

@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:56:28.973969Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A change and rescaling in the plane variables lifts to the split cubic; smoothness follows from u=v=0 at a putative singular point. The polar criterion can also be checked directly: in coordinates with P=(1:0:⋯:0), write F=t²L+tQ+C, with L nonzero. The tangent section L=0 is a cone at P precisely when Q restricted to L=0 vanishes; the polar 2tL+Q has rank 2+rank(Q restricted to L=0). For the Hesse cubic the Hessian is block diagonal with the ternary block and entries 6u,6v. The ternary determinant on E is 8(λ³+27)xyz, giving nine reduced flex lifts; the binary line gives three points of rank two. Two nonzero tail coordinates leave no rank for nonzero plane coordinates. With exactly one nonzero tail coordinate, ternary rank must be one: for λ=0 only the three plane axes work; for λ≠0 all three plane coordinates must be nonzero (the two principal minors using a zero coordinate force the others to vanish). Three mixed minors then force λ³=216. For λ=6c with c³=1, normalizing x=1 yields q=(1,ρ,c²ρ²), ρ³=1; direct substitution gives rank one and A(q)=9, versus A(q)=1 on the axes at λ=0. Each q gives two choices of tail and three distinct nonzero roots, hence exactly 18 additional geometric points. Bonifant–Milnor's equation (14) gives the same exceptional parameter locus; the singular λ³=−27 is excluded. Independent exact determinant, mixed minor and rank-one substitutions verified with python3 /workspace/reproductions/hesse_review.py. The universal exhaustiveness is the rank argument, not the computation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The exact split-family passage lists nine vertices with both indices ≤3 and three with indices 4 and 5.",
+          "Theorem 26's table leaves only 12 and 30 at or above 12. Page 14 identifies the Fermat count and its unique occurrence; Cools–Coppens also gives the full Fermat point set."
+        ],
+        "reasoning": "The general classification turns the named 12 vertices into an exact count of 12 everywhere in the family except at a projectively Fermat member. A single sample computation at λ=3 would not be enough, but this classification is.",
+        "searches": [
+          "arXiv:0804.1861v2 §3 pp. 12–15, Theorem 26 and Fermat case",
+          "arXiv:0903.2005 Example 2.13"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:0804.1861v2, 1603.09018, 0903.2005 and 2309.08124",
+        "Resultary semantic comparison including finite-field record 44b590bbcbb6 (different scope)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Roulleau states that the three tail-associated elliptic curves are isomorphic to the Hesse plane cubic. On the Fermat threefold every star point is symmetry-equivalent to a tail point, with Fermat plane cubic base; hence a Fermat split member has j(E)=0. Conversely the plane equivalence at j=0 lifts to the split cubic.",
+          "Equation (14) gives μ=0 or μ³=−8, equivalently λ=0 or λ³=216. At λ=6c, c³=1, the discrete Fourier forms L_i=x+ω^i y+ω^{2i} c z satisfy Σ L_i³=3A. Applying the published Fermat point list in these coordinates yields the extra 18 points: exactly those pairing one Fourier coordinate axis with one tail coordinate. Inverse images of the Fourier axes, normalized by x=1, are the three q=(1,ρ,c²ρ²). At λ=0 the axes are already the original coordinate axes."
+        ],
+        "reasoning": "The full dichotomy and the exceptional locus follow directly from the cited classification and modular invariant. The coordinate-level description is a change of basis on the known Fermat list, not a separate unresolved invariant.",
+        "searches": [
+          "Roulleau §3 p. 13, three E_μ curves; p. 14, Fermat vertices",
+          "Bonifant–Milnor arXiv:1603.09018 equation (14) and Theorem 3.12",
+          "Cools–Coppens arXiv:0903.2005 Example 2.13"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Roulleau associates to an elliptic curve the tangent hyperplane cone at its vertex and lists the one-to-one correspondences in Notation 24.",
+          "His split family x1³+x2³+x3³−3μx1x2x3+x4³+x5³=0 is the identical family via λ=−3μ."
+        ],
+        "reasoning": "Counting elliptic curves here counts the same distinct geometric points, not another scheme structure or a different graph of special lines.",
+        "searches": [
+          "Roulleau arXiv:0804.1861v2, §2.3 Proposition 10 and §3 Notation 24",
+          "Eckardt point / star point / cone vertex / elliptic curve on the Fano surface"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Resultary catalogue yielded a later finite-field Frobenius record with different objects and invariant, not an identical complex parameter theorem.",
+          "Bockondas–Bossoto give the λ=3 twelve-point sample and the 30-point Fermat example. The stronger Roulleau table, together with the exact family and uniqueness passage in the same paper, decides the uniform classification."
+        ],
+        "reasoning": "An exact table of reflection configurations does cover the count via the explicit correspondence, whereas finite-field orbit types or the two isolated examples do not.",
+        "searches": [
+          "Resultary: Hesse-split cubic threefold Eckardt 12/30 and j=0",
+          "arXiv:0804.1861v2, Theorem 26 tables",
+          "arXiv:2309.08124, Tables 1–2"
+        ]
+      },
+      "rationale": "Roulleau gives the identical split family in the alternate Hesse parameter, the same 9+3 cone vertices, the bijection with elliptic curves on its Fano surface, and a full classification in which the only counts at least 12 are 12 and 30, with 30 unique to Fermat. His three binary-line cones have elliptic base isomorphic to E, while every Fermat cone has equianharmonic base. Thus a 30-point member must have j(E)=0, not just the converse. Bonifant–Milnor identifies the equianharmonic Hesse parameters and shows their projective equivalence to the Fermat plane curve; that equivalence lifts to this split threefold. The exact uniform dichotomy is covered, even though it is not collected in the cited literature in the frozen notation.",
+      "residual_risks": [
+        "The literature search is not an exhaustive priority history. Exact prior mathematical implication is established independently of the unsuccessful keyword searches."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING_VIA_IMPLICATION",
+          "evidence": "Contains exact family, 12 baseline vertices and E_μ base, Fermat uniqueness, and complete count classification.",
+          "identifier_or_url": "https://arxiv.org/pdf/0804.1861v2",
+          "material_read": "§2.3 Proposition 10 (p. 4, offset about 10400); §3 Notation 24 and split family (pp. 11–13, in particular offsets 37800–40031); Fermat uniqueness and point set (p. 14, near offset 41041); Theorem 26 and tables (p. 15, offsets 42300–45182)",
+          "method": "OA PDF bounded passages and comparison through the Fano correspondence",
+          "title": "Elliptic Curve Configurations on Fano Surfaces",
+          "trigger": "Potential general theorem for exactly this 12-curve Hesse family"
+        },
+        {
+          "assessment": "COVERING_PARAMETER_LOCUS",
+          "evidence": "The normalized J is (μ(μ³+8)/(4(μ³−1)))³; equianharmonic plane members are projectively Fermat.",
+          "identifier_or_url": "https://arxiv.org/abs/1603.09018",
+          "material_read": "Equation (14), p. 20 (near offset 41900); Theorem 3.12, p. 22",
+          "method": "OA PDF passage inspection and parameter conversion",
+          "title": "On Real and Complex Cubic Curves",
+          "trigger": "Exceptional Hesse parameters and projective curve equivalence"
+        },
+        {
+          "assessment": "COVERING_FERMAT_BRANCH",
+          "evidence": "The Fermat list has d·binom(N+1,2) points, 30 for d=3 and N=4, all supported on two coordinates.",
+          "identifier_or_url": "https://arxiv.org/abs/0903.2005",
+          "material_read": "Example 2.13, p. 8, around offset 25100",
+          "method": "OA PDF bounded passage",
+          "title": "Star points on smooth hypersurfaces",
+          "trigger": "Exact Fermat point set"
+        },
+        {
+          "assessment": "COVERING_EXAMPLES_AND_FERMAT_BOUND",
+          "evidence": "Counts 30 at Fermat and 12 at λ=3; those examples alone do not prove the uniform non-Fermat branch.",
+          "identifier_or_url": "https://arxiv.org/abs/2309.08124",
+          "material_read": "Example 4.1 p. 7, offset about 21850; §5.2 Tables 1–2 p. 8 about offset 26300; introductory uniqueness statement",
+          "method": "OA PDF bounded passages",
+          "title": "Eckardt points on a cubic threefold",
+          "trigger": "Frozen references with both counts"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The family-wide point count is a natural problem, but it is already determined by the published Fano configuration theorem and the classical Hesse parameter equivalence. The elementary polar-rank proof is useful as exposition, but the only possible remaining claim, explicit exceptional coordinates, is routine transport of the known Fermat list by a Fourier linear change. No distinct geometric invariant or substantive narrower finding survives.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

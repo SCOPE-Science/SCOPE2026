@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:03:47.582264Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For each fixed symbol order, the centered row-pair weights y_ab=w_ab−n/2 are skew-symmetric with row sums zero: across columns, each rank of the first row appears once. Writing T=Σ_{a≠b} y_ab², the row-order mean is n(n−1)/2. For n≥3 the sum of y_ab y_bc over distinct triples is T, because the unrestricted product sums vanish and the omitted a=c terms sum to −T. Disjoint row edges have zero covariance by reversal, giving conditional variance (n+1)T/[n(n−1)]. For a relative derangement with h two-cycles there are h opposite edge pairs with covariance −1/4 and n−2h directed two-step pairs with covariance −1/12; disjoint comparison edges are independent. Thus the symbol-averaged squared weight is (n−2h)/12 and the sum of h over ordered row pairs is 2I(L). The conditional mean is constant, giving the stated formula. At n=2 every comparison count is one and the variance is zero. Equality at general n forces all relative row permutations to be involutions; after making one row the identity, the rows are commuting involutions generating a faithful transitive abelian group, hence a regular elementary abelian 2-group. Conversely its table has all relative derangements made of two-cycles. Column permutations leave the score invariant and each isotopic square has the same number of preimages by the stabilizer formula. A fresh bounded direct enumeration, summing the score and its square over every row/symbol relabelling pair with exact integer arithmetic, gave (I,mean,variance)=(1,1,0),(0,3,1),(4,6,10/9) for cyclic orders 2,3,4 and (12,6,0) for the elementary abelian order-four table. This corroborates the symbolic proof; the broader frozen verification runs were not independently replayed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The cyclic follow-up evaluates the score for row-reorderings as n·asc(π)+π(1)−π(n). The general deterministic representation in the preceding work imposes no random row averaging. The 2025 reference is cited for the classical maximum-intercalate theorem, not for an isotopy moment."
+        ],
+        "reasoning": "Even for the cyclic order-four square, fixed natural symbols give row-only variance 10/3 (squared-weight sum T=8), not the full variance 10/9. A maximum-intercalate theorem characterizes a boundary once the variance identity is known but does not evaluate it for intermediate intercalate counts.",
+        "searches": [
+          "arXiv:2609.28808v1, abstract and Section 2",
+          "arXiv:2609.25100v1, Theorem 4.9",
+          "10.1002/rsa.70015, DOI and Wiley OA attempts"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.25100v1",
+        "arXiv:2609.28808v1",
+        "Resultary 246b86c9fe07",
+        "10.1002/rsa.70015 (attempted; no primary text)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The deterministic comparison identity makes a covariance expansion possible; the earlier coefficient is for a different ensemble. The frozen proof needs the zero row sums in a Latin square and cancellation of shared-position and shared-symbol comparisons."
+        ],
+        "reasoning": "The inspected formulations provide ingredients but no solved second-moment identity from which the dependence on two-cycles can be read off. The extremal characterization is deliberately not credited as an independent new theorem.",
+        "searches": [
+          "arXiv:2609.25100v1, Theorem 4.9",
+          "arXiv:2609.28808v1, Section 2",
+          "Resultary 246b86c9fe07"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorem 4.9 represents the total ascent score after symbol relabelling as a weighted sum of ordered symbol comparisons; Remark 4.12 addresses intercalate switches and cyclic-table counts."
+        ],
+        "reasoning": "The deterministic score is the same statistic. The stated moment additionally averages its weights across row orderings. Neither comparison representation nor invariance under column permutations supplies the intercalate-dependent variance.",
+        "searches": [
+          "Resultary: full-isotopy total-ascent variance and intercalates",
+          "arXiv:2609.25100v1, Theorem 4.9 and Remark 4.12"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed first-post-gap result gives the n+1 score coefficient over all labelled Latin squares; the primary-source remark gives some cyclic-table intercalate counts."
+        ],
+        "reasoning": "A single score coefficient over all squares is neither a complete score table nor a moment over an individual isotopy orbit. Known intercalate counts for particular squares provide inputs, not existing orbit variances. No matching formula or table was established in the searches.",
+        "searches": [
+          "Resultary: total-ascents statistics and intercalate-dependent variance",
+          "Resultary 246b86c9fe07, Finding",
+          "arXiv:2609.25100v1, Remark 4.12"
+        ]
+      },
+      "rationale": "The supported distinct claim is the arbitrary-fixed-square second moment under independent uniform row and symbol action and its collapse to the single statistic I(L). The ascent statistic, symbol-comparison representation and cyclic row-order special problem are prior. Neither the mean alone nor the extremal-intercalate classification alone is credited as a new result.",
+      "residual_risks": [
+        "Focused indexed comparison and named primary passages, not proof of priority. The targeted primary search returned no results, which is not evidence of absence. The 2025 attribution could not be directly checked from the unavailable primary text."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Deterministic representation and intercalate context, not a full isotopy moment",
+          "evidence": [
+            "The score after relabelling symbols is Σ_{a≠b}N_L(a,b) 1{σ(a)<σ(b)}."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.25100v1",
+          "material_read": "Theorem 4.9, PDF p. 9, OA offset 35450; Remark 4.12, pp. 9–10, offset 39500",
+          "method": "OA PDF passage inspection",
+          "title": "Latin Eulerian Numbers",
+          "trigger": "Introduces the same statistic and symbol action"
+        },
+        {
+          "assessment": "Fixed-symbol cyclic row-reorderings only",
+          "evidence": [
+            "The formula n·asc(π)+π(1)−π(n) is for the cyclic row-permutation family."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.28808v1",
+          "material_read": "Abstract and Section 2, PDF pp. 1–2, OA offset 6200",
+          "method": "OA PDF passage inspection",
+          "title": "Cyclic Latin Eulerian Numbers",
+          "trigger": "Exact ascent statistics on row permutations of a Latin square"
+        },
+        {
+          "assessment": "Different ensemble and target quantity",
+          "evidence": [
+            "The coefficient counts labelled Latin squares satisfying a fixed score, not the variance on an isotopy orbit."
+          ],
+          "identifier_or_url": "2026/10/12/SCOPE-the-first-post-gap-total-ascent-coefficient-of-latin-squares--246b86c9fe07",
+          "material_read": "RESULT.md statement of the n+1 count and classification",
+          "method": "Local Resultary mirror",
+          "title": "The first post-gap total-ascent coefficient of Latin squares",
+          "trigger": "Earlier exact count for the same ascent statistic"
+        },
+        {
+          "assessment": "Historical attribution not independently checked from this paper; equality argument independently proved, novelty not claimed for it",
+          "evidence": [
+            "The frozen paper attributes the bound and equality characterization to prior work. Its own proof of the characterization does not depend on access to the cited paper."
+          ],
+          "identifier_or_url": "https://doi.org/10.1002/rsa.70015",
+          "material_read": "Frozen citation; primary text unavailable in the attempted routes",
+          "method": "OA attempts via DOI, publisher landing page and ePDF returned HTTP 403",
+          "title": "Canonical Labeling of Latin Squares in Average-Case Polynomial Time",
+          "trigger": "Cited for maximum intercalate count and equality"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This quantifies how the natural ascent statistic varies within a fixed isotopy orbit, making a statistic of all randomized adjacent-row comparisons exactly recoverable from a local subsquare count. The collapse is specific and informative: for example, at order four the cyclic and elementary-abelian tables have different variances, the latter zero. The contribution is the general identity, not exhaustive small cases or an already known extremal classification.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

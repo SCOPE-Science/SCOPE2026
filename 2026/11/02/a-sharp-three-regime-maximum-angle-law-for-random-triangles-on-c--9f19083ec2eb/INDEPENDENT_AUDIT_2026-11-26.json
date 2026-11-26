@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:38:28.773562Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–58; corrected /workspace/repairs/2/RESULT.md",
+        "Frozen VERIFICATION.md lines 19–36 and arc_max_angle_verify.py"
+      ],
+      "rationale": "For ordered arc positions and successive gaps u,v, the simplex density is 6(L-u-v)/L³ and the angles are u/2, v/2 and (2π-u-v)/2. At fixed r=u+v, the width is r-2(r-h)_++(r-2h)_+; impose r≥a=2π-h. Integration gives exactly the stated CDF, including the lower-cut corrections when a>h. Positive density on the connected open gap triangle and continuity of the maximum give the support, with no atoms (each fixed level lies in a union of lines). Substitution at h=π gives the acute law, including its derivative and quadratic onset. The local integrations give numerators 12Lδ²−16δ³, 12(4π−3L)δ²+64δ³, 64δ³, and 108(L−4π/3)δ² respectively, the last exactly for sufficiently small fixed-L δ. The repair checks the actual realizability at L=4π/3 and above. Independent exact-fraction deficit-coordinate comparisons and symbolic local integrations replay with python3 /workspace/review-evidence/reproduce.py 2 (SymPy). The supplied script and recorded outputs were inspected, not executed; neither a mesh nor Monte Carlo proves the law.",
+      "residual_risks": [
+        "Uniform independent sampling, fixed L in the tail limits, and a single fixed arc are essential to this assessment; no joint limit as L tends to the critical arc is claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The full-circle uniform simplex law is strictly stronger for L=2π.",
+          "Khan samples planar area, Kabluchko computes expected internal angles of simplices, and Greenwell gives an obtuse probability for full concentric circles."
+        ],
+        "reasoning": "None of these inspected statements supplies the truncated-arc maximum law; restriction to one fixed arc changes the gap density and imposes an additional range cutoff.",
+        "searches": [
+          "d66cc98a9db3",
+          "arXiv:1704.05913v4",
+          "arXiv:1909.13335",
+          "arXiv:2608.06591 Theorem 4.1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary d66cc98a9db3 and e6ba3f77d6e7",
+        "Khan arXiv:1704.05913v4; Kabluchko arXiv:1909.13335; Greenwell arXiv:2608.06591; Weisstein (attempted)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For t=m/π≥1/3 the prior full-circle law immediately implies 1−3(1−t)²+3(1−2t)_+² up to t=1.",
+          "The arc density from the area comparator gives the starting measure, not the extremal-angle cut or the shrinking widths that create the cubic term."
+        ],
+        "reasoning": "The shorter-arc claim requires the distinct maximum-gap computation with aperture-dependent weight and moving faces, including the critical cancellation; it is not just a restatement of the known full-circle marginal.",
+        "searches": [
+          "d66cc98a9db3 Finding and Proof §§1–2",
+          "e6ba3f77d6e7 Finding",
+          "arXiv:2608.06591 Theorem 4.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Maximum angle equals half the maximum of successive gaps and the complementary circular gap.",
+          "e6ba3f77d6e7 uses the same arc sample law but studies maximal area with exponents 5/2, 3/2, 1."
+        ],
+        "reasoning": "Circle-spacing and arc-area formulations share ingredients, but the area and maximum-gap sublevel sets are different; their edge transitions cannot be identified.",
+        "searches": [
+          "Resultary ranked comparisons: arc maximum-angle/circular triangle laws",
+          "d66cc98a9db3",
+          "e6ba3f77d6e7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Full-circle acute probability 1/4 is recovered by Greenwell.",
+          "The returned local records give a full-circle joint law and an arc area law, not the arbitrary-L CDF or its lower-edge coefficients. The Weisstein page could not be verified."
+        ],
+        "reasoning": "Known full-circle values and the marginal derived from the full-circle joint law get no novelty credit. Ranked search and an unavailable entry do not establish absence.",
+        "searches": [
+          "Local Resultary arc and inscribed-triangle comparisons",
+          "Weisstein: Circle Triangle Picking",
+          "Greenwell Theorem 4.1 equal-radius specialization"
+        ]
+      },
+      "rationale": "The supported distinction is the exact fixed-arc maximum-angle law in both variables and its isolated cubic lower edge, not the full-circle marginal, the uniform-spacing primitive, or the equilateral feasibility threshold alone. The strongest catalogue comparators supply the full-circle joint law and the ordered arc density for an area statistic, respectively, but not the short-arc maximum-angle integration or its transition.",
+      "residual_risks": [
+        "General classical spacing or broken-stick literature, unindexed results, and the unresolved MathWorld attribution could contain further equivalents. No historical priority is inferred from the same-day catalogue record or from a search miss."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers full-circle specialization irrespective of same-day priority",
+          "evidence": "Dirichlet(1,1,1) normalized angle simplex immediately implies the maximum marginal.",
+          "identifier_or_url": "Resultary d66cc98a9db3",
+          "material_read": "RESULT.md Finding and Proof §§1–2, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Excentral transport and universal shape ordering for acute random triangles",
+          "trigger": "Closest full-circle joint angle law"
+        },
+        {
+          "assessment": "Sample-law overlap, distinct statistic",
+          "evidence": "Near-maximal area and exponents 5/2, 3/2, 1; it shares the ordered sample density.",
+          "identifier_or_url": "Resultary e6ba3f77d6e7",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "A three-regime extreme-area transition for triangles sampled on circular arcs",
+          "trigger": "Same sampling support and 4π/3 threshold"
+        },
+        {
+          "assessment": "Different sampling measure",
+          "evidence": "Uniform points inside convex planar regions, not on one circular arc.",
+          "identifier_or_url": "https://arxiv.org/html/1704.05913v4",
+          "material_read": "Abstract and introduction, offset 122",
+          "method": "Open HTML",
+          "title": "Hall's Conjecture on Extremal Sets for Random Triangles",
+          "trigger": "Acute-triangle probability"
+        },
+        {
+          "assessment": "Expected internal angles rather than an aperture-truncated maximum law",
+          "evidence": "Spherical law as a full-support beta limit.",
+          "identifier_or_url": "https://arxiv.org/pdf/1909.13335",
+          "material_read": "Pages 1 and 3, offsets 707 and 13678",
+          "method": "Open PDF",
+          "title": "Angles of Random Simplices and Face Numbers of Random Polytopes",
+          "trigger": "Random spherical angles"
+        },
+        {
+          "assessment": "Full-circle benchmark covered, not fixed-arc CDF",
+          "evidence": "Equal radii specialize the obtuse formula to 3/4.",
+          "identifier_or_url": "https://arxiv.org/pdf/2608.06591",
+          "material_read": "Page 1 and Theorem 4.1 on page 5, offsets 1356 and 21535",
+          "method": "Open PDF",
+          "title": "Random Triangles on Concentric Circles",
+          "trigger": "Same full-circle benchmark"
+        },
+        {
+          "assessment": "Unresolved scope; no negative inference",
+          "evidence": "Not relied on for novelty or attribution.",
+          "identifier_or_url": "https://mathworld.wolfram.com/CircleTrianglePicking.html",
+          "material_read": "No relevant passage retrieved",
+          "method": "Bounded open-page retrieval attempts",
+          "title": "Circle Triangle Picking",
+          "trigger": "Possible classical exact formula entry"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Corrected Finding and Proof; comparison with full-circle joint law and arc area law"
+      ],
+      "rationale": "The largest angle is a natural shape statistic of triangles constrained to an observation aperture. The exact two-variable law gives acute probabilities and resolves a nontrivial boundary change: at the minimum aperture supporting an equilateral triangle the gap-area shrinkage and the vanishing ordering weight combine to produce a cubic onset, whereas on either side it is quadratic. That change and the explicit coefficients are useful beyond a full-circle benchmark or the textbook spacing density.",
+      "residual_risks": [
+        "No robustness to nonuniform sampling or general curves is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

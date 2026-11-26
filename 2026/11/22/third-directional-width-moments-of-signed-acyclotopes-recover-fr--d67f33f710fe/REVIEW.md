@@ -1,9 +1,0 @@
-# Self-review
-
-**Correctness — PASS.** The proof is complete for every finite simple graph on at least three vertices, with ambient rather than intrinsic angular measurement. Cubic expansion separates forest triple-edge terms (coordinate switching invariance) from triangle terms, and the two Gaussian absolute-product laws are proved. A rigorous lower bound \(F_+>F_-\) establishes a positive, nonzero coefficient. The included numerical checks corroborate but are not used as infinite proof.
-
-**Originality — PASS, with residual priority uncertainty.** Full primary-source sections of Bach–Beck–Rehberg (arXiv:2409.15227) were inspected for signed incidence roots, zonotope definition and their Ehrhart focus; searching the full document for 'width' and 'moment' found no matches. The closest indexed geometric result, *Third angular-width moments of regular graphical zonotopes recover graph triangles* (2026), studies unsigned incidence-root zonotopes as the underlying graph changes; it cannot by itself recover the sign-frustration statistic for a fixed signed graph. Replacing generators by signs is not enough on its own: the proof must show that the negative and positive triangle Gaussian laws are different; this is the substantive new point. Possible uncatalogued signed-root moment analogues remain a historical-priority risk.
-
-**Mathematical value — PASS.** The cubic width moment is an exact switching-invariant detector of frustrated triangles in an established type-\(D\) convex-geometric family. It distinguishes signings that the first two width moments provably cannot distinguish, and applies to irregular graphs without combinatorial restrictions. The limitation to a count, not a complete switching-class reconstruction, is explicit.
-
-Self-review: passed. Independent audit: not yet performed.

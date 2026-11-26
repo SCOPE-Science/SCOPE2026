@@ -1,0 +1,158 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T12:00:58.043087Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 7–72",
+        "Frozen VERIFICATION.md",
+        "Frozen CHECK.py, lines 16–81; inspected, not executed",
+        "Independent analytic inverse-dose check and benchmark bisection described in rationale"
+      ],
+      "rationale": "Variation of constants gives D_s(t)=g(t) before s and g(t)−min(Delta,g(s))exp(−b(t−s)) after it. The untreated sag peaks uniquely at t_c, with g''(t_c)=−abM. For 0<s<=t_c and positive dose, the post-pulse curve has its unique maximum after t_c: writing A=1+exp(bs)min(Delta,g(s))/K, the peak occurs at t_c+log(A)/(b−a) with height M A^(−a/(b−a)). Its height strictly decreases with s before t_c since exp(bs)min(Delta,g(s)) is the minimum of two strictly increasing functions there. The upstream supremum g(s) strictly increases to M. The continuous maxima cross once, giving strict global minimax; s=0 and s>=t_c have risk M, since g(0)=0 and the upstream limit is included. Full reset gives post-peak M exp(−as), yielding exactly s_star and Delta_star, with the crossing strictly before t_c. For s in [s_star,t_c) the pulse actually required for balancing is K exp(−bs)[(M/g(s))^((b−a)/a)−1]. It is strictly decreasing from Delta_star to zero and feasible (<=g(s)) precisely when g(s)>=M exp(−as). This verifies the branch, strict monotone shift and risk, and uniqueness at the critical dose; extra available dose is unused at full reset. Expanding this inverse dose formula at t_c−u and using K exp(−bt_c)=aM/(b−a) gives Delta=abM u²/2+O(u³), independently yielding both claimed asymptotics. At Delta=0 every location ties. I also checked the benchmark (a,b,L0)=(1,2,1): s_star=log(4/3), Delta_star=3/16. At Delta=0.1 put z=exp(−s); independent 65-digit decimal bisection of 20z³−20z²+7z−2 on [1/2,3/4] gives s≈0.349977832842958 and risk z−z²≈0.208096390775130, consistent with the source's stated approximations.",
+      "residual_risks": [
+        "The universal proof is analytic; the numeric benchmark is only a diagnostic. Applies to zero initial deficit, one capped additive oxygen impulse, uniform rates 0<a<b, and the full half-line, not multiple sites or a risk that omits upstream deficit."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 1977 model admits one or several point oxygen increments as design variables and minimizes cost subject to a fixed DO standard along a specified stretch. Property A places aerators where pre-dose DO reaches the standard; Figure 2 moves a device downstream to its first binding site and the continuation considers downstream tangency."
+        ],
+        "reasoning": "This is material prior coverage of the underlying placement principle in an inverse, standard-constrained setting, not evidence that the entire bounded-dose minimax phase diagram is known. It does not in the inspected formulation impose one fixed available dose with a hard zero-deficit cap, invert all standards for the half-line, or extract the small-dose singular law.",
+        "searches": [
+          "Resultary: Streeter–Phelps aeration allocation",
+          "Rinaldi–Soncini-Sessa 1977, Problem 2, Property A and construct following Figure 2",
+          "Primary literature lookup for instream placement and exact title Koivo–Phillips 1975"
+        ]
+      },
+      "checked_sources": [
+        "Resultary searches and four distinct indexed findings",
+        "Streeter–Phelps 1925",
+        "Rinaldi–Soncini-Sessa RR-77-007",
+        "Koivo–Phillips bibliographic/limited excerpt",
+        "Melching 2017 abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The fractional work already supplies the unbounded-reach balance and peak calculation for constant q. The 1977 report already supplies the idea of shifting a point aerator to the first natural binding level under a prescribed standard."
+        ],
+        "reasoning": "Even importing the peak formula or the first-binding principle, the power needed at a candidate in the fixed-budget problem must be shown admissible under clipping and under the same budget at all competing sites. The monotonicity of exp(bs) min(Delta,g(s)), feasibility at the full-reset crossing, and inversion of the quadratic loss near the untreated sag supply the distinct dose-dependent conclusions. The inspected stronger-looking results do not yield these by specializing a fixed q or holding a prescribed standard constant.",
+        "searches": [
+          "Fractional 0af40980b939, long-reach equality, control law and excluded scope",
+          "1977 report, Property A and downstream prescribed-standard sag construction",
+          "Melching 2017 public abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "That record holds the remaining fraction q fixed and gets the unbounded-reach crossing g(s)=M[q+(1−q)exp((b−a)s)]^(−a/(b−a)) as its long-reach plateau.",
+          "At a single site the substitution 1−q=min(Delta,g(s))/g(s) matches the oxygen increment and peak, exactly."
+        ],
+        "reasoning": "The required fraction varies with s across the uncapped region, or reaches complete removal (q=0, excluded by the prior scope). Optimizing one fixed fraction over sites is not optimizing one fixed dose. Matching at one site does not rank other sites under the additive law. Earlier saturation in reach length and its quadratic approach are not the fixed-dose saturation or zero-dose square-root shift.",
+        "searches": [
+          "Resultary: additive-dose minimax placement, fractional finite-reach aeration placement, single additive deficit pulse",
+          "Fractional Resultary record 0af40980b939, Finding and response formulas"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Fractional record 0af40980b939 tabulates exact reach-length behavior. Same-day minimax record a0058dc70eec has a load-allocation transition at kd=log 3. Other nearby indexed records e5e0cf2e8de0 and 92e4f7efeacb concern two-sag dynamics. The target self-hit is not separate evidence."
+        ],
+        "reasoning": "These exact results optimize different inputs or treat different models. The available applied siting abstract addresses meeting oxygen standards, not this analytical dose-to-location function. No distinct exact fixed-dose phase table was located in the checked scope.",
+        "searches": [
+          "Four Resultary queries: additive-dose minimax, single pulse, fixed-fraction finite reach, Streeter–Phelps aeration allocation",
+          "Focused applied aerator-siting literature query"
+        ]
+      },
+      "rationale": "Credit prior work for the oxygen-sag model, additive impulse response setting, placing cost-optimal aerators at binding deficits, and balancing the upstream value with a downstream sag in the fixed-fraction model. The supported distinct result is the exact global capped fixed-available-dose phase diagram and its weak-dose law. The active-constraint placement and the post-peak formula alone are not new. In the fractional theorem an at-site reparameterization gives the same local peak, but not equality of the two risk functions over alternative sites; the additive-dose crossing, cap feasibility threshold, and inversion at zero dose need a separate comparison.",
+      "residual_risks": [
+        "Koivo–Phillips 1975 was not retrieved in full; the cited EPA 1971 placement discussion was not verified from a usable copy. A preexisting exact one-impulse dose-standard inversion under the same saturation cap could affect priority. No negative inference is drawn from access limitations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantial overlap in peak-balance method, but fixed fraction and reach-length phase transition, not the fixed-budget dose transition",
+          "evidence": [
+            "q in (0,1) is held fixed; after a reach threshold, s_T=s_infinity and g(s_infinity)=m(s_infinity); approach is quadratic in T_c−T."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-finite-reach-saturation-and-a-quadratic-placement-law-for-one-fr--0af40980b939",
+          "material_read": "Mirror RESULT.md offset 0–3620, Finding, assumptions, post-pulse response step",
+          "method": "Bounded local Resultary mirror inspection",
+          "title": "Finite-reach saturation and a quadratic placement law for one fractional river aerator",
+          "trigger": "Matching sag model and one-device minimax balance"
+        },
+        {
+          "assessment": "Prior binding-level placement principle for variable impulses with fixed standard; not an identified capped single-dose phase law",
+          "evidence": [
+            "The oxygen jumps are decision variables; the objective sums costs. Property A puts aerators at the binding DO level and compares moving downstream to the first such time; the following construction uses a downstream sag tangent to the standard."
+          ],
+          "identifier_or_url": "https://pure.iiasa.ac.at/id/eprint/708/1/RR-77-007.pdf",
+          "material_read": "Problem formulation pp. 8–9 (offsets 5200–9057), offsets 11200–17000 including Problem 2, Property A, Figure 2 and downstream standard-tangency construction",
+          "method": "Bounded primary OA PDF passage inspection",
+          "title": "Optimal Allocation of Artificial In-Stream Aeration",
+          "trigger": "Plausibly covering prior additive impulse optimization"
+        },
+        {
+          "assessment": "Underlying ODE, not the capped placement result",
+          "evidence": [
+            "Deficit production proportional to remaining demand and removal proportional to deficit yield the classical sag equation."
+          ],
+          "identifier_or_url": "https://udspace.udel.edu/server/api/core/bitstreams/6f57c427-5f4f-4435-9d8c-87e3c8c02a66/content",
+          "material_read": "PDF pages 21–22, offsets 47890–50185",
+          "method": "Bounded primary OA PDF passage inspection",
+          "title": "A Study of the Pollution and Natural Purification of the Ohio River",
+          "trigger": "Foundational primary statement of the oxygen-deficit dynamics"
+        },
+        {
+          "assessment": "Different control; date alone gives no ordering",
+          "evidence": [
+            "Optimizes BOD load allocation across two outfalls with b=2a, with transition at kd=log 3, not placement of an oxygen increment."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-nonmonotone-minimax-load-split-for-two-river-pollution-o--a0058dc70eec",
+          "material_read": "Mirror RESULT.md offset 0, Finding",
+          "method": "Local Resultary mirror inspection",
+          "title": "A sharp nonmonotone minimax load split for two river pollution outfalls",
+          "trigger": "Closest distinct same-day minimax comparison"
+        },
+        {
+          "assessment": "Unresolved beyond bibliographic/excerpt level",
+          "evidence": [
+            "The visible publisher excerpt describes a discrete-time modified Streeter–Phelps model; the excerpt does not justify a whole-paper noncoverage conclusion."
+          ],
+          "identifier_or_url": "https://www.sciencedirect.com/science/article/pii/S1474667017675906",
+          "material_read": "Bibliographic entry and indexed discrete-time model description; full text inaccessible after OA retrieval and alternate-copy lookup",
+          "method": "Directed primary OA attempt (403) and targeted lawful alternate-copy search",
+          "title": "Optimization of Dissolved Oxygen Concentration in Polluted Streams Using Instream Aeration",
+          "trigger": "Plausible earlier covering optimization by title and control setting"
+        },
+        {
+          "assessment": "Relevant context but not decisive exact-formula evidence",
+          "evidence": [
+            "Uses a water-quality model to select a station and operational rules for compliance across test years."
+          ],
+          "identifier_or_url": "https://wse.hhu.edu.cn/en/article/doi/10.1016/j.wse.2017.09.005",
+          "material_read": "Public abstract at offset 1773",
+          "method": "Public website inspection",
+          "title": "Application of a water quality model for determining instream aeration station location and operational rules: A case study",
+          "trigger": "Applied antecedent on aerator placement"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, finding and limitations",
+        "Fractional Resultary record 0af40980b939",
+        "Rinaldi–Soncini-Sessa 1977 cost-standard formulation"
+      ],
+      "rationale": "A site-independent dose budget and inability to oxygenate beyond saturation are natural constraints absent from the constant-fraction formulation. The complete unique placement and risk profile distinguishes overprovision (exact no-improvement threshold) from near-zero sensitivity (a quantitative square-root movement), which can matter in using this classical baseline. The result is a mathematical benchmark, not an engineering prescription or a new general impulse-control method.",
+      "residual_risks": [
+        "Not an empirical water-quality claim; finite reaches, multiple aerators, variable flow and practical costs are outside scope."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

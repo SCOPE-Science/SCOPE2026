@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof explicitly reduces the problem to the two five-point models of \(S^1\vee S^1\); counts all transitive posets through six points, filters exact quotient topologies, removes the two higher-Betti candidates and independently proves the two surviving maps are weak equivalences using spanning trees and fundamental groups. The standard-library checker exhaustively covers \(4{,}824\) extension-labeled six-point orders and their \(15\) pair-identification kernels; it passed all assertions on replay. A finite census is valid here because the domain of the theorem is finite and the enumerator checks every order under at least one linear extension.
+## correctness
 
-## Originality — PASS
-The *existence* of this six-point witness and of its two quotient weak cores is not original: it is Barmak--Galotto's Example 23. The new claim is the **sharp minimum, uniqueness of its six-point source up to isomorphism, and uniqueness of the two quotient kernels at this cardinality**. Barmak--Minian's finite-graph model theorem controls the minimal five-point targets but does not classify their simultaneous quotient sources. The inspected literature and targeted index comparisons did not cover the sharper assertions; unindexed equivalence remains possible.
+PASS
 
-## Mathematical value — PASS
-Identifying the first and sole six-point obstruction to uniqueness gives a natural exact structural boundary for the newly introduced quotient weak-core invariant. The source and both quotient kernels are classified, not merely demonstrated by one unmotivated example.
+A quotient weak core must be T0 by reduction to the Kolmogorov quotient and beat-free since a beat-point retraction is a proper quotient homotopy equivalence. Any two non-homeomorphic reachable cores from a source of at most six points both have at most five points: a same-size quotient is a homeomorphism and an irreducible source cannot have another core. Independently, a beat-free poset on at most five points has no three-element chain: a middle point would need at least two upper and two lower covers, exhausting the other points, and then each lower cover has that middle point as its sole upper cover. Each nonsingleton height-two component has minimum degree two, so on at most five points the only such graphs are K2,2 and K2,3, with the allowable level orientations; an extra isolated point can accompany K2,2. Their weak types leave only P2,3 and P3,2 as the distinct pair, both genuinely quotient-minimal since no <=4-point model has connected rank-two first homology, even after Kolmogorov reduction. A source of at most five points cannot quotient onto both. Independently rebuilt the final topology on all pair identifications of all 4824 naturally labelled six-point orders by intersecting the saturated open downsets, not by replaying the supplied preorder closure. The 33 double-target orders are connected and height two, with 22,10,1 occurrences of one isomorphism class each at seven, eight, nine edges, respectively. Only seven edges give graph rank two. The sole pair onto P2,3 is {1,2}, and onto P3,2 is {4,5}, in the frozen labelling. In the first map the given source spanning tree maps onto the target tree and the two non-tree edges correspond bijectively. Hence the map on fundamental groups is an isomorphism, not just on Betti ranks; the dual symmetry gives the second map. McCord naturality transfers the graph weak equivalences to the quotient maps.
 
-## Limits and closest literature
-Primary: J. A. Barmak and J. Galotto (2026), arXiv:2611.09886v1, Example 23. Prior minimal graph models: J. A. Barmak and E. G. Minian (2007), arXiv:math/0611156, Theorem 4.7. Mosquera-Lois (2026), arXiv:2608.06176, was compared at abstract level only. Claims do not extend to larger finite spaces or other definitions of weak core. Publication-priority uncertainty and lack of independent validation remain.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The known six-point existence example, its two reductions, and its dual cores are credited to Barmak–Galotto. The size and shapes of the least models of the wedge of two circles are also prior consequences of Barmak–Minian. The supported increment is exhaustive exclusion of any smaller source of nonuniqueness, classification of all six-point sources, and rigidity of the pair kernels; source rigidity is the central increment.
+
+## value
+
+PASS
+
+Nonuniqueness of the natural irreducible weak-quotient construction motivates the size cutoff. The independent classification shows that two different quotient cores at the first possible size force one specific common source and one partition per core, answering rigidity questions left by the existence example. This distinguishes the phenomenon from simply counting low-order finite models of a wedge.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

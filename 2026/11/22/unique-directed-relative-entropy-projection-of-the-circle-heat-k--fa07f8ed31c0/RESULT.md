@@ -1,66 +1,61 @@
 # Unique directed relative-entropy projection of the circle heat kernel onto Poisson kernels
 
 ## Finding
-For every heat time \(t>0\), the normalized circle heat density \(H_t\) has exactly one globally best Poisson approximation for **forward** Kullback–Leibler divergence \(D(H_t\Vert P)\), including freely chosen concentration and center. The optimal center agrees with the heat center and the optimal radius is uniquely fixed by a strictly monotone scalar equation. Its small-time radius has the universal Gaussian–Cauchy scale \(1-r_t\sim c_*\sqrt t\), while matching the first Fourier moment gives a divergent excess information loss rather than a finite limit.
+For every heat time \(t>0\), the normalized circle heat density \(H_t\) has a unique minimizer of **forward** Kullback–Leibler divergence \(D(H_t\Vert P)\) over Poisson kernels with freely chosen radius and center. The optimal center agrees with the heat center. The optimal radius \(r_t\) is strictly decreasing in \(t\), satisfies \(0<r_t<e^{-t}\), and is determined by the strictly monotone equation below.
 
-The constants are \(c_*=0.86550319873261586\ldots\) and \(K_*=0.18275830866970635\ldots\). The precise claims and boundaries appear below.
+As \(t\downarrow0\), \(1-r_t\sim c_*\sqrt t\), with \(c_*=0.86550319873261586\ldots\). The optimum divergence tends to \(K_*=0.18275830866970635\ldots\); matching the first Fourier moment instead gives divergence \(\tfrac12\log(1/t)+\tfrac12\log\pi-\log2-\tfrac12-\gamma+o(1)\), so the excess loss diverges. At large heat times, with \(q=e^{-t}\), the optimal radius is \(q-q^3+3q^5+O(q^7)\), and the optimum divergence is \(q^4(1+o(1))\).
 
 ## Assumptions and scope
-Let \(d\mu=d\theta/(2\pi)\) denote Haar probability measure on \(\mathbb T=\mathbb R/(2\pi\mathbb Z)\). Define
+For Haar probability measure \(d\mu=d\theta/(2\pi)\) on \(\mathbb T=\mathbb R/(2\pi\mathbb Z)\), set
 \[
-H_t(\theta)=\sum_{n\in\mathbb Z}e^{-tn^2}e^{in\theta},\qquad t>0,
+H_t(\theta)=\sum_{n\in\mathbb Z}e^{-tn^2}e^{in\theta},\qquad
+P_{r,\phi}(\theta)=\frac{1-r^2}{1-2r\cos(\theta-\phi)+r^2},\qquad 0\le r<1.
 \]
-and
-\[
-P_{r,\phi}(\theta)=\frac{1-r^2}{1-2r\cos(\theta-\phi)+r^2},\quad 0\le r<1,\quad \phi\in\mathbb T.
-\]
-Both densities have integral one against \(\mu\), and \(H_t\) is smooth and strictly positive. Define \(D(p\Vert q)=\int p\log(p/q)\,d\mu\). We minimize this directed divergence over the *entire* Poisson family; the reverse divergence and generic circular densities are not within scope. When \(r=0\), all \(\phi\) represent the same uniform density.
+These are positive probability densities against \(\mu\). We use \(D(p\Vert q)=\int p\log(p/q)\,d\mu\); the reverse divergence and generic circular densities are not considered. All centers label the same density when \(r=0\).
 
 ## Proof
-**Fourier identity and center.** Absolute convergence of the Poisson logarithm and the heat Fourier series gives
+**Fourier identity and center.** Absolute convergence gives
 \[
-D(H_t\Vert P_{r,\phi})=\int H_t\log H_t\,d\mu-\log(1-r^2)-2\sum_{n=1}^{\infty}\frac{e^{-tn^2}r^n}{n}\cos(n\phi).
+D(H_t\Vert P_{r,\phi})=\int H_t\log H_t\,d\mu-\log(1-r^2)-2\sum_{n\ge1}\frac{e^{-tn^2}r^n}{n}\cos(n\phi).
 \]
-For any \(r>0\), every Fourier weight is positive, so this is uniquely minimized at \(\phi=0\pmod {2\pi}\) (the first harmonic makes equality strict). The right derivative at \(r=0\) is \(-2e^{-t}<0\), so no minimizer is uniform.
+For \(r>0\), all Fourier weights are positive and the first harmonic forces equality only at \(\phi=0\pmod{2\pi}\). In this direction the right radius derivative at zero is \(-2e^{-t}<0\), ruling out the uniform density.
 
-**Unique radius.** Put \(s=-\log r>0\), \(A_t(s)=\sum_{n\ge1}e^{-tn^2-sn}\) and \(B(s)=\sum_{n\ge1}e^{-2sn}=(e^{2s}-1)^{-1}\). The derivative with respect to \(r\) of the radial objective has the sign of \(B(s)-A_t(s)\); thus stationarity means \(A_t(s)=B(s)\). Let \(R_t(s)=A_t(s)/B(s)\). As \(s\downarrow0\), \(R_t(s)\to0\), and as \(s\to\infty\), \(R_t(s)\sim e^{s-t}\to\infty\). Under normalized weights \(e^{-sn-tn^2}\), the mean index is strictly below the mean under geometric weights \(e^{-sn}\), by the monotone likelihood-ratio order. Therefore
+**Unique radius.** Set \(s=-\log r\), \(A_t(s)=\sum_{n\ge1}e^{-tn^2-sn}\), and \(B(s)=(e^{2s}-1)^{-1}\). The derivative in \(r\) has the sign of \(B-A_t\); the radius equation is \(R_t(s)=1\), where \(R_t=A_t/B\). This quotient tends to zero as \(s\downarrow0\) and is asymptotic to \(e^{s-t}\) as \(s\to\infty\). The expectation of \(n\) under normalized weights \(e^{-sn-tn^2}\) is strictly less than under weights \(e^{-sn}\), since tilting by the strictly decreasing function \(e^{-tn^2}\) gives a strictly negative covariance with \(n\) under the original geometric weights. Consequently
 \[
-\frac{d}{ds}\log R_t(s)=2\mathbb E_{B,s}n-\mathbb E_{A,t,s}n
->\frac{2}{1-e^{-2s}}-\frac{1}{1-e^{-s}}
-=\frac1{1+e^{-s}}>0.
+\frac{d}{ds}\log R_t(s)=\frac{2}{1-e^{-2s}}-\mathbb E_{A,t,s}n
+>\frac{2}{1-e^{-2s}}-\frac{1}{1-e^{-s}}=\frac1{1+e^{-s}}>0.
 \]
-Consequently there is exactly one critical radius, which is globally minimizing since \(D\to+\infty\) as \(r\uparrow1\) for fixed \(t>0\). At \(s=t\), the strict inequalities \(e^{-tn^2}<e^{-tn}\) for \(n\ge2\) show \(A_t(t)<B(t)\), whence \(s_t>t\), i.e. \(r_t<e^{-t}\). For fixed \(s\), \(A_t(s)\) strictly decreases with \(t\); implicit differentiation of the unique crossing proves that \(s_t\) is smooth and strictly increasing in \(t\).
+The crossing is the unique global minimum by the radius derivative signs. At \(s=t\), termwise comparison \(e^{-tn^2-tn}\le e^{-2tn}\), strict for \(n\ge2\), gives \(R_t(t)<1\). Thus \(s_t>t\), so \(r_t<e^{-t}\). Since \(R_t(s)\) strictly decreases with \(t\) for fixed \(s\), the unique crossing moves strictly right, smoothly by the implicit function theorem.
 
-**Sharp small-time scale.** For any fixed \(c>0\), set \(s=c\sqrt t\). Riemann-sum convergence gives
+**Sharp small-time scale.** For fixed \(c>0\) a Riemann sum gives \(\sqrt{t}\,A_t(c\sqrt t)\to\int_0^\infty e^{-x^2-cx}\,dx\), and \(\sqrt t B(c\sqrt t)\to1/(2c)\). The limiting quotient is
 \[
-\sqrt t\,A_t(c\sqrt t)\longrightarrow\int_0^\infty e^{-x^2-cx}\,dx,
-\qquad \sqrt t\,B(c\sqrt t)\longrightarrow\frac1{2c}.
+L(c)=2c\int_0^\infty e^{-x^2-cx}\,dx=2\int_0^\infty e^{-u-u^2/c^2}\,du.
 \]
-Multiplying by \(2c\), the first limit increases strictly from zero to one as \(c\) increases from zero to infinity, since its substitution \(u=cx\) becomes \(2\int_0^\infty e^{-u-u^2/c^2}\,du\). Thus it equals one for exactly one \(c=c_*>0\); monotonic crossings bracket \(s_t/\sqrt t\) and prove convergence. Equivalently, \(c_*\) satisfies the stated Gaussian integral equation.
+It increases continuously and strictly **from zero to two** and crosses one at a unique \(c_*>0\). For any two fixed \(c\)'s on opposite sides of \(c_*\), convergence and radial monotonicity bracket \(s_t/\sqrt t\) between them for small enough \(t\). Therefore \(s_t/\sqrt t\to c_*\) and \(1-r_t\sim c_*\sqrt t\).
 
-For \(\theta=\sqrt t\,x\), the properly rescaled heat *Lebesgue* density tends to \(g(x)=e^{-x^2/4}/\sqrt{4\pi}\), and the rescaled optimally centered Poisson Lebesgue density tends to \(q_c(x)=c/[\pi(c^2+x^2)]\). These follow from Poisson summation and the small-angle denominator expansion. Gaussian tails and the bounded-domain logarithmic singularity permit truncation and dominated convergence for relative entropy, giving
+Use \(\theta=\sqrt t\,x\), \(R=\pi/\sqrt t\). The scaled Lebesgue densities on \([-R,R]\) are
+\[
+g_t(x)=\sum_{k\in\mathbb Z}g(x+2kR),\quad g(x)=\frac{e^{-x^2/4}}{\sqrt{4\pi}},\qquad
+q_{t,s}(x)=\frac{\sqrt t\,\sinh s}{2\pi(\cosh s-\cos(\sqrt t\,x))}.
+\]
+The wrapped Gaussian identity follows by taking Fourier coefficients. On \([-R,R]\), each translated summand divided by \(g(x)\) is bounded by \(e^{-|k|(|k|-1)R^2}\); thus \(g\le g_t\le Cg\) uniformly for small \(t\). Also \(1-\cos y\) is comparable to \(y^2\) for \(|y|\le\pi\), while \(\cosh s-1\) is comparable to \(s^2\) at small \(s\). If \(s/\sqrt t\to c>0\), then \(q_{t,s}\) is uniformly comparable to \((1+x^2)^{-1}\) and converges pointwise to \(q_c(x)=c/[\pi(c^2+x^2)]\). Hence \(|g_t\log(g_t/q_{t,s})|\le C'(1+x^2)g(x)\) on the whole expanding interval; dominated convergence gives
 \[
 K_*=D(g\Vert q_{c_*})=\log(\pi/c_*)-\tfrac12\log(4\pi e)+\mathbb E\log(c_*^2+X^2),\quad X\sim N(0,2).
 \]
-The derivative of \(D(g\Vert q_c)\) is \(c^{-1}(2\int_0^\infty e^{-u-u^2/c^2}\,du-1)\), proving again that its global minimizer is precisely \(c_*\).
+In fact \(c\,dD(g\Vert q_c)/dc=2\mathbb E[c^2/(c^2+X^2)]-1=L(c)-1\), using \(\mathbb E\cos(uX/c)=e^{-u^2/c^2}\) in the Laplace integral for \(1/(1+(X/c)^2)\). So \(c_*\) is the unique Gaussian–Cauchy optimum as well.
 
-**Moment matching and large heat time.** The first nonconstant Fourier coefficients are \(e^{-t}\) for \(H_t\) and \(r\) for \(P_r\). Thus moment matching fixes \(r=e^{-t}\). At scale \(\theta=\sqrt t x\), the ratio of the heat density to this narrower Poisson density has logarithm \(-\tfrac12\log t+\tfrac12\log\pi-x^2/4-\log2+\log(x^2+t)+o(1)\) away from the origin. Uniform integrability of the logarithmic term near the origin under Gaussian weights, plus exponential tails, yields
-\[
-D(H_t\Vert P_{e^{-t},0})=\tfrac12\log(1/t)+\tfrac12\log\pi-\log2-\tfrac12-\gamma+o(1).
-\]
-Indeed \(\mathbb E\log X^2=-\gamma\) for \(X\sim N(0,2)\). Finally write \(q=e^{-t}\) and solve the unique radius equation as a convergent analytic implicit series near \(q=0\); its first terms give \(r_t=q-q^3+3q^5+O(q^7)\). The leading unmatched second Fourier coefficient is \(-q^2+o(q^2)\), so the quadratic expansion of relative entropy at the uniform density yields \(\min D(H_t\Vert P)=q^4(1+o(1))=e^{-4t}(1+o(1))\).
+**Moment matching and large heat time.** The first Fourier coefficients give the moment match \(r=e^{-t}\), \(\phi=0\). For \(s=t\), \(q_{t,t}/\sqrt t\) is uniformly comparable to \((x^2+t)^{-1}\) on \([-R,R]\) and tends to \(1/(\pi x^2)\) for \(x\ne0\). For small \(t\), the absolute logarithm of \(x^2+t\) is bounded by a constant plus \(2|\log|x||+2\log(1+|x|)\) off zero. The bounds on \(g_t\) therefore dominate the integrand of \(D(H_t\Vert P_{e^{-t},0})+\tfrac12\log t\) by a Gaussian times a polynomial and an integrable logarithm at zero. Its limit is \(\int g(\log g+\log\pi+\log x^2)\,dx=\tfrac12\log\pi-\log2-\tfrac12-\gamma\), since \(\mathbb E\log X^2=-\gamma\) for \(X\sim N(0,2)\).
+
+With \(q=e^{-t}\), the radius equation becomes \(r/(1-r^2)=\sum_{n\ge1}q^{n^2}r^{n-1}\). This is analytic near \((r,q)=(0,0)\) with nonzero derivative of the stationarity residual in \(r\). The analytic root is odd in \(q\) (the equation is invariant after changing both signs) and, by comparing coefficients through degree five, is \(q-q^3+3q^5+O(q^7)\). The leading unmatched coefficient is \(q^4-r^2=-q^2+o(q^2)\) in the second harmonic, and the contribution of every other harmonic together is \(o(q^2)\) in uniform norm. Both densities tend uniformly to one, so Taylor expansion of the divergence gives \(\tfrac12\int(H_t-P)^2\,d\mu\,(1+o(1))=q^4(1+o(1))\).
 
 ## Verification
-The independent executable arithmetic checks in `checker.py` numerically solve the scalar crossing, quadrature for \(c_*\) and \(K_*\), evaluate direct circle KL integrals and test both asymptotic regimes and angular/radial optimality in finite examples. The checker reports 92 passed diagnostics. These diagnostics are **finite numerical checks**, not proofs of global uniqueness or of asymptotic limits; the analytic derivations above supply those proofs.
+The included `checker.py` (Python, NumPy, SciPy) tests the scalar crossing and limiting constants, direct circle KL quadratures, and the two asymptotic regimes. The 92 recorded diagnostics are finite numerical checks, not proofs of global uniqueness or of any asymptotic limit.
 
-## Relationship to prior work
-Bailey's publicly deposited thesis treats wrapped normal and wrapped Cauchy models, and its Appendix C1 includes numerical grid comparisons under KL divergence for *mixtures* of wrapped normal distributions; its main theorem uses squared \(L^2\) discrepancy. The current claim is instead an exact globally unique **single wrapped-normal-to-wrapped-Cauchy forward-KL projection** with sharp small-time information-loss asymptotics. The later Bailey–Codling paper motivates comparison of wrapped models, while the Otani–Matsuda article treats circular distribution projections under Wasserstein loss and gives individual other-family KL expressions; none of the inspected passages states the current classification. The key novelty is not elementary Fourier expansion alone but its global monotonicity consequence and singular information-theoretic limit for all heat times.
-
-## Limitations
-Only forward KL and a centered unimodal circular heat source are treated. Results do not cover mixtures, reverse KL, alternate losses, or non-heat Fourier sequences. Numerical constants are approximate evaluations of analytic characterizations; publication-priority claims remain provisional because no literature search guarantees exhaustion. The available Bailey–Codling accepted journal text was not fully inspectable; the original publicly available thesis chapter and appendix were inspected directly. No independent external mathematical validation is claimed.
+## Relationship to prior work and limitations
+The claim concerns the unique forward-KL projection of a **single** wrapped normal onto the wrapped Cauchy family, with exact heat-time laws. It does not cover mixtures, reverse KL, other losses, or non-heat Fourier sequences. Bailey's thesis compares wrapped normal and wrapped Cauchy models for mixtures, mainly under squared \(L^2\) discrepancy and with numerical KL comparisons in Appendix C1. Bailey and Codling study the emergence of wrapped Cauchy structure in mixed directional models. Otani and Matsuda study circular projections under Wasserstein loss and give KL formulas for von Mises and wrapped Cauchy inputs. The [squared-\(L^2\) heat-to-Poisson calibration](https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-optimal-heat-to-poisson-calibration-on-the-circle-uniqueness-str--ef5e05ae5838/RESULT.md) uses the same families but a different loss; its small-time scale constant is about \(1.07774\), and its minimum squared error diverges rather than approaching a finite limit. No comprehensive priority claim is made.
 
 ## References
 - J. D. Bailey, *Modelling and Analysis of Individual Animal Movement*, University of Essex PhD thesis (public repository deposit 8 January 2020), chapter 6 and appendix C1. https://repository.essex.ac.uk/26383/1/Thesis_2%281%29.pdf
 - J. D. Bailey and E. A. Codling, *Emergence of the wrapped Cauchy distribution in mixed directional data* (2020). https://doi.org/10.1007/s10182-020-00380-7
 - J. González-Pérez, *Hölder classes via semigroups and Riesz transforms* (2022). https://doi.org/10.1007/s00209-022-02982-0
-- N. Otani and T. Matsuda, *Wasserstein projection estimators for circular distributions* (2026), especially the relative-entropy comparison in the appendix. https://link.springer.com/article/10.1007/s41884-026-00214-6
+- N. Otani and T. Matsuda, *Wasserstein projection estimators for circular distributions* (2026). https://link.springer.com/article/10.1007/s41884-026-00214-6

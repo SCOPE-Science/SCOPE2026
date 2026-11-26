@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact global modulus is obtained by (i) weighted PAVA and strict complementary active block inequalities, (ii) Hölder-sharp norms of local rank-one block averaging maps, and (iii) realization of every consecutive block in an open full-dimensional input chamber. A continuously piecewise-linear fit has no larger global Lipschitz modulus than its local Jacobians. Heterogeneous-weight strictness follows from equality in Hölder's inequality. For the contrast envelope, a one-coordinate derivative proves endpoint-weight maximality; optimizing the resulting single-variable function proves the unique asymptotic proportion and its closed-form constant. The 5,252 deterministic and seeded random finite tests corroborate the formulas without substituting for these proofs.
+## correctness
 
-**Originality — PASS within examined evidence.** The scalar block norm, Hölder inequality, the PAVA decomposition, and the Kantorovich factor are standard and are not claimed as new. The literature comparison addresses implications: Luss–Rosset give generalized isotonic KKT/block structure, Németh–Németh discuss order-preserving Hilbert regression, Kyng–Rao–Sachdeva give isotonic algorithms, and Yang–Barber establish the equal-weight contraction. None of their inspected main claims yields the sharp heterogeneous-weight global ordinary-\(\ell_p\) modulus for a *fixed quadratic objective* together with the exact \(n,p,\kappa\) sharp envelope. Closest published mathematical records concern *nonquadratic* \(\ell_p\)-objective isotonic projection or different convex targets. Search limitations and possible equivalent classical formulations are retained as priority risks.
+PASS
 
-**Value — PASS.** Reliability weights are intrinsic to heteroscedastic isotonic least squares, while stability is commonly measured in the unweighted data metric. The result precisely characterizes when such a fit ceases to be contractive, identifies which contiguous data groups govern its worst-case sensitivity, and gives optimal finite- and high-dimensional amplification under a natural weight-contrast budget. This is a complete parameter-dependent stability law, rather than an isolated routine block calculation or a recomputation of the scalar Kantorovich constant.
+Reconstructed RESULT.md (1)–(6) for a fixed positive diagonal quadratic objective and ordinary data/output ℓ_p norms. At each input, stationary variation of each strictly separated maximal fitted level gives its weighted average. The continuous fit is a selection of finitely many linear partition maps; restricted to a segment their affine traces can cross only at finitely many points except for identical traces. The slope bound thus gives the global upper bound. For any chosen block, strictly decreasing block data give strictly positive weighted prefix residual sums relative to the full mean; strictly increasing and separated outside coordinates give strict fitted gaps. The KKT conditions then realize that partition throughout a neighborhood. A Hölder extremizer attains the block operator norm there, including a maximum-weight coordinate at p=1 and the constant direction at p=∞. Singletons and n=1 give 1; every unequal adjacent pair gives strict amplification for finite p. For fixed block size, the derivative with respect to one weight has sign B t^(q−1)−A, so an endpoint maximizer exists; for p=1 the optimum has one maximal weight and the largest allowable block. For interior p the endpoint profiles reduce to the fraction r/k. The nested grids become dense, and the affine derivative sign gives the stated unique scalar maximizer and value. This also verifies the κ=1 cases in the finite formulas. The supplied floating-point witness and envelope script was inspected, not rerun; it is not a universal certificate.
 
-**Limits and outstanding risk.** This is not a theorem on arbitrary partial orders, nonquadratic loss functions, changing weights, or continuum chains. The proof is analytical, while the checker is finite. A historical result phrased as weighted averaging-projection stability or active-set sensitivity could cover some or all conclusions; no independent historical-priority or mathematical audit has been completed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct supported claim is the exact heterogeneous fixed-objective global sensitivity and its sharp finite contrast envelope. Block means and scalar reverse-Hölder/Kantorovich bounds are not new. The strongest inspected sources do not yield the matching upper bound and all-block realization for this fixed heterogeneous map in ordinary ℓ_p, or its discrete contrast envelope; the argument uses both facts. This is a best-of-knowledge comparison, not a claim of priority for the scalar limit in isolation.
+
+## value
+
+PASS
+
+The exact finite modulus directly quantifies how heteroscedastic objective weights can amplify an ordinary data perturbation despite Hilbert-space nonexpansiveness in the weighted norm. It identifies realizable worst blocks, separates ℓ∞ from all finite p, and gives sharp finite-size design bounds from contrast alone rather than only a norm-equivalence bound or an asymptotic inequality. The finite fraction restriction can change the exact guarantee.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

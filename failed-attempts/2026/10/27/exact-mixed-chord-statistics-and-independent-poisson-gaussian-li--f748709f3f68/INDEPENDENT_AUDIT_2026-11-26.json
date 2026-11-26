@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:39:45.153272Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Expanding z^S over selected short bonds counts each forced nonoverlapping r-set once. Removing its endpoints cannot erase any crossing, and order-preserving relabeling preserves the rest. Shifting sorted left endpoints by 0,...,r-1 gives the path coefficient binom(2n-r,r). Differentiating gives the exact factorial identity including n=0 and r=0. The r=1 identity and uniform single-chord deletion give the stochastic comparison, hence every nondecreasing f has nonpositive covariance. The short-count variance is 2(n-1)/(2n-1). Independently, generate the matching by ranking two independent uniform endpoints for each of n labeled chords. A crossing pair has probability 1/3, the conditional crossing probability given one interval of length l is 2l(1-l), and its variance is 1/45; incident pairs yield the stated crossing variance, disjoint pairs covariance zero. These moments give the covariance and correlation as claimed. The same rank model expresses C_n as a second-order U-statistic with nonzero first projection, giving the marginal Gaussian CLT (also Flajolet–Noy Theorem 3). Fixed-r deletion changes the centering by O(n) and the standard deviation ratio by o(1). Sequential forced-bond counting gives a_{n,r}<=1 and each fixed-r factor tends to one. In the mixed transform use z=exp(is): the same factorial expansion is absolutely dominated by 2^r/r!, so the joint characteristic functions converge to the product by the continuity theorem. Inspected VERIFICATION.md and verify.py without executing frozen code. Independent bounded replay: python3 /workspace/independent_checks.py checks 238 binomial moment/crossing cells for n=0..6 plus moments and threshold inequalities; it is not evidence of joint convergence by itself.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Resultary 30537820a0d6 has exact circular adjacency deletion and joint decoupling for a vector of fixed short-length counts, including the cyclic adjacency count.",
+          "Marmor Corollary 5.11 treats a fixed intersection graph up to isomorphism; the following examples include exactly k intersecting pairs.",
+          "Flajolet–Noy prove the crossing CLT; Paguyo proves two separate quantitative marginal statements with circular adjacency."
+        ],
+        "reasoning": "The cyclic and linear adjacency counts differ by the indicator of a single edge of probability 1/(2n-1), so every cyclic joint weak limit for the pair is shared by the linear pair. Separate published marginal CLTs are not used as evidence of independence. Marmor's graph formulation shows the natural scope of deletion, since a forced adjacent chord is an isolated vertex of the intersection graph.",
+        "searches": [
+          "Local Resultary: local-chord and global-crossing Gaussian–Poisson decoupling for fixed short lengths",
+          "arXiv:2104.01134 Theorems 1.1–1.2; Flajolet–Noy Theorem 3; arXiv:2307.09894 Section 5.2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 0749abe76974",
+        "Resultary 11c68f2d68b4",
+        "Resultary 30537820a0d6",
+        "arXiv:2307.09894",
+        "Flajolet–Noy RR-3914",
+        "arXiv:2104.01134"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior circular transfer converted to the line gives E[S_n f(C_n)]=E[f(C_{n-1})] and E S_n=1. Marmor's forced-edge completion argument applies to each crossing-count slice because forced arcs have no crossings.",
+          "Uniform deletion of a chord leaves a uniform relabeled matching and can only decrease the crossing count."
+        ],
+        "reasoning": "The covariance is therefore an expectation difference ordered by the elementary deletion coupling. In the linear setting even C_n itself differs after deletion by exactly the number of crossings incident to the deleted chord. The universal monotonicity formulation, though not printed in the compared indexed statements, needs no separate structural theorem. The exact numeric correlation follows from the transfer and the known crossing variance.",
+        "searches": [
+          "October 18 indexed proofs and the r=1 mixed transfer; arXiv:2307.09894 Section 4.1 and Corollary 5.11"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 0749abe76974 and 11c68f2d68b4 give a crossing-refined polynomial in the cyclic adjacency statistic and its factorial transfer.",
+          "Marmor Section 4.1 counts completions after forcing a sparse set of linear short chords; Corollary 5.11 and examples include the exact number of intersecting pairs."
+        ],
+        "reasoning": "If A_n and L_n are the unnormalized cyclic and linear enumerators, partition by the wrap edge to get A_n=L_n+(z-1)L_{n-1} for n>=2; the wrap chord itself never crosses and the remaining statistic in the correction term is linear. Start with L_0=1, L_1=z. Subtracting binom(2n-r-1,r-1) from the earlier cyclic coefficient 2n/(2n-r)*binom(2n-r,r) gives binom(2n-r,r), with the r=0 subtraction absent. This proves the exact linear law by induction, not just an asymptotic analogy. Its factorial version follows by differentiating.",
+        "searches": [
+          "Local Resultary: mixed factorial short-chord and crossing deletion identity; linear and cyclic short-chord joint laws",
+          "Marmor arXiv:2307.09894, Theorem 1.8, Section 4.1 and Corollary 5.11"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Distinct October 18 Results 0749abe76974 and 11c68f2d68b4 supply exact complete symbolic joint enumerators and factorial laws, not merely sample values.",
+          "A later circular law may independently restate these statistics; no later timestamp is used as evidence of earlier coverage."
+        ],
+        "reasoning": "The adjacency conversion is exact coefficient by coefficient, so these indexed formulas cover the full joint table for each n and therefore all mixed moments, even though the indexed variable initially marks the wrap edge as well.",
+        "searches": [
+          "Local Resultary: exact joint crossing and short/simple chord enumerators and independent limit, matched by transfer statement"
+        ]
+      },
+      "rationale": "The two earlier October 18 indexed records give the cyclic factorial transfer and joint independent limit. Removing the single wrap adjacency converts their full finite enumerator to the frozen linear one exactly, and the wrap-edge probability vanishes asymptotically. The sign claim for all increasing f is an immediate deletion coupling after the resulting r=1 identity. Marmor also explicitly uses the same linear forced-short-edge argument and treats the fixed-crossing family, though he does not state the entire frozen package verbatim.",
+      "residual_risks": [
+        "The exact text of indexed one-chord Palm record 6cd88475e150 was unavailable locally, so its summary is not used as evidence of coverage. Broad historical priority is not inferred; the previously indexed full circular statements already suffice for the mathematical comparison."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material prior coverage via explicit linear/circular conversion",
+          "evidence": [
+            "Circular mixed factorial transfer, wrap adjacency included, and joint Poisson/Gaussian independence"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-exact-short-chord-crossing-transfer-and-independent-poisson-gaus--0749abe76974/RESULT.md",
+          "material_read": "Finding and proof passages (RESULT.md from offset 0)",
+          "method": "Configured Resultary search and local mirror",
+          "title": "Exact short-chord/crossing transfer and independent Poisson–Gaussian limits",
+          "trigger": "Same exact mixed law and joint limit, with potentially different adjacency convention"
+        },
+        {
+          "assessment": "Second prior overlapping circular law",
+          "evidence": [
+            "Bivariate enumeration, mixed deletion and independent limit for cyclic adjacency"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-exact-joint-crossing-and-simple-chord-laws-for-uniform-chord-dia--11c68f2d68b4/RESULT.md",
+          "material_read": "Finding and proof passages (RESULT.md from offset 0)",
+          "method": "Configured Resultary search and local mirror",
+          "title": "Exact joint crossing and simple-chord laws for uniform chord diagrams",
+          "trigger": "Complete symbolic enumerator and related exact moments"
+        },
+        {
+          "assessment": "Broader joint result includes the cyclic adjacency marginal and hence the linear joint limit",
+          "evidence": [
+            "Fixed short-length vector independence and conditional normality; exact circular adjacency deletion"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-gaussian-poisson-decoupling-for-local-chords-and-global-crossing--30537820a0d6/RESULT.md",
+          "material_read": "Finding and proof passages (RESULT.md from offset 0)",
+          "method": "Configured Resultary search and local mirror",
+          "title": "Gaussian–Poisson decoupling for local chords and global crossings",
+          "trigger": "Potentially stronger result for more than one local statistic"
+        },
+        {
+          "assessment": "Published sparse-forcing deletion argument and fixed-crossing family; no verbatim joint limiting claim in the inspected passages",
+          "evidence": [
+            "Section 4.1 counts matchings containing a specified sparse set of linear short chords by restricting to the remaining sites; Corollary 5.11 examples explicitly include exactly k intersecting pairs, unlike Theorem 1.6 alone"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2307.09894",
+          "material_read": "Theorems 1.6 and 1.8 (offsets 11843 and 12520); Section 4.1 p. 12 (42173); Section 5.2 pp. 21–22, Corollary 5.11 and examples (76750)",
+          "method": "Lawful arXiv PDF, exact OA passage lookup and reading",
+          "title": "Schur-Positivity of Short Chords in Matchings",
+          "trigger": "Linear short chords on prescribed crossing-pair families and possible prior deletion proof"
+        },
+        {
+          "assessment": "Matches the marginal crossing input, not evidence of the joint law",
+          "evidence": [
+            "Crossing mean, variance and Gaussian limit"
+          ],
+          "identifier_or_url": "https://algo.inria.fr/flajolet/Publications/FlNo00.pdf",
+          "material_read": "Theorem 3 p. 10",
+          "method": "Lawful OA primary PDF passage",
+          "title": "Analytic Combinatorics of Chord Diagrams",
+          "trigger": "Published marginal crossing theorem used in the proof"
+        },
+        {
+          "assessment": "Separate marginal quantitative limits; circular adjacency convention",
+          "evidence": [
+            "Simple chords defined modulo 2n; separate crossing-normal and simple-chord-Poisson theorems"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2104.01134",
+          "material_read": "Definition of simple chords p. 2, Theorems 1.1–1.2 p. 3",
+          "method": "Lawful OA primary PDF passage",
+          "title": "Convergence rates of limit theorems in random chord diagrams",
+          "trigger": "Published normal and Poisson chord-diagram limits"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The mixed law and joint decoupling would be worthwhile for understanding local versus global chord statistics, but those statements are already available and the linear convention removes only one edge with a direct exact conversion. The added monotone test-function wording is a routine consequence of that transfer and single-chord deletion, rather than a distinct useful unresolved statement.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

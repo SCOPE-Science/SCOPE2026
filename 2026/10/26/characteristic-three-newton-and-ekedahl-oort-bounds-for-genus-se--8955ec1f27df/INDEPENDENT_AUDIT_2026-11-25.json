@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T23:33:20.668850Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md Proof §§1–5, especially lines 61–80; verify.py lines 47–50, 58–71 and 81–110; VERIFICATION.md. The uploaded program was inspected, not executed.",
+        "Achter–Howe arXiv:1710.10726, §§2, 3.1 and 4.2; independent derivation of the Cartier square and exact counterexample.",
+        "Corrected files /workspace/repairs/5/RESULT.md, VERIFICATION.md and verify.py; python3 /workspace/repairs/5/verify.py ran and printed CARTIER_WITNESSES_OK."
+      ],
+      "rationale": "The frozen proof and certificate fail at a material claimed witness. For M=(c_{3i-j}) on columns, Cartier is v ↦ M^(1/3)v^(1/3), so the rank of its square is the rank of M^(3)M, not MM^(3). The frozen rank-zero witness (3,19,25) has M=[[1+α+α²,2+α+α²],[1,-α²]], α³=α+1. Its determinant is zero, but the bottom-left entry of M^(3)M is 2α, so its genus-two rank is one. The original verifier and a separate attempted reproduction used the reversed product and cannot certify that witness. In the delivered replacement the two nonordinary witnesses are squarefree x⁵+1 and x⁵+x⁴+2, with square-zero and idempotent Cartier matrices of rank one respectively. Their h=0 follows from the harmonic determinant −(u−v)². For h>0 the disjoint complementary pairs give h≤3, and the three explicit configurations over F9 or F27 realize h=1,2,3 with ordinary residual quotient. Ordinary h=0 is a nonempty open intersection in the irreducible normalized chart, hence has a point over a finite extension of F3. A prime-to-three pullback isogeny from the fifteen elliptic and one genus-two factors preserves the group-scheme invariants. The monic quintic matrix is never zero, giving a=1 in each nonordinary genus-two case. Symmetry and slope denominators in dimension two force the remaining slopes to be 1/2. The repaired result proves the six stated profiles and all consequences without the erroneous census or witness.",
+      "residual_risks": [
+        "The replacement no longer asserts the frozen F9/F27 profile histograms. Its bounded script certifies the two quintics and the twist-order regression, not the universal theorem.",
+        "The result is about the stated smooth marked type-(2,5) family and the three listed invariants, not a classification of full Ekedahl–Oort types, integral polarizations or curve isomorphism classes."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general decomposition identifies the fifteen elliptic and one genus-two factors over the complex numbers; tame Kummer theory transfers the pattern, not the arithmetic constraints.",
+          "Howe treats the genus-two supersingular locus over characteristic three, not its branch configuration relative to all fifteen elliptic tests.",
+          "The seven-point theorem determines the Jacobian at its extremal configuration; its checked arguments do not determine all six-point attainable profiles."
+        ],
+        "reasoning": "A broader family and existing factor criteria are structural inputs. Neither supplies the simultaneous attainments, in particular the three h=0 profiles and the whole list of attainable six-set profiles.",
+        "searches": [
+          "Carvacho–Hidalgo–Quispe arXiv:1507.02903 §5.3",
+          "Hidalgo et al. arXiv:1409.3063 Introduction",
+          "Howe arXiv:math/0604413 §2",
+          "Resultary 03d5bb86279a Finding and genus-two quotient calculation"
+        ]
+      },
+      "checked_sources": [
+        "Resultary records 03d5bb86279a and 1aa3bc7c8850 (mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4)",
+        "arXiv:1507.02903 §5.3; arXiv:1409.3063 Introduction",
+        "arXiv:math/0604413 §2; arXiv:1710.10726 §§2 and 4.2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The determinant mechanically excludes all nonordinary h>0 cases; the known decomposition then makes the formulas for invariants conditional on (h,r) immediate.",
+          "The repaired proof also gives distinct constructions with exactly one, two and three harmonic quartets, proves two nonordinary h=0 possibilities with corrected witnesses, and establishes ordinary h=0 by intersecting nonempty opens."
+        ],
+        "reasoning": "The checked antecedents do not give the full list simply by specializing a theorem or subtracting a known table. Determining simultaneous attainability is the distinct claim, and the repair does not assert the determinant or conditional formulas as separate new results.",
+        "searches": [
+          "Resultary 03d5bb86279a determinant passage; Carvacho–Hidalgo–Quispe §5.3; Howe Theorem 2.1 and §2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "03d5bb86279a gives the same characteristic-three harmonic criterion and, for six-subsets of its extremal seven-set, precisely the determinant −(u−v)² for (x³−x)(x−u)(x−v).",
+          "1aa3bc7c8850 concerns the exact same six-branch cover but in characteristic five, with h≤4 and r=2 for h≥3, not the characteristic-three profiles."
+        ],
+        "reasoning": "The determinant identity is independent of the extremal-set restriction and mechanically gives the compatibility lemma for all six-sets. It is not a distinct contribution of the repair. The differently characterized six-set rank/a-number occurrences are not equivalent to the seven-set extremal assertion or to the characteristic-five theorem.",
+        "searches": [
+          "Resultary: six point branch configuration characteristic 3 harmonic four subsets complementary pairs h=0,1,2,3 genus two ordinary generalized Fermat Humbert Edge genus 17 3-rank 14 15 16 17 a-number full profile classification (h,r)",
+          "Resultary 03d5bb86279a, seven-point harmonic extremum",
+          "Resultary 1aa3bc7c8850, genus-17 Humbert–Edge rank floor"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest inspected same-characteristic Resultary Finding gives only an extremal genus-49 Jacobian with f3=44,a=5; the same-genus Finding gives a characteristic-five bound. Howe's genus-two data do not supply the joint six-set table."
+        ],
+        "reasoning": "No exact six-profile table of this normalized family was identified. A genus-two table ignoring all four-subsets or a fixed seven-point deletion locus is not such a table.",
+        "searches": [
+          "Resultary ranked search of the exact six-branch, characteristic-three rank/a-number claim",
+          "Resultary 03d5bb86279a and 1aa3bc7c8850 Findings",
+          "Howe arXiv:math/0604413 §2"
+        ]
+      },
+      "rationale": "The surviving claim is the attainable joint six-profile classification for arbitrary six distinct branch points in characteristic three, not novelty of the compatibility determinant or decomposition. Exact statement-level overlap on that determinant was found in a seven-point genus-49 paper and is now credited. The strongest inspected sources do not supply the six-point profile attainment and full joint rank/a-number spectrum.",
+      "residual_risks": [
+        "An equivalent full six-point classification could occur under other moduli or level-two terminology. The focused search is not a proof of historical priority.",
+        "The compatibility lemma is covered and explicitly excluded from the distinct originality claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Definite overlap on the compatibility calculation, not coverage of the whole six-set classification",
+          "evidence": "For every six-subset of the extremal seven-set, it normalizes a harmonic quartet, gives exactly the same quintic and computes det=−(u−v)². The argument contains no additional dependence on the ambient seventh point.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-a-rigid-seven-point-harmonic-extremum-and-its-genus-forty-nine-j--03d5bb86279a/RESULT.md",
+          "material_read": "Finding and determinant passage, mirrored offsets 0–1622 and 5830–7080",
+          "method": "Resultary local search and direct mirror inspection",
+          "title": "A rigid seven-point harmonic extremum and its genus-forty-nine Jacobian in characteristic three",
+          "trigger": "Same characteristic, harmonic-quartet geometry and six-point genus-two quotients"
+        },
+        {
+          "assessment": "Closely analogous in a different characteristic, not a covering theorem",
+          "evidence": "Characteristic 5, h≤4, ordinarity for h≥3 and f5≥13; the geometric exceptional profile differs.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-sharp-5-rank-floor-and-equianharmonic-rigidity-for-genus-17-humb--1aa3bc7c8850/RESULT.md",
+          "material_read": "Finding and scope, mirrored offsets 0–1850",
+          "method": "Resultary local search and direct mirror inspection",
+          "title": "Sharp 5-rank floor and equianharmonic rigidity for genus-17 Humbert–Edge curves",
+          "trigger": "Same six-branch family and elliptic/genus-two compatibility"
+        },
+        {
+          "assessment": "Covers the factor pattern, not the characteristic-three classification",
+          "evidence": "Gives fifteen elliptic factors and the genus-two quintic over the complex numbers.",
+          "identifier_or_url": "https://arxiv.org/html/1507.02903",
+          "material_read": "§5.3 and Theorem 5.3, OA offset 69350",
+          "method": "Direct OA full-text passage",
+          "title": "Isogenous decomposition of the Jacobian of generalized Fermat curves",
+          "trigger": "Same genus and branch family"
+        },
+        {
+          "assessment": "Genus-two antecedent, not joint profile coverage; the printed product order must not be used with the frozen column matrix",
+          "evidence": "Theorem 2.1 gives an Igusa-invariant criterion and supersingular sextic normal form. The printed MM^(3) criterion invokes Yui Lemma E, whose semilinear error is documented by Achter–Howe. The replacement does not rely on this criterion.",
+          "identifier_or_url": "https://arxiv.org/html/math/0604413",
+          "material_read": "Theorem 2.1 and §2, OA offsets 4798 and 8350–10849",
+          "method": "Direct OA full-text passage",
+          "title": "Supersingular genus-two curves over fields of characteristic three",
+          "trigger": "Prior genus-two supersingularity classification and cited iterate convention"
+        },
+        {
+          "assessment": "Supports the distinction of twists and the corrected matrix test; not a classification of this family",
+          "evidence": "The iterate involves the twist appropriate to the operator; for Cartier this is inverse Frobenius. §4.2 points out that Yui's Lemma E incorrectly imports a Frobenius twist and misses the required transpose.",
+          "identifier_or_url": "https://arxiv.org/html/1710.10726",
+          "material_read": "Iterate formula near offset 12375 and §4.2 near offsets 33700–35100",
+          "method": "Direct OA full-text passage",
+          "title": "Hasse–Witt and Cartier–Manin matrices: a warning and a request",
+          "trigger": "A conflicting Cartier product order changes stable rank"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Corrected RESULT.md, Finding and Attainment; comparison with Resultary 03d5bb86279a and Carvacho–Hidalgo–Quispe §5.3."
+      ],
+      "rationale": "The corrected classification determines all simultaneous ordinary/supersingular elliptic counts and residual genus-two ranks in a natural three-parameter family. In particular two geometrically different group-scheme invariants occur at the same Jacobian rank and Newton polygon: (f,a)=(15,1) and (15,2). A factorization and an extremal example do not by themselves distinguish which such pairs are actually realized.",
+      "residual_risks": [
+        "This is an attainable-profile classification, not a count of the members of each profile or a full moduli stratification by polarized group scheme."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

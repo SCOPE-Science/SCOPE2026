@@ -1,0 +1,155 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:35:55.558806Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 55–192",
+        "Frozen VERIFICATION.md, artifacts/certificate.json, and artifacts/verify.py (inspected; attached code targets even lengths 4–20)",
+        "Araya–Harada, DOI 10.1007/s40314-026-03875-2, §§2.1–2.3 and 4.6",
+        "Independent F₄ Gram and n=4 orbit check"
+      ],
+      "rationale": "Dual distance at least 2 excludes exactly the zero columns. An admissible generator's projective column multiplicities give its class up to the projective-linear permutations: row operations give the projective action, and coordinate scaling and permutation account for column representatives and ordering. Hermitian Cauchy–Binet evaluates the Gram determinant as ∑_{i<j}m_i m_j modulo 2, because a pair from different projective classes contributes the norm 1 and a pair from the same class contributes zero. With t odd entries, the result is binom(t,2) modulo 2; among t=0,…,5 it is nonzero only at t=2,3, the even- and odd-length cases respectively. Nonsingularity also gives rank two. Flipping entries by +1 for even and −1 for odd entries is nonnegative, changes the length n to n+1, and maps parity weight 2 to 3. The odd side has d=(n+1)−max m′; d=1 would force multiplicities (n,1,0,0,0) up to order, of parity weight 1. The same update reverses the map and commutes with every projective permutation, proving the bijection on classes. The source convention 1≤k≤n−1 gives even n≥4 here. Independent arithmetic checked all 32 parity patterns and the 60 projective permutations, with a direct n=4 to 5 test of 50 admissible vectors and two orbits on each side. The supplied finite verifier was examined, not executed.",
+      "residual_risks": [
+        "The finite replay is corroborative only. Classes are monomial-equivalence classes and the result is for the dimension-two identity only, not the companion dimension-three problem."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The prior papers supply the multiplicity framework and classify codes under optimal/fixed-distance restrictions. The earlier Araya–Harada recurrence subtracts 1 uniformly between certain lengths differing by 5. The Resultary automorphism-order result concerns four particular infinite optimal classes."
+        ],
+        "reasoning": "An optimal or fixed-distance classification, or the earlier uniform length-five update, does not relate all admissible length-n and length-(n+1) monomial classes as required.",
+        "searches": [
+          "Araya–Harada arXiv:2011.04139 §5.3 (submitted version of DOI 10.1007/s12095-021-00552-5)",
+          "Ishizuka DOI 10.13069/jacodesmath.790748, Proposition 2.2 and Theorem 3.3",
+          "Resultary quaternary Hermitian LCD classifications and automorphism orders, including 6a5b2423e895"
+        ]
+      },
+      "checked_sources": [
+        "Araya–Harada DOI 10.1007/s40314-026-03875-2",
+        "Araya–Harada arXiv:2011.04139",
+        "Ishizuka DOI 10.13069/jacodesmath.790748",
+        "Resultary mirror identifiers 16b6c193aece, 6a5b2423e895 and c2ab438c2c3e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The existing multiplicity representation applies, but the asserted map changes each entry according to its own parity and preserves admissibility between the two lengths. None of the checked classifications states that operation or an equivalent arbitrary-length orbit count equality."
+        ],
+        "reasoning": "Using a known parametrization does not solve the source's explicitly open identity: the determinant reduction and a parity-dependent change are what make the correspondence work uniformly in n.",
+        "searches": [
+          "Araya–Harada 2026 §§2.1–2.3 and 4.6",
+          "Araya–Harada 2022 submitted version §5.3",
+          "Ishizuka Proposition 2.2 and Theorem 3.3",
+          "Resultary near-hit statement comparisons"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary paper asks the exact identity for dimension two. The ACD result 16b6c193aece is about additive codes of cardinality two over I₂, and c2ab438c2c3e treats a permutation-orbit split, not the odd entries of a multiplicity vector."
+        ],
+        "reasoning": "The objects, equivalence, parity and two lengths must all match. The catalogue candidates do not express the required equinumerosity or a proof of it.",
+        "searches": [
+          "Resultary parity-count and rank-two quaternary-code formulations, including candidate 16b6c193aece and c2ab438c2c3e",
+          "Araya–Harada DOI 10.1007/s40314-026-03875-2 §4.6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact class tables cover n=13 through 70. For n=14 the two left counts are 1 and 43; the n=15 right count is 44. The authors still pose the all-even-length identity in §4.6."
+        ],
+        "reasoning": "These entries cover finite instances of the invariant, but neither exhaust the lengths in the reviewed theorem nor give an equivariant bijection.",
+        "searches": [
+          "Araya–Harada DOI 10.1007/s40314-026-03875-2, dimension-two Tables 5–6, pp. 18–19"
+        ]
+      },
+      "rationale": "The primary paper explicitly poses this exact all-even-length question. Its projective multiplicities and finite counts are prior; the supported new part is the parity involution proving the first identity on the stated equivalence classes for all even n≥4. No prior statement or implication supplying that involution or the resulting general identity was found in the checked sources.",
+      "residual_risks": [
+        "The reviewed primary literature and catalogue checks are bounded. An independently discovered or differently phrased solution outside these sources is not ruled out."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Poses the exact identity; finite counts and multiplicity setup do not settle it",
+          "evidence": [
+            "Equivalence is monomial over F₄. The first of two displayed questions is this dimension-two even-length identity."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s40314-026-03875-2",
+          "material_read": "§§2.1–2.3 pp. 3–4 (offset 6450), Tables 5–6 pp. 18–19 (offset 54934), §4.6 p. 20 (offset 62700), §4.8.1 pp. 22–23 (offset 67500)",
+          "method": "Bounded OA PDF passage reads",
+          "title": "On the classification of quaternary Hermitian LCD codes",
+          "trigger": "Exact primary question and equivalence convention"
+        },
+        {
+          "assessment": "Multiplicity and length-reduction precedent; no reviewed parity bijection or identity",
+          "evidence": [
+            "The recurrence subtracts 1 from every entry across a length difference of 5 in certain fixed-distance cases."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2011.04139 (DOI 10.1007/s12095-021-00552-5)",
+          "material_read": "OA submitted version §5.3 pp. 14–15, offsets 34600 and 37100; 2026 paper's cited correction in §4.8.1",
+          "method": "Bounded lawful OA version after publisher-link failure, with later correction cross-check",
+          "title": "On the classification of quaternary optimal Hermitian LCD codes",
+          "trigger": "Earlier same authors and projective-multiplicity classification"
+        },
+        {
+          "assessment": "Optimal-code coverage, not the full dual-distance-constrained orbit sets here",
+          "evidence": [
+            "Classifies optimal codes by lengths modulo 5."
+          ],
+          "identifier_or_url": "https://doi.org/10.13069/jacodesmath.790748",
+          "material_read": "Journal PDF p. 2, Proposition 2.2 and multiplicity setup, offset 5600; p. 6, Theorem 3.3, offset 21800",
+          "method": "Bounded journal PDF passage reads",
+          "title": "Classification of optimal quaternary Hermitian LCD codes of dimension 2",
+          "trigger": "Earlier matching dimension and field"
+        },
+        {
+          "assessment": "Different algebraic objects, distance conditions and equivalence",
+          "evidence": [
+            "Additive ACD codes of cardinality two, parity n_a+n_c odd, coordinate-permutation classes."
+          ],
+          "identifier_or_url": "Resultary SCOPE-16b6c193aece",
+          "material_read": "Local mirror RESULT.md, claim and class setup",
+          "method": "Local Resultary mirror statement comparison",
+          "title": "All-length classification of cardinality-two ACD codes over I₂",
+          "trigger": "Nearest all-length parity/class-count match, dated the same day"
+        },
+        {
+          "assessment": "Different invariant and restricted families",
+          "evidence": [
+            "Automorphism orders of four [5s+3,2,4s+1]₄ classes, not a count identity."
+          ],
+          "identifier_or_url": "Resultary SCOPE-6a5b2423e895",
+          "material_read": "Local mirror RESULT.md, finding",
+          "method": "Local Resultary mirror statement comparison",
+          "title": "Closed automorphism orders for four infinite quaternary Hermitian LCD code families",
+          "trigger": "Same source classification and dimension"
+        },
+        {
+          "assessment": "Different parity invariant and problem",
+          "evidence": [
+            "One-versus-two monomial classes for isospectral codes with distinct weights; no Hermitian LCD cross-length identity."
+          ],
+          "identifier_or_url": "Resultary SCOPE-c2ab438c2c3e",
+          "material_read": "Local mirror RESULT.md, finding",
+          "method": "Local Resultary mirror statement comparison",
+          "title": "The parity split in quaternary rank-two code distortion",
+          "trigger": "Same projective directions, rank two and parity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Araya–Harada §4.6 and Tables 5–6",
+        "Frozen RESULT.md lines 87–192"
+      ],
+      "rationale": "This closes an explicitly posed classification question for all even lengths in scope. An involution on projective multiplicities explains the count equality and yields matching equivalence classes, rather than simply extending the finite tables.",
+      "residual_risks": [
+        "No resolution of the separate dimension-three question, and no claim that the determinant parity rule generalizes to other fields or dimensions."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

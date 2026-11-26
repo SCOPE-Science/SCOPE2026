@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:17:46.871955Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 29–117",
+        "VERIFICATION.md",
+        "verify.py inspected; not executed",
+        "/workspace/branches/frozen_exact_checks.py"
+      ],
+      "rationale": "The planar first-moment Steiner formula and coarea give qG'=(L+2πt)(H(t)−G(t)). Resolving the numerator of G' along H−G and S−H yields two positive coefficients whose ratio increases strictly from zero to infinity; the exact criterion is that the two nonzero vectors oppose. This handles permanent coincidence, equality of just two centers, and reversal at the unique positive root. For a scalene triangle strict concavity of sine gives noncollinearity via the three angle/side pairs; for an isosceles triangle the perimeter apex weight lies between the other two, as follows from the signs of the strictly concave comparison function across π/3. For a trapezoid, independent chord, side-midpoint and turning-angle expressions put H=G strictly above S at h0: arcsin(z)/z<π/3 for 0<z<1/2. Continuity and the sign of 2s−√(d²+h²) give the stated one-sided interval and strict axial maximum. The derivative of H_y−G_y at h0 is −d h0²/(36s³); the ratio in the stationary equation is 2πt/L+O(t²). These give exactly the stated positive slope. The rational enclosures for the witness certify the needed strict signs. Independent replay: python3 /workspace/branches/frozen_exact_checks.py 4; it verified the differentiated identity and height derivative and returned 10.82830409446180928 for the witness radius.",
+      "residual_risks": [
+        "The review does not establish a global height-phase diagram. The rational enclosures, not the numerical replay, certify the witness signs. The witness has reflection symmetry but is not centrally symmetric."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The vector polynomial is valid for arbitrary convex bodies; the frustum theorem covers static equality in all its dimensions, including d=2; the centroid-separation theorem bounds the static distance."
+        ],
+        "reasoning": "The general polynomial supplies a criterion after differentiation. Static distance bounds and the frustum theorem do not decide the Steiner point's relative height or the onset of a positive offset root.",
+        "searches": [
+          "arXiv:2106.04819v1",
+          "arXiv:2611.11635v1",
+          "Resultary 2026/11/17/SCOPE-a-universal-axial-surface-volume-centroid-transition-for-tangent--5920fe6f6170"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 7220229bf166, 5920fe6f6170 and 2e8d7804c4f7",
+        "arXiv:2106.04819v1",
+        "arXiv:2611.11635v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Differentiating (8)–(9) gives the one-radius criterion. Taking r=a/b in the frustum theorem supplies H=G at h0. The additional strict sign H>S requires the turning-angle computation and the arcsin inequality."
+        ],
+        "reasoning": "Without the strict Steiner sign, the static crossing theorem alone supplies neither the nearby side with t*>0 nor its finite positive slope. These are proved for every stated unequal base ratio, not a substitution in the static formula.",
+        "searches": [
+          "Gollapudi et al. arXiv:2106.04819v1 eqs. (8)–(9)",
+          "Resultary 5920fe6f6170 and 7220229bf166"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A boundary/bulk coincidence of positive radius is exactly a stationary point of the inherited curvature-centroid path. The triangle record already gives the required monotonic/nonstraight triangle cases."
+        ],
+        "reasoning": "The path formulation is equivalent, not a novelty escape. The prior triangle statement is part of the minimality proof, but its all-body dichotomy into curved and collinear paths does not identify the positive stationary trapezoid branch.",
+        "searches": [
+          "Resultary 2026/10/25/SCOPE-hyperbolic-curvature-paths-and-quantitative-triangle-rigidity--7220229bf166",
+          "arXiv:2106.04819v1 §5.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The assigned record itself was returned. The November 17 planar specialization has h2(r)=√((r+3)(3r+1)); a separate November 22 disk-displacement result concerns static smooth perturbations of a disk."
+        ],
+        "reasoning": "The tabulated/static h2 is exactly h0/b, so is already covered; it is not a table of positive rounding radii or birth slopes. The assigned record is not independent coverage.",
+        "searches": [
+          "Resultary: curvature paths, planar frustum centroid transition and positive parallel-body coincidences"
+        ]
+      },
+      "rationale": "Credit existing coverage of the centroid polynomial, the triangle obstruction and the exact static height; the general stationary criterion is an elementary implication of the polynomial, not a separate original theorem. The distinct contribution is the positive-radius onset for every unequal base ratio, the resulting sharp quadrilateral threshold, and the explicit onset law; the strongest inspected statements do not establish the decisive height-dependent comparison with the Steiner centroid or these consequences.",
+      "residual_risks": [
+        "Bounded literature coverage cannot exclude a historical treatment of reversal of rounded trapezoids; the scoped originality does not extend to the inherited results."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the polynomial and supplies the general stationarity criterion by differentiation.",
+          "evidence": [
+            "Parallel-body centroid as the normalized sum of curvature-centroid coefficients; the endpoint is the Steiner point."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2106.04819v1",
+          "material_read": "§5.1, PDF p. 13, eqs. (8)–(9), OA offset 53100",
+          "method": "OA PDF passage",
+          "title": "Contextual Recommendations and Low-Regret Cutting-Plane Algorithms",
+          "trigger": "General curvature-centroid formula"
+        },
+        {
+          "assessment": "Directly covers the triangle cases and the curved/collinear dichotomy.",
+          "evidence": [
+            "Non-equilateral isosceles triangles have monotone straight paths; scalene triangles have noncollinear centers."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-hyperbolic-curvature-paths-and-quantitative-triangle-rigidity--7220229bf166",
+          "material_read": "RESULT.md Finding, proof §§1, 3, 5; local offsets 0–5802 and 5700–9536",
+          "method": "Resultary and local mirror",
+          "title": "Hyperbolic curvature paths and quantitative triangle rigidity",
+          "trigger": "Same path and minimum-vertex obstruction"
+        },
+        {
+          "assessment": "Covers the exact static height, not the positive-radius branch.",
+          "evidence": [
+            "Full boundary includes both caps; d=2 gives h2(r)=√((r+3)(3r+1)), with r=a/b and units b."
+          ],
+          "identifier_or_url": "2026/11/17/SCOPE-a-universal-axial-surface-volume-centroid-transition-for-tangent--5920fe6f6170",
+          "material_read": "RESULT.md Finding and proof §3, local offsets 0–5948",
+          "method": "Resultary and local mirror",
+          "title": "A universal axial surface–volume centroid transition for tangential frusta",
+          "trigger": "Identical unrounded critical height"
+        },
+        {
+          "assessment": "The inspected bound is static, not about varying outer parallel bodies.",
+          "evidence": [
+            "Bounds separation for a single convex body rather than locating zeroes along a parallel family."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2611.11635v1",
+          "material_read": "Main bound on PDF p. 1, OA offset 0",
+          "method": "Focused literature search and OA PDF passage",
+          "title": "The sharp bound on the distance between the centers of mass of a convex body and its boundary",
+          "trigger": "Same two centroids"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding and proof §§3–5",
+        "Frustum and curvature-path comparisons above"
+      ],
+      "rationale": "This identifies the first polygonal complexity permitting an isolated equality of two intrinsic centroids, and explains how it arises. The witness is stable over a nonempty height interval for every unequal base ratio; the slope quantifies how the positive optimum emerges at the static transition. This is stronger than computing an isolated example or repeating the known static height.",
+      "residual_risks": [
+        "No classification of all trapezoid heights or all collinear-center convex bodies is asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

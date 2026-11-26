@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:59:44.195319Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, Assumptions and Proof; VERIFICATION.md and verify.py inspected",
+        "/workspace/review-evidence/fold_switch.py and fold_switch.out, first calculation"
+      ],
+      "rationale": "The exact host exponent is −δ²/(B+δ); for sufficiently small δ>0 the next δ is positive and smaller, with δ′=δ−δ²/C+O(δ³). Consequently the exact clock t=C/δ diverges with one-step increment 1+O(1/t), hence t/n→1. Analyticity gives d_n=p_n−p_(n+1)=O(t⁻²) and d_(n+1)−d_n=O(t⁻³). In v=x−2−p the map is h_p(v)+d_n with h_p(v)=(2+p+v)e^(−v)−2−p. The forcing residual over two steps is d_(n+1)−d_n plus O(t⁻²|v|+t⁻³), since ∂p h=O(v) and ∂v h=−1+O(p+|v|). Independent composition gives quadratic coefficient p²(1+p)/2, cubic −1/3+O(p), and quartic O(p); the remainder is uniform on a bounded t v² annulus. Thus w=t v² obeys w′′=w+2w(W*−w)/(3t)+O(t⁻²). Fixed strips near each endpoint have strict inward increments for large t, and the uniform O(1/t) increment cannot leave from the interior. Even-step signs persist and squared error contracts by 1−4w_min/(3t) up to O(t⁻²); divergent total contraction and summable error imply w→W*. Odd/even v ratio tends to −1, while p=O(1/n) is negligible. Both wedges are nonempty and have positive x for sufficiently small initial δ. This yields exactly the original-iteration constants and the two signed limits.",
+      "residual_risks": [
+        "Local one-sided wedges only; no identification of all exceptional or faster orbits. No simulation is used to establish the limits."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The analytic Poincaré-domain theorem requires its spectrum condition, which does not apply to these unit-modulus multipliers. The formal resonant normal-form result does not establish a trapping annulus or an original-time leading amplitude."
+        ],
+        "reasoning": "A general resonance expansion is insufficient to deduce the two exact limits without separate nonlinear clock and convergence estimates.",
+        "searches": [
+          "Primary literature: nonautonomous normal forms for difference systems with uniform dichotomy spectrum; Ren et al., Theorem 1.2"
+        ]
+      },
+      "checked_sources": [
+        "Primary and indexed materials identified in source_inspections",
+        "Frozen Relationship to prior work"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The motivating paper separates the codimension-one thresholds and excludes the simultaneous case from its fold theorem. In the frozen map the coefficient 2βC in the two-step linear displacement persists, at the same order as cubic saturation on the clock annulus."
+        ],
+        "reasoning": "Neither knowledge of thresholds nor the unforced Ricker limit gives the new amplitude; the parameter-dependent drift must be included and shown to attract both open signed wedges.",
+        "searches": [
+          "Chong et al., Theorem 12 and conclusion; Ren et al., Theorem 1.2; Resultary double-neutral extinction clock"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Axioms paper uses the same positive commensalism map and leaves the positive simultaneous case for future work. The closest prior double-neutral catalogue comparison instead couples to approach to the boundary (2,0) and has tunable flip exponent in (1,2)."
+        ],
+        "reasoning": "The boundary regime with a different corrected transverse exponent is not an equivalent statement of the present interior n⁻¹ᐟ² law.",
+        "searches": [
+          "Resultary: simultaneous fold–flip, Allee/Ricker, inverse-time host and critical flip exponent",
+          "Chong et al., DOI 10.3390/axioms12111031, equation (5), Theorem 12 and conclusion"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The record itself is an exact index hit, not an antecedent. The inspected distinct sinusoidal-map calculation gives 3(1−b) and a logarithmic correction, without the host or this coupling."
+        ],
+        "reasoning": "There is no numerical table required for the finding; the relevant exact catalogue check is for identical model and formula. The distinct matches do not supply it.",
+        "searches": [
+          "Resultary: additive Allee fold–flip and exact critical flip prefactors; closest double-neutral and sinusoidal flip catalogue matches"
+        ]
+      },
+      "rationale": "The neutral multipliers and autonomous inverse-square-root rate are not credited as new. The assessed distinction is the signed original-time amplitude 3(1+2βC) on the two accessible phase sectors of the same positive commensalism fold–flip, combined with the exact host clock. No inspected theorem entails this pair of limits.",
+      "residual_risks": [
+        "An unindexed parabolic skew-product asymptotic theorem could supply an equivalent result. Same-day indexing was not interpreted as priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same system, no same-orbit amplitude claim in decisive sections",
+          "evidence": [
+            "The conclusion explicitly names the positive saddle-node fold–flip as future work."
+          ],
+          "identifier_or_url": "https://doi.org/10.3390/axioms12111031",
+          "material_read": "OA PDF equation (5), p. 4; Theorem 12, p. 19; conclusion, p. 32",
+          "method": "Open publisher PDF passages",
+          "title": "Dynamics Analysis of a Discrete-Time Commensalism Model with Additive Allee for the Host Species",
+          "trigger": "Exact originating equations and fold–flip gap"
+        },
+        {
+          "assessment": "Formal machinery; analytic spectrum hypotheses do not cover both neutral multipliers",
+          "evidence": [
+            "The theorem distinguishes formal resonant normalization and analytic normalization under a Poincaré-domain condition."
+          ],
+          "identifier_or_url": "https://doi.org/10.1186/s13662-020-02577-1",
+          "material_read": "Theorem 1.2, p. 3",
+          "method": "Open publisher PDF passage",
+          "title": "Formal and analytic normal forms for non-autonomous difference systems with uniform dichotomy spectrum",
+          "trigger": "Potential stronger nonautonomous normal-form result"
+        },
+        {
+          "assessment": "Different boundary mechanism and exponent",
+          "evidence": [
+            "Approach to (2,0); coupled law has tunable exponent p∈(1,2)."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-a-double-neutral-extinction-clock-and-noninteger-flip-exponent-i--52b2f0dd58e8",
+          "material_read": "Finding and prior-work passage, offsets 0 and 7000",
+          "method": "Resultary local mirror",
+          "title": "A double-neutral extinction clock and noninteger flip exponent",
+          "trigger": "Earlier open-phase clock in a Ricker-type model"
+        },
+        {
+          "assessment": "Different map with no positive additive-Allee host fold",
+          "evidence": [
+            "Its leading squared amplitude is 3(1−b) and its sharper correction is logarithmic."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-a-logarithmic-critical-flip-clock-in-a-three-dimensional-sinusoi--2e7a51efdb8a",
+          "material_read": "Finding and prior-work passage, offsets 0 and 4900",
+          "method": "Resultary local mirror",
+          "title": "A logarithmic critical flip clock in a three-dimensional sinusoidal map",
+          "trigger": "Exact critical-flip relaxation coefficient"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and Proof",
+        "Chong et al., conclusion"
+      ],
+      "rationale": "This resolves a precisely motivated local dynamical question in the originating model. At the codimension-two point a host mode decaying like 1/n changes the leading flip amplitude, despite the forcing itself being smaller than the observed oscillation. The original-time constants and both open phase sectors provide information not contained in the linear bifurcation classification.",
+      "residual_risks": [
+        "No global basin conclusions, detuning law, or empirical predictions are established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

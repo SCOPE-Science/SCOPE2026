@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:20:40.715176Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The free ball is the edge-root hull: the molecule of a missing matching edge is an average of two adjacent edge roots. In H the active dual equations have rank 2k−1 exactly when the tight graph connects all vertices. Such a potential has integer differences and range at most two; range two forces opposite extremes in one pair with every other value intermediate. Thus all dual vertices are special potentials or centered binary cuts. The original Q and its inverse give the squared distortion product; scaling the primal radius and averaging by convexity of the inverse quadratic energies loses nothing. Independent swaps remove off-block terms, and pair permutations make each block scalar, with every edge root having squared block norms (1,1). A cut with h ones and r split pairs has total energy h(2k−h)/(2k) and U-energy r/2. For k≥4 these and the special energy 2 give the upper bound k at α=1/2. For even k the balanced all-split and whole-pair cuts match it; for odd k the all-split and one-split balanced cuts bound the two sides of 1/2. These witnesses are feasible even without the vertex argument. For k=2,3 the crossed lower bounds 2/α and W-energy 1 or 4/3 divided by 1−α meet at 2/3 and 3/5; the cut energy bound, using parity of r when h=3 for k=3, matches them. The argument holds for all real linear isomorphisms but only identifies the invariant optimizer.",
+      "replay": "node /workspace/reproductions/frozen-cross-checks.mjs (cocktail section) maximizes exact rational energies at the prescribed α over all cuts and special potentials for k=2,…,8; ratios are 3,10/3,4,5,6,7,8. It tests candidate energies only; the witnesses and averaging certify global optima. The packaged connectivity enumeration and recorded vertex counts were inspected separately, not independently executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Thm. 3.1 gives connected tight-edge characterization for facets; Prop. 3.5 discusses complete multipartite facets using special and binary potentials.",
+          "The inspected v1 list in Prop. 3.5 appears to omit a binary cut with one split part, one entirely high part and one entirely low part in K_{2,2,2}. It has connected tight graph K_{3,3} minus an edge."
+        ],
+        "reasoning": "Facet theory supplies the structure, not optimal projection weights or even/odd sharp witnesses. The frozen proof obtains the necessary exhaustive inclusion directly from rank and diameter, so the apparent v1 discrepancy is not a gap in the calculation.",
+        "searches": [
+          "complete multipartite symmetric-edge-polytope facets and Banach–Mazur distance",
+          "arXiv:1807.07678v1 Thm. 3.1 and Prop. 3.5"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1807.03814v1",
+        "arXiv:1807.07678v1",
+        "arXiv:1910.05193v1",
+        "Resultary 6cfb9d7093d2, 74a1afb61b7a, 6b5d25b185af, 203c5ca21810"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The complete bipartite law is √(m+n−1) for m,n≥3, not a family containing K_{2,…,2} for k≥3.",
+          "The connected-tight criterion imposes no optimal Euclidean quadratic form by itself."
+        ],
+        "reasoning": "Neither bipartite family specializes to k≥3 here. The exceptional 10/3 and exact cutoff depend on nontrivial dual contact energies and optimizing the block ratio, not just inserting the ambient dimension or relabeling a polytope.",
+        "searches": [
+          "Resultary crown graph cutoff 6cfb9d7093d2 and complete bipartite transportation 203c5ca21810",
+          "arXiv:1807.07678v1 facet statements"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Dilworth–Kutzarova–Ostrovskii Eq. (3) identifies the unweighted graph free space as the edge ℓ₁ quotient by cycles.",
+          "D’Alì–Delucchi–Michałek Def. 2.4 and Thm. 2.5 identify the graph metric Kantorovich–Rubinstein polytope with the symmetric edge polytope."
+        ],
+        "reasoning": "The quotient, transportation ball, and edge-polytope ellipsoid formulations concern the same linear invariant. Hilbert embeddings of the vertex set alone do not: at k=3 the known vertex distortion √2 differs from the free-space distance √(10/3).",
+        "searches": [
+          "cocktail-party Lipschitz-free and transportation distortion",
+          "arXiv:1807.03814v1 §1.1",
+          "arXiv:1910.05193v1 §§2.3–2.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Same-day crown record 6cfb9d7093d2 gives maximal free distortion through n=9 and an exact variational expression thereafter for K_{n,n} minus a matching.",
+          "Record 74a1afb61b7a covers the target vertex metrics as m=2 in its multipartite family and gives their metric embedding distortion √2.",
+          "Record 6b5d25b185af uses cocktail-party graphs but optimizes graph maximal operators."
+        ],
+        "reasoning": "The crown graph is bipartite (Cr₃ is the six-cycle), while K_{2,2,2} contains triangles. The other matching object hits use different invariants. No exact k≥3 free-space table or formula was identified in these ranked searches.",
+        "searches": [
+          "Resultary: cocktail-party free-space Hilbert distortion; multipartite symmetric-edge-polytope Banach–Mazur distortion; transportation-space Hilbert distance"
+        ]
+      },
+      "rationale": "The supported contribution is the exact optimization for k≥3, not the known four-cycle value, the edge-polytope identification or a new facet classification. The strongest same-day transportation result concerns a different graph family. An indexed result actually covering the same vertex metric optimizes a different invariant. The facet criterion plus the representation are not themselves a sharp ellipsoid calculation.",
+      "residual_risks": [
+        "A broad literature lookup was unavailable; this is not negative evidence. A related catalogue entry on one-skeleta of complete multipartite transportation balls was visible only as a summary, not inspected full text. An exact unindexed matching-deleted clique optimization could still exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent model, no exact target optimization in inspected passage",
+          "evidence": "LF(G) is ℓ₁(E)/Z(G) for an unweighted graph.",
+          "identifier_or_url": "https://arxiv.org/pdf/1807.03814v1",
+          "material_read": "§1.1, Eq. (3), pp. 2–3, offset 6000",
+          "method": "OA PDF passage inspection",
+          "title": "Lipschitz free spaces on finite metric spaces",
+          "trigger": "Equivalent transportation quotient"
+        },
+        {
+          "assessment": "Structural antecedent; apparent v1 one-split-cut omission does not affect the independent optimization proof",
+          "evidence": "The tight edges must connect. Special and binary potentials are treated; the cited statements do not optimize ellipsoids.",
+          "identifier_or_url": "https://arxiv.org/pdf/1807.07678v1",
+          "material_read": "p. 1 definition; p. 6 Thm. 3.1 and p. 7 Prop. 3.5, offsets 3291, 21000, 25572",
+          "method": "OA PDF passage inspection and tight-edge test",
+          "title": "Arithmetic aspects of symmetric edge polytopes",
+          "trigger": "Same polytope family and facet classification"
+        },
+        {
+          "assessment": "Representation, not an exact distortion law",
+          "evidence": "Graph metric Kantorovich–Rubinstein and symmetric edge polytopes are identified.",
+          "identifier_or_url": "https://arxiv.org/pdf/1910.05193v1",
+          "material_read": "§§2.3–2.4, Def. 2.4 and Thm. 2.5, pp. 4–5, offset 13270",
+          "method": "OA PDF passage inspection",
+          "title": "Many faces of symmetric edge polytopes",
+          "trigger": "Same free-space ball through graph metrics"
+        },
+        {
+          "assessment": "Different, bipartite graph family",
+          "evidence": "Cr_n=K_{n,n} minus a matching has distance √(2n−1) for 3≤n≤9 and is strictly below it thereafter.",
+          "identifier_or_url": "2026/10/18/SCOPE-the-sharp-nine-to-ten-hilbert-distortion-cutoff-for-crown-graph--6cfb9d7093d2",
+          "material_read": "Mirrored RESULT.md Finding and Assumptions at offset 0",
+          "method": "Local mirror statement comparison",
+          "title": "The sharp nine-to-ten Hilbert distortion cutoff for crown-graph transportation spaces",
+          "trigger": "Same-day exact matching-deletion transportation result"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": "An m-point part and t two-point parts, with m=2 and t=k−1, give the same graph metric. The metric embedding distance is √2.",
+          "identifier_or_url": "2026/11/1/SCOPE-optimal-multipartite-embeddings-reduce-exactly-to-spherical-line--74a1afb61b7a",
+          "material_read": "Mirrored RESULT.md Finding and Assumptions at offset 0",
+          "method": "Local mirror statement comparison",
+          "title": "Optimal multipartite embeddings reduce exactly to spherical line codes",
+          "trigger": "Same vertex metrics as a parameter choice"
+        },
+        {
+          "assessment": "Different operator",
+          "evidence": "Optimizes graph-ball centered maximal operators in ℓ₂, not free-space Banach–Mazur ratios.",
+          "identifier_or_url": "2026/11/1/SCOPE-sharp-maximal-norms-and-an-antipodal-pair-transition-in-cocktail--6b5d25b185af",
+          "material_read": "Mirrored RESULT.md Finding at offset 0",
+          "method": "Local mirror statement comparison",
+          "title": "Sharp maximal norms and an antipodal-pair transition in cocktail-party graphs",
+          "trigger": "Same graph family and exact norm claim"
+        },
+        {
+          "assessment": "Different graph family",
+          "evidence": "The theorem gives the maximal distance √(m+n−1) on K_{m,n} for m,n≥3.",
+          "identifier_or_url": "2026/10/11/SCOPE-maximal-hilbert-distortion-for-complete-bipartite-transportation--203c5ca21810",
+          "material_read": "Mirrored RESULT.md Finding at offset 0",
+          "method": "Local mirror statement comparison",
+          "title": "Maximal Hilbert distortion for complete bipartite transportation spaces",
+          "trigger": "Broader apparent transportation comparator"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The sharp distance and optimizer in a natural graph-transport family distinguish a genuinely anisotropic six-vertex exception from stabilization at a Euclidean form. Knowing the facets, obtaining a generic John bound, or computing the vertex-metric distortion would not answer this precise comparison. The complete classification provides an exact benchmark for other multipartite transportation balls.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

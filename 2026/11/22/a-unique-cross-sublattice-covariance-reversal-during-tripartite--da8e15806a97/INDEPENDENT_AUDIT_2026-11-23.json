@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:50:15.877490Z",
+  "axes": {
+    "correctness": {
+      "rationale": "There are V_i V_j eligible cross edges with rate 1/n each. For X_n=V/n this gives density rates n x_i x_j and increments −(e_i+e_j)/n, with fluid solution u(t)1, u=(1+2t)^{-1}. The scaled martingale has jumps O(n^{-1/2}) and its bracket converges uniformly on bounded intervals to the integral of B(u1). To check the needed moment bound, its optional squared-jump sum is at most 2/n times the total attempt count, a Poisson variable of mean 3nT; this bounds the second moment of the optional quadratic variation. The martingale maximal inequality and Lipschitz Gronwall bound then give bounded fourth moments of the fluctuation supremum. Thus drift Taylor remainders vanish in the path CLT and fluctuation products are uniformly integrable, which is necessary for the actual covariance limit. The linear drift and bracket matrices are −u(I+11ᵀ) and u²(I+11ᵀ); integrating the common and contrast variance equations gives 2(u−u⁴)/3 and u log(1+2t)/2, with zero initial data. Their difference divided by three is the cross-part covariance. Its numerator H(y)=4(1−y^{-3})−3 log y, y=1+2t, starts at zero, increases to y=4^{1/3}, then decreases to −∞. Independent replay: python /workspace/independent_checks.py (adsorption routine) obtains 1.347345267068252110 from the principal Lambert W root in z=y^{-3}, the other real branch giving t=0. This is a fixed-finite-time limiting transition; moment convergence establishes matching finite-n signs at each fixed interior nonzero point, not a universal finite-size transition or a jamming statement. Read the submitted notes and both checkers without executing them.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Penrose–Sudbury's normal approximations assume uniformly bounded maximum degree; their explicit dimer variance is for the one-dimensional line. The degree here is 2n.",
+          "The frozen proof uses density-dependent fluctuation theory (credited to Kurtz) and adds an explicit two-mode covariance and a uniform-integrability argument."
+        ],
+        "reasoning": "A general stochastic limit scheme is not a new CLT here and does not already give the sign or threshold. A bounded-degree dimer variance neither applies to the dense graphs nor provides their off-diagonal matrix entries.",
+        "searches": [
+          "\"complete multipartite\" \"random sequential adsorption\" dimer fluctuations covariance Gaussian",
+          "Penrose–Sudbury arXiv:math/0503519 Theorems 7, 10, 11",
+          "Kurtz doi:10.1016/0304-4149(78)90020-0"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 38fa8766b226, 35d49f4086b4, 922a800f0b88; 5199f30e2a94 (catalog abstract only)",
+        "Penrose–Sudbury arXiv:math/0503519",
+        "Kurtz doi:10.1016/0304-4149(78)90020-0 and Pippenger doi:10.1137/0402034 (cited, full texts not retrieved)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The matching record supplies the deterministic drift, not second-order fluctuations; drift alone does not determine the matrix bracket. Here the exchangeable common and contrast modes integrate differently, one producing a logarithm."
+        ],
+        "reasoning": "After deriving the model-specific bracket one must solve and compare the two transient variances. The nonzero root is a genuine consequence of that comparison, not a time reparameterization of the 7/8 result or a generic statement of the stochastic limit theorem.",
+        "searches": [
+          "38fa8766b226, Finding, Proof and Limitations",
+          "Penrose–Sudbury, Theorems 7, 10 and 11"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In 38fa8766b226 the rate-1/n independent edge process supplies the drift and terminal matching efficiency, including sharp 7/8 at ratio 2:1:1. Its Limitations explicitly disclaims a CLT.",
+          "35d49f4086b4 concerns equilibrium matchings at activity n/c with parity-conditioned monomer covariance; 922a800f0b88 concerns an equilibrium hard-core gas with deleted edges and an activity-dependent pair-covariance sign."
+        ],
+        "reasoning": "Occupied and vacant counts have the same cross covariance, and random edge order can give the same accepted sequence, but physical-time covariance is not interchangeable with a terminal, deposition-index, or equilibrium statistic. None of those related statements gives this physical-time covariance.",
+        "searches": [
+          "Resultary: complete tripartite irreversible dimers, cross-part fluctuation covariance and reversal",
+          "Resultary 38fa8766b226, 35d49f4086b4, 922a800f0b88"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The available exact nearby records give terminal matching efficiencies or equilibrium monomer laws, not a time-indexed 3×3 Gaussian covariance. The weighted-jamming catalog entry describes terminal densities, but its full mirrored text was unavailable."
+        ],
+        "reasoning": "Even a known terminal or equilibrium covariance would not give the exact finite-time covariance curve or its nonzero root.",
+        "searches": [
+          "Resultary: K_{n,n,n} dimer adsorption vacancy covariance and unique positive time",
+          "Resultary weighted tripartite jamming 5199f30e2a94; matching efficiency 38fa8766b226; equilibrium monomers 35d49f4086b4"
+        ]
+      },
+      "rationale": "The kinetic skeleton and density-dependent framework are prior work. The earlier 7/8 record has the same physical-time jump model and fluid equations but expressly does not prove a fluctuation theorem. Exact-match searches and passage comparisons identified no distinct source giving the stated common and contrast covariances and their sign classification for the balanced dense irreversible process. Same-day equilibrium covariance results use materially different probability laws.",
+      "residual_risks": [
+        "Pippenger and the cited full Kurtz article were inaccessible in checked routes; the weighted tripartite jamming record was available only at catalog level. These are access limitations, not claims of absence. An equivalent dense specialization may remain unindexed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the fluid law and terminal matching efficiency, not the transient covariance",
+          "evidence": [
+            "Same attempt-rate normalization; Limitations says no central limit theorem."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-the-sharp-7-8-random-edge-matching-ratio-on-dense-complete-tripa--38fa8766b226",
+          "material_read": "RESULT.md Finding/Proof at offsets 0 and 4096, Limitations/Relationship at 7805",
+          "method": "Resultary and exact local mirror",
+          "title": "The sharp 7/8 random-edge matching ratio on dense complete tripartite graphs",
+          "trigger": "Identical jump skeleton and relevant dense graph geometry"
+        },
+        {
+          "assessment": "Bounded-degree approximations and one-dimensional variance do not cover the present limit",
+          "evidence": [
+            "The explicit scalar dimer variance is for one dimension; the sequence in this audit violates the uniform degree hypothesis."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0503519",
+          "material_read": "Theorems 7, 10, 11, pp. 12–14 of preprint",
+          "method": "OA preprint passage inspection",
+          "title": "Exact and approximate results for deposition and annihilation processes on graphs",
+          "trigger": "Primary RSA fluctuations and variance formulas"
+        },
+        {
+          "assessment": "Different equilibrium ensemble, not the physical-time deposition model",
+          "evidence": [
+            "Covariance is studied at activity n/c and depends on parity."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-parity-conditioned-poisson-monomers-and-opposite-covariance-sign--35d49f4086b4",
+          "material_read": "RESULT.md Finding and Assumptions, offset 0",
+          "method": "Resultary and exact local mirror",
+          "title": "Parity-conditioned Poisson monomers and opposite covariance signs",
+          "trigger": "Same graph and vacancy/monomer covariances"
+        },
+        {
+          "assessment": "Different hard-core graph and equilibrium tuning parameter",
+          "evidence": [
+            "Uses activity and deleted edges rather than rate-1/n irreversible dimer clocks and elapsed time."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-single-covariance-reversal-for-paired-vacancies-in-a-three-sho--922a800f0b88",
+          "material_read": "RESULT.md Finding and Assumptions, offset 0",
+          "method": "Resultary and exact local mirror",
+          "title": "A single covariance reversal for paired vacancies in a three-shortcut hard-core model",
+          "trigger": "Same-day vacancy-covariance reversal"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result gives a structural difference between total vacancy fluctuations and class-imbalance fluctuations, leading to an exact sign reversal under the same irreversible deposition law. Neither the known fluid law nor terminal matching efficiency can predict this transient covariance. The sign classification also predicts signs of large finite systems at fixed times away from the zeros without overclaiming a universal finite-size threshold.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

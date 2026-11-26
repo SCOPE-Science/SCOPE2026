@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T14:40:15.288520Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–70, VERIFICATION.md lines 19–25, CENSUS.csv, and checker.py (inspected, not executed)",
+        "Independent replay: python3 /workspace/branches/reproduce.py 3; output /workspace/branches/reproduction.txt"
+      ],
+      "rationale": "Expanding rank ≥3 from the empty mark requires an anchor u with both an edge and a nonedge partner of marked rank ≥1. In the triangle-free age a marked edge requires 00,10,01; a marked nonedge requires all four exterior traces. Conversely let a,b,c,d witness u-only, v-only, both and neither at a full nonedge uv. At the edge uc, a,v,b supply the three requisite traces: ac and bc are prohibited by triangles, and b is not adjacent to u. Thus one full nonedge suffices, including in a countable host. The witnesses force six distinct vertices and the four edges of a path on five of them. Equality in the edge bound leaves exactly that path plus isolates. On those six vertices only ab,ad,bd,cd are optional and only the triple ab,ad,bd is forbidden; there are 14 anchored templates. Independent exhaustive enumeration over all 32,768 labelled graphs, using neighborhood set differences/intersections and separately the edge/nonedge rank-one anchor test, gives 5,789 triangle-free graphs, the same 2,292 qualified by both criteria and nine orbits. Orbit sizes, stabilizers, canonical masks and CSV edge lists all agree. Since graphs below order six cannot qualify, the nine equal-order shapes are exactly the minimal induced obstructions within the age. Rank ≥1 is nonemptiness. Rank ≥2 is the existence of a vertex with a neighbor and a distinct nonneighbor, equivalent here to having an edge and a third vertex by triangle-freeness.",
+      "residual_risks": [
+        "The finite replay checks the exact six-vertex census; the all-host claim rests on the witness implication. The frozen Python 3.8+ annotation is too broad for checker.py's int.bit_count(); use Python 3.10+ for it or the independent replay. This is a portability note, not a discrepancy in the census."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The unrestricted theorem's minimum order is seven and minimum edge count six; no triangle-free graph can have an unrestricted full edge pair, as it would have a common neighbor on an edge.",
+          "Resultary cc64162f3886 proves rank ≥3 iff order ≥6 and P₅ occurs in a linear forest, including its identical four-edge extremizer on that subclass.",
+          "The frozen paper comparison records that the circular triangle-free class with DOI 10.1002/jgt.23235 excludes C₆ and K₁⊔C₅, both present in the audited list."
+        ],
+        "reasoning": "The unrestricted theorem has different ranks, and the linear forest and circular classifications do not cover the full triangle-free age; cycles and branching occur in the nine shapes. The foundational rank recursion is prior, not claimed as new.",
+        "searches": [
+          "Resultary a3c35b6162f1; cc64162f3886",
+          "arXiv:2604.14461v1 Def. 2.3 and discussion after Cor. 4.19; DOI 10.1002/jgt.23235"
+        ]
+      },
+      "checked_sources": [
+        "Resultary a3c35b6162f1, cc64162f3886, 9836ef0ec9c0 (specific statements), cf3f1dff866e (synopsis)",
+        "Frozen comparison of arXiv:2604.14461v1 and DOI 10.1002/jgt.23235; fresh primary retrieval incomplete"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "P₅⊔K₁ attains the triangle-free rank threshold but cannot satisfy the unrestricted all-four-types condition on an edge.",
+          "C₆ and C₅⊔K₁ qualify in the reviewed census and are outside linear forests. The shared P₅ extremizer on forests cannot imply their inclusion or the whole classification."
+        ],
+        "reasoning": "Restricting the hosts in the unrestricted rank theorem would not change its allowed extensions and would not recover the reviewed criterion. Extending the linear-forest result instead needs an argument accounting for triangle-free edges and arbitrary optional edges, not just the shared extremal example. Distinct same-day records were compared by content, not presumed publication order.",
+        "searches": [
+          "Resultary a3c35b6162f1 One-step rank test; cc64162f3886 Finding and Assumptions; 9836ef0ec9c0 Proof Step 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Unrestricted Resultary a3c35b6162f1 requires an edge and a nonedge partner, both with four traces. Registered rank definition from arXiv:2604.14461v1, Def. 2.3, uses extensions admissible in the chosen age (frozen source account).",
+          "Open-neighborhood shattering without the exterior constraint can count u or v for the empty trace on a nonedge; e.g. P₅ alone cannot meet the exterior requirement. A generic shattering statement without that constraint is not equivalent."
+        ],
+        "reasoning": "Age-relative extension rank, unrestricted finite-graph rank, and unqualified VC shattering must not be identified. The rank-one edge partner is a consequence here only because triangle-freeness removes one admissible edge trace.",
+        "searches": [
+          "Resultary: triangle-free one-point extension rank, all four exterior traces, six-vertex witnesses",
+          "Primary literature query: triangle-free graph nonadjacent pair four adjacency patterns; compare open-neighborhood shattering",
+          "arXiv:2604.14461v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 9836ef0ec9c0, Finding and Proof Step 1, tabulates 372 isomorphism types and 1,163,358 labelled unrestricted seven-vertex rank-three graphs. It explicitly uses the previously stated unrestricted criterion.",
+          "The cf3f1dff866e synopsis concerns ordered singleton profiles and girth in the homogeneous triangle-free graph; its full text was not available on the inspected route.",
+          "The nine shapes and 2,292 count are not the ambient 5,789 triangle-free six-vertex graph total."
+        ],
+        "reasoning": "Neither the verified unrestricted census nor the ambient count supplies the six-point filtering and orbit census for rank in the triangle-free age. The synopsis alone does not rule out hidden related observations.",
+        "searches": [
+          "Resultary: six-vertex triangle-free extension-rank census and seven-vertex unrestricted comparison",
+          "Resultary 9836ef0ec9c0; cf3f1dff866e"
+        ]
+      },
+      "rationale": "The supported contribution is the exterior-trace criterion for the full triangle-free age, the sharp extremum on that whole class, and its complete nine-element obstruction basis and census. Closely matched unrestricted-rank results use a different extension class; the linear-forest result does overlap with the extremum and criterion on a strict subclass, and that overlap is credited.",
+      "residual_risks": [
+        "An earlier equivalent classification under exterior shattering or age-relative extension properties remains possible. The literature search did not yield another usable passage; that is not evidence of historical absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIFFERENT_RANK_AMBIENT_CLASS",
+          "evidence": [
+            "Both pair types must realize all four adjacency profiles; thresholds are seven vertices and six edges."
+          ],
+          "identifier_or_url": "Resultary:a3c35b6162f1",
+          "material_read": "RESULT.md One-step rank test and extremal statements",
+          "method": "Local mirror passage inspection",
+          "title": "Sharp rank-three onset and six-edge extremum for finite graphs",
+          "trigger": "Identical rank threshold in the unrestricted age"
+        },
+        {
+          "assessment": "MATERIAL_STRICT_SUBCLASS_OVERLAP",
+          "evidence": [
+            "On linear forests the rank condition is order at least six and a P₅; the four-edge equality case is P₅ plus isolates."
+          ],
+          "identifier_or_url": "Resultary:cc64162f3886",
+          "material_read": "RESULT.md Finding and Assumptions and scope",
+          "method": "Local mirror passage inspection",
+          "title": "A rank-three ceiling and a sharp five-path criterion for linear forests",
+          "trigger": "Extremum and criterion on a triangle-free subclass"
+        },
+        {
+          "assessment": "EXACT_CENSUS_FOR_DIFFERENT_AGE_AND_ORDER",
+          "evidence": [
+            "372 isomorphism classes and 1,163,358 labelled graphs for unrestricted rank on seven vertices."
+          ],
+          "identifier_or_url": "Resultary:9836ef0ec9c0",
+          "material_read": "RESULT.md Finding and Proof Step 1",
+          "method": "Local mirror passage inspection",
+          "title": "The complete seven-vertex extension-rank-three graph spectrum",
+          "trigger": "Closest indexed finite graph rank census"
+        },
+        {
+          "assessment": "PRIOR_DEFINITION; NO_VERIFIED_FULL_TEXT_COMPARISON",
+          "evidence": [
+            "The general recursion is credited; the frozen comparison reports that the full-extension hypothesis used for the general theorem fails for K_n-free ages."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2604.14461v1",
+          "material_read": "Frozen RESULT.md line 74 and AUDIT.json lines 79–89, reporting Def. 2.3 and discussion after Cor. 4.19; fresh OA unavailable",
+          "method": "Compare the reported theorem scope and independently unroll the rank definition",
+          "title": "A rank function for Fraïssé classes and the rank property",
+          "trigger": "Defines the invariant and discusses clique-free ages"
+        },
+        {
+          "assessment": "SUMMARY_DESCRIBES_DIFFERENT_INVARIANT",
+          "evidence": [
+            "Synopsis concerns singleton-profile reconstruction of girth, not the exact six-vertex rank spectrum."
+          ],
+          "identifier_or_url": "Resultary:cf3f1dff866e",
+          "material_read": "Catalog synopsis only; exact passage unavailable",
+          "method": "Local search and attempted mirror lookup",
+          "title": "Sharp six-parameter girth blindness of ordered triangle-free singleton types",
+          "trigger": "Related finite triangle-free profile question"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–17, 29–66; independent reconstruction and exhaustive census"
+      ],
+      "rationale": "The exact exterior-trace condition turns a recursive rank question into a local test that works even for countable hosts. It gives a small complete forbidden induced basis and explains why the triangle-free age has a strictly smaller onset than unrestricted graph rank. The exact finite census supports this classification rather than posing an arbitrary isolated count.",
+      "residual_risks": [
+        "No rank-four classification or Rank Property consequence for the Henson age follows."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

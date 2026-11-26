@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification of the stated theorem
+# Independent mathematical audit
 
-**Analytic normalization.** The squared semiaxes of the optimal inellipse have the eigenvalue ratio of \(S=\sum_j(p_j-g)(p_j-g)^{\mathsf T}\). Its trace is the sum of three squared chords divided by three, and its determinant is four thirds of the squared triangle area. This yields \(K=2R/(1+R^2)\), with \(K=\sqrt3\,\ell_{12}\ell_{23}\ell_{31}/\sum\ell_{ij}^2\) for unit-circle vertices.
+## correctness
 
-**Small eccentricity.** After fixing the first vertex, each of the two equilateral configurations produces the same positive definite form \(u^2+v^2-uv\); the local scaled region has area \(9\pi/(8\sqrt3)\). Multiplying by its two branches and the angular density \((2\pi)^{-2}\) gives \(3\sqrt3/(16\pi)\).
+PASS
 
-**Small axis ratio.** The shortest-chord lower bound excludes any exceptional configurations away from pair collisions. Every pair contributes a signed angular gap \((-4\eta/\sqrt3,4\eta/\sqrt3)\), hence coefficient \(4/(\pi\sqrt3)\); multiplying by three possible pairs gives \(4\sqrt3/\pi\). Pair-overlap probability is \(O(\eta^2)\). The ordinary eccentricity relation \(e^2=1-R^2\) gives the \(4\sqrt6/\pi\) square-root coefficient.
+The affine image of an equilateral triangle gives the Steiner ellipses; their squared-axis ratio is the eigenvalue ratio of the centered scatter matrix S. Its trace and determinant are Σ/3 and 4A_T²/3, and the circumradius-one area identity gives K=√3 ℓ12ℓ23ℓ31/Σ=2R/(1+R²). In particular K≤√3 d/2 for shortest chord d, so continuity through collisions after setting K=0 there rules them out as an additional near-circular locus. Equality K=1 means isotropic scatter, hence an equilateral triangle. Expanding the trace-free entry at the two labelled equilateral points gives eigenvalue contrast (2/3)√(u²+v²−uv)+O(u²+v²). With e²=2Q/(1+Q), both t²-scaled domains converge within a fixed bounded set to the indicated ellipse of area 9π/(8√3). The uniform angle density and two configurations give 3√3/(16π); convergence of the indicators off the ellipse boundary proves the marked TV result. Conversely K≥√3 d/6 by the triangle inequality, so R<η implies a shortest angular gap of size O(η). Assign the mark by the shortest pair (ties have probability zero). For a fixed scaled signed gap and third angle away from coincidence, R/η tends to √3 |Δ/η|/4 and the marked pair is uniquely shortest. In these coordinates the indicator vanishes outside a fixed compact scaled-gap strip; dominated convergence on this strip times the two angle circles gives L1 convergence, since the exceptional collision and window-boundary sets have measure zero. Each pair contributes 4/(π√3), with pair labels uniform by exchangeability; normalization gives independent uniform limiting gap and angles. Overall rotation in the circular regime is exactly uniform and independent. The substitution η=√(2t−t²) gives the flat eccentricity constant 4√6/π and widens the scaled gap interval by √2.
 
-**Numerical diagnostics.** Running `python checker.py` with the dependencies in `requirements.txt` passed 1000 independent deterministic matrix/chord comparisons, six collision-local derivative checks and deterministic \(2^{22}\)-point Sobol checks. The simulation coefficients at \(e<0.14\) and \(R<0.04\) were approximately \(0.10550593\) and \(2.20032930\), respectively, versus analytic limits \(0.10337417\) and \(2.20531558\). Such finite diagnostics are *not* infinite proofs, and they do not independently certify historical novelty.
+## originality
 
-**Unproved extensions.** No uniform estimates are asserted for nonuniform circle sampling, arbitrary convex ovals, random interior triangle vertices, or varying numbers of vertices. The mathematical literature comparison is nonexhaustive; independent audit has not been performed.
+PASS
+
+The supported distinct claim is the pair of sharp eccentricity tails and the marked conditional TV limits under iid circle-boundary sampling. The Steiner geometry and circle-triangle shape law are premises. No inspected independent theorem gives these asymptotics for this statistic; the closest indexed rare-shape laws use a different statistic or a different, non-equivalent sampling mechanism. The identical Resultary copy is not a separate finding.
+
+## value
+
+PASS
+
+This is the extreme shape law for a canonical affine ellipse in a basic random cyclic polygon. The distinct powers, exact constants and marked limits distinguish concentration near two isolated equilateral shapes from three families of pair collisions with an unconditioned third-angle limit. The marks give information absent from a tail exponent alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

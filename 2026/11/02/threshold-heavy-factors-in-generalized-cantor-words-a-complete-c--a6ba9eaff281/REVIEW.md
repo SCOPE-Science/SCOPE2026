@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness: PASS.** The exact binary-carry identity is derived column-by-column, with equality iff no carry. This yields an exact lower bound for spans of successive one-positions and identifies every tight window. The residue classification is proved injective by contrasting a specific consecutive-one gap at the least differing bit; the zero-run argument rigorously proves the Abelian-complexity corollary. The standalone checker independently enumerated finite factors for bases 3–7 and returned `VERIFY_OK` (102 threshold cases), without treating those tests as an infinite proof.
+## correctness
 
-**Originality: PASS, with residual risk.** Classical base-three prefix normality and Abelian complexity are already in Chen–Lü–Wu (2017), so neither is claimed new. Cicalese–Lipták–Rossi (2018) gives general prefix-normal framework without this family-wide threshold-factor spectrum. The checked material for Lü–Chen–Wen (2022) treats two-Abelian regularity, not the explicit count of distinct maximum-weight words. Related published work on generalized Cantor palindromes and squares addresses different invariants. Targeted scholarly and public mathematical-results searches did not reveal the all-base threshold classification; this is evidence of noncoverage, not a proof of global priority. The inaccessible full text of the 2022 paper and unindexed results remain risks.
+PASS
 
-**Mathematical value: PASS.** The natural threshold length for obtaining \(k\) marked symbols is classified simultaneously with every extremal word, not just its weight. The exact count exhibits an unbounded multiplicity jump from \(1\) at \(k=2^m\) to \(2^m\) at \(k=2^m+1\). This supplies a structural invariant for sparse automatic words and concrete canonical representatives relevant to factor enumeration and binary jumbled matching; it is not an arbitrary finite cutoff or merely a recomputation of Abelian complexity.
+Weighting each binary addition column by (b-1)b^r gives the carry excess (b-1)(b-2) sum_r c_r b^r. It is nonnegative and vanishes iff there is no common set bit. The span of the first k ones in any qualifying interval is therefore at least E_b(k-1); equality forces both endpoints to be ones and the starting one-index i to satisfy i & (k-1)=0. The prefix attains the bound, and strict increase of E_b excludes an extra one. Writing i=a+2^h t, disjoint bits imply a+k-1<2^h, so all k offsets depend only on a; letting t vary gives infinite occurrences. For two different allowed residues, let q be the least differing bit. The common increment r=2^q-(a mod 2^q) is between 1 and k-1 since k-1>=2^{h-1}. Exactly one of a+r and a'+r then has valuation q, and their consecutive-one gaps differ by the formula gap(s)=(b-2)b^{nu_2(s)}+1. Thus the words are distinct and the count is the number of free bits. The k=1 case is the single word 1. The threshold computation makes each prefix maximum-weight at its length, the gaps at powers of two are unbounded, and sliding to a zero run realizes every intervening weight. The jump formulas follow by binary digit sums. Independent direct digit membership and finite window scans agreed for b=4,5,6, k=1–8, and lengths 1–30 for the Abelian checks. The supplied verify.py and recorded 102-case run were inspected, not executed. The infinite result rests on RESULT.md lines 42–72, not the finite checks.
 
-No generalization to other digit sets or arbitrary-length maximizers is asserted. The complete 2022 generalized-Cantor two-Abelian article was not available for full-text comparison. All claims of novelty are qualified by these access and indexing limits.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the classification of distinct ordinary words and their allowed starts at the least length attaining k ones, not the already known classical Cantor maximum-weight and Abelian recurrences. The strongest checked same-family catalogue result determines palindromes, not these general extremizers. The closest generalized-Cantor paper was not accessible in full text; its scope remains a real risk, not evidence against the exact classification. This is a best-of-knowledge judgment, not a priority certificate.
+
+## value
+
+PASS
+
+The first-attainment factors refine a natural maximum-weight statistic to an exact language classification at every threshold. The count of distinct words can jump from one to 2^m at successive one-count thresholds, while Abelian complexity identifies all the words at any one threshold. The admissible starts and recurring representative words supply precisely the information that the prefix profile does not contain.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

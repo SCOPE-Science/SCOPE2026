@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T12:33:12.017953Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof steps 1–4",
+        "Frozen VERIFICATION.md and check.py",
+        "Aalipour et al. Theorem 1.2 and Defant et al. Theorem 3.1"
+      ],
+      "rationale": "The degree enumerator specialized at Walsh signs gives the stated multiplier, including the sign from restoring one factor per vertex. With m,n>=2 the exponents are positive, so only even shores lose characters, exactly at their middle layer; this verifies the rank and extremal nonzero multipliers. For any projection onto the range, conjugates by translations have the same range and act as identity there. Their average still has those properties, has no larger norm, and is the unique diagonal Walsh projection with that range. This applies over either scalar field and for both endpoint norms. On an even shore d=2r the removed kernel has mass at 0 equal to binom(2r,r)/2^(2r). Krawtchouk duality sends its absolute sum to binom(2r,r)/2^(2r) times the sum of absolute coefficients of (1-u²)^r, which is 2^r. Subtracting the kernel from the identity changes the sum by 1 minus twice that mass. On an odd shore the projector is identity. Tensor kernel absolute sums multiply, and the absolute kernel sum is the l1 and linfinity operator norm (attained by a point mass and an appropriate sign function, respectively). The calculation also handles d=2 where Phi(2)=1. Stirling yields the stated two-even-shore equivalent and retained fraction limit. The finite source script was inspected, not executed; the proof does not depend on it.",
+      "residual_risks": [
+        "The assertion is for the whole cube and vertex-degree parity, not edge-incidence observations, nonlinear reconstruction, or the different norm of an inverse on the range."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Defant et al. give the minimal norm as the Haar expectation of the absolute sum of the retained characters for arbitrary Boolean Fourier families. Aalipour et al. supply the complete colorful degree enumerator; Ge–Yu give the specified bipartite degree count with denominator product of the two shores' degree-minus-one factorials."
+        ],
+        "reasoning": "Specializing the degree generating function to signs identifies the range without a new parity count. The general minimum theorem covers the linfinity minimization, and the prior single-deleted-layer argument explicitly covers both endpoints. The arbitrary-frequency theorem by itself would not perform the binomial evaluation.",
+        "searches": [
+          "Defant et al. arXiv:2302.00233, Theorem 3.1, p. 9, offset 29341",
+          "Aalipour et al. arXiv:1510.00033, Theorem 1.2, p. 3",
+          "Ge–Yu arXiv:2602.13750, Theorem 3.2, p. 3"
+        ]
+      },
+      "checked_sources": [
+        "Resultary radius-three record df58cee7aa73 (decisive), edge-incidence entry b7c8403e1f6b, and subject entry",
+        "arXiv:2302.00233, 1510.00033, 2602.13750, 1409.4715"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For a cube of size N=2^d with a single removed layer h of cardinality b, the prior exact-kernel proof gives 1-2b/N+(1/N) sum_x binom(d,x)|K_h(x;d)| and binom(d,x)K_h(x;d)=binom(d,h)K_x(h;d). It then obtains the absolute sum using coefficients of (1-u)^h(1+u)^(d-h) in its odd case."
+        ],
+        "reasoning": "For h=d/2=r the coefficient sum is immediately 2^r rather than the prior odd case's 2^(r+1). Substitution gives precisely Phi(2r); odd shores are identity and retained supports factor. Thus the asserted closed norm and exponential comparison follow from the prior exact reduction and standard specialization, not from similarity of titles or just an unevaluated general norm principle.",
+        "searches": [
+          "Resultary df58cee7aa73, 'An exact absolute-sum identity', offset 3780–5650",
+          "Defant et al. Theorem 3.1 and Aalipour et al. Theorem 1.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The complete-bipartite observable is equivalent to a product of Fourier spaces with a single even central layer removed on each even shore. The radius-three entry removes one near-central layer in odd dimensions on its nonresonant subsequence. The K_(2,n) comparator uses edge-incidence variables, not the vertex odd-degree profile."
+        ],
+        "reasoning": "The comparators are not the same original observable, but the projection constant is determined solely by the surviving frequency set. The single-layer complement identity in the radius-three proof applies independently of which convolution produced the range.",
+        "searches": [
+          "Resultary: odd-degree profiles of bipartite spanning trees, endpoint recovery constants",
+          "Resultary SCOPE-exact-endpoint-instability-for-radius-three-boolean-hamming-ball--df58cee7aa73",
+          "Resultary SCOPE-parity-jump-in-the-sharp-range-projection-norms-of-k-2-n-spannin--b7c8403e1f6b"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed near-central formula in the radius-three entry is 1+binom(2s+1,s+1)(2^-s-2^-2s) for its odd-dimensional case, not the frozen even-shore value. Its proof gives exact absolute row-sum formulas before specializing dimension. No separate exact numerical table for this tree product was identified."
+        ],
+        "reasoning": "This is not a duplicate numerical-entry verdict. The exact proof formulas, rather than an approximate table or a keyword hit, provide the relevant coverage test.",
+        "searches": [
+          "Resultary: exact even central Walsh layer complement norm and binomial factor",
+          "Resultary df58cee7aa73, proof, offset 3780–5650",
+          "Frozen subject's indexed copy c3c80d086245 (not independent)"
+        ]
+      },
+      "rationale": "No separate catalogue entry was verified to state the same bipartite-tree product verbatim. The failure is instead mechanical prior implication. The known bipartite degree enumerator already determines the product of retained spectra. The earlier radius-three Resultary proof explicitly supplies the exact arbitrary-single-layer complement norm in terms of the absolute Krawtchouk sum, its zero-mass correction, and the generating-polynomial evaluation by duality; the published arbitrary Boolean Fourier projection theorem independently supplies unrestricted minimality. With d=2r and removed layer r, the very same generating polynomial specializes to (1-u)^r(1+u)^r=(1-u²)^r, whose absolute coefficients sum by the binomial theorem to 2^r. The exact even-shore expression is therefore a direct specialization and evaluation of those inputs; multiplication of two absolute kernel sums and Stirling do not supply a distinct estimate or structural lemma. This finding does not identify the odd-dimensional Hamming-ball theorem with the tree theorem, or treat an edge-incidence record or the subject's own indexed copy as prior coverage.",
+      "residual_risks": [
+        "No claim is made that the tree product was located verbatim in earlier literature, or that the comparisons exhaust priority. The failure is based on the exact previously documented reduction and mechanical evaluation, not on a missing source or date inference."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Distinct convolution and odd-dimension formula; decisive prior exact reduction and computational method",
+          "evidence": "Norm 1-2b/N plus the normalized absolute Krawtchouk sum, duality, and coefficient reading from the factored generating polynomial are explicitly present.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/16/SCOPE-exact-endpoint-instability-for-radius-three-boolean-hamming-ball--df58cee7aa73/RESULT.md",
+          "material_read": "Finding and exact absolute-sum identity, offset 3780–5650",
+          "method": "Configured Resultary index and local mirror full-text excerpts",
+          "title": "Exact endpoint instability for radius-three Boolean Hamming-ball convolution",
+          "trigger": "Closest exact single-deleted-layer constant and proof"
+        },
+        {
+          "assessment": "Stronger in its choice of subspace; gives exact expectation rather than this particular closed binomial value",
+          "evidence": "For any retained character family, the minimum linfinity norm equals the Haar expectation of the absolute character sum.",
+          "identifier_or_url": "https://arxiv.org/abs/2302.00233",
+          "material_read": "Theorem 3.1 with compact abelian group argument, p. 9, offset 29341",
+          "method": "Lawful OA PDF passage",
+          "title": "Asymptotic insights for projection, Gordon–Lewis and Sidon constants in Boolean cube function spaces",
+          "trigger": "Arbitrary-spectrum projection optimality and exact norm identity"
+        },
+        {
+          "assessment": "Supplies the degree-generating enumerator; specialization determines frequency support",
+          "evidence": "The degree-weighted tree count encodes complete colorful spanning trees by their vertex-facet degrees.",
+          "identifier_or_url": "https://arxiv.org/abs/1510.00033",
+          "material_read": "Theorem 1.2, p. 3, offset 10100",
+          "method": "Lawful OA PDF passage",
+          "title": "A weighted cellular matrix-tree theorem, with applications to complete colorful and cubical complexes",
+          "trigger": "Possible prior recovery of vertex-parity support"
+        },
+        {
+          "assessment": "Related enumerative input; inspected theorem not an endpoint-norm evaluation",
+          "evidence": "Given positive vertex degrees, the tree number is the product factorial expression whose generating series yields the two shore powers.",
+          "identifier_or_url": "https://arxiv.org/abs/2602.13750",
+          "material_read": "Theorem 3.2, p. 3, offset 10800",
+          "method": "Lawful OA PDF passage",
+          "title": "The bipartite analogue of a classical spanning tree enumeration formula, Boolean functions, and their applications to counting odd spanning trees",
+          "trigger": "Specific prior complete-bipartite degree counts and parity"
+        },
+        {
+          "assessment": "Background comparison only; not used to rule out any theorem in that paper",
+          "evidence": "The abstract identifies the transform and convolution framework. The operative exact identity was verified instead in the earlier Resultary proof.",
+          "identifier_or_url": "https://arxiv.org/abs/1409.4715",
+          "material_read": "Abstract, p. 1, offset 286",
+          "method": "Lawful OA passage",
+          "title": "Krawtchouk transforms and convolutions",
+          "trigger": "Classical Krawtchouk/Fourier methods"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and Proof steps 2–4",
+        "Resultary df58cee7aa73, exact complement identity and exponential growth despite vanishing relative nullity",
+        "Defant et al. Theorem 3.1"
+      ],
+      "rationale": "The disparity between recoverable frequency fraction and endpoint amplification is a useful interpretation for a natural observable. But the asserted contribution is the narrow exact invariant for that observable, and its evaluation is the direct central-binomial specialization of the known single-layer projection calculation composed with the known degree enumerator. Neither the tensor multiplication nor the asymptotic supplies a separate mathematical gain in the frozen claim. That does not meet the value standard for a narrow exact invariant that is mechanically implied.",
+      "residual_risks": [
+        "This does not judge other notions of recovery or sharp invariants for other graph classes."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

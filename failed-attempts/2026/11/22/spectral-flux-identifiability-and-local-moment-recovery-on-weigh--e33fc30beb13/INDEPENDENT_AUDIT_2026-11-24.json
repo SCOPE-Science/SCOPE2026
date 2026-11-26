@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:24:26.459758Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 7–39 and 41–85; VERIFICATION.md, verify_exact.py, verify_numerical.py",
+        "Independent exact example, check 2"
+      ],
+      "rationale": "For z away from the internal eigenvalues, the hub Schur complement subtracts (2z+2t_j cos φ_j)/(z²−t_j²) for each petal. Clearing denominators proves the determinant identity everywhere; the guaranteed multiplicities divide even when extra roots are present. After grouping equal t_j, evaluation at the distinct positive τ_r leaves only its corresponding class term with coefficient −2τ_r times the nonzero product of the squared-weight differences. This verifies the full cospectral equivalence, including class extrema, not only generic phases. Labelled cubic diagonal entries have exactly two closed walks, with conjugate phases, so they recover cos φ_j but not its sign. In the equal-weight example P=z(z²−1)(z²−5) for both assignments and the cubic difference is 6/5. Splitting the weights gives distinct polynomials. An independently built exact example at weights (1,1,3,4) with nontrivial complex phases checked polynomial division/evaluation and the cubic diagonals; replay with `OPENBLAS_NUM_THREADS=1 python /tmp/opencode/frozen-review-diagnostics.py` (check 2). The frozen exact and numerical scripts were inspected, not executed. Finite algebra checks supplement the all-size argument.",
+      "residual_risks": [
+        "This is exact-data recovery at known bond strengths. No numerical stability near coalescing strengths, oriented sign recovery or inversion with unknown strengths follows. Repeated weights give a class-sum constraint rather than ambiguity at every possible phase vector; extreme sums can force all class members."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The search passage for arXiv:2101.11558 states an expression for the characteristic polynomial of A(Φ_w) generalizing the weighted Sachs formula. A Sachs term from a disjoint matching uses the squared magnitude of each edge, and a cycle uses twice the real part of its weighted gain product. Here no two triangle cycles are disjoint, and if triangle j is used, the remaining induced graph is just the disjoint internal edges k≠j.",
+          "The latter two gain-graph references are framework/trace references in the frozen comparison; the weighted determinant theorem is a materially stronger overlap than a general cospectrality criterion alone."
+        ],
+        "reasoning": "A single application of the stronger determinant formula isolates each possible phase-dependent term. The same all-graph result applies after deleting a labelled vertex.",
+        "searches": [
+          "Gain distance matrices for complex unit gain graphs, arXiv:2101.11558",
+          "Reff arXiv:1110.4554 and Cavaleri–Donno DOI:10.1515/spma-2022-0169 via frozen bibliography and target lookups"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2101.11558 (retrieved primary search passage and explicit implication analysis)",
+        "Resultary 8fc786abd3fd, 9cc4d8efcf87, 4e59b6ed7525, and self-hit e33fc30beb13",
+        "Frozen RESULT.md §§Finding, Proof, Relationship to prior work"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "By weighted Sachs, subtracting P for two phase assignments with the same strengths cancels every matching term, leaving −2Σ_j t_j Δcos φ_j Π_{k≠j}(z²−t_k²). Divide by the fixed product of all repeated factors (z²−τ_r²)^(n_r−1). Evaluating at τ_r now gives −2τ_r ΔC_r times Π_{s≠r}(τ_r²−τ_s²), which is nonzero unless ΔC_r=0. This is the claimed necessity and sufficiency and the same explicit inverse (the phase-independent polynomial is known and may be subtracted).",
+          "For a peripheral site a_j, only its own triangle is removed upon deletion. The top third coefficient in the weighted Sachs formula is −2 times the sum of real triangle products. Comparing that coefficient before/after deletion yields 2t_j cos φ_j as the removed positive contribution; equivalently tr H³−tr H_{\\hat a_j}³=3(H³)_{a_j,a_j} because every nonzero closed walk at order three is a triangle. This recovers the local formula mechanically."
+        ],
+        "reasoning": "The stronger forward formula is not just compatible with the inverse; the quotient evaluation on its explicitly separated basis computes it, and the local formula is the same cycle coefficient at one triangle. The worked examples and spectroscopic phrasing do not leave a separate established novel theorem.",
+        "searches": [
+          "arXiv:2101.11558 (weighted gain Sachs characteristic polynomial)",
+          "Frozen RESULT.md lines 7–28 and 41–77"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Hamiltonian is the positively weighted complex unit gain adjacency matrix with hub gains 1. The characteristic polynomial and spectrum with multiplicities give the same data. The labelled local third spectral moment is the rooted length-three walk sum; for loopless matrices, deleting a site removes three rotations of each rooted contribution from the trace.",
+          "The weighted-Sachs primary search passage explicitly reports a characteristic-polynomial generalization of the weighted Sachs formula for these matrices."
+        ],
+        "reasoning": "Changing to magnetic-flux or local-moment terminology does not avoid the weighted gain-graph determinant and cycle formulas. The weighted result is relevant without imposing unit edge magnitudes.",
+        "searches": [
+          "arXiv:2101.11558 (positively weighted complex unit gain adjacency; weighted Sachs formula)",
+          "DOI:10.1515/spma-2022-0169 (gain-graph character-weighted walks)",
+          "arXiv:1908.03795 (principal-minor spectral identity; targeted OA retrieval failed)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact top Resultary hit e33fc30beb13 is this source, not separate evidence. The distinct same-day hit 8fc786abd3fd concerns Fano scattering and dark states in a triangular bouquet attached to a wire. Earlier hits 9cc4d8efcf87 and 4e59b6ed7525 concern sixth-root orientation counts for symmetric spectra and first flux-sensitive weighted-cycle moments, respectively."
+        ],
+        "reasoning": "There was no separately verified explicit exact inverse table. The same-day scattering geometry is the closest catalog overlap but its summary does not settle per-petal parameters or exact finite closed-system coverage. The originality rejection instead follows from the general theorem and the explicit reduction.",
+        "searches": [
+          "Resultary: weighted triangular bouquet inverse flux cosines, gain graph bouquet orientations, flux-sensitive moments",
+          "arXiv:1310.6529 (ordinary friendship graph)"
+        ]
+      },
+      "rationale": "The stated weighted complex gain Sachs result is stronger than the forward determinant part. More decisively, its specialization gives a diagonal interpolation for exactly the proposed inverse, with no additional spectral input or nonstandard inference; see claim_vs_prior_implication. The corresponding rooted cubic fact is the standard triangle coefficient applied to the graph and its vertex deletion (equivalently a closed-walk count). Thus the particular known-weight equivalence classes and local repair in this record are direct corollaries of an existing general result and elementary coefficient operations. This is a coverage judgment, not a claim that the earlier paper prints the bouquet theorem or that an inaccessible near match is identical.",
+      "residual_risks": [
+        "Primary passage-level OA retrieval failed for the weighted Sachs PDF and the alternative copy, and the same-day Fano record was catalog-only. No full-document exclusion or chronological priority claim is made about them.",
+        "The rejection concerns direct coverage via a stronger mathematical statement; it does not establish where the exact bouquet wording first appeared."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Positive broader coverage for the determinant and its direct consequences, not an assertion about what specialized wording appears in the full paper",
+          "evidence": [
+            "The retrieved statement reports an expression for the characteristic polynomial of A(Φ_w) generalizing weighted Sachs for positively weighted complex unit gain graphs.",
+            "In this graph a phase-dependent cycle is exactly one triangle and leaves disjoint peripheral edges. The resulting polynomial difference is given under claim_vs_prior_implication."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2101.11558",
+          "material_read": "Primary-literature search passage describing the weighted Sachs generalization; exact PDF formula passage not independently retrieved",
+          "method": "Targeted literature search and attempted OA literal-query retrieval at the arXiv PDF and an identified ar5iv copy; then explicit mathematical specialization of the named weighted Sachs result",
+          "title": "Gain distance matrices for complex unit gain graphs",
+          "trigger": "A stronger weighted gain adjacency determinant theorem can cover both calculations"
+        },
+        {
+          "assessment": "Close geometry; synopsis is on wire transport rather than the closed finite inverse question",
+          "evidence": [
+            "Perfect-reflection energies, compact embedded modes, weak-flux Fano shape; per-petal parameter details not settled by the synopsis."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-flux-controlled-fano-notches-and-dark-state-multiplicities-on-tr--8fc786abd3fd",
+          "material_read": "Resultary catalog synopsis; independent full text not retrieved",
+          "method": "Local Resultary lookup and attempted local-mirror OA retrieval",
+          "title": "Flux-controlled Fano notches and dark-state multiplicities on triangular bouquets",
+          "trigger": "Strongest distinct same-day match to magnetic triangle bouquet"
+        },
+        {
+          "assessment": "Visible result is about discrete gains and symmetry of a spectrum, not arbitrary known-weight class recovery",
+          "evidence": [
+            "Sixth-root gain orientations and orientation-count criterion."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-spectral-symmetry-classification-and-exact-orientation-census-fo--9cc4d8efcf87",
+          "material_read": "Resultary summary",
+          "method": "Local semantic search and statement comparison",
+          "title": "Spectral symmetry classification and exact orientation census for bouquets of cycles",
+          "trigger": "Earlier bouquet gain-spectrum result"
+        },
+        {
+          "assessment": "Different graph and global moment objective",
+          "evidence": [
+            "First flux-sensitive weighted cycle moments, not reconstruction on a common hub."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-first-flux-sensitive-schatten-moments-of-weighted-directed-cycle--4e59b6ed7525",
+          "material_read": "Resultary summary",
+          "method": "Local semantic search and statement comparison",
+          "title": "First flux-sensitive Schatten moments of weighted directed cycles",
+          "trigger": "Weighted phase moment precedent"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–28 and 61–77",
+        "Weighted gain Sachs theorem specialization above"
+      ],
+      "rationale": "Knowing which flux observables a spectrum can recover is a motivated problem, and the worked example illustrates it clearly. In this exact family, however, the proposed invariant and local fix reduce to the ordinary weighted cycle coefficient and evaluation at its known distinct poles. There is no further demonstrated non-routine result on, for example, unknown weights, near-coincident strengths or measurement sufficiency under noise. The correct specialization is useful exposition, but not an independently needed new mathematical result under the value standard.",
+      "residual_risks": [
+        "This is not a judgment against magnetic inverse spectroscopy as a research problem; it concerns only the exact observables and graph restrictions in the frozen finding."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

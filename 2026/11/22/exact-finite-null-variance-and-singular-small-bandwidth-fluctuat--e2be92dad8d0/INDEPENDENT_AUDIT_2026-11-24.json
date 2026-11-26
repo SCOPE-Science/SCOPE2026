@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:40:16.117968Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Verified the known-parameter, i.i.d. standard Cauchy result for every n >= 2 and a > 0. The real Fourier–Stein feature has mean zero by the transform of the Cauchy score. Its real and imaginary parts before the real-feature combination are odd and even in x, respectively; writing the complex product against the conjugate and using the transforms at s-t gives K(s,t) = (s^2+t^2+|s-t|+1) exp(-|s-t|)/2. Conditional degeneracy kills all unequal-pair covariances and diagonal/off-diagonal covariances. The diagonal contributes 1/(2na^2), and the identical unordered pairs contribute 2(n-1)/n times the weighted squared-kernel integral. The independent change to u=|s-t|, v=|s+t| gives that integral as (1/8) times the positive-quadrant integral of (u^2+v^2+2u+2)^2 exp(-2u-a max(u,v)); splitting at v=u and integrating the monomials gives the stated rational polynomial identically. The physical-space pair kernel is made of derivatives through order two of 2a/(a^2+(x-y)^2); distinct observations contribute O(a). For the squared expectation the second derivative term has size a^-3 times 4(1-3u^2)/(1+u^2)^3 at x-y=au, and the difference has Cauchy scale-two density, equal to 1/(2pi) at zero. Dominated convergence for its square gives the same 3/2 constant after multiplication by a^5; the lower derivatives are negligible there because |g| <= 1 and |g(x)-g(y)| <= 2|x-y|. This verifies the near-collision mechanism and the failure of L^2 convergence despite bounded almost-sure limit. Replay: python3 /workspace/independent_checks.py 5 (symbolic identity and spatial constant; requires SymPy). Frozen checker inspected only; the 60 sampled entries in its loop include repeats (57 distinct), a documentation slip that does not bear on the all-a identity.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 2.1 gives a fitted-null Gaussian limit whose kernel contains the no-estimation component used here. Eq. (14) is a kernel trace, not its squared Hilbert–Schmidt norm. Matsui–Takemura's abstract concerns MLE/EISE and a different empirical characteristic-function discrepancy."
+        ],
+        "reasoning": "A general covariance process or mean trace does not give the fully evaluated finite-sample variance; the latter has an additional diagonal variance and finite-n unordered-pair factor. The other characteristic-function tests use different scores and fitted nulls.",
+        "searches": [
+          "Resultary: covariance-kernel square for the Cauchy Fourier–Stein test",
+          "arXiv:2106.13073, Theorem 2.1 and Eq. (14)",
+          "Matsui–Takemura (2005), ISM 57/183.pdf"
+        ]
+      },
+      "checked_sources": [
+        "Resultary local index (four targeted searches; material hit was the identical SCOPE record e2be92dad8d0)",
+        "Ebner–Eid–Klar arXiv:2106.13073",
+        "Matsui–Takemura DOI/ISM PDF (abstract)",
+        "Gürtler–Henze DOI 10.1023/A:1004113805623 (access attempted only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known pointwise endpoint and its bounded score law give no uniform integrability. The known kernel permits, but does not give, the squared-kernel evaluation; its a^-5 integral divergence, with the exact finite-n pair factor, yields the a^-3 divergence after rescaling."
+        ],
+        "reasoning": "A specialization of the earlier pointwise limit gives W_{n,0}, not Var(W_{n,a}). Quantifying the missing second moment requires both the finite-n degeneracy decomposition and computing a different integral, or analyzing the near-collision square.",
+        "searches": [
+          "Resultary: small-bandwidth variance divergence for the centered Cauchy Fourier–Stein statistic",
+          "arXiv:2106.13073, Theorems 1.3, 2.1 and 2.4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The matching Resultary item is the same record, ending e2be92dad8d0. Eq. (8) is an equivalent rational-pair representation of T; Theorem 1.3 already states the same centered endpoint upon substituting X for the residuals."
+        ],
+        "reasoning": "The rational-pair and weighted-Fourier forms are the same statistic, not independent novelty. The prior endpoint is a pointwise assertion, not a finite-a second-moment assertion.",
+        "searches": [
+          "Resultary: exact finite-sample variance of the exponential-weight Cauchy Fourier–Stein statistic",
+          "arXiv:2106.13073, Eq. (8), Theorems 1.3 and 2.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary's material hit was the same record; Theorem 2.4 has the arcsine score law and endpoint behavior, thus covers the endpoint moments but not a tabulation of Var(T) for a > 0."
+        ],
+        "reasoning": "An exact endpoint moment is not a tabulation of the bandwidth-dependent moment. No other material exact-entry hit surfaced in the queried index.",
+        "searches": [
+          "Resultary: exact Cauchy Fourier–Stein moment tables",
+          "arXiv:2106.13073, Theorem 2.4(a,b)"
+        ]
+      },
+      "rationale": "Credit Ebner–Eid–Klar with the statistic, integration-free kernel, pointwise endpoint, arcsine score law, and the known-parameter component of the frequency covariance. The contribution is the explicit finite-sample centered variance for all positive bandwidths and the singular small-bandwidth variance/non-L^2 comparison for that same statistic. The inspected theorem on the fitted Gaussian-process limit is not an exact finite-sample variance theorem, and its asymptotic kernel and trace alone do not evaluate the required squared integral or establish the finite-n coefficient. No independent exact cover was found in the comparisons performed, not a priority guarantee.",
+      "residual_risks": [
+        "Full-text access to the Gürtler–Henze paper and most of the Matsui–Takemura PDF was not obtained.",
+        "An uninspected exact-moment identity or differently named bandwidth calculation could cover part of the result; bounded searches do not settle historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact pointwise endpoint covered; shared covariance component and mean, no exact finite-n variance or small-bandwidth second-moment law in inspected statements",
+          "evidence": [
+            "Thm. 1.3 takes the limit of aT-4/a^2 at fixed n.",
+            "Thm. 2.1 gives a fitted Gaussian covariance with the shared K0 term.",
+            "Thm. 2.4 establishes the arcsine score law."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2106.13073",
+          "material_read": "p. 3 Eq. (8), Thm. 1.3; pp. 4–5 Thm. 2.1 and Eq. (14); p. 7 Thm. 2.4(a,b)",
+          "method": "Lawful OA PDF text, inspected passages",
+          "title": "Cauchy or not Cauchy? New goodness-of-fit tests for the Cauchy distribution",
+          "trigger": "Defining statistic, potential exact moment or endpoint coverage"
+        },
+        {
+          "assessment": "Different fitted ECF statistic; no whole-document assessment",
+          "evidence": [
+            "Abstract specifies MLE/EISE and asymptotic covariance/distribution results."
+          ],
+          "identifier_or_url": "https://www.ism.ac.jp/editsec/aism/57/183.pdf",
+          "material_read": "p. 1 abstract only",
+          "method": "Lawful OA PDF extraction",
+          "title": "Empirical characteristic function approach to goodness-of-fit tests for the Cauchy distribution with parameters estimated by MLE or EISE",
+          "trigger": "Related Cauchy characteristic-function tests"
+        },
+        {
+          "assessment": "Unresolved full-text comparison; not negative evidence",
+          "evidence": [
+            "Secondary description refers to median/IQR standardization, rather than the fixed-parameter Fourier–Stein statistic."
+          ],
+          "identifier_or_url": "https://doi.org/10.1023/A:1004113805623",
+          "material_read": "No primary full text retrieved from DOI/publisher or identified ISM route; only secondary description in Matsui–Takemura's abstract",
+          "method": "Bounded lawful access attempts and secondary comparison",
+          "title": "Goodness-of-fit tests for the Cauchy distribution based on the empirical characteristic function",
+          "trigger": "Potential older exact Cauchy moments"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is the variance of an existing test statistic under its basic known null, for all n and a, not a selected numerical moment. The scale and coefficient tell a user precisely why a bounded fixed-sample small-bandwidth approximation cannot be used to infer the untruncated variance: pairs at separation of order a dominate it. The statement does not promise fitted-parameter calibration or a bandwidth-selection rule.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:05:49.750293Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For N≥3 the regenerative cycle has finite mean (L²/D)J_N, since its survival is erf(L/√(4Dt))^N. Integrating the reflected kernel below −b leaves the positive Gaussian integral from b to b+2L. Both this integral and single-walker survival are (πs)^−1/2 times Gaussian averages at s=Dt/L²: respectively over a uniform point on [b/L,b/L+2] and on [0,1]. Tonelli and the gamma integral give the joint probability exactly as C_N E[(Σ Z_i²)^(1−N/2)], with independent uniform points of these types for the constrained and free walkers. For b_j=a_jR this proves the limit by scaling the sum by (R/L)²; it is bounded below after scaling by Σ a_j²>0 and converges uniformly in the averaging points. In particular the coefficient and cancellation of D are correct. Dividing by the one-label tail gives the equal-threshold conditional limit, and layer cake with the bounded positive part gives the moment boundary and logarithmic coefficient (equivalently with log(R/L)). The finite quadrature checks in VERIFICATION.md and verify_first_passage_tail.py are consistent with this proof but do not certify the limit; the bundled script was inspected, not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The mirror record includes the same tail and moment criterion and also gives a conditional Gamma law for R²/(4DA). Biroli–Majumdar–Schehr derive the exact stationary density and later large-N order statistics; the related Pareto-reset paper treats an externally imposed clock, and the threshold-reset search paper treats target first-passage times."
+        ],
+        "reasoning": "The broader mirror finding directly subsumes the claimed tail and is stronger in its treatment of the age distribution. Different reset clocks, large-N asymptotics and search-objective laws are not substitutes for the fixed-N joint tail.",
+        "searches": [
+          "Resultary mirror c03a80e1262c, Finding",
+          "arXiv:2512.00440v1 Eqs. (1)–(5), (10)–(13), (27)–(31)",
+          "arXiv:2509.06658 §IV.B",
+          "arXiv:2504.13501v4 p. 1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_first_passage_tail.py",
+        "Resultary mirror c03a80e1262c and 4cfb2c3e2c2e",
+        "arXiv:2512.00440v1",
+        "arXiv:2509.06658",
+        "arXiv:2504.13501v4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The originating paper gives the age mixture from which the tail needs to be extracted; the exact matching mirror finding already extracts it and states the equal-threshold ratio and moment threshold. Layer cake applied to the mirror's k=1 tail directly gives the coefficient (N−2)K_N of the boundary logarithm."
+        ],
+        "reasoning": "A density containing the information is not itself an explicitly evaluated directional tail, but the indexed directional theorem is; the frozen record's logarithmic refinement is a direct corollary of that theorem and cannot rescue distinctness.",
+        "searches": [
+          "arXiv:2512.00440v1 Eqs. (10)–(13)",
+          "c03a80e1262c, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The distinct mirror Finding at offset 0 states R^(N−2)P(X_j<−a_jR for all specified j) → K_N(Σ a_j²)^(1−N/2) for all 1≤k≤N and strictly positive fixed a_j. With Z_N=(L²/D)J_N, its K_N=2^(N−2)Γ(N/2−1)L^N/(π^(N/2)D Z_N)=C_N L^(N−2). The labels are exchangeable."
+        ],
+        "reasoning": "The apparent differences in scaling, symbols and label choices do not change the quantified theorem. The mirror result is distinct from the frozen RESULT.md.",
+        "searches": [
+          "Resultary: first-passage resetting gas, directional multivariate Pareto tails and conditional extremes",
+          "2026/11/2/SCOPE-multivariate-pareto-excursions-and-a-gamma-reset-age-law-in-a-fi--c03a80e1262c, Finding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "c03a80e1262c explicitly gives k^(1−N/2) and the criterion q<N−2 as well as the directional coefficient. The mirror-threshold occupation record 4cfb2c3e2c2e is about counts below −L as N grows, not excursions at R→∞ with N fixed."
+        ],
+        "reasoning": "The relevant exact match is an analytic theorem indexed in the corpus, not a numerical table; checking the tabulated J_N values would not test novelty of the universal tail law.",
+        "searches": [
+          "Resultary: first-passage resetting gas joint extreme tails, moments",
+          "c03a80e1262c and 4cfb2c3e2c2e, mirror Findings at offset 0"
+        ]
+      },
+      "rationale": "The distinct indexed Resultary finding on multivariate Pareto excursions gives the same joint limit and equal-threshold conditional coefficient under identical assumptions, the same moment criterion, and additionally a Gamma age limit. K_N there equals C_N L^(N−2) after substituting Z_N=(L²/D)J_N. Neither exchangeability to arbitrary labels nor the boundary logarithm from layer cake leaves a substantively distinct claim. This is verified duplicate scientific coverage in the reviewed corpus, not a determination of who obtained the result first; the path dates do not establish priority.",
+      "residual_risks": [
+        "The broader literature lookup was unavailable; this is not evidence of no additional literature.",
+        "The frozen path and indexed mirror path do not establish first disclosure or provenance. The scientific conclusion is coverage, not earlier publication or attribution."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Distinct record with equivalent core and stronger coverage",
+          "evidence": "Same fixed finite N≥3, Brownian generator, common trigger and all positive directions. Three matching tail/moment statements and an extra age theorem.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-multivariate-pareto-excursions-and-a-gamma-reset-age-law-in-a-fi--c03a80e1262c/RESULT.md",
+          "material_read": "Finding and assumptions, offset 0, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Bounded local mirror read and algebraic normalization",
+          "title": "Multivariate Pareto excursions and a Gamma reset-age law in a first-passage-resetting Brownian gas",
+          "trigger": "Exact Resultary match"
+        },
+        {
+          "assessment": "Foundational overlap, not a direct statement match in inspected passages",
+          "evidence": "Killed kernel, renewal density and conditional representation; inspected order statistics are large-N.",
+          "identifier_or_url": "https://arxiv.org/abs/2512.00440v1",
+          "material_read": "PDF p. 1; Eqs. (1)–(5), (10)–(13), (27)–(31)",
+          "method": "Lawful OA full-text passages, identity/date and equation comparison",
+          "title": "First Passage Resetting Gas",
+          "trigger": "Original stationary-density source"
+        },
+        {
+          "assessment": "Different reset-time mechanism",
+          "evidence": "Externally imposed Pareto intervals and a one-coordinate density tail, rather than a joint absorbed-kernel tail.",
+          "identifier_or_url": "https://arxiv.org/pdf/2509.06658",
+          "material_read": "§IV.B, pp. 15–16, Eqs. (81), (86)–(88)",
+          "method": "OA PDF passage comparison",
+          "title": "Dynamically emergent correlations in Brownian particles subject to simultaneous non-Poissonian resetting protocols",
+          "trigger": "Power-law tails under simultaneous resetting"
+        },
+        {
+          "assessment": "Related trigger, different target observable",
+          "evidence": "Optimizes search first-passage times; abstract does not address stationary joint extremes.",
+          "identifier_or_url": "https://arxiv.org/abs/2504.13501v4",
+          "material_read": "v4 p. 1 abstract",
+          "method": "OA PDF, bounded scope check",
+          "title": "Target Search Optimization by Threshold Resetting",
+          "trigger": "Related threshold reset model"
+        },
+        {
+          "assessment": "Different asymptotic regime",
+          "evidence": "Occupation counts below the fixed mirror threshold −L as N grows.",
+          "identifier_or_url": "2026/10/26/SCOPE-logarithmic-mirror-threshold-occupations-in-a-first-passage-rese--4cfb2c3e2c2e",
+          "material_read": "Finding, offset 0",
+          "method": "Bounded local mirror read",
+          "title": "Logarithmic mirror-threshold occupations in a first-passage resetting gas",
+          "trigger": "Close Resultary same-model hit"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Judged apart from duplicate coverage, the result identifies a useful exact heavy-tail dependence law of the stationary Brownian gas: observing one extreme leaves a nonzero probability of any fixed number of joint extremes, with a sharp direction-dependent constant and a corresponding moment boundary. The same exponent for all k is not a consequence of the between-reset independence alone.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

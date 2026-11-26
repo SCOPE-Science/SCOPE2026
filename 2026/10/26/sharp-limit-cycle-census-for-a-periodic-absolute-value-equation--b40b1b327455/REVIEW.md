@@ -1,15 +1,21 @@
-# Review of the sharp limit-cycle census
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The proof fixes the precise integer and perturbation quantifiers, constructs both entire fixed half-lines, and shows by comparison that the remaining trajectories have exactly two transverse zeros. It obtains an exact phase-matching relation and proves its \(C^1\) convergence even at grazing endpoints using square-root coordinates. For sufficiently small nonzero perturbation, the derivative of the complete return displacement has exactly \(k-1\) interior zeros; Rolle's theorem bounds interior fixed points by \(k-2\). The Chebyshev first-order integral has precisely \(k-2\) simple interior roots, all of which persist as hyperbolic cycles, giving equality. Numerical quadrature is supplementary and not treated as exhaustive proof.
+## correctness
 
-## Originality
-**PASS, with residual priority risk.** The same equation appears in Coll–Gasull–Prohens (2008), but their rigorous statement is **at least** \(k-2\) actual cycles and an exact root count only at first order; it does not eliminate near-grazing bifurcations. The contemporary Bravo–Trinidad-Forte full texts (arXiv:2503.03247 and arXiv:2605.05805) repeat the lower bound, treat global centers or coarse general upper bounds, and do not give the precise family-level equality. A 2024 degree-one treatment has hypotheses excluding higher harmonics. A targeted semantic database search found related different-family oscillator results but no stated stronger implication. Search is not a proof of priority; uncatalogued equivalents remain a risk.
+PASS
 
-## Value
-**PASS.** Establishing the missing sharp upper bound completes the natural limit-cycle census in the standard construction used to demonstrate unbounded cyclicity. The boundary-safe phase-matching argument connects crossing geometry to a critical-point bound, and treats every initial value rather than a perturbative compact subfamily. The mathematical question and exact invariant are motivated directly by the source's published lower-bound-only statement.
+Order preservation and the explicit branch solutions delimit the two periodic half-lines exactly. The two total integrals vanish by summing period translates of the coefficient, and the equality of half-period primitives follows by orthogonality of sin t to all harmonics in sinh((ε/k)sin kt). All other orbits cross once each way, transversely, on the two open half-periods. For upward phase t and reflected downward phase r, the positive branch gives A(t)=B(r). The negative branches give ρ=−B(t), P(ρ)=−A(r), so at a fixed point A(t)+B(t)=A(r)+B(r). Strict monotonicity yields r=t, and conversely A(t)=B(t) gives a fixed point. As an independent upper bound, A−B vanishes at both endpoints and (A−B)'=−2 sinh((ε/k)sin kt) sin t has exactly k−1 interior zeros for ε≠0, so Rolle gives at most k−2 interior fixed points. The frozen proof's stronger displacement-critical-point census also works: the endpoint deficits vanish quadratically with positive smooth factors, making the inverse composition C¹-close to the identity up to both endpoints; the exact variational multiplier is exp((2ε/k)[sin(kt₂)−sin(kt₁)]), therefore the displacement-critical-point equation converges in C¹ to 2sin kt with pinned simple endpoints. For the lower bound, the transverse branch solutions depend smoothly on initial value and ε on interior compact sets. Splitting the first-order displacement at θ=arccos(ρ+1) and integrating by parts gives (4/k)∫₀^θ sin(kt)sin t dt, equal to the stated positive weight times T_k''; Rolle and the degree prove k−2 simple roots. Their continuations for either sign of nonzero ε have P'≠1, hence are hyperbolic, and exhaust the upper bound (including zero cycles at k=2).
 
-## Limits and independence
-Only the stated family, one forcing period, and sufficiently small nonzero perturbations are covered. No uniform threshold in the harmonic order is asserted. Literature comparison cannot certify global priority. Independent auditing has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The small-parameter lower bound for this exact equation is existing coverage and is not credited. The checked sources do not give the matching global upper bound or exclude additional near-grazing cycles for this family. The endpoint-inclusive census is the distinct result supported here.
+
+## value
+
+PASS
+
+This well-known example is used to force degree dependence in global cycle bounds. Upgrading its lower bound to an exact isolated-cycle count, including the two grazing edges where compact perturbation theory is not decisive, resolves a concrete gap. The exact branch correspondence also distinguishes isolated hyperbolic cycles from the continuous fixed families.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

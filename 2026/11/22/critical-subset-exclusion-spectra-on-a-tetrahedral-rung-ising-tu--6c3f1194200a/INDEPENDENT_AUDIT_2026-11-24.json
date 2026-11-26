@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:23:40.807859Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Re-derived the Hamiltonian in units J: a column contributes 6-8r+2r², the next interface contributes 4-2r_i-2r_{i+1}+4t_i and the field contributes -(h/J)(4-2r_i). This gives the stated global identity without double-counting C_3. At h/J=3 the shifted energy is a sum of integer-nonnegative terms 2(r-1)(r-2) and 4t, so the equality constraints are necessary and sufficient and are attained by proper singleton colorings. Singletons contribute M=2, pairs zero. A trace counts closed indexed column words once, with the arriving-column weight counting each singleton once. The two-dimensional constant block and the three equivalent zero-sum direction blocks follow from BB^T=2I+11^T and complement acting as minus on the zero-sum image. On ker B the complement is +1: the minus space for the three complementary-pair swaps has dimension three and is already exhausted by the zero-sum image. Thus the polynomial and power-sum degeneracy hold, also at weights with coinciding eigenvalues. The odd minimum sector can be counted directly: zero singletons would force an impossible odd alternating complement sequence and one singleton would touch complementary pairs and have no allowed leg. With two adjacent singleton columns the intervening odd-length pair run has six initial choices and the singleton legs are distinct members of its complementary two-set, giving 12 possibilities. Nonadjacent singleton columns separate an odd and even pair run: the odd run gives six initial choices and two ordered distinct possible singleton legs; the even run has exactly two compatible initial pairs, giving 24 possibilities. Summing over the n adjacent and binom(n,2)-n other position pairs gives 12n(n-2). Pure singleton states give 3^n+3(-1)^n; for even n the zero sector has six alternating words. At h=3J the finite spectral gap to the other eigenvalues at y=1 gives asymptotically rho(e^t)^n for the polynomial near t=0, with a uniform exponentially small relative error there. The first two log derivatives are μ=1/2+sqrt(7)/14 and ν=3sqrt(7)/49, yielding the characteristic-function CLT and uniform ground-state magnetization mean. Independently built the ten-state matrix and checked the factor and derivatives symbolically: python3 /workspace/branches/replay_3_5/expansion_checks.py, matching .log. At h=5J the integer-nonnegative terms are 2r(r-1) and 4t. The five-state matrix splits into three eigenvalues -1 and the constant/empty block with trace 4 and determinant -1. Interpolation of the two energy identities gives exactly their equality-set intersection on 3J<h<5J; increasing h beyond 5J selects the unique state of maximal M in the critical set, the all-positive state. At h=0 the even-cycle states attaining both local exchange bounds are exactly the six alternating balanced columns; interpolation with the h=3J bound excludes all others for 0≤h<3J and even n. For odd cycles the immediate-left crossing is only a fixed-n assertion, justified by the finite gap above the critical ground energy. The archived bounded checker was inspected, not executed; the all-size results are analytic. The CLT is for the uniform labelled ground states at exactly 3J, and no full odd low-field or finite-temperature diagram is inferred.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chattopadhyay–Bose p. 1 specifies quantum tetrahedral clusters alternating with two-spin units, and Strečka–Michaud–Mila p. 1 specifies spin-one quantum Heisenberg rungs with Ising legs and diagonals. The same-day indexed range-three Ising paper proves a Gaussian limit with weighted transfer through four- and five-site excursions, while the cyclic prism hard-core record uses K_2 rungs."
+        ],
+        "reasoning": "Those statements have different Hamiltonians or state spaces. The generic transfer-matrix method gives the framework, but does not supply the critical minimizer reduction, the specific parity coefficient or the evaluated log derivatives in this model.",
+        "searches": [
+          "Classical K4 Cartesian cycle antiferromagnetic Ising tetrahedral rungs exact magnetization field transfer matrix",
+          "arXiv:cond-mat/0107393",
+          "arXiv:1305.6703",
+          "Resultary 577a569ffd0e and 867dbee8226d"
+        ]
+      },
+      "checked_sources": [
+        "Resultary efb9ee14e686, 577a569ffd0e, 867dbee8226d and 862595aa031a",
+        "arXiv:cond-mat/0107393 p. 1 and arXiv:1305.6703 p. 1",
+        "DOI 10.1088/1742-6596/568/4/042023 (attempt only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The closest earlier complete-rung analogue is only for K_3 at thresholds 2J and 4J and does not quantify over K_m; the rank and complement eigenspaces for the 10-state K_4 exclusion matrix are not among those results. The strongest same-day census-plus-CLT analogue concerns a cyclic range-three binary-spin model at 10J/3. Four-row hard squares include grid adjacency and open boundaries, not clique rungs and the two allowed spin sectors at 3J."
+        ],
+        "reasoning": "The method combines known ideas, and the high-field independent-set formula is an elementary transfer evaluation. These facts do not make the weighted critical spectrum and low-magnetization and fluctuation results consequences of the inspected narrower theorems. Same-day publication alone neither removes the methodological overlap nor establishes priority.",
+        "searches": [
+          "2026/11/2 efb9ee14e686 Proof; 2026/11/22 577a569ffd0e Finding and Proof",
+          "2026/11/16 862595aa031a Finding and Assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The negative-spin support is an independent set at the 5J boundary, exactly the hard-core model on K_4 square C_n. The earlier three-leg proof also gives disjoint one- or two-down-spin neighboring rungs at its lower boundary, and an independent-set model at its upper boundary. K_3 forbids all pair-to-pair transitions and has six lower-boundary states; K_4 allows complementary pairs and has ten."
+        ],
+        "reasoning": "Down-spin, independent-set and occupancy language should not be treated as distinct from the equivalent formulation. The rung-size change here alters the constraint graph, parity structure and spectral calculation, not merely the names.",
+        "searches": [
+          "Resultary: classical complete-rung Ising tube, clique Cartesian cycle, disjoint subsets and hard-core transfers",
+          "2026/11/2 Resultary efb9ee14e686, Proof offsets 3000–7526"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The retrieved three-leg six-state eigenvalues solve quadratics with coefficients differing from the ten-state system; its odd low-field count is n(n²-1)/4 at M=3, not the odd critical M=4 sector with 12n(n-2). The range-three record has a different critical field, six-state transfer and occupation spectrum. The other retrieved hard-square and prism records have open four-row grid or two-leg prism boundaries and different transfers."
+        ],
+        "reasoning": "There is no transport of these exact tables to the claimed choices of clique rung, periodic interface and field. No independent exact match was established in the checked comparisons; the web query's failure to surface one is not evidence of absence.",
+        "searches": [
+          "Resultary: K_4 square C_n exact critical set, subset-exclusion characteristic polynomial, odd minimum magnetization and entropy",
+          "Resultary efb9ee14e686 Proof offsets 3000–7526",
+          "Resultary 577a569ffd0e Finding and Proof offsets 0–5821"
+        ]
+      },
+      "rationale": "Qualified for the weighted four-leg critical spectrum, exact odd-sector count and model-specific fluctuations. The subset-exclusion construction has a close earlier three-leg analogue, and hard-core counting at saturation and transfer-matrix CLTs are standard methods, not independent novelty here. The comparisons did not establish exact prior coverage of the four-leg weighted result.",
+      "residual_risks": [
+        "A differently indexed classical complete-rung ladder result or a theorem for all clique sizes may exist. Full passages from the cited four-leg quantum and recursive tetrahedron journal papers were not independently compared. The bound record does not give a bibliographic entry for its mentioned classical three-leg precedent; the documented catalogue analogue is a close comparison, not identification of any additional publication. No historical priority is certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong methodological and structural analogue, distinct rung size and field hypotheses",
+          "evidence": "Subset exclusion for one or two down spins on K_3 at h=2J and independent sets at 4J, with six- and four-state transfers respectively.",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-field-plateaux-and-ground-state-multiplicities-of-a-frustr--efb9ee14e686",
+          "material_read": "RESULT.md Proof offsets 3000–5700 and 5400–7526",
+          "method": "Local Resultary mirror passage read",
+          "title": "Exact field plateaux and ground-state multiplicities of a frustrated three-leg Ising tube",
+          "trigger": "Closest earlier complete-rung model, potentially a covering transfer theorem"
+        },
+        {
+          "assessment": "Shares transfer CLT method, different Hamiltonian, field and observable",
+          "evidence": "Field 10J/3, four- and five-site excursions and weighted six-state transfer.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-finite-ring-occupation-census-at-a-range-three-ising-coexi--577a569ffd0e",
+          "material_read": "RESULT.md Finding offsets 0–3202; Proof offsets 3050–5821",
+          "method": "Local Resultary mirror passage read",
+          "title": "Exact finite-ring occupation census at a range-three Ising coexistence field",
+          "trigger": "Material same-day exact weighted spectrum and Gaussian law overlap"
+        },
+        {
+          "assessment": "Different prism rung",
+          "evidence": "C_n square K_2 uses a three-state transfer, not the K_4 five-state transfer.",
+          "identifier_or_url": "2026/11/16/SCOPE-two-branch-fourier-spectra-for-uniform-hard-core-configurations--867dbee8226d",
+          "material_read": "RESULT.md Finding and Proof offsets 0–2683",
+          "method": "Local Resultary mirror passage read",
+          "title": "Two-branch Fourier spectra for uniform hard-core configurations on cyclic prisms",
+          "trigger": "Independent-set equivalence at saturation"
+        },
+        {
+          "assessment": "Different row adjacency and boundary",
+          "evidence": "Open P_4 square P_n grid with eight permitted column masks.",
+          "identifier_or_url": "2026/11/16/SCOPE-a-period-three-invertibility-law-for-four-row-hard-square-convol--862595aa031a",
+          "material_read": "RESULT.md Finding and Assumptions offsets 0–1922",
+          "method": "Local Resultary mirror passage read",
+          "title": "A period-three invertibility law for four-row hard-square convolutions",
+          "trigger": "Possible equivalence with a four-row hard-core model"
+        },
+        {
+          "assessment": "Specified model differs; no inference about unrelated results in unread text",
+          "evidence": "Quantum two-chain ladder with tetrahedral units alternating with two-spin rungs.",
+          "identifier_or_url": "https://arxiv.org/pdf/cond-mat/0107393",
+          "material_read": "p. 1 abstract, offset 0",
+          "method": "OA primary PDF passage read",
+          "title": "Magnetization of coupled spin clusters in ladder geometry",
+          "trigger": "Primary tetrahedral-rung ladder antecedent"
+        },
+        {
+          "assessment": "The described model is not the classical clique-rung tube",
+          "evidence": "Spin-1 two-leg models include Heisenberg rungs and Ising leg and diagonal bonds.",
+          "identifier_or_url": "https://arxiv.org/pdf/1305.6703",
+          "material_read": "p. 1 abstract, offset 0",
+          "method": "OA primary PDF passage read",
+          "title": "Exact ground states of frustrated spin-1 Ising–Heisenberg and Heisenberg ladders in a magnetic field",
+          "trigger": "Primary exact magnetic-ladder ground-state comparison"
+        },
+        {
+          "assessment": "Access gap, not evidence of noncoverage",
+          "evidence": "The conference endpoint returned HTTP 403.",
+          "identifier_or_url": "https://doi.org/10.1088/1742-6596/568/4/042023",
+          "material_read": "No independent full text obtained",
+          "method": "Lawful primary DOI retrieval attempt",
+          "title": "Magnetization plateaux and jumps in frustrated four-leg spin tubes in magnetic fields",
+          "trigger": "Plausibly relevant four-leg tube conference paper"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The two natural longitudinal-field boundaries of a frustrated clique-rung antiferromagnet have different critical ensembles. At coexistence, the ten-state spectrum controls both extensive ground-state multiplicity and the magnetization distribution; the odd-cycle obstruction gives a different extreme sector from the even cycle. The explicit fluctuation variance and endpoint entropy provide comparison quantities at fixed exchange and physically specified fields. The value is in the combined energy, parity and fluctuation classification for the natural K_4 tube, not the elementary fact that transfer matrices or the hard-core representation exist.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

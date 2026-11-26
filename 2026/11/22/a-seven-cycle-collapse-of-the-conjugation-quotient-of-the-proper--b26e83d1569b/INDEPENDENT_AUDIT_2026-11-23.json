@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T20:58:26.869869Z",
+  "axes": {
+    "correctness": {
+      "rationale": "I reconstructed S4 from permutation products and generated each subgroup by breadth-first search in generator words, then partitioned complete flags into orbits under a single simultaneous conjugation. Exhaustiveness follows by adjoining a generating set one element at a time. The independent counts are 30 subgroups and (28,63,24) proper flags by dimension, with (9,15,6) orbits; no longer flag is possible since four distinct proper subgroup orders in a divisibility chain would end at order at least 16, whereas the last proper order is at most 12. Stabilizers preserve the vertex orders of a flag; two points of a single closed simplex identified in the orbit space have the same supported vertices and coordinates, since at most one vertex of each order is available in that simplex. Thus the closed simplices map injectively to regular CW cells, with the stated face maps. Independently recovered all six listed face-index rows and verified the eight free faces in the frozen certificate after each update. The surviving edges are 1,2,4,6,9,10,13, forming vertex cycle 0–6–2–8–4–1–7–0. This proves the claimed collapse of the actual orbit space, not a poset of individual conjugacy classes, and homotopy equivalence rather than homeomorphism. Replay: python3 /workspace/evidence/2_s4.py; output /workspace/evidence/2_s4.txt. Frozen verifier and certificate were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ramras states the nonequivariant antichain-complements wedge-of-suspensions formula and its normal-subgroup specialization. The independent orbit-space complement argument below gives the bare S1 but no flag orbit boundaries or specified free-face sequence. The distinct Resultary calculations are group-specific."
+        ],
+        "reasoning": "An equivariant form of complementation could give the underlying homotopy equivalence by specialization. It would not in that form specify the 9/15/6 regular cells, keep track of parallel edges, or give the eight explicit collapses of this CW decomposition. The original Björner–Walker publisher full-text route did not open; its inaccessible content is not used as negative evidence.",
+        "searches": [
+          "Ramras arXiv:math/0210001 §6, printed pp. 19–20, Thm. 6.1, Lemma 6.4, Prop. 6.5",
+          "Björner–Walker, A homotopy complementation formula for partially ordered sets (publisher access unsuccessful; stated lemma inspected in Ramras)",
+          "Resultary 5700bda30292 and 723770b737c0"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, certificate.json and verify.py",
+        "Ramras arXiv:math/0210001 §6",
+        "Resultary b26e83d1569b, 5700bda30292 and 723770b737c0"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The adjacent publications give a five-edge circle for A5, a 2-sphere for S5, and a contractible quotient for PSL2(7). Ramras Lemma 6.4 and Prop. 6.5 express suspension summands from complements, not the flag-cell structure."
+        ],
+        "reasoning": "For S4 let V be the normal Klein four. Every proper subgroup except the four point-stabilizer complements H≅S3 has KV proper: a subgroup of order 12 is A4, and a proper subgroup surjecting onto S4/V≅S3 must otherwise have order 6 and meet V trivially. On deleting the complements, K≤KV≥V gives an equivariant poset contraction. The deleted maximal complements are conjugate and the link of one has two orbits under its self-normalizer H (C2 and C3 sites). In the quotient, collapsing the contractible retained subcomplex gives a cone on two points with the base identified to a point, hence a circle. This independently shows exactly what the complement mechanism can explain; it does not determine the reported orbit counts, face boundaries, or length and sequence of the explicit cellular collapse.",
+        "searches": [
+          "Ramras arXiv:math/0210001, OA offsets 55268–61845",
+          "Resultary 5700bda30292, Finding and Proof; 723770b737c0, Limitations at offset 6273"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The mirror hit b26e83d1569b is the identical frozen statement. Ramras §6, Thm. 6.1 and Prop. 6.5 concern L(G) itself. The A5/S5 and PSL2(7) records take the same type of geometric quotient, but on different groups."
+        ],
+        "reasoning": "A conjugacy class of individual subgroup vertices cannot recover the ordinary geometric quotient: different simultaneous flag orbits can have the same endpoint classes. A homotopy description before conjugation is not a homotopy description of the orbit space without equivariance or an independent quotient argument.",
+        "searches": [
+          "Resultary: geometric inner-conjugation quotient of the proper subgroup order complex of S4, simultaneous subgroup flag orbits, and seven-edge cellular collapse",
+          "Ramras arXiv:math/0210001 §6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact S4 hit is the same record b26e83d1569b. The other flag-orbit catalog entries concern A5/S5 and PSL2(7); A5 and S5 have orbit dimensions (7,8,1) and (17,49,41,7) respectively, and neither has the S4 certificate."
+        ],
+        "reasoning": "A table of subgroup conjugacy classes alone could supply 9, not the orbits of incidences/faces or the free-face order. The exact data being assessed are the orbit-cell counts and explicit collapse, not the familiar number of S4 subgroups.",
+        "searches": [
+          "Resultary: S4 subgroup-chain conjugacy orbits, (9,15,6), seven-cycle collapse",
+          "Resultary b26e83d1569b, 5700bda30292, 723770b737c0"
+        ]
+      },
+      "rationale": "The full claim resolves flag-orbit incidence and a specific cellular collapse on S4. The exact Resultary hit is the frozen record itself; the distinct PSL2(7) and A5/S5 flag-quotient computations do not provide the S4 data. The abstract homotopy type alone is accessible by a short complement argument, so originality weight rests on the explicit regular orbit CW calculation and its eight-pair collapse, not on claiming that no elementary route to a circle exists.",
+      "residual_risks": [
+        "The literature and table checks are bounded. A separate equivalent orbit-flag calculation outside the checked sources is not ruled out.",
+        "The publisher route to the original Björner–Walker paper returned 403. The Ramras statement is nonequivariant; the independent argument confirms that the bare orbit homotopy type is elementary, not that it is a priority claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Nonequivariant comparators, not an orbit-flag census or collapse",
+          "evidence": "Prop. 6.5 takes a wedge of suspensions indexed by actual complements and identifies upper intervals with invariant subgroups. Its stated homotopy result is for L(G), not L(G)/G.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0210001",
+          "material_read": "§6, printed pp. 19–20, Thm. 6.1, Lemma 6.4 and Prop. 6.5, OA offsets 55268–61845",
+          "method": "Bounded primary-text OA inspection",
+          "title": "Connectivity of the coset poset and the subgroup poset of a group",
+          "trigger": "Same unquotiented subgroup poset and a plausible stronger complements theorem"
+        },
+        {
+          "assessment": "Identical record, not independent prior coverage",
+          "evidence": "The title, canonical ID and orbit counts plus eight collapses match the frozen S4 record.",
+          "identifier_or_url": "Resultary b26e83d1569b",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "OA local mirror passage comparison",
+          "title": "A seven-cycle collapse of the conjugation quotient of the proper-subgroup complex of S4",
+          "trigger": "Exact search hit"
+        },
+        {
+          "assessment": "Different finite groups, not a formula specializing to S4",
+          "evidence": "The quotient types and enumerations are given for A5 and S5 separately.",
+          "identifier_or_url": "Resultary 5700bda30292",
+          "material_read": "RESULT.md Finding and Proof, offset 0",
+          "method": "OA local mirror passage inspection",
+          "title": "Conjugation quotients of the proper-subgroup complexes of A5 and S5",
+          "trigger": "Exact analogue under the same flag-orbit construction"
+        },
+        {
+          "assessment": "Specific to PSL2(7)",
+          "evidence": "The stated inner-conjugation quotient for that group collapses to a point.",
+          "identifier_or_url": "Resultary 723770b737c0",
+          "material_read": "RESULT.md Limitations, offset 6273",
+          "method": "OA local mirror passage inspection",
+          "title": "The conjugation quotient of the PSL2(7) subgroup complex",
+          "trigger": "Distinct same-day orbit-flag calculation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "S4 is the first small symmetric-group case in this comparison with genuine two-cell attachments and an orbit loop (S3's quotient gives two isolated points). The exact regular flag-orbit cells and collapse are useful to downstream comparisons of geometric orbit spaces and to distinguish simultaneous flags from vertex conjugacy incidence data. They reproduce and explain what survives and what disappears under explicit elementary moves, rather than merely reporting a homology rank or recomputing the usual subgroup counts. No general family classification or importance for the bare circle equivalence alone is required.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

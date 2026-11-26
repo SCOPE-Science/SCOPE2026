@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:44:30.951773Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–67",
+        "Frozen VERIFICATION.md and CHECKER.py (inspected, not run)",
+        "/workspace/audit_replay/quaternion.py and quaternion.txt"
+      ],
+      "rationale": "The normal form and multiplication follow from moving j past i (central z factor) and reducing i² and j² to z. The even-augmentation ideal has successive power dimensions 7,5,3,1,0; nilpotence and the quotient F₂ identify it with the Jacobson radical. For each ordered (b,c), the witness count is the size of ker ρ_bc minus the intersection with ker ρ_cb, namely 2^(8−r)−2^(8−s). I independently built Q₈ as the eight signed 2-by-2 complex quaternion matrices, used their multiplication to construct the binary ring, computed ideal powers by explicit spans and ranks as log₂ of image cardinalities, and tested the second product directly on the zero set of the first for every ordered pair. This matched all eight rank frequencies, yielding 98,304 and 49,152 witnesses from the only two contributing rank pairs. It found exactly 49,152 at each stated valuation vector and verified the displayed witness has products zero and the nonzero all-group sum. The total is 147,456 and division by 256³ gives 9/1024. The rank table certifies the total via rank-nullity, not by itself the layer counts; the separate valuation census supplies those. Replay: python3 /workspace/audit_replay/quaternion.py; output at /workspace/audit_replay/quaternion.txt.",
+      "residual_risks": [
+        "The count is ordered, over F₂, and for the specific implication abc=0 ⇒ acb=0.",
+        "The certificate establishes this finite ring's counts, not a field- or ring-family theorem."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The classification gives 186 minimal examples and identifies the exact algebra as ring 5, graded type (1,2,2,2,1). Szabo proves minimum order 256 and attributes the quaternion example to Marks."
+        ],
+        "reasoning": "Classifying rings and verifying that each satisfies a predicate by full-table tests is broader in objects but weaker in what is reported per ring. A nonsymmetric ring is guaranteed at least one witness, not a specific number by radical layer.",
+        "searches": [
+          "Grau Ribas–Oller-Marcén arXiv:2611.19962v1 §1, Theorem A, §7 Table 1, §8 verification",
+          "Szabo arXiv:1710.07338 §3, Theorem 3.1"
+        ]
+      },
+      "checked_sources": [
+        "Szabo arXiv:1710.07338",
+        "Grau Ribas–Oller-Marcén arXiv:2611.19962v1",
+        "Resultary 88a14c85fe9c (same record), 930d5916e28e, 4c46c48edabe, 6a4c6e43b10d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "One exact defect follows from u⁴=0 and u²=v², with (uv)² nonzero. Existing powers of the radical determine the potential layers, and the full ring table determines all products. The single-element rank polynomial does not contain joint kernel sizes."
+        ],
+        "reasoning": "To turn the known algebra and layers into the asserted exact invariant still requires obtaining the joint ranks over ordered (b,c) and allocating the kernels' differences to layers. The rank-nullity identity itself is standard; the specific distribution and witness-layer concentration do not follow from the known qualitative tests or dimensions without a substantive new census.",
+        "searches": [
+          "Szabo arXiv:1710.07338 Example 4.2, radical generators and nonzero (uv)²",
+          "Grau Ribas–Oller-Marcén arXiv:2611.19962v1 §§7–8, full-table property tests",
+          "Resultary 930d5916e28e, principal quaternion block rank polynomial"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 88a14c85fe9c is identical to the assigned record. Szabo's u,v identities immediately give the older witness (u,uv,v). The earlier 930d5916e28e treats single-element left ranks and square-zero counts."
+        ],
+        "reasoning": "The canonical anti-involution given by group inversion interchanges left and right multiplication ranks after applying it to the algebra elements. Even allowing this duality, a single-element census is not a count of ordered factorizations with both permuted products or of their simultaneous image dimensions.",
+        "searches": [
+          "Resultary: F₂[Q₈] ordered zero-product triples with reordered product nonzero; defect probability; radical strata; simultaneous ranks for bc and cb",
+          "Primary literature search: binary quaternion group algebra F2[Q8] symmetry defect number ordered triples zero products abc acb witnesses joint multiplication ranks radical layers Szabo Marks 147456",
+          "Szabo arXiv:1710.07338 §4, Example 4.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The existing classification tables count presentations/classes by graded type and qualitative properties and identify the ring; the most relevant different Resultary table counts single-element ranks in characteristic two. The same-day Fourier rank spectrum concerns single complex functions on Q₈. Other square-zero tables concern order-16 groups."
+        ],
+        "reasoning": "The multiplication table is sufficient input for the census, but neither ring-presentation counts nor one-element rank frequencies give the eight joint ranks for ordered (b,c) and the valuation allocation of a in the difference of kernels. The exact indexed table with those data is the frozen record itself.",
+        "searches": [
+          "Resultary 88a14c85fe9c, 930d5916e28e, 4c46c48edabe, 6a4c6e43b10d; exact quaternion group ring, rank and zero-product censuses",
+          "Grau Ribas–Oller-Marcén arXiv:2611.19962v1 §7 Tables 1–3 and §8"
+        ]
+      },
+      "rationale": "The strongest same-ring literature supplies existence of witnesses, radical generators and the ring's place in a prior finite classification, not the reported witness counts or joint rank census in the decisive inspected sections. The nearest distinct Resultary comparison supplies a single-element multiplication-rank spectrum for the quaternion block, not the correlation of the products bc and cb or the simultaneous-kernel dimensions. The Pass is restricted to the quantitative joint and layer-refined facts; neither nonsymmetry, minimality nor having an explicit witness is novel.",
+      "residual_risks": [
+        "Marks's full text and any inaccessible supplement are not ruled out as sources of an earlier numerical census.",
+        "The targeted general search and indexed comparisons are bounded; an earlier count under a different terminology can exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Qualitative and explicit-witness precedent, not a claim of exact multiplicities",
+          "evidence": "With u=1+i, v=1+j, (u,uv,v) is a defect by u²=v², u⁴=0 and (uv)²≠0; the example also describes radical powers.",
+          "identifier_or_url": "https://arxiv.org/abs/1710.07338",
+          "material_read": "§3 Theorem 3.1, HTML offset 8810; §4 Example 4.2, PDF p. 9 near offset 24969",
+          "method": "OA primary article HTML/PDF passages",
+          "title": "Minimal reversible nonsymmetric rings",
+          "trigger": "Prior minimality, exact same-ring witness and radical-power facts"
+        },
+        {
+          "assessment": "Strong same-ring coverage of qualitative predicate and presentation, not the reported joint distribution in inspected passages",
+          "evidence": "§7 constructs each 256-by-256 multiplication table and checks reversibility and nonsymmetry. §8 identifies F₂[Q₈] as ring 5 and describes full-table property tests and consistency checks.",
+          "identifier_or_url": "https://arxiv.org/html/2611.19962v1",
+          "material_read": "§1/Theorem A near offsets 1650–5116; §7 near offset 26040 and table headings; §8 near offset 31165",
+          "method": "OA HTML passages by locator and offset",
+          "title": "All unital reversible nonsymmetric rings of order 256",
+          "trigger": "Strongest plausible prior computation on the exact ring"
+        },
+        {
+          "assessment": "Residual full-text priority risk",
+          "evidence": "The two accessible sources attribute reversibility and nonsymmetry of F₂[Q₈] to Marks.",
+          "identifier_or_url": "G. Marks, Journal of Pure and Applied Algebra 174 (2002), 311–318",
+          "material_read": "Attribution in Szabo and in Grau Ribas–Oller-Marcén; no primary full text retrieved",
+          "method": "Independent lawful publisher/DOI attempts (403/404); accessible primary successors for attribution",
+          "title": "Reversible and symmetric rings",
+          "trigger": "Original attribution of same-ring example"
+        },
+        {
+          "assessment": "Different statistic; single multiplication rank, not ordered joint rank",
+          "evidence": "Square-zero locus (1+z)k[Q₈] and single-element left-regular rank polynomial.",
+          "identifier_or_url": "2026/10/26/SCOPE-quaternionic-square-zero-collapse-and-rank-spectra-of-odd-index--930d5916e28e",
+          "material_read": "RESULT.md near offset 0",
+          "method": "Resultary and local-mirror text",
+          "title": "Quaternionic square-zero collapse and rank spectra of odd-index dicyclic group algebras",
+          "trigger": "Closest distinct indexed rank enumeration on the same principal block"
+        },
+        {
+          "assessment": "Different coefficient field, object and statistic",
+          "evidence": "Ranks of convolution by one complex-valued function, grouped by support occupancy.",
+          "identifier_or_url": "2026/11/22/SCOPE-complete-antipodal-occupancy-fourier-rank-spectrum-on-q-8--4c46c48edabe",
+          "material_read": "RESULT.md offsets 0–4765",
+          "method": "Resultary and local-mirror text",
+          "title": "Complete antipodal-occupancy Fourier rank spectrum on Q₈",
+          "trigger": "Distinct same-day quaternion rank census"
+        },
+        {
+          "assessment": "Different groups and single-element statistic",
+          "evidence": "Counts square-zero elements and single-element ranks for D₁₆, SD₁₆ and Q₁₆.",
+          "identifier_or_url": "2026/10/26/SCOPE-square-zero-census-at-the-first-semidihedral-boundary--6a4c6e43b10d",
+          "material_read": "RESULT.md Finding near offset 0",
+          "method": "Resultary and local-mirror text",
+          "title": "Square-zero census at the first semidihedral boundary",
+          "trigger": "Adjacent characteristic-two group-algebra rank table"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and prior work discussion",
+        "Independent exact census",
+        "Szabo §3–4 and Grau Ribas–Oller-Marcén Theorem A"
+      ],
+      "rationale": "This algebra is a canonical smallest reversible nonsymmetric ring. Counting the actual failures of symmetry and locating every one in three equally occupied radical-layer configurations characterizes the defect much more precisely than finding a witness. The joint ranks measure a natural correlation of zero-product conditions and give a reusable exact benchmark for comparing this algebra with other minimal nonsymmetric rings. The restriction to one standard algebra is motivated by its role in the classification, not an arbitrary small slice.",
+      "residual_risks": [
+        "Comparative classification of the other minimal rings has not been carried out; benchmark use is prospective."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

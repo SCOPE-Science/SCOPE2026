@@ -1,0 +1,80 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T12:16:57.616817Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The frozen statement is mathematically correct. Downsampling the positive second-difference measure with the factor t^κ(1+⋯+t^{p−1})² gives the second-difference moments for the block sequence. If q=d²≠1, the first three of these moments force zero variance at t^p=q. If q=1, the total mass is zero. The original measure can therefore have only the indicated positive atom (no positive atom in the unit case), and it can have a zero atom only for κ>0. Solving the resulting recurrence and matching the geometric subsequence eliminates the affine part in the nonunit case and the slope in the unit case. The equation at n=0 forces c≤1 and gives exactly the stated two-point Berger measure; κ=0 gives c=1. For sharpness, the two positive masses C(u−1)² and D(v−1)² have sum (q−1)² and first moment q(q−1)², so matching γ_0 and γ_p yields γ_{jp}=q^j for j≤3. The positive variance gives γ_{4p}>q⁴. The coefficient limits yield positivity and bounded consecutive ratios for each fixed p. This is an exact check, not a finite test.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The prior characterization gives Δ²γ_n=∫t^n d(ν+2cδ_1). Its Theorem 8.1 covers a possible exceptional initial weight for a run starting at positive index."
+        ],
+        "reasoning": "For the downsampled tail, the second-difference measure is the pushforward of t^κ(1+⋯+t^{p−1})²(ν+2cδ_1) under t↦t^p. A geometric block sequence gives a one-atom measure, or zero measure if its ratio is one. Positivity and injectivity force the original support away from zero; solving the original recurrence yields the full claimed flatness, with exactly the same zero-atom exception.",
+        "searches": [
+          "arXiv:2106.03222, Theorem 3.1 and proof of Theorem 8.1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md",
+        "arXiv:2106.03222",
+        "Identical Resultary catalogue identifier f6c3f4ed76c9"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Example 8.5 uses h_m=1+(θ−1)m+∫Q_m(t)dν(t), with Q_s(t)=(t^s−1−s(t−1))/(t−1)² and ν=(θ−1)²(δ_{θ/3}+δ_{5θ/3})/2. It gives h_m=θ^m for m=0,1,2,3 and h_4≠θ⁴.",
+          "Take θ=3/2 and use precisely that formula at s=n/p to define γ_n. The two atom locations are 1/2 and 5/2. For s≥1, Q_s(t)≥0 by convexity in t; for 0≤s≤1 the respective lower bounds are −2 and −2/3, and each mass is 1/8. Hence γ_n≥2/3. The growing atom makes the successive ratios bounded by asymptotic geometric growth. Second differences of each Q_{n/p}(t) are (t^{1/p}−1)²(t^{1/p})^n/(t−1)², so Theorem 3.1 applies."
+        ],
+        "reasoning": "This single parameter choice in the published formula gives γ_{jp}=h_j for every j. It reproduces the exact three-equal-block obstruction (at start zero) for every p with no new feasibility or classification result needed. Together with the positive-measure lift, this covers the claimed combined conclusion, irrespective of whether it was previously written verbatim.",
+        "searches": [
+          "arXiv:2106.03222, (4.2), Example 8.5 and (8.18)–(8.19), checked in the full article"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The p-block products starting at κ are the individual weights of the reducing shift on e_κ,e_{κ+p},… for the pth power of the tail shift. That shift is CPD: restrict the CPD kernel to indices divisible by p.",
+          "Theorems 8.1–8.4 give constant weights when the run of four starts at that component shift's initial index, for unit and nonunit common values."
+        ],
+        "reasoning": "This gives a geometric block moment sequence, not by itself flat individual weights. The remaining lift is forced by the positive moment representation rather than by a claim that powers of arbitrary shifts detect flatness.",
+        "searches": [
+          "Resultary: CPD unilateral weighted shift, sparse repeated block products, four-weight flatness",
+          "arXiv:2106.03222, §8, Theorems 8.1–8.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/11/22/SCOPE-sharp-four-block-flatness-for-conditionally-positive-weighted-sh--f6c3f4ed76c9 describes the identical frozen item, not a distinct competing result. No distinct exact catalogue match was identified in the focused search."
+        ],
+        "reasoning": "There is no finite catalogue on which the all-p assertion relies. The exact affirmative evidence of coverage is the primary-source formula and its rescaling, not the identical catalogue hit.",
+        "searches": [
+          "Resultary: CPD weighted-shift block flatness and all-p three-block examples"
+        ]
+      },
+      "rationale": "The closest distinct prior source does not state the arbitrary-length theorem verbatim, but both halves of the claimed extension follow from it by downsampling and rescaling. In particular its published sharpness witness, not just the p=1 sharpness assertion, transfers to every p. The new choice of coefficients is a different instance of the same two-atom construction, not a distinct sharpness result.",
+      "residual_risks": [
+        "The search does not establish historical priority for the verbatim block formulation. The negative assessment is based on verified implications from an open primary source, not on inaccessible material or on a catalogue match."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage at p=1; both rigidity and optimality for p≥1 are corollaries as exhibited above, not claimed to be explicitly stated there.",
+          "evidence": [
+            "Positive second-difference measure ν+2cδ_1; equal-weight flatness cases; Example 8.5 gives an explicit two-atom triplet and exact four initial samples."
+          ],
+          "identifier_or_url": "https://ar5iv.labs.arxiv.org/html/2106.03222",
+          "material_read": "Theorem 3.1 around offset 27000; §8 Theorems 8.1–8.4 around offsets 93000–104700; Example 8.5 at offset 104787, including (8.18)–(8.21)",
+          "method": "Lawful OA full article in ar5iv; located by theorem/example labels, then read bounded passages",
+          "title": "Conditionally positive definite unilateral weighted shifts",
+          "trigger": "Same shift class, exact p=1 statement and possible transfer of the exact published witness"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Sparse block measurements are a reasonable rigidity question, but the submitted exact threshold is a direct consequence of the published flatness theorem plus the positive moment representation, and its all-length optimality is already obtained by fractional rescaling of the published example. The separate coefficient family does not yield a new obstruction or another independent mathematical guarantee.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

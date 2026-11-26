@@ -1,0 +1,158 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:39:12.159239Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–59; VERIFICATION.md; verify.py (inspected only)",
+        "Independent recursive word generation and literal ordered-bigram census: python3 /workspace/reproductions/frozen_review.py 5"
+      ],
+      "rationale": "In a window of length divisible by four the odd positions alternate and contribute exactly one quarter of the total length as ones. The evens decimate to a contiguous shorter window. Iterating to length two gives K=N/2-1+p_J+p_(J+1), J=ceil(t/(N/2)). Successive odd-indexed symbols are complementary, so each odd-start pair of adjacency edges contributes exactly one transition. The N-1 edges contain (N-2)/2 complete such pairs and one lone edge, with the latter at the first or last position according to starting parity. Endpoint parity therefore fixes T to N/2 or N/2-1. At fixed N, K, the endpoints and T determine all four bigram counts, and those counts with K recover both endpoints using their sum and difference. For k>=4, the starts (J-1)N/2+d for J=1,3,11 and d=2,3,4,7 all use the designated J above. The leading offset is divisible by 16; checking residues modulo 4, 8 or 16 gives the four claimed endpoint pairs at every J. Direct evaluation confirms the twelve starts at N=8. A separate bounded generation of the word and literal bigram census found exactly twelve distinct full profiles for lengths 8 through 256 within the sampled starts and reproduced the N=8 witnesses. The general edge and witness arguments, not the finite prefix samples, establish the all-length theorem.",
+      "residual_risks": [
+        "The bounded prefix tests are not an exhaustion of the infinite word. The exact proof treats the given regular word and dyadic lengths at least eight, not other lengths or folding instruction sequences."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Madill–Rampersad give rho(2)=3 and rho(4n)=rho(2n) for ordinary Abelian complexity. The universal dyadic Abelian catalogue result establishes these weight layers for every folding instruction sequence. The two 2-Abelian recurrence treatments cover other words."
+        ],
+        "reasoning": "Generalizing the family of folding words at Abelian order one still does not decide which first/last letters coexist with each weight. The recurrences for other words cannot be substituted into a different input sequence.",
+        "searches": [
+          "arXiv:1208.2856, pp. 4–5",
+          "arXiv:1405.3532, §5",
+          "arXiv:1404.3906, Thue–Morse recurrence",
+          "Resultary: Universal dyadic Abelian power spectra in paperfolding words"
+        ]
+      },
+      "checked_sources": [
+        "Resultary catalogue and three matched mathematical records",
+        "arXiv:1208.2856",
+        "arXiv:1405.3532",
+        "arXiv:1404.3906"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior Abelian results imply the three weights, but do not specify attainable endpoints within each weight. The retrieved pair-count recurrences do not have regular paperfolding as their input word."
+        ],
+        "reasoning": "The new implication needs both the parity constraint forcing the total number of transitions from endpoints and independent realizability of all four endpoint pairs in each weight layer, including the N=8 boundary case. The inspected prior weight statements do not imply those requirements.",
+        "searches": [
+          "arXiv:1208.2856, dyadic weight recurrence and balance argument",
+          "Resultary universal dyadic Abelian spectrum theorem",
+          "arXiv:1405.3532 §5 and arXiv:1404.3906, exact recurrences"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Madill–Rampersad use the complement of the frozen word, which preserves the complexity under alphabet exchange. Parreau et al.'s p instead denotes the period-doubling fixed point. The paperfolding 2-binomial record counts scattered pairs; 2-Abelian equivalence counts adjacent pairs."
+        ],
+        "reasoning": "Complementing the same word is not a novelty distinction. Changing the word to period-doubling or the invariant to scattered pairs or cyclic rotations does change the classification problem.",
+        "searches": [
+          "Resultary: dyadic regular paperfolding, 2-Abelian and endpoint/weight classes",
+          "arXiv:1208.2856, ordinary paperfolding convention",
+          "arXiv:1405.3532, word definitions and 2-Abelian signatures"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact dyadic paperfolding hits are for weights, cyclic rotation classes or scattered-pair profiles. The retrieved exact 2-Abelian recurrences concern Thue–Morse and period-doubling. No exact adjacent-pair twelve-class paperfolding table was found in the bounded checks."
+        ],
+        "reasoning": "Equal lengths, a similar signature name, or even a matching numerical count would not establish coverage without the same class relation on the same factor set.",
+        "searches": [
+          "Resultary: 2-Abelian paperfolding complexity at powers of two",
+          "Resultary: Dyadic two-binomial spectra of the regular paperfolding word",
+          "Resultary: Dyadic invariance of cyclic complexity in the regular paperfolding word",
+          "arXiv:1405.3532 and arXiv:1404.3906, exact 2-Abelian recurrences"
+        ]
+      },
+      "rationale": "The three ordinary Abelian weight classes at dyadic lengths are prior work. The inspected consecutive-pair literature specializes to other automatic words, while the closest paperfolding records count weights, cyclic rotations or scattered two-letter subsequences. The supported distinct claim is the complete endpoint refinement of each weight layer for contiguous bigram equivalence, and hence the twelve classes.",
+      "residual_risks": [
+        "A bounded search cannot rule out an unindexed or implicitly equivalent paperfolding recurrence. No conclusion about priority is drawn from catalogue dates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the exact dyadic weight layers, not the consecutive-pair endpoint refinement.",
+          "evidence": [
+            "rho(2)=3, rho(4n)=rho(2n); balances are symmetric and spaced by two."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1208.2856",
+          "material_read": "Printed pp. 1, 4–5, definition, balance argument and even-length recurrence",
+          "method": "Open primary text",
+          "title": "The abelian complexity of the paperfolding word",
+          "trigger": "Same word up to complement, closest prior exact weight enumeration"
+        },
+        {
+          "assessment": "Exact counts and regularity for Thue–Morse and period-doubling, not a regular-paperfolding recurrence.",
+          "evidence": [
+            "The p entering §5 is the period-doubling fixed point beginning 010001."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1405.3532",
+          "material_read": "Abstract and printed pp. 2, 23–26, including §5",
+          "method": "Open primary text",
+          "title": "A new approach to the 2-regularity of the l-abelian complexity of 2-automatic sequences",
+          "trigger": "Exact 2-Abelian recurrences for automatic words, possible ambiguity in notation p"
+        },
+        {
+          "assessment": "Exact 2-Abelian work for a different word.",
+          "evidence": [
+            "Six-entry signature and thirteen recurrence relations are for Thue–Morse."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1404.3906",
+          "material_read": "Printed pp. 3, 15–16",
+          "method": "Open primary text",
+          "title": "On the 2-Abelian Complexity of the Thue–Morse Word",
+          "trigger": "Relevant exact signature and recurrence method"
+        },
+        {
+          "assessment": "Covers weights in a broader family, not adjacent-pair or endpoint classes.",
+          "evidence": [
+            "Gives the same three weights for every folding instruction sequence."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-universal-dyadic-abelian-power-spectra-in-paperfolding-words--d3c38e79ee94",
+          "material_read": "RESULT.md theorem on dyadic weight spectra",
+          "method": "Local record mirror",
+          "title": "Universal dyadic Abelian power spectra in paperfolding words",
+          "trigger": "Strongest broader weight-layer catalogue hit"
+        },
+        {
+          "assessment": "Different equivalence, not endpoint-refined 2-Abelian coverage.",
+          "evidence": [
+            "Counts cyclic rotation classes."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-dyadic-invariance-of-cyclic-complexity-in-the-regular-paperfolding-word--376fa657e5cf",
+          "material_read": "Comparison of the stated cyclic invariant",
+          "method": "Local record lookup",
+          "title": "Dyadic invariance of cyclic complexity in the regular paperfolding word",
+          "trigger": "Same word and length regime in the catalogue"
+        },
+        {
+          "assessment": "Scattered, not contiguous, pair counts.",
+          "evidence": [
+            "Counts scattered two-letter subsequences, not occurrences of each adjacent bigram."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-dyadic-two-binomial-spectra-of-the-regular-paperfolding-word--95c30971db21",
+          "material_read": "Comparison of the stated pair-profile invariant",
+          "method": "Local record lookup",
+          "title": "Dyadic two-binomial spectra of the regular paperfolding word",
+          "trigger": "Same word and length regime with a related order-two invariant"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 7–11 and 16–59",
+        "Madill–Rampersad, printed pp. 4–5",
+        "Parreau et al., §5"
+      ],
+      "rationale": "Powers of two match the word's even-position self-similarity and are a natural regime rather than sampled lengths. The pair-count level is the first refinement beyond the known Abelian weight count. The result gives the exact class count and a full weight/endpoint description with uniform witnesses, useful as an exact benchmark for 2-Abelian complexity of this standard automatic word.",
+      "residual_risks": [
+        "This does not give the full nondyadic complexity sequence or classify the larger family of paperfolding words at Abelian order two."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

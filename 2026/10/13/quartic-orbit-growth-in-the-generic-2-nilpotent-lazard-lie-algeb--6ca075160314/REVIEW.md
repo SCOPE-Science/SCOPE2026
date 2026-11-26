@@ -1,14 +1,21 @@
-# Correctness
-PASS. On tuples independent modulo the second Lazard layer, the universal map from the free 2-step Lie algebra has kernel entirely in the exterior-square layer. That kernel is therefore a complete marked-isomorphism invariant, and homogeneity turns marked finite-substructure isomorphism into automorphism equivalence. Every exterior-square subspace is realized by a finite quotient in the age. For arbitrary tuples, the pair consisting of the free-map kernel and the preimage of the distinguished second layer gives a valid upper-bound encoding. Standard Gaussian-binomial estimates then force the same quartic leading term from the lower and upper bounds.
+# Independent mathematical audit
 
-The self-review specifically checked the potentially delicate points: the generic limit has its second Lazard level equal to the commutator subalgebra; level-1 independence prevents hidden degree-1 elements in the second layer of the generated substructure; and the arbitrary-tuple upper bound only requires an overcount of possible kernel/level pairs, not a classification of which pairs are valid.
+## correctness
 
-# Originality
-PASS, with a narrow claim. The source paper supplies the generic nilpotent-Lie-algebra Fraïssé framework. The free algebra description \(V\oplus\Lambda^2V\) and Galois numbers are established prior mathematics and are excluded from novelty. A later two-sorted treatment by the same authors was also checked for direct coverage. Targeted literature and semantic-index searches found no source identifying the natural tuple stratum with all subspaces of \(\Lambda^2\mathbb F_q^n\), nor one deriving the full ordered-tuple orbit asymptotic \(\log_q o_n=n^4/16+O(n^3)\).
+PASS
 
-Residual folklore risk is nonzero because the quotient-kernel argument is short once the Fraïssé framework is in place. This is stated as a limitation rather than hidden.
+Work in the fixed-field Lazard-series language with substructures inheriting P₂. The finite age allows adjoining two generators with bracket a prescribed element of P₂ and all new cross-brackets zero, so the extension property gives P₂=[L,L] in the limit. For an independent tuple, projecting any linear-plus-bracket relation to L/P₂ forces its generator coefficients to vanish. The generated structure's P₂ consists exactly of its bracket span, so its complete marked invariant is the kernel on Λ² of the free generators. Each kernel occurs by embedding its finite quotient with the natural series, and equal marked quotients are conjugate by homogeneity. For all tuples, the kernel K on the N-dimensional free algebra together with the preimage Q of the inherited P₂ determines the marked structure. For fixed K, Q is determined by a subspace of a quotient of dimension at most n, since it contains the exterior-square layer and K. This proves the bounds including the restriction to injective tuples for the lower bound. At fixed q, the middle Gaussian coefficient is at least q^{floor(s²/4)}, and the product formula bounds each coefficient by q^{d(s−d)+d}. Thus log_q G_s(q)=s²/4+O(s), and substituting m=(n²−n)/2 and N=(n²+n)/2 gives the claimed common leading coefficient 1/16, not exact equality of the two profiles. Independent finite replay via the integer Gaussian-binomial recurrence reproduced all recorded q=2 and q=3 stratum counts; tiny direct subspace enumerations gave 16 for F₂³ and 6 for F₃². Replay: /workspace/branches/1863629b-5354-4674-a03a-c4244208143d/finite_replay.txt. The frozen script was inspected, not executed. Finite arithmetic checks do not certify the infinite argument.
 
-# Value
-PASS. Exact oligomorphic profiles are useful quantitative invariants of homogeneous structures. Here the exterior-square dimension grows quadratically in tuple length, so the number of possible relation kernels already grows like \(q^{n^4/16}\). The finding gives both an exact large natural stratum and the sharp leading exponent for every tuple orbit, tying the model-theoretic orbit geometry to a standard finite-geometric counting function.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct contribution is the marked-orbit/subspace correspondence for the independent quotient stratum and the resulting sharp leading logarithmic term for the full generic class-two Lie profile. The Fraïssé construction, the free exterior-square algebra, and the Galois-number enumeration are not new. Inspected related tuple-profile results concern different structures and do not imply the claimed count.
+
+## value
+
+PASS
+
+The result quantifies orbit complexity of a standard oligomorphic structure rather than just showing finiteness or counting free subspaces. It identifies a naturally invariant stratum already forcing the quartic term and matches this with a full-profile upper bound, distinguishing the influence of the exterior-square commutator layer from the smaller extra data. The precise leading constant and exact marked stratum count are substantive despite the elementary counting step.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

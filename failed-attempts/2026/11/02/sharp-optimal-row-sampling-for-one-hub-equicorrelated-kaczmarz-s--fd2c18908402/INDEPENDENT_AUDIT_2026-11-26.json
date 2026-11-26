@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:47:32.718719Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a unit-row projection the conditional squared decrement is e^T A^T diag(p) A e; this sharp one-step objective is concave and invariant under leaf permutations. For common leaf probability q, the radial block in the weighted Gram matrix has trace p_0+cq and determinant (c−ma²)p_0 q, and the contrast eigenvalue is (1−b)q. With alpha=c/m and delta=alpha−a²>0, the characteristic polynomial at lambda_R=delta/(1+alpha+2a) expands to −delta[p_0−(alpha+a)/(1+alpha+2a)]²; at zero of this square lambda_R is the smaller radial eigenvalue. Concavity in a fixed radial covariance basis implies strict increase until its unique maximum. After dividing by q, the determinant at the contrast level is m[t(b−a²)−b(1−b)]. For b≤0 the radial level is always smaller by its diagonal entry c; for 0<b≤a² the determinant is negative; for b>a² it crosses once before or after the radial maximizer. Comparison with t_0 gives the stated switch inequality, and substitution gives the rates and the limiting cases. For an arbitrary optimum, symmetrizing fixes its hub probability, so its Rayleigh quotient on a radial minimizing eigenvector equals rho_* exactly. This entails the full eigenvector equation for the unsymmetrized law; subtraction and invertibility of A force equal weights since a>0 and positive optimal weights ensure both row response types are nonzero. The reasoning holds at the crossing. The supporting script was inspected, not executed; numeric comparisons are not proofs of uniqueness.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "For a unit-diagonal positive definite C with C^{-1} entrywise nonnegative, the earlier theorem gives the unique optimizer proportional to C^{-1}1 with optimum (1^T C^{-1}1)^{-1}.",
+          "For C=JGJ and Delta=c−ma², the inverse hub–leaf entry is a/Delta and the off-diagonal leaf–leaf entry is (a²−b)/((1−b)Delta); diagonal entries are positive. Thus C^{-1} is entrywise nonnegative for all b≤a², including all b≤0."
+        ],
+        "reasoning": "Solving Cx=1 gives x_leaf=(1+a)/Delta and x_hub=(c+ma)/Delta. Their ratio and inverse total are exactly t_0 and (c−ma²)/(m+c+2ma). This is a direct specialization including full-simplex uniqueness.",
+        "searches": [
+          "Resultary 2026/9/20/SCOPE-inverse-positive-optimal-coordinate-sampling--82c9d23eb995, Main theorem and proof"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md; artifacts/verify_kaczmarz.py",
+        "Resultary 809fa13c87b2, 82c9d23eb995, 2a376f6167cd",
+        "Dai–Soltanalian–Pelckmans arXiv:1402.2863"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The b>a² switch, fixed t_1 thereafter, and b=a² boundary t_0=ma+1−a follow from the earlier positive-correlation formulas.",
+          "The nonpositive correlation extension is implied by the earlier inverse-positive theorem after a row sign change. The signed Gram remains positive definite and unit-diagonal."
+        ],
+        "reasoning": "Together the two implications cover the claimed domain and all substantive exact claims, leaving no new theorem to repair by mere narrowing.",
+        "searches": [
+          "Resultary 809fa13c87b2 Finding and proof",
+          "Resultary 82c9d23eb995 Main theorem and proof",
+          "Frozen RESULT.md lines 38–42, 106 and 114–120"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The nonzero spectra of the weighted row Gram and information matrix coincide. Conjugating the Gram by J=diag(−1,1,…,1) leaves these spectra unchanged for every p, since J commutes with diag(p).",
+          "Optimizing the condition number of a scaled Gram is not equivalent to optimizing the fixed-simplex smallest eigenvalue; the scaling record's branch condition differs even where t_1 coincides."
+        ],
+        "reasoning": "The SDP and signed coordinate-sampling formulations are genuine equivalences of the one-step optimization; unconstrained condition-number scaling is not.",
+        "searches": [
+          "Dai–Soltanalian–Pelckmans arXiv:1402.2863, Theorem 2 Eqs. (13), (15)–(16)",
+          "Resultary 82c9d23eb995: inverse-positive SPD coordinate sampling",
+          "Resultary 2a376f6167cd: one-hub diagonal scaling"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Finding gives both branches for alpha>0, with alpha=b, beta=a and paper a=c/m. Its beta_c solves m(alpha−beta²)=(1−alpha)beta, and its displayed r_*/q_* is exactly t_1 below that threshold and t_0 above it.",
+          "This earlier record optimizes over the full simplex and gives the same rate and uniqueness, even with the broader size m≥2 on this overlap."
+        ],
+        "reasoning": "This is exact earlier formula-level coverage of the entire positive leaf-correlation component, not merely a match to a low-dimensional example.",
+        "searches": [
+          "Resultary: exact optimal Kaczmarz sampling / equicorrelated block with one exceptional row; 2026/10/26 record 809fa13c87b2"
+        ]
+      },
+      "rationale": "Two earlier statements cover the full domain. The 2026/10/26 equicorrelated-block theorem gives the exact two branches, values, threshold and unrestricted uniqueness for all b>0. An earlier inverse-positive optimization theorem gives the supposedly remaining b≤0 case after changing the hub row sign, which leaves every sampling objective unchanged. The frozen objection that the unsigned inverse has negative hub–leaf entries does not rule out this equivalence. The asymptotic and dimension-ratio observations are algebraic consequences of the existing allocation formulas. This is affirmative prior coverage, not a retrieval failure or a claim about historical authorship.",
+      "residual_risks": [
+        "The comparisons establish existing coverage, not earliest historical priority in the coordinate-design literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers b>0, including full-simplex uniqueness",
+          "evidence": [
+            "The contrast and coupled branches match term by term under the stated substitution."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-exact-optimal-kaczmarz-sampling-for-an-equicorrelated-block-with--809fa13c87b2/RESULT.md",
+          "material_read": "Finding including beta_c and complete probability/rate table, Assumptions, proof §§1–4",
+          "method": "Local mirror at 36a7204b5741b75430355c38bf9bf0ef7468c2a4, bounded passage reads",
+          "title": "Exact optimal Kaczmarz sampling for an equicorrelated block with one exceptional row",
+          "trigger": "Exact one-hub formula match"
+        },
+        {
+          "assessment": "Covers all b≤a² after signing the hub",
+          "evidence": [
+            "The objective is lambda_min(P^{1/2} C P^{1/2}); the unique probabilities use C^{-1}1 and the rate is its inverse sum."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/9/20/SCOPE-inverse-positive-optimal-coordinate-sampling--82c9d23eb995/RESULT.md",
+          "material_read": "Main theorem, objective and proof (mirror offsets 550–3456 plus uniqueness passage)",
+          "method": "Local mirror read and exact sign-conjugation reduction",
+          "title": "Closed-form optimal coordinate sampling for inverse-positive SPD quadratics",
+          "trigger": "Could cover b≤0 via a row sign equivalence"
+        },
+        {
+          "assessment": "General design SDP, not the explicit one-hub law",
+          "evidence": [
+            "Maximize lambda_min(B^T diag(p)B) over the probability simplex, equivalently an SDP."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1402.2863",
+          "material_read": "Theorem 2 Eqs. (13), (15)–(16), PDF pp. 5–6",
+          "method": "OA primary PDF passages",
+          "title": "On the Randomized Kaczmarz Algorithm",
+          "trigger": "General optimal fixed iid SPD formulation"
+        },
+        {
+          "assessment": "Adjacent problem with a different objective and switch criterion",
+          "evidence": [
+            "The scale c is selected when a²c≥mb², unlike the Kaczmarz threshold."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-dimension-dependent-diagonal-scaling-of-one-hub-equicorrel--2a376f6167cd/RESULT.md",
+          "material_read": "Mirrored Finding and proof at offset 0 onward",
+          "method": "Local mirror passage comparison",
+          "title": "Sharp dimension-dependent diagonal scaling of one-hub equicorrelated matrices",
+          "trigger": "Same Gram family with nearby branch formula"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "An exact allocation and active-mode threshold are useful for understanding this Gram family, but those facts are already supplied by the positive-correlation theorem; the remaining computation is a two-entry evaluation of the signed inverse-positive theorem, and the limits are immediate from the displayed laws. No independently useful unknown fact remains in the frozen finding.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

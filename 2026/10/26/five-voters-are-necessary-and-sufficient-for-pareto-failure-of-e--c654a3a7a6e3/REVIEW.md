@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The four-swap gain table covers all six approval-count pairs permitted by Pareto dominance. Its summed bound immediately excludes strict-improvement ballots of type \((0,1)\) or \((0,2)\) below five voters; the complete single-swap sign pattern forces four different cross voters when a \((1,2)\) ballot is present. The five-voter equality case for type \((0,1)\) gives a nonintegral ballot count, while the unique surviving five-voter configuration satisfies all four swap inequalities and is Pareto dominated. The proof reduces arbitrary candidate numbers to the relevant four, and a standalone integer-arithmetic census corroborates the minimal cell. No step infers the universal result from enumeration.
+## correctness
 
-**Originality — PASS with residual publication risk.** Peters–Vaish–Yadav (arXiv:2609.07554v1, Section 3.1 and Appendix B) establish local PAV's general Pareto-efficiency limitation, but their explicit two-seat counterexample uses at least ten voters and does not derive the sharp voter count or classify minimum witnesses. Schünke's 2026 analysis of Pareto optimality and Kraiczy–Elkind's 2024 convergence analysis address distinct implications. Searches for an equivalent five-voter local-PAV threshold, broader covering theorem, and small-instance table found no covering statement; negative searches cannot establish priority. Related historical mathematical results cover other local-PAV score characteristics, not this exact Pareto obstruction.
+PASS
 
-**Value — PASS.** The finite-voter boundary is intrinsic to the recent local-PAV efficiency question: it gives a theorem certifying genuine Pareto optimality in all small electorates despite the general impossibility, precisely pinpoints the first obstruction, and classifies its unique minimal approval-pattern mechanism. The finding is narrow in committee size but resolves a naturally defined threshold rather than an arbitrary parameter slice.
+A dominating pair overlapping W would be one strictly profitable swap. For disjoint pairs, only the restrictions to their four names enter the four necessary swap inequalities. In units of ordinary PAV the six compatible per-ballot swap sums at (u,v)=(0,0),(0,1),(0,2),(1,1),(1,2),(2,2) are 0,2,4,-1/2,1,0. Thus (0,2) needs nine voters, and (0,1) needs at least five; with five and one (0,1), all four gains must vanish. Naming its approval a0, the gains for w0→a1 and w1→a0 are -x+y/2 and 1-y+x/2, where x and y count {w0,a0} and {w1,a1}, forcing x=2/3. For a (1,2) approving {w0,a0,a1}, the two swaps dropping w1 force both w1 cross types, since a negative contribution to a swap requires approving the dropped winner and just the alternative not added. Those two cross ballots then each add +1/2 to one swap dropping w0, forcing both w0 cross types by the same rule. This exhausts all five ballots. In the four-candidate witness the W and O scores are 5 and 11/2, the swap gains are (-1/2,-1/2,0,0), and just the final ballot is strictly better under O. Four candidates are necessary by disjointness. Outside approvals can affect swaps to outsiders but do not change the necessary profile restrictions. Independent exact replay /workspace/branches/replay_2.py enumerated all four-name ballot multisets through five voters and returned counts [0,0,0,0,2], with the two labeled patterns one within-pair orbit; the unrestricted candidate result is analytic.
 
-**Limitations.** This analysis concerns exact (tie-permitting) local PAV, unweighted approval voters and two seats. No claim is made for larger committees, positive local-search tolerances, or all profiles sharing the same extra-candidate approvals. External, independent validation has not occurred; publication priority remains conditional on unindexed sources.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The ordinary Pareto failure of exact local PAV is already known. The supported distinction is the sharp voter lower bound and the classification of all minimal restrictions, not failure itself or the cross-ballot construction idea. The strongest checked primary counterexample and nearby exact indexed record do not entail that boundary.
+
+## value
+
+PASS
+
+This gives a sharp electorate boundary for a natural efficiency guarantee of the simplest nontrivial PAV committee size and a complete extremal pattern valid even with arbitrary extra candidates. It characterizes where single-swap tests first fail to detect a Pareto improvement and shows that at the first failure the swap ties matter.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

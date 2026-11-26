@@ -1,0 +1,152 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:19:22.693358Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Each distinct 0/1 Dyck incidence vector is extreme, so uniform vertices are exactly uniform paths. Reflecting ballot prefixes gives the stated prefix counts; reversing suffixes and summing the two possible signs after time 2j yields the bivariate Catalan series. With s=√(1−4x), t=√(1−4y), subtract the zero-suffix term C(x)−1 to obtain F=(s−t)/(s+t). For D=x∂x+y∂y one has DF=F/(st) and D(D+1)F=(s²−t²)/(2s³t³)=S(x)yS′(y)−xS′(x)S(y); comparing homogeneous degrees gives (L−j)a_j a_L/[n(n+1)], n=j+L. Division by the Catalan count gives the stated odd-step bias, equal to the preceding even-step bias by the local swap at odd positive height. Endpoints are forced. The coordinate variances (1−μ_i²)/4 then yield the inertia, and independent sampling doubles it for squared pair distance; the hypersimplex has all means 1/2. To verify the constant and error independently, put b_j=(a_j/4^j)², E(z)=Σe_jz^j with e₀=1 and e_j=b_j−1/(πj)=O(j⁻²) for j≥1. DLMF's real singular expansion and absolute convergence imply E(1)=log(16)/π. The coefficients of E(z)log(1/(1−z)) are E(1)/n+O(log n/n²) by splitting j≤n/2 from the tail, and those of E² are O(n⁻²). Together with the exact log-squared coefficients 2H_{n−1}/n, this gives T_n as stated. Since j b_j=1/π+O(1/j), U_n=n/π²+O(log n). The squared bias weight (n−2j)²/n² accounts for −4U_n/n² and the two unit endpoint contributions give the frozen formula for n/2−I_n. Substitution confirms both constants and both remainders. An independent exact ballot dynamic program (python3 /workspace/reviews/evidence_4_5.py) verified all marginals and the distance identity for n=2..50; it did not execute the supplied script, and the exact check is not the asymptotic proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary matroid papers' inspected statements address structure, Ehrhart counts, faces, or negative correlation/fast mixing.",
+          "14858e9dd327 concerns Hausdorff separation and the farthest points; f5bcefc8b90a concerns an inball and the incenter locus."
+        ],
+        "reasoning": "An extremal distance or a spectrum of lattice-point counts is not a vertex-averaged squared distance. Signs of covariances neither determine individual marginals nor enter the trace once they are known.",
+        "searches": [
+          "arXiv:1212.5705, 1701.05529, 1701.00362, 1505.06710",
+          "Local Resultary 14858e9dd327 and f5bcefc8b90a"
+        ]
+      },
+      "checked_sources": [
+        "Resultary c7bf52c42f88, 14858e9dd327, f5bcefc8b90a, e98eacfbce70",
+        "Eu–Fu EJC 18(1) P92",
+        "Disanto–Munarini institutional record 11568/1011201 (full-text access attempted)",
+        "arXiv:1212.5705, 1701.05529, 1701.00362, 1505.06710",
+        "DLMF §19.12"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A prior ordinary even-time formula E H_{2j}=[1+4j(n−j)/n]a_j a_{n−j}/a_n−1 would encode the same marginals recursively by E H_{2j+2}−E H_{2j}=q_{n,j}+q_{n,j+1}, including q_{n,0}=1.",
+          "The inspected negative-correlation theorem does not state that profile. The inspected elliptic table is for an unweighted special function; the j(n−j) weighted convolution is needed for the −2 in the correction."
+        ],
+        "reasoning": "If the finite marginal profile proves to be prior, the finite second moment would follow by a short Bernoulli-variance calculation. On the evidence available, one should prize the sharp logarithmic deficit and its explicit constant; neither follows as a parameter substitution in the matroid literature or the elliptic table.",
+        "searches": [
+          "DLMF §19.12 against frozen RESULT.md Steps 2–3",
+          "Ordinary-time excursion height profile vs. Disanto–Munarini local-height result",
+          "arXiv:1505.06710 Thm. 9"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same-day Resultary c7bf52c42f88 concerns common returns of two independent uniform Dyck paths, not agreement at individual steps.",
+          "Eu–Fu p. 1 concerns counts of up-steps at heights in residue classes, not whether the i-th step is up.",
+          "Disanto–Munarini's searchable description mentions height measured after i up-steps in weighted paths; primary passages were unavailable."
+        ],
+        "reasoning": "The distance is n+n−2|U(X)∩U(Y)|, so the relevant overlap is of up-step positions, not of return times. For ordinary step time t, μ_t=E H_t−E H_{t−1}; height after the i-th up-step uses another clock and one cannot recover the ordinary-time marginal from its mean alone.",
+        "searches": [
+          "Resultary: Catalan matroid vertex inertia, Dyck positional up-step means, expected squared pair distance",
+          "Primary literature: exact positional up-step means or finite profile of uniform Dyck excursions and expected Hamming overlap",
+          "Exact title search: Local height in weighted Dyck models"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact Resultary hit is the assigned finding itself.",
+          "The DLMF table gives K's endpoint expansion with d(0)=2 log 2, yielding log 16 after converting from modulus k to z=k²."
+        ],
+        "reasoning": "This exact table provides the normalization for the elliptic convolution, not the weighted Dyck Hamming overlap or its aggregate correction. No inspected independent record tabulates these exact moments.",
+        "searches": [
+          "Resultary exact vertex dispersion deficit e98eacfbce70",
+          "DLMF §19.12, equations 19.12.1 and 19.12.3"
+        ]
+      },
+      "rationale": "The supported distinct assertion is the exact and sharp asymptotic uniform-vertex Euclidean second moment, equivalently independent Dyck up-step Hamming overlap. The Catalan embedding, identity of squared distance with Hamming distance on binary vertices, variance–distance relation and elliptic expansion are not new. An exact earlier ordinary-time excursion mean would determine the step marginals; the best matching finite-height study was not accessible in full, leaving an explicit risk about this ingredient.",
+      "residual_risks": [
+        "Full text of the closest retrieved local-height title remained unavailable; alternate-clock overlap does not rule out an ordinary-time profile in that paper.",
+        "Unindexed exact excursion marginals, overlap statistics, or a weighted central-binomial convolution could reduce the distinct contribution. No exclusive historical priority is asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different statistic as stated in abstract",
+          "evidence": "Equidistribution/near-equidistribution by up-step heights in residue classes, not ordinary-time marginals.",
+          "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v18i1p92/pdf/",
+          "material_read": "Abstract p. 1 around PDF offset 782",
+          "method": "OA full-text passage",
+          "title": "Exterior Pairs and Up Step Statistics on Dyck Paths",
+          "trigger": "Possible exact up-step enumeration match"
+        },
+        {
+          "assessment": "Specific unresolved potential overlap",
+          "evidence": "Full-text routes did not return readable text; indexed description refers to height after i up-steps, not sufficient to rule out relevant results elsewhere.",
+          "identifier_or_url": "https://arpi.unipi.it/handle/11568/1011201",
+          "material_read": "No primary full-text passage; indexed description only",
+          "method": "Paperity, institutional repository, and identified Semantic Scholar page attempted through OA routes",
+          "title": "Local height in weighted Dyck models of random walks and the variability of the number of coalescent histories for caterpillar-shaped gene trees and species trees",
+          "trigger": "Potential earlier exact finite-height profile equivalent to positional means"
+        },
+        {
+          "assessment": "Canonical geometry, credited background",
+          "evidence": "Lattice-path matroid polytopes and Catalan-matroid definition.",
+          "identifier_or_url": "arXiv:1212.5705",
+          "material_read": "PDF pp. 1 and 3",
+          "method": "OA full-text passages",
+          "title": "Lattice Path Matroid Polytopes",
+          "trigger": "Classical polytope and basis construction"
+        },
+        {
+          "assessment": "Inspected result is Ehrhart theory",
+          "evidence": "Lattice-point enumerations, not the metric for pairs of independent vertices.",
+          "identifier_or_url": "arXiv:1701.05529",
+          "material_read": "PDF p. 1",
+          "method": "OA full-text passage",
+          "title": "On lattice path matroid polytopes: integer points and Ehrhart polynomial",
+          "trigger": "Possible exact vertex statistic in polytope enumeration"
+        },
+        {
+          "assessment": "Facial structure, no overlap identified in passage",
+          "evidence": "Faces rather than uniform-vertex moments.",
+          "identifier_or_url": "arXiv:1701.00362",
+          "material_read": "PDF p. 1",
+          "method": "OA full-text passage",
+          "title": "Facial structures of lattice path matroid polytopes",
+          "trigger": "Related geometry of the same family"
+        },
+        {
+          "assessment": "Different coordinate statistic",
+          "evidence": "Negative correlation concerns joint inclusion, not the needed exact first moments.",
+          "identifier_or_url": "arXiv:1505.06710",
+          "material_read": "PDF pp. 4 and 7 including Thm. 9",
+          "method": "OA full-text passages",
+          "title": "Lattice Path Matroids: Negative Correlation and Fast Mixing",
+          "trigger": "General theorem on uniform bases"
+        },
+        {
+          "assessment": "Classical normalization, credited input",
+          "evidence": "K(k) has leading log(4/k′), giving the frozen log 16 convention in the series.",
+          "identifier_or_url": "https://dlmf.nist.gov/19.12",
+          "material_read": "Equations 19.12.1 and 19.12.3",
+          "method": "Public full-text passage",
+          "title": "DLMF: Asymptotic Approximations",
+          "trigger": "Exact special-function input"
+        },
+        {
+          "assessment": "Related but different results; last ID is self",
+          "evidence": "Common returns, Hausdorff gap and incenter loci are distinct from uniform-vertex dispersion.",
+          "identifier_or_url": "c7bf52c42f88; 14858e9dd327; f5bcefc8b90a; e98eacfbce70",
+          "material_read": "Findings at offset 0",
+          "method": "Local mirror",
+          "title": "Resultary Dyck-path and Catalan-polytope findings",
+          "trigger": "Closest indexed statements on two Dyck paths and on the same natural polytope"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Uniform vertex dispersion is a natural comparison with the hypersimplex in the same coordinate metric. The calculation establishes that the Dyck constraint changes macroscopic pair distance by a sharply quantified logarithmic deficit, not by an order-n or a bounded loss, and gives its explicit constant and a controlled error. This is not a claim about volume, covariance eigenvalues or the full distance distribution.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

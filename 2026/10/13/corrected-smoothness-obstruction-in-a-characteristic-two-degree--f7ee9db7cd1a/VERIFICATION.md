@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,24 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The proof uses the exact characteristic-two derivatives of
-\[
-F=w^2+(x^2+yz)w+\lambda xyz(y+z)+ay^4+by^3z+cy^2z^2+dyz^3+ez^4.
-\]
-On \(x^2+yz=0\), use \([x:y:z]=[uv:u^2:v^2]\). Then
-\[
-F_x=\lambda u^2v^2(u+v)^2,
-\]
-so for \(\lambda\ne0\) a singular point can occur only over \(u=0\), \(v=0\), or \(u=v\). These are the three base points \([0:0:1]\), \([0:1:0]\), and \([1:1:1]\).
+## correctness
 
-At those points, the remaining derivative equations force \(w=d\), \(w=b\), and \(w=\lambda+b+d\), respectively. Substitution into \(F\) gives the three exact obstruction values
-\[
-d^2+e,\qquad b^2+a,\qquad \lambda^2+b^2+d^2+a+b+c+d+e.
-\]
-Their simultaneous nonvanishing is therefore equivalent to smoothness inside family (1)(a).
+PASS
 
-The bundled `verify.py` checks two separating parameter vectors over \(\mathbf F_2\): one satisfies all printed nonzero conditions but has a singular point, while the other violates the printed disputed condition but satisfies all exact obstruction values. It also directly evaluates \(F,F_w,F_x,F_y,F_z\) at the singular witness.
+The vertex [0:0:0:1] of the weighted ambient space is off F=0. On each weight-one affine chart, the usual hypersurface Jacobian test is equivalent to vanishing of all four homogeneous partials: the partial for the fixed coordinate follows from weighted Euler, xF_x+yF_y+zF_z=0 in characteristic 2. F_w=x²+yz; F_x=λyz(y+z). With λ nonzero, their common base-point locus is precisely [0:1:0], [0:0:1], [1:1:1]. Substituting in the two remaining partials forces w=b, d, λ+b+d respectively. Substitution into F gives b²+a, d²+e, λ²+b²+d²+a+b+c+d+e. This both exhausts the geometric singularity candidates and gives their exact existence conditions. The two characteristic-two examples meet the displayed polynomial family's λ/root restrictions and have printed inequality values (1,1,1) and (0,1,1) respectively when the disputed condition is listed first; the first is singular at the stated point, the second smooth by exhaustion.
 
-The checker does not establish originality, does not inspect downstream classification tables, and does not replace the symbolic exhaustion proof.
+## originality
+
+PASS
+
+The existing general Jacobian criterion and normal-form geometry are credited. The supported distinct finding is a concrete correction of one published classification inequality, with witnesses that separate the two predicates in both directions. No inspected source gives that correction as a previously stated result.
+
+## value
+
+PASS
+
+Although obtained by elementary differentiation, this is an actionable correction to a published classification: the printed locus includes a singular equation and excludes a smooth one in the displayed parameter coordinates. Anyone selecting or enumerating smooth members of that family needs the exact locus. The contribution is the corrected locus and separators, not a new smoothness method or an audit of downstream automorphism cases.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

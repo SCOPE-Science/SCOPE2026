@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:02:30.896730Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–62",
+        "Frozen verify.py and verification_output.txt (inspected, not executed)",
+        "Independent replay: python3 /workspace/reviews/evidence/5_reproduce.py"
+      ],
+      "rationale": "An independent exact program checked both strongly regular graphs and exhaustively calculated dominance faces from the union of closed neighborhoods of the proposed dominating set. On the ordinary nonempty face poset, it reproduced the matching by disjoint addition pairs at each vertex and tested every directed incidence by iterative depth-first search. It found 59,819 and 59,747 faces including empty, 29,903 and 29,871 ordinary pairs, 461,552 and 460,656 ordinary incidences, no back edges, and critical-cell vectors {0:1,9:11} and {0:1,9:1,11:2}. The difference from the frozen incidence counts is precisely the 16 edges incident to the empty face. The discrete Morse theorem gives the Shrikhande wedge since the 9-cells attach to a point, and gives free rook integral homology in the indicated degrees since no positive critical dimensions are consecutive. For an invariant face with j vertex orbits, orientation times reduced Euler sign is (-1)^(j-1). Only odd degree 9 contributes to the reduced homological trace. Independent signed inclusion-exclusion on orbit projections of the 16 forbidden neighborhoods reproduced every trace (including the identity) and exact finite Fourier inversion reproduced every stated multiplicity. Equivalently, the trace is four times the sum of the indicators of the three cyclic lines, minus one; this gives one copy of each line-annihilator character and subtracts one trivial character.",
+      "residual_risks": [
+        "Morse critical dimensions alone do not identify the rook attaching maps. The independent trace check concerns only translations and rational homology, not an integral equivariant splitting."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The rectangular rook record proves D(K_p square K_q) is a wedge in dimensions pq-p-1, pq-q-1 and pq-p-q+1 for p,q>=2. Its proof evaluates the row/column intersection by the nerve lemma and Alexander duality, and splits the pushout by null inclusions.",
+          "The later symmetry record establishes the same Shrikhande wedge and rook homology, together with the complete degree-nine character of the 192-element Shrikhande automorphism group."
+        ],
+        "reasoning": "The p=q=4 specialization has sphere dimensions 11,11,9; full-group restriction covers all translations. The general duality and the computed path strips in the published paper do not already identify the fixed pair's topology.",
+        "searches": [
+          "2026/10/18/SCOPE-three-sphere-homotopy-types-of-rook-graph-dominance-complexes--89367a150c4b",
+          "2026/11/8/SCOPE-dominance-homotopy-and-symmetry-distinguish-the-shrikhande-rook--288bc37deb9c",
+          "Matsushita–Wakatsuki arXiv:2312.02639 §6"
+        ]
+      },
+      "checked_sources": [
+        "Frozen Finding and graph definitions",
+        "Resultary records 89367a150c4b, 1a3829217778 and 288bc37deb9c",
+        "arXiv:2312.02639 Theorem 1.1 and §6",
+        "arXiv:1501.06754 Theorem 5.4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The board theorem is independent of the discrete-Morse calculation and is stronger than the rook component. The November 8 theorem contains the identical Shrikhande wedge and an explicit full-group character from signed orbit sums; direct array extraction agrees with the compact translation formula."
+        ],
+        "reasoning": "There is no extra invariant in the Fourier list: finite abelian Fourier inversion uniquely fixes it from the restriction. The compact translation formula is a presentation of that restriction, not additional representation information. Date information is separated from mathematical subsumption.",
+        "searches": [
+          "Compare the same-date rectangular rook Finding and proof, and the November 8 Finding, §5 and character certificate, with frozen Finding lines 4–28"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Matsushita–Wakatsuki Theorem 1.1 gives the combinatorial Alexander dual of the ordinary neighborhood complex of the complement. The 2026/11/8 full-group record uses the very same complement-dominates face predicate and Cayley generators.",
+          "Taylan's result applies to chordal graphs; the graphs here have induced 4-cycles. Ordinary independence complexes and closed-neighborhood Čech nerves also impose different face conditions."
+        ],
+        "reasoning": "Same defining face predicate and coordinate graph give an exact match, not merely matching strongly regular parameters. Different label orderings do not change the graphs or the natural coordinate translation action. Duality alone is not a computation nor does it justify comparing a neighborhood complex of the wrong graph.",
+        "searches": [
+          "Resultary/SCOPE: Shrikhande and rook dominance homotopy, complement neighborhood complexes, and translation/full automorphism character",
+          "Matsushita–Wakatsuki arXiv:2312.02639 Theorem 1.1; Taylan arXiv:1501.06754 Theorem 5.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The November 1 record reports exactly the two reduced integral homology profiles, without homotopy claims.",
+          "The November 8 certificate's array character_by_group_element has 192 entries. Its generator enumerates the twelve linear parts lexicographically, then all sixteen translations at each linear part. The identity linear part is index 4 (zero-based), and entries 64 through 79 in lexicographic coordinate order are 11,3,3,3,3,3,-1,-1,3,-1,3,-1,3,-1,-1,3."
+        ],
+        "reasoning": "These entries are the exact compared representation data, not a table of dimensions or a class cycle-type proxy. The indexed homology comparator by itself would not cover the Shrikhande wedge or character.",
+        "searches": [
+          "2026/11/1/SCOPE-mixed-degree-dominance-homology-distinguishes-the-shrikhande-and--1a3829217778, RESULT.md Finding",
+          "2026/11/8/SCOPE-dominance-homotopy-and-symmetry-distinguish-the-shrikhande-rook--288bc37deb9c, certificate.json and verify.py permutations()"
+        ]
+      },
+      "rationale": "No distinct component remains against the verified indexed coverage at review. A separate same-date rook theorem gives the stronger homotopy type for every rectangular rook graph, including the frozen homology. A subsequent indexed theorem supplies both frozen topological claims and the full Shrikhande automorphism character. Its exact array, restricted to the sixteen translations according to the supplied affine enumeration, agrees entry by entry; the Fourier list is then forced. This is an assessment of demonstrable overlap as of review, not an assertion that the later records predate this frozen item or that either of the two same-date items took priority.",
+      "residual_risks": [
+        "This records verified present coverage, not earlier provenance for all components. The same-date rook result establishes no within-day order; the subsequent records are not earlier-publication evidence.",
+        "Some adjacent literature, including a cited vertex-cover paper whose targeted passages were not located, was not read in full. The verdict rests on positive exact overlap, not those limitations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers rook component by specialization; order within the date is not established",
+          "evidence": "Row/column cover proof gives the wedge for all p,q>=2, including the stronger type at (4,4).",
+          "identifier_or_url": "2026/10/18/SCOPE-three-sphere-homotopy-types-of-rook-graph-dominance-complexes--89367a150c4b",
+          "material_read": "RESULT.md, Finding, assumptions and Proof §§1–3, offsets 0 and 2136",
+          "method": "Local published-record mirror",
+          "title": "Three-sphere homotopy types of rook-graph dominance complexes",
+          "trigger": "Same-date stronger rook result"
+        },
+        {
+          "assessment": "Exact homology overlap in a later record",
+          "evidence": "Same integral reduced groups for both graphs; no homotopy classification in the claim.",
+          "identifier_or_url": "2026/11/1/SCOPE-mixed-degree-dominance-homology-distinguishes-the-shrikhande-and--1a3829217778",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Local published-record mirror",
+          "title": "Mixed-degree dominance homology distinguishes the Shrikhande and rook graphs",
+          "trigger": "Direct indexed homology match"
+        },
+        {
+          "assessment": "Later standalone result contains both topological claims and the full-group representation character",
+          "evidence": "The translation entries computed from the certificate coincide with the frozen formula and determine the Fourier list.",
+          "identifier_or_url": "2026/11/8/SCOPE-dominance-homotopy-and-symmetry-distinguish-the-shrikhande-rook--288bc37deb9c",
+          "material_read": "RESULT.md Finding, assumptions and §5 at offsets 0 and 5600; verify.py affine enumeration at 2180; certificate.json character array from offset 2150",
+          "method": "Local published-record mirror and direct extraction of the translation subarray",
+          "title": "Dominance homotopy and symmetry distinguish the Shrikhande–rook twins",
+          "trigger": "Full exact topology and broader character match"
+        },
+        {
+          "assessment": "General duality and different graph family",
+          "evidence": "The complement-neighborhood duality is applicable, but the cited strip computation is for P_n square P_3.",
+          "identifier_or_url": "https://arxiv.org/abs/2312.02639",
+          "material_read": "Theorem 1.1, p. 2 offset 4258, and §6, p. 18 offset 49640",
+          "method": "OA primary PDF text",
+          "title": "Dominance complexes, neighborhood complexes and combinatorial Alexander duals",
+          "trigger": "Equivalent simplicial invariant and potential family formula"
+        },
+        {
+          "assessment": "Chordal hypothesis excludes the pair",
+          "evidence": "The rook graph has a 2-by-2 induced rectangle cycle, and the Shrikhande vertices (0,0),(1,0),(2,0),(3,0) form an induced 4-cycle.",
+          "identifier_or_url": "https://arxiv.org/abs/1501.06754",
+          "material_read": "Theorem 5.4, p. 17 offset 58411",
+          "method": "OA primary PDF text",
+          "title": "Matching trees for simplicial complexes and homotopy type of devoid complexes of graphs",
+          "trigger": "Potential broad dominance homotopy theorem"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and exhaustive certificate",
+        "Resultary 89367a150c4b and 288bc37deb9c"
+      ],
+      "rationale": "The topology of this canonical strongly regular pair and its symmetry action are well-motivated, useful exact invariants. But at review the rook calculation is a weaker instance of a family theorem, and the remaining wedge and translation data reproduce exact existing topology and an already determined character. The smaller matching and compact line formula are useful reproduction and presentation, not a distinct exact invariant or a new theorem.",
+      "residual_risks": [
+        "The conclusion concerns distinct value as a standalone result in the compared record corpus, not the historical usefulness or priority of the frozen work."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

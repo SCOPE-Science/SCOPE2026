@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:22:58.456714Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, lines 5–98",
+        "VERIFICATION.md and verify.py (inspected, not executed)",
+        "Independent replay: python3 /workspace/branches/e95d3905-a7ed-4c8d-9051-46e8a2afa105/det16_repro.py"
+      ],
+      "rationale": "The local inequality uses three distinct neighbors for n>=3, including the triangle layer at n=3; it requires at least one selected neighbor outside D and at least two inside D. An indexed mask sequence fixes a unique based closed walk, so the trace has no division by n. An exact independent signed-subset determinant computation on all 16 states gives the stated factorization (16 nonzero terms). There is also a small algebraic check: on the ten recurrent states the odd layer-swap sector has determinant 1-tz+t^2 z^3; eliminating unit pivots in the even sector gives (1-tz-t^2 z^3)(1-tz^2-(t^3+t^4)z^4)-2t^3 z^5=(1-tz)Q. The cut bounds give the sharp minimum n; equality forces exactly one crossing edge at each vertex, giving the two layers or the four phases of 0011. In the normalized characteristic factors the nonzero base roots are simple within each factor; roots vanishing at z=0 contribute only from degree n onwards. Direct expansion at 1,-1,i,-i in the quintic gives the four recorded Taylor rows, so summing n-th powers proves the two near-minimum formulas even at n=3. For even n a full layer plus an adjacent pair in the other layer witnesses positivity at n+2, establishing the internal gap and non-unimodality.",
+      "residual_risks": [
+        "The replay checks the finite polynomial determinant; the trace bijection and coefficient extraction prove the all-n statement. Formal terms at n=1,2 are not simple prism counts."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The foundational and Cartesian-product works treat limited-domination numbers and bounds. The inspected prism scalar result in the k=d regime uses k=2 for a cycle base.",
+          "The two cubic/snark works treat scalar minima and structural/complexity results, with the stated exact classes being Goldberg, generalized Blanuša, and flower snarks."
+        ],
+        "reasoning": "Neither scalar minima, even when a bound yields n, nor results for different cubic families determine the labelled polynomial or its internal coefficients.",
+        "searches": [
+          "arXiv:2606.22422v1 p. 1",
+          "arXiv:2606.22428 p. 12",
+          "arXiv:2610.01796v1 Theorem 20",
+          "arXiv:2610.26259 pp. 1–2"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary index including 4d83cdec888e",
+        "arXiv:2601.03488v1, 2610.01796v1, 2610.26259, 2606.22422v1, 2606.22428"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The later index entry's full series mechanically determines all three coefficients and hence the gap whether or not it names non-unimodality.",
+          "Ordinary dominating families are upward closed, unlike the family here. Product bounds on gamma alone cannot give the n+1 coefficient."
+        ],
+        "reasoning": "Do not credit the parity gap as a distribution-level distinction from that later exact equivalent. No inspected earlier scalar or ordinary-domination statement implies the claimed full spectrum.",
+        "searches": [
+          "Resultary 4d83cdec888e Finding, offsets 0–2529",
+          "arXiv:2601.03488v1 pp. 1–2",
+          "arXiv:2606.22428 p. 12"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Radić–Tepeh identify cubic 1-limited sets with (1,2)-dominating sets, not [1,2]-dominating sets.",
+          "Replacing selected bits by exterior bits in 4d83cdec888e converts its inequalities and weights to those of this entry; C_n square P_2 and C_n square K_2 agree."
+        ],
+        "reasoning": "The mathematical equivalence survives bit complementation and terminology changes. It does not hold for ordinary domination or the exterior-only [1,2] bound.",
+        "searches": [
+          "Resultary circular ladder/prism one-limited and (1,2) domination enumerator search",
+          "arXiv:2610.01796v1 pp. 2–3",
+          "Resultary 4d83cdec888e, Finding and Proof"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "4d83cdec888e gives the same factors and trace logarithmic derivative after renaming u to t, and the same labelled scope n>=3.",
+          "Allagan's prism dominion counts minimum ordinary dominating sets rather than all sizes under the selected-vertex capacity."
+        ],
+        "reasoning": "The indexed match is exact, with a later displayed date. The same-graph primary paper counts different sets, not a table from which the limited spectrum can be read.",
+        "searches": [
+          "Local Resultary circular ladder limited-domination polynomial search and exact match 2026/11/8/4d83cdec888e",
+          "arXiv:2601.03488v1 pp. 1–2"
+        ]
+      },
+      "rationale": "Pass relative to the inspected antecedents for the labelled size distribution and the explicit low layers and parity gap, not for the scalar minimum or the transfer-matrix method. A distinct Nov. 8 Resultary entry states exactly the same full series and minimum count; it is equivalent coverage and entails the parity gap, not merely a similar topic. It is indexed after the Nov. 2 frozen entry and supplies no evidence of pre-existing coverage of that entry. No independence or first-discovery claim follows from these dates.",
+      "residual_risks": [
+        "No assertion of exhaustive literature coverage or independence between the indexed records; an unlocated earlier equivalent under (1,2)-domination terminology remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent full polynomial and minimum count; later indexed entry",
+          "evidence": "Identical determinant factors and log derivative; exterior-bit masks; same labelled vertex sets and n>=3.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-complete-one-limited-domination-polynomial-of-circular-ladders--4d83cdec888e/RESULT.md",
+          "material_read": "Finding and transfer derivation; opening passage offsets 0–2529",
+          "method": "Local Resultary mirror",
+          "title": "Complete one-limited domination polynomial of circular ladders",
+          "trigger": "Exact indexed match"
+        },
+        {
+          "assessment": "Different object counted",
+          "evidence": "Ordinary domination number and the number of minimum ordinary dominating sets.",
+          "identifier_or_url": "arXiv:2601.03488v1",
+          "material_read": "pp. 1–2, offsets near 2300 and 5700",
+          "method": "OA PDF passage inspection",
+          "title": "Exact Dominion of the Prism Graph: Enumeration by Congruence Class via Cyclic Words",
+          "trigger": "Same graph and enumeration method"
+        },
+        {
+          "assessment": "Parameter equivalence; no prism distribution in the inspected results",
+          "evidence": "Selected vertices require two selected neighbors; exact minima in the cited theorem are for Goldberg snarks.",
+          "identifier_or_url": "arXiv:2610.01796v1",
+          "material_read": "pp. 2–3 and Theorem 20, p. 15",
+          "method": "OA PDF passage inspection",
+          "title": "On 1-limited and (1,2)-domination in cubic graphs",
+          "trigger": "Exact synonym on the same regularity class"
+        },
+        {
+          "assessment": "Different regime and scalar invariant",
+          "evidence": "Prism product result for k=d; d=2 with cycle base.",
+          "identifier_or_url": "arXiv:2606.22428",
+          "material_read": "p. 12, offset near 42600",
+          "method": "OA PDF passage inspection",
+          "title": "On k-limited domination: complexity and Cartesian products",
+          "trigger": "Prism products in foundational related work"
+        },
+        {
+          "assessment": "Antecedent definition and regular-graph relation",
+          "evidence": "Relation of k-limited and (1,t)-domination numbers on regular graphs.",
+          "identifier_or_url": "arXiv:2606.22422v1",
+          "material_read": "p. 1, offset near 3200",
+          "method": "OA PDF passage inspection",
+          "title": "On k-limited domination in graphs",
+          "trigger": "Origin of the parameter"
+        },
+        {
+          "assessment": "Different class and scalar invariant",
+          "evidence": "Structural results and exact minimum numbers for the specified snark families.",
+          "identifier_or_url": "arXiv:2610.26259",
+          "material_read": "pp. 1–2, offsets near 1900 and 6000",
+          "method": "OA PDF passage inspection",
+          "title": "Cubic limited-domination results for generalized Blanuša and flower snarks",
+          "trigger": "Potential broader cubic coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, Finding and Proof §§1–5",
+        "Ordinary prism dominion and limited-domination product comparisons"
+      ],
+      "rationale": "A natural constrained domination polynomial on a canonical cubic family is determined exactly. The near-minimum coefficients reveal a genuine infinite support gap, explaining why the intuition from ordinary domination polynomials fails under this selected-vertex constraint. This is more informative than either a generic bounded-width transfer construction or the scalar minimum.",
+      "residual_risks": [
+        "Only labelled circular prisms and the one-limited condition are addressed; no general unimodality criterion is proved."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,157 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:03:07.534723Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In the exact inclusion–exclusion numerator 15!D the odd-j coefficients are positive and the even-j coefficients negative. The factorial has valuation 11. For the odd bases x_j=j^(2^n)-1 has valuation at least n+2, and q_j=x_j/2^n obeys q_(j,n+1)=q_(j,n)+2^(n-1)q_(j,n)^2; the increment is a multiple of 8192 for n>=10. Direct powers give the listed eight residues and their weighted sum 4096 mod 8192, so the linear odd moment has valuation n+12. For d=a-b, Vandermonde and h*binom(d,h)=d*binom(d-1,h-1) show that the binomial-coefficient difference at order t has valuation at least r-floor(log2 t) whenever nonzero. For t>=2 the bound t(n+2)-floor(log2 t)>=2n+3>=n+13 forces every higher term above the linear term, hence the odd numerator has valuation n+r+12. Among even j, bases with just one factor of two give their binomial coefficients modulo 128 after division by 2^(b*2^n), because odd units raised to 2^n are 1 mod 128 and j^(d*2^n) vanishes mod 128. Higher-valuation bases do not contribute modulo 128. The coefficient sum 8128 gives valuation b*2^n+6 in the even numerator. Unequal valuations give the lower one; equality gives at least one more factor of two and no exact boundary value is asserted. T increases without bound for fixed b, giving the eventual fixed-pair formula. Independent replay: python3 -B /workspace/reproduce_frozen.py 5 evaluates the base powers with integer arithmetic, checks the even sum, probes both strict regimes and resonance, and checks small pairs by the Stirling recurrence. An infinite displayed diagnostic means zero at the test precision, not an infinite valuation of D.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lengyel conjectures a stable formula with an index-dependent correction and proves a lower bound. Zhao–Hong–Zhao exclude Mersenne indices in their arbitrary-pair result; Zhao–Zhao–Hong prove three-branch formulas for 3 and 7 and the c-to-2c step with c odd for Mersenne columns. Adelberg scales both indices of a single Stirling number. The later effective isometry record gives the stable column-15 formula once n>=12 and 2^n>=n+13+r."
+        ],
+        "reasoning": "None of those statements gives finite-n all-pair saturation at column 15. A doubling result and bounds on individual Stirling numbers do not determine arbitrary differences. The later effective isometry is narrower in the regime relevant to saturation. This does not remove the exact separate catalogue overlap.",
+        "searches": [
+          "Lengyel doi:10.46298/dmtcs.2694 Conjecture 2, Theorem 10",
+          "arXiv:1209.6284 Theorem 1.3",
+          "arXiv:1407.8443 Theorems 1.2–1.3",
+          "arXiv:1912.01090v1 Theorem 2.6",
+          "SCOPE-20261108-5173a83d3613"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE-20261018-9aede18ef392",
+        "SCOPE-20261102-dbb453952a4d",
+        "SCOPE-20261108-5173a83d3613",
+        "doi:10.46298/dmtcs.2694",
+        "arXiv:1209.6284",
+        "arXiv:1407.8443",
+        "arXiv:1912.01090v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier exact record uses M_10=2^22 mod 2^23 for the sum over odd bases and propagates via squaring. The frozen Q_10 is M_10 divided by 2^10, with congruence 4096 mod 8192. The historical article explicitly leaves the unrestricted Mersenne case k>=15 open there."
+        ],
+        "reasoning": "An explicit 2014/2015 open case is not proof it remained open at the frozen date. The earlier catalogue statement directly implies both strict branches, the same boundary lower bound, and the fixed-pair corollary. The repackaged certificate and the threshold notation add no surviving mathematical claim.",
+        "searches": [
+          "SCOPE-20261018-9aede18ef392, Finding and odd coefficient proof",
+          "SCOPE-20261102-dbb453952a4d, Finding",
+          "arXiv:1407.8443 and JNT 153 (2015) p. 2, open problem and main theorems"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For every n>=10 and a>b>=1 the earlier record defines alpha=n+1+nu_2(a-b) and beta=b*2^n-5, takes min(alpha,beta) off equality, and gives >=alpha+1 at equality. It also states the eventual fixed-pair formula and expressly makes no claim of exact resonance valuation."
+        ],
+        "reasoning": "alpha-beta=r-(b*2^n-n-6)=r-T. The two strict inequalities and the equality bound are therefore identical, including n>=10, integer quantifiers and the column 15.",
+        "searches": [
+          "Resultary: Stirling differences with fifteen blocks, two-scale valuations, resonance and even-base saturation",
+          "SCOPE-20261018-9aede18ef392, Finding and Assumptions, mirrored RESULT.md offset 0"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The October 18 catalogue finding gives the full law, not merely an exact value or a test table. The November 2 resonance record says all values b*2^n-5+t with t>=1 occur as the positive odd part of the parameter gap varies on the resonance slice."
+        ],
+        "reasoning": "The distinct earlier entry covers the entire frozen claim. The same-day resonance entry only overlaps that part, and strengthens it from a lower bound to an attainability statement; its date does not order the same-day records.",
+        "searches": [
+          "Resultary: exact k=15 pair valuation including saturation at b*2^n-5",
+          "SCOPE-20261018-9aede18ef392",
+          "SCOPE-20261102-dbb453952a4d"
+        ]
+      },
+      "rationale": "A distinct earlier-dated catalogue record states the identical full theorem, including all quantified bounds, the parity-collision lower bound, and the eventual fixed-pair corollary. This is demonstrated exact coverage, not a tentative search hit or an inference from a record date. The earlier proof also uses the same odd/even numerator split and the same normalized modular certificate. The classical sources separately credit the conjectural target and special cases but are not the reason for failure.",
+      "residual_risks": [
+        "The 2012 preprint theorem was read, not a publisher final version or verified erratum; this does not affect the demonstrated catalogue duplication.",
+        "Record dates establish the catalogue chronology, not absolute intellectual priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage of all frozen branches including n>=10 and fixed-pair conclusion; earlier distinct catalogue entry",
+          "evidence": [
+            "Off resonance min(alpha,beta); on resonance >=alpha+1; alpha-beta=r-T; same 2^22 mod 2^23 certificate before normalization."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-a-two-scale-2-adic-valuation-law-for-stirling-differences-with-f--9aede18ef392/RESULT.md",
+          "material_read": "Finding, Assumptions and start of Proof, offset 0–2438 at snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Resultary semantic lookup and direct comparison of local mirror primary text",
+          "title": "A two-scale 2-adic valuation law for Stirling differences with fifteen blocks",
+          "trigger": "Exact candidate duplicate of the pair-uniform split at column 15"
+        },
+        {
+          "assessment": "Strengthens resonance, without stating the full off-resonance law",
+          "evidence": [
+            "For a=b+2^T u with u odd positive, the attainable valuations form {b*2^n-5+t : t>=1}."
+          ],
+          "identifier_or_url": "SCOPE-20261102-dbb453952a4d",
+          "material_read": "Mirrored RESULT.md Finding",
+          "method": "Resultary lookup and local mirror read",
+          "title": "Every higher critical valuation occurs in the fifteenth-column Stirling difference",
+          "trigger": "Exact overlap or stronger coverage on the collision slice"
+        },
+        {
+          "assessment": "Later effective stable-range result, not the complete finite-level law",
+          "evidence": [
+            "At m=4 and valuation 11 of 15!, specialized conditions are n>=12 and 2^n>=n+13+r."
+          ],
+          "identifier_or_url": "SCOPE-20261108-5173a83d3613",
+          "material_read": "Mirrored RESULT.md Finding",
+          "method": "Resultary lookup and local mirror read",
+          "title": "Effective eventual 2-adic isometry for Mersenne-column Stirling differences",
+          "trigger": "Could imply the fixed-pair or pair-dependent stable regime"
+        },
+        {
+          "assessment": "Conjectural stable formula and proved lower bound, not the exact k=15 law",
+          "evidence": [
+            "The exact eventual prediction includes an index-dependent correction f(k)."
+          ],
+          "identifier_or_url": "https://sites.oxy.edu/lengyel/papers/revfpsac09lengyel.pdf",
+          "material_read": "Section 4, PDF pp. 7–8, Conjecture 2 equations (15)–(16), Theorem 10 equation (21)",
+          "method": "Author's lawful open PDF",
+          "title": "On the 2-adic order of Stirling numbers of the second kind and their differences",
+          "trigger": "Original asymptotic conjecture and uniform bounds"
+        },
+        {
+          "assessment": "Does not cover 15 in the inspected theorem",
+          "evidence": [
+            "The exclusion is k=2^m-1."
+          ],
+          "identifier_or_url": "arXiv:1209.6284; doi:10.1016/j.jnt.2014.01.005",
+          "material_read": "Submitted-version section 1, Theorem 1.3, offset 6624; journal version not retrieved on that route",
+          "method": "Primary arXiv full text",
+          "title": "Divisibility by 2 of Stirling numbers of the second kind and their differences",
+          "trigger": "General exact arbitrary-pair valuation might specialize to 15"
+        },
+        {
+          "assessment": "Exact three-branch laws at 3 and 7 and a special doubling step at 15; general k>=15 arbitrary-pair case explicitly left open there",
+          "evidence": [
+            "Theorems 1.2–1.3 in preprint, 1.1–1.2 in journal version."
+          ],
+          "identifier_or_url": "arXiv:1407.8443; Journal of Number Theory 153 (2015), 309–320",
+          "material_read": "Preprint main theorems at offsets 3900–10897 and journal-version PDF p. 2",
+          "method": "Compare open preprint and journal-version theorem statements",
+          "title": "The 2-adic valuations of differences of Stirling numbers of the second kind",
+          "trigger": "Direct named precursor on the exceptional columns"
+        },
+        {
+          "assessment": "Different simultaneous scaling of individual values",
+          "evidence": [
+            "Uses S(2^h n,2^h k), not a difference in the fixed column 15."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1912.01090v1",
+          "material_read": "Section 2, Theorem 2.6, offset 14800",
+          "method": "Primary full-text arXiv HTML",
+          "title": "The 2-Adic Analysis of Stirling Numbers of the Second Kind via Higher Order Bernoulli Numbers and Polynomials",
+          "trigger": "Later valuation theorem might imply a difference formula"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The competition between the odd- and even-base terms and its exact saturation threshold are mathematically worthwhile, but these are already fully computed for the same parameters in the earlier record. Rewriting the same law in terms of r-T and scaling the same modular certificate do not yield an independent useful invariant, a new range, or an exact result at equality. There is no distinct valuable remainder in the frozen finding.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

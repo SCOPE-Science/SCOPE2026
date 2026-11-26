@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The affine determinant factorization proves every one of the 252 vertex-quintuple volumes exactly. The global maximum for arbitrary interior vertices follows from a multi-affine expansion into signed extremal vertex tuples, with precise equality support conditions. The independent finite compatibility enumeration exhausts all 50 vertex maximizers, their same-sign replacements, and simultaneous-replacement obstructions. The combinatorial proof extends to the continuum through convex representation, not numerical sampling. The enumerator passed all assertions; an independent floating coordinate determinant computation agreed at all 252 subsets. The only imported numerical body volume is stated explicitly from the cited ten-vertex primary theorem.
+## correctness
 
-## Originality — PASS, with residual priority risk
-The ten-vertex primary theorem (arXiv:2611.14674v1, inspected relevant full-text sections and theorem) determines volume of the containing polytope, not the volume spectrum of 252 inscribed vertex simplices or all continuously moving maximizers. The nine-vertex primary paper (arXiv:2611.10078v1) treats the square–pentagon body; the closely related published nine-vertex simplex-spectrum result concerns 126 subsets of a different polytope. Targeted mathematical record and literature searches for the ten-vertex double-pentagon simplex spectrum, maximum, 50/75 combinatorial optimizer locus and equivalent terms found no stronger implication. Unindexed or unreviewed earlier calculations could exist; this is not independently certified priority.
+PASS
 
-## Mathematical value — PASS
-The maximal-volume ten-vertex inscribed four-polytope is a canonical and newly characterized geometric object. Knowing the exact largest simplex-to-body fraction and **all** maximizing simplices (which are not confined to the ten distinguished vertices) supplies a sharp complete containment invariant with a nontrivial, connected trivalent optimizer graph. The positive-dimensional families cannot be inferred from the cited body-volume theorem, and the exhaustive classification is not a mere decimal computation.
+Reconstructed the affine determinant and equality argument in RESULT.md:25–48. Nonzero quintuples have a 3+2 split; the determinant magnitude is twice the triangle area times the pair's two-dimensional determinant. Five triangles of each area and five pairs of each type, in either factor order, give multiplicities 52, 50, 100, 50 at the four stated volumes. Independently, the free sum has gauge rho_A(x)+rho_B(y); integrating area(B)(1-u)^2 against 2 area(A)u du gives area(A)area(B)/6 = 25(5+sqrt(5))/192 and hence the stated ratio. At equality, every tuple in the Cartesian product of convex supports must have the same extreme signed determinant. By symmetry use (A0,A1,A3,B0,B1): the three same-sign moves are A0→A4, A1→A2, A3→B3. The first two together give a small triangle; either with the third gives a diagonal A pair. Changing a B vertex within its factor to the other possible adjacent partner flips the sign, while changing it to an A vertex degenerates the simplex. Thus at most one position can move and it has at most two supporting vertices. Each allowed segment is an exposed edge of the body (extend a factor-side functional, or choose a unique maximizing vertex in each factor and normalize the two maxima to agree), so different segment interiors cannot identify unordered simplices. For each fixed adjacent pair the within-composition moves rotate the large triangle by ±2 mod 5, giving a 5-cycle. Each large triangle has exactly one adjacent pair, and the map from the five triangles to these pairs is bijective; the 25 swap-composition edges connect the five cycles on either side with complete bipartite incidence. This proves connectivity, trivalence and all edge counts, including arbitrary points rather than just the 252 vertex subsets.
 
-## Scope and risk
-The finding addresses only the fixed two-pentagon orthogonal join; it does not establish a global inequality over other bodies. The 75-family count depends on the exact same-signed determinant compatibility test included in the checker; its complete finite enumeration was independently reviewed against the analytic support argument.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The examined sources establish the ambient body, a different spectrum for the nine-vertex body, or local variations of ambient volume, not the four-level contained-simplex spectrum and signed equality graph for the double pentagon. The independent contribution is the exact contained-simplex classification, not the underlying ambient extremal theorem or the separately affine bound by itself.
+
+## value
+
+PASS
+
+The body is independently canonical as an ambient volume extremizer, and its largest contained simplex is a natural measure of the separation between enclosing and contained volume. The exact equality set distinguishes discrete optimum vertex choices from continuous, but never two-dimensional, families; it supplies a usable benchmark for rigidity and equality mechanisms in free sums. Neither the four levels nor the connected trivalent optimizer graph is dictated by ambient optimality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

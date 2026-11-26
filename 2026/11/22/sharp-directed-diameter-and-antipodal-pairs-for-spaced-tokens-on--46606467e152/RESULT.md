@@ -1,69 +1,58 @@
-# Sharp directed diameter and antipodal pairs for spaced tokens on cycles
+# Directed diameter and ordered antipodes for spaced tokens on a cycle
 
 ## Finding
 
-Fix integers \(r\ge2\), \(k\ge2\), and \(n\ge rk\). A state is a \(k\)-subset of the vertices \(\mathbb Z/n\mathbb Z\) such that successive occupied vertices in cyclic order are separated by at least \(r\) clockwise edges. A directed move replaces one occupied vertex \(v\) by \(v+1\pmod n\) and is permitted only if the resulting state is feasible. This is clockwise token sliding under separation, equivalently token sliding along the clockwise arcs of the base cycle while retaining independence in its \((r-1)\)-st power.
-
-**Theorem.** When \(n=rk\), all \(r\) feasible states are isolated. When \(n>rk\), the directed reconfiguration graph is strongly connected. For two states \(X,Y\), define
+Fix integers \(r,k\ge2\) and \(n>rk\). A state is a \(k\)-subset of \(\mathbb Z/n\mathbb Z\) with every clockwise gap between consecutive occupied vertices at least \(r\). A directed move advances one token by one clockwise site and must preserve the gap constraint. In this strongly connected digraph, the directed diameter is
 \[
- p_j=\sum_{v=0}^{j}\bigl(\mathbf1_X(v)-\mathbf1_Y(v)\bigr),\qquad 0\le j<n.
+ D=k\bigl(n-1-r(k-1)\bigr).
 \]
-Its exact directed distance, namely the minimum number of clockwise slides taking \(X\) to \(Y\), is
+The ordered pairs at distance \(D\) are exactly the \(n\) simultaneous rotations of
 \[
- d_{\to}(X,Y)=\sum_{j=0}^{n-1}\bigl(p_j-\min_{0\le h<n}p_h\bigr).
+ X_0=\{0,r,\ldots,(k-1)r\},\qquad
+ Y_0=\{n-1-r(k-1),\ldots,n-1-r,n-1\}.
 \]
-Consequently its sharp directed diameter is
-\[
- \operatorname{diam}_{\to}(n,k,r)=k\bigl(n-r(k-1)-1\bigr).
-\]
-There are exactly \(n\) **ordered** pairs at that diameter. With vertices indexed from zero, they are precisely the simultaneous cyclic rotations of
-\[
- X_0=\{0,r,2r,\ldots,(k-1)r\},\qquad
- Y_0=\{n-1-(k-1)r,\ldots,n-1-r,n-1\}.
-\]
-Thus exactly \(n\) states have the maximum possible outgoing eccentricity, and each has exactly one state at that distance. For \(s=n-rk>0\), the reconfiguration digraph has
-\[
- |V|=\frac nk\binom{s+k-1}{k-1},\qquad |A|=n\binom{s+k-2}{k-1}
-\]
-vertices and directed arcs, respectively.
+Thus exactly \(n\) sources attain the maximum outgoing eccentricity, each with a unique farthest target. The extremal statement uses a clockwise transport distance that follows from the earlier bounded-gap sliding lemma and conservation, as explained below.
 
 ## Assumptions and scope
 
-Vertices of the underlying cycle have fixed labels \(0,1,\ldots,n-1\) and clockwise arcs \(v\to v+1\pmod n\). Tokens are indistinguishable; configurations are sets, not labelled-token permutations. Feasibility requires all \(k\) cyclic gaps to be at least \(r\), including the wraparound gap. These are one-site moves, not arbitrary slides along every edge of the cycle power. Directed distances count actual moves, with no zero-cost waiting. The theorem concerns \(r,k\ge2\); the one-token case is excluded to avoid a degenerate boundary convention.
+The sites have fixed labels \(0,\ldots,n-1\), and only the arcs \(v\to v+1\pmod n\) may be used, not arbitrary arcs in a power of the cycle. Tokens are indistinguishable; a configuration is a set. All cyclic gaps, including the wraparound gap, must be at least \(r\). Distance counts slides, not waiting or rates. In the separate boundary case \(n=rk\), every gap equals \(r\) and all \(r\) possible cyclic phases are isolated; no finite all-pairs distance or diameter formula is asserted there.
 
 ## Proof
 
-**1. Conservation and a sharp lower bound.** Write \(a_v=\mathbf1_X(v)\), \(b_v=\mathbf1_Y(v)\). If a directed transformation uses the arc \(j\to j+1\) exactly \(f_j\ge0\) times, conservation at every site gives \(f_j-f_{j-1}=a_j-b_j\) (indices modulo \(n\)). Hence \(f_j=p_j+c\), with an integer \(c\ge-\min_jp_j\). Every transformation has length at least \(\sum_j(p_j-\min_hp_h)\).
-
-**2. This lower bound is always attained when \(n>rk\).** Choose an arc \(e=j\to j+1\) for which \(p_j\) is minimal and cut the cycle there. Unroll the following \(n\) sites as \(0,\ldots,n-1\). The nonnegative partial sums of \(a-b\) imply that, in increasing order, source positions \(x_1<\cdots<x_k\) and target positions \(y_1<\cdots<y_k\) satisfy \(x_i\le y_i\) for every \(i\). For a moment regard the \(k\) tokens as cyclically ordered, with token \(i\) intended to move rightward from \(x_i\) to \(y_i\).
-
-There exists a monotone sequence of unit increments of these positions maintaining every cyclic spacing at least \(r\). Indeed, at an intermediate state write its positions as \(z_i\), where \(x_i\le z_i\le y_i\). Call token \(i\) unfinished if \(z_i<y_i\). If an unfinished token \(i<k\) cannot move, its clockwise gap to token \(i+1\) is exactly \(r\); feasibility of the target then implies \(y_{i+1}\ge y_i+r>z_i+r=z_{i+1}\), so token \(i+1\) is also unfinished. If unfinished token \(k\) is blocked by the wraparound gap, the target wraparound constraint similarly makes token \(1\) unfinished. If **no** unfinished token could move, blockage would therefore propagate around the entire ring, every token would be unfinished, and every cyclic gap would equal \(r\). This would require \(n=rk\), contrary to the strict slack assumption. Thus an unfinished token can always move; it never crosses the chosen cut because \(z_i<y_i<n\). Repeating finishes after precisely \(\sum_i(y_i-x_i)\) slides.
-
-The arc-flow of this monotone route has \(f_j=0\) at the cut and is therefore the unique normalized nonnegative conservation flow \(f_h=p_h-\min p\). Its length attains the lower bound in step 1. This proves the exact distance formula and strong connectivity.
-
-**3. Universal diameter and equality.** For a source or target satisfying all cyclic gaps at least \(r\), the unrolled positions obey \(x_i\ge r(i-1)\) and \(y_i\le n-1-r(k-i)\). Therefore, for each \(i\),
+**Transport formula used in the proof.** For states \(X,Y\) on a cycle with \(n>rk\), define
 \[
- 0\le y_i-x_i\le n-1-r(k-1).
+ p_j=\sum_{v=0}^j (\mathbf 1_X(v)-\mathbf 1_Y(v)),\qquad 0\le j<n.
 \]
-Summing gives the claimed diameter upper bound. Equality of the sum forces equality for **every** token, and hence \(x_i=r(i-1)\), \(y_i=n-1-r(k-i)\). Consequently every diameter pair is a simultaneous rotation of \((X_0,Y_0)\). Conversely these configurations satisfy the cyclic spacing constraints because their wraparound gap is \(n-r(k-1)>r\), and their monotone matching along the indicated cut has cost exactly \(k(n-1-r(k-1))\). Their nonminimal gap is unique, so their \(n\) rotations are distinct, proving the exact diametral-pair count and unique farthest targets for these \(n\) sources. Every nonpacked source has smaller outgoing eccentricity.
+The counts \(f_j\) of slide uses of arc \(j\to j+1\) along any route satisfy \(f_j-f_{j-1}=\mathbf 1_X(j)-\mathbf 1_Y(j)\) by conservation. Hence \(f_j=p_j+c\) and \(c\ge-\min p\) by nonnegativity. This bounds the route length below by \(\sum_j(p_j-\min p)\).
 
-**4. Frozen boundary and enumeration.** At \(n=rk\), every gap equals \(r\), so moving one token would reduce the following gap below \(r\). The \(r\) different cyclic phases are isolated. For positive slack \(s=n-rk\), distinguish one token and record its \(k\) successive gaps \(r+h_i\), where the nonnegative \(h_i\) sum to \(s\). Choosing its position and the weak composition gives \(n\binom{s+k-1}{k-1}\) rooted configurations, exactly \(k\) per actual configuration. For an outgoing arc, distinguish its moving token and require its following extra gap \(h_i\ge1\); subtracting one from that entry gives \(n\binom{s+k-2}{k-1}\) possible arcs.
+Cut the cycle after a minimizing site. The prefixes in the new order are nonnegative, so the sorted positions \(x_i\) of \(X\) and \(y_i\) of \(Y\) satisfy \(x_i\le y_i\) for each \(1\le i\le k\). Indeed, the prefix ending at \(y_i\) contains at least \(i\) source sites. The feasible gap family is exactly the bounded-gap family of [1] with lower bound \(a=r\) and upper bound \(b=n-r(k-1)\): the upper bound follows by summing the other \(k-1\) lower bounds. With \(s=n-rk>0\), we have \(ak<n<bk\), since \(bk-n=(k-1)s>0\). The one-unit descent lemma in [1, proof Step 3], applied from the periodic lift \(y\) down to \(x\), gives a feasible coordinatewise decrement path. Reversing it yields a clockwise route from \(x\) to \(y\). The positions stay in the cut interval because each coordinate is between its two endpoints. No slide crosses the cut, so the route has the normalized flow \(f_j=p_j-\min p\) and proves both connectivity and
+\[
+ d_{\to}(X,Y)=\sum_j(p_j-\min p)=\sum_{i=1}^k(y_i-x_i).
+\]
+Equivalently, the clockwise path can be seen directly in this case: in an intermediate state, a token still below its target can be blocked only by the next token at gap exactly \(r\). Feasibility of the targets then forces that next token also to be below its target (using the periodic lift at the wrap). If all unfinished tokens were blocked, all gaps would be exactly \(r\), contrary to positive slack. Successive unblocked advances therefore reach the target without crossing the cut.
+
+**Diameter and equality.** In the cut coordinates, feasibility gives \(x_i\ge r(i-1)\) and \(y_i\le n-1-r(k-i)\). Every summand of the transport distance is therefore at most \(n-1-r(k-1)\). If the sum is \(D\), every summand must attain that bound, which forces \(x_i=r(i-1)\) and \(y_i=n-1-r(k-i)\) for every \(i\). Conversely, the displayed \(X_0,Y_0\) are feasible, each with one gap \(n-r(k-1)>r\) and all others equal to \(r\). Across the cut after \(n-1\), their paired positions satisfy \(x_i\le y_i\) and all prefixes are nonnegative (every target in a prefix has its matched source in the prefix). The prefix at \(n-1\) is zero, so this is a minimizing cut. Hence the distance is exactly \(D\). The unique gap larger than \(r\) fixes its endpoints in any rotation that fixes the source, so the \(n\) rotations are distinct with distinct sources. The equality classification gives each such source exactly one farthest target, and all other sources have strictly smaller outgoing eccentricity.
+
+**Auxiliary counts.** For \(s=n-rk>0\), distinguishing a token gives its position and a weak composition of \(s\) into the \(k\) successive excess gaps. There are \(k\) such choices per state, so the number of vertices is \((n/k)\binom{s+k-1}{k-1}\). An outgoing arc is specified instead by the moving token and excess gaps with at least one unit in the gap ahead of it. Removing that unit gives \(n\binom{s+k-2}{k-1}\) directed arcs. These counts are not needed for the equality classification.
 
 ## Verification
 
-The included `verify.py` independently constructs all feasible states and all legal clockwise arcs by bitmasks. It runs breadth-first search from every source and compares every ordered-pair distance to the prefix-flow formula. It also checks state counts, sharp diameter, and exactly \(n\) ordered diametral pairs, across \(73\) nonfrozen parameter triples with \(5\le n\le16\), \(2\le r\le5\), and \(2\le k\le5\) when feasible. The comparison covers \(1,896,844\) ordered pairs, with a maximum tested state space of \(672\). The exact output is in `verification_output.txt`. Run `python3 verify.py` in the directory containing both files. The finite checks are regression tests, not the proof for unbounded parameters.
+The algebraic proof gives the diameter and equality conditions for all \(n>rk\). In the companion source files, `verify.py` uses direct feasible-set enumeration, generates legal clockwise moves, and compares BFS distances against the transport formula. It also checks the vertex count, diameter, and number of ordered pairs at the diameter. The supplied `verification_output.txt` records 73 positive-slack cases and 1,896,844 ordered-pair comparisons on the bounded grid implemented in the checker. Run `python3 verify.py` where the companion checker is stored to reproduce those tests. They do not check the frozen boundary or prove the general result.
 
 ## Relationship to prior work
 
-Ito et al. introduced directed token sliding, deriving complexity results and a shortest-sequence algorithm on oriented trees. Banerjee, Engels and Hoang (2024) established polynomial-time reachability on oriented cycles; their Section 4.1 includes clockwise-cycle reachability arguments, but does not state this family-wide exact directed diameter or the unique-antipode classification. Zhang and Krauth (2024) computed diameters for symmetric exclusion and analysed the **lifted**, pointer-augmented totally asymmetric exclusion model, which is a different configuration graph. Lakatos and Chou (2003) study hard rods in asymmetric exclusion processes, but their published abstract focuses on stationary currents and phase behavior, not finite shortest-path geometry. Previously published circular bounded-gap sliding results concern **undirected** slides, and do not imply the one-way distance or antipodal count here.
+The clockwise distance and connectivity are consequences of the comparable-lift descent lemma in [1] plus the minimum-prefix cut and flow calculation above. Although [1] states its transport theorem for **undirected** moves, its descent lemma supplies the needed monotone path for the comparable lifts after the cut. Its frozen lower-bound case also applies here. The extremal result is the exact maximum of the resulting **directed** distance and the classification of its ordered equality pairs; the bounded-gap lemma itself neither computes that maximum nor selects these pairs.
+
+Directed token-sliding work gives reachability algorithms for oriented cycles [2] and shortest sequences on polytrees [3]. The case \(r=2\) is directed independent-set sliding along the clockwise cycle; for larger \(r\), single-step arcs are still those of the base cycle. The same dynamics can also be viewed as one-site hops of nonoverlapping rods of length \(r\) on a periodic lattice. The exclusion diameters in [4] concern symmetric moves or a lifted model with an additional active-particle pointer, not the directed diameter of the unaugmented rod configurations. The accessible abstract of [5] focuses on steady-state currents, densities and phases for extended particles; its full geometric scope was not determined. These comparisons do not settle historical priority outside the inspected material.
 
 ## Limitations
 
-The result concerns finite labelled cycles with a single global clockwise direction and a uniform minimum separation. It does not establish mixing times, which also depend on transition probabilities, or apply without changes to bidirectional moves, inhomogeneous gaps, multiple arc directions, or additional obstacles. These statements have not received independent external mathematical audit. A differently indexed or unpublished equivalent formulation remains a priority risk.
+This is a finite labelled-cycle result with a uniform minimum gap and a single global direction. It does not imply mixing-time bounds or a diametral classification for bidirectional, lifted, inhomogeneous, or nonperiodic dynamics.
 
 ## References
 
-1. T. Ito, Y. Iwamasa, Y. Kobayashi, Y. Nakahata, Y. Otachi, M. Takahashi and K. Wasa, *Independent set reconfiguration on directed graphs*, first arXiv version 25 March 2022, https://arxiv.org/abs/2203.13435.
-2. N. Banerjee, C. Engels and D. A. Hoang, *Directed Token Sliding*, first arXiv version 25 November 2024, https://arxiv.org/abs/2411.16149, Section 4.1.
-3. X. Zhang and W. Krauth, *Diameters of Symmetric and Lifted Simple Exclusion Models*, *Journal of Statistical Physics* 191, 103 (2024), https://doi.org/10.1007/s10955-024-03312-w.
-4. G. Lakatos and T. Chou, *Totally asymmetric exclusion processes with particles of arbitrary size*, *Journal of Physics A* 36, 2027 (2003), https://doi.org/10.1088/0305-4470/36/8/302.
+1. *Circular bounded-gap token systems have transport-optimal sliding distances*, 8 November 2026, proof Step 3, https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-circular-bounded-gap-token-systems-have-transport-optimal-slidin--edbf2b8cafb9/RESULT.md.
+2. N. Banerjee, C. Engels and D. A. Hoang, *Directed Token Sliding*, §4.1, https://arxiv.org/abs/2411.16149.
+3. T. Ito, Y. Iwamasa, Y. Kobayashi, Y. Nakahata, Y. Otachi, M. Takahashi and K. Wasa, *Independent set reconfiguration on directed graphs*, https://arxiv.org/abs/2203.13435.
+4. X. Zhang and W. Krauth, *Diameters of Symmetric and Lifted Simple Exclusion Models*, https://doi.org/10.1007/s10955-024-03312-w.
+5. G. Lakatos and T. Chou, *Totally asymmetric exclusion processes with particles of arbitrary size*, https://doi.org/10.1088/0305-4470/36/8/302; abstract at https://www.osti.gov/etdeweb/biblio/20365177.

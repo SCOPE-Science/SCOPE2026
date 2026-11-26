@@ -1,19 +1,21 @@
-# Scientific review: quadratic-residue excitation at two contact thresholds
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The state space consists of exactly \(3^{13}=1{,}594{,}323\) labelled ternary configurations. Two independently implemented exhaustive finite functional-graph procedures agree cell by cell on the complete first-entry-time/eventual-period populations and on each basin-size multiplicity at both thresholds. The full replay script confirms the graph's quadratic-residue adjacency, the six period-thirteen basins of size \(1235\), the depth-fourteen witness class of size \(624\), and the threshold-three depth-four extinction class of size \(101{,}062\). The explicit period-thirteen word advances under the rule by a translation and its \(78\) affine images exhaust the computed thirteen-periodic set. The finite classification is a reproducible exhaustive computational proof; its limitation is dependence on faithfully executing the supplied arithmetic programs, not an infinite extrapolation.
+PASS
 
-## Originality — PASS, with priority limitation
+An independent integer census (python3 /workspace/reviews/evidence-5.py with NumPy) constructed both transition maps by squaring residues modulo 13, applying the stated synchronous update, and iterating nested full images. At the first equality of consecutive image sizes the restrictions are a finite permutation, so the image is precisely the recurrent set and that iteration is the sharp maximum entry time. Walking the cycles of this image and following all unresolved initial states until first entry yields the primitive cycle counts (1,2288,6), recurrent populations (1,6864,78), basin totals (1498799,88114,7410), six individual 13-basins of size 1235, and sharp depth 14 attained by 624 states at threshold two. Since the least common multiple of the periods is 39 and depth-14 states are not yet periodic at time 13, F_2^53=F_2^14 but F_2^52≠F_2^13. The independent transition map sends 0000002221110 to its translate by +3, and for each affine image with multiplier a the speed is 3a; these are the six distinct quadratic residues. The 78 affine images are distinct and equal the independently enumerated period-13 set. At threshold three the stabilized image is just zero, at time four, with 101062 states first entering at that time. The frozen transcript and its two inspected classifier algorithms are consistent with these independently obtained results.
 
-The 2018 finite-graph analysis by Doba and the 2016/2018 arbitrary-graph analysis by Gravner, Lyu and Sivakoff use a single excitation contact, so their theorems do not supply the threshold-two/threshhold-three census. The published strict-density extinction result cannot cover threshold three here, because the maximum induced edge density of this six-regular graph is three, equal to the contact threshold. The published above-half-degree contraction result assumes strictly more than three contacts. A published half-degree rigidity theorem excludes immediate three-cycles at threshold three, but does not imply universal extinction or its exact time. Searches of relevant research records, this graph under circulant and quadratic-residue aliases, and available prior claims found no covering numerical or structural statement. The 1993 threshold-excitation paper was accessible only through its archival abstract, and equivalent unindexed calculations cannot be excluded.
+## originality
 
-## Value — PASS
+PASS
 
-The smallest nontrivial prime-order Paley conference graph gives an independently motivated test network for refractory waves. The threshold-two census identifies a complete family of six affine thirteen-periodic travelling waves, each with a nontrivial quantified basin, plus an unusually long sharp fourteen-step transient. Raising the contact threshold by one causes global extinction within four updates at the critical half-degree boundary, where simple strict-density and contraction criteria are inconclusive. The result supplies a graph-specific exact classification and interpretable geometric explanation, rather than a renamed general inequality or a partial sample.
+Do not credit eventual extinction itself at the half-degree threshold: Resultary fc90f3212227 has a general same-model statement for all admissible Paley orders at least 13, directly covering it. Credit the exact threshold-two recurrent and transient classification and affine traveling-wave geometry, and at threshold three only the quantitative sharp four-step cutoff and maximal-depth census. The strongest accessible broader statement does not imply those quantities, and its indexed exact census describes exceptional orders 5 and 9, not the order-13 collapse count. This assessment does not infer priority from the common date and expressly leaves a source-access risk for the Paley-13 clock in that record's full text.
 
-## Scope and remaining limitations
+## value
 
-Only the order-thirteen undirected Paley graph and the stated deterministic three-state rule are treated. Extrapolation to arbitrary Paley graphs, other degrees or other update rules is not justified. Historical priority and independent reproduction remain open checks.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A canonical small six-regular residue graph is a natural adjacent-threshold test: the strict half-degree estimate does not decide the critical case, while one contact below it the long cycles have an affine wave classification, not merely an isolated numerical witness. The full basins distinguish abundant short periodic states from the few long waves, and the exact cutoffs supply a finite benchmark unavailable from qualitative extinction. Value rests on these sharp and geometric facts rather than restating the already covered eventual-rest result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

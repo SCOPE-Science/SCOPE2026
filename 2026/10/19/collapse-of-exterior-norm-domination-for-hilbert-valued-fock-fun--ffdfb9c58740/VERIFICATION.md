@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The finite-dimensional assertion follows from the exact polynomial identity \((t-s)(t-A)^2\) and its factorial-weighted Gaussian moment. In particular \(s=1,A=3\) has coefficient vector \((-9,15,-7,1)\), whose factorial pairing is \(-2\). The standalone `verify.py` checks those coefficients, evaluates the factorial pairing exactly, and checks additional rational choices \(s\in\{1,2,4,9\}\). It also independently validates coefficient-sign realization for those explicit polynomial inputs.
+## correctness
 
-The all-radius assertion is analytic, not computational: weighted polynomial completeness plus Cauchy--Schwarz guarantees a strictly negative signed integral for each real \(s>0\). Orthogonal coordinate splitting converts it to an actual finite vector-polynomial witness. No numerical approximation proves the density lemma. Historical-priority and independent external validation remain open.
+PASS
+
+Polar integration with t=|z|² gives Gaussian moments k!. For the C²-valued pair, the pointwise squared gap g−f is (t−1)(t−3)² and the squared Fock norms are 21 and 23, respectively; the same pair works on every smaller exterior with R≥1. For arbitrary s=R²>0, if u is perpendicular to all polynomials in L²((1+t)e^(−t)dt), its weighted Laplace transform is analytic for Re w<1/2 by Cauchy–Schwarz (also after differentiation on compact subsets); all derivatives at zero vanish. Its restriction to the imaginary axis is the Fourier transform of an L¹ density, so u=0. A nonzero real function compactly supported in (0,s) has negative signed quadratic integral against (t−s)e^(−t)dt. Polynomial approximation preserves this strict inequality by Cauchy–Schwarz and |t−s|≤max(1,s)(1+t). Splitting the real coefficients of (t−s)p² between orthogonal vector monomials gives exactly the nonnegative exterior gap and negative full Fock gap. The result also holds on the closed boundary, and uses only finitely many coordinates for each radius.
+
+## originality
+
+PASS
+
+The supported contribution is the vector-valued failure, including the two-coordinate polynomial obstruction at the scalar sharp radius, and the realization of an arbitrary-radius moment obstruction by finite-coordinate polynomial pairs. The scalar principle and general moment-localization techniques are not claimed as new.
+
+## value
+
+PASS
+
+The sharp scalar conclusion fails in the first larger Hilbert dimension at radius one, even for cubic polynomials, and the infinite-dimensional version loses every positive radius despite admitting finite-coordinate tests. These are structural limitations on scalar-to-vector transfer, not just altered constants in a scalar statement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

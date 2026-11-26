@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:31:58.794916Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and artifacts/ctable_82.json",
+        "Frozen artifacts/verify.py and ecoeff.py, inspected not executed; verify.py lines 176–187 compared to all 22 catalogue keys",
+        "Fresh replay: python3 /workspace/repairs/4/check_c82.py"
+      ],
+      "rationale": "For the repaired claim, stable sets have size at most two because a triple of stable vertices would require three circular gaps of length at least three. An independent least-vertex matching recursion enumerates all partitions into singletons and stable pairs; every order gives the exact monomial coefficient for its ordered size sequence and ascent count. This gave 106 class partitions and 136488 orders. For d doubled and s=8−2d singleton colors, the coefficient of a monomial in e_{8−b}e_b is binomial(s,b−d). Solving triangularly from d=4 down to 0 gives the five displayed polynomials, and explicit checks for all 34 ordered exponent patterns prove equality without assuming symmetry or averaging over ordered types. Colors with gaps give the same coefficients on compression and larger exponents are impossible on both sides. The e-basis identity forces the other 17 entries to vanish. The run reproduces each entry, including zero padding and the symmetry/unimodality centered at ascent 8.",
+      "residual_risks": [
+        "Fixed graph and ascent orientation only. The subchecks of the historical verifier are not a current byte-identity run; the replacement proof does not depend on them."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ellzey has general F-basis and p-basis formulas and an induced e-row sum. The explicit circular formulas in §6 cover several other boundary families, not the individual coefficients for G^c_{8,3}.",
+          "Alexandersson–Panova Prop. 28 gives aggregate e-coefficient sums by length, not a separate polynomial for each partition; Aval–Melgar's related theorem concerns signed symmetry after a switch."
+        ],
+        "reasoning": "The old expansions make exact computation possible, but their printed elementary formulas either concern other families or group the four two-part coefficients together. Signed symmetry is not an ordinary elementary expansion.",
+        "searches": [
+          "Primary topic search: circular indifference and unit-arc digraph e-expansion, C_8^2 and coefficient tables",
+          "Ellzey arXiv:1709.00454 §§3–6; Alexandersson–Panova arXiv:1705.10353 Prop. 28 and Thms. 38–39; Aval–Melgar arXiv:2508.20200 Thm. 5.4"
+        ]
+      },
+      "checked_sources": [
+        "Resultary C8,2/circular power coefficient searches",
+        "arXiv:1709.00454",
+        "arXiv:1705.10353",
+        "arXiv:2508.20200"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Ellzey's explicit computer-test statement contains this very instance; prior complete-graph reasoning even covers the circular tournaments in the original family.",
+          "The length-1 row gives c_(8) as a sink distribution, but the length-2 row furnishes only c_(7,1)+c_(6,2)+c_(5,3)+c_(4,4). Positivity and a row sum do not specify how the coefficients are distributed."
+        ],
+        "reasoning": "The original first-positivity claim is withdrawn. The general F/p identities do not show the individual elementary polynomials without a coefficient calculation. The supported remainder is that explicit distribution and a direct certificate, not novelty of symmetry, signs, row sums, or all-order shape.",
+        "searches": [
+          "Ellzey §6, Cor. 6.2, Prop. 6.3, Thms. 6.4–6.5",
+          "Alexandersson–Panova Conj. 27, Prop. 28 and cycle/complete-family formulas"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ellzey defines G^c_{n,r} by 0<j−i mod n<r, so this graph is exactly G^c_{8,3}.",
+          "The Alexandersson–Panova circular unit-arc model a_i=2 is the same orientation. At t=1 the invariant reduces to the ordinary chromatic symmetric function of C₈²."
+        ],
+        "reasoning": "The aliases were compared as identical graphs/invariants where the grading is retained, not treated as distinct discoveries. The t=1 specialization discards individual ascent grades.",
+        "searches": [
+          "Resultary: circular power C8,2 elementary expansion and chromatic quasisymmetric certificate",
+          "Ellzey arXiv:1709.00454 §6 p. 29; Alexandersson–Panova arXiv:1705.10353 Def. 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact table returned by Resultary is the same SCOPE087 record, not a separate prior source.",
+          "Ellzey expressly says all other circular powers n≤8 were computer-tested; the passage prints neither the G^c_{8,3} table nor individual coefficient polynomials for it."
+        ],
+        "reasoning": "The published computation claim is prior evidence for e-positivity and unimodality, whether or not internal output had the full vector. No distinct accessible table of these exact numerical polynomials was identified.",
+        "searches": [
+          "Resultary full e-vector queries; mirrored SCOPE087 finding",
+          "Ellzey arXiv:1709.00454 §6 p. 29 at OA offsets 83800–88479; Alexandersson–Panova explicit formula sections"
+        ]
+      },
+      "rationale": "Only the fully resolved individual t-polynomials and their non-aggregating exact replay are credited. Positivity and unimodality at this case were already computer-tested in Ellzey, not new. No individual coefficient table or stronger e-coefficient formula furnishing the five separate polynomials was found in the inspected evidence; the claim is not about who first computed the data privately.",
+      "residual_risks": [
+        "Ellzey's original computer output may already have included the table; unpublished output and unindexed existing tables were not available to compare. No claim of being first to compute the numbers is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior test of the same case; row-sum and boundary formulas do not report its full vector.",
+          "evidence": [
+            "Defines clockwise steps <r and reports ‘We used a computer to test our conjecture for all other’ circular powers for n≤8.",
+            "Prop. 6.3 treats an underlying complete graph and Thm. 6.5 totals the coefficients by length."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1709.00454",
+          "material_read": "§6 pp. 26–30, particularly p. 29 family definition and computer-test statement at OA offsets 83800–88479; symmetry Cor. 5.7",
+          "method": "OA PDF focused passages; decisive p. 29 read directly",
+          "title": "A directed graph generalization of chromatic quasisymmetric functions",
+          "trigger": "Same circular-power family and prior exact scope n≤8"
+        },
+        {
+          "assessment": "Same orientation at constant area sequence 2, but no inspected separate C₈,₂ coefficient vector.",
+          "evidence": [
+            "Prop. 28 gives sums by length; exact extreme-family results do not have the C₈² hypothesis."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1705.10353",
+          "material_read": "Def. 2 p. 4; Prop. 28 p. 16; Thms. 38–39 pp. 19, 22",
+          "method": "OA PDF targeted definitions, aggregate and explicit formula passages",
+          "title": "LLT polynomials, chromatic quasisymmetric functions and graphs with cycles",
+          "trigger": "Equivalent circular unit-arc definitions and plausible full e-formulas"
+        },
+        {
+          "assessment": "Theorem about a switched signed model, not this ordinary vector.",
+          "evidence": [
+            "Theorem 5.4 proves signed symmetry for a one-vertex switch."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2508.20200",
+          "material_read": "Defs. 5.2–5.3 and Thm. 5.4 pp. 22–23 (offsets 72016, 76165)",
+          "method": "OA PDF targeted definitions and theorem",
+          "title": "Chromatic quasisymmetric functions for signed graphs",
+          "trigger": "Recent circular step-family treatment"
+        },
+        {
+          "assessment": "Identical assigned record, not an independent precursor.",
+          "evidence": [
+            "Same digraph and exact five polynomials."
+          ],
+          "identifier_or_url": "2026/9/9/SCOPE087",
+          "material_read": "Mirrored RESULT.md, coefficient statement",
+          "method": "Resultary search and mirror comparison",
+          "title": "Full e-expansion of C_{8,2}",
+          "trigger": "Exact indexed table match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired RESULT.md and independently run check_c82.py",
+        "Ellzey reported test and row-sum and Alexandersson–Panova Prop. 28"
+      ],
+      "rationale": "For squared directed cycles, n=8 is the first instance with two cyclic distances of nonedges and the last before stable triples. Thus the exact t-graded e-vector is a small but natural boundary benchmark, resolving four two-part polynomials from their previously available aggregate. A proposed circular-square formula or a calculation with a different ascent grading can match ordinary t=1 or the e-row sums while failing these individual polynomials. The matched color-class certificate exposes this distinction, rather than treating positivity already tested by Ellzey as new.",
+      "residual_risks": [
+        "Benchmark and exact invariant only; no claim that an infinite-family problem has been solved."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

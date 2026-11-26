@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:31:09.216780Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Relative to a fixed matching, a second matching exists in the retained graph exactly when there is an alternating cycle: a difference of matchings decomposes into such cycles, and toggling any one produces a second matching. Under contraction the allowed arc i->j is equivalent to i!=j and pi(j)!=i, so precisely the derangement inverse cycle cover is absent from the loopless complete bidirected graph. In a linear order exactly one candidate arc per unordered pair is forward. Each missing directed cycle forces at least one missing forward arc, attained by reversing its cyclic vertex order and concatenating the blocks. The remaining max acyclic size is binom(n,2)-c(pi), yielding the stated minimum feedback arc set. Insertion into a cycle of length at least two or addition of a transposition proves the recurrence; labelled cycles of lengths >=2 give the EGF. A cycle of size n-2(k-1) plus k-1 transpositions realizes the full spectrum, and standard cycle-type counts give both extremal multiplicities, including n=3. An independent bounded subset DP through n=7 (append j last, adding the existing arcs i->j for i in the previous subset) agreed; at n=7 the counts at 15,16,17 were 720,924,210. This checks the contraction count only on that range; the universal proof is analytic. Frozen code was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "90543620c469 covers the same distribution and additionally characterizes optimum deletions via orders.",
+          "Deng–Zhang give the planar packing relationship and study other graph classes; Zhang–Zhang treat scalar maxima for K_{n,n} and K_{n,n}-e."
+        ],
+        "reasoning": "A complete bipartite graph missing one edge does not cover deletion of a full 1-factor; a scalar maximum does not determine the per-matching distribution. The distinct Resultary statement, by contrast, covers the full target.",
+        "searches": [
+          "Resultary: crown anti-forcing spectra and extremal multiplicities",
+          "arXiv:1607.05392 Section 1",
+          "arXiv:2009.05746 Theorem 3.5 and Proposition 3.9"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 90543620c469; 2c97788f0907; 1d11197e01f2",
+        "arXiv:1406.3796",
+        "arXiv:1607.05392",
+        "arXiv:2009.05746"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Resultary hit states the complete claimed classification and extremal multiplicities explicitly.",
+          "Alternating-cycle reduction and planar feedback-set theorems alone do not evaluate this nonplanar family in general."
+        ],
+        "reasoning": "Exact coverage is demonstrated directly; no speculative derivation from a generic graph bound or inference from posting order is needed.",
+        "searches": [
+          "Resultary 90543620c469, Finding and order proof",
+          "arXiv:1406.3796 Section 2, p. 6",
+          "arXiv:1607.05392 Section 1, pp. 2–3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "90543620c469 states af(Cr_n,M_pi)=n(n-3)/2+c(pi) for n>=3 and uses the same inverse-permutation cycle cover and vertex orders.",
+          "Lei–Yeh–Zhang provide the general matching-contraction equivalence, not this crown count."
+        ],
+        "reasoning": "All parameters agree, and taking the inverse permutation preserves its cycle count. The overlap is on the fixed-matching deletion invariant, not just a similar graph or method.",
+        "searches": [
+          "Resultary: crown / K_{n,n} minus one 1-factor / H(n,1), anti-forcing and cycle count",
+          "Resultary: complete bidirected graph minus a directed permutation cycle cover, feedback arc set",
+          "arXiv:1406.3796, Section 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "90543620c469 gives the same symbolic polynomial, hence every coefficient for every n in scope.",
+          "2c97788f0907 counts subsets inside a fixed matching that force it; 1d11197e01f2 counts edge sets that force every matching."
+        ],
+        "reasoning": "The exact catalogue hit supplies more than a finite table: it supplies the identical enumerator. The other crown entries count different objects, not deletion sets outside a chosen matching.",
+        "searches": [
+          "Resultary: crown anti-forcing distribution, derangement-cycle polynomial and table-oriented terms",
+          "Resultary 90543620c469; 2c97788f0907; 1d11197e01f2"
+        ]
+      },
+      "rationale": "A distinct published Resultary record, 2026/11/22/SCOPE-anti-forcing-numbers-of-crown-graph-matchings-are-determined-by--90543620c469, explicitly covers the per-matching formula, polynomial, recurrence, spectrum, and extrema under the same hypotheses with the same cycle-cover argument. It additionally describes optimum deletions via orders. This is an equivalent-coverage decision, not a determination of priority; its later catalogue date neither proves who first derived the formula nor makes the records scientifically distinct. No distinct surviving result is exposed by the frozen package.",
+      "residual_risks": [
+        "Bounded literature checks do not settle first discovery or exclude still earlier equivalent formulations or table entries.",
+        "Catalogue dates and source verification status are not evidence of mathematical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact material overlap in a distinct record; no priority judgment",
+          "evidence": [
+            "Same n>=3 fixed-matching formula, cycle enumerator recurrence, spectrum and both extreme multiplicities; adds optimum orders."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-anti-forcing-numbers-of-crown-graph-matchings-are-determined-by--90543620c469",
+          "material_read": "Finding (local-mirror offset 0) and cycle-cover/order argument",
+          "method": "Read bounded local-mirror RESULT.md and compare hypotheses and formulas",
+          "title": "Anti-forcing numbers of crown graph matchings are determined by their cycle counts",
+          "trigger": "Exact family and invariant in semantic search"
+        },
+        {
+          "assessment": "Standard reduction; the planar min-max specialization does not supply the crown count",
+          "evidence": [
+            "Orients then contracts fixed matching edges; anti-forcing sets become feedback sets."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1406.3796",
+          "material_read": "Section 2, p. 6, offsets about 13992–14370",
+          "method": "Bounded OA PDF text comparison",
+          "title": "Anti-forcing numbers of perfect matchings of graphs",
+          "trigger": "General matching-contraction reduction"
+        },
+        {
+          "assessment": "Related criterion and planar equality, not this crown distribution",
+          "evidence": [
+            "Characterizes anti-forcing via hitting alternating cycles; spectra for even polygonal chains address a different family."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1607.05392",
+          "material_read": "Section 1, pp. 2–3",
+          "method": "Bounded OA PDF text comparison",
+          "title": "Extremal anti-forcing numbers of perfect matchings of graphs",
+          "trigger": "Broader spectra and extremal bounds"
+        },
+        {
+          "assessment": "Scalar maxima or different deletions, not the fixed-matching crown distribution",
+          "evidence": [
+            "The compared graph cases include K_{n,n} and K_{n,n}-e, not K_{n,n} minus a 1-factor."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2009.05746",
+          "material_read": "Theorem 3.5, p. 7, offset about 20124; Proposition 3.9, p. 9, offset about 25043",
+          "method": "Bounded OA PDF text comparison",
+          "title": "Zhang–Zhang anti-forcing comparisons for complete bipartite graphs",
+          "trigger": "Dense bipartite extremal comparison"
+        },
+        {
+          "assessment": "Different counting predicates",
+          "evidence": [
+            "Counts subsets inside a selected matching or edge sets forcing every matching, respectively."
+          ],
+          "identifier_or_url": "Resultary 2026/10/12: 2c97788f0907; 1d11197e01f2",
+          "material_read": "Both Findings",
+          "method": "Bounded local-mirror comparison",
+          "title": "All forcing subsets of perfect matchings in crown graphs; The complete forcing polynomial of crown graphs",
+          "trigger": "Same graph family and similar terminology"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The mathematical content is a natural complete classification, tying the edge-deletion cost of each matching to its cycle structure and exposing the exact spectrum and frequencies rather than one extremum. That scientific utility does not create a distinct contribution beyond the demonstrated catalogue overlap.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

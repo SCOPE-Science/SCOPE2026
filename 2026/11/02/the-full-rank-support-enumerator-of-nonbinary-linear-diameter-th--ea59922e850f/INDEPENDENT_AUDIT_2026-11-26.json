@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:24:02.854919Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a labelled F_q-linear code of diameter at most three, a word nonzero at each pivot bounds rank by three. Uniform words have mean weight s(q-1)/q, so support is at most four, at most three for q>=5; the mean obstruction is even strict for nonzero codes because the zero word has weight zero, excluding s=4 for q=4. For support four, rank one is impossible, and rank three is a hyperplane with check-vector support t=2,3 or 4. Nonzero check-coordinate entries can be chosen in opposite pairs for even t and to form a nonzero triple summing to zero for t=3 (choose two nonzero entries with nonzero sum, possible for q>=3); arbitrary other entries give a weight-four word. For rank two, the four nonzero columns must represent all projective directions, since otherwise there is a row direction vanishing on none of them. In the ternary case each direction then occurs once, all words other than zero have weight three, and ordered column choices divided by GL_2(3) give 24*16/48=8. For s<=3 all support subspaces are valid, so one counts full-support lines up to scalar, planes by removing the three coordinate planes in length three, and full coordinate spaces in their respective ranks. The exact polynomial, totals, leading coefficients, and n=0 follow. Independent replay: python3 -B /workspace/reproductions/anticodes.py constructs distinct word-set subspaces by extensions, including all ranks, and directly checks every coefficient at (q,n)=(3,5),(4,4),(5,4) after scanning 2664, 529 and 1120 subspaces; it gives respectively 226, 141 and 215 qualifying subspaces and 40 rank-two support-four codes in the first case. The frozen verify.py prints a full support/rank tally but only asserts the total and the exceptional coefficient, not all coefficients as the verification prose claims; the independent finite check compares them individually. The proof, not a finite test, establishes the full range.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "AntiGriesmer gives n <= sum_i floor(3/q^i) for any full-support code here. This excludes support four for all ranks when q>=4, not just rank two; q=3 permits support four in the bound from rank two onward.",
+          "Together with the simplex example, the prior support results settle the growth degrees. The diameter-four Resultary census explicitly admits all subspaces in length four, so its support-four counts include codes excluded here."
+        ],
+        "reasoning": "The strong support results preempt the claimed field-size transition as an originality argument. Their bounds leave the ternary rank-three obstruction and labelled rank-two count to be established, and the at-most-four enumeration cannot be specialized by changing an ambient dimension to impose at most three.",
+        "searches": [
+          "arXiv:2511.02519v1 Theorem 1.1 and §4",
+          "arXiv:2610.31618v1 Theorem 4.6 and Remark 4.8",
+          "Resultary 15ccf46866d7/RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "arXiv:2610.31618v1 §4",
+        "arXiv:2511.02519v1 Theorem 1.1 and §4 excerpts",
+        "Resultary 50b9ec1154fb and 15ccf46866d7 Findings",
+        "Error Correction Zoo tetracode (indexed hit, primary page access attempted)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Horlemann–Ravi Proposition 4.3 reduces the total to sum_s binomial(n,s) a_q(s,d). With the simplex example and the antiGriesmer bound the degrees four for q=3 and three for q>=4 follow; those are not new.",
+          "For supports at most three the maximum-weight restriction is automatic, so those coefficients are routine Grassmannian counts. The source bounds and example do not specify that all support-four codes must be rank two nor give the eight distinct labelled subspaces and hence the degree-four leading coefficient."
+        ],
+        "reasoning": "The final exact coefficient and classification require the additional hyperplane and projective-line arguments; evaluating the prior reduction is distinct from claiming the reduction or asymptotic degree as new.",
+        "searches": [
+          "arXiv:2610.31618v1 §4 Proposition 4.3, Theorem 4.6, Remark 4.8",
+          "arXiv:2511.02519v1 Theorem 1.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For a linear code maximum word weight equals Hamming diameter. The Horlemann–Ravi support reduction uses the same labelled ambient-code count but does not refine coefficients by rank in the relevant proposition.",
+          "Remark 4.8 gives the ternary dimension-two simplex code parameters (support four and maximum weight three); these give existence, not the number or classification of arbitrary full-support codes with maximum weight three."
+        ],
+        "reasoning": "A count of equivalent tetracode types, or a table of parameters of a code with given minimum distance, does not by itself classify all maximum-weight-bounded subspaces or count labelled realizations. A monomial equivalence classification plus a stabilizer count could give overlap; the checked simplex passage gives a construction, not those data.",
+        "searches": [
+          "Linear Hamming diameter-three anticodes, full-support counts and rank enumerator",
+          "Maximum-weight-three ternary code and ternary tetracode [4,2,3]",
+          "arXiv:2610.31618v1 Proposition 4.3 and Remark 4.8"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The mirrored q=2 census in 50b9ec1154fb includes ten cases on four labelled positions, a different field and coefficient. The q=3 diameter-at-most-four Finding in 15ccf46866d7 gives 129 as the support-four total rather than counting the eight max-weight-three subspaces.",
+          "A tetracode catalogue hit reports the familiar [4,2,3] parameters; a bounded attempt to open its underlying site passage timed out, so no further conclusion is inferred from that hit."
+        ],
+        "reasoning": "Neither adjacent Resultary Finding is an exact table for the frozen hypotheses. They are compared by weight bound and alphabet, not discarded based on same-day dates.",
+        "searches": [
+          "Resultary: exact support and rank census for space of diameter at most three",
+          "Resultary 50b9ec1154fb and 15ccf46866d7",
+          "Error Correction Zoo tetracode"
+        ]
+      },
+      "rationale": "Credit existing fixed-diameter polynomial support reduction, support bounds, the resulting growth degrees and the classical ternary simplex code. The distinct supported result is the exhaustive maximum-weight-three labelled rank-by-support census across nonbinary fields, particularly the classification and exact multiplicity of all admissible four-supported codes rather than existence of one tetracode. The prior bounds and checked code parameters do not evaluate that coefficient or give the complete rank-refined census; priority is bounded by the materials inspected.",
+      "residual_risks": [
+        "An older classification or monomial stabilizer calculation for small maximum-weight ternary codes could cover the exceptional multiplicity; the bounded comparisons do not establish historic priority.",
+        "A later AntiGriesmer §4 slice and the tetracode catalogue page were not retrieved; inaccessible passages were not used as negative evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Polynomial framework and ternary simplex existence, not the exact rank coefficient calculation.",
+          "evidence": [
+            "Support expansion using a_q(s,d), degree bounds using largest support, and the simplex length and maximum-weight formulas."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.31618v1",
+          "material_read": "§4 Proposition 4.3, Theorem 4.6, Remark 4.8 (offsets 44264, 49276, 55463)",
+          "method": "Primary open HTML passages",
+          "title": "The Asymptotic Number of Anticodes in Hamming Spaces",
+          "trigger": "Same anticode class and exact fixed-diameter reduction"
+        },
+        {
+          "assessment": "Does directly imply the nonternary support exclusion, not a census in the inspected passages.",
+          "evidence": [
+            "For no zero generator columns, support length obeys n<=sum_i floor(delta/q^i)."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2511.02519v1",
+          "material_read": "Theorem 1.1 and full-support convention, offset 11129; §4 passages offsets 33000 and 35445",
+          "method": "Primary open HTML; a later §4 slice timed out",
+          "title": "Improved AntiGriesmer Bounds for Linear Anticodes and Applications",
+          "trigger": "General support obstruction could cover the field-size distinction"
+        },
+        {
+          "assessment": "Binary only.",
+          "evidence": [
+            "q=2; ten codes on a prescribed four-coordinate support."
+          ],
+          "identifier_or_url": "Resultary 50b9ec1154fb",
+          "material_read": "Mirrored RESULT.md Finding offset 0, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local Resultary search and mirror passage",
+          "title": "Exact support and rank census of binary linear diameter-three anticodes",
+          "trigger": "Exact same rank/support question over a nearby field"
+        },
+        {
+          "assessment": "At most four, not a simultaneous smaller-diameter refinement.",
+          "evidence": [
+            "For q=3 its support-four total is 129; by its stated scope all subspaces qualify at ambient length 4."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-enumeration-of-linear-hamming-anticodes-of-diameter-four--15ccf46866d7/RESULT.md",
+          "material_read": "Finding and Assumptions, mirror offset 0, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local Resultary search and bounded exact mirror passage",
+          "title": "Exact enumeration of linear Hamming anticodes of diameter four",
+          "trigger": "Potential broader enumeration with overlapping fields"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Fixed-diameter anticode counts are motivated by the prior polynomial framework with unevaluated coefficients. The new exact part identifies every exceptional four-supported case and yields its labelled contribution and leading coefficient, while the complete rank refinement answers the count on each support without treating the known asymptotic degrees or tetracode construction as new. This is useful beyond verifying one code or one parameter point.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

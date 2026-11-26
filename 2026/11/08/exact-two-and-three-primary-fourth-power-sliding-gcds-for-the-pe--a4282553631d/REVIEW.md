@@ -1,19 +1,21 @@
-# Scientific review: two- and three-primary fourth-power sliding Pell GCDs
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim concerns the exact prime valuations of an infinite gcd, not the complete gcd. The proof gives an explicit integer quartic block \(F\) divisible coefficientwise by \(6\), the four-step matrix \(M\), and a precise integer-polynomial finite-difference expansion. The congruences for sums of \(4m\) terms hold for every starting index and every \(m\ge1\). The exhibited Pell and associated-Pell starting indices make the lower bounds sharp. Residual lengths are handled separately by exhaustive periodic residue patterns modulo \(2\) and \(3\). The finite replay in `verify.py` checks representative parameters and exact algebra; it is not offered as an infinite proof.
+PASS
 
-## Originality — PASS within checked evidence
+For the specified initial conditions and windows starting at n+1, the gcd valuation is the least valuation of any window. The recurrence gives the linear forms y, x+2y, 2x+5y, 5x+12y and the step-four matrix M with rows (5,12), (12,29). Expanding their fourth powers gives the stated coefficients, all divisible by 6. M is I modulo 4; replacing each form L by L+4L' changes L^4 by a multiple of 16 coefficientwise, and each further difference gains a factor 4. For 3 use -M, equal to I modulo 3 and giving identical evaluations on the homogeneous quartic F; each difference gains 3. In the sum of m operator iterates the coefficient of the l-th difference is binom(m,l+1). The loss in its valuation is at most v_p(l+1) relative to v_p(m). For l>=1 the remaining gain over v_p(m) is at least 3 for p=2 and 2 for p=3, so only mF(v) matters modulo the two claimed powers. F(0,1)=21378 has both valuations one; F(1,3)=2911764 has 3-valuation one. The Q terms are odd, and any four Q fourth powers sum to 4 mod 16, establishing exact 2-valuation two for the base block. Thus for k=4m the minima are as claimed. The fourth-power patterns mod 3 have one zero in four, at index 0 mod 4 for P and 2 mod 4 for Q, by the signed four-step period; the stated starts give nonzero remainders for lengths 1,2,3 mod 4. For other lengths at 2, the alternating P parity gives an odd window for either k odd or k=2 mod 4, and every Q sum equals k mod 16. Independent bounded replay: python3 /workspace/independent_checks.py 5 checked exact gcds over 64 positive-start windows in each of 778 sequence/length cases, including selected high powers of 2 and lengths 4 times powers of 3. This finite replay does not prove the universal divisibility. No claim is made for primes >=5.
 
-The closest primary work is Mbirika–Schrader–Spilker, *Pell and Associated Pell Braid Sequences as GCDs of Sums of k Consecutive Pell, Balancing, and Related Numbers*, arXiv:2301.05758 (first public 2023-01-13). It defines all-power sliding GCD notation but proves first-power formulas and reports second-power values; sections 1 and 6 were checked directly in the complete publisher PDF. The new theorem gives exact \(2\)- and \(3\)-parts for the fourth power for both Pell sequences. Mbirika–Spilker, arXiv:2204.12626, treats squares for a different recurrence. Anand et al., arXiv:2407.12868, concerns consecutive unsquared terms and uses a different companion-sequence normalization. Search comparisons with related indexed research, distinct prime-adic Lucas periodicity results, and available historical claim statements did not identify a covering assertion. Novelty cannot be established by search absence; unindexed broader Lucas-power congruences remain a residual risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result characterizes *all lengths* and all powers of \(2\) and \(3\) dividing two fourth-power sliding GCDs, rather than sampling a few exponents or lengths. It shows a sharp contrast between the companion pair at prime \(2\), while the \(3\)-adic valuations agree and arise precisely for window lengths divisible by four. The exponential-in-valuation divisibility is unbounded as the window length varies. It supplies a structurally explained, exact local part of the higher-power sliding-GCD problem motivated by the 2023 work, without claiming the full gcd at other primes.
+The closest Pell literature defines this sliding gcd generally and treats first powers and squares; the nearest distinct indexed research treats Pell cubes, or quartic windows for different recurrences and prime regimes. The exact quartic two-prime formula for this pair survives these comparisons. This is a bounded judgment, not historical-priority certification.
 
-## Limits and risks
+## value
 
-No formula for primes \(p\ge5\) is established, and no complete fourth-power GCD is claimed. No universal statement for arbitrary second-order recurrences is claimed. Possible coverage by a general unpublished or unindexed theorem remains an originality risk. This is a self-review only, not independent scientific validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The prior Pell work motivates powered sliding gcds as exact invariants. This result determines two unbounded prime-primary parts for all window lengths, explains the common sharp 3-adic threshold at k divisible by four, and distinguishes the two companion normalizations at 2. The proof moves beyond a finite table or a first-power identity, while leaving the full gcd and other primes open.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

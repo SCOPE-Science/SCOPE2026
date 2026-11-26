@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:43:00.854692Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With every triangle check present and fully synchronous rounds, the known graph is squared at every step. Concatenating paths, or splitting a shortest path in two, proves the exact distance threshold 2^t. Components become cliques, including the singleton and initially complete cases, and a spanning path gives the claimed worst round count. A stopping set is the complement of a disjoint clique union; partitions give the polynomial, and reverse refinement gives the minimal bipartitions and the n minimum stars for n≥3. Triangle equations are exactly x_ij=y_i+y_j over F_2. Compatible potentials differ by constants on the known components modulo the global constant, giving 2^(c−1) completions. The independent-edge connectivity recursion follows by exposing the component of one vertex. The recorded finite checks in the frozen verification package corroborate the formulas on small instances, not the universal proof; their supplied scripts were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The H-bootstrap recursion permits any fixed graph H and applies at H=K_3 with no change to the updates.",
+          "Kashyap–Vardy's design bound with column weight n−2 and overlap at most one already gives the minimum stopping-set size lower bound n−1."
+        ],
+        "reasoning": "The more general recursion specializes verbatim to the process; the design bound covers the lower bound only, not the partition polynomial.",
+        "searches": [
+          "arXiv:1107.1381v2 §1 general H-bootstrap recurrence",
+          "Kashyap–Vardy, Stopping Sets in Codes from Designs §3 Theorem 1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1107.1381v2",
+        "Kashyap–Vardy DOI 10.1109/ISIT.2003.1228136",
+        "arXiv:cs/0603007v1",
+        "DOI 10.1155/2010/432495 access attempt",
+        "Resultary b32795dfce2f, fc9b95f1c3c6, 1acbb782cd0b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The existing recurrence is squaring, so iterating gives G^(2^t) and the diameter round bound directly. Fixed points are its closure flats; complement sizes are binomial edge counts by block, and inclusion-minimal nonempty complements are cuts.",
+          "Components expose n−c independent constraints on n−1 cut-space potential bits. Bootstrap percolation and unique completion thus reduce to the same known connectivity condition. Abdel-Ghaffar–Weber instead enumerates full-rank Hamming-code stopping sets."
+        ],
+        "reasoning": "Even where exact enumeration and coding wording differ, the claimed consequences are routine consequences of the already defined process and classical cut and partition structure.",
+        "searches": [
+          "arXiv:1107.1381v2 pp. 1–3 compared with frozen RESULT.md Proof 1–4",
+          "Abdel-Ghaffar–Weber, arXiv:cs/0603007v1 p. 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "§1, p. 1 defines the simultaneous H-edge bootstrap recurrence: add exactly the edges that are the sole uninfected edge in a copy of H. At H=K_3, infected=known and the recurrence is identical for every time and every initial pattern.",
+          "§1, pp. 2–3 explicitly says G percolates in the K_3-process iff G is connected."
+        ],
+        "reasoning": "The common neighbor in the K_3 rule is precisely the witness in graph squaring. The earlier formulation covers the entire dynamics. A stable graph is a union of cliques; it is also a graphic flat on K_n.",
+        "searches": [
+          "Resultary: all-triple stopping sets and triangle bootstrap closure",
+          "Balogh–Bollobás–Morris, arXiv:1107.1381v2, §1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "b32795dfce2f is the identical submitted record, not independent coverage.",
+          "fc9b95f1c3c6 concerns a fixed 13-column PG(2,3) point–line incidence matrix, not K_n pair columns.",
+          "Same-day 1acbb782cd0b concerns four-neighbor vertex infection on L(K_n), not synchronous completion of missing triangle edges."
+        ],
+        "reasoning": "Neither distinct catalogue entry is an exact table for this object. The prior-coverage finding rests on the primary bootstrap formulation and its implications, not on a same-day order or a coincident stopping count.",
+        "searches": [
+          "Resultary local matching search and mirrored findings for b32795dfce2f, fc9b95f1c3c6 and 1acbb782cd0b"
+        ]
+      },
+      "rationale": "The proposed contribution is the joint identification of this decoder's exact dynamics, stopping states and unique-completion behavior. Balogh–Bollobás–Morris already give the same synchronous recursion under K_3-edge bootstrap percolation, and explicitly identify percolation with connectivity. Substituting H=K_3 makes their recurrence exactly the graph square, not just an analogy at the endpoint. Iteration composes distance balls by doubling, while stable complements are exactly the flats of the complete-graph graphic matroid (the partition lattice). The enumerations, rank and completion count then follow from standard partition counting and the cut-space representation. No scientifically distinct claim is established by renaming or packaging these consequences. This is a coverage and derivation judgment, not a claim that the prior paper prints the same stopping-polynomial formula.",
+      "residual_risks": [
+        "A more explicit earlier enumeration or round formula may exist; the verdict does not require locating it.",
+        "The full Psota–Pérez text was not verified. This access gap is not the basis of the decision."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same recurrence at H=K_3; connectivity criterion explicit",
+          "evidence": [
+            "An edge enters at time t+1 if it is the only missing edge of an H-copy at t.",
+            "G percolates in the K_3-process if and only if G is connected."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1107.1381",
+          "material_read": "v2 §1 definition on p. 1; K_3 passage spanning pp. 2–3",
+          "method": "Primary PDF, bounded passages at opening and text offset 8540",
+          "title": "Graph Bootstrap Percolation",
+          "trigger": "Equivalent triangle completion dynamics"
+        },
+        {
+          "assessment": "Minimum lower bound applies; not the round or partition theorem",
+          "evidence": [
+            "The lower bound γk+1 gives n−1 with k=n−2 and γ=1."
+          ],
+          "identifier_or_url": "https://ece.iisc.ac.in/~nkashyap/Papers/stopsets.pdf",
+          "material_read": "§3 Theorem 1, p. 2",
+          "method": "Author-hosted PDF, bounded passage near text offset 6800",
+          "title": "Stopping Sets in Codes from Designs",
+          "trigger": "Stopping size and structure for design matrices"
+        },
+        {
+          "assessment": "Different matrix family",
+          "evidence": [
+            "Full-rank Hamming parity-check matrices, not all pair–triple checks."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/cs/0603007",
+          "material_read": "v1 p. 1, problem scope",
+          "method": "Primary PDF passage",
+          "title": "Complete Enumeration of Stopping Sets of Full-Rank Parity-Check Matrices of Hamming Codes",
+          "trigger": "Plausible competing stopping enumerator"
+        },
+        {
+          "assessment": "Unresolved access, not counted as negative evidence",
+          "evidence": [
+            "Access attempts returned HTTP 403."
+          ],
+          "identifier_or_url": "https://doi.org/10.1155/2010/432495",
+          "material_read": "No full-text passage verified",
+          "method": "Direct and alternate lawful access attempts",
+          "title": "The Manifestation of Stopping Sets and Absorbing Sets as Deviations on the Computation Trees of LDPC Codes",
+          "trigger": "Cited general stopping-set mechanism"
+        },
+        {
+          "assessment": "Different check matrix or update rule, respectively",
+          "evidence": [
+            "PG(2,3) point–line incidence; four-neighbor vertex activation on L(K_n)."
+          ],
+          "identifier_or_url": "Resultary fc9b95f1c3c6; 1acbb782cd0b",
+          "material_read": "Mirrored findings",
+          "method": "Local Resultary search and mirror",
+          "title": "Complete stopping configurations and erasure failure spectrum; Two path forests classify minimum four-neighbour contagion",
+          "trigger": "Nearest stopping and triangular-graph matches"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The decoding example is useful pedagogically, but the exact specialized evolution is the standard triangle-bootstrap rule, and the stopping, completion and probability formulas are routine consequences of graphic closure, cut potentials and labelled random-graph connectivity. No independently useful unresolved invariant, classification beyond that closure, or new decoding regime remains in the frozen claim.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,15 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The exact theorem is proved in `RESULT.md` using a multinomial factorial-moment identity, Jensen's inequality, local signed-jump enumeration, and the lattice local central limit theorem. This proof applies to all admissible finite \(n,N\) and fixes the periodic \(n=2\) boundary separately.
+## correctness
 
-`verify_covariance.py` requires Python 3 and no nonstandard packages. Running `python verify_covariance.py` reproduces these independent exact-rational finite checks:
+PASS
 
-- 30 single-edge covariance comparisons, for \(2\le n\le6\), \(2\le N\le7\).
-- 54 covariance identities for nonuniform, ternary-uniform, and binary-uniform masses, each against three convex functions, over six sample sizes.
-- 15 weighted-graph covariance identities for paths, stars, and a nontrivially weighted graph at five sizes.
+Tag two ordered draws in (X_i)_2. The 1/p_i factor changes the resulting diagonal-event weight from p_i² to p_i. Subtract the independent-pair expectation to obtain the midpoint Jensen gap for the pair of histograms Z+2e_I and Z+2e_J, with Z accounting for the other N−2 draws. Its expectation is nonnegative and is strictly positive for strictly convex f, since Pr(I≠J)>0. At a uniform edge with q=1/n, labels with signed jumps +1 and −1 produce gap 2 at s=0 and gap 1 at s=±1, weighted by 2q². Zero versus ±1 jumps add 2q(1−2q) only at each corresponding |s|=1. This gives the claimed 4q² and 2q(1−q), with zero gap for |s|≥2. The uniform Pearson affine relation gives the factor N−1 and exchangeability gives the factor W. For n≥3 both relevant walk masses have the same aperiodic local CLT equivalent; for n=2 exactly one site contributes at each parity and its mass is twice the span-one equivalent, compensated by coefficient 1/2. This verifies positivity, the doubled edge at n=2, and both stated limits with their normalizations.
 
-All assertions passed. These tests do not enumerate unbounded sample sizes and are not offered as an infinite proof. No external independent audit is asserted.
+## originality
 
+PASS
+
+The verified overlap is with additive cell scores and the collision-conditioning method, not the nonseparable graph mixed moment or the weighted all-convex comparison at nonuniform p. The contribution credited is these extensions and the explicit walk-mass evaluation, not the collision representation, exchangeability alone, or the already studied marginal DTV statistic.
+
+## value
+
+PASS
+
+The exact cross-moment quantifies shared null variation of an order-sensitive roughness statistic and an order-insensitive goodness-of-fit statistic. It gives both a finite normalization for any graph and the precise fixed-bin limit, where simply applying an aperiodic limit to n=2 would give wrong individual masses. The all-convex coupling supplies a structural explanation for the dependence while cleanly distinguishing the weighted collision score from nonuniform Pearson.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

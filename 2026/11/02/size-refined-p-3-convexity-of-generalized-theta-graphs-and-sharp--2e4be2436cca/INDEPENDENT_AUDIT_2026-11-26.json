@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:42:43.123698Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–62; frozen VERIFICATION.md and verify.py inspected, not executed",
+        "Independent replay: /workspace/branches/e64c61ea-f270-4494-9cd7-8d3957632e1f/independent_theta_check.py with captured independent_theta_check_results.txt"
+      ],
+      "rationale": "For fixed membership bits of the two terminals, an internal vertex fails the two-neighbor condition precisely at the center of a 101 word. Path choices therefore factor until the two terminal checks: at an omitted terminal the sum of incident internal bits is at most one, enforced by retaining powers zero and one of its marker, and at a selected terminal no restriction remains. Length two is included: its single internal bit marks both endpoints but contributes only one z. A two-bit transfer rejects only 10→01 and checks the final triple with the prescribed right terminal. At equal length three the cases with neither, one, and both terminals contribute (1+rz)^2, 2z[(1+z)^r+rz²(1+z)^(r−1)], and z²(1+z²)^r. In the single-terminal case the internal neighbor at the excluded terminal can be selected only in one arm and then forces its companion. With both terminals selected each pair is 00 or 11. The first two contributions cover degrees 0 through r+2; the last covers the even degrees from 2 through 2r+2. As 2r>r+2 for r≥3, only the paired case yields a proper set of size 2r, exactly one choice per omitted arm, and degree 2r+1 is absent. The full set is unique and evaluation at one gives the stated total. Independent vertex-mask tests against a separate arm-word calculation returned all matching coefficients: for lengths (2,3,4,5) the total is 410, and for seven length-three arms it is 1344 with seven maximum proper sets.",
+      "residual_risks": [
+        "The finite replay supports only its tested instances. The membership-factor proof supplies the general result.",
+        "The simple graph, arm length and labelled-subset hypotheses matter; nothing follows here for extra terminal edges, overlapping interiors, or identification modulo symmetry."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary paper has general exponential-time unweighted algorithms and linear-time algorithms for trees and threshold graphs. The catalogue 135b94482ff3 gives a full polynomial transfer on connected cacti; 91d7c8cd2f74 treats one-subdivisions."
+        ],
+        "reasoning": "Cacti exclude the overlapping cycles from three parallel arms. A one-subdivision formula cannot cover the entire theta family: in the equal-length-three case the terminal vertices have degree at least three and must be original, but the path between original vertices along any completely subdivided arm has even length. A broader algorithm to evaluate counts on inputs is not an explicit parametric coefficient or support theorem.",
+        "searches": [
+          "arXiv:2603.04706v1, Abstract and Sections 4–4.1",
+          "Resultary: arXiv:2603.04706 counting P3-convex sets exact algorithms",
+          "Resultary cactus cycle-block and graph subdivision transfer comparisons"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2603.04706v1",
+        "Resultary 88b1eb2ea04a, 135b94482ff3, 91d7c8cd2f74",
+        "Cited hull/geodetic and Carathéodory bibliographic/abstract material, with access limits above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior general counting can compute a particular input graph; nearby transfer methods handle different gluing constraints. The new calculation uses two simultaneous capacities at the shared terminals and isolates the paired interior contributions when both terminals are selected."
+        ],
+        "reasoning": "Finite-state counting itself is standard and plausibly obtainable from generic bounded-width methods. That does not mechanically give the closed form and specific support or maximum proper-set structure, which come from the membership-case calculation.",
+        "searches": [
+          "Dourado–Grippo–Lin–Protti arXiv:2603.04706v1, Section 4",
+          "Resultary 88b1eb2ea04a, 135b94482ff3 and 91d7c8cd2f74"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The unweighted noc(G) in the primary paper is the same count at z=1, obtained by partial colorings, propagation and independent-set counting.",
+          "The closest same-statistic coefficient result, Resultary 88b1eb2ea04a, is for cyclic prisms.",
+          "The outside-vertex rule is equivalently that each vertex in the complement retains at least its degree minus one neighbors in the complement."
+        ],
+        "reasoning": "A complement-size polynomial simply reverses the coefficients, so such a match on the same family would count. Cyclic prisms are not theta networks: all their vertices are cubic, whereas theta networks here have precisely two vertices of degree above two.",
+        "searches": [
+          "Resultary: P3-convex generalized theta graph size polynomial exact enumeration",
+          "Resultary: theta graph P3-convex sets transfer polynomial support",
+          "arXiv:2603.04706v1, Sections 4–4.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The catalogue exact statements read for cyclic prisms, cacti and subdivisions give family formulas but not the all-r equal-length-three theta coefficients. No matching theta-family coefficient table was identified in this bounded comparison."
+        ],
+        "reasoning": "Even a match of a few small z=1 counts would not establish coverage of the polynomial, the all-r parity gaps, or the extremizers; the replay is correctness evidence, not priority evidence.",
+        "searches": [
+          "Resultary: P3 convexity equal length three theta graph cardinality gaps",
+          "Resultary: P3-convex generalized theta graph size polynomial exact enumeration",
+          "arXiv:2603.04706v1 counting methods and examples"
+        ]
+      },
+      "rationale": "Credit the explicit theta-family size polynomial and its sharp cardinality and extremizer information, not the counting problem, the generic finite-state technique, or the ability to compute individual cases. Compared size-enumerator and transfer results concern different graph families, and the inspected general counting method supplies neither this factorization nor its support formula.",
+      "residual_risks": [
+        "No exhaustive priority claim under other two-neighbor closure terminology or under graph-decomposition formulations; two cited full texts were not available."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior unweighted counting and complexity, not the specific coefficient or support theorem in the passages inspected",
+          "evidence": "Partial-coloring propagation and independent-set counts yield noc(G); other stated classes include trees and threshold graphs.",
+          "identifier_or_url": "https://arxiv.org/html/2603.04706v1",
+          "material_read": "Abstract and introduction, OA offsets about 900 and 7900; Sections 4–4.1, about 40800–43582",
+          "method": "Targeted primary HTML read",
+          "title": "Counting P3-convex sets in graphs",
+          "trigger": "Same counting problem and general exponential-time methods"
+        },
+        {
+          "assessment": "Strong methodological and phenomenon overlap; different family, no inference from same-day date",
+          "evidence": "Full polynomial transfer and complement-size gaps for C_n square K_2.",
+          "identifier_or_url": "Resultary 2026/11/2 SCOPE-size-refined-p-3-convex-sets-on-cyclic-prisms--88b1eb2ea04a",
+          "material_read": "RESULT.md Finding, offset 0 onward",
+          "method": "Targeted local mirror read",
+          "title": "Size-refined P3-convex sets on cyclic prisms",
+          "trigger": "Same-day result with identical invariant and size gaps"
+        },
+        {
+          "assessment": "Class excludes overlapping cycles of theta graphs with at least three arms",
+          "evidence": "Polynomial circuit in the connected cactus setting.",
+          "identifier_or_url": "Resultary 2026/10/25 SCOPE-three-state-cycle-block-transfer-for-counting-p3-convex-sets-of--135b94482ff3",
+          "material_read": "RESULT.md Finding, offset 0 onward",
+          "method": "Targeted local mirror read",
+          "title": "Three-state cycle-block transfer for counting P3-convex sets",
+          "trigger": "Possible encompassing graph-class transfer"
+        },
+        {
+          "assessment": "One-subdivision scope cannot dominate arbitrary arm lengths or the equal-length-three specialization",
+          "evidence": "Matching expansion for one-subdivisions, with a subdivided complete graph specialization.",
+          "identifier_or_url": "Resultary 2026/10/18 SCOPE-a-matching-expansion-for-convex-sets-in-graph-subdivisions--91d7c8cd2f74",
+          "material_read": "RESULT.md Finding, offset 0 onward",
+          "method": "Targeted local mirror read",
+          "title": "A matching expansion for convex sets in graph subdivisions",
+          "trigger": "Some theta graphs are subdivisions"
+        },
+        {
+          "assessment": "Unresolved full-text comparison, not negative evidence",
+          "evidence": "The accessible bibliographic information concerns geodetic and hull numbers.",
+          "identifier_or_url": "DOI:10.1137/110859014",
+          "material_read": "Bibliographic scope only; full text not retrieved",
+          "method": "Lawful access attempt and repository-copy lookup",
+          "title": "Geodetic Number versus Hull Number in P3-Convexity",
+          "trigger": "Cited related convexity work and possible alternate terminology"
+        },
+        {
+          "assessment": "Unresolved full-text comparison, not negative evidence",
+          "evidence": "The accessible scope concerns Carathéodory numbers on chordal graphs.",
+          "identifier_or_url": "DOI:10.1016/j.dam.2014.03.004",
+          "material_read": "Landing/abstract page only",
+          "method": "Lawful landing-page inspection",
+          "title": "The Carathéodory number of the P3 convexity of chordal graphs",
+          "trigger": "Cited alternate convexity invariant"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, statements and support calculation",
+        "Dourado–Grippo–Lin–Protti arXiv:2603.04706v1"
+      ],
+      "rationale": "The size distribution is a natural refinement of the established counting problem on a basic graph family with overlapping cycles. The all-length product works with shared terminal capacities; the closed form in the uniform family discriminates attainable sizes and classifies all largest proper sets. The value lies in that exact structural information, not in isolated numbers or in using a transfer alone.",
+      "residual_risks": [
+        "The binomial support result is for length three, not arbitrary path lengths or series-parallel graphs."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For any nilpotent nondecreasing chain endomorphism, the pointwise iteration-depth profile rises only by zero or one at each adjacent chain point. Summing those profiles gives a monotone potential that decreases along the pointwise maximum, with a final decrease of exactly the number of generators. The resulting sharp index bound holds for noncommuting generators and also annihilates every mixed product of the same length. The rigidity proof forces exactly one height increase at every positive successor on the minimal chain and reconstructs the maps, giving the complete multinomial enumeration. The packaged Python verification exhaustively checks ordered pairs through eight positive chain steps, triples through five, and quadruples at four; finite checks are ancillary to the all-parameter proof.
+PASS
 
-## Originality — PASS, with priority qualifications
+For monotone maps preserving zero, nilpotence is equivalent to f(x)<x at every positive x. Deleting letters from a composition word can only increase its output, since each generator is bounded above by the identity and all are monotone. A length-N word has at least a_i occurrences of some i, so it is bounded by f_i^a_i=0. Distributivity on a chain identifies each join power with the maximum of all words of that length; strict descent gives the separate n bound. At n=N, equality forces the full consecutive descent. At every x>=2 a map taking x to x-1 contributes a jump in its hitting-time height, whose increments are 0 or 1 by monotonicity and strict descent. The total height jumps are exactly N-1, so there is exactly one label per position. At its jump x the label's image is x-1; on a plateau the previous jump fixes the image by monotonicity below and the required height of the image above. Conversely taking the last position in the preceding height level yields precisely the desired image and actual heights by induction. This verifies both sides of the bijection, the index-one and k=1 cases, and constant extension past N. The uploaded enumerator is bounded corroboration, not the proof used here.
 
-Trendafilov and Vladeva (2013) proved the known nilpotent-subsemiring closure and Catalan enumeration; neither is re-claimed. The full 2023 Gusev–Volkov arXiv manuscript concerns finite equational bases rather than bounds in terms of individual nilpotency indices. The complete 2013 arXiv preprint and accessible 2014 journal sections of the simplex paper and the 2024 partial-transformation factorization study do not state the same quantitative refinement. Published-literature comparisons found nearby work on *single* partial-injection extremizers, but no matching all-arity noncommuting join-plus-word-length law or all-extremizer census. Priority remains contingent on inaccessible historical full texts and possible implicit general arguments.
+## originality
 
-## Value — PASS
+PASS
 
-This classifies every equality case for a sharp naturally motivated multigenerator nilpotency problem in the classical Catalan endomorphism semiring. The result applies beyond the generic commuting-nilpotent sum setting, and the explicit noncommuting pair attains the bound. The exact multinomial family connects iteration filtrations with finite color words and gives a reusable extremal rigidity description.
+The defensible distinct result is the ordered minimal-chain equality classification and its multinomial count for specified indices. The upper bound alone follows quickly from the prior subdiagonal characterization plus the deletion argument; closure and Catalan enumeration of individual maps are not credited as new. No equivalent distinct census was established in the inspected evidence, not a claim of historical priority.
 
-## Scope and prior limitations
+## value
 
-The exact extremal multiplicity concerns the smallest supporting chain; no larger-chain count or arbitrary-poset extension is asserted. The 2014 journal version was not available in full (its public arXiv preprint was inspected), and some indexed relevant primary research pages were inaccessible; their scientific summaries were examined and the unresolved historical-priority risk is retained. An independent mathematical audit has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The index bound in isolation is elementary, but the extremal problem is natural: on the smallest chain where all available descent can be used, classify all noncommuting generator families of prescribed individual indices. The coloring is an explicit inverse construction and a complete rigidity result, distinguishing the equality tuples from a large background of individual Catalan-counted maps. It is not just a tiny example or numerical census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

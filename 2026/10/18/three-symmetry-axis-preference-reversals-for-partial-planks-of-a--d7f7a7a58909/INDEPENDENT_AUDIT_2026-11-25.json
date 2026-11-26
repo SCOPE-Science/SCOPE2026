@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:05:18.230997Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–64",
+        "Frozen VERIFICATION.md and check_octagon.py, inspected; packaged script not executed",
+        "Independent Decimal replay: evaluate the two cap polynomials at d, a, c and evaluate twice the three exact roots at 45-digit precision"
+      ],
+      "rationale": "For each fixed normal, planar convexity gives a concave chord-length profile on its support; central symmetry makes its zero extension even and nonincreasing on the nonnegative half-line. Centering thus maximizes the area over all translations. In vertex-normal coordinates the nonnegative projected vertex levels are 0, a and 1; their chord lengths are 2, 2a and 0. For edge-normal coordinates the relevant levels are 0, d and c; the chord lengths are 2c, 2c and 2d, the last at the support edge. Integrating the linear pieces gives the four stated caps, with area ordering opposite to cap ordering. For D=C_E-C_V, the initial linear factor after dividing by s is strictly decreasing with D(d)<0; D(d)<0<D(a) selects the upper zero of the convex middle polynomial; D(a)>0>D(c) selects the upper zero of the concave last polynomial. At s=1/2+d both last-interval caps reduce to a-c+1/4, using c=(1+sqrt(2))d and c^2-d^2=a. The exact signs follow from the frozen radical enclosures by rational substitution; an independent Decimal calculation gave endpoint differences -0.0024000882, 0.0057943256, -0.0139887394 and reproduced all three quoted full widths. The zero-width plank has zero area; E alone saturates for 2c<=W<2 and both saturate from W=2. No unrestricted direction optimum is required.",
+      "residual_risks": [
+        "Decimal check is corroboration, not a certificate. The packaged counter increments even when a sampled sign is skipped near a root; the universal sign proof does not rely on that count."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bezdek formulates fixed-total-width partial coverage. Bakaev–Polyanskii prove that some single plank attains the maximum in the planar case but leave the direction optimization over all directions.",
+          "The Verreault survey passage checked treats full covering, not this partial-area comparison."
+        ],
+        "reasoning": "Reduction to one plank or to directional minimization does not evaluate the two directional mass profiles or their intersections.",
+        "searches": [
+          "Focused primary-literature lookup for regular-octagon centered partial planks and orientation changes",
+          "Bezdek arXiv:0903.4637, §5; Bakaev–Polyanskii arXiv:2607.27483, Theorem 12"
+        ]
+      },
+      "checked_sources": [
+        "Bezdek §5",
+        "Bakaev–Polyanskii Theorem 12",
+        "Verreault arXiv v2 §2.1.1",
+        "Resultary 2a7c143e0e7f, b823f8de19a8, 49bbe64ccde2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general optimizer theorem has no formula for C_E-C_V at the three octagon-specific projection intervals. The hexagon optimizer's thresholds pertain to another polygon; the overlap result uses a different geometric observable."
+        ],
+        "reasoning": "Centering and elementary slicing are known tools, but no inspected source evaluates or imposes the three strict sign changes of this octagon invariant. The explicit classification uses the geometry of both octagon-axis profiles.",
+        "searches": [
+          "Bakaev–Polyanskii, Theorem 12 proof; local RESULT.md of b823f8de19a8 and 2a7c143e0e7f, Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The comparison is equivalently the zeros of the difference of the one-sided cap integrals, or of the cumulative mass profiles of two projections at a common Euclidean half-width.",
+          "The retrieved axis-reversal analogue 2a7c143e0e7f instead computes translated overlaps of a three-dimensional regular octahedron in three directions."
+        ],
+        "reasoning": "A covariogram of the octahedron is not the octagon's projected mass in either axis direction; its two reversals are a structural analogy, not a reduction of the frozen invariant.",
+        "searches": [
+          "Local Resultary: regular-octagon strip area, vertex- versus edge-direction caps, axis ranking reversals",
+          "Bakaev–Polyanskii, arXiv:2607.27483, Theorem 12 and direction minimization"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest partial-plank profile hits b823f8de19a8 and 49bbe64ccde2 give exact profiles for a regular hexagon with oblique phases.",
+          "The axis-ranking hit 2a7c143e0e7f concerns the octahedron. No exact octagon cap table or matching three thresholds were verified in these inspected comparisons."
+        ],
+        "reasoning": "The catalogued hexagon's projection breakpoints and optimized phase boundaries do not compute the octagon's two fixed normal profiles. Same-day metadata gives no within-day ordering.",
+        "searches": [
+          "Local Resultary: regular polygon partial-plank exact phase diagrams and symmetry-axis crossing widths"
+        ]
+      },
+      "rationale": "The supported distinct claim is the exact three-crossing preference diagram for the two specified axis orbits of the regular octagon. The general planar single-plank optimizer theorem does not determine it; the strongest retrieved polygon and overlap analogues concern other bodies and/or observables and do not imply it. This does not establish historical priority or an unrestricted optimum.",
+      "residual_risks": [
+        "An unlocated exact octagon strip computation cannot be ruled out by a bounded search.",
+        "No priority inference from the dates of related records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_REDUCTION_NOT_DIRECTION_PROFILE",
+          "evidence": "For convex planar K and width below w(K), a single plank attains optimal coverage among finite admissible plank families; the direction minimization is not evaluated for this octagon.",
+          "identifier_or_url": "https://arxiv.org/abs/2607.27483",
+          "material_read": "Abstract; Theorem 12 and proof, PDF pp. 8–9, offset 27764",
+          "method": "OA original arXiv PDF passage",
+          "title": "Optimal partial plank coverings",
+          "trigger": "Most relevant general planar partial-plank theorem"
+        },
+        {
+          "assessment": "MOTIVATION_NOT_COVERAGE",
+          "evidence": "Formulates partial coverage for fixed total width and asks about a centered plank for a ball; no octagon axis formula in the inspected passage.",
+          "identifier_or_url": "https://arxiv.org/abs/0903.4637",
+          "material_read": "§5 Problem 5.1, PDF p. 8, offset 17037",
+          "method": "OA original arXiv PDF passage",
+          "title": "Tarski's plank problem revisited",
+          "trigger": "Original partial-covering problem"
+        },
+        {
+          "assessment": "RELATED_FULL_COVERING_PASSAGE",
+          "evidence": "The inspected passage concerns full-cover plank constraints, not the axis-specific partial-area profile.",
+          "identifier_or_url": "https://arxiv.org/abs/2203.05540",
+          "material_read": "arXiv v2 §2.1.1, PDF p. 4, offset 9860",
+          "method": "Lawful arXiv alternate after direct DOI returned HTTP 403",
+          "title": "Plank theorems and their applications: A survey",
+          "trigger": "Frozen survey citation"
+        },
+        {
+          "assessment": "DIFFERENT_BODY_AND_OBSERVABLE",
+          "evidence": "Three regular-octahedron covariogram directions and two ranking reversals, not two octagon strip-projection integrals.",
+          "identifier_or_url": "Resultary 2026/10/18, 2a7c143e0e7f",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Exact sparse-direction covariograms and two symmetry-axis overlap reversals",
+          "trigger": "Closest exact axis-ranking analogue"
+        },
+        {
+          "assessment": "DIFFERENT_POLYGON_AND_INVARIANT",
+          "evidence": "All-direction hexagon profile with oblique phases; another exact hexagon Finding was inspected at 49bbe64ccde2, offset 0. Neither supplies the octagon-specific cap equations.",
+          "identifier_or_url": "Resultary 2026/10/18, b823f8de19a8",
+          "material_read": "RESULT.md offsets 0 and 7000",
+          "method": "Local Resultary mirror",
+          "title": "Sharp four-regime partial-plank profile of the regular hexagon",
+          "trigger": "Closest exact partial-plank phase diagram"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and cap difference proof",
+        "Bakaev–Polyanskii Theorem 12",
+        "Resultary b823f8de19a8 and 2a7c143e0e7f"
+      ],
+      "rationale": "These axes are the two canonical dihedral candidate classes in a natural partial-plank optimization problem. The complete sharp phase diagram shows a repeated alternation rather than a once-switch preference; the exact thresholds are reproducible benchmarks for candidate directions in the unrestricted problem. Partial-covering work and related polygon phase diagrams motivate the invariant independently of the computation. No value is assigned to an unstated unrestricted theorem.",
+      "residual_risks": [
+        "Oblique directions are not classified; the axis ranking alone does not decide the globally optimal normal."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

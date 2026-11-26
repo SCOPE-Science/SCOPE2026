@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:42:25.025764Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md (especially lines 85–145 and 183–216); VERIFICATION.md and verify_lgf_em_normalizers.py read, not executed",
+        "Version of record DOI 10.3934/math.2026369, §§2, 4.2–4.3, 5–6 and Table 1",
+        "Corrected /workspace/repairs/4/RESULT.md",
+        "Fresh replay: python3 /workspace/review_work/check_lgf_example.py"
+      ],
+      "rationale": "For the corrected RESULT.md, multiplication of the three exact densities cancels n but leaves both parameter-dependent normalizers. At frozen old parameters, n has weights proportional to eta_0^n/(lambda_0+n theta_0 y)^(lambda_0+1), and Z conditional on n is gamma of shape lambda_0+1 and rate lambda_0+n theta_0 y; the four expectations are finite. The positive m*lambda*log(lambda) term of both literal printed variants dominates their linear shape terms, while Stirling's formula in the corrected objective leaves strictly negative linear coefficient m+B−C by nondegeneracy and log(z)<=z−1. The gamma pole gives left-end decay, and the trigamma sum exceeds the integral 1/lambda, proving strict concavity and uniqueness. The scores are direct derivatives, and the original article's Eq. (4.9) really includes the log-series derivative absent from (4.5). The frozen line 105's unqualified box-boundary claim was not correct for arbitrary boxes: with one y=exp(4) and old parameters (1,1,1/2), B<−3 and C>0, making the printed shape score log(lambda)+1+1/lambda+B−C negative throughout [1,2]. The repair proves the valid eventual-upper-bound statement for a fixed positive lower bound, and keeps the example boxes as examples. It also states the article's eta=0 limiting convention separately from the interior calculation. Fresh high-precision posterior summation and solving the shape score in the supplied example gave lambda=2.4963599403727288.",
+      "residual_risks": [
+        "The numerical comparison covers one example; the general claims use the analytic proof. This is a statement about the literal printed formulas, not code or every numerical optimizer; the fixed-shape simulation and direct observed-likelihood fit do not test the disputed joint M-step."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The current paper's Eq. (4.2) provides the parent factorization and its Eq. (4.9) contains the repaired eta term; Table 1 fixes shape.",
+          "The earlier model's subsequent score has the digamma derivative needed when a gamma normalizer is retained."
+        ],
+        "reasoning": "General normalization and EM differentiation are textbook operations and are not credited independently. The earlier score is for a different model and does not compare the present printed equations or show the unrestricted shape objective has no maximum. The corrected simulation is not a broader joint-shape result.",
+        "searches": [
+          "10.3934/math.2026369, §2, §4.2–4.3 and §5/Table 1",
+          "10.3934/math.20251334, §4.2"
+        ]
+      },
+      "checked_sources": [
+        "Version of record DOI 10.3934/math.2026369 and older DOI 10.3934/math.20251334, passages above",
+        "Inspected same-model Resultary record",
+        "Corrected /workspace/repairs/4/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The target article implicitly corrects the eta score and mentions a corrected complete-data likelihood in the fixed-shape simulation; neither places a positive unbalanced m*lambda*log(lambda) term in a valid joint Q.",
+          "The earlier model uses a corrected gamma derivative but neither addresses the current log-series term nor the extra log(lambda) change between Eqs. (4.4) and (4.5)."
+        ],
+        "reasoning": "The distinctive result is an audit of mutually incompatible formulas and the consequence for a free shape parameter. It requires reading the actual printed objective, analyzing its unnormalized shape direction and separating large-box behavior from arbitrary boxes; it is not a reported scalar or automatic implication of the prior simulation and application claims.",
+        "searches": [
+          "10.3934/math.2026369, §§4.2–4.3, 5–6",
+          "10.3934/math.20251334, §4.2 complete-data expression and score"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Target article Eqs. (4.2)–(4.5), (4.9): the factorized complete-data density and literal printed auxiliary function are not equivalent modulo constants in the new parameters.",
+          "The older source's shape score has −psi(lambda) but concerns a doubly generalized exponential-geometric frailty model, not the log-series first-failure model."
+        ],
+        "reasoning": "The normalizer under the log-series law depends on eta, and the gamma normalization depends on lambda; neither can be discarded when freezing only the old parameters. Comparing a score, corrected simulation objective, observed likelihood and literal joint auxiliary function requires keeping these distinctions.",
+        "searches": [
+          "DOI 10.3934/math.2026369 (logarithmic–gamma / LGF, complete-data likelihood vs EM auxiliary objective)",
+          "DOI 10.3934/math.20251334 (gamma-normalizer and digamma-score comparator)",
+          "Resultary 2026/10/12/SCOPE-exact-polylogarithmic-tail-constants-and-quantile-correction-for--da67f56116ae"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest inspected Resultary record's Finding gives survival-tail and extreme-quantile corrections, not a correction of Eqs. (4.4)–(4.5).",
+          "Table 1 explicitly uses corrected fixed-shape simulation; the real-data estimates use direct observed-likelihood maximization."
+        ],
+        "reasoning": "A matching entry would diagnose the same printed EM equations, e.g. in an erratum, not reproduce tail constants or data estimates. No exact match was exposed by the bounded search, which is not evidence excluding an unindexed correction.",
+        "searches": [
+          "Resultary same-model LGF searches; exact related hit 2026/10/12/SCOPE-exact-polylogarithmic-tail-constants-and-quantile-correction-for--da67f56116ae",
+          "10.3934/math.2026369, §5/Table 1 and §6"
+        ]
+      },
+      "rationale": "The published article already factorizes the complete likelihood correctly before dropping terms, restores the eta normalizer derivative in Eq. (4.9), and reports a corrected fixed-shape simulation. Those facts are credited, not claimed as new. The surviving diagnosis is specific to the literal LGF joint shape objective: the extra log(lambda), the omission of the gamma normalization, absence of a finite M-step, and a corrected shape objective and exact box behavior. Neither the same-model tail result nor the earlier related model's digamma score diagnoses this printed joint M-step.",
+      "residual_risks": [
+        "Bounded comparison cannot exclude a recent or unindexed correction. The paper itself states that a correction was implemented for its fixed-shape simulation; no credit is taken for first noticing the eta correction or for uncovering the contents of unavailable code."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Confirms omissions, internal score inconsistency and application limits; partially anticipates eta correction",
+          "evidence": "Eqs. (4.3)–(4.5) drop both normalizers; (4.5) uses (lambda+1)log(lambda); (4.9) includes −m/[(1−eta)(−log(1−eta))]. The simulation says 'corrected complete-data log-likelihood' and fixes shape; real data are fit 'not by EM'.",
+          "identifier_or_url": "https://www.sciopen.com/article/10.3934/math.2026369",
+          "material_read": "Version of record pp. 8948 (offset 8500, §2), 8953–55 (29900–36939, Eqs. 4.2–4.5 and 4.9), 8957–58 (42800–46788, §5/Table 1), 8959–60 (50100–54225, §6)",
+          "method": "Lawful bounded OA reading of article PDF via SciOpen",
+          "title": "A logarithmic–gamma frailty model for first-failure times with heavy-tailed risk",
+          "trigger": "Same model and exact printed equations"
+        },
+        {
+          "assessment": "Partial precedent for the score, not the LGF diagnosis",
+          "evidence": "The displayed complete-data log-likelihood lacks −log Gamma(lambda) but the subsequent shape score contains −psi(lambda).",
+          "identifier_or_url": "https://doi.org/10.3934/math.20251334",
+          "material_read": "§4.2, pp. 30404–05 (PDF offsets 76800–81795)",
+          "method": "Lawful bounded OA passage reading",
+          "title": "The doubly generalized exponential-geometric frailty distribution",
+          "trigger": "Same author's earlier analogous frailty correction"
+        },
+        {
+          "assessment": "Distinct same-model result",
+          "evidence": "Treats LGF survival-tail constants, hazard and extreme quantiles, not the EM auxiliary function.",
+          "identifier_or_url": "2026/10/12/SCOPE-exact-polylogarithmic-tail-constants-and-quantile-correction-for--da67f56116ae",
+          "material_read": "RESULT.md Finding",
+          "method": "Resultary search and local mirror read",
+          "title": "Exact polylogarithmic tail constants and quantile correction for the LGF model",
+          "trigger": "Strongest same-model correction entry in Resultary"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Target article §4.2–4.3, §5/Table 1, §6",
+        "Corrected proof and explicit finite-box example",
+        "Fresh high-precision posterior calculation"
+      ],
+      "rationale": "The issue is not only a missing term in notation: the article prints an objective that has no finite joint shape maximizer, so literal reproduction of the procedure can select an arbitrary large numerical cap instead of estimating the parameter. The corrected normalized objective has a unique finite conditional shape maximum, and the explicit small-box counterexample prevents treating any boundary result as a universal diagnostic. The distinction from a fixed-shape simulation and an observed-likelihood fit keeps the correction useful for replicating or implementing the actual joint EM algorithm.",
+      "residual_risks": [
+        "No claim that the reported empirical analyses, numerical code or weak identifiability are caused by the printed error."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

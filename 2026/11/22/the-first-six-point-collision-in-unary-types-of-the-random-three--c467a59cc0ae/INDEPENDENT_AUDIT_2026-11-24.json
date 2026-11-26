@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:14:04.034431Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§ Finding, Assumptions, Proof",
+        "Frozen VERIFICATION.md and verify.py (inspected)",
+        "/workspace/branches/replay/graph_types.py",
+        "/workspace/branches/replay/types.out"
+      ],
+      "rationale": "With x fresh its old neighbors are an arbitrary set S. Each old edge internal to S independently allows a new triangle through x, with no higher face constraint. The realizable finite one-point diagrams therefore number Σ_S 2^{e(G[S])}; homogeneity makes a diagram determine the complete type. Each diagram has arbitrarily many realizations by freely taking several copies over A and using the extension property, so precisely these fresh-point types are nonalgebraic. The canonical triangle-filled bases implement comparison of graph isomorphism types within each order, not of arbitrary two-complexes or of different orders. In an independent replay generation by adding a vertex with every possible old neighborhood is exhaustive by deleting a vertex; minimization over degree-compatible labellings removes precisely isomorphisms. This reproduces the class and connected-class counts, verifies no repeats within orders 1–5, and gives exactly the pairs 61/110, 123/685, 927/1751 at values 256, 376, 832. Only the last pair is connected-connected; both of its displayed histograms and all six degree multisets agree.",
+      "residual_risks": [
+        "The enumeration certifies only orders 1 through 6, while the type-count argument works for every finite induced base."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mijares–Padilla construct the relevant fixed-dimensional limit and unordered reduct. Liao–Hou's invariant weights induced connected components k(G[S]), rather than induced edges e(G[S]), and their displayed six-vertex collision graphs each have nine edges."
+        ],
+        "reasoning": "Homogeneity supports the count formula but does not give a sharp reconstruction cutoff. Neither a collision for another polynomial nor a general graph-isomorphism enumeration supplies the fibres under this scalar.",
+        "searches": [
+          "Mijares–Padilla arXiv:1209.6421 §§6–7",
+          "Liao–Hou arXiv:1311.6856 Proposition 5.2 and Fig. 5"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary comparisons above",
+        "Mijares–Padilla arXiv:1209.6421",
+        "Liao–Hou arXiv:1311.6856",
+        "Distinct indexed Ising and graded singleton-type primary findings"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The component-polynomial example has nine edges in each graph, unlike the audited collision pairs with five, six and eight edges. The connected 832 pair has different induced-edge histograms (and thus different full induced-edge polynomials), yet equal specialization at 2."
+        ],
+        "reasoning": "Distinct polynomials can agree at a selected evaluation, so even knowing separation by the full induced-edge polynomial would not establish separation by this specialization or its maximal fibres. The semigeneric theorem has both a different relational language and a different graded invariant.",
+        "searches": [
+          "Liao–Hou, Proposition 5.2 and Fig. 5",
+          "Indexed Ising-separation finding, P_G definition and theorem",
+          "Indexed two-part semigeneric singleton-type finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The two-spin edge interaction matrix with entries 1,1,1,2 gives the stated scalar at unit activity. In an indexed induced-edge polynomial P_G(y,z)=Σ_S y^|S| z^e(G[S]), the scalar is exactly P_G(1,2). With ±1 spins, rewriting the edge weight introduces a field proportional to vertex degree."
+        ],
+        "reasoning": "The two-spin and polynomial forms are exact aliases; ordinary zero-field Ising separation on regular examples is not by itself equivalent to this invariant on arbitrary graphs. The equivalent-formulation hit studies different graphs and does not compute the first fibres.",
+        "searches": [
+          "Resultary: induced-edge/Ising polynomial and unary-type count specialization",
+          "Primary findings of indexed Ising separation and all-coupling Ising inequality records"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed match 2026/11/22/SCOPE-the-first-six-point-collision-in-unary-types-of-the-random-three--c467a59cc0ae is the assigned record itself. The distinct same-day sixfold graded-singleton fibre record is for two-part semigeneric digraphs. The related Ising records use other inputs/questions."
+        ],
+        "reasoning": "These distinct records share keywords or a polynomial but do not give an exact equivalent table; same-day dates do not establish relative priority. No independent exact specialization table was located in these checks.",
+        "searches": [
+          "Resultary: exact unary-type collision and numbers 256, 376, 832",
+          "Resultary: first collision of P_G(1,2) or equivalent Ising specialization",
+          "Resultary: order-six singleton type fibres"
+        ]
+      },
+      "rationale": "The one-point extension count is a direct application of the known setting and yields a known kind of partition-function specialization. Credit is for the exact first collision and full six-vertex fibre classification, including the connected pair, not for introducing a graph polynomial or the Fraïssé construction.",
+      "residual_risks": [
+        "Broad web lookup was deferred, not a negative search result.",
+        "An older unindexed table or computational supplement for P_G(1,2) or the equivalent weighted two-spin count may exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides the limit and unordered reduct, not the collision classification.",
+          "evidence": "Fixed-dimensional ordered polyhedra and their unordered reducts supply the same homogeneity framework.",
+          "identifier_or_url": "https://arxiv.org/abs/1209.6421",
+          "material_read": "§§6.1–6.2 pp. 13–14, offset 39700; §7 pp. 14–15, offset 42100",
+          "method": "OA primary full-text passages",
+          "title": "A Ramsey space of infinite polyhedra and the random polyhedron",
+          "trigger": "Exact Fraïssé setting"
+        },
+        {
+          "assessment": "Different weighting and pair; does not give the claimed fibres.",
+          "evidence": "The weights are powers of the number of components, and the characteristic polynomials of the six-vertex pair have x^4 coefficient −9.",
+          "identifier_or_url": "https://arxiv.org/abs/1311.6856",
+          "material_read": "Definitions pp. 1–2, offsets 0 and 4700; p. 11 Fig. 5 and Proposition 5.2, offset 27350",
+          "method": "OA primary full-text passages",
+          "title": "Note on the subgraph component polynomial",
+          "trigger": "Six-vertex collision of a nearby induced-subgraph invariant"
+        },
+        {
+          "assessment": "Defines an exact parent polynomial but studies another comparison.",
+          "evidence": "P_G(1,2) is our scalar; the theorem compares two 25-vertex graphs, not all graphs of orders at most six.",
+          "identifier_or_url": "2026/11/2/SCOPE-eighth-order-ising-separation-and-temperature-inversion-for-the--d44d882e0d8b",
+          "material_read": "RESULT.md Finding and definition, offset 0",
+          "method": "Local mirror primary result",
+          "title": "Eighth-order Ising separation and temperature inversion for the two Latin-square graphs",
+          "trigger": "Closest indexed equivalent polynomial"
+        },
+        {
+          "assessment": "Different field convention and input pair.",
+          "evidence": "Zero-field partition functions on two 16-vertex graphs are compared for all couplings.",
+          "identifier_or_url": "2026/11/8/SCOPE-an-all-coupling-ising-partition-function-inequality-for-the-cosp--f9027d05a3f2",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror primary result",
+          "title": "An all-coupling Ising partition-function inequality for the cospectral rook and Shrikhande graphs",
+          "trigger": "Close Ising terminology"
+        },
+        {
+          "assessment": "Not a theorem on simplicial links or their scalar count.",
+          "evidence": "The classified fibres use graded singleton-type polynomials on two-part semigeneric digraphs.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-sixfold-fibers-of-graded-singleton-types-over-two-part-sem--2865ab8fd324",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror primary result",
+          "title": "Sharp sixfold fibers of graded singleton types over two-part semigeneric digraphs",
+          "trigger": "Closest distinct order-six type-fibre result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md finite classification and histogram comparison",
+        "/workspace/branches/replay/types.out",
+        "Mijares–Padilla §§6–7"
+      ],
+      "rationale": "The statistic is motivated independently by extension spaces of a natural homogeneous complex. After removing the automatic old-triangle ambiguity, the first collision is an intrinsic boundary rather than a chosen sample size. The census also distinguishes a substantive obstruction: the scalar loses graph information even on connected bases, and it does so already at the first possible order, despite different induced-edge histograms. These exact smallest examples and the absence of other fibres at that order are useful benchmarks for graph reconstruction by type counts and partition-function evaluations.",
+      "residual_risks": [
+        "No reconstruction theorem for larger orders or for richer type-space invariants follows."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Exact verification of the null-polynomial module presentation
+# Independent mathematical audit
 
-All finite-field arithmetic is exact. Run `python3 verify.py` from the directory containing that file; no third-party modules are needed. The verifier implements the ring by seven-bit vectors and the multiplication \((A,B)(C,D)=(AC,AD+BC)\).
+## correctness
 
-The supplied proof gives the seven proposed module generators. The program evaluates each on all \(128\) ring elements, reconstructs the thirty normal monomials, and checks a fully specified \(30\times30\) minor. Its rows are indexed by the ordered \((r,k)\) pairs printed in the proof; \(r\) is the seven-bit encoding of the ring input and \(k\) is an output-coordinate index. The checker verifies that the minor has rank \(30\) over \(\mathbb F_2\), equivalently determinant \(1\). Hence it is an exhaustive finite certificate for the independence needed by the proof. The algebraic leading-term reduction then handles all degrees, not merely those enumerated.
+PASS
 
-The program also tests all \(128\) possible constant right multipliers against the seven module generators, confirming that the \(64\) stabilizing constants are exactly those whose two diagonal entries in the first block coincide. It tests the degree-six null witness against an explicit nonstabilizing multiplier and input.
+The seven displayed relations evaluate to zero by the pair multiplication law and the identities for t(r), t(r)^2, t(r)^3. Their distinct leading-coefficient directions give a free basis for their span and reduce arbitrary degrees to the stated thirty normal monomials. The specified 30 by 30 minor was reconstructed using explicit binary matrices and has exact F2-rank 30. There is also a short independent check: write any normal form as F(t)+xH(t), using the monic basis t^j, x t^j for central polynomials. Comparing evaluation at r and r+1 separates F from H since t(r+1)=t(r). For either separated part, r=0 kills its constant coefficient; r=(0,I) kills the triangular part of its t coefficient; r=(E12,0) kills the remaining t coefficient, which is supported in the first column of the upper-right block; r=(E12,E21) has t(r)^2=(0,I), so kills the remaining t^2 coefficient, supported in the triangular block. The two coupled relations have entry gcd t^2 and determinant t^6, giving factors t^2,t^4; the other five relations are diagonal. The resulting exponents sum to 15 and deg(t)=2, giving 2^30 functions. The first six generators stay null after any constant right multiplier. The seventh, g, has product class (a+d)U11 t^3 for a multiplier with diagonal entries a,d; U11 t^3 represents the nonzero normal form U12 t^2. This gives 64 stabilizing constants. Degree at most five uses only the four low-degree generators, which are stable under constants and hence, by centrality, under arbitrary polynomials. g U11 supplies the failure in degree six.
 
-The module decomposition follows from an exact Smith-normal-form calculation of a two-by-two polynomial matrix; the code does not need to assume a bound on the degrees of all null polynomials. These checks do not establish any claim about other finite rings or about the full polynomial right idealizer. No independent external audit has been carried out.
+## originality
+
+PASS
+
+The ring, failure of the right-ideal property and degree-six witness are already in Havlovec and receive no novelty credit. The complete module, invariant factors and exact function count, constant right-stabilizer, and exclusion of all smaller failure degrees are supported distinct additions on the evidence inspected.
+
+## value
+
+PASS
+
+This is the motivated counterexample ring from a finite-ring null-polynomial problem. Its full evaluation kernel gives an exact basis and function count in all polynomial degrees; the stabilizer identifies precisely which constants preserve it, and the least degree distinguishes the known witness from all lower-degree possibilities. These strengthen understanding of the counterexample rather than merely replaying it.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

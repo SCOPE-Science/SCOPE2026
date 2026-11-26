@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:01:17.399157Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For an integer diagonal gain q, integration of a test function of {q u+s} over u is the same as integration against uniform measure. Iterating this partial integration in x, then y, then z proves product Lebesgue invariance in the frozen modulus-one, fixed-translation setting. In the phase covariance, write u=(j+v)/q: summing j leaves 1/q times the unit-gain correlation. Splitting v at 1-{s} gives (1/12-{s}(1-{s})/2)/q=B_2({s})/(2q). The independent uniform forcing coordinate and even periodic B_2 give the stated absolute-amplitude dependence and factors 1/(2a), 1/(2c). The low-amplitude quadratic is (B-5/6)^2/5+1/36, including B=0 and B=1 up to a null endpoint. For B>=1, put K(B)=2 sqrt(B) J(B). Its first full period is 1/15; on each later full period twice integrating by parts gives a strictly positive integral because H(u)=u^2(1-u)^2/12 has H''=B_2 and both H and H' vanish at the endpoints, while the weight has positive second derivative. The possible final fragment subtracts at most sqrt(3)/(54 sqrt(k)) for k=floor(B)>=1, by integrating the negative part of (u-1/2)^2-1/12. This cannot erase 1/15. At infinity, the periodic primitive of the mean-zero B_2 is bounded, so the improper integral tail is O(B^(-1/2)). For the Fourier series one may integrate on finite intervals using absolute uniform summability and then take the limit: each frequency k has a tail bound O(1/(k sqrt(B))) by integration by parts. The Fresnel integral is 1/(2 sqrt(k)), giving K(infinity)=zeta(5/2)/(2 pi^2) and J(B)=zeta(5/2)/(4 pi^2 sqrt(B))+O(B^(-1)). The absolute convergence used is that of the Fourier series, not the unweighted-sign improper integral of absolute values. The frozen RESULT.md lines 34–76 give the analytic replay path. VERIFICATION.md and verify.py were inspected, not executed; finite diagnostics are not needed to establish the global sign or limit.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Record 538c265ee323 gives Lebesgue invariance and Wasserstein equidistribution of periodic grids; this includes the invariant-measure premise.",
+          "Record bcef8a4314e3 studies exact B_4 covariance and persistent long-lag memory of cylinder labels in an additive toral skew product.",
+          "The parent map article considers a broader modulus/degree setup, empirical sequence entropy and adjacent-image-pixel correlations."
+        ],
+        "reasoning": "The prior conclusions that are general in model parameters or concern Bernoulli covariances are not general results for this stationary real-coordinate observable as a function of quadratic-coupling magnitude. Invariant one-time marginals do not determine a two-time expectation.",
+        "searches": [
+          "Resultary: coupling-independent periodic grids and sharp equidistribution in triangular modular maps",
+          "Resultary: arithmetic Bernoulli threshold and persistent word correlations",
+          "Zhang et al., DOI 10.3390/e25071005 §§2, 2.2 and 4.4"
+        ]
+      },
+      "checked_sources": [
+        "Zhang–Dong–Zhang–Ding DOI 10.3390/e25071005",
+        "Resultary ca05d1079464, 1b4dbfe9d320, 538c265ee323 and bcef8a4314e3",
+        "NIST DLMF §§24.8(i), 7.2(iii), 5.9",
+        "Frozen RESULT.md, REVIEW.md, AUDIT.json, VERIFICATION.md and verify.py (read-only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The November 1 periodic-grid result proves invariant volume, not the joint law of a coordinate at consecutive times. The October 18 result counts fixed points of iterates and studies two-cycles.",
+          "The November 8 word-correlation result uses different observables, lag, polynomial and hypotheses."
+        ],
+        "reasoning": "The periodic arithmetic and Bernoulli word-memory statements do not give the phase correlation averaged over the quadratic forcing or its sign at every B. The original algorithmic diagnostics are not equivalent to this expectation under product Lebesgue measure.",
+        "searches": [
+          "Zhang et al., Eq. (1), sample entropy and adjacent image correlation",
+          "Resultary 1b4dbfe9d320, 538c265ee323 and bcef8a4314e3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For B>0 the sign problem is exactly positivity of the incomplete integral of B_2({v}) v^(-1/2) up to B.",
+          "DLMF Eq. 24.8.1, Eqs. 7.2.7 and 7.2.9, and Eq. 5.9.1 supply the classical series and transform used to evaluate the convergent full weighted integral."
+        ],
+        "reasoning": "The Mellin/Fresnel computation gives a positive limit but does not control earlier partial integrals. The first period, convex weighting of later full periods and explicit bound on the entire negative patch are needed for the claimed uniform sign.",
+        "searches": [
+          "NIST DLMF §24.8(i) Fourier series, §7.2(iii) Fresnel integrals and §5.9 gamma integral",
+          "Resultary: quadratic modular skew-map lag-one covariance, Bernoulli/Fresnel integral",
+          "Weighted incomplete integral of periodic B_2 against v^(-1/2)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The catalogue gives exactly ca05d1079464, the assigned record itself; this has no independent priority significance.",
+          "The paper's adjacent-pixel correlations concern a different observable; classical Fresnel values are ingredients, not tables of the finite-coupling covariance or its sign."
+        ],
+        "reasoning": "No exact distinct finite-coupling function or dominating positivity table was established by the bounded search. The matching catalogue statement is the same frozen result.",
+        "searches": [
+          "Resultary: unavoidable one-step memory and a zeta-law coupling asymptotic in a polynomial modular map",
+          "Zhang et al., §4.4 correlation data; DLMF §§24.8 and 7.2"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the exact map-specific continuous-coordinate lag-one law with strict all-finite-coupling sign and quantified coupling asymptotic. Product Lebesgue invariance of related triangular systems, Bernoulli Fourier expansions and the Fresnel/Gamma calculation are constituent results, not new claims. The classical identities also make the infinite-integral constant a straightforward consequence once the weighted-integral reduction is made; they do not establish positivity at every finite upper limit.",
+      "residual_risks": [
+        "A focused external search did not produce useful evidence for an older equivalent incomplete weighted-integral theorem; that is not evidence of absence or an exhaustive priority check.",
+        "The source article describes a random disturbance; the audited result is strictly for the stated specialization with fixed translation and stationary Lebesgue initialization, not an analysis of the source experiments or other invariant laws."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "MAP FAMILY OVERLAP, DIFFERENT STATISTICS",
+          "evidence": "Eq. (1) supplies the modulus/degree family and mentions a random disturbance; the correlation section concerns adjacent image pixels and the sequence section concerns sample entropy.",
+          "identifier_or_url": "https://doi.org/10.3390/e25071005",
+          "material_read": "Publisher PDF §2, p. 2 around offset 8800; §2.2 pp. 5–6 around 23400; §4.4 p. 13 around 59000",
+          "method": "Lawful OA primary PDF passage inspection",
+          "title": "An Image Encryption Transmission Scheme Based on a Polynomial Chaotic Map",
+          "trigger": "Parent map and claimed temporal correlation gap"
+        },
+        {
+          "assessment": "RELATED PERIODIC ARITHMETIC",
+          "evidence": "Counts fixed points of iterates by integer-fiber lifting and addresses cycles, not lag-one covariance.",
+          "identifier_or_url": "2026/10/18/SCOPE-periodic-point-lifting-and-a-sharp-two-cycle-phase-diagram-for-a--1b4dbfe9d320",
+          "material_read": "Local RESULT.md Finding offset 0 and Relationship offset 4551",
+          "method": "Resultary search and local mirror inspection",
+          "title": "Periodic-point lifting and a sharp two-cycle phase diagram for a polynomial modular skew map",
+          "trigger": "Same-map exact prior conclusions"
+        },
+        {
+          "assessment": "COVERS INVARIANCE PREMISE, NOT THE TWO-TIME LAW",
+          "evidence": "Proves Lebesgue invariance and Wasserstein approximation by periodic-point distributions.",
+          "identifier_or_url": "2026/11/1/SCOPE-coupling-independent-periodic-grids-and-sharp-equidistribution-i--538c265ee323",
+          "material_read": "Local RESULT.md Finding offset 0 and invariance proof offset 4755",
+          "method": "Resultary search and local mirror inspection",
+          "title": "Coupling-independent periodic grids and sharp equidistribution in triangular modular maps",
+          "trigger": "Possible stronger statistical conclusion on related skew maps"
+        },
+        {
+          "assessment": "RELATED EXACT CORRELATION, DIFFERENT MAP/OBSERVABLE/LAG",
+          "evidence": "An additive toral skew product has a positive B_4 word covariance under a divisibility condition, not the quadratic real-coordinate lag-one B_2 law.",
+          "identifier_or_url": "2026/11/8/SCOPE-arithmetic-bernoulli-threshold-and-persistent-word-correlations--bcef8a4314e3",
+          "material_read": "Local RESULT.md Finding offset 0",
+          "method": "Resultary search and local mirror inspection",
+          "title": "Arithmetic Bernoulli threshold and persistent word correlations",
+          "trigger": "Closest distinct Bernoulli sign and memory result"
+        },
+        {
+          "assessment": "CLASSICAL TRANSFORMS, NOT FINITE-UPPER-LIMIT POSITIVITY",
+          "evidence": "The Bernoulli Fourier series and Fresnel limits imply the full weighted integral constant with the checked interchange argument.",
+          "identifier_or_url": "https://dlmf.nist.gov/24.8#i; https://dlmf.nist.gov/7.2#iii; https://dlmf.nist.gov/5.9",
+          "material_read": "§24.8(i) Eq. 24.8.1 around offset 700; §7.2(iii) Eqs. 7.2.7 and 7.2.9 around offset 3600; §5.9 Eq. 5.9.1 around offset 900",
+          "method": "OA reference equation inspection",
+          "title": "NIST Digital Library of Mathematical Functions: Bernoulli polynomials, Fresnel and gamma integrals",
+          "trigger": "Classical identities or equivalent exact integral coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Temporal dependence is a natural statistic for this map, independently of sequence entropy and one-time uniformity. The exact sign rules out elimination of lag-one real-coordinate covariance at any finite quadratic coupling, and the sharp leading term quantifies the remaining dependence as coupling grows. The result is about stationary real observables, not ciphertext or security.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

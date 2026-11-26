@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. Uniform conditioning on a marked chord splits cliques according to whether they contain it. Prescribed-crossing pairings yield a binomial-product kernel whose monotonicity establishes strict positivity for all integer \(n\ge r\ge3\). The exact triangle summation is checked independently by finite matching enumeration and rational arithmetic. The full-size conclusion rests on the mathematical proof, not extrapolation of finite tests.
+## correctness
 
-## Originality
-PASS with qualified historical-priority uncertainty. Acan's fully inspected arXiv:1501.01489 discusses crossing degrees, maximum crossing families, and evolving random chord diagrams, but not the mixed covariance of total circular span with counts of three-or-more-wise crossing cliques. Acan–Pittel's arXiv:1406.2867 focuses on pairwise crossings and component structure. Kasraoui–Zeng's arXiv:math/0601081 classifies two-edge crossing/nesting/alignment distributions. An accessible pre-existing conditional crossing result already gives a stronger route for the two-chord case, which this claim excludes. No equivalent higher-order span-covariance formula was identified in the comparison; uninspected historical higher-order matching enumeration remains a priority risk.
+PASS
 
-## Value
-PASS. Counts of mutually crossing \(r\)-chord sets measure dense intersection-graph motifs, while summed shortest circular spans measure the diagram's total geometric-cyclic reach. The strict positive-dependence law holds uniformly over the whole clique hierarchy and the triangle case has a concise exact polynomial quotient. These joint statistics are not determined by marginal clique-number asymptotics or individual-chord crossing-degree distributions.
+A uniformly marked and randomly oriented chord is a uniform distinct ordered endpoint pair, so the directed offset d is uniform and the remaining matching is uniform. The span is K+1 for K=min(d−1,2n−d−1). The conditional mean number of disjoint r-cliques is choose(n−1,r)/(2r−1)!!; one all-crossing pairing per 2r-set explains the denominator. For an r-clique containing the marked chord, choose r−1 endpoints on each arc and pair in the unique crossing order; the conditional probability of those pairs is 1/D_{n,r}. Multiplying the conditional expectation by K+1 and subtracting the product of the means gives the finite sum. The nonconstant profile g(k)=choose(k,r−1)choose(2n−2−k,r−1) has a zero initial range and strictly increases on its positive range (consecutive difference in the ratio numerator and denominator is (r−1)(2n−3−2k)>0 for k≤n−2). At n=r it jumps at the last atom. Positive mass on all K and the independent-copies identity certify strict covariance for every allowed n,r. For triangles, symmetry splits the weighted sum into twice the sum below d=n and its single central term; expansion in the power sums through degree five gives the polynomial in RESULT.md. Substitution with sum_d min(d,2n−d)=n² gives the stated covariance and leading n⁴/160. An independent exact enumerator in branches/d1e7a191-eba1-4837-a01b-dfb6fcb54ca2 checked all 15, 105, 945 and 10,395 matchings for n=3–6; the triangle covariances were 6/25, 32/35, 160/63 and 40/7, matching the formula. The finite replay is corroboration only; the supplied verifier was inspected, not executed.
 
-## Scientific limitations
-The length metric counts the shorter number of steps between labeled endpoints, not Euclidean chord length. Covariance positivity need not imply stochastic ordering or any assertion about non-uniform matching laws. The relationship to all possible older enumeration formulas is not exhaustively settled.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct supported content is the span mixed moment and its strict sign for all r≥3, with a triangle closed form. Earlier catalogue results cover the corresponding pairwise crossing statistic r=2 explicitly or by summing the length-class profile. Triangle versus edge counts, and clique number versus length, are not this mixed moment with total shortest endpoint-step span. Stronger higher-crossing enumeration examined concerns different statistics and gives no exact marked-span conditional profile from which this result follows mechanically. The historical assessment is bounded, not exhaustive.
+
+## value
+
+PASS
+
+A natural geometric statistic and a natural intersection-graph motif statistic are coupled under the same matching. The universal strict sign for all higher cliques, including a unique maximal clique at n=r, and the exact higher-order mixed moment are useful quantities not fixed by the known pair result. The proof exposes a monotone marked-chord mechanism rather than merely computing a few cases. It does not assert stronger distributional association.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:09:48.245272Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the same stock released at either fire, integrate the marginal stock B'(t) against survival up to T and divide by the survival integral for elapsed time. This gives the reviewed ratio, with zero reward for T<=m and positive limiting rate at infinity. The sign of its derivative is the sign of Q, with Q(m)>0, Q increasing up to bm/delta and strictly decreasing thereafter to minus infinity. This proves global uniqueness including comparison with no planned fire; dividing the root equation by mu exp(mu T) proves the bracket. At the root the common logarithmic derivative ell gives g_T=-delta*ell. The derivative of L(k,z) in k is negative and strictly increasing in kz, since the derivative sign of that auxiliary function is controlled by (u-2)exp(u)+u+2 whose second derivative is u exp(u)>0. The bracket orders b(T-m)>mu T, giving the hazard, decay and maturity signs with the implicit derivative. As a cross-check on the hazard sign, J is the exp(-mu t)-weighted average of B'(t). At the maximizer the weighted mean of B'(t)-B'(T) is zero, with negative sign before m and positive sign between m and T, so increasing mu decreases that average at fixed T and moves the crossing later. The positive-parameter bracket gives the high-hazard and zero-decay limits. The critical log-derivative equality gives exp(-b(T-m))/exp(-mu T)=(mu+ell)/(b+ell)>mu/b, proving the upper bound on the relative gain. At zero hazard Q/mu converges locally uniformly to 1+delta T-exp(delta(T-m)) and brackets its unique root on either side. At zero maturity the rate decreases; at zero decay and positive maturity it increases after m; with both zero the rate is constant. No survival, population optimization or real-world fire prescription follows. The frozen check.py and VERIFICATION.md were read, not executed; numerical checks are corroboration, not proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kwong's Theorem 1 uses concavity of f composed with the inverse denominator and endpoint slopes to control the quotient's turning points.",
+          "On the audited post-maturity interval, the numerator/denominator derivative ratio is B', which strictly decreases. Hence the fixed-hazard at-most-one-turning-point shape is covered by the general ratio rule."
+        ],
+        "reasoning": "With model-specific endpoint signs, the ratio theorem can also be used to deduce existence and uniqueness, so this shape is not an independent originality claim. A result at fixed hazard does not order maximizers across hazards, establish the root bracket, or give the decay and high-hazard limits. No verified broader replacement result was found giving the distinctive model-specific bundle.",
+        "searches": [
+          "Hôpital-type oscillation rules and unimodal ratios; Kwong arXiv:1502.07805v1 Theorem 1",
+          "General age-replacement renewal-reward policies with exponential failures and age-dependent rewards"
+        ]
+      },
+      "checked_sources": [
+        "Resultary mirror 09ac7d4ddeab and matching frozen result",
+        "Kwong arXiv:1502.07805v1 Theorem 1 and remarks",
+        "Bounded retrieval attempts for the three cited ecological papers; not verified full text",
+        "Frozen RESULT.md, VERIFICATION.md and check.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Available indexed summaries describe McCarthy et al.'s state-dependent population dynamics and biodiversity/fuel tradeoff, and Lamont–Enright's serotiny/recruitment discussion; primary ecological full texts were not verified in this review.",
+          "The inspected indexed Weibull-risk result has an infinite optimal rotation at full salvage for its power reward. Equal payouts here still produce a finite positive optimum because stored stock saturates and early events yield no stock.",
+          "Kwong's endpoint slope and quotient shape result fixes a quotient; it does not give cross-hazard comparisons."
+        ],
+        "reasoning": "The power-yield theorem cannot be specialized by setting full salvage and exponential risk to obtain the audited conclusion. The general mathematical shape theorem supplies only part of the argument. The ecological source comparison is explicitly limited by access and not used to claim whole-paper noncoverage.",
+        "searches": [
+          "McCarthy–Possingham–Gill DOI 10.1046/j.1365-2664.2001.00617.x; Enright et al. DOI 10.1046/j.1365-2745.1998.00312.x; Lamont–Enright DOI 10.1046/j.1442-1984.2000.00036.x",
+          "Resultary Weibull-risk power-yield forest rotations 09ac7d4ddeab; Kwong quotient theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The strongest distinct Resultary match 09ac7d4ddeab models a random event or chosen harvest under a yield-per-time objective, with a power-law reward and fractional salvage.",
+          "The audited ratio has an exact equivalent as a normalized exponentially weighted integral of B' and a renewal-reward interpretation only with independent reset cycles.",
+          "Indexed reviews of conventional exponential age replacement surfaced cost-based failure versus preventive replacement models, not an inspected equivalence to this delayed reward."
+        ],
+        "reasoning": "Changing terminology to replacement age or planned harvest preserves the ratio but does not make different payouts equivalent. Even at Weibull shape one, a power function with multiplicative destructive-event salvage neither has a positive maturity cutoff and exponential saturation nor preserves the equal payout and optimized objective simultaneously.",
+        "searches": [
+          "Resultary: stochastic fire deadlines, serotinous seed banks, renewal reward and random forest rotations",
+          "Literature: age replacement and exponential failure with the same age-dependent reward at either event; canopy seed release per expected time"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest indexed random-rotation solution has a salvage-fraction boundary, not the displayed equation with maturation and viability loss.",
+          "The target is a continuously parameterized root, bracket and signs, not a set of numerical optimizer samples."
+        ],
+        "reasoning": "A table of optimal fire ages, even with nearby parameters, would not imply the quantified strict signs. The inspected indexed boundary uses different parameters and no delayed saturation; no distinct exact tabulation or symbolic match was verified.",
+        "searches": [
+          "Resultary: exact hazard reversal and sharp optimal-age boundaries in random-time reward-rate models",
+          "Literature: exact deadline comparative statics for serotinous canopy seed banks"
+        ]
+      },
+      "rationale": "Credit existing renewal-reward and quotient-oscillation machinery, and overlapping random rotation models. The supported distinct bundle is the strict hazard reversal for a delayed, exponentially saturating reward with equal payout at either type of event, together with the explicit bracket, other strict comparative statics and singular limit. No universal planning-heuristic reversal or priority over all replacement-policy models is asserted.",
+      "residual_risks": [
+        "Full primary texts of the three cited ecological works were unavailable in this bounded comparison.",
+        "Historical coverage by another age-dependent renewal/replacement model was not ruled out exhaustively. The positive decision concerns the best-of-knowledge differentiated claim, not the well-known renewal ratio or quotient shape alone."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material framework overlap, not the same reward or strict hazard comparative static",
+          "evidence": [
+            "Weibull lifetime, power yield, full planned payout and a fractional random-event salvage; unique finite age below full salvage and no finite optimum at full salvage."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-the-sharp-salvage-boundary-for-weibull-risk-power-yield-forest-r--09ac7d4ddeab",
+          "material_read": "Mirrored RESULT.md Finding and assumptions, offset 0",
+          "method": "Configured Resultary search and bounded local mirror reading",
+          "title": "The sharp salvage boundary for Weibull-risk power-yield forest rotations",
+          "trigger": "Closest distinct identified index result: optimizing a planned deadline under random preemption"
+        },
+        {
+          "assessment": "Covers fixed-parameter quotient shape subject to endpoint conditions, not the strict hazard comparative static",
+          "evidence": [
+            "For strictly concave f composed with inverse g, endpoint slopes distinguish monotonic cases and the case of one turning point."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1502.07805v1",
+          "material_read": "Theorem 1 and Remarks 1–3, HTML offset about 25360",
+          "method": "Literal location and bounded primary HTML passage",
+          "title": "On Hôpital-style rules for monotonicity and oscillation",
+          "trigger": "Stronger general result about unimodality of an expected reward/time quotient"
+        },
+        {
+          "assessment": "Available summary is a different optimization target; possible body overlap remains unverified",
+          "evidence": [
+            "Indexed summary describes a state-dependent Banksia population model and tradeoffs between biodiversity conservation and fuel reduction.",
+            "Alternate routes did not supply readable body text."
+          ],
+          "identifier_or_url": "https://doi.org/10.1046/j.1365-2664.2001.00617.x",
+          "material_read": "Indexed description of the objective and state model only; no substantive primary body passage retrieved",
+          "method": "Bounded DOI/publisher and identified university repository/author-copy attempts",
+          "title": "Using stochastic dynamic programming to determine optimal fire management for Banksia ornata",
+          "trigger": "Closest cited stochastic wildfire and prescribed-fire ecological model"
+        },
+        {
+          "assessment": "Possible closer ecological overlap remains an access risk, not a novelty inference",
+          "evidence": [
+            "Identified alternatives yielded no readable body passage."
+          ],
+          "identifier_or_url": "https://doi.org/10.1046/j.1365-2745.1998.00312.x",
+          "material_read": "Bibliographic/index record only; no substantive primary passage retrieved",
+          "method": "Bounded publisher, Murdoch repository and JSTOR copy attempts",
+          "title": "The ecological significance of canopy seed storage in fire-prone environments: a model for non-sprouting shrubs",
+          "trigger": "Cited canopy storage, maturation and stochastic-interval model"
+        },
+        {
+          "assessment": "Summary describes ecological adaptation and reliable post-fire recruitment; theoretical overlap not excluded by the summary",
+          "evidence": [
+            "Full text did not become accessible on the attempted lawful routes."
+          ],
+          "identifier_or_url": "https://doi.org/10.1046/j.1442-1984.2000.00036.x",
+          "material_read": "Indexed summary only; no substantive primary body passage retrieved",
+          "method": "Bounded publisher and identified author-posted copy attempts",
+          "title": "Adaptive advantages of aerial seed banks",
+          "trigger": "Cited evidence about canopy viability and release"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The hazard sign answers a natural comparison for a delayed replenishing but saturating reward at a random event or a chosen deadline. The rate can fall and a scheduled fire become less useful while the optimal elective age rises; the bracket and vanishing relative gain make that distinction quantitative. The zero-loss boundary explains why finite scheduling is specific to positive viability loss and delay. This is an interpretable result about the stated proxy, not a management recommendation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

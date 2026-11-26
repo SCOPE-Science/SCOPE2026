@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For every \(a>g>0\), \(D,q>0\), the drift is uniformly contractive, the symmetric switching process has its prescribed stationary distribution, and every stationary moment equation used in the proof follows from the exact Markov generator. The involution proves vanishing two-time cross-coordinate covariance without imposing Gaussianity. Solving the closed second- and fourth-moment systems yields the positive formula for the coordinate cumulant and excess kurtosis. The two optimization derivatives each have exactly one positive root, and their ordering follows from the strict inequality \(0<b/a^2<1\). A separate exact-fraction matrix checker passed 2,668 assertions. These checks corroborate, rather than replace, the algebraic proof. No independent review is claimed.
+PASS
 
-## Originality — PASS, with declared literature-access risk
+Uniform drift contraction at rate at least a−g constructs the unique stationary process from the infinite Brownian past, with finite moments. Reflecting Y and the shared telegraph sign gives zero cross-product at every time pair; simultaneous inversion of X and Y gives both zero means (the reflection alone would only give the Y mean). As a separate reconstruction, condition on the sign path: the law is centered Gaussian, with equal diagonal covariance S and off-diagonal L satisfying S′=−2aS+2gσL+2D and L′=−2aL+2gσS. These yield E[S]=D(a+q)/(b+aq) and close the linear stationary system for E[S²], E[σSL], E[L²], including the −2q multiplier for sign-bearing moments. Solving gives κ₄=3 Var(S)=3D²g⁴q/[a(b+aq)²(2b+aq)], independently matching the frozen position-generator solution. Normalizing yields the stated excess. The derivative sign numerators for the two scaled profiles are 1−x−x² and r−rt−t². They change sign exactly once on the positive axis. The raw peak value follows by φ²=φ+1; at t=r/φ the excess root polynomial is r(r−1)<0. The roots scale as r/φ and √r in units of a, giving the stated separation.
 
-The closest 2022 fluctuating-coupling primary paper establishes spectral mode mixing and zero cross-correlations. The reviewed novelty is not that previously established observation; it is the full exact fourth-cumulant formula, positivity, both distinct unique maxima and their near-instability separation for the specified overdamped Markov model. The publisher abstract and metadata of that primary paper were available but its full text was not. The full 2022 Brownian-gyrator spectral paper and the full 2022 activity-driven harmonic-chain preprint concern, respectively, fixed coupling with unequal thermal baths and additive telegraph forcing, neither of which implies this multiplicative sign-coupling fourth-order classification from the inspected results. Relevant published-result searches for fourth-order telegraph filters, switching traps, and gyrators returned different objects or observables, not the assessed theorem. Implicit coverage in inaccessible literature remains a genuine risk, not a proof of novelty.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The question is motivated by stochastic mode mixing in oscillator experiments that record weak or absent cross-correlations. A fourth-order positional measurement detects fluctuating coupling at every positive finite switching rate, while a raw-versus-variance-normalized comparison reveals two distinct preferred switching frequencies. Near mechanical instability their ratio diverges, producing a structural separation rather than an arbitrary fitted constant. The finding is a self-contained exact classification of these two physically meaningful observables; it makes no universal claim about other diagnostics.
+Credit is for the coordinate fourth-order formula, its two distinct unique maxima under raw and variance-normalized observations, and their scale separation in the specified shared-sign overdamped model. Covariance-invisible fluctuating coupling is explicitly credited to prior work. The assessed joint-coordinate fourth-order result is not implied by the inspected scalar switching laws or the published spectral observation. The closest oscillator paper's full text was not available, a material but not dispositive risk.
 
-## Closest literature and limitations
+## value
 
-The most plausible prior source, Kryuchkov–Mantsevich–Yurchenko (DOI 10.1103/PhysRevLett.129.034102), was accessible only as its publisher abstract and metadata. A complete full-text comparison is outstanding. Cerasoli et al. (DOI 10.1103/PhysRevE.106.014137) and Sarkar–Santra–Basu (arXiv:2210.09035) were materially read and study different coupling/forcing structures. The theorem assumes symmetric telegraph switching, equal positive harmonic relaxation, equal independent thermal diffusivities, and stability \(a>g>0\); all claims about stationary covariance refer to **cross-coordinate** statistics, not auto-correlation invariance.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The fourth cumulant detects a coupling that disappears from all cross-position covariances, and switching rates optimized for the unnormalized and normalized diagnostic separate parametrically near instability. This is a meaningful distinction between measurements on a natural stochastic harmonic model, not solely another moment identity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

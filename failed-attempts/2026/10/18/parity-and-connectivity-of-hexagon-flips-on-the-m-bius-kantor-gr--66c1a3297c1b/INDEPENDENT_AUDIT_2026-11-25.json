@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:43:56.662939Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The symmetric difference of two bipartite perfect matchings consists of disjoint alternating even cycles. Their relative permutation moves the left vertices on these cycles, so disagreement at exactly three positions gives one three-cycle, hence one alternating simple six-cycle, and conversely. Its permutation sign is positive, so the sign of a matching is conserved. An independent Python replay branches at the least uncovered vertex and lists simple six-cycles by extending paths from their least vertex; it cross-checks the entire adjacency by all 8! bipartite assignments and compares the generated certificate exactly to the frozen JSON. It found 33 matchings, 24 six-cycles, 96 flips, components 30+1+1+1, and 24 degree-six plus six degree-eight vertices in the large component. The three isolated positive masks 00d554, 662221, 99088a partition the 24 edges; the connected class is exactly the 30 negatives in the printed orders. All-pairs BFS establishes diameter four; the geodesic 06c341 -> 05d0c1 -> 25508a -> 215432 -> 603434 witnesses it. Replay path: /workspace/branches/34974772-bb7b-42dc-9bde-975ad5a0739f/independent_gp_hex.py, with the frozen hexagon_flip_certificate.json path as its sole argument. The frozen verifiers were inspected, not executed. For the circulant version, the dihedral generating set y,xy,x^3y gives the displayed offsets. The product of 1+s+s^3 over eighth roots s is 3 times -1 times 1 twice times 3 twice, or -27; the permanent is the same 33 matchings. The three displayed positive permutations are valid, even, and differ in every row from one another. This also checks the signed count in that convention.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Resultary 4378d18b0724 treats all three move rules and states the six-only component sizes, diameter, radius and six-only degrees by complementary two-factor type, as well as a full pair-distance histogram.",
+          "Liang–Zhang use alternating facial hexagons in toroidal polyhexes. Tratnik–Žigert Pleteršek treat tubulenes and prove an isolated-vertex assertion there."
+        ],
+        "reasoning": "A theorem about facial moves in a chosen embedding need not give all abstract-cycle moves. In contrast, restricting the catalog classification to its six-only rule gives exactly the requested census.",
+        "searches": [
+          "Resultary 4378d18b0724, six-only, eight-only and combined trades",
+          "arXiv:2609.19766 Theorems 2.18 and 5.3",
+          "Tratnik–Žigert Pleteršek, Some properties of carbon nanotubes and their resonance graphs"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 4378d18b0724",
+        "Marušič–Pisanski, Mathematica Slovaca 50 (2000), 117–121",
+        "DOI 10.3390/sym17010133",
+        "DOI 10.1021/ci049865c (limited access)",
+        "MATCH 74 (2015), 175–186",
+        "arXiv:2609.19766",
+        "Encyclopedia of Graphs G-6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "There are exactly three isolates, characterized by complementary two-factor type (8,8), and exactly one component of order 30. The graph is arc-transitive, hence edge-transitive. The relative permutation for a hexagon move is a three-cycle."
+        ],
+        "reasoning": "The isolates form an automorphism-invariant set. Each edge belongs to the same number of the isolates by edge transitivity, and the 3*8=24 total incidences show that number is one. The action on the three isolates is then transitive. A graph automorphism multiplies all matching signs by the same factor (and can invert permutations when swapping the parts); this factor must be +1 since the component of order 30 is preserved and has constant sign. Thus the isolates have a common sign. The spoke matching is an isolate by (8,8) complement and is even in the specified orders, with permutation (4,5,6,7,0,1,2,3). An admissible permutation (3,0,1,2,6,7,4,5) is odd, so the connected class is negative. Accordingly both additional statements are immediate consequences of the stronger classification and known symmetry, not a separate uncovered exact invariant.",
+        "searches": [
+          "Resultary 4378d18b0724, exact move criterion and complementary two-factor types",
+          "Marušič–Pisanski p. 117, arc transitivity of GP(8,3)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The later catalog result 4378d18b0724 defines adjacency by a matching symmetric difference equal to a single simple cycle and explicitly includes all cycles of the chosen length. Its six-only subcase is the identical flip graph, not a face-based analogue.",
+          "Marušič–Pisanski give the same abstract graph in the GP and Haar conventions; changing labels or inverting the bipartite permutation does not change the component partition."
+        ],
+        "reasoning": "This is equality of the objects and moves, not resemblance of graph sizes. The later report's six-only component and metric assertions transfer without a change of hypotheses.",
+        "searches": [
+          "Möbius–Kantor graph perfect matchings hexagon flips six-cycle trades resonance graph 30 diameter 4 parity",
+          "Resultary 4378d18b0724",
+          "Marušič–Pisanski G(8,3)=H(133)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Balasubramanian's matching-polynomial table, p. 8, has C16=33. The Encyclopedia of Graphs identifies the graph as F016A in the Foster Census.",
+          "The catalog finding and structural classification give (multiplicity, six-only degree)=(3,0),(6,8),(24,6), 96 trade edges, and pair-distance counts 96,216,120,3 inside the component."
+        ],
+        "reasoning": "The published polynomial records only the matching count. The catalog's exact reconfiguration table covers the degree and edge counts and establishes a distance of four with no larger finite distance.",
+        "searches": [
+          "DOI 10.3390/sym17010133 Möbius–Kantor C16",
+          "Resultary 4378d18b0724 six-only distance and degree tables",
+          "Encyclopedia of Graphs G-6"
+        ]
+      },
+      "rationale": "The complete six-cycle census is demonstrably covered by a distinct catalog result on the identical graph and the identical all-simple-six-cycle rule. It supplies the same components, degrees, edge count and diameter, along with more detailed distances and two additional move rules. The parity labels and one-factorization of the isolates follow directly from that classification and the known symmetry of the graph, as shown below. This is a coverage judgment, not a historical priority claim: the matching catalog record has a later listed date. The inaccessible embedding paper is not the basis of the failure.",
+      "residual_risks": [
+        "The listed dates are not evidence of who first obtained the six-only classification. An earlier equivalent result remains possible.",
+        "The Lijnen–Ceulemans full text was not available; no whole-document comparison is inferred."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct stronger coverage; listed later, not priority evidence",
+          "evidence": "Same all-simple-six-cycle graph; 96 edges, component sizes 30,1,1,1, degrees 0/8/6 with multiplicities 3/6/24, radius 3 and diameter 4 on the nontrivial component. The isolates have (8,8) complement.",
+          "identifier_or_url": "Resultary 4378d18b0724",
+          "material_read": "Finding, assumptions, Exact move criterion, Structural classification, Connectivity and distances; offsets 0–7843",
+          "method": "Bounded local-mirror passages",
+          "title": "Sharp six- versus eight-cycle matching-trade geometry of the Möbius–Kantor graph",
+          "trigger": "Exact catalog overlap on the identical move graph"
+        },
+        {
+          "assessment": "Known symmetry and equivalent model, not exact flip classification by itself",
+          "evidence": "G(8,3) is on the arc-transitive list and is identified with H(133), with dihedral reflections y,xy,x^3y as generators.",
+          "identifier_or_url": "https://dml.cz/bitstream/handle/10338.dmlcz/133137/MathSlov_50-2000-2_1.pdf",
+          "material_read": "pp. 117–119, especially OA offsets 1916 and 3700 for arc transitivity and the dihedral presentation",
+          "method": "Bounded OA PDF passages",
+          "title": "The remarkable generalized Petersen graph G(8,3)",
+          "trigger": "Potential equivalent graph and embedding model; symmetry needed to assess the residual claim"
+        },
+        {
+          "assessment": "Direct numerical overlap, not a flip classification",
+          "evidence": "The coefficient giving perfect matchings for the Möbius–Kantor graph is C16=33.",
+          "identifier_or_url": "https://doi.org/10.3390/sym17010133",
+          "material_read": "p. 8 matching-polynomial table, OA offset 32328",
+          "method": "Bounded OA PDF passage",
+          "title": "Matching Polynomials of Symmetric, Semisymmetric, Double Group Graphs, Polyacenes, Wheels, Fans, and Symmetric Solids in Third and Higher Dimensions",
+          "trigger": "Exact prior matching count"
+        },
+        {
+          "assessment": "No full-document conclusion",
+          "evidence": "Same graph in an embedding-classification setting; no decisive flip result could be inspected.",
+          "identifier_or_url": "https://doi.org/10.1021/ci049865c",
+          "material_read": "Bibliographic title and scope only; full text unavailable",
+          "method": "Direct access denied; lawful OA retrieval sought an alternate copy",
+          "title": "Oriented 2-cell embeddings of a graph and their symmetry classification: generating algorithms and case study of the Möbius–Kantor graph",
+          "trigger": "Plausible same-graph embedding coverage"
+        },
+        {
+          "assessment": "Different graph family and move scope",
+          "evidence": "Hexagons of a tubulene define the adjacency; the isolation theorem applies to a specified tubulene class.",
+          "identifier_or_url": "Tratnik–Žigert Pleteršek, MATCH 74 (2015), 175–186",
+          "material_read": "p. 177 resonance definition; p. 183 Theorem 3.3",
+          "method": "Bounded OA PDF passages",
+          "title": "Some properties of carbon nanotubes and their resonance graphs",
+          "trigger": "Hexagon-based matching adjacency and known isolation results"
+        },
+        {
+          "assessment": "Facial, not all abstract cycles",
+          "evidence": "Alternating-face moves and flow/ladders criteria for toroidal-polyhex resonance components.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.19766",
+          "material_read": "p. 1 adjacency definition; Theorem 2.18 p. 9 and Theorem 5.3 p. 20",
+          "method": "Bounded OA PDF passages",
+          "title": "Resonance Graphs of nanotubes and toroidal polyhexes",
+          "trigger": "Strongest facial reachability analogue"
+        },
+        {
+          "assessment": "Graph identification only in inspected passage",
+          "evidence": "Lists the graph as F016A in the Foster Census.",
+          "identifier_or_url": "https://atlas.gregas.eu/graphs/6",
+          "material_read": "G-6 identification and Foster Census listing",
+          "method": "Public web catalog passage",
+          "title": "Encyclopedia of Graphs: Möbius–Kantor graph",
+          "trigger": "Graph-specific catalog and aliases"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The natural graph and the distinction between all simple cycles and facial cycles would justify an unknown exact reachability classification. Here, however, the stronger existing six/eight-cycle classification already supplies the six-only graph's components and metrics. The parity criterion and the edge partition are short consequences of that classification and edge transitivity. The reproducible certificate confirms correctness but does not supply a separate unknown exact invariant or a general result beyond that coverage.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

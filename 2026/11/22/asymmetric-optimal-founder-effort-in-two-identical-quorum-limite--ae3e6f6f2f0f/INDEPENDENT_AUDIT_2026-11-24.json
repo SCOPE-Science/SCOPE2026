@@ -1,0 +1,164 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:39:16.273069Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Assumptions, and Proof",
+        "Frozen VERIFICATION.md and check.py (inspected, not executed)",
+        "/workspace/review-evidence/reproduce.py (ordinal 1)"
+      ],
+      "rationale": "Independence gives the joint failure F(x)=f(x)f(10−x), with f(z)=(1+799(1+z)e^(−z))/800. Its logarithmic derivative is H(10−x)−H(x), H(z)=z/(1+z+e^z/799); clearing positive denominators gives sign(799−G(5−x)) for 0<x<5. For u>0 the derivative of G has the sign of 5u cosh(u)−(5+u²)sinh(u); after dividing by u³, its power series is the constant 2/3 minus strictly positive even-power terms beginning at degree four. The quotient strictly decreases to −infinity, so G has just one peak and the certified crossings in (2,3) and (4,5) are simple and unique in their intervals. The corresponding F' signs on (0,5) are +,−,+; the far crossing gives a local maximum, the near crossing gives the only interior minimum. An independently computed rational certificate confirms all the needed G comparisons and F(3)<min(F(0),F(5)), ruling out the two endpoints of the half-interval. Reflection supplies exactly the second global minimum. For varying budget, renormalize the domain by the budget to [0,1]; compactness gives a uniform strict gap outside small disjoint neighborhoods of the two minima at the base point. Nonzero curvature at the minima gives unique nearby stationary points by the implicit-function theorem; compact separation and reflection make both, and only those, global. Replay: `python /workspace/review-evidence/reproduce.py 1` uses direct Taylor enclosures for exp(n) with a geometric bound on the tail, independently of the uploaded script's exp(1) power enclosure. The decimal diagnostic gives x*=2.9374809396609965009… but does not prove uniqueness.",
+      "residual_risks": [
+        "Persistence refers to the optimizing allocations under parameter perturbation, not ecological persistence.",
+        "No general two-parameter phase diagram, correlated habitat effects or fixed-total realized headcount optimization is established."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Stanford catalogue identifies a 1973 Derman–Lieberman–Ross technical report on the general k-out-of-n allocation problem. The frozen description of the 1974 abstract treats allocation-dependent component reliabilities; setting k=1,n=2 supplies the same framework, not a statement-level comparison of optima.",
+          "The exact analogue's proof §§1–4 recognizes the general S-shaped utility formulation and proves a sharp universal cutoff B*=8.402063… with quantifiers over B and p; the limitations explicitly deny asymmetry for every p above it.",
+          "The publisher routes for Grevstad and the other cited ecological papers did not yield independent full text in this review."
+        ],
+        "reasoning": "A general model that contains a failure curve is not itself an optimizer theorem for that curve. The earlier reliability or sigmoidal-allocation literature could nonetheless imply it; the recovered metadata and inspected discussion do not verify such a theorem. The sharp cutoff by itself does not identify p=799/800, and its paper explicitly credits the fixed instance.",
+        "searches": [
+          "Derman Lieberman Ross Optimal Allocations in the Construction of k-out-of-n Reliability Systems 1974 technical report PDF",
+          "doi:10.1287/mnsc.21.3.241; Stanford LIE ONR 155, purl.stanford.edu/ss384xm4796",
+          "F. M. Vicentini technical memorandum 201 and W. Ginsberg doi:10.1016/0022-0531(74)90053-2, as identified by the matching sharp-budget record",
+          "Frozen cited Grevstad, Shea–Possingham, Duncan et al., Goodsman–Lewis publisher routes"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, REVIEW.md and AUDIT.json",
+        "Distinct same-model sharp-budget RESULT.md and associated AUDIT.json",
+        "Other cited catalogue Findings",
+        "Derman–Lieberman–Ross institutional bibliographic records",
+        "Frozen cited ecological bibliographic comparisons and bounded lawful access attempts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At B=10 the cutoff theorem asserts an existential p, not its value or the optimizer count at p=799/800. Its proof gives the same hyperbolic stationary derivative after the symmetric change of variable, and general criteria that allow a replay of the witness with exact endpoint and sign comparisons.",
+          "The follow-up's RESULT.md credits a previously established two-habitat example at one parameter pair; its AUDIT.json identifies the exact B=10, p=799/800 instance and two optima as that example."
+        ],
+        "reasoning": "There is mathematical coverage of the general phenomenon and a shared proof route, but the generalized finding is not evidence that the frozen fixed example had an earlier independent covering theorem. Its own comparison points in the other direction. The proven special-instance distinctions are the specific two simple critical crossings, endpoint dominance and optimizer count; no originality is assigned to the general optimization framework or to the later universal threshold.",
+        "searches": [
+          "Sharp-budget RESULT.md Finding and Proof §§1–4, offsets 0–7503, and Relationship to prior work near offset 7503 onward",
+          "Sharp-budget AUDIT.json equivalent_formulations, offsets 5370–7470",
+          "Mate-limited fixed-count RESULT.md Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The sharp-budget record uses 1−q_p(x)q_p(B−x), q_p(z)=1−p+p(1+z)e^(−z), identical after identifying encounter exposure with Poisson mean and p with suitability. Its proof also gives the exact additive reformulation max[−log q_p(x)−log q_p(B−x)].",
+          "The fixed-count mate-limited theorem instead uses known male and female counts and a breeding-pair success event."
+        ],
+        "reasoning": "Confirmation and founder quorum are true aliases here, and the logarithm preserves all optimizers, so neither wording nor objective form supports originality. Conditioning on realized counts does not turn the fixed male/female allocation problem into the ex ante Poisson problem.",
+        "searches": [
+          "Resultary: two-site Poisson mean allocation, Poisson quorum allocation, two-founder and two-date introductions",
+          "SCOPE-the-sharp-universal-budget-for-unequal-two-site-poisson-confirma--9ebfe525ba28 RESULT.md and AUDIT.json",
+          "SCOPE-an-all-or-nearly-even-release-theorem-for-two-site-mate-limited--16a69419a1f0"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The distinct sharp-budget entry gives witness parameters B=41/4, p=999/1000. Its associated audit names B=10 and p=799/800 with two asymmetric optima as the earlier fixed example.",
+          "Other nearby entries respectively maximize expected viable-site count, optimize the integer number of equal-dose episodes, or pool founders across two dates; they do not give the reviewed continuous two-site classification."
+        ],
+        "reasoning": "The review is of a continuous global optimum with multiplicity, not a numerical table lookup. Exact mentions of the parameter pair in the follow-up are explicitly retrospective and need not be counted as a separate proof of priority or as independent evidence of a prior exact result.",
+        "searches": [
+          "Resultary: two-encounter confirmation, two-founder Poisson quorum, exact unequal two-site optimum",
+          "Sharp-budget AUDIT.json literal locator 799/800, then offsets 5370–7470",
+          "SCOPE-consecutive-habitat-activation-thresholds-for-poisson-founder-qu--6c42718054c6; SCOPE-an-exact-introduction-count-staircase-under-two-founder-threshol--9af56973f262; SCOPE-a-single-budget-switch-from-concentrated-to-equal-two-date-intro--b5700e6d7b92"
+        ]
+      },
+      "rationale": "The supported claim is the concrete, certified off-center pair and its stability in this two-site Poisson quorum model. The strongest catalogue comparison uses exactly the same optimization, under the name two-encounter confirmation. Its sharp budget theorem covers the existence of some asymmetric regime at budget 10, but its stated witness uses different parameters. Its own public comparison explicitly identifies the pair at B=10 and p=799/800 as the earlier fixed-instance claim and distinguishes its new budget quantifiers from that example. This is evidence of a recognized follow-up, not an inference of priority from the common date and not another earlier independent proof of the current instance. Other inspected catalogue cases have materially different objectives or only optimize equal doses. Historic reliability and S-shaped utility work may provide stronger earlier coverage; no such implication was verified from available passages.",
+      "residual_risks": [
+        "Derman–Lieberman–Ross's full theorem and the strongest older S-shaped utility and multiplant results were not independently inspected; those are genuine possible implied-coverage sources.",
+        "The Grevstad full model was not retrieved; other cited ecological articles were not independently compared at the statement level.",
+        "The related catalogue record's own acknowledgement establishes its treatment of the fixed example, not a general certificate of historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same mathematical model and major overlap in the mechanism; sharp budget theorem and distinct witness. Explicitly credits this exact parameter pair and optimizer multiplicity as the earlier example; same-day date itself is not used as order evidence.",
+          "evidence": "Its audit states: 'An accessible earlier fixed example uses B=10 and p=799/800 in that equivalent setting' and says the earlier claim specifies its two asymmetric global optima. Its own Finding uses p=999/1000, B=41/4 for its witness and proves an existential statement in p at each supercritical B.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-the-sharp-universal-budget-for-unequal-two-site-poisson-confirma--9ebfe525ba28",
+          "material_read": "RESULT.md Finding and Proof §§1–4 (offsets 0–7503), Relationship to prior work and Limitations (offset range 7503–11703), AUDIT.json equivalent_formulations (offsets 5370–7470)",
+          "method": "Resultary and local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4; read the decisive passages after locating 799/800",
+          "title": "The sharp universal budget for unequal two-site Poisson confirmation",
+          "trigger": "Exactly equivalent objective and a universal asymmetry theorem, with the same public date"
+        },
+        {
+          "assessment": "Different fixed-count allocation problem",
+          "evidence": "Known male/female founders, a retained pair, and concentration or nearly even division of matched pairs.",
+          "identifier_or_url": "2026/10/12/SCOPE-an-all-or-nearly-even-release-theorem-for-two-site-mate-limited--16a69419a1f0",
+          "material_read": "RESULT.md Finding offset 0",
+          "method": "Resultary and local mirror",
+          "title": "An all-or-nearly-even release theorem for two-site mate-limited establishment",
+          "trigger": "Exact two-site founder-allocation optimizer theorem"
+        },
+        {
+          "assessment": "Distinct expected-count objective",
+          "evidence": "Maximizes expected viable-site count; main theorem for quorum at least three.",
+          "identifier_or_url": "2026/11/22/SCOPE-consecutive-habitat-activation-thresholds-for-poisson-founder-qu--6c42718054c6",
+          "material_read": "RESULT.md Finding offset 0",
+          "method": "Resultary and local mirror",
+          "title": "Consecutive habitat activation thresholds for Poisson founder quorums",
+          "trigger": "Same mean-allocation and quorum ingredients"
+        },
+        {
+          "assessment": "Different feasible set",
+          "evidence": "Integer number of equal-dose episodes, not a continuous split of two doses.",
+          "identifier_or_url": "2026/11/22/SCOPE-an-exact-introduction-count-staircase-under-two-founder-threshol--9af56973f262",
+          "material_read": "RESULT.md Finding offset 0",
+          "method": "Resultary and local mirror",
+          "title": "An exact introduction-count staircase under two-founder thresholds",
+          "trigger": "Same quorum and one-or-more success event"
+        },
+        {
+          "assessment": "Different success event",
+          "evidence": "Two dates and a pooled two-survivor event rather than quorum reached within either independent site.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-single-budget-switch-from-concentrated-to-equal-two-date-intro--b5700e6d7b92",
+          "material_read": "RESULT.md Finding offset 0",
+          "method": "Resultary and local mirror",
+          "title": "A single budget switch from concentrated to equal two-date introduction",
+          "trigger": "Similar two-way split and exact optimality transition"
+        },
+        {
+          "assessment": "General exact framework known; full theorem implication remains genuinely unresolved",
+          "evidence": "Stanford's item has the exact title and authors C. Derman, G. J. Lieberman and S. M. Ross. The frozen abstract comparison situates the objective at k=1,n=2; it cannot resolve the nonconcave Poisson case.",
+          "identifier_or_url": "https://doi.org/10.1287/mnsc.21.3.241; https://purl.stanford.edu/ss384xm4796",
+          "material_read": "Stanford Statistics and Stanford Digital Repository metadata for LIE ONR 155, September 1973; frozen account of the 1974 journal abstract; no article or report theorem passage independently retrieved",
+          "method": "Targeted scholarly query and lawful OA publisher/identified institutional alternate attempts; legacy report item displayed embedded content placeholder, no usable PDF passage retrieved",
+          "title": "Optimal Allocations in the Construction of k-out-of-n Reliability Systems",
+          "trigger": "Potential dominating optimizer theorem for the same one-of-two reliability design"
+        },
+        {
+          "assessment": "Relevant unresolved historical coverage; the frozen account is secondary evidence",
+          "evidence": "The frozen account describes simulated intermediate release sizes in a setting with Allee effects and risk diversification; it does not quote an exact optimizer theorem for the present process.",
+          "identifier_or_url": "doi:10.1890/1051-0761(1999)009[1439:FITCOP]2.0.CO;2",
+          "material_read": "Frozen RESULT.md §§Relationship to prior work and References; no independently retrieved primary model passage",
+          "method": "Bounded lawful publisher retrieval attempts, access refused",
+          "title": "Factors influencing the chance of population establishment: implications for release strategies in biocontrol",
+          "trigger": "Prior intermediate introduction optimum and environmental-risk diversification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and global comparison",
+        "Independent exact sign and failure comparison replay",
+        "Same-model sharp-budget RESULT.md Relationship to prior work and associated AUDIT.json"
+      ],
+      "rationale": "This is a motivated exact counterexample to a concentration-versus-equal-split dichotomy for identical patches. Both familiar candidates strictly lose, there is precisely one off-center pair, and the pair is robust rather than a degeneracy of a tie. The parameter values realize a structural change in the useful strategy set; their numerical digits are not the value claim. The follow-up's explicit use of this fixed instance as the already-established witness gives a concrete downstream reason to retain it separately from a sharp universal budget theorem.",
+      "residual_risks": [
+        "This is a stylized single-stage surrogate and not a management recommendation or ecological calibration. The broader onset theorem belongs to the separate result."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:03:11.353028Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–68; VERIFICATION.md and verify_polygon_sum.py inspected read-only",
+        "Replay: python3 -I /workspace/reproductions/5.py; independently angle-merge the polygon edge vectors, use shoelace area, compare area and side counts at 4352 cases for ordered n,m=3,…,18 including both extrema, and check that opposite normals in the triangle example do not merge."
+      ],
+      "rationale": "The theorem is mathematically correct. In the classical mixed-area identity the first polygon's normals have angles π/n+2πj/n and the common side length is 2R sin(π/n). At each normal the rotated second polygon contributes S times the cosine of the signed offset from the nearest vertex. Modulo 2π/m, the step 2π/n has order N=n/d and fills the grid of spacing 2δ with multiplicity d. Centering its representatives yields x+(2k−N+1)δ, k=0,…,N−1; the range is the reduced support interval with harmless endpoint ties. Summing the finite geometric series gives d sin(π/m) cos x/sin δ, hence the claimed area and exact extrema. In the proof at line 61, 'parallel' must mean coincident outward normals, not undirected parallelism (opposite normals can occur away from the minimum, e.g. triangles at θ=π). Directly the coincidence angles are θ≡π/n−π/m mod 2δ, the minimizing phase since Nδ=π/m. The two equally spaced normal sets then share exactly d directions, and polygon Minkowski addition takes the union of their normals, proving the stated side counts including aligned angles. For uniform rotation |x| is uniform on [0,δ], so the stated decreasing cosine pushforward, moments and normalized limit follow by integration and Taylor expansion. The local wording defect does not invalidate any final claim. No replacement is supplied because the result fails the originality/value checks.",
+      "residual_risks": [
+        "Area/side-count replay uses floating-point angles and tolerances. It is corroboration only; the exact normal congruence covers all parameters and degeneracies."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Taylor Eq. (9) gives area in support Fourier coefficients; Eq. (11) gives the excluded area harmonic series for a body and its own rotated reflection",
+          "Karavelas–Tzanaki state n+m as the planar maximum edge count",
+          "For even regular polygons a determinant-area sum for zonotopes gives an absolute-sine representation"
+        ],
+        "reasoning": "The support-harmonic cross terms filter to frequencies divisible by lcm(n,m), supplying periodicity but not by themselves the closed folded-cosine arc; a folded cosine is not a single global Fourier harmonic. The planar maximal edge bound does not decide which orientations merge normals; the even-order zonotope representation does not cover odd orders. These general sources are context; the same-day exact excluded-area result is the decisive coverage.",
+        "searches": [
+          "Taylor, arXiv:1808.06454, Proposition 2.1 and Lemma 2.1",
+          "Karavelas–Tzanaki arXiv:1106.6254, planar introduction; regular-polygon zonotope formulations"
+        ]
+      },
+      "checked_sources": [
+        "Configured Resultary/SCOPE dcd5f779825e (decisive same-day equivalent), c3053f740967, a685ab109be1, a9ba6153bab3, ed975dc47a69",
+        "Taylor and Karavelas–Tzanaki primary passages; 1991 CCCG access attempt"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "dcd5f779825e gives both mean and variance by the same coefficients and a normalized 1−U² limit in the fixed-area regime; its unrestricted exact CDF already implies the limit along any a→0",
+          "The frozen minimum angle is π/n−π/m modulo 2δ, and elementary congruence of two equally spaced normal sets gives d shared directions at precisely those angles"
+        ],
+        "reasoning": "The exact excluded-area function mechanically implies the extrema and moments under angle translation. Normalizing its exact CDF is equivalent to (cos(aU)−cos a)/(1−cos a), whose Taylor limit covers every a→0 without an area condition. The side-count rule then follows from coincidence of the two regular normal grids and union of normals; it is not an independently substantial leftover from the exact profile. No coverage is inferred from the inaccessible 1991 lead.",
+        "searches": [
+          "dcd5f779825e Finding, Assumptions and mixed-area proof; c3053f740967 Finding; legitimate OA attempt for the 1991 CCCG lead"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Same-day SCOPE dcd5f779825e RESULT.md Finding and Assumptions: E=area(P_n+(-R_θ P_m))=A+2B cos dist(π/n−π−θ−(N−1)a,2aℤ), with a=π/lcm(n,m), A and B equal to frozen B and C respectively",
+          "Later SCOPE c3053f740967 is directly stated for the Minkowski sum; a9ba6153bab3 explicitly relates the profiles by π shift"
+        ],
+        "reasoning": "Central reflection in the plane is rotation by π, so the frozen area at φ equals E(φ−π). Substitution in the exact prior-comparison phase gives π/n−φ−(N−1)a, congruent to π/n−φ+(N−1)a modulo 2a; cosine of the folded distance equals cosine of the signed representative. The phase shift preserves uniform rotation, including when one order is odd. This gives equality of the all-angle law and the full distribution, not a partial numerical resemblance.",
+        "searches": [
+          "Configured Resultary/SCOPE: regular-polygon Minkowski mixed area, gcd/lcm resonance, folded cosine, excluded-area/reflection alias",
+          "Taylor arXiv:1808.06454, support-function Fourier area"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Same-day dcd5f779825e is an exact indexed symbolic result for all n,m,R,S and angles, including endpoints, CDF, mean and variance",
+          "Later c3053f740967 supplies the exact Minkowski-sum specialization, extrema, side counts and uniform-angle law",
+          "Same-day ed975dc47a69 concerns intersection area, not Minkowski addition"
+        ],
+        "reasoning": "An exact symbolic indexed formula is stronger evidence than a finite table comparison. The direct sum result is later-dated; the separate same-day excluded-area formula is equivalent in full scope after reflection, irrespective of which source wrote the formula first.",
+        "searches": [
+          "Configured Resultary/SCOPE: exact polygon area law, extremal phases, random rotation distributions and edge counts"
+        ]
+      },
+      "rationale": "A distinct same-day published SCOPE excluded-area result demonstrably contains the exact folded-cosine law, extrema and full orientation distribution for the same arbitrary integer orders and positive radii, after the angle substitution θ→θ−π. The exact coefficients and phases match, not just terminology or parameters. Priority within the shared date is not established; this is failure to establish a distinct substantive result against verified equivalent coverage, not a claim that the frozen record was proved later or its theorem proved false. The elementary corresponding normal count and normalized-limit rephrasing do not rescue a distinct result. The later exact Minkowski-sum record additionally states the side-count conclusions, but is not used to infer earlier priority.",
+      "residual_risks": [
+        "The relative priority of the two same-day findings is unresolved; their mathematical equivalence is not. The exact scope of the 1991 CCCG paper was not verified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Verified exact equivalent on the full parameter range; relative priority not determined",
+          "evidence": "Explicit -R_θ P_m definition, same B and C with a=δ, distance-to-2aℤ cosine and exact endpoints/CDF/moments. The π shift and a phase change of 2(N−1)a leave the profile unchanged under the stated substitution.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-least-common-multiple-resonance-in-the-excluded-area-of-rotated--dcd5f779825e/RESULT.md",
+          "material_read": "RESULT.md Finding, Assumptions, and start of Proof (offset 0 through extracted character 3543)",
+          "method": "Configured local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Least-common-multiple resonance in the excluded area of rotated regular polygons",
+          "trigger": "Strongest same-day exact apparent equivalent under planar reflection"
+        },
+        {
+          "assessment": "Equivalent direct law with side counts; later-dated, not proof of prior knowledge",
+          "evidence": "Folded cosine with L=lcm(n,m), coefficient 2C and maximizing phase (m/d+n/d−1)π/L modulo 2π/L, equivalent to the parity statement there; extrema, n+m−d at minima, uniform-angle law.",
+          "identifier_or_url": "2026/10/25/SCOPE-arithmetic-resonance-in-rotational-mixed-areas-of-regular-polygo--c3053f740967",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Configured local mirror reader",
+          "title": "Arithmetic resonance in rotational mixed areas of regular polygons",
+          "trigger": "Direct sum-profile and side-count match"
+        },
+        {
+          "assessment": "Later equivalent formulations, not priority evidence",
+          "evidence": "The latter explicitly shifts θ by π from the sum profile.",
+          "identifier_or_url": "SCOPE a685ab109be1 (2026/10/25) and a9ba6153bab3 (2026/11/2)",
+          "material_read": "RESULT.md Findings and relevant Assumptions, offset 0",
+          "method": "Configured local mirror reader",
+          "title": "An exact least-common-multiple law for rotational excluded areas; Arithmetic resonance in the excluded area of two rotated regular polygons",
+          "trigger": "Corroborating exact excluded-area aliases"
+        },
+        {
+          "assessment": "Different operation",
+          "evidence": "Intersection area of tangential regular polygons, not area of the Minkowski sum.",
+          "identifier_or_url": "2026/10/18/SCOPE-universal-convex-gap-rigidity-and-the-exact-rotational-overlap-l--ed975dc47a69",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Configured local mirror reader",
+          "title": "Universal convex gap rigidity and the exact rotational overlap law",
+          "trigger": "Same-day gcd normal-grid overlap hit"
+        },
+        {
+          "assessment": "Covers harmonic representation and informs the symmetry reduction, not read as a theorem giving the explicit two-regular-polygon arch",
+          "evidence": "Area formula involving (1−j²) times support Fourier coefficients; self-pair rotated-reflection excluded area gives the harmonic-series expression.",
+          "identifier_or_url": "https://arxiv.org/pdf/1808.06454",
+          "material_read": "pp. 4–5, Proposition 2.1 Eq. (9) and Lemma 2.1 Eq. (11)",
+          "method": "Lawful OA primary PDF bounded reading",
+          "title": "The excluded volume of two-dimensional convex bodies: Shape reconstruction and non-uniqueness",
+          "trigger": "Strong prior support-Fourier framework and excluded-area identity"
+        },
+        {
+          "assessment": "General planar maximum, not orientation-dependent count",
+          "evidence": "n+m is the maximum edge/vertex count for the sum of an n- and m-vertex polygon.",
+          "identifier_or_url": "https://arxiv.org/pdf/1106.6254",
+          "material_read": "Introduction, p. 1, offset 0",
+          "method": "Lawful OA primary PDF bounded reading",
+          "title": "The maximum number of faces of the Minkowski sum of two convex polytopes",
+          "trigger": "Potential stronger face-count context"
+        },
+        {
+          "assessment": "Unresolved earlier-coverage risk; not used as evidence for rejection",
+          "evidence": "The title matches the objects, but no theorem or formula was retrievable for comparison.",
+          "identifier_or_url": "https://cccg.ca/proceedings/1991/paper19.pdf",
+          "material_read": "Title/index only; primary text unavailable through the attempted extraction",
+          "method": "Lawful direct and VPN OA attempts",
+          "title": "Computing Minkowski Sums of Regular Polygons",
+          "trigger": "Earlier exact-object match"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding/Proof lines 4–63; same-day exact excluded-area formula and law in SCOPE dcd5f779825e; direct side-count argument"
+      ],
+      "rationale": "The geometric invariant itself is natural and useful. This record does not supply a separately useful new invariant or boundary beyond the already available equivalent exact angle law and its random-orientation consequences. The remaining side-count statement is the elementary congruence and union of the two regular normal grids, and the all-sequence weak limit follows directly from the known exact CDF; neither is a nonroutine surviving advance on its own.",
+      "residual_risks": [
+        "This rejects distinct value of the frozen contribution against equivalent coverage, not the usefulness of the geometric area law generally."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

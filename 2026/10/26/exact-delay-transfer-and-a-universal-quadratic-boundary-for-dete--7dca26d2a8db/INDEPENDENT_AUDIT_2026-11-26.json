@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:19:05.259720Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Expanded the tandem FCFS recursions and independently proved all three statements via the backward maximum for total waiting; details in /workspace/audit-01-derivation.md. For a Palm customer 0 with a_0=0, the terms are a_i+(j−i)c+Σ_{ℓ=j}^{−1}S_ℓ for i≤j≤0. The diagonal gives the c=0 waiting time. If S≥c each term is bounded by its i-diagonal, establishing the finite transfer and the stationary extension by the monotone limit of the finite backward maxima. In the sharpness example the frozen line 34 has a local arithmetic typo: Y_2(0)=s+s_2, not 2s+s_2. With the arrivals given there, Y_2(c)=2c+s_2, so the stated violation by c−s is correct (for s=0 the excess is c−ε). The waiting times exclude both services. Subtracting the independent-of-downstream M/D/1 mean first wait from the M/G/1 mean total wait gives the floor formula. For small c without a floor, write m=j−i≥1, h=−j, U_m for the pre-j sum of m external gaps, R_m for their m downstream marks, and V_h for the subsequent downstream-mark-minus-gap sum. To improve on the diagonal maximum a term must have U_m<mc, R_m<mc and V_h>−mc, by comparing with both endpoint diagonals and the zero term. Its gain is bounded by mc. These three variables are independent. Use the gamma bound P(U_m<mc)≤(eλc)^m and P(V_h>−mc)≤e^(αmc)r^h with r=E exp(α(S−A))<1 by the exponential moment and strict load bound. Summing the gains over m,h gives O(c²P(S<c)+c³)=o(c²) for positive S, with m=1 producing the P(S<c) factor. This also bounds the backward supremum and its mean. Thus the change of total waiting is o(c²), whereas the added mean first-station wait is λc²/(2(1−λc)), proving (F(0)−F(c))/c²→λ/2. The direct check avoids relying on derivative interchange or on a verbatim general-service reading of Cao–Hu–Wang Eq. (14). The frozen script was inspected but not run; its finite checks do not prove either stationary theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cao–Hu–Wang prove stationary monotonicity for renewal arrivals under general services, and strict decrease for Poisson input and exponential second service. Their §4 marked-group representation is displayed in the special case; the group reversal, conditional factorization and §2 pathwise derivative use independent marks. App. A.2's exponential-moment contraction applies for small parameter under strict load here.",
+          "Niu's available abstract describes a bound for deterministic-first tandem queues with general downstream service and renewal input, but its decisive theorem text was not retrieved."
+        ],
+        "reasoning": "Broader monotonicity does not determine an equality or a local Taylor coefficient. A floor equality extracted from an older bound is not excluded by reading Niu's abstract; record that residual risk separately from the strong checked comparison with Cao–Hu–Wang.",
+        "searches": [
+          "arXiv:2610.22837v1, §§1–2, §4 Eq. (14), App. A.1–A.2",
+          "Niu (1980), Bounds for the expected delays in some tandem queues, J. Applied Probability 17(3) 831–838"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "arXiv:2610.22837v1",
+        "Palomo–Pender WSC 2021 paper 075",
+        "Niu 1980 official abstract and Cao–Hu–Wang citation",
+        "Resultary:8db4266a62f5",
+        "Resultary:36932bb84192"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Cao–Hu–Wang already supply the first-stage Poisson grouping and derivative machinery; exponential-service ordering is then used for strict decrease, not a universal rate as c goes to zero.",
+          "The frozen equation (1) is an adaptation of the earlier representation, not a distinct result merely by restating it. Extending/factoring it for independent general-service marks and controlling the small-c contributions is additional work; the independent maximum-based estimate verifies the claimed coefficient by another route.",
+          "The exact floor mean formula follows routinely once the service-floor transfer is established; the two classical mean-wait formulas alone do not give that transfer."
+        ],
+        "reasoning": "Credit the imported recurrence and sensitivity tools. Neither monotonicity nor the exponential special-case derivative by itself implies the assertion for all positive atomless exponentially integrable services; the required control is near-zero, where only a short upstream gap combined with a sufficiently small downstream requirement can improve the total-wait maximum.",
+        "searches": [
+          "arXiv:2610.22837v1, §4 Eq. (14) and App. A.1–A.2",
+          "Palomo–Pender 2021, tandem FCFS recursions",
+          "Niu 1980 official abstract and citation in arXiv:2610.22837v1 §1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same FCFS tandem recursions are already in Palomo–Pender. A constant shift of final departures by c is equivalent to transfer of total queueing delay, not to invariance of the downstream queueing delay alone.",
+          "Using c=0 as baseline and subtracting the M/D/1 first-station wait is essential to the λ/2 coefficient being a second-station decrement."
+        ],
+        "reasoning": "The recurrence and Pollaczek–Khinchine are ingredients; exact cancellation of off-diagonal maxima under the floor, and a rare-event bound for potential failure without the floor, are additional claims. No inspected delay- or sojourn-based reformulation was found to assert both.",
+        "searches": [
+          "Poisson input D/G tandem upstream-duration perturbation, service floor, total waiting versus downstream waiting",
+          "arXiv:2610.22837v1, §2 and §4",
+          "Palomo–Pender WSC 2021, §3 Eqs. (2)–(3)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest retrieved queueing records concern earlier/later FIFO overlap counts and triggered-cluster busy cycles, not exact tandem mean waiting or its near-zero law.",
+          "The inspected sources give a class-of-service monotonicity theorem and an exponential-service derivative representation, rather than a table or formula for the general positive-service coefficient."
+        ],
+        "reasoning": "The invariant is a universal identity/asymptotic, not exact data for selected service distributions or loads. No ranked indexed match supplied it in the bounded search; rankings are not an exhaustive exclusion.",
+        "searches": [
+          "Resultary: deterministic tandem service-floor identity and λ/2 small-duration mean wait coefficient",
+          "Resultary:8db4266a62f5",
+          "Resultary:36932bb84192",
+          "arXiv:2610.22837v1, §4"
+        ]
+      },
+      "rationale": "The supported distinct claims are exact delay transfer under a service floor and, especially, the no-floor small-duration coefficient for positive independent downstream marks under the stated regularity and load hypotheses. Classical FCFS recursions, mean-delay identities, and stationary IPA/group methods are prior, as is monotonicity. The unavailable full Niu text leaves a specified risk for the floor formula; no exhaustive priority or novelty of the component tools is asserted.",
+      "residual_risks": [
+        "The full Niu (1980) paper was not obtained; the checked abstract cannot exclude equality at the service-floor boundary or a covering specialization of a prior bound.",
+        "Related tandem scheduling and waiting-time results may use sojourn maxima or queue interchange terminology. The bounded search does not establish complete priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General monotonicity and applicable analytic ingredients; no inspected statement of the floor equality or universal coefficient",
+          "evidence": [
+            "§4 states Poisson/exponential assumptions; order properties of position and busy-period marks are used for strict decrease.",
+            "Appendix A.2 uses a strict exponential-moment contraction E exp(θS) E exp(−θA)<1, available for small θ here, with continuous marks and gaps in the frozen application."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.22837v1",
+          "material_read": "§1 context; §2 pathwise derivative near offset 5999; §4 near 21537 and Eq. (14) near 30272; App. A.1–A.2 offsets 36458–41955",
+          "method": "Open-access article text",
+          "title": "On Niu’s Conjecture for Two-Station Tandem Queues",
+          "trigger": "Same deterministic-first stationary tandem and main source for Eq. (1)"
+        },
+        {
+          "assessment": "Prior recursion, not a covering floor identity in inspected material",
+          "evidence": [
+            "Tandem FCFS recursions and interdeparture-gap expressions derived for learning the tandem dynamics."
+          ],
+          "identifier_or_url": "https://informs-sim.org/wsc21papers/075.pdf",
+          "material_read": "§3, Eqs. (2)–(3), offsets 13315–16775",
+          "method": "Open-access conference PDF text",
+          "title": "Learning the Tandem Network Lindley Recursion",
+          "trigger": "Candidate prior pathwise transfer phrased as a recursion or departure-gap relation"
+        },
+        {
+          "assessment": "Relevant mean bounds; potential floor specialization not resolved from available passages",
+          "evidence": [
+            "Abstract refers to an upper bound on downstream delay with deterministic first service and general second service."
+          ],
+          "identifier_or_url": "S. C. Niu, J. Applied Probability 17(3), 831–838 (1980)",
+          "material_read": "Official abstract; bibliographic context from Cao–Hu–Wang §1 and references; full paper unavailable",
+          "method": "Lawful open-access/publisher attempts and official abstract; alternate JSTOR access returned a wrapper only",
+          "title": "Bounds for the expected delays in some tandem queues",
+          "trigger": "Closest predecessor on mean bounds for deterministic-first renewal-input tandems"
+        },
+        {
+          "assessment": "Different observable",
+          "evidence": [
+            "Equality in law of earlier/later overlap counts, not final departure shifts or tandem waiting."
+          ],
+          "identifier_or_url": "Resultary:8db4266a62f5",
+          "material_read": "Indexed finding and comparison of observables",
+          "method": "Resultary search and indexed statement comparison",
+          "title": "Arrival-index duality and conditional exposure reversal in FIFO queues",
+          "trigger": "Nearby indexed FIFO pathwise/duality result"
+        },
+        {
+          "assessment": "Different queue dynamics and invariant",
+          "evidence": [
+            "Concerns triggered-cluster busy cycles rather than deterministic-first transfer or near-zero downstream waiting."
+          ],
+          "identifier_or_url": "Resultary:36932bb84192",
+          "material_read": "Indexed finding and model comparison",
+          "method": "Resultary search and indexed statement comparison",
+          "title": "Sharp service-cover criterion and exact busy cycles for triggered clusters",
+          "trigger": "Nearby indexed service-cover and busy-cycle result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The pathwise transfer explains when an upstream deterministic operation moves waiting between stations without changing its total. The universal near-zero coefficient gives a quantitative prediction where monotonicity gives only a sign, and where a floor argument fails for every positive c. It isolates the small-duration sensitivity at fixed arrival rate, not a light-traffic approximation obtained by changing that rate.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

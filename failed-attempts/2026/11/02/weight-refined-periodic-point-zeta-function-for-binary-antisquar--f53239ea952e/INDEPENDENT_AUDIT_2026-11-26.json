@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T13:30:04.095149Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–79",
+        "Frozen VERIFICATION.md, lines 19–23",
+        "Frozen verify.py, lines 6–146",
+        "Baranwal et al., arXiv:2209.09223v3, Theorem 11, Proposition 18 and proof of Theorem 19"
+      ],
+      "rationale": "Baranwal et al.'s Theorem 11 and Proposition 18 give the eight-factor reduction for periodic, not arbitrary finite, words. After banning length-two runs, consecutive long runs cannot have opposite symbols: zero intervening singletons creates 0011 or 1100, two creates 001011 or 110100, and at least four creates a six-letter alternation. A nonconstant period without a long run is itself alternating. Between two long runs of the same symbol there must be one or three singletons (five creates a six-letter alternation). Conversely the resulting cyclic grammar avoids every forbidden factor. Marking any of r block starts yields n choices of indexed marked position per ordered block tuple, even for nonprimitive periods, giving the logarithmic weight factor 1/r. Adding the constant words yields the two denominators; differentiation recovers the count recurrence. Möbius inversion multiplies weight by repetition count and divides the number of primitive indexed points by n. Equality at minority density 1/3 forces every block to be 000101 or its complement, of least period six. Independent direct cyclic bit-shift enumeration of 8190 words through period 12 agrees coefficientwise with the zeta and with the primitive inversion; at n=6 the weight vector is (1,6,6,0,6,6,1). Replay: node /workspace/independent_checks.js, section 1. For the bit check the order cutoff is valid on an n-periodic word: reduce a larger order modulo n; a nonzero residue >=2 gives an antisquare at that residue, residue 1 gives one at n+1, and residue 0 cannot give a bitwise complement. The enumeration is finite in n; the run proof is not. The frozen verifier was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 11 classifies minimal antisquares by order, Proposition 18 gives the one-sided-constant obstruction, and Theorem 19 proof lists the eight forbidden factors and the Pansiot run constraints.",
+          "29a622fd334c gives unweighted zeta 1/[(1+z^3)^2(1-z-z^3)^2], identical at u=1 by factoring 1-z-z^4-z^6."
+        ],
+        "reasoning": "Published linear Pansiot grammar gives the underlying restrictions and known recurrence, but does not itself state an indexed Hamming-weight zeta. The exact transition formula, not a generic consequence of finite-type representability, closes that gap.",
+        "searches": [
+          "Baranwal, Currie, Mol, Ochem, Rampersad and Shallit, arXiv:2209.09223v3, §6–7",
+          "Resultary: 29a622fd334c two maximal entropy phases and exact periodic-orbit law"
+        ]
+      },
+      "checked_sources": [
+        "379da1cc57ba",
+        "29a622fd334c",
+        "585d5e7587a7",
+        "Baranwal et al., arXiv:2209.09223v3, Theorems 11 and 19 and Proposition 18",
+        "Frozen RESULT.md, lines 5–99"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earliest linked exact count logs 1-z-v^2 z^4-v^4 z^6; exact coefficient relabeling yields both claimed factors and thus the count recurrence.",
+          "Its transition-per-length bound is 2/3, achieved only in the z^6 v^4 term, giving precisely six low-weight indexed words at equality and six complements when 6 divides n. Complementation preserves primitive periods and has no fixed primitive necklace of those unequal weights."
+        ],
+        "reasoning": "The density conclusion and primitive corollary are not independent of the transition refinement. The two classes come from the same isolated-minority constraint and the length-six boundary witness exhausts the counted coefficient.",
+        "searches": [
+          "Resultary: 2026/10/25/SCOPE-exact-transition-refined-census-of-periodic-binary-antisquare-av--379da1cc57ba",
+          "Baranwal et al. arXiv:2209.09223v3, §§6–7; frozen RESULT.md, lines 37–73"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "379da1cc57ba expressly gives the transition count c_{n,t} for every n,t in the exact same bi-infinite periodic avoidance regime.",
+          "t=2 min(w,n-w) on this language, and there are no balanced nonconstant words; each complementary pair therefore uniquely relabels to low and high weights."
+        ],
+        "reasoning": "From the explicit earlier logarithmic derivative, dividing by 2 and integrating with zero constant term gives the low-weight log factor at v^2=u. Applying z→uz, u→u^{-1} gives the high-weight one. This is coefficientwise equivalence, not merely the ability to design a fresh automaton.",
+        "searches": [
+          "Resultary: Exact transition-refined census of periodic binary antisquare-avoiding words 379da1cc57ba indexed periodic antisquare good transition count primitive necklaces length run complement",
+          "Resultary: 379da1cc57ba 29a622fd334c 585d5e7587a7 antisquare avoiding periodic binary exact transition weight zeta run grammar primitive orbit long zero blocks 000101"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "585d5e7587a7 is a distinct, later-indexed record stating the same exact weighted zeta and density gap, with an extra support criterion.",
+          "379da1cc57ba gives an exact all-length coefficient census, including primitive necklace counts. It is more than a small-n table and can be relabeled at all n."
+        ],
+        "reasoning": "No external finite table is needed to establish prior coverage, and no priority is inferred from the later duplicate. The older exact transition census provides the coefficients via a simple relabeling and split.",
+        "searches": [
+          "Resultary: exact cyclic antisquare length/weight spectra, 585d5e7587a7; transition census 379da1cc57ba"
+        ]
+      },
+      "rationale": "The earlier October 25 transition-refined result gives an exact indexed census of precisely the same periodic words, with census -2z times the z-derivative of log(1-z-v^2 z^4-v^4 z^6). On every nonconstant admissible period all minority letters are isolated by the run grammar, so its number of cyclic changes is twice its minority weight. Complementation preserves transition count and exchanges the two possible weights. Thus every transition-census coefficient at t=2j divides equally between weights j and n-j, including t=0 for the two constants. Equivalently, halve the logarithmic census and substitute v^2=u to get the first factor, then take its bitwise complement by (z,u)→(uz,u^{-1}) for the second. This gives the identical zeta without a new enumeration. The primitive counts use exactly the same relabeling and standard Möbius inversion. The sharp density boundary and equality count follow from extrema of the earlier transition polynomial: every monomial of either nontrivial block has at most one unit of minority weight per three positions, with equality only on the degree-six term; the exhibited period and its six rotations exhaust that coefficient. The later exact indexed statement 585d5e7587a7 corroborates equivalence but is not the basis for prior coverage.",
+      "residual_risks": [
+        "The indexed statements, not the full contents of the comparative records, were available. The demonstrated implication uses the explicit earlier transition formula and does not assume any uninspected paragraph.",
+        "No claim is made as to which paper or record first printed precisely the Hamming-weight product or its proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Positive coverage of the central enumeration through t=2 min(w,n-w); no claim about uninspected proof content",
+          "evidence": [
+            "Exact -2z d/dz log(1-z-v^2 z^4-v^4 z^6) census gives every length/change count and primitive counts."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-exact-transition-refined-census-of-periodic-binary-antisquare-av--379da1cc57ba",
+          "material_read": "Indexed mathematical statement and formula",
+          "method": "Configured Resultary lookup",
+          "title": "Exact transition-refined census of periodic binary antisquare-avoiding words",
+          "trigger": "Same input domain; exact refinement that can be converted to weight"
+        },
+        {
+          "assessment": "Confirms the unbounded periodic reduction and the preexisting unweighted grammar and recurrence",
+          "evidence": [
+            "Theorem 11 lists the four minimal order-two words and the two order-three alternations, no order four, and the conjugate family for orders at least five.",
+            "Proposition 18 gives the nonperiodic one-sided-constant form if 001011 occurs; Theorem 19 explicitly lists the eight factors and obtains C_n=C_{n-1}+C_{n-4}+C_{n-6} for the linear Pansiot count."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2209.09223v3",
+          "material_read": "§6 #Thmtheorem11; §7 #Thmtheorem18, #Thmtheorem19 and proof #S7.p3–#S7.p6",
+          "method": "Identified lawful arXiv full text after passage-reader timeout",
+          "title": "Antisquares and Critical Exponents",
+          "trigger": "Minimal antisquare list, periodicity obstruction and known grammar"
+        },
+        {
+          "assessment": "Exact match on zeta and gap, but later indexed date; not the basis of earlier coverage",
+          "evidence": [
+            "Same rational factor pair and [0,1/3] union [2/3,1] support restriction; parity-sensitive support mentioned."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-constant-weight-rigidity-and-exact-spectra-of-circular-antisquar--585d5e7587a7",
+          "material_read": "Indexed statement with the two factors; full record unavailable",
+          "method": "Configured Resultary, with local mirror retrieval attempted",
+          "title": "Constant-weight rigidity and exact spectra of circular antisquare-good binary words",
+          "trigger": "Distinct indexed statement of identical weighted product and density gap"
+        },
+        {
+          "assessment": "Covers the unweighted specialization, not evidence by itself for the weight refinement",
+          "evidence": [
+            "Exact unweighted zeta denominator (1+z^3)^2(1-z-z^3)^2 factors the frozen unweighted denominator."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-two-maximal-entropy-phases-and-an-exact-periodic-orbit-law-for-a--29a622fd334c",
+          "material_read": "Indexed formula and description",
+          "method": "Configured Resultary lookup",
+          "title": "Two maximal-entropy phases and an exact periodic-orbit law for antisquare-good binary shifts",
+          "trigger": "Earlier exact unweighted census on the same shifts"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The periodic avoidance model and its exact enumeration are naturally motivated. In this specific language, however, the purported Hamming-weight refinement is a relabeling of a known exact transition refinement, and the density extremes and primitive counts are direct consequences. It does not contribute a previously undetermined invariant, obstruction, or cutoff beyond that correspondence.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof identifies the exact Markov cells, their transition probabilities and stationary mass, and uses the expanding primitive graph for uniqueness of the absolutely continuous law. A full-branch central return induces independent uniform waiting times of lengths \(1,\ldots,m\), so a direct renewal recursion and residual-life weighting give the claimed all-integer formula for \(0\le n\le m\). The sign of the finite difference establishes the exact minimizing lag including the exceptional tie at \(m=2\). The limit is a uniform exponential limit and the trough is strictly negative. An independent exact-rational 493-case Markov verification supports, but does not replace, these analytical steps.
+## correctness
 
-## Originality — PASS within inspected evidence
-The same family originated with García-Grimaldo and Campos-Cantón (2021). The fully accessible 2023 Electronics article addresses hardware implementation, bifurcation diagrams, Lyapunov exponents and histograms; it does not state this exact sign-statistics result. The extended 2023 thesis analyzes the source family in chapter 3 and numerical autocorrelation of other pseudorandom outputs in chapter 6, not this formula for the neutral-outer-slope Markov subfamily. published-finding corpus comparisons concern prime-three cycles, Lyapunov floors or other maps' renewal statistics; none implies the explicit model-specific lag formula and universal anticorrelation minimum. Standard renewal theory is a proof method, not the prior computation of the model-specific law. The full 2021 source and 2022 comparative chapter could not be inspected in full, so publication priority remains qualified by these sources and any unindexed work.
+PASS
 
-## Value — PASS
-The original PWL family is presented as a candidate for pseudorandom-output applications. The exact stationary sign-memory phenomenon is quantitatively distinctive: one-step sign-flip frequency tends to zero, yet at lags of order the inner slope a persistent negative covariance approaches a universal constant. The formula and sharp lag location give structural information that finite Lyapunov/histogram studies do not, while making no cryptographic-security assertion. The integer-slope/outer-unit slice is natural because it yields a finite Markov renewal decomposition with a nontrivial large-slope limit.
+Apart from the null set of endpoint itineraries, outer cells map by translation to the next lower index on the same side; central cells have slope m and split uniformly across the opposite side. Thus the balance relation is pi_k=pi_(k+1)+pi_0/m with pi_m=0, giving the stated normalized density. For uniqueness, length-n itinerary cylinders map affinely onto whole final cells and have mesh at most m^(-floor(n/m)); each m-step itinerary expands once. The cellwise-constant subspace is closed in L1. Averaging any invariant density on these cylinders and pushing it forward n steps gives a cellwise-constant approximant converging in L1 to that density by transfer contraction. The irreducible finite chain then fixes its unique normalized cell masses. At time zero just after a flip the landing index is uniform, and each specified excursion maps its coordinate affinely onto the next whole central cell, giving iid uniform inter-flip durations. With q_n the expectation relative to that post-flip sign, the renewal recurrence gives q_n=2(1-1/m)^n-1 for n<=m. The stationary first wait is r with probability 2(m-r+1)/(m(m+1)); conditioning on this wait and summing gives the claimed C_m(n). The first difference gives the minimizing lag and only the m=2 tie. Negativity for all m follows already at n=m: (1-1/m)^m<=exp(-1-1/(2m)), and using exp(-u)<=1-u+u^2/2 with 8/e<3 gives 8m(1-1/m)^m<3m-1. The floor error and convergence of m log(1-1/m) to -1 give the uniform limit and its unique minimum at log 2. One-step flips have probability 2/(m+1), as claimed.
 
-## Residual limitations
-The analysis is restricted to the stated boundary family and lags through the inner integer slope. It makes no statement about all stationary measures or other hardware bit extractions. Earlier publisher full text, and any unindexed equivalents, remain possible novelty risks. The complete proof is self-contained in the attached result.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The map family, fixed-point-free setting and alternating-renewal methods are known. The supported distinct result is the exact invariant density and lattice sign-correlation law at its specified neutral boundary, with a macroscopic negative trough despite vanishing one-step flip probability. The consulted exact sign and renewal results match the methods or observable, but not the conjunction of dynamics and finite-lag law. Full-text coverage of two older family sources could not be verified.
+
+## value
+
+PASS
+
+The exactly solvable neutral boundary explains why rare one-step sign flips do not prevent negative sign memory at lags proportional to m. The stationary density, discrete correlation and sharp limiting trough quantify that distinction in a natural existing map family; they are not general claims about finite-precision realizations or security.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:03:23.642897Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–48 and verify.py",
+        "/workspace/branches/replay_3.py",
+        "/workspace/branches/bc7054f0-b038-40b5-90ea-72a634ce1874/independent_check.py and independent_check.txt"
+      ],
+      "rationale": "For n≥k inclusion–exclusion reduces the third Eulerian column to F(n)=−(n+1)3^n−(n³−n)/6 modulo 2^k. In the divided difference for even x and h, the exponential term is 2-adically integral by LTE, while the cubic term has valuation −1. Thus t↦F(2t) is an isometry, giving exactly one even-index preimage per output per block. For odd x and 8|h both divided-difference summands are 1 modulo 4, so the difference has valuation ν₂(h)+1. For each odd r mod 8, normalizing F(r+8t) by subtracting F(r) and dividing by 16 gives an isometry, giving four preimages per output in its ball in any full block; the centers for r=1,5 are 10 mod 16 and r=3,7 are 0. The same valuations give period 2^(k+1) and force every even eventual period to be a multiple of it. An odd period cannot map the even-index outputs, surjective mod 16, into just two odd-index classes. This proves the least eventual period and the density formula with the stated onset. Independent insertion-recurrence checks through k=12, including translated blocks, agreed; these are diagnostic only.",
+      "residual_risks": [
+        "N≥k is a sufficient onset in this theorem, not a claim about an earlier or absolutely sharp preperiod."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "05dba94c6d35 includes k=1,2,3 as well as all claims for k≥4.",
+          "Fulman–Röllin study descent-count classes at fixed n, while 0b100cd06a37 treats the two-descent column."
+        ],
+        "reasoning": "The latter two scopes are not the target distribution. The inspected distinct three-descent result is genuinely broader in modulus range and includes the complete frozen parameter regime.",
+        "searches": [
+          "Resultary 05dba94c6d35; arXiv:2603.21464v2 pp. 1–2; Resultary 0b100cd06a37"
+        ]
+      },
+      "checked_sources": [
+        "Distinct Resultary 05dba94c6d35, nearby 0b100cd06a37, OEIS A000498, Fulman–Röllin v2",
+        "Bounded search for literature on Eulerian dyadic congruences"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "That result states nine preimages for y=0,10 mod 16, one otherwise, for every k≥4 in a full 2^(k+1) block starting at a≥k, and establishes leastness of the period."
+        ],
+        "reasoning": "Setting a=N gives the frozen block theorem verbatim in its applicable range. Dividing by the common period gives its natural densities, so they do not supply a distinct remainder.",
+        "searches": [
+          "05dba94c6d35 RESULT.md Finding and Proof, offsets 0–8145"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The normalized exponential-polynomial formula agrees with the Eulerian column tabulated in A000498.",
+          "Distinct Resultary RESULT.md 05dba94c6d35 states the same law for classical A(n,3), not descent-count residues of a random permutation."
+        ],
+        "reasoning": "Matching the descent convention, fixed column, variable index, branch residues 0 and 10 mod 16, and dyadic modulus gives exactly the same object and law.",
+        "searches": [
+          "Resultary three-descent Eulerian column, dyadic fibers, ninefold and singleton preimages",
+          "OEIS A000498"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A000498 has initial entries and inclusion–exclusion formula, not an all-depth law.",
+          "05dba94c6d35 Finding and Proof explicitly classify the full fibers and periods."
+        ],
+        "reasoning": "Coverage rests on a distinct exact theorem entry, not empirical numerical agreement or an index title.",
+        "searches": [
+          "OEIS A000498; local Resultary exact dyadic fiber-law comparison"
+        ]
+      },
+      "rationale": "A distinct Resultary record, 05dba94c6d35, exactly covers the claimed histogram, period, and allowed block starts in the full range k≥4. That record gives additional small levels; no part of the frozen finding survives this coverage, since the natural densities are a consequence of its same period and histogram. This is established statement-level overlap, not a chronology claim: the two catalogue dates are the same and the evidence does not resolve priority.",
+      "residual_risks": [
+        "The distinct overlapping records are same-day; attribution and priority are unresolved.",
+        "Full text of the Xiong–Tsao–Hall paper was unavailable; the OEIS-linked 2014 valuation paper was not used as evidence of coverage or noncoverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Full distinct-record coverage, plus small levels; no priority inferred",
+          "evidence": "Same band k≥4, onset a≥k, residue classes 0 and 10 mod 16, respective multiplicities 9 and 1, same least period 2^(k+1).",
+          "identifier_or_url": "2026/11/22/SCOPE-ninefold-and-singleton-dyadic-fibers-in-the-three-descent-euleri--05dba94c6d35",
+          "material_read": "RESULT.md Finding and Proof, offsets 0–8145",
+          "method": "Local Resultary mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Ninefold and singleton dyadic fibers in the three-descent Eulerian column",
+          "trigger": "Same object and exact 9:1 fiber law"
+        },
+        {
+          "assessment": "Different statistic",
+          "evidence": "At fixed n, sums A(n,d)/n! over d in a congruence class; does not reduce the integer A(n,3) at varying n.",
+          "identifier_or_url": "https://arxiv.org/pdf/2603.21464v2",
+          "material_read": "pp. 1–2, PDF-extracted offsets 0–6491",
+          "method": "OA full-text passage",
+          "title": "Stein’s Method and the Modular Behavior of Eulerian Numbers",
+          "trigger": "Closely named modular Eulerian result"
+        },
+        {
+          "assessment": "Same column but table and formula do not themselves give fiber law",
+          "evidence": "The formula yields F(n) modulo 2^k for n≥k, but it is not a listing of all residues and multiplicities.",
+          "identifier_or_url": "https://oeis.org/A000498",
+          "material_read": "OEIS offset, initial terms and formula, HTML offsets 0–5850",
+          "method": "OA HTML",
+          "title": "Eulerian numbers with three descents",
+          "trigger": "Exact fixed-column table"
+        },
+        {
+          "assessment": "Analogous theorem, different column and law",
+          "evidence": "The object is A(n,2) and outputs occur twice uniformly, not the two-ball 9:1 multiplicities.",
+          "identifier_or_url": "2026/11/8/SCOPE-uniform-dyadic-residues-in-the-two-descent-eulerian-column-with--0b100cd06a37",
+          "material_read": "RESULT.md reported uniform fiber statement",
+          "method": "Local Resultary mirror",
+          "title": "Uniform dyadic residues in the two-descent Eulerian column with sharp onset",
+          "trigger": "Prior exact fiber law in adjacent column"
+        },
+        {
+          "assessment": "Access limitation, not a basis for the verdict",
+          "evidence": "Classical definitions are corroborated independently by the OEIS formula and the Eulerian recurrence; no claim about uninspected content is made.",
+          "identifier_or_url": "https://doi.org/10.1155/2013/629132",
+          "material_read": "No primary passage accessible",
+          "method": "OA publisher page and identified PDF both returned HTTP 403",
+          "title": "General Eulerian Numbers and Eulerian Polynomials",
+          "trigger": "Cited classical Eulerian formulas"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and proof; distinct Resultary 05dba94c6d35 Finding and Proof"
+      ],
+      "rationale": "Exact fibers and least periods for fixed Eulerian columns are worthwhile arithmetic invariants, and the split into even and odd branches explains the nonuniformity. As a separate finding, however, this record adds no scientifically distinct result over the exact broader catalogue theorem: it repeats the same fibers and periods, and the density is an immediate reformulation. No new independent implication or method is established that would justify retaining the duplicated claim.",
+      "residual_risks": [
+        "This appraisal concerns duplication of the result, not the arithmetic interest of the theorem itself."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

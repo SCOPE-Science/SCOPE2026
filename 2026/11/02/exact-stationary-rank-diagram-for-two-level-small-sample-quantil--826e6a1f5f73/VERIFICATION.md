@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -18,8 +21,6 @@
 
 # Reproducible checks
 
-Run `python3 verify.py` under Python 3.9 or later; no third-party packages are required. The checker uses exact rational probabilities and enumerates all \(s\)-row subsets for total row counts from three through ten, every strictly minority corruption count, every admissible sample size, and every residual rank. It reconstructs selected rows directly for both states and checks the formulas independently of the transition-tail derivation.
+Run `python3 verify_rank.py` with the Python 3 standard library. For each tested batch, the checker sorts actual residuals at both projected values, counts the transition events by rank, and computes the stationary risk using exact rational arithmetic. It checks the full risk ordering, including the strictly increasing part when some ranks are absorbing, and the optimal values for both sampling designs. The tested subset sizes are \(s=1,\ldots,g\) for \(2\le g\le6\) and \(1\le c<g\). For independent draws it tests \(s=1,\ldots,5\) for \(2\le g\le4\) and \(1\le c<g\).
 
-It checks stationary error ordering, the sharp absorption cutoff, exact eigenvalue signs and medians, seven-step time evolution, with-replacement binomial formulas, and worked rational examples. The observed output is: `PASS: 2174 exact rational identities and enumerated row-selection checks`.
-
-The rigorous universal proof is in `RESULT.md`. Exact finite enumeration is not an infinite proof. This verification does not test general higher-dimensional quantile Kaczmarz, arbitrary corrupt values, approximate arithmetic, or non-independent sample schedules. Independent audit has not been performed.
+The all-parameter proof is in `RESULT.md`; the executable checks are finite corroboration only. They do not address higher-dimensional models, unequal coefficients, or update rows drawn independently of the quantile batch.

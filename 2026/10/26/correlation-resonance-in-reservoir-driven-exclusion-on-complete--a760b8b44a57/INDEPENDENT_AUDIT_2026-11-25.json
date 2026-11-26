@@ -1,0 +1,156 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T23:51:22.250066Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Irreducibility: one can remove each B particle and transfer residual A particles to B for removal; from empty, form the desired B subset by successive A injections and transfers, then inject the desired A subset. Uniqueness implies within-class exchangeability. The single-site balances are n d=alpha(1-x), m d=beta y, and net edge flux is x-y since the blocking terms cancel. For the cross pair, write U=eta_i-x and V=eta_j-y. Their shared swap changes the product to (V-d)(U+d), with mean change -d^2. Other edges replace one centered factor, yielding (m-1)(u-w)+(n-1)(v-w); the bath terms contribute -(alpha+beta)w. Within a class both sites give the same drift n(w-u)-alpha u, or m(w-v)-beta v. Solving gives all three covariances and their strict signs. At fixed ratio, write D=tG and d=t/(t+C). The derivative of |w| has numerator H=(C-t)G-t(t+C)G' and positive denominator (t+C)^3 G^2. Each reciprocal contribution to H has derivative -[(2C-p)t+p^2]/(t+p)^3, or the analogous q term; hence H strictly decreases from positive at C to negative at infinity. The unique root is the maximum and exceeds C. The balanced expression gives N|w(N tau)|=tau(tau+1/2)/[2(tau+1)^2(tau+1-1/N)]. It and its tau derivative converge on compact positive intervals; the limiting derivative has numerator 1+2 tau-2 tau^2. Bracketing the unique finite-size root on either side of the positive limiting root gives both constants. For gamma<1, d~N^(gamma-1)/L and D~K N^gamma; at gamma=1 all four terms of D are order N, and above it d tends to 1 and D~(a+b)N^gamma. Replay: RESULT.md lines 78–120 and the direct generator steps above; the reported exact count-chain check is finite supporting evidence, not required for the proof. The optimum concerns covariance magnitude, not the Pearson correlation coefficient, which in the balanced case does not have this optimum.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Schulman–Sinclair approximate fixed-k stationary marginals for arbitrary graph/site baths. Floreani et al. give a stationary mixture representation in a general graph model with two reservoir contacts. Landim et al. solve the path with endpoint reservoirs; Mendonça diagonalizes closed, fixed-particle sectors on the target graph family."
+        ],
+        "reasoning": "The arbitrary-graph algorithms and duality/moment framework give background or representations; they do not provide a symbolic common-rate scan or its unique stationary point. The path and fixed-particle results cannot be applied to this all-sites creation/annihilation system by changing labels.",
+        "searches": [
+          "arXiv:2607.22991v1, §2.1 and Theorem 2",
+          "arXiv:2307.02481v2, §1.2",
+          "arXiv:math/0608165, §4",
+          "arXiv:1207.4106, §4"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2607.22991v1",
+        "arXiv:2307.02481v2",
+        "arXiv:1207.4106",
+        "arXiv:math/0608165",
+        "Resultary local published-record queries and the three matched records above",
+        "Targeted primary literature query on open bipartite exclusion and the covariance optimum",
+        "Frozen RESULT.md, VERIFICATION.md and verify_reservoir_bipartite.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Green formula C=-(2 xi I-Q^(2))^(-1)g can be symmetry-reduced to the equal-rate bipartite covariance when alpha=beta=xi. An approximate fixed-k marginal algorithm in the more general bath model also applies to both equal and unequal rates."
+        ],
+        "reasoning": "The equal-rate covariance evaluation is an exercise in symmetry reduction of the known operator representation, and the method and strict negative-correlation background are not claimed as advances. The unequal rates do not have constant two-particle killing 2 xi. More importantly, proving the derivative has exactly one positive root for every rate ratio and controlling that root in the balanced growth limit requires a separate argument not given by these representations or algorithms.",
+        "searches": [
+          "arXiv:2607.22991v1, Theorem 2",
+          "Resultary 2026/11/2/SCOPE-spectral-fluctuation-and-exact-covariance-laws-for-exclusion-wit--63ed21b70fd1, pair Green formula"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The arbitrary-graph model of Schulman–Sinclair includes the target by choosing baths of deterministic occupation 1 on A and 0 on B, with contact rates alpha and beta. The inclusion-process match varies hopping and optimizes a positive covariance; the resetting match uses whole-configuration Poisson resets."
+        ],
+        "reasoning": "The generic bath representation is genuinely the same process under these parameter choices, but trading exchange and bath speeds does not interchange inclusion and exclusion or resetting and site flips. The literature query led back to the general-graph two-contact SSEP paper, not to the evaluated two-rate optimum.",
+        "searches": [
+          "symmetric exclusion process complete bipartite graph reservoirs each vertex stationary covariance source sink reservoir rates correlation maximum",
+          "arXiv:2607.22991v1, §2.1",
+          "Resultary: exclusion reservoir bipartite correlation maximum and covariance"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The common-bath-rate exclusion record provides a pair Green operator and a closed formula on the uniformly weighted complete graph. The inclusion optimum is on a bipartite graph, but has positive covariance. The same-date resetting record gives a sign change at 4/(m-2) on K_(2,m)."
+        ],
+        "reasoning": "None of these precise indexed values or thresholds concerns the two-rate open bipartite SSEP optimizer or its two normalized balanced constants. The same-day entry is not rejected on date but on generator and observable. There is no finite table that would cover the arbitrary-rate and graph-size assertion.",
+        "searches": [
+          "Resultary 2026/11/2/SCOPE-spectral-fluctuation-and-exact-covariance-laws-for-exclusion-wit--63ed21b70fd1",
+          "Resultary 2026/11/22/SCOPE-an-exact-finite-rate-correlation-maximum-in-boundary-driven-symm--e135bfca8d4a",
+          "Resultary 2026/10/26/SCOPE-a-local-neighbor-covariance-reversal-criterion-and-a-sharp-bipar--4811508cf037"
+        ]
+      },
+      "rationale": "The open-graph model and two-particle covariance methods have established precedents. In particular the all-sites baths fit an earlier general model, and the equal-rate part fits a later indexed Green-function representation. Neither inspection covers the unique magnitude maximum for every fixed positive source/sink rate ratio, its strict threshold, or its balanced scaling constants. The closest indexed optimum uses a different process, observable sign, and scan parameter.",
+      "residual_risks": [
+        "The literature comparison is bounded; an earlier evaluation of this geometry or an optimizer hidden in a generic framework could have escaped retrieval.",
+        "Even if other general exact covariance frameworks cover the finite equations, a distinct exact optimizer and scaling claim must be evaluated separately. The result assumes unit exchanges and homogeneous baths with fixed rate ratio and does not optimize current or normalized correlation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Contains the model and algorithmic marginal approximation, not the explicit rate optimization",
+          "evidence": [
+            "Arbitrary graph, bath-contact subset, contact rates and bath occupations; Theorem 2 approximates a fixed-k-site stationary marginal."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2607.22991v1",
+          "material_read": "Section 2.1 pp. 2–3 (offset 12238); Theorem 2 p. 5 (offset 21522)",
+          "method": "OA PDF",
+          "title": "Schulman–Sinclair open exclusion process paper",
+          "trigger": "Earlier broad arbitrary-graph and site-reservoir model"
+        },
+        {
+          "assessment": "Related general graph representation; not an all-sites bath evaluation",
+          "evidence": [
+            "The stated model connects vertices 1 and N-1 to the two reservoirs."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2307.02481v2",
+          "material_read": "Section 1.2 p. 2, offset about 5000, model and main representation scope",
+          "method": "OA PDF",
+          "title": "Non-equilibrium steady state of the symmetric exclusion process with reservoirs",
+          "trigger": "Closest search hit for a general-graph stationary description"
+        },
+        {
+          "assessment": "Different geometry and reservoir law",
+          "evidence": [
+            "The explicit covariance kernel is for a one-dimensional path with endpoint baths."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/0608165",
+          "material_read": "Section 4, pp. 12 and 14, equations (4.1)–(4.2), (4.7)",
+          "method": "OA PDF",
+          "title": "Stationary and Nonequilibrium Fluctuations in Boundary Driven Exclusion Processes",
+          "trigger": "Finite stationary covariance via two-particle Laplacian"
+        },
+        {
+          "assessment": "Closed, fixed-particle dynamics, not open steady states",
+          "evidence": [
+            "Spectrum and uniform stationary state in a fixed number sector on complete bipartite graphs."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1207.4106",
+          "material_read": "Section 4 pp. 6–7, equations (15)–(18)",
+          "method": "OA PDF",
+          "title": "Exact eigenspectrum of the symmetric simple exclusion process on the complete, complete bipartite, and related graphs",
+          "trigger": "Same graph family with exactly solved exclusion dynamics"
+        },
+        {
+          "assessment": "Covers a representation of the equal-rate subcase, not the differing-rate formula or the optimum",
+          "evidence": [
+            "Common bath rate xi gives C=-(2 xi I-Q^(2))^(-1)g, with explicit evaluation on the uniformly weighted complete graph."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-spectral-fluctuation-and-exact-covariance-laws-for-exclusion-wit--63ed21b70fd1",
+          "material_read": "RESULT.md Finding, pair Green relation and exact specialization",
+          "method": "Local published-record mirror",
+          "title": "Spectral fluctuation and exact covariance laws for exclusion with reservoirs",
+          "trigger": "Strongest indexed Green-law overlap"
+        },
+        {
+          "assessment": "Conceptually related optimum for a different dynamics",
+          "evidence": [
+            "Optimizes a positive cross-shore covariance in inclusion as the hopping rate changes."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-an-exact-finite-rate-correlation-maximum-in-boundary-driven-symm--e135bfca8d4a",
+          "material_read": "RESULT.md Finding",
+          "method": "Local published-record mirror",
+          "title": "An exact finite-rate correlation maximum in boundary-driven symmetric inclusion",
+          "trigger": "Strongest indexed bipartite optimization match"
+        },
+        {
+          "assessment": "Different generator and type of threshold",
+          "evidence": [
+            "Covariance sign reversal at a whole-configuration resetting rate on K_(2,m)."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-a-local-neighbor-covariance-reversal-criterion-and-a-sharp-bipar--4811508cf037",
+          "material_read": "RESULT.md Finding",
+          "method": "Local published-record mirror",
+          "title": "A local neighbor covariance reversal criterion and a sharp bipartite threshold",
+          "trigger": "Same-day indexed bipartite covariance threshold"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An all-rates exact stationary covariance in a basic solvable open-network geometry gives a rigorous rate selection law. The unique interior peak, explicit crossover and balanced constants quantify how the nonequilibrium covariance responds when both reservoirs speed up, in contrast with the strictly increasing net flux at fixed rate ratio. This goes beyond a sign test or a single numerical optimum.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

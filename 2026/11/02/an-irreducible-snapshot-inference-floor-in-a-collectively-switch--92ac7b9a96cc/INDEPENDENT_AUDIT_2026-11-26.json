@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:10:08.221017Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, stationary-law derivation and equations (1)–(5); VERIFICATION.md and verify.py inspected as submitted evidence",
+        "repairs/4/RESULT.md, corrected Finding and unchanged equations"
+      ],
+      "rationale": "For the corrected claim, the stationary convolution gives X_i=ell U+independent Gaussian noise. The centered residuals are independent of (U,S_0,sample mean), so the scaled mean is the whole inference channel, U+delta Z with delta^2=D/(gamma ell^2 N). Zero total stationary flux in the stationary transport equations gives p_1=u f and p_0=(1-u) f with beta density f; stationarity is unique by contraction for a coupled switching history. Thus the risk is the integral of the smaller joint likelihood, and the posterior mean of U has derivative Var(U|Y=y)/delta^2>0 and tends to 0 and 1 at the extremes, giving a unique threshold. The full-U Bayes risk is the stated beta-integral floor; it is strictly positive, and finite noise gives both threshold-crossing errors positive conditional probabilities. For the correction, the signed difference h=(2u-1)f(u) has h'(1/2)=2f(1/2)>0. Taylor expansion of its Gaussian convolution near 1/2 gives threshold 1/2+O(delta^2). Contributions at fixed distance from 1/2 are exponentially small even for singular beta endpoints, by integrability of f. In the remaining compact neighborhood rescale u-1/2=delta z; bounded f there and Gaussian decay give the limit 4f(1/2) times the integral of z Phi(-z) over z>0, which equals 1/4. At A=B=1 symmetry fixes the threshold and the finite integral with upper limit 1/(2delta) gives (5) by integration by parts. More generally integrating the derivative of [u(1-u)]^q gives the symmetric gamma-function floor, with the stated small- and large-q expansions by the digamma values and the gamma ratio asymptotic. The numerical verifier is corroborative only; the proof establishes the limiting coefficient at fixed positive parameters.",
+      "residual_risks": [
+        "This is a single stationary snapshot with known parameters and independent thermal noises, not time-series inference or an estimate uniform over switching rates."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bressloff, Section 5, equations 5.23–5.25 treat conditional Gaussian transition densities",
+          "The bounded search retrieved generic classification material rather than a matching small-noise risk theorem"
+        ],
+        "reasoning": "Transition and mixture descriptions do not directly give a sharp risk correction; a classification-boundary estimate remains necessary. Nonretrieval does not rule out a general small-noise theorem.",
+        "searches": [
+          "arXiv:2310.03418, switching OU model",
+          "Literature search: Gaussian-smoothed / small-noise Bayes-risk expansions"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary comparison including 2644572bf30f and catalog summary for 2ff29ec8b9fe",
+        "arXiv:1804.05740",
+        "arXiv:2310.03418",
+        "arXiv:1411.0849"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior joint law implies P(S=1|U)=U; standard Bayes theory then directly gives the full-U risk integral and the abstract Gaussian-channel risk representation",
+          "The radial record expands a threshold, not the beta–Gaussian excess risk"
+        ],
+        "reasoning": "Do not credit the latent law or generic representation as new. The evaluated expansion requires the moving-threshold estimate and a weighted Gaussian boundary layer; the exact uniform-beta benchmark requires integration in this channel. Those conclusions are not stated or directly supplied in the matching sources.",
+        "searches": [
+          "Herbach Proposition 4.4 and Remark 5.1",
+          "Bressloff Section 5",
+          "Resultary 2644572bf30f"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 2644572bf30f gives a radial likelihood threshold and Gamma-tail floor for on/off variance fluctuations as dimension increases",
+          "Herbach Proposition 4.4 supplies the same beta state law under promoter-switching terminology",
+          "Bäuerle et al. observe time-integrated chains along a time series"
+        ],
+        "reasoning": "A Gaussian random variance observed through the radius is a different channel from a beta random mean observed with additive Gaussian error of variance proportional to 1/N. The promoter equivalence is exactly at the latent stationary-law level; the filtering data and inference target differ.",
+        "searches": [
+          "Resultary comparison: single-snapshot switching harmonic trap, hidden binary state, nonzero limiting Bayes error",
+          "arXiv:1804.05740",
+          "arXiv:1411.0849"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2644572bf30f gives a Gamma-tail error formula, not the beta-function formula or evaluated correction",
+          "2ff29ec8b9fe concerns mutual information between particle groups as described in its catalog summary"
+        ],
+        "reasoning": "These nearby entries are not tables or instances of the assigned optimal binary risk. The first is a material related result; no priority order was inferred from its date directory.",
+        "searches": [
+          "Local Resultary search for exact population-snapshot classification risk in common switching harmonic confinement"
+        ]
+      },
+      "rationale": "The stationary law and standard Bayes decision machinery are prior. The closest distinct record gives a positive single-snapshot floor for a random-variance radial statistic, not the finite beta–Gaussian mean-channel risk, sharp evaluated excess-risk coefficient, or uniform-beta all-N expression. No examined source covers that corrected combination of claims by a direct specialization.",
+      "residual_risks": [
+        "An unidentified general small-noise classification theorem may imply the coefficient; the literature comparison is bounded.",
+        "Relative priority of the distinct November 2 records is not established, nor needed to distinguish the statements."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantive analogy; no equivalent formula or specialization",
+          "evidence": "On/off model, common random variance across spatial dimensions, radial threshold and Gamma-tail floor; no beta–Gaussian risk coefficient.",
+          "identifier_or_url": "Resultary:2026/11/2/SCOPE-sharp-radial-inference-and-a-dimensional-detectability-transitio--2644572bf30f",
+          "material_read": "RESULT.md at offsets 0 and 4992 in the local snapshot",
+          "method": "Local mirror statement and proof comparison",
+          "title": "Sharp radial inference and a dimensional detectability transition",
+          "trigger": "Closest distinct statement on a positive snapshot-inference floor"
+        },
+        {
+          "assessment": "Covers the mixing law, not the finite-N risk theorem",
+          "evidence": "Dirichlet marginal; conditional law has the parameter for the occupied state incremented by one, giving u f or (1-u) f after weighting.",
+          "identifier_or_url": "https://arxiv.org/pdf/1804.05740",
+          "material_read": "Proposition 4.4, PDF p. 12, and Remark 5.1, p. 13",
+          "method": "Open primary PDF, statement comparison",
+          "title": "Stochastic gene expression with a multistate promoter: breaking down exact distributions",
+          "trigger": "Equivalent latent process and joint mixing law"
+        },
+        {
+          "assessment": "Relevant model and law, not the asserted risk calculation",
+          "evidence": "OU process with switching random drift and conditional Gaussian densities.",
+          "identifier_or_url": "https://arxiv.org/pdf/2310.03418",
+          "material_read": "Section 5, PDF p. 23, equations 5.23–5.25",
+          "method": "Open primary PDF",
+          "title": "Global density equations for a population of actively switching particles",
+          "trigger": "Same population model class"
+        },
+        {
+          "assessment": "Different observation process; no implication established",
+          "evidence": "Discrete temporal observations of Brownian-perturbed integrated chain paths.",
+          "identifier_or_url": "https://arxiv.org/pdf/1411.0849",
+          "material_read": "PDF p. 1 observing regime and described filtering result",
+          "method": "Open primary PDF",
+          "title": "Exact and Approximate Hidden Markov Chain Filters Based on Discrete Observations",
+          "trigger": "Gaussian noisy state inference in a two-state environment"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired RESULT.md equations (1), (2), (4), and (5)",
+        "Herbach Proposition 4.4 for the scope of the already known stationary law"
+      ],
+      "rationale": "The common environment limits inference even as independent thermal noise is averaged out. The exact positive floor and explicit rate and coefficient of its approach quantify the difference between learning the environment's past-weighted mean and identifying its instantaneous state. This is a natural observable of the model, useful for evaluating a snapshot-based sensor. The symmetric benchmark calibrates the result without being its primary contribution.",
+      "residual_risks": [
+        "The finding quantifies a model-specific single-snapshot limit, not a general filtering limit."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

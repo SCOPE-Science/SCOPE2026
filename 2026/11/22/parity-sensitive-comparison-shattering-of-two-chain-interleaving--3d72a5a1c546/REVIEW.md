@@ -1,13 +1,21 @@
-# Scientific review: parity-sensitive comparison shattering of two-chain interleavings
+# Independent mathematical audit
 
-**Correctness — PASS.** Fixing both internal orders identifies an interleaving with a nondecreasing gap vector. The gap-vector construction proves exactly which comparison supports admit every unrestricted label vector. For each such vector, the graph of compatible linear extensions is connected by adjacent swaps, so an odd-only nonempty fiber must consist of a single word. The condition that all consecutive opposite-color pairs occur among the queried comparisons is equivalent to this singleton property. The explicit diagonal support and parity of its forced zig-zag shuffle prove the sharp all-positive-parameter VC formula, including the balanced odd obstruction and its lower witness. Independent Python and C++17 exhaustive checks compared the trace and obstruction characterizations for all 66 positive ordered profiles with total size at most twelve. An infinite theorem is not inferred merely from those finite runs.
+## correctness
 
-**Originality — PASS, subject to historical-priority risk.** The inspected general even-permutation forest theorem permits rearrangement within both chains; the inspected unrestricted two-chain theorem permits odd interleavings. Neither determines the parity-restricted two-chain shattering family. The inspected arbitrary-poset comparison criterion likewise concerns all linear extensions. The 2019 query-learning paper and 2020 permutation-learning paper supply context and terminology without the asserted two-chain parity boundary. Searches for parity-constrained shuffles, even linear extensions, fixed internal chain order, monotone lattice paths and full Boolean traces identified no equivalent theorem in the accessed sources. Unindexed or differently phrased prior coverage cannot be excluded.
+PASS
 
-**Value — PASS.** Interleavings of two ordered lists are the basic model for merge comparisons; preserving permutation parity selects a canonical index-two arithmetic subclass rather than an arbitrary collection. The theorem shows exactly when this restriction changes the VC dimension, provides a complete support-level obstruction involving adjacent crossings, and exhibits a sharp balanced-odd symmetry effect not implied by the unrestricted invariant. This motivates the precise parity boundary as a natural question in combinatorial query learning, even without claiming adaptive dimensions or a polynomial-time counting formula.
+A shuffle is a nondecreasing gap vector g with bits given by g_i<j. Repeated rows or columns and inversely ordered pairs force an implication between query bits. On an increasing support, choices j−1 or j for selected g_i realize all patterns unrestricted. Each trace fiber is the linear-extension set of the chains plus the oriented queried edges. If it is not a singleton, a connected graph of adjacent incomparable swaps contains an edge and hence both signs. A word has no admissible swap exactly when all its unlike-letter adjacencies are queried. On a diagonal the successive unlike-letter switches must use equal indices 1,2,…; the first run has length one and each internal run length two. For a<b the final run must be B, so the start is determined by a mod 2, and the only potentially obstructing word is even (even B-runs before A, except for the initial one-letter B-run only when a is even). Reversal with exchange of chains preserves B-before-A inversions. In the balanced case both starts are possible and they give inversion parities 0 and m mod 2. For the truncated diagonal, the letter immediately following the first of A_m and B_m is of the other chain, giving an unqueried adjacency. The empty support and m=1 are included. The replay independently reproduced all three stated balanced polynomials from direct even traces.
 
-Closest material inspected: Chase–Freitag (2019), *Bounds in Query Learning*; Diallo–Zopf–Fürnkranz (2020), *Permutation Learning via Lehmer Codes*; *Parity-refined comparison shattering of even permutations* (2026); *The first entropy obstruction for two-chain comparison shattering* (2026); and *Comparison shattering for linear extensions of finite posets* (2026). The last three cover different concept classes and are acknowledged as such.
+## originality
 
-Limitations: no general coefficient formula, no online/adaptive claim, no claim that the exact support test is polynomial-time, and no assertion of historical-priority certification. Verifier output provides reproducibility, not independent proof or review.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The supported distinction is the exact even-fiber support criterion and the resulting equal-odd dimension defect, not unrestricted comparison shattering or linear-extension sign imbalance.
+
+## value
+
+PASS
+
+This is an all-parameter classification of a natural sign-restricted comparison class. It explains why every non-singleton trace fiber is harmless and identifies exactly when a maximal support fails even though the unrestricted dimension and global parity counts may look benign. The loss for balanced odd chains is a structural boundary, not just a finite count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

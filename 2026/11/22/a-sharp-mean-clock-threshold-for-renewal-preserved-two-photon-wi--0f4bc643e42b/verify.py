@@ -30,7 +30,7 @@ assert s.simplify(s.diff(Phi(A,B),A,B)+8*A/B**2)==0
 count = 12
 phi_fun = lambda t: 2*(-math.expm1(-t))*(1+math.exp(-2*t))/(1+math.exp(-t))
 root=brentq(lambda t: phi_fun(t)-t,.2,2,xtol=2e-14)
-assert abs(root-1.13035954884516)<1e-12
+assert abs(root-1.130359548845188)<1e-12
 count+=1
 from numpy.random import default_rng
 rng=default_rng(126374)

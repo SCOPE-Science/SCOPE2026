@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:03:22.043482Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Fresh code independently generated the D₄ roots and integer adjacency, enumerated cliques by cardinality, replayed the frozen JSON, and topologically sorted each matching-oriented face poset. At squared cutoff 2 it verified (24,96,96), 96 pairs and critical vector (1,0,23), with 480 Hasse incidences checked. At squared cutoff 4 it verified (24,168,480,600,288,24), 791 pairs and critical vector (1,0,0,1,0,0), with 5760 incidences checked. Every nonempty face was consumed once. Replay: /workspace/branches/5b366b35-9eed-4007-88ed-31741e526210/independent_replay.py and replay-full.json in that directory. The uploaded verifier was read, not executed. In either sequence, the deletion time strictly increases along unmatched downward covers and is constant along matched upward covers, so the operation check proves acyclicity. One critical vertex and only top-dimensional critical cells yield the stated integral homotopy types at both scales. The distance histogram (96,72,96,12) at squared distances (2,4,6,8) gives the other stages, including the join of twelve antipodal pairs at cutoff 6. For the narrower repair all 23 critical triangles are maximal in the original first-scale complex and disjoint from the pairs, so they may be deleted first; retaining the unmatched vertex cannot add a coface of any nonempty face. The same 96 pairs then give the claimed spanning collapse without any changed certificate data.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The thesis p. 73 lists the 24-cell ranks 23 in degree 2 and one each in degrees 3 and 11 at its three indexed scales; p. 75 lists four-polytope homotopy classification as open.",
+          "The Platonic solids paper treats three-dimensional regular solids, not this four-dimensional polytope.",
+          "The two indexed same-object collapse theorems are both at radius 2, not √2."
+        ],
+        "reasoning": "The homology table and wider class of examples do not produce a concrete first-scale matching. For the second scale the marked cross-polytope collapse is structurally stronger, so it is not retained as a separate perfectness claim.",
+        "searches": [
+          "Saleh, On Vietoris-Rips Complexes of the 2-Sphere, §4.2 and open questions",
+          "Saleh–Titz Mite–Witzel arXiv:2302.14388; Resultary 91ab50e8ef94 and 6421d0ac1ad1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify_24cell.py and 24cell_certificate.json; independent replay source and output; repaired RESULT.md",
+        "Saleh thesis §4.2 and p. 75; arXiv:2302.14388 abstract and scope",
+        "Resultary 6421d0ac1ad1, 91ab50e8ef94 and 0ba8dd67ce84"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Collapsing K₂ to the boundary of a 16-cell extends to a perfect matching by the usual perfect matching on the fourfold join of two-point sets.",
+          "The same source's first-scale proof computes π₁ and H₂ and uses Whitehead; it neither picks 23 critical triangles nor reduces the complement by simplicial collapse.",
+          "In the retained certificate, all 96 edges and all 24 vertices survive the initial 23 triangle deletions; a specified ordered collapse then eliminates all but one vertex."
+        ],
+        "reasoning": "The original homotopy types and abstract second-scale perfectness are covered or implied. The repaired first-scale datum gives a specific collapsible spanning subcomplex and a complete reduction, not an abstract witness derived from knowing the ranks and homotopy type.",
+        "searches": [
+          "Resultary 6421d0ac1ad1 Finding and Proof, mirror offsets 0–5690",
+          "Frozen squared-cutoff-2 certificate and repaired spanning-collapse proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The marked-collapse source uses the identical D₄ root model, Euclidean metric and inclusive thresholds. At the first threshold it identifies the complex with the two-skeleton of the convex 24-cell, then derives the wedge type by Hurewicz and homological Whitehead.",
+          "The 48-root F₄ record 0ba8dd67ce84 is not the same 24-point complex."
+        ],
+        "reasoning": "The two-skeleton description is an equivalent object, and its wedge type is covered. Abstract homotopy equivalence does not specify deletions or an acyclic matching on those original simplices.",
+        "searches": [
+          "Resultary: 24-cell Euclidean Vietoris–Rips perfect discrete Morse matching, D4 root system, collapse and homotopy filtration",
+          "Resultary 6421d0ac1ad1, First nontrivial stage"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "6421d0ac1ad1 states exactly the original entire pointwise filtration and provides a 752-pair certificate at radius 2.",
+          "91ab50e8ef94 gives a 736-pair collapse of the same K₂ to a 10-vertex triangulated PL sphere.",
+          "The thesis table is an exact rank match under the matching distance-shell interpretation; the inspected page does not itself identify its indexed scales with the literal radii in the repair."
+        ],
+        "reasoning": "There is exact overlapping mathematical data for the filtration types and explicit second-scale collapse coverage. No indexed first-scale triangle deletion/collapse certificate was established in the matching sources.",
+        "searches": [
+          "Resultary: 24-cell Euclidean Rips collapses, exact homotopy and persistent homology; source IDs 6421d0ac1ad1, 91ab50e8ef94, 0ba8dd67ce84",
+          "Saleh §4.2 p. 73, 24-cell row"
+        ]
+      },
+      "rationale": "Pass is for the repaired exact first-scale matching and spanning-collapse witness on the unsubdivided faces, not for the full filtration or perfectness at the second scale. The close 24-cell result 6421d0ac1ad1 gives the identical filtration types and a stronger marked collapse at radius 2, which already yields a perfect matching there. At radius √2 its wedge proof uses the two-skeleton and homological Whitehead theorem, not a matching on the 216 original faces. The thesis reports homology ranks, not the actual spanning subcomplex or reduction. No inspected source provided the first-scale witness retained here; this is a bounded conclusion, not a priority assertion.",
+      "residual_risks": [
+        "A prior first-scale certificate, an equivalent matching for the 24-cell two-skeleton, or a general polytopal shelling construction may exist outside the inspected comparisons. The witness claim is about the explicit original-face reduction, not priority for an abstract existence theorem.",
+        "The thesis's scale labels should not be cited as literal radii without normalization. No chronological priority is inferred from the index dates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior integral homology data; no first-scale perfect certificate in the compared passages",
+          "evidence": "The 24-cell row gives H₂(VR₁)=Z²³, H₃(VR₂)=Z, H₁₁(VR₃)=Z; the indexed scales are consistent with unit-edge squared distance shells but not written as the target's literal radii there.",
+          "identifier_or_url": "https://jlupub.ub.uni-giessen.de/server/api/core/bitstreams/34b835ec-c58f-4735-8982-4e822628bd74/content",
+          "material_read": "§4.2, printed p. 73 (PDF p. 81, OA offset about 113300) and open questions p. 75",
+          "method": "Bounded OA passages in identified JLU repository copy",
+          "title": "On Vietoris-Rips Complexes of the 2-Sphere",
+          "trigger": "Cited same-object doctoral thesis"
+        },
+        {
+          "assessment": "Different class of polytopes",
+          "evidence": "Concerns vertex sets of the Platonic solids, not the 24-cell.",
+          "identifier_or_url": "arXiv:2302.14388",
+          "material_read": "PDF p. 1, abstract and theorem scope, OA offset 0",
+          "method": "Bounded OA PDF inspection",
+          "title": "Vietoris-Rips complexes of Platonic solids",
+          "trigger": "Plausible broader polytopal Rips theorem"
+        },
+        {
+          "assessment": "Covers full pointwise homotopy list and provides stronger marked collapse at the second scale, but not the repaired first-scale certificate",
+          "evidence": "The first-stage proof uses the two-skeleton and Hurewicz/Whitehead; the explicit 752 pairs reduce K₂ to the induced 16-cell boundary, not K_{√2}.",
+          "identifier_or_url": "Resultary 6421d0ac1ad1, local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "material_read": "Finding and Proof, offsets 0–5690, including both first-scale argument and marked middle-stage collapse",
+          "method": "Local index and mirrored RESULT.md",
+          "title": "A marked cross-polytope collapse in the 24-cell Vietoris–Rips filtration",
+          "trigger": "Most direct same-object, same-normalization comparison"
+        },
+        {
+          "assessment": "Constructive overlap at second scale only",
+          "evidence": "A 736-pair elementary collapse of the same K₂ onto a 10-vertex triangulated PL S³, with shelling/link certificate.",
+          "identifier_or_url": "Resultary 91ab50e8ef94",
+          "material_read": "Finding and Proof",
+          "method": "Local Resultary mirror",
+          "title": "A 736-collapse three-sphere core for the 24-cell Vietoris–Rips complex",
+          "trigger": "Exact same K₂ constructive result"
+        },
+        {
+          "assessment": "Different vertex set and filtration",
+          "evidence": "Uses all 48 F₄ roots, in which an early stage is a subdivided 24-cell boundary; not the Rips complex on the 24 D₄ roots.",
+          "identifier_or_url": "Resultary 0ba8dd67ce84",
+          "material_read": "Finding via local index comparison",
+          "method": "Resultary indexed statement comparison",
+          "title": "A persistent 3-sphere in the first Euclidean Rips stages of the F₄ root system",
+          "trigger": "Possible alias for a 24-cell result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The retained datum is a complete optimal reduction of a natural geometric complex without subdivision, specifying exactly how to select top facets to leave a collapsible spanning subcomplex. A researcher can use the actual pairs or retained subcomplex to study explicit cells and attaching data, rather than working only from Betti numbers or an abstract wedge equivalence. The independent exact replay confirms the intended original-face structure; neither second-scale duplication nor the already covered homotopy types are credited as new value.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

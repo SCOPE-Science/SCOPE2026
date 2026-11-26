@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-The algebra's \(8\)-element monomial basis by squarefree subsets was used to construct all regular multiplication matrices. For each coefficient tuple over \(\mathbb F_q\), the supplied checker computes the matrix-power ranks and reconstructs the nilpotent Jordan partition. Exhaustive enumeration was completed over \(\mathbb F_3\) and \(\mathbb F_5\), with \(2187\) and \(78125\) elements respectively; the results exactly match every listed partition multiplicity. Separate exhaustive \(\mathbb F_2\) and \(\mathbb F_4\) tests verify only the excluded boundary; \(50000\) sampled elements each over \(\mathbb F_7\) and \(\mathbb F_{11}\) produced no partition outside the theorem's support. See `checker.py` and `checker_output.txt` for reproducibility.
+# Independent mathematical audit
 
-The proof's irreducible checks are the unit-normal-form reduction, the kernel of multiplication by \(x+\delta yz\), the determinant \(-2\) of the degree-one-to-degree-two map for \(x+y+z\), the identity \((x+y+z)^3=6xyz\), and the final polynomial-count sum \(q^7\). Each is explicit in `RESULT.md`. Exhaustive finite tests do not prove the theorem for every odd finite field, and they do not certify historical priority. Independent mathematical audit has not been performed.
+## correctness
+
+PASS
+
+Checked over every odd field. Without a linear part, the multiplication map squares to zero, with rank 2 for nonzero quadratic part, rank 1 for a pure nonzero cubic, and rank 0 for zero. Otherwise choose x along a nonzero coefficient and write f=xu+v in B⊕xB for B=k[y,z]/(y²,z²), u invertible. Dividing by u preserves every power rank; the kernel for x+w, w=v/u, is exactly (−wc,c) with w²c=0, so the first rank is 4 except for support three, where it is 5. The square has rank 2 for support at least two and rank 1 for support one precisely when the complementary quadratic coefficient is nonzero; otherwise the square is zero. The cube is 6a₁a₂a₃xyz. Rank differences give the displayed partitions; counting linear supports and the free higher coefficients recovers the seven multiplicities summing to q⁷, the conditional probability 1−1/q, and the scalar-shift assertion. Independent enumeration using multiplication columns confirmed the full counts at 3 and 5.
+
+## originality
+
+PASS
+
+Pass for the all-element odd-finite-field table including its nonlinear support-one distinction, not for the already known higher-characteristic strong Lefschetz type or detection of the characteristic-three Lefschetz obstruction. The closest inspected distinct finite-field censuses use different algebras; the same-algebra primary example uses a linear element and supplies no counts for its nonlinear strata.
+
+## value
+
+PASS
+
+The radical of this natural product of three squarezero algebras is parametrized in a way that separates homogeneous Lefschetz effects from the effect of higher terms. The precise distribution is usable in comparisons of multiplication strata over different fields, and the support-one stratum demonstrates that knowing the initial linear form can systematically give the wrong Jordan partition, with exact conditional frequency. The full-field scope and completeness matter; a rederivation of the generic linear case alone would not suffice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

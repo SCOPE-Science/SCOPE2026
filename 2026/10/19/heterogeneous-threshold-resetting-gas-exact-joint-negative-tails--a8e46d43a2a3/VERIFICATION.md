@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility and mathematical limits
 
-A direct derivation in `RESULT.md` proves the exact stationary joint left-tail scaling through an explicit killed-Brownian Gaussian integral, the finite-mean renewal formula, an integrable dominated-convergence envelope, gamma integration, and the tail integration identity. The proof's assumptions require fixed \(N\ge3\), positive diffusivities, positive upper reset thresholds and nonzero positive relative left-tail depths.
+# Independent mathematical audit
 
-Run `python verify.py` with NumPy and SciPy to numerically integrate the independently parameterized renewal survival integrals and finite-scale event probabilities. Checks cover heterogeneous four- and five-particle settings, several tagged-index sets, two distinct choices of reset levels at fixed diffusivities, and comparison of conditional pair-coefficient ratios against their algebraic value. Computations at finite radius corroborate the asymptotic constants, but finite-radius quadrature does not prove the limit or rule out unobserved numerical errors. The rigorous limit is the dominated-convergence argument in the main proof.
+## correctness
 
-The source's homogeneous stationary density and its renewal form are prior work, not new. Originality assessment considered the stated heterogeneous claim, not merely a changed notation. Possible inclusion under broader regenerative-mixture or multivariate regular-variation theorems remains a literature-completeness risk. No independent audit or external certification has been performed.
+PASS
+
+Independence and the one-sided reflection principle give S_i and the killed kernel at variance 2D_i t. The cycle mean is μ, finite and positive for N>2 by the t^(−N/2) survival product. Finite-mean nonlattice regeneration at the common zero gives the stationary normalized cycle occupation measure. Integrating each tagged killed kernel to −Rc_j gives the Gaussian integral over [Rc_j,Rc_j+2L_j]; an untagged kernel instead integrates over [−L_i,L_i]. Independently of the frozen dominated-convergence argument, let U_i be independent uniforms over these respective intervals. Tonelli permits integrating t first, giving the exact joint probability A Γ(ν)4^ν/μ times E[(∑ U_i²/D_i)^(−ν)]. Since J is nonempty and the tagged depths are fixed positive, the scaled quadratic form converges uniformly over the windows to ∑ c_j²/D_j and stays bounded away from zero. This yields the claimed limit and positive prefactor for every J, including all coordinates. Dividing the pair constant by the one-coordinate constant gives (D_j/(D_i+D_j))^ν. The bounded positive side and tail integration give exactly p<N−2 and logarithmic divergence of the boundary truncated moment. Independent compact-box quadrature reproduced μ≈0.35698468349 and limiting constants 1.16798046352 and 0.38932682117, and tested a pair at unequal depths.
+
+## originality
+
+PASS
+
+The supported distinct contribution is the sharp joint coefficient across all nonempty tagged subsets of an arbitrarily heterogeneous system, including its common-depth conditional consequence. The exact homogeneous stationary mixture, N>2 cutoff, and homogeneous case of the tail theorem are covered. The strongest exact overlapping catalogue statement has common D and L, plus a conditional age law; it cannot normalize away arbitrary ratios L_i/√D_i. The external-interval stationary mixture does not give the killed conditional kernels of this state-triggered reset model. No inspected statement establishes the fully heterogeneous joint asymptotic or its parameter dependence.
+
+## value
+
+PASS
+
+A single finite population has a genuinely shared heavy-tailed renewal age. The exact directional coefficients quantify which large excursions still co-occur at a common physical depth, and distinguish dependence on diffusivities from the thresholds that affect the absolute rates. The moment cutoff also gives concrete integrability information in a stationary regime. These are natural observables of the model; the heterogeneous family is not an arbitrary parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

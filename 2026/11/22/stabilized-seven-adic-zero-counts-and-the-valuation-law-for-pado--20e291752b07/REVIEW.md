@@ -1,12 +1,21 @@
-# Scientific review of the seven-adic Padovan valuation theorem
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is limited to the recurrence with initial data \((1,1,1)\), the prime \(7\), and every positive integer prime-power exponent. The companion matrix has an exact modulo-seven period of \(48\) on its initial vector, with a nontrivial first lift modulo \(49\), proving the least period \(48\cdot7^{k-1}\). The twelve zero residue classes at the first level split into nine simple linear seven-adic branches and three quadratic branches with two simple roots each after division by \(49\). This determines the all-level zero counts \(12,30,51,51,\ldots\) without extrapolating from finite data. The embedded `check.py` regenerates all critical finite coefficients and enumerates six whole periods independently. Risks: the proof relies on standard seven-adic Hensel lifting and the convergence of the companion-matrix binomial interpolation, both explicitly justified in RESULT.md; the finite test alone would not prove the result.
+## correctness
 
-## Originality — PASS on examined sources
-The full text of Nacin's 2022-public Padovan article addresses linear recurrence families rather than prime-power zero frequencies. The modular-period results of Deveci and Karaduman provide related techniques but no exact zero count for the fixed standard orbit. The 2026 study by Bravo gives limited shifted seven-adic valuations on one progression, not this unshifted complete valuation law. Closest indexed mathematical results at the primes \(2\) and \(23\), and a general theorem for irreducible projective recurrence matrices, have hypotheses and conclusions that do not imply the singular seven-adic classification here; the companion polynomial is reducible modulo \(7\). A 2022 Padovan multiplicity article counts literal integer zeros and repeated values, not zeros modulo growing powers of seven. Risks: unindexed equivalent modular recurrence research and the incompletely inspected texts of peripheral sources remain possible. Absence of a search hit is not treated as proof of novelty.
+PASS
 
-## Value — PASS
-A complete, naturally defined arithmetic invariant is determined: the number of indices giving a zero residue in one least prime-power period, and hence the entire distribution of seven-adic valuations. The stabilized value \(51\) is not an input parameter or an arbitrary cut-off; it arises from a structural bifurcation of three singular Hensel branches and is compatible with ever-growing periods. The result distinguishes the standard recurrence's fixed orbit from averaged recurrence-orbit statistics and provides exact frequencies at every valuation level. Risks: it is specific to one prime and does not classify every residue class; neither restriction invalidates the exact invariant or its motivation.
+For the specified initial triple scalar periods coincide with triple returns. T^48=I mod 7; the triple fails to return at 16 or 24, covering the proper divisors of 48. If E=T^48-I, the first-order vector (E/7)v is (4,5,4) mod 7. Induction on seventh powers gives T^(48*7^a)=I+7^(a+1)B with B=E/7 mod 7, and a power coprime to 7 multiplies this leading term by a unit. This gives the least period at every level. For F_i(t)=P_(i+48t), the Mahler coefficient of binomial(t,j) is divisible by 7^j; converting to ordinary powers loses at most v_7(j!) and leaves coefficients tending to zero. After division by 7 the regular reductions are linear with nonzero slope; after division by 49 the three others have two simple roots each, since terms with j>=3 still vanish modulo 7. Hensel lifts give nine contributions of one and three of fourteen (two solutions mod 7^(k-2), seven representatives each mod 7^(k-1)); at k=2 the latter contribute seven each. The period densities and successive differences agree with every displayed mass. Independent replay python3 -B /workspace/checks/padovan.py computed the matrix columns by iterating the three coordinate seeds, recomputed the regular data and the exceptional roots (2,4), (4,6), (1,6), and directly stopped on the first triple return through k=6 (counts 12,30,51,51,51,51). The all-k conclusion uses lifting, not extrapolation.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The supported distinct claim is the all-level zero incidence law for the fixed Padovan orbit at 7 and its full valuation distribution. Credit known low-level periods, recurrence and general lifting machinery; the value 51 requires the local root calculation, not merely extending a known period.
+
+## value
+
+PASS
+
+Fixed-orbit modular zero frequency is a natural recurrence invariant. The finite computations isolate a nontrivial split of three singular branches, explaining why the zero count becomes constant despite growing period, and give exact valuation masses at every power rather than a chosen finite sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

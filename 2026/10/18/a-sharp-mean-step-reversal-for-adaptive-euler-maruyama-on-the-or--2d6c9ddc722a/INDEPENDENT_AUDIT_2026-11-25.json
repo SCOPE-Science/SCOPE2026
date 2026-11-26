@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:24:31.896560Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The uniform step bounds imply a uniform contraction bound q<1 on |1−λh(x)| and positive uniform variance bounds. The second-moment drift and everywhere-positive transition density give an irreducible, aperiodic chain with small compact sets, a unique invariant law and full support; fourth-moment drift follows by absorbing the quadratic cross term into a coefficient strictly below one on x^4. Reflection of the transition kernel proves symmetry by uniqueness. The conditional second-moment balance is E[hY²]−(λ/2)E[h²Y²]=vH. Recenter h=H+(h−H): E[(h−H)Y²]=−Δ and E[(h−H)²Y²]=S, giving exactly the two-defect formula; the positive denominator and fixed-step AR(1) variance are as stated. Independent copies and radial monotonicity give Δ≥0; continuity and full support give S>0 if h is nonconstant, including at H=1/λ. For hε the moment drifts are uniform for small ε and the transition kernels converge on compact sets to the h0 kernel. Tightness, passing stationarity against bounded continuous functions, and uniqueness show convergence to N(0,V0); the fourth-moment bound gives uniform integrability for the quadratic terms. The Gaussian exponential tilt gives Δε/ε→2kV0²/(1+2kV0)^(3/2)>0 and Sε=O(ε²). This proves the coefficient, with strict negative sign at each fixed h0>1/λ for sufficiently small ε. The comparison is against its own Hε, not h0. It is existential above the boundary, not a universal upper bound there. Even to target any prescribed H strictly above the boundary, vary h0 in [H−ε,H]: the invariant law and mean step are continuous by the same compact-kernel argument, and the endpoint mean steps bracket H. The sign proof still applies along h0→H. These are mesh-point variances; an invariant physical-time law would be a different comparator.",
+      "replay": "python /workspace/check_frozen_algebra.py (section 4; recentered balance and Gaussian tilt identity)",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wen et al. define a pre-step state-adapted Euler mesh and prove invariant-measure results under assumptions; cited convergence is to a numerical invariant law and the numerical measures approximate the SDE law.",
+          "Lamba et al. prove an invariant embedded chain for their adaptive method; Fang–Giles analyze adaptive finite-time approximation and invariant-law estimation by multilevel sampling."
+        ],
+        "reasoning": "Ergodicity and approximation to the SDE law are relevant broader facts but do not determine the sign of the difference between two discrete invariant variances at an equal mean step.",
+        "searches": [
+          "Wen–Huang–Li arXiv:2608.10855v1 §3 and Theorem 8.8",
+          "Lamba–Mattingly–Stuart arXiv:math/0601029v2 Theorem 3",
+          "Fang–Giles 2020 §3.1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2403.11993",
+        "arXiv:2608.10855v1",
+        "arXiv:math/0601029v2",
+        "doi:10.1007/978-3-030-43465-6_9",
+        "Resultary 107862105735"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact balance has a finite-step λ²E[h²Y²] term absent from the continuous residence-time argument. Its recentered covariance coefficient changes sign at λH=1 while the squared-step defect remains nonnegative; the perturbation controls both at different orders."
+        ],
+        "reasoning": "The balance uses standard stationarity algebra, Gaussian moments and ergodicity; the sharp sign theorem is not a parameter substitution into a prior invariant-law or strong-error result.",
+        "searches": [
+          "arXiv:2403.11993 Eqs. (2.10), (2.13), (2.15)",
+          "arXiv:2608.10855v1 Theorem 8.8",
+          "Resultary 107862105735 assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The uncorrected Euler update in Eq. (2.10) specializes to the supplied kernel with h=Δt g in the overdamped quadratic case. Equation (2.15) describes density reweighting for the time-rescaled continuous diffusion, not the finite-step chain.",
+          "The strongest nearby catalogue record studies a shared-noise Euler–Heun PI controller's one-step multiplier and clipping, expressly without a stationarity assumption."
+        ],
+        "reasoning": "Equivalence of Euler algorithms is credited, not mistaken for equivalence of invariant-moment comparisons. Neither weighting by g in continuous time nor the local PI law yields the finite-step Δ,S identity or the sharp H comparison.",
+        "searches": [
+          "Leroy et al. arXiv:2403.11993 §2 Eqs. (2.10)–(2.15)",
+          "Resultary: OU adaptive Euler invariant mean step stationary variance / adaptive Gaussian moment law"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact normal AR(1) fixed-step variance and Gaussian tilted moments are standard. The nearby Resultary exact law is a noncentral chi-square controller multiplier/clipping law, not a stationary variance table. The targeted literature query surfaced the motivating adaptive-chain study and uniform-grid OU moment material, not an evidenced matched-H threshold."
+        ],
+        "reasoning": "No standard tabulation is applicable to the invariant law of a general nonconstant h. Known fixed-step formulas and tabulated Gaussian moments are inputs, not the claimed stationary comparison. A search miss is not proof of priority.",
+        "searches": [
+          "Resultary 107862105735 RESULT.md, Finding and Scope",
+          "Primary-literature search: adaptive Euler Maruyama Ornstein Uhlenbeck discrete stationary variance comparison invariant mean step state dependent step size covariance moment balance exact bias"
+        ]
+      },
+      "rationale": "Neither the equivalent adaptive Euler kernel, the continuous-time residence-time correction, nor the classical fixed-step OU variance is distinct here. The supported distinct result is the finite-step sign comparison to a fixed step set at the adaptive chain's own invariant mean step, with a sharp universal domain and opposite-sign witnesses beyond it. The inspected adaptive invariant-law and time-change results do not supply that comparison.",
+      "residual_risks": [
+        "Specialized or unindexed OU stationary-bias calculations could contain equivalent balances; bounded discovery does not exclude this.",
+        "No claim of novelty for either the Euler kernel or continuous-time reweighting; the result is limited to mesh-point stationary second moments."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "same uncorrected kernel in quadratic case; time-rescaling result not the equal-H comparison",
+          "evidence": "Uncorrected bias, correction term, and rescaled density ρ/g with physical-time weights.",
+          "identifier_or_url": "arXiv:2403.11993",
+          "material_read": "§2 pp. 4–6, Eqs. (2.10)–(2.15), offsets 15800 and 21500",
+          "method": "OA PDF passages",
+          "title": "Adaptive Stepsize Algorithms for Langevin Dynamics",
+          "trigger": "closest equivalent algorithm and invariant-bias mechanism"
+        },
+        {
+          "assessment": "same state-dependent mesh idea; not an exact matched-H identity or sign classification",
+          "evidence": "Pre-step adaptation, numerical invariant-measure convergence and approximation to continuous law.",
+          "identifier_or_url": "arXiv:2608.10855v1",
+          "material_read": "§3 adaptive mesh (offset 17550), Theorem 8.8 (122662), intro invariant-measure claims (9022)",
+          "method": "OA PDF passages",
+          "title": "Adaptive Time-Stepping Euler–Maruyama Scheme for SDEs with Non-Globally Lipschitz Coefficients: Uniform Convergence, Stability and Ergodicity",
+          "trigger": "motivating scheme and strongest plausible broad invariant-law theorem"
+        },
+        {
+          "assessment": "general embedded-chain ergodicity, not OU equal-mean-step comparison",
+          "evidence": "Theorem establishes an invariant probability for the adaptive algorithm's embedded chain.",
+          "identifier_or_url": "arXiv:math/0601029v2",
+          "material_read": "intro offset 10500 and Theorem 3 offset 36816",
+          "method": "OA PDF passages",
+          "title": "An Adaptive Euler–Maruyama Scheme for SDEs with Non-Globally Lipschitz Coefficients",
+          "trigger": "earlier adaptive Euler invariant-law result"
+        },
+        {
+          "assessment": "multilevel estimation goal, not exact stationary matched variance",
+          "evidence": "Adaptive approximations over finite, level-dependent time horizons.",
+          "identifier_or_url": "doi:10.1007/978-3-030-43465-6_9",
+          "material_read": "abstract and §3.1 (offset 26800)",
+          "method": "OA chapter passages",
+          "title": "Adaptive Euler–Maruyama Method for SDEs with Non-globally Lipschitz Drift",
+          "trigger": "related adaptive invariant-distribution estimation"
+        },
+        {
+          "assessment": "distinct one-step controller question",
+          "evidence": "Exact local multiplier and clipping laws; no stationarity assumption.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-exact-clipping-and-moment-laws-for-gaussian-euler-heun-pi-step-c--107862105735/RESULT.md",
+          "material_read": "Finding and Scope",
+          "method": "local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact clipping and moment laws for Gaussian Euler–Heun PI step control",
+          "trigger": "strongest nearby Resultary hit for Gaussian adaptive moment laws"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Matching the invariant average step makes the variance comparison meaningful per Markov update. The identity quantifies two competing sources of stationary bias and identifies a sharp point where radial shrinking ceases to be universally worse than a fixed step. It answers a concrete sampling-design question without inferring improved autocorrelation, physical-time sampling, or runtime.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

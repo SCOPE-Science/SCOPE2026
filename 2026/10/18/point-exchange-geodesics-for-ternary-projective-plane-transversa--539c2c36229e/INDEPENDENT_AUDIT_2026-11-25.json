@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:45:28.152272Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, Finding, Proof and Verification",
+        "VERIFICATION.md, certificate.json, verify_pg3.py (inspected, not executed)",
+        "/workspace/replay/pg3_replay.py (executed with Python 3)"
+      ],
+      "rationale": "A Johnson step can increase intersection with a fixed target by at most one. Therefore the all-pairs target-directed move test in the supplied proof is sufficient by induction. An independent exhaustive check constructs PG(2,3) using powers of a norm-one generator g of F_27 defined by g^3=g+1. The powers give one representative of every projective point, and the 13 translates of a two-dimensional subspace give all projective lines. The check enumerates complements that contain no line, constructs the exchange edges by pairwise symmetric difference, and runs BFS from every feasible vertex, rather than using the supplied targeted-exchange algorithm. All 3,995,862 distinct ordered pairs at k=6 through 13 have distance half the symmetric difference size. The full transversal census, radius–diameter pairs and k=6 degree and eccentricity classes agree; the 234 no-whole-line sets are exactly the nonvertex points on triangle sides. At k=5 the 13 components each have size nine and every vertex has degree eight; at k=4 the only vertices are the 13 lines and there are no edges; smaller levels are empty. The statement applies to transversals containing a line as well as those containing none.",
+      "residual_risks": [
+        "The exact computation concerns only PG(2,3). The supplied script uses int.bit_count(), so its advertised Python 3.9 minimum should read Python 3.10; this is a replay-documentation error, not a mathematical failure."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bonsma–Kamiński–Wrochna discuss token-jumping of independent sets of ordinary graphs, including the no-even-cycle sufficient condition for a Johnson-length route and connectivity under claw-free, even-hole-free assumptions.",
+          "The 2022 static blocking-set classification describes finite minimal sets up to equivalence by size and automorphism-group order; only the abstract was verified independently."
+        ],
+        "reasoning": "Here the complementary independent sets are defined by forbidden four-point lines, not edges of a graph on those points. Static minimal representatives do not themselves give all-pairs shortest paths among both minimal and nonminimal feasible sets.",
+        "searches": [
+          "arXiv:1403.0359 §3, p. 5",
+          "10.1002/jcd.21842, DOI/Wiley full-XML, Crossref abstract, lawful author-copy search with blocking-set reconfiguration"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1403.0359 §3",
+        "doi:10.1002/jcd.21842 abstract",
+        "Resultary 2ff15d411d81, 4f07f9ce871a, 25deca33c37d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "An all-pairs Johnson-distance statement is not among the induced graph's stated metrics, and routes in an induced 234-state subset do not settle distances involving any of the other 468 states or larger families.",
+          "The frozen checker gives a six-point pair and a specific removed point violating the full matroid basis-exchange axiom, while the independently replayed existential next move gives all Johnson distances."
+        ],
+        "reasoning": "Neither static classification, arbitrary token-jumping connectivity, nor matroid exchange supplies the claimed universal target-directed move for these families.",
+        "searches": [
+          "2ff15d411d81, RESULT.md finding",
+          "4f07f9ce871a, RESULT.md finding",
+          "arXiv:1403.0359 §3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Complementation sends a blocking set to a subset containing no whole line and preserves exchange and Johnson distance; duality turns the original point set into a line cover.",
+          "The line-avoidance record studies this same complementary set system, but its inspected finding computes the complex's homotopy and homology, not the fixed-size exchange distances."
+        ],
+        "reasoning": "Either the complement or the dual could carry an equivalent theorem. The known topological result on the full complex does not assert an isometry of its uniform layers.",
+        "searches": [
+          "Resultary: line-avoidance and projective symmetry in PG(2,3), 4f07f9ce871a",
+          "Resultary: ternary projective plane blocking-set exchange, 2ff15d411d81"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 234-set exchange record matches exactly the induced line-free class at k=6: six-regular with 702 edges and radius/diameter 6. The audited graph also includes 468 line-containing states, and its radius is 5.",
+          "The distinct same-day geodetic-bases record concerns point-and-line vertices of the incidence graph, not subsets of points meeting all lines.",
+          "The blocking-set classification's tables were not accessible; known static counts are not credited to the audited record."
+        ],
+        "reasoning": "Neither the exact induced-subgraph census nor the same-day incidence-graph result is the stated 702-vertex full graph or the eight-level isometry theorem. This differentiation follows from the state spaces and metrics, not catalog dates.",
+        "searches": [
+          "Resultary: ternary line transversals point exchange and exact metrics",
+          "2ff15d411d81",
+          "4f07f9ce871a",
+          "25deca33c37d",
+          "doi:10.1002/jcd.21842"
+        ]
+      },
+      "rationale": "The distinct claim is Johnson isometry for the full line-hitting families across every level k=6 through 13, together with the sharp threshold and exact metric census. The minimum and static classification of blocking sets are not new. The strongest available related exchange theorem treats only the induced class without whole lines, and the general graph-independent-set theorems do not model the hypergraph constraint.",
+      "residual_risks": [
+        "The full static classification was unavailable; possible additional exchange material was not ruled out, and priority is not inferred from dates alone."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Relevant static overlap; any exchange corollary unresolved",
+          "evidence": "The abstract describes a computer classification up to equivalence, tabulated by size and automorphism-group order.",
+          "identifier_or_url": "https://doi.org/10.1002/jcd.21842",
+          "material_read": "Crossref abstract and bibliographic metadata only; not the tables or full paper",
+          "method": "DOI and Wiley OA routes returned 403; checked DOI recovery and searched for lawful alternate copy",
+          "title": "Classification of minimal blocking sets in small Desarguesian projective planes",
+          "trigger": "Closest published exact static census of minimal blocking sets"
+        },
+        {
+          "assessment": "Different feasible-set predicate",
+          "evidence": "The no-even-cycle exchange criterion and claw-free/even-hole-free connectivity concern independent sets of ordinary graphs.",
+          "identifier_or_url": "https://arxiv.org/pdf/1403.0359",
+          "material_read": "§3, printed p. 5 (PDF text offset 16300), adjacent equivalence, distance criterion and Corollary 5",
+          "method": "Primary OA PDF passages",
+          "title": "Reconfiguring Independent Sets in Claw-Free Graphs",
+          "trigger": "Possible broader token-jump distance theorem"
+        },
+        {
+          "assessment": "Direct overlap of one induced subgraph, does not cover the full claim",
+          "evidence": "Reports 234 line-free six-sets, degree 6, 702 edges, radius and diameter 6 and a distance-layer profile.",
+          "identifier_or_url": "Resultary 2ff15d411d81",
+          "material_read": "RESULT.md finding and no-whole-line restriction",
+          "method": "Local mirror passage",
+          "title": "The six-regular exchange graph of minimum nontrivial ternary projective-plane blocking sets",
+          "trigger": "Same plane, same-sized blocking sets, same moves"
+        },
+        {
+          "assessment": "Same complementary complex, different invariant",
+          "evidence": "Studies homotopy and homology, not uniform-layer exchange distances.",
+          "identifier_or_url": "Resultary 4f07f9ce871a",
+          "material_read": "RESULT.md finding and definition of the complex",
+          "method": "Local mirror passage",
+          "title": "Line-avoidance homotopy and projective symmetry in PG(2,3)",
+          "trigger": "Complementary line-free formulation"
+        },
+        {
+          "assessment": "Different graph and states",
+          "evidence": "Reconfigures geodetic sets whose members can be points or lines of the incidence graph.",
+          "identifier_or_url": "Resultary 25deca33c37d",
+          "material_read": "RESULT.md finding and definition of moves",
+          "method": "Local mirror passage",
+          "title": "Geodetic bases of finite projective-plane incidence graphs",
+          "trigger": "Same-day plane reconfiguration/geodesic terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, all-level distance theorem and threshold",
+        "/workspace/replay/pg3_replay.py",
+        "Resultary 2ff15d411d81"
+      ],
+      "rationale": "The thirteen-point plane is a natural symmetric hypergraph for exact constrained exchange. The result identifies a sharp jump from 13 disconnected cliques to a family with no shortest-path detours at any higher level. Exact degrees and eccentricities distinguish the two geometrically meaningful classes at the transition. This is an all-pairs metric fact not supplied by the static counts or implied by ordinary matroid exchange, and provides a benchmark for geometric hitting-set reconfiguration.",
+      "residual_risks": [
+        "Does not prove a general exchange principle beyond this plane, or for a move that excludes line-containing intermediate states."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
-For every fixed finite carrier and fixed complete binary-term family, \(Kv^\eta(t_S)\) is equivalent to a rational upper-cut test of \(\max\{\mu(S),1-\mu(S)\}\). Equality of singleton profiles constrains each coordinate to remain fixed or complement to one; normalization forces all nontrivial changes onto precisely two support coordinates. Exchanging the two support weights preserves every binary-term cut. A quadratic Walsh expansion independently characterizes the same equivalence by off-diagonal products. The grid count follows by subtracting exactly identified disjoint collisions. The restricted-probe minimality has an explicit universal family of rational witnesses. Exact finite enumeration and Walsh checks reproduce the proof's predictions, but are not used as proof of infinite claims.
+## correctness
 
-## Originality: PASS within inspected literature
-Wang 2026 defines the semantics and proves logical soundness and weak completeness, not the full observable posterior fibers or sharp reduced family. Krahmer--Liu's Bernoulli phase retrieval establishes closely related phaseless-signal ambiguities and recovery for nonpeaky classes; it does not state the modal-complete equivalence, sharp \(n\)-singleton observation basis or gridded signature census in inspected sections. Published published-finding corpus records on Bernoulli-product singleton slices concern a different parameter-to-observation map. These comparisons are by premises and implications, not merely titles. A plausible residual risk is an equivalent exact fiber theorem in older sign-measurement / turnpike literature; no claim of historically certain priority is made.
+PASS
 
-## Mathematical value: PASS
-Knowing-value at high threshold deliberately omits the identity of the dominant value. The inverse problem of how much posterior information survives that omission is natural in the source's privacy and epistemic setting. The result completely isolates sparse ambiguities, proves that the full exponential family of binary questions reduces to \(n\) singleton tests without losing information, shows sharpness, and quantifies rational-model observation classes. These statements characterize precisely the information loss of a new modality rather than an arbitrary invariant.
+Rational upper cuts determine the larger binary fiber mass, including the endpoint 1/2. Every changed coordinate under singleton agreement must be complemented, and normalization forces its changed-coordinate set to carry half its cardinality in mass. This allows exactly two changes, a swap, or none; the degenerate swaps between Dirac measures are in one class. These swaps preserve every binary cut. The coefficients of the distinct degree-two sign characters in the squared cut profile are twice the off-diagonal products, and normalization recovers the constant coefficient from those products. Stars and bars minus the disjoint Dirac and unequal swap identifications gives the stated denominator-grid count, including n=1 and d=1. The omitted-coordinate witness works for each n>=3; complementation gives the n=2 exception. Sharpness is only within the family of singleton probes. An independent integer replay, `python3 /workspace/branches/independent_replay.py 4`, checked the product/singleton partition and census on 48 grids (4,998 distributions); the real-simplex statement rests on the proof.
 
-## Caveats
-Only a single agent's local posterior and the indicated \(Kv\)-only observation fragment are classified. In particular, full-language propositional-probability modalities distinguish the exceptional posteriors. The checker addresses finite rational cases; the general proof is algebraic. Independent verification has not been performed, and prior literature could contain equivalent results under a different presentation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The semantics, the Walsh expansion and a Dirac ambiguity are known ingredients; the supported distinct claim is the complete labeled-simplex ambiguity classification with a sharp restricted observation basis and an exact denominator-grid count. The inspected neighboring results do not supply this combination or subsume the observation-basis theorem.
+
+## value
+
+PASS
+
+The exact classification identifies when a local posterior is recoverable despite losing the orientation of every binary observation, and separates unavoidable ambiguity from redundant observation effort. It replaces all subset queries by a provably inclusion-minimal singleton family for n>=3, and gives an exact finite-grid state count. These conclusions matter for this fragment, not for the full modal language.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

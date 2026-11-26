@@ -1,19 +1,21 @@
-# Scientific review: third-order design incidence projections
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The statement fixes a simple strength-three block design, its unit-edge incidence graph, and canonical real orthogonal projections. The incidence-matrix identity and zero-sum Schur complement yield the exact point potentials for an arbitrary incidence edge. Explicit signs on the distinguished block and both classes of other blocks reduce the absolute column norm to pair and triple incidence counts. All boundary cases, positivity inequalities, projection complementarity, and the \(\ell_1\)/\(\ell_\infty\) dual equality are checked. A standalone checker verifies 1,096 exact current columns, including 116 by independent grounded Laplacian inversion. The general theorem is proved analytically; finite checking alone would not establish it.
+PASS
 
-## Originality
+For a source incidence (i,S), eliminating block potentials leaves the scalar lambda*v/k on mean-zero point potentials. This gives x_i=(k-1)/(lambda*v), x_j=-1/(lambda*v) on S minus i, and zero elsewhere; each block potential is its average x minus 1/k on S alone. Thus the block S contributes 1, since lambda*v>k. On every other block T through i only the edge from i is positive, with absolute block sum 2[(k-1)^2+b_T]/(k*lambda*v); on a block missing i the negative and positive parts are separated by membership in S, giving 2b_T(k-b_T)/(k*lambda*v), including the zero cases. Here b_T=|T intersect (S minus i)|. The sums of b_T on the first class and b_T(k-b_T) on the second are (k-1)(lambda-1) and (k-1)(v-k)(lambda-tau) respectively. The latter count excludes exactly tau blocks through i for each cross pair. Substitution of (k-1)r=lambda(v-1) gives the claimed Q formula for every column. Q_ee=1/k+(k-1)/(lambda*v) is strictly between 0 and 1, so replacing Q by I-Q adds 1-2Q_ee to each absolute column sum. Symmetry gives the same infinity norms. The inverse-incidence and Steiner quadruple simplifications agree (e.g. Q=11/4 and P=3 at v=8,k=4,tau=1); no transitivity is used.
 
-**PASS, with bibliographic risk.** Direct comparison was made against the inspected relevant sections of Dilworth–Kutzarova–Ostrovskii (arXiv:2305.12582 and 1807.03814), Schild–Rao–Srivastava (arXiv:1708.01632), and Gurel-Gurevich–Nachmias–Sachdeva (arXiv:2605.24130). These provide cycle-space frameworks, Hamming/torus or recursive-graph projection analyses, and general electrical-current localization bounds; none of the examined statements yields the exact three-design incidence formulas. Targeted published-literature searches for three-design incidence transfer-current formulas and equivalent projection terminology did not reveal a covering result. Existing calculations for Johnson *vertex* spectral projectors concern a different edge space and operator. The residual risk is an older or poorly indexed incidence-network formula equivalent after a reduction; a negative search result is not proof of absolute novelty.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The formulas classify intrinsic endpoint operator invariants for all finite three-design incidence graphs without an edge-transitive hypothesis. They isolate an exact inverse-pair-incidence correction and quantify how designs with equal point/block sizes but different pair incidences give different norms. The essential mechanism is a structural third-order cancellation in absolute current flow, not a numerical table lookup. Steiner quadruple systems supply a natural infinite family with explicit limits.
+The exact norms for general strength-three incidence graphs, determined by third-order overlap rather than a symmetry hypothesis, pass the scoped comparison. Electrical-current representations, weaker universal bounds, and exact norms for other graph families or design regimes are prior work, not contributions of this record.
 
-## Scope and uncertainty
+## value
 
-These are canonical Euclidean-orthogonal cut and cycle projections, not minimum-norm projections among all complements. The theorem does not claim uniformity for arbitrary two-designs or weighted variants. Unsearched prior literature remains a possible bibliographic overlap risk. There is no independent mathematical audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exact endpoint norms are natural measures of worst-case absolute electrical transfer and of the canonical cycle projection. A formula for every edge across a family defined by incidence balance rather than group symmetry is informative beyond general bounds. In particular designs with the same (v,k) can have different constants, quantified by the inverse pair-incidence dependence; the strength-three calculation explains the difference and provides exact benchmarks.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

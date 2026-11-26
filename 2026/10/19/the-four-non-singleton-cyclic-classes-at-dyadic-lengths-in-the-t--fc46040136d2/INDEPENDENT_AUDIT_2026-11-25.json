@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:00:42.752777Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At lengths at least four the two start parities are disjoint: in an odd window, two initial unequal pairs would require three equal underlying letters, which are absent. A circularly extendible aligned word is the image of an extendible parent; the odd-start counterpart is its one-step rotation. This gives exactly the rotations of T_k from the base E(4), and they are distinct since the unique defect-free circular pairing forces any period to be even and to descend to a period of T_(k-1). An odd window with unequal underlying endpoints has precisely one defect in its natural pairing at the wrap pair and at least two defects in the opposite pairing (at least two underlying transitions in length m+1≥5). Any rotation that occurs must therefore be an odd window of the same kind with that very defect still at the wrap pair, forcing the identical displayed factor. All remaining odd windows contribute once for each extendible parent, and the defect-free pairing makes aligned conjugacy descend exactly. The endpoint count doubles under the two odd-length desubstitutions, giving 2m new singletons at length 2m. Applied to the four classes at length four, this proves the full induction, including that the three named images remain distinct doubletons. Independent replay `python3 -B /workspace/reproduce_frozen.py 5` produced the histogram, extendible core and all three distinct doubletons through N=256 using digit parity, complete prefixes certified by the four adjacent pairs, and naïve rotations. The finite replay corroborates rather than replaces the induction.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cassaigne et al. give parity recognizability, endpoint-factor counts and a lower bound on singletons, not all their class sizes.",
+          "Bell–Shallit give one all-rotations-occurring class at 2^k, k≥3, and two at 4; Lie complexity omits partially represented classes.",
+          "The later catalogue entry gives an all-length inflation rule for n≥4 and explicitly states the dyadic corollary."
+        ],
+        "reasoning": "The general earlier isolation arguments and Lie complexity are relevant but do not exhaust the partially occupied classes. The broader November result is direct coverage in content, not evidence that the earlier frozen dated result was already covered.",
+        "searches": [
+          "Cassaigne–Fici–Sciortino–Zamboni, arXiv:1402.5843 §5.3",
+          "Bell–Shallit arXiv:2102.03821, Example 7.1",
+          "2026/11/8/SCOPE-conjugacy-class-inflation-and-the-dyadic-orbit-size-spectrum-of--b756136621a6"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verification.py",
+        "Four primary cyclic- or Lie-complexity papers listed in source_inspections",
+        "Resultary November 8 conjugacy class inflation RESULT.md",
+        "Independent replay /workspace/reproduce_frozen.py, argument 5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known dyadic counts p_t(N)=3N−2 and c_t(N)=2N−4 leave three excess members after accounting for a single size-N class.",
+          "The earlier singleton lower bound and the number of classes that contain all abstract rotations do not tell how the three excess members are distributed among partially represented classes."
+        ],
+        "reasoning": "Three excess members could give three doubletons, a doubleton plus a tripleton, or one size-four class at the level of aggregate constraints. To settle the actual distribution requires proving the three separate persistent pairs or a comparable structural argument. The frozen proof uses the circular pairing and wrap defect to do this constructively.",
+        "searches": [
+          "Compare Cassaigne et al. §5.3, Krawchuk–Rampersad Proposition 1 and Bell–Shallit Example 7.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2026/11/8/SCOPE-conjugacy-class-inflation-and-the-dyadic-orbit-size-spectrum-of--b756136621a6, RESULT.md: one class of size N, three of size two and 2N−8 singletons, with the large class the rotations of μ^k(0).",
+          "Published cyclic complexity counts the number of conjugacy classes meeting the factor set, not their occupancy."
+        ],
+        "reasoning": "The later SCOPE histogram is equivalent to the frozen numerical spectrum and must be credited; its November 8 catalogue date versus the frozen October 19 path is not proof of intellectual priority, and there is no evidence here that it preceded the frozen result. The aggregate count is not equivalent.",
+        "searches": [
+          "Resultary: conjugacy/rotation-class occupancy spectrum, dyadic Thue–Morse",
+          "Primary literature: Thue–Morse dyadic cyclic complexity and sizes of conjugacy classes"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The automata proofs count first appearances of rotation classes, with c_t(N)=2N−4, rather than tabulating individual class members by N.",
+          "The later Resultary formula is an exact histogram, stronger than a numerical sample; the three named doubletons were not in its inspected statement."
+        ],
+        "reasoning": "Computing an aggregate with Walnut is not an exact class-size table. The finite base at four is elementary, but alone proves no recurrence.",
+        "searches": [
+          "Krawchuk–Rampersad, Integers 18A (2018), #A12, Proposition 1",
+          "Shallit, Integers 23 (2023), #A44, Proposition 1 and tmc predicate",
+          "Resultary November 8 conjugacy class inflation record"
+        ]
+      },
+      "rationale": "The supported contribution is the exact occupancy spectrum and named exceptional classes, not c_t(N), the general conjugacy predicate, or the existence of full-rotation classes. Earlier primary sources inspected determine aggregate counts or partial structure, not this refinement. A distinct later-dated catalogue entry does explicitly give the same histogram and full class; it is a real content overlap, but its available record does not establish earlier coverage of the frozen result, and the inspected passage does not give the three named size-two representatives.",
+      "residual_risks": [
+        "The provenance relationship to the later-dated exact histogram is unresolved; this review does not establish first historical priority.",
+        "Unindexed derivations of the class-size spectrum may exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers structural ingredients and bounds, not occupancy census",
+          "evidence": "Parity alignment and the even-length singleton lower bound do not exhaust the remaining classes.",
+          "identifier_or_url": "https://arxiv.org/abs/1402.5843",
+          "material_read": "§5.3, Thue–Morse passages from extraction offset 55522",
+          "method": "OA PDF passage inspection",
+          "title": "Cyclic Complexity of Words",
+          "trigger": "Earlier general Thue–Morse conjugacy classification candidate"
+        },
+        {
+          "assessment": "Known aggregate, not size spectrum",
+          "evidence": "Counts occurrences of the new-class predicate for 2^k, k≥3.",
+          "identifier_or_url": "https://math.colgate.edu/~integers/sjs12/sjs12.pdf",
+          "material_read": "pp. 3–4, Proposition 1 and automata construction; offsets 4955, 10934",
+          "method": "OA PDF passage inspection",
+          "title": "Cyclic Complexity of Some Infinite Words and Generalizations",
+          "trigger": "Published dyadic formula"
+        },
+        {
+          "assessment": "Counts classes, not occupancies",
+          "evidence": "The predicate keeps first occurrences and recurrences count them.",
+          "identifier_or_url": "https://math.colgate.edu/~integers/x44/x44.pdf",
+          "material_read": "pp. 3–4, Proposition 1 and tmc-predicate proof, offsets 4828–9748",
+          "method": "OA PDF passage inspection",
+          "title": "Proof of a Conjecture of Krawchuk and Rampersad on the Cyclic Complexity of the Thue–Morse Sequence",
+          "trigger": "Published recurrences could encode stronger class information"
+        },
+        {
+          "assessment": "Counts completely represented classes only",
+          "evidence": "L_t(2^k)=1 for k≥3 and L_t(4)=2; no census of partial classes in the example.",
+          "identifier_or_url": "https://arxiv.org/pdf/2102.03821",
+          "material_read": "p. 11, Example 7.1, offset 34100",
+          "method": "OA PDF passage inspection",
+          "title": "Lie Complexity of Words",
+          "trigger": "All-rotations classes are part of the stated profile"
+        },
+        {
+          "assessment": "Later-dated exact overlap in histogram and full class; no earlier provenance established",
+          "evidence": "Explicit dyadic spectrum, the all-rotation class and a general inflation formula.",
+          "identifier_or_url": "2026/11/8/SCOPE-conjugacy-class-inflation-and-the-dyadic-orbit-size-spectrum-of--b756136621a6",
+          "material_read": "RESULT.md theorem and prior-work discussion, offsets 0 and 7568 onward",
+          "method": "Local Resultary mirror and direct comparison",
+          "title": "Conjugacy class inflation and the dyadic orbit-size spectrum of the Thue–Morse word",
+          "trigger": "Exact catalogued histogram match and broader recurrence"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Dyadic lengths are the natural self-similar scales of the substitution. The result gives the exact failures of reconstruction up to rotation from the occurring language, distinguishing a dense core from three persistent pairs and a growing population of isolated classes. The aggregate complexity misses precisely that information; named representatives and the extendible-core argument are useful for subsequent factor and conjugacy calculations.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

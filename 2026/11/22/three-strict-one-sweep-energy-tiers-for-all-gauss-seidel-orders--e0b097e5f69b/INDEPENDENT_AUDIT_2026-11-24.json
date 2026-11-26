@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:34:51.855130Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A is SPD exactly in the stated positive-coupling range up to t=1/2. The dihedral action preserves A and produces three disjoint free orbits, exhausting 24 orders. Independently using triangular splitting in sweep coordinates, G=−(I+L)^{-1}L^T, I reproduced the generalized polynomials, ordinary characteristic polynomials (including the cyclic one), Sylvester minors and the radical identity; replay: python /workspace/branches/independent_frozen_checks.py 1. Evaluating 4u A−G_c^T A G_c with u=t² gives all positive leading minors on 0<u<1/4, so the cyclic largest generalized root is below 4u. The signed cyclic polynomial at the largest interlaced root is positive: P>0, Q<0 and P²−u(u+2)Q²=(1−4u)². Its negative leading term then guarantees a larger cyclic root. The ordinary polynomials give spectral radius 4u for both tied orbits and a real cyclic eigenvalue above 4u. The penalty ratio and small-t limit follow from the exact factors. The claim is worst-case squared energy of one scalar sweep, not error-by-error dominance, optimal parallel runtime, or a multi-sweep comparison.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "13073edebfeb evaluates one-sweep energy strictly for SPD arrowheads; 77222bb78c9e treats asymptotic radius on odd weighted cycles n≥5. 179ddfb2cdd5 optimizes expected randomized contiguous-block progress on screened cyclic systems. 19d33cebd358 optimizes isotropic expected one-sweep risk on trees. The accessible Xiao et al. passages concern complexity of symmetrized and other coordinate orders."
+        ],
+        "reasoning": "None of those inspected broader hypotheses and conclusions supplies worst-case energy for a fixed complete scalar sweep on the four-cycle. In particular, a C4 is not an arrowhead graph or a tree, and a random block decrease is a different optimization problem.",
+        "searches": [
+          "Resultary 13073edebfeb, 77222bb78c9e, 179ddfb2cdd5, 19d33cebd358, each RESULT.md Finding/Assumptions",
+          "Xiao–Xiao–Sun arXiv:1910.04366, Introduction and §3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verification/verify_fourcycle_energy.py and verification/check_output.txt (read only)",
+        "Varga 1959",
+        "Xiao–Xiao–Sun arXiv:1910.04366",
+        "Resultary 13073edebfeb, 77222bb78c9e, b6cba764bb63, 179ddfb2cdd5 and 19d33cebd358"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At ω=1, Theorem 4 gives equality at the optimal spectral radius exactly for h-consistent orders; eq. (24) supplies the square of the Jacobi radius. Red–black and interlaced admit levels increasing by one across forward edges, while the cyclic order has both a three-edge forward path and a forward edge between the same endpoints, so it fails that condition."
+        ],
+        "reasoning": "This implies the whole qualitative spectral comparison and 4t² tied radius. It cannot separate the two tied orders by finite energy; doing so requires the additional norm calculation and strict uniform inequalities. The arrowhead energy theorem has no specialization to the intact four-cycle.",
+        "searches": [
+          "Varga 1959 pp. 934–935, Theorem 4 and eq. (24), versus frozen RESULT.md lines 5–31 and 75–79",
+          "13073edebfeb and 77222bb78c9e, exact theorem scope"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The finite observable is the squared norm of an ordered product of A-orthogonal coordinate projections, or its largest generalized energy eigenvalue. Varga treats the ordinary spectral radius. b6cba764bb63 uses reflective Kaczmarz on the cycle Gram geometry."
+        ],
+        "reasoning": "Products of projectors and products of reflections need not have the same order ranking. Likewise the spectral radius of the nonnormal sweep is not the norm whose square is measured here.",
+        "searches": [
+          "Resultary: exact Gauss–Seidel one-sweep energy orderings on a four-cycle / finite-horizon order reversal",
+          "Literature: four-cycle Gauss–Seidel energy norm and ordered subspace corrections",
+          "Varga 1959 §3, Theorem 4 and eq. (24)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact same title/formulas in the catalogue are the frozen record itself. b6cba764bb63 classifies 24 orders in the same size geometry but reports two tiers of a reflective-Kaczmarz eigengap (eight cyclic better, the other sixteen tied), not three energy tiers."
+        ],
+        "reasoning": "The differences concern the objective and update maps, not a relabeling of the same table. Same-day records were compared without date-based priority assumptions.",
+        "searches": [
+          "Resultary: all 24 orderings, eight interlaced/cyclic/red–black, strict one-sweep four-cycle energy tiers",
+          "b6cba764bb63 RESULT.md Finding and Complete order classification"
+        ]
+      },
+      "rationale": "The supported distinction is the exact strict all-order hierarchy of one-sweep squared A-energy factors, including the splitting of orders tied by spectral radius. The asymptotic comparison by itself is covered by Varga's consistent-order result and is not credited as independently original.",
+      "residual_risks": [
+        "Lawful access attempts did not recover readable full text for Harrar 10.1137/0614021, Dessalew et al. 10.1155/2021/8343207, or Kuo–Chan 10.1137/0911045. An exact norm comparison in uninspected historical work is not excluded.",
+        "The inspected ordering theorems and catalogue comparisons justify distinction of the finite-sweep claim to current knowledge, not an exhaustive historical-priority finding."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers asymptotic component, not the finite norm hierarchy",
+          "evidence": "Optimality and equality for h-consistent orderings and the Jacobi–SOR spectral relation.",
+          "identifier_or_url": "https://msp.org/pjm/1959/9-3/pjm-v9-n3-p28-p.pdf",
+          "material_read": "§3 Theorem 4, equality statement and eq. (24), pp. 934–935",
+          "method": "OA full-text pages, PDF offset near 21000",
+          "title": "Orderings of the Successive Overrelaxation Scheme",
+          "trigger": "Direct broader theorem on spectral-radius ordering"
+        },
+        {
+          "assessment": "Different matrix graph; similar exact energy comparison",
+          "evidence": "Arrowhead family; exact one-sweep comparison and all-order spectral tie.",
+          "identifier_or_url": "2026/11/2/SCOPE-a-sharp-horizon-reversal-for-gauss-seidel-ordering-on-positive-d--13073edebfeb",
+          "material_read": "RESULT.md Finding and Assumptions from mirror offset 0",
+          "method": "Resultary and local-mirror primary passage",
+          "title": "A sharp horizon reversal for Gauss–Seidel ordering on positive definite arrowhead systems",
+          "trigger": "Closest exact same energy criterion in Resultary"
+        },
+        {
+          "assessment": "Different observable and domain",
+          "evidence": "Asymptotic spectral radius for odd n≥5; C4 is excluded.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-optimal-cyclic-coordinate-orderings-on-arbitrary-weighted--77222bb78c9e",
+          "material_read": "RESULT.md Finding and Assumptions from mirror offset 0",
+          "method": "Resultary and local-mirror primary passage",
+          "title": "Exact optimal cyclic coordinate orderings on arbitrary weighted odd cycles",
+          "trigger": "Cycle order classification"
+        },
+        {
+          "assessment": "Different updates and exact observable",
+          "evidence": "Two eigengap tiers for reflective Kaczmarz, not three one-sweep Gauss–Seidel energy tiers.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-reflective-kaczmarz-ordering-on-a-four-cycle-gram-matrix--b6cba764bb63",
+          "material_read": "RESULT.md Finding and Complete order classification from mirror offset 0",
+          "method": "Resultary and local-mirror primary passage",
+          "title": "Sharp reflective Kaczmarz ordering on a four-cycle Gram matrix",
+          "trigger": "Same graph, exhaustive ordering comparison"
+        },
+        {
+          "assessment": "Iteration-complexity comparisons, not this all-order exact finite-sweep invariant",
+          "evidence": "Symmetric Gauss–Seidel and Gaussian back-substitution comparisons with other coordinate orders.",
+          "identifier_or_url": "https://arxiv.org/abs/1910.04366",
+          "material_read": "Introduction and §3, PDF pp. 1–3 and 6",
+          "method": "OA original passages",
+          "title": "Understanding Limitation of Two Symmetrized Orders by Worst-case Complexity",
+          "trigger": "Prior worst-case ordering comparisons"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The screened cycle gives a concrete separation between asymptotic and one-sweep order selection. In particular the familiar red–black sweep is tied for asymptotically best yet is worst for the one-sweep energy criterion, and its penalty relative to the optimal interlaced order tends to a factor of two. The strict all-parameter classification resolves the finite-sweep choice for this natural model without extrapolating to larger grids.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

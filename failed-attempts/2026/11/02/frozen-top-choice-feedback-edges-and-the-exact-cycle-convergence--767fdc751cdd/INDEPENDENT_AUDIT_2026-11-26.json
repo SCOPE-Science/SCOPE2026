@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:56:08.204299Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The departures proof is sound: to return to a strictly worse former partner in a periodic orbit, a vertex must first be passively abandoned by some better partner. Iterating those departures gives a nonbacktracking walk, impossible in a finite forest. An initially occupied or newly formed mutual first-choice edge is permanent. In each stage without a new such feedback-edge formation, deleting frozen endpoints and disregarding all unformed feedback edges makes the observed moves legal forest moves. The cited forest bound of n³/8 gives the stated integer bound, including n=1,2, with at most f+1 stages and f transitions. For C_n, every nonconstant cyclic sign word has a plus-to-minus transition giving a mutual first-choice edge, and a coherent profile gives an n-step orbit of singleton matchings; the move also works for n=3. This yields exactly two bad profiles and the claimed independent-uniform probability. The even coherent cycles have stable alternating perfect matchings; on an odd coherent cycle any unmatched vertex blocks together with the neighbor that ranks it first. The small-cycle checker and recorded finite output were inspected, not executed and not used as the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lebedev et al. Corollary 1 gives convergence of any sufficiently long sequence of active initiatives on acyclic b-matching preference instances. It assumes arbitrary acceptability graphs, not forests. Gai et al. §3 explicitly states convergence on acyclic systems and gives equivalence with symmetric edge marks. Fanelli–Moscardelli supplies the separate n³/8 quantitative forest bound."
+        ],
+        "reasoning": "The mutual-top feedback condition is only one way to preclude preference cycles on a cyclic acceptability graph. It is properly subsumed by preference acyclicity (for example, a strict common rank on the edges of K4 gives acyclicity with at most two disjoint mutual-top pairs, too few to delete to a forest).",
+        "searches": [
+          "Fanelli Moscardelli \"Approximately Stable Matching\" Theorem 4 forest blocking pair dynamics  n^3/8; general graph characterization preference edge line graph convergence (literature)",
+          "\"feedback edge\" matching blocking-pair dynamics cycle termination (Resultary)",
+          "HAL inria-00121604 §5 Corollary 1; arXiv:0704.3904v2 §3 Theorem 1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_cycles.py (read only)",
+        "arXiv:0704.3904v2; HAL inria-00121604; HAL hal-05368668; DOI 10.1007/s10458-020-09470-x",
+        "Resultary hits 14ea62fa52bf, b71cfeec1166, 2d5a0035c3ee and 598154c1ff43"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier convergence result explicitly quantifies over any sufficiently long sequence of active moves; the earlier loving-pair discussion already removes fixed pairs and their fully occupied endpoints. Fanelli–Moscardelli gives the exact O(n³) forest cap used in the frozen result."
+        ],
+        "reasoning": "Removing mutual-top edges removes no preference cycles because no such edge can be traversed by one. Since the residual graph is a forest, no preference cycle could have existed. On a simple cycle the acyclicity test only inspects the two orientations. Multiplying the existing forest cap by the maximum number of stages is a routine quantitative corollary, even if the looser bound in precisely that parametrization was not printed before.",
+        "searches": [
+          "HAL inria-00121604, Corollary 1 and loving-pair removal in §6",
+          "arXiv:0704.3904v2 §§2.1 and 3",
+          "DOI 10.3233/FAIA251234 Theorem 4 and following move count"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2007 papers define acyclicity by exclusion of circular choices of successor over predecessor and define an active initiative as forming a blocking pair. The quota-one specialization is the same sequential update as the frozen record. Mutual first choices are their unbreakable loving pairs."
+        ],
+        "reasoning": "In the unit-quota model, a simple preference cycle can be traversed by moving one singleton edge at a time; the old acyclic theorem supplies the other direction. Equivalently a preference cycle is a cycle of edge comparisons; a shortest directed edge-comparison cycle cannot have successive comparisons at one common vertex, by transitivity, or a chord, since either chord direction then gives a shorter cycle. The alternative digraph language does not bypass the substantive prior coverage.",
+        "searches": [
+          "Fabien Mathieu acyclic preference systems P2P stable roommates active initiative convergence cycles loving pairs blocking pair matching periodic infinite arXiv (literature)",
+          "preference graph edge digraph line graph matching blocking pair dynamics characterization (Resultary)",
+          "arXiv:0704.3904v2 §2.1 and §3; HAL inria-00121604 §§3,5–6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact-size-profile index match on oriented cycles counts static 2-stable matchings, not transitions. The reciprocal-top-tie record studies static stability probabilities after tie refinement, not termination. Figure 1 of the matching paper explicitly exhibits the four-vertex dynamic obstruction."
+        ],
+        "reasoning": "No exact dynamic table was located; static counts are not substitutes. Nevertheless the number two and probability follow immediately for the precise frozen cycle model from the universal absence-of-preference-cycles test plus the singleton witness.",
+        "searches": [
+          "cycle local preferences matching blocking-pair improvement cycle coherent orientations (Resultary)",
+          "Fanelli Moscardelli \"Approximately Stable Matching\" forest Theorem 4 bound (Resultary)",
+          "14ea62fa52bf; b71cfeec1166; Fanelli–Moscardelli Figure 1"
+        ]
+      },
+      "rationale": "The 2007 literature on acyclic preference systems covers the principal qualitative claim through a stronger theorem with exactly the same move at quota one. Every simple preference cycle is a graph cycle around which each vertex prefers its successor to its predecessor. A mutual first-choice edge cannot lie on it: in either orientation one endpoint would have to prefer the cycle's other adjacent edge to the mutual first choice. Hence the frozen feedback hypothesis eliminates every preference cycle and the old theorem applies. On C_n, the only possible simple preference cycles are the two coherent orientations. Conversely any such orientation gives the immediate singleton-blocking sequence, so the claimed dichotomy and prevalence are elementary consequences of the earlier framework. The exact numerical stage bound was not found verbatim; it is a direct application of the known n³/8 move bound per forest stage and permanence of mutual-first edges, not an independently supported new main result.",
+      "residual_risks": [
+        "The exact stage-wise numerical bound may have another antecedent; the ResearchGate copy of the stabilization upper-bound paper was inaccessible and no claim is made about its full text. The Diamantoudi–Miyagawa–Xue full text was not verified. These limits do not affect the demonstrated stronger qualitative coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Genuinely stronger prior qualitative theorem under the same move rule at unit capacity; exact stage cap not asserted",
+          "evidence": "Any sufficiently long sequence of active initiatives leads to the unique stable configuration. Section 6 calls mutual first choices unbreakable and removes pairs and fully occupied peers from consideration. Its separate short-path bound concerns existence of a schedule, not an arbitrary-path cap.",
+          "identifier_or_url": "https://inria.hal.science/inria-00121604/document",
+          "material_read": "Blocking pairs and active initiatives, PDF offset 12600; Corollary 1 and following discussion offset 21670; §6 loving pairs and Theorem 3 offset 23100",
+          "method": "Lawful HAL full-text PDF passages",
+          "title": "On Using Matching Theory to Understand P2P Network Design",
+          "trigger": "Decisive convergence antecedent for acyclic preferences"
+        },
+        {
+          "assessment": "Same acceptability and blocking concepts under a wider quota model; confirms stronger coverage",
+          "evidence": "Defines a preference cycle by each peer preferring its successor to its predecessor; accepts incomplete symmetric lists via an acceptance graph. Sequential updates link blocking pairs and shed prior links when needed. §3 states that acyclic systems always converge and identifies acyclic with symmetric preference systems.",
+          "identifier_or_url": "https://arxiv.org/pdf/0704.3904v2",
+          "material_read": "§2.1 PDF extraction offset 6500; §3 at 12800 and Theorem 1; ref. [10] at 31400",
+          "method": "OA original PDF passages",
+          "title": "Acyclic Preference Systems in P2P Networks",
+          "trigger": "Acyclic-preference and symmetric-edge reformulations"
+        },
+        {
+          "assessment": "Confirms forest count and coherent four-cycle witness",
+          "evidence": "Every acyclic acceptability graph is 1-convergent; at most n²/4 involvements per vertex yields the explicit at most n³/8 moves. Figure 1 gives a four-move cycle.",
+          "identifier_or_url": "https://hal.science/hal-05368668/document (DOI 10.3233/FAIA251234)",
+          "material_read": "Fig. 1 p.6 offset 49200; Theorem 4 p.7 offset 52000; p.8 offset 58000",
+          "method": "Lawful HAL submitted-version PDF after publisher retrieval difficulty",
+          "title": "Approximately Stable Matching",
+          "trigger": "Exact forest cap and earlier cyclic example"
+        },
+        {
+          "assessment": "Partial static overlap",
+          "evidence": "Arcs to most acceptable agents and an odd directed cycle supply a stable matching nonexistence obstruction in the stated construction.",
+          "identifier_or_url": "DOI 10.1007/s10458-020-09470-x",
+          "material_read": "PDF p.22 offset 74850",
+          "method": "OA full-text passage",
+          "title": "Stable roommates with narcissistic, single-peaked, and single-crossing preferences",
+          "trigger": "Static odd-cycle obstruction"
+        },
+        {
+          "assessment": "Static counting, not the dynamics",
+          "evidence": "2-blocking requires two unmatched endpoints that are mutual first choices.",
+          "identifier_or_url": "2026/10/25/SCOPE-exact-size-spectrum-of-2-stable-matchings-on-randomly-oriented-p--14ea62fa52bf/RESULT.md",
+          "material_read": "Finding and Assumptions at offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Exact size spectrum of 2-stable matchings on randomly oriented paths and cycles",
+          "trigger": "Same random orientation model"
+        },
+        {
+          "assessment": "Different static probability problem; date not used as priority evidence",
+          "evidence": "Probability that a fixed perfect matching is stable after random tie refinement in a two-sided market.",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-stability-probabilities-with-sparse-reciprocal-top-ties--b71cfeec1166/RESULT.md",
+          "material_read": "Finding at offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Exact stability probabilities with sparse reciprocal top ties",
+          "trigger": "Same-day mutual-top and forest/cycle analog"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Universal matching convergence is a meaningful question, but the narrower characterization here follows immediately from established preference-cycle convergence and a singleton witness. The surviving stage-count arithmetic uses the existing forest maximum unchanged once per phase, ignoring the shrinking active instance; no sharpness, improved bound in a consequential regime, or new obstruction is established. There is no independently valuable remainder to repair into an accepted finding.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

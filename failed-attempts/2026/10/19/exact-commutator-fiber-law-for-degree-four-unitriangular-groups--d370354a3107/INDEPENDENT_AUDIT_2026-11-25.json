@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:46:51.284680Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–79 and VERIFICATION.md; inspected checker.py without execution",
+        "Independent replay: /workspace/replay_frozen_math.py, python3 replay_frozen_math.py 2"
+      ],
+      "rationale": "For fixed nonzero (b,B), the two independent determinant equations for (u,v) each have q solutions, and (b,B)=(0,0) supplies q^4 extra first-layer tuples at (0,0). In the last-coordinate map on (d,e,D,E), precisely q^2 first-layer tuples, all over (0,0), have zero coefficient vector; the other tuples have q^3 solutions at every w. The q^2 choices of central input coordinates give q^7(q^2-1) off the central line, twice that on its nonzero targets, and an additional q^8 at zero. The group equation UV=VU z gives w_group=w-(a+A)v. It can be matched target by target by the invertible shear d→d-(a+A)b, D→D-(a+A)B on the Lie inputs. No argument divides by the characteristic. The counts are positive and sum to q^12, and the zero fiber gives the stated commuting probability. Here 'central elements of G′' means the elements of G′ central in the ambient G, namely I+wE14; the derived subgroup is itself abelian. Independent triangular multiplication and solve checked all targets for q=2,3,4, exhaustively removing only the two free central input coordinates (1024, 59049 and 1048576 remaining input pairs).",
+      "residual_risks": [
+        "The finite replay is only for three fields. The general result uses the exact rank and bijection arguments."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Naik's uniformity theorem requires exactly two conjugacy-class sizes; the Appendix B centralizer sizes q^5,q^4,q^3 give several distinct noncentral class sizes for UT4. Nath–Yadav full text was not accessible."
+        ],
+        "reasoning": "The inspected broader theorem does not imply the UT4 count; the decisive coverage instead comes from the two exact UT4 records.",
+        "searches": [
+          "Naik, arXiv:1805.00091v1, p. 1",
+          "Kaur–Sharma–Singh, arXiv:2006.01493v1, Appendix B",
+          "Nath–Yadav, DOI 10.1142/S0218196715500320"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 384549b5164b and 8c26524bd7a0; related but different path-algebra record 75cb49b6c27d",
+        "Naik arXiv:1805.00091v1; Kaur–Sharma–Singh arXiv:2006.01493v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Identical formulas indexed by (u,v,w) imply group/Lie equality directly. Frobenius would give the group counts from full character values and degrees; a separate all-q character-value presentation was not established in this bounded search."
+        ],
+        "reasoning": "One need not conjecture what a character table implies to reject the claim as distinct: the two exact laws already imply the combined statement.",
+        "searches": [
+          "Local Findings in both matched records",
+          "UT4 irreducible-character descriptions and Frobenius commutator counting formula"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Lie record's q^9-q^7, 2q^9-2q^7, and 2q^9+q^8-2q^7 agree over the same three strata. The group record uses ghg^-1h^-1, which gives identical targetwise counts after substituting g=U^-1, h=V^-1."
+        ],
+        "reasoning": "Neither the expanded form nor the change of commutator convention yields a distinct result.",
+        "searches": [
+          "Resultary: prescribed commutator fiber law for UT4 and additive strictly upper triangular bracket",
+          "384549b5164b/RESULT.md; 8c26524bd7a0/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Both Resultary Findings list exactly the three prescribed target counts. Kaur et al. give only branching and commuting-probability information in the inspected passages, with an inconsistent v1 displayed zero-target formula versus the Theorem 6.1 sum."
+        ],
+        "reasoning": "An exact match concerns the full fibers, not merely a class-number table or the zero target.",
+        "searches": [
+          "Resultary exact group and additive commutator fiber records 8c26524bd7a0 and 384549b5164b",
+          "Kaur–Sharma–Singh, Theorem 6.1 and Section 8"
+        ]
+      },
+      "rationale": "The strongest published overlaps are exact: one Resultary record gives the same Lie target law and another gives the same group target law in all characteristics. Their numerical formulas identify every target fiber across the two maps by addition of I. Consequently even the combined equality of counts is an immediate consequence of those statements taken together. The Lie record is dated before and the group record after the frozen path; this is a finding of demonstrable mathematical coverage, not a determination of chronology of discovery or provenance. No distinct new count or structural theorem survives as stated.",
+      "residual_risks": [
+        "Provenance between the exact records is unresolved; catalog dates are not evidence of independent derivation or priority.",
+        "Nath–Yadav full text was inaccessible (403). No claim about a corrected journal version of the Kaur table or an exhaustive character-table search is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same Lie map and target strata with identical counts",
+          "evidence": "Noncentral q^9-q^7; nonzero central 2q^9-2q^7; zero 2q^9+q^8-2q^7.",
+          "identifier_or_url": "2026/10/12/SCOPE-three-exact-additive-commutator-fibers-distinguish-the-central-s--384549b5164b",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary search and local-mirror OA reader",
+          "title": "Three exact additive-commutator fibers distinguish the central stratum",
+          "trigger": "Exact Lie law match"
+        },
+        {
+          "assessment": "Same group counts in every characteristic under a bijective change of input conventions",
+          "evidence": "Identity, nonidentity central and noncentral targets have the same three counts.",
+          "identifier_or_url": "2026/10/26/SCOPE-three-level-commutator-fibers-in-the-four-by-four-unitriangular--8c26524bd7a0",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary search and local-mirror OA reader",
+          "title": "Three-level commutator fibers in the four-by-four unitriangular group",
+          "trigger": "Exact group law match"
+        },
+        {
+          "assessment": "Two-conjugacy-class-size hypothesis excludes UT4",
+          "evidence": "Uniformity over nonidentity commutators is stated for class-three groups with exactly two conjugacy-class sizes.",
+          "identifier_or_url": "https://arxiv.org/abs/1805.00091v1",
+          "material_read": "PDF p. 1, definition and uniformity hypothesis",
+          "method": "OA PDF inspection",
+          "title": "On the probability distribution associated to commutator word map in finite groups II",
+          "trigger": "Class-three commutator distribution"
+        },
+        {
+          "assessment": "The inspected statements do not tabulate prescribed nonidentity fibers",
+          "evidence": "The Theorem 6.1 class-count sum is 2q^3+q^2-2q; Section 8 v1 displays (2q^3-1)/q^6 for cp_2(UT4). Appendix B exhibits distinct centralizer sizes.",
+          "identifier_or_url": "https://arxiv.org/abs/2006.01493v1",
+          "material_read": "Theorem 6.1, p. 51; Section 8, p. 115; Appendix B, p. 118",
+          "method": "OA PDF inspection",
+          "title": "Branching rules and commuting probabilities for Triangular and Unitriangular matrices",
+          "trigger": "Possible implication via exact UT4 tables"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md comparison and scope",
+        "Exact Resultary group and Lie Findings above"
+      ],
+      "rationale": "The full prescribed-target distribution is a useful invariant of a natural class-three group, not just a commuting probability. But the claimed increment here is comparison of two already exactly enumerated lists; the equality is mechanically implied and the proof is confined to this degree. It supplies no distinct further invariant or general comparison theorem.",
+      "residual_risks": [
+        "No inference is made about the potential value of a general group–Lie comparison outside the stated UT4 setting."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:31:58.580732Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md:19–122",
+        "VERIFICATION.md",
+        "CHECK.py:11–47 (symbolic and sampled evidence inspected, not executed)"
+      ],
+      "rationale": "This is the complex-symmetric T_3(2), not a Hermitian determinant. Writing d=1−α, log(f/ζ) has coefficients 2dx, dy, and 2dw/3, giving the displayed a_2,a_3,a_4. The determinant factors as (a_2−a_4)(a_2²+a_2a_4−2a_3²). For the nonstandard inequality, take the Schur representation (p−1)/(p+1)=ζω and h=1−|x|². Its first two Schur steps yield y=x²+hu and w=x³+h(2xu−conj(x)u²+(1−|u|²)v), |u|,|v|≤1. Subtracting gives xw−y²=h(−u²+x(1−|u|²)v), hence |xw−y²|≤h. Consequently |6x²+2xw−3y²|≤6|x|²+2h+1=3+4|x|²≤7. Equality forces |x|=1, the Schur function constant, and then |6−x²|=7, i.e. x=±i. The first determinant factor is bounded by (2d/3)(4+3d+2d²) using |x|,|y|,|w|≤1; the second equals (2d²/3)(6x²+2xw−3y²−6dx²y−8d²x⁴). Its bound is (2d²/3)(7+6d+8d²). Both sharp bounds are simultaneous exactly at x=±i: y=−1 and w=−x align the summands. Positivity of d forces equality in the moment estimate if the determinant is extremal. Integrating p gives the two claimed normalized functions. This establishes all real 0≤α<1 without sampling, and at α=0 yields 84.",
+      "residual_risks": [
+        "The class at α=1, higher-dimensional mapping versions, Hermitian determinants, and other coefficient indices are not covered."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The higher-dimensional result of Panja et al. explicitly requires 0≤α≤2/3.",
+          "Giri's general subordination Theorem 5 requires (q1,q2) in Θ3 through Θ7. For the order-α specialization with d=1−α, q1=−1−3d, q2=−1/2−3d−4d². Positive-q2 regions Θ5–Θ7 and |q1|≤1/2 in Θ3 cannot apply. For Θ4 one needs 4d²+d≥5/6, which fails when 0<d<1/3.",
+          "Giri–Kumar's examined estimates are for other determinant indices and a coefficient-gap class."
+        ],
+        "reasoning": "The direct broader-theorem specialization fails its hypothesis throughout the interval claimed as new; the broader ambient space or function-class name is not enough.",
+        "searches": [
+          "arXiv:2610.15497v1 Theorem 2.3 and its proof",
+          "arXiv:2608.16562v1 Theorem 5 and preceding coefficient regions",
+          "arXiv:2601.03039v1 Theorems 4 and 6"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic searches and related hit 85305eeb9019",
+        "arXiv:2610.15497v1",
+        "arXiv:2608.16562v1",
+        "arXiv:2601.03039v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Panja et al. explicitly invoke the low-order restriction in the second-factor proof. Giri's Theorem 5 parameter test above fails in the missing interval.",
+          "The polynomial agrees algebraically on the overlap, but the supremum of this coefficient functional is not established beyond it by polynomial identity."
+        ],
+        "reasoning": "Extending the second-factor estimate requires a valid bound on jointly admissible moments on the omitted interval. The sharp moment argument supplies it without those parameter restrictions.",
+        "searches": [
+          "arXiv:2610.15497v1 pp. 12–13",
+          "arXiv:2608.16562v1 pp. 4, 6, 9"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The two prior statements specialize to the identical complex-symmetric scalar determinant. Panja–Majumder–Banerjee reach α=2/3; Giri reaches (27−sqrt(129))/24≈0.65176.",
+          "The closest class-related Resultary hit 85305eeb9019 treats a Hankel functional, not this Toeplitz determinant."
+        ],
+        "reasoning": "Use the determinant and index rather than the labels: the prior ranges are genuine overlaps, but neither includes α>2/3.",
+        "searches": [
+          "Resultary semantic searches for T_3(2), the order parameter and the sharp starlike Toeplitz bound",
+          "arXiv:2610.15497v1 Corollary 2.2",
+          "arXiv:2608.16562v1 Corollary 5.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact all-order analogue appeared in the returned Resultary hits. The known exact values are the classical α=0 value and the displayed earlier formulas on restricted ranges."
+        ],
+        "reasoning": "A finite table could corroborate values only at individual parameters and would not cover this continuous sharp interval. The indexed and literature formulas were checked rather than treating sampled coincidence as proof of coverage.",
+        "searches": [
+          "Resultary semantic searches for the exact determinant and all-order polynomial",
+          "arXiv:2610.15497v1 and arXiv:2608.16562v1 sharp-bound corollaries"
+        ]
+      },
+      "rationale": "Credit only the genuine missing order interval 2/3<α<1 and the sharp moment argument supporting it. The polynomial and extremizers in the previously covered range are not new. The strongest same-object theorems inspected do not imply the missing range; in particular the apparently general earlier subordination theorem has a parameter restriction that actually excludes it.",
+      "residual_risks": [
+        "The focused web search and index queries were bounded; unindexed equivalent work or an older sharp joint-moment proof may exist.",
+        "The frozen note about abstract-only access to Giri and Giri–Kumar is superseded by the OA passage checks, including the narrower identical result in Giri."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct overlap on 0≤α≤2/3, no demonstrated implication for the complement",
+          "evidence": "The order upper bound is explicit in the statement and the second-factor estimate.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.15497",
+          "material_read": "Theorem 2.3 and Corollary 2.2, pp. 4–5 (OA around 15000); proof pp. 12–13 (offsets 46655–54131)",
+          "method": "OA PDF passage inspection",
+          "title": "Toeplitz determinants for starlike mappings of order alpha in several complex variables",
+          "trigger": "Same sharp polynomial and extremizers"
+        },
+        {
+          "assessment": "Previously omitted direct low-order overlap; the stronger-looking theorem does not cover the missing interval",
+          "evidence": "The corollary reaches (27−sqrt(129))/24. The relevant coefficient-pair condition of Theorem 5 fails for every 2/3<α<1.",
+          "identifier_or_url": "https://arxiv.org/pdf/2608.16562",
+          "material_read": "p. 1 definition; p. 4 regions Θ3–Θ7 (offset 14200); Theorem 5 p. 6 (offset 20200); Corollary 5.2 p. 9 (around 34000)",
+          "method": "OA PDF passage inspection and algebraic specialization",
+          "title": "Toeplitz determinant and generalized Zalcman conjecture for subclasses of starlike mappings in higher dimensions",
+          "trigger": "Earlier same determinant and a potentially stronger subordination theorem"
+        },
+        {
+          "assessment": "Inspected estimates do not cover this functional on the full class",
+          "evidence": "The examined results concern T_2(2), T_3(1), and a coefficient-gap setup.",
+          "identifier_or_url": "https://arxiv.org/pdf/2601.03039",
+          "material_read": "Theorems 4 and 6, pp. 4–5",
+          "method": "OA PDF passage inspection",
+          "title": "Generalized Toeplitz determinants for starlike mappings in several complex variables",
+          "trigger": "Potential coverage of scalar subcases"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Completing the full natural order interval closes a concrete gap in a published sharp coefficient theorem. The contribution is not a fitted continuation of a known polynomial: the joint-moment estimate is uniform, sharp, and enforces the equality cases where the earlier estimate was not justified.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

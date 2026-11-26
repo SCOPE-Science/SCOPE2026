@@ -1,94 +1,45 @@
-# Characteristic-three Newton and Ekedahl–Oort bounds for genus-seventeen generalized Fermat curves
+# Three-rank, a-number and Newton polygons of genus-seventeen generalized Fermat curves
 
 ## Finding
-Let \(k\) be algebraically closed of characteristic \(3\), and let \(B\subset\mathbb P^1(k)\) be six distinct points. The maximal elementary abelian double cover \(C_B\to\mathbb P^1\) branched precisely at \(B\) is a smooth generalized Fermat curve of type \((2,5)\) and genus \(17\). Define \(h(B)\) as the number of four-element subsets of \(B\) with harmonic cross-ratio. Define \(H_B\) as the genus-two double cover branched at all six points, and write \(r(B)\) for its Jacobian's \(3\)-rank.
 
-**Theorem.** Exactly the following six pairs \((h(B),r(B))\) occur:
+Let \(k\) be algebraically closed of characteristic \(3\), let \(B\subset\mathbb P^1(k)\) be six distinct points, and let \(C_B\to\mathbb P^1\) be the maximal elementary abelian double cover branched precisely at \(B\). Let \(h(B)\) count the four-subsets of \(B\) with harmonic cross ratio, and let \(r(B)\) be the \(3\)-rank of the genus-two double cover \(H_B\) of the same branch set. Precisely the following pairs occur:
 \[
-(0,0),\ (0,1),\ (0,2),\ (1,2),\ (2,2),\ (3,2).
+(h,r)=(0,0),(0,1),(0,2),(1,2),(2,2),(3,2).
 \]
-The Jacobian of \(C_B\) has \(3\)-rank
+All six occur over finite extensions of \(\mathbb F_3\). The genus of \(C_B\) is \(17\), and the \(3\)-rank and \(a\)-number of its Jacobian are
 \[
-f_3(J(C_B))=15-h(B)+r(B),
+ f=15-h+r,\qquad a=h+\mathbf1_{r<2}.
 \]
-so **its complete rank spectrum is \(\{14,15,16,17\}\)**. Its \(a\)-number is
-\[
-a(J(C_B))=h(B)+\mathbf1_{r(B)<2}.
-\]
-Thus rank \(15\) occurs with either \(a=1\) or \(a=2\). All six profiles occur over finite extensions of \(\mathbb F_3\).
-
-The Newton slopes, listed with multiplicity, are
-\[
-0^{\times f_3},\quad (1/2)^{\times (34-2f_3)},\quad 1^{\times f_3}.
-\]
-The formula for slopes in this case follows from the elliptic/genus-two factorization and the fact that any genus-two Jacobian of \(3\)-rank zero is supersingular.
-
-## Assumptions and scope
-Only algebraically closed fields of characteristic \(3\), and *six pairwise distinct branch points*, are considered. In normalized affine coordinates
-\[
-B=\{\infty,0,1,a,b,c\},\quad a,b,c\notin\{0,1\},\quad a,b,c\text{ distinct},
-\]
-the curve can be defined as the smooth projective normalization of
-\[
-k(x)\bigl(\sqrt{x},\sqrt{x-1},\sqrt{x-a},\sqrt{x-b},\sqrt{x-c}\bigr).
-\]
-The sixth branch point is at infinity. The field extension has degree \(32\), Galois group \((\mathbb Z/2)^5\), and inertia index two at each of six branch points. Riemann–Hurwitz gives
-\[
-2g-2=32(-2)+6\cdot16=32,
-\]
-so \(g=17\). A four-subset is *harmonic* when any ordering has cross-ratio \(-1\); in characteristic three all six cross-ratio transforms of \(-1\) equal \(-1\). Its elliptic double cover is supersingular precisely when the quadruple is harmonic.
+In particular its rank spectrum is \(\{14,15,16,17\}\), with \(a=1\) and \(a=2\) both possible at rank \(15\). The Newton slopes are \(0^f,(1/2)^{34-2f},1^f\), with the superscripts denoting multiplicities.
 
 ## Proof
-**1. Tame character decomposition.** Every nontrivial character of the deck group corresponds to a nonempty even subset \(S\subset B\). The associated quadratic quotient is branched at the points in \(S\), so it has genus \((|S|-2)/2\) for \(|S|\ge2\). The \(15\) subsets of size four yield elliptic curves \(E_S\); the unique six-subset yields the genus-two curve \(H_B\). The subsets of size two yield genus-zero curves. Orthogonal character idempotents in the group algebra have denominators dividing \(32\), which is invertible in characteristic three. Pullback/norm maps therefore give an isogeny whose kernel is killed by a power of two:
+
+**The cover and its factors.** Normalize to \(B=\{\infty,0,1,b_1,b_2,b_3\}\). Adjoining the square roots of \(x,x-1,x-b_1,x-b_2,x-b_3\) gives a degree-32 Galois extension with group \((\mathbb Z/2)^5\): each of the five functions has odd valuation at its own finite branch point and even valuation at the other four finite ones. There is tame inertia of order two at each of the six branch points, including infinity. Riemann–Hurwitz gives \(2g-2=-64+6\cdot16=32\). The quadratic characters correspond to the nonempty even subsets of \(B\), by looking at finite valuations and then at infinity. A character for a subset \(S\) of size \(2,4,6\) gives a quotient double cover of genus \(0,1,2\), respectively. Thus the positive-genus factors are fifteen elliptic curves \(E_S\) and \(H_B\).
+
+For each positive-genus quotient the map from \(C_B\) has degree \(16\). The sum of the pullbacks followed by the product of the norms is multiplication by \(16\) on the product of the quotient Jacobians. Indeed norm after the corresponding pullback is \([16]\). For different characters, an inertia-group-independent argument is to choose an element of the kernel of the target character on which the source character is nontrivial. It fixes the target quotient and acts as the hyperelliptic involution on the source quotient, hence as \([-1]\) on its Jacobian. Thus the cross-composite is equal to its negative, and a homomorphism of abelian varieties with image killed by two is zero. The factors have total dimension \(17\), so the sum of pullbacks is an isogeny with kernel killed by \(16\). In particular it identifies the \(3\)-divisible groups of the product and \(J(C_B)\).
+
+**Harmonic compatibility.** An elliptic double cover with branch ratio \(\lambda\) has Legendre Hasse invariant proportional to \(1+\lambda\) in characteristic three. Thus it is supersingular exactly for the harmonic ratio \(\lambda=-1\), and all reordered ratios of a harmonic quartet are \(-1\) in this characteristic. Every triple has exactly one harmonic completion (normalize the triple to \(\infty,0,1\)). No two harmonic four-subsets can share three points, so their complementary two-subsets of the six-set are disjoint. Consequently \(h\le3\).
+
+When \(h>0\), normalize one harmonic quartet to \(\infty,0,1,-1\), and write the other points as \(u,v\). The genus-two equation is \(y^2=(x^3-x)(x-u)(x-v)\). For any monic squarefree quintic \(F(x)=\sum c_i x^i\), use the column-vector convention on the basis \(dx/y,x\,dx/y\). The Cartier operator is \(z\mapsto M^{(1/3)} z^{(1/3)}\), where
 \[
-J(C_B)\sim_{2\text{-power}}\Bigl(\prod_{|S|=4}E_S\Bigr)\times J(H_B).
+  M=(c_{3i-j})_{i,j=1,2}=\begin{pmatrix}c_2&c_1\\1&c_4\end{pmatrix}.
 \]
-In particular, this isogeny identifies \(3\)-divisible groups and preserves the Newton polygon, \(3\)-rank and \(a\)-number.
+Here exponents in parentheses act entrywise. This follows by writing \(x^{j-1}dx/y=y^{-3}F(x)x^{j-1}dx\), then extracting monomials of degree \(3i-1\) and taking cube roots of their coefficients. Consequently the square of Cartier has linear factor \((M^{(3)}M)^{(1/9)}\), not \((MM^{(3)})^{(1/9)}\) in this column convention. The \(3\)-rank is the stable Cartier rank, which in dimension two is the rank of its square. In the harmonic normalization, \(s=u+v\), \(p=uv\) give \(c_2=s,c_1=-p,c_4=-s\), so \(\det M=p-s^2=-(u-v)^2\ne0\). Hence \(h>0\) forces \(r=2\).
 
-**2. Harmonic quadruples.** An elliptic double cover of four points has vanishing Hasse invariant in characteristic three precisely when the cross-ratio equals \(-1\). For any three distinct base points, there is exactly one point completing them to a harmonic quadruple. Thus two distinct harmonic four-subsets of the six-point set cannot share three points. Their complements are two-subsets of \(B\), and these complementary pairs must be disjoint. At most three disjoint pairs exist: \(0\le h(B)\le3\).
+**Attainment.** For \((0,0)\) and \((0,1)\) take \(B\) to be infinity and the roots of \(F=x^5+1\) and \(F=x^5+x^4+2\), respectively. The first has derivative \(2x^4\) and nonzero constant term; the second has derivative \(x^3(1-x)\) and nonzero values at \(0,1\). Thus both are squarefree. Their matrices are \(\bigl(\begin{smallmatrix}0&0\\1&0\end{smallmatrix}\bigr)\) and \(\bigl(\begin{smallmatrix}0&0\\1&1\end{smallmatrix}\bigr)\); the first squares to zero and the second is idempotent of rank one. The compatibility argument forces \(h=0\) in both cases.
 
-**3. New genus-two compatibility.** Suppose \(h(B)>0\). Move one harmonic quadruple by a projective transformation to \(\{\infty,0,1,-1\}\); denote the other points by \(u,v\), with \(u,v\notin\{0,1,-1\}\) and \(u\ne v\). A model of the genus-two quotient is
-\[
-H_B:\ y^2=(x^3-x)(x-u)(x-v).
-\]
-Writing \(s=u+v\) and \(p=uv\), its monic quintic is \(x^5-sx^4+(p-1)x^3+sx^2-px\). In the basis \(dx/y,x\,dx/y\), a Cartier–Manin matrix, or its transpose for the dual Hasse–Witt convention, is
-\[
-M=\begin{pmatrix}s&-p\\1&-s\end{pmatrix},\qquad
-\det M=p-s^2=-(u-v)^2\ne0.
-\]
-Thus the genus-two quotient is ordinary: \(r(B)=2\) whenever \(h(B)\ge1\). This rules out all other \((h,r)\) pairs.
+For the positive values of \(h\), begin with \(Q=\{\infty,0,1,-1\}\). Let \(\alpha\) have degree three over \(\mathbb F_3\), for example a root of \(x^3-x-1\). To get \(h=1\), adjoin \(u=\alpha,v=\alpha+1\). A second harmonic quartet would have to contain both \(u,v\) because its complementary pair must be disjoint from \(\{u,v\}\). If it contains \(\infty\) and \(b\in\{0,1,-1\}\), harmonicity is \(u+v+b=0\), impossible. If it contains two finite points \(b,c\) of \(Q\), the condition is \((b-u)(c-v)+(b-v)(c-u)=0\), a polynomial of degree two with nonzero leading coefficient in \(\alpha\) over \(\mathbb F_3\), also impossible.
 
-**4. Rank and \(a\)-number.** Each harmonic elliptic factor has \(3\)-rank zero and \(a\)-number one; each other elliptic factor is ordinary. The displayed prime-to-three isogeny gives \(f_3=15-h+r\). For a monic squarefree quintic \(f(x)=\sum_{j=0}^{5}c_jx^j\), with its branch point at infinity, a Cartier–Manin matrix of \(y^2=f(x)\) in characteristic three is
-\[
-M_f=\begin{pmatrix}c_2&c_1\\c_5&c_4\end{pmatrix},\qquad c_5=1.
-\]
-The supersingularity criterion uses \(M_fM_f^{(3)}=0\), as in Howe (2006), where \(M_f^{(3)}\) is entrywise cubing. Its rank is at least one, hence \(a(J(H_B))\le1\). For genus-two curves \(a=0\) exactly when the \(3\)-rank is two; therefore \(a(J(H_B))=\mathbf1_{r<2}\). In dimension two, when \(r=0\) all Newton slopes are \(1/2\), while when \(r=1\) the remaining two slopes are \(1/2\). This proves the Newton and \(a\)-number formulas.
+To get \(h=2\) or \(3\), adjoin \(w,-w\) with \(w\notin\{0,1,-1\}\). The quartets \(Q\) and \(\{\infty,0,w,-w\}\) are harmonic. The only possible third has complementary pair \(\{\infty,0\}\), hence is \(\{1,-1,w,-w\}\). Its cross ratio is \(((1-w)/(1+w))^2\); harmonicity is equivalent to \(w^2=-1\). Take \(w=\alpha\) for \(h=2\) and a square root of \(-1\) in \(\mathbb F_9\) for \(h=3\). All three examples are ordinary on the genus-two quotient.
 
-**5. Attainment of every profile.** Let \(\alpha\in\mathbb F_{27}\) satisfy \(\alpha^3-\alpha-1=0\), and encode \(z_0+z_1\alpha+z_2\alpha^2\) as \(z_0+3z_1+9z_2\), with digits \(z_i\in\{0,1,2\}\). For normalized \(B=\{\infty,0,1,a,b,c\}\), the exact triples
+Finally, the space of normalized distinct choices \((b_1,b_2,b_3)\) is an irreducible open subset of affine three-space over \(\overline{\mathbb F}_3\). Each of the fifteen harmonic conditions is proper closed: fix the other three points in the selected quartet and vary one nonconstant coordinate of it, leaving at most one harmonic completion. The genus-two ordinary locus is nonempty open, by the nonzero determinant at any of the preceding harmonic examples (renormalized into this space). It intersects the complement of the fifteen harmonic loci. Any point of that intersection over \(\overline{\mathbb F}_3\) is defined over some finite extension of \(\mathbb F_3\). This gives \((0,2)\).
 
-| \((h,r)\) | \((a,b,c)\) in \(\mathbb F_{27}\) encoding | Resulting \(3\)-rank | \(a\)-number |
-|---|---|---|---|
-| \((0,0)\) | \((3,19,25)\) | \(15\) | \(1\) |
-| \((0,1)\) | \((3,7,14)\) | \(16\) | \(1\) |
-| \((0,2)\) | \((3,4,9)\) | \(17\) | \(0\) |
-| \((1,2)\) | \((2,3,4)\) | \(16\) | \(1\) |
-| \((2,2)\) | \((2,3,6)\) | \(15\) | \(2\) |
+**Jacobian invariants.** Each harmonic elliptic factor contributes \(f=0,a=1\), and the others contribute \(f=1,a=0\). On the genus-two quotient the displayed Cartier matrix has rank at least one, so its \(a\)-number is at most one; it is zero exactly in the ordinary case. Adding the contributions gives the formulas. In dimension two, when the rank is zero, any slope other than \(1/2\) would require, together with its dual slope, at least six slopes (a reduced denominator \(\ge3\) divides the multiplicity). When the rank is one, the two middle slopes must also both be \(1/2\). Combining these with the elliptic slopes yields the Newton formula.
 
-are verified by field arithmetic and Cartier matrices. For \((h,r)=(3,2)\), take \(\beta^2+1=0\) in \(\mathbb F_9\), with digit encoding \(z_0+3z_1\) for \(z_0+z_1\beta\), and choose \((a,b,c)=(2,3,6)\). The corresponding rank is \(14\) and \(a\)-number is \(3\). These six explicit witnesses prove every listed possibility occurs. The code in `verify.py` reproduces their profiles.
+## Verification and scope
 
-## Verification
-Run `python3 verify.py` using only the Python standard library. It performs independent exact arithmetic in \(\mathbb F_9\) and \(\mathbb F_{27}\), computes harmonic quadruples and the genus-two Cartier–Manin matrices, and asserts the six witness profiles. It additionally enumerates every \(\binom{7}{3}=35\) normalized branch triple over \(\mathbb F_9\) and every \(\binom{25}{3}=2300\) normalized branch triple over \(\mathbb F_{27}\). The output ends in `VERIFY_OK`. The finite enumerations establish existence and check bounded samples; the isogeny, compatibility lemma and universal rank bound have algebraic proofs above.
+`verify.py` is a bounded exact check of the two quintic witnesses and includes a regression for the order of the twisted Cartier product over \(\mathbb F_{27}\). The geometric argument, not a census of normalized triples, proves the universal bounds and the remaining attainments. The result concerns smooth marked branch covers in characteristic three; it does not enumerate curve classes, describe collisions, or assert preservation of the integral polarization by the isogeny.
 
 ## Relationship to prior work
-Carvacho, Hidalgo and Quispe (2015), Section 5.3 and Theorem 5.3, give the genus-seventeen complex Jacobian decomposition into fifteen elliptic quotients and one genus-two quotient; their work is the starting point, not a new claim. Hidalgo and collaborators (2014) describe generalized Fermat curves in arbitrary characteristic prime to the covering degree. Yamauchi (2008) constructs special number-field families with split Jacobians. The new assertion here is the **characteristic-three interaction** between harmonic four-subsets and the ordinarity of the residual genus-two quotient, producing the exhaustive six-profile \(3\)-rank and \(a\)-number classification for the entire three-parameter family. Neither the source decomposition nor general Cartier theory is claimed as new.
 
-## Limitations
-This theorem concerns the stated type \((2,5)\) family in characteristic three, not all genus-seventeen curves. The prime-to-three isogeny does not assert preservation of integral polarizations. The statements do not count geometric isomorphism classes of curves, nor classify the individual isomorphism types of all elliptic quotient factors. The six-profile theorem and explicit examples are reviewed here, but independent scientific validation has not occurred. An equivalent earlier formulation in specialized generalized-Fermat or finite-characteristic literature may exist, particularly because the complex decomposition is established.
-
-## References
-- M. Carvacho, R. A. Hidalgo, S. Quispe, *Isogenous decomposition of the Jacobian of generalized Fermat curves*, arXiv:1507.02903v1 (first publicly posted 2015-07-10), Section 5.3, Theorem 5.3. https://arxiv.org/abs/1507.02903
-- R. A. Hidalgo, A. Kontogeorgis, M. Leyton-Álvarez, P. Paramantzoglou, *Automorphisms of generalized Fermat curves*, arXiv:1409.3063 (2014). https://arxiv.org/abs/1409.3063
-- T. Yamauchi, *On Curves with Split Jacobians*, Communications in Algebra 36 (2008), 1419–1425, doi:10.1080/00927870701866622.
-- D. Harvey, A. V. Sutherland, *Computing Hasse–Witt matrices of hyperelliptic curves in average polynomial time*, arXiv:1402.3246 (2014), for standard Hasse–Witt computational context.
-- E. W. Howe, *Supersingular genus-two curves over fields of characteristic three*, arXiv:math/0604413v1 (2006), Section 2, especially the exact criterion for \(MM^{(3)}=0\). https://arxiv.org/abs/math/0604413
-- G. Martínez-Núñez, *Decomposition of Jacobians of generalized Fermat curves*, arXiv:2303.18056 (2023), for later work over complex numbers on decomposition of generalized Fermat Jacobians.
+Carvacho–Hidalgo–Quispe, *Isogenous decomposition of the Jacobian of generalized Fermat curves*, arXiv:1507.02903, §5.3 and Theorem 5.3, give the fifteen elliptic factors and genus-two factor over the complex numbers. Tame generalized Fermat models also appear in Hidalgo–Kontogeorgis–Leyton-Álvarez–Paramantzoglou, arXiv:1409.3063. The determinant argument for ordinarity of a genus-two double cover with a harmonic branch quartet also occurs in [*A rigid seven-point harmonic extremum and its genus-forty-nine Jacobian in characteristic three*](https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-a-rigid-seven-point-harmonic-extremum-and-its-genus-forty-nine-j--03d5bb86279a/RESULT.md), applied there to six-subsets of an extremal seven-point set. The factor pattern and compatibility calculation are not claimed as new. The distinct assertion here is the complete attainable profile classification for arbitrary six-point sets, including the two \(a\)-numbers at the same rank. The distinction between the Cartier and Hasse–Witt semilinear conventions is discussed by J. D. Achter and E. W. Howe, *Hasse–Witt and Cartier–Manin matrices: a warning and a request*, arXiv:1710.10726. Historical priority for the full profile classification is not certified.

@@ -1,19 +1,21 @@
-# Scientific review: exact fair-rally first-serve law
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The score-event transition probabilities sum all possible non-scoring service losses into an exact four-state Markov kernel. The twelve-state deuce continuation is verified entrywise. An exact inverse-row cancellation reduces the difference between first-serving assignments to a bivariate rational series, whose diagonal is the ordinary Legendre generating function. The fixed-angle Legendre asymptotic and irrationality of \(\arccos(3/5)/\pi\) establish the sharp oscillatory rate and two infinite-sign subsequences. Thirty exact target comparisons with a separately organized dynamic program corroborate the derivation. The scope is only independent fair-on-serve rallies and the uncapped two-point margin.
+PASS
 
-## Originality — PASS with residual risk
+The four cyclic server states retain service on a scored rally; summing non-scoring faults gives (8,4,2,1)/15. From deuce the difference chain absorbs almost surely (two same-side scored points in a fixed direction have positive probability, uniformly over states). I independently solved the rally-level deuce equations, obtaining (30/43,45/86,13/43,41/86) at zero difference, and evaluated targets 2 through 21 by eliminating the four cyclic rally equations at each score; all match (replay independent_checks.py 2). For the infinite identity, right multiplication checks the printed Green-row difference. Its A-next-point and deuce weights give (1−y)H and (11x−32y+10)H/43. All monotone histories inside the square of scores ≤n−1 are nonterminal; summing the first weight on the A-winning edge telescopes, and the deuce corner gets the second weight. For m=n−1, symmetry and (5−2x−2y+xy)H=1 yield f_n=(75c_m,m+11c_{m−1,m−1})/86. The diagonal constant term is ((5+z)^2−16z)^(−1/2), so c_j,j=5^(−j−1)P_j(3/5); this also covers n=2. For the asymptotic, cos(θ/2)=2/√5, sin(θ/2)=1/√5; the weighted adjacent cosines have coefficients 260/√5 and −20/√5, i.e. amplitude 20√34 and phase shift arctan(1/13). The fixed-angle error after common scaling is O(1/n). A rational θ/π would make 6/5 a rational algebraic integer, so the phases are dense and give the stated sharp positive and negative limits. This proves both signs infinitely often, not strict alternation at consecutive targets. The conclusion uses only the stated uncapped, fair independent-rally doubles model.
 
-DeFord and Ethier (arXiv:2303.02942v1/v2) give the underlying model and a general absorbing-chain evaluation, and explicitly analyze the targets \(11\) and \(15\). Their inspected full preprint does not state the simplified Legendre law over all targets or its infinite sign reversal and sharp asymptotic envelope. The Mathematical Association of America numerical discussion concerns specified target games, not the result proved here. The classical Legendre asymptotics are appropriately attributed. Targeted general-literature and mathematical-record searches located no equivalent claim. An updated 2026 chapter version and unindexed older scoring literature are residual priority risks; the arXiv preprint of the same paper was inspected in detail.
+## originality
 
-## Value — PASS
+PASS
 
-The paper's principal modeling observation is that the small first-serve effect changes sign between standard target scores. The exact law reveals an otherwise hidden orthogonal-polynomial structure and proves that such reversals recur infinitely, with a sharp exponential-and-square-root decay. This is an all-target structural description of a natural Markov scoring process, not a routine fixed-score table or a merely numerical recomputation.
+The underlying model, general finite matrix calculation, and opposite signs for targets 11 and 15 are established. The independent overlap review supports the distinct target-uniform Legendre reduction and sharp infinite oscillation, not those earlier results or the classical polynomial identities.
 
-## Closest literature and limitations
+## value
 
-The 2023 DeFord–Ethier model is the decisive same-object source; its fixed-target rational expressions are computationally stronger than raw simulation but do not state the claimed all-target simplification. A 2026 book-chapter abstract appears to reproduce the same headline results; its complete updated text was not independently available here. An undiscovered equivalent closed formula remains possible. All claims assume serving-rally win probability exactly \(1/2\), conventional side-out doubles, and an unlimited two-point-margin endgame.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A natural symmetric limit of the actual gameplay model already exhibits a puzzle at common targets. The exact identity exposes orthogonal-polynomial structure, explains why either first-serve sign keeps recurring, and gives the sharp magnitude; this is more than recomputing the two well-known targets and does not exaggerate the practical size of the effect.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

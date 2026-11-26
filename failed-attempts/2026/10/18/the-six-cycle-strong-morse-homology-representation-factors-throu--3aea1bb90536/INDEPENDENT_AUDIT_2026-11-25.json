@@ -1,0 +1,90 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:47:32.679624Z",
+  "axes": {
+    "correctness": {
+      "rationale": "I rebuilt all filtration faces using oriented endpoint pairs, rather than the frozen numerical incidence labels, and computed signed boundary ranks exactly over Q: (11,37,30). The 163 augmented faces give reduced homology only in H2, dimension five. Orbit counting on invariant faces gave reduced Lefschetz traces (5,-1,-1,5,-1,-1) on rotations and 1 on every reflection; an invariant simplex with k vertex orbits contributes (-1)^(k-1), also valid for the augmented empty simplex. Both different reflection-chain counts sum to 1. The complex agrees with the pure one at this length (KOW Theorem 8.4). The central involution has trace equal to dimension, so is the identity; the quotient S3 character (5,-1,1) is exactly 1+2 Std, and the rotation image has order three. Replay the independent exact check with python3 -B /workspace/audit_math.py 4. Read the bundled verifier; did not run it.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "4819a9d67705 computes reduced virtual traces on all D_n for n≥3; KOW gives 30 top faces and a nonequivariant wedge of five 2-spheres at n=6."
+        ],
+        "reasoning": "For six vertices there are no other reduced homology degrees, so the previously computed virtual character equals the actual H2 character. The nonequivariant wedge theorem alone would not determine it.",
+        "searches": [
+          "Resultary 4819a9d67705, Dihedral Euler characters of full strong Morse complexes of cycles",
+          "KOW Proposition 8.3 and Theorems 8.4, 8.6"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_hexagon_strong_morse.py",
+        "arXiv:2609.06844v1",
+        "Resultary 4819a9d67705, 0dacd6b82f58, 43f58158c288, a9ef20f4f6de and ec75a498f052"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier formula implies chi(r^3)=5 in dimension five and quotient values (5,-1,1). Same-day full integral result 43f58158c288 by itself gives dimensions, not the action."
+        ],
+        "reasoning": "An involution in characteristic zero with maximal trace is trivial, and the S3 irreducible character table identifies 1+2 Std. There is no surviving independent representation-theoretic conclusion in the asserted scope.",
+        "searches": [
+          "Resultary 4819a9d67705, Finding and scope",
+          "arXiv:2609.06844v1, Theorems 8.4 and 8.6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "KOW constructs the strong complex by vertex filtrations and separates it from the ordinary Morse complex. KOW Theorem 8.4 identifies full and pure for n≤7.",
+          "Resultary 4819a9d67705 uses the strong vertex-filtration complex and the same geometric generators r(i)=i+1 and s(i)=-i; a same-day study a9ef20f4f6de concerns ordinary matchings instead."
+        ],
+        "reasoning": "Full-to-pure is exact at six vertices. The ordinary Morse theorem cannot substitute for this equivalence.",
+        "searches": [
+          "Resultary: pure/full strong Morse cycles, dihedral Euler characters and threefold rotation character",
+          "Knudson–Owens–White, arXiv:2609.06844v1, §§3–4 and 8"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier L(gcd(n,a)) formula gives the six rotation values; its two even reflection entries at n=6 are -Z_2 and -Z_1, both 1 since Z_0=1, Z_1=-1, Z_2=-1.",
+          "Earlier 0dacd6b82f58 directly covers the cyclic restriction but not the reflection values."
+        ],
+        "reasoning": "The earlier full table by formula determines all twelve values exactly; the rotation-only record is corroborating component coverage, not the decisive source.",
+        "searches": [
+          "Resultary 4819a9d67705 exact rotation and reflection formulas",
+          "Resultary 0dacd6b82f58, pure strong-cycle rotation character"
+        ]
+      },
+      "rationale": "Resultary 4819a9d67705 (2026-10-11) gives the full virtual dihedral character on the same strong complex before taking the pure restriction. At n=6 the restriction is equality and reduced homology is concentrated in even degree. Its formula therefore specializes to precisely the claimed actual character. The kernel and S3 decomposition are immediate from that character.",
+      "residual_risks": [
+        "The broader comparison is bounded; direct earlier mathematical coverage of the character is decisive without an exhaustive priority history."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the exact character by specialization",
+          "evidence": "Rotation L(d)=-1+6[3|d]-4[4|d], the two even reflection formulas, and the same filtration model and dihedral generators.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-dihedral-euler-characters-of-full-strong-morse-complexes-of-cycl--4819a9d67705/RESULT.md",
+          "material_read": "Finding, assumptions, face criterion and start of signed face proof, offsets 0–3812",
+          "method": "Bounded local-mirror text, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Dihedral Euler characters of full strong Morse complexes of cycles",
+          "trigger": "Potential stronger result on the same action"
+        },
+        {
+          "assessment": "Supplies the specialization hypotheses but the wedge theorem is nonequivariant",
+          "evidence": "Full and pure agree through length seven; at six reduced homology is concentrated in degree two of rank five. The proof uses selected index-dependent stars rather than an equivariant wedge description.",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.06844v1",
+          "material_read": "§3 pp. 4–5, §4 p. 7, §8 Proposition 8.3, Theorems 8.4 and 8.6, Remark 8.13, and selected proof passages",
+          "method": "Bounded OA PDF extraction",
+          "title": "Complexes of strong discrete Morse matchings",
+          "trigger": "Definitions and possible equivariant homotopy result"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The action is a natural invariant, but this narrow representation is already recoverable by direct specialization and the standard S3 character table. The frozen work checks the same invariant and makes no distinct integral, equivariant homotopy or broader structural claim.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

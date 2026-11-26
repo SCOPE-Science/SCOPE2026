@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:11:16.390538Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On labelled bidirected cycles stable sets are independent dominating sets. The cyclic membership language excludes 11 and 000 in each coordinate, so the trace counts each labelled ordered pair once with target-symbol XOR weight. Independently used a 9-state pair automaton (age of the last occupied site in each coordinate); exact determinant, length-one and length-two corrections, and two dominant-root derivatives all agree. Replay: python3 /workspace/audit-04-reproduce.py (SymPy); no frozen script was executed. At t=1 the one-coordinate recurrent shift has cycles of lengths 2 and 3 and is irreducible, hence primitive, as is its tensor square. Analytic isolation of its simple Perron root gives a uniform exponentially small trace error near t=1; differentiating and substituting the centered characteristic-function argument proves the stated moments and Gaussian limit, with strictly positive exact variance. For odd n the sole agreement vertex cannot be in both sets (its neighbors would also have to agree), so an alternating path with that one uncovered vertex gives precisely 2n possibilities; even n has the two proper alternating assignments. These arguments include n=3 and use ordered, not rotation-quotiented, pairs.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general extension-diversity framework motivates |S△T| but the inspected definition and results overview concern diversity and computation, not this cycle-specific law.",
+          "Bisdorff–Marichal enumerate single sets and rotational/reflectional orbits rather than pairs with weights."
+        ],
+        "reasoning": "Neither the broader problem definition nor single-set orbit enumeration supplies the weighted two-replica trace.",
+        "searches": [
+          "arXiv:2605.13332v1, abstract and Section 3",
+          "arXiv:math/0701647v2, Section 1",
+          "general web lookup for cycle maximal-independent-set pair distance and overlap"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and checker.py",
+        "arXiv:math/0701647v2",
+        "arXiv:2605.13332v1",
+        "Resultary:84ad81841c78",
+        "Resultary:a5fcb188f118",
+        "Resultary:b542a4289c17"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The path denominator D(x,z) is exactly the frozen Q(x,z) under the length/weight renaming, and the mean formulas agree modulo ρ³=ρ+1. The path generating function uses the swap-invariant six-state quotient; its invariant boundary vectors do not detect the three-dimensional antisymmetric sector.",
+          "Single-set covariances can inform the first two overlap moments for independent replicas; they do not determine the complete law."
+        ],
+        "reasoning": "The shared Q makes root-based constants accessible by standard analysis and weakens the standalone novelty of the mean. The odd-cycle extremal count and the full cyclic trace including P are not consequences of just the path scalar series or single-set moments. The path record is dated November 22 versus the frozen October 26 source; the mathematical distinction does not depend on resolving priority.",
+        "searches": [
+          "Resultary:b542a4289c17, Finding and Proof §2",
+          "Resultary:84ad81841c78, Finding",
+          "arXiv:math/0701647v2, Section 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Symmetric stable extensions are maximal independent sets, also called independent dominating sets; Fichte et al. already use symmetric difference as extension distance.",
+          "The Resultary bidirected-path theorem enumerates the same pair observable but uses open boundaries and has no odd-cycle obstruction."
+        ],
+        "reasoning": "The metric and local word encoding are prior/common structure. Switching to labelled cyclic words replaces a boundary-vector contraction by a trace and detects an additional factor, not a change of terminology.",
+        "searches": [
+          "Resultary: ordered stable-extension disagreement and maximal-independent-set pair overlap on cycles",
+          "arXiv:2605.13332v1, Definition 2",
+          "Resultary:b542a4289c17, Finding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Inspected indexed cycle results give single-set Perrin counts, covariance/Fourier spectra or cardinality/exchange statistics; the indexed pair-distance enumerator is for paths.",
+          "The Perrin sequence covers D_n(0) and by independent pairing D_n(1), not intermediate coefficients."
+        ],
+        "reasoning": "The all-n labelled cycle pair polynomial is the exact object checked, not a new interpretation of tabulated single-set counts.",
+        "searches": [
+          "Resultary:84ad81841c78",
+          "Resultary:a5fcb188f118",
+          "Resultary:b542a4289c17",
+          "arXiv:math/0701647v2"
+        ]
+      },
+      "rationale": "The cycle pair formula, including the antisymmetric-sector contribution, and the odd-cycle extremal count are distinct from the closest inspected results. The path result has the very same symmetric-sector denominator and leading mean, so these should not be presented as uniquely cycle-specific discoveries. No inspected source gives the full cyclic trace enumerator with its two factors and cycle pair limit law. This is a bounded finding about coverage, not a priority certificate.",
+      "residual_risks": [
+        "Earlier work on overlap of independent dominating sets or replicated one-dimensional hard-core automata under other terminology may exist; no direct covering work was located in the bounded search.",
+        "The standard transfer and analytic methods themselves are not asserted new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Single-set enumeration already known",
+          "evidence": [
+            "Perrin recurrence and discussion of symmetry orbits, not weighted ordered pairs."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/math/0701647v2",
+          "material_read": "Introduction, near offset 1991",
+          "method": "Open-access text",
+          "title": "Counting non-isomorphic maximal independent sets of the n-cycle graph",
+          "trigger": "Same labelled cycles and maximal independent sets"
+        },
+        {
+          "assessment": "Prior definition and motivation",
+          "evidence": [
+            "d(S,T)=|S△T| and k-diversity based on that metric."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2605.13332",
+          "material_read": "Abstract and §3 Definition 2, pp. 1 and 5",
+          "method": "Open-access PDF text",
+          "title": "Diversity of Extensions in Abstract Argumentation",
+          "trigger": "Same extension metric and broad problem"
+        },
+        {
+          "assessment": "Adjacent single-replica result",
+          "evidence": [
+            "Uniform single set and its exact coordinate covariance/Fourier spectrum."
+          ],
+          "identifier_or_url": "Resultary:84ad81841c78",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Indexed local mirror",
+          "title": "Perrin–Padovan Fourier sampling on maximal independent sets of cycles",
+          "trigger": "Indexed same family and fluctuations"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": [
+            "Cardinality strata and exchange/degree statistics, not all ordered pairs and their overlap."
+          ],
+          "identifier_or_url": "Resultary:a5fcb188f118",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Indexed local mirror",
+          "title": "Connected maximal independent set exchange sectors and exact degree statistics",
+          "trigger": "Indexed same objects"
+        },
+        {
+          "assessment": "Material method and mean overlap; distinct boundary theorem",
+          "evidence": [
+            "Rational series N/D with D=Q after variable renaming; fictitious zero boundary bits and a six-orbit quotient. All path lengths n≥2 have two distance-n pairs."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-the-ordered-stable-extension-diversity-polynomial-of-bidirected--b542a4289c17/RESULT.md",
+          "material_read": "Finding and Proof §§1–2, offset 0 through transition matrix",
+          "method": "Indexed local mirror",
+          "title": "The ordered stable-extension diversity polynomial of bidirected paths",
+          "trigger": "Closest indexed complete ordered-pair distribution"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural cyclic benchmark for extension diversity: exact ordered-pair coefficients answer distance-tail counts at every size, parity determines the maximum multiplicity, and the explicit variance gives the fluctuation scale. The cyclic trace detects a sector absent from the path scalar series. This is a reusable exact invariant of a motivated graph family, not a numerical sequence check or a claim of a new general transfer method.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

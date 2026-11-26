@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness: PASS.** A pair-separation-mask equivalence follows directly from the selected/unselected witness requirement. Both independent implementations traverse all \(65536\) subsets and agree on minimum size, all-set counts, the minimal spectrum, and fault-tolerant comparison. One implementation independently checks the complete \(96\)-automorphism action and all \(192\) breadth-first-search distance distributions. The proof claims only a finite exhaustive result; every claimed boundary is explicitly checked.
+## correctness
 
-**Originality: PASS, with historical priority risk.** Primary 2012 and 2014 work defines the resolving form and analyzes general/other graph families, not the exact \(GP(8,3)\) enumeration. The highly relevant 2016 work clearly distinguishes its *pure* variant (no required resolution), so its lower bound and optimum problem are not the same. Semantic searches in published mathematical records produced related results on the same graph, but none of the inspected statements implies this specific weak-total metric basis count, three-orbit geometry, or common exchange distance distribution. Absolute priority is not certified by unsuccessful searches.
+PASS
 
-**Value: PASS.** The canonical cubic symmetric \(8_3\) incidence graph provides a natural small test case for sensor placement where resolving weak-total protection and full fault tolerance differ in the optimal number of landmarks. The complete geometric orbit classification and sharp reconfiguration radius identify qualitatively distinct optimum layouts and the exact worst-case cost of migrating between them. The uniform distance profile across all three geometrically inequivalent orbits is non-obvious structural information beyond a raw optimum count.
+The mixed selected/unselected condition supplies a witness other than the selected endpoint. All pairs with a selected endpoint already have a separator at an endpoint; the remaining condition is injectivity of the distance code on the unselected vertices. The property is upward closed: a newly selected landmark separated from any remaining unselected vertex has a witness in the old set by resolution. Thus checking immediate deletions suffices for inclusion-minimality. I rebuilt the graph, used Floyd–Warshall for distances and evaluated the literal witness and outside-code conditions on all 65,536 subsets. I reproduced every coefficient in RESULT.md, inclusion-minimal counts 192, 1080, 192, 2, fault-tolerant minimum six (336 sets), and the eight pure two-sets (exactly the distance-four pairs). Exhaustive distance-preserving bijection search gave all 96 automorphisms; the 192 five-sets split into orbits 48, 48, 96 with induced edges as in the finding. Adjacency on intersecting in four vertices and a breadth-first search from each of the 192 states gave the common profile (1,5,14,40,74,42,14,2), hence 480 edges and radius and diameter seven. Replay: python3 /workspace/reproductions/graph2.py. The uploaded checkers were inspected, not executed.
 
-**Closest literature and limitations.** Javaid–Iftikhar–Salman (2012), Javaid et al. (2014), and Casel et al. (2016) were compared at the level of the property being optimized. The 2016 *pure* definition is weaker and cannot imply the selected-set enumeration here. Independently indexed work about other graph parameters on \(GP(8,3)\) does not subsume the claim. Some unindexed historical results could remain undiscovered. No independent audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The closest corpus match is the identical frozen record, not independent corroboration of priority. Distinct close corpus records concern ordinary metric or vertex–edge domination/resolution bases, and the examined weak-total literature supplies the definition and bounds, not the orbit/relocation classification. The pass concerns the complete resolving weak-total classification and exchange geometry, not the definitions, host graph, or its automorphism order.
+
+## value
+
+PASS
+
+The Möbius–Kantor graph is a natural small symmetric cubic benchmark, and the resolving notion's backup constraint changes the optimum state space. The complete orbit types and sharp relocation guarantee identify what all optimal landmark layouts can do rather than merely giving a minimum. In particular, a single all-states distance profile across the three distinct host orbits is usable structural information not implied by host symmetry or the minimum alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

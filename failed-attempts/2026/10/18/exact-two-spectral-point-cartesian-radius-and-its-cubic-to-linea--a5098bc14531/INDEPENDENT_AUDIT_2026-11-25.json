@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:09:15.837112Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Eqs. (1)–(4) and Proof",
+        "Frozen VERIFICATION.md and verify_pair.py (inspected, not executed)"
+      ],
+      "rationale": "Normal functional calculus makes the integrand the largest squared projection of a spectral point. For two points v,w in the plane, assume a≥b and diagonalize vvᵀ−wwᵀ; its eigenvalues are h+s and h−s, with s=√(h²+c²). Relative to the larger-point mean a/2, the increment is the mean negative part of this quadratic form on the circle. In each of the two negative sectors the half-width α satisfies 2α=arctan(c/h) (π/2 if h=0<c). Integrating on the four half-sectors gives 2/π times −hα+(s/2)sin(2α), hence [c−h arctan(c/h)]/π. The c=0 correction vanishes, including the all-zero corner. Using only two spectral points gives a lower bound, exact for a spectrum contained in those points. Differentiating the correction gives c²/(h²+c²) for unequal radii; at h=0 it is linear. Its expansion c³/(3h²)+O_h(c⁵), with c=Rr|sin φ|, gives the stated fixed-modulus coefficient and |φ|⁵ remainder.",
+      "residual_risks": [
+        "The fixed-modulus cubic expansion is not uniform as the two moduli approach equality. The finite quadrature diagnostics are not needed for the proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Thm. 17 gives a general normal bound and a proportional-parts equality case, not the two-point correction.",
+          "The Gaunt formula applies to absolute moments of sums of Gaussian products and in particular to the first absolute moment of one product.",
+          "The earlier individual Resultary results give the cubic exponent and orthogonal slice, the exact equal-modulus law, and the rank-one boundary, respectively."
+        ],
+        "reasoning": "The operator bounds alone do not cover the interior unequal-modulus profile. The broader Gaussian moment does, without an operator-specific lemma or further extremal argument.",
+        "searches": [
+          "Audeh–Moradi–Sahoo, arXiv:2610.04844v1 Thm. 17",
+          "Gaunt, arXiv:2106.02897v2 §2.7 absolute moments",
+          "Resultary:ffd07fee0727, f6644dc86b39, 846b702b24b7"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2106.02897v2",
+        "arXiv:2610.04844v1",
+        "Nabeya 1951 archive entry (formula not read)",
+        "Resultary:ffd07fee0727, f6644dc86b39, 846b702b24b7, 527791afc2c9, 88708c6fe42d, 9aa6ecb3606b, 1c4472e63f45"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Writing q=(1−ρ)/(1+ρ), the n=k=1 hypergeometric factors reduce via Euler's integral to (3/2)∫₀¹(1−x²)/(1+q x²)² dx and the same expression with q inverted. The integral is 1/(2q)+(q−1)arctan(√q)/(2q^(3/2)). Combining terms gives E|UV|=2 σ_U σ_V (√(1−ρ²)+ρ arcsin ρ)/π.",
+          "Here σ_U σ_V=2s and ρ=(a−b)/(2s). Substitution gives I=(a+b)/4+[c+((a−b)/2)arcsin((a−b)/(2s))]/π, exactly the frozen correction in its equivalent form. Degeneracies follow by continuity."
+        ],
+        "reasoning": "This is a direct moment specialization and an elementary simplification. Normal spectral calculus alone then gives the pair lower bound and its sharpness. The angular monotonicity and Taylor laws add no separate non-mechanical claim.",
+        "searches": [
+          "Gaunt §2.7 first absolute Gaussian-product moment at n=k=1; substitute U=X+Y, V=X−Y"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The quantity is the angular mean of the squared support function of conv{±v,±w}.",
+          "For a standard planar normal G, X=v·G and Y=w·G, radial independence and E||G||²=2 give the two-point law I=E max(X²,Y²)/2=(a+b+E|UV|)/4, where U=X+Y and V=X−Y."
+        ],
+        "reasoning": "The Gaussian product is an exact equivalent evaluation, not merely a similar integral or a comparison on the same moduli.",
+        "searches": [
+          "Planar mean squared support of a signed quadrilateral",
+          "Bivariate Gaussian absolute-product moment; arXiv:2106.02897v2 §2.7, p. 11"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-day parallelogram record 527791afc2c9 uses boundary arclength and squared radial distance, not the angular squared support average.",
+          "88708c6fe42d states the exact profile and transition; 9aa6ecb3606b the unequal-modulus law and sharp cubic bounds; 1c4472e63f45 has a different norm-constrained lower bound. Those catalogue entries have later displayed dates."
+        ],
+        "reasoning": "There are exact and partial catalogue overlaps, but their recorded dates alone do not settle provenance. The decisive mathematical predecessor is the 2021/2022 Gaussian moment.",
+        "searches": [
+          "Resultary planar squared support and two-point Cartesian phase laws; 527791afc2c9, 88708c6fe42d, 9aa6ecb3606b, 1c4472e63f45"
+        ]
+      },
+      "rationale": "The full two-parameter correction is mechanically implied by a published absolute moment for products of centered correlated Gaussians, after changing from angular to Gaussian averaging. The exact angular extrema, equal-modulus law and fixed-modulus cubic coefficient then require only differentiation or Taylor expansion. This is affirmative coverage, not an inference from missing literature or catalogue dates.",
+      "residual_risks": [
+        "This does not determine the earliest appearance of the underlying bivariate moment or planar geometric identity. The proved existing coverage is sufficient for disposition."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Affirmative broader coverage; n=k=1 gives the first absolute product moment.",
+          "evidence": [
+            "Two ₂F₁ terms at −(1−ρ)/(1+ρ) and the reciprocal with parameters (2,1/2;5/2) in that specialization."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2106.02897v2",
+          "material_read": "§2.7, p. 11, PDF text offsets 36710–38818, absolute moments after raw-moment formula",
+          "method": "Primary PDF formula read and specialized",
+          "title": "The basic distributional theory for the product of zero mean correlated normal random variables",
+          "trigger": "Exact Gaussian absolute-product equivalence"
+        },
+        {
+          "assessment": "Not relied on to establish coverage; the decisive later published primary formula was readable.",
+          "evidence": [
+            "Archive identifies Nabeya's 1951 paper; PDF lacks an extractable text layer."
+          ],
+          "identifier_or_url": "https://www.ism.ac.jp/editsec/aism/pdf/003_1_0002.pdf",
+          "material_read": "Institute contents entry, vol. 3 pp. 2–6; no readable formula from scanned copy",
+          "method": "Lawful primary archive retrieval and text extraction attempt",
+          "title": "Absolute moments in 2-dimensional normal distribution",
+          "trigger": "Classical absolute-moment source"
+        },
+        {
+          "assessment": "Normal bounds and proportional-parts endpoint, not the exact two-point interior.",
+          "evidence": [
+            "For commuting Cartesian parts the squared radius is bounded below by ||H²+K²||/2."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.04844v1",
+          "material_read": "Abstract and Thm. 17, HTML offset about 29000",
+          "method": "Primary HTML statement comparison",
+          "title": "The L²-Cartesian Numerical Radius of Hilbert Space Operators",
+          "trigger": "Definition and broader normal-operator implications"
+        },
+        {
+          "assessment": "Covers several endpoints and the qualitative cubic exponent; not alone the complete profile.",
+          "evidence": [
+            "Cubic proof evaluates {1,iε}; two unitary projective gaps give the exact equal-modulus law; rank-one finding covers {λ,0}."
+          ],
+          "identifier_or_url": "Resultary:ffd07fee0727; Resultary:f6644dc86b39; Resultary:846b702b24b7",
+          "material_read": "Mirrored Findings; cubic proof offsets about 3800–4450",
+          "method": "Statement and exact-specialization comparison",
+          "title": "Cartesian radius cubic stability, unitary gaps, and rank-one overlap",
+          "trigger": "Earlier partial coverage cited in frozen record"
+        },
+        {
+          "assessment": "The first two overlap the frozen profile; the last two address distinct minimization/averaging problems. No priority finding rests on catalogue dates.",
+          "evidence": [
+            "88708c6fe42d states the angular law including the transition; 9aa6ecb3606b covers the unequal-modulus phase; 527791afc2c9 is an arclength statistic."
+          ],
+          "identifier_or_url": "Resultary:88708c6fe42d; Resultary:9aa6ecb3606b; Resultary:1c4472e63f45; Resultary:527791afc2c9",
+          "material_read": "Mirrored Findings",
+          "method": "Compare assumptions, averaging measures and formulas",
+          "title": "Indexed Cartesian phase laws and related parallelogram geometry",
+          "trigger": "Exact and superficially equivalent catalogue matches"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Eqs. (1)–(4)",
+        "Gaunt §2.7",
+        "Audeh–Moradi–Sahoo Thm. 17"
+      ],
+      "rationale": "The two-spectral-point problem is natural and the formula useful, but the frozen contribution is an exact invariant already obtainable by direct substitution into the published product moment. The phase limits are routine consequences of that same formula. It does not establish a distinct non-mechanical exact fact or structural extension beyond that evaluation.",
+      "residual_risks": [
+        "This does not rule out value of a separate theorem for general spectra, a new stability inequality, or an expository application."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

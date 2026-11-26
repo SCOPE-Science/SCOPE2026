@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:55:16.720787Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–89; frozen VERIFICATION.md and verify.py"
+      ],
+      "rationale": "The local consistent mass and stiffness contributions give normalized diagonal d=1−x−y and alternating neighbor entries x=1/6−σa and y=1/6−σb, σ=τ/ℓ². For nonnegative time, d−(|x|+|y|)=1−2(max(x,0)+max(y,0))≥1/3. Above or at the cutoff both off-diagonals are nonpositive, giving an inverse-positive A by a Neumann series; at zero the step is identity. Below cutoff relabel so a≤b, hence x>0. Even/odd Schur inversion gives R=(uI−xy(S+S⁻¹))⁻¹, u=d²−x²−y². Multiplication by the actual consistent mass gives the stated EE and EO expressions. If y=0 the EE neighbor is −x/(6u); if y>0 the recurrence gives 6(P_EE)₀₁=(Q−x)R₀+(Q−y)R₂. Both coefficients are strictly negative by the two positive-coefficient expansions in p=σa,q=σb and R is strictly positive. The equal-coefficient point x=y=0 is at the cutoff, not in this subthreshold case. For y=−Y<0, periodizing the infinite resolvent with geometric ratio −r yields the stated cyclic formula, verified by the recurrence and the unit jump at k=0. It gives R₁<0, R₂=R₁ for m=3, and 0≤R₂/|R₁|≤2xY/u<1/5 for m≥4: the even formula is bounded by 2r/(1+r²), and the odd m≥5 ratio is less than r. Since the driver ratio (a+5b)/(5a+b)<5, the indicated EO entry is strictly negative. The bound u−10xY=(1−2x)+(2−12x)Y>0 holds because 0<x<1/6. As an exact exception at N=4, direct multiplication of the full proposed propagator by M+K/8 recovers M, with least entry 9/4004. The calculation and sign-polynomial checks replay with `python /workspace/independent_reproduction.py`; the frozen verify.py was inspected, not executed. The all-size result rests on the analytic resolvent argument.",
+      "residual_risks": [
+        "Threshold includes equality. Only a single four-node contrast witness is established, not a complete classification below N=6. No extension to other boundary conditions, mass lumping, or nonalternating media is asserted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Li–Huang give sufficient mesh/time-step conditions for a DMP, including a lower step restriction for consistent mass that can be removed with lumping. Resultary's sharp graded-mesh theorem has constant diffusivity and Dirichlet endpoints, not alternating diffusivities on a cycle."
+        ],
+        "reasoning": "The inspected broader sufficient theorem cannot establish strict failure for every positive subthreshold step. An exact Dirichlet threshold does not identify the finite periodic propagator, where coupling across the periodic seam matters.",
+        "searches": [
+          "Li–Huang arXiv:1209.5657v2 Theorem 3.1; Resultary graded Dirichlet 3b75689e09e8",
+          "Lawful OA attempts: doi:10.2478/cmam-2010-0025; doi:10.1090/S0025-5718-07-02021-2; doi:10.1515/cmam-2015-0018"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1209.5657v2",
+        "Resultary 741ac3b6248b, 39301bc65dc8, 3d15bb4add6b, 3b75689e09e8, 66f05a5db76c",
+        "Bibliographic records of the three unavailable positivity papers"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact homogeneous result extends to common a=b by time rescaling only. The new necessity proof handles two positive coefficients x,y and, separately, opposite signs after the strong-edge crossover; the latter regime does not exist in the homogeneous result."
+        ],
+        "reasoning": "The positivity conclusion above cutoff is standard; the mixed-sign negative entry and exact all-even-size necessity are not a substitution or a consequence of the inspected statements.",
+        "searches": [
+          "Li–Huang arXiv:1209.5657v2, Theorem 3.1; Resultary 741ac3b6248b and 39301bc65dc8"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The six-cell and four-node neighboring cases use unit diffusivity and alternating lengths. An element of length L has mass off-diagonal L/6 and stiffness magnitude 1/L. The target has the same mass off-diagonal on every edge and stiffness magnitudes a/ℓ and b/ℓ."
+        ],
+        "reasoning": "Reciprocal lengths can match the alternating stiffness magnitudes up to scale, but do not match the common mass off-diagonal; in this consistent-mass problem that does not identify the pencil or propagator. The semidiscrete matrix exponential is also a different sign question from a single backward-Euler step.",
+        "searches": [
+          "Resultary semantic comparison: exact consistent-mass backward Euler positivity on equal periodic cells with alternating diffusion coefficients",
+          "Compare 39301bc65dc8 and 3d15bb4add6b in the local Resultary mirror"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Same-day 741ac3b6248b covers τ/ℓ²≥1/6 or τ=0 for homogeneous unit diffusion with n≥4, with unconditional positivity at n=3. Prior 39301bc65dc8 gives threshold max(A²,B²)/6 for six alternating length cells; 3d15bb4add6b covers four alternating length cells.",
+          "Other inspected hits: 3b75689e09e8 (graded Dirichlet) and 66f05a5db76c (continuous-time semidiscrete signs)."
+        ],
+        "reasoning": "The homogeneous scaling case genuinely overlaps, whereas none of the inspected findings gives the heterogeneous equal-cell quantifier or that same four-node witness. This is a bounded catalogue comparison, not proof of uniqueness.",
+        "searches": [
+          "Resultary: alternating periodic finite element positivity threshold, homogeneous periodic backward Euler, four-node and six-cell exceptions"
+        ]
+      },
+      "rationale": "Credit the M-matrix sufficient direction and the covered homogeneous special case. The independently supported distinction is necessity for periodically alternating diffusivities on equal cells for all even N≥6; neither the exact alternating-length examples nor the inspected general sufficient criteria give this. Date order within the same day was not inferred.",
+      "residual_risks": [
+        "The three unavailable full texts, especially Chatzipantelidis–Horváth–Thomée 2015, could contain stronger related characterization. Deferred general web search provides no evidence for absence. The covered same-day homogeneous case receives no separate originality credit."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Sufficient DMP conditions; the inspected theorem does not give exact necessity for this periodic class.",
+          "evidence": "DMP holds if both mesh and time-step hypotheses hold; the abstract contrasts consistent and lumped mass.",
+          "identifier_or_url": "https://arxiv.org/pdf/1209.5657v2",
+          "material_read": "Abstract p. 1 and Theorem 3.1 p. 8 (PDF text offsets 0 and 31583)",
+          "method": "OA primary PDF passage inspection",
+          "title": "Maximum principle for the finite element solution of time dependent anisotropic diffusion problems",
+          "trigger": "Broad consistent-mass FE time-step criteria"
+        },
+        {
+          "assessment": "Covers a=b after rescaling, not a≠b.",
+          "evidence": "Unit diffusivity threshold τ/ℓ²=1/6 for n≥4, with τ=0 allowed; n=3 differs.",
+          "identifier_or_url": "Resultary 741ac3b6248b",
+          "material_read": "RESULT.md Finding, local mirror initial passage",
+          "method": "Direct theorem comparison",
+          "title": "Exact positivity threshold for consistent-mass backward Euler on a uniform periodic mesh",
+          "trigger": "Same-day exact homogeneous special case"
+        },
+        {
+          "assessment": "Close structural neighbors, not equal-cell alternating diffusivities.",
+          "evidence": "Unit diffusivity with alternating cell lengths; six-cell cutoff max(A²,B²)/6, and separate four-node alternating-length calculation.",
+          "identifier_or_url": "Resultary 39301bc65dc8; 3d15bb4add6b",
+          "material_read": "RESULT.md Finding/Assumptions passages, local mirror initial passages",
+          "method": "Compare stiffness, mass, geometry and quantifiers",
+          "title": "Sharp six-cell alternating periodic positivity frontier; exact four-node alternating periodic threshold",
+          "trigger": "Same cyclic block types, sizes and threshold question"
+        },
+        {
+          "assessment": "Different exact claims; neither provides the target necessity.",
+          "evidence": "Dirichlet constant-coefficient family; semidiscrete continuous-time exponential rather than backward Euler, respectively.",
+          "identifier_or_url": "Resultary 3b75689e09e8; 66f05a5db76c",
+          "material_read": "Locally mirrored RESULT.md initial passages",
+          "method": "Compare boundary conditions and propagators",
+          "title": "Sharp backward Euler positivity on graded Dirichlet intervals; Reentrant Galerkin heat kernel signs on periodic one-dimensional meshes",
+          "trigger": "Necessity for graded meshes and positivity after nonzero time on a periodic mesh"
+        },
+        {
+          "assessment": "Unresolved extent of coverage; not negative evidence.",
+          "evidence": "No primary theorem passage recovered through those routes.",
+          "identifier_or_url": "doi:10.2478/cmam-2010-0025; doi:10.1090/S0025-5718-07-02021-2; doi:10.1515/cmam-2015-0018",
+          "material_read": "Bibliographic identification only; full text not recovered",
+          "method": "Lawful OA DOI/publisher requests and repository-copy discovery attempts",
+          "title": "On Positivity and Maximum-Norm Contractivity in Time Stepping Methods for Parabolic Equations; On the existence of maximum principles in parabolic finite element equations; On Preservation of Positivity in Some Finite Element Methods for the Heat Equation",
+          "trigger": "Closely related prior positivity and time-stepping work, particularly the 2015 paper"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding, proof and four-node witness; Li–Huang Theorem 3.1; local Resultary homogeneous and alternating-length comparisons"
+      ],
+      "rationale": "On a canonical periodic two-material mesh, a sufficient inverse-positive matrix criterion is shown to be exactly necessary for every even size at least six, regardless of contrast. The small-size exception proves the geometry cannot be dismissed and the mixed-sign proof identifies a negative propagator entry precisely in the regime where inspecting matrix signs alone is insufficient. This is a usable timestep boundary for the stated discretization, not an arbitrary isolated computation.",
+      "residual_risks": [
+        "Nodal positivity only, not a maximum principle for all continuous profiles or a time-accuracy recommendation."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

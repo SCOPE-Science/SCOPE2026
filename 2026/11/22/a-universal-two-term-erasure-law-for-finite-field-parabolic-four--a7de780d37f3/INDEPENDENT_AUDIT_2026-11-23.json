@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T23:53:09.402349Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With q⁻² normalized inversion, the complex convolution norm equals the kernel's ℓ¹ norm by choosing conjugate phases at a single output location. Complete-parabola sums have modulus sqrt(q) for b≠0 and are q times the indicator of a=0 on b=0, so the latter slice changes by exactly D_q(B)/q². On b≠0 put u=E conjugate(G)/sqrt(q); summing over all a there, the linear moment is hq(q−1)/sqrt(q) and the sum of (Im u)² is hq(q−h)/2. The latter follows by comparing |E|² with Re(E² conjugate(G)²/q): equal sums and squared sums force equality of unordered pairs in odd characteristic, giving 2h²−h ordered pairings before the b=0 subtraction. The two normalized Taylor terms sum to −3h/(4 sqrt(q))+h(4−h)/(4q^(3/2)). The cubic uses Re(u|u|²−u³)/4: for the first correlation (r−s)(t−s)=0 gives exactly 2h²−h configurations before subtracting b=0; for the other, choose the three erased coordinates and one unrestricted coordinate, then solve a quadratic for at most two remaining ordered pairs. Both normalized cubic contributions are O(h³ q^(−3/2)). Uniform Taylor control for |u|/sqrt(q)≤1/4 gives the O(h⁴ q^(−3/2)) remainder. Uniform fibres of the nontrivial character applied to a(u−v), and the odd-p cosine sum, give the displayed two-erasure coefficient. As an independent geometry check, in F_(3^m) an erased three-point F3-line has total ℓ¹ sum q, whereas {0,x,y} with x,y F3-independent has q(3+6 sqrt(3))/9 by the nine equally frequent phase pairs; subtract 6 in both cases. All checks are replayable from RESULT.md Steps 1–5 and these counts. The bundled checker was inspected, not executed; its samples principally check normalization and moments, not the uniform theorem. The strict leading-decrease interpretation is for fixed h, not all h permitted by the error bound.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Affine-transitive spectral synthesis applies to the full parabola; arbitrary erasures need not leave an affine-transitive support. General synthesis inequalities bound Fourier-algebra norms but do not evaluate the perturbative coefficients. Conic masks have a sharp fourth extension power governed by retained cardinality and antipodal pairs."
+        ],
+        "reasoning": "General scope in support or mask size is not dominance across norms or different support geometries. A bound on the Fourier-algebra norm is not its asymptotic equality at the scales in question.",
+        "searches": [
+          "arXiv:2609.25404v1 §5 and §8.3, Proposition 8.5",
+          "arXiv:2508.12194 §3, Theorems 3 and 5",
+          "Resultary 6b59f93aeabe (arbitrary conic erasures)"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify_erasure.py, and REVIEW.md",
+        "arXiv:2609.25404v1 and 2508.12194, decisive passages",
+        "Resultary 6b59f93aeabe and ea1b104655f4; assigned identity hit excluded as independent evidence"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Complete Gauss magnitude supplies the expansion point, but the linear and quadratic mixed correlations are needed for 3/4, and cubic cancellation is needed to isolate q⁻¹. The vertical slice carries the entire ℓ¹ spectrum, which can distinguish the two three-point geometries above even at equal h."
+        ],
+        "reasoning": "Knowing the complete norm, one Fourier moment of another object, or a general norm inequality does not recover the mixed phase moments or the deletion-spectrum correction.",
+        "searches": [
+          "Iosevich–Li–Yu Eq. (5.2) and Proposition 8.5",
+          "Resultary 6b59f93aeabe and ea1b104655f4, Finding and norm conventions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In this setting the sharp ℓ∞ multiplier norm is the Fourier-algebra norm of the indicator, equivalently an averaged first absolute moment of a complete quadratic sum minus a sparse sum. The complete parabola formula is present in Iosevich–Li–Yu; the exact Resultary hit a7de780d37f3 is the assigned record itself."
+        ],
+        "reasoning": "The alias reduction exposes prior coverage of the no-deletion term. It does not turn a first absolute moment of a perturbed complex sum into an unperturbed formula or a fourth moment.",
+        "searches": [
+          "Resultary: punctured or erased finite-field parabola Fourier algebra Wiener norm sharp endpoint l-infinity projection uniform fixed deletion leading three quarters; conic arbitrary erasures fourth-power extension",
+          "arXiv:2609.25404v1 §5, Eq. (5.2)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The conic record's exact attainable spectrum is for optimized fourth-power extension. The same-day parabola result tabulates fourth moments of a parabola union a line in four incidence regimes, not punctured parabola first moments. No distinct exact fixed-erasure endpoint table or profile formula was found in the returned matching statements."
+        ],
+        "reasoning": "Neither exact table supplies the Fourier ℓ¹ mass at arbitrary punctured supports; the identity hit is not an independent source.",
+        "searches": [
+          "Resultary: exact parabola erasure, endpoint projection, Wiener norm and fourth-moment formulae",
+          "Resultary ea1b104655f4 (parabola-line fourth-moment classification), 6b59f93aeabe (exact conic mask spectrum)"
+        ]
+      },
+      "rationale": "Credit the known complete Gauss-sum baseline and the standard Fourier-algebra/convolution identity. The distinct result is the normalized averaged perturbation for arbitrary small masks, in particular the universal −3h/(4 sqrt(q)) and exact one-dimensional spectral term at the next fixed-h order. Inspected primary synthesis and indexed erasure/moment results neither state nor imply both terms and their uniform remainder.",
+      "residual_risks": [
+        "An older equivalent fixed-erasure averaged Gauss-sum formula could exist; the cited incomplete-sum primary text was not verified.",
+        "The comparison is bounded and does not adjudicate historical or same-day publication order."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies the unpunctured magnitude and transitive case, not the arbitrary erasure expansion",
+          "evidence": "Eq. (5.2) gives complete Gauss magnitudes; Proposition 8.5 constructs random subsets of intervals with diffuse Fourier contribution and controlled doubling/energy.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.25404v1",
+          "material_read": "OA PDF §5 p. 11, Eq. (5.2) and Eqs. (5.3)–(5.4), around offset 39721; §8.3 Proposition 8.5 pp. 23–24, offsets 88125 and 91087",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "Spectral synthesis with the complexity parameter in Z_N^d",
+          "trigger": "Exact complete-parabola norm and potentially relevant Fourier-algebra theory"
+        },
+        {
+          "assessment": "Relevant inequalities, not an evaluation of the punctured norm",
+          "evidence": "Statements bound using support size and indicator Fourier norms, not the mixed deletion corrections.",
+          "identifier_or_url": "https://arxiv.org/abs/2508.12194",
+          "material_read": "OA §3 Theorem 3/Corollary 4 (around offset 9000) and Theorem 5 (11200)",
+          "method": "Lawful OA passage inspection",
+          "title": "On spectral synthesis in Z_N^d",
+          "trigger": "General support-based inequalities might specialize to this multiplier"
+        },
+        {
+          "assessment": "Different support family and norm",
+          "evidence": "It optimizes over complex coefficients for a fourth-power inequality; c(m,p) is controlled by intact antipodal pairs.",
+          "identifier_or_url": "2026/10/11/SCOPE-sharp-fourier-extension-and-phase-transitions-under-arbitrary-er--6b59f93aeabe",
+          "material_read": "RESULT.md theorem formula, assumptions and opening proof, offsets 500–3531",
+          "method": "Lawful local Resultary mirror",
+          "title": "Sharp Fourier extension and phase transitions under arbitrary erasures of finite-field conics",
+          "trigger": "Arbitrary quadratic-curve erasures and an exact sharp norm"
+        },
+        {
+          "assessment": "Different norm and support perturbation; not dismissed on grounds of shared date",
+          "evidence": "An exact additive-energy table for P union an affine line yields a fourth moment and an ℓ∞-to-ℓ⁴ extension norm.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-fourth-fourier-moments-for-a-finite-field-parabola-joined--ea1b104655f4",
+          "material_read": "RESULT.md Finding and Assumptions, offsets 0–2756",
+          "method": "Lawful local Resultary mirror",
+          "title": "Exact fourth Fourier moments for a finite-field parabola joined to an affine line",
+          "trigger": "Distinct same-day exact Fourier table on the same base parabola"
+        },
+        {
+          "assessment": "Residual access risk, not negative evidence",
+          "evidence": "The frozen comparison describes long incomplete intervals; that description was not independently verified in primary text.",
+          "identifier_or_url": "https://www.cambridge.org/core/journals/mathematika/article/abs/value-distribution-of-incomplete-gauss-sums/9FBFB8DBAD3593290570B5E9DBE10991",
+          "material_read": "No primary full text verified on the attempted route",
+          "method": "Lawful OA article retrieval attempted",
+          "title": "The value distribution of incomplete Gauss sums",
+          "trigger": "Possible earlier averaged quadratic-sum expansion"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The Fourier-algebra norm measures the sharp endpoint cost for a standard finite-field frequency set. The theorem separates a universal cardinality loss from an arithmetic and geometric correction for arbitrary small masks over prime-power fields. The two-point characteristic dependence and the three-point geometry example show the correction is informative, rather than solely a nonsharp uniform bound. The useful asymptotic interpretation is fixed h; the expression is not a finite-q closed form.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

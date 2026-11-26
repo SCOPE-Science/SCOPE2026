@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem covers every integer rim size at least three with counting-measure \(\ell^1\) and \(\ell^\infty\) operator norms. The three invariant Laplacian sectors reconstruct the complete pseudoinverse; the infinite-line recurrence and periodization independently recover the rim Green entries. The hub row and rim rows are compared using an explicit diagonal inequality. Zero row sums transform their absolute row sums into twice the positive-row mass, and a sign vector attains the norm. The sharp asymptotics use an exponentially accurate infinite-line replacement, a uniform positive-part Lipschitz bound, an exact geometric sum, and density of logarithmic phases. These steps prove both the uniform \(O(m^{-2})\) error and the exact accumulation interval. The packaged rational checker passes 2,336 independent entry/row and numerical tests; those finite tests are not substituted for the analytical proof.
+## correctness
 
-## Originality — PASS within inspected evidence
-The full wheel resistance formulas of Yang (2012) and the full Moore--Penrose wheel-Laplacian inverse formula of Ipsen--Mallik (2022, Theorem 3.6) are acknowledged as prior work. The latter already determines every Green entry: **the Green kernel itself is not new**, and the finite induced norm can in principle be calculated from it. The inspected relevant sections do not state or evaluate the cutoff in the absolute row sum, the sharp logarithmic deficit, its periodic second-order correction, or the exact accumulation interval. Searches of published mathematical records under wheel, apex-cycle, Poisson inverse, Green-kernel and maximum-norm aliases identified no equivalent result. Closest prior graph results address different graph families or the edge-gradient projection, not the claimed vertex-norm phase law. Unindexed or inaccessible literature remains a priority risk, especially work under maximum-principle stability terminology.
+PASS
 
-## Value — PASS
-Worst-case maximum-norm amplification of graph Poisson solves is a natural stability invariant, and the wheel is a standard family contrasting a fixed-degree rim with a high-degree hub. Its norm tends to two, but the deficit decays at the unusual \(\log m/m\) scale rather than an ordinary power expansion. The first correction after the logarithmic term is an explicit nonconstant phase on the logarithmic size scale, with a fully determined interval of limit values. This exact asymptotic structure and sign-threshold transition, rather than merely recomputing the known Green matrix, provide the mathematical content. It does not claim a general theorem for joins or weighted wheels.
+The rim mean-zero subspace carries B=3I−S−S⁻¹; the hub–rim contrast vector (1,…,1,−m) has eigenvalue m+1, and constants are killed. The projector formula for these subspaces gives the stated block Green entries and c_m. The geometric line kernel q^{|d|}/√5 solves the exact three-term recurrence including the source, and periodizing it gives a_{m,d}. Since rows sum to zero, their absolute sums are twice their positive mass. The hub absolute sum is 2m/(m+1)²; for m≥4 the positive rim diagonal alone beats it in doubled mass since a_{m,0}>1/√5>2/(m+1)=c_m+m/(m+1)². At m=3 the graph is K4, and all rows equal 3/8 in absolute sum. The row sign vector attains the unrestricted infinity norm, and a unit coordinate vector at a rim column attains the 1 norm by symmetry. For the asymptotic, the shortest-distance kernel replacement has total error O(q^{m/2}) by summing the discarded terms geometrically. Replacing c_m by 1/m changes the positive-part sum by at most m/[m(m+1)²]. The replacement retains distances through k=floor T_m, counting the origin once and nonzero distances twice (a zero at the boundary is harmless). The discarded tail gives 4q^{k+1}/[√5(1−q)], and the subtracted pedestal contributes 2(2k+1)/m, giving the claimed phase and uniform remainder. The derivative of Φ increases from negative to positive, using αq<1−q<α, and the endpoints agree. Integer approximations to √5 exp(α(j+u)) realize any interior limiting phase u, with one-sided approximations at the ends. Uniform error then gives exactly the claimed accumulation interval.
 
-### Closest literature and residual risks
-Yang (2012) determines resistances and hitting times but not endpoint norms; Ipsen and Mallik (2022) give an explicit pseudoinverse matrix but not its sign-summed norm or second-order phase. Zhang--Yang (2006) develops resistance formulas for circulants, a different graph family. A specialist weighted-wheel Kirchhoff-index source was not fully inspected, and an inaccessible 2025 article on graph joins is a residual bibliographic risk, not evidence of noncoverage. Independently verify priority before any external publication.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The wheel Green matrix is already known explicitly and also recoverable from prior resistance distances. The norm's row-sum interpretation is standard. The supported distinct contribution is the sharp rim cutoff analysis giving the uniform nonconstant m⁻¹ phase after the logarithmic correction, and the exact interval of accumulation values. Neither the wheel kernel literature nor the inspected graph-Poisson and wheel Hodge comparators state that phase law or resolve this same asymptotic question.
+
+## value
+
+PASS
+
+The counting-measure endpoint norm is the sharp maximum vertex response to a bounded source. On a wheel, exponential rim decay competes with the global mean-removal pedestal, giving a logarithmic cutoff. The exact second-order phase decides that a constant correction after the leading logarithmic defect cannot exist and quantifies every possible residual limit. That is useful precise information beyond a known kernel or a leading estimate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

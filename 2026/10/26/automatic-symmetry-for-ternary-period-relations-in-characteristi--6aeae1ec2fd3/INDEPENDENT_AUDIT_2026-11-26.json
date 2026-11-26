@@ -1,0 +1,92 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:05:13.241132Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Proof; VERIFICATION.md; verify_group_algebra.py (inspected)",
+        "Independent replay: python /workspace/review_checks/exact_replay.py ternary"
+      ],
+      "rationale": "The two hypotheses, evaluated at each binary invertible linear substitution g, annihilate the left-composed rows e_g+e_{Cg} and e_g+e_{Ag}+e_{A²g}. I independently enumerated GL(3,2) as permutations of the binary vectors from all ordered bases, used conventional composition, and checked rank 160 and all 168 swap inclusions with explicit reconstructed row witnesses; the identity swap witness used 84 input rows. The frozen code's compose(g,h) in ordinary matrix order evaluates h after g, so its calls with the generator first actually form right-composed rows. Inversion of group indices carries these to the required left-composed span (C is inverted but gives the same pair rows up to translation, the A norm is invariant under inversion, and S is an involution). The independent replay verifies the required order directly. Evaluation is F₂-linear into the polynomial module, so the universal vector identity needs no assumption of homogeneity, finite degree bound, domain, or field among coefficient algebras.",
+      "residual_risks": [
+        "Exact binary calculation, not a Lean proof; no characteristic other than two is inferred."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1.1 assumes characteristic zero; Theorem 5.2 is an integral divisibility statement for alternating odd-degree polynomials; Appendix D starts with the symmetric ring over F₂."
+        ],
+        "reasoning": "None covers arbitrary cyclic polynomials over F₂-algebras. In characteristic two, cyclic invariance does not split into symmetric and alternating parts by dividing by two.",
+        "searches": [
+          "arXiv:2610.19309v1 Theorems 1.1 and 5.2, Appendix D"
+        ]
+      },
+      "checked_sources": [
+        "Resultary ranked title, formula and alias searches",
+        "Ilin and Ono, arXiv:2610.19309v1, passages above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Eight listed generators describe a free module for the symmetric kernel over F₂[d₄,d₆,d₇]; the projector argument takes a symmetric input.",
+          "The independently checked relation-space inclusion applies to arbitrary cyclic inputs."
+        ],
+        "reasoning": "The new direction is that no additional cyclic nonsymmetric solutions exist; the prior symmetric membership and basis result has already assumed away that question.",
+        "searches": [
+          "arXiv:2610.19309v1 §5.3, Lemma 5.3 and Appendix D"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Reducing Ilin–Ono's norm modulo two yields exactly I+A+A²; their Lemma 5.3 starts with symmetric polynomials.",
+          "Ranked searches produced no relevant equivalent result."
+        ],
+        "reasoning": "The operators coincide, but an equality of kernels on a symmetric subspace does not imply that nonsymmetric vectors are absent from the cyclic kernel.",
+        "searches": [
+          "Resultary: displayed cyclic and A-norm relations",
+          "Resultary: reduced norm kernel cyclic symmetry ternary polynomial characteristic 2",
+          "arXiv:2610.19309v1 §5.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Ranked results did not supply a matching all-degree characteristic-two symmetry assertion or universal swap inclusion."
+        ],
+        "reasoning": "Unrelated ternary period hits and the existing list of symmetric-kernel generators are not an exact listing of the full cyclic kernel.",
+        "searches": [
+          "Resultary: Automatic symmetry for ternary period relations in characteristic two",
+          "Resultary: ternary period relations over F2 force symmetry arbitrary polynomial"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for automatic symmetry in the full characteristic-two solution space only. The previously computed symmetric kernel is not new, and the characteristic-zero structural theorem neither implies nor states the new symmetry implication.",
+      "residual_risks": [
+        "Ranked index and targeted literature checks are not exhaustive; similar finite-group relations may exist under a different presentation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact overlap of operator modulo two; no coverage of automatic symmetry in inspected results",
+          "evidence": "Characteristic-zero hypothesis in Theorem 1.1; integral alternating odd-degree hypothesis in Theorem 5.2; symmetric-polynomial input in Lemma 5.3 and Appendix D.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.19309v1",
+          "material_read": "p. 1 Theorem 1.1; pp. 23–25 Theorem 5.2, §5.3 and Lemma 5.3; pp. 44–46 Appendix D",
+          "method": "Lawful OA PDF, targeted passages",
+          "title": "Ternary Polynomial Relations and Periods of Cusp Forms",
+          "trigger": "Same two identities, characteristic-two kernel discussion, plausible prior coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md; Ilin and Ono §5.3 and Appendix D; independent group-algebra replay"
+      ],
+      "rationale": "The known modular kernel calculation only resolves the symmetric portion of a natural system motivated by ternary period relations. This result removes that hypothesis uniformly in degree and coefficient algebra, so the symmetric description over F₂ can be used without searching for an additional nonsymmetric solution space. This is a structural reduction, not another low-degree table or a rederivation of the eight generators.",
+      "residual_risks": [
+        "No odd-characteristic or characteristic-zero classification follows from the certificate."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

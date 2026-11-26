@@ -1,0 +1,159 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:14:35.983056Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md:15–83; independent exact rational witness and curvature calculation in the review rationale",
+        "VERIFICATION.md:19–23 and verify.py:33–58, 88–111, inspected without execution"
+      ],
+      "rationale": "Integrating the wrapped exponential product across the jump at phi gives I_T=C(A exp(b phi)+B exp(-a phi)) with A=exp(-bT)(1-exp(-aT)), B=1-exp(-bT), and C=PQ/[(a+b)(1-exp(-aT))(1-exp(-bT))]. The equal endpoint values identify the synchronized maximum. Strict convexity and derivatives of opposite sign give one interior minimum at the stated logarithm; its offset from T/2 is the logarithmic ratio of sinh(bT/2)/b and sinh(aT/2)/a divided by a+b, with the asserted signs. Integration of the scalar population equation gives log M=L-kappa I_T since each separate integral is phase independent. Exactly two crossings occur only in the strict window kappa I_min<L<kappa I_max; at its boundaries the indicated single phase is merely neutral. For the finite witness let h=exp(-1/2), D=4(1-h^6)(1-h^2). Then I(0)=(1-h^8)/D and I(1/2)=(h+h^3-h^5-h^7)/D. Alternating Taylor sums through degrees 5 and 6 give .606<h<.607 (terminating decimals exact). Thus 25(1-h^8)-8D=-7+32h²+32h^6-57h^8>3.661 using h²>.367 and h^8<.019. Also 8D-25(h+h^3-h^5-h^7)>0.535 using h²<.369, h^3<.224, h^6<.051, h^5>.081 and h^7>.029 and dropping +32h^8. These certify strict reversal at L=8/25 without relying on sampled phases. For fixed doses, T I_T''(T d)→PQ uniformly on d∈[0,1]. The equal endpoints then give [I_T(0)-I_T(T d)]/T→PQ d(1-d)/2 uniformly by twice integrating with zero boundary values. Its maximum is PQ/8. Finally, factoring exp(bT) out of the exact minimizing-phase logarithm gives phi_*=(bT+log(a/b))/(a+b)+o(1); substituting into the exact minimum gives the stated exponential decay and prefactor.",
+      "residual_risks": [
+        "The fixed-dose short-period limit does not hold with the same scaling if doses vary with period. The scalar positive interaction is postulated, not field-calibrated; conclusions do not establish practical timing or safety."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The wrapped-Laplace theorem covers the whole unequal-rate family independently of the pest interpretation.",
+          "The two-patch record has a noncommuting spatial monodromy and a half-period optimum; it is an analogy, not the exact alias. The Al Basir et al. primary source models separately timed pulses in a different multi-state setting."
+        ],
+        "reasoning": "The decisive broader coverage is from circular statistics; the cited IPM comparisons alone would not establish equivalence. Applying a decreasing scalar exponential to the known density supplies the claimed switching classification.",
+        "searches": [
+          "Research on pulse IPM thresholds and residual effects",
+          "Kozubowski–Jammalamadaka wrapped Laplace §§3–4",
+          "Resultary two-patch pulse culling 61cfe5d6932c"
+        ]
+      },
+      "checked_sources": [
+        "Kozubowski–Jammalamadaka 2003, §§3–4 and proof in §9",
+        "Resultary 61cfe5d6932c and a17b157327e5",
+        "arXiv:2304.13548 and cited IPM bibliographic/DOI evidence as specified"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known monotonicity and extrema give two scalar crossings for a level strictly between the two extreme overlaps, and the remaining cases for boundary or exterior levels. The exposures and exponentiation just rescale this level; the example demonstrates an open condition already left free by r.",
+          "For small T the known two-exponential density gives uniform T I_T''(T d)→PQ by 1-exp(-cT)∼cT; equal endpoints give the limiting quadratic gap with maximum PQ/8. Large-T exponent and prefactor are leading terms of the prior exact antimode and its value. No evidence that the short-period coefficient was printed verbatim is needed for this direct implication."
+        ],
+        "reasoning": "Once the alias is used, the addenda are standard level sets and leading expansions of the known exact profile. They do not repair the originality failure of the central result or supply a separately substantial new theorem here.",
+        "searches": [
+          "2003 Lemma 4.1(i)–(ii), Eqs. (31)–(34), and derivative in proof Eq. (68)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "If U~Exp(a), V~Exp(b) independently, the unwrapped density of U-V is ab/(a+b) times exp(-az) for z≥0 and exp(bz) for z<0. Summing wraps yields ab/(a+b) [exp(-a phi)/(1-exp(-aT)) + exp(b(phi-T))/(1-exp(-bT))] = ab I_T(phi)/(PQ).",
+          "With theta=2 pi phi/T, lambda=T sqrt(ab)/(2 pi) and the paper's shape parameter kappa=sqrt(a/b), its Eq. (31) is exactly the frozen phase formula after scaling. Eq. (32) gives the same before/equal/after criterion; Eqs. (33)–(34) give both exact extreme values."
+        ],
+        "reasoning": "This is a distributional identity at every phase and both rates, not merely a shared qualitative correlation shape; the prior result completely specifies the phase optimum.",
+        "searches": [
+          "Wrapped asymmetric Laplace circular density; Kozubowski–Jammalamadaka 2003, Eq. (23), Remark 3.4 and Lemma 4.1",
+          "Resultary phase law, periodic exponential kernel and phase-only invasion"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact Resultary match was the assigned record. The other phase-law and kernel records 61cfe5d6932c and a17b157327e5 do not tabulate this threshold.",
+          "Lemma 4.1 of the older paper directly specifies both optimized values and the unique minimizing phase analytically for all rate pairs."
+        ],
+        "reasoning": "No finite table is required for continuous parameters; the existing closed forms provide stronger exact lookup coverage.",
+        "searches": [
+          "Resultary exact phase thresholds, asymmetric staggering, and wrapped exponential kernels",
+          "2003 wrapped Laplace explicit density and extrema Eq. (23), Eqs. (31)–(34)"
+        ]
+      },
+      "rationale": "The critical prior alias is exact: (ab/PQ) I_T(phi) is the wrapped asymmetric Laplace density on the T-circle for Exp(a)-Exp(b). Kozubowski–Jammalamadaka (2003) already give that density, its strict decrease and increase around the unique antimode, its exact location relative to the half period and the two exact extreme values. The record's pulse interpretation changes coordinates and scale. Its short- and long-period addenda are leading asymptotics of these explicit formulas; the scalar invasion condition is the level-set classification of the same known density.",
+      "residual_risks": [
+        "No claim is made that the earlier circular-statistics paper uses pest terminology or prints the fast-period limit verbatim. Several IPM sources could not be inspected at equation level; that does not determine this failure, which rests on positive exact primary coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact prior coverage of profile, unique antimode, half-period criterion and both extrema",
+          "evidence": "Equations (23), (31)–(34) transform to the frozen normalized I_T, phi_*, phase-side condition, I_max and I_min.",
+          "identifier_or_url": "https://jammalam.faculty.pstat.ucsb.edu/html/research%20publication_files/Wra_lap3.pdf",
+          "material_read": "§3 Eqs. (18)–(23) and Remark 3.4 (pp. 4–6, offsets 4917,10827); §4 Lem. 4.1(i)–(ii), pp. 6–7 (offset 16508 ff.); §9 proof derivative (68)",
+          "method": "Author-hosted primary PDF bounded passages; verified parameter transform",
+          "title": "A New Family of Circular Models: The Wrapped Laplace Distributions",
+          "trigger": "Exact density alias for periodized difference of independent exponentials"
+        },
+        {
+          "assessment": "Related biological-math phenomenon, different model",
+          "evidence": "Half-period stagger maximizes the Perron multiplier of noncommuting patch dynamics; no bilinear residue kernel.",
+          "identifier_or_url": "2026/11/2/SCOPE-sharp-phase-law-for-independent-culling-of-two-exchanging-pest-p--61cfe5d6932c",
+          "material_read": "RESULT.md finding and mechanism",
+          "method": "Published-record mirror",
+          "title": "Sharp phase law for independent culling of two exchanging pest patches",
+          "trigger": "Phase-only switch under fixed separate interventions"
+        },
+        {
+          "assessment": "Modulo reset for a shifted gate, not this exact extrema calculation",
+          "evidence": "Requires periodic wrap-around but does not optimize the product of two wrapped exponentials.",
+          "identifier_or_url": "2026/10/11/SCOPE-the-printed-exponential-synapse-phase-kernel-is-not-periodic--a17b157327e5",
+          "material_read": "Finding (offset 300)",
+          "method": "Published-record mirror",
+          "title": "The printed exponential synapse phase kernel is not periodic",
+          "trigger": "Periodization of a shifted exponential"
+        },
+        {
+          "assessment": "Related motivation; no equivalent scalar bilinear two-residue optimization in these passages",
+          "evidence": "Crop/pest/virus/chemical system with separate impulse intervals; synchronous equal-interval example.",
+          "identifier_or_url": "https://arxiv.org/abs/2304.13548",
+          "material_read": "pp. 2–3 model and pp. 12–13 synchronous example (offsets about 8800,43000)",
+          "method": "Bounded primary PDF passages",
+          "title": "Dynamics of a Double-Impulsive Control Model of Integrated Pest Management Using Perturbation Methods and Floquet Theory",
+          "trigger": "Closest cited pulsed-control/Floquet context"
+        },
+        {
+          "assessment": "Equation-level comparison unresolved",
+          "evidence": "Abstract describes residual-effect IPM and eradication thresholds.",
+          "identifier_or_url": "https://doi.org/10.1007/s00285-011-0501-x",
+          "material_read": "Abstract only; full text not retrieved",
+          "method": "Bibliographic lookup and redirected DOI attempts",
+          "title": "Threshold conditions for integrated pest management models with pesticides that have residual effects",
+          "trigger": "Cited residual-pulse thresholds"
+        },
+        {
+          "assessment": "No implication asserted from inaccessible full text",
+          "evidence": "Title specifies a discrete-time stage-structured setting.",
+          "identifier_or_url": "https://doi.org/10.1080/17513758.2023.2241483",
+          "material_read": "Bibliographic title; no full text",
+          "method": "DOI retrieval unsuccessful",
+          "title": "The interplay between multiple control mechanisms in a host–parasitoid system: a discrete-time stage-structured modelling approach",
+          "trigger": "Cited control interaction model"
+        },
+        {
+          "assessment": "Equation-level comparison unresolved",
+          "evidence": "Identified delayed-response threshold setting only.",
+          "identifier_or_url": "https://doi.org/10.1016/j.nonrwa.2012.02.003",
+          "material_read": "Bibliographic description; full text not retrieved",
+          "method": "DOI retrieval unsuccessful",
+          "title": "An integrated pest management model with delayed responses to pesticide applications and its threshold dynamics",
+          "trigger": "Cited residual/delay threshold model"
+        },
+        {
+          "assessment": "Equation-level comparison unresolved",
+          "evidence": "Identified impulse-effects context only.",
+          "identifier_or_url": "https://doi.org/10.3934/mbe.2024136",
+          "material_read": "Title and abstract; full text not retrieved",
+          "method": "Bibliographic lookup and unsuccessful lawful OA PDF/HTML attempts",
+          "title": "A study of integrated pest management models with instantaneous and non-instantaneous impulse effects",
+          "trigger": "Cited impulse effects model"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md:3–26, 52–75, 85–91; 2003 wrapped Laplace Lemma 4.1"
+      ],
+      "rationale": "The overlap and phase question is naturally motivated, but the central exact invariant and extremal behavior are already known in equivalent coordinates. After crediting those, the chosen scalar equation contributes the level-set test for a freely positioned threshold, and the two asymptotic regimes follow by leading expansion of the same exact density. There is no independent new biological mechanism, calibration, or nonroutine mathematical remainder to justify a repair as a distinct finding.",
+      "residual_risks": [
+        "The application can serve as an illustration of circular overlap, but that is distinct from a surviving new scientific result."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The generator action on scaled Hermite--Fourier observables is derived explicitly. At the resonant fourth-order nine-dimensional matrix, three diagonal entries equal \(-4\kappa\), and the exact cubic resolvent residue is \(v^4/\kappa^2\), certifying one size-three block. The three contributing paths are separately evaluated and sum without cancellation. Degrees below four have at most doubled diagonal eigenvalues, proving minimality. `verify_ep.py` tests generator construction, exact pole and rational rescalings. The proof does not infer infinite-dimensional completeness from a finite matrix.
+PASS
 
-## Originality — PASS, qualified
+The frozen result's finite algebra is sound. The complete replacement RESULT.md in repairs/1 makes the sector statement for one Hermite observable rather than an arbitrary mixed-degree polynomial, corrects the path length wording and explicitly passes from H_4 to the raw X^4 moment. In the stated nine-dimensional sector, diagonal entries at the positive resonance equal -4kappa only at (4,0),(3,1),(0,2). Triangular inversion sums three four-edge paths from (4,0) to (0,2). Their edge products divided by their two nonresonant denominator products are (6/4,-3/4,3/12) v^4/kappa^2. The noncancellation gives a cubic pole and hence a single size-three block at an eigenvalue of algebraic multiplicity three; a separate normalized rational elimination gave rank eight after adding 4I. Inverse Laplace transformation provides the factor 1/2. In the pure sectors at degrees 1,2,3 the diagonal rate lists in units of kappa are (1,1), (2,2,0,4), (3,3,1,5,1,9); no diagonal rate occurs three times within any sector. Mixed lower Hermite degrees just sum such evolutions, and X^4-H_4 is quadratic. The Hermite identity holds also at D=0 with monomials. This checks the conditional coefficient as a function of initial state, not nonzero at every angle or in a stationary average, and a finite observable block, not the full operator spectrum. The frozen checker was inspected, not executed.
 
-Caraglio and Franosch (arXiv:2210.04205) give the general triangular harmonic active-Brownian propagator and eigenvalue formula: both are prior art. Inspection of its accessible full text found the ingredients of the present specialization but not an explicit minimal quartic size-three Jordan classification or evaluated nonzero coefficient. Nakul and Gopalakrishnan (arXiv:2209.09184) instead focus on stationary states. A published two-state biased run-and-tumble exceptional-point theorem has an inequivalent angular generator and only size-two moment blocks. The present statement may be implied after a nontrivial specialization of the earlier propagator; that is a residual priority risk. No independent priority certification is claimed.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The discovery isolates the first positional moment whose relaxation is amplified by a quadratic prefactor, a structural non-Hermitian effect invisible to all position moments of degree at most three. It supplies a calibrated, independent-of-thermal-noise quartic temporal diagnostic within a natural, well-studied active-matter model. No finite-sample detectability or universality beyond the harmonic model is asserted.
+The repaired result credits the general exact propagator and earlier moment hierarchies; those are not contributions of this record. The remaining exact statement is the nonzero cubic-pole/Jordan-order result and the least positional degree at this particular resonance, not a fresh solution of the trapped ABP. The published recursion is a strong implication risk: it can compute this moment, including at rate coincidence, but it does not give a pole-order or least-degree assertion, and extracting that assertion requires constructing the relevant paths, checking their noncancellation and excluding lower-degree poles. The explicit earlier fourth-moment formulas inspected concern radial moments, not the Cartesian angular coefficient in question.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The motivating issue is which polynomial observation first displays defectiveness of order three when physical relaxation rates coincide. A passive spectrum and equality of rates cannot distinguish a Jordan chain from ordinary degeneracy. Here the finite path contributions could cancel, but instead their exact sum produces a thermal-independent, angle-resolved quadratic-in-time response, and no lower positional moment can reproduce it. This is a concrete first-detectable-order result at a natural resonance, not a generic diagonalization exercise or a claim of experimental precision.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

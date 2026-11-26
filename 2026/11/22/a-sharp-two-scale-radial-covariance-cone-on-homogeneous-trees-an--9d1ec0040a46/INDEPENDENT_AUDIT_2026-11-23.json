@@ -1,0 +1,155 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:45:50.906546Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Vergara's normalized parameter x is t/(q+1), and the radial polynomials span the polynomials, so the representing measure is unique even among signed finite measures. As an independent check on the reference law, pruning the root gives the branch resolvent h=1/(z−qh) with h∼1/z; the root resolvent is 1/(z−(q+1)h). Its upper half-plane boundary values give the displayed Kesten density on [−2√q,2√q], with no pole off this band. For u<1/√q, applying I−uA+qu²I to the ℓ² geometric column gives (1−u²)δ, so the density is F_u=(1−u²)/(1+qu²−ut). At the critical u, domination by a constant times (2√q−t)^(−1/2) relative to dt near the upper edge excludes an atom. For u>1/√q, the reciprocally paired scale v=1/(qu) is subcritical and F_u=B_uF_v; the common spherical recurrence and the values at n=0,1 give the remaining positive atom C_u δ_(u⁻¹+qu). For s above critical, its atom is unmatched because u⁻¹+qu is strictly increasing above critical; at critical the ratio F_r/F_s tends to zero. Both force λ=0. Below critical, positivity is exactly the lower bound of F_r/F_s on the band. The ratio derivative has sign (r−s)(1−qrs), giving the specified edge or constant case and the endpoint convention at r=1/√q. Away from collapse the density is positive almost everywhere, and the finite quadratic form against the reference measure is Σ|c_i|², establishing strictness. At collapse the frozen result does not claim strictness; indeed the vector supported on a vertex and its full neighbor set, with coefficients −t_r at the vertex and 1 on each neighbor, is a null vector by the spherical eigenfunction identity. The uploaded script was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Vergara gives both an operator test and a radial positive-measure criterion for all radial kernels. Haagerup–Knudby give the unique spherical measure on finite-rank free groups; their framework includes even-degree trees. Picardello studies spherical representations in a more general tree setting."
+        ],
+        "reasoning": "These are general criteria, not two-profile comparisons. Even the explicit operator test gives an infinite positivity problem when the two sequences are substituted; a reduction and evaluation are needed to produce the scalar threshold and switch. In the spectral approach the non-ℓ² geometric profile cannot be handled by continuing the density alone, since it acquires an out-of-band atom.",
+        "searches": [
+          "Vergara, arXiv:1907.11476, Theorem 1.2",
+          "Haagerup–Knudby, arXiv:1304.5763, Theorem 1.1",
+          "Picardello, arXiv:2309.03850, introductory formulation"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, and verify_tree_two_scale.py",
+        "Primary tree/radial-function statements and distinct local Resultary cone records listed above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The classical two-exponential spherical formula gives an exact PSD ray at reciprocal scales. Positivity of an arbitrary subtraction off that ray requires a signed order comparison of the geometric representing measures, not just positivity of their individual kernels.",
+          "The one-scale tree results use polynomial multipliers; the sphere result uses a discrete positive-coefficient comparison with no corresponding pair of distinct complementary atoms."
+        ],
+        "reasoning": "The technical difference producing the evaluated cone is the combination of a rational density ratio on a continuous band with pointwise mass restrictions at distinct atoms and a singular critical edge. Neither the on-line spherical identity nor the other evaluated cones by substitution give the full signed threshold in all regimes.",
+        "searches": [
+          "Vergara Theorem 1.2 parts (b),(c) against the two-scale difference",
+          "Haagerup–Steenstrup–Szwarc §2 exact spherical formulas",
+          "Nearby first-order tree cone and two-sphere domination Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The classical spherical-function formula uses geometric rates q^(−z) and q^(z−1), whose product is 1/q. With q^(−z)=r and q^(z−1)=s, its coefficients are 1/C_r and −B_r/C_r, and the normalized eigenvalue is t_r/(q+1).",
+          "Hashimoto studies distributions under the state given by the length-exponential Haagerup function, but the inspected Theorems 2.1–2.2 concern weak limits with the number of generators changing, not the exact signed order for a fixed regular tree."
+        ],
+        "reasoning": "The resonance identity is exactly classical under the change of parameters, so it is not credited by itself. Spectral domination μ_r≥λμ_s away from that line, and maximality of the weight on the line as part of the full cone, require comparing the component masses at arbitrary scales; the spherical-function formula alone evaluates only the line qrs=1.",
+        "searches": [
+          "Local Resultary search for exact two-scale tree covariance domination and radial spectral cone collapse",
+          "Schur Multipliers and Spherical Functions on Homogeneous Trees, arXiv:0908.4424, equations (2.4)–(2.6)",
+          "Focused primary search for the spectral measure of the exponential Haagerup function"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Two tree entries give first-order or quadratic factors in distance multiplying one geometric scale. The two-scale sphere entry uses Legendre coefficients; the same-date circle entry treats an axially weighted Fourier operator."
+        ],
+        "reasoning": "A single scale with polynomial distance multipliers, or a different harmonic basis on a different space, does not supply the exact function Γ_q(r,s) or the shorter-scale atom obstruction. No separate exact catalogue entry for this full cone was identified.",
+        "searches": [
+          "Local Resultary retrieval of radial covariance cones on trees, two-scale exponential covariance domination on the sphere, and two-scale circle Poisson subtraction"
+        ]
+      },
+      "rationale": "The supported distinct claim is the complete sharp scalar domination cone for distinct geometric scales on regular trees, including the obstruction at and above the smaller critical scale and the change of limiting frequency. The collapsed kernel's identity as a two-exponential spherical function is a direct specialization of a classical formula and is not independent novelty. The inspected prior formulas do not themselves evaluate the full two-scale order: beyond identifying that spherical function, one needs the distinct-scale representing densities, their edge behavior and comparison, and the unmatched-atom obstruction. Priority is best-of-knowledge only.",
+      "residual_risks": [
+        "Earlier harmonic-analysis literature may give a closer exact geometric-measure or two-scale domination calculation. The inspected classical spherical identity already covers the exponential formula at resonance.",
+        "Kesten's AMS full text was unavailable in the attempted retrieval; the reference density was independently checked via the tree resolvent. No negative literature inference follows from access failure."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General criterion used, not an evaluated two-scale cone",
+          "evidence": "Theorem 1.2 gives the transformed Hankel positivity test and a spherical integral with positive measure on [−1,1].",
+          "identifier_or_url": "https://arxiv.org/pdf/1907.11476",
+          "material_read": "Polynomial recurrence near PDF p. 2; Theorem 1.2, PDF p. 3, offsets 6476–8575",
+          "method": "Bounded primary PDF passages",
+          "title": "Positive definite radial kernels on homogeneous trees and products",
+          "trigger": "General positive radial kernel theorem on the same trees"
+        },
+        {
+          "assessment": "Exact coverage of the two-exponential spherical identity, not of the whole domination cone in that passage",
+          "evidence": "Equations (2.4)–(2.6) give the two reciprocal exponentials, their rational coefficients, and normalized spherical eigenvalue.",
+          "identifier_or_url": "https://arxiv.org/pdf/0908.4424",
+          "material_read": "§2, equations (2.1)–(2.6), around offset 54800",
+          "method": "Bounded primary PDF passage",
+          "title": "Schur Multipliers and Spherical Functions on Homogeneous Trees",
+          "trigger": "Exact classical reciprocal-exponential spherical identity"
+        },
+        {
+          "assessment": "Known general representation, no evaluated two-scale order in inspected statements",
+          "evidence": "A normalized radial positive definite function has a unique positive spherical representing measure.",
+          "identifier_or_url": "https://arxiv.org/pdf/1304.5763",
+          "material_read": "Theorem 1.1, PDF pp. 2–3, near offset 5607; §2 spherical eigenfunctions",
+          "method": "Bounded primary PDF passages",
+          "title": "A Lévy–Khinchin formula for free groups",
+          "trigger": "Same radial representation problem on Cayley trees"
+        },
+        {
+          "assessment": "Inspected results concern limiting distributions, not the fixed-tree two-scale order",
+          "evidence": "The limiting distributions arise from random walks on free groups with a changing generator count, under a Haagerup or spherical state.",
+          "identifier_or_url": "https://www.math.uni.wroc.pl/~pms/files/18.2/Article/18.2.11.pdf",
+          "material_read": "Abstract/§1 and §§2–3, especially Theorems 2.1–2.2, offsets 0–3583 and 5400–10823",
+          "method": "Bounded primary PDF passages",
+          "title": "Deformations of the semicircle law viewed from random walks on free groups",
+          "trigger": "Explicitly uses the geometric Haagerup state and could contain its fixed-tree measure"
+        },
+        {
+          "assessment": "General nearby setting; no claim of a full-document exclusion",
+          "evidence": "Concern is spherical representations on semi-homogeneous trees.",
+          "identifier_or_url": "https://arxiv.org/pdf/2309.03850",
+          "material_read": "PDF p. 1, introductory formulation near offset 232",
+          "method": "Bounded primary PDF passage",
+          "title": "Positive definite functions on semi-homogeneous trees and spherical representations",
+          "trigger": "Related spherical measures in a generalized tree setting"
+        },
+        {
+          "assessment": "Distinct radial family",
+          "evidence": "Classifies r^d(1+bd), a one-scale polynomial modification rather than a difference of distinct scales.",
+          "identifier_or_url": "2026/10/25/SCOPE-a-sharp-positive-definiteness-cone-and-its-collapse-for-first-or--0ea4651dd31d",
+          "material_read": "RESULT.md, Finding and proof excerpts at offsets 0 and 6200",
+          "method": "Local published-record mirror",
+          "title": "A sharp positive-definiteness cone and its collapse for first-order exponential kernels on regular trees",
+          "trigger": "Closest same-tree cone and collapse"
+        },
+        {
+          "assessment": "Distinct one-subcritical-scale family",
+          "evidence": "Uses a polynomial multiplier at a single subcritical decay.",
+          "identifier_or_url": "2026/11/16/SCOPE-extreme-point-geometry-of-quadratic-geometric-covariances-on-hom--2a7f8734ecad",
+          "material_read": "RESULT.md, Finding, offset 0",
+          "method": "Local published-record mirror",
+          "title": "Extreme-point geometry of quadratic geometric covariances on homogeneous trees",
+          "trigger": "Related same-tree geometric covariance cone"
+        },
+        {
+          "assessment": "Distinct spectral basis and answer",
+          "evidence": "Uses discrete Legendre coefficients on the two-sphere, not the regular tree's continuous band and complementary atom.",
+          "identifier_or_url": "2026/10/26/SCOPE-exact-two-scale-exponential-covariance-domination-on-the-two-sph--4e0d440866a1",
+          "material_read": "RESULT.md, Finding, offset 0",
+          "method": "Local published-record mirror",
+          "title": "Exact two-scale exponential covariance domination on the two-sphere",
+          "trigger": "Same order problem for two exponential scales on another space"
+        },
+        {
+          "assessment": "Different family and domain, no priority inference from date",
+          "evidence": "Concerns an axially weighted circle Poisson kernel and a Fourier operator, not this tree measure comparison.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-two-scale-subtraction-and-critical-rigidity-of-circle-pois--cffd959718f6",
+          "material_read": "RESULT.md, Finding, offset 0",
+          "method": "Local published-record mirror",
+          "title": "Sharp two-scale subtraction and critical rigidity of circle Poisson operators",
+          "trigger": "Same-date two-scale subtraction and rigidity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a natural family of stationary radial covariance candidates, the exact domination weight over arbitrary finite site sets is needed to know when a smaller-range component can be subtracted. The complete threshold determines a qualitative obstruction not visible in finite numerical Gram tests and exposes when either spectral edge or an unmatched atom is decisive. That value is in the closed classification, not in recasting the known spherical eigenfunction identity.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

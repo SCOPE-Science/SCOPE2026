@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Cayley--Hamilton and matrix conjugacy normalize all ordered triples. The exact fiber is reduced bijectively to \(xy=A\), \(uv=C\), \(xv+yu=d\); all four degeneracy types are handled without omission. A projective involution \(s\mapsto AC/s\), together with a proved finite-field character identity, gives the exact support formula. The maximal-fiber case follows by strict comparison. Complete independent enumeration of all fixed-first-projector fibers over eight fields, including even characteristic and nonprime fields, passed. These experiments are corroboration, not the proof.
+## correctness
 
-**Originality — PASS (qualified).** Two-projector structure, normal forms and generating-orbit results are credited. Full-result comparisons with the nearest two-projector ring-generation census, all-arity prescribed matrix-product fibers, and rank-one projector generation in dimension three do not yield the three-way *joint pairwise-trace* law or its precise support count. Semantically targeted and source-specific literature searches found no direct equivalent. Earlier archival access was partial; an unindexed triple invariant-theory formula remains a priority risk.
+PASS
 
-**Value — PASS.** The prescribed \((\operatorname{tr}(EF),\operatorname{tr}(FG),\operatorname{tr}(GE))\) correlations are a natural simultaneous-similarity invariant of three rank-one projectors. The theorem gives every nonuniform fiber, an exact square-class/Artin--Schreier obstruction, and the sharp support size \((q^3+4q^2-4q+\epsilon_q)/2\), showing that almost half the formally available invariant triples are impossible. This is not merely a one-pair restatement.
+A projector is uniquely an ordered pair of distinct image and kernel lines, so conjugacy is transitive and fixing E=diag(1,0) costs a factor q(q+1). Cayley–Hamilton characterizes the remaining rank-one idempotents by trace one and determinant zero in every characteristic. Their off-diagonals satisfy xy=A and uv=C, and the third trace equation is xv+yu=d. If AC≠0, s=xv gives s+AC/s=d and each admissible s leaves precisely x∈K× free. If one product is zero the two coordinate-axis branches give 2(q−1) choices for d≠0 and intersect in the unique zero choice for each nonzero factorization when d=0. If both are zero, splitting (x,y) into its two open axes and the origin gives 2(q−1) for d≠0 and 2q(q−1)+(2q−1)=2q²−1 for d=0. In the nondegenerate support, s↦AC/s has one fixed point for even q and 1+χ(AC) for odd q; its orbits are exactly the attainable d values. For odd q the resulting summed bias is (sum_a χ(a(1−a)))²=1, by the difference-of-squares hyperbola count with 2 invertible. All 4(q−1) degenerate (a,c) pairs support all q values of b. These give the stated support for both parities, and the strict inequality 2q²−1>2(q−1) identifies exactly the four maxima, including q=2. An independent exhaustive fixed-E count over orders 4, 8 and 9 matched every cell, support 56, 368 and 509, and exactly four maximum cells in each case.
 
-The closest literature includes de Seguins Pazzis (2009), Rowen--Segev (2016), and the three directly inspected published results recorded in `RESULT.md`. Boundaries are stated there. Priority remains qualified, and no external expert has verified the proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass for the exact ordered, unfused triple-trace fiber law, including the degenerate trace strata, even characteristic, support size, and maximum; not for rank-one parametrization, pairwise cross-ratios, or ordinary nonsingular Gram-matrix counting. The closest primary intersection tables for the hyperbolic scheme are on unordered line pairs and fuse genuinely different trace targets. The closest indexed conjugacy result gives exact pair orbits but not their three-projector incidence counts.
+
+## value
+
+PASS
+
+The three pairwise traces are canonical two-factor conjugacy measurements for a triple of projectors. The all-field classification answers the natural realization and exact multiplicity questions lost under the unordered-pair fusion. It distinguishes degenerate extremizers, empty targets and the half-density obstruction without changing the sampling or restricting to one square class.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

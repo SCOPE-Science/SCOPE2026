@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:24:08.873730Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The statement uses coefficient ℓ², not function L². B_n and its first n−1 derivatives vanish at the endpoints of the support by continuity and are zero at all exterior knots. At integer arguments the rth derivative taps are the rth backward differences of the value taps of B_{n−r}, by differentiating the box convolution. These give the listed cubic and quartic filters. Exact integer autocorrelations after scaling by 24 on each filter and using common weight denominators 18 and 864 are respectively (10368,0,0) and (497664,0,0,0); dividing by the denominators and by 24² yields the unit impulse. This proves the weighted energy identity by Plancherel on all ℓ², since the taps are finite and convolution is bounded. For uniqueness, norm equality for all inputs forces the continuous symbol to equal 1. Each derivative-order squared symbol has a zero of exactly order r in s=2−2cos θ at s=0 because the difference factor contributes s^r and the lower-degree value taps sum to 1. Hence the constant term and successive coefficients fix all weights, each nonzero and positive. The adjoint with the weighted sample inner product has precisely the finite correlation stencil; it is contractive and has norm one since it inverts the isometry on its range. With only cubic values and first derivatives, the derivative symbol vanishes at θ=0 and π while the value energy ratio is 9; continuity gives the same obstruction to improving the essential frame-bound ratio. A zero value weight cannot give a positive lower bound, and value-only sampling attains the ratio 9. Here 9 is B/A, equivalently the squared condition number of the analysis map, not the square of the frame-operator condition number.",
+      "replay": "node /workspace/reproductions/frozen-cross-checks.mjs (spline section) builds the integer-scaled derivative taps by repeated differences of the lower-degree value taps and checks all autocorrelation lags in integer arithmetic. The packaged verifier and verify_output.txt were inspected separately, not executed. The finite symbol identity, not random signal trials, proves the infinite coefficient-space statement.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "arXiv:2311.08352 p. 17 gives the classical spline when the exponential parameters are zero, while the inspected sampling results give stability conditions and norm equivalence.",
+          "The inspected arXiv:1712.07899 theorem is for totally positive generators of Gaussian type with a Beurling-density condition. Fageot et al. study Hermite spline support and approximation constants and compare to cubics."
+        ],
+        "reasoning": "The general periodic exponential theorem covers classical derivative sample stability, but controlling upper and lower norms is not equality in the coefficient norm with unique scalar diagonal weights. Changing a Hermite generator or a sampling density is also not a theorem about this fixed bank.",
+        "searches": [
+          "Gröchenig–Shafkulovska arXiv:2311.08352 Eq. (3.7), Thm. 4.2 and Cor. 5.3",
+          "Gröchenig–Romero–Stöckler arXiv:1712.07899 Thm. 1.1",
+          "Fageot et al. arXiv:1902.02565"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1112.5771 pp. 2–3",
+        "arXiv:2311.08352 pp. 17–19, 26",
+        "arXiv:1712.07899 p. 2",
+        "arXiv:1902.02565 p. 1",
+        "Resultary 3a9a11c2c3e2 and 1c2481efa2dd"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Standard value taps combined with the backward-difference derivative recurrence are sufficient to compute every jet symbol. The distinct orders of zeros force a candidate weight vector by coefficient matching; the rational correlation computation verifies positivity and exact tightness here.",
+          "Attempts to obtain the Unser–Aldroubi–Eden full text did not yield readable original passages. It was not treated as evidence excluding a prior exact identity."
+        ],
+        "reasoning": "Do not credit new filter taps or a new general Parseval criterion. Values of the taps alone describe the bank, without warranting that positive diagonal weights make it tight or giving the sharp value/first-derivative tradeoff. Neither the inspected general stability theorem nor the inspected wavelet mask identity yields these conclusions by specialization. A prior coefficient-space diagonal calibration result, including a general one from which the rational weights follow mechanically, would cover the central claim.",
+        "searches": [
+          "Euler–Frobenius/Eulerian spline sampling symbols; Unser–Aldroubi–Eden DOI 10.1109/78.193220",
+          "arXiv:1112.5771 refinement masks and tight framelets; arXiv:2311.08352 polynomial specialization"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equation (4) constructs framelet generators via cos and sin factors at ω/4 from a refinement symbol; the following text states tightness of the dilated wavelet frame in L²(R). Section 2.2 concerns derivatives of univariate box splines.",
+          "The frozen criterion is an undilated convolution bank on ℓ²(Z), with the constant weighted sum of squared sample-filter symbols required to equal 1."
+        ],
+        "reasoning": "Both settings are tight frames involving spline derivatives, but their generators, indexed systems, norms, and filters differ. The UEP framelet statement is not an equivalent tightness result for the frozen physical knot-jet bank.",
+        "searches": [
+          "integer-knot spline jets and Parseval coefficients; B-spline derivative tight filter banks",
+          "Shen–Xu arXiv:1112.5771 pp. 2–3, Eqs. (2)–(4)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Record 3a9a11c2c3e2 gives an exact singular-value spectrum for centered periodic cubic collocation at alternating off-grid sites.",
+          "Same-day record 1c2481efa2dd classifies zeros of a scaled Zak transform of the centered cubic cardinal spline."
+        ],
+        "reasoning": "The first concerns one different collocation operator and the second concerns a zero set rather than weighted jet energies. Neither mirrors the cubic or quartic integer-knot diagonal weights or the two-channel spectral obstruction. The search was ranked, not exhaustive.",
+        "searches": [
+          "Resultary semantic queries for exact title, displayed rational weight tuples, integer-knot B-spline jet Parseval identities"
+        ]
+      },
+      "rationale": "The distinction supported by the inspected sources is a positive, unique, exactly tight diagonal calibration of the fixed physical knot jets for two degrees in the coefficient norm, with the sharp cubic obstruction when curvature is omitted. General sampling guarantees, standard filter computation, adjoint synthesis as a principle, and dilated spline tight frames are not claimed as new. An earlier general diagonal tight calibration theorem covering these exact channels would be substantive coverage; none was established in the inspected statements.",
+      "residual_risks": [
+        "Older spline-filter literature (notably the unavailable Unser–Aldroubi–Eden text) could cover an exact diagonal calibration. The comparison of accessible statements and ranked catalogue hits does not establish priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different norm and dilated construction",
+          "evidence": "Eq. (4) gives framelet Fourier transforms with sin and cos powers at ω/4; the text then states tight-wavelet-frame status in L²(R).",
+          "identifier_or_url": "https://arxiv.org/pdf/1112.5771",
+          "material_read": "pp. 2–3, Eqs. (2)–(4), OA offset 5400–10351",
+          "method": "OA PDF passage inspection and mask/norm comparison",
+          "title": "On B-Spline Framelets Derived from the Unitary Extension Principle",
+          "trigger": "Tight spline frames involving derivatives"
+        },
+        {
+          "assessment": "General stability, not exact diagonal isometry in inspected statements",
+          "evidence": "Zero exponential parameters recover the classical B-splines; the sampling theorems give sufficient sampling conditions and stable sampling characterization.",
+          "identifier_or_url": "https://arxiv.org/pdf/2311.08352",
+          "material_read": "Eq. (3.7) p. 17, Thm. 4.2 pp. 18–19, Cor. 5.3 p. 26; offsets 57300, 62300, 88400",
+          "method": "OA PDF passage inspection",
+          "title": "Sampling theorems with derivatives in shift-invariant spaces generated by periodic exponential B-splines",
+          "trigger": "Derivative sampling theorem covering polynomial splines as a specialization"
+        },
+        {
+          "assessment": "Gaussian-type generator class, not the polynomial spline calibration",
+          "evidence": "The proposition of interest concerns Beurling-density conditions for totally positive functions of Gaussian type.",
+          "identifier_or_url": "https://arxiv.org/pdf/1712.07899",
+          "material_read": "p. 2, Theorem 1.1, offset 6100",
+          "method": "OA PDF passage inspection",
+          "title": "Sharp Results on Sampling with Derivatives in Shift-Invariant Spaces and Multi-Window Gabor Frames",
+          "trigger": "Sharp derivative sampling conditions"
+        },
+        {
+          "assessment": "Related interpolation and approximation problem",
+          "evidence": "Addresses approximation constants and support for Hermite splines, with an asymptotic comparison to cardinal cubic splines.",
+          "identifier_or_url": "https://arxiv.org/pdf/1902.02565",
+          "material_read": "p. 1, abstract and scope, offset 0",
+          "method": "OA PDF passage inspection",
+          "title": "Support and Approximation Properties of Hermite Splines",
+          "trigger": "Related integer-knot cubic derivative construction"
+        },
+        {
+          "assessment": "Unresolved exact coverage; excluded from negative evidence",
+          "evidence": "No passage was retrieved to verify the scope of the sampling symbols or whether they are combined in a diagonal jet identity.",
+          "identifier_or_url": "https://doi.org/10.1109/78.193220",
+          "material_read": "Bibliographic identification only; no readable original passage obtained",
+          "method": "Lawful DOI, publisher and identified author-copy retrieval attempts",
+          "title": "B-Spline Signal Processing: Part I—Theory",
+          "trigger": "Plausible source of exact Euler–Frobenius sampling/filter formulas"
+        },
+        {
+          "assessment": "Different samples and different spectral question",
+          "evidence": "Exact singular values are for periodic centered cubic collocation at alternating off-grid sites.",
+          "identifier_or_url": "2026/11/16/SCOPE-exact-all-size-stability-of-alternately-jittered-periodic-cubic--3a9a11c2c3e2",
+          "material_read": "Mirrored RESULT.md opening at offset 0",
+          "method": "Local mirror statement comparison",
+          "title": "Exact all-size stability of alternately jittered periodic cubic collocation",
+          "trigger": "Nearest indexed spline coefficient-to-sample spectral result"
+        },
+        {
+          "assessment": "Same spline up to centering, different transform invariant",
+          "evidence": "Classifies zeros of a scaled Zak transform rather than a fixed jet-filter frame.",
+          "identifier_or_url": "2026/10/18/SCOPE-complete-subunit-zak-zero-classification-for-the-cubic-cardinal--1c2481efa2dd",
+          "material_read": "Mirrored RESULT.md opening at offset 0",
+          "method": "Local mirror statement comparison",
+          "title": "Complete subunit Zak-zero classification for the cubic cardinal spline",
+          "trigger": "Same-day result for the cubic cardinal spline"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For fixed derivative measurements on the natural cardinal knot grid, exact tightness under scalar channel rescaling is more specific than stable sampling or having some reconstruction. It calibrates coefficient energy without mixing channels and gives a local adjoint rather than a global inverse. Cubic and quartic splines are useful fixed cases; the cubic spectral obstruction explains why the commonly used value and slope channels cannot have comparable performance to the calibrated curvature-inclusive bank even with optimized diagonal weights. Credit that combined calibration and obstruction, not the arithmetic alone or a claim about ambient spline L² energy.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

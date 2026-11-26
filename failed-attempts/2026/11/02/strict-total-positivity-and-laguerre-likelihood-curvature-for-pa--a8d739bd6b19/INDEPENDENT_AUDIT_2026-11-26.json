@@ -1,0 +1,150 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:24:28.438835Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The conditional count at recognized size ℓ is binom(n−ℓ,k−ℓ)D_(n−k)/(n−ℓ)! = c_(n,k)(k)_(fall ℓ), vanishing when ℓ>k. Thus exactly k=n−1 must be excluded among the interior rows. The Pascal kernel is totally nonnegative and the odds-power kernel has strictly positive increasing-exponent ordered minors for strictly increasing positive odds. In Cauchy–Binet, intermediate columns 0,…,r−1 in the falling-factorial kernel give the ordinary Vandermonde in k, since the column polynomials are monic of degrees 0,…,r−1. That term is strictly positive and all terms are nonnegative. For curvature, reversing the standard Laguerre coefficient sum at degree k and parameter n−k gives the stated odds polynomial with constant term one. Orthogonality on (0,∞) gives k simple positive zeros, hence the stated positive linear factors in θ. Their second log derivatives give the identity; the (1−θ)^(n−k) term is strictly concave if k<n, and otherwise at least one of n≥2 distinct roots is not 1. The exponent also gives score −∞ at θ→1 when a count is <n; at 0 the score is n times the sum of (k−1). All-n data give a strictly increasing likelihood by coupling the binomial recognized size. These checks support the boundary/maximizer claims in RESULT.md lines 33–75. Independent exact subset/permutation enumeration at n=3 gave p_0=(1−θ)^3/3, p_1=1/2−3θ²/2+θ³ and p_3=1/6+θ+θ²/2−2θ³/3. They sum to 1; all ordered minors on the three-parameter grid (1/4,1/2,3/4) were positive, with determinant 11/1024, and the log-curvatures at 1/2 were (−12,−9,−984/289). Inspected verify.py without executing it. The n=3 calculation and supplied finite checks are not all-size proofs.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The classical basic composition formula gives ordered minors of a product kernel as sums/integrals of products of ordered minors. Galvin–Pacurar identifies the Pascal matrix as totally nonnegative. The odds-power factor is the standard strictly totally positive exponential kernel e^(ℓ log t), scaled by positive factors.",
+          "DLMF gives the generalized Laguerre coefficient identity, positive weight x^α e^(−x) on the positive axis and the simple orthogonality-interval zeros theorem, with α=n−k≥0 here."
+        ],
+        "reasoning": "The strict×strict clause of the composition theorem should not be applied to a triangular Pascal kernel. Instead the exact formula (5.14) gives strictness for any finite totally nonnegative first factor of full row rank and any strictly totally positive second kernel: every selected row subset has a positive maximal minor and every corresponding second minor is positive. The retained Pascal rows are linearly independent rows of an invertible triangular matrix, and the factorial/binomial and probability prefactors are positive. This supplies all orders, not only order two. The known root theorem likewise applies to all retained counts.",
+        "searches": [
+          "totally nonnegative matrix full rank strictly totally positive product Cauchy Binet Karlin basic composition formula strictly positive minors Pascal Bernstein kernel",
+          "Khare Matrix Analysis notes Eq. (5.14), Corollary 6.1",
+          "Galvin–Pacurar arXiv:1807.08658 p. 1",
+          "DLMF §18.2(vi), §18.3 and Eq. (18.5.12)"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "O'Neill arXiv:2112.12442",
+        "Galvin–Pacurar arXiv:1807.08658",
+        "Khare notes Eq. (5.14)",
+        "DLMF §§18.2, 18.3, 18.5",
+        "Some Remarks on the Matching Polynomial and Its Zeros",
+        "Resultary 8cf248496cc2, 3e12e89bbd6f, d6a01be54eac"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For the prior likelihood matrix write p=DPC with D=diag(c_(n,k)), P the retained Pascal rows, and C_(ℓ,j)=ℓ!binom(n,ℓ)(1−θ_j)^n t_j^ℓ. With t_j>0 ordered, C is strictly totally positive and P is totally nonnegative of full row rank. The composition implication described above proves the exact determinant claim.",
+          "In Eq. (18.5.12) put degree k, α=n−k, x=−1/t and multiply by k!t^k. Its term with index k−ℓ becomes binom(n,ℓ)(k)_(fall ℓ)t^ℓ. Using the known positive roots gives exactly p=c(1−θ)^(n−k)∏(1+(z_j−1)θ). Two logarithmic derivatives give the submitted exact Hessian and show at least one strictly negative term for every retained count. The previously stated MLE uniqueness adds no novelty."
+        ],
+        "reasoning": "MLR alone would not imply all-order strict positivity and an explicit Hessian alone would not prove its sign. The implication uses the prior exact mass function and directly applicable stronger classical results. No new determinant inequalities, zero estimates, or model-specific phase of the likelihood beyond these substitutions is needed; separating the two claims does not avoid the coverage.",
+        "searches": [
+          "O'Neill arXiv:2112.12442 mixture, Theorem 10 and Appendix MLR",
+          "Pólya–Szegő basic composition formula as reproduced at Khare Eq. (5.14)",
+          "DLMF Eq. (18.5.12) and §18.2(vi)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "O'Neill's recognized count is binomial with parameter θ and his conditional completion is the classical fixed-point law on the remaining n−ℓ positions. It is the same total K, not the recognized count. The conditional coefficient rearranges to c_(n,k) ℓ! binom(k,ℓ).",
+          "After row scaling and changing θ to positive odds t, the polynomial coefficients are binom(n,ℓ)binom(k,ℓ)ℓ!, counting ℓ-edge matchings of K_(n,k), equivalently nonattacking rooks on the n×k board. Equation (18.5.12) is the exact reversed-Laguerre coefficient formula for this polynomial."
+        ],
+        "reasoning": "The model equality is exact, including the accidental fixed points. Both the Pascal×odds form and the rectangular rook/Laguerre form are algebraic restatements of the already published formula, not new laws or new special-function identities.",
+        "searches": [
+          "arXiv:2112.12442 pp. 9, 13, 19–20, 23 (same-model conditional mixture and likelihood)",
+          "generalized matching distribution O'Neill log concave likelihood Laguerre polynomial real rooted generalized matching coincidences binomial Pascal Bernstein positive minors",
+          "complete bipartite matching polynomial Laguerre Godsil Gutman rook polynomial rectangular board exact formula Laguerre",
+          "DLMF §18.5 Eq. (18.5.12)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "8cf248496cc2 gives a two-game UMP power-gap finding using count likelihood-ratio ordering. 3e12e89bbd6f gives endpoint and Gaussian limits for the same model. Same-day d6a01be54eac concerns a joint fixed-point/cycle-count TP2 table on uniform and Ewens permutations. The known polynomial coefficient table matches the reversed odds polynomial exactly."
+        ],
+        "reasoning": "The inspected catalogue entries do not directly give all-order positivity in the count×θ kernel or all-count curvature. Same-day date does not settle priority; the Ewens table has different axes and assumptions. Failure rests on the exact algebraic and theorem implication, not on title-level catalogue matching.",
+        "searches": [
+          "Local Resultary exact matching-count likelihood, power gaps, limit laws and total-positivity searches",
+          "Resultary 8cf248496cc2, 3e12e89bbd6f, d6a01be54eac",
+          "DLMF Eq. (18.5.12) exact Laguerre coefficient table and §18.3 Table 18.3.1"
+        ]
+      },
+      "rationale": "The strongest same-model paper states the exact mixture, likelihood/Hessian, MLR, and MLE uniqueness; the inspected passages do not state the exact all-order and curvature formulas verbatim. Nonetheless both proposed sharpenings are direct consequences of that very mixture in the standard composition formula and Laguerre identities, with all hypotheses and strictness reduced explicitly below. This is demonstrated prior implication, not a claim that the exact combined wording was found or that a failed lookup weighs against novelty. No independent scientific remainder survives narrowing to either branch.",
+      "residual_risks": [
+        "An earlier paper may state these exact applications verbatim, but direct implication rather than verbatim priority is assessed.",
+        "The search also located the similar-title 2013 finitized Poisson paper (S0167715213000564); no decisive full-text passage was available from the attempted source, and it was not used as evidence of coverage or noncoverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers exact probability law, MLR and MLE; law used directly in covering deductions",
+          "evidence": [
+            "Binomial recognized-size mixture of the residual matching law; Theorem 10 score and Hessian; likelihood unimodality and unique MLE; MLR statement."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2112.12442",
+          "material_read": "pp. 9, 13, 19–20 and 23; PDF text offsets about 21600, 30500, 43750–48321, 54900",
+          "method": "Bounded OA PDF passages",
+          "title": "A generalised matching distribution for the problem of coincidences",
+          "trigger": "Exact same two-stage model and likelihood shape"
+        },
+        {
+          "assessment": "Exact input to the composition formula in the submitted kernel",
+          "evidence": [
+            "Binomial-coefficient matrix is totally nonnegative."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1807.08658",
+          "material_read": "p. 1, introduction, offset 0",
+          "method": "Bounded OA PDF passage",
+          "title": "Total non-negativity of some combinatorial matrices",
+          "trigger": "Prior exact Pascal-matrix total nonnegativity"
+        },
+        {
+          "assessment": "Exact formula proves strictness with the full row rank Pascal kernel and strictly positive odds minors; not relying on both factors being strict",
+          "evidence": [
+            "Pólya–Szegő identity integrates products of ordered minors. In the finite counting-measure case it is the Cauchy–Binet sum."
+          ],
+          "identifier_or_url": "https://math.iisc.ac.in/~khare/teaching/Math341-notes.pdf",
+          "material_read": "pp. 38–39, Eq. (5.14) and Corollary 6.1, offset 116050",
+          "method": "Bounded OA PDF via the institutional host without www",
+          "title": "Matrix Analysis, Pólya frequency functions, and Preservers of (Total) Positivity",
+          "trigger": "Classical stronger composition identity for ordered kernel minors"
+        },
+        {
+          "assessment": "Exact coefficient and root facts, directly applicable to the reversed prior odds polynomial",
+          "evidence": [
+            "Laguerre finite coefficient sum; positive weight on (0,∞) for α≥0; all degree-many zeros simple in the interval of orthogonality."
+          ],
+          "identifier_or_url": "https://dlmf.nist.gov/18.5.E12",
+          "material_read": "§18.5 Eq. (18.5.12) offset 16530; §18.3 Table 18.3.1 and §18.2(vi), latter offset about 26500",
+          "method": "Bounded OA handbook passages",
+          "title": "DLMF Chapter 18: Orthogonal Polynomials",
+          "trigger": "Exact classical coefficients and zero theorem for the likelihood factorization"
+        },
+        {
+          "assessment": "Supports the bipartite rook/matching equivalence; not relied on for the explicit Laguerre coefficients",
+          "evidence": [
+            "For bipartite graphs the matching polynomial is the signed/reversed rook polynomial of the associated board, with coefficients counting placements."
+          ],
+          "identifier_or_url": "https://hrcak.srce.hr/file/286668",
+          "material_read": "pp. 1–2, abstract and rook polynomial definitions Eqs. (2)–(3)",
+          "method": "Bounded OA PDF passages",
+          "title": "Some Remarks on the Matching Polynomial and Its Zeros",
+          "trigger": "Alternative identification of odds coefficients as known rook/matching coefficients"
+        },
+        {
+          "assessment": "Related results, no exact matching claim identified in those passages",
+          "evidence": [
+            "Exact first-tie power gap; three-regime limit theorem; fixed-point/cycle-count TP2 with uniform or Ewens permutations, respectively."
+          ],
+          "identifier_or_url": "Resultary records 8cf248496cc2, 3e12e89bbd6f, d6a01be54eac",
+          "material_read": "RESULT.md Finding, scopes, likelihood-ratio use in the two-game result",
+          "method": "Local indexed mirror",
+          "title": "Closest indexed matching-count and total-positivity results",
+          "trigger": "Potential finite exact likelihood geometry overlap"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Strict likelihood shape for this natural model is useful, but the submitted contributions are the immediate positive-minor composition and classical root-factor consequences of the known exact mass function. No further inference result, distinct sharp boundary, or nonmechanical invariant beyond those consequences was established. MLE uniqueness is already stated by O'Neill; the extra finite checks do not create a surviving scientific finding.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

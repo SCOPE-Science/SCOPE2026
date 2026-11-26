@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The rate-\(\lambda\) Palm spacings are independent. The mutual-nearest-neighbor event \(B<A,\ B<C\) has probability \(1/3\); changing variables to the shared gap and two outer-gap excesses factors the conditional density into rates \(3\lambda,\lambda,\lambda\). Scaling the two excesses by one-half gives two independent rate-\(2\lambda\) cell extensions. The resulting Laplace law, moments, diagonal tail and Bayes conditional-probability formula follow by explicitly displayed integrations. No sampling simulation is treated as a universal certificate. The independent seeded numerical checker agreed with all tested identities.
+## correctness
 
-**Originality — PASS with specified literature risk.** The closest primary paper, Rohrmann–Zurbriggen (arXiv:1109.6664), studies nearest-neighbor *ball* volumes and mutual-neighbor gap frequencies; this is not the full joint law of the two true Voronoi cells, which requires both outer gaps. Járai-Szabó–Néda (arXiv:cond-mat/0406116) treat unconditioned marginal cell size; Calka–Chenavier (arXiv:1304.0170) examine extreme individual cell radii. Search comparisons found neither the stated conditional full-cell bivariate Laplace law nor its \(4/13\) versus \(1/2\) covariance contrast and cell-size-dependent reciprocity posterior. Baumstark–Last (2007) is particularly relevant general Palm literature but could not be read in full; it may imply this special case. No absolute priority claim is made.
+PASS
 
-**Value — PASS.** Mutual nearest-neighbor pair selection is a geometrically canonical way to identify local pairs. The full conditional law explains quantitatively how selected adjacency changes geometric cell-size cofluctuation and supplies an exact calibration of mutual-pair membership against an observed cell length. These joint and inverse-conditional quantities are not available from the classical marginal cell length alone. The result is deliberately restricted to a homogeneous Poisson line; the formulas are not extrapolated to other dimensions.
+Under point Palm, A,B,C are independent rate-λ gaps and mutuality to the right is exactly B<min(A,C), ignoring zero-probability ties. Condition first on B=b: acceptance weights its density by e^(−2λb), and memorylessness makes the two excesses, conditional on acceptance and b, independent iid rate-λ variables with distribution not depending on b. Normalization is 1/3 and gives B|M rate 3λ. Half-excesses are rate 2λ, giving the claimed common-summand law and product Laplace transform. Its means, variance, covariance and correlation follow from the independent summands; before selection only B/2 is shared, giving correlation 1/2. The smaller selected length is a sum of independent exponentials of rates 3λ and 4λ (the latter from the smaller half-excess), which gives the printed diagonal survival directly. Independently check the posterior by conditioning on the sum A+B=2v: B is uniform on (0,2v), the right event is B<v and C>B, and the disjoint left event has equal probability. Thus P(J|V=v)=(1/v)∫_0^v e^(−λb)db, a strictly decreasing continuous version with the claimed limits. P(J)=2/3. All statements are under the specified sampling law, including at u=0; no numerical simulation is needed for the formulas. The frozen numerical verifier was inspected, not executed.
 
-**Limitations.** An inaccessible historical paper could contain a general implication; external independent review has not occurred. The theorem is analytic for the Poisson line only, and the numerical checks are supplementary.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct portion is the bias caused by mutual-neighbor selection in the law of actual adjacent full cell lengths and in the point-Palm posterior given cell length. The selection frequency, shared-gap law, marginal typical-cell law and exponential input are prior or immediate baselines. The strongest inspected prior pair results use a different notion of volume; the strongest general face-Palm theorem describes the configuration before MNN selection and does not evaluate the selected full-cell or size-dependent statistics.
+
+## value
+
+PASS
+
+The nearest-neighbor selection rule is canonical, and a pair of genuine cells is different from the more easily measured shared edge length. The exact joint law quantifies how selecting mutual pairs changes the dependence between adjacent cells. The strictly decreasing posterior further gives a continuous and explicit ascertainment bias for selection by mutuality as a function of cell size, which cannot be read off from the fraction of selected points or the unconditional typical-cell law. These quantities provide a usable exact baseline for selected tessellation statistics; no novel technique or general-dimensional consequence is needed or asserted.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

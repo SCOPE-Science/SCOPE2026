@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:02:32.203943Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–59, VERIFICATION.md, verify.py and verify_output.txt (inspected only)",
+        "Replay: python /workspace/checks/parabola_exact.py"
+      ],
+      "rationale": "In the normalized Weyl basis W_w/sqrt(d), each measurement column is a symplectic character times an ambiguity scalar divided by sqrt(d); nondegeneracy of the pairing over Z/p² makes distinct columns orthogonal and gives column norm sqrt(d)|A(w)|. With the stated g, the resulting singular value is the modulus of the unnormalized character sum over the translated intersection. Its defining equation 2ut=v+u² gives one point for unit u, a coset of pR for nonzero u in pR and v in pR, and no points at other nonzero displacements. On the coset the top digit cancels except when r+2st0=0 mod p, giving p modulus in p⁴(p-1) directions. At zero displacement split t=t0+pj: the j-sum vanishes unless r+2st0=0 mod p. For unit s this leaves exactly one t0 and modulus p; when p divides s it leaves none if p does not divide r and otherwise reduces to p times the mod-p sum, with modulus p^(3/2) for nonzero s/p and p² only at the origin. The mod-p modulus follows by additive orthogonality after a difference substitution using 2s/p invertible. Thus p⁴(p-1)+(p⁴-p³)=p⁵-p³ for the p band, and the other band and zero counts, the rank and the restricted condition number follow. Independent p=3,5 exact integer cyclotomic reduction matched every band (including 1964 and 75104 zero directions) and the squared-spectrum trace p⁸.",
+      "residual_risks": [
+        "Finite exact checks corroborate but do not establish the infinite family; the algebraic case split does. The result does not address nonlinear recovery of pure states."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The cyclic Gabor theorem gives the general spectral relation and extends by the same character proof to the finite abelian case.",
+          "Hickman–Wright prove composite-modulus restriction results; the split quadratic graph spectrum instead uses finite fields and higher-dimensional graphs."
+        ],
+        "reasoning": "The general theorems do not determine the collective nilpotent-shift contribution or the origin top-digit degeneracies for this specific normalized window.",
+        "searches": [
+          "arXiv:2106.01509 Theorem 2",
+          "arXiv:1801.03176 Theorem 1.2 and §2",
+          "Resultary 1651ef6ab8d7"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2106.01509 and arXiv:1801.03176",
+        "Resultary 227e3af3978b, f9f8ab847a2c, 1651ef6ab8d7, 1f76e4a64221"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Rank, nullity and conditioning follow immediately from the band table; converting the known general Weyl formula does not supply that table.",
+          "A sharp extension norm and fourth-moment identity are different assertions from pointwise Fourier magnitudes of every translated-intersection window; the field parabola has no nonzero nilpotent displacement."
+        ],
+        "reasoning": "The ring-specific evaluation is additional work, including a spectrum branch absent even at the same field cardinality. No inspected prior statement supplies the equivalent magnitude and zero classification.",
+        "searches": [
+          "arXiv:2106.01509 Theorem 2 pp. 4–6",
+          "227e3af3978b Finding and Proof §§1–3",
+          "f9f8ab847a2c Proof §§1–2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gram eigenvalues and squared measurement singular values are equivalent, with eigenvalue d|A|²; the full ambiguity magnitude table is thus equivalent to the full spectrum when indexed in Weyl coordinates.",
+          "After unit normalization at q=p² the finite-field parabola has only 1,p,p², without p^(3/2)."
+        ],
+        "reasoning": "Disambiguating unnormalized and normalized windows leaves a genuine spectral difference; replacing the label ring by the field of the same size does not preserve the translated intersection classes.",
+        "searches": [
+          "Local Resultary semantic and exact-title searches for the prime-square parabola Gabor spectrum",
+          "arXiv:2106.01509 Theorem 2",
+          "f9f8ab847a2c Finding and Proof §§1–2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest same-ring record tabulates a fourth-moment extension deficit and extremizers rather than the Gabor bands. Closest Gabor records use a field and/or a different graph; none of their inspected statements tabulates the target spectrum."
+        ],
+        "reasoning": "The operator, ring, window and normalization must agree for table coverage. The ranked index is not exhaustive, and same dates alone settle neither equivalence nor priority.",
+        "searches": [
+          "Local Resultary searches for prime-square parabola rank, Weyl kernel and full spectrum; inspected records 227e3af3978b, f9f8ab847a2c, 1651ef6ab8d7, 1f76e4a64221"
+        ]
+      },
+      "rationale": "The supported increment is the entire prime-square ring ambiguity magnitude and zero classification and its spectral consequence. The ambiguity-to-spectrum conversion, Gauss sums, and condition number calculation once the spectrum is known are not independent contributions.",
+      "residual_risks": [
+        "Hickman–Wright §6.3 was located but not materially read. Bounded literature lookup did not identify a decisive difference-set formula; older or unindexed equivalent evaluations remain possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers conversion, not window evaluation",
+          "evidence": "The stated cyclic Gram eigenvalues are d times squared window ambiguity magnitudes.",
+          "identifier_or_url": "https://arxiv.org/abs/2106.01509",
+          "material_read": "Theorem 2, pp. 4–6, offsets 13685–23014",
+          "method": "OA PDF passages",
+          "title": "Towards a Classification of Incomplete Gabor POVMs in C^d",
+          "trigger": "Equivalent Gram spectrum formula"
+        },
+        {
+          "assessment": "Restriction estimates inspected, not an exact Gabor classification",
+          "evidence": "Paraboloid extension/restriction bounds use different norms and do not state ambiguity bands.",
+          "identifier_or_url": "https://arxiv.org/abs/1801.03176",
+          "material_read": "Theorem 1.2 and §2, pp. 2–3; §6.3 located but follow-on read timed out",
+          "method": "OA PDF passages",
+          "title": "The Fourier Restriction and Kakeya Problems over Rings of Integers Modulo N",
+          "trigger": "Composite-ring paraboloids and prime-power scale"
+        },
+        {
+          "assessment": "Same curve, different operator",
+          "evidence": "A sharp L²-to-L⁴ extension norm, deficit and equality cases are stated.",
+          "identifier_or_url": "2026/10/11/SCOPE-exact-parabolic-fourier-deficit-and-extremizer-rigidity-over-pri--227e3af3978b",
+          "material_read": "Finding and Proof §§1–3",
+          "method": "Local mirrored RESULT.md passages",
+          "title": "Exact parabolic Fourier deficit and extremizer rigidity over prime-square rings",
+          "trigger": "Same prime-square curve"
+        },
+        {
+          "assessment": "Geometrically close; non-equivalent field example",
+          "evidence": "After dividing its unnormalized singular values by q=p², the bands are p²,p,1, with multiplicities 1,p²(p²−1),p⁶(p²−1).",
+          "identifier_or_url": "2026/11/8/SCOPE-planar-graph-gabor-measurements-exact-operator-spectrum-and-phas--f9f8ab847a2c",
+          "material_read": "Finding and Proof §§1–2",
+          "method": "Local mirrored RESULT.md passages",
+          "title": "Planar graph Gabor measurements: exact operator spectrum and phase fibres",
+          "trigger": "Includes the parabola at the same cardinality"
+        },
+        {
+          "assessment": "Different domains and graph",
+          "evidence": "Split pairing x·y over a finite field in ambient dimension 2r+1, r>=2.",
+          "identifier_or_url": "2026/10/18/SCOPE-complete-gabor-projector-spectra-of-split-quadratic-graphs-over--1651ef6ab8d7",
+          "material_read": "Finding and Proof §1",
+          "method": "Local mirrored RESULT.md passages",
+          "title": "Complete Gabor-projector spectra of split quadratic graphs over every finite field",
+          "trigger": "Full quadratic graph spectra"
+        },
+        {
+          "assessment": "Different graph and ring",
+          "evidence": "Quartic over F_p for p>=5, not the quadratic graph over Z/p².",
+          "identifier_or_url": "2026/10/18/SCOPE-exact-rank-and-weyl-kernel-classification-for-quartic-graph-gabo--1f76e4a64221",
+          "material_read": "Finding and Proof §§1–4",
+          "method": "Local mirrored RESULT.md passages",
+          "title": "Exact rank and Weyl-kernel classification for quartic-graph Gabor tomography",
+          "trigger": "Similar rank and kernel result for a graph window"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–24, 34–56",
+        "Finite-field comparison f9f8ab847a2c"
+      ],
+      "rationale": "For a natural prime-power analogue of a standard finite-field window, the computation quantifies linear identifiability, states exactly which Weyl modes are lost, and gives conditioning on the observable part. The new band explains an observable ring/field difference despite identical ambient cardinality. It is stronger than a rank estimate or a restriction moment.",
+      "residual_risks": [
+        "No general p^m, m>2, or broader class of windows is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

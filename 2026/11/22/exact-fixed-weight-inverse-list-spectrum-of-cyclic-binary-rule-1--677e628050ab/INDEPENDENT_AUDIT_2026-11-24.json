@@ -1,0 +1,155 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:31:04.412294Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The cyclic homogeneous recurrence forces period three and even parity on each triplet. If 3 does not divide n, periodicity forces constancy and the only constant kernel word is zero. At n=1,2 the full repeated-neighbor XORs give the identity, as required. At n=3m the four-word kernel has three shifts, each supported on 2m sites. One shift preserves source weight iff its support carries m ones, giving the pair count with orientation divisor 2. Two distinct shifts impose two pairwise class sums equal to m, hence class counts (2m-w,w-m,w-m) in a suitable order; the three choices of shift pair cancel the three anchors per unordered triple. Three shifts preserve weight iff each class has m/2 ones, with four anchors and exactly the stated even-m central condition. All other unindexed outputs or empty intersections are excluded as in the definition. These are the binomial moments of the nonempty fiber-size counts, so inversion and alternating inclusion-exclusion give the complete histogram and one-representative-per-output capacity. The positive pair moment is exactly on [m,2m]; at the center the triple moment equals four times the fourth moment, whereas away from center a positive triple moment is a genuine size-three fiber. Independent tuple-based direct enumeration matched all 135 (n,w) slices for n=1..15, totaling 65534 binary inputs; replay python3 /workspace/independent_checks.py 3. The supplied CHECK.py was inspected, not executed; neither finite test is an all-length proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2019 inverse transition formula acts in the reversible regime; the ICALP additive-CA framework addresses topological properties and injectivity/surjectivity.",
+          "An aggregate codeword weight distribution is not the distribution of coefficient values across all affine cosets."
+        ],
+        "reasoning": "No inspected general theorem evaluated these coset coefficient multiplicities at the repeated length-three kernel. A joint enumerator would give a method, but identifying that method is not evidence that a stronger evaluated result was found.",
+        "searches": [
+          "doi:10.4230/LIPIcs.ICALP.2020.125",
+          "doi:10.1016/j.amc.2019.03.060",
+          "binary cyclic-code complete/joint weight enumerator and fixed-weight coset multiplicity search"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1903.06011",
+        "doi:10.1016/j.amc.2019.03.060",
+        "doi:10.4230/LIPIcs.ICALP.2020.125",
+        "Resultary 89cc648da7e1, ec90f5e076e2, da32a32421a1, ea473cd93241",
+        "Frozen RESULT.md, VERIFICATION.md and CHECK.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Reversibility fully implies the singleton branch at 3∤n, and the common kernel implies unrestricted four-to-one at 3|n.",
+          "Same-day Lucas-language records exclude cyclic adjacent ones. This source restriction is different: for n=6, w=3 the unrestricted weight layer has four-source fibers, whereas the no-adjacent-ones layer has only two weight-three source words in total."
+        ],
+        "reasoning": "Credit the already implied unrestricted statements. Neither unrestricted list sizes nor a separate local-adjacency restriction imply the complete distribution of intersections with all Hamming layers. No priority ordering is assumed between distinct same-day records.",
+        "searches": [
+          "arXiv:1903.06011 §III Rule 150 example",
+          "Resultary 89cc648da7e1 and fixed Lucas-language restricted predecessor records"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact equivalent is the distribution across distinct cosets of the coefficients [z^w] of each coset weight polynomial.",
+          "Bhattacharjee–Das supply reversible lengths. The same-rule necklace census 89cc648da7e1 counts rotation-orbit predecessors, with degree classes 2 and 4 in the noninvertible regime, not weight-resolved indexed outputs."
+        ],
+        "reasoning": "Quotienting rotations and imposing a weight layer are distinct operations. Unrestricted necklace degrees do not carry enough information to reconstruct the four fixed-weight indexed multiplicities; already n=3, w=1 has an indexed three-source fiber.",
+        "searches": [
+          "Resultary Rule 150 fixed Hamming weight and predecessor fiber spectra",
+          "Rule 150 fixed-weight image / cyclic-code coset weight coefficient histogram literature lookup",
+          "arXiv:1903.06011 PDF p. 10"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "89cc648da7e1 provides a Möbius–Burnside census for necklace degrees. The three restricted-language hits count fixed-no-adjacent-ones sources and give a single size-three fiber in that restriction for n=3m, rather than the B_{n,w,j} table for a full Hamming layer."
+        ],
+        "reasoning": "These are actual tables for different source or quotient objects. Neither tabulates the evaluated all-weight indexed spectrum; the available search is not exhaustive.",
+        "searches": [
+          "Resultary cyclic Rule 150 inverse-degree and fixed-weight spectra",
+          "Resultary 89cc648da7e1, ec90f5e076e2, da32a32421a1 and ea473cd93241"
+        ]
+      },
+      "rationale": "The reversible-length split, period-three kernel and abstract coset or binomial-moment framework are not new. The supported distinct contribution is the evaluated full indexed, fixed-source-weight census in the singular lengths, including its exact layer injectivity and three-versus-four ambiguity regimes. Compared sources do not give that census as a special case; this assessment is bounded, not a historical priority guarantee.",
+      "residual_risks": [
+        "An older general code coset-weight coefficient spectrum could subsume the classification; this limited search did not verify one.",
+        "The same-day records are distinct, with no inferred priority ordering. Generic cyclic-code snippet hits are not evidence against full-text coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage of reversible branch; the compared passage does not give a singular-length fixed-weight table.",
+          "evidence": [
+            "Rule 150 reversible for n=1,2,4,5,7,8,..., i.e. n≠3k."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1903.06011",
+          "material_read": "PDF p. 10, §III Rule 150 example, text offset 32047",
+          "method": "Lawful OA PDF bounded passage",
+          "title": "On Finite 1-Dimensional Cellular Automata: Reversibility and Semi-reversibility",
+          "trigger": "Direct Rule 150 reversible-length condition"
+        },
+        {
+          "assessment": "Formula assumes reversibility; not a comparison theorem for ambiguous indexed fibers.",
+          "evidence": [
+            "Inverse rule over F_2 for reversible (2R+1)-cyclic CA; R=1 applied to Rule 150."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.amc.2019.03.060",
+          "material_read": "PDF p. 1, text offset 1428",
+          "method": "Lawful OA PDF bounded passage",
+          "title": "A closed formula for the inverse of a reversible cellular automaton with (2R+1)-cyclic rule",
+          "trigger": "Exact inverse formula explicitly applied to Rule 150"
+        },
+        {
+          "assessment": "The located abstract addresses different stated invariants; not used as a whole-document noncoverage claim.",
+          "evidence": [
+            "Topological dynamics and decidability of properties including injectivity/surjectivity."
+          ],
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.ICALP.2020.125",
+          "material_read": "PDF p. 1 abstract",
+          "method": "Lawful OA proceedings PDF",
+          "title": "From Linear to Additive Cellular Automata",
+          "trigger": "General additive-automaton framework"
+        },
+        {
+          "assessment": "Matching kernel; quotient inverse-degree table is not the weight-resolved indexed table.",
+          "evidence": [
+            "One-step synchronous Rule 150 on necklaces; reachable degrees 2 and 4 for 3|n, counted by a Möbius–Burnside census."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-the-exact-inverse-degree-spectrum-of-cyclic-rule-150-necklaces--89cc648da7e1",
+          "material_read": "Local mirror RESULT.md Finding, offset 0",
+          "method": "Resultary lookup and original statement via local mirror",
+          "title": "The exact inverse-degree spectrum of cyclic Rule 150 necklaces",
+          "trigger": "Closest indexed result for the same local update and an exact spectrum"
+        },
+        {
+          "assessment": "No-adjacent-ones rather than fixed weight; does not imply the weight-layer table.",
+          "evidence": [
+            "For 3|n, N_3=1, N_2=3(2^{m-1}-1), N_1=L_n-3·2^m+3 for the restricted language."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-exact-inversion-fibers-of-cyclic-rule-150-on-the-lucas-language--ec90f5e076e2",
+          "material_read": "Local mirror RESULT.md Finding, offset 0",
+          "method": "Resultary lookup and original statement via local mirror",
+          "title": "Exact inversion fibers of cyclic Rule 150 on the Lucas language",
+          "trigger": "Same update and labeled outputs with a different source restriction"
+        },
+        {
+          "assessment": "Exact count for cyclic-adjacency restriction, not unrestricted weight layers.",
+          "evidence": [
+            "No cyclic adjacent ones in the allowed source set; same restricted list-size phenomena at 3-divisible lengths."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-exact-restricted-predecessor-spectrum-for-cyclic-rule-150-on-the--da32a32421a1",
+          "material_read": "Local mirror RESULT.md Finding, offset 0",
+          "method": "Resultary lookup and original statement via local mirror",
+          "title": "Exact restricted predecessor spectrum for cyclic Rule 150",
+          "trigger": "Other exact predecessor census for the same update"
+        },
+        {
+          "assessment": "Explicit output languages refine the adjacency-restricted spectrum, not the claimed fixed-weight histogram.",
+          "evidence": [
+            "Ambiguous-output languages refer to the no-cyclic-adjacent-ones sources."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-exact-ambiguity-language-and-inverse-fiber-spectrum-of-cyclic-ru--ea473cd93241",
+          "material_read": "Local mirror RESULT.md Finding, offset 0",
+          "method": "Resultary lookup and original statement via local mirror",
+          "title": "Exact ambiguity language and inverse-fiber spectrum of cyclic Rule 150",
+          "trigger": "Possible stronger spectrum covering the same rule"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A weight-known source layer is a natural decoding regime. The full histogram gives both operational codebook size and exactly how many indexed readouts have each ambiguity size, exposing a sharp weight-dependent transition not visible from an unrestricted rank or kernel bound. The uniform all-length formula addresses a precise reconstruction question rather than adding a few table entries or restating reversible CA theory.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

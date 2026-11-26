@@ -1,15 +1,21 @@
-# Scientific review: density-tight circular attractors in Lyndon de Bruijn cycles
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim concerns the explicit binary lexicographically least cyclic de Bruijn words at orders \(1,2,4,8,16\). For any order dividing its cycle length, the unique length-order windows yield the lower bound \(2^k/k\) and force every equality case to have all gaps exactly \(k\). At order sixteen, the six length-thirteen factors in RESULT.md are recorded with **all** eight starts apiece. Computing the cyclic residues intersected by each factor shows their six forbidden-residue sets cover the entire residue class group modulo sixteen, eliminating every equality case. The supplied independent Lyndon-generation comparison, length-sixteen uniqueness check, rolling-window occurrence scan and smaller-order coverage tests all completed successfully. The program is finite; the gap argument supplies the deduction from exhaustive residue exclusion to the claimed strict lower bound.
+## correctness
 
-## Originality — PASS on inspected evidence
-The closest primary paper by Mantaci and collaborators obtains general bounds for **linear** de Bruijn unfoldings (Proposition 41), not strict nonattainment for the canonical circular order-sixteen sequence. Whittington's *Online String Attractors*, Section 5 and Theorem 29, handles a specifically unfolded Lyndon construction at **prime** order and raises the composite-order difficulty; its always-valid equidistant *sharp* coverage does not cover the shorter factor constraints that cause this obstruction. Banbara and collaborators' 2026 paper studies Fibonacci, period-doubling and Thue–Morse attractors, not the canonical binary de Bruijn cycle of order sixteen. An accessible earlier binary order-eight example has strict nonattainment for a **different** cycle; it does not imply the present canonical order-sixteen calculation. Searches for equivalent formulations, larger encompassing theorems and tabulated exact values did not uncover the same result. This does not establish absolute historical uniqueness; unindexed computational records are the remaining risk.
+PASS
 
-## Value — PASS
-The test is motivated by a specific structural gap in the de Bruijn string-attractor literature: an equidistant position set always covers the distinct maximal-length windows, but full attraction requires covering *all* shorter factors. The canonical Lyndon sequence is the most standard fixed representative; the dyadic progression \(1,2,4,8,16\) naturally exposes the first failure of lower-bound attainment at order sixteen. A compact, six-factor certificate gives an intelligible obstruction for a length-\(65536\) word without requiring an unreported search over general attractor sets. This is a motivated finite boundary/counterexample, rather than a claim of a general optimality formula. The precise optimum at order sixteen and behavior at subsequent orders remain unproved.
+The N=2^k cyclic k-windows are distinct, so each must be hit. A mark hits exactly k of these windows. With N/k marks each window must be hit exactly once, forcing successive cyclic gaps at least k and hence all exactly k. Thus equality is equivalent to a successful residue modulo k. I reconstructed each stated cycle independently by partitioning the k-bit words into rotation orbits, taking the primitive root of each orbit's least element, and concatenating the sorted roots. The length-k window test verified the de Bruijn property of every reconstructed cycle. Direct cyclic substring slicing and incidence checks for every factor length through k give successful residues [0], [0,1], [0,1,2,3], and [4] at k=1,2,4,8. A longer window contains a length-k window, whose occurrence is already hit. At k=16 the independent scan of all starts gives exactly the eight recorded starts for each of the six factors. The missing residue sets are {9,10,11}, {10,11,12}, {13,14,15}, {3,4,5}, {0,1,2}, {6,7,8}, whose union is all residues. Hence every equality candidate fails and the minimum is at least 4097, not necessarily equal to 4097.
 
-## Literature and scientific limits
-Inspected: Mantaci et al., *A Combinatorial View on String Attractors*, original postprint introduction and Sections 3/6.2 (especially Proposition 41); Whittington, *Online String Attractors*, Section 5 including the proof of Theorem 29; Banbara et al., arXiv:2602.16152, introduction and discussion of de Bruijn attractors. The proof does not determine the exact order-sixteen minimum or resolve Whittington's general existence conjecture for an optimally unfolded de Bruijn sequence. The prior results are different in normalization, orders or word families. Priority outside searched/indexed sources remains uncertain.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The density/spacing observation and some small-order attainments have predecessors or are elementary. The supported distinct content is the exact canonical order-eight equality residue and the obstruction to full circular lower-bound attainment at canonical order sixteen, which together identify the first failure along the specified dyadic sequence. The inspected prime-order result, earlier linear order-four census, and nearby order-five circular computations do not cover those conclusions.
+
+## value
+
+PASS
+
+This is a motivated exact obstruction, not an arbitrary cutoff: dyadic orders have an integral density lower bound, and the canonical Lyndon construction is a natural test case after the known prime-order result. The four preceding attainment cases and the six-factor obstruction at sixteen locate the boundary within this family, and sharply separate guaranteed sharp covering from full covering. The obstruction is small enough to be reused or compared in studying other constructions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

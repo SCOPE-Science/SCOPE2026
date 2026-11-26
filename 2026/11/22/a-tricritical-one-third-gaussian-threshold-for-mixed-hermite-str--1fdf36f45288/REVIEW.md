@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The time–frequency marginal is exactly a multiplication operator by a symmetric quadratic-Gaussian interval integral. Its derivative sign is encoded by an explicit hyperbolic scalar function. A strictly decreasing derivative quotient proves a one-hump stationary principle; a two-range elementary inequality proves the global centered regime. The monotone maximum of the scalar hump and the strictly negative derivative of the off-center-versus-center peak gap give the unique first-order transition. Taylor expansion proves both critical exponents and sixth-order flatness. All equality and nonattainment statements follow from the complete critical-point census. Symbolic coefficients and five interior jump configurations were independently checked with the embedded script. Finite diagnostics do not replace analytic quantifiers.
+## correctness
 
-## Originality — PASS (best-knowledge)
-The checked 2019 Keller–Luef polyanalytic localization source supplies the Hermite-window operator framework but no two-window strip phase diagram. The 2021 Nicola–Tilli Gaussian-window concentration result concerns different phase-space domains. The closest previously indexed pure-first-Hermite single-strip result determines the zero-Gaussian endpoint only; the new claim restricts to strictly positive Gaussian fraction and gives the exact tricritical one-third fraction and change of transition order. Other indexed two-Hermite disk, coherent spectrogram and Gaussian two-band results do not imply the joint mixed-strip phase theorem. Historical equivalents in classical Gaussian mixture modal theory remain a priority risk.
+PASS
 
-## Value — PASS
-The first Hermite channel resolves separated spatial shoulders, while the Gaussian channel favors the center; deciding the least Gaussian measurement share necessary to eliminate a discontinuous maximizer jump is a natural two-channel instrument-design problem. The exact \(1/3\) tricritical budget, the two different fractional critical exponents, and the unique discontinuous crossing answer a complete structural question for a continuum of widths and weights, not a substituted exercise or finite numeric observation.
+Frequency Plancherel with dω/(2π) gives the stated normalized Gaussian–quadratic multiplier. The even decaying analytic multiplier reaches a maximum but no nonzero L² function is supported on its maximizing set. For t>0 its derivative is 2 exp(−a²−t²) sinh(2at) times (h_a(t)−a²−γ), divided by √π(γ+1/2). The partial fraction series makes h'_a(t)/(2t) strictly decreasing from 4a²/3−1 to −1. For a≥√3/2 the bound h_a−a²<1/4 follows for u=2at≤3/2 from u coth u<1+u²/3 and monotonicity of s+u²/(4s) on s≥3/4, and for u≥3/2 from AM–GM and 2u/(exp(2u)−1)<1/4. This settles the centered regimes. For γ<1/4 and a≥a_c the hump maximizer satisfies u/(2a²)=coth u−u csch²u<1, so the envelope decreases strictly; u tends to infinity as a tends to infinity since (coth u−u csch²u)/u has a positive limit at zero and is positive on bounded intervals. The envelope is bounded above by 2u/(exp(2u)−1) and below by its positive test value at u=2a²; it tends to zero. The resulting unique fold has lower off-center height than center height, whereas at a_c the off-center height is higher. The difference decreases strictly on the intervening outer branch, by stationarity and strict decrease of the density beyond a_c. This gives one equal-height crossing and a strictly larger right norm slope; no inner stationary point can tie the center. The quadratic and quartic h_a coefficients give the two onsets, and the explicit sinh factor gives the order-six positive critical deficit. Checked the supplied verification description and code by inspection; independent Simpson quadrature and bisection gave a*=0.95234115163 and t*=0.82899868124 for γ=1/8, and displacement-to-prediction ratios 0.999941 and 0.999995 for γ=1/4 and γ=0.4 near the continuous transitions. The numerical checks are ancillary to the analytic argument.
 
-## Limitations and prior literature
-The proof does not assert extremizing input functions, compact-strip behavior or arbitrary-window optimality. The zero-Gaussian strip endpoint was already established in *Two-stage symmetry breaking and sixfold spectral fibers in first-Hermite strip localization*. See the primary-source references and the statement-implication comparisons in AUDIT.json. Priority remains best-knowledge, and external independent audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinction is the global phase classification for the incoherent mixture on the frequency-unbounded strip, including the exact weight separating discontinuous and continuous transitions. The same strip with a pure first-Hermite window already has a first-order transition, and the same pair of channels on a disk already has an eigenvalue inversion law. Neither inspected result covers the retained weight-dependent strip classification.
+
+## value
+
+PASS
+
+The optimizer map and norm corner resolve how including a Gaussian channel changes concentration in a natural time marginal. The exact tricritical weight and fourth-root law distinguish global and local transitions; they are not a restatement of Plancherel or of the pure endpoint. The scope excludes finite frequency cutoffs and coherent windows.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

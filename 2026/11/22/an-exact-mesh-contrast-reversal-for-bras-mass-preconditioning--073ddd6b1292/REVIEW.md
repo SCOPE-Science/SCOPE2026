@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is a complete spectral characterization on periodic alternating \(P_1\) mass meshes whose number of elements is divisible by four. The element mass/inverse formulas, Bloch eigenvalue traces and discriminants, branch minimization, and weighted polynomial identity have been reconstructed algebraically. The exact-rational `verify.py` checker passes 40 size/contrast configurations and the \(r=4\) witness; the checker is supporting evidence, not a replacement for the all-size proof. The limits \(r=1\), \(r=3\), \(r=r_*\), and \(r\to\infty\) are included. No finite enumeration is described as proof of a universal result.
+PASS
 
-## Originality — PASS, with residual access risk
+The comparison is for periodic alternating P1 elements with n divisible by four. The diagonal and absolute row radius of M are (a+b)/3 and (a+b)/6; the constant and alternating vectors realize both Gershgorin endpoints, so Jacobi gives 3. Independently taking traces and determinants of the cell symbols, the two-symbol product for the identity weight has trace 1+qu/6 and determinant (3q+2u)^2/144, where q=r+1/r and u=4-cos(theta). The eigenvalue branches in the proof follow. The upper branch increases to u=5, a discrete phase available because n/2 is even. The lower branch is always at least 1 and its continuous minimum is at u=3q/2 (with u=3 at r=1). For r>=3 it minimizes on the phase set at u=5; below r=3 the stated bound suffices without replacing the discrete minimum by the continuous one. The equality condition on the exact branch is 3r^2-6r-13=0, with its sole admissible root 1+4/sqrt(3). Local diagonal-mass weights give diagonal 4/(a+b) and neighbor entries -2h/(a+b)^2, proving the stated polynomial in M. Its mass-product eigenvalue is 1+4ab sin^2(theta/2)/(3(a+b)^2), giving the claimed maximum, minimum, and limit. An independent rational four-mode check at n=4, r=4 confirms the complete spectra and the reported strict ordering.
 
-The July 2026 BRAS paper provides the underlying operator and broad spectral theory. The authors' September 2026 seminar explicitly identifies one-dimensional strong-grading degradation of equal weighting and introduces diagonal-local-mass weighting as a remedy. Those facts are **prior art**, not new claims. The new statement is the sharp **periodic alternating mesh** contrast threshold \(1+4/\sqrt3\), the full Bloch spectrum, and the exact two weighting condition-number formulas. Published general bounds and the graded three-element example do not logically imply those sharp identities. Search comparisons with related 2026 numerical linear-algebra records and known alternate-mesh linear-spline results found no covering implication. The preprint's complete full text was not accessible for a full-document comparison, and an equivalent unindexed calculation remains possible.
+## originality
 
-## Value — PASS
+PASS
 
-The result identifies an explicit **failure boundary** for a practical choice of mass preconditioner, and quantitatively shows how the locally mass-weighted variant avoids the failure, with the same elementary element mass blocks. The contrast threshold is exact and holds for arbitrarily many elements of the specified family. The formulas distinguish spectral conditioning from elapsed solver time, so the scope is not overstated. This is a motivated sharp boundary for a newly introduced preconditioner, rather than a free-standing matrix exercise.
+Best-of-knowledge pass for the exact alternating-periodic spectra, sharp identity-weighted BRAS/Jacobi contrast reversal, and exact diagonal-local-mass comparison. The BRAS definitions, general lower bound, contrast-induced degradation, diagonal weighting remedy and its approach to unit conditioning on a graded example are already established in the inspected antecedents.
 
-## Closest literature and limitations
+## value
 
-Krzysik–Southworth–Wimmer, arXiv:2607.12138 (2026-07-13), supplies BRAS and its general theory. Southworth's public FEM@LLNL seminar (2026-09-15), https://mfem.org/pdf/seminar/southworth2.pdf, slides 6–8 and 13–20, explicitly addresses weighted BRAS and strong grading, but not the alternating periodic exact crossing. Krzysik–Southworth–Wimmer, arXiv:2607.07485, studies Gram-based multilevel algebraic preconditioning, not the same inverse. Residual risk: full arXiv text unavailable during comparison; the claim needs independent source-priority review. The mathematical assertion does not cover arbitrary nonuniform meshes, nonperiodic boundaries, or higher polynomial order.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The alternating family separates the effect of contrast from mesh order and supplies a sharp all-size benchmark beyond qualitative warnings about grading. It gives both the range in which the original BRAS improves on Jacobi and a reproducible regime in which it is strictly worse, while bounding the weighted counterpart for every contrast. This is an exact, motivated counterexample and design comparison, not a claim that weighting or grading effects were newly discovered.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

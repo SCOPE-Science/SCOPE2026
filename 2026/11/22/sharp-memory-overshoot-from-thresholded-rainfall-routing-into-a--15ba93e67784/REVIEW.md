@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem is stated for every retention \(a\in(0,1)\) and threshold \(h>0\), with stationary two-sided iid Exp(1) forcing. Direct truncated-exponential integration gives three verified second moments. The stationary linear recursion gives the full lag covariance exactly. Subtracting the storage-memory coefficient produces a strictly convex scalar crossing condition, while exact differentiation gives a strictly concave derivative bracket with precisely one positive root. Endpoint limits are justified in \(L^2\). The required strict \(h_c<h_*\) follows from evaluation of the derivative bracket at the crossing. A self-contained verifier checks the symbolic derivative identity using rational arithmetic and supplements it with numerical tests. No simulation is treated as a universal proof.
+## correctness
 
-## Originality — PASS on the inspected evidence
-Berghuijs et al. (preprint 2024, final 2025) investigate annual hydrologic memory empirically and with nonlinear/hysteretic models; their model section does not provide the present closed-form nonmonotonic lag correlation or a runoff-greater-than-storage memory regime for the exact annual threshold routing model. Schuite et al. (2019) study general hydrologic spectral transfer functions including overland flow and linear reservoirs, not this specific stochastic cap or its sharp optimizer. Weiler et al. (2003) develop tracer-based runoff routing with nonlinear partitioning, but their inspected article does not state this population-autocorrelation theorem. Orth and Seneviratne (2013) discuss coupling of soil-memory and streamflow-memory without the exact threshold-law classification. The general AR(1) covariance identities are acknowledged as prior; the nontrivial positive association of mutually exclusive quickflow and recharge, together with an exact unimodal threshold law, is the new statement. A stronger equivalent result in older water-balance or random reservoir literature remains a residual risk. Nonappearance in searches is not a proof of priority.
+PASS
 
-## Value — PASS
-The model is a minimal mass-conserving abstraction of fast overflow and slow groundwater recharge, expressly motivated by the empirical discrepancy between rainfall memory, storage memory and streamflow memory. It resolves the natural qualitative question of whether adding a faster runoff route necessarily lowers the observed persistence of total runoff. Counterintuitively, nonlinear partitioning of *the same annual input* can make runoff more persistent than its slowly draining store. The unique threshold maximizing that effect, the precise onset and common optimizer for every lag are directly useful diagnostic benchmarks for interpreting memory versus fast/slow partitioning. This is a structural classification, not a fitted parameter tweak.
+For the fixed cap and iid Exp(1) input, put z=exp(-h). Integration gives Var(F)=2z-z², Var(R)=1−2hz−z² and Cov(F,R)=hz−z(1−z), since FR=hF. The stationary store uses only past inputs. Writing D=Var(Q), N=Cov(Q_t,Q_{t+1}) and X=z[(1−a)h−(1+a)+z], the lag calculation gives N−aD=X and D=(1−a−2X)/(1+a)>0. Thus ρ−a=X/D, and ρ′=(1−a)X′/[(1+a)D²], with X′=z[2(1−z)−(1−a)h]. The first bracket in X is strictly convex, starts negative and has one positive zero h_c. The bracket in X′ is strictly concave, starts at zero with positive slope and eventually becomes negative, so there is a unique positive h_*. At h_c that last bracket equals 1−a−z>0, the derivative of the first bracket at its crossing. Hence h_c<h_*. For lag k≥1, only S_t and R_t carry covariance forward, multiplying the lag-one value by a^(k−1); the limits 0 and a follow by L² convergence of the routed inputs. Independent moment quadrature and bisection at a=1/2 corroborate h_c≈2.888703356193, h_*≈3.920690394873 and ρ(h_*)≈0.529692482. These numerical values are checks, not a proof of the quantifiers.
 
-## Sources and limitations
-Berghuijs et al. (2024 preprint, 2025 article), https://doi.org/10.5194/egusphere-2024-2954 and https://doi.org/10.5194/hess-29-1319-2025; Schuite et al. (2019), https://doi.org/10.1029/2018WR024579; Weiler et al. (2003), https://doi.org/10.1029/2003WR002331; Orth and Seneviratne (2013), https://doi.org/10.5194/hess-17-3895-2013. Assumptions exclude observed rainfall correlations, nonlinear store depletion, changing annual threshold, field calibration and sampling uncertainty. The exact finding remains subject to expert independent comparison with the wider historical literature.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit is limited to the exact threshold-dependent classification for this routing model, not annual hydrological memory, linear-store covariance, or nonlinear input partitioning in general. The strongest distinct catalog evidence uses a pollutant wash-off model rather than this rainfall split; the available literature evidence does not demonstrate the exact thresholds. This is a best-of-knowledge decision under the noted access limits.
+
+## value
+
+PASS
+
+The conservation-law model isolates how contemporaneous fast-flow/recharge covariance can lift output correlation above storage retention even with white rainfall. The two exact caps distinguish onset from optimal overshoot, and the same optimum applies at all positive lags. This supplies a precise benchmark for inference from output persistence, not a claim about prevalence in watersheds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

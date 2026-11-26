@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-The exact analytic argument is in `RESULT.md`. To reproduce computational checks, execute `python verify.py` using Python 3; NumPy is optional but required for the separate five-dimensional random-matrix experiment.
+## correctness
 
-The checker evaluated the direct spectral support maximum (not the postulated closed expression) by composite Simpson quadrature at \(t=0,0.2,0.49,0.5,0.501,0.55,0.7,0.85,1\), agreeing with the formula within \(2\times10^{-8}\). With NumPy, an independent 160,000-direction simulation on the unit sphere of traceless symmetric matrices passed comparisons at seven values, within a \(0.0025\) Monte Carlo tolerance. The threshold was also verified directly from the exact minimal eigenvalue \((1-2t)/3\) of the reflected projector's PSD representative.
+PASS
 
-The numerical tests are finite and are not certification for every parameter. Exact validity across the continuum rests on the stated matrix-geometry, angular Jacobian and elementary-integration proof. No external independent audit has been performed.
+For the trace-one PSD model of K the reflected rank-one generator corresponds to (1+t)I/3-t uu^T, so its least eigenvalue gives the exact containment threshold t=1/2. Rayleigh support gives the two maxima in RESULT.md. The real Vandermonde on the ordered trace-zero, Frobenius-unit eigenvalue circle is proportional to sin(3θ), with normalized density (3/2)sin(3θ). By spectral reflection the baseline is sqrt(3) times the integral of cos(θ)sin(3θ) from 0 to π/3, namely 9sqrt(3)/16. For k=(2t-1)/sqrt(3)>0 each switch occupies a chamber end of angle arctan(k). Differentiating the total increment with respect to k has no moving-boundary term because the support excess is zero there; integration of (3/2)cos(θ)sin(3θ) to arctan(k) gives 3k²(3+k²)/(4(1+k²)²). Its zero-at-k=0 primitive is 3k³/(4(1+k²)). This gives the claimed monotonicity, endpoint, cubic coefficient 2/sqrt(3) and third-derivative jump 4sqrt(3). The switch intervals meet only at a tie when t=1. Reviewed RESULT.md, VERIFICATION.md and verify.py without executing the supplied file. Finite numerical checks are supplementary; the calculation above covers the full parameter interval.
+
+## originality
+
+PASS
+
+Best of current knowledge, the distinct contribution is the evaluated mean-width profile and its cubic onset for this particular reflection hull, not the projector body, support-function calculus or Vandermonde law.
+
+## value
+
+PASS
+
+Mean width is a canonical Euclidean invariant of the diameter-normalized projector body. The profile quantifies how the extremal reflected orbit begins changing that invariant, distinguishing immediate set enlargement from third-order mean-width sensitivity. The explicit coefficient and endpoint are useful for quantitative comparison with other width or symmetrization bounds; this is not just the PSD containment test.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

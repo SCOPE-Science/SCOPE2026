@@ -1,19 +1,21 @@
-# Scientific review: two-sex occupancy and redundant mating sites
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The independent male/female Poisson split yields an exact binomial law for the number of sites containing both sexes. Existence of an integer optimizer follows from a finite positive success chance at every feasible \(k\) and the vanishing success bound \(\Pr(W_k\ge r)\le\theta(1-\theta)L^2/(rk)\). An exact expression for the no-success factor separates the minority-sex exponent from a site-count-dependent correction. In the balanced case, localization by a lower bound and a unique scalar minimization gives the \(\sqrt L\) law. In the unbalanced case, complementary exponential-penalty and missing-site lower bounds localize the optimum on the scale \(L/\log L\). The proof explicitly covers all integer maximizers, finite-parameter boundary conditions and the distinct \(r=1\) case. A standard-library checker independently evaluates binomial-tail recurrences and illustrative optimizing site counts. The limiting theorem is proved analytically; finite tests are supplementary.
+PASS
 
-## Originality — PASS on inspected evidence
+Independent Poisson splitting yields the binomial law. The Markov bound on success tends to zero with site count at fixed pressure, so a positive maximum is attained. At r=1, the event of exactly one founder of each sex assigned to different sites has positive probability for every k>1, giving strict one-site dominance. For r≥2 let m=r−1, t=L/k and h=log(1+e^(−δt)(1−e^(−at))). The j=0 and j=m summands separately bound the failure from below; on the localized scales the successive backward ratios are O_r(q/(kp)), so the last summand gives the asymptotic. In balance the lower bound h≥c min(t,1) rules out k≫√L, while the term mat rules out k≪√L. Uniformly on compact positive ranges of x=k/√L, the normalized log correction tends to m/(2x)+x log 2, whose unique minimum gives both constants. At fixed imbalance, the rounded-down trial k=floor(δL/log L) gives t=log L/δ+O((log L)^2/L) and kh=o(1). Smaller t by a fixed relative factor incurs an exponentially larger kh, and larger t by a fixed factor increases the lower bound m(at+log L−log t)+O_r(1), since at−log t is increasing there. This localizes every optimizer and the same last-term lower bound matches the trial through order log L. The numerical verifier was inspected but is not needed for these asymptotic or strict claims.
 
-The closest source is Cuddington et al., *Landmarking and strong Allee thresholds* (2015), https://doi.org/10.1007/s12080-015-0254-z. Its main body and combinatorial appendix treat male/female co-location, the exact number of matched individuals, and the effects of site number on mate-finding. That source covers the finite combinatorial foundation but does not present the new objective of guaranteeing \(r\ge2\) distinct two-sex sites and does not imply either optimal large-pressure scaling without further analysis. Chase et al., https://doi.org/10.1111/1365-2664.14326, experimentally test propagule pressure/Allee effects; Koontz et al., https://doi.org/10.1002/ece3.4226, examine temporal introduction number and size; neither establishes the stated mathematical law. Dupuis et al., https://doi.org/10.1239/jap/1175267167, give a colored-ball large-deviations principle for balls proportional to bins, whereas the optimizing limits here have per-site occupancy intensity diverging with total pressure. Mathematical priority remains provisional because uninspected extreme-tail and spatial mating-model literature may contain overlapping formulations.
+## originality
 
-## Value — PASS
+PASS
 
-Spatial distribution of founders creates a fundamental tradeoff: more distinct locations offer redundancy but separate potential mates. For a target of two or more independent mating-capable locations, the theorem provides a specific scale on which that tradeoff is optimized and exposes a sharp qualitative dependence on the sex ratio. The square-root versus nearly linear scaling is a structural distinction, not a routine finite parameter substitution. It is pertinent as an idealized null benchmark for mate limitation and distributed colonization, while remaining deliberately separate from ecological claims about actual reproduction or establishment.
+The distinct result is the optimized rare-failure asymptotic for a fixed target of at least two distinct two-color boxes with a growing number of boxes, including the sharp change under a fixed imbalance. The binomial split, finite same-box collision model and r=1 reasoning are not credited as the main advance.
 
-## Boundaries and closest prior work
+## value
 
-The strongest conceptual antecedent is Cuddington et al., 2015. The most relevant quantitative ecological motivation is Chase et al., first public manuscript 2022-11-01, which is within the source interval. All sites are assumed equivalent and free to maintain. A site containing both sexes is only *potentially* reproductive. The fixed bias asymptotic is not uniform in sex ratios approaching equality; this crossover and real-life habitat costs remain unproved. No human verification or field calibration has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The natural redundancy goal forces a balance between opening more sites and losing local co-occupancy. The exact model exhibits a singular change in the optimal order at symmetry, with sharp optimizer constants and failure-log corrections; it is more informative than the finite binomial formula or the r=1 boundary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Review of maximum-noncommuting-clique extensions
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The commutator pairing is a nondegenerate alternating form, and the prescribed clique Gram matrix has a completely explicit rank and kernel. Even-sized cliques span nondegenerate subspaces whose symplectic orthogonal complements control every completion. An odd-sized smaller clique is extendible exactly when its unique possible dependency—the sum of its quotient vectors—is absent. Free transitivity of the symplectic action on ordered maximum cliques and independent choices of central representatives yield the stated integer counts. Exhaustive finite checks through six symplectic dimensions agree with all formula branches; they supplement rather than replace the all-rank proof.
+PASS
 
-## Originality
+The central commutator pairing is nondegenerate and identifies noncommutation with pairing one. The Gram matrix J+I has full rank at even size and only the all-ones kernel at odd size. A 2r-clique basis exists by equivalence of nondegenerate alternating forms; adjoining its sum realizes the 2r+1 bound. Any ordered maximum clique is such a basis and its sum, giving a sharply transitive symplectic action and the full symmetric unordered stabilizer. For an even t-clique its span splits off, and the simultaneous neighbors are its sum plus the orthogonal complement; translating preserves the pairings between new vectors, so the count is the complement's maximum-clique count (or a singleton at t=2r). At odd t a vanishing sum makes the neighbor equations inconsistent, including a central singleton; otherwise the last fixed vector corresponds to a fixed nonzero vector of a complement of dimension d=2r-t+1. Its clique incidence is (d+1)/(2^d-1) of that complement's total by transitivity. This gives both denominators and the exact power of 2; each unprescribed coset has z independent lifts. The empty, maximum and rank-one cases agree. The independent transvection-orbit and clique-incidence calculation /workspace/audit-replay/1.py (output 1.txt) checked every clique in ranks 1–3: 8, 192, 26896 total clique instances and 1, 6, 288 projected maximum cliques. The proof, not the finite tests, covers all ranks.
 
-PASS, subject to historical-priority limitations. Lecomte (arXiv:2611.00943v1, 2026-10-31) and Liu–Wang (2015) determine the maximum size in the relevant family, not the full extension count. Chin (2005) concerns odd primes; conventional binary symplectic graph sources define the relevant graph but do not, in the material inspected, furnish the all-arity extension classification. A similarly titled 2025 article counts a different kind of noncommuting family of subsets. Comparisons included exact formula, dual graph, Gram kernel, symplectic simplex, stabilizer, and group-commutator formulations. Unindexed geometric literature may contain a prior equivalent theorem; independent priority review remains advisable.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. The all-clique extension spectrum and its sharp parity/zero-sum obstruction refine a central group invariant rather than simply restating a known maximum. The unique \((2r-2)\)-clique completion property and the exact count of all maximum configurations give a natural incidence structure for extraspecial binary commutator geometry. The result includes all finite central extensions with the stated derived group and central quotient, independent of their power-map type.
+Best-of-knowledge pass on the all-arity prescribed-clique incidence law, not on the maximum-size bound or the underlying graph. The total follows directly from the simplex orbit and stabilizer and is not by itself a distinct contribution. No inspected statement establishes the full even/odd law with its dependence split; classical complement geometry and incidence counting explain the additional reduction required.
 
-## Limits
+## value
 
-No claim is made about arbitrary groups, odd-prime commutators, automorphism lifts of the quotient symplectic group, or uniqueness of merely inclusion-maximal sets. Historical searches cannot exclude all unindexed equivalents. The attached checker is exhaustive only through rank three.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The result measures how the natural maximum simplices intersect and extends a known clique-size invariant to every prescribed clique, with a sharp dependence obstruction and unique projected completion two below full even rank. The incidence and lift formula is reusable for counting configurations in central extensions without recovering the group's power map. The simple total by itself would not suffice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

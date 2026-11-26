@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Execute `python verification/certify.py` with Python 3: it uses only the standard library and exactly verifies the four rational values of \(H(t)\) and alternating signs at the two-mode witness rates. This is a finite exact certificate of the witness inequalities, not the analytic induction.
+## correctness
 
-Execute `python verification/galerkin.py` with Python 3, NumPy and SciPy. It independently solves the Fourier-truncated stationary Fokker–Planck equation and periodic corrector equation for \(k=1,25\), \(w=1,50\), \(\varepsilon=0.015\), at four switching rates. It evaluates diffusion via both Brownian and telegraph-jump quadratic-variation terms. Fourier resolution is \(|n|\le65\), and integration uses 1024 equally spaced phase points; results have the same four strict signs as the exact coefficient. The calculation is numerical, not an infinite-dimensional interval enclosure. Independent convergence checks and error margins are therefore not asserted for this simulation.
+PASS
 
-The proof of infinitely many sign-crossing *examples* uses analytic fixed-rate perturbation, a finite-sign preservation argument at each inductive stage, and the intermediate-value theorem. Neither numerical truncation nor a finite census is used to establish the infinite construction. The admissible weak forcing may shrink with spatial complexity and is not explicitly quantified.
+Reflection x→−x combined with switching s→−s gives zero stationary drift for the even force. The corrector solves −Lχ=b; applying invariance to L(χ²) verifies that the Brownian derivative square and the jump square contribute together E[bχ] to diffusivity, leaving 1+2E[χ′]+E[bχ]. At zeroth order each density is 1/(4π); at first order the antisymmetric density perturbation h=−g′/(4π), with g_n=F_n/(n²+2ν). For the derivative term the uniform-density integral of every periodic derivative vanishes, giving the coefficient −2 sum n²|F_n|²/(n²+2ν)², while the drift-corrector term gives +sum |F_n|²/(n²+2ν). Pairing ±k gives weight w_k and the stated H. The stationary and corrector equations on the compact periodized state space are locally analytic after removing the constant kernel, for positive rates; pointwise weak-amplitude expansion is enough at the finite witnesses. A new odd k with weight k^(3/2) preserves strict previous signs, gives −k^(−1/2)(1+o(1)) against O(k^(−1)) at t=k and gives all positive terms at t=2k². This induction supplies 2m ordered strict alternating witnesses, and a common small nonzero amplitude retains them. Continuity forces crossings in the disjoint witness intervals; nontrivial local analyticity in rate also excludes zero plateaus. Independent rational replay gave −472678/1565001, 4177/131043, −6/169, 379003/39125025 at t=1/2,2,25,1250.
+
+## originality
+
+PASS
+
+The switching model and general exact diffusivity representation are prior work; the single-mode weak-response kernel also appears in a close same-date on/off comparison. Credit here is for arranging positive weights at widely separated odd wavenumbers to force unboundedly many true enhancement–suppression reversals. The inspected close results do not furnish that construction. Priority is not asserted from a same-date comparison.
+
+## value
+
+PASS
+
+The constructive alternating signs show that even a single two-state clock controlling one smooth potential does not impose a universal finite cap on thermal-baseline reversals as its rate varies. The exact two-mode witness already gives three crossings, and the positive-weight multiscale induction explains why this is not a numerical artifact or a single resonant exception.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

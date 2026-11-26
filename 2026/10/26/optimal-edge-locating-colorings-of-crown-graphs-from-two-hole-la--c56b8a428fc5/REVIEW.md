@@ -1,13 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The sharp lower bound follows from the degree-based missing-color argument and the one-singleton limit when only \(n\) colors are used. The modular upper bound is an explicit proper coloring with a proved injective family of \(2n\) missing-color pairs. The residue-class collision table isolates the four congruence-three obstructions and shows the prescribed swaps eliminate all of them. The eight exceptional residues are explicitly checked for nonzero comparison expressions. Direct finite graph-distance calculations independently confirm the construction for eight small instances, while the stated infinite proof is algebraic.
+## correctness
 
-**Originality — PASS (best knowledge).** Korivand et al. [1, Theorem 2.4] determine the undeleted complete-bipartite case, while their matching-deletion theorems address complete graphs, not bipartite crown graphs. The inspected original full text provides no implication covering the particular deleted-biclique bound or its modular construction. Searches for edge-locating chromatic numbers of crown graphs, the matching-deleted biclique and the alias \(K_{n,n}-M\) found no indexed equivalent result. The nearest published record on crown *edge metric bases* concerns a distinct parameter. The search cannot establish absolute priority; unpublished and unindexed work remains possible.
+PASS
 
-**Value — PASS.** This determines the optimal palette size for every connected crown graph of order at least twelve. The result quantifies an exact one-color decrease from the previously computed balanced biclique and requires a sharp lower bound plus a nontrivial modular construction in every congruence class. Its domain is a natural standard graph family, not an arbitrary finite slice. The two-swaps mechanism also resolves a genuine divisibility obstruction in the two-hole Latin rectangle construction.
+The deficiency sum for an n-coloring permits at most one singleton. Except at at most two vertices, the code is therefore determined by its one missing color, giving a contradiction for n>=3. The proposed proper (n+1)-coloring distinguishes the incident-color complements, which are exactly the nonzero coordinates of the locating codes. I checked the terminal-versus-bulk congruences, the complete four-collision list in the divisible-by-three case, and the replacement pairs including k=3 and k=4. The three small permutations work. Unused colors are ruled out by the number of distinct two-element complements.
 
-**Limits.** Orders corresponding to \(n=4,5\), and the full enumeration of optimal colorings, are not determined. Computational tests do not prove the infinite theorem. Prior-literature comparison is qualified by index coverage and possible priority risk.
+## originality
 
-[1] M. Korivand, D. A. Mojdeh, E. T. Baskoro and A. Erfanian, *Edge-Locating Coloring of Graphs*, arXiv:2310.05609v1 (2023-10-09), https://arxiv.org/html/2310.05609v1; Electronic Journal of Graph Theory and Applications 12(1), 55–73 (2024).
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+No inspected source covers the sharp edge-locating invariant for this deletion family. The same numerical answer for two vertex-coloring invariants on the same graph is not the theorem being audited.
+
+## value
+
+PASS
+
+This computes a sharp, naturally defined invariant on an infinite family adjacent to the motivating complete bipartite case. The one-color savings under matching deletion is nontrivial because locating constraints need not survive deletion; the explicit modular construction and separate lower bound establish the exact change.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

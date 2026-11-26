@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:01:03.306158Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On each invariant axis, divide the second-iterate displacement by the first-iterate displacement. The resulting quadratic has two distinct positive roots precisely for R>2; neither is a fixed point, so they are exchanged. At R=2 they merge at the fixed point 1. Cyclic permutation accounts for exactly three positive axis-supported primitive cycles (not for any off-axis orbit). Multiplying the triangular axial Jacobians yields 5−R² and the two absent-coordinate factors p_R(c). The longitudinal sink inequality gives 2<R<√6; within it p_R<1 exactly on (1,R), and the minimum crosses −1 at the simple root of R³−3R−6. This produces the excluded point, then the excluded closed band; the width follows from the simple-root Taylor expansion. The four-component assertion is for fixed R in R_*≤R<√6, as dictated by the preceding full-space criterion; for R≥√6 the sink locus is empty. At u_+ the one-step absent-coordinate factor vanishes at q=(1+R)/(R u_+), and 1<q<(R+1)/2 with p_R(q)=0. For both interactions strictly between 1 and q, all per-capita factors are positive near both phases (including the resident factor, whose cycle ratio is positive). Local attraction and a small trapping neighborhood for F² whose first image lies near the other phase then give an open set of strictly positive orbits. If either interaction exceeds q, continuity makes the corresponding one-step factor negative near u_+, which any orbit converging to the two-cycle must visit. No claim is made at q, about nonlinear unit-multiplier stability, or for global positivity preservation.",
+      "reproduction": "python /workspace/reproductions/independent_checks.py 1 establishes the exact quotient polynomial, full two-step Jacobian diagonals, critical cubic identity and positivity root, and verifies the rational witnesses. Frozen check.py was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Joshi et al. provide invariant axes and logistic period doubling; the inspected worked weak-interaction example has 0≤α,β<0.3, and the text around (56) includes a z-axis flip at λ=3.",
+          "Bischi–Tramontana provide generic transverse factor methods for invariant coordinate planes. Their inspected §3 application assumes oppositely signed paired interactions, not the strong symmetric-sign competition here."
+        ],
+        "reasoning": "These results provide standard machinery for axial and transverse calculations, including prior logistic existence. They do not establish the studied all-parameter boundary sink locus plus the forward-positivity implications. Absence of access to the 2001 paper is not used as negative evidence.",
+        "searches": [
+          "Joshi–Savescu–Syed–Blackmore, Eqs. (7), (10), (56) and Theorem 3",
+          "Bischi–Tramontana, §3 and Appendix A",
+          "Primary literature: Blackmore–Chen–Perez–Savescu, Dynamical properties of discrete Lotka–Volterra equations"
+        ]
+      },
+      "checked_sources": [
+        "Resultary ab043272a152 (self), 8a580c543a57, 1f82f1ab312c",
+        "arXiv:2408.15054",
+        "doi:10.4236/am.2021.128049",
+        "doi:10.1016/j.cnsns.2009.10.021",
+        "doi:10.1016/S0960-0779(00)00214-9 (bibliographic/abstract-level only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Muni Eq. (2.1) is the same update; §6 follows a period-two orbit present at R=1 with α,β both negative, precluding identification with the positive axis cycles, which require R>2.",
+          "1f82f1ab312c derives a same-day one-step positive-preimage count transition near extinction at interactions 1, not forward convergence to the axial pair or the threshold q(R).",
+          "The synchronous theorem supplies the shifted algebra but applies its circulant Jacobians on x=y=z. The axial proof requires a different triangular Jacobian and its individual one-step factors."
+        ],
+        "reasoning": "The strongest scope overlap cannot be dismissed by title: it gives the stability polynomial and same pocket up to translation. It does not directly imply the axial spectrum or the distinction between full-space attraction and persistent positive accessibility. The separate positivity-related record is judged by its actual observable, not by same-day dating.",
+        "searches": [
+          "Mirrored 8a580c543a57 §§Finding and Proof; 1f82f1ab312c Finding",
+          "Muni arXiv:2408.15054, §§2 and 6",
+          "Bischi–Tramontana §3 and Appendix A"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Under λ=1+R and scaled coordinates X=Rx/(1+R) (and cyclically), the map is the cyclic specialization of Joshi et al. Eq. (7).",
+          "8a580c543a57 gives the diagonal monodromy polynomial P_R(w)=1−(R+2)(R−1)w+(R+2)w². Exactly p_R(c)=P_R(c−1). On the symmetric competitive diagonal, however, its transverse w is (1−c)/(1+2c), not an axial absent-species factor; its two transverse multipliers then coincide."
+        ],
+        "reasoning": "The scalar stability polynomial, its reentrant pocket, and R_* are not new in isolation. The location of the orbit and the independent axial multipliers are different, and the prior diagonal orbit does not test when a small absent coordinate changes sign at one phase.",
+        "searches": [
+          "Resultary: cyclic Lotka–Volterra period-two transverse Floquet reentrance and positivity",
+          "Mirrored 8a580c543a57, Finding and Proof §§2–3",
+          "Joshi–Savescu–Syed–Blackmore Eq. (7)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "ab043272a152 is the assigned record itself, not independent coverage.",
+          "8a580c543a57 gives exact synchronous boundaries v_±(R) in w and the same R_*; the axial boundaries are exactly 1+v_±(R) after shifting the polynomial argument."
+        ],
+        "reasoning": "Explicit numerical and algebraic overlap is credited. The matched non-self table classifies a different, interior orbit; it does not tabulate the product locus for the three boundary cycles or give their q(R) barrier.",
+        "searches": [
+          "Resultary: axial/synchronous period-two phase diagrams in the cyclic three-species map",
+          "Mirrored ab043272a152 and 8a580c543a57"
+        ]
+      },
+      "rationale": "The logistic axis orbit and the shifted quadratic reentrance mechanism are known ingredients. The closest prior finding gives literally the same quadratic after translation and derives the same critical cubic for synchronous cycles of the same map. The supported distinct contribution is identifying it with the two independent axial invasion multipliers and classifying the actual boundary sinks together with their separate strictly positive forward accessibility barrier. No examined stronger claim gives that axial/accessibility theorem.",
+      "residual_risks": [
+        "The full 2001 Blackmore–Chen–Perez–Savescu article was not accessible and may contain stronger axial analysis. Bischi–Tramontana was available but inspected in the relevant sections rather than exhaustively. The originality verdict is bounded, not certified priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantial exact algebraic overlap, but synchronous rather than boundary orbits and no forward-positive accessibility theorem",
+          "evidence": [
+            "Spectrum 5−R², P_R(w_+), P_R(w_-); symmetric w=(1−c)/(1+2c); pocket opens at R³−3R−6=0. The translation c_axial=w+1 equates the two quadratics."
+          ],
+          "identifier_or_url": "2026/11/17/SCOPE-sharp-reentrant-transverse-stability-of-synchronous-two-cycles-i--8a580c543a57",
+          "material_read": "Mirrored RESULT.md Finding and Proof §§2–3, offset 0 through 5790",
+          "method": "Read the original through the local published-record mirror",
+          "title": "Sharp reentrant transverse stability of synchronous two-cycles in a three-species Lotka–Volterra map",
+          "trigger": "Same map, same transition cubic and a sharp period-two reentrant stability law"
+        },
+        {
+          "assessment": "Same-day but different mathematical problem; no convergence conclusion",
+          "evidence": [
+            "Counts strictly positive one-step preimages for sufficiently small observations, with the threshold at an interaction of 1."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-eight-to-two-positive-inverse-branches-near-extinction-in-a-cycl--1f82f1ab312c",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Local published-record mirror",
+          "title": "Eight-to-two positive inverse branches near extinction in a cyclic Lotka–Volterra map",
+          "trigger": "Same polynomial map and positivity near its boundary"
+        },
+        {
+          "assessment": "Earlier map family and axis logistic bifurcations; inspected exact cases do not provide the two-parameter strong-competition axial theorem",
+          "evidence": [
+            "Eq. (7) covers the rescaled map family; the worked weak-coupling theorem uses parameters under 0.3; section near (56) reports z-axis flip at λ=3."
+          ],
+          "identifier_or_url": "https://doi.org/10.4236/am.2021.128049",
+          "material_read": "PDF pp. 3–6, Eqs. (7), (10) and Theorem 3; pp. 23–24 around (56), offsets 11900–15031, 22400–27363 and 108800–117959",
+          "method": "Targeted OA full-text PDF reading",
+          "title": "Interesting Features of Three-Dimensional Discrete Lotka-Volterra Dynamics",
+          "trigger": "General logistic Lotka–Volterra map family, invariant axes and period doubling"
+        },
+        {
+          "assessment": "Same update but the cited period-two branch is not an axial cycle",
+          "evidence": [
+            "§6 considers α=−0.227, β=−0.228 with period-two existence at R=1 and a near-R=1.1104 Neimark–Sacker transition."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2408.15054",
+          "material_read": "§2 Eq. (2.1), offsets 7600–10055; §6, offsets 15100–21667",
+          "method": "Targeted OA full-text reading",
+          "title": "Torus and hyperchaos in 3D Lotka–Volterra map",
+          "trigger": "Identical cyclic map and period-two bifurcation discussion"
+        },
+        {
+          "assessment": "Resolves the frozen access gap in the relevant sections; generic transverse product methods, not the inspected target phase theorem",
+          "evidence": [
+            "Invariant axes and logistic restrictions in §3, economic parameter condition a_ij a_ji<0, and invariant-plane transverse multiplier in Appendix A."
+          ],
+          "identifier_or_url": "https://www.mdef.it/public/fileadmin/whoiswho/bischi/Selected_publications/Research_papers/Bi-Tra-Commun_Nonlin_Sci-2010.pdf",
+          "material_read": "Author-hosted full paper accessible; inspected §3 p. 6, offsets 24900–29817, and Appendix A pp. 13–14, offsets 53800–57974",
+          "method": "Targeted lawful OA PDF reading of the same paper",
+          "title": "Three-dimensional discrete-time Lotka–Volterra models with an application to industrial clusters",
+          "trigger": "Potential earlier exact three-dimensional transverse-cycle stability results"
+        },
+        {
+          "assessment": "Remaining priority risk, neither established coverage nor a negative inference",
+          "evidence": [
+            "Publisher PII S0960077900002149 and ResearchGate publication 243332055 identify the same article; no decisive theorem passage was retrieved."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/S0960-0779(00)00214-9",
+          "material_read": "Bibliographic identification and frozen abstract-level comparison only; no independent full-text reading",
+          "method": "Targeted literature lookup; publisher and identified same-paper alternate landing page both inaccessible before full text",
+          "title": "Dynamical properties of discrete Lotka–Volterra equations",
+          "trigger": "Potential older general discrete Lotka–Volterra axis-cycle coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The boundary cycles model species exclusion under pulsed dynamics. Their two-step multiplier can have modulus less than one even though a small positive absent population is driven negative at one phase. The explicit threshold and local positive trapping versus exclusion answer when a real-space sink is dynamically reachable within the strict positive cone. That distinction is useful and not a mere recitation of logistic period doubling or the shifted synchronous stability polynomial.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

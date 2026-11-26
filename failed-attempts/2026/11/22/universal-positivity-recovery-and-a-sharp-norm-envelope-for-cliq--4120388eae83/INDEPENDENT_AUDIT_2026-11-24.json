@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:28:00.935094Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md proof, assumptions and fractional consequences; VERIFICATION.md; frozen verify.py inspected, not executed",
+        "Own replay: python3 /workspace/review_checks.py; cones() built graph Laplacians directly and performed 480 exact rational kernel and induced-norm tests by polynomial interpolation in L, on 3–8 total vertices"
+      ],
+      "rationale": "The constant mode, apex contrast (N−1,−1,…,−1), base block-average contrasts, and block-internal zero-sum spaces are mutually orthogonal and span the coordinates; applying L gives eigenvalues 0,N,1,p_i+1. For A=e^(−at) and C=e^(−ct), the resulting cross-block entry is D=((N−1)+C−NA)/(N(N−1)), realized because there are two or more cliques. The diagonal is positive, the apex entry is (1−C)/N, and each within-block off-diagonal entry exceeds D for t>0 under strict increase. Therefore D determines entrywise nonnegativity. Its derivative has sign Na−c e^(−(c−a)t), hence positive for positive t if c≤Na, and otherwise changes from negative to positive just once at t_*. Since D(0)=0 and D(∞)=1/N, there is just one positive root in the latter case. Row sums are one and H is symmetric. The absolute row sum is one plus twice negative mass. There are N−2 other base vertices per base row, all entries ≥D, with at least one strictly greater than D in a nonsingleton row. This gives the envelope, exactly the stated equality cases while D<0, and the maximum at t_* for an extremizing partition. Nonnegative times give norm one for all partitions and cannot change the peak comparison. For ψ(x)=x^α, a=1, c=N+δ; removing the root t=0 from the scalar equation gives T=2δ/[N(N−1)]+O_N(δ²), while the minimum of D is −δ²/[2N²(N−1)²]+O_N(δ³). With δ=N log(N) ε+O_N(ε²) these give the coefficients. The positive root increases with c and approaches log[N/(N−1)] by the exponential equation. These conclusions apply to the stated unweighted clique-cones, with strict increase needed only for the strict partition comparison.",
+      "residual_risks": [
+        "The finite diagnostic checks examples, not the all-parameter sign classification; the scalar derivative proves the latter. With merely nondecreasing ψ a nonsingleton row can also saturate the envelope."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Exact windmill projection entries hold for arbitrary sampled filters with f(0)=1; convexity is invoked afterwards for a different sufficient sign comparison. The multipartite theorem includes the star with fractional horizon and norm. The weighted-star sign-recovery result covers the unweighted star in the fractional or strictly convex generator cases."
+        ],
+        "reasoning": "Neither the convex-filter positivity theorem as stated nor the weighted-star class contains all frozen hypotheses. The earlier stronger coordinate identities do cover the whole clique family for the required filter; the other results cover meaningful restrictions, not interchangeable full generalities.",
+        "searches": [
+          "Resultary c55885b0d081 Proof, OA offset 1200 onward",
+          "Resultary 8af258cef8b1 Finding",
+          "Resultary ce5887fa3988 Finding"
+        ]
+      },
+      "checked_sources": [
+        "Resultary c55885b0d081, 8af258cef8b1, ce5887fa3988, 4120388eae83 (self)",
+        "Adjacent same-day Resultary d37f7dd78e94 (strongly regular), bcd2ed2fdb92 (local onset on weighted graphs), 9592ccf163ce (signed complete networks)",
+        "Kling DOI 10.30538/psrp-odam2023.0082; Kooij DOI route attempted"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Use h=1 and a_prior=e^(−tψ(1)), b_i_prior=e^(−tψ(p_i+1)), c_prior=e^(−tψ(n)) in the prior identities. Then E>0 and W_i>D for existing within-clique entries at t>0; diagonals have the positive constant component."
+        ],
+        "reasoning": "Thus entrywise sign is the sign of D and D' has the sign of the strictly increasing scalar Na−c e^(−(c−a)t). In a row, the full count N−2 can realize the same negative minimum exactly when its block is singleton. This yields the complete phase and sharp norm envelope directly from prior exact coordinates; star cases and their fractional asymptotics are already available. Same-day weighted-star overlap alone does not determine priority or cover general partitions.",
+        "searches": [
+          "Resultary c55885b0d081 Proof, spectral subspaces and E,D,W_i display; 8af258cef8b1 and ce5887fa3988 Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier windmill has precisely the unweighted apex joined to unequal disjoint cliques, with the identical spectral spaces and exact entry classes. Kling uses complete-graph block sizes m_i=p_i+1."
+        ],
+        "reasoning": "The cone, clique-coalescence, and heterogeneous one-apex windmill formulations refer to the same graphs in the relevant prior result. An induced ℓ^1/ℓ^∞ norm of the symmetric row-sum-one filter reduces to maximum negative row mass, not a new spectral invariant.",
+        "searches": [
+          "Local Resultary clique-cone, heterogeneous windmill and sign-recovery comparisons: c55885b0d081, 8af258cef8b1, ce5887fa3988",
+          "Kling DOI 10.30538/psrp-odam2023.0082 Theorems 4 and 6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The prior display explicitly lists E=(1−c)/n, D=(N+c−na)/(Nn), W_i=D+(a−b_i)/p_i with N=n−1 there. 4120388eae83 is the assigned record itself."
+        ],
+        "reasoning": "This is a symbolic exact entry table for every graph in scope, more directly relevant than finite numerical databases. The star/multipartite formulas include the exact fractional optimum because the maximizing row has the same D and the same N−2 cross entries as the star.",
+        "searches": [
+          "Resultary c55885b0d081 Proof, offset 1200 onward",
+          "Resultary 8af258cef8b1 and 4120388eae83"
+        ]
+      },
+      "rationale": "The earlier heterogeneous-windmill record c55885b0d081 gives the exact three off-diagonal entry classes on the identical graphs. Although its positivity theorem assumes convexity, its explicit entry identities are obtained by spectral projectors before that hypothesis is used and hold unchanged for the sampled nonconvex filter. Substitution of exp(−tψ(x)) plus monotonicity makes its already displayed cross-block entry the sign test, and counts the number of entries equal to that minimum in a row. One derivative gives the unique recovery root and peak; attaining the sharp bound is precisely attaining the entrywise lower bound at every other base coordinate of one row. The older star/multipartite fractional result separately gives the extremizing fractional kernel and its asymptotics. The combined phase and envelope are a direct corollary even where no earlier title announces them for all increasing ψ.",
+      "residual_risks": [
+        "The verdict is based on positive earlier exact-entry evidence and a direct mathematical implication, not the unproductive general query or unavailable Kooij text. The relative order of same-day records and priority for separately phrased corollaries were not established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive exact coordinate antecedent beyond the convex sign theorem",
+          "evidence": "The three identities E,D,W_i are derived by orthogonal projectors before the paragraph beginning ‘Convexity at h …’. They require no convex inequality and give the exponential sign and norm tests by substitution.",
+          "identifier_or_url": "Resultary c55885b0d081",
+          "material_read": "Finding and Proof, local mirror offsets 0 and 1200 onward",
+          "method": "Local mirror RESULT.md passages",
+          "title": "Convex spectral filters on heterogeneous clique windmills have an exact apex-positivity criterion",
+          "trigger": "Identical graph family and possible exact matrix entry coverage"
+        },
+        {
+          "assessment": "Direct fractional star restriction, not arbitrary windmills",
+          "evidence": "Exact transition at α=1, recovery time, and ℓ^1/ℓ^∞ norm; for the star the onset and excess coefficients specialize to the same coefficients.",
+          "identifier_or_url": "Resultary 8af258cef8b1",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror RESULT.md passage",
+          "title": "A sharp positivity transition for fractional graph heat on complete multipartite networks",
+          "trigger": "Fractional semigroup sign, exact recovery and induced norms on a family containing stars"
+        },
+        {
+          "assessment": "Exact spectrum, not by itself the coordinate or norm claim",
+          "evidence": "Theorems give the two-block and multi-block spectra, including 1 of multiplicity k−1 and block eigenvalues m_i with multiplicity m_i−2.",
+          "identifier_or_url": "https://doi.org/10.30538/psrp-odam2023.0082",
+          "material_read": "Theorem 4 p. 30 (offset 17740); Theorem 6 p. 33 (offset 32241)",
+          "method": "OA primary PDF passages",
+          "title": "On the uniqueness of the Laplacian spectra of coalescence of complete graphs",
+          "trigger": "Known spectrum on the same clique cones"
+        },
+        {
+          "assessment": "Overlap on unweighted stars for fractional heat and the corresponding convex-generator restriction; no priority inference",
+          "evidence": "Weighted-star leaf-pair unique sign recovery and positivity/contractivity horizon, with a strictly increasing strictly convex generator extension.",
+          "identifier_or_url": "Resultary ce5887fa3988",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror RESULT.md passage",
+          "title": "Unique sign recovery for fractional heat on positively weighted stars",
+          "trigger": "Same-day overlapping exact positivity/contractivity horizon"
+        },
+        {
+          "assessment": "Coverage not assessed from that route",
+          "evidence": "Only a minimal extraction was available; the verdict does not rely on this source.",
+          "identifier_or_url": "https://doi.org/10.1016/j.laa.2018.11.025",
+          "material_read": "No substantive extractable full-text passage at the DOI route",
+          "method": "OA DOI source attempt",
+          "title": "On generalized windmill graphs",
+          "trigger": "Cited primary generalized-windmill spectrum"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof; Resultary c55885b0d081 entry display and 8af258cef8b1 star restriction"
+      ],
+      "rationale": "The positivity horizon and transient norms are natural and the formulas could be useful as a consolidated example. As a distinct finding, however, the stated topology invariance and sharp singleton envelope reduce directly to the already computed cross- and within-clique coordinates, a single scalar derivative, and counting equal minimum entries; the fractional extremal specialization is already the star. The frozen claim does not supply a further independently useful unknown invariant or nonroutine structural step beyond that prior exact table.",
+      "residual_risks": [
+        "This assessment does not extend to recovery or norm comparisons on cones without the previously known entry structure."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:45:08.109903Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 9–34",
+        "Frozen VERIFICATION.md lines 18–22 and verify.py lines 6–32"
+      ],
+      "rationale": "The weights are positive, k_1+k_2=1/2 and k_1 b_1+k_2 b_2=1, so the affine switching probabilities sum to one at every y. Both branch slopes have positive endpoint values b_i and 4-b_i and the maps take the half interval onto the whole interval. Integrating k_i times the branch derivative over an inverse image gives k_i times the target measure. Inductively, conditional on any past label block, the current state is uniform and the next label and next state have the same product law, proving IID and stationarity. The four weights are k_1,k_2 each repeated twice, and equality is equivalent to b_1+b_2=4. Given the initial coordinate and previous labels the present coordinate and its half are known, so only the fresh Bernoulli map choice contributes conditional entropy. Stationarity and the discrete entropy chain rule give n times the stationary mean choice entropy, with no differential-entropy subtraction. Expanding the log of k_i r_i leaves the derivative integral Lambda and the linear block identity. For amplitude a=|b-2| the sign-symmetric derivative distribution is 2+aU for U uniform on [-1,1]. Pairing U=v and U=-v in the derivative of the mean of r log r gives a strictly positive multiple of v log((2+a v)/(2-a v)) for 0<a<2 and v>0. Endpoints of the mean integral are log 2 at a=0 and (1/8) times the integral of r log r from 0 to 4, namely log 4-1/2, at a=2. Continuity uses the continuous extension of r log r at zero; the two symmetric parameter paths give both sharp limits. The attached code checks normalization and quadratures; it was inspected, not executed.",
+      "residual_risks": [
+        "The calculation assumes uniform initialization and fresh choices; it does not show IID continuous states, convergence from arbitrary initial states, or a sample-path Lyapunov claim."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The original's introduction discusses position-dependent random maps and representation of dynamics; §5 specializes a Lebesgue-preserving switch.",
+          "A general skew-product representation citation was identified but no full text was inspected for it."
+        ],
+        "reasoning": "Representation and Jacobian identities can supply a mechanism for coding; the inspected original does not give a sharp quantitative bound for this nonlinear family's information rate. The unread general representation paper does not count as evidence of non-coverage.",
+        "searches": [
+          "arXiv:1404.7455v1 introduction and §5",
+          "Bahsoun–Bose–Quas, Deterministic representation for position dependent random maps, cited as 2008 in the finding"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1404.7455v1 §5 and introduction",
+        "Resultary d19d3482d20b",
+        "Frozen RESULT.md lines 15–34"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Section 5 explicitly gives the maps, identical parameter ranges, affine switch, and invariant Lebesgue density. A branchwise change of variables with that switch yields IID labels under the stated stationary construction.",
+          "The inspected section stops at the law of the state, without a conditional entropy subtraction or optimization of the derivative-weighted integral."
+        ],
+        "reasoning": "The known switch implies the label-independence portion without new estimates. Passing concerns the exact finite-block information and the optimized bounds, which require distinguishing random switches from information about the starting coordinate and analyzing the full parameter domain. Keyword misses alone do not support the decision.",
+        "searches": [
+          "arXiv:1404.7455v1 §5 equations (13)–(15), plus literal OA locators mutual information, entropy and Lyapunov"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source's affine rule rewrites as k_i f_i' on either half. The joint output-state/label law then factors.",
+          "The derivative integral in the submitted proof measures output label information only after the conditional entropy of fresh symbol selection is subtracted."
+        ],
+        "reasoning": "The IID statement is an immediate probabilistic expression of the source's rule, but a uniform stationary density alone would not imply it. The rate requires the conditional-entropy identity plus sharp optimization.",
+        "searches": [
+          "Resultary: named quadratic pair, four-symbol coding, initial-coordinate information and rate bounds",
+          "arXiv:1404.7455v1 §5 equations (13)–(15)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest catalogue hit d19d3482d20b concerns stationary correlations and spectral behavior for the Pelikan random map, not the quadratic example or its information rate."
+        ],
+        "reasoning": "The central fact is analytic and holds for all admissible real parameters and horizons, not a numerical table; the rational test cases are not the originality claim.",
+        "searches": [
+          "Resultary: exact title, Góra–Li–Boyarsky–Proppe quadratic example, initial-coordinate block information, proposed Lambda interval"
+        ]
+      },
+      "rationale": "The random-map family, the affine switching law and uniform invariance are prior. The stationary four-symbol IID law follows directly from a Jacobian rewrite of the source and is not by itself enough for the pass. The distinct part supported by the checked evidence is the exact initial-coordinate information law with its sharp strict global rate interval for the full nonlinear two-parameter family.",
+      "residual_risks": [
+        "The cited Bahsoun–Bose–Quas representation work was identified but not read in full; specialized implications of that source or older dynamical-information work are not excluded.",
+        "No claim of comprehensive priority for general random-map coding or entropy identities."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact model and stationary law prior; switch reformulates directly into IID factorization; no information optimization in the pertinent section",
+          "evidence": [
+            "Affine switching law on a half interval and its periodic extension, the parameter ranges, and the example b_1=0.5, b_2=3.5."
+          ],
+          "identifier_or_url": "arXiv:1404.7455v1",
+          "material_read": "Introduction pp. 1–2, offset 4200; §5 pp. 11–12, equations (13)–(15), offset 38700",
+          "method": "OA PDF passage inspection",
+          "title": "Toward A Mathematical Holographic Principle",
+          "trigger": "Original publication of the exact two-parameter family"
+        },
+        {
+          "assessment": "Different map family and invariant; no full-text exclusion inferred",
+          "evidence": [
+            "Pelikan map and stationary correlations/spectral-edge amplitudes."
+          ],
+          "identifier_or_url": "Resultary d19d3482d20b",
+          "material_read": "Catalogue entry identifying object and invariant",
+          "method": "Local Resultary search",
+          "title": "Exact stationary correlation transform and spectral-edge amplitudes",
+          "trigger": "Closest topical catalogue hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 20–34",
+        "arXiv:1404.7455v1 §5"
+      ],
+      "rationale": "For a canonical explicit nonlinear example, the observable label combines location and actual random choice, but its total symbol entropy is not its information about the initial coordinate. The all-horizon identity gives that information exactly, and the sharp uniform bounds quantify how much the rate can exceed the spatial-bit baseline while separating the effect from uniform invariance. The value rests on this quantitative profile, not on rechecking the known invariant density or merely labeling four branches.",
+      "residual_risks": [
+        "Specific to the given stationary model; the optimized interval is not a universal bound on other random maps."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

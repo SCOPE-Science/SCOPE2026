@@ -1,0 +1,170 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:29:30.399866Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, lines 15–51",
+        "VERIFICATION.md and checker.py, inspected without execution",
+        "/workspace/replays/2/bounded_repro.py"
+      ],
+      "rationale": "With the two named S5 relations and exactly the two atoms, worlds satisfying both atoms survive by reflexivity, and worlds satisfying neither survive vacuously. For an exclusive-type world that eventually disappears, its deletion round is one plus the greatest deletion round of an opposite-type witness in the relevant class (zero if none). At n singleton deletions the witness of maximal round for wᵢ, i>1, is necessarily wᵢ₋₁, so types alternate. In an a-class, different P worlds have the same Q witness set and would have equal deletion times. Every Q except a possible terminal Q is paired in its a-class with the next P, and a terminal Q cannot share an a-class with any P, since it would give that P a later deletion time. Thus all a-classes are precisely the required pairs or singletons; the b case exchanges P and Q. The constructed pairings give the deletion order by induction on surviving suffixes. The order and first type are recovered from the model, giving 2n! labelled models and two nonisomorphic types with agent and atom names fixed, also at n=1. If the relations coincide, any class containing both a p-world and a q-world remains intact and other classes lose only exclusive-type worlds at the first update, so the next update changes nothing.",
+      "residual_risks": [
+        "Separate direct enumeration of all partition pairs and valuations for n=1,2,3,4 gave counts 2,4,12,48 and checked the full classification at those sizes. The supplied five-world computation was not independently replayed. The finite enumeration is corroboration, not the all-n proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Yamada's alternating examples in the eventuality paper concern infinite K45 models and believed updates. The truth-pattern paper classifies validity under iteration; Sadzik considers more general event updates.",
+          "The matching n-world, n-step constructions and bounds in the believed-announcement indexed results remove arrows while keeping the carrier."
+        ],
+        "reasoning": "A model-size bound or an example attaining it with arrow deletion neither proves classification of extremizers with world deletion nor provides this exact labelled census. Broader stabilization results use different quantifiers and do not yield the fixed-formula fibre.",
+        "searches": [
+          "Yamada, arXiv:2609.24006v1, abstract and two-peeling passages",
+          "Yamada, arXiv:2607.04685v3, classification passages",
+          "Sadzik, ILLC PP-2006-26 pp. 1 and 11",
+          "Resultary --3ec574a60e94 and --65b4b662c65e"
+        ]
+      },
+      "checked_sources": [
+        "Resultary --a6a7fa4aacb4, --49982b8d575e, --3ec574a60e94, --65b4b662c65e",
+        "arXiv:2607.04685v3 and arXiv:2609.24006v1",
+        "ILLC PP-2006-26",
+        "doi:10.1007/s11225-005-3612-9 (access attempt)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The closest ordinary-announcement theorem uses a walk criterion on a bipartite incidence multigraph and gives max(ceil(N/2),N−2), or max(ceil(N/2),N−4) for proper frames, rather than the present operator's N-round classification.",
+          "The alternating believed-update constructions are existence statements and retain the carrier."
+        ],
+        "reasoning": "Walk-based disappearance times are a proof ingredient, not a count of S5 partitions. The fibre's cardinality requires excluding all additional equivalence links via equal witness-deletion times and the forced adjacent pairs; the inspected claims do not provide this exclusion for this operator.",
+        "searches": [
+          "Resultary --a6a7fa4aacb4, offsets 0 and 5100",
+          "Resultary --3ec574a60e94, offsets 0 and 5000",
+          "Yamada arXiv:2609.24006v1, two-peeling passages at offsets about 52800–63600"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The closest truthful-announcement record, --a6a7fa4aacb4, requires two-sided ignorance for both agents at every survivor and has different sharp round laws.",
+          "In the frozen problem, at the extremal valuations q=¬p and each world must have an opposite-type witness for just one of the agents, determined by its type."
+        ],
+        "reasoning": "Ordinary world deletion is shared, but the witness predicates are not. The ignorance rule requires two tests at every world, rather than a type-specific single test; rewriting the present exclusive valuations with one atom does not make the rules equivalent.",
+        "searches": [
+          "Resultary local lookups: maximal two-agent S5 extreme chains, singleton deletion order, repeated public announcements and exact disappearance times",
+          "Resultary --a6a7fa4aacb4, Finding at offset 0",
+          "Yamada, arXiv:2607.04685v3, pp. 1–2 and 7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-day --49982b8d575e entry counts semantic formula classes and gives extinction probabilities in one-agent S5, not model counts for the fixed two-agent formula.",
+          "The closest truthful two-agent entry, --a6a7fa4aacb4, gives disappearance times and maximum round laws for its ignorance formula, with no matching labelled-model census in its finding."
+        ],
+        "reasoning": "Sampling announcements and counting formula equivalence classes is dual in what is held fixed, not an equivalent census over model partitions and valuations. No matching exact table or entry was identified in the bounded comparisons.",
+        "searches": [
+          "Resultary local index for exact extinction counts, two-agent labelled S5 models, and truth-pattern studies; --49982b8d575e, Finding at offset 0"
+        ]
+      },
+      "rationale": "The elementary n-round size bound and the general ideas of directed-walk peeling and alternating-agent examples are not credited as new. The supported distinction is the complete equality classification and labelled census for this particular operator, with its exact equivalence-class rigidity. The strongest available indexed comparisons alter the update formula, the update semantics, or the counted object; the inspected primary results do not supply this fixed-formula model census.",
+      "residual_risks": [
+        "The broad primary lookup was noisy, Miller–Moss primary text was not retrieved, and an equivalent older construction or exact classification under another formulation remains possible. The bounded comparisons do not establish universal novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantial method overlap, different formula and round laws",
+          "evidence": [
+            "Both agents must remain ignorant of p at every survivor; exact time and two maximum round laws are stated for that operator."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-disappearance-times-under-repeated-two-agent-announcements--a6a7fa4aacb4/RESULT.md",
+          "material_read": "Finding and assumptions at offset 0; proof passage at offset 5100",
+          "method": "Local mirror, bounded passages",
+          "title": "Exact disappearance times under repeated two-agent announcements of ignorance",
+          "trigger": "Closest two-agent, world-deleting S5 iteration and directed walk results"
+        },
+        {
+          "assessment": "One-agent and a different counted population; date alone does not determine priority",
+          "evidence": [
+            "Counts semantic announcement classes and extinction probabilities rather than labelled models for a fixed formula."
+          ],
+          "identifier_or_url": "Resultary --49982b8d575e",
+          "material_read": "Finding at offset 0",
+          "method": "Local mirror, bounded passage",
+          "title": "An exact extinction dichotomy for uniformly sampled one-agent S5 announcements",
+          "trigger": "Same-day exact S5 extinction census"
+        },
+        {
+          "assessment": "Believed-announcement arrow deletion, not ordinary world deletion",
+          "evidence": [
+            "A chain with n strict changes and a sharp state-count bound are given in the believed-update setting."
+          ],
+          "identifier_or_url": "Resultary --3ec574a60e94 and --65b4b662c65e",
+          "material_read": "First finding and proof passage at offsets 0 and 5000; second finding at offset 0",
+          "method": "Local mirror, bounded passages",
+          "title": "Two S5 agents and one proposition attain every finite believed-announcement length; Sharp state-count stabilization bound for finite believed announcements",
+          "trigger": "Equality in n-world maximal chains"
+        },
+        {
+          "assessment": "Classifies truth-pattern validity, not labelled models for this fixed operator",
+          "evidence": [
+            "Distinguishes world restriction from arrow deletion; considers validity over classes of frames."
+          ],
+          "identifier_or_url": "arXiv:2607.04685v3",
+          "material_read": "PDF pp. 1–2 and 7, offsets about 850, 4100 and 16800",
+          "method": "OA PDF, bounded passages",
+          "title": "Classification of σ-Validity in Iterated Announcements",
+          "trigger": "General classification of iteration patterns"
+        },
+        {
+          "assessment": "Analogous method, different semantics and model class",
+          "evidence": [
+            "Alternating examples are in infinite K45 models for believed announcements."
+          ],
+          "identifier_or_url": "arXiv:2609.24006v1",
+          "material_read": "Abstract and two-peeling definition/proof passages, offsets about 52800–63600",
+          "method": "OA text, bounded passages",
+          "title": "Eventual and Strong Eventual Notions in Public Announcements",
+          "trigger": "Alternating two-agent peeling examples"
+        },
+        {
+          "assessment": "Broader event dynamics, not the exact equality classification",
+          "evidence": [
+            "Studies update processes and stabilization rather than the proposed labelled census."
+          ],
+          "identifier_or_url": "ILLC PP-2006-26, https://eprints.illc.uva.nl/id/document/494",
+          "material_read": "PDF pp. 1 and 11, offsets 0 and 31000",
+          "method": "OA PDF, bounded passages",
+          "title": "Exploring the Iterated Update Universe",
+          "trigger": "General iterative update and stabilization theorems"
+        },
+        {
+          "assessment": "Unresolved comparison; access failure is not negative coverage evidence",
+          "evidence": [
+            "Available bibliographic identification is for undecidability of iterated modal relativization, not evidence about the fixed-formula census."
+          ],
+          "identifier_or_url": "doi:10.1007/s11225-005-3612-9",
+          "material_read": "No primary passage retrieved",
+          "method": "DOI and publisher access attempted; no OA repository copy identified",
+          "title": "The Undecidability of Iterated Modal Relativization",
+          "trigger": "Related ordinary-announcement iteration and relativization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, Finding and proof lines 27–51",
+        "Resultary --a6a7fa4aacb4, different truthful-announcement round laws"
+      ],
+      "rationale": "The sharp n-round bound by itself would be trivial, but identifying and counting all models attaining it is a genuine structure question. The proof links the maximum-height deletion order to paired equivalence classes and explains exactly how distinct epistemic partitions allow longer dynamics than a single common partition. This makes the fixed operator a useful explicit example of extremal announcement behavior.",
+      "residual_risks": [
+        "The result fixes the two atoms, two named agents and this formula. It does not imply a classification for general announcement operators, a formula-complexity theorem, or a census modulo bisimulation."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

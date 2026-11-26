@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:22:19.179172Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–91; VERIFICATION.md; root_cluster_leaf_checker.py"
+      ],
+      "rationale": "A component leaf loses original-tree leaf status on every attachment to it, even if the edge is deleted. Enumerating the four inside-parent outcomes gives the asserted count increments. The size has multiplier 1+p/n in expectation; the leaf-to-size mean identity holds at n=2 (means p and 1+p) and is preserved. For D=L−θC the drift is −D/n, and the conditional squared increment is [p C/(1+p)²+(1−p)L/(1+p)]/n. Thus E D² obeys the stated recurrence with forcing c_p a_n/n and c_p=p(2−p)/(1+p)². The coefficient of the old second moment is zero at n=2, so V₃=v_p a₃ and the identity persists. In the Yule embedding, the birth clocks thinned to retained births from component members give a rate-p Yule population. The two individual normalized populations have finite positive almost-sure limits, so at size n their ratio yields W_p, without requiring independent Yule limits. For U_n=(n−1)D_n the squared increment has expectation O(n^(p+1)); the weighted sum with weights n^(−1−p) has summable variances, and Kronecker's lemma gives D_n/n^p→0 almost surely. The predictable bracket, divided by n^(p+2), tends to v_p W_p: the leading term is a weighted sum using the two almost-sure count limits, and the subtracted sum of D_j² is negligible in L¹ by the exact identity. The maximum normalized increment is bounded by 2n^(−p/2), proving conditional Lindeberg. The rescaled triangular martingale arrays use the same nested filtration, so the stable martingale CLT gives joint convergence with the measurable W_p and a Gaussian independent of it. Positive W_p permits studentization. At p=1 all component sizes are n and v₁=1/12.",
+      "residual_risks": [
+        "The frozen checker was inspected, not run. Its exact finite tests check moments on selected small sizes and parameters; the seeded simulation is only diagnostic and does not prove stable convergence."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The inspected preferential-attachment/broadcast treatment gives urn methods, global leaf counts and separate cluster-size limits; Baur discusses cluster sizes in a different retention regime; Gu–Yuan treat site percolation. The ECP excerpt concerns the root cluster staying the largest, not marked leaves, and its full text was not accessible."
+        ],
+        "reasoning": "None of the inspected broader statements gives this component-restricted bracket or the exact residual moment; a generic stable CLT only applies once the random bracket constant is verified.",
+        "searches": [
+          "arXiv:2110.15050v1, Theorem 2.4 and §2.2",
+          "Baur arXiv:1407.2508",
+          "Gu–Yuan arXiv:2408.12515",
+          "Project Euclid ECP volume 31 search excerpt on fixed-p root-cluster dominance"
+        ]
+      },
+      "checked_sources": [
+        "October and November Resultary records listed above",
+        "Desmarais–Holmgren–Wagner arXiv:2110.15050v1; Baur arXiv:1407.2508; Gu–Yuan arXiv:2408.12515",
+        "Project Euclid ECP listing excerpt and access check only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The October transitions supply a starting point for the second-moment calculation. The count combination L−pC/(1+p), its finite-time reset at n=2, and its bracket constant are not the results of the prior all-tree covariance calculation. The frontier limit demonstrates the same style of martingale method but for a different mark."
+        ],
+        "reasoning": "Credit the prior mean, size limit, transition ideas and standard Gaussian machinery. The claimed residual law still requires the mark-specific moment and random-variance computation; it is not a substitution into the inspected size or frontier theorems.",
+        "searches": [
+          "October root-cluster/leaf record conditional updates",
+          "Desmarais–Holmgren–Wagner §2.2",
+          "November frontier Gaussian result"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The October record's K_n is exactly the restricted leaf count and its updates and exact mean appear in the proof. That record's main dependence calculation instead pairs cluster size with the all-tree leaf count. The broadcast result counts leaves by color globally; a vertex may have the root color without belonging to the root component."
+        ],
+        "reasoning": "Same-outdegree zero and connectivity are both required. Global colored leaves, all-tree leaves, and leaves of the retained subtree after deleting edges are not aliases of this variable.",
+        "searches": [
+          "2026/10/18/SCOPE-root-cluster-and-leaf-counts-are-positively-correlated-but-asymp--586ec58daec4, proof offsets 1742–3477",
+          "Desmarais–Holmgren–Wagner arXiv:2110.15050v1, Theorem 2.4 and §2.2",
+          "Fixed-p bond-percolated recursive-tree root-cluster leaf fluctuation literature lookup"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The frontier record gives an exact residual second moment and mixed/studentized limit for the number of deleted edges leaving the component, rather than its number of original-tree leaves. The same-day root-degree record treats the root's outdegree jointly with cluster size. The October record gives exactly the target mean but not its centered second-moment formula."
+        ],
+        "reasoning": "The related exact laws concern different marks; even a fixed number of frontier edges and component vertices does not determine how many original-tree leaves occur inside it.",
+        "searches": [
+          "Resultary root-cluster and leaf count query",
+          "2026/11/8/SCOPE-exact-frontier-law-and-gaussian-fluctuations-for-percolated-recu--ba4f1c497f72",
+          "2026/11/2/SCOPE-exact-root-degree-percolation-cluster-dependence-and-asymptotic--3992334979d1"
+        ]
+      },
+      "rationale": "The root-size limit, the exact restricted leaf mean and the one-step count updates are credited background. The exact centered second moment for n≥3 and the joint mixed-normal and studentized limits for original-tree leaves inside the root cluster remain distinct in the inspected material.",
+      "residual_risks": [
+        "A more general marked multitype branching or urn result could encode the asymptotic distribution; no decisive same-observable theorem surfaced. The primary query was bounded and one adjacent publisher result was inaccessible. Same-day dates do not certify priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact overlap for count updates and mean, different principal covariance",
+          "evidence": "Its K_n updates by X minus the original-tree root-component leaf-parent indicator; E K_n=r A_n/(1+r). Its displayed covariance recursion is for component size and total original-tree leaf count.",
+          "identifier_or_url": "2026/10/18/SCOPE-root-cluster-and-leaf-counts-are-positively-correlated-but-asymp--586ec58daec4",
+          "material_read": "Local RESULT.md Finding and proof offsets 1742–3477",
+          "method": "Resultary local mirror",
+          "title": "Root-cluster and leaf counts are positively correlated but asymptotically decorrelated",
+          "trigger": "Exactly the same restricted leaf statistic appears in its proof"
+        },
+        {
+          "assessment": "Covers related global leaf and separate root-size results",
+          "evidence": "Theorem 2.4 counts colors among all leaves; the separate root-cluster results count all connected component vertices. Neither count is the intersection studied here.",
+          "identifier_or_url": "https://arxiv.org/html/2110.15050v1",
+          "material_read": "Model definition, Theorem 2.4 near offset 18578 and §2.2 near offset 26161",
+          "method": "Primary OA HTML",
+          "title": "Broadcasting induced colourings of random recursive trees and preferential attachment trees",
+          "trigger": "Same uniform-recursive broadcast/bond-percolation model and original leaf flags"
+        },
+        {
+          "assessment": "Distinct regimes or cluster observables",
+          "evidence": "Baur treats cluster-size questions with retention near one; Gu–Yuan treat site percolation and cluster-size distributions.",
+          "identifier_or_url": "arXiv:1407.2508; arXiv:2408.12515",
+          "material_read": "Baur pp. 1–2 near offset 2968; Gu–Yuan p. 2 near offset 3204",
+          "method": "Primary OA PDF passages",
+          "title": "Percolation on random recursive trees; Size distribution of clusters in site-percolation on random recursive tree",
+          "trigger": "Nearby recursive-tree percolation results"
+        },
+        {
+          "assessment": "Methodological analogue; different mark",
+          "evidence": "Its centered and studentized statistics count deleted edges leaving the root component.",
+          "identifier_or_url": "2026/11/8/SCOPE-exact-frontier-law-and-gaussian-fluctuations-for-percolated-recu--ba4f1c497f72",
+          "material_read": "Local RESULT.md offsets 0 and 7145",
+          "method": "Resultary local mirror",
+          "title": "Exact frontier law and Gaussian fluctuations for percolated recursive trees",
+          "trigger": "Same normalization and analogous Gaussian theorem"
+        },
+        {
+          "assessment": "Different observable",
+          "evidence": "Pairs cluster size with the original root's outdegree, not with a sum of terminal indicators over the cluster.",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-root-degree-percolation-cluster-dependence-and-asymptotic--3992334979d1",
+          "material_read": "Local RESULT.md Finding at offset 0",
+          "method": "Resultary local mirror",
+          "title": "Exact root-degree–percolation-cluster dependence and asymptotic decoupling",
+          "trigger": "Same-day joint root-cluster Gaussian result"
+        },
+        {
+          "assessment": "Excerpt concerns cluster dominance; full-text scope unresolved",
+          "evidence": "The excerpt refers to positive probability that the root cluster is always uniquely largest, not a leaf statistic. No whole-document inference is made.",
+          "identifier_or_url": "https://projecteuclid.org/journals/electronic-communications-in-probability/current",
+          "material_read": "Search excerpt only; article not read",
+          "method": "Targeted primary literature lookup and publisher access attempt; blocked",
+          "title": "Electronic Communications in Probability, volume 31 listing",
+          "trigger": "Search hit for fixed-p root clusters in recursive trees"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, Findings 2–4 and Steps 2–5"
+      ],
+      "rationale": "The statistic separates terminal vertices of the original tree from leaves created by percolation. The exact variance from the first nontrivial sizes and the studentized Gaussian law quantify genuine fluctuations at the realized cluster scale rather than confusing them with random cluster-size variation.",
+      "residual_risks": [
+        "The result concerns fixed retention and uniform attachment; it is not a fluctuation theorem for all marks, for critical moving parameters, or for cluster leaves in the induced subtree."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,151 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:07:17.175748Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Compose the radius-one synchronous rule twice. A path through overlapping four-bit contexts supplies precisely an input block of length n+4; every such block extends bilaterally. A label word is accepted precisely when its subset of terminal contexts is nonempty. Deterministic transitions then count each spatial word once, with c_0=1. The independent replay /workspace/replay/rule54.py constructs the local rule and subsets, minimizes by partition refinement rather than using the published table, and obtains 39 reachable subsets and 18 quotient states including the sink. The accepted transfer matrix and its characteristic polynomial determine the entire rational series by Cayley–Hamilton and the initial coefficients; exact reduction gives both frozen polynomials and the stated first 16 terms. Separate two-pass input enumeration agrees for lengths 1–9. The 16 internal states form one strongly connected component with a loop; the initial state enters it, and rejecting edges do not contribute. Its characteristic polynomial is tP(t). Rational Collatz–Wielandt comparisons with K^80 1 give the stated interval; the independent approximation lambda=1.8276841668945112 gives log(lambda)=0.6030496828827792. Perron–Frobenius growth gives the shift entropy via the subshift block-count limit. This is an all-length certificate for two updates only, not a ring, trajectory, or eventual-image calculation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "5742d176c6e4 uses exactly the labeled five-block graph and subset transition for all elementary second images, but tests equality or finds a shortest discrepancy; its output is a witness/stability census.",
+          "Pita's transducer describes causal coupling.",
+          "The plausible earlier primary process-graph papers did not yield readable full text in the access attempts."
+        ],
+        "reasoning": "The broad witness theorem supplies a method and a different invariant; it stops at the first discrepancy on shrinking rules. It does not determine the full reduced Rule 54 automaton, exact generating series or spectral growth. No stronger explicit second-image counting theorem was identified in accessible material.",
+        "searches": [
+          "Resultary 5742d176c6e4, §§1–4",
+          "DOIs 10.1002/cplx.21686 and 10.1007/978-3-031-78757-7_4",
+          "Pita arXiv:2604.00273v1, Introduction and §7.2"
+        ]
+      },
+      "checked_sources": [
+        "Jen §5.1",
+        "arXiv:1410.3096",
+        "arXiv:2604.00273v1",
+        "Resultary 9f1cb27dee35 (identical), 5742d176c6e4, 66161a322c8d, 3615c2fb7c1d, c2f1f9b3c735",
+        "Access attempts: 10.1002/cplx.21686; 10.1007/978-3-031-78757-7_4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The all-rules study certifies the first shrinking witness but explicitly does not claim to enumerate the full subset-pair graph beyond the discrepancy.",
+          "Jen's exact formulas act on one-step preimages. The Rule 22 entry computes an analogous invariant for a different transition system."
+        ],
+        "reasoning": "The existing algorithm and local rule make the new invariant computable, not an already evaluated formula or a substitution in a known stronger growth theorem. The subset count, quotient, rational reduction, and surviving Perron root require a new calculation.",
+        "searches": [
+          "Resultary 5742d176c6e4, proof offsets 0–3393 and 4150–5372",
+          "Jen §5.1, pp. 445–446",
+          "Resultary 66161a322c8d, mirrored finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Jen characterizes the one-step image language with the four Garden-of-Eden words 10110, 10101, 01101, 10111101.",
+          "Martínez et al. give glider expressions for a sublanguage and a Rule 54 subset recognizer.",
+          "3615c2fb7c1d counts one-step indexed ring outputs; c2f1f9b3c735 counts ring outputs with exactly one predecessor."
+        ],
+        "reasoning": "The second image can be viewed as a finite-time sofic language, but one-step language, indexed periodic targets, and fiber counts are not equivalent to its distinct unrestricted length-n blocks. A one-step presentation can serve as input for a further image calculation, not replace it.",
+        "searches": [
+          "Rule 54 preimage language and forbidden words: Jen, §5.1",
+          "Rule 54 regular/subset language: arXiv:1410.3096, §§3.3–3.4",
+          "Resultary 3615c2fb7c1d and c2f1f9b3c735"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "9f1cb27dee35 is the exact assigned entry, not prior evidence. Same-day 66161a322c8d gives a 273-state second-image growth calculation for Rule 22. The all-rule 5742d176c6e4 table stores first discrepancies or stability. The other two Rule 54 hits tabulate different ring statistics."
+        ],
+        "reasoning": "None of the distinct inspected entries is the all-length Rule 54 second-image count/spectral table, and the same-day Rule 22 result has a different local rule.",
+        "searches": [
+          "Resultary 9f1cb27dee35, 66161a322c8d, 5742d176c6e4, 3615c2fb7c1d and c2f1f9b3c735"
+        ]
+      },
+      "rationale": "The graph construction and even its use for all elementary rules at the second iterate are antecedent. The distinct result is the complete Rule 54 second-image word-growth series and its exact spatial entropy, established by additional state closure, minimization and exact matrix calculation. Prior short-witness and one-step results do not supply these invariants. Plausible inaccessible process-graph text leaves a concrete priority risk.",
+      "residual_risks": [
+        "The two process-graph primary texts were not accessible in bounded lawful attempts; an exact Rule 54 second-image tabulation in them or elsewhere is not excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "One-step scope",
+          "evidence": "Derives one-step preimage enumeration and four minimally forbidden words.",
+          "identifier_or_url": "https://content.wolfram.com/sites/13/2018/02/03-5-2.pdf",
+          "material_read": "§5.1, Proposition 2 and proof, pp. 445–446, offset 52142",
+          "method": "OA PDF excerpts",
+          "title": "Enumeration of Preimages in Cellular Automata",
+          "trigger": "Exact Rule 54 regular language/preimage results"
+        },
+        {
+          "assessment": "Glider expressions and valid-string/GOE recognizer, not the second-image series",
+          "evidence": "The glider language is identified as a sublanguage; the subset discussion concerns recognition.",
+          "identifier_or_url": "https://arxiv.org/html/1410.3096",
+          "material_read": "§3.3 equations (5)–(6), §§3.4–3.4.2, offsets 15000, 24900, 31200",
+          "method": "OA HTML excerpts",
+          "title": "Complete Characterization of Structure of Rule 54",
+          "trigger": "Rule 54 regular and subset presentations"
+        },
+        {
+          "assessment": "Same starting graph; distinct output invariant",
+          "evidence": "Exactly 72 stable cases and 184 strict cases; strict-case search terminates at a shortest witness rather than after full closure.",
+          "identifier_or_url": "Resultary 5742d176c6e4 (2026-10-26)",
+          "material_read": "Finding and proof of graph construction and witness termination, offsets 0–3393 and 4150–5372",
+          "method": "Resultary local mirror",
+          "title": "A sharp twelve-symbol threshold for second-update image loss in elementary cellular automata",
+          "trigger": "Same images for all rules; strongest generic overlap"
+        },
+        {
+          "assessment": "Rule 22, not Rule 54",
+          "evidence": "One- and two-step entropies, with a 273-state second-image matrix for Rule 22.",
+          "identifier_or_url": "Resultary 66161a322c8d (2026-11-22)",
+          "material_read": "Finding at offset 0",
+          "method": "Resultary local mirror",
+          "title": "Exact second-image spatial entropy and first-image language loss",
+          "trigger": "Same-day second-image invariant"
+        },
+        {
+          "assessment": "Distinct ring statistics, not spatial second image",
+          "evidence": "The first counts indexed one-step outputs once per output; the second counts indexed targets with a unique predecessor.",
+          "identifier_or_url": "Resultary 3615c2fb7c1d; c2f1f9b3c735",
+          "material_read": "Findings and scope, offsets 0 and 1300 for the first, 0 and 4800 for the second",
+          "method": "Resultary local mirror",
+          "title": "Periodic lifting and exact one-step image enumeration for Rule 54; Exact singleton-predecessor generating function for cyclic elementary automata",
+          "trigger": "Possible alternate exact count series"
+        },
+        {
+          "assessment": "Causal coupling, not the frozen growth invariant",
+          "evidence": "The tiling transducer represents forward coupling of the local update.",
+          "identifier_or_url": "https://arxiv.org/html/2604.00273v1",
+          "material_read": "Introduction and §7.2, offsets 5040 and 71000",
+          "method": "OA HTML excerpts",
+          "title": "How local rules generate emergent structure in cellular automata",
+          "trigger": "Prior cellular-automaton transducer description"
+        },
+        {
+          "assessment": "Coverage unresolved",
+          "evidence": "Neither the access error nor the frozen reference establishes absence of a Rule 54 result.",
+          "identifier_or_url": "https://doi.org/10.1002/cplx.21686",
+          "material_read": "Frozen citation and scope description; no primary full text obtained",
+          "method": "Lawful DOI/full-text attempts; HTTP 403",
+          "title": "Advances in the study of elementary cellular automata regular language complexity",
+          "trigger": "Plausible exact finite-time regular-language results"
+        },
+        {
+          "assessment": "Coverage unresolved",
+          "evidence": "This is a plausible venue for an equivalent exact finite-time table, not inspected closely enough to rule it out.",
+          "identifier_or_url": "https://doi.org/10.1007/978-3-031-78757-7_4",
+          "material_read": "Frozen citation and scope description; no primary full text obtained",
+          "method": "Lawful chapter/PDF attempts; redirects did not yield text",
+          "title": "Extensions on the Analysis of Elementary Cellular Automata with Process Graphs",
+          "trigger": "Plausible same-rule finite-time process-graph table"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Rule 54's finite-time image filtration has spatial complexity not captured by the first forbidden block or by ring preimage counts. The rational series gives all distinct block counts without re-enumeration and fixes the entropy as an algebraic growth constant for the complete second image. This is a natural invariant of a standard automaton even though its method is classical and later images remain open here.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

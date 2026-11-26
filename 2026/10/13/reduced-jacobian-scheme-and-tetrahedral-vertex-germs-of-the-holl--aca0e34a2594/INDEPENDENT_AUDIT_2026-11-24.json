@@ -1,0 +1,167 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:36:20.471307Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py and verification_output.txt (frozen script read, not executed)",
+        "/workspace/audit_evidence/replay_4.py and /workspace/audit_evidence/replay_4.txt"
+      ],
+      "rationale": "With P=af, Q=be, R=cd, the homogeneous determinant equals (P−Q−R)²−4QR. At a=1, w=f−be−cd is a polynomial coordinate with polynomial inverse. The chart derivatives in the new coordinates generate (w,cde,bde,bce,bcd); the change-of-variables Jacobian is invertible, and Euler's homogeneous identity supplies the missing homogeneous derivative because F itself lies in this ideal. A monomial in b,c,d,e vanishes on every coordinate two-plane iff its support has at least three variables. This gives the six-prime decomposition as an equality of ideals, ruling out nilpotents and embedded components there. Index permutations are transitive on the six edges, so the computation covers all of projective space. On a≠0, setting one variable from each of the complementary pairs {b,e},{c,d} to zero gives four coordinate planes; setting b=e=0 or c=d=0 gives the chart of one of the indicated quadrics. Cycling the complementary pairs exhausts the eight distinct planes and three quadrics; each quadric is a smooth rank-four quadric on its coordinate P³. All components are surfaces of degrees 1 and 2 respectively, so the top-dimensional degree is 14. At the vertex the complete local ring is the stated completion; its maximal-ideal associated graded ring is the squarefree cubic quotient. Counting monomials by support gives 1+4t/(1−t)+6t²/(1−t)². The graph K4 is connected and pure of dimension one with nonempty zero-dimensional vertex links, so the associated face ring is Cohen–Macaulay by the graph case of Reisner's criterion, as is its completion. The multiplicity is 6. An independent exact replay formed all six homogeneous partials and compared Gröbner bases over Q on each of the six charts, then checked the series and multiplicity. This is compatible with base change to C and complements the all-degree argument.",
+      "residual_risks": [
+        "The calculation proves reducedness for the projective scheme (the saturated ideal); no assertion about behavior of the unsaturated affine Jacobian ideal at the cone origin or about the ambient hypersurface's vertex multiplicity is needed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "a58bda70a733 has a Schur-complement pivot chart for the rank-at-most-two scheme. At n=4 and a=1 it gives (w,bd,ce): the off-diagonal Schur complement is w and its diagonal entries are −2bd and −2ce.",
+          "838c326f386d treats a Fitting singular scheme on a hollow SO(4) slice, with a union-of-four-axes germ, not the union-of-six-planes two-dimensional germ here.",
+          "Brysiewicz–Gesmundo describe the hollow SO(4) variety and real incidence strata, a different ambient object."
+        ],
+        "reasoning": "The broader matrix-size rank-two theorem controls only the rank-at-most-two part; rank-three matrices with a zero row can also be singular in the hollow ambient space. The Fitting construction on the affine orthogonal slice is on a different scheme, and neither its dimension nor its local branch equations match.",
+        "searches": [
+          "Resultary:a58bda70a733 (all-n nodal-product charts of hollow symmetric rank at most two)",
+          "Resultary:838c326f386d; arXiv:2602.02668 Theorem 1.1 (hollow orthogonal slice)"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 6ce60a96126e, a58bda70a733 and 838c326f386d",
+        "arXiv:1603.06544, arXiv:2105.13444, arXiv:2401.03684 and arXiv:2602.02668"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The rank-two chart meets the two row-zero plane ideals in (w,bd,ce) ∩ (w,b,d) ∩ (w,c,e)=(w,bcd,bce,bde,cde). This mechanically determines the reduced-union model from the known components.",
+          "The known ambient quartic makes the derivative computation possible, but the prior support and rank-two decomposition do not give the equality of that intersection with the actual ideal of all six homogeneous partials."
+        ],
+        "reasoning": "Assigning reduced structures on listed components and taking their scheme union produces the radical, not a proof that the derivative ideal already equals it. Even generic reducedness and an exact reduced-union presentation leave room for an embedded structure at intersections. The all-chart Jacobian equality supplies the missing step. Once that equality is known, degree, completed vertex model, and Hilbert series follow, rather than being stand-alone novelty claims.",
+        "searches": [
+          "Resultary:6ce60a96126e, Finding and scope",
+          "Resultary:a58bda70a733, Finding and limitations",
+          "arXiv:1603.06544, eq. (35)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The hypersimplex discriminant, zero-diagonal determinant, Cayley hyperdeterminant slice, and smallest squared Grassmannian are presentations of the same quartic. The primary passages give the ambient equation or ambient ideal, not a Jacobian primary decomposition.",
+          "Resultary 6ce60a96126e states eleven components for the reduced singular support, generic transverse nodes and the sign quotient; its scope expressly stops short of the full Jacobian scheme or the degenerate intersection germs."
+        ],
+        "reasoning": "Changing between ambient models does not change Σ and adds no originality. Knowing the reduced support or what holds generically on each component does not determine scheme structure at the intersections. The full derivative ideal must be compared to the radical, not just to the set of points.",
+        "searches": [
+          "Resultary: hollow quartic Jacobian singular scheme, smallest squared Grassmannian, coordinate vertex germs",
+          "arXiv:1603.06544 §4 eq. (35); arXiv:2105.13444 Example 6.5; arXiv:2401.03684 Theorem 3.5 and Example 3.6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "6ce60a96126e, Finding/Assumptions and scope: exact prior support list and generic nodes.",
+          "a58bda70a733, Finding/Limitations: same-date rank-two chart, with no full hollow determinant Jacobian conclusion.",
+          "838c326f386d, Finding: same-date affine hollow orthogonal local-ring result of a different dimension."
+        ],
+        "reasoning": "The exact support is indexed and credited; neither distinct same-date record establishes the full Jacobian equality. This assessment uses their statements, not dates or database hit rank, and does not infer intra-day priority.",
+        "searches": [
+          "Resultary semantic queries for smallest squared Grassmannian, projective singular scheme and hollow determinant local equations"
+        ]
+      },
+      "rationale": "Pass for identifying the full Jacobian scheme with the reduced union and with the multiplicity-six local scheme at coordinate vertices. The ambient quartic, support and generic types are established prior work. The same-day hollow rank-two result is particularly close: after including the two row-zero planes it mechanically recovers the six-branch reduced union. It does not identify that union with the full homogeneous-partial ideal, so does not rule out extra scheme structure on the rank-three branches or intersections. The equality to the Jacobian scheme is the distinct claim; the support count, degree of the reduced support, and its vertex consequences receive no separate originality credit.",
+      "residual_risks": [
+        "The calculation is short enough to occur in earlier notes using the discriminant or quotient model. Bounded literature and database checks cannot exclude this.",
+        "No intra-day priority follows from the two related same-date records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The zero-diagonal discriminant equation is prior.",
+          "evidence": [
+            "The k=2,d=4 hypersimplex discriminant is identified with the hollow determinant."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1603.06544",
+          "material_read": "§4 eq. (35), p. 18, OA offset about 61881",
+          "method": "Bounded OA primary text inspection",
+          "title": "Nearest Points on Toric Varieties",
+          "trigger": "Discriminant formulation of the identical quartic"
+        },
+        {
+          "assessment": "Prior ambient model; the matched passage is not a Jacobian scheme computation.",
+          "evidence": [
+            "Same quartic as a hyperdeterminant slice."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2105.13444",
+          "material_read": "Example 6.5, p. 17, OA offset about 70509",
+          "method": "Bounded OA primary text inspection",
+          "title": "Characterizing principal minors of symmetric matrices via determinantal multiaffine polynomials",
+          "trigger": "Identical quartic via squared Plücker coordinates"
+        },
+        {
+          "assessment": "The determinantal ambient ideal is established; it does not give the claimed structure of its derivative scheme in the passages inspected.",
+          "evidence": [
+            "Presentation by 4×4 minors and n=4 determinant equation."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2401.03684",
+          "material_read": "Theorem 3.5, p. 6 and Example 3.6, p. 7; OA offsets about 21459 and 27394",
+          "method": "Bounded OA primary text inspection",
+          "title": "The Two Lives of the Grassmannian",
+          "trigger": "General squared-Grassmannian model that specializes to the ambient quartic"
+        },
+        {
+          "assessment": "The support and generic type are prior; the passage explicitly limits the result to reduced support and excludes the full scheme decomposition and special intersection types.",
+          "evidence": [
+            "Eight coordinate planes and three quadrics; generic transverse A1 type; (Z/2)^3 quotient."
+          ],
+          "identifier_or_url": "Resultary:6ce60a96126e",
+          "material_read": "Mirrored RESULT.md, Finding and Assumptions and scope, offsets 0 and about 7791",
+          "method": "Bounded local mirror text inspection",
+          "title": "Eleven singular surfaces on the smallest squared Grassmannian",
+          "trigger": "Exact same support, generic node and quotient description"
+        },
+        {
+          "assessment": "Direct partial overlap and mechanical reduced-union consequence after adding two planes, not equality with the full quartic Jacobian.",
+          "evidence": [
+            "Rank-two pivot equations specialize to (w,bd,ce), not (w,bcd,bce,bde,cde)."
+          ],
+          "identifier_or_url": "Resultary:a58bda70a733",
+          "material_read": "Mirrored RESULT.md, Finding and Limitations, offsets 0 and about 7616",
+          "method": "Bounded local mirror text inspection and n=4 Schur-complement specialization",
+          "title": "Nodal product charts for the hollow symmetric rank-two determinantal scheme",
+          "trigger": "Same-date, stronger-in-size chart that specializes to four branches in the same coordinates"
+        },
+        {
+          "assessment": "Different scheme and local dimension.",
+          "evidence": [
+            "Four-axis germ for the affine orthogonal Fitting singular scheme."
+          ],
+          "identifier_or_url": "Resultary:838c326f386d",
+          "material_read": "Mirrored RESULT.md, Finding, offset 0",
+          "method": "Bounded local mirror text inspection",
+          "title": "Node-product local rings of the hollow SO(4) surface",
+          "trigger": "Same-date hollow matrix singular-scheme local model"
+        },
+        {
+          "assessment": "Describes the orthogonal slice, not the projective determinant Jacobian.",
+          "evidence": [
+            "Fourteen real surfaces and their intersection pattern."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2602.02668",
+          "material_read": "Theorem 1.1, p. 1, OA offset about 1288",
+          "method": "Bounded OA primary text inspection",
+          "title": "Marvelous slices of orthogonal matrices",
+          "trigger": "Primary predecessor of the nearby hollow SO(4) model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md and proof",
+        "Resultary 6ce60a96126e and a58bda70a733"
+      ],
+      "rationale": "The scheme cut out by the derivatives is a natural invariant of this independently studied discriminant and squared Grassmannian. An exact radical chart ideal on a cover answers what a support or generic-node calculation cannot: whether extra scheme structure appears at component crossings. The vertex calculation specifies the actual local Jacobian scheme where six branches meet. This is useful even though the decisive ideal calculation is elementary and the reduced support and its degree were already accessible.",
+      "residual_risks": [
+        "This does not classify the full hypersurface germ along every intersection or extend the Jacobian result to larger hollow determinants."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

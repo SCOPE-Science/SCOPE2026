@@ -1,0 +1,154 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:45:22.407868Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The frozen result is mathematically correct, but is not passed as submitted because its headline one-wall solution has exact prior coverage. I re-audited the repaired result in repairs/2/RESULT.md: n(log 3−H_n)=−4 log(3(2−√3))+O((2−√3)^n), with no novelty claim on the known profile. Strict concavity and interpolation into a positive feasible point give a unique positive optimizer, and differentiation in edge coordinates gives P_ij=v_i v_j on the supported entries with v_i(v_{i−1}+v_i+v_{i+1})=1 and zero ghost entries. Row sums and symmetry give the entropy identity 2∑log(√3v_i) for the normalized deficit. For the repaired proof I checked the half-line identity by clearing denominators: the constant and quadratic coefficients reduce using r+1/r=−4 and the middle coefficient uses (1+r)(1+4r+r²)=0, with r=−(2−√3). The product comparison a_i b_i has residual ∑_d(A_d−1)(B_d−1) because each individual three-term row sum is 3 in the normalized coordinates. The leading term cancels exactly since ∑_{d=−1}^1(1+r^d)(1+r^{−d})=0, leaving a bound proportional to |r|^{n+1}(|r|^i+|r|^{n+1−i}), also at the terminal rows using t₀=0. Thus the sum of absolute residuals is O(|r|^n). The log-coordinate Jacobian and its segment average are symmetric and have uniform positive diagonal dominance margins; their inverse sum-norm bound follows from the max-norm bound and symmetry. The residual thus controls the actual summed log error, not an n times max-error estimate. Telescoping the half-line product gives (1−r)/(1−r³)=1/(3(2−√3)) with exponentially small tail, hence the exact constant and rate. The frozen verify.py was read, not run. An independent finite rational check of the profile and initial entries agreed with the frozen arithmetic, but neither that check nor the frozen script is used to establish the repaired rate. The corrected proof and verification notes provide the replay path.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The two-wall paper solves the dilute finite recurrence via R_j=R u_j u_{j+3}/(u_{j+1}u_{j+2}), with u_j=θ₁((j+1)α) and R given by its parametrization. It starts on the tree branch near g=0, and discusses the limit near g=1/12, not the positive normalized optimizer at g→−∞.",
+          "General entropy papers establish variational equations or finite reconstruction; the one-loop string example in arXiv:2611.02982 is not the all-loop path. The older random tridiagonal matrix paper and the robotics score-map paper were not retrieved in full."
+        ],
+        "reasoning": "The finite theta formula is the strongest plausible dominating result; the explicit branch and normalization issues prevent simply applying its displayed limit to the repaired claim. General reconstruction does not give a dimension-independent summed residual rate. Missing publications are risks, not negative results.",
+        "searches": [
+          "arXiv:cond-mat/0306602v2, §2 and §6, Eqs. (6.1), (6.5)–(6.6)",
+          "arXiv:0910.3829 §IV",
+          "doi:10.3390/e17063738 pp. 3738–3741",
+          "doi:10.1002/rsa.20452",
+          "arXiv:2611.02982 pp. 4, 21 (George–Jafarpour–Bullo reference)"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py; repaired RESULT.md and notes",
+        "arXiv:cond-mat/0303272",
+        "arXiv:cond-mat/0306602v2",
+        "arXiv:2611.02982",
+        "arXiv:0910.3829",
+        "10.3390/e17063738",
+        "Resultary ff037a1e576d, 5e4cc1ece151 and b937fa7e415e",
+        "Earlier tridiagonal and all-loop entropy references (limited access as stated)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The negative-coupling one-wall factorization produces the original profile mechanically. Its telescoping sum gives −4 log(3(2−√3)) once the entropy limit is independently justified.",
+          "In the exact finite two-wall product, a telescoping ratio leaves the n-fold amplitude R^n, which itself depends on the elliptic parameters in (6.6); it cannot be replaced by the bulk scale at finite n without an estimate. That product and the formal g=−s² rescaling alone do not control the physical positive limit or the uniform entropy remainder."
+        ],
+        "reasoning": "The old profile statement is not rescued by rewriting it in Pell form. The repaired proof adds a vanishing leading interaction and uniform inverse sum-norm stability, which give a bound O((2−√3)^n), stronger than the frozen O(n(2−√3)^{n/2}) bound and not obtained by the prior single-wall substitution or finite variational equations.",
+        "searches": [
+          "arXiv:cond-mat/0303272 Eqs. (4.3)–(4.10)",
+          "arXiv:cond-mat/0306602v2 Eqs. (6.1)–(6.6)",
+          "arXiv:2611.02982 Eqs. (4)–(9)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Luce-score equations specialize on Γ=I+A_path and π uniform to P_ij=Γ_ij v_i v_j with v_i(Γv)_i=1.",
+          "The one-wall recurrence R_j=1+gR_j(R_{j−1}+R_j+R_{j+1}), R_{−1}=0, has the displayed product solution and x+x^{−1}=1/(gR)−4. Along g=−s² and R>0 tending to zero, x→r=−(2−√3). In the frozen Pell expression, h_k(−1)^k=A r^{−k}+B r^k, with B/A=r³, 1/A=−r−r² and 5/A=1+r³, yielding exactly that product.",
+          "The two-wall dilute SOS model has a stay-put step and its finite recurrence rescales to v_i(v_{i−1}+v_i+v_{i+1})=1−s^{−1}v_i."
+        ],
+        "reasoning": "Both the finite entropy equations and the exact single-wall profile are covered in alternative forms. The repaired claim is not a renamed solution of either recurrence: it requires transfer of the two single-wall profiles to the finite positive optimum with a sum-norm error at the full-length rate.",
+        "searches": [
+          "arXiv:2611.02982, §3 Eqs. (4)–(9), §4.2.1, §5.2",
+          "arXiv:cond-mat/0303272, §4.1 Eqs. (4.3), (4.5), (4.10)",
+          "arXiv:cond-mat/0306602v2, §6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact catalogue hit is the frozen submission itself. Distinct same-day records give SLEM rigidity and Kemeny design on the same class of path kernels, respectively, and claim different objectives and equality/optimizer structures.",
+          "The already published exact product gives the endpoint fractions and telescoping constant; no earlier table of the repaired entropy remainder was identified."
+        ],
+        "reasoning": "This is an infinite-size assertion about an optimizing entropy, not a match of a numerical Pell sequence or small finite matrices. Same-day results were compared by objectives and formulas, not ranked by the shared date.",
+        "searches": [
+          "Resultary ff037a1e576d",
+          "Resultary 5e4cc1ece151",
+          "Resultary b937fa7e415e",
+          "arXiv:cond-mat/0303272 Eq. (4.10)"
+        ]
+      },
+      "rationale": "For the frozen submission the headline explicit half-line solution fails originality: it is exactly the strong negative-coupling specialization of a published single-wall factorization, not merely a lookalike recurrence. The finite scaling equations themselves also follow from published general entropy reconstruction. The repaired theorem credits both, and passes only on the sharply controlled finite-path entropy deficit: a closed limiting constant realized with a summable full-length O((2−√3)^n) error. The actual two-wall elliptic source was compared and receives credit for the stronger recurrence solution on its documented branch, but it does not establish the necessary negative-coupling branch, normalization and uniform large-size entropy estimate on the positive optimizer. The repaired cancellation argument proves that estimate without relying on a branch continuation. This is a best-of-knowledge decision, not an assertion of priority for the single-wall profile or closed product alone.",
+      "residual_risks": [
+        "A separate treatment of the two-wall elliptic branch at negative coupling could already contain the needed large-n estimates; the documented branch and asymptotics were inspected, not all later work on that recurrence.",
+        "The inaccessible older tridiagonal and all-loop score-map sources leave residual priority risk. No claim of exhaustive priority or novelty of the finite score map, one-wall profile or its telescoping product is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage of the headline frozen profile as a specialization; repaired entropy rate not stated",
+          "evidence": [
+            "Eq. (4.10) is R times (1−x^{j+1})(1−x^{j+4})/[(1−x^{j+2})(1−x^{j+3})]. Eq. (4.5) yields the negative limiting root r; the indices shift by one to the optimizer's wall convention."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/cond-mat/0303272",
+          "material_read": "§4.1, Eqs. (4.3)–(4.10), extracted offset 22930–27667",
+          "method": "Targeted OA PDF passage reading and algebraic comparison",
+          "title": "Geodesic Distance in Planar Graphs",
+          "trigger": "Exact alternative integrable single-wall recurrence"
+        },
+        {
+          "assessment": "Direct dilute two-wall antecedent; the positive strong negative-coupling limit with uniform entropy error is not established in the inspected passages",
+          "evidence": [
+            "Eqs. (6.5)–(6.6) introduce a finite elliptic amplitude depending on theta values. The parametrization states x=e^{2πi/(L+5)} or x=q^{1/(L+5)} when q≥0, and the displayed continuum limit is near 1/12."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/cond-mat/0306602v2; 10.1088/0305-4470/36/50/001",
+          "material_read": "§2 Eq. (2.1); §6 Eqs. (6.1), (6.3)–(6.6), relevant elliptic passage offsets 54600–57006",
+          "method": "Targeted OA PDF reading, algebraic branch and normalization comparison",
+          "title": "Random trees between two walls: Exact partition function",
+          "trigger": "Possible dominating exact finite two-wall solution"
+        },
+        {
+          "assessment": "Prior general finite score equations; string example is one-loop, not this entropy asymptotic",
+          "evidence": [
+            "P=Y^{-1}ΓX and π_i proportional to x_i(Γx)_i. The paper attributes the all-self-loop undirected score-map case to George–Jafarpour–Bullo; that earlier original was not retrieved."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2611.02982",
+          "material_read": "§3 pp. 3–4 Eqs. (4)–(9), §4.2.1 p. 7, §5.2 pp. 15–16, references p. 21",
+          "method": "Targeted OA PDF passages",
+          "title": "Maximum entropy reconstruction of discrete-time Markov chains under partial information",
+          "trigger": "Equivalent finite entropy optimizer"
+        },
+        {
+          "assessment": "General reconstruction and small-state examples, not the inspected path asymptotic",
+          "evidence": [
+            "The inspected first example treats observable-constrained reversible estimation and spin systems; the second develops multi-constraint two- and three-state calculations."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0910.3829; https://doi.org/10.3390/e17063738",
+          "material_read": "First paper abstract and §IV Eqs. (27)–(31); second paper abstract and pp. 3739–3741 Eqs. (2)–(17)",
+          "method": "Targeted OA passages",
+          "title": "Maximum entropy estimation of transition probabilities of reversible Markov chains; Maximum Entropy Rate Reconstruction of Markov Dynamics",
+          "trigger": "Earlier reversible entropy variational work"
+        },
+        {
+          "assessment": "Limits on coverage checks, not proof of absence",
+          "evidence": [
+            "The tridiagonal DOI/PDF attempts returned 403; the robotic surveillance DOI attempt returned 404. The later reconstruction paper attributes its all-loop score map to the latter."
+          ],
+          "identifier_or_url": "https://doi.org/10.1002/rsa.20452; citation in arXiv:2611.02982 p. 21",
+          "material_read": "Frozen tridiagonal citation and accessible attribution in arXiv:2611.02982; original full texts not obtained",
+          "method": "Lawful OA access attempts for the originals plus the inspected attribution",
+          "title": "Random doubly stochastic tridiagonal matrices; Markov chains with maximum entropy for robotic surveillance",
+          "trigger": "Earlier tridiagonal and all-loop entropy work"
+        },
+        {
+          "assessment": "Same supported kernels but different objectives; no priority inferred",
+          "evidence": [
+            "The SLEM record states a sharp spectral inequality and alternating equality family; the Kemeny record states alternating parity conductances and vanishing interior holding at its optimum."
+          ],
+          "identifier_or_url": "Resultary 5e4cc1ece151 and b937fa7e415e",
+          "material_read": "Mirrored findings at offset 0, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Configured catalogue and targeted local mirror reads",
+          "title": "Squared-SLEM rigidity and parity-optimal Kemeny design on paths",
+          "trigger": "Closest distinct same-day indexed path optimizations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For the repaired theorem the quantity is the total two-end cost of maximizing entropy under a uniform stationary constraint. The exact closed constant and full-length rate control the pooled entropy loss, rather than just pointwise boundary convergence. The leading cross interaction cancels when translated to the row equations, and the dimension-independent sum estimate turns that cancellation into a bound on the global observable without an n penalty. This is useful for comparing finite path designs and isolating the endpoint contribution from their mutual interaction. The known endpoint profile in isolation would not justify the repaired claim or its value.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

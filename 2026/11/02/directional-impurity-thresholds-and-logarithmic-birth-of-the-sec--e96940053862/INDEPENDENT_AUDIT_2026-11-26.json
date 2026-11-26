@@ -1,0 +1,157 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:30:10.981366Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–18 and 27–58 (analytic replay)",
+        "VERIFICATION.md; verify_rectangular_two_impurity.py (inspected, not executed)",
+        "verify_rectangular_output.txt lines 3–63, 65–98, 100–137 (recorded quadratures, finite-box checks and edge slopes)"
+      ],
+      "rationale": "The even and odd defect-site resolvent eigenvalues are strictly decreasing, positive and tend to zero. Only the even one diverges at the edge; the odd one has finite positive limit g_r(E_*). Positivity of the off-diagonal resolvent (for example by the lattice walk series) orders the two branches and excludes a double root. At V_c the inverse Fourier transform of (1−exp(−ik·r))/q(k) has defect values g_r(E_*) and −g_r(E_*), so solves the threshold equation and is odd under u↦r−u. Its transform is L¹ but not L², by a lower bound on an angular sector on which |k·r| is comparable to |k|. An L² threshold solution cannot have a nonzero constant or dipole source at the edge, so no threshold eigenvector is missed. For the subtracted integral the Taylor remainders are O(δ) after integration. In the scaled low-frequency disk the factor 1/2 from 1−cos, the angular integral π(m²/t_x+n²/t_y), the radial factor (1/2)log(1/δ), the Jacobian and the normalized measure yield (m²/t_x+n²/t_y)/(16π√(t_xt_y)). Inversion against (V−V_c)/V_c² gives the claimed limit. The resistance factor is two, from the squared dipole numerator. Integrating one Fourier variable and substituting the half-angle in the other gives the two arctangents, including 9 and 6 for (3,1).",
+      "residual_risks": [
+        "The numerical comparisons are finite corroboration, not interval certificates or finite-box error bounds. The asymptotic holds at fixed positive hoppings and fixed nonzero displacement, not uniformly in those parameters."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Glasser gives a general finite-impurity determinant, which includes the reduction used here but not the odd-channel dipole asymptotic.",
+          "Hiroshima–Muminov–Kuljanov treat origin-and-neighbor support at the lower edge, not two arbitrary equal onsite defects.",
+          "Visible Springer chapter material supports an at-most-two-level observation; full text was not retrieved."
+        ],
+        "reasoning": "The general secular method includes this matrix but does not give the displacement-dependent nonanalytic term and its inverted coupling law. Other perturbation supports do not specialize directly to the claimed family.",
+        "searches": [
+          "Glasser arXiv:1702.05111 pp. 2–3, Eqs. (4)–(9)",
+          "Hiroshima–Muminov–Kuljanov arXiv:1804.05339, model definition and Theorem 5.2",
+          "Primary literature lookup for equal-sign two-impurity bound states and two-dimensional lattice edge expansions"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and verification package",
+        "Resultary local records cited above",
+        "Cserti cond-mat/9909120",
+        "Glasser 1702.05111",
+        "Hiroshima–Muminov–Kuljanov 1804.05339"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The half-plane Resultary statement has a log-suppressed onset for a single defect with Dirichlet boundary; the quadrant instead has a linear onset.",
+          "The free diagonal logarithmic divergence and the general two-site determinant are prior tools."
+        ],
+        "reasoning": "The same analytic mechanism in another geometry does not determine the odd-source tensor here. Extracting its anisotropic dipole coefficient and proving its relation to the distance in coupling from the finite threshold are additional steps.",
+        "searches": [
+          "Resultary 2026/10/25 exact-paired-bound-states-and-resistance-controlled-weak-binding--1b02483eaca7 and 2026/10/26 a-logarithmic-edge-resonance-versus-a-linear-corner-threshold-fo--82891d9a3bb9",
+          "Cserti §III and preceding discussion; Glasser Eqs. (4)–(9)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cserti's weighted Laplacian formula with edge resistances 1/t_x and 1/t_y gives exactly 2g_r(E_*) for every displacement.",
+          "Resultary 2026/10/25, exact-paired-bound-states-and-resistance-controlled-weak-binding--1b02483eaca7 uses opposite signs and has an exponential weak-coupling law."
+        ],
+        "reasoning": "The re-expression of the edge constant via resistance is inherited once the odd-channel criterion is known. Neither the static resistance nor the opposite-sign weak-binding law fixes the energy dependence of the odd channel above this edge.",
+        "searches": [
+          "Resultary semantic lookup of two fixed onsite defects / lattice Green function / antisymmetric mode / resistance threshold",
+          "Cserti arXiv:cond-mat/9909120 §III, Eqs. (46)–(54)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Prior rectangular resistance expressions supply the static critical constant by evaluation after the Birman–Schwinger identification; no originality is credited for standalone numerical nearest-neighbor values.",
+          "Resultary 2026/10/04, exact-critical-lines-in-the-two-dimensional-nearest-neighbor-lat--4ef3bfa6ec2f gives different constants for the origin-plus-neighbors model."
+        ],
+        "reasoning": "Comparison of exact constants is meaningful only with the same source, support and convention. The sharp quantity under assessment is a varying-energy slope coefficient, not a resistance-table entry.",
+        "searches": [
+          "Resultary semantic comparisons of the paired bound-state, log-edge resonance and exact critical-line records",
+          "Cserti arXiv:cond-mat/9909120 §III, Eqs. (46)–(54)"
+        ]
+      },
+      "rationale": "Pass is for the explicit sharp fixed-displacement anisotropic second-mode onset for an equal positive pair, not the resistor-network integral, rank-two secular determinant, or logarithmic edge singularities in themselves. The strongest examined distinct statements use opposite defect signs, a different support or boundary geometry, or a different spectral limit. None establishes this coefficient and transition for the stated pair.",
+      "residual_risks": [
+        "No claim of absolute priority; a general anisotropic resolvent expansion or older two-impurity treatment may contain a closer equivalent. The Springer chapter could not be inspected in full."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Static-resistance identity covered, not the onset",
+          "evidence": "The conductance ratio p=t_y/t_x gives the same arbitrary-displacement Laplacian integral and the same doubled numerator.",
+          "identifier_or_url": "https://arxiv.org/abs/cond-mat/9909120",
+          "material_read": "pp. 9–10, §III, Eqs. (46)–(54), and preceding qualitative divergence discussion",
+          "method": "Open full-text passage inspection",
+          "title": "Application of the lattice Green's function for calculating the resistance of infinite networks of resistors",
+          "trigger": "Resistance equivalence and anisotropic edge constants"
+        },
+        {
+          "assessment": "Reduction covered; coefficient not established by this passage",
+          "evidence": "Composite-spectrum poles are zeros of the two-impurity determinant, generalized to N impurities.",
+          "identifier_or_url": "https://arxiv.org/abs/1702.05111",
+          "material_read": "pp. 2–3, Eqs. (4)–(9)",
+          "method": "Open full-text passage inspection",
+          "title": "A Note on the Exact Green Function for a Quantum System Decorated by Two or More Impurities",
+          "trigger": "Possible encompassing finite-rank formula"
+        },
+        {
+          "assessment": "Different support, edge and parameter families",
+          "evidence": "Couplings are on the origin and the nearest-neighbor shell; its 2D critical constants and threshold states are not those of two isolated sites at arbitrary r.",
+          "identifier_or_url": "https://arxiv.org/abs/1804.05339",
+          "material_read": "pp. 2–3 and Theorem 5.2, pp. 24–25",
+          "method": "Open full-text passage inspection",
+          "title": "Threshold of discrete Schrödinger operators with delta potentials on an n-dimensional lattice",
+          "trigger": "Close finite-support spectral threshold result"
+        },
+        {
+          "assessment": "Shared resistance kernel, distinct spectral conclusion",
+          "evidence": "The isotropic pair is −λ,+λ and produces one state on each side of the band, with a weak-coupling exponential scale.",
+          "identifier_or_url": "Resultary 2026/10/25/SCOPE-exact-paired-bound-states-and-resistance-controlled-weak-binding--1b02483eaca7",
+          "material_read": "RESULT.md Finding and hypotheses",
+          "method": "Local published-record mirror",
+          "title": "Exact paired bound states and resistance-controlled weak binding",
+          "trigger": "Strongest close indexed two-site/resistance overlap"
+        },
+        {
+          "assessment": "Mechanism analogue, not the stated defect pair",
+          "evidence": "A single defect at fixed distance from a Dirichlet edge or corner replaces the full-lattice two-site odd channel.",
+          "identifier_or_url": "Resultary 2026/10/26/SCOPE-a-logarithmic-edge-resonance-versus-a-linear-corner-threshold-fo--82891d9a3bb9",
+          "material_read": "RESULT.md Finding and hypotheses",
+          "method": "Local published-record mirror",
+          "title": "A logarithmic edge resonance versus a linear corner threshold",
+          "trigger": "Similar logarithmically suppressed threshold"
+        },
+        {
+          "assessment": "Different support and constants",
+          "evidence": "The origin-and-neighbor model has constants π/(π−2) and π/(4−π), not the equal-pair thresholds.",
+          "identifier_or_url": "Resultary 2026/10/04/SCOPE-exact-critical-lines-in-the-two-dimensional-nearest-neighbor-lat--4ef3bfa6ec2f",
+          "material_read": "RESULT.md Finding and model",
+          "method": "Local published-record mirror",
+          "title": "Exact critical lines in the two-dimensional nearest-neighbor lattice threshold model",
+          "trigger": "Potential exact threshold coverage"
+        },
+        {
+          "assessment": "Inaccessible full text; no noncoverage inference",
+          "evidence": "Visible text states an at-most-two discrete-level result, not the direction-resolved onset.",
+          "identifier_or_url": "Springer chapter identified by title in primary literature search",
+          "material_read": "Search excerpt only; HTML and PDF retrieval timed out",
+          "method": "Literature-result excerpt and attempted lawful full-text retrieval",
+          "title": "Two or More Impurities; Disordered Systems",
+          "trigger": "Possible same two-impurity count or threshold"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–18 and 27–55",
+        "Cserti §III",
+        "Related opposite-sign and boundary-geometry Resultary results cited above"
+      ],
+      "rationale": "For a natural two-site lattice model the result separates the one-mode and two-mode regimes and gives the rate of detachment, not just the threshold location. The coefficient distinguishes orientations and displacement at fixed anisotropy and explains the logarithmic suppression due to the critical odd resonance. These are quantitative predictions for a localized mode absent from a static resistance computation.",
+      "residual_risks": [
+        "No implication for unequal defects, nonuniform hoppings or an anisotropy/displacement scaling limit is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

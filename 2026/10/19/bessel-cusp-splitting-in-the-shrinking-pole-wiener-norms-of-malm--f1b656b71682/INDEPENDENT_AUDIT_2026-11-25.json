@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:00:25.972432Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reassessed repairs/1/RESULT.md. Centering preserves absolute sums, and the two convergent Wiener-algebra logarithms have combined tail O_C(n^-2) after the quadratic terms. Bessel coefficient extraction and the recurrence give the first-order term c(k-1)J'_k(2c), with an ell^1 remainder. Simplicity and Bourget nonintersection leave only the indicated zero modes, with fixed signs of sufficiently large orders by the factorial series estimate. At c=c_0+s/n, the coordinatewise norm directional derivative is dominated by the summable direction, and Lipschitz dependence on s gives compact-uniform convergence. In every nonvanishing plus/minus pair the term odd in k cancels; the two vanishing modes give the maximum formula, with the separate single-mode formula at m=0. The frozen root shifts themselves are correct. The frozen novelty claim that no existing result implies them is corrected, not passed as written. The frozen FFT checker was inspected, not executed; it checks finite sample Wiener corrections and root locations, not the full cusp profile.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Auxemery–Borichev–Zarouf use the same rational witness when λ≥1/2 and estimate fixed-pole coefficients. Borichev–Fouchet–Zarouf give full-index coefficient regimes for powers at fixed λ, including an Airy regime."
+        ],
+        "reasoning": "The fixed-pole transition indices merge into an O(1) band around n when λ=c/n. Fixed-λ uniformity over frequency is not uniformity as λ tends to zero, and these passages do not give the shrinking-scale absolute-sum expansion.",
+        "searches": [
+          "arXiv:2603.03908v1 Introduction/Theorems 2–3",
+          "arXiv:2107.00405 Theorems 1–2",
+          "arXiv:1701.02358v1 Theorem 1 and Proposition 2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and CHECK.py; repairs/1/RESULT.md",
+        "Local Resultary shrinking-pole/Wiener and Bessel sum searches",
+        "arXiv:2603.03908v1, 2107.00405, 1701.02358v1",
+        "NIST DLMF §§10.12, 10.21, 18.5 and 18.16"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For fixed r the Jacobi angle is j_{|k|,r}/(n+(k-1)/2)+O(n^-3), and c=n sin(θ/2).",
+          "The repaired norm theorem verifies a uniform ell^1 error and cancellation of the antisymmetric k correction in nonzero modes; the signed-root estimates alone do not provide either."
+        ],
+        "reasoning": "The root displacements are a direct corollary of prior work; the full norm profile additionally measures the influence of all other modes and resolves the slope and plateau between the split cusps.",
+        "searches": [
+          "DLMF 18.16.8 versus shrinking coefficient roots",
+          "arXiv:2603.03908v1 Theorem 3 and arXiv:2107.00405 Theorems 1–2 versus norm boundary layer"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The positive mode k has factor λ^k P_{n-1}^{(k,0)}(1-2λ²); mode -m has (-λ)^m P_{n-1-m}^{(m,0)}(1-2λ²).",
+          "Frenzen–Wong's formula applied to both degrees gives denominator n+(k-1)/2 and thus exactly the original two signed root shifts."
+        ],
+        "reasoning": "The root locations are equivalent to a covered Jacobi endpoint calculation. An individual root list is not the first-order norm of the full coefficient sequence; the repaired result treats the latter.",
+        "searches": [
+          "Local Resultary: shrinking-pole Wiener/Malmquist, absolute Bessel sum, Fourier cusp splitting",
+          "DLMF 18.5.7 and 18.16.8"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "DLMF gives the classical generating series, Bessel zero facts and refined Jacobi zero asymptotics. The semantic corpus checks did not identify a matching cusp-profile table or formula."
+        ],
+        "reasoning": "Classical tables determine the individual cusp locations; they do not give the joint first-order change of the entire absolute sum around those locations. A null corpus search is not priority evidence.",
+        "searches": [
+          "DLMF §§10.12, 10.21 and 18.16(ii)",
+          "Local Resultary: Bessel absolute sum and shrinking-pole modes"
+        ]
+      },
+      "rationale": "Pass only for the repaired norm-level claim: the uniform absolute-sum expansion and the resulting centered, tilted plateau between the two kinks. The original presentation understated prior implication for individual zero displacements. Once the signed coefficients are recognized as Jacobi polynomials, those displacements follow directly from the classical endpoint-zero asymptotic, now explicitly credited. The inspected fixed-pole theorems and Jacobi zero formulas do not supply the norm-level correction and boundary layer.",
+      "residual_risks": [
+        "The bounded corpus and primary-text checks cannot exclude an earlier equivalent shrinking-pole absolute-sum boundary layer; no priority certification is made.",
+        "No surviving novelty is attributed to the individual Jacobi zeros or the special-function generating series."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly implies the individual root shifts",
+          "evidence": "The hypergeometric representation has the parameters of the two centered coefficients. With alpha=|k|, beta=0 the refined angle formula gives the first-order shift after c=n sin(θ/2).",
+          "identifier_or_url": "https://dlmf.nist.gov/18.5.E7 and https://dlmf.nist.gov/18.16.E8",
+          "material_read": "Equations 18.5.7, 18.16.1 and 18.16.8, definitions and hypotheses in §18.16(ii)",
+          "method": "Open reference passages and test against binomial coefficient extraction",
+          "title": "NIST DLMF: Jacobi explicit representations and zeros",
+          "trigger": "Exact signed-mode Jacobi representation and effective-degree shift"
+        },
+        {
+          "assessment": "Same family, different asymptotic regime",
+          "evidence": "The stated rational witness is used for λ≥1/2; its interior oscillatory asymptotics use fixed λ.",
+          "identifier_or_url": "arXiv:2603.03908v1",
+          "material_read": "Introduction, Theorem 2 and Section 1 Theorem 3",
+          "method": "Open full-text theorem passages",
+          "title": "Asymptotic sharpness of a Nikolskii type inequality for rational functions in the Wiener algebra",
+          "trigger": "Exact Malmquist witness"
+        },
+        {
+          "assessment": "Outer, oscillatory and transition estimates for fixed pole, not the summed joint-scaling profile",
+          "evidence": "The individually broad frequency ranges do not provide uniformity in λ=c/n as the two transitions coalesce.",
+          "identifier_or_url": "arXiv:2107.00405",
+          "material_read": "Abstract and Section 1, Theorems 1–2",
+          "method": "Open theorem passages",
+          "title": "On the Fourier coefficients of powers of a Blaschke factor and strongly annular functions",
+          "trigger": "Closest broad all-index coefficient asymptotics"
+        },
+        {
+          "assessment": "Related fixed-pole coefficient norm orders",
+          "evidence": "The results are for powers and constants depending on fixed λ.",
+          "identifier_or_url": "arXiv:1701.02358v1",
+          "material_read": "Abstract, Introduction, Theorem 1, Proposition 2",
+          "method": "Open full-text passages",
+          "title": "ell_p-norms of Fourier coefficients of powers of a Blaschke factor",
+          "trigger": "Prior coefficient-norm asymptotics"
+        },
+        {
+          "assessment": "Classical inputs, not a Wiener-norm result",
+          "evidence": "The generating exponential supplies the limiting coefficients and the zero results explain the individual cusp contributions.",
+          "identifier_or_url": "https://dlmf.nist.gov/10.12 and https://dlmf.nist.gov/10.21",
+          "material_read": "10.12.1 and §10.21(i)",
+          "method": "Open reference passages",
+          "title": "NIST DLMF: Bessel generating function and zeros",
+          "trigger": "Classical cusp inputs"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The repaired statement identifies what is lost in the limit when two finite-mode crossings merge: on the 1/n scale the norm has an explicit central interval on which the kink contribution is constant, and an exact drift from all the other modes. The profile is for a known rational Wiener test family in a coalescing regime where the fixed-pole estimates are not uniform. This is useful beyond tabulating the individual zero shifts.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

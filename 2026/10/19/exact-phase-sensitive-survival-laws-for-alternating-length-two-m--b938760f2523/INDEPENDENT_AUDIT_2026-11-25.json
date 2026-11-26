@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:16:36.336067Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On the repaired statement, n pair tests use n+1 i.i.d. base-k digits including the dangling final digit. Writing A=J-E_pq and B=J-E_rs, the even count is 1^T(AB)^m1. On (1,e_p), AB has trace k^2-2+de and determinant (kd-1)(ke-1). Counts k and k^3-2k+d follow from zero tests and inclusion-exclusion of the two events; joint occurrence is one word when q=r and none otherwise. The order-two recurrence gives all four rational numerators and denominators. The adjacent differences are k^2 z^2/(D_0 D_M), z/D_M and (k-1)^2 z^2/(D_M D_H). The reciprocals have strictly positive coefficients (positive roots for D_0,D_H; positive recursion for D_M), giving the onset and strict comparisons. The larger mid root satisfies P_H(lambda_M)=k(k-1)-lambda_M<0 and exceeds the largest D_0 root. Leading poles do not cancel (in the high case the positive leading root exceeds (k-1)/k); all are simple except the double binary D_0 root. Each next digit has at least k-1 allowable choices, giving the same rate on odd horizons by a multiplicative bound, not the same prefactor. At odd horizons, word reversal preserves the observation parity of each tested pair and swaps the overlap bits when the two forbidden pairs are themselves reversed. The mixed word counterexample and prefactor ratio were independently checked: python3 /workspace/branches/independent_checks.py 1. The original checker was inspected and not executed. Configuration frequencies follow from the two independent digit equalities, and the argument includes identical holes and k=2.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kong–Sun–Wang Lemma 2.3 gives exactly the entry-sum of the nonstationary adjacency product for prefix counts, for b>=3; Theorem 1.8 gives periodic overlapping/distinct block growth, including a period-two mixture with p=q=1.",
+          "Resultary f19d7b26fc6b gives the same two-step trace and determinant in all period-two classes. Its prefix product R(H_b(d)H_b(e))^{m-1}H_b(d)T, m>=1, gives the four displayed rational laws by the two-by-two characteristic recurrence and its first counts; coefficient subtraction likewise gives the inequalities in that range. Its statement excludes b=2."
+        ],
+        "reasoning": "The dimension-to-growth conversion is gamma=log(b)(1-dimension) in the exact exponential cases. Finite phase differences are not determined by that dimension. The older general adjacency theorem counts each fixed example but does not reduce its product to the overlap-dependent two-by-two system and analyze its coefficient differences, nor include the binary repeated root. The later exact rank-two result genuinely covers the nonbinary specializations without requiring identical wording.",
+        "searches": [
+          "Kong–Sun–Wang arXiv:2505.02336v2, Lemma 2.3 and Theorem 1.8",
+          "Resultary Complete overlap-code classification of moving two-digit holes f19d7b26fc6b Finding and relationship to prior work"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2505.02336v2",
+        "Resultary f19d7b26fc6b, ae0aa2f134e9, 91c8d26540fd, c56fa32ae4c6",
+        "arXiv:1905.11767",
+        "DOI 10.1103/PhysRevE.89.052913",
+        "DOI 10.1063/1.4766723"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Livorati et al. use continuous moving boundaries, Ulam computations and overlap approximations. Georgiou et al. Eqs. (8)–(9) give a static Markov-hole leading eigenvalue formula. The prior Kong–Sun–Wang count identity genuinely agrees with the input path count; mixed phase starts have the same leading spectrum but different open endpoint vectors in the finite path count."
+        ],
+        "reasoning": "Neither scalar rate estimate nor static-hole formulation yields the strict starting-phase ordering. The older operator-product counting theorem is credited, with the exact comparisons and binary endpoint distinguished; the later exact census is credited for its stronger explicit implication, not asserted to have historical precedence.",
+        "searches": [
+          "Livorati et al. arXiv:1312.7030, moving hole in the doubling map",
+          "Georgiou–Dettmann–Altmann DOI 10.1063/1.4766723, static Markov holes",
+          "Kong–Sun–Wang arXiv:2505.02336v2, periodic-pattern growth and finite prefix counts"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "N_m is the extendible (2m+1)-prefix count: every legal prefix has a legal continuation because each time forbids only one pair. The temporal overlap code is d,e,d,e,…, exactly the b>=3 specialization of Resultary f19d7b26fc6b, not just a related motif.",
+          "A stationary union of two cylinder holes on the original shift is not equivalent. Binary static exclusion of 00 and 11 leaves two strings at each length, whereas alternating them leaves 2(m+1) strings at length 2m+1. Augmenting by parity, or blocking two digits and treating inter-block constraints, gives a standard larger stationary count model."
+        ],
+        "reasoning": "Credit exact coverage of the finite counts on b>=3 by the later prefix-census formula. A fixed-word theorem can provide a method on a time-augmented shift, but the original simultaneous union is not an equivalent special case, and the general formalism does not supply the explicit strict phase hierarchy without analysis of the overlap-dependent coefficients.",
+        "searches": [
+          "Resultary arbitrary moving two-digit holes with overlap-code prefix census; binary alternating 00 and 11",
+          "Cheriyath–Agarwal arXiv:1905.11767 Thms. 2.1, 2.3 and Remarks 2.4–2.6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary f19d7b26fc6b Finding gives the exact trace/determinant table at period two. Resultary ae0aa2f134e9 and 91c8d26540fd give n+2 binary words after n perfectly alternating 00/11 tests, hence the same fastest-class law. Resultary c56fa32ae4c6 gives exact parity laws for a two-state Markov initial law; its uniform i.i.d. specialization agrees. All are later-indexed comparators."
+        ],
+        "reasoning": "The exact match for 00/11 extends to the full binary no-overlap class by independently swapping bit labels at even and odd digit positions so the even hole is 00 and the odd hole is 11. It is not an exact census for classes with at least one overlap. Indexed dates are reported separately from actual match and do not certify historical priority.",
+        "searches": [
+          "Resultary moving two-digit holes period-two table f19d7b26fc6b; binary alternation ae0aa2f134e9, 91c8d26540fd and c56fa32ae4c6"
+        ]
+      },
+      "rationale": "The supported distinction from the preceding moving-hole literature is the strict all-base coefficientwise survival hierarchy, including the starting-phase effect even when rates coincide, and the exact critical binary correction beyond the b>=3 theory. Do not credit the standard count-by-transfer-product or the b>=3 periodic-pattern growth framework as original. Much of the narrower result is now a direct corollary of a later-indexed exact formula; the binary alternation law is also separately present in later indexed records. These are real coverage relations, not independent novelty for the overlapping formulas or evidence that they preceded the frozen result. In the inspected earlier sources the explicit phase hierarchy and all-base correction were not established.",
+      "residual_risks": [
+        "An earlier equivalent explicit rank-two classification or phase-order theorem could exist in the wider temporal symbolic-dynamics literature.",
+        "Later indexed exact specializations materially cover overlapping parts of this result. Their catalog dates alone cannot prove historical order of discovery."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact agreement at the full transition-product level for b>=3, plus periodic-growth framework, but not the explicit coefficientwise result",
+          "evidence": [
+            "Lemma 2.3 takes the entry-sum norm of the product indexed by forbidden words; Thm. 1.8 uses periodic progressive overlap and totally distinct blocks, giving Ahlfors dimension from growth."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2505.02336v2",
+          "material_read": "Theorem 1.8 and its hypotheses at offsets 23650–28030; Lemma 2.3 with proof at offsets 43300–46799",
+          "method": "OA literal location and bounded passage comparison",
+          "title": "Open dynamical systems with a moving hole",
+          "trigger": "Earlier same-object moving-cylinder count and overlap patterns"
+        },
+        {
+          "assessment": "Demonstrable stronger count formula and equivalent period-two spectral formulas for b>=3; separate from earlier priority",
+          "evidence": [
+            "Same trace/determinant table, full prefix counts through H_b(delta); b=2 is expressly excluded. Its relationship section credits the prior periodic-pattern dimension framework."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-complete-overlap-code-classification-of-moving-two-digit-holes--f19d7b26fc6b",
+          "material_read": "Finding and proof factorization offsets 0–4306, comparison/limitations offsets 7560–10018",
+          "method": "Resultary search and local exact passage comparison",
+          "title": "Complete overlap-code classification of moving two-digit holes",
+          "trigger": "Exact same prefix counts and period-two spectral classification as a special case"
+        },
+        {
+          "assessment": "Exact coverage of the binary no-overlap law in later indexed records, not of the full theorem",
+          "evidence": [
+            "ae0aa2f134e9 and 91c8d26540fd give n+2 admissible words for alternating 00/11; c56fa32ae4c6 gives parity formulas under positive Markov measures."
+          ],
+          "identifier_or_url": "Resultary ae0aa2f134e9; 91c8d26540fd; c56fa32ae4c6",
+          "material_read": "Mirrored Findings starting at offset 0",
+          "method": "Resultary search and statement-level mirror comparison",
+          "title": "Binary moving-hole exact comparisons",
+          "trigger": "Exact binary law and parity-sensitive initial-measure variation"
+        },
+        {
+          "assessment": "Fixed forbidden-word collections; standard method but different direct problem",
+          "evidence": [
+            "Theorem 2.3 gives a rational generating function via fixed word correlation polynomials."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1905.11767",
+          "material_read": "Theorems 2.1, 2.3 and Remarks 2.4–2.6; printed pp. 4–5 and offsets 14000–19485 for the generating-function passage",
+          "method": "OA PDF exact theorem comparison",
+          "title": "Subshifts of Finite Type with a Hole",
+          "trigger": "Word-overlap rational function theory"
+        },
+        {
+          "assessment": "Different time dependence and approximations",
+          "evidence": [
+            "The model uses sinusoidally changing hole geometry and the abstract describes Ulam calculation and overlap-based analysis."
+          ],
+          "identifier_or_url": "https://people.maths.bris.ac.uk/~macpd/brazil/pre14.pdf",
+          "material_read": "Abstract and moving-hole model (PDF text offsets 0 and 9000)",
+          "method": "OA PDF passage comparison",
+          "title": "Escape through a time-dependent hole in the doubling map",
+          "trigger": "Prior periodically moving holes"
+        },
+        {
+          "assessment": "Static hole, not phase-specific periodic survival",
+          "evidence": [
+            "Equations give an exact leading eigenvalue in terms of static periodic-orbit data."
+          ],
+          "identifier_or_url": "https://people.maths.bris.ac.uk/~macpd/georgiou/avesc.pdf",
+          "material_read": "Printed pp. 4–5, Eqs. (8)–(9), offsets 22000–25677",
+          "method": "OA PDF passage comparison",
+          "title": "Faster than expected escape for a class of fully chaotic maps",
+          "trigger": "Exact spectral formulas for Markov holes"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Finite survival has a strict phase dependence invisible in the all-time escape exponent; it matters already after two tests and the complete four-class ordering starts at four tests, on even horizons. The binary critical class also exhibits a genuine polynomial correction where a simple-root law would mislead. This gives usable information about moving-hole experiments beyond the choice of transfer representation or numerical examples.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

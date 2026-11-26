@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:22:42.754776Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In the one-spike model the restricted maximizer in K=span(v,W) is ±P_K e/||P_K e|| because the objective on the unit sphere is λ_-+(λ_+−λ_-)|eᵀz|² and the starting overlap is nonzero. Write e=cv+sqrt(1−c²)w with w unit in the tangent space. Orthogonality gives exactly Δ_new/Δ_old=1−||P_Ww||². With a Haar s-plane in dimension m, the complement projection has the law X/(X+Y), for independent X~χ²_(m−s) and Y~χ²_s. For s<m this keeps the gap positive almost surely at each finite step, and overlap cannot vanish. Conditional on the whole past, each ratio law depends only on the chosen deterministic size, proving independence (and identical laws for constant s). The beta integral gives the stated gamma ratio on p>−(m−s)/2; its derivative at zero is the integrable mean log-ratio, so the strong law gives the digamma rate. For s=m the span is all space and the gap vanishes on that step; no ratios are needed after termination. The reduced Gram matrix uses only cached Av and the new forward images, and the next cached image is their linear combination. Therefore the counted cost is exactly Σs_j and expected factors multiply. Replacing a split a,b by a+b removes the positive ab/m² term; all other factors of a genuine split are positive when the total is ≤m. This gives strict uniqueness for a genuine split and the full-budget zero gap. The one-block mean and variance give its proportional-size concentration. As an independent check of the serial limit, the first two moments of a single-direction factor are (m−1)/m and (m−1)(m+1)/(m(m+2)); raising them to s powers for s/m→θ gives e^(−θ) and e^(−2θ), hence L² convergence of the serial product. For s=m−1, the chi-square representation and (X+Y)/m→1 give the stated χ²_1 limit and the serial mean comparison is asymptotic to e/m. The frozen verifier was inspected, not executed; its bounded numerical checks do not supply the universal assertions.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first paper already gives the exact tangent line-search algorithm and treats convergence. Bresch–Melnyk give local expected contraction and a two-level rank-one example with the same s=1 mean (when the two spectral intervals coincide); their first-public date was later than October 26. Resultary 83de67fd9bae gives a beta law and independent fixed-horizon limiting products for repeated top eigenspaces with single-plane trials as the initial error tends to zero."
+        ],
+        "reasoning": "A mean contraction does not determine a finite-horizon product distribution. A repeated-top small-error limit does not mechanically imply the simple-top exact law at every admissible finite initial error or the allocation comparison. General applicability of a solver is not general coverage of these exact laws.",
+        "searches": [
+          "arXiv:2410.08297v3 §2.1",
+          "arXiv:2610.42071v1 Theorem 1.2 and Example 2.4",
+          "2026/11/8/SCOPE-codimension-only-beta-law-for-random-plane-ascent-with-a-repeate--83de67fd9bae/RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "arXiv:2410.08297v3 §§2.1 and sampling passages",
+        "arXiv:2512.05520v2 Algorithm 2 and §8.6",
+        "arXiv:2610.42071v1 Theorem 1.2 and Example 2.4",
+        "Resultary records 7d8eafad6f60 and 83de67fd9bae"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior multi-vector paper gives reduced matrices, numerical solution and error/runtime comparisons. It does not give a one-spike residual-to-tangent-projection identity. The later exact mean example is for a sequence of one-direction steps. The standard beta projection law applies to a fixed unit tangent direction."
+        ],
+        "reasoning": "For exact adaptive laws one must first identify the normalized residual for each current state, including near the optimum, then use conditional invariance given the full history to get independent factors. The budget comparison additionally hinges on recycling each forward image and accounting for only new applications; optimizing the resulting formula does not compare elapsed runtimes. The rank-one projection and merge algebra are elementary but give a different, explicit finite resource theorem, not a parameter substitution in the earlier solver or mean formula.",
+        "searches": [
+          "Focused primary-literature search: spiked random tangent Rayleigh–Ritz exact beta product and forward-evaluation budget",
+          "arXiv:2512.05520v2 §8.6 and Algorithm 2",
+          "arXiv:2610.42071v1 Example 2.4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In the Euclidean case of §8.6 the span of the independently projected and normalized Gaussian tangent samples is a Haar subspace, so its Ritz update is the same one after identifying the symmetric operator with AᵀA. The exact initial-error and one-direction gap law in the later 7d8eafad6f60 passage has shapes ((d−2)/2,1/2) and the same product moments."
+        ],
+        "reasoning": "Sampling an orthonormal Haar frame is not a new algorithm compared to sampling Gaussian directions and taking their span. The later exact law does match the s=1 specialization, but is not an all-s law and does not establish priority over the frozen record.",
+        "searches": [
+          "Resultary: spiked random plane Rayleigh–Ritz beta gap law and optimal block budget",
+          "arXiv:2512.05520v2 §8.6 and Algorithm 2",
+          "2026/11/8/SCOPE-sharp-dimension-scale-large-deviations-for-spiked-random-plane-r--7d8eafad6f60/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Figure 8 gives empirical mean error curves for selected dimensions and sample sizes on random matrices, versus iteration or wall time. The November 8 large-deviation record supplies exact one-direction moments at every finite horizon as an input to an asymptotic deviation theorem."
+        ],
+        "reasoning": "The experimental curves are not an exact dataset for the one-spike partition problem. Exact s=1 moments give a baseline, not the expectation for a genuinely larger block or a mixed partition. No checked exact catalog table or theorem supplies those together.",
+        "searches": [
+          "Resultary: one-spike exact gap moments, finite-query budgets and multi-vector Rayleigh–Ritz",
+          "arXiv:2512.05520v2 §8.6 Figure 8",
+          "Resultary 7d8eafad6f60 Finding"
+        ]
+      },
+      "rationale": "Credit the exact all-block adaptive product law with the strict all-partition forward-product comparison, not the already published block algorithm or the standard Haar projection distribution. Prior observations about iteration and runtime performance concern a different cost comparison; the strongest exact catalog match treats a single direction and is later. No inspected earlier source gives the exact state-independent adaptive gap law for every block size and the resulting optimal allocation under this budget.",
+      "residual_risks": [
+        "The focused literature query did not return additional substantive candidates; this is not evidence of universal priority. A previously worked one-spike specialization of the standard Haar law and earlier block method could overlap.",
+        "The comparison is confined to exact arithmetic, the real one-spike spectrum, deterministic budgets up to m new forward applications, cached images, and the stated expected-gap objective; neither wall time nor other spectra are covered."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identical block optimization in the Euclidean specialization; no exact one-spike budget law in the inspected material",
+          "evidence": "Ritz optimization on span{v,x^1,…,x^m}; samples as in Algorithm 2; discusses performance versus an averaged-direction method and subproblem costs.",
+          "identifier_or_url": "https://arxiv.org/html/2512.05520v2",
+          "material_read": "Algorithm 2 at offset 26427; §8.6 at offset 87405, including reduced eigenproblem and Figure 8 discussion",
+          "method": "Original OA HTML passages",
+          "title": "Stochastic Zeroth-Order Method for Computing Generalized Rayleigh Quotients",
+          "trigger": "Strongest prior algorithm overlap for tangent blocks"
+        },
+        {
+          "assessment": "Prior one-direction algorithm, not an inspected exact all-block result",
+          "evidence": "Normalized Gaussian tangent direction, forward images and exact two-dimensional optimization.",
+          "identifier_or_url": "https://arxiv.org/html/2410.08297v3",
+          "material_read": "Tangent sampling passage at offset 24600 and §2.1 Algorithm 1 at offset 30317",
+          "method": "Original OA HTML passages",
+          "title": "Matrix-free stochastic calculation of operator norms without using adjoints",
+          "trigger": "Same adjoint-free line search at s=1"
+        },
+        {
+          "assessment": "Matches s=1 expected gap in the rank-one setting at equal gap/width; later and not all-block",
+          "evidence": "Expected gap ratio after k one-direction steps is (1−δ/[Δ(d−1)])^k in the example.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.42071v1",
+          "material_read": "Theorem 1.2 p. 5 (offset 14585), Example 2.4 pp. 8–9 (offset 25691) and date on title page",
+          "method": "Original OA PDF passages",
+          "title": "Bresch–Melnyk local expected contraction analysis",
+          "trigger": "Potential exact rank-one gap-law overlap"
+        },
+        {
+          "assessment": "Later exact one-direction overlap, with additional large-deviation result",
+          "evidence": "IID Beta((d−2)/2,1/2) factors and exact moments; no arbitrary-batch resource optimum.",
+          "identifier_or_url": "2026/11/8/SCOPE-sharp-dimension-scale-large-deviations-for-spiked-random-plane-r--7d8eafad6f60/RESULT.md",
+          "material_read": "Finding and proof input of the exact finite-dimensional law, offsets 0–4964",
+          "method": "Resultary search and local-mirror passage",
+          "title": "Sharp dimension-scale large deviations for spiked random-plane Rayleigh ascent",
+          "trigger": "Closest exact law in the catalog"
+        },
+        {
+          "assessment": "Different multiplicity and a local limit rather than the claimed exact finite-error law",
+          "evidence": "Independent limiting factors at fixed horizon near a repeated top eigenspace for single-plane ascent.",
+          "identifier_or_url": "2026/11/8/SCOPE-codimension-only-beta-law-for-random-plane-ascent-with-a-repeate--83de67fd9bae/RESULT.md",
+          "material_read": "Finding and limiting product discussion, offsets 0 and 4800",
+          "method": "Resultary search and local-mirror passage",
+          "title": "Codimension-only beta law for random-plane ascent with a repeated top eigenspace",
+          "trigger": "Possible stronger spectrum or block-law coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Forward applications are a natural cost when the adjoint is unavailable and applying the forward operator is expensive. The result compares all deterministic groupings of a fixed number of such calls in the benchmark one-spike model, not just a simulation against another method. Strict finite-budget dominance and the order-1/m versus order-one gap near a full block give a concrete, interpretable resource separation. The full product laws quantify variability as well as the mean, without assuming a wall-clock advantage.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

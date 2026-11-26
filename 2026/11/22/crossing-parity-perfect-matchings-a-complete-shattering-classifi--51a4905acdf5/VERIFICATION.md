@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction and verification
+# Independent mathematical audit
 
-Run `python3 verify_parity_matching.py` with Python 3.9 or newer. The script has no third-party dependencies. Its expected exact stdout is in `verification_output.txt`.
+## correctness
 
-The script generates every perfect matching of six, eight and ten vertices (also four for boundary checking), computes crossing parity from explicit endpoint interlacing, and tests every binary labeling of every partial-matching support of size at most one less than the number of pairs. It checks the proposed characterization and coefficients without calling the formulas to decide shattering. There are 18,556 support/parity comparisons and 76 small forbidden-matching extension tests.
+PASS
 
-Proof obligations for arbitrary orders are discharged by the three-pair parity-avoidance base and induction, the fixed-four-vertex switch parity rule, and the isolated-chord signed Pfaffian expansion in `RESULT.md`; finite runs cannot independently certify the universal quantifiers. The six-vertex lemma's inclusion-exclusion counts and the proof that at least one positive-sign matching contains any given chord are spelled out there. The standalone script is a consistency check only. External independent mathematical audit has not been performed.
+All-positive labels require a matching, and a full matching fails a single-edge flip. Fixing any positive submatching multiplies the crossing sign of a completion by a constant: for each fixed chord, its crossings with free chords have parity equal to the number of free endpoints on one arc. Thus the local four-endpoint signs are +,−,+ even in the presence of fixed edges. For the six-endpoint avoidance lemma the two class sizes are 8 and 7 (their signed sum is 1 by the all-ones-upper-triangle Pfaffian). Inclusion–exclusion leaves at least 10 avoiders for one or two forbidden edges (15 for zero), and 8 for three; in the last case at least one positive matching is excluded because each forbidden chord extends to a positive matching on six endpoints. Fixing an allowed edge then inducts to more endpoints. This handles every labeling leaving at least six endpoints; with four and no forbiddens both signs occur. For size n−1 supports, all-positive forces the completion and each single-label flip reduces to the four-point switch: there is a sign-preserving alternative exactly when the omitted edge does not cross the flipped edge. The omitted edge is uniquely determined and must divide the remaining endpoints into even arcs. For each such chord the unsigned count is the product of the two double factorials and the signed count is 1 (the arc Pfaffian expansion alternates to 1 on each arc). Summing over odd endpoint differences gives the stated L_n and n² difference. A polygon side can be omitted in a matching of either sign for n≥3, while the only negative matching at n=2 has no shattered singleton. The resulting dimensions and the example coefficients agree.
+
+## originality
+
+PASS
+
+The parity-constrained trace problem is distinct from noncrossing matching shattering, ordinary crossing-count enumeration, and shattering on a host with deleted edges. The full two-class criterion and its top-coefficient difference survive those comparisons. Neither the Pfaffian sign nor the positive-class lower bound supplied by the noncrossing subclass is new.
+
+## value
+
+PASS
+
+This gives a complete trace classification for two natural sign classes, not only a common dimension. It locates the obstruction exactly at one missing pair and measures the imbalance at that degree, while showing that parity cannot distinguish their lower-dimensional face counts. The exact signed count is useful for comparing the two classes and is not determined by their unrestricted class sizes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

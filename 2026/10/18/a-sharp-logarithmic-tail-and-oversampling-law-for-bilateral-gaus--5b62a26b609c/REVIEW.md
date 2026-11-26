@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The rank-two exterior-product identity gives the exact finite-gap formula \(D_\varepsilon=\sqrt{\Delta_G\Delta_H}/\sigma_1(B_\varepsilon)^2\); singular-value continuity and conditional Gaussian rotation yield independent chi ratios. Their ratio density and gamma moments were derived by explicit integrals. Tail splitting proves both unequal-exponent and equal-exponent (logarithmic) constants, not just heuristic regular variation. Fatou proves the divergent finite-gap normalized moment boundary. The reproducible verifier checks 1520 exact-identity and numerical assertions, supplementary to the proof.
+## correctness
 
-**Originality — PASS with explicit priority risk.** Inspected Meier–Nakatsukasa (arXiv:2105.07388) studies high-probability preservation, practical two-sided rank estimates and oversampling without the exact weak-gap distribution or log-tail constants. Inspected Akemann–Ipsen–Kieburg (arXiv:1307.7560) treats complex undeformed Gaussian products, not this real fixed-rank weak-gap limit. Burda et al. (arXiv:1007.3594) address large-dimensional undeformed products; only the abstract was read, so this source is not treated as comprehensively excluded. Searches also compared Gaussian-product and near-rank-one aliases, previously recorded research claims, and available mathematical records. An equivalent real product-matrix or compound-Wishart result could exist under different language, and independent priority confirmation has not occurred.
+PASS
 
-**Value — PASS.** In the minimum nontrivial singular-gap example motivating numerical-rank detection, the exact probability tail changes discontinuously in its logarithmic factor between balanced minimal sketches and asymmetric dimensions. Adding an extra row to just one side removes the log factor but not the infinite weak-gap mean square; oversampling **both** sides is necessary and sufficient for finite limiting second moment. This gives a precise, dimension-controlled reliability boundary not implied by generic high-probability embedding guarantees. It does not purport to select practical parameters in general algorithms or describe finite-gap tails uniformly.
+For the fixed Gaussian coupling, the Gram determinant gives sigma_1 sigma_2 = epsilon sqrt(det(G^T G) det(H^T H)), while sigma_1^2 tends to the squared norm of the leading outer product. Each orthogonal residual norm has a conditional chi law independent of the first column norm, and the two sketches are independent. Gamma integration gives the stated ratio density and the moments, with divergence at p=d as well as beyond. For unequal indices, x^s P(T_s>x/T_t | T_t) is dominated by a constant times T_t^s. In the equal-index case the conditional integral over 1<=u<=x/K contains u^d f_d(u)~d c_d/u; the remaining ranges contribute O_K(x^-d), and the relative tail approximation error on the middle range vanishes as K increases. This verifies the logarithmic coefficient. Independent special-case arithmetic gives c_2=1/2, M_3(2)=2, coefficients 1/2 and 1 for (2,2) and (2,3), and second moment 4 for (3,3). Fatou gives the asserted moment blowup along every sequence of positive gaps tending to zero; at a fixed gap the ratio is bounded.
 
-**Residual limitations.** Fixed rank two; real independent Gaussian embeddings; shrinking second singular value; ratio error rather than each singular value; no universal higher-rank or non-Gaussian extension. Potential priority from classical deformed-product random-matrix theory remains; no independent scientific audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge pass for the exact bilateral observed-gap limit and its sharp tails at fixed real sketch dimensions. Neither the closest same-day one-sided angle result nor the inspected two-sided sketching and matrix-product statements covers this statistic and limit. The F distribution, gamma moments and product-tail methods are not new.
+
+## value
+
+PASS
+
+Rank-revealing bilateral sketches motivate the observed gap, and this minimal benchmark identifies separate roles for the two sketch dimensions: adding a row to one side can remove the balanced logarithm without making the limiting second moment finite; both sides must clear the cutoff. The sharp constants quantify the difference, beyond bounds on singular-value order. This is not a practical optimal oversampling rule for arbitrary spectra.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

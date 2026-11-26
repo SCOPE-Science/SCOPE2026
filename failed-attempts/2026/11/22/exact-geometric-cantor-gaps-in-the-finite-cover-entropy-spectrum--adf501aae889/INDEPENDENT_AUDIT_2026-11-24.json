@@ -1,0 +1,150 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:38:07.291687Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md:28–83",
+        "VERIFICATION.md",
+        "check.py",
+        "Baker–Ghenciu, arXiv:1411.7167v1, Proposition 2.1"
+      ],
+      "rationale": "With j denoting zeros, the forbidden word has length j+2, so the length-(N+1) cover permits every j≥N and keeps the original indicator below N. The renewal root equation gives entropy; the root discrepancy at h is exactly r^(N+1) times the bounded complemented tail. The derivative differs from -T by O_alpha(Nr^N), the second derivatives are bounded near h>0, and the root approaches h from above. The mean-value estimate followed by Taylor gives the stated rescaled error. The phase digit sum is a weighted cumulative sum of distinct dense jumps at {-n alpha}. The jump sizes sum to the endpoint span, so there is exactly one gap of each reported size and no others. Density of the positive orbit, also after deleting any finite prefix, recovers both one-sided phase limits, and strict increase gives no isolated image values in the closure. The m+1 prefixes of length m and exponentially bounded tails prove dimension zero. At a missing gap stage the periodic witness is legal before the added ban and illegal after; equivalently the single removal strictly decreases the renewal series at the previous root. This proves strict entropy decrease without a presentation assumption. The frozen checker was inspected, not executed, and its finite diagnostics are not the proof.",
+      "residual_risks": [
+        "The root estimate is for each fixed irrational alpha and does not assert slope-uniform constants."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The lift works for any contraction in (0,1) and any irrational rotation number in (0,1), without needing the special entropy-root choice of r.",
+          "The cited shift work supplies the S-gap entropy equation. The power-gap record uses the same derivative and curvature bounds for the cutoff. The same-day Thue–Morse §2 gives the exact complemented-tail identity and O(Nq^N) normalized error by using only the bound 0≤indicator≤1, cutoff indexing, and a positive entropy root."
+        ],
+        "reasoning": "The required geometric formulas are valid throughout the older lift's parameter range. For the entropy link, let a_d=s_(d-1) and set the distance cutoff L=N+1. The renewal perturbation proofs apply without any new Sturmian estimate, giving the same normalized tail and remainder; the Thue–Morse statement itself is not being treated as an earlier general theorem.",
+        "searches": [
+          "arXiv:1704.05130 §5.1",
+          "Baker–Ghenciu arXiv:1411.7167v1 Proposition 2.1",
+          "Resultary:1fd88ee11f52 proof §§1–3",
+          "Resultary:0567b3a2587f proof §§1–3"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md:43–96",
+        "arXiv:1704.05130 §5.1",
+        "arXiv:2104.09239",
+        "arXiv:1411.7167v1",
+        "Resultary:0567b3a2587f,1fd88ee11f52,be7c0c99809f,0881e8e9b148"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "On [0,1) the n-th floor term of the prior lift jumps once at {n*rho}, by (1-r)r^(n-1), and these locations are distinct and dense. The endpoint span is one. The tail after the first m terms has uniform oscillation at most r^m, so each of at most m+1 pieces of the m-term partial sum gives a covering interval of diameter at most r^m. Dense positive jumps leave both endpoints of every gap nonisolated.",
+          "The cutoff removes only distance L, so the plateau iff a_L=1 and strict renewal-root drop otherwise are independent of the word. The orbit of {N alpha} is dense and yields the two one-sided limits, with no additional limit points."
+        ],
+        "reasoning": "Taking jumps of the published floor series directly yields the exact census, span and dimension; the entropy approximation only prescribes the base and rescales that known formula. The remainder and plateau do not supply a separate result beyond the cutoff renewal argument. There is no unsupported claim here of an earlier verbatim entropic formulation.",
+        "searches": [
+          "Laurent–Nogueira arXiv:1704.05130 §5.1 pp. 11–13",
+          "Resultary:1fd88ee11f52 offsets 3372–8013; Resultary:0567b3a2587f offsets 3800–6471"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Laurent–Nogueira, §5.1, give phi(t)=delta/(1-r)+(1-r) sum_{n>=1} r^(n-1) floor(t-n*rho) and phi(0)=0 for irrational rho. Their limit set is the range on [0,1), with the closure giving the Cantor set.",
+          "The frozen digit map satisfies G(theta)=(1-r) sum_{n>=1} r^(n-1) floor(theta+n*alpha) on [0,1). At rho=1-alpha, floor(theta-n*rho)=floor(theta+n*alpha)-n. The change is a constant, fixed by phi(0)=0, so phi(theta)=G(theta)-G(0)."
+        ],
+        "reasoning": "The attractor is not merely analogous. The cluster set is exactly A-T^(-1) times that range closure, with A=((1-r)^(-1)-G(0))/T (that is, the image under x ↦ A-x/T). The reflected and rescaled gap lengths are direct properties of the same floor series.",
+        "searches": [
+          "Bugeaud–Laurent, arXiv:2104.09239, discounted digit series and references 20–21",
+          "Laurent–Nogueira, arXiv:1704.05130, §5.1 (literal locator '5.1.')"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "0567b3a2587f is a distinct same-day Thue–Morse-indexed gap-shift record with a perfect dimension-zero spectrum, the same normalized-tail mechanism, and the corresponding automatic plateau law. Its statement does not give the exact gap census here.",
+          "1fd88ee11f52 is the earlier power-distance gap record, with a countable spectrum, uniform correction and exact plateaus. be7c0c99809f has a zero-entropy Sturmian language shift and an interval of scaled limits. 0881e8e9b148 treats a zeta function for shifts using Sturmian blocks, not a gap indicator."
+        ],
+        "reasoning": "These records are not exact matches for the Sturmian-allowed integer set. Their differing accumulation sets do not settle originality either way. The exact geometric coverage comes from the primary contracted-rotation formula, not from guessing order among the listed catalogue hits.",
+        "searches": [
+          "Local Resultary semantic lookup for finite-cover normalized entropy errors and Cantor spectra of gap shifts",
+          "Resultary mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4"
+        ]
+      },
+      "rationale": "The apparent distinguishing result, the complete geometric Cantor gap census, is mechanically obtained from a previously published identical phase function. Laurent–Nogueira's irrational contracted-rotation lift in §5.1 equals G(theta)-G(0) after substituting their contraction parameter r and their rotation number 1-alpha. Its floor terms have one jump each of precisely the requisite geometric size; the normalized entropy spectrum is just its closed range reflected, translated and scaled. The cutoff renewal calculation that gives this affine substitution is the same general bounded-tail Taylor calculation already used in the geometric-gap and Thue–Morse analogues, and the plateau rule is the generic cutoff rule. This is verified implication for the distinctive geometry, not an assertion that an earlier paper stated the Sturmian entropy theorem verbatim, and not a verdict based on a missing text or inferred same-day precedence.",
+      "residual_risks": [
+        "No exhaustive priority claim is made about the specific entropy-language interpretation. Laurent–Nogueira's 2021 Hecke–Mahler paper was identified by reference, not relied on for the implication; the 2018 full-text series suffices."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact equivalent phase map; its series directly implies the geometrical data",
+          "evidence": [
+            "The series for phi, conditions (C1)–(C3), the range parametrization and exponential orbit approximation are in §5.1. Use rho=1-alpha and subtract the value at zero."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1704.05130",
+          "material_read": "Cantor-set description p. 2, §5.1 pp. 11–13, offsets 2851–3350 and 41494–47980",
+          "method": "OA PDF literal locators and bounded passage reading",
+          "title": "Rotation number of contracted rotations",
+          "trigger": "Plausibly identical Sturmian phase map and Cantor closure"
+        },
+        {
+          "assessment": "Adjacent digit-map formulation; inspected main result concerns continued fractions",
+          "evidence": [
+            "Introduces discounted binary mechanical digits and cites Laurent–Nogueira's 2018 and 2021 papers."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2104.09239",
+          "material_read": "pp. 1, 5–6, offsets 0, 13500 and 15500; references on p. 44 at offset 121700",
+          "method": "Targeted OA PDF passages",
+          "title": "Combinatorial structure of Sturmian words and continued fraction expansions of Sturmian numbers",
+          "trigger": "Discounted Sturmian digit expansions and references to contracted rotations"
+        },
+        {
+          "assessment": "General entropy equation, not the cluster-set geometry",
+          "evidence": [
+            "Entropy is the log of the unique renewal-series root."
+          ],
+          "identifier_or_url": "arXiv:1411.7167v1",
+          "material_read": "Proposition 2.1 §2.1, p. 4, extracted offset 9500",
+          "method": "Targeted OA passage",
+          "title": "Dynamical properties of S-gap shifts and other shift spaces",
+          "trigger": "Underlying S-gap return-root formula"
+        },
+        {
+          "assessment": "Same perturbative mechanism, distinct sparse-gap spectrum",
+          "evidence": [
+            "Exact geometric-tail-minus-allowed-tail difference, derivative error O(n lambda^(-n)), then uniform Taylor expansion and countable limit phases."
+          ],
+          "identifier_or_url": "Resultary:1fd88ee11f52",
+          "material_read": "Original finding and proof §§1–4, offsets 3372–8013",
+          "method": "Local Resultary mirror",
+          "title": "A countable entropy-phase spectrum in finite-type covers of geometric gap shifts",
+          "trigger": "Earlier entropy cover correction with the same cutoff and root calculation"
+        },
+        {
+          "assessment": "Overlapping reusable entropy-tail proof, not an identical geometric census",
+          "evidence": [
+            "Uses the same uniform root calculation and symbolic orbit-closure mapping; the indicator and base are different."
+          ],
+          "identifier_or_url": "Resultary:0567b3a2587f",
+          "material_read": "Original finding and proof §§2–3 at offsets 3800–6471",
+          "method": "Local Resultary mirror",
+          "title": "A Cantor spectrum of normalized entropy errors for Thue–Morse gap shifts",
+          "trigger": "Strongest distinct same-day entropy spectrum"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md:3–26,31–83",
+        "Laurent–Nogueira arXiv:1704.05130 §5.1",
+        "Resultary:1fd88ee11f52,0567b3a2587f"
+      ],
+      "rationale": "This is a correct illustration of a contracted-rotation Cantor set arising in entropy approximation, but the narrow exact invariant does not survive as a substantive standalone result under the review standard. The number and sizes of the gaps are just the jump weights of the identical prior phase map with an explicit affine change of units. The remaining entropy-tail and plateau calculations use only the standard gap cutoff and root perturbation, not a new restriction, invariant, or estimate that distinguishes this indicator. Narrowing the finding to those calculations would not repair this issue.",
+      "residual_risks": [
+        "The connection can be useful exposition; the decision is about the standalone claimed exact result, not the usefulness of entropy asymptotics generally."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

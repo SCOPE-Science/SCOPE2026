@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:05:30.911376Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The root-inequality body is the union of a central side-one cube and eight coordinate pyramids of volume 1/8 each, with vertices exactly the eight signed axes and sixteen half-cube corners. It contains the actual Voronoi cell by the root inequalities and has its covolume 2, hence equals it. Strict convexity localizes the endpoint at the vertices, which are transitive under signed permutations and a half-Hadamard matrix (the latter preserves the roots). At e1 the cap coordinates (1−s,su) have Jacobian s³ and squared radius 1−2s+(1+U)s². The small quadratic root cuts off each ray uniformly for small epsilon, giving 24 caps divided by volume 2, i.e. 3∫t⁴. For an independent Taylor check put q=epsilon−epsilon²/2, A=(1+U)/2; t=q+At² so by elementary series substitution t⁴=q⁴+4Aq⁵+14A²q⁶+O(q⁷). The uniform cube moments E[A]=1, E[A²]=16/15 give 24, 48, 772/5 on converting from q. The root has a complex analytic branch uniformly near zero for all U in [0,3]; rational polynomial coefficients integrate to rational numbers. Continuity of the radial law and independence give the stated maximum limit, including t=0. The equal-unit-radius cube has sixteen corner caps, each with leading volume (2 epsilon)^4/4! and hence total coefficient 32/3; the ratio is 9/4 only in the stated common-radius comparison, with volumes 2 and 1. Frozen checker inspected, not executed; the argument is local, not a full radial CDF.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "0c95835f8670 covers 0<q<1/4 and gives explicit general series coefficients and the degree-seven term.",
+          "Hamprecht–Agrell plot the same radial distribution; the inspected sections do not state an analytic full-interval formula. Liu optimizes a normalized second moment; Ordentlich provides general spherical-CDF context/bounds."
+        ],
+        "reasoning": "The earlier indexed interval and series are sufficient on their own to cover the local theorem. No claim of full CDF coverage at every radius is needed or justified by the plot.",
+        "searches": [
+          "Resultary 0c95835f8670 Finding and Assumptions",
+          "Hamprecht–Agrell §13.5.3 and Fig. 13.8",
+          "Ordentlich arXiv:2506.19791 and Liu arXiv:2611.00100"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 0c95835f8670",
+        "Resultary b19b8d2a491d",
+        "Hamprecht–Agrell (2003) §13.5.3/Fig. 13.8",
+        "arXiv:2506.19791",
+        "arXiv:2611.00100",
+        "Conway–Sloane 1982 DOI:10.1109/TIT.1982.1056483"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Substitute q=2epsilon−epsilon² in (3/2)q⁴+3q⁵+(28/5)q⁶+O(q⁷); the epsilon⁴–epsilon⁶ terms are 24, 48, 772/5. The explicit q coefficient formula gives the convergent epsilon series by composition and also recovers the exact integral.",
+          "An iid maximum survival function is a power of the one-point CDF. In the cube the first-order corner cut is an elementary simplex; the ratio follows by division."
+        ],
+        "reasoning": "The core new claim is a reparametrization of exact existing coverage. Neither the standard iid corollary nor the elementary cube calculation establishes a substantive distinct remainder.",
+        "searches": [
+          "Resultary 0c95835f8670 original Finding at offset 0 and stated normalization",
+          "Frozen Finding and proof of cube and iid consequences"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Uniform-in-cell radial error, the complement of the Voronoi spherical CDF, and nearest-lattice-distance tail describe the same variable here.",
+          "0c95835f8670 uses the squared deficit q, not ordinary radius deficit epsilon; both select the same event under q=2epsilon−epsilon²."
+        ],
+        "reasoning": "The radius-squared alias is not a different statistic. In particular the two small-root integrands become literally identical at the same u after substitution.",
+        "searches": [
+          "Resultary D4 radial/deep-hole tail, 24-cell Voronoi spherical CDF, endpoint coefficients and cap integral",
+          "Resultary 0c95835f8670 original Finding",
+          "Ordentlich arXiv:2506.19791, PDF pp. 2–3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact squared-deficit coefficients 3/2, 3, 28/5 and 76/7 are printed in the distinct record 0c95835f8670 and not an identity hit for this submission.",
+          "The distinct same-date b19b8d2a491d deals with interior moments and fourth/sixth tensors, not with endpoint coefficients."
+        ],
+        "reasoning": "The earlier coefficient table gives the frozen numbers after change of variables; unlike the full-range plot and the tensor tables this is exact coverage.",
+        "searches": [
+          "Local Resultary near-circumradius D4 radial-tail terms and squared-deficit aliases",
+          "Original indexed 0c95835f8670 exact coefficient series",
+          "Resultary b19b8d2a491d exact tensor record"
+        ]
+      },
+      "rationale": "Distinct indexed record 0c95835f8670 is an exact same-cell, same-measure, same-event antecedent under q=1−(1−epsilon)^2. It gives the identical integral with an explicit interval and a more detailed convergent rational series, from which the three frozen coefficients follow algebraically. The iid limit and cube ratio add only standard consequences. This is demonstrated coverage rather than an inference of priority from a date or a claim of external historical exhaustiveness.",
+      "residual_risks": [
+        "No claim of exhaustive full-CDF literature coverage or adjudication of relative priority. That limitation does not weaken the exact indexed endpoint equivalence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EXACT_COVERAGE_UNDER_REPARAMETRIZATION",
+          "evidence": [
+            "Exact 3∫[q/(1+√(1−q(1+Σu²)))]⁴ on 0<q<1/4, with explicit rational coefficient formula."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-exact-deep-hole-radial-tail-of-the-d-4-voronoi-24-cell--0c95835f8670/RESULT.md",
+          "material_read": "Finding, Assumptions and initial cap proof, offsets 0–3570",
+          "method": "Configured local mirror; matched events, normalization and series",
+          "title": "Exact deep-hole radial tail of the D4 Voronoi 24-cell",
+          "trigger": "Exact same-object upper-tail similarity; potential normalization difference"
+        },
+        {
+          "assessment": "SAME_STATISTIC_PLOTTED",
+          "evidence": [
+            "Defines the radial measure as volume fraction beyond radius r and plots it for D4 among other lattices."
+          ],
+          "identifier_or_url": "https://research.chalmers.se/publication/14989/file/14989_Fulltext.pdf",
+          "material_read": "§13.5.3 and Fig. 13.8, printed pp. 14–16; offsets near 39400 and 44600",
+          "method": "Bounded OA PDF extraction, relevant definition and caption",
+          "title": "Exploring a space of materials: Spatial sampling design and subset selection",
+          "trigger": "Primary same-D4 radial curve"
+        },
+        {
+          "assessment": "CDF_CONTEXT_NOT_THE_DECISIVE_EXACT_TAIL",
+          "evidence": [
+            "Defines g_L as the uniform-cell radius CDF and credits the prior plotted D4 complement."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2506.19791",
+          "material_read": "PDF pp. 2–3, offsets 16900–20485",
+          "method": "Bounded OA PDF extraction",
+          "title": "The Voronoi Spherical CDF for Lattices and Linear Codes: New Bounds for Quantization and Coding",
+          "trigger": "Alias and possible broader CDF theorem"
+        },
+        {
+          "assessment": "SECOND_MOMENT_ONLY_FOR_THIS_COMPARISON",
+          "evidence": [
+            "G(D4)=13/(120√2) is the normalized second moment, not an endpoint law."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2611.00100",
+          "material_read": "PDF p. 1, offsets 1700–5751, Theorem A",
+          "method": "Bounded OA PDF extraction",
+          "title": "Optimality of the D4 Lattice Quantizer",
+          "trigger": "Recent strong theorem for same quantizer"
+        },
+        {
+          "assessment": "GEOMETRY_AND_MOMENT_BACKGROUND",
+          "evidence": [
+            "D4 is in the dimension-four lattice quantizer table; the inspected passages concern geometry and second moments."
+          ],
+          "identifier_or_url": "https://neilsloane.com/doc/Me82.pdf",
+          "material_read": "OA abstract/section summary and dimension-four quantizer table, offsets near 0, 8200 and 97141",
+          "method": "Author-hosted OA PDF",
+          "title": "Voronoi regions of lattices, second moments of polytopes, and quantization",
+          "trigger": "Classical source for cell and moments"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Endpoint quantizer calibration is worthwhile in itself, but the claimed new numerical terms and analytic integral are mechanically derived from the same-cell exact tail. The routine iid limiting law and elementary common-radius cube coefficient do not give a substantive distinct invariant that survives this overlap.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

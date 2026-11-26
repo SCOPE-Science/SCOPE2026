@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:09:46.284952Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–55; VERIFICATION.md, both verifier sources and the recorded outputs (frozen code inspected, not executed)",
+        "Independent replay: python3 /workspace/reproductions/pappus_review.py"
+      ],
+      "rationale": "The affine incidence graph has nine vertices on each shore, degree three, and 27 edges. Closed neighborhoods have size four, so four vertices cannot dominate. For five vertices with t points, point coverage forces t<=3 and line coverage forces t>=2. With three points, two selected lines must cover six different unselected points; thus they are parallel and the three points fill the omitted line. With two points, the six retained lines they meet must be distinct and disjoint from the three selected lines; the two points lie on one removed-direction line and the three remaining lines meet at its third point. Both forms dominate. Each vertex occurs five times, and line/point geometry gives 0 for 27 incident pairs, 1 for 72 same-shore pairs and 2 for 54 cross-shore nonedges. The four pair-trace counts are c,5-c,5-c,8+c; every triple contains a same-shore pair and cannot realize both extensions where that pair is positive. The one-skeleton is connected (each shore is a clique and there are 54 cross-shore edges), so contracting a spanning tree gives a homotopy equivalence to a wedge of 109 circles. The frozen proof's phrase 'deformation-retracts' is too strong literally; tree contraction gives the claimed homotopy equivalence, which is the Finding. The root positive branch has only five hypotheses, excluding depth four. For depth three, a point root, followed by a nonincident line on yes and an incident line on no, leaves four groups of sizes 2,3,5,8, each separable by some third query. An independent LCF replay confirmed the affine isomorphism, exhausted all 12,616 subsets through size five, and checked all queried supports through size three and the exact adaptive dimension by recursion on version spaces.",
+      "residual_risks": [
+        "The homotopy conclusion is not a claim that the wedge is an embedded deformation retract. The result concerns this graph and ordinary minimum-cardinality domination only."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The locating-domination result builds a graph on eighteen size-six sets, joining sets meeting in four vertices. The Heawood result gives the complement-edge complex and VC/Ldim 2/3 for a different graph. Stroppel's eighteen polarities are maps; the cyclic-cover table is a graph classification. Theorem 8 of Balbuena–Foucaud–Hansberg gives a general locating-domination bound of half the order, not this optimum design."
+        ],
+        "reasoning": "Neither the alternate constraints nor Heawood's analogous theorem specializes to the Pappus ordinary optimum membership class. The geometry/cover results identify background objects but not these five-sets.",
+        "searches": [
+          "Resultary 2026/10/18, 1c34b9cc3820; same-day Heawood shattering record e9b5f8960619",
+          "Stroppel 2018, p. 269; arXiv:2003.05186 Table 1; arXiv:1407.7263v2 Theorem 8"
+        ]
+      },
+      "checked_sources": [
+        "Resultary b2c8ce57e775, 1c34b9cc3820 and e9b5f8960619",
+        "Stroppel 2018 p. 269",
+        "arXiv:2003.05186 Table 1",
+        "arXiv:1407.7263v2 Theorem 8",
+        "DOI 10.5614/ejgta.2022.10.1.25 (limited access)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For the shared five-set family, symmetry and row weight five give column frequency five. Pair trace counts then depend only on concurrence; same-shore concurrence one forbids triples. For a root positive split, concurrence two with a nonincident line gives 2/3; for its negative split, concurrence zero with an incident line gives 5/8."
+        ],
+        "reasoning": "From the overlapping metric family and table, taking positive concurrence recovers all 126 shattered pairs, zero recovers adjacency, and the connected complement graph gives 109 circles. The displayed split counts certify depth three via distinctness of hypotheses, and the frequency five excludes depth four. These are direct deductions, not implications drawn from the scalar number 18 or from the six-set reconstruction.",
+        "searches": [
+          "Resultary b2c8ce57e775, Finding and Proof §3",
+          "Resultary 1c34b9cc3820, Finding and reconstruction relation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The odd-domination Finding gives S_v=N(v) union the two distance-four vertices. For a point center these two vertices are the other points on its removed-direction line, and for a line center they are its two parallel lines. Thus the two affine constructions are precisely these S_v.",
+          "The comparator states the ordinary minimum count of eighteen, and the eighteen odd five-sets are all ordinary five-sets."
+        ],
+        "reasoning": "The stronger feasibility predicate alone would not establish ordinary exhaustiveness, but the explicit ordinary census plus the exhibited 18 odd five-sets establishes exact equality. The two same-day records are distinct and date alone decides neither priority nor independence.",
+        "searches": [
+          "Resultary: ordinary Pappus five-set domination, concurrence and shattering; exact alternate odd-domination match b2c8ce57e775"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The comparator has distance/intersection rows 1:27/0, 2:54/1, 3:54/2, 4:18/1. It explicitly states that eighteen ordinary dominating five-sets were already counted. Its full 128-concept parity class and three-wise independence are separate from this 18-concept minimum family."
+        ],
+        "reasoning": "The row intersections become the column concurrences because w in S_v iff dist(v,w) is 1 or 4, making the square incidence matrix symmetric. In the bipartite graph distances 2 and 4 are same-shore; merging those rows yields exactly the published finding's 27/72/54 pair counts by concurrence.",
+        "searches": [
+          "Resultary b2c8ce57e775, RESULT.md, Finding, Optimal exchange geometry (offset 6500 onward), and Relationship to prior work (offset 8750 onward)"
+        ]
+      },
+      "rationale": "The strongest overlap is not the earlier locating-domination six-set result but the distinct same-day Pappus odd-domination record b2c8ce57e775. It reports the exact metric five-set family, its full center-intersection table, and explicitly treats the ordinary minimum census of eighteen size-five sets as already available. Since odd domination implies ordinary domination, the eighteen exhibited odd five-sets exhaust the eighteen ordinary optima. The incidence matrix indexed by centers and coordinates is symmetric, so that record's center-intersection table is exactly the coordinate concurrence table under transposition, not merely numerically similar. The remaining shattering, topology and adaptive conclusions follow directly from that table and the common frequency five; the formulas were not found verbatim in the comparator, but the comparison establishes substantive coverage. The affine proof provides a separate explanation of ordinary exhaustiveness; the record does not establish a distinct uncovered structural claim beyond that overlap and its immediate consequences. This verdict concerns mathematical coverage, not which of the same-date records appeared first. The odd-domination record does not identify the origin of the earlier ordinary census precisely enough to assign temporal priority.",
+      "residual_risks": [
+        "The same-day publication date does not determine sequence or dependence, and the earlier ordinary census mentioned by the comparator has no precisely identified provenance in the inspected material.",
+        "The Biswas–Das full text was not independently verified, but that is not the basis of the decision."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact family and table overlap; the learning conclusions are direct deductions for the minimum family, not statements about the full parity class; no date-level priority inference",
+          "evidence": [
+            "The eighteen minimum odd-dominating sets are N(v) together with the distance-four vertices.",
+            "The explicit intersection table has entries 0,1,2,1 at distances 1,2,3,4.",
+            "The Relationship section says graph-specific censuses already give eighteen ordinary dominating five-sets, but gives no precise independent source for that census."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-three-wise-independent-odd-domination-and-frozen-five-sets-of-th--b2c8ce57e775/RESULT.md",
+          "material_read": "Finding and scope (offset 0), Optimal exchange geometry table (offset 6500), Relationship and Limitations (offset 8750); checked the source-inspection entries for the ordinary census attribution",
+          "method": "Primary local-mirror passages and proof of the transpose relation",
+          "title": "Three-wise independent odd domination and frozen five-sets of the Pappus graph",
+          "trigger": "Exact matching metric family and primary concurrence evidence on the identical graph"
+        },
+        {
+          "assessment": "Different optimizer class and reconstructed vertex set",
+          "evidence": [
+            "The nodes are size-six minimum locating-dominating sets and edges are defined by intersection size four, not by zero concurrence of original vertex coordinates."
+          ],
+          "identifier_or_url": "Resultary 2026/10/18, 1c34b9cc3820",
+          "material_read": "Finding and stated reconstruction rule (opening local-mirror passage)",
+          "method": "Primary record comparison of objects and graph relations",
+          "title": "The Pappus graph reconstructs itself from optimal locating domination",
+          "trigger": "Earlier self-reconstruction from eighteen optimum sets on the same graph"
+        },
+        {
+          "assessment": "Parallel result but not a general theorem covering Pappus",
+          "evidence": [
+            "The Heawood polynomial is 1+14z+70z^2 and the wedge has 57 circles."
+          ],
+          "identifier_or_url": "Resultary 2026/11/22, e9b5f8960619",
+          "material_read": "Finding (opening local-mirror passage)",
+          "method": "Compared host graph, polynomial and dimensions",
+          "title": "The minimum-domination shattering complex of the Heawood graph",
+          "trigger": "Close same-day ordinary domination and learning-dimension analogue"
+        },
+        {
+          "assessment": "Graph and polarity background, not the claimed domination design",
+          "evidence": [
+            "The eighteen objects in Stroppel are polarities; the cyclic-cover table classifies Pappus as a cover of two base graphs."
+          ],
+          "identifier_or_url": "https://ajc.maths.uq.edu.au/pdf/72/ajc_v72_p249.pdf; https://arxiv.org/abs/2003.05186",
+          "material_read": "Stroppel p. 269; Potočnik–Toledo Table 1, p. 19",
+          "method": "OA primary passages and object comparison",
+          "title": "Generalizing the Pappus and Reye configurations; Finite cubic graphs admitting a cyclic group of automorphisms with at most three orbits on vertices",
+          "trigger": "Plausible overlap via eighteen Pappus objects and known graph classifications"
+        },
+        {
+          "assessment": "Residual access risk, not evidence against originality",
+          "evidence": [
+            "The independent lookup did not yield a readable decisive full-text passage."
+          ],
+          "identifier_or_url": "https://doi.org/10.5614/ejgta.2022.10.1.25",
+          "material_read": "Bibliographic record; full text not verified during the bounded OA attempt",
+          "method": "Lawful OA lookup",
+          "title": "A generalization of Pappus graph",
+          "trigger": "Potential graph-family theorem including Pappus"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof of classification and adaptive dimension",
+        "Resultary b2c8ce57e775, minimum family, table and ordinary-census statement"
+      ],
+      "rationale": "Pappus optimum domination and adaptive membership queries are natural objects, and the short affine argument is useful as an explanation. But for this single graph the shared exact symmetric design already supplies the central structural information: reconstruction is a zero test on its intersection table, the entire support complex follows from positive concurrence and the same-shore multiplicity one, and the depth witness uses two entries and the common frequency. These narrow consequences are mechanically implied by the shared exact data once the reported ordinary optimum census is used. The record gives no further structural separation beyond those consequences of this particular design. The judgment is based on the exact same-graph overlap, not on a presumption that finite shattering calculations lack value.",
+      "residual_risks": [
+        "The disposition does not deny pedagogical utility of the affine proof, or claim that the adaptive dimension was expressly printed in the overlapping record."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

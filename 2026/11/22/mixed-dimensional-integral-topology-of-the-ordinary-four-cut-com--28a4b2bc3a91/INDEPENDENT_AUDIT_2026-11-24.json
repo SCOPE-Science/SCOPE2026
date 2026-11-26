@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:51:26.863288Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 19–64, VERIFICATION.md, CHECK.py, CHECK_OUTPUT.txt",
+        "Independent replay: python3 /workspace/branches/four_cut_and_heawood_reproduction.py 3"
+      ],
+      "rationale": "Alexander dual membership is exactly the absence of a disconnected four-subset, with every subset of size at most three present. I regenerated the complex using graph-coordinate adjacency, independent induced-subgraph searches, and a direct all-quadruples test for larger candidates. The counts by cardinality were (27,351,2925,1593,324,54) with no larger faces. Independent pivot matching and complete topological sort reproduced 1877 pairs and all 17793 Hasse incidences on 5274 faces, leaving (1,1398,121) critical cells in dimensions (0,2,3). Exact signed unit eliminations of matched simplicial boundary entries independently gave 264 nonzeros on 24 rows and 84 columns, rank 12 over Q, and determinant -1 for the specified 12-by-12 minor. The Morse boundary therefore has twelve unit Smith entries; rank alone would not suffice. The Morse CW space is the homotopy cofiber of a map from a wedge of 121 two-spheres to a wedge of 1398 two-spheres; each component is determined by its degree vector by Hurewicz. Unimodular changes of bases are realized by homotopy equivalences on these wedges, reducing the map to twelve identities and zero on the other summands. The cofiber thus has 1386 two-spheres and 109 three-spheres. Integral Alexander duality with shift 24 gives original ranks 109 and 1386 in degrees 21 and 22, without other reduced groups. All facets have dimension 22, and the free nonzero lower homology obstructs shellability.",
+      "residual_risks": [
+        "The computation is exhaustive only for the specified 27-vertex graph. No original-complex homotopy type or equivariant decomposition is inferred."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General products of at least three complete graphs occur in the three-cut records; the primary four-cut grid theorem uses P_m square P_n, and the clique prism uses K_n square K_2."
+        ],
+        "reasoning": "Changing apex graph factors, alphabet or cut threshold is not a parameter specialization which yields this claim.",
+        "searches": [
+          "Resultary 397f4b160890 and 94ec265fbfb0",
+          "arXiv:2304.13675 §7.3",
+          "arXiv:2407.08158 §5"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2304.13675; arXiv:2407.08158",
+        "Resultary 28a4b2bc3a91, 13c7ac4ec974, 397f4b160890, 94ec265fbfb0, 5d8c502e904b, dc4e90566a37 and de2f98e55b1f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The same-day three-row rook result uses two clique factors; the same-day 3x3 rook result is a fixed nine-vertex graph. The path-grid theorem concentrates homotopy in one dimension, whereas the ternary three-cube four-cut dual has two dimensions."
+        ],
+        "reasoning": "Inclusion of a two-factor rook slice does not determine the connected quadruples meeting other slices or their attachment maps. No inspected prior statement recovers the integral primitive-boundary result or the claimed wedge.",
+        "searches": [
+          "Resultary 13c7ac4ec974 and 5d8c502e904b Finding/Assumptions",
+          "arXiv:2304.13675 Theorem 7.18",
+          "arXiv:2407.08158 Theorem 5.14"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The defining dual forbids disconnected quadruples, not independent quadruples; it allows all triples. The exact same graph in 13c7ac4ec974 has ordinary three-cut threshold, not this predicate."
+        ],
+        "reasoning": "Rewriting as the Alexander dual or as the complex of all-connected-quadruple subsets leaves the four-threshold property unchanged. The known three-cut dual already excludes some triples and is not an equivalent presentation.",
+        "searches": [
+          "Resultary Hamming four-cut Alexander dual and ternary three-cube comparisons: 28a4b2bc3a91, 13c7ac4ec974, 5d8c502e904b",
+          "arXiv:2304.13675 abstract and Table 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "28a4b2bc3a91 is the frozen identity. The exact H(3,3) three-cut ranks are 53 and 108 in degrees 22 and 23. The 3x3 and 4x4 rook four-cut cases have 9 and 16 vertices, not 27."
+        ],
+        "reasoning": "These are actual exact calculations, but none besides the self-match supplies this orbit of graph/threshold parameters.",
+        "searches": [
+          "Resultary exact H(3,3), ternary three-cube, and Cartesian clique product comparisons: 28a4b2bc3a91, 13c7ac4ec974, dc4e90566a37, de2f98e55b1f"
+        ]
+      },
+      "rationale": "The strongest actual exact-graph statements are at ordinary cut threshold three. The strongest inspected four-cut cases are other Cartesian products, including two-factor rook graphs and path grids. No inspected theorem supplies this three-factor ternary ordinary four-cut wedge or its homology consequences; the catalogue self-match is the frozen record, not separate coverage.",
+      "residual_risks": [
+        "Bounded catalogue and primary-source comparison; an unindexed equivalent computation or more general covering theorem remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different graph in closest product theorem",
+          "evidence": "The product is a clique prism K_n square K_2, not a three-factor clique product.",
+          "identifier_or_url": "https://arxiv.org/abs/2304.13675",
+          "material_read": "Abstract, Table 1, §7.3 Theorem 7.18; PDF pp. 1, 2, 29, offsets 105, 7993, 127500",
+          "method": "OA PDF passages",
+          "title": "Topology of Cut Complexes of Graphs",
+          "trigger": "Ordinary cut foundations and Cartesian products"
+        },
+        {
+          "assessment": "Different graph class",
+          "evidence": "Grid uses P_m square P_n and has top-dimensional ordinary four-cut wedge.",
+          "identifier_or_url": "https://arxiv.org/abs/2407.08158",
+          "material_read": "Definition in §5 and Theorem 5.14; PDF pp. 16 and 20, offsets 71595 and 88565",
+          "method": "OA PDF passages",
+          "title": "Topology of Cut Complexes II",
+          "trigger": "Four-cut topology of product grids"
+        },
+        {
+          "assessment": "Different cut threshold",
+          "evidence": "Ordinary three-cut homology ranks 53 and 108 in degrees 22 and 23.",
+          "identifier_or_url": "Resultary 13c7ac4ec974",
+          "material_read": "Finding, local-mirror RESULT.md offset 0",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Integral three-cut homology of the ternary Hamming three-cube",
+          "trigger": "Exact graph"
+        },
+        {
+          "assessment": "Does not cover cut threshold four",
+          "evidence": "Products of at least three complete graphs are studied at threshold three.",
+          "identifier_or_url": "Resultary 397f4b160890; compare 94ec265fbfb0",
+          "material_read": "Both Findings, local-mirror RESULT.md offset 0",
+          "method": "Local mirror",
+          "title": "Mixed-alphabet Hamming graphs: complete integral three-cut homology",
+          "trigger": "Broader Hamming-product statement including the target graph"
+        },
+        {
+          "assessment": "Different graph family; no date-based priority inference",
+          "evidence": "K_3 square K_n is a two-factor product; n>=4.",
+          "identifier_or_url": "Resultary 5d8c502e904b",
+          "material_read": "Finding and Assumptions, offset 0",
+          "method": "Local mirror",
+          "title": "Mixed-dimensional sphere wedges for ordinary four-cut complexes of three-row rook graphs",
+          "trigger": "Ordinary four-cut mixed-dimensional product dual"
+        },
+        {
+          "assessment": "Different board and graph order; no date-based priority inference",
+          "evidence": "The nine-vertex K_3 square K_3 dual has six S² and one S³.",
+          "identifier_or_url": "Resultary dc4e90566a37",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror",
+          "title": "A mixed sphere wedge in the four-cut Alexander dual of the 3-by-3 rook graph",
+          "trigger": "Ternary clique product and same cut threshold"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and signed boundary certificate; independent reproduction",
+        "Same-graph threshold-three Resultary 13c7ac4ec974; ordinary product four-cut comparators"
+      ],
+      "rationale": "The smallest Hamming graph with three fully ternary clique factors is a natural comparison point for exact four-cut topology after the three-cut classification and the smaller rook-board computations. Complete integral topology of its dual is useful beyond a field-rank table: the primitive boundary calculation settles absence of torsion, and the 109 lower-degree original classes give a concrete obstruction to shellability. The distinction between threshold three and four or between two and three clique factors is mathematical rather than a relabeling.",
+      "residual_risks": [
+        "One canonical graph only; not a family classification."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

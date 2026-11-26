@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:48:39.277667Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The two radial profiles cross where sin(theta) sin(2u-theta)=0. In the open angular range the crossings select two antipodal arcs of each ellipse; exchange symmetry makes all four arcs congruent. Differentiation gives the stated speed and moving-limit derivative. I checked the numerator factorization exactly with symbolic expansion: for 0<t<1/2 and A>B>0 its factors are strictly positive, and both speeds are positive, giving the strict derivative sign. With W(t) the speed as a function of t=sin²(u), at perpendicularity P''=-2 W'(1/2). Half of this agrees exactly with C in RESULT.md line 29. The smooth integral even about perpendicularity eliminates cubic terms; the one-sided slope at alignment is 2(b-a) and gives a cusp on extending to signed rotations. My bounded reproduction, python /workspace/branches/replay_frozen.py 4, uses eccentric anomaly and the ordinary parametric ellipse speed rather than the source polar-speed quadrature, and also checks the symbolic certificate and coefficient. For (a,b)=(1.2,1),(3,1),(15,0.5) the approximate quadratic coefficients were 0.21161268, 2.44729996 and 1.99002659. The proof, not the samples or reported 629 diagnostics, establishes strictness and uniqueness up to symmetries. Circular, displaced, or unequal copies are not within the strict theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Resultary 91ee9d907e15: congruent centered rectangle intersection perimeter, with a change of optimizing angle between 45° and 90° depending on aspect ratio",
+          "Resultary 38a0ced2bb21: angle-dependent overlap area of rotated Lamé regions"
+        ],
+        "reasoning": "The rectangle result has the same functional and rotation problem, but on a different shape class and with a different optimum regime. The Lamé-region comparison concerns area even where ellipses could be included by parameter choice. Neither dominates the ellipse perimeter inequality. Same-date indexing is not a claim of priority.",
+        "searches": [
+          "Resultary: congruent centered shape intersection perimeter as relative angle varies; Crofton/rearrangement; rotating ellipse, rectangle and Lamé-region overlap"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify_ellipse_overlap.py, REVIEW.md and AUDIT.json",
+        "Hughes–Chraibi, arXiv:1106.3787v1, primary abstract",
+        "Resultary 978be5722785, 24e4e421284e, ff4feeef7ef8, 8bdc3d36cdac, 91ee9d907e15 and 38a0ced2bb21"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Resultary ff4feeef7ef8: affine-invariant area of the convex hull of equal-area centered ellipses",
+          "Resultary 8bdc3d36cdac: distribution and onset/containment behavior of overlap area for scaled ellipses under random rotation",
+          "RESULT.md lines 60–76: polynomial sign identity and curvature computation"
+        ],
+        "reasoning": "Crossings supply the integration endpoints, but do not decide the derivative sign without comparing the two Euclidean boundary speeds. A convex-hull area identity treats a different set operation as well as functional. A distribution of overlap area under random angle does not identify the deterministic length derivative or curvature.",
+        "searches": [
+          "arXiv:1106.3787v1 ellipse–ellipse overlap procedure",
+          "Resultary ff4feeef7ef8; 8bdc3d36cdac; 24e4e421284e"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Hughes–Chraibi arXiv:1106.3787v1, PDF p. 1 abstract: ellipse sectors/segments and crossings used to compute overlap area",
+          "Resultary 24e4e421284e: perpendicular intersection Mahler product as aspect ratio varies"
+        ],
+        "reasoning": "Overlap area, polar area product, and boundary length are different invariants. Area-only monotonicity is not an equivalent angular arc-length formula, and varying aspect ratio at a single angle gives no angular derivative.",
+        "searches": [
+          "Resultary: arc length/Euclidean perimeter of the intersection of two congruent centered rotated ellipses; overlap, active ellipse arcs, angular rearrangement",
+          "Public literature: all-angle perimeter and sharp endpoints for congruent centered rotated ellipse intersections"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 978be5722785 is the identical assigned record",
+          "Resultary 24e4e421284e concerns a fixed-angle Mahler-product formula"
+        ],
+        "reasoning": "The exact self-match is not a second instance of the result. A fixed-angle value or table of overlap areas lacks the all-angle length profile and second angular derivative. No matching independent exact formula or table was established.",
+        "searches": [
+          "Resultary: exact ellipse intersection perimeter profile, perpendicular quadratic stability, aligned linear cusp"
+        ]
+      },
+      "rationale": "Best-knowledge pass for the all-angle perimeter comparison and opposing sharp endpoint laws. The crossing geometry is established context; neither the strongest indexed same-functional shape analogue nor the closest inspected ellipse statements cover the comparison. No historical priority is certified.",
+      "residual_risks": [
+        "No independent full-text exclusion of historical ellipse arc-length, Crofton or rearrangement formulations.",
+        "Related Resultary full texts did not return; comparisons are restricted to their indexed statements."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The inspected theorem description concerns area; this is not a full-text exclusion of a length remark.",
+          "evidence": [
+            "PDF p. 1 describes sectors, segments and intersection points for overlap area."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1106.3787v1",
+          "material_read": "Primary PDF p. 1, abstract, extracted lines 19–30. Frozen AUDIT.json lines 71–79 records a broader package-level inspection; the sections and appendices were not obtained independently.",
+          "method": "Primary abstract inspected; targeted open-text requests for relevant primary passages timed out.",
+          "title": "Calculating ellipse overlap areas",
+          "trigger": "Same intersection geometry and strongest cited historical source"
+        },
+        {
+          "assessment": "Different functional, or different set operation, and fixed-angle or random-angle setting rather than all-angle length.",
+          "evidence": [
+            "24e4e421284e fixes the perpendicular angle; ff4feeef7ef8 takes convex hull area; 8bdc3d36cdac measures area distribution."
+          ],
+          "identifier_or_url": "Resultary 24e4e421284e; ff4feeef7ef8; 8bdc3d36cdac",
+          "material_read": "Indexed statements only.",
+          "method": "Local catalogue and targeted open-text mirror requests; mirror passages not returned.",
+          "title": "Perpendicular-ellipse Mahler product, ellipse convex-hull area, and random-angle overlap area",
+          "trigger": "Same elementary shapes; plausible fixed-angle or transformed formulations"
+        },
+        {
+          "assessment": "Rectangle overlap concerns length but not ellipses; Lamé overlap concerns area. Neither source statement implies the current result.",
+          "evidence": [
+            "91ee9d907e15 varies aspect ratio and angle for rectangles; 38a0ced2bb21 reports angular area overlap."
+          ],
+          "identifier_or_url": "Resultary 91ee9d907e15; 38a0ced2bb21",
+          "material_read": "Indexed statements.",
+          "method": "Local catalogue search and claim comparison.",
+          "title": "Rotated rectangle perimeter thresholds and Lamé-region rotational overlap",
+          "trigger": "Strongest indexed shape and functional analogues"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The rotated intersections need not be nested, so the ordering of perimeter is not a consequence of inclusion. The sign certificate and exact positive curvature turn a geometric orientation choice into a quantitative optimizer, providing an explicit comparison for perimeter-sensitive models and for related convex shape families without claiming those generalizations.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

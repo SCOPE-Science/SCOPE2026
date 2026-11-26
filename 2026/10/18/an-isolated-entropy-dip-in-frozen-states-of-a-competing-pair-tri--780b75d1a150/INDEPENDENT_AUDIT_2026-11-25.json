@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:45:48.452037Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Flipping the center of abcde changes the two adjacent pair terms and the three containing triplets, giving ΔH/(2J)=c(b+d−r(ab+bd+de)); strict positivity and N≥5 are used. The only possible nonnegative zeros are 0, 2/3, 2. A labeled periodic spin configuration corresponds to a unique closed walk with fixed starting site in the four-spin overlap graph, even when its primitive period divides N. Independent replay: for p/q=0,1/3,2/3,1,2,3, indexed words − as 0 and + as 1, formed edges by the integer test c[q(b+d)−p(ab+bd+de)]>0, computed transitive closure for SCCs and characteristic coefficients by c_k=−(Σ_{j=1}^k c_{k−j} tr(A^j))/k with c_0=1. All six polynomials agree with RESULT.md; cyclic component sizes are (1,1), (6,1), (6), (11), (10), (12), and the dominant component in each positive-r case contains the all-minus loop. Direct recomputation of the whole Hamiltonian after each single-spin flip agreed with the transfer traces in all 30 cases over N=5,…,9. At zero there are exactly two uniform configurations; otherwise primitivity gives a single dominant positive eigenvalue and the trace has its exponential rate. In the last regime the factor x⁹−x³−1 has its positive root below δ because at δ, y=δ³>2 and y³−y−1>0. Edge inclusion and strict component extension were verified for the 6-to-11 and 10-to-11/12 inclusions, proving α<β and γ<min(β,δ) by strict Perron monotonicity. Also β<73/50<δ: for the r=1 irreducible block A, v=A⁴⁴1>0 satisfies 50Av<73v coordinatewise by exact integer arithmetic, and the cubic at 73/50 has numerator −2433. The finite replays corroborate the all-volume transfer and Perron arguments, not vice versa.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "De Smedt–Godrèche–Luck inspect constrained pair-only updates with neutral flips suppressed in the relevant setting.",
+          "The Kawasaki paper obtains the same pure-endpoint polynomial for metastable structures in a nearest-/second-neighbor pair model.",
+          "The Frøyen–Sudbø–Hemmer mean-field paper could not be inspected in full."
+        ],
+        "reasoning": "General transfer methods do not enumerate this model's set of strict words. Changing the Hamiltonian or elementary move changes the admissibility graph; neither primary statement inspected gives a class containing the full finite mixed-coupling calculation.",
+        "searches": [
+          "arXiv:cond-mat/0202465, §§3.1–3.2",
+          "arXiv:1601.04375, Sec. III and Appendix A",
+          "DOI:10.1016/0378-4371(76)90058-3"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:cond-mat/9408060",
+        "arXiv:1601.04375",
+        "arXiv:cond-mat/0202465",
+        "34d442d501a3",
+        "0f8914252c1b",
+        "DOI:10.1016/0378-4371(76)90058-3 (attempted; no full text)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At r>2, the triplet sum is always odd and nonzero, and the pair field magnitude is at most 2, so the known pure calculation does imply the last regime.",
+          "At r=2 the dominant graph has ten vertices with proper extensions to eleven and twelve in adjacent regimes; this requires the mixed-word enumeration."
+        ],
+        "reasoning": "Credit the directly implied endpoint. The proper extensions needed for the exact dip and finite mixed thresholds do not follow from the pure recurrence or from Perron theory without the actual admissibility graph.",
+        "searches": [
+          "arXiv:cond-mat/9408060, stability words and recurrence",
+          "Resultary local-word transfer comparisons 0f8914252c1b and 34d442d501a3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary paper's pure ferromagnetic triplet sign maps to the target pure competing sign by global spin reversal; admissible words give n_L=n_{L−1}+n_{L−3} and exactly δ.",
+          "0f8914252c1b uses weak single-spin blocking with local inequality c(b+d−κ(a+e))≥0."
+        ],
+        "reasoning": "Spin reversal really identifies the pure counts, but a second-neighbor pair field linear in a,e is not the triplet field ab+bd+de. Strict positivity also excludes the tie words that weak blocking includes, precisely where the threshold value can change.",
+        "searches": [
+          "Resultary: mixed pair and consecutive-triplet one-dimensional Ising strict blocked-state entropy",
+          "arXiv:cond-mat/9408060, p. 3–5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The first indexed record has a five-regime entropy with isolated maximum for weak blocking under adjacent-spin exchange, not a strict single-spin dip.",
+          "The second has three regimes for weak one-spin stability in an ANNNI model.",
+          "Table II matches the number 1.4655… for a different dynamics; the pure-triplet paper has the actual exact endpoint coverage."
+        ],
+        "reasoning": "Matching a polynomial, transfer size, or number of regimes is not exact table coverage of the full mixed-coupling counting problem.",
+        "searches": [
+          "Resultary 34d442d501a3",
+          "Resultary 0f8914252c1b",
+          "arXiv:1601.04375, Table II"
+        ]
+      },
+      "rationale": "The distinct result is the finite mixed-coupling phase diagram for strict single-spin minima, especially the entropy value at r=2 being below both adjacent open regimes. The pure triplet growth base δ is already known; the r>2 local word set is exactly the pure triplet one because r>2 dominates every pair field. Neither the pure comparison, the published constrained pair dynamics nor the closest indexed weak/exchange blocking statements supplies the mixed threshold graph and its entropy dip. This is a bounded statement-level assessment, not a priority certification.",
+      "residual_risks": [
+        "The 1976 mean-field article was inaccessible for primary inspection; no negative claim about all its contents is made.",
+        "An earlier mixed-model enumeration under different terminology could remain unindexed; the pure-triplet endpoint is positively known rather than claimed new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact pure-limit growth, no mixed phase diagram in inspected derivation",
+          "evidence": "τ spin products and word recurrence produce x³−x²−1 after sign conversion by spin reversal.",
+          "identifier_or_url": "https://arxiv.org/abs/cond-mat/9408060",
+          "material_read": "Abstract p. 1, model and criterion pp. 3–4, growth p. 5; text offsets 0, 4600, 9000",
+          "method": "Bounded OA PDF-text comparison",
+          "title": "Escape from Metastability via Aging: Non-Equilibrium Dynamics in a One-Dimensional Ising Model",
+          "trigger": "Direct same-object pure limit"
+        },
+        {
+          "assessment": "Numerical and polynomial match only; different object and moves",
+          "evidence": "M_{L+3}=M_{L+2}+M_L counts kink/vacancy structures for Kawasaki dynamics.",
+          "identifier_or_url": "https://arxiv.org/abs/1601.04375",
+          "material_read": "Sec. III, Table II pp. 5–6 and Appendix A p. 17; offsets 31100,34450,86400",
+          "method": "Bounded OA PDF-text comparison",
+          "title": "Metastable and scaling regimes of a one-dimensional Kawasaki dynamics",
+          "trigger": "Same exponential base for another Ising metastability calculation"
+        },
+        {
+          "assessment": "Pair-only constrained model with different neutral-flip rule",
+          "evidence": "Relevant Glauber model suppresses neutral flips and does not include consecutive triplet terms.",
+          "identifier_or_url": "https://arxiv.org/abs/cond-mat/0202465",
+          "material_read": "Abstract, blocked-state definition, §§3.1–3.2; offsets 0,7172,51500",
+          "method": "Bounded OA PDF-text comparison",
+          "title": "Jamming, freezing and metastability in one-dimensional spin systems",
+          "trigger": "Nearest precedent for blocked Ising counting"
+        },
+        {
+          "assessment": "Different Hamiltonian and update rule",
+          "evidence": "Nearest-/second-neighbor pair interactions and adjacent-spin exchanges with ties blocked.",
+          "identifier_or_url": "2026/10/18/34d442d501a3",
+          "material_read": "Finding and comparison passages, offsets 0,7500",
+          "method": "Resultary and mirrored record text",
+          "title": "An isolated weak-exchange blocking entropy spike",
+          "trigger": "Five-regime entropy with isolated extremum"
+        },
+        {
+          "assessment": "Three different regimes for a different local inequality",
+          "evidence": "The c(b+d−κ(a+e))≥0 rule tests a second-neighbor pair field and retains ties.",
+          "identifier_or_url": "2026/10/18/0f8914252c1b",
+          "material_read": "Finding and local criterion, offset 1500",
+          "method": "Resultary and mirrored record text",
+          "title": "A marginal entropy spike for weakly blocked ANNNI spin chains",
+          "trigger": "Weak one-spin local-word analogy"
+        },
+        {
+          "assessment": "Unverified primary comparison; not negative coverage evidence",
+          "evidence": "Bibliographic title concerns a mean-field equation of state, not a verified statement about strict minima.",
+          "identifier_or_url": "https://doi.org/10.1016/0378-4371(76)90058-3",
+          "material_read": "Bibliographic identification only; no full text obtained",
+          "method": "Bounded lawful DOI and identified publisher access attempt",
+          "title": "Ising models with two- and three-spin interactions: Mean field equation of state",
+          "trigger": "Mixed pair/triplet precedent cited in the frozen record"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural one-dimensional competing Hamiltonian has a complete finite-ratio classification, and ties at one isolated ratio remove exponentially many strict minima relative to nearby couplings on both sides. This is a structural discontinuity in the count, not merely a numerically precise root or a claim about quench kinetics.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

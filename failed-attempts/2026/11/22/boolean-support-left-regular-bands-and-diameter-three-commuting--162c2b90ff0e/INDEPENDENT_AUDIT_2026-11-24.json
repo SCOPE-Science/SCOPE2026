@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:43:05.740952Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Every abstract endomorphism sends the additive Sylow p-subgroup into itself, inducing an additive map T there and a power map h on the cyclic quotient. From conjugation T(ab)=h(a)T(b), so if T is nonzero then T(1)≠0 and T(a)=h(a)T(1) for a≠0. This gives injectivity on the kernel and quotient, hence an automorphism, of which only the identity is idempotent. If T=0, the complement cocycle satisfies (1−h(a))c(b)=(1−h(b))c(a); when h is nontrivial this forces a unique scalar parameter u, and trivial h gives the zero map by coprimality. Substitution multiplies the two quotient exponents and retains the outer map's parameter; idempotent exponents are exactly CRT zero/one choices. The image of each proper nonzero map is the corresponding cyclic subgroup conjugated by translation by u. Intersecting supports therefore commute only for equal labels, while disjoint supports always commute. The degree comes from 2^k−2 same-layer and (q−1)(2^(k−s)−1) cross-layer neighbors. Distinct full supports in different layers have no common neighbor, while disjoint singletons provide paths of length at most three when k≥2. Layers are cliques of maximum size; support coloring is proper, and a maximum clique needs a full support and so cannot cross layers. A fixed support gives an independent set of size q, the upper bound from the layering. Inclusion-exclusion gives 3^k−2^(k+1)+1 ordered disjoint nonempty support pairs and 4^k−3^k intersecting pairs; weighting them by q² and q and including the two universal vertices gives the stated count, including 235 at q=7. When k=1 there are no cross-layer edges and each layer has one vertex; q=2 reduces to C₂. The frozen finite verifier was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Composition-centralizer spectra covers all endomorphisms with prime cyclic kernel and a cyclic complement of order r≥3 dividing p−1; the translation kernel is cyclic only for f=1 in the target family.",
+          "The elementary generalized-dihedral theorem has a complement of order two and a scalar inversion action; the scalar affine codegree and two-round logical records cover other invariants.",
+          "The frozen result attributes the endomorphism dichotomy to Holt. The public answer and alternate retrieval attempts did not yield a readable copy of the answer."
+        ],
+        "reasoning": "The checked stronger monoid theorem covers the prime-field restriction. Neither passing to a complement-of-order-two subgroup nor a theorem about a different invariant supplies the larger group's commuting graph. No full general claim is made for Frobenius groups with reducible complement actions.",
+        "searches": [
+          "Resultary 0f4e61ab58d0",
+          "Resultary 0ef9efc1c172, 7f6e8dc6f972 and fe56c12aaef1",
+          "Holt, MathOverflow question 149447"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and affine_retracts_verify.py",
+        "Resultary 0f4e61ab58d0, 76410cd8e5c4, 0ef9efc1c172, 7f6e8dc6f972 and fe56c12aaef1",
+        "Arvasi–Odabaş–Wensley, arXiv:1911.12799"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the prime-kernel monoid, Step 6 selects exactly the maps with idempotent quotient exponents. Step 2 multiplies those exponents and, after normalization, retains the first label, unless the map is zero. Step 4 gives zero product or equal normalized label. Under CRT these are intersection, disjointness, and equal translation label, hence force the reduced graph, degree law, diameter and pair count.",
+          "The dicyclic diameter-three theorem uses its different label law and does not derive the nonprime-field statement. The prime-kernel theorem has no hypothesis allowing substitution p→p^f for f>1."
+        ],
+        "reasoning": "Explicit prime-field implication is credited, including graph consequences not separately boxed there. The nonprime-field case requires establishing that no nonautomorphic endomorphism acts nontrivially on the larger additive kernel. Once this is done, the same support graph calculation applies unchanged.",
+        "searches": [
+          "Resultary 0f4e61ab58d0, Steps 2, 4 and 6",
+          "Resultary 76410cd8e5c4, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For C_p⋊C_r with r=p−1 and p≥5, the former record is exactly AGL(1,p). It uses a generator-coordinate t for a nonunit with quotient exponent j. Its normalized label t/(1−g^j) is the affine translation parameter in the bound record, with g a generator of the complement.",
+          "The dicyclic record gives a diameter-three transition and CRT labels as well, but dimensions, label fibers, and commutation constraints differ: the number of labels depends on the support there, unlike the uniform q here."
+        ],
+        "reasoning": "Normalizing the label gives an actual equivalence on the prime-field subfamily, rather than just a match of formulas. The dicyclic result is not a relabelling of this graph.",
+        "searches": [
+          "Resultary composition centralizers of cyclic Frobenius-group endomorphisms and reduced commuting-retraction graphs",
+          "Resultary 0f4e61ab58d0 and 76410cd8e5c4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The arXiv tables cover counts of idempotent endomorphisms of small groups (orders at most 30), and the paper also gives a cyclic-group count. Such counts do not encode adjacency or composition.",
+          "The prime-kernel record explicitly gives p(2^ω(r)−1)+2 retractions, not only a finite table, in agreement at r=p−1."
+        ],
+        "reasoning": "Small group count tables can overlap finite cases but do not give the graph or all prime-power parameters. The stronger symbolic prime-field overlap is exact and not treated as a coincidence.",
+        "searches": [
+          "Arvasi–Odabaş–Wensley, arXiv:1911.12799, pp. 11–12",
+          "Resultary 0f4e61ab58d0, retraction count"
+        ]
+      },
+      "rationale": "The full prime-field retraction law and graph are materially covered by restriction of a distinct same-day monoid result. No priority follows from its date. The distinction supported by the inspections is coverage of the full affine groups over nonprime fields, not a new graph law in the prime-field case or a new general theory of Frobenius-group endomorphisms. The checked prime-kernel theorem cannot be specialized to a noncyclic additive kernel, and the stronger endomorphism citation for all fields was not independently verified.",
+      "residual_risks": [
+        "The exact wording of the prior full-field endomorphism dichotomy could not be checked in the Holt answer.",
+        "The relative order of the two same-day prime-field-overlapping works is not known.",
+        "An earlier exact treatment of all irreducible scalar cyclic complements may cover additional cases; no such theorem was verified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact implication of the band and graph for the prime fields in range. Same-day order unresolved.",
+          "evidence": "Step 4 states t/(1−u^j)=v/(1−u^l) unless jl≡0 mod r, and Step 6 gives j²≡j mod r for retractions.",
+          "identifier_or_url": "2026/11/22/SCOPE-composition-centralizer-spectra-of-prime-kernel-cyclic-frobenius--0f4e61ab58d0",
+          "material_read": "Finding at offset 0, Steps 2–6 at offsets about 4600–8099",
+          "method": "Resultary local mirror, bounded passages",
+          "title": "Composition-centralizer spectra of prime-kernel cyclic Frobenius-group endomorphisms",
+          "trigger": "Stronger endomorphism monoid on exactly the prime-field subfamily when r=p−1"
+        },
+        {
+          "assessment": "Nearby theorem on a different group and support-dependent label scheme.",
+          "evidence": "The number of parameters at support S is m/d_S; the transition uses odd primes only and a different degree law.",
+          "identifier_or_url": "2026/11/22/SCOPE-all-arity-compatible-retractions-of-dicyclic-groups-an-odd-prime--76410cd8e5c4",
+          "material_read": "Finding, offsets 0–3170",
+          "method": "Resultary local mirror",
+          "title": "All-arity compatible retractions of dicyclic groups: an odd-prime label law and a diameter-three transition",
+          "trigger": "Same reduced-graph diameter and CRT labelling terminology"
+        },
+        {
+          "assessment": "Complement C₂, not the full multiplicative action.",
+          "evidence": "Translation group F_p^d with odd p and d≥2; the theorem includes projection parameters not present in the target.",
+          "identifier_or_url": "2026/10/25/SCOPE-commuting-retractions-of-elementary-generalized-dihedral-groups--0ef9efc1c172",
+          "material_read": "Finding around offset 200",
+          "method": "Resultary local mirror",
+          "title": "Commuting retractions of elementary generalized dihedral groups",
+          "trigger": "Endomorphism graphs of scalar semidirect products"
+        },
+        {
+          "assessment": "Same ambient family, different invariant.",
+          "evidence": "Codegree pseudo-algebra, not a classification of endomorphism retractions.",
+          "identifier_or_url": "2026/10/4/SCOPE-scalar-affine-frobenius-groups-are-rigid-under-the-group-pseudo--7f6e8dc6f972",
+          "material_read": "Finding, offsets 0 to about 900",
+          "method": "Resultary local mirror",
+          "title": "Scalar affine Frobenius groups are rigid under the group pseudo-algebra",
+          "trigger": "Larger scalar affine family with the same group as a specialization"
+        },
+        {
+          "assessment": "Different logical invariant.",
+          "evidence": "Two-round relational theories, not endomorphism composition.",
+          "identifier_or_url": "2026/11/2/SCOPE-fifteen-two-round-theories-of-one-dimensional-affine-groups-over--fe56c12aaef1",
+          "material_read": "Finding at offset 0, scope near 2177",
+          "method": "Resultary local mirror",
+          "title": "Fifteen two-round theories of one-dimensional affine groups over finite fields",
+          "trigger": "Same affine groups"
+        },
+        {
+          "assessment": "Finite idempotent-endomorphism counts and a cyclic count; no overlap established with the uniform graph result.",
+          "evidence": "Tables for groups of order at most 30 do not specify pairwise commutation.",
+          "identifier_or_url": "https://arxiv.org/abs/1911.12799",
+          "material_read": "pp. 11–12, offsets 39255 and 39738",
+          "method": "Primary OA PDF passages",
+          "title": "Computing 3-Dimensional Groups: Crossed Squares and Cat²-Groups",
+          "trigger": "Cited prior small-group and dihedral retractions"
+        },
+        {
+          "assessment": "Not independently compared at statement level.",
+          "evidence": "The frozen result credits Holt for the reduction to automorphisms or maps killing translations, not for the reduced graph.",
+          "identifier_or_url": "https://mathoverflow.net/questions/149447/what-are-the-endomorphisms-of-the-group-of-affine-transformations-of-a-field",
+          "material_read": "Frozen citation and characterization only; answer not retrieved",
+          "method": "OA direct/VPN website mode (403), alternate public export without the answer",
+          "title": "What are the endomorphisms of the group of affine transformations of a field?",
+          "trigger": "Potential full-field endomorphism classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The natural graph would be valuable if its joint structure remained unaccounted for, but the precise band and graph mechanisms in the prime-kernel comparison already force every stated kind of graph invariant. In the nonprime extension, the scalar transitivity argument eliminates the extra endomorphism possibilities: all extra automorphisms fail idempotence and every other map still factors through the same cyclic quotient and scalar cocycle. After that reduction the counts and sharp diameter proof are identical, with only the number of interchangeable translation labels changed. Thus the distinct scope extension supplies no new graph mechanism or nonroutine invariant calculation. This value judgment rests on the exact monoid comparison and the mathematical reduction, not on unsuccessful retrieval of the general endomorphism citation. No distinct surviving result is proposed as a repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

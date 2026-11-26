@@ -1,0 +1,140 @@
+{
+  "correctness": {
+    "rationale": "Brownian entrance-law integration yields the normalized excursion-lifetime density and exact count overlap \\(K(s,t)\\). A compensated Poisson linear combination has \\(L^\\infty\\) norm \\(O(T^{-1/4})\\) with exactly constant quadratic intensity; the characteristic-exponent Taylor remainder vanishes uniformly for each test vector, proving Gaussian fdd convergence. The integrated kernel is bounded after the \\(T^{-5/4}\\) scale; the same argument gives its Gaussian fdds, while a uniform \\(\\mathbb E|H_T(t)-H_T(s)|^2\\le\\kappa\\sqrt L|t-s|^2\\) bound proves C-tightness. Elementary integration verifies the explicit covariance. Differentiability of the smooth max term at positive t0 yields the Hurst-1/4 local Gaussian tangent. The model has dense infinite-count times, correctly restricting unintegrated counts to fdd claims. The standalone standard-library checker passed 1017 finite checks, which supplement but do not replace the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "failed",
+  "independent_validation": false,
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Pang–Taqqu (2019) assume a locally bounded power-law response and finite Poisson arrival rate with centered independent mark distributions. Their limit covariance is a weighted convolution of response differences, not the present population-overlap covariance.",
+        "Marynych–Verovkin (2017) start with renewal interarrival times and only finitely many immigrating response processes by each finite time; their main limit is an inverse-stable-subordinator integral.",
+        "Seppäläinen (2005) treats particle current in a lattice independent-random-walk growth model, with no Brownian excursion immigration or dense blowup."
+      ],
+      "reasoning": "Generic Gaussian limits and Hurst-1/4 phenomena are established elsewhere, but the checked theorems do not directly satisfy the singular infinite-arrival and dense-exceptional-time hypotheses. A more general compensated-Poisson central limit theorem could imply the finite-dimensional Gaussian step; what is specifically asserted here is the combined model-specific continuous integrated limit, exact covariance, and local/global tangent distinction. Residual risk remains rather than claiming uniqueness.",
+      "searches": [
+        "Gaussian fluctuation of Poisson interval occupancy number active inverse square root lifetime H 1/4",
+        "Brownian singular birth-death model Kou excursion alive count Gaussian limit integrated population time selfsimilar",
+        "doi:10.1002/hf2.10028 (Theorems 3.1 and 4.1, assumptions and covariance)",
+        "doi:10.15559/17-VMSTA76 (full text, Section 1 and main theorem)",
+        "arxiv:math/0310044 (full text, Sections 1–2 and fluctuation theorem)"
+      ]
+    },
+    "checked_sources": [
+      "Ruibo Kou, Singular Birth-Death model, arXiv:2611.19362v1, https://arxiv.org/html/2611.19362v1",
+      "G. Pang and M. S. Taqqu, 2019, https://doi.org/10.1002/hf2.10028",
+      "A. Marynych and G. Verovkin, 2017, https://doi.org/10.15559/17-VMSTA76",
+      "T. Seppäläinen, 2005, https://arxiv.org/abs/math/0310044"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Kou has the exact Poisson excursion construction, so single-time Poisson marginals and the two-time overlap decomposition are immediate deductions. Kou Theorem 1.5 concerns one observation time and strictly positive spatial-power weights; it does not state multitime Gaussian count convergence or a C([0,L])-valued limit of integrated live counts.",
+        "Kou proves a dense exceptional set of infinite live counts, so direct D- or C-valued convergence of the unintegrated count would be false, whereas the integrated process is finite and continuous almost surely.",
+        "Pang–Taqqu and Marynych–Verovkin give function-space convergence in different shot-noise/immigration models and do not state this excursion-specific kernel or the fractional-Brownian local tangent."
+      ],
+      "reasoning": "The claim is a new combined population fluctuation assertion in the exact singular model. It is not the trivial consequence that a one-time count is Poisson, nor a restatement of an existing fractional-Brownian result. The source-defined Poisson representation makes it possible to prove the claim using an explicit characteristic-function remainder and independent tightness estimate. General Poisson-integral machinery remains a real possible implication route, disclosed as historical-priority risk.",
+      "searches": [
+        "arxiv:2611.19362v1 (Definition 1.1, Proposition 2.5, Theorem 1.5, Section 4)",
+        "doi:10.1002/hf2.10028 (model and Theorems 3.1–4.1)",
+        "doi:10.15559/17-VMSTA76 (process definition and Theorem 1.1)",
+        "Poisson excursion birth lifetime point process N(t) count covariance fractional Brownian",
+        "Gaussian limit for counts of active excursions and local fractional Brownian tangent H=1/4"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kou Definition 1.1 provides excursion immigration; Proposition 2.5 provides a one-time spatial Poisson law; Theorem 1.5 is a single-time CLT for weighted counts with strictly positive powers.",
+        "Pang–Taqqu use finite-rate Poisson shot arrivals with centered marks and an integrated deterministic power-law response, yielding weighted Gaussian convolution covariances rather than the sigma-finite live-interval overlap kernel.",
+        "Seppäläinen (2005) obtains a Hurst-1/4 limit for equilibrium current of independent random walks, an explicitly distinct microscopic observable."
+      ],
+      "reasoning": "Potential aliases include occupancy process, infinite-server population, excursion count, Poisson interval shot noise, nonstationary Gaussian process and local fractional-Brownian tangent. The explicit \\(K(s,t)\\) and integrated C-valued limit, rather than a familiar Gaussian label or one-time Poisson count, distinguish the present statement. The one-time count and overlap distribution are already implied by Kou and are not claimed as the independent novelty.",
+      "searches": [
+        "Singular birth-death Brownian excursion particle count centered fluctuations fractional Brownian motion Hurst 1/4",
+        "Poisson excursion birth lifetime point process N(t) count covariance fractional Brownian",
+        "Poisson arrival Brownian excursion lifetime tail one half covariance sqrt max minus sqrt difference stochastic process",
+        "Gaussian limit for counts of active excursions and local fractional Brownian tangent H=1/4",
+        "arxiv:2611.19362v1 (full text, Definition 1.1, Theorem 1.5 and Section 4)",
+        "doi:10.1002/hf2.10028 (full text, Sections 2–4)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Target statement concerns a continuum-indexed limiting stochastic process and explicit integrated covariance, not a finite-parameter enumeration or published exact-value table.",
+        "The closest relevant indexed scientific records found concerned Brownian resetting particle clouds, independent particle current, random-walk bridges and Gaussian limits for urn occupancies, with different objects and hypotheses."
+      ],
+      "reasoning": "The exact-database/table risk is that the covariance K and resulting integrated law could already appear as a named Gaussian kernel or a tabulated infinite-server limit. No matching exact entry was recovered from the performed statement and alias searches. This is limited negative evidence, not proof of absence.",
+      "searches": [
+        "Singular birth-death Brownian excursion particle count centered fluctuations fractional Brownian motion Hurst 1/4",
+        "Gaussian fluctuation of Poisson interval occupancy number active inverse square root lifetime H 1/4",
+        "Brownian singular birth-death model Kou excursion alive count Gaussian limit integrated population time selfsimilar",
+        "Poisson arrival Brownian excursion lifetime tail one half covariance sqrt max minus sqrt difference stochastic process",
+        "Fractional Brownian tangent of nonstationary immigration count process Brownian excursion",
+        "arxiv:2611.19362v1 (full text search for N_t and fractional Brownian)"
+      ]
+    },
+    "rationale": "Statement-level comparison with the full motivating 2026 preprint, the 2019 general shot-noise Gaussian theorem, a heavy-tailed immigration functional theorem, and independent-particle Hurst-1/4 current work found no theorem stating or directly subsuming the combined excursion-count multitime, continuously integrated and local tangent law. The raw count Poisson and overlap consequences of Kou are credited as prior. This is a bounded best-knowledge originality assessment, not certification of absolute uniqueness.",
+    "residual_risks": [
+      "A general sigma-finite Poisson interval occupancy FCLT or nonstationary M/G/infinity heavy-traffic theorem may imply portions of the result after nontrivial specialization, beyond the inspected hypotheses.",
+      "An alternate name or Gaussian representation could cover the explicit K covariance and local fractional-Brownian tangent in historical probability literature.",
+      "This is not an independently adjudicated novelty review."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Fixed-time marginal law and raw Poisson framework are prior; claimed multitime Gaussian population limit, C-valued integrated count limit, explicit integrated covariance and local tangent are not stated in examined results",
+        "evidence": [
+          "Ruibo Kou, Singular Birth-Death model, arXiv:2611.19362v1, https://arxiv.org/html/2611.19362v1"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2611.19362v1",
+        "material_read": "Complete HTML accessible; read introduction and Theorems 1.2–1.6, Definition 1.1, Proposition 2.4–2.5 and Section 4 joint-transform derivation; searched whole text for count and fractional-Brownian formulations",
+        "method": "Compared defined observables, time quantifiers, normalization and stated conclusions to the new multitime and integrated claim",
+        "title": "Singular Birth-Death model",
+        "trigger": "Same singular Brownian-excursion object, live count, spatial Poisson marginal, and fluctuation results"
+      },
+      {
+        "assessment": "The analyzed hypotheses require finite Poisson arrival rate, square-integrable centered marks and a different deterministic shot response; direct application to infinitely active Poisson excursion births is not established by the inspected theorem",
+        "evidence": [
+          "G. Pang and M. S. Taqqu, 2019, https://doi.org/10.1002/hf2.10028"
+        ],
+        "identifier_or_url": "https://onlinelibrary.wiley.com/doi/full/10.1002/hf2.10028",
+        "material_read": "Open full HTML, introduction, modeling and covariance Sections 2–3, assumptions for power-law response and finite-rate arrivals, theorem discussion and neighboring functional-limit material",
+        "method": "Checked exact response and mark hypotheses and Gaussian covariance (formula 15) for reduction to sigma-finite excursion-interval counts",
+        "title": "Nonstationary self-similar Gaussian processes as scaling limits of power-law shot noise processes and generalizations of fractional Brownian motion",
+        "trigger": "Highly relevant stronger-looking general functional Gaussian shot-noise theorem"
+      },
+      {
+        "assessment": "There are finitely many renewal immigration epochs before finite time, with heavy-tailed interarrival times and inverse-stable limits; hypotheses and conclusion do not directly contain the present result",
+        "evidence": [
+          "A. Marynych and G. Verovkin, 2017, https://doi.org/10.15559/17-VMSTA76"
+        ],
+        "identifier_or_url": "https://www.vmsta.org/journal/VMSTA/article/84/text",
+        "material_read": "Full open HTML with abstract, process definition in Section 1, hypotheses, theorem and discussion of earlier finite-rate Poisson arrivals",
+        "method": "Compared renewal-epoch process definition and limit type to sigma-finite birth intensity and Gaussian integrated occupation",
+        "title": "A functional limit theorem for random processes with immigration in the case of heavy tails",
+        "trigger": "Potentially dominating immigration functional-limit theorem for heavy tails"
+      },
+      {
+        "assessment": "The equilibrium independent-walk current has Hurst-1/4 fluctuations but is not the Brownian-excursion live population or its integrated occupation",
+        "evidence": [
+          "T. Seppäläinen, 2005, https://arxiv.org/abs/math/0310044"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/math/0310044",
+        "material_read": "Full textual transcription accessible; read abstract, introduction, lattice random-walk particle-current model, initial assumptions, second-order Gaussian fluctuation conclusion",
+        "method": "Compared microscopic current observable, starting particle configuration and covariance/stationarity description",
+        "title": "Second-order fluctuations and current across characteristic for a one-dimensional growth model of independent random walks",
+        "trigger": "Possible equivalence through Hurst-1/4 current fluctuations of independent particles"
+      }
+    ],
+    "status": "PASS"
+  },
+  "previously_published_pending_reaudit": false,
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "33c0e5be-340f-4950-b607-1d108461f3ef",
+  "value": {
+    "rationale": "The singular Brownian excursion model has finite population at each deterministic time but infinitely many live particles at a dense exceptional set; this prevents naive raw-path Gaussian limits. The combined theorem provides a nontrivial continuous limit for the physically meaningful cumulative population-time, its exact fluctuation variance \\(4\\kappa t^{5/2}/15\\), and a structural distinction between globally nonstationary one-quarter-self-similarity and locally fractional-Brownian behavior. These properties determine uncertainty for time-aggregated particle observables and are not supplied by a scalar Poisson marginal or a textbook CLT alone.",
+    "status": "PASS"
+  }
+}

@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:25:38.291995Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, Finding and proof steps 1–3",
+        "VERIFICATION.md",
+        "verify_hyperbola.py"
+      ],
+      "rationale": "For a nonzero pair-sum (x,y), both coordinates are nonzero, and the representing parameters are the roots of Z²−xZ+x/y; the only exceptional fiber is (0,0), exactly the ordered antipodal pairs. Character orthogonality gives q²Q/n⁴ for the output fourth power, while the input fourth power is M²/n². Counting diagonal and distinct pairs with their ordered multiplicities gives Q=2M²−Σ(A_t²+|B_t|²/2)+|B|². Expanding the centered sums using ΣA_t=M and ΣB_t=B gives the stated identity with k=n/2, including k=1. The last term is nonnegative by |B|≤Σ2|f(t)f(−t)|≤M. If the deficit is zero for nonzero f, the equal A_t and |B|=M force each pair to have equal moduli and all coefficients to have the same positive modulus; equal B_t gives the common product. The converse and attainment by a constant function follow directly. The proof works for every odd prime power; the frozen checker was inspected but not run and only supplies finite diagnostics.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Iosevich–Koh treat nonzero levels of nondegenerate quadratic forms, including xy=1, but Theorem 2 only gives R*(2→4) bounded up to a constant. The other sharp results are for a three-dimensional hyperbolic paraboloid and four-dimensional cones, respectively."
+        ],
+        "reasoning": "Applicability of the uniform quadratic bound does not supply the exact weighted identity or extremizers. The sharp theorems on the other surfaces are not matching specializations; the decisive coverage is instead the earlier exact split-curve record.",
+        "searches": [
+          "Iosevich–Koh arXiv:0804.4505v1, §1.1 and Theorem 2",
+          "González-Riquelme–Oliveira e Silva arXiv:2405.16647v2, Theorem 1.4",
+          "González-Riquelme–Ismoilov arXiv:2509.05600v2, Theorems 1–2 and §1.3"
+        ]
+      },
+      "checked_sources": [
+        "Exact earlier split-hyperbola Resultary record 0835fe791166",
+        "Related Resultary records b7ad248d6495 and f000b50fe5d9 (latter summary only)",
+        "Iosevich–Koh",
+        "González-Riquelme–Oliveira e Silva",
+        "González-Riquelme–Ismoilov"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier proof: Q(g)=2S²−Σs_j²−2Σp_j²+4|Σp_j exp(iθ_j)|². Here S=M, s_j=A_j, and B_j=2p_j exp(iθ_j)."
+        ],
+        "reasoning": "Expand Σ(A_t−M/k)² and (1/2)Σ|B_t−B/k|² by subtracting M²/k and |B|²/(2k) from the raw squares, respectively. Adding (1−1/(2k))(M²−|B|²) leaves (1−3/(2k))M²+ΣA_t²+(1/2)Σ|B_t|²−|B|², exactly the sharp bound minus the earlier identity. The nonnegativity uses |B|≤M, already a triangle and pairwise AM–GM inequality. This mechanically implies the new display from the earlier weighted formula even though the earlier text does not print that display.",
+        "searches": [
+          "Resultary 0835fe791166, proof passage with the exact Q(g) in pair variables"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier text has H={(t,t⁻¹)}, normalized input, counting output, R_H*(2→4)^4=3q²(q−2)/(q−1)^3, and g(−t)=e^(iφ) conjugate(g(t)) with |g(t)|=r>0."
+        ],
+        "reasoning": "The stated phase relation is precisely g(t)g(−t)=r²e^(iφ), and conversely division by g(t) gives the relation. The norm, parameter range and extremizers therefore match exactly.",
+        "searches": [
+          "Resultary split level-one multiplicative hyperbola, sharp fourth moment, antipodal extremizers; exact hit 0835fe791166",
+          "Earlier split-hyperbola RESULT.md, offset 250, Finding and proof"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The local mirror of 0835fe791166 gives an exact all-q symbolic match. The norm-one conic record has q+1 points and constant 3q³/(q+1)^3. The difference-set entry was checked only at summary level."
+        ],
+        "reasoning": "This is a symbolic family, not a finite lookup table. The exact indexed split-curve theorem matches without interpolation; the anisotropic conic has another level-set size, and for H_q the difference-set parameter (q−1)(q−2)/(q²−1) would be a noninteger.",
+        "searches": [
+          "Resultary exact split hyperbola 0835fe791166 and neighboring anisotropic norm-one conic b7ad248d6495; difference sets f000b50fe5d9"
+        ]
+      },
+      "rationale": "A distinct earlier Resultary record explicitly states the identical sharp constant and equality class on the same domain with the same normalization, and proves the identical weighted fourth-moment identity. The three-term deficit is not displayed there but is a direct algebraic regrouping of that identity: there is no additional mathematical inequality or stability theorem in the frozen remainder.",
+      "residual_risks": [
+        "No exhaustive priority claim is made for either Resultary finding; other equivalent weighted identities may exist. This does not weaken the exact demonstrated coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the constant and equality explicitly and the deficit by direct algebra",
+          "evidence": "States matching R_H*(2→4)^4 and g(−t)=e^(iφ) conjugate(g(t)); gives Q=2S²−Σs_j²−2Σp_j²+4|Σp_j exp(iθ_j)|².",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-sharp-fourth-moment-extension-on-the-finite-field-multiplicative--0835fe791166/RESULT.md",
+          "material_read": "Finding, scope and proof, mirror offsets 250–3539",
+          "method": "Resultary search and targeted exact local-mirror read",
+          "title": "Sharp fourth-moment extension on the finite-field multiplicative hyperbola",
+          "trigger": "Exact split curve, norm, sharp constant, and extremizers"
+        },
+        {
+          "assessment": "Related, different conic",
+          "evidence": "Domain size q+1 and fourth-power constant 3q³/(q+1)^3.",
+          "identifier_or_url": "2026/10/4/SCOPE-sharp-fourth-moment-extension-on-the-anisotropic-finite-field-no--b7ad248d6495",
+          "material_read": "Finding and proof",
+          "method": "Resultary search and local mirror",
+          "title": "Sharp fourth-moment extension on the anisotropic finite-field norm-one conic",
+          "trigger": "Analogous antipodal geometry"
+        },
+        {
+          "assessment": "Gives a uniform bound for the curve but not the exact theorem",
+          "evidence": "For nonzero levels of nondegenerate quadratics, R*(2→4) ≲ 1.",
+          "identifier_or_url": "https://arxiv.org/html/0804.4505v1",
+          "material_read": "§1.1 and Theorem 2",
+          "method": "Targeted OA full-text passages",
+          "title": "Extension theorems for the Fourier transform associated with non-degenerate quadratic surfaces in vector spaces over finite fields",
+          "trigger": "Broader quadratic restriction theorem"
+        },
+        {
+          "assessment": "Different domain",
+          "evidence": "A sharp theorem for the hyperbolic paraboloid in three ambient dimensions, with trace-polynomial maximizers.",
+          "identifier_or_url": "https://arxiv.org/html/2405.16647v2",
+          "material_read": "Theorem 1.4",
+          "method": "Targeted OA full-text passage",
+          "title": "Sharp extension inequalities on finite fields",
+          "trigger": "Sharp hyperbolic extension theorem"
+        },
+        {
+          "assessment": "Different domain",
+          "evidence": "The theorems and collision analysis concern homogeneous cones in four dimensions.",
+          "identifier_or_url": "https://arxiv.org/html/2509.05600v2",
+          "material_read": "Theorems 1–2 and §1.3",
+          "method": "Targeted OA full-text passages",
+          "title": "Maximizers of the L² to L⁴ Fourier extension inequality for cones in finite fields",
+          "trigger": "Quadratic pair-sum geometry and extremizers"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, displayed deficit and limitations",
+        "Resultary 0835fe791166, exact weighted identity"
+      ],
+      "rationale": "The exact rate and extremizer classification for this natural curve would have mathematical value if not already available. The only new display splits the known deficit by the elementary variance identity; the frozen finding does not go further to a stability estimate in distance to the extremizer family or another independently useful result. Repackaging alone is not a valuable surviving claim to repair.",
+      "residual_risks": [
+        "A new, non-routine quantitative stability theorem could have value, but is not established in this record."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

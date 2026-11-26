@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:11:11.776945Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The stale term after initialization is the gradient of the other component at the preceding iterate, and averaging the components gives h=alpha/2. The scalar cycle product has trace 1-2(a+b)h+ab h^2 and determinant ab h^2. The three strict Jury quantities are 1-ab h^2, 2(a+b)h and 2(1-ah)(1-bh). The last factor gives a root -1 at h=1/max(a,b). For h above that threshold, either the smaller-curvature factor is still positive, so p(-1)<0 gives a root below -1, or h times the smaller curvature is at least one, so the determinant is strictly greater than one. This includes the second endpoint h=1/min(a,b) in the unequal case, which the frozen prose leaves implicit. Orthogonal simultaneous diagonalization gives the criterion for all initialized lifted histories; one unstable cycle mode suffices. In the scalar case the larger positive root decreases strictly before the first coalescence t=2 sqrt(ab) h, by implicit differentiation (t'<0 and d'>0). The determinant bound rho>=sqrt(ab)h strictly excludes every step above the coalescence, stable or not. At coalescence the upper off-diagonal is nonzero, so the Jordan power formula gives the claimed norm order. Replayed exact representative endpoints in reproductions/frozen_checks.py (argument 4); these are consistency checks, not the universal proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The original IAG quadratic theorem proves linear convergence for sufficiently small step and derives a lifted periodic map; it does not evaluate the entire stable interval in the inspected analysis.",
+          "Gürbüzbalaban–Özdaglar–Parrilo bound gamma by a sufficient function of smoothness, convexity and delay. Zhu–Heath–Mitra give a function-gap estimate at alpha=1/(16 L tau)."
+        ],
+        "reasoning": "These are broader convergence domains, but their conclusions do not yield the converse, an exact boundary mode, or the unique root-asymptotic minimizer. The two-component characteristic factorization and the determinant-based global comparison are needed.",
+        "searches": [
+          "https://web.eecs.umich.edu/~hero/Preprints/AveragedGradientVer5.pdf §2.2, Proposition 2.8",
+          "arXiv:1506.02081 Theorem 3.3",
+          "arXiv:2602.05304 Theorem 4.1"
+        ]
+      },
+      "checked_sources": [
+        "Blatt–Hero–Gauchman (2007), DOI 10.1137/040615961, author-hosted primary paper",
+        "Gürbüzbalaban–Özdaglar–Parrilo, arXiv:1506.02081",
+        "Zhu–Heath–Mitra, arXiv:2602.05304",
+        "Mokhtari–Gürbüzbalaban–Ribeiro, arXiv:1611.00347",
+        "Resultary: cyclic two-component heavy-ball 60f51dc1b1a2; fading-memory CoCD 10056db584f9; composite ProxSPS eb8a64761b00"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Proposition 2.8 derives a general period-map perturbation argument for small steps, not an evaluated exact scalar stability or tuning expression; a sufficient function-gap rate likewise gives neither necessary instability nor a global spectral radius comparison.",
+          "DIAG also averages the iterates, changing the characteristic polynomial."
+        ],
+        "reasoning": "A known recipe for constructing a period map does not classify its roots as h ranges over all positive steps. In particular neither sufficient convergence theorem implies the optimizing defect or its Jordan transient, and the DIAG analysis governs a different recurrence.",
+        "searches": [
+          "https://web.eecs.umich.edu/~hero/Preprints/AveragedGradientVer5.pdf pp. 10–13",
+          "arXiv:2602.05304 Theorem 4.1",
+          "arXiv:1611.00347 introduction and algorithm comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Blatt–Hero–Gauchman pp. 1–2 and §2.2 use the same freshest stored component gradients, with sum/mean steps differing by normalization, and periodic quadratic dynamics; Proposition 2.8 states convergence for sufficiently small steps.",
+          "Zhu–Heath–Mitra Eq. (5) gives the IAG update and Theorem 4.1 a sufficient delay-dependent stepsize."
+        ],
+        "reasoning": "Identify the one-stale-gradient update after converting the aggregate normalization. That equivalence credits the inherited recurrence framework but does not make a small-step result equivalent to the exact unit-disk criterion or its rate optimum.",
+        "searches": [
+          "Resultary: cyclic two-component IAG, exact stability and critical damping",
+          "https://web.eecs.umich.edu/~hero/Preprints/AveragedGradientVer5.pdf",
+          "arXiv:2602.05304 §2, Eq. (5) and §4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The cyclic two-component heavy-ball finding uses explicit momentum rather than a stale other-component gradient; the fading-memory finding uses a two-coordinate CoCD state with a cubic frontier; the composite ProxSPS finding concerns a different scalar update law."
+        ],
+        "reasoning": "The inspected nearest exact records do not give this IAG map even with matching counts such as two components. No direct matching table or formula was retrieved.",
+        "searches": [
+          "Resultary: cyclic IAG, commuting quadratic Hessians, two-component Floquet frontier and scalar optimum",
+          "2026/10/13/SCOPE-a-sharp-disconnected-stability-diagram-for-cyclic-two-component--60f51dc1b1a2",
+          "2026/10/25/SCOPE-a-sharp-coupling-dependent-stability-frontier-for-fading-memory--10056db584f9",
+          "2026/10/27/SCOPE-sharp-scalar-flip-threshold-and-nonvanishing-cycles-for-composit--eb8a64761b00"
+        ]
+      },
+      "rationale": "The periodic lifted IAG dynamics and general linear convergence for a sufficiently small step are inherited. The supported distinction is the exact necessary-and-sufficient boundary for two commuting SPD components and the unique scalar spectral-rate optimizer, realized at a defective positive eigenvalue. The closest same-algorithm literature gives the general period map or sufficient estimates, not a covering exact classification. The retrieved nearby exact frontiers govern different updates. This is a bounded best-of-knowledge comparison, not certification of priority.",
+      "residual_risks": [
+        "An overlooked exact specialization or differently named delayed-gradient recurrence could overlap. The original 2007 author copy was accessible for the relevant passages, but this was not an exhaustive historical review."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Periodic lift and sufficiently-small-step linear convergence are prior; no sharp cutoff or optimized scalar rate in these passages",
+          "evidence": [
+            "OA offsets 2455–4113 and 36000–47495; Proposition 2.8 states convergence for sufficiently small mu"
+          ],
+          "identifier_or_url": "https://web.eecs.umich.edu/~hero/Preprints/AveragedGradientVer5.pdf",
+          "material_read": "Author-hosted primary full-text passages at pp. 1–2 and §2.2, pp. 10–13",
+          "method": "Read OA update and Proposition 2.8 with its periodic-system proof; normalize sum versus mean",
+          "title": "A Convergent Incremental Gradient Method with a Constant Step Size",
+          "trigger": "Original same-method quadratic and Floquet analysis; plausible covering theorem"
+        },
+        {
+          "assessment": "General sufficient interval and linear rate, not an exact two-component classification",
+          "evidence": [
+            "OA offsets 26300–29477; gamma below a*mu/(K*L*mu+L), with a=8/25"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1506.02081",
+          "material_read": "Theorem 3.3 and surrounding bound, p. 8",
+          "method": "Read OA primary passage and compare the sufficient step with the necessary-and-sufficient spectrum claim",
+          "title": "On the Convergence Rate of Incremental Aggregated Gradient Algorithms",
+          "trigger": "Earlier sharpness candidate for cyclic IAG bounds"
+        },
+        {
+          "assessment": "Does not give the sharp all-history boundary or optimizer",
+          "evidence": [
+            "Theorem 4.1, OA offsets 63800–66966, gives alpha=1/(16 L tau)"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2602.05304",
+          "material_read": "IAG update and Theorem 4.1, p. 8",
+          "method": "Compare the OA sufficient step and function-gap conclusion with the cycle spectral statements",
+          "title": "A Short and Unified Convergence Analysis of the SAG, SAGA, and IAG Algorithms",
+          "trigger": "Motivating IAG convergence bound"
+        },
+        {
+          "assessment": "DIAG averages iterates as well as gradients; different period map",
+          "evidence": [
+            "OA offsets 1928–3074"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1611.00347",
+          "material_read": "Opening description of DIAG, p. 1",
+          "method": "Compare the OA iteration descriptions",
+          "title": "Surpassing Gradient Descent Provably: A Cyclic Incremental Method with Linear Convergence Rate",
+          "trigger": "Nearby cyclic gradient-aggregation formulation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Two components are the first case where one stored component gradient is genuinely stale. The result calibrates sufficient delays-based step bounds by an exact stability ceiling for an entire commuting class and identifies a unique useful scalar tuning rule. The defective optimum explains why root-asymptotic and finite-horizon performance need not agree. No optimal matrix step or extension to noncommuting, nonlinear, or finite-precision settings is asserted.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

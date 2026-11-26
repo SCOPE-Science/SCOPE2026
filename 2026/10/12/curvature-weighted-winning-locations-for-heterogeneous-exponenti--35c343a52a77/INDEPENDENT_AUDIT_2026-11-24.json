@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:41:49.151275Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Put L=log n and u_n=b_n+y/r_*. At a fixed height y, the exponential tail is sqrt(L)e^(-y)/(nK) times exp[-r''(t_j)z²/(2r_*)](1+o(1)) at t_j+z/sqrt(L), uniformly on compact y,z sets. The shifted lattice has mesh sqrt(L)/n; the quadratic lower bounds at the minima give summable Gaussian majorants and the positive rate gap on their complement gives o(1) total tail mass. The all-site tail sum tends to e^(-y) while the maximum site tail tends to zero, so the product of the CDFs converges to exp(-e^(-y)). At any compact height window the exponential densities are on their positive support for all sufficiently large n. In the exact winner density the all-other-sites product has the same limit uniformly in the removed index and the factor r(i/n)/r_* tends to one on compact rescaled valley windows. Integrating the resulting compact-window density yields the Gaussian mixture times the Gumbel density. The limiting density has total mass one; equivalently the union bound at y=-A and the Gaussian tail control exclude escaping marks. This gives joint weak convergence, including the single-valley case and nearest-minimum ties. No result outside the stated nondegenerate interior-minimum independent exponential setting is audited. The frozen verifier was inspected, not executed. An independent finite diagnostic, `python3 -I /workspace/checks/1.py`, integrates the exact finite-row valley winner densities on [-5,14] for the displayed two-valley example. First-valley masses were 0.6035764 and 0.6038021 at n=4000 and n=32000 versus limiting 0.6043561, with >0.999999 of height mass in the window; this is not a convergence or rate certificate. See /workspace/checks/1.log.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "arXiv:2503.02473 H1–H2 and Theorem 2 use a non-atomic limiting spatial measure and common normalized tail measures uniformly across sites.",
+          "No readable theorem passage was obtained from the cited Hüsler paper."
+        ],
+        "reasoning": "On the original spatial scale the current tail intensity concentrates at finitely many points; unequal rates do not have uniformly common normalized tail shape. In the shrinking windows a separate Laplace calculation is essential to identify the marks and centering. Generic point-process convergence machinery alone does not identify those quantities.",
+        "searches": [
+          "Davydov–Rotar arXiv:2503.02473, marked point-process theorem",
+          "Hüsler DOI 10.2307/3214467, nonstationary extremes"
+        ]
+      },
+      "checked_sources": [
+        "Resultary local catalogue and 9cdd88779c84",
+        "arXiv:2305.05967",
+        "arXiv:2503.02473",
+        "Malmberg 2013 thesis access attempt",
+        "DOI 10.2307/3214467 access attempt"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The ratio of tails at sites of distinct rates tends to zero or infinity, excluding the positive proportionality of arXiv:2305.05967.",
+          "The 2025 theorem and its corollary do not supply the exponential-array shrinking spatial intensity."
+        ],
+        "reasoning": "Neither common-tail theorem as stated implies the -½ log log n correction with this K or the joint Gaussian mark. A generic or analogous limit does not suffice without proving the rate-profile-specific tail asymptotics.",
+        "searches": [
+          "arXiv:2305.05967 §2",
+          "arXiv:2503.02473 Theorem 2, Corollary 3, Proposition 4",
+          "Resultary 9cdd88779c84 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Davydov–Rotar §2 condition (2.1) and Theorems 1–2 require proportional tail factors.",
+          "Resultary SCOPE 9cdd88779c84, Finding, has a Gaussian-mixture valley mark for random polygon caps."
+        ],
+        "reasoning": "An additive trend under common-rate exponential noise changes a multiplicative tail factor, whereas varying rates change the exponent. A structurally analogous marked limit for geometric caps does not give an equivalent winner law for independent exponential arrays.",
+        "searches": [
+          "Davydov–Rotar arXiv:2305.05967, heterogeneous argmaximum",
+          "Malmberg 2013, exponential offers",
+          "Resultary: marked Gumbel, heterogeneous exponential rates, curvature-weighted location"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matched Finding has weights proportional to f(s_i)sqrt(2πβ/b''(s_i)) for b=f/sqrt(κ) and cap heights of random inscribed polygons. It is dated later than the assigned record."
+        ],
+        "reasoning": "There is no numerical sequence or finite table in the main claim to check; the relevant exact match would be a catalogue entry with the same exponential observation model and marked limit. The material match inspected is an analogue, not such an entry.",
+        "searches": [
+          "Resultary local index, marked Gumbel and curvature-weighted winning locations",
+          "Resultary 2026/11/17/SCOPE-marked-gumbel-extremes-for-nonoptimally-sampled-smooth-planar-ov--9cdd88779c84/RESULT.md"
+        ]
+      },
+      "rationale": "The supported distinct claim is the joint marked limit with a shrinking Gaussian location scale, quantitative curvature weights and specified centering for a fixed smooth heterogeneous exponential rate. The closest inspected winner theorems impose different assumptions and do not give this conclusion as stated. The closest catalogue analogue has a different stochastic model and is not mathematical coverage. This is a best-of-knowledge verdict, not a priority certification.",
+      "residual_risks": [
+        "The thesis and full historical Hüsler paper were not independently readable. Broad targeted literature search was deferred, not counted as a negative search result; an exact earlier marked specialization outside the compared work remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Not covering under the stated hypotheses",
+          "evidence": "Condition (2.1) and Theorems 1–2 use a common tail shape and site multipliers.",
+          "identifier_or_url": "https://arxiv.org/pdf/2305.05967",
+          "material_read": "§2 pp. 3–4 and §1 tail notation",
+          "method": "Lawful OA PDF passage and surrounding context",
+          "title": "The Distribution of Argmaximum or a Winner Problem",
+          "trigger": "Closest heterogeneous winner theorem"
+        },
+        {
+          "assessment": "General framework, no direct coverage",
+          "evidence": "Product intensity from a non-atomic spatial measure and uniformly common normalized tail laws.",
+          "identifier_or_url": "https://arxiv.org/pdf/2503.02473",
+          "material_read": "pp. 2–4, H1–H2, Theorem 2 and its maximum and argmax consequences",
+          "method": "Lawful OA PDF passage and surrounding context",
+          "title": "Point Process Approach to the Winner Problem",
+          "trigger": "Potentially stronger marked array theorem"
+        },
+        {
+          "assessment": "Unresolved access risk",
+          "evidence": "The reported additive-offer model preserves a common rate, unlike the audited model; this description was not independently confirmed.",
+          "identifier_or_url": "https://paperzz.com/doc/7080685/random-choice-over-a-continuous-set-of-options",
+          "material_read": "No thesis passage retrieved; comparison only to the description in the frozen record",
+          "method": "Lawful OA attempts at cited copy returned 403",
+          "title": "Random Choice over a Continuous Set of Options",
+          "trigger": "Spatial exponential choice"
+        },
+        {
+          "assessment": "Unresolved access risk",
+          "evidence": "The accessible evidence does not establish or exclude a marked specialization.",
+          "identifier_or_url": "https://doi.org/10.2307/3214467",
+          "material_read": "Bibliographic identification only; no exact theorem passage",
+          "method": "Lawful OA DOI lookup found no readable copy",
+          "title": "Extreme values of non-stationary random sequences",
+          "trigger": "Historical nonstationary extremes candidate"
+        },
+        {
+          "assessment": "Strong structural analogue, different model",
+          "evidence": "Cap heights of a random inscribed polygon have a marked Poisson limit with weights involving f and curvature of b=f/sqrt(κ), not maxima of independent site exponentials.",
+          "identifier_or_url": "Resultary 2026/11/17/SCOPE-marked-gumbel-extremes-for-nonoptimally-sampled-smooth-planar-ov--9cdd88779c84",
+          "material_read": "Frozen-mirror Finding and relationship passage, offsets 0 and about 10400",
+          "method": "Local catalogue and mirror reads",
+          "title": "Marked Gumbel extremes for nonoptimally sampled smooth planar ovals",
+          "trigger": "Material Resultary overlap in marked law and valley scale"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Several equally favorable sites give a macroscopic ambiguity not resolved by the marginal Gumbel theorem. The result identifies the winner's probabilities across valleys, spatial uncertainty within them and independence from height in one common normalization. The exact curvature constants distinguish profiles with the same minimum rate and are useful in the natural heterogeneous-winner problem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

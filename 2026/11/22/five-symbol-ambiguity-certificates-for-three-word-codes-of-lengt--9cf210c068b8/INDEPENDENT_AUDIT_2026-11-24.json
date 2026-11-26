@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:13:29.481583Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–33; VERIFICATION.md; verify.py inspected, not run",
+        "Independent python3 /workspace/review_checks/check_2.py: explicit partition-block insertions and direct length-five equality, cross-checked against the reduced residual graph. 877 partitions; 825 eligible; 8 ambiguous with two classes and 2 with three. Literal counts 8, 30, 72, 140."
+      ],
+      "rationale": "For z=abc the only possible initial Sardinas–Patterson residual is c, requiring ab in X. A one-letter residual follows the edge p→q from each short word pq. Its only possible transition to length two is a→bc by stripping a from z. If z is nonconstant then bc differs from ab, so bc cannot be cancelled from the front of z; nor can it make any transition with a length-two word other than equality. Thus nonconstant ambiguity requires bc in X and reachability of a from c using the two edges a→b and b→c. This holds exactly when c=a (if c=b≠a the only outgoing edge from c loops; otherwise c outside {a,b} is a sink). If z is constant, aa in X suffices and is necessary by the initial prefix test. The displayed concatenations give witnesses of length five; no shorter length has two distinct feasible length patterns or more than one factorization with a fixed pattern. Counting the disjoint families as unordered short-word pairs gives q(q−1)(q+2) and the stated probability.",
+      "residual_risks": [
+        "Distinct short words, a named finite alphabet, ordinary concatenation, and the exact profile (2,2,3) are essential to the proof and counting normalization."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sardinas–Patterson applies to every finite code; the broad family attributed to the 2001 paper includes every frozen codebook. The inspected 2002 abstract is not a characterization of the prior paper's precise theorem statements."
+        ],
+        "reasoning": "Credit the general decidability result and the earlier length-family study. Neither the generic algorithm nor the available family description is a statement of the same two cases or a sharper uniform bound.",
+        "searches": [
+          "1953 Sardinas–Patterson criterion; 2001 DOI 10.1109/18.930915; 2002 DOI 10.1155/S0161171202011729"
+        ]
+      },
+      "checked_sources": [
+        "Sardinas and Patterson, 1953 criterion as used and reconstructed in the frozen proof",
+        "DOIs 10.1109/18.930915 and 10.1155/S0161171202011729 (access limited as specified)",
+        "Resultary 9cf210c068b8"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general residual test leaves a reachability problem. For this profile the extra restriction to the sole two-letter residual bc and the two one-letter edges yields the certification bound; the count then follows from the structural result."
+        ],
+        "reasoning": "Do not claim the count as independently difficult once the patterns are known. No inspected prior theorem was shown to force those patterns or the constant-length witness as a specialization; the 2001 full text would be the strongest unresolved implication check.",
+        "searches": [
+          "Compare the finite suffix test and the general equal-length-short-word family to the two-pattern theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Prior terminology includes three-word codes with two equal-length shortest words and unique versus multiset/set decipherability. The 2002 abstract describes prior coverage of |c1|=|c2|≤|c3|.",
+          "The exact indexed match 9cf210c068b8 is this record itself."
+        ],
+        "reasoning": "The length family contains the target, but comparing the weaker decipherability notions is not equivalent on its face to determining the entire failure locus for unique decipherability or its minimum witness length.",
+        "searches": [
+          "Resultary and primary-literature search: (2,2,3) non-uniquely decipherable three-word codes, two equal-length words and length-five ambiguity witness",
+          "Blanchet-Sadri 2001; Blanchet-Sadri–Howell 2002"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "9cf210c068b8 explicitly contains the two patterns, five-letter witness and q(q−1)(q+2); it is the frozen record and no distinct exact match surfaced in the bounded catalogue search."
+        ],
+        "reasoning": "The self-match is not prior coverage; no inspected prior table yields the exact all-q labeled count.",
+        "searches": [
+          "Resultary exact profile and witness/count terms; entries for the short-equal three-word regime"
+        ]
+      },
+      "rationale": "Pass the explicit two-pattern classification with the uniform sharp five-letter witness and closed labeled count, not the decision algorithm or general study of three-word decipherability. The 2001 family is a real scope overlap; no inspected statement establishes equivalent structural or witness coverage for this profile. The limited access risk is material and remains open.",
+      "residual_risks": [
+        "The precise theorem statements in the encompassing 2001 paper were not accessible; an equivalent direct specialization remains possible. Bounded results do not establish priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Family overlap verified via the later authors' description; exact implication unresolved",
+          "evidence": [
+            "|c1|=|c2|≤|c3| includes (2,2,3). Cannot infer noncoverage from lack of access."
+          ],
+          "identifier_or_url": "https://doi.org/10.1109/18.930915",
+          "material_read": "Bibliographic evidence and family scope as described in the 2002 paper abstract; no full-text passage recovered",
+          "method": "Primary-document retrieval attempts including IEEE document 930915 (HTTP 202); identified copies inaccessible",
+          "title": "On unique, multiset, and set decipherability of three-word codes",
+          "trigger": "Encompassing family with equal shorter lengths"
+        },
+        {
+          "assessment": "Confirms prior family scope but not the exact rule",
+          "evidence": [
+            "Describes the 2001 equal-shorter-length family and concerns relationships between decipherability notions."
+          ],
+          "identifier_or_url": "https://doi.org/10.1155/S0161171202011729",
+          "material_read": "Accessible abstract, not full paper",
+          "method": "Abstract inspection; identified full-text retrieval attempts unsuccessful",
+          "title": "Note on decipherability of three-word codes",
+          "trigger": "Clarifies prior family and variants"
+        },
+        {
+          "assessment": "Identical record, not distinct prior coverage",
+          "evidence": [
+            "Identical profile, witness and polynomial."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-five-symbol-ambiguity-certificates-for-three-word-codes-of-lengt--9cf210c068b8",
+          "material_read": "Indexed statement and frozen finding/assumptions",
+          "method": "Resultary and comparison with frozen package",
+          "title": "Five-symbol ambiguity certificates for three-word codes of lengths two, two and three",
+          "trigger": "Exact Resultary match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–33; independent residual proof and replay"
+      ],
+      "rationale": "The smallest mixed-length profile with two distinct shortest words, no one-letter words, and a longer third word gives a natural test case for witness length. The surprising absence of any codes whose first ambiguity appears after length five is stronger than a routine test of an individual codebook; the complete failure locus also gives the baseline random-codebook failure rate.",
+      "residual_risks": [
+        "A narrow exact classification, not a long-code bound or a new general decision algorithm."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

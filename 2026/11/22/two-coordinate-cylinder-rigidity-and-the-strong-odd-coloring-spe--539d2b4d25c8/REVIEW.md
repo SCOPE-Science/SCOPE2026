@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** All graph vertices, adjacency rules, coloring conventions and counting normalizations are explicit. Translation reduces a nonempty odd independent set to zero plus a pairwise-intersecting two-subset family. The five weight-four test vertices force all degrees in that family to be even, leaving precisely the empty family and a triangle. This proves the singleton/cylinder classification. The cylinder intersection criterion gives an exhaustive hand count of \(1,40,300,360,70\) disjoint-cylinder families, yielding the stated polynomial. Two independently structured standalone programs reproduce the same counts, one from the full adjacency relation and the other from coordinate cylinders.
+## correctness
 
-## Originality
-**PASS, provisional.** Searches compared strong odd and odd-independent formulations, the Clebsch/folded-five-cube aliases, possible affine-cylinder interpretations, and broader graph-class coverage. The 2024 introductory and general-bounds papers do not state the Clebsch class census. The 2025 odd-independence paper mentions the Clebsch graph as a strongly regular example but gives no equivalent counting theorem. The nearest retrieved research records concern other graph classes or other invariants of the same graph. Residual risk is an unindexed equivalent finite-geometry classification; no absolute priority claim is made.
+PASS
 
-## Mathematical value
-**PASS.** The strong odd coloring spectrum of a canonical triangle-free strongly regular graph is a natural exact invariant motivated by the 2024 graph-coloring literature. The result has a compact structural explanation: all nontrivial valid classes are affine cylinders, and all optimal partitions use at most two coordinate-pair supports. It determines all color-count gaps and the exact \(10+60\) optimizer decomposition, rather than supplying a single easily inferred upper bound. The difference between \(1190\) ordinary proper four-color partitions and only \(70\) strong odd four-color partitions quantifies a genuine local-parity restriction.
+Translate an admissible block to contain zero. Its remaining vertices are an intersecting family of 2-subsets, since disjoint pairs differ in four positions. The weight-four neighbor of zero missing coordinate i sees 1+deg(i) members, so every degree is even. An intersecting nonempty family is a star or the full triangle: once edges ab and ac are present, a member missing a must be bc, after which no other member can occur. A nonempty star has a leaf. The triangle with zero is exactly the two-fixed-coordinate cylinder after translation. The five generator steps restrict to the two fixed coordinates as the three nonzero profiles with multiplicities 3,1,1, proving sufficiency with open neighborhoods. Compatible fixed bits on at most four positions always extend; hence disjoint cylinders either conflict on the same pair or have opposite bits on a shared coordinate. This yields 60+240 disjoint pairs and 40+240+80 disjoint triples (one support, a doubled support, or a triangle of supports). Four cylinders with one support give ten covers; two distinct supports must each supply both cylinders in their opposite shared-coordinate halves, giving sixty. Three triangle supports leave two complementary patterns on the three active coordinates, and both values occur also on each outside coordinate by parity, so the four remaining vertices cannot form a cylinder. Four distinct pairwise-intersecting supports would give a star with impossible mutually opposite bits. Each q-cylinder family has 16-3q blocks, so the complete spectrum is 70z^4+360z^7+300z^10+40z^13+z^16, and the four fixed named colors give 70 times 4! assignments. An independent scan of 65,535 nonempty subsets and least-vertex partition counting reproduced the block sizes, spectrum and optimal split.
 
-## Closest literature and limitations
-Kwon–Park (arXiv:2401.11653) introduces the notion. Caro–Petruševski–Škrekovski–Tuza (arXiv:2410.02336) develops general bounds and product methods. Their later odd-independence paper (arXiv:2509.20763) addresses broad classes and mentions the Clebsch graph without giving this census. The exact result is for the fixed sixteen-vertex graph only. Publication-priority clearance and independent mathematical validation are outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The strongest objective-specific earlier material inspected mentions the Clebsch graph but does not supply the cylinder-block classification or the polynomial. The strongest indexed structural analogue uses triangles in the two-subset Kneser graph, whose vertices and neighborhood constraints differ. The geometrically related sixteen-point examples do not give an equivalent census. This is a best-of-knowledge decision, not a claim of priority.
+
+## value
+
+PASS
+
+The Clebsch graph is a canonical triangle-free graph and the strong odd condition is motivated independently of this computation. The exact classification is stronger than the optimal chromatic number: it gives all allowable blocks, the complete spectrum, and the possible coordinate geometry of extremizers. These supply exact test data for graph-coloring bounds and distinguish optimal colorings that the minimum alone cannot distinguish.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

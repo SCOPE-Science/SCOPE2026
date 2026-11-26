@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact-real, four-state recurrence and quantifiers are explicit. The proof supplies a finite-entry argument, five outward rational interval bounds, a forward-invariant box and a concrete two-step Lipschitz constant less than \(991/1000\). Banach contraction and swap symmetry imply global synchronization. The rational checker was executed; its supplementary finite orbit checks are not treated as an infinite proof. The domain excludes boundary states.
+## correctness
 
-## Originality — PASS within inspected evidence
-The originating 2023 construction supplies the ingredients but not the global theorem. Its separately printed equation (8) does not reproduce the same expression as equations (3),(5)–(7); the claim is scoped to the latter composition only. Cánovas (2022) treats a convex coupled pair, and Bosisio, Naimzada and Pireddu (2024) an additive coupled pair; both differ from nested polynomial input and delayed minimum gain. Targeted indexed statement/alias searches found no stronger theorem implying this specific convergence claim. Publication priority remains unverified against unindexed sources.
+PASS
 
-## Value — PASS
-A positive-width, nonchaotic, globally synchronizing gain range including \(a=3.99\) is a substantial structural constraint on the natural composition of a published nonlinear delayed-coupling construction. It supplies a rigorous attracting basin and exponential rate, rather than simply a local stability label. This does not determine which algebraic reading or implementation produced the source's numerical plots, and no cryptographic conclusion is asserted.
+For strictly interior histories every new value is in (0,3/4]. Once both current values are in that range, g(t)/t is uniformly large for t<=1/4 and all cross-inputs in [1/4,3/4] give outputs greater than 3/5, so m_{n+1}>=min((12/5)m_n,3/5) gives finite entry into the persistent [1/4,3/4] current-value interval. The next values are in [15561/25600,3/4]. Using that g decreases for t>1/2, the five rational interval images land strictly inside [13/20,71/100]; the next iterate has all four components in that invariant box. For t there, |g'|=(2t-1)(1+(2t-1)^2)/2 increases, and the min gain is (4-a)-Lipschitz in its two arguments. The difference of each updated coordinate is at most 0.990051 times the old four-coordinate distance. The shift itself is only nonexpansive, but after two updates both time layers have the smaller bound; hence the full square contracts by at most 0.991. Uniqueness for the square and commutation with the map and coordinate swap give a synchronized fixed point, strictly between the endpoints by the strict box inequalities. The original map also converges on odd iterates, and invariant probabilities collapse to the fixed-point mass by bounded convergence. Independent replay `python /workspace/review_replay.py 4` checks the exact five intervals, invariant bounds and quantitative Lipschitz coefficient. This is an exact-real dynamical theorem for the explicitly composed recurrence, not for the different literal rendering of Eq. (8).
 
-## Closest literature and limitations
-- Huang et al., *Mathematics* 11 (2023), 3295, https://doi.org/10.3390/math11153295.
-- Cánovas, *Networks and Heterogeneous Media* 18 (2023), 275–290, https://doi.org/10.3934/nhm.2023010.
-- Bosisio, Naimzada and Pireddu, *Chaos* 34 (2024), 033112, https://doi.org/10.1063/5.0175789.
+## originality
 
-The gain cutoff is a sufficient estimate, not a sharp bifurcation location. Strictly positive initial coordinates are required and the entry time depends on the initial state. The exact source-formula ambiguity and any unindexed prior results are outstanding interpretive and priority risks, not gaps in the stated proof.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The composition, logistic seed and controls are prior, but the verified all-history attraction and quantitative trapping result on the interval with positive delayed gain were not covered by the strongest compared statements. This is a best-of-knowledge assessment, not a priority certification.
+
+## value
+
+PASS
+
+The theorem establishes a nonzero-width interval with a genuinely active delayed term, proves attraction from arbitrarily small positive histories rather than only near the equilibrium, and supplies a concrete quantitative stability window for the published composition at its emphasized a=3.99. It is not a scalar endpoint computation, an optimal threshold, or a claim about an implementation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

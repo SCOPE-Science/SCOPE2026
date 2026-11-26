@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:11:29.086292Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Frozen RESULT.md lines 10–25; transition/bucket and queue code in artifacts/cerny_block_dijkstra.cpp and artifacts/cerny_run2_bfs.cpp inspected, not executed.",
+        "Independent replay: python3 /workspace/branches/audit_cerny_reverse.py 3 24 <frozen-record-directory>/artifacts/exact_profile.csv. Actual slices 3–16, 17–19, 20–22 and 23–24 returned 4, 11, 20, 33, 48, 67, 88, 113, 140, 171, 204, 241, 280, 323, 368, 417, 468, 523, 580, 641, 704, 771; all 22 witnesses reset with no aaa."
+      ],
+      "rationale": "The stated all-order run threshold is correct. Removing initial/terminal rotations and adjacent duplicate b's preserves synchronization and admissibility; on S={0,...,n−2}, ab is a cycle, so words without aa cannot reset. For m=n−1 the block aab(ab)^(m−1) sends each i<m−1 to i+1 and fixes m−1 (including m=2); repeating m−1 times after b works, has no aaa, and gives length 2n²−5n+3. An independently written exact backward search reproduced every length for 3≤n≤24 and replayed every stored word from every starting state. Each layer is a preimage of a terminal singleton under a suffix, with the suffix's leading a-run recorded. Prepending a uses inverse rotation and is forbidden at run two; prepending b forces membership of n−1 to match membership of 0 and resets the run. Empty preimages never grow, and first arrival at Q among the three run states proves the minimum. This verifies the finite formula, not an extrapolation of the frozen proof. The source's parenthetical assertion that every reachable subset is processed before Dijkstra terminates is unnecessary and not literally true: settling distances below the first singleton is sufficient.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Resultary 8a6293fb58a5 supplies an inverse-interval proof and constructive optima for all n≥3.",
+          "Resultary 303d4a010712 gives 6m²−8m+3 at every even n=2m.",
+          "Hoffmann's three-state constraint automata result is a polynomial-time feasibility result on a broader class, not an exact length theorem."
+        ],
+        "reasoning": "Restricting the all-order result gives all 22 lengths; the even result alone covers just the even half. Language-level decision frameworks alone would not supply any exact profile.",
+        "searches": [
+          "Resultary 8a6293fb58a5; 303d4a010712",
+          "Hoffmann arXiv:2109.02743v1 and arXiv:2005.05907v2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 8a6293fb58a5",
+        "Resultary 5cfabeb3b337",
+        "Resultary 303d4a010712",
+        "arXiv:2109.02743v1",
+        "arXiv:2005.05907v2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The catalogue all-order result has the same block maps ab,aab and gives the exact optimum for the same costs; the separate run-threshold result gives the exact impossibility/possibility dichotomy.",
+          "A three-state partial constraint automaton recognizes no-aaa but the general decision theorem does not compute optimal lengths."
+        ],
+        "reasoning": "The frozen finite table is an immediate restriction of a covering result, and the separate all-order run threshold is stated directly. The catalogue dates do not determine mathematical dependence.",
+        "searches": [
+          "Resultary 8a6293fb58a5, Finding, assumptions and proof; 5cfabeb3b337, Finding and proof",
+          "Hoffmann arXiv:2109.02743v1, abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 8a6293fb58a5, Finding: identical letter maps, no contiguous aaa, and floor((3n²−8n+6)/2) for all n≥3.",
+          "Resultary 5cfabeb3b337, Finding and proof: exact all-order feasibility cutoff two."
+        ],
+        "reasoning": "Renaming forbidden aaa as no-triple-rotation does not change the word language, cost or automaton. Both original components are matched as theorems.",
+        "searches": [
+          "Resultary: no-aaa, no-triple-rotation, bounded-rotation and sharp two-rotation-run Černý thresholds"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The all-order Resultary formula explicitly starts 4, 11, 20, 33, 48, 67, 88, 113, matching the frozen table, and generates all remaining entries."
+        ],
+        "reasoning": "This is exact coverage by formula, even if the stored words and visited-state counts differ; those are evidence, not novel minimized invariants.",
+        "searches": [
+          "Resultary no-triple-rotation exact threshold; mirror RESULT.md 8a6293fb58a5 and even-order 303d4a010712",
+          "Frozen artifacts/exact_profile.csv"
+        ]
+      },
+      "rationale": "Distinct catalogue results demonstrably cover both main parts: the exact no-triple-rotation theorem uses the identical automaton, contiguity constraint and exact expression for every n≥3; a separate sharp two-rotation-run theorem explicitly includes impossibility at run bound one and feasibility at two for every n≥3. This is a finding of mathematical coverage in the checked corpus, not a finding of historical priority; the covering records carry a later catalogue date.",
+      "residual_risks": [
+        "The covering catalogue entries have a later dated path than the frozen record; chronology of discovery, independence of work, and earliest publication are not determined by this review.",
+        "Inspected external literature is bounded; it is not an exhaustive historical search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS finite length claim",
+          "evidence": "For every n≥3 it states the identical floor formula and constructs optimal words; the first eight values are given.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-the-exact-no-triple-rotation-reset-threshold-of-the-ern-automata--8a6293fb58a5/RESULT.md",
+          "material_read": "Finding, assumptions, block normal form and inverse-interval proof, offsets 0–8522",
+          "method": "Bounded local-mirror passage inspection",
+          "title": "The exact no-triple-rotation reset threshold of the Černý automata",
+          "trigger": "Strongest exact match on language, family and lengths"
+        },
+        {
+          "assessment": "COVERS all-order feasibility claim",
+          "evidence": "Maximum run one forbids resetting and maximum run two suffices; no exact length claim is made.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-sharp-two-rotation-run-synchronization-threshold-in-the-ern-auto--5cfabeb3b337/RESULT.md",
+          "material_read": "Finding and proof at offset 0",
+          "method": "Local-mirror passage inspection",
+          "title": "Sharp two-rotation-run synchronization threshold in the Černý automata",
+          "trigger": "Same all-order run threshold"
+        },
+        {
+          "assessment": "COVERS even orders",
+          "evidence": "At n=2m the length 6m²−8m+3 agrees exactly; the statement does not include odd orders.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-exact-bounded-rotation-reset-threshold-for-even-ern-automata--303d4a010712/RESULT.md",
+          "material_read": "Finding and lower-bound proof at offset 0",
+          "method": "Local-mirror passage inspection",
+          "title": "Exact bounded-rotation reset threshold for even Černý automata",
+          "trigger": "Potential parity-equivalent profile"
+        },
+        {
+          "assessment": "Provides decision framework, not the exact length in the inspected result",
+          "evidence": "Polynomial-time decision for binary simple-idempotent automata with constraints up to three states.",
+          "identifier_or_url": "arXiv:2109.02743v1",
+          "material_read": "Abstract, OA offset 395",
+          "method": "Open primary text passage inspection",
+          "title": "Constrained Synchronization for Commutative Automata and Automata with Simple Idempotents",
+          "trigger": "General simple-idempotent theorem explicitly including Černý automata"
+        },
+        {
+          "assessment": "Provides general decision and complexity framework",
+          "evidence": "The inspected results concern regular constraints and complexity classifications, not the exact Černý profile.",
+          "identifier_or_url": "arXiv:2005.05907v2",
+          "material_read": "Abstract and introduction, OA offsets 422 and 2280",
+          "method": "Open primary text passage inspection",
+          "title": "Ideal Separation and General Theorems for Constrained Synchronization and their Application to Small Constraint Automata",
+          "trigger": "Closest regular-language framework"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The contiguous-run constraint on a canonical worst-case automaton motivates a real exact invariant, and an independent exact-replay benchmark is useful as corroboration. But as a distinct mathematical contribution the all-order feasibility theorem is already matched and the 22 finite optima are contained in a constructive all-order formula. Neither alternative witnesses nor smaller search graphs establish a distinct valuable invariant here. Extending the frozen length claim to all orders would also be covered.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

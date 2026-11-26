@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:06:18.347088Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For nonzero A, U=im A has dimension r and AB maps into U. If the restriction to U has a vanishing kth power then (AB)^(k+1)=0, and nilpotency of AB conversely implies nilpotency of the restriction. The restriction map on B is onto End(U): compose a prescribed endomorphism with a linear section of A and extend from U. Every fiber has cardinality q^(n^2-r^2). The Fine–Herstein count used here can also be reconstructed: let N_j count nilpotents and G_j=|GL_j(F_q)|, with N_0=G_0=1. Each endomorphism in dimension r has a unique Fitting decomposition as direct sum of a nilpotent and an invertible part. Counting decompositions with nilpotent dimension j gives G_r N_j/G_j endomorphisms, so q^(r^2)/G_r=sum_{j=0}^r N_j/G_j. Subtract dimension r-1 and use q^(r^2)/G_r=product_{i=1}^r (1-q^(-i))^(-1), giving N_r=q^(r^2-r). Thus there are q^(n^2-r) product partners before deleting zero and the self-partner exactly when A is nilpotent. The symmetric relation follows from (BA)^(k+1)=B(AB)^k A. Residues of the two degree types differ modulo q since n>=2; each type then determines the rank. The gaps of the powers exceed one, so the maximum is precisely rank-one nonnilpotent and the minimum precisely rank n (which is never nilpotent). `python3 /workspace/reviews/reproduce.py 1` independently exhausts the n=2 graph over the non-prime field F4 using trace and determinant; 60 rank-one nonnilpotents have degree 63, 15 rank-one nilpotents degree 62, and 180 invertibles degree 15. The frozen prime-field verifier was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Frozen comparison identifies the regularity and Eulerian papers' evaluated witnesses e11 and e12 and the rank-two upper bound",
+          "Fine–Herstein counts all nilpotent matrices in a given size"
+        ],
+        "reasoning": "The rank-one cases extend to the rank-one similarity and scalar types but do not evaluate every higher rank. Recognizing the graph's matrix ring or bounding degree for a nonregularity argument is not a local degree formula. The unrestricted nilpotent count covers invertibles' product counts immediately, but a singular A requires the restriction-and-fiber argument (left multiplication is not bijective).",
+        "searches": [
+          "Mahmoodi, Nilpotent Graphs of Matrix Algebras, Section 2 comparison in frozen RESULT.md",
+          "Kuzmina–Maltsev DOI 10.17377/semi.2015.12.067 and DOI 10.17377/SEMI.2017.14.025",
+          "Fine–Herstein DOI 10.1215/ijm/1255454112"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Resultary same-day zero-divisor degree classification",
+        "Bibliographic and access checks for the exact graph and nilpotent count references listed above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The proof counts all B by compressing AB to im A and identifying constant fibers",
+          "The frozen prior-work comparison reports exact e11 and e12 cases and a rank-two upper bound for e11+e22"
+        ],
+        "reasoning": "The rank-one maximum value and particular witnesses have prior coverage in the reported comparisons. The count for an arbitrary singular vertex does not come from inserting n in the unconditional nilpotent count; the compression shows why only its rank enters before deletions. A bound at one rank-two representative does not give equality at that representative or all-rank recovery.",
+        "searches": [
+          "Fine–Herstein count and Kuzmina–Maltsev regularity/Eulerian comparisons, frozen RESULT.md prior-work section",
+          "Resultary degree-strata theorem for matrix zero-divisor graph"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2026/10/13/SCOPE-degree-strata-recover-rank-and-square-zero-type-in-matrix-zero-d--bcab65bc9423",
+          "Frozen RESULT.md compares Nikmehr–Khojasteh DOI 10.3906/mat-1112-35"
+        ],
+        "reasoning": "AB versus BA gives the same relation for nilpotence, so a directed count for the same relation would cover the core after accounting for zero and loops. The inspected Resultary hit requires AB=0 or BA=0, only uses singular nonzero vertices, and detects square-zero type. For example I is a vertex in the frozen graph with nilpotent neighbors but not a vertex in that statement.",
+        "searches": [
+          "Resultary: product-nilpotent graph of full finite-field matrices; degree rank and nilpotency strata",
+          "Targeted literature lookup for rank-dependent degrees in the nilpotent graph of a matrix algebra"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Inspected same-day zero-divisor graph degree-strata record; it is not the product-nilpotent graph",
+          "Frozen comparison acknowledges earlier rank-one numerical degree values"
+        ],
+        "reasoning": "The nearest result uses a different predicate and vertex set. Known special examples are not a catalogue of degree types for the stated graph; no inspected distinct entry supplied the frozen all-rank classification.",
+        "searches": [
+          "Resultary: finite field matrix nilpotent graph degrees, rank/type recovery and extrema"
+        ]
+      },
+      "rationale": "Pass is for the all-rank, loopless-graph degree classification and inverse conclusion. The known total nilpotent-matrix count, the defining graph, and the previously computed rank-one values are not distinct contributions. The nearest catalogued formula is for zero products, with a different graph and type.",
+      "residual_risks": [
+        "Independent full-text access to the closest matrix nilpotent-graph and classification papers was limited. Special cases are credited from the frozen comparison; an earlier all-rank count or identically parameterized product relation cannot be ruled out on access evidence alone."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Not equivalent; no reliance on relative date",
+          "evidence": [
+            "Nonzero singular vertices; zero product in at least one order; square-zero versus other types"
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-degree-strata-recover-rank-and-square-zero-type-in-matrix-zero-d--bcab65bc9423",
+          "material_read": "RESULT.md, Finding and graph scope, offset 0",
+          "method": "Local Resultary mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Degree strata recover rank and square-zero type in matrix zero-divisor graphs",
+          "trigger": "Close same-day inverse degree theorem for matrices"
+        },
+        {
+          "assessment": "Definitions and reported connectivity comparator; no whole-paper coverage conclusion",
+          "evidence": [
+            "Frozen record attributes diameter and girth results for full matrix algebras to this paper"
+          ],
+          "identifier_or_url": "10.3906/mat-1112-35",
+          "material_read": "Landing/abstract and frozen prior-work discussion; decisive full-text passages not recovered",
+          "method": "Lawful DOI and Paperity routes, unsuccessful for full text",
+          "title": "On the nilpotent graph of a ring",
+          "trigger": "Founding paper for the exact graph"
+        },
+        {
+          "assessment": "Plausible prior source; exact local degree coverage unresolved",
+          "evidence": [
+            "Frozen discussion attributes matrix-ring isomorphism recognition, not the local degree classification"
+          ],
+          "identifier_or_url": "A. Mahmoodi, Algebraic Structures and Their Applications 1(2), 123–132",
+          "material_read": "Frozen RESULT.md, prior-work summary of Section 2; no independent primary full text",
+          "method": "Identified bibliographic citation; passage unavailable in this check",
+          "title": "Nilpotent Graphs of Matrix Algebras",
+          "trigger": "Same graph family and use of matrix rank"
+        },
+        {
+          "assessment": "Reported special case and bound agree; not evidence of an exact all-rank theorem",
+          "evidence": [
+            "Reported degree q^(n^2-1)-1 at e11, with upper bound q^(n^2-2)-1 at e11+e22"
+          ],
+          "identifier_or_url": "10.17377/semi.2015.12.067",
+          "material_read": "Frozen RESULT.md, comparison of e11 with e11+e22; no decisive primary passage recovered",
+          "method": "Lawful Math-Net and journal routes attempted",
+          "title": "Finite rings with regular nilpotent graphs",
+          "trigger": "Near-overlap: reported finite-field matrix vertex degrees"
+        },
+        {
+          "assessment": "Reported rank-one values credited, no verified all-rank coverage",
+          "evidence": [
+            "Reported e11 and e12 values differ by one, agreeing with the simple-graph loop correction"
+          ],
+          "identifier_or_url": "10.17377/SEMI.2017.14.025",
+          "material_read": "Frozen RESULT.md, prior comparison of e11 and e12; no decisive primary passage recovered",
+          "method": "Lawful Math-Net and journal routes attempted",
+          "title": "Finite rings with Eulerian nilpotent graphs",
+          "trigger": "Near-overlap: reported rank-one nilpotency degree distinction"
+        },
+        {
+          "assessment": "Prior nilpotent count, not independently verified as a graph theorem",
+          "evidence": [
+            "q^(r^2-r) nilpotent endomorphisms in dimension r, as derived in correctness"
+          ],
+          "identifier_or_url": "10.1215/ijm/1255454112",
+          "material_read": "Cited count in frozen proof; primary text did not load",
+          "method": "Lawful Project Euclid attempt; count independently derived by Fitting decomposition",
+          "title": "The probability that a matrix be nilpotent",
+          "trigger": "Exact prior count used in proof and possible stronger coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a uniform local invariant of a standard matrix-ring graph. Recovering both rank and nilpotency from the degree, not merely exhibiting unequal degrees, separates all realized vertex types across all field sizes. The compression handles every singular rank and exposes why the only dependence on nilpotency type comes from removing the loop. This is more than recomputing the known rank-one witnesses.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

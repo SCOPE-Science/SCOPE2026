@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-23.md",
+      "INDEPENDENT_AUDIT_2026-11-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-The proof in `RESULT.md` establishes the complete infinite-dimensional statement. In particular, no finite grid can certify the global or infinite-depth theorem. The standalone `check_multiscale.py` program runs under Python 3 without third-party libraries and uses `fractions.Fraction` throughout the exact-rational tests. Run:
+## correctness
 
-```
-python3 check_multiscale.py
-```
+PASS
 
-The program checks exact maximization over every quadratic cell for six even residual depths, verifies the paired square-deficit formula on rational parameters, and checks several signed multiple-jump residuals via the exact dyadic Gram inner products. Its final success line is `All finite exact checks passed; infinite scope requires the proof in RESULT.md.`
+Represent f up to a constant as the signed Df-integral of H_t. In the Hilbert direct sum of dyadic residuals the map t↦T H_t is continuous, also for infinite depth by the uniform squared-norm tail bound Σ 2^(−j)/4; thus the signed measure integral and the norm and Jensen bounds apply. At level j a single partially cut cell gives 2^(−j)φ(2^jt), where φ(u)={u}(1−{u}); this is zero at cell boundaries. Writing d=min({u},1−{u}), the two-level expression is 2d−3d²=1/3−3(d−1/3)². The exact paired geometric sum gives (4/9)(1−4^(−m)) for 2m levels and 4/9 in the limit. The first pair forces t=1/3 or 2/3, both fixed modulo 1 by multiplication by 4. For a general equality case, Jensen first forces support on those two sites; the two first-level centered jumps have Gram determinant s(1−t)(t−s)>0 for s<t, so the signed responses cannot be identical or collinear and both sites cannot carry positive variation mass in an equality case. Dropping all terms after the first pair gives the asserted variation-measure localization; only for single jumps is the full paired deficit an identity. Haar Parseval counts each kth detail k+1 times. No assertion for odd cutoffs; the frozen finite checker was inspected, not executed.
 
-The unbounded-scale assertion uses the uniform geometric tail bound \(\sum_{j\ge J}2^{-j}/4\), not extrapolation from these tests. Equality for general \(BV\) data uses the strict determinant \(s(1-t)(t-s)>0\), which is a symbolic algebraic identity. The first two scales already determine the two allowable jump sites. These are logical checks in the written proof and cannot be replaced by a numerical log. No independent review or external mathematical validation has been performed.
+## originality
+
+PASS
+
+The verified exact sharp cumulative-residual norm, equality classification and multiscale deficit are distinct from the inspected related claims. There is a precise classical Takagi equivalence, and the closest other BV record shares the jump framework and a period-two mechanism; neither inspected statement gives the result or implies it by direct specialization. Best-of-knowledge decision, not historical priority.
+
+## value
+
+PASS
+
+A natural sharp multiscale BV approximation constant improves the naïve 1/2 obtained by separate level estimates. Exact equality picks a two-cycle rather than independently centered jumps at each level, and the exact deficits yield a useful quantitative necessary condition on near-extremal variation measures. The even cutoff is justified by the intrinsic two-scale pairing rather than an arbitrary truncation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

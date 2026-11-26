@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:36:31.151968Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The distance in C_n^k between distinct vertices is the ceiling of their cyclic distance divided by k: each jump covers at most k and partitioning a shortest cyclic arc attains this bound. Thus the power is C_n^(pk). If it is complete, the complement of C_n^k cannot be complete because it omits every original cycle edge; this is the relevant boundary justification, rather than the complement merely having at least one edge. Otherwise degree equality gives n=2(p+1)k+1. For r=pk, a powered-cycle triangle has cyclic gaps each at most r or at least n-r. The unique-large-gap class is counted n binom(r,2), by the first vertex following the gap and the two positive offsets. If there is no large gap, the deficits from r sum to (p-2)k-1; the class is empty at p=2 and otherwise positivity imposes no additional bound on the weak compositions. Each unordered triangle has three possible cyclic starting vertices, giving the second term (n/3) binom((p-2)k+1,2). Complement triangles have all gaps >=k+1, which also precludes a gap >=n-k. Their count is (n/3) binom((2p-1)k,2). Subtraction gives exactly nk(k-1)/2. This excludes all k>=2. At k=1, n=2p+3 and gcd(p+1,2p+3)=1, so the multiplier p+1 sends the omitted distance-one edges of the complement to the omitted distance-(p+1) edges of the powered cycle. This handles the full integer ranges. The supplied notes, script and recorded output were inspected, not executed. Separate adjacency-mask and common-neighbor counts gave (7,7) at (n,k,p)=(7,1,2) and (272,255) at (17,2,3); these are finite corroboration, not the classification proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Akiyama et al.'s abstract treats the general graph-power/complement equation; its specific classification scope could not be checked from full text.",
+          "Aboulker et al. exclude nontrivial chordal squco graphs. At the degree-matched order, take 2(p+1)+1 vertices whose successive gaps are k except for one gap of length 1. All successive gaps are edges, and both arcs between any nonsuccessive selected vertices exceed k, giving an induced cycle of length at least seven.",
+          "Regular cubeco graphs covers other jump sets at p=3, not all exponents."
+        ],
+        "reasoning": "The chordal theorem has a graph-class hypothesis that fails at the candidate orders, and in any case is for squares. The accessible broader circulant constructions do not classify consecutive jumps. The general historical paper is the strongest unverified coverage risk; abstract-level evidence neither establishes nor excludes coverage.",
+        "searches": [
+          "Akiyama–Era–Exoo DOI:10.1016/0012-365X(81)90001-7, general n-th power graph equations",
+          "Aboulker et al. arXiv:2609.28702 Theorem 3.3",
+          "Regular cubeco graphs, Theorem 3.1"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1016/j.disc.2021.112369 author copy",
+        "arXiv:2609.28702",
+        "Regular cubeco graphs (2016)",
+        "DOI:10.1016/0012-365X(81)90001-7 abstract",
+        "Resultary 2026/11/8/SCOPE-dihedral-homology-characters-of-three-cut-complexes-of-complemen--d8c30af78699"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At the degree-matched order with k>=2, C_n^k has triangles, so the girth-at-least-seven uniqueness result is inapplicable.",
+          "Degree matching alone leaves every k>=1; the all-p triangle difference is strictly positive exactly when k>1.",
+          "Ordinary-cycle cubeco uniqueness does not give information for k>1 or p>3."
+        ],
+        "reasoning": "None of the inspected statements mechanically gives the exact difference or the complete joint classification. The new exclusion needs both short-gap and wrapped-gap triangle types when the latter occur, plus the complement triangle count.",
+        "searches": [
+          "Known girth exclusion for squco graphs as reported by Darda et al., author manuscript p. 2",
+          "Alomari et al. Regular cubeco graphs Lemma 2.1, Theorem 3.1",
+          "arXiv:2609.28702 Theorem 3.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Darda et al. list C7 as squco and recall the known girth-at-least-seven uniqueness result.",
+          "Alomari et al. identify C9 as cubeco and reproduce the 2015 ordinary-cycle result that a cubeco C_n must have n=9.",
+          "The latter paper constructs cubeco circulants with jumps described by a congruence mod 9, not by the consecutive-distance restriction."
+        ],
+        "reasoning": "The cited cycle results cover the k=1 slices for p=2 and p=3. Neither those slices nor wider circulant examples establish the obstruction for all powers k>=2 and p>=2. No priority is asserted for C7 or C9.",
+        "searches": [
+          "Cycle-power power–complement isomorphism, square-complementary (squco), cube-complementary (cubeco), integer graph-distance powers of consecutive-jump circulants",
+          "Darda–Milanič–Pizaña DOI:10.1016/j.disc.2021.112369",
+          "Alomari–Abudayah–Al-Ezeh 2016 Lemma 2.1 and Theorem 3.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The nearby Resultary record 2026/11/8/SCOPE-dihedral-homology-characters-of-three-cut-complexes-of-complemen--d8c30af78699 is about the dihedral homology action of the three-cut complex of the complement of an ordinary cycle.",
+          "Accessible primary examples include C7, C9, a 41-vertex squco circulant with jumps {4,5,8,10}, and modular-jump cubeco graphs."
+        ],
+        "reasoning": "The homology record concerns a different invariant, and the listed prior examples do not tabulate the all-p solution set or the triangle defect. No exact table or database result for the combined claim was verified.",
+        "searches": [
+          "Resultary: power-complementary cycle powers, complement isomorphic to a graph-distance power, triangle defect",
+          "Darda et al. examples of squco graphs and Alomari et al. regular cubeco examples"
+        ]
+      },
+      "rationale": "The supported distinct result is the joint all-p classification for consecutive-distance cycle powers together with the exact uniform triangle obstruction at equal degree. The square C7 and cube C9 positives are established and explicitly excluded from the originality claim. Checked exclusions for other graph classes and constructions with nonconsecutive jumps do not cover this family. This is a bounded, best-of-knowledge assessment; the early general graph-equation paper remains an access risk.",
+      "residual_risks": [
+        "The original 1981 graph-equation article was not obtainable in the bounded lawful checks; its general scope makes it the main unresolved comparison.",
+        "For the 2014 square paper and 2015 cube paper, checked later retrospective passages give specific earlier results; the 2014 full text was unavailable and the scanned 2015 PDF was not text-extracted. No whole-document noncoverage is asserted.",
+        "An unindexed general theorem or table subsuming the uniform triangle count remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Verified examples and reports earlier girth exclusion, not a classification of all cycle powers",
+          "evidence": "Lists C7 and a squco circulant on 41 vertices; C7 is the only squco graph of girth at least seven.",
+          "identifier_or_url": "https://xamanek.izt.uam.mx/map/papers/newsquco14z.pdf",
+          "material_read": "Author manuscript p. 2, OA offsets 4169–5733",
+          "method": "Lawful author-copy PDF, bounded passage",
+          "title": "Searching for square-complementary graphs: complexity of recognition and further nonexistence results",
+          "trigger": "Known C7 case and possible square classification"
+        },
+        {
+          "assessment": "Nontrivial chordal squco exclusion only, with inapplicable hypothesis at the candidate orders",
+          "evidence": "If G is nontrivial and squco, then G is not chordal.",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.28702",
+          "material_read": "PDF p. 3, Theorem 3.3, OA offset 9215",
+          "method": "Lawful OA PDF, bounded passage",
+          "title": "There are no nontrivial chordal square-complementary graphs",
+          "trigger": "General graph-class exclusion possibly covering powers of cycles"
+        },
+        {
+          "assessment": "Ordinary C9 case is prior; other constructions do not use the consecutive-distance jump hypothesis",
+          "evidence": "Cycles that are cubeco have n=9, reported from the 2015 paper; theorem gives a modular jump construction on 9q vertices.",
+          "identifier_or_url": "https://www.ripublication.com/gjpam16/gjpamv12n2_40.pdf",
+          "material_read": "Journal pp. 1665–1666, Lemma 2.1 and Theorem 3.1",
+          "method": "Lawful OA PDF, bounded passages",
+          "title": "Regular cubeco graphs",
+          "trigger": "Cubeco cycles and circulants"
+        },
+        {
+          "assessment": "Potential coverage unresolved, not evidence that it fails to cover the subclass",
+          "evidence": "Abstract identifies a graph-power/complement equation, but does not give a cycle-power classification or triangle formula.",
+          "identifier_or_url": "https://doi.org/10.1016/0012-365X(81)90001-7",
+          "material_read": "Abstract only; full text not retrieved",
+          "method": "Bibliographic abstract and bounded lawful publisher and repository checks",
+          "title": "Further results on graph equations for line graphs and n-th power graphs",
+          "trigger": "Directly relevant general power/complement equation"
+        },
+        {
+          "assessment": "Different mathematical object and invariant",
+          "evidence": "Three-cut facets use disconnected triples and the theorem classifies the dihedral action on homology; it does not compare distances or triangle counts.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-dihedral-homology-characters-of-three-cut-complexes-of-complemen--d8c30af78699/RESULT.md",
+          "material_read": "RESULT.md Finding, mirror offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Dihedral homology characters of three-cut complexes of complementary cycles",
+          "trigger": "Closest checked catalogue overlap involving complementary cycles and vertex triples"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural infinite cyclic graph family admits a complete isomorphism classification despite an unbounded degree-matched candidate set. The exact defect isolates a simple invariant obstruction and shows precisely why degree and all positive ordinary-cycle examples do not extend to thicker cycle powers. The mathematical value is the all-exponent obstruction and sharp classification, not novelty of the known example cycles.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

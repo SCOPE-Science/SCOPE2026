@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:42:22.822697Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§ Finding, Assumptions and scope, Proof (lines 5–71)",
+        "Independent symbolic disk-moment differentiation, reduction modulo the parameter cubic, and resultant",
+        "Frozen VERIFICATION.md, verify.py and verification-output.txt; inspected without executing uploaded code. The reported quadrature is finite and one separate moment assertion in verify.py lines 40–46 is tautological; the independent moment derivation establishes the identity."
+      ],
+      "rationale": "Normalized disk monomial moments are 1/(n+1). Taking the squared A² norm of P² gives the fourth moment; its sole phase-sensitive term comes from |b²+2ac|² and demands aligned phases at an interior optimum. When c=0 the quotient is 1+2v−5v²/3 for v=|b|²/(2||P||²_A²), attaining 8/5 at v=3/5. For c≠0 take u=|a|/|c| and q=3|b|²/(2|c|²). The q derivative has affine numerator with positive intercept and strictly negative slope for all u≥0, so it has a unique global maximum in q>0. After substitution the derivative of the remaining rational quotient has sign opposite to 30u³+35u²−5u−4; its unique positive root gives a strict maximum above both u=0 and the c=0 face. Independent exact differentiation and elimination reproduce q*=(3/2)u*(3u*+1) and the constant polynomial (the resultant multiplier is 2618387280). The quotient at u=1/3 is 2791/1042>13/5, and the constant polynomial is strictly increasing above 13/5, isolating the largest root. Magnitude and phase equality give exactly the stated scalar-and-rotation family; |a/c|=u*, whereas a/c=u* only in the aligned real representative. The invariant b²/(ac)=3u*+1>2 differs from 4/3 for every nonconstant K₂; K₂ at the origin is constant, and K₁ with |w|²=3/4 attains the degree-one maximum.",
+      "residual_risks": [
+        "The exact cubic specifies the constant. Its root is approximately 2.67977554220761443; the frozen decimal display differs in its last shown place, an immaterial numerical display discrepancy for the exact theorem.",
+        "Only degrees zero through two for the undilated normalized-area quotient are certified."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bayart et al. compare differently weighted norms. Wang–Zhang give a degree-based weighted estimate under their parameter conditions, not sharp equality data for the unweighted quadratic case.",
+          "The closest weighted quadratic results optimize a limiting quadratic in scaled magnitudes at large β; their correction term is not an exact formula at β=2."
+        ],
+        "reasoning": "Neither a weighted contraction with different norms nor a degree-based bound specializes to the claimed sharp quotient. The large-β calculation controls a limit, not the finite-weight root selection.",
+        "searches": [
+          "arXiv:1701.06897 Theorem 1",
+          "arXiv:2505.12760 Theorem 1.2",
+          "Resultary 1df75c4e4cbb and 9d0e2b39f308 proof passages on sharp large-weight corrections"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 1df75c4e4cbb and 9d0e2b39f308",
+        "arXiv:1701.06897, 2203.12349, 2505.12760"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Specializing the all-weight structural results proves positivity and phase alignment, which hold for K₂ with w≠0 as well; those properties cannot exclude such kernels. The inspected exact two-monomial comparison at large β does not fix the three-monomial optimum at β=2."
+        ],
+        "reasoning": "The frozen rational one-variable maximization and equality analysis add exact information not implied by interiority or the large-weight results. The kernel failure uses a scalar/rotation invariant that the prior statements do not pin down. The catalogue dates are not used as proof of priority or noncoverage.",
+        "searches": [
+          "Resultary 1df75c4e4cbb offsets 0, 3391, 4620",
+          "Resultary 9d0e2b39f308 offsets 0, 3261, 4580",
+          "arXiv:2203.12349 kernel-extremality statements"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The norm is equivalently the maximum of ||P²||²_A² over unit A²-norm quadratics (the square map). The weighted records include exactly this objective at α=0 (β=2) and prove strict interior phase-aligned mixing there.",
+          "The full-space kernel extremality results are for different functionals and weights, not this finite same-measure square-map norm."
+        ],
+        "reasoning": "The weighted objective is a genuine encompassing formulation; the compared exact structural consequences are already available there. They do not determine the finite parameter value of the norm or the optimizer magnitude ratio. Full-space kernel extremality does not transfer to truncated kernels under the stated quotient.",
+        "searches": [
+          "Resultary weighted quadratic fourth-moment optimization and strict three-mode mixing; records 1df75c4e4cbb and 9d0e2b39f308",
+          "arXiv:2203.12349 Theorems 1.1–1.2 and Corollary 1.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected entries give the same weighted optimization family, strict interiority, and asymptotic constants. They do not supply the polynomial 19070X³−110975X²+206145X−122472 or the magnitude ratio at β=2."
+        ],
+        "reasoning": "A definition of the exact maximum by the broader weighted optimization is not an evaluated constant. The retrieved material supplied no direct table or identity giving this finite optimum and equality cases.",
+        "searches": [
+          "Resultary 1df75c4e4cbb and 9d0e2b39f308, RESULT.md finite-weight definitions and high-weight results"
+        ]
+      },
+      "rationale": "The supported distinct claim is the exact unweighted quadratic constant, the complete optimizer magnitudes and phases, and failure of truncated evaluation kernels at the first possible degree. Two close weighted records genuinely cover strict three-mode mixing and phase alignment at this weight; these structural statements alone are not distinct. The inspected weighted proofs give large-weight asymptotics rather than the finite-weight algebraic maximum or the kernel obstruction. The primary embedding literature has different measures, spaces or non-sharp bounds.",
+      "residual_risks": [
+        "Equivalent historical formulations as a polynomial square-map norm or fourth-moment concentration could remain unlocated. An irrelevant websearch return is not negative evidence or a priority determination."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material partial coverage, not the exact finite solution",
+          "evidence": "All-weight interiority and alignment, plus β→∞ correction and root limit; the exact two-monomial comparison is for sufficiently large β.",
+          "identifier_or_url": "Resultary 1df75c4e4cbb",
+          "material_read": "RESULT.md offsets 0, 3391 and 4620: definition, rigidity, sharp asymptotics and two-monomial comparison",
+          "method": "Local Resultary mirror",
+          "title": "Persistent three-mode rigidity and a coalescing-root limit",
+          "trigger": "Same objective at α=0"
+        },
+        {
+          "assessment": "Material partial coverage, not the α=0 magnitude solution",
+          "evidence": "The sharp scaled correction is obtained by maximizing a limiting quadratic; it is not an equality formula at β=2.",
+          "identifier_or_url": "Resultary 9d0e2b39f308",
+          "material_read": "RESULT.md offsets 0, 3261 and 4580: finding, boundary/localization arguments and scaled correction",
+          "method": "Local Resultary mirror",
+          "title": "Strict three-mode mixing and the sharp high-weight correction",
+          "trigger": "Weighted quadratic maximum and all-weight mixing"
+        },
+        {
+          "assessment": "Different norm comparison",
+          "evidence": "Contractive comparison uses differing weights.",
+          "identifier_or_url": "https://arxiv.org/abs/1701.06897",
+          "material_read": "Theorem 1, p. 5, PDF text offset near 14000",
+          "method": "Bounded OA PDF text",
+          "title": "Contractive inequalities for Bergman spaces and multiplicative Hankel forms",
+          "trigger": "Sharp Bergman norm comparisons"
+        },
+        {
+          "assessment": "Different class and functional",
+          "evidence": "Full-space and weighted-functional assertions; no finite unweighted degree-two truncation conclusion.",
+          "identifier_or_url": "https://arxiv.org/abs/2203.12349",
+          "material_read": "Theorems 1.1–1.2 and Corollary 1.3, pp. 2–3, PDF text offset near 5480",
+          "method": "Bounded OA PDF text",
+          "title": "Functionals with extrema at reproducing kernels",
+          "trigger": "Kernel extremality in Hardy and Bergman settings"
+        },
+        {
+          "assessment": "Not sharp finite equality coverage",
+          "evidence": "Weighted degree estimate under its parameter conditions, not the undilated area-norm quadratic extremizer.",
+          "identifier_or_url": "https://arxiv.org/abs/2505.12760",
+          "material_read": "Theorem 1.2, p. 3, PDF text offset near 9900",
+          "method": "Bounded OA PDF text",
+          "title": "Hypercontractive inequalities and Nikol’skiĭ-type inequalities on weighted Bergman spaces",
+          "trigger": "Degree-dependent Bergman embedding estimates"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md §§ Finding and Proof, particularly lines 43–71",
+        "arXiv:2203.12349 full-space kernel comparisons",
+        "Resultary 1df75c4e4cbb and 9d0e2b39f308 weighted analogues"
+      ],
+      "rationale": "Area A² normalization makes the fourth-moment quotient a natural exact measure of concentration among finite polynomial profiles, and reproducing kernels are the natural point-concentration candidates. Degree two is the first degree permitting a genuine relative phase in this moment problem. The exact optimizer family resolves whether the degree-one kernel prescription survives that new interaction, and gives a sharp benchmark for finite Bergman concentration rather than a numerical comparison at an arbitrary weight.",
+      "residual_risks": [
+        "No pattern for higher polynomial degrees, other exponents, or the unrestricted same-weight inclusion is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:17:34.768881Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, lines 4–79; independently checked kernel, decomposition and endpoint strictness",
+        "VERIFICATION.md, verify.py and VERIFY_OUTPUT.txt inspected, not executed",
+        "Independent finite replay: directly sum restricted character products for C3, C6 and C2×C2 at d=3,4 and diagonalize by symmetric Jacobi iteration. Maximum absolute spectrum deviation over the six cases was 6.67e−16."
+      ],
+      "rationale": "Character orthogonality gives the real kernel q⁻ᵈ(N−q dist_H(x,y)) independently of the finite abelian group structure. Within-axis differences have eigenvalue q before scaling; axis-constant functions with zero center and zero sum across axes have eigenvalue q². In the remaining orthonormal center/all-leaf basis the unscaled off-diagonal is √L(N−q) with L=d(q−1); the diagonal entries are N and T−N. Direct expansion gives trace T and determinant q². Since T>q²+1, the positive radial roots straddle the two contrast eigenvalues, with μ_+>q² and μ_−<1. To rule out a unit concentration eigenvalue, write the Fourier transform of a ball-supported function as a constant plus a sum of one-coordinate functions. Fixing nontrivial characters in two other coordinates forces each one-coordinate function constant if the transform vanishes outside F; its mean is zero, so all vanish, then the initial constant vanishes too. The radial eigenvector equation gives the center/leaf ratio (the off-diagonal is positive, so μ_+>N and neither coordinate vanishes). The next eigenspace yields the sharp projection-defect coefficient. The condition number follows from μ_+μ_−=q², and expansion of T gives both separate asymptotic regimes.",
+      "residual_risks": [
+        "Finite checks are numerical and unnecessary for the all-parameter proof; d=2 and q=2 do not have the asserted strict four-level pattern."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The two nonbinary shell records cover larger shell or degree ranges and give the radial/contrast basis. Hogan–Lakey concern Boolean Fourier concentration; Avni–Samorodnitsky concern binary ball adjacency. The split-cone record dbf8fa8aec40 covers the two-coordinate cross, outside d≥3."
+        ],
+        "reasoning": "The Boolean and cross results are not general enough. The shell formula is not itself a ball formula, but its stronger family of blocks supplies all the input to the required one-point direct update.",
+        "searches": [
+          "Resultary 89a15e26e594 and f3d01cadaa90, proof passages",
+          "Hogan–Lakey arXiv:1812.08905v1, §1",
+          "Avni–Samorodnitsky arXiv:2411.14597, abstract/introduction"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary searches and primary shell, all-degree shell, nonbinary ball, inverse minor, Boolean ball and split cross passages",
+        "Hogan–Lakey arXiv:1812.08905v1",
+        "Avni–Samorodnitsky arXiv:2411.14597",
+        "Marceca–Romero–Speckbacher arXiv:2301.11685",
+        "Feng–Hollmann–Xiang arXiv:1804.00367v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At k=1 the cited shell contrast eigenvalues reduce to q^{1−d} and q^{2−d} and center evaluation annihilates both spaces. The radial evaluation at weight k is b_k=−√L+qk/√L, in the cited basis. Adding k=0 gives the two-root trace and determinant. The excluded weights k=2,3 have linearly independent radial evaluations and positive masses, so the radial block is strictly less than the identity for d≥3. Its top and next eigenvalues give stability exactly by the spectral theorem."
+        ],
+        "reasoning": "The prior shell data and the elementary center update imply the entire exact classification, including strict contraction and the optimizer. A new calculation of the same closed form does not constitute an uncovered result.",
+        "searches": [
+          "Resultary 89a15e26e594, exact three positive shell levels, radial basis and radial Gram in Proof, offset 0–4978"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Spatial-side and frequency-side concentration are the two Grams of the restricted Fourier map. At radius one the map is square; both sides have the same full multiset. The first Fourier band is the sum of constants and the mean-zero one-coordinate function spaces for every alphabet group of this order."
+        ],
+        "reasoning": "Use these equivalences to compare the frequency-side shell blocks with the spatial-side frozen statement and to identify the alphabet-size dependence. The later direct ball match is exact at radius one, not merely a matching title.",
+        "searches": [
+          "Resultary 2026/10/11/SCOPE-exact-q-ary-hamming-shell-fourier-concentration-and-the-arithmet--89a15e26e594",
+          "Resultary 2026/11/8/SCOPE-four-sector-fourier-concentration-on-nonbinary-hamming-balls--7628517d4bcf"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The November 8 four-sector record gives the same spectrum for cyclic alphabets at radius one, as part of an all-radius first-band result. The November 8 inverse record gives an exact inverse for matching Fourier ball minors and fixed-radius asymptotic conditioning, not a finite four-level spectrum. The October 11 Boolean ball record has the transverse level absent at q=2."
+        ],
+        "reasoning": "The all-radius spectrum is a direct later match, while the inverse and Boolean records are substantial but partial overlaps. Catalog dates alone do not certify priority.",
+        "searches": [
+          "Local Resultary first-band Hamming ball, shell, and Fourier-minor searches; 7628517d4bcf, 3b7e4e36808a and a2f5ddac5a0f"
+        ]
+      },
+      "rationale": "The 2026-10-11 q-ary Hamming-shell record does not print the ball spectrum, but its exact first-band shell blocks at k=1, with the same explicitly supplied radial basis, give it by adding the center evaluation. The two contrast blocks are unchanged because their functions vanish at the center. In the radial block the two evaluations are (1,b0) and (1,b1), where b0=−√L and b1=b0+q/√L. The center and shell have weights 1 and L before scaling, so the unscaled frequency-side radial block is the sum of their two weighted outer products. Its trace is T, and its determinant is L(b1−b0)²=q². On the spatial side the evaluation rows (1,b0) and √L(1,b1) have Gram off-diagonal √L(N−q) and center diagonal N, giving exactly the stated ratio, sharp gap and condition number. The first band consists of constants and all mean-zero functions of one coordinate, so relabeling the alphabet fixing the center identifies cyclic and arbitrary abelian cases as concentration operators, not just as a conjectural analogy. This is positive prior-implication evidence. The later full-ball catalog hit independently matches the cyclic specialization; it is not used to infer earlier priority.",
+      "residual_risks": [
+        "A related 2007 Kronecker-Fourier paper was not accessible in a readable copy. No exhaustive bibliographic priority claim is made; the verdict rests on the inspected October shell proof, not on access failure or subsequent catalog dates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Scientifically decisive positive implication via addition of the center evaluation, not a verbatim ball theorem.",
+          "evidence": [
+            "Gives T=a/p, U=na(1−a)/((n−1)p(1−p)) and radial matrix (1,b)^T(1,b) times the shell weight, in a basis whose center evaluation is explicit."
+          ],
+          "identifier_or_url": "Resultary:2026/10/11/SCOPE-exact-q-ary-hamming-shell-fourier-concentration-and-the-arithmet--89a15e26e594",
+          "material_read": "RESULT.md Finding and Proof through offset 4978, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local mirror primary result",
+          "title": "Exact q-ary Hamming-shell Fourier concentration and the arithmetic tightness criterion",
+          "trigger": "Most relevant earlier first-band radial/contrast decomposition"
+        },
+        {
+          "assessment": "Broader shell data and degree-one block basis; no verbatim ball theorem.",
+          "evidence": [
+            "Label-contrast reduction uses only the alphabet order and vanishing at the zero symbol."
+          ],
+          "identifier_or_url": "Resultary:2026/10/11/SCOPE-an-all-degree-spectral-law-for-fourier-sampling-on-q-ary-hamming--f3d01cadaa90",
+          "material_read": "RESULT.md Finding and proof §§1–2, offset 0–5315",
+          "method": "Local mirror primary result",
+          "title": "An all-degree spectral law for Fourier sampling on q-ary Hamming spheres",
+          "trigger": "Nonbinary all-degree shell restriction"
+        },
+        {
+          "assessment": "Later-dated exact spectral match in cyclic setting; broader in radii.",
+          "evidence": [
+            "Four-sector spectrum and strict ordering specialize to the frozen radius-one eigenvalues."
+          ],
+          "identifier_or_url": "Resultary:2026/11/8/SCOPE-four-sector-fourier-concentration-on-nonbinary-hamming-balls--7628517d4bcf",
+          "material_read": "RESULT.md Finding offset 0 and relationship discussion offset 7537",
+          "method": "Local mirror primary result",
+          "title": "Four-sector Fourier concentration on nonbinary Hamming balls",
+          "trigger": "Direct overlap in the same nonbinary ball setting"
+        },
+        {
+          "assessment": "Later operator overlap, not exact finite spectral equality.",
+          "evidence": [
+            "Exact inverse for every radius and fixed-radius condition-number asymptotic."
+          ],
+          "identifier_or_url": "Resultary:2026/11/8/SCOPE-universal-inverse-and-sharp-conditioning-of-finite-fourier-hammi--3b7e4e36808a",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror primary result",
+          "title": "Universal inverse and sharp conditioning of finite Fourier Hamming-ball minors",
+          "trigger": "Same square Fourier ball minor"
+        },
+        {
+          "assessment": "Boolean case only.",
+          "evidence": [
+            "The eigenvalue distributions are described elsewhere; the operators here are joint Boolean ball and Walsh-band truncations."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1812.08905v1",
+          "material_read": "Abstract and §1, offsets 0 and about 7150",
+          "method": "Primary HTML passages",
+          "title": "Spatio-spectral limiting on hypercubes: eigenspaces",
+          "trigger": "Published Fourier-ball eigenspace framework"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen spectrum, sharp stability and condition number",
+        "Earlier exact shell radial and contrast data in Resultary 89a15e26e594"
+      ],
+      "rationale": "The conditioning of a spatial/spectral ball minor is a natural use case and the exact endpoint information is useful. Here, however, the radius-one restriction is exactly the already diagonalized first-band shell operator with a single evaluation in its known two-dimensional radial sector. The spectral and stability answers are mechanically implied by that block data; relabeling the alphabet is an operator equivalence and adds no independent exact invariant. No distinct valuable remainder warrants a repair.",
+      "residual_risks": [],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

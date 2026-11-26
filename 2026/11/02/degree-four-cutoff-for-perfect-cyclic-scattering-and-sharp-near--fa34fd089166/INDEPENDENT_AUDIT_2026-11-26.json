@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:44:08.555082Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 7–30 and 34–88",
+        "Frozen VERIFICATION.md and CHECK.py (inspected, not executed)",
+        "Independent arithmetic from coefficient sums: C_5=0.083356948827, C_6=0.182770451872"
+      ],
+      "rationale": "A unitary circulant deterministic scatterer is a phased R^m. Conjugate nonconstant Fourier modes force the phase to be ±1; the constant mode cannot be -1 at positive k and finite alpha, so the phase is +1 and t=1 or alpha=0. At n=2 the fixed eigenvalue -1 in the other mode gives the same restriction and only the swap is possible. At t=0 all nonconstant modes equal -1, incompatible with R^m for n>=3. For t>0 the first h=floor((n-1)/2) mode eigenvalues lie in the upper semicircle, so m must be 1: m>=2 below n/2 would violate the sign at j=ceil(n/(2m))<=h. Matching R then requires k=tan(v_j)/tan(t v_j). Differentiating its logarithm and using the decrease of sinc gives incompatible conditions for two distinct v_j at 0<t<1, while h=1 gives exactly the n=3,4 curves. At t=1 all conditions reduce to k=1. For the optimized loss the conjugate phases make the target amplitude real, and its quadratic loss is 2/n times the sum of squares (2v_j delta - sin(2a_j)(k-1))^2. Projection along the momentum direction gives the two coefficients, with strict positivity by strict monotonicity of v/sin(2v). The Hessian in k is nonzero at the perfect point; the analytic critical branch is unique locally. At fixed n and alpha=0, compactifying k admits continuous endpoint extensions uniformly near t=1: the target probabilities tend to 4/n^2 at zero and to zero (odd n) or 4/n^2 (even n) at infinity. Since P=1 at t=1 only at k=1, a compactness gap away from that point forces every global maximum onto the local branch for t sufficiently near one.",
+      "residual_risks": [
+        "Optimizer and error estimates are local in t for each fixed n and at alpha=0; no uniform neighborhood in n or global t-range is established."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The published formulas are exact at all k and degrees, with explicit degree-four entries. The reflectionless boundary-layer theorem applies to all n>=3, but in the regime t->0, k->infinity with kt finite, and only removes the diagonal reflection."
+        ],
+        "reasoning": "Neither the broader formula nor the broader reflectionless range excludes a different deterministic cyclic destination at finite momentum or proves the optimized loss near the other endpoint.",
+        "searches": [
+          "Exner–Turek–Tater all-degree Fourier scattering, arXiv:1804.01414v2, §§3 and 5",
+          "Resultary 21cee0e9ca96, hybrid quantum graph vertex high-energy boundary layer"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1804.01414v2",
+        "arXiv:1710.02664v1",
+        "Resultary 21cee0e9ca96"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The n=4 tuning can be extracted from the published low-degree scattering expressions, and the endpoint is explicit in the 2017 paper. The all-degree no-go requires conjugate-mode and semicircle rigidity to rule out alternative monomial matrices and a strict ordering of modal tuning momenta. The loss involves a projection onto the momentum tangent and a global compactness gap."
+        ],
+        "reasoning": "The general classification and calibrated obstruction are not obtained by substituting one parameter value in the existing results. Credit the endpoint, family and exact modal expressions to prior work.",
+        "searches": [
+          "arXiv:1804.01414v2, §5 degree-four entries after Eqs. (21)–(22)",
+          "arXiv:1710.02664v1, §2 Eq. (4) and cyclic-diversion discussion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The published circulant S and its Cayley/Möbius modal form are exactly the ones used in the frozen record. The endpoint S(1)=R is exactly cyclic diversion at the preferred orientation, not a different permutation convention.",
+          "A probability-one output on every lead is equivalent here to S=e^(i chi)R^m, not just to the published conditions for no backscatter."
+        ],
+        "reasoning": "The endpoint equivalence is prior coverage. The inspected interior formulas supply the input to, but do not state, the simultaneous deterministic-phase matching result.",
+        "searches": [
+          "arXiv:1804.01414v2, §3 Eqs. (15)–(16), §5 Eqs. (19), (21)–(22)",
+          "arXiv:1710.02664v1, §2 Eqs. (4)–(7)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed Finding concerns a universal reflectionless point and explicitly distinguishes zero diagonal reflection from transmission structure. No exact all-degree cutoff or near-preferred-orientation optimized coefficient surfaced among the inspected hits."
+        ],
+        "reasoning": "Same-family indexing is material but is not a table of the relevant k and t or a determination of the target-channel loss.",
+        "searches": [
+          "Resultary meaning search for exact routing/cutoffs and leakage in the interpolating Exner–Turek–Tater star; closest hit 21cee0e9ca96"
+        ]
+      },
+      "rationale": "The interpolation, exact scattering formula, low-degree entries and pure preferred-orientation router are prior. The distinct claims supported here are the exhaustive finite-momentum interior cutoff against every phased permutation and the positive, sharp leakage after global momentum optimization near t=1. The closest indexed same-family result is about reflectionlessness in the opposite scaling regime, not deterministic routing or this optimizer.",
+      "residual_risks": [
+        "Statement-level comparison within the inspected passages and indexed hits; not a certification of publication priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Foundational formulas are prior",
+          "evidence": "The phase eigenvalues supply the same S(k); the inspected parts do not give the all-degree cutoff or optimized-loss expansion.",
+          "identifier_or_url": "https://arxiv.org/pdf/1804.01414",
+          "material_read": "v2 §3, pp. 5–6, Eqs. (15)–(16); §5, pp. 8–9, Eqs. (19), (21)–(22) and explicit degree-four entries",
+          "method": "Lawful OA PDF passages",
+          "title": "A family of quantum graph vertex couplings interpolating between different symmetries",
+          "trigger": "Same interpolation, including low-degree modal expressions"
+        },
+        {
+          "assessment": "Known endpoint perfect router",
+          "evidence": "At k=1 the scattering matrix equals the coupling unitary and cyclically diverts incoming waves.",
+          "identifier_or_url": "https://arxiv.org/pdf/1710.02664",
+          "material_read": "v1 §2, p. 3, Eqs. (4)–(7)",
+          "method": "Lawful OA PDF passage",
+          "title": "Quantum graphs with vertices of a preferred orientation",
+          "trigger": "Identical pure orientation endpoint"
+        },
+        {
+          "assessment": "Related family, distinct limit and observable",
+          "evidence": "A zero diagonal entry at a high-energy boundary-layer point is not scattering equal to a permutation.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-a-universal-reflectionless-boundary-layer-in-hybrid-quantum-grap--21cee0e9ca96",
+          "material_read": "RESULT.md Finding and scope for the t->0, kt fixed regime",
+          "method": "Local mirror",
+          "title": "A universal reflectionless boundary layer in hybrid quantum graph vertices",
+          "trigger": "Closest indexed same-family finding"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 7–30 and 54–88",
+        "arXiv:1804.01414v2, §5"
+      ],
+      "rationale": "The result identifies exactly when an established interpolation permits probability-one circulation, not merely low reflection. The degree cutoff isolates a coupling-family obstruction; the positive optimized loss distinguishes that obstruction from a poor momentum choice, and gives a quantitative design tolerance near the pure orientation endpoint.",
+      "residual_risks": [
+        "This is a model-specific design limitation, not a no-go result for other self-adjoint scatterers or network geometries."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:23:43.252688Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A nonalgebraic one-point type is specified by its distances in {1,2,3} to the named finite base: the Katětov inequalities give precisely the metric extensions, universality and homogeneity give realizations and equality of the type for a given vector, and extending by multiple new points with the same old-distance vector and mutual distance 1 gives arbitrarily many realizations. For old distance 2 both inequalities hold for every assignment; for old distance 1 only the unordered pair {1,3} violates them. In a cluster of size a, combine the two palettes {1,2} and {2,3}, subtracting the all-2 assignment once; the factors are independent between clusters and weights are on named assignments. At (1,1,1) this gives M_{a+1}=2^{a+1}−1 per cluster. For an equality of scalar products, subtract multiplicities and choose the largest nonzero index J among finitely many exponent differences e_j. A primitive prime for M_J forces e_J=0 unless J=6, by Bang–Zsigmondy for (2,1). If J=6, prime 31 occurs only at j=5 and prime 5 only at j=4 among j=2,…,6, so e₅=e₄=0. The 3- and 7-adic valuations then give e₂=−2e₆, e₃=−e₆. Conversely that generator gives a true equality 63=3²·7. The signed changes in total base cardinality and cluster count are e₆ and −2e₆; hence either matching statistic forces e₆=0, implying identical profiles and base isometry. Every unequal profile pair has a common scalar of at least 63, since after canceling common cluster factors its value is 63^{|e₆|}. Equality at 63 uses precisely (5) and (1,1,2). The frozen checker and recorded log were read, not executed. Replay: python3 -B /workspace/review_evidence/independent_checks.py 5, a product-budget DFS independently checked 706 nonempty profiles and 558 attained scalars through one million, including 125 ambiguous scalars, both fixed-statistic injectivities and the first collision 63. DFS is exhaustive in the stated budget because factors increase with cluster size and exceed 1. It does not certify the infinite primitive-divisor theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "ec80747a5989 gives the weighted admissible type polynomial for arbitrary graph-metric bases with graph edges at distance 1 and nonedges at distance 2. Sauer and Conant cover the extension framework and ambient space. The Zsigmondy reference states primitive-divisor existence with the Mersenne exception at 6."
+        ],
+        "reasoning": "For a union of cliques the earlier graph-metric identity directly gives the product, already covered. Primitive-divisor existence is the key external theorem used to control the largest differing exponent, but its stated conclusion concerns individual factors, not the complete equality fibers of products and the inverse metric statistics. The application needs the exceptional valuations and effect on total size and cluster count.",
+        "searches": [
+          "Resultary ec80747a5989 Finding, Sauer arXiv:1010.4212 §2, Conant arXiv:1504.02427 Example 1.1(3), MathWorld Zsigmondy Theorem"
+        ]
+      },
+      "checked_sources": [
+        "Resultary ec80747a5989",
+        "Resultary 015f971e2455",
+        "arXiv:1010.4212",
+        "arXiv:1504.02427",
+        "MathWorld Zsigmondy Theorem and Mersenne Number"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The broader metric counting theorem determines all forward values but does not compare them for different cluster profiles. The distance-three counts have a cross-cluster restriction absent here. The arithmetic implication uses primitive primes to eliminate all indices above 6 in an arbitrary relation and handle its finite exception."
+        ],
+        "reasoning": "The claimed new inference is exact reconstruction and its lone collision operation, not a renamed table or a new number-theoretic primitive-divisor theorem. The common inputs are both prior; the reviewed value is their application to this uniform inverse question, not the elementary identity or polynomial evaluation.",
+        "searches": [
+          "Read Resultary ec80747a5989 and 015f971e2455 Findings and compare the Zsigmondy theorem summary to RESULT.md §§1–3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The inverse claim is equivalent to the finitely supported integer relation kernel of the indexed factors 2^j−1, j≥2, followed by the two cluster-statistic maps. The highly similar Resultary record 015f971e2455 requires intercluster distance three and finds collisions at fixed number of points or clusters."
+        ],
+        "reasoning": "Distance 3 additionally forbids new distances (1,1) across clusters, so the independent cluster factors and the rigidity conclusions do not survive changing 2 to 3. A prior complete relation kernel for these Mersenne products would be material coverage, even without the type-theoretic language; the focused lookup found individual factors and primitive divisors rather than a source stating that kernel.",
+        "searches": [
+          "Resultary: one-point Katětov distance-two clique profile scalar reconstruction, distance-three comparison, Mersenne product uniqueness; web: Mersenne product relations, multiplicative independence, 63 and Zsigmondy"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "MathWorld's initial-value passage lists 1,3,7,15,31,63,127,255, which are individual factors, not product fibers. The distance-three metric record has exact collision results for a different scalar."
+        ],
+        "reasoning": "The individual small factors or the arithmetic equality at 63 do not supply the least collision assertion across all profiles or exclude other independent relations. No inspected exact table gave the equality fiber classification; the bounded arithmetic reproduction is not evidence of priority.",
+        "searches": [
+          "Resultary exact metric type count and first collision search; MathWorld Mersenne Number, initial-value passage (refers to OEIS A000225); focused web lookup for exact Mersenne-product relations"
+        ]
+      },
+      "rationale": "The full scalar inverse and the two fixed-statistic rigidity results are the supported distinct contribution. The type-polynomial factorization is already covered by a stronger graph-metric formula, and neither primitive divisors nor the numeric equality 63=3²·7 is new. The inspected sources did not state a stronger inverse theorem covering all the metric scalar fibers.",
+      "residual_risks": [
+        "A prior arithmetic source may explicitly give all multiplicative relations among Mersenne factors or already apply them to clustered metric-type counts. The focused lookup and the examined summaries cannot exclude an unindexed equivalent. The original Bang–Zsigmondy papers were not read."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the counting identity; not the compared inverse assertion",
+          "evidence": [
+            "Arbitrary distance-one graph, nonedges at distance 2; specializing to cliques gives independent factors."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-widom-rowlinson-partition-functions-as-1-type-polynomials-of-the--ec80747a5989",
+          "material_read": "Local-mirror Finding at offset 0",
+          "method": "Resultary lookup and read of RESULT.md",
+          "title": "Widom–Rowlinson partition functions as 1-type polynomials of the generic diameter-3 metric space",
+          "trigger": "Same generic metric, broader weight polynomial"
+        },
+        {
+          "assessment": "Materially similar but different cross-distance and exact invariants; date alone establishes no priority",
+          "evidence": [
+            "Intercluster distance 3; the stated fixed-point-count collision begins at 10, and fixed-cluster-count collision at 16."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-sharp-first-collisions-of-one-point-type-counts-over-two-level-u--015f971e2455",
+          "material_read": "Local-mirror Finding at offset 0",
+          "method": "Resultary lookup and read of RESULT.md",
+          "title": "Sharp first collisions of one-point type counts over two-level ultrametric bases",
+          "trigger": "Same reconstruction question over clustered bases"
+        },
+        {
+          "assessment": "Existing framework for metric types",
+          "evidence": [
+            "Defines the triangle constraints for types and realizes valid ones in a countable Urysohn space. The frozen reference omits the title word Vertex."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1010.4212",
+          "material_read": "§2, printed p. 3, OA PDF offset 4990",
+          "method": "Lawful OA PDF",
+          "title": "Vertex partitions of metric spaces with finite distance sets",
+          "trigger": "Katětov realization and admissibility"
+        },
+        {
+          "assessment": "Existing general metric-space setting",
+          "evidence": [
+            "Identifies integral Urysohn spaces of finite diameter."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1504.02427",
+          "material_read": "Example 1.1(3), pp. 1–2, offset 4033",
+          "method": "Lawful OA PDF",
+          "title": "Neostability in countable homogeneous metric spaces",
+          "trigger": "Ambient integral Urysohn structure and distance scope"
+        },
+        {
+          "assessment": "Covers primitive-prime input and lists individual factors, not a compared metric inverse theorem",
+          "evidence": [
+            "The Mersenne sequence exception is exponent 6; the factor sequence is A000225."
+          ],
+          "identifier_or_url": "https://mathworld.wolfram.com/ZsigmondyTheorem.html ; https://mathworld.wolfram.com/MersenneNumber.html",
+          "material_read": "Zsigmondy statement/exception near offset 0; Mersenne Number initial-value passage around offset 347",
+          "method": "Public theorem summary and ordinary site read, not original 1892 text",
+          "title": "Zsigmondy Theorem; Mersenne Number",
+          "trigger": "Classical exceptional Mersenne index and potential archived exact ambiguity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural inverse problem is whether a scalar count of possible extensions can distinguish parameter metrics, instead of retaining the full polynomial or individual types. The answer here completely characterizes what information that scalar loses and shows two distinct readily available ways of recovering the whole profile. The contribution is limited but exact: it locates the sole all-size obstruction, rather than merely exhibiting the collision at 63 or evaluating a known count.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

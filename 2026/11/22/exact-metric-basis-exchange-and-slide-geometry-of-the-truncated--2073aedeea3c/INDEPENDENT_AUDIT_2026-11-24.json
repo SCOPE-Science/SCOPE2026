@@ -1,0 +1,162 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:35:41.484866Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, lines 3–89",
+        "VERIFICATION.md; verify_ordered_pairs.py; verify_lcf.py; check_ordered_pairs.json; check_lcf.json (frozen scripts inspected, not executed)",
+        "/workspace/branches/0121e4f9-30fc-45e2-ac9e-fc05b07ff6f4/reproduce.py and reproduction.json",
+        "/workspace/branches/truncated_tetrahedron_symmetry_replay.py"
+      ],
+      "rationale": "Independent enumeration of ordered-pair graph vertices and distance signatures rules out all smaller resolving sets, recovers 156 resolving triples in nine S4-orbits, and recomputes connectivity, all 12,090 pair distances for both move rules, all histograms and the nonmatroid witness. The 1,446 jump edges give a jump metric equal to 3−|A∩B| on every pair, not just matching marginal counts. There are 450 slide edges, radius 6, diameter 7, an eccentricity split of 108/48, and exactly 204 pairs with maximum penalty 4. A separate targeted replay uses the closed base-graph distance: within a corner the distance is 0 or 1; between corners a and c it is 3 minus the number of endpoints already on the unique cross edge between those corners. It verifies both landmark orbit tables, representative slide degrees and eccentricities, and distance seven for the two stated pair representatives. Their S4-orbits are disjoint and have sizes 24 and 12; together they account for all 36 diametral pairs from the census. This replay also checks the displayed seven-slide geodesic. The failed matroid swap of element 4 gives exactly eleven signatures for each candidate replacement, even though some minimum-length jump route exists between the two bases.",
+      "residual_risks": [
+        "This verifies the fixed labeled graph and ordinary vertex-metric bases; it does not extend to other solids or other resolving notions."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hakanen et al. describe vertices forced into or excluded from metric bases and structural and complexity questions.",
+          "Sardar et al. compute metric dimensions of strings and rings of diamonds, not generally of claw-free cubic graphs or of this skeleton's move graphs.",
+          "The project listing includes a prism-graph project and a generic title without a retrievable report in this review."
+        ],
+        "reasoning": "These do not supply a located broader metric theorem specializing to the claimed results. A generic project title does not establish scope or prior coverage.",
+        "searches": [
+          "Hakanen et al. arXiv:2103.08911v1; Sardar et al. DOI 10.61091/jcmcc119-17, Theorems 1–2",
+          "Resultary: jump and slide metric-basis reconfiguration and penalty distributions",
+          "Foster-Greenwood student research page, metric basis reconfiguration project entries"
+        ]
+      },
+      "checked_sources": [
+        "Resultary …2073aedeea3c, …611c63690ac8, …51e8cc219376",
+        "Hakanen et al. arXiv:2103.08911v1",
+        "Sardar et al. DOI 10.61091/jcmcc119-17",
+        "MathWorld Truncated Tetrahedral Graph",
+        "arXiv:2106.14314 abstract",
+        "Foster-Greenwood student research project page"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Johnson distance is a universal lower bound for the jump restriction, not in general an attained distance.",
+          "The cited graph identification determines the adjacencies of the base graph, not which triples resolve or which shortest Johnson paths stay among resolving triples.",
+          "The positive isometry assertion cannot be justified by assuming matroid exchange for this family, since the record gives a checked witness against it."
+        ],
+        "reasoning": "Known graph and standard move definitions are correctly treated as inputs. The specific feasible set, extremal slides and the isometry/nonmatroid contrast do not follow from the located theorem on the different Chvátal graph or a metric-dimension theorem on diamond strings and rings.",
+        "searches": [
+          "Resultary …611c63690ac8 on the Chvátal graph; cited structural metric-basis papers; MathWorld skeleton description"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "MathWorld identifies the 12-vertex, 18-edge skeleton; the frozen LCF certificate uses an explicit relabeling for the same base graph.",
+          "The search hit arXiv:2106.14314 studies distance capping under the name truncated metric dimension, not metric bases of the truncated tetrahedron.",
+          "Resultary …51e8cc219376 instead computes a graph-metric Rips filtration of the same skeleton."
+        ],
+        "reasoning": "Process the skeleton's graph aliases as descriptions of the same object, but do not conflate vertex distance truncation or Rips simplices with resolving landmark triples.",
+        "searches": [
+          "Resultary: truncated tetrahedral skeleton, resolving triples, metric-basis relocation with jump and slide",
+          "MathWorld, Truncated Tetrahedral Graph; ordered-pair and LCF graph representations",
+          "Public lookup for truncated-tetrahedral metric-basis reconfiguration"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact 156-basis hit …2073aedeea3c is the assigned record itself.",
+          "The Chvátal-graph record has 146 four-vertex bases, slide radius 4 and slide diameter 6, and a separate penalty distribution; the exact Rips result is an invariant of a different construction."
+        ],
+        "reasoning": "These are substantive comparison hits, but no separately indexed table for this graph's resolving triples and their move distances was found. Do not infer order or priority from same-day timestamps.",
+        "searches": [
+          "Resultary: exact metric basis census and reconfiguration distances on the truncated tetrahedron; local Finding passages …2073aedeea3c, …611c63690ac8, …51e8cc219376"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the exact jump and slide geometry, including the combination of Johnson isometry and failure of matroid exchange. The standard skeleton is known. The closest same-day metric-basis mobility result concerns a different graph, while same-graph studies located concerned different graph invariants.",
+      "residual_risks": [
+        "Unindexed thesis or student-project work could contain this graph's exact invariants; the titles alone cannot decide that."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Distinct base graph, feasible-set size and metric facts.",
+          "evidence": [
+            "146 four-vertex bases, jump diameter 4, slide radius 4 and slide diameter 6."
+          ],
+          "identifier_or_url": "Resultary 2026/11/22/SCOPE-vertex-metric-basis-relocation-on-the-chv-tal-graph-two-unique-c--611c63690ac8",
+          "material_read": "RESULT.md Finding, local offset 0",
+          "method": "Resultary search and local mirror passage",
+          "title": "Vertex metric-basis relocation on the Chvátal graph",
+          "trigger": "Strongest distinct exact jump/slide topic match"
+        },
+        {
+          "assessment": "Same graph, but does not state this metric-basis invariant in the matched material.",
+          "evidence": [
+            "The result treats graph-metric Rips homotopy."
+          ],
+          "identifier_or_url": "Resultary 2026/10/4/…51e8cc219376",
+          "material_read": "Resultary result and subject comparison",
+          "method": "Resultary search",
+          "title": "The graph-metric Rips filtration of the truncated tetrahedron",
+          "trigger": "Same graph under an exact graph-metric title"
+        },
+        {
+          "assessment": "The inspected abstract concerns forced and excluded vertices rather than this move-graph classification; no whole-document negative claim is made from it.",
+          "evidence": [
+            "Vertices occurring in all or in no metric basis, related structural and complexity questions."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2103.08911",
+          "material_read": "PDF p. 1, abstract, offset 0",
+          "method": "OA primary PDF passage",
+          "title": "On Vertices Contained in All or in No Metric Basis",
+          "trigger": "Structural metric-basis background"
+        },
+        {
+          "assessment": "The cited exact theorem hypotheses describe other graph families.",
+          "evidence": [
+            "Theorem 1 treats strings of diamonds and Theorem 2 rings of diamonds."
+          ],
+          "identifier_or_url": "https://doi.org/10.61091/jcmcc119-17",
+          "material_read": "Theorems 1 and 2, journal pp. 166–168 (OA offsets 11268–16025 and 18468)",
+          "method": "OA publisher PDF passages",
+          "title": "Computing Metric Dimension of Two Types of Claw-free Cubic Graphs with Applications",
+          "trigger": "Cubic claw-free graph metric dimensions"
+        },
+        {
+          "assessment": "Standard graph identification, not a resolving or reconfiguration theorem.",
+          "evidence": [
+            "The truncated tetrahedral skeleton has 12 vertices and 18 edges."
+          ],
+          "identifier_or_url": "https://mathworld.wolfram.com/TruncatedTetrahedralGraph.html",
+          "material_read": "Graph identification, HTML offset 180",
+          "method": "OA website passage",
+          "title": "Truncated Tetrahedral Graph",
+          "trigger": "Same object under its standard graph name"
+        },
+        {
+          "assessment": "Project titles leave possible prior overlap unresolved.",
+          "evidence": [
+            "The page lists a prism-graph project in 2021–22 and a generic reconfiguration project in 2020–21."
+          ],
+          "identifier_or_url": "https://www.cpp.edu/faculty/brianaf/student-research.shtml",
+          "material_read": "Project entries, HTML offset 850; no project report retrieved",
+          "method": "OA website passage",
+          "title": "Student Research",
+          "trigger": "Possible unpublished metric-basis reconfiguration computations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding and Proof §§1–3",
+        "Independent distance and exchange-witness replay"
+      ],
+      "rationale": "The fixed graph is a canonical cubic polyhedral skeleton rather than a cutoff chosen just to generate another table. The two move rules ask natural global metric questions for minimal resolving sets. The instance is a concrete witness separating a global geodesic property from matroid exchange, and it quantifies how requiring local moves on the very same feasible sets destroys the Johnson distance, with a sharp penalty and classified diameter pairs. Those exact conclusions are useful for testing sufficient conditions for short reconfiguration paths; the value does not rest on the mere ability to enumerate triples.",
+      "residual_risks": [
+        "The witness and metric counts alone do not classify other graphs with isometric jump metrics or large slide penalties."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

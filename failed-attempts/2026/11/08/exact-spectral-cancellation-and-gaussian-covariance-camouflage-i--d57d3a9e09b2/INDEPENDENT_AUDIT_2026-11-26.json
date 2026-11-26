@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:44:18.765805Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The stationary convolution is well defined by positive on-state occupation. For integer n>=1 the killed two-state generator Q-2n*kappa*diag(0,1) has negative trace and positive determinant; the L^n norm of the exponential integrand of the conditional variance thus decays exponentially with lag. Minkowski integration gives finite variance-mixture moments of every finite order, and synchronous coupling contracts since the integrated on-time diverges. The stationary state-resolved moments solve a nonsingular 2-by-2 system with M1=D/kappa and M0=(2D*pi0+beta M1)/alpha. The lagged generator has characteristic polynomial p(z)=z^2-(kappa+T)z+alpha*kappa with p(0)>0 and p(kappa)<0. C(0)=V and C'(0+)=-D fix the two displayed residues. At s=D/V<kappa, p(s) has the sign of H by the exact factorization, so A+ has the opposite sign while A->0. A negative fast coefficient violates high-order alternating derivative signs, since lambda+>lambda-. Twice differentiating or using the lag generator gives C''(0+)=D*kappa*(alpha-beta)/T; dividing C''(t) by the positive slow exponential reduces it to a constant plus a single decaying term. This validates all three curvature cases including alpha=beta and the strict crossing for alpha<beta. For H=0 the remaining mode has rate T/2 and variance 2D/T. The fourth moment equations give N1=3DV/kappa, N0=(12DM0+beta N1)/alpha and hence the positive fourth cumulant and standardized excess in the frozen claim. The independent script python3 /workspace/review_replay.py (section 5) corroborates the exact stationary moment and phase identities on 21 rational cases. The frozen checker was inspected but not executed; it applies five lag comparisons to 1,029 grid cases, then 21 extra cancellation checks, not five lag comparisons for all 1,050. This does not affect the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "8f817ade8710 gives a two-stiffness matrix exponential, variance, spectral-polynomial factor F=q^2+2(beta-alpha)(k2-k1)-4k1*k2, cancellation iff F=0, and the fourth moment on the cancellation family.",
+          "Huang et al. give broader Markov-modulated moment and covariance methods, but their formal positive damping assumptions do not directly include the off state. Frydel and Santra–Das–Nath provide same-trap marginal precedents with one switching rate, not the asymmetric temporal classification in the inspected passages."
+        ],
+        "reasoning": "The decisive overlap is the actual two-stiffness proof with well-defined boundary coefficients, not an inference that every result follows from generic covariance methods or that any symmetric source covers asymmetric switching.",
+        "searches": [
+          "8f817ade8710, Proof Steps 1–4",
+          "Huang et al. arXiv:1412.7952 §3 and Appendix A",
+          "Frydel arXiv:2407.12213; Santra–Das–Nath arXiv:2104.00609"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and checker.py",
+        "Resultary 8f817ade8710, 0ac3a4495eea, 0b2306697c41 and ec8c472a2b8e",
+        "Huang et al. arXiv:1412.7952",
+        "Frydel arXiv:2407.12213",
+        "Santra–Das–Nath arXiv:2104.00609",
+        "Guyon–Iovleff–Yao DOI:10.1051/ps:2003017 (access attempt)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the prior proof let K=diag(0,kappa); det(nK-Q^T)=n*kappa*alpha>0 for n=1,2,4, so none of the covariance or moment systems degenerates. The stationary variance is exactly the prior rational formula evaluated at zero, its lag equation is the same ODE, and F specializes to H. Substituting rho=T/2 and beta/alpha=(kappa-rho)/(kappa+rho) in the previous cumulant gives 36 D^2 beta/(alpha T^2).",
+          "For the full sign/curvature claims, the previous variance and ODE give p(D/V) with sign H and C''(0+)=(T+kappa)D-alpha*kappa V. After substitution this is D*kappa*(alpha-beta)/T. The two real simple exponentials then give the sign of the fast weight and the curvature crossing by a ratio of exponentials; no new inverse or spectral construction is required."
+        ],
+        "reasoning": "The strict-positive lower-stiffness hypothesis is real, but no singular obstruction protects these exact identities from specialization. Existence at the boundary, checked independently here, permits use of the unchanged generator equations. No new cutoff or exact invariant survives beyond the straightforward boundary specialization and sign consequences of the earlier solution.",
+        "searches": [
+          "8f817ade8710 local RESULT.md offsets 0–4372 and 4550–9912",
+          "Frozen RESULT.md lines 42–85"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Pure equilibrium OU covariance with the same D means precisely cancellation of one mode of the stationary covariance ODE in the prior two-stiffness model. Its rate formulas at k1=0,k2=kappa become alpha=rho(rho+kappa)/kappa, beta=rho(kappa-rho)/kappa, hence T=2rho and kappa=T^2/[2(alpha-beta)]. Its covariance and fourth cumulant at that nonsingular boundary are precisely the audited formulas.",
+          "The symmetric, positive two-stiffness match and the symmetric on/off covariance twins are related but not full matches. A twin pair of non-OU switched models is not generally a single-exponential covariance."
+        ],
+        "reasoning": "Every audited cancellation point is on the continuous boundary of the prior parameterization, and the prior factorization enforces the converse. Equivalence uses the full covariance observable and identical diffusivity, not just similar terminology or second moments.",
+        "searches": [
+          "Resultary 8f817ade8710, complete equilibrium-covariance camouflage manifold",
+          "Resultary 0b2306697c41, exact equilibrium-like covariance with hidden dissipation",
+          "Resultary ec8c472a2b8e, covariance twins and fourth cumulants"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier indexed camouflage manuscript gives the complete closed-form parametric family and fourth cumulant. Its exact state-resolved formulas have nonzero denominators at k1=0 for positive switching and k2>0.",
+          "The same-day distinct record 0ac3a4495eea Eq. (1) gives the exact one-time characteristic function for normalized asymmetric on/off switching. With u=beta/kappa,v=alpha/kappa, and Z=sqrt(kappa/D)X, expansion of its logarithm gives the general fourth cumulant: after conversion it is 12(D/kappa)^2[(1+u/2)/v^2-1/(u+v)^2]. It does not give temporal covariance."
+        ],
+        "reasoning": "The fourth cumulant is also implicit in a stronger indexed marginal result, without assuming an order between same-day records. The rejection rests independently on the earlier two-stiffness manuscript and its explicit boundary implication.",
+        "searches": [
+          "Resultary 2026/11/2/SCOPE-a-complete-equilibrium-covariance-camouflage-manifold-for-a-swit--8f817ade8710",
+          "Resultary 2026/11/8/SCOPE-an-asymmetric-switching-phase-diagram-for-self-decomposability-i--0ac3a4495eea"
+        ]
+      },
+      "rationale": "The central exact covariance-cancellation and fourth-cumulant finding is mechanically covered by the nonsingular zero-stiffness boundary of the earlier broad Resultary result 8f817ade8710. Its proof also supplies the full covariance ODE and exactly the factor determining the sign phase. This is positive evidence of implication, not failure based on an inaccessible source. The audited theorem is not false, nor is its boundary literally in the earlier theorem's strict-positive wording; the actual identities settle coverage.",
+      "residual_risks": [
+        "External literature priority is not exhaustively settled. The decisive prior-implication finding does not depend on publication claims about unread papers or on within-day ordering of same-day Resultary records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The strong overlap mechanically implies the central result and supplies the readily evaluated sign and curvature inputs",
+          "evidence": [
+            "F becomes H; the rate and covariance parameterizations extend without singularity; all moment determinants stay positive for an irreducible on/off chain."
+          ],
+          "identifier_or_url": "Resultary 8f817ade8710, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "material_read": "Local RESULT.md Finding, hypotheses and proofs of variance, covariance ODE, exact factorization and fourth cumulant, offsets 0–4372 and 4550–9912",
+          "method": "Read exact theorem and decisive proof; derive the zero-stiffness specialization and check invertibility",
+          "title": "A complete equilibrium-covariance camouflage manifold for a switching harmonic trap",
+          "trigger": "Earlier two-stiffness classification with the same cancellation observable"
+        },
+        {
+          "assessment": "Equivalent marginal evidence, not temporal cancellation coverage",
+          "evidence": [
+            "The fourth-order coefficient of log phi gives the audited general cumulant after time/position normalization; no chronological inference is made from the date."
+          ],
+          "identifier_or_url": "Resultary 0ac3a4495eea",
+          "material_read": "Local RESULT.md offset 0–2344, Eq. (1) and scope",
+          "method": "Read exact characteristic function; compare fourth cumulant by Taylor expansion",
+          "title": "An asymmetric-switching phase diagram for self-decomposability in intermittent harmonic traps",
+          "trigger": "Same one-time asymmetric on/off law"
+        },
+        {
+          "assessment": "General methods, but strict damping hypotheses are not identical to the zero-stiffness model",
+          "evidence": [
+            "Formal gamma_i>0 excludes the off state without extension."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1412.7952",
+          "material_read": "Abstract, §3 p. 5 offset 18021, Appendix A p. 22 offset 80271",
+          "method": "Primary PDF passage comparison",
+          "title": "Markov-modulated Ornstein-Uhlenbeck processes",
+          "trigger": "General moment and autocovariance framework"
+        },
+        {
+          "assessment": "One-rate on/off marginal/variance predecessors; no asymmetric temporal phase claim in material inspected",
+          "evidence": [
+            "Switching is symmetric in the passages compared."
+          ],
+          "identifier_or_url": "arXiv:2407.12213; arXiv:2104.00609",
+          "material_read": "Frydel p. 2 Eqs. (2),(6)–(7), OA offset 12043; Santra–Das–Nath abstract and model p. 3 around offset 9568",
+          "method": "Compare primary model and moment passages",
+          "title": "Statistical mechanics of passive Brownian particles in a fluctuating harmonic trap; Brownian motion under intermittent harmonic potentials",
+          "trigger": "Same on/off trap model in published literature"
+        },
+        {
+          "assessment": "Unresolved coverage, not part of the negative originality judgment",
+          "evidence": [
+            "Access attempt returned 403."
+          ],
+          "identifier_or_url": "DOI:10.1051/ps:2003017",
+          "material_read": "No paper text obtained",
+          "method": "Lawful DOI and identified publisher PDF/HTML attempts",
+          "title": "Linear diffusion with stationary switching regime",
+          "trigger": "Cited general stationarity background"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "An unconfined phase is a natural physical boundary, and the interpretation of OU covariance with a non-Gaussian marginal is useful. But as a standalone research contribution, the main camouflage classification and its diagnostic reduce to the existing regular two-stiffness formulas, and the residual sign and curvature observations are obtained by evaluating the same known two-mode ODE and comparing its two exponential terms. No new diagnostic, exact invariant beyond the existing solution, or singular-boundary obstruction giving independent mathematical value was established. No substantive repair is claimed.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:28:57.364094Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–44",
+        "Frozen VERIFICATION.md, lines 18–26",
+        "Frozen verify.py, code inspection only"
+      ],
+      "rationale": "For a nonempty witness set in one part, the complement of its diamond is exactly that part. Successive Boolean exclusion of earlier peeled parts makes such witnesses definable. On the core, every used color has representatives in at least two core parts, so every successor color can be matched while avoiding the current part. Matching peeled successors in the same peeled part proves bisimulation; the definable parts and color tests distinguish all proposed classes. Hence the atom and cardinality formulas hold. Injectivity within each part is also required for full generation: the all-subfamilies private-color test in the Finding is read as an equivalence for empty core, as its proof specifies. A sequential peeling order forbids its first i-1 distinct witness colors in part i. Exchanging any ascending pair of sizes minimizes the maximum n_i+i-1 in descending order; suffix palettes containing their designated witness attain the bound. This handles k=1 and zero generators. Depth is bounded by one new diamond per round, using complementation for a final singleton part. In the chain example each still-unsplit repeated color is visible from every part; only the part with a private current type is detected in the next refinement, splitting just the next chain color. This yields exactly k-1 strict steps, including the final two-part step.",
+      "residual_risks": [
+        "The Finding's shorthand 'Equivalently' must not be read as waiving injectivity within parts; a two-vertex one-part monochromatic example would contradict that reading. The proof explicitly retains injectivity.",
+        "The finite verifier was inspected, not executed; the unbounded argument is mathematical."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Beohar et al. give a general bisimilarity characterization; the nested S5 indexed result gives H-1 depth and equivalence signatures for several named reflexive equivalence modalities."
+        ],
+        "reasoning": "General bisimulation requires an actual characterization of the fixed classes on the graph at issue. In the nested S5 theorem neither the frame nor the modalities specialize directly to the single irreflexive graph relation used here.",
+        "searches": [
+          "arXiv:2207.05407, Proposition 4.5",
+          "Resultary: sharp modal depth k-1 complete multipartite frames coloring successor type refinement"
+        ]
+      },
+      "checked_sources": [
+        "Resultary local index and relevant mirrored findings",
+        "arXiv:2207.05407",
+        "DOI:10.1017/S0963548300004521 (metadata only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The verified bisimulation result provides the equivalence principle, not the explicit witnesses and core matching. The nearest indexed sharp depth theorem uses signature vectors in a different language."
+        ],
+        "reasoning": "The shortest known route from these sources still requires the modal decoding and the palette optimization and the sharp refinement construction. No decisive implication of the claimed package was identified.",
+        "searches": [
+          "arXiv:2207.05407, Proposition 4.5",
+          "DOI:10.1017/S0963548300004521",
+          "SCOPE-modal-rigidity-and-depth-collapse-in-nested-s5-hierarchies--635905fcb72e"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Private elements in support subfamilies are the locally thin set-family antecedent credited in the frozen record. The Resultary mutual-visibility coloring hit addresses graph visibility, not modal successor types."
+        ],
+        "reasoning": "Private-element peeling can be expressed entirely in support-incidence language; the distinct assertion is its exact agreement with Boolean modal atoms, not the hypergraph criterion in isolation.",
+        "searches": [
+          "Resultary: private color peeling visibility core modal equivalence quotient complete multipartite graph",
+          "Web: complete multipartite modal bisimulation colorings generator rank locally thin set families private colors"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The layered-frame chromatic normal form uses a different threshold max(n_i+delta_i) and reflexive ordinal sums of antichains. The cluster-bouquet census uses within-cluster injectivity and distinct terminal palettes for a different reflexive construction."
+        ],
+        "reasoning": "The nearest exact indexed thresholds concern different classes of frames and do not supply the sorted-size threshold for these arbitrary multipartite parts. The same-day comparison has no assumed ordering.",
+        "searches": [
+          "Resultary: complete multipartite graph modal algebra generator rank minimum propositions threshold max(n_(i)+i-1)",
+          "Resultary: locally thin set families private element every subfamily complete multipartite generator coloring"
+        ]
+      },
+      "rationale": "The supported distinct result is the specialization to a single ordinary diamond on loopless complete multipartite frames: exact color-class quotient, optimal palette size, and worst-case depth with a matching family. Generic bisimulation and private elements are credited, not claimed as inventions.",
+      "residual_risks": [
+        "An older equivalent combinatorial or modal-coloring formulation remains possible. The locally thin paper could not be inspected in full, and no absence claim is made from inaccessible text or lexical search misses."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General framework; no matching specialization in the decisive passage",
+          "evidence": [
+            "Identifies the behavioral relation with bisimilarity; does not identify multipartite color classes or optimize palettes/depth."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2207.05407",
+          "material_read": "p. 7, Proposition 4.5, PDF text offset 27869",
+          "method": "OA full-text passage comparison",
+          "title": "Hennessy-Milner Theorems via Galois Connections",
+          "trigger": "General modal-equivalence and bisimulation antecedent"
+        },
+        {
+          "assessment": "Credited antecedent; full scope unresolved",
+          "evidence": [
+            "Frozen RESULT.md identifies private-color uniqueness within subfamilies as related; no full-text noncoverage inference is made."
+          ],
+          "identifier_or_url": "https://doi.org/10.1017/S0963548300004521",
+          "material_read": "DOI bibliographic metadata and frozen attribution; no readable primary text obtained",
+          "method": "OA lookup and lawful DOI/publisher retrieval attempts",
+          "title": "Locally Thin Set Families",
+          "trigger": "Private element formulation"
+        },
+        {
+          "assessment": "Distinct",
+          "evidence": [
+            "Signature vectors, sharp depth H-1 and colored-tree rigidity for nested reflexive equivalence relations; not private-color peeling on a single irreflexive relation."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-modal-rigidity-and-depth-collapse-in-nested-s5-hierarchies--635905fcb72e",
+          "material_read": "Mirrored RESULT.md, offsets 700–2458",
+          "method": "Local index and mirror",
+          "title": "Modal rigidity and depth collapse in nested S5 hierarchies",
+          "trigger": "Close indexed exact depth and partition comparison"
+        },
+        {
+          "assessment": "Different frame and threshold",
+          "evidence": [
+            "Reflexive ordinal sums of antichains use a proper-coloring condition and max(n_i+delta_i)."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-chromatic-normal-form-and-sharp-generator-threshold-for-layered--932014f5473b",
+          "material_read": "Mirrored RESULT.md, Finding at offset 0",
+          "method": "Local index and mirror",
+          "title": "Chromatic normal form and sharp generator threshold for layered frames",
+          "trigger": "Exact rank formula nearby in indexed results"
+        },
+        {
+          "assessment": "Different frame and palette constraints",
+          "evidence": [
+            "Reflexive cluster bouquets use within-cluster injectivity and distinct terminal palettes."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-branching-lowers-modal-generator-rank-an-exact-palette-census-fo--263caf08a431",
+          "material_read": "Mirrored RESULT.md, Finding at offset 0",
+          "method": "Local index and mirror",
+          "title": "Branching lowers modal generator rank: an exact palette census",
+          "trigger": "Exact palette census nearby in indexed results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, quotient, rank and sharp family"
+      ],
+      "rationale": "The quotient gives modal observability for every valuation, not only valuations attaining the generator minimum. It replaces generic partition refinement by an explicit support calculation and yields both a tight resource threshold and a sharp depth bound even when parts are tiny. Those answer natural classification and optimization questions about this family.",
+      "residual_risks": [
+        "No generalization to reflexive frames, counting modalities or other graph classes was evaluated."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

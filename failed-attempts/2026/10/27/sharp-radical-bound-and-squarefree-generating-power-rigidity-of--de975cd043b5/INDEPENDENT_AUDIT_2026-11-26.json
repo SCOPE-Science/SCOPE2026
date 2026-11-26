@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:32:55.855015Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For each p|n, restrict σ^(n/p) to a p-point orbit with its induced total order. Times in this restricted orbit correspond to multiples of n/p in the original signatures. If one chooses its second-least point, just one nonzero time t₀ modulo p sends it below itself, to the least point. The same-sign condition forces ut₀=t₀ modulo p, which gives u=1 modulo p since t₀ is nonzero there. This includes p=2 without exception. All these congruences yield the radical condition, whose n/rad(n) residues are units. In the attaining CRT lexicographic order, components with t=0 modulo their prime powers do not change under either increment. In a changed p^a-component p^r is the exact p-part of t; the first r lowest digits stay fixed and the next digit changes by t/p^r modulo p, the same for t and ut when u=1 modulo p. Its changed digit value, and therefore the first differing digit comparison in the product order, agree. Multiples of n give equality, and reducing all other times modulo n loses no data. Squarefree rigidity is only for powers of one cycle. The independent integer check compared all non-return signs for the proposed orders for 2≤n≤80 and exhaustively tested 5913 phase-anchored oriented cycles at 2≤n≤8; it confirmed the claimed stabilizer sizes. To replay, fix the least element as phase zero, permute the remaining phase entries and test all unit residues against the signs of positions j+t and j+ut relative to j, modulo n. The supplied VERIFY.py is a separate replay path and was inspected, not executed. These finite checks corroborate the symbolic proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fuhrmann–Gröger–Passeggi prove reconstruction among all prime-length cycles, a stronger prime result than rigidity among powers; the paragraph before the lemma discusses unrelated composite counterexamples.",
+          "The indexed composite-fiber theorem controls all realizers of a specific block-translation signature, not all cycles at a specified length."
+        ],
+        "reasoning": "Apply prime reconstruction to any prime orbit of σ^(n/p) with its induced order. It forces congruence 1 modulo p and, for squarefree n, already forces the unit to be identity. The unrestricted composite-fiber theorem does not subsume the universal mixed-length bound, but supplies actual examples of power overlap, e.g. f and f³ when n=4.",
+        "searches": [
+          "arXiv:2610.07435 §2, Lemma 2.1",
+          "Resultary exact exponential ambiguity fibers for composite ordered periodic cycles, Finding and proof §§1–2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and VERIFY.py, in particular the prior-result concession at line 40",
+        "Configured Resultary and literature searches using signatures, prime powers and the translation sign-matrix formulation",
+        "Fuhrmann–Gröger–Passeggi §2; indexed prime reconstruction and composite ambiguity-fiber records"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For coprime a,b the restriction of σ^b to an a-orbit and of σ^a to a b-orbit puts the stabilizer for length ab inside the CRT product of allowed classes on the two shorter ordered cycles.",
+          "Conversely, take attaining ordered cycles of lengths a,b and the componentwise cycle on their lexicographic product. Coprimality makes it a single ab-cycle. Each ordered comparison uses the first component that moves; each local preserving unit leaves that component and its sign comparison unchanged in the sense of the signature. Thus the CRT product of the local preserving classes acts on the product order, proving multiplicativity of the maximal stabilizer size. Applying this repeatedly to the acknowledged prime-power result gives the claimed attaining order and n/rad(n)."
+        ],
+        "reasoning": "This product argument is independent of the details of the digit witnesses and exhibits why the claimed extra mixed-prime step adds no separate mathematical constraint. The prime-power source itself was not independently located; the finding expressly claims only the extension beyond that baseline. The decision is not based on the failure to retrieve evidence.",
+        "searches": [
+          "Frozen RESULT.md line 40 (explicit acknowledged prime-power result and construction)",
+          "Fuhrmann–Gröger–Passeggi Lemma 2.1",
+          "Targeted indexed search for the acknowledged prime-power theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Indexing the cycle by phase gives a translation sign matrix s(j,t)=sgn(rank(j+t)−rank(j)); the power condition is s(j,ut)=s(j,t) at all phases, not rank preservation by multiplication of the phases.",
+          "The inspected Resultary records use the same sign table, but their equivalence classes range over all cycles unless one adds the same-generator constraint."
+        ],
+        "reasoning": "Large unrestricted signature fibers at composite lengths do not contradict or settle an all-length bound within a single cyclic group. The relevant alternate formulation keeps the phase fixed and multiplies only the time increment. No additional exact match under that formulation was identified.",
+        "searches": [
+          "Resultary and primary literature: orbit-pattern signatures, generating powers of a single cycle, invariant circulant translations",
+          "Resultary: prime-power cycles generating powers preserving left-right orbit signatures p-adic digit-order stabilizer modulo p"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No independently located exact table or all-length theorem for the maximum stabilizer of powers was identified. The indexed composite-fiber count r^(m−1) enumerates all cycles of a specified signature, not the stabilizer of an arbitrary cycle."
+        ],
+        "reasoning": "The two enumerations have different domains; coincidence for n=4 does not make their formulas equivalent. The disposition rests on theorem implication, not table lookup or absence of a table.",
+        "searches": [
+          "Resultary: maximum number of signature-preserving generating powers, prime-power digit order and radical bound",
+          "Resultary: exact composite ordered-periodic signature fibers"
+        ]
+      },
+      "rationale": "The upper obstruction and squarefree consequence are direct restrictions of the verified prime-cycle rigidity theorem. The frozen record explicitly excludes its sharp prime-power bound and digit-order construction from novelty. The stated mixed-factor advance is a mechanical coprime product of exactly that acknowledged baseline, by coordinate restrictions and lexicographic ordered products; no additional independent obstruction or attaining construction is established. This is an implication assessment, not a claim to have located a publication for the full mixed theorem or independently dated the acknowledged prime-power work.",
+      "residual_risks": [
+        "The independent searches did not locate the original all-prime-power source acknowledged in RESULT.md, so its bibliographic provenance and priority are unresolved. No claim is made that an independently identified publication states the full mixed theorem verbatim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly covers the prime obstruction after orbit restriction; not a general attaining-order result.",
+          "evidence": "Prime-length cycles are determined by left-right behavior; distinct composite-length cycles may share that behavior.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.07435",
+          "material_read": "§2, p. 4, Lemma 2.1 and preceding discussion (PDF text offset about 13149)",
+          "method": "Targeted OA PDF passage",
+          "title": "Period spectrum and rigidity of interval maps",
+          "trigger": "Same signature and stronger prime theorem"
+        },
+        {
+          "assessment": "Algorithmic prime reconstruction rather than a general stabilizer result.",
+          "evidence": "The input is the complete signature of a prime cycle and the result reconstructs the cycle in quadratic time.",
+          "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/11/SCOPE-quadratic-time-reconstruction-of-prime-cycles-from-left-right-or--f270190d0cd7/RESULT.md",
+          "material_read": "RESULT.md Finding and reconstruction scope",
+          "method": "Configured local mirror",
+          "title": "Quadratic-time reconstruction of prime cycles from left-right orbit signatures",
+          "trigger": "Indexed exact result on the same signs"
+        },
+        {
+          "assessment": "Different extremum; proof exhibits some material examples, not arbitrary-cycle stabilizer bounds.",
+          "evidence": "For m=r=p, the block-translation signature is invariant under generating powers u=1 modulo p: a non-return between blocks has its block determined by time modulo p, and for time pt the internal translation depends only on t modulo p. Combined with prime rigidity, this gives a sharp example at p², in particular f and f³ for n=4.",
+          "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/26/SCOPE-exact-exponential-ambiguity-fibers-for-composite-ordered-periodi--5f39ed9e3fea/RESULT.md",
+          "material_read": "Finding, assumptions, and proof §§1–2 (offsets 0–4166)",
+          "method": "Configured local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact exponential ambiguity fibers for composite ordered periodic cycles",
+          "trigger": "Composite exact signature counts with a potential same-cycle subset"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Stabilizers of order signatures form a natural invariant, but the proposed extra result supplies neither a new mixed-prime interaction nor a useful new classification beyond the prime-power baseline and the verified prime obstruction. The exact cardinality factorizes by the elementary restriction/product argument, and the squarefree composite case follows from prime reconstruction and the CRT. No separate worthwhile gain for the claimed extension was established.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

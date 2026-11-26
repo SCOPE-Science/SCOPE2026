@@ -1,9 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The kernel, normalized conventions, character weights and boundary case are defined explicitly. The exponential-formula coefficient has the claimed sign because a block of even total size receives one minus sign per marked vertex. Extracting the unmarked coefficient leaves the exact shifts \(e(\rho)-o(\rho)\), and Dobiński's identity gives the Poisson moment formula. Every even-order moment of a nondegenerate shifted Poisson variable is positive, while parity of the union of all even blocks gives complement symmetry. Direct enumeration and the independent recurrence agree on every Walsh frequency through dimension nine. The conclusion is restricted to the sector actually proved.
+## correctness
 
-**Originality — PASS on the bounded material inspected.** The closest inspected source is Chern--Diaconis--Kane--Rhoades (arXiv:1304.4309, 2013), which gives Bell/statistic moment methods and block-size counting, not this vertex-set Boolean Fourier positivity. Calderbank--Hanlon--Robinson (1986) studies parity-restricted block families and symmetric-group characters. The full text of the latter was unavailable; its abstract provides no matching implication but historical priority remains a specific risk. Targeted searches of mathematical literature, a semantic research-results index and accessible earlier research claims did not yield equivalent positivity or a stronger encompassing theorem; search absence alone is not a proof of novelty.
+PASS
 
-**Value — PASS.** Block-size parity is intrinsic to the partition lattice, while the even-block membership profile is a natural dependent Boolean observation. The theorem certifies all Fourier modes, not merely aggregate block counts, in every odd dimension and an exact protected sector in all dimensions. It provides nontrivial full-rank and positive-definiteness guarantees for an unbounded family. The complete even-order inertia and optimal condition numbers are outside scope.
+Independently reconstruct the identity by restricting a partition to its unmarked labels, giving rho. Choose j of the k marked labels to join blocks of rho; each has signed sum e(rho)-o(rho) over its possible target blocks because the block sign in terms of marked and unmarked sizes a,b is (-1)^(ab). The remaining marked labels contribute the ordinary Bell number B_(k-j). The binomial sum equals the kth moment of Z+e(rho)-o(rho) since the moments of Poisson(1) are the Bell numbers. The argument includes the empty restriction and k=0 (zeroth power 1). For positive even k every such moment is strictly positive by nondegeneracy; for k=0 the multiplier is B_n. The even cardinality of the profile gives equality of complementary weights, hence positivity in every character for odd n. Unnormalized Walsh diagonalization proves strict positive definiteness and invertibility. At n=2 the two profiles are empty and full; the two weight-one characters have multiplier zero, giving rank and nullity two. Direct n=3 enumeration gives weights 5,1,1,5. The all-order argument, not the checker, establishes the sign claim.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge pass for the specific even-block vertex profile and the all-order protected sector, which yields the full odd-order positivity. Neither standard Bell-moment tools nor the closely analogous indexed singleton-profile theorem settles it. No exhaustive priority claim.
+
+## value
+
+PASS
+
+Positive entries of the counting kernel do not decide signed Fourier coefficients. The result establishes a non-obvious protected sector and the full positive-definite/invertible regime at all odd sizes, despite singularity already at even size two. The shifted-moment formula also gives an exact way to determine the signed marked incidence count without listing partitions of all labels. The value is the structural sign theorem, not the small examples or the classical Bell formula alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

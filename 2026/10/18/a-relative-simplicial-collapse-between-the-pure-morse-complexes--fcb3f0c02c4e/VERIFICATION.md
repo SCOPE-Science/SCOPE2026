@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproduction of the relative simplicial collapse
 
-Using the supplied `verify_collapse.py` and `collapse_certificate.json` in the same directory, run `python3 verify_collapse.py collapse_certificate.json` with a standard Python 3 interpreter. No optional dependencies are required. `verification_output.txt` is a recording of the expected output, not a substitute for running the code.
+# Independent mathematical audit
 
-The script recomputes the two complexes from all Hasse matching choices (acyclicity tested by directed topological sorting), checks their \(256\) facets each, face-vector and embedding identities, and reconstructs each of four apex links. It then checks every one of the \(3428\) certificate pairs against the **current** face poset for codimension one, unique coface, maximality, and protection of the smaller complex. The result is an exact equality of the final face set with the target. The bitmasks are of lexicographically sorted Hasse incidences, with the ordering defined in the source code's docstring.
+## correctness
 
-This is an exhaustive finite combinatorial proof for exactly one tetrahedron and its boundary. It does not test general dimensions, validate unrelated mathematical claims, provide an independently reviewed certificate, or assert an equivariant sequence. The induced map on homology is integral and natural only because the verified collapse realizes the inclusion.
+PASS
+
+Reconstructed each Hasse diagram and enumerated all undirected matchings by recursively taking the first remaining cell as unmatched or pairing it with an available neighbor. For every matching, a three-color directed DFS tested for cycles after orienting matched incidences upward and the rest downward. This includes all sizes, so it independently proves maxima 7 and 6, with 256 optimal acyclic matchings each. Downward closure gives 11080 and 4224 nonempty faces. Translating the boundary's incidence indices gives exactly the apex-free induced subcomplex; the four links each have 1714 faces including the empty face. Independently replayed the submitted bitmasks, checking at each pair that neither face is in the target, that the larger contains the smaller with codimension one, and that the larger is the only proper coface of the smaller in the entire current complex. After all 3428 removals the remaining face set equals the naturally embedded target. Each pair belongs to just one apex since the lower face has an apex and at most one is possible. Removing the apex bit from each such pair except the last in each cone gives a link collapse to a vertex. The natural inclusion is therefore a simple-homotopy equivalence. It commutes with vertex relabelings and hence the induced integral homology isomorphism is equivariant, whether or not the sequence itself is equivariant.
+
+## originality
+
+PASS
+
+Scoville already gives the two pure homotopy types and face vectors. The distinct claim is an elementary collapse of the actual embedded boundary-pure subcomplex, with all its faces simultaneously retained. The closest prior relative results apply to different complexes, inclusions or dimensions.
+
+## value
+
+PASS
+
+This is the first simplex dimension in the cited comparison where the ordinary and pure constructions separate, with a motivated question left by the two independently known wedge types. A certified collapse answers the natural-map and simple-homotopy questions, and identifies the four actual apex links as collapsible even though the corresponding generalized links are not. The precise relative fact is useful independently of any higher-dimensional extension.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

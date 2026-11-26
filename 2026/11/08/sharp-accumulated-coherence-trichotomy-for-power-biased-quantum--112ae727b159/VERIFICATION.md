@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,21 +19,24 @@
 }
 ---
 
-# Reproducibility and proof boundaries
+# Independent mathematical audit
 
-The final claim is the accumulated-coherence trichotomy proved in `RESULT.md`. Its correctness depends on exact spectral decomposition, the positive-real-part hypotheses of the Euler integral, a complex endpoint asymptotic, and an absolutely convergent beta integral. The finite tests below do not certify infinite-time statements.
+## correctness
 
-## Computational check
+PASS
 
-Using Python 3 with `requirements.txt` installed (mpmath 1.3.0):
+The normalized history kernel preserves the zero-frequency blocks. For each other block with frequency w, the Volterra equation reduces to the Kummer equation with a=i beta w/(r+iw); the analytic solution also solves the original Volterra equation because t^beta(f'+(r+iw)f) vanishes at zero. Volterra uniqueness follows by the integrated supremum bound and Gronwall. Both Euler exponents have positive real part. Splitting at u=1/2 and expanding at zero gives the nonzero leading coefficient B and an O(t^(-Re a-1)) plus exponential remainder. Re a strictly increases with |w|; orthogonal active blocks cannot cancel. At the threshold the minimal-gap primitive has nonzero logarithmic phase and an integrable remainder; larger-gap blocks are absolutely integrable. The real and imaginary Hermitian directions formed by A and its adjoint are orthogonal with equal norm since tr(A^2)=0, proving a genuine circle with the asserted radius and period. Above threshold, an independent check integrates the Volterra equation in time: the integrated history term equals beta/(beta-1) times the scalar integral by absolute Fubini, so -1=[-(r+iw)+r beta/(beta-1)] times that integral. This reproduces the rational coefficient; conjugate pairing gives the strict negative sign. The commuting case is stationary.
 
-```bash
-python -m pip install -r requirements.txt
-python verify.py
-```
+## originality
 
-The program prints `PASS: 151 deterministic scalar, integral, asymptotic, and critical-circle checks`. It checks Kummer versus transformed Euler integration for twelve parameter combinations, the differential equation and initial derivative, conjugacy of opposite Bohr frequencies, the rational beta integral when absolutely convergent, one direct improper time integration, the critical exponent and phase, large-time coefficient consistency, and the geometric radius identity in a three-level example. The three-level test uses only model parameters and initial off-diagonal entries; the circle proof works for all finite dimensions and all allowed states.
+PASS
 
-## Mathematical verification limits
+The scalar history equation and Kummer machinery are substantial prior ingredients. The pass concerns the integrated operator across the variable bias parameter, particularly the critical accumulation set and signed supercritical value, not the scalar solution, logarithmic instantaneous phase, or least-gap control of uniform-history relaxation by itself.
 
-Numerical integration is necessarily finite precision, with 48-digit arithmetic and explicit tolerances. The direct infinite-time integral is evaluated only at a parameter safely above threshold; other parameter regimes are treated analytically. There is no infinite enumeration, symbolic proof assistant, external certification or independent audit. Publication priority is qualified by the possibility of an unlocated complex-mode extension of previously known real-spectral Kummer formulas.
+## value
+
+PASS
+
+The primitive is a natural measure of accumulated coherence and is not predicted by the fact that instantaneous coherence decays. The exact active-gap boundary separates power growth, bounded nonconvergence on a nonzero circle, and absolute convergence. The computable limiting response has strictly negative projection on the initial coherence, adding a sign constraint rather than only a convergence bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

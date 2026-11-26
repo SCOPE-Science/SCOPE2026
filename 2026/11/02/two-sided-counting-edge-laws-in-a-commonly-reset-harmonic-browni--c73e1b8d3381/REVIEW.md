@@ -1,21 +1,21 @@
-# Scientific review — Two-sided counting-edge laws in a commonly reset harmonic Brownian gas
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For positive fixed \(\mu,D,r,a\), the one-clock stationary renewal representation gives an exponential reset age and independent Gaussian particle positions conditional on that age. The exact transformation \(Y=e^{-2\mu T}\) yields a beta density; conditional counting is binomial. Strict monotonicity of \(q(Y)\), differentiation and a Gaussian Mills expansion prove the compact-support limit and both density-edge laws. The lower-edge finite-population theorem follows by uniform binomial central-limit scaling after \(y=z/(B\sqrt N)\), with Hoeffding domination. The all-inside event follows from a two-threshold Tauberian sandwich. The zero-endpoint Gaussian integral coefficient was checked independently using the gamma integral; the standalone checker passed deterministic finite-population, inverse-CDF and asymptotic-consistency checks. No claim relies on finite computation as a proof of an infinite statement.
+PASS
 
-## Originality — PASS, with identified residual risks
+At stationarity the age is Exp(r); conditional on it the coordinates are IID normal with variance (D/μ)(1−e^{−2μT}). Thus Y=e^{−2μT} has CDF y^θ, and the exact count is the binomial mixture with q(y)=erf(A/√(1−y)). The conditional strong law gives H=q(Y); inversion and q(y)=p*+By+O(y²) give the stated CDF and lower density. For the rounded count set y=z/(B√N). The triangular binomial CLT gives Φ((x−z)/s*); flooring changes the CLT scale by O(N^{-1/2}). For small y, q(y)−p*≥By/2 gives an integrable Hoeffding bound exp(−2(z/2−x)²) for z>max(2x,0); for y bounded away from zero the contribution is exponentially small even after multiplication by N^{θ/2}. The limiting integral at x=0 equals (s*/B)^θ times the θ moment of the positive part of a standard normal, giving the stated gamma factor. At the other endpoint erfc(w)~e^{−w²}/(√πw) gives P(1−H≤u)~θA²/log(1/u). Bounding E[H^N] at 1−H=N^{−1±ε} and then letting ε→0 establishes θA²/log N, with θA²=ra²/(4D). All constants are for fixed positive parameters: p* is a floor only for the limiting fraction, not for the finite count. The frozen verification materials were read only; no numerical evidence is needed for these limits.
 
-The broad conditional-IID mixture method is not original. The 2025 unconfined-gas full counting results (arXiv:2509.06658) already cover counting statistics without a harmonic restoring force; they do not state a positive equilibrium counting floor or its finite-size boundary exponent. The 2026 confined-gas work (arXiv:2606.31634) provides the Gaussian mixture and analyzes density/correlations/edge order statistics; the accessible original abstract does not assert this explicit center-window counting theorem, and a detailed scientific reading identifies counting statistics as a topic left for further investigation. A 2025 resetting Dyson gas (arXiv:2503.14733) treats interacting particles and hence differs in both the conditional law and its edge scaling. Published research-record searches for simultaneous-reset counting and related equivalents returned nearby OU extremes, OU sensor thresholds and oscillator results, not this two-sided counting-edge theorem. Accessible prior claims concerning common-reset OU maxima and partial-reset Brownian tail events were checked for implication, not treated as novelty proof.
+## originality
 
-The two most important risks are an uninspected appendix or updated full text of the 2026 confined-gas source and an unlocated generic binomial-mixture edge theorem that implicitly gives the finite-population \(N^{-r/(4\mu)}\) scale. The relevant primary full texts could not all be obtained for full-section comparison. These access limits are disclosed rather than being classified as negative evidence.
+PASS
 
-## Value — PASS
+Pass attaches to the central-window counting result with its resolved lower-edge finite-population profile and comparison of the two count edges, not to the established conditional mixture or a standalone claim of priority for the upper logarithmic coefficient. The latter is closely covered by same-model maximum asymptotics; the inspected sources do not resolve the lower counting crossover at a positive occupation floor.
 
-Counting the fraction of a confined population within a fixed sensor region is a natural bulk observable, complementary to the maxima and gaps studied in the motivating literature. The result gives exact finite-population event probabilities, a sharp continuously tunable exponent, a transition between divergent and vanishing lower-edge densities at \(r=2\mu\), and a contrasting universal inverse-logarithmic all-inside law. These provide quantitative rare-event predictions and a sensitive distinction between long and short common-reset ages; the point is not merely the known conditional-binomial formula. The result is narrow to one natural physical model and does not purport to give a general theorem for interacting gases.
+## value
 
-## Closest literature and limitations
+PASS
 
-De Mauro, Majumdar and Schehr, arXiv:2606.31634 (2026): harmonic confinement, common resetting, stationary Gaussian mixtures, extreme and gap observables. De Mauro, Biroli, Majumdar and Schehr, arXiv:2509.06658 (2025): full counting statistics for unconfined noninteracting Brownian gases under renewal resets. Biroli, Majumdar and Schehr, arXiv:2503.14733 (2025): interacting Dyson Brownian counting under resetting. The proof requires positive fixed parameters, common Poisson resets to the trap center, a centered observation window and independent OU particles; it does not establish uniformity under changing parameters. Independent priority and proof audits are unperformed.
+Central-window counting probes an occupation fraction rather than the largest coordinate. The full Gaussian rounding profile at its equilibrium floor quantifies a natural sharp phenomenon unreported in the checked counting and maximum sources: order-√N downward fluctuations of the count are weighted by a power of size governed by the ratio of resetting and relaxation rates. Contrasting this with the logarithmic all-inside law clarifies two different mechanisms without depending on standalone novelty of the upper law.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

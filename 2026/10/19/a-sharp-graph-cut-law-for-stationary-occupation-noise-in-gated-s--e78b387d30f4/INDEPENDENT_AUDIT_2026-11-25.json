@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T17:13:55.619664Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–60 and 62–152",
+        "Frozen VERIFICATION.md and verify.py, inspected without execution",
+        "repairs/2/RESULT.md, corrected Finding; exact diff against the frozen version",
+        "Independent full-configuration benchmark calculations; replay described in rationale"
+      ],
+      "rationale": "As frozen, the auxiliary ratio at RESULT.md lines 31–41 is false as a universal statement: connected OFF is permitted, and A=V gives N_A=k, h=0 and a denominator identically zero. The complete corrected RESULT.md restricts that quotient to proper OFF components and explicitly covers the zero-variance case without a ratio. The undivided law remains valid for all allowed graphs. I reconstructed the general proof: product detailed balance and the connected ON graph give uniqueness and reversibility; exact exchange closure and canonical covariance give the weighted two-layer Poisson formula with factor 2χ. The OFF-null test (0,P₀h) has energy p(1−p)κ||P₀h||² and yields the all-rate bound. In the OFF-null/complement decomposition the complement block has an invertible limit, the cross blocks are O(κ), and the null block is pκI. The Schur complement is pκI+O(κ²), so the inverse has leading term P_D/(pκ) with bounded remainder, also covering an empty nullspace. The two-block complete-graph mode has ON eigenvalue nr and OFF eigenvalue zero; solving its two scalar Poisson equations gives the asserted exact expression. Independent exact verification of both benchmarks used the full ON/OFF chain over all k-subsets, one pinned Poisson coordinate, and the stationary variance 2Σπfu at κ=1/7, 1, 19/3. It agreed with both expressions. In the repaired quotient the denominator is χa(n−a)/n>0 for 1≤a<n, and P₀h=h, so division gives 2(1−p)/p. No other proof or scope change is needed.",
+      "residual_risks": [
+        "The result assumes stationarity, symmetric exchanges, a common autonomous gate, and the limit T→∞ first. It does not assert a thermodynamic limit or a result for general gate paths."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hufton et al. incorporate intrinsic stochasticity via a linear-noise approximation and derive stationary distributions for switching population models, not an exact output of the finite canonical Markov chain.",
+          "A generic reversible Poisson formula plus standard singular-resolvent theory supplies the analytical methods; the OFF projection and compression pI require identifying the cut-specific degeneracy."
+        ],
+        "reasoning": "The broader methods carry substantial proof weight, but no inspected result gives the model-specific projection, uniform residue bound and exact complete-graph benchmark as a direct parameter specialization.",
+        "searches": [
+          "Primary literature query for common-gate or Markov-modulated stationary occupation asymptotic variance and slow switching",
+          "Hufton–Lin–Galla–McKane arXiv:1512.00785v2; Redig–Saada–Sau arXiv:1811.01366"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md prior work section and corrected RESULTS at repairs/2/RESULT.md",
+        "Resultary 1689549ddad3",
+        "arXiv:1207.4106, 1308.6193, 1311.5383, 1811.01366, 1512.00785v2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The static occupation-time study and the static ring record retain a fixed generator; neither can produce the inverse-κ expansion with an OFF kernel.",
+          "The corrected amplification ratio is a corollary of the graph-cut coefficient and the classical hypergeometric variance; it is not claimed independently novel."
+        ],
+        "reasoning": "Credit standard Poisson/variational theory and the static data. The graph-theoretic iff criterion and saturation of an all-rate lower bound by its exact residue solve the remaining finite switching question, not a renaming of a static asymptotic.",
+        "searches": [
+          "Resultary 1689549ddad3 Finding; arXiv:1311.5383 and 1811.01366; arXiv:1512.00785v2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Dynamic-conductance exclusion and walk duality give closely related reductions, but the hydrodynamic setting does not resolve this finite stationary canonical variance.",
+          "Independently refreshing percolation edges and walk mixing/hitting do not describe one common gate or the long-time variance of the additive occupation functional."
+        ],
+        "reasoning": "Reformulating this theorem on a gate-augmented one-particle walk explains its covariance reduction, but does not make it equivalent to dynamic percolation mixing or a hydrodynamic law.",
+        "searches": [
+          "Resultary semantic queries: gated exclusion, slow switching, integrated occupation variance",
+          "Redig–Saada–Sau arXiv:1811.01366; Peres–Stauffer–Steif arXiv:1308.6193"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest inspected Resultary record computes static ring block-occupation noise without an OFF graph or κ.",
+          "Static complete-graph eigenvalues furnish the ON eigenvalue nr, not the resolvent of the two-layer gated process."
+        ],
+        "reasoning": "The benchmark is not an entry of the static tables; the switching term persists even with the same equilibrium count variance. No exact matched table was identified.",
+        "searches": [
+          "Resultary local search, gated exclusion and sharp integrated occupation noise; mirrored record 1689549ddad3",
+          "Mendonça arXiv:1207.4106, graph SSEP and static eigenspectra"
+        ]
+      },
+      "rationale": "For the corrected claim, credit classical exclusion closure, canonical covariance, reversible Poisson theory and standard singular block inversion. The supported distinct contribution is their explicit finite canonical graph-cut classification, combining a uniform sharp lower bound, exact residue and zero-residue criterion, with an all-speed closed form. No inspected prior entails that package directly. The ratio domain correction removes an undefined expression and does not make the ratio itself the basis of the originality decision.",
+      "residual_risks": [
+        "A broader finite reversible-chain theorem with a sharp all-rate inequality, or an unindexed equivalent application, may exist. The cited standard tools were not treated as new.",
+        "The comparisons establish differences in the inspected statements, not exhaustive coverage of the literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantial static overlap but no common gate",
+          "evidence": "Computes integrated block variance and bond contributions on a static periodic ring.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-sharp-boundary-noise-deficit-for-equilibrium-exclusion-on-a-cycl--1689549ddad3/RESULT.md",
+          "material_read": "Finding, offset 169",
+          "method": "Configured mirror bounded statement read",
+          "title": "Sharp boundary noise deficit for equilibrium exclusion on a cycle",
+          "trigger": "Same exact block-occupation noise observable"
+        },
+        {
+          "assessment": "Prior static spectral data, not a gated variance statement",
+          "evidence": "Exclusion generator and eigenspectra for fixed graph families.",
+          "identifier_or_url": "https://arxiv.org/pdf/1207.4106",
+          "material_read": "pp. 1–2, offsets 5152 and 6883",
+          "method": "Open PDF, bounded read",
+          "title": "Exact eigenspectrum of the symmetric simple exclusion process on the complete, complete bipartite, and related graphs",
+          "trigger": "Static benchmark spectral input"
+        },
+        {
+          "assessment": "Different edge switching and different observables",
+          "evidence": "Random walk driven by independently updating percolation edges; studies mixing, displacement and hitting.",
+          "identifier_or_url": "https://arxiv.org/pdf/1308.6193",
+          "material_read": "p. 1, offset 635",
+          "method": "Open PDF, bounded read",
+          "title": "Random walks on dynamical percolation: mixing times, mean squared displacement and hitting times",
+          "trigger": "Related joint walk/environment dynamics"
+        },
+        {
+          "assessment": "Static conductances and fluctuation scaling",
+          "evidence": "One-dimensional occupation-time fluctuations, not finite equilibrium switching singularities.",
+          "identifier_or_url": "https://arxiv.org/pdf/1311.5383",
+          "material_read": "p. 1, offset 0",
+          "method": "Open PDF, bounded read",
+          "title": "Occupation times of exclusion processes with conductances",
+          "trigger": "Related additive occupation fluctuations"
+        },
+        {
+          "assessment": "Relevant to model reduction, not evidence of the graph-cut noise law",
+          "evidence": "Hydrodynamic results in dynamic random conductances rather than finite all-k canonical stationary integrated variance.",
+          "identifier_or_url": "https://arxiv.org/pdf/1811.01366",
+          "material_read": "p. 1, offset 259",
+          "method": "Open PDF, bounded read",
+          "title": "Symmetric simple exclusion process in dynamic environment: hydrodynamics",
+          "trigger": "Dynamic-environment exclusion and duality"
+        },
+        {
+          "assessment": "Population linear-noise approximation, not a general exact reversible cut-residue theorem",
+          "evidence": "Abstract explicitly derives stationary distributions via intrinsic noise at the linear-noise approximation level.",
+          "identifier_or_url": "https://arxiv.org/pdf/1512.00785",
+          "material_read": "v2, p. 1 abstract and introduction at offset 1270",
+          "method": "Open PDF, bounded read",
+          "title": "Intrinsic noise in systems with switching environments",
+          "trigger": "Closest broader primary result surfaced for noise under environmental switching; lawful preprint of DOI 10.1103/PhysRevE.93.052119"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "repairs/2/RESULT.md, Finding, assumptions and complete-graph example"
+      ],
+      "rationale": "The surviving corrected result answers a concrete structural question: identical equal-time occupation statistics can coexist with divergent integrated noise, but only when the field sees a conserved OFF-component number. The exact residue and finite-speed bound give quantitative tests for intermittent transport; neither all fields nor all disconnected graphs give a divergence for a specified field. The proper-component ratio and complete-graph benchmark tie that mechanism to a measurable static variance and known gate probability. This value survives removal of the undefined ratio at A=V and does not depend on presenting standard resolvent tools as new.",
+      "residual_risks": [
+        "Value is for finite linear occupation observables, not a claim about macroscopic transport universality or higher cumulants."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

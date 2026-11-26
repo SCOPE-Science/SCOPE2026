@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:41:19.240647Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, Assumptions and Proof",
+        "Frozen VERIFICATION.md and verify.py, inspected as corroboration only; not executed"
+      ],
+      "rationale": "The conditioned invariant line measure makes the absolute offset S uniform. The half-length is sqrt(1-S²) minus sqrt((r²-S²)_+); the inner and outer branches are respectively increasing and decreasing. For q=w/2 on the two-root interval, the inner equation is inverted by adding and subtracting the two square roots, giving sqrt(1-S_-²)=(q+(1-r²)/q)/2. This gives both survival pieces (the central equality affects a null point), the maximum, and the mean by integrating the two disk chords. For fixed S<1 rationalization gives the stated weak limit, with domination by 2/sqrt(1-S²) even on the outer branch, proving the p<2 limit. At y=(1-S)/δ the limiting profile is H(y)=sqrt(2y)-sqrt(2(y-1)_+); for y≥1 the prelimit profile is bounded by 2/sqrt(y) up to y=1/δ and is set to zero beyond it. Its p>2 integral uses y=1/(2z²)+1/2+z²/8 on the descending branch z=H(y), giving the claimed coefficient. The two limiting roots at fixed 0<t<sqrt(2) are strict crossings; finite-δ monotonicity gives convergence of both roots and exact uniformity between the prelimit roots conditional on exceedance. For t≥sqrt(2) there is no exceedance because the scaled maximum is sqrt(2-δ). I independently verified the critical constant without elliptic integrals: let m=1-r², u=1-S², W_m=(sqrt(u)-sqrt((u-m)_+))², and g(u)=(1-u)^(-1/2)-1. The second moment is (2δ²)^(-1) times the integral of W_m(1+g) from 0 to 1. The unweighted integral divided by m² is 3/8-(1/2)log z+z⁴/8 for z=sqrt(m)/(1+sqrt(1-m)), by scaling u=mx and inverting sqrt(x)-sqrt(x-1). The weighted correction divided by m² is ∫g/(4u) du=(1/2)log 2, with error O(m log(1/m)): on u≤2m use g=O(u) and W_m/m²=O(1/u); elsewhere the kernel differs from 1/(4u) by O(m/u²). With m=2δ-δ² this gives (1/2)log(1/δ)+log(2sqrt(2))+3/4 with the stated remainder.",
+      "residual_risks": [
+        "All limits have fixed p or fixed t. They do not assert uniform tail asymptotics over a moving threshold, or apply to random endpoints or isolated components."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bäsel, abstract and §1 p.1: chord-length distribution for regular polygons, with a chord from a line intersecting a convex set",
+          "Harutyunyan–Ohanyan, abstract and §1 p.358: invariant measure dp dφ for lines conditioned to meet a bounded convex domain; regular polygon distribution"
+        ],
+        "reasoning": "Credit the normalizing measure and convex chord laws. A convex-body length law gives no joint offset information for subtracting nested chords unless additional geometry is used. The inspected polygon statements do not give the singular thin-layer moment asymptotics.",
+        "searches": [
+          "arXiv:1204.2707",
+          "doi:10.1239/aap/1246886615",
+          "Random chord distributions and containment functions, publisher and indexed ResearchGate record"
+        ]
+      },
+      "checked_sources": [
+        "Bäsel arXiv:1204.2707",
+        "Harutyunyan–Ohanyan doi:10.1239/aap/1246886615",
+        "Indexed random chord distributions and containment functions record",
+        "Two identified Resultary records (local Findings)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Classical disk chords give the two lengths as functions of a common offset",
+          "The tube mark is on lines with two disconnected passages; the circular-segment threshold varies the height of a convex cap"
+        ],
+        "reasoning": "The two disk chords imply the elementary finite-radius intercept after inversion, but neither separate disk law nor the inspected marked tail results supply the nonuniform limit near inner tangency, the critical finite part, or the supercritical constants. These use the specific inner/outer two-root profile and a separate critical estimate.",
+        "searches": [
+          "Bäsel and Harutyunyan–Ohanyan §1",
+          "Both matching SCOPE Finding passages",
+          "Same-paper publisher and ResearchGate access attempts for the multi-chord article"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Random chord distributions and containment functions, https://www.sciencedirect.com/science/article/pii/S0196885814000712, indexed abstract excerpt: analytical multi-chord length distribution under affine-invariant measure for nonconvex polygons",
+          "SCOPE-a-reciprocal-chord-crofton-law-for-double-passages-through-thin--0b58849cdd31, Finding: thin 3D tube about a planar curve, double passages"
+        ],
+        "reasoning": "Treat multi-chord and disconnected line intersections as plausible aliases. The inspected tube statement concerns a different sampling geometry and passage statistic; indexed polygon scope alone does not establish a result for circular annuli. Full text of the polygon article was not available for a stronger comparison.",
+        "searches": [
+          "Resultary top-50 semantic searches on thin annulus total line intercept and grazing crossover",
+          "External literature search for annulus total intercept and thin-layer chord asymptotics; indexed multi-chord alias"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The assigned record ranked first in both searches",
+          "SCOPE-three-rare-long-chord-regimes-and-a-critical-crossover-for-circu--c92902291168, Finding: convex circular segment long-chord height crossover",
+          "SCOPE-a-reciprocal-chord-crofton-law-for-double-passages-through-thin--0b58849cdd31, Finding: marked two-passage law for a 3D tube"
+        ],
+        "reasoning": "The identical hit is not separate coverage. The distinct records' observables and geometries differ; neither gives the annulus moment constants or its offset mark. No inference of priority is made from a shared date or an absent hit.",
+        "searches": [
+          "Two Resultary top-50 semantic searches; compared the reciprocal-chord and circular-segment SCOPE records via local mirror"
+        ]
+      },
+      "rationale": "Bounded comparison supports the distinct thin-annulus moment transition, finite critical constant, and marked grazing law for total material intercept. The invariant-offset model and ordinary disk chord formulas are classical inputs, not new. Related works on nonconvex polygon chords and other geometries do not establish prior coverage on the evidence read.",
+      "residual_risks": [
+        "The multi-chord article was inspected only via indexed excerpts and not ruled out in full. The cited Aharonyan–Harutyunyan–Ohanyan finite-segment paper was not retrieved. Older chord or shell-transport treatments may cover an equivalent limit."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Classical convex chord input, different domain",
+          "evidence": "The abstract gives a chord length distribution for any regular polygon; §1 starts with a random line intersecting a convex set.",
+          "identifier_or_url": "https://arxiv.org/abs/1204.2707",
+          "material_read": "Abstract and §1 p. 1",
+          "method": "Primary PDF text",
+          "title": "Random chords and point distances in regular polygons",
+          "trigger": "Classical invariant-line chord law"
+        },
+        {
+          "assessment": "Covers the line-measure normalization, not the thin-annulus claim in the inspected material",
+          "evidence": "Defines invariant line measure dp dφ conditioned on intersecting a bounded convex domain.",
+          "identifier_or_url": "https://doi.org/10.1239/aap/1246886615",
+          "material_read": "Abstract and §1, p. 358",
+          "method": "Primary PDF text",
+          "title": "The chord length distribution function for regular polygons",
+          "trigger": "Geometric normalization and exact chord distributions"
+        },
+        {
+          "assessment": "Potential related broader methods; full coverage unknown",
+          "evidence": "Indexed excerpt describes an analytical multi-chord length distribution for nonconvex polygons under affine-invariant measure; it does not state an annular thin limit.",
+          "identifier_or_url": "https://www.sciencedirect.com/science/article/pii/S0196885814000712",
+          "material_read": "Indexed publisher and ResearchGate excerpts only",
+          "method": "Literature index; publisher and ResearchGate same-paper retrieval both returned HTTP 403",
+          "title": "Random chord distributions and containment functions",
+          "trigger": "Plausible nonconvex multi-chord synonym"
+        },
+        {
+          "assessment": "Different dimension, event and statistic",
+          "evidence": "Asymptotic probability and marked limit for two disconnected passages through a 3D tube about a planar curve.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-reciprocal-chord-crofton-law-for-double-passages-through-thin--0b58849cdd31",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror",
+          "title": "A reciprocal-chord Crofton law for double passages through thin tubes",
+          "trigger": "Invariant lines with disconnected passages and a mark"
+        },
+        {
+          "assessment": "Different geometry and observable",
+          "evidence": "Long-chord tail for a convex circular segment as its height changes.",
+          "identifier_or_url": "2026/11/22/SCOPE-three-rare-long-chord-regimes-and-a-critical-crossover-for-circu--c92902291168",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Three rare long-chord regimes and a critical crossover",
+          "trigger": "Circular-geometry rare grazing analog"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof"
+      ],
+      "rationale": "A thin annulus is a natural test of local-thickness approximations in line-intercept geometry. The limit has a finite first moment but divergent second moment; the exact critical finite part and supercritical coefficients tell where and by how much that approximation fails. The marked law identifies the offsets generating the rare long intercepts, not just a tail exponent.",
+      "residual_risks": [
+        "Concentric planar geometry only; the formulas do not establish the corresponding transition for general curved shells."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

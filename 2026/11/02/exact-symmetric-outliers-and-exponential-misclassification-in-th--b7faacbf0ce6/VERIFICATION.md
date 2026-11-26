@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -18,10 +21,8 @@
 
 # Verification
 
-The packaged `verify.py` program uses only the Python standard library. Running `python verify.py` with Python 3.8 or later produced:
+The packaged `verify.py` uses the Python standard library and requires Python 3.10 or later for `int.bit_count`. The recorded output is:
 
 `VERIFY_OK low_profiles=120 parameter_sizes=40 exhaustive_m5=32768 errors_m5=1`
 
-It checks the exact low-profile lists of original scores \(59,60,61\), the global lower bounds on surrogate scores for every original score \(\geq62\), and the maximum new score over the complete region of original score \(\leq58\). It verifies the one-exception tables, binomial orbit counts for the indicated sample of integer class sizes, and all labeled coalitions in the \(15\)-voter case.
-
-The proof's four-profile obstruction, two all-size surrogate constructions, and class-permutation averaging argument are analytical. Finite checks are corroborative and do not certify every unbounded class size by themselves. No externally conducted independent audit is represented.
+It checks the complete profiles at the exceptional scores 59, 60, and 61, the margins of the two stated surrogates outside that interval, the resulting one-profile errors, their orbit sizes, and all labelled coalitions in the 15-voter case. The four-profile obstruction and the orbit-size comparison establish symmetric optimality in the small-class regime, including the tie; the averaging argument rules out unrestricted zero error. Finite checks corroborate these arguments, not optimization over arbitrary real weights by enumeration.

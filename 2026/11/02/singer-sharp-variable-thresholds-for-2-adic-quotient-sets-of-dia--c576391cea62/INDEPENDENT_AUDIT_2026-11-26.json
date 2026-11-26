@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:42:09.302623Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 4–58",
+        "VERIFICATION.md lines 18–22",
+        "verify.py lines 9–94 and 100–140"
+      ],
+      "rationale": "A nonzero evaluation has a unique least-valuation nonzero term because the residues of all nonzero terms modulo N are distinct. Dividing out that term gives a factor in 1+pℤ_p, an N-th power by Hensel since p∤N. Hence no quotient can leave the listed power cosets. Each coset is approached by quotients of single-coordinate evaluations: the bases of the powers range over ℚ×, dense in ℚ_p×. The power subgroup contains 1+pℤ_p, so is open and closed in ℚ_p×; adjoining zero to the finite union gives a closed set in the full field, and zero is an actual value quotient. At 2 and odd degree all units are powers, giving the exact difference-cover criterion. At most r(r−1) ordered differences can be nonzero, so r≥q+1 for N=q²+q+1. Independently checked the Singer argument including characteristic three: the trace polynomial X+X^q+X^(q²) is nonzero and has degree below q³, so the trace takes a nonzero value. For any c≠0, multiplication by c is invertible, giving nondegeneracy of the trace pairing. Thus a nonidentity coset cannot stabilize the trace-zero plane (equal kernels would give proportional functionals). Its translate meets that plane in exactly one projective point, giving one ordered representation per nonzero difference. Coefficients 2^d realize the resulting q+1 distinct residues, with all variables essential. This verifies the exact closure and attained lower bound with no reliance on finite sampling.",
+      "residual_risks": [
+        "The uploaded checker was inspected, not executed. Its bounded checks track power classes, not the infinite field closure; the latter and the all-q construction are established symbolically.",
+        "A least-valuation argument of this form does not apply when coefficients have coinciding valuation residues, and the closure computation does not include p dividing the degree."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1.3 assumes gcd(N,p(p−1))=1 and r>N/2. Corollary 1.4 is about the uniform guarantee with least count floor(N/2)+1. Remark 3.2 constructs a dense example with floor(N/2) variables.",
+          "arXiv:2308.08907 proves an all-sufficiently-large-primes result under hypotheses involving form strength; its Lemma 2.13 concludes density from a nonsingular residue-field zero."
+        ],
+        "reasoning": "A universal guarantee for a larger number of variables is different from the least number for any form at a fixed prime. Sufficient density tests do not describe non-dense closures, and the coprimality condition of the earlier diagonal theorem removes the nontrivial unit classes retained here.",
+        "searches": [
+          "arXiv:2201.04372 Theorem 1.3, Corollary 1.4 and Remark 3.2",
+          "arXiv:2308.08907 Theorem 1.2 proof and Lemma 2.13"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md lines 3–51, 60–70",
+        "arXiv:2201.04372",
+        "arXiv:2308.08907",
+        "SageMath Singer construction",
+        "Resultary 40c4b446eb9e and 0c85d436d571"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The proof of Theorem 1.3 already contains the Singer-case sufficiency once its pigeonhole step is replaced by the Singer cover. The proof of Corollary 1.4 already shows the unique-minimum valuation argument for the consecutive-residue counterexample. Remark 3.2 gives a different existential family.",
+          "The cubic catalogue hit contains the same exact formula at its own parameters, and alludes to a general recorded coset statement without locating it."
+        ],
+        "reasoning": "The positive witness alone is a short synthesis of known arguments; it is not a new construction of difference sets. The old uniform threshold does not imply the least achievable count. To establish the full result one must turn the separate valuation arguments into a necessary-and-sufficient criterion for arbitrary distinct residues and retain the unit cosets, including primes outside the stricter coprimality hypothesis. The lower bound then reduces to counting differences, and the exact family is obtained by matching it with Singer. No inspected stronger closure or threshold theorem supplying the full conclusion was identified.",
+        "searches": [
+          "arXiv:2201.04372 actual proofs of Theorem 1.3 and Corollary 1.4, plus Remark 3.2",
+          "SageMath singer_difference_set(q,d)",
+          "Resultary 0c85d436d571 Relationship to prior work"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Antony–Barman–Miska use an intersection of valuation residues with their translate and then take a unit power and two single-coordinate values. Their construction thus already gives the sufficiency of covering the cyclic residues under their coprimality condition.",
+          "The SageMath construction at projective dimension two gives the cyclic (q²+q+1,q+1,1) Singer parameters with each nonzero difference represented exactly once."
+        ],
+        "reasoning": "In the odd dyadic case the problem is equivalent to the cyclic difference-basis problem, with the Singer construction and optimal cardinality on the combinatorial side already classical. What needs checking on the form side is the converse that mixed terms cannot fill missing differences, and more generally the exact unit power classes when units need not all be powers. No independent novelty is assigned to the difference sets or to the prior sufficiency mechanism.",
+        "searches": [
+          "arXiv:2201.04372 Theorem 1.3 proof, Corollary 1.4 and Remark 3.2",
+          "SageMath singer_difference_set(q,d)",
+          "p-adic quotient sets diagonal forms distinct valuations modulo degree exact closure difference basis Singer sharp minimum number of variables Antony Barman Miska"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The even-power binary record gives an exact 2-adic quotient closure with unit coset balls, but its weighted even degrees do not satisfy the frozen odd-degree regime or the pairwise valuation hypothesis.",
+          "The diagonal ternary cubic record explicitly gives the same coset union in degree three for p≡1 mod 3 with distinct residues. Its prior-work section calls this an instance of a previously recorded general coset statement, without an identifier. Targeted comparisons did not resolve the reference. No same-day order is inferred."
+        ],
+        "reasoning": "The ternary case is actual statement overlap, not merely a matching title; its restricted closure does not cover general tame degree, and degree three is not a Singer parameter with q≥2. The verified Singer parameters give exact optimal sizes for the finite combinatorial question, not by themselves closures or thresholds for integer diagonal-form quotient sets.",
+        "searches": [
+          "Resultary: distinct coefficient valuations modulo degree p-adic diagonal form quotient exact closure finite union nth power cosets all degrees p not dividing degree unique least valuation Hensel",
+          "Resultary 40c4b446eb9e and 0c85d436d571",
+          "SageMath Singer difference-set parameter entry"
+        ]
+      },
+      "rationale": "Credit the two ingredients to prior work: the translate-intersection argument already gives the sufficiency of a valuation difference-cover when all units are powers, and the optimal cyclic difference configuration is classical Singer. The remaining contribution is the exact tame all-unit-class closure for this distinct-residue family together with the sharp dyadic minimum obtained by applying that interface. The exact same closure is verified in a distinct cubic special case; a previously recorded general local coset statement is alluded to there but not identified. The inspected published theorems do not cover that general formula or already state the optimal existential dyadic variable law.",
+      "residual_risks": [
+        "The unnamed general local coset statement in the indexed cubic record remains untraced after targeted comparison. Its possible general-formula overlap is not ruled out.",
+        "An earlier explicit application of difference bases to the least-variable diagonal-form problem could reduce the distinct contribution; the passed case is not a claim of novelty for the combinatorial optimal size or sufficiency mechanism alone."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong overlap in both proof ingredients; different statements and scope",
+          "evidence": "Translate intersection gives density for r>N/2 with gcd(N,p(p−1))=1; the corollary’s counterexample uses the least monomial valuation and Remark 3.2 constructs a dense floor(N/2)-variable form.",
+          "identifier_or_url": "https://arxiv.org/html/2201.04372",
+          "material_read": "Theorem 1.3 and Corollary 1.4, their proofs, and Remark 3.2; HTML offsets about 8152 and 24500–29695",
+          "method": "Targeted OA primary full text",
+          "title": "p-Adic quotient sets: diagonal forms",
+          "trigger": "Same distinct-residue density framework and closest primary variable bounds"
+        },
+        {
+          "assessment": "Different sufficient density mechanisms",
+          "evidence": "Nonsingular residue zero or all-sufficiently-large-primes hypotheses, not exact fixed-prime coset support.",
+          "identifier_or_url": "https://arxiv.org/abs/2308.08907",
+          "material_read": "Lemma 2.13 (PDF p. 7, text offset around 21366) and Theorem 1.2 proof setup (pp. 13–14, offsets 41700–44980)",
+          "method": "Targeted OA primary PDF passages",
+          "title": "On p-adic denseness of quotients of values of integral forms",
+          "trigger": "Plausibly broader form-density theorems cited by the cubic comparison"
+        },
+        {
+          "assessment": "Classical construction of the exact cyclic witness; no p-adic assertion",
+          "evidence": "At d=2 the parameters are v=q²+q+1, k=q+1, λ=1.",
+          "identifier_or_url": "https://doc-gitlab.sagemath.org/html/en/reference/combinat/sage/combinat/designs/difference_family.html",
+          "material_read": "singer_difference_set(q,d) entry (OA text offset 26030)",
+          "method": "OA reference entry",
+          "title": "SageMath Combinatorics Reference Manual: Singer difference set",
+          "trigger": "Exact classical combinatorial family and parameters"
+        },
+        {
+          "assessment": "Related closure problem outside frozen assumptions",
+          "evidence": "Gives unit-coset balls for x^n+c y^n with even n≥4 and odd c, not the odd-degree distinct-residue formula.",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-2-adic-quotient-closures-of-weighted-even-power-binary-for--40c4b446eb9e",
+          "material_read": "Finding and Relationship to prior work (offsets 0 and 4749)",
+          "method": "Local Resultary mirror",
+          "title": "Exact 2-adic quotient closures of weighted even-power binary forms",
+          "trigger": "Closest indexed exact dyadic closure with different exponents"
+        },
+        {
+          "assessment": "Verified partial same-day overlap, additional general reference unresolved",
+          "evidence": "Gives exactly the cubic power-coset closure in the distinct-residue case p≡1 mod 3; identifies that case as an instance of a previously recorded general statement but does not cite it.",
+          "identifier_or_url": "2026/11/2/SCOPE-a-complete-local-density-criterion-for-diagonal-ternary-cubic-qu--0c85d436d571",
+          "material_read": "Finding and Relationship to prior work (offset 0 and passage at offsets 7300–9541)",
+          "method": "Local Resultary mirror",
+          "title": "A complete local density criterion for diagonal ternary cubic quotient sets",
+          "trigger": "Direct indexed special-case coset formula and potential general antecedent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 4–19, 24–51",
+        "arXiv:2201.04372 Theorem 1.3 and Corollary 1.4",
+        "SageMath Singer construction"
+      ],
+      "rationale": "The closure determines precisely which regions are missing in a non-dense quotient set, including unit-class obstructions that a density-only test with surjective unit powers cannot see. The exact odd-degree family separates the least attainable variable count (q+1, order √N) from the older universal sufficient count (order N), and gives coefficients realizing that gap for infinitely many exponents. The useful content is the sharp boundary for integral forms and the closure description, not recomputing Singer parameters.",
+      "residual_risks": [
+        "The minimum is within the distinct-residue family only; repeated-residue forms could have different thresholds."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

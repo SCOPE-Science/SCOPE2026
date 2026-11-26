@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:30:07.492394Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–94",
+        "Frozen VERIFICATION.md and verify_gap_law.py (inspected, not executed)",
+        "Rampersad–Wiebe arXiv:2309.04012v1 Theorem 18; journal A73 Theorem 15",
+        "Independent independent_gap_check.py and independent_gap_check_output.txt"
+      ],
+      "rationale": "The defining integer sum of termwise parities is exactly the transform of (1,1,0) in Rampersad–Wiebe, journal Theorem 15 (arXiv v1 Theorem 18), so the support rejects precisely runs of length 2 mod 3, with the empty product accepted. Fixed-width binary order is increasing integer order; leading zeros in the initial state do not matter. From unfinished-run residues 0,1,2, reading zero resets states 0/1 and rejects 2, while a one advances cyclically, with final acceptance in 0/1. This proves the three prefix decompositions including A₀=B₀={0}, C₀ empty. The top accepted integer of A_m is 2^m−1 except when m≡2 mod 3, when clearing the last bit gives the maximum 2^m−2. The first element of B_m is zero, and the first of C_m is 2^{m−1} for m≥1. Consequently the only inter-block gaps are u_L=1+1_{L≡0 mod 3} for A_L and v_L=2^{L−2}+1+1_{L≡0 mod 3} for B_L, the latter only for L≥2. For L≥3 elimination gives the three preceding A-multisets plus u_L and v_{L−1}, with initial A-multisets empty, one gap 1, and two gaps 1. At L=3 both impulses are gap 2; thereafter the second impulse is exactly g_{L−3}. This proves all three generating functions, strict first appearance at depth j+3 for g_j, and exclusion of every other gap. The size series is (1+z)/D. In |z|≤q the triangle inequality on z+z²+z³, including its equality case, rules out any root of D but q; D′(q)<0. Taking ratios of simple-pole coefficients therefore gives the displayed fixed-gap limiting shares. Summing their numerators, including the geometric tail, gives 1+q at z=q using D(q)=0. Since q>1/2, summing g_jπ(g_j) diverges. The limit is for initial dyadic blocks, not arbitrary cutoffs. A separately written check verified exact binomial sums at n=0,…,300 (each 0 or 1) and all 121,395 adjacent pairs across L=1,…,18, with largest gap 32,769; those checks corroborate but do not replace the recurrence and pole proofs.",
+      "replay": "Run python3 independent_gap_check.py in the separate reproduction directory; the adjacent independent_gap_check_output.txt records the exact integer and gap tests.",
+      "residual_risks": [
+        "Only the distribution along dyadic prefixes is established. The manuscript's original checker enumerates every start state, but only state 0 is directly asserted against a separate predicate in that routine; the all-state recurrence is supported by the written transitions, not by a claim of fuller finite checking."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The generalized Baum–Sweet family constrains maximal zero-run lengths to be divisible by r, unlike the target's union of two classes of one-run lengths. The original Baum–Sweet gap spectrum includes 3 and 6, both absent here. The companion-binomial item a83c6be5e82d classifies two different modulo-five one-run languages and counts individual support sizes."
+        ],
+        "reasoning": "Complementing the digits or varying a divisor does not send the generalized Baum–Sweet language to the union of residues 0 and 1 mod 3 in this support. Related support counting alone is not a statement of the ordered gaps.",
+        "searches": [
+          "Resultary 34910b02e3eb, 98bde352d9b4, 15a79d8d43cf and a83c6be5e82d, RESULT.md Findings"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2309.04012v1 Theorem 18 and journal A73 Theorem 15",
+        "arXiv:1610.06166 Theorem 6",
+        "OEIS A246028 and A329723",
+        "Resultary 34910b02e3eb, 98bde352d9b4, 15a79d8d43cf and a83c6be5e82d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The published three-state representation already specifies every accepted bit word; it is the starting point of the target proof. Wu's theorem supplies the same accepted integers by taking parity. The inspected average-value discussion uses sums of term values, rather than adjacent-index distances."
+        ],
+        "reasoning": "The exact digit language determines distances in principle, but the cited statements do not give the evaluated block boundaries, gap impulse recurrence, all-depth counts, or the infinite-mean probability law. Those require a separate ordered-support argument, not merely an alternative name for the transform.",
+        "searches": [
+          "Rampersad–Wiebe journal A73 p. 12 Theorem 15; arXiv:2309.04012v1 Theorem 18 and §6 introduction",
+          "Wu arXiv:1610.06166 Theorem 6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Wu's Fibonacci run transform and A246028 give a product of F_{r+1} over one-run lengths r. Fibonnaci parity is periodic (1,1,0) at those indices, so odd values occur at exactly the target support."
+        ],
+        "reasoning": "An earlier gap law for odd A246028 values would be equally covering without mentioning the 2023 binomial formula. The inspected exact equivalence is term support, not an evaluated consecutive-gap law.",
+        "searches": [
+          "Resultary comparison for Fibonacci run-transform parity and dyadic return gaps; records 45c6934bca41, 34910b02e3eb and 15a79d8d43cf",
+          "Rampersad–Wiebe arXiv:2309.04012v1 Theorem 18 and journal A73 Theorem 15",
+          "Wu arXiv:1610.06166 Theorem 6 and OEIS A246028"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A246028 is a table of values of the same-support Fibonacci transform; A329723 is coefficients of (1−2x³)/(1−x−x²), not the support or its gaps. Resultary's exact Baum–Sweet spectra count different gaps."
+        ],
+        "reasoning": "No exact same-support all-depth multiset or frequencies were identified in the sources checked; an unindexed or differently described gap entry remains possible.",
+        "searches": [
+          "OEIS A246028 and A329723; primary results including arXiv:2309.04012",
+          "Resultary gap spectra 34910b02e3eb and 98bde352d9b4"
+        ]
+      },
+      "rationale": "The ordered all-depth gap law, permitted-distance spectrum, and limiting dyadic probabilities for the fixed support are the distinct contributions. Both the exact binomial sequence and its support were already published; the older Fibonacci run transform has the identical odd support. The nearest general Baum–Sweet gap spectra use a different language and do not cover this one.",
+      "residual_risks": [
+        "An earlier exact law for the gaps of this support under different names, particularly the odd-value support of A246028, may remain unindexed or unlocated."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the binomial expression, support and identical automaton; inspected statements do not give the ordered-gap law. Theorem numbering differs by version.",
+          "evidence": [
+            "v1 Theorem 18 and final Theorem 15 both give the termwise-parity sum with binomial upper argument −2n+8k and period (1,1,0). In v1 Theorem 15 is a different Padovan transform."
+          ],
+          "identifier_or_url": "https://math.colgate.edu/~integers/y73/y73.pdf; https://arxiv.org/html/2309.04012v1",
+          "material_read": "Final journal A73 p. 12 Theorem 15 (offset 32500); arXiv v1 Theorem 18 at offset 29645 and §6 opening/mean discussion near offsets 31500–36004",
+          "method": "Primary open-access full-text passages in both versions",
+          "title": "Sums of products of binomial coefficients mod 2 and 2-regular sequences",
+          "trigger": "Exact binomial transform and potentially overlapping dyadic consequences"
+        },
+        {
+          "assessment": "Establishes the earlier Fibonacci transform, hence the same parity support, not gap counts.",
+          "evidence": [
+            "The Fibonacci run-length transform is a product over the same maximal runs, and F_{r+1} is even iff r≡2 mod 3."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1610.06166",
+          "material_read": "Theorem 6, PDF p. 6, offset 17800",
+          "method": "Primary open-access full-text passage",
+          "title": "Sums of products of binomial coefficients mod 2 and run length transforms of sequences",
+          "trigger": "Earlier Fibonacci transform with identical odd support"
+        },
+        {
+          "assessment": "A246028 supplies same-support value data; A329723 is unrelated to the target gaps.",
+          "evidence": [
+            "A246028 defines the product of F_{r+1}; A329723 defines coefficients of the rational function (1−2x³)/(1−x−x²)."
+          ],
+          "identifier_or_url": "https://oeis.org/A246028; https://oeis.org/A329723",
+          "material_read": "Public entries, definitions and initial data, offsets 0",
+          "method": "Original public database pages",
+          "title": "Fibonacci run length transform and secondary sequence-table hit",
+          "trigger": "Possible database of the exact support or exact gap sequence"
+        },
+        {
+          "assessment": "Exact gap laws, but for a different run-length class.",
+          "evidence": [
+            "Zero-run lengths must be even or more generally divisible by a fixed r. The ordinary spectrum begins 1,2,3,6,9,18,33,66 rather than 1,2,4,5,9,18,33,65."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-the-complete-return-gap-law-for-the-baum-sweet-sequence--34910b02e3eb; 2026/11/8/SCOPE-exact-dyadic-gap-law-for-the-baum-sweet-support--98bde352d9b4; 2026/11/8/SCOPE-exact-return-gap-spectrum-and-frequencies-of-generalized-baum-sw--15a79d8d43cf",
+          "material_read": "Each RESULT.md Finding, offset 0",
+          "method": "Local published full-text passages",
+          "title": "Complete and generalized Baum–Sweet return-gap laws",
+          "trigger": "Nearest exact gap and limiting-frequency laws for automatic supports"
+        },
+        {
+          "assessment": "Different run predicates and individual support enumerators, not the target gap counts.",
+          "evidence": [
+            "Allowed one-run residue sets are {0,1,2,3} and {0,3} modulo five for two different binomial sums."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-sharp-parity-support-separation-for-two-companion-binomial-trans--a83c6be5e82d",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local published full-text passage",
+          "title": "Sharp parity-support separation for two companion binomial transforms",
+          "trigger": "Earlier explicit binomial-parity supports and dyadic enumerators"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and proof, lines 4–94",
+        "Rampersad–Wiebe journal A73 Theorem 15",
+        "OEIS A246028"
+      ],
+      "rationale": "The gap statistic is a natural geometric refinement of a published automatic support: it gives all possible distances, their multiplicities at every dyadic depth and a normalized limiting law with infinite mean. Membership and one-point support size do not answer those questions. The lacunary gap sizes and explicit asymptotic frequencies explain a nontrivial distinction between typical gaps and mean spacing without claiming a new underlying sequence.",
+      "residual_risks": [
+        "The quantitative interpretation concerns dyadic prefixes of this fixed support only."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

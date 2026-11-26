@@ -2,82 +2,58 @@
 
 ## Finding
 
-Let \(G\) be a connected simple \(d\)-regular bipartite graph on \(N\ge6\) vertices, with \(d\ge2\), combinatorial Laplacian \(L=dI-A\), and spectral gap \(\mu=\lambda_2(L)\) satisfying \(0<\mu<d\). Fix any integer horizon \(r\ge3\). For each round choose a single spatially homogeneous nearest-neighbor gain \(0\le t_j\le1/d\), so that \(P_j=I-t_jL\) is individually symmetric, doubly stochastic, and entrywise nonnegative. Define the centered Euclidean contraction
+Let \(G\) be a connected simple undirected \(d\)-regular bipartite graph on \(N\ge6\) vertices with \(d\ge2\), and let its combinatorial Laplacian \(L=dI-A\) have gap \(0<\mu=\lambda_2(L)<d\). In each of \(r\ge3\) rounds use a single spatially homogeneous gain \(t_j\in[0,1/d]\), so \(P_j=I-t_jL\) is individually symmetric, doubly stochastic, and entrywise nonnegative. Define
 \[
-R(t_1,\ldots,t_r)=\left\|P_r\cdots P_1-\frac{\mathbf1\mathbf1^\mathsf T}{N}\right\|_2.
+R(t_1,\ldots,t_r)=\left\|P_r\cdots P_1-\frac{\mathbf1\mathbf1^{\mathsf T}}{N}\right\|_2,
+\qquad h=\frac{\mu}{2d},\qquad \rho=1-\frac{\mu}{d},\qquad a_r=\rho^{r-1}.
 \]
-Put
+Then the exact minimum over all such schedules is
 \[
-h=\frac{\mu}{2d},\qquad \rho=1-\frac{\mu}{d},\qquad a_r=\rho^{r-1},\qquad
-\boxed{B_r=\frac{a_r(1-h)}{1+h a_r}}.
+B_r=\frac{a_r(1-h)}{1+h a_r},
 \]
-Then the exact global optimum over **all** such gain sequences is \(\min R=B_r\). The unique optimal multiset of gains is
-\[
-\boxed{\{t_1,\ldots,t_r\}=\left\{\underbrace{\frac1d,\ldots,\frac1d}_{r-1\text{ rounds}},\;\frac{1+B_r}{2d}\right\}.}
-\]
-Thus all but one round use the full neighbor-averaging gain \(1/d\); one correction round, at any position, prevents the bipartite \(-1\) mode from surviving. No time-varying spatial weights, memory variables, or non-stochastic intermediate matrices are allowed in this theorem.
-
-The finite-horizon optimum is strictly smaller than the \(r\)-round contraction obtained by repeating the optimal *single* homogeneous Markov gain \(2/(2d+\mu)\), because that repeated multiset differs from the unique optimal multiset. Moreover
-\[
-\lim_{r\to\infty} B_r^{1/r}=1-\frac{\mu}{d},
-\]
-where the limit refers to **separately horizon-optimized** gain schedules, not to a single precommitted infinite schedule.
+and the unique optimal multiset consists of \(r-1\) gains equal to \(1/d\) and one equal to \((1+B_r)/(2d)\). The correction can be used at any position. This schedule strictly improves on repeating the best single gain \(2/(2d+\mu)\). The horizon-optimized factors satisfy \(\lim_{r\to\infty}B_r^{1/r}=\rho\).
 
 ## Assumptions and scope
 
-All graphs are finite, simple, connected, undirected, bipartite, and regular. The unweighted degree \(d\) is at least \(2\); the matrices are exact real matrices. Every round uses the **same** graph Laplacian with a common scalar gain, constrained by \(0\le t_j\le1/d\). The norm is the induced Euclidean operator norm on the subspace orthogonal to \(\mathbf1\). The assumption \(\mu<d\) excludes the complete bipartite graphs \(K_{d,d}\), where exact consensus in two steps makes long-horizon optimizers nonunique. The theorem concerns \(r\ge3\), not all graph-supported Markov chains or arbitrary polynomial filters.
+Every round uses the same unweighted Laplacian; changing spatial weights, adding memory, or allowing nonstochastic intermediate steps is outside the theorem. The norm is the induced Euclidean norm on the complement of constants. The assumption \(\mu<d\) excludes complete bipartite graphs \(K_{d,d}\): their nonzero Laplacian eigenvalues are \(d,2d\), so two admissible rounds can yield exact consensus and destroy long-horizon uniqueness. The asymptotic rate concerns separately optimized horizons, not a single precommitted infinite sequence.
 
 ## Proof
 
-**Spectrum and admissible factors.** Regular bipartiteness gives adjacency eigenvalue pairing \(\theta\leftrightarrow-\theta\). Since \(G\) is connected, the Laplacian has eigenvalues \(0\) and \(2d\), and the remaining eigenvalues lie in \([\mu,2d-\mu]\). The assumption \(0<\mu<d\) gives \(0<h<1/2\) and \(0<\rho<1\). The diagonal of \(I-tL\) equals \(1-dt\); every edge entry is \(t\), so individual stochastic nonnegativity is exactly \(0\le t\le1/d\).
+**Spectrum and norm.** Bipartiteness gives adjacency eigenvalue pairing \(\theta\leftrightarrow-\theta\); connected regularity makes \(0\) and \(2d\) simple Laplacian eigenvalues. Every other eigenvalue lies in \([\mu,2d-\mu]\). The diagonal entries of \(P_j\) are \(1-dt_j\) and its edge entries are \(t_j\), giving exactly the stated stochastic gain interval. The centered operator norm is the maximum absolute multiplier \(\left|\prod_j(1-t_j\lambda)\right|\) over nonzero Laplacian eigenvalues.
 
-**Eliminating small gains.** If any gain \(t<1/(2d)\), replacing it by \(1/(2d)\) weakly decreases the absolute spectral factor \(|1-t\lambda|\) for every \(\lambda\in[0,2d]\). It strictly decreases the positive slow-mode factor at \(\lambda=\mu\), while all other slow-mode factors are strictly positive because \(\mu<d\). Such a gain cannot occur in a minimizer. Therefore every optimal candidate has \(t_j\in[1/(2d),1/d]\).
+**Small gains.** Every gain obeys \(1-\mu t_j\ge\rho>0\). If one is strictly less than \(1/(2d)\), its slow-mode multiplier is strictly greater than \(1-h\), so the full schedule has
+\[
+R\ge \prod_j(1-\mu t_j) > a_r(1-h) > B_r.
+\]
+This is a strict comparison for the norm itself; merely improving the slow mode would not suffice when another mode attains the maximum.
 
-**Compression inequality.** Write \(b_j=2dt_j-1\in[0,1]\) and \(B=\prod_{j=1}^r b_j\). The magnitude of the \(2d\)-mode multiplier is exactly \(B\). For the slow \(\mu\)-mode put \(f(b)=1-h(1+b)\); its multiplier is \(\prod_j f(b_j)\). For any \(u,v\in[0,1]\), the exact identity
+**Compression.** For the remaining schedules write \(b_j=2dt_j-1\in[0,1]\), \(B=\prod_j b_j\), and \(f(b)=1-h(1+b)>0\). The \(2d\)-mode has magnitude \(B\); the \(\mu\)-mode has positive multiplier \(\prod_j f(b_j)\). The exact identity
 \[
 f(u)f(v)-f(1)f(uv)=h(1-h)(1-u)(1-v)\ge0
 \]
-allows two parameters to be replaced by \(1,uv\) without increasing the slow-mode multiplier and without changing \(B\). Repeating this compression proves
-\[
-\prod_{j=1}^r f(b_j)\ge f(1)^{r-1}f(B)
-=\rho^{r-1}(1-h-hB).
-\]
-Equality, because \(h(1-h)>0\) and \(f>0\), holds only if at most one \(b_j\) is smaller than \(1\).
+replaces \((u,v)\) by \((1,uv)\) without changing \(B\) and without increasing the slow-mode multiplier. Repeated application gives \(\prod_j f(b_j)\ge f(1)^{r-1}f(B)=a_r(1-h-hB)\). If at least two original \(b_j<1\), compressing those two first is strict and the other multipliers remain positive. Conversely, if at most one is below one, the displayed product is an equality.
 
-**Endpoint minimax lower bound.** The two eigenmodes \(\mu\) and \(2d\) thus give
-\[
-R(t_1,\ldots,t_r)\ge \max\left\{a_r(1-h-hB),\ B\right\}.
-\]
-The first affine function decreases in \(B\), while the second increases. Their unique intersection lies in \((0,1)\) and equals \(B_r=a_r(1-h)/(1+h a_r)\). Hence \(R\ge B_r\) for every admissible sequence.
+Thus \(R\ge\max\{B,a_r(1-h-hB)\}\). This bound has a unique minimum at the intersection of the strictly increasing and strictly decreasing affine functions, namely \(B=B_r\in(0,1)\).
 
-**Attainment at all spectral modes.** Take \(r-1\) gains equal to \(1/d\) and the last equal to \(t_*=(1+B_r)/(2d)\). The multiplier at an arbitrary nonzero Laplacian eigenvalue \(\lambda\) is
-\[
-\left(1-\frac{\lambda}{d}\right)^{r-1}
-\left(1-\frac{(1+B_r)\lambda}{2d}\right).
-\]
-At \(\lambda=\mu\) its magnitude is \(a_r(1-h-hB_r)=B_r\); at \(\lambda=2d\) it is also \(B_r\). For every other \(\lambda\in[\mu,2d-\mu]\), the first factor has magnitude at most \(\rho^{r-1}=a_r\). If the correction factor is nonnegative, it is at most \(1-h(1+B_r)\), hence the product magnitude is at most \(B_r\). If the correction factor is negative, its magnitude is at most \(B_r\) since \(\lambda\le2d\), and multiplication by \(a_r\le1\) preserves that bound. Thus no unexamined eigenmode exceeds \(B_r\), completing attainment.
+**Attainment and uniqueness.** Take \(r-1\) full gains and one correction as stated. Both endpoint eigenmodes \(\mu,2d\) have magnitude \(B_r\). For \(\lambda\in[\mu,2d-\mu]\) the full-gain factors give \(|1-\lambda/d|^{r-1}\le a_r\). The correction factor \(1-(1+B_r)\lambda/(2d)\), when nonnegative, is at most \(1-h(1+B_r)\), so the product magnitude is at most \(a_r[1-h(1+B_r)]=B_r\). When negative its magnitude is at most \(B_r\), as \(\lambda\le2d\), and multiplication by the full-gain factors cannot increase it. Equality of the norm with \(B_r\) forces \(B=B_r\) and equality in the compression bound. Thus there is exactly one \(b_j<1\) and it equals \(B_r\). Commutativity makes ordering immaterial.
 
-**Uniqueness.** Equality in the endpoint lower bound forces \(B=B_r\), and equality in the strict compression identity forces all but at most one \(b_j\) to equal \(1\). Therefore the multiset of gains stated above is the only optimizer; permutations give the same commuting matrix product. The repeated one-gain schedule is different for \(r\ge3\), giving strict improvement. The asymptotic limit follows directly from \(a_r=\rho^{r-1}\).
+For one round, convexity in \(\lambda\) shows that the worst mode is among \(\mu,2d\). On \([0,1/(2d)]\) the first dominates and decreases; on \([1/(2d),1/d]\) its decreasing value and the increasing magnitude of the second intersect at \(2/(2d+\mu)\). Repetition cannot be an optimal multiset for \(r\ge3\) because this gain lies strictly below \(1/d\) and all repetitions are equal. Finally the explicit formula implies the rate limit since \(a_r=\rho^{r-1}\) and \(0<\rho<1\).
 
 ## Verification
 
-The included dependency-free `verify.py` runs exact rational tests of the compression identity and endpoint formulas, compares against rational gain grids, reconstructs Laplacian characteristic polynomials for four small graphs, and computes exact stochastic transition products. It completed **326741 checks**. Families include even cycles, Boolean hypercubes, balanced complete bipartite graphs (the excluded degeneracy as a boundary test), and crown graphs. These finite checks do not prove the graph-uniform claim; the preceding analytic argument does.
+The accompanying `verify.py` gives exact rational checks of the compression identity, endpoint formula, small-graph Laplacian spectra and stochastic matrix products. Run it with Python 3.9 or later; the expected terminal line is `ALL_CHECKS_PASSED 326741`. The proof, not the finite samples, establishes the all-graph and all-horizon statements. For illustration \(B_3=3/17\) on the six-cycle (gains \(1/2,1/2,5/17\)); on the three-cube \(B_3=1/14\) (gains \(1/3,1/3,5/28\)).
 
-Two exact illustrative values: on the six-cycle \(d=2,\mu=1,r=3\), the minimum is \(B_3=3/17\), with gains \(\{1/2,1/2,5/17\}\). On the three-cube \(d=3,\mu=2,r=3\), the minimum is \(B_3=1/14\), with gains \(\{1/3,1/3,5/28\}\).
+## Relationship to prior work and limitations
 
-## Relationship to prior work
+Apers–Sarlette optimize polynomial filters without imposing entrywise Markov positivity at each stage. Boyd–Diaconis–Xiao optimize one transition kernel; Hendrickx–Shi–Johansson prove finite-time reachability allowing much more general spatial weights. The indexed stagewise-safe Richardson result gives a sharp interval-robust two-stage frontier and general-stage bounds, not this exact all-horizon finite-graph minimax. A same-day indexed odd-cycle result also uses a two-round homogeneous Markov schedule, but odd cycles are not bipartite and its horizon is two. An indexed November 22 bipartite-chain result gives an overlapping two-round law for a restricted range of the gap, outside the asserted horizon. The contribution here is the exact factor and unique scalar-gain multiset for every \(r\ge3\) in the stated bipartite regular regime. These comparisons do not settle historical priority.
 
-Apers and Sarlette's 2015 polynomial-filter paper formulates gain-factor products and gives a general unconstrained **two-stage** optimizer and graph-weight preconditioning; it explicitly drops entrywise Markov positivity. Those results do not give the present all-horizon exact minimax with individually stochastic stages. The published stagewise-safe Richardson result establishes an exact **two-step** interval-robust frontier and an asymptotic complexity sandwich for arbitrary stage counts. Its lower bound from the smallest eigenvalue does not imply this finite-graph sharp factor or the unique \(r\)-stage correction multiset for \(r\ge3\). The present proof uses the additional bipartite spectral reflection and a strict multiplicative compression inequality. The two-step phenomenon, complete-bipartite exact-consensus case, and general existence of finite-time consensus are not claimed as original.
-
-Hendrickx, Shi, and Johansson's general finite-time consensus construction permits heterogeneous graph-supported stochastic matrices and solves reachability/existence, not the scalar, finite-horizon spectral minimax. Boyd, Diaconis, and Xiao optimize one homogeneous Markov transition kernel rather than an arbitrary fixed horizon of independently chosen scalar gains.
-
-## Limitations
-
-The theorem does not optimize unrestricted graph-supported stochastic matrices, nonregular or nonbipartite networks, robustness to changing topology, noise, floating-point errors, convergence between rounds, or a single infinite gain schedule. Reaching exact consensus in two rounds on \(K_{d,d}\) destroys uniqueness, so that boundary family is deliberately outside the main claim. The literature comparison is supported by identified available texts and indexed records, not an exhaustive proof that no prior equivalent theorem exists. Independent mathematical validation has not been performed.
+The theorem does not optimize unrestricted graph-supported kernels and makes no assertion about changing topology, floating-point errors, noise, or convergence at intermediate times.
 
 ## References
 
-1. S. Apers and A. Sarlette, *Accelerating Consensus by Spectral Clustering and Polynomial Filters*, arXiv:1503.01269v1, publicly posted 2015-03-04. https://arxiv.org/abs/1503.01269
-2. J. M. Hendrickx, G. Shi, and K. H. Johansson, *Finite-time consensus using stochastic matrices with positive diagonals*, arXiv:1302.6668. https://arxiv.org/abs/1302.6668
-3. S. Boyd, P. Diaconis, and L. Xiao, *Fastest Mixing Markov Chain on a Graph*, SIAM Review 46 (2004), 667–689. https://web.stanford.edu/~boyd/papers/fmmc.html
-4. *Sharp stagewise-safe Richardson frontier and a no-acceleration barrier*, published mathematical research record (2026). https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-stagewise-safe-two-step-richardson-frontier--31fff666d705
+1. S. Apers and A. Sarlette, *Accelerating Consensus by Spectral Clustering and Polynomial Filters*, https://arxiv.org/abs/1503.01269.
+2. J. M. Hendrickx, G. Shi and K. H. Johansson, *Finite-time consensus using stochastic matrices with positive diagonals*, https://arxiv.org/abs/1302.6668.
+3. S. Boyd, P. Diaconis and L. Xiao, *Fastest Mixing Markov Chain on a Graph*, SIAM Review 46 (2004), 667–689, https://web.stanford.edu/~boyd/papers/fmmc.html.
+4. [*Sharp stagewise-safe Richardson frontier and a no-acceleration barrier*](https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-stagewise-safe-two-step-richardson-frontier--31fff666d705).
+5. [*Sharp two-round stochastic consensus on odd cycles*](https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-sharp-two-round-stochastic-consensus-on-odd-cycles--b2b600a3fbfd).
+6. [*A spectral-gap exception to interval-optimal two-round stochastic consensus on bipartite chains*](https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-a-spectral-gap-exception-to-interval-optimal-two-round-stochasti--276d97e49c41).

@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T23:54:33.280655Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The normalized conditional OU variance has the stationary representation Uτ=∫_{−∞}^τ exp[−(τ−h)] q^{N(h,τ]} dh (0⁰=1), where N counts common jumps in dimensionless time. This gives the flow, contraction and boundedness; past initialization errors vanish at least exponentially. For q=0, U=0 at jump instants, but U>0 almost surely at any fixed observation time. Independent Wiener noises make the conditional mixed moments at three distinct labels products of U at the respective times. The generator gives m₁=1/A, m₂=2/(AB), m₃=6/(ABC). With Z=U−m₁, P_s Z=e^(−As)Z, and L(Z²−V₂)=−B(Z²−V₂)+2(1−m₁Δ)Z. Solving this triangular system gives P_s(Z²−V₂)=e^(−Bs)(Z²−V₂)+H(e^(−As)−e^(−Bs))Z. Conditioning on the last gap thus gives C(s,t)=e^(−At)[H V₂ e^(−As)+(K₃−H V₂)e^(−Bs)], where K₃=m₃−3m₁m₂+2m₁³. Substitution factors H V₂−K₃ as T>0 exactly as in RESULT.md. The difference between lag orders has the strict sign of exp(−Δt)−exp(−Δs); the sign-controlling bracket in C increases strictly in the first gap toward H V₂. Its initial sign is that of θ(1−q²)−1, giving the stated unique positive zero below threshold, zero only at first gap zero on threshold, and no zero above. The physical first-gap time is s*/(2κ). Replay the generator and moment steps at RESULT.md lines 42–85 or via the centered hierarchy above. The two frozen scripts were inspected, not executed. Monte Carlo is not support for strictness; the simulated initialization uses a finite jump history.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Galla's pair squared-position result uses a weak-reset diffusion approximation. De Mauro–Majumdar–Schehr analyze confined complete resets and stationary correlations. The exact indexed static complete-reset result allows unequal trap rates, a broader static geometry but only q=0."
+        ],
+        "reasoning": "Generality in trap heterogeneity, particle number or complete-reset waiting law does not give the exact ordered law at nonzero contraction. A general polynomial moment method is not itself a signed factorization or a crossing classification.",
+        "searches": [
+          "arXiv:2602.21635, Supplemental Eq. (S37)",
+          "arXiv:2606.31634, opening and confinement discussion",
+          "Resultary 2026/11/22/SCOPE-a-unique-three-energy-sign-crossover-under-heterogeneous-global--581ff25262aa"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, REVIEW.md, AUDIT.json, verify.py and simulate.py",
+        "Resultary exact statement ending 581ff25262aa and same-record hit ending 248b082bc822",
+        "arXiv:2509.06658, 2606.31634 and 2602.21635"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Equal-time third moments fix C(0,0); one-time conditional density supplies that kind of information at complete reset. The stationary two-time covariance, acknowledged as covered, is symmetric in the identical-trap case. The frozen record also credits a previous finite-population static sign classification for partial resetting; the original statement for that attributed item was not independently located."
+        ],
+        "reasoning": "Neither equal-time sign nor time-symmetric pair covariance gives the sign of H V₂−K₃ or the relative weights of the two eigenmodes in the centered second-moment semigroup. Those are the decisive ordered-time ingredients. No separate originality credit is given to the already attributed static threshold.",
+        "searches": [
+          "Resultary mirror, record ending 581ff25262aa, RESULT.md Finding at offset 0",
+          "arXiv:2509.06658 Eq. (3); arXiv:2602.21635 Supplemental Eq. (S37)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary record ending 581ff25262aa matches q=0 and equal traps for the stationary third-energy sign transition, r=2κ. The exact three-time record ending 248b082bc822 is the identical assignment, not independent evidence. De Mauro et al. use conditional independence given last-reset age at one time under complete resetting."
+        ],
+        "reasoning": "A full reset makes the latest age sufficient at one time; partial resets retain accumulated earlier variance. Static mixed moments alone do not specify the ordered three-time law.",
+        "searches": [
+          "Resultary: stationary three-energy cumulant and sign threshold in common partial or complete Poisson resetting",
+          "arXiv:2509.06658, Eq. (3)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The independent exact indexed match is the equal-time, complete-reset sign boundary; the identical ordered-law record is excluded as self."
+        ],
+        "reasoning": "A sequence database or finite table test is not appropriate for a theorem over continuous contractions, rates and two gaps. The indexed exact law and equal-time boundary were compared at statement level.",
+        "searches": [
+          "Resultary: exact three-time common-reset energy cumulant and stationary three-energy sign crossover",
+          "Resultary 2026/11/22/SCOPE-a-unique-three-energy-sign-crossover-under-heterogeneous-global--581ff25262aa"
+        ]
+      },
+      "rationale": "The matched static third-cumulant threshold and known pair-energy covariance are not counted as new. The supported distinction is the exact ordered three-time law, its strict orientation for unequal gaps and the unique first-gap zero in the subcritical regime for arbitrary nontrivial common contractions. The complete-reset catalogue result is a distinct same-day overlap at a static slice, not an inference about date priority.",
+      "residual_risks": [
+        "A general unequal-time formula for common partial contractions could subsume some of the calculation; the inspected sources are not an exhaustive priority search. The original partial-reset static result attributed by the frozen record was not located, so the static result is conservatively credited without claiming its exact priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct overlap at equal time and q=0; broader for unequal trap rates there",
+          "evidence": "Stationary three-energy cumulant under common complete Poisson resets has an equal-trap root r=2κ, the q=0 static boundary here, without an ordered-lag result in the inspected statement.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-unique-three-energy-sign-crossover-under-heterogeneous-global--581ff25262aa",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "A unique three-energy sign crossover under heterogeneous global resetting",
+          "trigger": "Closest exact indexed sign crossing for distinct trapped Brownian energies with a common clock"
+        },
+        {
+          "assessment": "One-time common-age mixture under complete resetting",
+          "evidence": "The stationary joint density mixes conditionally IID positions over last-reset age; this one-time formula does not give the partial-reset ordering.",
+          "identifier_or_url": "https://arxiv.org/abs/2509.06658",
+          "material_read": "Eq. (3), offset 11200",
+          "method": "Open-access ar5iv rendering",
+          "title": "Dynamically emergent correlations in Brownian particles subject to simultaneous non-Poissonian resetting protocols",
+          "trigger": "Common-reset conditional independence could give earlier three-energy formulas"
+        },
+        {
+          "assessment": "Complete-reset confined-gas stationary overlap",
+          "evidence": "The inspected formulas concern simultaneous complete resetting and stationary correlations, not contraction-dependent unequal-time distinct-label cumulants.",
+          "identifier_or_url": "https://arxiv.org/abs/2606.31634",
+          "material_read": "Opening and confinement passages, offsets 0 and 10800",
+          "method": "Open-access paper passages",
+          "title": "Effects of confinement in a Brownian gas with simultaneous stochastic resetting and dynamically emergent correlations",
+          "trigger": "Same confinement and common reset at the q=0 endpoint"
+        },
+        {
+          "assessment": "Approximate stationary pair statistic, not the exact unequal-time triple law",
+          "evidence": "The squared-position covariance is for a pair and in a diffusion approximation with a small-parameter restriction.",
+          "identifier_or_url": "https://arxiv.org/html/2602.21635",
+          "material_read": "Supplemental Eq. (S37), offset 68000",
+          "method": "Open-access arXiv HTML passage",
+          "title": "A diffusion approximation for systems with frequent weak resetting",
+          "trigger": "Same partial reset motivation and cross-energy observable"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Distinct-label pair energy correlations in this identical-trap model are time symmetric, so they cannot serve as this directional diagnostic. The three-label connected observable resolves the orientation for every positive rate and every nontrivial contraction; it also separates a short-first-gap negative regime from a positive regime by an exact, measurable lag boundary. The result needs only three trajectories and treats the exact shot clock, not a many-particle or weak-reset limit. It neither measures entropy production nor establishes finite-sample detection power.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

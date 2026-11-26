@@ -1,0 +1,152 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:14:15.440697Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–63",
+        "Frozen VERIFICATION.md and check.py (inspected, not executed)",
+        "/workspace/repairs/2/RESULT.md and VERIFICATION.md",
+        "/workspace/branches/d93dd4db-84a4-45ff-ad5e-140081e31c2a/independent_affine_check.py"
+      ],
+      "rationale": "The frozen mathematics is correct. In the orthonormal biased coordinate basis the affine kernel is 1 plus the sum of the normalized coordinate products. The i-th term in an evaluation row has law C_i/s_i−1, with s_i the probability of that evaluation bit and C_i independent Bernoulli(s_i). Conditioning on the other terms reduces rare-row maximization and rare-probability monotonicity to (1−s)|a|+s|a+1/s|, a nonincreasing function of s. Kernel symmetry yields weighted endpoint duality, and choosing row signs attains the bound. At the unbiased values of the other n−1 probabilities the conditioning variable a takes −1 (even n) or −2 (odd n≥3) with positive probability, giving the strict fair minimum when one probability changes, and monotonicity handles the rest. The mean-one kernel variable is bounded below by −(n−1), strictly above that on a positive-probability success event; its negative part tends in expectation to n−1 as all rare probabilities tend to zero. The corrected claim uses the established formula only as a premise. In four coordinates with p_i≤1/2, no outcome with at least two successes contributes a negative part. Splitting zero and one success gives the corrected closed expression. Exact evaluation gives 77/27, 371/128 and 6213/2048, with signed gaps 161/3456 and 277/2048, and both nonconstant vectors majorize the constant vector of the same sum. Hence the repaired non-Schur assertion follows. The corrected scientific notes match the retained verification code and the frozen JSON front matter is preserved.",
+      "residual_risks": [
+        "The independent rational reconstruction checks weighted rows and columns for six examples, including all three repaired witnesses; it does not establish an all-dimensional extremum theorem. No formal verification or expert attestation is claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The rare-vertex result treats arbitrary heterogeneous full-support product measures and deterministic complex masks, including the precise affine mask; its common row value and coordinatewise monotonicity match.",
+          "The bounded-order interaction result treats counting measure and 2≤d≤r−2, not Bernoulli bias vectors at first order. O'Donnell supplies the orthonormal product basis, not a fixed-mean comparison."
+        ],
+        "reasoning": "The broad rare-vertex theorem decisively covers the headline of the frozen work even without its exact wording. It orders coordinate substitutions in one direction, not changes simultaneously increasing some biases and decreasing others under a sum constraint. The repair compares competing sign regions of the exact norm.",
+        "searches": [
+          "Universal rare-vertex norming law 40f4b54b28c0, Finding and proof",
+          "Resultary 54134d829688, Finding and scope",
+          "O'Donnell arXiv:2105.10386 §8.4 and Exercise 8.24"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 40f4b54b28c0, 71f416ba0fcb, 3df8d67b6ed7, f368e4c5a102 and 54134d829688",
+        "arXiv:2105.10386 and arXiv:2302.00233v2",
+        "Frozen and repaired RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Putting λ_empty=λ_singletons=1 gives 1+Σ(B_i/r_i−1); the covered row and conditional monotonicity are immediate. The homogeneous findings compare changes in a single common bias, and the fair projection formula reduces to one parameter vector.",
+          "On the repaired slice there is a competing correction activated only when an individual bias crosses 1/3. Below that threshold the product term falls under a spread; above it, the correction can reverse the sign."
+        ],
+        "reasoning": "The freeze's main formula fails this test as an immediate corollary. Recovering three specified values from a formula is not the separate novelty claim. Recognizing competing regimes and giving two exact majorization witnesses disproves both natural monotonicity conjectures, which are not conclusions of the prior pointwise formula or its order theorem.",
+        "searches": [
+          "Resultary 40f4b54b28c0, proof steps 1–3; 71f416ba0fcb, Finding",
+          "Defant et al., arXiv:2302.00233v2 Theorem 3.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The full multiplier theorem gives the same affine operator for mask 1 on the empty set and singletons and 0 elsewhere. The centered first-chaos result instead omits the constant and has a different absolute deviation. The resonance result has identical coordinate biases and classifies norming corners, not bias-vector ordering. The fair-cube theorem gives the affine absolute sum with independent symmetric signs."
+        ],
+        "reasoning": "The spectral identification exactly covers the frozen norm formula. Removing the constant, requiring fair bits, or varying only one common bias is not equivalent to the corrected fixed-mean spread problem.",
+        "searches": [
+          "Resultary 40f4b54b28c0, 3df8d67b6ed7 and f368e4c5a102",
+          "Defant–Galicer–Mansilla–Mastyło–Muro arXiv:2302.00233v2 Theorem 3.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact homogeneous record includes the middle norm via its binomial identity and the fair minimum and rare limit along the diagonal. The broader exact symbolic formula includes all three values as evaluable instances. The nearby exact resonance and interaction results concern different comparison variables or different measures."
+        ],
+        "reasoning": "Individual norm numbers are mechanically evaluable and not independently claimed as new table entries. The relevant exact fact is their pair of opposite orders relative to the homogeneous vector under the same majorization relation; the inspected exact claims do not supply this obstruction.",
+        "searches": [
+          "Resultary query: affine Fourier endpoint norm on heterogeneous Bernoulli product, majorization, fixed mean, and witnesses 77/27, 371/128, 6213/2048",
+          "Exact Resultary Findings 40f4b54b28c0, 71f416ba0fcb, f368e4c5a102 and 54134d829688"
+        ]
+      },
+      "rationale": "Original headline originality FAIL: the general heterogeneous affine formula, rare norming vertex, equality of endpoints and coordinatewise monotonicity are an exact specialization of Resultary 40f4b54b28c0, which the frozen priority comparison omitted. This conclusion is based on mathematical coverage, not on dating or attribution of discovery. The fair and sparse extremum arguments are direct consequences plus a one-coordinate strictness check and are not retained as contributions. Repaired originality PASS for the separate two-sided fixed-mean Schur obstruction only. The replacement expressly credits the general formula and uses it to prove and explain an explicit order reversal, not to reclaim it under a different name.",
+      "residual_risks": [
+        "An unindexed or differently termed Schur-order obstruction remains possible; lack of a search match is not evidence of absence. The independent originality judgment accepts only the two-sided property, not the exact norm formula or its routine evaluations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive coverage of original headline; credited premise of repair",
+          "evidence": "Common L1/L∞ norm from the rare row for arbitrary masks and complex coefficients, nonincreasing in each rare-atom probability. The illustrated non-affine consequence is for homogeneous degree ≤2.",
+          "identifier_or_url": "Resultary 40f4b54b28c0",
+          "material_read": "RESULT.md Finding, scope and proof steps 1–3, offset 0 through 5994",
+          "method": "Resultary search and local mirror passage",
+          "title": "A universal rare-vertex norming law for biased Boolean Fourier multipliers",
+          "trigger": "Exact broader theorem for the same projection and all heterogeneous biases"
+        },
+        {
+          "assessment": "Homogeneous restriction; does not address spreads",
+          "evidence": "Exact common-bias binomial formula with fair minimum, rare limit, and bits all having the same parameter.",
+          "identifier_or_url": "Resultary 71f416ba-0fcb-4e2b-8a00-076074e837ee",
+          "material_read": "RESULT.md Finding and scope, offset 0",
+          "method": "Resultary search and local mirror passage",
+          "title": "Balanced bias minimizes sharp affine Fourier amplification on the Bernoulli cube",
+          "trigger": "Original's cited exact homogeneous theorem"
+        },
+        {
+          "assessment": "Centered projector, not equivalent",
+          "evidence": "Its projector explicitly has no constant in its range; the rare variable lacks the additional one.",
+          "identifier_or_url": "Resultary 3df8d67b6ed7",
+          "material_read": "RESULT.md Finding and scope, offset 0",
+          "method": "Resultary search and local mirror passage",
+          "title": "A rare-corner law for first-chaos projections on biased Boolean products",
+          "trigger": "Heterogeneous rare-corner expression under another name"
+        },
+        {
+          "assessment": "Homogeneous equality sites, not changes in the bias vector",
+          "evidence": "States the known binomial norm and classifies maximizing vertices for common p.",
+          "identifier_or_url": "Resultary f368e4c5a102",
+          "material_read": "RESULT.md Finding and start of proof, offset 0",
+          "method": "Resultary search and local mirror passage",
+          "title": "Complete norming-corner resonance for affine projection on biased Boolean cubes",
+          "trigger": "Same affine norm with an exact classification"
+        },
+        {
+          "assessment": "Different norm problem and explicit order range",
+          "evidence": "Counting measure and cutoff d≥2, minimum projection norms for interaction spaces.",
+          "identifier_or_url": "Resultary 54134d829688",
+          "material_read": "RESULT.md Finding and scope, offset 0",
+          "method": "Resultary search and local mirror passage",
+          "title": "Sharp endpoint projection constants and Gaussian growth for bounded-order interactions",
+          "trigger": "Finite-product endpoint formulas with nonidentical coordinate sizes"
+        },
+        {
+          "assessment": "Basis ingredient, not the endpoint comparison",
+          "evidence": "Normalized biased basis; distinct coordinate biases can be considered.",
+          "identifier_or_url": "https://arxiv.org/pdf/2105.10386",
+          "material_read": "§8.4 pp. 220–221 (offset 632100) and Exercise 8.24 p. 238 (offset 686700)",
+          "method": "Primary OA PDF passages",
+          "title": "Analysis of Boolean Functions",
+          "trigger": "Standard biased Fourier setup and potential product extension"
+        },
+        {
+          "assessment": "Exact uniform-cube result, not repaired obstruction",
+          "evidence": "The expectation of the absolute sum of selected characters gives the minimal projection constant on the fair cube.",
+          "identifier_or_url": "https://arxiv.org/pdf/2302.00233",
+          "material_read": "v2, §3 Theorem 3.1 p. 9, offset 29150",
+          "method": "Primary OA PDF passage",
+          "title": "Asymptotic insights for projection, Gordon–Lewis and Sidon constants in Boolean cube function spaces",
+          "trigger": "General exact Boolean Fourier projection constants"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired RESULT.md, Finding and proof",
+        "Resultary 40f4b54b28c0, comparison of componentwise monotonicity with fixed mean"
+      ],
+      "rationale": "The repaired result answers a natural optimization question about averaging coordinate biases while keeping the expected total number of successes fixed. It supplies explicit witnesses to both failures of ordering, and the change of sign of the one-success residual explains why the familiar product-maximization argument need not survive beyond the threshold. This is a motivated negative result with consequences for bias-balancing heuristics, not novelty attributed to individual computed constants or a covered headline.",
+      "residual_risks": [
+        "No global extremum classification on the slice or general-dimensional Schur classification is asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

@@ -1,0 +1,156 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:11:42.337902Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof; VERIFICATION.md, verify.cpp and verify.py inspected",
+        "Independent complement-based replay: python /workspace/branches/independent-correctness/record4.py"
+      ],
+      "rationale": "An independent pivoted maximal-clique search on the complement generates all inclusion-maximal independent sets. Every independent set is contained in one, so taking the union of their submasks gives exactly all possible all-positive query supports, with 11776 candidates. Exact distinct intersection counts against all 390 concepts reproduce 54/324/12 concepts at sizes 5/7/9 and shattered counts 1,27,270,1278,2862,2322 and zero at larger sizes. Removing all immediate subfaces of shattered supports leaves precisely 36 coordinate-transversal triples and 2322 quintuples; applying all 1296 coordinate/symbol permutations gives the stated orbit sizes. This is the full group: the three pairs of neighbors of 000 can be permuted and swapped within pairs, and an automorphism fixing 000 and those neighbors is forced on each successive distance layer by common neighbors of its predecessors. The exact maximum shattered size is five.",
+      "residual_risks": [
+        "Only the 27-vertex ternary case; not a classification for larger orders or for maximum-only independent sets."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kahn–Park give MIS count bounds and binary cube asymptotics, and Adler–Benediktsson–Macpherson study traces of open neighborhoods. Horák–Rosa's spectrum problem asks which sizes occur, not how the maximal arrays intersect arbitrary query supports."
+        ],
+        "reasoning": "Even a sharp concept-count theorem supplies only a cardinality upper bound for VC dimension; open-neighborhood bounds use the wrong concepts; the spectrum alone supplies neither the trace polynomial nor the orbit classification.",
+        "searches": [
+          "arXiv:1808.06666; arXiv:1909.04283; arXiv:2007.16042",
+          "Britz–Cavenagh–Sørensen, Maximal partial Latin cubes, p. 3, Theorems 1–2 citing Horák–Rosa"
+        ]
+      },
+      "checked_sources": [
+        "Resultary and primary passages in source_inspections; identical frozen self-hit distinguished from other same-day records",
+        "arXiv:1808.06666 p. 1, MIS counting stability; arXiv:1912.01780 p. 1, induced-subgraph degree invariant"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The complete-Latin-square record yields 216 triple facets and 108 pair facets. The binary Q₄ record yields pair and four-set facets on a different vertex set. The ternary independence-complex comparison, whose full text was unavailable, concerns the topology of the complex of all independent sets rather than the complex of supports with every trace."
+        ],
+        "reasoning": "Adding the incomplete maximal concepts can create new shattered supports; the complete-square polynomial is only a lower bound coefficientwise, not the target classification. Neither binary nonpurity nor the ordinary independence-complex invariant implies the coordinate-transversal triple facets or the five quintuple orbits. Same-day dating does not order the findings.",
+        "searches": [
+          "2026/11/22/SCOPE-small-support-shattering-of-latin-squares-and-the-order-three-in--9fbb171d9dac",
+          "2026/11/22/SCOPE-the-first-nonpure-maximal-independent-set-shattering-complex-in--480bd3d24ed9",
+          "2026/11/8/SCOPE-the-ternary-three-cube-independence-complex-is-a-wedge-of-38-fou--77e44648bda3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For triples (row,column,symbol), independence means no two triples agree in two coordinates: this is exactly a partial Latin square, and maximal independence means that no entry can be inserted. The complete-square class studied by Hatami–Qian has only 12 concepts at order three, versus 390 here."
+        ],
+        "reasoning": "A size spectrum for maximal partial squares does not determine whether a support realizes every trace. Complete squares cover only the maximum-size concepts, not the additional 378 incomplete maximal concepts.",
+        "searches": [
+          "Resultary: ternary maximal independent sets, Latin-square shattering and nonpure VC facets",
+          "Web: maximal partial Latin squares order 3, 390, independent domination, H(3,3)",
+          "Horák–Rosa, Maximal partial Latin squares; Hatami–Qian, arXiv:1606.00032v2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The self-hit is the exact same record, not independent evidence. The same-day order-three complete-Latin-square entry yields 1+27z+270z²+216z³ and its own facet counts, a smaller concept class. The inspected spectrum theorems record admissibility of sizes, not multiplicities 54/324/12 or a shattered-support table."
+        ],
+        "reasoning": "Shared counts of small supports do not establish an exact match in the larger class. No distinct exact matching trace table was identified; a prior enumeration of maximal arrays by size remains possible.",
+        "searches": [
+          "Resultary self-hit 2026/11/22/SCOPE-the-nonpure-maximal-independent-set-shattering-complex-of-the-te--6b5ea035d24f",
+          "Focused web lookup for an exact maximal partial Latin square census at order three; Horák–Rosa chapter lookup"
+        ]
+      },
+      "rationale": "The distinctive content is the complete trace/facet classification of the class of inclusion-maximal order-three partial Latin squares. Prior work addresses possible concept sizes, complete Latin squares, binary cubes, neighborhoods or ordinary independence complexes. Those results are pertinent but do not establish the incidence patterns and orbits for the full 390-concept class.",
+      "residual_risks": [
+        "Horák–Rosa chapter full text, the same-graph indexed topology result's full text, and the cited completion-paper DOI 10.1016/j.disc.2006.05.028 were not available in lawful OA attempts. In particular, older order-three array enumerations may overlap the concept census. The bounded comparison is not exhaustive priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strict subclass overlap",
+          "evidence": "12 complete squares give 1+27z+270z²+216z³, with 216 triple and 108 pair facets; these are not the 390 maximal partial squares.",
+          "identifier_or_url": "2026/11/22/SCOPE-small-support-shattering-of-latin-squares-and-the-order-three-in--9fbb171d9dac",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Small-support shattering of Latin squares and the order-three instance",
+          "trigger": "Same underlying triples and order, with Latin-square shattering"
+        },
+        {
+          "assessment": "Methodological overlap, different graph",
+          "evidence": "The result is for binary Q₄ and has eight pair and 104 four-set facets, not the H(3,3) facet structure.",
+          "identifier_or_url": "2026/11/22/SCOPE-the-first-nonpure-maximal-independent-set-shattering-complex-in--480bd3d24ed9",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Resultary local mirror",
+          "title": "The first nonpure maximal-independent-set shattering complex in the binary cube family",
+          "trigger": "Same shattering construction and nonpurity"
+        },
+        {
+          "assessment": "Different stated invariant; unresolved full-text risk",
+          "evidence": "The indexed result concerns the ordinary independence complex, containing all independent sets, not the maximal-set trace complex.",
+          "identifier_or_url": "2026/11/8/SCOPE-the-ternary-three-cube-independence-complex-is-a-wedge-of-38-fou--77e44648bda3",
+          "material_read": "Indexed statement as reported in frozen AUDIT.json; full RESULT.md not obtained",
+          "method": "Identified local mirror path unavailable",
+          "title": "The ternary three-cube independence complex is a wedge of 38 four-spheres",
+          "trigger": "Topology on the exact same underlying graph"
+        },
+        {
+          "assessment": "Complete-square class and asymptotic bound",
+          "evidence": "Concepts are complete Latin squares; asymptotic VC lower bound n²−(e+o(1))n^(5/3), not the exact shattering of maximal partial squares.",
+          "identifier_or_url": "https://arxiv.org/html/1606.00032v2",
+          "material_read": "Theorem 1.3, offsets 8185–11682",
+          "method": "OA primary HTML",
+          "title": "Teaching dimension, VC dimension and critical sets for Latin squares",
+          "trigger": "Primary concept-dimension result for the Latin-square formulation"
+        },
+        {
+          "assessment": "Strong class overlap, exact table not established from abstract",
+          "evidence": "Horák and Rosa study the existence spectrum ML(n) of attainable sizes; the available abstract does not establish order-three multiplicities or any trace result.",
+          "identifier_or_url": "https://pure.ku.edu.kw/en/publications/maximal-partial-latin-squares/",
+          "material_read": "Institutional abstract at offsets around 425–770; chapter full text not recovered by the focused lookup",
+          "method": "OA institutional abstract; lawful full-text search",
+          "title": "Maximal partial Latin squares",
+          "trigger": "Exact same class of maximal partial Latin squares, possible small-order table"
+        },
+        {
+          "assessment": "Size-spectrum overlap only in these theorems",
+          "evidence": "Restates Horák–Rosa's exclusions and existence results for maximal partial square sizes; neither theorem concerns multiplicities or tests all traces.",
+          "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v22i1p81/pdf/",
+          "material_read": "p. 3, offset 6349–8530, Theorems 1–2 and following open problem; p. 15 ref. [11]",
+          "method": "OA journal PDF",
+          "title": "Maximal partial Latin cubes",
+          "trigger": "Retrievable account of the exact predecessor's maximal partial Latin square theorems"
+        },
+        {
+          "assessment": "Different concepts",
+          "evidence": "At most three for Hamming open neighborhoods, not maximal independent sets.",
+          "identifier_or_url": "https://arxiv.org/abs/2007.16042",
+          "material_read": "PDF p. 1, offsets 1581–2553",
+          "method": "OA PDF passage",
+          "title": "Vapnik–Chervonenkis Dimension and Density on Johnson and Hamming Graphs",
+          "trigger": "Primary exact-dimension literature on the same graphs"
+        },
+        {
+          "assessment": "Binary asymptotic total count",
+          "evidence": "Asymptotics for binary cubes, not ternary supports or trace sets.",
+          "identifier_or_url": "https://arxiv.org/abs/1909.04283",
+          "material_read": "p. 1 abstract and scope",
+          "method": "OA PDF passage",
+          "title": "The number of maximal independent sets in the Hamming cube",
+          "trigger": "Census literature on Hamming maximal independent sets"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding; independent facet classification and full coordinate/symbol orbit check; complete-square and binary comparisons"
+      ],
+      "rationale": "The ternary order-three case is a natural small instance of maximal partial Latin squares, unlike a general collection of arbitrarily selected concepts. Finding triple facets that cannot extend even though many quintuples are shattered—and describing the triples by a complete coordinate-transversal rule—explains a concrete failure of purity. The exact polynomial and orbit refinement give a useful finite benchmark for that geometric phenomenon, independent of count-only results.",
+      "residual_risks": [
+        "No broad assertion of nonpurity or maximum facet size across dimensions or alphabet sizes."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

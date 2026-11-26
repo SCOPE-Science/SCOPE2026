@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:48:20.086701Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the spheroid parametrization in RESULT.md 61–80, the meridional determinant divided by the dot product (one) gives tan(delta) = |r−1/r| sqrt(T(1−T)); the surface integral in x=cos(theta) gives total area 2πZ_r and the claimed density in T=x². Integrating on the two sublevel intervals produces the CDF; t=x² reduces the two primitives to integrals of 2 sqrt(r²+(1−r²)x²). Near zero, the equatorial branch starts at order u (H_r(t)=2r sqrt(t)+O_r(t^(3/2))) and the polar branch at order u² (w_r(1)=1). The endpoint identifies q and the scaled jet yields r=A_r/(2B_r); the informal 'their ratio' on line 86 means the ratio with the factor of 2 in the displayed formula. The r=1 atom is separate. At the upper endpoint, the symmetric integration interval has length sqrt(1−4u²); the odd density term cancels, and the angle change of variable gives 1−4u²=((4+q)/sqrt(q)) epsilon+O_r(epsilon²). For r→∞ dominate w_r/r by t^(−1/2); for r↓0 similarly dominate w_r. Normalization gives density limits (2/π)sqrt((1−t)/t) and 1 in L¹. The scaled complement converges locally uniformly in 0<t<1 to 1/sqrt(t(1−t)), which suffices with L¹ density convergence and no endpoint atoms. The two inverse branches of V=4t(1−t) yield 1/(π sqrt(v(1−v))) and 1/(2 sqrt(1−v)); their survival asymptotics after V↦2/sqrt(V) have the claimed constants and powers. Replay: RESULT.md 61–98 via these changes of variable. The supplied script is a finite recorded diagnostic, inspected but not run; it is not the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Marples–Williams give triaxial patch integrals and spheroidal formulas; by using the two sublevel patches they cover area calculation for the finite CDF.",
+          "Poelaert et al. provide the ellipsoid normal and area formulas."
+        ],
+        "reasoning": "Credit the general finite-CDF machinery; neither inspected result states or supplies as a parameter specialization the recovery of the directed aspect ratio from two calibrated coefficients or the paired normalized distribution limits and different survival powers.",
+        "searches": [
+          "10.1007/s11075-023-01628-4, §§2–2.1",
+          "arXiv:1104.5145v1, §§1–2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1104.5145v1",
+        "10.1007/s11075-023-01628-4",
+        "Resultary spheroid angular self-hit and distinct prolate normal-multiplicity record"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The maximum angle depends on |r−1/r| only; the angular support alone cannot distinguish r and 1/r.",
+          "The two small-angle branches have different powers and their coefficient comparison supplies the missing orientation. The two extreme-area regimes induce different normalized T densities."
+        ],
+        "reasoning": "Use geometry and area from prior work as inputs; neither the inverse-information conclusion nor the limiting-law contrast is obtained merely by setting two semiaxes equal in the old statements.",
+        "searches": [
+          "arXiv:1104.5145v1, Eqs. (3), (5)",
+          "10.1007/s11075-023-01628-4, Eqs. (4)–(7)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The closest normal-multiplicity record counts normal lines through an interior volume-uniform point; here the observable is one acute angle from a boundary area-uniform point.",
+          "An equivalent limiting formulation is to push T through 4T(1−T) and compare the two beta laws, followed by inversion and a square root."
+        ],
+        "reasoning": "Changing from angle to tangent, or to the beta variable in the limit, does not turn interior normal multiplicity into this surface probability. Comparison is with the scaled CDF jet, not unscaled jet coefficients substituted into the same formula.",
+        "searches": [
+          "Resultary: unsigned normal–radial angle, spheroidal aspect recovery, prolate/oblate beta degenerations",
+          "Resultary: 2026/11/8/SCOPE-a-sharp-normal-multiplicity-phase-transition-for-prolate-spheroi--1f178f312c40"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact match displays the same formulas and is the frozen item itself; the inspected distinct normal-multiplicity record is not a table or theorem for these laws."
+        ],
+        "reasoning": "No independent exact match located; the self-match cannot establish either priority or overlap with a distinct result.",
+        "searches": [
+          "Resultary searches for exact radial-normal angle CDF, endpoint, small-angle coefficients, and beta thin limits",
+          "2026/11/22/SCOPE-two-jet-spheroid-reconstruction-and-distinct-thin-limit-laws-for--c39f2389f43a"
+        ]
+      },
+      "rationale": "Passes for the endpoint-calibrated inverse jet and contrasting thin-limit laws, not for the known normal geometry or general computation of surface patches. No inspected distinct source covers that scoped conclusion. This is not a historical priority certification.",
+      "residual_risks": [
+        "The finite CDF and geometric endpoint are not relied on as independent novelty.",
+        "An equivalent earlier inverse or paired-limit calculation may be indexed under geodesy, shape measurement or other geometric-probability terms."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers geometric inputs, not the assessed inverse jet and paired limits",
+          "evidence": [
+            "Normal direction (X/a²,Y/b²,Z/c²); surface area integral in Eq. (5)."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1104.5145v1",
+          "material_read": "Sections 1–2, Eqs. (3) and (5), extracted offsets 3150–6628",
+          "method": "OA primary arXiv text",
+          "title": "Surface Area and Curvature of the General Ellipsoid",
+          "trigger": "Classical normal/radius geometry may already give the angular observable"
+        },
+        {
+          "assessment": "Covers the finite area integration, not the assessed inverse and paired limits in the material read",
+          "evidence": [
+            "The formulas integrate arbitrary polar/azimuthal patches, including the rotationally symmetric sublevel patches here."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s11075-023-01628-4",
+          "material_read": "Abstract and §§2–2.1, pp. 1803–1805, Eqs. (4)–(7) and elliptic integral reduction",
+          "method": "OA Springer PDF",
+          "title": "Patch area and uniform sampling on the surface of any ellipsoid",
+          "trigger": "General patch-area method covers the same sampling measure"
+        },
+        {
+          "assessment": "Different random object and invariant",
+          "evidence": [
+            "Uses interior volume-uniform points and counts distinct normal lines through a point."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-a-sharp-normal-multiplicity-phase-transition-for-prolate-spheroi--1f178f312c40",
+          "material_read": "Finding and prior-work section",
+          "method": "Resultary local mirror",
+          "title": "A sharp normal-multiplicity phase transition for prolate spheroids",
+          "trigger": "Closest distinct Resultary normal/aspect overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An inversion-symmetric endpoint hides which axis is longer, while the equatorial and polar lower-end orders together recover that information after calibration. The contrasting beta laws predict genuinely different powers for rare angular deficits under opposite extreme-area limits. These are structural results for natural area sampling, not new numerical values of the classical patch formula. No statistical stability or uniformity across the limits is proved.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

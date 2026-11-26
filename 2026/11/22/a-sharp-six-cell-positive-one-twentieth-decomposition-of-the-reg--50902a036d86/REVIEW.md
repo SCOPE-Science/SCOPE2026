@@ -1,15 +1,21 @@
-# Review of the six-cell decagon area decomposition
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS (same-model).** The exact field-coordinate construction generates all ten vertices and all 45 pairwise chord intersections, including coincident multicrossings without double-counting. The halfedge face algorithm enumerates all bounded cells, and exact shoelace arithmetic independently checks the explicit six-cell witness. The class-multiset enumeration is exhaustive under a valid positivity pruning condition. There are 220 cells, exactly twelve area classes and no solution with five or fewer cells. The complete six-class enumeration yields two multiplicity patterns and the counts give 8,778,000 individual minimizers. The proof relies on finite exhaustive computation whose complete reproducible source is supplied, not on numerical approximation or an infinite inference from samples.
+PASS
 
-## Originality
+The affine coordinate change is invertible, preserves normalized areas, and puts all 45 chord and side segments in Q(√5)². Exact intersection and split-edge deduplication is essential at multiple crossings; the cyclic half-edge traversal counts bounded faces rather than cycles from unsplit diagonals. The separately written and run reproduction /workspace/branches/82cc46dd-df40-4e84-a28e-93484fc1d518/independent_decagon_check.py gives (V,E,F)=(171,390,221), with one outer face, and agrees with all twelve exact normalized areas and multiplicities. Independently, using area (a+b√5)/200, the target pair is (10,0) and the integer functional 4a+9b has per-class values (6,2,5,1,4,2,1,8,4,0,4,8). Fewer than five cannot sum to 40; five would require only classes 7 and 11 and their radical coefficient would be 80j−40, never zero. Unpruned exact pair enumeration at size six (12,376 multisets) gave just (4,8,11,11,11,11) and (7,8,10,11,11,11); the source's 6,186 retained prefixes through size five also recompute correctly. These patterns have sufficient distinct cells and give 20²·C(20,4)=1,938,000 and 10·20·30·C(20,3)=6,840,000 subsets, a total of 8,778,000. The subset count concerns minimal witnesses and does not assert connectedness or exclude larger witnesses. Source copies were read, not executed. Malformed TeX control characters in the displayed binomial-count line do not affect the unambiguous count or its independently reproduced derivation.
 
-**PASS (provisional same-model).** OEIS A401643 supplies the signed-denominator value 20 for the regular decagon but explicitly leaves positive representations open in general, and gives a positive example only for the nonagon. The decagon's complete twelve-class area spectrum and its sharp six-cell positive support and its two equality patterns are not implied by the signed denominator identity. Inoue--Watanabe investigate a two-diagonal, four-region problem; it is not the full diagonal arrangement. Searches for direct decagonal cell-spectrum or minimum positive support counterparts in indexed mathematical research, accessible historical claims and general web sources returned no equivalent statement. Full text of Huber's Zenodo report was inaccessible; this is explicitly retained as a priority risk.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS (same-model).** The theorem answers a natural positive-versus-signed question at the first small even non-prime-power case with predicted denominator 20, and proves the sharp number of cells rather than merely exhibiting a numerical subset sum. Its exact cell-area spectrum supplies a transparent finite structure for related area-lattice questions. Neither a connectedness result nor a general theorem for all polygons is asserted.
+Neither the 220-cell census total nor the signed denominator 20 is new. The distinct supported finding is the positive decagon construction at 1/20, the minimum support and full minimal pattern/count classification. The independently verified twelve-area refinement was not located in the passages inspected; its individual priority is less certain than the scope distinction between signed and unsigned claims.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+A published exact signed-area question singles out 1/20 rather than an arbitrary target. A positive witness settles that case without cancellation, and the sharp support threshold, both possible signatures and exact subset count describe the attainable minimum, not merely one example or a recomputation of the known number of regions. The finite result does not settle the general positive-union question or connected realizability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

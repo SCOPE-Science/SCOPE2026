@@ -1,19 +1,21 @@
-# Self-review of a sharp SIS–logit endemic fold
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The full proof reduces every endemic equilibrium to a level set of \(g(I)=(1-I)\ell(c+dI)\), with strictly decreasing logarithmic derivative. The Lambert maximum is derived by the exact stationary equation, not fitted numerically. The exact Jacobian determinant is \(-\beta I g'(I)\), giving sink and saddle types with strict trace. The disease-free equality case is explicitly nonhyperbolic; no unsupported stability claim is made there. An entirely elementary witness uses \(2<e<4\). The accompanying `verify.py` rechecked 175 parameter triples and numerical root locations; those checks supplement rather than replace the analytic proof.
+PASS
 
-## Originality — PASS, literature-bounded
+The specific positive affine defection advantage follows by inserting the two constant-row payoff gaps in the originating model's equations (1)–(5). On the behavioral nullcline x=h(I), positive equilibria correspond bijectively to g(I)=k in (0,1). The logarithmic derivative of g is strictly decreasing, starts at -1+d/(1+exp(c)), and tends to minus infinity. This certifies each root count, including k=g_0 (the root at zero is excluded) and the double root at k=g_m. The critical equation gives w=d(1-I_m)-1 with w exp(w)=exp(c+d-1), and substitution gives g_m=w/d. The endemic Jacobian has negative trace and determinant -beta I g'(I); the disease-free eigenvalues are -1 and beta(g_0-k). At the fold, with b=-beta I_m(1-I_m), right and left null vectors may be taken as (h'(I_m),1) and (b,1); their pairing is nonzero. Projection of the parameter derivative onto the left null vector gives -beta I_m and projection of the second derivative in the right null direction gives beta I_m g''(I_m), both nonzero, confirming the dynamical saddle-node. The strict witness follows from 2<e<4 by comparing g at 0, 1/10 and 1, not from rounded roots. The source's sufficient threshold and condition (16) specialize as reported; failing them does not contradict the source. No disease-free stability classification at equality or global basin statement is needed. The finite frozen numerical checker was inspected, not run; the analytic argument is decisive.
 
-The originating source [1] introduces the SIS–logit system, and its Lemma 3 assumes a conditional monotonicity inequality for a uniqueness claim. For the specialization here, that inequality has negative terms \(-\beta B\) and \(-\gamma B\), so it does not apply. The new scope is the necessary-and-sufficient, all-parameter Lambert-W fold frontier and exact three-equilibrium witness. A published mathematical result for the same ODE proves a universal no-periodic-orbits threshold, not this stationary multiplicity classification; that prior claim is credited and not repackaged. Other relevant studies use replicator updating or opinion feedback. A broad feedback-logit paper was compared only via abstract because its full text was unavailable: historical priority consequently remains subject to external scrutiny.
+## originality
 
-## Value — PASS
+PASS
 
-The exact boundary describes when disease freedom can resist small invasion yet stable endemic infection can also persist, resolving the complete equilibrium-count problem for a natural, explicitly realizable payoff subfamily outside the originating paper's sufficient-uniqueness regime. The bistable wedge is not inferred from one numerical example; it is derived with an explicit sharp fold and a certified rational interior witness. The social response is intentionally anti-protective, and the work is a deterministic theoretical result, not an epidemiological recommendation.
+The credited model, reduction to equilibrium conditions, and the general existence of behavioral epidemic bistability are not contributions of this record. What was not covered in the inspected statements is the complete, sharp fold and local stability classification for this positive, opponent-action-independent affine family.
 
-## Scientific limitations and closest work
+## value
 
-The population is homogeneous; the behavioral payoff difference must be independent of opponents and rise affinely with infection; rationality is finite. No global basin characterization, network/stochastic generalization, or empirical calibration is established. Closest literature is Maitra–Paarporn–Eksin, arXiv:2610.03173v1; the published same-model universal slope-four no-cycle theorem; Park et al., arXiv:2401.15475; Ordorica Arango et al., arXiv:2410.12993; and Gavin–Paarporn–Cao, doi:10.1109/TAC.2026.3685548 (abstract only). General behavioral epidemic bistability is already known in other models.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+In this commonly used abstract feedback form, the disease-free linear threshold does not determine how many locally stable stationary states the model has. The exact necessary and sufficient frontier distinguishes this ambiguity from simple threshold crossing, gives a degenerate boundary and clarifies the limitations of the originating sufficient results. The complete classification is useful beyond a single simulated or algebraic witness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

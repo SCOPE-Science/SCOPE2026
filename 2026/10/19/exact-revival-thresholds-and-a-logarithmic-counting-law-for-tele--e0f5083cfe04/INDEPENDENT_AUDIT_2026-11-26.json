@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:07:04.503620Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–96; VERIFICATION.md; verify.py",
+        "Ruskai Theorem 4, arXiv:quant-ph/0302032",
+        "/workspace/branches/independent_checks.py (case 1)"
+      ],
+      "rationale": "Averaging the two initial-sign characteristic functions gives f''+2λf'+v²f=0 with f(0)=1, f'(0)=0. Depolarization commutes with the rotations. In the computational-basis Choi matrix the coherence is the |00><11| entry e^(-κt)f/2, and partial transpose places it in the block with both diagonal entries (1-e^(-κt))/4. Its smaller eigenvalue is the PPT minimum, so equality is entanglement breaking. The initial positive lobe decreases to zero. On each later lobe log(|f|/h_κ) has second derivative -ω²csc²(ω(t-z_j))+[κ/(2sinh(κt/2))]²<0 since t>π/(2ω); the positive set is one interval or empty. The rate quotient vanishes at lobe endpoints, is positive inside, and strictly decreases under translation by π/ω, even without telegraph damping. Its value at the |f| peak and the upper estimate replacing the denominator by the left zero establish the bounds. For fixed λ>0 these squeeze the counting index to within O(1) of the solution of 2e^(-λt)/t=κ (bounded shift of lobe index absorbs the multiplicative error), giving W(2λ/κ). For λ=0 the squeeze is between inverse-time denominators a fixed distance apart and gives the inverse-rate law. At and above critical damping f is positive and strictly decreases for t>0, so only the initial crossing occurs. Independent replay: python3 /workspace/branches/independent_checks.py 1; 30 propagator/PPT pairs and nine revival count inversions.",
+      "residual_risks": [
+        "These asymptotics are not uniform as λ approaches either boundary; the finite numerical replay is corroboration only."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The former shows strong-coupling finite revivals in a relaxation regime and none at weak coupling; the latter constructs non-Markovian depolarizing channels with divisibility as an observable."
+        ],
+        "reasoning": "Neither statement entails a strictly ordered per-lobe hierarchy for the specified channel. Qualitative finiteness under relaxation and a CP-divisibility criterion do not imply the sharp depolarization-rate count of non-EB intervals.",
+        "searches": [
+          "arXiv:0912.3313 pp. 5–6",
+          "arXiv:1805.11411 §VI"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:quant-ph/0302032, 0912.3313, 1210.1122, 1805.11411",
+        "Local Resultary 68bc6f4e7b8c, 51a349452f28, 05d470e1ebbd",
+        "Targeted external query yielded no on-point primary source"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The multiplier criterion and the telegraph envelope together supply the scalar inequality |f(t)|>(e^(κt)-1)/2. Prior revival discussion establishes qualitative behavior, not this model's exact count or static limit."
+        ],
+        "reasoning": "The scalar inequality is an immediate implication and is not the contribution. Strict log-concavity within each lobe, attenuation between lobes and sharp inversion of the peak-envelope bounds are additional substantive conclusions about the scalar problem.",
+        "searches": [
+          "Ruskai Theorem 4 and D’Arrigo et al. Eq. (5)/§3 read jointly",
+          "Zhou–Lang–Joynt pp. 5–6",
+          "Local Resultary 68bc6f4e7b8c, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ruskai gives the unital-qubit canonical multiplier criterion. Zhou–Lang–Joynt treat concurrence with telegraph noise and relaxation; D’Arrigo et al. identify concurrence with |q(t)| for their selected two-qubit state under telegraph dephasing."
+        ],
+        "reasoning": "Choi-state concurrence or PPT tests could express the same channel observable, but the inspected concurrence formulas concern other dynamics and do not give the Choi threshold for this isotropic local depolarizer. The generic qubit criterion is exactly the known reduction, not the lobe analysis.",
+        "searches": [
+          "arXiv:quant-ph/0302032, Theorem 4",
+          "arXiv:0912.3313 pp. 5–6; arXiv:1210.1122 Eq. (5) and §3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "68bc6f4e7b8c: discrete rotated dephasing with exact EB recurrence and a logarithmic boundary layer. 51a349452f28: exact discord-transition count under telegraph dephasing. Later 05d470e1ebbd: asymmetric stationary telegraph dephasing, counting intervals of increasing coherence rather than non-EB intervals."
+        ],
+        "reasoning": "The closest matches on either channel observable or stochastic mechanism concern materially different rules, parameters or counted events. None is a matching symbolic lobe/count law in the inspected findings.",
+        "searches": [
+          "Local Resultary searches for random telegraph noise, entanglement breaking, revival thresholds and log count"
+        ]
+      },
+      "rationale": "The input channel construction, telegraph coherence, qubit entanglement-breaking criterion and qualitative strong-coupling revivals have precedents. The supported distinct contribution is the exact strictly ordered lobe thresholds (including equality and interval topology) and sharp count with bounded remainder for the specified independently depolarized channel.",
+      "residual_risks": [
+        "A prior exact count might use concurrence of a maximally entangled input under precisely the same local composite channel; the lawful bounded comparisons are not an exhaustive priority search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact antecedent of the EB criterion only",
+          "evidence": [
+            "The canonical multiplier absolute values sum to at most 1 iff the channel is EB."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/quant-ph/0302032",
+          "material_read": "p. 4, Theorem 4",
+          "method": "Bounded OA PDF text",
+          "title": "Qubit Entanglement Breaking Channels",
+          "trigger": "Exact EB criterion for a unital qubit channel"
+        },
+        {
+          "assessment": "Close qualitative precedent, different model and result",
+          "evidence": [
+            "Analyzes two-qubit concurrence; in the intermediate working-point relaxation regime strong coupling can give finitely many revivals and weak coupling none."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0912.3313",
+          "material_read": "pp. 5–6, offsets 36000–42751",
+          "method": "Bounded OA PDF text",
+          "title": "Disentanglement and decoherence from classical non-Markovian noise: Random telegraph noise",
+          "trigger": "Telegraph entanglement revivals with relaxation"
+        },
+        {
+          "assessment": "Coherence and dephasing antecedent, not the depolarized-channel count",
+          "evidence": [
+            "Concurrence equals |q(t)| for the specified input, with revivals in the oscillatory regime."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1210.1122",
+          "material_read": "p. 4, Eq. (5), §3",
+          "method": "Bounded OA PDF text",
+          "title": "Hidden entanglement in the presence of random telegraph dephasing noise",
+          "trigger": "Coherence law and concurrence revivals"
+        },
+        {
+          "assessment": "Different construction and observable",
+          "evidence": [
+            "Constructs non-Markovian depolarizing channels and studies CP-divisibility rather than independently Markovian depolarized telegraph EB lobes."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1805.11411",
+          "material_read": "Abstract and §VI p. 6",
+          "method": "Bounded OA PDF text",
+          "title": "Non-Markovian Dephasing and Depolarizing Channels",
+          "trigger": "Possible same noise mechanisms in a channel formulation"
+        },
+        {
+          "assessment": "Related but non-equivalent counts",
+          "evidence": [
+            "Discrete rotated dephasing has an EB boundary, frozen discord counts change points, and the later asymmetric model counts increases of the coherence modulus."
+          ],
+          "identifier_or_url": "Resultary 68bc6f4e7b8c, 51a349452f28, 05d470e1ebbd",
+          "material_read": "Mirrored RESULT.md Findings",
+          "method": "Local semantic search and bounded local mirror passages",
+          "title": "Related Resultary records on rotated dephasing, frozen discord and asymmetric telegraph revival counts",
+          "trigger": "Nearest indexed EB, telegraph and counting formulations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 7–35 and 57–86",
+        "Ruskai Theorem 4, arXiv:quant-ph/0302032"
+      ],
+      "rationale": "For a standard exactly soluble noise model combined with a separately calibrated depolarizer, the hierarchy identifies which individual revivals survive. The explicit logarithmic count with a negative log-log correction, and its change to inverse-rate behavior for static noise, quantify a qualitative revival picture with an operationally meaningful channel observable.",
+      "residual_risks": [
+        "No prediction for arbitrary fixed inputs, phase noise about multiple axes, or different dissipation mechanisms is validated."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T13:37:53.262460Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and lines 47–111; VERIFICATION.md and check.py (inspected, not executed)",
+        "arXiv:1910.14119, §1 p. 2 and §2 p. 3"
+      ],
+      "rationale": "The ML fit and two weights match the source definition. The arithmetic mean of the normalized sample is one and u>1. Before the sample minimum m the discrepancy equals Bt exactly. Subtracting the two full t² integrals leaves a tail on [m,∞) bounded by a sample-dependent multiple of (1+t²); integration gives the stated O_x bounds. At B=0 the right limit is −r/n and the squared discrepancy is (r/n)²+O_x(t−m) locally. Substitution s=t−m or s=t²−m² gives the two endpoint constants, with Gaussian Jacobian 1/(2m). For n=3, write e_k for the elementary symmetric polynomials in y: 3u²−v=2/e_3 because e_1=3, and hence 3u²−3u+1−v=(e_3−e_2+2)/e_3. This is the asserted product. The two-point formula follows using u=1/(1−q²), v=(1+q²)/(1−q²)². For the null, after scaling to μ=1, the raw input to the delta method is (A,U,V)=(mean X, mean 1/X, mean 1/X²); the fitted normalized inputs are AU,A²V. An independent symbolic differentiation and covariance calculation gave gradient ((φ+3)/2,(3φ+6)/2,−φ/2) and variance 3(φ+4)/(2φ²). To reproduce the moments independently, in the μ=1 density write M_k=E X^k. The change x→1/x gives M_k=M_{1−k}; the integral of the derivative of x^{k−1/2} exp(−φ(x+1/x−2)/2) gives M_{k+1}=M_{k−1}+(2k−1)M_k/φ with M_0=M_1=1. Evaluate the variance as the gradient quadratic form with entries M_{i+j}−M_i M_j for i,j∈{1,−1,−2}. The CLT and squaring give the two stated scale factors. The high-weight identities also hold on exact cancellation, with both rescaled limits zero.",
+      "residual_risks": [
+        "Only fixed samples and a subsequent iid IG null limit; neither simultaneous tuning nor calibrated test size/power is established. The reported 13 uploaded diagnostics were not independently replayed; the argument and independent covariance reproduction are separate evidence."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The source's fixed-tuning statistical framework is compatible with either initial slope or remote tail and does not interchange the tuning and sample-size limits. The classical Abelian law gives local-to-integral rates for a specified discrepancy."
+        ],
+        "reasoning": "Neither the general Abelian principle nor fixed-weight theory identifies the ML slope's exact zero locus or its influence variance. The generic polynomial rate from a linear initial slope is not new in itself.",
+        "searches": [
+          "arXiv:1910.14119, definition and fit",
+          "Henze–Klar (2002), Theorem 3.1, frozen substantive comparison"
+        ]
+      },
+      "checked_sources": [
+        "Resultary records 328293f15bd9 (identical) and a9014fe280b5 (distinct)",
+        "arXiv:1910.14119",
+        "Henze–Klar (2002), cited Theorem 3.1",
+        "DOI 10.3390/math10030350 (publisher-version access attempted)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact plateau depends on mean Y and mean 1/Y; the ML fit cancels it identically, while B depends also on mean 1/Y². The frozen package relates the older empirical-Laplace theorem to mean Y²−mean 1/Y."
+        ],
+        "reasoning": "A high-weight theorem for a different discrepancy with a different moment contrast does not give the exact cancellation set, endpoint constants or the sequential null coefficient here. The same-source statistic makes the generic leading extraction direct, but does not mechanically provide the full classification and fitted variance.",
+        "searches": [
+          "arXiv:1910.14119 pp. 2–3",
+          "Resultary a9014fe280b5 exact plateau",
+          "Henze–Klar (2002), cited Theorem 3.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The catalogue hit 328293f15bd9 is this same finding. The distinct record a9014fe280b5 has the same exact discrepancy but studies t→∞ and a→0, not the minimum-side asymptotic as a→∞."
+        ],
+        "reasoning": "The fitted statistic is identical across the records, but the opposite boundary probes the plateau C_n, which is zero for ML, not the initial slope B or the jump at the sample minimum.",
+        "searches": [
+          "Resultary: ML inverse-Gaussian CDF–Stein large-weight rank-one collapse, n=3 cancellation, sequential chi-square",
+          "arXiv:1910.14119 §1–2",
+          "Resultary a9014fe280b5 RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The nearest distinct indexed exact result gives MO coefficients 3/(2φ) and 3√π/(4φ) at vanishing weight, with a different empirical contrast; the corresponding normalized ML limits are zero."
+        ],
+        "reasoning": "Those scale constants and zero-plateau formulas cannot serve as a table or exact identity for the present positive a→∞ coefficients and minimum-jump asymptotic.",
+        "searches": [
+          "Resultary: IG CDF–Stein high weights, exceptional cancellation and fitted null coefficient",
+          "Resultary a9014fe280b5 RESULT.md, Finding and proof §1"
+        ]
+      },
+      "rationale": "The original statistic, estimator, and generic Abelian mechanism are prior. The supported distinct result is the precise large-weight two-regime analysis of the ML CDF–Stein discrepancy, including the exact three-observation locus and the fitted inverse-moment null coefficient. No covering result was verified in the inspected comparisons.",
+      "residual_risks": [
+        "The primary 2002 PDF and later publisher version were not independently retrievable in the attempted route; no negative priority inference from that. Other treatments of extreme weights or equivalent fitted-moment tests may exist. This is best-of-knowledge, not historical certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact definition and ML inputs covered; read passages do not provide the claimed asymptotic classification",
+          "evidence": [
+            "Empirical min-kernel minus EDF, both weights, and ML estimates μhat=Xbar and λhat=(mean(1/X)−1/Xbar)^{-1}."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1910.14119",
+          "material_read": "§1 p. 2 (offsets 5400–13363); §2 p. 3 (offsets 15500–22441)",
+          "method": "OA primary PDF passages",
+          "title": "New weighted L²-type tests for the inverse Gaussian distribution",
+          "trigger": "Same test and original weighting and standardization"
+        },
+        {
+          "assessment": "Opposite tuning limit, no same cancellation locus or fitted coefficient; common same-day date does not decide priority",
+          "evidence": [
+            "Exact plateau above max Y, zero for ML. The nondegenerate limits are for MO and a_n→0."
+          ],
+          "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/22/SCOPE-vanishing-weight-collapse-of-inverse-gaussian-cdf-stein-statisti--a9014fe280b5/RESULT.md",
+          "material_read": "Finding, Assumptions, proof §1, offsets 0–3131",
+          "method": "Resultary match followed by local mirror of the mathematical record",
+          "title": "Vanishing-weight collapse of inverse-Gaussian CDF–Stein statistics",
+          "trigger": "Strongest distinct indexed record on the exact statistic and a rank-one tuning limit"
+        },
+        {
+          "assessment": "Material precedent for the Abelian mechanism; no independent whole-paper exclusion",
+          "evidence": [
+            "Recorded Theorem 3.1 extracts 2n(mean Y²−mean 1/Y)² from an empirical-Laplace residual."
+          ],
+          "identifier_or_url": "https://wwwalt.math.kit.edu/stoch/~klar/seite/veroeffentlichungen/media/invgauss.pdf",
+          "material_read": "Frozen comparison and stated theorem/contrast; OA primary retrieval did not complete",
+          "method": "Recorded theorem-level evidence from RESULT.md and AUDIT.json, distinguished from fresh full-text verification",
+          "title": "Goodness-of-fit tests for the inverse Gaussian distribution based on the empirical Laplace transform",
+          "trigger": "Earlier same-family large-weight result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen fixed-sample and sequential statements; arXiv:1910.14119 definitions; Resultary a9014fe280b5 opposite regime"
+      ],
+      "rationale": "For the existing test the usual polynomial normalization can mask an exact finite-data collapse to exponentially small values. The first sample size admitting cancellation has a simple exact geometric boundary; both rates and the explicit null benchmark quantify what extreme weighting actually measures. This is specific structural information, not a new general Laplace method or a recommendation to use high weights.",
+      "residual_risks": [
+        "Exact cancellation has zero probability under the continuous iid null; finite-data conditioning and the sequential limiting benchmark are the relevant interpretations."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

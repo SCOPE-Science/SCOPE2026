@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:46:26.075803Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For p clique coordinates, anchor at the uniquely minimal one. These p chambers have unit translation-quotient Jacobians relative to a fixed root. The maximum of the p−1 remaining coordinates has unweighted density (p−1)r^(p−2), and each of the q independent coordinates has an interval of length 2−r. Adding the clique constraints restricts r to at most one. The incomplete beta integral then gives a sum of coefficients (not just a binomial probability); the projection Gram determinant is 1/n. Below half the tail probability tends to one; above half the first coefficient times its limiting geometric sum gives p²/(p−q); in the window the standardized threshold is (p−q−1)/sqrt(n−1) and local Stirling gives the stated Gaussian coefficient. Independent checks used exact polynomial integration for 121 pairs and numerical tight-constraint hulls for (2,2), (2,3), (3,2), with rooted volumes 14/3, 15/2, 11/2 and intrinsic volumes smaller by sqrt(n). Replay: branches/b7371d9b-bb78-4bcb-ac74-2e2e8b4f7b81/independent_polar_check.py and .log. These are finite diagnostics. The frozen artifacts/verify.py was read, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mori–Mori–Ohsugi count facets for joins, not polar volume.",
+          "D’Alì–Juhnke-Kubitzke–Koch Proposition 5.1 identifies polar lattice points with cuts; it is a broader framework, not the decisive coverage."
+        ],
+        "reasoning": "Here the exact disintegration of volume in the distinct bipartite record is stronger evidence than general facet or lattice-counting frameworks.",
+        "searches": [
+          "arXiv:2312.11287 join graph facets",
+          "arXiv:1608.06848 Lipschitz polytopes",
+          "arXiv:2307.04933 Proposition 5.1 bounded cuts"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and artifacts/verify.py",
+        "Resultary 94c93f236c71 and f86fbac7ea01",
+        "arXiv:2312.11287v3",
+        "arXiv:1608.06848v1 abstract and section on root-polytope triangulation",
+        "arXiv:2307.04933v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Step 3 fixes the minimal left coordinate at zero, shows that each right coordinate belongs to [M−1,1], and gives the polar integrand for 0<=M<=2 with the identical Jacobian.",
+          "The beta-binomial identity applied at M/2=1/2 directly gives W=n times the binomial coefficient tail divided by binom(n,p)."
+        ],
+        "reasoning": "The additional edges cut precisely the already analyzed one-dimensional variable at M=1. The normalized fraction is a binomial tail, with its ordinary fixed-ratio and bounded-window asymptotics supplying the rest.",
+        "searches": [
+          "f86fbac7ea01 RESULT.md Proof Step 3, mirror offset 2107–5707"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same target entry 94c93f236c71 is self-matching, not prior evidence.",
+          "The polar for a split graph is the slice of the complete-bipartite polar cut by left-block diameter <=1, with the same Euclidean metric."
+        ],
+        "reasoning": "The rooted and intrinsic volumes differ by sqrt(n) in both models; the extra constraints affect only the upper limit of the same range integral.",
+        "searches": [
+          "Resultary: complete split symmetric edge polytope polar volume binomial tail",
+          "Resultary f86fbac7ea01: the range parameter M in the bipartite polar"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The bipartite entry identifies the range's exact beta integral, not merely tabulated volumes.",
+          "The assigned formula is the regularized incomplete beta fraction I_(1/2)(p−1,q+1) of the bipartite polar volume."
+        ],
+        "reasoning": "The exact lookup target is a two-parameter volume invariant; checking a finite table of values cannot distinguish this identity from the exact density implication.",
+        "searches": [
+          "Resultary matching complete-split and bipartite Mahler formulas; 94c93f236c71 and f86fbac7ea01"
+        ]
+      },
+      "rationale": "The distinct indexed complete-bipartite Mahler result does not display the split volume, but its Proof Step 3 already derives the exact polar volume density in the range of the left block, p(p−1) M^(p−2)(2−M)^q/sqrt(n) on [0,2]. Completing that block to a clique imposes exactly M<=1 and changes nothing else. Truncating this known density and using the classical beta-binomial identity gives the exact invariant. The window and side estimates are then direct binomial CLT, Stirling and geometric-tail evaluations; no different asymptotic theorem is needed. This is an implication comparison, not a claim of chronological priority between same-day records.",
+      "residual_risks": [
+        "Same-day publication does not establish ordering or historical priority. The conclusion is based on exact mathematical coverage, not bibliographic order."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Stronger range-density calculation mechanically gives the split volume by truncation",
+          "evidence": [
+            "Polar integrand p(p−1) M^(p−2)(2−M)^q/sqrt(n) on [0,2]; the interval and Jacobian are given explicitly."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-sharp-mahler-product-hierarchy-for-complete-bipartite-symmetri--f86fbac7ea01/RESULT.md",
+          "material_read": "Finding and Proof Step 3 (within 2107–5707)",
+          "method": "Paged local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "A sharp Mahler-product hierarchy for complete bipartite symmetric edge polytopes",
+          "trigger": "Adjacent family obtained by removing exactly the clique edges"
+        },
+        {
+          "assessment": "Focuses on facet-subgraph counts, not the decisive calculation",
+          "evidence": [
+            "The join proof treats facet counts."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2312.11287v3",
+          "material_read": "Abstract and p. 14 join proof, offset 53024",
+          "method": "OA PDF passages",
+          "title": "Number of facets of symmetric edge polytopes arising from join graphs",
+          "trigger": "Same ambient object and graph join operation"
+        },
+        {
+          "assessment": "Ehrhart route but no split density in this passage",
+          "evidence": [
+            "Identifies polar dilate lattice points with bounded cuts."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2307.04933v1",
+          "material_read": "Proposition 5.1, pp. 13–14, offset 44722",
+          "method": "OA PDF passage",
+          "title": "On a generalization of symmetric edge polytopes to regular matroids",
+          "trigger": "Potential broad polar volume framework"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The volume and crossover are natural quantities, but the exact split volume is a mechanical slice of an already computed natural density. The three asymptotics package directly the standard binomial tails for that slice; no independent estimate beyond that immediate reduction survives. In particular no moderate-deviation or uniform error result is claimed.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:50:25.975397Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, assumptions, equations and boundary/example proof",
+        "VERIFICATION.md and verify.py inspected; no uploaded script used as a proof",
+        "Independent derivative-ratio minimization and strict sign analysis in this assessment"
+      ],
+      "rationale": "Three cascaded unit-rate linear stages have impulse response x^2 exp(-x)/2 on x>=0, and the dimensional outlet is V1/K times the normalized superposition. The derivative is continuous at the second arrival since h'(0)=0. For d<2 the pre-arrival derivative is positive and the post-arrival, after factoring out exp(-x)/2, is a downward quadratic positive at d, with exactly one subsequent sign reversal. At d=2 the post-arrival derivative has the sign of z[2(M-1)-(1+M)z] for z=x-d>0 and M=m exp(d): the unique maximum is at arrival if M<=1 and strictly later if M>1. For d>2 the first maximum is at 2 and the derivative is negative at arrival and after d+2. For d<x<d+2 put y=1-(x-d); the derivative is positive iff 1+M>d(d-2y)/(1-y^2). The right side diverges at both endpoints, and its derivative has sign -1+dy-y^2, so its unique minimum is at y0=(d-sqrt(d^2-4))/2, with value d/y0=1+1/y0^2. This derives the stated strict threshold, and equality only touches zero, giving no extra maximum. The quadratic has exactly two roots after arrival above the threshold, of which the later is a strict maximum. The logarithmic derivative of C is 2/sqrt(d^2-4)-1, with unique maximum of C at 2 sqrt(2), and the limits are e^-2 at the left and zero at infinity. These facts give the asserted reentrance, including both fold equalities. The three example inequalities hold using the recorded explicit elementary bounds; the C values are also approximately 0.229891, 0.341246 and 0.154679.",
+      "residual_risks": [
+        "Only the LTI impulse model with identical stages and fixed positive volumes; no claim about finite storms, practical detectability or flood risk."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Došlá's general derivative-ratio framework applies in principle; her stated explicit Gamma cases have common origin and change shape/rate, not translates. Gnecco et al. study peak size under finite-duration rainfall. The older Bateman record has a two-rate kernel with Erlang-2 equal-rate limit, not Erlang-3."
+        ],
+        "reasoning": "Neither the analogous two-peak reversal of a different kernel nor the abstract ratio criterion without its shifted-Erlang-3 minimization asserts the present boundary. The equal-volume case noted in the frozen record cannot determine the unequal-volume reentrance.",
+        "searches": [
+          "Došlá 2009, Theorems 1–3 and Gamma mixture §3.5",
+          "Gnecco–Palla–La Barbera 2018, gamma IUH and duration-based peak analysis",
+          "Resultary ...2eb46436a2c9, delayed Bateman response"
+        ]
+      },
+      "checked_sources": [
+        "Resultary November 2 ...a80781afe4f8 and October 25 ...2eb46436a2c9",
+        "Došlá (2009) Theorems 1–3 and §3.5; Gnecco et al. (2018) gamma IUH and results"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The ratio |f1'/f2'| is unbounded/undefined where the delayed derivative vanishes before the second arrival; the shift and the strict sign changes need their own treatment. The November 2 record treats precisely the strict maximum question, including the degenerate fold."
+        ],
+        "reasoning": "The older general strategy is not a turnkey formula for the relevant half-line or fold; the matching indexed theorem, in contrast, directly gives the claimed implication in both directions, with the same reentrance.",
+        "searches": [
+          "Došlá Theorem 1 and continuity assumptions in Theorems 2–3",
+          "Resultary November 2 Finding and shoulder analysis"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The November 2 record's e^(-delta)(delta^2-2+delta sqrt(delta^2-4))/2 equals C(d) after delta=d; r there is m here. The same criterion delta>2 and r above threshold, equality shoulder, and reentrant sequence are stated."
+        ],
+        "reasoning": "Squaring d+sqrt(d^2-4) gives twice the polynomial-plus-radical expression. The two quantities are the same dimensionless volume ratio and delay, with the same assumptions, not coincidentally the same formula for different kernels.",
+        "searches": [
+          "Resultary: delayed two-pulse three-reservoir Nash hydrograph with reentrant two strict maxima and unequal impulse volumes",
+          "Resultary ...a80781afe4f8 Finding and phase-diagram proof"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matching indexed phase diagram supplies an exact analytic threshold on the full parameter domain; the explicit Gamma cases in the primary paper do not tabulate this shifted pair."
+        ],
+        "reasoning": "An exact formula in another indexed result already describes every point of this continuum diagram. No statistical event table or numerical benchmark could substitute for that coverage.",
+        "searches": [
+          "Resultary matching closed-form phase diagram ...a80781afe4f8 and earlier Bateman ...2eb46436a2c9",
+          "Došlá §3.5, explicit Gamma cases"
+        ]
+      },
+      "rationale": "A distinct indexed finding exactly covers the strict peak-count criterion, its fold equality, and the reentrant sequence in the same shifted Erlang-3 model. The matching record is dated November 2, later than the frozen record. This is a finding of exact overlapping content in the comparison corpus, not a finding that the frozen record lacked historical priority or was derived from that record. No distinct residual theorem remains here. The older sources inspected do not by themselves establish that exact coverage.",
+      "residual_risks": [
+        "Independent provenance and priority of the exact repeat are unresolved.",
+        "Muneepeerakul et al. (2010), Gioia (2016) and the Yang et al. (2015) citation in the matching result were not checked at full-text level; inaccessible material is not the basis of this failure."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact equivalent coverage, dates not used to infer priority",
+          "evidence": "Same r threshold, strict fold condition and two–one–two regime.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-reentrant-double-peaks-in-a-two-pulse-three-reservoir-hydrograph--a80781afe4f8/RESULT.md",
+          "material_read": "Finding, boundary-equality treatment and reentrance, offsets 0–4946 and 4946–8721",
+          "method": "Mirrored RESULT.md, statement/proof comparison",
+          "title": "Reentrant double peaks in a two-pulse three-reservoir hydrograph",
+          "trigger": "Exact same kernel, two-pulse setting and reentrant regime"
+        },
+        {
+          "assessment": "Structural analogue only",
+          "evidence": "Two-rate absorption/elimination, different equal-rate degree and threshold.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-a-sharp-reentrant-two-peak-window-for-delayed-unequal-bateman-in--2eb46436a2c9/RESULT.md",
+          "material_read": "Finding at offset 0 and kernel definition",
+          "method": "Mirrored RESULT.md, compare normalized response",
+          "title": "A sharp reentrant two-peak window for delayed unequal Bateman inputs",
+          "trigger": "Earlier reentrant two-peak delayed-impulse result"
+        },
+        {
+          "assessment": "Related criterion; inspected explicit cases are not translates with common rate and shape",
+          "evidence": "Ratio |f1'/f2'|; Gamma propositions change shape/rate on common support.",
+          "identifier_or_url": "https://www.dml.cz/bitstream/handle/10338.dmlcz/140075/Kybernetika_45-2009-2_6.pdf",
+          "material_read": "Theorems 1–3, pp. 280–283; §3.5 Gamma propositions, pp. 288–290",
+          "method": "Primary OA PDF passages on definitions and hypotheses",
+          "title": "Conditions for Bimodality and Multimodality of a Mixture of Two Unimodal Densities in Some Special Cases",
+          "trigger": "General two-component modality and explicit Gamma cases"
+        },
+        {
+          "assessment": "Inspected treatment has a different rainfall input and peak question",
+          "evidence": "Constant-duration rainfall and peak discharge, not strict local-mode count for two delayed impulses.",
+          "identifier_or_url": "https://hess.copernicus.org/articles/22/943/2018/hess-22-943-2018.pdf",
+          "material_read": "Introduction, gamma-IUH discussion near offset 19188, and results near offset 39512",
+          "method": "Primary OA PDF bounded passages",
+          "title": "A dimensionless approach for the runoff peak assessment: effects of the rainfall event structure",
+          "trigger": "Dimensionless gamma response and peak analysis"
+        },
+        {
+          "assessment": "Scope unresolved beyond contextual information; not negative evidence",
+          "evidence": "No full-text disposition is inferred.",
+          "identifier_or_url": "https://doi.org/10.1029/2010WR009286",
+          "material_read": "Landing/abstract-level material only; full text not obtained",
+          "method": "Attempted lawful access; bounded availability",
+          "title": "Daily streamflow analysis based on a two-scaled gamma pulse model",
+          "trigger": "Overlapping gamma pulses in streamflow"
+        },
+        {
+          "assessment": "Not used to exclude coverage",
+          "evidence": "No full-text disposition is inferred.",
+          "identifier_or_url": "https://doi.org/10.3390/w8120553",
+          "material_read": "Landing/abstract-level material only; full text not obtained in the comparison",
+          "method": "Attempted lawful access; bounded availability",
+          "title": "Reservoir Routing on Double-Peak Design Flood",
+          "trigger": "Double-peak reservoir-routing study"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen reentrant classification and boundary analysis; inspected exact indexed phase diagram"
+      ],
+      "rationale": "As a mathematical statement this is an informative, complete boundary for a natural impulse model. In particular, the nonmonotone threshold shows that more separation can remove a second strict peak before restoring it. This is not a sample observation or a routine single-parameter evaluation. It does not, however, provide an increment over the distinct indexed result covering the same diagram, so no repair to a new claim is justified.",
+      "residual_risks": [
+        "No practical two-flood detectability or management conclusion follows."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

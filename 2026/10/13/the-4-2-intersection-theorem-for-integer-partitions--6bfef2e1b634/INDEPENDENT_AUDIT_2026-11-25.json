@@ -1,0 +1,93 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T18:46:20.733926Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Two fixed parts of sum s leave floor((n-s)/2) unordered completions when n-s>=2. For n>=30 the largest size exceeds 13, and sums 2 and (only at odd n) 3 are the sole maximal centers. The canonical occurrence labels encode multiset intersections, and a triple of labels can occur in at most one partition because it forces the remaining part. Thus distinct compatible partitions meet in exactly two labels. For a nontrivial family choose such a pair with common labels I and disjoint remainders A,B of size two, and a third member not containing I. Members containing I must pick at least one external label from this third member (at most four triple completions); members containing one label of I must pick one each from A and B (at most eight); those avoiding I must equal A union B (at most one). This proves the uniform cap and forces full stars at n>=30. I inspected both supplied graph searches and outputs, without running the uploaded code. The independent interval-cut/submultiset implementation /workspace/branches/partition_fixed_check.py was actually run: target clique exists and target+1 does not for each n=4..29, using only induced minimum-degree pruning and exhaustive include/exclude branching. It reproduced all 26 exact maxima, including 4 on the six vertices at n=9. The bounded run does not certify other k,t or classify small-order extremizers.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Borg proves star optimality at n<=2k-t+1 and n>=3tk^5, i.e. n<=7 and n>=6144 for these parameters. The theorem's uniqueness clause needs k>=t+3, and Remark 1.9 already gives the tied odd-order center. Person–Schweser's sufficiently-large-k regime does not establish a result for k=4; their counterexample hypothesis t<=ceil(k/4) also fails here."
+        ],
+        "reasoning": "The substantial earlier general coverage is credited, but leaves the intermediate fixed-four-part orders and does not state the asserted maximizing-family classification.",
+        "searches": [
+          "Borg, Proposition 1.7, Theorem 1.8, Remark 1.9, Lemma 3.1",
+          "Person–Schweser, arXiv:2610.01747v2, Theorems 1.1–1.2"
+        ]
+      },
+      "checked_sources": [
+        "Borg, AJC 66 (2016), 265–275 / arXiv:1304.6563",
+        "Person–Schweser, arXiv:2610.01747v2",
+        "Resultary/SCOPE local catalogue",
+        "Frozen RESULT.md and verification package"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The nontrivial-family method and odd-order tie are prior; combining a specialized 13 cap with the star count already explains n>=30. A cap of 13 cannot settle smaller orders with smaller stars, nor prove the upper bound of four at n=9."
+        ],
+        "reasoning": "The distinct assertion is not a renaming of the bound or witness; it closes the remaining orders.",
+        "searches": [
+          "Borg, Lemma 3.1 and Remark 1.9 (comparison to nontrivial cap and largest-star centers)",
+          "Borg, Conjecture 1.6 and Remark 1.5 (exception and exact bound comparison)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Borg counts shared parts with multiplicity, as in the occurrence-label realization; his exceptional (n,k)=(t+7,t+2) is precisely (9,4). No distinct equivalent fixed-parameter finding surfaced in the local catalogue search."
+        ],
+        "reasoning": "This is the same partition problem and not a transfer from ordinary 4-subsets: the fixed total forces unique triple completion. A conjectural assertion and an exceptional witness are not an exact all-order proof.",
+        "searches": [
+          "Borg, Intersecting integer partitions, arXiv:1304.6563 / AJC 66 (2016), Remark 1.5 and Conjecture 1.6",
+          "Resultary/SCOPE semantic search for two-intersecting four-part integer partitions and the exact fixed-parameter bound"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The source comparison located the n=9 four-family and low-order bound, not an exact census of the required intermediate orders. No directly matching indexed table surfaced."
+        ],
+        "reasoning": "A general partition-number table counts the ambient vertices, not the maximum compatible subfamily. The examined n=9 witness is a lower bound, not a table of maxima.",
+        "searches": [
+          "Resultary/SCOPE exact maximum-clique or M_{4,2}(n) tables for 2-intersecting four-part partitions",
+          "Borg, Remark 1.5 and Proposition 1.7; Person–Schweser, arXiv:2610.01747v2, main theorem statements"
+        ]
+      },
+      "rationale": "Credit the prior n=9 lower-bound example, small-order theorem, eventual optimality, tied odd-order star, and general nontrivial-family bound. The supported increment is the exact all-order fixed-(4,2) solution and explicit large-order classification, in particular the finite gap not decided by those results. No distinct indexed or published source inspected closes that gap.",
+      "residual_risks": [
+        "A bounded literature and catalogue search cannot rule out an unindexed exact classification or privately circulated table."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material partial coverage, not the all-order solution",
+          "evidence": [
+            "Remark 1.5 yields the exact frozen n=9 witness at t=2; Remark 1.9 treats the odd tie in the k=t+2 case; Lemma 3.1 supplies general nontrivial bounds."
+          ],
+          "identifier_or_url": "https://ajc.maths.uq.edu.au/download/66/ajc_v66_p265.pdf",
+          "material_read": "Journal pp. 267–268, Remark 1.5 through Remark 1.9; Lemma 3.1, p. 271",
+          "method": "Bounded primary OA PDF passages",
+          "title": "Intersecting integer partitions",
+          "trigger": "Identical multiset problem, prior n=9 exception and broader theorems"
+        },
+        {
+          "assessment": "Related asymptotic regime, not fixed-four-part coverage",
+          "evidence": [
+            "The star result has a sufficiently-large-k hypothesis; counterexamples require t<=ceil(k/4)."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.01747v2",
+          "material_read": "p. 2, Theorems 1.1–1.2 (passage at extraction offset 7575)",
+          "method": "Bounded primary OA PDF passages",
+          "title": "Intersecting integer partitions: star bounds and counterexamples at every scale",
+          "trigger": "Likely stronger recent bounds and counterexamples"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This resolves a natural fixed-parameter case of a concrete prior conjecture, separating the actual exceptional maximum from merely a counterexample and connecting exhaustive small orders to an explicit finite structural cutoff. It is not a sampled list of arbitrary partition numbers.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,23 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The cube distance formula is exact: for the direction-\(j\) edge \(e=(x,x\oplus2^j)\), with bit \(j\) of \(x\) zero, the distance to \(s\) is the number of coordinates other than \(j\) where \(s\) and \(x\) differ. An exhaustive scan of all \((d-1)\)- and \(d\)-element vertex sets for each \(d=2,3,4,5\) proves the sharp minima and exhaustively identifies every optimum. Two independent embedded checkers use separate techniques (Hamming signature-separation masks versus graph-BFS distance vectors) and agree on all four counts and on the exact geometric families, not just their cardinalities. The lower-size exclusion propagates to all smaller sets because adding landmarks cannot destroy either property. For \(Q_4\) and \(Q_5\), smaller edge-resolving-only cardinalities are checked separately.
+PASS
 
-## Originality — PASS (provisional)
+For each edge I computed the minimum of two Hamming distances, packed the resulting distance signatures without collisions, and separately unioned the covered edges. The exact replay checks all required cardinalities against lower counts (resolving, covering, joint) (0,4,0), (0,16,0), (64,112,0), (1280,80,0) at d−1 and finds (4,32,176,160) joint sets at d. Monotonicity excludes all smaller subsets. The checks at d−2 establish ordinary minima 3 and 4 in dimensions 4 and 5. Full translation/coordinate-permutation orbits of the representative shapes give set equality, with sizes 4; 8 and 24; 16, 64 and 96; and 160. The repaired claim compares minimum cardinalities, not the possibility of augmenting every ordinary basis. Indeed, in Q5 only 160 of 1280 ordinary 4-bases are single deletions from an optimal joint set; {0,3,5,14} in binary-integer notation is a checked nonextendible ordinary basis. The complete replacement RESULT.md is under /workspace/repairs/5/. Replay: python3 /workspace/checks/5.py. No higher-dimensional conclusion follows from these tests.
 
-The 2022 introduction of the vertex-edge dominant edge-metric dimension treats paths, cycles, standard complete graphs and certain two-factor Cartesian products but not these cubes. The 2021 hypercube edge-metric paper determines distance-identification properties without requiring vertex-edge domination; its scalar results do not imply the intersections classified here. A distinct 2023 *dominant edge metric dimension* uses vertex cover, a strictly stronger condition: previously recorded results for that invariant on hypercubes do not yield the smaller vertex-edge-dominating optimum or its optimizer geometry. Searches for names, cube aliases, counts, antipodal constructions and stronger variants yielded no covering statement. Risks include unindexed exact enumerations and literature not fully retrievable; no claim of exhaustive priority or independent validation is made.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The first two binary cubes where joint vertex-edge coverage is provably more expensive than edge identification exhibit a sharp one-landmark premium. All optimum sensor placements are classified, including three distinct geometry classes in dimension four and a single rigid antipode-plus-neighbors class in dimension five. This is an exact natural benchmark for a published composite network-identification parameter on successive Cartesian powers, not a merely renamed or arbitrary subset enumeration.
+Pass is for the repaired, credited scope. The joint minimum sizes in Q2 and Q3 follow exactly from earlier product theorems, and the whole labelled Q2 row from the earlier complete-prism classification. These are now attributed rather than offered as new. The inspected statements do not cover the joint minima or the complete geometric optima in Q4 and Q5. The Q3 classification is retained as a supplementary complete census; ordinary edge dimensions and unrelated measures are not the basis for originality.
 
-## Closest literature and limits
+## value
 
-- H. M. Ikhlaq, S. Hayat, H. M. A. Siddiqui, *Unique identification and domination of edges in a graph: The vertex-edge dominant edge metric dimension*, arXiv:2211.09327, 2022.
-- A. Kelenc et al., *On Metric Dimensions of Hypercubes*, arXiv:2102.10916, 2021.
-- M. Tavakoli et al., *The dominant edge metric dimension of graphs*, DOI:10.5614/ejgta.2023.11.1.16, 2023; a different, vertex-cover-based parameter.
+PASS
 
-Only \(2\le d\le5\) is proved; no general formula for higher cubes or exhaustive priority certification follows.
+Q4 and Q5 are successive standard cubes where adding a local coverage constraint provably changes the optimal size relative to pure edge identification. The complete basis geometry identifies exact placements, not merely a cheap extra case of a scalar table: three distinct four-dimensional orbits collapse to one rigid five-dimensional shape. This is a natural benchmark for the published joint parameter and for studying when and how an identification set can meet a local coverage constraint. It does not rest on the known Q2/Q3 minima or on a claim of arbitrary augmentation.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

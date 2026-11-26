@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T14:16:42.792626Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–46, triple_spectrum.csv and joint_spectrum.csv; VERIFICATION.md, verify_tables.py and witness.py",
+        "Independent enumeration and witness details: independent-check.md in the private calculation results"
+      ],
+      "rationale": "A unique rotation moves the omitted output to zero and no nonidentity rotation fixes it. One doubled output, its pair of preimages, and a bijection on the other six inputs specify a normalized map, yielding 7·28·6!=141120. A word is exactly a directed path of pointwise images in the 255 nonempty subsets. Reverse unit-cost BFS from all singletons therefore returns each exact shortest merging length or marks it unreachable. An unreachable triple gives T₃=∞, and if all triples merge then all pairs do by extension; repeatedly merging a pair of current image states resets the full automaton. Independently enumerating every normalized map and all 56 triples, using direct inverse-fibre predecessors and inverse rotation rather than running submitted code, reproduced all 23 nonzero finite bins, 1856 unmergeable classes, 139264 synchronizing classes and all 205 joint histogram cells. The unique finite maximum is 37 at (1,1,2,3,4,5,6,7), with hardest triple {1,4,6} and word a^4(ba^7)^4b. Two maps attain 33 and one attains 31; all other finite values above 33 except 37 are absent. The two stated maps with reset length 28 have T₃=12 and T₃=24, also checked with forward shortest-word witnesses. Both marginal and joint assertions refer to the complete fixed-family census, not an all-order extrapolation.",
+      "residual_risks": [
+        "Normalizing by arbitrary permutations or exchanging the two letters would be a different census. Unmergeable classes are not included in the finite joint histogram."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Behague–Johnson defines the general k-set problems. The exact circular-gap theorem applies to b(0)=1 with all other states fixed, for all n and every subset. Setting n=8 and enumerating its 56 triples recovers the known Černý maximum."
+        ],
+        "reasoning": "A result broader in n or subset size for the particular Černý companion does not cover the arbitrary rank-seven companion within the frozen eight-state problem. A general bound on the invariant need not give its frequency distribution.",
+        "searches": [
+          "Behague–Johnson PDF Questions 2–3; Zhang triple rendezvous, Zenodo 22663347; exact Černý circular-gap formula"
+        ]
+      },
+      "checked_sources": [
+        "Two exact earlier Resultary records; indexed rank-six reset comparison",
+        "Behague–Johnson arXiv:2008.12166 Questions 2–3",
+        "Zhang exact Zenodo citation and attempted supplement lookup"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The three old reset leaders at 43, 44, 49 happen to be the two 33 classes and the 37 class here, but the old ordering by R does not decide who leads by T₃. The subset gap result verifies a single column of per-map data, not an extremal inequality over all b."
+        ],
+        "reasoning": "The statement requires extra shortest-distance information on arbitrary initial triples, not just a relabeling or recombination of outputs from the prior forward search at Q. The known example is credited but its global uniqueness and frequencies require the new comparison.",
+        "searches": [
+          "Exact reset RESULT.md Finding and §2; exact gap-formula RESULT.md Finding and hypotheses; frozen same-reset comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For synchronizing automata, Behague–Johnson's M(k,Ω) is the same per-automaton worst prescribed-set statistic; in nonsynchronizing automata their displayed maximum excludes unmergeable sets whereas this record counts them as infinite. The best/selected triple statistic is the minimum instead."
+        ],
+        "reasoning": "Equivalent power-automaton form and names were checked, without conflating either an extremum across all synchronizing automata or the fastest selected triple with a histogram across the specified family.",
+        "searches": [
+          "Resultary prescribed-triple spectrum and circular-gap Černý subset times; Behague–Johnson arXiv:2008.12166 Questions 2–3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact rank-seven reset record's table is the full-reset marginal, including the same domain and 1856 unmergeable cases. Its §2 uses forward BFS starting from Q; the results concern the distance from Q, not individual prescribed triples. The other catalogue hit concerns rank six and reset times."
+        ],
+        "reasoning": "Same states and same non-synchronization count do not imply an equivalent exact table. The two reset thresholds of 28 with different T₃ provide a direct obstruction to determining the joint cells from the old marginal.",
+        "searches": [
+          "Resultary exact reset-threshold spectra for eight-state circular defect-one and rank-six automata; prescribed subset census under the fixed cycle"
+        ]
+      },
+      "rationale": "The invariant, normalization of this family, unreachable count, and the individual Černý distance of 37 have antecedents. The new claim supported here is the complete worst-triple and joint distribution, including unique finite extremality over all rank-seven companions and the gap to the runner-up. The exact earlier census computes only the full-state reset quantity, which does not even determine T₃ on an individual map; the exact earlier subset formula applies to a single companion per n. No inspected stronger result already yields the stated census. The inaccessible Zhang supplement is a named limitation, not negative evidence.",
+      "residual_risks": [
+        "The Zhang supplement was not inspected, and other unindexed tables could overlap. The assessment does not infer priority from catalogue dates, a keyword miss, or the correctness of the computation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers full-reset spectrum and synchronization split, not the stated prescribed-triple histogram",
+          "evidence": [
+            "Reset BFS begins at Q; rare map tuples 12345671, 22345671, 11234567 have reset distances 43, 44, 49"
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-complete-reset-threshold-spectrum-for-eight-state-circular-defec--d2476f0a726f",
+          "material_read": "RESULT.md Finding and assumptions, proof §§1–2 and opening §3, offsets 0–5417",
+          "method": "Resultary and exact local mirror",
+          "title": "Complete reset-threshold spectrum for eight-state circular defect-one automata",
+          "trigger": "Identical family, normalization and a prior complete numerical census"
+        },
+        {
+          "assessment": "Covers each subset's distance for the classical Černý automaton; not a family census",
+          "evidence": [
+            "Theorem t(S)=min_x[r(x)+n(n−g_S(x)−1)+1] with b fixing each state other than 0"
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-an-exact-circular-gap-formula-for-every-ern-subset-rendezvous-ti--660b6553bb5e",
+          "material_read": "RESULT.md Finding, assumptions, and proof start, offsets 0–2691",
+          "method": "Resultary and exact local mirror",
+          "title": "An exact circular-gap formula for every Černý subset rendezvous time",
+          "trigger": "Exact prescribed-set distances including the frozen extremizing representative"
+        },
+        {
+          "assessment": "Same general notion for synchronizing automata, different questions and output from the exact fixed-family table",
+          "evidence": [
+            "rdv and RDV are global maxima over synchronizing automata of min and max per-automaton weights, respectively"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2008.12166",
+          "material_read": "PDF Questions 2–3 and displayed m(k,Ω), M(k,Ω) definitions, offsets 8580–11710",
+          "method": "OA PDF",
+          "title": "Synchronizing Times for k-sets in Automata",
+          "trigger": "Potential equivalent general worst-subset formulation"
+        },
+        {
+          "assessment": "Frozen comparison describes the best-triple invariant; supplemental coverage remains unresolved",
+          "evidence": [
+            "The frozen work itself records an inaccessible supplement; no statement about its full contents is asserted"
+          ],
+          "identifier_or_url": "https://zenodo.org/records/22663347",
+          "material_read": "Citation and scope comparison in frozen RESULT.md lines 65–79; source/supplement not obtained",
+          "method": "Exact-source OA retrieval attempt and frozen reference comparison",
+          "title": "The triple rendezvous time of a synchronizing automaton can be floor(4n/3)",
+          "trigger": "Recent triple-time work and a potentially overlapping supplement"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and same-reset examples",
+        "Exact earlier full-reset comparator",
+        "Independent triple and joint reproductions"
+      ],
+      "rationale": "This is a natural exact comparison of prescribed-subset and full synchronization for the complete fixed-order circular defect-one family, already a meaningful full-reset benchmark. Worst prescribed triples measure a different hitting problem than the known reset thresholds, with a witnessed separation even at identical reset length. The complete distribution and isolated extremum give checkable boundaries for future work on extremal triple times, not just another run confirming the known distance for a single automaton.",
+      "residual_risks": [
+        "No asymptotic result or general rank-seven extremal principle is inferred from the eight-state cutoff."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

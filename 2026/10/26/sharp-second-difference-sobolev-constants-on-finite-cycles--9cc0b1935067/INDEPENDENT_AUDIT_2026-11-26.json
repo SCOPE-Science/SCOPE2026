@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:56:57.737965Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With the cyclic shift unitary, (D²)*D²=(D*D)², and constants are its entire kernel. I independently checked the quartic Green kernel by symbolic finite differences (using reflection at the cyclic wrap-around), checked its zero sum, and summed the quadratic form of a consecutive block at arbitrary cardinality. Hilbert duality gives the real squared constant as max σᵀGσ over signs, or 4 times the maximum indicator energy. The kernel strictly decreases on 0,…,floor(N/2). Its positive layer decomposition uses cycle powers with radii less than floor(N/2); at fixed cardinality Vasilev's Theorem 1 supplies a single consecutive set that maximizes each layer, with the radius-zero count and constant term fixed. The block polynomial is strictly increasing in m(N−m), hence a balanced block attains it, and Gσ attains the primal inequality by its saturated dual pairing. The complex spectral-gap estimate is sharp by constant-modulus first characters. A real equality vector must have constant nonzero modulus, so odd N is impossible; for even N the first-mode eigenvector equation for its signs forces cos(2π/N)∈{−1,0,1}, which leaves only N=4, attained by (1,1,−1,−1). The squared leading terms N⁵/1920 and N⁵/(16π⁴) give the stated ratio. Replay symbolic identities with python /workspace/branches/math_checks.py 4. The frozen verification/check_cycles.py was inspected, not run; its bounded sign enumeration is not the all-N proof. The result uses counting measure and does not classify every real equality vector.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general finite-support theorem has squared constant binomial(d+4,5)/6 at order two, but has different boundary data and Green operator.",
+          "Vasilev proves fixed-cardinality consecutive-set optimality for the unweighted graph power.",
+          "Izmestiev gives the sharp spectral gap and equality for the first difference."
+        ],
+        "reasoning": "The spectral gap covers the complex part; the unweighted edge theorem covers rearrangement. Neither evaluates the weighted real optimum after summation over all radii and choice of cardinality. The broader higher-order zero-extension theorem does not cover the periodic case.",
+        "searches": [
+          "arXiv:2610.19010v1, Theorem 1 for general difference order",
+          "arXiv:2601.06912v1, Theorem 1 for powers of cycles",
+          "arXiv:1502.03186v1, Theorem 1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1502.03186v1",
+        "arXiv:2610.19010v1",
+        "arXiv:2601.06912v1",
+        "Resultary 35ccd6202b47",
+        "Resultary 4f9f6623172c",
+        "Resultary 0895e76c2bac",
+        "Resultary 2ae2216dfd20"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The spectral gap plus an attaining first Fourier character gives the complex formula by Cauchy–Schwarz. Equivalently the first-difference complex formula gains one inverse gap factor.",
+          "A corresponding real first-order bound times the inverse gap need not be sharp: the real sharp second-order problem requires maximizing the quadratic form of a different Green operator.",
+          "Vasilev gives close-pair comparison, which does not supply the radial kernel or its exact block energy."
+        ],
+        "reasoning": "Credit the complex formula as covered and the real rearrangement step as imported. The exact balanced-block energy and scalar-field gap are the additional conclusions.",
+        "searches": [
+          "arXiv:1502.03186v1, Theorem 1 and equality",
+          "arXiv:2601.06912v1, Theorem 1 and proof",
+          "Resultary 4f9f6623172c, first-difference constants"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In the real case the squared constant is a quadratic maximum over signs for the Moore–Penrose inverse of the cycle Laplacian squared.",
+          "Hindov–Nitzan–Olsen–Rydhe's Theorem 1 fixes a finite support and differences the zero extension; it does not use the periodic zero-mean operator.",
+          "Resultary 0895e76c2bac has second differences but zero extension and an ℓ∞ denominator."
+        ],
+        "reasoning": "Neither zero extension nor the change of denominator is an equivalent normalization of the claimed inverse norm.",
+        "searches": [
+          "Resultary: exact mean-zero periodic cyclic second-difference real ℓ¹–ℓ² Sobolev constant",
+          "Resultary: cyclic bi-Laplacian Green kernel and balanced sign maximization",
+          "arXiv:2610.19010v1, Theorem 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 35ccd6202b47 and 4f9f6623172c give sharp first-difference real/complex constants; 4f9f6623172c gives real squared constant h(h+2)/(3N).",
+          "Resultary 0895e76c2bac and 2ae2216dfd20 have respectively zero-extended data and analytic polynomials with a forced hole, not the full cyclic mean-zero problem."
+        ],
+        "reasoning": "No retrieved exact formula covers the real second-order periodic constant. Same-day records were compared by mathematical scope; bounded ranked search is not an absence certificate.",
+        "searches": [
+          "Resultary: sharp second-difference Sobolev constants on finite cycles",
+          "Resultary: exact cyclic biharmonic second-difference inequality and inverse kernel"
+        ]
+      },
+      "rationale": "The distinct contribution supported here is the exact real cyclic second-difference constant and balanced-block optimizer, with the resulting real–complex comparison. The complex constant alone is an immediate sharp spectral-gap consequence; the cycle-power rearrangement is Vasilev's existing theorem and is not credited as new. No inspected exact statement or dominating theorem supplies the real second-order constant as a stated or routine special case.",
+      "residual_risks": [
+        "An older exact real norm in periodic spline, weighted cut or discrete Green-kernel language was not ruled out. The focused web search produced unrelated results and is not evidence of noncoverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Sharp spectral-gap implication covers the complex formula.",
+          "evidence": [
+            "The bound uses 4 sin²(π/N) with equality in the first Fourier eigenspace."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1502.03186v1",
+          "material_read": "Theorem 1, p. 1",
+          "method": "OA original PDF passage",
+          "title": "A general discrete Wirtinger inequality and spectra of discrete Laplacians",
+          "trigger": "Sharp cycle spectral inequalities"
+        },
+        {
+          "assessment": "Different difference domain and extremizer.",
+          "evidence": [
+            "It uses d supported input coefficients, d+α difference values and equality via sampled discrete Landau polynomials."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.19010v1",
+          "material_read": "Theorem 1, p. 2",
+          "method": "OA original PDF passage",
+          "title": "A sharp discrete Sobolev inequality and left inverses of higher order differences",
+          "trigger": "Exact sharp higher differences with ℓ¹ target"
+        },
+        {
+          "assessment": "Directly proves the unweighted cardinality premise, not the sharp biharmonic norm.",
+          "evidence": [
+            "A prescribed-size set inducing the most edges in a cycle power can be chosen consecutive."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2601.06912v1",
+          "material_read": "Theorem 1, p. 1; proof passage pp. 5–6",
+          "method": "OA original PDF passages",
+          "title": "The edge-isoperimetric inequality for powers of cycles",
+          "trigger": "Decisive real rearrangement and possible covering result"
+        },
+        {
+          "assessment": "First differences, not second differences.",
+          "evidence": [
+            "The formula uses real square h(h+2)/(3N) and complex constant √N/[2 sin(π/N)]."
+          ],
+          "identifier_or_url": "Resultary 4f9f6623172c",
+          "material_read": "RESULT.md Finding and difference definition",
+          "method": "Local Resultary mirror",
+          "title": "Sharp real and complex periodic ℓ¹ energy embeddings on finite cycles",
+          "trigger": "Same-day close match in norms and domain"
+        },
+        {
+          "assessment": "Also first differences.",
+          "evidence": [
+            "The sharp comparison uses first-difference energy."
+          ],
+          "identifier_or_url": "Resultary 35ccd6202b47",
+          "material_read": "RESULT.md Finding",
+          "method": "Local Resultary mirror",
+          "title": "A sharp real–complex cyclic Fourier–Sobolev dichotomy",
+          "trigger": "Same real–complex cycle contrast"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The real sharp constant is a natural second-order periodic Sobolev endpoint rather than an isolated size calculation. The exact all-size norm, attaining real family and finite-size scalar-field separation capture behavior that a Poincaré estimate alone cannot give. In particular the real optimization remains meaningful after crediting the already implied complex formula and the existing combinatorial theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

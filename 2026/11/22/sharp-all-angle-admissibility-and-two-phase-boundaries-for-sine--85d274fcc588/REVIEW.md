@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness (C): PASS
+## correctness
 
-The exact mixed derivative and four margins were reconstructed. At fixed argument \(t\), the admissible product pair is constrained by AM-GM; both signs of the extremizing derivative factor are attainable. Consequently the one-variable maximization is an exact necessary-and-sufficient condition, not a grid search. The infimum defining \(\beta_c\), the independent quadrant transition, and the large-angle asymptotic have analytic proofs. The standalone checker passes symbolic and numerical diagnostics; these diagnostics are not themselves the infinite proof.
+PASS
 
-## Originality (O): PASS, with limits
+At exponent one the four copula boundary conditions are automatic. The mixed derivative is 1+αβ(1−2u)(1−2v)h(t), where t=βu(1−u)v(1−v). Its continuity makes pointwise nonnegativity equivalent to 2-increasingness, including at a corner by approaching from the interior. At fixed ab=t/β with a=u(1−u), b=v(1−v), maximizing (1−4a)(1−4b) is equivalent to minimizing a+b, so a=b=√(t/β) attains the bound. Reflections across 1/2 give both signs, except when the product is zero and the sign does not matter. This proves the exact admissibility envelope, including Q≥1 from t=0. An envelope contribution exceeds 1 iff |h(t)|>1 and β exceeds the stated scalar objective, which itself exceeds 16t and therefore implies t<β/16. By Cauchy–Schwarz, |h(t)|≤√(1+t²); hence the objective is strictly larger than 16(t+2+1/t). This proves blow-up at both t→0 and t→∞. At each positive finite boundary of the eligible set the denominator |h|−1 tends to zero, giving compact sublevels and attainment. Alternating Taylor bounds at 2 give |h(2)|≥2 times the sine lower truncation at degree 7 minus the cosine upper truncation at degree 8, giving a rational upper bound for the candidate B(2) less than 105.051. Therefore 64<β_c<106 rigorously; an independent diagnostic scan and local minimizations agree with the approximate 103.92133496324 without certifying its digits. The sign of α sin t changes exactly when β/16>π for nonzero α. Finally t(1−4√(t/β)) has maximum β/108 at t=β/36; |h|≤1+t gives the upper bound and sampling within π/2 of that maximum at points with |sin t|=1 loses only O(β⁻¹) from the leading term. This proves the claimed sharp amplitude equivalent 108/β².
 
-Chesneau (2023), Proposition 1, established the construction and a sufficient beta-angle restriction; Section 4.2 states that its parameter bounds are not guaranteed optimal. The new theorem gives the full exponent-one admissibility frontier and distinct structural transitions. The 2021 multivariate sine constructions use different separable and sum-based perturbations. Related published research claims about polynomial/FGM and sine copulas were compared by their underlying formulas rather than titles. A 2022 angle-parameter article was accessible only in abstract form, and historical priority is not independently certified.
+## originality
 
-## Value (V): PASS
+PASS
 
-For a copula intended to model oscillatory dependence, an exact parameter domain and the location of quadrant-order loss are structural modeling questions. The original sufficient amplitude at shape one is sharpened by the factor \(1+\beta^2/256\) over its entire stated angle range; the new criterion also resolves arbitrarily large angles and the sharp \(108/\beta^2\) decay. The two separate boundary mechanisms illuminate why validity persists after sign-definite quadrant dependence is lost.
+The sine-FGM construction and quadrant dependence under restricted old admissible parameters are established. The strongest matched prior contains only sufficient bounds at exponent one (β≤8π and |α|≤1/[β(1+β²/256)]); it does not establish the new sharp envelope in that range or beyond. The sine-sign cutoff is a direct consequence of the known formula, not an independently deep novelty claim; it becomes a boundary of the full valid family only after the sharp all-angle validity calculation. The distinct contribution is the full envelope, its first departure, and its large-angle behavior, with the two phase boundaries identified together.
 
-## Literature and limitations
+## value
 
-Primary source: C. Chesneau, *A Collection of New Trigonometric- and Hyperbolic-FGM-Type Copulas* (2023), https://doi.org/10.3390/appliedmath3010010 . Related source inspected in full: C. Chesneau, *On New Types of Multivariate Trigonometric Copulas* (2021), https://doi.org/10.3390/appliedmath1010002 . Related source available only at abstract level: C. Chesneau, *Theoretical Study of Some Angle Parameter Trigonometric Copulas* (2022), https://doi.org/10.3390/modelling3010010 . The exact scalar threshold is rigorous; the reported decimal remains a numerical approximation. The result is restricted to exponent one. Other unlocated priority claims remain possible.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A known widely parameterized copula construction had a conservative sufficient region. The sharp necessary-and-sufficient test identifies both the onset of stricter amplitude requirements and the earlier loss of quadrant dependence while valid copulas still exist. Its 108/β² asymptotic quantifies the full high-angle shrinkage. The contribution does not rest on the elementary sine sign observation in isolation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

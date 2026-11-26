@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:14:31.620696Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 4–64",
+        "VERIFICATION.md and verify_hypercube_edge.py (inspected, not executed)",
+        "Independent Walsh parity swap and d=3 two-dimensional secular check"
+      ],
+      "rationale": "At Walsh level k the squared mass of e_u-e_v is 4/2^d times the number of k-subsets meeting the differing coordinates oddly. For each interior k, take k-1 coordinates avoiding a fixed differing coordinate and a fixed agreeing coordinate, then append either of those two: the parity flips, so the mass is positive. Level zero is inactive and level d is active exactly for odd r. Decompose into the span of the nonzero level projections and the orthogonal remainders of the old eigenspaces. The former has one simple updated root between each pair of active levels and one above the last by secular monotonicity; none lies at an active pole. The interior remainders have dimension binom(d,k)-1>0. For odd r this gives d retained values and d disjoint new values. For even r only the inactive top level can coincide with a new root (zero cannot); substituting 2d into the secular equation gives one strictly positive weight, at which precisely one pair coalesces. For r=2, integrating (1+x)^(d-2) from zero to one gives the claimed reciprocal weight. For instance d=3 and r=2 give active masses 1,1, and their two updated unshifted levels at t=4/3 are 8/3 and 6, the latter colliding with the old top. The identity shift leaves the count unchanged and ensures positive definiteness. The CG conclusion follows from the relative minimal polynomial on a right-hand side with every eigenspace component nonzero: its degree is exactly the distinct count.",
+      "residual_risks": [
+        "No antipodal, negative-weight or multiple-edge claim; no finite-precision runtime, tolerance, or conditioning claim."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Farrell and Xu bound total distinct eigenvalues; they do not give a cube-specific exact census. Corollary 7.5 states existence conditions and the unique exceptional positive edge weight at a specified Laplacian value."
+        ],
+        "reasoning": "The general criterion does cover the unique-weight mechanism once the edge's projections and resolvent sign at a given eigenvalue are known. It is not credited as new. What remains is identifying every active and retained level and all mergers in the non-antipodal family, not substituting a single numerical value in the criterion.",
+        "searches": [
+          "Farrell Theorem 1.3; Xu improved upper bound",
+          "Bueno–Furtado–Pérez Corollary 7.5; So 1999 DOI/publisher entry"
+        ]
+      },
+      "checked_sources": [
+        "Resultary and compared published findings",
+        "Farrell, Xu, Bueno–Furtado–Pérez, and Klee–Stamps primary passages",
+        "So (1999) bibliographic/abstract material only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior exceptional-weight formula is -1/(b^T G_lambda b); the cube evaluates its top-level denominator for even distance as minus the stated positive binomial sum. The general perturbation upper bound permits 2(d+1), not the exact census here."
+        ],
+        "reasoning": "The earlier formula implies uniqueness for the selected admissible top-level collision, but does not by itself identify the alternating Walsh selection rule, prove no interior level is inactive, or evaluate the collision conductance and count all new and surviving roots. This additional structural calculation is what distinguishes the claim. So's accessible material does not decide whether an equivalent cube specialization is already present there.",
+        "searches": [
+          "Bueno–Furtado–Pérez Corollary 7.5 compared with the Walsh projections and secular equation in RESULT.md lines 31–62",
+          "Farrell Theorem 1.3 compared with the proposed count"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same-day six-cycle chord result acts on characteristic-two adjacency states, not the real edge-weighted Laplacian. Klee–Stamps use L+u1^T preserving nonzero eigenvalues."
+        ],
+        "reasoning": "An added edge here is the symmetric perturbation tbb^T with b=e_u-e_v and zero row sums. A rank-one update changing the zero eigenvalue or a finite-field temporal resonance is not equivalent. The relevant alternate formulations are the Walsh/Krawtchouk projection and the associated secular or reduced-resolvent equation.",
+        "searches": [
+          "Resultary search: hypercube shortcut, rank-one Laplacian perturbation, distance and resonance",
+          "Primary-literature query on rank-one graph edge addition and hypercube Laplacian spectrum",
+          "Klee–Stamps, Theorem 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed hit is the assigned work. The distinct same-day chord record treats characteristic-two adjacency recurrence. The earlier dimension-saturated chord-screening record concerns norms and screening thresholds for chords, not the weighted Laplacian count."
+        ],
+        "reasoning": "The needed comparison is an exact classification as both Hamming distance and real conductance vary, not a latent similarity of the graph intervention or an isolated numerical spectrum.",
+        "searches": [
+          "Resultary exact chord comparison: c1bf9e61b409, dd92ed895cc8 and 802f32599c5e"
+        ]
+      },
+      "rationale": "Credit the general exceptional-weight criterion and rank-one Krylov bounds as prior. The supported distinction is the explicit family-wide active-pole and Hamming-parity analysis, global count including the sole collision, and evaluated short-distance conductance. The named inaccessible early paper leaves a priority risk, not a finding of prior coverage or a guarantee of priority.",
+      "residual_risks": [
+        "Wasin So's complete 1999 text was inaccessible on the attempted routes; an exact earlier treatment may be present there or elsewhere.",
+        "Do not ascribe originality to the known general uniqueness criterion or to the general CG/minimal-polynomial connection."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct mathematical antecedent and exact coverage of the uniqueness mechanism",
+          "evidence": "Projection and sign criteria for a fixed Laplacian eigenvalue, with omega=-1/(b^T G_lambda b).",
+          "identifier_or_url": "https://arxiv.org/abs/2610.14310",
+          "material_read": "Corollary 7.5, PDF p. 22, text around offset 63268",
+          "method": "Open primary preprint, bounded passage",
+          "title": "Eigenspaces of Preserved Graph Laplacian Eigenvalues under Positive Edge-Weight Addition",
+          "trigger": "Closest general single-edge exceptional-weight theorem"
+        },
+        {
+          "assessment": "General upper bounds, not exact coverage",
+          "evidence": "Rank-one multiplier of two on the original count for symmetric cases; Xu's defect refinement does not resolve this family.",
+          "identifier_or_url": "arXiv:1508.07633; arXiv:1607.00766",
+          "material_read": "Farrell Theorem 1.3, PDF p. 2 around offset 5209; Xu PDF p. 2 around offset 4092",
+          "method": "Open primary preprints, bounded passages",
+          "title": "The number of distinct eigenvalues of a matrix after perturbation; An improved upper bound for the number of distinct eigenvalues of a matrix after perturbation",
+          "trigger": "General eigenvalue-count and Krylov claims"
+        },
+        {
+          "assessment": "Different matrix update",
+          "evidence": "The update L+u1^T replaces the zero eigenvalue and leaves nonzero eigenvalues unchanged.",
+          "identifier_or_url": "arXiv:2008.01669",
+          "material_read": "Theorem 2, PDF p. 3, text around offset 6520",
+          "method": "Open primary preprint, bounded passage",
+          "title": "Eigenvalues of graph Laplacians via rank-one perturbations",
+          "trigger": "Plausible rank-one Laplacian reformulation"
+        },
+        {
+          "assessment": "Precise cube coverage unresolved",
+          "evidence": "Neither the accessible title and bibliographic data nor the access result says whether the paper treats this family.",
+          "identifier_or_url": "https://doi.org/10.1080/03081089908818613",
+          "material_read": "Bibliographic/abstract material reported in frozen record; full text not obtained",
+          "method": "DOI lookup and lawful publisher route (full text HTTP 403)",
+          "title": "Rank one perturbation and its application to the Laplacian spectrum of a graph",
+          "trigger": "Early direct bibliographic near-match"
+        },
+        {
+          "assessment": "Different field and operator",
+          "evidence": "Characteristic-two state dynamics with a chord, not the real Laplacian or its unique even-distance collision conductance.",
+          "identifier_or_url": "2026/11/22/SCOPE-distance-blind-six-cycle-resonance-from-one-added-hypercube-chor--dd92ed895cc8",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary search and primary mirror",
+          "title": "Distance-blind six-cycle resonance from one added hypercube chord",
+          "trigger": "Distinct same-day hypercube chord and resonance match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md finding and proof",
+        "General rank-one bounds and the single-edge exceptional-weight antecedent"
+      ],
+      "rationale": "The exact support and parity analysis locates an isolated eigenvalue-count defect and specifies where it occurs, showing how almost double the cube's exact Krylov grade emerges from a single added edge. The result distinguishes distances and conductances in a natural family that the general rank-one bound cannot resolve; it is more than a numerical spectrum or a restatement of a general exceptional-weight criterion.",
+      "residual_risks": [
+        "The stated importance is exact spectral and exact-arithmetic behavior, not a prediction of practical CG runtime."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

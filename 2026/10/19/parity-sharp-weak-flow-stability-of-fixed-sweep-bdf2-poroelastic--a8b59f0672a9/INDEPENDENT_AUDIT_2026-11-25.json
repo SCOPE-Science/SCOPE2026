@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:01:32.693853Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Equations (3.6a–d) specialize to the relaxed multiplier -w/(2+w) and an unrelaxed final solve, with w=kappa/(1+epsilon), so the final pressure input uses q=(-w/(2+w))^(K-1). Put A=(1-q)/(1+w), H=(4zeta-1)/(3(1+epsilon)), and v=2zeta-1. The two-by-two final update on a mode has trace H[1+(kappa-w)A]-wqv and determinant -kappa qvH. Its two-step companion characteristic polynomial is thus the stated monic quartic, including on the full four-state space and without dividing by zeta. At zero flow the factorization gives roots 1, 1/3 and the pair from zeta^2+2a_K zeta-a_K. The strict Jury inequalities are exactly -1<a_K<1/3. Outside the closure, a_K<-1 forces modulus greater than one by the root product, and a_K>1/3 makes the quadratic negative at -1, forcing a real root below -1. Exactly P_epsilon(1)=epsilon(1+wq)/(1+epsilon+kappa) and P_0'(1)=2(1+a_K)/3; the simple root moves into the disk with slope -3/[2(1+kappa)]. The other strict inequalities persist by continuity, which also preserves an unstable root in the outer regimes. At K=2,kappa=3/2, a_K=-9/14 yields the stated roots and modulus. The K=2 frontier 2 is a fixed-coupling weak-flow limit; the published sufficient frontier 1 is likewise limiting in this comparison. Equality cases, including the multiple root at a_K=-1 where the simple-root argument does not apply, are not classified. Source checker and recorded 469-check output inspected; the conclusion rests on the recurrence and exact algebra, not running that script.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Altmann–Deiml (4.3) is a sufficient bound 3w^K<(2+w)^(K-1) with the time-dependent scalar w, and §5.1 observes better even-K behavior numerically.",
+          "arXiv:2304.12224 is a first-order one-step iteration; arXiv:2311.14400 uses stabilized higher-order iterations with a tolerance."
+        ],
+        "reasoning": "Sufficiency in a wider system class neither proves instability outside its range nor explains the missing factor of three for even K. The two other iterations do not have the fixed-last-sweep four-state spectral polynomial.",
+        "searches": [
+          "arXiv:2403.12699 (4.3) and §5.1; arXiv:2304.12224 §3.2; arXiv:2311.14400 §3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py and check_output.txt",
+        "arXiv:2403.12699, 2203.16664, 2304.12224 and 2311.14400",
+        "Resultary 02cf39e81b23"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The main paper gives the factor-three bound for all K; its K=2 limiting sufficient frontier is 1. The verified quartic is strictly stable at kappa=3/2 for sufficiently small positive flow.",
+          "The K=1 antecedent has a sufficient convergence bound and a separate delay-based analysis; the related first-order method has a different update polynomial."
+        ],
+        "reasoning": "The proven stable example outside the sufficient regime, the instability implication on the far side, and the odd/even distinction cannot be deduced from a sufficient bound and a qualitative advantage. The numerical coincidence with a first-order condition does not imply a BDF2 eigenvalue result.",
+        "searches": [
+          "arXiv:2403.12699 bound (4.3) and §5.1; arXiv:2203.16664 Theorem 3.6 and §5.2; arXiv:2304.12224 §3.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Altmann–Deiml (3.6a–d) uses the pressure extrapolate and final undamped update; Remark 3.1 identifies the one-pass scheme.",
+          "Altmann–Maier–Unger (3.6a–b) is that semi-explicit BDF2 antecedent."
+        ],
+        "reasoning": "The normalization z=sqrt(kappa)u is a state similarity, so the paper's scalar amplification problem is the same problem, not a new scheme. The older one-pass formulation is exactly K=1 but cannot decide finite K>1 parity stability.",
+        "searches": [
+          "Resultary: BDF2 poroelastic scalar amplification, fixed sweeps, parity and sharp stability; arXiv:2403.12699 equations (3.6) and Remark 3.1; arXiv:2203.16664 equations (3.6)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Mirrored Resultary 02cf39e81b23 gives a five-state three-field criterion hb>4d²-2-2c and all-step boundary 2d²<=1+c.",
+          "The BDF2 primary articles supply numerical stability observations, not an exact scalar parity table; arXiv:2203.16664 reports a numerical threshold around 0.38 separately from a delay-based one-third bound."
+        ],
+        "reasoning": "The closest indexed thresholds are for a different state space and coupling, so they are not an exact entry of the frontier. Numerical phase diagrams do not settle the precise strict small-positive-flow threshold for each fixed sweep count.",
+        "searches": [
+          "Resultary: exact coupling and anti-CFL poroelastic stability; scalar spectral boundary and sweep parity; 02cf39e81b23",
+          "arXiv:2403.12699 §5.1/Fig. 5.1; arXiv:2203.16664 §5.2"
+        ]
+      },
+      "rationale": "The BDF2 algorithm, sufficient condition and the empirical even-sweep advantage are antecedents. The one-pass scheme and a delay-based one-third sufficient condition are also prior. The supported distinct result is the sharp strict scalar fixed-sweep weak-flow separation for general K, proving that the even-K improvement really enlarges the open spectral regime of the specified four-state recurrence. No exact matching theorem was verified; historical priority is not certified.",
+      "residual_risks": [
+        "Other scalar reductions under alternate time-integration or fixed-stress terminology may not be indexed by the bounded lookup.",
+        "No priority claim is made for the scheme, one-pass delay bound, parity observation or Jury criterion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same scheme and prior sufficient bound and empirical parity; not the claimed sharp parity theorem",
+          "evidence": "C_tau=C+(3/2)tau B, chosen relaxation and final unrelaxed update agree; §5.1 reports observed even-K advantage.",
+          "identifier_or_url": "https://arxiv.org/abs/2403.12699",
+          "material_read": "§2 p. 3, §3.6 and (3.6) p. 7, (4.3) p. 7, §5.1 p. 15; OA offsets 8920–9574, 23857, 26114, 52671–53458",
+          "method": "Primary OA equations and statements compared with scalar recurrence",
+          "title": "A second-order iterative time integration scheme for linear poroelasticity",
+          "trigger": "Exact scheme under audit and strongest prior stability result"
+        },
+        {
+          "assessment": "K=1 baseline and related bound, not the arbitrary fixed-sweep classification",
+          "evidence": "Sufficient convergence under omega<=1/5; delay-based omega<1/3 is discussed apart from the roughly 0.38 numerical observation.",
+          "identifier_or_url": "https://arxiv.org/abs/2203.16664",
+          "material_read": "(3.6a–b) p. 8, Theorem 3.6 p. 9, §5.2 p. 18; OA offsets 27601, 29730, 59731",
+          "method": "Primary OA scheme, theorem and numerical discussion",
+          "title": "Semi-explicit integration of second order for weakly coupled poroelasticity",
+          "trigger": "Direct K=1 predecessor and possible sharp one-third result"
+        },
+        {
+          "assessment": "First-order recurrence; does not imply the BDF2 frontier",
+          "evidence": "One-step pressure update rather than the two-step history and extrapolation here.",
+          "identifier_or_url": "https://arxiv.org/abs/2304.12224",
+          "material_read": "§3.2 near OA offset 25089",
+          "method": "Primary OA algorithm comparison",
+          "title": "A novel iterative time integration scheme for linear poroelasticity",
+          "trigger": "Possible same iteration criterion in another paper by the same authors"
+        },
+        {
+          "assessment": "Not the fixed-sweep relaxed BDF2 recurrence",
+          "evidence": "Stabilized BDF-k solves terminated by a tolerance.",
+          "identifier_or_url": "https://arxiv.org/abs/2311.14400",
+          "material_read": "§3 near OA offset 30468",
+          "method": "Primary OA algorithm comparison",
+          "title": "Higher-order iterative decoupling for poroelasticity",
+          "trigger": "Broader higher-order split iteration"
+        },
+        {
+          "assessment": "Different three-field five-state criterion, no covered sweep-parity claim",
+          "evidence": "The sharp condition hb>4d²-2-2c is for the Altmann–Maier–Schmeck scheme.",
+          "identifier_or_url": "02cf39e81b23",
+          "material_read": "Mirrored RESULT.md finding and model assumptions",
+          "method": "Local mirror statement comparison",
+          "title": "Exact coupling and anti-CFL stability for symmetric thermo-poroelastic splitting",
+          "trigger": "Closest locally indexed sharp scalar poroelastic stability theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A sharp fixed-coupling spectral frontier explains a previously numerical parity advantage, distinguishes actual instability from failure of a sufficient condition, and gives an exact stable witness outside the published sufficient range. It is a natural, reproducible benchmark for general splitting analysis, not a claim of spatial or nonlinear stability.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

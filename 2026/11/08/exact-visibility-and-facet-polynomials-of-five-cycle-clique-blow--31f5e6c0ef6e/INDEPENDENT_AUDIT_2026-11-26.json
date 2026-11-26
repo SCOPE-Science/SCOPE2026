@@ -1,0 +1,152 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:52:05.722711Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, Finding and Proof",
+        "VERIFICATION.md",
+        "verify_c5.py"
+      ],
+      "rationale": "The only nonadjacent endpoints lie in distance-two base fibers and have precisely the intervening fiber as their common neighborhood. Thus the forbidden configurations are exactly full-middle plus one endpoint on each flank. They are distinct (only the middle is full when m≥2), of equal size, and every nonface contains one, proving the minimal-nonface count. Encode an empty, proper nonempty, or full fiber by E, P or F. Every F needs an E neighbor. With one F the remaining weight is (1+A)^4−A²(1+A)^2; with two F the adjacent case contributes 1+A and the nonadjacent case (1+A)^2+A, each with five placements; with three, the two E must be nonadjacent and the five rotations of FFEFE result. Fewer than two E cannot support three or more F. A facet has m−1 selected vertices in each P, every P must have two nonempty neighbors, and every E must be sole empty neighbor of some F. These are necessary and sufficient by one-vertex augmentation. With one F an essential E next to it has a P on its other side, contradicting the P condition. Adjacent F force two exterior E and leave a remaining site that can grow whether E or P. For two nonadjacent F, the shared neighbor E requires P in both exterior positions, or the shared neighbor P requires E in both. No F leaves only all P; three F leave FFEFE. The four types give exactly the stated counts and sizes, with coincident exponents added. In particular sizes 3m−1 and 3m show nonpurity for every m≥2. The maximum is 6,10 at m=2,3, and 5m−5 for m≥4. An independent graph-based 243-state check reproduces the weighted state coefficients and the four facet orbits; the frozen verifier was inspected, not run.",
+      "replay": "python3 /workspace/branches/audit-visibility.py; saved output /workspace/branches/audit-visibility.out",
+      "residual_risks": [
+        "Equal sizes m≥2 are the frozen scope; the finite graph check uses m=2, and the general result follows analytically from the fiber criteria."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The full-fiber theorem of 30cfa76d623a applies to unequal fiber sizes and all connected bases for total visibility. Its n≥5 cycle corollary gives T^5 and m^5 z^(5m−5) at equal C5 fibers, with whole fibers as minimal obstructions.",
+          "The strong- and lexicographic-product statements inspected concern scalar visibility numbers or bounds; the diameter-two paper's described results likewise concern scalar parameters on selected families."
+        ],
+        "reasoning": "The genuinely broader clique-substitution theorem explicitly quantifies over all graph endpoints. It gives the first term of each enumerator here, but cannot recover the remaining ordinary facet types from the condition on full fibers alone; ordinary endpoint occupancy is an extra variable.",
+        "searches": [
+          "Resultary 30cfa76d623a full-fiber/composition theorem",
+          "arXiv:2210.07835 §4",
+          "arXiv:2306.15818 §4",
+          "arXiv:2401.02373 Abstract and §1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 31f5e6c0ef6e, 30cfa76d623a, 27c4ec45a45d and 54b55c893708",
+        "arXiv:2210.07835",
+        "arXiv:2306.15818",
+        "arXiv:2401.02373",
+        "DOI 10.1007/s00010-025-01197-y"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prop. 3.5 recovers a visibility polynomial from a known full facet collection but does not find that collection.",
+          "The total C5 enumerator excludes all full fibers. The ordinary rule instead allows a full fiber if a flank is empty; for example FEFPP gives extra facets with labelled weight 5m².",
+          "The connected high-girth product polynomial assumes Cartesian edges and connected selected sets, not the strong clique expansion or all selected sets here."
+        ],
+        "reasoning": "The known total formula and general inclusion–exclusion machinery do not mechanically give the remaining three ordinary facet orbits or their coefficients. No relative chronology is inferred from a same-day path.",
+        "searches": [
+          "Resultary 30cfa76d623a, cycle consequence",
+          "DOI 10.1007/s00010-025-01197-y Propositions 3.2 and 3.5",
+          "Resultary 27c4ec45a45d, connected visibility Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Completeness of the second factor identifies C5⊠Km with C5∘Km, with the same clique fibers.",
+          "Kuziak–Rodríguez-Velázquez Theorem 4.4 applies to this very graph but to μ_t, not ordinary visibility.",
+          "Resultary 30cfa76d623a considers the exact same family for total visibility."
+        ],
+        "reasoning": "The product formulations really are equivalent; ordinary and total visibility are not. The whole of one fiber is ordinary-visible as a clique but is never total-visible because endpoints in the two neighboring fibers need an internal vertex in the full fiber.",
+        "searches": [
+          "Resultary: C5 clique blowup, true twins, C5[K_m], strong-product and lexicographic-product visibility polynomials",
+          "arXiv:2210.07835",
+          "arXiv:2306.15818"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed match 31f5e6c0ef6e is the record itself. Distinct same-date-path records give total visibility on C5 clique substitutions, ordinary visibility on a three-row rook graph, and connected ordinary visibility on high-girth Cartesian products.",
+          "The cited visibility-polynomial Proposition 3.2 is an exact table/formula for K_{n,n}, not a clique expansion of C5."
+        ],
+        "reasoning": "None of these identifiable distinct matches supplies the full ordinary enumerators here; a catalogue self-hit cannot be counted as a separate discovery or priority confirmation.",
+        "searches": [
+          "Resultary: all-set and facet distributions for cyclic clique expansions and C5 minimal forbidden configurations",
+          "Visibility polynomials DOI 10.1007/s00010-025-01197-y §3"
+        ]
+      },
+      "rationale": "Credit the complete ordinary-visibility distributions including those with full fibers, their additional facet types and the exact ordinary obstructions. The same-family total-visibility enumerators already recover the no-full-fiber sector and its P-only facets, so that sector and standard polynomial machinery are not distinct contributions. The additional ordinary configurations are not covered by the compared results.",
+      "residual_risks": [
+        "The frozen reference to an arbitrary clique-expanded-tree classification lacks a bibliographic locator and is not credited as a decisive comparison. Unindexed ordinary cycle enumeration remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact overlap with the no-full-fiber sector, not the ordinary full-fiber cases.",
+          "evidence": "For n≥5 cycles, the total polynomial is the product of proper-subset factors and total facets omit one vertex per fiber; minimal total nonfaces are whole fibers.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-total-visibility-complexes-of-clique-substitutions-are-iterated--30cfa76d623a/RESULT.md",
+          "material_read": "Finding, full-fiber theorem, exact enumerators and cycle consequence, offsets 0–3148",
+          "method": "Local mirror",
+          "title": "Total-visibility complexes of clique substitutions are iterated simplicial wedges",
+          "trigger": "Strongest distinct overlap, same C5 clique-expansion family and enumerators"
+        },
+        {
+          "assessment": "Scalar results, not these ordinary distributions.",
+          "evidence": "Theorem 4.1 is a lower bound for total mutual visibility of a strong product.",
+          "identifier_or_url": "https://arxiv.org/abs/2210.07835",
+          "material_read": "Abstract and Theorem 4.1, PDF pp. 1 and 7",
+          "method": "Open-access primary text",
+          "title": "Mutual-visibility in strong products of graphs via total mutual-visibility",
+          "trigger": "Strong product is an exact alias of the graph here"
+        },
+        {
+          "assessment": "Applies at C5 but is total and scalar.",
+          "evidence": "For connected G with γ(G)≥2, μ_t(G∘H)=n(G)(n(H)−1)+μ_t(G).",
+          "identifier_or_url": "https://arxiv.org/abs/2306.15818",
+          "material_read": "§4, Theorem 4.4, PDF p. 10",
+          "method": "Open-access primary text",
+          "title": "Total mutual-visibility in graphs with emphasis on lexicographic and Cartesian products",
+          "trigger": "Same lexicographic product with stronger generality in the factors"
+        },
+        {
+          "assessment": "The inspected results overview does not state this ordinary polynomial or facets.",
+          "evidence": "Studies four scalar visibility measures on diameter-two classes, including products of complete graphs, line graphs and cographs.",
+          "identifier_or_url": "https://arxiv.org/abs/2401.02373",
+          "material_read": "Abstract and §1, PDF pp. 1, 3–4",
+          "method": "Open-access primary text",
+          "title": "Mutual-visibility problems on graphs of diameter two",
+          "trigger": "Diameter-two scalar antecedents"
+        },
+        {
+          "assessment": "General machinery and another exact family; no ordinary C5 clique-facet collection in the inspected statements.",
+          "evidence": "Complete-bipartite explicit formula; general inclusion–exclusion with maximal sets as input.",
+          "identifier_or_url": "https://doi.org/10.1007/s00010-025-01197-y",
+          "material_read": "Propositions 3.2 and 3.5, PDF pp. 7 and 9",
+          "method": "Open-access primary text",
+          "title": "Visibility polynomials, dual visibility spectrum, and characterization of total mutual-visibility sets",
+          "trigger": "Exact-polynomial and facet-based enumerator antecedents"
+        },
+        {
+          "assessment": "Different product and connected-set restriction.",
+          "evidence": "Counts nonempty connected ordinary sets in H□K_q for girth-at-least-five H.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-complete-connected-mutual-visibility-polynomial-for-high-girth-c--27c4ec45a45d/RESULT.md",
+          "material_read": "Opening Finding at offset 0",
+          "method": "Local mirror",
+          "title": "Complete connected mutual-visibility polynomial for high-girth Cartesian products",
+          "trigger": "C5 is an eligible base, so the product and selected-pair assumptions need comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, Finding and Proof",
+        "Resultary 30cfa76d623a cycle consequence"
+      ],
+      "rationale": "C5 supplies a natural nontrivial cyclic quotient with unique intermediate fibers. The complete ordinary obstructions and facet sizes show exactly where the ordinary complex diverges from the pure total complex, including extra maximal sets for all m and changes in the maximum-size type at small m. This supplies explicit building blocks and benchmarks for cyclic clique substitutions rather than a single unmotivated size check.",
+      "residual_risks": [
+        "No claim here covers arbitrary cycle lengths, unequal fibers, or topological type of the ordinary complex."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

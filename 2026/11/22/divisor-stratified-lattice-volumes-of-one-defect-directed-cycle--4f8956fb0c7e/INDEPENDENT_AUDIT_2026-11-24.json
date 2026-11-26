@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:36:00.759145Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–49 (reconstructed determinant, lattice index, recurrence and dilation arguments)",
+        "Frozen VERIFICATION.md and verify.py (inspected, not executed): bounded maximal-minor and determinant checks, not an all-parameter proof"
+      ],
+      "rationale": "For n >= 3, w >= 2 and u >= 1 the cyclic column determinant D = 1 + u(-w)^(n-1) is nonzero. For z = adj(C^T)1 and g = gcd(z_i), the primitive normal z/g has integral height D/g. Subtracting the last vertex from the other columns and using a lattice basis adapted to that normal gives |D| = |D/g| times the intrinsic normalized volume, not the ambient Euclidean volume. Solving C^T z = D1 gives z_1 = s = sum_{k=0}^{n-1}(-w)^k and z_2 - s = -(u-w)(-w)^(n-2). Since s is 1 modulo w, the gcd of just these first two coordinates is gcd(|s|, |u-w|). The integral recurrence makes every coordinate affine in u and equal to s at u=w, proving the reverse divisibility and covering u=w itself. The maximal value at u=w forces every positive period to be divisible by |s|; u=w+d realizes each divisor d and the coprime residues give the totient count. In the unimodular case, subtracting m times the last vertex from a lattice point of mP gives nonnegative integral coordinates in the edge basis summing to at most m, proving both the Ehrhart count and IDP.",
+      "residual_risks": [
+        "The supplied finite sweep was not rerun; the audit relies on the exact all-parameter argument. This is not an IDP classification of nonunimodular cases."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The paper gives a general cycle matrix, a uniform-weight determinant, an equal-weight naturally oriented non-IDP theorem and a balanced-orientation IDP criterion, not the one-defect volume or unimodularity criterion.",
+          "b7680edb541b establishes shifted h*-symmetry with arbitrary nondegenerate positive weights, but its full numerator and volume calculation specialize to the uniform five-cycle."
+        ],
+        "reasoning": "The broader definitions and symmetry are relevant, but the stated conclusions do not evaluate the intrinsic lattice index with u variable. The uniform and balanced orientation IDP results do not determine this index.",
+        "searches": [
+          "arXiv:2611.17047, Definition 2.5, Lemma 2.6, Theorems 4.5 and 5.11",
+          "Resultary b7680edb541b, Finding and proof §4"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md; Resultary b7680edb541b, ad47a8b7a625, f90977c760e6, e32575b66377, 984613841899; arXiv:2611.17047"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Uniform determinant and fixed-sum affine height explain the uniform specialization; allowing u to vary changes that height. Actual computation of the primitive affine normal and its coordinate gcd is needed to get the divisor law.",
+          "The Ehrhart and IDP conclusions are standard once unimodularity is shown, while the exact family of unimodular defect weights is supplied by the new invariant."
+        ],
+        "reasoning": "The one-defect law is not just substitution of a parameter into these earlier uniform calculations or an implication of IDP or h*-symmetry. The additional arithmetic computation is the distinct content.",
+        "searches": [
+          "Compare arXiv:2611.17047 Lemma 2.6/Theorems 4.5, 5.11 and Resultary b7680edb541b/ad47a8b7a625 to frozen proof §§2–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Biermann–Lin–O'Keefe's naturally oriented positive-exponent cycle matrix is the same object with arbitrary weights; their determinant formula at the cited lemma specializes to equal weights.",
+          "e32575b66377 counts volume for signed root vectors e_h-e_t; 984613841899 uses signed vectors with intrinsic Euclidean volume."
+        ],
+        "reasoning": "Relabelling the cycle merely relocates the exceptional weight. The signed-vertex models and the Euclidean metric do not present the same lattice-index problem; the absolute determinant alone is not the normalized volume at a varying affine height.",
+        "searches": [
+          "Resultary: one-defect directed-cycle volume, unimodularity and signed cycle edge-polytope comparators; IDs e32575b66377, 984613841899",
+          "Biermann–Lin–O'Keefe, arXiv:2611.17047, Definition 2.5 and Lemma 2.6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The top exact hit was the bound record itself. Distinct same-day ad47a8b7a625 gives the volume (w^n+1)/(w+1) for uniform odd n, with a uniform-cycle Ehrhart and first nondecomposable dilation analysis. b7680edb541b gives (w^5+1)/(w+1) in the uniform five-cycle. Same-day f90977c760e6 studies lattice width in the uniform case."
+        ],
+        "reasoning": "Credit the actual uniform overlaps without ordering same-day records or treating the identical hit as independent. None of these inspected indexed results supplies a spectrum as u runs through positive integers.",
+        "searches": [
+          "Four focused Resultary searches for the one-exceptional-weight gcd/least-period/unimodularity claim and weighted-cycle volume neighbors; f03089 is not a comparator; relevant IDs 4f8956fb0c7e, ad47a8b7a625, b7680edb541b, f90977c760e6"
+        ]
+      },
+      "rationale": "The covered uniform specializations, known cycle matrix and standard consequences of unimodularity receive no separate novelty credit. The distinct supported result is the intrinsic volume law for a variable single defect and the resulting complete divisor stratification. None of the strongest inspected prior statements covers that law or supplies an arbitrary-weight volume classification that specializes to it.",
+      "residual_risks": [
+        "The local index and inspected primary passages do not establish historical priority. Earlier differently indexed arbitrary-weight lattice-volume formulas could be relevant; the separate same-day uniform result is actual partial coverage, regardless of order."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Object and uniform determinant overlap, but inspected results do not classify intrinsic volume for a variable defect",
+          "evidence": "C_n cycle matrix with weights w_i; the displayed determinant 1+(-1)^(n-1)w^n and non-IDP result assume all weights equal; balanced equal-weight source/sink criterion has different orientation hypotheses.",
+          "identifier_or_url": "https://arxiv.org/abs/2611.17047",
+          "material_read": "Definition 2.5 (pp. 2–3), Lemma 2.6 (p. 3), Theorem 4.5 (p. 10), Theorem 5.11 (p. 22)",
+          "method": "OA primary PDF, located passages",
+          "title": "Integer Decomposition Property of Edge Polytopes of Weighted Oriented Graphs",
+          "trigger": "Same positive-weight cycle matrix and an IDP classification could subsume the defect claim"
+        },
+        {
+          "assessment": "Partial overlap, equal-weight n=5 volume; broader symmetry is a different invariant",
+          "evidence": "Explicit normalized volume (w^5+1)/(w+1) in the uniform five-cycle; no defect-dependent lattice-index evaluation in the relevant result.",
+          "identifier_or_url": "Resultary b7680edb541b",
+          "material_read": "RESULT.md Finding and proof §4, local mirror offsets 0 and 4300",
+          "method": "Local mirror primary record",
+          "title": "Shifted Ehrhart symmetry and a sharp log-concavity threshold for weighted directed-cycle simplices",
+          "trigger": "Arbitrary positive weights and an explicit lattice volume"
+        },
+        {
+          "assessment": "Covers uniform odd-length volume; not the varying defect; no chronological priority inferred",
+          "evidence": "Normalized volume (w^n+1)/(w+1) for odd n under uniform weight; accompanying Ehrhart and first-hole statements are also uniform.",
+          "identifier_or_url": "Resultary ad47a8b7a625",
+          "material_read": "RESULT.md Finding and proof Step 2, local mirror offset 0",
+          "method": "Resultary search and local mirror primary record",
+          "title": "Binomial-residue Ehrhart series and the first lattice-decomposition obstruction for uniform directed cycles",
+          "trigger": "Distinct same-day record with the same naturally oriented cycle family"
+        },
+        {
+          "assessment": "Different signed vector model",
+          "evidence": "Uses e_h-e_t and volume |p-q| rather than positive-exponent columns with one changed arrival weight.",
+          "identifier_or_url": "Resultary e32575b66377",
+          "material_read": "RESULT.md defining vectors and volume result",
+          "method": "Resultary and local mirror",
+          "title": "Exact Ehrhart polynomials of oriented cycle root polytopes",
+          "trigger": "Oriented cycle lattice volume and unimodularity could disguise an equivalent calculation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof §§2–4; arXiv:2611.17047 Theorem 4.5 for the uniform-weight obstruction context"
+      ],
+      "rationale": "Intrinsic volume is a natural arithmetic invariant of an edge polytope. A single exceptional arrival weight can collapse the exponentially growing uniform volume to one, and the formula classifies every possible intermediate index, the least period, and all defects with unimodularity. This gives exact Ehrhart and IDP cases for the weighted-cycle family rather than just an isolated small example.",
+      "residual_risks": [
+        "Unimodularity is sufficient rather than necessary for IDP; the result does not classify arbitrary multiple defects or imply an ambient Euclidean volume drop."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

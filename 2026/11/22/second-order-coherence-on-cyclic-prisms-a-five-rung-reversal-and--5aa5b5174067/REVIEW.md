@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proved claim uses the raw, unnormalized Laplacian inverse spectral moments on connected cyclic prisms with a unit sum of independent conductances. Strict positive trace-Hessian terms and injectivity of the edge-to-Laplacian map establish unrestricted uniqueness. The two-layer Fourier diagonalization yields the exact scalar inverse-moment objectives, while strictly decreasing root equations yield the only optimizers. The size ordering follows a rational comparison at \(m=3\), an exact equality at \(m=4\), two exact rational barrier certificates at \(m=5,6\), and an analytic bound valid for every \(m\ge7\). The Poisson-kernel resolvent and monotone-root bracketing establish both fractional-power scales and the asymptotic objective/regret coefficients. A reproducible verifier passed 475 independent program assertions, including exact graph identities and sampled asymptotics. These tests are corroborative, not substitutes for the proofs.
+PASS
 
-## Originality — PASS on inspected evidence
+On the mean-zero space, the trace of A^(-p) has a strictly positive spectral Hessian for p=1,2 (use the continuous divided difference also at repeated eigenvalues). Off-diagonals identify the weights, loss of connectivity sends an eigenvalue to zero, and uniqueness forces invariance under layer exchange and rotation. Removing either whole orbit disconnects the network, so both weights are positive. The symmetric/antisymmetric Fourier spectrum is a*mu_k and a*mu_k+2b; differentiation under m(2a+b)=1 gives S_p-R_p, where R_p decreases strictly from infinity to zero. Independently reproduced all six small-m sign/equality certificates by rational matrix inversion in /workspace/frozen_review_arithmetic.py (SymPy, no frozen code executed). For m>=7 the zero mode gives t_1>sqrt(12/(m^2-1)) >=30/(m^2+11) using (m^2-49)(m^2-4)>=0. The same barrier holds by the small-case certificates at 5 and 6. Then R_2(t_1)<R_1(t_1)/(2t_1)<S_2, giving the entire finite-size comparison. For t->0 and m*sqrt(t)->infinity, the rescaled Fourier sums are Riemann sums at the two ends of the band: T_q ~ m*(2t)^(1/2-q)/(2*pi) times the integral of (1+x^2)^(-q) over the line. Sine bounds control the tails. Thus R_1~m*(2t)^(-3/2), R_2~3m*(2t)^(-5/2)/4; monotone bracketing at the two trial scales gives c_1 and c_2. Substituting into the budget-normalized trace yields the c_2/108 correction and the larger c_1/180 regret coefficient as stated. The bounded replay checks arithmetic, not the infinite-family argument or provenance. Read the frozen result, verification note and script; no formal verification claimed.
 
-The published first-moment prism theorems *Mesoscopic rung allocation in resistance-optimal prism networks* (November 2, 2026) and *A two-thirds-power law for resistance-optimal rung investment in prism networks* (November 8, 2026) were inspected in full. They prove first-moment conductance optimization and the \(m^{-2/3}\) scale, but do not assert the second-moment optimizer, \(m^{-6/5}\) scale, exact five-rung reversal, or second-order regret. Ghosh--Boyd--Saberi give the first-moment resistance objective and general convex framework. Patterson--Bamieh define the second-moment coherence metric without the present free-weight prism design. Cinkir gives fixed-weight prism resistance identities. Searches for squared-inverse prism allocation, the six-fifths exponent, the precise transition and related aliases located no direct covering claim. An unindexed equivalent result remains a live priority risk.
+## originality
 
-## Value — PASS
+PASS
 
-Unlike a routine parameter substitution, changing the inverse-moment order changes the optimum's fractional-power asymptotics from \(m^{-2/3}\) to \(m^{-6/5}\) and induces an exact finite reversal at five rungs. The result characterizes a complete natural network family with unrestricted conductances, gives an explicit monotone equation usable for finite designs, and quantifies the cost of reusing the other spectral objective's design. The relative regret vanishes even though the conductance scales differ; this limitation is explicit.
+Pass for the exact all-size first-versus-second ordering (including equality only at m=4), not as an exclusive priority claim for the fractional exponent or for inverse-trace design. The general real-p same-day record demonstrably covers the m^(-6/5) allocation exponent as a specialization; its indexed wording treats the endpoint laws as known and establishes no same-day priority. The available asymptotic comparison gives eventual order, not the finite reversal threshold or the exceptional small sizes. No checked prior statement supplies the latter. The exact scope of overlap in the asymptotic constants and regret is less secure than for the threshold.
 
-## Limits and validation status
+## value
 
-Only two-layer unit-price prisms and the first two inverse moments are covered. No independent validation has been performed; priority depends on accessible literature.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The threshold tells a designer exactly when a first-order optimum over- or underinvests in rungs relative to second-order coherence. It resolves the entire natural prism family under unrestricted allocation, with a genuine small-size exception and a cube equality that large-size power laws alone cannot predict. The regret analysis further identifies why absolute losses can grow despite vanishing relative losses.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,157 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:38:43.396721Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–61",
+        "VERIFICATION.md and bundled Python/C++ source, not executed",
+        "Independent bounded replay: /workspace/branches/222bd787-3867-411d-b05e-54861c61dcf8/replay_4.py, output replay_4.out (run with Python 3)"
+      ],
+      "rationale": "The independently recreated graphs each have 16 vertices, 48 edges, degree 6 and exactly two common neighbors at each pair of distinct vertices. For an independent class C of size t, counting its incidences and shared neighbors gives Σa_x=6t and Σa_x²=2t(t+2). Cauchy–Schwarz gives t²+4t−32≤0 and hence t≤4, with a_x=2 at every outside vertex when t=4. Four colors would force four maximum classes and multiplicities 2,2,2 in each open neighborhood, precluding a singleton. For the rook graph with five available colors each row and column omits exactly one. The multiplicity of any missing color is the same among rows and columns, because its occurrences lie in distinct rows and distinct columns. Choose a row and column with the same missing color; at the intersection the two palettes after dropping the center color coincide, so every encountered color occurs twice. Thus five colors also fail for the rook graph. Both supplied arrays were validated by independent code under the exact Cayley-step and row/column definitions: all edges proper and all 16 open neighborhoods have at least one singleton in each array. The asserted values 5 and 6 follow.",
+      "residual_risks": [
+        "Replay certifies the two finite graph structures and witnesses. Nonexistence of smaller colorings follows from the deductive obstructions, not from certificate enumeration."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The fully matching prior statement χ_pCFo(K_m □ K_n)=max(m,n) for unequal sizes and n+2 for equal sizes gives six at m=n=4.",
+          "The quasi-line general bounds Δ+4 and 3Δ/2+2 give 10 and 11, respectively, at rook degree six, not the exact number. The Shrikhande neighborhood is a C₆ and has an independent triple, so the graph is not claw-free or quasi-line. The same-day surcharge record concerns KG(n,2), not either graph."
+        ],
+        "reasoning": "The stronger rook result really does cover the exact rook value; this credit is separate from the comparative claim. The broader coloring estimates and the Kneser family do not yield the needed Shrikhande upper bound.",
+        "searches": [
+          "Resultary fb9f4a963e44, general rook graphs",
+          "arXiv:2308.00170v4 and 2302.06125, proper conflict-free bounds for quasi-line/claw-free classes",
+          "Resultary 22a170961b8a, same-day proper conflict-free surcharge"
+        ]
+      },
+      "checked_sources": [
+        "Frozen Finding and Related work",
+        "Resultary fb9f4a963e44, 06a4145ae040, 22a170961b8a",
+        "arXiv:2308.00170v4, 2302.06125 specified passages",
+        "MathWorld Shrikhande Graph exact entry"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The moments of independent size-four sets show a common lower bound five, but cannot distinguish S and R. The witnessed singleton coloring of S is required to combine that bound with the previously covered six for R.",
+          "The prior rook argument relies on row and column cliques; the Shrikhande local structure is a six-cycle rather than two triangles. The known four-color Kempe classification does not give a five-color witness."
+        ],
+        "reasoning": "A credible prior coverage route exists for the rook half and is credited as such. The upper bound for S and separation do not follow by replacing its parameters in a general formula or transferring the rook coloring. Same-day order is not inferred for the Kneser result; its object differs regardless.",
+        "searches": [
+          "Resultary fb9f4a963e44 and 06a4145ae040, Finding and scope",
+          "Same-day Resultary 22a170961b8a; general quasi-line bounds; standard SRG parameter comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The credited rook theorem uses the identical exactly-once open-neighborhood invariant under notation χ_pCFo.",
+          "Resultary 06a4145ae040 is about ordinary proper four-colorings and Kempe classes. Ordinary proper coloring and proper odd coloring are not interchangeable with the singleton condition on arbitrary graphs."
+        ],
+        "reasoning": "Requiring a multiplicity of one in the open neighborhood is stronger than proper coloring alone, and odd multiplicity may be three or five. Neither the ordinary coloring entry nor a differently normalized conflict-free notion establishes this result.",
+        "searches": [
+          "Resultary: proper conflict-free, pCFo, open-neighborhood singleton coloring, Shrikhande and rook graphs",
+          "Primary exact search: Shrikhande conflict-free coloring chromatic number graph database table open neighborhood proper color once",
+          "arXiv:2308.00170v4; arXiv:2302.06125 §1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The catalogue returns the exact rook value through fb9f4a963e44. The inspected MathWorld Shrikhande description confirms the cospectral pairing and gives named graph data but contains no proper conflict-free value. The targeted external table query found no source with this invariant."
+        ],
+        "reasoning": "A table of ordinary chromatic numbers or spectra would not supply the requested exact invariant. The queried catalogue and named graph entry cover the exact objects but do not establish a prior listing for the Shrikhande value; this is bounded evidence, not an assertion about all tables.",
+        "searches": [
+          "Resultary catalogue keyed on both exact graph names and singleton-open-neighborhood invariant",
+          "MathWorld Shrikhande Graph exact graph entry; primary exact-value table query"
+        ]
+      },
+      "rationale": "The claimed distinct contribution is the Shrikhande value and separation of the parameter twins. The rook value is explicitly credited and is exactly covered by the dated rectangular/square rook theorem. No inspected Shrikhande exact statement or dominating theorem gave the five-color proper open-neighborhood conflict-free value.",
+      "residual_risks": [
+        "No historical priority is asserted beyond the inspected claims. Other enumerative graph-coloring tables or unindexed results could contain the Shrikhande value."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "explicit exact prior coverage of the rook half",
+          "evidence": [
+            "n+2 for K_n □ K_n with n≥2, same exactly-once open-neighborhood condition."
+          ],
+          "identifier_or_url": "Resultary fb9f4a963e44, 2026-10-18 UTC",
+          "material_read": "RESULT.md Findings and assumptions at OA offsets 250 and 1250",
+          "method": "local mirror full-text excerpts",
+          "title": "A two-color gap for proper conflict-free coloring of square rook graphs",
+          "trigger": "exact invariant and rook graph family"
+        },
+        {
+          "assessment": "ordinary four-colorings, different invariant and palette size",
+          "evidence": [
+            "Classifies ordinary proper four-colorings under Kempe changes."
+          ],
+          "identifier_or_url": "Resultary 06a4145ae040, 2026-11-02 UTC",
+          "material_read": "Finding and scope",
+          "method": "local mirror passage",
+          "title": "Three four-cycle petals in the Shrikhande four-colouring Kempe quotient",
+          "trigger": "exact graph and coloring overlap"
+        },
+        {
+          "assessment": "same invariant on a different graph family",
+          "evidence": [
+            "Concerns KG(n,2), not the two studied SRGs."
+          ],
+          "identifier_or_url": "Resultary 22a170961b8a, 2026-11-22 UTC",
+          "material_read": "Finding and scope",
+          "method": "local mirror passage",
+          "title": "A sharp proper conflict-free colouring surcharge and witness deficiency",
+          "trigger": "same-day exact invariant and possible graph-family coverage"
+        },
+        {
+          "assessment": "general bound insufficient for either exact value",
+          "evidence": [
+            "Quasi-line bound Δ+4; rook falls in this class but the bound is not sharp there."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2308.00170v4",
+          "material_read": "bound in abstract around OA offset 2450",
+          "method": "OA passage",
+          "title": "Boundedness for proper conflict-free and odd colorings",
+          "trigger": "plausible broader coloring theorem"
+        },
+        {
+          "assessment": "does not determine the rook value",
+          "evidence": [
+            "Quasi-line upper bound 3Δ/2+2 for the discussed proper coloring invariants."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2302.06125",
+          "material_read": "§1 around OA text offset 15150",
+          "method": "OA passage",
+          "title": "Primary quasi-line coloring bound",
+          "trigger": "potential stronger quasi-line result"
+        },
+        {
+          "assessment": "confirms exact graph and cospectral comparison; does not tabulate this invariant",
+          "evidence": [
+            "Identifies the 16-vertex SRG and its cospectral rook graph; describes data and constructions, not conflict-free palettes."
+          ],
+          "identifier_or_url": "https://mathworld.wolfram.com/ShrikhandeGraph.html",
+          "material_read": "main description and references (website text offsets 0–3381)",
+          "method": "OA website mode",
+          "title": "Shrikhande Graph, MathWorld",
+          "trigger": "named exact graph data and possible table coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Proof",
+        "Resultary fb9f4a963e44 for the known comparator"
+      ],
+      "rationale": "The Shrikhande and rook graphs form a canonical same-parameter and cospectral pair. The exact values give a concrete counterexample to determining proper open-neighborhood conflict-free chromatic number from either that parameter set or the spectrum. A sharp certificate plus parameter-based common lower bound distinguishes the S value from an arbitrary computed graph statistic; the credited rook value makes the contrast precise.",
+      "residual_risks": [
+        "No extrapolation to other SRG parameter classes or product families is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

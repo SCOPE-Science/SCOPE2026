@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-From the package directory run `python3 verify.py`. The verifier reconstructs all twenty face triples via two cyclic pentagonal rings and uses standard-library `fractions.Fraction` for every probability and Laplace-transform comparison. It requires no network access, external data, or third-party packages.
+## correctness
 
-Two computational derivations are compared: a memoized recurrence over 202 reachable twelve-bit occupied masks and a direct enumeration of all ordered successful face histories. A separate face-propagation procedure verifies all 120 icosahedral automorphisms and the three terminal-pattern orbits. It checks the \(10,60,1\) terminal pattern multiplicities, complete per-pattern rational probabilities, conditional local transition multiplicities for every first face, and the total jamming-time Laplace transform at six exact rational arguments. The first two exact moments are checked from explicit pathwise exponential waiting-time moments.
+PASS
 
-The finite proof uses the displayed face construction and transition table in RESULT.md. The verifier is an exact exhaustive check of the fixed twelve-site model, not a Monte Carlo estimate and not an infinite-family argument. It does not assess historical priority or provide an independent scientific audit.
+Admissibility can only decrease. At a stopping time just after an acceptance, the currently admissible clocks have fresh independent unit exponential residual lives, so the minimum has rate equal to their number and is independent of the next chosen face. Independent exact replay derived the faces from the regular icosahedron coordinates and enumerated all successful histories by intersecting the remaining face sets in the conflict graph. It gave reachable-state counts 1,20,100,80,1 and exactly 10 six-site and 60 nine-site terminals each with weight 1/100, plus the full set with weight 3/10. Backtracking adjacency-preserving vertex maps gave the 120 automorphisms and the single orbit of each size; the vacancy checks on every mask confirmed the connected induced six-cycle or distances 1,2,3. Coverage is (6/12)(1/10)+(9/12)(3/5)+3/10=4/5. The entire rate-vector distribution is supported on (20,10), (20,10,4), (20,10,2), (20,10,4,1) with weights 1/10,3/10,3/10,3/10. Conditional transforms multiply the rate/(rate+s) factors, and the mixture yields both the stated transform for all s≥0 and exact mean 3/4 and variance 251/400. There is no waiting-time contribution from rejected proposals after jamming.
+
+## originality
+
+PASS
+
+The process is a canonical instance of established random-order greedy packing and graph blocking RSA. The supported distinct content is the exact site-pattern distribution and the explicit last-success time mixture for this graph. Neither the basic greedy construction nor the elementary finite recurrence is claimed as new.
+
+## value
+
+PASS
+
+This is a natural finite benchmark for irreversible packing on a regular triangulated sphere. The full per-pattern distribution and exact kinetic law answer distinct questions: the former reveals that all imperfect terminal site sets have the same mass despite two sizes, and the latter quantifies the time cost of reaching any jammed outcome. A researcher can use the exact distribution and moments to check finite RSA or random-greedy computations without interpreting this as an asymptotic theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

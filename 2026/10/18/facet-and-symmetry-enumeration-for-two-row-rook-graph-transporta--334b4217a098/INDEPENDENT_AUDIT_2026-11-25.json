@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:00:30.731600Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The unit ball is the symmetric edge polytope: normalized differences along arbitrary shortest paths are averages of unit-edge differences. The graph is connected, so these differences span the dimension-(2n-1) zero-sum space. In the polar modulo constants the tight-edge incidence rank is 2n minus the number of spanning tight components, counting isolated vertices. A polar vertex has a tight spanning tree, yielding integrality after normalization. A constant row would force every matching edge tight, then force the other clique constant, leaving disjoint matching edges. Hence each row takes exactly two consecutive values and the relative offset is -1, 0 or 1. The within-row tight graphs are connected; the rows need a tight matching edge. At offset zero the row words are nonconstant and distinct, and either outer offset has three allowed column types with both endpoints required. This yields (2^n-2)(2^n-3)+2(3^n-2^(n+1)+1). For n>=3 the only cliques of size n are the two rows; preserving their matching gives exactly the stated graph group. At offset zero its action with sign identifies the two pairs of occupation numbers independently. If both mismatch occupations are positive the match occupations are arbitrary; if exactly one mismatch is positive both match occupations must be positive. At outer offsets the joint action identifies the offsets and exchanges the two positive endpoint occupations. For G(z)=z^2/((1-z)(1-z^2)), the three orbit contributions have generating functions G(z)/((1-z)(1-z^2)), zG(z)/(1-z), and G(z)/(1-z). Their sum gives the claimed rational function; extracting even and odd coefficients yields the two given cubics and the leading n^3/24. The coefficient at n=2 is only an extension. Separate rooted-potential connectivity and group enumeration (independent_enum.py) matched facets for n=3 through 7 and orbits for n=3 through 5; the frozen verify.py was inspected, not executed. Neither finite enumeration covers all n or any larger group of isometries.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3.1 and proof reduce facet-defining potentials to integer heights and a tight spanning tree; the adjacent exact examples concern complete and complete-bipartite graphs. Chen et al. give general facet-subgraph structure and a cycle-joining example."
+        ],
+        "reasoning": "These are applicable reduction principles, not evaluated closed formulas for the matched-clique product. A general criterion does not by itself identify the three offsets, admissible occupation vectors or quotient counts.",
+        "searches": [
+          "Higashitani–Jochemko–Michałek arXiv:1807.07678 Theorem 3.1 and examples",
+          "Chen–Davis–Korchevskaia arXiv:2107.12315 facet subgraphs"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py (static inspection)",
+        "Higashitani–Jochemko–Michałek arXiv:1807.07678",
+        "Çelik et al. arXiv:2003.06725",
+        "Chen–Davis–Korchevskaia arXiv:2107.12315",
+        "Local Resultary records 07308b86f132 and d90620afbcf3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The connected-tight criterion yields constraints in a new graph family. Their solution here uses nonconstant clique layers, column feasibility and a connected matching bridge, followed by distinct orbit actions at equal and unequal relative height. Neither compared exact graph family has this matched-clique structure."
+        ],
+        "reasoning": "It takes a graph-specific structural classification and group quotient, not substituting into a prior exact formula. The sign involution is included by design and the claim does not assert saturation of the full linear or combinatorial symmetry group.",
+        "searches": [
+          "Higashitani–Jochemko–Michałek Theorem 3.1 specialization",
+          "Resultary 07308b86f132 and d90620afbcf3 actual Findings",
+          "Hamming vs chain-product metric in Wasserstein Distance to Independence Models"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Çelik et al. identify Hamming L_0 graph metrics with products of complete graphs. Their six-point [3]×[2] Table 1 entry instead uses L_1 (chain product), and their L_0 entry is [2]^3. Indexed exact K_{p,q} symmetric edge polytope formulas are for the bipartite graph itself, not its line graph."
+        ],
+        "reasoning": "Counting dual Lipschitz vertices equals counting primal facets, but switching from L_0 to L_1 here changes the graph. Taking a line graph similarly does not preserve the symmetric edge polytope or the facet invariant.",
+        "searches": [
+          "Two-row rook graph / K_n Cartesian K_2 / L(K_{2,n}) symmetric edge polytope facet count",
+          "Hamming [n]×[2] Wasserstein ball / polar Lipschitz vertices; Çelik et al. arXiv:2003.06725 §4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The table entry for [3]×[2] is L_1 with 18 facets, not the claimed 54 for L_0. The indexed K_{p,q} result has facet count 2^p+2^q-2, and the mixed-theta record has facet count 2·6^m+6·3^m and a different orbit formula."
+        ],
+        "reasoning": "These exact enumerations are substantial near matches, but neither the table nor the indexed records supply counts for this graph and metric, much less its stated group orbits.",
+        "searches": [
+          "Çelik et al. Example 12/Table 1",
+          "Resultary 07308b86f132, complete bipartite face polynomial",
+          "Resultary d90620afbcf3, mixed-theta facet orbits"
+        ]
+      },
+      "rationale": "The tight-edge potential criterion and the Hamming metric interpretation are established. The checked general and nearby exact enumerations do not provide the all-n facet and orbit formulas for two matched cliques or their occupation-number classification. The scoped group, graph, metric, and polarity are essential to the comparison.",
+      "residual_risks": [
+        "No exhaustive bibliography or catalog guarantee; an unindexed exact product-graph enumeration remains possible. An unrevealing literature query was not taken as negative evidence.",
+        "The facet/polytope theorem is only for unweighted unit-edge two-layer graphs, and the orbit theorem only for graph automorphisms plus inversion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies the facet criterion, not the two-row orbit and count formulas",
+          "evidence": [
+            "The proof identifies a spanning tree among the independent tight roots; for sufficiency the tight roots must span the zero-sum space, i.e. the tight graph must be connected as well as spanning."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1807.07678",
+          "material_read": "Theorem 3.1 and proof, p. 6, offsets 21180–23058; complete and bipartite examples, pp. 6–7",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "Arithmetic aspects of symmetric edge polytopes",
+          "trigger": "General facet characterization and closed counts on nearby graph families"
+        },
+        {
+          "assessment": "Correct general metric setting, but no exact table match for the six-point rook case",
+          "evidence": [
+            "Example 12 explicitly assigns L_1 to the [3]×[2] model and L_0 to the three-bit model; the former graph is a product of chains."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2003.06725",
+          "material_read": "Section 4 p. 10 near offset 39749; Example 12 and Table 1 pp. 12–13, offsets 47500–49242",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "Wasserstein Distance to Independence Models",
+          "trigger": "Hamming product Lipschitz polytopes and exact f-vector tables"
+        },
+        {
+          "assessment": "Related reduction theory, no matching evaluation in the inspected passages",
+          "evidence": [
+            "The examples discussed use cycle structure rather than two complete layers with a matching."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2107.12315",
+          "material_read": "General facet-subgraph discussion and cycle-joining example, p. 2 near offset 5580",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "Facets and facet subgraphs of symmetric edge polytopes",
+          "trigger": "Broader structural results on the same polytopes"
+        },
+        {
+          "assessment": "Complete bipartite graph itself, not the Cartesian product of cliques",
+          "evidence": [
+            "The Finding gives 2^p+2^q-2 facets for K_{p,q}."
+          ],
+          "identifier_or_url": "Resultary 07308b86f132",
+          "material_read": "Finding, offset 0",
+          "method": "Local Resultary index and mirrored text",
+          "title": "Four-family face classification and complete face polynomial of a complete bipartite symmetric edge polytope",
+          "trigger": "Exact related symmetric edge polytope classification"
+        },
+        {
+          "assessment": "Different graph and enumerations; date alone is irrelevant to equivalence",
+          "evidence": [
+            "Two-pole mixed-theta paths of lengths two and three give 2·6^m+6·3^m facets, not two complete layers."
+          ],
+          "identifier_or_url": "Resultary d90620afbcf3",
+          "material_read": "Finding, offset 0",
+          "method": "Local Resultary index and mirrored text",
+          "title": "Polynomially many symmetry classes among exponentially many facets",
+          "trigger": "Very similar facet and orbit question on a two-pole graph"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The two-row rook graph is a natural family of Hamming transportation metrics. The structural classification gives exact facet data in arbitrary dimension for that family, plus canonical descriptions up to the specified symmetries. The contrast between exponentially many facets and cubically many orbit types is a consequence of the explicit classification, not a numerically observed pattern.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

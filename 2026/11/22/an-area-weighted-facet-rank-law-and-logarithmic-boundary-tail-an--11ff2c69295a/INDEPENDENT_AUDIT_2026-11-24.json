@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:27:20.987106Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The lower face is P_(n-1,t+1); an upper k-face is the orthogonal product of the regular k-permutahedron and P_(n-k,t), with intrinsic area factor k^(k-3/2) by the spanning-tree determinant (one for k=1). These descriptions follow by taking equality in the subset inequalities; at t=0 the rank n-1 product loses a dimension, so its area is zero. For the imported volume EGF, the rational t=(a-1)/b are dense and the finite vertex lists are continuous in t in Hausdorff distance; Euclidean volume is continuous and the EGF coefficients are polynomials in t. This supplies the real-t extension implicit in the frozen proof, including the given base volumes. The tree square-root singularity gives f_m rho^m=C_t m^(-3/4)(1+O_t(m^(-1/2))), rho=e^(-1). The relative coefficient ratio after extracting rho^k differs from one by O_t(k/n+n^(-1/2)) for k<=n/2. Multiplying by the tree kernel k^(-3/2) and the area kernel k^(-2) and summing this error costs respectively O_t(n^(-1/2)) and O_t(n^(-1/2)+log(n)/n); the contribution from k>n/2 follows by summing (m+1)^(-3/4) over m=n-k. Thus the denominator has the O_t(n^(-1/2)) precision needed for the O_t(1) mean remainder. Lower ranks give the harmonic numerator with the stated Stirling prefactor; k>n/2 is O_t(1) even after weighting by k. The masses normalize and the limiting mean is infinite. An independent bounded Stirling-tail summation agrees with alpha=0.6186032871609 and beta=0.6178166125895. Inspected VERIFICATION.md and verify_surface_rank.py without executing supplied code: the 12 hull tests compare aggregate surface areas and volumes in dimensions 2–4, not each rank or the limit.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Amanbayeva–Wang give the classical volume EGF; Hanada et al. give the generalized volume recursion and EGF. The dimension-three same-family surface result gives an isoperimetric optimization for all real t, but fixes n=3.",
+          "Resultary f65bde8b0496 instead obtains a factorial-tail area rank law for a cube–simplex Cayley family."
+        ],
+        "reasoning": "The cited volume EGF controls individual volume coefficients, not a probability law for all boundary weights or the needed uniform tail estimates. The dimension-three formula is a special case of the present finite area geometry, not a stronger high-dimensional statement. A factorial-tail limit for a different body cannot give this k^(-2) tail.",
+        "searches": [
+          "Hanada et al. arXiv:2212.06885; Amanbayeva–Wang arXiv:2104.08454, Prop. 4.3",
+          "Resultary: dimension-three surface efficiency, graphical-zonotope area condensation and Cayley area laws"
+        ]
+      },
+      "checked_sources": [
+        "Hanada–Lentfer–Vindas-Meléndez arXiv:2212.06885",
+        "Amanbayeva–Wang arXiv:2104.08454",
+        "Resultary ef1f73706f61 and 5206f8c21a6d (original passages); adjacent f65bde8b0496 and fd88bc727366 (scope comparisons)",
+        "Combinatorics of Generalized Parking-Function Polytopes, DOI 10.1007/s00454-025-00770-1 (abstract scope only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The upper normalized rank weights combine a heavy area kernel k^(-2) with coefficient ratios of F_t, whose normalized size is (1-k/n)^(-3/4) away from the end. The lower class uses a different tree kernel k^(-3/2).",
+          "The exact finite area identity is a consequence of the known face and volume geometry. To obtain the law and accurate divergent mean, the k close to n contribution must be bounded separately and the normalizer controlled to o(1/log n); fixed-rank transfer and mere convergence in distribution cannot supply that."
+        ],
+        "reasoning": "The known factors enable the derivation but do not mechanically provide the joint tightness and weighted harmonic truncation estimates. No stronger inspected area result applies to this parking family in the fixed-t, growing-n regime. The independent logarithmic excess in the random-tree zonotope concerns another statistic, not this expectation.",
+        "searches": [
+          "ArXiv:2212.06885 Theorem 3.23, facet factor proof, and Proposition 3.27",
+          "Resultary 5206f8c21a6d, Finding; ef1f73706f61, Finding and proof opening",
+          "Resultary fd88bc727366, tree graphical zonotope Borel facet law"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The normalized body is the translated and scaled generalized parking-function polytope at t=(a-1)/b. The prior upper faces are parking-polytope/permutahedron products, and lower faces are a parameter shift of the parking family.",
+          "The probability weight is the Euclidean area of this product times the binomial rank multiplicity; it is not the combinatorial count of faces, an angle distribution, or a lattice-normalized measure."
+        ],
+        "reasoning": "The facet/volume theorem recovers the finite exact area factor after inserting the intrinsic metric factor for the permutahedron, and yields an EGF after assembling all ranks. Those finite ingredients are credited. Their use does not replace the simultaneous asymptotic analysis of all ranks or its weight by k.",
+        "searches": [
+          "Resultary: generalized parking-function polytope Euclidean surface area, area-weighted facet rank, boundary condensation",
+          "Hanada–Lentfer–Vindas-Meléndez arXiv:2212.06885, Theorem 3.23 and Proposition 3.27"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The area polynomial 6t^2+(18+3sqrt(2))t+12+3sqrt(3) in ef1f73706f61 is exactly the n=3 surface-area specialization. Record 5206f8c21a6d gives the exact same alpha series in a limit of coefficients for complete-split graphical zonotopes."
+        ],
+        "reasoning": "Neither exact match is the claimed law: one fixes dimension, and the other has area share tending to 1 at fixed clique size as the periphery grows and studies alpha in a second limit of coefficients. The latter does not give beta=1/(1+alpha) as the non-unit mass of the parking coordinate-minimum class. The identical indexed frozen finding was excluded as a self-hit.",
+        "searches": [
+          "Resultary ef1f73706f61 exact area polynomial; 5206f8c21a6d exact alpha series and area condensation",
+          "Resultary exact/numerical formula searches by surface measure and facet rank"
+        ]
+      },
+      "rationale": "The facet product structure, volume EGF, regular permutahedron area and the series alpha in a different body are prior ingredients. The supported distinct contribution is the full high-dimensional Euclidean boundary-area distribution for rank in the stated parking family, including parameter cancellation, tight normalization and its logarithmic prelimit mean with bounded error. In the closest inspected results, the same-body geometric formula is finite dimensional and the high-dimensional laws are for quantitatively different face weights and polytopes.",
+      "residual_risks": [
+        "No absolute priority conclusion or intraday ordering is made. The specific limit could appear under an unindexed asymptotic boundary-measure formulation.",
+        "The 2025 combinatorics article was not used as whole-document negative evidence. The result is for fixed t, not joint n,t asymptotics, and concerns area rather than exposed or uniformly sampled facets."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact finite geometric and EGF ingredients; integer parking parameters in the original theorem, not a high-dimensional rank law.",
+          "evidence": [
+            "Orthogonal product at an upper facet; known volume EGF exp((1/2) integral z(g')^2 dz + t g) in the normalized variables."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2212.06885",
+          "material_read": "Open PDF Theorem 3.23 and proof pp. 17–18, Proposition 3.27 p. 20, approximately offsets 60302 and 72005–76184",
+          "method": "Read original open PDF equation and product-face passages",
+          "title": "Generalized parking function polytopes",
+          "trigger": "Same generalized body; known volume/facet input could directly cover the area law"
+        },
+        {
+          "assessment": "Classical t=0 volume EGF; not the area-weighted statement.",
+          "evidence": [
+            "Proposition 4.3 concerns the generating function of Euclidean volume."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2104.08454",
+          "material_read": "Open PDF Proposition 4.3 (p. 9, near offset 30696)",
+          "method": "Read original open PDF passage",
+          "title": "The Convex Hull of Parking Functions of Length n",
+          "trigger": "Classical t=0 predecessor and possible exact boundary coverage"
+        },
+        {
+          "assessment": "Exact n=3 overlap for all t; neither a growing-dimension theorem nor an ordering claim for same-day records.",
+          "evidence": [
+            "Gives S(t)=6t^2+(18+3sqrt(2))t+12+3sqrt(3), including the collapse of pair facets at t=0."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-sharp-euclidean-surface-efficiency-of-three-dimensional-generali--ef1f73706f61/RESULT.md",
+          "material_read": "Finding, scope and opening facet computation, offsets 0–2500",
+          "method": "Original local-mirror passages, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Sharp Euclidean surface efficiency of three-dimensional generalized parking-function polytopes",
+          "trigger": "Distinct same-day identical family with Euclidean facet measures"
+        },
+        {
+          "assessment": "Identical auxiliary constant but different objects, normalization and order of limits.",
+          "evidence": [
+            "The peripheral-singleton area fraction is 1-A_p q^(-3/2)+O_p(q^(-5/2)), and alpha is lim A_p/p^(3/2), not the parking rank normalizer in that theorem."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-surface-area-condensation-and-a-poisson-edge-constant-for-comple--5206f8c21a6d/RESULT.md",
+          "material_read": "Finding, offsets 0–2320: polytopes, facet measures and both limit regimes",
+          "method": "Original local-mirror passage, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Surface-area condensation and a Poisson-edge constant for complete-split graphical zonotopes",
+          "trigger": "Identical series and similar boundary-area language"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result distinguishes metric from combinatorial typicality in a natural family: only n lower facets carry a fixed positive area fraction, yet large upper ranks create a divergent expectation at a precise logarithmic rate. The universality with respect to fixed t, the law for every rank and the O_t(1)-accurate mean are more informative than a low-dimensional area calculation or a list of facet counts.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

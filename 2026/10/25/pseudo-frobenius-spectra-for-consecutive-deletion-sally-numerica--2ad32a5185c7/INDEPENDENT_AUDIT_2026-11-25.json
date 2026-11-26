@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:34:13.263896Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the interval and socle arguments for k≥3, e≥2k+1, 1≤j≤e−k−1. For j>k the offset sums [0,2j−2] and [j+k,e−1] leave no gap in the two-generator block. For j≤k the missing offsets are exactly [2j−1,j+k−1]; in the next block three small offsets cover [0,3j−3], while two large offsets start at 2(j+k)−e≤2j−1 and cover through j+k−1. This also works at j=1 (the first range ends at 0 and the second starts by 1). In either case an e-term consecutive run gives the conductor by addition of e. For the PF test, adding retained generators excludes the low offsets below j and the deleted offsets in both regimes. When j≤k, adding e+(e+j+k−1−x) to x∈[j+k,e−1] reaches F, and adding e+max(0,j−1−r) to e+j+r hits the third gap block. Every gap in that third block is PF; when j>k, exactly the surviving upper parts of the two low blocks are PF. Negative candidates in the integer definition are excluded by adding e, except −e, which is excluded by adding 2e−1. Counting gives the stated disjoint two type ranges, also when e=2k+1 leaves only the first branch. Substituting (g,F,t) gives the defect. Since t^e is regular, reduction modulo it preserves the minimal graded Betti ranks over the polynomial ring in the other generators; the last Koszul homology is the socle, with basis indexed by e+PF via the Apéry set. This is characteristic-free. The finite verifier was inspected but not rerun; VERIFICATION.md's 10,857-case output is recorded, not independent proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The same-family Betti work inspected applies to its symmetric members, j=k here.",
+          "The other two cited works focus on fewer deleted generators in the relevant theorems."
+        ],
+        "reasoning": "Neither the symmetric-case Betti formulas nor one- and two-deletion classifications subsume the nonsymmetric exact types for k≥3. The standard general characterization by Apéry maxima is a criterion, not an explicit all-position computation.",
+        "searches": [
+          "arXiv:2512.18136, main results including the symmetric-case resolutions",
+          "arXiv:2507.11738 Proposition 2.2 and Theorem 2.3",
+          "arXiv:2512.10812v2 Theorem 3.3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py (inspection only)",
+        "arXiv:2512.18136",
+        "arXiv:2512.10812v2",
+        "arXiv:2507.11738",
+        "Resultary 17843b3119b3 summary"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The same-family gap information and the Gorenstein position were already known.",
+          "For j≤k the explicit generator witnesses eliminate every lower-block gap from PF; for j>k they distinguish a low-block PF interval from the excluded low gaps. Counting then gives the all-position bijection."
+        ],
+        "reasoning": "The gap information is input to the PF proof; applying the definition at each enumerated gap is possible but does not alone give the symbolic split and uniform witnesses. The inspected earlier theorem supplies no equivalent all-position characterization. Once the new PF counts are given, the Betti and defect formulas follow by standard relations.",
+        "searches": [
+          "arXiv:2512.18136 Theorem 3.2, proof and indexed ring invariants",
+          "Frozen RESULT.md steps 2–5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The former treats the identical retained-generator family, with matching genus and Frobenius formulas and symmetry iff j=k in this range.",
+          "The latter gives types for one and two deletions, not the k≥3 all-position formulas."
+        ],
+        "reasoning": "The semigroup description agrees under the same offset convention. Its gap cardinality and upper endpoint alone do not select the gaps maximal under the semigroup order (equivalently, the maximal Apéry elements translated by −e). The frozen result characterizes these in both regimes.",
+        "searches": [
+          "arXiv:2512.18136 Theorem 3.2 and Apéry/gap proof",
+          "arXiv:2512.10812v2 Theorems 2.2 and 3.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No direct match in the inspected ranked results. The closest available summary concerns a halved five-consecutive-generator family and a type 2 or 3 depending on a mod 4."
+        ],
+        "reasoning": "The displayed family and spectrum in that summary are different, not a reparametrization yielding the k≥3 deletion-position classification. The full indexed report was not available in the local mirror, so this comparison is summary-limited, not a whole-text negative finding.",
+        "searches": [
+          "Resultary ranked search for the consecutive-deletion Sally pseudo-Frobenius/type spectrum",
+          "Resultary 2026/10/25/SCOPE-pseudo-frobenius-sets-of-halved-five-consecutive-generator-semig--17843b3119b3"
+        ]
+      },
+      "rationale": "Pass the explicit pseudo-Frobenius classification and the resulting bijection of deletion positions with types for k≥3 on the bounded comparisons made. Prior same-family gap/genus/Frobenius and symmetry computations are credited, as is terminal Betti coverage in the symmetric case. The general type-to-Betti relation and the defect substitution are consequences, not separate new general theorems.",
+      "residual_risks": [
+        "Resultary searches are ranked and bounded, and the closest different-family hit was compared only at the summary level after a mirror availability check.",
+        "Unindexed or differently formulated all-position PF formulas cannot be excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same family and exact overlap for F, g and symmetry; the inspected Betti result is for the symmetric case",
+          "evidence": [
+            "In the assigned range the theorem gives (F,g)=(2e+j+k−1,e+2k−j) for j≤k and (e+j+k−1,e+k−1) otherwise, and symmetry iff j=k. The inspected statements do not classify PF or type across all j."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2512.18136",
+          "material_read": "Abstract; Theorem 3.2 and proof, offsets 17500–22494; symmetric-case resolution and Betti discussion, offsets 27392–35378",
+          "method": "OA HTML passage inspection",
+          "title": "Structure and Symmetry of Sally Type Semigroup Rings",
+          "trigger": "Identical consecutive-deletion semigroup family"
+        },
+        {
+          "assessment": "Deletion regime differs",
+          "evidence": [
+            "The stated results handle one deletion and two deletions respectively."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2512.10812v2",
+          "material_read": "Theorems 2.2 and 3.3, offsets 10400–13888 and 49400–54399",
+          "method": "OA HTML passage inspection",
+          "title": "Numerical Semigroups of Sally Type II",
+          "trigger": "Closely related pseudo-Frobenius and type formulas"
+        },
+        {
+          "assessment": "Two-deletion overlap only in subject matter",
+          "evidence": [
+            "Its retained-generator setup in the inspected result deletes two offsets, not a k≥3 block."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2507.11738",
+          "material_read": "Proposition 2.2 and Theorem 2.3, offsets 10700–13695",
+          "method": "OA HTML passage inspection",
+          "title": "Numerical Semigroups of Sally Type",
+          "trigger": "Earlier gap and symmetry results for closely related rings"
+        },
+        {
+          "assessment": "Summary states a different family; no whole-text assessment",
+          "evidence": [
+            "It describes a halved five-consecutive-generator construction and type 2 or 3 according to a mod 4."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-pseudo-frobenius-sets-of-halved-five-consecutive-generator-semig--17843b3119b3",
+          "material_read": "Resultary summary; exact local mirror record not found",
+          "method": "Local ranked catalogue lookup and mirror availability check",
+          "title": "Pseudo-Frobenius sets of halved five-consecutive-generator semigroups",
+          "trigger": "Nearest indexed PF-spectrum hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural fixed-multiplicity, fixed-embedding-dimension deletion family realizes every type from 1 through ν−1 exactly once; the two PF interval formulas specify which gaps realize each type. This gives usable data about canonical invariants, terminal Betti numbers and distance from almost symmetry, not merely an enumeration at sampled multiplicities or a repetition of the known symmetric case.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

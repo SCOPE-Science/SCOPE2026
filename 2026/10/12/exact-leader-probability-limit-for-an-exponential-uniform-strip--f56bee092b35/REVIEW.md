@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. Conditioning gives \(a_n=n\mathbb E[F(Z)^{n-1}]\). The region \(X<1\) contributes at most \(n(1-e^{-1})^{n-1}\). On \(X\ge1\), the published CDF reduces to \(1-A(w)e^{-X}\), where \(A(w)=1+w(e^w-1)\), and the \(X\)-integral is exactly \([1-(1-A(w)e^{-1})^n]/A(w)\). Dominated convergence gives the displayed integral. The strict inequality \(e^w-1>w\) yields \(L<\pi/4<0.8\). The packaged numerical check is supplementary only.
+## correctness
 
-## Originality
-PASS. The closest source is DOI 10.3390/math10101623, Section 5.2, which studies the identical model, supplies the CDF, gives a lower bound, and reports a simulation suggestion, but does not evaluate the limit. Candidate-specific semantic searches, exact-value searches, and deduplication comparisons against the closest prior mathematical claims found no covering statement. The 2025 same-author follow-up was inspected as a plausible later source and does not cover this absolutely continuous strip model. A terminology-based literature risk remains.
+PASS
 
-## Value
-PASS. The exact limit resolves the principal numerical uncertainty in a worked example of the motivating paper and analytically overturns its reported \(0.8\) simulation threshold. The reduction to a one-dimensional integral also identifies the asymptotic mechanism. This is a complete natural fact in the source's leader-probability program.
+The competitor's first-coordinate exceedance contributes exp(-x); at shortfall d in [0,min(w,x)] the second-coordinate contribution has conditional probability w-d and density exp(-x+d). This yields the verified two-branch CDF. As exp(-X) is uniform, transform by z=1-F conditional on w. Its inverse density is constant 1/(exp(w)-w) until z0=1-w exp(-w) and strictly increasing thereafter. The Beta(1,n) coupling yields strict decrease; the positive error is supported where 1-z<=1/e. A compact interior rectangle with w approaching 1 and 1-z approaching 1/e from below gives the matching root lower bound. Jensen and the exponential series give L>=3/(e+1)>4/5. Independent Simpson checks for the corrected and frozen integrals give 0.843078886983059 and 0.732359299691928 at 1048576 subdivisions; replay files under /workspace/branches/e36104ac-0029-4247-973e-b3c4cfb85308/ are independent_quad_corrected.py and independent_quad_results.txt. The newly written replacement verifier also ran successfully. The original script was inspected, not executed; its diagnostics take the faulty CDF as given.
 
-## Closest literature and limitations
-The direct source is Răducan, Rădulescu, Rădulescu, and Zbăganu (2022), DOI 10.3390/math10101623. The theorem is restricted to the explicit dependent law \(Z=(X,X+V)\) and does not supply a general leader-property criterion. An equivalent older calculation under different multivariate-extreme terminology remains a residual originality risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass the repaired strip-specific result: correct the primary source's CDF, prove finite-n strict decrease, and identify the sharp root rate 1/e. Do not claim a new general concurrence theorem or novelty solely from evaluating the corrected limiting integral.
+
+## value
+
+PASS
+
+This resolves a specific published model inconsistency, with an analytic confirmation of the simulated threshold and a finite-sample ordering plus sharp rate showing how that threshold is approached. It is not just a numerical re-evaluation of a known integral.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

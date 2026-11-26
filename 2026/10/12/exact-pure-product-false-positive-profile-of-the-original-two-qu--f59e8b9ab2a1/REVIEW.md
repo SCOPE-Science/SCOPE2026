@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. For a pure two-qubit product state, the collective mean and transverse covariance follow directly from Bloch-vector expectations and product-state factorization. The transverse minimization is exact because \(\mathbf a-\mathbf b\) lies in the plane perpendicular to \(\mathbf a+\mathbf b\), yielding \((\Delta J_\perp)^2_{\min}=(1+\mathbf a\cdot\mathbf b)/4\). Substitution gives the claimed formulas with the antipodal endpoint explicitly excluded.
+## correctness
 
-## Originality
-PASS. The anchor source gives a single nonsymmetric product-state false positive and motivates a locally invariant replacement; the later review repeats the example and qualitative warning. Searches for the exact angular law, a universal pure-product classification, the arbitrarily small \(\xi_1\) false-positive range, and the identity \(\xi_2=1\) found no statement implying this combined theorem. Residual risk remains that a poorly indexed pedagogical derivation may contain the same calculation.
+PASS
 
-## Value
-PASS. The result converts a qualitative caveat about the original squeezing criterion into a sharp structural boundary. It shows that false positives are not exceptional: every nonidentical nonantipodal pure product state is labeled squeezed by \(\xi_1\), with values arbitrarily close to zero, while \(\xi_2\) stays exactly one. This is directly relevant when interpreting original collective spin squeezing outside the symmetric sector.
+For half-angle α=γ/2 and nonzero mean direction m, write the two unit Bloch vectors as cos(α)m ± sin(α)e, with e perpendicular to m (arbitrary there if γ=0). The mean has length cos(α). For a unit transverse n, factorization gives zero cross covariance and variance [1−sin²(α)(e·n)²]/2. Its global minimum is cos²(α)/2, attained at n=e; at γ=0 all transverse axes tie. Both normalizations give the stated values, and taking γ→π gives an infimum but not a value at the undefined endpoint. The review's explicit product uses opposite transverse components ±√3/2 and common longitudinal component 1/2; the dot product is −1/2 and the variance minimum is 1/8. This exact witness is in the 2011 review, not the qualitative product paragraph of the 2003 preprint; correct the attribution when citing the example. The analytic minimization, not the recorded numerical output, supports the result.
 
-## Closest literature and limitations
-The closest literature is the 2003 source itself and the 2010 review, both of which discuss nonsymmetric product false positives without giving the full angular classification proved here. The theorem is limited to pure states of two qubits and the original collective parameters; it does not assess the source's locally invariant criterion or mixed separable states.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The qualitative counterexample and a particular point were known. The supported distinct contribution is the complete relative-angle profile under the original collective definitions, including the optimal variance and vanishing infimum of ξ₁ with ξ₂ exactly one. This also resolves the apparent over-unity claim for nonsymmetric products in the pure two-qubit discussion of the motivating source.
+
+## value
+
+PASS
+
+A known false-positive example becomes a complete diagnostic boundary: every misaligned nonantipodal pure product is classified, and one can make the apparent Kitagawa–Ueda squeezing arbitrarily strong without genuine entanglement or Wineland squeezing. The exact normalization and endpoint matter to interpreting the witness, and the full classification also resolves a conflicting qualitative statement in the motivating discussion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

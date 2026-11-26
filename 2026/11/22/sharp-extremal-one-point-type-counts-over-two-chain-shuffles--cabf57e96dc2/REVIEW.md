@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The count is of complete nonalgebraic singleton types in a homogeneous finite-relational-language Fraïssé limit. Each extension is a unique insertion gap plus a pair of lower/upper old-parameter sets. The within-chain ideal/filter conditions and the requirement that every lower parameter lie below every upper parameter give the exact local gap formula; all exceptional overlap cases are accounted for. Expanding the path sum gives identity (1) for arbitrary positive chain lengths. Its two sums are nonnegative and have exactly the two segregated equality words. Completing squares yields nearest-integer maximizers and the full parity-dependent classification. The integer optimizer constraints are checked explicitly. A standalone deterministic program separately evaluates every shuffle through lengths eight and directly enumerates 240 small cases, with results saved in `check_output.txt`. Exhaustive finite checking does not prove the all-size theorem; identity (1) does.
+PASS
 
-## Originality — PASS (historical-priority risk remains)
+In a fixed total-order insertion gap, the new point's predecessors are initial segments and successors are terminal segments of the two chains, restricted by the gap. If both sets are nonempty they must be in the same chain because every predecessor must precede every successor in the base poset. Conversely these conditions suffice for all new transitivity relations. This gives the displayed gap polynomial and counts each diagram once. Finite extensions are realized over the named base and homogeneity equates identical diagrams with identical complete types. Arbitrarily many copies of any such diagram can be added in the same gap, incomparable with one another, so none is algebraic. For an independent check of the defect formula, swapping adjacent BA to AB after i A-steps and j−1 B-steps changes only the intermediate gap, by 2(a−b)−4i+4(j−1). This matches the increment of 2∑[r_j²−(q_j−r_j)²] when q_j increases from i to i+1. The segregated base value from summing the gap formula is binom(n+3,3)+ab. In the nonnegative defect representation, vanishing requires all q_j equal at one endpoint; this works also when b=1. For a≥b, all nearest-integer choices to r_j=j+(a−b−1)/2 are within [0,a] and remain weakly increasing because successive centers increase by one. Completing the square proves the full optimizer classification; summing removes 1/4 per center for even d and zero for odd d, giving the two constants and the balanced limit. An independent transitivity enumerator checked 242 shuffles across 16 profiles with 1≤a,b≤4, reproducing both extrema and all equality cases.
 
-The 2012 homogeneous linearly ordered poset classification provides the correct ambient structure, the finite-extension property, and no quantitative two-chain extremal spectrum in its inspected nine-page content. The 2005 general-order-extension algorithms address adding comparabilities on a fixed ground set rather than new singleton types under varying linear extensions. The 2008 coloured-order classification concerns homogeneous component shuffling, not the exact extremal function. Previous one-type bounds for the unexpanded generic partial order do not determine the variation of type counts after adding a distinguished linear order. Prior counting for singleton types over a chain, and pair types over an antichain, likewise does not imply the two-chain shuffle classification. Searches for direct formulas, aliases and tables yielded no covering statement; nonappearance in search results is not proof of novelty. The closest conceptual risk is an unindexed two-chain enumeration that already implies the same quadratic defect identity.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The fixed unordered parameter poset has a family of different linear extensions, so measuring the orbit count after adding the linear order is a natural sensitivity question. The theorem determines both sharp extrema and **all** equality shuffles for every pair of positive chain lengths, and the imbalance parity changes the number of maximizers from one to an exponential \(2^m\). For equal chain lengths the range is cubic, with a limiting maximum/minimum ratio of \(3/2\). This is a nontrivial structural envelope for finite-base orbit counts rather than an isolated tabulation or a routine relabeling.
+Bounded coverage substantially overlaps on one-point extensions and on un-ordered two-chain counts, but the strongest inspected statements do not determine the number of compatible linear-extension gaps per diagram for a fixed shuffle. The exact dependence and extremal classification with the distinguished order survive these comparisons.
 
-## Scope and uncertainty
+## value
 
-The number of optimizer words is for two specified components; when the components have equal size but are not named, simultaneous interchange of their names identifies pairs of words. Only one-point types and exactly two chains are covered. Historical priority is provisional; independent mathematical validation has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Two incomparable chains are the first base family here with nontrivial variation of the distinguished order at fixed partial-order type. The formula quantifies that variation, gives every optimizing pattern and shows a factor 3/2 asymptotic change in the balanced case. The explicit defect identity is useful beyond recording extremal values and is not a routine single example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

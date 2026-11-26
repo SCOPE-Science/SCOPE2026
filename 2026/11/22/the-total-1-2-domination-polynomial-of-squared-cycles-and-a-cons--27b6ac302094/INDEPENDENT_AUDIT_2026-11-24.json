@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:29:38.695437Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§1–5, VERIFICATION.md, compare_total.py, verify_direct.cpp, verify_transfer.py, and recorded output files",
+        "Independent bounded code and output in /workspace/branches/92701b0e-26c8-45b0-9ef6-5a24a87cc09c/; n=8 ordinary/capped minima 24/8, n=15 75/45"
+      ],
+      "rationale": "Index the starting four-bit state by fixed cycle labels. The overlaps of a rooted closed walk recover one indexed cyclic word, even at shorter period, and every appended bit is counted exactly once; the transition omits the central bit, testing exactly the four distinct neighbors for n≥5. For ordinary total domination a feasible cyclic gap list has each gap ≤5 and no two consecutive gaps ≥3, and these properties suffice by checking interior and selected sites separately. With L long gaps this gives n≤2k+3L≤2k+3⌊k/2⌋. Inverting yields the stated seven cases; the listed short/long constructions meet them, and separation by at least two precludes three neighbors since any three of the four neighbor sites contain an adjacent pair. The q=0 cases n=5,6 use just two selections. Equality forces alternating (2,5) at residue zero, giving seven distinct rotations, and forces one short-short junction with no deficit at residue two, giving n. At residue six the alternation has one unit of deficit, either a short 1 or a long 4, and the uniquely located defect of each type gives n sets. A shortened short between long gaps of length five cannot cause a third selected neighbor: any forbidden triple would use its adjacent selected pair, and the next selection is too far away. At residue one the q long gaps and q+1 shorts have one short-short junction and one unit of deficit. The junction fixes the label and gives 2q+1 defect choices; only the two shorts at this junction, producing gaps (1,2) or (2,1), overfill an open neighborhood. All other defects respect the cap, giving (2q−1)n and excluding exactly 2n. Independently reconstructed direct counts and polynomial-walk counts agree coefficient by coefficient for 5≤n≤18; the finite check corroborates rather than proves the all-order argument.",
+      "residual_risks": [
+        "Only the four stated residues have asserted simplified extremal coefficients; the trace enumerates all residues and degrees. Counts are labelled, not counts of orbits."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lv–Wu p. 1 treats graphs in general and presents bounds. Premala–Sekar defines an ordinary total-domination polynomial for the exact graph family, without any upper load cap."
+        ],
+        "reasoning": "General bounds or the ordinary count over a larger class do not isolate the capped cardinalities or the rejection pattern.",
+        "searches": [
+          "Primary search: squared cycles and total [1,2]-domination polynomial; Lv–Wu arXiv:1503.04939v1; Premala–Sekar 2014"
+        ]
+      },
+      "checked_sources": [
+        "Premala–Sekar pp. 78 and 81–83",
+        "Lv–Wu arXiv:1503.04939v1 p. 1",
+        "Resultary 8054f73b99ed, 08b14e560196, and assigned self-match"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior counts do not record the load distribution; the distinct regular-set theorem imposes membership-type equalities. The frozen proof uses a double-short junction and identifies exactly two inadmissible positions per label."
+        ],
+        "reasoning": "At cap-inactive residues prior ordinary results can help, but the two-position exclusion and all-cardinality filtration do not follow from the inspected prior statements. Neither the shared transfer method nor the ordinary optimum is claimed new.",
+        "searches": [
+          "Premala–Sekar p. 78 definitions, Theorem 2.6, and p. 83 polynomial data versus frozen proof §§4–5; mirror 8054f73b99ed Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "8054f73b99ed compares (1,2)-regular sets on the same graphs with exact loads 1 in S and 2 outside S; 08b14e560196 is independent secure domination on ordinary cycles."
+        ],
+        "reasoning": "The first family is a strict subclass with an extra membership-conditioned equality; the latter uses a different graph and predicate. Neither is the unrestricted choice of one or two neighbors at every vertex.",
+        "searches": [
+          "Resultary: cyclic binary words, total [1,2]-domination of C_n², regular or fair sets, squared-cycle load cap"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "27b6ac302094 is the assigned record itself. Premala–Sekar pp. 81–83 includes seven ordinary minima for n=7q and 24 ordinary minima at n=8; the capped n=8 count is 8."
+        ],
+        "reasoning": "Ordinary exact data overlaps some uncapped or cap-inactive cases, but does not tabulate the capped invariant, and fails to equal it already at order eight.",
+        "searches": [
+          "Resultary exact trace and 2n exclusion lookup; Premala–Sekar Theorem 2.6 and order-eight polynomial table"
+        ]
+      },
+      "rationale": "The standard transfer-matrix method, ordinary total domination on this family, and overlapping ordinary extremal data are antecedents. The new content supported by the comparison is the load-capped cardinality enumeration and the exact description and count of ordinary minima rejected by the cap at n≡1 mod 7. Neither the ordinary polynomial nor membership-dependent regular-set classification covers those claims. No distinct exact covering record was located; this is a bounded statement, not proof of priority.",
+      "residual_risks": [
+        "The cited Chellali et al. 2013 full text, doi:10.1016/j.dam.2013.06.012, was unavailable via the inspected OA routes; its quoted question was not independently checked.",
+        "The exact antecedent source for the ordinary residue-one optimum classification was not resolved. Unindexed or differently named earlier capped enumerations remain possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong coverage of the ordinary polynomial and some extremal counts, not the capped set family",
+          "evidence": "p. 78 definition; Thm. 2.6 seven ordinary minima at multiples of seven; p. 83 has 24 ordinary minima at n=8.",
+          "identifier_or_url": "https://www.iosrjournals.org/iosr-jm/papers/Vol10-issue4/Version-5/M010457885.pdf",
+          "material_read": "PDF pp. 78, 81–83; OA offsets 739, 13703, 22500",
+          "method": "Primary OA PDF bounded passages",
+          "title": "Total Dominating Sets and Total Domination Polynomials of Square of Cycles",
+          "trigger": "Exact graph family and polynomial enumeration"
+        },
+        {
+          "assessment": "Strictly different load predicate",
+          "evidence": "Exactly one neighbor in the set at selected sites and exactly two at other sites, yielding period-five patterns.",
+          "identifier_or_url": "Resultary 8054f73b99ed",
+          "material_read": "RESULT.md Finding, mirror offset 0",
+          "method": "Resultary and local mirror",
+          "title": "Complete regular-set orbit classification for squares of cycles",
+          "trigger": "Same family and potentially equivalent regular-set terminology"
+        },
+        {
+          "assessment": "General bounds, not a covering exact family result in the inspected material",
+          "evidence": "General total [1,2]-domination-number bounds rather than a square-cycle cardinality polynomial.",
+          "identifier_or_url": "https://arxiv.org/abs/1503.04939v1",
+          "material_read": "Primary PDF p. 1, OA offset 924",
+          "method": "OA PDF bounded passage",
+          "title": "Total [1,2]-domination in graphs",
+          "trigger": "Identical total load predicate"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding, §§1–5 and independent bounded check",
+        "Premala–Sekar ordinary-polynomial comparison"
+      ],
+      "rationale": "On the canonical quartic circulant family, cardinality counts answer a natural placement question not settled by the minimum size. The distinction from ordinary total domination is substantial: a complete all-size capped enumerator plus a structural theorem that the cap removes exactly two choices per labelled junction from a quadratically growing ordinary optimum family. This quantifies how an upper load constraint changes feasible optimal placements rather than merely applying a standard transfer method to reproduce a known scalar.",
+      "residual_risks": [
+        "No closed symbolic coefficients are claimed in the other three residues and no assertion is made for other cycle powers."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

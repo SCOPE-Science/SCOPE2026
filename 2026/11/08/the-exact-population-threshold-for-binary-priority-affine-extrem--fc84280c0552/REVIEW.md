@@ -1,19 +1,21 @@
-# Scientific review: binary-priority extremality threshold
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim has an analytic proof for every integer \(N\ge8\), not merely an extrapolation. Service ranks give an explicit quadratic field of unilateral gains; the Walsh expansion has no terms above order two. Orthogonal edge-gradient projection determines total and harmonic energies by exact sums, and their ratio has a strictly positive excess \((N-2)(N-7)/[2N(13N^2-N-2)]\) for \(N\ge8\). The exact-rational checker verifies the rank-to-Fourier computation directly for small populations and independently recreates the published sharp lower-population comparison. The use of prior published facts at \(N\le7\) is stated, not recast as new proof for larger sizes.
+PASS
 
-## Originality — PASS, with literature-access risk
+With A high opponents earlier in the tie order and B later, the two ranks are 1+A and i+B. Their quadratic payoff difference has degree at most two; its Walsh constant is (N²+2Ni−N−4i+2)/8, singleton coefficients are −i/4 on earlier indices and (N+i−1)/4 on later ones, and pair coefficients are ±1/4 for pairs on the same side and zero otherwise. For each coordinate set U the gradients give the equal-coordinate line in the edge coefficient block, so subtracting its mean gives the residual. The only nonsingleton residuals are (N+i+j−1)²/32 per pair and 1/8 per triple. The pair sum before division by 32 is C(N,2)(N−1)²+2(N−1)² sum(i)+(N−2) sum(i²)+(sum(i))². In the total norm, writing k=i−1 and m=N−1, the numerator of the sum of singleton-coefficient squares is mN²+m²k−mk²; the quadratic terms sum to 2 C(N,3)/16. These sums and the constant coefficients yield exactly the stated T and H. For affine increments 1 the edge mean is (N−1)/2 and each singleton has magnitude 1/2, with opposing signs in each pair, giving H/T=1/N. The quadratic witness differs by the stated factorized excess; it ties at seven and is strict for all N>=8. My independent exact vertex-Laplacian replay /workspace/branches/audit_priority.py solved the normal equations directly from rank-sorted profiles (no edge Walsh coefficient computation), matched both energies for N=2 through 9 including 1919/2192 at N=8, and reproduced the seven-agent witness 53454277/62354880>6/7. For 2<=N<=6 it formed Q=H−T/N by polarization, verified its all-ones kernel vector and positive Schur pivots of the complementary principal minor (zero form at N=2), hence PSD on the whole space of increments. These checks and the analytic proof establish the exact threshold only for the stated uniform two-level complete-conflict model; there is no nonlinear optimum claim.
 
-The primary paper, Lin et al., arXiv:2610.05832v1, explicitly poses the exact two-level population threshold as open (conclusion, PDF p. 12). It proves a seven-agent witness and small-population optimality, but reports only floating-point signs for selected larger populations (Supplement, Table S3). The all-integer formula, explicitly decreasing nonlinear family, and symbolic proof for every \(N\ge8\) are not contained in the inspected primary text. Searches for equivalent binary-priority Hodge energy formulas, exact two-level threshold classifications, nonlinear rank-payoff witnesses, and broader potential-game results did not identify a prior theorem implying this one. This does not exclude unindexed or unpublished priority.
+## originality
 
-## Value — PASS
+PASS
 
-The main contribution resolves a specifically named open parameter-classification problem for a motivated strategic priority model: the precise boundary is seven agents. It replaces partial numerics by a reproducible explicit witness at every higher order. It also quantifies the shortfall of the affine design, asymptotic to \(1/(26N)\), without claiming an optimizing payoff or consequences for welfare.
+Credit the affine benchmark, small-N comparison, and exact seven-agent example to prior work. The supported addition is the single explicit quadratic-payoff witness, with a closed-form positive excess for every N>=8, completing the population threshold. No distinct retrieved statement covers that unrestricted tail; finite signs are not an implication. The unresolved primary supplement access is recorded, not treated as negative evidence.
 
-## Closest literature and limitations
+## value
 
-Lin et al. (2026), arXiv:2610.05832v1, Sections V–VI and VIII, Supplement Sections S-N and Table S3, is the closest primary source. All populations at most six and the seven-agent witness belong to that paper. The new theorem covers the infinite tail with fixed total-order ties, two levels, complete conflicts and uniform edge weights. A possibility of independent, unindexed derivation remains.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The sign of the improvement, rather than its small numerical size at eight, answers when an affine rank rule ceases to maximize the potential component in this basic design model. A single strict monotone witness for every larger population replaces a finite pattern of isolated examples and gives a quantitative gap, so the sharp threshold is both motivated and useful without claiming the optimal nonlinear payoff.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

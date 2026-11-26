@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T18:40:48.256049Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In the linear zero-indexed model, each weight-two output has exactly the three distinct parents (a,b),(a,b+1),(a+1,b+1), so exactly one has sum 0 modulo 3. For a weight-one output at t, each of the three parents listed at RESULT.md line 27 can yield t (deleting the earlier one shifts the later one by one); the listed parent sums are consecutive including both endpoints. The residue counts are choose(N₀,2)+N₁N₂, where Nᵢ are the class sizes, giving the displayed floor. At n=3, 101 covers all three outputs. For the lower bound, the gaps identify weight-two deletion with decrementing one positive coordinate. At v=−1/2 the asserted q=q₀−r is nonnegative: for zero, one or two vanishing coordinates the respective lower bounds are 1/12, 1/3−1/24, 7/12−5/24; at the origin q=1/3. In an interior input the three q₀ descendant weights sum to 1 by v^(s−1)+2v^s=0. If one input coordinate vanishes, the excess over 1 is [v^(b−1)+v^(c−1)]/12 and each of the two corrections contains the corresponding positive part; for two zero coordinates the sole descendant has weight at most 5/6. To sum q₀, count d−s occurrences of each fixed coordinate s and use ∑(d−s)v^s=d/(1−v)−v(1−v^d)/(1−v)² for s=0,…,d−1. For r, sum the six ordered pairs of distinct face/coordinate labels: each contributes ∑max(v^s,0)/12, including corners with multiplicity. The correction is <2/3 and the q₀ deficit from N/3 is ≤5/18. Thus any cover has integer size strictly greater than N/3−1, hence at least floor(N/3). This verifies the universal certificate in RESULT.md lines 35–71. The supplied rational script and recorded finite output were inspected, not independently executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lenz et al. define unrestricted deletion covering and use weighted bounds for nonuniform balls. Xie–Sun–Ge give asymptotic unrestricted binary and large-alphabet results in the inspected introduction."
+        ],
+        "reasoning": "The weighted dual method is prior and receives no novelty credit by itself. Bounds over every received binary string do not specialize to the exact restricted minimum when both the admitted transmitters and the target universe change.",
+        "searches": [
+          "Lenz et al., arXiv:1911.09944, pp. 2–3",
+          "Xie–Sun–Ge, arXiv:2606.15379v1, Introduction section I-B",
+          "Fixed-composition deletion covering query"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, check.py and check_output.txt",
+        "Indexed weight-two correcting records dated 2026-10-13, 2026-10-18 and 2026-11-02",
+        "arXiv:1911.09944, 2606.15379v1, 2405.12321",
+        "OEIS A001840"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The lower bound uses only outputs of weight two; a prior exact theorem for that layer alone would suffice, since the residue-zero construction also covers weight one. No such implication was verified in the inspected primary results.",
+          "The incidence LP argument requires explicit nonuniform weights and an all-length strict total-weight inequality, not just the general dual principle."
+        ],
+        "reasoning": "Coverage is not algebraically obtained from the known correction optimum or the existing count. The new fact is the exact optimization for this incidence structure.",
+        "searches": [
+          "Same-day indexed exact weight-two deletion-correcting record, Finding and assumptions",
+          "arXiv:1911.09944, weighted covering bounds",
+          "OEIS A001840 exact formula and triangular-array interpretation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact equivalent weight-two-only problem hits every three-vertex simplex {u+e₁,u+e₂,u+e₃} at level d in the ternary composition lattice.",
+          "Problems on the Triangular Lattice treats avoiding monochromatic equilateral triangles rather than hitting all elementary faces of one orientation. The strongest indexed coding matches impose pairwise disjoint deletion shadows."
+        ],
+        "reasoning": "An exact transversal result for that single oriented face family would transfer, but neither a packing of shadows nor a coloring that forbids larger monochromatic triangles is that transversal result.",
+        "searches": [
+          "Resultary: binary weight-two single-deletion covering and correcting codes",
+          "Triangular lattice incidence covering query",
+          "Monomial and gap-composition covering query",
+          "arXiv:2405.12321, abstract and introduction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A001840 states a(k)=floor((k+1)(k+2)/6), so K₂(n)=a(n−2). Its comments give aperiodic necklaces and the minimum number of coins moved to invert a triangular array, among other interpretations.",
+          "The same-day indexed exact coding optimum is n−1−floor((n+1)/4) for maximizing a correcting code, not the minimum covering count."
+        ],
+        "reasoning": "The numerical sequence is not new. The coin problem counts positions outside an optimally aligned reflection of a finite triangle; the coding minimum permits arbitrary chosen vertices but requires incidence with every local face. The tabulated count and the packing value do not prove the necessary lower bound for that condition.",
+        "searches": [
+          "OEIS sequence search 1,2,3,5,7,9,12,15,18,22,26,30",
+          "OEIS A001840, COMMENTS and FORMULA",
+          "Resultary: exact single deletion coding in the binary weight-two layer"
+        ]
+      },
+      "rationale": "The supported new result is the exact restricted covering minimum, with a dual certificate valid for every length. The numerical sequence is already tabulated as OEIS A001840 shifted by two, but its inspected interpretations do not give the deletion-covering inequality. A same-day indexed record on the very same weight-two inputs concerns disjoint deletion shadows, not covers. The closest inspected general deletion-covering results concern unrestricted strings rather than the attainable fixed-weight output universe.",
+      "residual_risks": [
+        "An unindexed fixed-composition theorem or one-layer simplex transversal under another name could supersede the result.",
+        "The same-day simplex-reflection lattice-covering entry (2026-10-18, f1f0400b6c29) was available only as an index synopsis, which describes Euclidean covering radius/density; finer comparison was not possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different extremal objective, not excluded by date",
+          "evidence": "Maximizes family size with pairwise disjoint deletion shadows; no minimum cover theorem.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-exact-optimum-for-binary-weight-two-single-deletion-correcting-c--1370efa22dd5",
+          "material_read": "Indexed RESULT.md Finding and assumptions, offset 0 onward",
+          "method": "Local mirror primary text",
+          "title": "Exact optimum for binary weight-two single-deletion-correcting codes",
+          "trigger": "Same day, same input layer and deletion operation"
+        },
+        {
+          "assessment": "Prior framework; no exact fixed-weight instance established",
+          "evidence": "Targets the unrestricted length-(n−R) strings and applies generalized weighted inequalities.",
+          "identifier_or_url": "https://arxiv.org/pdf/1911.09944",
+          "material_read": "PDF pp. 2–3, definition and weighted bounds; offsets 17,000–22,946",
+          "method": "Lawful open PDF passage inspection",
+          "title": "Covering Codes using Insertions or Deletions",
+          "trigger": "General deletion covering and weighted lower bounds"
+        },
+        {
+          "assessment": "Different target space and bound regime",
+          "evidence": "Reports asymptotic unrestricted binary single-deletion covering and large-alphabet results.",
+          "identifier_or_url": "https://arxiv.org/html/2606.15379v1",
+          "material_read": "Introduction section I-B, around offsets 7,000–7,478",
+          "method": "Open full-text passage inspection",
+          "title": "New bounds for covering codes under insertions or deletions",
+          "trigger": "Newer deletion-covering bounds"
+        },
+        {
+          "assessment": "Different lattice question in the material inspected",
+          "evidence": "Concerns monochromatic equilateral triangles; no identified result on the single oriented elementary face transversal.",
+          "identifier_or_url": "https://arxiv.org/pdf/2405.12321",
+          "material_read": "PDF p. 1, abstract and introduction, around offsets 846 and 2,960",
+          "method": "Open PDF passage inspection",
+          "title": "Problems on the Triangular Lattice",
+          "trigger": "Possible lattice equivalent of the gap-coordinate problem"
+        },
+        {
+          "assessment": "Exact numerical match; no identified deletion-cover minimum in the read material",
+          "evidence": "a(k)=floor((k+1)(k+2)/6), with interpretations including reflected triangular coin arrays and necklace counts.",
+          "identifier_or_url": "https://oeis.org/A001840",
+          "material_read": "Sequence and comments in lookup; FORMULA around offset 8229",
+          "method": "OEIS sequence lookup and direct entry inspection",
+          "title": "A001840",
+          "trigger": "Exact initial terms of the claimed optimum"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The model is a natural constrained deletion-covering problem: cover every attainable received word using as few weight-two transmitters as possible. The simple residue construction gives an optimum code, but optimality is not explained by a degree count or the already tabulated floor sequence. The explicit boundary-corrected certificate closes the all-length lower bound for a nonuniform incidence problem and gives an exact benchmark distinct from unique-decoding codes.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

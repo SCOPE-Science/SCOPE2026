@@ -1,15 +1,21 @@
-# Mathematical review: Jordan-type transfer matrix for the radical of a linear truncated path algebra
+# Independent mathematical audit
 
-## Correctness — PASS
-Path-basis multiplication gives explicit column supports, yielding both ranks r and s without a genericity assumption. Two-state weighting of all arrow and length-two coefficients is bijective, and the Jordan partition follows from nilpotency of index at most three. Independent construction of the full regular-action matrices and modular Gaussian elimination matched support and transfer enumerations over all completed small-degree tests.
+## correctness
 
-## Originality — PASS, with priority risks
-Full primary text of Xu–Han–Jiang (arXiv:math/0509202v1) studies cohomology of the same truncated quiver algebras but not elementwise regular-module Jordan type. Accessible Dugas–Huisgen-Zimmermann–Learned and Babson–Huisgen-Zimmermann–Thomas abstracts address projective dimensions and generic representations, not a displayed operator-count theorem; these inaccessible full-text implications remain a risk. Comparisons against earlier mathematical claims and a published mathematical-finding index did not identify an equivalent or stronger enumeration. Existing square-zero-cycle and radical-square-zero results do not imply this length-three linear-quiver transfer matrix.
+PASS
 
-## Value — PASS
-A canonical finite-dimensional representation, left multiplication on the regular module, has a natural but previously unaccounted joint rank distribution for all radical elements. The all-degree, all-finite-field transfer matrix resolves every nilpotent Jordan partition multiplicity, while its square-zero specialization is an exact independent-set weighted count. The result yields substantially more than an isolated computation and does not rely on conjectured downstream implications.
+Recomputed the ranks by decomposing the regular module into subspaces of paths with a common terminal vertex. At vertex j≥3 the basis (e_j,u_{j−1},v_{j−2}) gives a triangular block with the only possible nonzero entries a_{j−1}, a_{j−2}, b_{j−2}. Its rank is e+f+(1−e)(1−f)η_{j−2}, with e=ε_{j−2} and f=ε_{j−1}, and its square has rank ef. Vertex two adds ε_1 to the rank and zero to the square rank; vertex one contributes zero. Regrouping the arrow contributions gives weight 2 for each active arrow except weight 1 for the last. For each pair, summing over b gives 1+(q−1)X if both arrows vanish and q otherwise, with a Y factor exactly if both are active. This gives the displayed initial row, interior transitions and different final transition. Directly at n=3, q=2 the eight triples give 1+3X+2X²+2X³Y. For n=1 the radical is zero, and n=2 has a rank-one operator exactly when the sole arrow coefficient is nonzero. Since L_x³=0, ranks r,s give block counts s,r−2s,D−2r+s. Square-zero means no adjacent active arrows; choosing j nonadjacent positions among n−1 gives the stated binomial coefficient, and the length-two coefficients are free. The proof uses only whether field coefficients vanish and works also for non-prime q. Frozen RESULT.md lines 20–42 suffice to replay the argument. The accompanying prime-field checker was read, not run; its cap and prime-field scope do not certify the theorem.
 
-## Limitations
-The complete 2014 sources were not available for full-text implication comparisons. The output is a regular-module rank distribution only; automated exhaustive tests are not an infinite proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Bounded pass for the full joint regular-action rank census on the open path. Closely related censuses either impose different boundary conditions or count another operator. The standard square-zero specialization is not a separate originality basis.
+
+## value
+
+PASS
+
+The full Jordan census of radical multiplication is an exact invariant of the natural regular module. It gives rank-stratum sizes over every finite field by a fixed-size recurrence without enumerating radical elements, and exposes the effect of the endpoints of the chain. Neither the finite checks nor the standard independent-set specialization supply this value on their own.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

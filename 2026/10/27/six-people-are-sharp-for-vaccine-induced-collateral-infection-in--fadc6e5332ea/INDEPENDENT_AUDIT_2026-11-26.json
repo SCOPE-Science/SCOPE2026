@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:41:17.634448Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–27, VERIFICATION.md and verify.py (source inspected, not executed)",
+        "Independent replay: python3 /workspace/review_checks/5_paired_history.py"
+      ],
+      "rationale": "There is an independent pathwise proof of the lower bound. Fix a common deterministic contact history. If a target is infected only with vaccination, take a causal chain x_0=s,...,x_l=target in that run, with x_j first infective in round j. None of these distinct vertices is the vaccine recipient. Let j be the first index where the unvaccinated infection time differs. The preceding vertex was infective in the same round in both runs and the shared contact succeeds, so x_j must have been infected earlier without vaccination; it cannot be the target. First-round infections of vertices other than the recipient coincide. Thus j cannot be 1 or 2: in the latter case an earlier unvaccinated infection would be in round 1. Therefore l>=j+1>=4, giving at least five distinct chain vertices plus the vaccinated vertex. A deterministic common-history argument implies the claim for the stated independent contacts. Separately, direct enumeration of relevant contact subsets with first-infective-time tuples reproduced 372 timed states, 140 paired SIR projections and zero adverse terminal states at n=5. Tracing the frozen witness confirms that its common intermediate meets the outgoing successful contact only in the vaccinated run. Finite duration makes each final risk a polynomial, so the strict difference at a cube vertex persists in a relative neighborhood containing interior points and an open neighborhood of such a point.",
+      "residual_risks": [
+        "The bound assumes one infective seed, one initially vaccinated vertex, permanent removal and exactly one infectious round; it is about an individual third party and not any population-level outcome."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The preprint allows probabilities varying with time since infection and individual infectious durations, but excludes dependence on calendar infection time. It proves no collateral damage under that restriction."
+        ],
+        "reasoning": "Broader infectious-period assumptions do not make the old theorem dominate the unrestricted calendar-time hypothesis, even at small n.",
+        "searches": [
+          "Floyd–Kay–Shapiro, §3.1 Theorem 3.1 and Corollary 3.2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary title, alias and threshold searches",
+        "Floyd–Kay–Shapiro author preprint, version dated 2007-08-21; journal DOI 10.1007/s11538-007-9275-0"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Static or infection-age-only monotonicity leaves arbitrary common calendar contact arrays outside its hypotheses.",
+          "The qualitative example explains delayed infection of an intermediate but neither counts necessary vertices nor excludes any smaller graph."
+        ],
+        "reasoning": "The predecessor explains why a counterexample can exist but supplies neither a matching one-round finite minimum nor its lower bound. The indexed peak comparison is logically independent.",
+        "searches": [
+          "Floyd–Kay–Shapiro pp. 1–2, §3.1 and conclusion",
+          "Resultary 60ad730d9a5f, Finding and mechanism passage"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Preprint p. 2: vaccinating Q may cause P to be infected later, when P's outgoing transmission probabilities are larger.",
+          "60ad730d9a5f: peak simultaneous prevalence increases in a seven-vertex static example, with total infections decreasing."
+        ],
+        "reasoning": "Timing of a specified person's eventual infection, final outbreak size and peak simultaneous prevalence are distinct. The timing mechanism is the same as in the preprint; the minimum population is not a restatement of it.",
+        "searches": [
+          "Resultary: exact title, five/six vertex third-person SIR, vaccination collateral infection calendar time",
+          "Floyd–Kay–Shapiro, preprint introduction and conclusion"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest indexed table/cutoff concerns peak prevalence and has boundary six/seven in a static model. The calendar-time discussion in the preprint gives no numerical finite-state classification or specified minimal witness in those passages."
+        ],
+        "reasoning": "The known cutoff cannot be used as a table for the different observable and probability model; the new five-vertex inclusion is an exact mathematical boundary, not a new number extracted from that result.",
+        "searches": [
+          "Resultary: five vertices, third person, SIR; sharp vaccination epidemic thresholds",
+          "Floyd–Kay–Shapiro pp. 2 and 13"
+        ]
+      },
+      "rationale": "The general calendar-time harm mechanism is prior and credited. The material distinct claim is the sharp five-versus-six population cutoff in the specified single-seed, single-recipient model. The closest primary source proves a broader monotonicity theorem in infection-age-dependent, calendar-stationary models, then explains qualitative failure under calendar-time variation without a finite sharp cutoff in the examined preprint. The nearest indexed result concerns static peak prevalence, not final infection of a specific person.",
+      "residual_risks": [
+        "The same-paper author preprint was inspected; journal version retrieval failed, so possible differences in that version were not checked. Bounded searches do not establish historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior monotonicity in calendar-stationary models and prior qualitative counterexample mechanism, but no five/six cutoff in the relevant passages.",
+          "evidence": [
+            "p. 1 distinguishes infection age from when the person was infected.",
+            "p. 2 outlines delay through an intermediate; p. 13 notes statements can fail when probabilities vary with time."
+          ],
+          "identifier_or_url": "https://personal.math.vt.edu/floyd/research/papers/epidemics.pdf",
+          "material_read": "2007 author preprint pp. 1–2, §3.1 Theorem 3.1 and Corollary 3.2, conclusion p. 13",
+          "method": "Bounded OA preprint passage inspection; journal version retrieval attempted",
+          "title": "Some Elementary Properties of SIR Networks or, Can I Get Sick because You Got Vaccinated?",
+          "trigger": "Same individual vaccination question and calendar-time warning"
+        },
+        {
+          "assessment": "Different observable and calendar-static construction; no coverage of the audited cutoff.",
+          "evidence": [
+            "Seventh vertex is needed for the stated peak-prevalence increase, not an individual final-infection increase."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-the-seven-person-threshold-for-vaccination-induced-epidemic-peak--60ad730d9a5f/RESULT.md",
+          "material_read": "Finding and witness discussion, offsets 0 and 4959",
+          "method": "Local mirror passage inspection",
+          "title": "The seven-person threshold for vaccination-induced epidemic peak increase",
+          "trigger": "Indexed vaccination threshold with a nearly matching population boundary"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and proof",
+        "Independent causal-chain lower bound and five-vertex replay",
+        "Floyd–Kay–Shapiro preprint §§1, 3.1 and conclusion"
+      ],
+      "rationale": "The boundary gives a precise limit on when calendar-time dependence can overturn a familiar individual-risk monotonicity theorem. The pathwise obstruction rules out every smaller graph under all contact schedules; a strict difference robust to probability perturbations is stronger than a degenerate isolated example. This is a meaningful minimal counterexample in the abstract model, not a clinical policy finding.",
+      "residual_risks": [
+        "No interpretation as a statement about public-health benefit or harm in real populations."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

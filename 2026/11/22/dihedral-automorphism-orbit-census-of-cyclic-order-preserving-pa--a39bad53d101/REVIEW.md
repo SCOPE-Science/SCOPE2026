@@ -1,15 +1,21 @@
-# Self-review of a rank-refined dihedral orbit census
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-For the exact domain of all injective cyclic-order-preserving partial maps on \(n\ge3\) points, each rotation-fixed map is determined by two invariant \(k\)-subsets and one of \(k\) cyclic shifts; each reflection-fixed map is determined by matching numbers of fixed vertices on two invariant subsets and \(\gcd(2,k)\) compatible cyclic shifts. These disjoint cases account for every automorphism, so rank-wise Burnside counts are exact. The divisor-sum total follows from Vandermonde identities. The equalities for the two boundary ranks and the rank immediately below full rank follow by direct evaluation. The embedded code checks the fixed counts against actual maps, and constructs actual orbit partitions in small degrees; finite checks corroborate the proof, not the reverse.
+PASS
 
-## Originality: PASS, relative to inspected evidence
+Reconstructed rank-wise Burnside under the full action of Araújo et al., Theorem 5.5. A rotation with gcd g has invariant subsets periodic modulo g; choosing ℓ residue classes makes its shift in either subset (s/g)ℓ modulo rank, so every cyclic shift between the two subsets commutes. A reflection on an invariant rank-k subset acts in cyclic coordinates by i↦α−i, including k=1,2. A shift v from one subset to another commutes precisely if 2v≡β−α modulo k. Solvability is equivalent to equal numbers of restricted fixed points (one at odd rank; at even rank this distinguishes α even from α odd), and there are gcd(2,k) solutions. This verifies both fixed-map polynomials, including the separately counted empty map. At z=1 Vandermonde gives R=1+(n/2)binom(2g,g) and H=(2+f²+2 binom(f,2)²)binom(2m,m)−1, yielding the divisor sum with both reflection parities. Rank one and full rank classify respectively by unsigned displacement and inverse-paired rotations; rank n−1 gets (n−1)n² identity fixes and 2n total reflection fixes. Each nonidentity rotation has g≤n/2; the fixed-set union bound then proves the claimed exponential rarity and Stirling gives the total asymptotic. This is an all-n argument, not extrapolation from the supplied test vectors.
 
-Li and Fernandes (arXiv:2207.12823) and the earlier automorphism-group theorem provide the group action; Umar (2011) provides raw rank counts but not its orbit quotient. The published parity-and-totient classification addresses only longest nilpotent maps at rank \(n-1\), whereas this theorem classifies **all** ranks. The published involution count for the dihedral inverse monoid concerns a different monoid and does not imply the present result. The numerical divisor sum is not claimed as a general new Burnside theorem. An earlier universal cycle-index formula could subsume the statement. The initial 2000 presentation paper was available only through bibliographic and abstract material, leaving a residual priority risk.
+## originality
 
-## Value: PASS
+PASS
 
-The rank-wise quotient is a natural complete symmetry census of a well-established inverse monoid, not merely an evaluation of its known raw cardinality. Explicit reflection corrections and nontrivial stabilizers make the orbit distribution genuinely different from naïve division by the automorphism-group order. The sharp \(\binom n2+1\) next-to-full-rank law and asymptotic generic freeness quantify structural features across every degree.
+Credit the previously known full action and the labeled rank enumeration in full. The distinct result is the all-rank orbit enumerator with nonidentity stabilizer corrections and its explicit consequences. The closest actual statements inspected do not provide it. The assessment is best-knowledge, not a priority guarantee.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+This is the complete natural rank stratification after quotienting a standard inverse monoid by its actual full automorphism group. The parity-dependent reflection contributions, exact next-to-unit orbit law, and generic-freeness bound resolve concrete consequences of stabilizers missed by labeled counts. The calculation is elementary but supplies an all-size explicit answer with no monoid generation needed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

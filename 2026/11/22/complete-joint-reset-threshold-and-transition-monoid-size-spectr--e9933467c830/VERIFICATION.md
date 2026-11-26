@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,25 +19,24 @@
 }
 ---
 
-# Verification guide
+# Independent mathematical audit
 
-`joint_spectrum.csv` is a complete table of the joint reset-length and transition-monoid-size histogram of binary four-state complete semiautomata. Its 179 data rows plus header are the exact machine-readable output certificate. The first column uses `-1` for no reset word; monoid size includes the identity.
+## correctness
 
-The two supplied programs independently enumerate all \(4^8=65{,}536\) labeled ordered generator pairs. Compile and execute from a directory containing all three files:
+PASS
 
-```text
-c++ -std=c++17 -O2 -o verify_transforms verify_transforms.cpp
-./verify_transforms
-python3 verify_subsets.py
-```
+Independently enumerated all unordered pairs of four-state maps with weight two off the diagonal, recovering the ordered labeled census. I computed monoid size by closure under prepending from the identity. For reset length I worked backward from all singleton target sets under inverse images, using subsets of the four states. After d steps the reached sets are the full inverse images of singleton targets under words of length at most d. The first appearance of Q is therefore exactly the shortest constant word length, and closure without Q is exactly the no-reset case. This matched every CSV cell (179 distinct cells, exactly 65,536 automata), all row totals and extrema, the given (8,176) witness, and the absence of lengths greater than 9. Independent conjugation with all 24 permutations, plus exchange of letters, gives the exact computed sets of threshold-nine pairs for sizes 128 and 145, each of cardinality 48. The conditional maximum falls from 176 at length 8 (and each of 3–7) to 145 at length 9. The empty word contributes the identity to monoid size but does not reset four states.
 
-Observed outputs:
+## originality
 
-```text
-VERIFY_TRANSFORMS_OK: 65536 complete automata, 179 cells, 96 at threshold 9
-VERIFY_SUBSETS_OK: independent histogram and two 48-element extreme orbits
-```
+PASS
 
-The C++ program independently recomputes shortest constant-map depth and monoid size by breadth-first traversal of all reachable full transformations. The Python program computes monoid size by transformation closure but reset distance by a separate image-subset BFS on 15 nonempty subsets, then checks both 48-member extremal symmetry orbits by explicit state permutations and letter exchanges.
+Pass for the complete joint distribution and the sharp comparison of conditional maximum sizes across reset thresholds, not for the existence of the two length-nine examples or the isolated pair (9,145). The four-state examples are classical, and Trahtman expressly tabulates the CPR example at size 145 and length nine. Holzer–König give a two-generator construction whose size lower bound already specializes to 176 at four states. No inspected source couples such monoid-size information to the full labeled threshold distribution or establishes the exact 176-to-145 joint boundary across the two levels.
 
-The finite state spaces make the checks exhaustive: every possible letter transition is evaluated; no random sampling or timeout-based argument is used. No statement for larger state sets is certified by these finite computations. The review status attached to this note is same-model, not independent validation.
+## value
+
+PASS
+
+Shortest control to a constant and the total number of behaviors of the two generators are natural but different structural invariants. Four states already separate the fastest reset thresholds, the longest reset thresholds, and the global monoid maximum. The exact joint table exposes a sharp boundary not visible in either marginal or in known extreme examples and gives a reusable labeled benchmark for questions about their dependence. Its value is the exact coupling, not recomputing a known reset bound or CPR's size.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

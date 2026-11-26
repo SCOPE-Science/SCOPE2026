@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:34:41.376921Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Ma's Theorem 2.3 has exactly the column normalization used here: its order-two defect at alpha=-h is R_h-4h u_h u_h*+3h(1-h^2) w_h w_h*. In particular r_n=1-(n+1-h)(n+2-h)/[(n+3-h)(n+4-h)]. The positive diagonal and positive rank-one term make P_h compact and strictly positive as a form. The negative rank-one direction yields the scalar condition 4h K_h(kappa)=1. The resolvent derivative is strictly negative, the limit at infinity is zero, and the 1/(4n) tail of u_n^2/r_n gives divergence at zero while the Sherman–Morrison term stays bounded. The root is therefore simple and unique for every 0<h<1. Subtracting (4(n+1)(1+kappa(n+1)/4))^(-1) termwise leaves an O((n+1)^(-2)) bound uniform in small h and kappa: split the change in the squared numerator from the change in denominators and use their uniform lower bounds proportional to 1/(n+1). At h=0, r=4u, and the two partial fractions of u give sum(u-1/(n+1))=-2. Thus the subtracted finite part is -1/2 and the comparison sum is (log(4/kappa)+gamma)/4+o(1). The rank-one positive correction is O(h); the root bound kappa<=4h||u_h||^2 permits the joint limit. Inversion gives the asserted 4 exp(gamma-2) prefactor. This concerns the canonical defect, not its congruence by M. The finite-column checker and verification notes were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Carleman result has a continuous multiplier and a different exponential coefficient and prefactor. The Hardy record supplies a logarithmic rate for finite-support potentials, not a multiplicative prefactor. Ma supplies the diagonal plus finite rank terms."
+        ],
+        "reasoning": "The weak-coupling analogy explains the type of singularity but furnishes no reduction to the Cesàro normalization and no value for its renormalized harmonic sum.",
+        "searches": [
+          "Resultary weak-coupling spectral search; b7b5ef288886, 61e90b14c31e",
+          "Ma arXiv:2610.00193v1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.00193v1",
+        "Resultary 2747cc29070a, b7b5ef288886, 61e90b14c31e, 88dd990f36ce, de4cae30c19d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The rank-one negative term in Ma permits the one-mode conclusion after verifying divergence; the qualitative negative-shift argument has no asymptotic root evaluation. The other exact results change the operator, normalization or quantity."
+        ],
+        "reasoning": "The exact constant comes from a two-parameter uniform subtraction and the value -1/2 of the Cesàro-specific finite part. Neither the sign witness nor the unrelated binding law entails it.",
+        "searches": [
+          "Ma Theorem 2.3, Eqs. (2.15)–(2.18), and Sec. 7",
+          "Resultary b7b5ef288886, 2747cc29070a and 88dd990f36ce"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ma gives the canonical defect and the exact congruence M*(I-B*B)M for the actual commutator.",
+          "The finite Gram record gives c_m(alpha)=-infinity for negative shifts in a weighted comparison; the third-order record measures ordinary commutator inertia at a different order."
+        ],
+        "reasoning": "These forms may transfer information on signs but not eigenvalue magnitudes. The relevant equivalent quantitative problem is the zero of 1-4h K_h(kappa), not a weighted form infimum or an ordinary commutator eigenvalue.",
+        "searches": [
+          "arXiv:2610.00193v1 Theorem 2.3 and Sec. 7; order-two canonical defect versus ordinary self-commutator",
+          "Resultary 2747cc29070a and 88dd990f36ce"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The signed finite-section law concerns compressions of a different Cesàro self-commutator with fixed parameters. The third-order inertia result does not compute a magnitude."
+        ],
+        "reasoning": "Fixed-size or large-section sign information does not determine this compact-operator eigenvalue as h approaches zero. The rational matrix-entry grid is not a spectral table.",
+        "searches": [
+          "Resultary search for Cesàro negative eigenvalues and weak spectral onset; 2747cc29070a, 88dd990f36ce, de4cae30c19d"
+        ]
+      },
+      "rationale": "The supported distinction is the quantitative eigenvalue scale and exact spectral prefactor for Ma's particular compact canonical interrupter. The decomposition, negative direction, and resulting at-most-one negative count at order two are not independent novelty claims. A generic logarithmic Birman–Schwinger mechanism does not determine this finite part.",
+      "residual_risks": [
+        "An unindexed equivalent resolvent calculation or a general result with this exact finite part could exist; the assessment is limited to the examined primary and catalogue evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage of the canonical formula and signs, not the sharp root law",
+          "evidence": [
+            "R=diag(1-H/D), v=p/D, and commutator=M*(I-B*B)M"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.00193",
+          "material_read": "Eqs. (1.2)–(1.3), p. 1; (2.1), p. 2; (2.13), p. 4; Theorem 2.3 and Eqs. (2.15)–(2.18), p. 5; qualitative negative-shift argument in Sec. 7",
+          "method": "Primary OA PDF; order-two specialization of polynomials, coefficients and diagonal",
+          "title": "Hyponormality of Generalized Cesàro Matrices of Every Positive Integer Order",
+          "trigger": "Exact canonical B and defect"
+        },
+        {
+          "assessment": "Different weighted inequality",
+          "evidence": [
+            "c_m(alpha)=-infinity for -1<alpha<0"
+          ],
+          "identifier_or_url": "2026/10/11/SCOPE-finite-gram-reduction-of-sharp-ces-ro-self-commutator-bounds-at--2747cc29070a",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Finite Gram reduction of sharp Cesàro self-commutator bounds at every order",
+          "trigger": "Same family and negative shifts"
+        },
+        {
+          "assessment": "Analogous mechanism, different operator and normalization",
+          "evidence": [
+            "Negative magnitude 2 pi exp(-pi^2/(2|gamma|))(1+o(1)) for the specified continuous Carleman perturbation"
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-opposite-weak-coupling-scales-for-a-rank-one-exponential-perturb--b7b5ef288886",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Opposite weak-coupling scales for a rank-one exponential perturbation of the Carleman operator",
+          "trigger": "Sharp exponential binding with prefactor"
+        },
+        {
+          "assessment": "No equivalence or same-day priority inferred",
+          "evidence": [
+            "Finite-support potentials yield t log(1/epsilon) tending to 2/S_V, with no multiplicative prefactor stated"
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-exponentially-weak-binding-at-the-optimal-discrete-hardy-boundar--61e90b14c31e",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Exponentially weak binding at the optimal discrete Hardy boundary",
+          "trigger": "Discrete weak-coupling boundary"
+        },
+        {
+          "assessment": "Order three, actual commutator, no eigenvalue magnitude",
+          "evidence": [
+            "Exactly one negative eigenvalue for the stated third-order commutator"
+          ],
+          "identifier_or_url": "2026/11/17/SCOPE-exactly-one-negative-eigenvalue-for-third-order-shifted-ces-ro-s--88dd990f36ce",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Exactly one negative eigenvalue for third-order shifted Cesàro self-commutators",
+          "trigger": "Neighboring order and negative inertia"
+        },
+        {
+          "assessment": "Different operator and limit",
+          "evidence": [
+            "Negative-eigenvalue density of compressions at fixed 0<t<1"
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-the-signed-finite-section-law-for-compact-ces-ro-self-commutator--de4cae30c19d",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror",
+          "title": "The signed finite-section law for compact Cesàro self-commutators",
+          "trigger": "Cesàro negative-spectrum data"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The canonical intertwiner and the sharp sign boundary are fixed by the published operator problem, not by an arbitrary normalization. The prefactor quantifies a first negative mode invisible to every algebraic expansion and distinguishes models that have the same logarithmic tail but different finite parts. It is meaningful as a spectral law for this defect without being a law for the actual self-commutator.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

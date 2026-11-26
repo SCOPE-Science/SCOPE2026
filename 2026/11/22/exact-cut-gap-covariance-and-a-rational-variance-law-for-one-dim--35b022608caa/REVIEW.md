@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The claim uses the union-of-two-nearest-neighbor definition on independent uniform points of the real unit interval. Connectivity blocks are consecutive, and a cut is equivalent to two explicit strict inequalities involving five consecutive gaps. Exponential normalization cancels, giving an exact four-dependent stationary representation. The one-cut, three-lag and four-lag integrals were separately evaluated in exact rational arithmetic. The zero short-lag probabilities and longer-lag independence yield an exact finite variance, whose positive linear coefficient gives the stated CLT. Exhaustive finite gap tests and exact arithmetic checker agree with the proof; the CLT depends on the proved dependence structure, not finite experimentation.
+PASS
 
-## Originality
+With almost surely distinct distances, an endpoint choosing a neighbor must also choose every intervening point, since each is closer. Thus components are consecutive. A cut after site i requires two closer same-side neighbors for each endpoint; this is exactly the pair of strict inequalities comparing G_i to the two adjacent gaps summed on each side. If they hold, vertices at least two positions from the break have two closer vertices between themselves and the break; the second vertex from the break on either side has the boundary vertex and its immediate neighbor on the outer side closer than the crossing, by the same inequalities. No cut can leave fewer than three vertices on a side. Consequently C_n is one plus m=(n-5)_+ cuts, including the deterministic n=3,4,5 cases. Dirichlet spacings are normalized independent exponentials and the common denominator cancels from the cut tests. Disjoint five-gap blocks at distance at least five give independence of families, while centers at distance one or two would each have to exceed the other, which is impossible. I separately integrated the joint probabilities by ordering the two exponential centers x<=y. With F the Gamma(2,1) CDF, lag 3 has conditional factor F(x)^2 F(y). At lag 4 the shared exponential and the two distinct exponential companions give the factor F(x)+(1-x-exp(-x))*exp(-y) in addition to the outer factors F(x)F(y). Exact polynomial-exponential integration gives p=7/54, q3=2071/90000 and q4=6389/324000; these are joint probabilities for lag 3 and 4, and the covariances subtract p^2. Counting m-h admissible pairs where positive yields precisely the finite variance and the stated slope and intercept. The positive long-run variance legitimizes the bounded stationary four-dependent CLT; the mean and O(n) variance imply the claimed L^2 law, and slope/p is 2463/5000. Replay: python -B branches/independent_reproductions.py 3 from /workspace with SymPy. This audit is for iid uniform points on a line and the union graph with exactly two neighbors, not a mutual-choice, circular, or random-link model.
 
-PASS, with historical-priority risk. The closest general theorem is Penrose and Yukich (2001), which already covers component-count central limit theorems for nearest-neighbor graphs; that part is credited and not presented as novel. Wade (2006) evaluates power-weighted edge-length laws for nearest-neighbor-type graphs, and Penrose and Wade (2006) evaluate directed one-nearest-neighbor length moments. Neither of the full texts inspected gives the exact two-nearest-neighbor component-cut covariance values. The currently accessible previous results and published research comparisons do not imply the exact finite mean/variance or specific rational coefficient. The full Penrose–Yukich text could not be inspected, so the remaining priority risk is explicit.
+## originality
 
-## Value
+PASS
 
-PASS. The smallest nearest-neighbor graph that permits cycles presents a genuine geometric-fragmentation statistic, the connected-component count. Its exact mean density \(7/54\), full finite pair-dependence description and variance intensity \(5747/90000\) permit network fragmentation calibration without simulation. The asymptotic variance-to-mean ratio \(2463/5000\) quantifies substantial underdispersion and explains why an independent-cut or Poisson approximation is misleading.
+Pass the exact two-neighbor cut joint laws, finite-sample moments and explicit asymptotic variance. General nearest-neighbor component-count Gaussian theory and positive component density are prior, not the novelty. The closest inspected explicit constants are for different observables, degrees or graph models. The Penrose–Yukich full-text limitation remains a risk, not evidence of noncoverage.
 
-## Scope and limitations
+## value
 
-The conclusion applies only to independent uniformly distributed one-dimensional points and fixed two-neighbor union symmetrization. The classical Gaussian-limit framework is not new, and the full law of component sizes is not determined. Penrose–Yukich (2001) was verified at abstract level but not full text; priority requires later external inspection. No independent validation has been conducted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The interval union of two-neighbor choices is a natural sparse geometric graph and connected-component count is a basic fragmentation observable. The exactly evaluated positive and negative overlap terms quantify why independent or Poisson cuts would fail: the true limiting variance-to-mean ratio is below one, and the finite correction is available without simulation. The main value is the finite-sample and local covariance information, not a generic Gaussian-limit theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

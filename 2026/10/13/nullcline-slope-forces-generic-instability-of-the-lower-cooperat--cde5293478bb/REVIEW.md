@@ -1,23 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The identity
-\[
-\det(I-J(E))=-r y\,H'(y)
-\]
-follows directly from the source's equilibrium relations and Jacobian. For a simple lower root in an exactly-two-root regime, \(H\) crosses from negative to positive, so \(\det(I-J)<0\) and a real multiplier exceeds \(1\). If \(r x\le2\), the separate identity
-\[
-p_E(-1)=(2-rx)(1+A)+B>0
-\]
-places the second multiplier inside \((-1,1)\), proving a saddle. A standard-library replay reproduces both source examples.
+## correctness
 
-## Originality
-PASS. The 2026 source explicitly leaves the lower-equilibrium classification open after numerical evidence. A 2019 no-refuge cooperative-hunting model proves an analogous saddle result for a different map, while a 2023 refuge model uses Beverton-Holt prey growth and provides numerical branch behavior. Neither inspected predecessor implies the Ricker-plus-refuge determinant identity. Source-specific published-finding corpus searches found no equivalent published result.
+PASS
 
-## Value
-PASS. The result resolves the generic instability portion of an explicit open point in the motivating paper and gives a simple geometric criterion linking nullcline crossing orientation to the first Jury condition. It explains why the source's \(r=1\) lower equilibrium is a saddle and why its \(r=3\) lower equilibrium cannot be stable.
+For residuals P=X−x, Q=Y−y, differentiate P(f(y),y)=Q(g(y),y)=0 to get det(I−J)=det D(P,Q)=P_x Q_x(f′−g′). At an interior equilibrium P_x=−rx, Q_x=y/x, giving the factor −ry. H(0+)=1−1/(βb)<0 and every positive-y zero is an interior equilibrium because g(y)>0. At the first such zero H′≥0, with strict inequality if transverse. Hence p(1)=det(I−J)≤0 excludes strict Schur stability; at equality 1 is a multiplier, while strict negativity puts a real characteristic root above 1. The stated rx≤2 saddle test additionally requires transversality: writing A=βbxS(1+2cy)>0 and B=by e^{r(1−x)}S(1+2cy)>0, p(−1)=(2−rx)(1+A)+B>0, locating the other root strictly between −1 and 1. The displayed rx≤2 is a sufficient cutoff, not an iff threshold; no nonlinear conclusion follows just from H′=0. A fresh bisection/Jacobian reproduction (lower_equilibrium_reproduction.py with its output in the private numerical evidence; the frozen verification/verify.py was only inspected) agreed with the determinant test and gave multipliers 0.010601260510 and 1.019517400112 at r=1, and −1.994045049924 and 1.019721561378 at r=3, with (β,b,c)=(2,0.49,3). Those bounded checks reproduce the local examples, not a global root count. The analytic statement is conditional on exactly two positive equilibria and does not establish that hypothesis for arbitrary parameters.
 
-## Closest literature and limitations
-The closest analytic predecessor is Chow, Jang, and Wang (2019), DOI 10.1080/17513758.2018.1555339, which proves a saddle result for a different no-refuge cooperative-hunting map. Jang and Yousef (2023), DOI 10.1080/17513758.2023.2242372, combines refuge and cooperation but uses Beverton-Holt prey growth. The accepted theorem does not nonlinearly classify the degenerate unit-multiplier case or fully partition saddle versus source when \(r x>2\).
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The planar nullcline determinant identity is general and not itself new. The strongest same-map indexed overlap reports a separate result on instability of a lower equilibrium under the same two-equilibrium assumption, without naming or giving that result. This could refer to the frozen finding itself; it is evidence of overlap in the instability claim, not evidence of a distinct earlier theorem covering the model-specific Jury conclusion including the explicit saddle cutoff. Credit the supported joint refinement for this exact model, not novelty of the determinant technique or proof of priority for the lower-instability observation alone.
+
+## value
+
+PASS
+
+The nullcline slope and a simple parameter cutoff settle a practical gap between counting coexistence equilibria and identifying their local dynamics in a concrete model. The lower unstable multiplier and the additional saddle conclusion supply analytic information beyond the numerical examples, while separating nontransverse and possible repeller cases.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

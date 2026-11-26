@@ -1,0 +1,180 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:22:35.787154Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–58",
+        "Frozen VERIFICATION.md, check_cycles.py and check_direct.py, inspected only"
+      ],
+      "rationale": "An independent run argument recovers the entire claim. Constant circles fail, including n<4 under the periodic-extension convention. In a nonconstant circle 0000/1111 excludes runs of length ≥4, and 1001/0110 excludes maximal runs of length 2. Thus every zero or one run has length 1 or 3, and each circle has equally many zero and one runs, say r of each. Mark a zero-run start: at position zero the circle is a unique ordered list of r zero/one run pairs, with pair enumerator H=(z+z³)(uz+u³z³). For given n,r, counting all marked starts among indexed words multiplies by r, while counting by fixed start and rotation multiplies that coefficient of H^r by n. Thus the log of the indexed zeta is sum_r H^r/r, giving the stated reciprocal. This also checks the evaluated trace normalization, independently of cycle cancellation. The run pairs all have even length. Every allowed four-window has between one and three ones (two is possible); summing gives the necessary weight bounds, and using a pairs of lengths (3,1) or a pairs of (1,3), filled out by (1,1) pairs, realizes every weight n/2±a with 0≤a≤floor(n/4). A single length-3 zero run with all other runs singleton realizes every even primitive n≥4, since a shorter period would repeat that run; n=2 is alternating. Grouping by least period gives the weighted Möbius inversion, and Burnside terms for rotations with gcd n/d require u→u^d. At u=1 the pole gives root ρ=2.147899035704787…; growth is sqrt(ρ) in the limsup sense, or the rate along even lengths, not a limit of nth roots over odd and even together. Independent replay: python3 /workspace/branches/independent_replay.py 4 (SymPy 1.14.0), using an exact Berkowitz determinant and direct rotation classes for primitive and total necklace weights to n=12. The run argument, not this finite check, proves the all-n statement.",
+      "residual_risks": [
+        "The answer concerns the periodic extension even at n=1,2,3; an ordinary finite-word window test changes those cases. Indexed fixed points and necklaces have different normalizations; the growth rate is on the nonzero even subsequence or a limsup."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The inspected automata results concern few palindromic factors in finite words and length recurrences; the infinite-word work minimizes numbers of palindromic factors. The local four-letter Watson–Crick zeta forbids reverse-complement fixed words, not ordinary binary palindromes."
+        ],
+        "reasoning": "A rational length enumerator of another linear language is not a circular fixed-point trace. Even reduction to binary letters in a Watson–Crick model imposes complement as well as reversal, so its forbidden set does not specialize to this one. The general determinant–trace identity takes a weighted matrix as input and does not give its evaluated polynomial or the support and primitive witness here.",
+        "searches": [
+          "Fleischer–Shallit arXiv:1911.12464 §§2,4",
+          "Fici–Zamboni arXiv:1301.3376 pp. 1–2",
+          "Guo–Shallit–Shur arXiv:1503.09112 p. 1",
+          "Resultary Watson–Crick cyclic zeta 4df8a04f8af0"
+        ]
+      },
+      "checked_sources": [
+        "DOI 10.1051/ita/2016019",
+        "arXiv:1911.12464, 1301.3376, 1503.09112 and 1804.00992",
+        "Resultary 4df8a04f8af0, 8c914d562cb2, 4c2a5e159cc3 and 3c39b60ef425",
+        "OEIS exact term queries"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Arnoux shortens the unrestricted graph to track differences of occurrences of palindromic pairs; this is not the deletion of exactly the four forbidden factors.",
+          "Meštrović's abstract identifies the objectives as Moreau's/Witt's formulas for unrestricted binary necklaces. The Watson–Crick record evaluates a different language's zeta."
+        ],
+        "reasoning": "Neither a factor-flow identity nor a general graph/necklace procedure evaluates the four transitions' removal by length and composition. The run interpretation gives a short exact evaluation, while support and all-even primitive existence still require identifying the attainable pair compositions and a pattern that cannot repeat. Credit the standard orbit formulas and graph/renewal machinery, not merely changing the variable in an existing evaluated census.",
+        "searches": [
+          "Arnoux pp. 168–169, Definition 1.3 and both proofs",
+          "Fleischer–Shallit §§2,4",
+          "Resultary 4df8a04f8af0 and arXiv:1804.00992"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Arnoux lists 0000,0110,1001,1111 and identifies a circular word with a closed path in B(2,3); his proposition counts differences of factor occurrences in general circles.",
+          "The run-length alias search surfaced Meštrović's standard unconditioned necklace formulas and the Resultary prefix-normal four-run census, a different restriction."
+        ],
+        "reasoning": "Forbidden homogeneous windows bound runs by three and the other two patterns remove runs of length two. This translates the exact problem to a pair-of-runs renewal enumeration, not to unconditioned necklace counting or exactly four runs with a prefix-normal rotation. Arnoux uses the same circular graph setting but does not impose this transition deletion for a census.",
+        "searches": [
+          "Arnoux, DOI 10.1051/ita/2016019, pp. 168–169",
+          "Resultary and literature: cyclic binary necklaces with run lengths 1 or 3, bounded odd runs, weighted periodic-point zeta",
+          "arXiv:1804.00992"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Both submitted OEIS term lists returned no exact match; this is only a bounded exact-prefix check.",
+          "The related local results give distinct invariants: Watson–Crick fixed points, periodic complement-coexistence avoidance, shortest covers for a single four-bit forbidden word, or a predicate on four-run necklaces."
+        ],
+        "reasoning": "The coexisting-complement constraint and cover minimization count different object sets; the run-normality record fixes the number of runs instead of restricting their lengths. An unweighted sequence match, had one occurred, would have required inspecting its origin and would not by itself decide the weighted orbit census.",
+        "searches": [
+          "OEIS exact prefixes 0,2,0,10,0,20,0,42,0,92,0,196 and 2,10,20,42,92,196",
+          "Resultary 4df8a04f8af0, 8c914d562cb2, 4c2a5e159cc3, 3c39b60ef425; local snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4"
+        ]
+      },
+      "rationale": "There is prior work on the exact same four factors and circular graph (Arnoux), plus comparable zeta computations for materially different local exclusions. The supported finding is the evaluated weight-marked periodic census together with exact weight support and existence of all even primitive periods for the ordinary binary four-palindrome constraint. It is equivalently the binary circle with all maximal equal-symbol runs of length 1 or 3. No inspected prior theorem evaluated or supplied this exact language's invariant by specialization; the graph, renewal calculation, and orbit transforms are standard methods.",
+      "residual_risks": [
+        "A prior explicitly weighted treatment of the alternating bounded-odd-run shift could imply part or all of the census and was not found. The inaccessible circular-pattern paper remains unassessed, and the original bibliography omits the close Arnoux occurrence-count antecedent. The comparison is a bounded best-of-knowledge judgment."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior factor-occurrence theorem in the unrestricted graph; not a palindrome-free periodic enumeration",
+          "evidence": [
+            "Each circular word gives a closed path in B(2,3); first proof uses Kirchhoff relations, and second tracks a rotation number in a smaller graph."
+          ],
+          "identifier_or_url": "https://www.numdam.org/item/10.1051/ita/2016019.pdf",
+          "material_read": "PDF pp. 2–3, printed pp. 168–169, list of factors, Definition 1.3, and two proofs of the occurrence relation (offsets 3783–10326)",
+          "method": "Open-access primary PDF",
+          "title": "Note on occurrences of factors in circular words",
+          "trigger": "Same graph, same four palindromes, same circular setting"
+        },
+        {
+          "assessment": "Different lengths and palindrome-factor bounds; finite-word recurrences are not a periodic zeta",
+          "evidence": [
+            "Regular-language construction and linear word length counts."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1911.12464",
+          "material_read": "§2 regularity and §4 automata recurrences, offsets 3234 and 9005",
+          "method": "Open-access primary PDF",
+          "title": "Words with Few Palindromes, Revisited",
+          "trigger": "Potential broader palindrome-language automata and enumeration"
+        },
+        {
+          "assessment": "Studies optimization of number of palindromic factors, different constraint and invariant",
+          "evidence": [
+            "Number of palindromic factors in infinite words rather than counts of periodic points avoiding exactly four length-four factors."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1301.3376",
+          "material_read": "pp. 1–2, offsets 700 and 5300",
+          "method": "Open-access primary PDF",
+          "title": "On the least number of palindromes contained in an infinite word",
+          "trigger": "Periodic and infinite words with palindrome restrictions"
+        },
+        {
+          "assessment": "Distinct palindrome/antipalindrome enumeration setting in the inspected material",
+          "evidence": [
+            "Structural and enumeration questions concerning words that are palindromes, antipalindromes, or related by those operations."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1503.09112",
+          "material_read": "p. 1, opening and scope at offset 738",
+          "method": "Open-access primary PDF",
+          "title": "On the Combinatorics of Palindromes and Antipalindromes",
+          "trigger": "Related structural palindrome enumeration"
+        },
+        {
+          "assessment": "Announced theorems cover general necklace counts, not specified run-length support",
+          "evidence": [
+            "Theorems 3 and 4 recover Moreau and binary MacMahon/Witt counts."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1804.00992",
+          "material_read": "p. 1 abstract and scope; a run-length term lookup gave no passage",
+          "method": "Open-access primary PDF",
+          "title": "Different classes of binary necklaces and a combinatorial method for their enumerations",
+          "trigger": "Strongest primary hit for bounded odd run alias"
+        },
+        {
+          "assessment": "Exact cyclic zeta but distinct alphabet and forbidden factors",
+          "evidence": [
+            "Four-letter alphabet with 16 Watson–Crick reverse-complement palindromes excluded."
+          ],
+          "identifier_or_url": "Resultary 2026/11/2/4df8a04f8af0",
+          "material_read": "Finding at offset 0",
+          "method": "Local published mirror",
+          "title": "The cyclic zeta function of Watson–Crick four-palindrome avoidance",
+          "trigger": "Strongest published local zeta match"
+        },
+        {
+          "assessment": "Different predicate on all circles of exactly four runs",
+          "evidence": [
+            "For 1^a0^b1^c0^d it studies whether (a−c)(b−d)≤0 is satisfied; a,b,c,d are unrestricted positive lengths."
+          ],
+          "identifier_or_url": "Resultary 2026/11/8/3c39b60ef425",
+          "material_read": "Finding at offsets 0–1198",
+          "method": "Local published mirror",
+          "title": "Prefix-normal rotations of four-run binary cycles: a sharp run-order obstruction and an exact necklace census",
+          "trigger": "Highest local hit for the run-based equivalent formulation"
+        },
+        {
+          "assessment": "Theorem-level relevance not established; no negative inference",
+          "evidence": [
+            "Title describes a broad circular-pattern topic; no specific ordinary length-four palindrome criterion verified."
+          ],
+          "identifier_or_url": "Springer title surfaced in literature search; no primary passage obtained",
+          "material_read": "Bibliographic search listing only",
+          "method": "Lawful retrieval attempted; redirect error",
+          "title": "Circular Words Avoiding Patterns",
+          "trigger": "Possible overlapping circular-avoidance theory"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, finding and proof",
+        "Arnoux circular factor-occurrence theorem and related Watson–Crick zeta"
+      ],
+      "rationale": "Among circular finite-factor constraints, forbidding ordinary palindromes of the first nontrivial even length is natural. A composition-aware zeta is useful where a plain entropy or a finite-word count does not answer whether a given density or primitive circumference is possible. Here the exact rational function gives every fixed-point and necklace composition, and the run structure explains both the sharp support and nonempty primitive spectrum. This is a narrow exact invariant with natural parameters, not a claim of a new general counting method.",
+      "residual_risks": [
+        "No assertion about arbitrary forbidden-palindrome lengths or alphabets is needed or inferred."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

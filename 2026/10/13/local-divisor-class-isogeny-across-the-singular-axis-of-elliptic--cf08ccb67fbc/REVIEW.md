@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof independently descends the two line-bundle summands through the free elliptic translation, obtaining a smooth total-space modification with one exceptional divisor. The exact global Weil class group follows from vector-bundle Picard invariance and the codimension-two divisor localization sequence. Surjectivity of global-to-local class maps comes from Krull localization; injectivity at the special fiber and the necessary nonzero-point kernel restriction are verified by restricting principal pullbacks to the proper contracted elliptic curves and comparing line-bundle degrees. The reverse nonzero-point inclusion uses the finite-étale Gorenstein descent and the exact cyclic character kernel. No numerical sample substitutes for these arguments.
+## correctness
 
-## Originality — PASS, with residual bibliographic risk
-Nakamura–Shibata, arXiv:2608.28038v1, states the minimal log discrepancy and canonical Cartier index, and proves canonical torsion on the exceptional surface. It does not state a classification of all Weil classes at the singular-axis points or the associated dual-isogeny quotient. The closest known record for the same threefold describes the singular locus and canonical-index jump but not the complete class groups; a toric local-class-group result has nonisomorphic objects and finite groups. Searches for local divisor-class, equivariant-Picard, canonical-character, isogeny, and cone-quotient equivalents produced no identified covering statement. The relevant proof of the initiating paper was read in full. The calculation uses standard exact sequences, so an unstated general theorem or older treatment might imply the result; this remains a genuine residual originality risk.
+PASS
 
-## Value — PASS
-This identifies the natural complete local Weil divisor class group at every closed point of a singular one-dimensional stratum in a recently introduced non-klt counterexample family. It proves non-Q-factoriality even where the canonical class is Cartier and explains the canonical-index jump as the kernel of an elliptic dual isogeny. This is a structural classification, rather than an arbitrary numerical refinement or a restatement of the known canonical index.
+Free cyclic descent takes the two summands to A^{-1} and M, with deg A=1 and M of exact order m: a trivialization of a power of the character line upstairs differs from the given trivialization by a constant unit. The first fiber coordinate is a section of the pullback of A^{-1}, with simple zero F. On F, t^m gives the scheme fiber mB at zero; at a nonzero s the simply transitive action on its roots gives E, mapping to B by q. Picard invariance and divisor localization then give Cl(X_m)=Pic(B)/<A> with unique degree-zero representatives. The maps to the ordinary local rings are surjections. If a representative N becomes principal locally, its pullback agrees with a principal divisor modulo F near the fiber. Restriction to the reduced fiber gives N=A^a at o or q^*N=L^a at x_s, and degree forces a=0 in either case. Trivializations on E identify ker(q^*) with the constant character group <M>. The cover over s≠0 is finite étale by freeness on the t-coordinate, so Gorenstein descent kills the canonical class there. The total-space determinant gives K_W=π^*(A⊗M^{-1}), so this class generates <M> modulo F, proving the reverse kernel inclusion. Surjectivity of the dual isogeny gives the indicated target, and the elliptic Picard groups contain nontorsion classes. The proof uses only the reduced fiber at o to detect classes; the scheme multiplicity assertion is about F→Z. There is no finite computation dependency.
 
-## Scope and limitations
-Only ordinary algebraic local class groups over \(\mathbf C\) are computed. No claims about completed or strict-henselian local class groups are made. The proof relies on standard divisor localization and vector-bundle Picard invariance. The canonical Cartier-index statement itself is prior work and is not counted as new. An implicit equivalent calculation in unlocated literature remains possible.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinction is the full class-group calculation and identification of both ordinary localization homomorphisms, not the quotient, its resolution, or the canonical-index jump. The strongest catalog overlap has the entire stratification by canonical index but does not identify the class groups or the noncanonical classes. This is a bounded prior-coverage decision, not certified priority.
+
+## value
+
+PASS
+
+The calculation explains why the canonical index jump does not correspond to a jump to Q-factoriality and identifies the full loss of divisor classes under ordinary localization by an elliptic isogeny. This supplies a structural invariant of the counterexample family outside the already known canonical index.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

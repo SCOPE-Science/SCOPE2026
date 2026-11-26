@@ -1,0 +1,157 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:41:18.528372Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a symmetric path kernel under the return-excluded convention, the pseudoinverse resistances sum to n times the trace and edge i separates i(n−i) unordered pairs. Thus nK is the strictly convex reciprocal sum with only the interior capacity inequalities (which also bound endpoint transitions). The alternating candidate is feasible and saturates every interior inequality. The incidence transpose system for normalized dual multipliers has the stated alternating-prefix solution; equal unit total mass on each parity gives its closing zero. Direct polynomial summation gives the four displayed factorizations: for n=2r, both relevant numerators are positive on 1≤k≤r−1 and vanish for the last odd-index multiplier k=r; for n=2r+1 the even-index numerator is positive for k<r and the odd-index numerator for k≤r. This includes n=3. Stationarity turns the reciprocal tangent remainder into precisely the displayed weighted holding cost plus the positive quadratic-over-linear remainder; both vanish only at the candidate. Evaluating the parity sums gives the two values and rationalizing the even-order excess gives 3/[2(n²−1+sqrt(n⁴−2n²−8))], strictly positive and asymptotic to 3/(4n²). The matching SLEM theorem uses exactly the same path feasibility. Fresh tests solved the multiplier incidence system directly and used the exact matrix resolvent and a nonconstant feasible vector for each n=3,...,12. Those checks corroborate, but do not prove, the all-order formulas.",
+      "replay_paths": [
+        "/workspace/evidence/replay.py (python3 /workspace/evidence/replay.py 5; SymPy)",
+        "/workspace/evidence/5.txt"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The prescribed-sparsity reversible Kemeny SDP includes this case with uniform stationary distribution and local capacity automatically encoded in row stochasticity.",
+          "The equal-arm spider theorem b4c3fba85e31 assumes k≥3 arms of length at least three, with first edge 1/k and depth-parity weights."
+        ],
+        "reasoning": "The SDP supplies a general optimization formulation, not the path's closed optimizer or dual signs. The inspected spider theorem does not apply to a two-arm path or an arbitrary path split and supplies no all-order path corollary.",
+        "searches": [
+          "Patel–Agharkar–Bullo Problem 2",
+          "Durastante–Gnazzo–Meini pp. 30–31",
+          "Resultary: Kemeny-optimal tree, spider, and path kernels"
+        ]
+      },
+      "checked_sources": [
+        "Boyd et al., path SLEM theorem",
+        "Ghosh–Boyd–Saberi §§2.3, 5.1",
+        "Patel–Agharkar–Bullo Problem 2",
+        "Durastante–Gnazzo–Meini",
+        "Resultary:5e4cc1ece151, b4c3fba85e31 and the identical assigned entry"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The SLEM optimum is all-half at every order; the validated even-order Kemeny design has strictly unequal alternating edge probabilities and strictly smaller Kemeny value.",
+          "The proof needs the complete sign-certified path multiplier system; the prior SLEM rigidity, spider result and global-budget resistance formula do not certify it."
+        ],
+        "reasoning": "The known SLEM design gives the benchmark; the prior statements do not prescribe the unique all-feasible Kemeny minimizer nor imply its parity-sensitive loss identity without a separate optimization argument.",
+        "searches": [
+          "Boyd–Diaconis–Sun–Xiao p. 2 compared with frozen Finding",
+          "Resultary 5e4cc1ece151 Finding and b4c3fba85e31 Finding compared with frozen dual conditions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Up to the factor n the objective is total effective resistance on the weighted path. Ghosh–Boyd–Saberi give this exact cut objective but optimize under sum_i g_i=1 and obtain g_i proportional to sqrt(i(n−i))."
+        ],
+        "reasoning": "These are equivalent objectives, not equivalent constrained problems: local adjacent-edge bounds couple alternating positions, and their tightness is an additional theorem. An additive one in the return-inclusive Kemeny convention has no effect on designs or excesses.",
+        "searches": [
+          "Resultary: path stochastic Kemeny design, reciprocal tree resistance, alternating weights and SLEM",
+          "Ghosh–Boyd–Saberi §§2.3 and 5.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact Kemeny path match is the assigned record itself. The distinct same-day SLEM fit 5e4cc1ece151 states a squared-SLEM equality family of alternating weights, not its Kemeny minimum.",
+          "The literature search returned the already-inspected perturbation article and adjacent Kemeny evaluation work, not a verified competing optimizer."
+        ],
+        "reasoning": "Membership of the answer in an already-studied alternating family does not establish optimality over every feasible path vector. No distinct database entry or table for the specified design was established.",
+        "searches": [
+          "Resultary: exact optimal weights on symmetric stochastic paths, parity order, exact even Kemeny excess",
+          "Literature: exact Kemeny constant minimizing stochastic transition matrix symmetric path graph alternating edge probabilities"
+        ]
+      },
+      "rationale": "The exact locally constrained path design, parity comparison, and strictly positive interior-capacity loss certificate are not established by the inspected SLEM, resistance-budget, general SDP or spider results. Credit the existing resistance representation and the general Kemeny design problem; neither is part of the distinct claim.",
+      "residual_risks": [
+        "A specialized solution to the row-capacitated path problem or equivalent tree conductance problem could remain unindexed. Detailed contents of the stochastic-complement article were not established. No priority is inferred from identical dates of distinct related records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the SLEM comparator exactly, not Kemeny design",
+          "evidence": [
+            "Edge transitions one-half; only endpoints hold, with probability one-half."
+          ],
+          "identifier_or_url": "https://stanford.edu/~boyd/papers/pdf/fmmc_path.pdf",
+          "material_read": "PDF p. 2, offset 5400 onward; all-half formula around 5974",
+          "method": "Open primary PDF",
+          "title": "Fastest Mixing Markov Chain on a Path",
+          "trigger": "Same graph and constraints, competing mixing objective"
+        },
+        {
+          "assessment": "Exact tree allocation under a different budget",
+          "evidence": [
+            "Tree resistance is sum of pair-crossing counts divided by conductances; under a single global budget optimal conductances are proportional to square roots of those counts."
+          ],
+          "identifier_or_url": "https://stanford.edu/~boyd/papers/pdf/eff_res.pdf",
+          "material_read": "§2.3 offset 18000; §5.1 eqs. (36)–(37), offset 68000",
+          "method": "Open primary PDF",
+          "title": "Minimizing Effective Resistance of a Graph",
+          "trigger": "Same reciprocal cut objective and an exact path allocation"
+        },
+        {
+          "assessment": "Provides the encompassing convex problem and SDP, not the explicit solution",
+          "evidence": [
+            "Row stochasticity, prescribed sparsity and detailed balance allow the target path instance; Kemeny is unchanged for optimization by the return-convention offset."
+          ],
+          "identifier_or_url": "https://motion.me.ucsb.edu/pdf/2014b-pab.pdf",
+          "material_read": "PDF p. 4, Problem 2; offset 26400",
+          "method": "Open primary PDF",
+          "title": "Robotic Surveillance and Markov Chains With Minimal Weighted Kemeny Constant",
+          "trigger": "General theorem with target graph as input"
+        },
+        {
+          "assessment": "Algorithms and nearby general optimization problem, not a closed path formula in the inspected passages",
+          "evidence": [
+            "The paper distinguishes low-norm perturbation from the prior prescribed-support reversible design problem."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s10543-026-01152-6",
+          "material_read": "PDF pp. 1, 3 and 30–31; offsets 0, 6096, 88200",
+          "method": "Open primary PDF",
+          "title": "Kemeny's constant minimization for reversible Markov chains via structure-preserving perturbations",
+          "trigger": "Recent fixed-structure Kemeny design"
+        },
+        {
+          "assessment": "Different objective; substantial but non-covering overlap",
+          "evidence": [
+            "The sharp SLEM stability inequality is tight on the alternating family, with SLEM optimum at zero alternation."
+          ],
+          "identifier_or_url": "Resultary:5e4cc1ece151",
+          "material_read": "Finding offset 0–3683 and comparison at 7333–8885",
+          "method": "Published record mirror",
+          "title": "Sharp squared-SLEM rigidity and equality cases for fastest mixing on paths",
+          "trigger": "Same feasible class and same alternating family"
+        },
+        {
+          "assessment": "Related alternating solution, different graph family",
+          "evidence": [
+            "Hypotheses require k≥3 equal arms, length at least three, and a distinct hub junction constraint."
+          ],
+          "identifier_or_url": "Resultary:b4c3fba85e31",
+          "material_read": "Finding offsets 0–2931",
+          "method": "Published record mirror",
+          "title": "Exact Kemeny-optimal walks on equal-arm spiders",
+          "trigger": "Strongest distinct exact Kemeny design hit"
+        },
+        {
+          "assessment": "Detailed overlap unverified, not used as evidence of novelty or noncoverage",
+          "evidence": [
+            "Indexed passage concerns Kemeny constants and stochastic complements of a given transition matrix."
+          ],
+          "identifier_or_url": "https://www.sciencedirect.com/science/article/pii/S0024379524003574",
+          "material_read": "Indexed summary only; no full text available from the attempted publisher copy",
+          "method": "Literature index and attempted OA publisher route",
+          "title": "On Kemeny's constant and stochastic complement",
+          "trigger": "Adjacent Kemeny evaluation article returned by focused search"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Paths are a basic benchmark for designing uniform-stationary walks. The result exactly resolves when optimal expected stationary-target search uses the same kernel as optimal spectral mixing. The strict parity-dependent divergence and all-local-capacity rigidity are structural; the excess certificate makes the benchmark quantitative. Its small absolute even-order gain is not presented as a practical speedup.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

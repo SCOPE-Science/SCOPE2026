@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof treats all finite simple graphs of maximum degree two, including isolates and the empty graph, and fixes the unnormalized Boolean Fourier convention. A leaf-edge reversal pairs acyclic orientations with opposite singleton-leaf signs. For cycles, a two-state transfer trace counts all edge words, and subtracting the two constant directed cycles gives the exact signed measure. Rank-one factorization of unselected blocks produces the three-case multiplier formula; the integer recurrence bounds every nonzero trace away from the exceptional value two and exhibits a coefficient of \(-2\). Tensor products give exact extremal magnitudes and Hilbert condition numbers. `verify.py` passes 166855 assertions from direct graph orientations and Walsh transforms, supplementing rather than replacing the proof. Risk: no error identified in the examined transfer normalization, though the result has not received independent audit.
+PASS
 
-## Originality — PASS (bounded search)
+The profile counts orientations with multiplicity on vertex coordinates, including isolates as sinks. Reversing the only edge at a leaf preserves acyclicity and pairs opposite signs at the singleton-leaf frequency. On a cycle, the sink transition is (incoming-forward, outgoing-backward) = (1,0), so the product trace of the stated two-state matrices counts all orientations with their signed weight. Subtract two for the constant edge words, which have no sinks. Factoring the rank-one unselected blocks J^g=2^(g-1)uu^T gives 2^(z-r) times the product of u^T M^ell u; these terms equal q_ell by the same second-order recurrence and initial pair (2,2). All selected uses tr(M^n)=q_n and none selected uses 2^n. I also checked the gap by a separate arithmetic proof. In the character expansion a nonempty prescribed sink subset U must be independent, which forces 2|U| distinct edges inward and leaves 2^(n-2|U|) orientations, all acyclic. Thus the signed sum is 2^n I(C_n[S];-1/2)-2. Each power of 2 in the expanded polynomial is 2^(n-|U|), divisible by four because |U|<=floor(n/2) and n>=3. Therefore every coefficient is 2 mod 4, and selecting an adjacent pair makes the independence polynomial evaluate to zero, attaining -2. The trivial frequency attains the mass 2^n-2, the absolute maximum by the triangle inequality. Independent component orientations give tensor products, with unit absolute multipliers for isolates and the empty product equal to one. This proves invertibility exactly without leaves and the exact magnitudes and condition numbers on that regime. `python3 /workspace/review_replay.py 5` reconstructed cycle histograms using rotating bit masks, checking all Walsh multipliers for the congruence and sharp extremes at n=3..14; the unrestricted conclusion follows from the proof, not the replay.
 
-Gebhard–Sagan (1999, arXiv:math/9907078) discuss sink enumeration and the unique-sink chromatic coefficient, not Boolean convolution conditioning. Hwang and collaborators (2019, arXiv:1910.10920) do give the complete multivariate sink polynomial for any graph, so all signed frequencies are in principle obtainable by substitution; this is the strongest overlapping source. Their general subgraph and bond-lattice formulas do not establish a zero-free theorem or an exact arithmetic gap for every cycle, nor the resulting sharp classification for all maximum-degree-two graphs. The alternate exact reduction to the independence polynomial at fugacity minus one half was checked against Radchenko (2021), whose general cycle transfer trace is credited; the all-character two-unit separation and graph-family condition number are not explicitly supplied there. Targeted searches did not locate an equivalent all-size Fourier spectral theorem. Residual priority risk: a special case might be worked out in an unindexed source or obtained from earlier multivariate enumerators; the searches do not prove uniqueness.
+## originality
 
-## Value — PASS
+PASS
 
-The natural inverse problem is to recover an arbitrary function on the Boolean vertex group from its convolution with sink-set counts. The result exactly distinguishes recoverable cycle/isolate graph geometries from leaf-bearing paths, proving a sharp positive Fourier margin and optimal Hilbert condition number rather than merely listing unsigned sink counts. This is an infinite, structurally complete natural graph class, not an arbitrary finite slice. It does not establish general graph recoverability or all higher-degree statistics.
+The sink-profile polynomial and multivariate cycle independence transfer are established, and a distinct same-day path result overlaps with the path obstruction. The surviving distinct claim is the exact all-frequency nonvanishing and sharp least absolute multiplier on acyclic cycle sink profiles, and its complete componentwise recovery classification at maximum degree two.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The class combines paths, cycles and isolates and is structurally complete at maximum degree two. The exact distinction between a lost leaf frequency and uniform positive singular-value separation for all cycle frequencies determines when recovery is possible and how much errors can grow, independent of cycle size in the unnormalized lower bound. The arithmetic separation and its extremizer go beyond listing unsigned sink statistics or recomputing tabulated counts, although the result is elementary once the correct signed reduction is in hand.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

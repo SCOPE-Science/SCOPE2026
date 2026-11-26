@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:38:51.968045Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The reverse probabilities are the inverse-branch derivatives because the base preserves Lebesgue. The branches contract by at most lambda<1 and the finite-word probabilities are continuous in the initial x; uniform convergence of the stable compositions then gives the weakly continuous version of the conditional law, including at x=0. The stationary backward history pushes forward to the natural stationary measure for the triangular map: advancing a history prepends the current branch to its stable composition. At any y, at most two words of length m can code it, since the corresponding intervals partition [0,1] up to endpoints. Their probabilities are at most lambda^m each, so boundaries have zero mass. The cylinder [0,y_n] therefore has mass lambda^n by starting the all-zero branch history at zero. For b=a/2, let w_n=delta lambda^n/y_n. The exact increment is delta b lambda^(n-1)/(1-(b/lambda)y_n). Also 1/y_(n+1)-1/y_n>=b, so y_n<=4/(n+4) for a>=1/2. Replacing the denominator factor by 1 costs O_T(delta log(1/delta)) through n<=T/delta. Summing gives w_n=delta+(a/lambda)(1-lambda^n)+o(1) in this range. At n=floor(t/delta), lambda^n tends to exp(-t/2), giving the claimed scaled orbit. For z>0, bracketing by times t(z)±eta with t(z)=2 log(1+1/z) then gives the limiting CDF. The atom-free endpoint gives its value at z=0; a monotone CDF mesh gives compact-uniform convergence. The limit's survival is 1/(1+z), with divergent integral, not an assertion about convergence of unbounded moments or a planar density. The frozen rational and finite bracket checks were inspected but not executed; the proof supplies the full limit.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first Resultary finding gives epsilon K tending to Exp(1) for a different random interval map. The second concerns a moving hole and conditional paths in an LSV map, on the scale nh_n^alpha."
+        ],
+        "reasoning": "Neither gives control of the left-branch orbit for this family, or the conditional probability on this stationary boundary fiber. A general near-parabolic iteration heuristic alone does not determine the conditional law.",
+        "searches": [
+          "Resultary: reversible cusp endpoint intermittency and moving-boundary survival crossover",
+          "Resultary 2bedb51254b9 and 03332ee9004b"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:0812.1648",
+        "DOI 10.1088/1751-8113/47/48/489501",
+        "Resultary 2bedb51254b9 and 03332ee9004b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The old formula specifies the mass at y_n but not how y_n/delta behaves for n of order 1/delta. The corrigendum refutes the symmetry used in the original planar-density argument and describes the natural planar measure as generally not absolutely continuous."
+        ],
+        "reasoning": "The known masses identify probabilities at moving endpoints. A uniform reciprocal-orbit error bound and CDF squeeze are needed to convert them to a limit on a parameter-dependent spatial scale. Neither a fixed-parameter local singularity nor the broken planar-density premise supplies that step.",
+        "searches": [
+          "arXiv:0812.1648 pp. 12–13",
+          "DOI 10.1088/1751-8113/47/48/489501 pp. 2–3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "BFG's inverse branch and cumulative recursion give the same map and lambda^n endpoint cylinder masses. Its following intermittency analysis treats the endpoint singularity."
+        ],
+        "reasoning": "The cumulative recursion is an equivalent statement of the unscaled mass identity, not the family-parameter limit on y~1-a. The scaled orbit and the resulting z/(1+z) law are not present in the inspected relevant passages.",
+        "searches": [
+          "Basios Forti Gilbert reversible triangular cusp maps intermittency and corrigendum",
+          "arXiv:0812.1648 Eqs. (39), (49)–(56)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact cylinder values are known in the same-family source. The catalog analogues give other crossover statistics (escape counts or transit/survival with a moving hole)."
+        ],
+        "reasoning": "The relevant exact catalog or formula comparison is for the limiting law and its moving orbit scale; a numerical table cannot by itself establish this continuous scaling assertion. Neither the known cylinder values nor the inspected crossover entries record that joint limit.",
+        "searches": [
+          "arXiv:0812.1648 Eqs. (49)–(56), exact cylinder values and endpoint asymptotic",
+          "Resultary endpoint crossover findings 2bedb51254b9, 03332ee9004b"
+        ]
+      },
+      "rationale": "The supported distinct finding is the scaled near-intermittent law together with the cylinder-orbit crossover. The map, endpoint-cylinder mass and intermittency itself are credited to the original family analysis. The present measure-theoretic use of those masses does not invoke its corrected density premise.",
+      "residual_risks": [
+        "A differently indexed near-parabolic endpoint-measure result or independent derivation of the same crossover was not ruled out. The finite mass identity is explicitly prior, not part of the positive originality assessment."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known family and equivalent exact finite masses; no scaled conditional law in the inspected analysis",
+          "evidence": "Inverse branches match; the cumulative recursion iterates to lambda^n. The ensuing analysis treats endpoint singular behavior.",
+          "identifier_or_url": "https://arxiv.org/abs/0812.1648",
+          "material_read": "Eq. (39), p. 9; Eqs. (49)–(56), pp. 12–13",
+          "method": "Bounded OA PDF passages",
+          "title": "Statistical properties of time-reversible triangular maps of the square",
+          "trigger": "Identical family and cylinder asymptotics"
+        },
+        {
+          "assessment": "Material correction, not the current conditional-law theorem",
+          "evidence": "Counterexample to the claimed symmetry; the natural planar measure is generally not absolutely continuous.",
+          "identifier_or_url": "https://doi.org/10.1088/1751-8113/47/48/489501",
+          "material_read": "p. 2, Eqs. (3)–(5); p. 3 natural-measure passage",
+          "method": "Bounded OA passages",
+          "title": "Corrigendum: Statistical properties of time-reversible triangular maps of the square",
+          "trigger": "Check scope and validity of prior conditional-density reasoning"
+        },
+        {
+          "assessment": "Different map and observable",
+          "evidence": "Exponential escape-count limit epsilon K, not a stationary boundary-coordinate limit.",
+          "identifier_or_url": "Resultary 2bedb51254b9",
+          "material_read": "Finding, including law of scaled escape count",
+          "method": "Local catalog and bounded mirror passage",
+          "title": "Off-critical endpoint escape and two density thresholds",
+          "trigger": "Closest same-day catalog endpoint scaling"
+        },
+        {
+          "assessment": "Different family and conditioning",
+          "evidence": "LSV moving-hole path survival on scale nh_n^alpha.",
+          "identifier_or_url": "Resultary 03332ee9004b",
+          "material_read": "Finding and scaling scope",
+          "method": "Local catalog and bounded mirror passage",
+          "title": "A complete moving-boundary survival crossover for an intermittent map",
+          "trigger": "Possible dominating intermittent crossover theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The conditioning and scale are intrinsic: the endpoint is the neutral location at intermittency, and linear loss and quadratic drift balance when y is of order 1-a. The weak limit describes the entire transition in the boundary layer, retains a nontrivial law despite endpoint collapse, and shows an infinite-mean limiting profile without needing a planar density. It is more informative than either the unscaled masses or a single endpoint asymptotic.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

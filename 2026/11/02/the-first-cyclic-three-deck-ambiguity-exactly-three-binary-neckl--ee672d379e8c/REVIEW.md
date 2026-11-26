@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The statement concerns only finite lengths \(1\le n\le8\), so complete enumeration is logically exhaustive rather than empirical extrapolation. The direct binomial-coefficient definition is implemented by combinations of positions, covering all \(2^n\) binary words at each length and all cyclic cuts of every canonical representative. The recurrence provides a second implementation of the same invariant. Every canonical necklace is checked for genuinely different rotations, not merely different root indices. The complete exceptional lists and overall distribution are verified with exact integer assertions. A separate two-binomial cut identity supplies a transparent structural consistency check. Replay of the standalone code returned `VERIFY_OK`. No unproved infinite claim is made.
+PASS
 
-## Originality — PASS, qualified
+Independently reproduced the finite census using the necklace portion of /tmp/opencode/small_frozen_review.py. For each n=1,…,8 start from all binary n-tuples, repeatedly take the least remaining word, and remove its entire rotation orbit. For each root calculate the triple coordinates by summing L_a R_c over positions bearing middle letter b, where L_a and R_c count letters strictly before and after the position, respectively. Pair counts are first-letter prefix counts summed over positions bearing the second letter, and one-letter counts are frequencies. Group by the resulting full 14-coordinate signature and require at least two distinct rooted strings in a group, not just distinct cut labels. The necklace counts are 2,3,4,6,8,14,20,36 and no collision survives the distinct-root test through length 7. At length 8 the sole exceptions are 00011011 with {4,6} and {5,7}; 00100111 with {1,3} and {2,4}; and 00101101 with {3,7}. Thus there are five unordered pairs, all at weight four, and the histogram over 1,2,4,6,7,8 profiles is 2,1,3,2,1,27. The displayed witness has identical singles, pairs and triples, with the given triple vector. The 01 cut identity also follows directly by subtracting the two cross-block counts. The computation includes periodic and constant words and proves only the stated binary finite domain. The frozen verifier implements exhaustive direct combinations and a subsequence recurrence; it was inspected, not used as the independent computation.
 
-The 2013 work of Rigo and Salimov defines and develops the same binomial equivalence relation, but its material results concern infinite-word factor complexity rather than identification among rotations of an arbitrary circular source. Chrisnata and coauthors compute global numbers of binary three-decks, notably \(D_3(7)=126\) and \(D_3(8)=247\); those totals alone do not determine the intra-necklace equivalence classes or the sharp cyclic cutoff. Prior results for complete finite Thue–Morse iterates already include the necklace `00101101`; that instance is acknowledged and excluded from the claimed distinctive novelty. The new component is the **complete three-necklace universal classification** and the sharp no-earlier-ambiguity assertion. Comparison with published sources and accessible prior scientific claims found no implication establishing that complete assertion. The 2019/2023 global-deck source could only be inspected through its accessible publisher abstract and table; a finer unindexed calculation remains a residual historical-priority risk.
+## originality
 
-## Value — PASS
+PASS
 
-This resolves a natural minimum-length question for a standard short-subsequence reconstruction channel when the receiver must distinguish different starting cuts of the same circular word. It demonstrates that global three-deck nonuniqueness at length seven need not imply any circular-root ambiguity and gives a complete first-obstruction census at length eight, not an arbitrary finite slice. The precise list of five pairs makes the boundary reproducible and available as a benchmark for algorithms handling cyclic source ambiguity. The conclusion is finite and self-contained; it is not claimed to solve general sequence reconstruction.
+The creditable distinct claim is the complete length-eight orbit-conditioned census and distribution, including the two non-Thue–Morse necklaces and their cut classes. The known finite Thue–Morse result covers the third row, and the lower-length exclusion follows from the published global table together with the explicit length-seven pair and its complement. Neither covered piece is counted as a separate novelty here. The strongest checked results do not imply the remaining length-eight census; in particular, global deck counts forget the necklaces containing each deck's roots. This is a best-of-knowledge assessment of the full classification, not a claim of priority for discovering cyclic ambiguity at length eight in an example.
 
-## Sources and remaining limits
+## value
 
-Rigo–Salimov (2013 open manuscript) establishes the relevant equivalence; Chrisnata et al. (2019 conference version, 2021 online/2023 volume) gives global-deck enumeration; the previously established Thue–Morse rotational case covers a proper subfamily. Historical priority beyond indexed and accessible literature is not independently established. All completeness assertions concern the stated finite domain only.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The finite object is naturally singled out by the first possible failure of distinguishing a circular word's starting cut. The complete exceptions and exact multiplicities distinguish genuine information loss at that boundary from identical periodic roots. They provide a reconstruction test set that a global deck count or the single Thue–Morse example cannot supply. No value is assigned to arbitrary larger slices or to extrapolation beyond length eight.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

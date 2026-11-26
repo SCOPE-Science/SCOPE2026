@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:07:33.255207Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The frozen formulas are correct. The reduced successors are U(i), U(H(i)); finiteness makes a closed set jointly invariant under U,H, so irreducibility is transitivity. Cyclic classes in an irreducible doubly stochastic chain have equal size, and U takes each to the next bijectively, forcing H to preserve each. One class is odd and the others even, which rules out nontrivial periods. The fine and reduced normalized Markov matrices share the nonzero spectrum and hence the primitivity criterion. In the revised proof, rotation U and pairing H describe a map with one extra leg. Deleting the leg and rooting at its successor is reversible for k>=1 (the leg is not a vertex on its own in a connected map). The H-centralizer permutes reflection pairs and swaps their elements, and an element commuting with both U and H fixes the leg and then every dart by transitivity, proving freeness and class size 2^k k!. The orbit recurrence is disjoint and the normalization gives A000698 with n=k+1. For the asymptotic re-audit, Borinsky Theorem 32 on the zero-constant-term series D-1 applies with (alpha,beta)=(2,1/2); the derivative of 2-1/(1+u) yields D^(-2)=1-2z-3z^2-16z^3+O(z^4). Dividing the shifted double factorials by (2n-1)!! gives coefficients 2, 3 and 22 in inverse powers of N, with a fourth-order remainder. Read the original RESULT.md and VERIFICATION.md and inspected verify.py without executing it; replay is the unchanged python3 verify.py as described in the repaired VERIFICATION.md. Its 5,166 finite graph comparisons corroborate primitivity, not the revised all-grid correspondence or asymptotic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Byott–Lin–Zhang give the reduced matrix comparison, a primitivity characterization, and tent-family spectral/mixing bounds. This is the common dynamical framework.",
+          "Borinsky supplies full coefficient asymptotics for analytic composition with a factorially divergent series; the reciprocal of D satisfies those hypotheses exactly.",
+          "Rooted-map enumeration is classical; no new abstract enumeration result survives the broader asymptotic theorem."
+        ],
+        "reasoning": "The general results cover the tools and numerical outputs, not the model-specific step that parity of the unique fixed reflection bin eliminates periods or that these mixing shuffles form a uniform lift of rooted maps.",
+        "searches": [
+          "arXiv:1405.0481 Lemmas 2.1, 2.4 and Theorem 5",
+          "arXiv:1603.01236 Definitions 1, 8 and Theorem 32",
+          "Arquès–Béraud rooted orientable maps and Riccati equation (A000698 bibliography)"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py; repaired RESULT.md, SLOGAN.txt, VERIFICATION.md and METADATA.json",
+        "arXiv:1405.0481, 1603.01236, 2010.06550",
+        "OEIS A000698",
+        "Targeted Resultary semantic comparisons"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Applying the analytic chain rule to 2-1/D gives the coefficient-asymptotic series D^(-2) in double-factorial units. Its first coefficients 1,-2,-3,-16 imply the exact published-record deficit constants 2,3,22 at N=2n-1.",
+          "The older dynamics primitivity condition alone does not say all irreducible odd tent shuffles are aperiodic, or how to identify their conjugacy classes with rooted maps."
+        ],
+        "reasoning": "The numerical statements are direct covered implications, even without their exact wording in the primary theorem. The repaired structural claim needs the odd-versus-even cyclic-class argument and a compatible rooted, free label action specific to the shuffled transfer matrix.",
+        "searches": [
+          "OEIS A000698 FORMULA; Borinsky §5.1 Theorem 32, Eq. (23)",
+          "Byott–Lin–Zhang arXiv:1405.0481 Lemmas 2.1, 2.4 and Theorem 5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Set B_k=T_k/(2^k k!). The recurrence becomes (2k+1)!!=sum_{j=0}^k (2k-2j-1)!! B_j; hence B_k=a(k+1) exactly, not by matching initial numbers.",
+          "A000698 counts the same abstract numbers via indecomposable perfect matchings, distinct from connected chord intersection diagrams. The revised formulation makes the structural bridge via vertex rotations, paired darts, and a unique root leg explicit."
+        ],
+        "reasoning": "Claim-level equivalence covers the numerical recurrence. The reversed root-leg construction and parity criterion turn classical map enumerations into a dynamical classification that is not the same statement as a matching count.",
+        "searches": [
+          "Resultary: odd-grid tent permutation–reflection transitivity, exact rarity and indecomposable matching counts",
+          "OEIS A000698, recurrence and indecomposable perfect matchings",
+          "arXiv:2010.06550, indecomposable chord diagrams"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A000698 lists 1,1,2,10,74,706,8162,..., the exact recurrence and the generating function 2-1/D. Dividing the frozen table by 2^k k! yields this exact indexed table starting at its second term.",
+          "Resultary searches returned no materially overlapping dynamical identification; that is bounded comparison, not a database-absence claim."
+        ],
+        "reasoning": "The table is decisive prior coverage of the original sequence with the specified normalization. It does not classify which particular shuffles are mixing or identify their reflection-relabeling classes.",
+        "searches": [
+          "OEIS A000698 (definition, table, FORMULA)",
+          "Resultary: mixing-permutation recurrence, tent rare nonmixing, transitive reflection/permutation",
+          "arXiv:2010.06550 p. 5"
+        ]
+      },
+      "rationale": "The frozen claim fails as an original enumeration and rarity-law result: both headline formulas are covered after identifying the exact known sequence, and the third coefficient is a direct application of an existing analytic-composition theorem. This is substantive re-scoping, not passing the old claim with a citation. In repairs/3/RESULT.md the retained finding is the dynamical classification: irreducibility suffices for each odd-grid shuffle, and a rooted map indexes each class under reflection-preserving relabeling, with a uniform lift. The numerical formulas are credited as corollaries. Neither the inspected shuffled-map paper nor the known combinatorial results establish this dynamical identification.",
+      "residual_risks": [
+        "No full-text assessment of Arquès–Béraud; this does not undo the verified implication of the numerical prior. Another treatment may have already made the same dynamical identification.",
+        "The revised statement does not claim originality for rooted maps, general permutation encodings, the sequence, or its asymptotic expansion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same dynamical setting and graph reduction; no equivalent rooted-map classification in the material inspected.",
+          "evidence": [
+            "Lemma 2.1 distinguishes irreducibility (ergodicity) and primitivity (topological mixing). Lemma 2.4 relates the fine and coarse Markov matrices. Theorem 5 bounds mixing spectra."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1405.0481",
+          "material_read": "PDF Theorem 5 (p. 7), Lemma 2.1 (p. 8), Lemma 2.4/Eq. (11) (p. 9), and irreducibility discussion (p. 15); extraction offsets 16580, 23322, 25734, 38486.",
+          "method": "Compared graph criterion, map family and claimed spectral bounds to the parity and map classification.",
+          "title": "On the mixing properties of piecewise expanding maps under composition with permutations, II: Maps of non-constant orientation",
+          "trigger": "Same shuffled tent system and Markov transfer matrix."
+        },
+        {
+          "assessment": "Exact prior abstract enumeration.",
+          "evidence": [
+            "The recurrence is a(n)=(2n-1)!! minus the lower convolution; the generating function is 2-1/D. The comments identify indecomposable matchings."
+          ],
+          "identifier_or_url": "https://oeis.org/A000698",
+          "material_read": "Definition and table (offset 0), references, FORMULA near offset 10400, Maple/Mathematica recurrence near offset 13500.",
+          "method": "Normalized by reflection-pair relabelings and shifted the index; compared both recurrence and generating function.",
+          "title": "A000698: A problem of configurations",
+          "trigger": "Exact normalized overlap and generating function."
+        },
+        {
+          "assessment": "Implied the original asymptotic in full, including the error order; not a dynamical shuffle theorem.",
+          "evidence": [
+            "Theorem 32 gives the chain rule and closure for analytic composition. In the same coefficient convention (2n-1)!!=Gamma_1/2^2(n)/sqrt(2*pi)."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1603.01236",
+          "material_read": "Definitions 1 and 8 (coefficient units), Proposition 22 (pp. 7–8), Theorem 32 and Eq. (23) (p. 11, extraction around 46400), coefficient interpretation on p. 26 (offset 125400 onward).",
+          "method": "Specialized analytic composition to D-1, verified the double-factorial scaling and expanded the asymptotic derivative to order three.",
+          "title": "Generating asymptotics for factorially divergent sequences",
+          "trigger": "General theorem applying directly to the exact prior generating function."
+        },
+        {
+          "assessment": "Confirms A000698's alternate formulation; different object from the repaired dynamical correspondence.",
+          "evidence": [
+            "Gives I(z)=1+z+2z^2+10z^3+74z^4+706z^5+... for indecomposable diagrams."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2010.06550",
+          "material_read": "PDF p. 5, definition and table near offsets 14654–15537.",
+          "method": "Distinguished indecomposable matching counts from connected chord intersection counts.",
+          "title": "Connected Chord Diagrams and the Combinatorics of Asymptotic Expansions",
+          "trigger": "Independent exact combinatorial identification."
+        },
+        {
+          "assessment": "Classical enumeration is credited; no whole-paper noncoverage conclusion is made.",
+          "evidence": [
+            "Listed with the equivalent classical sequence; direct normalization and Borinsky already decide coverage of the frozen numerical assertions."
+          ],
+          "identifier_or_url": "Discrete Mathematics 215 (2000), 1–12; Arquès and Béraud",
+          "material_read": "Bibliographic entry in A000698; primary full text not available in the inspection.",
+          "method": "Used the explicit recurrence/database and the checked direct dart bijection for decisive comparisons; did not infer content from the title.",
+          "title": "Rooted maps on orientable surfaces, Riccati’s equation and continued fractions",
+          "trigger": "Classical rooted orientable map enumeration."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Recomputing a known sequence and a covered expansion alone would not carry scientific value as new exact results. The revised finding has a motivated structural use: for this old dynamical family the period test is unnecessary once connectedness is known, and the label quotient preserves reduced-matrix similarity and identifies the conditional uniform shuffle ensemble with the uniform rooted-map ensemble. It classifies all allowed odd-grid shuffles modulo explicit symmetries and lets researchers import refined map counts instead of enumerating dynamics. This is independent of claiming novelty for the resulting numbers.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

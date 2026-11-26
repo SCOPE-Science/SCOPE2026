@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The single final claim is the complete crossover classification for the explicit two-step Erlang maturation times independent exponential precursor survival; the one-step boundary is included as sharpness, not as a separate accepted claim. Algebraic expansion yields identity (1) in `RESULT.md`, exact differentiation yields the unique maximum \(m_*(d)>d\), and the integral of the decreasing \(\coth\) function proves the maximum exceeds the comparison level. The threshold is unique because the dimensionless elasticity of the two-stage Erlang CDF decreases strictly from its small-argument limit; the full boundary and sign count then follow. The separately executed standard-library checker passed 2,504 deterministic assertions, consistent with but not replacing the proof. Positive rates and strictly positive alternating intervals are essential.
+PASS
 
-## Originality — PASS relative to inspected evidence, with priority risk
+The two schedules have the same duration 2m per two pulses, so their comparison is the centered second difference of F(t)=e^(−bt)[1−(1+at)e^(−at)]. Writing c=a+b and J=cosh(cd)−1, the normalized difference is B−H with B=cosh(bd)−1 and H=e^(−am)[(1+am)J−ad sinh(cd)]. The derivative has the sign of d sinh(cd)−mJ, giving the interior peak m*=d coth(cd/2). For z=cd/2, log(sinh(z)/sinh(bz/c))=∫ from bz/c to z of coth(v) dv, strictly greater than a m*/2 by strict decrease of coth. This proves H(m*)>B, while H tends to zero at infinity. Hence one upper root always exists, and the lower one is admissible exactly when F(2d)>2F(d). For G(x)=1−(1+x)e^(−x), its elasticity xG′/G is x²/(e^x−1−x), strictly decreasing because its reciprocal has a positive-coefficient power series with positive linear term. Therefore e^(−bd)G(2ad)/G(ad) strictly decreases from 4 to 0, giving the unique threshold. At equality m=d itself is excluded and there is only the upper admissible root. With a single stage the normalized gap is strictly increasing from a negative value to B>0. Independent decimal bisection of the original differences reproduced d_c=0.425304912003236…, the roots 0.372551797020654… and 2.16039402036334… for a=b=1,d=0.2 and all three illustrated percentages. Finite diagnostics are supplementary; uploaded code was not run.
 
-Primary full text inspected: Fierer and Schimel (2002) experimentally vary dry–wet frequency; Zhang et al. (2014) derive multicarbon-pool field models; Manzoni et al. (2020) derive stochastic soil-moisture pulse statistics under a different response law. The Borken–Matzner (2009) review's accessible abstract addresses frequency and timing qualitatively. Closest indexed published mathematical findings concern finite-capacity stormwater runoff, pollutant transport or renewal leaching, not this two-stage survival law. The new global classification is not established by the cited primary statements or their obvious corollaries. Comprehensive historical priority and alternative kinetic-law coverage remain unverified.
+## originality
 
-## Value — PASS
+PASS
 
-The motivating gap is that equality of mean precipitation intervals does not determine rewetting-pulse contributions when maturation and deactivation are competing. The result gives a sharp qualitative distinction between one and two biochemical processing stages, and an all-parameter transition diagram: small variability permits *two* sign reversals as average drought length changes, while larger variability permits one. This is a meaningful, testable benchmark for model sensitivity to drought timing, not an arbitrary parameter-table computation. It does not assert field-predictive numerical carbon budgets or total respiration.
+The supported contribution is the full finite-gap sign diagram and exact endpoint threshold for the stated Erlang-survival centered difference, with a one-stage obstruction within that family. Standard renewal division by time or curvature/zero-count methods alone do not give the claimed count, transition and strict signs. The strongest inspected pulse/deadline analogues use different kernels or comparisons.
 
-## Limits
+## value
 
-The law is an intentionally restricted cycle-reset response; other soil processes, memory, pulse intensity and substrate coupling are excluded. The three illustrative numerical comparisons and diagnostic script are not empirical validations. The review is confined to the stated mathematics and inspected literature.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Under a natural equal-mean, equal-event-count control, a response requiring maturation and survival creates two finite sign reversals, which a one-stage model does not allow. The all-parameter diagram shows exactly when that second reversal is lost and whether it is lost through the schedule boundary; neither a local curvature heuristic nor a numerical plot settles those questions. This is useful as a diagnostic benchmark for idealized cycle-pulse modeling, not as a quantitative field prediction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

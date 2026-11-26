@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:15:50.724419Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Lebesgue binary coding gives independent fair digits, and a finite binary linear observation block is uniform on a linear image, so its Shannon entropy in bits is exactly the binary row rank. For U the block spans the first N translates by s^2 of p and s q; in the (1,s) basis the two rows are (p_e,p_o) and (z q_o,q_e), z=s^2. The determinant is the even-power part of p q. Its vanishing is equivalent to p q = s r(s)^2, since p and q are nonzero and coefficients are binary. A nonzero determinant gives all 2N independent rows. In the rank-one case the bounded-degree nonzero relation supplies N-O(1) independent shifts and p alone supplies N independent rows. For V the first N translates by s of both sensors have rank between N and N+O(1) by the explicit gcd syzygy, with no use of an independence assumption between the two sensor streams. The two examples reduce to E_k and E_k XOR E_{k+1} for V or E_k and E_{k+1} XOR E_{k+2} for U. The E streams are iid; all output linear forms are distinct and nonzero, so every distinct pair is independent. The first N pairs recover all the underlying E's from 0 to N for V and from 0 to N+1 for U when N>=2, giving the listed entropies and deterministic three-bit relations. The supplied finite checker was read, not executed. An independent mask product count confirmed 72 degenerate and 889 full cases of degree at most four; the unbounded theorem is analytic. The U witness checker starts at N=2; the N=1 pair is immediate and does not satisfy the N+2 formula, consistent with the theorem's stated N>=2.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prior Lemma 2.9 shows nonincreasing finite trajectory-dimension increments; Proposition 2.10 identifies their stationary value with entropy and yields eventual affine dimension growth.",
+          "Corollary 4.8 covers all vector spaces over K with linear endomorphisms and their K[X]-module rank, not only one or both schedules.",
+          "Tsuneda's equations (13)–(14) and (18)–(20) introduce exactly these schedules; the inspected discussion concerns autocorrelations rather than Shannon entropy."
+        ],
+        "reasoning": "General trajectory theory dominates the claimed classification and its bounded-error assertion once the schedules are written in the polynomial coordinates. The source of the schedules need not itself state that general theorem or the corollary.",
+        "searches": [
+          "Giordano Bruno–Salce DOI 10.1007/s40065-012-0024-3, Lemma 2.9, Proposition 2.10, Corollary 4.8",
+          "Tsuneda DOI 10.3390/dynamics4020016, Sections 3 and 5",
+          "Lieb–Pinto–Rosenthal polynomial generator and finite-field convolutional codes"
+        ]
+      },
+      "checked_sources": [
+        "10.1007/s40065-012-0024-3",
+        "10.3390/dynamics4020016",
+        "arXiv:2001.08281",
+        "Resultary 4e96480abb21 (same record), c15848fbcc1a (indexed comparison)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For U, the two polynomial columns in the power-of-s^2 representation have rational rank two exactly when p_e q_e+z p_o q_o is nonzero, and otherwise rank one. For V the module of both rows lies in the rank-one ambient F2[s] and is nonzero.",
+          "The stationary dimension increments (bits per pair) are thus respectively 2 or 1, and always 1. If the stationary value is 2, no earlier increment can drop below 2 because increments are nonincreasing; the two original rows also have rank 2. Exact maximal block entropy is equivalent to iid fair bits.",
+          "The examples are substitutions using q=(1+s)p for V and s q=(s^2+s^4)p for U; the exact finite ranks follow from these immediate shifted relations on a single iid stream."
+        ],
+        "reasoning": "This is positive prior-coverage evidence for the principal mathematical output, not a failure because a plausible source was inaccessible. The odd-square label and specific filter coefficients distinguish an instantiation, not the classification. Pairwise independence without full entropy is also visible directly from the illustrative two-tap constructions.",
+        "searches": [
+          "10.1007/s40065-012-0024-3, Definition 2.4, Proposition 2.10 and Corollary 4.8",
+          "Tsuneda Section 3.1 equations (13)–(14) and Section 3.2 equations (18)–(20)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Giordano Bruno–Salce Definition 2.4(a) is exactly lim dim(F+phi F+...+phi^(N-1)F)/N, and Corollary 4.8 identifies entropy with rank over K[X].",
+          "For these sensors each observed block entropy is the same finite trajectory dimension over K=F2. Using M=the entire trajectory of F makes F entropy-generating: every finite-dimensional G of M lies in some T_d(F), and T_N(G) is then contained in T_(N+d-1)(F).",
+          "The convolutional-code text independently expresses code rate in terms of polynomial row-module rank, distinguishing rank from unimodularity."
+        ],
+        "reasoning": "The two reported bits form one time step of the prior trajectory theorem, giving entropy per reported bit equal to half the prior entropy. The correspondence does not require a decoding theorem, perfect reconstruction, or an extra statistical assumption.",
+        "searches": [
+          "entropy rank GF(p) Laurent polynomial module algebraic Z action subshift finite field linear shift entropy rank coefficient matrix rank binary convolutional code entropy rate",
+          "A soft introduction to algebraic entropy, Definition 2.4 and Corollary 4.8",
+          "Convolutional Codes, arXiv:2001.08281, Sections 1.1 and 1.2.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact catalogue hit 4e96480abb21 is the frozen record itself. Nearby c15848fbcc1a is indexed as a sparse two-frame sampling-density result, not an entropy-rank classification; only its catalogue summary was compared."
+        ],
+        "reasoning": "The catalogue exact hit is not distinct prior evidence. The demonstrated domination comes from the primary algebraic entropy theorem rather than a published table or a duplicate entry.",
+        "searches": [
+          "Resultary finite binary parity doubling map alternating sensors full or half entropy polynomial criterion"
+        ]
+      },
+      "rationale": "The headline two-schedule entropy classification, including the finite-block conclusions of the general theorem, is a direct specialization of Giordano Bruno and Salce (2012), Definition 2.4, Lemma 2.9, Proposition 2.10 and Corollary 4.8. The isomorphism is at the level of precisely the trajectory dimensions defining entropy, not an analogy to stable inversion or an inference from correlation. Choose F=span(p,s q), phi=multiplication by s^2 for U, or F=span(p,q), phi=multiplication by s for V, and restrict to the invariant trajectory M generated by F. Every finite-dimensional subspace of M lies in some finite trajectory of F. Thus the supremum in the prior entropy definition equals H(phi,F), which is the limit of the reported block entropy divided by N. Prior Corollary 4.8 makes this the polynomial-module rank; Proposition 2.10 gives the eventual constant increments and O(1) remainder. With full rank two, nonincreasing increments and the upper bound 2 per pair force exact independence at every block length. Rank in the two-dimensional coordinates is the displayed determinant test, and the odd-square clause merely rewrites that determinant's vanishing. Tsuneda supplies the already-defined schedules, not the entropy calculation by autocorrelation. The concrete XOR examples need not appear verbatim in the earlier sources; they illustrate the rank theorem by a two-tap copy of one iid stream and do not establish a distinct new main theorem.",
+      "residual_risks": [
+        "No claim is made that the literal parity polynomials or witness wording were published earlier. The demonstrated prior implication concerns the main mathematics irrespective of that priority.",
+        "The older filter-bank full text was inaccessible in bounded retrieval and is not used to support the disposition. FIR perfect reconstruction is not required for this entropy theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly dominates the main theorem under the output trajectory identification",
+          "evidence": [
+            "H(phi,F) is the limit of partial trajectory dimensions divided by N; the finite trajectory increments are nonincreasing and eventually stationary.",
+            "Corollary 4.8: ent(phi)=rk_(K[X])(V_phi)."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s40065-012-0024-3",
+          "material_read": "Anna Giordano Bruno and Luigi Salce, Arab J Math 1 (2012), 69–87: Definition 2.4 on p. 72 (offset near 11570), Lemma 2.9 and Proposition 2.10 on pp. 72–73 (offset near 17300), Corollary 4.8 on p. 79 (offset range 43700–51000)",
+          "method": "Lawful OA publisher PDF; independently checked the definition, finite increment proof and rank statement",
+          "title": "A soft introduction to algebraic entropy",
+          "trigger": "Plausible dominating finite-field trajectory entropy theorem"
+        },
+        {
+          "assessment": "Identical schedules, autocorrelation results; the decisive entropy coverage is instead from the broader trajectory theorem",
+          "evidence": [
+            "Successive-iterate alternation and same-state paired observation have the same shifts as the frozen U and V. Equal means hold here because both sensors are fair."
+          ],
+          "identifier_or_url": "https://doi.org/10.3390/dynamics4020016",
+          "material_read": "Section 3.1 equations (13)–(14), Section 3.2 equations (18)–(20), journal pp. 274–275 (PDF offset around 13400); Section 5 around offset 73950",
+          "method": "Bounded primary PDF statement comparison",
+          "title": "Auto-Correlation Functions of Chaotic Binary Sequences Obtained by Alternating Two Binary Functions",
+          "trigger": "Exact origin of both observation schedules"
+        },
+        {
+          "assessment": "Confirms the polynomial rank framework; not by itself a Shannon entropy limit theorem",
+          "evidence": [
+            "Polynomial message vectors are processed by polynomial matrices; a convolutional code of rate k/n is a rank-k module of polynomial vectors of length n.",
+            "Unimodularity requires a nonzero constant determinant, not merely nonzero determinant."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2001.08281",
+          "material_read": "Sections 1.1 and 1.2.1, PDF pp. 3–5, offsets 3600–10045",
+          "method": "Lawful arXiv PDF text, overlap comparison at original definition",
+          "title": "Convolutional Codes",
+          "trigger": "Equivalent polynomial-filter model and rate convention"
+        },
+        {
+          "assessment": "Same frozen record; not prior evidence",
+          "evidence": [
+            "Both schedules and the same full-versus-half-rate criterion."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-an-entropy-rate-dichotomy-for-alternating-parity-sensors-of-the--4e96480abb21",
+          "material_read": "Resultary indexed summary versus frozen RESULT.md",
+          "method": "Local catalogue and identity comparison",
+          "title": "An entropy-rate dichotomy for alternating parity sensors of the doubling map",
+          "trigger": "Exact indexed match"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Contrasting pairwise correlations with joint uncertainty is a legitimate motivation, and the presentation is a useful worked example. As frozen, however, the classification instantiates the existing general trajectory-rank theorem without a new obstruction or invariant. The remaining examples simply duplicate an iid stream with a two-shift XOR output, and their finite ranks follow directly from that choice. They do not supply a separately needed nonroutine witness or precise new fact sufficient for a narrowed finding. No scientific repair is claimed.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

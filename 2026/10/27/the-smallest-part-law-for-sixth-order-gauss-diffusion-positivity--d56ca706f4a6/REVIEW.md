@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is the completed sixth-order Gauss–Legendre matrix functional calculus on every finite connected unweighted complete multipartite graph. Exact orthogonal projectors yield all entries for every part size and every nonnegative timestep. The two derivative identities for the scalar stability function and its divided difference have strictly signed, explicit polynomial numerators, proving both off-diagonal positivity and a single diagonal crossing. First-order stochastic dominance of the vertex spectral measures strictly orders the diagonal crossings by increasing part size. Rational matrix checks reproduce all transition-entry formulas and example signs but are not a proof for arbitrary graph size.
+PASS
 
-## Originality — PASS, subject to literature uncertainty
+On the repaired statement: the multipartite Laplacian splits orthogonally into the constant, between-part and within-part spaces with eigenvalues 0, N and N−m. Substituting the projectors gives the diagonal spectral measure and both off-diagonal formulas. The exact derivative numerators establish strict decrease of R and g on [0,∞), yielding strictly positive off-diagonals at h>0 and strictly decreasing diagonals. At fixed h>0 each smaller-part measure has larger upper tails (including the case m=1), giving strict smallest-part ordering; the limit 2/N−1 proves the single crossing for N≥3. For N=2 the diagonal is (1+R(2h))/2>0. The same-order example was independently recomputed exactly: −66473/957799 and 1999/166291. Symmetry and the action on the constant vector give both unit sums; eigenvalues of modulus at most one, including 1, give norm one. The frozen Finding incorrectly called matrices with negative diagonal doubly stochastic; the replacement explicitly restricts this to the nonnegative interval, and the verifier's output now describes what its assertions check.
 
-The closest primary literature concerns general SSP Runge–Kutta criteria, positivity-preserving graph-Laplacian integrators, and high-order Padé implementation. In particular, the 2001 Gottlieb–Shu–Tadmor article addresses general method-wide SSP restrictions; the 2021/2022 Blanes–Iserles–Macnamara study explicitly identifies higher-order diagonal Padé positivity as a challenge; and the 2021 Song–Eisenträger study gives precisely the sixth-order Padé numerator and denominator but concerns structural dynamics, stability, and efficiency rather than entrywise diffusion positivity. The inspected material contains no theorem implying that positive off-diagonal entries persist while the sharp diagonal threshold is controlled by the smallest multipartite class. Published mathematical records on fourth-order \([2/2]\) Padé concern a genuinely different stability map. Bibliographic indexing is not complete, so an independently rediscovered equivalent specialized result remains possible.
+## originality
 
-## Value — PASS
+PASS
 
-The result resolves a sharp, all-timestep positivity question for an unbounded heterogeneous graph family and standard sixth-order implicit method; it also proves a structurally informative one-parameter reduction: only graph order and the smallest part determine the cutoff. The universal off-diagonal sign and exact six-vertex contrast reveal why Euclidean spectral nonexpansivity alone does not guarantee a nonnegative numerical state. Higher-order Padé positivity was singled out as a challenge in the inspected primary literature. The theorem is not asserted to be a general method-wide positivity guarantee or a numerical accuracy theorem.
+Best-of-knowledge pass for the completed [3/3] sharp smallest-part horizon, not the Padé map, multipartite projector calculus, known scalar positivity criteria, or row/column preservation. The terminology repair does not change the distinct mathematical contribution.
 
-## Closest sources and limitations
+## value
 
-The direct foundation is Gottlieb, Shu and Tadmor (SIAM Review 2001, DOI 10.1137/S003614450036757X); see also Conde et al. (arXiv:1702.04621), Blanes et al. (arXiv:2102.08242), and Song and Eisenträger (arXiv:2103.12282). Exact symbolic calculations and direct rational tests support the analytical identities. The proof does not extend to weighted, directed, nonlinear or non-complete-multipartite systems, and no independent mathematical audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An all-size entrywise positivity boundary is structurally useful for choosing completed diffusion steps and separates norm stability from signs. It identifies the first lost signs and reduces a partition-dependent matrix check to one scalar root; the six-vertex comparison shows why order alone is insufficient.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

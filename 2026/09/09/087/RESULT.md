@@ -1,97 +1,34 @@
-# First e-positivity certificate beyond Ellzey's directed cycle: full e-expansion of C_{8,2}
+# The full elementary coefficient vector of the directed circular square on eight vertices
 
-## Context
+## Finding
 
-Let $X_{\vec{G}}(\mathbf{x};t)$ denote Ellzey's chromatic quasisymmetric function of a
-digraph (arXiv:1709.00454, Def. 1.3). Ellzey proves an $F$-basis expansion for all
-digraphs via $G$-descents (Thm. 3.1), a $p$-positivity formula in the symmetric case
-(Thm. 4.1), symmetry for circular-indifference digraphs (Thm. 5.5 / Cor. 5.7), and an
-$e$-formula solely for the directed cycle $k=1$ (Thm. 6.1 / Cor. 6.2), conjecturing
-$e$-positivity for all circular-indifference digraphs (Conj. 1.4). No $e$-coefficient
-for any $k \geq 2$ circular power was previously recorded; $F$- and $p$-expansions do
-not imply $e$-signs.
+Let \(C_{8,2}\) have vertex set \(\mathbb Z/8\mathbb Z\) and directed arcs \(i\to i+1\) and \(i\to i+2\) for every \(i\), with all indices cyclic. For a proper coloring \(\kappa\) of the underlying undirected graph, let \(\operatorname{asc}(\kappa)\) count arcs whose destination has the larger color. Define
+\[
+X(\mathbf x;t)=\sum_{\kappa} t^{\operatorname{asc}(\kappa)}\prod_{v} x_{\kappa(v)}.
+\]
+The full elementary expansion is \(X=\sum_{\lambda\vdash 8}c_\lambda(t)e_\lambda\), with the following coefficient lists (in order of increasing degree, starting at the displayed degree):
 
-## Definitions
+| \(\lambda\) | Start degree | Consecutive coefficients |
+|---|---:|---|
+| \((8)\) | 3 | \(8,64,224,456,616,672,616,456,224,64,8\) |
+| \((7,1)\) | 5 | \(32,136,208,208,208,136,32\) |
+| \((6,2)\) | 6 | \(24,64,64,64,24\) |
+| \((5,3)\) | 6 | \(8,48,80,48,8\) |
+| \((4,4)\) | 6 | \(4,40,80,40,4\) |
 
-For integers $n \geq 3$ and $1 \leq k < n/2$, let $C_{n,k}$ be the digraph on vertex set
-$\mathbb{Z}_n$ with arcs $i \to j$ iff the clockwise distance from $i$ to $j$ lies in
-$\{1,\dots,k\}$ (the $k$-th circular power of the directed $n$-cycle).
-A proper coloring is a proper coloring of the underlying undirected graph; an ascent is
-a directed edge $(u,v)$ with $\kappa(u) < \kappa(v)$; $\mathrm{asc}(\kappa)$ is its number.
-$X_{\vec{G}}(\mathbf{x};t) = \sum_{\kappa} t^{\mathrm{asc}(\kappa)} \mathbf{x}_{\kappa}$.
-A circular-indifference digraph is one whose arcs are exactly the pairs $[i,j]$ contained
-in some member of a family of circular intervals (Ellzey Def. 5.1).
+All unlisted coefficients are zero. The lists are nonnegative and unimodal and satisfy \(c_\lambda(t)=t^{16}c_\lambda(t^{-1})\).
 
-## Result
+## Proof and replay
 
-**Theorem (full $e$-vector of $C_{8,2}$).** Let $C_{8,2}$ be the digraph on
-$\mathbb{Z}_8$ with arcs $i \to j$ iff the clockwise distance is $1$ or $2$
-($16$ arcs). Then $X_{C_{8,2}}}(\mathbf{x};t)$ is symmetric and
+Any stable set has at most two vertices: if it had three, all three cyclic gaps between successive members of the triple would be at least three, requiring at least nine vertices. The stable pairs are precisely the nonedges of the undirected circular square (cyclic distance three or four). Each proper coloring using exactly colors \(1,\ldots,k\) has an ordered partition into singleton and stable-pair blocks. Choose the least remaining vertex and either make it a singleton or match it to one stable partner still remaining. This enumerates each undirected color-class partition exactly once. Order the resulting blocks in all possible ways and count ascents on the 16 specified arcs. For each ordered size sequence this gives the exact coefficient polynomial for its monomial on \(x_1,\ldots,x_k\). Ordered colors with gaps give the same polynomials because only relative order affects ascents.
 
-$$X_{C_{8,2}}}(\mathbf{x};t)=\sum_{\lambda \vdash 8} c_{\lambda}(t)\,e_{\lambda}(\mathbf{x}),$$
+For a monomial with \(d\) squared colors and \(s=8-2d\) singleton colors, the coefficient of that monomial in \(e_{8-b}e_b\) is \(\binom{s}{b-d}\), zero outside the binomial's range. The doubled colors must appear in both factors, and one chooses \(b-d\) of the singleton colors for the second factor. Set \(e_0=1\) for \(b=0\). For \(d=4,3,2,1,0\) use the monomial with the doubled colors first to solve for \(c_{(8-d,d)}\) by backward substitution; the coefficient of this unknown is one at each step. The checker compares the result with the direct coloring counts for all 34 ordered exponent sequences on consecutive colors, not just the five used for substitution. Exponents of three or more cannot occur on either side. Thus the matching polynomials verify the full identity, including symmetry and all 17 zero elementary terms.
 
-with
+Run `python3 check_c82.py` with the Python 3 standard library. It examines 106 color-class partitions and 136488 ordered partitions, derives all five polynomials, and checks equality with the displayed lists, all monomial comparisons, and the shape assertions.
 
-- $c_{(8)}(t) = 8t^3+64t^4+224t^5+456t^6+616t^7+672t^8+616t^9+456t^{10}+224t^{11}+64t^{12}+8t^{13}$,
-- $c_{(7,1)}(t) = 32t^5+136t^6+208t^7+208t^8+208t^9+136t^{10}+32t^{11}$,
-- $c_{(6,2)}(t) = 24t^6+64t^7+64t^8+64t^9+24t^{10}$,
-- $c_{(5,3)}(t) = 8t^6+48t^7+80t^8+48t^9+8t^{10}$,
-- $c_{(4,4)}(t) = 4t^6+40t^7+80t^8+40t^9+4t^{10}$,
+## Prior coverage and scope
 
-and $c_{\lambda}(t)=0$ for the other $17$ partitions of $8$.
-Every $c_{\lambda}(t)$ has nonnegative integer coefficients, is palindromic with
-center $|E|/2 = 8$, and is unimodal.
+This graph is Ellzey's \(\vec G^c_{8,3}\). Ellzey had already tested the circular-indifference conjecture (which includes e-positivity and e-unimodality) by computer for this graph as part of the remaining cases with \(n\le8\). The contribution here is the explicit individual coefficient polynomials and their short replay, not the first e-positivity test for this instance or for higher directed powers. The general row-sum identity does not separate \((7,1),(6,2),(5,3),(4,4)\), and specializing at \(t=1\) loses the ascent grading. The circular square on eight vertices is the first to have nonedges at two different cyclic distances (three and four) and the last before stable triples appear at order nine. Its full vector is thus a check for ascent-weighted formulas that must account for more than one kind of stable pair, while the color-class enumeration still reduces to matchings. The computation is for this graph, not an all-order e-positivity or unimodality theorem.
 
-## Proof / evidence (replayable computation)
-
-`python3 output/artifacts/verify.py` prints `VERIFY_OK` (reproduced by auditor):
-
-1. **Membership.** The $8$ circular intervals $[i,i+2]$ generate exactly the $16$ arcs
-   of $C_{8,2}$ (arc-set equality checked); symmetry of $X$ follows from Ellzey Cor. 5.7.
-2. **$G$-descent census.** Exhaustion of $S_8$ ($40320$ permutations) with
-   $(G,\sigma)$-ranks, $G$-descent sets, and $\mathrm{inv}_{\vec{G}}$ gives the
-   $\delta(k,\ell)$ distribution ($33$ cells). Cor. 3.3's
-   $\chi(m,t)=\sum_{k,\ell}\delta(k,\ell)\binom{m+k}{8}t^\ell$ verified against direct
-   proper-coloring enumeration at $m=2$ ($0$), $m=3$ ($0$), $m=4$ ($168$ colorings).
-3. **Exact $e$-solve.** $106$ unordered proper set partitions / $136488$ proper ordered
-   partitions (canonical independent-block DFS times $l!$ color orders) give the
-   $m$-expansion; per-monomial symmetrization divides type-$\mu$ weights by
-   $\ell!/\prod_c m_c(\mu)!$ (integrality asserted entrywise). Exact conversion with the
-   $22 \times 22$ $e$-to-$m$ matrix over $\mathbb{Q}$ (Fractions, $q=8$ variables) yields
-   the table above.
-4. **Acyclic-orientation row sums (Thm. 6.5).** Exhaustion of all $2^{16}$ orientations
-   gives $4968$ acyclic ones; $\sum_{\ell(\lambda)=k}c_{\lambda}(t)$ matches the
-   sink-count/asc distribution for $k=1$ ($=c_{(8)}$) and $k=2$
-   ($=32t^5+172t^6+360t^7+432t^8+360t^9+172t^{10}+32t^{11}$); rows $k \geq 3$ empty on
-   both sides.
-5. **Sign/shape checks + byte identity.** All coefficients nonnegative integers;
-   palindromicity about degree $8$ and unimodality asserted; recomputed table is
-   byte-identical to committed `ctable_82.json`.
-6. **Auditor triangulation.** Specializing $e_{\lambda}(1^m)=\prod_i \binom{m}{\lambda_i}$
-   predicts $t$-chromatic distributions matching direct coloring enumeration at
-   $m=2,3,4,5$ and $m=6$ ($64440$ colorings), independent of the $G$-descent code.
-
-## Limitations
-
-Claims only the $C_{8,2}$ datum, not the infinite $C_{n,k}$ family. The $e$-solve goes
-through the exact $m$-expansion plus rational $e/m$ matrix (equivalent to the $p$-basis
-transfer route, fully logged). Exploratory $C_{6,2}/C_{7,2}/C_{8,3}$ tables are unclaimed.
-
-## Reproducibility
-
-Stdlib-only Python (`verify.py`, `sym.py`, `ellzey.py`, `ecoeff.py`, `fast.py`,
-committed `ctable_82.json`). S_8 enumeration ($40320$) plus $2^{16}$ orientation scan
-plus $136488$-term ordered-partition scan; runs in minutes on a laptop.
-
-## References
-
-- B. Ellzey, A directed graph generalization of chromatic quasisymmetric functions,
-  arXiv:1709.00454.
-- B. Ellzey, Chromatic quasisymmetric functions of directed graphs (FPSAC),
-  arXiv:1612.04786.
-- P. Alexandersson, G. Panova, LLT polynomials, chromatic quasisymmetric functions and
-  graphs with cycles, arXiv:1705.10353.
-- J.-C. Aval, R. Melgar, Chromatic quasisymmetric functions for signed graphs,
-  arXiv:2508.20200.
-- J. White, The Chromatic Quasisymmetric Class Function of a Digraph,
-  arXiv:2106.02665.
+- B. Ellzey, *A directed graph generalization of chromatic quasisymmetric functions*, [arXiv:1709.00454](https://arxiv.org/abs/1709.00454), §6 (prior computer test, family definition and row sums).
+- P. Alexandersson and G. Panova, *LLT polynomials, chromatic quasisymmetric functions and graphs with cycles*, [arXiv:1705.10353](https://arxiv.org/abs/1705.10353), circular unit-arc formulation and Proposition 28.

@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:21:03.540061Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Proof 1–4 (lines 29–92)",
+        "Frozen VERIFICATION.md and check.py, inspected, not executed",
+        "Independent bounded replay: python /workspace/review_evidence/replay.py (record 1, direct half-plane pair intersections at 15 signed local slopes; largest relative cusp residual 0.001852 rounded up)"
+      ],
+      "rationale": "The tetrahedral segment sum has exactly the required hull: in the positive orthant the pair-sum inequalities give the axis vertices and (1,1,1), besides points already in their signed hull. Width gives section perimeter at most projection perimeter; the projected segment lengths have sum of squares 8, so twice their sum is at most 8√2. Equality requires all four squared scalar products to equal 1; their expansion in the four tetrahedral signs gives ab=ac=bc=0. Axis sections are diamonds attaining the bound. In the local chart with nonnegative u,v, the corner at (y,z)=(2,0) loses adjacent edge lengths asymptotic to 2√2u each and gains a chord of length 4u, with errors O(u(u+v)); the z corners exchange u and v. The cuts on adjacent opposite-sign edges are disjoint since the sum of their edge parameters divided by 2 is [a(u+v)−(u−v)^2]/[a^2−(u−v)^2]<1, and same-sign edges are immediate. The lift changes edge metrics by O(u²+v²). Reflection gives the uniform absolute-value cusp. Continuity follows locally by writing the section radial function in a continuous orthonormal plane frame as 2 divided by the maximum of the three pairwise absolute coordinate sums on each unit ray, and applying perimeter continuity for planar convex bodies. Compactness then localizes the tail to six charts. Each contains asymptotically a diamond of area 2(ε/C)^2 with C=8(√2−1), and the sphere chart Jacobian tends to 1. Division by 4π gives 3(3+2√2)/(64π), without a further antipodal factor.",
+      "residual_risks": [
+        "The replay is a local floating-point diagnostic, not evidence of global uniqueness or a proof of the asymptotic; those follow analytically."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Makai–Martini study smooth-body section quermassintegral conditions. Živaljević treats simplex-generated zonotopes including this body."
+        ],
+        "reasoning": "The smooth perturbation results do not apply to this polyhedral cusp, and the zonotope description does not give a section maximum or a local deficit.",
+        "searches": [
+          "arXiv:1507.01467v1",
+          "arXiv:1307.5138v1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary records 6e34c28d66f0, 14003d3fb67c, 571b0a11a2c1, e3eefc4ab49f",
+        "arXiv:1307.5138v1 §3.1; arXiv:1507.01467v1 theorem passage; arXiv:1806.08659v1 Theorem 1",
+        "Targeted primary-literature search on the rhombic-dodecahedron perimeter maximum and cusp, without a closer primary hit"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known segment decomposition and the width formula make the global projection comparison short; the cube theorem is body-specific and the cube-tail result has a different local deficit."
+        ],
+        "reasoning": "Credit the classical representation and bounding method. Even a sharp projection bound does not compute the linear clipping loss for a solid section; that independent loss and its Haar consequence are the supported distinction.",
+        "searches": [
+          "arXiv:1307.5138v1 §3.1",
+          "arXiv:1806.08659v1 Theorem 1",
+          "Resultary cube cusp record 6e34c28d66f0"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 2026/10/25 record 6e34c28d66f0 has a cube perimeter endpoint 4(1+√2), different maximizing normals and a square-type local law; Resultary 2026/11/2 record e3eefc4ab49f compares cube and rhombic-dodecahedron side counts."
+        ],
+        "reasoning": "Neither rescaling the cube nor using a side-count correspondence transfers metric perimeters. Orthogonal projection gives an upper bound, not an equivalent random-section law.",
+        "searches": [
+          "Resultary section-perimeter, cusp and Haar-endpoint queries, including cube/rhombic-dodecahedron section dual comparisons",
+          "arXiv:1806.08659v1, Theorem 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "These records report side-type probabilities or changes under stretching, not a table of section perimeters or the exact near-maximum coefficient."
+        ],
+        "reasoning": "Counts do not give edge lengths or their near-axis first-order changes; same-day distinct coverage was compared on substance, not excluded by date.",
+        "searches": [
+          "Resultary rhombic-dodecahedron section-law comparisons: 14003d3fb67c, 571b0a11a2c1, e3eefc4ab49f"
+        ]
+      },
+      "rationale": "The inspected material covers the tetrahedral zonotope representation, cube perimeter optimization and an analogous cube cusp/tail, and Haar side-count laws for the same rhombic dodecahedron. It does not establish the stated solid-section perimeter endpoint, equality set and local law together, or the rhombic-dodecahedron cusp and its tail constant. This is a best-of-knowledge assessment of the specified claim, not of priority for projection-width methods.",
+      "residual_risks": [
+        "Unindexed polyhedral geometry or stereology may contain an equivalent length law. Neither the index results nor the bounded primary search prove priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the geometric representation, not the metric section law",
+          "evidence": "The rhombic dodecahedron appears in the description of simplex-generated zonotopes and their geometry.",
+          "identifier_or_url": "https://arxiv.org/html/1307.5138v1",
+          "material_read": "§3.1, HTML text offsets 11402–14900",
+          "method": "Bounded open primary-text inspection",
+          "title": "Illumination complexes, Δ-zonotopes, and the polyhedral curtain theorem",
+          "trigger": "Exact source body as a simplex-generated zonotope"
+        },
+        {
+          "assessment": "Different hypotheses and conclusion",
+          "evidence": "Local smooth perturbation results around the ball, not an exact polyhedral directional maximum or tail.",
+          "identifier_or_url": "https://arxiv.org/abs/1507.01467v1",
+          "material_read": "Abstract and introduction, PDF text offsets 0–4432, and theorem passage at 6543",
+          "method": "Bounded open primary-text inspection",
+          "title": "Centrally symmetric convex bodies and sections having maximal quermassintegrals",
+          "trigger": "Potential general maximum for section quermassintegrals"
+        },
+        {
+          "assessment": "Cube-specific bound and equality",
+          "evidence": "A maximizing normal is proportional to (1,1,0,…,0) for the cube.",
+          "identifier_or_url": "https://arxiv.org/abs/1806.08659v1",
+          "material_read": "Theorem 1, PDF text near offset 7791",
+          "method": "Bounded open primary-text inspection",
+          "title": "On the maximal perimeter of sections of the cube",
+          "trigger": "Closest exact perimeter maximum for another symmetric polytope"
+        },
+        {
+          "assessment": "Analogous but not equivalent",
+          "evidence": "Cube maximum 4(1+√2), tail coefficient 3√2/(8π) in its scale, and max-type cusp in sorted normal-gap coordinates.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-square-cusp-and-equal-type-extremes-for-random-central-cube-sect--6e34c28d66f0",
+          "material_read": "RESULT.md Finding, from offset 0",
+          "method": "Indexed lookup and mirrored result inspection",
+          "title": "Square cusp and equal-type extremes for random central cube sections",
+          "trigger": "Directly analogous perimeter endpoint and quadratic tail"
+        },
+        {
+          "assessment": "Side counts only",
+          "evidence": "Complementarity of side counts and corresponding Haar type probabilities, without metric perimeter transfer.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-central-section-complementarity-between-the-cube-and-the-rhombic--e3eefc4ab49f",
+          "material_read": "RESULT.md Finding, from offset 0",
+          "method": "Indexed lookup and mirrored result inspection",
+          "title": "Central section complementarity between the cube and the rhombic dodecahedron",
+          "trigger": "Same-day same-body possible reduction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Proof 1–4",
+        "Resultary cube cusp 6e34c28d66f0 and rhombic-dodecahedron side-count e3eefc4ab49f"
+      ],
+      "rationale": "This gives an exact metric statistic of a canonical polyhedron under the natural isotropic law, not just a finite list of large examples. The linear and anisotropic deficit explains why rare near-maximal orientations in this two-dimensional orientation space have a quadratic probability with a calculable prefactor, rather than the leading behavior of a smooth quadratic maximum. Side counts and projection perimeter cannot replace this information.",
+      "residual_risks": [
+        "Only the upper endpoint in this scale and body is assessed; no complete distribution or affine extension is inferred."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

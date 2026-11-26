@@ -1,9 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The standard order-five character projection is expanded with all excluded zeros accounted for. Every nonprincipal polynomial has 1, 2, or 3 distinct roots of multiplicities below five; the corresponding Weil bounds and omitted-point corrections yield the explicit uniform lower bound. This proves the infinite tail, while the independently constructed discrete-log and fifth-power coset tables cover every smaller eligible prime. The standalone source code was compiled and executed on the extracted bytes and matched the theorem's two finite exception lists and its boundary words. The computations use exhaustive finite loops; no sample is mistaken for the entire infinite domain.
+## correctness
 
-**Originality — PASS subject to bibliographic limits.** Classical work covers first occurrence of *single-color* higher-power runs and already explains the all-zero failure at 3331; this is explicitly excluded from claims of novelty. Published neighboring comparisons concern quadratic, cubic and quartic colors or higher-power sumsets. Exact-result searches and statement-level comparisons did not find the complete 125-word quintic exception classification nor the sharp mixed-word threshold at 2341. The 1983 *Patterns of power residues* full text was unavailable but its indexed mathematical review characterizes it as a study of first all-residue patterns, not all mixed coset words. An unindexed equivalent remains possible.
+PASS
 
-**Value — PASS.** The simultaneous existence of all 125 local quintic-coset words is a natural complete three-point arithmetic invariant. Its exceptional set and particularly the distinction between the already-known all-residue threshold and the substantially smaller mixed-word cutoff are precise boundary facts not implied by existing one-color results. The exact finite classification has substantive content beyond the generic large-prime Weil bound.
+On nonzero arguments, expansion of the three five-character projections gives the p−3 principal term. For s nonzero exponents the active polynomial has s distinct roots of multiplicities 1–4, so is not a fifth power and the order-five Weil estimate is (s−1)√p. Restoring the omitted x could affect at most 3−s nonvanishing terms. The support strata have 12, 48 and 64 terms, yielding 125N≥p−176√p−75. At 31126 the difference of squares (p−75)²−176²p is 5625 and p−176√p−75 increases thereafter. The finite run used a separate Python sieve and fifth-power-coset enumeration over all 836 eligible primes through 31126. It matched both printed exception lists (48 and 43) and all six boundary patterns. At 2311 the least generator is 3, with only (0,0,0) and (2,0,2) absent; the latter label is generator-specific. Changing generator multiplies labels by a unit modulo five and preserves the all-zero word. The C++ was inspected, not run. Independent replay and output are branches/c076698d-228a-4fbb-8203-95c042e35703/reproduce.py and census-full.txt (lines 1–9). The analytic bound covers the entire infinite tail, not sampled primes.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Credit applies to the full ordered length-three quintic coset census and sharp mixed-word threshold, not to the known all-residue obstruction at 3331, the character-sum method, or separate results for other orders. Existing accessible statements do not give the mixed-word list or imply its boundary at 2311/2341.
+
+## value
+
+PASS
+
+The presence of local coset patterns is a natural arithmetic invariant, and the exact separation between the known all-residue obstruction and the last mixed obstruction answers a distinct question. The exact finite classification and boundaries are not predicted by the generic character-sum estimate or a neighbouring character order.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

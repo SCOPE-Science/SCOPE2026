@@ -1,13 +1,21 @@
-## Correctness — PASS
+# Independent mathematical audit
 
-The winner law follows from strict absolute-residual ordering and the probability that all screened observations have the adverse sign. Conditional independence given the winning cached sign and total variance yield the exact \(p\)-dependent covariance, including all endpoints. The stopped squared-error supermartingale, the explicit Basel sum, and square-summable/noise-divergent-step convergence prove a lower bound on actual wrong-limit probability, not merely a mean-drift picture. Exact rational checker: `VERIFY_OK 2268`. The checker does not prove asymptotic claims.
+## correctness
 
-## Originality — PASS, qualified
+PASS
 
-Compared with the relevant full-text literature, independent update sampling in Battaglia et al. (2026) makes its convergence question different; Cai et al. (2025/2026) control screening sample size, not partial-refresh dynamics. Shvaiko–Rebrova (public 16 November 2026) already discuss selection bias and full refresh. An earlier scalar cached/fresh constant-step identity also gives a noise floor. The material not implied by those claims is the exact Bernoulli-partial-refresh \(p\)-interpolation, its **sharp \(p=0\) phase boundary**, and a constructive lower bound for actual convergence to a false attractor despite Robbins–Monro steps. Unindexed specialized work, and alternate algorithm reductions, remain residual priority risks; no exhaustive historical uniqueness is claimed.
+For x>0 the singleton winner is negative only on the all-negative candidate outcome; reflection gives the negative half-line and uniform ties give mean zero at x=0. Conditioning on the common stored winner makes queries independent with means pS and variances 1-p². Thus different queries have unconditional covariance p² Var(S|x), which gives exactly the claimed average variance and the nonzero limiting floor. On x>0 and x<0, the mean update contracts to the respective ±μ without crossing zero for fixed 0<η≤1; zero also remains a mean equilibrium by the tie rule. For the pathwise claim let τ be first entry into the nonpositive half-line. The squared distance from μ, stopped at τ, satisfies the stated conditional drift because (1−η)²≤1−η and the centered bounded response has conditional variance ≤1, including the crossing step. At a crossing the stopped squared distance is ≥μ², whereas its expected value is bounded by the accumulated squares of the steps. This gives P(τ<∞)≤π²/96. Adding the tail sum of squared steps gives a nonnegative supermartingale with summable expected accumulated drift. On no exit the squared error has a limit, and divergence of the step sum forces it to be zero. The same argument without stopping proves the p=0 case. The positive-reuse bound requires the stated start and p-dependent schedule; it is not an all-starts or exact-basin assertion. Read RESULT.md §§1–4 of the proof, VERIFICATION.md, and verify.py as text. The supplied finite rational checks cover moments, not the infinite pathwise conclusion; the latter was checked analytically.
 
-## Value — PASS
+## originality
 
-Fresh versus reused observations is an operationally motivated numerical solver design choice. A positive-probability trajectory that converges to an incorrect solution even with decreasing steps is a stronger defect than a static positive variance floor. The exact law makes clear why a very small reuse fraction cannot be repaired by scaling only update batch size, while full-refresh sampling has a rigorously different consistency outcome. These conclusions are restricted to the specified scalar minimum-residual selection and do not claim arbitrary-matrix algorithm failure.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Credit prior qualitative selection bias, independent refresh, and exact scalar cached/fresh endpoints. The supported distinction is the common-winner mixed-reuse conditional law for every stated batch size and the explicit high-probability wrong limit for arbitrarily small positive reuse, neither covered by the compared models or their theorems. No within-day priority or universal novelty is inferred.
+
+## value
+
+PASS
+
+This is a useful sharply controlled independence counterexample: a shared screened response gives a residual variance even as the query batch becomes large, and the mean bias yields a wrong stochastic limit with uniformly positive, quantified probability under a valid decreasing-step schedule. It shows a failure of consistency, not just an error bound or a biased single update. The exact frontier is specific to a scalar dense-noise winner oracle and the pathwise statement does not transfer to standard streaming quantile Kaczmarz.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

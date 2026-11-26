@@ -2,77 +2,57 @@
 
 ## Finding
 
-Let \(T\) be the truncated-tetrahedral graph and \(C\) the cuboctahedral graph, both with twelve vertices. Under synchronous open-neighbor binary majority (ties retain the incumbent opinion), **every nonfixed two-cycle of \(C\) has no transient predecessors**, whereas two-cycles of \(T\) collectively attract \(2366\) initial states, of which only \(478\) are themselves initially periodic. For a uniformly random binary initial configuration the eventual two-cycle probabilities are therefore exactly \(2366/4096\) for \(T\) and \(40/4096\) for \(C\).
+On the truncated-tetrahedral graph \(T\), synchronous binary majority has **239 primitive two-cycle orbits attracting 2,366 of the 4,096 labelled initial configurations**. Of those initial configurations, 1,888 are not themselves periodic. Thus a uniformly sampled initial configuration on \(T\) reaches a primitive two-cycle with probability \(2366/4096\). The sharp first periodic-entry time over all configurations is five updates; the sharp time restricted to trajectories ending in primitive two-cycles is three. In particular \(F_T^7=F_T^5\) on the entire state space, but the corresponding identity with cutoff four fails.
 
-The complete exact functional-graph comparison is:
+For comparison, the *previously documented* cuboctahedral census [1] gives 20 primitive two-cycles whose basins contain only their own 40 phase states, and sharp global first entry at update four. Its eventual oscillation probability is therefore \(40/4096\). The new computation is on \(T\); the cuboctahedron \(C\) is an established same-size benchmark, not a second discovery.
 
-| Invariant | Truncated tetrahedron \(T\) | Cuboctahedron \(C\) |
+| Invariant | Truncated tetrahedron \(T\) | Cuboctahedron \(C\), benchmark [1] |
 |---|---:|---:|
-| Fixed states | 16 | 146 |
+| Fixed configurations | 16 | 146 |
 | Primitive temporal two-cycle orbits | 239 | 20 |
-| Initial states eventually in a fixed point | 1730 | 4056 |
-| Initial states eventually in a two-cycle | 2366 | 40 |
-| Nonperiodic states eventually in a two-cycle | 1888 | 0 |
-| Initial states eventually in either unanimous state | 1360 | 2064 |
+| Initial configurations eventually in a fixed point | 1730 | 4056 |
+| Initial configurations eventually in a two-cycle | 2366 | 40 |
+| Nonperiodic configurations eventually in a two-cycle | 1888 | 0 |
+| Initial configurations eventually unanimous | 1360 | 2064 |
 | Sharp first periodic-entry time | 5 | 4 |
-| Full-symmetry classes of fixed states | 5 | 14 |
-| Full-symmetry classes of primitive two-cycles | 26 | 3 |
-
-In particular, every binary state on \(T\) satisfies \(F_T^7(x)=F_T^5(x)\), and every binary state on \(C\) satisfies \(F_C^6(x)=F_C^4(x)\). Both bounds are sharp in the sense that some states require respectively five and four updates to enter a cycle.
+| Full-automorphism classes of fixed configurations | 5 | 14 |
+| Full-automorphism classes of primitive two-cycles | 26 | 3 |
 
 ## Assumptions and scope
 
-The twelve vertices of \(T\) are the ordered pairs \((a,b)\) with distinct \(a,b\in\{0,1,2,3\}\), in lexicographic order. Vertex \((a,b)\) is adjacent to \((b,a)\) and the two vertices \((a,c)\) for \(c\notin\{a,b\}\). Thus every degree is three. The graph \(C=L(Q_3)\) has vertices the twelve unordered edges of the standard three-dimensional Boolean cube. Two of its vertices are adjacent when the corresponding cube edges share an endpoint; every degree is four. Cube vertices are the integers \(0,\ldots,7\), with an edge for each pair differing in one binary position, and cube edges are sorted lexicographically.
+The vertices of \(T\) are the lexicographically ordered pairs \((a,b)\) of distinct elements of \(\{0,1,2,3\}\). Vertex \((a,b)\) is adjacent to \((b,a)\) and to the two \((a,c)\) with \(c\notin\{a,b\}\). For the benchmark, \(C=L(Q_3)\) has the twelve lexicographically ordered edges of the Boolean cube as vertices; adjacency means sharing a cube endpoint, and cube vertices are indexed by their three-bit integers. The degrees are three and four, respectively.
 
-A labelled configuration \(x\) belongs to \(\{0,1\}^{12}\). The update at vertex \(v\) is one if strictly more than half its neighbors have color one, zero if strictly fewer, and remains \(x_v\) exactly on a tie. All updates are simultaneous. The entry time \(\tau(x)\) is the smallest \(t\ge0\) for which \(F^t(x)\) is periodic; its eventual least period is \(\ell(x)\). One primitive two-cycle orbit comprises two distinct configurations \(x,y\) with \(F(x)=y,F(y)=x\), counted without distinguishing temporal phase. A spatial class consists of cycles modulo the full graph automorphism group.
+At each synchronous step a vertex takes the strict majority among its open neighbors; in a tie it retains its own bit. The first periodic-entry time \(\tau(x)\) is the least \(t\ge0\) such that \(F^t(x)\) is periodic, including fixed points. A primitive two-cycle is the unordered pair of its two phases. A spatial class further identifies the action of the full graph automorphism group, without identifying colors by fiat.
 
-The finding is a finite, exact classification for these **two specified graphs** and this specific update rule; it claims no general law for other Archimedean polyhedra or edge perturbations.
+## Proof and finite certificate
 
-## Proof
-
-**1. Complete state-space reduction.** Encode a binary coloring as \(s=\sum_{i=0}^{11}x_i2^i\), ranging over every integer \(0\le s<4096\). The neighbor sets above define a deterministic successor array \(f(s)\). The attached `archimedean_majority.py` enumerates each successor using the strict-inequality/tie test and follows every state until its first repeated or previously classified state. It assigns the exact eventual cycle length, cycle representative and minimal entry time to all 4096 input states, propagating distances backward from the discovered cycle. This is an exhaustive finite proof because every state appears in the array, the successor of every state is constructed, and the first-repeat argument classifies every path of a finite functional graph.
-
-A separate C++17 program, `archimedean_independent.cpp`, independently reconstructs the two graphs and all successors. It repeatedly removes vertices of indegree zero from the functional graph, leaving precisely disjoint directed cycles; it identifies cycle lengths and propagates periodic-entry times in reverse removal order. **The two algorithms agree** on all outcome and first-entry populations. In particular, no period longer than two occurs, and all stated counts are direct exact sums over the exhaustively classified domain rather than extrapolations from examples.
-
-**2. Explicit first-entry certificate.** The exact numbers of initial states, indexed by \(t=\tau(x)\), are:
+**Exhaustion.** With bit \(i\) at vertex \(i\), enumerate the integers from 0 to 4095. To build the successor array \(f\), count the one bits among each vertex's neighbors and compare twice that count to the degree, retaining the bit at equality. The supplied `archimedean_majority.py` follows successors until first repetition or until reaching a state already classified. First repetition gives the cycle; propagating backwards gives the least entry time and eventual period of every predecessor. The supplied `archimedean_independent.cpp` obtains the functional graph separately, then repeatedly peels indegree-zero states. Every removed state is transient, and the residual graph, with all remaining indegrees and outdegrees one, is a disjoint union of directed cycles. Reverse removal order gives the entry times and eventual periods of all removed states. Each method processes every initial configuration. The observed least periods are one and two, with the following complete table (the benchmark column counts are reproduced as controls):
 
 | Graph and eventual period | \(t=0\) | \(t=1\) | \(t=2\) | \(t=3\) | \(t=4\) | \(t=5\) |
 |---|---:|---:|---:|---:|---:|---:|
 | \(T\), fixed | 16 | 238 | 468 | 720 | 216 | 72 |
 | \(T\), two-cycle | 478 | 1264 | 528 | 96 | 0 | 0 |
-| \(C\), fixed | 146 | 1606 | 1200 | 1008 | 96 | 0 |
-| \(C\), two-cycle | 40 | 0 | 0 | 0 | 0 | 0 |
+| \(C\), fixed [1] | 146 | 1606 | 1200 | 1008 | 96 | 0 |
+| \(C\), two-cycle [1] | 40 | 0 | 0 | 0 | 0 | 0 |
 
-Each graph's table totals \(4096\); the number of length-two periodic states is twice its temporal two-cycle count. Every two-cycle of \(C\) has just its own two periodic states in its basin; otherwise the last row would contain a positive entry at some \(t>0\). This proves the isolation statement. Concrete initial witness integers \(310\) for \(T\) and \(348\) for \(C\) attain the largest entry times, so the cutoffs cannot be reduced.
+The truncated-tetrahedral two-cycle row sums to 2366, with 478 initial phases giving 239 temporal cycles. Inspecting destinations in the same calculation gives 680 initial configurations reaching each unanimous state on \(T\) (1032 per unanimous state in the benchmark). The configuration encoded by 310 on \(T\) attains time five. Since every periodic state has period dividing two, \(F^2(y)=y\) holds exactly for periodic states; applying this with \(y=F^t(x)\) proves the asserted global cutoff and its sharpness.
 
-**3. Spatial symmetry.** The four triangular faces of \(T\) are the four intrinsic maximal triangles, and each reverse-pair edge joins a unique pair of triangles; hence any automorphism permutes the four triangle labels and is completely determined by that permutation. Every permutation acts by \((a,b)\mapsto(\pi(a),\pi(b))\), giving \(\operatorname{Aut}(T)\cong S_4\) of order \(24\). For \(C\), its eight intrinsic triangles are exactly the three-edge stars at cube vertices. Their pairwise intersection graph reconstructs \(Q_3\), so every automorphism of \(C\) is induced by a cube automorphism; all translations and coordinate permutations act, giving \(\operatorname{Aut}(C)\) of order \(8\cdot 6=48\). Applying those complete groups to all fixed configurations and all unordered temporal two-cycle pairs gives respectively \((5,26)\) and \((14,3)\) geometric classes. The supplied checker confirms the orbit sizes sum to the labelled counts and checks the Burnside fixed-point identity independently.
+**Spatial symmetry.** The four intrinsic triangles of \(T\) are precisely the four groups with common first coordinate. Between any two triangles there is a unique reverse-pair edge. Permuting the triangles therefore determines each vertex image, and all 24 such permutations act by \((a,b)\mapsto(\pi(a),\pi(b))\). For \(C\), its eight intrinsic triangles are the three-edge cube stars. Their pairwise intersections recover the cube; translations of the three-bit labels and coordinate permutations give all 48 cube automorphisms. For each graph the checker applies the full group to fixed phases and to unordered temporal-cycle pairs. The orbit counts are respectively \((5,26)\) for \(T\) and \((14,3)\) for \(C\), and the checker tests the Burnside count and the orbit-size sums.
 
-**4. Consensus basins and sharp periodicization.** Among all 4096 states, exactly 680 lead to each unanimous fixed point on \(T\), whereas 1032 lead to each unanimous fixed point on \(C\). The independent indegree-peeling computation confirms both totals. The nonzero time-five and time-four classes in the table give the sharpness of the global identities stated above: for period-dividing-two dynamics, all entry times at most \(r\) are exactly the identity \(F^{r+2}=F^r\) on every state.
+## Verification and limits
 
-## Verification
-
-The complete reproducibility bundle includes `archimedean_majority.py`, `archimedean_independent.cpp`, `reference_census.json`, and `verify.py`. Run `python3 verify.py` in the directory containing all four files, with Python 3.9+ and a C++17 compiler (`g++`). It reconstructs the state space, checks graph symmetry and complementation, compares the independent functional-graph traversal to indegree-peeling, checks every stated aggregate and the full frozen reference census, and prints `VERIFY_OK` on success. It does not trust or execute a precompiled binary.
-
-The C++ program emits `INDEPENDENT_CERTIFICATE_OK`, with fixed-point, two-cycle, basin and entry-time counts matching the Python tables. All 8192 labelled input states across the two graphs were exhaustively processed in each implementation, rather than sampled.
+With `archimedean_majority.py`, `archimedean_independent.cpp`, `reference_census.json`, and `verify.py` in one directory, run `python3 verify.py` with Python 3.9+ and a C++17 compiler (`g++`). The supplied sources compute the census and verify the frozen reference data; the C++ source is compiled during the check, not executed from a stored binary. The markers are `INDEPENDENT_CERTIFICATE_OK` and `VERIFY_OK`. The census is a complete finite enumeration on specified graphs, not an extrapolation from a sample or a result about all Archimedean graphs.
 
 ## Relationship to prior work
 
-The qualitative theorem that finite symmetric binary threshold dynamics eventually has period at most two is classical (Goles and Olivos, 1980); the period restriction here is **not** claimed as new. The detailed 2014 Benjamini et al. preprint and the open-access 2020 Fountoulakis–Kang–Makai paper study majority voting on other graph families and do not supply these two finite-graph basin populations. The latter's main theorems concern random graphs under density hypotheses, not deterministic twelve-vertex Archimedean graph censuses.
+The general eventual period-at-most-two theorem for finite symmetric binary threshold dynamics is classical [2,3]. The line-graph half-factor classification [4] covers cuboctahedral recurrence in principle; the cube case's actual attraction and entry census, including isolated oscillators, is already explicitly published in [1]. The truncated tetrahedron is the line graph of the graph obtained by subdividing all edges of \(K_4\), whose edges join degrees two and three. That representation does not satisfy [4]'s equal-endpoint-degree-parity hypothesis. Three-state excitation on the truncated tetrahedron [5] uses a different state space and update. None of these results supplies the truncated-tetrahedral binary-majority attraction and entry census above. Absolute historical priority, including possible unindexed graph-specific censuses, is not asserted.
 
-A published general **line-graph majority** theorem gives an exact half-factor formula for recurrent fixed states and two-cycles on line graphs of regular base graphs. It applies to \(C=L(Q_3)\); its fixed and primitive two-cycle counts for that graph are therefore *covered in principle as finite specializations* and are included here only to make the dynamical comparison readable. The theorem concerns recurrent states, however, not the full preperiodic attraction basins, their entry-time histogram, or absence of transient predecessors of cuboctahedral oscillators. The graph \(T\) is also a line graph, but of the graph obtained by subdividing every edge of \(K_4\): those base edges join degree-three to degree-two vertices. Thus the published line-graph theorem's equal-endpoint-degree-parity hypothesis fails for this representation. Its recurrent-state formula does not directly specialize to \(T\). The present claim's new emphasis is the exact paired **transient/oscillatory basin distinction**, including the isolation law for \(C\), not rediscovery of the prior general recurrent classification.
-
-Published calculations on exactly these graphs concern distinct invariants: three-state Greenberg–Hastings excitation on \(T\) and the homotopy type of their two-independence complexes. Their full results were inspected and do not imply the binary-majority basin table. Standard graph encyclopedia references establish the canonical graph identities and symmetry orders, but do not present this dynamical comparison. Searches of literature and research records using both graph names, line-graph aliases, exact numerical populations and the isolation statement identified no covering transient census. That negative evidence is not proof of global priority.
-
-## Limitations
-
-The result is a **finite exact census** for two particular twelve-vertex graphs, not a universal formula for all cubic or quartic networks. Some recurrent-state numbers shown as context are implied in principle by a broader line-graph theorem; the novel claim is limited to the comparative attraction-basin and sharp-time results. Exact exhaustive computational proofs depend on reviewing the included source code and finite certificate, and are not independent formal or peer validation. An unindexed or inaccessible graph-specific majority census could still affect historical originality.
+The two networks provide exact, comparable finite examples: the reference network can sustain oscillation only when initialized in a recurrent phase, while the truncated tetrahedron reaches oscillation from a majority of all initial configurations. The transient destinations and times distinguish the examples beyond their numbers of recurrent states. No causal claim about degree, triangles, or the effect of a small perturbation of either graph is made.
 
 ## References
 
-1. E. Goles and J. Olivos, *Periodic behaviour of generalized threshold functions*, *Discrete Mathematics* **30** (1980), 187–189, https://doi.org/10.1016/0012-365X(80)90121-1.
-2. I. Benjamini, S.-O. Chan, R. O'Donnell, O. Tamuz and L.-Y. Tan, *Convergence, unanimity and disagreement in majority dynamics on unimodular graphs and random graphs*, first arXiv submission 2014-05-11, https://arxiv.org/abs/1405.2486.
-3. N. Fountoulakis, M. Kang and T. Makai, *Resolution of a conjecture on majority dynamics: Rapid stabilization in dense random graphs*, *Random Structures & Algorithms* (first published 2020-10-13), https://doi.org/10.1002/rsa.20970.
-4. *Incidence conservation and half-factor classification of two-cycles in line-graph majority dynamics*, published scientific result, https://github.com/published-finding corpus/2026/tree/main/2026/11/1/SCOPE-incidence-conservation-and-half-factor-classification-of-two-cyc--61b3de3ad47a.
-5. *Exact excitation clocks and tetrahedral symmetry on the truncated tetrahedral graph*, published scientific result, https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-exact-excitation-clocks-and-tetrahedral-symmetry-on-the-truncate--6c938bef9545.
-6. *Homotopy types of the two twelve-vertex Archimedean 2-independence complexes*, published scientific result, https://github.com/published-finding corpus/2026/tree/main/2026/10/25/SCOPE-homotopy-types-of-the-two-twelve-vertex-archimedean-2-independen--e9e32ef4ad60.
-7. E. W. Weisstein, *Truncated Tetrahedral Graph* and *Cuboctahedral Graph*, MathWorld, https://mathworld.wolfram.com/TruncatedTetrahedralGraph.html and https://mathworld.wolfram.com/CuboctahedralGraph.html.
+1. *Cuboctahedral majority dynamics: an exact basin and three-geometry oscillation census*, https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-cuboctahedral-majority-dynamics-an-exact-basin-and-three-geometr--5a66d90d9da0/RESULT.md.
+2. E. Goles and J. Olivos, *Periodic behaviour of generalized threshold functions*, Discrete Mathematics 30 (1980), 187–189, https://doi.org/10.1016/0012-365X(80)90121-1.
+3. I. Benjamini, S.-O. Chan, R. O'Donnell, O. Tamuz and L.-Y. Tan, *Convergence, unanimity and disagreement in majority dynamics on unimodular graphs and random graphs*, https://arxiv.org/abs/1405.2486.
+4. *Incidence conservation and half-factor classification of two-cycles in line-graph majority dynamics*, https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-incidence-conservation-and-half-factor-classification-of-two-cyc--61b3de3ad47a/RESULT.md.
+5. *Exact excitation clocks and tetrahedral symmetry on the truncated tetrahedral graph*, https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-excitation-clocks-and-tetrahedral-symmetry-on-the-truncate--6c938bef9545/RESULT.md.

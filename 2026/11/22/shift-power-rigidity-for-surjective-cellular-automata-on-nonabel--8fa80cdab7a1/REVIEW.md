@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For every nonabelian group of order \(p^3\), the center equals the commutator subgroup and has order \(p\), while all proper subgroups are abelian. Decomposition of a surjective local homomorphism into commuting coordinate endomorphisms therefore forces one automorphism and central images elsewhere. The centered map transports central fibers by \(\alpha\); after \(\operatorname{ord}(\alpha)\) iterations it is a central translation constant along its own quotient orbit. Applying it a further \(p\) times is the identity. This proves the entire bi-infinite shift-power law, its entropy consequences and the exact rule count, without extrapolating finite tests. The provided executable reproduces representative finite-group checks.
+PASS
 
-## Originality — PASS within inspected evidence
+Continuity and shift commutation give a single finite neighborhood; group homomorphism of the global map makes the coordinate rule a homomorphism on the direct product. Restrictions to individual coordinates are uniquely determined and have mutually commuting images. A surjective global rule is locally onto. If every coordinate image were proper then each would be abelian (order at most p²), and their commuting product would be abelian. Hence exactly one coordinate is an automorphism, and all the others are central. Here Z=[G,G]≅C_p and G/Z≅C_p², so the central maps vanish on Z and there are p² of them. The quotient of the preimage is first recovered via the shift and induced automorphism; all central corrections are computed from it and removed before applying the inverse alphabet automorphism, giving a continuous inverse. For H=σ^(−k)F, H^t fixes the quotient and acts equivariantly for translation by any central configuration, so on each quotient fiber it is translation by a fixed central configuration. Its pth power is the identity; H and σ commute, giving F^(pt)=σ^(kpt) on all bi-infinite sequences. Division by pt in the entropy identity gives the claimed formula. For k=0 only finitely many continuous iterates occur; for k≠0 the power is a mixing shift, and applying its mixing property to the preimages under each of the finitely many residue iterates proves mixing of F. The census follows by independent choices, allowing trivial maps on named offsets; a nonzero quotient character at offset one gives an exact order-p centered shear. These arguments include p=2, r=1 and negative k. The archived verifier was inspected, not run; its finite-size and random periodic checks are not needed as proof.
 
-The closest prior theorem (Dennunzio–Formenti–Margara, 2024) explicitly covers the quaternion alphabet and its bijectivity/transitivity structure, and a pre-existing quaternion-specific refinement gives sharper finite-order details for that special group. Castronuovo–Dennunzio–Margara (2025) and Castronuovo–Dennunzio–Kari–Margara (2026) prove general decomposition/entropy computability and shift-powers for products of nonabelian simple groups; those statements do not imply the claimed uniform power identity over nonabelian nilpotent groups of every order \(p^3\) without additional arguments. Other published claims with similar shift-power vocabulary concern nonabelian simple alphabets. Searches of both the primary literature and a mathematical finding index did not locate the all-prime exact local-rule and finite-power classification. Historical priority cannot be proven by searching; relevant unindexed or implicit results remain a risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The theorem gives a complete explicit global dynamical dichotomy and entropy for **all surjective** group cellular automata on two distinct nonabelian groups for each odd prime, rather than an algorithm that must run separately on each rule. The new all-prime structural normal form, finite shift-power bound and exact finite-neighborhood census form one natural classification. The central exponent factor is shown necessary by an explicit shear, while the quaternion case is acknowledged as separately understood.
+Credit the all-prime normal form, exponent bound and census as a package. The general architecture of automorphism coordinates and central corrections, the quaternion case and effective group-CA entropy computation are not claimed as new. The available comparisons do not establish prior coverage of the uniform exact p³ identity and count.
 
-## Scope and risks
+## value
 
-The result does not cover arbitrary cellular automata, non-surjective maps, or higher group orders. The bound need not be the least iterate for a specific map. No external mathematical audit has been performed, and unindexed equivalent classifications cannot be ruled out.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A complete reversibility classification for a natural nonabelian family gives a sharp obstruction to removing p from an explicit uniform time-to-shift bound, not merely decidability. It turns the alphabet's algebra into an exact census and separates periodic equicontinuity from mixing. The bound need not be the minimal exponent for each individual rule.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

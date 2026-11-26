@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The statement is restricted to nonempty uniformly sampled labelled total preorders in one binary-relation signature and quantifier rank at most two. An exact two-round game characterization identifies the entire finite theory from the set of three-coordinate pointed atomic-neighbour profiles. The rare exceptional profiles and the endpoint singleton distribution are controlled using explicit labelled generating functions; there are no unproved independence assumptions. Twelve distinct limit values follow from four Boolean endpoint states and transcendence of \(\log 2\). The exhibited rank-two interior-block sentence has asymptotically positive error constant \(2(\log 2)(e-1)^2\), proving sharpness. The packaged checker directly verifies the game equivalence for 961 finite composition pairs, exact weighted counts through size fourteen, and the limit-polynomial count. This finite verification supplements, rather than replaces, the analytic proof.
+## correctness
 
-## Originality — PASS within examined sources
-Cameron–Kang–Stark give the ordered-Bell generating function and related finite block statistics. Mwesigye–Truss cover finite coloured linear orders under low-move equivalence, not uniform total preorders. Recent work of Koponen addresses finite model properties of \(\omega\)-categorical theories and conditions for random expansions to have convergence laws; Falgas-Ravry–Markström–Räty–Skerman treat logical limits for permutation classes in the theory of two strict orders. Those claims do not imply the complete twelve-value spectrum or the sharp exponential rank-two error in the uniformly random total-preorder ensemble. Multiple aliases and parameter variants were queried in mathematical-record and primary-literature searches. Searches are not proofs of novelty; a preexisting specialist result phrased as weak-order/ordered-partition logic remains possible.
+PASS
 
-## Value — PASS
-The complete spectrum identifies precisely what two quantifier moves can statistically observe in a natural finite-model ensemble. Unlike a single computed probability, it classifies all rank-two limiting probabilities, proves that rank two is the first nontrivial logical level, and shows that its convergence rate is optimal by an explicit definable obstruction. The exceptional-block mechanism supplies a structural explanation for the exact rate, making the finite/infinite logical boundary mathematically interpretable.
+With one point fixed, the only possible second-point atomic relations are equality, strict earlier/later, or distinct and tied. Matching the set of realizable availability triples is thus necessary and sufficient in a two-move game, including reversal of spoiler direction after round one. The typical profile includes both kinds of interior blocks, and the only residual choices are endpoint singleton indicators. The displayed singleton endpoint tests are rank two and their Boolean combinations select all four states independently. The labelled block sequence EGF is 1/(2−e^z); subtracting 1/[2(ρ−z)] makes it holomorphic through any fixed-radius disk of radius R between 1 and the next pole modulus. Thus c_n=1/(2ρ^(n+1))+O(R^(−n)), and the exact endpoint singleton probabilities c_(n−1)/c_n and c_(n−2)/c_n (both endpoints distinct for the second count at n≥2) give Bernoulli(ρ) limiting endpoint bits with error o(ρ^n). The no-interior-nonsingleton obstruction has EGF 1+A+A²/(1−z) with A=e^z−1, including zero and one block once each. Its nth coefficient tends to (e−1)^2 by absolute summability at 1. The analogous missing-singleton-interior EGF has denominator 1−(e^z−1−z); since e−2<1 its coefficients decay on some circle of radius greater than one. This proves the O(ρ^n) typical-event and probability error bounds. Four endpoint atoms, with equal middle masses, give the displayed 2×3×2 choices. Their polynomials are injectively parametrized (compare constant, linear and quadratic coefficients), and Hermite–Lindemann precludes a nonzero difference vanishing at ρ. The rank-two witness H recognizes exactly the first obstruction's complement, so its strictly positive leading term 2ρ(e−1)^2 makes any smaller exponential base impossible; rank one cannot distinguish any nonempty model. I inspected checker.py without executing it; it checks finite profiles, weighted enumeration and obstruction coefficients but not analytic error bounds. Those bounds follow from the proof.
 
-## Closest literature and limitations
-The singularity analysis uses established ordered-Bell enumeration, and the EF-game reasoning is a standard method adapted to this structure. No higher-rank classification, expanded vocabulary, or independent mathematical review is asserted. First-public dates refer to the motivating 2026 sources; older combinatorial references remain fully acknowledged.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The October 26 Resultary theorem on exactly the same measure and signature already gives all-FO exponential convergence, the limit field, and an effective formula. Cameron–Kang–Stark already give the enumerator and relevant block statistics. Pass is restricted to the explicit rank-two spectrum and sharp convergence scale: the earlier formula leaves a finite type monoid and its projection to be resolved and the earlier analytic proof gives an unspecified radius greater than ρ, not the rank-two threshold at 1. The new work identifies all the recurrent endpoint states, isolates the atypical logical profile producing the pole at 1, and computes its positive sharpness constant. It is not new qualitative convergence or just plugging an integer into an earlier rate formula.
+
+## value
+
+PASS
+
+Rank two is the first nontrivial expressive level in this standard random ordered-partition model. The exact twelve values describe what this level can measure, beyond simply knowing that limits are computable. The optimal base and explicit rare-event coefficient quantify the obstruction to faster convergence and add information absent from qualitative or unspecified-rate results.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

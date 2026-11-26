@@ -1,0 +1,87 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T18:49:33.336039Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the given origin-incidence coisometry and phased flip, the determinant lemma and (zI+S)^(-1)S=(zS-I)/(z²-1) yield the full polynomial spectral map including the (z²-1)^(mn-m-n) factor. The off-diagonal m-by-n block B has one special row and all remaining rows equal. The squared singular-value sum is mn before normalization, and the product is (m−1)(n²−|n−1+e^(iβ)|²)=4(m−1)(n−1)sin²(β/2). Writing the normalized pair as cos θ, sin θ yields discriminant eigenvalues ±cos θ, ±sin θ and zeros, thus the mobile quartets i^j e^(±iθ). The proof's rank-two heading refers to B: the full Hermitian Q has rank four at nontrivial phase, rank two at zero phase. The displayed proof correctly uses all four discriminant modes. Unitarity makes the four-step defect rank and norm computations valid even at eigenvalue collisions. The ratio i forces a full period to be 4k; q|2k gives the claimed minimum. At zero flux θ=0 and the period is four. At the K_(2,2), β=π collision, θ=π/4 and all eight arc modes acquire fourth power −1. Strict monotonicity on either half-cycle gives the dense countable null exact-period set, and irrational rotation modulo π gives arbitrary norm revivals. Independent direct constructions gave (z^4+1)^2 and U^4=−I for K_(2,2) at π, and (z²−1)(z²+1)(z^8−(2/9)z^4+1) with defect singular values 4/3 eightfold for K_(2,3) at π/2; the K_(3,4) replay was numerical. The supplied verifier's recorded run was not an independent replay.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The generic discriminant and unperturbed arccos spectral mapping are known. Theorem 3.4 is a small-phase scaling theorem in terms of an effective Hermitian H; Prop. 5.2 provides entries of H for K_(k,k)."
+        ],
+        "reasoning": "The standard determinant or mapping approach takes the discriminant spectrum as input. The graph-specific finite-phase singular-value product and its exact reduction to one angle are still needed; the effective generator by itself does not fix eigenphases away from zero.",
+        "searches": [
+          "Sekido–Segawa arXiv:2607.14797v1 §§2–3, Theorem 3.4, Propositions 5.1 and 5.2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py",
+        "arXiv:2607.14797v1 §§2–3 and 5",
+        "Resultary 2026/10/12 exact two-particle entanglement spectrum"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A change on one arc pair gives rank(Uβ−U0)≤2, so telescoping gives a four-step defect rank upper bound of eight when U0^4=I. The balanced perturbative H is explicitly computed but has no full phase-angle formula."
+        ],
+        "reasoning": "An upper bound and small-phase motion do not exclude a loss of rank at special nonzero flux, nor determine the exact norm or period. The evaluated finite-flux discriminant excludes such loss throughout the stated domain at time four and yields an exact return criterion at longer times.",
+        "searches": [
+          "Sekido–Segawa §§3, 5.1–5.2",
+          "Resultary complete bipartite two-particle entanglement spectrum, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sekido–Segawa use the phased flip times Grover coin and terminal incidence, equivalent by arc reorientation with the corresponding phase convention. On K_(2,2) the degree-two coin transports in the two cycle directions, and four steps multiply by the two directed holonomies e^(±iβ)."
+        ],
+        "reasoning": "Neither an arc convention nor a cycle specialization accounts for the general answer. The inspected primary complete-bipartite calculation uses a balanced graph in the small-phase regime, not an equivalent complete unbalanced finite-flux result.",
+        "searches": [
+          "arXiv:2607.14797v1 §§2.2–2.3 and §§5.1–5.2",
+          "Resultary: single-edge magnetic Grover complete bipartite finite-flux spectrum and revival"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest retrieved catalog overlap states reduced entanglement spectra for the two-particle walk on K_(m,n), including rank up to eight. It is not the spectrum or defect rank of the single-particle magnetic propagator."
+        ],
+        "reasoning": "Matching graph parameters and a rank bound do not turn a reduced-state spectrum into the single-particle characteristic polynomial. No exact table for the latter was established by these lookups.",
+        "searches": [
+          "Resultary: complete bipartite magnetic Grover spectrum and defect rank",
+          "2026/10/12/SCOPE-exact-two-particle-entanglement-spectra-on-complete-bipartite-gr--19cb5844655b, RESULT.md"
+        ]
+      },
+      "rationale": "The supported increment is the evaluated finite-flux spectrum, hence exact fourth-step norms and resonance arithmetic for the family including unbalanced parts. The walk, generic spectral map, vanishing-flux case, and elementary magnetized-cycle specialization are not novel claims.",
+      "residual_risks": [
+        "A direct spectral treatment in the magnetic or gain graph literature could use different language. The inspected bounded passages and lookups do not certify absolute priority; the standard cycle and phase-zero cases are explicitly credited as elementary specializations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL COVERAGE: model, generic map and perturbative cases",
+          "evidence": "Magnetic flip times coin; unperturbed arccos map; effective H for cycles and K_(k,k) under a small-phase assumption.",
+          "identifier_or_url": "https://arxiv.org/pdf/2607.14797v1",
+          "material_read": "§§2.2–2.3 pp. 8–10, offsets 17600–28537; §3 pp. 13–15, near 28300–34286; Props. 5.1–5.2 pp. 30–35, offsets 68400–83477",
+          "method": "OA primary PDF passages",
+          "title": "Robustness of periodicity in Grover walks under a magnetic vector potential",
+          "trigger": "Matching walk, same magnetized bipartite graphs in a special regime"
+        },
+        {
+          "assessment": "NOT_COVERING: different operator and observable",
+          "evidence": "Rank relates to the spectrum of a reduced two-particle state, not Uβ^4−I.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/36a7204b5741b75430355c38bf9bf0ef7468c2a4/2026/10/12/SCOPE-exact-two-particle-entanglement-spectra-on-complete-bipartite-gr--19cb5844655b/RESULT.md",
+          "material_read": "Finding and scope, mirror offsets 0–3073",
+          "method": "Configured mirror, original RESULT.md",
+          "title": "Exact two-particle entanglement spectra on complete bipartite graphs",
+          "trigger": "Nearest indexed match on graph family, Grover and rank eight"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This evaluates a natural finite-flux robustness problem beyond a perturbative generator: the response saturates the size-independent rank bound for every nonzero flux, while its norm can become small with graph size. The exact resonance formula and dense null exceptional set distinguish exact and approximate return for the same family, with explicit bounds on finite-time deviations.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

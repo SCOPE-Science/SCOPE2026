@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:34:48.394483Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–87; VERIFICATION.md; verify.cpp, independent_count.cpp, check_catalogue.py, spectrum_witness.py; collision_catalogue.json and the four recorded outputs",
+        "Independent replay: python3 /workspace/review_evidence/twographs.py; output /workspace/review_evidence/twographs.txt"
+      ],
+      "rationale": "Four-set parity with the designated anchor forces every old triple from the descendant graph. For a fresh point, the n−1 binary triple values involving the anchor freely determine the other new triples by the same parity rule. Realize each pattern by odd graph-edge parity after adding a vertex not adjacent to the anchor; ultrahomogeneity and the extension property identify these patterns exactly with complete nonalgebraic types over the named base. The grade counts the anchor incidents plus the switched edges off the anchor, giving the claimed polynomial and 2^(n−1) types. Every labelling of an isomorphic two-graph is obtained by choosing an anchor and permuting its complement, so orbit marking is exact. The independent replay uses actual triple relations to mark all anchored labels and applies four-set parity directly to all extension profiles. It obtains class counts 1,1,2,3,7,16,54,243, with as many grades through seven and 219 at eight, split 198/18/3 by fibre sizes 1/2/3. All 21 catalogue fibres (45 members) match in masks, coefficients and incidences; distinct incidence sequences within every nontrivial fibre establish refined reconstruction. The three specified masks have the displayed polynomial, degrees and pairwise distinct Seidel characteristic polynomials.",
+      "residual_risks": [
+        "Uploaded code was inspected, not executed. The replay independently checks the quotient, every certificate and the spectral witness.",
+        "No injectivity or separation statement for parameter orders above eight is established."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Seidel paper defines the switching equivalence and studies spectra; its 21 order-eight classes with nonzero Cameron γ are not fibre counts.",
+          "Same-day indexed graded-type results for two-part semigeneric tournaments and the generic poset concern distinct underlying objects, grade functions and orbit spaces."
+        ],
+        "reasoning": "The two-graph quotient is common to spectral work, but a spectral classification cannot simply be read as the polynomial-fibre classification: the explicit triple of equal type polynomials already consists of three distinct Seidel spectra. The shared cutoff or grading terminology of other model-theoretic results gives no implication.",
+        "searches": [
+          "Greaves–Koolen–Munemasa–Szöllősi arXiv:1403.2155, Seidel switching",
+          "Resultary: sharp graded singleton-type fibre results in related structures"
+        ]
+      },
+      "checked_sources": [
+        "Resultary local index, original sources named above, and frozen RESULT.md lines 89–99",
+        "Independent ordinary-Ising transfer comparison in /workspace/review_evidence/twographs.py and twographs.txt"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The replay finds 42 ordinary Ising pairs among 1,044 unlabelled seven-vertex graphs; in every pair the two isolated-anchor extensions are in different two-graph orbits. Thus a prior seven-vertex ordinary Ising pair, as cited by the frozen record, transports to a genuine eight-point type-polynomial collision. For example masks 6581 and 6827 yield orbit minima 6549 and 6827 respectively. This computation establishes the implication without attributing particular masks to the inaccessible article.",
+          "Across all anchor representatives these ordinary pairs give 21 distinct unordered two-graph pairs out of 27, touching 18 of the 21 nonsingleton fibres and fully accounting for 17. They do not recover all collisions. The prior spectral table also groups differently."
+        ],
+        "reasoning": "Credit the prior Ising mechanism for producing eight-point failures; in particular the ordinary-edge-count mismatch of the three chosen descendants is not evidence that their unpointed classes cannot be connected by a change of anchor to ordinary Ising collisions. The complete enumeration, exclusion of smaller-order two-graph collisions and incidence separation are separate claims not mechanically supplied by prior Ising examples or the ambient two-graph tables.",
+        "searches": [
+          "Andrén–Markström, DOI 10.1016/j.dam.2009.02.021, reported seven-vertex Ising collisions",
+          "Independent comparison of all ordinary seven-vertex Ising cut-distribution fibres with the frozen and replayed two-graph fibres",
+          "Bussemaker–Mathon–Seidel Table 2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "On n labelled vertices, the allowed extension incidence graphs form the coset E+Cut(K_n) over F₂, with each cut counted once (opposite subsets give the same cut). The grade is the edge Hamming weight. Equivalently this is the signed complete-graph zero-field Ising edge-disagreement distribution, with the spin-global-flip factor removed.",
+          "For the ordinary graph G obtained by deleting the isolated anchor, a cut S contributes grade |E(G)|+|S|+|S|(n−1−|S|)−2e_G(S,complement S). The ordinary bivariate Ising cut distribution therefore determines this polynomial for the pointed representative, though not conversely."
+        ],
+        "reasoning": "A switch-class weight-spectrum or signed complete-graph equivalent table would be material. The ordinary Ising distribution computes the type polynomial by collecting classes of cuts, but is not itself that invariant on unpointed two-graphs. On seven-vertex G the edge total is already determined by the singleton-cut coefficients, so equal ordinary Ising polynomials imply equal anchored type polynomials.",
+        "searches": [
+          "Resultary: switching-class edge-count spectra, cut-code coset weight enumerator and two-graph graded singleton types",
+          "Andrén–Markström DOI 10.1016/j.dam.2009.02.021",
+          "Bussemaker–Mathon–Seidel, Tables of two-graphs, switching-class discussion"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 1979 report gives 243 classes at order eight, isolated-anchor graph encodings, Seidel spectra, automorphism group orders, and numbers of nonisomorphic graphs in switching classes. Its cospectral table reports six pairs and one triple at order eight; it does not tabulate the multiplicity of each edge weight over the labelled switching coset or the pairs (P_T,D_T).",
+          "The exact indexed 243/219 hit is the frozen finding itself, not corroboration."
+        ],
+        "reasoning": "The known ambient class list is useful input but its columns are different invariants. Counting nonisomorphic graph realizations in each switching class ignores the individual weights and labelled multiplicities required for P_T. New comparisons are required to get the full polynomial partition and test its incidence refinement.",
+        "searches": [
+          "Bussemaker–Mathon–Seidel, Tables of two-graphs, Tables 1 and 2 and description",
+          "Resultary: exact 243/219 two-graph switching grade census"
+        ]
+      },
+      "rationale": "The supported distinction is the full small-order reconstruction and exact eight-point fibre classification of the coefficient enumerator, and the incidence refinement that separates all ambiguous classes. The two-graph list and switching formalism are classical. Ordinary Ising equivalence of seven-vertex graphs does transfer to examples of collisions after adjoining an isolated anchor; this is genuine partial coverage, not a novel source of all eight-point counterexamples. The independent comparison of all ordinary seven-vertex cut-distribution fibres gives at most 21 of the 27 unordered colliding two-graph pairs by this transfer and does not give the sharp lower-order injectivity or the incidence refinement. No inspected source gives the full distinct result.",
+      "residual_risks": [
+        "Andrén–Markström full text was not lawfully accessible by the tried routes, so its exact examples and any further signed-complete-graph analysis were not assessed directly; the transfer comparison does not assume those details.",
+        "A prior full switching-coset weight census under an alternative name could affect priority; the bounded evidence cannot exclude it."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known population and spectral classification, not these grade fibres",
+          "evidence": "Explicit table columns include spectra, automorphism group orders and numbers of nonisomorphic graphs per switching class. At order 8 there are 243 classes and six cospectral pairs plus one triple.",
+          "identifier_or_url": "https://pure.tue.nl/ws/portalfiles/portal/2498383/252951.pdf",
+          "material_read": "Switching discussion around offset 8100, table descriptions and totals around offsets 16000–18976, Table 2 PDF p. 51 around offset 774450",
+          "method": "Lawful OA original PDF",
+          "title": "Tables of two-graphs",
+          "trigger": "Exact prior two-graph census and possible switching-weight table"
+        },
+        {
+          "assessment": "Different equivalence checks on the same ambient structures",
+          "evidence": "Defines switching and records 243 classes at eight and 21 with Cameron γ≠0, not 21 grade collision fibres.",
+          "identifier_or_url": "https://arxiv.org/pdf/1403.2155",
+          "material_read": "Section 3 PDF p. 5 around offset 15500, and summary table p. 9 around offset 28300",
+          "method": "Lawful OA original PDF",
+          "title": "Equiangular lines in Euclidean spaces",
+          "trigger": "Possible later small-order Seidel classification"
+        },
+        {
+          "assessment": "Ordinary Ising pairs do transport to type-polynomial collisions; no full-text coverage inference",
+          "evidence": "The frozen text cites 7-vertex ordinary graph collisions. The exact independent comparison proves that any of the 42 ordinary pairs at seven gives distinct anchored 8-point two-graphs, and that these pairs do not give the full census.",
+          "identifier_or_url": "https://doi.org/10.1016/j.dam.2009.02.021",
+          "material_read": "Bibliographic/landing metadata only; no full-text examples could be read",
+          "method": "DOI and lawful ScienceDirect and university repository attempts; independent exhaustion and cut transformation for the mathematical implication",
+          "title": "The bivariate Ising polynomial of a graph",
+          "trigger": "Reported 7-vertex ordinary Ising collisions may induce this existence result"
+        },
+        {
+          "assessment": "Related inverse questions on different objects; no priority inference",
+          "evidence": "Semigeneric tournament and poset grades are not switching-coset Hamming weights.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-sixfold-fibers-of-graded-singleton-types-over-two-part-sem--2865ab8fd324 ; 2026/11/22/SCOPE-sharp-eight-point-collisions-of-graded-one-point-types-in-the-ge--e2121450dd04",
+          "material_read": "Finding-level statements in the catalogue, also the bound poset record's Finding",
+          "method": "Resultary and frozen poset text",
+          "title": "Sharp sixfold fibres of graded singleton types over two-part semigeneric tournaments; Sharp eight-point collisions of graded one-point types in the generic poset",
+          "trigger": "Closest related same-day indexed grade collision findings"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–31 and 57–87; independent grade and Ising comparisons"
+      ],
+      "rationale": "The grade naturally measures the number of triples created by a fresh point in a two-graph. The exact finite boundary and full fibres quantify the information loss from replacing named triple profiles by their sizes; neither cospectrality nor ordinary Ising equality alone describes the collisions. The incidence refinement recovers precisely the reconstruction lost at the first threshold. This is a complete small-order reconstruction result, not a recomputation of the known ambient count or an arbitrary coefficient slice.",
+      "residual_risks": [
+        "The refinement's sufficiency is established only at the stated small orders; the useful new result is not the mere existence of a transported Ising collision."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The general guarantee concerns arbitrary nonnegative additive singleton values, including zeros and ties. The reduction to finite strict ordinal rankings is exact for the balanced \((2,1,1)\) allocation pattern: only an agent in a singleton group can fail EF1, and only by ranking both paired goods ahead of her singleton. Breaking ties arbitrarily preserves the implication from an ordinally EF1 allocation to one that satisfies the original cardinal inequalities.
+# Independent mathematical audit
 
-Run `verify_four_goods.cpp` using a C++17 compiler. It builds 36 distinct allocations, precomputes the failure masks of 24 orders for each of the three group labels, and exhausts exactly 24 to the fifth power ordered five-tuples of remaining agent ranks with the first agent normalized. Integer population counts construct the exact histogram and check the positive minimum two, extremal witness frequency, and analytic expected-count identity. There are no randomized or numerical approximations in the certificate.
+## correctness
 
-Run `check_examples.py` with Python 3. It applies the literal EF1 inequality to all 36 balanced allocations for the displayed four-good witness and to all 243 complete allocations for the previously published five-good example. The outputs, including the two surviving four-good group-assignment vectors and the zero survivors at five goods, appear in `verification_output.txt`.
+PASS
 
-The finite exhaustive program proves the four-good universal statement only because the proof reduces *all* admissible cardinal valuations to the finite ordinal universe with explicit symmetry. It is not a proof of any larger-instance classification, and none is claimed. The scientific literature review is not an independent audit.
+For a (2,1,1) allocation every comparison to another singleton is automatic after removal. A singleton agent facing the pair must value her own good at least as much as the lesser of the two paired goods. Thus actual EF1 depends only on strict orders when no ties occur, and any allocation surviving a strict tie refinement also satisfies the original weak inequalities. Relabeling the goods to fix the first order is unique and preserves the labeled allocation count; the other five orders run independently over all 24 possibilities. An independent exact program built the 36 candidate allocations by surjective assignments, used literal cardinal EF1 on utilities 4,3,2,1 in the respective orders, and accumulated the histogram by profile chunks. All 7,962,624 profiles and every reported cell matched, with minimum two, maximum eighteen, minimum proportion 1/1152, and first moment 64/9. The latter also follows by counting the four independent singleton-agent tests of probability 2/3 for each allocation. Direct cardinal checks gave exactly the two displayed balanced allocations for the sharpness witness, and zero among the 243 complete allocations of the prior five-good example. With at most three goods each occupied group can have a singleton. This proves four-good universal multiplicity and the smallest complete EF1 nonexistence size of five.
+
+## originality
+
+PASS
+
+The three-couple obstruction with five goods is prior work, not credited as new. The inspected same-model theorem supplies that obstruction but not sharp four-good positive multiplicity or the exact profile law. Known two-group, double-fairness, online single-agent and variable-size complexity results differ in the model or quantifiers. The best-of-knowledge pass concerns the sharp balanced four-good universal minimum and strict census, including the new positive side needed for the cutoff.
+
+## value
+
+PASS
+
+Four goods is the last open size immediately before the known five-good failure and the first size for which singleton-only allocation cannot solve EF1. The sharp positive multiplicity shows unavoidable choice among balanced labels even in the tight case, and the full strict census quantifies how often that case and all other multiplicities occur. This is a natural small-instance frontier, useful as an exact benchmark, not an arbitrarily sized enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

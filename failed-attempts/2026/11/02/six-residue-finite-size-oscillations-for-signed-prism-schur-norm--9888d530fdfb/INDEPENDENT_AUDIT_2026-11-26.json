@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:14:59.894506Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Sections 1–4",
+        "Frozen VERIFICATION.md and verify.py (read, not run)",
+        "Davidson–Donsig, arXiv:math/0506073, Theorem 4.4",
+        "Independent spectral reduction and coefficient calculation"
+      ],
+      "rationale": "The constant diagonal of |J−2A| yields the upper bound Tr|J−2A|/(2m) by a Schur factorization; the real orthogonal spectral-sign witness gives the matching all-ones Rayleigh quotient even at zero eigenvalues and for the complex norm. The prism adjacency eigenvalues are 2cos(2πj/m)±1, and only the all-ones eigenvalue is changed by J. For m≥3 this gives s_m=1−6/m+E(P_m)/m, where E is adjacency energy. The identity |x+1|+|x−1|=2max(1,|x|) reduces the energy to a mesh of size n=m/gcd(m,2). The two outer arcs include 2⌊n/3⌋+1 indices (cutoff equality is harmless); summing their cosine terms gives the stated sine quotient, valid also for n=2. With δ=1−2(n mod 3)/3, expanding the quotient gives the correction π√3(1/6−δ²/2)/n²; its δ-linear term cancels the endpoint count. This gives all listed coefficients and a uniform O(m⁻³) error. The 6k−1 to 6k difference has leading coefficient 6−13π√3/9<0 in units (6k)⁻². Since s_m approaches its limit strictly from below eventually, it cannot be eventually nonincreasing either. The small m=5,6 values follow from the same sum and permutations preserve the norms.",
+      "residual_risks": [
+        "No claims are made about all consecutive comparisons or about other signed masks; the recorded numerical replay is finite corroboration only."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The invariant trace formula applies for all m including the even prisms that are not circulant graphs; the real witness does not require a new norm comparison theorem.",
+          "Bulut–Hacıoğlu, Theorem 2.1, compute the linear energy asymptote for the Möbius ladders and discuss the odd prism classes relative to that line on p. 28."
+        ],
+        "reasoning": "The abstract norm machinery alone does not give residue coefficients; the exact energy formulas coupled to the appropriate prism-to-ladder reduction close that gap.",
+        "searches": [
+          "Davidson–Donsig Theorem 4.4 and Example 4.7",
+          "Holbrook–Johnston–Schoch arXiv:2206.02863 Eq. (5) and Theorem 1",
+          "Bulut–Hacıoğlu exact and asymptotic energy of cubic circulants"
+        ]
+      },
+      "checked_sources": [
+        "Bulut–Hacıoğlu DOI 10.1080/09728600.2021.1894907, open copy at https://artefacts-discovery.researcher.life/full_text/DA-2/ff/ffb6b73e04d634048b097b77e1434215/full_text/c3c750a0f38fc779d8b20190b06fe1e5.pdf",
+        "arXiv:math/0506073 and arXiv:2206.02863",
+        "Resultary 5673568ea7ad and cc079243a7ce"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The published cotangent branch gives E(P_m)=2m/3+4√3 cot(π/m) when m≡0 mod 6, by either even-index reduction. The odd-prism n≡5 branch of Theorem 1.2 gives the +π√3/9 normalized coefficient by csc/sine expansion. These two branches alone give the claimed negative sign once the −6/m normalization is added.",
+          "The other coefficients are obtained by the identical first terms of the tabulated trigonometric functions or by the compact mesh rewrite; the published paper also explicitly discusses Taylor comparison of energy branches, though it does not state the signed-Schur decline in that notation."
+        ],
+        "reasoning": "There is mathematical implication, not merely a search hit or a related limit. No substantive surviving result remains in the frozen claim beyond routine conversion and expansion.",
+        "searches": [
+          "Bulut–Hacıoğlu Theorems 1.1–1.2 and 2.1, Remark 2.5, and p. 28 prism energy ordering",
+          "Frozen expansion and sign comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "With E the ordinary adjacency energy, s_m=1−6/m+E(P_m)/m by transitive trace norm and replacement of the trivial eigenvalue −6 by 2m−6.",
+          "Bulut–Hacıoğlu use P_m for the odd-indexed prisms and L_m for even-order Möbius ladders, whose respective spectra provide the same sampled absolute values.",
+          "Resultary 5673568ea7ad treats I+P_n on a cycle and norming probability pairs; cc079243a7ce treats quantum return on prisms. Neither is the energy equivalence."
+        ],
+        "reasoning": "The decisive synonym is adjacency energy, not simply cyclic or circulant Schur masks. Compare the normalized energy sequence after accounting for the all-ones eigenvalue, rather than requiring a prior paper that uses the same norm terminology.",
+        "searches": [
+          "Literature query: prism graph energy exact trigonometric formula, circular ladder, C_n Cartesian K_2",
+          "Bulut–Hacıoğlu, Asymptotic energy of connected cubic circulant graphs, Theorems 1.1–1.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The open follow-up explicitly reproduces the 2020 article's exact trigonometric energy formulas: Theorem 1.2 lists all three odd-prism phases; Theorem 1.1 lists the even Möbius-ladder phases.",
+          "For odd m the exact formula applies directly. For m=2n with n odd, pair the two bands as 2 max(1,2|cos θ|), a π-periodic function; the two mesh averages coincide and E(P_2n)=2E(P_n). For m=2n with n even, write S_even and S_odd for the |2cos(2πj/m)+1| sums over even or odd j, respectively. Each parity class is invariant under j→j+n, so each minus-band sum equals the corresponding plus-band sum. The Möbius ladder eigenvalues 2cos(2πj/m)+(−1)^j give E(L_m)=S_even+S_odd=E(P_m)/2."
+        ],
+        "reasoning": "The cited exact tables thereby cover the complete prism sequence, including m divisible by four; the floor-function expression is a uniform rewrite of the recovered sequence.",
+        "searches": [
+          "The energy of all connected cubic circulant graphs, DOI 10.1080/03081087.2018.1516186",
+          "Asymptotic energy of connected cubic circulant graphs, full text Theorems 1.1 and 1.2, pp. 26–27"
+        ]
+      },
+      "rationale": "The Schur norm is a simple affine normalization of adjacency energy. Published exact trigonometric formulas for odd prisms and even Möbius ladders give the entire energy sequence here by a frequency split, not just the leading limit. The six coefficients and eventual descent follow by elementary Taylor expansion and subtraction; a different norm label does not remove the coverage.",
+      "residual_risks": [
+        "The earlier exact table article's own full text was unavailable directly. The verdict rests on the equations and graph families read in the open follow-up, not on an inaccessible-source inference."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive published exact coverage via the parity split",
+          "evidence": "Theorems 1.1–1.2 credit the 2020 article for exhaustive exact formulas in the two graph families; the Möbius spectrum has (−1)^j in place of the fiber sign.",
+          "identifier_or_url": "https://doi.org/10.1080/09728600.2021.1894907",
+          "material_read": "OA PDF pp. 25–28, especially Theorems 1.1–1.2, statement of Theorem 2.1, Remark 2.5, and prism energy ordering; PDF text offsets 6600–14756, 14796 vicinity and 26400–30280",
+          "method": "Lawful open PDF at researcher.life; compared exact formulas and spectra with the frozen normalization",
+          "title": "Asymptotic energy of connected cubic circulant graphs",
+          "trigger": "Exact spectral-energy formulation for prisms and ladders"
+        },
+        {
+          "assessment": "The accessible follow-up is sufficient for coverage independently of the accessibility of this earlier paper",
+          "evidence": "Bulut and Hacıoğlu (2020), Linear and Multilinear Algebra 68(4), 679–685, reference [3] in the open follow-up.",
+          "identifier_or_url": "https://doi.org/10.1080/03081087.2018.1516186",
+          "material_read": "The statements as reproduced in the open follow-up; original full text not obtained",
+          "method": "DOI OA recovery plus direct comparison of the reproduced formulas",
+          "title": "The energy of all connected cubic circulant graphs",
+          "trigger": "Primary exact-energy source cited by Theorems 1.1 and 1.2 of the follow-up"
+        },
+        {
+          "assessment": "General norm reduction already known",
+          "evidence": "Theorem 4.4 identifies the normalized trace norm under transitive invariance; Example 4.7 specializes to a cyclic shift plus identity.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0506073",
+          "material_read": "Theorem 4.4 pp. 16–17 and Example 4.7 p. 18",
+          "method": "OA PDF passages",
+          "title": "Norms of Schur Multipliers",
+          "trigger": "Abstract transitive trace-norm identity"
+        },
+        {
+          "assessment": "Independent prior norm machinery; not a direct statement of the signed-prism asymptotic",
+          "evidence": "Average Fourier-absolute-value formula for circulants and real orthogonal witnesses.",
+          "identifier_or_url": "https://arxiv.org/pdf/2206.02863",
+          "material_read": "Equation (5), p. 2, and Theorem 1 on the following page",
+          "method": "OA PDF passages",
+          "title": "Real Schur norms and Hadamard matrices",
+          "trigger": "Related circulant and real-norm formulas"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md",
+        "Davidson–Donsig Theorem 4.4",
+        "Bulut–Hacıoğlu Theorems 1.1 and 1.2"
+      ],
+      "rationale": "The approach highlights a natural relationship between Schur norms and graph energy, but that relationship follows immediately from the invariant trace theorem and the trivial eigenvalue shift. The claimed arithmetic corrections and eventual decline are straightforward consequences of existing exact spectral energies and do not supply a separate sharp boundary beyond those formulas. This is a correct normalization and expansion of existing information, not a distinct new invariant calculation.",
+      "residual_risks": [
+        "The review does not rule out a different valuable theorem for other cubic graphs or for a full exact comparison classification not asserted here."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

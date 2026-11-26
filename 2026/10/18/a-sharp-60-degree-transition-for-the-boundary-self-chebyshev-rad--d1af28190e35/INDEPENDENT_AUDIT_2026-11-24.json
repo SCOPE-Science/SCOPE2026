@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:58:54.772631Z",
+  "axes": {
+    "correctness": {
+      "rationale": "I rederived the minimax on the closed first-quadrant edge x=(u(1−t),vt). Squared distance has its boundary maximum at a vertex; quadrant signs make the two negative-axis vertices dominate. Their squared distances divided by v² are r(2−t)²+t² and r(1−t)²+(1+t)². The first strictly decreases up to t=1, including the square where its derivative vanishes only at that endpoint. The crossing t*=(3r−1)/(2(r+1)) is exactly 1/2 to the right of the second quadratic's vertex. Thus the envelope has its unique edge minimum at t* for 1≤r<3, and at 1 otherwise, including equality at r=3. Substitution and the four sign symmetries give the stated values and all centers (four interior-to-edge centers collapsing onto two short-diagonal endpoints). For the area ratio the derivative on the first branch has sign (r−1)(r²−14r+1), negative on 1<r≤3, versus positive for r>3; its unique minimum is 2/√3 at r=3. The ratio δ²/(u²+v²) decreases from 5/4 to 1 and is thereafter constant, yielding both L/δ bounds and their exact equality sets. The angle relation is r=cot²(φ/2). No degenerate rhombus is included. The frozen rational checker was inspected, not executed; its grid is not needed for the continuous proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The all-quadrilateral sharp lower bound is L/δ≥(4/3)√(2√3+3), with non-rhombic magic-kite extremizers. Walter formulates that broader problem and gives tools for polygon minimax. The 2021 abstract describes exact triangle-boundary extremality and perimeter bounds, not a rhombus statement."
+        ],
+        "reasoning": "The global inequality is strictly weaker numerically than the rhombus lower bound and has different equality cases; it provides neither the rhombus upper bound nor the area-normalized extremizer. A generic polygon algorithm does not by itself settle the parametric transition and all extremizers.",
+        "searches": [
+          "arXiv:2301.03218v3, §1 and parallelogram passage",
+          "arXiv:1606.06717, §§1, 6",
+          "DOI:10.1007/s00025-021-01394-6, Results in Mathematics 76 (2021), article 87"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2301.03218v3",
+        "arXiv:1606.06717",
+        "DOI:10.1007/s00025-021-01394-6 (abstract; full text unavailable in check)",
+        "Resultary 7703b9469968"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The published square value and the magic-kite perimeter inequality have no area constraint. In the frozen result the area case requires minimizing a scale-invariant two-branch function over r≥1, and the boundary center count changes from 4 to 2 exactly at r=3."
+        ],
+        "reasoning": "Only the square value transfers without the new optimization. The single equalizing point on a side and its transition to an endpoint are the structural comparison driving the two sharp extremal classifications.",
+        "searches": [
+          "arXiv:2301.03218v3 §1; arXiv:1606.06717 §§1 and 6; Resultary 7703b9469968"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Walter's boundary minimax and the later boundary self-Chebyshev radius are the quantity at issue, unlike the unrestricted containing-circle radius. Nikitenko and Nikonorov explicitly compute L/δ=8/√5 for the square."
+        ],
+        "reasoning": "The square formula transfers directly at r=1; it is not evidence for a formula on the rest of the rhombus shape space.",
+        "searches": [
+          "Resultary: rhombus boundary self-Chebyshev radius and farthest-distance profiles",
+          "Primary-literature search on exact self-Chebyshev/minimax radius and centers of rhombi",
+          "arXiv:1606.06717 §1; arXiv:2301.03218v3 §1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest topical indexed record 7703b9469968 concerns exact farthest-distance profiles and midpoint centers of regular n-gons for n≥5, not rhombi."
+        ],
+        "reasoning": "No matching exact rhombus entry was returned. The regular-polygon profile does not specialize to the rhombus formulas or their threshold.",
+        "searches": [
+          "Two ranked Resultary searches for exact rhombus self Chebyshev formulas and boundary minimax extrema (50 and 20 hits)"
+        ]
+      },
+      "rationale": "The square endpoint is already published. The supported contribution is the all-shapes boundary-constrained rhombus profile, complete center transition and sharp equality families, including the fixed-area extremizer and fixed-perimeter plateau. The compared sources do not give or mechanically imply these classifications.",
+      "residual_risks": [
+        "The 2021 paper's body was not inspected, and bounded searching does not exclude an unindexed rhombus or broader parallelogram formula. The pass does not credit the already published square value."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Explicit coverage of the square endpoint, not the full rhombus profile",
+          "evidence": [
+            "Square L/δ=8/√5; global quadrilateral lower bound (4/3)√(2√3+3), equality for magic kites. The parallelogram passage is a perimeter lemma."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2301.03218",
+          "material_read": "v3 HTML §1, offsets 6060–10175; matching parallelogram passage",
+          "method": "Primary open HTML",
+          "title": "The extreme polygons for the self Chebyshev radius of the boundary",
+          "trigger": "Same functional and global quadrilateral inequality"
+        },
+        {
+          "assessment": "Same problem and tools; inspected statements give no rhombus-specific phase formula",
+          "evidence": [
+            "Defines the minimax and treats the magic-kite ratio and global conjecture."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1606.06717",
+          "material_read": "Full HTML accessible; §1 around offset 1326 and §6 around 77681 inspected",
+          "method": "Primary open HTML",
+          "title": "On a Minimax Problem for Ovals",
+          "trigger": "Original minimax definition and general polygon method"
+        },
+        {
+          "assessment": "Abstract concerns triangle extremality and perimeter bounds; full scope unresolved",
+          "evidence": [
+            "Abstract describes an exact triangular-boundary result."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00025-021-01394-6",
+          "material_read": "Abstract only; DOI/publisher retrieval did not yield readable full text",
+          "method": "Abstract inspection and lawful publisher access attempt",
+          "title": "Extremal problems for convex curves with a given self Chebyshev radius",
+          "trigger": "Same functional and possible special-polygon bounds"
+        },
+        {
+          "assessment": "Different polygon class, no implication",
+          "evidence": [
+            "Regular n-gons with n≥5 and side-midpoint centers."
+          ],
+          "identifier_or_url": "2026/10/11/SCOPE-complete-farthest-distance-profiles-and-sharp-self-chebyshev-sta--7703b9469968",
+          "material_read": "Indexed finding scope and result",
+          "method": "Local Resultary comparison",
+          "title": "Complete farthest-distance profiles and sharp self-Chebyshev stability for regular polygons",
+          "trigger": "Closest indexed topical match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The geometry solves the full natural rhombus class for an established boundary minimax invariant. The sharp center bifurcation and the contrast between the unique 60° fixed-area minimizer and the fixed-perimeter minimizing plateau give information not available from the square endpoint or the global quadrilateral bound.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

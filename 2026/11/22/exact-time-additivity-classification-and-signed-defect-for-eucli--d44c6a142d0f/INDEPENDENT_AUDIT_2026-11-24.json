@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:50:08.070706Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, lines 5–68",
+        "CHECK.py and VERIFICATION.md (inspected, not executed)",
+        "Independent derivation by cap minimization and differentiation of the implicit optimality equation"
+      ],
+      "rationale": "The strictly convex coercive objective has a unique minimizer. Soft thresholding at p=1 and radial shrinkage at p=2 compose by threshold addition, including extinction. At p=∞ one can directly constrain the output to a cap λ: within [−λ,λ]^n the least-squares optimizer clips coordinates, and minimizing over λ≥0 gives sum_i(|x_i|−λ)_+=t until extinction at t=||x||_1. A second clipping removes the additional mass s, so its final cap solves the single clipping equation at s+t (or the output is zero). For finite p>1, the implicit equation z+h∇f(z)=x has a jointly smooth local solution around (0,u), with first two h-derivatives at zero −g and 2Hg. The expansion is valid also at the nearby first-step point. Composition contributes 3Hg in order h² compared with 4Hg for the step 2h. Direct differentiation at u gives (Hg)_1=(p−1)(n−1+2^p)^(2/p−3)(2^p−2^(2p−2)). The difference is the negative of this coefficient; it is nonzero except at p=2 and has the stated signs. The n=1 case correctly reduces to the absolute-value map for all p.",
+      "residual_risks": [
+        "The Taylor estimate is local near the positive witness and fixed in n and p; no uniform constant or finite-h sign globally in x is proved."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "BBCN Theorem 4.5 assumes p(t)∈∂J(p(t)) along the flow, then yields flow/variational equivalence; its L¹ and L∞ examples cover the endpoint method. Theorem 4.4 is an iff for the eigenvector property, not a converse characterization of resolvent time-additivity.",
+          "Bërdëllima–Steidl obtain a flow semigroup by limits of repeated short resolvent steps. The distinct group-penalty record calculates the identical −H∇F second-order obstruction, but its classification selects disjoint coordinate groups from finite positive sums of Euclidean block norms."
+        ],
+        "reasoning": "The availability of an abstract flow semigroup, or sufficiency of a flow eigenvector condition, cannot by itself imply failure of finite-step composition at an excluded exponent. On any coordinate two-plane a positive sum of coordinate Euclidean block norms restricts to a|x|+b|y|+c√(x²+y²). A finite ℓ_p norm with p>1 is differentiable at the nonzero axes, forcing a=b=0; normalization then requires c=1, and evaluation at (1,1) forces p=2. The nonendpoint classification is therefore not a special case of the published group theorem.",
+        "searches": [
+          "Bungert–Burger–Chambolle–Novaga, arXiv:1901.06979, Thms. 4.4–4.5, 5.3 and 5.5",
+          "Bërdëllima–Steidl, arXiv:2104.05304, §6.2",
+          "Resultary 2b35f1a5b89c, Local resolvent calculus and scope"
+        ]
+      },
+      "checked_sources": [
+        "Published Resultary/SCOPE index, exact self-hit d44c6a142d0f and distinct records 2b35f1a5b89c and d338409d8bbc",
+        "The five primary comparison items or distinct source classes described above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The same −h²H∇F term appears in the group record, and its derivation by the implicit function theorem works unchanged here. The prior record evaluates a specific overlapping group example and uses a positive-semidefinite block test tied to those group projections.",
+          "The ℓ_p calculation evaluates a different nonvanishing criterion at one common point, producing the sign from 2^p−2^(2p−2) for the entire finite exponent range."
+        ],
+        "reasoning": "The abstract second-order expression is shared and not a novelty; evaluating a Hessian is routine given that expression. The result being credited is the resulting all-exponent semigroup classification and its common sign-resolved witness in a norm family outside the prior group theorem, not the local expansion as a new principle. The inspected flow sufficiency theorem and duality formulas do not already classify this family.",
+        "searches": [
+          "2b35f1a5b89c, Local resolvent calculus, Positive-semidefinite obstruction, and Limitations",
+          "arXiv:1901.06979, Theorem 4.5",
+          "RESULT.md, lines 52–68"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The question is exact composition of finite-step resolvents, equivalently composition of x↦x−Π_{tB_q}(x) for the conjugate exponent q, not the usual limit of iterated resolvents or an infimal-convolution law for Moreau envelopes.",
+          "Moreau's decomposition yields the dual projection form, not the range of p for which the residual maps compose."
+        ],
+        "reasoning": "Swapping the conjugate exponents only reformulates the same residual-map question. For q=1 clipping gives the p=∞ result, but ordinary projection identities do not classify the residual composition for general q.",
+        "searches": [
+          "Resultary: ℓ_p proximal time-additivity, proximal semigroup rigidity and signed defect",
+          "Moreau (1965), §§3.d, 4.a",
+          "Primary exact-coefficient search"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact catalogue match d44c6a142d0f is the assigned self-hit. Distinct same-date records 2b35f1a5b89c and d338409d8bbc cover overlapping Euclidean groups and scalar convex penalties, respectively. Vilches's determination of convex functions from proximal maps is not a composition classification."
+        ],
+        "reasoning": "The same-day hits were compared by assumptions, not set aside by date. The scalar problem cannot distinguish p for a one-coordinate norm. The nonendpoint vector classification and its signed coordinate coefficient were not separately found; the primary exact-coefficient keyword search provided no useful additional hit.",
+        "searches": [
+          "Resultary: exact semigroup rigidity, time-additivity for ℓ_p maps, quadratic composition defect",
+          "Primary exact-coefficient search",
+          "Vilches, arXiv:2007.03798, Theorem 1.1"
+        ]
+      },
+      "rationale": "The supported distinct content is the complete classification across the canonical ℓ_p family and one common witness with an evaluated sign change. Credit the endpoint formulas, abstract flow theory, and the generic quadratic local resolvent calculation to existing evidence. The strongest distinct published catalogue overlap uses that same local calculation but its group-classification theorem is for a different penalty class and does not specialize to any finite 1<p<∞, p≠2 here.",
+      "residual_risks": [
+        "Earlier resolvent literature may contain an equivalent ℓ_p classification under different terminology. The bounded exact-coefficient keyword search supplied no positive evidence either way; same-day dates do not establish priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material method overlap; different rigidity theorem and scope",
+          "evidence": "After merging duplicate groups, additivity is equivalent to pairwise disjointness. It displays −h²∇²F∇F and evaluates a three-coordinate two-group example; the classification explicitly concerns direct sums of positive weighted coordinate Euclidean norms.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-semigroup-rigidity-for-overlapping-euclidean-group-penalti--2b35f1a5b89c",
+          "material_read": "RESULT.md, Finding, Assumptions, Local resolvent calculus, Positive-semidefinite obstruction and Limitations, offsets 600–5700 and 5650–7300",
+          "method": "Local published-record mirror",
+          "title": "Exact semigroup rigidity for overlapping Euclidean group penalties",
+          "trigger": "Closest distinct catalogue match, including the same differential obstruction"
+        },
+        {
+          "assessment": "Different dimension and penalty class",
+          "evidence": "Scalar finite convex penalties rather than the vector norms in dimension at least two.",
+          "identifier_or_url": "2026/11/22/SCOPE-scalar-proximal-semigroup-rigidity-and-a-sharp-one-kink-composit--d338409d8bbc",
+          "material_read": "RESULT.md, scalar finding and penalty scope",
+          "method": "Local published-record mirror",
+          "title": "Scalar proximal semigroup rigidity and a sharp one-kink composition defect",
+          "trigger": "Distinct catalogue hit with rigidity and a signed composition defect"
+        },
+        {
+          "assessment": "Conditional flow/variational equivalence and endpoint coverage",
+          "evidence": "Theorem 4.5 assumes flow subgradients are eigenvectors and then obtains equality with the variational path. It is not a converse theorem about all ℓ_p penalties or an exact signed composition coefficient.",
+          "identifier_or_url": "https://arxiv.org/abs/1901.06979",
+          "material_read": "§4.2, pp. 12–13, Theorems 4.4–4.5 near offsets 35800–39972; §§5.2–5.3, Theorems 5.3 and 5.5, pp. 20–21",
+          "method": "Lawful OA full-text passages",
+          "title": "Nonlinear Spectral Decompositions by Gradient Flows of One-Homogeneous Functionals",
+          "trigger": "Plausibly stronger abstract flow/proximal comparison"
+        },
+        {
+          "assessment": "Iterated-limit semigroup, not finite-step identity",
+          "evidence": "Uses limits of repeated short resolvent steps, not the identity P_s P_t=P_{s+t}.",
+          "identifier_or_url": "https://arxiv.org/abs/2104.05304",
+          "material_read": "§6.2, pp. 14–15, around offset 56000",
+          "method": "Lawful OA full-text passage",
+          "title": "On α-Firmly Nonexpansive Operators in r-Uniformly Convex Spaces",
+          "trigger": "Broad construction of a resolvent-generated semigroup"
+        },
+        {
+          "assessment": "Covers the proximal projection representation",
+          "evidence": "The conjugate proximal decomposition and projection onto convex sets yield residual projection onto tB_1 for the ℓ∞ penalty.",
+          "identifier_or_url": "Moreau, Bull. Soc. Math. France 93 (1965), 273–299",
+          "material_read": "§§3.d and 4.a, pp. 279–281, offsets 15672 and 16900",
+          "method": "Lawful OA full-text passages",
+          "title": "Proximité et dualité dans un espace hilbertien",
+          "trigger": "Dual projection and clipping formulation"
+        },
+        {
+          "assessment": "Different question",
+          "evidence": "Determination of a convex function from proximal information, not semigroup composition over the scale parameter.",
+          "identifier_or_url": "https://arxiv.org/abs/2007.03798",
+          "material_read": "§1, Theorem 1.1, around offset 1423",
+          "method": "Lawful OA full-text passage",
+          "title": "Proximal Determination of Convex Functions",
+          "trigger": "Related proximal rigidity result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, global semigroup quantifier and signed defect",
+        "Resultary 2b35f1a5b89c and arXiv:1901.06979 for nearby scope"
+      ],
+      "rationale": "A complete answer for the basic ℓ_p scale distinguishes when one Euclidean proximal step really is a time semigroup step, a stronger condition than existence of the associated flow. One witness covers every excluded exponent, and the signed leading defect distinguishes the two sides of p=2. This is useful as a worked exact norm-family classification and diagnostic; the standalone Taylor formula and the positive endpoint shrinkages are not the value claim.",
+      "residual_risks": [
+        "Does not classify arbitrary norms or quantify a global splitting error for practical finite step sizes."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

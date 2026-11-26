@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:48:20.614743Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–51; frozen VERIFICATION.md and verify_fixed_forests.py (inspected, not run)",
+        "Corrected complete /workspace/repairs/1/RESULT.md and direct barycentric, matroid and signed-Euler characteristic proof checks"
+      ],
+      "rationale": "The replacement corrects the literal homology claim to reduced integral homology; in ordinary homology these nonempty connected wedges also have H0=Z. The join and homotopy type are unchanged. Fixed barycentric coordinates are constant on the edge orbits, and summing the coordinates on each orbit inverts its barycenter map simplex by simplex. Within a permuted block the internal complete graph is forbidden unless it is a single edge; between two permuted blocks K_{k_i,k_j} contains C4. Edges to a single fixed vertex are one star. Two distinct stars of one block form C4, and a star together with its internal edge forms a triangle. Conversely the allowed stars attach at only one vertex each, so the forest condition is precisely the asserted join, with D0 the empty-face-only factor. This verifies all m=0,1,2 conventions and both examples. Matroid shellability gives the sphere wedge; the join with D_s is a wedge of s-1 suspensions. The forest count also follows independently: the signed Euler sum gives B_m=-m![z^m]exp(-R+R²/2) where R=ze^R is the rooted-tree EGF and R-R²/2 counts unrooted trees. Lagrange inversion gives (m-1)![u^{m-1}](1-u)exp((m-1)u+u²/2). The H recurrence reduces this to (m-2)H_{m-3}(m-1), including 1,6,51,560 for m=3..6.",
+      "residual_risks": [
+        "The attached finite checker asserts the first three Euler values and prints all four; the exact generating-function derivation is independent of that assertion and of the inaccessible Jonsson passage."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first requires a group free on graph vertices, the next requires a regular graph cover with free vertex and edge actions, and the third studies disjoint graph edges."
+        ],
+        "reasoning": "Independent symmetric Young-block actions generally have nontrivial point stabilizers. The size-two single-block no-singleton case can already fall in the free theorem; it does not cover the family. Matching complexes do not even permit adjacent edges in a face.",
+        "searches": [
+          "Free finite symmetries of complete-graph forest complexes, Finding",
+          "Forest-complex fixed spaces and Tutte characters of regular graph covers, Finding",
+          "Normalizer and involution models for all subgroup-fixed complete-graph matching complexes, Finding"
+        ]
+      },
+      "checked_sources": [
+        "Resultary exact self-match and distinct linked comparison findings",
+        "Frozen assumptions and prior-work section; Jonsson listing"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Matroid shellability explains the wedge once the forest factor is identified. The new calculation determines which orbit unions contain cycles and which avoid them."
+        ],
+        "reasoning": "The join and exceptional geometric cases do not follow by substituting parameters into the cited ordinary shellability or free-action results.",
+        "searches": [
+          "Provan and Billera, Decompositions of simplicial complexes related to diameters of convex polyhedra, Thm. 3.2.1 (as cited)",
+          "Related Resultary orbit constructions, Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Orbit-barycenter realizations are a prior method; the inspected orbit-conflict theorem is for independent vertex sets of a forest graph, not edge sets forming forests in K_n."
+        ],
+        "reasoning": "The fixed geometric set is not a quotient nor the fixed-vertex subcomplex. Translating it to the admissible orbit complex is equivalent, but prior orbit models did not give this join for independent Young blocks.",
+        "searches": [
+          "Resultary: Young subgroup fixed points, complete-graph forest complex and orbit complexes",
+          "Primary fixed-set literature lookup, Jonsson book and related simplicial-complex models"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matching exact Resultary record is the same assigned item. The unsigned sphere multiplicity B_m is an ordinary forest-complex count explicitly credited as prior, not a fixed-space census."
+        ],
+        "reasoning": "A table for ordinary forest complexes does not classify these fixed spaces; related catalogue findings give distinct hypotheses or simplicial complexes.",
+        "searches": [
+          "Resultary exact title/PL model lookup",
+          "Jonsson, Simplicial Complexes of Graphs, Ch. 13; forest counts cited in frozen proof"
+        ]
+      },
+      "rationale": "The supported distinction is the explicit nonfree Young-block PL model and its complete classification, not the general orbit-barycenter construction or the ordinary forest-complex homotopy type.",
+      "residual_risks": [
+        "Unindexed equivalent nonfree-action results remain possible. The exact Jonsson theorem locator could not be verified from full text."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Freeness excludes general Young actions",
+          "evidence": [
+            "A group acting freely on graph vertices yields a forest complex of a specified multigraph with data depending on group order and involutions."
+          ],
+          "identifier_or_url": "2026/11/17/SCOPE-free-finite-symmetries-of-complete-graph-forest-complexes-a-cone--f63ef20a4ed0",
+          "material_read": "RESULT.md, Finding and assumptions, offset 0",
+          "method": "Published local mirror",
+          "title": "Free finite symmetries of complete-graph forest complexes",
+          "trigger": "Same ambient forest complex and PL fixed-set classification"
+        },
+        {
+          "assessment": "Deck transformations and regular covers have different hypotheses",
+          "evidence": [
+            "Identifies fixed forest spaces with the forest complex of the base of a regular graph cover."
+          ],
+          "identifier_or_url": "2026/11/17/SCOPE-forest-complex-fixed-spaces-and-tutte-characters-of-regular-grap--886cc6e5551e",
+          "material_read": "RESULT.md, Finding, offset 0",
+          "method": "Published local mirror",
+          "title": "Forest-complex fixed spaces and Tutte characters of regular graph covers",
+          "trigger": "Candidate broader quotient description"
+        },
+        {
+          "assessment": "Different simplicial complex",
+          "evidence": [
+            "Independent sets of graph vertices in a forest, not forests of graph edges in a complete graph."
+          ],
+          "identifier_or_url": "2026/11/17/SCOPE-subgroup-fixed-independence-complexes-of-forests-are-themselves--0f7d773a0332",
+          "material_read": "RESULT.md, Finding, offset 0",
+          "method": "Published local mirror",
+          "title": "Subgroup-fixed independence complexes of forests are themselves independence complexes",
+          "trigger": "Orbit conflict model of nearby complexes"
+        },
+        {
+          "assessment": "Matching complexes have different admissible faces",
+          "evidence": [
+            "The stated model uses colored loop-matchings."
+          ],
+          "identifier_or_url": "2026/11/17/SCOPE-normalizer-and-involution-models-for-all-subgroup-fixed-complete--9240a6c9a46e",
+          "material_read": "RESULT.md, Finding, offset 0",
+          "method": "Published local mirror",
+          "title": "Normalizer and involution models for all subgroup-fixed complete-graph matching complexes",
+          "trigger": "Complete-graph fixed sets under general subgroups"
+        },
+        {
+          "assessment": "Exact theorem wording not verified; mathematical formula checked independently",
+          "evidence": [
+            "The frozen attribution locates Theorem 13.3; no full-text inference is made from the landing page."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/978-3-540-75859-4",
+          "material_read": "Book listing; Chapter 13 theorem passage not retrieved",
+          "method": "Lawful OA attempts on book and chapter; separate independent generating-function check",
+          "title": "Simplicial Complexes of Graphs",
+          "trigger": "Reference for the ordinary forest multiplicity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Corrected Finding and Proof §§1–3; prior free-action comparison"
+      ],
+      "rationale": "This is a family-wide model of actual geometric fixed points for natural Young symmetries. The PL join identifies the dependence on block sizes, handles the empty and cone boundary cases, and isolates extra fixed points missed by selecting only individually fixed graph edges. Those are reusable structural conclusions rather than just a tabulation of ordinary forest counts.",
+      "residual_risks": [
+        "No claim for arbitrary transitive actions, quotient complexes or an equivariant classification of the ambient forest complex."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

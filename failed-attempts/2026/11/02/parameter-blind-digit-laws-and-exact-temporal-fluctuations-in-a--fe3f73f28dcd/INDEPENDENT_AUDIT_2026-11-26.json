@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:57:11.924859Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, §§ Assumptions and scope and Proof; verify.py; VERIFICATION.md"
+      ],
+      "rationale": "The two affine maps take the interiors of cells 1,3,4,6 to (2/3,1) and cells 2,5 to (1/3,2/3); their orientations do not affect the uniform pushforward. Conditional uniformity on each newly visited cell is preserved even with the map choices fixed in advance. Overlap lengths give the two rows in the proof, and the invariant masses (1,1,1,3,5,5)/16 give the stated density. For f the digit-3 indicator, Pf is 1/2 on cells 2,5 and 0 elsewhere. For g=f−3/16, Pg takes the values 5/16 and −3/16 on these two types; the type transition probabilities 1/6 and 1/2 into {2,5} give P(Pg)=−Pg/3. E(B₀B₁)=1/32 and Var(B₀)=39/256 give the claimed covariance. With ρ=−1/3 the triangular geometric sum gives slope 39/256+2(3/256)ρ/(1−ρ)=75/512 and boundary coefficient −2(3/256)ρ/(1−ρ)²=9/2048. The chain communicates via cell 5 and has a self-loop at cell 2, so the finite-chain additive CLT applies. The digit-2 middle state must be cell 5 for the final 3; this gives the triple probabilities 1/32 and 1/8 and the corresponding two-digit denominators 5/32 and 21/32. These calculations apply at p=0 and 1 as well. Analytical replay suffices; the finite checker was inspected, not executed.",
+      "residual_risks": [
+        "No claim about real-valued orbit cylinders or arbitrary initial densities is assessed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "65932e27fe03 allows every fixed deterministic schedule. Proposition 5.1 of arXiv:2101.01982 provides related rational-c Markov partitions but is not the exact temporal result."
+        ],
+        "reasoning": "Averaging a common law over independently sampled schedules supplies the frozen p-law and limit distribution; the broader catalogue result is decisive, not generic Markov-partition existence.",
+        "searches": [
+          "Resultary: random Lüroth alternating-Lüroth maps Markov partition digit frequencies stationary density",
+          "arXiv:2101.01982, Proposition 5.1 and examples; arXiv:1805.11430v2, §7"
+        ]
+      },
+      "checked_sources": [
+        "Resultary record 65932e27fe03",
+        "Kalle–Maggioni arXiv:1805.11430v2 §7",
+        "Kalle–Maggioni arXiv:2101.01982 Proposition 5.1 and examples"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Kalle–Maggioni supply both affine maps cell by cell and the initial density; on each cell the maps have the same image. The indexed match already covers the stationary digit law, so the non-Markov witness is a projection onto two- and three-digit cylinders."
+        ],
+        "reasoning": "Normalizing the lengths of the overlapping destination cells gives the six-cell refinement directly. Once the law is fixed its three-symbol probabilities give the displayed witness by division. The nonresponsive web results have no negative evidentiary weight.",
+        "searches": [
+          "65932e27fe03, Finding/Assumptions/Proof",
+          "arXiv:1805.11430v2, §7",
+          "Web: random Lüroth parameter digit process covariance Kalle Maggioni six-cell Markov"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "65932e27fe03, Finding and Proof: same restricted maps and stationary density, same digit cylinders, covariance, finite variance and CLT coefficient 75/512."
+        ],
+        "reasoning": "The comparison uses the same digit observable under the same stationary measure, not merely agreement of a one-time marginal. The three-state symbolic presentation in the match is a different presentation of the covered digit law.",
+        "searches": [
+          "Resultary: six-cell random Lüroth parameter-independent digit process covariance Markov chain",
+          "Resultary: six-cell Lüroth digit non-Markov conditional probabilities 1/5 4/21 CLT variance 75/512 alternating covariance"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "65932e27fe03 reproduces the exact temporal constants and finite-variance formula; arXiv:1805.11430v2 §7 gives the exact underlying cell endpoints, density and frequencies."
+        ],
+        "reasoning": "The numerical signature corroborates statement-level coverage, not a mere table lookup; no table of all cylinders is needed when a common transition law specifies them.",
+        "searches": [
+          "Resultary: Kalle Maggioni six-cell example bounded digits exact temporal statistics",
+          "Resultary: six-cell Lüroth digit non-Markov conditional probabilities 1/5 4/21 CLT variance 75/512 alternating covariance"
+        ]
+      },
+      "rationale": "A distinct indexed statement covers the central stationary digit-process law, all positive-lag covariances, the finite-sum variance and the Gaussian coefficient for this same six-cell system, under the stronger hypothesis of arbitrary fixed switching schedules (hence also iid switching by averaging). The six-cell refinement and the two explicit non-Markov conditionals are short consequences of the stated branch geometry and stationary masses; they do not recover a distinct substantive theorem. This is a coverage finding, not a claim about which record was derived first.",
+      "residual_risks": [
+        "Targeted literature passages do not establish an exhaustive list of antecedents.",
+        "Catalogue dates do not establish historical priority or the derivation relationship between records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the core finding in a stronger switching regime",
+          "evidence": "Same digit-cylinder law, covariance, finite-horizon variance and Gaussian variance; arbitrary fixed switching schedules. The frozen explicit unequal conditionals are not stated there.",
+          "identifier_or_url": "2026/11/8/SCOPE-environment-independent-markov-digit-laws-for-a-restricted-rando--65932e27fe03",
+          "material_read": "Mirrored RESULT.md, Finding, Assumptions and Proof, offsets 0–7623; Relationship and Limitations thereafter",
+          "method": "Local mirror, statement and proof comparison",
+          "title": "Environment-independent Markov digit laws for a restricted random Lüroth system",
+          "trigger": "Strongest distinct Resultary match to the maps and exact fluctuation law"
+        },
+        {
+          "assessment": "Covers maps, density and digit frequencies; the inspected passages do not state the full temporal formulas",
+          "evidence": "Endpoints 1/3,7/18,4/9,1/2,2/3,5/6,1; densities 9/8 and 15/8; digit-3 frequency 3/16.",
+          "identifier_or_url": "https://arxiv.org/html/1805.11430v2",
+          "material_read": "§7, offsets 127400–136460, branch assignments and invariant density calculation",
+          "method": "Lawful OA HTML, target passages",
+          "title": "Invariant densities for random systems of the interval",
+          "trigger": "Exact motivating six-cell example"
+        },
+        {
+          "assessment": "Related construction, not evidence of the exact six-cell fluctuation formulas",
+          "evidence": "Rational-c partition existence and examples c=1/4 and c=1/8.",
+          "identifier_or_url": "https://arxiv.org/pdf/2101.01982",
+          "material_read": "Abstract; Proposition 5.1 p. 21 and examples pp. 22–23",
+          "method": "Lawful OA PDF, targeted reading",
+          "title": "On approximation by random Lüroth expansions",
+          "trigger": "Related Markov partitions and random bounded-digit models"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Parameter nonidentifiability and exact fluctuations are meaningful for this observed dynamical system, but already covered. The remaining six-cell presentation and conditional witness are immediate from the common branch images and short cylinders of that process. They add neither a distinct obstruction nor a quantitatively independent invariant that merits a repaired claim.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

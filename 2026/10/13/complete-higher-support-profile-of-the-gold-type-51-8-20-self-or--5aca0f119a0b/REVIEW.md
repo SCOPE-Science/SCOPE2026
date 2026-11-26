@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The finite field, primitive element, Gold exponent, two trace-zero constraints, and trace-evaluation code were reconstructed directly from the source. The resulting defining set has \(51\) coordinates, the generator has rank \(8\), and the complete codeword census reproduces the published enumerator
-\[
-1+34z^{20}+102z^{24}+102z^{28}+17z^{32}.
-\]
-All \(417198\) positive-dimensional message subspaces are then enumerated exactly once in reduced-row-echelon form. For each basis, the union of its codeword supports is exactly the support of the generated subcode, so the complete histograms and hierarchy are exhaustive finite results.
+PASS
 
-## Originality
+Independent polynomial multiplication and reduction modulo 0x11d verified the period 255 of alpha, evaluated all trace constraints, and found 51 points, with norm exponents 0,6,13 modulo 15. The explicit trace generator is injective and its binary Gram matrix vanishes. Independent hyperplane/coset generation of all 417,198 positive-dimensional subspaces and support calculation by word-weight sums reproduced each bin, the hierarchy (20,30,38,42,46,48,50,51), and the minimizer counts (34,34,323,17,510,85,51,1). The revised self-orthogonality proof using weight divisibility by four is valid.
 
-PASS. The primary article has no generalized-Hamming, weight-hierarchy, or subcode-support result. The closest hierarchy literature was compared at the construction level: the solved Qiao--Du and Meng et al. families use different defining sets, while Li--Chen--Qu provide a general framework but do not evaluate this two-Gold-trace intersection. Exact searches for the parameters, hierarchy, ordinary enumerator, and Gold-type aliases found no prior same-object higher-support profile.
+## originality
 
-## Value
+PASS
 
-PASS. The source highlights this \([51,8,20]_2\) code as an explicit member of its new self-orthogonal minimal family. The complete higher-support profile is a natural structural invariant, strictly refines its published ordinary weight enumerator, and supplies exact extremal multiplicities in every subcode dimension.
+The trace construction and ordinary-weight theory are prior context. The inspected related claims handle other exact codes or different ranks/constructions and do not give the full support census of the specified two-trace code.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The two-coefficient Gold construction supplies a natural rank-two case distinct from the collapsed rank-one examples. The exact table gives extremal frequencies and all possible intermediate unions, e.g. 17 four-spaces at support 42 out of 200,787. It is a reproducible reference for how this small self-orthogonal code behaves beyond ordinary weights, without implying a rank-two family theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

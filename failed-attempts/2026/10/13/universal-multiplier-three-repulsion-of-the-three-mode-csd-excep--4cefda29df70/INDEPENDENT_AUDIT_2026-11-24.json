@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:24:45.908488Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The gradient step is 1/(m+h u), where u=p3-p1; reusing it twice gives the fourth power weights in the record. In coordinates (u,y) with y=p2, the normalizer is S=1-y+(2-6y)u²-3u⁴. The numerators for (u',y') are u(u⁴+6u²+1)-4u(1-y)(u²+1) and y u⁴. At u=±1/√2,y=1/4, these give (−u,y) with S=1/4. Quotient differentiation gives J(u)=[[5,8u],[7u,5]]. Thus J(−u)J(u)=(25−56u²)I=−3I; the change to (p1,p2) is affine and leaves that scalar derivative unchanged. Smoothness near the orbit gives repulsion for the return, not an assertion about the global fate of perturbed trajectories. Radial contraction is over the full period: the gradient norm ratio is h⁴/[4(m²−h²/2)²]<1; the ratio after just one cycle need not be <1. A separate exact symbolic replay in /workspace/branches/152ded78-b129-4846-8e0f-604fe88e8815/independent_csd_return_check.py confirmed both Jacobians and products. The frozen checker and its recorded output were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gu's generic theorem gives doubly exponential convergence off a null exceptional set in the 2j>q regime, including j=2 and q=3. The indexed arithmetic-spectrum result gives the full normalized arithmetic family; e0c764d6ed12 instead uses fresh line searches."
+        ],
+        "reasoning": "The generic theorem does not give the pointwise derivative, nor does a perturbation of fresh-line-search descent. The indexed result does furnish the exact same local map and points for every allowed arithmetic spectrum.",
+        "searches": [
+          "Resultary: generic cyclic steepest descent convergence exceptional set projective orbit stability repelling",
+          "arXiv:2609.25800, Theorem 2.1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary d57dc53a8594",
+        "Resultary e0c764d6ed12",
+        "Li–Wang arXiv:2610.00939",
+        "Gu arXiv:2609.25800"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Li–Wang give the exact fourth-power update and the exact reversal for (1,2,3), with radial factor 1/49 over four updates. The indexed record applies the update to the full arithmetic family."
+        ],
+        "reasoning": "Differentiating the supplied map at the supplied two points gives J(u) and J(−u) as in the correctness check. The projective multiplier does not come from the radial factor, but it follows mechanically from the already given exact dynamics and orbit.",
+        "searches": [
+          "Resultary: Li Wang exact counterexamples R-superlinear CSD three dimensional full-support period-two orbit radial contraction",
+          "arXiv:2610.00939 §3.2, (16)–(19)",
+          "d57dc53a8594 RESULT.md Finding and Proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "d57dc53a8594 ranked first (limit 50). Its reversal orbit and normalized spectral-weight map are the ones under review up to eigenvalue order."
+        ],
+        "reasoning": "Reversing the ordering of the spectrum or using (u,y) rather than (p1,p2) gives an affine conjugacy. In particular the signed scalar matrix is unchanged, so a difference in conventions is not a distinction.",
+        "searches": [
+          "Resultary: cyclic steepest descent three-mode arithmetic spectrum j=2 reversal orbit projective Jacobian multiplier -3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "d57dc53a8594 ranked first (limit 50). Its Finding, Proof and Verification give the exact map, orbit and radial behavior, not an entry listing the derivative."
+        ],
+        "reasoning": "No explicit Jacobian-table entry was found. The exact normalized rational system, rather than any numerical table, is the operative indexed coverage.",
+        "searches": [
+          "Resultary: CSD spectral-weight map two-cycle return derivative multiplier three repeller"
+        ]
+      },
+      "rationale": "Li–Wang's exact map and orbit already determine the return derivative for their example; affine normalization gives the same projective system throughout the arithmetic family. More decisively, the distinct indexed arithmetic-spectrum record gives that very normalized map and interior reversal orbit for the full family. The asserted signed scalar derivative is a direct evaluation of the published rational formulas followed by a two-by-two product. Neither antecedent spells out the multiplier or calls the orbit a repeller; the finding nevertheless has demonstrable implication coverage, not just title or parameter overlap.",
+      "residual_risks": [
+        "The ranked searches do not establish the first explicit appearance of the multiplier; the decision rests on direct implication from actually inspected statements."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Implication coverage; derivative not expressly stated",
+          "evidence": [
+            "Exact normalized three-mode map and unique full-support reversal weights for arithmetic spectra; verification discusses swapping the weights and the radial factor."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-arithmetic-spectra-are-exactly-the-reversal-symmetric-three-mode--d57dc53a8594/RESULT.md",
+          "material_read": "Finding, Proof and Verification passages for normalized map, reversal and radial factor",
+          "method": "Local Resultary mirror, bounded passage inspection",
+          "title": "Arithmetic spectra are exactly the reversal-symmetric three-mode CSD spectra",
+          "trigger": "Strongest distinct indexed match"
+        },
+        {
+          "assessment": "Exact update and example imply the derivative by direct calculation",
+          "evidence": [
+            "Exact two-point swap with the fourth-power normalized recurrence on spectrum (1,2,3)."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.00939",
+          "material_read": "§3.2, Theorem 3.3 and eqs. (16)–(19), printed pp. 5–7",
+          "method": "Bounded OA PDF text inspection",
+          "title": "Exact counterexamples to R-superlinear convergence of cyclic steepest descent",
+          "trigger": "Identical point orbit and cycle length in cited antecedent"
+        },
+        {
+          "assessment": "Generic convergence not an evaluation of the return derivative",
+          "evidence": [
+            "The 2j>q case excludes a null set and states a generic convergence rate, not individual orbit stability."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.25800",
+          "material_read": "Threshold and Theorem 2.1, printed pp. 3–4",
+          "method": "Bounded OA PDF text inspection",
+          "title": "Doubly exponential convergence of the cyclic steepest descent method for strictly convex quadratics in arbitrary dimensions",
+          "trigger": "Potentially broader local-instability conclusion"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Local repulsion of a radially contracting exceptional trajectory is a motivated dynamical question, and the explicit multiplier is a useful explanatory calculation. As a standalone narrow invariant, however, this is mechanically obtained by differentiating the already known exact rational map at the already tabulated reversal weights, with no new regime, obstruction or classification beyond that evaluation.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

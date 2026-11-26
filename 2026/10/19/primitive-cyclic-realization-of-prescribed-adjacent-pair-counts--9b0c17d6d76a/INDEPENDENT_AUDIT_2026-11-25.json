@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:03:07.617481Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 3–41",
+        "VERIFICATION.md",
+        "verify.py"
+      ],
+      "rationale": "Balance and weak connectivity of the active support give strong connectivity (a nontrivial condensation source would have an unbalanced cut) and hence an Euler tour. For branching at at least one vertex v, cut a tour at every visit to v. Permuting the resulting first returns preserves all arc multiplicities, and two distinct successor symbols guarantee two distinct vertex-sequence types. Group equal types in one block each. Any ordered boundary between adjacent distinct types occurs exactly once in the cyclic list. A symbol rotation fixing the word must carry all v-occurrences to v-occurrences and preserve their excursion types and boundaries. It therefore fixes the unique occurrence of such a boundary, hence is the identity rotation. Without branching, the strongly connected functional support is a simple directed cycle whose arc multiplicities agree by balance. The least word period is the number d of active vertices, and the obstruction is exactly repetitions r=n/d>=2. Choosing d active labels and a directed cycle gives binom(q,d)(d-1)! distinct matrices per proper divisor d<=q; this includes loops, n=1, and the prime-length consequence. No finite census or external certificate is needed for the exact proof; the supplied script was inspected but not executed.",
+      "residual_risks": [
+        "Finite example/census values in the frozen verification are corroborative, not an independent audit or a hypothesis of the proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Markov-type work counts frequency matrices",
+          "Generalized de Bruijn work imposes a Burrows–Wheeler condition and relates to Hamiltonian cycles",
+          "Eulerian-circuit work concerns uniqueness and safe walks"
+        ],
+        "reasoning": "None of these verified broader frameworks classifies whether at least one representative with a prescribed transition matrix and ordinary rotation period exists. Counting all necklaces across profiles, or all profiles irrespective of the periods of their words, loses this information.",
+        "searches": [
+          "Jacquet–Knessl–Szpankowski Counting Markov Types",
+          "Fici–Gabory generalized de Bruijn words and invertible necklaces",
+          "Acosta–Tomescu Simplicity in Eulerian Circuits"
+        ]
+      },
+      "checked_sources": [
+        "Fici–Gabory MFCS 2025",
+        "Acosta–Tomescu arXiv:2208.08522",
+        "Jacquet–Knessl–Szpankowski Markov-type enumeration",
+        "Resultary 8ada8bf40720"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Möbius inversion can in principle use all word counts for scaled profiles to compute a per-profile primitive count",
+          "The actual claim is the exact vanishing classification of that count; the grouped-excursion construction proves positivity without cancellation"
+        ],
+        "reasoning": "The known counting and feasibility machinery does not state the obstruction or force this simple positivity criterion as a substitution. Counting the cycles by a divisor sum is elementary once the branching existence statement is proved; it is not separately credited as difficult.",
+        "searches": [
+          "JKS balanced-matrix enumeration; Fici–Gabory necklace definitions and Möbius count; Acosta–Tomescu Eulerian uniqueness; Resultary 8ada8bf40720 finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fici–Gabory §2 defines primitive words and aperiodic necklaces; Jacquet–Knessl–Szpankowski pp. 2, 4 identify Markov types by balanced frequency matrices",
+          "Acosta–Tomescu characterize unique edge-distinguished Eulerian circuits, a different equivalence relation"
+        ],
+        "reasoning": "The target is a primitive necklace in one type class. Parallel arcs can give distinct edge tours with identical symbol words; the existence of a primitive vertex word is not uniqueness of an Eulerian circuit. Primitivity is also not the period of the support graph.",
+        "searches": [
+          "Primary literature on primitive necklaces, Eulerian vertex words and cyclic first-order Markov types",
+          "Resultary semantic comparison of cyclic adjacent-pair/dinucleotide profiles"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/10/26/SCOPE-support-refined-enumeration-of-ternary-cyclic-dinucleotide-profi--8ada8bf40720 gives the census of ternary profiles by length and off-diagonal support"
+        ],
+        "reasoning": "That is a material exact census overlap, not a table of profiles all of whose representatives are periodic, and the matched result is ternary rather than all q. Catalogue date is not proof of priority.",
+        "searches": [
+          "Resultary search for adjacent-pair profile enumeration and primitive realization"
+        ]
+      },
+      "rationale": "Pass the existence classification by active support and resulting divisor-sum obstruction count for a fixed adjacent-pair profile, not the Euler criterion, the general primitive-necklace census or the total count of Markov types.",
+      "residual_risks": [
+        "The bounded searches do not rule out the same excursion argument or positivity classification in older necklace, Markov-type or combinatorics-on-words literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related definitions and unconditioned enumeration, no matched type restriction",
+          "evidence": "Aperiodic necklaces are conjugacy classes of primitive words; generalized de Bruijn results impose a transform condition.",
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.MFCS.2025.48",
+          "material_read": "OA PDF abstract p. 1 and §2 p. 4, offsets 500, 12466 and 12850",
+          "method": "Primary PDF offset reading",
+          "title": "Generalized De Bruijn Words, Invertible Necklaces, and the Burrows–Wheeler Transform",
+          "trigger": "Primitive necklace and related cyclic word enumeration"
+        },
+        {
+          "assessment": "The inspected theorem description concerns different quantifiers and edge objects",
+          "evidence": "Characterizes unique Eulerian circuits via edge consecutivity, and safe walks common to circuits.",
+          "identifier_or_url": "https://arxiv.org/abs/2208.08522",
+          "material_read": "Abstract p. 1, offsets 1801–2159",
+          "method": "Primary PDF offset reading",
+          "title": "Simplicity in Eulerian Circuits: Uniqueness and Safety",
+          "trigger": "Potential equivalent Euler tour characterization"
+        },
+        {
+          "assessment": "Ambient objects and total count covered; no primitive-realization split in inspected results",
+          "evidence": "Words of one Markov type share a balanced frequency matrix; counting types counts such matrices subject to constraints.",
+          "identifier_or_url": "Jacquet–Knessl–Szpankowski, DMTCS Proceedings (2010), expanded journal paper DOI 10.1109/TIT.2012.2191476",
+          "material_read": "HAL OA primary PDF pp. 2, 4, offsets 2164 and 8317–8577",
+          "method": "Lawful primary PDF copy and offset reading",
+          "title": "Counting Markov Types",
+          "trigger": "Same adjacent-pair matrices under Markov-type terminology"
+        },
+        {
+          "assessment": "Shared objects and census methods but no primitive-representative property in the compared claim",
+          "evidence": "Joint generating function of length and off-diagonal support for realizable ternary profiles.",
+          "identifier_or_url": "Resultary 2026/10/26/SCOPE-support-refined-enumeration-of-ternary-cyclic-dinucleotide-profi--8ada8bf40720",
+          "material_read": "Local RESULT.md offsets 70–879 and 6781–7001, mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Semantic catalogue search and local mirror reading",
+          "title": "Support-refined enumeration of ternary cyclic dinucleotide profiles",
+          "trigger": "Same profile invariant and closely related census"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result resolves exactly which prescribed finite cyclic transition counts force periodicity, a natural realizability question about type classes. Its support-only criterion works even if all multiplicities have a large common divisor, and yields a constructive witness plus a clean exact census of exceptions.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

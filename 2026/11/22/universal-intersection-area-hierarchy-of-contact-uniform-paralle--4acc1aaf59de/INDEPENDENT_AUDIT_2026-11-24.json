@@ -1,0 +1,155 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:01:29.512100Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Normalize the parallelogram affinely; normalized arclength on the selected straight side is the uniform affine parameter and the area Jacobian cancels. For a centered ellipse written with a positive definite shape matrix, the support distances in the coordinate directions are square roots of its diagonal entries. Equal opposite supporting distances force center zero and tangency forces both entries one. With off-diagonal k, positive definiteness is |k|<1 and support in the first direction is attained at (1,k), proving the required classification and measure. The coverage quadratic in k is (k−xy)²≤(1−x²)(1−y²); the full interval lies in [−1,1] by Cauchy–Schwarz. Its normalized length is the square root of the right-hand side. Taking the mth power by independence, Tonelli and the substitution r=x² give the square of B(1/2,1+m/2) divided by 4, yielding π²/16 and 4/9. The gamma quotient with z=m/2 has correction −3/(8z); squaring gives the advertised −3/(2m) relative correction. Independently, rotate to principal coordinates U,V and integrate vertical slices in the positive quadrant: the l ellipse has the smaller height up to U₀=√[(1+k)(1+l)/2], after which k has the smaller height until U=√(1+k). In each integral set U=√(1+c) sin ψ. At the switch ψ_l=(π−α)/2 and ψ_k=(π−β)/2; the sinψ cosψ terms cancel, leaving the stated kernel, also continuous at k=l. Subtracting the two conic equations gives (x+y)²=(1+k)(1+l) and (x−y)²=(1−k)(1−l); their two independent sign choices give four points even for k+l=0. All contacts on the square boundary differ, so the four crossings are interior. Their gradient determinant is 4(l−k)(x²−y²) up to sign, nonzero since the product (x+y)(x−y) is nonzero. These exact checks resolve the claims; inspected frozen quadratures were not executed and are not needed for proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hughes–Chraibi compute general overlap from four segments and a central quadrilateral given four intersection points, and note that four intersections are crossings.",
+          "Bobenko–Fairley's conic-net theorem concerns adjacent touching inscribed conics; monograph text unavailable."
+        ],
+        "reasoning": "The generic conditional result does not assert four intersections for every distinct pair tangent to a common parallelogram. The generic algorithm can evaluate individual pairs, but provides neither this two-parameter simplification nor a stochastic hierarchy.",
+        "searches": [
+          "arXiv:1106.3787v1 four-intersection case, offset 80850",
+          "10.1007/s00454-021-00277-5 Theorem 3.1",
+          "Horwitz 2024 monograph, ISBN 9781032622590"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:0808.0297, 1505.01048v1, 1106.3787v1",
+        "10.1007/s00454-021-00277-5",
+        "Resultary 7d704c692dd7, e71b71af54e1, 24e4e421284e",
+        "ISBN 9781032622590 (retrieval only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general crossing conclusion in the overlap algorithm assumes four intersections; the square conic equations require a separate two-parameter incidence calculation.",
+          "The exact perpendicular result specializes from l=−k only. The classical pencil and general methods are the inputs, not independently matching full formulas."
+        ],
+        "reasoning": "The known pencil gives a short route to point coverage and intersections, and the known ellipse-overlap method gives exact areas in principle. The full kernel needs simplifying the two contributing sectors/slices, and the beta-square expectation needs the contact law, independent sampling and exact integration; neither is covered by a stronger stated result in the inspected material.",
+        "searches": [
+          "Horwitz 2015 Theorem 1.1, Corollary 1, §5 square equation",
+          "Hughes–Chraibi four-crossing configuration",
+          "Resultary 24e4e421284e Finding and proof Step 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Horwitz's §5 unit-square equation with parameter v becomes the centered pencil in the frozen record under x↦(x+1)/2, y↦(y+1)/2, k=1−2v.",
+          "The 2015 theorem counts ellipses having a given point on their boundary and excludes common boundary points on diagonals; it does not provide the random body-coverage measure or integrated mean."
+        ],
+        "reasoning": "The transformed prior equation already determines the coverage interval by elementary algebra; the new quantitative use is its measure and the resulting all-m integral. Counting which ellipses share a given boundary point is not a count of all common points for each pair.",
+        "searches": [
+          "Horwitz arXiv:0808.0297 Lemma 2 and Proposition 1; arXiv:1505.01048v1 Theorem 1.1 and §5",
+          "Resultary contact-uniform intersections and related inellipse records"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "7d704c692dd7 treats single-ellipse stochastic bounds under uniform center sampling in nonparallelograms. e71b71af54e1 treats area moments of a single triangle inellipse.",
+          "24e4e421284e states |K_t|=4t arctan(1/t) for perpendicular congruent ellipses of semiaxes t and 1, alongside its polar-area formula."
+        ],
+        "reasoning": "Credit exact partial coverage for k=−l: for l=s≥0, rotate and scale by √(1−s) from t=√[(1+s)/(1−s)], so the prior area gives the present normalized √(1−s²) arccos(s)/2. This does not supply the kernel for unequal ellipses or the expectation under independent contact sampling. Self-match is not competing evidence; same-day dates do not establish order.",
+        "searches": [
+          "Resultary 7d704c692dd7, e71b71af54e1, 24e4e421284e and the contact-uniform all-m self-match",
+          "Targeted primary-literature query for overlap of parallelogram inellipses"
+        ]
+      },
+      "rationale": "Credit the classical tangent-family equations and point-incidence theory, standard sector overlap computation, and the previously available congruent-perpendicular subfamily of the kernel. The distinct contribution supported here is the contact-uniform all-m mean and full two-parameter exact overlap, with a family-wide crossing count as a geometric consequence of the classical pencil.",
+      "residual_risks": [
+        "The 2024 Horwitz monograph could not be inspected; historical conic-area results outside the checked sources remain possible.",
+        "The classical parametrization, general area methods and the congruent perpendicular overlap are not new claims."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior parametrization and contacts",
+          "evidence": [
+            "One-parameter family of side-tangent ellipses with explicit contact coordinates."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0808.0297",
+          "material_read": "Lemma 2 p. 2 and Proposition 1 p. 3 (text offsets 5441 and 8490)",
+          "method": "Primary PDF passages",
+          "title": "Ellipses Inscribed in Parallelograms",
+          "trigger": "Identical inellipse family"
+        },
+        {
+          "assessment": "Equivalent underlying conic equations; incidence vs area distinguished",
+          "evidence": [
+            "Interior incidence off the diagonals; §5 gives x²+y²+2(2v−1)xy−2vx−2vy+v²=0 on the unit square."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1505.01048v1",
+          "material_read": "Theorem 1.1, Corollary 1 and §5 (offsets 3239 and 61900–65549)",
+          "method": "Primary HTML theorem and exact parallelogram equations",
+          "title": "Dynamics of ellipses inscribed in quadrilaterals",
+          "trigger": "Same pencil and possible incidence/coverage implication"
+        },
+        {
+          "assessment": "General overlap ingredients and conditional crossing, not family formula",
+          "evidence": [
+            "Four-arc case integrates segments and central quadrilateral after finding the intersections."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1106.3787v1",
+          "material_read": "Abstract and four-intersection case around Fig. 9 and Eq. (40)",
+          "method": "Primary HTML passages",
+          "title": "Calculating ellipse overlap areas",
+          "trigger": "General theorem or algorithm potentially covering the exact pair formula"
+        },
+        {
+          "assessment": "Different net geometry",
+          "evidence": [
+            "Touching inscribed conics and one-parameter families in quadrilateral loops."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00454-021-00277-5",
+          "material_read": "Abstract p. 1 and Theorem 3.1 p. 6",
+          "method": "Primary text passages",
+          "title": "Nets of Lines with the Combinatorics of the Square Grid and with Touching Inscribed Conics",
+          "trigger": "Related quadrilateral conic family"
+        },
+        {
+          "assessment": "Covers the congruent perpendicular subfamily l=−k, not general pair",
+          "evidence": [
+            "Exact intersection area 4t arctan(1/t), not only the Mahler product."
+          ],
+          "identifier_or_url": "Resultary 24e4e421284e",
+          "material_read": "Finding, Assumptions and proof Step 1, offset 0–2616",
+          "method": "Local mirror, rescaling comparison",
+          "title": "Exact Mahler-product profile for intersections of perpendicular ellipses",
+          "trigger": "Exact special-case overlap"
+        },
+        {
+          "assessment": "Different sampling/settings and single-ellipse observables",
+          "evidence": [
+            "Uniform center in nonparallelograms versus two side contacts in a triangle; neither treats multiple independent inellipses of a fixed parallelogram."
+          ],
+          "identifier_or_url": "Resultary 7d704c692dd7; e71b71af54e1",
+          "material_read": "Findings and sampling hypotheses",
+          "method": "Local mirror statements",
+          "title": "Sharp stochastic area dominance and trapezoid rigidity for quadrilateral inellipses; A universal hypergeometric area law for independently side-tangent triangle inellipses",
+          "trigger": "Closest single-inellipse stochastic findings"
+        },
+        {
+          "assessment": "Unresolved potential coverage",
+          "evidence": [
+            "No readable monograph or relevant chapter obtained."
+          ],
+          "identifier_or_url": "ISBN 9781032622590",
+          "material_read": "Catalogue identification only, no full text",
+          "method": "Publisher and lawful preview/library retrieval attempts",
+          "title": "Ellipses Inscribed in, and Circumscribed about, Quadrilaterals",
+          "trigger": "Comprehensive monograph on the same family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Natural sampling on the complete affine family gives an exact shape-independent hierarchy for every sample size, not just an example, and a sharp quantitative decay law. The full deterministic kernel is useful independently of random sampling and goes beyond the known congruent case or an individual overlap computation; four transverse crossings explain the integration geometry. The result is a mean-area law, not a claim about the whole area distribution.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,164 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:42:04.146009Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 4–30 and 32–95",
+        "VERIFICATION.md; verify.py lines 15–87, inspected only",
+        "Independent exact ordered-simplex replay: /workspace/branches/5cf17160-8acc-4994-b91c-dc104ae83c3d/ordered_dirichlet_check.py; ORDERED_DIRICHLET_OK dimensions=2..16"
+      ],
+      "rationale": "The Gram matrix of the centered regular simplex gives Q_m=m(1+S_m−2M_m)/(m−1) with the largest coordinate attained at the nearest vertex. For an independent proof of the mixed moment, order the coordinates x_1≥⋯≥x_m and put W_j=j(x_j−x_{j+1}), x_{m+1}=0. The linear change takes the ordered chamber to the uniform unit simplex. Then M=a·W with a_i=1/i, and S=WᵀBW with B_ij=1/max(i,j). Write H=H_m, H2=H_m^(2). The row sum of B is 1+H−H_i; the trace is H and the total sum is 2m−H. Dirichlet third moments give m(m+1)(m+2) E[MS]=H(2m)+2∑_i a_i(1+H−H_i)+2∑_i a_i B_ii=2mH+2H+H²+H2. Subtracting (H/m)·2/(m+1) gives exactly the claimed positive covariance. Marginal variance formulas follow from standard Dirichlet moments for S and maximum-spacing moments for M. Applying the variance of S−2M checks the sign and factors in the dispersion. Independent rational ordered-simplex checks at m=2,…,16 confirmed the mixed moment, mean and variance; the smallest two cases are (mean,var)=(1/3,4/45) and (5/12,43/720). For iid unit exponentials Y_i representing the Dirichlet vector, mS_m→2 in probability and mM_m−log m⇒G (the denominator's relative error is O_P(m^−1/2) and the maximum is O_P(log m)). The prefactor m/(m−1) supplies the additional constant 1 in the shift 2G−3. The exact marginal variances and covariance give Var(S_m)∼4/m³, Var(M_m)∼π²/(6m²), and Cov∼(log m)²/m³, proving both quoted variance and correlation limits independently of convergence in law.",
+      "residual_risks": [
+        "The bounded computation supplements the arbitrary-m proof and does not verify optimality or any broader codebook claim. The supplied verifier was not executed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2026/10/18/SCOPE-exact-joint-moments-of-the-largest-uniform-spacing-and-greenwood--8791657f8166 combines the same covariance with a mixed tail-moment profile and conditional Greenwood expectation.",
+          "2026/11/2/SCOPE-exact-maximum-spacing-greenwood-dependence-and-a-truncated-quadr--e1d92a439f4f also includes the same covariance and additional threshold-conditional information.",
+          "Kabluchko–Litvak–Zaporozhets, arXiv PDF p. 9, Eq. (27), is a width limit, not the law of uniform interior-point vertex error."
+        ],
+        "reasoning": "The joint-spacing results are stronger in the relevant probability variables; a Gumbel theorem for a different geometric random variable is not, by itself, prior coverage.",
+        "searches": [
+          "Resultary: mixed tail/threshold moments of maximum spacing and Greenwood statistic",
+          "arXiv:1511.08479, regular polytopes and Gumbel limits"
+        ]
+      },
+      "checked_sources": [
+        "Earlier Resultary mixed-spacing records dated 2026/10/18, 2026/10/26 and 2026/11/2 identified above",
+        "Distinct Resultary quantization and nearest/farthest covariance records identified above",
+        "arXiv:1511.08479 p. 9; doi:10.1007/s10479-009-0567-7 retrieval attempts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Gram identity immediately makes Var(Q_m)=(m/(m−1))²[Var(S_m)+4Var(M_m)−4Cov(M_m,S_m)], and its expectation is an affine combination of standard means.",
+          "The exponential representation, univariate iid maximum limit and LLN imply the limit of Q_m by Slutsky; no new extremal dependence result is needed."
+        ],
+        "reasoning": "The precise geometry is a routine instantiation of exact spacing results for the same variables. Access limitations for one marginal-moment paper do not affect the demonstrated prior coverage.",
+        "searches": [
+          "Compare earlier exact spacing covariance and mixed-tail claims with RESULT.md equations (1)–(5) and the high-dimension limit",
+          "Onn–Weissman DOI 10.1007/s10479-009-0567-7 for known maximum-coordinate marginal moments",
+          "arXiv:1511.08479 for distinction from width extremes"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Taking gaps between successive order statistics of m−1 independent uniforms on [0,1] with the two endpoints gives exactly the uniform Dirichlet vector in the frozen result.",
+          "2026/10/18/SCOPE-exact-positive-covariance-of-maximal-and-quadratic-uniform-spaci--7536578b7678 gives the identical covariance and correlation asymptotic for the largest gap and sum of squared gaps."
+        ],
+        "reasoning": "S_m is the unscaled Greenwood statistic of those gaps, not merely a statistic with a similar asymptotic. Both finite and asymptotic mixed claims match without changing parameters.",
+        "searches": [
+          "Resultary: largest uniform spacing, Greenwood quadratic sum, exact mixed moments and correlation",
+          "Resultary: nearest-vertex quantization of a regular simplex"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/10/18/SCOPE-exact-positive-covariance-of-maximal-and-quadratic-uniform-spaci--7536578b7678, Finding: same closed covariance and same decay constant.",
+          "2026/10/26/SCOPE-exact-positive-dependence-and-slow-decorrelation-of-the-largest--a4f2c9f76454, Finding: identical mixed moment and dependence asymptotic.",
+          "2026/10/25/SCOPE-exact-deep-hole-tail-law-for-nearest-vertex-quantization-on-regu--018b3d54290b treats fixed-dimensional worst-error tails, not typical large-dimension dispersion; the distinct same-date 2026/11/8/SCOPE-strict-anticorrelation-of-nearest-and-farthest-squared-vertex-di--f7ca468673d1 is on a different pair of variables."
+        ],
+        "reasoning": "Exact mixed-moment coverage is strong regardless of whether a table indexes the derived geometric variance. Different nearest-vertex hits are not counted as matches simply because they share the geometric object.",
+        "searches": [
+          "Resultary exact maximum spacing/Greenwood covariance and regular-simplex quantization hits"
+        ]
+      },
+      "rationale": "Several materially earlier Results give the exact advertised nonstandard ingredient for the identical joint law, including its asymptotic correlation. Passing from it to nearest-vertex dispersion is the affine Gram-matrix identity plus the variance-of-a-linear-combination formula and known marginal moments. The stated high-dimensional law is the same affine identity applied to classical exponential maxima and a law of large numbers; the shift and variance constant do not require a distinct probabilistic claim. The absence of the geometric wording in the spacing records does not rescue the frozen result.",
+      "residual_risks": [
+        "No claim of exhaustive historical priority. The inaccessible marginal-moment article leaves uncertainty about further published overlaps, not about the exact earlier catalogue matches."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage",
+          "evidence": "Largest uniform spacing and Greenwood sum have the same covariance harmonic expression and √6/(2π) correlation prefactor.",
+          "identifier_or_url": "2026/10/18/SCOPE-exact-positive-covariance-of-maximal-and-quadratic-uniform-spaci--7536578b7678",
+          "material_read": "RESULT.md Finding",
+          "method": "Resultary mirror full-text passage",
+          "title": "Exact positive covariance of maximal and quadratic uniform spacings",
+          "trigger": "Strongest earlier exact covariance and correlation hit"
+        },
+        {
+          "assessment": "Contains the same covariance and a stronger mixed-tail result",
+          "evidence": "Mixed tail moment and conditional Greenwood expectation in addition to exact covariance.",
+          "identifier_or_url": "2026/10/18/SCOPE-exact-joint-moments-of-the-largest-uniform-spacing-and-greenwood--8791657f8166",
+          "material_read": "RESULT.md Finding",
+          "method": "Resultary mirror full-text passage",
+          "title": "Exact joint moments of the largest uniform spacing and Greenwood statistic",
+          "trigger": "Stronger joint-spacing claim"
+        },
+        {
+          "assessment": "Exact match for the mixed ingredient",
+          "evidence": "Same mixed moment, positive covariance and slow correlation decay.",
+          "identifier_or_url": "2026/10/26/SCOPE-exact-positive-dependence-and-slow-decorrelation-of-the-largest--a4f2c9f76454",
+          "material_read": "RESULT.md Finding",
+          "method": "Resultary mirror full-text passage",
+          "title": "Exact positive dependence and slow decorrelation of the largest spacing",
+          "trigger": "Possible duplicate of entire statistical ingredient"
+        },
+        {
+          "assessment": "Contains the same covariance with further threshold results",
+          "evidence": "Same statistics, harmonic covariance and conditional spacing results.",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-maximum-spacing-greenwood-dependence-and-a-truncated-quadr--e1d92a439f4f",
+          "material_read": "RESULT.md Finding",
+          "method": "Resultary mirror full-text passage",
+          "title": "Exact maximum-spacing Greenwood dependence and a truncated quadratic statistic",
+          "trigger": "Additional threshold-conditional coverage"
+        },
+        {
+          "assessment": "Different limit, does not supply the growing-dimension result",
+          "evidence": "Weibull limit over many sampled points in fixed dimension near worst-case error.",
+          "identifier_or_url": "2026/10/25/SCOPE-exact-deep-hole-tail-law-for-nearest-vertex-quantization-on-regu--018b3d54290b",
+          "material_read": "RESULT.md Finding",
+          "method": "Resultary mirror full-text passage",
+          "title": "Exact deep-hole tail law for nearest-vertex quantization on regular simplices",
+          "trigger": "Same geometry and distortion variable"
+        },
+        {
+          "assessment": "Different statistic; no inference from same date",
+          "evidence": "Nearest/farthest covariance, not nearest-distance variance or maximum/Greenwood mixed moment.",
+          "identifier_or_url": "2026/11/8/SCOPE-strict-anticorrelation-of-nearest-and-farthest-squared-vertex-di--f7ca468673d1",
+          "material_read": "RESULT.md Finding",
+          "method": "Resultary mirror full-text passage",
+          "title": "Strict anticorrelation of nearest and farthest squared vertex distances",
+          "trigger": "Distinct same-date geometry hit"
+        },
+        {
+          "assessment": "Full-text coverage undetermined; not used as negative evidence",
+          "evidence": "The frozen record credits maximum-coordinate marginal moments; the public author-upload route could not be read and publisher routes did not supply the text.",
+          "identifier_or_url": "doi:10.1007/s10479-009-0567-7",
+          "material_read": "Bibliographic identification; no original full-text passage verified",
+          "method": "Identified public author copy and publisher/DOI routes attempted",
+          "title": "Generating uniform random vectors over a simplex with implications to the volume of a certain polytope and to multivariate extremes",
+          "trigger": "Potential relevant spacing marginal or joint moments"
+        },
+        {
+          "assessment": "Different random variable",
+          "evidence": "A width limit, not a nearest-vertex error distribution for volume-uniform points.",
+          "identifier_or_url": "arXiv:1511.08479",
+          "material_read": "PDF p. 9, Eq. (27)",
+          "method": "OA full-text passage",
+          "title": "Mean width of regular polytopes and expected maxima of correlated Gaussian variables",
+          "trigger": "Related regular-polytope Gumbel result"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 4–27, 32–88",
+        "2026/10/18/SCOPE-exact-positive-covariance-of-maximal-and-quadratic-uniform-spaci--7536578b7678",
+        "2026/10/18/SCOPE-exact-joint-moments-of-the-largest-uniform-spacing-and-greenwood--8791657f8166"
+      ],
+      "rationale": "Typical nearest-vertex error of a uniform simplex point is a natural statistic, and the geometric reduction is useful exposition. But the frozen contribution is the already evaluated maximum/Greenwood covariance and its routine affine variance and LLN/extreme-value consequences. No further independently useful non-routine invariant, fluctuation result, or quantization obstacle remains in this claim once that coverage is accounted for.",
+      "residual_risks": [
+        "The verdict is for the frozen variance and limit, not for other questions such as optimal codebook design or exact finite-dimensional distortion laws."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

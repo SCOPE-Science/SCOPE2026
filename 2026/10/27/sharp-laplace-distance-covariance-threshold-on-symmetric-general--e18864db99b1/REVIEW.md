@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The geometry has girth twelve and diameter six, so geodesics of length at most five are unique. This yields the intersection array \(\{q+1,q,q,q,q,q;1,1,1,1,1,q+1\}\) without assuming flag transitivity. The distance polynomials satisfy the displayed three-term recurrence and have adjacency spectrum \(\{\pm(q+1),0,\pm\sqrt q,\pm\sqrt{3q}\}\). Factoring the Laplace kernel's seven multipliers exhibits a unique sign-changing sector, associated to \(-(q+1)\), with sign equal to that of \(1-qe^{-a}\) when \(a>0\). The other six sectors are strictly positive at and above the threshold. The sign-change proof is universal in integer \(q\ge2\), and the endpoint kernel has exactly one zero eigenvalue by connectivity and bipartiteness. The included symbolic checker passed its recurrence and multiplier-identity assertions.
+## correctness
 
-## Originality — PASS under bounded literature comparison
-The closest explicit spectral literature is Fiol's 2013 bipartite spectral-excess treatment and van Dam–Koolen–Tanaka's 2014 distance-regular graph survey. Their inspected sections supply distance matrices and spectral polynomials but do not state this exponential-distance positivity interval or endpoint rank. Search comparisons also considered generalized polygon terminology, geometric distance-kernel terminology, and previously available results on projective-plane incidence metrics and other graph-distance kernels. Those lower-diameter metrics cannot imply the diameter-six generalized-hexagon result; the seventh spectral sector and its factorizations must be checked separately. A potentially equivalent calculation in a broader association-scheme reference or unindexed work remains a real priority risk; no assertion of global uniqueness is made.
+PASS
 
-## Value — PASS
-The sharp positive-definiteness interval for a natural distance-based covariance family is an exact geometric/harmonic invariant across every equal-order finite generalized hexagon, independent of its realization, with arbitrarily large vertex sets. It changes an application-relevant covariance design question from a generally difficult semidefinite test to a single threshold comparison, identifies the unique null direction at the boundary, and shows that the unpowered graph metric fails negative type. The phenomenon is not justified merely by computational novelty: it is a complete continuous-parameter classification for a nontrivial incidence-geometry family.
+For any graph in scope, bipartiteness and girth twelve give unique geodesics through layer five; at layer six all q+1 neighbours lie in layer five. This yields the stated intersection numbers and vertex count, without transitivity. Independently used multiplication by A on the basis of seven distance matrices and obtained the characteristic polynomial x(x²−q)(x²−3q)(x²−(q+1)²). The basis is independent by disjoint distance supports and cyclic under multiplication by A from I, so these are precisely the seven adjacency eigenvalues. For z=e^(−a) the layer recurrence gives ((1+qz²)I−zA)K=(1−z²)(I−qz⁶ A₆). The top-distance eigenvalues are q⁵ on ±(q+1), q² on ±√q, and −q² on 0 and ±√(3q). The identity, with the row sum or alternating row sum on the valency sectors, reproduces the frozen factorizations. At 0<z≤1/q the left factor is positive on all sectors except the positive valency at z=1/q, where the kernel row sum is strictly positive directly. The right factor is positive on nonvalency sectors and vanishes at this endpoint on the negative valency, which is simple by connected regular bipartiteness. On 1/q<z<1 its kernel multiplier (1−z)(1−qz)(1+q²z²+q⁴z⁴) is negative, while z=1 is J. Thus exactly the stated PSD interval and ranks hold. The derivative of the negative-valency multiplier at z=1 is (q−1)(1+q²+q⁴)>0; it is a positive eigenvalue of the ordinary distance matrix on a zero-sum vector, directly ruling out conditional negative semidefiniteness. The alternating direction is the first obstruction, not the only sector that can become negative outside the PSD interval; the actual Finding and spectrum do not require such uniqueness.
 
-## Closest sources and limitations
-Fiol, arXiv:1304.4354 (2013-04-16), studies distance-biregularity and predistance polynomials, not the claimed cutoff. Van Dam, Koolen and Tanaka, arXiv:1410.6294 (2014-10-23), gives the Bose–Mesner spectral machinery; no direct Laplace-distance positivity classification appears in the examined relevant sections and text searches. The theorem does not treat unequal orders, powered metrics, or conditioning. Independent audit and broader human literature review are outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact matrix is already known as a Gibbs kernel, and general spectral and hypergroup criteria genuinely apply here. The inspected criteria do not evaluate the sharp positive Gibbs parameter set or the multiplicity of its nullspace for hexagons. The closest Resultary findings address arbitrary radial kernels on quadrangles and powered-distance negative type on hexagons. The supported distinct claim is the explicit positive-parameter interval with its endpoint and ranks for every admissible equal-order hexagon, not the general spectral method or merely the failure of negative type.
+
+## value
+
+PASS
+
+The exponential of graph distance is the standard Gibbs kernel and a natural proposed covariance, not an invariant chosen after the calculation. An exact parameter set and one-dimensional endpoint loss give information that an abstract spectral criterion or negative-type failure alone does not give. The result is uniform over the entire family at equal order without an automorphism assumption; it exposes the alternating bipartition direction as the binding constraint. There is no claim of a new general spectral method.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

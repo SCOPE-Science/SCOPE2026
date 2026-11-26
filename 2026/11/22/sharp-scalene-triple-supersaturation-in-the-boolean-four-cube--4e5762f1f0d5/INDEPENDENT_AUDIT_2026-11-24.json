@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T14:54:12.694972Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independently replayed every subset using literal 4-tuples and a mixed-parity vertex tally, not the frozen highest-index recurrence or its triple mask list. Same-parity distances squared are 2,4 and opposite-parity distances squared are 1,3. Thus for a vertex v alone on its parity side of a triple, the number of scalene choices from the other side is d·(b−d) with d selected cube neighbors and b total selected opposite-parity vertices. Summing over either parity for v counts each scalene triple once. /workspace/reviews/cube_replay.py checked all 65,536 distinct subsets using this identity, yielding all minima and counts and testing the equality predicate in both directions for every subset of size at least six. For k=6,…,16 the pairs (minimum,count) were (0,56),(0,16),(0,2),(16,16),(36,48),(60,64),(88,32),(124,64),(164,48),(208,16),(256,1). In a full-parity construction an opposite vertex has four neighbors and four nonneighbors; a selected opposite pair has complementary neighborhoods if antipodal, and neighborhoods with intersection two if at distance two. This independently yields 16r+4 choose(r,2)+4 times the pair count. The four disjoint antipodal pairs minimize it at max(0,r−4). The proof and replay do not classify k≤5 or extend outside Q4. The frozen checker is consistent with this replay; its stated Python 3.8 minimum in RESULT.md is a nonmathematical documentation slip, since int.bit_count requires Python 3.10 or later.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ionin's abstract gives a two-distance Hamming-space bound binom(n+1,2)+1, which is 11 at n=4, plus other regime-specific bounds.",
+          "Yi's Theorem 1.1 treats extremal isosceles configurations and uniqueness up to similarity in Euclidean dimensions 9–22.",
+          "The cited Mukkamala comparison concerns fixed-distance equilateral triples as described by the frozen record, not distinct-distance triples."
+        ],
+        "reasoning": "Bounds in larger ambient spaces or different triangle hypergraphs do not imply the Q4 profile. A sharper avoidance result in Ionin's full paper remains possible, but even an exact avoidance threshold would not supply positive-count minima and their equality cases.",
+        "searches": [
+          "Ionin DOI:10.37236/230 official abstract and publisher PDF",
+          "Yi arXiv:2611.05421v1 §1 Theorem 1.1",
+          "Mukkamala arXiv:2506.18782 (cited fixed-distance comparison; access attempted)"
+        ]
+      },
+      "checked_sources": [
+        "Ionin DOI:10.37236/230 publisher abstract",
+        "Yi arXiv:2611.05421v1 §1 Theorem 1.1",
+        "Resultary meaning searches for the Q4 hypergraph/profile"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The parity construction is in an existing area of avoidance theory. The target counts violations for all sizes, and identifies all minimizers at fixed sizes including split-parity competitors."
+        ],
+        "reasoning": "The available comparators do not force the optimal antipodal-pair count after one parity class fills, or the global fact that one parity class must fill in every minimizer above size eight. This is not obtained by applying an isosceles size bound to the positive-count regime.",
+        "searches": [
+          "Ionin EJC 16 R141 official abstract",
+          "Yi v1 §1 Theorem 1.1",
+          "Resultary: scalene counts and four-cube minimizers"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Squaring Euclidean distances on Boolean vertices identifies them with Hamming distances. The zero case is exactly the isosceles-set problem, with equilateral triples allowed.",
+          "The nonzero case is the induced edge-minimum problem in the 3-uniform hypergraph forbidding (1,2,3) and (1,3,4)."
+        ],
+        "reasoning": "The Hamming reformulation exposes genuine prior overlap on avoidance; it does not make avoidance equivalent to prescribed positive counts at larger cardinalities.",
+        "searches": [
+          "Resultary: four-cube scalene triple supersaturation parity antipodal",
+          "Ionin, Isosceles Sets, DOI:10.37236/230"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed hit 2026/11/22/SCOPE-sharp-scalene-triple-supersaturation-in-the-boolean-four-cube--4e5762f1f0d5 is the assigned item itself. No distinct exact table surfaced in this bounded check."
+        ],
+        "reasoning": "The proof compares the full size-by-size table, not just (e.g.) the cube total. The self-hit is not corroboration of priority and the lack of a distinct hit is not proof of novelty.",
+        "searches": [
+          "Resultary: exact mixed-distance triple minima all subset sizes Q4",
+          "Targeted Hamming-isosceles and Boolean four-cube source comparison"
+        ]
+      },
+      "rationale": "The supported distinct claim is the exact offending-triple profile plus all equality cases in the four-cube, not the use of parity or the general question of isosceles Hamming sets.",
+      "residual_risks": [
+        "Ionin's full text was not recovered in readable form; it could include an exact avoidance specialization.",
+        "No exhaustive priority claim against unindexed computations of the same small hypergraph."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantial avoidance background, exact Q4 avoidance specialization unresolved",
+          "evidence": "Abstract states binom(n+1,2)+1 for at most two nonzero distances and separate bounds in other regimes.",
+          "identifier_or_url": "https://doi.org/10.37236/230",
+          "material_read": "Publisher abstract; intended full text not extractable by attempted routes",
+          "method": "Official article page and OA/publisher PDF attempts",
+          "title": "Isosceles Sets",
+          "trigger": "Same isosceles property in binary Hamming spaces"
+        },
+        {
+          "assessment": "Different ambient problem and range",
+          "evidence": "Euclidean extremal cardinalities and classification up to similarity in dimensions 9–22, not a fixed-Q4 supersaturation theorem. The frozen bibliography uses a different title.",
+          "identifier_or_url": "https://arxiv.org/html/2611.05421v1",
+          "material_read": "§1, Theorem 1.1 (v1)",
+          "method": "Primary arXiv HTML",
+          "title": "Isosceles sets in Euclidean spaces of dimension nine to twenty-two",
+          "trigger": "Potential governing extremal isosceles-set theorem"
+        },
+        {
+          "assessment": "Same record, not a distinct comparator",
+          "evidence": "Same zero threshold, formula and parity/antipodal structure; matching bound ID.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-scalene-triple-supersaturation-in-the-boolean-four-cube--4e5762f1f0d5",
+          "material_read": "Indexed statement and identity with assigned frozen finding",
+          "method": "Resultary matching and bound record comparison",
+          "title": "Sharp scalene-triple supersaturation in the Boolean four-cube",
+          "trigger": "Exact indexed match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "In the four-cube the antipodal matching is within each parity class (unlike in the three-cube), producing the additional scalene pattern (1,3,4) and a change of minimizer structure after four opposite vertices. The exact profile quantifies how quickly isosceles avoidance fails and gives concrete equality cases, not merely a small-instance count or an unmotivated particular size. The finite certificate is sufficient for this natural finite problem, not evidence for a higher-dimensional generalization.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

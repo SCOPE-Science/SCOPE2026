@@ -1,19 +1,21 @@
-# Scientific review: seven-of-eight triple traces for four-cube minimum domination
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-The statement quantifies over every unordered triple of the 16 vertices, not an unverified random sample. A direct counting proof first forces minimum dominating cardinality four and two selected vertices of each parity, and then classifies all 40 minimum sets into the 16 antipodal-pair type and 24 distance-two type. Four pair-distance cases and six triple-distance cases are exhaustively characterized with explicit trace counts. The maximum shattered support has size two. The adaptive upper bound uses the exact pair co-occurrence counts and the disjoint-remainders property of all four-concept positive-positive branches; the lower bound is an eight-leaf tree with explicit minimum dominating witnesses. Both independent implementations reproduce the complete finite result, including all 560 triples. Nothing about other cube dimensions is inferred.
+PASS
 
-## Originality (PASS, subject to historical priority limitation)
+Three closed neighborhoods contain at most 15 vertices; the displayed four-set dominates. The parity coverage inequalities force two selections per parity. Antipodal same-parity pairs cover the opposite parity; distance-two pairs force the two uncovered opposite-parity vertices, which in turn cover the complementary neighborhoods. This gives precisely 16+24 optimizers in two isometry orbits. The 2,517 subsets of sizes 0–4 were independently enumerated, with all 120 pairs and 560 triples tested; full representative rows and the 400/160 missing-pattern split agree with the frozen tables. Independently, pair co-membership counts 1,1,4,4 follow from the two optimizer types. Triple co-membership is 1 for distance patterns (1,3,4) and (2,3,3) and 0 otherwise, which along with single vertex frequency 10 recovers all rows by inclusion-exclusion. No triple is shattered, so downward closure leaves exactly K16, homotopy equivalent to a wedge of 120−16+1=105 circles. In any depth-four tree the ten-concept positive first branch would need depth three; a next query either gives a singleton child or a four-concept child with pairwise disjoint remainders, whose depth is at most one. The displayed witness supplies depth three, and independent recursion also returns 3 and verifies all eight leaves.
 
-The 2020 primary source on VC dimension and density of Hamming graphs (arXiv:2007.16042v1) was read through its relevant Hamming theorems. It studies open-neighborhood concepts, whereas the present concept class consists of minimum dominating vertex sets. The 2019 hypercube domination paper arXiv:1905.13292v1 studies small connected dominating sets and bounds, not the complete membership-trace or adaptive rank of the optimum family. The closest earlier code-classification paper (Östergård and Weakley, 2000) covers structural classification of short optimal covering codes, so the 40-set census and its orbit types are credited as background rather than claimed as independently novel. Its accessible abstract does not state the triple-trace law or Littlestone dimension, but its full text could not be read and is an explicit priority risk. Published mathematical research searches, including published research-record searches under equivalences and parameters, did not identify a direct statement or dominating known trace/online theorem. This is conditional scholarly originality, not proof of first discovery.
+## originality
 
-## Value (PASS)
+PASS
 
-The precise seven-of-eight boundary is uniform over **all** 560 triples of a canonical radius-one optimal covering-code family. It supplies a complete static-shattering complex despite 40 different hypotheses, and the sharp three-round online decision tree shows a strict adaptive advantage over the two-query static limit. This sharp comparison is a motivated learning-theoretic invariant of optimal domination, not an arbitrary choice of one triple or an unexplained isolated count. The ordinary optimizer census is prior context and does not itself constitute the mathematical contribution.
+Best-of-knowledge pass for the uniform trace law and the sharp adaptive–static learning gap on this specific optimum-code family, not for the covering-code classification. The same-family code literature is a real but unresolved source risk; available primary passages and the strongest distinct catalogue comparisons do not contain or imply these learning results as stated.
 
-## Scope, related literature and unresolved risks
+## value
 
-The theorem is specific to the binary four-cube and only membership queries. The 2000 covering-code paper's full text was inaccessible; the exact strength of any pre-existing derived triple-trace tables or online decision-tree statements remains unknown. No independent expert audit or mathematical certification was performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The optimizer family is the complete natural radius-one covering problem on the four-cube, not a selected sample of concepts. Its uniform near-shattering is stronger than a VC dimension, and the sharp positive-branch obstruction plus adaptive witness explains when queries can outperform static shattering. Q4 is a natural small cutoff: for Q1 the optimizer family consists of singletons, for Q2 all pairs, and for Q3 antipodal pairs, giving equal static and adaptive dimensions in each of those smaller cases. The precise Q4 data are meaningful for comparison with other optimizer families.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

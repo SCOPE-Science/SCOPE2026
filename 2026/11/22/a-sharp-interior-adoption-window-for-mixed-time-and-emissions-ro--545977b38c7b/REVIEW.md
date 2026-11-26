@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Under the exact monotonicity, interior-crossing and fixed-demand assumptions, all four road-flow regimes are excluded or assigned by strict signs of the two class-specific cost differences. The resulting unique full two-class Wardrop allocation is explicitly feasible. Affine emissions produce the exact completed-square identity and hence the complete if-and-only-if interval classification, including equality boundaries. The \(1/5,4/5,1/2\) rational witness and its \(9/20\) improvement are independently checkable. The standalone script confirms 18,000 parameter/adoption cases using exact rational arithmetic, but the universal conclusions rest on the proof.
+PASS
 
-## Originality — PASS on inspected evidence; priority provisional
+For x<a both classes require link 1, and for x>b both require link 2, contradictions. In (a,b) only E uses link 1 and therefore x=theta; at a exactly a-theta time drivers must use link 1, feasible iff theta<=a, and at b exactly b emissions drivers use link 1, feasible iff theta>=b. This determines both class flows, including zero-demand classes and ties. Writing e1(x)-e2(1-x)=(v+z)(x-b) gives G=w+z+(v+z)[x^2-(b+rho)x]. Projecting its vertex s=(b+rho)/2 onto the attainable interval [a,b] proves the strict wedge, both equality plateaus, and the endpoint savings. Independent rational evaluation gave 21/5, 15/4, 21/5, hence 9/20 twice. Replay the independent spot check with python /workspace/branches/independent-algebra.py (item 2); neither this check nor sampling proves the general result.
 
-The exact adoption-share *total-emissions optimum*, not generic parallel-network equilibrium uniqueness, is the assessed result. Cotta Antúnez and Levin (arXiv:2207.13698, full HTML sections 3 and 4 read) explicitly omitted mixed-adoption two-link numerical cases, although they formulated the multiclass model. Milchtaich (2005, the original mathematical paper read) previously established a substantially more general parallel-network equilibrium-cost uniqueness result; it is not superseded or reasserted as new. Ahn and Rakha (2013) assessed market penetration empirically rather than giving this analytic coefficient condition. A related priced-externality result varies a price, not driver-class adoption. No inspected source established the exact wedge, plateau cases and quadratic gains together. Accessible summary-only sources and incompleteness of literature search leave priority risk; this review is not an independent audit.
+## originality
 
-## Value — PASS
+PASS
 
-The direct practical-mathematical gap is that mixed eco-routing was omitted from a canonical two-road numerical comparison on multiplicity grounds. This theorem resolves the idealized two-road case and sharply separates three potential policy outcomes: no benefit beyond a low-adoption plateau, a unique strict partial-adoption improvement over both extremes, or a high-adoption plateau. The exact gain formula measures the possible cost of choosing only the two endpoints. This is a finite-dimensional traffic model theorem with an interpretable and reproducible boundary, not a calibrated policy forecast.
+The qualitative possibility of a mixed optimum, class-specific equilibrium conditions, and generic parallel-network uniqueness are not new. The supported increment is the exact adoption-to-flow dependence and sharp affine coefficient classification with all optimizers and both gains. These follow from a direct two-link sign reduction and objective minimization, not by substituting into a known stronger classification. No equivalent classification was established by the inspected material.
 
-## Closest literature and limits
+## value
 
-Relevant original sources: Cotta Antúnez and Levin (2022), arXiv:2207.13698; Milchtaich (2005), doi:10.1287/moor.1040.0122; Marcotte and Wynter (2004), doi:10.1287/trsc.1030.0039; Ahn and Rakha (2013), doi:10.1016/j.trd.2013.09.006. The original 2005 mathematical paper and the motivating 2022 preprint were read materially. The 2013 study was inspected at abstract and accessible excerpts rather than systematically through its complete full text. The published two-route externality result was compared by its indexed scientific summary only. Primary historical priority and field validity are not certified.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The mathematical gap is motivated independently of the example: a primary two-link study avoided mixed demand for multiplicity reasons. The complete share classification shows when neither pure-policy comparison can find the optimum, gives both exact losses, and distinguishes that case from the plateaus. It resolves a practical question within a clean static model without claiming field calibration, heterogeneous congestion effects, or a network-level policy forecast.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

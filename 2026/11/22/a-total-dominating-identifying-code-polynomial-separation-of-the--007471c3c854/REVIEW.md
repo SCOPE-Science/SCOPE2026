@@ -1,15 +1,21 @@
-# Mathematical review: total-dominating identifying-code polynomial separation
+# Independent mathematical audit
 
-## Correctness — PASS
-Both graph adjacency relations, the total-domination condition, and closed-neighborhood identifying signatures are explicitly defined. A selected subset fails exactly when it lies in the downward closure of an open-neighborhood or symmetric-difference complement. The 16 open and 120 pairwise-separation caps cover **all** possible violations, so marking all their submasks is a complete decision procedure. An independent combination-and-signature program visits all \(65536\) subsets in each graph. Both return identical complete set-membership bitmaps, not merely identical totals, and reproduce all polynomial coefficients. The common high-cardinality coefficients follow additionally from 64 different ten-caps intersecting pairwise in at most eight elements. The claim is finite only; no numerical extrapolation or unproved infinite extension is made.
+## correctness
 
-## Originality — PASS (provisional historical priority)
-The 2022 founding source on total-dominating identifying codes and the 2015/2008 primary identifying-code results were inspected in full relevant text. None states these joint counting polynomials. Closest previously published results for exactly these graphs give the ordinary identifying-code minima/exchange structures and equality of total-domination polynomials; neither result determines how many codes also totally dominate. Total-domination incidence isomorphism does not preserve the closed-signature distinguishing condition. Searches of available mathematical records using graph aliases and the exact joint property found no equal or stronger claim. Remaining risks are unindexed computational tables and independently unpublished equivalent censuses.
+PASS
 
-## Mathematical value — PASS
-This is an exact natural joint-invariant census for the canonical cospectral strongly regular pair. It distinguishes graphs with identical strongly regular parameters **and** identical total-domination polynomials, shows a reversal in the six-, seven-, and eight-set coefficients, and determines the exact stabilization threshold (all sizes at least nine coincide) with a structural forbidden-cap explanation. The result is not a merely renamed known minimum or an arbitrary numeric sample, although it is restricted to two finite benchmark graphs.
+Verified the joint definition: every open-neighborhood witness must meet the chosen set, and every symmetric difference of distinct closed neighborhoods must meet it. The first condition already makes all closed signatures nonempty. Independently built each graph from translates of its generator set in Z₄² and used a Boolean subset-zeta transform to propagate failure from each witness to all complements containing it. This covers all 65,536 labeled choices per graph, including the empty set. The length-17 coefficient vectors, sums 42375 and 42459, and both full membership-bitmap hashes matched the frozen values. I checked the strongly regular common-neighbor counts and that the 64 size-six witnesses are distinct and pairwise differ in at least four positions, so their ten-vertex complements share no nine-subset. This independently explains the identical tail: all size at least 11 sets count, there are binom(16,10)−64 valid ten-sets and binom(16,9)−640 valid nine-sets. The two minima are 6; the labeled-count difference is exactly 16z⁶−64z⁷−36z⁸. The frozen scripts were inspected, not executed.
 
-## Scientific limitations and related literature
-The foundational total-dominating identifying-code paper is arXiv:2206.09481; ordinary identifying codes for strongly regular graphs are treated by Gravier et al., DOI 10.37236/5256. The closest direct pair comparisons are the published published-finding corpus titles *Optimal identifying-code exchange geometry of the Shrikhande and four-by-four rook graphs* and *Paired-domination distinguishes two graphs with identical total-domination polynomials*, which concern different properties. The theorem is an exact finite classification, not a priority certificate, a general family formula, or an independent mathematical audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The joint code class is already known (including under the alias differentiating-total dominating set), as are related invariant values for this graph pair. The supported distinct claim is the exact joint cardinality distribution and where it distinguishes this pair. Prior minimum-size theorems, minimum ordinary-code counts, and separate total- or paired-domination distributions do not supply this joint census.
+
+## value
+
+PASS
+
+The Shrikhande and 4×4 rook graphs are a natural strongly regular comparison pair with the same parameters and known identical pure total-domination distributions. The established joint code class detects a difference where even its minimum size does not, with reversed order between size six and sizes seven/eight and exact equality above them. That profile is a meaningful precise benchmark for separation criteria and stronger than exhibiting a single numerical distinction. The witness geometry accounts for the common tail.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

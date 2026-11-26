@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact simplicial star-of-cones decomposition follows from the independence complex of the spider's line graph, with one incompatible central-edge clique. The standard path deletion–link suspension recurrence supplies all residue cases. For residue-one arms the link-to-base map induces an isomorphism of free rank-one integral homology and hence is a homotopy equivalence of sphere-type complexes; all other link cases are contractible or give a single sphere. The relative connecting map is the integral signed augmentation, giving a primitive kernel lattice and no torsion. The low-dimensional \(S^0\) case is dealt with explicitly. Independently generated face enumerations and signed fixed-face traces passed 765 nonequivariant and 146 equivariant cases. Neither finite check is treated as the all-parameter proof.
+## correctness
 
-## Originality — PASS against inspected evidence
-The complete mixed-arm residue classification and integral group-ring module were not found in the inspected 2019 tree-matching analysis, 2022 extended-star Morse calculation, or 2024 outerplanar matching result. The matching-tree paper gives exact results for caterpillars, not all spiders. Published extended-star Morse findings and the existing published-finding corpus integral arm-permutation theorem do cover the *uniform four-edge-arm* matching-complex specialization; they are explicitly credited and excluded as separate novelty. The outerplanar result and the old path-contraction lemma imply a general sphere-wedge property and reductions, but neither states this global length-profile formula or its full integral symmetry lattice. Risk: unpublished, unindexed or independently deducible equivalent formulas; no absolute uniqueness claim is made.
+PASS
 
-## Value — PASS
-Arbitrary spider trees are the simplest trees with a genuine branch point and noncaterpillar long-arm configurations. The result gives an all-size sharp phase diagram, exact sphere multiplicities and dimensions, a natural integral permutation representation, and structural criteria for the failure of any homology at all. Mixed lengths matter: an extra residue-two arm forces contractibility, while residue-one arms produce a signed augmentation representation. Such information is not supplied by the general known statement that matching complexes of forests are sphere wedges.
+The center is the unique vertex of degree greater than two, so automorphisms permute equal-length arms. The matching complex is the independence complex of the line graph. Delete all central edges to get the join X of A_i=Ind(P_(ell_i−1)); the link of central edge i replaces its factor by B_i=Ind(P_(ell_i−2)), with the empty-face join unit for ell_i=1. Cone interiors are disjoint. In a path, deletion of the penultimate vertex leaves a cone and its link is shorter by three. In residue one, the inclusion B_i→A_i has cofiber the suspension of the contractible path complex Ind(P_(3k−2)) for k≥1, and is the identity for k=0. Hence it is a homotopy equivalence: use the homology isomorphism on equal sphere types, including component bijection for S^0. Residue zero has contractible B_i; residue two has contractible A_i. Thus two residue-two factors make all links and X contractible, exactly one yields one suspended exceptional link, and with none the r equivalent link maps cone off X zero, one, or r times. After the first such cone the remaining r−1 attach by null maps. When s=0 the all-unit case is a set of r isolated vertices; the single residue-two case adds a separate cone vertex to a contractible component. For the integral action, a generator of each relevant factor lies in degree k−1, so the augmented join orientation contributes (−1)^k to an equal-arm transposition. Orient link classes using their isomorphisms to the base and orient cones by the apex first. The relative boundary is then the ordinary augmentation on R tensored with the join orientation lattice, so its integral kernel is exactly the claimed signed lattice. The exceptional link index is fixed in the one-residue-two case, and its cone has the same sign character. The frozen Python and recorded 765 rank/146 trace checks were read as bounded corroboration, not rerun or used to infer the integral lattice.
 
-## Closest literature and limitations
-Relevant original statements include arXiv:1905.10560, arXiv:2207.13780 (Theorem 15) and arXiv:2411.04601 (outerplanar wedge and contraction), and the 2026 published-finding corpus extended-star Morse integral symmetry theorem. The claim concerns only ordinary matching complexes of spider trees and natural equal-arm permutations, not arbitrary graphs or equivariant homotopy types. Originality remains assessed against accessible published evidence; independent scientific audit is pending.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The full mixed-arm phase/count formula together with the actual integral equal-arm action is distinct on inspected evidence. Earlier broad wedge and suspension reductions, the matching classification for arms of lengths four and six via subdivision, and the uniform four-edge integral sign-twisted augmentation case are credited as covered; no priority is inferred from the absence of other matches.
+
+## value
+
+PASS
+
+The all-size classification determines precisely when a natural one-branch tree matching complex is contractible, how many spheres survive, and which orientation signs and integral lattices occur under full arm symmetry. Mixing lengths gives distinct phenomena, notably cancellation after adding a second residue-two arm and a single coherent augmentation lattice across different residue-one lengths. These facts supply data not obtained just by knowing a forest matching complex is a wedge or the equal-arm four-edge specialization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

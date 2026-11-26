@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T18:41:18.624824Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A maximal chamber corresponds to an acyclic orientation, and each cover edge gives a facet: its endpoints can be tied while keeping all other inequalities strict, by contracting the cover in the DAG. The undirected cover graph remains connected because deleted edges are replaced by paths. With m facets the cover graph is a tree, and its edge roots form an integral basis of the specified root lattice (e.g. eliminate leaves); with more facets the cone is not regular. For mixed spokes, every crossing rim edge is forced from the incoming group to the outgoing group and becomes transitive through the hub. Internal run edges are covers since no directed detour can leave and reenter their group. Only incoming-run sinks and outgoing-run sources give hub covers. The cover count is m−2r plus the number of these extrema, so regularity is exactly one extremum per run. A length-ℓ path supplies ℓ choices, and marking one of r starts of an incoming run accounts for m/r. The two uniform-spoke strata each have 2m directed Hamiltonian-path shortcuts; no other uniform-spoke chamber can have only m covers. The two factors of 1−R(z)^2 give the stated Lucas and cosine terms. Independently, the two-letter transfer matrix with diagonal 2 and off-diagonal 1 counts 3^m+1 rim assignments for all spoke words, before the four uniform-spoke directed rim cycles are excluded. Thus the denominator is 3^m−3, including m=3, and the leading exponential rate follows. Scope is fixed points and arbitrary algebraically closed base field. The finite reachability checker was inspected, not executed, and is not used for the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Postnikov–Reiner–Williams identify simplicial cones by tree-posets and classify graphs whose entire zonotope is simple.",
+          "Grujić gives a global face enumerator; it does not count incidences at vertices partitioned by incoming-spoke count.",
+          "Savage–Squire–West give 3^m−3 and the wheel spoke-word encoding, without the single-extremum criterion and weighted smooth enumeration."
+        ],
+        "reasoning": "Knowing that the wheel is not globally simple for m≥4, or enumerating faces or all acyclic orientations, does not supply the regularity strata. The general orientation/forest thesis remains a plausible unverified lead.",
+        "searches": [
+          "arXiv:math/0609184 §§3,5; arXiv:1604.06931 p. 1",
+          "arXiv:1412.8114 p. 1; MIT thesis hdl:1721.1/99325",
+          "Gray Code Results for Acyclic Orientations, Theorem 3.1 and §4"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–68; VERIFICATION.md; wheel_smooth_fixed_point_check.py",
+        "arXiv:math/0609184, 1604.06931, 1412.8114",
+        "Savage–Squire–West author PDF",
+        "MIT thesis locator hdl:1721.1/99325",
+        "Resultary 00ad365d2ac5, 29d08be283fc, 82aefc80fef1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The older spoke encoding treats every within-run rim edge as free and does not track the needed run extrema. The general tree-poset criterion supplies the smoothness test but not how many spoke words and directions pass it.",
+          "The indexed wheel proof does use R(x)=x/(1−x)^2 and aggregates cyclic run lengths by degree and run count."
+        ],
+        "reasoning": "The indexed proof is materially close and can be refined by marking the two types of run lengths separately. Its displayed univariate count does not itself provide those coefficients. The supported distinction is the explicit spoke-refined invariant, not a claim that the same total or run method is unmatched.",
+        "searches": [
+          "Savage–Squire–West §4; Postnikov–Reiner–Williams Propositions 3.5 and 5.2",
+          "Resultary 00ad365d2ac5, minimum-degree/run-weight derivation at offsets 0 and 6800"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cover facets equal chamber degree in the acyclic-orientation flip graph. Minimum degree m therefore picks out precisely the regular chambers, not a different statistic.",
+          "The later wheel flip-degree record gives L_(2m)+4m−4+2cos(mπ/3) for that degree class; L_(2m) is the sum of the two displayed m-th powers."
+        ],
+        "reasoning": "There is exact equivalence for the unrefined count; the degree polynomial sums over spoke counts, whereas S_(m,k) keeps track of k.",
+        "searches": [
+          "Wheel graphical-arrangement simplicial chambers, tree-Hasse and flip-degree formulations in local Resultary and primary literature",
+          "arXiv:math/0609184, Proposition 3.5",
+          "Resultary 00ad365d2ac5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "00ad365d2ac5 gives the same all-m total and includes a full flip-degree polynomial. Its displayed November 1 date is later than the assigned record's October 18 date.",
+          "The same-date fan and generalized-theta records give different graph families; the fan has a path, not a cycle, outside the hub."
+        ],
+        "reasoning": "An exact catalog hit exists for the unrefined sequence, and the run method overlaps too. No compared catalog statement gives the joint restriction of regularity and number of incoming spokes in wheels; dates alone do not determine discovery or priority.",
+        "searches": [
+          "Local Resultary wheel flip degree, simplicial chambers and fan/theta graphical zonotope records: 00ad365d2ac5, 29d08be283fc, 82aefc80fef1"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the explicit wheel enumeration with the incoming-spoke refinement, not the tree-poset criterion or the all-orientation total. A distinct later-dated indexed wheel result gives exactly the smooth total and uses the same underlying run-weight method; this is equivalent coverage of the total formula, not a separate corroboration of priority. The compared result does not give the incoming-spoke distribution.",
+      "residual_risks": [
+        "The 2015 MIT thesis was not available for a full-text comparison; the accessible preprint is not a substitute.",
+        "The equivalent indexed total and the shared run derivation limit the scope of the originality assessment; an earlier wheel-spoke refinement under different terminology has not been ruled out."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent criterion, no wheel stratum enumeration in those results",
+          "evidence": [
+            "Facets correspond to covers; simplicial full-dimensional poset cones correspond to trees; the zonotope is simple iff each biconnected component is complete."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/0609184",
+          "material_read": "§3 Proposition 3.5(8)–(9) and Corollaries 3.6–3.7, pp. 11–13; §5 Proposition 5.2, pp. 16–17",
+          "method": "bounded OA primary PDF passages",
+          "title": "Faces of Generalized Permutohedra",
+          "trigger": "General equivalence and global simplicity coverage"
+        },
+        {
+          "assessment": "Direct prior for all orientations and forced/free edges, not the regularity count",
+          "evidence": [
+            "w_m=3^m−3; crossing and same-type rim edges enter the encoding differently."
+          ],
+          "identifier_or_url": "https://dwest.web.illinois.edu/pubs/aograph.pdf",
+          "material_read": "Theorem 3.1 proof p. 5 and §4 pp. 15–16 (offsets 13600 and 42600)",
+          "method": "bounded author-hosted PDF passages",
+          "title": "Gray Code Results for Acyclic Orientations",
+          "trigger": "Exact wheel count and existing spoke-word encoding"
+        },
+        {
+          "assessment": "Global face polynomial does not give the local vertex property by spokes",
+          "evidence": [
+            "The displayed f-polynomial is built using the graph invariant χ_(−q)(Γ,−1)."
+          ],
+          "identifier_or_url": "arXiv:1604.06931",
+          "material_read": "p. 1, face enumerator and vertices/orientations passage",
+          "method": "bounded OA primary PDF passage",
+          "title": "Counting Faces of Graphical Zonotopes",
+          "trigger": "Possible broader enumerator"
+        },
+        {
+          "assessment": "Inspected preprint material does not furnish this enumeration; thesis is unresolved",
+          "evidence": [
+            "The preprint passage concerns partial acyclic orientation complexes and rooted forests; it is not the full thesis."
+          ],
+          "identifier_or_url": "arXiv:1412.8114; hdl:1721.1/99325",
+          "material_read": "Preprint p. 1; thesis locator only, no thesis full text available",
+          "method": "OA preprint and attempted MIT Handle/DSpace retrieval (HTTP 429)",
+          "title": "Acyclic Orientations and Spanning Trees; Combinatorics of acyclic orientations of graphs: algebra, geometry and probability",
+          "trigger": "Plausible graphical arrangement and orientation/forest coverage in preprint or thesis"
+        },
+        {
+          "assessment": "Exact overlap for total and material overlap for proof, no stated k refinement",
+          "evidence": [
+            "Minimum-degree count L_(2m)+4m−4+2cos(mπ/3); run weights R(x)=x/(1−x)^2."
+          ],
+          "identifier_or_url": "Resultary:00ad365d2ac5",
+          "material_read": "Mirrored RESULT.md offsets 0 and 6800, finding and minimum-degree derivation",
+          "method": "local Resultary search and mirrored primary record",
+          "title": "Degree distribution of the wheel acyclic orientation flip graph",
+          "trigger": "Same wheel and exact regularity class via degree m"
+        },
+        {
+          "assessment": "Related techniques, not same graph/statistic",
+          "evidence": [
+            "Fan uses K_1 joined to a path, with smooth count 2F_(2m); theta has a different edge and cycle structure."
+          ],
+          "identifier_or_url": "Resultary:29d08be283fc; Resultary:82aefc80fef1",
+          "material_read": "Mirrored RESULT.md findings at offset 0",
+          "method": "local Resultary search and mirrored primary records",
+          "title": "Fan graphical zonotope degree spectrum; generalized-theta graphical zonotope chamber facet profiles",
+          "trigger": "Related same-date exact smooth enumerations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The family is natural and nonsimple from m=4 onward. Counting lattice-regular chambers is not a consequence of the global nonsimplicity flag or an ordinary face count. The precise incoming-spoke distribution retains the hub's order relation to rim vertices, yielding a motivated refinement, while its sum quantifies exponential rarity. This does not claim to describe nonfixed smooth or singular orbits.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

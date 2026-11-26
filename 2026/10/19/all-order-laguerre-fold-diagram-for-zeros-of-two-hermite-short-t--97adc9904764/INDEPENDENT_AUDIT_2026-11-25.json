@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:26:24.626081Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–74; VERIFICATION.md; verify_all_orders.py and recorded checker_output.txt inspected as evidence, not executed",
+        "Independent replay: python /tmp/opencode/review1_exact.py (SymPy exact Sturm counts for n=1–8, three sample levels per n). At t=c/sqrt(n!), count positive roots of c L_n(r^2)±r^n, multiplying their total by n. The n=2 fold equation and radial derivative were also checked symbolically at equality."
+      ],
+      "rationale": "Completing the square in the defining integral and introducing physicists' Hermite generating variables u,v yields the normalized Gaussian/phase prefactor times exp(sqrt(2) z u-sqrt(2) conjugate(z) v+2uv). With the stated normalization, the coefficients for (n,0) and (n,n) are z^n/sqrt(n!) and L_n(s). Since P(0)=t and the imaginary part off zero is r^n sin(n theta)/sqrt(n!), the listed rays are exhaustive. With R=s^(-n/2)L_n(s), its derivative numerator H=2sL_n'-nL_n has degree n, is negative at zero, and is positive at negative infinity. Rolle gives n-1 distinct gap roots; the negative root exhausts the degree, making every gap root simple, with none in the two outer intervals. This includes n=1. The outer limits are +infinity at zero and signed infinity at infinity. Each nonzero horizontal level has the required n rays of the opposite parity to the sign of R, and each inner gap can only meet its level twice, touch, or miss it. Disjoint radii make coincidences additive. At a zero, angular differentiation of the imaginary part is nonzero, while the real radial derivative has the sign of R'; the oriented determinant has the stated additional ray sign. The outer populations are opposite and an inner pair has opposite indices. At a stationary zero the second radial derivative and the parameter derivative L_n(beta) are nonzero, giving a rank-one fold with zero local degree. For n=2, H=s^2-2 and direct substitution gives the exact threshold and 4/6/8 counts.",
+      "residual_risks": [
+        "The shipped checker uses numerical Laguerre roots for the gap comparisons; its final sample-count function evaluates the asserted formula rather than independently finding zeros. Neither feature is a premise of the all-order proof. No distinctness of thresholds, complex-amplitude classification, or general polyanalytic zero bound is asserted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "GJM give zero existence in particular when highest degrees differ; highest degrees here coincide. Sète–Zur give existence/finiteness and bounds in more general polyanalytic families."
+        ],
+        "reasoning": "Neither inspected general claim determines the radial stationary values, the number on each side of a level, or the critical-parameter counts in the frozen family.",
+        "searches": [
+          "arXiv:1811.03937, §6 (24)–(31), Prop. 6.4",
+          "arXiv:2403.04591v2, Theorems 2.3 and 2.5"
+        ]
+      },
+      "checked_sources": [
+        "GJM 1811.03937; Bellourak et al. 2610.13531v1; Sète–Zur 2403.04591v2; Resultary 0abe87c5dd13, 11f675377dc1 and b29de85f07c8"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The same transform formulas plus linearity supply the reduction; the primary probabilistic work compares charges in white-noise statistics; the deterministic comparable Resultary theorem solves a distinct radial problem."
+        ],
+        "reasoning": "The conclusion does not follow by merely substituting n or t into these theorems: one needs the exhaustive critical-root and level-count argument for the actual Laguerre ratio. The isolated n=2 algebra is an illustration rather than the basis of the assessment.",
+        "searches": [
+          "Bellourak et al. arXiv:2610.13531v1 §2.3 and §4; GJM §6; matched Resultary 0abe87c5dd13"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "GJM §6 and Bellourak et al. Prop. 2.2 give the component transform identities. The rotational split here is into real levels of L_n(s)/s^(n/2)."
+        ],
+        "reasoning": "Equivalent STFT/complex-Hermite formulations cover the initial polynomial, but an actual all-level real radial classification is an additional assertion.",
+        "searches": [
+          "Resultary: Laguerre-ratio zeros, Hermite STFT thresholds, folds and indices",
+          "Web: Hermite short-time Fourier transform zeros exact zero count Laguerre polynomial Hermite windows bifurcation threshold zeros STFT literature"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest 0abe87c5dd13 has first-Hermite window and two higher input orders, and its function is s^((m-k)/2)|m-s|/|k-s|. The other matches concern Gaussian-window intensity critical points or a two-tone Gaussian-derivative STFT."
+        ],
+        "reasoning": "The first produces a different ring classification; the second is not a zero census; the third has different inputs and geometry. They are not exact tables of these thresholds or fold counts.",
+        "searches": [
+          "Resultary radial Hermite-STFT bifurcations; records 0abe87c5dd13, 11f675377dc1, b29de85f07c8"
+        ]
+      },
+      "rationale": "Credit the known complex-Hermite transform, ordinary Laguerre roots and general local fold mechanism. The distinct supported contribution is the complete deterministic Laguerre-gap count and thresholds, with indices and simultaneous folds, for this prescribed input/window family. The strongest available comparisons differ on the actual radial function, assumptions, or invariant; no dominating statement was identified in the bounded check.",
+      "residual_risks": [
+        "Limited literature and catalogue coverage does not establish historical priority; a special-function or window-specific treatment outside the inspected statements may exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Component formulas and partial general existence, not the census in the inspected results",
+          "evidence": "Proposition 6.4 employs different highest Hermite degrees; the equal-degree case here requires its own analysis.",
+          "identifier_or_url": "https://arxiv.org/abs/1811.03937",
+          "material_read": "PDF pp. 11–14 §6, equations (24)–(31) and Proposition 6.4, offsets 39304 and 48000",
+          "method": "OA primary PDF",
+          "title": "Zeros of the Wigner distribution and the short-time Fourier transform",
+          "trigger": "General Hermite-window STFT formulas and zeros"
+        },
+        {
+          "assessment": "Classical formula and probabilistic charge comparison",
+          "evidence": "Complex-Hermite formula specializes to the two components; §4 concerns random zeros, not a deterministic amplitude bifurcation.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.13531",
+          "material_read": "PDF p. 6 §2.3 Prop. 2.2 Eq. (19), offset 16025; abstract and §4 p. 12 offset 33464",
+          "method": "OA primary PDF",
+          "title": "Zeros of the Spectrogram of White Noise with Hermite Windows",
+          "trigger": "Laguerre formula and signed Jacobian charges"
+        },
+        {
+          "assessment": "General existence, finiteness and bounds",
+          "evidence": "No Laguerre-ratio level census is stated in the inspected theorems.",
+          "identifier_or_url": "https://arxiv.org/abs/2403.04591",
+          "material_read": "Abstract and pp. 3–4 §2 Theorems 2.3 and 2.5, offsets 0 and 8500",
+          "method": "OA primary PDF",
+          "title": "On the zeros of polyanalytic polynomials",
+          "trigger": "Possible broader zero theorem"
+        },
+        {
+          "assessment": "Similar technique, different family and thresholds",
+          "evidence": "Its radial function is a ratio of linear factors times a power, producing three, four or five polygons; the input and window are different.",
+          "identifier_or_url": "2026/11/16/SCOPE-five-circle-bifurcation-and-conserved-zero-charge-for-two-mode-f--0abe87c5dd13",
+          "material_read": "RESULT.md Finding offset 0 and relationship discussion offset 9500",
+          "method": "Local Resultary mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Five-circle bifurcation and conserved zero charge for two-mode first-Hermite STFTs",
+          "trigger": "Strongest deterministic overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md count, fold and index theorem; verified comparator scopes in originality"
+      ],
+      "rationale": "At fixed Hermite order the positive mixing amplitude changes the number of isolated Gabor zeros from 2n to 2n². Exact cutoffs and the degeneracy and orientation at each transition provide substantially more than generic finiteness or a numerical example, and determine when a reader studying this standard window perturbation gains or loses phase singularities. Coincident thresholds are covered without a distinctness conjecture.",
+      "residual_risks": [
+        "The classification is specific to the chosen one-parameter normalized family; it does not imply robustness to arbitrary perturbations or to noise."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

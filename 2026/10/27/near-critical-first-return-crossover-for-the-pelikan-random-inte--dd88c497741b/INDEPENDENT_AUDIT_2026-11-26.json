@@ -1,0 +1,152 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:55:25.351832Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–71",
+        "Frozen VERIFICATION.md, lines 19–23; verify.py, lines 8–96 (read, not executed)"
+      ],
+      "rationale": "The uniform initial point gives J=1 on contraction and P(J=j | expansion)=2^(-j-1), hence E[J]=1 and τ=1+H_J, with H_0=0. After launch, levels strictly above zero follow a walk with up probability q=1-p and down probability p until the hit. An independent reflection check verifies the constant and signs: for N=n−1 and a free walk S_N started at zero, P(H_j>N)=P(1−j≤S_N≤j)+(1−(p/q)^j)P(S_N≥1+j). Reflecting a path's segment through its first hit converts start j to start −j and increases the number of up steps by j, which gives the weight (p/q)^j in the subtracted paths. With p=p_n and fixed j>0, the first interval contains exactly j points of the allowed parity; Stirling's formula gives mass asymptotic to 2φ(u)/sqrt(n) at each (φ is the standard normal density). The ordinary limit for this triangular array of bounded increments gives P(S_N≥1+j)→Φ(−u), since the drift of S_N/sqrt(n) tends to −u and the variance to 1. Also sqrt(n)(1−(p_n/q_n)^j)→−2uj. The binomial maximum is bounded by C/sqrt(n) uniformly for large n, and the positive part of 1−(p_n/q_n)^j is at most C_u j/sqrt(n), by the geometric sum when p_n≤q_n and zero otherwise. This bounds the scaled tail by C'_u j and justifies averaging the fixed-height limit against the geometrically bounded launch laws. The result is 2φ(u)−2uΦ(−u), with derivative −2Φ(−u). Eventual escape from j>0 is 1−(p/q)^j for p<q and zero otherwise; averaged over J it adds scaled mass −2u for u<0. The ballot proof's parity factor and the n−1 horizon are therefore consistent. The stated generating function also follows directly from h=z(p+qh²) and E[h^J]=qh+p/(2−h).",
+      "residual_risks": [
+        "The floating-point horizon illustrations and rational finite-time checks are not relied on for the limit. The proof is for fixed u and the annealed uniform top-band start only."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The located small-drift primary source treats occupation times below zero and their Brownian-with-drift limits, a different event from survival starting at fixed height.",
+          "Hata–Yano give critical infinite-ergodic limit laws; Yan et al. discuss the transition, density and correlations. The inspected statements do not give the shrinking-bias return survival."
+        ],
+        "reasoning": "A fixed-height walk starts at a height tending to zero after diffusive rescaling. An unconditioned functional CLT or Brownian first-passage formula by itself therefore does not supply the first-order survival amplitude. A known general uniform fixed-height first-passage limit could well imply this result; none was verified in the bounded comparison.",
+        "searches": [
+          "Small-drift random walk first passage with drift proportional to n^(-1/2); Schulte-Geers and Stadje arXiv:1601.00609",
+          "Critical Pelikan results, Hata–Yano arXiv:2108.01332 Theorem 1.2 and Yan et al. arXiv:2308.09269"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2409.19999, 2108.01332, 2308.09269, 1601.00609",
+        "Resultary 00cc475a51a1 and 089eef514dd6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Exact absorption formulas allow the return law to be reconstructed by adding the launch branches. The fixed-parameter near-edge asymptotics and the critical case do not control error uniformly when drift is O(n^(-1/2)).",
+          "For negative u the escape contribution has the same n^(-1/2) order as the finite-return tail; the claimed expression does not discard it."
+        ],
+        "reasoning": "The exact transforms are inputs, so no priority is claimed for the finite distribution. To obtain the profile one still needs a joint time/bias asymptotic with the walk starting a fixed number of levels from the boundary and justified averaging. Combining fixed-parameter tail formulas without this control would conflate the two limits.",
+        "searches": [
+          "Monthus Appendix B, Eqs. B8–B11, B22–B27, B35–B41, B45–B47",
+          "Resultary 089eef514dd6, first-return generating function and fixed-parameter tail finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Monthus derives discrete absorption for a walk killed at −1, with fixed-start and geometric-start transforms. Given expansion and no immediate return, the shifted initial level has that geometric launch distribution; contraction contributes a different fixed-height term.",
+          "Resultary 089eef514dd6 gives the same top-band first-return generating function and the exact critical tail asymptotic."
+        ],
+        "reasoning": "A reset-time law or only the geometric launch component is not the entire return law. The exact top-band transform is equivalent at the level of the finite law but the stated pointwise-in-p asymptotics of its coefficients do not by substitution give the triangular-array limit.",
+        "searches": [
+          "Pelikan dyadic first return versus biased walk absorption with geometric initial level, Monthus arXiv:2409.19999 Appendix B",
+          "Resultary Pelikan first return and pole/branchpoint asymptotics, 089eef514dd6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 00cc475a51a1 treats maximum depth M in the same excursion, with m(2p_m−1)→a, on the p≥1/2 side.",
+          "Resultary 089eef514dd6 treats the same return time, including the shared u=0 asymptotic, but its inspected regimes use fixed p."
+        ],
+        "reasoning": "A maximum-depth tail at inverse-depth bias is not a return-duration tail at inverse-square-root time bias; a depth/time comparison cannot identify the exact duration profile. The critical overlap with the direct return-time result is exact, while the two-sided u-dependence was not matched. Dates do not decide priority.",
+        "searches": [
+          "Resultary Pelikan critical crossovers and excursion duration/depth: 00cc475a51a1 and 089eef514dd6"
+        ]
+      },
+      "rationale": "The verified overlap covers the dyadic model, the biased-walk transforms, the same top-band generating function and the critical u=0 slice. Pass the two-sided moving-bias return-duration profile, including the escaped mass, rather than any of those ingredients. No inspected stronger result supplies the fixed-height survival asymptotics at the required window or their averaged top-band consequence.",
+      "residual_risks": [
+        "A general uniform small-drift survival theorem or a uniform asymptotic of the same generating function could subsume the window; none was identified in the inspected statements. No exhaustive priority claim is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong overlap in exact components and fixed-parameter asymptotics, not the assembled two-sided shrinking-bias window",
+          "evidence": [
+            "The walk killed at −1 has fixed-start transforms, a separate geometric-start transform and fixed-parameter escape; the critical tail is treated separately."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2409.19999",
+          "material_read": "Abstract and §I p. 1; Appendix B Eqs. B8–B11 pp. 36–37, B22–B27 p. 39, B35–B41 p. 41, B45–B47 p. 42",
+          "method": "Inspect bounded passages of open full text",
+          "title": "Explicit dynamical properties of the Pelikan random map in the chaotic region and at the intermittent critical point towards the non-chaotic region",
+          "trigger": "Same map, geometric resets and first-passage generating functions potentially implying the result"
+        },
+        {
+          "assessment": "Critical results for occupation, not the varying-bias return tail",
+          "evidence": [
+            "The theorem concerns the critical p=1/2 map and Darling–Kac occupation behavior for absolutely continuous initial data."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2108.01332",
+          "material_read": "§1, Theorem 1.2, p. 4 (bounded offsets 6800–14241)",
+          "method": "Inspect open full-text statement",
+          "title": "Arcsine and Darling–Kac laws for piecewise linear random interval maps",
+          "trigger": "Same critical Pelikan map and infinite-ergodic laws"
+        },
+        {
+          "assessment": "Confirms related density and correlation results; not a whole-document exclusion",
+          "evidence": [
+            "The abstract discusses the transition, invariant density and position correlations."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2308.09269",
+          "material_read": "Abstract p. 1 near offset 0",
+          "method": "Inspect bounded passage of open primary text",
+          "title": "Transition to anomalous dynamics in a simple random map",
+          "trigger": "Same dynamical transition"
+        },
+        {
+          "assessment": "The inspected limit concerns occupation, not fixed-height survival",
+          "evidence": [
+            "The limiting observable is time spent below zero, with a Brownian drift counterpart."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1601.00609",
+          "material_read": "Opening statement and abstract at p. 1, offset 0",
+          "method": "Inspect bounded passage of open primary text",
+          "title": "Small Drift Limit Theorems for Random Walks",
+          "trigger": "Potential stronger small-drift result"
+        },
+        {
+          "assessment": "Different excursion observable and bias scaling",
+          "evidence": [
+            "Its scaling is in maximum depth m with m(2p_m−1)→a, and it treats p≥1/2."
+          ],
+          "identifier_or_url": "Resultary: 2026/10/18/SCOPE-exact-maximum-depth-excursions-and-two-critical-crossovers-in-th--00cc475a51a1",
+          "material_read": "RESULT.md Finding on maximum depth and crossover parameters",
+          "method": "Bounded local mirror inspection",
+          "title": "Exact maximum-depth excursions and two critical crossovers in the Pelikan random map",
+          "trigger": "Same launch and excursion with a critical crossover"
+        },
+        {
+          "assessment": "Direct coverage of the transform and critical slice; no given shrinking-bias profile",
+          "evidence": [
+            "At p=1/2 it gives P(τ>n)∼sqrt(2/(π n))."
+          ],
+          "identifier_or_url": "Resultary: 2026/11/1/SCOPE-a-pole-branchpoint-trichotomy-for-first-returns-in-the-pelikan-r--089eef514dd6",
+          "material_read": "RESULT.md Finding on the transform and fixed-p regimes",
+          "method": "Bounded local mirror inspection",
+          "title": "A pole-branchpoint trichotomy for first returns in the Pelikan random map",
+          "trigger": "Same first-return observable and exact generating function"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–19, 35–63 and 76–80",
+        "Monthus Appendix B and the Resultary depth crossover statement"
+      ],
+      "rationale": "The scale is forced by balancing mean walk drift over n steps with sqrt(n) fluctuations, not by choosing arbitrary parameter values. The exact crossover quantifies how critical slow returns change under either sign of a perturbation, and on the transient side separates escape from paths that will return after the observation horizon. That distinction is invisible from the recurrence dichotomy and from the exact critical amplitude alone. The result supplies a duration profile complementary to the known geometric launch/reset and depth quantities.",
+      "residual_risks": [
+        "No uniform error rate, quenched limit, alternative initial laws or functional invariance principle is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

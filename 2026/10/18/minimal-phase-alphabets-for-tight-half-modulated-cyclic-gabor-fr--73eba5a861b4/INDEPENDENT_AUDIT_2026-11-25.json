@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:37:11.632025Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Summing the M characters of the even modulation subgroup annihilates entries except those with i≡j modulo M. Normalization |g|²=1/N gives diagonal k/2 and off-diagonal C_j/2 in M independent Hermitian two-coordinate blocks. Their eigenvalues give exactly the stated extrema, including the nonframe case. Half-shift conjugacy holds for w, and any unimodular sequence with this property is realizable with normalized phases w_j on the first half and 1 on the second. Vanishing moving sums is equivalent to invariance by shift k and a zero sum on a period d=gcd(N,k): subtract adjoining sums and then group their k summands into k/d periods. For odd k, d is odd and divides M, so conjugacy forces signs and prohibits zero mean with any flat phases. For even k and even M the alternating sign sequence works and a constant alphabet fails. For even k and odd M, d=2h, h=gcd(M,k/2) odd and M≡h mod 2h. Balance reduces to a sum of h real parts; binary signs cannot balance, ternary real parts 1 and −1/2 balance exactly with h/3 ones, and the conjugate halves consisting of i and −i always balance. All constructed sequences are realizable in the claimed alphabets, including the N=2 boundary and k=N. The supplied numerical comparison and finite search code were inspected, not executed; the universal result is analytic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Equation (5.1) gives the exact entries for a subgroup modulation block of size N/r",
+          "Magsino's criterion characterizes tightness by ambiguity vanishing on the nonzero adjoint subgroup for subgroup time-frequency index sets"
+        ],
+        "reasoning": "The first theorem gives the frame bounds by substitution but does not perform the root-order minimization. The second assumes the full index set is a subgroup; consecutive translations generally are not, and no phase-order evaluation is stated there.",
+        "searches": [
+          "arXiv:2605.16139v1 Theorem 1.1 and Corollary 5.1(a)",
+          "Magsino 2018 dissertation Chapter 3 Theorem 3.2.7"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2605.16139v1",
+        "Magsino dissertation (2018), Ch. 3",
+        "Resultary 2026/11/08 740628e0639c",
+        "Resultary 2026/11/08 9778d67573d4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "With subgroup size M, Eq. (5.1) gives the 2×2 blocks by substituting flatness and the consecutive mask",
+          "Adjacent moving sums force period gcd(2M,k); conjugacy and root real parts then impose the stated parity and cubic divisibility laws"
+        ],
+        "reasoning": "The spectrum is a mechanical prior implication. The all-length arithmetic conclusion uses the additional moving-sum and conjugacy argument on the full consecutive mask and is not mechanically supplied by the inspected two- and three-translation slices or the prior block formula alone.",
+        "searches": [
+          "arXiv:2605.16139v1 Corollary 5.1(a), Eq. (5.1)",
+          "2026/11/08 two-translation Finding, feasibility table",
+          "Frozen RESULT.md moving-sum and balance proof, lines 51–65"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2026/11/08 two-translation Finding gives an exact root-order feasibility table for an orthonormal basis",
+          "At unit step its step order is N; the critical tight frame has frame bound 1 and is exactly an orthonormal basis"
+        ],
+        "reasoning": "These equivalent formulations coincide at k=2. The formulation via an orthonormal basis cannot cover redundant longer masks, and the source's odd step order concerns a different parity parameter.",
+        "searches": [
+          "Resultary: minimum PSK/roots-of-unity alphabet for constant-modulus tight cyclic Gabor systems with even modulations and consecutive translations",
+          "Primary literature search for phase-constrained tight cyclic Gabor windows"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/11/08 record 740628e0639c has an exact admissible-q table for two translations",
+          "2026/11/08 record 9778d67573d4 has a tightness/phase-order criterion for three translates in an arithmetic progression"
+        ],
+        "reasoning": "The first supplies the exact k=2 slice. The second gives the nonexistence at unit step for k=3, since the step order N is even, and otherwise uses other masks. Neither gives an exact table for all k or covers the ternary divisibility cases with more than two translates. Search non-retrieval is not proof of absence.",
+        "searches": [
+          "Resultary: half-modulated cyclic Gabor frame minimum phase alphabet with consecutive translations",
+          "Resultary: tight frames with two or three cyclic translations"
+        ]
+      },
+      "rationale": "The supported distinct claim is the minimum root-of-unity order across all consecutive translation lengths, with odd-length impossibility even for unrestricted flat phases and the exact ternary resonance. The block spectrum is explicitly not credited as original: it is a direct specialization of Asipchuk–De Carli–Rodriguez, Corollary 5.1(a). The exact overlapping two-translation catalogue result covers k=2 here, but its different domain (two translates at arbitrary step) does not cover the longer consecutive translation masks or the ternary regime. No full-domain phase-order classification was established in the checked sources; residual bibliographic risk remains.",
+      "residual_risks": [
+        "The catalogue comparisons establish mathematical overlap only, not lineage or publication priority.",
+        "An unindexed equivalent calculation in finite constant-amplitude phase-quantized frame design may exist; the conclusion is restricted to the stated mask and the all-k minimum-order claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers spectrum reduction, not all-k minimum order assertion",
+          "evidence": "Entries are r T_K(ir+s,jr+s); r=M in the frozen setup, yielding the diagonal k/2 and correlation off-diagonals C_j/2.",
+          "identifier_or_url": "https://arxiv.org/pdf/2605.16139",
+          "material_read": "Theorem 1.1, Corollary 5.1(a), Eq. (5.1) and proof around PDF pp. 15–16; decisive formula at offset 43180 onward",
+          "method": "OA PDF passages",
+          "title": "Block-equivalent finite Gabor frames",
+          "trigger": "Subgroup modulation and exact frame blocks"
+        },
+        {
+          "assessment": "General criterion for subgroup indexing, not a phase-order classification",
+          "evidence": "Tightness is equivalent to ambiguity vanishing at nonzero adjoint-subgroup elements for full subgroup index set Λ.",
+          "identifier_or_url": "https://api.drum.lib.umd.edu/server/api/core/bitstreams/64afdadf-1164-4338-bc62-66455280c63b/content",
+          "material_read": "Chapter 3, Theorem 3.2.7, printed pp. 65–66",
+          "method": "OA PDF passages",
+          "title": "Constant Amplitude Zero Autocorrelation Sequences and Single Pixel Camera Imaging",
+          "trigger": "Related constant-amplitude Gabor tightness and sparse sampling"
+        },
+        {
+          "assessment": "Exact partial coverage, two translates only",
+          "evidence": "At step 1, order t=N and the minimum order is respectively 2 or 4 as N≡0 or 2 mod 4. The general table adds different steps, exact counts and topology, not longer translation masks.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-phase-alphabet-trichotomy-for-critical-two-translation-cyclic--740628e0639c/RESULT.md",
+          "material_read": "Finding, feasibility table, assumptions and first proof step, offset 0",
+          "method": "Local matching-record text, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "A phase-alphabet trichotomy for critical two-translation cyclic Gabor bases",
+          "trigger": "Same even modulations and phase alphabets, overlapping translation count"
+        },
+        {
+          "assessment": "Overlapping k=3 obstruction, different general mask",
+          "evidence": "The step order must be 3 modulo 6, and admissible finite phase order must be a multiple of 3; unit step has even order here.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-arithmetic-existence-and-exact-phase-alphabet-counts-for-three-t--9778d67573d4/RESULT.md",
+          "material_read": "Finding on masks {0,s,2s} and order conditions",
+          "method": "Local matching-record text",
+          "title": "Arithmetic existence and exact phase-alphabet counts for three translations",
+          "trigger": "Consecutive triple is a special arithmetic-progression mask"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a natural quantized constant-amplitude frame design constraint, the result exactly specifies when perfect conditioning is attainable and the smallest root order required at every even dimension and admissible consecutive mask length. The ternary resonance even for odd half-length and the impossibility for all flat phases at odd translation counts are actionable structural distinctions, not merely spectrum recomputation or a restatement of the generic block criterion.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

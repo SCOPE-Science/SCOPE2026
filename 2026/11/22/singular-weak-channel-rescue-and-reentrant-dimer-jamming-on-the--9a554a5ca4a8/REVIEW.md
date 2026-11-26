@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The object is precisely the graph with 16 binary-word vertices and all 32 coordinate-flip edges; the eight distinguished-coordinate edges have rate \(r\) and all other edges rate one. The relevant probability is eventual perfect coverage, not a finite-time quantity. The Markov edge-race recursion is triangular because each successful event occupies two previously empty vertices. Its boundary indicators are explicit. All claims are rational consequences of 10,750 reachable occupied masks in the complete-rate case. Independent backward recursion and forward probability propagation verify the complete equal-rate distribution, comparisons at \(r=1/2,1,2\), and the two endpoint Taylor expansions. The Q3 antipodal-vacancy enumeration and its four possible vacancy patterns independently explain the strictly-positive weak-rate discontinuity. Large-rate coefficients \(1,0,-36\) arise from an exact formal-series recurrence, not a numerical fit. Neither the existence proof nor the script claims uniqueness of the minimum.
+PASS
 
-## Originality — PASS on examined evidence, with priority risk
+A still-available edge has never rung: both its endpoints were vacant at all earlier times, so an earlier first ring would have been accepted. Memorylessness therefore gives precisely the stated weighted race. The recursion is finite and analytic from the positive side at both rescaled endpoints: each factor has nonzero constant denominator or a common factor of the slow rate cancels. An independent exact reconstruction (python3 /workspace/reviews/evidence-4.py) used vacant-set distributions modulo translations, with rational Taylor jets for edge-race factors. It reproduced the whole equal-rate distribution, the exact comparison probabilities, the four Q3 antipodal pairs of mass 1/21 each with perfect mass 17/21, all three weak jets including the negative first derivative, and strong jets (1,0,-36). At positive weak rate couple all clocks; the probability the 24 ordinary first arrivals precede the eight distinguished arrivals tends to one. Within each fast-jammed half, only twin vacancies across the halves remain joinable; two identical antipodal pairs give the repair, mass 4/441, while one defective or two different defective halves cannot heal. In dimensions 2 and 3 the halves are K2 or the 4-cycle and all maximal matchings are perfect. The strict inequalities and larger endpoint limits force finite interior minima; no uniqueness follows. The nonconstant rational law also rules out flat intervals of local minima.
 
-Pippenger's graph adsorption framework, the Penrose–Sudbury finite-graph dimer process, and Koza–Kondrat's finite-hypercubic spanning theorem are credited, but none of the material examined supplies the explicit four-cube weighted perfect-coverage probabilities, positive-rate jump of \(4/441\), or inverse-rate quadratic coefficient \(36\). A published clique-barbell weak-bridge law already exhibits a singular positive weak-rate limit; that phenomenon is not itself claimed as novel, and its parity formula does not apply to the four-cube's two three-cube vacancy configurations. Static four-cube perfect-matching results classify different objects and probability laws. The historical Pippenger full text could not be retrieved and unindexed earlier equivalent calculations may exist. This is a self-review, not an independent certification.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The four-cube is the smallest nondegenerate binary hypercube (dimension at least two) for which switching off one coordinate can produce a discontinuity in eventually perfect dimer coverage: its two three-cube halves each admit four structurally equivalent antipodal-jam defects. The exact \(4/441\) repair probability, sign of the initial rate response, nonmonotone coverage, and quadratic high-rate failure law expose competing slow-channel repair and early-competition mechanisms rather than merely recounting static matchings. The explicit cardinality distribution and rational reproducibility furnish a useful finite geometric benchmark for irreversible adsorption. The result remains intentionally finite; no unsupported general network theorem or practical performance claim is made.
+Credit the Q4-specific weight dependence, exact terminal law and quantitative rescue, not the random-greedy recurrence or the general possibility of weak-link singularity/nonmonotonicity. Strong neighboring results differ in process, graph or statistic. The available evidence does not cover this joint claim.
 
-## Closest literature and residual limitations
+## value
 
-The closest published general foundations are Pippenger (1989) and Penrose–Sudbury (2005); Koza–Kondrat (2020) treat a distinct percolation statement. The published clique-barbell weak-link result shows similar singularity in a different topology, but its exact parity law does not dominate the four-cube statement. Definitive historical priority remains uncertain, particularly because Pippenger's full article was not accessible. The finding excludes finite-time measurement, diffusion, desorption, general anisotropy across all directions, and claims of uniqueness of the minimizer.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The anisotropy parameter separates a natural pair of cube layers and competes with an exact perfect-matching channel. The result supplies the first dimension at which late repair occurs, its quantitative probability and initial negative rate response, and a quadratic law at the other endpoint. The example establishes a concrete failure of monotone rate benefit for eventual perfect matching; this combination is more than a routine finite table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:50:30.010108Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–34, VERIFICATION.md lines 18–26 and verify.py (inspected, not executed)",
+        "/workspace/branches/33099fa8-9650-4482-9d05-5b35901eff69/reproduce_record5.py and reproduction_output.txt"
+      ],
+      "rationale": "Mixed sets dominate immediately except for at most two vertices; when the two singletons have distinct indices, an observed vertex with a third index can force a missing vertex and then the other is forced. For a one-shore set of size at least two, the opposite shore is observed and each of its vertices sees either r or r−1 of the r omitted vertices. This stalls at r≥3, starts a force at r=2, and succeeds at r≤1. A one-shore singleton succeeds on Cr_3=C_6 but stalls for n≥4, and the empty set fails. Counting the disjoint mixed and one-shore classes gives the polynomial and hence the reported total and minimum layers. A separately written bit-mask replay exhausted all 87,360 subsets for 3≤n≤8, checking classification, coefficients, totals and minimum layers; the proof, not the replay, gives all n.",
+      "residual_risks": [
+        "The finite replay is supplemental and not a formal verification."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Record bee65d36f8ec, Finding, classifies all sets for n≥3 and k≥1 and enumerates them, with one-shore cutoff max(1,n−k−1).",
+          "The general fort criterion is not itself a crown-specific enumeration.",
+          "The frozen account describes the visible abstract of the 2019 same-object work as targeting minimum sets; the full article was not independently accessible."
+        ],
+        "reasoning": "The generalized indexed classification has exactly the required domain after setting k=1. This is actual broader coverage, unlike the generic fort framework.",
+        "searches": [
+          "Resultary semantic search for generalized crown-graph power domination",
+          "Brimkov et al. arXiv:1805.10984, p. 5, fort criterion",
+          "Chandrasekaran and Sulthana, https://www.ripublication.com/ijaer19/ijaerv14n13_11.pdf"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary mirror records bee65d36f8ec and 6949b15f6548",
+        "Brimkov et al. arXiv:1805.10984",
+        "Frozen report and OA attempt for Chandrasekaran–Sulthana (2019)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At k=1 and n≥3, max(1,n−k−1)=n−2. The mixed contribution is unchanged; twice the one-shore sum from n−2 through n is exactly 2[binom(n,2)x^(n−2)+nx^(n−1)+x^n]."
+        ],
+        "reasoning": "The indexed result directly yields both the set-by-set assertion and all coefficients, so evaluation at 1 and extraction of minimum layers leave no distinct frozen remainder. Same-day ordering remains unestablished.",
+        "searches": [
+          "Local mirror Finding for Resultary bee65d36f8ec, offset 0"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Crown graph, biclique crown, and bipartite cocktail-party graph here refer to K_{n,n} minus a perfect matching, not the unqualified nonbipartite cocktail-party graph.",
+          "Resultary record 6949b15f6548, Finding, gives the same ordinary two-case criterion and equivalent polynomial for n≥4."
+        ],
+        "reasoning": "The indexed ordinary formulation agrees for n≥4. It is later and does not alone cover n=3; it is not used to assign priority. The alias search is not an exclusion of other literature.",
+        "searches": [
+          "Resultary semantic search for crown-graph power domination, including bipartite cocktail-party graph",
+          "arXiv:1805.10984, literal crown and complete bipartite lookups"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed generalized enumerator covers all sizes including n=3 at k=1. The ordinary record contains a direct formula on n≥4. No separate table was used for the verdict."
+        ],
+        "reasoning": "The family enumerator is compared with precise database statements, not just isolated numerical matches or a finite table.",
+        "searches": [
+          "Resultary exact crown-family classification and polynomial comparison, records bee65d36f8ec and 6949b15f6548",
+          "Brimkov et al. arXiv:1805.10984, polynomial definition and family-name lookup"
+        ]
+      },
+      "rationale": "A distinct indexed generalized crown-graph result covers the complete frozen classification and polynomial at k=1 without new graph-specific work. The overlapping record is dated the same day; this establishes mathematical coverage and defeats the claim of a distinct contribution, but does not settle historical priority. The later ordinary-crown result overlaps on n≥4 and is corroboration, not priority evidence. Inaccessibility of the 2019 paper is not a failure reason.",
+      "residual_risks": [
+        "Same-day indexing does not resolve priority.",
+        "The 2019 paper could contain stronger relevant statements than its reported abstract; the deferred public lookup is not negative evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the whole frozen claim at k=1; no priority inference",
+          "evidence": "For n≥3, k≥1, mixed sets qualify and one-shore sets qualify at size max(1,n−k−1); the enumerator counts both classes.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-exact-generalized-power-domination-profile-of-crown-graphs--bee65d36f8ec",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Exact generalized power-domination profile of crown graphs",
+          "trigger": "Same family with generalized rule"
+        },
+        {
+          "assessment": "Equivalent on n≥4; later record, not priority evidence",
+          "evidence": "Same ordinary classification and polynomial on that range, with additional inclusion-minimal and reconfiguration results.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-crown-graph-power-domination-and-nonmonotone-reconfiguration-thr--6949b15f6548",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Crown-graph power domination and nonmonotone reconfiguration thresholds",
+          "trigger": "Direct ordinary power domination overlap"
+        },
+        {
+          "assessment": "Framework, not a verified exact crown result in the material read",
+          "evidence": "All-cardinality polynomial definition and intersection of closed neighborhoods of forts; complete bipartite lookup locates terminology.",
+          "identifier_or_url": "arXiv:1805.10984",
+          "material_read": "pp. 1, 3, 5 (OA offsets 795, 11487 and 17714)",
+          "method": "OA PDF literal localization and passage comparison",
+          "title": "Power domination polynomials of graphs",
+          "trigger": "General enumerator and possible structural coverage"
+        },
+        {
+          "assessment": "Coverage unresolved; not relied on for failure",
+          "evidence": "Frozen account describes power domination number and minimum sets, not enough to decide what the other pages prove.",
+          "identifier_or_url": "https://www.ripublication.com/ijaer19/ijaerv14n13_11.pdf",
+          "material_read": "Frozen RESULT.md lines 39–42 reporting visible abstract; no direct full text read",
+          "method": "Lawful OA retrieval attempted; HTTP 401",
+          "title": "k-Power Domination of Crown Graph",
+          "trigger": "Closest published same-object title"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The complete enumerator of a natural graph family is potentially useful, but the frozen contribution is mechanically obtained from the indexed generalized enumerator by setting k=1. The total and minimum counts simply evaluate or extract coefficients of that same polynomial, with no surviving distinct mathematical result.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

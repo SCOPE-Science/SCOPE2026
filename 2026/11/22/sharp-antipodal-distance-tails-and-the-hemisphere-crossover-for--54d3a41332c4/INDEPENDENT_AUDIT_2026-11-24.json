@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:33:36.111805Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At fixed α<π only the two ordered pole pairs attain the diameter. The horizontal endpoint coordinates at those poles lie in the same planar wedge. The bisector bounds their sum in norm below by cos(α/2) times the sum of their lengths, so both are O_α(ε). The vertical chord component is quadratic and geodesic versus chord conversion is cubic; hence after scaling the test differs from |U+V|<1 by an O_α(ε²) shell. Homogeneity gives an O_α(ε²) four-volume change and the two area densities introduce the same order of relative error. For a sum w=ρ(cos φ,sin φ), its two wedge coefficients are ρ sin(α−φ)/sin α and ρ sin φ/sin α. The convolution fiber has area equal to their product times sin α. Integrating over 0<ρ<1 and 0<φ<α gives (1−α cot α)/8. Two ordered assignments divided by (2α)² give C and the O_α(ε⁶) error; the scaled-domain convergence also gives the conditional law and equal order weights. The differentiated sine product gives the positive increasing summand representation for C and its two limits. For the moving opening, set δ=λε and replace Y by Z=−Y. Use coordinates (sin s cos u,sin u,cos s cos u) about the limiting great circle y=0. At longitude parameter s the lower latitude of X is max(0,arctan(−tan δ sin s)); at parameter s′ the lower value of −u for Z is max(0,arctan(tan δ sin s′)). An ε-close pair has both latitude magnitudes ≤ε and |s′−s|=O(ε) locally on the circle. In scaled variables A=u_X/ε, B=−u_Z/ε, h=(s′−s)/ε, the limiting ball condition is h²+(A+B)²<1 with lower limits (−λ sin s)_+ and (λ sin s)_+. This yields a transverse gap λ|sin s|, integration over h,A,B gives J, and the two semicircles and area normalization give the stated 1/(2π²). The same bounded-domain dominated convergence applies along any sequence λ_ε→λ, since the equality boundaries have measure zero, proving compact uniformity by subsequence. J(0)=2/3; strict decrease follows on a positive-length neighborhood of the poles for every finite pair of distinct λ, and ∫₀¹J(t)dt=π/16 gives the large-λ constant via t=λ sin s. This independently checks RESULT.md lines 50–127. The supplementary verification/check_lune.py was inspected, not run; the reported 20 finite checks do not establish the limiting quantifiers.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Moseeva–Tarasov–Zaporozhets treat spherical bodies cut from line-free cones and specialize to caps of radius less than π/2. Cabré et al. give a fixed-separation containment kernel for a polar cap using spherical disk intersections. Maehara–Martini full text was not obtained."
+        ],
+        "reasoning": "A full longitude lune contains an antipodal axis so its generating cone contains a line. A theorem on line-free cones does not apply as stated. Even where the cap-containment kernel gives an exact cap distance law by conditioning, the moving longitudinal cut is not a cap and has a gap that varies with arclength.",
+        "searches": [
+          "arXiv:2007.07297 §2 Theorem 2.1 and Corollary 2.2",
+          "arXiv:astro-ph/0701393 Appendix B1",
+          "DOI 10.1365/s13291-017-0158-5"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verification/check_lune.py",
+        "Resultary bdea9ec9027d, 98021a4b31d5, 36d67459f871 and b412d984a5a4",
+        "arXiv:astro-ph/0701393 and arXiv:2007.07297",
+        "DOI 10.3844/jmssp.2005.24.28 and 10.1365/s13291-017-0158-5 (full-text access attempted)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The cap catalogue result gives a joint antipodal boundary-layer law for caps on S^q, q≥3, of radius π/2+λε. The same-day clearance result changes a longitude-lune opening but observes only distance from a single point to the boundary. Cabré uses the area of intersecting equal spherical disks."
+        ],
+        "reasoning": "For a hemisphere and two isotropic points at distance θ the containment probability is (π−θ)/(2π). Conditioning both points to be in the hemisphere gives exact tail (sin ε−ε cos ε)/π, so its leading coefficient is not treated as distinct. The cap deformation is rotationally symmetric about its axis, unlike the lune's gap λ|sin s|, which vanishes at two poles. The fixed cap law and the one-point clearance result do not give the integration of that variable gap for an antipodal pair or the fixed-lune cone-pair geometry. No ordering is inferred for the same-day clearance record.",
+        "searches": [
+          "Resultary 2026/11/1/SCOPE-a-joint-antipodal-boundary-layer-law-across-the-hemispherical-ca--36d67459f871",
+          "Resultary b412d984a5a4, hemisphere clearance crossover",
+          "Cabré et al. Appendix B1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The two Resultary moment records study the same independent surface-area lune samples. One gives the second and fourth chord moments, inversion and ordering, and the other optimizes squared-chord dispersion. Gille's publisher PDF did not yield readable scientific text in the attempted extraction."
+        ],
+        "reasoning": "The chord length 2 sin(D/2) is an exact monotone transform, so an exact chord CDF for this area measure would count as coverage. Finitely many chord moments and ordering, however, do not give its tail or a joint conditional law. Random chords selected by a different measure cannot be equated to iid surface endpoints without a measure conversion; Gille's construction remains unverified here.",
+        "searches": [
+          "Resultary 2026/11/2/SCOPE-two-even-chord-moments-identify-spherical-lunes-with-sharp-squar--bdea9ec9027d",
+          "Resultary 2026/11/2/SCOPE-a-unique-least-dispersed-spherical-lune-for-random-squared-chord--98021a4b31d5",
+          "DOI 10.3844/jmssp.2005.24.28"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The catalogue returns exact chord moments/ordering for the same family and an exact clearance distribution for a single surface point. The inspected polar-cap kernel determines the hemisphere special case, not an exact distance table for variable longitude openings."
+        ],
+        "reasoning": "Neither the one-point clearance law nor the exact even moments determine the two-point conditional near-antipodal law. A finite table would not establish the two continuous families of coefficients, and the frozen cubature is supplementary, not prior exact database evidence.",
+        "searches": [
+          "Resultary bdea9ec9027d and 98021a4b31d5, same-family exact invariants",
+          "Resultary 2026/11/22/SCOPE-the-clearance-distribution-of-spherical-lunes-and-its-hemispheri--b412d984a5a4",
+          "Cabré et al. Appendix B1 Eqs. (B2)–(B6)"
+        ]
+      },
+      "rationale": "Credit both the exact same-family moment and ordering analyses and the hemispherical/cap tail methods, including the hemisphere endpoint obtainable from the cap-containment formula. The supported distinct claim is the explicit fixed-lune coefficient with its conditional endpoint law and the compact-uniform lune-specific antipodal crossover through angular defects of order ε. The inspected results do not provide that combination of two-point law and varying longitude wedge. The check is not an exhaustive priority determination.",
+      "residual_risks": [
+        "Gille's publisher PDF did not yield readable scientific text and Maehara–Martini full text was not obtained, so their entire coverage is unresolved.",
+        "The frozen prose mentions published same-lune moment studies without identifying them in its reference list. The concrete catalogue moment overlaps were compared; additional unindexed or unidentified exact results could exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Sampling and coverage not independently resolved",
+          "evidence": "The title alone does not distinguish a solid-chord measure from iid surface endpoints; no negative conclusion is drawn.",
+          "identifier_or_url": "https://doi.org/10.3844/jmssp.2005.24.28",
+          "material_read": "Citation metadata; publisher PDF had no extractable scientific text in the attempted retrieval",
+          "method": "Lawful publisher PDF and DOI retrieval",
+          "title": "Chord Length Distributions of the Hemisphere",
+          "trigger": "Apparently similar hemispherical distance problem"
+        },
+        {
+          "assessment": "Covers the hemisphere endpoint by conditioning; geometry is restricted to polar caps",
+          "evidence": "The fixed-separation containment probability is A/(4π), where A is the intersection area of two equal radius-r spherical disks at the separation in question.",
+          "identifier_or_url": "https://arxiv.org/abs/astro-ph/0701393",
+          "material_read": "Appendix B1, PDF p. 23 onward, offsets 130805–138634; Eqs. (B2)–(B6)",
+          "method": "OA PDF passage inspection",
+          "title": "Error analysis in cross-correlation of sky maps: application to the ISW detection",
+          "trigger": "Exact containment kernel with a hemisphere special case"
+        },
+        {
+          "assessment": "Exact overlap unresolved",
+          "evidence": "The bibliographic match is confirmed, not the asserted scientific scope.",
+          "identifier_or_url": "https://doi.org/10.1365/s13291-017-0158-5",
+          "material_read": "Citation metadata only; publisher article/PDF routes did not yield full text",
+          "method": "Lawful DOI and publisher retrieval attempts",
+          "title": "Geometric Probability on the Sphere",
+          "trigger": "Potential hemisphere distance and lune coverage"
+        },
+        {
+          "assessment": "Does not directly apply to the longitude lune",
+          "evidence": "The theorem assumes a line-free convex cone and the stated cap corollary assumes radius below π/2.",
+          "identifier_or_url": "https://arxiv.org/abs/2007.07297",
+          "material_read": "§2, PDF p. 3, offset 5862; Theorem 2.1 and Corollary 2.2",
+          "method": "OA PDF passage inspection",
+          "title": "Random sections of spherical convex bodies",
+          "trigger": "Potential general spherical distance theorem"
+        },
+        {
+          "assessment": "Same model and metric transform, different observables",
+          "evidence": "Two even chord moments, inversion and stochastic ordering rather than a tail asymptotic with conditional endpoint coordinates.",
+          "identifier_or_url": "2026/11/2/SCOPE-two-even-chord-moments-identify-spherical-lunes-with-sharp-squar--bdea9ec9027d",
+          "material_read": "Finding, local mirrored RESULT.md",
+          "method": "Resultary lookup and mirror passage inspection",
+          "title": "Two even chord moments identify spherical lunes with sharp square-distance results",
+          "trigger": "Same exact iid area-uniform lune model"
+        },
+        {
+          "assessment": "Moment-based dispersion optimization",
+          "evidence": "Mean and variance of squared chord length rather than near-antipodal tails.",
+          "identifier_or_url": "2026/11/2/SCOPE-a-unique-least-dispersed-spherical-lune-for-random-squared-chord--98021a4b31d5",
+          "material_read": "Finding, local mirrored RESULT.md",
+          "method": "Resultary lookup and mirror passage inspection",
+          "title": "A unique least-dispersed spherical lune for random squared chord length",
+          "trigger": "Same geometric sampling law"
+        },
+        {
+          "assessment": "Different domain family and dimension range",
+          "evidence": "Spherical caps on S^q for q≥3, with cap radius π/2+λε, not an S² longitude wedge.",
+          "identifier_or_url": "2026/11/1/SCOPE-a-joint-antipodal-boundary-layer-law-across-the-hemispherical-ca--36d67459f871",
+          "material_read": "Finding, local mirrored RESULT.md",
+          "method": "Resultary lookup and mirror passage inspection",
+          "title": "A joint antipodal boundary-layer law across the hemispherical cap transition",
+          "trigger": "Closest pair-tail crossover analogue"
+        },
+        {
+          "assessment": "Same geometric family but one-point clearance",
+          "evidence": "Its event measures distance to the boundary, not distances between independent points.",
+          "identifier_or_url": "2026/11/22/SCOPE-the-clearance-distribution-of-spherical-lunes-and-its-hemispheri--b412d984a5a4",
+          "material_read": "Finding, local mirrored RESULT.md",
+          "method": "Resultary lookup and mirror passage inspection",
+          "title": "The clearance distribution of spherical lunes and its hemispherical transition",
+          "trigger": "Closest same-day lune crossover"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural distance statistic behaves differently when the set of antipodal pairs expands from two ordered pole pairs to a boundary circle. The exact tail gives a shape identifier for each fixed opening, and the moving-boundary profile measures how the power changes and matches its two end regimes. This resolves a genuine singular limit that a fixed-opening calculation or an exact hemisphere value alone cannot answer.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

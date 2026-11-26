@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,62 +18,25 @@
   "schema_version": 1
 }
 ---
-The universal proof is analytic. This file records replay checks for the exact identities.
 
-For
-\[
-A=
-\begin{pmatrix}
-a&c\\
-c&b
-\end{pmatrix},
-\qquad
-p=\frac{|c|}{a},
-\qquad
-q=\frac{|c|}{b},
-\]
-diagonal-proportional randomized Gauss-Seidel has conditional expected residual matrix
-\[
-M
-=
-\frac1{p+q}
-\begin{pmatrix}
-p(1+pq)&-2pq\\
--2pq&q(1+pq)
-\end{pmatrix}.
-\]
-The proof factors
-\[
-\det(I-M)
-=
-\frac{pq}{(p+q)^2}
-(pq-p-q-1)(pq+p+q-1).
-\]
+# Independent mathematical audit
 
-The embedded `verify.py` checks exact rational instances of this identity and replays
-\[
-A=
-\begin{pmatrix}
-2&1\\
-1&2
-\end{pmatrix},
-\qquad
-r=(1,-1)^{\mathsf T},
-\]
-for which both coordinate choices give squared residual norm \(9/4\) from an incoming squared norm \(2\).
+## correctness
 
-It also checks the equal-diagonal family formula
-\[
-\frac{\mathbb E\|r^+\|_2^2}{\|r\|_2^2}
-=
-\frac{2\kappa^2}{(\kappa+1)^2}
-\]
-at rational condition numbers.
+PASS
 
-Finite replay is corroborative only. The all-orientation threshold
-\[
-\kappa\le1+\sqrt2
-\]
-is established by the analytic rotation reduction in `RESULT.md`.
+The two residual maps leave the lone components r_2-(c/a)r_1 and r_1-(c/b)r_2, respectively. For c=0 the mean is a diagonal contraction; changing sign of one coordinate reduces c<0 to c>0. With p=c/a, q=c/b the diagonals of I-M are q(1-p^2)/(p+q), p(1-q^2)/(p+q). Its determinant is pq[(1-pq)^2-(p+q)^2]/(p+q)^2, hence nonnegative exactly when p+q<=1-pq, since pq<1. That inequality also makes both diagonals nonnegative. Equivalently (a+b)|c|<=det A. Fix eigenvalues mu and kappa*mu; the trace and determinant are fixed and the largest possible |c| is half the eigenvalue gap, attained at equal diagonals. Substitution gives (kappa^2-1)/2<=kappa, precisely kappa<=1+sqrt(2) including equality. The incoming residual (1,-1) at the stated equal-diagonal witness yields the ratio 2*kappa^2/(kappa+1)^2 and in particular 9/8 at kappa=3; every residual is realizable because A is invertible. Independent exact checks built the residual maps directly for 1,032 rational SPD examples (610 unsafe, 8 exactly on the determinant boundary). The proof, not this finite check, controls all orientations and all residuals.
 
-Unproved limits include higher dimensions, alternative sampling laws, delayed or asynchronous updates, finite precision, block coordinates, and multi-step path maxima.
+## originality
+
+PASS
+
+The method and coordinate-proportional sampling are established; the distinct claim is the necessary-and-sufficient Euclidean equation-residual condition and its worst-orientation condition-number frontier. Neither the inspected convergence theorems nor the closest same-day records cover those quantifiers. The originality decision is limited to the available comparative evidence.
+
+## value
+
+PASS
+
+The ordinary residual norm is a natural progress/stopping diagnostic, different from the energy that coordinate minimization controls. The exact per-matrix test and the sharp condition-number cutoff tell when one can trust that diagnostic in conditional expectation; even a modestly conditioned kappa=3 example separates the two metrics. This is a useful narrow boundary, not a competing general convergence theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

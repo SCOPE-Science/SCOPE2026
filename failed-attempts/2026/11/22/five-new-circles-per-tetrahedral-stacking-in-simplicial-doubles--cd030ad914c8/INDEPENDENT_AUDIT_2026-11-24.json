@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:01:58.037555Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In dimension three a simplex of the double has at most two pair-vertices, because their disjoint union must have at most four vertices. The opposite-pair adjacency identifies its tetrahedron uniquely. Stellar subdivision retains all six facet pairs, removes their three opposite-pair adjacencies, and adds four graph vertices wx. Each old pair yz is now adjacent within the replacement to the two wx for x outside yz, giving exactly the subdivision of K4 under complement relabeling. This connected gadget reroutes every path using a deleted edge, so no old component splits; exactly the k components touching those six vertices merge. The three old disjoint edges bound k by three. The change in E−V+c is 9−4+1−k=6−k; graph homology is free. The four-simplex boundary has double KG(5,2), connected with 10 vertices and 15 edges, hence circle rank six. Successive stackings preserve connectivity and increase rank by five, giving 5n−19. All quantifiers hold without orientability or manifold assumptions for the local part. Independent replay: python3 /workspace/branches/independent_double.py 9, output /workspace/branches/independent_double_5_9.txt; pair-union enumeration and union-find confirm 1, 5, 40, 440 and 6160 stacked facet sets on 5–9 vertices and the graph changes at k=1,2,3. In particular the facets 0123,0145,0245 realize k=2 at 0123, not sampled in the frozen EXPECTED.txt. The frozen script was inspected, not executed; neither replay nor frozen samples are needed for the infinite proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lesh–Schreiner–Wahl Theorem A is a weak Cohen–Macaulay connectivity bound, not a local operation formula.",
+          "f81f01ac6ebf treats stacked higher tuplings with r≥3; r=2 is excluded even though substituting r=2 into its increment expression gives five.",
+          "0cf993a2096b proof steps 2–3 supply the local gadget's identical vertices, edges and connectedness plus the rerouting argument."
+        ],
+        "reasoning": "The broad published connectivity and higher-tupling results do not cover this claim by specializing parameters. It is the specific earlier local gadget that makes the disconnected-component bookkeeping immediate: its formula depends only on how many old components touch its six attachment vertices, not on the rest of the complex.",
+        "searches": [
+          "Resultary: simplicial double tetrahedral facet stacking exact local component and integral homology updates",
+          "Resultary: simplicial double tetrahedral facet subdivision components k touched opposite pairs b1 update 6-k",
+          "arXiv:2506.10436v2, Theorem A",
+          "Resultary f81f01ac6ebf, Finding and Scope"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, EXPECTED.txt and verify_stacking_double.py",
+        "Resultary 0cf993a2096b",
+        "Resultary f81f01ac6ebf",
+        "Resultary 1160db5d31ae",
+        "arXiv:2506.10436v2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior step 2 removes three graph edges and adds twelve through the same four new vertices; step 3 proves the ten-vertex replacement is connected and reroutes paths through it between old endpoints.",
+          "The prior step 4 explicitly computes the entire stacked family. The current step 2 only identifies the same local adjacency as a subdivided K4 and tracks how many components it touches."
+        ],
+        "reasoning": "The path rerouting applies within each old component even when the graph is disconnected. Since the replacement connects precisely the touched components, c'−c=1−k, and the already computed increases ΔV=4 and ΔE=9 give Δβ1=6−k immediately. The explicit k-formulas are new wording in a broader setting but not a substantive independent mathematical advance over this known mechanism.",
+        "searches": [
+          "Resultary 0cf993a2096b, RESULT.md offset 0 to 4874, Finding, Scope, Proof Steps 2–4",
+          "Frozen RESULT.md lines 4–17 and 31–46"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In 0cf993a2096b Assumptions and scope, a stacked simplicial 3-sphere is generated from the boundary of the 4-simplex by exactly the same tetrahedral stellar moves, and these are precisely the boundaries obtained by stacking four-simplices.",
+          "The double in the prior record has the same pair-vertex and opposite-pair edge definitions as the frozen RESULT.md."
+        ],
+        "reasoning": "The apparent changes from sphere to polytope boundary and from D^2 to D_2 do not change the theorem. Opposite-edge graph connectivity and E−V+c determine the same homotopy invariant.",
+        "searches": [
+          "Resultary: simplicial double facet stellar subdivision stacked simplicial four-polytope first Betti number 5n-19",
+          "Resultary: stacked simplicial 3-sphere double graph f0 4n-10 f1 9n-30 wedge 5n-19",
+          "arXiv:2506.10436v2, Definition 2.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "0cf993a2096b Finding gives a connected graph on 4n−10 vertices and 9n−30 edges, wedge rank 5n−19 and five new loops per stacking.",
+          "The frozen record also appears as a self-hit, which is not counted as coverage. Distinct 1160db5d31ae is a cyclic-boundary invariant, including two components at even n; it is not the stacked theorem."
+        ],
+        "reasoning": "This is an exact catalogue match for the headline invariant from a distinct record, supported by its full mathematical statement, not a title or parameter match. The separate external query did not surface relevant material and establishes no absence.",
+        "searches": [
+          "Resultary: simplicial double facet stellar subdivision stacked simplicial four-polytope first Betti number 5n-19",
+          "Resultary: doubles of cyclic four-polytope boundaries parity component count simplicial double",
+          "Primary literature: \"simplicial double\" \"stacked\" polytope facet subdivision tetrahedral"
+        ]
+      },
+      "rationale": "The distinct Resultary record 0cf993a2096b explicitly gives the identical 5n−19 wedge classification for exactly the same stacked boundaries, together with every stack's five-loop increment, counts and local adjacency replacement. The arbitrary pure-complex statement is broader in domain and its k-formula is not quoted as such there, but follows mechanically from that identical local replacement, the same path rerouting without a global connectivity assumption, and the graph Euler formula. There is no distinct non-mechanical finding to retain. This is demonstrated coverage, not a historical-priority determination or evidence that the theorem is false.",
+      "residual_risks": [
+        "Other treatments may use older terminology for opposite-edge graphs; the review does not establish first historical priority.",
+        "The decisive repository overlap is explicit regardless of coverage in external journals."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Explicit coverage of headline and connected-case local rule; arbitrary-component update mechanically implied",
+          "evidence": "Identical stacked family and integral bouquet rank; local diagram specified by the same incidence rule and its connectivity used to replace deleted edges along old paths.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-five-new-circles-per-stacking-in-simplicial-doubles-of-three-sph--0cf993a2096b/RESULT.md",
+          "material_read": "Finding, Assumptions and Scope, Proof Steps 1–4, RESULT.md offset 0 to 4874",
+          "method": "Local mirror, direct decisive passage inspection",
+          "title": "Five new circles per stacking in simplicial doubles of three-spheres",
+          "trigger": "Direct exact invariant and method match"
+        },
+        {
+          "assessment": "Does not on its own cover r=2",
+          "evidence": "The parameter bound r≥3 excludes doubles; the relationship section points to the earlier and separate stacked three-sphere double theorem.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-higher-tuplings-of-stacked-odd-dimensional-spheres-are-connected--f81f01ac6ebf/RESULT.md",
+          "material_read": "Finding, Scope and Relationship, initial RESULT.md passage",
+          "method": "Local mirror passage comparison",
+          "title": "Higher tuplings of stacked odd-dimensional spheres are connected circle bouquets",
+          "trigger": "Potential dominating tupling theorem"
+        },
+        {
+          "assessment": "Definition and weak connectivity, not the exact update",
+          "evidence": "General simplicial tupling and weak Cohen–Macaulay connectivity, not local facet-subdivision counts or exact stacked homotopy type.",
+          "identifier_or_url": "https://arxiv.org/abs/2506.10436v2",
+          "material_read": "PDF p. 1 Theorem A and p. 3 Definition 2.1 (respective offsets 0 and 10707)",
+          "method": "Lawful OA PDF passages",
+          "title": "The double of a simplicial complex",
+          "trigger": "Foundational definition and possible general coverage"
+        },
+        {
+          "assessment": "Different family",
+          "evidence": "Cyclic four-polytope boundaries can give disconnected doubles at even vertex counts, unlike stacked boundaries; the simplex-boundary base case is common.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-parity-and-dihedral-homology-of-the-doubled-cyclic-four-polytope--1160db5d31ae/RESULT.md",
+          "material_read": "Finding and Proof, initial RESULT.md passage",
+          "method": "Local mirror passage comparison",
+          "title": "Parity and dihedral homology of the doubled cyclic four-polytope boundary",
+          "trigger": "Frozen record's closest named comparison"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The stacked-sphere homotopy classification and the connected local gadget were substantive in the predecessor, but give no new value here. The remaining k-dependent statement is useful as bookkeeping, yet both formulas are immediate consequences of the previously described connected replacement at the same six attachments and E−V+c. No additional structural result about which configurations realize or constrain k is part of the finding. Removing the duplicated headline therefore leaves a mechanically implied restatement, not a standalone valuable repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

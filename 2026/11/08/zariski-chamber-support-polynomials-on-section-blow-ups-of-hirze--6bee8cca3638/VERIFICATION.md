@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification and bounds
 
-The included `VERIFIER.py` is a standalone, standard-library-only enumerator. Execute `python3 VERIFIER.py` from the folder containing it. For every \(3\le n\le6\) and \(1\le e<n\), it explicitly forms the \((2n+2)\)-by-\((2n+2)\) integer intersection matrix of all negative curves, enumerates every subset, and tests negative definiteness using exact-rational \(LDL\) pivots (not the proof's combinatorial threshold). It checks every coefficient of the proposed closed polynomial. It also checks the exchange symmetry and leading coefficient. `VERIFIER_OUTPUT.txt` contains the actual successful replay and the terminal line `ALL_CHECKS_PASSED`.
+# Independent mathematical audit
 
-The uniform statement for all \(e\ge2\), \(n-e\ge2\) is proved by intersection inequalities and a Schur complement in `RESULT.md`. No finite experiment is asserted to prove the infinite statement. Source [3] could only be compared at abstract level; novelty assessment is therefore qualified by an explicit historical-priority risk. Independent mathematical validation has not been performed.
+## correctness
+
+PASS
+
+The claim counts negative-part supports on the smooth complex blow-up, for e,r=n-e at least two and distinct centers on the section disjoint from the negative section. Any other nonfiber curve has class aS_0+bF with b>=ea; intersecting with the marked fibers and the section gives m_i<=a and sum(m_i)<=b. Thus sum(m_i^2)<=ab, and its transformed square is at least a(b-ea)>=0. The two sections and n pairs of exceptional/strict-fiber curves exhaust the negative curves. In each pair at most one curve can be selected (otherwise the principal block is singular). Eliminating chosen -1 curves leaves a diagonal section block with entries -e+f and -r+a, when the corresponding section is present. The four cases give exactly the four displayed terms, including empty support. Both-section terms have degree at most n; the single-section terms reach n+1 when all n fibers contribute, giving the two binomial tails and hence 2^n-binomial(n,e). Swapping sections and the two kinds of leaves gives the stated symmetry. Independently expanding the integer binomial sums gave totals 198, 618, 2004, and 19526, and coefficient vector (1,10,41,76,60,10) at (e,n)=(2,4). The example calculation checks arithmetic, not the universal classification. The frozen verifier and output were inspected, not executed; their matrix tests stop at n=6, so the n=8 example was checked separately. No formal certification is asserted.
+
+## originality
+
+PASS
+
+The supported content is the uniform two-weight support polynomial and its exact maximal-support coefficient, not the general matrix algorithm, the elementary transformation, or the boundary case. Accessible comparisons do not cover that joint claim. The unresolved full-text risk is explicitly retained.
+
+## value
+
+PASS
+
+The invariant is the graded support census on a natural family of ruled surfaces of unbounded Picard rank. The uniform formula distinguishes the effects of both section weights, yields exact extremes without enumerating growing matrices, and provides closed-form tests for chamber algorithms. This is not merely the evaluated small examples or a substitution into the boundary formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

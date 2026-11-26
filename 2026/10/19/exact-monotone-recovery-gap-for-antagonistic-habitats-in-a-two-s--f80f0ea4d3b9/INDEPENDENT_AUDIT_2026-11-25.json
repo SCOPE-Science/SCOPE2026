@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:04:28.734690Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, lines 21–104",
+        "VERIFICATION.md, lines 19–32",
+        "verify.py, lines 12–78"
+      ],
+      "rationale": "In a positive stationary state, substituting each local occupancy as local fitness times vacancy times the relevant species mean gives two independent equations in the two vacancies. Subtracting them gives equal vacancies for δ>0, hence both vacancies equal 1/r. The two habitat occupancies then force equal species means s=(r−1)/(2r). The resulting positive state is strictly feasible and solves all four equations. Linearizing a coordinate adds the same-species mean perturbation times 1/r and subtracts s times the total habitat perturbation, in addition to the diagonal death term. The simultaneous species/habitat swap gives symmetric 2×2 restrictions with the same diagonals, −1/(r±δ)−s+1/(2r), and off-diagonal elements 1/(2r)−s and 1/(2r)+s. The latter equals 1/2 and has strictly larger absolute value, giving the frozen exact largest eigenvalue. With t=r²−δ², its derivative has sign that of (r²+δ²)/√(t²+4δ²)−r; squaring compares positive numbers and gives difference (r²−1)t² in favor of r. Thus the spectral abscissa decreases from zero, and strict negativity implies local exponential stability. Expansion in δ² gives coefficient −(r−1)/r⁴ in the exponent. At δ→r, the radical is δ/t+o(1), so the combined singular terms tend to −1/(2r) and g tends to (r−1)/(2r). At δ=0, the ratio of the two species means is conserved, their sum obeys the scalar logistic equation, and habitat differences decay transversely at the positive equilibria. This confirms neutrality along the equilibrium segment rather than attraction to a particular point.",
+      "residual_risks": [
+        "The checker was inspected, not run; the all-parameter decision follows from the exact derivation. The recovery rate is that of the linearized dynamics, not a uniform global nonlinear rate or an extinction-time estimate."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Costa et al. give persistence and positive-equilibrium existence criteria; their smaller-matrix eigenvalues in §3.2 concern persistence predictions. Bernardi et al. cover a neutral homogeneous mode. The later multiplicity record treats counts of isolated equilibria for separate positive rank-one kernels."
+        ],
+        "reasoning": "Existence, stability at δ=0, and bounds on the number of isolated equilibria cannot be specialized to a sharp all-δ local spectral-abscissa formula or its derivative. No inspected earlier broader theorem evaluated that spectral quantity.",
+        "searches": [
+          "arXiv:2607.11291v1, Theorems 3.3–3.4 and §3.2",
+          "arXiv:2602.06640v2, homogeneous stability and heterogeneous stationary equations",
+          "Resultary three-habitat coexistence multiplicity, 775266a30e99"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2602.06640v2",
+        "arXiv:2607.11291v1",
+        "Resultary 0b393d8efcb5 and 775266a30e99",
+        "Padmanabha et al. 10.1073/pnas.2410932121 (abstract only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The homogeneous zero eigenvalue is the δ=0 boundary only. The two-habitat persistence theory is a different theorem about the dynamics and does not solve the linearization at the positive fixed point. The later mirror Jacobian blocks do mechanically give the exact branch after setting a=b=1/2 and substituting reciprocal fitnesses."
+        ],
+        "reasoning": "The small-δ coefficient is a consequence of the exact branch, not a separate independence claim. The inspected earlier material does not evaluate that branch. The later block overlap is substantial and is not dismissed as a different label; its chronology and its stated occupancy focus are recorded separately.",
+        "searches": [
+          "arXiv:2602.06640v2, Theorem 3 and Eqs. 41–44",
+          "arXiv:2607.11291v1, Theorems 3.3–3.4",
+          "Resultary 0b393d8efcb5, symmetry-block proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bernardi et al. formulate the uniform mean-field stationary equations and the homogeneous coexistence manifold; Costa et al. have a general two-habitat system containing this one. The later mirror-specialization record yields the actual ODE by taking a=b=1/2, d=1/(r+δ), D=1/(r−δ), with its viability parameter R=r."
+        ],
+        "reasoning": "An exact correspondence at the model level is verified, including for the catalog record. Earlier model formulations are not statements about the heterogeneous coexistence eigenvalue. The later record uses the same type of symmetry factorization in its broader model, but is dated after the frozen result.",
+        "searches": [
+          "arXiv:2602.06640v2, Theorem 3 and Eqs. 37, 41–44",
+          "arXiv:2607.11291v1, §3.1",
+          "Resultary mirror-specialized occupancy gain, 0b393d8efcb5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest indexed exact model match is dated November 22; it targets a strict occupancy inequality and supplies Jacobian blocks and exponential stability. The other inspected indexed result is about equilibrium multiplicity. No earlier inspected exact formula/table for the recovery-rate path was identified."
+        ],
+        "reasoning": "The target is a continuous two-parameter spectral law, not a finite table. Exact catalog coverage would include the dominant branch or a spectral result implying it, not merely occupancies or coexistence. The later mirror result supplies enough block data for the branch by specialization but does not establish prior coverage.",
+        "searches": [
+          "Resultary 0b393d8efcb5",
+          "Resultary 775266a30e99",
+          "arXiv:2602.06640v2, Theorem 3 and heterogeneous stationary equations",
+          "arXiv:2607.11291v1, §3"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the exact dominant local exponent for the mirror fitness path, its strict monotonicity despite invariant mean occupancies, and the sharp quadratic recovery-rate loss at the neutral limit. The inspected earlier results supply the model, stationary equations, homogeneous neutrality, or persistence criteria, not an exact coexistence relaxation spectrum that specializes to this law. A later catalog record has strongly overlapping blocks and stability, documented below.",
+      "residual_risks": [
+        "The Padmanabha full equations and supplement were not available through the attempted lawful routes; a closer earlier stability result there or in unindexed work is not ruled out."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct prior model and neutral-boundary machinery, not the inspected heterogeneous spectrum",
+          "evidence": "Homogeneous coexistence manifold with a zero mode; heterogeneous mean-field self-consistency equations.",
+          "identifier_or_url": "https://arxiv.org/html/2602.06640v2",
+          "material_read": "Theorem 3 and Eq. 36 around offset 51200; Eqs. 37 and 41–44 around offset 58300",
+          "method": "Lawful OA bounded full-text passages",
+          "title": "Habitat heterogeneity and dispersal network structure as drivers of metacommunity dynamics",
+          "trigger": "Same competitive dispersal framework and mean-field kernel"
+        },
+        {
+          "assessment": "Broader persistence and existence, not a stronger recovery-spectrum theorem",
+          "evidence": "The persistence conditions and smaller-matrix predictions are not the dominant eigenvalue at the interior equilibrium.",
+          "identifier_or_url": "https://arxiv.org/html/2607.11291v1",
+          "material_read": "System in §3.1 around offset 47600, Theorems 3.3–3.4 around 54250 and §3.2 around 60500",
+          "method": "Lawful OA bounded full-text passages",
+          "title": "Metacommunity persistence on spatially heterogeneous landscapes",
+          "trigger": "Broader system with the same two-habitat ecology"
+        },
+        {
+          "assessment": "Strong later overlap; does not establish earlier priority",
+          "evidence": "Coexistence and local exponential attraction, and two Jacobian blocks that specialize to this model; main claim is an occupancy comparison, not the explicit monotone gap.",
+          "identifier_or_url": "0b393d8efcb5",
+          "material_read": "2026-11-22 RESULT.md Finding and block proof, offsets 1150 and 4180",
+          "method": "Resultary search and local mirror",
+          "title": "Strict habitat occupancy gain from mirror-specialized competing species",
+          "trigger": "Exact model specialization and Jacobian symmetry overlap"
+        },
+        {
+          "assessment": "Related later equilibrium result",
+          "evidence": "Two-habitat upper bound on isolated positive equilibria and a three-habitat example; no evaluated mirror recovery law in the passages.",
+          "identifier_or_url": "775266a30e99",
+          "material_read": "2026-11-22 RESULT.md around offsets 724 and 1118",
+          "method": "Resultary search and local mirror",
+          "title": "Three habitat types are sharp for isolated coexistence multiplicity",
+          "trigger": "Related rank-one equilibrium uniqueness theory"
+        },
+        {
+          "assessment": "Unresolved closer overlap; no inference of absence",
+          "evidence": "Abstract-level related multilayer metacommunity framework. PMC supplied a download placeholder and the DOI page did not supply readable full text.",
+          "identifier_or_url": "10.1073/pnas.2410932121; PMC11536131",
+          "material_read": "Public abstract description only; full equations and supplement not read",
+          "method": "Search and lawful full-text attempts via PMC and DOI",
+          "title": "Landscape and environmental heterogeneity support coexistence in competitive metacommunities",
+          "trigger": "Earlier mean-field model and potentially relevant stability material"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, Findings and proof of monotonicity and endpoints",
+        "arXiv:2602.06640v2, homogeneous coexistence manifold"
+      ],
+      "rationale": "The mirror path holds every aggregate occupancy fixed, making it a controlled way to isolate a change in local recovery rather than equilibrium abundance. The exact rate establishes strict improvement throughout the allowed path and quantifies the divergence of the linear recovery time as habitat differentiation vanishes. This gives a precise benchmark for the model, beyond deciding that a stable equilibrium exists.",
+      "residual_risks": [
+        "The benchmark is for a two-species uniform rank-one model on the specified mirror parameter path, not a general resilience prediction for heterogeneous habitats."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

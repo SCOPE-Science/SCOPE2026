@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The root construction follows from the orthogonal decomposition of \(S^k\) into \(k\) residue-class shifts. For the lower bound, the midpoint essential resolvent has inverse norm exactly \(2/|a-b|\) and the Fredholm index is the negative multiplicity of the outer spectral circle. Any strictly smaller perturbation preserves this index around the circle. In contrast, a \(k\)-th power must have index divisible by \(k\) throughout such a Fredholm circle, by factorization and constancy on its connected root circle. The midpoint merged-scale root attains the bound. All signs, strict thresholds, zero-gap cases, and admissible positive integers are accounted for; no experiment substitutes for an infinite-dimensional proof.
+PASS
 
-## Originality — PASS, qualified
+For a>b and k not dividing p, the unitary image of S in the Calkin algebra has full circle spectrum by rotation invariance; the two-scale direct sum is normal there. At every z on the midpoint circle its inverse resolvent norm is exactly 1/δ, δ=(a−b)/2. The index of aS−z is −1 inside radius a by the Fredholm path to aS, and bS−z is invertible outside radius b, so the sum has index −p. A strict essential-norm perturbation below δ preserves that index by the Neumann homotopy. If the perturbation is to X^k, spectral mapping implies X−w is Fredholm on the connected circle |w|=((a+b)/2)^(1/k), so its index is constant. The k commuting linear factors at each z add k copies of that index, contradicting k not dividing p. For the upper bound, S^k interleaves k copies of S. Interleaving the total at scale (a+b)/2 gives a power at norm δ, and the essential lower bound forces essential norm δ as well. If each multiplicity is divisible, the scales interleave separately; if a=b, interleave the divisible total. Swapping scales exchanges p and q, whose divisibility agrees. This establishes both infima and attainment with unrestricted bounded X.
 
-The 2022 first-online paper of Kottegoda–Le–Rodriguez classifies existence of exact square roots of multiplicity-two weighted shifts; its full public HTML was checked for the relevant Theorems 3.1–3.4 and examples. Mashreghi–Ptak–Ross gives exact roots of classical shifts, not a sharp two-scale metric distance. Conway–Morrel (1987) supplies a substantially broader qualitative norm-closure criterion involving the Fredholm index and is explicitly credited; the accessible bibliographic summary does not exhibit the exact midpoint distance formula. The full 1987 text was unavailable, leaving a material historical-priority risk. Relevant published mathematical finding records concerning shifted spectral bands and root eigenvalues had distinct operators or objectives. The claimed contribution is the exact **quantitative** distance and essential-norm optimality, not the original index criterion.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is a sharp stability theorem: it supplies the precise minimal norm perturbation required to convert a concrete non-root shift into a bounded \(k\)-th power, even allowing arbitrary mixing across blocks. The positive gap persists modulo compact operators, while the sharp minimizer is explicit. It extends a qualitative existence/nonexistence dichotomy into an exact, attainable and scale-sensitive quantitative obstruction, for all integer root orders and finite divisible total multiplicities.
+Best-of-knowledge support for the exact attained quantitative gap in both norms, not for the index obstruction, root interleaving, or qualitative norm closure. The inspected exact-root theorems do not give the metric problem. The 1987 Conway–Morrel source is the strongest plausible priority risk: the frozen record reports a broader qualitative closure criterion, but available evidence does not demonstrate a distance theorem or other exact metric specialization. Its full article remained inaccessible. The checked same-day index theorem concerns a different norm and optimization object.
 
-## Sources and residual limitations
+## value
 
-The 1987 closure theorem may contain an uninspected quantitative specialization; this is a priority risk but no checked accessible statement supplies the formula. The claim excludes variable weighted shifts and other total multiplicities. No independent mathematical audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Sharp metric stability for a concrete family of shift powers, allowing unrestricted perturbations and showing the same obstruction modulo compacts, is a useful strengthening of root-existence and qualitative closure statements. It identifies exactly how much changing the scales must cost and supplies a realizable midpoint benchmark for all admissible multiplicities and root orders.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

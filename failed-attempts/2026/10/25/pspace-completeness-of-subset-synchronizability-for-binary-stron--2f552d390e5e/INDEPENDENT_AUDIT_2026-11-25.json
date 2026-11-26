@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:39:28.804513Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The stated decision theorem is correct. In the implicit subset graph a shortest path to a singleton uses at most 2^|Q|−1 transitions; the current subset and an |Q|-bit counter suffice for nondeterministic polynomial space. Empty input subsets never reach a singleton and singletons accept the empty word. For hardness, the frozen two-copy synopsis omits the uniformity issue in Vorel v4 Lemma 4, where the distinguished index is chosen in reference to a reset target. It is not a self-contained uniform reduction as written. The cited Vorel v1 provides a uniform alternative: Lemma 5 maps the unrestricted instance to a transitive instance in both directions using 4|Q|+2 states and |X|+2c letters for c strongly connected components, and Lemma 2 uses a complete binary pointer automaton with |Q||X| states and preserves synchronization and strong connectivity. In the latter construction the pointer stays common to the entire current subset; reading only the applied letters decodes any binary witness, and original letters can all be simulated from the reset pointer. Thus the exact many-one conclusion does not depend on the abbreviated later reduction. No computational certificate is required.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 2 states the unrestricted PSPACE-completeness basis, and the cited source separately restricts both the graph and the alphabet.",
+          "V1 gives polynomial-size transformations with equivalence of the synchronization answers."
+        ],
+        "reasoning": "Unrestricted hardness alone would not imply hardness of the restriction, but the published source gives the needed restrictions simultaneously, not just separate classifications for binary or strongly connected inputs.",
+        "searches": [
+          "arXiv:1403.3972v4 Theorem 2 and proof of Theorem 4",
+          "arXiv:1403.3972v1 Lemmas 5 and 2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md",
+        "arXiv:1403.3972v1",
+        "arXiv:1403.3972v4",
+        "Resultary 654adf45f820"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "V1 explicitly first makes the instance transitive with polynomial blowup, then encodes the letters in binary while preserving its single strongly connected component.",
+          "V4 gives the theorem with precisely the modern binary strongly connected DFA wording."
+        ],
+        "reasoning": "This is a direct match, stronger than a mere implication from a related theorem. The v1 constructions substantiate the many-one quantifier even if the v4 proof sketch leaves its index choice implicit.",
+        "searches": [
+          "arXiv:1403.3972v1 Theorem 10, Lemmas 5 and 2",
+          "arXiv:1403.3972v4 Theorem 4, Lemmas 4 and 6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "V1's transitive means that for every ordered pair of states, some word sends the first to the second. V4 uses ‘strongly connected’ and defines DFA transitions as total.",
+          "V4 Theorem 4 states PSPACE-completeness of subset synchronizability for binary strongly connected DFA."
+        ],
+        "reasoning": "Transitivity is exactly the frozen graph condition; relabeling the two letters is immaterial. Both results take an explicit subset, not a promise of synchronization of all states.",
+        "searches": [
+          "arXiv:1403.3972v1 definition of transitive automata and Theorem 10",
+          "arXiv:1403.3972v4 DFA definition and Theorem 4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest retrieved indexed report concerns shortest-word thresholds for binary monotonic automata.",
+          "Exact theorem coverage is present in Vorel Theorem 10 (v1) and Theorem 4 (v4), independently of catalogue matches."
+        ],
+        "reasoning": "There is no numeric table to certify for this decision-complexity theorem. The closest indexed length-threshold result is not an equivalent decision theorem and is not the basis of the failure.",
+        "searches": [
+          "Resultary ranked search for binary strongly connected subset synchronization and PSPACE-completeness",
+          "Resultary 2026/10/13/SCOPE-the-first-binary-monotonic-subset-synchronization-excess-occurs--654adf45f820"
+        ]
+      },
+      "rationale": "The complete finding is already Theorem 10 of Vorel arXiv:1403.3972v1 and Theorem 4 of v4. There is no new parameter restriction, complexity conclusion or independently new reduction in the frozen record.",
+      "residual_risks": [
+        "This is not a comprehensive study of priority among all early subset-synchronization papers; that does not affect the direct published coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage with a uniform restricted reduction",
+          "evidence": [
+            "Theorem 10 states PSPACE-completeness in the binary transitive setting. Lemmas 5 and 2 respectively add transitivity and reduce the alphabet, retaining yes/no equivalence."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1403.3972v1",
+          "material_read": "p. 1 transitivity definition (offset 2431), p. 3 Lemma 2 (10050), pp. 4–6 Lemma 5 (12000), p. 10 Theorem 10 (32700)",
+          "method": "OA primary text inspection",
+          "title": "Subset Synchronization and Careful Synchronization of Binary Finite Automata (v1)",
+          "trigger": "Original source uses the transitive-automata alias and has a uniform proof"
+        },
+        {
+          "assessment": "Exact theorem match; shorter strong-connectivity construction warrants care about the index choice",
+          "evidence": [
+            "Theorem 4 is the binary strongly connected restriction; the proof cites Lemmas 4 and 6. Lemma 4 refers to the target of a reset word when choosing the distinguished index."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1403.3972v4",
+          "material_read": "p. 3 DFA definition (offset 9292), pp. 8–9 Lemma 4 (25250), pp. 16–17 Theorems 2 and 4 and proof (52371, 53451, 53883)",
+          "method": "OA primary text inspection",
+          "title": "Subset Synchronization and Careful Synchronization of Binary Finite Automata (v4)",
+          "trigger": "Matches the record's modern definition and proof synopsis"
+        },
+        {
+          "assessment": "Not equivalent",
+          "evidence": [
+            "Its thresholds are for shortest words of binary monotonic automata, not complexity under strong connectivity."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-the-first-binary-monotonic-subset-synchronization-excess-occurs--654adf45f820",
+          "material_read": "Mirrored RESULT.md, commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Resultary ranked lookup and local mirror statement inspection",
+          "title": "The first binary monotonic subset synchronization excess occurs…",
+          "trigger": "Nearest retrieved Resultary subset-synchronization hit"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The published restricted complexity theorem is useful, but the submitted finding is a short restatement of it with a less complete hardness synopsis, not a new theorem, independently useful exact invariant, or stronger analysis. The elementary space bound and summary of the cited reductions do not add a mathematical contribution.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

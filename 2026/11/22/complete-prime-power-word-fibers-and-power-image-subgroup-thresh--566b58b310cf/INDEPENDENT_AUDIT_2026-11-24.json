@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:58:11.883378Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–82",
+        "Frozen VERIFICATION.md, check_power.py and check_power.out (read-only)",
+        "Independent bounded coordinate replay: encode base coordinates as f-vectors over F_p, sum T^(r*i)v for 0<=r<p^b, tally by target, compare with the independently generated difference-space supports"
+      ],
+      "rationale": "Model the regular module as F_q[u]/(u^n), with T=1+u. The base part of the p^b-power is multiplication by ((1+u)^i-1)^(p^b-1), using the geometric-sum identity in characteristic p. For i nonzero the factor in parentheses has valuation p^v_p(i) and unit leading coefficient, so the image is the corresponding principal ideal and kernel size is q to that valuation, capped at n. For admissible nonzero j, each of the p^b top preimages of j has valuation v_p(j)-b; for zero j, p^b-p^(b-1) preimages have valuation a-b and the remaining p^(b-1) base maps vanish. This derives all three fiber rules and their supports. The top-zero and top-p^b supports for b<a have ratio q^((p^b-1)(p^(a-b)-1)) taking the latter over the former, which is impossible for subgroup cosets. At b=a the support is the fixed line, attained nontrivially by a single-coordinate vector with i=1. At b>a all power maps vanish. Dividing the image formula by the group order and setting t=s-b gives truncations of the stated positive convergent series plus a vanishing zero-top term. A separate coordinate enumeration checked every target at depths 1 through a+1 for (p,q,a)=(2,2,3),(2,4,2),(3,9,1),(3,3,2),(5,5,1). It summed the shifted coordinate vectors directly and built the claimed ideals by repeated shift differences. Image sizes in the first case were 336,36,2,1; in the fourth were 4401,3,1.",
+      "residual_risks": [
+        "Bounded replay is illustrative; the module proof covers every p,q,a,b. The asymptotic fixes p,q,b; no varying-depth limit is inferred."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kundu–Mondal Prop. 4.3 is membership via the cycle-type matrix in G wr S_n; Thm. 5.6 is a power proportion recurrence for a prime exponent coprime to |G|; Thm. 5.9 counts power conjugacy classes."
+        ],
+        "reasoning": "Restricting the ambient target's permutation to a cyclic subgroup does not restrict the possible roots to that subgroup. The coprimality condition of the proportion recurrence excludes the characteristic-matched case here. No accessible broader theorem covers the cyclic-root multiplicities.",
+        "searches": [
+          "Kundu–Mondal arXiv:2010.04954, Proposition 4.3 and Theorems 5.6, 5.9",
+          "Riedl 10.1155/2009/245617 and 10.1142/S0219498815500449"
+        ]
+      },
+      "checked_sources": [
+        "Configured Resultary hits at local snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+        "Kundu–Mondal exact passages",
+        "Riedl DOI and alternate access attempts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The generic power formula gives a norm operator, not its image or fiber distribution. Cyclic-group order counts and ambient power membership do not give the subgroup obstruction or the asymptotic density."
+        ],
+        "reasoning": "Evaluating the norm in this regular module requires the depth and target-valuation stratification, including blending maps with distinct kernel sizes in the identity fiber. The unequal support sizes and density limit use that stratification rather than a parameter change in the inspected results.",
+        "searches": [
+          "Hall semidirect power formula as cited in frozen RESULT.md §Relationship to prior work",
+          "Kundu–Mondal Prop. 4.3 and Thms. 5.6, 5.9",
+          "Resultary C_p wr C_p special-case source"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same-day abelian regular-wreath entry treats the commutator word in the same family. The same-day cyclic-holomorph entry treats full power fibers, but in Hol(C_(p^m))."
+        ],
+        "reasoning": "Neither changes variables to the stated power word on this regular wreath family. The radical-square-zero quiver unit family likewise treats a different group construction.",
+        "searches": [
+          "Resultary: all-target prime-power fibers in cyclic wreath p-groups, powers in related finite groups and prescribed wreath commutators",
+          "Kundu–Mondal arXiv:2010.04954, power membership and power classes"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The assigned result is the exact self-hit; inspected non-self matches concern quiver unit groups, holomorphs, commutators, or the C_p wr C_p element-order special case."
+        ],
+        "reasoning": "The symbolic infinite-family result is not a table lookup; the small recorded sizes are checks, not the originality claim.",
+        "searches": [
+          "Resultary: prescribed p^b power roots at all depths, regular cyclic wreath p-groups; second cyclic-subgroup maximum"
+        ]
+      },
+      "rationale": "Credit the Hall power formula and regular-module structure, the known C_p wr C_p order/identity-fiber case, and the established study of power membership and proportions for symmetric wreath products. The inspected results do not establish a uniform target-by-target cyclic-top classification with its exact non-subgroup interval and fixed-depth density series. The credited scope is this combined theorem, not the norm formula or central terminal image in isolation.",
+      "residual_risks": [
+        "The two Riedl primary texts could not be inspected directly, and the earlier C_p wr C_p citation trail is incomplete. The conclusion is bounded, not an absolute priority claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related but does not give prescribed cyclic wreath fibers",
+          "evidence": "The root-membership criterion uses a symmetric-top type matrix, while the size recurrence assumes exponent prime to |G|.",
+          "identifier_or_url": "https://arxiv.org/pdf/2010.04954",
+          "material_read": "v1 abstract; Prop. 4.3 p. 11, Thm. 5.6 p. 17, Thm. 5.9 p. 19",
+          "method": "OA PDF exact passages, offsets 0, 33100, 53800, 59150",
+          "title": "Powers in the wreath product of G with S_n",
+          "trigger": "Closest prior power membership, density, and class counting"
+        },
+        {
+          "assessment": "Exact overlap unresolved",
+          "evidence": "The frozen result attributes the group framework and use of the Hall identity to the first paper. Inaccessibility is not negative evidence.",
+          "identifier_or_url": "10.1155/2009/245617; 10.1142/S0219498815500449",
+          "material_read": "Frozen bibliographic descriptions only; no decisive primary passage retrieved",
+          "method": "Lawful Wiley/Hindawi and World Scientific attempts; old Hindawi PDF and EMIS alternate attempted; HTTP 403",
+          "title": "Automorphisms of Regular Wreath Product p-Groups; Upper central series for elementary-abelian-over-cyclic regular wreath product p-groups",
+          "trigger": "Same regular-wreath structure and potential stronger power analysis"
+        },
+        {
+          "assessment": "Different word in the first, different group family in the second",
+          "evidence": "The first gives prescribed commutator counts for A^B semidirect B; the second counts roots and images in odd-prime cyclic holomorphs.",
+          "identifier_or_url": "2026/11/22/SCOPE-complete-prescribed-commutator-fibers-in-finite-abelian-regular--15300779f38b; 2026/11/22/SCOPE-every-power-word-fiber-in-odd-prime-cyclic-holomorphs--823a0776595f",
+          "material_read": "Both RESULT.md findings at offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Complete prescribed-commutator fibers in finite abelian regular wreath products; Every power-word fiber in odd-prime cyclic holomorphs",
+          "trigger": "Strongest same-day near matches on group family or invariant"
+        },
+        {
+          "assessment": "Analogue and partial structural overlap",
+          "evidence": "The quiver result treats radical-square-zero path-algebra units; the cyclic-subgroup source uses properties of C_p wr C_p but not the uniform target/depth census.",
+          "identifier_or_url": "2026/10/25/SCOPE-complete-power-map-fibers-in-radical-square-zero-quiver-unit-gro--1c150d6b326e; 2026/10/4/SCOPE-a-sharp-order-cutoff-for-the-second-cyclic-subgroup-maximum-of-o--f7e2cc9a560c",
+          "material_read": "RESULT.md offsets 950–3450 and 450 respectively",
+          "method": "Local Resultary mirror",
+          "title": "Complete power-map fibers in radical-square-zero quiver unit groups; A sharp order cutoff for the second cyclic-subgroup maximum",
+          "trigger": "Older exact counts and cited special case"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof; Kundu–Mondal comparisons on membership and proportions"
+      ],
+      "rationale": "The classification addresses a canonical power word on a natural family, gives target counts rather than just an identity fiber or membership criterion, and answers the consequential question of when the image stops failing closure. The positive fixed-depth density is an exact population statistic across the family, not an isolated small calculation.",
+      "residual_risks": [
+        "No general closure/density statement is supported for non-elementary abelian bases or other top actions."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

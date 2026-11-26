@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T23:21:54.123744Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On e1=e2=e3=0, the Jacobian has Vandermonde columns (1,-xi,xi²). A rank drop forces at most two values; multiplicities (1,4) force s²=0 after e1, and (2,3) force r=0 then s³=0. Equality of all coordinates is impossible projectively. The resulting smooth connected (2,3) complete intersection has genus 4 by adjunction. A projective fixed point of a three-cycle in characteristic 3 must have a=b=c, then e1,e2,e3 rule it out. The constant C3 action is free, giving a connected finite étale torsor despite 3 dividing the group order. The base-point-free projection [u:v] has degree 6 by its pullback of O(1). Its generic cubic of ordered roots has squarefree discriminant D on the affine base; a transposition negates the nonzero Vandermonde, so adjoining W/v³ gives the degree-two fixed field. The weighted double cover is smooth since the sextic is squarefree with nonzero leading coefficient and characteristic is odd. The identity W=(u+v)³(z³-z), with the generator translating z by 1, gives the full extension and its connectedness gives nontriviality. Independently, near u/v=-1 set s=u/v+1, w=W/v³. Then D=-1+s²-s³+s⁴-s⁶ and w=w0+w0 s²+O(s³) with w0²=-1. The whole polar part of w/s³ is (-w0/s)³-(-w0/s), an explicit local check that no ramification is hidden there. The Cartier coefficients are c2=c4=1, c1=c5=0, and unramified Deuring–Shafarevich gives p-rank 4 upstairs. Independent exact Gröbner reductions confirm the discriminant and Artin–Schreier identities, the translation, squarefreeness, and the empty projective fixed locus: python3 /workspace/branches/independent_reproduction.py bring. The frozen SymPy code was inspected, not executed; finite symbolic checks do not replace the global geometric argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The classical work finds the char-zero genus-two quotient and a rational Jacobian isogeny to (50a)^4.",
+          "The indexed good-reduction record covers the very same elementary-symmetric special fibre and ordinarity/zeta, not its explicit degree-three torsor."
+        ],
+        "reasoning": "Good reduction and isogeny information explain geometric and arithmetic background but do not determine a free action after specialization or an explicit equation for its nontrivial class.",
+        "searches": [
+          "Braden–Disney-Hogg §4.4 and Proposition 4.5",
+          "Resultary ade26f8a237d, good characteristic-three reduction of Bring’s curve"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md (Finding, Assumptions, Proof, Prior work)",
+        "Braden–Disney-Hogg DOI 10.1007/s40879-023-00706-0",
+        "Resultary ade26f8a237d",
+        "Resultary 5739ac81ace9"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Generic freeness is stated over characteristic zero; the quotient calculation uses coordinates singular for this reduction.",
+          "The broader good-reduction and arithmetic statements contain no specified Artin–Schreier representative."
+        ],
+        "reasoning": "Generic freeness does not exclude fixed points appearing on a special fibre, and general étale and Artin–Schreier theory does not compute W/(u+v)³. Do not claim fresh priority for the generic quotient or the ordinary fibre separately.",
+        "searches": [
+          "Braden–Disney-Hogg §4.4, p. 32 freeness statement; Proposition 4.5, p. 37",
+          "ade26f8a237d RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "§4.4 pp. 30–32 uses a primitive cube root and division by 3 for a characteristic-zero hyperelliptic equation; it gives no bad-prime specialization of the coordinates.",
+          "Resultary 5739ac81ace9 has equations y³-y=x²+x+x⁻²+c; this is not a presentation of the unramified class over the genus-two discriminant quotient."
+        ],
+        "reasoning": "No inspected change of coordinates identifies a prior characteristic-three quotient and torsor. Neither merely having a genus-two quotient in characteristic zero nor a different genus-four Artin–Schreier family entails this one.",
+        "searches": [
+          "Braden–Disney-Hogg DOI 10.1007/s40879-023-00706-0 §4.4; three-cycle quotient via semi-invariants versus ordered-root invariants",
+          "Resultary characteristic-three Bring quotient / Artin–Schreier comparison"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "ade26f8a237d is a different statement on the same fibre; 5739ac81ace9 is a same-day statement with different equations and different covers."
+        ],
+        "reasoning": "Used exact statement comparison rather than publication date or a genus/characteristic match; no equivalent explicit torsor was established from these indexed records.",
+        "searches": [
+          "Resultary Bring curve characteristic 3 and genus-four Artin–Schreier matches; inspected ade26f8a237d and 5739ac81ace9"
+        ]
+      },
+      "rationale": "Credit the known genus-two quotient and fixed-point calculation in characteristic zero and the overlap on good reduction and ordinarity. The supported distinction is the explicit nontrivial étale characteristic-three torsor on the elementary-symmetric model, including its discriminant quotient and Artin–Schreier representative; neither inspected approach gives that identified special-fibre extension.",
+      "residual_risks": [
+        "The targeted comparisons do not exclude an unindexed equivalent bad-prime calculation or another integral quotient model carrying the same class."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct generic antecedent, not exact special-fibre coverage",
+          "evidence": "Primitive cube-root semi-invariants, char-zero quotient sextic and freeness; rational (50a)^4 isogeny.",
+          "identifier_or_url": "https://doi.org/10.1007/s40879-023-00706-0",
+          "material_read": "§4.4 pp. 30–32, Proposition 4.5 p. 37",
+          "method": "Lawful OA PDF, bounded passages",
+          "title": "Bring’s curve: old and new",
+          "trigger": "Same curve and three-cycle quotient"
+        },
+        {
+          "assessment": "Same smooth ordinary fibre, different contribution",
+          "evidence": "Good reduction and exact zeta; no displayed D or Artin–Schreier torsor in the inspected statements.",
+          "identifier_or_url": "Resultary ade26f8a237d",
+          "material_read": "RESULT.md offsets 0–6692",
+          "method": "Local published record mirror",
+          "title": "Good characteristic-three reduction and exact zeta function of Bring’s curve",
+          "trigger": "Same elementary-symmetric model and characteristic"
+        },
+        {
+          "assessment": "Different covers",
+          "evidence": "Twists y³-y=x²+x+x⁻²+c are not this class on the genus-two quotient.",
+          "identifier_or_url": "Resultary 5739ac81ace9",
+          "material_read": "Curve equations and finding",
+          "method": "Local published record comparison",
+          "title": "Three twists of a genus-four Artin–Schreier curve have distinct zeta functions",
+          "trigger": "Same-day genus-four characteristic-three Artin–Schreier match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a classical symmetric curve this identifies a concrete unramified nonzero class under a group of order equal to the characteristic. The equations let a researcher work directly with the special-fibre quotient and torsor, rather than extrapolate from characteristic-zero coordinates or merely know the ordinary Newton polygon. The model distinction avoids the degenerate third power-sum equation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

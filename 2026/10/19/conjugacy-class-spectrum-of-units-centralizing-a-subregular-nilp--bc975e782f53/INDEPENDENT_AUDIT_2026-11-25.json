@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:18:20.501624Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Work on k[t]/(t^m)⊕k. The cross maps are inclusion into the t^(m−1) socle and evaluation at 0. Their short-block composite is zero because m≥2; in the basis ordered as 1, the short-block basis, t,…,t^(m−1), the determinant is f₀^m a. In multiplying units the long-long commutator has only the socle coefficient uV−Uv, and the two cross-block commutators give the other two minors of the rows (f₀−a,u,v) and (g₀−b,U,V). Thus a nonzero first row requires the second row to be a scalar multiple, whereas a zero row commutes with all units. The equation g₀−b=h′ with g₀,b nonzero has q−1 solutions for h′=0 and q−2 otherwise. This yields stabilizers |G_m|, q^m(q−1), q^(m−1)(q−1)², respectively. Dividing gives the three class sizes; summing element counts divided by their class sizes gives (q−1)(q²+1)q^(m−2). The third stratum is empty at q=2 and the orbit-count identity gives cp=5/8 there and the displayed general cp. The frozen checker and its verification were inspected, not executed. A separately written direct-matrix enumeration (independent_matrix_check.py) matched all class-size multiplicities at (q,m)=(2,2),(3,2),(2,3),(3,3), with 40, 2160, 160 and 19440 ordered commuting pairs, respectively. It is a finite corroboration; the three-minor argument proves uniformity including over extension fields.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "De Franceschi describes unipotent element centralizers as units in the matrix-algebra centralizer. Britnell–Wildon treat ambient commuting similarity types, possible determinants, and compatibility of hook nilpotents with other nilpotent classes. Ngo treats algebraic commuting varieties over an algebraically closed field."
+        ],
+        "reasoning": "These supply general structure or nearby compatibility theorems, not the unit orbit stabilizer strata or their all-m counts. The stabilizer calculation needs simultaneous control of the socle commutator and the residue difference.",
+        "searches": [
+          "De Franceschi, arXiv:2008.12651, §2.3.2",
+          "Britnell–Wildon, arXiv:1001.0811, Theorems 2.8 and 3.1, Proposition 4.4",
+          "Ngo, arXiv:1301.2712, §1.1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_subregular_unit_centralizers.py",
+        "Resultary c71ec5f31f3e",
+        "arXiv:1409.2698, arXiv:1001.0811, arXiv:2008.12651 and arXiv:1301.2712, inspected passages"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "An all-matrix orbit count in dimensions three and four cannot establish a formula over all m. The all-length tuple result has no unequal-residue unit locus. The hook commuting-compatibility result concerns existence of representatives and not size of their internal orbits."
+        ],
+        "reasoning": "Scalar shifts of nilpotent states can yield equal-residue units but cannot produce the missing unequal-residue stratum; the nilpotent orbit formula therefore does not imply the full spectrum by that reduction. The rank-uniform commuting probability is credited only as the consequence of the full spectrum, not as an independent novelty.",
+        "searches": [
+          "Resultary c71ec5f31f3e, mirrored RESULT.md starting at offset 0",
+          "arXiv:1409.2698, Lemma 4.2 and Lemma 5.10",
+          "arXiv:1001.0811, Proposition 4.4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The theorem counts Aut_{k[t]}(k[t]/(t^m)⊕k)-orbits on its own units, equivalently its conjugation orbit-size histogram.",
+          "Sharma does use the same conjugation groups in the small hook cases, but acts on all matrices in the endomorphism centralizer; the indexed hook entry acts on commuting nilpotent tuples."
+        ],
+        "reasoning": "Ambient similarity, all-matrix branching, nilpotent-tuple branching and internal unit conjugation are distinct orbit domains. The proper unit selection includes the unequal nonzero diagonal-residue stratum.",
+        "searches": [
+          "Resultary: hook Jordan centralizer conjugacy and nilpotent branching",
+          "Sharma, arXiv:1409.2698, Definition 1.1 and Lemmas 4.2, 5.10"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed hook result gives two orbit sizes 1 and q(q−1) for pairwise commuting nilpotent tuples of arity at least two. Sharma gives branching counts q² and q³+q for (2,1), and q³ and q⁴+q² for (3,1), for all matrix branches of the stated types."
+        ],
+        "reasoning": "These are exact near matches but neither is the three-row all-length unit spectrum; in particular no nilpotent tuple gives a stratum with distinct nonzero diagonal residues.",
+        "searches": [
+          "Resultary: SCOPE-all-arity-nilpotent-branching-orbits-in-hook-jordan-centralizers--c71ec5f31f3e",
+          "arXiv:1409.2698, Lemmas 4.2, 5.10"
+        ]
+      },
+      "rationale": "The supported distinct claim is the all-length, unit-only internal class-size distribution, including the distinction between noncentral classes with equal and unequal diagonal residues. No priority is credited for the module description, the orbit-count identity or the individually known small cases. The strongest checked same-centralizer statements use different orbit domains or stop at low dimension.",
+      "residual_risks": [
+        "The historical search is bounded, including a deferred query not used as evidence of absence. A prior all-length result expressed in automorphism-group or branching terminology may remain unlocated."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly related; different domain",
+          "evidence": "The quantified orbits are on commuting nilpotent r-tuples with r≥2, not all units; listed sizes are 1 and q(q−1).",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-all-arity-nilpotent-branching-orbits-in-hook-jordan-centralizers--c71ec5f31f3e",
+          "material_read": "Mirrored RESULT.md beginning at offset 0",
+          "method": "Local indexed search and bounded mirror reading",
+          "title": "All-arity nilpotent branching orbits in hook Jordan centralizers",
+          "trigger": "Same groups, all hook lengths and an orbit-size theorem"
+        },
+        {
+          "assessment": "Low-dimensional all-matrix antecedent",
+          "evidence": "Branches for (2,1) and (3,1) include all matrix coordinates, not just units, and computations stop at dimension four.",
+          "identifier_or_url": "https://arxiv.org/pdf/1409.2698",
+          "material_read": "Definition 1.1, PDF p. 1; Lemma 4.2, p. 10, offset near 21000; Lemma 5.10, offsets 41100–45820",
+          "method": "Targeted passages of the primary PDF",
+          "title": "Simultaneous similarity classes of commuting matrices over a finite field",
+          "trigger": "Exact branching in the small hook centralizers"
+        },
+        {
+          "assessment": "Not a unit-orbit count",
+          "evidence": "Proposition 4.4 determines whether J(n−1,1) can commute with a conjugate of J(λ); Theorem 3.1 concerns the determinant image of the centralizer.",
+          "identifier_or_url": "https://arxiv.org/pdf/1001.0811",
+          "material_read": "Theorems 2.8 and 3.1, PDF pp. 8 and 13; Proposition 4.4, p. 24",
+          "method": "Targeted primary PDF inspection",
+          "title": "On types and classes of commuting matrices over finite fields",
+          "trigger": "Contains results on determinants and the same subregular Jordan type"
+        },
+        {
+          "assessment": "Provides structural background, not internal class-size distribution in the passage read",
+          "evidence": "The group centralizer is the invertible part of the matrix-algebra centralizer; surrounding conjugacy is ambient.",
+          "identifier_or_url": "https://arxiv.org/pdf/2008.12651",
+          "material_read": "§2.3.2, PDF pp. 11–12, text near offset 32100",
+          "method": "Bounded primary PDF reading",
+          "title": "Centralizers and conjugacy classes in finite classical groups",
+          "trigger": "General unipotent-centralizer structure"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Internal conjugacy sizes are natural finer invariants than order or the number of ambient similarity classes. The full distribution shows exactly what changes as the long Jordan block lengthens and what does not, including the missing unequal-residue stratum at q=2. It supplies a uniform closed benchmark for a basic nonregular family of finite matrix centralizers.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

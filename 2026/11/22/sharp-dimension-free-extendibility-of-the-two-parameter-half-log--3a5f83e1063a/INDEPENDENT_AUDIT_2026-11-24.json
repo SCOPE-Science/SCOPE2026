@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:25:58.888105Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Solving the fractional-linear relation in exp(θu) gives Ψ^(-1)(z)=θ^(-1)log((1+αqz)/(1-qz)), with q=(exp(θ)-1)/(exp(θ)+α) in (0,1). For 0<α<=1 the two logarithmic series converge absolutely up to z=1; their combined coefficients w_k have the stated odd/even signs and sum to Ψ^(-1)(1)=1. Conditional product CDFs Ψ^k therefore give valid copulas with uniform mixture margins for every d. For α>1 the inverse is still smooth and H(t)=Ψ^(-1)(exp(-t)) has H''(t)>0, since each log term contributes positively to that derivative; H is decreasing and hence gives a bivariate copula. For the all-dimensional obstruction choose T>max(0,log(αq)). The absolutely convergent coefficients of H(T+s) give a finite signed atomic Laplace measure with mass w_2 exp(-2T)<0 at 2. If H were completely monotone, Bernstein–Widder would give a positive measure, whose exponential tilt would represent this same shifted transform; uniqueness rules that out. This does not rely on the series converging at t=0 for α>1, and the classical all-dimensional criterion only concerns the canonical construction. Differentiating the inverse shows -θH'''(0)=-1414190/27818127 at (α,exp θ)=(100,3); continuity gives a strict interior violation of the necessary 3-monotonicity. The θ→0 limit is independence since q~θ/(1+α) and H(t)→exp(-t). Replay: python3 /workspace/branches/independent_checks.py 5. An independent exact rational product check of the exponentiated three-dimensional rectangle volume (using generator-coordinate endpoints 99/100 and 199/200) gives a negative volume at α=100 and positive at α=1 when exp θ=3. The supplied script was read, not executed; that finite check is not the proof of the full threshold.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The classical criterion, stated explicitly in frozen RESULT.md lines 32–36, relates all-dimensional canonical Archimedean validity to complete monotonicity, and specific d to d-monotonicity.",
+          "Indexed e7354318fbaa characterizes a unit-Lomax-distorted independence copula by 0<α<=1 and 0<θ<=2/(1+α), with a recurrence for a positive-integer frailty."
+        ],
+        "reasoning": "The general criterion reduces, but does not solve, the parameter test. The unit-Lomax distortion and its indexed recurrence have not been shown equivalent to the present half-logistic inverse with logarithmic weights and no positive θ restriction.",
+        "searches": [
+          "McNeil–Nešlehová arXiv:0908.3750 / DOI 10.1214/07-AOS556",
+          "Resultary e7354318fbaa (unit-Lomax distortion and integer frailty)"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, checker.py",
+        "Resultary 3a5f83e1063a and e7354318fbaa",
+        "DOI 10.3390/math12010101 publisher metadata, classical theorem and related bibliography listed above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The frozen comparison credits the original bivariate generator, validity and Frank limit; the prior general result gives the reduction to complete monotonicity.",
+          "In this exact family the power coefficient w_2<0 when α>1; when αq>=1 the unshifted Taylor expansion may not converge at z=1. Exponential tilting makes the signed Laplace obstruction valid regardless of θ."
+        ],
+        "reasoning": "Standard criteria do not decide signs or remove the radius-of-convergence issue for the particular generator. The distinct classification is the family-specific positivity/necessity calculation and explicit law, not an exact claim about arbitrary exchangeable extensions.",
+        "searches": [
+          "Alzaid–Alhadlaq DOI 10.3390/math12010101 §4",
+          "McNeil–Nešlehová arXiv:0908.3750 §2",
+          "Alhadlaq–Alzaid DOI 10.3390/sym12122108"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The frozen source identifies the original Article 101 §4 multiplicative half-logistic generator; the equivalent additive-inverse form is H(t)=θ^(-1)[log(1+αq exp(-t))-log(1-q exp(-t))].",
+          "The Frank limit at α=0 and the odd-only one-parameter α=1 boundary are particular cases, not an identification of the positive two-parameter classification with a prior Frank family."
+        ],
+        "reasoning": "Generator conventions differ; comparing H and its Laplace law puts the statements on the same scale. Giving Ψ and its bivariate copula does not establish positive Laplace representability; in fact at α>1 the bivariate copula is valid but positive representability fails.",
+        "searches": [
+          "Resultary: half-logistic copula, log-difference Archimedean generator and integer frailty",
+          "Primary literature query: half logistic Archimedean copula Alzaid Alhadlaq multivariate extension completely monotone frailty odd integers 10.3390/math12010101",
+          "DOIs 10.3390/math12010101 and 10.3390/sym12122108"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact catalogue match 3a5f83e1063a is the assigned record. The distinct same-day e7354318fbaa summary states different family/parameter restrictions and does not list these coefficients or the parity boundary.",
+          "The literature lookup identified Article 101, the original bivariate family citation, but did not return an independently inspectable table or explicit all-dimensional half-logistic rule."
+        ],
+        "reasoning": "The natural exact-table comparison is the all-parameter domain and atom weights, not the occurrence of positive integer support or α=1 in two models. Same-day indexing supplies no order or priority.",
+        "searches": [
+          "Resultary 3a5f83e1063a and e7354318fbaa",
+          "Targeted primary search for a half-logistic copula odd-integer frailty or dimension-free threshold"
+        ]
+      },
+      "rationale": "Credit the exact all-canonical-dimension boundary and its constructive weight law for this specified half-logistic family. Bivariate validity, the original generator, classical complete-monotonicity criteria and Laplace uniqueness are antecedents, not claimed discoveries. The closest indexed integer-frailty result concerns a different distortion and no inspected prior source specifies or implies this classification without the family-specific signed coefficient and tail argument.",
+      "residual_risks": [
+        "Exact primary original-family and general-generator article passages were not retrieved despite lawful targeted attempts; a stronger related explicit formula could remain uninspected.",
+        "The related unit-Lomax statement was compared at indexed-summary level; its full method could overlap more than the summary establishes. No absolute priority claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Original family and bivariate scope credited; no whole-document noncoverage claim",
+          "evidence": "Article 101 is identified; the exact generator, attribution and original bivariate scope are recorded in the frozen comparison.",
+          "identifier_or_url": "https://doi.org/10.3390/math12010101",
+          "material_read": "Publisher bibliographic identification via focused search; original §4 passage unavailable; specific generator attribution and scope compared with frozen RESULT.md lines 99–105",
+          "method": "Targeted literature lookup and lawful OA passage attempts at publisher article, DOI and publisher PDF alternate",
+          "title": "A New Family of Archimedean Copulas: The Half-Logistic Family of Copulas",
+          "trigger": "Exact prior generator and plausible same-family extension"
+        },
+        {
+          "assessment": "General criterion supplied by prior work; 2020 construction background credited, exact family-specific overlap not verified",
+          "evidence": "The reduction to complete monotonicity still requires ruling out all positive representing measures, not merely observing one negative formal coefficient.",
+          "identifier_or_url": "arXiv:0908.3750; DOI 10.3390/sym12122108",
+          "material_read": "Classical complete-monotonicity and d-monotonicity statements as quoted in the frozen scope and available bibliographic material; targeted original passages unavailable",
+          "method": "Citation and OA passage lookup; mathematical comparison of the criterion to the present inverse",
+          "title": "Multivariate Archimedean copulas, d-monotone functions and ℓ1-norm symmetric distributions; Distribution Function, Probability Generating Function and Archimedean Generator",
+          "trigger": "General criteria could imply a special-family frailty without a new theorem"
+        },
+        {
+          "assessment": "Parallel problem in another specified family; no demonstrated equivalence or domination of this threshold",
+          "evidence": "The indexed phase includes θ<=2/(1+α) and uses a frailty recurrence, while the half-logistic record has no upper θ bound and derives a log-series parity law.",
+          "identifier_or_url": "Resultary e7354318fbaa",
+          "material_read": "Local indexed Finding summary; full matching passage was unavailable",
+          "method": "Local Resultary search and attempted mirrored passage inspection",
+          "title": "Exact all-dimensional extendibility and integer frailty for the unit-Lomax-distorted independence copula",
+          "trigger": "Strongest distinct related same-day indexed exact frailty result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Bivariate validity of an existing family leaves open its legitimately usable canonical dimensions. The exact threshold resolves that question for every positive θ, and the constructive normalized frailty law gives a direct sampling and consistency mechanism. The trivariate witness shows that failure outside the range can be seen in a genuinely small dimension, while the signed-measure argument proves failure somewhere even when a low-order check does not.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

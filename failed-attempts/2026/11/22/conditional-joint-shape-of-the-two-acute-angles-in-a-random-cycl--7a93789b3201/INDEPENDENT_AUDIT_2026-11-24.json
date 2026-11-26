@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:07:11.446189Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof, lines 5–54",
+        "Frozen VERIFICATION.md and CHECK.py (inspected, not executed)",
+        "Olkin–Trikalinos, section 2, equations (2.1)–(2.3)",
+        "Lockhart, Putnam solutions, A6, pp. 3–4"
+      ],
+      "rationale": "Rotating a sampled vertex to the origin makes the remaining n-1 ordered endpoints uniform order statistics, hence the circular spacings from that vertex are Dirichlet(1,...,1). An acute angle requires its two adjacent gaps to total more than 1/2; nonadjacent acute angles would use disjoint gaps and are impossible. For n>=4 there can therefore be at most two, defining a unique adjacent pair. The three consecutive gaps and their aggregate remainder have parameters (1,1,1,n-3). If the adjacent gap sums are x=u+1/2 and y=v+1/2, the shared gap ranges from x+y-1 to min(x,y); the transform to x,y and this gap has determinant of absolute value one. Integrating the remaining-gap power yields (n-1)(n-2)(1/2-max(u,v))^(n-3) for 0<u,v<1/2. Its mass 2^(2-n) gives the fixed-pair normalization and, summed over the n disjoint pair events, the stated event probability. The two triangles of the deficit square give Jacobian 2m for maximum m and relative minimum r; substitution t=2m gives the beta density independently of r. Scaling gives the displayed limiting density (pointwise convergence of normalized densities suffices), and E[M]=1/n, E[M^2]=3/[2n(n+1)] with equally likely coordinate orders give the three stated deficit moments and correlation. This also covers n=4, when the aggregate remainder is a single gap.",
+      "residual_risks": [
+        "The reported 1,251 finite assertions, including simulation, are corroboration only; the proof of the all-n and limiting claims is analytic.",
+        "The labeling is by a fixed cyclic orientation of the adjacent pair (or its reversal), not by increasing angle magnitude."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The density integral applies to arbitrary positive shapes and gives bounds max(0,x+y-1) and min(x,y), which reduce to the frozen bounds in the acute window. Appendix A also treats the x+y>1 region in its general piecewise formulas.",
+          "Finch's section 2 explicitly gives the adjacent-angle density at n=4, and section 4 gives finite-order joint angle information for n=5."
+        ],
+        "reasoning": "Setting three shapes to one and the fourth to n-3 leaves a single elementary antiderivative; this is a direct specialization of a stronger theorem, not an inference from similar parameters.",
+        "searches": [
+          "Olkin–Trikalinos arXiv:1406.5881, section 2.1 and Appendix A",
+          "Published search for all-n unconditioned adjacent cyclic polygon angle laws and Finch arXiv:1610.00510"
+        ]
+      },
+      "checked_sources": [
+        "Olkin–Trikalinos arXiv:1406.5881",
+        "Finch arXiv:1610.00510",
+        "Lockhart Putnam A6",
+        "Resultary records 46f33b2d37f1 and d66cc98a9db3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "On x,y>1/2 the prior density with shapes (1,1,1,n-3) is a Dirichlet normalizing constant times the integral of (1-x-y+s)^(n-4) over x+y-1<s<min(x,y). Its result is (n-1)(n-2)(1-max(x,y))^(n-3). The known geometry identifies the union of disjoint successful pairs with exactly two acute angles and supplies the normalization 2^(2-n) per pair."
+        ],
+        "reasoning": "The prior density, translated to deficits and normalized, is exactly f_n. On each of its two triangular branches it depends only on the maximum; the relative minimum is then automatically uniform independently of the maximum. Beta scaling and elementary moments produce the other displayed consequences, with no additional unknown geometric step.",
+        "searches": [
+          "Olkin–Trikalinos equations (2.2)–(2.3); Lockhart A6, pp. 3–4; frozen RESULT.md proofs of density and shape"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Olkin–Trikalinos equations (2.1)–(2.3) take X=U11+U10 and Y=U11+U01 after sampling a four-component Dirichlet vector.",
+          "For consecutive gaps G_left,G_shared,G_right, take U11=G_shared, U10=G_left, U01=G_right, and U00=all remaining gaps. The exact event equivalence for n>=4 is supplied by the known adjacent acute-pair geometry."
+        ],
+        "reasoning": "The unconditioned gap-sum pair is precisely the known bivariate beta family, not just a distribution with matching marginals. The deficits translate each coordinate by -1/2 and condition on the corresponding upper quadrant.",
+        "searches": [
+          "Olkin–Trikalinos arXiv:1406.5881, shared-component bivariate beta construction",
+          "Finch arXiv:1610.00510 sections 2 and 4",
+          "Lockhart, 2005 Putnam solution A6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact self-hit 7a93789b3201 is not independent priority evidence. The distinct 46f33b2d37f1 is a semicircular hull and one-vertex mark given at least one acute angle, and d66cc98a9db3 concerns acute-conditioned triangles.",
+          "Finch's quadrilateral tent density restricted to two acute angles has mass 1/4 and normalizes to 12(1-2max(u,v)), already giving the n=4 entry. Olkin–Trikalinos's density family supplies all entries by specialization, irrespective of whether they were tabulated."
+        ],
+        "reasoning": "No catalogue neighbor was used as an equivalent all-n result. There is nevertheless verified analytic coverage; an explicit table of special cases is not required.",
+        "searches": [
+          "Resultary search for rare acute vertex/acute adjacent angle joint law",
+          "Finch arXiv:1610.00510, sections 2 and 4",
+          "Olkin–Trikalinos arXiv:1406.5881, Appendix A"
+        ]
+      },
+      "rationale": "Verified broader coverage, not merely an unavailable possibility. Olkin–Trikalinos (2015) give the exact joint density integral with the same bounds for the two sums of a four-component Dirichlet vector sharing one component. Taking parameters (1,1,1,n-3) gives the all-n neighboring gap-sum law; the three unit parameters make the prior integrand a single power. Restricting to both sums above 1/2 and normalizing using the already-known adjacent acute-pair event gives exactly the claimed density. The beta/uniform factorization, scaling and correlation are direct transformations or moments of that specialized density; they are not distinct surviving results here. The prior need not mention cyclic polygons or explicitly tabulate this parameter choice to cover the claimed mathematical content.",
+      "residual_risks": [
+        "The bounded literature search does not establish who first explicitly wrote the conditioned polygon formula; the failure is based on verified broader coverage, not an assertion about that exact wording or first occurrence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive stronger prior density; direct specialization gives the core finding",
+          "evidence": [
+            "The density integral ranges over max(0,x+y-1)<U11<min(x,y) for the same overlapping sums. For three unit shapes only the remaining-gap power persists."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1406.5881 (DOI 10.1016/j.spl.2014.09.013)",
+          "material_read": "Section 2, p. 4, equations (2.1)–(2.3), near extraction offset 10600; Appendix A, pp. 9–10, near offset 22580",
+          "method": "Bounded OA full-text passages by section/offset",
+          "title": "Constructions for a bivariate beta distribution",
+          "trigger": "Exact shared-component Dirichlet law for the unconditioned adjacent sums"
+        },
+        {
+          "assessment": "Exact n=4 implication and prior joint information at n=5; not itself an all-n source",
+          "evidence": [
+            "Section 2 gives the bivariate tent density for adjacent quadrilateral angles; the acute-window restriction yields the frozen quadrilateral special case."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1610.00510",
+          "material_read": "Section 2, pp. 7–8 near offset 13096, and section 4, pp. 10–11 near offset 18000",
+          "method": "Bounded OA primary PDF passages",
+          "title": "Random Cyclic Quadrilaterals",
+          "trigger": "Earlier adjacent interior angle density"
+        },
+        {
+          "assessment": "Supplies the conditioning geometry and scalar normalization, not the joint density by itself",
+          "evidence": [
+            "Two acute vertices must be adjacent; the fixed-pair probability is 2^(2-n), with disjoint contributions over the n pairs."
+          ],
+          "identifier_or_url": "https://www.sfu.ca/~lockhart/richard/Putnam2005Sol.pdf",
+          "material_read": "A6, pp. 3–4 near offset 8808",
+          "method": "Bounded OA solution PDF passage",
+          "title": "Solutions to the 66th William Lowell Putnam Mathematical Competition",
+          "trigger": "Earlier geometry and probability of exactly two acute vertices"
+        },
+        {
+          "assessment": "Different conditioning and mark; not the reason for the failure",
+          "evidence": [
+            "Conditions on at least one acute angle and studies the semicircular hull and a one-vertex mark, not both deficits given exactly two acute angles."
+          ],
+          "identifier_or_url": "2026/11/17/SCOPE-the-semicircular-hull-shape-law-under-a-rare-acute-vertex-in-ran--46f33b2d37f1",
+          "material_read": "RESULT.md Finding",
+          "method": "Resultary catalogue and local-mirror passage",
+          "title": "The semicircular-hull shape law under a rare acute vertex in random cyclic polygons",
+          "trigger": "Strongest distinct local result on acute conditioning in the same geometry"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Olkin–Trikalinos, section 2",
+        "Lockhart A6",
+        "Frozen RESULT.md, Finding and Proof, lines 5–54"
+      ],
+      "rationale": "The conditional geometry is natural and the identity correct, but in this record the known spacing/event correspondence plus the known bivariate beta density reduces the principal calculation to a parameter substitution, restriction and elementary normalization. The uniform ratio, beta maximum, gamma scaling and correlation are routine consequences of that one density and give no independently useful unknown result at the required bar. This is not a failure for being a small or finite calculation; it is the absence of a non-mechanical mathematical remainder.",
+      "residual_risks": [
+        "The special-case exposition may still be pedagogically useful; the verdict does not dispute its calculations or exclude distinct questions about conditioned cyclic polygons."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-Run `python3 verify.py` using Python 3 and no third-party packages. The verifier exhaustively checks all \(16\) two-dimensional evolution multiplication tables and every linear operator over \(\mathbb F_2\), then all \(256\) such tables and operators over \(\mathbb F_4\). Both ordinary Rota–Baxter identities are tested on all natural-basis pairs; the pointwise-local predicate is tested at every input, with witnesses drawn from the completely enumerated ordinary operators. The structural classification, operator counts and numbers of labeled tables are compared exactly. Five representative types over \(\mathbb F_8\) are checked independently. Nilpotent chains in dimensions three and four over \(\mathbb F_2\) are also checked over all \(512\) and \(65,536\) endomorphisms respectively. Finite-field multiplications use specified irreducible binary polynomials; no integer-modulo-four substitution is used. Successful execution prints `VERIFY_OK`.
+## correctness
 
-These finite experiments do not establish the theorem for all even prime powers or arbitrary-dimensional characteristic-two fields. That part is proved by the square-zero-output identity and by the bilinear-form and projective-line arguments in `RESULT.md`. Neither statistical support nor a test timeout is construed as an all-parameter theorem.
+PASS
+
+In characteristic two the diagonal Rota–Baxter identity forces every operator output to square to zero, including each value of a local map. With independent nonzero natural-basis squares, the square-zero set is exactly the annihilator; maps into it satisfy the full identity. In the remaining two-dimensional rank-one case over an even finite field, multiplication is xy=B(x,y)v with B nondegenerate and the square-zero space is a line Ku. Every candidate is R(x)=ℓ(x)u. The full identity becomes ℓ(v)(ℓ(x)B(u,y)+ℓ(y)B(u,x))=0, giving the union of two functional lines. They coincide exactly when v²=0, then forcing every local map to vanish at v. Otherwise the two evaluation kernels intersect only at zero, giving every possible square-zero value at each nonzero input and hence all q² local maps. The first three cases are annihilator cases. Counting labeled rank-one nonzero square pairs on each projective line gives q−1 isotropic pairs on each of q−1 nonaxis lines, none on the axes; the other three census entries follow from zero, one-zero and invertible square matrices. Independent exhaustive binary testing of all 16 algebras and 16 maps per algebra (all input pairs for ordinary operators and all inputs for local witnesses) gave census (1,6,6,1,2) and per-table count pairs (16,16), (4,4), (1,1), (2,2), (3,4). The included verify.py, inspected but not executed, gives wider finite replay cases; no finite test substitutes for the symbolic argument. Rigidity is valid over arbitrary characteristic-two fields; the complete counts, which use square roots, are stated for finite fields only.
+
+## originality
+
+PASS
+
+The supported distinction is the characteristic-two dichotomy for linear pointwise locality, including the complete two-dimensional joint classification and labeled census. The chain corollary is not a separate novelty claim: it overlaps an ordinary-chain result in another indexed record. The strongest inspected characteristic-zero ordinary and local results do not give the characteristic-two dichotomy or census. This is a bounded best-of-knowledge assessment, not priority certification.
+
+## value
+
+PASS
+
+The smallest dimension admitting separation has a complete intrinsic test: zero annihilator, one-dimensional E² and a nonsquare-zero generator of E². The two distinct lines of ordinary operators realize every allowed value pointwise despite not filling the linear map space. This supplies both a mechanism and exact gap, not an arbitrary sample or a table of isomorphism classes. The labeled census measures how often the mechanism occurs among all natural-basis tables.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

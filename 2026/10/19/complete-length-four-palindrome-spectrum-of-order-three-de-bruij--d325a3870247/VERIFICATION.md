@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The program `verify.py` uses the explicit macroedge construction from the proof and checks, for every constructed cyclic word, all cyclic length-three factors (each of the alphabet's \(q^3\) triples must occur once) and palindromic cyclic length-four factors. Tested every spectrum value for integer alphabet sizes \(2\) through \(8\), plus all permitted local transition systems on the ternary alphabet.
+## correctness
 
-The independent C++ checker `check_ternary.cpp` enumerates all cyclic ternary order-three tours with a fixed initial triple, totaling exactly \(373248\). Its counts for 0, 1, 2, and 3 length-four palindromes were respectively 55296, 165888, 124416, and 27648.
+PASS
 
-Reproduction: `python3 verify.py` and `g++ -O2 -std=c++17 check_ternary.cpp -o check_ternary && ./check_ternary`.
+A palindrome abba is exactly a fixed point a of the diagonal successor permutation at bb. The loop bbb cannot follow itself in a tour of q³>1 edges, so at least two letters move at every bb. Conversely, when b moves, every edge entering bb from off the diagonal has a forced exit; just the entrance from σ_b⁻¹(b) first traverses bbb. These paths cover each diagonal incident edge exactly once. Along with the off-diagonal edges they form a balanced macrograph: the forced paths permute the off-diagonal exits at each b. The unchanged subgraph is the directed line graph of the complete loopless digraph, strongly connected even for q=2. Euler traversal and expansion therefore respect all prescribed transitions, including wrap-around. For each b, a cycle on q−f≥2 letters including b fixes exactly f letters, so summing the q independent choices gives every integer 0 through q(q−2). As a bounded independent calculation, audit_palindromes.py applies directed matrix-tree and BEST to the contracted graphs for every admissible tuple at q=2 and q=3, with the first macroedge fixed to be the one containing 000. It gives two binary cycles with no palindromes and the ternary counts 55296, 165888, 124416, 27648, totaling 373248. The proof, not this finite test, covers all q.
 
-Both programs check finite cases only. Correctness for all alphabet sizes depends on the mathematical argument in RESULT.md. Independent human or external audit has not been performed.
+## originality
+
+PASS
+
+The binary constant-center obstruction and the fixed-point interpretation already occur in an earlier Resultary theorem; specializing to binary order three forces P=0 and leaves only the transposition at each diagonal vertex. The supported distinct part is the simultaneous realization for larger alphabets, where there are multiple choices at each diagonal vertex, and the resulting full arbitrary-alphabet spectrum. No inspected prior statement or implication settles that claim. Closely titled literature that was inaccessible remains an access risk, not evidence of noncoverage.
+
+## value
+
+PASS
+
+The exact spectrum addresses a natural local-factor statistic on a standard universal-cycle family. More importantly, the realization lemma identifies the only obstruction to arbitrary diagonal transitions and supplies a constructive extension; merely finding tours at the two extremes would not give this control. The new value is in the multiple-choice alphabet regime, not the already known binary case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

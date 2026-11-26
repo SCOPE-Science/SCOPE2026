@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Exact integer inner products prove the orthogonal-simplex reduction. The Gaussian coordinate product is an identity, and the normal-tail boundary-layer calculation gives the sharp centering and intensity. The marked triangular-array rare-event argument establishes joint independence of the two Gumbel heights and two exponential labels, and chi-square concentration transfers to Haar directions. The included script independently verifies the exact finite Gram identities for every dimension from three through twenty-five; these finite checks supplement rather than substitute for the analytic proof. Numerical convergence is slow, as noted in the theorem.
+PASS
 
-## Originality — PASS, with residual historical uncertainty
+The increasing prefix of v_j is emitted by the stack up to its last entry before the 1; the next larger entry (or the final flush) emits the 1 followed by that last entry. This gives v_(j−1). The translated differences have norm √(j(j+1)) and pairwise dot product zero (the j initial ones cancel the −j term against any later vector). Isotropic Gaussian scores are thus independent normals with the stated scales and with the origin also available. For k=n−j and bounded s=t_n²k/n, Mills' formula gives the tail ratio e^(−s)(1+o(1)) uniformly; the step size in s is t_n²/n. The inequality 1/a²−1≥2(k−1/2)/n follows from a=√(j(j+1))/n≤(j+1/2)/n and supplies a summable geometric majorant for the remaining layer. The total normal tail tends to e^(−x) since nφ(u)/u³ tends to e^(−x) with the stated c_n. On bounded marked rectangles the sum of rare-event probabilities converges to the product intensity; the total squared probabilities vanish since the maximal term is O(t_n²/n). The two sign bins are disjoint at one index, yielding independent Poisson limits via the same product expansion. One can truncate below a fixed low height and above a fixed large location and remove the cutoffs using the Gumbel lower tail and the geometric bound. The independent Exp(1) location marks then follow by the factorized intensities. The origin is negligible (probability 2^(−(n−1)) for each sign). Finally the chi-square radius has relative fluctuations O_P(n^(−1/2)), negligible at the t_n/√n spherical width scale, and does not change the indices.
 
-Lee–Mitchell–Vindas-Meléndez (arXiv:2308.16457, 2023) and Ake–Lewis–Louie–Vindas-Meléndez (arXiv:2508.00219, 2025) establish the geometry, lattice equivalences and volume of stack-sorting simplices but do not compute the directional-width or the joint Gaussian extreme/location law. Comparisons with work on Gaussian width fluctuations in other polytope families and iid normal maxima show no covering implication for this graded orthogonal simplex. A possible unindexed heteroscedastic extreme-value theorem and the possibility of independent rediscovery remain limitations; a negative search is not a proof of historical uniqueness.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The theorem determines a natural geometric statistic of a previously enumerated polytope family in its canonical ambient Euclidean metric, with an exact finite Gaussian joint CDF, a sharp unusual logarithmic-logarithmic centering, and an independently interpretable exponential localization law for both supporting vertices. The metric statistic is not an Ehrhart invariant; the boundary-layer phenomenon is a motivated structural consequence of the naturally graded edge lengths, not an arbitrary finite instance.
+Credit the stack-sorting simplex family and standard Gaussian extreme-value tools. The supported contribution is the joint canonical-metric width and marked support limit with its extra log-log shift, not the general use of a Poisson extreme process or a sum of two Gumbels. The strongest available same-object angle result and the closest width and rank-localization results do not give this joint law on available statements.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The canonical permutation embedding is motivated independently of numerical enumeration and answers a different question from lattice equivalence. The result gives an exact subleading width correction and identifies which iterates expose the simplex in each sign. The coupled law distinguishes a localized boundary population from an iid estimate and gives more geometric information than a leading-order width alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

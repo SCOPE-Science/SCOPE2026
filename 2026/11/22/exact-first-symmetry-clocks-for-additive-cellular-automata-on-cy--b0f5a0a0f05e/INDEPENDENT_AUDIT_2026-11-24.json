@@ -1,0 +1,157 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:09:48.212638Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 7–58; VERIFICATION.md and check_symmetry.py, inspected only",
+        "/workspace/independent_replays.py, ca()"
+      ],
+      "rationale": "T is elapsed time to the first nonidentity spatial symmetry, with T=0 for initially symmetric words, counting indexed words. In the cyclic module over F_q with modulus z^n-1, for each d|n the period-dividing-d condition at time t is the kernel of (z^d-1)(1-z)^t. The kernel dimension is the degree of its gcd with z^n-1: writing n=p^a m and d=p^b d0 with p not dividing m,d0, z^d-1 divides z^n-1 and has root-1 multiplicity p^b, so the dimension is d+min(t,p^a-p^b). This includes a=0. Commutation makes symmetry persistent, so M_t=#(T>t) is precisely the Möbius inversion sum over d|n of mu(n/d) times q to that kernel dimension. M_0=B_q(n). If p does not divide n the sum is time independent. Otherwise, only terms with b=a or b=a-1 survive; the latter have d=n/(pr), r|rad(m), and mu(pr)=-mu(r). Hence M_t=B_q(n)-(q^min(t,L)-1)H_q(n,p). Taking differences and the eventual constant gives precisely the finite, zero-time and infinite masses. H counts words of length n/p avoiding all prime-order symmetries from primes dividing m, so is positive (use a word with one marked site, or the vacuous one-site case). This ensures the sharp cutoff and well-defined conditional reverse-lag law, obtained by dividing by (q^L-1)H. For every prime ell different from p, the kernel dimension d=n/ell is constant in time, and the preimage kernels are nested, so such a symmetry cannot first appear. Any wholly new nontrivial stabilizer therefore contains the order-p subgroup. For m=1 the formula gives M_L=0. A commuting unit factor preserves each shift fixed subspace bijectively, so it preserves each word's clock, not just the distribution. Independently compared direct entry-or-repeat simulations with the per-divisor kernel-count formula in 26 rings over F_2, F_3, F_4 and F_9: all 30852 initial words agreed in the complete histograms. Replay: python3 /workspace/independent_replays.py 3.",
+      "residual_risks": [
+        "The census is finite; the divisor argument proves the uniformly counted finite-field ring statement. Nonunit factors and nonuniform input ensembles are not covered."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Banda et al. cover static shift-symmetry counting on tori and stabilizer/per-prime-rank monotonicity under equivariant dynamics.",
+          "Cordovil et al. show spatial period divisibility and count temporally periodic configurations."
+        ],
+        "reasoning": "Broader rules or dimensions in the cited invariance and periodic-orbit results do not supply the rule-specific preimages of proper spatial periods at each t. A monotone stabilizer says neither when it grows nor how many words enter at that time.",
+        "searches": [
+          "Banda–Caughman–Lehman arXiv:2611.15751v1, Theorems 4.4 and 8.1 and Proposition 8.3",
+          "Cordovil et al., Proposition 2.4 and Theorem 2.5"
+        ]
+      },
+      "checked_sources": [
+        "Resultary b0f5a0a0f05e, f202f7cfb72e, bd85c7ad95d4 and 3b49c4b54231",
+        "Banda et al. arXiv:2611.15751v1",
+        "Cordovil et al. DOI 10.1007/BF02187700",
+        "Avart, Fibonacci Quarterly 51(2), 2013, pp. 1–2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Static counts and irreversibility account for parts of the setup and the t=0 observable but not the t-dependent preimage shell or reverse clock.",
+          "Boolean erosion's pointwise prescribed-shift formulas depend on mismatched run lengths under a nonlinear rule; the two-scale extinction result restricts the terminal state to zero after one step when p does not divide n."
+        ],
+        "reasoning": "The known monotonicity and static-census results do not quantitatively determine first-entry masses. The closest exact clocks and extinction counts are not broader results specializing to the positive-time characteristic-prime shells.",
+        "searches": [
+          "arXiv:2611.15751v1, §§4 and 8",
+          "DOI 10.1007/BF02187700, Proposition 2.4 and Theorem 2.5",
+          "Resultary f202f7cfb72e and 3b49c4b54231, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Outside the initial-symmetry class this onset is the first drop from exact period n. Cordovil et al. show spatial period divisibility under evolution, but their temporal notion of periodic orbit differs.",
+          "Avart 2013 characterizes Ducci cycle states using T^m x=x and distinguishes spatial repetitions; entry to a temporal cycle is not entry to the spatial repeated-block locus."
+        ],
+        "reasoning": "The alternate formulations were compared on the event being timed. For initially primitive words here the first drop is the first order-p subgroup entry if it occurs, not the transient length to the eventual temporal cycle.",
+        "searches": [
+          "Resultary: first proper spatial-period drop, first nontrivial shift stabilizer and first rotation-symmetry hitting time",
+          "Cordovil–Dilão–Noronha da Costa, DOI 10.1007/BF02187700, Proposition 2.4; Ducci cycle literature"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "b0f5a0a0f05e is the identical assigned record. The closest exact distinct Resultary clocks (f202f7cfb72e) measure prescribed shifts under Boolean erosion. bd85c7ad95d4 gives a symmetry-creation threshold for Rule 232, while 3b49c4b54231 counts one-step extinction for a two-scale difference.",
+          "Cordovil et al.'s table for ring lengths 1–8 counts temporal periodic points and points of the relevant least temporal period, not the first time at which spatial period drops."
+        ],
+        "reasoning": "Neither the exact catalogue entries nor the table supplies an all-ring first-symmetry histogram for this operator; same-day records were compared by their dynamics and observable, not by date.",
+        "searches": [
+          "Resultary: exact additive-rule first-spatial-symmetry censuses and related cyclic CA clocks",
+          "Cordovil et al., Table 1, journal p. 280"
+        ]
+      },
+      "rationale": "The nearest checked literature gives static symmetry and stabilizer irreversibility, or temporal orbit periods. The closest distinct Resultary clocks apply to different update rules. No examined result gives the positive-time order-p shells with the exclusion of preexisting other-prime spatial symmetry, the complete first-spatial-passage law, and its reversed geometric consequence for the stated family.",
+      "residual_risks": [
+        "The separate 2007 Ducci/cyclotomic-polynomial comparison was abstract-level only after bounded full-text retrieval attempts; temporal focus in its abstract is not whole-document exclusion.",
+        "An equivalent all-ring result under older additive-dynamics terminology could be unindexed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Static census and monotonicity, no dynamic onset law in the compared claims",
+          "evidence": [
+            "Static count of shift-symmetric configurations; stabilizer inclusion and per-prime rank monotonicity."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.15751v1",
+          "material_read": "Theorem 4.4 (HTML offset 27380); Theorem 8.1 and Proposition 8.3 (offset 51900)",
+          "method": "Lawful arXiv HTML passages",
+          "title": "Shift-Symmetric Configurations in d-Dimensional Cellular Automata: Enumeration, Bounds, Irreversibility, and Detection",
+          "trigger": "Same spatial stabilizer and irreversibility question"
+        },
+        {
+          "assessment": "Period divisibility and temporal configuration counts, not times of spatial-period reduction",
+          "evidence": [
+            "An output spatial period divides the original period; temporal counts are displayed for n=1,...,8."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/BF02187700",
+          "material_read": "Springer PDF pp. 3–4, Proposition 2.4, Theorem 2.5 and Table 1",
+          "method": "Lawful accessible Springer PDF",
+          "title": "Periodic Orbits for Additive Cellular Automata",
+          "trigger": "Historical additive cyclic automaton period theory"
+        },
+        {
+          "assessment": "Temporal cyclicity and repeating-block structure among cycle states",
+          "evidence": [
+            "Cyclicity defined by T^m x=x; distinguishes states formed by repeating shorter blocks."
+          ],
+          "identifier_or_url": "https://www.fq.math.ca/Papers1/51-2/AvartDucciSeq.pdf",
+          "material_read": "Public PDF pp. 1–2",
+          "method": "Lawful OA PDF passages",
+          "title": "A Result About Cycles in Ducci Sequences",
+          "trigger": "Ducci alternate literature for cyclic differences and transients"
+        },
+        {
+          "assessment": "Substantive first-hit analogue for a different nonlinear rule",
+          "evidence": [
+            "Pointwise T_d from mismatched runs under (Ex)_i=x_i x_(i+1); nonuniform symmetric transients from asymmetric starts exist for composite n>=10."
+          ],
+          "identifier_or_url": "Resultary f202f7cfb72e",
+          "material_read": "Mirrored RESULT.md, main statement",
+          "method": "Local Resultary mirror",
+          "title": "Sharp arithmetic onset and exact first-passage clocks of rotational symmetry for Boolean erosion",
+          "trigger": "Closest exact distinct spatial-symmetry clock in the catalogue"
+        },
+        {
+          "assessment": "Rule 232 existence and one-step witnesses, different from this law",
+          "evidence": [
+            "Existence threshold n/p_min(n)>=6 with short-output-period rigidity."
+          ],
+          "identifier_or_url": "Resultary bd85c7ad95d4",
+          "material_read": "Mirrored RESULT.md, main statement",
+          "method": "Local Resultary mirror",
+          "title": "Sharp arithmetic threshold for nonuniform symmetry creation under cyclic majority",
+          "trigger": "Closely related symmetry-creation threshold"
+        },
+        {
+          "assessment": "One-step primitive zero-output count for a different operator under p not dividing n",
+          "evidence": [
+            "Uses (I-S^a)(I-S^b) and counts annihilation, not first spatial-symmetry time."
+          ],
+          "identifier_or_url": "Resultary 3b49c4b54231",
+          "material_read": "Mirrored RESULT.md, main statement",
+          "method": "Local Resultary mirror",
+          "title": "Primitive spatial extinction under two-scale finite differences",
+          "trigger": "Closest additive primitive-word extinction count"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, complete law and unit-factor assertion",
+        "Banda et al. §§4 and 8 for static and monotonicity context"
+      ],
+      "rationale": "The invariant quantitatively refines general symmetry irreversibility for a canonical cyclic linear rule: a period drop may never occur, but if it occurs after time zero it has a characteristic-prime cutoff and an exact reversed lag law independent of the prime-to-p factor. Counting every start and showing pointwise invariance under multiplication of the rule by a unit make this structural rather than an isolated cycle enumeration.",
+      "residual_risks": [
+        "Does not address nonunit rules, multidimensional tori, nonlinear dynamics or nonuniform initial ensembles."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Review of full and inner automorphisms of an infinite-ray unitization
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The radical is exactly the square-zero arrow span because its quotient consists of eventually constant functions and is semiprimitive. The directed nonzero Peirce-space pattern fixes every primitive vertex modulo the radical; idempotence and orthogonality force the vertex shear, and the one-dimensional Peirce spaces force the arrow scaling. All arbitrary parameter sequences induce valid automorphisms because each basis image remains finitely supported, with explicit inverse. The inner-subgroup proof constructs units realizing exactly finitely supported affine parameters, then the finite-subset localization argument gives local innerness. The finite-interval checker confirms 932 independently composed multiplication-table cases. This is not a computational proof of the infinite group claim.
+PASS
 
-## Originality — PASS (historical priority qualified)
+The square-zero arrow span J is the Jacobson radical: the eventually constant quotient injects into the product of the coordinate fields and those evaluations have maximal kernels. Primitive quotient idempotents are exactly singleton indicators (every idempotent with larger support splits, including every cofinite one). The bimodule J over R/J is independent of representatives since J²=0, and its nonzero corners recover the directed ray. The unique source and its successive successors therefore fix all vertices. For a lift e_i+w, idempotence forces w to have only the incoming and outgoing coefficients, and e_i'e_{i+1}'=0 makes the two coefficients at a_i negatives. Each arrow image must be a nonzero scaling in its own corner. Conversely these formulas preserve all basis products, even in characteristic two, and every individual basis image has finite support. Composition and the explicit inverse give the unrestricted affine product. A unit is a diagonal with all entries nonzero and an eventually nonzero constant tail, plus finite arrow support. After scalar normalization and writing u=d+s, its inverse is d^{-1}-d^{-1}s d^{-1}; conjugation scales a_i by d_i/d_{i+1} and shears by s_i/d_{i+1}. Exactly the finite-support pairs occur: set d_i to the tail product of the prescribed scalings and s_i=c_i d_{i+1}. Truncating parameters on all arrows incident to a finite list of relevant basis elements gives local innerness; the everywhere-one shear with identity scaling is not inner. Over a finite field (also F_2) the product has continuum cardinality and each finite-support coset is countable, so the quotient has continuum cardinality. Inspected but did not execute the supplied finite-interval diagnostics; neither this proof nor its characteristic or support claims depend on them.
 
-The primary Chen–Ding paper constructs the algebra and studies homological dimensions, not automorphisms. Ford's nearby automorphism theorem is explicitly limited to algebras of finite quivers; its infinite-dimensional locally string class has finitely many vertices and so does not imply the countably infinite vertex-ring statement. Comparisons with indexed published findings on finite radical-square-zero quivers, special algebra automorphisms, and unitizations found no implication covering both the entire direct product and the inner direct sum. Search-index incompleteness and unindexed work on infinite locally bounded quivers remain risks; novelty is not inferred from search absence alone.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The invariant is motivated by a newly constructed non-Noetherian algebra giving a strong homological asymmetry. The exact inner/outer distinction is not a finite-dimensional formality: infinitely supported affine-coordinate symmetries exist as algebra automorphisms but cannot arise from a finitely supported unit. The resulting explicit locally-inner-versus-globally-outer phenomenon, with an enormous quotient even over the smallest field, is a structurally useful boundary for extending familiar finite-quiver automorphism decompositions to countably many vertices.
+The supported distinct result is the simultaneous full, inner, and outer classification for the finite-support unitization of the one-sided square-zero ray, not discovery of the algebra or of the finite-quiver automorphism method. No inspected earlier or distinct indexed statement determines this support-sensitive classification on the same algebra.
 
-## Scope and risk
+## value
 
-The statement is about all unital \(k\)-linear automorphisms of exactly the ring with the displayed multiplication; it does not classify arbitrary infinite quivers, and only finite-support units participate in inner conjugation. A source-independent review of the proof has not been carried out; the self-review is not an independent audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is a natural structure invariant of a concrete algebra already used to separate homological dimensions. The computation distinguishes all automorphisms from global conjugations and gives an explicit obstruction at infinity: agreement with a conjugation on each finite set does not combine to a single conjugation. Even over F_2 the resulting outer group has continuum cardinality. The support distinction, rather than the routine finite-interval shear calculation, is the scientific payoff.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

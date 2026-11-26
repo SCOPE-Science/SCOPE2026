@@ -1,83 +1,51 @@
 # Parity, a resonant exception, and token exchanges among minimum identifying codes of cycles
 
 ## Finding
-For the ordinary cycle \(C_n\) and closed-neighborhood radius-one identifying codes, let \(\mathcal I_n\) be the graph whose vertices are **minimum-cardinality** identifying codes, with two codes adjacent precisely when one vertex of the code can be replaced by one vertex outside it.
 
-**Theorem.** For every even \(n\ge 8\), the minimum cardinality is \(n/2\) and \(\mathcal I_n\cong 2K_1\): its only two vertices are the complementary alternating codes and neither admits an exchange.
-
-For every odd \(n\ge13\), the minimum cardinality is \((n+3)/2\). If \(n\ne15\), there are exactly \(2n\) minimum codes and \(\mathcal I_n\) is a connected graph with \(2n\) vertices and \(3n\) edges, comprising \(n\) degree-four vertices \(H_i\) and \(n\) degree-two vertices \(L_i\), where indices are modulo \(n\) and
+Let \(\mathcal I_n\) have the minimum radius-one identifying codes of the labeled cycle \(C_n\) as its vertices, with edges for one selected vertex exchanged for one unselected vertex. For even \(n\ge8\), the minimum size is \(n/2\) and \(\mathcal I_n\cong 2K_1\), with the two alternating codes as vertices. For odd \(n\ge13\), the minimum size is \((n+3)/2\). The rotations \(H_i,L_i\) (shifting by \(+i\) modulo \(n\)) of
 \[
-H_i\sim H_{i+2},\qquad H_i\sim H_{i-2},\qquad H_i\sim L_{i+1},\qquad H_i\sim L_{i+5}.
+H=1111(01)^{(n-5)/2}0,\qquad L=111(01)^{(n-7)/2}1100
 \]
-There are no further edges. In particular, the subgraph induced by \(H_i\) is an \(n\)-cycle (because \(n\) is odd), and each \(L_i\) subdivides a distance-two chord of that cycle.
-
-At the exceptional odd order \(n=15\), there are exactly \(35\) minimum codes. The exchange graph is the just-described connected \(30\)-vertex graph together with **five isolated vertices**; it has exactly \(45\) edges. Thus minimal identifying-code exchange connectivity exhibits an even/odd dichotomy and a unique resonant disconnection within the odd range \(n\ge13\).
-
-The explicit cyclic bit words for the two regular orbits are
+form a connected graph on \(2n\) vertices and \(3n\) edges. Its entire edge set is given by
 \[
-H=1111(01)^{(n-5)/2}0,\qquad L=111(01)^{(n-7)/2}1100.
+H_i\sim H_{i\pm2},\qquad H_i\sim L_{i+1},L_{i+5}.
 \]
-The code \(H_i\) (respectively \(L_i\)) is the shift of the displayed word by \(i\) vertex positions. At \(n=15\), the additional five minimum codes are the distinct rotations of the periodic word \((00111)^3\).
+The \(H\) orbit induces a cycle and each \(L\) subdivides a distance-two chord of that cycle. These rotations exhaust the minimum codes except at \(n=15\), when there are also the five distinct rotations of \((00111)^3\), all isolated. Thus \(\mathcal I_{15}\) has 35 vertices and 45 edges.
 
 ## Assumptions and scope
-Vertices are \(\mathbb Z/n\mathbb Z\) with edges between consecutive residues. A code \(C\subseteq V(C_n)\) is identifying when each set \(I(v)=N[v]\cap C\) is nonempty and \(I(u)\ne I(v)\) whenever \(u\ne v\), where \(N[v]\) includes \(v\). Bit \(1\) in a word means a selected code vertex; coordinates increase cyclically. Edges of \(\mathcal I_n\) are **token-jumping** one-out/one-in exchanges, not arbitrary local token sliding. The result concerns only \(n\ge8\) even and \(n\ge13\) odd; the odd shorter lengths are not part of the classification statement. All counts are for labeled cycles, not dihedral equivalence classes.
+
+A code \(C\subseteq\mathbb Z/n\mathbb Z\) is identifying if all the intersections \(N[v]\cap C\) of closed neighborhoods with the code are nonempty and pairwise distinct. A 1 in a cyclic word denotes membership, and indexing starts at zero. Counts are for labeled cycles; exchanges are unrestricted one-out/one-in moves on minimum codes, not token slides.
 
 ## Proof
-**1. Exact local characterization.** For \(n\ge7\), a cyclic bit word \(c\) defines an identifying code precisely when
+
+**Local conditions.** For \(n\ge7\), a code word \(c\) is valid exactly when it has no three consecutive zeros and no two zeros at cyclic offset three. The first condition gives domination. For adjacent vertices, their closed-neighborhood symmetric difference is the pair of vertices at offset three, so separation requires the second condition. For distance-two vertices \(i,i+2\), the symmetric difference contains \(i-1,i+2\), again at offset three, which ensures separation. At cyclic distance at least three the neighborhoods are disjoint and nonempty.
+
+**Minimum counts.** Use the transfer matrix \(T(t)\) with states \(001,010,011,100,101,110,111\), transitioning \(abc\to bcd\) with weight \(t^d\) when both states are allowed and \(a+d\ge1\). The trace of \(T^n\) counts all labeled cyclic words with these local conditions, with \(t\) marking code size, since the index zero fixes the start of the closed walk and every word determines its states. To check the determinant, the simple directed cycles in the state graph are the loop at 111, the cycle \(010,101\), the cycle \(011,111,110,101\), and the cycle \(001,011,111,110,100\), with weights \(t,t,t^3,t^3\). The only pairs of disjoint cycles are the length-two cycle with the loop and with the length-five cycle. Expanding by disjoint cycles gives
 \[
- c_i+c_{i+1}+c_{i+2}\ge1\quad\text{and}\quad c_i+c_{i+3}\ge1
- \qquad\text{for every }i\pmod n.
+D(z,t)=\det(I-zT(t))=1-tz-tz^2+t^2z^3-t^3z^4-t^3z^5+t^4z^7,
+\qquad \sum_{n\ge1}\operatorname{tr}(T(t)^n)z^n=-z\partial_z\log D.
 \]
-The first condition is exactly closed-neighborhood domination. The symmetric difference of the closed neighborhoods of adjacent vertices is the pair at distance three; for vertices at distance two, another pair at distance three occurs in the symmetric difference, and these pairs guarantee separation. Neighborhoods at distance at least three are disjoint, or, at cyclic distance three, disjoint, hence are separated once both are nonempty. Conversely, separating adjacent vertices forces the second condition. The hypotheses \(n\ge7\) avoid wraparound collisions between the relevant neighborhoods.
-
-**2. An exact low-excess census.** Consider cyclic words satisfying these conditions, weighted by \(t\) for each selected bit. Use nonzero three-bit states \(abc\in\{0,1\}^3\setminus\{000\}\), allowing \(abc\to bcd\) with weight \(t^d\) exactly when \(a+d\ge1\). Let \(T(t)\) be the resulting seven-by-seven transfer matrix (state order \(001,010,011,100,101,110,111\)). The trace \(\operatorname{tr}(T(t)^n)\) counts every valid labeled circular word of length \(n\), once per word. Direct expansion of this explicit determinant gives
+Under \(t=u^2,z=w/u\), the exponent of \(u\) is the excess \(2|C|-n\). The determinant factors as \((1-w^2)(1-uA-u^2B)\), where \(A=w(1+w^4)\) and \(B=w^4/(1-w^2)\). Consequently no negative excess occurs. The coefficients of \(u^0,u^1,u^3\) in the logarithmic derivative are, respectively,
 \[
-D(z,t)=\det(I-zT(t))
-=1-tz-tz^2+t^2z^3-t^3z^4-t^3z^5+t^4z^7.
+\frac{2w^2}{1-w^2},\qquad w+5w^5,\qquad
+w\partial_w\left(\frac{w^5+w^9}{1-w^2}+\frac{w^3+3w^7+3w^{11}+w^{15}}{3}\right).
 \]
-Consequently the bivariate enumerator is exactly
+Even lengths have exactly the two exhibited alternating codes at excess zero. At odd \(n\ge13\), excess one is absent and excess three gives \(2n\) codes plus an extra five at \(n=15\).
+
+The exhibited words are valid: the zeros of \(H\) are \(4,6,\ldots,n-1\), with no adjacent pair or offset-three pair. In \(L\) they are \(3,5,\ldots,n-6\) and \(n-2,n-1\). The odd zeros have even ordinary differences at most \(n-5\), so none is at offset three from another; the even zero \(n-1\) has odd differences 1 or at least 5 from the odd zeros, which are not 3 or \(n-3\). There is just one adjacent-zero pair, and no triple. The unique length-four run of ones of \(H\) and the unique adjacent-zero pair of \(L\) ensure full rotation orbits; those orbits are distinct. The five periodic words have zeros in two consecutive residues modulo five, yielding neither a triple nor offset-three zeros. Their three disjoint adjacent-zero pairs distinguish them from the regular words. This list attains the minimum counts from the trace.
+
+**All exchanges between regular words.** Use zero sets, so two distinct regular codes are adjacent exactly when their zero sets intersect in all but one position. Even alternating codes cannot be adjacent because their zero sets are disjoint and have size at least four. In the odd case write \(n=2m+3\), \(m\ge5\). Change coordinates from an ordinary vertex \(v\) to \(j\) with \(v=2j\pmod n\). The \(H_0\) zero set is now the circular interval \([2,m+1]\) and the \(L_0\) zero set is \(m+1+A_0\), where
 \[
-\sum_{n\ge1}\operatorname{tr}(T(t)^n)z^n
-=-z\frac{\partial}{\partial z}\log D(z,t).
+A_0=\{0\}\cup[2,m-1]\cup\{m+1\}.
 \]
-Introduce \(t=u^2\), \(z=w/u\) and note
-\[
-D(w/u,u^2)=(1-w^2)\left[1-u\,w(1+w^4)\right]-u^2w^4.
-\]
-Writing \(A=w(1+w^4)\) and \(B=w^4/(1-w^2)\), the nonconstant portion of the logarithmic series becomes
-\[
-w\frac{\partial}{\partial w}\sum_{r\ge1}\frac{(uA+u^2B)^r}{r},
-\]
-while the \(u^0\) portion is \(2w^2/(1-w^2)\). In this substitution, the power of \(u\) attached to a word is exactly the **excess** \(e=2|C|-n\).
+Here integer intervals are inclusive, read modulo \(n\). A shift by \(i\) ordinary vertices translates zero sets by \(i/2\) in these coordinates. Two length-\(m\) circular intervals have intersection \(m-1\) exactly when their translations differ by \(\pm1\): by swapping the intervals the shift can be taken in \([1,m+1]\), where \([0,m-1]\) and its translate do not wrap and intersect in \(\max(0,m-s)\) for shift \(s\). This gives the two \(H\)-to-\(H\) neighbors.
 
-The coefficient of \(u^0\) is \(2w^2/(1-w^2)\); for every even \(n\ge8\), exactly two words have excess zero. No negative excess is possible, as the displayed expansion contains no negative powers of \(u\). The two words are the alternating codes. The coefficient of \(u^1\) is \(w+5w^5\), hence for odd \(n\ge7\) excess one is impossible. The coefficient of \(u^3\) is
-\[
- w\frac{\partial}{\partial w}\left(AB+\frac{A^3}{3}\right)
-=w\frac{\partial}{\partial w}\left(\frac{w^5+w^9}{1-w^2}+\frac{w^3+3w^7+3w^{11}+w^{15}}3\right).
-\]
-For every odd \(n\ge13\), this supplies \(2n\) words of excess three, except at \(n=15\), when it supplies \(2n+5=35\). Since odd excess one is absent, these are the minimum codes. Substituting the displayed \(H\) and \(L\) words into the two local conditions produces \(n\) distinct rotations of each, with distinct patterns (\(H\) has no adjacent zeros, \(L\) has exactly one adjacent-zero pair). At \(n=15\), the five rotations of \((00111)^3\) are five additional valid words, distinguished by their three disjoint adjacent-zero pairs. Their total equals the transfer-matrix count, proving there are no other minimum configurations.
+A length-\(m\) interval meeting \(A_0\) in \(m-1\) points must include exactly one endpoint of \([0,m+1]\): the interior has only \(m-2\) points of \(A_0\), and neither circular arc between the endpoints fits in the interval. It must also include all interior points. Including 0 then forces the entire interval \([0,m-1]\); including \(m+1\) forces \([2,m+1]\), since the other arcs between the respective extreme required points are too long. Each candidate works. Therefore \(H_0\) is adjacent to \(L_i\) when the start 2 of its interval equals \(m+1+i/2\) or \(m+3+i/2\); equivalently \(i=5\) or \(i=1\). Rotation gives all cross edges.
 
-**3. Exchanges.** Even-order alternating words differ in all \(n\) coordinates, hence cannot differ by one selected-vertex exchange when \(n\ge8\).
+For two \(L\) sets, by symmetry it suffices to check \(|A_0\cap(A_0+s)|\) for \(1\le s\le m+1\), where the translated set does not wrap. At \(s=1\) the intersection is \([3,m-1]\), of size \(m-3\). At \(s=2\) it is \(\{2\}\cup[4,m-1]\cup\{m+1\}\), of size \(m-2\). For \(s\ge3\) it is contained in \([s,m+1]\setminus\{m\}\), of size \(m+1-s\le m-2\). Thus there are no \(L\)-to-\(L\) edges; this does not require any assumption about whether the two adjacent-zero pairs intersect. Since \(n\) is odd, the \(\pm2\) shifts produce one \(n\)-cycle. Each \(L_i\) connects \(H_{i-1}\) and \(H_{i-5}\), at distance two along that cycle. There are \(n\) cycle edges and \(2n\) cross edges.
 
-For odd \(n\ge13\), the zero positions of \(H_0\) are exactly \(4,6,8,\ldots,n-1\), an interval of length \((n-3)/2\) when the cyclic group is read in steps of two. Two such translated intervals differ in precisely one zero position apiece if and only if their step-two shifts are adjacent, i.e. ordinary rotation shifts \(\pm2\). Hence two members of the \(H\) orbit have a single-token exchange exactly for those shifts. To change \(H_0\) into a member of the \(L\) orbit, one exchange must both destroy the unique run \(1111\) of \(H_0\) and create the adjacent-zero pair of an \(L\) word. Its only possible outgoing deletions are at the two endpoints of that run. Completion to a valid \(L\)-type word forces respectively the exchanges \(H_0\leftrightarrow L_1\) and \(H_0\leftrightarrow L_5\). This proves the two types of indicated edges after rotating.
+**Exceptional exchanges.** At \(n=15\), one zero exchanged can destroy at most one of the three disjoint adjacent-zero pairs in an exceptional word, so at least two survive. This rules out adjacency to any \(H\) or \(L\). Two different exceptional rotations have zero residues in distinct two-element subsets modulo five; at most one residue agrees, accounting for at most three shared zeros out of six. Hence they are mutually nonadjacent.
 
-Every \(L_i\) has a unique adjacent-zero pair. A single token exchange between two \(L\) words must make those two pairs intersect (at most one zero is lost), hence their rotation difference is \(\pm1\); however the zero sites of \(L_0\) are \(3,5,\ldots,n-6\) together with \(n-2,n-1\), and this set intersects either shift by one in exactly one position. Thus \(L_i\) and \(L_{i\pm1}\) differ at exactly \(n-5\ge8\) bit positions, not two. Hence no \(L\)-to-\(L\) edges exist. Since the shifts by \(2\) generate \(\mathbb Z/n\mathbb Z\) for odd \(n\), all \(H\) vertices and their \(L\) neighbors lie in one component. Its degree sequence and \(3n\) edges follow immediately.
+## Reproducibility and prior work
 
-At \(n=15\), the five extra words have three pairwise disjoint adjacent-zero pairs. A single token exchange destroys at most one of those pairs, so none can reach an \(H\) (zero such pairs) or \(L\) (one such pair) word. Distinct rotations of \((00111)^3\) differ by at least three token positions, so they are mutually nonadjacent. Therefore all five are isolated.
-
-## Verification
-The accompanying standalone `verify.py` uses only Python's standard library. For every \(7\le n\le18\), it examines all \(2^n\) vertex subsets, compares direct closed-neighborhood separation with the independent local-constraint test, constructs the exact transfer-matrix trace polynomial, and checks it against the directly counted weight polynomial. It enumerates all minimum sets and their one-token exchanges, and tests the stated components, counts, and every predicted edge. For additional odd orders \(19,21,23,25,31,41,51,99\), the program constructs both prescribed orbits and compares their full exchange adjacency with the theorem. A successful run prints `VERIFY_OK`.
-
-These finite checks cross-test definitions, coefficients, and adjacency. The symbolic transfer-matrix and combinatorial exchange proofs establish the infinite-order claims; the computation is not used as an infinite proof.
-
-## Relationship to prior work
-Bertrand, Charon, Hudry and Lobstein (2004) establish the graph-identifying-code framework and exact **minimum sizes** on chains and numerous cycle orders. Gravier, Moncel and Semri (2006), Xu, Thulasiraman and Hu (2008), and Junnila and Laihonen (2012) further treat optimal identifying-code cardinalities on cycles, including difficult residues. The previously established minimum cardinalities are not presented as new here. The distinct contribution is the complete number and geometry of optimal codes for the stated infinite ranges, including the five isolated order-fifteen configurations and exact one-token exchange graph. The relevant publicly accessible foundational text was inspected; the complete texts of several closely related later works could not be inspected, leaving possible equivalent earlier classifications as a limitation.
-
-## Limitations
-The theorem excludes even orders below eight and odd orders below thirteen. It concerns ordinary closed-neighborhood identifying codes (not locating-dominating codes, identifying-open codes, or tolerance variants). It concerns minimum codes only, and the graph of one-token exchanges, not arbitrary code additions/removals. The all-order proof depends on the explicit seven-state determinant and exhaustive template-exchange comparisons, which can be checked independently; tested finite cases are cross-checks only. Full primary texts of several plausibly relevant earlier papers were unavailable, so novelty is best-knowledge rather than globally certified. Independent scholarly review has not been performed.
-
-## References
-- N. Bertrand, I. Charon, O. Hudry and A. Lobstein, *Identifying and locating-dominating codes on chains and cycles*, European Journal of Combinatorics 25 (2004), 969–987. DOI: 10.1016/j.ejc.2003.12.013. Publicly available online March 10, 2004. Open full text: https://lsv.ens-paris-saclay.fr/Publis/PAPERS/PDF/BCHL-ejc04.pdf
-- S. Gravier, J. Moncel and A. Semri, *Identifying codes of cycles*, European Journal of Combinatorics (2006). DOI: 10.1016/j.ejc.2004.09.005.
-- W. Xu, K. Thulasiraman and X. Hu, *Identifying codes of cycles with odd orders*, European Journal of Combinatorics (2008). DOI: 10.1016/j.ejc.2007.09.006.
-- V. Junnila and T. Laihonen, *Optimal Identifying Codes in Cycles and Paths*, Graphs and Combinatorics (2012; first published online 2011). DOI: 10.1007/s00373-011-1058-6.
+The determinant expansion and set-intersection proof are exact. The frozen checker can be used as a finite diagnostic of the unchanged statement; it is not needed for the infinite classification. Bertrand–Charon–Hudry–Lobstein (2004), Section 4.1, give the even-order minimum cardinality and alternating construction for radius one. The closely related odd-order papers of Gravier–Moncel–Semri (2006), Xu–Thulasiraman–Hu (2008) and Junnila–Laihonen (2012) concern optimum sizes; the extent of their orbit classifications could not be determined from the available full texts. This statement does not claim new minimum-size formulas. Its focus is the exhaustive token-jump structure of the minimum codes, including the order-fifteen isolated configurations. The separate indexed result on the minimum-code reconfiguration graphs of \(C_{11}\) (34a87656b6f7) concerns an odd length excluded here.

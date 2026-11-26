@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-# Computational and analytical verification
+# Independent mathematical audit
 
-The proof appears in `RESULT.md`. Its indispensable steps are: exact two-by-two information spectrum; signed root-of-unity telescoping; the cited minimum-length and equality classification of root-of-unity vanishing sums; an explicit feasible alternating-block construction; and unique monic cyclotomic division in the one-odd-prime-factor case.
+## correctness
 
-Execute `python verify_sensor_schedule.py` using Python 3 with no third-party dependencies. The checker was executed with this output:
+PASS
 
-```
-EXACT_CYCLOTOMIC_OK n=2..16 schedules= 65534
-CONSTRUCTIVE_CYCLOTOMIC_OK additional n=18..75
-GRAM_SPECTRUM_OK exact finite model; floating angular cross-check
-```
+Each unit observation projector has isotropic half-trace and doubled-angle anisotropy s_t ζ^(−t), where ζ=exp(iπ/N). Thus the information eigenvalues are (N±|P_s(ζ)|)/(2σ²). At fixed trace the lower eigenvalue and determinant are maximized at zero anisotropy, while the trace of the positive-isotropic-prior posterior covariance is minimized there. Direct telescoping gives (1−ζ)P_s(ζ)=s_0+s_(N−1)+2Σ_switch s_t ζ^t, using ζ^N=−1. At a zero this gives k+1 roots for even k and k for odd k; the distinct exponents modulo N prohibit antipodes after absorbing each sign. Lam–Leung's prime-polygon classification and asymmetric support lower bound imply no such nonempty relation for power-of-two N, and otherwise at least p terms with equality only for a rotated p-gon. Independently, this short-relation lemma follows by residue splitting at repeated prime factors (the corresponding cyclotomic extension has degree that prime). At square-free even order, splitting over the largest odd prime q makes its coefficient sums all equal by the q-th cyclotomic polynomial over the coprime-order subfield. If q>p, an empty class forces all the sums to vanish and one reduces the order; with only 2 and p left, each nonempty class contains roots with the same sign, so ≤p terms require one per class, all of the same sign. Order two alone permits no nonzero antipode-free relation. Consequently k≥p−1. Equality requires a p-gon containing s_0; modulo N its nonzero locations are M,2M,…,(p−1)M with M=N/p. These switches force alternating equal blocks, and the block factor Σ_j(−ζ^M)^j indeed vanishes. For N=2^a p^b this same alternating block polynomial is monic of degree φ(2N) and vanishes at ζ, hence equals Φ_(2N). Divisibility and the nonoverlap of its p shifted quotient blocks force and suffice for an arbitrary ±1 first block of length M, giving exactly 2^M schedules.
 
-The first check enumerates all binary sequences up to global complementation for \(2\le N\le16\) using integer polynomial remainder modulo \(\Phi_{2N}\); verifies the claimed least-switch and unique optimal sequence for each eligible \(N\); and verifies the entire prime-power family count wherever it applies. Additional explicit block schedules were tested for a finite collection of horizon lengths at most \(75\). The final Gramian check compares the derived closed spectral formula against a finite trigonometric matrix calculation. Numerical roundoff does not enter the cyclotomic divisibility results. These finite checks do not certify claims for unbounded \(N\), which depend on the mathematical proof and Lam–Leung's established theorem.
+## originality
 
-All claims require exactly the assumptions stated in `RESULT.md`; none addresses arbitrary rotations, random sensor failures, process noise, unequal sensor costs or general non-isotropic priors. No independent audit has been performed.
+PASS
+
+The fixed-trace information comparison, cyclotomic divisibility, and the minimal vanishing-sum ingredient are classical. The supported distinct content is the specific binary rotating-sensor problem's exact least-switch law and equality rigidity for arbitrary horizons with odd factors, together with its all-isotropic-schedule classification in the one-odd-prime family.
+
+## value
+
+PASS
+
+The switch budget is a natural extra constraint on attaining the best information matrix. The theorem provides a sharp, all-horizon prime-factor rule and a rigidity result that identifies the only least-switch realizations. The separate exact family census shows that uniqueness at the switch optimum need not imply uniqueness of isotropy. This gives structural information not supplied by a numerical optimum or an optimization formulation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

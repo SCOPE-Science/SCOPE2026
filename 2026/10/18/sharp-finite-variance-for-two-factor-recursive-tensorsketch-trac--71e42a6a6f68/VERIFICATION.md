@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and independent audit status
+# Independent mathematical audit
 
-Execute `python verify_recursive_tensor_variance.py` in a Python 3 environment with NumPy. The code recomputes the exact rational modular-difference collision identities for 79 widths, checks the uniform-factor variational extremum for 29 widths and 10 factor dimensions with 10 random perturbations per case, and simulates the actual three independent layers (two leaf CountSketch hashes and one internal TensorSketch) in 8 configurations.
+## correctness
 
-Observed execution: PASS, 395 exact modular checks; 3190 finite extremal checks; 8 direct independent Monte Carlo settings. The deterministic tests include both odd and even widths, including one bucket. Gaussian-style finite statistical checks here are Rademacher sketches, not infinite-dimensional certificates. The complete universal claim is established by the mathematical proof in RESULT.md; the reproduction program tests finite instances only. No independent audit has been performed.
+PASS
+
+On expanding the squared norm, diagonal terms sum to one, and every nontrivial effective sign character has mean zero after conditioning on the hashes and internal signs. Independence up to four coordinates per leaf is sufficient to ensure orthogonality of the single-factor and two-factor pair characters. A composed hash difference is zero with probability q and takes each nonzero value with probability s. For the two-factor pair character, the two orientations have independent-factor collision probability q²+(m−1)s² each, and their intersection has probability q²+(g−1)s² because 2Δ=0 mod m; thus the expected squared sum of their indicators is 2U, not just twice the single collision probability. Summing the paired squares gives 2q(a+b)+2Uab (including m=1). Positive coefficients and Cauchy–Schwarz force both factors to have constant coordinate magnitude at equality. The limits mq→2 and mU→1 give the stated sequential limiting constant, not a uniform cap of 10. Independent exact replay: python -B /workspace/review_replay.py 2 enumerates all composed hash images and effective relative signs, with exact rational factors at d=2 and widths 1–5, and directly reconstructs each four-entry tensor sketch and its moments. The proof, not this finite example, covers arbitrary fixed unit factors and widths.
+
+## originality
+
+PASS
+
+Best-of-knowledge pass for the exact law and sharp benchmark of this real three-layer separable rank-one estimator. The sketch, moment method and nonrecursive collisions are not claimed as contributions. The inspected prior bounds and alternative probes do not provide the displayed variance.
+
+## value
+
+PASS
+
+The variance is a directly relevant accuracy measure for a published estimator. This is a natural low-rank input class rather than an arbitrary parameter slice. The parity-sensitive exact law and attaining inputs give researchers a finite-width benchmark for cost of recursion and for assessing general upper bounds; a coarse bound or a nonrecursive benchmark would not serve that purpose.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

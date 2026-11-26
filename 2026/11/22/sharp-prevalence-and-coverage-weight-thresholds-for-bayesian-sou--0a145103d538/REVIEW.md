@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The statement fixes the stochastic model, sensors, posterior tie convention, all parameter intervals, and a single accuracy-plus-coverage objective. The posterior conditional on positive pooled OR and negative observed leaves is explicit; multiplying the exact Bayes decision gain by the probability of the known negative leaves gives the general \(G_{n,k}\) formula. For three sources, all ground-set submodularity inequalities reduce, by exchangeability, to the two root-present leaf curvature inequalities, the leaf curvature inequalities without root, and the three root–leaf marginal inequalities. Each is evaluated algebraically, including all equalities and intervals. The root-present two-leaf gap is exactly \(pq(1-5p)/3\). A direct rational enumerator verifies the formula and the full finite set of inequalities at multiple values, including the boundary \(p=1/5\) and weight equality. Numerical and finite checks do not establish the continuum theorem; the analytic argument does.
+PASS
 
-## Originality — PASS on inspected evidence, not certified priority
+Conditional on k observed negative leaves, the OR of the remaining m=n-k has positive probability u_m=1-(1-p)^m and posterior p/u_m per remaining source when positive. A positive-side decision flip improves correctness by [2p-u_m]_+, so the stated general root gain follows by multiplying by the probability (1-p)^k and by m/n. For k=0, u_n/p decreases strictly from n to 2-2^(1-n) as p rises to one half, giving the unique crossing of 2 for n>=3. With q=1-p and n=3, three times the marginal accuracies are D=(3p[-1+3p-p^2]_+,2p^2q,pq^2,0). Leaf pairs without the root have concave coverage and affine accuracy. With the root, coverage is constant; the two accuracy curvatures are (D2-2D1+D0)/3 and (D3-2D2+D1)/3. The first numerator is pq(1-5p) below the posterior crossing at (3-sqrt(5))/2 and p(p+2)(2p-1) above it; the second is 2pq(2p-1). Thus exactly p<1/5 is irreparable. For p>=1/5, the remaining pair conditions give the maximum of zero and (D_(k+1)-D_k)/(3pq^k) for k=0,1,2; the last bound is -1/3. Comparing the other two bounds gives all four stated pieces and the matching endpoint values; the cutoff is always less than one. Two leaves yield D=(2p^2,pq,0), strictly negative root-present leaf curvature, and only the possible positive bound (1-3p)/2. One leaf yields duplicate readings and no obstruction.
 
-Jakkala and Akella, arXiv:2312.16750v1, Sections IV.B–E and VI.B–C, explicitly supply the OR-gate Bayesian network, per-building classification and an accuracy/coverage objective, but do not derive any exact prevalence or weight phase boundary. The paper's experiments switch to F1 and concentration thresholds, so the result is **not** a counterexample for their experimentally tested objective. Bhattacharya et al., *Selection of Sensors for Efficient Transmitter Localization* (2020), Appendix D, already show generic Gaussian multi-hypothesis accuracy non-submodularity; that fact is acknowledged, not claimed as a new theorem. Their Gaussian counterexample does not mathematically entail the minimum three-source OR instance, the \(p=1/5\) impossibility for any coverage weight, or the sharp phase boundary. Standard detection coverage is submodular; this result classifies why it cannot compensate for conditional-classification complementarity. Textual searches and mathematical-record searches found no matching exact claim, but absence from search is not proof of novelty. An author webpage lists a predecessor from 2022 without a verifiable exact first-public day. Other older discrete diagnostic-testing formulations may remain relevant; no independent priority adjudication was undertaken.
+## originality
 
-## Value — PASS
+PASS
 
-The result answers a directly motivated design question for the natural smallest pooled wastewater-junction model: precisely when an accuracy-plus-coverage objective has diminishing returns, and whether a weight on detection coverage can restore them. The exact irreparable low-prevalence regime and full prevalence–weight boundary have consequences for the applicability of general submodular-greedy guarantees, without pretending to predict an algorithm's actual performance. Two-source minimality, the exact gap, and the pooled detector's classification blind spot are structurally linked parts of the same result, not routine parameter slices.
+The underlying Boolean observation model and related placement scores are known; general localization objectives can also lack submodularity. The distinct contribution is the exact prevalence obstruction, sharp weight and minimum size in this precisely specified iid OR model, not the general phenomenon.
 
-## Boundaries and risks
+## value
 
-Perfect assays, independent identical building priors, binary OR transport, equal per-building loss and unthresholded coverage are assumptions; real sewer sensing may violate all of them. Generic non-submodularity had already been known in other localization models, so the novelty resides in the exact OR-source classification and sharp cutoffs. Historical priority and applicability to the 2022 predecessor remain open.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A three-element sensing mechanism yields the smallest example where coverage cannot correct complementarity in the classification objective. The sharp prevalence and coverage-weight boundary distinguishes failure that no tuning can fix from failure that weight tuning can fix; it specifies when a generic submodularity argument is mathematically available for this model.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

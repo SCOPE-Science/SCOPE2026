@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:45:29.565292Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md:3–50",
+        "edgecut.cpp:3–12",
+        "edgecut_partition.cpp:10–15",
+        "bruteforce.out and partition.out",
+        "certificate.json and verify_certificate.py:9–93",
+        "verification.out:1–5",
+        "/tmp/opencode/frozen_review_graphs.py cut (independent bounded reproduction and witness check)"
+      ],
+      "rationale": "The endpoints of the selected edges meet every edge exactly when the selection dominates; deletion connectivity is checked on all original vertices. The cut-first test is exhaustive since every disconnecting selection contains the boundary of some nonempty proper vertex set, which can be chosen to contain vertex zero. Independently of both supplied enumerators and their logs, I generated all four edge lists and exhausted subsets through sizes 6,6,7,6 with closed-line-neighborhood masks and residual floods. The nonzero ordinary counts through those levels are Heawood 42,1918 at 5,6; Möbius–Kantor 368 at 6; Pappus 36,2349 at 6,7; Desargues 5 at 6. Joint counts are zero before the claimed levels, then 98,8,27,5; the empty selection does not dominate. Every joint minimum has two components. Sorted sizes / cross-edge count / multiplicity are (1,13)/3/56, (4,10)/6/14, (6,8)/6/28 for Heawood, and (8,8)/6/8, (9,9)/7/27, (10,10)/6/5 for the other graphs. The small Heawood sides have residual degrees 1,1,1,3 and 2,2,2,2,2,2, and in these rows all deletions cross, so the claw and cycle are also induced. The isolated-vertex row deletes exactly three additional internal edges. I normalized both endpoints of every certificate edge, matched the complete independently generated minimum families, and independently checked each orbit witness as an adjacency-preserving bijection sending its representative to its target. Different size profiles are automorphism invariants, which proves the exact six orbits without assuming a group order.",
+      "residual_risks": [
+        "These are four fixed labeled graphs with spanning deletion, not a claim about arbitrary cubic symmetric graphs or definitions that require the selected set to be an inclusion-minimal cut. No supplied executable code was run."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Proposition 2.2 evaluates standard families such as paths, trees, wheels and complete bipartite graphs, not these cubic incidence examples. Spiro–Adriaensen–Mattheus give ordinary edge domination results for projective planes: the exact q=2^(2h) statement does not cover q=2, and the bound for q>=101 does not apply there either."
+        ],
+        "reasoning": "The checked family results do not cover the four graphs at the relevant parameter and hypotheses. Bounds on ordinary domination do not enforce disconnection or classify how minima disconnect.",
+        "searches": [
+          "arXiv:1605.04330v1, Proposition 2.2",
+          "arXiv:2211.14339v1, introduction and section 6.1",
+          "Neeralagi–Nayak (2004), pp. 112–115"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md:28–50, 52–63",
+        "Resultary 0d18ffe9d675",
+        "arXiv:1605.04330v1",
+        "arXiv:2211.14339v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The original parameter comparison relates edge domination and edge connectivity to cut domination. The Heawood exact ordinary entry gives no disconnected minimizer, and ordinary minima and cut minima need not have the same size."
+        ],
+        "reasoning": "Scalar ordinary domination and connectivity data cannot generally decide a joint optimum count or its geometry. Even a known scalar gamma_ct would not imply the component boundaries, internal deletions, or exact transitivity witnesses.",
+        "searches": [
+          "arXiv:1605.04330v1 on edge domination and edge connectivity",
+          "arXiv:2211.14339v1 on incidence graph edge domination",
+          "Resultary 0d18ffe9d675, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fenstermacher–Hedetniemi–Laskar use the same edge-domination plus disconnected spanning deletion and identify split edge domination as earlier terminology. The isolated-Heawood minima contain three internal edges in addition to the boundary."
+        ],
+        "reasoning": "The earlier parameter definition is equivalent. A matching cut or a cut required to be a bare component boundary is not equivalent and cannot recover the isolated-Heawood cases.",
+        "searches": [
+          "Resultary and primary search: edge-cut domination, split edge domination, Heawood, Möbius–Kantor, Pappus, Desargues",
+          "arXiv:1605.04330v1, definition passage"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Resultary Heawood record states ordinary gamma_e=5 with 42 minimum sets and classifies those sets as matchings. These are exactly the ordinary optimum and count confirmed here, and the independently checked joint count at size five is zero."
+        ],
+        "reasoning": "The catalogue hit provides an exact ordinary-edge-domination overlap, not the cut minimum at six or the 98 disconnection profiles. The focused search did not return a matching four-graph cut table; that is not a claim of exhaustive absence.",
+        "searches": [
+          "Resultary: exact edge-cut/split-edge domination and symmetric cubic graphs",
+          "SCOPE-the-coxeter-line-graph-of-optimal-edge-dominators-in-the-heawood--0d18ffe9d675"
+        ]
+      },
+      "rationale": "The supported distinct material is the cut-constrained optimum census with residual size and automorphism-orbit classification. The parameter and ordinary edge domination are preexisting, and exact ordinary Heawood data demonstrably overlap another entry. The review does not count the ordinary Heawood value as separately distinct, nor infer priority from catalogue dates.",
+      "residual_risks": [
+        "The full original Neeralagi–Nayak paper and prior Laskar–Wallis ordinary-edge-domination source were not retrieved. Prior values for additional ordinary domination entries may exist. No claim of exhaustiveness or priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same parameter; standard-family results not a four-graph census",
+          "evidence": "Explicit disconnected-deletion definition and split-edge attribution; values in Proposition 2.2 concern standard families.",
+          "identifier_or_url": "https://arxiv.org/html/1605.04330v1",
+          "material_read": "Definitions and earlier terminology, HTML offset 2220; Proposition 2.2 around offset 3800",
+          "method": "Primary OA HTML, located passages and named-graph targets",
+          "title": "Edge Cut Domination, Irredundance, and Independence in Graphs",
+          "trigger": "Same parameter and strongest general comparison"
+        },
+        {
+          "assessment": "Ordinary edge domination only",
+          "evidence": "Exact q=2^(2h) case and q>=101 bound do not supply the Fano-plane cut census.",
+          "identifier_or_url": "https://arxiv.org/html/2211.14339v1",
+          "material_read": "Introduction around HTML offset 5840 and section 6.1 around offset 47600; projective-plane results p. 6",
+          "method": "Primary OA",
+          "title": "Incidence-free sets and edge domination in incidence graphs",
+          "trigger": "Incidence graph family including the Heawood setting"
+        },
+        {
+          "assessment": "Exact ordinary Heawood overlap only",
+          "evidence": "gamma_e=5, 42 ordinary minimum sets, all matchings; not the 98 disconnecting selections at size six.",
+          "identifier_or_url": "Resultary 2026/11/22, 0d18ffe9d675",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Configured Resultary search and local mirror",
+          "title": "The Coxeter line graph of optimal edge dominators in the Heawood graph",
+          "trigger": "Material exact Heawood optimum overlap"
+        },
+        {
+          "assessment": "Scope beyond the original parameter remains unresolved",
+          "evidence": "Later exposition explicitly attributes the parameter to this work.",
+          "identifier_or_url": "Neeralagi and Nayak, Graph Theory and Its Applications (2004), pp. 112–115",
+          "material_read": "Attribution in arXiv:1605.04330v1 and bibliographic citation; not full text",
+          "method": "Cited-source comparison; no retrieved primary text",
+          "title": "The split edge domination and split edge neighbourhood numbers of a graph",
+          "trigger": "Original split-edge parameter paper"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md:3–26, 36–45",
+        "Independent joint enumeration and residual/orbit checks"
+      ],
+      "rationale": "On natural cubic bipartite benchmark graphs the census distinguishes the extra cost of demanding disconnection from the geometry of how it is achieved. The same parameter yields balanced exact boundaries in three graphs but three distinct Heawood types, including minima that cannot be described solely by their separating boundary. Counts and orbit witnesses make the data usable for testing structural conjectures about symmetry and minimum dominating disconnecting sets.",
+      "residual_risks": [
+        "Finite benchmark data do not establish an asymptotic pattern or a general algorithm."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

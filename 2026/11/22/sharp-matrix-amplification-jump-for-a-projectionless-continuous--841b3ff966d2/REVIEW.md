@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The explicit orthogonal complement gives stable triviality, while the classical \(\pi_4(U(2))=\mathbb Z/2\) and \(\pi_4(U(k))=0\) for \(k\ge3\) give nontriviality and triviality after doubling. Rank-one idempotents would split the bundle into trivial line bundles, contradicting nontriviality. Riesz idempotents then force connected spectra. The amplification formula and a pointwise rank count establish the exact \(2m\) bound, attained by a constant diagonal section. The proof covers every integer \(m\ge2\), without extrapolating from finite tests.
+## correctness
 
-**Originality — PASS, with qualification.** The earlier idempotent–spectral-depth equivalence and the classical clutching-theory rank-two bundle are explicitly credited as prior. Neither previously inspected relevant paper nor searchable related records identified the full \(d_\sigma(\Gamma\operatorname{End}E)=1\) and \(d_\sigma(M_m\Gamma\operatorname{End}E)=2m\) realization for all \(m\ge2\), or its Morita-invariance consequence. This is an explicit structural application, not an independently developed general Banach-algebra principle. Full text of the second motivating paper was not accessible and priority risk persists.
+PASS
 
-**Mathematical value — PASS.** The theorem gives a sharp, natural geometric obstruction explaining how matrix stabilization creates a maximal number of spectral components from an algebra with none disconnected. This distinguishes spectral depth from Morita-stable invariants, and shows the first possible sphere dimension for the bundle mechanism. It is a concrete structural boundary result rather than an arbitrary finite numerical slice.
+The section x trivializes the line orthogonal to E. The frame fibration U(2) -> U(3) -> S^5 has surjective boundary pi_5(S^5) -> pi_4(U(2)) because pi_4(U(3)) = 0. The image of the generator is the clutching class, hence is nonzero in Z/2. Here pi_4(U(2)) follows from the S^1 x SU(2) cover and pi_4(S^3) = Z/2; pi_4(U(3)) is stable and zero. The sphere quotients U(k+1)/U(k) = S^(2k+1) also give injectivity of rank-two stabilization through pi_3, ruling out the lower sphere dimensions. Each idempotent section has constant rank; rank one would split E into two trivial lines because H^2(S^5;Z)=0. A disconnected compact spectrum gives a nontrivial idempotent by holomorphic functional calculus. For m >= 2, clutching in the stable range trivializes E^{oplus m}, and the fiberwise endomorphism identification is a unital *-isomorphism on sections. A constant diagonal realizes 2m singleton components. For the upper bound, if a compact spectrum had more than 2m components, select 2m+1 points in distinct components; compact Hausdorff components are quasi-components, so finitely many clopen cuts followed by grouping give a clopen partition into 2m+1 nonempty parts. Its idempotents have positive constant ranks summing to 2m, a contradiction. This covers arbitrary spectra, not just finite ones. Replay: RESULT.md, proof steps 1–4, with the clutching boundary and clopen separation just described. No numerical or formal certificate is needed.
 
-**Closest sources and limits.** Bračič–Kandić (2026, arXiv:2611.12208), Proposition 3.1 and Corollary 3.2, cover the idempotent criterion; Rosenberg (2012), Problem 2, covers the unstable rank-two bundle homotopy facts; arXiv:2611.14394 develops the larger spectral-depth framework. The new claim is limited to this explicit continuous-trace algebra and full matrix amplifications; novelty remains qualified by accessible literature coverage.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The general spectral criterion and unstable bundle are prior ingredients. The supported distinct contribution is the simultaneous depth-one and full-amplification result for this specific noncommutative twisted homogeneous algebra. The strongest separate indexed match concerns a persistent obstruction under amplification on even spheres and does not cover the stably trivial odd-sphere example by its indexed assumptions. This is a best-of-knowledge assessment, not a determination of precedence between same-date records or a claim that the underlying tools are new.
+
+## value
+
+PASS
+
+The useful witness is not merely non-invariance under Morita equivalence, which elementary commutative examples already show. It isolates a global bundle obstruction that suppresses all spectral splitting in an algebra with two-dimensional matrix fibers and disappears entirely in every full amplification. The exact rank bound and restricted first sphere dimension identify how sharply this obstruction can disappear in a natural noncommutative homogeneous example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

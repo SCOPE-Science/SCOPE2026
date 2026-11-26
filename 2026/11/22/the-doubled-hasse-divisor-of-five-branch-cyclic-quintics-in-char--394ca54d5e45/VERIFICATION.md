@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducible verification
+# Independent mathematical audit
 
-Run `python verify_cyclic_quintic_hasse.py` under Python 3 with SymPy 1.14 (or compatible). No network access, seed, external certificate, or unbundled data file is required.
+## correctness
 
-The verifier reconstructs all coefficients of the three \(1\)-, \(2\)-, and \(3\)-dimensional unrooted Cartier blocks from the polynomial \(x(x-1)(x^2-sx+t)\), then checks their full determinant factorization over \(\mathbb F_{11}[s,t]\). It proves the reducedness of the Hasse support by polynomial gcd, and checks a unit Gröbner basis for the saturation of the ideal of vanishing entries of the middle block by the smooth-discriminant factor. These are exact polynomial identities, not experiments at a finite selection of parameters.
+PASS
 
-Separately, the verifier constructs \(\mathbb F_{121}\) as \(\mathbb F_{11}[i]/(i^2+1)\), exhaustively tests all \(14,042\) ordered admissible pairs, reconstructs the relevant Cartier blocks, tests semilinear stable rank, and computes the projective branch relabeling orbits using determinant cross-ratios. A second arithmetic implementation using \(\mathbb F_{11}[u]/(u^2-2)\) independently confirms \(210\) Hasse zeros. The script asserts all stated counts and finishes with `CYCLIC_QUINTIC_F11_HASSE_VERIFIED`.
+Simple roots give smoothness at the finite ramification points, the Y derivative handles the other affine points, and the Z derivative handles infinity. The order of x, y and dx at infinity is -5, -4 and -6, respectively; at finite branch points dx has order 4. These orders give the stated six independent holomorphic forms. Rewriting with denominator y^(11j) and extracting exponents 11k+10 gives the three coefficient blocks. Independent multinomial extraction, exact determinants, gcd and localized ideal calculation reproduce the factors and show middle block rank exactly one on the support; the other ranks there are zero and three. H=0 is reduced; the map from the ordered coordinates (a,b) to (s,t) is étale away from the discriminant, so pullback does not change the multiplicity two. The divisor uses the linearized Frobenius determinant, not entrywise rooted functions on parameter space. Over F121 the square of the semilinear middle block is represented, up to conjugation by field Frobenius, by B3 times its field conjugate. Its rank one and nonzero trace imply that powers have rank one. A replay over a third quadratic presentation verifies 72 and 0 over F11, 13832 and 210 over F121, and relabeling by four generating adjacent swaps gives orbit sizes 30,60,120.
 
-The conclusion about nonordinary geometric support follows from symbolic identities on the full parameter ring. Quadratic-field enumeration proves only the explicitly listed quadratic-field counts; it is not used as a substitute for an infinite-field proof. No independent audit was performed.
+## originality
+
+PASS
+
+Credit the existing five-branch model and the related doubled-divisor examples. The distinct result is the explicit characteristic-11 two-parameter Hasse divisor with its geometric rank and split-field arithmetic stratification. Nothing in the accessible comparisons supplies those statements for this family.
+
+## value
+
+PASS
+
+The full smooth two-dimensional five-point configuration family is natural. The multiplicity, rank rigidity, and contrasting split-field censuses provide more than an example or a rerun of a published arithmetic table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

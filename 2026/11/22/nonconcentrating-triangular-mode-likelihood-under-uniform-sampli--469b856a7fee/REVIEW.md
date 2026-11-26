@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The likelihood score is exactly \(-\sqrt n\,B_n(t)/[t(1-t)]\) on every open data-free segment, and continuous likelihood values glue the integrated profile across sample knots. Population expected log likelihood is exactly \(\log2-1\) for every mode. The singular-endpoint truncation error is controlled by the uniform bound \(2\arcsin\sqrt\delta\), so Donsker's theorem gives a genuine full-interval functional limit. Brownian-bridge area regression isolates an independent absolutely continuous Gaussian linear tilt, making the maximizing location unique almost surely by convex-function differentiability. The reflection identity and the nonzero Gaussian derivative at the midpoint give the exact half-versus-half conclusion. Finite checker diagnostics are not treated as proof of infinite claims. Limitations: no explicit argmax density or local-alternative theory.
+PASS
 
-## Originality — PASS against checked evidence
+On the event that the observations lie in (0,1), the continuous likelihood has score n(t-F_n(t))/(t(1-t)) except at the sample knots. The score is positive before the first knot and negative after the last, and the log likelihood is convex between knots. Integration, also at 0 and 1, gives the exact centered profile. Changing variables on the two pieces gives the population log likelihood log(2)-1, including the limiting densities. On a compact interior subinterval apply Donsker and continuous integration (the bridge limit is continuous); the expected uniform truncation error on either end is at most the integral of 1/sqrt(t(1-t)) over that end, both before and after taking the limit. This proves convergence in C([0,1]) and a.s. existence of continuous improper integrals. The bridge area I has covariance t(1-t)/2 with B(t) and variance 1/12. Thus subtracting 6I t(1-t) leaves a Gaussian path independent of 6I, and after integration the conditional process is a fixed continuous function plus an independent linear tilt with a continuous slope law. A tie between distinct locations forces distinct subgradients of the convex supremum in the slope variable, an exceptional Lebesgue-null set. The compact argmax mapping at a unique maximum applies to every measurable selection. The transformation B(t) -> -B(1-t) reflects the profile, and its derivative at the midpoint is a nondegenerate normal variable. This proves both half-probabilities and nonconcentration. The uploaded script was inspected only; its finite diagnostics are not needed in this proof.
 
-Hjort (arXiv:2611.01030v1, Section 3.2; full accessible HTML inspected) treats misspecified triangular likelihood only when \(F(\theta)=\theta\) has one interior solution and \(f(\theta)>1\). The uniform case has all solutions and \(f=1\), so its local quadratic normal-limit theorem does not imply the global Brownian-bridge argmax law. Oliver's earlier fact that finite likelihood maxima are sample points is not claimed original. Ferguson (1982; abstract inspected) considers a different triangular-to-uniform one-parameter family with a deterministic inconsistent maximum, not this flat pseudo-true mode manifold. Targeted equivalent-formulation and overlap searches supplied no directly covering statement. Residual risk: unlocated general or early specialized work could already have the same global functional limit; some older model-fitting papers were not inspected in full.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The theorem resolves a concrete excluded boundary of recently developed nonregular likelihood theory: an entire interval of equally good population approximations. Unlike a routine normalization, it identifies a new global stochastic scale, proves uniqueness of an infinite-dimensional random argmax, and shows persistent lack of parameter concentration with an exact symmetry split. This matters for interpreting mode MLEs under severe yet natural misspecification; it is not a claim of general consistency or a universal phenomenon beyond this model.
+The distinctive claim is convergence of the whole centered likelihood in the fully unidentified uniform case and the resulting nondegenerate global maximizer law, not the finite-sample knot rule or standard ingredients of the proof. It is not supplied by the closest inspected identified-mode asymptotics.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The uniform case is a concrete, completely unidentified boundary where expected likelihood alone gives no optimizer selection. The exact functional limit and random MLE law explain that failure, including endpoint control and tie-rule independence; the result is stronger and more useful than observing a flat expected criterion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

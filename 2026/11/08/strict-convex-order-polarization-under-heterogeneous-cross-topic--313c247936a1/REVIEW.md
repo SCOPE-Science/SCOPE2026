@@ -1,11 +1,21 @@
-# Review: Strict convex-order polarization under heterogeneous cross-topic averaging
+# Independent mathematical audit
 
-**Correctness — PASS.** The source inputs converge to constants; the sink update is a strict contraction for positive coupling. The displayed resolvent identity yields a strictly positive Markov kernel preserving the invariant influence weights. Jensen supplies the all-convex comparison with sharp strictness, and the Poisson decomposition supplies its small-coupling coefficient. An exact three-person computation establishes the uniform-variance reversal. The standalone checker evaluates 48 exact directed-matrix cases, 144 convex hinge comparisons, and the exact counterexamples; the analytic proof, not those finite checks, establishes the general claim.
+## correctness
 
-**Originality — PASS relative to accessible comparisons; residual coverage risk.** Zender et al. (arxiv:2610.27198v1), Sections 4, 5.4 and 7.2.1, give the homogeneous cross-layer framework and explicitly leave individual-dependent interlayer weights open. Ye et al. (2020), Theorems 3–4, already establish heterogeneity-driven disagreement: that conclusion is not newly claimed. FJ/PageRank work already contains the underlying one-parameter resolvent. The new assertion compared is the explicit positive **two-parameter** Markov factor, strict convex ordering for all invariant-weighted convex tests, and failure of the analogous unweighted-variance ordering. No equivalent theorem was found in the inspected publications and research records, but general Markov-operator sources not indexed or examined may contain an equivalent formulation; one older publisher PDF was available as full text but not page screenshots.
+PASS
 
-**Value — PASS.** Increasing the relative reliance on individually weighted fundamental opinions has an exact, graph-independent direction for every convex index of the resulting opinion spread, even for nonreversible social influence. The weighted-versus-unweighted counterexample prevents incorrect conclusions from uniform population dispersion in directed networks. The result addresses a stated structural limitation of the 2026 multiplex setting rather than reasserting qualitative disagreement.
+Source convergence follows from primitivity and the sink has a stable linear recurrence for every positive coupling, even when S is periodic. For 0<a<b<=1 the algebraic resolvent identity may be written K=F_a F_b^(-1)=lambda I+(1−lambda)F_a with lambda=a(1−b)/(b(1−a)) in [0,1). The Neumann series makes F_a strictly positive on any irreducible S, and its row sums and left stationary weights are preserved. This includes b=1, when K=F_a. Jensen is strict in every row for a strictly convex test unless h_b is constant, equivalently w is constant by F_b's invertibility and constant preservation. The all-source-vector consensus criterion follows by testing the coordinate source vectors, realizable by constant initial opinions. Restricting I−S to the invariant pi-mean-zero subspace gives the Poisson inverse irrespective of periodicity and the stated small-rate expansion; it does not identify the dynamics at zero coupling. Direct scalar elimination in the three-node example gives h_(1/5)=(111/125,1618/1625,111/3250), h_(4/5)=(597/1000,400597/401000,597/401000). Unweighted variances are 14071/76050 > 6075272/36180225, while stationary-weighted variances are 1562779/169000000 < 114272491/10050062500. The stationary mean is 197/200 for both. The periodic two-vertex swap independently checks the endpoint and shows the nonconstant difference is scaled by e/(2−e).
 
-**Limits.** One derived topic; fixed nonnegative social weights, primitive source consensus layers, shared total coupling and person-specific normalized topic mixtures. No claims for person-specific total coupling, nonlinear influence or empirical polarization. Finite checks are corroboration, not certification of all network sizes. Originality is conditional on the accessibility of relevant literature.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Limited to the strict, stationary-weighted all-convex parameter comparison on arbitrary finite directed irreducible networks, including nonreversible and periodic networks. This is an elementary but useful application of the resolvent identity; the identity, Jensen, equilibrium resolvent, heterogeneous disagreement, and existence of an ordinary-variance reversal in a related subfamily are not new. No checked result states or subsumes the full directed convex order; a general Abel-mean or Markov comparison source could do so.
+
+## value
+
+PASS
+
+The common parameter is a natural modeling control, and the proposition supplies a distribution-wide and graph-independent ordering rather than only a single scalar warning. A single strictly positive Markov factor gives sharp equality conditions and extends the asymmetric-network comparison even when spectral variance arguments based on reversibility cannot apply. The weighting caveat is pedagogically useful but already known in an overlapping subfamily; it is not the distinct scientific increment.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

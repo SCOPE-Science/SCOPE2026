@@ -1,25 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The transition rates, recurrent supports and stationarity weights for capacities \(c=1,2,3\) are explicit. Independent polynomial balance checks, normalized moment recomputation and rational endpoint inequalities establish every asserted sign. Descartes' rule makes the uniqueness assertions rigorous. The self-contained exact checker was executed successfully from the prepared artifact, and the final embedded version is intended for independent replay. The proof does not use extrapolation from small sample statistics.
+PASS
 
-## Originality — PASS, qualified
+The hop maps x>y to y′≤x′+1; arrivals/exits also preserve that inequality. From (j,j) one can reach (j+1,j+1) via an arrival, hop and arrival, passing through (j,j+1); further arrivals reach all other states with x≥y from (y,y). Exiting to y=0 and alternating a hop and exit drains any remaining upstream stock, including from outside the class. Thus the recurrent support and uniqueness hold for t>0. In a separate symbolic solve I constructed the full generator on (c+1)² states, replaced one adjoint equation by normalization, solved over the polynomial domain, checked all unchanged balance equations, and recovered supports 4, 8, 13 and all three rational covariances identically. Replay: `python /workspace/review_replay.py 2`. At t=1 the exact fractions are −1/25, −1/45, 1/1024. The capacity-two cubic and capacity-three septic in RESULT.md have exactly one positive sign variation and positive leading coefficient; the former changes sign across the rational enclosure and the latter stays negative at zero and at one (−8). With the strictly positive denominators this proves the stated signs, not a parameter grid inference. Only simultaneous stationary covariance at equal rates 0<t≤1 for the stated capacities is established. The supplied exact balance verifier was inspected, not executed.
 
-The full accessible manuscript *Multi-floor generalization of TASEP* [1] gives the precise process and long-chain flux/density behavior but contains no examined theorem implying the finite two-site covariance classification. The complete accessible *Large number of queues in tandem* [2] assumes unbounded buffers; the classic one-floor review [3] supplies a baseline only. Targeted indexed searches for the named process, two-site covariance, possible queueing aliases, polynomial identities and related finite Markov models found only differently defined mass-exchange and resetting problems. This is a best-knowledge comparison, not a proof of publication priority; earlier unindexed small-state calculations are an explicit risk.
+## originality
 
-## Value — PASS
+PASS
 
-Sign of simultaneous stationary cross-site covariance measures whether two queues fluctuate cooperatively or in competition. This is a motivated structural observable for back-pressure exclusion, independent of throughput. The exact classifications show that adding the third admissible occupancy level reverses the sign under maximum boundary drive, and that capacity two has a unique sharp drive threshold. The smallest-capacity boundary is an exact natural finite-system invariant, not a randomly selected numerical parameter slice.
+The same finite-capacity dynamics are prior and the ordinary one-floor result is a baseline. The distinct claim is the sharp two-site small-capacity and drive classification and in particular the first positive capacity at unit drive. The strongest located competing finite-site result has a different generator, and the located primary back-pressure statements compare different observables or scales.
 
-## Scope and residual limitations
+## value
 
-Exactly two sites and capacities one, two and three under equal boundary rates in \((0,1]\). No claims are made about larger capacity, different rate ratios, longer chains, or infinite-volume scaling. No independent external review or publication-priority adjudication has occurred.
+PASS
 
-## References
+The exact minimum capacity at maximal drive is a meaningful small-system test of whether the familiar exclusion anticorrelation survives back-pressure with buffers. The result separates opposite signs at adjacent capacities and identifies exactly how changing drive affects the first three capacities. That is more informative than quoting a stationary linear-system recipe or a simulation at one point; no claim of a large-chain phase transition is made.
 
-1. Baryshnikov and Stolyar, arXiv:2603.13610 (first public March 13, 2026), https://arxiv.org/abs/2603.13610
-2. Stolyar, arXiv:1002.3940, https://arxiv.org/abs/1002.3940
-3. Blythe and Evans, arXiv:0706.1678, https://arxiv.org/abs/0706.1678
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

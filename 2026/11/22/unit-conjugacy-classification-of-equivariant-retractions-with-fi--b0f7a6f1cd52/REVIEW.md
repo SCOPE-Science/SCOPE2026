@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-All equivariant source-to-target orbit maps are classified by stabilizers. Idempotence forces a fixed image and a depth-one rooted-star forest, leaving only phase labels on free-to-free non-root edges. Each such edge has a unique source and can be simultaneously normalized with an independent free-orbit coordinate translation; no commutativity of the group is used. The factorial count of labeled rooted stars, the phase multiplicity, and the two independent multiset Euler factors prove the claimed classification and orbit sizes in every finite dimension. A separate finite verifier checked 33 group/profile cases and actual conjugacy connectivity. Main boundary: groups are nontrivial and only the singleton and regular orbit types are present.
+## correctness
 
-## Originality — PASS relative to inspected evidence
-The published finite-group-set work of Castillo-Ramirez and Ruiz-Medina supplies the ambient endomorphism/unit framework and relative rank, not the classification of mixed fixed/free idempotent unit orbits. Al-Aadhami's thesis proves labeled homogeneous wreath-product idempotent counts. Related published records on homogeneous simultaneous untwisting and permutation centralizer idempotent ranks do not imply the mixed unit-orbit classification without new fiber and phase analysis. The exact ranks, multiset quotient and orbit-cardinality formulas are the novelty asserted here. A historical general orbit theorem remains a residual priority risk rather than an assertion of universal uniqueness.
+PASS
 
-## Value — PASS
-Unit-conjugacy of retractions is a natural symmetry quotient of an established transformation-semigroup object. The result gives its complete classification and each orbit's size in all mixed fixed/free dimensions, rather than an arbitrary numerical slice; its group-independent orbit count is non-obvious because labeled counts and ranks depend on the group order. The two-kind rooted-star invariant is also a useful baseline for studying richer stabilizer incidence patterns.
+An idempotent fixes its whole image. A singleton can map only to a singleton; a free orbit may collapse to a singleton in one way or map to a prescribed free orbit by any of q right translations. This gives precisely the two types of rooted components and the rank k+qℓ. Conjugacy by coordinate right translations changes a satellite-to-root phase h_i to s_i^(-1) h_i s_root. Set root translations to the identity and choose s_i=h_i independently on the satellites: there is no residual nonabelian invariant. Orbit permutations then identify exactly the equal multisets. Labeling the rooted stars gives denominators (s−1)!t!, (c−1)!, and the two multiplicity factorials; restoring a choice of q phases per free satellite of a free root gives (1). The independent multiset factors give (2)–(3), and choosing image roots first yields (4), including 0^0=1. At a=b=2 there are nine profiles and (4) gives 6q+17. Using G^op for the regular-orbit translation group yields the same wreath product up to isomorphism via inversion. The phrase 'does depend on q' describes the general labeled formula, not every parameter choice: labeled counts are q-independent for b≤1 and strictly q-dependent for b≥2. The frozen nonabelian finite tests are corroboration, not the proof; the uploaded code was not executed.
 
-## Limits
-The result does not address intermediate isotropy types or simultaneous conjugacy of commuting tuples. Computational checks are finite and cannot establish the universal statement; independent audit remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct claim is the complete mixed fixed/free classification together with the exact individual orbit sizes and rank-refined class product. The general endomorphism framework, ordinary fiber-size profiles, homogeneous phase normalization and homogeneous labeled count are established precedents, not additional novelty. The closest mixed-isotropy and partial-map analogues do not yield this total-idempotent census.
+
+## value
+
+PASS
+
+The two natural stabilizer extremes in one finite G-set give a complete classification, including the size of every individual unit class and point-rank distribution. The exact separation between group-independent class multiplicities and group-order-dependent labeled weights is useful for enumeration and is not supplied by the known homogeneous labeled count alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

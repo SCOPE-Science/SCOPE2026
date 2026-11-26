@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-The finite degree-spectrum inequality and its cycle-rank strengthening were reconstructed with all quantifiers: selecting one left vertex for each distinct positive count gives \(|E(H)|\ge T_q+q\), hence \(\beta_1(H)\ge T_q-k+1\). This yields the finite girth converse. The published 2026 aperiodicity lower bound and cycle-to-excess implication have the required hypotheses because the supports are infinite with arbitrarily long gaps. A graph with exactly one simple cycle cannot support a witness with two independent cycles, fixing the unicyclic first defect. The specified three-weight graph has exactly one cycle, and distant additions preserve its cycle rank; an explicit tagged pattern realizes every required count.
+## correctness
 
-Two independent scripts executed from the extracted candidate paths. `check_girth.py` confirmed graph rank and girth in 40 finite cases; `check_witness.py` checked 77 designated translates and additional zero/one witnesses. Both completed successfully. These checks corroborate, but do not prove, the all-parameter theorem.
+PASS
 
-## Originality
-The closest primary paper is Zeng–Xue–Zeng (arXiv:2609.28059), which supplies the aperiodic lower bound, the qualitative forest criterion and the implication from a cycle to a complexity excess. The new assertion is the converse at every finite triangular cutoff and exact unicyclic first-defect index/value. The full public RESULT.md of the shifted-geometric girth classification and the three-spike cycle-rank classification was inspected; both supply graph data but neither the general finite cutoff nor the unicyclic complexity claim. The finite three-spike cycle-rank formula is credited as prior coverage.
+A defect selects q=f(k)-1 distinct rows of degrees at least 2,...,q+1. The induced graph on these rows and the k columns has cycle rank at least T_q-k+1 and any simple cycle uses at most q rows. This proves the lower endpoint for K and excludes all earlier defects in the unicyclic case. At T_r, an excess beyond r+2 would force cycle rank at least r+2. For the needed lower bound at T_r, Zeng–Xue–Zeng Theorem 6.4 has exactly the required hypotheses. Independently, a shortest cycle gives r rows of degree two on its r columns, with no chord. For r>=3 each selected row has infinitely many private columns, since pairs of rows have at most one common column. For r=2, an eventual inclusion between the neighbor sets of the two shifted rows would make the characteristic sequence eventually monotone on each residue class of their difference, hence eventually periodic, which is impossible. Thus one can add 0,...,r-1 private columns to the respective rows. Long gaps give count zero and also count one by aligning the last pattern position with the first support element after a sufficiently long gap. In the witness D_r, the two positive prefix sums r-1 and r form an alternating path, and L_0 R_0 closes a 2r-cycle. Each new sum greater than twice the previous largest cannot lie on any new cycle: both its endpoint indices would be bounded by the previous largest sum. The bundled traversal and witness checks are finite evidence; they are not needed for the proof and were not executed.
 
-Residual historical-priority risk: a previously unindexed reformulation of the quantitative converse may exist, and an implicit corollary of the 2026 source may have been overlooked.
+## originality
 
-## Value
-The statement gives a genuine inverse relationship: a word-complexity statistic recovers the shortest cycle of an infinite additive graph. The unicyclic theorem recovers the exact first defective pattern arity and exact size of that defect; realizations at every even girth show that minimal complexity can persist for arbitrarily many pattern lengths despite a genuine cycle. The invariant and cutoff are dictated by the central forest characterization, not an arbitrary finite computation.
+PASS
 
-## Scientific limitations
-The general inverse assumes infinite supports with arbitrarily long zero gaps, while exact first-defect arity requires one global simple cycle. Multi-cycle graphs may deviate at intermediate arities. The cycle-to-excess direction and aperiodic lower envelope are previously proved inputs, not new claims. No independent audit is asserted.
+The prior paper already proves the cycle-to-defect direction, the forest equivalence, and the arity-three Sidon case. Its Proposition 5.7 already selects distinct degree rows and counts edges in the forest case, and its Proposition 6.9 uses the maximal-sum argument underlying the tail. Credit those premises and methods. The distinct supported contribution is the quantitative converse at every arity band and the exact unicyclic endpoint and complexity attained for all r. The prior full statements do not give bounds for these cyclic graphs in terms of the number of rows that can support a cycle or the rank of that finite certificate.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The first nonminimal arity locates the shortest cycle of an infinite incidence graph, refining a qualitative forest criterion. The exact rank-one case explains the largest possible delay and shows that this delay is realized at every even girth, making the triangular cutoff sharp.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:09:38.236557Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 23–72, VERIFICATION.md, bundled direct and quotient checker descriptions and assertions inspected without executing the uploaded code",
+        "Own replay: python3 /workspace/review_checks.py 5; /workspace/review-evidence/5.txt; exhaustive 4,960 triples and 35,960 four-sets by 496-pair coverage, plus independent overlap graph and all-source BFS with pairwise distance-formula checks"
+      ],
+      "rationale": "For a nonempty set of at most three landmarks, two sign-matrix columns coincide up to negation; the empty set also cannot resolve. In a normalized four-set a distance-four pair forces zero on the remaining coordinate and zero sum on the first four. Repeated binary signatures on those coordinates give a difference witness; if all signatures are distinct, assign +1 to 00 and 11, and −1 to 01 and 10 (the checkerboard). The remaining distance-two case reduces to a triangle, which has a ternary witness on unused coordinates, or a star, for which the remaining coordinate must be twice the center, forcing a zero ternary kernel. The star determines its pentad already from three members. For the jump metric, each common class with a sign mismatch must have its target sign inserted, as must a class in the target support absent initially when omissions differ; a move inserts only one sign. Flips followed by at most one exchange attain that bound. The resulting distance histogram and the legal Hamming replacement lengths 2, 3 and 5 give the claimed radius, diameter and edgeless slide graph.",
+      "residual_risks": [
+        "The count and reconfiguration verification are exact for the stated labelled five-cube, not other dimensions or nonminimum sets."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Hamming linear-system characterization is a general method; the antipodal-change lemma is a general statement and preserves every landmark sign independently",
+          "The latter restricted paper's public abstract describes greedy upper bounds, not an accessible signed exchange census"
+        ],
+        "reasoning": "Neither methods nor dimension bounds are the decisive overlap. The exact folded-graph census for this parameter is.",
+        "searches": [
+          "arXiv:1907.05974 Hamming-graph resolvability",
+          "arXiv:2102.10916 metric dimensions of hypercubes",
+          "Nikolić–Čangalović–Grujičić, DOI 10.1007/s11590-014-0790-9"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 638b0716df7e",
+        "arXiv:2102.10916, 1312.4973, 2012.00396, 1907.05974",
+        "Nikolić et al. repository abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The folded graph's bases are the 80 four-of-five neighborhood sets; it has 16K5 jumps and 80 isolated slide vertices",
+          "Q5 projects to the distance-four graph on even words, and adjacent cube vertices project to adjacent distinct folded vertices"
+        ],
+        "reasoning": "The parity bridge above gives exactly the classified lifts; the slide statement descends along the quotient, and jump edges lift by the compulsory shared signs and free incoming sign. The signed-state graph's distance formula just counts the required insertions, attainable independently.",
+        "searches": [
+          "Resultary 638b0716df7e Finding compared with frozen Finding and proof §§2–4",
+          "arXiv:2102.10916 Lem. 5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 2026/11/22/SCOPE-a-complement-sensitive-mobility-switch-for-optimal-landmarks-on--638b0716df7e gives 80 bases, all four of a unique five-neighbor set, and jump graph 16K5",
+          "Even representatives turn quotient distances 0,1,2 into Hamming distances 0,4,2 respectively"
+        ],
+        "reasoning": "This is the same support classification. The even representative recovers Hamming distance, so the two resolving tests are equivalent, rather than just giving numerically compatible counts.",
+        "searches": [
+          "Local Resultary comparison of five-cube metric-basis counts, antipodal signed pentads, folded/Clebsch bases and reconfiguration",
+          "Clebsch-versus-folded-cube distance normalization; arXiv:2102.10916 Lem. 5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Bailey and Lu–Ye tabulate dimension four, not a basis count",
+          "The Resultary result gives all 80 projected sets and their exact reconfiguration"
+        ],
+        "reasoning": "Multiplying by 2^4 is justified by the equivalence and not by a dimension table. The complete folded census is the relevant exact analogue.",
+        "searches": [
+          "Bailey arXiv:1312.4973 Table 5; Lu–Ye arXiv:2012.00396 §4 Table 1; Resultary 638b0716df7e exact census"
+        ]
+      },
+      "rationale": "The strongest distinct indexed result gives the complete Clebsch basis classification and both exchange graphs, not merely the value of metric dimension. The purported additional cube classification is equivalent by a direct parity argument: quotient distance is min(d,5−d); for the even representatives, d is even, so this minimum recovers d uniquely (0→0, 1→4, 2→2). Thus a nonresolving projected set supplies an unresolved pair of even representatives in the cube; using arbitrary antipodal landmark signs does not change equality. If the projected set resolves, unequal classes are distinguished upstairs, and two vertices in one class have distances summing to five, hence unequal, to every landmark. Therefore the complete projected census gives exactly all lifts. A slide projects to a Clebsch slide because adjacent cube vertices are in different classes, so Clebsch slide isolation implies cube slide isolation. Jumps lift by retaining all signs on shared landmarks and assigning either sign to the incoming one, or flipping one sign within a support. The exact signed distances and enumerations are direct calculations in this forced lift of 16K5. This is demonstrable equivalent coverage and routine consequences, not an assertion of ordering between the two same-day results.",
+      "residual_risks": [
+        "The two exact findings share a date; no priority or historical direction of discovery is certified.",
+        "The Nikolić et al. full text and the Zhang et al. folded-cube paper were not available. Failure is based on demonstrable coverage in the inspected Clebsch statement, not inaccessible papers or an uninformative external query."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent complete projected classification and decisive slide coverage, no date ordering inferred",
+          "evidence": "For the Clebsch graph the exact bases are N(c) minus one neighbor; jump graph 16K5, slide graph 80K1. The complement also has jump graph 16K5 but not the same slide graph.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-complement-sensitive-mobility-switch-for-optimal-landmarks-on--638b0716df7e",
+          "material_read": "RESULT.md Finding offset 0, relationship section offset 7800, local snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Bounded local mirror source reading",
+          "title": "A complement-sensitive mobility switch for optimal landmarks",
+          "trigger": "Exact five-cube folded-graph overlap"
+        },
+        {
+          "assessment": "Antipodal replacement already known",
+          "evidence": "Replacing a landmark with its antipode preserves resolving status.",
+          "identifier_or_url": "https://arxiv.org/pdf/2102.10916",
+          "material_read": "Lemma 5, p. 5, text offset 13700",
+          "method": "Bounded OA PDF passage",
+          "title": "On Metric Dimensions of Hypercubes",
+          "trigger": "Antipodal equivalence of lifts"
+        },
+        {
+          "assessment": "Dimension, not basis census",
+          "evidence": "Both the Clebsch graph and Q5 have metric dimension four.",
+          "identifier_or_url": "https://arxiv.org/pdf/1312.4973",
+          "material_read": "Table 5, p. 9, offset about 27200",
+          "method": "Bounded OA table reading",
+          "title": "On the metric dimension of incidence graphs (and a related table)",
+          "trigger": "Exact small-graph values"
+        },
+        {
+          "assessment": "Tabulates the invariant value only",
+          "evidence": "The metric dimensions of Q5 and F5 are both four.",
+          "identifier_or_url": "https://arxiv.org/pdf/2012.00396",
+          "material_read": "Definition on p. 1 and §4 Table 1 p. 7",
+          "method": "Bounded OA passage and table",
+          "title": "Metric dimension of hypercubes and folded hypercubes",
+          "trigger": "Exact Q5 and folded classification possibility"
+        },
+        {
+          "assessment": "Methodological overlap, not decisive coverage",
+          "evidence": "Gives a constrained-linear-system characterization of resolving status.",
+          "identifier_or_url": "https://arxiv.org/pdf/1907.05974",
+          "material_read": "Abstract and introduction, offsets 500 and 4680",
+          "method": "Bounded OA PDF reading",
+          "title": "Resolvability of Hamming Graphs",
+          "trigger": "General hypercube resolving test"
+        },
+        {
+          "assessment": "Full-text coverage unestablished; no negative claim based on absence",
+          "evidence": "The abstract describes using symmetry in a greedy heuristic for bounds through dimension 22.",
+          "identifier_or_url": "https://doi.org/10.1007/s11590-014-0790-9",
+          "material_read": "Public repository abstract, offset 313; full text marked restricted",
+          "method": "Lawful repository metadata/abstract",
+          "title": "Symmetry properties of resolving sets and metric bases in hypercubes",
+          "trigger": "Potential primary classification of hypercube bases"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 7–15 and 64–85",
+        "Exact Resultary Clebsch theorem 638b0716df7e and parity comparison above"
+      ],
+      "rationale": "The cube optimum-mobility question is natural, but this exact finite case reduces by parity to the already classified folded case. Slide isolation is inherited and not a separate boundary theorem. The signed census, jump graph and distance profile are mechanically forced by the lifted four-of-five support moves; no independent nonmechanical remainder is established by the frozen record.",
+      "residual_risks": [
+        "This judgment concerns the specific five-cube census and metric, not a theorem about minimum-basis reconfiguration in general odd cubes."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

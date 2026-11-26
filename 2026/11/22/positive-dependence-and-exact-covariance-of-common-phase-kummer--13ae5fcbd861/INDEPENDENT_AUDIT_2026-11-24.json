@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:19:14.096850Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a shared uniform phase, the fractional-part carry is 0 or 1, and subtracting 1/2 gives the sum of two centered sawtooths minus the common slope-d sawtooth. The Fourier coefficient at nonzero n equals -W_j(n)/(2π i n); taking the conjugate in Parseval gives the positive factor 1/(2π²) on the sum over n>0. When d does not divide n all W are nonnegative; when d divides n the two positive terms total at most d, so all are nonpositive. At n=d both positive terms occur iff j and d-j divide d, equivalent to d/j=d/(d-j)=2. Therefore any pair with both indices noncentral has a strictly positive contribution from n=d, and no opposite-sign term. Summing over common multiples of a,b recovers gcd(a,b)^2/(12ab); expanding produces the eight gcd terms plus the unit term. Marginals 1/2 then determine all four cells. The diagonal and equal complementary coordinates are valid special cases, and discontinuities have probability zero. Independent exact right-continuous integration on 968 pair instances across 3≤d≤18 agreed, including 22 zero cases all involving the center; replay `python3 /workspace/audit_checks/frozen_reconstruction.py`. The finite test does not prove the sign theorem. Nothing here transfers to sums of actual prime-adic valuations.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Classical pair integral stated in frozen RESULT.md §4 and explicitly derived in 51206b5a8350 Proof §3",
+          "Wu and Guo et al., respective Theorem 1, concern arithmetic gcds"
+        ],
+        "reasoning": "Bilinear expansion of the sawtooth identity already gives the rational expression, but a sum of positive and negative gcd terms need not show the sign. The shared negative slope and modewise common sign are the additional fact. The gcd theorems do not provide a continuous shared-phase covariance law.",
+        "searches": [
+          "Lemke Oliver–Soundararajan, The Distribution of Consecutive Prime Biases and Sums of Sawtooth Random Variables",
+          "arXiv:2606.20940; arXiv:2606.22997"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, REVIEW.md and check.py",
+        "Resultary 51206b5a8350",
+        "arXiv:2611.25794, 2606.20940, 2606.22997",
+        "Classical sawtooth integral as derived in the compared Resultary proof"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Central test has W_{d/2} supported on odd multiples of d/2; it vanishes at n=d",
+          "Individual half-measure result gives only marginals"
+        ],
+        "reasoning": "The prior central result cannot certify strict noncentral covariance at n=d, exactly the frequency being used, and individual marginals leave covariance undetermined. The classical identity supplies the formula by substitution, but the known central and marginal statements do not establish the universal noncentral sign law. Same-day indexing does not establish relative priority.",
+        "searches": [
+          "51206b5a8350, Finding and Proof §3",
+          "arXiv:2611.25794, Lemma 2.2",
+          "Sawtooth gcd-square bilinear identity"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "51206b5a8350 uses exactly the same uniform common phase and floor functions; its Finding gives the exact central-pair covariance and collective central independence",
+          "Cui–Yang defines the identical binary 1-periodic carry and its half-measure zero set"
+        ],
+        "reasoning": "These are true aliases on the central slice and on individual marginals, respectively. Neither specifies the signs between two noncentral indices. Pairwise quadrant dependence here is a statement about centered common-phase Bernoulli products, not arithmetic independence.",
+        "searches": [
+          "2026/11/22/SCOPE-maximal-collective-independence-and-a-sharp-parity-obstruction-f--51206b5a8350",
+          "arXiv:2611.25794, Lemma 2.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact specialized kernel in that Finding: for j/d=a/b reduced, central covariance is zero for odd b and 1/[4a(b-a)] for even b"
+        ],
+        "reasoning": "This exact entry already evaluates all pairwise masses involving the center, and is credited rather than counted as new. Its stronger joint independence of a specific subvector does not fill the exact noncentral-pair matrix.",
+        "searches": [
+          "2026/11/22/SCOPE-maximal-collective-independence-and-a-sharp-parity-obstruction-f--51206b5a8350"
+        ]
+      },
+      "rationale": "Credit the classical sawtooth identity, the known individual carry law, and the distinct same-day exact classification of the central slice. The remaining general-pair statement, especially the common Fourier sign mechanism and uniform strictness for two noncentral indices, is distinct in the inspected evidence. The expanded kernel by itself is a short consequence of the classical covariance identity and is not the main originality basis.",
+      "residual_risks": [
+        "The author-hosted sawtooth primary full text was not retrievable in the attempted routes; no absence of stronger results is inferred from that.",
+        "A bounded primary-literature search was inconclusive beyond the listed sources. Equivalent noncentral results could be unindexed or embedded in broader floor-function work.",
+        "Date alone does not order the two same-day indexed carry records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the full central slice, not arbitrary pairs",
+          "evidence": "For d=2^s m the central coordinate is independent of the vector with 2^s dividing j, and central covariances have a formula for all reduced denominators.",
+          "identifier_or_url": "2026/11/22/SCOPE-maximal-collective-independence-and-a-sharp-parity-obstruction-f--51206b5a8350",
+          "material_read": "RESULT.md Finding, offset 0; Proof §3, offset 3900",
+          "method": "Published record, local mirror",
+          "title": "Maximal collective independence and a sharp parity obstruction for common-phase carry indicators",
+          "trigger": "Same process and strongest exact overlap"
+        },
+        {
+          "assessment": "Individual carry and marginal covered",
+          "evidence": "1-periodicity, binary range, half-measure zero set, and valuation-sum interpretation.",
+          "identifier_or_url": "https://arxiv.org/abs/2611.25794",
+          "material_read": "Lemma 2.2, PDF p. 4, extraction offset 15400",
+          "method": "Lawful OA PDF, targeted reading",
+          "title": "The Distribution of Greatest Common Divisors of Binomial Coefficients and Their Upper Indices",
+          "trigger": "Same signed floor function"
+        },
+        {
+          "assessment": "Exact proposition not confirmed in that copy; the classical identity itself is derived in the inspected central record and checked analytically here",
+          "evidence": "No whole-paper exclusion; attribution as in frozen RESULT.md references.",
+          "identifier_or_url": "https://rlemke01.math.tufts.edu/papers/18-DistributionSawtooth.pdf",
+          "material_read": "Only landing/abstract material; no primary full text read",
+          "method": "Direct and VPN lawful OA attempts",
+          "title": "The Distribution of Consecutive Prime Biases and Sums of Sawtooth Random Variables",
+          "trigger": "Credited classical pair kernel (cited as Proposition 3.1)"
+        },
+        {
+          "assessment": "Discrete arithmetic, not this probability law",
+          "evidence": "Theorem gives prime valuations of a gcd of binomial coefficients, not shared-phase covariance.",
+          "identifier_or_url": "https://arxiv.org/abs/2606.20940",
+          "material_read": "Theorem 1, PDF p. 2, offset 5350",
+          "method": "Lawful OA PDF, targeted reading",
+          "title": "Computing the Greatest Common Divisor of Binomial Coefficients",
+          "trigger": "Motivating gcd theorem"
+        },
+        {
+          "assessment": "Discrete arithmetic, not this probability law",
+          "evidence": "Theorem gives a gcd criterion for a different arithmetic family.",
+          "identifier_or_url": "https://arxiv.org/abs/2606.22997",
+          "material_read": "Theorem 1, PDF p. 2, offset 6100",
+          "method": "Lawful OA PDF, targeted reading",
+          "title": "A Greatest Common Divisor Criterion of Certain Binomial Coefficients",
+          "trigger": "Related arithmetic criterion"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The shared-phase Kummer carries occur naturally when multiple binomial lower ratios are probed simultaneously. A uniform positive-pair law (strict unless a center can intervene) rules out the independence heuristic throughout the noncentral family, and gives all pair probabilities with a small exact arithmetic kernel. This does not establish higher-order association or a distribution theorem for integer-valued valuation sums.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:09:24.940336Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 18–66; VERIFICATION.md and checker.py inspected without executing uploaded code",
+        "/workspace/reproductions/check.py: python3 -B /workspace/reproductions/check.py 2 verified per-shift flat and tapered ranks by integer cyclotomic remainders for p=3,5,7,13 and direct projector rank 65 over F_109 at n=9"
+      ],
+      "rationale": "Weyl conjugation acts by distinct characters on the Weyl matrix basis, so Fourier projection of the projector orbit isolates exactly the nonzero Weyl coefficients of gg*. The nondegenerate trace pairing gives the same rank for the complex analysis map. At b=0 use positivity on each nonempty overlap. At order p^j, reduction modulo X^(p^j)-1 folds the rational coefficients, and divisibility by the minimal polynomial 1+X^(p^(j-1))+...+X^((p-1)p^(j-1)) forces the p coefficients over each lowest j-1 digits to agree; the quotient has degree less than p^(j-1). All primitive frequencies of that order are conjugate. For the taper the exponent x+((x-a) mod n) reduces to 2x-a modulo n, hence is injective for odd n; disjoint collections of binary powers cannot have the same nonzero sum. This saturates the upper bound n|S-S| without any numerical tolerance. For the flat cross the long axis covers all nonzero multiples of p, giving rank p there. At ±1 the p overlap points represent all classes modulo p once and occupy no complete size-p fiber modulo p^2. At zero the residue 0 class has weight p rather than 1 and the nonzero classes have singleton fibers, so neither order vanishes. Other short-axis shifts of magnitude r between 2 and p-1 have p-r short-axis pairs plus one additional pair, and remaining shifts have at most two cross-axis pairs and no same-axis pairs. Every such overlap is nonempty by the difference-cover representation r-tp and has size less than p, so equal fibers are impossible at either nonzero order. Summing gives the frozen rank and |S|(|S|-1)≥p²-1 forces |S|≥p+1.",
+      "residual_risks": [
+        "Reduction into F_109 gives a lower bound on complex matrix rank, not an automatic equality; the exact characteristic-zero rank here follows from the layer calculation. No conditioning bound is claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Goldberger–Kang–Okoudjou give the dimension-general Weyl spectral formula and generic nonvanishing.",
+          "Bojarovska–Flinth use root-of-unity vanishing to give sufficient nonvanishing conditions for particular flat difference sets."
+        ],
+        "reasoning": "The first is broader with respect to dimension and windows but leaves all ambiguity zero tests unevaluated. The second is a sufficient test, not necessary and sufficient folded-layer equations for rational overlaps.",
+        "searches": [
+          "arXiv:2106.01509 §§2–2.1",
+          "arXiv:1503.05800 Proposition 2.2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 65df80cb23d5",
+        "arXiv:2106.01509",
+        "arXiv:1503.05800",
+        "arXiv:1507.01829 (abstract)",
+        "ARR-2026-3WVWP20DY09HFASA (title only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prime-order prior implies the 2^x example at k=1; the general Gram identity supplies the upper bound via the overlap support; neither computes the multi-layer upper-bound saturation for the specific weights at k>1 nor the three flat-cross ranks."
+        ],
+        "reasoning": "The flat intersection geometry and injective binary exponents are additional arguments beyond invoking the known rank formula or genericity. No claim of novelty is credited for cyclotomic minimal polynomials themselves.",
+        "searches": [
+          "arXiv:2106.01509 §§2–2.1",
+          "arXiv:1503.05800 Proposition 2.2",
+          "Resultary 65df80cb23d5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:2106.01509, §§2–2.1: projector Gram rank counts nonzero ambiguity samples.",
+          "65df80cb23d5 gives p|S-S| on proper supports at odd prime p and p versus p² for constant versus nonconstant strictly positive full support."
+        ],
+        "reasoning": "Operator-span rank and lifted analysis rank are equivalent in this setting. The indexed match is the single layer k=1, with no distinction between multiple primitive frequency orders.",
+        "searches": [
+          "Literature: prime power cyclic Gabor tomography Weyl covariant rank-one projector operator span rank cyclotomic Fourier windows sparse support",
+          "Resultary: 65df80cb23d5, Exact arithmetic classification and Cyclotomic lemma"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest indexed classification is for n=p and counts no p² digit-cross shifts. The located difference-set fusion-frame abstract is about frame and coherence properties."
+        ],
+        "reasoning": "The relevant exact output is a parametric nullity census, not an isolated rank at n=9. No matching all-p cross census appeared in the inspected evidence.",
+        "searches": [
+          "Resultary: 65df80cb23d5",
+          "Literature: prime power cyclic Gabor tomography Weyl covariant rank-one projector operator span rank cyclotomic Fourier windows sparse support"
+        ]
+      },
+      "rationale": "Credit the published Weyl-rank identity, generic informational completeness, standard minimal-polynomial argument, and the indexed prime-order result. The supported distinct package is the multi-layer arithmetic census beyond prime order, the exact flat-cross ranks at p², and the explicit all-support taper at odd prime powers. The strongest inspected sources do not supply or mechanically determine that entire package; in particular, generic existence does not certify the frozen integer window or quantify the deficit of its flat counterpart.",
+      "residual_risks": [
+        "A broader arithmetic rank classification or earlier exact digit-cross construction under different terminology remains possible; the adjacent prime-dimensional item was not available as primary text."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General Weyl rank and genericity covered; explicit arithmetic specialization not supplied",
+          "evidence": [
+            "Gram eigenvalues proportional to squared ambiguity magnitudes; rank counts their nonzeros."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2106.01509",
+          "material_read": "§§2–2.1, PDF pp. 2–5, OA offsets 5000 and 12418",
+          "method": "OA PDF text",
+          "title": "Towards a classification of incomplete Gabor POVMs in C^d",
+          "trigger": "Same measurement and rank invariant in general dimension"
+        },
+        {
+          "assessment": "Covers the odd prime case and its taper consequence",
+          "evidence": [
+            "Prime-modulus rank dichotomy and the rational equal-coefficients vanishing criterion for Φ_p."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-arithmetic-rigidity-of-prime-cyclic-gabor-tomography-for-positiv--65df80cb23d5/RESULT.md",
+          "material_read": "Exact arithmetic classification and Cyclotomic lemma",
+          "method": "Local Resultary mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Arithmetic rigidity of prime cyclic Gabor tomography for positive rational windows",
+          "trigger": "Direct overlap for the prime cyclic group"
+        },
+        {
+          "assessment": "Relevant sufficient condition; does not give the frozen complete rank layers",
+          "evidence": [
+            "Uses vanishing sums for flat difference-set windows."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1503.05800",
+          "material_read": "Proposition 2.2, PDF pp. 6–7, OA offset 29700",
+          "method": "OA PDF text",
+          "title": "Phase Retrieval from Gabor Measurements",
+          "trigger": "Vanishing-sum argument on sparse indicator windows"
+        },
+        {
+          "assessment": "The inspected passage concerns a different invariant; no whole-paper exclusion inferred",
+          "evidence": [
+            "Coherence and fusion-frame properties, not an exact tomography nullity in the abstract."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1507.01829",
+          "material_read": "Abstract, PDF p. 1, OA offset 570",
+          "method": "OA PDF text",
+          "title": "Gabor fusion frames generated by difference sets",
+          "trigger": "Sparse support in cyclic Gabor theory"
+        },
+        {
+          "assessment": "Possible adjacent prime-dimensional result; full comparison not established",
+          "evidence": [
+            "Search-result title explicitly restricts to prime dimension."
+          ],
+          "identifier_or_url": "https://airr.science/papers/ARR-2026-3WVWP20DY09HFASA/",
+          "material_read": "Search-result title only",
+          "method": "Literature search; OA passage request timed out",
+          "title": "Rank plus Weyl sparsity is at least p+1: an operator form of the Chebotarev-Tao uncertainty principle in prime dimension",
+          "trigger": "Adjacent rank and sparsity terms"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding, proof and limitations",
+        "arXiv:2106.01509 §§2–2.1",
+        "Resultary 65df80cb23d5"
+      ],
+      "rationale": "The result turns evaluating many cyclotomic-weighted measurements into exact rational equality tests and gives a concrete warning about sparsity: a support meeting the difference-cover criterion can have a large flat-window deficiency even though an explicit positive reweighting gives informational completeness on that very support. The shiftwise census identifies the lost modes and the taper eliminates probabilistic or generic existence in all supported shifts. This is useful for exact rank and support design despite the lack of stability guarantees.",
+      "residual_risks": [
+        "The exponential dynamic range limits numerical use; no optimal-support, noise-stability or reduced-measurement result follows."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

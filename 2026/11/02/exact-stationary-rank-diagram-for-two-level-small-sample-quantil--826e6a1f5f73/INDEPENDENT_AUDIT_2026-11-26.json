@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:48:36.116241Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–82",
+        "Frozen VERIFICATION.md and verify.py (read, not executed)",
+        "/workspace/branches/frozen_replay.py, selector 2",
+        "/workspace/repairs/2/RESULT.md, VERIFICATION.md, verify_rank.py"
+      ],
+      "rationale": "The frozen Markov calculation is correct: projection lands in {0,h}; the rank selects a corrupt row at 0 iff its corrupt-count tail begins at s−j+1, and selects a clean row at h iff the count is at most j−1. Since w₀>0, the balance equation determines the unique invariant law. Conditional iteration of the affine probability update gives both the time evolution and the stationary covariance. The two tails are disjoint, a partition, or overlapping according to 2j versus s+1, including vanishing middle mass. Identical rows of the matrix do give independent stationary draws beginning with the second update for arbitrary initial ties. The worked example uses exact probabilities. The repair restricts the Finding to optimization and makes the risk ordering complete: the denominator weights have positive support u=0,…,q with q=min(c,s), and the reflected weights first become positive at ℓ=s−q. On their common positive support the consecutive reflected odds ratio is (g−u)(g−s+u+1)/[(c−u)(c−s+u+1)]>1. Appending a weight at an index j≤q and j≥ℓ strictly raises the weighted average; after j>q the denominator is constant and the numerator strictly increases as soon as j≥ℓ. This includes ℓ>q, as well as singleton rank, denominator saturation and the exactly one-positive-rank case. The zero-risk ranks are absorbing with positive restart probability of reaching 0 from h; positive-risk ranks cannot retain 0 permanently, since the batches are independent and the exit probability is positive. With replacement all weights are positive and the reflected ratio multiplier is (g/c)^2>1; the rank-one odds use just (c/m)^s and (g/m)^s. `python3 /workspace/branches/frozen_replay.py 2` passed 105 exact rank cases for the original model. `cd /workspace/repairs/2 && python3 verify_rank.py` passed exact direct residual-sorting checks of the amended theorem in 100 sampling-design/size cases, including s>c, gaps between the two supports, and batch sizes exceeding g under replacement. The proofs, not the bounded tests, establish the universal statements.",
+      "residual_risks": [
+        "No claim for unequal rows, independent update-row selection, or more than two right-hand-side values."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2639ecb81dd1 permits s up to the population size and adds a rare-error horizon; it gives odds for each rank but provides the cutoff and horizon specifically for the median.",
+          "Cai et al. provide finite-horizon sample-size guarantees; Battaglia–Ma's expected-error bounds concern row-normalized full-rank systems with noise and corruption.",
+          "2cb0562d976d is a one-step minimax risk in a scalar streaming independent-update model."
+        ],
+        "reasoning": "The broader parameter range establishes prior coverage for the Markov formulas, but neither the stated horizon nor the general finite-horizon bounds compare stationary risks across ranks. The exact one-step minimax result uses a different model and criterion.",
+        "searches": [
+          "arXiv:2308.07987 §V-D and p. 7",
+          "arXiv:2507.15185 p. 3 and Algorithm 1.1",
+          "arXiv:2505.00258 §4.2",
+          "Resultary 2639ecb81dd1 and 2cb0562d976d"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 2639ecb81dd1, 2cb0562d976d",
+        "arXiv:2308.07987, 2507.15185, 2505.00258",
+        "Frozen RESULT.md",
+        "/workspace/repairs/2/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "With j≤s−c the prior formula gives A_j=0 immediately from support; that implication is credited in the repair.",
+          "On positive common support the ratio of consecutive reflected-to-original hypergeometric weights is strictly greater than 1, while where original weights vanish the positive reflected tail continues to grow. These comparisons determine the entire ordered positive part, not just its sign or a median cutoff."
+        ],
+        "reasoning": "The repaired claim does not take credit for direct consequences of the prior transition tails. Strict ordering is not a general identity for all count distributions and needs the additional hypergeometric odds argument and support-case analysis. No inspected stronger theorem already furnishes this comparison.",
+        "searches": [
+          "2639ecb81dd1 exact transition/correlation and median passages",
+          "Repaired RESULT.md Ordering for subset sampling and Ordering for independent draws"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2639ecb81dd1 has p_k=Pr(H≥s−k+1), q_k=Pr(H≤k−1), π=p_k/(p_k+q_k), the same law up to notation. Haddock–Ma–Rebrova Algorithm 2 updates with a row in the same residual-rank batch; Cai et al. draw an update row independently and accept by threshold."
+        ],
+        "reasoning": "The closest catalogue model is genuinely identical once k is j and the two values are scaled; its stationary corrupt-state mass is squared-error risk divided by h². The competing independently selected update-row results are for a different transition mechanism.",
+        "searches": [
+          "Resultary: scalar two-level small-sample Kaczmarz stationary risk by residual rank, same-batch versus independent updates",
+          "Haddock–Ma–Rebrova §V-D Algorithm 2",
+          "Cai et al. Algorithm 1.1 and p. 3 discussion",
+          "2639ecb81dd1 exact transition passage"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact hypergeometric stationary law and median-only cutoff are already indexed; no matching all-rank optimized ordering or exact same-batch replacement comparison appears in the inspected catalogue findings."
+        ],
+        "reasoning": "An exact all-rank formula for computing values is not itself their strict-order theorem; a median threshold is not the complete rank optimum. No finite prefix or new restatement is counted as originality.",
+        "searches": [
+          "Resultary 2639ecb81dd1 mirrored RESULT.md offsets 0–7935",
+          "Resultary 2cb0562d976d mirrored Finding"
+        ]
+      },
+      "rationale": "This PASS is for the repaired result, not the original bundle. Earlier Resultary 2639ecb81dd1 directly states the same transition law, invariant mass, covariance/eigenvalue, correlation sign in its full-support regime and odd-median independence, and allows a broader range of subset sizes. The original stationary-error formula and existence of any absorbing rank are immediate from that earlier law. The repair explicitly credits these results, removes the correlation classification from the Finding, and proves the strict ordering of the whole positive risk range, including for s>c after the zero-risk plateau, with an optimized same-batch replacement comparison. Neither the prior transition law alone nor the inspected literature analyzes that ordering: the reflected hypergeometric ratios and the case where the denominator saturates are needed. The binomial evaluation alone is elementary and not credited as a separate major contribution.",
+      "residual_risks": [
+        "Bounded comparison; a specialized prior result about reflected count-law odds or exact scalar quantile tuning could encode the same ordering. No claim of exhaustive historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage of much of the old Finding; does not address the ordered positive rank profile",
+          "evidence": "Same hypergeometric transition tails, π, eigenvalue and covariance; same odd-median independence; median-specific threshold s≥2c+1. None of these supplies the strict odds ordering across ranks.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-exact-two-state-dynamics-and-a-sharp-rare-corruption-horizon-for--2639ecb81dd1/RESULT.md",
+          "material_read": "Finding, assumptions, and proof through median independence and cutoff, offsets 0–7935",
+          "method": "Resultary and mirrored RESULT.md, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact two-state dynamics and a sharp rare-corruption horizon for small-sample quantile Kaczmarz",
+          "trigger": "Exact match to same scalar same-batch model and transition method"
+        },
+        {
+          "assessment": "Different update and optimization criterion",
+          "evidence": "One-step minimax risk for a scalar independent-update model with Massart corruption, not stationary same-batch risk.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-sharp-one-step-minimax-mean-square-risk-of-scalar-streaming-quan--2cb0562d976d/RESULT.md",
+          "material_read": "Mirrored Finding and mechanism",
+          "method": "Resultary and local mirror",
+          "title": "Sharp one-step minimax mean-square risk of scalar streaming quantile Kaczmarz",
+          "trigger": "Exact scalar quantile risk comparison"
+        },
+        {
+          "assessment": "Algorithm prior; no repaired rank theorem in relevant passage",
+          "evidence": "Selects a quantile-attaining row from the sampled subset and leaves theoretical advice on sample size and quantile choice for future work.",
+          "identifier_or_url": "arXiv:2308.07987",
+          "material_read": "§V-D Algorithm 2 p. 6 offset 38609; p. 7 offset 44621",
+          "method": "Primary OA PDF text",
+          "title": "On Subsampled Quantile Randomized Kaczmarz",
+          "trigger": "Prior same-batch algorithm and small-sample optimization"
+        },
+        {
+          "assessment": "Independent tentative update mechanism; finite horizon",
+          "evidence": "Samples the tentative update row independently from the population and tests its residual against the sampled quantile.",
+          "identifier_or_url": "arXiv:2507.15185",
+          "material_read": "Algorithm 1.1 p. 2 offset 8117; discussion p. 3 offsets 9647 and 11367",
+          "method": "Primary OA PDF text",
+          "title": "On the Subsample Size of Quantile-Based Randomized Kaczmarz",
+          "trigger": "Exact or sharp sample-size comparisons"
+        },
+        {
+          "assessment": "Adjacent error bounds rather than exact risk ordering",
+          "evidence": "Bounds expected error in row-normalized full-rank systems with sparse corruption and noise.",
+          "identifier_or_url": "arXiv:2505.00258",
+          "material_read": "§4.2 p. 8 offset 38310",
+          "method": "Primary OA PDF text",
+          "title": "Quantile-randomized Kaczmarz error-horizon analysis (Battaglia–Ma)",
+          "trigger": "Possible broader expected-error classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "/workspace/repairs/2/RESULT.md",
+        "Haddock–Ma–Rebrova §V-D",
+        "Resultary 2639ecb81dd1"
+      ],
+      "rationale": "For the specific implementable same-batch rule, the rank decision affects the stationary risk, a natural optimization criterion that cannot be read off from the previously recorded median behavior or temporal correlation. Knowing the whole shape (an exact zero plateau if it exists, then strict growth) determines both the best choice and which suboptimal ranks are worse, including all finite-population truncations. Replacement removes the zero plateau even with optimized rank. This gives exact tuning guidance for the stated model, not an assertion that rank one is preferable on general Kaczmarz systems.",
+      "residual_risks": [
+        "Stationary risk is not a finite-time accuracy or multidimensional performance guarantee."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

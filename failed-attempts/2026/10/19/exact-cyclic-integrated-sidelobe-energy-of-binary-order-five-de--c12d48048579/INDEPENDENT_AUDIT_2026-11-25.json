@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:04:23.193685Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–44; spectrum.csv, lines 1–48; VERIFICATION.md; verify.py (inspected, not executed).",
+        "Independent replay: python3 /workspace/branches/62f27b13-eaea-407c-8a99-6a7bd24a6321/reproduce.py 5; order-four sanity check uses argument 4."
+      ],
+      "rationale": "The rooted Euler-tour correspondence is exhaustive: the length-five words are the 32 distinct edges, and the single occurrence of 00000 fixes the rotation. A transition pairing is accepted exactly when it is one 32-edge cycle. An independent rooted traversal and bit-rotation/Hamming-distance computation reproduced all 2,048 classes, all 47 energy rows and six peak columns in the frozen CSV, including 87 occupied joint cells, minima 192 on 12 classes and maxima 1952 on four, the three and one size-four extremal orbits, the exact mean 2813/4 and variance 1336631/16, and the peak marginals. The peak-8 rows give the 224–992 range. The autocorrelation is a multiple of four by balance. The paired nonmiddle lags contribute multiples of 32; at lag 16 the support-intersection count is even because positions are paired by adding 16. Thus the divisibility also follows directly. The Fourier identity has the stated factor 1/32 and zero-lag subtraction 1024 with the unscaled forward transform shown in the record.",
+      "residual_risks": [
+        "The census is only cyclic order five, with rotation factored out but reversal and complement counted separately before taking extremal orbits. The forward DFT is called normalized in the proof, but the explicit formula and Parseval scaling are for the unscaled forward DFT. The replay does not establish general-order or aperiodic claims."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2011 papers provide peak-threshold counts and aggregate normalized RMS, or worst individual lag extremes and attaining cases. The prior phase-retrieval record supplies full periodic profiles for the entire population. The distinct later aperiodic record uses non-wrapping correlation and depends on the cut."
+        ],
+        "reasoning": "The journals alone would not fix the joint census and the aperiodic record is not equivalent, but the earlier complete cyclic profiles dominate the claimed scalar statistic on the same population.",
+        "searches": [
+          "Spinsante–Andrenacci–Gambi DOI 10.1186/1687-1499-2011-4, Table 3",
+          "Fujisaki–Nabeshima DOI 10.1587/nolta.2.400, Tables I–II",
+          "Resultary 132a86d69a57, Finding and complete cyclic profile data",
+          "Resultary 556e9ff1e8aa, aperiodic spectra"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 132a86d69a57 and 556e9ff1e8aa; DOI 10.1186/1687-1499-2011-4 and 10.1587/nolta.2.400; arXiv:1501.02252; targeted primary search."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Each prior row gives E=2∑(R_t² for t=1,…,15)+R₁₆² and P=max(|R_t| for t=1,…,16). Count the pairs (E,P); empirical moments, class ranges, extrema and peak marginals are functions of those counts. Grouping tied extremizers by the prior orbit_representative and reading orbit_size gives the symmetry refinement."
+        ],
+        "reasoning": "This is a deterministic aggregation of an exact stronger table, not an open inference about what the profiles might imply. The earlier table was inspected for scope and fields, not separately reaggregated in full; the independent cycle replay checks the arithmetic of the frozen aggregation.",
+        "searches": [
+          "Resultary 132a86d69a57, RESULT.md Finding and cycles.csv header/sample rows",
+          "Frozen RESULT.md, lines 4–19"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Periodic integrated sidelobe energy is the squared norm of the nonzero-lag profile and, equivalently, the rescaled Fourier fourth moment with the zero-lag term removed.",
+          "The earlier full-profile record uses exactly the same signs, period, and rotation quotient."
+        ],
+        "reasoning": "Changing to a fourth-moment objective does not create new information. Each energy and peak is fixed by the already tabulated profile.",
+        "searches": [
+          "Primary search: binary order-five de Bruijn cycles exact cyclic autocorrelation energy fourth moment 47 values table Spinsante Fujisaki prior census",
+          "Song–Babu–Palomar arXiv:1501.02252; Resultary 132a86d69a57, periodic autocorrelations and power spectra"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The prior cycles.csv header and sample rows contain cycle, orbit_representative, orbit_size and the exact R1–R16 fields; the associated Finding states this is the complete per-cycle table.",
+          "The published RMS entries .146, .123 and .078 agree with the independent aggregate .145958, .123429 and .077771 for the whole, peak-at-most-8 and peak-at-most-4 sets. They are not exact energy bins."
+        ],
+        "reasoning": "The earlier data table is strictly more informative than the energy/peak table. In particular the orbit labels are already present; the extrema do not require a new symmetry classification.",
+        "searches": [
+          "Local Resultary search for the order-five cyclic autocorrelation/energy census; exact-data match 132a86d69a57, cycles.csv",
+          "Spinsante et al., Table 3; Fujisaki–Nabeshima, Tables I–II"
+        ]
+      },
+      "rationale": "Resultary 132a86d69a57, displayed date 2026-10-18, provides the full per-cycle autocorrelation and symmetry-orbit data for the exact same 2,048 rotation classes, normalization, and reversal/complement action. Its CSV directly provides R1 through R16, orbit_representative and orbit_size. The entire frozen cross-tabulation and all extremal symmetry counts follow by applying a fixed sum of squares and maximum to each row and grouping. The earlier source need not have printed those aggregated numbers for its stronger exact data to cover them. The journal papers provide partial corroboration but are not the decisive overlap.",
+      "residual_risks": [
+        "The targeted primary query returned no hits; that is not evidence of absence. Absolute historical priority is not certified. The earlier stated complete exact data and the row-wise implication are enough for the coverage decision without an additional full CSV aggregation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Earlier stronger per-cycle dataset mechanically implies all substantive counts",
+          "evidence": "The Finding reports the same 2048 rotation classes and confirms the complete per-cycle table; it stores exact R1–R16 and symmetry labels in each row.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-almost-complete-cyclic-phase-retrieval-for-binary-order-five-de--132a86d69a57/RESULT.md",
+          "material_read": "Finding and assumptions, offsets 0–3355; proof excerpts around 3500–7695; accompanying cycles.csv header and sample rows, offsets 0–1265; snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local mirror; exact formula and column-level mapping",
+          "title": "Almost-complete cyclic phase retrieval for binary order-five de Bruijn cycles",
+          "trigger": "Same order and entire periodic correlation census"
+        },
+        {
+          "assessment": "Partial exact threshold and rounded aggregate agreement, no exact joint energy table in the inspected material",
+          "evidence": "2,048 overall, 784 peak-at-most-eight and 12 peak-at-most-four; rounded normalized RMS averages .146, .123 and .078.",
+          "identifier_or_url": "https://doi.org/10.1186/1687-1499-2011-4",
+          "material_read": "Table 3, printed p. 8; excerpts at offsets 43150 and 48750",
+          "method": "OA article passages and normalization comparison",
+          "title": "Binary De Bruijn sequences for DS-CDMA systems: analysis and results",
+          "trigger": "Published table on the same order-five code family"
+        },
+        {
+          "assessment": "Individual lag extrema, not the entire per-cycle energy/peak census",
+          "evidence": "At n=5 the worst normalized values include −.75 and .5 with attaining delays/counts; the next negative level includes −.625.",
+          "identifier_or_url": "https://doi.org/10.1587/nolta.2.400",
+          "material_read": "Tables I–II, printed pp. 405–406; OA offsets 15800 and 18400",
+          "method": "OA J-STAGE PDF passages",
+          "title": "On auto-correlation values of de Bruijn sequences",
+          "trigger": "Potential equivalent lag-spectrum table"
+        },
+        {
+          "assessment": "Standard broader optimization, not a de Bruijn census",
+          "evidence": "Defines/designs for periodic sidelobe energy over complex unit-modulus sequences.",
+          "identifier_or_url": "https://arxiv.org/abs/1501.02252",
+          "material_read": "v1, motivation and periodic-ISL objective, excerpts near offsets 0 and 15800",
+          "method": "OA PDF passages",
+          "title": "Optimization Methods for Designing Sequences with Low Autocorrelation Sidelobes",
+          "trigger": "Equivalent periodic ISL objective"
+        },
+        {
+          "assessment": "Later displayed date and different, cut-dependent statistic",
+          "evidence": "Uses aperiodic correlations of cycle-cut pairs instead of cyclic autocorrelation of a rotation class.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-phase-dependent-aperiodic-sidelobe-spectra-of-binary-order--556e9ff1e8aa/RESULT.md",
+          "material_read": "Finding and scope of the RESULT.md",
+          "method": "Local mirror",
+          "title": "Exact phase-dependent aperiodic sidelobe spectra of binary order-five de Bruijn cycles",
+          "trigger": "High-ranked exact-census catalogue hit"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof; Resultary 132a86d69a57, complete per-cycle table schema and scope."
+      ],
+      "rationale": "The energy objective and complete classification are well motivated, but the claimed exact outputs are routine aggregations of the earlier complete profiles and orbit labels. The divisibility observation follows from balance and lag pairing and does not leave a substantive independent result. A convenient derived table and an independent recount are useful corroboration, not a surviving new exact invariant under the stated standard.",
+      "residual_risks": [
+        "No unsupported claim is made about practical performance, larger orders or other sequence families. No distinct repair within the frozen scope was identified."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

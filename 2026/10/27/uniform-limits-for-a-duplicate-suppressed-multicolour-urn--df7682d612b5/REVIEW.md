@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For the specified update, \(\Delta_i\) is exactly the indicator that colour \(i\) appears in the two draws, so \(\mathbb E[\Delta_i\mid\mathcal F_n]=2x_i-x_i^2\) and \(\mathbb E[\Delta T\mid\mathcal F_n]=2-\sum_i x_i^2\). Expanding the bounded random denominator gives the stated drift with a uniform \(O(T_n^{-2})\) remainder. Cauchy–Schwarz yields \(G\ge0\), with equality exactly at uniform-on-subset states. The weighted Lyapunov argument forces the state to converge to one of these finitely many equilibria. The logarithmic-coordinate argument then excludes every proper subset; it uses \(U_i(n)\to\infty\), a conditional variance bound \(O(T_n^{-1})\), and a martingale strong law. The proof explicitly distinguishes the equilibrium classification from the necessary boundary-exclusion step.
+PASS
 
-## Originality — PASS, with priority risk
+The conditional inclusion probabilities are p_i=2x_i−x_i² and EΔT=2−Q, so the exact quotient update gives mean increment x_i(Q−x_i)/T+O(T⁻²), uniformly. For V=Q, the one-step Lyapunov decrease is governed by G=Σx_i³−Q²=Σx_i(x_i−Q)². The almost-supermartingale estimate proves ΣG(X_n)/T_n<∞. In the time scale with mesh 1/T_n, G has uniformly bounded slope after linear interpolation, and its integral is finite (the interpolation error is bounded by a summable multiple of T_n⁻²). Nonnegative Lipschitz spikes of fixed height would have fixed positive area, so G→0. The zero set is finite and the one-step changes vanish; disjoint neighborhoods of its points cannot be exchanged without leaving their union, so the limit is one such point. Each U_i diverges by conditional Borel–Cantelli using p_i≥U_i(0)/(T_0+2n). For log X_i the two log-increments give drift (Q−x_i)/T with error O(1/(U_i T)+T⁻²); this uses p_i≤2U_i/T. The centered increments have variance O(1/T). Dividing them by log(n+2) gives a square-integrably convergent martingale since Σ1/((T_0+n)log²(n+2))<∞; Kronecker's lemma then gives an unweighted martingale sum o(log n). An omitted colour at a putative size-s limit would instead have eventual positive conditional log drift asymptotic to 1/(sT), whose cumulative sum dominates a positive multiple of log n. This contradicts log X_i≤0. The proof holds for every stated positive initial composition.
 
-Lasmar–Mailler–Selmi (arXiv:1611.09090; published 2018) treat balanced multicolour urns and non-balanced two-colour urns, and explicitly identify the non-balanced multicolour extension as open. The exact rule here is non-balanced because its total increment is one or two, and non-affine because its expected color increment is quadratic. The affine multicolour urn paper (arXiv:2403.12423) treat a balanced affine multicolour class. Dahiya–Sahasrabudhe (arXiv:2308.12528) treat graph-coupled two-colour urns, not this single urn with \(d\ge3\) colours. Searches of the research record and prior accessible ledgers found no exact match. A distinct formulation of the same update may exist, so priority is not claimed as independently certified.
+## originality
 
-## Value — PASS
+PASS
 
-This is a complete almost-sure limit classification for a natural duplicate-suppressed sampling rule, rather than merely a local stability calculation. The variable-total, nonlinear multicolour setting is outside the balanced multicolour theorem and the one-dimensional non-balanced theorem in the closest inspected work. The proof shows why a simple Lyapunov function identifies several possible boundary equilibria and why a separate logarithmic argument is needed to show that every initially present colour survives in positive limiting proportion.
+The update is a special case of an established replacement-function model, and its Lyapunov and martingale tools are classical. The distinct content is an all-positive initial-state almost-sure limit for this non-balanced multicolour rule. Inspected general urn theorems either require fixed balance or supply an ODE limit-set/conditional convergence result without boundary exclusion. The two-colour analogue is already covered by the non-balanced two-colour theorem; it is not part of the claimed novelty.
 
-## Closest literature and residual risk
+## value
 
-The most relevant primary source is Lasmar–Mailler–Selmi, especially its model definition and discussion of the non-balanced multicolour problem. The affine multicolour paper is excluded by its fixed total addition and affine conditional expectation assumptions. The graph-based two-colour paper has a different state space. An older or differently named model could still contain the exact update; targeted searches did not find one.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Suppressing repeated additions is a simple, symmetric update with a genuinely random total increment and quadratic mean reinforcement. The exact uniform limit is not a finite-time symmetry identity: symmetry admits several face equilibria, and the proof identifies why an initially present but rare colour cannot be lost in proportion. It supplies an interpretable multicolour example outside the balanced theorem, not a claimed solution for all non-balanced urns.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

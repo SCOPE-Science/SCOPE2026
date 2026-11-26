@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** For all even cyclic orders at least six, the exact Weyl ambiguity branches are independently derived by finite character orthogonality. All nonzero-lag/nonzero-frequency products cover the entire residue ring, including zero via an explicit zero-divisor witness. The sharp angular covering inequality, radial AM--GM optimization, and the two remaining axis branch inequalities prove the closed minimax and unique optimizer pair. Direct finite-sum checks reproduce the formula in eight even orders and validate 48 branch comparisons. The analytical quantifiers, not the finite tests, establish unrestricted even-order correctness.
+## correctness
 
-**Originality — PASS relative to the inspected literature.** The closest all-complex-parameter cyclic rank classification states singular loci, not the even-order sharp least singular value or unique minimax phases. The closest prime-order complex-impulse minimax excludes even orders and has a different optimal angular geometry. The exact positive-impulse quadratic-chirp result covers the even obstruction for a proper real subfamily, not the complex repair or sharp minimax. Existing algebraic-perturbation constructions provide existence of stable full-spark windows but no optimum within this one-impulse family. The shear-equivalence to quadratic chirps is explicitly acknowledged, so it is not counted as a second distinct result. Older equivalent Weyl-covariant minimax literature remains a priority risk.
+PASS
 
-**Value — PASS.** The least singular value is the exact stability margin of a minimal-outcome finite Gabor matrix tomography design. One-coordinate defects form a motivated inexpensive design family. The theorem establishes the best possible stability among all complex defects, uniquely specifies the two implementable phase-and-amplitude choices, and quantitatively repairs the even-order loss of informational completeness from the positive-impulse case. This is an infinite sharp classification of a natural optimization invariant, not a routine existence example.
+In the normalized Weyl matrix basis, analysis of each basis matrix on the projector orbit is a character of the two orbit indices times its value at the unshifted projector. Character orthogonality gives singular values sqrt(N) times ambiguity moduli on the full complex matrix space, including the maximum sqrt(N) at the identity. Expanding the constant and impulse terms gives the two axis branches and the mixed branch (up to phase and conjugation conventions). All residues occur as mixed products, including zero from 2 times N/2. Writing z=rho exp(i theta), AM–GM optimizes the mixed ratio at rho=sqrt(N); even N gives the zero grid pi Z/N, hence numerator sin(d) with d the distance to that grid and denominator at least sqrt(N)-cos(d). The ratio is strictly increasing for d between 0 and eta=pi/(2N). At equality theta must be at distance eta from pi, giving precisely the two claimed impulses. Both axis numerators at these points are N-2sqrt(N)cos(eta), at least 2sqrt(N)sin(eta) by equality at N=6 and monotonicity in N thereafter. Thus axes do not spoil attainment, the lifting is invertible, and applying it to xx* yields phase retrieval. A separate full-lifting check of Weyl column norms and orthogonality at N=6,8,12 for both optimizers passed (`python3 /workspace/audit_evidence/reproduce.py 2`).
 
-**Closest literature and limitations.** Relevant comparisons: Li (arXiv:2609.09614); Bojarovska--Flinth (arXiv:1503.05800); public prime-order sharp complex-impulse result, all-order complex rank discriminant, and positive-impulse quadratic-chirp classification (three October 2026 public findings cited in RESULT.md). No arbitrary-window, full-spark, incomplete-data, or nonlinear robustness optimum is claimed. A prior identical constrained minimax in unindexed literature cannot be excluded.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The Weyl frame spectrum, rank characterization and chirp shear are prior ingredients. The exact sharp even-order condition number, equality set and attainment are distinct from the strongest inspected statements. In prime order the mixed phase grid lacks the residue zero, so even-order optimization is not a substitution into the prime formula. Nearby exact same-date results concern different windows or orders.
+
+## value
+
+PASS
+
+This natural two-real-parameter perturbation gives a usable exact conditioning ceiling rather than just an invertible window. The result gives the only window parameters attaining it, explains the parity-sensitive obstruction and threshold where the axis branches become harmless, and quantifies the deterioration of the best attainable stability with dimension. The linear-lifting objective makes this useful for choosing and benchmarking a simple window even though it makes no unrestricted window claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

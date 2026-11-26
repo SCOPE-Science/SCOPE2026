@@ -1,0 +1,157 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:25:49.751993Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md (both table and proof), CHAMBER_SPECTRA.json, VERIFICATION.md",
+        "Frozen verify_chamber_cycles.py and verify_orbit_blocks.py, inspected but not executed",
+        "Independent replay: python3 /workspace/audit_recompute_5.py"
+      ],
+      "rationale": "Ampleness of -K and adjunction imply every geometric negative curve is a (-1)-curve of anticanonical degree one. Beyond the seven exceptional divisors the plane degree d and multiplicities satisfy sum(m_i)=3d-1 and sum(m_i^2)=d^2+1; Cauchy with seven entries bounds d by three, leaving exactly the stated line/conic/cubic classes. Riemann–Roch and ampleness of -K realize each as effective and irreducible. A nonzero intersection of two such curves destroys negative definiteness of their 2x2 principal block. Conversely a disjoint support T has matrix -I. For a stable support, its orbit-sum divisor is rational over k, and D=-K+2 sum(T) has positive part -K+sum(T), nef and big with square 2+|T|, zero precisely against the curves in T. This D is interior: for ample A near -K, the nearby divisor A+2 sum(T) has positive part A+sum((A.C)C), nonnegative on all curves and big, and negative part sum((2-A.C)C), still with positive coefficients on T. Uniqueness gives the converse descent implication. The anticanonical map sends each exceptional curve isomorphically to a line; its paired lift is -K-C. This Geiser action commutes with the ordinary label permutation, and twisting multiplies Frobenius by Geiser. As an independent exact check, I indexed the 28 Geiser pairs by unordered point-label pairs with repetitions (diagonal for exceptional/cubic pairs), used the Picard pairing to form the compatibility graph, and enumerated cliques breadth-first by size. The counts were 1,56,756,4032,10080,12096,6048,576. I generated the 15 partitions from cuts of seven labels, computed each support's return period under both actions, and divided the period counts by the lengths. All 30 profiles and fixed counts match the printed table; the fixed-support size distributions also match the bundled JSON. Cycle lengths dividing the extension degree give exactly the displayed extension-field formula. The ordinary rank-three examples each have two point orbits plus H and different fixed counts, 11 and 13.",
+      "residual_risks": [
+        "No existence assertion for a given partition in every small field. The proof applies to smooth degree-two del Pezzo surfaces with the stated blowup marking and their quadratic Geiser twists, in odd characteristic."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bergvall treats broader W(E7) Frobenius types in odd characteristic, but tabulates surfaces, not the action on chamber supports.",
+          "Bauer–Schmitz improve geometric chamber counting for large Picard rank; Rieken records all 56 exceptional classes and the 28 Geiser pairs."
+        ],
+        "reasoning": "The broader Frobenius classification supplies the conjugacy data needed to set up the support permutation; it does not evaluate the orbit counts on this distinct finite set. The nonequivariant method counts supports only.",
+        "searches": [
+          "arXiv:2211.12855, §4 Theorem 4.1 and Table 4",
+          "arXiv:1204.4373",
+          "arXiv:1311.7563, §3.3"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:0912.0958",
+        "arXiv:1204.4373",
+        "arXiv:1311.7563 / doi:10.1007/s10711-016-0174-0",
+        "arXiv:2211.12855",
+        "Resultary aac3ab820e60, c4d5aeb4e48f, 1ab7f67e0eba and 6ab644e78016 (target itself)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior geometric count and class data allow the finite computation to be posed. They do not count the disjoint unions of entire curve orbits or invert the fixed-support statistics across powers.",
+          "The equal-rank (6,1) and (5,2) ordinary examples have different fixed chamber counts."
+        ],
+        "reasoning": "The support action involves nontrivial compatibility constraints between curves and their orbits, rather than a renaming of Frobenius types or direct specialization of a published cycle-count formula. The submitted quantified spectra require the additional descent and finite classification.",
+        "searches": [
+          "arXiv:0912.0958, support criterion and chamber count",
+          "arXiv:1311.7563, §3.3",
+          "arXiv:2211.12855, Table 4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The target is the permutation of pairwise-disjoint exceptional-curve subsets, equivalently the rational chamber counts over every finite extension, via cycle inversion.",
+          "The inspected degree-two chamber paper counts geometric subsets; the Frobenius paper counts marked surfaces by Weyl class."
+        ],
+        "reasoning": "A surface-count or Picard-matrix table is not a table of cycles on the chamber-support set. An exact table of fixed-support counts for all powers would suffice, but was not found in those statements.",
+        "searches": [
+          "Resultary: Frobenius descent and zeta spectra of Zariski chambers / Geiser degree-two del Pezzo",
+          "arXiv:0912.0958 and arXiv:2211.12855"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier degree-two geometric table gives 33644 nonempty supports and the nef chamber: an exact match for the total, not the arithmetic data.",
+          "The separate Resultary spectra cover 76 degree-five chambers, 393 degree-four chambers, or 2257 chambers on the characteristic-two Fano-plane blowup. The degree-two septuple title with the exact thirty spectra is the assigned record itself."
+        ],
+        "reasoning": "The analogous tables in nearby degrees or a special-position characteristic-two geometry have different exceptional configurations and/or different twist actions. They do not contain the odd-characteristic septuple table.",
+        "searches": [
+          "Resultary 6ab644e78016, aac3ab820e60, c4d5aeb4e48f, 1ab7f67e0eba",
+          "arXiv:0912.0958, p. 2 theorem and p. 10 computation"
+        ]
+      },
+      "rationale": "The geometric 33645 count, the exceptional configuration, and the relevant Weyl-group/Frobenius inputs are prior. The distinct claim is the evaluated action on every Zariski support for the specified 30 cases, including all extension degrees. Neither the compared chamber tables nor the broader tables of surfaces by Frobenius type give those support spectra. The exact catalogue hit for degree two is the assigned record itself.",
+      "residual_risks": [
+        "Comparison is bounded to relevant primary sources and indexed records, not exhaustive external priority clearance. No order is inferred from same-day records; an unindexed equivalent cycle or fixed-point table remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact match for known geometric total only",
+          "evidence": "For seven general points, z=33645; computation counts 33644 nonempty negative-definite supports plus nef chamber.",
+          "identifier_or_url": "https://arxiv.org/pdf/0912.0958",
+          "material_read": "PDF p. 2 theorem (text offsets 4170–6536) and p. 10 computation (35363–37656)",
+          "method": "Bounded primary OA PDF reading",
+          "title": "Counting Zariski chambers on Del Pezzo surfaces",
+          "trigger": "Exact geometric chamber count and chamber parametrization"
+        },
+        {
+          "assessment": "Geometric chamber counting, not Frobenius spectra",
+          "evidence": "Algorithm applied to Segre–Schur quartic with infinitely many chambers and a finite simple-chamber count.",
+          "identifier_or_url": "https://arxiv.org/pdf/1204.4373",
+          "material_read": "Abstract and PDF pp. 1–3 (text offsets 0–2993, 6200–8828)",
+          "method": "Bounded primary OA PDF reading",
+          "title": "Zariski chambers on surfaces of high Picard number",
+          "trigger": "A general algorithm potentially evaluating broader chamber cases"
+        },
+        {
+          "assessment": "Geometric action data, not a support spectrum",
+          "evidence": "Lists 56 classes as 28 Geiser pairs and identifies Geiser with the central minus identity in W(E7).",
+          "identifier_or_url": "https://arxiv.org/pdf/1311.7563",
+          "material_read": "§3.3, p. 7 of submitted version, text offsets 21002–23266",
+          "method": "Bounded primary OA PDF reading after DOI text not directly available",
+          "title": "Moduli of real pointed quartic curves",
+          "trigger": "Exact exceptional curves and Geiser action"
+        },
+        {
+          "assessment": "Broader Weyl types, different enumerated objects",
+          "evidence": "Counts geometrically marked degree-two surfaces by their Frobenius conjugacy class, not cycles on negative supports.",
+          "identifier_or_url": "https://arxiv.org/pdf/2211.12855",
+          "material_read": "§§1.3 and 4, Theorem 4.1 and Table 4; text offsets 4820–7349 and 15164–19447",
+          "method": "Bounded primary OA PDF reading",
+          "title": "Frobenius actions on Del Pezzo surfaces of degree 2",
+          "trigger": "Closest broader Frobenius classification in degree two"
+        },
+        {
+          "assessment": "Different degree and action",
+          "evidence": "Gives complete spectra on 76 chambers across seven five-point Frobenius types.",
+          "identifier_or_url": "2026/11/22/SCOPE-frobenius-descent-and-zeta-spectra-of-zariski-chambers-on-degree--aac3ab820e60",
+          "material_read": "RESULT.md Finding, local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local mirror statement inspection",
+          "title": "Frobenius descent and zeta spectra of Zariski chambers on degree-five del Pezzo surfaces",
+          "trigger": "Exact spectra in the same arithmetic language"
+        },
+        {
+          "assessment": "Degree four, not degree two",
+          "evidence": "Complete spectra for 393 chambers and 18 W(D5) types.",
+          "identifier_or_url": "2026/11/22/SCOPE-the-393-zariski-chambers-of-a-quartic-del-pezzo-surface-separate--c4d5aeb4e48f",
+          "material_read": "RESULT.md Finding, same local mirror snapshot",
+          "method": "Local mirror statement inspection",
+          "title": "The 393 Zariski chambers of a quartic del Pezzo surface and their spectra",
+          "trigger": "Potential general equivariant chamber table"
+        },
+        {
+          "assessment": "Characteristic two and special position, different curves and twists",
+          "evidence": "2257 chambers, with GL3(F2) twists of the Fano-plane configuration.",
+          "identifier_or_url": "2026/11/22/SCOPE-frobenius-descent-of-all-zariski-chambers-on-the-characteristic--1ab7f67e0eba",
+          "material_read": "RESULT.md Finding, same local mirror snapshot",
+          "method": "Local mirror statement inspection",
+          "title": "Frobenius descent of all Zariski chambers on the characteristic-two Fano-plane blowup",
+          "trigger": "Overlapping arithmetic chamber descent on a seven-point blowup"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and rational descent",
+        "Independent replay audit_recompute_5.py",
+        "arXiv:0912.0958 and arXiv:2211.12855 for the compared invariants"
+      ],
+      "rationale": "The support spectra distinguish arithmetic forms of a natural birational chamber decomposition, including two blowups of the same arithmetic Picard rank. They also give exact extension-field rationality and show what the central quadratic twist changes, for example three rational chambers versus one for a seven-point orbit. These are useful data that neither the geometric total nor a fixed-rank invariant contains, over a complete geometrically motivated family rather than an arbitrary collection of permutations.",
+      "residual_risks": [
+        "The table is not a census for every element of W(E7), a finite-field realization theorem, or a classification of wall geometry."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

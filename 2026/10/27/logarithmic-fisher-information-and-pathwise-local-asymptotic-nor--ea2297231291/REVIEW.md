@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof uses the exact mixed transition likelihood, an independent-uniform record-minimum coupling, the independence of insertion ranks, a square-summable bound on successive minima, and a bounded-increment score martingale CLT. The observed curvature controls the Taylor remainder and the interior likelihood maximizer. Endpoint Fisher information follows by a dominated rescaled density integral; its atom vanishes. The standalone exact-arithmetic checker confirms 111 finite instances, without being used as an infinite proof.
+## correctness
 
-**Originality — PASS, qualified.** Yoshida (arXiv:2604.22637v1, Sections 2–4) derives the process law, its jump-count generating function, and state-function martingales, but does not derive the parameter likelihood, Fisher information growth, LAN, efficient MLE, or the sharp ratio of whole-path to endpoint information. The 1999 continuous-time staircase has a different transition time model. Searches of relevant mathematical records and literature found no direct statement of this four-part discrete-time inference result. A general record-process inference theorem might imply some or all of it; that is a residual risk, not an established coverage claim.
+PASS
 
-**Value — PASS.** The natural inference question for the paper's unknown jump-probability parameter has an atypically slow \(\sqrt{\log n}\) effective rate even though \(n\) states are observed. The logarithmic information gain of the complete trajectory relative to a terminal observation is a concrete, nontrivial statistical distinction. The theorem supplies a workable efficient estimator and a likelihood-based explanation for the effective sample size, rather than another marginal or generating-function identity.
+For fixed interior p, Y_i=pX_i can be coupled to min(p,V_1,…,V_i) with iid uniform V_i. After the first V_i<p, jumps equal ordinary lower-record indicators, independent Bernoulli(1/i) by insertion ranks. The discrepancy is bounded by a geometric random time. Thus N_n/log n→1 in L² and almost surely (for the latter, the centered weighted variance sum with weights 1/log i is finite, and Kronecker's lemma applies). The exact tail of Y_i gives E N_n=log n+O(1) and summability of E Y_i². The jump density is p, the stay probability 1−pX_{i−1}, and the score variance given the past is p^(−2)Y_{i−1}/(1−Y_{i−1}); its difference from p^(−2)Y_{i−1} is summable in expectation. The martingale compensation of N_n makes the normalized predictable score variance tend to one, and interior p gives bounded increments for the martingale CLT. In the locally uniform Hessian the jump term is −N_n/q², while the stay term is almost surely bounded on compact interior intervals. Taylor expansion gives LAN. For the MLE, the stated fixed-M local bracketing is read with arbitrary tolerance: for each tolerance choose M, then let n grow. Alternatively for fixed small epsilon>0, the curvature on [p−epsilon,p+epsilon] is bounded below in magnitude by N_n/(p+epsilon)², and S_n(p)=O_P(sqrt(log n)), so the scores at the two endpoints have opposite signs with probability tending to one. Strict concavity and the score equation give consistency and the stated Gaussian limit; LAN also gives regularity under the stated local shifts. The endpoint atom contributes n²(1−p)^(n−2), which vanishes. The z=nx density and score converge to pe^(−pz) and 1/p−z, dominated in the information integral by a constant times exp(−pz/2)(1+z²). Both first-order information constants and the normalization are therefore correct. The supplied verification script was inspected, not executed; its finite checks are not used as evidence for LAN.
 
-**Limitations.** Fixed interior \(p\); full noiseless observations; first-order pointwise LAN and efficiency only. Potential implicit coverage in general record inference remains to be checked by independent experts.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinction is inference from the complete discrete path at a fixed horizon: logarithmic Fisher information, LAN, and an efficient MLE, with the endpoint comparison. The endpoint limit is a short consequence of the known exact marginal plus score control, not a standalone novelty claim. The primary and catalogue comparisons do not establish coverage of the complete-path inference theorem. This is not a historical-priority certification.
+
+## value
+
+PASS
+
+The result quantifies how a decreasing process remains estimable from its complete discrete trajectory despite a vanishing jump rate. It shows that one endpoint loses a logarithm in Fisher information, gives the correct sqrt(log n) local scale with its sharp constant, and shows that the full-path MLE attains it. This is a distinction between observation experiments, not just a transformation of the known marginal law.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

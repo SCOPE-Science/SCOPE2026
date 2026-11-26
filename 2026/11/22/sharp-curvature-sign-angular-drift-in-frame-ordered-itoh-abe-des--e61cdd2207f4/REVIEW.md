@@ -1,20 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim uses the genuine centered Riemannian Itoh–Abe quotient from Zhou's equations (20)–(21), with center equal to the old point. On a constant-curvature surface the exact Hessian eigenvalues of the squared radial distance are \(1\) and \(rS_K'(r)/S_K(r)\). Expansion of the two coordinate quotients gives the lower-triangular half-Hessian map and a transverse defect \(r(1-q_K(r))\sin(2\theta)h^2/4\). The discrete polar geometry and radius recurrence convert the local transverse error into an explicit Riemann sum; an exact total derivative gives the announced fixed-time coefficient. The symmetric order average has half the Hessian and vanishing transverse term; at the bisector, the two path corners reflect and have equal radial energy, giving an exact radial midpoint step. The exact symbolic and finite numerical diagnostics passed; these finite experiments are not the proof. The proof explicitly restricts to a uniquely selected small-step branch.
+## correctness
 
-## Originality — PASS (qualified)
-The 2026 primary paper's entire accessible text, including statements and appendices, covers the method and broad curvature-aware convergence but not the signed asymptotic angle coefficient. The 2018 dissipative paper establishes the original Riemannian Itoh–Abe method. Critically, the 2018 energy-preserving paper ALREADY establishes endpoint-reversal symmetrization, which equals order averaging at the same fixed exponential center. Therefore neither that construction nor generic symmetry order improvement is claimed new. The distinctive complete claim comprises the sharp curvature-sign/frame-orientation law and exact bisector radial midpoint realization. Relevant indexed mathematical records were compared by scientific implication and no covering result was found, but a search cannot prove historical novelty. Related curvature or Riemannian optimizer claims that do not analyze the same discrete-gradient normal-coordinate error are not covering. Residual risk: an unindexed numerical-analysis treatment of this specific test may have derived a similar formula.
+PASS
 
-## Value — PASS
-The geodesic squared-distance problem is the canonical strongly geodesically convex test objective within the spherical convex hemisphere and on Hadamard space forms. The result isolates a frame-dependent *directional* bias not described by generic energy descent or function-value rates and reveals an orientation achieving worst signed bias. The exact bisector identity supplies a meaningful, curvature-independent design/verification benchmark and distinguishes energy preservation, angular fidelity, and exact radial flow. It is a precise motivated error law, not an arbitrary numerical counterexample.
+In normal coordinates the Hessian of half the squared distance has radial and transverse eigenvalues 1 and q=rS'_K/S_K. Expanding the coordinate quotients gives G=g+Bu+O(‖u‖²) with B=H/2 plus the skew term (H_12/2)J, J taking E_1 to E_2. The local implicit displacement is −hg+h²Bg+O(h³). Since g=−r e_r is an eigenvector of H and H_12=(q−1)sinθ cosθ, the inward-to-azimuthal skew term is exactly r(1−q)sin(2θ)/4. A radial exponential displacement changes no azimuth, so the leading angular increment is the transverse displacement divided by S_K, with error O(h³). The recurrence r_{j+1}=r_j−hr_j+O(h²) on a compact annulus slightly larger than [r_0 exp(−T),r_0], still in the smooth region, gives a uniform O(h) deviation by bootstrap and discrete Gronwall. Summing angular increments and dividing by h gives the integral in (10); (r/S_K)'=(1−q)/S_K and r'=-r give exactly (1). The opposite strict monotonicities of r/S_K in the two curved cases, and its constant value in the flat case, give the exact signs and maximizing angles. Reversing the coordinate order negates the skew term, proving O(h²) fixed-time angular error for the average. At θ=π/4 the intermediate exponential images for a radial candidate are radial-meridian reflections, with equal objective values, and the two components telescope to the radial secant −r+δ/2. Solving δ=h(r−δ/2) gives (2), with 0<δ<r for 0<h<2 and agreement with the locally unique small-h branch.
 
-## Closest literature and limits
-- Zhou, 2026, arXiv:2608.21862v1, §§5–6 and appendices: method and general curvature-aware rates; no explicit polar phase coefficient.
-- Celledoni et al., 2018, arXiv:1804.08104, §3.1: base Itoh–Abe Riemannian optimization scheme, no space-form angular law.
-- Celledoni et al., 2018, arXiv:1805.07578, §3.2: **pre-existing symmetrized Itoh–Abe**, acknowledged and not treated as novel.
-- Riis et al., DOI:10.1007/s10208-020-09489-2: rotated-direction and nonsmooth discrete-gradient optimization, but not a constant-curvature angular defect.
+## originality
 
-No independent mathematical audit was performed. General variable-curvature laws and nonlinear implicit-branch global uniqueness remain unproved.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Credit both the Riemannian ordered Itoh–Abe construction and its same-center symmetrization, including the known general order context. The supported distinct content is the explicit sharp signed, frame-relative fixed-time angular coefficient for the specified radial objective and the exact finite-step bisector radial branch. The examined primary passages and published index did not establish these specializations; this is a bounded coverage assessment, not a priority certificate.
+
+## value
+
+PASS
+
+Even on a canonical objective whose exact trajectory has no angular motion, the ordered dissipative scheme can accumulate a signed first-order azimuth bias, reversed by curvature and by frame order. Its sharp coefficient measures an error invisible in radial dissipation or a generic convergence order. The exact bisector identity is a useful separate benchmark for the established symmetric variant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

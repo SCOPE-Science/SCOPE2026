@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Parity is determined by the number of endpoints interior to a chord, yielding the exact uniform parity-reversing matching law. The standard cycle-matching enumeration and probability of prescribed disjoint odd-even pairs give the exact binomial moments. Algebraic product bounds and absolutely convergent binomial inversion prove the uniform simple-chord Poisson bound. The noncrossing-component interval witness, together with a \(1/\binom nk\) probability per closed interval, proves the \(O(n^{-1})\) coupling of component count and largest-component complement. The explicit all-simple exception is included. The standalone checker passed 75,108 finite exact assertions, but the all-size conclusions rest on analytical arguments, not finite testing.
+PASS
 
-## Originality — PASS (historically qualified)
+For a chord (a,b), other chords contribute 0, 1 or 2 endpoints strictly between a and b, with 1 exactly for a crossing. Thus all degrees even is exactly opposite endpoint parity, giving a uniform n! permutation space. Each r-edge matching of the cycle forces r prescribed permutation cells, of probability (n−r)!/n!; cycle matching enumeration gives the stated binomial moments even at r=n, when two subsets contribute. The stated moment ratio after scaling by 2^r/r! follows by factor cancellation. For r≤n/2 each product deficit is at most (r−j)/n, and the prefactor is at most 2 with excess at most r/n; for r>n/2 the product bound 0≤A≤2 suffices (A=0 past support). Absolute binomial inversion is summable against 4^r/r!; the r² error weights sum to 20e^4, giving the claimed 30e^4/n. For the witness, an outside chord avoiding a connected component separates the circle into two arcs. Each chord of the component lies entirely to one side, and by crossing connectivity all lie on the same side. Hence the outside chord lies within a single gap of that component, each gap is closed, and an outside connected component occupies just one such gap. Two nonsingleton components give a closed gap and its closed complement each with at least two chords, so take the smaller. If an isolated chord is nonsimple, the two open arcs formed by deleting its endpoints are both nonempty and closed. For n≥4, if the smaller arc contains just one chord, adjoining the two endpoints of the enclosing chord gives a closed interval of two chords; otherwise take the smaller arc itself. This also handles the case of no nonsingleton component and too many nonsimple isolates. At n=2,3 there is no non-all-simple failure of the target pair relation (direct finite check). For any length 2k window, the k-by-k parity-preserving restriction has probability k!(n−k)!/n!, not the unrestricted double-factorial ratio. Union bounding and comparing k≥3 with binomial(n,3) yields O(1/n). The two all-simple cases contribute 2/n!. Outside the exceptional event, taking all chords other than the simple isolates as the unique remainder gives precisely (K,n−L)=(1+S,S), including when that remainder is a singleton. Coupling and the pushforward of the Poisson approximation give the joint TV bound; testing (1,0) gives the connectivity corollary. Frozen code and supporting evidence were inspected as text, not executed.
 
-Blitvić (2014) already defined and exactly enumerated connected parity-reversing chord diagrams, with connected-count sequence now at OEIS A390400; that earlier enumeration is **not** presented as new. Noy/Flajolet (1999/2000), Acan (2015) and related simple-chord work study unrestricted pairings and establish the different unconditioned Poisson(1) behavior. A full inspection of Blitvić's relevant definitions, main theorems and refinements found no statement of the joint \((K_n,n-L_n)\) Poisson(2) total-variation limit, quantitative error or accompanying giant-component structure. The exact connected-count generating function may encode the connectivity marginal implicitly; accordingly novelty is claimed solely for the joint component/giant law and its proof with rate. A possible older implicit consequence in broader generating-function literature remains a risk.
+## originality
 
-## Value — PASS
+PASS
 
-The all-even crossing-degree event is exponentially unlikely in the standard circle-graph ensemble and exactly selects a natural, independently studied permutation-pairing class. The new result identifies how this global parity constraint changes the entire random component profile, with a Poisson parameter doubling from 1 to 2, and gives a finite-size error bound; neither a fixed-size connected-count table nor a local rare-event check addresses that structural distributional question.
+Pass is specific to the asymptotic joint component-count/largest-deficit law with the one-giant/simple-isolate estimate in the parity-reversing model. The model, exact connected counts, deterministic closed-block method, and Poisson approximation of the simple-chord marginal all have substantial prior coverage. In particular the latter marginal is classical restricted-position counting in the ménage problem; that overlap is stronger than the unrestricted simple-chord comparison in the frozen record and should be cited explicitly in future presentations. None of these inspected results establishes the required joint conditional component coupling with rate.
 
-## Scope and limits
+## value
 
-The even-degree condition is not the full Gauss-diagram realizability test. Constants are not sharp. An external audit and exhaustive historical-priority verification have not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The conditioning is canonical and exponentially rare, so it is not a parameter relabeling of the unrestricted model. The worthwhile output is that the global giant-component deficit and the number of other components coincide up to a shift with quantified high probability, and follow one shared Poisson(2) variable. This identifies the structure left after conditioning, rather than just recomputing classical ménage counts or reporting the known mean of adjacent chords.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-The face definition is precise, and the complement-neighborhood rectangles give an equivariant good cover. The support map has contractible lower fibers; hence the ordinary nerve-to-product homology isomorphism commutes with row, column and transpose actions. The integral Künneth representation of the product of simplex boundaries gives the three lines. Their degree reversal and orientation twist yield the displayed integral characters, with the transpose scalar combining the parity of its permutation of board cells and the Koszul factor flip. Rational transfer yields the full-group and arbitrary-subgroup quotient consequences. Direct and orbit-based signed Lefschetz computations agree for the tested sizes, and full finite-group character averages give the predicted quotient reduced Euler characteristics. Risk: verification is finite and does not replace the general topological argument; no integral torsion statement is made about the quotients.
+## correctness
 
-## Originality
-The 2023 Matsushita--Wakatsuki full preprint gives the general Alexander-dual identity, not this full automorphism representation. Mertens' 2024 full preprint counts dominating sets, not induced homology actions. A public 2026 study exactly covers the nonequivariant rook-dominance homotopy type, and that result is expressly not re-claimed. The new comparison is at the level of homology modules and quotient invariants: an ordinary three-sphere wedge does not determine the actions, and neither stated prior result provides the period-four full-automorphism quotient law. Classic graph-Hom product results were also checked as potential stronger coverage; their sphere-product statements do not explicitly provide the sign-twisted rook dominance character or transpose behavior. Risk: the equivariant calculation is derived from classical machinery and an equivalent unindexed corollary may exist.
+PASS
 
-## Value
-The independent permutation symmetries and extra square-board transpose are intrinsic to these graph families. Determining their exact integral characters distinguishes all subgroup quotient rational Betti patterns without quotient-by-quotient enumeration. The unexpected dependence on board-size parity modulo four shows that identical nonequivariant three-sphere descriptions conceal qualitatively different orbit-space homology. This is a natural topological invariant, not a cosmetic recomputation of face numbers or Betti ranks.
+D consists exactly of subsets containing no complete closed cross, hence is the fixed-ground-set Alexander dual of the open-neighborhood complex of the complement. In fact that open-neighborhood complex consists directly of subsets with both coordinate supports proper. On its nonempty face poset the support map has an equivariant section (A,B)↦A×B with T⊆r(T)×c(T). These maps give a homotopy equivalence by poset order homotopy, natural also under transpose. The product of simplex-boundary face posets realizes the corresponding sphere product; Künneth gives two sign lines and their product. For duality, the boundary connecting map identifies reduced homology of D with relative homology of the ground simplex modulo D shifted by one. In that relative complex a basis face has complementary face in the open-neighborhood complex. Pairing their orientations by exterior product into the determinant line on all cells gives the complementary cochain differential, up to a degree sign, and the determinant twist under every cell permutation. This yields N−i−3, the row exponent q, the column exponent p, and transpose determinant (−1)^binom(n,2). On the top product line the flip adds (−1)^((n−2)^2); the two other lines are exchanged. The maximal cliques of the rook graph are its rows and columns; the two size/parallel classes yield the stated full group and the only extra square symmetry. After barycentric subdivision there are no simplex inversions, quotient rational chains are coinvariants, and averaging gives the graded invariants. The only square invariant candidate under the coordinate subgroup is the lower line for odd n, and its transpose is +1 precisely at n≡3 mod 4. Independent closed-cross-mask enumeration gave the specified face counts and all 72, 144, and 1152 elementwise reduced Lefschetz traces on the three test boards, with means 1, −1, 0 (python3 -B /workspace/repro/1.py; /workspace/repro/1.log). This checks alternating traces, not each graded representation on its own.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The earlier all-board three-sphere classification covers the ordinary ranks and degrees completely. The supported distinct results are the integral graded action, in particular the determinant-twisted flip, and the quotient law. Neither the prior ordinary equivalence nor the adjacent equivariant rook-complex results give these as stated or by ordinary homotopy invariance.
+
+## value
+
+PASS
+
+This is a complete symmetry invariant for a natural family. The transpose sign produces a genuine rational orbit-space distinction even though the ordinary Betti pattern has the same three-line form; the formula also resolves all subgroup quotient rational Betti numbers without computing their separate chain complexes. It does not classify integral quotients or equivariant homotopy types.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

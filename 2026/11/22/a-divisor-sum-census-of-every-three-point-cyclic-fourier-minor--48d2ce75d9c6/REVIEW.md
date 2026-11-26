@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness (PASS)
-The complex determinant rigidity lemma is reconstructed explicitly and covers zero-factor boundary cases. The local indicator identity distinguishes rank two from rank one (three proportional row pairs and three proportional column pairs). The single-pair count uses the annihilator size \(\gcd(N,d)\); the paired incidence uses the equivalent condition \(N\mid ab\); and exact rank-one counting follows from Möbius inversion on the divisor lattice. These independently derived components yield a nonnegative, integral three-part partition with total \(inom N3^2\) for every \(N\ge3\). The proof covers all moduli, with no numerical extrapolation. Independent cyclotomic and finite-prime calculations confirm the complete \(N=30\) instance and agree with known orders six, fifteen and twenty-one. The exact programs and checked outputs are bundled.
+## correctness
 
-## Originality (PASS under bounded comparison)
-The closest primary work by Krahmer–Pfander–Rashkov tabulates small-order Fourier minor ranks; Delvaux–Van Barel constructs rank-deficient blocks and subgroup tilings; Bonami–Ghobber studies extremal uncertainty equality cases. The closest exact published enumerations cover prime-power or distinct-prime semiprime orders, rather than all cyclic orders with unrestricted factorization. The preexisting unit-modulus three-by-three rigidity lemma is acknowledged as known. The contribution is the all-order integer rank-incidence law using three divisor sums, including a triple-prime case. We found no equivalent all-order census in the bounded comparisons, but no claim of definitive historical uniqueness is made.
+PASS
 
-## Value (PASS)
-The numbers of arbitrary rank-one, rank-two and invertible three-point Fourier sampling schemes are natural finite-group recovery invariants. Previous partial classifications leave mixed higher-factor cyclic lengths untreated. A complete multiplicative-arithmetic census across all cyclic orders removes this gap and supplies rigorous exact benchmark counts for the first three-distinct-prime length thirty, where one- and two-dimensional failures coexist. The rank-one/rank-two partition is stronger than a mere singularity criterion or a numerical instance. It does not imply optimal stability for nonsingular minors and is not presented as a result about higher-order minors.
+For the normalized unit-modulus matrix with first row and column ones, singularity is (u−1)(t−1)=(v−1)(w−1). When nonzero, conjugate and divide to get ut=vw, then u+t=v+w, so the pairs coincide and two rows or columns coincide. In the zero case one factor from each side vanishes, giving a row or column equal to the first. The possible (k_R,k_C) are (0,0) at rank 3, (1,0),(0,1),(1,1) at rank 2, and (3,3) at rank 1, so the −9 overlap at rank one explains the +4 correction in the singularity indicator. A difference of gcd a has an annihilator of size a and gives Nφ(N/a)/2 unordered pairs (including the self-opposite nonzero difference, since reversing an ordered pair still changes its endpoints); (N/a)·binom(a,3) counts allowed column triples in annihilator cosets. For simultaneous pairs, N|de iff N|ab by truncated prime valuations, and there are a−2 and b−2 completions in the relevant cosets. A size-one annihilator cannot occur on either side for an admissible simultaneous pair, and a size-two annihilator contributes zero. For rank one, all row differences generate the subgroup with gcd h and a complete column triple lies in a common-annihilator coset. The incidence k|h amounts exactly to k·binom(N/k,3), which inverts to M_h on the divisor lattice. This reconstructs all three formulas, including the prime boundary P=Q=L=0. Independent exact replay at /workspace/branches/3a9629ab-ac15-450f-93ec-7b3369112b66/rank30_exact_replay.py checks every anchored pair via integer cyclotomic reduction, giving (180,15192,149464), with largest reduced coefficient magnitude 6. In a double count with anchors, each unrestricted pair has 9 anchor choices, and each anchored pair has 30² translated preimages with anchors, giving scale 100 even when some triples have stabilizers. The divisor intermediates P=919800, Q=374400, L=18000 agree. This corroborates N=30, not the all-N argument. Complex rank only, no larger minors or stability conclusion.
 
-## Closest literature and remaining limits
-Krahmer–Pfander–Rashkov (arXiv:math/0611493), Section 3/Table 1; Delvaux–Van Barel (TW470, TW477); Bonami–Ghobber (arXiv:1003.5060); published exact third-order prime-power and distinct-prime cyclic product censuses; and the principal-minor classification. A previously unindexed equivalent arithmetic formula cannot be excluded by a bounded search. Neither finite exact enumeration nor the review replaces independent mathematical validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Bounded statement and implication comparisons support originality of the complete arbitrary-modulus rank census, not of the singularity mechanism or special cases. Existing criterion, extremal support and block formulations do not on the checked evidence already supply the all-N multiplicities. Inaccessible material limits the historical verdict.
+
+## value
+
+PASS
+
+The rank is exactly the dimension of the observed signal subspace for a specified three-point cyclic sampling and three selected frequencies. Counting separately one- and two-dimensional deficiencies, including their overlap, is stronger than showing a singular minor exists, classifying extremal supports, or tabulating a few moduli. The formulas replace all-triple enumeration at every cyclic order with integer divisor sums and explicitly pass beyond prime powers and products of two primes. This is a useful exact reference for third-order degeneracy, not a guarantee of good conditioning.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

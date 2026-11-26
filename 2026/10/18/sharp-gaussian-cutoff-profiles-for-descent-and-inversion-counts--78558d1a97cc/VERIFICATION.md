@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and checks
+# Independent mathematical audit
 
-Run `python verify.py` with a standard Python 3 installation. No external packages or network access are required.
+## correctness
 
-The verifier constructs the complete transition probabilities for every state reached after \(0\) through \(10\) shuffles when \(n=3,4\), through \(8\) shuffles when \(n=5\), and through \(6\) shuffles when \(n=6\). It independently constructs the ordered-suffix mixture from occupancy Stirling numbers and all uniform permutations, then compares every state probability exactly as a rational number. It also checks exact inversion expectations, occupancy second moments and variance bounds, and all conditional Lehmer-tail means and variances for additional deck sizes. Separate finite-window checks corroborate the claimed occupancy scales.
+PASS
 
-Successful execution prints `PASS: exact chain/mixture distributions, inversion moments, occupancy and Lehmer-tail formulas; finite-window consistency` after finite-case summaries. The mathematical proof in `RESULT.md`, rather than the finite cases alone, establishes the limiting Gaussian laws, divergence, necessity, and Kolmogorov profiles. There is no external audit or validation claim.
+The untouched count U has variance at most its mean u by negative pairwise occupancy covariance, and U/n tends to zero for r/n→∞. Exchangeability in the order of last selection gives a uniform ordered prefix conditional on the number touched; the untouched suffix stays sorted. Compare with an independent uniform permutation before sorting that suffix. The descents change by a tail sum of mean U/2 up to a bounded endpoint/interface term, with conditional variance O(U), whereas inversions change only within the suffix, with conditional mean U(U−1)/4 and variance U(U−1)(2U+5)/72 from the independent Lehmer digits. Thus the centered perturbations vanish on the respective √n and n^(3/2) scales, and the stationary 1-dependent and independent-summand CLTs supply variances 1/12 and 1/36. The subsequence argument handles oscillating ratios in the iff statements, including divergence to minus infinity. At the critical windows the occupancy limits are e^(−c); uniform convergence to continuous CDFs and the midpoint of the two equal-variance normal CDFs give both Kolmogorov constants. Independently checked the conditional prefix counts and inversion mean over 3,906 histories (n=5, r=0..5); replay: python -B /workspace/branches/audit-replay.py 3. This checks finite identities, not the limits.
+
+## originality
+
+PASS
+
+The best-supported distinct claim is the critical-window scalar Gaussian shifts, their exact Kolmogorov profiles and necessity over all r/n→∞. The ordered-suffix law, fixed linear-time CLTs and above-window sufficient conditions are prior work; no inspected source already covers the distinct claim.
+
+## value
+
+PASS
+
+These natural observables become effectively stationary at different times well before full-deck mixing. The exact shifts identify the mechanisms (linear missing-card penalty versus quadratic lost inversions), and the Kolmogorov profiles and iff conditions distinguish delays that an above-window sufficient CLT does not. The contribution is precise scalar relaxation, not a full-deck, local-limit or joint-limit theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

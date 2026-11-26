@@ -1,15 +1,21 @@
-# Review of the rectangular-band spectral classification
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-The exact adjacency identity follows from inclusion–exclusion on three equality relations, with the two-fold first/second intersection and triple intersection both equal to the identity. Tensor decomposition into constant and zero-sum coordinate spaces supplies all eigenvalues with their true dimensions, rather than merely a list of candidate eigenvalues. Connectedness follows by explicit paths inside first-coordinate and second-coordinate fibers. For the four-element rectangular band, an explicit five-generator Cayley presentation establishes the folded-cube and common-neighbor claims. The attached standard-library verifier checks every eigenvector identity in an integral basis for sixteen finite configurations; no extrapolation from finite checks is needed for the general proof. Limits: the result is restricted to rectangular bands and undirected exactly-one-coordinate adjacency.
+PASS
 
-## Originality (PASS, subject to bibliographic limits)
+Direct separation into first-only, second-only, and product-only edges gives three tensor operators. The first has free k and requires l to differ; the second has free j and requires i to differ; the third fixes i,l and requires both j,k to differ. Their sector eigenvalues are w(t-1), (u-1)v and (v-1)(w-1), respectively. Their sum is the stated eigenvalue; constants and sum-zero factors give the stated multiplicities even when a factor has size one. The uniform degree, two connected families of fixed-coordinate moves for a,b>=2, and the direct clique union when one factor is one establish the connectivity claims. Size and degree recover the product and sum of the factor sizes, and reversing the factor order and the two inputs gives the converse graph isomorphism. At (2,2) the five Cayley steps are the images of the coordinate steps of the five-cube modulo the antipodal vector, which gives Clebsch; the exact characteristic polynomial and common-neighbor identity agree. The matrix-tree product follows from regularity and simplicity of the degree eigenvalue for connected graphs. Independent exact characteristic polynomials from the raw adjacency rule matched for all nine pairs 1<=a,b<=3. The juxtaposition XZ and YZ in the frozen proof denotes entrywise intersection of equality indicators, not ordinary matrix multiplication; the separate-edge calculation avoids that notational ambiguity.
 
-The nearest literature is Sorouhesh–Golriz–Panbehkar arXiv:2511.23190, whose v1 Proposition 5.3 and v2 Proposition 5.3 establish **regularity** for rectangular bands. V2 Lemma 5.4 suggests a qualitative block description, but no multiplicity-resolved rectangular-band eigenvalue formula appears in Sections 5–6 or Appendices A–B. V2 Section 6's explicit spectral computation concerns **null semigroups**, not rectangular bands. The matrix formula here describes all cross-fiber edges and proves connectedness in the two-sided nontrivial regime. Searches on exact graph names, factor parameters, folded-cube equivalence, semigroup-band spectra and published mathematical-record summaries found no equivalent. An unindexed or differently named graph representation could still subsume the result; no bibliographic uniqueness is certified.
+## originality
 
-## Value (PASS)
+PASS
 
-The exact spectrum simultaneously gives the graph energy and spanning-tree number for an unbounded two-parameter semigroup family. It distinguishes the connected regime from disjoint clique boundaries, connects the four-element rectangular band with the Clebsch graph, and clarifies that a fixed-left-coordinate block partition cannot disconnect the nontrivial rectangular-band graph. This addresses an explicit graph-family spectral problem beyond the existing regularity-only theorem. The degree-based reconstruction of factor sizes is credited as an elementary consequence of earlier methods rather than advertised as independent novelty.
+The exact-one graph definition and rectangular-band degree formula are prior; diagonalizing the complete-graph tensor factors is standard. Pass the explicit full spectrum and the structural conclusions specific to this graph family. The closest primary paper's similarly titled lemma gives no explicit sector spectrum, and its proposed disconnected block picture does not hold for the same adjacency.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+This is the full exact adjacency invariant of the natural regular rectangular-band family from the motivating paper, not an isolated computed size. It replaces degree-only information by a multiplicity formula valid for all factor sizes and clarifies the misleading disconnected-block picture. It also separates the connected and degenerate cases and puts the Clebsch instance and spanning-tree count into one family. Standard diagonalization alone does not identify the graph's sector eigenvalues.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

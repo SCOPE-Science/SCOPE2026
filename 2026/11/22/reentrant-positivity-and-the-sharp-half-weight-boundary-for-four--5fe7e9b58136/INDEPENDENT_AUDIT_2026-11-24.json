@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:44:11.400213Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding–Proof and verify.py (inspected, not executed)",
+        "/workspace/review_checks.py: python3 review_checks.py 2; independently integrated Taylor coefficients and exact rational brackets",
+        "arXiv:1812.08509 §3.4 Theorem 1 and Gaussian kernel example"
+      ],
+      "rationale": "Gaussian strict positive definiteness ensures invertibility for finite positive lambda. Reflection fixes the weight vector and gives the positive-definite even block with determinant Delta>0 and the two stated Cramer numerators. Independent integration of the first three Taylor terms reproduces Delta=8(b²-a²)² lambda²+O(lambda³) and the stated numerator coefficients, so both limiting weights are positive when a²<1/3<b². An independent rational certificate uses signed Lagrange remainders: orders 23 and 24 enclose exp(-z) for z>=0 and can therefore also enclose each translated Gaussian mass by termwise integration. Outward rounded exact intervals for outer numerator, inner numerator and Delta at lambda=2 are respectively [-0.021574,-0.021572], [0.132727,0.132729] and [0.243788,0.243789]. For fixed interior nodes, sqrt(lambda)F tends to sqrt(pi)/2 and the even block tends to identity, giving eventual positivity. Continuity supplies two distinct outer-weight zeros and an open neighborhood of radii with the same sign-return pattern. Exactly two positive weights at lambda=2 attain the known general two-of-four lower bound; there is no need for a full count of outer-weight zeros or for the inner weights to stay positive at every shape.",
+      "residual_risks": [
+        "The signs are for finite positive lambda. The robust perturbations are of the two radii within the symmetric family. The proof gives at least two outer-weight zeros, not exactly two."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The total positivity theorem gives at least floor((n+1)/2) positive weights, and variance-local optimality supplies a separate all-positive condition. The flat-Gaussian theorem gives convergence to polynomial cubature weights. Oettershagen compares optimized designs and errors across shapes."
+        ],
+        "reasoning": "The sharp lower bound is known as a bound, and the flat limit is covered. The fixed nodes are not assumed locally optimal. None of the compared general statements supplies an attaining fixed symmetric design at finite shape that also exhibits the two strict positive regimes.",
+        "searches": [
+          "Karvonen–Kanagawa–Särkkä arXiv:1812.08509, Theorem 1 and Corollary 1",
+          "Karvonen–Särkkä arXiv:1906.02096 Theorem 2.4; Oettershagen 2017 Introduction and §6.5"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary index and cited mirrored findings",
+        "arXiv:1204.1664",
+        "arXiv:1812.08509",
+        "arXiv:1906.02096",
+        "Oettershagen dissertation (2017), Introduction and §6.5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general lower bound only precludes fewer than two positives. The flat-kernel theorem pertains to lambda approaching zero. The same-day result concerns a center-weight interval controlled by spacing and a nugget in a different target class."
+        ],
+        "reasoning": "These imply or explain individual baseline pieces, but do not force negative weights anywhere in this family. The intermediate negative pair must be established separately; joined to the two extreme regimes it gives the distinct robust result.",
+        "searches": [
+          "arXiv:1812.08509 Theorem 1, arXiv:1906.02096 Theorem 2.4, and Resultary 4abd02fc5f66 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Huszár–Duvenaud report negative weights at one width for a 100-site example. Resultary bf59562e8e52 has a single negative-to-positive center-weight transition for three symmetric uniform-target nodes in its relevant radius range; 4abd02fc5f66 has reentrance for three nodes in Gaussian scale-mixture targets as spacing varies."
+        ],
+        "reasoning": "Reciprocal lengthscale just reverses the sweep. Varying spacing at fixed target with a Gaussian kernel can be rescaled to a width change only if the target is simultaneously rescaled; it does not identify the Gaussian-mixture example with four fixed sites and a uniform compact target, or move the negative center weight to a reflected outer pair.",
+        "searches": [
+          "Gaussian Bayesian quadrature/kernel cubature weight sign versus shape, width and lengthscale; arXiv:1204.1664 §3.1.1 and arXiv:1812.08509",
+          "Local Resultary: symmetric Gaussian quadrature and reentrant positivity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Verified close records bf59562e8e52 and 4abd02fc5f66 use three nodes; e419b9fd10fc varies the exponential target for polynomial Boole quadrature. The inspected wider-node negative-weight example uses one setting, and the inspected Gaussian-design curves compare errors, not fixed-site weights."
+        ],
+        "reasoning": "No checked example or tabulation is the exact fixed four-site shape sweep. The same-day three-node reentrance is a real conceptual overlap irrespective of chronology, not coverage of this target, geometry and sign pattern.",
+        "searches": [
+          "Local Resultary for fixed symmetric Gaussian four-site positivity, sign return, four weights and two transitions",
+          "Published Gaussian weight examples in arXiv:1204.1664 and the Gaussian-space curves in Oettershagen §6.5"
+        ]
+      },
+      "rationale": "The verified addition is a fixed four-site Gaussian design on a uniform interval attaining exactly two positive weights at an intermediate shape and recovering strict positivity at both shape extremes, robustly in the radii. Neither negative weights in general, the lower bound, nor convergence to polynomial weights in the flat limit is new.",
+      "residual_risks": [
+        "Comparison is bounded; a fixed-site sign sweep may exist outside the inspected sections or in other examples. No chronological priority is inferred from the same-day three-node record."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Sign failure known, no fixed four-site sign sweep in passage",
+          "evidence": "Several negative weights in a 100-site example at kernel width around 1/20 of target width.",
+          "identifier_or_url": "https://arxiv.org/abs/1204.1664",
+          "material_read": "§3.1.1 p. 4, OA offset 18300–25662",
+          "method": "OA primary PDF text",
+          "title": "Optimally-Weighted Herding is Bayesian Quadrature",
+          "trigger": "Early negative BQ weights"
+        },
+        {
+          "assessment": "General lower bound and positivity for a different node-optimality hypothesis",
+          "evidence": "A totally positive kernel of order 1 gives at least floor((n+1)/2) positive weights; Gaussian is identified as totally positive. Corollary 1 assumes local posterior-variance minimizing sites.",
+          "identifier_or_url": "https://arxiv.org/abs/1812.08509",
+          "material_read": "Cor. 1 p. 4 and §3.4 Thm. 1 p. 7, OA offsets 27000–31926 and 47600–54017",
+          "method": "OA primary PDF text",
+          "title": "On the positivity and magnitudes of Bayesian quadrature weights",
+          "trigger": "Potential stronger theorem and half-positive bound"
+        },
+        {
+          "assessment": "Covers convergence to polynomial weights, not intermediate-scale signs",
+          "evidence": "Under moment assumptions, fixed unisolvent sites give the polynomial cubature limit.",
+          "identifier_or_url": "https://arxiv.org/abs/1906.02096",
+          "material_read": "Thm. 2.4 and assumptions, OA offset 22000–28111",
+          "method": "OA primary PDF text",
+          "title": "Worst-case optimal approximation with increasingly flat Gaussian kernels",
+          "trigger": "Known fixed-node flat limit"
+        },
+        {
+          "assessment": "Inspected curves/design problem vary optimal points or compare errors, not these signs at fixed sites",
+          "evidence": "Optimal design minimizes worst-case error over points and weights; Gaussian curves compare shapes.",
+          "identifier_or_url": "https://www.ins.uni-bonn.de/media/public/publication-media/diss_oettershagen.pdf?pk=460",
+          "material_read": "Introduction and §6.5 pp. 112–113, OA offsets 21000–25426 and 408900–413806",
+          "method": "OA dissertation text, targeted passages",
+          "title": "Construction of Optimal Cubature Algorithms with Applications to Econometrics and Uncertainty Quantification",
+          "trigger": "Potential shape sweeps and Gaussian numerical examples"
+        },
+        {
+          "assessment": "First shares uniform target and shape sweep but only one crossing on three nodes; second has genuine reentrance but changes target, site count, control and negative weight",
+          "evidence": "First keeps the two symmetric outer weights positive; second varies spacing in a centered Gaussian scale-mixture rule, with a nugget-dependent center-weight interval.",
+          "identifier_or_url": "Resultary bf59562e8e52 and 4abd02fc5f66",
+          "material_read": "Mirrored Finding and assumptions, OA offsets 0–3358 and 0–3267",
+          "method": "Local Resultary search and mirrored RESULT.md",
+          "title": "One-crossing three-node Gaussian positivity and universal reentrant three-node Gaussian positivity",
+          "trigger": "Closest parametrized weight-sign statements"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding–Proof",
+        "arXiv:1812.08509 Theorem 1"
+      ],
+      "rationale": "A fixed-node rule may be positive in both standard asymptotic regimes yet fail to be a positive functional at a practical intermediate scale. The strictly negative outer pair shows that the general half-positive bound is sharp even in a simple symmetric Gaussian design; the certificate and open-neighborhood result exclude a floating-point artifact or a single fine-tuned geometry.",
+      "residual_risks": [
+        "No accuracy loss estimate, exact crossing count, or claim of optimal nodes is inferred from signs alone."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

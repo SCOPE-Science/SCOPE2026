@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The Fourier moments and five-by-five antipodal block spectrum give the exact candidate. For every other separation, the two explicit trial vectors yield a shifted two-by-two form of negative determinant; the determinant identity is verified exactly modulo the defining positive-root quadratic. Two strict polynomial sign estimates via Bernstein coefficients cover the complete open parameter range, including the touching-arcs boundary. Thus the proof uses neither a finite grid nor a floating-point test as an infinite-domain certificate. The checker in the package reconstructs the matrix and the critical identities independently.
+## correctness
 
-## Originality — PASS relative to inspected evidence
-The closest same-geometry published published-finding corpus theorem proves the leading vanishing-arc constant for every odd band, but explicitly disclaims finite-width global optimality for bandwidth at least two. The published three-mode exact theorem is confined to a three-dimensional Fourier subspace; its sharp eigenvalue does not imply the new five-dimensional statement, whose smallest eigenvalue is of fifth rather than third order at small arc width. Azimifard and Marceca–Romero–Speckbacher treat broader localization bounds and transition eigenvalue counts, not the five-character all-width minimax formula. Web and mathematical-record searches for alternative descriptions of Toeplitz/prolate/two-arc five-mode sampling revealed no statement implying this one. This is evidence-relative, not certified worldwide priority. Possible old specialized Slepian or matrix-design coverage remains a risk.
+PASS
 
-## Value — PASS
-The two-arc sensor design is natural: it asks for maximum worst-case captured energy at fixed observation measure, the inverse square of the strongest reconstruction-instability factor. The known all-band asymptotic leaves finite widths unresolved, and the exact three-mode theorem does not decide the first genuinely higher band. This result supplies one complete finite-width classification with an explicit algebraic dual witness. It is a narrow but substantive finite-band structural answer, not a parameter substitution or a small numerical gain.
+In normalized Haar measure the exact Toeplitz moments are 2 sin(ka) cos(k beta)/(pi k), with diagonal 2a/pi. At antipodal placement the odd and even character blocks have sizes two and three. The smaller eigenvalue of the symmetric two-dimensional piece of the even block lies strictly below all other eigenvalues, since h=(sqrt(p^2+8)-p)/2>1 and |p|<1. Reconstructed the shifted trial form on 1 and the cosine quadratic, independently dropping the constant term of the latter. Dividing the determinant by the positive common scale and reducing modulo y^2+c(2c^2-1)y-2c^2 gives t^2(A+t^2D), t=cos(beta). The bounding quadratics for h and the strict signs of A,D were checked by exact arithmetic, using the positive-coefficient transform c=x/(1+x) for the signs on 0<c<1. Every nonantipodal placement, including touching arcs at beta=a, has t>0 and a negative determinant, so its least Rayleigh quotient is strictly smaller. The exact Taylor series has leading term 64 a^5/(135 pi).
 
-## Limitations and closest literature
-The theorem does not handle unequal arcs, arbitrary masks, or bandwidth above two. Older finite prolate and optimal-design formulations may remain incompletely indexed. Comparisons and source inspections are recorded in the structured audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct claim is the exact finite-width maximum and strict antipodal uniqueness for two equally wide arcs in the five-mode band. The optimized small-width leading coefficient and leading-order antipodal design are already covered. Close same-day results were compared for statement-level implications, without assuming an order from the publication date.
+
+## value
+
+PASS
+
+At fixed observation measure, maximizing the worst captured energy is the sharp conditioning problem for continuous observation on two equal sensor arcs. The first nontrivial extension beyond the previously known three-mode exact case and the known small-arc leading law gives a usable finite-width benchmark: it identifies the placement uniquely and quantifies conditioning at every width, not just at an endpoint. The two-vector comparison proves a structural result that would not follow from diagonalizing only the antipodal case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

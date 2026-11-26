@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:36:30.591060Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–60",
+        "Frozen VERIFICATION.md, verify.py and optcheck.py (inspected, not executed)",
+        "python3 /workspace/independent_replay.py (record 5)"
+      ],
+      "rationale": "A tree resistance is a path sum, so the diameter is the sum of the two largest arm resistances R_i. At fixed R_i the least arm cost is s_i²/R_i, with unique equality at w_e=s_i/(R_i√p_e). For a fixed diameter limit D and a dominant index j, all other R_i are at most D−R_j, so the cost is at least s_j²/R_j+U/(D−R_j); its unique minimum gives the stated dominant formula and is feasible. For the balanced case put q_i=s_i²/C. Since q_i≤1/2, q is a convex combination of vectors (e_i+e_k)/2 (the vertices of the box slice 0≤q_i≤1/2, Σq_i=1). Thus Σq_iR_i≤D/2; Cauchy–Schwarz gives Σs_i²/R_i≥2C/D with equality only for equal R_i. Both minima saturate the budget, agree at the boundary, and give unique conductances. With two unequal arms the dominant formula becomes the ordinary path optimum (s_1+s_2)²/B. The finite independent replay checked edge reconstruction, competitors, and threshold and two-arm examples; the proof, not the replay, establishes the quantifiers.",
+      "residual_risks": [
+        "No claim for cyclic graphs, general multi-hub trees, or nonlinear/capped edge prices."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Section VII states a general SDP formulation, not the closed form.",
+          "77640f1245b8 Finding is a two-hub triangle phase diagram."
+        ],
+        "reasoning": "General numerical conic solvability alone is not coverage of the threshold. The exact earlier star theorem is decisive under the reduction, independently of the other approaches.",
+        "searches": [
+          "Ghosh–Boyd–Saberi proceedings, Section VII",
+          "Roos–Bai–Chaerani DOI 10.24200/squjs.vol17iss1pp125-146",
+          "Resultary related double-star minimax finding"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 51ff8fe407b5",
+        "Resultary 8d2288c947e1",
+        "Resultary 77640f1245b8",
+        "Ghosh–Boyd–Saberi §VII",
+        "Roos–Bai–Chaerani DOI landing page and abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier star threshold is c_j>Σ_{i≠j}c_i; both optimal values and uniqueness are explicit.",
+          "Within-arm cost is at least c_i g_i, with equality only at w_e=s_i g_i/√p_e."
+        ],
+        "reasoning": "Substitution gives B times optimal diameter equal to 2C or (s_j+√U)², and the unique reconstruction gives exactly the frozen edge formulas. No independently new design regime survives.",
+        "searches": [
+          "Resultary local-mirror Findings and Proofs for 51ff8fe407b5 and 8d2288c947e1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2026/10/26/SCOPE-an-exact-dominant-price-threshold-for-resistance-diameter-design--51ff8fe407b5, Finding and Proof"
+        ],
+        "reasoning": "Series-arm contraction with price c_i=(Σ_e√p_e)² preserves the minimax problem exactly when least cost is used on each arm.",
+        "searches": [
+          "Resultary: weighted star/spider resistance-diameter optimization and price dominance"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "51ff8fe407b5 Finding: arbitrary positive spoke prices and budget.",
+          "8d2288c947e1 Finding: unit-budget majority-price classification."
+        ],
+        "reasoning": "These are symbolic records rather than tables. The exact matching formulas, not a small collection of examples, cover the effective prices.",
+        "searches": [
+          "Resultary: dominant price threshold and majority-price transition on weighted stars"
+        ]
+      },
+      "rationale": "Demonstrably implied by earlier weighted-star results, not merely a similar threshold. For each arm use the single-spoke conductance g_i=1/R_i at effective price c_i=s_i². The attainable optimal budget/diameter pairs coincide in both directions, and the unique armwise Cauchy–Schwarz equality condition recovers all individual-edge conductances. This imports the whole threshold, both optimal values and uniqueness from the earlier arbitrary-price, arbitrary-budget star classification.",
+      "residual_risks": [
+        "The full Roos–Bai–Chaerani article was not independently inspected; this does not affect the proven overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING via exact reduction",
+          "evidence": "Unique optimizer with threshold c_j>Σ_{i≠j}c_i and both formulas.",
+          "identifier_or_url": "2026/10/26/SCOPE-an-exact-dominant-price-threshold-for-resistance-diameter-design--51ff8fe407b5",
+          "material_read": "RESULT.md Finding and Proof, offsets 0 and 5967",
+          "method": "Resultary local mirror",
+          "title": "An exact dominant-price threshold for resistance-diameter design on weighted stars",
+          "trigger": "Earlier arbitrary-budget exact minimax classification"
+        },
+        {
+          "assessment": "COVERING via exact reduction and budget normalization",
+          "evidence": "Unique unit-budget minimax regimes with arbitrary positive prices.",
+          "identifier_or_url": "2026/10/13/SCOPE-a-majority-price-transition-for-minimum-resistance-diameter-on-w--8d2288c947e1",
+          "material_read": "RESULT.md Finding and Proof, offset 0",
+          "method": "Resultary local mirror",
+          "title": "A majority-price transition for minimum resistance diameter on weighted stars",
+          "trigger": "Earlier exact normalized classification"
+        },
+        {
+          "assessment": "General formulation prior art; passage does not give closed form",
+          "evidence": "Maximum pairwise effective resistance minimization is convex and SDP-representable.",
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/eff_res_mtns06.pdf",
+          "material_read": "Section VII, p. 1194",
+          "method": "Open proceedings PDF passage",
+          "title": "Minimizing Effective Resistance of a Graph",
+          "trigger": "General maximum-resistance design prior work"
+        },
+        {
+          "assessment": "Unresolved for full text; immaterial to demonstrated earlier coverage",
+          "evidence": "Accessible abstract concerns conic models for robust resistor design.",
+          "identifier_or_url": "https://doi.org/10.24200/squjs.vol17iss1pp125-146",
+          "material_read": "Landing page and abstract only",
+          "method": "Open DOI lookup; no full text obtained",
+          "title": "Robust Resistance Network Topology Design by Conic Optimization",
+          "trigger": "Plausible general robust-design overlap"
+        },
+        {
+          "assessment": "Related but not the spider classification; no priority inference from date",
+          "evidence": "Two-hub double-star phase diagram.",
+          "identifier_or_url": "77640f1245b8",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Exact price-triangle phase diagram for minimax effective resistance",
+          "trigger": "Related same-date exact topology classification"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof",
+        "Earlier exact weighted-star findings 51ff8fe407b5 and 8d2288c947e1"
+      ],
+      "rationale": "The explicit conductances are useful as a design recipe, but as a standalone claim this is the known weighted-star classification transported by ordinary series reduction and the equality case of Cauchy–Schwarz. The edge-level expansion and equal-price length statement leave no distinct structural result or nonroutine remainder to repair.",
+      "residual_risks": [
+        "This disposition does not concern genuinely multi-hub designed trees."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

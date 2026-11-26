@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The package checker was run from the included `verify_gap.py` path using Python 3.13.5 and only standard-library modules. It returned `PASS`; it enumerated 2,596 exponent tuples and verified 2,595 nonminimizers. The candidate divisor ratio was computed exactly as \(62496/12155\). Outward-rounded interval arithmetic enclosed the gap in \((0.1690,0.1691)\), and the lower bound at the cutoff exceeded the exact rational threshold \(10960297/1920000\). The finite search, support-reduction proof, and universal tail bound together establish the stated global minimum.
+# Independent mathematical audit
 
-Limitations: the claim is only for integers with exactly seven distinct prime factors. The code does not prove the unrestricted Robin inequality or the Riemann hypothesis. The referenced notebook in the primary paper was not retrieved; this is recorded as a residual literature risk, not as proof of overlap.
+## correctness
 
-The trusted importer initializes absent external channels as unperformed; research never assesses/authors them or resets old evidence.
+PASS
+
+Replacing each ordered prime by the corresponding first-seven prime at fixed exponents weakly increases sigma(n)/n and strictly decreases C_7 if any prime changes. The reduced integer remains above 5040 because the seven-prime primorial is already above it. C_7 is strictly increasing (positive argument and positive derivative of P_7). The Euler-factor bound is 17017/3072; the independent interval evaluation gives C_7(52000000000)>5.7095380290666298, larger than that bound plus 0.1691. I independently enumerated the reduced candidates by starting at the primorial and adjoining prime factors in nondecreasing order; unique factorization gives exactly one visit to each tuple up to the cutoff. An integer fixed-point replay, /workspace/branches/review-4-integer-replay.py, uses rational Euler–Maclaurin bounds at N=4096, logarithms by the atanh series with power-of-two reduction and a geometric tail bound, and a bounded exponential series. It verifies all 2596 tuples: the candidate gap is enclosed between 0.1690334982267305186 and 0.1690334982267306759, the ratio is exactly 62496/12155, and every other reduced tuple has lower interval endpoint above 0.1691 (the smallest such endpoint exceeds 0.18329). Together with the strict support reduction and tail, this proves the global unique minimum. The frozen checker and recorded output were inspected, not executed.
+
+## originality
+
+PASS
+
+The supported distinct result is the sharp uniform additive gap and its unique optimizer at exactly seven distinct prime factors. The parent inequality and the optimizer's appearance under other divisor-extremal criteria are not new. The inspected statements do not supply or mechanically imply the sharp gap for the stated objective.
+
+## value
+
+PASS
+
+Seven is the first support size beyond the predecessor's analytic small-support range, so the slice is motivated by the existing argument. The exact worst case gives a certified uniform additive allowance for this truncation in that layer, not just a sign or a numerical estimate at a famous integer. A researcher comparing truncations or improving the finite checks can use both the tolerance and its unique obstruction. No wider Robin or Riemann-hypothesis implication is asserted.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:02:16.615062Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof lines 27–78; VERIFICATION.md; artifacts/check_windmill.py (read, not executed)",
+        "/workspace/branches/777b35bb-b178-47f3-92ee-53a7a52f65bf/replay.py",
+        "/workspace/branches/777b35bb-b178-47f3-92ee-53a7a52f65bf/replay.txt"
+      ],
+      "rationale": "On the hub with the one or two required petals, principal compression gives a lower bound for the commutator norm. Extension by the hub value achieves the same norm on F_m. In K3 the norm squared is a²+b²+(a-b)²; minimizing over the free coordinate for a fixed difference gives 3/2 times that difference squared. For a cross-petal pair, antisymmetrization by petal exchange preserves the oriented contrast and contracts the norm. For values (0,a,b,-a,-b), put δ=a-b and z=(a,b,-a,-b). The leaf block B is skew and satisfies B²=-δ²I. Schur complementation uses zᵀBz=0 and gives the polynomial λ(λ²+δ²)(λ²+δ²+‖z‖²), initially away from the block roots and hence identically, including degenerate cases. The squared norm is 8a²/3+3(b-a/3)²; contrast 2a gives the claimed optimum at b=a/3. The one- and two-petal witnesses extend sharply, and the vertex-pair orbits exhaust m≥2. Real functions suffice also under a complex convention since D is real and taking the real part after a phase rotation preserves the objective and contracts the norm. Independent spectral minimization and full-graph SVD witnesses agree for m=2–8; the all-m upper bound is analytic.",
+      "residual_risks": [
+        "Numerical minimization and SVD are corroborative; they are not optimality certificates on their own."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Besnard prunes by endpoint pair; equal-weight K_n has distance w^(-1)√(2/n). His bridge-free blob definition keeps the two triangles joined at their common cutpoint in one blob. Clare et al. give path-graph characterizations. Swartz's relevant theorems treat deletion and weighted 4-cycles."
+        ],
+        "reasoning": "The two retained triangles have no bridges, and are neither a single complete graph nor a path nor a 4-cycle. These results leave the internal optimization in the butterfly undetermined.",
+        "searches": [
+          "Besnard arXiv:2105.09056, Proposition 1(2), Theorem 4 and blob-chain discussion",
+          "Clare et al. arXiv:2409.04146v1",
+          "Swartz arXiv:2610.07718v1"
+        ]
+      },
+      "checked_sources": [
+        "Besnard 2105.09056",
+        "Clare–Li–Poon–Swartz 2409.04146v1",
+        "Swartz 2610.07718v1",
+        "Resultary 1e12db461c4b",
+        "Resultary ccac81bc329c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Pruning supplies equivalence between F_m and F_2 for cross-pair distances, but yields no numerical optimization on that one remaining blob. Adding the two K3 distances by triangle inequality yields 2√(2/3), not the sharp √(3/2)."
+        ],
+        "reasoning": "The new sharp inequality arises from the joint commutator, not a substitution into the complete-graph or pruning theorem. General norm-optimization methods still need a solution of this graph's specific problem.",
+        "searches": [
+          "arXiv:2105.09056, pruning, complete graphs and §3 blob-chain comparison",
+          "arXiv:2409.04146v1 and arXiv:2610.07718v1, scope of exact characterizations"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The cross-pair invariant is exactly the distance on the pruned butterfly between leaves of its distinct lobes. The actual matched Resultary statements treat adjacent pairs of Johnson graphs J(n,2), n≥5, and complete bipartite K_(p,q), not these graphs or pairs."
+        ],
+        "reasoning": "Triangle resemblance is not an isomorphism: J(n,2) graphs in the matched scope are regular, and K_(p,q) has no triangle. Their known formulas do not specialize to the butterfly cross pair.",
+        "searches": [
+          "friendship graph / windmill of triangles / butterfly or bow-tie graph Connes distance adjacency Dirac",
+          "Resultary: friendship and butterfly adjacency-Dirac distances; matched 1e12db461c4b and ccac81bc329c"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No direct butterfly entry was found in those bounded hits. Besnard's explicit complete-graph formula accounts for the K3 entries and was credited; the checked exact Resultary graph formulas were for different families."
+        ],
+        "reasoning": "The prior value √(2/3) and the modeled norm must match together; neither adjacent-family tables nor shortest-path data give the cross value. No general priority guarantee follows from the bounded checks.",
+        "searches": [
+          "Resultary local index, two focused friendship/butterfly adjacency-Dirac searches, top 10 each",
+          "arXiv:2105.09056, Proposition 1, explicit finite families"
+        ]
+      },
+      "rationale": "Credit earlier K3 distances and the pruning principle. The supported distinct contribution is the sharp butterfly cross-petal distance, giving a complete friendship-graph metric under that principle. None of the compared worked formulas covers this two-triangle interaction; the blade of the proof is the sharp five-vertex optimization, not the known reduction or a new general localization theorem.",
+      "residual_risks": [
+        "Bounded searches could miss an older butterfly optimization under alternate terminology.",
+        "The earlier Iochum–Krajewski–Martinetti full text was not checked; the complete-graph result attributed to it was credited via Besnard."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers triangle and locality, not the butterfly cross-pair optimum",
+          "evidence": [
+            "Equally weighted K_n formula fixes triangle distances. Two blocks joined only at a cutpoint without bridges form one blob, leaving its transverse distance as input to the blob comparison."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2105.09056",
+          "material_read": "Proposition 1(2) p. 5 around reader offset 13250; pruning Theorems 3–4 pp. 4, 8–9; blob-chain definition and comparison pp. 9–11, offsets 28800–36488",
+          "method": "Bounded original PDF passages and graph specialization",
+          "title": "Estimating noncommutative distances on graphs",
+          "trigger": "Exact complete graph results and graph pruning may cover the finding"
+        },
+        {
+          "assessment": "Related optimization framework and explicit path characterization; no covering specialization identified",
+          "evidence": [
+            "Characterization stated for paths; a butterfly has cycles."
+          ],
+          "identifier_or_url": "arXiv:2409.04146v1",
+          "material_read": "Original PDF abstract p. 1, reader offset 0",
+          "method": "Bounded primary statement read",
+          "title": "Noncommutative Distances on Graphs: An Explicit Approach via Birkhoff-James Orthogonality",
+          "trigger": "Explicit adjacency-Dirac distance method"
+        },
+        {
+          "assessment": "Universal comparisons and weighted 4-cycle cases do not solve this butterfly pair",
+          "evidence": [
+            "A comparison after deletion gives no sharp matching butterfly witness."
+          ],
+          "identifier_or_url": "arXiv:2610.07718v1",
+          "material_read": "Abstract and Theorems 1.1–1.3, pp. 1–3, around offset 5450",
+          "method": "Bounded original PDF passages",
+          "title": "The effect of edge deletion on noncommutative distances on graphs",
+          "trigger": "Potential graph-distance exact formulas after edge removal"
+        },
+        {
+          "assessment": "Different graph and pair orbit, not overlapping exact coverage",
+          "evidence": [
+            "Vertices are 2-subsets, adjacency is intersection and the exact formula is for adjacent pairs with n≥5."
+          ],
+          "identifier_or_url": "Resultary 2026/11/2/SCOPE-exact-adjacency-dirac-edge-distance-and-its-avoided-crossing-asy--1e12db461c4b",
+          "material_read": "RESULT.md Finding, local mirror offset 0–2195",
+          "method": "Indexed comparison then original passage via local mirror",
+          "title": "Exact adjacency–Dirac edge distance and its avoided-crossing asymptotics on triangular graphs",
+          "trigger": "Strong related indexed exact metric"
+        },
+        {
+          "assessment": "Different graph and rank reduction",
+          "evidence": [
+            "The skew commutator there has only a bipartite off-diagonal block; the within-petal edges of a butterfly preclude this reduction."
+          ],
+          "identifier_or_url": "Resultary 2026/11/2/SCOPE-complete-bipartite-connes-distances-from-sharp-operator-nuclear--ccac81bc329c",
+          "material_read": "RESULT.md Finding and initial block reduction, local mirror offset 0–2536",
+          "method": "Indexed comparison then original passage via local mirror",
+          "title": "Complete-bipartite Connes distances from sharp operator–nuclear duality",
+          "trigger": "Related indexed complete metric"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof",
+        "Besnard's pruning and complete graph comparisons"
+      ],
+      "rationale": "The two joined triangles are a canonical cyclic obstruction to replacing the adjacency-Dirac metric by a path metric. The sharp contrast across the cut vertex gives a quantitative example where concatenating exact local distances is not sharp and, with pruning, determines every orbit of a natural graph family. The exact value and attaining functions are useful benchmarks, even though the sharp new optimization is finite-dimensional.",
+      "residual_risks": [
+        "No extension to weighted petals or general cacti is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

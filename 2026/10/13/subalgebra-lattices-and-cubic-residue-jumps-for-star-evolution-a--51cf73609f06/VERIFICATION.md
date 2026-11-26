@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-The mathematical proof is in `RESULT.md`; the following are bounded finite checks, not substitutes for that proof.
+## correctness
 
-Run `python3 checker.py`: it generates every reduced-row-echelon subspace of the ambient algebra for the tested fields and numbers of leaves, checks closure under all products of basis vectors, and compares the resulting dimension distribution with the three-family formula. Tested parameter pairs were \((q,m)=(2,1),(2,3),(2,5),(3,1),(3,2),(3,4),(4,1),(4,3),(5,1),(5,2),(5,3),(7,1),(7,2)\). The script printed `VERIFY_OK`.
+PASS
 
-Run `python3 polar_check.py`: it reconstructs the product-formula isotropic Grassmannian counts, comparing them with direct reduced-row-echelon isotropic-subspace enumeration in odd characteristic and in characteristic two. It printed `POLAR_OK`.
+For the unnormalized star, A²=Z=span(s,h). As B(s,s)=m≠0, the leaf space splits orthogonally as Ks⊕U0, and the product in coordinates (a,v,b) is (maa′+B(v,v′))h+bb′s. A subalgebra with zero intersection with Z must square to zero; each element has b²=0 and so lies in the leaves, where the remaining condition is bilinear total isotropy. A subalgebra meeting Z in a line must have intersection K(s+ch), c³=m, by squaring its generator; testing multiplication by the generator forces b=ca throughout the subalgebra, and its remaining part is exactly an isotropic subspace of U0. A subspace containing Z is automatically closed. The disjoint cases give the three terms in the polynomial. In odd characteristic the successive isotropic-frame counts use the quotient of dimension N−2j and determinant class (−1)^j δ; dividing by the number of ordered bases gives the product. In characteristic two the norm is the square of the leaf-coordinate sum, so all isotropic subspaces lie in the nondegenerate alternating U0; counting independent perpendicular vectors gives the symplectic product. Then m=1 in the field and the cyclic multiplicative group gives the asserted root count. Direct independent closure enumeration reproduced (1,4,4,3,1), (1,8,16,5,1), and (1,0,1,1) for the three stated examples, respectively.
 
-For example, the independently enumerated dimension vectors were \((1,4,4,3,1)\) for \((q,m)=(2,3)\), \((1,8,16,5,1)\) for \((4,3)\), and \((1,0,1,1)\) for \((7,2)\). These are vector-space counts of distinct subalgebras by increasing dimension, with the zero subalgebra included.
+## originality
 
-No computations address fields or graph families outside the theorem's hypotheses, and no exhaustive finite run proves a universally quantified statement. The characteristic-dividing-\(m\) case is deliberately unclaimed.
+PASS
+
+The distinct claim is the all-subalgebra classification and finite-field census for the adjacency-defined star, in particular the dimension-one intersection stratum and its cubic residue multiplier together with the zero- and two-dimensional intersection strata. Neither standard polar counts nor the graph construction are credited as new. Related work gives real overlap in bilinear-isotropic methods but no inspected result supplies or implies this rank-two-star census.
+
+## value
+
+PASS
+
+The star is a natural adjacency-defined example with two-dimensional square, where natural-basis subalgebras need not exhaust closed linear subspaces. The classification resolves all dimensions and isolates the exact arithmetic source of jumps, including extension fields in characteristic two and the example over F7 with no one-dimensional subalgebra. The rank-two intersection phenomenon is additional to the standard polar-space enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

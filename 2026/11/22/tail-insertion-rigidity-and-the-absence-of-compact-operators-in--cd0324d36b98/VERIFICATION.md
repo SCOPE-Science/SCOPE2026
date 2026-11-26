@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification notes
+# Independent mathematical audit
 
-The analytic proof has been checked directly from the normalized monomial definitions. Under \(d\nu_\alpha=|e_\alpha|^2d\mu_B\), each distant normalized coordinate squared modulus has exponential distribution with mean one, so its centered version has \(L^2\)-norm one; distinct distant coordinates are independent. The resulting sequence is orthonormal, and Bessel's inequality gives convergence for **any bounded symbol**, without a uniform-in-symbol requirement. The tail limit property is stable under conjugation, multiplication and operator-norm closure because every operator involved is diagonal by block degree. The compactness and sharp distance assertions follow from orthonormal vector tests, with equality realized by \(I/2\). The finite-prefix singleton statement is supported by the finite-dimensional \(C^*\)-algebra theorem cited in RESULT.md.
+## correctness
 
-No infinite-dimensional claim is based on a finite computation. Directly read: the motivating 2022 open-access full HTML article (Section 5.1 and Problem 1) and the full HTML text of the 2025 finite-dimensional comparison. The 1995 primary article's displayed public PDF link returned an error; its abstract, not its whole text, was available. The 2022 Hardy-polydisc comparison was checked at the abstract level. These access limits affect historical priority, not the internal analytic proof. Independent external validation was not performed.
+PASS
+
+Independent coordinate phases make monomial matrix entries off the diagonal vanish; block-unitary invariance makes the remaining entries scalar on each homogeneous block sector (equivalently, the tilted squared block radii have independent Gamma laws with shape k_j+κ_j). Fix a monomial of block degrees κ and tilt the product measure by its normalized squared modulus. In every unused block the first normalized coordinate squared modulus is exponential of mean and variance one, so the centered variables Y_j are orthonormal in the tilted L². Inserting one particle multiplies the tilting density by 1+Y_j. Bessel gives the square-summability, and hence convergence to zero, of the eigenvalue differences for each bounded symbol. This does not require uniform convergence over bounded symbols or over κ. The pointwise-in-κ insertion property defines a unital, self-adjoint, sup-norm-closed subalgebra; diagonal operator norm is the sup norm. A compact element has eigenvalues tending to zero on each orthonormal inserted sequence, thereby vanishing at every fixed sector. The same vectors and the fixed sector give the norm lower bound max(|1−c|,|c|), attained by I/2. Finite-prefix restrictions of a generator come from integrating its symbol over the independent tail, giving inclusion in the finite-coordinate envelope also for the generated algebra. The restriction of P_κ is zero or a singleton. For an independent check of singleton membership, in a finite prefix the block-j symbol exp(−||z_Ij||²/u_j) has eigenvalues 2^(−k_j−d) at block degree d; each such eigenvalue is isolated, giving the level projection by continuous functional calculus. Multiplying the finitely many level projections gives the singleton. Thus the inclusion is strict for the actual algebra in Problem 1, without asserting a solution to its separate linear-closure question. This is an analytic proof; no numerical test is required or used.
+
+## originality
+
+PASS
+
+The primary source explicitly leaves the infinite product sector projection outside its available membership results and asks the envelope equality question. The present obstruction is for the generated norm-closed algebra and gives an attained distance, not just non-representability by one symbol. Priority for the compactness consequence considered alone remains qualified by an unavailable older article.
+
+## value
+
+PASS
+
+Resolves the explicitly posed finite-coordinate-envelope equality problem in the negative and proves the conjectured nonmembership for each specified projection. It further gives exact operator-norm separation and excludes all nonzero compact elements of the relevant algebra. The insertion invariant explains the difference between finite and infinite Gaussian block models beyond a single counterexample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

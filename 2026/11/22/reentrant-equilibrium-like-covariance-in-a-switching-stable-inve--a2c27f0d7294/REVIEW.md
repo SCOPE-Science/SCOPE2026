@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The stationary mean-reversion and finite-second-moment conditions are separated. The exact state-resolved Itô moment equations, Perron positive slow spectral mode, signed discriminant polynomial, and root position relative to the second-moment boundary establish the theorem for all stated positive real parameters. Independent symbolic identities and 2,540 finite matrix-semigroup/boundary checks passed. Finite experiments are not claimed as an infinite proof. The known beta-prime moment theorem certifies the witness's infinite fourth moment.
+## correctness
 
-## Originality — PASS (qualified)
-The stable/inverted beta-prime stationary law and its power-law exponent were published earlier, as was the general Markov-modulated covariance method. The closest positive-stiffness and on/off covariance-camouflage and spectral-sign results do **not** include inverted stiffness or its finite-moment domain. The new assessed claim is the exhaustive zero/one/two cancellation and reentrant complete-monotonicity diagram, including two OU-like spectra with divergent fourth moments. The positive-stiffness proof is algebraically close enough that implicit coverage is a substantial, unresolved priority risk; no claim of universal uniqueness follows from the searches.
+PASS
 
-## Mathematical value — PASS
-The phase boundary distinguishes the second-order spectral appearance of equilibrium from the strong heavy-tailed statistics of an intermittently unstable trap. The parameter-uniform classification, singular boundary, and both divergent-fourth-moment witnesses are motivated by temporal observability rather than arbitrary numerical slices. This does not extend to arbitrary switching or establish finite-sample detectability.
+On the stated finite-variance domain, the positive stationary moment vector satisfies (2K−Q)m=2Dπ and the covariance is 1ᵀ exp(t(Q−K))m. The two decay rates are distinct and positive, and the slow coefficient is strictly positive by the positive Perron projection. Independently used Cayley–Hamilton, C″(0)=−tr(Q−K)D−det(Q−K)V, and the adjugate moment formula to verify exactly that VC″(0)−D² is a strictly negative prefactor times the displayed F. It also equals the weight product times the squared rate difference. If the fast weight is negative, sufficiently high signed derivatives at zero are negative; nonnegative weights suffice at every lag. The quadratic has F(L)>0 and, whenever k>h and β≤βc, vertex strictly above L. Its vertex discriminates zero, one, or two admissible zeros as claimed. For k≤h the vertex is at or below L. At cancellation V=2D/(α+β), so the surviving (slow) rate is (α+β)/2. At both exact witness points det(2K−Q)>0 and det(4K−Q)<0: the latter gives positive spectral abscissa for Q−4K, incompatible with a finite stationary fourth-moment vector satisfying (4K−Q)n=12Dm (test with the positive left Perron vector). Thus the witness does not depend on taking a numerical tail fit. The stated exact general moment cutoff also agrees with the identified prior result.
 
-## Closest literature and limitations
-Biroli et al. (2023) establish stationary spatial correlations for positive stiffnesses; Huang et al. (2014) provide the general matrix-covariance machinery; de Saporta–Yao (2005) give the heavy-tail paradigm. The directly relevant published positive/on-off covariance findings and stable/inverted beta-prime marginal are explicitly compared in `AUDIT.json`. Independent scientific and bibliographic validation remains to be performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified pass for the complete finite-variance phase diagram with a repulsive state and the two-boundary covariance/moment contrast. Neither the covariance propagator, the cancellation polynomial as algebra, nor the marginal tail cutoff is new. Close positive and on/off results do not include the repulsive admissibility domain or the reentrant band; finite-variance admissibility and the combination with divergent fourth moments are decisive.
+
+## value
+
+PASS
+
+Repulsion gives a natural change of stability and integrability rather than an arbitrary parameter slice. The exhaustive empty/singleton/bounded-band alternative answers when every covariance derivative has the equilibrium-mixture sign, even when the covariance stays positive outside. The two distinct all-lag OU matches with infinite fourth moments give a concrete limit on identification from even perfect second-order statistics, not just from a fitted decay rate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

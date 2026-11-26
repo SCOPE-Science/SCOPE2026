@@ -1,15 +1,21 @@
-# Scientific assessment — mixed perfect-power gap shifts
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim concerns fixed, coprime positive integer exponents \(2\le r<s\), fixed small positive marker density, and the entropy of a precisely defined two-sided binary shift. Its proof uses exact inclusion-exclusion for the permitted gap set, a density-constrained Gibbs-renewal variational identity justified by induction, Euler summation with two controlled scaled derivatives, and a strict-convexity saddle expansion. The sign change at \(s=2r-1\) is the exact identity \(\beta-2\alpha=(2r-s-1)/(rs)\), not inferred from numerical experiments. Endpoint \(\rho=0\), noncoprime exponents, and uniform estimates in growing exponents are excluded. The accompanying independent-of-symbolic-algebra numerical script checks 24 saddle calculations across all three regimes, eight exact finite-power intersections, and eight exponent comparisons. Computations support but do not prove the infinite asymptotics.
+PASS
 
-## Originality — PASS, with residual priority risks
+Allowed returns have length 1 plus a permitted zero gap. Prime valuations give exactly the rs-power intersection and hence the signed partition e^(-p)(D_r+D_s-D_rs). Inducing on a marker gives mean return <=1/rho, with equality exactly on full marker saturation by Kac; the complement is the all-zero atom up to null recurrence exceptions. Abramov plus the entropy-rate bound and relative entropy show that equality requires the stated tilted marginal and independent returns, with no zero atom; stationary reconstruction is unique. The mean under the tilt falls strictly from infinity to 2 by the variance derivative. For Euler summation the L1 norm of the second x derivative scales as p^(1/k), also for the two logarithmic p derivatives. The objective at p=p0(1+y), p0=q*rho, has unperturbed increment q(y-log(1+y)); the saddle gives y=-(B*alpha/q)p0^alpha+o(p0^alpha). The sum of the quadratic base term and the linear change in Bp^alpha is -B^2*alpha^2*p0^(2alpha)/(2q). Combined with -B^2*p0^(2alpha)/2 and the overlap -Cp0^beta this reproduces Q and the three cases; -p and the Euler constant have higher exponents. The case (2,3) and stated coefficient formulas agree. Inspected VERIFICATION.md and verify.py; did not execute the uploaded checker. The reported 24 finite numerical witnesses do not certify the asymptotic.
 
-The closest fully inspected statement is *A theta-cubic law for sparse-marker entropy in the square-gap shift* (2026-10-25), which treats only a single allowed square-power family using its theta sum. Haydarov–Kadyrov–Makhmudov–Mamayusupov (2026-06-15) provide general renewal inducing and uniqueness tools, but not the mixed-power sparse-density coefficients. General \(S\)-gap coding and entropy results of Climenhaga–Thompson, Baker–Ghenciu, and Climenhaga do not identify the resonance threshold. Searches for mixed powers, arithmetic overlap, marker entropy, alias formulations, and exponents produced no equivalent explicit classification in the indexed scientific comparisons. This is a statement-level distinction, not an argument from titles or from failed search alone. General saddle-point asymptotic techniques are classical, and an unindexed specialization remains a realistic historical-priority risk; no independent originality certification is claimed.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is a complete, natural three-regime arithmetic classification rather than a single arbitrary numerical slice. The permitted-gap union forces an inclusion-exclusion correction from overlapping perfect powers, while entropy maximization produces a separate quadratic correction. Which one first appears is determined by the intrinsic, sharp exponent boundary \(s=2r-1\); at equality the two mechanisms interact and both coefficients are necessary. The formula establishes explicit metric-entropy invariants, a concrete source of new asymptotic behavior within an established dynamical class, and testable values for all coprime pairs, including \((2,3)\). The result does not imply corresponding laws for unrelated potentials or gaps.
+The density-constrained tilt and the Euler-summation and saddle methods are not treated as original. The supported distinct claim is the explicit second-correction order and coefficients for the union of two coprime perfect-power gap families, where the shared-power subtraction competes with the variational feedback. The closest read single-power results and general inducing machinery do not give that evaluated transition.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Combining two natural gap families changes the entropy spectrum in a way that depends on the arithmetic of their overlap and cannot be read off from either family separately. The signed coefficients and sharp crossover distinguish which mechanism controls the second correction for every fixed coprime pair; the tie is an actual, realizable regime. This is useful information beyond applying a known unconstrained entropy or reporting a numerical trend.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

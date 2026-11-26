@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:49:08.073478Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With vacancy i, the clockwise particle hop is i→i−1 at tilted rate pw_(i−1)e^s, and the other is i→i+1 at qw_(i+1)e^(−s), with p=(1+ε)/2, q=(1−ε)/2. Use the unweighted escape rates in the diagonal. The trace coefficient is a+b+c, since p+q=1. Principal minors do not depend on s because two-edge cycles have zero net count. Their sum is [(1−ε²)(a²+b²+c²)+2(1+ε²)(ab+bc+ca)]/4. The two directed 3-cycles are the only count-sensitive determinant terms, with weights abc p³e^(3s) and abc q³e^(−3s); the determinant vanishes at z=s=0, fixing the remaining constant. This gives the stated reversal-invariant cubic. For real s the tilted matrix is irreducible Metzler, giving a simple analytic dominant real eigenvalue and nonzero positive overlap for stationary initial data. A spectral gap near s=0 identifies its derivatives with long-time cumulant rates; the Legendre transform gives reflected rates (the finite differentiable SCGF permits the finite-state current LDP). At (a,b,c)=(1,2,4), implicit differentiation gives 24ε(ε²+3)/[7(ε²+7)], versus 12ε/7 in the one-particle sector. This asserts no finite-time equality. Independent symbolic replay /workspace/branches/7ce354f7-86bf-46f7-b877-2546f2dc20b8/replay_record3.py reproduced the full polynomial and example. The supplied script was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sakai–Akimoto §§III.A,D concern stationary mean response and inversion conditions. Lebowitz–Spohn §2.1 concerns the SCGF of the path action under one fixed process; the site-weight part in this model telescopes as a boundary term."
+        ],
+        "reasoning": "These general frameworks alone are not a blanket cross-generator result; exact earlier coverage here comes from the matching three-site sector with explicit cofactors.",
+        "searches": [
+          "Sakai–Akimoto arXiv:2512.03316, vacancy/site disorder and symmetry criterion",
+          "Lebowitz–Spohn arXiv:cond-mat/9811220, general Markov jump fluctuation theorem"
+        ]
+      },
+      "checked_sources": [
+        "Resultary SCOPE-exact-three-site-reversal-and-the-four-site-cancellation-locus-f--d34b01d5e486",
+        "arXiv:2512.03316",
+        "arXiv:cond-mat/9811220",
+        "Resultary three-spin entropy-production and other exclusion-current neighbors"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For q+p=1, write det(zI−L_s)=z³+(a+b+c)z²+Sz−abc[p³(e^(3s)−1)+q³(e^(−3s)−1)]. The ±3 permutations are the only tilt-dependent ones; other permutations either have no off-diagonal transition or paired opposite hops. No constant beyond these terms remains since the untilted generator has eigenvalue zero. Substituting the previously published S gives the frozen cubic with no new model coefficient to establish. Reversal exchanges p and q and reverses s, so every term agrees."
+        ],
+        "reasoning": "The entire polynomial and PF eigenvalue symmetry are a mechanical corollary of the exact prior cofactors and the standard three-by-three determinant expansion, not an inference that a first derivative determines arbitrary SCGFs.",
+        "searches": [
+          "Same-model Resultary RESULT.md 'Three-site sectors', local mirror offsets 4330–5444",
+          "Sakai–Akimoto’s model and main-text mean comparison §§III.A,D"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The coefficient of z in this three-vacancy-state determinant is the sum of untilted principal cofactors even after tilting, since all backtracks have count zero. The exact earlier mean-current proof explicitly computes precisely that sum, rather than merely asserting a symmetry of the mean.",
+          "The fixed-bias affinity symmetry transforms s to −log(p/q)−s at the same ε, unlike the frozen cross-bias symmetry."
+        ],
+        "reasoning": "The cofactor-to-coefficient equivalence is decisive; the fixed-generator fluctuation relation is a separate symmetry.",
+        "searches": [
+          "Resultary meaning search: exact three-site disordered exclusion drive reversal; stationary current; all-cumulant counting law",
+          "Lebowitz–Spohn arXiv:cond-mat/9811220 §2.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "SCOPE-exact-three-site-reversal-and-the-four-site-cancellation-locus-f--d34b01d5e486, proof 'Three-site sectors', exact same-model denominator S=[(a+b+c)²−ε²(a²+b²+c²−2ab−2bc−2ca)]/4. Its N=2 current is per bond; multiplication by three reproduces the example total current.",
+          "SCOPE-exact-entropy-production-fluctuations-in-a-three-spin-nonrecipro--66ffcc0ac40e is a different model and observable (three-spin Glauber–Ising path entropy production)."
+        ],
+        "reasoning": "The meaningful exact indexed match is the same-model cofactor formula, not similar words in a different tilted-generator record.",
+        "searches": [
+          "Resultary three-site exclusion current reversal and four-site cancellation",
+          "Resultary three-cycle entropy production/current SCGF and exact exclusion current-count duality"
+        ]
+      },
+      "rationale": "The distinct earlier exact same-model record publishes not only odd mean current but the explicit even sum S of the three directed cofactors. That sum is exactly the coefficient of z of det(zI−L) and is unaffected by tilting. Its formula, the fixed trace and the elementary two 3-cycle tilt factors already fix the entire tilted cubic and directly imply the new reversal statement. The prior record need not use SCGF terminology for this coverage. The fixed-generator fluctuation theorem alone does not imply the result.",
+      "residual_risks": [
+        "The review establishes implication from exact earlier evidence; it does not claim the SCGF equality was written verbatim there or decide who first noticed it."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive prior implication, not an identity match to the assigned record",
+          "evidence": [
+            "The proof explicitly derives the aggregate cofactor S shown above for arbitrary positive a,b,c and |ε|<1. The cofactor formula and elementary tilt permutation structure give the assigned SCGF identity."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-three-site-reversal-and-the-four-site-cancellation-locus-f--d34b01d5e486/RESULT.md",
+          "material_read": "Finding and Three-site sectors proof, offset range 0–5444 with decisive display at 4330–5444",
+          "method": "Configured Resultary search and lawful local mirror",
+          "title": "Exact three-site reversal and the four-site cancellation locus",
+          "trigger": "Exact same disorder, ring length and filling, and proof may compute remaining tilted spectral coefficients"
+        },
+        {
+          "assessment": "Mean-current comparisons; no decisive arbitrary-site-disorder three-site tilted statement in the passages read",
+          "evidence": [
+            "The criteria concern mean current and ratios p_i/q_(i+1); the inversion discussion qualifies the abstract's broad phrasing."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2512.03316",
+          "material_read": "Model p. 2 and §§III.A, III.D and site-trap application, pp. 2–5",
+          "method": "Lawful primary PDF passages",
+          "title": "Symmetry Breaking of Current Response in Disordered Exclusion Processes",
+          "trigger": "Same site-trap departure-rate model and bias reversal"
+        },
+        {
+          "assessment": "Fixed-chain action symmetry; does not relate the two escape-rate vectors under reversal",
+          "evidence": [
+            "SCGF reflection e(λ)=e(1−λ) applies to the same process and log forward/backward transition action."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/cond-mat/9811220",
+          "material_read": "§2.1, PDF pp. 3–5, path-action and spectral symmetry",
+          "method": "Lawful primary PDF passages",
+          "title": "A Gallavotti–Cohen-Type Symmetry in the Large Deviation Functional for Stochastic Dynamics",
+          "trigger": "General fluctuation relation could overlap"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Full-law reversal is a motivated observable, but for this fixed three-state sector the only model-specific nontrivial coefficient is already explicitly known. The new presentation mechanically repackages it into the cubic and applies standard tilted-generator theory; the mean-current contrast is also already determined by the same exact prior currents. No independent nonroutine mathematical remainder in the frozen claim supports a repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

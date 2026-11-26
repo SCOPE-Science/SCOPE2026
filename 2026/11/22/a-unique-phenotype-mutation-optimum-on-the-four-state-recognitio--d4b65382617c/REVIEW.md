@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The model specialization follows the Fourier weights \(((1+q)^2,1-q^2,(1-q)^2,1-q^2)\) and relaxation rates \((0,2\nu,4\nu,2\nu)\) in the source's equations (29), (A7). An exact denominator identity establishes strictly positive normalization. The independently differentiable rational function has derivative numerator \(H_q\) with coefficients \(h_{10},\ldots,h_6>0\), \(h_5,\ldots,h_0<0\) at every \(0<q<1\). Descartes' rule and endpoint signs imply exactly one simple positive root. The embedded SymPy program verifies the nontrivial identities and rational bracket. There is no hidden appeal to finite enumeration for the universal claim. Residual limitation: the starting model's asymptotic population approximation is adopted from the cited source rather than reproved as a microscopic finite-population limit.
+## correctness
 
-**Originality — PASS, conditional on available literature.** The source's Appendix D proves the threshold diverges at both ends and **at least one** optimum exists; its full text does not state a four-cycle all-discrimination uniqueness law or the degree-ten sign certificate. Accessible prior records for the binary two-state phenotype case concern a distinct one-mode spectral formula, which cannot imply a two-nonzero-mode optimum. The unbounded-lattice article of Kroumi (2026) is geometrically distinct and its full PDF was not accessible in this review; this is a residual historical-priority risk. published-finding corpus searches for the source ID, all four-state aliases, and unique mutation minimizers found no stronger covering claim; absence of a match alone is not novelty proof.
+PASS
 
-**Value — PASS.** Four phenotype sites are the simplest one-dimensional periodic recognition geometry with **two distinct nonzero mixing times**. Source results guarantee existence but leave open multiple local optima as these times compete. A rigorous uniqueness classification directly resolves whether a population with this natural finite recognition palette has one or several mutation-rate optima, and gives its reproducible algebraic specification. The fixed \(\mu=1\) slice limits generalization but is a natural balanced mutation scale rather than an arbitrary observed data bin.
+Kroumi's (A7) for one coordinate on four cyclic states uses cosines 1,0,−1,0. The four-point transform of (1,q,q²,q) gives (1+q)²,1−q²,(1−q)²,1−q². At transform argument s/(2ν), (A7) therefore yields (ν/2)F_s; (29) at μ=1 takes s=1,3,5 and the common factor cancels, leaving the submitted ratio. An independent bounded integer-polynomial reconstruction multiplies both forms by T=∏_{s=1,3,5}(s+2ν)(s+4ν). The multiplied denominator is 64ν(1−q)U; U is positive on the stated open domain. If P is the multiplied numerator divided by 32 and V=νU, the derivative numerator is P'V−PV'; its coefficient rows agree with every listed coefficient of H_q. The two mixed-sign rows h_5 and h_4 are strictly negative by bounding their positive terms with q²,q³≤1 and discarding their negative linear terms. All degrees ≥6 are positive, all lower degrees negative. Since H(0)<0 and its leading coefficient is positive, Descartes' rule and continuity give exactly one positive root counted with multiplicity. The derivative changes from negative to positive there, and its simple zero and positive denominator give positive second derivative. The q=1/2 isolate is illustrative, not part of the universal argument. The submitted supporting files were inspected without running the supplied script. This conclusion is only for the abstract weak-selection, large-population four-state model with μ=1.
 
-**Closest literature and limitations.** D. Kroumi, arXiv:2608.21872v1, especially sections IV.C and Appendix D, is the nearest direct source and supplies the underlying model/formula. The earlier arXiv:2607.27570 models an unbounded lattice. Mathematical sign-variation theory is classical and not asserted to be new. Neither independent verification nor full coverage of unindexed literature is claimed. A full-text copy of the unbounded preprint could not be opened during review; its abstract does not imply the finite-cycle theorem.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The Fourier threshold and existence of an interior optimum are covered by Kroumi; the rational specialization is not a new threshold. The supported distinct claim is uniqueness and nondegeneracy for every α>0 on the four-state cycle at μ=1, certified by a controlled sign change in its two-rate derivative. Neither the finite-periodic existence theorem nor the distinct indexed binary-cycle theorem implies that claim.
+
+## value
+
+PASS
+
+Four sites are the first cyclic phenotype space with two distinct nonzero decay rates. This makes it a natural minimal check of whether the single-rate uniqueness phenomenon survives spectral competition. At the fixed scaled benchmark μ=1 the theorem answers this uniformly in discrimination strength and gives an exact criterion for the unique design point. This is a usable exact classification within the stated abstract model, not a general mutation prescription or a result extrapolated from the example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:14:17.045734Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The rule is D∘σ∘K by expansion. Any active marker conflicts with markers at offsets ±1 and ±2, so all guards of active markers survive the update. A new marker could only be within these offsets of an old active marker, which still excludes it. Thus K is an involution, also for N=3,4 by the same modular guard identities (for N=1,2 the guard vanishes). Cyclic D has kernel consisting of the two constants and even-parity image by rank and telescoping. In the pair de Bruijn graph, even for short rings, overlapping triplets reconstruct the entire periodic symbol word with multiplicity of sites, so closed walks encode exactly the complementary K-images and weight is Hamming distance. I independently enumerated the 256 candidate windows with a truth table and checked reflexive zero-cost reachability by Boolean transitive closure. Reduced costs 0,1,2 occur on 40,16,72 edges respectively, and no cost-one edge has a zero-cost return. Telescoping gives 3·distance−N ≥ 0 and excludes 1, the extra obstruction for N≡2. For the witness motifs, two period-three repetitions suffice to contain all periodic windows and stabilize the windows on both sides of the defect block: a length-four crossing uses at most three symbols from either side, cannot bridge a run of length six, and the pure run contains all three phases. Checking the two defects with zero, one and two repetitions, the pure period-three word and the singleton verifies all witnesses and their weights. An additional direct check of the unfactored rule exhausted N=1..10. Private replay: python3 /workspace/branches/check_twin_certificate.py. The supplied verifier was inspected, not executed; bounded direct checks alone are not the all-length proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Appendix B gives the exact second rule but lists its type as unknown and discusses locally eventually onto dynamics.",
+          "The almost-lifting framework bounds preimage cardinalities, not separation."
+        ],
+        "reasoning": "Neither the bi-infinite classification nor cyclic/cardinality considerations supply the finite-cycle weighted minimum and its residue class obstruction.",
+        "searches": [
+          "arXiv:2610.33131v1, Appendix B",
+          "arXiv:2407.11931, §3"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.33131v1",
+        "arXiv:2411.00721v2",
+        "arXiv:2407.11931",
+        "Resultary b4fa1671dcc9",
+        "Resultary 3bda25481170"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The marker and difference descriptions account for two-point fibers, whereas the minimum requires excluding cost-one cycles and constructing witnesses for each residue class."
+        ],
+        "reasoning": "The new exact separation is a different conclusion, not a reworded multiplicity theorem or a tabulated consequence of rule identity.",
+        "searches": [
+          "arXiv:2411.00721v2, marker rule; arXiv:2610.33131v1, Appendix B; Resultary b4fa1671dcc9 and 3bda25481170"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primitive landscape (1★01) is precisely K.",
+          "The almost-lifting collision statistic in §3 is maximal fiber size over consecutive-window outputs, not distance."
+        ],
+        "reasoning": "Involution and multiplicity do not determine the Hamming distance after conjugating the complement; the nonlinear conjugacy need not preserve distances.",
+        "searches": [
+          "arXiv:2411.00721v2, Definition 1.9 and k=4 list",
+          "arXiv:2407.11931, §3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The appendix tabulates the rule, not the twin distances.",
+          "The identical indexed record is not separate prior art. Same-day b4fa1671dcc9 studies the first and third rules. Later 3bda25481170 studies the same rule but credits this minimum and analyzes the distribution."
+        ],
+        "reasoning": "The same-day distinct record has different local rules; the later same-rule overlap is not earlier coverage.",
+        "searches": [
+          "Resultary: cyclic twin distance, second five-neighbor rule",
+          "arXiv:2610.33131v1, Appendix B, second of the three two-to-one rows"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the sharp minimum over cyclic preimage twins, including the full mod-three law. The local rule, marker involution and binary difference kernel are not new. The closest inspected statements identify the rule or give other collision invariants; they do not determine this optimized positional distance.",
+      "residual_risks": [
+        "No exhaustive claim about unindexed prior distance-spectrum calculations; marker version history not reconstructed, and the marker itself is credited as prior context."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identifies rule; not the minimum distance",
+          "evidence": [
+            "Second two-to-one row matches x₂+x₃+x₁(1+x₃)x₄+x₂(1+x₄)x₅; discussion concerns LEO status."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.33131",
+          "material_read": "Appendix B, PDF p. 31",
+          "method": "OA PDF passage",
+          "title": "Locally eventually onto cellular automata",
+          "trigger": "Origin of the identical local rule"
+        },
+        {
+          "assessment": "Marker construction covered, separation not supplied",
+          "evidence": [
+            "Primitive landscape functions square to identity; the list contains (1★01)."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2411.00721",
+          "material_read": "v2, PDF pp. 4–5, Definition 1.9 and k=4 list",
+          "method": "OA PDF passage",
+          "title": "New classes of reversible cellular automata",
+          "trigger": "Exact marker involution"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": [
+            "ℓ_n(f)=max_y |F⁻¹(y)| measures cardinality, not positional disagreement."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2407.11931",
+          "material_read": "§3, PDF pp. 7–8",
+          "method": "OA PDF passage",
+          "title": "Shift-invariant functions and almost liftings",
+          "trigger": "Potential equivalent collision invariant"
+        },
+        {
+          "assessment": "Distinct rules",
+          "evidence": [
+            "First and third rules; image parity and fiber counts; excludes the second rule."
+          ],
+          "identifier_or_url": "Resultary b4fa1671dcc9",
+          "material_read": "RESULT.md, offsets 0–9086",
+          "method": "Local mirror passages",
+          "title": "Exact cyclic image obstructions for two open five-neighbor binary rules",
+          "trigger": "Same-day related cyclic classification"
+        },
+        {
+          "assessment": "Later follow-up on the distribution",
+          "evidence": [
+            "Explicitly credits the earlier minimum; gives pairwise independence, moments and a Gaussian limit."
+          ],
+          "identifier_or_url": "Resultary 3bda25481170",
+          "material_read": "RESULT.md, offsets 0–9625",
+          "method": "Local mirror passages",
+          "title": "Pairwise independent preimage-twin distances in a nonlinear binary automaton",
+          "trigger": "Exact same rule and distance variable"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The rule is independently singled out in a classification of small-neighborhood automata. Fiber cardinality does not quantify the worst ambiguity: the formula establishes the exact least number of sites needed to distinguish colliding cyclic states, down to short rings and the stronger 3k+2 obstruction. The structural obstruction and constructive witnesses, rather than a finite table of small N, give this invariant independent use.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

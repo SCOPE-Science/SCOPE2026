@@ -20,7 +20,7 @@ Here \(\mathcal F_0=\mathcal F_1=\{\emptyset\}\) and \(*\) denotes the abstract 
 \qquad B_m=(m-2)H_{m-3}(m-1),
 }
 \]
-where the polynomial \(H_j(t)\) is defined by \(\sum_{j\ge0}H_j(t)z^j/j!=\exp(tz+z^2/2)\). Thus \(B_3=1\), \(B_4=6\), \(B_5=51\), \(B_6=560\), and all these spaces have torsion-free integral homology concentrated in the indicated dimension.
+where the polynomial \(H_j(t)\) is defined by \(\sum_{j\ge0}H_j(t)z^j/j!=\exp(tz+z^2/2)\). Thus \(B_3=1\), \(B_4=6\), \(B_5=51\), \(B_6=560\), and all these spaces have torsion-free **reduced** integral homology concentrated in the indicated dimension.
 
 The exceptional cases are also complete: when \(m=2\) the fixed space is contractible; when \(m=1\) it is \(S^{b-1}\) if every non-singleton block has size two, and is contractible otherwise; when \(m=0\) it is contractible if some block has size two and is empty otherwise. For example, a transposition in \(S_5\) fixes a space homotopy equivalent to \(\bigvee^3S^2\), whereas any permutation subgroup \(S_3\) acting on three labels of six fixes \(\bigvee^2S^2\). More generally, enlarging an independently permuted block from size three to any larger size has no effect on the fixed-space homeomorphism type when \(m\) and the number of blocks are held fixed.
 

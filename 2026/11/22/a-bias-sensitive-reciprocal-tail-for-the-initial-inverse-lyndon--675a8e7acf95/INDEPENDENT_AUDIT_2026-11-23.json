@@ -1,0 +1,98 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T15:13:06.660304Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Prefix closure and the unique nontrivial anti-Lyndon sesquipower representation identify the tail event and partition it by root length. Bernoulli weight is rotation-invariant, giving a factor 1/d on each primitive orbit, and the forced extra letters have exactly the continuation weight in (1). For m=n-d at most L=floor(log n/[4 log(1/p_top)]), d is at least n/2 and the all-top-letter block probability is at least n^(-1/4); using disjoint blocks bounds the absence probability by exp(-c n^(3/4)/log n). Independently of this event, the nonprimitive probability is at most d rho^(d/2), by testing proper repeating divisors. The resulting main sum is a geometric series in p_top, with distant terms bounded by rho^m, and n/(n-m) changes the main sum by O(1/n) using summability of m p_top^m. The summable tail error yields the mean constant and stated variance, and the discrete power tail sum gives the strict threshold at 1. An independently written rotation-orbit/suffix enumeration checked identical word sets and unique roots through length 8 over a ternary alphabet with ordered masses (2,5,1)/8, where the top letter is not modal. At length 8 there were 1318 valid prefixes of mass 4053105/16777216. This does not test the infinite limit. Documentation only: RESULT.md names check_inverse.py and check_fkm.py, but the supplied programs are verify_direct.py and verify_fkm.py, correctly named in VERIFICATION.md. The actual finite checks are inspectable and the proof does not depend on the filenames.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The expanded inverse-array paper gives deterministic structure (Proposition 2, Lemmas 6–7) and linear-time construction (Theorem 3.1). Azad–Chassaing Theorems 1.2 and 1.4 concern normalized lengths in the complete Lyndon factorization and a proper right suffix of a word conditioned to be Lyndon, respectively."
+        ],
+        "reasoning": "The deterministic result is the correct structural input, not a probabilistic theorem. Neither normalized statistic in the random factorization paper determines the probability that a whole length-n prefix is an inverse Lyndon word, especially at probability scale 1/n.",
+        "searches": [
+          "https://arxiv.org/html/2609.23401v1",
+          "https://arxiv.org/html/1004.4062v2"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2609.23401v1",
+        "https://arxiv.org/html/1004.4062v2",
+        "Frozen result, associated code/output and audit"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Azad–Chassaing explicitly use long runs of the smallest symbol to locate lexicographically smallest rotations and use iid orbit invariance. De Felice et al. give uniqueness of sesquipower decomposition. Neither inspected statement weights every candidate root by an extra continuation of length n-d or supplies the summable error for that sum."
+        ],
+        "reasoning": "Combining these structural facts still requires isolating d close to n, controlling the maximum-rotation prefix at a growing logarithmic cutoff, and ruling out all shorter roots. This quantitative analysis is what turns 1/d into the new 1/[(1-p_top)n] law. The moment formulas themselves are standard deductions from the tail.",
+        "searches": [
+          "https://arxiv.org/html/1004.4062v2#S2.SS1",
+          "https://arxiv.org/html/2609.23401v1#S3",
+          "Frozen RESULT.md, proof (1)–(2)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "De Felice et al., Proposition 2 and Definition 7, identify the anti-Lyndon sesquipower event and the first inverse-array entry respectively; reversing the alphabet converts the event to being an ordinary prenecklace, not an ordinary Lyndon word."
+        ],
+        "reasoning": "The equivalent probability is the weighted mass of prenecklaces, allowing a period strictly shorter than the length. The mass of primitive Lyndon representatives alone accounts for the d=n summand, not for the bias-dependent geometric multiplier.",
+        "searches": [
+          "inverse Lyndon prenecklaces greatest rotation biased nonuniform Bernoulli first prefix length tail probability longest top letter run",
+          "Resultary: inverse Lyndon first prefix length prenecklaces nonuniform Bernoulli reciprocal tail (unavailable)",
+          "https://arxiv.org/html/2609.23401v1#S3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Uniform prenecklace enumeration counts one length-n continuation per primitive representative of every length d<=n; dividing the summed Moebius counts by q^n gives the already covered q/(q-1) leading coefficient. Section 1.1 of Azad–Chassaing gives mass P(primitive length d)/d for the Lyndon representatives even under bias."
+        ],
+        "reasoning": "Neither a uniform word-count table nor even primitive representative masses distinguish which root prefix is repeated. A new bin of a uniform table is not the contribution; the continuation probabilities under arbitrary fixed positive weights are essential.",
+        "searches": [
+          "Frozen RESULT.md, classical FKM count and Moebius primitive-necklace formula",
+          "https://arxiv.org/html/1004.4062v2#S1.SS1"
+        ]
+      },
+      "rationale": "Best of knowledge, limited to the fixed, nonuniform Bernoulli first-entry law and its moment consequences. The real ingredients are closely related to established weighted primitive-word probabilities and extremal-letter run analysis, not independently new, and the exact uniform result is already classical. The inspected closest papers do not give the summed, weighted sesquipower tail or its error term.",
+      "residual_risks": [
+        "The Resultary query did not complete and direct access to the cited related scattered-subsequence record failed; these are not negative search findings. No independent claim of coverage of the published corpus is made. The frozen audit identifies nearby scattered-subsequence and quasinecklace observables, distinct on their stated definitions, but their full texts were not independently read here.",
+        "Unindexed nonuniform prenecklace enumeration or Duval-algorithm average-case analyses could be equivalent. This is a qualified comparison based on the verified nearest primary sources."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies the definition, sesquipower equivalence and prefix closure and treats algorithms; the inspected results do not establish the probabilistic law",
+          "evidence": [
+            "Proposition 2 and Definition 7",
+            "Lemmas 6–7, Theorem 3.1 and Lemma 16"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2609.23401v1",
+          "material_read": "Introduction, Preliminaries, §3 through Theorem 3.1, §§4–5, appendix prefix-closure lemma",
+          "method": "Read author preprint HTML",
+          "title": "The Inverse Lyndon Array",
+          "trigger": "Same first-entry definition, expanded version previously not inspected in frozen audit"
+        },
+        {
+          "assessment": "Closely related technical ingredients and alphabet bias but different limit observables",
+          "evidence": [
+            "§1.1 rotation-orbit probability for Lyndon words",
+            "Theorems 1.2 and 1.4",
+            "§2.1 extremal-letter runs"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1004.4062v2",
+          "material_read": "Definitions, §§1.1–1.3 and §2.1 through the treatment of long runs",
+          "method": "Read author preprint HTML and compare the stated random variables and scales",
+          "title": "Asymptotic behavior of some factorizations of random words",
+          "trigger": "Nonuniform iid Lyndon statistics and extremal-letter bias; potentially stronger probabilistic coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The statistic is a canonical entry of an existing word array under a natural random-text model, not the outcome of picking an arbitrary small instance. The result gives a precise distributional scale, identifies the ordered extremal letter rather than the modal letter or the entropy as the controlling parameter, and separates almost-sure finiteness from infinite expectation while giving precise truncation scales. Uniform counting alone cannot answer this source-sensitive question.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

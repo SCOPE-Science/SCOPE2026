@@ -1,11 +1,21 @@
-# Review of minimum identifying-code exchanges in three-row rook graphs
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof derives the lower bound from signature separation, characterizes every equality case and verifies the converse at the boundary \(m\ge4\). It derives all one-token moves, counts them exactly, proves connectivity with a movable double-column buffer and classifies natural row/column symmetry orbits. All sub-optimal subsets were independently enumerated for \(m=4,5,6,7\); predicted states and all exchanges were checked through \(m=8\). These finite checks corroborate, but do not replace, the symbolic proof.
+## correctness
 
-**Originality — PASS, residual risk acknowledged.** Goddard and Wash's Theorem 2.2 already proves the scalar numerical identifying-code optimum for these Cartesian clique products. Foucaud and collaborators give relevant line-graph formulations; Teshima treats adjacent-vertex-slide code reconfiguration. Compared by implication, the inspected results do not furnish the full equality cases, exact token-jumping move rules or connected regular reconfiguration graph. The numerical bound is explicitly excluded from the novelty claim. Alternative terminology or unindexed literature could contain equivalent prior results.
+PASS
 
-**Value — PASS.** A numerical minimum alone does not explain whether an optimal identifying-code placement can be modified without increasing its sensor count. The all-configuration description and its exact connected regular exchange graph answer that structural question for the full nontrivial family, while enabling explicit navigation among optimal sensor placements.
+For code C the signature of (i,j) is R_i∪B_j. In a row i, two column signatures agree exactly when both column contributions outside R_i are empty. An empty column thus forces at least 2(m−1) selected cells; with no empties, at most three singletons are possible and at size 2m−3 there must be exactly one per row and exactly two entries in every other column. Such words dominate and separate within rows. Equality of two signatures from different rows i,h forces each cell to lie in the other row's singleton column, by membership of the two singleton codewords; it then forces both rows to lack any other codeword. A double column must meet at least one of i,h, which rules this out for m≥4. There are m(m−1)(m−2) singleton placements and three choices per double. Preserving column counts allows only double recoloring (2 choices per double); changing them relocates an S_i into a double containing i, with 2 receiving-row labels and 2 recolorings of the vacated singleton per double. This gives all 6(m−3) distinct moves and the stated edge total. Recoloring lets any singleton move to any double column; an unfixed singleton occupying a desired target can be moved into a double buffer without dislodging a fixed marker. This connects every singleton placement and then independent double recolorings finish the path. Row and column equivalence is exactly equality of the three missing-row multiplicities up to permutation. Independent signature and token-jump enumeration at m=4,5,6 checked 1586,16384,155382 subsets through the respective optimum, found 72,540,3240 optimum words and 216,3240,29160 edges, and reached every optimum word in each exchange graph. Frozen verify.py is the supplied replay (inspected, not run): its m=8 check is on predicted configurations, not an exhaustive subset search. All-m claims use the proof, not extrapolation.
 
-**Closest literature and limits.** Goddard–Wash (2013), Theorem 2.2, is the closest same-graph prior theorem; Foucaud et al. (2011), Sections 1–2, cover the line-graph viewpoint. The classification is for \(m\ge4\) and token jumping, not sliding; no diameter or mixing-time formula is claimed. Numerical checks are finite, and no independent mathematical audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The scalar optimum is prior and explicitly attributed. The necessary singleton-column pattern also follows from Goddard–Wash's lower-bound argument by equality. The supported distinct content is the sufficiency of the complete equality description and the exact token-jumping structure, including exhaustive moves, degree, connectivity and natural orbits, which are not established by the earlier sources inspected. A later catalogue theorem implies the static classification; its date does not certify publication priority.
+
+## value
+
+PASS
+
+Recovering every minimizer and how one-token modifications connect them goes beyond the known optimum. The minimal rectangle with three distinct singleton markers has a complete uniform move rule and reconfiguration invariants, not merely a list of small cases. The structural description directly gives all states and local transitions and supports exact reachability; the proof does not claim a diameter or results for all rectangular sizes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

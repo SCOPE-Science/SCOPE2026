@@ -18,7 +18,7 @@ Consequently, for every fixed integer \(j\ge1\),
 \tag{2}
 \]
 
-The new higher-rank conclusions begin at \(j=3\): \(s_3(T_\alpha)\sim(16\alpha^2)^{-1}\) and \(s_4(T_\alpha)\sim 3/(64\alpha^3)\). The leading rank-one and second-rank statements are included in (1)–(2) to express the complete hierarchy, but are known from earlier work and are not asserted to be original.
+The contribution considered here begins at \(j=3\): \(s_3(T_\alpha)\sim(16\alpha^2)^{-1}\) and \(s_4(T_\alpha)\sim 3/(64\alpha^3)\). The leading rank-one and second-rank statements are included in (1)–(2) to express the complete hierarchy, but are known and are not asserted to be original.
 
 ## Assumptions and scope
 
@@ -76,30 +76,33 @@ and operator norm
 
 in \(L^2(\Omega_j\times\Omega_j)\), not merely at individual tuples. Here is a detailed justification of the nonstandard determinant step.
 
-For \(u+v<\alpha\), factor \(h_\alpha(u+v)=a_\alpha(u)a_\alpha(v)g_\alpha(u,v)\), where \(a_\alpha(u)=h_\alpha(u)\), and write \(\varepsilon=1/\alpha\). On bounded rectangles, the logarithm of the remaining kernel has a convergent analytic expansion
+For \(u+v<\alpha\), factor \(h_\alpha(u+v)=a_\alpha(u)a_\alpha(v)g_\varepsilon(u,v)\), where \(a_\alpha(u)=h_\alpha(u)\) and \(\varepsilon=1/\alpha\). At \(\varepsilon=0\) the remaining kernel extends analytically on each bounded rectangle, with
 
 \[
-\log g_\alpha(u,v)
+\log g_\varepsilon(u,v)
 =\sum_{r\ge1}\varepsilon^r Q_r(u,v),\qquad
 Q_1(u,v)=-uv,
 \tag{7}
 \]
 
-where each monomial of \(Q_r\) is mixed (contains positive powers of both \(u\) and \(v\)), and every such monomial has degree at most \(r+1\) in each variable. More explicitly, the coefficient at order \(\varepsilon^r\) comes from the difference of the one-variable logarithms in the exact expression
+Indeed, the exact expression is
 
 \[
-\log g_\alpha=(\alpha-1)
-\left[\log\left(1-\frac{u+v}{\alpha}\right)
--\log\left(1-\frac{u}{\alpha}\right)
--\log\left(1-\frac{v}{\alpha}\right)\right].
+\log g_\varepsilon=(\varepsilon^{-1}-1)
+\left[\log(1-\varepsilon(u+v))
+-\log(1-\varepsilon u)-\log(1-\varepsilon v)\right].
 \tag{8}
 \]
 
-The Taylor coefficient of \(u^a v^b\) in \(g_\alpha\) is therefore \(O(\varepsilon^{\max(a,b)})\) when \(a,b\ge1\). The coefficient of \(u^k v^k\) at the *lowest* order \(\varepsilon^k\) is \((-1)^k/k!\): obtaining bidegree \((k,k)\) with only \(k\) powers of \(\varepsilon\) requires exactly \(k\) copies of the mixed monomial \(-\varepsilon uv\). Pure coefficients vanish, apart from the constant coefficient \(1\).
+At order \(\varepsilon^r\), the bracket and prefactor in (8) give mixed monomials of total degree \(r+1\) or \(r\); each therefore has degree at most \(r\) in **each** variable. Both degrees can equal \(r\) only when \(r=1\), for the term \(-\varepsilon uv\). This bound in each variable is preserved by exponentiation: the coefficient of \(u^a v^b\) in the resulting formal series starts at order at least \(\max(a,b)\). Attaining bidegree \((k,k)\) at order \(\varepsilon^k\) requires every factor to attain equality in both degrees, so the leading diagonal coefficient is \((-1)^k/k!\). Pure coefficients vanish except for the constant \(1\).
 
-Apply the determinant Cauchy–Binet expansion to the finite Taylor truncations of \(g_\alpha\). Since distinct row and column monomial degrees are required for a nonzero determinant, the unique contribution at total order \(\varepsilon^J\) uses degrees \(0,1,\ldots,j-1\) on *both* sides, matched diagonally. Its coefficient is \((-1)^J/\prod_{k<j}k!\), and the monomial determinants are \(\Delta(U)\) and \(\Delta(V)\). All other terms have at least one additional power of \(\varepsilon\). Analytic convergence makes the resulting expansion uniform on \(0\le u_a,v_b\le R_\alpha\) with \(R_\alpha=C_j\log\alpha\), for any fixed \(C_j>0\); after extracting the factor \(e^{-\sum u-\sum v}\), its error is bounded by \(\alpha^{-J-1}\) times a fixed polynomial in \(R_\alpha\). Also \(a_\alpha(u)\to e^{-u}\) uniformly on that rectangle, with polynomial-in-\(R_\alpha\) relative error of order \(\alpha^{-1}\).
+Apply Cauchy–Binet to the finite monomial coefficient matrix of the kernel truncated in \(\varepsilon\) through order \(J\). Given distinct row degrees \(a_1<\cdots<a_j\) and column degrees \(b_1<\cdots<b_j\), a matching \(\sigma\) contributes only at order at least \(\sum_i\max(a_i,b_{\sigma(i)})\), which is at least each of \(\sum_i a_i\) and \(\sum_i b_i\). Both sums are at least \(J\), with equality only for the degree set \(0,1,\ldots,j-1\). For these sets the bound equals \(J\) only for the diagonal matching. Thus the determinant has no coefficients below order \(J\), and at that order its coefficient is \((-1)^J\Delta(U)\Delta(V)/\prod_{k<j}k!\).
 
-For the complement where any variable exceeds \(R_\alpha\), the determinant bound \(|D_{\alpha,j}(U,V)|\le j!e^{-(\sum_a u_a+\sum_b v_b)/2}\) yields a squared tail bounded by \(C_j'\alpha^{2J}e^{-R_\alpha}\). Choose \(C_j>2J+2\). The limiting right side of (6) has the same exponentially integrable tail, proving (6) in Hilbert–Schmidt kernel norm.
+For a uniform remainder, take \(0\le u_a,v_b\le R\) and the complex disc \(|\varepsilon|\le \rho_R=[8(1+R)^2]^{-1}\). Then \(|\varepsilon|(u+v)\le 1/4\), and the bracket in (8) has no linear term. The sum of the absolute values of its terms is \(O(|\varepsilon|^2 R^2)\) by the logarithm series. Consequently \(|\log g_\varepsilon|\le C|\varepsilon|R^2\), with absolute \(C\), so \(\det[g_\varepsilon(u_a,v_b)]\) is bounded by a constant depending only on \(j\) on the disc. Cauchy's coefficient estimate and a geometric sum bound the remainder after order \(J\) by \(O_j(|\varepsilon|^{J+1}(1+R)^{2J+2})\) for \(|\varepsilon|\le\rho_R/2\).
+
+Now take \(R=R_\alpha=C_j\log\alpha\), with \(C_j>2J+2\). For sufficiently large \(\alpha\), \(2R<\alpha\) and \(\varepsilon=1/\alpha\le\rho_R/2\). The same logarithm series gives \(\log a_\alpha(u)+u=O(\alpha^{-1}(1+R)^2)\) uniformly for \(0\le u\le R\). Hence, after factoring out \(e^{-\sum_a u_a-\sum_b v_b}\), the difference between the scaled determinant and the right side of (6) is uniformly \(O_j(\alpha^{-1}(1+R)^{2J+2})\) on this box, using \(|\Delta(U)\Delta(V)|\le (1+R)^{2J}\). The error on the box tends to zero in \(L^2\) because the extracted exponential is square-integrable on the entire orthant.
+
+For the complement where any variable exceeds \(R_\alpha\), the determinant bound \(|D_{\alpha,j}(U,V)|\le j!e^{-(\sum_a u_a+\sum_b v_b)/2}\) yields a squared tail for the scaled determinant bounded by \(O_j(\alpha^{2J}e^{-R_\alpha})=o(1)\). The limiting right side of (6) is an exponential times a polynomial and is square-integrable, so its squared tail also tends to zero. This proves (6) in Hilbert–Schmidt kernel norm.
 
 **4. An exact Laguerre norm.** The operator with limiting kernel (6) is rank one. Let \(F_j(U)=e^{-\sum_a u_a}\Delta(U)\). The squared \(L^2(\Omega_j)\)-norm is the Hankel moment determinant
 
@@ -125,7 +128,7 @@ The accompanying standalone `check_spectrum.py` computes the exact-rational Gram
 
 ## Relationship to prior work
 
-Eveson's 2003 and 2004 papers establish the leading rank-one behavior of large Volterra powers, and Ransford–Walsh (first posted 20 June 2022) studies norms of polynomials of the same operator. Those findings are not claimed as original here. A previously published sharp second-singular-value result establishes \(s_2(T_\alpha)=1/(8\alpha)+O(\alpha^{-2})\) and an \(O(\alpha^{-2})\) rank-two approximation error in Hilbert–Schmidt norm; these imply only an *upper bound* on the third singular value, not the exact coefficient \(1/16\) or the subsequent hierarchy. The new contribution is the simultaneous sharp fixed-rank law for all \(j\ge3\), obtained by an exterior-power determinant limit. Classical Tuan–Gorenflo singular-value estimates take the singular-value **index** to infinity at fixed integration order and therefore do not imply the limit here.
+Eveson's 2003 and 2004 papers establish the leading rank-one behavior of large Volterra powers, and Ransford–Walsh (first posted 20 June 2022) studies norms of polynomials of the same operator. Those findings are not claimed as original here. The dated public summary in reference 4 gives \(s_2(T_\alpha)\sim1/(8\alpha)\) and an \(O(\alpha^{-2})\) rank-two approximation error in Hilbert–Schmidt norm; those statements imply only an *upper bound* on the third singular value, not the exact coefficient \(1/16\) or the subsequent hierarchy. The distinction from these results is the sharp law at every fixed rank \(j\ge3\), obtained by an exterior-power determinant limit. Classical Tuan–Gorenflo singular-value asymptotics take the singular-value **index** to infinity at fixed integration order, not the limit proved here.
 
 ## Limitations
 
@@ -136,6 +139,6 @@ Rank is fixed before the integration order tends to infinity. No uniformity in g
 1. T. Ransford and N. Walsh, *Norms of polynomials of the Volterra operator*, arXiv:2206.09947v1 (20 June 2022), https://arxiv.org/abs/2206.09947.
 2. S. P. Eveson, *Norms of iterates of Volterra operators on* \(L^2\), J. Operator Theory 50 (2003), 369–386, https://jot.theta.ro/jot/archive/2003-050-002/2003-050-002-010.pdf.
 3. S. P. Eveson, *Asymptotic behaviour of iterates of Volterra operators on* \(L^p(0,1)\), arXiv:math/0409516v1 (27 September 2004), https://arxiv.org/abs/math/0409516.
-4. *Sharp second singular asymptotics and rank-two collapse for high Volterra powers*, publicly available research result, https://github.com/published-finding corpus/2026/tree/main/2026/10/18/SCOPE-sharp-second-singular-asymptotics-and-rank-two-collapse-for-high--3619ccb23ef6.
+4. *Sharp second singular asymptotics and rank-two collapse for high Volterra powers*, public result summary (18 October 2026), https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-sharp-second-singular-asymptotics-and-rank-two-collapse-for-high--3619ccb23ef6.
 5. V. K. Tuan and R. Gorenflo, *Asymptotics of singular values of Volterra integral operators*, Numer. Funct. Anal. Optim. 17 (1996), 453–461, https://doi.org/10.1080/01630569608816704.
 6. M. R. Dostanić, *Estimates for the norm of powers of Volterra's operator through its singular values*, Math. Z. 236 (2001), https://doi.org/10.1007/PL00004837 (abstract consulted; full text not assessed).

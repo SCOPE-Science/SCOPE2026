@@ -1,19 +1,21 @@
-# Scientific review: adaptive institutional reward phase diagram
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The normalized ODE exactly reproduces equation (6) of Hua and Liu (2023). With \(1<r<N\), \(k=c(1-r/N)>0\) and the finite geometric sum \(S_N\) is strictly decreasing. The root comparisons yield strictly ordered \(\delta_0<\delta_1<\delta_2<\delta_3\) and the five selected states, including endpoints. The proposed integral Lyapunov function is well defined on the open rectangle, has a precise derivative identity with three nonpositive terms, and its sublevels cannot meet any nonselected boundary face. Every zero-derivative invariant trajectory must be stationary at the selected point; LaSalle therefore proves global convergence for arbitrary \(\varepsilon>0\), with no appeal to finite simulations or boundary hyperbolicity. A standard-library checker checks algebraic identities and finitely many regimes; it is not an infinite certificate.
+PASS
 
-## Originality
+Independently reconstructed the factorization x'=P(x)(a-Aδ(x)), a'=(1+u)Q(a)(h-x) and the Lyapunov argument. S_N decreases strictly from N to 1 and 0<h<1, so comparing Aδ at 0,h,1 with the two reward bounds gives the four strictly ordered thresholds and the five displayed choices. For the selected point (xe,ae), differentiating the separable integrals gives V'/(1+u)=−(x−xe)(Aδ(x)−Aδ(xe))+(x−xe)(ae−Aδ(xe))+(a−ae)(h−xe). The first summand is strictly negative for x≠xe; the second is zero except in the two endpoint regimes, where the displacement and selection inequality give opposite signs; the last is zero at xe=h and otherwise nonpositive with equality only at ae. These signs do not require strict threshold inequalities. The integrands have removable singularities at a selected boundary coordinate and logarithmic barriers at every other endpoint; the extended finite sublevels are compact and forward invariant, since selected boundary faces are invariant and V' extends there. At xe=h the only trajectory held on V'=0 has a=Aδ(h), because P(h)>0. Otherwise V'=0 already gives the selected point. LaSalle therefore applies even at the four nonhyperbolic thresholds. The branch is continuous by inversion of S_N, with exactly the stated monotonic pieces. No nonconstant interior cycle can stay in the zero-dissipation set. The frozen wording 'strict decrease ... off the selected point' should not be interpreted as pointwise V'<0 on x=h in the central regime; the invariant-set proof is valid and supplies the conclusion. The recorded finite numerical checks are ancillary; no submitted script was executed.
 
-**PASS on inspected evidence, with residual literature risk.** The closest source, Hua and Liu (2023), already derives the equilibria and their local Jacobians and reports five numerical scenarios. Neither the complete Lyapunov integral nor a quantified, ordered **all-parameter** convergence theorem including four equality thresholds is given in its Section 4 or Appendix. The 2022 environmental-game and 2023 collective-risk papers concern different payoff/feedback structures and in general admit cycles. The 2024 collective-risk/dilemma-strength model has a nonmonotone binomial payoff component and a distinct sign for feedback, and may be multistable; its results do not imply monostability for this strictly decreasing reward isocline. Literature and mathematical-result searches did not identify a dominating same-model theorem; indexing gaps and possible uninspected general theorems remain residual risks rather than proof of absolute novelty.
+## originality
 
-## Value
+PASS
 
-**PASS.** An exact phase diagram matters because local stability at each fixed point and finite phase portraits cannot exclude persistent cycles or distant competing attractors. The all-parameter Lyapunov law supplies a mathematically substantive global guarantee despite arbitrary feedback-speed separation, while the four sharp thresholds identify precisely when stationary behavior switches between full defection, high reward partial cooperation, a feedback-set fraction, low reward partial cooperation, and full cooperation. Endpoint cases are often nonhyperbolic and are included rather than inferred from linearized stability. The result isolates the structural monotonic-payoff mechanism behind the absence of recurrent oscillations, distinguishing it from nearby collective-risk models where multistability occurs.
+The complete global five-regime selection theorem, including boundary and equality cases at arbitrary positive ε, is distinct from the original model analysis and from the strongest exact-model comparisons. The ODE, central equilibrium, local stability analysis and representative phase portraits are not original to this result.
 
-## Limitations and literature relation
+## value
 
-The finding is confined to Hua–Liu equation (6) for \(N\ge2\), \(c>0\), \(1<r<N\), \(\delta,u,\varepsilon>0\), \(0<\alpha<\beta\), and strictly interior initial conditions. Full bibliography, exact formulas and proof are in `RESULT.md`. No independent validation or audit has yet occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+It replaces parameter-specific portraits and local stability with a single global prediction at every speed for a published feedback model. In particular, compactness at selected faces and convergence at nonhyperbolic thresholds resolve questions that linearization cannot decide. The continuous monotone response branches are useful consequences within the exact model, not claims about policy or modified feedback.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

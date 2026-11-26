@@ -1,19 +1,21 @@
-# Scientific review: first nonunimodality of classwise-random type spectra
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-A homogeneous Fraïssé limit exists for graphs whose edges lie within equivalence classes. One-point extensions either use a new class or choose an old class and any subset of its named elements as neighbors, which proves \(P_A(z)=1+\sum_i(1+z)^{a_i}\). The backward-rise lemma controls every grade at or above three through sixteen named points. At grade two, a later rise requires a class of size at least six and at least fifteen edges counted at that grade, establishing the bound and the unique sixteen-parameter profile. The infinite family has an explicit three-coefficient valley. An independent direct finite-extension counter agrees with the binomial formula through eight parameters; exhaustive partition tests through sixteen agree with the claimed uniqueness.
+PASS
 
-## Originality — PASS (historical qualification)
+The Fraïssé extension property realizes exactly one new-class diagram and all adjacency subsets in each represented class. Homogeneity identifies equal diagrams with equal complete types, and nonalgebraic types exclude the named points. Consequently c0=k+1 and cj is the sum of binomial coefficients for j>=1. For n<=16, a rise from j to j+1 at j>=3 needs a class b>=2j+2. Its contribution to the preceding difference is at least 28, 90, or 297 at j=3,4,5, while all others can offset at most 28, 20, or 1. In the j=3 equality-bound case, splitting the other eight points strictly reduces the pair count, and leaving them together gives a positive contribution instead. For j>=6 the remainder is too small to offset anything. Rises therefore propagate back to the 2-to-3 step. Except in the all-singleton case, c0<=c1, so any failure requires c1>c2 and c3>c2. The second inequality forces a size-six or larger class and c2>=15; the first requires n>=16. At n=16 equality c2=15 exhausts all within-class pairs with just one size-six class, and the explicit valley persists with additional singletons. A separate enumeration of nonincreasing partitions using the binomial recurrence examined 914 profiles and returned only (6,1^10) with coefficients (12,16,15,20,15,6,1). Replay by generating partitions with each next part at most the previous one, summing each part's row starting from binom(a,0)=1 and adding 1 at grade zero, and detecting any positive adjacent difference after a negative one. Frozen VERIFY.py and its recorded output were inspected, not executed.
 
-Zhu and Lu (arXiv:1507.05754; 2015) give the analogous complete-multipartite independence polynomial and non-sharp sufficient conditions, as well as a nonunimodal 34-vertex example. Levit and Mandrescu (arXiv:math/0309151; 2003) give nonunimodal independence-polynomial examples for other graph families. Neither inspected primary treatment states a universal 15-point bound and a unique sixteen-point counterexample for the shifted one-point type polynomial. The general polynomial, equivalence to an independence polynomial, and existence of some nonunimodality are credited to existing work. Search coverage is not proof of historical priority; unindexed equivalent classifications remain a risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The exact smallest parameter size for loss of coefficient unimodality is a natural structural boundary in a finite-parameter logical type invariant. Classifying the sole minimal obstruction (rather than merely producing another example) and showing that it propagates for all larger sizes clarify how a single large equivalence class competes with many singleton classes. The result is an all-size sharp cutoff and not a numerically convenient arbitrary slice.
+Best of the inspected evidence supports the sharp threshold, minimal-profile uniqueness and persistence as distinct. Neither the extension-count formula alone nor the existence of nonunimodal multipartite independence polynomials is credited as new.
 
-## Limits
+## value
 
-Only the specified relational Fraïssé limit and nonalgebraic singleton types are included. Finite computations are corroborative, not substitutes for proof. An independent audit and definitive historical-priority assessment have not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The first failure measures when aggregating unimodal within-class rank counts can create a valley. The result gives the full minimal obstruction rather than just an example, and the backward-rise lemma explains why only the first two nonconstant coefficient comparisons can cause failure at these orders. The equivalent multipartite graph statement also makes the cutoff relevant outside the type-count interpretation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

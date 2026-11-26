@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:50:28.794930Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The main counterexample is correct as frozen. With tail sum s, C1 holds by linear nonnegative coordinates, C2 is s/4≤s/2, C3 is s/8≤3s/16, and the geometric g iterates sum to 3t. For a=1/4, P_n=P+a^n(E−P), so there is norm summability, P_nP=P, but PP_n≠P under the interior hypothesis. Every row of P_n⋯P_(k+1) is in the convex hull of the rows of the rightmost P_(k+1), giving the positive lower and stated upper tail bounds independently of n. The Dobrushin coefficients of the factors are a^n δ(E); submultiplicativity gives the exact exponent in the bound. The column extrema form nested intervals with widths tending to zero, so the limits are rank-one, never P for a fixed k, and approach P as k→∞. They cannot all be the same; pairwise distinctness for every pair of indices is not required or asserted. In two states the scalar row difference multiplies at each step by a^n/2 for the stated witness. This disproves the published fixed-k convergence to the common P, not weak ergodicity. The frozen checker at line 24 tests (3/4)^(k+1) instead of the claimed (3/4)·4^(−k−1) upper bound, and its loop has sum_(k=0)^7 (19−k)=124 pairs, not the hard-coded 152 reported in the notes. The corrected complete check.py, RESULT.md, and VERIFICATION.md in /workspace/repairs/2/ fix both scientific reproducibility issues without altering the theorem proof or the frozen evidence. I inspected the uploaded checker rather than running it. An independent scalar recursion for the two second-column entries verifies both intended bounds and the exact width for all 124 pairs; replay python3 /tmp/opencode/nov02-independent-checks.py 2. This finite check corroborates the two-state example; the general proof is analytic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mukhamedov–Al-Rawashdeh Theorem 6.6 requires T_n,S_n∈Σ_(P_n) as well as one-sided invariance and norm summability; Σ_P expressly requires PT=TP.",
+          "Souissi–Mukhamedov Theorem 3.6 on p. 7 asserts weak ergodicity only."
+        ],
+        "reasoning": "The earlier perturbation theorem does not subsume the claimed false statement, because PP_n≠P_nP in the example. Weak ergodicity is consistent with a start-dependent probability row; neither background theorem establishes the explicit obstruction as a prior correction.",
+        "searches": [
+          "arXiv:2001.07703, definition of Σ_P and Theorem 6.6",
+          "primary-literature lookup for correction of Souissi–Mukhamedov Theorem 3.5"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1007/s44198-024-00172-6",
+        "arXiv:2001.07703",
+        "Resultary c3b72a8ef229"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2024 proof of 3.5 applies 3.4 with S_n=P after establishing summed norm convergence; the printed 3.4 assumes T_nP=P and S_nP=P without the older commutation condition.",
+          "For fixed k the observed positive tail persists by rightmost-factor convexity, so the same P asserted by the source proof is excluded."
+        ],
+        "reasoning": "This is a direct refutation of the specified theorem and its quoted generalization, not a prior result obtained by applying the theorem correctly under its full commutation hypotheses. Standard Dobrushin estimates are used as tools.",
+        "searches": [
+          "Souissi–Mukhamedov Theorems 3.4–3.6 pp. 6–7",
+          "Mukhamedov–Al-Rawashdeh Theorem 6.6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Published p. 6 defines P_X^(k,n)=P_(n;X)⋯P_(k+1;X) and asks for each fixed k that the norm difference from P tend to zero.",
+          "Transposing the whole product reverses multiplication and switches stochastic orientation; retaining the stated row convention and simply reversing order instead changes the claim. In the forward row product, P_n→P gives convergence to P by stochastic left multiplication of P_n−P."
+        ],
+        "reasoning": "The pertinent alias is fixed-start convergence to a common rank-one projection for backward-ordered row-stochastic products, not a uniform supremum over starts, nor forward-order weak or strong ergodicity.",
+        "searches": [
+          "Resultary: F-stochastic reverse Markov products, fixed projection counterexample",
+          "Souissi–Mukhamedov DOI:10.1007/s44198-024-00172-6, reverse product and uniform P-ergodicity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The nearest inspected indexed model, Resultary c3b72a8ef229, uses two-state parabolic dynamics and classifies equivalence of path measures, not exact reverse-product limits or discrepancies from P.",
+          "The theorem-specific literature lookup returned the primary article and a bibliographic duplicate, not evidence of another concrete calculation."
+        ],
+        "reasoning": "An integer sequence table is not pertinent to an operator counterexample over arbitrary row seeds; the comparable exact-result catalogue was checked for a family or equivalent witness. Search yield alone does not certify priority.",
+        "searches": [
+          "Resultary: associated F-stochastic Markov counterexamples",
+          "c3b72a8ef229, exact model theorem",
+          "2024 DOI and theorem-specific correction lookup"
+        ]
+      },
+      "rationale": "The supported contribution is the specific all-interior, all-simplex-dimension counterexample to Theorem 3.5 in the 2024 paper's explicit reverse order, with rank-one start-dependent limits and a quantitative separation from weak mixing. The general distinction between different ergodicities and earlier projection-commuting perturbation theory are not claimed as new. No compared primary or indexed claim gave this correction.",
+      "residual_risks": [
+        "A prior erratum or independent correction may be unindexed. Classical counterexamples to common limiting projections may be related; no novelty is claimed for the classical distinction or the inequalities alone."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same hypotheses and intended rank-one P; the proof expressly invokes a one-sided perturbation result",
+          "evidence": [
+            "Initial rows are iterates W^n(x_i); printed order places the latest matrix leftmost.",
+            "Proof of 3.5 explicitly uses the constant generating sequence S_n=P."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s44198-024-00172-6",
+          "material_read": "PDF pp. 4–7, Definition 3.1, product order, definition of uniform P-ergodicity, and Theorems 3.4–3.6 with proof of 3.5; OA offsets around 8200 and 13360–18935",
+          "method": "Inspect bounded passages of publisher's OA PDF",
+          "title": "Nonlinear Stochastic Operators and Associated Inhomogeneous Entangled Quantum Markov Chains",
+          "trigger": "Exact theorem challenged, definitions, ordering and claimed limit"
+        },
+        {
+          "assessment": "Membership requires commutation; not contradicted by these matrices",
+          "evidence": [
+            "Theorem 6.6 explicitly gives T_n,S_n∈Σ_(P_n); the definition is PT=TP."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2001.07703",
+          "material_read": "Σ_P definition at offsets 15779–16203 and Theorem 6.6 with early proof at 71750–73920",
+          "method": "Read OA theorem and correlate the operative hypothesis with its notation definition",
+          "title": "Generalized Dobrushin Ergodicity Coefficient and Ergodicities of Non-homogeneous Markov Chains",
+          "trigger": "Older perturbation source might already cover or forestall the refutation"
+        },
+        {
+          "assessment": "Path-measure equivalence for a parabolic family, not this theorem refutation",
+          "evidence": [
+            "The statements classify couplings, equivalence and singularity of laws, not rank-one reverse-product limits at a fixed start."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-parabolic-stochastic-dynamics-full-path-measure-classes-and-a-cr--c3b72a8ef229/RESULT.md",
+          "material_read": "Finding and specified two-state transition probabilities, offsets 0–2387",
+          "method": "Read local mirror at snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Parabolic stochastic dynamics: full path-measure classes and a critical rare-visit window",
+          "trigger": "Related exact F-stochastic model and possible alternate form of the counterexample"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A strictly interior, rational and simplex-linear construction refutes a named theorem under all its listed assumptions, not by a boundary pathology. It locates the missing two-sided condition and explains precisely how summably convergent generators and superexponential row mixing coexist with persistent memory of the rightmost factor. This is a meaningful correction for downstream uses of the theorem; it asserts no automatic refutation of a separate quantum-chain claim.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

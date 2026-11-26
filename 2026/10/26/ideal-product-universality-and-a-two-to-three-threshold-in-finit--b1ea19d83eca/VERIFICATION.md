@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-Run `python3 artifacts/verify.py` using standard Python 3; there are no third-party dependencies. It constructs the algebra with basis consisting of a unit, radical generators and one socle generator. It enumerates **all** subspaces in reduced-row-echelon form, rejects those not closed under multiplication, and directly checks every pair and triple of remaining ideals. The checker uses the predicted Gaussian-binomial formulas only for comparison with independently enumerated ideals and products.
+## correctness
 
-Actual runs succeeded for rank two, both alternating and diagonal bilinear forms over characteristic two, both hyperbolic and diagonal forms over characteristic three, a hyperbolic form over characteristic five, and rank three with a diagonal form over characteristic two. Counts: `(p,r,ideals,zero_pairs,zero_triples)` = `(2,2,7,25,288)` twice, `(3,2,8,30,430)` twice, `(5,2,10,40,846)`, `(2,3,18,101,5213)`. Terminal output: `VERIFY_OK`.
+PASS
 
-The checker only covers the listed prime fields and finite ranks. It does not independently establish arbitrary prime-power or mixed-characteristic cases; those are covered by the theoretical proof and ring-module argument. No independent audit or external certification is asserted.
+The quotient V and socle layer are residue-field modules without a coefficient-field assumption. Nondegeneracy makes any proper ideal containing a nonzero vector modulo m² also contain m² (multiply by a partner giving a nonzero socle element); the only other proper ideals are 0 and m² itself. Thus the proper nonzero ideals are exactly the J_U including J_{0 subspace}=m². For a d-space U, its perfect-pairing annihilator has dimension r−d, so precisely T_{r−d} partners W give zero; this applies even in characteristic two, and counts ordered pairs including equality. For any k, count zero-free tuples with zero, one or two proper factors; three proper factors vanish. The two-proper nonzero outcomes are all m², giving the stated distribution and total complement, also at k=1. For fixed r, deg T_r=⌊r²/4⌋, and deg C_r≤max_t(rt−3t²/4)≤r²/3<2⌊r²/4⌋. Consequently the pair zero probability tends to zero and for fixed k≥3 the complement is O(T_r^(2−k)). Rank two gives T₂=q+3, C₂=3q+6 and the displayed probability. An initially suspected rank-three discrepancy is resolved: T₁(2)=2, not 3, so C₃(2)=16+7·5+7·2+1=66, and the frozen counts (18 ideals, 101 zero pairs, 5213 zero triples) are correct. Separate exhaustive generation by repeatedly adjoining one element and taking ideal closure reproduced these counts; in the characteristic-four example with additive group Z/4⊕(F₂)², x²=y²=2 and xy=2x=2y=0, the same check gave 7 ideals, 25 zero pairs and 288 zero triples. The supplied checker was inspected, not executed.
+
+## originality
+
+PASS
+
+The checked primary source defines the same invariant, solves the chain case, and raises extension beyond chain rings. The closest Resultary statements concern different Loewy lengths or products of elements, not this ideal-product distribution. The underlying lattice and annihilator dimension facts are classical; what survives the comparisons is their use for the complete non-chain ideal-product law, its form and ring-characteristic universality at fixed q,r, and the field-size threshold.
+
+## value
+
+PASS
+
+The ideal-product distribution is a motivated exact invariant from an existing non-chain universality question. This class is rich enough to vary the field size, form and ring characteristic, and the result identifies which of those data the invariant retains. The large-field transition sharply separates two from three factors even though the Loewy length stays fixed. Both the exact law and the contrasting limit are useful for assessing which universality claims from chains extend to other local rings.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

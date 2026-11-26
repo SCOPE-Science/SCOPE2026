@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T14:30:18.452109Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The assertion holds on the underlying real space, with no complex-linear rank-one assumption. For a real slice S=f>1-alpha, choose a unit x in S using sup over the unit sphere f=1. Independently deriving the exact needed slice criterion, apply real ADP to T(v)=f(v)ix, of norm one. Given 0<epsilon<min(alpha,1), take a unit v and sign sigma with ||v+sigma f(v)ix||>2-epsilon. Replacing v by -v if necessary preserves the norm and allows f(v)>=0. The triangle inequality forces f(v)>1-epsilon, so v is in S, and ||v+sigma ix||>2-2epsilon. On the other hand, ||v+sigma ix||<=||x+sigma ix||+||v-x||<=sqrt(2)+diam(S), with ||x+sigma ix||=sqrt(2) by complex homogeneity, not by any inner-product assumption. Taking epsilon down to zero gives the exact displayed lower bound for every real slice. This excludes denting points and a dentable unit ball; the RNP would make the ball dentable. Inspected frozen RESULT.md and VERIFICATION.md. No computational certificate is needed. The result is conditional on real ADP and does not prove sharpness, a diameter-two property, or a statement about weakly open sets.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The super-ADP paper shows that dimension-at-least-two super ADP excludes CPCP and gives diameter at least one for weak-star slices of the dual ball. The latter is on a different ball and under a stronger hypothesis.",
+          "The Huang–Xu construction shows ordinary real ADP is possible for a separable complex space without the complex Daugavet property."
+        ],
+        "reasoning": "The super-ADP conclusion does not cover all ordinary real-ADP realifications or transfer from dual slices to these primal slices. The more general real-ADP slice characterization, rather than the construction or the super-ADP diameter result, implies the frozen bound.",
+        "searches": [
+          "Resultary: super ADP RNP slice diameter",
+          "arXiv:2504.07631v2, Definition 1.2 and Theorems 3.9–3.10",
+          "Huang–Xu, arXiv:2611.06532v1, Theorem 1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md",
+        "Martín–Oikhberg (2004), DOI 10.1016/S0022-247X(04)00123-4 (landing/attribution)",
+        "Huang–Xu arXiv:2611.06532v1",
+        "Langemets–Lõo–Martín–Perreau–Rueda Zoca arXiv:2504.07631v2",
+        "Rueda Zoca arXiv:2306.01467v2",
+        "Resultary 2026/10/4/SCOPE-an-exact-exposed-face-formula-for-sliced-daugavet-thickness-of-a--bd64ca8628c3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The inspected proposition gives, for every real unit z and prescribed real slice, a witness u in that slice with max over ± of ||u±z||>=2-epsilon.",
+          "Apply the proposition with z=ix for any unit member x of the slice. Both signed norms at x equal sqrt(2), so the triangle inequality bounds the witnessed near-2 value from above by sqrt(2)+diam(S)."
+        ],
+        "reasoning": "This is an immediate corollary using the universal quantifier in the prior theorem and the defining homogeneity of the complex norm. The number not being printed in the earlier proposition does not make the assertion distinct.",
+        "searches": [
+          "Huang–Xu, arXiv:2611.06532v1, Proposition 4, PDF p.7, text offset 22500, citing Martín–Oikhberg Proposition 2.1",
+          "Martín–Oikhberg, DOI 10.1016/S0022-247X(04)00123-4, Proposition 2.1 and Remark 2.4 references"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The claim is d(X_R)>=2-sqrt(2) for the infimum d of diameters of real unit-ball slices, not the slice-radius or sliced Daugavet thickness index.",
+          "For the ADP slice formulation one may use f real linear or express it as the real part of a complex linear functional, but the witnesses have only the real signs ±1. Huang–Xu Proposition 4 gives precisely the real-sign formulation."
+        ],
+        "reasoning": "The relevant equivalent description is the real rank-one property via its real slice witnesses, not the complex alternative equation with arbitrary unit complex phases. For example, the latter phases could rotate ix back onto x and would not give this argument.",
+        "searches": [
+          "Resultary: real ADP and slice diameters; complex realification and 2-sqrt(2); Martín–Oikhberg slice criterion",
+          "Huang–Xu, arXiv:2611.06532v1, Proposition 4",
+          "Rueda Zoca, arXiv:2306.01467v2, definitions of r(X) and d(X)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The literal indexed match was the frozen record itself, not separate evidence. The nearest distinct indexed record concerns sliced thickness of absolute sums of Daugavet spaces, and Rueda Zoca gives exact d(X)=r(X)=1 for an exhibited Banach space, not this universal class."
+        ],
+        "reasoning": "A numerical table is not a meaningful exhaustiveness check for a universal statement over arbitrary Banach spaces. Exact examples and an index with a different definition do not certify such a bound.",
+        "searches": [
+          "Resultary: explicit uniform slice diameter separation for complex realifications with alternative Daugavet property",
+          "Resultary 2026/10/4/SCOPE-an-exact-exposed-face-formula-for-sliced-daugavet-thickness-of-a--bd64ca8628c3",
+          "arXiv:2306.01467v2, Theorem 1.1"
+        ]
+      },
+      "rationale": "The claimed value is not located as a separately named theorem, but is a mechanical substitution into the established real-ADP slice characterization, reproduced verbatim in an accessible earlier primary source. Taking its arbitrary unit direction z to be ix for an arbitrary unit member x of the slice gives max-sign near-2 witnesses. Their distance from x is at least 2-epsilon minus max-sign ||x±ix||, which equals sqrt(2). No additional geometric estimate or unknown case is needed. The qualitative RNP consequence is not a separate novelty claim. The failure concerns prior implication, not falsity, inaccessible literature, or a claimed verbatim match.",
+      "residual_risks": [
+        "The Martín–Oikhberg full text was not retrieved, so no conclusion about additional statements there is based on a keyword miss or a landing page. The decisive implication is verified with the accessible primary restatement and an independent proof.",
+        "This review establishes neither a verbatim earlier occurrence nor the sharp constant for the class."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Criterion mechanically implies the frozen estimate; Theorem 1 establishes existence in the motivating distinction",
+          "evidence": [
+            "Proposition 4 permits every real unit vector z and provides max over tau=±1 of ||u+tau z||>=2-epsilon in the prescribed slice."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2611.06532v1",
+          "material_read": "Theorem 1, PDF p.2 (text offset 4300), and Proposition 4, PDF p.7 (offset 22500)",
+          "method": "Bounded lawful OA primary PDF inspection",
+          "title": "Real alternative Daugavet property without Daugavet property in a separable complex Banach space",
+          "trigger": "Same hypothesis on realifications and primary text giving the decisive earlier criterion"
+        },
+        {
+          "assessment": "Criterion verified from accessible primary restatement and by direct derivation; other full-text assertions not independently excluded",
+          "evidence": [
+            "Huang–Xu explicitly attributes its real slice criterion to Proposition 2.1 of this paper. The frozen record credits the known RNP implication to Remark 2.4."
+          ],
+          "identifier_or_url": "10.1016/S0022-247X(04)00123-4",
+          "material_read": "Landing metadata/abstract only; Proposition 2.1 located via explicit quotation in Huang–Xu Proposition 4; no direct reading of Remark 2.4",
+          "method": "DOI and publisher PDF routes; publisher PDF inaccessible",
+          "title": "An alternative Daugavet property",
+          "trigger": "Original source for the characterization and qualitative RNP context"
+        },
+        {
+          "assessment": "Not a dominating theorem on the same spaces and slices",
+          "evidence": [
+            "Theorem 3.10 gives a radius bound for each fixed center in a weak-star slice of the dual ball under super ADP; the frozen claim concerns slices of the primal ball and only ordinary real ADP."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2504.07631v2",
+          "material_read": "Definition 1.2 p.2 and Theorems 3.9–3.10 p.10; theorem 3.10 and proof at offset 36000",
+          "method": "Bounded lawful OA primary PDF inspection",
+          "title": "The super alternative Daugavet property for Banach spaces",
+          "trigger": "Quantitative bound and qualitative obstruction for stronger ADP"
+        },
+        {
+          "assessment": "Same diameter invariant, exact example but not the universal ADP assertion",
+          "evidence": [
+            "Theorem 1.1 exhibits a Banach space with both diameter and radius indices equal to one."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2306.01467v2",
+          "material_read": "Abstract; p.2 index definitions (offset 4484); Theorem 1.1 p.3 (offset 7300)",
+          "method": "Bounded lawful OA primary text inspection",
+          "title": "Diameter, radius and Daugavet index of thickness of slices in Banach spaces",
+          "trigger": "Directly matching slice-diameter invariant"
+        },
+        {
+          "assessment": "Different index and class",
+          "evidence": [
+            "The thickness index asks how a slice fits within a ball, for absolute sums of real Daugavet spaces; this is not the infimum of slice diameters for ordinary real ADP on realifications."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-an-exact-exposed-face-formula-for-sliced-daugavet-thickness-of-a--bd64ca8628c3/RESULT.md",
+          "material_read": "Finding and definition of sliced thickness",
+          "method": "Resultary lookup and bounded local mirror inspection",
+          "title": "An exact exposed-face formula for sliced Daugavet thickness of absolute sums",
+          "trigger": "Nearest distinct indexed hit about quantitative slice and Daugavet geometry"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Quantitative slice structure in this class is a natural question, but the frozen assertion is only a routine bound from the triangle inequality, with no evidence that the specific scale carries geometric significance. In fact the same witness immediately gives a strictly stronger bound of one: take a real norm-one functional g norming v+sigma ix for a witness with norm at least 2-epsilon. Then g(v)>=1-epsilon and sigma g(ix)>=1-epsilon. Applying g to the complex rotation circle of x gives g(x)^2+g(ix)^2<=1, so ||v-x||>=g(v)-g(x)>=1-epsilon-sqrt(2epsilon). Taking epsilon down to zero proves the comparison. This observation is not a repaired result or a priority claim. The frozen value does not settle a sharp threshold, introduce new geometry, or add a previously unknown qualitative consequence.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

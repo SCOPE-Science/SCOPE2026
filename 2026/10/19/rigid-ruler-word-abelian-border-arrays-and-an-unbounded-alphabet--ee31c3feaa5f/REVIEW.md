@@ -1,19 +1,21 @@
-# Scientific review: ruler-word Abelian-border-array rigidity
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proposition concerns every finite length and every possible realizing alphabet; the proof specifies the complete array and recovers all equalities among letter positions by induction. The key positive-border step cancels the known length-\((d-1)\) blocks in the Parikh equality for the shortest border \(d\), forcing the next letter. At a power of two, appending any previous letter yields a forbidden exact border, so a new letter is necessary. This excludes arbitrary third-symbol alternatives rather than relying on finite enumeration. The separate direct Parikh comparison and restricted-growth-word census through length \(16\) independently test the invariant and uniqueness; they are not substituted for the proof.
+PASS
 
-## Originality — PASS, subject to the stated literature risk
+Independently reconstructed the array and inverse induction from the proper Abelian-border definition. Subtracting both equal Parikh vectors from the full vector interchanges lengths j and i-j, even when the blocks overlap. Write d=2^nu2(i). If i=d, the final ruler letter first occurs there, so all proper suffixes contain a letter absent from all proper prefixes. If i>d, then nu2(i-d+j)=nu2(j) for 1<=j<d by divisibility, and the terminal valuation equals nu2(d); the length-d blocks are identical. Every shorter positive suffix length contains the terminal letter which is not yet in the matching prefix, so the longest Abelian border has length i-d. Conversely, assume the earlier letters of a realizing word are already identified by valuation. At i=2^k, reusing the letter at level s<k would make the first and last length-2^s blocks identical by the valuation identity, contrary to the required zero. This forces a new letter. At nonpowers of two, the length-d Abelian border is prescribed by complementarity, and the known length-(d-1) parts agree letter-for-letter, leaving only the terminal letter to match the prefix's level-nu2(i) letter. This also works at d=1 (empty known blocks); n=1 is immediate. Exactly the levels 0 to floor(log2 n) occur, giving necessity and sufficiency of the claimed alphabet size for this family and only a lower bound on the worst-case M(n). Inspected frozen RESULT.md lines 35–66, VERIFICATION.md and verify.py. The finite restricted-growth checks are corroborative; the all-alphabet and all-length claims follow from the reconstruction, not from executing the supplied script, which was not run.
 
-Habib–Shamil–Rahman (arXiv:2111.00259v1, Sections 3–4) established binary-array uniqueness and the elementary shortest/longest border duality, both acknowledged. Their explicit higher-alphabet nonuniqueness example does not resolve existence of **special rigid arrays**, nor does their Bell-number upper bound imply a minimum alphabet lower bound. Goč–Rampersad–Rigo–Salimov (2014) enumerate unbordered words; Berera et al. (2023) use ruler words for square-free words; Duval–Lecroq–Lefebvre (2005) address ordinary rather than Abelian border arrays. These statements do not imply rigidity under a weaker (Abelian) equality relation. Literature and published-record searches using the exact array, ruler/Zimin aliases, and alphabet-size formulations located no mathematical equivalent. A result embedded in classical word combinatorics or unindexed work remains possible, especially given the Zimin construction's familiarity.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result addresses the higher-alphabet reconstruction difficulty identified by Habib–Shamil–Rahman, showing that notwithstanding general noninjectivity, an explicitly structured infinite family is uniquely reconstructible over **all** alphabets. The alphabet threshold is exact for that family and forces unbounded alphabet requirements for the general inverse problem, quantitatively \(M(n)\) at least logarithmic. This is not the same as trivially counting labels in a particular witness: uniqueness rules out all lower-alphabet realizations with the same numerical observation. It neither gives the optimal global maximum nor a general verification algorithm.
+Best-of-knowledge pass for the arbitrary-alphabet inverse theorem for this family and the resulting unbounded alphabet obstruction, not for the ruler word itself, complementary Abelian-border lengths, binary reconstruction, or the finite ternary census. Relevant inspected sources provide material neighboring coverage, without establishing the combined claim; the inaccessible ordinary-border paper remains an explicit source risk.
 
-## Remaining limitations
+## value
 
-Published ordinary-border-array alphabet bounds are analogous but impose stronger equality constraints; the inspected summaries cannot be treated as an Abelian-equivalence result. No independent audit has been completed. The exact general alphabet threshold and total array counts remain open beyond this family.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The inverse problem is not injective over larger alphabets, and introducing many letters in one example word alone would not rule out a small-alphabet representative. This natural dyadic family proves rigidity where the general inverse fails and supplies an explicit logarithmic obstruction to any fixed universal alphabet. It separates the exact minimum for the family from the still broader extremal function M(n).
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

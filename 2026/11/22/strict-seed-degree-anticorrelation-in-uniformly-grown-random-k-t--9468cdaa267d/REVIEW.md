@@ -1,19 +1,21 @@
-# Scientific review: strict seed-degree anticorrelation in uniformly grown random \(k\)-trees
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** Each existing \(k\)-clique remains selectable; precisely \(k\) new faces appear per insertion. Counts of faces containing one and two fixed original vertices obey exact closed recurrences. Solving these gives the complete finite moment formulas. The ratio \(\mu_j^2/(M_j\beta_j)\) starts above one and increases strictly, proving negative pair covariance for all \(k\ge2,m\ge1\). Gamma products and convergent signed innovation series justify both strict asymptotic coefficients. Direct independent graph-history enumeration and rational checks passed 2,645 assertions. A finite checker is not a substitute for the all-parameter proof.
+PASS
 
-## Originality
+Counted all cliques directly: each insertion adds k new cliques, exactly k−1 through a marked selected vertex, and k−2 through a selected pair. The increments for the marked counts therefore have conditional joint success probability B/M and marginal A/M. Expanding their products gives the two moment recurrences; substituting the P_s solutions verifies both forcing terms using 2a−b=k and 2a−a=a, and the seed values verify the integration constants. After centering, covariance forcing has sign β−μ²/M. The ratio μ²/(Mβ) starts above 1 and multiplies at each insertion by 1+1/[(M+k)(M+b)] because a lies exactly between b and k with spacing 1. Thus all forcing terms are strictly negative; the first-step law is equivalently omission of one uniform seed vertex and gives −1/(k+1)^2. Normalizing the centered recurrences by P_(2a), the covariance forcing summands are O((j+1)^−2), all negative, while the variance summands are positive and O((j+1)^(-1−a/k)). The latter sign follows also from the deterministic presence of an initial clique missing each seed vertex. This rules out zero leading coefficients; taking gamma-product ratios gives the stated constants. Substitution of k=2 gives the displayed finite formulas and (3−π)/(4−π), including its numerical sign. The k=2 example of late positive conditional covariance is consistent with the unconditional proof. The checker enumerates actual graphs for finite inputs and is not the proof for all k,m.
 
-**PASS under qualified historical priority.** The full 2008 Gao manuscript defines the same uniform \(k\)-face process and proves a marginal degree-histogram power law. Its accessible main results and arguments do not imply the seed-pair mixed moment, universal negative sign, or limiting correlation. Darrasse, Hwang, Bodini and Soria (arXiv:0910.3639) study the very same uniform-face process, but their accessible full primary text proves marginal root-degree and connectivity-profile results, not a two-seed covariance formula. The 2010 Panholzer–Seitz ordered-increasing process has a distinct growth probability, and standard preferential attachment and spanning-tree correlation findings do not cover this model. Published-record semantic comparisons for root-degree covariance, seed clique attachment, and face urn mixed moments returned results for other random graph models rather than this exact statement. Possible uncatalogued general clique-urn results remain a residual priority risk; no exhaustive historical novelty is claimed.
+## originality
 
-## Value
+PASS
 
-**PASS.** Seed vertices are the earliest highly connected sites in growing clique networks, making joint degree dependence a natural structural observable. The all-parameter negative sign is non-obvious because both vertices can gain edges simultaneously, and the proof exhibits histories with positive conditional covariance. The exact joint formula and nonzero negative correlation give information not determined by the established marginal power law. The finding is thus a structural dependence theorem, not an arithmetic substitution or a routine moment value.
+Best-of-knowledge pass for the all-size strict sign and explicit strictly negative limiting correlation in the stated growth model. One-vertex degree histograms and root limit results are credited and do not give these joint quantities. The general urn representation is not claimed as new.
 
-## Scope and residual risks
+## value
 
-The conclusion is confined to the original clique's vertices, the uniform size-\(k\) face-selection rule, fixed \(k\) for asymptotics, and whole-process (unconditional) covariance. The proof does not classify dependence for later-born vertices. Wider unpublished or differently titled urn results could imply the specialization. Mathematical verification here is same-model only.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A resolved dependence question for two natural distinguished vertices of a standard growth process. Simultaneous attachment is possible and conditional covariance can even be positive, so the strict unconditional sign at every size is not a one-step exclusion argument. The nonzero limiting correlation distinguishes persistent dependence from a transient initialization effect and gives a usable baseline for pair moments.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

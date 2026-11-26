@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For \(t\geq1\) extraspecial groups at distinct primes and arbitrary finite abelian \(A\), central detection reduces faithfulness to spanning each elementary central prime-part. The rank lower bound \(N\geq R\), exact extraspecial irreducible-degree dichotomy, two product inequalities, and explicit independent central characters construct matching upper and lower bounds. Character extensions from \(A[\ell]\) to \(A\) are valid for all finite abelian groups. Exact independent matrix checks on \(\mathrm D_8\times C_3\) and \(\mathrm D_8\times C_3^2\), plus 896 finite weighted-optimization comparisons, corroborate the proof. Finite tests are not used as an infinite proof.
+## correctness
 
-## Originality — PASS, with residual risk
-The August 2026 Kaur–Kulshrestha–Udeep paper explicitly exhibits a single cross-prime rank-two example and proves same-prime additivity but does not supply this arbitrary-rank closed formula. The 2023 Kaur–Kulshrestha–Singh paper covers some cyclic-center products, particularly products of two noncyclic prime-power groups at distinct primes, but does not imply the complete class with arbitrary abelian ranks. The printed cyclic-factor additivity claims in both sources conflict with the explicit faithful representation of \(\mathrm D_8\times C_3\), so those claims cannot establish the contrary exact value. Searches of relevant published records and equivalent mathematical phrases located no complete covering theorem; historical literature could still contain one. The discrepancy is directly tested, not assumed away.
+PASS
 
-## Value — PASS
-Mixed-prime failure of representation-dimension additivity is emphasized in the motivating literature. The theorem identifies the full, natural rank-packing law for any number of extraspecial prime components and any finite abelian factor, gives an explicit optimum, and separates the impact of central rank from nonlinear block cost. This general structural classification both subsumes the cited rank-two example and delineates a sharp boundary to overly broad cyclic-factor assertions.
+A nontrivial normal subgroup of a finite nilpotent group meets the center, so separation of the prime-order torsion of Z(G) suffices. By Schur's lemma each irreducible summand contributes one character at each prime, forcing at least R summands. Each E_i must be detected by a constituent nonlinear on E_i. The extraspecial degrees are 1 and w_i, with exactly the degree-w_i types nontrivial on the center: for a nontrivial central character the character vanishes off the center by conjugation by an element with a nontrivial central commutator, and character norm then gives degree sqrt(|E_i:Z(E_i)|). Tensor products multiply these costs. For any support S, its cost is at least 1+Σ_{i∈S}(w_i−1) and also at least Σ_{i∈S}w_i, by w_i≥2. Summing both bounds forces Σ_i w_i+max(0,R−t). For equality choose N=max(t,R) rows, one nonlinear E_i on its own row and none on the extra rows. At p_i its row detects Z(E_i), and the remaining N−1 rows can carry an independent set of characters for A[p_i]; at any other prime use up to N rows. These independent prime-wise characters extend to A and can be combined on each row. This covers trivial A, abelian Sylow factors, and all exponents in A.
 
-## Limits
-Only distinct primes among extraspecial factors are claimed; other fields and same-prime repetitions are not covered. Literature equivalence remains a genuine risk; independent audit has not been done.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Individual Sylow degrees, central character separation, and some product special cases were known. The inspected formulas do not solve the dimension-minimizing mixed-prime allocation with arbitrary abelian ranks; the two complementary lower bounds and the matching prime-wise packing produce an exact extension.
+
+## value
+
+PASS
+
+The formula computes a standard exact group invariant on a natural family where additivity can fail. It locates precisely when abelian central rank raises the degree above the total compulsory extraspecial cost, and constructs an optimizer. This resolves more than the individual extraspecial degrees, an isolated counterexample, or a small-instance enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** An explicit orthonormal left basis proves that all \(d^2\) nonzero rows have leverage \(1/d\); direct calculation yields the diagonal estimator. The weak spectral coordinates are deterministically bounded by \((d-1)/d^2\), reducing the exact success event to a binomial count. Integer interval inequalities give both necessity and sufficiency of the feasibility bands, including their nonmonotone gaps. The binomial generating function yields the Poisson limit away from endpoint ambiguities. The alternative one-sample distribution and its exact error are computed directly. The independent test program supplies reproducible finite corroboration; no asymptotic claim relies on it.
+## correctness
 
-**Originality — PASS within documented historical-source limits.** The source algorithm and its existing identical-input leverage special case are explicitly credited, as is the norm-weighted importance sampler and stable-rank theory. The full inspected source's Theorem 11 supplies a sufficient stronger subspace-embedding bound rather than the exact spectral-product-success law. Cohen--Nelson--Woodruff's stable-rank AMM guarantees apply to other suitable sketches or row-selection methods and neither imply the peculiar fixed-leverage sampling probability formula nor the gap comparator. No directly covering exact classification was located in the checked primary materials and semantic searches. This is a bounded priority assessment, not a uniqueness certificate.
+PASS
 
-**Mathematical value — PASS.** The object is the estimator explicitly proposed for spectral approximate matrix multiplication, tested in the natural weak spectral objective rather than the much stronger subspace embedding condition. The theorem classifies its exact sample-budget feasibility for an all-nonzero-row, rank-diverging but stable-rank-one family and proves that increasing the number of samples can make success deterministically impossible before it becomes feasible again. The one-sample comparison isolates the singular-value blindness of leverage weighting for this numerical objective and supplies a benchmark for choosing between alternative row importance distributions.
+Normalizing the orthogonal columns gives entries 1/sqrt(d) on disjoint blocks and row leverage 1/d. Identical-input joint sampling is uniform across rows, so each group has sampling probability 1/d. A sampled row from group j adds d*s_j^2/r in diagonal coordinate j. Normalizing by d^2, the weak-coordinate errors are at most (d-1)/d^2, including equality, because 0<=C_j<=r. The leading error is exactly |d*C_1/r-1| with C_1 binomial(r,1/d), giving the tail sum. Its integer acceptance set excludes 0, and the upper endpoint is below r since 1+epsilon<d. The kth and (k+1)st closed bands have a strict open gap exactly when (2k+1)*epsilon<1; actual budgets must lie on the grid r/d. For d=5 and epsilon=1/4, r=5,7,10 admit respectively {1}, the empty set, and {2}. For fixed epsilon and r_d/d approaching positive alpha, the admissible integer endpoints stabilize off the two stated boundaries and the binomial point masses converge to the Poisson masses. Under row-norm sampling the one-draw rescaled coordinate is d^2+d-1. Its error meets tolerance exactly for the leading group, whose sampling mass is d^2/(d^2+d-1). This also checks the d=2 boundary of the weak-error condition. The frozen verifier was read; these conclusions rely on the proof and exact witness, not a script execution.
 
-**Residual risks and limits.** The family is deliberately anisotropic; general inputs, spectral embeddings and floating-point effects are outside the theorem. A full exhaustive priority search of all pre-2026 importance-sampling literature has not occurred. Poisson limits are stated away from integer-band boundaries; they need not be uniform on those boundaries.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The sampler and the binomial algebra are standard; the supported distinct claim is the explicit equal-leverage, stable-rank-to-one Gram example with reentrant zero-success sample budgets and its comparison to a one-draw norm sampler. The inspected related results use different estimators or targets, or give sufficient high-probability bounds rather than this exact phenomenon.
+
+## value
+
+PASS
+
+The explicit all-nonzero-row family is a controlled counterexample to monotonic attainability in sample budget and to expecting uniformly good prescribed leverage sampling solely from near-one stable rank. Exact reentrant failure and the improving one-draw norm baseline diagnose different sensitivities of the two distributions. This is a finite-budget spectral Gram statement on the exhibited family, not a failure of general subspace embedding guarantees.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

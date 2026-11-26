@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is for the ordinary quotient of the full five-by-five chessboard complex by precisely the diagonal alternating group. A reproducible integer verifier independently enumerates all allowed partial injections and orbit flags, checks every boundary-square identity and all 644 legitimate geometric free-face collapses, and produces Smith factors \(1^{44}\), \(1^{264}\), and \(1^{74},5,5\) for the surviving differentials. These establish exactly \(\widetilde H_2\cong(\mathbb Z/5\mathbb Z)^2\). Simple connectivity follows from the classical chessboard connectivity bound and Armstrong's fixed-point stabilizer criterion (three-cycles fix diagonal rook vertices and generate the acting group). The residual CW dimension is three; the Hurewicz construction and homological Whitehead theorem give the asserted Moore-space wedge. The computational proof is finite and exhaustive for the stated object, not extrapolated to larger boards.
+## correctness
 
-## Originality — PASS relative to inspected material
-The complete 1994 foundational chessboard-complex article and the accessible 2011 follow-up address definitions, connectivity and unreduced homology, rather than the present geometric quotient. The closest indexed results determine a single five-primary Moore summand for the diagonal full symmetric-group quotient and different invariants for the diagonal cyclic quotient. Neither result implies the homotopy type of the intermediate alternating-group quotient: fixed points preclude a free-cover or naive coinvariant argument. Direct searches for simultaneous alternating diagonal actions produced no source resolving the precise two-Moore claim. The related indexed full texts were inaccessible through the available retrieval path, and an equivalent unindexed result remains a residual risk.
+PASS
 
-## Value — PASS
-The index-two alternating subgroup is a canonical parity distinction in the natural relabeling action of the five-by-five chessboard. Its quotient has a second independent five-torsion generator in \(\pi_2\) and \(H_2\), unlike the already determined full symmetric quotient. This is a complete integral homotopy classification, not a rational rank computation or an arbitrary board subset. It identifies a concrete parity-sensitive torsion phenomenon in a classical topological-combinatorics object. No general theorem for arbitrary sizes is claimed or needed for its significance.
+Subdivide by nonempty matching flags. A flag stabilizer fixes each vertex by its distinct cardinality; faces obtained by different deletions also have different cardinality signatures. The geometric quotient therefore has oriented flag-orbit cells and the ordinary signed deletion boundary, without stabilizer weights. An independent ordered-set-partition enumeration with generator-based orbit floods reproduced cell counts (45,308,744,720,240), verified all integer boundary composites, and computed the nonzero Smith factors of the unreduced four boundary maps as 1^44, 1^264, (1^478,5,5), 1^240. The free homology ranks are (1,0,0,0,0); the coker of the following boundary has the same torsion as homology because the residual image is free. A separate collapse reproduction also recovered 240 and 404 geometric free-face pairs and the reduced integral data. The chessboard connectivity bound is min(5,5,floor(11/3))−2=1, so the cover is simply connected. Every generating three-cycle of A5 fixes an unmoved diagonal square; Armstrong's finite-action orbit-space result gives simple connectivity of the quotient. By Hurewicz the two independent classes of H₂ lift to classes in π₂ of order five, and their representatives extend across two degree-five attachments. The resulting map from the wedge induces isomorphisms in every integral homology degree and hence is a homotopy equivalence by simply connected homological Whitehead.
 
-## Limits
-The claim is confined to five labels. The two accessible relevant published summaries are not treated as full-paper negative evidence; equivalence outside the checked indexed sources remains possible. No independent audit or machine-certified proof is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact catalogue match is the same frozen record. The strongest distinct matches fix the board but use S5 or C5 and give genuinely different integral invariants. Ordinary homology with fixed points is not automatically transferable between these actions; the general connectivity and orbit-space theorems do not compute the torsion or its multiplicity. The decision is limited to the exact A5 homotopy fact, not to the flag method or Moore-space recognition.
+
+## value
+
+PASS
+
+The five-label chessboard is a small natural matching complex with integral torsion, and the canonical index-two even subgroup of its simultaneous relabeling action is not an arbitrary subgroup. Its exact quotient shows that the one five-primary Moore summand in the symmetric quotient becomes two under the even relabeling action, whereas the cyclic quotient has different torsion again. The exact integral type resolves an identifiable comparison that ordinary connectivity or rational homology misses.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

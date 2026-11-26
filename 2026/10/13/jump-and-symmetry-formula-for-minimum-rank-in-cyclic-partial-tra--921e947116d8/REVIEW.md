@@ -1,19 +1,21 @@
-# Scientific review: jump-and-symmetry minimum rank
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim quantifies over every integer \(n\ge2\), every \(1\le h<n\), and every active subset \(A\); it includes empty and full patterns. The subgroup \(H(A)\) is an exact semigroup symmetry, so the original rank equals its orbit count times the quotient rank. The quotient pattern has trivial stabilizer. The letter actions on residue classes modulo \(d=\gcd(n/|H(A)|,h)\) are bijections, giving the lower bound. Aperiodicity is used precisely to choose an active predecessor and inactive right endpoint of any proper jump-cycle interval, yielding an exact inverse-image identity. Conjugate partial jumps then collapse each residue class, proving attainability. The boundary \(d=m\) is handled separately. The independently implemented subset-BFS and constructive replay report `VERIFY_OK` on the stated finite domains. Finite replay does not substitute for the proof.
+PASS
 
-## Originality — PASS, subject to residual risks
+Both letters commute with H translations, so every word image is a union of entire H orbits and its size is s times the quotient rank. Any period of the quotient pattern would lift to a period in H, so it has no nonzero period. The quotient residue partition modulo d=gcd(m,h) is preserved by b and permuted by a, bounding the quotient rank below by d. Independently of the interval proof, if two quotient states in the same class have gap jh, 1<=j<m/d, choose a translate of the active set containing the first but not the second. Such a translate must exist: otherwise equal cardinalities make the quotient pattern invariant by jh. The corresponding conjugate of b reduces the gap to (j-1)h. Iterating merges the pair. Successively merging two current image points in any nonsingleton residue class reduces its cardinality without ever undoing an earlier merger or crossing classes. This gives exactly d image points. If d=m the lower bound already gives equality; in particular m=1 (empty/full active sets) yields original rank n. Thus rank one is exactly s=1 and gcd(n,h)=1. The bundled finite exhaustive checks and word-witness code were inspected, not executed; the independent symbolic argument establishes arbitrary size, not shortest word length.
 
-Kari–Ryzhikov–Varonka give a length bound conditional on the minimum rank, not the present computation of minimum rank. Volkov and Rystsov–Szykuła provide structural synchronization theorems, but their inspected claims do not determine rank for an arbitrary active pattern and a possibly noncoprime jump. The unit-jump stabilizer formula and singleton-active-set synchronization cases are covered by earlier work; they are not claimed separately as new. The present genuinely mixed \(h\) and \(A\) regime is neither implied by those restricted cases nor covered by the inspected primary sources. Searches used the equivalent formulations minimum rank, cyclic partial translation, jump/gcd, necklace stabilizer and circular automaton. An unindexed equivalent theorem remains possible; semantic-search absence alone does not establish novelty.
+## originality
 
-## Value — PASS
+PASS
 
-The theorem provides an exact, parameter-free classification across all active patterns and all nonzero cyclic jumps, including the unsynchronizing regimes. The separation \(|H(A)|\gcd(n/|H(A)|,h)\) isolates two independent structural obstructions to rank reduction. It determines an intrinsic finite-automaton invariant without subset-graph enumeration, and settles the interaction not explained by its unit-jump and single-active-point special cases. No shortest-word complexity claim is made.
+The indexed unit-jump classification overlaps exactly and is credited; the passing contribution is the additional gcd obstruction and its simultaneous attainability for noncoprime jumps and arbitrary active sets. No inspected minimum-word or primitive-automaton theorem gives that classification. The overlapping record's displayed date does not decide priority.
 
-## Sources and scientific limitations
+## value
 
-The primary full texts inspected were Kari–Ryzhikov–Varonka (2019, Section 4.2 and Theorem 3), Volkov (arXiv:2306.13317v1, synchronization theorems), and Rystsov–Szykuła (arXiv:2307.01302v1, Sections 4.2–4.3). An undetected equivalent or stronger theorem is the main outstanding originality risk. The verifier covers finite domains only. Independent mathematical validation remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The minimum image size is intrinsic to this natural two-letter automaton family. The theorem resolves exact ranks even when rank-one synchronization is impossible, and separates the cost of rotational symmetry from jump connectivity on its quotient. E.g. with n=24, a single active residue modulo 8 repeated three times, and h=4, the two factors give 3*4=12; neither the unit-jump symmetry count nor the jump residue count alone gives that value. This is a uniform structural classification, not a subset-graph computation or a shortest-word claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

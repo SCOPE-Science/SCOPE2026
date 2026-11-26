@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:44:38.582281Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the stated one-hot, one-example logit path d=e₁−q, the second-order cross-entropy loss and first-order softmax squared residual minimize at ‖d‖²/(dᵀHd) and (dᵀHd)/‖Hd‖². The covariance form is positive on zero-sum nonzero d, giving the reciprocal squared cosine. Proportionality requires all incorrect probabilities equal, since (Hd)_j/d_j=q_j+qᵀd for j>1 and the remaining component is determined by zero sum; thus binary always gives one. Independently, in the ternary case with v=1−p, imbalance t and u=t², resolve Hd along d and the orthogonal zero-sum vector w=(t,(3−t)/2,−(3+t)/2). Conditional covariance over true versus incorrect classes gives dᵀHd=v³D/4 and wᵀHd=−3v²t(1−u)/4, where D=p(u+3)²+u(1−u); the norm ratio ‖d‖²/‖w‖²=v²/3 then gives R=1+3u(1−u)²/D². Differentiation gives the stated sign factor p(u+3)(u²−12u+3)−u(1−u)². On (0,6−sqrt(33)) the critical equation's map Φ(u) increases strictly from zero to infinity by its positive derivative; after this interval the sign factor is negative. This proves a unique interior maximizing u for every p, up to exchanging the two incorrect classes. Φ(u)/u→1/9 gives u_p/p→9 and pR(p,u_p)→27/18²=1/12. For each fixed K>3, continuity by assigning additional classes arbitrarily small positive masses transfers arbitrarily large ternary ratios. The rule cosφ≥c gives the exact sharp ceiling c⁻², attained at an interior ternary distribution by continuity from u=0 to a larger ratio; the ceiling 16 is an all-retained-samples zero-probe bound, not a rare-p asymptotic. The mathematics applies to the explicitly specified local estimates and cutoff; attribution to the exact source equations and strict rejection wording could not be independently resolved. If the comparison used strict retention, the same supremum would hold by approach, without equality. Read RESULT.md:3–93, VERIFICATION.md and verify.py; did not execute submitted code. No finite-probe, minibatch, parameter-Jacobian or actual-step claim follows.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "RESULT.md:95–106 characterizes Korbit–Zanon as a true-versus-rest and competitor curvature decomposition and Sao as a Taylor-radius bound. Korbit–Zanon primary retrieval did not return a passage. The decomposition used in the present check gives a curvature moment but not directly the orthogonal response moment or extremum."
+        ],
+        "reasoning": "A curvature expression can furnish dᵀHd while not determining the ratio's ‖Hd‖² numerator or its constrained optimizer. A Taylor radius concerns a different analytic quantity and does not give the unique cubic optimizer or the sharp leading rate on the reported evidence.",
+        "searches": [
+          "Korbit–Zanon, Fast Gauss-Newton for Multiclass Cross-Entropy, arXiv:2605.06081, §§2–3, Theorem 3.1 and Proposition 3.2",
+          "Sao, arXiv:2603.13552v1, softmax cross-entropy line profile §4 and Appendix E",
+          "Resultary: softmax covariance or curvature and local rate comparison"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md:3–106, VERIFICATION.md and verify.py",
+        "Resultary exact target 16e0c13ee32a and distinct catalogue results a16b9e4b45d6 and b003b4129b8a",
+        "Bauwens–Krivodub–Zhang arXiv:2611.05191v1 (source locators, indexed title and bounded access attempts); Korbit–Zanon arXiv:2605.06081 and Sao arXiv:2603.13552v1 (frozen descriptions; primary coverage not determined)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The two surrogate definitions immediately give R=cos⁻²φ and hence M≤c⁻² on the stated retained set. The sharpness proof additionally needs feasible distributions that attain c⁻²; arbitrary disagreement and the fixed-p peak follow from the constrained rational maximization in RESULT.md:44–80, not the angular inequality alone."
+        ],
+        "reasoning": "The ceiling implication by itself is elementary and not a novelty credit. Existing probe definitions, empirical average agreement, and a curvature decomposition do not on the evidence checked imply the fixed-probability extremum and sharp rare-class growth.",
+        "searches": [
+          "Compare arXiv:2611.05191v1, equations (3),(4), §3 and Appendix A as cited at RESULT.md:20,80,95–102",
+          "Compare arXiv:2605.06081 curvature decomposition as characterized in RESULT.md:96"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "RESULT.md:13–20,31–42 expresses the ratio as the angle between d and Hd, equivalently ‖d‖²‖Hd‖²/(dᵀHd)². The literature lookup found the cited title's landing-page entry but not decisive equations or threshold text."
+        ],
+        "reasoning": "A squared reciprocal angle or a positive-matrix angle bound may restate the local identity, but sharpness at fixed p for this constrained vector/covariance pair is a different optimization from an unrestricted matrix/vector angle estimate.",
+        "searches": [
+          "Resultary: sharp softmax local-step disagreement and angular safeguard",
+          "Stepsize modulation for cross entropy from local quadratic optimization, Bauwens Krivodub Zhang, cs-dq cosine pruning 1/4 ternary softmax"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact matching indexed statement is the assignment itself, 16e0c13ee32a. Distinct nearby results concern unbiased softmax-rounding moment preservation and a cosine projection-depth filter, not an exact ternary rate-ratio law indexed by the true-class probability."
+        ],
+        "reasoning": "Same-record catalogue duplication is not prior coverage. The distinct overlap shares softmax moments or an angular factor but does not supply the fixed-p optimizer, the exact peak formula or the 1/12 limit.",
+        "searches": [
+          "Resultary: ternary softmax step ratio optimizer, 1/(12p), cutoff 1/4 and ceiling 16",
+          "Resultary: a16b9e4b45d6 softmax rounding and b003b4129b8a cosine-power disagreement"
+        ]
+      },
+      "rationale": "The supported distinctive claim is the exact worst-case ternary law at fixed true-class probability, its unique imbalance and its sharp 1/(12p) growth, together making precise when the two defined local rate estimates can disagree and whether the angular ceiling can be saturated. The estimator definitions, rejection rule, and elementary angle algebra are not independently credited as novel. Attribution and broader priority are qualified by actual access below.",
+      "residual_risks": [
+        "The crucial source probes and rejection wording remain independently unconfirmed after targeted lawful attempts. An earlier equivalent exact angular optimization or result within unavailable material is not excluded. No claim is made that the ratio controls an implemented finite-step rule."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Credit the given probe and pruning concepts to this work as attributed in the frozen text; exact source correspondence and prior extremum coverage unresolved",
+          "evidence": [
+            "The frozen record identifies equations (3) and (4), Sections 2–3 and Appendix A; the primary source's boundary inclusion could not be independently checked."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2611.05191",
+          "material_read": "Frozen RESULT.md:4,10,20,80,95–102 for cited definitions and rejection wording; indexing result located the title; primary equations and cutoff not retrieved",
+          "method": "Focused literature search, targeted lawful OA attempts at arXiv passages and an identified ordinary public landing page",
+          "title": "Stepsize modulation for cross entropy from local quadratic optimization",
+          "trigger": "Origin of both named probe estimates and the 1/4 cutoff"
+        },
+        {
+          "assessment": "Curvature overlap acknowledged; exact ratio and optimizer coverage unresolved beyond the available description",
+          "evidence": [
+            "Frozen record identifies Theorem 3.1 and Proposition 3.2 as related curvature results."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2605.06081",
+          "material_read": "Frozen RESULT.md:96 and 104 characterization and locators; primary passage requests timed out",
+          "method": "Targeted lawful OA attempts",
+          "title": "Fast Gauss-Newton for Multiclass Cross-Entropy",
+          "trigger": "Closest alleged true-versus-competitor covariance decomposition"
+        },
+        {
+          "assessment": "Different claim on available evidence; neither summary is a prior fixed-p local-step extremum",
+          "evidence": [
+            "The former uses stochastic rounding and moment preservation; the latter concerns projection-depth disagreement."
+          ],
+          "identifier_or_url": "Resultary a16b9e4b45d6 and b003b4129b8a",
+          "material_read": "Local catalogue statements, not full papers",
+          "method": "Local Resultary search",
+          "title": "Parity-optimal unbiased softmax rounding with unchanged lower-order moments / AIDA projection depth cosine-power disagreement",
+          "trigger": "Distinct catalogue overlaps in softmax covariance and angular filtering"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The comparison is between two independently motivated local surrogates for the same learning step. The binary agreement does not generalize: a fully sharp ternary law identifies both the probability imbalance causing arbitrarily large disagreement and its precise leading rate. This separates empirical averaged agreement from pointwise guarantees, and makes the local safeguard sharp rather than merely conservative, without overclaiming loss descent or training stability.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

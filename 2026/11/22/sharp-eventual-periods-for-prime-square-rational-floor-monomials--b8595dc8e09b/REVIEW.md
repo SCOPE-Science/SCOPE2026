@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The integer-part residue identity holds because multiplication by \(p^2\) is invertible modulo \(n\) when \(p\nmid n\). Direct evaluation at \(n=pm\) identifies precisely one anomalous index for the quadratic case. CRT establishes every necessary prime factor of an eventual period, while the nonvanishing derivative modulo \(p\) forces the additional factor \(p\) when \(p\nmid k\). The candidate upper period follows from the same residue model. Density counts are exact on a period; no asymptotic or finite numerical extrapolation is used in the proof. A separate exact arithmetic checker passed 693 parameter combinations and 95 full-period and density cases.
+PASS
 
-## Originality — PASS, qualified
+For a unit index modulo p, division with remainder and invertibility of p² modulo n reduce the gcd to gcd(n,t_r). At n=pm the gcd is m gcd(p,ap^(k−2)m^(k−1)), so the only exception to the zero value on multiples of p is (k,n)=(2,p). CRT lets a unit fiber realize H=1 immediately before a shift into a nonunit fiber if p does not divide the shift, and lets any prime in Q witness failure of a shift not divisible by that prime. After imposing pQ divisibility, a shift of p-adic order one would force equal prime supports on every lift of a given unit mod p (choose n divisible by exactly one prime of Q in a symmetric difference). For p not dividing k, the nonzero binomial slope runs through all representatives u+jp; u and u+p are coprime and the latter is greater than one. For p dividing k the slope vanishes so pQ suffices. All CRT witnesses recur at arbitrarily large n, including for p=2; if Q=1 the same argument applies without auxiliary primes. The isolated exception prevents starting at or before p and averaging each unit fiber by CRT gives the density; one partial period and one exceptional point give a uniform O(P) remainder. Both examples were checked independently against the floor-based predicate across two periods in /workspace/branches/reproduce_decisive.py; the frozen finite parameter sweep was inspected, not executed or used as a general proof.
 
-The complete published prime-denominator result gives an exact period only for denominator \(p\) and explicitly excludes composite denominators. Chatterjee's November 2026 quadratic theorem requires irrational slope; Champagne and Banks–Shparlinski address irrational coefficients. Accessible related composite-denominator work supplies nonminimal periods and density formulas but not the prime-square least-period collapse and sharp onset. The precise implication comparisons and named searches are included in AUDIT.json. Unindexed equivalents and incomplete inspection of some broader literature remain priority risks, and search absence is not proof of uniqueness.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The least eventual period and its first valid index are natural invariants of a rational-floor coprimality sequence. At denominator \(p^2\), a genuine exponent-divisibility transition and exactly one quadratic anomaly distinguish this result from an ordinary periodicity upper bound. The theorem simultaneously resolves all primes and all exponents at this first nontrivial prime-power denominator and provides exact densities. Higher prime powers, arbitrary composite denominators and general polynomials remain open to further analysis.
+The distinct result is the least eventual period for a prime-square denominator at every exponent k≥2, in particular its exact p-adic loss governed by k. The prime-denominator CRT lemma and the quadratic periodic-plus-spike/density machinery have direct antecedents and are not the originality basis.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Prime squares are the first denominator where the exponent derivative controls the p-adic part of the true periodicity length. The criterion distinguishes periods that an upper-period or density theorem cannot separate, and the sharp period and onset give the exact finite cycle needed for rational floor coprimality. The quadratic spike and CRT averaging alone are not the contribution supporting this assessment.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:29:53.180116Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–80",
+        "Frozen VERIFICATION.md and verify.py (inspected, not executed); recorded checks do not establish the infinite-horizon law"
+      ],
+      "rationale": "The residual is projected onto the random perpendicular line. In eigenvector coordinates with the perpendicular line concentrated about angle zero, its angle density modulo pi is proportional to (a² cos²(phi)+b² sin²(phi))^(-1); doubling gives the Poisson kernel at q. Consecutive angle differences therefore have Poisson parameter s=q². The log of the squared-norm ratio is the first finite log factor plus a sum of stationary 1-dependent increments g(t)=log cos²(t/2). These have a finite second moment for every fixed q<1. As an independent evaluation, write exp(it)=(s+ζ)/(1+sζ) for uniform ζ on the circle; g(t)=2 log((1+s)/2)+2 log|1+ζ|−2 log|1+sζ|. Logarithmic Fourier orthogonality (valid in L² at ζ's unit modulus) gives the drift and V=π²/3+2 Li₂(s²)−4 Li₂(s)=π²/3+4 Li₂(−s). Conditioning adjacent increments on their shared angle gives covariance equal to the variance of their common conditional mean. Applying the circle map at q rather than s to that mean replaces its nonconstant part by 2(log|1+βζ|−log|1+qζ|), giving the claimed Li₂ combination for V+2C; V>0 and C≥0. The first factor and the difference between n and n−1 stationary summands vanish after normalization. At q=0 this yields the geometric-average squared factor 1/4 and variance π²/3, while the expected squared factor is 1/2. The mean-square Perron benchmark also agrees with the two-state transfer obtained from E[u_i^4] and E[u_1²u_2²]. An independent quadrature against the Poisson difference density and shared-angle conditional mean at q=0,0.2,0.6,0.9,0.97 gave errors below 3e−12 for drift and variance and 5e−15 for covariance. This is finite corroboration only.",
+      "residual_risks": [
+        "No uniform claim near singular A, or extension to approximate search or higher dimension. The typical factor is the exponentiated log drift, not a deterministic one-step contraction."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gower–Richtárik Appendix B Eq. (63) evaluates the expected Gaussian projector, not logarithms of two-angle overlaps.",
+          "Wu et al. analyze residual line search in an iterative refinement framework under correction accuracy conditions. Fridovich-Keil–Recht treat approximate line search and convergence, including a random-direction method."
+        ],
+        "reasoning": "These frameworks explain the geometric step or expectation bounds. They do not evaluate the shared-angle dependence of successive log increments in the regime of independent uninformative Gaussian directions. The general one-dependent CLT also leaves V+2C unevaluated.",
+        "searches": [
+          "arXiv:1506.03296v5, Appendix B Lemma 12",
+          "arXiv:2309.07865, residual-minimizing enhancement",
+          "arXiv:2011.04721, approximate and random line search"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 433e68df3b50",
+        "arXiv:1506.03296v5",
+        "arXiv:2309.07865",
+        "arXiv:1111.0194",
+        "arXiv:2011.04721"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A normalized Gaussian projector expectation is a low-order moment. The evaluated variance here uses a Poisson law on angle differences and the conditional-mean variance at a shared angle, which introduces β=2q/(1+q²)."
+        ],
+        "reasoning": "Taking a logarithm of the Perron rate does not give the pathwise exponent, and neither a spectral expectation calculation nor a generic convergence or CLT theorem produces the explicit dilogarithmic covariance by specialization.",
+        "searches": [
+          "Resultary 433e68df3b50 §Finding and Limitations",
+          "arXiv:1506.03296v5 Eq. (63)",
+          "arXiv:1111.0194 convergence theory"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The nearest Resultary record 433e68df3b50 matches the same quadratic model with Hessian A² and axis-ratio t=b/a, hence q=(t−1)/(t+1), but its rate is for the expectation of energy, not a sample-path log rate.",
+          "Stich–Müller–Gärtner’s algorithm uses random-direction line search and analyzes convergence, but the inspected passages do not evaluate this planar log law."
+        ],
+        "reasoning": "The quadratic and residual projection representations can be equivalent as iterations without their expected-energy and pathwise logarithmic observables being equivalent. In particular, even their isotropic factors differ.",
+        "searches": [
+          "Resultary semantic search for planar Gaussian random-direction line search, exact pathwise rate and log CLT",
+          "arXiv:1111.0194, exact random pursuit formulation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact benchmark is the Perron rate for a two-state mean-square transfer; its limitations explicitly exclude a statement of almost-sure rates."
+        ],
+        "reasoning": "This is a continuum-in-q identity, not a finite census or tabulated constant. The matched exact benchmark records a different quantity; equality of one-step projection conventions or selected numerical parameters does not determine the log-CLT variance.",
+        "searches": [
+          "Resultary nearest closed-form overlap, 433e68df3b50, RESULT.md"
+        ]
+      },
+      "rationale": "The distinct claim supported here is the exact planar almost-sure log rate and the evaluated nondegenerate log-CLT variance. The matched exact expected-energy rate, the generic projection and line-search framework, and the general one-dependent limit theorems are not distinct claims. No inspected source gives the claimed drift and covariance evaluation or a stronger evaluated result covering them.",
+      "residual_risks": [
+        "The general literature lookup was unavailable and offers no negative originality evidence. An uninspected equivalent evaluated rank-one product result remains possible.",
+        "The frozen reference to an earlier exact mean-square calculation is not bibliographically resolved by the later indexed match. The benchmark was checked directly; the review makes no priority claim for it."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Matched contextual mean-square rate only",
+          "evidence": "Exact two-state transfer for expected energy; the text excludes almost-sure rates. The catalog path is dated later than the frozen path, which does not establish the priority or identity of the antecedent cited in the frozen discussion.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-mean-square-rate-of-planar-gaussian-random-direction-line--433e68df3b50",
+          "material_read": "RESULT.md offsets 0 and 5500 onward, including Finding and Limitations",
+          "method": "Read local mirror and mapped its quadratic parameter to q",
+          "title": "Exact mean-square rate of planar Gaussian random-direction line search",
+          "trigger": "Nearest indexed result for the identical Gaussian planar line-search model"
+        },
+        {
+          "assessment": "Exact one-step expectation, not the log pathwise law",
+          "evidence": "Expectation of ξξᵀ/(ξᵀξ) is Ω^(1/2)/Tr(Ω^(1/2)); no evaluated shared-angle logarithmic covariance in this inspected result.",
+          "identifier_or_url": "https://arxiv.org/html/1506.03296v5",
+          "material_read": "Appendix B, Lemma 12, Eq. (63), OA offset 100400 onward",
+          "method": "Read primary OA formula and compared the observables",
+          "title": "Randomized Iterative Methods for Linear Systems",
+          "trigger": "Gaussian projection methods and potential exact moment formula"
+        },
+        {
+          "assessment": "Related method and scope, not exact Gaussian logarithmic fluctuations",
+          "evidence": "Residual-minimizing enhancement and convergence under conditions on inner solves.",
+          "identifier_or_url": "https://arxiv.org/pdf/2309.07865",
+          "material_read": "p. 2 and relevant OA passage at offset 15900",
+          "method": "Read primary treatment of correction accuracy and line-search enhancement",
+          "title": "Stable iterative refinement algorithms for solving linear systems",
+          "trigger": "Cited residual line-search framework"
+        },
+        {
+          "assessment": "Framework overlap, different observable",
+          "evidence": "Random pursuit with line-search oracles and convergence analysis, not the evaluated planar sample-path rate and log-CLT variance.",
+          "identifier_or_url": "https://arxiv.org/pdf/1111.0194",
+          "material_read": "pp. 2 and 4, OA offsets 8900 and 14700",
+          "method": "Read primary algorithm and convergence passages",
+          "title": "Optimization of Convex Functions with Random Pursuit",
+          "trigger": "Same random-direction optimization strategy"
+        },
+        {
+          "assessment": "No direct coverage in the inspected passages",
+          "evidence": "Approximate line-search methods and algorithmic convergence results, with random direction search among the covered settings.",
+          "identifier_or_url": "https://arxiv.org/pdf/2011.04721",
+          "material_read": "pp. 1–2, OA offsets 440 and 2800",
+          "method": "Read primary model and convergence passages",
+          "title": "Approximately Exact Line Search",
+          "trigger": "Cited random-direction and line-search results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 12–24 and 41–80",
+        "Resultary 433e68df3b50 §Finding and Limitations"
+      ],
+      "rationale": "Expected residual energy cannot answer how a typical run contracts or how it fluctuates. The exact logarithmic drift and explicit fluctuation variance answer both questions over the full SPD condition-number range in the natural planar model, separating typical performance from an expectation susceptible to rare slower trajectories. Evaluating the shared-angle covariance is essential, not a consequence of reporting an expected energy bound.",
+      "residual_risks": [
+        "The asymptotic law gives neither finite-time error bounds nor a claim about noisy or large-dimensional algorithms."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

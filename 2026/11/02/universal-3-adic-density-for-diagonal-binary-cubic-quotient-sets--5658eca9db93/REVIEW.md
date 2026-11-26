@@ -1,19 +1,21 @@
-# Scientific review: universal 3-adic density for diagonal binary cubic quotient sets
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof constructs the full 3-adic quotient set, not merely a heuristic density claim. Every 3-adic unit congruent to either sign modulo nine is a cube; Hensel's lemma proves the converse. For a unit-plus-three-unit form, every unit is represented, and the value of valuation one provides all three valuation classes for quotients after cubic scaling. For an equal-unit form, either a unit isotropic zero gives the entire additive ideal of values divisible by nine, or the absence of such a zero gives all values of valuation one through a surjective local polynomial map. The coefficient-valuation normalization covers all nonzero integral pairs, and continuity passes exact 3-adic quotients to density of ordinary integer-coordinate quotients. The executable modular tests agree with the critical local steps, but the infinite proof is independent of finite enumerations.
+PASS
 
-## Originality — PASS within inspected evidence
+A 3-adic unit is a cube exactly in the two classes ±1 modulo 9: cubing establishes necessity; after writing (1+3s)^3=1+9(s+3s²+3s³), simple-root lifting gives sufficiency. The subsequent lifting steps use affine reduction as a polynomial modulo 3, not merely agreement as a function on the three residues. For αx³+3βy³, first choose the sign of the required cube residue modulo 3, then y∈{0,±1} to correct modulo 9. The values include all units and 3β, so ratios cover all units in valuation classes 0, 1 and −1. For equal coefficient valuations, a unit root gives all of 9Z₃ by expansion and lifting; absent a root, expanding at the sign r with αr³+β divisible by 3 gives values filling one of the two valuation-one classes modulo 9, and oddness supplies the other. Ratios then again cover all three valuation classes modulo 3. Scaling only the numerator or denominator supplies every valuation shift divisible by 3. Restricting one variable by a positive power of 3 reduces arbitrary coefficient valuation gaps to these cases, including gap 2 modulo 3 after swapping. Zero is represented separately. Continuity at a nonzero denominator and density of integer vectors give density, not exact equality, for the integer ratio set. Other variables can be set to zero. Frozen RESULT.md lines 23–69 are a proof; the inspected finite-residue verifier was not executed and is not needed for the infinite conclusion.
 
-The arXiv:2110.05420v2 Theorem 1.2(1) claims non-density of some unit-coefficient cubics at the prime three and Theorem 1.2(3) claims non-density for nonzero coefficient-valuation gaps modulo three. The theorem presented here is incompatible with both branches at the prime three: for instance it proves density for \(x^3+2y^3\) and \(x^3+3y^3\). The 2022 Antony--Barman--Miska extension, arXiv:2201.04372v1, Theorem 1.1, repeats corresponding alternatives. The 2018 Miska--Murru--Sanna Theorem 1.8(c) proves density for the *unweighted* sum of two cubes and does not imply the arbitrary-coefficient statement. A follow-up 2023 paper addresses broader form types but does not give the present universal assertion in the inspected introductory claims. Actual targeted mathematical-record searches returned no coverage of this precise coefficient-uniform prime-three claim; search absence is not proof of priority. Primary preprint theorems and their proof sections were materially read.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result answers a natural complete classification question for the exceptional prime dividing the degree of a diagonal binary cubic. It removes all coefficient restrictions at that prime, including the valuation-discordant and noncube unit-ratio cases, and supplies a uniform constructive 3-adic proof. It materially corrects two non-density predictions in source preprints, rather than merely checking a single numerical example or renaming an existing theorem. The corresponding exact 3-adic quotient identity and higher-dimensional restriction are meaningful structural consequences. No claim is made for arbitrary binary cubics or other primes.
+The distinct claim retained is the arbitrary-coefficient binary cubic classification at p=3, with exact Z₃ quotient surjectivity and the resulting integer density. The prior unweighted special case is credited, whereas two precise published-preprint statements give the opposite verdict on examples in the supported regime. No exact or stronger covering result was established by the bounded comparison. This is not a claim of historical priority or of novelty of the lifting method.
 
-## Closest literature and limitations
+## value
 
-The closest statements are Antony--Barman (arXiv:2110.05420v2, Theorem 1.2) and Antony--Barman--Miska (arXiv:2201.04372v1, Theorem 1.1). The prior unweighted cube result of Miska--Murru--Sanna (arXiv:1807.08947v2, Theorem 1.8(c)) is acknowledged as earlier positive evidence. Absolute priority is not certified: final journal versions, unindexed errata, and other independent corrections may differ from the inspected preprints. Exact quotient surjectivity is proved only with 3-adic integer inputs; integer inputs give density.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The prime dividing the cubic degree is the natural case where unit-cube and lifting behavior changes. The theorem resolves the full binary diagonal classification at this prime and supplies two mathematically decisive boundary counterexamples to the checked non-density claims, as well as the stronger exact local image statement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

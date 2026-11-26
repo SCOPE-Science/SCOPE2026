@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T12:30:51.213404Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For f normalized by f(0)=0, weighted Cauchy–Schwarz gives at most exp(|x|/2) growth, so the boundary terms against F-G vanish. The error functional has Riesz derivative (G-F)/rho; its squared energy is finite since G-F is a logistic tail outside the nodes. Under u=F(x), dx/rho=du/[u^2*(1-u)^2], and the cumulative weights telescope to a_j then b_j, giving the exact two integrals. At j>=2 on the left half, the reciprocal denominator (not the denominator in one sentence of the proof) is O_p((j/n)^(-2p)) and each distance integral is bounded by the cube of the width, with width O_p(n^-p*j^(p-1)); hence the cell bound O_p(n^-p*j^(p-3)). In the first cell the left numerator cancels u^2 and the other half starts at u comparable to n^-p; this gives O_p(n^-p). Symmetry (and an O_p(n^-3) central cell for odd n) completes tail control. For p<2 one has the stated fixed-j scaled integrals and a summable majorant. For p=2, uniformly for J<=j<=epsilon*n, both half-widths are j/n^2 times (1+O(1/j+j/n)); throughout such a cell u=(j/n)^2 times (1+O(1/j+j/n)). Integrating each squared distance gives n^2 times the cell error equal to (2/3j)*(1+O(1/j+j/n)). The remainder in the sum over that range is bounded, and the first J and compact interior cells contribute O_(J,epsilon)(n^-2), proving the 4/3 log coefficient after reflection. For p>2 the n^2-rescaled endpoint tail is O_p(epsilon^(p-2))+o(1), and the bulk limit has density psi_p'^3/(12*psi_p^2*(1-psi_p)^2). With r=t/(1-t), the numerator expands as r^(p-3)*(1+r)^4 and the integral is the stated sum of beta terms with arguments 1±(k-2)/p; reflection gives the formula. For p=1 the joined unit cells integrate by 1-2j/v+j^2/v^2, yielding the stated telescoping rational and log-gamma sum with limit log 2 by Stirling. Finally, on [1/4,3/4], even signed constant-exact rules give a step function with at most n+1 segments; minimizing the squared error on each segment and applying Jensen gives E_n^2>=1/[6(n+1)^2]. All asymptotics are for fixed p and the homogeneous norm. The archived high-precision diagnostic is finite, inspected and not rerun.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Suzuki–Hyvönen–Karvonen prove general optimal-order bounds for the Möbius-transformed trapezoidal rule and compare against Gauss–Logistic in a logistic example. Suzuki's Gaussian lower bound is (log n)^(-alpha) in the full weighted Sobolev space and mentions the different transformed rule's n^(-alpha) rate.",
+          "The power-graded randomized and antithetic analogues study different integrands and laws and their transitions are different."
+        ],
+        "reasoning": "These results establish the relevance of tail handling and already show optimal order is achievable in their settings, but do not specialize to this rule, derivative-only worst-case norm, or leading constants. General order-optimality does not decide which fixed p achieve it here.",
+        "searches": [
+          "arXiv:2407.13650 OA PDF, pp. 1 and 11",
+          "arXiv:2611.11545 OA PDF, pp. 1 and 7–8",
+          "Resultary power-graded and antithetic quadrature 0ac19ee5a36d and 2306aa685e20"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.11545v1",
+        "arXiv:2407.13650",
+        "Resultary 6148bcdd0719, 0ac19ee5a36d and 2306aa685e20"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior n^-1 optimal-order results for another transformed rule do not distinguish n^(-p/2), n^-1*sqrt(log n), and n^-1 in this rule. Standard cellwise cubic scaling predicts a bulk integral only when its singular endpoint density is integrable; the finite endpoint series for p<2 and logarithmic coefficient at p=2 require separate calculations."
+        ],
+        "reasoning": "The quantitative family-level threshold and exact leading constants, including 2*log 2 for the ordinary quantile midpoint rule, are the contribution rather than the existence of an order-optimal one-dimensional quadrature.",
+        "searches": [
+          "arXiv:2611.11545v1 Theorem 1 and discussion of transformed trapezoidal rule",
+          "arXiv:2407.13650 logistic example",
+          "Resultary 0ac19ee5a36d and 2306aa685e20 exact statements"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The equivalent uniform-coordinate squared distortion is the integral of (G-u)^2 against du/[u^2*(1-u)^2], with levels psi_p(j/n) and thresholds psi_p((j-1/2)/n). This weight is not integrable at the endpoints; the distortion is finite because the discrepancy vanishes there.",
+          "Suzuki's logistic theorem is about Gaussian nodes and the full weighted Sobolev norm; the closest indexed exact midpoint hit is the original itself."
+        ],
+        "reasoning": "The squared cumulative discrepancy gives the appropriate equivalence test. Neither a Gaussian-node bound nor an interior high-resolution density argument gives the necessary singular-endpoint analysis, even though the cell calculation is a scalar squared-error distortion.",
+        "searches": [
+          "Resultary logistic quantile-midpoint grading transition 6148bcdd0719",
+          "Primary literature query: graded midpoint logistic weighted Sobolev quadrature exact worst case error weighted CDF discrepancy power logit endpoint square root log scalar companding Bennett integral",
+          "arXiv:2611.11545v1, Theorem 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The catalogue hit with the precise transition and constants is the frozen record itself. The mirrored neighbours give a randomized power-cell transition at p*(1-alpha)=3/2 and an antithetic variance transition at beta=3/2, not logistic midpoint error constants.",
+          "The targeted indexed literature search surfaced the already compared Gaussian-node logistic paper and differently weighted or geometric quadrature results, not a separate exact entry on the available evidence."
+        ],
+        "reasoning": "Related grading and Sobolev keywords are not independent matches. The rule, measure, error functional and constants must coincide for database coverage.",
+        "searches": [
+          "Resultary exact logistic quantile-midpoint family hit 6148bcdd0719 and nearby graded quadrature records 0ac19ee5a36d, 2306aa685e20",
+          "Primary literature targeted exact-error/weighted discrepancy search"
+        ]
+      },
+      "rationale": "Best of current knowledge: the full fixed-p trichotomy and exact constants for this deterministic, mass-exact power-logit midpoint family in derivative energy are distinct. Integration by parts, general discrepancy tools and the known feasibility of first-order quadrature are not themselves credited as novel.",
+      "residual_risks": [
+        "A general older weighted-distortion theorem that addresses this nonintegrable endpoint weight could bear on priority; no such covering passage was found in the targeted checks. This is not exhaustive historical certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different nodes and norm; no family-specific constants in inspected statements",
+          "evidence": "Gaussian-node lower bound (log n)^(-alpha) for the full norm, and mention of n^(-alpha) for the Möbius-transformed trapezoidal rule.",
+          "identifier_or_url": "arXiv:2611.11545v1",
+          "material_read": "Abstract and Theorem 1, OA PDF pp. 1 and 7–8, offsets 500 and 20300",
+          "method": "Primary OA PDF passages",
+          "title": "Suboptimality of Gaussian quadrature for Freud and logistic weights in weighted Sobolev spaces",
+          "trigger": "Same logistic weight and weighted Sobolev worst-case integration"
+        },
+        {
+          "assessment": "Prior order-optimality for a different rule, not the power-logit family",
+          "evidence": "General transformed trapezoidal order and logistic example against Gauss–Logistic quadrature.",
+          "identifier_or_url": "arXiv:2407.13650",
+          "material_read": "OA PDF pp. 1 and 11, offsets 0 and 39300",
+          "method": "Primary OA PDF passages",
+          "title": "Möbius-Transformed Trapezoidal Rule",
+          "trigger": "Closest cited order-optimal quadrature and logistic comparison"
+        },
+        {
+          "assessment": "Different integrand class and randomized rule",
+          "evidence": "Independent uniform samples on power cells for t^(-alpha), with a transition at p*(1-alpha)=3/2.",
+          "identifier_or_url": "Resultary 0ac19ee5a36d",
+          "material_read": "RESULT.md finding, offset 0",
+          "method": "Local mirrored exact record",
+          "title": "Gaussian/heavy-tail transition for power-graded randomized quadrature",
+          "trigger": "Closest power-graded quadrature transition"
+        },
+        {
+          "assessment": "Structural analogy only",
+          "evidence": "Randomized antithetic strata for t^beta, variance transition at beta=3/2.",
+          "identifier_or_url": "Resultary 2306aa685e20",
+          "material_read": "RESULT.md finding, offset 0",
+          "method": "Local mirrored exact record",
+          "title": "Sharp singularity thresholds and constants for antithetic stratification",
+          "trigger": "Possible alternate graded quadrature constants"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a canonical probability-coordinate midpoint family, this gives a sharp design rule: ungraded sampling has only n^-1/2 error, critical grading pays a logarithmic penalty, and every fixed p>2 attains the optimal power. It quantifies the cost of endpoint undersampling and distinguishes graded choices by exact constants. These are useful family-specific conclusions in the homogeneous norm; neither general quadrature order nor globally best leading constants are new claims here.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

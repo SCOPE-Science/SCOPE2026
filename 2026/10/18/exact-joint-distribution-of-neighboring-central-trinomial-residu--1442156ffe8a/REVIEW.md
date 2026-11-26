@@ -1,19 +1,21 @@
-# Scientific review: neighboring central trinomial residues modulo five
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The mod-five digit product follows by the Frobenius congruence and the no-cross-digit-cancellation argument for signed exponents in the interval from minus four to four. Exact multiplicative character orthogonality counts digit-product fibers. The unique trailing-four decomposition partitions every index other than the all-four endpoint, and four explicit quotient calculations for each parity yield the two lookup vectors. The endpoint contributes exactly once. The deviation-sign argument applies to every \(L\ge2\); the boundary values \(L=0,1\) are checked directly. A standalone exact-arithmetic program corroborates all sixteen cells through \(L=7\), but the proof is infinite and does not rely on that enumeration.
+PASS
 
-## Originality
+Frobenius factors the Laurent polynomial by digits; a zero exponent forces the lowest signed digit to be zero since its magnitude is at most four, and then iteratively forces all to be zero. The five single-digit values yield weights (1,1,3,2,4). Equivalently to the character argument, their counting measure is the sum of a point mass at 1 and the all-ones measure on the four-unit group; convolution raises the total mass to 5^j and leaves the coefficient of the point mass equal to 1. A carry through exactly t fours contributes (-1)^t in the old residue, and the unique next digit is determined by the ratio v/u since the four digit quotients are 1,3,4,2 for even t and their negatives for odd t. The resulting distinguished old residues reconstruct both printed lookup vectors. Summing the uniform prefix terms gives the stated baseline; the separate endpoint is ((−1)^L,1), not an additional free-prefix case. For L≥2 the eight parity-adjusted cells are distinct, include the endpoint, and each has positive deviation since floor(L/2)>(4L+1)/16. Their positive deviations sum to (4L+1)/2 and normalization yields the claimed TV. The unadjusted baseline is at least 1 for L≥2; L=0 has one occupied cell and L=1 has five distinct occupied cells, giving TV 15/16 and 11/16. Independent direct polynomial multiplication modulo five through n=625, with no use of digit products for the observed counts, recovered all cells and the exact TV for L=0 through 4 (`python3 -B /workspace/branches/bounded_review_checks.py 4`). The packaged check through L=7 was inspected, not executed; the unrestricted result follows from the symbolic proof.
 
-**PASS on the inspected evidence, with disclosed residual priority risk.** Deutsch--Sagan and Rowland--Yassawi provide the Lucas-product and automatic congruence framework but no displayed explicit joint sixteen-cell law or sharp two-point total-variation expression. Kohen's later paper proves an offset-carry decomposition and applies it to densities of linear comparisons involving adjacent central trinomials, including \(T_n\equiv T_{n+1}\pmod p\); that marginal is **prior coverage**, not new here. The accessible earlier local results concerning central trinomial pairs are modulo eight, while a separate neighboring criterion is modulo nine; neither implies the mod-five pair formula. Targeted scientific-record searches and public literature queries returned no exact coverage. General automatic-sequence and Kohen offset-carry methods could allow implicit derivations not stated in the inspected full texts; independent priority checking is outstanding.
+## originality
 
-## Value
+PASS
 
-**PASS.** Adjacent arithmetic sequences are correlated by carry propagation, so a one-point Lucas law alone does not specify an adjacent-pair distribution. The result gives a closed finite-window sixteen-cell census at every scale, proves every possible pair appears at the first nontrivial full-digit scale, and determines the exact rate and constant of convergence to independence and uniformity. These are natural complete invariants of a classical number-theoretic sequence, not an arbitrary isolated numerical instance. The restriction to prime five and two consecutive terms remains explicit.
+Pass for the explicit sixteen finite-window ordered counts and exact TV, not for the prior Lucas digit product, offset-carry method or limiting equality density. Kohen gives the closest direct mathematical overlap: an adjacent equality event and a general carry decomposition. Neither supplies the prefix-product frequency correction that resolves all sixteen cells at finite scale in the inspected passages.
 
-## Closest literature and limitations
+## value
 
-See Deutsch--Sagan (2004), Rowland--Yassawi (2013), and Kohen (2024) as listed in RESULT.md. The primary theoretical precursor is the Lucas digit product, rather than any assertion that no general automatic-sequence machinery can recover the count. The stronger novelty risk is a general previously published two-point theorem whose specialization would dominate the exact count. No claim is made about longer patterns, prime powers or arbitrary cutoffs.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For a classical arithmetic sequence the digit product alone does not give rates for adjacent pairs. The exact count measures correlation induced by base-five carries at every digit scale, shows full support already at length 25, and gives the precise finite-scale discrepancy rather than just a limit. This is a complete natural two-point classification within the stated modulus and windows, not a finite numerical instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

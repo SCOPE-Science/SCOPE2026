@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,8 @@
 }
 ---
 
-# Verification of the exact randomized Ritz distributions
+# Verification of the exact randomized Ritz-vector law
 
-The analysis proves a lower-triangular compressed pencil and invokes Haar invariance of its null line to represent the two random correction coefficients as ratios of independent circular complex-normal variables. A second independent-Gaussian linear combination proves the \(qV/U\) reduction; the exact CDF, expectation and radial tail follow from elementary exponential integrals. Divergence of the raw eigenvalue second moment follows by integrating the exact \(1/t\)-order tail in its squared magnitude. The small-angle coefficient follows analytically from \(q\sim (b/a)^2\theta^2\) and \(\Phi(q)=-q\log q+O(q)\).
+The proof uses the unitarily invariant null line of the test operator to give the eigenvector coefficient as a quotient of independent Gaussian linear forms. Integrating the ratio of their squared magnitudes gives the exact normalized angle CDF and mean. The expansion of that mean gives the logarithmic coefficient. The eigenvalue tail is an already covered property of the non-spectator root and is not the finding.
 
-Run the included standalone script with `python verify.py` (Python 3, NumPy and mpmath). The script was executed successfully. It checked six high-precision integral identities; the special uniform law at resonance; four small-angle asymptotic sanity cases; and direct batched Gaussian compressed matrices at four trial-space angles, with 110,000 independent sketches per angle. For each angle it checked the exact triangular structure, mean, five normalized-angle CDF cutoffs, and four radial eigenvalue-tail cutoffs. All programmed assertions passed. The direct simulation sample size and tolerance are finite; neither the universal CDF nor the infinite-moment conclusion is certified by Monte Carlo.
-
-There has been no external audit. The statements are limited to the exact square complex-Gaussian pencil and the specified diagonal Hermitian trial-space model. See RESULT.md for definitions, steps, the explicit output branch, and the previously known results.
+The accompanying `verify.py` uses Python 3, NumPy and mpmath. The recorded run checked six high-precision integral values, the uniform resonance, four small-angle cases and direct compressed pencils at four trial angles with 110,000 sketches per angle. The finite pencil checks compare the matrix structure, CDF and mean, and include an eigenvalue-tail diagnostic. Finite sampling neither proves the exact angle formula nor establishes the small-angle asymptotic.

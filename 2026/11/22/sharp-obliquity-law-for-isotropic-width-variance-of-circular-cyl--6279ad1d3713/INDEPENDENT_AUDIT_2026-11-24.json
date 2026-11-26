@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:31:50.363306Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independently checked the second moment and slope constants in RESULT.md lines 32–100. Width adds under Minkowski sums, giving 2r√(1−U₃²)+ℓ|v·U|. The uniform law of U₃ and spherical symmetry give the stated mean and the pure-square terms (8r²+ℓ²)/3. For another check of the mixed term, express √(1−U₃²) as π/2 times the azimuthal mean of |e·U| for a unit in-plane direction e. For unit directions with inner product c, angular integration of the two absolute linear projections gives E|e·U||v·U|=2[√(1−c²)+c arcsin c]/(3π): reduce to the plane of the two directions with mean squared projected radius 2/3 and integrate |cos φ cos(φ−arccos c)| over a full turn. Writing c=√m sin φ by symmetry, the remaining quarter-turn average produces F=2/(3π) times the integral of √(1−m sin²φ)+√m sinφ arcsin(√m sinφ). Integration by parts in the arcsine term gives F=2[2E(m)−(1−m)K(m)]/(3π). Differentiation gives F′=(3π)⁻¹∫cos²φ/√(1−m sin²φ)dφ; its endpoint limits are 1/12 and 1/(3π) by domination by cosφ. Variance has slope 4rℓF′ since the mean is constant. The strict increase, sharp secant constants, endpoint gap and inverse statement in m follow, with r and ℓ held fixed and the planar endpoint excluded. Inspected the finite checker without executing it.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Resultary 0823a9ee8045 assumes orthogonal right prisms; Resultary 385986078a70 concerns the right circular cylinder and gives at most the zero-inclination endpoint.",
+          "The supplied Gesmundo–Meroni comparison gives support additivity and geometric structure. Nabeya gives the related ingredient for products of absolute scalar projections; the claimed average over disk directions is an additional calculation."
+        ],
+        "reasoning": "Neither orthogonal-product assumption nor a theorem about the linear-projection kernel states a covering sharp variance-versus-obliquity classification. The exact law might also be reachable from more general Gaussian norm-moment theory; no matching stronger statement of that kind was verified.",
+        "searches": [
+          "Resultary: general width fluctuations of prisms and right circular cylinders",
+          "arXiv:2111.01241 §§1–3",
+          "Nabeya, DOI:10.1007/BF02949770"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, REVIEW.md, VERIFICATION.md and verify_oblique_width.py (read only)",
+        "Resultary 385986078a70, 0823a9ee8045 and 8cb749eaa167",
+        "Finch arXiv:1212.5946 and Gesmundo–Meroni arXiv:2111.01241 (supplied comparisons, with OA attempts)",
+        "Nabeya DOI:10.1007/BF02949770 (bibliographic evidence and independently checked kernel)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Finch's known mean gives no discrimination in tilt for fixed r and ℓ. The right-cylinder law yields one moment at m=0 but no quantitative change with m.",
+          "The scalar Gaussian formula reduces the moment computation but supplies neither the evaluated disk average nor a sharp endpoint-to-endpoint bound for its derivative. The derivative representation proves that the slope is governed by a different integral and gives both optimal constants."
+        ],
+        "reasoning": "The full variance, sharp two-sided stability in sin²θ and unique inverse are not contained in the inspected claims. The mean and basic support and angular-kernel identities are not counted as original.",
+        "searches": [
+          "Resultary: 0823a9ee8045, 385986078a70, 8cb749eaa167",
+          "arXiv:1212.5946",
+          "Nabeya, DOI:10.1007/BF02949770"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Nabeya's 1951 paper is indexed for absolute bivariate Gaussian moments. The corresponding elementary absolute-projection kernel (rechecked in correctness) has the same form up to the Gaussian mean squared radius, which is three.",
+          "The cylindrical mixed term is an angular average over a continuum of correlations, not one application at a single correlation. The exact reduction and sharp derivative integral are given in the correctness assessment."
+        ],
+        "reasoning": "The Gaussian reformulation identifies real prior computational overlap. Matching the pointwise kernel does not by parameter substitution identify the disk-plus-segment profile: the planar-direction average and its elliptic evaluation are needed. Sharp slope information then concerns the averaged profile, not the pointwise kernel.",
+        "searches": [
+          "Resultary: oblique cylinder isotropic projection width mixed moment, variance and inverse inclination",
+          "Nabeya absolute bivariate normal product moment and correlated Rayleigh/half-normal mixed moments"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed right-cylinder law treats m=0 only. Same-day Resultary 8cb749eaa167 treats a bicylinder's near-minimum-width probability, not the variance of a disk-plus-segment cylinder.",
+          "Finch is credited in the frozen source for the inclination-independent first moment, not for a tilt-dependent second-moment profile."
+        ],
+        "reasoning": "Knowing an endpoint value, the first moment, or exact elliptic data for a different body does not provide the full profile on 0≤m<1 or the sharp secant constants.",
+        "searches": [
+          "Resultary: oblique cylinder elliptic second-moment formula, right-cylinder exact law, bicylinder elliptic width laws",
+          "arXiv:1212.5946 §1/§1.1"
+        ]
+      },
+      "rationale": "The supported distinction is the evaluated oblique-cylinder variance profile together with its sharp global slope and inverse law. The mean and upright case are known, and the classical absolute bivariate Gaussian kernel provides a direct alternative starting point for the mixed moment. That prior kernel is partial coverage, not a stated disk–segment elliptic evaluation or quantitative tilt law. The assessment is limited to the available statements and is not a priority certification.",
+      "residual_risks": [
+        "Primary OA passages were not recovered in the attempted retrievals. No whole-document exclusion is inferred from indexing or timeout.",
+        "A result on mixed Gaussian norm moments, zonoid width covariances or stereological Feret widths could cover more of the exact profile than the verified scalar kernel comparison.",
+        "Inverse conditioning is in sin²θ, with both geometric lengths known; it is not a three-parameter inverse or a uniform Lipschitz inverse in θ at the upright endpoint."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known mean credited; no whole-paper exclusion",
+          "evidence": [
+            "Frozen RESULT.md lines 105–106 and 113–114 credit Finch's inclination-independent mean and surface area."
+          ],
+          "identifier_or_url": "arXiv:1212.5946v1",
+          "material_read": "Indexed identification and supplied discussion of §1/§1.1; exact primary passage not recovered",
+          "method": "Lawful OA PDF and HTML attempts plus supplied source locators",
+          "title": "Oblique Circular Cones and Cylinders",
+          "trigger": "Same oblique circular cylinder and width observable"
+        },
+        {
+          "assessment": "Relevant classical bivariate ingredient; does not establish that the disk average or the sharp slope law already appears there",
+          "evidence": [
+            "Spherical radial factor 1/3 converts the corresponding bivariate Gaussian kernel to the absolute product of two unit spherical projections; an additional azimuthal average produces the mixed cylinder term."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/BF02949770",
+          "material_read": "Publisher indexing and bibliographic search results; full-text passage unavailable",
+          "method": "Targeted primary-literature search, publisher and identified institute OA attempts, and independent check of the kernel and specialization",
+          "title": "Absolute moments in 2-dimensional normal distribution",
+          "trigger": "Possible covering formula for the absolute-direction correlation"
+        },
+        {
+          "assessment": "Endpoint coverage only",
+          "evidence": [
+            "Generator orthogonal to base; no inclination parameter."
+          ],
+          "identifier_or_url": "2026/11/1/SCOPE-exact-random-width-law-and-sharp-inverse-ambiguity-for-right-cir--385986078a70",
+          "material_read": "Indexed scientific statement",
+          "method": "Local Resultary",
+          "title": "Exact random-width law and sharp inverse ambiguity for right circular cylinders",
+          "trigger": "Same random-width moment at zero tilt"
+        },
+        {
+          "assessment": "Orthogonal products do not cover the oblique disk–segment family",
+          "evidence": [
+            "Right-prism restriction is essential to the stated comparison."
+          ],
+          "identifier_or_url": "2026/11/1/SCOPE-a-sharp-width-fluctuation-gap-and-rigidity-law-for-euclidean-rig--0823a9ee8045",
+          "material_read": "Indexed scientific statement",
+          "method": "Local Resultary",
+          "title": "A sharp width-fluctuation gap and rigidity law for Euclidean right prisms",
+          "trigger": "Possibly broader sharp variance law"
+        },
+        {
+          "assessment": "Different body and statistic",
+          "evidence": [
+            "Near-minimum-width probability for a bicylinder, not the variance of widths for a single oblique cylinder."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-elliptic-rare-width-tomography-for-unequal-orthogonal-bicylinder--8cb749eaa167",
+          "material_read": "Indexed scientific statement",
+          "method": "Local Resultary",
+          "title": "Elliptic rare-width tomography for unequal orthogonal bicylinders",
+          "trigger": "Same-day elliptic random-width inverse question"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The known mean cannot distinguish tilt for these fixed lengths, while the variance distinguishes every tilt and does so with sharp quantitative conditioning in sin²θ. The complete exact profile and the planar-limit gap separate the isotropic width statistic from fixed-height or projected-area problems. This is a useful shape-identification result, not merely an elliptic re-expression of the known mean or upright value.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

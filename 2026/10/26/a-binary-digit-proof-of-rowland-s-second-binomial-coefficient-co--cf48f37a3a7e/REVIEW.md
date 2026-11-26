@@ -1,21 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For every odd prime \(p\) and every positive integer \(n\), the corrected binomial quotient is integer by Lucas's congruence modulo \(p\), and its parity is exactly the binary-submask condition from Lucas modulo two. The central new digit-deposition identity is proved by fixing each binary digit of Rowland's parameter and summing its exact integer coefficient; it proves equality of the original printed parameter set with the submask residue set, including its cardinality. No inference from finitely many checked cases is needed. The included verifier reconstructs the original floor sums for 429 odd primes through 3000 and independently checks 11,816 exact integer-binomial cases across 44 primes.
+PASS
 
-## Originality — PASS, residual risks
+For positive n and odd prime p, the binomial identity gives p E_p(n)=C-A with C=binom(n-1,2p-1) and A=(p+1)(n_1-1) times the indicator of p dividing n. Lucas modulo p gives zero if p does not divide n and n_1-1 modulo p otherwise, so p divides C-A. Since A is even and p odd, Lucas modulo 2 then gives the mask condition, also for n<2p. For the printed floor sum, fix digit e_h of j and let f_h be the h-th zero position of m-1, indexed from zero. Exactly the first r=f_h-h one positions of m contribute, with coefficient 2^(h+1) plus the terms 2^(h+a-1) for 2<=a<=r, which sums to 2^f_h even when r=1. Thus j fills exactly the complementary bits of m-1 without carries, yielding a bijection onto all 2^z mask classes, including the residue n=0 modulo 2^L via n-1. Dividing the defining equality by two gives the stated fractional part. The proof is universal; the independent limited check through p=47 and the larger author-recorded checks in VERIFICATION.md/verify.py are corroboration only; the uploaded script was inspected, not executed.
 
-E. Rowland, *Two binomial coefficient conjectures*, arXiv:1102.1464v1 (7 February 2011), Section 3, Conjecture 2, asks exactly for the unusual floor-sum residue parametrization. Its proved preceding proposition controls fractional parts but does **not** equate that parametrization with the elementary Lucas parity criterion. Rowland explicitly describes the parametrization as unproved and its membership test as unclear. This result proves the missing digit-deposition equivalence and so proves the printed conjecture; the classical Lucas criterion and Rowland's preceding proposition are acknowledged as prior inputs, not original discoveries.
+## originality
 
-Rowland's earlier arXiv:1001.1783 (2010) counts nonzero entries in Pascal's triangle modulo prime powers, rather than characterizing this \(\binom{n}{2p}/n\) exception set. The Lu–Tsai periodicity theorem quoted in Rowland establishes periodicity, not Rowland's printed digit parametrization. Searches for a prior resolution and close research records did not reveal the same statement, but this is not a proof of global uniqueness. An unindexed resolution or a stronger unlocated theorem remains a residual originality risk.
+PASS
 
-## Mathematical value — PASS
+The supported distinct contribution is a proof of the full floor-sum residue-set equivalence in Rowland's printed Conjecture 2. The Lucas arithmetic and already known preliminary fractional-part reduction are not credited as the novelty. No covering proof was identified in the bounded comparisons.
 
-The claim gives a self-contained proof of an explicitly published, infinite-parameter number-theory conjecture, and converts an obscure floor-sum existential test into a single binary mask comparison. It also identifies the exact number \(2^{L-s_2(2p)}\) of exceptional residue classes per binary period. These answer a motivated question about binomial congruences, not an arbitrary numerical slice.
+## value
 
-## Scope and remaining limitations
+PASS
 
-The proof assumes \(p\) an odd prime and does not address Rowland's unrelated Conjecture 1, composite \(p\), or an analogous conjecture for arbitrary products of distinct primes. The original 2011 source predates the archival cutoff; no source date from later revisions is substituted. Computational checks support but do not establish the infinite proof. Independent examination of the new theorem and a global literature audit remain to be done.
+This resolves an explicitly posed all-prime conjecture, explaining why its floor-sum list has no duplicate residues and replacing an implicit search with a single mask test. The value lies in explaining and exhausting the exact printed parametrization, not in recomputing examples or applying Lucas alone.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

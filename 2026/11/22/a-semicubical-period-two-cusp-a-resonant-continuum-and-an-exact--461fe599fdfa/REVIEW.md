@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The primitive-two condition is exactly two scalar equations. Their difference factors by the coordinate difference, and their sum reduces the remaining nontrivial solutions to a unique prescribed sum and product, proving completeness even on the degenerate parameter locus. The discriminant yields the exact cusp. The derivative product reduces to an explicit two-step trace and determinant with the identity \(1-T+D=L\Delta\), after which the strict Schur inequalities give an if-and-only-if sink condition. The named parameter slice is solved by exact quadratic inequalities, not plots, and direct multiplication verifies the resonant normal spectrum. `verify.py` supplies symbolic checks and exact sample diagnostics. The complete global orbit-count and local-stability proof appears in RESULT.md.
+PASS
 
-## Originality — PASS within inspected evidence
+The first coordinate forces any primitive return to interchange x and y, so the two scalar interchange equations are necessary and sufficient. Independently translating X=x+c and Y=y+c, the equations become X(Y²−2cY+L)=N and Y(X²−2cX+L)=N. Their difference forces XY=L off the diagonal; then each reduces to L(X+Y−2c)=N. For L≠0 the unordered distinct pair is therefore determined by one monic quadratic, giving exactly the asserted discriminant and cusp; equality gives a fixed point, not a cycle. For L=0 the conditions instead give N=0 and the union of the two axes in translated variables, with the common origin excluded. Multiplication of the two Jacobians gives the recorded determinant and trace and 1−T+D=LΔ. This yields the strict Schur inequalities and a real multiplier above one if L<0. On the sink slice, D<1 iff −4/3<S<0, Δ>0 iff S<−2−sqrt(2) or S>−2+sqrt(2), and 1+T+D>0 everywhere. Their intersection gives the stated interval; the neutral and coalescence endpoints are not sinks. Direct differentiation on the resonant slice gives a triangular return matrix with tangent multiplier 1 and normal multiplier t², not individual-cycle attraction.
 
-The originating published family and its affine case were read in full accessible textual form. Its Theorems 3.1 and 4.1 establish chaotic symbolic invariant sets under conditions on a trapping square; they do not derive the all-parameter primitive-two discriminant, its continuum degeneration, or the precise sink interval. A full two-symbol shift necessarily contains a least-period-two orbit on its horseshoe; this limited existence is recognized and not presented as new. Indexed studies with superficially similar period-two classifications concern the Bogdanov map, a fixed-point-free quadratic map, or a three-dimensional quadratic map, and their equations do not reduce to this \(F\) under a documented conjugacy. The same-family inverse-map analysis for a different cubic coefficient does not cover these period-two statements. Search absence is not a proof of priority; unindexed equivalence remains possible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The theorem identifies a globally exhaustive, explicitly soluble recurrence structure inside a noninvertible map family previously investigated mainly through horseshoes and numerical attractors. The codimension-two infinitely multiple period-two resonance, exact semicubical disappearance region, and explicit positive-width sink interval describe meaningful periodic-orbit bifurcation geometry, including regions not covered by horseshoe hypotheses. The exact return spectrum separates normal attraction along a resonant family from attraction to an individual periodic orbit; this distinction matters in interpreting numerical multistability.
+Within the inspected evidence, the contribution is the exhaustive real period-two census for the specific normalized affine cubic map, its singular locus, and exact return stability, not simply the existence of a periodic orbit. Several close exact period-two classifications were compared at their defining equations, and a study of inverse fibers in the same outer map family was compared at its different coefficient and observable. The originating article's complete text could not be independently accessed; the recorded overlap with its horseshoe theorem is credited, and the access gap remains a material limit on priority.
 
-## Scope and remaining risks
+## value
 
-No independent mathematical audit has been carried out. The theorem does not classify other periods, whole-plane basins, or nonlinear behavior at unit-circle multipliers. The institutional record lists first online release as November 3, 2024; the journal records November 18, 2024. The open author's manuscript at the institutional portal was blocked on retrieval, but full sectioned article text was accessible and examined through a lawful text mirror. Indexed comparator records were examined through their available descriptions, not falsely represented as full-text reads.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The natural lowest nontrivial period is completely solvable over the whole real plane rather than sampled on an invariant square. A semicubical exclusion boundary and an infinite continuum of distinct cycles at the degenerate parameter locus are structural findings. The return invariants yield an exact criterion throughout parameter space; the displayed slice demonstrates a nonempty sink regime and gives its two different endpoints. The normal/tangent distinction on the resonant family is useful independently of that example interval.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

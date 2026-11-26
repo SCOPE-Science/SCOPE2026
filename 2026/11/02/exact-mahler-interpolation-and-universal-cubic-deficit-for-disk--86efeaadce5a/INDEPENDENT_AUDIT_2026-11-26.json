@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:51:48.846994Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–93; VERIFICATION.md; check.py",
+        "/workspace/audit-evidence/replay.py, rec2"
+      ],
+      "rationale": "Uniqueness and the nontrivial rotational symmetry place the Santaló point at the origin. On a facet half-sector [0,alpha], the radial function is min(sec(theta),r); integrating its square gives the stated primal area. Independently, the support function is r cos(beta-theta) for 0<=theta<=beta (maximizer the side/arc junction), and r for beta<=theta<=alpha (the radial disk point is feasible). The polar radial function is its reciprocal, giving polar area n cos^2(beta)[tan(beta)+alpha-beta], including the endpoint geometries. Multiplying proves the formula and endpoint values. Differentiating the dimensionless product yields sin^2(beta)[(alpha-beta)(tan^2(beta)-1)-tan(beta)]. The bracket is negative for 0<beta<=pi/4; above pi/4 it is at most pi/6-1<0 using alpha<=pi/3. At the disk end the leading loss is n^2 alpha beta^3/3 with error O_n(beta^5), and beta^2=2(r-1)+O((r-1)^2). At the polygon end the chain rule gives derivative -n^2 sin^2(alpha) cos(alpha), with a quadratic remainder by analyticity. With beta=t alpha, expanding sin(beta)cos(beta) and tan(beta) through degree five gives normalized product 1-(t^3/3)alpha^2+(4t^5/15-2t^6/9)alpha^4+O(alpha^6) after dividing by pi^2. The remainders are uniform because |t|<=1. Dividing the deficit by its t=1 value gives the claimed correction and uniform O(n^-4). Independent reciprocal-support quadrature (`python3 /workspace/audit-evidence/replay.py 2`) checked 25 area pairs, with primal and polar absolute errors below 5e-9 and 1.2e-9 respectively; the universal results rest on the analytical proof.",
+      "residual_risks": [
+        "Quadrature is a bounded comparison, not proof of strict monotonicity or a uniform asymptotic.",
+        "The uniform profile uses the stated angular scaling and this family only."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Rotational-symmetry lower estimate n^2 sin^2(pi/n), with equality for the regular polygon",
+          "The local-minimizer theorem concerns symmetric bodies, not the prescribed shrinkage",
+          "073641383518 requires polygon intersections of common inradius and does not claim a uniform remainder in (n,k)"
+        ],
+        "reasoning": "The endpoint extremal estimates are not an order comparison of intermediate clipped bodies. Approximating a disk of radius r by intersections of polygons tangent to that disk alongside P_n requires unequal inradii for r>1, outside the strongest adjacent formula's hypotheses.",
+        "searches": [
+          "arXiv:1507.01481 Theorem 3 and Corollary 4",
+          "arXiv:1104.3663 Theorem 1.2",
+          "Resultary 073641383518 Finding and Limitations"
+        ]
+      },
+      "checked_sources": [
+        "Resultary cd13878768d7, 073641383518",
+        "arXiv:1507.01481 Theorem 3/Corollary 4",
+        "arXiv:1104.3663 Theorem 1.2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Outer rounding has a t^-2 disk approach in its own t parameter and a fixed-t expansion, not uniform in joint scaling",
+          "Common-inradius angular-gap majorization addresses a different shape parameter",
+          "No inspected prior gives the beta-dependent clipped product"
+        ],
+        "reasoning": "The profile is a direct Taylor consequence of the new familywise product, not of an inspected prior formula. Neither prior endpoint inequalities nor their equality cases determine the 3/2 cusp, the polygon-end derivative, or the uniform order-n^-2 correction.",
+        "searches": [
+          "cd13878768d7 fixed-offset asymptotics and Limitations",
+          "073641383518 Finding and Limitations",
+          "arXiv:1507.01481 lower bound and equality case"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "cd13878768d7 takes P_n+tB, not P_n intersect rB; its circular boundary pieces are at non-origin polygon vertices",
+          "By polar duality the correct companion family here is conv(P_n^circ,r^-1 B), with a concentric disk and fixed polygon vertices, not the polar of the cited outer path"
+        ],
+        "reasoning": "Primal disk clipping and the convex hull in the polar are equivalent, whereas a Minkowski offset is a different support-function deformation. The different asymptotic parameter and opposite direction do not turn the latter formula into the former.",
+        "searches": [
+          "Resultary: regular polygon concentric disk intersection Mahler product; circular rounding and polar convex hull",
+          "Resultary cd13878768d7 and 073641383518"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest indexed exact formulas are for the outer offset and common-inradius polygon families respectively",
+          "The numerical endpoint products are classical and explicitly covered"
+        ],
+        "reasoning": "No exact intermediate Family value or deficit polynomial was identified in the inspected exact-formula records; matching endpoint numbers are not an entry for intermediate radii.",
+        "searches": [
+          "Resultary cd13878768d7 and 073641383518, exact area/product and asymptotic Findings",
+          "Böröczky–Makai–Meyer–Reisner, endpoint equality case"
+        ]
+      },
+      "rationale": "The strongest inspected nearby exact results concern outer parallel bodies or intersections of rotated polygons of common inradius. The symmetry extremal inequality controls only the polygon endpoint; the classical upper bound controls only the disk endpoint. None of these states or mechanically implies the familywise clipped-body formula, strict decrease and quantitative deficit laws. This is a bounded best-of-knowledge result, not a priority certification.",
+      "residual_risks": [
+        "Meyer–Reisner full text was inaccessible on the tested routes.",
+        "Possible differently indexed derivations of concentric clipping/polar cap geometries remain; a weak general search return is not negative evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different body family",
+          "evidence": "Minkowski outer offset, exact expectation formula, t^-2 large-radius law, no uniform joint estimate.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-strict-mahler-product-growth-along-circular-roundings-of-regular--cd13878768d7/RESULT.md",
+          "material_read": "Finding offsets 0–1625, fixed-offset asymptotics and Limitations",
+          "method": "Local Resultary mirror",
+          "title": "Strict Mahler-product growth along circular roundings of regular polygons",
+          "trigger": "Near-exact interpolation and expansion for circular roundings"
+        },
+        {
+          "assessment": "No substitution on the stated hypotheses",
+          "evidence": "Rotated polygon intersections with a common inradius; unequal inradii and uniform remainder excluded.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-strict-angular-gap-majorization-of-mahler-products-for-rotationa--073641383518/RESULT.md",
+          "material_read": "Finding offsets 0–1238 and Limitations offsets 8200–9400",
+          "method": "Local Resultary mirror",
+          "title": "Strict angular-gap majorization of Mahler products for rotational polygon intersections",
+          "trigger": "Exact Mahler formula for related polygon intersections"
+        },
+        {
+          "assessment": "Known endpoint lower bound and equality only",
+          "evidence": "Sharp regular-polygon product n^2 sin^2(pi/n) with equality case, not a radius path formula.",
+          "identifier_or_url": "https://arxiv.org/abs/1507.01481",
+          "material_read": "Theorem 3 and Corollary 4, p. 17, extracted offsets 37700–39152",
+          "method": "OA primary PDF passages",
+          "title": "On the volume product of planar polar convex bodies — lower estimates with stability",
+          "trigger": "Same rotational symmetry and polygon endpoint"
+        },
+        {
+          "assessment": "Different extremal question",
+          "evidence": "Local-minimizer result, not an evaluation of clipping or endpoint expansions.",
+          "identifier_or_url": "https://arxiv.org/abs/1104.3663",
+          "material_read": "Theorem 1.2, p. 3, extracted offset 9633",
+          "method": "OA primary PDF passage",
+          "title": "On the local minimizers of the Mahler volume",
+          "trigger": "Mahler variation under symmetry"
+        },
+        {
+          "assessment": "Unresolved source-level limitation, not evidence of absence",
+          "evidence": "The frozen citation describes a bounded-vertex polygonal extremal result; coverage could not be checked at full-text level.",
+          "identifier_or_url": "https://doi.org/10.1007/s12188-011-0054-3",
+          "material_read": "No primary full text read; bibliographic identification and frozen attribution only",
+          "method": "DOI and identified ResearchGate copy attempted; no accessible full text obtained",
+          "title": "On the volume product of polygons",
+          "trigger": "Cited related polygonal volume-product result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Proof §§4–6",
+        "arXiv:1507.01481 Theorem 3/Corollary 4",
+        "Resultary cd13878768d7"
+      ],
+      "rationale": "The natural one-parameter path connects two classical rotational extremizers. The result determines the entire volume-product change and strict direction of interpolation, not merely two known bounds. The distinct sharp endpoint orders and the uniform normalized cubic profile with the first correction quantify the distribution of the deficit across the path; that information can be used as an exact benchmark for stability and rounding comparisons. It is not a finite numerical coincidence or a parameter substitution into an inspected result.",
+      "residual_risks": [
+        "No downstream stability theorem or general monotonicity for nested bodies is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-The finite claim is verified by `python verify_gp.py` and `python verify_lcf.py` in the same directory as `CERTIFICATE.json`. Both require only Python 3.10+ standard library. The programs reconstruct graph edges rather than importing the certificate as an unverified graph.
+# Independent mathematical audit
 
-The first verifier enumerates all 55,455 supports of size at most five, proves no support of size at least six can give weight below twelve, checks the 72 canonical states, 96 transition edges, and the complete branch-to-line-graph incidence bijection, then performs all-source breadth-first search.
+## correctness
 
-The second verifier independently constructs the LCF representation of the graph, verifies the supplied isomorphism to the generalized-Petersen model, recursively enumerates the same bounded support domain by an endpoint-coverage formula, independently rebuilds all 96 transitions and calculates every eccentricity. It also cross-checks the finite incidence certificate. Both verified outputs were recorded from executing the actual included scripts.
+PASS
 
-The proof is exhaustive for this graph because there are only 24 edges and every label-2 support of size at least six already has weight at least twelve. The approach makes no assertion about the parameter on other cubic graphs, about unconstrained relabeling models, or about independent external validation.
+For a fixed label-2 support T, edges with neither endpoint touched by T must have label 1, and any other edge outside T can have label 0. An extraneous 1 can be lowered; therefore every global minimum is its unique canonical completion, with cost 2|T|+|U(T)|. Supports of size at least 6 have cost at least 12. Independently generated GP(8,3) edges and enumerated all 55,455 smaller supports by their endpoint sets. By sizes 0 through 5 the minimum costs were 24,21,18,15,12,11, with respective multiplicities 1,24,132,184,54,72. All 72 global optima have exactly five 2s, one 1, and eighteen 0s. Pairwise intersection size four on the optimal supports gives exactly 96 exchanges, none preserving the single edge. The 24 degree-four and 48 degree-two vertices form the two parts; the branch-neighbor pairs of the degree-two vertices are distinct. I suppressed them and found a complete adjacency-preserving bijection to the line graph by independent backtracking, not relying on the certificate's proposed bijection. I separately verified the certificate's states, exchanges, GP-to-LCF and branch-to-line-graph maps. Independent flood distances gave eccentricity 8 for all vertices, confirmed connectedness, and put the endpoints of the certified length-eight path exactly eight apart. Thus the claim is of an abstract subdivision, not of a natural indexing by the single edge.
+
+## originality
+
+PASS
+
+The supported distinct result is the exact optimum-state census and the once-subdivided line-graph structure for this recomputing support-exchange rule. Ordinary Roman domination on the line graph is the known equivalent input optimization, not itself new. The closest ordinary Roman reconfiguration rules and several exact catalogue analogues were checked at the statement level.
+
+## value
+
+PASS
+
+A natural cubic symmetric benchmark supports more than a Roman domination number: the minimum labeling space recovers the original edge-incidence structure after suppressing forced degree-two states. The structure and metric data make it useful for comparing dynamics under different minimum-state exchange rules; here the support-recomputation rule even turns an edgeless local-swap graph on the same functions into a connected graph of diameter eight. The exact census alone would not imply these conclusions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-Run `python3 verify.py` using the extracted, embedded files. The verifier uses only the standard Python library. It checks 175 exact-rational characteristic-polynomial identities for explicit one- and two-splitting-coordinate Hermitian matrices, 24 radial quadrature ratios against the three asymptotic moment regimes (six splitting dimensions and four moment orders), three exact-rational sample-variance identities, and additional comparisons of the one-dimensional variance and fourth-moment constants. A successful run prints `PASS`. The general mathematical proof is in `RESULT.md`; the finite tests do not prove limits as the scale tends to zero or rule out earlier equivalent theorems.
+## correctness
 
-The published sources support the motivation and comparison, not authorship or independent validation of this theorem. Source publication dates and scope are documented in `RESULT.md`. Scientific limitations: local additive-gap Hermitian Clifford model; fixed interlevel contraction; bounded density continuous and positive at the degeneracy; common random input across levels. No external independent audit or certification was performed.
+PASS
+
+Rationalization gives Δₕ=h g(R/h), g(t)=c/t+O(t⁻³) for t≥1, and Δₕ/h²≤c/R. Below the moment threshold use domination by (c/R)ᵖ; above it change variables X=hy and use the integrable rescaled kernel. At p=d, the integral for h≤R≤δ has main term cᵈ h²ᵈ times the angular-density integral against dR/R. The O((h/R)²) relative kernel error, the inner ball and the exterior each contribute O(h²ᵈ) at fixed δ; continuity at zero controls the coefficient without requiring a density derivative. The stated means, variances and fourth-moment constants follow: for d≤4 the centering terms are lower order (at d=4 they are O(h⁸) versus h⁸ log(1/h)); in d≥5 use L⁴ convergence. The sample-variance identity follows from the pair kernel (Yᵢ−Yⱼ)²/2: disjoint pairs have zero covariance and overlapping pairs have covariance (μ₄−σ⁴)/4. For bounded N, κ≥1 implies a strictly positive lower bound 2/[N(N−1)]; this verifies necessity in the finite-kurtosis regime. The positive Clifford branch exists because an orthogonal Clifford generator exchanges the signs. Statistical independence of coordinates is not needed; the joint density hypothesis permits dependence. The frozen script's advertised characteristic-polynomial tests compare algebraically identical expressions, not independently computed determinants. They are unnecessary to the verified analytic calculation. No supplied code was executed. Independent bounded-interval quadrature (/workspace/review-checks/frozen_constants.py) gave J₂,₁≈0.290374807140502, J₄,₁≈0.0357744018751969 and coefficient 0.424281907450405; this checks constants, not the limiting theorem.
+
+## originality
+
+PASS
+
+The closest indexed record overlaps exactly on the one-dimensional coupled variance, and on uncoupled moments at θ=0 in an extension of the frozen domain. The supported distinction is the joint positive-θ, multidimensional classification, including the centered fourth moment and sharp relative-MSE budgets. Standard radial asymptotics and the unbiased sample-variance identity are not claimed as new. No inspected statement establishes the full classification.
+
+## value
+
+PASS
+
+An almost quartic absolute variance decay in d=2 coexists with the most severe relative variance-estimation budget of the listed dimensions. The exact phase classification reveals why looking at absolute variance is insufficient and supplies necessary and sufficient sample sizes for this common coupling. The contrast with the deterministic trace-square difference is useful when choosing spectral observables. The result is model-specific, not a general sample complexity or MLMC cost theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

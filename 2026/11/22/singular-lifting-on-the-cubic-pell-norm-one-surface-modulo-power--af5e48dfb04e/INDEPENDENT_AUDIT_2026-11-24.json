@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:11:35.971597Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 9–59",
+        "VERIFICATION.md lines 3–25",
+        "local_checker.py (inspected only)",
+        "local_checker_output.json lines 34–60 and 132–150"
+      ],
+      "rationale": "Writing s=x+y+z and t=xy+yz+zx gives F=s^3-3st. Modulo 3 the target is s=1, with nine triples. For such s, s^3=1 modulo 9, so lifting to modulo 9 requires t=0 modulo 3. The number of nonzero coordinates is then 1 modulo 3, hence exactly one, with residue 1. In the class (1,0,0), substitution gives F(1+3a,3b,3c)-1=9[a+3(a^2+a^3+b^3+c^3-bc-3abc)]. The bracket is a modulo 3 and its a-derivative is 1 modulo 3: at precision 3^(k-2), each b,c pair has a unique root (vacuously for k=2), with three choices for the unused digit of a. This gives 3^(2k-1) points in each of three classes. Since every partial derivative of F is a multiple of 3, the linear Taylor increment by 3^k digits vanishes modulo 3^(k+1), and the higher terms vanish because 2k>=k+1. Thus each nonempty fiber has 27 elements and the count gives an image of size 3^(2k-1) at every k>=1.",
+      "residual_risks": [
+        "The saved finite counts and first three lift transitions corroborate the proof; the supplied checker was not executed. No expert or formal attestation is inferred."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Frozen RESULT.md lines 69–73 reports that the prime-power formula for 2024/385 assumes p=1 modulo 3, and that the other cited construction excludes 3; decisive primary passages were not retrievable.",
+          "At p=3 the gradient of this F is identically zero modulo 3, whereas the substitution in a surviving residue class gives an ordinary smooth one-variable equation after division by 9."
+        ],
+        "reasoning": "The cited split-prime hypothesis excludes exactly the prime in the frozen result, and smooth lifting of the original cubic there cannot be specialized to the all-or-none fibers at 3. No inspected statement provides a dominating theorem covering this ramified norm map.",
+        "searches": [
+          "Seck–Nitaj, IACR ePrint 2024/385, Section 3/Lemma 3 (landing and alternate PDF attempts)",
+          "Nitaj–Seck, 2024 encoding-functions paper, Sections 1–3 (OA PDF attempt)",
+          "Primary literature lookup: cubic Pell norm-one congruence and lifting at 3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 9–59 and 65–81",
+        "Local Resultary exact hit and distinct Dickson fiber-law summary",
+        "Primary-literature query returned no relevant mathematical statement; primary texts above were attempted but are not counted as read"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The frozen conclusion requires ordered ternary points, a reduction image at every integer modulus 3^k and exactly three surviving classes mod 3.",
+          "The gradient argument implies 27-point nonempty fibers, but not which classes survive or the total counts. The identity F=s^3-3st does not make this the univariate Dickson fiber question: t is a coordinate-dependent second symmetric sum, with its own realizability and multiplicity constraints."
+        ],
+        "reasoning": "Neither a characteristic-3 field count, nor a split-prime count, nor the cataloged univariate fiber statement supplies the missing ternary counts and class distribution. A theorem computing the norm image and unit-group order of this exact 3-power group algebra could imply the count and then the image size, but such coverage was not located.",
+        "searches": [
+          "arXiv:2203.05290, Section 5 (OA attempts)",
+          "IACR ePrint 2024/385, Section 3/Lemma 3 (OA attempts)",
+          "Resultary cubic Dickson fiber-law record a4218d5c4f84, catalog summary"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact cubic is the determinant of multiplication by x+yt+zt^2 in (Z/3^k Z)[t]/(t^3-1).",
+          "The cited Dutto–Murru comparison (frozen RESULT.md lines 65–67 and bibliography) is to finite fields, not an integer prime-power tower."
+        ],
+        "reasoning": "Norm-map and cubic Pell formulations are equivalent here only for the same coefficient ring and parameter. In F_(3^k) the coefficient field has characteristic 3 at every k; it has no congruence maps with the digits or fibers at issue in the integer tower.",
+        "searches": [
+          "Local Resultary search: cubic Pell norm-one mod 3^k point count and singular lift law",
+          "Primary literature lookup: cubic Pell norm-one congruence and lifting at 3",
+          "Dutto–Murru, arXiv:2203.05290 (HTML and PDF attempts)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact catalog hit is the assigned record itself, with the same count and lift law.",
+          "The distinct Dickson catalog summary concerns the univariate map X^3-3X. Its full text was not available for the comparison.",
+          "The frozen table in local_checker_output.json contains finite sample counts, not independent prior coverage."
+        ],
+        "reasoning": "A table of solution counts could cover the count if it gave the same infinite tower, but the distinct indexed result describes fibers of a different domain and polynomial. There is no identified exact independent table for both the counts and reduced triple classes; the shared catalog date settles no priority question.",
+        "searches": [
+          "Local Resultary search: cubic Pell norm-one mod 3^k point count and singular lift law",
+          "2026/11/22/SCOPE-singular-lifting-on-the-cubic-pell-norm-one-surface-modulo-power--af5e48dfb04e",
+          "2026/11/22/SCOPE-the-exact-ternary-fiber-law-for-the-cubic-dickson-polynomial--a4218d5c4f84"
+        ]
+      },
+      "rationale": "Best of the available evidence supports a distinct integer-ring count and singular projection law. The same Resultary record is not a separate prior result. The closest distinct catalog statement is for a different map; the reported finite-field and split-prime results supply no matching integer 3-adic lifting statement. Full-text access limits this comparison; unsuccessful retrieval is not evidence of novelty.",
+      "residual_risks": [
+        "The closest cited full texts and the distinct Dickson full text were not inspected; prior coverage by an equivalent norm-map computation for Z_3[C_3], especially an image-index calculation, has not been ruled out."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same record; not independent precedent",
+          "evidence": "The catalog and RESULT.md lines 9–19 give the same count and all-or-none projection law.",
+          "identifier_or_url": "2026/11/22/SCOPE-singular-lifting-on-the-cubic-pell-norm-one-surface-modulo-power--af5e48dfb04e",
+          "material_read": "Local catalog summary and frozen Finding and proof",
+          "method": "Local Resultary search and statement comparison",
+          "title": "Singular lifting on the cubic Pell norm-one surface modulo powers of three",
+          "trigger": "Exact catalog hit"
+        },
+        {
+          "assessment": "Summary does not cover the norm-one theorem; full text not assessed",
+          "evidence": "The catalog describes X^3-3X in one variable, rather than the ternary congruence F=1 or its reduction maps.",
+          "identifier_or_url": "2026/11/22/SCOPE-the-exact-ternary-fiber-law-for-the-cubic-dickson-polynomial--a4218d5c4f84",
+          "material_read": "Local catalog summary only",
+          "method": "Local Resultary search; comparison of stated polynomial and domain",
+          "title": "The exact ternary fiber law for the cubic Dickson polynomial",
+          "trigger": "Closest distinct 3-adic fiber result"
+        },
+        {
+          "assessment": "Reported finite-field scope would not provide integer-ring coverage; independent full-text comparison unavailable",
+          "evidence": "RESULT.md lines 67 and 77 identify finite fields and Section 5; Z/3^k Z is not F_(3^k).",
+          "identifier_or_url": "https://arxiv.org/abs/2203.05290",
+          "material_read": "Frozen bibliographic description and prior-work comparison, not the primary Section 5",
+          "method": "Lawful OA HTML and PDF retrieval attempts timed out",
+          "title": "On the cubic Pell equation over finite fields",
+          "trigger": "Same norm construction in characteristic 3"
+        },
+        {
+          "assessment": "Reported p=1 modulo 3 scope does not include 3; independent full-text comparison unavailable",
+          "evidence": "RESULT.md lines 69 and 78 report p^(2(k-1))(p-1)^2 for the split cubic-residue case and identify Section 3/Lemma 3.",
+          "identifier_or_url": "https://eprint.iacr.org/2024/385",
+          "material_read": "Frozen citation and stated hypothesis, not primary Lemma 3",
+          "method": "Lawful OA landing and PDF retrieval attempts timed out",
+          "title": "A New Public Key Cryptosystem Based on the Cubic Pell Curve",
+          "trigger": "Same cubic family and prime-power point counts"
+        },
+        {
+          "assessment": "No independently read statement about this tower",
+          "evidence": "RESULT.md lines 69 and 80 describe squarefree products and split-prime powers, excluding 3.",
+          "identifier_or_url": "https://ced.fst-usmba.ac.ma/p/mjaga/wp-content/uploads/2024/12/NitajSeck_MJAGA-2.pdf",
+          "material_read": "Frozen description only",
+          "method": "Lawful OA PDF retrieval attempt timed out",
+          "title": "A New Public Key Encryption Scheme Based on the Cubic Pell Curve Using Encoding Functions",
+          "trigger": "Related norm congruence constructions over composite moduli"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 9–23, 27–59 and 65–73",
+        "local_checker_output.json (finite corroboration of both counts and transitions)"
+      ],
+      "rationale": "The prime 3 is the intrinsic ramified case of this cubic norm: the usual gradient test gives no separation of roots. The result describes both the point count and the compatible part of the solution tower, exposing the contrast between only one third of residues lifting and all 27 digits working when a residue does lift. This supplies the missing local data for the norm-one problem at its singular prime, not just a finite point count.",
+      "residual_risks": [
+        "The value is local to this norm parameter and target at 3; there is no asserted classification for arbitrary targets or ramified cubic algebras."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

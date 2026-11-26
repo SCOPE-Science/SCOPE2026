@@ -1,19 +1,21 @@
-# Review of fixed-label degree–path covariance
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The conditional-depth innovation representation was derived from weighted growth, and exact indicator covariances were summed before passage to the limit. The summable-weight Cesàro boundary correction and three distinct tail regimes were independently examined. The accompanying executable has passed 100 exhaustive exact-rational tree-covariance equalities and 104 deterministic analytic checks (204 total). Finite tests corroborate, but do not prove, the stated infinite limits.
+PASS
 
-## Originality — PASS, qualified
+The frozen theorem statement survives, but the frozen proof's endpoint contribution at RESULT.md line 64 has the wrong sign: for finite W_infty it is +sum_{k>i}p_k/W_infty, not its negative. It is material when alpha<-1. The replacement under repairs/3 derives the innovation identity from the normalized weighted depth average, then telescopes at finite n: the main term is sum_{j=i+1}^n a_j(p_j-p_i)+(sum_{k=i+1}^n p_k)/W_n. The Cesàro term for summable weights contributes (1-sum_{k>=i}p_k)/W_infty, giving exactly the claimed (1-p_i)/W_infty when combined; for nonsummable weights both boundary terms vanish. Absolute convergence comes from telescoping a_j, and monotone decrease of p_j follows from the sum or layer-cake count. This gives all signs and the summable equivalent; power and harmonic sum estimates give the other two equivalents, and partial fractions recover the alpha=1 formula. Independent python3 /workspace/repairs/3/verify_limit.py passed 90 exact finite enumeration/telescoping checks and the rational constants for alpha=-2, where the root is negative and label 2 is positive. The repair also replaces the confusing propagation recurrence at frozen line 41 with the exact weighted-average recursion. The script does not establish the infinite limits; the corrected proof does.
 
-The motivating weighted-tree path-length paper gives the martingale identity, not the fixed-label mixed covariance; the earlier broad weighted-tree geometry work reports degree profiles but not these joint moments. The closest published full result on root attachments covers uniform attachment only. Its special case does not imply the positive high-label covariance for summable weights. An unlocated older bivariate recurrence or generating-function result remains the main priority risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Local degree and global path length are natural complementary observables of random recursive trees. The exact sign reversal at the summability threshold and sharply different scaling regimes distinguish macroscopic optimization and local attachment regimes, with a natural explicit linear-weight instance.
+The repaired proof establishes the same fixed-label theorem. The innovation representation and root-only overlaps are credited. The distinct supported contribution is the all-label mixed covariance, including the surviving summable-weight correction, sign reversal, and sharp large-label regimes.
 
-## Scope and limitations
+## value
 
-Fixed vertex label before tree-size limit, independent label-proportional attachment only. No simultaneous growing-label limit, no claim of unique crossover label and no independently validated priority claim.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This mixed observable distinguishes early high-influence vertices from sufficiently late vertices in a regime where mass remains concentrated on early labels. The exact finite-weight boundary contribution explains reversal despite every summand of the difference series being negative. The quantitative asymptotics, including the harmonic critical correction, give information not captured by marginal path-length or degree results. No moving-label uniformity is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

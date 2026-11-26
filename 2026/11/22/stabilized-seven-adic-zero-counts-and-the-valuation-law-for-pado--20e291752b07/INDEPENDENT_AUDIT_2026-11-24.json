@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:57:43.391047Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "frozen RESULT.md lines 4–90",
+        "frozen check.py and VERIFICATION.md (inspected, not executed)",
+        "checks/padovan.py"
+      ],
+      "rationale": "For the specified initial triple scalar periods coincide with triple returns. T^48=I mod 7; the triple fails to return at 16 or 24, covering the proper divisors of 48. If E=T^48-I, the first-order vector (E/7)v is (4,5,4) mod 7. Induction on seventh powers gives T^(48*7^a)=I+7^(a+1)B with B=E/7 mod 7, and a power coprime to 7 multiplies this leading term by a unit. This gives the least period at every level. For F_i(t)=P_(i+48t), the Mahler coefficient of binomial(t,j) is divisible by 7^j; converting to ordinary powers loses at most v_7(j!) and leaves coefficients tending to zero. After division by 7 the regular reductions are linear with nonzero slope; after division by 49 the three others have two simple roots each, since terms with j>=3 still vanish modulo 7. Hensel lifts give nine contributions of one and three of fourteen (two solutions mod 7^(k-2), seven representatives each mod 7^(k-1)); at k=2 the latter contribute seven each. The period densities and successive differences agree with every displayed mass. Independent replay python3 -B /workspace/checks/padovan.py computed the matrix columns by iterating the three coordinate seeds, recomputed the regular data and the exceptional roots (2,4), (4,6), (1,6), and directly stopped on the first triple return through k=6 (counts 12,30,51,51,51,51). The all-k conclusion uses lifting, not extrapolation.",
+      "residual_risks": [
+        "Only the prime 7, the given fixed orbit and the zero residue are classified."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The accessible Brocard paper abstract states a factorial-square Diophantine result, using exactly the same Padovan recurrence. The search excerpt concerns period 48 at prime 7.",
+          "Resultary gives all-power distribution at 23 and zero-hit statistics over primitive Padovan orbits at 2. The record's cited modular-period paper was not available for full-text verification."
+        ],
+        "reasoning": "Period constraints do not count which terms are zero. An irreducible companion-polynomial criterion cannot be substituted here: X^3-X-1 = (X-5)(X^2+5X+3) mod 7. Results at other primes or averaged over primitive seeds do not give the exceptional branches at this seed and prime.",
+        "searches": [
+          "arXiv:2606.28577",
+          "10.15672/HJMS.20174622760",
+          "Resultary:e9afab9939b1 and 3b25687bed0c"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2606.28577v1 (partial)",
+        "Resultary:20e291752b07 (target), 3b25687bed0c, e9afab9939b1, ca6f19065212, 3e4080c73b11",
+        "Frozen references and comparison section"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2026 paper's abstract is about solutions of n!+1=x^2 with x Padovan or Perrin, not the stated complete zero-frequency law. The source reports restricted congruences on P_m±1; that report is not independent excerpt evidence.",
+          "A distribution for a shifted value at another prime cannot specify F_15/49, F_31/49, F_47/49 mod 7."
+        ],
+        "reasoning": "Even granting the finite period inputs at 7 and 49, the stable count follows from six simple divided roots and their representatives in all lifted periods. An existing theorem on those very branches would cover the result; no examined statement gives it.",
+        "searches": [
+          "Bravo arXiv:2606.28577v1; Bravo–Irmak DOI:10.55730/1300-0098.3568; Resultary exact hits and nearest neighbors above"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "If Q starts at (1,0,0), its entries at 5,6,7 are (1,1,1), so P_n=Q_(n+5) by recurrence.",
+          "arXiv:2606.28577v1 p. 1 specifies the same initial triple and companion polynomial."
+        ],
+        "reasoning": "An all-period count is invariant under the five-place shift, with corresponding changes to positions; a valuation density is also shift-invariant despite initial literal zeros of Q. Neither distinct catalog results nor the inspected primary excerpt supply the count under either convention.",
+        "searches": [
+          "Primary: Padovan \"7-adic\" zero counts valuations modulo powers of 7 period 48 Padovan sequence",
+          "Resultary: fixed Padovan orbit at seven / zero counts / p-adic valuations",
+          "Nacin JIS 23.1.2 and the two initial triples"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "20e291752b07 is an exact index match to the assigned record itself.",
+          "3b25687bed0c (prime-2 orbit statistics), e9afab9939b1 (prime-23 distribution), ca6f19065212 (prime-3 shifted-value valuation), and same-day 3e4080c73b11 (square-window GCD at primes 2,3) state different invariants or primes."
+        ],
+        "reasoning": "None of those distinct catalog statements is the exact fixed-orbit all-k table. This search does not exclude an unindexed table under another convention.",
+        "searches": [
+          "Resultary semantic searches for Padovan 7-power period, Z_k=12,30,51, exact valuation law and equivalent indices"
+        ]
+      },
+      "rationale": "The supported distinct claim is the all-level zero incidence law for the fixed Padovan orbit at 7 and its full valuation distribution. Credit known low-level periods, recurrence and general lifting machinery; the value 51 requires the local root calculation, not merely extending a known period.",
+      "residual_risks": [
+        "Later sections of the Brocard paper and some modular Padovan papers were not retrievable via the attempted targeted reads. An exact treatment in unindexed tables, another normalization, or broader recurrence theory remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Confirms identical indexing and a distinct factorial equation as main claim; cannot certify other passages do not cover the law",
+          "evidence": [
+            "Abstract lines 10–16: X^3-X-1 with P_0=P_1=P_2=1; only (n,x)=(4,5) for the stated Brocard problem."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2606.28577",
+          "material_read": "v1 p. 1 abstract and introduction excerpt; period-48 search snippet; decisive later valuation passages not retrieved",
+          "method": "Primary search, targeted OA attempt and arXiv PDF excerpt",
+          "title": "On Brocard’s problem with Padovan and Perrin numbers",
+          "trigger": "Same recurrence and seven-adic period applications"
+        },
+        {
+          "assessment": "Each stated result changes prime, seeds or the observable",
+          "evidence": [
+            "The closest zero-hit count covers primitive orbits at 2; the closest all-power distribution is at 23."
+          ],
+          "identifier_or_url": "Resultary:3b25687bed0c, e9afab9939b1, ca6f19065212, 3e4080c73b11",
+          "material_read": "Matching catalog summaries",
+          "method": "Resultary semantic search",
+          "title": "Related Padovan modular and p-adic classifications",
+          "trigger": "Potential exact tables, p-adic lifts or same-day overlap"
+        },
+        {
+          "assessment": "Shift is proved independently; full breadth of cited period literature remains unverified",
+          "evidence": [
+            "Advancing (1,0,0) five times gives (1,1,1)."
+          ],
+          "identifier_or_url": "JIS:23.1.2; DOI:10.15672/HJMS.20174622760",
+          "material_read": "Evidence in the frozen citations and related-work description; direct full-text check not obtained",
+          "method": "Citation-based legal access attempt; direct recurrence check of the indexing shift",
+          "title": "Van der Laan Sequences and a Conjecture on Padovan Numbers; On the Padovan p-numbers",
+          "trigger": "Alternate indexing and possible general period coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "frozen RESULT.md, Finding and proof lines 45–87"
+      ],
+      "rationale": "Fixed-orbit modular zero frequency is a natural recurrence invariant. The finite computations isolate a nontrivial split of three singular branches, explaining why the zero count becomes constant despite growing period, and give exact valuation masses at every power rather than a chosen finite sample.",
+      "residual_risks": [
+        "Does not describe frequencies of all residues or a general classification over primes."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

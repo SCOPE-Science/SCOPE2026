@@ -1,12 +1,21 @@
-# Review of the rank-completion tail comparison
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The block-inverse matrices multiply exactly to the identity under the stated nonzero Gaussian nullspace coordinates. Conditioning on the independent nullspace coordinates yields the classical product-normal small-ball law and the half-normal square law. The inverse's remaining blocks have exceedance probability of order at most \(R^{-1}\); thus they cannot alter the stated dominant asymptotics. Gaussian numerator integrability and inverse-normal moments give both exact cutoffs. A standalone rational checker passes 2,258 assertions; its tests are supplementary to the analytic proof. The domain is restricted to real, fixed, corank-one, symmetric positive-semidefinite matrices.
+## correctness
 
-## Originality
-**PASS, subject to publication-priority risk.** The closest starting source is Sifuentes--Gimbutas--Greengard, arXiv:1401.3068v1, especially its deterministic inverse identity (17), Theorems 3--4 and stabilization section. Those give invertibility and conditioning bounds, not these asymptotic Gaussian tail prefactors or the sharp symmetric-versus-independent moment comparison. The independent-normal product density is classical (Springer--Thompson and subsequent distribution work), but is a scalar result rather than a result on randomized nullspace completion. Chen--Dongarra bounds condition numbers for full Gaussian matrices rather than low-rank completion of a fixed singular matrix. A close synthesis could exist under a different name or in unindexed literature; this was not independently resolved.
+PASS
 
-## Value
-**PASS.** Almost-sure invertibility does not control rare near-singular realizations. The universal contrast between the \(R^{-1/2}\) and \((\log R)/R\) inverse-norm tails is a concrete design tradeoff: preserving symmetry and positive definiteness can worsen extreme inverse amplification. It applies to every positive range spectrum and yields usable exact moment integrability thresholds. The statement deliberately makes no claim about the relative typical condition number.
+In an orthonormal kernel/range basis, the independent update has blocks XY, Xv^T, Yu, C+uv^T. Schur elimination at XY!=0 gives exactly C, hence determinant XY det(C) and the stated inverse, with upper-left block (1+v^T C^{-1}u)/(XY). Taking q=p gives the symmetric formula and determinant; the sum of the two positive-semidefinite forms is positive definite when X!=0. To check the small-ball constant without a Bessel formula, integrate the half-normal density of |X| against P(|Y|<eps/x). For eps<=x<=1, expand the half-normal density at zero and the half-normal CDF at eps/x: the main integral is (2/pi)eps log(1/eps), both Taylor errors integrate to O(eps), and the two complementary intervals contribute O(eps). The one-normal square law follows directly from the CDF. The top-left numerators are independent of the kernel Gaussians and have all positive moments. For Z=1+v^T C^{-1}u, restriction to |Z|<=sqrt(R) gives the leading factor E|Z| after expanding the small-ball function; E[|Z| |log |Z||] is finite and the discarded probability is O(R^{-2}) by a fourth-moment bound. For the symmetric numerator dominated convergence applies using the half-normal CDF bound and E sqrt(1+u^T C^{-1}u)<infinity. The remaining blocks have O(1/R) tails by conditioning on u or v and the CDF bound; triangle inequalities at thresholds (1±eta)R and then eta->0 transfer the two exact asymptotics to the full operator norm. The constants are strictly positive, and tail integration gives divergence at the two endpoints as well as the sharp open moment intervals. The exceedance ratio then follows. All arguments are at fixed A and dimension.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The nonsingularity of rank completion and the block inverse are covered by randomized rank-completion work. The product-normal density is classical. The specific result here is the full-matrix inverse-norm comparison at fixed corank one, with exact range-dependent prefactors and different positive moment cutoffs. In the inspected sources the older general bounds do not give the exact dominant term for both schemes or its tail and moments. The exact catalogue hit is the frozen record itself and is not independent coverage.
+
+## value
+
+PASS
+
+The theorem quantifies a design tradeoff that almost-sure rank completion misses: positive-definite symmetry makes the null-coordinate amplification substantially heavier at high thresholds. The conclusion is spectrum-independent at the exponent level while giving spectrum-dependent exact constants, and separates finite fractional moments. This is useful for comparing rare inverse amplification without conflating it with typical behavior or condition-number ordering.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

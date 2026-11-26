@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The published signed statistic and inverse-moment estimator are used exactly. Under \(\operatorname{Gamma}(k,\theta)\), the fitted scale tends to \((k-1)\theta\), giving a computable signed integral. Its integrand switches sign once at \(8(k-1)\); multiplying the integral by the positive factor \(e^{8(k-1)a}\) produces a strictly decreasing function. Positivity at \(a\downarrow0\) for \(2<k\le5/2\) and negativity at \(a\to\infty\) force precisely one simple root. A first-order V-statistic expansion with the inverse-moment estimator proves a fixed-alternative centered normal limit. The finite variance of the inverse-moment influence needs \(k>2\), and strict positivity follows because the fitted-scale derivative is nonzero while its inverse-observation influence cannot cancel a bounded first projection. The bundled numerical checker passed 33 supporting assertions, not a substitute for the analytic proof.
+PASS
 
-## Originality — PASS, with residual priority risk
+The reciprocal sample mean of X^{-1} converges to (k-1)θ. The bounded transform and its V-statistic representation give the claimed scale-independent population discrepancy. The transform integrand's sign follows from (1+t/(4h))²-(1+t/h)=t(t-8h)/(16h²), where h=k-1. Multiplication by exp(8ha) makes its integral strictly decreasing, with strictly negative derivative, because the signed integrand has a single crossing. At a→0+ the tail diverges positively (logarithmically at k=5/2); at large a the negative linear term of the transform difference at t=0 dominates. The root is simple and has the claimed sign orientation. For fixed a>0 the kernel and scale derivatives are uniformly bounded on a compact scale neighborhood; first projection plus Taylor expansion and the delta method for the reciprocal mean give the stated influence function, with diagonal and degenerate terms negligible at √n scale. The fitted-scale derivative equals (a/λ*)F'_k(a) at the root, so the 1/X singularity cannot be canceled by the bounded projection; it has finite second moment for k>2. This proves the positive, finite alternative variance and the strict power limit for positive finite thresholds (also for thresholds tending in probability to such a constant). Under a Lévy null, the population kernel mean is identically zero in the scale and its derivative vanishes; the continuous first projection tends to a strictly positive constant as x→∞ and has mean zero, so its variance is positive on the full-support null. Independent replay: python /workspace/independent_checks.py (levy routine), using Tricomi U for the Laplace integrals, gives a=0.0375490493204766893 and derivative −42.31764123508 at k=9/4. The decimal is a numerical check, not the uniqueness proof. Read the submitted verification notes and code without executing it.
 
-The primary 2023 source defines the statistic, proves null asymptotics, and presents Gamma power simulations, but does not establish the root curve, its uniqueness, the exact Gamma-shape range from the zero-damping tail, or a fixed-Gamma alternative CLT at a blind root. Its consistency statement is for the separate supremum statistic. The 2023 Kumari–Bhati test uses an estimator-ratio construction and is not an implication-dominating general theorem for this signed integral. Searches for integrated-Laplace Lévy test blind Gamma tuning, signed transform power, and Gamma exact roots did not identify a direct covering result. Historical integrated-transform alternatives outside inspected sources could contain overlapping examples; the completeness of literature discovery is not mathematically certified.
+## originality
 
-## Value — PASS
+PASS
 
-A tunable goodness-of-fit test can lose consistency against an entire natural continuum of smooth fixed Gamma alternatives at exactly one weight per alternative. The sign-crossing proof supplies a structurally determined and unique calibration-failure locus, rather than an isolated arbitrary numerical zero; the boundary \(k=5/2\) comes from the integrand's exact tail integrability, and \(k>2\) is dictated by the inverse-moment estimator CLT. This identifies the cost of compressing a characteristic Laplace-transform discrepancy into a signed scalar, without asserting a failure of the companion supremum statistic or of recommended source weights.
+The published signed statistic and Lévy-null calibration are not new. The supported distinction is the simple, unique population blind weight throughout the stated Gamma shape interval and the nondegenerate fitted-scale alternative law at that weight. The closest checked primary article neither states this nor implies it from its light-tailed alternative simulations, null limit, or supremum consistency result. No distinct covering catalog statement was identified in the bounded comparison.
 
-## Scope and closest literature
+## value
 
-Lukić–Milošević, *Statistics* 2023, DOI 10.1080/02331888.2023.2238236, Eq. (4), Theorem 2, simulations and appendix, is the closest primary source; the Gamma(3,2) simulation is not a theorem excluding shape \(k\le5/2\). Kumari–Bhati, *Journal of Applied Statistics* 2024, DOI 10.1080/02664763.2023.2251098, is a different test. The exact root is proved only for \(2<k\le5/2\); small parameter values were outside the primary simulation grid. Independent validation and exhaustive historical priority checks were not performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The blind weight is a rigorously identified failure mode of a published signed goodness-of-fit test at ordinary non-null, fully supported alternatives. It distinguishes cancellation from a true characterization zero and rules out asymptotic power one rather than just showing small power in finite simulations. This is useful for tuning and interpreting the signed test even though the demonstrated weights are not the standard published grid; it does not discredit those recommended weights or the supremum test.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

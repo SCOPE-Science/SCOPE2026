@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:19:51.279600Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof and verification; VERIFICATION.md; verify.py (inspected, not executed)",
+        "/workspace/review-evidence/04_rooted.py (independent exact replay)"
+      ],
+      "rationale": "The signed weighted transfer follows integrally from the old block y[j+1]=L y[j]-e z[j+1] and the leaf block z[j+1]=t(z[j]-e^T y[j]), with z[1]=t. Thus after clearing the last entries with the first column, the old block of the remaining columns is -t K times an integer upper-unitriangular matrix. Expanding down the first column gives (-1)^n, which cancels the sign from (-t)^n; this also proves the determinant identity over the reals. For the finite threshold I independently generated rooted isomorphism classes through order nine as multisets of smaller branches, grouped by rerooting, and used exact rational elimination rather than the supplied leaf-addition/Bareiss program. The free-tree counts were 1,1,1,2,3,6,11,23,47, with 749 vertex positions tested by orbit weighting. Through order eight no nonzero determinant exceeded magnitude one. At nine there was one nonunit root orbit of size two: precisely the stated tree and roots, both with determinant -2. For root 2, the indicator w of {0,5,6,7} satisfies Lw=w modulo 2 and w^T e_2=0, so its parity kernel contains the integer image; both have index two. Unit-leaf iteration gives witnesses at every larger order.",
+      "residual_risks": [
+        "The finite census classifies trees only through order nine; transfer gives existence, not classification, at larger orders."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Resultary records 2d743d9e4843 (unweighted spider hub) and 5f5dcc0ba067 (paths) are narrower. Parlangeli–Notarstefano, arXiv:1109.3556, pp. 1, 3–4 treats paths/cycles. Huang–Xu–Zhang, arXiv:2406.07795, p. 1 studies adjacency walk matrices from the all-ones input."
+        ],
+        "reasoning": "Neither restriction to particular graph families nor an adjacency result for a different input proves general weighted single-coordinate Laplacian transfer. Unread potentially relevant primary papers are access risks, not negative findings.",
+        "searches": [
+          "Resultary: single-node Laplacian controllability and Smith forms",
+          "Primary literature: Laplacian controllability, rooted trees, Smith forms and walk determinants"
+        ]
+      },
+      "checked_sources": [
+        "Resultary e7c04e833fd0, 2d743d9e4843 and 5f5dcc0ba067",
+        "arXiv:1109.3556 and arXiv:2406.07795",
+        "Hsu–Yang, Parlangeli 2025 and 2021 walk-matrix article (retrieval limits above)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The frozen record attributes a leaf-attachment rank theorem to Hsu–Yang Corollary 3; the primary passage was inaccessible. The published finite record yields the stated threshold, example and parity lattice directly; it does not state the Smith transfer."
+        ],
+        "reasoning": "A rank-only identity, even if valid for all t, does not yield the Smith form or recover the determinant factor; conversely the frozen transfer extends finite examples but does not make the already indexed order-nine classification distinct.",
+        "searches": [
+          "Hsu–Yang DOI 10.1049/iet-cta.2018.6214",
+          "Parlangeli DOI 10.3390/a18050239",
+          "Resultary e7c04e833fd0, Finding and Proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary record e7c04e833fd0, Finding and Proof: same Laplacian powers from a single coordinate, exactly the same exceptional edge list, roots 2 and 3 with signed determinants -2, and parity support {0,5,6,7}."
+        ],
+        "reasoning": "Full rank with a nonunimodular Kalman matrix and nontrivial finite integer reachability index are equivalent. The compared finite claims use the same single-coordinate Laplacian matrix, not a different walk-matrix convention.",
+        "searches": [
+          "Resultary: integral pendant-leaf transfer",
+          "Resultary: rooted-tree Laplacian determinants",
+          "Resultary: rooted-tree walk determinants"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The full Finding and Proof opening give all orders through eight, exact order-nine uniqueness, the witness and parity obstruction."
+        ],
+        "reasoning": "This is exact published finite-result coverage, stronger than a match to tabulated counts of unrooted trees or a title hit.",
+        "searches": [
+          "Resultary: rooted-tree Laplacian determinants and first nonunit tree",
+          "Resultary record 2026/11/22/SCOPE-the-nine-vertex-threshold-for-nonunimodular-single-node-laplacia--e7c04e833fd0/RESULT.md"
+        ]
+      },
+      "rationale": "A distinct published Resultary/SCOPE record gives the same sharp threshold, the same unique unlabelled tree and two symmetry-related roots, and the same parity description of the reachable-state lattice. These are prominent parts of the frozen finding, not just overlapping background. The published record does not establish the general weighted integer block transfer, and the evidence does not adjudicate priority: the two index paths have different dates, but that alone does not establish first disclosure or dependency. This is failure of the full frozen finding to clear the distinctness check, not evidence that the weighted transfer is known or that any claim is false.",
+      "residual_risks": [
+        "Historical priority or common provenance of the exact finite overlap has not been established.",
+        "There may be an equivalent general weighted transfer in inaccessible or unindexed integer-systems literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the complete finite threshold/witness portion, not the general weighted transfer",
+          "evidence": "Same unlabelled tree and same labelled roots; both determinants -2; same mod-2 congruence.",
+          "identifier_or_url": "2026/11/22/SCOPE-the-nine-vertex-threshold-for-nonunimodular-single-node-laplacia--e7c04e833fd0",
+          "material_read": "Mirrored RESULT.md, Finding and Proof, opening at offset 0",
+          "method": "Local Resultary search and mirror reader",
+          "title": "The nine-vertex threshold for nonunimodular single-node Laplacian controllability",
+          "trigger": "Strongest exact Resultary match"
+        },
+        {
+          "assessment": "Narrower graph class and different conclusion",
+          "evidence": "Reachability/observability criteria for paths and cycles.",
+          "identifier_or_url": "https://arxiv.org/abs/1109.3556",
+          "material_read": "PDF pp. 1, 3–4; extraction offsets 0 and 9000–10800",
+          "method": "Lawful OA PDF",
+          "title": "On the reachability and observability of path and cycle graphs",
+          "trigger": "Cited related Laplacian controllability criteria"
+        },
+        {
+          "assessment": "Different operator and input",
+          "evidence": "Adjacency matrix and all-ones vector, not Laplacian powers on a coordinate.",
+          "identifier_or_url": "https://arxiv.org/abs/2406.07795",
+          "material_read": "PDF p. 1, abstract and definition, offsets 0 and 1650",
+          "method": "Lawful OA PDF",
+          "title": "The Smith normal form of the walk matrix of the Dynkin graph A_n",
+          "trigger": "Plausible alternate walk-matrix notation for integral invariants"
+        },
+        {
+          "assessment": "Unresolved primary-text comparison",
+          "evidence": "Rank-only scope is attributed by the frozen record, not independently verified here.",
+          "identifier_or_url": "https://doi.org/10.1049/iet-cta.2018.6214",
+          "material_read": "No matching primary full-text passage; frozen record's characterization only",
+          "method": "Lawful DOI/publisher PDF retrieval returned 403; alternate copy not established to be the same paper",
+          "title": "Generalising Laplacian controllability of paths",
+          "trigger": "Cited leaf-transfer antecedent, Corollary 3"
+        },
+        {
+          "assessment": "Unresolved primary-text comparison",
+          "evidence": "The frozen record describes rank controllability and tree constructions.",
+          "identifier_or_url": "https://doi.org/10.3390/a18050239",
+          "material_read": "No verified full-text passage",
+          "method": "Attempted published OA and identified preprint 202503.1438",
+          "title": "Laplacian Controllability and Observability of Multi-Agent Systems: Recent Advances in Tree Graphs",
+          "trigger": "Cited starlike-tree construction antecedent"
+        },
+        {
+          "assessment": "Unresolved primary-text comparison",
+          "evidence": "Title is adjacent, but it does not establish an equivalent statement.",
+          "identifier_or_url": "https://www.sciencedirect.com/science/article/pii/S0024379520305565",
+          "material_read": "No verified full-text passage",
+          "method": "Lawful retrieval returned 403",
+          "title": "On the Smith normal form of walk matrices",
+          "trigger": "Plausible exact integer-invariant antecedent"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof",
+        "Resultary e7c04e833fd0"
+      ],
+      "rationale": "The transfer controls the entire integral cokernel, including obstructions invisible to real or rational rank, and makes extension constructions transparent. The sharp tree threshold and explicit parity sublattice give a meaningful boundary and distinguish two natural controllability questions. These are worthwhile mathematical objects even though the finite claim is already covered and cannot be credited as distinct here.",
+      "residual_risks": [
+        "A standalone weighted transfer claim would require a separate narrowed submission and assessment; none is delivered here."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

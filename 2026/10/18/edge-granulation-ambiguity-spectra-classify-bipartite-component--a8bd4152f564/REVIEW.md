@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** For a connected nontrivial graph, every observed edge is classified by the number of selected endpoints. One definite edge gives a seed from which all vertex bits are forced along paths. The only nontrivial fiber is therefore the all-mixed-edge output of a connected bipartite graph, and its two elements are the complementary proper two-colorings. Multiplicativity over components proves the full enumerator; polynomial roots and the highest and lowest coefficients prove recovery. An independently implemented finite checker confirms the formulas for every graph on up to six labeled vertices and sampled larger graphs. A finite check is not the all-graph proof.
+## correctness
 
-**Originality — PASS, with identified risk.** The closest primary studies of graphical partitions and rough hypergraphs [1,2] address generalized approximations and structural operations; the accessible full text of [2] does not state the present specific two-sorted graph edge-state observation spectrum or its inverse classification. The complete full text of [1] was not accessible, so its noncoverage is not asserted. Search comparisons included alternate edge-labeling and inverse-fiber terminology and related incidence-structure work; no broader theorem implying this exact inverse classification was found. This does not certify absolute novelty or publication priority.
+PASS
 
-**Value — PASS.** The full unlabelled inverse-fiber size distribution of a natural graph incidence observation is classified *for arbitrary finite graphs*, not a fixed small family. Its factorization precisely recovers the information retained about connected-component orders, identifies exactly which topology is lost, and gives sharp worst-case uncertainty and image-size formulas. The rank-three hyperedge example shows that the powers-of-two phenomenon is genuinely specific to binary edges.
+For equal outputs on two binary inputs, their integer difference h satisfies h(a)=-h(b) on every edge. Connectivity forces an alternating constant in each component; an odd cycle forces zero. In a nontrivial bipartite component a nonzero difference has magnitude one and is feasible only between the two complementary proper colorings. Hence on that component exactly one fiber has size two and the other 2^v−2 have size one; an isolate contributes one size-two fiber; the nonbipartite part contributes 2^u singleton fibers. Cartesian products of observations multiply fiber sizes, proving the polynomial. Its lowest nonzero degree and leading coefficient recover s and 2^u; after division the roots recover all v with multiplicity. F(1) counts outputs, F(2)=2^|V| counts inputs, and the top degree s+b and coefficient 2^u give the maximum size and its multiplicity. Normalizing the largest fiber by 2^|V| gives the stated entropy. Empty graph, edgeless graphs, and no-nontrivial-bipartite cases all follow, with F=1 on the empty vertex set. Independent bit-mask enumeration of both approximations on all 1100 labeled graphs of orders 0 through 5 agreed with the product (python3 /workspace/reproductions/enumerator_review.py). The frozen script's stated total 33867 exhausts positive orders 1–6, not order zero; this imprecise wording about a finite check does not change the theorem or its empty-graph proof.
 
-**Closest sources and limits.** [1] Shaheen–Stell, *Graphical Partitions and Graphical Relations* (2019), DOI 10.3233/FI-2019-1777 (publisher and repository abstracts; full text unavailable). [2] Sarwar, *A Theoretical Investigation Based on the Rough Approximations of Hypergraphs* (2022), DOI 10.1155/2022/1540004 (accessible article sections on definitions, operations and structural theorems inspected). Neither source is represented as a publication of this theorem. A general equivalence under another edge-observation name remains a risk; independent validation is outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The indexed cyclic pair-sum and path-forest results match restricted forward cases; the closer-sounding rough and edge-weighting matches observe different things. The distinct content supported here is the all-finite-simple-graphs distribution and exact inverse component-order classification from unlabeled multiplicities; this is a bounded assessment, not a claim that the connected decoding lemma or rank facts are novel.
+
+## value
+
+PASS
+
+The full ambiguity distribution, without vertex labels or even the graph order as side information, exactly separates recoverable component-order data from unrecoverable topology. For example, one connected nonbipartite graph of order six and two disjoint triangles give the same spectrum even though their component counts differ. Neither the maximum fiber alone nor an injectivity test supplies this classification. The result is uniform over arbitrary finite graphs, and the entropy and hyperedge boundary make the limits of the observation model precise.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

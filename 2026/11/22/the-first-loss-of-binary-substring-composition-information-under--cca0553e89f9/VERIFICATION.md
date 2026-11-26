@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Finite exact verification
+# Independent mathematical audit
 
-Execute `python verify.py` from the directory containing the delivered files, using Python 3.10 or later. The certificate enumerates exactly \(2^n\) binary words for each \(1\le n\le11\) (\(4094\) in all), calculates all contiguous-window weights twice by independent methods, and compares every exact integer signature. It asserts the moment-class counts \((2,3,6,10,20,36,72,135,272,528,1050)\), the complete-observation count \(1052\) at length eleven, precisely two exceptional four-word fibers with the listed members, and repair by one cubic length-three statistic.
+## correctness
 
-The expected final program line is `VERIFY_OK: all 4094 binary sources of lengths 1..11 checked by two methods`. The proof of exhaustiveness is the integer loop `range(1 << n)` with a fixed-width binary encoding; no stochastic testing or extrapolation is involved. The certificate concerns this finite domain only and does not establish that these compression statistics retain full information for larger word lengths.
+PASS
+
+For each window length k the ordered histogram of counts by weight is a complete encoding of the multiset, and the first two moments are linear sums of those counts. The frozen certificate visits each fixed-width binary representation once and every start at every length. Independent exact bit-field window extraction over all 4094 words reproduces the profile counts and no split fibers through length ten. At eleven the two-moment and full profile counts are 1050 and 1052. The only splitting fibers are the two stated four-word sets, each split into two reversal pairs. In the order of the stated representatives the length-three cubic values are 49 and 43, and 50 and 56, so that cubic repairs both fibers. Reversal preserves the full histogram, and t³=t for weights 0,1 and t³=3t²−2t for weights 0,1,2, proving the short-window limitation. For n<3 there is no length-three information to add. None of this extrapolates past length eleven or asserts word reconstruction within a full-observation class.
+
+## originality
+
+PASS
+
+The supported original contribution is the first extra loss caused by the two-moment compression, its exact exceptional classes and the single cubic repair. The earlier census overlaps the full-profile count 1052, which is not credited as original. Full-observation word ambiguity and partial collections of individual unpooled observations do not answer this compressed-observation question.
+
+## value
+
+PASS
+
+Compression of a standard inverse-problem observable by its first two moments raises a distinct and motivated question: when does the compressed channel identify additional full profiles? The exact cutoff, concrete fibers and one shortest-window cubic repair specify a benchmark for using aggregated rather than individual reads, without conflating information loss with the already known failure to reconstruct a unique word.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

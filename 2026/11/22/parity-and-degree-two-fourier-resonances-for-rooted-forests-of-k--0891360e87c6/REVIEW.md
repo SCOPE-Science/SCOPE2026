@@ -1,15 +1,21 @@
-# Scientific review: rooted-forest Fourier resonances
+# Independent mathematical audit
 
-## Correctness — PASS
-The object is the pushforward counting measure of rooted spanning forests, not the indicator of unrooted forests. The proof uses the signed weighted matrix-forest determinant, whose validity for negative weights is stated in the original theorem, and an explicitly invertible right-vertex diagonal block. Direct elimination gives the four-type formula. Reduction modulo two proves the all-even nonvanishing statement, and the explicit column pattern gives zeros for every odd width. The degree-two classification exhausts the three geometric support types and checks every integer root. An independently coded rooted-forest census and Walsh transform matches all 1364 coefficients for widths one through five, with width one outside the stated theorem.
+## correctness
 
-## Originality — PASS under bounded comparison
-Chebotarev–Shamis (arXiv:math/0602575, Theorem 5) supplies the general weighted forest determinant, which is an essential antecedent and stronger **as a representation** over arbitrary graphs. It does not classify its signed zeros or low-degree frequencies on this bipartite family. Goodall's full survey, examined at its introduction, Fourier preliminaries, and graphical applications, supplies general finite graph Fourier methods but not the evaluated rooted-forest four-type spectrum. A closely relevant published result on spanning trees of the same graph was read as a complete mathematical result; it concerns a different counting kernel and has a different zero mechanism. Explicit online searches for rooted forest Walsh spectra, signed matrix-forest evaluations and \(K_{2,n}\) resonances uncovered no exact equivalent. Bounded search is not a proof of global priority. Historical risk remains for a specialized unpublished or unindexed signed-forest specialization.
+PASS
 
-## Value — PASS
-Rooted forests are a standard determinantal graph ensemble, and their edge-incidence counting transform is a canonical convolution kernel. The exact even-width invertibility of every frequency contrasts with odd-width singularity, while the unique degree-two exception at five columns distinguishes global loss of invertibility from the recoverability of low-frequency signals. The all-width spectrum and exact multinomial nullity formula make this a structural classification rather than a small graph computation.
+Each character weights the edge subset by the product of its edge signs, and the rooted-forest determinant counts each acyclic subset with its full product of component sizes. The polynomial identity allows signed weights; incidence-minor expansion also gives it by dropping one row in each tree component. Eliminating the n diagonal pivots 3,1,1,-1 gives the claimed Schur matrix and prefactor. With s=b+c and e=b-c the scaled determinant H factors as (1+a-2s-d)(3+a+3d)-3e², agreeing with the stated expansion. The counting convolution is diagonal in the unnormalized Walsh convention with these exact eigenvalues, and column multiplicities are multinomial, so its nullity and rank follow. Modulo two all sign choices give the unsigned value (n+1)(n+3)3^{n-1}, odd for even n. On odd n=2k+1 the type (k,0,0,k+1) zeros the first factor, giving the stated lower bound. At weight two the same-column, same-shore distinct-column, and opposite-shore distinct-column values of H are (n-1)(n+5), n²-4n-17, and (n-5)(n+1), respectively. Weight one gives n²-7 and weight zero is positive. Thus only the opposite-shore distinct-column case at n=5 is singular among these degrees, with exactly 20 such frequencies.
 
-## Scientific limits
-The full odd-width zero set is characterized by an explicit polynomial equation and finite multinomial sum, not parametrized by a simple closed list. No sharp surviving condition number is claimed. Root choices have multiplicity, so the claim does not extend to unrooted forest indicators. The exact all-length proof is algebraic; finite computations are corroboration only.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The signed forest determinant and Walsh convolution machinery are established. The checked claim is the explicit edge-spectrum evaluation together with global invertibility and the exact degree-two exception. The strongest same-graph and same-family indexed results use materially different kernels; neither yields those classifications. The judgment is bounded to the sources checked, not a priority inference from record dates.
+
+## value
+
+PASS
+
+The natural observable is the spectrum of convolution by the actual rooted-forest counting measure, retaining labeled edges and root multiplicity. The parity law resolves recovery on the full edge signal space; the unique width-five resonance distinguishes recovery of two-edge components from full invertibility and specifies exactly which components are lost there. The evaluated spectrum and type multiplicities are reusable for ranks without enumerating all labeled frequencies. These are structural facts, not a determinant restatement or a finite list of computed examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

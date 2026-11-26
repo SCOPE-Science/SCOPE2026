@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim uses the standard ordinary discrete-Morse matching complex of a one-dimensional unfilled graph, not the graph matching complex or the distinct strong-Morse complex. The exhaustive checker scans all \(2^{16}\) incidence masks for each representative graph and checks outgoing-source injectivity, distinct matched edges and directed-cycle freeness. The two-dimensional lower skeletons disappear under verified acyclic Hasse matchings, leaving precisely one zero-cell and three-/four-dimensional critical cells. Reconstructing the attaching degrees via signed gradient path elimination gives exactly seven and four integral unit factors in the two cases, with zero residual matrices. Degree vectors determine \(\pi_3\) of a wedge of three-spheres, and therefore the associated four-cell homotopy attachments. Removing the unit pairs yields the exact asserted integral wedge types. Independently computed original mod-two ranks agree. These are exhaustive finite proofs, not asymptotic inferences.
+## correctness
 
-## Originality — PASS against inspected evidence
-The full accessible 2019 primary manuscript (arXiv:1909.11440) has explicit sections on cycles with a leaf, centipedes, paths with a leaf, and graph disjoint unions, with no theorem about prism graph-edge faults. The full 2022 primary manuscript (arXiv:2207.13780) addresses paths, cycles, extended star graphs and windmills, not the two edge-deleted prism Morse complexes. Indexed published records on the same original prism establish its intact mod-two homology, intact integral 64-sphere homotopy, and equivariant homology representations; none imply deletion homotopy types. The published strong-Morse result for the prism concerns a genuinely different face rule. Source-level comparisons of these records and searches for missing rung, missing rim, acyclic incidence matching, graph deletion, and equivalent directed-forest phrases yielded no covering claim. Unindexed works and a potentially relevant Cayley-graph thesis remain specific risks; no universal uniqueness assertion is made.
+PASS
 
-## Value — PASS
-The smallest cubic prism is a standard natural graph with exactly two graph-edge fault classes. This complete classification detects a qualitative, integral topological distinction between single-edge losses of the same numerical magnitude: missing rungs leave nine three-spheres alongside nine four-spheres, while missing rims leave sixteen four-spheres and no third homology. It also contrasts with the known sixty-four four-spheres in the intact graph, making sensitivity to *edge orbit*, rather than only graph size, measurable. The result is motivated by the existing prism-Morse calculation and supplies exact finite homotopy types, not just f-vectors or numerical ranks.
+For an unfilled graph, Morse faces are exactly edge forests with a selected root per component and arrows toward that root: outdegree at most one and no repeated edge force any selected undirected cycle to be a directed cycle; conversely a rooted forest meets the incidence and acyclicity rules. I independently generated faces by selecting undirected forests and rooting them, then checked the actual directed Hasse graph of the coordinate matching. For deletion 25 the face vector is (16,98,284,381,180), 959 nonempty faces are visited with 463 pairs and critical counts (1,16,16) in dimensions (0,3,4). For deletion 01 the values are (16,98,286,397,210), 1007, 491 and (1,4,20). Instead of reusing the submitted Morse differential, I computed integral unit pivots on the original simplicial boundary d4: ranks 171 and 194 with no nonunit residual, giving free H4 of ranks 9 and 16. The images of the simplicial d4 are primitive, so H3, a subgroup of C3/im(d4), has no torsion. The matched CW models therefore have d4 of unit ranks 7 and 4 and no other nonzero invariant factors. Their three-skeleta are wedges of S³; Hurewicz determines each four-cell attaching map by its integer degree vector. Unimodular basis changes are wedge homotopy equivalences, so the mapping cones of the unit summands cancel and the zero summands leave exactly the stated wedges. Simultaneous permutation of the three columns and interchange of the two triangles give transitivity within each edge type; edges in a graph triangle cannot be mixed with rungs.
 
-## Closest literature, uncertainties and limitations
-The closest verified primary definitions are arXiv:1909.11440 and arXiv:2207.13780. The closest publicly indexed results are the intact-prism mod-two homology record, its intact integral involution module, and its full rational symmetry character. Courtney's 2020 thesis *The Directed Forest Complex of Cayley Graphs* is related in object terminology; only an abstract could be accessed, so whole-text noncoverage is not claimed. The result is restricted to the two single-edge deletions of one six-vertex graph and has not undergone an independent external mathematical audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct claim is the integral two-orbit table for one graph-edge deletion from the triangular prism. The known intact computations, a same-day integral fault table for K_(3,3), the general connectivity bound, and results for strong Morse or ordinary tree families do not cover the two exact types. The possible directed-forest literature overlap is stated with its access and scope limits.
+
+## value
+
+PASS
+
+The six-vertex prism is a natural highly symmetric cubic graph and its two edge orbits give an exhaustive minimal perturbation question. Deletion produces two genuinely different integral homotopy types, with third homology only on the rung fault. This is useful exact fault data beyond intact computations and common connectivity bounds, established by finite certificates plus an integral homotopy argument rather than just mod-two ranks.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** The projection splitting of \(P\), the block criterion \(PQ=0\), the rank-\(u\) count for \(QP\), and the subspace-lifting count for \(R\) reconstruct the Gaussian formula without experimental assumptions. The support and extremal cases follow with their quantifiers and endpoints intact. The standalone checker counts actual matrices over prime and extension fields and independently reproduces all tested coefficients. Finite tests do not establish the infinite statement.
+## correctness
 
-**Originality — PASS within inspected coverage.** The closest original compressed zero-divisor graph source (Đurić–Jevđenić–Stopar, arXiv:1810.02776) describes directed adjacency and Hamiltonian phenomena, but no rank-resolved idempotent triangle enumeration was found in its inspected full-text results. Ferraz–Polcino Milies–Taufer (arXiv:1711.09289) counts idempotent generators of ideals; Huang (arXiv:2110.15566) counts mutually annihilating matrix pairs. Neither supplies the cyclic one-sided triple count. Earlier product-rank pair formulae determine only two-factor marginals. Equivalences in unindexed older incidence/semigroup literature remain a risk.
+PASS
 
-**Value — PASS.** The result computes a complete rank-refined invariant of the directed zero-product graph of matrix idempotents in every finite dimension and field order. The sharp rank budget \(\lfloor 3n/2\rfloor\), attainable triples, and maximal reverse-product ranks expose the difference between cyclic one-sided and symmetric mutual annihilation.
+Fix P with E=im P and K=ker P. Choosing E and a complement gives the first Gaussian factor times q^(r(n−r)). From PQ=0 the only nonzero blocks of Q map E and K into K. Idempotence requires D=Q|_K to be a projection and C=Q|_E to have image in im D; hence rank D=s, so r+s≤n. For rank u of C (equivalently rank QP), choose its image and then a surjection from E, giving [s choose u]_q ∏_(i<u)(q^r−q^i). For R, its image W must lie in B=ker Q, avoid E, and have dimension t. The space E∩B has dimension r−u; choose the quotient image of W in B/(E∩B), then each of its q^(t(r−u)) lifts complements E∩B within its preimage. Once W is chosen, R must be zero on E and the identity on W; it is freely chosen on a complement of E+W with values in W, giving q^(t(n−r−t)). This yields the combined exponent t(n−t−u) and requires t≤n−r−s+u. The summation bounds and all nonnegative exponents follow; in particular n−t−u≥r+s−2u≥0 in a nonzero term. Three pairwise sum inequalities are necessary directly from the three containments and sufficient by taking u=max(0,r+s+t−n). This check includes zero and identity ranks. The proper-rank cycles have distinct vertices, since a repeated vertex would entail its zero square. The pairwise bounds give maximum floor(3n/2), and the balanced listed ranks attain it. For n=2m and ranks m, u=m is forced, D is the identity on K, C is an isomorphism, and R is the unique projection with image ker Q and kernel E. This gives the stated GL_m factor and full rank of every reverse product by cycling the argument.
 
-The principal limitation is bibliographic rather than mathematical: an equivalent unpublished or differently named census may exist. The formula does not claim general matrix graph cycle counts beyond three steps.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinction is the all-rank census for three cyclic one-sided constraints, including the extremal multiplicity and reverse ranks. The image/kernel graph, pair counts, and dimension-two existence are prior background. The earlier exact pair distribution does determine the prefix marginal by (r,s,rank QP) but not the conditional third-idempotent count. No inspected comparison supplies that count or the full rank-refined triple law.
+
+## value
+
+PASS
+
+Rank-refined directed triangle counts are a natural exact invariant of this idempotent graph beyond single-edge degrees. The result resolves which ranks can coexist in a cyclically noncommutative configuration, quantifies every such profile, and identifies the saturation phenomenon with maximal reverse ranks. The completion step addresses dependent edge constraints, not simply multiplying known pair statistics or relabeling an existing census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claimed family and counting conventions are fixed precisely: the full Boolean semilattice-by-translation inverse monoid retains the label of every empty subset, and its partial-translation quotient identifies those labels. The commutation criterion follows from the multiplication rule and abelianity; the four label-pair types are exhaustive. The independent-label case reduces to homogeneous binary equations on each four-element coset; all sixteen supports yield the rank-frequency table \((1,9,6)\) in ranks \((0,2,4)\), hence the factor \(58\). Single nonzero labels yield two-element orbit factor \(10\). The quotient correction follows by comparing pairs containing any empty subset before and after collapse. The finite checker verifies the rank table and full pair counts at orders \(2,4,8\), with independent direct multiplication at orders \(2,4\). Mathematical proof, rather than numerical extrapolation, establishes the all-rank formula and asymptotics.
+## correctness
 
-## Originality — PASS with historical-priority qualification
-The closest foundational comparison is Silva–Soares (arXiv:1412.3048), Sections 2–3, which treats semilattice-by-group inverse semigroups but establishes the Howson property, not prescribed commuting-pair enumerations for the regular Boolean action. Araújo–Bentz–Konieczny (arXiv:1205.1664), Sections 1–2 and statements in Sections 3–7, supplies an ambient symmetric-inverse-semigroup commutation criterion and extremal/graph invariants, not the present restricted submonoid's total count. Kudryavtseva (2015) treats semidirect and W-product structure, not the displayed local \(10\)/\(58\) enumeration in its examined structural exposition. Related accessible research on partial translations of chains and on commuting retractions applies to different objects and does not imply this formula. A historical equivalent through general transformation-centralizer enumerations remains a residual risk: similarity searches do not prove priority.
+PASS
 
-## Value — PASS
-This exact infinite-family census distinguishes three orbit types in a natural regular-action inverse monoid, and derives an asymptotic separation between overwhelmingly commuting partial identities and rare pairs involving nonidentity translations. The same computation survives the nontrivial quotient identifying all empty partial maps, giving an exact invariant for an ordinary partial-transformation inverse monoid. The constants and exponential convergence have a structural explanation, not just interpolation from small groups.
+For fixed labels a,b, the labels of the two products agree and the subset equations s_x t_(x+a)=t_x s_(x+b) factor across cosets of <a,b>. Both labels zero gives 4^n. On a two-point orbit with exactly one label nonzero there are eight solutions from a constant indicator and two from a nonconstant one; for equal nonzero labels there are 4+3*2 singular binary column pairs. For independent a,b put d=a+b. Up to translation the supports of S are empty, {0}, {0,a}, {0,b}, {0,d}, {0,a,b}, and full, with multiplicities 1,4,2,2,2,4,1. Substitution gives respectively 16,4,1,4,4,1,4 choices of T: the singleton sets t_a=t_b=0; the a-pair and the triple force all four t to zero; the b-pair and full set leave equality on a-pairs; the d-pair again forces t_a=t_b=0. Thus the four-point total is 58. Multiplying per orbit and summing over 1, 3(n-1), (n-1)(n-2) ordered labels proves the full count, with no independent-label case for n=2. The n empty elements commute with all of W_G. Replace their ordered-pair contribution 2n(n*2^n)-n^2 by 2|M_G|-1; no new commuting pair of nonempty elements is created since both products already have identical labels and differ, if at all, by subsets. The zero and nonempty partial identities give exactly 2^n idempotents in M_G, all mutually commuting. Since 58^(1/4)<sqrt(10) and 2<sqrt(10), the error term follows by division by |M_G|^2=n^2*4^n*(1+O(2^-n)), and the conditional idempotent probability is exactly 4^n/C(M_G). The independent python3 /workspace/independent_checks.py 5 composes explicit partial maps to obtain (46,31,7) and (1504,1129,61) at n=2,4, and independently counts the local 58. These are corroborative finite tests; the coset argument covers all k. The supplied checker was inspected, not run; its bit_count call requires Python 3.10+ despite the broader compatibility note in VERIFICATION.md. This does not affect the claim.
 
-## Limits
-The theorem assumes an elementary two-group and its regular action; it does not classify centralizers or extend the exact counts to arbitrary abelian groups. Small-order checker outputs are consistency tests, not proofs for all orders. A priority check against the complete historical transformation-semigroup literature remains desirable; no independent audit is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Existing work supplies the semidirect-product setting, the general commutation criterion, and closely analogous two-point and idempotent-dominance phenomena. The supported distinct result is the explicit all-pair orbit enumeration, including the independent-label factor 58 and the zero-collapse correction for the regular translation monoids. The applicable criterion does not supply those multiplicities without the extra local census and orbit argument. Historical priority remains provisional.
+
+## value
+
+PASS
+
+Regular group translations give a natural inverse monoid of partial bijections, and the ordered commuting count measures its deviation from a commutative semilattice. The formula identifies the non-idempotent contributions by their orbit type, explains the effect of preserving or discarding empty labels, and yields an exponentially accurate comparison between the full commuting census and its idempotent pairs. The all-order family and quotient dependence offer more than a tiny instance or a single graph computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

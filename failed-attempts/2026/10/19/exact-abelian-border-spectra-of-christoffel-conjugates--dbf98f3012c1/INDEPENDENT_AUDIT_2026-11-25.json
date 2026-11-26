@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:30:08.439813Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–45",
+        "Frozen VERIFICATION.md and check.py (inspected, not executed)"
+      ],
+      "rationale": "For a periodic lower mechanical word the prefix and suffix counts telescope to the forward and backward length-ell increments at s. With j=sb mod n and r=ell*b mod n, they are floor(ell*b/n)+1_{j+r>=n} and floor(ell*b/n)+1_{r>j}. Equality yields the two closed/open residue ranges as given, also for overlapping windows. Each range has min(j,n-1-j) residues and coprimality gives bijections in both length and rotation. The multiplicities, including n=2 and the unique odd-length all-border rotation, follow. The frozen finite checker is consistent with these definitions; the unrestricted claim follows from the proof.",
+      "residual_risks": [
+        "The result is restricted to the coprime labeled binary setting; overlap is allowed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lexicographic row i is rotation by i*q^{-1} mod n of the lower word, with q=b and p=n-b. In the one-part partition of a prefix of length m the height increases by one at the single transition i=m*p mod n, specified by equation (1) and the end-of-prefix exchange in the proof."
+        ],
+        "reasoning": "This gives the row-resolved prefix height for every proper m, not just the multiset of heights. The known result stated for p>q covers b>n/2 as well by relabeling symbols, which reverses the row order, sending j to n-1-j and r to n-r. These reflections preserve the border criterion and counts. The only equal-count coprime case n=2 is immediate.",
+        "searches": [
+          "arXiv:1804.08724 Lemma 1, proof of Theorem 1, §1.4 equation (1) and Corollary 1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1804.08724",
+        "arXiv:1708.06461",
+        "arXiv:2202.05486v3",
+        "Resultary c794105bc5c8 and 15954dd9e6c4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Write F_m(j) for prefix height in lexicographic row j. The one-part formula gives F_m(j)=F_m(0)+1_{j>=mp mod n}. For m=ell and m=n-ell the thresholds are n-r and r. The suffix has height b-F_{n-ell}(j), also when it overlaps the prefix. Since the lower row has F_ell(0)+F_{n-ell}(0)=b-1, prefix minus suffix equals -1+1_{j>=n-r}+1_{j>=r}."
+        ],
+        "reasoning": "Thus a border occurs exactly when one threshold has been crossed, equivalently min(r,n-r)<=j<max(r,n-r). For fixed j this is precisely the frozen two-interval residue union, and counting the two intervals gives the frozen histogram. No additional correlation theorem is needed: both already-known step functions use the same row index.",
+        "searches": [
+          "arXiv:1804.08724 PDF pp. 5–8: row rotations, end-of-prefix exchange, equation (1)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Blanchet-Sadri, Chen and Hawes count all binary words by Abelian-border number; Bugeaud and Reutenauer treat ordinary borders of Christoffel conjugates."
+        ],
+        "reasoning": "The aggregate Abelian enumeration does not determine individual rotations, and ordinary string matching is strictly stronger than Abelian equality; neither is the decisive coverage.",
+        "searches": [
+          "Web literature lookup for Christoffel conjugates, Sturmian borders and Abelian borders",
+          "arXiv:1708.06461 Theorem 3",
+          "arXiv:2202.05486v3 §8"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "c794105bc5c8 studies the ordinary-versus-Abelian border distinction for binary words with four ones; 15954dd9e6c4 counts ordinary unbordered conjugates for words with three ones."
+        ],
+        "reasoning": "Neither indexed result is an exact match. The originality failure is by published implication, not a matching index hit or an inference from dates.",
+        "searches": [
+          "Local Resultary/SCOPE search for Christoffel conjugate Abelian-border spectra and unbordered conjugate counts"
+        ]
+      },
+      "rationale": "The claimed paired-window spectrum is a direct corollary of the previously published phase-indexed Christoffel prefix partition, although no separate statement of this exact border spectrum was found. Carey and Clampitt give more than an aggregate factor histogram: their proof specifies the precise row of every height change, and their one-part specialization applies at both complementary lengths. It determines all the claimed values by the following substitution.",
+      "residual_risks": [
+        "This is a statement-level implication, not an assertion that the same border formula was explicitly printed or about the earliest priority of its ingredients."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly implies the full border spectrum",
+          "evidence": "Lemma 1 identifies row j with cyclic start j*q^{-1}; the last-prefix-component exchange increases height by one across the cut, and equation (1) gives its exact row.",
+          "identifier_or_url": "https://arxiv.org/abs/1804.08724",
+          "material_read": "PDF pp. 4–8, Lemmas 1–2, proof of Theorem 1, §1.4 equation (1), Corollary 1; text offsets 11640–22447",
+          "method": "Bounded open PDF passages",
+          "title": "Partitioned Factors in Christoffel and Sturmian Words",
+          "trigger": "Same Christoffel rotations and row-by-row height data"
+        },
+        {
+          "assessment": "Aggregate counts, not the decisive coverage",
+          "evidence": "Counts binary words of length n having m Abelian borders, with no Christoffel restriction.",
+          "identifier_or_url": "https://arxiv.org/abs/1708.06461",
+          "material_read": "Theorem 3, printed p. 63",
+          "method": "Open primary PDF passage",
+          "title": "Dyck Words, Lattice Paths, and Abelian Borders",
+          "trigger": "Abelian-border spectra"
+        },
+        {
+          "assessment": "Ordinary borders, not the decisive coverage",
+          "evidence": "Characterizes ordinary borders using an Ostrowski setup and powers of Christoffel conjugates.",
+          "identifier_or_url": "https://arxiv.org/abs/2202.05486v3",
+          "material_read": "§8 Theorem 8.1 and Corollaries 8.2–8.3",
+          "method": "Open primary PDF passage",
+          "title": "On the conjugates of Christoffel words",
+          "trigger": "Borders of the identical class of rotations"
+        },
+        {
+          "assessment": "Related distinct claims",
+          "evidence": "Fixed counts of ones in general binary words rather than the full Christoffel rotation spectrum.",
+          "identifier_or_url": "Resultary c794105bc5c8 and 15954dd9e6c4",
+          "material_read": "The findings of both records",
+          "method": "Local full-text mirror",
+          "title": "Four-marker threshold separating ordinary and Abelian borders; Exact unbordered conjugate spectrum for three ones",
+          "trigger": "Nearest Abelian-border and conjugate-count index records"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 24–45",
+        "Carey and Clampitt arXiv:1804.08724, Lemma 1 and §1.4"
+      ],
+      "rationale": "The invariant is natural and the short direct proof is useful exposition, but for this narrow exact claim the spectrum follows mechanically by taking the two complementary prefix coordinates of a known row partition. The resulting cardinalities and extremal cases are just counts of the two residue intervals. No additional independent phenomenon survives that comparison.",
+      "residual_risks": [
+        "This rejects the frozen spectrum as an independent new result, not its use as an illustrative corollary."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

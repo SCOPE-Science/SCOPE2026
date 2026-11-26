@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:22:22.433400Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The Fubini kernel [y^n-(1-x)^n]/n! for [V,(V*)^n] is global because the common (y-x)_+^n terms cancel. Adjunction swaps orders. For m<n the telescoped sum factors into 2m separable pairs; their left degrees are j and n+j and their right degrees are m-1-j and n+m-1-j, 0<=j<m, with nonzero leading coefficients. Both families are independent; right moments are onto by the real polynomial Gram matrix, so the left span is exactly the range. This proves the repaired statement for all unequal positive orders, including m=1. Independently the original equal-order coefficient matrix has anti-diagonal with mirrored signs and factorial denominators; reversal gives determinant (-1)^m/(product_{r<2m} r!)^2. Multiplication by the Hilbert Gram matrix gives the quoted ratio and reflection pairs the signs. Inspected original verifier and recorded 205 assertions without execution. Newly written standard-library replay /workspace/repairs/1/verify_unequal.py returned PASS: 20 ordered unequal pairs, supporting but not replacing the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The all-order fractional classification concerns one order at a time; the arXiv result concerns real and imaginary parts of a single order and the 2022 article computes two self-commutator norms."
+        ],
+        "reasoning": "Neither the linear-pencil reduction nor the frequency of equal-order ranks controls cancellation across unequal orders; the independent separated polynomials prove the new exact lower bound.",
+        "searches": [
+          "Resultary boundary/Green operator and finite polynomial-space reduction queries",
+          "arXiv:2402.09287 §§2–4",
+          "DOI:10.5564/jasea.v3i1.2455"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 393dc59f3565 and 498265e45420",
+        "arXiv:2402.09287",
+        "DOI:10.5564/jasea.v3i1.2455",
+        "Focused outbound operator literature search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "D_m agrees with [V^m,(V*)^m]; for the linear pencil, nonzero eigenspaces reduce by a boundary ODE, for a different operator."
+        ],
+        "reasoning": "The prior signed product plus sign pairing forces the frozen positive-squared product. No such implication was found for the unequal operators; a finite-rank upper bound from the common telescoping identity alone cannot yield equality.",
+        "searches": [
+          "Resultary 393dc59f3565 Finding and determinant argument",
+          "Resultary 498265e45420 Finding",
+          "arXiv:2402.09287 Thm. 2.1 and Lemma 2.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "At positive integer order J_m=V^m with exactly the same factorial and interval normalization, so D_m=K_{m,m}. An adjoint-power pencil is instead a linear combination."
+        ],
+        "reasoning": "Changing notation does not distinguish the identical self-case; the repaired operator has distinct exponents and cannot be identified with that specialization.",
+        "searches": [
+          "Resultary mixed adjoint-power commutator, fractional Riemann–Liouville self-commutator, polynomial and Green operator equivalents"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "393dc59f3565 gives the exact signed self-case product (-1)^m times the squared-positive product in the frozen record; 498265e45420 gives a product for a different pencil."
+        ],
+        "reasoning": "Exact recorded coverage excludes the self-case as a distinct contribution but does not supply a rank formula for distinct exponents.",
+        "searches": [
+          "Resultary factorial product, exact mixed rank, and opposing Volterra powers"
+        ]
+      },
+      "rationale": "The repaired contribution is specifically exact rank for unequal orders. The strongest matched fractional record covers the entire equal-order spectral component; that component was removed, not certified as new. No inspected distinct statement covers unequal-order ranks.",
+      "residual_risks": [
+        "Same-day dating does not establish priority or provenance.",
+        "Older Green-operator or finite-interval convolution results not located may imply unequal-order rank."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the frozen equal-order contribution; no unequal pair in stated scope",
+          "evidence": "Rank 2m, signed inertia (m,m), polynomial nonzero eigenfunctions, and signed factorial product are explicit.",
+          "identifier_or_url": "2026/11/22/SCOPE-integer-order-collapse-and-infinite-signed-inertia-of-fractional--393dc59f3565",
+          "material_read": "RESULT.md Finding and assumptions offsets 0–2384, determinant passage around offset 5589",
+          "method": "Primary local mirror; identify J_m=V^m",
+          "title": "Integer-order collapse and infinite signed inertia of fractional Volterra self-commutators",
+          "trigger": "Exact operator at integer equal order and complete product match"
+        },
+        {
+          "assessment": "Different operator",
+          "evidence": "Uses f^(n)=0 for eigenfunctions of a linear combination V^n+(-1)^(n-1)(V*)^n.",
+          "identifier_or_url": "https://arxiv.org/abs/2402.09287",
+          "material_read": "Primary HTML §§2 onward, offsets 3000–6795; Thm. 2.1 and Lemma 2.2",
+          "method": "Read and compare equations; publisher redirect did not prevent arXiv access",
+          "title": "On the real and imaginary parts of powers of the Volterra operator",
+          "trigger": "Power spectra and boundary polynomial reduction"
+        },
+        {
+          "assessment": "Special equal orders and different invariant",
+          "evidence": "First power exact norm and second power numerical norm.",
+          "identifier_or_url": "https://doi.org/10.5564/jasea.v3i1.2455",
+          "material_read": "Primary PDF pp. 4–5, OA offsets 9000–12165",
+          "method": "Read low-order norm computations",
+          "title": "A note on self-commutators of Volterra operator and its square",
+          "trigger": "Direct self-commutator precedent"
+        },
+        {
+          "assessment": "Different linear sum, not product commutator",
+          "evidence": "At exceptional pencil parameter a polynomial kernel has rank m.",
+          "identifier_or_url": "2026/10/18/SCOPE-exact-rank-inertia-and-schatten-cancellation-for-opposing-volter--498265e45420",
+          "material_read": "RESULT.md offsets 0–4190",
+          "method": "Primary local mirror; compare operators",
+          "title": "Exact rank, inertia, and Schatten cancellation for opposing Volterra powers",
+          "trigger": "Closest linear-power exact rank and determinant"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The repaired theorem classifies how many independent directions survive a nonnormal finite-interval commutator at all distinct orders. The lower bound is not mechanical from the rank-two telescope: it shows that none of its 2 min(m,n) channels cancel in aggregate, even as the larger order changes. This is a useful exact structural invariant without reliance on the overlapping equal-order product.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

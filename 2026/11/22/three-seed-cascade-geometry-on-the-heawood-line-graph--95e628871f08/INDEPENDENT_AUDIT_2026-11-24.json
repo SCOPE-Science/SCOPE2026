@@ -1,0 +1,167 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:30:41.637665Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, check_line_heawood.py and verify_line_heawood.cpp (inspected, not executed)",
+        "Independent exact replay: python3 /workspace/review-evidence/independent_heawood_audit.py; saved output /workspace/review-evidence/heawood_census.out"
+      ],
+      "rationale": "The Fano incidence graph has 21 flags, each with four neighbors in the line graph. Bipartiteness and absence of four-cycles imply at most one cross-edge between each pair in a seed matching; hence the six reported geometries exhaust all triples. An independent exact census encoded each of the 2^21 initial subsets by a bit position. For every vertex and round it took the OR over its six neighbor-pair intersections in the preceding round, then retained previously active positions. Intersecting active sets over all vertices gives the completed seeds exactly; differencing successive completed sets identifies the first completion round. The independent enumeration matches every coefficient: [0,0,0,392,4326,18606,53088,115776,203364,293916,352716,352716,293930,203490,116280,54264,20349,5985,1330,210,21,1]. There are no successful seeds of size below 3. A separate enumeration of 1,330 triples gave counts 686,84,168,168,168,56 for overlap, zero cross-edges, one cross-edge, opposite-end two, same-end two, and three cross-edges. Only one-cross, opposite-end two, and three-cross succeed, all in exactly 6, 5, and 4 rounds respectively. This gives 392/1330=28/95. Exactly 2,090,760 configurations succeed and 168 first complete at round 6, with none later. Weighting each exact size-k count by p^k(1−p)^(21−k) gives the reliability law and at p=1/2 gives 261345/262144.",
+      "residual_risks": [
+        "This is a complete finite proof, not an extrapolation to other flag graphs or an asynchronous-time statement. The packaged Python version note says 3.8+, but int.bit_count requires Python 3.10 or newer; this is a documentation issue, not a change to the claim."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The geometric incidence-graph family includes H at q=2, not L(H). The line graph of a complete graph has a separate four-neighbor classification.",
+          "Published grid time and dense-graph contagious-set results concern other graph regimes; they do not give this exact fixed-graph classification."
+        ],
+        "reasoning": "Neither the broader incidence family nor the broader methodological toolbox supplies a theorem whose specialization yields the proposed census.",
+        "searches": [
+          "Resultary PG(2,q) incidence threshold/speed record 3f253c08718f and triangular-graph motif record 1acbb782cd0b",
+          "arXiv:1508.06847; arXiv:1503.00158"
+        ]
+      },
+      "checked_sources": [
+        "Resultary exact and related mirror Findings",
+        "arXiv:1608.00531",
+        "arXiv:1508.06847",
+        "arXiv:1503.00158",
+        "DOI 10.1002/rsa.20158 access attempt"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The two-neighbor incidence-graph theorem and the four-neighbor triangular-graph motif theorem change the adjacency or the threshold, respectively.",
+          "Generic recurrence and core equivalence give ways to compute the census, not the counts. In particular they do not decide whether two cross-edges at the same or opposite ends of the center propagate globally."
+        ],
+        "reasoning": "No inspected theorem implies the statement as a parameter substitution. Credit the general rule and recurrence; the new evidence is the host-specific classification and exact all-seed invariant.",
+        "searches": [
+          "RESULT.md Findings of Resultary records 3f253c08718f and 1acbb782cd0b; arXiv:1608.00531 definition",
+          "arXiv:1508.06847 and arXiv:1503.00158, p. 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In the four-regular line graph, removing active vertices leaves a synchronous degree-at-most-two deletion process on the inactive complement; empty 3-core is equivalent to contagion, and peeling rounds are activation rounds.",
+          "Gerbner et al. activate points by an infected line condition, not flags by two neighboring flags."
+        ],
+        "reasoning": "An exact 3-core deletion table for this graph over complements would genuinely cover the reliability counts; generic line percolation on Fano points does not. No distinct matching table surfaced in the bounded catalogue search.",
+        "searches": [
+          "Resultary: Heawood line graph, Fano flags, edge bootstrap, 3-core/transversal census",
+          "arXiv:1608.00531, pp. 1–2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact matching indexed text has the same ordinal record's coefficient vector, 392/1330 and motif criterion; it is the assigned record itself.",
+          "A distinct PG(2,q) result includes a 334,656-set q=4 census on another graph; no distinct exact Heawood line-graph table was found in the checked index."
+        ],
+        "reasoning": "The identical index hit is not prior evidence, and a table about incidence vertices cannot answer a table about flags.",
+        "searches": [
+          "Resultary exact Heawood line-graph cascade and complementary 3-core terms",
+          "2026/11/22/SCOPE-three-seed-cascade-geometry-on-the-heawood-line-graph--95e628871f08; related 3f253c08718f"
+        ]
+      },
+      "rationale": "The exact Heawood line-graph motif criterion, completion times and complete reliability coefficients are distinct in the checked material. The rule is classical; related results on the incidence graph itself or on a different line graph and threshold do not provide a table or formula for this fixed process.",
+      "residual_risks": [
+        "A focused web lookup yielded an unrelated date index; this is not negative evidence. The random-regular full text was unavailable, and unindexed 3-core deletion, edge-bootstrap or Heawood line-graph tables could contain equivalent facts."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identical assigned record, not distinct prior coverage",
+          "evidence": [
+            "Same 392 successes, same three geometries/times and same polynomial."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-three-seed-cascade-geometry-on-the-heawood-line-graph--95e628871f08",
+          "material_read": "Local-mirror RESULT.md at offset 174, Finding and counts",
+          "method": "Resultary search and mirror primary text",
+          "title": "Three-seed cascade geometry on the Heawood line graph",
+          "trigger": "Exact catalogue hit"
+        },
+        {
+          "assessment": "Incidence vertices, not flags; relative dating is not used to dismiss the comparison",
+          "evidence": [
+            "PG(2,q) incidence-graph minima four for prime q and five for proper extensions; q=4 census. At q=2 the graph is H, not L(H)."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-prime-field-threshold-and-minimum-seed-speed-spectrum-for-two-ne--3f253c08718f",
+          "material_read": "Local-mirror RESULT.md Finding at offset 0",
+          "method": "Resultary search and mirror primary text",
+          "title": "Prime-field threshold and minimum-seed speed spectrum for two-neighbor percolation",
+          "trigger": "Same incidence geometry and threshold; exact time table"
+        },
+        {
+          "assessment": "Different host family and threshold; same-day date gives no priority conclusion",
+          "evidence": [
+            "For L(K_n), four-neighbor minimum seeds are classified by P5 and disjoint P3 pairs."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-two-path-forests-classify-minimum-four-neighbour-contagion-on-tr--1acbb782cd0b",
+          "material_read": "Local-mirror RESULT.md Finding at offset 0",
+          "method": "Resultary search and mirror primary text",
+          "title": "Two path forests classify minimum four-neighbour contagion on triangular graphs",
+          "trigger": "Structural minimum seed classification on a line graph"
+        },
+        {
+          "assessment": "Different activation operation",
+          "evidence": [
+            "A line with at least r infected points infects all of its points; the projective-plane treatment assumes r>=3."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1608.00531",
+          "material_read": "pp. 1–2, definition, OA offsets 0 and 3959",
+          "method": "Lawful OA primary text",
+          "title": "Line Percolation in Finite Projective Planes",
+          "trigger": "Potentially equivalent Fano percolation terminology"
+        },
+        {
+          "assessment": "Background on time complexity and grids, not an L(H) census",
+          "evidence": [
+            "Addresses maximum-time algorithms/complexity and grid graphs."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1508.06847",
+          "material_read": "p. 1, scope and main results",
+          "method": "Lawful OA primary text",
+          "title": "The maximum time of 2-neighbour bootstrap percolation in grid graphs and some parameterized results",
+          "trigger": "Same synchronous maximum-time statistic"
+        },
+        {
+          "assessment": "Bounds for dense graphs do not give the target time/geometry/count classification",
+          "evidence": [
+            "States degree-dependent results in dense graph settings."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1503.00158",
+          "material_read": "p. 1, scope and main results",
+          "method": "Lawful OA primary text",
+          "title": "Contagious Sets in Dense Graphs",
+          "trigger": "General minimum-contagious-set comparison"
+        },
+        {
+          "assessment": "Access limitation, not a negative table match",
+          "evidence": [
+            "Identified random regular graph context from the bibliographic record; full-text coverage was not independently assessed."
+          ],
+          "identifier_or_url": "https://doi.org/10.1002/rsa.20158",
+          "material_read": "Bibliographic identification only; no primary full text",
+          "method": "Lawful DOI access attempt (HTTP 403); no repository copy recovered",
+          "title": "Bootstrap percolation on the random regular graph",
+          "trigger": "Cited baseline for regular-graph percolation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, motif criterion and exact reliability law",
+        "Independent exact census and supplementary completion-round histogram"
+      ],
+      "rationale": "The 21 flags of the smallest projective plane form a canonical finite host, and threshold two is the first nontrivial activation rule. The central-endpoint distinction shows why just counting two cross-edges cannot decide contagion. The complete reliability polynomial and the longest successful time give reusable exact benchmarks across every Bernoulli seed rate and for parallel core peeling, not just an arbitrary sample or one hand-picked initial seed.",
+      "residual_risks": [
+        "No proof for other incidence orders is offered. Value is in the complete canonical example and its motif classification, not in a general cascade theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

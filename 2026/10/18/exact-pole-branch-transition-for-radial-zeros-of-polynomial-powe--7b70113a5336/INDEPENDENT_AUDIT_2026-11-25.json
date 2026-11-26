@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:43:37.385078Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–85; VERIFICATION.md and check.py, inspected, not executed",
+        "Hägg–Shapiro arXiv:2610.09602v1, equation (1.5), Theorem 1.1, equation (2.7), Propositions 3.4 and 3.5"
+      ],
+      "rationale": "The cyclic form z^r Q(z^d) is preserved under differentiation; for r>0 Rolle's theorem on t^(r/d)Q(t), which vanishes at 0, gives confinement in [0,1], with multiplicity counted. For r=0 differentiate Q. Theorem 1.1 and Proposition 3.5 of Hägg–Shapiro apply to this monic polynomial without a simple-critical-point restriction. Substitution and rotation symmetry give t(dv−(d−α))=α v^d and tG(t)=αv/((d−α)(1−v)), with v→(d−α)/d at infinity. An independent check of physical-branch selection is available on t=−u<0: the signed coefficients in the exact descendant all have the same sign there. Their consecutive absolute-term ratio tends, at index ℓ/n→λ in (α/d,1), to u(1−λ)/λ times [dλ/(dλ−α)]^d. The finite ratios decrease with ℓ and their limit decreases from infinity to zero; geometric bounds away from its unique crossing concentrate ℓ/n there. The logarithmic derivative gives tG(t)=(dλ−α)/(d−α). Setting v=1−α/(dλ) yields the same algebraic equation on the negative axis; compact support then identifies the limiting transform uniquely. The positive exterior branch runs from (d−α)/d to v_c=(d−α)/(d−1), with its unique positive turning value T. On (0,T) the upper-bank v=r exp(−iθ), where r=(d−α) sin(dθ)/(d sin((d−1)θ)), t=(α/d)r^(d−1)sin(dθ)/sin θ, and 0<θ<π/d. The parametrization runs continuously from T to 0 with nonzero derivative in the interior, by the absence of another critical value; it matches the square-root branch at T. Stieltjes inversion gives positive analytic density there and analytic continuation across the exterior except for the selected pole at v=1 when α<1, whose residue is d(1−α)/(d−α). The expansions at v=0 and at v_c, using t″(v_c)=Td(d−1)/v_c², give exactly the three stated constants: for α=1 the Möbius denominator also vanishes at v_c, changing the exponent from +1/2 to −1/2. Both endpoints have weaker than simple-pole growth and the remaining support points are isolated, excluding other atoms and a singular continuous part. Substituting v=(d−α)(1+y)/d and applying Lagrange inversion to (1+y)/(1−βy) verifies the coefficient sum and first moment. Rotation invariance then gives the stated z-plane support.",
+      "residual_risks": [
+        "The edge equivalents hold at fixed α; no uniform limit as α approaches 0, 1, or d is asserted. The finite coefficient checker probes only selected low moments."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hägg–Shapiro give the actual limiting branch for every monic P and the root masses. Huang–Zhong give a parametric analytic density and support description plus the positive-atom rule for multiplicative convolution powers. The older Rodrigues theorem assumes simple P and P′ roots."
+        ],
+        "reasoning": "The modern derivative theorem covers convergence and supplies the transform on substitution, and the free-power theorem covers the law implicitly. Neither evaluated passage gives these three explicit edge coefficients for the projection specialization. The older theorem alone cannot be used for P′=dz^(d−1).",
+        "searches": [
+          "arXiv:2610.09602v1 Theorem 1.1 and Propositions 3.4–3.5; arXiv:1302.4466 Theorem 3.10 and Proposition 3.12; arXiv:2107.05710 Theorem 1.1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.09602v1, 1302.4466, 1404.5759 and 2107.05710",
+        "Resultary 9054e99efdbc"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The derivative formula directly yields t(dv−(d−α))=αv^d. The prior atom formula gives d(1−α)/(d−α); equivalently the full projection-product atom at 1 is (dc−(d−1))_+. For a Bernoulli projection the Huang–Zhong inverse map specializes to z[(1−(1−c)z)/c]^(d−1), whose stationary point z=1/[d(1−c)] yields the reciprocal endpoint T."
+        ],
+        "reasoning": "Convergence, the atom and threshold, the algebraic law itself and the critical value are covered or directly specialized, not credited independently. Resolving the physical complex branch from the soft edge to the hard edge and computing the coefficients through the pole collision adds quantitative information beyond the inspected implicit formulas.",
+        "searches": [
+          "Hägg–Shapiro eq. (2.7) and Propositions 3.4–3.5; Huang–Zhong Theorem 3.10 and Proposition 3.12"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Let c=(d−α)/d. The given M has S_ν(q)=[(1+cq)/(c(1+q))]^(d−1), so (1−c)δ_0+cν has S(q)=[(1+q)/(c+q)]^d, the d-fold multiplicative free power of a trace-c projection law. Forrester–Liu eq. (1.4) gives a single Raney moment, not this general Möbius-modified sum."
+        ],
+        "reasoning": "The projection identification is exact after removing and normalizing the zero atom. The shared Fuss–Catalan kernel alone is not a generic Raney identification. The deterministic zero problem is a particular realization of the known free multiplicative family.",
+        "searches": [
+          "Resultary: regular-root binomials, radial full shadow and fixed-ratio derivative zeros",
+          "Free multiplicative Bernoulli/projection powers, equal Haar truncations, Fuss–Catalan and Raney laws; arXiv:1302.4466 and 1404.5759"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "9054e99efdbc gives radial confinement and the full star over derivative orders, not the measure at fixed α. Forrester–Liu give explicit parametrizations and edges for standard Raney laws."
+        ],
+        "reasoning": "The union geometry over orders is not the fixed-ratio branch interval or density. The Raney formulas are for a different standard parameterization and do not give the detached 1-atom phase across α.",
+        "searches": [
+          "Resultary exact regular-root binomial derivative support and radial full shadows; 9054e99efdbc Finding",
+          "arXiv:1404.5759 §§1–2, Raney densities and edges"
+        ]
+      },
+      "rationale": "Credit is limited to the explicit resolution of the continuous branch for the regular-polygon derivative family: the exact interval and density positivity, and the three calibrated endpoint laws through the critical parameter. Fixed-ratio convergence, the general transform and the atom are established elsewhere; the moment formula comes by specialization and Lagrange inversion. There is also exact equivalence of the resulting probability law to a normalized free projection product, so this is not a new abstract probability distribution. The inspected general free-semigroup theorem supplies an implicit density representation and atom criterion; the precise solved three-regime edge evaluation was not directly found in the inspected sources.",
+      "residual_risks": [
+        "The exact free-power equivalence leaves a real risk of explicit matching edge constants in the projection-product or truncated-unitary literature. The targeted truncation query did not yield a usable matching primary passage. A general formula was actually inspected and its overlap credited; the limited search is not evidence of historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers convergence, branch framework and root atom",
+          "evidence": "No simple-root hypothesis for P′, F_(P,α)=w−αP/P′, and atom (r_j−α)_+/(d−α).",
+          "identifier_or_url": "https://arxiv.org/html/2610.09602v1",
+          "material_read": "Theorem 1.1, equation (1.5), equation (2.7), Propositions 3.4–3.5 and Lemma 3.7; offsets 5000, 7717, 27303, 65344, 67922",
+          "method": "OA HTML",
+          "title": "The full shadow of a polynomial I. The limiting core and the transient set",
+          "trigger": "Direct general theorem on the same derivative measures"
+        },
+        {
+          "assessment": "Strong implicit coverage via the exact projection formulation; no explicit three sharp coefficients in the read statements",
+          "evidence": "Theorem 3.10 specifies continuous support and its parametric density; Proposition 3.12 states the atom threshold and linear mass for positive atoms.",
+          "identifier_or_url": "https://arxiv.org/pdf/1302.4466",
+          "material_read": "PDF pp. 1–2 transform identity; p. 11 Theorem 3.10, offset 30600; Proposition 3.12, starting offset 36870",
+          "method": "OA PDF",
+          "title": "On the supports of measures in free multiplicative convolution semigroups",
+          "trigger": "Exact equivalent Bernoulli projection law"
+        },
+        {
+          "assessment": "Related algebraic edge mechanism, distinct generic family",
+          "evidence": "Raney single-binomial moments and their associated resolvent and density parametrization.",
+          "identifier_or_url": "arXiv:1404.5759",
+          "material_read": "PDF pp. 2–3, equations (1.4), (2.1)–(2.2) and §2 density discussion",
+          "method": "OA PDF",
+          "title": "Raney Distributions and Random Matrix Theory",
+          "trigger": "Fuss–Catalan and Raney representation"
+        },
+        {
+          "assessment": "Earlier transform framework with a narrower hypothesis",
+          "evidence": "Simple roots required for P′, excluding the frozen d≥3 family.",
+          "identifier_or_url": "arXiv:2107.05710",
+          "material_read": "PDF p. 3, Theorem 1.1, offset 11014",
+          "method": "OA PDF",
+          "title": "Rodrigues' descendants of a polynomial and Boutroux curves",
+          "trigger": "Earlier theorem on polynomial descendants"
+        },
+        {
+          "assessment": "Radial-confinement/full-star overlap; later catalogue date",
+          "evidence": "Full radial star and no transient zeros, rather than the fixed-ratio continuous density and endpoint equivalents.",
+          "identifier_or_url": "9054e99efdbc",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Published record via local mirror",
+          "title": "Exact radial full shadows of regular-root binomials",
+          "trigger": "Exact polynomial and radial geometry match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and lines 65–76; arXiv:2610.09602v1 and 1302.4466 as above"
+      ],
+      "rationale": "The geometric support and local zero densities for regular-root descendants are natural quantitative refinements of the general shadow theorem. At the same parameter where retained root mass disappears, the continuous density changes from a vanishing soft edge to an integrable divergence. The explicit coefficients and branch selection make this transition usable for asymptotic calculations; convergence, the atom alone, and the formal algebraic transform are not the value credited.",
+      "residual_risks": [
+        "This does not give rates, uniform collision scaling in α, or a new general free-convolution mechanism."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

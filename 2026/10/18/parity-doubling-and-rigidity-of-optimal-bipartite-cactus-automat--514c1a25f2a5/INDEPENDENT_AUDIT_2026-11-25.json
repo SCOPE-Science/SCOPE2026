@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:27:22.625996Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Inserting a positive closed subwalk at a state of an accepting run preserves acceptance and changes length by a multiple of m. Transition-compatible two-colouring also makes its length even. Hence the first h=lcm(m,2) states of a sufficiently long accepting run are distinct, and at equality the next state is necessarily the first. The resulting directed h-cycle is usable on an accepting run at every state. For any arc i→j, following it with the forward cycle path from j to i would give an insertable closed walk of length between 1 and h, so that length must be h and j must be i+1. This directly checks the rigidity step, even without using cactus to exclude chords. A word of sufficiently large accepted length can prescribe any letter at any phase, forcing all labels on each arc. With those transitions, acceptance forces exactly the residues stated. The construction is an even undirected cycle, or one simple edge at h=2. Dropping the even-length constraint gives the unrestricted m-state lower bound and matching modular DFA. The source's reference to an exception at m=4 in the reverse-arc argument is unnecessary: h≥4 always implies m≥3, and m=4 also does not divide 2. Frozen logged checks cover construction consistency, not arbitrary optimum NFAs; the uploaded script was inspected but not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1.1 establishes an epsilon-free bipartite-cactus NFA for every regular language. Section 4 leaves tight state-complexity bounds open. The unary-NFA source locator is a bibliography pointer to Jiang, McDowell and Ravikumar, not theorem-level evidence of the target."
+        ],
+        "reasoning": "General existence allows much larger witnesses and says nothing about equality. General unary-NFA structure is relevant, but the inspected bibliographic pointer alone asserts no restricted all-minimizer result.",
+        "searches": [
+          "Grobler–Koziel–Siebertz arXiv:2610.11717, Theorem 1.1 and §4",
+          "arXiv:2302.06435, unary NFA structure references"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py, CHECK_OUTPUT.txt",
+        "Resultary records 08999567f29d and 00e635271147",
+        "arXiv:2610.11717; arXiv:2302.06435 bibliography pointer"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The proof gives a simple directed cycle of length at least ℓ on an accepting run, so at equality this is a spanning cycle. It gives a matching witness, not a converse characterization of allowable added transitions, labels or final states."
+        ],
+        "reasoning": "Credit the spanning-cycle ingredient as well as the count. To classify every optimum, one must show any nonconsecutive arc creates an insertable forbidden short closed walk, then force every label and the final set by universal word acceptance. These structural equality steps are not obtained by substituting parameters in the exact count.",
+        "searches": [
+          "Resultary 08999567f29d, RESULT.md proof offsets 1570–5484"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "With period p=m and least accepted length r<m, the threshold result reduces to h. Restricting an arbitrary-alphabet NFA to one fixed letter and removing unreachable states preserves the graph restrictions and recognizes the unary length class. Conversely, duplicating canonical unary arc labels realizes the whole length language."
+        ],
+        "reasoning": "The count is equivalent under unary restriction and expansion, rather than merely sharing numerical values. The neighbouring diagonal-pair language is not a length-congruence language.",
+        "searches": [
+          "Resultary: exact state cost of thresholded unary residue languages in bipartite cacti",
+          "Resultary: exact state cost and matching rigidity for diagonal languages"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "08999567f29d has the all-threshold formula max(ℓ,t+ℓ−p+1) and realizes it by a path and cycle. 00e635271147 gives cost 1+n+ceil(n/2) and a matching-based equality structure for words a_i a_i."
+        ],
+        "reasoning": "For this all-parameter exact result the catalogue formula is more decisive than any small-state table. The former covers the numeric result; neither statement enumerates the optimal realizations for the target family.",
+        "searches": [
+          "Resultary records 08999567f29d and 00e635271147, exact state costs and rigidity"
+        ]
+      },
+      "rationale": "Pass for the combined exact optimum and all-minimizers classification, not for independent originality of the state-count formula or modular pumping. The thresholded unary result covers the minimum for the whole target via its unary specialization and restriction to one letter. It proves a cycle lower bound and constructs one optimum; the supported distinct conclusion is that every optimum is the fully labelled cycle with the specified start and final set. This is an equality analysis, not a new numeric case of the threshold formula. No historical priority is inferred from catalogue path dates.",
+      "residual_risks": [
+        "Focused external unary-NFA lookups were not completed in the shared search wave. Earlier equivalent periodic-NFA equality theorems under other terminology remain possible.",
+        "The overlap in lower bound and cycle method is close; no priority relationship is established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers minimum and directly supplies a spanning-cycle ingredient; no all-minimizers classification in the inspected theorem",
+          "evidence": [
+            "Set threshold equal to target residue and period equal to m; path length is zero in this case."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-exact-state-cost-of-thresholded-unary-residue-languages-in-bipar--08999567f29d",
+          "material_read": "RESULT.md Finding and proof through offset 5484; cycle lemma offsets 1570–2654",
+          "method": "Local Resultary mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact state cost of thresholded unary residue languages in bipartite cactus automata",
+          "trigger": "Same automaton class, stronger unary length threshold formula"
+        },
+        {
+          "assessment": "General background, not a tight bound or rigidity theorem",
+          "evidence": [
+            "The paper describes its construction as unoptimized and asks for tight complexity bounds."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.11717",
+          "material_read": "Theorem 1.1 and §4, PDF pp. 118 and 128",
+          "method": "OA primary PDF passage inspection",
+          "title": "Every Regular Language Has a Bipartite Cactus Automaton",
+          "trigger": "Original general existence theorem in the same restricted model"
+        },
+        {
+          "assessment": "Different language and mechanism",
+          "evidence": [
+            "The language consists of finite matching-letter pairs, not all words of periodic lengths."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-exact-state-cost-and-matching-rigidity-for-diagonal-languages-in--00e635271147",
+          "material_read": "RESULT.md Finding, offsets 0–4142",
+          "method": "Local Resultary mirror",
+          "title": "Exact state cost and matching rigidity for diagonal languages",
+          "trigger": "Related restricted optimum and rigidity claim"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The restricted state complexity is a natural family question left open by the general construction, and the full equality result says considerably more than that a small DFA exists: nondeterminism, deletion of letters and alternative accepting sets are all impossible at the optimum. The independent unrestricted count and arithmetic factor alone would not justify a separate value claim.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

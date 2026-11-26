@@ -1,0 +1,156 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:28:07.055485Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The Laplacian diagonal retains degrees q and 2. The follower-part zero-sum spaces contribute those eigenvalues and the normalized two-constant block has off-diagonal minus the square root of the product of the follower-part counts. For a=0 its trace is q+2 and determinant 4, giving delta and q+2-delta; for a=1 it has eigenvalues 1 and q+1; for a=2 the whole matrix is 2I. The smaller root for a=0 decreases with q by delta=8/(q+2+sqrt((q+2)^2-16)) and is below 19/50. From the trace differences, at t=1/5 the two comparisons H0-H1 and H0-H2 are bounded above by negative quantities using the uniform bound on the fast modes. At 67/100, H0-H1 is positive even after dropping those fast positive terms and replacing delta by 19/50, whereas H1-H2 is negative from exp(t)<49/25 and exp(-(q-1)t)<1/25. At 1 both rivals have larger trace than H2. An independent rational replay (`python3 /workspace/branches/heat_trace_exact_bounds.py`) certified the sign estimates; the middle Taylor margin is 294177970312366399583/177187500000000000000000 > 1/1000. The frozen verifier was inspected, not run. At fixed t, the three limiting differences have crossings log(phi), log(2), and log(sqrt(3)) with log(sqrt(3)) strictly between the other two; at this nonoptimizing crossing both comparisons with a=1 remain strict. This gives eventual uniqueness on the stated open intervals, not the finite-q diagram or ties at the boundaries. The exact placement multiplicities count the two chosen leaders in their parts. For the initial-condition interpretation of the objective, covariance I should be accompanied by zero mean (or use second moment I); this does not alter the heat-trace theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "3151e2186be2 covers perfect leaders with a broader budget and part sizes on complete bipartite graphs but for the stationary inverse trace; its K_{2,q}, two-leader special case favors a=2.",
+          "5b299daa2230 concerns the stationary trace with four finite-gain noisy leaders. Lin–Fardad–Jovanović and Fitch–Leonard optimize steady-state covariance criteria."
+        ],
+        "reasoning": "The broader parameters are material but do not dominate an objective evaluated at one positive time. The inverse trace is the integral of the heat trace, so a theorem for its minimizer does not select the minimum of the integrand at every time.",
+        "searches": [
+          "Resultary 3151e2186be2 and 5b299daa2230",
+          "arXiv:1302.0450 pp. 5–6",
+          "arXiv:1407.1569 pp. 1–2, 5"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 3151e2186be2, 6f11a7095f0f, 5b299daa2230, 584b3e9234a1, 323aae234476, and same-record 0e0758755828",
+        "arXiv:1604.07094, 1412.6595, 1302.0450, 1407.1569",
+        "Simpson–Chung consensus.pdf"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The same-budget inverse-trace gaps over a=2 are 1/(q+1) for a=1 and (q-2)^2/(4q) for a=0. The phase theorem has a=0 and a=1 winners at two of the sample times.",
+          "Simpson–Chung compute/approximate consensus using heat-kernel PageRank, not optimum placements. The 1D coherence work solves a steady-state inverse-trace problem."
+        ],
+        "reasoning": "A stationary optimum, an order on a different graph family, and a heat-kernel solver with specified leaders do not imply these pointwise inequalities. Even with the standard symmetry decomposition, the uniform finite-q inequalities and their limiting sign boundaries are needed.",
+        "searches": [
+          "Resultary 3151e2186be2 and 584b3e9234a1",
+          "Simpson–Chung https://cseweb.ucsd.edu/~osimpson/consensus.pdf pp. 1–2",
+          "arXiv:1412.6595 pp. 1–2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same-title 0e0758755828 is the identical record. Resultary 584b3e9234a1 has the pointwise grounded heat trace but for a complete graph minus a perfect matching. Resultary 323aae234476 uses it for one leader on paths.",
+          "The closest rate criterion in 1604.07094 is maximizing the smallest grounded eigenvalue on 1D graphs."
+        ],
+        "reasoning": "Deterministic isotropic energy at half the observation time is equivalent to this trace, but the convergence rate uses only one eigenvalue. For this very family the slowest eigenvalue already favors a=2 at all sizes, so it cannot imply the three pointwise winners. Neither neighboring graph result includes K_{2,q} in this parameter range.",
+        "searches": [
+          "Resultary semantic search for grounded heat trace, finite-time perfect-leader placement and complete bipartite networks",
+          "Patterson–McGlohon–Dyagilev arXiv:1604.07094, pp. 1, 3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact stationary tables/formulas do not contain a pointwise grounded ranking; the separate two-leader example in the cubic hub-allocation record is at q=8.",
+          "The exact catalogue duplicate is the submitted record, not corroborating priority evidence."
+        ],
+        "reasoning": "A finite placement table for selected q would not establish the uniform statement or the large-size limit; the exact stationary allocation for the same count is the most plausible close tabulation but encodes a different objective.",
+        "searches": [
+          "Resultary same-family exact-allocation results 3151e2186be2, 6f11a7095f0f, 5b299daa2230"
+        ]
+      },
+      "rationale": "The distinct part is strict realization of all three winning placements at the stated positive times uniformly in q>=9, and the two exact fixed-time large-size boundaries. Neither grounded spectra in themselves nor stationary optimal placements are treated as new.",
+      "residual_risks": [
+        "An equivalent unindexed transient-optimality theorem may exist. Same-day distinct heat-trace records are material neighboring work; no chronological priority is inferred."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same graph and budget, different objective",
+          "evidence": "All-budget trace(L_FF^-1) allocation. Specializing gives stationary winner a=2, not the pointwise switches.",
+          "identifier_or_url": "2026/11/8/SCOPE-exact-leader-allocation-and-a-square-root-law-on-complete-bipart--3151e2186be2",
+          "material_read": "Finding and Assumptions and scope, offset 0",
+          "method": "Local mirror RESULT.md",
+          "title": "Exact leader allocation and a square-root law on complete bipartite networks",
+          "trigger": "Strongest same-graph, same-budget coverage candidate"
+        },
+        {
+          "assessment": "No heat-trace equivalence",
+          "evidence": "Stationary inverse trace principally for k>=4; separate two-leader example at q=8.",
+          "identifier_or_url": "2026/11/2/SCOPE-the-cubic-hub-allocation-threshold-for-multi-leader-coherence-on--6f11a7095f0f",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror RESULT.md",
+          "title": "The cubic hub-allocation threshold for multi-leader coherence on K_{2,q}",
+          "trigger": "Same named graph family"
+        },
+        {
+          "assessment": "Different leader regime and objective",
+          "evidence": "Four finite-gain noisy leaders; stationary objective.",
+          "identifier_or_url": "2026/10/18/SCOPE-complete-four-leader-phase-diagram-on-unequal-complete-bipartite--5b299daa2230",
+          "material_read": "Finding and assumptions, offset 0",
+          "method": "Local mirror RESULT.md",
+          "title": "Complete four-leader phase diagram on unequal complete bipartite networks",
+          "trigger": "Same graph and optimization phases"
+        },
+        {
+          "assessment": "Same objective, different graphs and ordering",
+          "evidence": "Complete graph minus perfect matching, not unequal complete bipartite graphs.",
+          "identifier_or_url": "2026/11/22/SCOPE-all-time-grounded-heat-trace-ordering-on-cocktail-party-networks--584b3e9234a1",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror RESULT.md",
+          "title": "All-time grounded heat-trace ordering on cocktail-party networks",
+          "trigger": "Same exact pointwise objective"
+        },
+        {
+          "assessment": "Different graph, budget and asymptotics",
+          "evidence": "One leader on a path and a long-time location law.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-universal-diffusive-boundary-layer-for-finite-time-leader-plac--323aae234476",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror RESULT.md",
+          "title": "A universal diffusive boundary layer for finite-time leader placement on paths",
+          "trigger": "Same objective and placement interpretation"
+        },
+        {
+          "assessment": "Not the finite-time trace",
+          "evidence": "Rate uses the least eigenvalue of the grounded operator.",
+          "identifier_or_url": "https://arxiv.org/pdf/1604.07094",
+          "material_read": "Abstract p. 1; rate criterion p. 3, extracted offset 25302",
+          "method": "OA PDF passages",
+          "title": "Optimal k-Leader Selection for Coherence and Convergence Rate in One-Dimensional Networks",
+          "trigger": "Closest literature on finite-rate versus steady-state optimization"
+        },
+        {
+          "assessment": "Different computational task",
+          "evidence": "Heat-kernel PageRank for consensus values, not optimizing leader locations.",
+          "identifier_or_url": "https://cseweb.ucsd.edu/~osimpson/consensus.pdf",
+          "material_read": "pp. 1–2, offsets 0 and 5800",
+          "method": "OA PDF passages",
+          "title": "Finding Consensus in Multi-Agent Networks Using Heat Kernel PageRank",
+          "trigger": "Heat kernel in leader-following networks"
+        },
+        {
+          "assessment": "Stationary versus pointwise",
+          "evidence": "Steady-state covariance and inverse trace.",
+          "identifier_or_url": "https://arxiv.org/pdf/1302.0450",
+          "material_read": "pp. 5–6, offsets 14826, 17090",
+          "method": "OA PDF passages",
+          "title": "Algorithms for Leader Selection in Stochastically Forced Consensus Networks",
+          "trigger": "Baseline noise-free/perfect leader formulation"
+        },
+        {
+          "assessment": "Stationary versus pointwise",
+          "evidence": "Steady-state variance and H2 performance.",
+          "identifier_or_url": "https://arxiv.org/pdf/1407.1569",
+          "material_read": "pp. 1–2 and 5, offsets 0, 6316, 16576",
+          "method": "OA PDF passages",
+          "title": "Joint Centrality Distinguishes Optimal Leaders in Noisy Networks",
+          "trigger": "Baseline stationary leader ranking"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a motivated exact witness that finite-time placement can select all three allocations, not just interpolate between a short-time and a steady-state choice. The witness holds uniformly across an infinite graph family and gives two explicitly separated limiting thresholds. Its utility is to distinguish pointwise diffusion performance from stationary and single-eigenvalue rankings, not to claim a complete phase diagram.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

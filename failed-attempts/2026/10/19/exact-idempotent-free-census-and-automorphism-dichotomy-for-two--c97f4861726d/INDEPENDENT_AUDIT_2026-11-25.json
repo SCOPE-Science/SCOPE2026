@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:00:55.120821Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Assertion 1, RESULT.md line 12, is false as written: irreducible does not imply degree three. Over F_2 take (a,b,c,d)=(1,1,0,1). Then ad−bc=1 and f(T)=T²+T+1 is irreducible, but e_2²=e_2 gives a nonzero idempotent. Thus the issue persists even among perfect tables. The proof at lines 44–48 wrongly infers c≠0 from unqualified irreducibility. The exact correction would be ‘f has degree three and is irreducible’: c=0 gives a fixed line at infinity for a perfect table, and for c≠0 the finite fixed lines are the roots of f. When the cubic is irreducible, f(d/c)=(ad−bc)/c is nonzero, implying perfectness. With the degree condition the counts and group calculation do check: Frobenius orbits give (q−1)(q³−q)/3 tables; independence of the two squares forces all natural-basis changes to be monomial; a fixed antidiagonal change would give a root s, and the only nonidentity diagonal changes have s³=1, t=s² and a=d=0. The exceptional noncube ratios give 2(q−1)²/3 tables, exactly one orbit, and Burnside yields the stated class formulas. The frozen verify.py was read, not run. Its determinant and c≠0 guards (lines 51–60 and 79–87) mean the finite tests do not test bare irreducibility as stated.",
+      "status": "FAIL"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wei–Zou count all E²=E algebras, with (q−1)² tables fixed by each primitive cube-root diagonal change before any filter. Cabrera Casado et al. classify all two-dimensional perfect evolution algebras over domains. Hu–Wen Theorem 2.1 is a three-dimensional family."
+        ],
+        "reasoning": "The scholarly sources supply the monomial action and broad class descriptions but do not state the restricted all-q counts. ‘Idempotent’ in Wei–Zou refers to perfectness, not absence of nonzero idempotents.",
+        "searches": [
+          "Wei–Zou arXiv:2310.12368v1 §4.1 and Theorem 4.1",
+          "Cabrera Casado et al. DOI 10.1007/s10801-022-01196-1 §4 Theorem 1",
+          "Hu–Wen arXiv:2609.25023 Theorem 2.1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary ed215efa0089, e52a1524f840, a6f1df44ea9b, 34e38832dbaa, ad0fd667aaa5, fd35382c80da",
+        "arXiv:2310.12368v1",
+        "DOI 10.1007/s10801-022-01196-1",
+        "arXiv:2609.25023",
+        "arXiv:2104.04756v1",
+        "arXiv:2312.07118v2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In this perfect two-dimensional family all natural-basis changes are monomial, so the group has order 2s. The joint table counts precisely m=2s/3 labeled order-three matrices in K=0 if g=3 and none otherwise. The remaining T/3−m have trivial stabilizer."
+        ],
+        "reasoning": "Divide m by its orbit size 2s/3 to obtain one exceptional C_3 class when g=3. Dividing the remaining count by 2s then gives total (T/3−m)/(2s)+m/(2s/3)=q(q+1)/6+(2/3)·1_{g=3}. Thus the full census is a direct corollary, even though the joint record tabulates matrices rather than classes.",
+        "searches": [
+          "Resultary ed215efa0089 Finding, Assumptions and monomial step; Wei–Zou arXiv:2310.12368v1 §4.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The joint law uses this exact matrix parameterization and identifies rational projective fixed points with nonzero idempotents. Its fixed-line equation is a homogeneous cubic. The separate projective-orbit papers study pencils of binary cubics or lines in PG(3,q) linked to quartics under PGL_2."
+        ],
+        "reasoning": "A homogeneous cubic with no rational projective zero has no zero at infinity (so c≠0) and an irreducible dehomogenized cubic. Full PGL_2 orbit equivalence on pencils is not the monomial natural-basis action determining the algebra isomorphism classes.",
+        "searches": [
+          "Resultary ed215efa0089 RESULT.md Finding and Steps 1–2",
+          "arXiv:2104.04756v1 abstract and §1",
+          "arXiv:2312.07118v2 pp. 1, 3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The joint table has K=0 counts T/3−2s·1_{g=3}/3 at order one and 2s·1_{g=3}/3 at order three, zero at orders two and six; s=(q−1)², T=q(q−1)²(q+1), g=gcd(3,q−1). The separate idempotent marginal records already give the one-third fraction; the binary record gives two marked tables and one class over F_2."
+        ],
+        "reasoning": "These are the same marked tables and field-linear stabilizers, not just similar distributions. The joint table resolves the correlation needed to turn labeled counts into unweighted class counts. The earlier existence result alone would not resolve these counts.",
+        "searches": [
+          "Resultary exact finite-field idempotent and automorphism laws: ed215efa0089, e52a1524f840, a6f1df44ea9b, 34e38832dbaa; q=2 ad0fd667aaa5; existence fd35382c80da"
+        ]
+      },
+      "rationale": "The complete K=0 column of a distinct published joint-law record covers the marked-table fraction and determines the exact filtered class counts and automorphism dichotomy directly by orbit–stabilizer. The degree-corrected criterion is the immediate affine version of the fixed-line cubic already used there. The other record is dated later; this is demonstrable equivalent coverage, not a priority or provenance judgment. Correcting the missing degree condition would not leave a new substantive result to repair.",
+      "residual_risks": [
+        "The catalogue comparison does not establish priority or the relationship between these records. Other literature, including the separate final journal version of Wei–Zou, was not exhaustively compared; no such access limitation is the basis for FAIL."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Stronger result supplies K=0 column and implies all corrected aggregate assertions",
+          "evidence": [
+            "Identical natural-basis coefficients and field-linear automorphisms; full K=0 column; fixed-line cubic; monomiality."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-the-joint-idempotent-automorphism-law-for-two-dimensional-perfec--ed215efa0089/RESULT.md",
+          "material_read": "Finding joint table, Assumptions, Step 1 and Step 2 passages",
+          "method": "Read target published record text",
+          "title": "The joint idempotent–automorphism law for two-dimensional perfect evolution algebras over finite fields",
+          "trigger": "Same universe and joint classification of both required statistics"
+        },
+        {
+          "assessment": "Partial overlap: monomial/Burnside mechanism, no K=0 restriction in inspected results",
+          "evidence": [
+            "E²=E is their definition; embedded cube-root fixed counts are over all perfect tables."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2310.12368",
+          "material_read": "arXiv v1 p. 2; §4.1 p. 11 offset 26355 and Theorem 4.1 p. 13 offset 31000",
+          "method": "Read open PDF passages",
+          "title": "Isomorphism Classes of Idempotent Evolution Algebras",
+          "trigger": "General perfect-algebra orbit counts"
+        },
+        {
+          "assessment": "Contains the broad class problem, not the filtered census in the inspected passage",
+          "evidence": [
+            "Perfect algebras over domains, including finite fields, are classified without a no-idempotent count."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s10801-022-01196-1",
+          "material_read": "§4 Theorem 1, pp. 584–585, offsets about 51000–55552",
+          "method": "Read open full-text classification passages",
+          "title": "Two-dimensional perfect evolution algebras over domains",
+          "trigger": "Broad classification for same algebra objects"
+        },
+        {
+          "assessment": "Different dimension and result",
+          "evidence": [
+            "Three-dimensional family with special λ=2 in characteristic other than two, no two-dimensional finite-field census."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.25023",
+          "material_read": "Theorem 2.1, p. 3, offset 6786",
+          "method": "Read open PDF passage",
+          "title": "Idempotent-free non-solvable evolution algebras over C",
+          "trigger": "Closest scholarly idempotent-free construction"
+        },
+        {
+          "assessment": "Different objects and equivalence relation",
+          "evidence": [
+            "PGL_2-orbits of pencils of cubics, restricted to odd q with 3∤q."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2104.04756",
+          "material_read": "Abstract and §1 p. 1, offsets 0 and 2144",
+          "method": "Read open PDF passages",
+          "title": "Günay–Lavrauw projective cubic-pencil orbit classification",
+          "trigger": "Plausible projective reformulation"
+        },
+        {
+          "assessment": "Exact overlap at q=2 only",
+          "evidence": [
+            "One two-dimensional idempotent-free isomorphism type over F_2 and two marked presentations."
+          ],
+          "identifier_or_url": "Resultary 2026/10/13, ad0fd667aaa5",
+          "material_read": "RESULT.md Finding",
+          "method": "Read published record text",
+          "title": "Binary perfect evolution algebras: exact idempotent spectra and isomorphism census",
+          "trigger": "Potential exact small-field predecessor"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The exact census and distinction between marked frequency and unmarked class count answer useful structural questions over all finite fields, including the single exceptional symmetry class. This assessment concerns the mathematical content of the census, not a claim that the incorrect degree-free assertion is useful or that the covered corrected remainder merits repackaging.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

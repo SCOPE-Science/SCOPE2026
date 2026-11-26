@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:09:38.411027Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 35–81",
+        "Frozen VERIFICATION.md, verify_haar.py and verification_output.txt, inspected only",
+        "Independent finite spectral checks: python3 /workspace/review_evidence/finite_checks.py 2; direct Haar products on seven rational periodic lattices and eigvalsh of the resulting matrices, including the exact threshold 4/3 and the nearby point 27/20"
+      ],
+      "rationale": "With d=1/b and a=1/2, periodization of modulation coefficients gives the Walnut factor 1/b. Exactly two translates contribute to the diagonal; the b<=1 case has no off-diagonal overlaps. When a<d<2a, only shifts +/-d overlap, and the forward shift contributes -1 precisely when the residue t of the starting point lies below a-(d-a). Residues along a fiber advance by d-a mod a; edges are exactly the advances without a wrap. Each component begins at t0 in [0,d-a) and has ceil((a-t0)/(d-a)) vertices. The maximal length L=ceil(a/(d-a)) occurs on an open interval of positive length contained in the direct-integral base [0,d), also when a/(d-a) is an integer. The sine eigenvectors of the finite Dirichlet path give the extreme spectral values on these fibers, so the two bounds are truly optimal. The jumps follow from the one-sided ceiling change, the critical limit from L~2/(2-b), and the b=2 fiber is the bilateral discrete Laplacian divided by 2, with zero spectral infimum. This proof uses no rationality hypothesis.",
+      "residual_risks": [
+        "The archived line 'periodic finite-grid operator spectra' counts checks of adjacency and lengths, not eigenspectra; the independent replay does compute finite eigenspectra, but the proof, not either replay, establishes sharpness for all real b."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The no-alias frame-operator rule makes the b<=1 branch equal to the translate-square sum 2 divided by b. Faulhuber–Shafkulovska study sharp constants for other windows with integer oversampling."
+        ],
+        "reasoning": "The diagonal case is already covered by the general painless analysis; the off-diagonal Walnut operator is a method, not a specification of the essential maximum path length. The sharp-constant results for those other windows do not specialize to this discontinuous Haar window.",
+        "searches": [
+          "Daubechies–Grossmann–Meyer, DOI 10.1063/1.527304, painless expansion method",
+          "Faulhuber–Shafkulovska arXiv:2204.02917v2, p. 1"
+        ]
+      },
+      "checked_sources": [
+        "Dai–Zhu arXiv:2205.06479",
+        "Faulhuber–Shafkulovska arXiv:2204.02917v2",
+        "DOI 10.1063/1.527304 (limited access)",
+        "Resultary a696cfdce06b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The inspected qualitative criteria cannot distinguish different sharp nonzero bound values. The indexed exact bands specialize along a different parameter curve."
+        ],
+        "reasoning": "For this slice the overlap operator must be evaluated and decomposed by its wrap breaks to find the maximal chain on positive-measure fibers. Neither membership nor different-slice bands imply the ceiling or the critical coefficient by substitution.",
+        "searches": [
+          "Compare Dai–Zhu Theorem 1.1 and Resultary a696cfdce06b with RESULT.md lines 49–78"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Dai–Zhu state support/density restrictions and frame-set criteria including rational and irrational regimes for the centered Haar window."
+        ],
+        "reasoning": "Translating the Haar window by one cell here just reindexes the lattice; no novelty comes from this change. Theorem 1.1 gives frame membership, not the values of the optimal lower and upper bounds or jumps in them.",
+        "searches": [
+          "Focused primary-literature lookup on optimal Haar Gabor bounds and exact spectra",
+          "Dai–Zhu arXiv:2205.06479, Theorem 1.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary a696cfdce06b computes exact Haar spectra on the slice ab=1/2 for 1<b<=2, with a frame boundary at b=3/2."
+        ],
+        "reasoning": "The record is genuinely close in window and invariant, but the varying translation a=1/(2b) intersects the fixed a=1/2 slice only at b=1, outside the relevant overlapping regime. Its date is not used to decide overlap or priority.",
+        "searches": [
+          "Resultary search for exact Haar Gabor spectra and bounds"
+        ]
+      },
+      "rationale": "Credit is limited to the exact sharp spectral endpoints for the fixed half-translation slice in the overlapping regime, and their jump and critical laws. The qualitative frame set, the painless tight branch and the Jacobi eigensolve in isolation are not credited as new.",
+      "residual_risks": [
+        "An earlier exact Haar slice calculation in differently indexed literature or an inaccessible source remains possible. A focused search yielded no direct additional match; this is not priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Frame-set overlap, not an exact constants assertion",
+          "evidence": [
+            "Theorem 1.1 splits rational and irrational frame criteria."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2205.06479",
+          "material_read": "PDF p. 2, Theorem 1.1, text offsets around 6000–6243",
+          "method": "Lawful OA theorem passage inspection",
+          "title": "Frame set for Gabor systems with Haar window",
+          "trigger": "Same Haar window under translation, full frame-set treatment"
+        },
+        {
+          "assessment": "Inspected sharp-bound scope is other windows and integer oversampling",
+          "evidence": [
+            "Window classes include hyperbolic secant and exponential-type examples."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2204.02917v2",
+          "material_read": "PDF p. 1, offset 0",
+          "method": "Lawful OA front-page scope inspection",
+          "title": "Gabor frame bound optimizations",
+          "trigger": "Sharp Gabor frame constants"
+        },
+        {
+          "assessment": "Standard method accounts for the painless branch; full-text access risk remains",
+          "evidence": [
+            "For 1/b at least the support length, the overlap terms vanish almost everywhere."
+          ],
+          "identifier_or_url": "https://doi.org/10.1063/1.527304",
+          "material_read": "No full text retrieved; comparison limited to the standard diagonal case directly recoverable from the operator identity",
+          "method": "Lawful OA retrieval attempted; HTTP 403 and no identified open repository copy",
+          "title": "Painless nonorthogonal expansions",
+          "trigger": "Compact-window no-alias Gabor method"
+        },
+        {
+          "assessment": "Distinct lattice slice and different boundary",
+          "evidence": [
+            "Fixed ab=1/2 and 1<b<=2; transition at b=3/2."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-spectral-bands-and-abrupt-completeness-boundary-for-haar-g--a696cfdce06b",
+          "material_read": "RESULT.md, opening statement at offset 0",
+          "method": "Resultary retrieval and local mirror passage inspection",
+          "title": "Exact spectral bands and abrupt completeness boundary for Haar Gabor systems",
+          "trigger": "Same Haar window with exact spectral calculations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 12–33 and 58–78",
+        "Dai–Zhu, Theorem 1.1"
+      ],
+      "rationale": "The half-translation equals the length of one Haar step and is a natural parameter rather than a fitted slice. The exact norm and conditioning on that lattice, discontinuous thresholds at noncritical densities, and the sharp constant determining instability near b=2 provide spectral information a frame-set criterion alone cannot give.",
+      "residual_risks": [
+        "The jumps use a discontinuous window; no generalization to smooth windows or arbitrary translation steps is supported."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

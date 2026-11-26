@@ -1,0 +1,154 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:33:36.471189Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a fixed full target, surjectivity follows by solving the two-sided first-order recurrence separately on each residue modulo k (both end coefficients are nonzero); each F^t-fiber is an affine translate of ker F^t. On one residue the order-t recurrence has exactly t free consecutive coordinates. Their evaluation dual is the Laurent polynomial quotient by (a+bz)^t: the recurrence annihilates evaluation and the first t monomials are independent. Writing u=z+a/b, zeta=-a/b, and h=N/g=v d with p not dividing d, z^h-zeta^h is u^v times a unit before truncation at u^t. Triangular replacement of powers of z^h by powers of z^h-zeta^h is valid in every characteristic; orders jv<t give independent coordinates and all later powers are zero. Thus each sampled residue class contributes min(s_c,ceil(t/v)); multiplication by the first site's monomial is invertible. Ordinal indices agree on residues iff congruent modulo R=k/g, and their within-class stride is N/g. The affine trace cardinality is therefore as stated. For the individual cylinder converse, if H is the proper kernel trace space, choose w outside H and a configuration with trace P-w. Its F^t-target cannot have a preimage with any given prescribed trace P, since its fiber traces are P-w+H. So no cylinder has full image below the threshold. The largest s_c is ceil(m/R), giving the stated first integer time, also when R>=m or v>=t. Inspected RESULT.md proof steps 1–5 and verify_reach.py/VERIFICATION.md; the 4,326 reported prime-field comparisons are finite support only and the uploaded code was not executed. The proof also handles extension fields.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The strong-transitivity characterization is for general group CA, but the kernel-density criterion gives no finite-time rank.",
+          "The prime-power observation clocks record allows more general supports within {0,...,pb-1}, but fixes F=I-S over F_p and reads times t=ell b for b a p-power. It contains the progression 0,b,...,(m-1)b for m<=p at those times. The two-block Frobenius-plateau record treats separated non-singleton blocks, not arbitrary progression samples."
+        ],
+        "reasoning": "A broader support family on a restricted clock or a general qualitative group-CA criterion is not a dominating result. In particular the first new rank at v(j-1)+1 is generally not a sampled clock time.",
+        "searches": [
+          "arXiv:2611.22365, Lemmas 1 and 3",
+          "arXiv:2611.16746v1, space-time trace growth",
+          "Resultary: 628f97a371fe and ac149331eeb0"
+        ]
+      },
+      "checked_sources": [
+        "MFCS.2019.68",
+        "arXiv:2611.22365",
+        "arXiv:2611.16746v1",
+        "Resultary eff551c94343 (identical), 628f97a371fe, 4fda5089f2de, fde1f156bbf0, ac149331eeb0"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The dyadic birthday-clock result gives a dyadic-time criterion on finite binary supports and a three-site hit time. The two-site formula and the sampled clock rank both agree in their intersections.",
+          "A standard one-root recurrence algebra yields the unit-order computation after isolating the proper dual and spacing h=N/g. The examined qualitative and restricted quantitative results do not compute this for all t and all h."
+        ],
+        "reasoning": "Projecting to several residue classes is routine once their per-class ranks are known; the substantive comparison is the unrestricted all-time progression rank on a residue class, which the located restricted statements do not supply.",
+        "searches": [
+          "MFCS 2019 Lemma 18; arXiv:2611.22365 Lemma 3",
+          "Resultary: 628f97a371fe, fde1f156bbf0 and 4fda5089f2de",
+          "Primary literature search on general finite-field recurrence decimation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equivalent formulations are the rank of sparse coordinate evaluations on the recurrence kernel and the codimension of a cylinder image; Lemma 18 supplies existence of a uniform cylinder time, not the numerical rank or hitting time.",
+          "The two-site staircase indexed as 4fda5089f2de overlaps the k=1,m=2 exactness threshold p^nu_p(N)+1 but has two sites, not arbitrary progression length."
+        ],
+        "reasoning": "The affine-rank formulation prevents conflating this with whole-fiber cardinality, entropy or qualitative transitivity. No all-parameter equivalent was established in the inspected sources.",
+        "searches": [
+          "Resultary: fixed-target sparse preimage trace rank, prime-adic hitting time, binomial cellular automaton",
+          "Primary literature: finite-field recurrence decimation and exact rank; MFCS 2019 paper, Lemma 18"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "eff551c94343 is this same frozen result, not a distinct prior match. Distinct index results contain exact restricted formulas rather than an all-time rank census for progressions."
+        ],
+        "reasoning": "No separate exact table or indexed formula covering the claimed parameter range was found. Finite local checker outputs do not address originality.",
+        "searches": [
+          "Resultary: sparse cylinder exactness, prime-power observation clocks, two-site staircase, dyadic exactness",
+          "Exact-match identifiers eff551c94343, 628f97a371fe, 4fda5089f2de, fde1f156bbf0"
+        ]
+      },
+      "rationale": "The distinguishing statement is the exact affine trace rank at every integer time for every sampled arithmetic progression of the scalar binomial rule, and the resulting first uniform exactness time. Known kernel-density criteria and indexed two-site, short-support clock-time and three-site laws give qualitative statements or strict subregimes, not a demonstrated dominating theorem. This is a bounded originality judgment, not a priority or publication-order claim.",
+      "residual_risks": [
+        "An unindexed decimation or recurrence source could give a more general result; the literature search did not resolve all historical treatments.",
+        "Same-day index records were compared by mathematical coverage, with no claim of chronological priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Qualitative existence, not rank or first time",
+          "evidence": [
+            "A common hitting time exists for a fixed pattern length under strong transitivity."
+          ],
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.MFCS.2019.68",
+          "material_read": "Lemma 18, PDF page 11 (OA offset 38131)",
+          "method": "Open primary PDF passage",
+          "title": "Additive Cellular Automata Over Finite Abelian Groups: Topological and Measure Theoretic Properties",
+          "trigger": "Earlier uniform exactness for cylinders"
+        },
+        {
+          "assessment": "No quantitative progression-time rank in criterion",
+          "evidence": [
+            "Uses surjectivity and density of the union of kernels."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2611.22365",
+          "material_read": "Lemma 3, PDF page 7 (OA offset 24474)",
+          "method": "Open primary PDF passage",
+          "title": "Strong Transitivity of Group Cellular Automata: Characterization and Decidability",
+          "trigger": "General kernel characterization"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": [
+            "Counts space-time blocks for entropy, rather than fixed-target admissible preimage traces."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2611.16746v1",
+          "material_read": "Space-time traces, PDF page 3 (OA offset 11228)",
+          "method": "Open primary PDF passage",
+          "title": "Topological Entropy of Group Cellular Automata is Effectively Computable",
+          "trigger": "Algebraic trace method"
+        },
+        {
+          "assessment": "Material overlap at sampled times and confined support, not general all-time progression law",
+          "evidence": [
+            "For F=I-S over F_p, b=p^a, times ell b and supports in {0,...,pb-1}, the rank is sum_r min(c_r,ell)."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-prime-power-observation-clocks-an-exact-collision-law-for-random--628f97a371fe/RESULT.md",
+          "material_read": "Rank and full-image criterion (OA offset 300)",
+          "method": "Local Resultary mirror passage",
+          "title": "Prime-power observation clocks: an exact collision law",
+          "trigger": "Closest exact quantitative rank formula"
+        },
+        {
+          "assessment": "Overlaps the two-site case, not multi-site rank",
+          "evidence": [
+            "Two-site image-index staircase over Z/p^rZ with threshold p^nu_p(d)+1."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-prime-adic-information-staircases-for-two-site-cylinders-of-addi--4fda5089f2de/RESULT.md",
+          "material_read": "Opening theorem (OA offset 0)",
+          "method": "Local Resultary mirror passage",
+          "title": "Prime-adic information staircases for two-site cylinders",
+          "trigger": "Exact delay in a closely related scalar additive rule"
+        },
+        {
+          "assessment": "Partial characteristic-two and exact three-site overlap",
+          "evidence": [
+            "Arbitrary finite supports at dyadic times, with a non-clock-time refinement for three sites."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-dyadic-birthday-clocks-and-heavy-tailed-exactness-times-for-spar--fde1f156bbf0/RESULT.md",
+          "material_read": "Opening theorem (OA offset 0)",
+          "method": "Local Resultary mirror passage",
+          "title": "Dyadic birthday clocks and heavy-tailed exactness times for sparse cylinders",
+          "trigger": "Exact sparse-time law and finite support counting"
+        },
+        {
+          "assessment": "Separated blocks rather than sparse progressions",
+          "evidence": [
+            "The stated scope excludes arithmetic-progression probes."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-frobenius-plateaux-in-finite-time-cylinder-covering-for-additive--ac149331eeb0/RESULT.md",
+          "material_read": "Opening theorem and scope (OA offset 0)",
+          "method": "Local Resultary mirror passage",
+          "title": "Frobenius plateaux in finite-time cylinder covering",
+          "trigger": "Exact prime-adic cylinder covering law"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An exact obstruction to mixing on sparse cylinders is a natural quantitative invariant left undetermined by qualitative mixing. The result gives all attainable-pattern cardinalities, not merely eventual covering, and shows that with k and m fixed the covering time grows by arbitrarily large factors solely from prime divisibility of the spacing. The proof is elementary but identifies an arithmetic resonance and all its plateaux at sharp integer cutoffs; that information is not a routine restatement of the cited transitivity criteria or examples.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

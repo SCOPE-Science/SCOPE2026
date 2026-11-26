@@ -1,0 +1,161 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:51:45.618288Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–35",
+        "VERIFICATION.md, lines 19–30",
+        "state_transition_certificate.json, states, both transition lists and vertex map",
+        "verify_gp.py and verify_gp.out; verify_incidence.py and verify_incidence.out"
+      ],
+      "rationale": "I reconstructed the entire finite problem using complement labels on the right: admissible pairs are disjoint two-subsets of the five symbols. Choosing one of three neighbors at each of ten rows and retaining injective tuples exhausts all matchings and gives 60. For matchings p and q, each nontrivial cycle of p⁻¹q corresponds to one alternating cycle of twice its length, so the test is exactly one nontrivial cycle of length three or four, respectively. This yielded 120 and 60 edges, and after relabeling matched all 60 labelled states and every labelled edge in the certificate. I also verified that the stated vertex map is an isomorphism from GP(10,3). The joint degree classes (deg₆,deg₈) are (0,10)^6,(4,2)^30,(5,0)^24; six-flip edges all join classes of hexagon degrees 4 and 5, and each pair of octagon hubs has exactly two common degree-two neighbors. Iterated reachable balls at every root reproduced active hexagon profiles (1,4,12,16,16,4,1) and (1,5,10,20,12,5,1), and union profiles (1,10,25,20,4), (1,6,21,24,8), and (1,5,15,25,14). This gives the stated components, radii and diameters. The incidence graph is bipartite with no four-cycles, since two distinct two-subsets have at most one common three-superset, so eight is the sharp cutoff. The full S₅ action reproduced orbit sizes 6,30,24 by hexagon degree; parity is opposite on the frozen and active classes and changes exactly on the octagon edges. The independent enumeration used a Cartesian product and relative cycle decompositions rather than the submitted procedures. The supplied Python files and recorded outputs were inspected, not executed; their documented replay paths are `python3 verify_gp.py` and `python3 verify_incidence.py` in the package directory.",
+      "residual_risks": [
+        "This exhausts the specified twenty-vertex graph, not larger generalized Petersen or middle-level graphs. Hexagon eccentricities are asserted within the connected 54-state component only."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ito et al. permit alternating cycles without the target maximum length.",
+          "Bošković's inspected result gives bounds for decorated graph families; no argument identifying the target instance with a covering exact family was found.",
+          "Dejter treats oriented arc incidence of underlying shortest cycles, not the transitions on perfect matchings."
+        ],
+        "reasoning": "Unrestricted connectivity or a cycle-count theorem does not classify which matchings admit short switches. The decorated-family bounds do not establish this sharp threshold or the stated reconfiguration structures.",
+        "searches": [
+          "Ito et al., arXiv:1907.01700, abstract and formulation",
+          "Bošković, arXiv:2607.16101, introduction and Theorem 1",
+          "Dejter, arXiv:0904.1096, §§1.3–2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary f46dd29846e2",
+        "arXiv:0904.1096, 1907.01700, 2607.16101 and 1710.00761, specified passages",
+        "Symmetry 17 (2025), 133, Table 1 and p. 11"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The graph presentation, its underlying hexagons, the general flip operation and the count 60 have precedent.",
+          "None of those inspected statements specifies edges on the sixty states at the two bounded lengths."
+        ],
+        "reasoning": "Unrestricted reachability follows by flipping the cycles in the symmetric difference, but these cycles may exceed eight. It does not entail connectivity at eight or disconnection at six, much less the multigraph subdivision and per-state distances.",
+        "searches": [
+          "Dejter arXiv:0904.1096, §§1.3–2",
+          "Ito et al. arXiv:1907.01700, unrestricted formulation",
+          "Symmetry 17 (2025), 133, Table 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "f46dd29846e2 explicitly gives six frozen matchings, a 54-state hexagon component, the doubled-K6 octagon subdivision with 24 isolates and the connected union with eccentricity four and sharp cutoff eight. Its record date is later than that of the assignment.",
+          "Tratnik–Ye consider resonance graphs for cycles bounding selected faces."
+        ],
+        "reasoning": "The later Resultary record is genuinely overlapping, not merely a graph-name match; no earlier appearance of that result was established. A selected-face move graph cannot be identified with the all-simple-cycle move graph without additional evidence.",
+        "searches": [
+          "Resultary search for Desargues/GP(10,3) hexagon isolation, octagon bridges and perfect-matching flips",
+          "Resultary f46dd29846e2",
+          "Tratnik–Ye arXiv:1710.00761"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Table 1 labels the Desargues–Levi graph and gives its matching-polynomial coefficient C20=60. The same paper's p. 11 prose gives 120, contrary to the table and independent exhaustion.",
+          "f46dd29846e2 tabulates the same main flip facts in a later dated record."
+        ],
+        "reasoning": "The count of states is already in a prior table despite the conflicting prose. A matching polynomial counts matchings by cardinality, not which pairs differ by hexagons or octagons or their graph distances. No prior equivalent transition table was established.",
+        "searches": [
+          "Balasubramanian, Symmetry 17 (2025), 133, Table 1 and Desargues–Levi prose",
+          "Resultary f46dd29846e2, exact transition invariants"
+        ]
+      },
+      "rationale": "Credit the exact restricted Desargues flip dynamics and sharp cycle length, not the already tabulated count of sixty matchings or the general alternating-cycle move. A later dated Resultary record covers the main Desargues flip result under the same convention and is a substantial overlap; the inspected evidence does not place it before the assigned record. Earlier sources inspected address the underlying cycles, the matching count, other move conventions, or other graph families.",
+      "residual_risks": [
+        "The comparisons are bounded and do not exclude an earlier differently named or unindexed classification. The exact overlap with the later dated Resultary record is not a claim about authorship or independent discovery."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantial exact overlap; later dated record",
+          "evidence": [
+            "60 states, six hexagon isolates and a 54-state component, octagon subdivision of doubled K6 with 24 isolates, union eccentricity four and cutoff eight."
+          ],
+          "identifier_or_url": "Resultary:f46dd29846e2",
+          "material_read": "RESULT.md, text offsets 0–3084",
+          "method": "Local Resultary mirror",
+          "title": "Hexagon isolation and octagon bridges in Desargues perfect-matchings",
+          "trigger": "Same graph and same specified matching moves"
+        },
+        {
+          "assessment": "Underlying cycle data, not matching flips",
+          "evidence": [
+            "The construction concerns oriented cycles and shared arcs in the underlying graphs."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0904.1096",
+          "material_read": "PDF pp. 3–4, §§1.3–2",
+          "method": "OA PDF passages",
+          "title": "Pappus–Desargues digraph confrontation",
+          "trigger": "Same graph and shortest cycles"
+        },
+        {
+          "assessment": "Unrestricted cycle length, not the cutoff question",
+          "evidence": [
+            "Each move uses one alternating cycle of unrestricted length."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1907.01700",
+          "material_read": "PDF p. 1, abstract and formulation",
+          "method": "OA PDF passage",
+          "title": "Shortest Reconfiguration of Perfect Matchings via Alternating Cycles",
+          "trigger": "General reconfiguration problem with the same type of alternating-cycle move"
+        },
+        {
+          "assessment": "Different family and scope",
+          "evidence": [
+            "Bounds for decorated graph families; the inspected theorem does not give the exact Desargues transition structure."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2607.16101",
+          "material_read": "PDF pp. 1–2, abstract, introduction and Theorem 1",
+          "method": "OA PDF passages",
+          "title": "Flip dynamics on perfect matchings beyond bipartite and planar graphs",
+          "trigger": "Possible general result bounding allowed flip lengths"
+        },
+        {
+          "assessment": "Face-based rather than all simple cycles",
+          "evidence": [
+            "Defines the moves using cycles bounding selected faces of an embedding."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1710.00761",
+          "material_read": "PDF p. 1, abstract",
+          "method": "OA PDF passage",
+          "title": "Resonance Graphs and Perfect Matchings of Graphs on Surfaces",
+          "trigger": "Potential equivalent formulation as a resonance graph"
+        },
+        {
+          "assessment": "Prior matching count in table; prose discrepancy; no flip coverage supplied by the table",
+          "evidence": [
+            "C20=60 in Table 1; p. 11 identifies GP(10,3) and says 120, contradicted by both the table and exhaustive matching calculation."
+          ],
+          "identifier_or_url": "https://mdpi-res.com/d_attachment/symmetry/symmetry-17-00133/article_deploy/symmetry-17-00133.pdf",
+          "material_read": "Table 1, p. 9, Desargues–Levi row, and p. 11 prose",
+          "method": "Publisher OA PDF passages",
+          "title": "Matching Polynomials of Symmetric, Semisymmetric, Double Group Graphs, Polyacenes, Wheels, Fans, and Symmetric Solids in Third and Higher Dimensions",
+          "trigger": "Known exact Desargues matching polynomial"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–31",
+        "Exhaustive independent check against state_transition_certificate.json",
+        "Ito et al., arXiv:1907.01700, formulation"
+      ],
+      "rationale": "The Desargues graph is a standard symmetric configuration graph, and the minimal permitted flip length for full reachability is a natural invariant distinct from unrestricted move count. The shortest cycles leave a frozen sign class despite the symmetry of the underlying graph; the next length acts on those exact states with a doubled-complete-graph subdivision and yields uniform eccentricity four. This supplies a fully specified benchmark for bounded matching dynamics, not just a recomputation of a known matching count.",
+      "residual_risks": [
+        "The structural statement is for a single natural graph; no general lower or upper bound for other graphs is asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Review of the power-law epidemic-overshoot theorem
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is explicitly restricted to homogeneous closed SIR outbreaks with real \(p\ge2\) and the vanishing-infection-seed limit. The conserved quantity gives \(q=(1-s)/\int_s^1u^{-p}du\); the susceptible fraction at the unique prevalence maximum is \(q^{1/p}\), and a strictly concave final-size equation selects the nontrivial solution. The resulting peak-to-final gap is an inverse-power mean minus its left endpoint, which proves strict monotonicity in the exponent. The separate small-\(s\), near-one, and intermediate-band bounds justify uniform localization and the \(o(1)\) error in \(pM(p)=W((p-1)/e)+o(1)\). Symbolic checks at \(p=2\), comparison at \(p=3\), and the supplied numerical script corroborate critical identities but are not substituted for the proof.
+PASS
 
-## Originality — PASS with recorded risk
+For a fixed supercritical q the final susceptibility is on the lower branch below the peak q^(1/p); taking the seed to zero selects the nontrivial root of 1-s=q integral_s^1 u^(-p)du by strict concavity and continuity. Every interior s produces q in (0,1) with s<q^(1/p)<1, and the objective is positive inside and vanishes at the endpoints. For fixed s, h_p is the reciprocal L^p norm of the nonconstant 1/U_s, so evaluation at the larger exponent's interior maximizer gives strict decrease. At p=2 the objective is sqrt(s)-s, maximized at s=1/4. At large p, the bound on s<=1-epsilon loses a fixed fraction of log p; the band 1-s<=p^(-1/2) has at most (1/2+o(1))log p. On the intervening band, the exponent in h_p/s has size O(log p/p), so the uniform error in p(h_p-s) is O((log p)^2/p) plus an exponentially small term. The resulting strictly concave F_L has interior maximizer y=1/(1+z) with z+log z=L-1 and value z; it beats both edges. This proves the o(1) remainder and the claimed log-log correction. A separate 20,000-point grid with local refinement gave M(2)=0.25, M(2.5)=0.2323013, M(3)=0.2174250 and M(20)=0.0812554; this is finite corroboration only.
 
-Nguyen (arXiv:2303.01653, first public 2023-03-03) analyzes fixed nonlinear incidences and explicitly evaluates the cubic case. The 2024 journal version states a general numerical/analytical recipe and qualitatively observes smaller maxima for steeper functions; neither inspected text states or implies the strict, all-real-exponent ordering together with its sharp Lambert-\(W\) two-term asymptotic. Nguyen et al. (arXiv:2303.01650) covers the bilinear case. Indexed searches returned results on SIRS equilibrium bifurcations and unrelated Lambert-\(W\) asymptotics, not this exact SIR worst-overshoot invariant. The journal's separately linked supplemental PDF was not accessible in the attempted retrieval; the earlier open preprint contains the relevant cubic derivation. This remaining material-access risk is not a demonstrated covering implication.
+## originality
 
-## Value — PASS
+PASS
 
-The maximized post-peak fraction is a natural, dimensionless epidemic burden quantity; comparing the maxima across nonlinear incidence exponents is motivated by the published question of how incidence steepness changes overshoot. The theorem gives an actual universal monotone law and resolves its large-exponent limiting scale, including a nontrivial logarithmic correction. It is not a re-expression of the already known single-exponent cubic or bilinear calculations. The scientific scope remains mathematical: it does not claim accuracy for network epidemics, stochastic epidemics, fixed-parameter comparisons, or large initial seeds.
+Pass for the strict ordering of the optimized envelope and its sharp large-exponent asymptotic, to the best of current knowledge. The method for general nonlinear incidence and the cubic optimum are prior coverage, and the variational formula and elementary quadratic evaluation are not the basis for this pass.
 
-## Reproducibility and limitations
+## value
 
-Run `python3 verify.py` to reproduce the finite checks. The universal and asymptotic quantifiers rely on the proof, not the script. Unindexed literature and the inaccessible 2024 supplement are residual originality risks; the strength of the claim is limited to the precise model and vanishing-seed regime.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The classical post-peak burden question motivates the same maximization for nonlinear incidence. Known individual values do not describe how that bound changes as the exponent varies. Strict decay and the sharp log-log correction resolve that family-level question rather than just supplying another numerical instance. This is an abstract-model result, not a forecast or claim about arbitrary epidemics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

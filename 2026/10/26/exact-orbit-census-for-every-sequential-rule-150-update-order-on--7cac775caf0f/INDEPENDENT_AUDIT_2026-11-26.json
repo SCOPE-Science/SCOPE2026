@@ -1,0 +1,162 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:27:24.617497Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–47, and VERIFICATION.md, lines 19–29",
+        "/workspace/branches/0611adf4-a2d7-44fe-ae26-cd5de4e48fad/independent_check.py",
+        "/workspace/branches/0611adf4-a2d7-44fe-ae26-cd5de4e48fad/full_run.txt"
+      ],
+      "rationale": "A local update exchanges exactly the two incident walls. If the wall transpositions before and after site zero are B and A, then B conjugates ASB to BAS; BA uses every edge of a path once and is a full cycle. Indeed, removing the last edge gives two component cycles by induction, and the last transposition joins them. Composing the full cycle with S splits it at the two walls incident to site zero, which lie in distinct resulting cycles, even when one is a singleton. In coordinates (Bd,x_0), the increment of x_0 is the sum at those two walls. A p^t-fixed wall vector on the cycles of lengths a,b has independent blocks of sizes gcd(a,t) and gcd(b,t); even parity of the full wall and zero net bit increment give exactly the two rows of Q_t on their two parity sums. Both sums are independently attainable before imposing the rows, so no rank is lost in translating from Q_t to the full block space. Each valid wall gives two fixed states. Invertibility gives the primitive census by divisor inversion. The wall action on even vectors is faithful for n>=3 because a permutation fixing every unordered pair fixes each vertex. At L the only possible remaining effect is the common wall-cycle parity multiplied by n/g in the fiber; parity one is realized by a wall in each cycle. This proves minimality and the exact doubling condition. A fresh replay on 1,173 orders, exhaustive through n=6 with samples at n=7,8,9, matched 16,089 fixed-power counts, all map orders and 11,907 primitive-count comparisons.",
+      "residual_risks": [
+        "The finite enumeration tests only the stated exhaustions and samples. It is not an argument for repeated-site, synchronous or heterogeneous schedules."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dynamics Groups gives the action and classifies orbits of the entire group. Cycle Equivalence supplies order transformations. Wilkinson–Prosen–Garrahan solve synchronous Floquet dynamics, not an arbitrary single-visit permutation sweep."
+        ],
+        "reasoning": "A generated-group orbit can contain many cycles of a sweep. Equivalence moves do not supply their sizes or multiplicities. Floquet substeps are a different time map.",
+        "searches": [
+          "Dynamics Groups of Asynchronous Cellular Automata, arXiv:0808.1238, section 5",
+          "Cycle Equivalence of Graph Dynamical Systems, arXiv:0802.4412",
+          "Exact solution of the Rule 150 reversible cellular automaton, arXiv:2110.15085v2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary a8edc73752da and c675021794c5",
+        "arXiv:0808.1238, 1511.06966, 0802.4412, 0707.2360, 2110.15085v2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The identity scan has wall type (1,n-1). At n=6, types (1,5), (2,4), and (3,3) give distinct global orders 5, 8, and 3. The wall permutation alone does not decide pointwise return in the two-to-one state lift; the parity of the accumulated bit increment is essential."
+        ],
+        "reasoning": "The arbitrary-sweep census is not the identity census with scan labels renamed. The existing wall-action framework permits the calculation but does not give the per-sweep two-constraint rank or the parity-doubled order without analysis of the lift.",
+        "searches": [
+          "Defant Theorem 4.1",
+          "Macauley–McCammond–Mortveit Theorem 5.4 and surrounding group description",
+          "Macauley–Mortveit, Cycle Equivalence of Graph Dynamical Systems"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary a8edc73752da (2026-11-02), RESULT.md offsets 0–4733 and 4700–9536: cyclic forward-edge count k gives wall lengths k,n-k, fixed count 2^(gcd(k,t)+gcd(n-k,t)-epsilon_t), the Möbius census and the same order."
+        ],
+        "reasoning": "The matrix columns are nonzero and classified by whether v2(a) and v2(b) respectively are less than, equal to, or greater than v2(t). The rank is 1 plus the indicator that the two columns differ, matching epsilon_t. This is mathematical equivalence of the censuses, with documented later dating of that distinct record.",
+        "searches": [
+          "Sequential Rule 150 on a cycle, periodic orbit spectrum, update order and domain walls",
+          "Resultary ranked searches for arbitrary sequential Rule-150 cycle census, including orientation counts and wall-cycle parametrizations"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "a8edc73752da supplies a later exact equivalent, and c675021794c5 is later and has matching censuses via one-edge-deleted clique sweeps. Defant gives only the identity scan. No distinct same-day arbitrary-order table was surfaced."
+        ],
+        "reasoning": "The identity scan is an exact slice, not a table of every wall split. The later Resultary material must be recognized as overlap, but is not earlier coverage.",
+        "searches": [
+          "Resultary ranked searches at limits 50 and 100 for both equivalent Rule-150 census formulations and related sweeps",
+          "Defant arXiv:1511.06966, Theorem 4.1"
+        ]
+      },
+      "rationale": "The constituent wall action and identity-order period census are antecedents. No earlier exact or dominating multi-order census was established by the inspected evidence. A distinct, later Resultary record does establish the same census in another parametrization and adds order-frequency results; the census itself is not distinct from that later statement. This is an assessment relative to the frozen record, not a priority claim.",
+      "residual_risks": [
+        "Bounded search cannot rule out an older formulation under affine lifts, Coxeter products or scan orientations. The credit is for the full census in the frozen scope, not for the already known wall action or identity-order case."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same census with an orientation parameter, documented later; extends to frequencies",
+          "evidence": [
+            "Wall split (k,n-k) and same fixed counts, primitive census and exact order."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-scan-order-phase-diagram-and-exact-rule-150-cycle-census-on-bina--a8edc73752da",
+          "material_read": "RESULT.md, offsets 0–4733, 4700–9536, 9100–11337",
+          "method": "Local Resultary mirror",
+          "title": "Scan-order phase diagram and exact Rule-150 cycle census on binary rings",
+          "trigger": "Strongest equivalent arbitrary-sweep match"
+        },
+        {
+          "assessment": "Related later coverage, main graph differs",
+          "evidence": [
+            "Clique-minus-edge self-inclusive XOR sweeps have the census of matching Rule-150 scans."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-dense-sparse-cycle-equivalence-and-scan-frequency-laws-for-one-e--c675021794c5",
+          "material_read": "RESULT.md, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Dense-sparse cycle equivalence and scan-frequency laws for one-edge-deleted cliques",
+          "trigger": "Census equivalent via a different graph"
+        },
+        {
+          "assessment": "Antecedent group characterization, not per-element orbit census",
+          "evidence": [
+            "Group orbits are classified by block counts."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0808.1238",
+          "material_read": "Section 5, pp. 13–15, offsets 44832–51253, especially Theorem 5.4",
+          "method": "OA full-text passages",
+          "title": "Dynamics Groups of Asynchronous Cellular Automata",
+          "trigger": "Known Rule-150 wall action"
+        },
+        {
+          "assessment": "Identity update order is covered",
+          "evidence": [
+            "Primitive-period populations for the identity scan under the parity local functions."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1511.06966",
+          "material_read": "Theorem 4.1, p. 12, offsets 43000–47155",
+          "method": "OA full-text passages",
+          "title": "Flexible Toggles and Symmetric Invertible Asynchronous Elementary Cellular Automata",
+          "trigger": "Exact earlier Rule-150 period counts"
+        },
+        {
+          "assessment": "Order equivalence framework, not the asserted census",
+          "evidence": [
+            "Cycle equivalence via order shifts and reflections."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0802.4412",
+          "material_read": "pp. 1–2, offsets 0 and 2677–6223",
+          "method": "OA full-text passages",
+          "title": "Cycle Equivalence of Graph Dynamical Systems",
+          "trigger": "Cycle classification across update orders"
+        },
+        {
+          "assessment": "Different periodic invariant",
+          "evidence": [
+            "Independence of the set of periodic states, rather than counts by individual period."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0707.2360",
+          "material_read": "pp. 1 and 3, offsets 0 and 8707",
+          "method": "OA full-text passages",
+          "title": "Order Independence in Asynchronous Cellular Automata",
+          "trigger": "Same rule and simple update orders"
+        },
+        {
+          "assessment": "Different update operator",
+          "evidence": [
+            "Synchronous Floquet evolution."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2110.15085v2",
+          "material_read": "Abstract and introduction, HTML offsets 762–3625",
+          "method": "OA full-text passages",
+          "title": "Exact solution of the Rule 150 reversible cellular automaton",
+          "trigger": "Exact Rule-150 dynamics potentially with a competing sweep definition"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–27 and 34–47; Defant, Theorem 4.1 for the narrower antecedent"
+      ],
+      "rationale": "Every orbit length and its multiplicity can be obtained from two lengths without iterating the 2^n states. The formula also distinguishes sweeps whose lifted order is twice their wall order, explaining an effect that a wall-only calculation would miss. This is an exact phase-space invariant for a standard sequential automaton, beyond an upper bound or finite list of schedules.",
+      "residual_risks": [
+        "The finding does not enumerate schedules by type or extend the census to arbitrary repeated-site update words."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

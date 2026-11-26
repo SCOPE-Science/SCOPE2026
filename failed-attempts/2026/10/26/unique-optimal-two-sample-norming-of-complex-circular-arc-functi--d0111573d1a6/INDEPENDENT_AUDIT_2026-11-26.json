@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:16:38.643368Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The sample map is invertible since the nodes are distinct on a proper arc. Independently prescribing the two complex sample phases attains the sum of Lagrange coefficient moduli at a fixed evaluation point. With x=(v-u)/4 and m=(u+v)/2, this quotient is cos((t-m)/2)/cos x between the nodes and |sin((t-m)/2)|/sin x outside. On the longer exterior interval the distance from m runs from 2x to theta+|m|, and 2x<pi, so the maximum is at the far endpoint or at distance pi, giving exactly the capped-sine expression. This also handles arcs longer than a semicircle and the degenerate exterior intervals at endpoint nodes. Balancing sec x and sin(theta/2)/sin x proves the unique optimal separation; the cap is strictly above sin(theta/2) for m≠0, so only the centered pair attains the bound. The endpoint norm and the monotonicity and limits of C_theta follow directly. Independent chord-sum grid comparisons at four apertures, including asymmetric and capped cases, were consistent (python /workspace/review_checks.py, check 5); the analytic argument, not the grid, verifies the continuum statement.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Equation (2) of 71dc11a952c3 contains both sine branches and the cosine branch on their full domains for arbitrary admissible nodes.",
+          "Ray proves qualitative nonisometry, and c1c0ee781ccd optimizes Hermitian forms, not evaluation coordinates."
+        ],
+        "reasoning": "The cap at pi/2 and the full profile are exact immediate consequences of maximizing the printed branches, including long arcs. The more distant endpoint or the sine's first peak achieves the maximum. The distinct Hilbertian and operator-space results are not needed for the demonstrated coverage.",
+        "searches": [
+          "71dc11a952c3, equation (2)",
+          "arXiv:2610.04608v1 Section 4 Proposition 2",
+          "c1c0ee781ccd Finding"
+        ]
+      },
+      "checked_sources": [
+        "71dc11a952c3",
+        "993d6ac7ac17",
+        "arXiv:2610.04608v1",
+        "c1c0ee781ccd",
+        "doi:10.1186/s13660-016-1030-3",
+        "doi:10.1016/j.cam.2018.06.051 (access attempt)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior proof minimizes over all asymmetric as well as symmetric node pairs and excludes m≠0 strictly; it also prints sec(theta/2) for the endpoint pair."
+        ],
+        "reasoning": "Existing all-pairs optimality is equality of claims, not merely background or a special case. The formula for C_theta already implies aperture injectivity. The cap notation summarizes an elementary maximization of existing exact data rather than isolating a substantial new remainder.",
+        "searches": [
+          "71dc11a952c3, Proof steps 2–4 and Finding",
+          "frozen record, Finding and Proof steps 2–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "71dc11a952c3 uses exactly the same space, arc and admissible nodes and states the same all-pairs optimum and unique unordered pair."
+        ],
+        "reasoning": "Write the earlier interpolant as inverse evaluation composed with evaluation on C(K_theta). The two evaluations on the continuous unit ball fill the entire closed bidisk: extend any prescribed pair by a disk-valued linear interpolation in the angle and constant tails. Thus its norm equals the frozen inverse evaluation norm for every pair; ordering the unique unordered pair does not change the claim.",
+        "searches": [
+          "Resultary: complex circular arc two-point sampling and degree-one Lebesgue constants",
+          "71dc11a952c3, Finding and equations (1)–(2)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Oct. 18 record 71dc11a952c3 prints the exact continuum optimum and optimizer, more than an isolated table entry. Record 993d6ac7ac17 also prints these values within its symmetric-pair scope."
+        ],
+        "reasoning": "The exact match concerns the whole aperture domain. Real-interval Lebesgue tables are not the same object, and the symmetric-only record on its own would not establish global uniqueness.",
+        "searches": [
+          "Resultary: sharp two-point Lebesgue constants and inward optimal nodes; optimal symmetric two-point arc sampling",
+          "Ibrahimoglu, DOI:10.1186/s13660-016-1030-3, optimal-node discussion"
+        ]
+      },
+      "rationale": "The earlier Resultary record 71dc11a952c3 gives the identical complex two-node all-pairs minimax result, including the unique pair, optimum, endpoint formula and limits. Its equation (2) gives the pointwise formula for every pair, whose direct one-variable maximization is the frozen capped-sine profile. Thus neither the central finding nor its one extra closed-form presentation supplies a mathematically distinct result of the asserted scope.",
+      "residual_risks": [
+        "The historical first appearance in earlier complex-arc interpolation literature was not determined; the exact indexed overlap suffices independently of that question."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS",
+          "evidence": [
+            "Exact minimum sqrt(1+sin²(theta/2)) and unique pair ±2 arctan(sin(theta/2)); eq. (2) gives all-pairs pointwise function."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-sharp-two-point-lebesgue-constants-and-inward-optimal-nodes-on-c--71dc11a952c3/RESULT.md",
+          "material_read": "Finding, scope, proof equations (1)–(4), rigidity step, text offsets 290–5850",
+          "method": "Local published mirror",
+          "title": "Sharp two-point Lebesgue constants and inward optimal nodes on circular arcs",
+          "trigger": "Same complex degree-one arc interpolation and apparent exact match"
+        },
+        {
+          "assessment": "PARTIAL OVERLAP",
+          "evidence": [
+            "Same optimum and optimal nodes within the symmetric class, plus matrix-level norm; does not by itself exclude asymmetric pairs."
+          ],
+          "identifier_or_url": "993d6ac7ac17",
+          "material_read": "Finding, offset 90",
+          "method": "Local published mirror",
+          "title": "Optimal symmetric two-point sampling of circular-arc function planes",
+          "trigger": "Same evaluation space and nodes"
+        },
+        {
+          "assessment": "DISTINCT IN INSPECTED PASSAGES",
+          "evidence": [
+            "Proposition 2 excludes linear isometry to complex ell-infinity squared, without a sampling formula."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.04608v1",
+          "material_read": "Introduction and Section 4 Proposition 2",
+          "method": "OA primary HTML",
+          "title": "Unique operator space structures on a family of two dimensional Banach spaces",
+          "trigger": "Same Banach plane"
+        },
+        {
+          "assessment": "DISTINCT INVARIANT",
+          "evidence": [
+            "Positive Hermitian forms and distortion to ell-2 squared, rather than inverse evaluation into ell-infinity squared."
+          ],
+          "identifier_or_url": "c1c0ee781ccd",
+          "material_read": "Finding, offset 0",
+          "method": "Local published mirror",
+          "title": "The unique optimal Hilbertian metric for circular-arc function planes freezes at a semicircle",
+          "trigger": "Same arc-plane optimization"
+        },
+        {
+          "assessment": "BACKGROUND IN INSPECTED PASSAGES",
+          "evidence": [
+            "Lagrange norms and optimal nodes on [-1,1]."
+          ],
+          "identifier_or_url": "doi:10.1186/s13660-016-1030-3",
+          "material_read": "OA PDF pp. 1–2 and 12",
+          "method": "Primary PDF",
+          "title": "Lebesgue functions and Lebesgue constants in polynomial interpolation",
+          "trigger": "Standard optimal interpolation formulation"
+        },
+        {
+          "assessment": "ACCESS LIMITATION, NOT USED TO DECIDE",
+          "evidence": [
+            "Publisher access was unsuccessful; frozen record describes a distinct filled-disk real bivariate problem."
+          ],
+          "identifier_or_url": "doi:10.1016/j.cam.2018.06.051",
+          "material_read": "No primary theorem text obtained",
+          "method": "Lawful OA and publisher abstract attempts",
+          "title": "On the computation of sets of points with low Lebesgue constant on the unit disk",
+          "trigger": "Potential low-degree Lebesgue table"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The problem is useful, but the exact sharp stability gain, unique node locations and instability of endpoint sampling are already available in the identical two-node minimax theorem. The only presentational increment is the immediate elementary maximum of the prior pointwise formula. It is not an independent new exact invariant or a useful surviving new claim warranting repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

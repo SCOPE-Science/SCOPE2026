@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:15:26.252742Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the interpolation derivative on nodes (0,-1,-1-1/r,-2-1/r) with the current step as scale. The constant-cancelling substitution d_n=y_n-y_{n-1} yields the stated A(r),B(r). Multiplying the two difference maps gives trace (-r^4+r^3+5r^2+r-1)/K and determinant r(r+1)^2/K, K=(r^2+5r+5)(5r^2+5r+1). For 5M the three quadratic disk tests have numerators 6r(10r^2+21r+10), 2(5r^4+25r^3+38r^2+25r+5), and 5r^4+5r^3+r^2+5r+5 over K, all positive. At both ends of the ratio range the trace tends to -1/5 and the determinant to zero. For fixed r the period powers decay summably, the intervening step maps are fixed, and y_n converges. The initial triple (0,0,1) produces y_3=1+A(r), so the bound is not uniform in the startup response. This was checked algebraically; the frozen Python verifier was inspected, not run. The result is for y'=0 on exact alternation, not for general variable meshes or stiff equations.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Li–Liao need ratios below about 2.553 in the BDF3 stability result; the smooth-grid result studies adjacent ratios 1+O(N^-1). The matching Resultary finding even supplies a real/complex transition not present in the frozen theorem."
+        ],
+        "reasoning": "Neither of the inspected general stability results proves the numerical spectral ceiling for arbitrary alternation. The distinct exact Resultary match does.",
+        "searches": [
+          "Li–Liao arXiv:2201.00527",
+          "Söderlind–Fekete–Faragó arXiv:1804.04553",
+          "Guglielmi–Zennaro 2001 spectral-radius approach",
+          "Grigorieff–Paes-Leme 1984 three-step BDF on nonuniform grids"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Resultary --8639cc7a1b91",
+        "arXiv:2201.00527",
+        "arXiv:1804.04553",
+        "Guglielmi–Zennaro (2001) and Grigorieff–Paes-Leme (1984), bibliographic leads"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The comparator's limitations distinguish the universal full-period spectrum bound from ratio-dependent transients. The frozen proof makes divergence explicit by taking d_2=1,d_1=0 in the step formula A(r)~4r/5."
+        ],
+        "reasoning": "The all-ratio spectral law transfers directly by quotienting out the constant mode, and fixed-r convergence follows by summing decaying differences. The explicit startup example clarifies the limitation but mechanically follows from a single interpolation update.",
+        "searches": [
+          "Resultary --8639cc7a1b91, Finding, proof and Limitations",
+          "Li–Liao arXiv:2201.00527"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The matching Resultary Finding and characteristic-polynomial derivation give strict radius <1/5 for all finite r and limiting radius 1/5 at both extremes."
+        ],
+        "reasoning": "The map (y_n,y_{n-1},y_{n-2}) to (d_n,d_{n-1}) has kernel the invariant constant mode. The induced period matrix on the quotient is the frozen difference monodromy (up to phase); the comparator's parasite trace and determinant equal the frozen trace and determinant exactly.",
+        "searches": [
+          "Resultary: sharp 1/5 BDF3 damping on alternating grids; SCOPE-sharp-1-5-floquet-damping-for-bdf3-on-alternating-grids--8639cc7a1b91"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed entry gives the same exact supremum, strictness and nonattainment, on the same full parameter domain."
+        ],
+        "reasoning": "This continuous-ratio law is covered by an analytic indexed result, not inferred from a numerical table or shared title.",
+        "searches": [
+          "Resultary record --8639cc7a1b91"
+        ]
+      },
+      "rationale": "A distinct indexed finding already contains the same all-positive-ratio sharp parasitic spectral law. The multiplication in value coordinates rather than difference coordinates changes only the inclusion of the constant mode. This is demonstrable coverage; the shared catalogue date does not establish priority. The explicit startup example is an elementary consequence of the step coefficients and does not make the frozen core distinct.",
+      "residual_risks": [
+        "Relative priority within the same catalogue day is not established.",
+        "Earlier relevant nonuniform-grid full texts were not available for decisive comparison."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the core theorem; also gives real/complex threshold",
+          "evidence": "The constant-mode eigenvalue is 1; the remaining quadratic has the same trace and determinant, with the same sharp limit.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/36a7204b5741b75430355c38bf9bf0ef7468c2a4/2026/11/2/SCOPE-sharp-1-5-floquet-damping-for-bdf3-on-alternating-grids--8639cc7a1b91/RESULT.md",
+          "material_read": "Finding and core proof (offsets 0–4623), Limitations (offset 6650)",
+          "method": "Bounded local mirror reading and characteristic coefficient comparison",
+          "title": "Sharp 1/5 Floquet damping for BDF3 on alternating grids",
+          "trigger": "Direct exact-object and constant match"
+        },
+        {
+          "assessment": "Covers recurrence and a different stability region, not the all-ratio sharp result",
+          "evidence": "The adjacent ratio condition would constrain both r and 1/r on alternation.",
+          "identifier_or_url": "https://arxiv.org/pdf/2201.00527",
+          "material_read": "BDF3 ratio condition, pages 3 and 10",
+          "method": "OA PDF targeted inspection",
+          "title": "Stability of variable-step BDF2 and BDF3 methods",
+          "trigger": "General BDF3 stability and difference recurrence"
+        },
+        {
+          "assessment": "Inspected statement concerns a different grid regime",
+          "evidence": "Smooth-grid hypothesis implies ratios approaching 1 as the number of steps grows.",
+          "identifier_or_url": "https://arxiv.org/pdf/1804.04553",
+          "material_read": "Abstract, page 1",
+          "method": "OA PDF inspection of stated scope",
+          "title": "On the zero-stability of multistep methods on smooth nonuniform grids",
+          "trigger": "Variable-grid zero-stability comparator"
+        },
+        {
+          "assessment": "Unresolved historical risk, not used to reject originality",
+          "evidence": "The repository did not provide accessible full text; no negative coverage claim is made.",
+          "identifier_or_url": "https://iris.gssi.it/handle/20.500.12571/302 ; BIT 24 (1984), 85–91",
+          "material_read": "Bibliographic identification only; full texts not obtained",
+          "method": "Lawful OA attempt on the cited repository and bibliographic comparison",
+          "title": "On the zero-stability of variable stepsize multistep methods: the spectral radius approach; On the zero-stability of the 3-step BDF-formula on nonuniform grids",
+          "trigger": "Potential older general spectral/nonuniform-grid results"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "A sharp all-ratio damping rate for this natural mesh family is useful, but that exact invariant is already available in the matching indexed finding. The frozen representation and the one-update startup example do not provide a distinct substantive advance.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

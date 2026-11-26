@@ -1,0 +1,158 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:58:04.486663Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, lines 5–110",
+        "VERIFICATION.md",
+        "CHECK.py, inspected, not executed; the finite tests do not establish the uniform step claim"
+      ],
+      "rationale": "For n>ℓ the Gaussian background block has full column rank almost surely. Rotating its columns conditional on the independent spike row g gives gᵀW⁻¹g=||g||²/V in law, where Gaussian orthogonal residual degrees of freedom are (n−1)−(ℓ−1)=n−ℓ, and the law of V given g is constant. Sherman–Morrison then gives the exact ceiling, for all cn>0. Conditional on the auxiliary sketch the independent start is nondegenerate Gaussian, so its range component is nonzero almost surely; no positive integer power can kill it. In a common-row coupling the strong law applies to the Gram entries and the products of background entries from the two independent sketches. Thus K_n→I+cggᵀ and w_n→cgh almost surely. The top eigengap is c||g||²>0, and the projection coefficient of w_n onto the top eigenvector tends to c||g||h≠0 almost surely. The ratio of off-axis to top coefficients before applying Z_n is bounded by ||b_n||/|α_n| uniformly in q≥1, because (λ_2/λ_1)^(q−1)≤1. Passing through Z_n has bounded distortion under the coupling; its condition number tends to √(1+c||g||²). Both the image top vector's capture and the ceiling tend to c||g||²/(1+c||g||²), proving the uniform result and allowing any adaptive q_n. The unpowered alignment instead depends on the independent h² in the limit. Continuity outside the probability-zero tie yields the gain probabilities, and the beta ratio and ℓ=2 Laplace transform give the stated tail and 1/√2. Compression of A_n A_nᵀ by the orthogonal residual projector sandwiches the spectral norm squared between the compressed spike's norm and that norm plus 1, also if cn≤1. Bounded normalized errors and χ² stochastic domination give the expected risks and strict limiting improvement.",
+      "residual_risks": [
+        "Almost-sure convergence here is for the displayed coupling; the declared assertion across marginal models is convergence in probability. The assumptions do not cover ℓ growing with n, non-Gaussian or dependent sketches, numerical stability, or oblique reconstruction."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chang–Yang's independent-sketch q=1 Frobenius expectation bound requires l>s≥ρ+4; its general-q spectral theorem instead uses Ω=ΦṼ (a start within the sketch).",
+          "Chenakkod–Dereziński initialize inside the auxiliary sketched column space and bound a related low-rank factorization. Townsend–Wang's diagonal counterexample concerns a different randomized-SVD Frobenius risk."
+        ],
+        "reasoning": "Known expected or high-probability bounds do not deliver the joint limit at initial width s=1 or a single-event supremum over every q, particularly with data-dependent choices. Replacing the independence hypothesis changes the relevant baseline comparison.",
+        "searches": [
+          "Chang–Yang arXiv:2603.26298v1, Theorems 3.1 and 3.2",
+          "Chenakkod–Dereziński arXiv:2605.09755v1, introduction and Theorem 2.3",
+          "Townsend–Wang arXiv:2604.10215v2, Figure 3 and Theorem 4.1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2603.26298, 2605.09755, 1609.00048, 2604.10215",
+        "Resultary f67f8a256b4c and 672f7b4a2f0b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The projector ratio supplies only the distribution of a best capture attainable in range(Z), not the saturation of the actual normalized powered start even at q=1.",
+          "The prior within-sketch initialization assumptions do not imply the independent χ² baseline. For the independent model, even when the mean improves, the joint realization has a positive loss probability."
+        ],
+        "reasoning": "The novel probabilistic step is a nonvanishing initial component in the asymptotic top direction of the auxiliary Gram matrix and vanishing remainder before taking its powers. Without that step the known ceiling plus bounded-error theorems do not yield the uniform, adaptive joint comparison. Later matching coverage of the ceiling is not evidence of historical priority or coverage of the whole claim.",
+        "searches": [
+          "Chang–Yang Algorithm 2.1, Theorems 3.1–3.2",
+          "Resultary f67f8a256b4c Finding and projector proof, mirror offsets 0–6717",
+          "Chenakkod–Dereziński Theorem 2.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Chang–Yang use Y=AΩ and Z=AΦ and powers of Z Zᵀ; they distinguish the initial sketch and auxiliary amplifier.",
+          "Tropp et al. draw independent range and co-range sketches Y=AΩ and W=ΨA; W is not another auxiliary column range powering Y."
+        ],
+        "reasoning": "At the algorithm level the iteration is already known. The comparison uses a common sketch construction and different levels of iteration, not the performance of a separate one-pass estimator. The final claim's joint law concerns alignments; spectral errors have the stated limits as a consequence, not an oblique-factor error analysis.",
+        "searches": [
+          "Resultary meaning search for one-spike Gaussian leverage/range capture, all-q sketch power and negative gain",
+          "Chang–Yang arXiv:2603.26298v1, Algorithm 2.1 and Remark 2.1",
+          "Tropp et al. arXiv:1609.00048v2, §§3.3–3.5 and Algorithm 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The q=0 specialization of f67f8a256b4c uses the same unpowered auxiliary range and gives the chi-square ratio projector law for κ>1 by reversing the residual identity d−k+(κ²−1)(1−p); p at κ=1 follows by the unscaled Gaussian projector law.",
+          "672f7b4a2f0b gives expectation and other regimes for a left sketch with two singular values in a nullspace angle problem, not this joint law."
+        ],
+        "reasoning": "The later catalogue law directly overlaps the finite-dimensional range ceiling in its common domain; its own power is on the original matrix, not Z Zᵀ. There is no finite table expected to cover the all-n and adaptive-step limiting comparison. The nearest exact analytic catalogue laws were compared rather than treating a search miss as evidence.",
+        "searches": [
+          "Resultary f67f8a256b4c, one-spike Gaussian risk law",
+          "Resultary 672f7b4a2f0b, two-to-three-row mean angle"
+        ]
+      },
+      "rationale": "The algorithm and the exact projector law are not the distinct contribution. A catalogue result independently covers the usual-spike projector sublaw, and the Wishart derivation is classical even beyond that regime. In the inspected works, no known theorem gives one-step saturation uniformly over all iterations for the independent-start, fixed-auxiliary-width critical model, together with the coupled baseline comparison and its nonzero probability of loss under strictly improved limiting mean risk. This is the supported distinction, not priority for generic sketch-power iteration or Gaussian inverse forms.",
+      "residual_risks": [
+        "Comparisons are bounded and do not certify priority. Equivalent asymptotics in other work on random projected spike alignment or spiked-Wishart iteration remain possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Algorithm precedent and nonmatching parameter/initialization bound theorems",
+          "evidence": [
+            "The independent bound is at q=1 with larger widths and is not this exact law. The cited general-q theorem relates Ω directly to Φ."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2603.26298",
+          "material_read": "Algorithm 2.1, Remark 2.1, Theorems 3.1 and 3.2, PDF pp. 5–10 at offsets 17200, 20400, 29350 and 35000",
+          "method": "OA PDF, bounded passages",
+          "title": "Improving Sketching Algorithms for Low-Rank Matrix Approximation via Sketch-Power Iterations",
+          "trigger": "Same sketch-power operator and closely related independence regime"
+        },
+        {
+          "assessment": "Different start and output guarantee",
+          "evidence": [
+            "The powered vector/matrix starts at ÃΩ within the sketched range; Ã=AS."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2605.09755",
+          "material_read": "Introduction, PDF pp. 1–2, and Theorem 2.3, p. 5; offsets 2150, 6900, 16950",
+          "method": "OA PDF, bounded passages",
+          "title": "Accelerating Power Method with Fast Sketching for Stronger Low-Rank Approximation",
+          "trigger": "Related sketched-power operator and Gaussian starts"
+        },
+        {
+          "assessment": "Prior independent sketch framework for different estimator",
+          "evidence": [
+            "The second sketch is a co-range sketch W=ΨA, not an amplifier for an iteration using Z."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1609.00048",
+          "material_read": "Sections 3.3–3.5 and Algorithm 1, PDF pp. 6–7; offsets 20200 and 22950",
+          "method": "OA PDF, bounded passages",
+          "title": "Practical Sketching Algorithms for Low-Rank Matrix Approximation",
+          "trigger": "Independent sketches in one-pass rangefinding"
+        },
+        {
+          "assessment": "Different problem and risk",
+          "evidence": [
+            "The theorem's two-dimensional randomized-SVD Frobenius counterexample does not power through an independent auxiliary sketch."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2604.10215",
+          "material_read": "Figure 3 and Theorem 4.1, PDF pp. 10–12, offsets 37050 and 39600",
+          "method": "OA PDF, bounded passages",
+          "title": "Oblivious Subspace Injection Is Not Enough for Relative Error",
+          "trigger": "One-vector sketches on diagonal test spectra"
+        },
+        {
+          "assessment": "Direct sublaw overlap, not the combined limit",
+          "evidence": [
+            "For q=0, κ=√(cn)>1 and k=ℓ, its residual law yields the project's exact p_n ratio. It uses one Gaussian sketch and ordinary matrix subspace-power steps."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-three-regime-gaussian-sketch-risk-law-for-one-spike-matrices--f67f8a256b4c/RESULT.md",
+          "material_read": "Finding and proof, mirror offsets 0–6717",
+          "method": "OA reader, local mirror, bounded passages",
+          "title": "A three-regime Gaussian sketch risk law for one-spike matrices",
+          "trigger": "Exact chi-square distribution in the same one-spike auxiliary range"
+        },
+        {
+          "assessment": "Left sketch at a different nullspace transition",
+          "evidence": [
+            "It reports expected squared angle and width regimes, not two independent range sketches or a step-uniform gain law."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-a-two-to-three-row-mean-angle-transition-in-gaussian-sketched-nu--672f7b4a2f0b",
+          "material_read": "Finding, mirror offset 0",
+          "method": "OA reader, local mirror, bounded excerpt",
+          "title": "A two-to-three-row mean-angle transition in Gaussian-sketched nullspaces",
+          "trigger": "Nearby catalogue Gaussian spike alignment and small sketch width"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, Finding and proof §§2–3",
+        "Chang–Yang Algorithm 2.1 and Theorems 3.1–3.2",
+        "Resultary f67f8a256b4c"
+      ],
+      "rationale": "The exact randomized algorithm comparison identifies a natural critical regime where a single iteration attains all asymptotic gains available within the auxiliary range, even under adaptive iteration choices. It also exposes a persistent, quantified chance of individual loss despite a strict expected spectral-risk improvement. This supplies decision-relevant information not contained in the classical projector law or in a generic mean bound.",
+      "residual_risks": [
+        "No samplewise finite-n monotonicity, performance of downstream reconstruction, or general spectral or numerical extension is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

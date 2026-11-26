@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:40:41.068450Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§ Finding and Proof, VERIFICATION.md, checker.py; direct substitution and kernel adjoints"
+      ],
+      "rationale": "Direct Weyl substitution gives W=lambda U_v D_a U_w with the stated v,w and |lambda|=N. Multiplying the two factorizations leaves the middle displacement w_1-w_2 in W_1W_2^* and v_2-v_1 in W_1^*W_2 (irrelevant projective phases). For D_a U_t D_{c-bar}, the affine parameters are a*c-bar, -c-bar*t and a*t-bar; the scalar prefactor is exp(-|t|^2/2). Applying the normalization gives v=a-bar*(1-|c|^2)t/(1-|ac|^2), hence the claimed scalar penalty by direct cancellation. The monomial singular values of the remaining dilation are |ac|^k in decreasing order. The scalar penalty is nonzero, so when either slope vanishes the product has rank exactly one, not zero. Weyl unitarity and the Schatten geometric series prove the edge cases and the equal-slope reversal as stated. No finite truncation needed for these analytical claims; checker.py was inspected, not run.",
+      "residual_risks": [
+        "Scope is strictly contractive slopes and exponential-linear weights on one-variable Fock space."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Tian directly treats the product orders but gives qualitative compactness and unitarity criteria in the inspected passages",
+          "Dong–Zhu give complete singular spectra for a canonical compact Gaussian family, with pure dilations at t=0; Leng–Zhao concerns Hardy and Bergman spaces",
+          "Fatehi handles the full exponential-linear weighted affine class used here, not just the original two factors"
+        ],
+        "reasoning": "Neither title proximity nor the canonical family's stated range alone settles coverage. Fatehi's actual closed operator class and reduction do, and apply to all the target's strict slopes including the vanishing-slope limit.",
+        "searches": [
+          "Tian arXiv:2610.29786 Theorem 3.1 and Propositions 3.5–3.6",
+          "Dong–Zhu arXiv:2509.16672 §1 eq. (1) and Theorem A",
+          "Leng–Zhao arXiv:2610.15472 abstract",
+          "Fatehi arXiv:1809.04829 §2 and §4"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1809.04829 §§2,4; arXiv:2610.29786 §§1,3; arXiv:2509.16672 §1; arXiv:2610.15472 abstract",
+        "Resultary 6189441e1ef3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For the product slope p take the positive square and apply Proposition 2.3; its zero-translation diagonal has eigenvalues ||S||^2 |p|^{2k}",
+          "Fatehi's norm of A exp(Bz) f(pz+C) simplifies to |A| exp((|C|^2+|B+p*C-bar|^2/(1-|p|^2))/2); inserted into D_a U_t D_{c-bar} this gives exp(-κ|t|^2/2)",
+          "For W_2=U_tD_a and W_1=D_a with real a, one order has norm 1 by unitary invariance and the other tends to zero since U_t tends weakly to zero and D_a is compact on both sides; W_2=D_aU_t reverses orders"
+        ],
+        "reasoning": "These are direct adjoint, substitution and compactness consequences, not an independent spectral theorem or a new obstruction; independent gap coordinates are the two free Weyl translation parameters.",
+        "searches": [
+          "Fatehi arXiv:1809.04829 Proposition 2.3, §4 kernel adjoint relation and Theorem 4.2; frozen compressed Weyl example"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fatehi Proposition 2.3 proof gives unitary equivalence to a scalar times C_{az+b'} for every kernel weight; h e^{uz}=hK_{u-bar}",
+          "The same kernel identity in §4 gives W^* f(z)=h-bar e^{b-bar z} f(a-bar z+u-bar); affine exponential weights are closed under multiplication and adjoints"
+        ],
+        "reasoning": "Passing to S^*S in the existing unitary reduction removes b' because the composition is positive up to a positive scalar, proving the entire geometric singular-value sequence. Merely using single-factor norms without the reduction and closure would miss this equivalence.",
+        "searches": [
+          "Fatehi arXiv:1809.04829 Proposition 2.3 proof, Remark 4.1 and Theorem 4.2",
+          "Tian arXiv:2610.29786 on both adjoint orders",
+          "Resultary weighted/unweighted Fock cross-products: 6189441e1ef3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "6189441e1ef3 gives exact geometric sequences in both unweighted affine orders and an equal-slope ratio at least one",
+          "The exact formula of Fatehi applies to each weighted product; no empirical singular-value table is needed"
+        ],
+        "reasoning": "The unweighted record is substantial partial overlap only and is later-dated, not the basis of the fail. The complete target is a parametric formula, not a finite table; its exact data are already yielded by the older operator formula and reduction.",
+        "searches": [
+          "Resultary 6189441e1ef3, original statement; Fatehi Theorem 4.2 exact-norm formula"
+        ]
+      },
+      "rationale": "The formulas are correct but mechanically covered by Fatehi's 2018 kernel-weight theory, not merely neighboring single-factor results. The proof of Proposition 2.3 explicitly makes every such operator a scalar times an unweighted affine composition by unitary conjugation. Each cross-product and its positive square belong to the very same class by the kernel adjoint formula. Applied to a positive square, the translated unweighted affine composition must have zero translation: the scalar is positive by testing on constants, and self-adjointness and C1=1 give C^*1=K_b=1. Thus the square is unitarily equivalent to ||S||^2 D_{|slope(S)|^2}. Theorem 4.2 supplies ||S|| for each cross-product. Completing the square in this known norm, or substituting a*c-bar, -c-bar*t and a*t-bar for the compressed Weyl factor, gives exactly the two Gaussian penalties. The qualitative reversal independently follows from ordinary compactness and Weyl translation, as below. No distinct claim survives beyond the covered specialization and presentation.",
+      "residual_risks": [
+        "No claim that the earlier author printed both displacement formulas in this notation. The fail is due to exact mathematical implication from inspected proofs, independent of broader search coverage or priority among catalogue records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Mechanically covers the weighted sequences and penalties",
+          "evidence": "Proof explicitly gives scalar unweighted affine composition under unitary conjugation. Section 4 gives kernel adjoint identity and exact norm formula for the whole weight family.",
+          "identifier_or_url": "https://arxiv.org/abs/1809.04829",
+          "material_read": "OA PDF pp. 5–6, Proposition 2.3 proof offset 13080; §4 Remark 4.1 and Theorem 4.2, offsets 23400–29497",
+          "method": "Primary PDF passage inspection plus positive-square reduction",
+          "title": "Weighted composition operators on the Fock space",
+          "trigger": "Exact same kernel-weight class and unitary reduction"
+        },
+        {
+          "assessment": "Qualitative neighboring classification",
+          "evidence": "The inspected product propositions give compactness criteria; the cited theorem characterizes unitarity.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.29786",
+          "material_read": "OA PDF introduction offset 7059, Theorem 3.1 offset 20934, Propositions 3.5–3.6 offsets 31429–35693",
+          "method": "Primary PDF passage inspection",
+          "title": "Weighted composition operators on the Fock space",
+          "trigger": "Both weighted adjoint orders"
+        },
+        {
+          "assessment": "Neighboring geometric law; not required for the Fatehi reduction",
+          "evidence": "Theorem A gives all singular values in the compact canonical family, including dilations when t=0.",
+          "identifier_or_url": "https://arxiv.org/abs/2509.16672",
+          "material_read": "OA PDF §1 equation (1) offset 5000 and Theorem A offset 6758",
+          "method": "Primary PDF passage inspection",
+          "title": "Canonical integral operators on the Fock space II",
+          "trigger": "Complete Gaussian singular-value theorem"
+        },
+        {
+          "assessment": "Partial mathematical overlap, not used to infer earlier coverage",
+          "evidence": "Both unweighted sequences and Schatten norms; equal-slope ratio is at least one in the stated order.",
+          "identifier_or_url": "Resultary 6189441e1ef3",
+          "material_read": "Mirrored RESULT.md Finding offset 0",
+          "method": "Local catalogue and mirror",
+          "title": "Exact two-order singular spectra and displacement reversal for affine compositions",
+          "trigger": "Matching both unweighted adjoint orders"
+        },
+        {
+          "assessment": "Different spaces",
+          "evidence": "Hardy and Bergman spaces, not Fock.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.15472",
+          "material_read": "OA PDF abstract offset 387",
+          "method": "Primary abstract scope check",
+          "title": "Leng–Zhao, weighted composition operators",
+          "trigger": "Related product title"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Fatehi Proposition 2.3 and Theorem 4.2; frozen Proof Steps 1–4"
+      ],
+      "rationale": "The normalized two-gap packaging is a useful explanatory calculation, but its quantitative data are directly read off from the existing norm and unitary reduction for a class already closed under the operations. Unbounded ratio reversal is an immediate compact-sandwich observation once the known Weyl factors are chosen. The record supplies no independently unknown exact datum or nonroutine structural remainder to retain as a research finding.",
+      "residual_risks": [
+        "Pedagogical convenience is not disputed, but it does not meet the scientific-value standard for mechanically implied formulas."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

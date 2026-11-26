@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:42:58.422819Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–47; VERIFICATION.md; verify.py and verification_output.txt inspected, not executed",
+        "Independent replay: python3 /workspace/review_checks/check_4.py, integral Smith normal form via SymPy plus direct triangular-relation fundamental-group check",
+        "Independent unit-pivot replay at /workspace/branches/80e8bad6-f65b-47d7-acc9-f5c865773cd8/independent_check.py, which also gives the frozen 451 and 244 cancellations",
+        "Jojić arXiv:1109.4475v2 §2 and Corollary 4; Armstrong criterion applied as in the frozen proof, with direct check above not requiring the paper"
+      ],
+      "rationale": "Use the barycentric subdivision: whole strict flags are simplices, with their vertex order given by increasing face cardinality. The group preserves cardinalities, so stabilizers fix cells pointwise and the quotient cellular differential is the signed whole-flag deletion formula, not a simplicial complex of separate face orbits. The independent reconstruction tests indegree and underlying forest, builds flags by submask recursion, checks both consecutive boundary products, and gives integral Smith ranks (26,180,245) for quotient cell counts (27,206,425,250), with all nonzero Smith factors units. Hence the images are primitive and the quotient has H0=Z, H3=Z^5 and no other homology. A direct fundamental-group check contracts a spanning tree, then uses triangular relations with exactly one surviving edge generator until all 206 edges give trivial elements. This independently verifies the simple connectivity established in the frozen proof by shellability of the labeled complex and Armstrong's fixed-point criterion. Since H2 vanishes, Hurewicz gives pi2=0 and identifies pi3 with H3; representing an integral basis by sphere maps and using homological Whitehead proves the wedge. For S5 the analogous check gives cell counts (19,121,226,125), Smith ranks (18,103,123), all nonzero factors units, and all 121 edge generators trivial. Its quotient is therefore a wedge of two 3-spheres. On rational chains the residual involution's coinvariants compute that further quotient, and averaging identifies them with invariants, so the plus and minus eigenspaces have dimensions two and three.",
+      "residual_risks": [
+        "The wedge equivalence is a homotopy statement, not an explicit collapse or homeomorphism. The eigenspace splitting is stated over Q; this does not identify a split integral module."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Jojić's complete-source shellability and h-vector apply to the labeled complex, yielding 256 top spheres on five vertices. The available earlier exact quotient statement covers the full S_n action through n=5, not alternating actions. Kozlov §6 is cited for the full symmetric quotient; the available cited copy did not yield full text."
+        ],
+        "reasoning": "Labeled and full symmetric results cover different levels of the action, not a theorem for all relabeling subgroups. Taking intermediate geometric orbits is not determined by knowing the homotopy types before and after quotient.",
+        "searches": [
+          "Jojić arXiv:1109.4475v2 §2 and Corollary 4; Kozlov (2001) §6; Resultary a94deb02cce4"
+        ]
+      },
+      "checked_sources": [
+        "Resultary a94deb02cce4, 60ac3524e932 and self-hit fa4c29471106",
+        "Jojić arXiv:1109.4475v2; Engström arXiv:math/0508148v1; Kozlov §6 citation/retrieval as limited above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Full symmetric quotient H3 over Q gives the dimension of the plus eigenspace by averaging, once the A5 action is specified. It gives neither the minus eigenspace nor integral torsion information at the intermediate level. Jojić supplies the labeled simple connectivity used in the frozen proof, not the integral quotient chain reductions."
+        ],
+        "reasoning": "Credit the rational invariant dimension as implied by the known S5 result and general transfer; the integral A5 wedge and total rank, hence the remaining eigenspace dimension in this refinement, require additional evidence.",
+        "searches": [
+          "Compare the labeled and S5 results to the integral intermediate quotient and rational transfer"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Engström's directed-tree convention matches the outward-rooted forest definition. a94deb02cce4 uses the same complex with unrestricted rather than even vertex relabeling."
+        ],
+        "reasoning": "The directed-tree and directed-forest naming conventions here denote the same face family. The intermediate quotient by even vertex relabeling is not the full quotient, a homotopy quotient, or an action by permutations of the edges of a face.",
+        "searches": [
+          "Resultary: A5/even relabeling and S5/symmetric quotients of the complete directed-tree/forest complex on five labels",
+          "Engström Definition 2.1; Jojić §2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "a94deb02cce4 gives the exact five-label full S5 quotient as S³ ∨ S³. Same-day 60ac3524e932 uses diagonal A5 on a nonattacking-rook complex and obtains degree-five Moore spaces. The exact matching directed-forest A5 entry fa4c29471106 is the present record."
+        ],
+        "reasoning": "The first distinct entry changes the group while the second changes the complex. Neither is the exact A5 integral computation; the identical entry is not prior corroboration.",
+        "searches": [
+          "Resultary: five 3-spheres, ordinary A5 directed-forest quotient and residual involution; inspect a94deb02cce4 and 60ac3524e932"
+        ]
+      },
+      "rationale": "The prior full symmetric quotient on this exact complex and the labeled shellability are substantial overlaps and are credited. Pass the exact integral homotopy type of the intermediate alternating quotient, with the residual involution's eigenspace dimensions as a refinement, not the already known integral full symmetric quotient or the general flag or transfer methods.",
+      "residual_risks": [
+        "Kozlov's full text was inaccessible, and supplemental literature queries returned no usable evidence. An unindexed or inaccessible stronger alternating-quotient result remains possible; neither limitation is negative evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantive full-group overlap, not intermediate quotient",
+          "evidence": [
+            "Ordinary full symmetric quotient Y5 is a wedge of two 3-spheres."
+          ],
+          "identifier_or_url": "2026/11/17/SCOPE-first-branching-in-symmetric-quotients-of-complete-directed-fore--a94deb02cce4",
+          "material_read": "Mirrored RESULT.md offset 0, quotient definition and n ≤ 5 classification",
+          "method": "Resultary and local mirror",
+          "title": "First branching in symmetric quotients of complete directed-forest complexes",
+          "trigger": "Exact same complex and full group"
+        },
+        {
+          "assessment": "Different complex and action representation",
+          "evidence": [
+            "Diagonal relabeling of a nonattacking-rook complex yields two degree-five Moore spaces, not a result for directed forests."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-two-five-primary-moore-summands-in-the-alternating-diagonal-five--60ac3524e932",
+          "material_read": "Mirrored RESULT.md offset 0, finding and scope",
+          "method": "Resultary and local mirror",
+          "title": "Two five-primary Moore summands in the alternating diagonal five-by-five quotient",
+          "trigger": "Same-day A5 orbit-space calculation"
+        },
+        {
+          "assessment": "Labeled result",
+          "evidence": [
+            "A complete source gives shellability; the h-vector formula is h_k=binom(n−1,k)(n−1)^k for the complete directed graph."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1109.4475v2",
+          "material_read": "§2 HTML offset 6984 and Corollary 4 offset 10949",
+          "method": "Bounded primary HTML passages",
+          "title": "Shellability of Complexes of Directed Trees",
+          "trigger": "Possible stronger labeled-to-quotient homotopy theorem"
+        },
+        {
+          "assessment": "Face-family background",
+          "evidence": [
+            "The relevant directed forest convention matches the frozen object."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/math/0508148v1",
+          "material_read": "Definition 2.1, HTML offset 0",
+          "method": "Bounded primary passage",
+          "title": "Complexes of Directed Trees and Independence Complexes",
+          "trigger": "Equivalent directed-tree definition"
+        },
+        {
+          "assessment": "Full paper's implications not independently confirmed; no absence conclusion",
+          "evidence": [
+            "Frozen comparison credits §6 for S_n geometric orbit spaces; it distinguishes edge-ordering alternating groups from vertex relabeling. That comparison is not a retrieved primary passage."
+          ],
+          "identifier_or_url": "https://studylib.net/doc/10958587/spectral-sequences-on-combinatorial-simplicial-complexes",
+          "material_read": "Citation and stated §6 comparison in frozen RESULT.md; decisive full text not recovered",
+          "method": "Lawful retrieval attempt at cited copy returned 403",
+          "title": "Spectral Sequences on Combinatorial Simplicial Complexes",
+          "trigger": "Frozen citation to full symmetric quotient and possible alternating notation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–43; prior full symmetric record a94deb02cce4; integral replay"
+      ],
+      "rationale": "At the first branching case of the full symmetric quotients, the index-two intermediate orbit space distinguishes what survives full relabeling from what is lost under an odd permutation. The integral sphere-wedge type additionally resolves whether torsion or lower-dimensional topology appears under this nonfree action, information not supplied by rational character counts or the labeled homotopy type.",
+      "residual_risks": [
+        "A single natural group and size, not a formula for A_n or for arbitrary subgroups."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

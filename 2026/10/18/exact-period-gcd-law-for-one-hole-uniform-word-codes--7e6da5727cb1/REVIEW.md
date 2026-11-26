@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For a finite alphabet containing at least two symbols and an integer \(k\ge 2\), a factor is uncompletable for the code with exactly one missing length-\(k\) word if and only if occurrences of the missing block meet all residue classes modulo \(k\). The forward direction follows from the freedom to extend both partial endpoint blocks. Every selection of occurrence representatives gives a spanning path in the residue graph whose inexpensive edges correspond precisely to proper periods. Kruskal's gcd-component calculation gives a lower bound. The recursively translated forward paths realize exactly its weight: at each step, copies lie in distinct cosets; overlapping translates are consistent by period addition. Therefore the formula applies to all words, including bordered ones with several incommensurate proper periods. The independent KMP and factor-NFA searches verify all \(508\) binary cases at lengths 2–8 and \(124\) binary cases at lengths 2–6, respectively; finite checks are corroboration, not a substitute for the infinite proof.
+PASS
 
-## Originality — PASS, subject to historical-priority risks
+For each boundary alignment, wholly observed blocks must avoid u and the two partial end blocks can always be extended to allowed blocks using the free symbol and |Σ|≥2. This includes the case of a word contained in one partial block. Thus a missing factor has an occurrence in every residue. Selecting one per residue gives a spanning path with gaps either proper periods or at least k+1; Kruskal's component numbers are the successive gcds, yielding the lower bound. Conversely, join translated copies of a subgroup path by positive steps p_i. Its endpoint shift within the smaller subgroup has no effect on the sequence of quotient cosets, and the last k+1-step stage generates the remaining quotient. Each stage yields exactly the recorded difference in copy-count-weighted component numbers. For any nonconsecutive overlapping copies the intervening gaps are all periods, and the sum below k is a period by chaining the defining symbol equalities. Hence all prescribed occurrences can coexist and attain the bound. The empty list and period-one cases, strict drop for a bordered word, and length-25 example check. Independent subset BFS on an explicit per-codeword path automaton confirmed all 241 binary holes at k=2–6 and ternary holes at k=2–4 combined; source scripts were inspected, not run. Replay: python3 /workspace/branches/independent_replay.py 3; output /workspace/branches/independent_replay.out.
 
-Pribavkina (arXiv:0907.4576, Proposition 2) already proves the maximal \(k^2+k-1\) length for unbordered deleted words. Fici–Pribavkina–Sakarovitch (arXiv:1002.1928v2, Sections 2–3) also treats the one-hole boundary under an unbordered assumption. Chandelkar and Chadha (arXiv:2609.30817v1, Proposition 5.1) give an unbordered special example and a different general-code upper bound. The new classification handles arbitrary *bordered* deleted words through all of their periods; the cited results do not state that extension, its exact gcd formula, or the matching spanning-path construction. Indexed theorem and equivalent-formulation searches did not reveal a covering statement. Gusev and Pribavkina's 2011 paper addresses broader incomplete-code bounds; its full text was not inspected, so that source remains a stated priority risk. Absence of a search hit alone does not establish novelty, and further literature may contain equivalent results.
+## originality
 
-## Value — PASS
+PASS
 
-The complete one-hole word-code family is a canonical test case in code completeness and automata. The theorem transforms an established maximum for unbordered holes into an exact classification of *every* hole by its entire period structure, including mixed-border cases. The expression provides a reproducible arithmetic answer without enumerating an exponential code, constructs extremal missing factors, and isolates the unbordered/constant extremal boundaries. This is substantive structural information beyond a numerical special case.
+The supported distinct claim is the exact formula for all one-hole fixed-length codes, in particular the interaction of multiple proper periods. The unbordered answer was already known, and the reduction to alignment obstructions is not itself novel. The frozen wording suggesting an independent second presentation is imprecise: Fici–Pribavkina–Sakarovitch explicitly attribute their proposition to Pribavkina (2009). No examined source covers the general bordered formula.
 
-## Scope and remaining limitations
+## value
 
-The theorem makes no assertion about several missing words, nonuniform code lengths, or all shortest-witness multiplicities. The key proof uses a forward Hamilton-path construction, whose nonconsecutive overlap compatibility is justified by the period-addition lemma. Independent scientific audit and unrestricted historical-priority certification have not occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This resolves the naturally parameterized shortest obstruction problem beyond the benchmark unbordered case. It gives a cheap computation from periods without materializing the allowed code and explains how successive periods affect attainable length. The matching constructive path proves the arithmetic is not just a lower bound or fit to small cases.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

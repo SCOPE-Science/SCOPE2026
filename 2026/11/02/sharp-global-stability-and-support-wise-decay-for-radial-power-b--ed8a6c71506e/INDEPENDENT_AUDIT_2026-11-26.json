@@ -1,0 +1,155 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:54:46.385058Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–75",
+        "VERIFICATION.md",
+        "verify.py lines 9–67 (inspected only)"
+      ],
+      "rationale": "With q=p−2 and H(r)=1+r^q, the radial dual map has strictly increasing modulus rH(r) onto [0,∞). The next dual coordinate is [H(r)−ηa_i|x_i|^q]x_i; for each nonzero coordinate and η≤2/a_max the subtracted term is positive and at most 2r^q<2H(r). The norm strictly contracts after radial inversion, including at η=2/a_max. A positive limiting radius would, by compactness, give a nonzero limit point whose next radius contradicts continuity and strict contraction. On axis i, modulus comparison to t+t|t|^q reduces exactly to (ηa_i−2)|t|^q<2. At equality the un-inverted dual update is the negative of the current dual vector, hence a flip; outside it magnitudes strictly increase, reverse sign on every step, and no finite limiting magnitude above the flip radius can satisfy the continuous iteration. A maximum-weight axis supplies divergence for every larger η. Zeros are absorbing. On a surviving coordinate, z_k=|y_i^k| eventually obeys z_{k+1}=z_k(1−c_k z_k^q) with c_k=ηa_i/H(r_k)^(q+1)→ηa_i, and the multiplier is eventually in (0,1). Taylor expansion gives z_{k+1}^{−q}−z_k^{−q}→qηa_i; averaging and H→1 prove the coordinate limit. Raising the coordinate asymptotic to p/q and multiplying by a_i/p yields the exponent −2/q on a_i in the objective constant. Finite extinction and noninteger p>2 are covered by the analytic argument, not the floating-point tests.",
+      "residual_risks": [
+        "No proof for noisy, varying-step or momentum updates, or for the full multidimensional basin above the frontier. The verifier's tolerance tests do not certify strict contraction."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first two works give general relative-smoothness/smooth-adaptability frameworks and sufficient descent regimes. The third establishes relative smoothness for a quartic norm kernel in a low-rank problem."
+        ],
+        "reasoning": "Sufficient descent bounds from these inspected frameworks do not provide a necessity threshold or an explicit divergent axial orbit. They also do not give weight-dependent leading constants conditional on survival of each coordinate.",
+        "searches": [
+          "arXiv:1610.05708 relative smoothness",
+          "arXiv:1706.06461 smooth adaptability",
+          "arXiv:1901.10791 quartic kernels"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2306.14522",
+        "arXiv:1610.05708",
+        "arXiv:1706.06461",
+        "arXiv:1901.10791",
+        "Resultary records 0ab6d6d14746, 6eb2c5b9c996, 8fb93784cb4c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The toy example is illustrated on a bounded interval. Nothing in those passages evaluates the strict finite-radius multiplier bound at η=2/a_max, or uses a bad axis to prove necessity in all dimensions. Relative-smoothness steps do not identify this failure mechanism. The included dual-coordinate tail argument uses the common factor H(r)^(−(q+1)), which has no counterpart in the matched Adam claim."
+        ],
+        "reasoning": "The precise result requires analysis of the update beyond applying the earlier framework or scaling the scalar quartic example. Simple proof steps do not make the conjunction a corollary of the inspected statements.",
+        "searches": [
+          "Ding–Li–Toh PDF pp. 3–4 scalar toy example and discussion",
+          "Compare Lu–Freund–Nesterov Algorithm 1 with the frozen coordinate multipliers and 0ab6d6d14746 with the frozen axial map"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The unconstrained first-order optimality condition for the standard Bregman subproblem is exactly the dual update. Ding–Li–Toh use F(x)=x⁴ with φ(x)=x²/2+x⁴/4, matching d=1,p=4,a=4 under exact gradients.",
+          "Memoryless Adam record 0ab6d6d14746 uses denominator smoothing and a different map, threshold and tail constant."
+        ],
+        "reasoning": "A change from primal to dual variables does not create a different update. The written scalar illustration genuinely overlaps but does not analyze its all-start basin. The distinct Adam recursion is not the radial inverse recursion here.",
+        "searches": [
+          "Weighted power Bregman-gradient global convergence threshold, radial polynomial kernel and dual-coordinate mirror descent",
+          "arXiv:1610.05708 Algorithm 1; arXiv:2306.14522 Eq. (3)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest same-day record 0ab6d6d14746 classifies scalar memoryless Adam and gives ε/((p−2)η) for its tail. Record 6eb2c5b9c996 gives a B-adaPG cumulative-step law on a constrained quadratic ray with Hellinger-ball kernel; 8fb93784cb4c studies a local scalar adaptive trust-region scheme."
+        ],
+        "reasoning": "These are substantive neighbors, but none of their inspected findings matches the weighted radial map. Same-day dating neither proves priority nor substitutes for the comparison. Ranked search does not exclude all exact matches.",
+        "searches": [
+          "Resultary: exact Bregman fixed stepsize threshold, radial power kernel, axis flip basin and support-wise constants",
+          "Resultary: scalar homogeneous step-size phase portrait, exact dual recursion and algebraic decay"
+        ]
+      },
+      "rationale": "The mirror update, radial kernel and even the exact scalar quartic special case as a toy model were known. The available comparisons do not give the exact all-start weighted-power frontier with the endpoint included, the unstable axial classification, or surviving-coordinate constants. The novelty assessment is limited to this phase portrait, not the algorithm or kernel.",
+      "residual_risks": [
+        "A specialized scalar iteration or separable mirror-descent stability result outside the inspected sources could overlap. The earlier scalar quartic model should not be attributed to the frozen result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact previous scalar quartic model, not a covering theorem",
+          "evidence": [
+            "F(x)=x⁴ with quadratic-plus-quartic mirror and a Bregman proximal-gradient update; bounded-interval illustration, not global basin or rate classification."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2306.14522",
+          "material_read": "PDF p. 3 Eq. (3), toy example and figure discussion (OA offsets 10550–13315); p. 4 discussion (14271)",
+          "method": "Primary open PDF passages",
+          "title": "Nonconvex Stochastic Bregman Proximal Gradient Method with Application to Deep Learning",
+          "trigger": "Same radial-power kernel and possibly same toy objective"
+        },
+        {
+          "assessment": "Equivalent general update; no sharp subclass dynamics established",
+          "evidence": [
+            "The Bregman primal-gradient subproblem reduces to the frozen mirror update in the unconstrained differentiable case."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1610.05708",
+          "material_read": "Definition 1.1 (p. 4, offset 13106) and Algorithm 1 (p. 6, offset 18595)",
+          "method": "Primary open PDF passages",
+          "title": "Relatively Smooth Convex Optimization by First-Order Methods, and Applications",
+          "trigger": "Broader mirror-gradient framework"
+        },
+        {
+          "assessment": "Smooth-adaptability framework, not exact threshold and basin",
+          "evidence": [
+            "The relative smoothness/descent framework addresses sufficient conditions rather than the necessity of a fixed scalar step bound in this specific map."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1706.06461",
+          "material_read": "Definition 2.2 and Lemma 2.1, p. 4, OA offset 13398",
+          "method": "Primary open PDF passages",
+          "title": "First Order Methods beyond Convexity and Lipschitz Gradient Continuity with Applications to Quadratic Inverse Problems",
+          "trigger": "Potential broader sufficient decrease theorem"
+        },
+        {
+          "assessment": "Known kernel type, different objective and guarantee",
+          "evidence": [
+            "Uses α||X||_F⁴/4+σ||X||_F²/2 and establishes relative smoothness in a low-rank problem."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1901.10791",
+          "material_read": "§2.3.1 Eq. (5) and Proposition 2.1, p. 4, OA offset 14509",
+          "method": "Primary open PDF passages",
+          "title": "Quartic-kernel Bregman algorithms for low-rank problems",
+          "trigger": "Same form of quartic-plus-quadratic kernel"
+        },
+        {
+          "assessment": "Different update, threshold and asymptotics",
+          "evidence": [
+            "Denominator-smoothed scalar memoryless Adam on |x|^p/p; includes cycles and an ε-dependent algebraic tail."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-sharp-saddle-node-threshold-and-bistable-cycles-for-memoryless-a--0ab6d6d14746",
+          "material_read": "RESULT.md Finding, local mirror offset 0",
+          "method": "Exact local mirror file",
+          "title": "Sharp saddle-node threshold and bistable cycles for memoryless Adam",
+          "trigger": "Closest indexed match in homogeneous objective and phase portrait"
+        },
+        {
+          "assessment": "Different constrained objective, adaptive step regime and kernel",
+          "evidence": [
+            "Exact recurrence on a constrained quadratic ray with a Hellinger-ball kernel, not the unconstrained fixed-step weighted-power family."
+          ],
+          "identifier_or_url": "2026/10/4/SCOPE-exact-cumulative-step-boundary-law-for-b-adapg-on-an-invariant-h--6eb2c5b9c996",
+          "material_read": "RESULT.md Finding, local mirror offset 0",
+          "method": "Exact local mirror file",
+          "title": "Exact cumulative-step boundary law for B-adaPG on an invariant ray",
+          "trigger": "Indexed Bregman dual recursion with exact rate"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding and Limitations",
+        "arXiv:2306.14522 pp. 3–4"
+      ],
+      "rationale": "For an existing kernel family, the exact all-start boundary distinguishes sufficient safe steps from a sharp guarantee and includes the critical endpoint. The axial two-cycle and escape above it give constructive obstructions, not merely a lost descent estimate. The leading constants on the surviving support explain why initializations that extinguish coordinates need not have the same objective asymptotic. This is a useful deterministic control case rather than a generic performance claim.",
+      "residual_risks": [
+        "The scope is exact gradients, fixed steps, and the stated kernel/objective; there is no guarantee for neural training or perturbations."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

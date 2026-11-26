@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,26 +19,24 @@
 }
 ---
 
-# Verification scope
+# Independent mathematical audit
 
-The mathematical claim applies to every integer \(n\ge2\) and has two logically separate components: a reduction of configurations of size at most four to cylinders of at most 17 columns, and an exhaustive classification within that finite domain. The reduction is proved by the geodesic normal form in `RESULT.md`; a finite test cannot independently prove that lemma. The geodesic-mask program directly examines every subset of sizes three and four for each \(2\le n\le17\), enumerating all shortest paths and testing all single additions. Exact equality, not just the counts, to the predicted closed neighborhoods is checked. The independent BFS program separately builds product graphs and tests shortest distances after blocking selected internal vertices, and checks heights 2 through 8. A randomized compression test compares both selected-pair feasibility and inclusion maximality on 1,430 instances.
+## correctness
 
-# Reproduce the recorded checks
+PASS
 
-From the directory containing these files:
+Reconstructed the infinite reduction: a geodesic traverses path columns monotonically and uses a shortest C4 row route. In an obstacle-free column run, any row changes made inside that run can all be consolidated into one column without changing entry/exit rows, blocking status, or geodesicity. Thus visibility for marked endpoints depends on the ordered marked columns and solely on whether successive columns have a nonempty intervening run. Adding a test vertex retains its row and either its already marked column or the two adjacency booleans on its sides. For a gap of distances 2,3,>=4 these interior possibilities are respectively (1,1), (1,>=2)/(>=2,1), and those last two plus (>=2,>=2); a single side at a vacant end needs only distance 1 versus >=2. Every extension type has a representative before and after compression, also for old pairs whose paths could now be blocked by the new vertex. The bound 17 follows, with m>=2 and with m=2 only if the original cylinder has n=2. The independent replay checks every possible reduced pattern of sizes two through four, with exact set comparisons. Singletons and the empty set are extensible. Lift each surviving pattern by the preserved boundary and distance-one markers. At every length a terminal neighborhood is visible because the three pairs of leaves have alternative common neighbors outside it; no outside vertex can be added because a geodesic from the center must first use an already selected neighbor. The cube's two bipartition sets occur in the uncompressed height-two check.
 
-```
-g++ -O2 -std=c++17 cylinder_minfacet.cpp -o cylinder_minfacet
-for n in $(seq 2 17); do ./cylinder_minfacet "$n"; done
+## originality
 
-g++ -O2 -std=c++17 cylinder_bfs_verify.cpp -o cylinder_bfs_verify
-for n in $(seq 2 8); do ./cylinder_bfs_verify "$n"; done
+PASS
 
-python3 compression_smoke.py
-```
+Credit the neighborhood upper-bound method. The independently supported difference is the lower bound and full rigidity on a four-cycle cylinder family, with a distinct cube case. Neither the triangular-cylinder result nor the higher-visibility extrema cover it.
 
-`minfacet_counts.txt`, `bfs_counts.txt`, and `compression_smoke.txt` preserve the actual outputs of these commands. All main enumeration rows must have `size3_facets=0`, `incorrect=0`, `agreement=YES`, with ten four-sets at height two and eight at every other height. No unexplained partial enumeration, numerical approximation, inaccessible dependency, or pending computation is used in the theorem statement.
+## value
 
-# Unproved limits
+PASS
 
-The programs do not prove results for widths other than four, or for arbitrary sets beyond minimum cardinality. Historical priority and independent expert validation remain unestablished. The infinite extension depends on the mathematical compression lemma as written, not on claiming a test at every order.
+The result precisely settles an infinite subfamily of the natural lower-visibility cylinder problem, going beyond a neighborhood upper bound to exact minimizer structure. Compression gives an exact finite reduction, not a list of arbitrary small tests.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

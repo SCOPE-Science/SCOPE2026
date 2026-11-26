@@ -1,15 +1,21 @@
-# Three-axis scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The generalized alternant determinant is the ordinary Vandermonde times the second elementary symmetric polynomial, reducing the entire problem to the vanishing of ten dyadic roots. The cyclotomic identity \(\Phi_{2^a}(T)=T^{2^{a-1}}+1\) proves that any such vanishing sum has an opposite-pair decomposition with multiplicities. The cases of an antipodal input pair and none exhaust all configurations; in the second case the complete-graph matching argument yields a strict descent in dyadic order. The quartet is sufficient, and a four-by-four minor proves rank exactly four. Uniqueness of the quartet coset inside a five-set gives the count. Integer-only checks reproduce the determinant identity and all column sets at orders 8, 16, and 32. Neither the numerical tests nor mere vanishing of a determinant are substituted for the all-orders proof.
+## correctness
 
-## Originality — PASS, best knowledge
-Malikiosis–Oussa (arXiv:1909.06223, Sections 4 and 5) discusses the broad prime-power full-spark criterion and Schur determinant mechanisms, but its binary existence criterion does not imply the sharp incidence characterization and rank/count. Needham–Shonkwiler (arXiv:2110.11295) addresses generic full-spark geometry. Hidaka–Itoh (arXiv:2403.10817) evaluates Schur functions at the whole set of primitive roots, not five freely selected cyclic points. Related published four-row classifications involve other Schur factors and do not determine the five-row minors here. Searches for the precise row set, the degree-two symmetric-factor condition, and dyadic quartet criterion did not identify a covering statement; failed searches alone are not proof of novelty. An older unpublished or differently named dyadic-minor classification remains a residual bibliographic risk.
+PASS
 
-## Mathematical value — PASS
-The five-row pattern is a natural first near-consecutive harmonic aperture with a degree-two (rather than degree-one) Schur factor. Its infinite-family exact erasure classification is not a mere non-full-spark example: it specifies every forbidden sample set, its exact one-dimensional rank defect, and the full multiplicity at every power-of-two order. These features directly quantify finite harmonic sampling redundancy and identify a structural arithmetic obstruction.
+The alternant quotient is e₂ at the five distinct complex nodes. Reduction in the basis 1,ω,…,ω^(N/2−1) pairs the ten products with their negatives, preserving multiplicity. If an antipodal node pair u,−u is present, its cross terms cancel and the four residual terms force another antipodal pair v,−v with v²=−u². In the other case opposite edge products come from disjoint edges. Each of the five vertices is omitted by one of the five edge matchings, so reducing each product relation modulo two forces equal parity of all five exponents. Dividing the shifted exponents by two descends to N/2 with five distinct nodes; a quartet at that order lifts to a quartet, and orders at most four are impossible. A quartet annuls both e₁ and e₂, proving sufficiency. The {0,1,2,4} minor on u,−u,iu and the outsider v is a nonzero Vandermonde times iu+v, so the singular rank is exactly four. Disjoint cosets give the claimed count without double counting. I inspected verify_dyadic_5minor.py and verification_output.txt: the reported exhaustive integer tests at 8,16,32 and four determinant evaluations corroborate the argument; I did not execute the frozen script and the proof is not predicated on these tests.
 
-## Limits
-No claim is made for other row sets, arbitrary moduli, or numerical conditioning of the invertible minors. Scientific originality is assessed relative to accessible material, not as a global priority certificate.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct supported content is the exact converse to the quartet obstruction, together with the complete rank and multiplicity classification for this aperture. The rank-one block construction in the older full-spark proof already gives quartet sufficiency, not just a bare existential obstruction; the determinant and cancellation inputs are classical. No inspected source yields the necessity or exact-rank diagram.
+
+## value
+
+PASS
+
+This is the natural next near-consecutive aperture after the missing-degree e₁ case, where simple full spark already fails. Knowing exactly which five-column selections lose rank, and that none loses more than one, determines the relevant erasure incidence rather than merely confirming a predicted failure. The necessity argument on product pairings across all dyadic dimensions is not a finite recalculation or a generic full-spark test.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

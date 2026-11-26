@@ -1,19 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The result is universal over integers \(d\ge2\) and \(1\le s\le d\), and real \(\lambda\ge0\). The exact \(\ell_1\)-distance formula is derived by independent minimization over the support faces and includes all sign patterns and zero coordinates. Necessity has two actual missing-point witnesses: the origin for \(\lambda<1\) and the balanced boundary point for \(\lambda<d/s-1\). Sufficiency reduces to a piecewise-linear inequality using the top-\(s\) mass bound and covers equality at the sharp threshold. The convexity/equality equivalence is checked through convex hulls. The accompanying rational verifier passed 11,529 additional finite assertions; the all-dimensional claim rests on the written argument, not those tests.
+PASS
 
-## Originality — PASS (historical priority provisional)
+Frozen proof and narrowed repair checked. Every point of the skeleton is supported on at most s non-antipodal signed coordinate vertices. On a fixed nonempty support I match signs and adjust magnitudes monotonically to mass one; the triangle-inequality bound |t_I−1| within I is then attained, and the off-support cost is q−t_I. Maximizing t_I chooses the largest s coordinates. The origin at distance one and the balanced boundary vector with top-s sum below one give the separate sharp obstructions. Sufficiency follows by bounding the distance by q+1−2min(1,sq/d), affine up to d/s with endpoint values 1 and d/s−1, then equal to q−1≤λ. Equality has the correct ≥ endpoint by compactness. Convex hull and affine covariance follow from containing all coordinate vertices and the (1+λ)b translation term. The frozen supporting code and notes describe expected, not recorded, finite results; not replayed. The enumerated support test shares the face-wise distance lemma and cannot certify it.
 
-Mark Meyer's 2026 general finite-convexification theorem supplies the research question and qualitative exposed-set characterizations but does not state the exact all-rank index here in the inspected material. The complete published result *Sharp finite convexification thresholds for every skeleton of a simplex* was read: it classifies equal-weight sums of multiple nonconvex simplex skeleta, which does not imply the present cross-polytope-plus-scaled-full-body problem. Other searched work on hypersimplex vertex sets and vertex-generated polytopes has different polytopes or operations. The searched mathematical record did not yield this exact classification; the numerical constants remain subject to priority checking against older sparse \(\ell_1\) covering results. The Artstein-Avidan–Falah–Slomka full paper was not accessible, so that comparison is limited to its abstract.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is a natural complete classification of the relative finite-convexification index for every skeleton in a basic regular polytope family and all its affine images. It distinguishes a central-hole obstruction from a balanced-boundary sparsity obstruction, locating a sharp rank-dependent transition at \(s\ge\lceil d/2\rceil\). The exact index is a reusable geometric benchmark, not a routine parameter substitution or a mere computation of an arbitrary finite slice.
+As submitted the stated all-rank novelty did not account for exact prior vertex-case coverage. The repaired claim is restricted to the genuine intermediate ranks 2≤s≤d−1, with explicit attribution of s=1 and the elementary full-boundary limit separated. The inspected closest results do not state or imply the intermediate-rank distance and sharp phase diagram without a new computation over actual positive-dimensional faces.
 
-## Scope and risks
+## value
 
-The convexifier is the full cross-polytope, not another skeleton or the Euclidean ball. No classification is claimed for arbitrary polytopal skeleta. A historically equivalent theorem in sparse approximation might exist, and independent mathematical assessment remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The intermediate-rank theorem gives an exact geometrically natural covering invariant. It identifies the rank where the sharp obstruction switches from the balanced outer boundary to the missing origin, and determines feasibility at equality, not just a dimensional bound. The top-s distance provides quantitative membership for any point as well. These parts remain useful after removing the known vertex case and the elementary full-boundary case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

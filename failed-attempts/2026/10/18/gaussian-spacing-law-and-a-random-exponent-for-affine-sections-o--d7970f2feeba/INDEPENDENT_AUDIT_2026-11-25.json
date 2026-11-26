@@ -1,0 +1,161 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:45:41.164458Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, (1)–(8) and scope",
+        "Frozen VERIFICATION.md and verify.py, inspected as bounded numerical comparison only"
+      ],
+      "rationale": "At a generic cut, intersecting edges (and only those edges) give section vertices, so the count is K(m-K). For fixed direction the K=k offsets occupy the kth ordered gap. The marginal direction of the conditioned plane is weighted by its width, not uniform. The centered Gaussian vector factors into an independent Haar direction and radial norm; multiplying the normal's gaps and width by the independent norm gives the Gaussian expected-gap ratio. Tonelli and the count of iid samples below a fixed level give the finite integral and its normalization. To independently check the exponent, in the equivalent Gaussian construction the joint density of the Gaussian sample and threshold t is the iid sample density times 1{min Z<t<max Z}/E R_m. Put s=sqrt(2 log m); Gaussian extremes, with first-moment control from the union bound on max |Z_i|, give E R_m/s -> 2. The density of t/s is s[1-Phi(sx)^m-(1-Phi(sx))^m]/E R_m, converging pointwise away from ±1 to the uniform density on [-1,1] and hence in L1. Given t/s=x with |x|<1, K is Bin(m,Phi(sx)) conditioned on 0<K<m, an event of probability tending to one. The tail-side count has mean m^(1-x^2+o(1)) and concentrates relatively, while the other count has exponent 1 (both exponent 1 at x=0). This yields the log-vertex limit by integrating bounded test functions; it also checks the binomial argument without treating the minimum of the two realized counts as itself binomial. The explicit CDF and mean 5/3 follow from |Uniform[-1,1]| and boundedness of the exponents. The centroid-only contrast follows by squeezing the empirical sign fraction at the Gaussian sample mean between counts at fixed small opposite thresholds, so that K/m -> 1/2.",
+      "residual_risks": [
+        "The recorded quadrature is truncated and the random checks are finite; neither establishes the exponent. The probability measure and regular simplex shape are essential."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "b37509524868 Finding equations (3) and (5) give the expected-spacing rank probability and joint log-face exponents (j+2-U²).",
+          "De Loera–Lopez-Campos–Torres give maximum counts and combinatorial enumeration; Dirksen gives section volumes, including noncentral volume formulas."
+        ],
+        "reasoning": "Taking j=0 in the inspected stronger Crofton theorem covers the exponent. Extrema, types and volumes by themselves do not give the law under this offset measure.",
+        "searches": [
+          "Resultary b37509524868, Crofton-random regular-simplex sections: exact face means and a logarithmic complexity law",
+          "arXiv:2412.12419, Theorems 1.1–1.2",
+          "arXiv:1509.06408, Theorem 2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 3b7178a1660b, b37509524868, aa90c887fe90",
+        "arXiv:2412.12419 and arXiv:1509.06408",
+        "DOI 10.1007/PL00009292 and 10.1007/BF02187839",
+        "Siegrist, Order Statistics"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The projection articles use Gaussian samples for projected simplex configurations or expected projection face counts, and the order-statistics source gives the usual iid marginal ordered density. The direct Crofton comparator instead supplies both affine-section laws."
+        ],
+        "reasoning": "The familiar Gaussian reduction or spacing identity alone does not account for conditioning on width and offset in sections. The exact Crofton comparator does; in particular its log law implies the frozen expectation 5/3 by uniform boundedness of log V/log m.",
+        "searches": [
+          "Baryshnikov DOI 10.1007/PL00009292 and Affentranger–Schneider DOI 10.1007/BF02187839",
+          "Siegrist, Order Statistics",
+          "Crofton comparator 3b7178a1660b Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "3b7178a1660b Finding uses dσ dt conditioned on hitting, gives the same Phi integral and V=K(N-K), then log V/log N -> 2-U² with U uniform on [-1,1].",
+          "aa90c887fe90 Finding uses K=# Gaussian observations above their sample mean for a plane through the centroid."
+        ],
+        "reasoning": "Crofton is exactly the frozen affine measure; reflection does not affect the count and |U| has the required law. The central sign formulation is non-equivalent because its offset is fixed at the centroid.",
+        "searches": [
+          "Resultary: regular simplex invariant affine section expected Gaussian spacing and logarithmic vertex count",
+          "Resultary IDs 3b7178a1660b and aa90c887fe90"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Both bounded Finding passages checked in catalogue snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4; the second gives the same all-m integral and limiting CDF, not just tabulated small-dimensional probabilities."
+        ],
+        "reasoning": "These are distinct entries from the assigned ordinal; hence exact existing catalogue coverage is evidenced without assuming priority from a shared date.",
+        "searches": [
+          "Local Resultary catalogue, 2026/10/18 entries b37509524868 and 3b7178a1660b"
+        ]
+      },
+      "rationale": "Two distinct indexed Findings cover the same conditioned motion-invariant affine section, exact rank law, K(m-K) vertex count and limiting exponent. One gives the same formulas directly, and the other proves the same rank law with a stronger joint log-face limit. Replacing Uniform[-1,1] by its absolute value gives exactly the stated Uniform[0,1] convention. The reported CDF and expectation convergence follow directly from that limit and boundedness. This establishes duplicate scientific coverage, not priority, copying, or the order of work among the same-day labels.",
+      "residual_risks": [
+        "Historical priority and the relationship among the overlapping records are not determined. Bounded outside literature coverage leaves further earlier or more general matches possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct equivalent coverage",
+          "evidence": "Same Gaussian integral with expected Gaussian range, V=K(N-K), same limiting CDF and exponent up to replacing U by |U|.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-a-continuous-logarithmic-vertex-law-for-crofton-sections-of-regu--3b7178a1660b/RESULT.md",
+          "material_read": "Finding and scope, mirror offset 0",
+          "method": "Bounded local mirror passage",
+          "title": "A continuous logarithmic vertex law for Crofton sections of regular simplices",
+          "trigger": "Exact same sampling scheme and observables"
+        },
+        {
+          "assessment": "Same rank result and stronger joint exponent theorem",
+          "evidence": "Equation (3) uses E Gaussian gap/E range, and (5) with j=0 is the assigned exponent.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-crofton-random-regular-simplex-sections-exact-face-means-and-a-l--b37509524868/RESULT.md",
+          "material_read": "Finding (1)–(5) and scope, mirror offset 0",
+          "method": "Bounded local mirror passage",
+          "title": "Crofton-random regular-simplex sections: exact face means and a logarithmic complexity law",
+          "trigger": "Potential covering joint section theorem"
+        },
+        {
+          "assessment": "Different sampling scheme",
+          "evidence": "Centroid constraint and rank relative to the sample mean, not random affine offsets.",
+          "identifier_or_url": "Resultary aa90c887fe90",
+          "material_read": "Finding, mirror offsets 0–3257",
+          "method": "Bounded local mirror passage",
+          "title": "Joint chi-square face-vector fluctuations of random central regular-simplex sections",
+          "trigger": "Gaussian simplex cuts with face fluctuations"
+        },
+        {
+          "assessment": "Counts/extrema and enumeration rather than sampling laws in these results",
+          "evidence": "Maximal attainable vertex counts and algorithm for combinatorial slice types.",
+          "identifier_or_url": "https://arxiv.org/pdf/2412.12419",
+          "material_read": "p. 2, Theorems 1.1–1.2",
+          "method": "Bounded OA PDF passage",
+          "title": "On the Number of Vertices in Hyperplane Cross-Sections of Convex Polytopes",
+          "trigger": "Same class of cross-section vertex observables"
+        },
+        {
+          "assessment": "Different observable",
+          "evidence": "Section volumes and maximal volume, not vertex count probabilities.",
+          "identifier_or_url": "https://arxiv.org/pdf/1509.06408",
+          "material_read": "p. 1 and Theorem 2",
+          "method": "Bounded OA PDF passage",
+          "title": "Sections of the regular simplex—Volume formulas and estimates",
+          "trigger": "Noncentral regular-simplex sections"
+        },
+        {
+          "assessment": "Related Gaussian geometry, different operation",
+          "evidence": "Gaussian-sample correspondence for projected simplex vertices.",
+          "identifier_or_url": "https://doi.org/10.1007/PL00009292",
+          "material_read": "pp. 258–259",
+          "method": "Bounded OA PDF passages",
+          "title": "Gaussian Samples, Regular Simplices, and Exchangeability",
+          "trigger": "Gaussian/simplex equivalence"
+        },
+        {
+          "assessment": "Projection, not affine section",
+          "evidence": "Expected face numbers under random orthogonal projection.",
+          "identifier_or_url": "https://doi.org/10.1007/BF02187839",
+          "material_read": "Abstract and Theorem 1, pp. 219–220",
+          "method": "Bounded OA PDF passages",
+          "title": "Random Projections of Regular Simplices",
+          "trigger": "Possible more general random face counts"
+        },
+        {
+          "assessment": "Standard analytic ingredient",
+          "evidence": "For a continuous iid sample the kth order statistic has density proportional to F^(k-1)(1-F)^(m-k)f.",
+          "identifier_or_url": "https://www.randomservices.org/random/sample/OrderStatistics.html",
+          "material_read": "Probability Theory, offsets 15400–17567",
+          "method": "Bounded OA webpage passage",
+          "title": "Order Statistics",
+          "trigger": "Classical ordered-variable identities"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding equations (1)–(3)",
+        "Direct Crofton comparator Finding",
+        "Central-section comparator aa90c887fe90"
+      ],
+      "rationale": "The invariant random affine cut of a regular simplex is a natural model, and its nondegenerate vertex-count exponent resolves a typical-size question not answered by possible-count bounds, first moments or central sampling. This is value of the theorem itself, not a case for a second dissemination of the equivalent result.",
+      "residual_risks": [
+        "No universality over nonregular simplices or other offset rules is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

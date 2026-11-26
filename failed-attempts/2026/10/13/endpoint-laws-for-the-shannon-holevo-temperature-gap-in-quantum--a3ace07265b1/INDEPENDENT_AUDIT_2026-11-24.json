@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:26:17.523501Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 2–107",
+        "Frozen VERIFICATION.md",
+        "Frozen artifacts/verify.py, lines 1–55",
+        "arXiv:2610.03566v1, Eqs. (25), (43)–(47), (77)"
+      ],
+      "rationale": "The stated inverse-temperature boundary formulas and asymptotics are correct. Substituting the BSC and pure-state channel capacities into the unit-coupling noise map gives the two formulas, with beta_q=atanh(1-2q_R) on the specified branch. For small u, writing t=log(1/h_2^{-1}(u)) gives t=log(1/u)+log t-log(log 2)+o(1), hence t=log(1/u)+log log(1/u)-log(log 2)+o(1). At the other entropy endpoint, 1-h_2(1/2-d)=2d^2/log(2)+O(d^4). Using these and the two endpoint expansions of asech gives the high-rate ratio sqrt(log(1/(1-R))/2) and the low-rate difference (log log(1/R)-log 2)/2+o(1), with low-rate ratio 1 in the limit. The proof is analytic; artifacts/verify.py was inspected, not run, and finite bisection checks are not asymptotic evidence.",
+      "residual_risks": [
+        "These are capacity boundaries, not decoder achievability. Read the additive gap as a gap in beta: the actual low-rate temperature difference 1/beta_cl-1/beta_q tends to zero."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The QD-HDQI source identifies BSC Shannon and PSC Holevo capacity limits over the whole rate range and maps p_i to beta for each coupling magnitude v_i.",
+          "Alrabiah–Guruswami's low-rate comparison concerns rate–distance bounds, not the Gibbs temperature map."
+        ],
+        "reasoning": "The same-setting exact all-rate curves dominate the frozen endpoint statements. Rate–distance bounds do not give additional equivalent coverage.",
+        "searches": [
+          "arXiv:2610.03566v1, Eqs. (25), (43)–(47), (77)",
+          "arXiv:2608.09347v1, §§6.2 and 8"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary/SCOPE index and the cited hybrid-channel record",
+        "arXiv:2610.03566v1",
+        "DOI:10.1038/s41534-021-00422-1",
+        "arXiv:2608.09347v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At R near 1, the known curves evaluate inverse entropy near its square-root and u/log(1/u) endpoints, respectively; the elementary noise map yields their ratio.",
+          "At R near 0, t=log(1/h_2^{-1}(R))=L+log L-log(log 2)+o(1) and asech(x)=log(2/x)+o(1) give the two constants and their difference."
+        ],
+        "reasoning": "No new capacity estimate, model reduction, or entropy bound is needed: the endpoint comparison is obtained by direct series substitution and one logarithmic inversion.",
+        "searches": [
+          "arXiv:2610.03566v1, Eqs. (25), (43)–(47), (77)",
+          "Frozen RESULT.md, lines 53–107"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source expresses the exact same boundaries as R=C_S(p), R=C_H(p), and beta=asech(1-2p).",
+          "The optical-communication paper compares C_infinity/C_1 at fixed weak-signal conditions, not beta_q/beta_cl at fixed rate."
+        ],
+        "reasoning": "Equality in the two converses and inversion on the stipulated branch recovers the exact curves, including the quantum formula written as atanh. The earlier optical ratio is related but is not a temperature-boundary identity.",
+        "searches": [
+          "arXiv:2610.03566v1, §§1.2.2, 2.4 and 4",
+          "DOI:10.1038/s41534-021-00422-1, p. 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest inspected indexed record treats the onset of single-use private information via a convex envelope in a hybrid wiretap channel.",
+          "The primary source compares Shannon and Holevo bounds at finite rates."
+        ],
+        "reasoning": "The indexed result uses a different channel objective and no Gibbs map; the finite-rate table is not itself the asymptotic law. The exact primary-source formulas, not absence or presence of a matching table entry, decide coverage.",
+        "searches": [
+          "Focused Resultary searches for Shannon/Holevo Gibbs-temperature boundaries; inspected Resultary 2026/10/13/SCOPE-quadratic-onset-of-single-use-private-information-at-the-hybrid--bd6f421ea23b",
+          "arXiv:2610.03566v1, §2.4"
+        ]
+      },
+      "rationale": "The exact unit-coupling capacity-boundary curves are already specified by the primary source. The two endpoint laws are direct asymptotic corollaries of those curves, using only the standard local expansions and inversion of binary entropy. This is prior coverage by implication, not a finding that the source explicitly states the two endpoint comparisons.",
+      "residual_risks": [
+        "The literature review is not exhaustive; whether an older paper explicitly wrote the two Gibbs endpoints is not decided. The failure rests on the exact primary-source curves and the direct implication, not on a missed search result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING_BY_IMPLICATION",
+          "evidence": "The capacity conditions and temperature map give the exact functions; their elementary endpoint expansions are the frozen laws.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.03566v1",
+          "material_read": "§1.2.2 Eq. (25); §2.1 Eq. (38); §2.4 Eqs. (43)–(47); §4 Eq. (77)",
+          "method": "Lawful open-access PDF passage inspection",
+          "title": "Gibbs state preparation through quantum decoding",
+          "trigger": "Exact same capacity boundaries and Gibbs map"
+        },
+        {
+          "assessment": "RELATED_NOT_EQUIVALENT",
+          "evidence": "Their capacity ratio diverges as mean photon number tends to zero; it does not compare inverse temperatures at fixed rate.",
+          "identifier_or_url": "https://doi.org/10.1038/s41534-021-00422-1",
+          "material_read": "p. 2, capacity comparison, extracted-text offset 8600",
+          "method": "Lawful open-access PDF passage inspection",
+          "title": "Belief propagation with quantum messages for quantum-enhanced classical communications",
+          "trigger": "Divergent comparison of BSC and pure-state capacities"
+        },
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": "The low-rate gap compares MRRW and MQC rate–distance bounds, with no conversion to Gibbs temperature.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.09347v1",
+          "material_read": "Abstract; §§6.2 and 8, pp. 39–40 and 48",
+          "method": "Lawful open-access PDF passage inspection",
+          "title": "Binary code rate bounds via classical–quantum channels",
+          "trigger": "Same channel types and a low-rate gap"
+        },
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": "Different channel, private-information observable and convex-envelope contact law.",
+          "identifier_or_url": "Resultary 2026/10/13/SCOPE-quadratic-onset-of-single-use-private-information-at-the-hybrid--bd6f421ea23b",
+          "material_read": "RESULT.md Finding and Relationship to prior work",
+          "method": "Local index and mirrored record inspection",
+          "title": "Quadratic onset of single-use private information at the hybrid channel",
+          "trigger": "Closest related indexed channel-boundary result"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Limitations",
+        "arXiv:2610.03566v1, §§2.4 and 4"
+      ],
+      "rationale": "The multiplicative versus additive comparison is an explanatory way to present the known capacity curves, but here it is obtained by routine endpoint expansions of those exact curves. It is not an independently useful unknown boundary or a new decoding regime, and resolves no achievability question. The low-rate divergence is in inverse temperature, not a divergent difference in physical temperature.",
+      "residual_risks": [
+        "The expansions may be useful as exposition; this assessment does not discount the underlying Shannon–Holevo separation or the source's Gibbs reduction."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

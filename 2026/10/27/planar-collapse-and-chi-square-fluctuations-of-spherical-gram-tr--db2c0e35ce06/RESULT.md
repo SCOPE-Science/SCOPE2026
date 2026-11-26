@@ -1,4 +1,4 @@
-# Planar collapse and chi-square fluctuations of spherical Gram triangles
+# Exact variance and planar collapse of spherical Gram triangles
 
 ## Finding
 
@@ -27,7 +27,7 @@ Thus **the entire genuine third-order component vanishes precisely in dimension 
 \langle u,v\rangle\langle u,w\rangle\langle v,w\rangle
 =\frac{\langle u,v\rangle^2+\langle u,w\rangle^2+\langle v,w\rangle^2-1}{2}.
 \]
-For each fixed \(d\ge2\), put \(m=(d-1)(d+2)/2\). As \(n\to\infty\),
+The pair term is an affine transform of the classical Bingham statistic. Consequently, for each fixed \(d\ge2\), putting \(m=(d-1)(d+2)/2\), as \(n\to\infty\),
 \[
 \frac{T_{n,d}-\mathbb E T_{n,d}}{n^2}
 \ \xrightarrow{\ \mathrm d\ }\ 
@@ -100,15 +100,25 @@ The ordinary multivariate central limit theorem, applied to the entries of \(U_i
 \]
 Therefore \(\operatorname{tr}(Z^2)\) has law \(2\chi_m^2/[d(d+2)]\), with mean \((d-1)/d\). Finally, the third-order remainder has variance \(O_d(n^3)\); thus \(Q_{n,d}/n^2\to0\) in \(L^2\). Combining these facts and the continuous mapping theorem yields the stated centered chi-square law. Its variance equals \(2m/[d^4(d+2)^2]=(d-1)/[d^4(d+2)]\), matching the leading coefficient of the exact finite variance.
 
+Equivalently, with \(M_n=W_n/n\), the classical Bingham statistic is \(B_n=nd(d+2)(\operatorname{tr}(M_n^2)-1/d)/2\) [4]. The pair identity above gives
+\[
+ B_n-m=\frac{d(d+2)}nP_{n,d},\qquad
+ \frac{T_{n,d}-\mathbb E T_{n,d}}{n^2}
+ =\left(1-\frac2n\right)\frac{B_n-m}{d^2(d+2)}+\frac{Q_{n,d}}{n^2}.
+\]
+Thus the known Bingham limit transfers to the triangle sum. The variance formula for \(Q_{n,d}\) gives the exact mean-square error of the pair approximation at any sample size; in the plane it is exact even at finite \(n\).
+
 ## Verification
 
-The accompanying standalone `verify.py` reproduces exact rational identities for \(23\) dimensions and \(12\) sample sizes each, and verifies the planar identity on all \(8^3\) combinations of octagonal directions using exact arithmetic in \(\mathbb Q(\sqrt2)\). It also checks exact octagonal second and overlapping-triangle fourth moments. A twelve-direction icosahedral quadrature checks the corresponding three-dimensional moments after validating the requisite second- and fourth-order tensor identities. An independently seeded simulation checks the predicted planar asymptotic variance at a finite sample size. The simulation is diagnostic only; the infinite-sample conclusion comes from the analytical proof.
+The accompanying standalone `verify.py` checks exact rational identities for \(23\) dimensions and \(12\) sample sizes each, and verifies the planar identity on all \(8^3\) combinations of octagonal directions using exact arithmetic in \(\mathbb Q(\sqrt2)\). It also checks octagonal triangle and shared-edge product moments exactly. A twelve-direction icosahedral quadrature checks selected three-dimensional tensor entries and moments to floating-point tolerance. The simulation uses \(n=500\) and is diagnostic only; the infinite-sample conclusion comes from the analytical proof.
 
 Run `python3 verify.py` with Python 3.10 or later and no third-party packages.
 
 ## Relationship to prior work
 
-Archakov, Hansen, and Luo (2022) review random Gram constructions of correlation matrices and discuss their marginal correlation laws; their model section does not give this signed Gram-triangle variance, the planar collapse, or the fixed-dimensional chi-square fluctuation law. Bubeck, Ding, Eldan, and Rácz (2015/2016) study signed triangles in *thresholded* random geometric adjacency matrices in a high-dimensional testing regime; thresholded indicators are different from the unthresholded inner-product products studied here. A published result on triangular third moments of LKJ correlation matrices establishes a related single-triangle expectation for a nonsingular correlation-matrix ensemble but does not provide the all-\(n\) fixed-ambient-dimension variance or non-Gaussian limit; the regime \(n>d\) here has singular Gram matrices. Standard Hoeffding and Gaussian limit theory supplies general tools but not the explicit special-dimensional cancellation or its exact coefficients.
+The distinct contribution is the exact finite-sample triangle variance and the quantitative separation of its pair and genuine third-order terms, including the strictly positive remainder in every \(d\ge3\). The elementary Gram determinant gives the pointwise planar identity, and the fixed-dimensional limiting law is a rescaled, centered Bingham law [4], not a new pair-fluctuation theorem. The limiting law alone cannot reveal the finite-sample residual or its dimensional cancellation.
+
+Archakov, Hansen, and Luo (2022) review random Gram constructions and marginal correlation laws. Bubeck, Ding, Eldan, and Rácz (2015/2016) study signed triangles of *thresholded* geometric adjacency matrices, not unthresholded Gram entries. The triangular third moment for LKJ correlation matrices [3] matches the mean here in the nonsingular parameter range but does not give the aggregate triangle variance or the third-order variance, and it does not model the eventual singular Gram matrices at fixed ambient dimension.
 
 ## Limitations
 
@@ -119,3 +129,4 @@ The result assumes iid uniform spherical directions and fixed \(d\). It does not
 1. I. Archakov, P. R. Hansen, and Y. Luo, *A New Method for Generating Random Correlation Matrices*, arXiv:2210.08147 (initial posting October 15, 2022), https://arxiv.org/abs/2210.08147. See the Random Gram Methods section.
 2. S. Bubeck, J. Ding, R. Eldan, and M. Z. Rácz, *Testing for high-dimensional geometry in random graphs*, arXiv:1411.5713 (2015), https://arxiv.org/abs/1411.5713, especially Sections 1 and 3.
 3. *Exact triangle cumulants reveal the first hidden dependence in LKJ correlation matrices* (public scientific record, 2026), https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-triangle-cumulants-reveal-the-first-hidden-dependence-in-l--955e3ffe3131. Only its accessible indexed scientific summary was compared; the complete record was not retrievable.
+4. E. García-Portugués and T. Verdebout, *An overview of uniformity tests on the hypersphere*, arXiv:1804.00286 (2018), p. 7, “Bingham (1974)’s test,” https://arxiv.org/abs/1804.00286.

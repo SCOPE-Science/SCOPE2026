@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:50:32.425731Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–64",
+        "Frozen VERIFICATION.md and verify.py inspected, not executed",
+        "Independent Green-equation, sign and coefficient derivations; replay by differentiating the stated F and evaluating P and its derivatives at u=1/4"
+      ],
+      "rationale": "The bridge Green equations −g''=1 and −g''=2t−1, with zero endpoint values, give the two observation covariances u/2 and u(2t−1)/6 for u=t(1−t). Integrating against their target weights gives prior variances 1/12 and 1/180, hence normalized loss uses w=15. Gaussian conditioning gives the reduction F=u²(9+w−4wu)/[36(u+η)], with zero at deterministic endpoints. The derivative for u>0 has the sign of P=2η(9+w)+(9+w−12wη)u−8wu². For η>0 the roots have opposite signs, and for η=0 the factorization u(9+w−8wu) gives the same sign change on the positive axis. Hence the unique maximizing u is the positive root clipped at 1/4. The sign of P(1/4)=[9−w+4η(18−w)]/4 gives the full boundary and uniqueness at equality; a smaller positive u corresponds to exactly two reflected sites. The derivative of w_c is 36/(1+4η)², with endpoints 9 and limiting 18. At w=15 one obtains u_*=1/5 with no noise and the transition at η=1/2. There P_u=−126 and P_η=3, giving 1/4−u_*=(1/2−η)/42+O((1/2−η)²). Since 1/4−u=(t−1/2)², this gives the claimed displacement. The general w-boundary expansion follows from P_u=−18(1+12η) and P_w=−(1+4η)/4.",
+      "residual_risks": [
+        "The independent check is analytic, not a replay of the supplied random-grid checks; those grids cannot establish global optimality. No formal verification was performed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Xi–Briol–Girolami give posterior mean and covariance for related integrals",
+          "Karvonen–Kanagawa–Särkkä discuss fixed nodes, quadrature weights and local integral-variance minimizing point sets"
+        ],
+        "reasoning": "The abstract machinery recovers the objective once the model-specific covariances are supplied. It does not settle the signs of its derivative, how many sites maximize it globally, the equality boundary, or the boundary-layer constant. Local optimality conditions alone do not certify the global transition.",
+        "searches": [
+          "arXiv:1801.04153, multi-output Bayesian quadrature, pp. 3–4",
+          "arXiv:1812.08509, pp. 4 and 8, quadrature weights and point optimality"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, prior-work section",
+        "Resultary and mirrored findings listed above",
+        "arXiv:1801.04153; arXiv:1904.06998; arXiv:1812.08509",
+        "Bounded external lookup for the uncited randomized two-point comparison"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The broadest inspected joint quadrature formulas stop at conditional risk. The nearest bridge design that has a noise transition changes both target count and sensor; the indexed two-node design changes target and experimental design."
+        ],
+        "reasoning": "No inspected premise proves the global opposition of the symmetric and antisymmetric covariance terms, the one-root property on u∈(0,1/4], or the constants 1/2 and 1/42. Those are the distinct claim, not the standard Gaussian risk formula or polynomial basis.",
+        "searches": [
+          "arXiv:1801.04153, arXiv:1904.06998, arXiv:1812.08509 and the distinct Resultary findings listed below"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Resultary self-match reproduces the exact two-target design; the distinct footprint transition concerns a fixed-width interval average and a single signed target",
+          "Foster–Lyons–Oberhauser's bridge KL coordinates integrate against e_k(t)/[t(1−t)] and are used in path approximation"
+        ],
+        "reasoning": "Neither a change to a bridge polynomial basis nor a fixed-width sensor that observes an interval average makes the signed-target-only problem equivalent to simultaneous estimation with this diagonal loss, which retains a positive mean-moment reduction at the midpoint. A point-sensor limit alone cannot restore the missing mean term.",
+        "searches": [
+          "Local Resultary search for Brownian-bridge one-point polynomial moment design and noise-driven midpoint transitions",
+          "arXiv:1904.06998, §2, Theorem 2.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Only the self-hit among inspected entries has the exact boundary; the footprint record has an endpoint/interior window phase transition and the two-node record concerns one mean integral and two i.i.d. noiseless nodes",
+          "No exact tabulation for the stated two-target one-point risk was identified; the external lead for randomized two-point sampling was not authenticated"
+        ],
+        "reasoning": "The searched quantitative objects are continuous optimizer maps and thresholds rather than standard tabulated constants. Even an exact integral-variance design with two nodes concerns different information and cannot supply this one-point joint-target table.",
+        "searches": [
+          "Local Resultary exact and neighboring bridge designs; inspected mirrored findings at offset 0",
+          "Bounded primary-literature search for randomized two-point Brownian-bridge sampling"
+        ]
+      },
+      "rationale": "The inspected work supplies conditioning, polynomial coordinates, or related but different designs. It does not give or imply the complete global one-point phase boundary and boundary layer for these two jointly estimated moments. The exact-index match is the frozen record itself.",
+      "residual_risks": [
+        "The frozen text does not identify a primary source for its generic randomized two-point comparison. The bounded external lookup did not authenticate the lead; a publisher page was inaccessible. The indexed two-node comparator is not evidence about the inaccessible primary work.",
+        "The passage-level comparisons do not certify overall historical priority; an older joint-sensor specialization may exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identical record, not independent corroboration",
+          "evidence": "Same two targets, one noisy point, and same phase boundary and displacement.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-noise-induced-restoration-of-midpoint-sampling-for-two-bro--89a9092c8f3a",
+          "material_read": "Mirrored RESULT.md, finding, offset 0",
+          "method": "Resultary search and local mirror",
+          "title": "Sharp noise-induced restoration of midpoint sampling for two Brownian-bridge moments",
+          "trigger": "Exact Resultary search hit"
+        },
+        {
+          "assessment": "Distinct model and conclusion",
+          "evidence": "Fixed-width noisy interval average; one signed first moment; endpoint or interior placement of the window.",
+          "identifier_or_url": "2026/11/22/SCOPE-an-exact-noise-driven-footprint-transition-for-brownian-bridge-m--f8539d0767e8",
+          "material_read": "Mirrored RESULT.md, finding and proof",
+          "method": "Resultary search and local mirror",
+          "title": "An exact noise-driven footprint transition for Brownian-bridge moment estimation",
+          "trigger": "Close indexed bridge-design transition"
+        },
+        {
+          "assessment": "Different sample count, targets and loss",
+          "evidence": "Two independent randomized noiseless nodes; expected posterior variance for one integral.",
+          "identifier_or_url": "2026/11/2/SCOPE-unique-optimal-i-i-d-two-node-design-for-brownian-bridge-kernel--1c7b05ec88c4",
+          "material_read": "Mirrored RESULT.md, finding, offset 0",
+          "method": "Resultary search and local mirror",
+          "title": "Unique optimal i.i.d. two-node design for the Brownian-bridge kernel",
+          "trigger": "Related exact bridge quadrature design"
+        },
+        {
+          "assessment": "Generic conditioning, not the specific design result",
+          "evidence": "The posterior framework treats joint integration; the inspected equations do not optimize this one-point bridge design.",
+          "identifier_or_url": "https://arxiv.org/pdf/1801.04153",
+          "material_read": "PDF pp. 3–4, multi-output model and posterior mean/covariance, offsets 15382 and 22483",
+          "method": "Lawful OA primary PDF, targeted passages",
+          "title": "Bayesian Quadrature for Multiple Related Integrals",
+          "trigger": "Possibly stronger joint estimation framework"
+        },
+        {
+          "assessment": "Polynomial path approximation, not sensor placement for two moment targets",
+          "evidence": "Bridge KL coefficients are given by weighted path integrals and used for polynomial reconstruction.",
+          "identifier_or_url": "https://arxiv.org/pdf/1904.06998",
+          "material_read": "PDF pp. 1–2 and p. 5, §2 Theorem 2.2, offsets 0, 3300 and 18316",
+          "method": "Lawful OA primary PDF, targeted passages",
+          "title": "An Optimal Polynomial Approximation of Brownian Motion",
+          "trigger": "Bridge polynomial-moment coordinates"
+        },
+        {
+          "assessment": "Related optimization, no phase-boundary implication",
+          "evidence": "Weights and locally integral-variance-minimizing point sets do not decide this noisy two-target global optimizer.",
+          "identifier_or_url": "https://arxiv.org/pdf/1812.08509",
+          "material_read": "PDF pp. 4 and 8, offsets 25500 and 56463",
+          "method": "Lawful OA primary PDF, targeted passages",
+          "title": "On the Positivity and Magnitudes of Bayesian Quadrature Weights",
+          "trigger": "Quadrature design and point optimality"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–23 and 39–64",
+        "The inspected multi-output quadrature and bridge design comparisons above"
+      ],
+      "rationale": "The loss compares the ordinary bridge integral with the natural first antisymmetric polynomial moment on equal relative scales, so concentrating on the midpoint can discard information about an entire target. The exact threshold shows when the noise cost of moving away overwhelms that second gain. The arbitrary-weight phase diagram, global uniqueness counts and square-root coalescence give precise design information beyond a local instability calculation or a generic Gaussian conditioning identity.",
+      "residual_risks": [
+        "Value attaches to this specified two-target loss and fixed single-reading model; no robustness to different sensors, weights on other targets, or multiple readings is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

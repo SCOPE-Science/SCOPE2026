@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The regular-representation decomposition gives the exact rank identity. The quadratic determinant and zero-block criterion were recomputed from the explicit two-dimensional representation of \(S_3\), not inferred from floating-point data. The support normalization uses independent rotation/reflection shifts, because the induced \(2\times2\) transformation is invertible mod three. The exclusions for every shape follow from the one-dimensional block counts and the standard-block ranks, with a nonvanishing determinant identity for the three-tap mixed case. Every permitted rank is realized by one of 31 explicit exact witnesses; `VERIFY.py` reconstructs the full convolution matrices and confirms their ranks using exact arithmetic. All-complex-coefficient quantifiers rely on algebra, not on enumerating bounded coefficient sets.
+## correctness
 
-**Originality — PASS, with priority risk.** Source inspection identified a stronger **three-tap** result for arbitrary odd-prime dihedral groups, which explicitly covers the two three-tap rows; those rows are not claimed as new. The balanced-four-tap published result assumes uniform unit weights and cannot imply the arbitrary-complex-weight spectrum; its finite-specialization is contained in the current chart but not counted as a new consequence. Meshulam and Alagic–Russell provide general nonabelian uncertainty bounds and the rank-weighted definition without the complete nine-shape attainable diagram. The novel point is the coefficient-sensitive, exact-support classification for four-, five- and six-tap functions. Equivalent unpublished or unindexed S3 computations may exist.
+PASS
 
-**Value — PASS.** A full first-nonabelian-group uncertainty diagram is a natural benchmark of how support geometry constrains convolution invertibility and recovery rank. It exhibits concrete, nontrivial rank holes which cannot be read off from cardinality alone: the two different four-tap coset geometries have different attainable minima and intermediate rank patterns. Every allowed rank is constructively realizable on every fixed support. The result is deliberately finite and makes no unproved universal-dihedral extrapolation.
+For left regular convolution, the two scalar blocks are U+V and U-V, and the two-dimensional block occurs twice. Directly multiplying its entries from diag(w,w^2) and the swap matrix gives determinant Q(u)-Q(v); all entries vanish exactly for two constant triples, including a zero triple. Left/right rotation translates move the two coset subsets independently since (p,q)->(p+q,q-p) is invertible modulo 3, and a reflection switches cosets. On one coset the scalar contributions coincide, giving even ranks, and the standard block vanishes only at full constant triple support. For (1,1) determinant degeneracy forces precisely one scalar zero. For (2,1) the two scalars cannot both vanish and a single scalar zero implies determinant -3*u_0*u_1, so neither rank 2 nor 3 can occur. For (3,1) at least one scalar and a nonzero standard block remain. Two-tap partial triples exclude a zero standard block for (2,2) and (3,2); the full support case only needs faithfulness of the regular representation. Single-tap and same-coset cases give the stated remaining exclusions. I read the frozen witness table and output without executing its checker. /workspace/branches/reproduce_1.py generated exact integer witnesses for all 31 allowed pairs and verified their ranks independently by rational elimination on affine-permutation convolution matrices, including the real (4,1,1;3,3,0) witness for (3,2) at rank 3. These supply attainment, not the all-complex-coefficient exclusions.
 
-**Closest prior sources and limits.** The 2026 three-tap dihedral result gives exactly the \(k=3\) slice (already covered). The 2026 balanced four-tap result treats the unit-coefficient \((2,2)\) slice. General uncertainty sources supply inequalities only. The exact-day-verified archival source selected is Meshulam's 2003-12-22 abelian preprint; a still-earlier 1992 nonabelian article has only a month-level publication date in the consulted bibliographic material and is acknowledged, not assigned an invented day. The proof is local to \(S_3\) and the finite exact witnesses are not a replacement for the algebraic exclusions.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact arbitrary-complex rank diagram for every fixed support is distinct in the inspected evidence. The two nontrivial two-tap rows and both three-tap rows are known, and the unit-weight balanced four-tap case and certain lower bounds are covered; these are not independent contributions. The justified scope is the complete spectra at higher sparsities and their assembly into the full diagram.
+
+## value
+
+PASS
+
+S3 is the first nonabelian benchmark, and rank is intrinsic to recovery by convolution. Same-cardinality supports really do have different attainable sets. Beyond reproducing an uncertainty bound, the diagram identifies all higher-sparsity rank gaps and constructive attainability on each individual support, including the balanced four-point rank-two realization, which the previously known unit-weight case and lower bounds cannot give.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

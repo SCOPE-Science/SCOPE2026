@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The proof is self-contained in `RESULT.md` up to standard good-cover nerve and Whitehead/Hurewicz results. Its nonstandard content—the triangle census, cone intersections, and attaching-loop identification—can be checked directly from the adjacency predicate. The exact integral cycle-lattice calculation uses a fixed-root triangular cycle basis in the complete graph, so no finite-field inference is required to conclude torsion-freeness.
+# Independent mathematical audit
 
-Run `python3 verify_debruijn.py`. It enumerates all vertex subsets of sizes at most four for \(2\le q\le8\), partitions every triangle into the two claimed types, checks that no four-cliques exist, builds simplicial boundaries, checks \(\partial_1\partial_2=0\), and performs exact binary rank reduction. The actual output from this run is `verification_output.txt`.
+## correctness
 
-Finite checks cannot prove the infinite theorem; they independently corroborate the explicit uniform proof. No independent external audit or validation is claimed.
+PASS
+
+Using all ordered pairs, a diagonal word has bipartite link with one incoming and one outgoing side. For an off-diagonal overlapped edge ab,bc the common neighbors are bb and ca if a differs from c, or aa and bb otherwise; in either case they are nonadjacent. Thus no four-clique exists, all edges lie in the diagonal-star union, and the omitted triangles are the two cyclic orientations on each alphabet triple. The closed diagonal stars are cones and intersect pairwise in the edge ab--ba, with no triple intersections. Their good-cover nerve is the unfilled complete graph. Explicitly, on barycentric subdivision the map assigning each face the set of stars containing it is an inclusion-reversing nerve map; on a cyclic boundary it traces the three subdivided nerve edges because its vertices lie in the respective pair intersections. Attaching maps may therefore be transported across the nerve equivalence. The CW model has two disks attached around each alphabet triangle; one per triple gives the simply connected simplex two-skeleton when q>=3, and q=2 gives an interval. Root-triangle boundaries span the integral graph cycle lattice, of rank binomial(q-1,2). The kernel in degree two is free of rank 2 binomial(q,3)-binomial(q-1,2); the homology isomorphism from Hurewicz representatives is a homotopy equivalence by Whitehead. This verifies the unrestricted q proof without using finite-field ranks to infer integral homotopy.
+
+## originality
+
+PASS
+
+The bounded searches and decisive passages distinguish this all-alphabet flag-complex classification both from graph cycle-space results and from other same-day overlap-graph and nerve constructions. The exact Resultary hit is the assigned record itself.
+
+## value
+
+PASS
+
+A natural entire family of short-word transition graphs gains a tractable homotopy model after flag filling, not merely a graph-cycle count. The argument explains which cycles die via triangular fillings and why independent sphere classes remain, with an exact first noncontractible case at three letters. This provides an exact topology benchmark for word-overlap models without claiming the analogous result for longer words.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

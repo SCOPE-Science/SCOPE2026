@@ -1,23 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The published variational formula is reduced by reflection to decreasing affine-power weights; a uniform \(2/s\) tail bound keeps all maximizing parameters in a fixed compact interval. The explicit exponential-polynomial derivative has a single sign change: negative Taylor coefficients through degree thirteen and strictly positive coefficients thereafter via a verified induction. This gives a unique nondegenerate limiting maximizer. A uniform \(C^2\) expansion of (1-st/m)^m yields \(D_n\)=\(D_\infty\)-C/(n-2)+\(O((n-2)^{-2})\) and eventual profile uniqueness. An exact-rational standalone checker verifies coefficient identities, critical-root sign bounds, and \(C>0\).
+PASS
 
-The original analytic argument, not finite computation, establishes all-dimensional uniqueness and the error order. Rational moment enclosures confirm the positive coefficient.
+The sharp constant is correctly imported from the affine variational formula with exponent m=n-2. The objective is variance divided by mean, so reflection strictly improves increasing profiles. Integrating (t²w)' and using -w'≥sw proves F_m(s)≤2/s, which keeps all large-m maximizers in a fixed compact interval. Independently, with A=e^s−1 and B=A−s the limiting objective simplifies to 1/s+1/A−s/B; its derivative gives the displayed numerator with denominator s²A²B² and the opposite sign. The Taylor coefficients vanish through order 7, are negative in orders 8–13, and are positive starting at 14 by the stated induction (the cubic in that induction becomes h³+24h²+155h+264 at k=14+h). Therefore the derivative of P(s)/s^13 is positive on s>0 and the unique positive zero is nondegenerate. The uniform C² expansion of the affine-power weights gives strict concavity near that zero and a displacement O(m^-1) of the sole eventual scalar maximizer; stationarity then leaves the displayed first-order correction in its value. Independent replay: python3 /workspace/centroid_independent_certificate.py, using exact rational geometric and alternating Taylor tails rather than the supplied moment enclosure, verified the signs at 2.353317385 and 2.353317386 and obtained 0.038267059667≤C≤0.038267062326. This certifies positivity, not an explicit finite-dimensional threshold. Uniqueness refers to the normalized affine profile, not a convex body.
 
-## Originality — PASS (provisional historical priority)
+## originality
 
-The 2022 projection-centroid theorem and the 2026 boundary-centroid theorem already give the same \(D_n\), its precise variational formula, and \(D_\infty\)≈0.201619. The added first-order positive dimensional gap and eventual unique maximizing affine profile were not identified in the primary full texts or searches for equivalent rates. The first-order formula is not a trivial consequence of monotonicity, and the essential global uniqueness and nondegeneracy are proved separately. Remaining historical-indexing risk acknowledged.
+PASS
 
-Closest work: Myroshnychenko–Tatarko–Yaskin, arXiv:2212.14456v1 (the full sharp sequence and limit), and Myroshnychenko–Ryabogin–Tatarko–Yaskin, arXiv:2611.11635v1 (the same sharp sequence for boundary centroids). The known exact dimension-four coefficient does not imply a high-dimensional rate. Both primary texts were examined; no claim of exhaustive historical uniqueness is made.
+The sharp inequality, variational constant, limit and approximate optimizing argument are prior. The inspected results do not give the explicit positive first-order gap with quadratic-order remainder or the continuous and eventual scalar optimizer uniqueness proved here. This is a bounded comparison, not a claim of universal priority.
 
-## Mathematical value — PASS
+## value
 
-The known dimension-free optimal constant is reached from below, but existing sharp estimates do not quantify the approach. The exact coefficient gives a sharp high-dimensional correction to a natural, repeatedly studied centroid-versus-boundary/projection invariant, and a geometric asymptotic description of maximizing needle profiles. This is not a small-parameter substitution or isolated table recomputation.
+PASS
 
-## Limitations
+Quantifies the dimensional deficit of a natural sharp geometric bound, beyond a known limiting value. The positive exact coefficient distinguishes a genuine 1/n gap from faster convergence, and the nondegenerate unique profile controls how the optimizing affine shape approaches its limit. This does not claim new extremizing bodies or a bound for every small dimension.
 
-The expansion holds asymptotically rather than as an explicit finite-dimension bound, and eventual uniqueness lacks a numerical dimension threshold. Historical priority is not independently established.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

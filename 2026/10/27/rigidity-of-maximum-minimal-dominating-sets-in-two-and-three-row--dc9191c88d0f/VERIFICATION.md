@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification instructions and limits
+# Independent mathematical audit
 
-Execute `python3 verify.py` with Python 3.10 or later. The program reconstructs the local domination/private-witness predicate from the Cartesian grid, then exactly calculates the optimal weight and count for each four-column state. It confirms the state-support equality, translated maximum-weight vectors and zero second differences of optimal-prefix counts at three specified lengths, and checks zero final-count slopes in four residue classes. These finite identities plus the stated linear induction prove the all-order claims.
+## correctness
 
-Two independent formulations are used for finite cross-checks: the column-state recurrence and an exhaustive original-vertex-bitmask test. Each listed family of extremizers is also tested using direct vertex neighborhoods, and small exact counts are compared against the number of distinct patterns. The finite brute-force checks alone would not prove an infinite statement; they are secondary verification.
+PASS
 
-The implementation uses exact Python integers and no external dependencies. Computer-independent formal proof checking and independent historical-priority research have not been performed. The claim excludes grid heights above three.
+A selected vertex is essential exactly when its closed neighborhood contains a real vertex whose own closed neighborhood meets the selection in just that vertex. Five masks suffice for this test and domination at the center; the last two real columns are validated by padding twice, with absent and unselected columns treated distinctly. At a fixed four-mask suffix a suboptimal prefix cannot catch up. An independently written closed-neighborhood bitset recurrence reproduced at height three the equal supports of size 1285 at lengths 16, 20 and 24, weight increments 6 on every state, and zero count second differences. It reproduced terminal pairs (24,4), (27,4), (30,4), (33,4) at lengths 16,18,20,22 and the stated even base counts; it also matched the frozen height-two certificate. A coordinate-wide additive weight shift preserves all maximizing transitions, so four steps act on counts by the same integer linear map throughout the orbit. The verified second difference yields affine count evolution; two identical terminal counts in each even residue class set its slope to zero. This proves every even length, not just the test orders. Both checkerboards and both full-column patterns have the requisite size, domination and private witnesses, and are distinct also at n=2, so the count proves exhaustiveness.
+
+## originality
+
+PASS
+
+Only the exhaustive even-length three-row pattern classification and the corresponding count are claimed in the repair. The two-row duplicate, known scalar formula, odd-length uniqueness, and earlier ladder automaton framework are credited and are not independent novelty claims.
+
+## value
+
+PASS
+
+The next open strip after the ladder is a natural setting to test whether the known extremal size hides further patterns. The even three-row result shows that rows drop out but the checkerboards and two full-column types exhaust all maxima, including nonindependent ones. This supplies a useful top coefficient and structural list not implied by the size theorem, with an exact all-order certificate rather than a small grid census or a restatement of the ladder result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

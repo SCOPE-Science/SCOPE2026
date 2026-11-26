@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The multiplication table is associative because every product of three nonunits vanishes; its radical and dimensions are explicit. The squaring map on the radical has independent quadratic coordinates exactly the graph edge monomials. The resulting squarefree edge ideal identifies the reduced scheme without characteristic assumptions. Standard support stratification yields the Grothendieck class, finite-field count, component dimensions, and Hilbert series. A directly reconstructed checker exhaustively verifies 82 graph/prime-field instances and associativity.
+## correctness
 
-**Originality — PASS, qualified.** Bell–Pekcagliyan's full available article concerns primitivity of prime monomial algebras, not the present nilpotent short local algebras; Morey–Villarreal's full available article develops graph edge ideals without the square-zero associative realization. Chudnovsky–Seymour's paper concerns roots of the independence polynomial. Rickard's 2014 two-generator observation is a genuine antecedent and is not claimed as new. Relevant published-record searches did not reveal an arbitrary-graph realization with these exact algebraic/geometric consequences. Since an equivalent formulation under nilpotent multiplication tensors might exist outside the inspected corpus, this is a best-knowledge novelty assessment rather than a uniqueness certification.
+PASS
 
-**Value — PASS.** The construction is uniform in graph and characteristic, converts arbitrary independence complexes into natural square-zero loci of local algebras with radical cube zero, and transfers geometric, arithmetic, and complexity phenomena in one theorem. The path graph already forces non-equidimensional components, while counting over the binary field captures the #P-hard graph-independent-set enumerator. In characteristic two over algebraically closed fields, every commutative finite-dimensional algebra has linear reduced square-zero locus by Frobenius, so the displayed noncommutative realization also establishes a sharp qualitative commutative/noncommutative boundary. This is a motivated structural universality result, not an isolated small-case count.
+Retaining exactly one oriented two-letter word per edge and killing all words of length three or more makes the stated basis a monomial quotient. Any product of three nonunits is zero, and their span is a nilpotent two-sided ideal with field quotient, hence the Jacobson radical. Squaring in that ideal gives one coefficient c_i c_j per edge, never 2c_i c_j, and leaves all m edge coordinates free. The resulting edge ideal equals the intersection of coordinate primes obtained by setting c_i=0 outside maximal independent sets: a monomial avoids the edge ideal exactly when its support lies in some such set. This proves reducedness over every field and identifies the components and their dimensions. In the whole algebra the scalar equation is lambda²=0, so the radical contains lambda; modulo lambda the ideal is the same reduced edge ideal. The independent-support strata have affine-times-torus class and point counts as stated, while the monomials of exact support S contribute (t/(1−t))^|S|, with an extra free factor (1−t)^(-m). Over F2, the explicit table is polynomial size, and division of the full or radical count by 2^m recovers the independent-set count; the conclusion is Turing hardness, not parsimony. In characteristic two over an algebraically closed field, commutativity makes every square-coordinate equation a square of a linear form, proving the reduced-linearity obstruction. An edge forces two distinct maximal independent sets, so its locus is reducible.
 
-**Limitations.** This covers a constructed monomial family, not all local algebras; it does not classify algebra isomorphism classes. The full square-zero scheme may be nonreduced. The hardness claim uses Turing reductions. A related two-generator public research record was visible only through a summary; its full text was not available for comparison. No independent audit or comprehensive priority certification was performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge pass for the uniform realization of arbitrary graph edge ideals, up to the stated free factor, as square equations in this particularly short associative monomial class. The standard Stanley–Reisner geometry and enumerators are not new in isolation. The closest retrieved graph/square-zero results concern a different operator equation or different varieties. A potentially related two-generator example could not be inspected and remains an explicit risk, not grounds by itself for failure.
+
+## value
+
+PASS
+
+This is a uniform link between two natural structures, not a recomputation of graph enumerators: even a cube-zero radical in a short monomial algebra can have arbitrary graph independence-complex component patterns in its squaring locus. The characteristic-two contrast explains why order of multiplication matters, and the explicit sparse multiplication rule yields a hardness transfer in a restricted finite-field class. The standard formulas for edge ideals become geometric and computational information about the chosen algebra after the realization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

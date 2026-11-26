@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness: PASS.** The exact ratio identity and its valuation jump formula are derived without unproved assumptions. Resultant restrictions prove no missing prime at least five; the exceptional primes two and three are classified separately. The root valuation density proof is an exhaustive enumeration of affine residue classes, not extrapolation from finite experiments. The standalone checker independently uses factorial valuations and passes 2,160,972 assertions over 18 primes below index 20,000. Infinite quantifiers rest on the written proof.
+## correctness
 
-**Originality: PASS (qualified).** Lin (2011) provides the canonical object. Konvalinka (2007) supplies a general prime-relative valuation result and, for arity three, a prime-three digit-sum formula. The complete inspected published-finding corpus papers concerning ternary Fuss–Catalan valuations calculate one-point dyadic and ternary block histograms, not adjacent extrema, their all-prime exception list, or coupled flank distributions. Full implication and alias comparisons appear in AUDIT.json. No statement inspected dominates the evaluated claim, but missing historical ledgers and an inaccessible plausible thesis leave priority risk.
+PASS
 
-**Mathematical value: PASS.** The theorem replaces an unstructured factorial-divisibility landscape with a complete finite exceptional-prime classification of sharp local peaks and valleys, all residue-class locations, and exact paired-drop distributions. It is a natural and exhaustive index-local invariant of ternary-tree numbers, rather than a small collection of examples or a restatement of the ratio recurrence.
+Writing F_n=(3n)!/(n!(2n+1)!) gives the claimed quotient and hence the signed valuation jump J_p(n). A peak needs J_p(n-1)>0>J_p(n), and a valley the opposite. For p>=5 a peak requires one of 3n-2,3n-1 to vanish modulo p together with one of n+1,2n+3. Their four eliminants have absolute values 5,13,4,11. Direct substitution at (p,n mod p)=(5,4),(11,4),(13,5) shows every other factor in the respective jumps is a unit, giving exactly the reported drops. For a valley, n or 2n+1 would have to vanish alongside one of 3n+1,3n+2; at n=0 the latter have values 1,2, and the two eliminants involving 2n+1 are +/-1. At p=3 the jump is 1-v_3(n+1)-v_3(2n+3): it is positive in class 1 modulo 3 and negative precisely in classes 3,8 modulo 9. At p=2 the successive classes modulo 4 have sign zero, nonnegative, positive, negative, with exact jumps as given; thus only 3 modulo 4 is a peak, and the following zero jump rules out valleys. The case n=1 uses F_0=1 and requires no exception. For p=5,11,13, after writing n=c+pt and dividing each active factor by p, the root pairs for t modulo p are (1,4),(7,5),(4,6), respectively. Since they are distinct, at most one flank exceeds one, and one unit-slope root class at each higher power gives (p-1)/p^j for a flank of size j. For p=3 the varying factors after removing the fixed powers are t+1 or 1+2t on the respective progressions, and at p=2 the factors are 2+3t and t+1 with opposite parities. These exact residue counts verify every joint mass and its normalization. The frozen checker was inspected, not executed; the all-prime exclusions and density limits follow analytically.
 
-**Limitations.** Only strict neighboring valuation extrema for ternary Fuss–Catalan numbers are proved; no analogous all-arity or nonadjacent-gap classification. Published index-block maximum formulas concern a different notion of maximum. The originality review is best-knowledge, not an independence certificate.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The factorial quotient and prior pointwise digit or carry formulas are not new. The supported distinct claim is the evaluated all-prime adjacency classification, including the three odd primes beyond 3, the absence of other peaks and valleys, and exact conditional paired-flank densities. Prior block spectra and pointwise expressions provide real overlap but not that classification; related adjacent laws use different counting sequences.
+
+## value
+
+PASS
+
+The exact exceptional-prime set is a structural result for the natural ternary-tree count, and strict valleys are notably scarcer than strict peaks. The joint laws add information absent even from separate flank marginals: at 5,11,13 one flank must equal one, whereas the other has unbounded support. The classification and dependence are useful local structure, not just a different presentation of a factorial quotient or a list of examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

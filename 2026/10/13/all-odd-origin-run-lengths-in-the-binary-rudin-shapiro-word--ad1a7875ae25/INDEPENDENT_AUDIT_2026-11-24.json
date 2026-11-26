@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:52:34.519704Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md:5–53, VERIFICATION.md and verify.py inspected, not executed",
+        "Independent finite replay: python3 /workspace/branches/a8be5818-c69a-4a0b-99e4-1e29decddcba/independent_check.py ; 8190 duplication checks, 50 prescribed odd k from 3 through 101, 13 examples for k=1"
+      ],
+      "rationale": "With r(0)=0 the length equals the first mismatch index, not one less. Since r(2t)=r(t), a first mismatch cannot be even. Existence for arbitrary d also has a direct check: write d=2^s u with u odd, choose L>=3 with 2^L congruent to 1 modulo u (arbitrary L>=3 if u=1), and form 2^s times the sum of u copies of 3 at shifts 0,L,...,(u-1)L. This is a positive multiple of d with exactly u separated 11 occurrences. For prescribed odd k>=3, padded duplication at width L with 2^L=2Q leaves just the boundary pair, so r((2Q+1)x) is 1 exactly for odd Q<=x<2Q in that width. The largest odd a<=Q/(k-1) satisfies a>Q/(k-1)-2. Thus (k-2)a<Q<=ka<2Q, using Q/(k-1)>=2k; all earlier odd multiples stay below Q and even multiples have parity zero. The least admissible Q is <4k(k-1), giving a<4k and d<32k^3. Larger dyadic Q give strictly increasing differences as a is positive and nondecreasing. k=1 is checked by 3 times powers of two. This proves all quantifiers in RESULT.md:5–53.",
+      "residual_risks": [
+        "The finite replay corroborates only its bounded ranges; the binary and interval arguments establish the infinite result."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Per-difference upper bounds and some equalities in Sobolewski do not enumerate the range over d.",
+          "Joshi–Rust §3.3 gives for dyadic d an arbitrary-start optimum 4 first attained at 7d, which is not the origin-fixed length.",
+          "Resultary fixed-d factors allow any starting position, and the doubled-binary automaton record addresses patterns ending in zero."
+        ],
+        "reasoning": "Arbitrary-start existence does not force a word at zero; the doubled-binary record excludes the target pattern, which ends in 1.",
+        "searches": [
+          "arXiv:2204.05287v2 Theorem 1.4 and Proposition 5.4",
+          "arXiv:2501.05830v2 §3.3",
+          "Local Resultary fixed-d and pattern-counting comparisons"
+        ]
+      },
+      "checked_sources": [
+        "Sobolewski arXiv:2204.05287v2",
+        "Joshi–Rust arXiv:2501.05830v2",
+        "Resultary e50f1c006224, fe7e5db75d27; same-day 666e321caf9a limited to indexed statement"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For width L and odd multiplier m, that proof already characterizes the first mismatch of the duplicated word by high and low bits; for 11 the two bits must be one. The proposition states fixed-m asymptotics and an exact fixed-m=1 family."
+        ],
+        "reasoning": "The local identity is prior. The inverse problem still requires choosing m odd with (k-2)m<Q<=km<2Q for every prescribed odd k and bounding its dyadic width; the prior fixed-m range and the sparse exact m=1 family do not give this result by parameter substitution.",
+        "searches": [
+          "arXiv:2204.05287v2 Proposition 5.4 proof, pp.21–22, equations (10)–(12)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Problem 8, p.26, asks for the possible A_v(0,d) and A_v(d) and conjectures all positive odd fixed-origin values for patterns ending in 1."
+        ],
+        "reasoning": "The specialization v=11 is exactly the question, not an earlier proof. The first mismatch at j=k is equivalent to having k matching terms including position zero.",
+        "searches": [
+          "arXiv:2204.05287v2 §6 Problem 8",
+          "Local Resultary search of origin-fixed Rudin–Shapiro run spectrum"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed Resultary counts concern fixed-length factors, not the first mismatch at zero; the same-day Thue–Morse hit concerns a different sequence and invariant.",
+          "The frozen OEIS descriptions specify the longest length over starts and the first attaining start, respectively."
+        ],
+        "reasoning": "Neither of those table quantities gives the origin-run range or an inverse witness for every odd target. Same-day dating was not used to exclude any match.",
+        "searches": [
+          "Local Resultary search on Rudin–Shapiro and doubled binary pattern A_v(0,d)",
+          "OEIS A364995 and A380593 as compared in RESULT.md:67,77"
+        ]
+      },
+      "rationale": "The exact all-odd spectrum for 11 and its polynomial witness bound are distinct on the inspected evidence. Sobolewski posed the matching attainment conjecture and already supplied the duplicated-block formula. Here the multiplier is solved for as a function of the target length, with control of the first mismatch and of the difference size, rather than held fixed to bound lengths as the width increases.",
+      "residual_risks": [
+        "No priority guarantee: an unindexed earlier inversion of the duplicated-block constraints remains possible. The same-day Thue–Morse file was unavailable on the mirror, but its indexed statement is on a different sequence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Matching conjecture; antecedent lower-level method and special cases, not solved spectrum",
+          "evidence": [
+            "Problem 8 conjectures odd attainment; equations (10)–(12) impose the bit and width constraints for m held fixed in the proposition."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2204.05287v2",
+          "material_read": "Theorem 1.4 comparison; Proposition 5.4 statement and proof pp.21–22 (OA text offset 71900); §6 Problem 8 p.26 (offset 91899)",
+          "method": "Bounded original OA passages",
+          "title": "On monochromatic arithmetic progressions in binary words associated with pattern sequences",
+          "trigger": "Same origin-fixed invariant, construction and exact open question"
+        },
+        {
+          "assessment": "Different starting-position quantifier",
+          "evidence": [
+            "For d=2^n the reported maximum is 4 with first attaining start 7d."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2501.05830v2",
+          "material_read": "§3.3 p.7 (OA text offset 29348)",
+          "method": "Bounded original OA passage",
+          "title": "Monochromatic arithmetic progressions in the Fibonacci, Thue–Morse, and Rudin–Shapiro words",
+          "trigger": "Closest subsequent work on the same progression coloring"
+        },
+        {
+          "assessment": "Different quantifier and different pattern family, respectively",
+          "evidence": [
+            "One classifies five-term factors at arbitrary starts; the other treats patterns ending in 0."
+          ],
+          "identifier_or_url": "Resultary 2026/10/12 ids e50f1c006224 and fe7e5db75d27",
+          "material_read": "Local mirror result statements, particularly e50f1c006224 RESULT.md offset 0",
+          "method": "Local index and mirror",
+          "title": "Five-term Rudin–Shapiro arithmetic factors and finite-window automaticity for doubled binary patterns",
+          "trigger": "Nearest corpus statements for the sequence and for the origin invariant"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Sobolewski §6 Problem 8",
+        "Frozen RESULT.md:37–53"
+      ],
+      "rationale": "Resolves a concrete published open question for the classical pattern 11 with exact attainable values, not just unboundedness; gives explicit witnesses of cubic size and infinitely many distinct differences per length. The construction for k>=3 in fact supplies infinitely many odd differences, beyond the trivial rescaling by powers of two.",
+      "residual_risks": [
+        "Does not settle other patterns, unrestricted-start lengths, least witnessing differences or sharpness of the cubic bound."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

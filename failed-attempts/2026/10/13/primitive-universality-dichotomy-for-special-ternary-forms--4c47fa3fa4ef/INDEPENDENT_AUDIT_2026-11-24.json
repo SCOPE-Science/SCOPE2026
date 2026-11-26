@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:44:22.531509Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, proof",
+        "VERIFICATION.md",
+        "verify.py",
+        "VERIFY_OUTPUT.txt",
+        "Dung–Thang, Theorem 5; d=2 uses 1²+1²"
+      ],
+      "rationale": "For special d>1 the coprime decomposition d=A²+B² follows by choosing one Gaussian prime above each odd prime dividing d and, for even d, the factor 1+i once. The Gaussian integer and its conjugate then have no common rational prime divisor of their coordinates, and d>1 precludes an axis with coprime coordinates. In the displayed ansatz, Q_d(Ac+u,Bc+v,c)=2(Au+Bv)c+u²+v² and any triple gcd divides Au+Bv. For odd d, shifting the Bezout solution switches the required parity because A,B have opposite parity; for even d and odd m the sum of squares of the offsets is always odd. For even d with m=2 mod 4 the offset pair is chosen odd and Au+Bv=2, excluding a common factor 2. For m=0 mod 8 the offsets are twice a Bezout solution, their squares sum to 4 mod 8, and c is odd. In each case the shift has nonzero quadratic leading coefficient in c and hence in both other coordinates, so infinitely many distinct parameter values give nonzero triples. The d=1 formula uses consecutive a,c and varying b of fixed parity. Finally, for d=2 mod 8 and m=4 mod 8, odd c would force a²+b²=6 mod 8; even c forces a,b even. The constructive and forbidden-box evidence was inspected as finite regression only.",
+      "residual_risks": [
+        "No assertion for nonspecial d or count by height is established."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Nowicki's d=1 Proposition 2 families have a consecutive pair, proving primitive infinitude. His d=2 Proposition 10 families are primitive for odd targets and 2 mod 4 (consecutive coordinates), and for 0 mod 8 (k even in [k−1,k+1,k−1]); the exceptional witnesses for those classes also have gcd 1. The Pell transformation (a,c)→(3a+4c,2a+3c) is unimodular and preserves gcd with b, giving the primitive infinitude in that branch.",
+          "Lam and Dung–Thang establish ordinary specialness for the indicated parameter family; Dung–Thang's actual witnesses give the stronger implication above."
+        ],
+        "reasoning": "Ordinary universality and ordinary infinitude would not by themselves imply the primitive conclusion. The explicit witnesses and transformations do. The general spinor-genus reference is not needed for the decision.",
+        "searches": [
+          "Nowicki (2015), Propositions 2 and 9–11",
+          "Lam (2015), Theorem 3",
+          "Dung–Thang (2021), Theorems 1 and 5",
+          "Earnest–Hsia–Hung, JLMS 50 (1994), pp. 222–230"
+        ]
+      },
+      "checked_sources": [
+        "Dung–Thang 2021",
+        "Nowicki 2015",
+        "Lam 2015",
+        "Harrington–Gross 2015",
+        "Resultary d6f1ea4a9208"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For m divisible by 4 the published even offsets u=2r, v=2s give r²+s² odd, hence c=(m−4(r²+s²))/4 is odd exactly when m=0 mod 8. Offset oddness in their 2 mod 4 case instead prevents both offsets being divisible by 2.",
+          "For d=2 mod 8, the only possible representations of 4 mod 8 are all-even triples, immediately from squared residues."
+        ],
+        "reasoning": "The inspected formulas already supply every admissible family with infinitely many primitive triples. Reading off their gcd and appending the one local obstruction yields the submitted complete value set. This is stronger evidence than absence of the word primitive in a theorem statement.",
+        "searches": [
+          "Dung–Thang pp. 3–7, Eq. (1), Eq. (2), Eq. (3), and both even-target subcases",
+          "Nowicki p. 2 Proposition 2 and p. 4 Proposition 10"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same gcd question is whether a common factor can divide the two offsets and c. Published offsets satisfy a linear Bezout equation with rhs 1 or 2 and the same parity choices."
+        ],
+        "reasoning": "This formulation shows substantial prior implication even though the published definition of special does not contain a gcd condition.",
+        "searches": [
+          "Resultary: primitive integral representations by a²+b²−dc²; special parameters and 4 mod 8",
+          "Dung–Thang, Eq. (1)–(3) and proof cases (a)–(d)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The catalogue finding tabulates fibers and minima for triples of units modulo n, and Theorem 5 describes unit specialness in the residue ring."
+        ],
+        "reasoning": "Unit-coordinate modular fibers are not the exact primitive integral value set; these tables do not resolve the integral claim or its priority.",
+        "searches": [
+          "Resultary d6f1ea4a9208, exact unit-congruence fibers",
+          "Harrington–Gross (2015), Theorem 5"
+        ]
+      },
+      "rationale": "The submitted classification is correct but is a direct corollary of explicit published polynomial families and the elementary modulo-8 check, not a new representation construction. In Dung–Thang (2021), pp. 3–7, the witnesses are exactly (Ac+u,Bc+v,c) with the same shift families and with Au+Bv=1 or 2. For rhs 1 any common divisor is already excluded. For rhs 2 and m=2 mod 4, their proof already uses both offsets odd. For rhs 2 and targets divisible by 4, their proof already uses both offsets even; after division by 2 their Bezout equation has rhs 1 with both coefficients odd, so the divided offsets have opposite parity. Consequently their c is odd for m=0 mod 8 and even for m=4 mod 8. The published families remain nonzero for all sufficiently large shifts and their c is unbounded. This is actual coverage by the formulas, not an inference from ordinary universality alone. Nowicki's explicit families cover the small endpoints d=1 and d=2 as well. The only extra ingredient for the exact classification is exclusion of 4 mod 8, by the immediate squared residues 0,1,4. No source read was found expressly stating the entire primitive classification; the reason for failure is the direct implication, not an unavailable paper.",
+      "residual_risks": [
+        "An explicit earlier statement of the exact dichotomy or a broader local-global theorem may exist; the comparison establishing prior implication does not require one."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior formulas directly give all asserted existence and infinitude for d>2",
+          "evidence": "Eq. (1) and (2) are Bezout equations with rhs 1; Eq. (3) has rhs 2 and its 0 mod 4 subcase fixes even offsets for all shifts in a parity class.",
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL24/Thang/thang41.pdf",
+          "material_read": "Theorems 1 and 5, pp. 1–2; proof cases (a)–(d) pp. 3–7, offsets 0–6092, 6400–14380 and 14280–18109",
+          "method": "Open journal PDF, bounded passages",
+          "title": "The Number a²+b²−dc² Revisited",
+          "trigger": "Exact family and constructive prior proof"
+        },
+        {
+          "assessment": "Explicit formulas imply the endpoint claims with the gcd and parity checks",
+          "evidence": "Proposition 2 has consecutive coordinates; the d=2 witnesses and the Pell construction yield primitive infinitude by unimodularity.",
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL18/Nowicki/nowicki3.pdf",
+          "material_read": "Propositions 1–2 and 9–11, pp. 1–4, offsets 0–3418 and 5150–9418",
+          "method": "Open journal PDF, bounded passages",
+          "title": "The Numbers a²+b²−dc²",
+          "trigger": "Endpoint cases and earlier explicit families"
+        },
+        {
+          "assessment": "Earlier ordinary representation result and close proof overlap",
+          "evidence": "Ordinary nonzero representation, with shifts already used to remove zero coordinates.",
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL18/Lam/lam2.pdf",
+          "material_read": "Theorems 2–3 and shifted Bezout proof, pp. 1–3, including offsets 4100–8082",
+          "method": "Open journal PDF",
+          "title": "Representation of Integers Using a²+b²−dc²",
+          "trigger": "Earlier sufficiency of special-parameter characterization"
+        },
+        {
+          "assessment": "Counts modular unit triples, not primitive integral triples",
+          "evidence": "Its limitations distinguish the two counts.",
+          "identifier_or_url": "2026/10/18/SCOPE-exact-unit-congruence-fibers-and-sharp-representation-minima-for--d6f1ea4a9208",
+          "material_read": "RESULT.md, offsets 0–2047 and 7000–9210",
+          "method": "Resultary and mirrored record",
+          "title": "Exact unit-congruence fibers and sharp representation minima",
+          "trigger": "Closest Resultary hit"
+        },
+        {
+          "assessment": "Different predicate",
+          "evidence": "Every coordinate must be a unit modulo n.",
+          "identifier_or_url": "https://www.maths.tcd.ie/EMIS/journals/JIS/VOL18/Harrington/harr5.pdf",
+          "material_read": "Theorem 5, p. 2, around offset 3371",
+          "method": "Open journal PDF",
+          "title": "Special Numbers in the Ring Z_n",
+          "trigger": "Modular interpretation of specialness"
+        },
+        {
+          "assessment": "No determination of implication from this source",
+          "evidence": "Not used to infer coverage or noncoverage.",
+          "identifier_or_url": "Earnest–Hsia–Hung, JLMS 50 (1994), 222–230",
+          "material_read": "Bibliographic identity only",
+          "method": "Lawful open-text lookup; no repository copy found and publisher denied access",
+          "title": "Primitive Representations by Spinor Genera of Ternary Quadratic Forms",
+          "trigger": "Potential general primitive-representation theorem"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, Finding and proof",
+        "Dung–Thang 2021, ordinary specialness and constructions"
+      ],
+      "rationale": "As a mathematical statement, the complete primitive value set distinguishes ordinary from primitive universality for an entire natural family and locates the exact obstruction, rather than only exhibiting individual failed representations. This usefulness does not make the result new given the published formulas.",
+      "residual_risks": [
+        "The remaining stand-alone mod-8 observation is a routine residue check, not a substantive new replacement finding."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:47:56.410756Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For hub-to-leaf flux z_i the subgradient is (sum z_i,-z_1,...,-z_m); stationarity with admissible z is sufficient by strict convexity. For k tied leaves all free fluxes of the minimum-norm subgradient agree, by symmetry and strict convexity of the flux objective. Its derivative yields z=clip(-a/(k+1),-1,1), where a sums the untied signs. At m<=3, |a|<=m-k<=k+1 for k>=1, so hub and tied leaves have identical minimum-norm subgradient entries; all variations of subgradients are supported on tied-edge differences and are orthogonal to that minimum. With no ties the subgradient is a singleton. Burger et al. Theorem 5 applies to the resulting polyhedral absolutely one-homogeneous functional with MINSUB, and autonomous flow uniqueness yields the semigroup. Independently, one can evolve the hub and tied leaves together at speed -a/(k+1), grow the tied cluster at each collision, and move all untied leaves toward the hub at unit speed until collision. For m<=3 these fluxes are admissible at each step. Every final untied edge has retained its sign, so the time-average flux is valid at the final configuration and certifies that it is the unique proximal output. For m=4 the three certificate flux sums are 5/2,7/4,2; for m=5 they are -4,-9/4,-3. In each case subtracting the scaled sums from the current hub and adding the scaled flux to each leaf reproduces the three displayed outputs. Each flux has the required final sign or is allowed on a tie. The resulting gaps are 1/4 and 1/2 in sup norm. Appended low/high pairs have constant flux (+1,-1) at all three solves, cancel at the hub and stay strictly outside the whole range of original hub positions. Thus both parity classes and all m>=4 are covered. The checker was inspected, not executed; it prints 38 large-star sign configurations but the degree loop 4 through 40 contains 37, a reporting typo that does not affect the analytic proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "For D the oriented star incidence matrix, DD^T has diagonal 2 and m-1 off-diagonal entries of absolute value one in each row. Burger et al. Theorems 5 and 7 therefore already imply the all-input positive result at m<=3.",
+          "The generalized lasso boundary persistence and graph fused-group splitting references are broad methods or sufficient criteria, not a converse implication from failure of diagonal dominance.",
+          "The failed-budget weighted star construction supplies actual fused then split states, rather than only failure of a sufficient condition."
+        ],
+        "reasoning": "The strict converse needs an actual restart calculation, not an unsupported contraposition of a sufficient theorem. The existing explicit weighted-star witness makes that calculation a direct specialization in the unweighted case.",
+        "searches": [
+          "Burger et al. arXiv:1601.02912 Theorems 5 and 7",
+          "Bungert et al. arXiv:1901.06979 Theorem 4.5",
+          "star fused lasso split four leaves no split graph Hoefling path algorithm star graph solution path semigroup TV",
+          "Tibshirani–Taylor arXiv:1005.1971 §6; Hoefling arXiv:0910.0526 §3.2; Chiquet et al. arXiv:1407.5915 no-split result"
+        ]
+      },
+      "checked_sources": [
+        "Resultary fcd11a969142 (distinct) and 8681e6f10f14 (self)",
+        "Burger et al. arXiv:1601.02912",
+        "Kirisits et al. arXiv:1807.10514",
+        "Tibshirani–Taylor arXiv:1005.1971 and Hoefling arXiv:0910.0526",
+        "Bungert et al. arXiv:1901.06979 and Chiquet et al. arXiv:1407.5915 p. 8 (complete fusion-clustering weights rather than star TV)",
+        "Targeted literature web queries on star TV and graph fused-lasso splitting"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Specialize the existing failed-budget data to m>=4, hub zero, one leaf H=(2m-5)/4, and m-1 leaves at R=10m. The published fused interval [H/(m+1),H/(m-3)] contains 1/2 in its interior and ends before 1. At the published fused hub h=(H+(m-1)/2)/2=(4m-7)/8, P_(1/2)(y)=(h,h,R-1/2,...).",
+          "The same saturated KKT formula specializes to both the restarted zero-gap case and the full unit step: P_(1/2)(P_(1/2)(y))=(h+(m-2)/2,h+1/2,R-1,...) and P_1(y)=(m-2,H+1,R-1,...). In each, hub-minus-special-leaf is strictly positive and all R-leaves are strictly above the hub; the flux is (1,-1,...,-1). The difference is (1/8,-1/8,0,...)."
+        ],
+        "reasoning": "The half-step fused state is supplied by the comparator's explicit formula; the remaining evaluations use its same data geometry and saturated fluxes. This direct implication supplies the frozen all-degree fixed-half-step failure, without a new negative mechanism. The positive degree classification follows from the existing DD theorem. The chosen rational values in the frozen examples differ, but are not materially distinct scientific claims.",
+        "searches": [
+          "fcd11a969142 local-mirror Proof 3: Necessity by an actual later separation (offset 7000–8462)",
+          "arXiv:1601.02912 Theorems 5 and 7"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The assigned record 8681e6f10f14 is its own exact match, not prior evidence. Distinct fcd11a969142 gives the weighted star irreversible-fusion budget and the same cutoff under unit weights and unweighted fidelity.",
+          "Kirisits–Scherzer–Setterqvist distinguish variational ROF and flow and record a graph-TV semigroup failure; their graph in Figure 4 has nine vertices, not a four-leaf star."
+        ],
+        "reasoning": "Flow equivalence gives a semigroup, but a failure of irreversible fusion on an arbitrary graph is not itself an equivalent formulation. For the specific supplied star family one can calculate the restart from the published fused state, which is the decisive test.",
+        "searches": [
+          "Local Resultary: star graph TV proximal semigroup, small-star threshold, universal irreversible star fusion and hub mass budget",
+          "unweighted star graph total variation proximal semigroup three leaves degree 4 fused lasso splitting star necessary classification flow resolvent MINSUB"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed weighted-star criterion is m_0>=(k-2)m for equal leaf masses m and k leaves, giving k<=3 when all masses are one. The catalogue also supplies a five-vertex split witness and, in its proof, the all-degree construction."
+        ],
+        "reasoning": "A finite table cannot establish the full all-star, all-input claim; the comparison is to an exact catalogue criterion and its witness formulas, not to the matching numerical threshold alone.",
+        "searches": [
+          "Local Resultary exact unweighted star threshold comparison under proximal, semigroup, fusion persistence and hub-budget aliases; fcd11a969142 exact degree cutoff"
+        ]
+      },
+      "rationale": "The small-star positive direction directly specializes Burger et al.'s sufficient diagonal-dominance class. For necessity, the distinct catalogue record fcd11a969142 provides the weighted failed-budget construction with the same star, data pattern, exact fused interval and unsaturated/saturated regimes. Specializing that construction and restarting it at the fused output gives the full large-star obstruction, including the fixed equal half-steps (see explicit comparison below). Failure of diagonal dominance alone would not imply failure, and irreversible fusion is not being equated with the semigroup as a general property. The failed-budget witness itself supplies the relevant coverage, even though the comparison record does not name the semigroup. This is a demonstrated coverage decision, not an inference about priority between entries dated the same day.",
+      "residual_risks": [
+        "No historical priority order can be inferred for the two same-day catalogue records. The finding is about demonstrable mathematical coverage, not attribution or independence of discovery.",
+        "The checked comparisons do not classify semigroups for weighted stars or other graph families."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Distinct indexed record, direct witness specialization covers the large-star obstruction; publication order not established",
+          "evidence": "For failed budget B>c, data (0,H,R,...) yield fused hub (m_i H+lambda B)/(m_0+m_i) precisely on the fusion interval from m_0 H/(B+c) to m_0 H/(B-c), with all other leaves strictly above. Unit specialization and restart give the explicit failure in the comparison.",
+          "identifier_or_url": "Resultary 2026/11/22/fcd11a969142",
+          "material_read": "Finding at offsets 0–1845, Proof 3 at offset 7000–8462, and equal-mass consequence in Proof 4 near offset 8904",
+          "method": "Local Resultary mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4, exact statement and bounded proof passage",
+          "title": "A sharp hub-mass budget for irreversible fusion on weighted stars",
+          "trigger": "Same star family and cutoff; potential direct coverage by the general splitting witness"
+        },
+        {
+          "assessment": "Directly covers positive direction, not a converse",
+          "evidence": "Polyhedrality and MINSUB yield variational/flow equality; the diagonally-dominant l1 operator class satisfies the hypotheses.",
+          "identifier_or_url": "https://arxiv.org/abs/1601.02912",
+          "material_read": "MINSUB definition p. 16, Theorem 5 p. 20, Theorem 7 pp. 22–23",
+          "method": "Lawful arXiv OA PDF bounded passages",
+          "title": "Spectral Decompositions using One-Homogeneous Functionals",
+          "trigger": "Known exact conditions for variational/flow equivalence"
+        },
+        {
+          "assessment": "Prior counterexample on a different graph, not the star threshold",
+          "evidence": "Figure 4 is a nine-vertex graph with v_ij labels; the result includes a disappearing and reappearing jump but no all-star classification.",
+          "identifier_or_url": "https://arxiv.org/abs/1807.10514",
+          "material_read": "Theorem 5.3 and Remark 5.2 p. 17 offsets 51137–51918; Figure 4 p. 18 offset 52839; Proposition 5.4 p. 19 offset 57538",
+          "method": "Lawful arXiv OA PDF bounded passages",
+          "title": "Invariant phi-Minimal Sets and Total Variation Denoising on Graphs",
+          "trigger": "Explicit published graph-TV non-semigroup example"
+        },
+        {
+          "assessment": "Sufficient condition, not the required negative implication",
+          "evidence": "Diagonal dominance ensures dual boundary persistence; the general path algorithm permits leaving events.",
+          "identifier_or_url": "https://arxiv.org/abs/1005.1971",
+          "material_read": "§6 p. 17",
+          "method": "Lawful arXiv OA PDF bounded passage",
+          "title": "The Solution Path of the Generalized Lasso",
+          "trigger": "Boundary persistence and diagonal-dominance criterion"
+        },
+        {
+          "assessment": "General splitting mechanism, not exact fixed-scale star classification",
+          "evidence": "Graph fused-lasso groups can split; the method detects split events, not an all-star semigroup threshold.",
+          "identifier_or_url": "https://arxiv.org/abs/0910.0526",
+          "material_read": "§3.2 p. 10",
+          "method": "Lawful arXiv OA PDF bounded passage",
+          "title": "A Path Algorithm for the Fused Lasso Signal Approximator",
+          "trigger": "Group splitting in graph fused lasso"
+        },
+        {
+          "assessment": "Conditional abstract implication rather than a star-degree criterion",
+          "evidence": "The result provides flow/variational equivalence under structural hypotheses, not a degree converse in geodesic or star families.",
+          "identifier_or_url": "https://arxiv.org/abs/1901.06979",
+          "material_read": "Theorem 4.5 p. 13",
+          "method": "Lawful arXiv OA PDF bounded passage",
+          "title": "Nonlinear Spectral Decompositions by Gradient Flows of One-Homogeneous Functionals",
+          "trigger": "Potential abstract characterization of proximal and flow equality"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "A sharp vertex-degree threshold for when iterated denoising exactly equals a single solve is a natural structural question. A rational five-vertex obstruction and universal positive statement at smaller star degrees illustrate why flow and proximal regularization can separate. This conceptual use does not overcome the catalogue and primary-theorem coverage of the mathematical result.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

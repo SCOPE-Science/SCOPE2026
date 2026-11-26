@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:23:38.649009Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–57",
+        "Frozen VERIFICATION.md and verify.py, read only",
+        "/workspace/review-evidence/reproduce.py 3; /workspace/review-evidence/reproduce-3.txt"
+      ],
+      "rationale": "Each left-regular source orbit either collapses to 0 or maps bijectively by right multiplication to a target orbit. Nilpotence is exactly absence of label cycles away from 0. Gauging from each component root toward its descendants replaces a nonzero edge phase a_v by d_v^(-1)a_v d_{p(v)}=1 in the stated order, so the argument does not commute group factors. Relabeling gives exactly rooted-tree isomorphisms with 0 fixed; for a given label automorphism of the normalized tree there are q choices of common phase per component, giving stabilizer a(F)q^r and the stated class size. Height is the first exponent annihilating all labels. Image size counts every vertex other than 0 that has a child, including roots of the component trees when they have children; 'nonroot' is relative to the augmented tree rooted at 0, as required also by the recursion. For an arbitrary commuting map, a source child whose parent maps to 0 may map to 0 or to a root with any phase; if the parent maps to a nonzero vertex, the child image is a child of that target vertex with the same phase. Conditioned on a parent's image and phase, disjoint descendant subtrees impose independent constraints. Multiplication over all children, leaves with empty products 1, and over the subtrees at 0 proves the full centralizer recursion without assuming its members are nilpotent or injective. The q=1 boundary is covered with 0 fixed by definition. The stated b=4,q=2 marginal is reproduced directly; the nine shapes also follow by partitioning the four vertices into root-branch sizes (4, 3+1, 2+2, 2+1+1, 1+1+1+1, accounting for 4+2+1+1+1 shapes).",
+      "residual_risks": [
+        "The direct point-map reproduction checks the complete b=4,q=2 marginal only. General orders and nonabelian groups are handled by the gauge and commutation proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Castillo-Ramírez–Ruiz-Medina give the structure of equivariant units and use it for relative rank, not a commutant census.",
+          "Araújo–Konieczny's abstract gives general functional-graph homomorphism characterization for the full transformation semigroup. The primary full text was not secured.",
+          "The older partial-centralizer paper was identified bibliographically but its original decisive passages were unavailable."
+        ],
+        "reasoning": "The graph mechanism is not a new theorem here. The unrestricted graph formulation does not count the equivariant subset without an additional restriction or reduction. Missing texts do not certify a lack of stronger coverage.",
+        "searches": [
+          "arXiv:2203.12158v3, abstract and introduction",
+          "doi:10.1007/s00233-012-9424-0, article page and full-text retrieval attempts",
+          "Konieczny–Lipscomb, Mathematica Japonica 48 (1998), 367–376, identified record; lawful full-text lookup"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary and frozen ordinal 2, eb027f1d3458",
+        "Al-Aadhami thesis, White Rose eTheses 19494",
+        "Castillo-Ramírez–Ruiz-Medina arXiv:2203.12158v3",
+        "Araújo–Konieczny 2013 (abstract)",
+        "Konieczny–Lipscomb 1998 (bibliographic)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For q=1 the usual rooted digraph mechanism gives the commutation constraints. For q>1, each nonzero target component of a commuting orbit map carries one free phase where the image leaves 0, propagated along edges below it. This yields the weights in the smaller orbit-label recursion.",
+          "Equivalently, at the point level the normalized tree is inflated into q translated copies of every root branch, attached at 0. Ordinary tree homomorphisms fixing 0 choose those branch maps independently; equivariance ties together the q translated choices. The graph characterization supplies the method and could be used for this reduction, but the checked statement does not give the q-weighted computation or simultaneous class spectrum."
+        ],
+        "reasoning": "The total count follows exactly from prior results, and the forest gauge uses standard unit structure. Extracting the full commutant counts requires specifying and evaluating the constrained homomorphisms with orbit-phase propagation; the supported distinct result is that joint calculation rather than any stronger novelty claim for its ingredients.",
+        "searches": [
+          "Al-Aadhami, Corollary 5.3.20",
+          "Araújo–Konieczny abstract, doi:10.1007/s00233-012-9424-0",
+          "Resultary eb027f1d3458, Finding and Limitations"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Pointed total maps here correspond to partial equivariant transformations on the union of free orbits, via undefined values sent to 0. The thesis gives the exact homogeneous total via a sum over sink-adjacent labels and q^(b−r).",
+          "Distinct Resultary record eb027f1d3458 specializes to the same homogeneous total but treats all orbit-type mixtures, and explicitly does not classify conjugacy or centralizers."
+        ],
+        "reasoning": "Credit equivalent total counts independent of the change in vocabulary. A count summed over all shapes does not give full composition-centralizer sizes of individual nilpotents. The shared catalogue date establishes no priority order.",
+        "searches": [
+          "Local Resultary: nilpotent equivariant rooted-forest conjugacy, full commutants and forest products",
+          "White Rose eTheses 19494, Al-Aadhami §5.3, Corollary 5.3.20"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Corollary 5.3.20 gives the total-count sum which simplifies to (1+bq)^(b−1); the distinct forest-product record gives its analogous specialization. Neither checked statement gives a joint spectrum or shape-dependent c_q.",
+          "The additional focused literature lookup did not return an inspectable exact table or formula."
+        ],
+        "reasoning": "The total count is specifically covered, but the inspected tables and statements do not recover its decomposition by the full centralizer statistic.",
+        "searches": [
+          "Local Resultary/mirror, eb027f1d3458, Finding and Limitations",
+          "White Rose eTheses 19494, Chapter 5, pp. 118–119",
+          "Focused literature lookup for rooted-tree commutant counts"
+        ]
+      },
+      "rationale": "The homogeneous total count is already known. Orbit actions of units and ordinary functional-graph homomorphisms are prior machinery. The supported distinction is the computable shape-by-shape phase-weighted full commutant spectrum jointly with orbit, image, and index statistics, not the total nilpotent count or the general graph characterization.",
+      "residual_risks": [
+        "The Araújo–Konieczny and Konieczny–Lipscomb full texts were not obtained in this pass, leaving possible exact or stronger enumeration there unresolved.",
+        "The normalized weighted calculation builds on known graph-homomorphism methods and does not claim a new unweighted characterization or historical priority for the forest count."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact equivalent total count; not the class-refined commutant calculation",
+          "evidence": [
+            "For nontrivial G the sum over s is binom(n,s)·s n^(n−s−1)·|G|^(n−s), summed over the number of undefined roots, hence the credited total; the trivial-group case is separate."
+          ],
+          "identifier_or_url": "https://etheses.whiterose.ac.uk/id/eprint/19494/",
+          "material_read": "§5.3, Corollary 5.3.20, pp. 118–119 (text offset 220468)",
+          "method": "Official OA thesis PDF passage",
+          "title": "Combinatorial Questions for S wr T_n for a semigroup",
+          "trigger": "Exact nilpotent enumeration on homogeneous free group orbits"
+        },
+        {
+          "assessment": "Supplies wreath-product unit structure; different studied invariant",
+          "evidence": [
+            "The stated main problem is relative generating rank modulo units, and the introduction gives the unit decomposition."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2203.12158",
+          "material_read": "v3 abstract and introduction, PDF pp. 1–2",
+          "method": "OA primary PDF passages",
+          "title": "The relative rank of the endomorphism monoid of a finite G-set",
+          "trigger": "Possible structural classification dominating unit orbits"
+        },
+        {
+          "assessment": "Established graph mechanism; exact further overlap unresolved",
+          "evidence": [
+            "Characterizes commutation via homomorphisms of functional digraphs of connected partial transformations, in the unrestricted full transformation semigroup."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00233-012-9424-0",
+          "material_read": "Publisher abstract; no full-text passage obtained",
+          "method": "Public publisher page and OA full-text attempts",
+          "title": "Centralizers in the Full Transformation Semigroup",
+          "trigger": "Closest general full-map centralizer mechanism"
+        },
+        {
+          "assessment": "Exact theorem unavailable",
+          "evidence": [
+            "The record identifies an older treatment of partial-map centralizers; no statement-level exclusion is based on the title."
+          ],
+          "identifier_or_url": "Mathematica Japonica 48 (1998), 367–376, Konieczny–Lipscomb",
+          "material_read": "Bibliographic record only",
+          "method": "Identification and lawful retrieval attempt",
+          "title": "Centralizers in the semigroup of partial transformations",
+          "trigger": "Older potential equivalent treatment after encoding 0 as undefined"
+        },
+        {
+          "assessment": "Covers total count, not full commuting-map spectrum",
+          "evidence": [
+            "Product specializes to (1+bq)^(b−1); limitations distinguish map count from conjugacy and index fibers."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-nilpotent-equivariant-endomorphisms-an-orbit-type-forest-product--eb027f1d3458",
+          "material_read": "RESULT.md, Finding, Proof and Limitations",
+          "method": "Local Resultary mirror and comparison with frozen ordinal 2",
+          "title": "Nilpotent equivariant endomorphisms: an orbit-type forest product and reconstruction of the table of marks",
+          "trigger": "Exact overlap in homogeneous total and closely related nilpotent forest model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The number of all commuting maps is a natural numerical measure of the symmetry of a nilpotent endomorphism. A bottom-up, order-only calculation tabulates it without enumerating underlying group elements or all endomorphisms. It jointly gives orbit weight, image and index, and the exhibited collision shows why centralizer cardinality alone should not be used as a shape invariant. These are usable facts beyond the established total census.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

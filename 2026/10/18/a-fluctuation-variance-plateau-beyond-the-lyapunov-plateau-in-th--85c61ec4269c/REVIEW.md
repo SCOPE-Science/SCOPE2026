@@ -1,11 +1,21 @@
-# Review of the fluctuation-variance plateau
+# Independent mathematical audit
 
-**Correctness — PASS.** For every \(2<\beta<3\), the seven endpoints are strictly ordered, the five-piece invariant density is the published one, and the explicit seven-piece signed density solves the full Perron–Frobenius Poisson equation. A bounded martingale-coboundary decomposition gives the claimed variance limit for all \(n\to\infty\) without assuming mixing; the exact integrals yield \(2/27\) and the lag-one event yields \((\beta-4)/18\). The independent checker validates the symbolic calculations, and the proof explains why they imply the infinite-time statement. No central-limit assertion is made.
+## correctness
 
-**Originality — PASS on the inspected comparison, with specific residual risk.** The 2012 primary manuscript of Botella-Soler et al., especially Section 3 and Appendix A equations (A.9)–(A.15), establishes the invariant density, mean Lyapunov and entropy plateau; these are expressly credited. The inspected manuscript has no statement of branch-count asymptotic variance, an explicit Poisson certificate, or a comparison showing that lag-one correlations vary while the integrated variance remains constant. The related 2013 journal abstract is about the same first-order plateau, not second-order fluctuations. Multiple semantic comparisons against the available published mathematical records found no statement that implies the new \(2/27\) formula. The earlier 2008 map paper was accessible at abstract level only and remains a source of bibliographic uncertainty; more general correlation/transfer-operator theorems are not an evaluation of this invariant for these parameters.
+PASS
 
-**Mathematical value — PASS.** This is a natural precise second-order counterpart to a documented and nontrivial Lyapunov plateau: finite-time variability, rather than just its average, is exactly constant across a nonconjugate family. Strict parameter dependence of the one-step covariance demonstrates a cancellation of longer-range correlations that cannot be read off from the invariant branch mass or simple Bernoulli variance. The calculation is constructive and checks a substantive dynamical statistic rather than an arbitrary finite experiment.
+Independently reconstructed the full symbolic transfer and variance argument. For the seven intervals in RESULT.md, the lengths in order are 2(beta-2), 6-2beta, beta-2, beta-2, 6-2beta, beta-2, beta-2, all strictly positive. With equal fifth and sixth source values, the positive-branch inverse falls in source 7 on target 1, sources 5–6 on targets 2–5, and source 4 on targets 6–7, with weight 1/2; the negative branch adds source values 1,1,2,3 on targets 3–6. This gives the claimed transfer chart and, after substituting rho and w, invariance and w-Lw=rho h. Integration gives stationary mass 1 and positive-branch mass 2/3. Integrating the Poisson identity gives mean-zero h; the stated w integrates to zero, and its integral over the positive side is [(beta-2)(30-6beta)+(4-beta)(18-6beta)]/81=4/27. Thus the h-w pairing is 4/27. With g=w/rho, the normalized transfer P satisfies (I-P)g=h and P(f composed with T)=f. The centered m=g-(Pg) composed with T is killed by P, so its time translates are pairwise orthogonal. Their sum differs from the centered occupation sum by a bounded telescoping term. Its own variance contributes O(1/n) after normalization and its cross term is O(n^-1/2). The limiting variance is ||g||^2-||Pg||^2=2(4/27)-2/9=2/27. The joint-positive interval (0,beta/2) has mass (beta+4)/18, giving covariance (beta-4)/18, and the derivative observable multiplies H by log 2 almost everywhere. This proves the result for the stated stationary density and open interval without an ergodicity, mixing-rate, or CLT assumption. The frozen checker tests the symbolic chart given the chart's entries; positivity of the lengths and the chart itself are justified here for all parameters, not by sampling.
 
-**Scientific limitations.** The statement concerns the published absolutely continuous invariant measure for \(2<\beta<3\), not every possible invariant measure or an arbitrary slope. No CLT or mixing rate is claimed. A related older paper was not read in full, so independent bibliographic confirmation is appropriate.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The invariant law, map and mean plateau are definitively antecedent. The supported distinction is the evaluated second-order variance over the entire interval together with the varying one-lag covariance; the closest accessible primary claims and inspected local indexed results do not establish it.
+
+## value
+
+PASS
+
+This is a second-order analogue of a well-motivated known mean plateau, not just another calculation of the stationary density. The exact constant controls stationary finite-time derivative variability while the changing one-lag term establishes that individual temporal dependencies need not share the plateau. The bounded explicit transfer solution is reusable in this family and establishes the full interval without statistical extrapolation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

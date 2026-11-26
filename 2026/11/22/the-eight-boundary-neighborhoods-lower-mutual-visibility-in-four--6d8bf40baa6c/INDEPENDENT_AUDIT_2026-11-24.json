@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:16:54.591595Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 14–47; inspected both C++ checkers, compression_smoke.py and recorded evidence",
+        "Independent replay: python3 /workspace/reproductions/3.py 2 10 and 11 17; logs /workspace/reproductions/3.2-10.out and /workspace/reproductions/3.11-17.out"
+      ],
+      "rationale": "Reconstructed the infinite reduction: a geodesic traverses path columns monotonically and uses a shortest C4 row route. In an obstacle-free column run, any row changes made inside that run can all be consolidated into one column without changing entry/exit rows, blocking status, or geodesicity. Thus visibility for marked endpoints depends on the ordered marked columns and solely on whether successive columns have a nonempty intervening run. Adding a test vertex retains its row and either its already marked column or the two adjacency booleans on its sides. For a gap of distances 2,3,>=4 these interior possibilities are respectively (1,1), (1,>=2)/(>=2,1), and those last two plus (>=2,>=2); a single side at a vacant end needs only distance 1 versus >=2. Every extension type has a representative before and after compression, also for old pairs whose paths could now be blocked by the new vertex. The bound 17 follows, with m>=2 and with m=2 only if the original cylinder has n=2. The independent replay checks every possible reduced pattern of sizes two through four, with exact set comparisons. Singletons and the empty set are extensible. Lift each surviving pattern by the preserved boundary and distance-one markers. At every length a terminal neighborhood is visible because the three pairs of leaves have alternative common neighbors outside it; no outside vertex can be added because a geodesic from the center must first use an already selected neighbor. The cube's two bipartition sets occur in the uncompressed height-two check.",
+      "residual_risks": [
+        "Replay scans only possible reduction images, not all raw subsets. Hence at reduced heights >=5 there are no image neighborhoods (they compress to height <=4); this is consistent with eight actual neighborhoods in each original cylinder. Scope is ordinary visibility, not total visibility."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The foundational paper's accessible abstract states the lower invariant and mentions the Neighborhood Lemma; the frozen result locates an open cylinder problem in Problem 1.",
+          "Resultary 8a5e173d7e2e gives C3 square Pn, not arbitrary cyclic widths; 543189f5b94a gives C3 square Cn for odd n."
+        ],
+        "reasoning": "The upper-bound construction, complete-factor product work, and the triangular cases do not furnish the width-four absence of maximal triples or exhaustive minimizer classification.",
+        "searches": [
+          "arXiv:2307.02951 Problem 1, Neighborhood Lemma",
+          "Resultary: triangular cartesian cylinder lower mutual visibility and odd three-row torus"
+        ]
+      },
+      "checked_sources": [
+        "Primary abstracts, frozen prior-work section, Resultary comparisons above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The triangular result describes a column-gap reduction and terminal constructions for C3 square Pn. The alternate row routes here and cube exception are not part of that statement."
+        ],
+        "reasoning": "A transferable technique is not a dominating theorem: even if its compression method applies in width four, the absence of smaller facets and the full surviving list still have to be proved. No earlier accessible matching claim settles both.",
+        "searches": [
+          "Brešar–Yero arXiv:2307.02951; Cicerone–Di Stefano–Klavžar arXiv:2112.13024; Resultary records ending 8a5e173d7e2e and 543189f5b94a"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Brešar–Yero define the minimum over inclusion-maximal sets; Cicerone–Di Stefano–Klavžar define the maximum over all sets."
+        ],
+        "reasoning": "Saturation/minimum facet and lower ordinary visibility are equivalent here. Maximum-cardinality visibility, lower total visibility, and four-cut complexes are not equivalent.",
+        "searches": [
+          "Resultary: lower ordinary mutual visibility number C4 square Pn minimum inclusion maximal visibility facets eight boundary neighborhoods Q3",
+          "arXiv:2307.02951v2 abstract; arXiv:2112.13024v2 abstract"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact matching indexed record 6d8bf40baa6c is the assigned record; distinct 8a5e173d7e2e has different width and does not give this optimizer list in its summary."
+        ],
+        "reasoning": "No separate matched count or labeled minimizer table was established; the exact self-hit and shared date are not priority evidence.",
+        "searches": [
+          "Resultary: C4 Cartesian Pn eight minimum maximal four-sets boundary neighborhoods cube bipartition"
+        ]
+      },
+      "rationale": "Credit the neighborhood upper-bound method. The independently supported difference is the lower bound and full rigidity on a four-cycle cylinder family, with a distinct cube case. Neither the triangular-cylinder result nor the higher-visibility extrema cover it.",
+      "residual_risks": [
+        "Problem 1 and the same-day C3 full text could not be independently read at the decisive passages. Unindexed cylinder classifications remain possible; neither nonaccess nor a same-day date is evidence of priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior lower invariant and neighborhood construction credited; further paper coverage unresolved beyond accessible scope",
+          "evidence": [
+            "Abstract defines the minimum over maximal sets and treats products of complete graphs."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2307.02951",
+          "material_read": "v2 abstract, p.1 extract lines 25–39; Problem 1 known here from frozen text only",
+          "method": "OA extract and attempted targeted Problem 1 retrieval",
+          "title": "Lower (total) mutual-visibility number in graphs",
+          "trigger": "Foundational lower-invariant paper, possible cylinder problem/theorem"
+        },
+        {
+          "assessment": "Different extremal quantifier",
+          "evidence": [
+            "Largest mutually visible set, not smallest maximal set."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2112.13024",
+          "material_read": "v2 abstract, p.1 extract lines 22–31",
+          "method": "OA extract",
+          "title": "On the mutual visibility in Cartesian products and triangle-free graphs",
+          "trigger": "General product coverage"
+        },
+        {
+          "assessment": "Width-three conclusion is not width-four coverage",
+          "evidence": [
+            "C3 square Pn, cutoff method and boundary construction."
+          ],
+          "identifier_or_url": "Resultary 2026/11/22 record ending 8a5e173d7e2e",
+          "material_read": "Indexed scientific summary",
+          "method": "Catalogue comparison",
+          "title": "The lower mutual-visibility number of every triangular Cartesian cylinder",
+          "trigger": "Closest same-date lower-visibility cylinder result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof; foundational lower-invariant abstracts"
+      ],
+      "rationale": "The result precisely settles an infinite subfamily of the natural lower-visibility cylinder problem, going beyond a neighborhood upper bound to exact minimizer structure. Compression gives an exact finite reduction, not a list of arbitrary small tests.",
+      "residual_risks": [
+        "No general circumference or total-visibility claim."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

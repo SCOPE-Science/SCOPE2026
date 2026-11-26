@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:39:42.028351Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The frozen full-range theorem is mathematically sound, but the assessed replacement is the negative physical branch 1<p<=d^2/(d^2-1) for d>=3. For pure input with Schmidt probabilities lambda, the output is b^2 I-bc T+c^2|psi><psi|, T=Lambda⊗I+I⊗Lambda, b=p/d, c=p-1, and c/b<=1/d. Off-diagonal-sector eigenvalues are at least (b-c)b. The exact positive Gram sum I+vv*−2Lambda makes the diagonal block at least (b-c)b I−c(b-c) vv*, so at most one eigenvalue drops below (b-c)b and none is below (b-c)^2. Cauchy–Schwarz gives |psi><psi| <= (d/2)T and hence Z<=b^2 I. These bounds match the sorted product Lorenz curve by top partial sums up to (d−1)^2 and bottom partial sums thereafter, with equal trace. Ky Fan convexity extends the result to mixed states, and product inputs attain the comparator. The CP endpoint and zero Schmidt coefficients are allowed in all estimates. For the frozen nonnegative branch the same Gram inequality instead gives an upper rank-one bound and the universal lower floor b^2, also giving the corresponding partial sums. The supplied script was inspected but not executed; independent rational Gram checks and 1,050 pure-state numerical checks plus 30 endpoint checks, including the repaired regime, were run via /workspace/branches/77559ff2-0670-406a-a8b1-fe426208f64b/record4_check.py (logs record4-small.txt and record4-large.txt). Maximum residual was 2.665e-15; that does not prove the theorem. Corrected RESULT.md and VERIFICATION.md are in /workspace/repairs/4/ and the unchanged verifier is ancillary.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Song et al. conjecture full exact arbitrary-copy majorization; their established conclusions control the approximate defect and shifted log-determinants. The proposed broader spin alignment statement is not a proved all-copy order. King proves multiplicative norms and additive entropies/capacities across the physical signed interval. Lami–Huber address the Schmidt-block setting and positivity/entanglement-annihilation classifications."
+        ],
+        "reasoning": "None of these conclusions orders the necessary intermediate partial sums on the repaired regime. In particular even exact log-determinant ordering for all shifts is a different, necessary comparison, and the exact qubit log-determinant result does not cover d>=3.",
+        "searches": [
+          "arXiv:2609.37240v1 and v2 Introduction, Theorem 1, Proposition 15",
+          "arXiv:quant-ph/0204172v2 §§1.2, 1.6 Theorems 2–3",
+          "arXiv:1603.02158v1 Introduction"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.37240v1/v2",
+        "Fujiwara–Hashizumé PLA 299 (2002) as cited by Song et al.",
+        "arXiv:quant-ph/0204172v2",
+        "arXiv:1603.02158v1",
+        "Resultary a79775750e52"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Song et al. explicitly state that the conjecture for n=2 and 0<=p<=1 was proved in FH02. Their v1 lacks this credit. The sign of ab reverses the eigenvalue bounds needed in the frozen proof as well as making the product's long spectral plateau upper rather than lower. The related transpose-depolarizing endpoint proof uses a Schmidt block but not the two-sided Lorenz bounds in the repaired CP interval."
+        ],
+        "reasoning": "The credited interval ends at p=1, and the qubit spin flip supplies only d=2. For d>=3 the negative branch needs both the bottom rank-one comparison and a separate upper bound based on c/b; positive-branch partial sums, and general norm or shifted determinant optimization, do not directly imply these. The verdict is limited to that substantive remainder.",
+        "searches": [
+          "arXiv:2609.37240v2 PDF p. 3 around offset 10800 and bibliography entry FH02",
+          "King Theorems 2–3",
+          "Resultary a79775750e52 proof opening"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The repaired inequality is the all-Ky-Fan, two-identical-use case of the full spectral order, not simply a Schatten-norm optimum. Qubit sign reversal equals the spin flip R(X)=Tr(X)I-X=sigma_y X^T sigma_y; R⊗R preserves global spectra. The qutrit Werner–Holevo record concerns an exponent-5 norm at a different endpoint t=-1/(d-1), far outside the repaired ordinary depolarizing CP interval t>=-1/(d^2-1)."
+        ],
+        "reasoning": "The positive regime carries over to the qubit negative regime by spectral equivalence, which is why both were removed. The transpose relation in higher dimension does not identify the repaired weak negative branch with the Werner–Holevo endpoint, or establish its all-partial-sums ordering.",
+        "searches": [
+          "Resultary: exact two-copy spectral majorization, negative depolarizing parameter p>1, signed depolarization and Ky Fan bounds for d>=3",
+          "arXiv:2609.37240v2, Eq. (2) and exact two-use attribution",
+          "Resultary a79775750e52 for transpose-depolarizing comparison"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No distinct hit stated the repaired Lorenz inequalities. The closest two-copy optimizer inspected is Resultary a79775750e52, which has an entangled maximizer for one Schatten exponent at the qutrit Werner–Holevo endpoint, not the signed ordinary depolarizing interval."
+        ],
+        "reasoning": "This is a continuously parameterized spectral comparison, not a discrete sequence. The checked indexed analogue concerns a different channel/endpoint and objective; the absence of an exact hit is not a priority certificate.",
+        "searches": [
+          "Resultary two-use depolarizing majorization including p>1; exact signed spectral/Schmidt bounds and transpose-depolarizing optimizer"
+        ]
+      },
+      "rationale": "The full-range original could not pass originality as presented because it does not credit the known positive-coefficient two-use branch. The actual replacement strictly narrows to the negative branch in d>=3, credits Fujiwara–Hashizumé through the explicit attribution in Song et al. v2, and excludes the qubit sign-equivalence corollary. Exact spectral majorization in this remaining branch is not supplied by the inspected earlier norm, entropy, approximate-majorization or log-determinant results.",
+      "residual_risks": [
+        "The older Fujiwara–Hashizumé full text was unavailable within reasonable lawful retrieval; an expanded original statement beyond the precise attributed regime cannot be independently excluded. The conclusion on the narrowed branch rests on the actual comparisons, not on the access failure. Bounded indexed and primary searches do not establish global priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The v2 text credits earlier exact positive-branch n=2; in the repaired regime it establishes approximate majorization and log-determinant order, not the all-Ky-Fan comparison",
+          "evidence": "PDF p. 3: ‘For 0 ≤ p ≤ 1, the conjecture was proved for n = 2 [FH02]’; Theorem 1 bounds the defect and Eq. (4) compares shifted log-determinants.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.37240v2",
+          "material_read": "v2 PDF pp. 2–3, offsets 9700–12634; v2 HTML bibliography entry FH02 near offset 57150; Appendix D Proposition 15 near offset 78000; v1 Introduction Eqs. (1)–(4)",
+          "method": "OA primary PDF and bounded HTML",
+          "title": "Approximate majorization and high-order capacity of quantum depolarizing channels",
+          "trigger": "Exact same conjecture and decisive attribution for a large part of the frozen regime"
+        },
+        {
+          "assessment": "Credit the stated scope, not unverified claims about the full older text",
+          "evidence": "The secondary attribution explicitly matches n=2 and 0<=p<=1; exact older proof boundaries beyond that passage remain unverified.",
+          "identifier_or_url": "Fujiwara–Hashizumé, Physics Letters A 299(5–6), 469–475 (2002), [FH02] of arXiv:2609.37240v2",
+          "material_read": "Bibliographic entry and explicit attribution in the inspected citing preprint; primary full text not retrieved",
+          "method": "Bounded lawful author/title and repository lookup, plus citing primary source",
+          "title": "Additivity of the capacity of depolarizing channels",
+          "trigger": "Exact positive-branch prior proof as credited by Song et al."
+        },
+        {
+          "assessment": "Stronger in copy number, different statistic",
+          "evidence": "Output norm multiplicativity, minimum-output-entropy and Holevo-capacity statements rather than simultaneous exact Ky Fan bounds.",
+          "identifier_or_url": "https://arxiv.org/abs/quant-ph/0204172v2",
+          "material_read": "§§1.2 and 1.6, Theorems 2–3, HTML near offsets 0 and 13700",
+          "method": "OA primary text",
+          "title": "The capacity of the quantum depolarizing channel",
+          "trigger": "All-copy norm and entropy results across the same physical interval"
+        },
+        {
+          "assessment": "Block and positivity context, not a majorization theorem in inspected material",
+          "evidence": "Treats positivity and entanglement annihilation, not ordering every spectral partial sum.",
+          "identifier_or_url": "https://arxiv.org/abs/1603.02158v1",
+          "material_read": "Abstract and Introduction, offsets 0–1500",
+          "method": "OA primary text",
+          "title": "Bipartite depolarizing maps",
+          "trigger": "Same two-use Schmidt-block framework within more general bipartite maps"
+        },
+        {
+          "assessment": "Different signed regime, different spectral objective",
+          "evidence": "Qutrit transpose-depolarizing coefficient -1/2 with Schatten exponent 5, whereas repaired ordinary qutrit depolarization has coefficient at least -1/8 and orders all Ky Fan sums.",
+          "identifier_or_url": "2026/10/13/SCOPE-exact-two-copy-schatten-5-optimizer-at-the-werner-holevo-endpoin--a79775750e52",
+          "material_read": "RESULT.md Finding, assumptions and Schmidt-block opening, offsets 0–2175",
+          "method": "Resultary local mirror",
+          "title": "Exact two-copy Schatten-5 optimizer at the Werner–Holevo endpoint",
+          "trigger": "Strongest indexed signed two-copy spectral analogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The remaining branch is not an arbitrary parameter slice: the depolarizing coefficient changes sign at p=1 and reverses the product-spectrum ordering. In dimensions at least three the negative branch does not reduce to the positive case by the qubit spectrum symmetry. The replacement resolves every spectral partial sum through the CP endpoint in that unresolved part of the natural two-use problem, strictly more informative than entropy optimization or approximate order in this regime.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

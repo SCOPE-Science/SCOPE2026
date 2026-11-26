@@ -1,15 +1,21 @@
-# Scientific review of the exact exchange-graph classification
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The direct synchronous infection enumeration and the independent subcube-closure enumeration return identical sorted seed-list SHA-256 digests, not just matching totals. The former enumerates all subsets below the minimum size to establish the finite minimum, then constructs every legal one-for-one exchange. The latter independently builds exchange relations and examines all full cube-isometry orbits. Each computes breadth-first shortest paths from a complete set of symmetry representatives and agrees on 144 and 16960 optimal seeds, both graphs' edge totals, connectivity, the jump diameter four, and the slide radii/diameters six/six and nine/eleven. Both recorded outputs were reproduced from the packaged source files. Residual correctness risk is normal computational implementation risk, mitigated by the independent methods and complete orbit coverage.
+PASS
 
-## Originality — PASS with publication-overlap risk
+I independently enumerated each seed size up to the first percolating size, using asynchronous activation by precomputed neighbour pairs (the same least closed superset as synchronous activation). Exchanges were built by bucketing states on a common (k-1)-subset, then retaining Hamming-distance-one changes for sliding. Full translation and coordinate-permutation orbits and BFS on the full graphs reproduced 144 and 16960 states, orbit counts 2 and 18, all four edge totals, connectivity, and all eccentricities. The complete seed-list hashes match both frozen certificates. In Q5 the unique central slide orbit has 960 members, represented by {0,3,13,30}; eccentricity 10 and 11 counts are 11200 and 4800, and BFS also gives distance 11 for the exhibited endpoints. Replay: python3 branches/independent_cube.py. The proof is finite and does not cover d>=6 or inclusion-minimal states of larger cardinality.
 
-Balogh–Bollobás–Morris (arXiv:0907.3097) concerns random thresholds on grids; Morrison–Noel (arXiv:1506.04686) determines weak-saturation and minimum-size bounds; Kang–Missethan–Schmid (arXiv:2406.13341) uses internally spanned projections and sequentially spanning configurations for random thresholds. Their examined results do not imply exact edges or graph distances between fixed-size optimal seed sets. Searches for the competing terms minimum contagious/percolating/spanning sets, exchange graphs, token jumping, token sliding and bootstrap reconfiguration, as well as mathematical-record comparisons, yielded no covering reconfiguration result. The 2006 Balogh–Bollobás primary paper could be read bibliographically and by abstract only; its unexamined body, other unindexed literature and potential independent rediscoveries remain residual risks. This review does not establish exhaustive world literature priority.
+## originality
 
-## Value — PASS
+PASS
 
-The minimum seed budget addresses a standard irreversible threshold-spread problem. Whether an optimum placement can be repaired by moving one seed to a neighbouring cube site without losing percolation is an additional operational question not answered by minimum-cardinality bounds. The results give complete reachability and exact worst-case relocation costs. The transition from a self-centered slide graph in dimension four to a radius-nine/diameter-eleven graph with a single central orbit in dimension five is a structural metric distinction, not an arbitrary single-state count. The theorem is restricted to two small but nontrivial natural cubes, and no general-dimensional conclusion is implied.
+Pass for the optimum jump/slide graphs, their exact metrics, and the Q5 central orbit. Minimum sizes already follow from the Morrison–Noel lower bound and matching seeds. The Q4 optimum census of 144 sets in two orbits also occurs in a distinct indexed record; its publication dates do not decide priority. Neither the matching census nor the inspected closure framework gives reachability, edge totals or the distance profiles without additional analysis.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Minimum seed counts do not show whether one can relocate seeds without losing percolation, or what a worst-case relocation costs. The two first nontrivial cubes here separate the effects of jumping and sliding, and distinguish self-centered Q4 from a Q5 slide graph with a single central orbit and distinct radius and diameter. The exact finite graphs give a benchmark for minimum-budget reconfiguration, not a general-dimension claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:26:41.909778Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–60; VERIFICATION.md, verify_profiles.py, verify_2sat.py, verify_orbit_certificate.py and obstruction_orbits.tsv inspected as text",
+        "python3 /workspace/branches/independent_frozen_checks.py 5: exact antichain blocker, grouped inclusion-exclusion and Burnside calculation on the complete Boolean universe"
+      ],
+      "rationale": "A lax witness gives partial functions x→y and u→v that extend to total Boolean functions. Conversely, inclusion in the union of their two equality sets gives a valid lax witness, with overlaps permitted. The complements consist of exactly one row for each (x,u), determined uniquely by the two functions, so all sixteen size-12 envelopes are distinct, incomparable, and exhaust the maximal satisfying teams. Failure is hitting all sixteen complement rectangles. I independently maintained the antichain of minimal hitting sets while adding each edge: retain current members hitting the new edge, extend each missing member by every element of the edge, then delete supersets. This step is exact because every new transversal contains a previous minimal one. It returned 132 members with histogram 4:12, 5:16, 6:96, 8:8. Inclusion-exclusion over rectangle avoidance independently yielded 33,159 violating teams, hence 32,377 satisfying. All 32 symmetry actions were used; the fixed-point sum was 288, and the independently chosen minimum orbit masks and sizes matched every frozen table row. The eight-set witness is one of these irredundant blockers and therefore precludes any smaller uniform bound.",
+      "residual_risks": [
+        "The certificate exhausts this labelled Boolean universe and the stated symmetry only; it establishes no larger-universe cutoff."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "In a minimally unsatisfiable 2-CNF each literal appears at most twice (Abbasizanjani–Kullmann, Lemma 9.1). Their §1.1 gives the nonsingular B_n family, a cycle of equivalences with a final negation. Barlag et al. define the same propositional semantics and give the crude 2^n bound on team size, with general coherence/complexity results."
+        ],
+        "reasoning": "Four variables give 8 literals and hence at most 16 literal occurrences; every clause here uses two literals, so at most 8 clauses can occur in a minimal failure. B₄ fits along the bipartite square, attaining 8. Thus the exact sharp cutoff is already a direct corollary of older results. Neither the generic cutoff nor the propositional setting gives the labeled finite census.",
+        "searches": [
+          "arXiv:2003.03639v3, §1.1 and Lemma 9.1",
+          "arXiv:2605.31269, §5.1, Definition 30 and Definition 31"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2508.16146",
+        "arXiv:2605.31269",
+        "arXiv:2003.03639v3",
+        "Resultary nearest distinct findings and targeted signed bipartite clause lookup"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At size eight the 2-MU degree bound is saturated and the nonsingular cycle characterization yields odd signed parity around K₂,₂; this also explains the eight top obstructions. The earlier unrestricted-domain result calls the formula incoherent, under different quantifiers."
+        ],
+        "reasoning": "Credit the covered cutoff and extremal size-eight layer. For the full lower-size spectrum and subgroup orbits one still needs to resolve which signed types embed in K₂,₂, their labeled multiplicities and the splitting of ordinary clause isomorphism classes under simultaneous y and v flips versus independent literal switches. The satisfiable census additionally counts the union of overlapping envelopes. Those data are not mechanical numerical consequences of the general bounds or unrestricted incoherence.",
+        "searches": [
+          "arXiv:2003.03639v3 §1.1 generation from B_k, Lemma 9.1",
+          "arXiv:2508.16146 Table 1 and incoherence proposition",
+          "arXiv:2605.31269 §5.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fröhlich–Kolaitis–Meier use 2-SAT for two dependence atoms. In the function-bit representation each row is the distinct clause (F_x=y) OR (G_u=v), on four bits, with each clause supported on an edge of K₂,₂. This identifies minimal false teams with minimally unsatisfiable subsets of this specific 16-clause universe."
+        ],
+        "reasoning": "The existence of a 2-SAT test is prior. The function-bit reduction also compares directly with the minimally unsatisfiable clause-set classification, not just with the original row-color encoding.",
+        "searches": [
+          "arXiv:2508.16146: two dependence atoms and 2-SAT",
+          "classification minimally unsatisfiable 2-CNF Kullmann weak double cycles 2-CNF 2n clauses exact classification four variables bipartite enumeration"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact match is the assigned record itself. Same-day mirrors #3104d9c726df and #2a96c3a15333 instead study a three-disjunct dependence split and inverse dependencies, respectively. The 2-MU paper gives the general isomorphism framework and generation recipe, not an exact table of labeled clause subsets of the fixed signed K₂,₂ universe in the passages inspected."
+        ],
+        "reasoning": "Neither different dependence formula is a reformulation of the two disjoint unary dependencies. A matching title or a self-hit is not independent coverage. The general isomorphism types use a larger action and are not the nine restricted team orbits.",
+        "searches": [
+          "Resultary: exact minimal obstruction spectrum two disjoint Boolean dependence atoms 12z^4 16z^5 96z^6 8z^8",
+          "Resultary: Boolean team dep(x,y) disjunction dep(u,v) finite universe minimal counterteams",
+          "Resultary: finite Boolean-team minimal transversals four-element rectangles orbit classification",
+          "Resultary: minimally unsatisfiable bipartite 2-CNF K2,2 clauses four variables 132 32377 sign switches nine obstruction orbits"
+        ]
+      },
+      "rationale": "The surviving contribution is the exact labeled Boolean census and the finer obstruction spectrum and orbits for the specified team symmetry, not 2-SAT representability or the sharp eight-row cutoff on its own. In particular, the upper cutoff and attainability already follow from older theorems on minimally unsatisfiable 2-CNF through the four function-bit clause reduction. Those theorems do not supply the violating or satisfying census or the exact restricted subgroup profile without additional finite classification and counting.",
+      "residual_risks": [
+        "Bounded statement-level comparison; no global priority claim. An unindexed specialized clause census could affect novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior 2-SAT and unrestricted incoherence; different from finite census",
+          "evidence": "Same disjoint-pair formula after renaming and unrestricted-domain incoherence; no Boolean shape table in the cited passages.",
+          "identifier_or_url": "https://arxiv.org/pdf/2508.16146",
+          "material_read": "PDF pp. 2, 4, 6 at offsets 7265, 13608, 21852; Table 1 and Proposition 7 in accessed preprint",
+          "method": "OA bounded passage read",
+          "title": "Disjunctions of Two Dependence Atoms",
+          "trigger": "Identical formula and older model-checking reduction"
+        },
+        {
+          "assessment": "Same semantics, broader general results, no exact four-variable census in the checked passages",
+          "evidence": "Lax split and range {0,1}; generic bound from team size ≤2^n.",
+          "identifier_or_url": "https://arxiv.org/pdf/2605.31269",
+          "material_read": "pp. 1–3 and §5.1 pp. 11–12, offset 40740, Definitions 30–31",
+          "method": "OA literal location followed by bounded passage read",
+          "title": "Aspects of Coherence in Dependence Logic",
+          "trigger": "Fixed Boolean semantics and general cutoff"
+        },
+        {
+          "assessment": "Covers cutoff and extremal shape; structural source for narrower exact enumeration, not the exact labeled satisfying or restricted orbit census",
+          "evidence": "Full generation up to isomorphism; nonsingular B_n; at most two occurrences of any fixed literal.",
+          "identifier_or_url": "https://arxiv.org/pdf/2003.03639v3",
+          "material_read": "§1.1 pp. 4–5 offset 11170; §9 and Lemma 9.1 p. 58 offset 172890",
+          "method": "Literature search and lawful OA bounded passage reads; applied the results to the four function bits",
+          "title": "The classification of minimally unsatisfiable 2-CNFs",
+          "trigger": "Exact equivalent clause class and stronger structural theorems"
+        },
+        {
+          "assessment": "Different formulas, not rejected by date",
+          "evidence": "First uses two copies of dep(X,Y) and one dep(Y,X), and gives 292; second uses dep(x,y) OR dep(y,x) on a two-coordinate alphabet product.",
+          "identifier_or_url": "2026/11/8/SCOPE-exact-292-minimal-obstructions-for-a-three-way-boolean-dependenc--3104d9c726df; 2026/11/8/SCOPE-sharp-minimal-falsifier-spectra-for-inverse-functional-dependenc--2a96c3a15333",
+          "material_read": "Mirrored RESULT.md Findings, offset 0 for each",
+          "method": "Local Resultary searches and statement comparison",
+          "title": "Exact 292 minimal obstructions for a three-way Boolean dependence split; Sharp minimal falsifier spectra for inverse functional dependence",
+          "trigger": "Distinct same-day finite obstruction spectrum hits"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen envelope and obstruction claims; independent complete finite blocker and orbit replay; earlier 2-CNF degree and extremal-shape results"
+      ],
+      "rationale": "The full Boolean cube is the canonical smallest propositional universe of the disjoint two-atom formula singled out in the coherence literature. Its minimal failures give precisely the forbidden basis, not only an instance test or a witness at the maximal size. The exact size distribution and natural equivalence classes provide a benchmark for comparing disjoint-attribute splits and their finite-size thresholds; the labeled satisfying count also measures the extent of overlap of the maximal teams. This value does not depend on crediting the already implied eight-row bound as new.",
+      "residual_risks": [
+        "No generalization to larger domains or to arbitrary dependence formulas is inferred."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

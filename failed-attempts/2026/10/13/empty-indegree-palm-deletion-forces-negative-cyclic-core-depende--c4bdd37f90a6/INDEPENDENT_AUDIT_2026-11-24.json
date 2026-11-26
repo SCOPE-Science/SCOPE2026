@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:32:20.287981Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 19–109 and 123–242",
+        "Frozen VERIFICATION.md and verify_zero_indegree_cyclic_palm.py, inspected and not executed",
+        "Independent bounded replay: /workspace/branches/33ac8ccf-7492-4b31-b97d-5cd9bb7ff600/replay_record1.py; replay_bounded.txt (50,068 mappings through n=6, REPLAY_OK)"
+      ],
+      "rationale": "The actual Palm identity and covariance formulas are correct. Given that a specified label has no incoming arrow, the remaining n-1 images are independent uniform on the remaining labels and deleting the specified label preserves all cycles. Summing the fixed-label identity gives the size bias and mean. The rooted-forest count gives P(L_m=k)=k(m)_k/m^(k+1), with the k=m case interpreted as the empty forest (determinant 1), and telescoping gives the stated tails. However, the Finding and Proof both assert strict increase of q_{m,k} in m for every fixed k>=2 without a domain restriction. This is false on the declared domain: q_{1,3}=q_{2,3}=0. Strict increase for the comparison q_{m-1,k}<q_{m,k} holds for m>=k, and that is sufficient for all the asserted negative covariances. The failure is of the subsidiary monotonicity assertion as written, not of the Palm or covariance laws.",
+      "residual_risks": [
+        "The bounded replay corroborates the means, point masses and threshold covariances on the enumerated domain; it does not certify the separate monotonicity statement for k>m or replace the proof."
+      ],
+      "status": "FAIL"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Eq. (29) is a cyclic-vertex tail formula for general independent weighted images, not just uniform mappings. It applies at zero weights by continuity of the finite probabilities if needed.",
+          "Hansen–Jaworski Theorem 1 gives point probabilities for cyclic counts in the general exchangeable-indegree model, and its proof uses zero-indegree rounds in its coding bijection.",
+          "The inspected pruning record explicitly gives factorial-moment bias for arbitrary functions of the full cycle-length count vector."
+        ],
+        "reasoning": "The first theorem covers the postconditioning image law and the unconditioned law. The pruning record goes further by allowing simultaneous pruning and a richer statistic. Its later listing is not evidence that the October 13 record was copied or that the exact formula first appeared earlier.",
+        "searches": [
+          "Pitman Technical Report 593, Eq. (29), attributed there to Jaworski Theorem 2",
+          "Hansen–Jaworski, arXiv:math/0603529, §3, Theorem 1, pp. 5–6",
+          "Resultary 2026/10/18/SCOPE-pruning-invariance-and-sharp-terminal-component-anticorrelation--e4cf3e3e51f2"
+        ]
+      },
+      "checked_sources": [
+        "Berkeley Technical Report 593, Eqs. (23)–(29)",
+        "arXiv:math/0603529, Theorem 1",
+        "DOI:10.1002/rsa.20187 abstract",
+        "DOI:10.1239/aap/1208358892, pp. 1, 4, 22 (companion lookup)",
+        "Named Resultary records and local mirror"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Under p_j=0 and other weights uniform, Eq. (29) sums over binom(n-1,k) equally weighted subsets, giving (n-1)_k/(n-1)^k. With all weights 1/n it gives (n)_k/n^k.",
+          "Z_n is the sum of the fixed-label avoidance indicators. All labels have the same conditional tails, so the normalized mixed tails have exactly the conditional values. Threshold differences give the claimed covariances and a nondecreasing f is a nonnegative combination of thresholds plus a constant."
+        ],
+        "reasoning": "This supplies the full law and sign claims by elementary conditioning and substitution into an older stronger formula; there is no need for a new forest enumeration or a new tail theorem.",
+        "searches": [
+          "Pitman Technical Report 593, §3.2, pp. 12–13, especially Eq. (29)",
+          "Frozen RESULT.md, Eqs. (1)–(7)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Conditional on the cyclic labels, the noncycle part is a rooted forest; for k<n its conditional mean leaf count is (n-k)(1-1/n)^(n-k-1), recoverable from Pitman's weighted fixed-root forest formula or deletion of a prescribed leaf.",
+          "The size-biased and conditional-mean forms are equivalent: multiply the conditional mean by P(L_n=k)/E[Z_n] to obtain P(L_{n-1}=k)."
+        ],
+        "reasoning": "Counting labeled leaves in the conditional forest and computing conditional cyclic-count tails via a zero-weight label are equivalent ways of evaluating the mixed measure on cyclic counts. The latter is a direct prior specialization.",
+        "searches": [
+          "Resultary searches for terminal/zero-indegree count, cyclic vertices, Palm/conditioned deletion and anticorrelation",
+          "Pitman, Berkeley Technical Report 593, §3.2 Eqs. (23)–(29)",
+          "Hansen–Jaworski, arXiv:math/0603529, §3 Theorem 1 and proof"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The two later joint/conditioning records give the conditional empty-box law; the November record also gives negative covariance with increasing cyclic-count transforms. The earlier October 12 record instead studies component count against indegree-class counts.",
+          "The October 18 pruning entry gives an exact overlap at r=1. The October 18 records' first-public metadata link to much earlier motivating literature (Finch and Pitman); those fields alone do not date the later exact findings."
+        ],
+        "reasoning": "These are exact law comparisons, not just matching keywords. Components are not cyclic vertices. The later catalogue laws do imply the audited size-biased law but are kept distinct from the verified 2001 implication.",
+        "searches": [
+          "Resultary catalogue: cyclic-core/terminal vertices, pruning, zero-indegree/cyclic covariance",
+          "Resultary 2026/10/18/SCOPE-cyclic-core-conditioning-and-the-sharp-leaf-covariance-in-unifor--007c2a04bfe9",
+          "Resultary 2026/11/2/SCOPE-exact-joint-law-of-cyclic-and-terminal-vertices-in-uniform-rando--0c1fa0e07cad",
+          "Resultary 2026/10/12/SCOPE-a-poisson-second-difference-law-for-component-indegree-covarianc--303f0920fc82"
+        ]
+      },
+      "rationale": "The primary p-mapping tail theorem already gives the claimed size-biased cyclic-count law by a direct specialization. Conditional on one specified label j having indegree zero, the original n-domain mapping has independent images with weights p_j=0 and p_i=1/(n-1) otherwise. Pitman (2001), Eq. (29), gives the conditional cyclic-count tails for these weights as k! times the kth elementary symmetric polynomial in p, exactly (n-1)_k/(n-1)^k. Those are the size-(n-1) uniform tails obtained by setting all weights equal on n-1 labels. Averaging this identical conditional law over j is exactly Z_n size bias; subtracting the unconditioned tails gives the covariance formula. No earlier verbatim statement of this Palm identity is asserted. The later catalogue overlaps independently give explicit broader coverage, but are not the basis for historical priority.",
+      "residual_risks": [
+        "A prior verbatim Palm formula is not established. The final RSA journal article was not read in full; the decision rests on the directly checked open primary theorem and its substitution, not on the access limitation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING_BY_IMPLICATION",
+          "evidence": "Eq. (29) applied with one weight zero gives the conditional tail exactly; with uniform weights it gives the unconditioned tail and the comparison.",
+          "identifier_or_url": "https://statistics.berkeley.edu/sites/default/files/tech-reports/593.pdf",
+          "material_read": "§3.2, pp. 12–13, Eqs. (19)–(29), extracted offset 24900 onward",
+          "method": "Lawful Berkeley open-access full report, bounded passages",
+          "title": "Random mappings, forests, and subsets associated with Abel-Cayley-Hurwitz multinomial expansions",
+          "trigger": "Earlier independent-image and forest laws cited by the overlapping conditioning record"
+        },
+        {
+          "assessment": "BROADER_CYCLIC_LAW",
+          "evidence": "Cyclic-count probabilities are expressed using expectations of products of degrees under exchangeability; the proof starts its code by mapping zero-indegree vertices.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0603529",
+          "material_read": "Theorem 1 and start of its counting proof, pp. 5–6, extracted offset 14215 onward",
+          "method": "Lawful open-access preprint PDF",
+          "title": "A new random mapping model",
+          "trigger": "Available same-author treatment of exchangeable indegrees and earlier coding"
+        },
+        {
+          "assessment": "ACCESS_LIMITATION",
+          "evidence": "The abstract describes cyclic-point distributions via expectations of indegree functions. The accessible 2006 preprint and Pitman, not this abstract, supply the mathematical comparison.",
+          "identifier_or_url": "https://doi.org/10.1002/rsa.20187",
+          "material_read": "Abstract and same-author QMUL abstract, not the journal body",
+          "method": "DOI and identified lawful alternate retrieval; publisher and academic mirror denied full text",
+          "title": "Random mappings with exchangeable in-degrees",
+          "trigger": "Cited primary article on exact cyclic-point law"
+        },
+        {
+          "assessment": "BROADER_LATER_CATALOGUE_OVERLAP",
+          "evidence": "Choose r=1 and h of the cycle-length vector equal to f of its length-weighted total. Divide by the first factorial moment to recover the audited Palm identity.",
+          "identifier_or_url": "Resultary 2026/10/18/SCOPE-pruning-invariance-and-sharp-terminal-component-anticorrelation--e4cf3e3e51f2",
+          "material_read": "RESULT.md Finding at offset 0 and pruning proof; METADATA.json first_public_date and publication_date",
+          "method": "Local Resultary search and mirror",
+          "title": "Pruning invariance and sharp terminal–component anticorrelation in random mappings",
+          "trigger": "Closest exact Palm overlap"
+        },
+        {
+          "assessment": "BROADER_LATER_CATALOGUE_OVERLAP",
+          "evidence": "The conditional falling-factorial formulas specialize to the conditional mean of the same zero-indegree statistic. Its citations led to the earlier Pitman tail theorem.",
+          "identifier_or_url": "Resultary 2026/10/18/SCOPE-cyclic-core-conditioning-and-the-sharp-leaf-covariance-in-unifor--007c2a04bfe9",
+          "material_read": "RESULT.md Finding, Proof and Relationship to prior work (offset 7353); metadata date fields",
+          "method": "Local Resultary search and mirror",
+          "title": "Cyclic-core conditioning and the sharp leaf covariance in uniform random mappings",
+          "trigger": "Exact same joint-law objects"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Limitations",
+        "Pitman Technical Report 593, Eq. (29)"
+      ],
+      "rationale": "Palm conditioning is a clear explanation for a natural mixed-dependence identity, and strictness of the nontrivial tail covariances is valid. But for this submitted cyclic-count invariant the prior general p-mapping tail theorem already yields the exact biased and unbiased tails by direct choice of weights, and the sign follows at once from the elementary products. The presentation does not supply an independently unknown exact invariant or a further consequence beyond this direct specialization.",
+      "residual_risks": [
+        "This value decision is specific to the submitted cyclic-count laws; it does not adjudicate the more general cycle-vector pruning identities in distinct records."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

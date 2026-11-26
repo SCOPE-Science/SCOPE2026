@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Verification and limitations
+# Independent mathematical audit
 
-The all-length proof consists of a three-vertex Euler trail/circuit criterion, an exhaustive characterization of five-bin histogram feasibility, a disjoint generating-function case partition, and exact coefficient extraction. This does not depend on an external computer algebra system.
+## correctness
 
-Run `python3 verify.py` in the directory containing this file. The included program uses only the Python 3 standard library and returns:
+PASS
 
-```
-SPECTRUM_VERIFY_OK word_instances=118092 histogram_vectors=3478760 Euler_witnesses=12286 lengths=1..50
-```
+Each choice of how many sum-two reads represent 02 rather than 11 produces a looped undirected graph on the three symbols. A realizing word is precisely the vertex record of an Euler trail or an Euler circuit on its connected nonzero-degree support; a single loop handles cyclic m=1. For a trail, parity is automatic on three vertices. If a2>0 allocate all of it to 02 and the support is connected; if a2=0, there are exactly the three listed disjoint connectivity obstructions, counted by two binomial(m,2) terms and m-1. A circuit requires a1, a3 and the 02 multiplicity to have the same parity. With both adjacent cross-edge bins positive, they connect the support, and odd parity costs one sum-two read. With only one adjacent cross-edge bin positive it must be even, and a loop at the opposite end requires at least two sum-two reads to attach it. With neither adjacent cross-edge bin positive, a positive even a2 can all be allocated to 02, a positive odd a2 can only be realized at vertex 1 without outer loops, and with a2=0 exactly one nonempty loop bin remains. Summing the resulting disjoint geometric series yields the stated generating function. Its partial fractions at 1 have coefficients 1/2, -1/4, -17/8, 87/16 and -105/32 in descending pole order; the term at -1 is -9/[32(1+z)]. Coefficient extraction gives the stated quasipolynomial and leading coefficient. Selecting one word per histogram proves the finite-block code claim. Independent direct enumeration of 118,092 linear/cyclic words at m=1..9 matched both counts, as a finite check only. The frozen script was read and not executed.
 
-The first test constructs the actual output set from every ternary linear and cyclic word at read counts one through nine and verifies equality of sets with the mathematical feasibility classification, plus both cardinality formulas. It counts 118,092 tested source words in total. The second enumerates the complete integer-composition space of 3,478,760 five-bin histograms at read counts one through fifty, independently checking the formula counts against the finite feasibility predicates. The third constructs actual Euler walks for feasible histograms and checks that their observed outputs agree, with exhaustive histograms through length thirteen and 1,000 additional parameter cases up to length five hundred. An exact symbolic simplification of the derived series independently confirms the rational generating function and initial coefficients.
+## originality
 
-Finite tests alone do not establish the infinite theorem. The mathematical proof in RESULT.md establishes completeness of the three explicit disconnected linear types and four cyclic parity/connectivity cases for every integer read length. The theorem concerns a fixed three-symbol alphabet, noiseless and unindexed read sums. Scientific independence and external validation have not been established.
+PASS
+
+The exact counts concern the image after erasing read order and merging 02 with 11. The inspected closest results either keep read order or count richer pair-profile categories, and their cardinalities and inverse-fiber statistics do not determine the size of this image. The evidence supports distinct exact five-bin counts, subject to the cited comparison limits.
+
+## value
+
+PASS
+
+This is the first nontrivial collision of unordered pair types under ordinary addition on the given alphabet. Exact projected support counts are the useful finite-block code sizes for this observation, not just counts for a richer sensor. The all-length comparison at fixed number of observed windows isolates the arithmetic effect of closure: parity removes half the leading-order histograms, while connectivity governs the lower-order corrections. Standard Euler existence for a fixed graph does not mechanically give these projected counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

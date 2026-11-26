@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T20:50:16.012584Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a uniform arrival, an actual interval of normalized length l contributes l² to 2W/T. The guaranteed departure bounds every within-period wait, even when adjacent cycle statuses are dependent or some phases coincide. The four outcomes give the stated convex quadratic; the w term makes it strictly convex and averaging c,d is strictly improving unless they agree. After substitution the reduced Hessian has determinant 4Q. Solving the gradient equations produces the stated interior gaps, with a,c,d positive and b=(w(u+v+w)−uv)/(2Q). On b=0 the tangential derivative vanishes at a=(2u+v+w)/H and the inward derivative is 2(uv−w(u+v+w))/H. These certify the unique optimizer, including threshold equality, without searching other faces. For u=v=(1−w)/2, the inequality reduces to (1−w)²≥4w. Independently substituting the rational example gives W/T=29/138 versus 19/80 and reduction 151/1311. Frozen verify.py and VERIFICATION.md were inspected, not executed; the 165 rational tests only supplement the proof. No optimization over label order or positive minimum headways is established.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The independent-cancellation theorem covers larger numbers of departures, but requires independent statuses. Dou and Li's accessible abstract describes travel-time uncertainty and multiobjective coordination, not an analytic active-set law for random presence or absence of scheduled departures. Full texts of these external works were not obtained in this review."
+        ],
+        "reasoning": "A more general timetable optimizer or an exact expression for the waiting-time objective would not by itself assert this threshold; the independence restriction of the strongest inspected arbitrary-count theorem rules out the frozen joint law.",
+        "searches": [
+          "Resultary independent-cancellation theorem 823a3384-8ec8-4e13-a9b3-6a5ef8ed7179",
+          "Zhao et al. DOI 10.1287/trsc.1060.0170; Gkiotsalitis DOI 10.1049/iet-its.2019.0725; Dou and Li DOI 10.3390/pr11020574"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py",
+        "Resultary records 823a3384-8ec8-4e13-a9b3-6a5ef8ed7179 and 5690be0c-1bb0-4d68-ad4d-4e4598ea12cf (original passages)",
+        "Dou and Li, DOI 10.3390/pr11020574 (landing page/abstract)",
+        "Zhao et al., DOI 10.1287/trsc.1060.0170 and Gkiotsalitis, DOI 10.1049/iet-its.2019.0725 (access attempts blocked; no primary passages inspected)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The arbitrary-count result assumes independent statuses, whereas the frozen last two candidates have identical nondegenerate statuses. The exact correlated phase result has two candidate departures and no additional guaranteed anchor with three optional departures."
+        ],
+        "reasoning": "Merging the last two candidates would remove a boarding opportunity in both positive-weight scenarios in which they operate; the verified optimizer in fact has the gap between them positive. Thus the two-candidate theorem does not imply the active-set classification. Same-date catalogue proximity is not evidence of chronological priority.",
+        "searches": [
+          "Original Finding, assumptions and proof passages of 823a3384-8ec8-4e13-a9b3-6a5ef8ed7179 and 5690be0c-1bb0-4d68-ad4d-4e4598ea12cf"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The two inspected catalogue proofs optimize the same random-arrival waiting-time metric in independent-cancellation and two-service correlated settings, respectively."
+        ],
+        "reasoning": "Expressing the model as period event-pattern probabilities, merged headways, or a quadratic in phases leaves three distinct optional labels and a guaranteed anchor. Neither of the catalogue problems recovers that configuration by a change of variables.",
+        "searches": [
+          "Focused primary-literature search on correlated transit service cancellations and exact timetable optimization",
+          "Resultary: independent cancellations and correlated two-service timing (823a3384-8ec8-4e13-a9b3-6a5ef8ed7179 and 5690be0c-1bb0-4d68-ad4d-4e4598ea12cf)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Neither inspected catalogue result lists the four scenario weights and uv≥w(u+v+w) boundary or the two rational optimizer branches. The adjacent external hits did not identify a corresponding tabulated classifier."
+        ],
+        "reasoning": "The deliverable is an all-positive-weight regime law rather than a wait-time benchmark recomputed from a table; neither the illustrative value nor the absence of an indexed match certifies priority.",
+        "searches": [
+          "Resultary lookup for correlated service cancellation and exact phase optimization; exact two neighboring record IDs",
+          "Primary-literature search on exact optimization under correlated transit outages"
+        ]
+      },
+      "rationale": "The expectation identity and quadratic-programming method are standard. The closest inspected statements do not give or subsume the exact co-dispatch phase and piecewise optimizer for the prescribed correlated law. This is a bounded coverage judgment, not a claim of publication priority.",
+      "residual_risks": [
+        "General stochastic dispatch literature may contain an equivalent analytic law under other terminology; full texts of the three cited external comparators were not independently inspected.",
+        "Catalogue date alone supplies no priority ordering."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Does not cover the joint law",
+          "evidence": [
+            "Requires independent operation of the optional services."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-an-order-invariant-optimal-timetable-for-independently-cancelled--823a33848ec8/RESULT.md",
+          "material_read": "RESULT.md from offset 0: Finding, assumptions, and proof passages",
+          "method": "Published catalogue lookup and local mirror text",
+          "title": "An order-invariant optimal timetable for independently cancelled services",
+          "trigger": "Strong exact arbitrary-count overlap"
+        },
+        {
+          "assessment": "Related but not a specialization or dominance relation",
+          "evidence": [
+            "Optimizes a two-service phase with within-cycle Bernoulli dependence and independent cycle pairs, not three labeled optional services plus anchor."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-correlation-driven-optimal-phase-of-two-unreliable-periodic-tran--5690be0c1bb0/RESULT.md",
+          "material_read": "RESULT.md from offset 0: Finding, assumptions, and proof passages",
+          "method": "Published catalogue lookup and local mirror text",
+          "title": "Correlation-driven optimal phase of two unreliable periodic transit services",
+          "trigger": "Strong exact correlated timing overlap"
+        },
+        {
+          "assessment": "Adjacent at the abstract level only",
+          "evidence": [
+            "The accessible material frames uncertainty in travel times and multiple coordination objectives."
+          ],
+          "identifier_or_url": "https://doi.org/10.3390/pr11020574",
+          "material_read": "Landing page and abstract only; targeted full-text retrieval did not return the requested passage",
+          "method": "Lawful open-access text retrieval",
+          "title": "Multi-Objective Bus Timetable Coordination Considering Travel Time Uncertainty",
+          "trigger": "External stochastic coordination comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The competing outage patterns make a natural design question: can it be optimal to spend no headway between two departures that still sometimes operate together? The theorem gives a robust positive-probability region, exact boundary, and a unique optimizer on both sides; it shows concretely why strict separation intuitions from independent cancellations need not hold. The value is in that design law, not in the elementary wait identity or the illustrative percentage; there is no real-service calibration or deployment claim.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

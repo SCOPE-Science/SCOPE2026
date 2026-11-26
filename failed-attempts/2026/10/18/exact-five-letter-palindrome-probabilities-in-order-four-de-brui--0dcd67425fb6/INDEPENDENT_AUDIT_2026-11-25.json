@@ -1,0 +1,151 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:27:43.922105Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 4–83; VERIFICATION.md lines 18–26 and inspected check_pal_mean.py",
+        "Independent replay: python /workspace/review-evidence/4.py"
+      ],
+      "rationale": "The cycle sample space is exactly labeled cyclic Euler tours of the triple-vertex graph; a contraction of two distinct edges is a bijection even if the replacement is a tagged loop. The degree-factor quotient is 1/(q-1), and the balanced contracted graph has all degrees positive even at q=2, so a zero tree cofactor correctly signifies no tour. The row Laplacian update is (e_s-e_v)(e_v-e_t)^T, including coincident vertices. Since P^3=J, the zero-sum inverse is (I+P+P^2-3J)/q; restricting to a root cofactor only adds a constant to the solution. I checked the three suffix/prefix bilinear forms in equations (2)–(5), including the coincident s=t when a=c, and their sum over the four multiplicities gives q^2-2-2/q. The constant word repeats its four-letter factor and is impossible. An independent binary enumeration via local successor permutations gave eight cycles with zero and eight with two palindromes, with each of 00100, 01010, 10101, 11011 present in four cycles and all others absent.",
+      "residual_risks": [
+        "Binary enumeration only checks q=2; the reconstruction of the determinant argument is what supports general q. No formal proof-assistant verification was performed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Rødland Theorem 1 gives factorial moments of word counts; Appendix B computes the tree-ratio determinant; Theorem 3 treats joint word counts",
+          "Fici–Gabory pp. 1–2 concern the BWT graph setting; Sawada–Gabrić abstract concerns uniform generation; Orenstein 2020 abstract concerns coverings up to reversal"
+        ],
+        "reasoning": "Rødland is a stronger exact-count theorem, and its single-word first moment applies without any random-generator assumption. The other comparisons do not establish exact coverage in the inspected passages.",
+        "searches": [
+          "Websearch and primary comparison for exact local word probabilities in uniform cyclic de Bruijn words",
+          "Rødland Theorem 1, Theorem 3 and Appendix B; Fici–Gabory MFCS 2025; Sawada–Gabrić arXiv:2510.16545; Orenstein reverse de Bruijn"
+        ]
+      },
+      "checked_sources": [
+        "Rødland article, exact-count theorem and Appendix B",
+        "Resultary 02203ca2da50, 24dbaf279086 and 6864ba365d1a",
+        "Fici–Gabory, Sawada–Gabrić and reversal-covering source comparisons"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "PDF offsets 24126–28570 give contraction and changes in degrees; offsets 80604–88847 give the inverse-determinant formula for a single substituted word"
+        ],
+        "reasoning": "For a nonconstant abcba there is one length-two path using its distinct four-letter edges; all corresponding edge multiplicities in the theorem are one and the interior-vertex multiplicity adjustment is one. In unnormalized row-Laplacian notation the prior count formula is the cofactor ratio divided by q-1. Appendix B's inverse determinant reduces to 1+(e_v-e_t)^T L#(e_s-e_v) since the two-edge update is rank one. The ordinary inverse on the zero-sum subspace is the three-term geometric sum divided by q since P^3=J. Substitution then tests only zero, one and two shifts, giving exactly the three overlaps of the assigned proof. There is no additional count or structural lemma needed, and summing the exact indicator probabilities is immediate.",
+        "searches": [
+          "Rødland path-contraction Lemmas 1–2 and Theorem 1 (pp. 120–122); Appendix B (pp. 131–132)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Rødland pp. 117–118, around PDF offset 6219, defines uniform cyclic shuffles with prescribed k-word composition; pp. 120–122 give path contraction and the exact count theorem"
+        ],
+        "reasoning": "With k=4 and every four-letter multiplicity equal to one the shuffle space is the stated de Bruijn ensemble. Each word has q^4 distinct rotations (otherwise a four-letter factor would repeat), so uniform indexed cycles induce uniform rotation classes. The count of a specified five-letter word is a zero-or-one indicator in this ensemble.",
+        "searches": [
+          "Resultary: order-four de Bruijn five-letter palindrome probabilities, motif likelihood, exact next-window and support",
+          "Rødland DOI 10.1239/aap/1143936143: fixed cyclic word composition"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Same-day 02203ca2da50 gives support but not probabilities; same-day 24dbaf279086 gives order-two factor covariances; later 6864ba365d1a gives general binary next-window likelihoods"
+        ],
+        "reasoning": "Support agrees at zero probabilities but does not determine the positive values. At n=4 the later binary result yields 1/4 for 00100, but does not evaluate the arbitrary-q table and does not constitute earlier priority. The decisive coverage instead comes from the 2006 primary theorem.",
+        "searches": [
+          "Local Resultary searches for exact factors, palindrome occurrence probabilities and next-window laws"
+        ]
+      },
+      "rationale": "Rødland's 2006 exact word-count theorem already covers this uniform sample space and returns the exact probability for any prescribed five-letter factor, not merely a bound or an algorithm for sampling. Appendix B already gives the contraction-specific determinant update with a generalized inverse. Here the specialization needs just the two-edge rank-one determinant and the finite geometric sum for a three-symbol shift. The four rational expressions and their linearity-of-expectation sum are not printed in the inspected prior source, but they are a direct evaluated corollary of it. The record does not identify a separate contribution beyond that evaluation.",
+      "residual_risks": [
+        "Full text of some reversal-related sources was unavailable; this does not affect the already verified implication from Rødland.",
+        "Claim coverage does not assert that this table's simplified rational expressions appeared verbatim before the assigned record."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive broader exact coverage; evaluated case table not separately printed in inspected material",
+          "evidence": [
+            "Lemma 1 bijects contracted cycles with cycles containing the fixed path.",
+            "Appendix B writes the tree-ratio calculation with det(I-r Lhat DeltaL) and identifies the allowable generalized inverses."
+          ],
+          "identifier_or_url": "https://doi.org/10.1239/aap/1143936143",
+          "material_read": "pp. 117–118 sample space; pp. 120–122 contraction, Lemmas 1–2 and Theorem 1; pp. 131–132 Theorem 3 and Appendix B",
+          "method": "Lawful publisher OA PDF, passage-level reading and algebraic specialization",
+          "title": "Exact distribution of word counts in shuffled sequences",
+          "trigger": "General exact motif law including this sample space and paths"
+        },
+        {
+          "assessment": "Related support or lower-order correlation, not this table",
+          "evidence": [
+            "First entry explicitly does not count cycles or probabilities; second uses order two."
+          ],
+          "identifier_or_url": "Resultary 02203ca2da50 and 24dbaf279086",
+          "material_read": "Claim and scope passages",
+          "method": "Local published-record mirror",
+          "title": "Exact next-order factor support across de Bruijn cycles; Sharp alphabet threshold for correlations of three-letter factors",
+          "trigger": "Same-day local factor claims"
+        },
+        {
+          "assessment": "Exact but later and binary-only overlap",
+          "evidence": [
+            "Gives P(00100)=1/4 in order four and credits the general prior motif formula."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-quadratic-time-exact-next-window-likelihood-for-random-binary--6864ba365d1a",
+          "material_read": "Binary statement, overlap formula and attribution to Rødland",
+          "method": "Local published-record mirror",
+          "title": "A quadratic-time exact next-window likelihood for random binary de Bruijn cycles",
+          "trigger": "Explicit overlap probability law"
+        },
+        {
+          "assessment": "Context in inspected passages, not an exact motif probability claim",
+          "evidence": [
+            "The examined statements concern BWT-defined generalized de Bruijn objects and graph correspondences."
+          ],
+          "identifier_or_url": "10.4230/LIPIcs.MFCS.2025.48",
+          "material_read": "pp. 1–2",
+          "method": "Lawful OA paper passage inspection",
+          "title": "Generalized de Bruijn Words, Invertible Necklaces, and the Burrows–Wheeler Transform",
+          "trigger": "Cited de Bruijn graph framework"
+        },
+        {
+          "assessment": "Sampling context only in material read",
+          "evidence": [
+            "The abstract describes uniform generation, not motif likelihood calculations."
+          ],
+          "identifier_or_url": "arXiv:2510.16545",
+          "material_read": "Abstract",
+          "method": "Lawful OA abstract inspection",
+          "title": "Uniform generation of de Bruijn sequences",
+          "trigger": "Uniform sampling normalization"
+        },
+        {
+          "assessment": "The accessible abstract treats a different objective; other comparisons remain limited",
+          "evidence": [
+            "Reversal covering does not itself specify the ordinary uniform-cycle model."
+          ],
+          "identifier_or_url": "10.1007/978-3-319-89929-9_10; 10.1089/cmb.2019.0448; 10.1093/bioinformatics/btt213",
+          "material_read": "2020 abstract; technical texts of the 2018 and 2013 comparisons not recovered in lawful attempts",
+          "method": "Lawful OA abstract inspection and identified full-text retrieval attempts",
+          "title": "Reverse de Bruijn and related shortest double-stranded coverage constructions",
+          "trigger": "Cited reversal-sensitive sequence constructions"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 22–89",
+        "Rødland Theorem 1 and Appendix B"
+      ],
+      "rationale": "The rotation-class law is natural, and the small formulas make a useful illustration, but the only claimed advance is this narrow invariant. After the prior exact motif law and its inverse-determinant update, the table is obtained by a single two-edge contraction and checking at most two shifts; the mean adds only the four equality-pattern multiplicities. The record supplies no distinct unknown invariant or additional structural result beyond that direct evaluation.",
+      "residual_risks": [
+        "This assessment is about the stated claim only; wider palindrome statistics or efficient general formulas were not evaluated as separate results."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

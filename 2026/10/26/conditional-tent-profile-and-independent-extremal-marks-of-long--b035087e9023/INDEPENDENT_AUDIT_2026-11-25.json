@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T23:32:05.558924Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, assumptions and proof, lines 5–117",
+        "Frozen VERIFICATION.md, lines 19–25; gap_shape_verifier.py, lines 1–48; gap_shape_verifier_output.txt, lines 1–8 (inspected, not executed)",
+        "Independent small rank replay: enumerate permutations of 0,…,n+3 assigned in order to sites −1,…,n+2; count qualifying permutations by interior argmax."
+      ],
+      "rationale": "Absence of interior minima with both endpoint minima forces an increasing then decreasing interior. Conditional on interior unimodality, each subset of the n−1 below-maximum ranks occurs on the left with equal probability; the maximum M is independent of that assignment. Given the counts and M, the two samples of normalized values are independent. Integrating each exterior neighbor and root gives a factor g(s)=s−s²/2 at its adjacent interior minimum s, with V_0=1 for an empty side. Beta moments of the side minima give F_n. To check the normalization directly, set N=n+1 and i=m+1; the prefactor binom(n−1,m)n/[(m+1)(n−m)] equals binom(N,i)/N. For J=sum_{i=1}^{N−1} binom(N,i)/(i+1)=(2^(N+1)−N−3)/(N+1), the reciprocal sum and product terms combine to −2J/(N+3) inside the overall 1/N; the constant term is (2^N−2)/(N+1). This yields the displayed denominator. Independently enumerating the (n+4)! strict rank permutations for n=1,2,3,4, testing the two roots and rejecting every interior valley, gives apex histograms [16], [40,40], [78,132,78], [133,315,315,133], matching the weights. For the infinite limit the central binomial concentration makes both sample sizes n/2+o(n); their minimum survival laws converge uniformly there, and n(1−M) converges independently to Exp(1). The scaled tilt converges to the product of the two independent Exp(1/2) minima and its mean converges to 4, the product's mean. Nonnegativity and convergence of means give uniform integrability, so the tilt size-biases just the two side minima to Gamma(2, rate 1/2). Given the sides, the normalized endpoint kernels tend in total variation to independent uniforms; multiplying by the gamma marks gives the stated endpoint exponentials, unaffected by the time transform at scale n. The peak-time transform gives the independent Gumbel, and the Gaussian location is unchanged by the tilt. Uniform empirical order-statistic convergence gives the tent before tilt, then uniform integrability transports it; the returned endpoint heights are o_p(1).",
+      "residual_risks": [
+        "The rank replay checks the finite location law only in the listed cases. Four-way independence, rare-event transfer and uniform convergence use the analytic proof, not the frozen diagnostics."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The excursion kernel and evaluated gap law concern the unmarked gap probability. The indexed joint-independence record concerns total root-count Gaussian fluctuations and a Poisson count of rare gaps, with a mixed-test bound."
+        ],
+        "reasoning": "A law for aggregated gap counts does not specify the conditional shape or joint mark law of a single specified gap; the Gaussian in that record is not the conditional apex location.",
+        "searches": [
+          "arXiv:2610.21094, §4 Lemmas 4.1–4.2 and Theorem 4.3",
+          "Local Resultary: 78e599bc494f, joint Gaussian–Poisson independence in cyclic deposition"
+        ]
+      },
+      "checked_sources": [
+        "Matijasevick arXiv:2610.21094 §4",
+        "Billey–Burdzy–Sagan Article 13.6.1 opening definitions and the §4 Remark 4.4 comparison above",
+        "Resultary 78e599bc494f",
+        "Frozen RESULT.md, lines 123–135"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The cited lemmas supply unimodality and an excursion kernel, and standard order statistics give untilted minima and maxima. The proof must further control bias from the two endpoint inequalities via the scaled product tilt and conditional endpoint kernels."
+        ],
+        "reasoning": "A count, or a binomial location and Gumbel maximum under plain unimodality, does not establish independence and the rates after conditioning on the rarer two-root event. The tilt transfer and the conditional marks provide the distinct result.",
+        "searches": [
+          "arXiv:2610.21094, §4 and Remark 4.4",
+          "Resultary 78e599bc494f, RESULT.md Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The deposition event coincides with consecutive local minima of the iid first-arrival ranks. After reversing the value order, the two boundary minima give permutation peaks at positions 2 and N−1, N=n+4.",
+          "The inspected comparison counts permutations with the prescribed peak set; it does not resolve the internal apex or continuous clock times."
+        ],
+        "reasoning": "Unmarked gap events and peak sets are equivalent up to that reversal; counting the rank set does not itself give its weighted-position decomposition or the mark limits.",
+        "searches": [
+          "Matijasevick arXiv:2610.21094, §4: consecutive roots, valleys, unimodal excursion",
+          "Billey–Burdzy–Sagan, Permutations with Given Peak Set: peak-set and relative-rank formulation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The published a_n equals the frozen normalization divided by n!, and the rank count is (n+4)!a_n. The checked indexed record uses this same marginal, not the count split by interior apex position."
+        ],
+        "reasoning": "This exact match must be credited for the unmarked denominator. Neither checked formula gives the individual indexed apex weights or the four mark limits.",
+        "searches": [
+          "Local Resultary: conditional single-gap shape/marks and exact apex weights; closest distinct record 78e599bc494f",
+          "Matijasevick Theorem 4.3 and Remark 4.4; peak-set count for {2,N−1}"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the marked refinement: the exact apex-position distribution and conditional tent with independent endpoint, location and peak-time limits for one specified oriented gap. The rank reduction and the unmarked gap mass are already known and are not credited as novel.",
+      "residual_risks": [
+        "Priority under other terminology for conditioned permutation mountains is not settled by this bounded comparison. The older gap-paper attributions in Matijasevick were not independently inspected; the unmarked probability is excluded from the novelty assessment regardless."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage of the rank reduction and unmarked marginal; the compared statements are not the joint marked theorem.",
+          "evidence": [
+            "Theorem 4.3 gives a_i=i·2^(i+1)/[(i+1)(i+2)(i+4)i!].",
+            "Remark 4.4 cites earlier gap provenance including Hivert et al., Eq. 69, and the peak-set enumeration."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.21094",
+          "material_read": "§4, Lemmas 4.1–4.2, Theorem 4.3, Remark 4.4 (bounded HTML reads around offsets 22300–30500)",
+          "method": "OA HTML passage inspection",
+          "title": "Gaps between roots in ballistic deposition on a strip: linear variance, Gaussian limits and a Poisson regime",
+          "trigger": "Same model, consecutive-root excursion and exact gap formula"
+        },
+        {
+          "assessment": "Unmarked rank comparison, not continuous time or a location-resolved conditional limit",
+          "evidence": [
+            "The cited instance counts permutations with peak set {2,N−1} as (N−1)(N−4)2^(N−3), agreeing with the frozen unmarked mass after division by N!."
+          ],
+          "identifier_or_url": "https://www.maths.tcd.ie/EMIS/journals/JIS/VOL16/Billey/billey2.pdf",
+          "material_read": "Opening definitions of peak-set enumeration; Theorem 4.2 count via exact comparison in arXiv:2610.21094, Remark 4.4",
+          "method": "OA opening PDF pages and inspected attribution in the primary gap paper",
+          "title": "Permutations with Given Peak Set",
+          "trigger": "Equivalent rank enumeration for the unmarked event"
+        },
+        {
+          "assessment": "Same unmarked mass, materially different random variables and limit",
+          "evidence": [
+            "Its Gaussian statistic is the bulk root count and its Poisson statistic counts rare gaps; neither is a clock or location mark inside one specified gap."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-joint-gaussian-poisson-independence-for-bulk-roots-and-rare-long--78e599bc494f",
+          "material_read": "RESULT.md Finding, comparing the two statistics and sampling regimes",
+          "method": "Local Resultary search and mirror read",
+          "title": "Joint Gaussian–Poisson independence for bulk roots and rare long gaps in cyclic deposition",
+          "trigger": "Closest distinct indexed record on long gaps and joint independence"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–46 and 82–117",
+        "Matijasevick arXiv:2610.21094 §4"
+      ],
+      "rationale": "The unmarked incidence of long gaps does not explain their interior geometry or clock scales. The specified-gap joint law resolves a natural conditional object: a macroscopic tent together with two endpoint times of order 1/n, a Gaussian location fluctuation and an independent logarithmic peak-time fluctuation. The endpoint tilt makes this more than routine unconditioned extreme-value theory. The finite location law also gives the natural discrete counterpart of the Gaussian mark.",
+      "residual_risks": [
+        "The result does not apply directly to a gap selected as the longest or by size bias, and it gives neither fluctuation limits for the entire tent nor convergence rates."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

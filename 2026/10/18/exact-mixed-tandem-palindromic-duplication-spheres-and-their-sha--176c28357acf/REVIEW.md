@@ -1,19 +1,21 @@
-# Scientific review: mixed length-two duplication spheres
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The two same-type collision lemmas account for all repeated positions. A source substring \(abba\) with \(a\ne b\) gives precisely the new cross-type equality \(P_i=T_{i+2}\); necessity follows by comparing shifted output coordinates and excluding tandem sites to the left. Adding nonconstant palindromic outcomes to the distinct tandem outcomes and subtracting exactly these collisions gives the pointwise formula. Two positive comparison sums yield the sharp nonbinary upper bound and exact extremizers. In the binary case, the transition-word deficiency is a nonnegative sum over maximal zero-runs; its zero cases give the classification and rational generating function. Direct full-set enumeration agrees for 79,073 tested words. The logical quantifiers cover all \(q\ge2\), \(n\ge2\); the test range is not substituted for a proof.
+PASS
 
-## Originality
+Count distinct length-(n+2) outputs of exactly one insertion, without complements. At sites i<j, trimming the common outside portions reduces equality to B_i U=U B_j, where U=w_{i+2}…w_{j+1} and B_i,B_j are the two-letter inserts. For tandem this is exactly period two on w_i…w_{j+1}; equality classes are consecutive runs, giving 1 plus the distance-two inequalities. For two palindromic inserts, if j=i+1 the three aligned letters force the source triple constant. Otherwise the common middle has period two (both copies of U agree at a shift of two); U ends in w_jw_{j+1} whereas the final insert reverses these letters, making the two parity classes equal. Thus nonconstant palindromic sites give distinct outcomes. Constant sites already belong to the tandem set. For a nonconstant palindromic site i and a tandem site j≤i+1, comparison at the two inserted positions excludes equality. If j≥i+2 those positions require w_{i+2}=w_{i+1} and w_{i+3}=w_i; this is sufficient with j=i+2, giving exactly the abba subtraction. Saturation of both positive sums gives the q≥3 extremum and the count. For binary words, the deficit from n is #zeros minus #changes plus #101 in the transition word. A boundary zero-run costs length minus one and an interior run costs length minus two plus the indicator of length one. The all-zero transition word never maximizes. The qualifying runs give the stated generating function and each transition word has two preimages. Uniform expectation uses probability (q-1)/q for either inequality and (q-1)/q³ for each abba correction, with no corrections for n<4.
 
-PASS, subject to the stated literature risk. Lenz–Wachter-Zeh–Yaakobi, arXiv:1707.00052, Section 3, treats tandem spheres and palindromic spheres separately; it provides neither a mixed-channel union count nor the \(abba\) intersection correction or tribonacci binary extremizers. Zeraatpisheh–Esmaeili–Gulliver, DOI:10.1109/ACCESS.2020.2995812, develops duplication code constructions including mixed mechanisms but does not give the exact one-error mixed descendant sphere in the inspected sections. Yohananov–Schwartz, arXiv:2312.00394, treats reverse-complement/palindromic capacities rather than this mixed one-step channel. The closest publicly indexed calculations count confusable pairs under a fixed tandem length or code sizes for two palindromic errors, not the source-wise mixed sphere. A differently phrased exact identity in unindexed literature remains possible.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. A channel that permits either of two biologically motivated duplication mechanisms has a different one-step output sphere from either mechanism alone. The pointwise correction isolates the precise overlap pattern, while the sharp transition from binary to larger alphabets and the tribonacci number of binary maximizers determine nontrivial extremal structure for every block length \(n\). These properties are directly relevant to sphere-counting and packing analyses, although no code-rate improvement or multi-error claim is established.
+Separate tandem and palindromic sphere formulas and general duplication-code settings are prior. The distinct result is the exact mixed union, especially its cross-channel intersection correction and the resulting alphabet transition and binary maximizing classification. The mean is a corollary, not a separate originality claim.
 
-## Scope and uncertainty
+## value
 
-Only exact-one length-two copy operations, without complementation, are covered. The unrestricted proof is a direct word-comparison argument; finite checker agreement adds reassurance without proving all instances. The originality review is bounded by located accessible sources, and independent mathematical validation is outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The distinct descendants are the exact confusability neighborhood for a natural single-error channel permitting either copy orientation. A mixed neighborhood cannot be sized by adding the individual channel formulas. The correction identifies the precise local obstruction, and the alphabet-dependent extremum and binary maximizing census reveal which sources have the largest ambiguity. These exact local counts are useful independently of an optimal global code bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

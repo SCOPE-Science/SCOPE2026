@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T13:41:05.088322Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The suffix and seen-mask are sufficient: appending a bit creates exactly one possible new triple and retains the other triples. Independent replay in branches/bf210e71-76b5-4902-beff-b025063e40e3/independent_check.py reproduced R_3 through R_11 = 8,15,27,48,72,94,100,103,101, the full equality E_11=E_17 with 196 states, parity-wise equality of the six support sets and P(E_10)=P(E_12), and odd support contained in even support with difference 46 and 116. Direct enumeration reproduced the support sets for lengths 3–15. Equality of full states, not equal counts, propagates by determinism; inspecting the six phase sets proves the infinite assertion. For the first exceptional profile the only complete walks use one forced entry, a positive number of two-cycle traversals, and one forced exit, giving word length 4+2t; complementation handles the second. One word per profile is exactly the zero-error optimum. The frozen source scripts were inspected, not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prior Step 1 defines P_j(s,m), the exact number of words with suffix s and mask m, starts with P_2(s,0)=1, and updates the same (s,m) coordinates by nonnegative addition.",
+          "Prior code computes four rows of 256 integers at each length through 50, which is strictly stronger finite data than reachable/not reachable."
+        ],
+        "reasoning": "The positive entries are exactly E_j and positivity commutes with this nonnegative recurrence. The new DP's row/suffix representation and transition do not require any new combinatorial reconstruction.",
+        "searches": [
+          "Resultary e450d182bc9b/RESULT.md, Proof Step 1",
+          "e450d182bc9b/verify_presence_dp.py, profiles_through"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py",
+        "Independent replay in branches/bf210e71-76b5-4902-beff-b025063e40e3/independent_check.py",
+        "Resultary e450d182bc9b, bcc1ebef8280, c5ea7e549c82",
+        "Bernardini et al., CPM 2022 p. 1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Extract Boolean states from the prior computation at n=11 and 17, compare them, then compare the first six projected phases and n=10. Periodicity follows immediately from the same deterministic Boolean update; mask difference and codebook size are just set subtraction and image cardinality."
+        ],
+        "reasoning": "The exact unbounded parity result is a finite readout and standard deterministic iteration of the earlier stronger algorithm over lengths it already computes. The forced-walk explanation is correct, but does not add an independent count or nonmechanical classification beyond that readout.",
+        "searches": [
+          "e450d182bc9b/RESULT.md, Proof Step 1 and exact update",
+          "e450d182bc9b/verify_presence_dp.py, array update",
+          "Frozen proof §§1–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bernardini et al., p. 1 abstract: z shortest distinct linear strings with a prescribed set of length-k substrings.",
+          "Resultary ids bcc1ebef8280 and c5ea7e549c82 concern multiplicity vectors, which project to presence masks by replacing every nonzero component with one."
+        ],
+        "reasoning": "The word 'spectrum' is ambiguous: shortest realization of one profile and counting distinct multiplicity vectors are not counts of the image of that zero/nonzero projection at fixed length.",
+        "searches": [
+          "Resultary: binary three-factor presence profiles; exact linear three-gram capacity",
+          "CPM 2022 DOI 10.4230/LIPIcs.CPM.2022.16"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The CSV actually reports full-support count, largest proper-support count, maximum fiber size and maximizing masks, not a table of all masks or suffix states.",
+          "The matching prior code still generates exact all-mask populations from the full array for every length through 50, covering every length needed for the repeat and projection tests."
+        ],
+        "reasoning": "The displayed CSV alone is insufficient; the stronger prior recurrence and its finite computation are decisive. The frozen description overstates what the printed CSV contains.",
+        "searches": [
+          "Resultary e450d182bc9b/finite_profiles_3_to_50.csv, header and lengths 3–27",
+          "e450d182bc9b/verify_presence_dp.py, profiles_through"
+        ]
+      },
+      "rationale": "The all-length formula was not found stated verbatim in the earlier record. Nevertheless the earlier exact inverse-fiber DP computes the entire suffix-by-mask count array and uses the identical fixed transition. Its positivity patterns at lengths 11 and 17 are obtained by keeping the Boolean snapshots of the already computed arrays and comparing them; then projection, differencing and deterministic induction give the whole finding, not merely a few coincidences in the profile counts. This is mechanical coverage by the prior exact computational result, not an inference from unavailable literature or from the modal-fiber threshold by itself.",
+      "residual_risks": [
+        "No exhaustive historical priority conclusion; the finding may additionally be stated verbatim elsewhere. Only the cited passages of the general shortest-realization paper were needed for this decision."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Mechanically covers the frozen claim via the full-state zero pattern, not via the stated modal threshold or flat CSV alone",
+          "evidence": "RESULT.md offset 2070; verifier offset 307; CSV offset 0.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-the-sharp-full-support-threshold-for-binary-three-factor-spectra--e450d182bc9b",
+          "material_read": "RESULT.md Proof Step 1; verify_presence_dp.py profiles_through; CSV header and early rows",
+          "method": "Local published-record mirror, exact passages",
+          "title": "The sharp full-support threshold for binary three-factor spectra",
+          "trigger": "Same observation and prior stronger exact recurrence"
+        },
+        {
+          "assessment": "Same equivalence relation; inspected result lists shortest realizations of a given set, rather than the all-length image census",
+          "evidence": "P. 1, fixed prescribed S_k and z shortest distinct strings; DOI 10.4230/LIPIcs.CPM.2022.16.",
+          "identifier_or_url": "https://ir.cwi.nl/pub/31869/31869.pdf",
+          "material_read": "First-page abstract and main contributions",
+          "method": "Lawful open access, bounded PDF extraction",
+          "title": "On Strings Having the Same Length-k Substrings",
+          "trigger": "Exact factor-set equivalence and realization algorithms"
+        },
+        {
+          "assessment": "Summaries concern multiplicity vectors, not their support projection",
+          "evidence": "Length-period 12 quartic count, as opposed to bounded parity-wise count of sets.",
+          "identifier_or_url": "Resultary bcc1ebef8280; c5ea7e549c82",
+          "material_read": "Indexed findings summaries",
+          "method": "Local Resultary lookup",
+          "title": "Linear binary three-gram capacity and binary three-gram multispectrum capacity",
+          "trigger": "Nearest capacity terminology and alphabet/factor length"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Known-length profile capacity is naturally motivated and the two persistent parity obstructions are useful facts to display. Here the complete exact invariant and the certificate reduce to routine zero/nonzero readout and comparison of a prior exact computation on the same object and already covered lengths. No separate surviving classification or new inference beyond that readout is established.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

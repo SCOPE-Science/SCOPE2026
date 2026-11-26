@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T13:24:26.154843Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Original mathematical assertions check out: degree j Walsh characters have eigenvalue 2j and form a binomial-dimensional eigenspace, so PBH applies to coordinate-row restriction. For n=2k+1, incidence up/down commutation gives a direct harmonic decomposition. Substituting the lifts reduces the action to a function of t=|x∩R| for each ℓ-set R; repeated lowering and Newton expansion cancel all terms below order ℓ. The surviving difference gives (−2)^ℓ[z^(j−ℓ)](1−z²)^(k−ℓ)(1+z), which yields the stated nonzero signed binomial. Column complementation handles j>k. The original even product placement follows by taking row sums and differences over the last bit; an even middle shell has proportional antipodal rows in degree k. For the repaired spectrum claim, separately checked the commutator recurrence for the unnormalized iterated up-lifts F_r: D_r F_r=(r−ℓ)(n−r−ℓ+1)F_(r−1). This gives ||E_(r,ℓ)h||²=binom(n−2ℓ,r−ℓ)||h||² and orthogonality of distinct sectors by induction (D_r U_(r−1) is scalar on each source sector). Thus the singular values use the square root of the target/source norm factors, with sector dimensions binom(n,ℓ)−binom(n,ℓ−1), including the ℓ=0 case. The supplied integer and modular checks were inspected, not replayed; full rank mod the prime suffices for full real rank but is not a general upper-bound certificate for real rank. The original upper bound for the middle shell comes from exact row proportionality, not modular evidence; the repaired spectral normalization is proved rather than inferred from those tests.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Yuan et al. give the maximum eigenvalue multiplicity principle for unrestricted inputs, not coordinate-row spectra.",
+          "Filmus supplies an orthogonal basis refining the Johnson scheme and harmonic representation of slice functions."
+        ],
+        "reasoning": "The prior decompositions and general controllability theorem provide tools, not the transform's eigen-sector coefficients. Unlike an internal Johnson-scheme matrix on a single slice, W_(k,j) generally maps one layer to a different one. The repaired proof explicitly computes the necessary coefficient rather than invoking a rank theorem.",
+        "searches": [
+          "Yuan et al. arXiv:1310.5806, equations (3)–(4)",
+          "Filmus arXiv:1406.0142, harmonic multilinear and Johnson-scheme passages"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py; corrected RESULT.md",
+        "Resultary 876293fe84cf, eeb8cf5e7cb8 and 2f3d3e9f24ff (last, summary only)",
+        "arXiv:1310.5806 and arXiv:1406.0142"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior Step 3 propagates vanishing to complementary shells and then out through layers using U_(m−1) injective; no cross-layer spectral formula is used or given there.",
+          "The repaired coefficient depends on the finite-difference sum at order ℓ; the exact conditioning also needs source and target lift norm factors."
+        ],
+        "reasoning": "Nonzero action is already implied by prior injectivity once equivariant splitting is in hand. The closed action, magnitudes and multiplicities are not obtained from nonvanishing or basis construction alone. No equivalent general-transform formula implying them was verified in inspected material.",
+        "searches": [
+          "Resultary 876293fe84cf, RESULT.md Step 3",
+          "Filmus 1406.0142, opening and layer-basis passages"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "PBH controllability is injectivity in each homogeneous Walsh degree; 876293fe84cf proves that injectivity for the same odd shell.",
+          "The repaired claim is quantitative: under orthonormalized incidence lifts the action determines each singular value, not just the kernel."
+        ],
+        "reasoning": "The prior controllability result matches the entire rank-level conclusion and choice of odd actuators. It is not an alternative statement of the coefficient and spectrum formula: many injective maps with the same sector dimensions have different singular values.",
+        "searches": [
+          "Resultary: minimum coordinate control, odd middle shell, Boolean hypercube Walsh restriction",
+          "Walsh/Hamming middle-layer rank and Johnson scheme sampling literature",
+          "arXiv:1406.0142 harmonic slice basis"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier catalogue record gives the exact optimum binom(d,floor(d/2)) for the same system in all dimensions.",
+          "The four-cube record gives an exact six-input classification and an antipodal argument. A quadratic Walsh-spectrum hit concerns weighted pairs of Hamming layers in its summary; decisive full passage was unavailable."
+        ],
+        "reasoning": "An exact rank catalogue entry subsumes the original optimum even if its even construction differs. The four-cube result and the available weighted-pair summary do not provide the all-degree single odd-layer spectral multiset; the latter access limit remains a risk.",
+        "searches": [
+          "Resultary 876293fe84cf, eeb8cf5e7cb8, 2f3d3e9f24ff"
+        ]
+      },
+      "rationale": "The frozen optimal-count claim and odd-layer placement have exact prior coverage, and they are not passed. The completed replacement claims only the closed harmonic-sector action of the fixed-degree Walsh sampling map and its counting-norm spectrum. The earlier controlling shell proof contains neither those coefficients nor the implied exact conditioning; its vanishing propagation can show nonzero action but cannot give its size. The two elementary parity observations of the original record are not used as a stand-alone novelty claim.",
+      "residual_risks": [
+        "A general Johnson/Hamming intertwining or rectangular transform formula in specialist literature may yield this spectrum. The targeted literature and passage checks did not establish that implication.",
+        "Catalogue dates are not proof of publication priority or of order between same-day records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact overlap of key frozen finding, not a spectrum result in the inspected proof",
+          "evidence": "Same binomial optimum, same odd shell, and an even fixed-facet construction; odd proof propagates vanishing via incidence injections.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-sharp-central-shell-actuator-placement-for-boolean-hypercube-con--876293fe84cf",
+          "material_read": "RESULT.md Finding and Proof Step 3, mirror passage offset 0",
+          "method": "Local Resultary mirror passage inspection",
+          "title": "Sharp central-shell actuator placement for Boolean hypercube control",
+          "trigger": "Exact minimum plus same odd placement under the same assumptions"
+        },
+        {
+          "assessment": "Supplies input-count principle without a selected coordinate-row matrix spectrum",
+          "evidence": "Optimum count for unrestricted inputs equals maximum geometric multiplicity, algebraic in the diagonalizable undirected case.",
+          "identifier_or_url": "arXiv:1310.5806; DOI 10.1038/ncomms3447",
+          "material_read": "PDF p. 4 equations (3)–(4), OA offset 12260",
+          "method": "Open-access paper passage inspection",
+          "title": "Exact controllability of complex networks",
+          "trigger": "Maximum multiplicity as sharp input count"
+        },
+        {
+          "assessment": "The read passages supply slice basis and lifting framework, not the cross-layer Walsh coefficients; not a whole-document noncoverage verdict",
+          "evidence": "Harmonic multilinear basis for a slice refines Johnson-scheme spaces.",
+          "identifier_or_url": "arXiv:1406.0142",
+          "material_read": "PDF pp. 1–2, OA offsets 640 and 7119; targeted further read unavailable",
+          "method": "Open-access paper passage inspection with bounded follow-up",
+          "title": "An orthogonal basis for functions over a slice of the Boolean hypercube",
+          "trigger": "Harmonic-slice decomposition possibly implies the transform formula"
+        },
+        {
+          "assessment": "Finite-dimensional exact overlap, not general odd-layer quantitative result",
+          "evidence": "Minimum of six and classification of optimal four-cube sets via antipodal pairs and omitted-pair parity.",
+          "identifier_or_url": "Resultary eeb8cf5e7cb8",
+          "material_read": "Finding and degree-two antipodal argument",
+          "method": "Local Resultary mirror passage inspection",
+          "title": "Exact minimum coordinate controllability on the four-cube",
+          "trigger": "Exact Q4 case and antipodal parity"
+        },
+        {
+          "assessment": "Priority comparison incomplete for special degree j=2; no inference of noncoverage from the timeout",
+          "evidence": "Indexed scope concerns quadratic sampling on pairs of layers, not a verified all-degree formula on the specified odd middle layer.",
+          "identifier_or_url": "Resultary 2f3d3e9f24ff",
+          "material_read": "Indexed summary only; full passage lookup timed out",
+          "method": "Local Resultary search and bounded mirror lookup",
+          "title": "Exact quadratic Walsh sampling spectra on weighted pairs of Hamming layers",
+          "trigger": "Close subject for the repaired spectral claim"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For the known optimal odd sampling shell, recovering coefficients from node values benefits from knowing how each input mode is amplified, rather than merely knowing recoverability. The closed action and singular spectrum give that quantitative answer uniformly for all Walsh degrees, including multiplicities and inverse stability via the least singular value. This is a substantive exact invariant of a motivated sampling matrix, not a rederivation of the known actuator count.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

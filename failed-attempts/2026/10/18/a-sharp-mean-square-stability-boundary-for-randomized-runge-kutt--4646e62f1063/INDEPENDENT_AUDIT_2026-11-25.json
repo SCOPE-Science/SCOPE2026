@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:26:25.810402Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The scientific claim is correct; the frozen proof needs a minor endpoint completion. The source reconstructs the delayed stage with the fresh stage of the current interval. With h=1 and f=-s times the delayed value this yields the stated companion map, including the nonzero triple ((1-s)c,c,c) for constant history c≠0. An independent exact monomial lift reproduces det(I-M)=sQ(s)/12, isolates one root in (9/8,7/6) and no others through 3/2, and gives the determinant -1270787/20155392 and positive cubic Routh margin 2104 at 7/6. The simple eigenvalue at s=0 has derivative -2. For s>0 the cone Perron eigenvalue is continuous and the adjoint positive eigenmatrix has invariant kernel under every stage companion. Stage differences yield e1 from any vector with nonzero third component, and the shift rows then generate all coordinates (or rule out a nonzero kernel confined to the plane x3=0). Thus the adjoint weight is definite and gives two-sided r(s)^j bounds for each nonzero initial. Use the determinant sign on the full (s*,3/2), not merely (s*,sqrt(2)) as written: this proves strict growth at sqrt(2), where the supplied Jensen lower bound alone is non-strict. For s≥3/2 the mean matrix has determinant ≥9/8, and Jensen plus the upper r(s)^j bound gives r(s)>1. The crossing is pinned from both sides by continuity. Increasing stage variance adds the positive rank-one map s^4 Δv X33 e1 e1^T; for positive variance the adjoint weight is definite and a nonzero positive eigenmatrix has X33>0 (otherwise the two shift equations force all its diagonal entries zero), giving strict increase. No simulated horizon was used as proof.",
+      "replay": "python /workspace/check_frozen_algebra.py (section 2; independent exact lifting, root isolation, determinant and Routh checks)",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The distinct record gives the sharp deterministic midpoint boundary via 4-4z+2z²-z⁴ and a full interval of mean/mean-square separation.",
+          "The integrator paper proves finite-horizon convergence; the other randomized-RK result treats the nondelayed scalar ODE."
+        ],
+        "reasoning": "The distinct record dominates the principal cutoff and mean comparison; the earlier method papers do not by themselves give this specialized long-time result.",
+        "searches": [
+          "Resultary record 39f9f8e3c7e2, Finding and proof sections 3–4",
+          "arXiv:2401.11658v1, Eq. (2.4), Theorem 4.3",
+          "arXiv:2006.12131, §5.1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary record 39f9f8e3c7e2",
+        "arXiv:2401.11658v1",
+        "arXiv:2006.12131",
+        "doi:10.1137/S003614290037472X (bibliographic only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The distinct record provides the same covariance operator A X A^T + (z^4/12)X33 e1 e1^T; its coefficient is exactly the stage variance times z^4. Its positive adjoint-weight argument and the shift rows give the strict comparison with varying positive variance by cone pairing."
+        ],
+        "reasoning": "The principal claim follows directly from the covering statements. The variance-order extension follows from the displayed positive rank-one perturbation and cone pairing; it does not provide a distinct substantive replacement for the cutoff.",
+        "searches": [
+          "Resultary 39f9f8e3c7e2, Finding and proof offsets 3291 and 5900",
+          "Bochacik et al., Theorem 3(iii)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The indexed record states the recurrence with arbitrary delay tau and normalized coefficient z=a*tau; its polynomial q is term-for-term Q and its cutoff is the same."
+        ],
+        "reasoning": "Set tau=1 (or rescale time by tau). The one-cell iteration and the uniform stage law become identical, not just similar test equations.",
+        "searches": [
+          "Resultary: randomized Runge–Kutta one-cell pure-delay mean-square stability boundary",
+          "Resultary 2026/10/25 record 39f9f8e3c7e2, Finding and Assumptions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed finding displays the same polynomial, root 1.14447604735408, and rational witness q(7/6)=-181541/279936."
+        ],
+        "reasoning": "This is an exact matched classification and witness in the indexed catalogue, not merely a numerical root match. No separate generic numerical table was relied on.",
+        "searches": [
+          "Resultary normalized one-cell delayed-feedback stability query; local mirror 39f9f8e3c7e2, offset 0"
+        ]
+      },
+      "rationale": "A distinct indexed record supplies the same normalized recurrence, identical degree-seven cutoff for all deterministic triples, nondecay at the cutoff, the same exact 7/6 witness and constant-history realization, and a whole interval of separation via a sharp midpoint cutoff. The catalogue date is later than the frozen record's date; this documents present mathematical coverage, not earlier priority or direction of derivation. The elementary cone monotonicity in stage variance and the high-parameter strict-growth endpoint completion do not supply a substantial distinct finding here: the rank-one variance perturbation and definite adjoint weight are already available from the compared transfer calculation and standard cone arguments. No replacement submitted.",
+      "residual_risks": [
+        "The distinct indexed record's later catalogue date does not establish independent or earlier discovery; the decision is about demonstrable present coverage, not priority.",
+        "Uninspected older LMS full text and specialized stochastic companion literature remain possible further coverage, not the reason for FAIL."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "covers central finding; broader midpoint criterion; date alone does not show priority",
+          "evidence": "Identical normalized companion, polynomial, root, 7/6 signed-mean witness and constant-history example.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-a-sharp-mean-square-stability-frontier-for-one-cell-randomized-r--39f9f8e3c7e2/RESULT.md",
+          "material_read": "Finding and assumptions at offset 0; rank-one covariance formula at 3291; definite adjoint and exact crossing at 5900",
+          "method": "local mirror at snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "A sharp mean-square stability frontier for one-cell randomized Runge–Kutta on delayed feedback",
+          "trigger": "strongest distinct Resultary match"
+        },
+        {
+          "assessment": "source method, not a matching asymptotic result in the inspected theorem",
+          "evidence": "Reconstructs using fresh delayed intermediate stage and proves fixed-horizon L^p convergence.",
+          "identifier_or_url": "arXiv:2401.11658v1",
+          "material_read": "§2 Eqs. (2.3)–(2.4), Theorem 4.3 Eq. (4.11), OA offsets 7966 and 23161",
+          "method": "OA passage retrieval",
+          "title": "A Randomized Runge-Kutta Method for time-irregular delay differential equations",
+          "trigger": "source integrator and possible stability coverage"
+        },
+        {
+          "assessment": "analogous but nondelayed",
+          "evidence": "Scalar random amplification factor and comparison to deterministic midpoint, not a delayed second-moment matrix.",
+          "identifier_or_url": "arXiv:2006.12131",
+          "material_read": "§5.1 Eqs. (73)–(75), Theorem 3(iii), OA offset 48935",
+          "method": "OA passage retrieval",
+          "title": "Randomized Runge-Kutta method—stability and convergence under inexact information",
+          "trigger": "closest cited stochastic stability comparison"
+        },
+        {
+          "assessment": "full text unavailable, no noncoverage inference",
+          "evidence": "DOI attempt returned 403 and no lawful alternate was located.",
+          "identifier_or_url": "doi:10.1137/S003614290037472X",
+          "material_read": "bibliographic identification only",
+          "method": "DOI OA attempt and exact-title search for alternate copy",
+          "title": "On Stability of LMS Methods and Characteristic Roots of Delay Differential Equations",
+          "trigger": "cited deterministic delay-stability literature"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The long-time cutoff and constant-history witness are useful benchmarks, but they are already supplied by the matched normalized result, including a stronger midpoint comparison. What remains here, the variance ordering from a positive rank-one term and an endpoint completion by the same determinant sign, does not amount to an independently useful exact benchmark or structural result warranting a replacement.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

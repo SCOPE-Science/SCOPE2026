@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The canonical length-cover description follows exactly from the minimal forbidden return words. The uniform entropy estimate is proved by the renewal identity, a derivative error of order \(N\lambda^{-N}\), and Taylor's theorem; no numerical extrapolation enters the infinite statement. The accumulation set is the continuous image of the minimal Thue–Morse orbit closure. The key nonstandard inference—that this image has no isolated points—uses the *unique* binary expansion of 1 at the Komornik–Loreti base to distinguish every pair of forward-orbit phase values. A direct length-factor covering argument proves zero Hausdorff dimension. Both the finite checker and the cited foundational premises were examined.
+## correctness
 
-## Originality
-**PASS within inspected evidence.** Coles–Cyr–Kra–Pavlov give a general cover framework and qualitative entropy stability, not the specific rate and phase spectrum. Baker–Ghenciu determine the underlying univoque entropy base but not canonical-cover error accumulation. A close published geometric-gap cover result obtains a countably infinite cluster set, and an earlier eventually periodic gap-cover result obtains finitely many residue phases. Neither implies a perfect uncountable spectrum for a Thue–Morse return set. The new contribution is the exact zero-dimensional Cantor phase spectrum and automatic plateau law, not the classic renewal equation or the base-expansion theorem. Unindexed equivalent statements in symbolic-coding or automatic-sequence literature remain a residual historical risk.
+PASS
 
-## Value
-**PASS.** A canonical, uniquely determined positive-entropy gap shift has an unexpectedly rich error profile: normalizing a uniformly exponentially small entropy error produces a perfect uncountable set, but one of Hausdorff dimension zero. This sharply contrasts with the previously computed countable geometric-distance phase spectrum and finite eventually-periodic phase spectra. The exact automatic plateau law and proof through univoque expansions explain why the phenomenon occurs, rather than offering a merely numerical or arbitrary finite example.
+At length N a missing return distance d is forbidden iff d+1≤N. Justification of the language at an edge needs a small clarification: to extend a word with leading or trailing zeros, first choose allowed distances longer than these end runs (D is unbounded), then use repetitions of distance 1; for an all-zero word choose one sufficiently long allowed gap. Thus the proposed language is correct. Renewal gives F_N(u)−1=q^N A_N at u=log λ. Over [u,log 2], the d=1 term gives |F_N'|≥1/2 and so u_N−u=O(q^N). The derivative correction is O(Nq^N) and the second derivative is uniformly bounded, giving the specified error. Strict drop follows directly by subtracting q_N^N from the renewal sum when τ_N=0; (10^(N−1))^Z witnesses strict inclusion. For N=1,2,3 the covers are full, with the first drop at N=3→4. Uniform recurrence yields exactly the continuous image of the hull; a tail collision would splice a second expansion of 1, and an isolated value would force infinitely many repeated visits to its open fiber. Linear factor complexity gives O(r) intervals of diameter O(q^r), proving dimension zero. No injectivity of the entire hull or inference from finite tests is needed.
 
-## Limitations and closest literature
-The proof does not claim phase-map injectivity on the whole hull, a classification for all automatic sequences, or independent validation. Close sources are the 2026 canonical-cover paper, the 2014 gap-shift/univoque paper, and the 2026 geometric-gap cover phase calculation; dates and original hypotheses are recorded in RESULT.md. Computations are supporting checks only.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the perfect dimension-zero cluster set, not for the renewal-root method or the direct minimal-forbidden-word consequence.
+
+## value
+
+PASS
+
+At a canonical nonperiodic example, convergence of entropies conceals a continuum of normalized errors with zero Hausdorff dimension. The proof identifies an explicit symbolic mechanism producing this size and regularity simultaneously; neither the routine Taylor estimate nor the plateau identity alone carries the value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

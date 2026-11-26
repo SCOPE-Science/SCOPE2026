@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-23.md",
+      "INDEPENDENT_AUDIT_2026-11-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification and limitations
+# Independent mathematical audit
 
-The result is proved analytically by interval invariance, exact affine recurrences and a strict first-step overshoot construction. The checker `verification/check.py` uses the Python standard library and was run from the actual bundle files; it produced `PASS: orderings=72, rational_witnesses=5, invariance_steps=136`. The 72 orderings are the 24 permutations with each of three relaxation values. Five supercritical rational parameters independently verify strict one-step separation. These checks supplement, but do not substitute for, the all-real-parameter proof.
+## correctness
 
-The source model is available as HTML at https://arxiv.org/abs/2610.16406, including its median tie rule, Theorems 9 and 11, and supplement. The earlier asynchronous model is available at https://arxiv.org/abs/2212.08808. The relevant indexed record on directional opinion rings could not be retrieved as full text; priority remains bounded by accessible scientific comparisons. No independent audit has been performed.
+PASS
+
+The nearest-point rule for two equally weighted neighbors is the median of the current opinion and its two neighbors. At each vertex the target interval contains the opinion of its partner in an adjacent pairing, so projection and convex interpolation preserve each pair's initial range. Adjacent-low configurations with distinct ranks therefore cannot reach consensus. In the opposite-low case the inner gap is multiplied by 1−2γ while this gap is nonnegative, each within-parity width by 1−γ, and the sum of the two inner endpoints is conserved. This includes γ=1/2: the inner endpoints coincide after one step and stay fixed. Hence the limit is the initial middle-rank midpoint, and two of the six equiprobable rank placements imply probability 1/3 for iid uniform opinions. For any γ>1/2, the strict inequalities (1−γ)a,(1−γ)b>(2γ−1)g give the advertised adjacent split after one step from (0,a+g,a,a+g+b). Scaling into the open unit cube and perturbing leaves a positive-probability obstruction. The three-cycle comparison follows because every vertex uses the same global median.
+
+## originality
+
+PASS
+
+The closest prior uses essentially the same balanced-median ring to test consensus for every initial state under a random type assignment. It covers failure of universal consensus here, not the random-initial-state basin of a fixed all-median ring, its limiting opinion, or the relaxation threshold. The accessible primary comparisons likewise do not supply those conclusions. This is a bounded statement-level assessment, not priority certification.
+
+## value
+
+PASS
+
+The smallest simple cycle that can exhibit the effect gives a controlled example where unchanged network structure and a fixed type assignment do not fix the probability of consensus. The exact plateau, critical value, and selected limiting opinion quantify that difference. The strict one-step loss witness explains why the half-relaxation boundary is not just an artifact of a numerical trial or a sufficient stability estimate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

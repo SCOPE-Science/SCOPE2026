@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The standalone verifier `verification/verify_rooted_pd_unimodality.py` uses exact rational arithmetic and only the Python standard library. It recursively generates every rooted plane full binary shape through nine leaves using all left/right leaf-count splits, checks the Catalan counts, enumerates every leaf subset for every shape, and asserts unimodality of each variance sequence. Since each rooted full binary shape has a plane embedding, this covers all rooted full binary shapes in the stated finite range.
+# Independent mathematical audit
 
-For the ten-leaf witness, the verifier asserts eighteen non-root edges with clade-size counts one (ten), two (five), four (two), and eight (one). It checks the exact variance sequence by direct subset enumeration and independently evaluates the clade-covariance identity for every sample size. It asserts the strict decrease-rise-decrease inequalities and returns `EXACT_CHECK_OK`.
+## correctness
 
-Limitations: this verification is an exact finite result for rooted full binary unit-edge trees and uniform fixed-size sampling without replacement. It does not validate unequal edge lengths, multifurcations, unrooted PD, or any empirical dataset. Independent audit has not been performed.
+PASS
+
+Rooted unit-edge PD is the sum of ancestral edge-hit indicators. For two clades the covariance of the hit indicators equals that of the two absence indicators, and the joint absence probability is the binomial ratio for the clade union. This gives the stated exact variance identity. Every rooted full binary shape admits a plane embedding, so the source's recursive plane split enumeration exhausts the shapes through nine leaves; its integer sums and peak-index test implement the definition. An independent exact enumeration of unordered shapes found counts 1,1,1,2,3,6,11,23,46, with all 94 weakly unimodal. Independent exact subset and covariance calculations agreed for the balanced-eight-plus-cherry witness at every k: (0,16/25,136/225,28/45,1306/2205,1916/3969,3884/11025,2/9,8/81,0,0) including k=0. Since 144/225>136/225<140/225 and the next term is smaller, no weakly unimodal sequence can give that curve. Unit lengths, fixed-size sampling without replacement and the rooted convention are critical to the scope.
+
+## originality
+
+PASS
+
+Best-of-knowledge pass for the universal weak unimodality through nine leaves and its sharp unit-edge failure at ten. The exact variance formula, tree shape counts and general clade enumeration technology are prior work. The closest known results give formulas, distribution or moment-profile identifiability, or an onset under different branch-length hypotheses.
+
+## value
+
+PASS
+
+This is a meaningful exact boundary for the shape of a standard finite-sampling variance curve, not an arbitrary graph statistic or a single isolated number. The explicit tree shows that increasing sample size can raise variance after a strict drop even without tuning lengths, and the exhaustion determines when that phenomenon can first defeat unimodality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T13:30:56.687517Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–89, VERIFICATION.md and verify.py (read, not executed)",
+        "Independent eight-state tally at p=1/10 gives accuracy numerators 2700, 2818, 2818, 2981 over 3000 for the root, root and either leaf, and root and both leaves. Coverage is 271/1000 in each case, giving exact violation 45/3000=3/200."
+      ],
+      "rationale": "Conditional on k observed negative leaves, the OR of the remaining m=n-k has positive probability u_m=1-(1-p)^m and posterior p/u_m per remaining source when positive. A positive-side decision flip improves correctness by [2p-u_m]_+, so the stated general root gain follows by multiplying by the probability (1-p)^k and by m/n. For k=0, u_n/p decreases strictly from n to 2-2^(1-n) as p rises to one half, giving the unique crossing of 2 for n>=3. With q=1-p and n=3, three times the marginal accuracies are D=(3p[-1+3p-p^2]_+,2p^2q,pq^2,0). Leaf pairs without the root have concave coverage and affine accuracy. With the root, coverage is constant; the two accuracy curvatures are (D2-2D1+D0)/3 and (D3-2D2+D1)/3. The first numerator is pq(1-5p) below the posterior crossing at (3-sqrt(5))/2 and p(p+2)(2p-1) above it; the second is 2pq(2p-1). Thus exactly p<1/5 is irreparable. For p>=1/5, the remaining pair conditions give the maximum of zero and (D_(k+1)-D_k)/(3pq^k) for k=0,1,2; the last bound is -1/3. Comparing the other two bounds gives all four stated pieces and the matching endpoint values; the cutoff is always less than one. Two leaves yield D=(2p^2,pq,0), strictly negative root-present leaf curvature, and only the possible positive bound (1-3p)/2. One leaf yields duplicate readings and no obstruction.",
+      "residual_risks": [
+        "The proof is for noiseless OR and iid sources, mean coordinatewise Bayes 0–1 accuracy, and coverage without a concentration threshold. It certifies no greedy performance outcome or empirical sensor claim."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Jakkala–Akella reports numerical submodularity on its university example; its inspected passages give no theorem covering this iid diagram. The frozen record identifies Bhattacharya et al. as a Gaussian localization counterexample; the appendix itself was not recovered."
+        ],
+        "reasoning": "The empirical claim does not imply this phase boundary; a general example of failure would not imply the exact cutoff or irreparability under every coverage weight. The inaccessible appendix remains a scope and priority risk, not negative evidence.",
+        "searches": [
+          "Primary-literature search on pooled noiseless Bernoulli localization accuracy and submodularity",
+          "Jakkala–Akella §VI; Bhattacharya et al., INFOCOM 2020, Appendix D"
+        ]
+      },
+      "checked_sources": [
+        "Resultary index",
+        "Jakkala–Akella arXiv:2312.16750v1",
+        "Frozen references and proof"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the new obstruction the OR sensor has already saturated coverage. The two leaf-pair curvature signs must be derived from the coordinatewise Bayes decision flips and not from coverage concavity."
+        ],
+        "reasoning": "Neither generic detection submodularity nor observed submodularity for another objective gives the sign switch, the exact maximum of the root–leaf bounds, or two-source minimality.",
+        "searches": [
+          "Jakkala–Akella Eqs. 4–5, 7–8 and reported submodularity; frozen RESULT.md §§1–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Expected mean correct-building fraction is the normalized sum of coordinatewise optimal 0–1 scores. The primary model uses Boolean OR and a 50% decision threshold. Its reported experimental score/coverage uses other choices including F1 and concentration."
+        ],
+        "reasoning": "The analytic score shares known ingredients even under equivalent terminology; the empirical objective is not equivalent to the stated set function.",
+        "searches": [
+          "Resultary: OR-junction Bayes localization with leaf observations, Hamming accuracy and irreparable non-submodularity",
+          "Jakkala–Akella arXiv:2312.16750v1, §§IV.B–D and VI.B–C"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact matching entry is this frozen record. A distinct three-source Poisson attribution record concerns posterior ranking from a count in its catalogue summary, not this weight/prevalence classification."
+        ],
+        "reasoning": "No distinct exact threshold or table was identified in the checked records; the Poisson summary does not establish what might appear elsewhere in its full text.",
+        "searches": [
+          "Resultary: three-source OR sensor submodularity threshold 1/5 and sharp coverage weight"
+        ]
+      },
+      "rationale": "The underlying Boolean observation model and related placement scores are known; general localization objectives can also lack submodularity. The distinct contribution is the exact prevalence obstruction, sharp weight and minimum size in this precisely specified iid OR model, not the general phenomenon.",
+      "residual_risks": [
+        "The Gaussian appendix and the full distinct-indexed Poisson record were not compared; an older general theorem stated in a different formulation might imply the diagram. Priority over any undated predecessor of the motivating source was not established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the ingredients, not the stated exact iid phase diagram in the inspected passages.",
+          "evidence": [
+            "Expected score plus path coverage; concentration-dependent variant and experimental report distinct from the unthresholded theoretical objective."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2312.16750v1",
+          "material_read": "pp. 4–6, 8 and 10: §§IV.B–D, Eqs. 4–5 and 7–8, discussion of F1 and observed submodularity",
+          "method": "Primary PDF passage and objective comparison",
+          "title": "Bayesian Sensor Placement for Multi-source Localization of Pathogens in Wastewater Networks",
+          "trigger": "Same Boolean observation and motivating placement objective"
+        },
+        {
+          "assessment": "Exact statement-level comparison unresolved.",
+          "evidence": [
+            "Frozen RESULT.md lines 95–109 identify the purported Gaussian example and distinguish it from the noiseless OR model."
+          ],
+          "identifier_or_url": "https://faculty.iiitd.ac.in/~arani/assets/pdf/infocom20a-long.pdf",
+          "material_read": "Bibliographic details and the frozen record's description of Appendix D, not the appendix",
+          "method": "Attempted lawful author-hosted PDF retrieval",
+          "title": "Selection of Sensors for Efficient Transmitter Localization",
+          "trigger": "Cited general localization non-submodularity example"
+        },
+        {
+          "assessment": "Self-match and a different observation statistic in the distinct indexed claim.",
+          "evidence": [
+            "The distinct summary concerns Poisson posterior-ranking reversals, not an OR-root placement inequality."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-prevalence-and-coverage-weight-thresholds-for-bayesian-sou--0a145103d538; 2026/11/22/SCOPE-three-source-poisson-attribution-permits-exactly-three-posterior--ed858cd01099",
+          "material_read": "Claim of the frozen self-match and catalogue summary of the distinct hit; distinct mirror retrieval did not complete",
+          "method": "Local index comparison",
+          "title": "Sharp prevalence and coverage-weight thresholds for Bayesian source localization; three-source Poisson attribution",
+          "trigger": "Exact and closest distinct Resultary hits"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–27 and proof; motivating sensor-model passages"
+      ],
+      "rationale": "A three-element sensing mechanism yields the smallest example where coverage cannot correct complementarity in the classification objective. The sharp prevalence and coverage-weight boundary distinguishes failure that no tuning can fix from failure that weight tuning can fix; it specifies when a generic submodularity argument is mathematically available for this model.",
+      "residual_risks": [
+        "No transfer to other losses, noisy measurements, arbitrary junction networks, or observed performance is shown."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

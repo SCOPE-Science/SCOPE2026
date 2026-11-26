@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof identifies a compact nonsaturated prevalence box \(K\), eliminates edge densities using a continuous positive rational formula, and constructs a self-map \(T:K\to K\). Its first-order expansion at the disease-free state uses only continuity. A positive left Perron eigenvector makes \(0\) locally repelling in a weighted linear functional, while a strictly interior Brouwer perturbation has fixed points that cannot converge to zero. The limit is a nonzero fixed point, and irreducibility plus positive stationary edge levels force every coordinate to be positive. All quantifiers, upper bounds, contact-rate denominators, and boundary faces are accounted for. The exact example is verified independently with rational arithmetic; numerical or finite tests are not used as a substitute for the general proof.
+PASS
 
-## Originality — PASS, with residual priority risk
+For every permitted edge, the stationary quotient is positive and continuous on the compact box K=∏[0,bᵢ/(δᵢ+bᵢ)], which excludes saturation and itself contains any stationary prevalence in the state cube. Substitution gives a continuous map T:K→K. Continuity of the quotient, multiplied by prevalence, gives T(y)=D⁻¹My+o(‖y‖₁) from within K without response differentiability. A positive left Perron vector turns the strict spectral inequality into uniform weighted outward expansion near zero. Perturbing by a convex mixture with a fixed positive point yields Brouwer fixed points bounded away from zero for small perturbations; compactness and continuity give a nonzero fixed point of T. A zero coordinate would force all incoming neighbors to vanish and hence the whole vector by strong connectivity. This guarantees 0<yᵢ<1 and 0<zᵢⱼ≤1 on permitted edges, not zᵢⱼ<1. Independent exact substitution in the two-node witness gave the claimed stationary derivatives, ρ=√12 and minimum sum 2/7.
 
-The motivating 2024 preprint/2025 article explicitly labels the spectral-radius endemic implication Conjecture 6; its Theorem 5 proves only a stronger minimum-row/column-sum condition. The new result establishes the missing implication for a broad, stated nondegenerate creation class, not for arbitrary responses. Separate 2021 and 2022 SIS-control results concern fixed chosen controllers rather than independently evolving heterogeneous directed contact densities. Relevant published mathematical records concern other epidemic systems and do not imply this precise theorem. Standard Perron–Frobenius, Brouwer, and basic positive-map ideas are prior mathematical tools, not novel discoveries. A general abstract fixed-point theorem or later unindexed application could imply this result; independent priority investigation remains necessary.
+## originality
 
-## Value — PASS
+PASS
 
-The article poses this spectral-radius criterion as a genuine unresolved question. Establishing existence without demanding every row be individually supercritical removes a meaningful restriction for strongly heterogeneous populations. The exact two-community witness has reproduction spectral radius \(\sqrt{12}\) despite minimum row sum \(2/7\), so it directly exhibits a regime beyond the published sufficient condition. The conclusion applies uniformly across directed networks and continuous nonlinear adaptive responses retaining positive contact renewal, without claiming uniqueness or global attraction.
+The inspected original model paper states the spectral condition as Conjecture 6 and proves a different minimum-sum condition in Theorem 5. The supported contribution is the spectral implication for strictly positive creation on nonsaturated inputs, allowing failure of stationary link elimination at a saturated input and not requiring monotone responses. The strongest inspected indexed matches have genuine theorem overlap but are later-dated and impose extra closed-cube positivity conditions; neither demonstrates earlier or coextensive coverage of this finding.
 
-## Scientific limits
+## value
 
-Creation must be strictly positive whenever all prevalence inputs are below one. The result does not settle the unrestricted zero-creation case, global stability, or uniqueness; full independent publication-priority audit has not been performed. The verifier checks rational examples, not a continuum of models.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The result answers an explicit model-specific spectral-threshold question in a natural positive-renewal regime. It handles strongly heterogeneous networks missed by the minimum-sum test, without imposing response monotonicity or regularity beyond continuity. The distinction between a nonsaturated compact box and the full state cube also avoids an unnecessary boundary assumption.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

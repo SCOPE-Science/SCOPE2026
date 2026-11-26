@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:09:22.539143Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–37 and 43–85",
+        "Frozen VERIFICATION.md and checker.py (inspected; not executed)"
+      ],
+      "rationale": "Reconstructed the full-arc test. The restricted ellipse quadratic is strictly convex in the first two regimes; in the third it is convex up to m=sqrt(3)/2, and thereafter its derivative is already negative at the left endpoint and nonincreasing. At the linear case it is strictly decreasing. Strict convexity of the ellipse excludes contacts inside the radial segments. The normalized three-point configurations are equilateral, and in the four-contact case, with d=2m-1, the total off-axis weight W=1/[2(1-d^2)] enforces the vertical moment while the two axial weights (1-W∓Wd)/2 enforce the mean and total weight. The weights are nonnegative exactly on the middle interval. Applying the moment identity to any affine disk yields trace and determinant inequalities whose equality forces the original disk. This certifies the same ellipse for the four-point set and the sector, including the half-disk and transitions. Independently, the squared ratios of the outer area branches to the middle branch are 256m(1-m)^3/27 and 256m^3(1-m)/27. Each has value 1 and zero derivative at its join, where its second derivative is -64/3. This gives the stated right-minus-left jumps with the correct signs.",
+      "residual_risks": [
+        "The proof is for planar sectors with 0 < theta <= pi/2, not major sectors or higher dimensions. The packaged finite diagnostics are not used to prove the continuum statement."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general contact characterization gives a test for optimality; the polygon paper gives a contact reduction for finite polygons."
+        ],
+        "reasoning": "These broader methods do not choose the sector's contacts or show that arc points omitted from the kite lie inside its ellipse. The reconstructed arc comparison supplies that step.",
+        "searches": [
+          "MathWorld: Löwner Ellipsoid",
+          "Rublev–Petunin, Minimum-Area Ellipse Containing a Finite Set of Points. II"
+        ]
+      },
+      "checked_sources": [
+        "Resultary exact self-match 06e39729bbe7",
+        "Rublev–Petunin Part II abstract",
+        "Horwitz arXiv:0707.2092 p. 9",
+        "MathWorld Löwner Ellipsoid",
+        "Frozen citation's current puzzle URL"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The relevant contact theorem is conditional on containment and moment identities; the quadrilateral result is specifically about ellipses through all four vertices."
+        ],
+        "reasoning": "The parameter-dependent feasibility and signs, followed by the exact branch comparison for the area, are additional results, not a threshold substitution in a cited theorem.",
+        "searches": [
+          "Horwitz arXiv:0707.2092, p. 9",
+          "MathWorld: Löwner Ellipsoid",
+          "Rublev–Petunin Part II, p. 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Horwitz p. 9 distinguishes a four-vertex circumellipse from the minimum enclosing ellipse. Rublev–Petunin's abstract treats finite polygonal hulls and contact subsets."
+        ],
+        "reasoning": "Neither finding that a finite kite has an optimal ellipse nor requiring its four vertices to touch gives the optimum for an entire circular arc. In the outer regimes even the requirement that all four touch changes the optimizer.",
+        "searches": [
+          "Resultary sector minimum-enclosing ellipse search (same-record match 06e39729bbe7)",
+          "Horwitz arXiv:0707.2092",
+          "Rublev–Petunin finite-set ellipse, Part II"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact catalogue entry with thresholds 1/4 and 3/4 is this frozen record itself. The cited benchmark URL currently returns Can You Beat the Heats?, not the ellipse puzzle named in the citation."
+        ],
+        "reasoning": "The self-match is not separate evidence of coverage. Isolated half-disk and 120-degree examples, even if available as cited, do not give a continuous parametric diagram or jump data; no independent exact table was verified.",
+        "searches": [
+          "Resultary 2026/11/22/SCOPE-three-contact-regimes-of-the-minimum-area-ellipse-enclosing-a-ci--06e39729bbe7",
+          "https://vamshij.com/books/fiddler/read/120/"
+        ]
+      },
+      "rationale": "The distinct claim is the variable-aperture classification and whole-sector reduction, including the exact changes of active contacts and loss of second differentiability. It does not claim the classical contact certificate, general polygon theory, or priority for individual benchmark ellipses. No inspected prior source establishes or directly implies the full classification.",
+      "residual_risks": [
+        "Rublev–Petunin Part I and possible equivalent unpublished or unindexed sector treatments were not established by this comparison.",
+        "The named benchmark attribution is unverified; benchmark values follow directly from the proved formulas."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identical item, not an earlier distinct result",
+          "evidence": [
+            "Same record suffix, thresholds, four-point control and C1/not-C2 statement."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-three-contact-regimes-of-the-minimum-area-ellipse-enclosing-a-ci--06e39729bbe7",
+          "material_read": "Indexed summary and matching frozen Finding; mirror retrieval did not complete",
+          "method": "Local Resultary search and identity comparison",
+          "title": "Exact sector-ellipse catalogue match",
+          "trigger": "Exact thresholds and wording"
+        },
+        {
+          "assessment": "Partial methodological overlap; no sector classification in inspected passage",
+          "evidence": [
+            "A polygon optimum touching at four or five points is the minimum ellipse for the quadrangle or pentagon formed by those points."
+          ],
+          "identifier_or_url": "https://www.mit.edu/~hlb/ellipse-paper.pdf",
+          "material_read": "p. 1 abstract",
+          "method": "OA PDF passage inspection",
+          "title": "Minimum-Area Ellipse Containing a Finite Set of Points. II",
+          "trigger": "Finite-hull contact reduction"
+        },
+        {
+          "assessment": "Different constraint on the optimizer",
+          "evidence": [
+            "The ellipse through all four vertices need not coincide with the minimum-area enclosing ellipse."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0707.2092",
+          "material_read": "p. 9, text offset about 32000",
+          "method": "OA PDF passage inspection",
+          "title": "Ellipses of minimal area and of minimal eccentricity circumscribed about a convex quadrilateral",
+          "trigger": "Potential four-point equivalence"
+        },
+        {
+          "assessment": "Classical method, not aperture-dependent formulas",
+          "evidence": [
+            "Unique minimum-volume enclosing ellipse; for a quadrilateral not every vertex need be a contact."
+          ],
+          "identifier_or_url": "https://mathworld.wolfram.com/LoewnerEllipsoid.html",
+          "material_read": "Contact and quadrilateral paragraphs; extracted equations not relied upon",
+          "method": "OA webpage passage inspection",
+          "title": "Löwner Ellipsoid",
+          "trigger": "Broader enclosing-ellipse theorem"
+        },
+        {
+          "assessment": "Citation presently unresolved; no inference about earlier contents",
+          "evidence": [
+            "URL currently serves the sprinter puzzle Can You Beat the Heats?."
+          ],
+          "identifier_or_url": "https://vamshij.com/books/fiddler/read/120/",
+          "material_read": "Current page title and contents",
+          "method": "OA website inspection",
+          "title": "Can You Eclipse via Ellipse? (cited benchmark URL)",
+          "trigger": "Potential exact benchmark overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and feasibility/contact proof",
+        "Compared polygon and quadrilateral treatments"
+      ],
+      "rationale": "A circular sector is a natural continuum test body for enclosing ellipses. Exact reduction to four candidate points is useful for construction, and identifying which of them determine the optimizer gives a complete aperture law, not just special-angle values. The exact jump computation quantifies a change in regularity that the individual contact certificates do not report.",
+      "residual_risks": [
+        "No higher-dimensional or major-sector consequences are claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The zero-root condition is exactly the vanishing of the first binary increment. Every map has an image initial interval, and its least zero-power is exactly the number of strict descents in the orbit of the greatest state. Conditioning on the image rank and restricting to its image segment gives the terminating integer recurrence by an explicit bijection, with no hidden independent choices. The defect-walk inequalities give the necessary attainable region; the explicit 0/1-interpolation between orbit anchors gives every sufficient case. Fixed-rank depth-two and maximal-depth formulas follow from the same binary normal form. The rational bivariate series is computed by a standard binomial sum. Direct composition checks through chain size 16, independently implemented recursion through size 32, and exact histograms support the proof; a finite computation is not presented as the proof of the universal statement.
+## correctness
 
-## Originality — PASS within the comparisons made
-Fernandes, arXiv:2407.05084, studies precisely the order-decreasing interval-image monoid but establishes cardinality, monoid rank and generators/presentations rather than the distribution of the least power equal to its constant-zero element. Fernandes and Paulista, arXiv:2112.13427, describe a larger path weak-endomorphism monoid, its idempotents and rank, without determining the rank-by-zero-power joint distribution. Koppitz and Worawiset (2022) consider a larger order-preserving semigroup of maps with one fixed point but discuss ranks and presentations. Their downloadable full text was not accessible in this session: this is a residual originality risk, not proof of absence. Ayık, Fernandes and Korkmaz, arXiv:2503.19459, concern partial transformations with the empty partial map as zero, so their nilpotency counts do not imply the full-map zero-root census. published-finding corpus semantic searches for interval-image zero roots, depth, simultaneous image ranks, and Fibonacci cutoff did not produce a matching claim. The closest retrieved mathematical records concern different monoids/automata or finite weak orders. The available private claim ledger was searched for overlapping results; the closest centralizer count for a related monoid does not constrain nilpotent power depth. The classical Fibonacci sequence itself is not claimed as novel. The checked literature need not be complete; an older equivalent power-distribution theorem remains possible.
+PASS
 
-## Value — PASS
-This is a full joint rank–nilpotency-depth classification, not a single arbitrarily selected integer sequence. The sharp attainable region identifies all feasible depth strata, including a nontrivial lower bound depending jointly on ambient size and rank. The rank-refined Fibonacci shallow-depth layer gives a substantive structural boundary and decay law inside a natural nilpotent subsemigroup. Such data govern the power dynamics of an infinite family of finite transformation monoids, beyond their already-known cardinalities and generating ranks.
+The order and interval constraints give binary increments starting from f(1)=1. The first increment must be zero, since otherwise 2 is fixed; if it is zero, every i>1 descends. Monotonicity makes the orbit of n determine the least zero-power. Restricting a rank-r map to [r] gives a zero-root map, of rank s and depth h-1; its extensions of the required rank choose r-s increments in n-r positions. For the support, put m=n-r. The descending orbit has positive steps with total n-1, initially m and thereafter nonincreasing and at most m. Conversely, choose a nonincreasing list of h-1 positive summands of r-1 bounded by m. On consecutive orbit anchors the required change in the defect i-f(i) lies between zero and their separation, so interpolation by binary increments is possible; on the final interval up from 1 it is forced to increase by one at each point. The resulting map has precisely this orbit. At depth r all steps after the first are one, forcing all but one of the rank increments; the remaining increment has n-r choices. At depth two the restriction to [r] is constant, giving the binomial count and the displayed formal series by summation, with the n=1 term removed. Rank one and n=2 are included. The finite check was independently reconstructed by enumerating all regressive full maps through n=8, filtering the stated domain conditions, and composing the actual maps; all rank/depth cells agreed. This is corroboration only. The proof is replayable at RESULT.md §§1–5; the frozen checker.py and VERIFICATION.md were inspected, not executed.
 
-## Limitations
-This does not treat partial transformations, maps without the interval-image constraint, or the semigroup's nilpotency class. An index-specific explicit closed form beyond the recurrence is not claimed. A full-text-access risk remains for Koppitz–Worawiset (2022), and older equivalent work may not have been indexed. Independent mathematical audit has not taken place.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinction is the full zero-root interval-image subset census, including its exact joint support and endpoint multiplicities. The prior rank count, general Catalan-monoid stabilization census, partial-map nilpotent counts, and classical Fibonacci enumeration are not themselves new here. The strongest general Catalan census aggregates together several subclasses, without a restriction variable that selects this subset. The different n-r upper-boundary count and the rank-dependent lower boundary require additional information. No stronger covering result was established in the checked statements.
+
+## value
+
+PASS
+
+The invariant tracks the collapse dynamics of every nilpotent in a natural path-transformation monoid. The complete joint census and the interpolation proof of exactly which rank-depth pairs occur go beyond the known ambient size and generating ranks. The shallow-depth binomial and Fibonacci laws provide a precise comparison with the whole nilpotent class; the value is the map interpretation and rank refinement, not the Fibonacci numbers alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

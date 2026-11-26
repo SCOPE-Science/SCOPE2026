@@ -1,0 +1,171 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:05:48.761280Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md: lines 3–55; independent spectral, arithmetic and phase-space reconstruction",
+        "VERIFICATION.md and verification/verify_algebra.py and verification/verify_direct.py inspected, not executed; the symbolic special cases and finite matrix checks are frozen reproducibility evidence only"
+      ],
+      "rationale": "With hubs first the even powers of H restrict on the hubs to powers of BB*, and the odd powers contribute zero there. BB* has diagonal m and (v,u) entry S, with spectral values m±s. For s>0 the (v,u) entries of the two projectors are ±S/(2s), fixing the conjugation and normalization in the cosine difference. At s=0 it is a scalar Gram matrix; at s=m one frequency is zero and t=π/√(2m) gives unit magnitude. In the interior, unit magnitude requires opposite cosine extrema. Reducing the ratio of the corresponding positive integer multiples of π preserves opposite parity; conversely reduced opposite parity gives the displayed time. A reduced both-odd ratio is periodic with no such time, so its maximum is strictly below one. For irrational R, take t=(2k+1)π/√(m−s); the other argument runs over a dense irrational rotation modulo 2π, so one can approach the pair of extrema at positive times. At R=3 the probability is 4y(1−y)² for y=cos²(t√(m−s)), giving the attained maximum 16/27 at y=1/3. The increasing radius map is a bijection onto the interior; rationals of both parity types densely approximate every R by large denominators of prescribed parity, with reduction preserving the type. The connected phase torus attains s=0 via roots of unity and s=m via alignment, and therefore all radii. Its analytic s² is globally nonconstant and hence nonconstant in every open box. Each such box contains a connected smaller box with a nontrivial range of s², so every dense radius class pulls back densely. Individual level sets of nonconstant analytic s² have measure zero; the countably many excluded radii thus leave full measure for the irrational-ratio phase class. The result concerns the ideal fixed closed Hamiltonian, not transfer in a bounded observation window.",
+      "residual_risks": [
+        "PGST is an unbounded-time assertion; recurrence times and phase robustness at finite time are not certified."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorems 2.1 and 2.4 of State Transfer in Complex Quantum Walks reduce exact and approximate transfer to strong cospectrality and spectral phase matching/integer relations. They apply once the marked spectral support and projector phases are known.",
+          "Swift chiral quantum walks constructs separable unit phases with zero row sums on complete bipartite graphs; this is an existence criterion for a different observable, not pairwise hub transfer for arbitrary phases.",
+          "Fan–Godsil's ordinary double stars have adjacent centers with private leaves, and Cameron et al. examine universal transfer and other weighted families."
+        ],
+        "reasoning": "After the hub Gram reduction the arithmetical conditions closely specialize the general tools; those tools are not the model-specific conclusion. Neither the two-dimensional projector weights for this family nor the distribution of its phase regimes is supplied by the general theorem. The complete-bipartite zero-row-sum construction also does not address arbitrary phases or the stated transfer classification.",
+        "searches": [
+          "arXiv:2301.01473 §§2, 5, general Hermitian PST/PGST",
+          "arXiv:2207.05168 Theorem 4 and Appendix A.3, chiral complete bipartite walks",
+          "arXiv:1310.3885 pp. 2–3, universal transfer; arXiv:1206.0082v3 §1, double stars"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary search and mirror inspections, notably ab34376b01a8",
+        "Primary literature lookups for magnetic C₄, complex complete bipartite hub transfer, and weighted product squares",
+        "arXiv:2301.01473, 0909.0431v1, 2207.05168, 1310.3885, 1206.0082v3, 2608.11992v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general Hermitian criteria, or weighted-square factorization plus parity, determine the radial resonances after identifying the reduced spectral data. The weighted join paper's no-PST Corollary 4 concerns adjacent selected vertices in balanced K_{n,n} with self-loops and a weighted connecting edge, not nonadjacent marked hubs with unit-modulus complex couplings.",
+          "The target identifies an invariant of the original unit-phase model and establishes that it realizes the whole interval; local variation of its analytic squared modulus transports dense classes back to the full torus. The preceding square decomposition only supplies one model realizing the reduced spectra."
+        ],
+        "reasoning": "Exact reduced dynamics and standard consequences are credited, but the conclusion about all arbitrary phase assignments in the specified complete bipartite architecture is not obtained by substituting a dimension into a prior explicit classification. The calculation of the marked spectral reduction and the lift to phase space supply the distinct application.",
+        "searches": [
+          "Compare the frozen phase hypotheses with arXiv:2301.01473 Theorems 2.1/2.4, arXiv:0909.0431v1 Theorem 5 and Corollary 4, and Resultary ab34376b01a8",
+          "Primary lookup: complex gain complete bipartite graph, pretty good state transfer between hubs"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The nov. 8 magnetic-square capture result ab34376b01a8 gives the coherent block couplings A=2J cos(φ/4), B=2J sin(φ/4) and the source/detector vectors (1,0,−1,0)/√2 and (1,0,1,0)/√2. Removing the sink gives exactly (cos(At)−cos(Bt))/2 on those vertices.",
+          "For the given K_{2,m} hub element at s>0, set λ±=√(m±s), a=(λ++λ−)/2, b=(λ+−λ−)/2. The hub amplitude up to the fixed gauge phase is exactly −sin(at)sin(bt), also the opposite-corner law of two real weighted K₂ factors. Theorem 5 and its proof in arXiv:0909.0431v1 give that product factorization for weighted Cartesian products."
+        ],
+        "reasoning": "All of the reduced two-mode transport can be emulated with a flux square: take J=√(m/2) and choose φ with cos(φ/2)=s/m on [0,π]. That is substantive overlapping reduced dynamics, not a new pairwise time dependence. The earlier square result has just the one flux; deducing the equivalence for an input of arbitrarily many unit phasors requires identifying their Gram matrix and the marked element. The earlier weighted-product theorem starts with a different Hamiltonian on different sites, not the unit-phase network or its assignment geometry.",
+        "searches": [
+          "Resultary: arbitrary-phase K_{2,m} hub transfer, magnetic C₄ opposite-site transfer, Aharonov–Bohm diamond",
+          "Primary lookup: magnetic four-cycle CTQW opposite vertices and rational parity",
+          "arXiv:0909.0431v1 §4, weighted Cartesian products"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact matching catalogue entry b2e8610c31ca is the frozen target itself. The separate magnetic-square record gives the two frequencies and vectors for m=2 implicitly in its proof, and its table is for capture with κ>0.",
+          "The related diamond-chain result treats confinement/leakage, not the hub-to-hub state-transfer inventory."
+        ],
+        "reasoning": "There is exact subcase spectral information rather than an independently indexed classification over all m and all allowed phases. The 3:1 ceiling follows from the already familiar reduced amplitude by elementary maximization and is not strong standalone originality evidence.",
+        "searches": [
+          "Local Resultary: exact two-hub K_{2,m} phase-resultant law, parity classes, and 16/27",
+          "Resultary ab34376b01a8 and 1046baaaf56d, magnetic square and diamond"
+        ]
+      },
+      "rationale": "The established parts are the two-frequency mechanism, the Hermitian phase-matching criteria, and even the coherent magnetic-square amplitude as an immediate consequence of an earlier square block decomposition. The surviving claim is their exact realization and classification over the arbitrary unit-phase assignments of the entire K_{2,m} family: all loop-phase dependence on this marked hub pair is compressed into its phasor resultant (up to the output phase), with a full phase-space classification. The inspected statements do not supply that network-specific reduction and pullback; neither the arithmetic technique nor the 3:1 two-mode maximization is credited as a new technique or independent phenomenon.",
+      "residual_risks": [
+        "Specialized closed magnetic-square literature may fully articulate the reduced parity regimes or the same resonant ceiling. The pass is for the resultant-controlled arbitrary-phase classification on K_{2,m}, not an assertion of priority for all equivalent two-frequency dynamics."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact reduced coherent spectral overlap, with the published claim on irreversible capture rather than the phase classification",
+          "evidence": [
+            "The coherent Hamiltonian is the sum of two independent two-level blocks, with opposite marked vectors in the antisymmetric block.",
+            "At J=√(m/2) these blocks reproduce both hub frequencies for every s/m, though the prior model has only a single flux and no m-phase reduction."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-zero-flux-mean-capture-discontinuity-and-optimal-sink-strength-i--ab34376b01a8",
+          "material_read": "Mirrored RESULT.md Finding, Assumptions, and Proof, offsets 0–5287",
+          "method": "Read sink hypotheses and the source/detector vectors and coherent block decomposition; set the sink term to zero only when comparing dynamics",
+          "title": "Zero-flux mean-capture discontinuity and optimal sink strength in a magnetic quantum square",
+          "trigger": "Same unit-phase square at m=2 and its coherent dynamics"
+        },
+        {
+          "assessment": "General characterization of the mechanism; explicit K_{2,m} marked spectral reduction not supplied by these statements",
+          "evidence": [
+            "Strong cospectrality and spectral phase difference equations characterize PST.",
+            "Kronecker approximation and linear integer relations control PGST."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2301.01473",
+          "material_read": "Theorems 2.1, 2.3 and 2.4 and surrounding phase-matching arguments, pp. 3–5, PDF offsets 12265–16729",
+          "method": "Read primary PDF theorem passages",
+          "title": "State Transfer in Complex Quantum Walks",
+          "trigger": "Plausible stronger exact and approximate criteria valid on the same Hermitian class"
+        },
+        {
+          "assessment": "Supplies the equivalent weighted product law; the adjacent-vertex join result does not classify the phase-only hub problem",
+          "evidence": [
+            "Equation (56) factors a two-coordinate transfer amplitude into two independent amplitudes.",
+            "Corollary 4 is about adjacent vertices and specified edge and self-loop weights in balanced complete bipartite graphs."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/0909.0431v1",
+          "material_read": "§4 Theorem 5 and factorization proof, HTML offsets 45170–47803; Corollary 4 around offset 44060",
+          "method": "Read actual product formula and compare bipartite hypotheses",
+          "title": "On Quantum Perfect State Transfer in Weighted Join Graphs",
+          "trigger": "Weighted Cartesian-square equivalent dynamics and possible complete-bipartite coverage"
+        },
+        {
+          "assessment": "Same host class in an existence construction with different input and observable",
+          "evidence": [
+            "Swift phase configurations solve zero row sums. The complete bipartite proof constructs a special outer product of root-of-unity phase vectors."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2207.05168",
+          "material_read": "Definition 2 around offsets 17536–18661, Theorem 4, and Appendix A.3 from offset 45974",
+          "method": "Primary PDF passage comparison",
+          "title": "Swift chiral quantum walks",
+          "trigger": "Unit phase complete bipartite graph and possible direct phase classification"
+        },
+        {
+          "assessment": "Established spectral context, not the marked arbitrary-phase interferometer claim in the inspected passages",
+          "evidence": [
+            "The circulant result classifies a universal condition, rather than transfer on a prescribed pair only."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1310.3885",
+          "material_read": "Introduction, pp. 2–3, including circulant discussion near offset 8626",
+          "method": "Primary PDF passage comparison",
+          "title": "Universal State Transfer on Graphs",
+          "trigger": "Complex weighted cycles and spectral universal transfer"
+        },
+        {
+          "assessment": "Different graph and coupling model",
+          "evidence": [
+            "The examples are ordinary double stars, with centers joined by an edge and private leaves."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1206.0082v3",
+          "material_read": "§1 around HTML offset 2500",
+          "method": "Primary HTML passage comparison",
+          "title": "Pretty good state transfer on double stars",
+          "trigger": "Previously known two-center arithmetic mechanisms"
+        },
+        {
+          "assessment": "Discrete ±i orientation class, not arbitrary continuously tunable gain weights",
+          "evidence": [
+            "Entries on arcs in the oriented circulant definition are i and −i, not general unit complex numbers."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2608.11992v1",
+          "material_read": "Adjacency and connection-set definition, HTML offsets 9070–9889",
+          "method": "Primary HTML definition comparison",
+          "title": "Perfect State Transfer on Oriented Circulant Graphs",
+          "trigger": "Search hit for a stronger circulant transfer theorem that might cover magnetic four-cycles"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md: exact protocol and dense-regime finding, ideal-model limitations",
+        "Prior magnetic-square and Hermitian transfer comparisons above"
+      ],
+      "rationale": "For a natural multi-path network this replaces all independent magnetic phases for the marked transport problem by one measurable interference parameter, while keeping coupling magnitudes fixed. It gives an exact design and obstruction criterion rather than a single calibrated example: phase-only tuning has dense but null exact-transfer and blocked classes, alongside almost-everywhere arbitrarily good transfer that need not be exact. The all-phase statement and its strong distinction between topology and measure are useful for analyzing coherent phase sensitivity; the elementary resonance maximum alone would not meet this value standard.",
+      "residual_risks": [
+        "This phase-space geometry is not a guarantee of small transfer times or of performance with decoherence, noisy couplings, or uncertainty over a fixed time horizon."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

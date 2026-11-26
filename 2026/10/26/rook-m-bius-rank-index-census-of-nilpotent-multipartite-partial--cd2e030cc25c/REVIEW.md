@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim specifies the domain, metric, rank, and least-zero-power normalization. For each partial isometry the represented source parts determine a unique partial injective action on target parts. With an admissible part action fixed, every nilpotent map is a set of disjoint directed chains, whose labeled exponential generating function is displayed explicitly. The rook-poset interval inversion removes the repeated counting by potential part actions; the signed coefficient identity has an elementary inclusion–exclusion proof. The longest-chain argument bounds the number of repeat visits to a color, and a matching cyclic construction establishes the maximum. A spanning index forces one chain and yields the exact multiplicity. Direct enumerations for four small bipartite/tripartite configurations match all rank–index coefficients. Scientific risk: the finite verifier does not test every graph and is not the basis of the general theorem.
+## correctness
 
-## Originality — PASS against the inspected sources
-The 2018 first-public preprint of Jajcay–Jajcayová–Szakács–Szendrei establishes the general partial-graph-automorphism monoid framework, path/cycle decomposition, and rank-two compatibility. Its inspected main sections concern monoid structure, reconstruction, and abstract representations, not the present rank–index polynomial. Existing multipartite square-zero counts completely cover the \(L\le2\) specialization, and the existing complete-bipartite all-index formula covers the \(k=2\) case; those are expressly excluded from novelty. The novelty assessed here is the full higher-index spectrum for \(k\ge3\), using injective part-action paths and cycles with rook-extension Möbius weights, and the sharp maximum-index/spanning-chain census. Broad source and semantic-result searches did not produce a theorem implying these statements. Risk: unlocated work on color-preserving partial permutations or general weighted combinatorial assemblies could provide equivalent expressions; no exhaustive priority claim is made.
+PASS
 
-## Value — PASS
-The joint domain-rank/nilpotency-index spectrum is a complete natural transformation-semigroup invariant. The theorem handles arbitrarily many unequal classes, not a chosen finite instance; part cycles impose a genuine compatibility problem absent from an unconstrained partial-permutation census. The simple maximum-index envelope and the exact criterion and count for index equal to the vertex number expose geometric consequences of the full classification. Prior square-zero and bipartite results motivate precisely the unclassified higher-index multipartite case.
+For k >= 3 and all part sizes positive, pairwise distance preservation is exactly preservation of the equivalence of belonging to the same part. This gives a unique partial injection of represented source parts, even for parts represented by one vertex. Nilpotence removes all vertex cycles; the longest chain in vertices is the index, including index 1 for the empty map. For fixed potential part action, the ordered color words enumerate directed labeled chains, isolated vertices included, and rank is the sum of their lengths minus one per chain. The multivariate exponential counts unordered collections of those chains on the fixed labeled parts. For an actual part action theta, the weight of all extensions sums to 1: write each mu as the signed sum over further extensions, then for each final extension the intermediate maps form a Boolean interval whose sum vanishes unless it equals theta. Differences in successive L therefore give the claimed joint polynomial. Under the stated restriction n_i >= 2 a longest chain repeats a part (two rounds over all parts are feasible). A repeat forces a periodic color word starting on its cycle, since a tail into a cycle would violate part-injectivity. If the smallest capacity on that cycle is s, at most s full rounds plus a prefix of larger parts are feasible; ordering all parts of size >= s with the larger ones first attains s c_s + c_(s+1). A spanning chain visits all parts with counts differing by at most one. Ordering the large and small blocks within the first period and then assigning labeled vertices gives exactly h!(k-h)! times the product of the part factorials, with no rotation factor because the chain has a distinguished start. Independent enumeration gave totals 835 and 3,089, maximum indices 6 and 7, and 48 maps of maximum index in each three-part test.
 
-## References and validation limit
-R. Jajcay, T. Jajcayová, N. Szakács, M. B. Szendrei, *Inverse monoids of partial graph automorphisms*, arXiv:1809.04422 (12 September 2018), published 2021. V. H. Fernandes and T. Paulista, *On the monoid of partial isometries of a finite star graph*, arXiv:2203.05504 (10 March 2022). Relevant prior claims: all-multipartite square-zero rank census, and complete-bipartite nilpotent rank-index census. Comparison is by mathematical implications, not titles alone.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct contribution is the all-index joint census for k >= 3 and the sharp maximum formula also in the unbalanced, nonspanning regime. The bipartite census and all-partite index-at-most-two slice are credited separately. The later catalogue result for disjoint unions of cliques explicitly covers the same spanning criterion and multiplicity after complementation; it does not cover the full distribution or the nonspanning maximum. No historical exclusivity is asserted for the spanning subresult.
+
+## value
+
+PASS
+
+The joint invariant measures two natural and different aspects of the monoid: the domain size and the iteration time to zero. The part-action formula enumerates it without looping over all vertex partial injections, and the capacity formula gives a sharp answer even when imbalance prevents spanning. These are useful extensions beyond the already known two-part and square-zero boundaries rather than new presentations of those counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

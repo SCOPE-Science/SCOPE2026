@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:57:54.895671Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md:5–34, 36–77",
+        "VERIFICATION.md",
+        "conic_tangent_checker.py (inspected, not executed)",
+        "reproductions/conic_finite_check.py (independent enumeration of q=3,5,7,9; replay with Python 3)"
+      ],
+      "rationale": "For s=(a,b)≠0 with n=a²−db², write the two conic points as s/2±t(db,a); these are exactly the candidates on the orthogonal line. The resulting square equation is t²=(n−4)/(4dn); the nonsquare d produces the minus sign in 1−χ(n(n−4)). At the origin the count is q+1. The C+L fiber has 1−χ(a(a−2)) choices, and L+L covers just a=2. Thus when χ(a(a−2))≠1 a mixed representation already exists; on the remaining fibers neither line term nor the intersection correction can contribute. The identity for a quadratic with two distinct roots gives |A|=(q−3)/2. On a regular a∈A the quartic is squarefree and has square leading coefficient, so its smooth genus-one model has two rational points at infinity and B_a=−1−t_a; anisotropy and a≠±2 give Z_a≤2. At a=−2 the double root is removed explicitly: summing χ(−d)χ(4−db²) over b≠0 gives B_a=−1+χ(−1) and Z_a=1. These facts justify the estimate and the regular-fiber positivity bound (q−3−2√q)/2>0 for q≥11. Independent enumeration over the four smaller fields, including coefficient arithmetic for F₉, reproduced M₃,M₅,M₇,M₉=0,0,4,12 and the stated fibers. Changing nonsquare d rescales b, and affine equivalence follows by centering the anisotropic quadratic form, norm rescaling, and moving the tangent point by a norm-one multiplier. The unitary Fourier identity uses the factor q for this group of size q².",
+      "residual_risks": [
+        "Exhaustive independent enumeration was limited to the fields needed for the threshold proof; the large-field assertion is supported by the character-sum and Hasse argument, not an extrapolation."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The torus index includes |T+T| and a criterion involving zero in T+T+T. The frozen source describes a torus-only two-summand criterion in characteristic three and general Fourier/energy machinery for other sets."
+        ],
+        "reasoning": "The torus-only statements do not control which holes survive adding the line. General energy or spectral bounds do not yield the fiberwise character correlation and sharp cutoff for this union.",
+        "searches": [
+          "Shi et al., arXiv:2609.20402 §2.1 and Theorem 1.3",
+          "Iosevich–Li–Yu arXiv:2609.25404 §§5.2 and 8.2",
+          "Resultary odd-characteristic norm-one torus additive lengths 02d4072ecbc7"
+        ]
+      },
+      "checked_sources": [
+        "Resultary entries f947e0197ff6, 02d4072ecbc7, 13e9a7104876",
+        "RESULT.md:79–91",
+        "arXiv:1802.10486 (search material only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The torus two-sum criterion supplies the second character test; the mixed C+L equation supplies the first. Hasse supplies a bound only after the fibers have been identified as squarefree quartics with two points at infinity, with separate treatment of a=−2."
+        ],
+        "reasoning": "The pointwise combination is elementary once the mixed representation formula is found, but knowing |T+T| or the torus condition alone does not give the two-character count or its sharp threshold. The elliptic reduction and exceptional and small-field analyses are not asserted by the inspected prior statements.",
+        "searches": [
+          "02d4072ecbc7 norm-one torus sums",
+          "arXiv:2609.20402 torus decomposition",
+          "arXiv:2609.25404 spectral synthesis",
+          "13e9a7104876 twisted cubic and tangent"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "f947e0197ff6 is the exact self-match. 02d4072ecbc7 concerns the norm-one torus alone, and 13e9a7104876 concerns a twisted cubic and tangent. Search result arXiv:1802.10486 supplied no conic-union two-sum statement in the displayed material."
+        ],
+        "reasoning": "The Fourier formulation is exactly equivalent to the support of the additive convolution, not a separate novelty claim. The closest distinct records use either the conic without a line or a different curve; neither available statement supplies this two-sum support after affine normalization.",
+        "searches": [
+          "Resultary conic-and-tangent sumset, character-test hole locus, and two-sum Fourier support",
+          "External literature search on conic/tangent additive coverage and two-sum holes"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same cutoff, density and hole criterion are indexed under f947e0197ff6 itself. The torus-only match tabulates or counts a different support; no separate covering statement appeared in the inspected summaries."
+        ],
+        "reasoning": "A small-field table verifies the finite cutoff cases only. The combined q-dependent locus and elimination of all q≥11 require control of the surviving holes on line-selected fibers.",
+        "searches": [
+          "Resultary exact q=3,5 full-coverage cutoff, M₇=4 and M₉=12, and conic-plus-tangent hole formula"
+        ]
+      },
+      "rationale": "The two-conic chord condition and finite Fourier convolution are prior ingredients. The supported distinct result is the joint support of the conic and tangent, including its elliptic fibers, exceptional singular fiber, uniform estimate and exact full-coverage cutoff. The strongest older indexed match analyzes the norm-one torus alone. A same-day related match concerns a twisted cubic and tangent, not an equivalent plane conic statement.",
+      "residual_risks": [
+        "The closest torus record and the cited torus and spectral papers could not be passage-checked in full text. A covering general character-sum or conic-plus-line theorem in inaccessible or unindexed work cannot be excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior torus-only coverage; no tangent-union coverage in the summary",
+          "evidence": [
+            "The available indexed sumset is for T, not T∪L."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/19/SCOPE-odd-characteristic-norm-one-torus-additive-lengths--02d4072ecbc7",
+          "material_read": "Indexed summary on torus additive lengths, |T+T| and zero in the triple sum; primary mirror retrieval timed out",
+          "method": "Resultary search and targeted mirror attempt",
+          "title": "Odd-characteristic norm-one torus additive lengths",
+          "trigger": "Exact two-sums for the same norm-one torus"
+        },
+        {
+          "assessment": "Related construction with different geometry; priority is not inferred from the date",
+          "evidence": [
+            "The stated underlying curve is a twisted cubic, not an anisotropic plane conic."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-two-sum-spectral-strata-of-a-finite-field-twisted-cubic-and-its--13e9a7104876",
+          "material_read": "Indexed statement for a twisted cubic plus its tangent",
+          "method": "Resultary comparison",
+          "title": "Two-sum spectral strata of a finite-field twisted cubic and its tangent",
+          "trigger": "Distinct same-day two-sum and tangent construction"
+        },
+        {
+          "assessment": "The identified torus-only criterion is credited; broader coverage was not determined from full text",
+          "evidence": [
+            "The available description concerns torus decompositions in characteristic three, without a tangent line."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.20402",
+          "material_read": "RESULT.md:81, 89 description of §2.1 and Theorem 1.3; primary passage retrieval timed out",
+          "method": "Frozen comparison and targeted OA attempt",
+          "title": "Norm-One Torus Decompositions and Decoding of Gashkov-Sidel'nikov Codes",
+          "trigger": "Primary torus-only two-summand criterion"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md:5–30, 38–73, 79–85"
+      ],
+      "rationale": "The tangent modification is a natural geometric augmentation of the conic. The pointwise support shows exactly where its new representations do and do not repair holes, and the threshold distinguishes the exceptional fully covered fields from all larger ones. The character/elliptic reduction supplies an exact computational description beyond the asymptotic density and identifies the singular exception explicitly.",
+      "residual_risks": [
+        "No claim about split conics, characteristic two, or optimality of the error exponent is supported. The quantitative content is the support and its count, not a novel Fourier identity."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

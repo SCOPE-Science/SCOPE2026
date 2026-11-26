@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The two-patch reduction and both log-growth identities have their normalization and Brownian covariance tracked explicitly. The stationary ratio equation is pathwise contractive, and Lyapunov bounds establish the moment integrability required for generator identities. Differentiating the causal stationary ODE with respect to its Gaussian forcing gives an exact positive response kernel; OU Gaussian integration by parts yields the sharp analytical ceiling. The two small-noise/large-migration limits follow by dominated convergence, while the weak-migration limit follows by splitting the stationary moment expectation. Continuity, strict interior positivity, and vanishing endpoint limits prove existence, not uniqueness, of a finite optimizer. The standalone program verifies representative finite-time identities but is not used to certify the limiting theorem.
+PASS
 
-## Originality
+Subtracting the log equations gives Ẋ=H−M sinh X, with stationary variance 2λD for the OU difference. On a common forcing path all solutions contract at rate M, and the pullback from zero is Cauchy with stationary bound |X(t)|≤∫_{−∞}^t e^{−M(t−s)}|H(s)|ds. Jensen against the normalized exponential kernel gives finite exponential moments, locally uniform in M>0. The pullback is a stationary ergodic factor of H; contraction transfers the long-time log-total growth to arbitrary positive initial abundances. Direct differentiation gives g=(1/2)E[H tanh(X/2)], including the zero mean environmental average. Applying stationarity to log cosh(X/2) gives g=(M/2)E[cosh X−1]; X cannot be identically zero under nondegenerate forcing. At M=0 both uncoupled log growth rates, and thus the log growth rate of their sum, converge to r. For the critical Gaussian identity I independently condition the past as H(−u)=e^(−λu)H(0)+Z(u), with the residual path Z independent of H(0). Scalar Gaussian integration by parts, first with finite past, differentiates X(0) in H(0) by integrating the input e^(−λu) against exp(−M∫_{−u}^0 cosh X). This proves the stated response formula, including its λD/2 prefactor; e^(−(M+λ)u) dominates passage to infinite past. The sech² factor is strictly below 1 with positive probability, proving the strict global cap. The stationary cosh moment gives E sinh²X≤2λD/M². Since cosh X−1≤sinh²X/2, the response converges to the linear one at fixed M as D→0, and on times u=v/M at fixed D as M→∞, yielding both coefficients by dominated convergence. Stationarity of X², XH and cosh X gives λM E[X sinh X]+M² E[sinh²X]=2λD. It implies the small-M split bound at any R, and taking first M→0 and then R→∞ proves the endpoint. For continuity at positive M, couple the two stationary pullbacks on one H; the difference has a restoring rate at least min(M,M') and source bounded by |M−M'|·|sinh X_{M'}|. The uniform local moments yield L¹ continuity of X and hence continuity of the bounded tanh response paired with the integrable H. Strict positivity and the two vanishing endpoints give an attained finite positive maximum, not uniqueness. The frozen simulation was inspected, not run; its seeded finite-time checks cannot certify the strict bound or limiting statements.
 
-PASS under accessible evidence, with residual priority risk. Henderson and Tiffeau-Mayer give the exact population model and a stationary growth identity, plus numerical evidence of an interior optimum and a separate white-noise formula. Their main and supplementary calculations do not state or derive the all-parameter OU Gaussian-response bound with sharp weak-noise and strong-migration limits. Hening–Nguyen–Yin treat principally white-noise environmental forcing; Benaïm–Lobry–Sari–Strickler study switching environments. Targeted searches for mathematical antecedents identified no implication-equivalent response identity or bound. A broader Gaussian linear cocycle or population-dispersal result may imply it, which requires human historical-priority review.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. The motivating ecology study explicitly observes an intermediate migration optimum numerically, but an exact mathematical bound and attainment theorem are useful because its colored-noise stationary density is not known in elementary closed form. The envelope quantifies the unavoidable correlation-time and migration-rate tradeoff, is sharp at weak noise, and determines the exact high-migration coefficient. It distinguishes an exact Ornstein–Uhlenbeck theorem from a colored-noise effective-potential approximation. These are substantive structural facts for a natural model, not numerical-only observations or a parameter substitution.
+The exact model, the basic stationary growth identity and the numerical observation of a finite colored-noise optimum are prior. The surviving contribution is the exact response identity and strict ceiling at all positive parameters, its sharp weak-noise and fast-migration coefficients, and the quantitative slow-migration estimate proving rigorous attainment. No inspected source supplies or mechanically implies that package.
 
-## Scope and risks
+## value
 
-The theorem is strictly two-patch, independently OU-forced, and symmetric. No general finite-patch extension, uniqueness of optimal migration, stochastic extinction time, or nonlinear ecological saturation is asserted. Independently checking historical coverage by general random-positive-matrix results remains important.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The model and question are independently motivated by an existing numerical finite-optimum observation. The strict ceiling gives usable parameter-dependent control without a white-noise or weak-noise replacement, the two sharp limits identify its accuracy, and the small-migration bound makes the qualitative finite optimum rigorous without claiming uniqueness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

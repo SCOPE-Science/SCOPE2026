@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:23:45.691066Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–110",
+        "VERIFICATION.md lines 19–23",
+        "verify_inverse.py lines 12–102",
+        "Yang et al., PMC10969703, §2.2.1, publisher JATS equation FD6-entropy-26-00254"
+      ],
+      "rationale": "The publisher's deposited MathML in Yang et al. Eq. (6) confirms the nesting and the asymmetric π factors: the x amplitude is πH, the y amplitude is H, and the logistic argument in the second coordinate uses x at the next time (the fixed target u). For a scalar fiber over an interior cosine value, each of two distinct shifted lattices has s-spacing 2π/K in s=sin(πz). On each of the four source branches s sweeps an interval of length one, giving 4K/π+O(1) distinct roots after a bounded endpoint correction. For any centered 1-Lipschitz test function, its composition with each inverse branch has bounded total variation, so its shifted-grid quadrature differs from density K|cos(πz)| by O(1). This does not require a Lipschitz inverse branch at the turning point. Thus the scalar probability law is within O(K⁻¹) of μ. The triangular inversion gives 4H/π+O(1) choices of y and 4H+O(1) choices of x per y, giving 256/(πb²)+O(b⁻¹). Fiber-size reweighting changes normalized bounded expectations by O(H⁻¹); applying the scalar estimate twice gives W₁=O(b) by Lipschitz duality. On an interior fiber, cancellation of the chain-rule terms through u leaves the determinant proportional to cos(πx)cos(πy)sin A sin B. Only x=±1/2 or y=±1/2 can be singular, giving O(H) exceptions. Every grid bound is independent of phase, and the phase branches remain disjoint for all strictly interior targets even if they approach an edge. Frozen floating-point code was inspected, not run; its point and moment samples do not certify exact cardinality near coalescence or a Wasserstein rate.",
+      "residual_risks": [
+        "Only exact-real distinct preimages and strictly interior targets are claimed. The floating-point grids are not independent certification of the uniform theorem."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The nontriangular sine-polynomial case gives 13t²/(3π²)+O(t); the two-sine case counts real one-dimensional roots in a different setting; the vanishing-memristance case gives a b⁻¹/³ scale and an anti-diagonal law.",
+          "The inspected Yang sections give a coupling construction and forward dynamical diagnostics, not an inverse-distribution theorem."
+        ],
+        "reasoning": "The inspected statements do not cover the sequential square map with arbitrary, possibly b-dependent coupling and phases. Neither a one-dimensional root-density theorem for a different phase nor isolated forward orbit estimates imply the conditional product law.",
+        "searches": [
+          "Resultary 798cfe3c2e2d, 1c8c559ea9e2, and 11d2355b9c51",
+          "Yang et al., §§2.2.1–2.3"
+        ]
+      },
+      "checked_sources": [
+        "Yang et al., DOI 10.3390/e26030254, §2.2.1 Eq. (6) and §2.3",
+        "Resultary 798cfe3c2e2d, 1c8c559ea9e2, and 11d2355b9c51"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact model fixes the two amplitudes but supplies no phase-shift-uniform BV quadrature or justification for reweighting the two-dimensional empirical fibers.",
+          "Standard shifted lattice counts and bounded-variation estimates enter as techniques, along with a separate Jacobian cancellation."
+        ],
+        "reasoning": "The coefficient is not the whole contribution: the model-specific inversion, uniform conditional control, reweighting and singular count give a joint statement not mechanically supplied by the inspected prior results.",
+        "searches": [
+          "Yang et al., Eq. (6) and §2.3",
+          "Resultary 798cfe3c2e2d, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The deposited equation is exactly this map. The independent catalogue neighbor 798cfe3c2e2d has F_t=(sin(ty(x+1)),sin(tx(y+1))) and limiting density (3/13)|1+x+y| rather than the separable product here."
+        ],
+        "reasoning": "The neighboring claim uses an area-weighted nontriangular phase map. Its stated law and inverse count are not the present target-conditioned two-step lattice inversion. An identical catalogue self-match was excluded.",
+        "searches": [
+          "Local Resultary search for logistic–sine triangular inverse count and universal ancestor law",
+          "Yang et al., DOI 10.3390/e26030254, Eq. (6), as 2D-LSM and as an inverse triangular system"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The catalogue neighbor includes a certified 56-point fiber for its own sine-polynomial map. The original paper measures forward diagnostics for selected parameters rather than tabulating inverse fibers."
+        ],
+        "reasoning": "No identified table computes this model's uniform asymptotic or its limiting empirical measures. An exact fiber for a different map or a forward performance table does not provide these invariants.",
+        "searches": [
+          "Local Resultary exact fiber findings, especially 798cfe3c2e2d",
+          "Yang et al., §2.3 performance evaluations"
+        ]
+      },
+      "rationale": "The contribution is a uniform inverse-fiber cardinality, quantitative product law, and regularity bound for a specific published sequential map, not its definition or the two elementary scalar techniques. The strongest related catalogue finding has the same broad theme but a different map, mechanism and joint law.",
+      "residual_risks": [
+        "The bounded literature search did not resolve whether a general uniform oscillatory-inversion theorem has been applied to this exact map elsewhere. Unproductive searches were not treated as affirmative evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Source formula independently confirmed after other representations did not expose the equation. Forward performance discussion does not state the inverse law in inspected passages.",
+          "evidence": "The sine term is inside the π fence in the first row. The logistic term in x_{i+1}, not the sine term in y_i, is inside the π fence in the second row.",
+          "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10969703/ ; DOI 10.3390/e26030254",
+          "material_read": "Publisher JATS §2.2.1, Eq. (6), id FD6-entropy-26-00254, and NCBI BioC text at offsets 11664–13678, including §2.3 opening",
+          "method": "PMC OAI GetRecord full publisher MathML; bounded NCBI BioC text passages",
+          "title": "An n-Dimensional Chaotic Map with Application in Reversible Data Hiding for Medical Images",
+          "trigger": "Literal published equation and possible prior inverse law"
+        },
+        {
+          "assessment": "Real thematic overlap; different map and density, no equivalent claim demonstrated. Same-day date gives no priority order.",
+          "evidence": "Inverse asymptotic 13t²/(3π²)+O(t), limiting density (3/13)|1+x+y| on the square, and a certified finite fiber.",
+          "identifier_or_url": "Resultary 2026/11/22, suffix 798cfe3c2e2d",
+          "material_read": "RESULT.md exact map and Finding",
+          "method": "Local Resultary mirror",
+          "title": "Universal inverse seed density and a certified 56-point fiber of the sine-polynomial plane map",
+          "trigger": "Closest distinct quadratic inverse-growth and ancestor-law claim"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 5–31 and 63–110",
+        "Yang et al., §2.2.1 Eq. (6)"
+      ],
+      "rationale": "The count quantifies global one-step ambiguity in the natural invariant square, but the main added value is knowing where the ancestors lie. The same nonuniform product distribution applies uniformly even with phases/coupling changing as b→0 and interior targets moving near the edges. The regular fraction distinguishes this law from a count dominated by degenerate inverses. This information is not supplied by orbit plots or a leading count alone.",
+      "residual_risks": [
+        "No statement about invariant measures, cryptographic security or forward-time randomness."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Review of the exact Heawood power-domination classification
+# Independent mathematical audit
 
-## Correctness (PASS)
-The claim uses an explicit fourteen-vertex point–line model and the standard closed-neighborhood observation followed by unique-neighbor propagation. Nonincidence flags and noncollinear triples are constructive sufficient witnesses; the Fano incidence axioms show every other subset belongs to a closed star. Every full star is immobile under propagation. Intersection cardinalities yield the failure polynomial, and the complement-incidence line graph yields exchange degree, size, connectivity and diameter. Two independent full-state verifiers reproduce all 16,384 outcomes.
+## correctness
 
-## Originality (PASS, limited to checked sources)
-The 2002 source introduces power domination and proves complexity and tree results, not this graph's polynomial. The 2013 regular-graph theorem provides an upper bound but neither an exact Heawood set criterion nor counts. The 2018 power-domination-polynomial paper has general structure and other specific families; no Heawood/Fano object or equivalent implication was found in the accessible full text. Relevant indexed mathematical records on Heawood concern other domination or forcing predicates, and records about other cubic graphs do not imply these counts. An unindexed earlier exact classification remains a residual priority risk, so the claim is not externally certified as the first ever discovery.
+PASS
 
-## Value (PASS)
-The Heawood graph is the unique cubic girth-six cage. For this canonical test graph the result identifies the entire failure complex by fourteen natural geometric stars, gives exact success probabilities for every independent sensor deployment parameter, identifies all 28 minimum placements, and resolves their full replacement connectivity. The observation is not an arbitrary truncated invariant: it resolves all sizes and optimum mobility, two distinct reliability concerns beyond the scalar minimum.
+The corrected proof checks the three sufficient configurations, including p0,p1,p2 by explicit forces followed by the basis action and duality. A monochromatic set lacking such a triple lies on one line or through one point; in a mixed set lacking a nonincident pair, two distinct selected lines force the selected points into their singleton intersection, and a single selected line supplies its own star. From any full star the observation step leaves four unseen vertices on the opposite shore; every observed vertex has zero or at least two unobserved neighbors. Monotonicity gives failure of all its subsets. Distinct stars intersect in at most two vertices, so no triple is overcounted. Failed pairs are 21 incidences plus 42 same-shore pairs, and the failed triples and four-sets number 56 and 14. The fresh independent enumeration constructed the incidence model, started each of all 16,384 masks at its closed neighborhood, iterated unique-neighbor forcing to a fixed point and compared failure against star containment. It reproduced the entire failure vector, and incidentally confirmed the frozen exchange statistics. The original supplied verification scripts were inspected rather than executed. No general projective-plane classification of larger sets or formal verification is claimed.
 
-## Limitations
-Only this finite graph, this propagation convention and the precise Fano incidence realization are proved; broader projective planes are not included. The computer checks are complete for fourteen vertices but are not independent scholarly audits. Historical-priority uncertainty remains.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+As repaired, the distinct claim is precisely the closed-neighborhood obstruction complex, giving which placements fail at every cardinality and their polynomial. Pair and reconfiguration results are credited to demonstrable overlapping coverage. The sources checked do not cover the full obstruction classification; chronology and exhaustive priority are not asserted.
+
+## value
+
+PASS
+
+For this canonical cubic graph the natural obstruction invariant specifies robustness against any placement, not merely the best pair or a total count. It supplies a short geometry-based criterion, identifies every maximal failure, explains exact counts by cardinality, and shows the sharp size threshold for guaranteed success. The distinction between placements of equal size without a successful pair is substantive and does not follow mechanically from the covered mobility result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

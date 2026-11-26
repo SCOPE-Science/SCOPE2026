@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Binomial complementation yields the exact confirmation objective. A strictly concave logarithmic comparison proves that only a concentrated or balanced schedule can maximize it. Explicit even and odd algebra establishes one and only one positive reliability switch; binomial-to-Poisson convergence gives the asymptotic constant. The exact-rational checker corroborates the arithmetic without substituting for the proof. No empirical weather correlations or physical signal-to-noise are inferred.
+## correctness
 
-**Originality — PASS, with residual priority risk.** Relevant sections inspected in von Braun, Kane and Ciardi (2009), including the two-transit window-function analysis, concerns simulated observational window functions and the requirement to sample multiple transits, not all integer allocations for two alternative ephemerides. Dzigan and Zucker (2011), particularly Sections 1–2, use posterior probabilities for directed follow-up, not this global discrete optimality classification. The full public result and proof of the 2026 three-session overlapping-arc optimization were compared; its finite three-arc coverage theorem neither includes nor implies the stated arbitrary-budget two-point posterior result. Actual mathematical and astrophysical searches returned no dominating allocation theorem. Earlier general-purpose binomial resource-allocation work may remain unindexed or outside retrieved full texts; novelty is best-knowledge, not a proof of priority.
+PASS
 
-**Value — PASS.** Independent visit failures create a genuine tradeoff between repeatedly confirming one possible ephemeris and covering both possible ephemerides; the two-confirmation criterion makes the tradeoff nonlinear. The classification excludes all intermediate resource splits for every budget, supplies exact finite boundaries and a universal high-budget scaling. It is a reproducible conditional benchmark for sparse transit follow-up, not a recommendation under correlated weather or a complete survey design.
+The objective is the equally weighted sum of conditional two-success tails; the factor 1/2 is immaterial. For q=1−p, K=n−1, the increment of F_p(k) is k p²q^(k−1) for k≥1 and is zero at k=0. Hence the first increment of the symmetric objective H is strictly negative, and for 0<j<K/2 the sign is that of log(j/(K−j))+(2j−K)log q. An independent sign argument divides by K−2j: with t=(K−2j)/K, the result is −log q−2 arctanh(t)/(Kt), strictly increasing with j by the positive series for arctanh(t)/t. Thus the half-range can only decrease and then increase, with at most one zero step inside; the initial strict decrease rules out an interior tie for the maximum. The odd central reflected pair agrees by symmetry. Rechecked the even factorization and the odd incremental polynomial: dividing respectively by p q^(m−1) after removing the even positive factor, or by p² q^(m−1) in the odd case, yields a strictly increasing expression in q, negative near zero and positive near one. Thus the roots and all endpoint ties are as stated, including p₄=2/3. For p=z/n the exact endpoint difference tends to (1−e^(−z/2))[(1+z)e^(−z/2)−1], with one positive sign change, so two fixed brackets and the finite-n uniqueness imply convergence of np_n. Independently evaluated the positive root by 55-digit decimal bisection as 2.512862417252339353965475… . Inspected the finite supporting checker without executing it; it is not the proof of the all-n result. The strict claim excludes p=0 and 1 and assumes static, equal-prior design.
 
-Closest comparisons: von Braun et al. (2009), https://arxiv.org/abs/0907.1614; Dzigan and Zucker (2011), https://doi.org/10.1111/j.1365-2966.2011.18876.x; *A sharp weather-reliability threshold for three transit-observation windows* (2026), https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-a-sharp-weather-reliability-threshold-for-three-transit-observat--4e69c33bc1b2.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The complete finite-binomial classification is not covered by the inspected sources. The optimizer pattern has a close continuous Poisson analogue and the limiting equation is known in another exact optimization; these are not independently new features taken alone. The scope of this pass is the finite-n law, including its strict ties and the link from the finite roots to that limit.
+
+## value
+
+PASS
+
+For a fixed budget and independent per-visit reliability, two confirmations create a real choice between fully exploiting one ephemeris and protecting both. A unique finite-n boundary with exact tie information gives a complete decision rule without scanning possible allocations, and shows why a partially concentrated compromise is never optimal within this model. This is a useful exact stylized design result, not evidence for real-weather independence or adaptive telescope scheduling.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

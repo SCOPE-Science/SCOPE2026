@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Exact reproducibility and boundaries
 
-Invoke `python verify.py` with a SymPy 1.x installation satisfying `requirements.txt`. The exact verifier constructs the finite field \(\mathbb F_{25}\) as a quadratic extension, enumerates all 806 projective lines over \(\mathbb F_5\) and all 407526 over \(\mathbb F_{25}\), then computes the complete six-cell characteristic-five Gröbner-basis upper bounds. It subsequently computes tangent ranks in full four-coordinate Plücker charts and local-jet quotient lengths modulo degrees two and three, and checks Frobenius orbits.
+# Independent mathematical audit
 
-The saved standard output `verify.stdout` records `LINE_COUNTS_BY_FIELD 4 40`, the cell dimensions \((26,9,4,0,1,1)\), the tangent ranks (four of rank three and 36 of rank four), the four doubled local jets, the total reduced support 40 and scheme length 44, and cycles of lengths one (four) and two (eighteen). It ends with `VERIFY_OK`.
+## correctness
 
-Finite point enumerations alone are not geometric completeness proofs. The result uses exact Gröbner quotient dimensions to bound all geometric solutions in every echelon cell. The only slack occurs at one big-cell point with nontrivial tangent. The local length assertion uses exact truncated local ideals and Nakayama's lemma. All four doubled coordinate lines are rational over \(\mathbb F_5\); nilpotents do not affect the closed-point zeta function.
+PASS
 
-The calculation is limited to the displayed six-term quartic in characteristic five. It does not decide whether a different intended equation has 48 lines; an independent historical review has not been conducted.
+Independently expanded the literal six monomials on lines and enumerated zero binary quartics in canonical echelon coordinates over F_5[u]/(u^2+u+1), with nonsquare discriminant 2. The six echelon cells have 25, 9, 4, 0, 1, 1 distinct points. To establish geometric exhaustion independently of the frozen cell bounds, the replay computed the full affine Pluecker chart algebras over F_5 in grevlex, of lengths 26, 26, 28, 28, 26, 26 in pivot order 01,02,03,12,13,23. These opens overlap and their lengths must not be added. In the full charts the Jacobian has a nonzero maximal minor except at the four stated coordinate lines. The local jet quotients at those lines have dimension 2 modulo both the square and the cube of the maximal ideal; hence Nakayama makes its square zero and gives local length two. The known points, weighted by these local lengths and counted in each full chart using the corresponding nonzero Pluecker coordinate, exhaust every chart length. Thus there are no additional geometric points. The global length is 36+4*2=44. Exactly four canonical forms have coefficients in F_5; the remaining 36 lie in F_25 and have Frobenius orbit size two. This gives the claimed point counts and zeta function; nilpotents add no field-valued points.
+
+## originality
+
+PASS
+
+The strongest match is the original publication's identical equation, where the geometric line count 48 disagrees with the independently exhausted support of 40. The correction and the arithmetic and infinitesimal structure of the literal line scheme are distinct from that passage and from the other models inspected. No historical priority guarantee is made.
+
+## value
+
+PASS
+
+This is a motivated exact correction to a published example, not an arbitrary quartic computation. It distinguishes the actual geometric support (40), scheme length (44), and arithmetic splitting (4 rational and 18 conjugate pairs), so it supplies precise usable data for anyone reusing the printed model in classification or finite-field computations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

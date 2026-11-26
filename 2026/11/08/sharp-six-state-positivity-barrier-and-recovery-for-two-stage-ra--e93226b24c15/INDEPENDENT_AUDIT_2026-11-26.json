@@ -1,0 +1,182 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:15:10.079825Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Proof; VERIFICATION.md, certificate.json, verify.py and verification_output.txt (inspected as evidence; frozen scripts not executed)",
+        "python3 /workspace/branches/recompute_2.py (independent exact polynomial residuals, sign/bracket checks and cyclic boundary recurrence)",
+        "/workspace/repairs/2/RESULT.md, SLOGAN.txt, VERIFICATION.md, certificate.json, verify.py and verification_output.txt; python3 /workspace/repairs/2/verify.py passed exact integer residuals and mass/sign checks"
+      ],
+      "rationale": "This assessment passes the repaired eight-cycle claim. R(hQ) has no poles for h≥0 since its poles lie at 2±i√2 and all eigenvalues of h(P−I) have nonpositive real part. Column sums are one because R(0)=1 and 1ᵀQ=0; cyclic symmetry means the first column suffices. Independently solving for it with a second-order recurrence and two cyclic boundary conditions reproduced signed minima 11824/2058973 at h=2, −5703833/339145563 on the diagonal at h=4, and 127548251905668327/1666416340218976267 at h=20. The repaired table lists full columns; its separately checked integer residuals and invertibility identify them exactly. By continuity, 2 and 20 belong to interiors of different connected components of the positive-step nonnegativity set. This is not disconnectedness caused by the isolated zero step. The frozen mathematics was also correct: coefficient multiplication independently checked the low-size identities, the six-cycle diagonal bound splits at h=3, the exceptional numerator is h⁵p(h) with p′>0 and the exact bracket holds. The fifth Taylor coefficient and Fourier limit justify the two all-size asymptotic assertions. Those statements were removed from the novelty claim for coverage, not falsity.",
+      "residual_risks": [
+        "At least two positive-step components are proved, not a complete eight-cycle classification, a minimum cyclic size for disconnected positive steps, or internal-stage positivity."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "d6e23c144dbb also gives local positive steps for arbitrary Markov generators through five states but states only small-step failure and ultimate recovery for directed cycles beyond six.",
+          "17146a0a41df gives disconnected positivity windows for Radau on unit-weight undirected stars; 01757ab0b97c concerns undirected cycles and paths. 6b800a293f32 gives a Crank–Nicolson single-interval law, for a different rational function.",
+          "Blanes–Iserles–Macnamara develop positivity-preserving methods for graph-Laplacian ODEs. Zappavigna et al. explicitly identify their Padé study as diagonal Padé in the introduction, not a subdiagonal Radau theorem."
+        ],
+        "reasoning": "General barriers, and reentry on symmetric diffusion networks or for another rational map, do not control a fixed one-way 8-cycle's signs at intermediate steps. The repair does not claim that disconnected Radau windows in general are new.",
+        "searches": [
+          "Resultary d6e23c144dbb, 17146a0a41df, 01757ab0b97c and 6b800a293f32",
+          "arXiv:2102.08242v2 positivity-preserving ODEs",
+          "Zappavigna Colaneri Kirkland Shorten Pade discretization positive linear systems subdiagonal Radau directed cycle disconnected step size"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 1260be3011dc, d6e23c144dbb, 24a51aae20d9, 17146a0a41df, 6e27618b0571, 4aad2a3f58ab, 01757ab0b97c and 6b800a293f32",
+        "arXiv:2102.08242v2; Zappavigna et al. author OA manuscript",
+        "/workspace/repairs/2/RESULT.md, revised statement and attribution"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For n≥6 the older general result guarantees negativity near zero and strictly positive entries eventually. Those facts are compatible with the exact single positive-step half-line at n=6 and do not determine whether an intermediate positive step can be followed by negativity at n=8.",
+          "For Gauss on the same eight-cycle a bounded interval is followed by negativity for all bigger steps; for Radau on undirected stars the graph and spectra differ."
+        ],
+        "reasoning": "The prior results imply most of the frozen theorem and are credited in the replacement. They do not imply the exact failure of permanent recovery established by two positive witnesses separated by a negative step for Radau on one-way cycles.",
+        "searches": [
+          "Resultary 1260be3011dc Finding (i)–(iii), d6e23c144dbb Finding and Limitations, 24a51aae20d9 Finding",
+          "Resultary 17146a0a41df and 6e27618b0571 explicit windows"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The first three prior records have r(z)=(6+2z)/(6−4z+z²) or its scaled equivalent and cycle generator P−I; the row versus column shift transposes the matrix and does not alter entrywise signs or the step sets.",
+          "The same directed eight-cycle in 6e27618b0571 uses (12+6z+z²)/(12−6z+z²) and has exactly one bounded positive-step interval; 4aad2a3f58ab uses the Gauss [2/2] map and a pure-birth witness."
+        ],
+        "reasoning": "Under transposition the older Radau six-cycle law is identical; changing the rational function is not an equivalent transformation of the eight-cycle step sets.",
+        "searches": [
+          "Resultary Radau IIA subdiagonal [1/2] Padé directed cycle six-state recovery and eight-cycle disconnected positive steps (2,4,20)",
+          "Resultary 1260be3011dc, d6e23c144dbb, 24a51aae20d9, 6e27618b0571 and 4aad2a3f58ab, Findings"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "1260be3011dc, d6e23c144dbb and 24a51aae20d9 give the same positive recovery root 0.208608859735… and polynomial h⁵+15h⁴+60h³+90h²+36h−12 for the same six-cycle.",
+          "The exact catalog hit for the three eight-cycle witnesses was the identical frozen record e93226b24c15; it is not independent evidence of coverage. The older directed Radau results inspected do not exhibit the intermediate sign pattern from item 4."
+        ],
+        "reasoning": "The frozen six-cycle classification is covered exactly. The repaired statement is the non-interval property certified by the sign pattern, not a claim to originality for producing exact matrix entries alone.",
+        "searches": [
+          "Resultary exact directed-cycle Radau, [1/2] Padé sign windows, h=2 h=4 h=20",
+          "Local-mirror older Radau Findings and eight-related passages"
+        ]
+      },
+      "rationale": "Originality of the frozen headline and items 1–3 fails: multiple distinct Resultary records explicitly state the same method, barrier at six, all-step positivity through size five, exact polynomial and positivity set for six, and larger-cycle small-step failure and ultimate recovery. This is direct coverage, not a suspected overlap or an inference from dates. The PASS applies only to the repaired original item 4: separated positive-step components for the Radau [1/2] endpoint on the uniform one-way eight-cycle. The decisive exact-title/parameter comparisons and focused follow-up distinguish that claim from previously established disconnected Radau windows on undirected stars and from a single bounded positive-step window for Gauss [2/2] on the same directed cycle.",
+      "residual_risks": [
+        "The search was focused and is not evidence against unindexed prior calculations of the subdiagonal one-way cyclic case.",
+        "The positive disposition does not extend to originality of the frozen six-state-centered theorem; its direct overlap is preserved in this review."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly covers original items 1–3, not repaired component separation",
+          "evidence": "Through n=5 all h>0; at n=6 same polynomial, entrywise sign exception and exact recovery ray; for n≥6 even the identical coefficient −1/108 and large-step positivity are given.",
+          "identifier_or_url": "Resultary 1260be3011dc",
+          "material_read": "Finding (i)–(iii), mirror offsets 0–1550; references at 7700–8626",
+          "method": "Local-mirror original text",
+          "title": "A six-state threshold and positivity recovery for Radau IIA on directed cycles",
+          "trigger": "Same rational function and directed-cycle generator"
+        },
+        {
+          "assessment": "Direct coverage of original central result",
+          "evidence": "Same endpoint and n=6 sign sets, all-step small-cycle classification, and small/large-step behavior. Limitations explicitly restrict the exact h≥τ law to six.",
+          "identifier_or_url": "Resultary d6e23c144dbb",
+          "material_read": "Finding offset 0–1847 and Limitations around 9250–10300",
+          "method": "Local-mirror original text",
+          "title": "Six states are the sharp small-step positivity barrier for two-stage Radau IIA on Markov generators",
+          "trigger": "Same barrier and exact recovery root, wider starting class"
+        },
+        {
+          "assessment": "Direct six-cycle overlap; no repaired eight-cycle sign claim in inspected statement",
+          "evidence": "Same rational map, through n=5 all h>0, same n=6 polynomial and positivity set, and small-/large-step assertions for all n≥6.",
+          "identifier_or_url": "Resultary 24a51aae20d9",
+          "material_read": "Finding at offset 0–1323 and Limitations around 6600–7689",
+          "method": "Local-mirror original text",
+          "title": "Sharp six-state recovery of Markov positivity for Radau IIA on directed cycles",
+          "trigger": "Equivalent directed-cycle classification"
+        },
+        {
+          "assessment": "Genuine reentry precedent on a different graph family",
+          "evidence": "Three explicit closed windows for symmetric star Laplacians with ≥11 leaves, using hub and leaf diagonal failures.",
+          "identifier_or_url": "Resultary 17146a0a41df",
+          "material_read": "Finding, mirror offset 0–1429",
+          "method": "Local-mirror original text",
+          "title": "Three disjoint positivity windows for two-stage Radau IIA on star networks",
+          "trigger": "Same method and disconnected positivity windows"
+        },
+        {
+          "assessment": "Same graph, different method and number of positive-step components",
+          "evidence": "Gauss [2/2] yields one finite positive-step interval; steps beyond it still fail.",
+          "identifier_or_url": "Resultary 6e27618b0571",
+          "material_read": "Finding, mirror offset 0–1244",
+          "method": "Local-mirror original text",
+          "title": "Exact stochasticity reentry for fourth-order Gauss stepping on the directed eight-cycle",
+          "trigger": "Same graph and endpoint reentry"
+        },
+        {
+          "assessment": "Different stability function and generator",
+          "evidence": "Eight-state absorbing pure birth is the witness for [2/2] Gauss; it is not the one-way irreducible cycle or Radau [1/2].",
+          "identifier_or_url": "Resultary 4aad2a3f58ab",
+          "material_read": "Finding, offset 0",
+          "method": "Local-mirror original text",
+          "title": "Eight-state barrier for Markov positivity of the [2/2] Padé map",
+          "trigger": "Previously cited eight-state Padé obstruction"
+        },
+        {
+          "assessment": "Undirected cycles, not an equivalent generator",
+          "evidence": "All-step positivity on undirected cycles through size nine is not the one-way-cycle comparison.",
+          "identifier_or_url": "Resultary 01757ab0b97c",
+          "material_read": "Finding, offset 0",
+          "method": "Local-mirror original text",
+          "title": "Sharp Radau IIA positivity cutoffs on finite paths and cycles",
+          "trigger": "Same date and same method on cycles"
+        },
+        {
+          "assessment": "Different rational endpoint",
+          "evidence": "No reentrance for Crank–Nicolson on finite irreducible chains does not classify Radau.",
+          "identifier_or_url": "Resultary 6b800a293f32",
+          "material_read": "Finding, offset 0",
+          "method": "Local-mirror original text",
+          "title": "A first-return law makes Crank–Nicolson positivity one interval",
+          "trigger": "Potential universal connectivity rule for Markov positivity sets"
+        },
+        {
+          "assessment": "General positivity and methods context",
+          "evidence": "Treats general graph-Laplacian systems and introduces new positivity-preserving methods; the inspected part does not resolve the directed Radau eight-cycle.",
+          "identifier_or_url": "https://arxiv.org/html/2102.08242v2",
+          "material_read": "Abstract and opening scope, offsets 750–1986",
+          "method": "OA HTML",
+          "title": "Positivity-preserving methods for ordinary differential equations",
+          "trigger": "Classical positivity barriers and competing integrators"
+        },
+        {
+          "assessment": "Inspected Padé scope is diagonal, not Radau's subdiagonal scheme",
+          "evidence": "Intro explicitly studies diagonal Padé discretization; abstract already distinguishes loss of positivity from preservation of stability.",
+          "identifier_or_url": "https://www.hamilton.ie/skirkland/pade_paper_final_end.pdf",
+          "material_read": "Author PDF abstract and introduction, offsets 0–3259",
+          "method": "Lawful OA manuscript",
+          "title": "Essentially Negative News About Positive Systems",
+          "trigger": "Padé positivity loss in linear positive systems"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "/workspace/repairs/2/RESULT.md, Finding and integer witness table",
+        "Resultary 1260be3011dc (six-cycle ray), 17146a0a41df (Radau stars), 6e27618b0571 (Gauss on this graph)"
+      ],
+      "rationale": "The surviving exact counterexample answers a specific design question left by the known six-cycle law: does a safe step, once attained above the initial failure, remain safe as the step grows? It refutes that interval assumption within the same family on a small irreducible one-way equal-rate cycle, without taking a different endpoint map or using the degree heterogeneity of a star. The sign separation implies open safe regions with an excluded neighborhood between them, so the useful result is the topology of admissible positive steps, not merely three matrix evaluations.",
+      "residual_risks": [
+        "A witness for this family is not a complete classification of the admissible step regimes, a general positivity criterion, or a minimality theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

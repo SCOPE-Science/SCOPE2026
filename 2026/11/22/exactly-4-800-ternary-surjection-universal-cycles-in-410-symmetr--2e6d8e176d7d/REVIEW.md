@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The constrained length-four overlap graph has exactly six vertices of degree three and eighteen forced degree-one vertices; forced-path contraction is a bijection on Euler tours. The contracted graph is a bidirected triangular prism, with Laplacian nonzero eigenvalues \(2,3,3,5,5\), tree count \(75\), and BEST factor \((2!)^6\), giving \(4{,}800\) rotation classes. For symmetry, an exhaustive enumeration of exactly \(2!(3!)^5=15{,}552\) rotor orders enumerates all circuits rooted at the unique `0120` window and checks cyclic windows and the \(12\) actions of \(S_3\times C_2\). It establishes \(40\) fixed points for each transposition and no others, and explicitly confirms the \(20/390\) orbit split. The packaged standard-library checker was executed and passed.
+PASS
 
-## Originality: PASS (qualified)
+The 36 windows are exactly the distinct overlap arcs. A three-letter overlap using all symbols admits three continuations; one missing symbol forces the continuation in either direction. From abc with a,b,c distinct, the three appended symbols a,b,c lead after 1,2,3 arcs to bca,cba,cab. The 18 forced paths exhaust all 36 arcs (six paths of each length, disjoint by their unique predecessors). This gives the bidirected triangular prism. Its product Laplacian has spectrum 0,2,3,3,5,5; hence 75 spanning trees and 75 in-arborescences at the normalized root. BEST with one fixed first edge contributes (2!)^6, giving 4,800. The unique window 0120 fixes the rotation without extra factors. Independently I enumerated all unused-window extensions on the original 24-vertex overlap graph, visiting 102,428 search nodes. I obtained 4,800 distinct length-36 cycles with all the right windows, and applied each group element using the least lexicographic rotation, not the frozen canonicalization. Exactly the identity and the three transpositions had nonzero fixed counts (4800 and 40 each); all six reversing operations and both 3-cycles fixed none. Explicit orbit sets gave 40 of size 3 and 780 of size 6 under S3, and 20 of size 6 and 390 of size 12 with reversal. This independently verifies the group census including the absence of relabeled reversals.
 
-The 2008 LaBounty-Lay–Bechel–Godbole surjection theorem and 2010 Blanca–Godbole required-letter theorem prove existence, not the exact number of cycles or symmetry classes at the ternary four-window threshold. The 2008 Leitner–Godbole treatment also asserts only existence in this case. The accessible published comparable classifications count different word families (for example four-letter words using exactly two letters, or local square-free words), so their counts do not imply this result. Literature and research-index searches did not identify this exact statement, but unindexed earlier coverage cannot be ruled out.
+## originality
 
-## Mathematical value: PASS
+PASS
 
-This is the smallest nontrivial ternary onto-word case immediately above the known existence threshold. Its complete labeled and symmetry-reduced counts give a natural exact enumeration benchmark, and the unexpected triangular-prism contraction exposes a useful structural reason for the count. A general enumeration across all lengths is not claimed or required for this natural finite case to stand on its own.
+The 4,800 rotation count and its derivation are shared coverage with the distinct indexed companion; do not count them as an incremental contribution here or infer which calculation came first. The full alphabet/reversal action, fixed counts, and orbit sizes are distinct claims not given by the companion or inspected existence theorems.
 
-## Scientific limits
+## value
 
-No all-order enumeration, algorithmic complexity theorem, or unexamined independence assertion is claimed. The orbit calculation is an exhaustive finite proof rather than a closed-form symbolic character computation. Further literature could affect priority; no independent mathematical audit has occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The additional contribution is a complete intrinsic classification at the first nontrivial ternary surjective order under the natural ambiguities of label choice and orientation. In particular it decides chirality even after relabeling and localizes all nontrivial stabilizers to transpositions. Those properties are useful for choosing distinct representatives and are not routine numerical consequences of the shared rotation count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

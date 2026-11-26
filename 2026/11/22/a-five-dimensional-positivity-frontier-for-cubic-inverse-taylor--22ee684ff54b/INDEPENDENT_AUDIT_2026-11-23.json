@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T17:42:22.290786Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, CERTIFICATE.json, CHECKER.py and VERIFICATION.md (the submitted checker was inspected, not executed)",
+        "Independent integer/Fraction reproduction: /workspace/branches/e94d5be5-cc43-42d3-990a-ad3520007f70/independent_replay.py"
+      ],
+      "rationale": "A coordinate flip acts on a Walsh character by -1 precisely for coordinates of its support. Orthonormalization and grouping characters by support size therefore give eigenvalues 2k and the stated signed binomial sums with normalization 2^-d. The Q5 denominator is strictly positive. The two transformed antipodal numerators cover [0,1/6) and [1/6,infinity) without a gap, so all six distance classes are strictly positive at every h>0. Coordinate-constant lifting intertwines the Laplacians and hence their invertible polynomial updates; summing over extensions passes strict positivity to lower dimensions. The Q6 fraction and its two positive regimes concern a single distance class, not a global positivity window. At zero the matrix is the identity; the large-step limit is the constant-mode projector.",
+      "replay_evidence": "The independent script rebuilt all six Q5 numerator arrays and both strictly positive transformed arrays, independently found zero positive roots of P5 by Sturm, and reproduced the Q6 fraction -26706475/4942948029056 and Taylor coefficients 50,-1260. It additionally found exactly two positive roots of the reduced Q6 antipodal numerator and compared all 64 entries on Q3 with direct rational inversion at h=2/7. The infinite-timestep claim uses the polynomial certificates, not the direct test.",
+      "residual_risks": [
+        "Exact computer-assisted coefficient calculation, not formal verification. The result makes no all-entry claim on Q6 near the witnessed failure."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zappavigna et al., Section III, Theorems 1–3 are sufficient conditions for diagonal maps on restricted Metzler/Hurwitz systems and step ranges.",
+          "Egert–Rozendaal introduction and convergence equation (1.1) concern strong approximation by a subdiagonal sequence, not entrywise nonnegativity at a fixed approximation order."
+        ],
+        "reasoning": "Neither result yields uniform-in-h sign control of the Q5 kernel; a theorem simply giving positivity for all graph Laplacians at this fixed approximation is ruled out by the exact Q6 witness.",
+        "searches": [
+          "Literature: inverse truncated exponential Padé order three positivity preserving matrices heat equation Bolley Crouzeix absolute monotonicity cube hypercube rational functions",
+          "Zappavigna et al., MURAL 2195",
+          "Egert–Rozendaal, arXiv:1210.8408"
+        ]
+      },
+      "checked_sources": [
+        "MURAL 2195 open manuscript",
+        "arXiv:1210.8408",
+        "Resultary exact same-operator graph-order and alternative-operator cube records"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Qd-to-Q5 reduction uses functions constant in spare coordinates, not passage to an arbitrary induced subgraph. P7 is not a Cartesian-factor marginal of a Boolean cube under that reduction.",
+          "Symmetric spectral contractivity and conservation can coexist with a negative off-diagonal entry, as the checked fraction shows."
+        ],
+        "reasoning": "Neither the path witness nor scalar stability supplies the cube counterexample or Q5 all-step positivity. The classical rational function, Walsh diagonalization and general distinction between stability and positivity are not new here.",
+        "searches": [
+          "Resultary 808c1509a3bb and the Radau and Gauss–Legendre cube records",
+          "MURAL 2195, Sections II–III; arXiv:1210.8408 introduction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact own record matches. The related Radau IIA and Gauss–Legendre Boolean-cube records use different scalar multipliers; replacing one by another changes the finite Walsh sum."
+        ],
+        "reasoning": "Krawtchouk/Walsh/nonnegative convolution-kernel formulations describe the same entrywise signs; the indexed related thresholds are not for this multiplier.",
+        "searches": [
+          "Resultary: Boolean hypercube Hamming cube [0/3] subdiagonal Pade positivity preservation heat inverse Taylor Krawtchouk threshold dimension",
+          "Literature: Boolean hypercube heat equation positivity entrywise [0/3] Padé rational approximant cubic inverse Taylor Krawtchouk absolute monotonicity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/10/26 record ending 808c1509a3bb reports the same multiplier for graphs on at most six vertices and a P7 obstruction; the matched cube frontier is the record under review."
+        ],
+        "reasoning": "Even a complete graph-order table up to order seven cannot decide signs of Q5 at order 32 or at antipodal Q6 pairs at order 64. No covering cube sign table was identified.",
+        "searches": [
+          "Resultary: Seven vertices are sharp for positivity loss of the cubic inverse Taylor heat step [0/3] seven vertex path",
+          "Resultary cube-and-Krawtchouk query above"
+        ]
+      },
+      "rationale": "The sharp unconditional cube-dimension frontier and the exact six-cube witness are distinct from the known finite graph-order threshold and from general Padé convergence or diagonal positivity conditions, on the evidence inspected. This is best-of-knowledge, not priority certification.",
+      "residual_risks": [
+        "An unindexed finite-difference or inverse-polynomial positivity theorem specialized to Cartesian powers could provide an earlier equivalent. No exhaustive priority claim is justified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Non-covering for this frontier",
+          "evidence": "Their conditions are for diagonal Padé transformations and depend on the Metzler matrix and sampling time; the unconditional (0,1) remark concerns another approximant.",
+          "identifier_or_url": "https://mural.maynoothuniversity.ie/id/eprint/2195/1/SK-pade_MTNS10_long.pdf",
+          "material_read": "Abstract, introduction, definitions and Section III A–C with Theorems 1–3 and lead-in to counterexamples",
+          "method": "Open full-text preprint, repository deposit confirmed",
+          "title": "On the preservation of co-positive Lyapunov functions under Padé discretization for positive systems",
+          "trigger": "Direct prior on positivity of Padé matrix discretizations"
+        },
+        {
+          "assessment": "Different conclusion",
+          "evidence": "Equation (1.1) is a limiting strong convergence statement; no implication for sign preservation of this fixed low-degree kernel.",
+          "identifier_or_url": "https://arxiv.org/pdf/1210.8408",
+          "material_read": "Abstract, introduction through the statement of the main convergence result and scope",
+          "method": "Open author preprint full text",
+          "title": "Convergence of subdiagonal Padé approximations of C0-semigroups",
+          "trigger": "Potential general semigroup implication"
+        },
+        {
+          "assessment": "The compared graph-order claim gives no cube-dimension classification",
+          "evidence": "Order bound six and a P7 obstruction do not decide signs for Q5 or a Q6 antipodal entry.",
+          "identifier_or_url": "Resultary: 2026/10/26/SCOPE-seven-vertices-are-sharp-for-positivity-loss-of-the-cubic-invers--808c1509a3bb",
+          "material_read": "Indexed theorem summary and frozen comparison",
+          "method": "Local published-record search",
+          "title": "Seven vertices are sharp for positivity loss of the cubic inverse-Taylor heat step",
+          "trigger": "Same rational update"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md",
+        "Independently reproduced all-step certificate and exact counterexample",
+        "Prior same-operator graph-order result"
+      ],
+      "rationale": "The Boolean cube is a natural family of growing product graphs. All-step positivity preserves the discrete maximum principle for this mass-preserving update, whereas spectral contractivity is insufficient. The verified threshold goes well beyond the graph-order sufficient range and the exact witness distinguishes loss and recovery of one transition coefficient from a small-step instability.",
+      "residual_risks": [
+        "No new integrator or full Q6 positivity set is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

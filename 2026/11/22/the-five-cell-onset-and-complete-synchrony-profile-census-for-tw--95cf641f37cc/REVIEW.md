@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-The enumeration begins with all 15 unordered pairs of input sources per cell, hence every one of the 759375 labelled five-cell matrices is considered. Four exact power sums and a zero determinant fix the characteristic polynomial by Newton identities. Simultaneous-permutation canonicalization is exact; the sum of orbit sizes recovers all 21960 eligible labelled matrices. Every one of the 52 partitions is tested by the necessary-and-sufficient balanced-input condition. Two explicit primitive matrices, the full frequency distribution, and a four-cell comparison are checked by the standalone code.
+PASS
 
-## Originality
+The receiving-row adjacency convention gives 15 possible rows at five cells; all 15^5 labelled matrices are partitioned into simultaneous-relabelling orbits. Reality and simplicity force a fifth eigenvalue r real and distinct from 0 and 2. Trace gives r, and monic polynomial division by t(t-2)(t-r) gives integer c>0 in t²+c. The frozen Newton-sum filter is exact. I independently generated the orbits before filtering, with 6874 five-cell and 475 four-cell orbits in the full row-sum-two universe. I matched the first two nonleading characteristic coefficients by trace and 2x2 principal minors, and the remaining polynomial by exact determinant evaluations: at 0 and 1 for n=5 (also at 2 by row sums), and at 0 for n=4 (also at 2). This gives sufficient distinct roots for the difference of degree at most n-3. For four cells the candidate is t(t-2)(t²+c). A partition is robustly invariant iff input multiplicities agree blockwise: sufficiency uses identical own-state and identical unordered input values in each block, and necessity follows by taking input sum as the admissible function and varying the independent block coordinates. Enumerating all 52 or 15 partitions, using exact transitive closures, and comparing both full computed catalogues and their orbit metadata to the supplied JSON yields 191 weak classes (21960 labelled) and 56 strong, with histograms (2,12,59,40,59,4,15) and (2,6,22,16,8,1,1), respectively. The two canonical matrices agree with the Finding and have orbit size 120, are strongly connected, and have r=-1,c=1. At four cells all nine weak classes have b>0, and fewer than four cells cannot have four distinct required eigenvalues. Replay: python3 /workspace/reproduce_reviews.py 4.
 
-The closest published zero-Hopf-network work (Aguiar--Dias--Mokhtari, 2026, arXiv:2611.15221v1) treats the four-cell case, including the absence of primitive synchrony lattices there. A previously available five-cell spectral enumeration contains the 191 and 56 totals but not synchrony-space classifications. The exact count of two primitive classes, their representatives, and the full 191-class partition distribution are not consequences of those spectral counts alone. Similar results could be buried in unindexed earlier graph-classification tables; no priority guarantee is claimed.
+## originality
 
-## Value
+PASS
 
-Balanced partitions determine robust synchrony reductions for admissible coupled-cell vector fields. Establishing the first cell count at which no nontrivial reduction is available, and classifying every five-cell reduction count, resolves a natural structural question left by the four-cell classification. This classification is not a count of arbitrary graph properties: it concerns the invariant subspaces intrinsic to the zero-Hopf network framework.
+The supported distinct contribution is the five-cell synchrony distribution and the existence and classification of the two synchrony-primitive classes, hence the sharp onset within valency two. The established four-cell exclusion and the spectral five-cell totals are not new. The identical indexed target is not a separate result. Direct comparison found no source which supplies the five-cell b(G) data or makes them a consequence of the spectral totals.
 
-## Limits
+## value
 
-Only one-edge-type, input-symmetric networks with two incoming arrows and simple zero-Hopf spectra are covered. The theorem does not classify nonlinear bifurcations or all invariant linear spaces; external mathematical assessment is pending.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact first two classes without a robust synchrony reduction answer the natural next-size question after the four-cell obstruction. The complete profile measures how much quotient structure survives across the whole first eligible size and distinguishes graphs with identical spectra and connectivity. The result is not valued for rerunning the known 191-class spectral count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

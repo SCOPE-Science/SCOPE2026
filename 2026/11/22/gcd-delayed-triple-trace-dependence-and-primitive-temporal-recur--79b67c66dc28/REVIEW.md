@@ -1,17 +1,21 @@
-# Scientific review: three-probe temporal traces of additive Rule 90
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim concerns **every** finite field, **all** positions \(0<h<k\), and **all** observation horizons \(t\ge1\). The Laurent-polynomial duality and the quadratic field extension \(K(z)/K(z+z^{-1})\) are established directly. The strong-divisibility identity for the monic sequence \(B_n\) proves that every three-probe polynomial relation is a multiple of the displayed primitive relation. The bound on the largest coefficient degree determines the entire finite relation space, not merely a numerical estimate or finite test. The same proof establishes exact image uniformity under Haar inputs and independence of any two sensor streams. A standalone arithmetic program passed 13,464 finite-field ranks, 2,244 polynomial identities, 6,724 gcd identities, and four exhaustive image-distribution tests. These computations corroborate the proof but are not substituted for its all-horizon argument.
+## correctness
 
-## Originality — PASS within inspected evidence
-The closest source, Castronuovo–Dennunzio–Kari–Margara, arXiv:2611.16746v1 (2026), studies asymptotic entropy and bounded-width contiguous traces of group cellular automata. The exact nonconvex three-site trace language with arbitrary separations and its primitive temporal filter is absent from the inspected mathematical sections. Akın–Dikranjan–Giordano Bruno–Toller, arXiv:2306.10838, treats polynomial trajectories and wider contiguous intervals. Salo's *Cutting Corners* (arXiv:2002.08730) and Salo–Schabanel's *Solitaire of independence* (2025) establish convex-pattern and general independence-set principles, but do not evaluate the exact gcd law for three separated temporal columns. Cervelle–Formenti–Guillon (arXiv:1001.0251) study ultimate single-column traces.
+PASS
 
-Two particularly close published results were compared as mathematical statements. *Exact rank deficits and optimal static sensors for cyclic Rule 90* determines **finite-ring initial-state observability**, whereas the present result determines the entire exact joint language of three temporal streams on the **bilateral full shift**. *The Fine–Wilf threshold for hidden triple dependence in symbolic self-returns* has the same \(\max(0,t-k+g)\)-shaped numerical correction, but concerns **symbolic equality-event intersections** rather than polynomial linear constraints among cellular-automaton sensor streams. Their common gcd mechanism is acknowledged; the present proof supplies the explicit primitive temporal recurrence, its generator property, and the full finite observation language. An exact hidden equivalence or an earlier unindexed sensor theorem remains a historical-priority risk. No novelty is claimed for the Chebyshev recurrence, its gcd identity, or the classical Fine–Wilf threshold in isolation.
+The time-s Laurent row at j is z^j u^s with u=z+z^{-1}; every finite row rank is the corresponding rank on freely assignable input coordinates. The inversion z↦z^{-1} fixes u but not z^d for d>0, so even in characteristic two K(z)/K(u) is quadratic and any two sensor streams are independent. In the basis (1,z), z^m=B_m z−B_{m−1}. The addition identity and Cassini identity imply gcd(B_m,B_{m+n})=gcd(B_m,B_n), giving monic gcd B_g by the Euclidean algorithm on indices in all characteristics. The z coefficient in a three-site relation forces (P_h,P_k)=R(B_k/B_g,−B_h/B_g); substitution forces P_0=−RB_{k−h}/B_g. Since the middle coefficient has degree k−g, all t-frame relations are exactly those with deg R<t−(k−g), including the empty family at equality. The dimension follows and finite Haar pushforward is uniform by equal fiber sizes. Independently generated Laurent rows and modular elimination agreed in 1,860 cases (prime fields 2,3,5,7; 1≤h<k≤10; 1≤t≤k+3); this is a consistency check only. The all-field result rests on the algebra, not the frozen checker.
 
-## Value — PASS
-Three is the smallest number of stationary sensors with a nontrivial joint dependence in this bilateral model: all pairs have arbitrary independent temporal histories. The theorem gives the **complete** first-dependence horizon for all three-sensor placements, distinguishes configurations with the same endpoints by their gcd, and supplies a constructive polynomial filter generating every finite-horizon constraint. This is a natural quantitative dynamical sensor invariant, not a selected computer-generated exceptional instance. The all-field constraint classification gives exact Shannon entropies and can serve as a benchmark for sparse-trace observability beyond contiguous windows.
+## originality
 
-## Limitations and closest literature
-The result does not treat sensor noise, missing frames, four or more sensors, finite rings, nonlinear cellular automata, or changing sensor positions. The full texts of the most relevant arXiv sources and the open-access TEP papers were inspected; the published finite-ring observability record and symbolic-return record were read at the level of their complete statements and proofs. Priority beyond these sources, especially against formulations in older observability literature or algebraic symbolic dynamics, is provisional. No independent scientific audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The strongest indexed mathematical overlap is the same Fine–Wilf-shaped cycle count for symbolic returns, not a theorem for these observation rows or a source of the entire primitive temporal filter. The strongest same-rule observability overlap is on a finite ring. The distinct supported contribution is the exact bilateral finite-horizon image and its primitive relation module, not the first occurrence of a gcd threshold.
+
+## value
+
+PASS
+
+It predicts exactly when a third sensor stops adding one independent symbol per frame, and gives all checks needed to test a proposed output, not merely its entropy. The comparison of equal outer spacings with different middle spacings isolates a real arithmetic effect that local light-cone overlap alone does not identify.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:04:57.499490Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–117; VERIFICATION.md lines 19–27; checker.py lines 19–101 (read, not run)"
+      ],
+      "rationale": "Rooting the circle at one sampled point gives Dirichlet gaps, so the ordered lengths are ordered independent exponentials divided by their sum. A binomial exceedance count at (1−δ)log n and a union bound at (1+δ)log n show that each fixed leading length is asymptotic to log n/n. Exponential memorylessness yields independent descending differences of rates j, giving the fixed-rank normalized gap-drop vector. Conditional Poisson thinning gives first-hit clocks E_i/G_(i) with the E_i independent of the initial gaps. The first strict decrease is exactly the first hit of rank one. The number of other marks before its clock is conditional Poisson with mean (1−G_(1))τ_1; the conditional centering difference from τ_1 is 1−G_(1)τ_1=1−E_1 and the conditional variance is O_P(n/log n). Both errors vanish under scaling by log n/n. If a rank in 2,…,m survives intact, it is at least as long as G_(m). Every damaged rank >m is shorter; for each hit leading rank the uniform first-cut position bounds its chance to leave any fragment ≥G_(m) by min(1,2(G_(i)−G_(m))/G_(i)), which has expectation tending to zero for fixed m. Thus the earliest rank that survives is the exact winner except on a vanishing event and the all-hit event. Finite clock/difference vectors converge jointly by independence and Slutsky; no limiting clocks tie. The all-hit event tends to 1/m both by exchangeability of m exponential clocks and by the integral in the record. Truncating bounded continuous test functions and then letting m grow proves the joint limit without requiring finite rank means. Given T=t, K−1 is geometric with parameter e^(−t), and integrating gives mass 1/[k(k−1)]. Given K=k the drop is a sum of independent rate-j exponentials and hence the maximum of k−1 rate-one exponentials. Mixing the CDF q^(k−1), q=1−e^(−y), against the rank weights yields survival y/(e^y−1), and termwise nonnegative integration yields π²/6. The difference variables, not the drop itself, are independent of (T,K); T and K are dependent.",
+      "residual_risks": [
+        "The checker gives finite illustrations only. The independent argument gives weak convergence and the limiting mean, not convergence of finite-sample means or a rate. Rank refers to the original parent, even on finite-sample events when a fragment wins."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Penrose transfers aggregate asymptotics to maximal k-spacings; Holst treats fixed-index upper extremes and threshold waiting times. The indexed extreme-field result describes a static Poisson limit for a finite collection of window lengths."
+        ],
+        "reasoning": "These settings extend some of the variables considered, but none of those theorems has a mark for the initial rank and size of the replacement at the first strict decrease. A static extreme field would require a separate coupling to future insertion and control of surviving fragments.",
+        "searches": [
+          "Penrose Theorem 2.2 and its proof; Holst Theorem 3.1 and §6",
+          "Local Resultary a7482687ed1b, static spacing extreme fields"
+        ]
+      },
+      "checked_sources": [
+        "Penrose arXiv:2608.19104; Holst DOI:10.2307/3212956",
+        "Local Resultary acfa2a090876, 046a69096bbc, be203965d8ce, a7482687ed1b, 8821b74b45c3",
+        "Frozen prior-work comparison lines 125–137"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Classical exponential spacings give the candidate length differences. The frozen argument rules out every fixed-rank damaged competitor on a surviving-top-rank event, and controls the missed event by 1/m.",
+          "Record counts/times and deletion-based extremes do not establish that identification."
+        ],
+        "reasoning": "Static inputs and the elementary waiting clock are insufficient to conclude a replacement even among the leading original intervals because a cut fragment can win. The fragment bound and uniform truncation provide the additional implication needed before mixing ranks and differences.",
+        "searches": [
+          "Penrose §2 and proof of Theorem 2.2; Holst §§2,3,6; Resultary 046a69096bbc and be203965d8ce"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The identical Resultary hit acfa2a090876 is the frozen record itself. Distinct 046a69096bbc and be203965d8ce concern deleting points and hence merging gaps; the first conditions on an increase and the second compares coupled extremes after thinning.",
+          "Penrose §2 defines the same kind of strict lower record of a longest spacing; §8's pseudo-records concern a nonmonotone nearest-neighbor quantity. Holst §6 uses a deterministic shrinking threshold."
+        ],
+        "reasoning": "Undoing one cut is not equivalent to uniformly deleting a point conditional on an increase: the first-hit stopping rule selects a different event and parent law. The static or deterministic-threshold formulations do not identify the joint marks at the random original maximum.",
+        "searches": [
+          "Local Resultary: next longest-gap record, replacement rank and drop, and circular spacing deletion",
+          "Penrose arXiv:2608.19104 §2 and §8; Holst 1980 §6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The frozen record's self-identical hit lists the 1/k and y/(e^y−1) tails. Distinct static ranked-spacing result 8821b74b45c3 gives an e^(−2) rank fraction for a Greenwood covariance sign and not a parent-rank distribution. Holst gives order-statistic laws but no mixture with this dynamic rank tail in the inspected sections."
+        ],
+        "reasoning": "A known exponential maximum law agrees with each conditional drop law, not the new unconditional law without the stopping-rule mixing probabilities. A static rank table cannot give the parent rank at the stopping event.",
+        "searches": [
+          "Local Resultary: conditional rank/drop identifiers, circular deletion and ranked Dirichlet spacings",
+          "Holst §2, Theorem 3.1 and §6"
+        ]
+      },
+      "rationale": "The supported distinct claim is the marked joint next-decrease law for sequential insertion after a specified initial size, including the original-parent rank and the drop. Old static spacing representations and larger-scale record-time/count asymptotics are credited. None of the closest inspected statements supplies the two marks or their coupling with waiting time.",
+      "residual_risks": [
+        "No priority is inferred from same-day dates. The inspected papers and index are not exhaustive; a differently formulated marked fragmentation theorem could exist. Penrose's nearest-neighbor-link references were not inspected individually."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Aggregate record asymptotics and different pseudo-records, not the two next-record marks",
+          "evidence": "Record count sums strict-decrease indicators; the theorem transfers count/time asymptotics to maximal k-spacings, while §8 discusses nonmonotone nearest-neighbor links.",
+          "identifier_or_url": "https://arxiv.org/pdf/2608.19104",
+          "material_read": "§2 pp. 4–5 definition and Theorem 2.2 (OA offsets 11588,14346); p. 25 proof (67200); §8 pp. 29–30 (77900,79092)",
+          "method": "OA PDF passage comparison",
+          "title": "Record times for coverage thresholds and maximal spacings",
+          "trigger": "Same maximal-spacing record process and a potentially stronger record-time theorem"
+        },
+        {
+          "assessment": "Standard input, not a first-next-record marked result",
+          "evidence": "Normalized exponentials and fixed-index extremes; the waiting count in §6 stops once all pieces are below deterministic a, yielding a Gumbel law as a decreases.",
+          "identifier_or_url": "https://imprs-gw-lectures.aei.mpg.de/wp-content/uploads/2023/12/Holst_StickBreakingDistributions.pdf",
+          "material_read": "§2 pp. 625–626 offset 4463; Theorem 3.1 pp. 626–627 offset 8356; §6 p. 632 offsets 17000,19552",
+          "method": "OA PDF passage comparison",
+          "title": "On the Lengths of the Pieces of a Stick Broken at Random",
+          "trigger": "Classical ranked-spacing and waiting-time laws"
+        },
+        {
+          "assessment": "Insertion and deletion marks differ",
+          "evidence": "One uniform deletion conditioned on an increase, with old centered maximum, increase and split-position marks; no insertion waiting count or parent rank.",
+          "identifier_or_url": "Resultary 046a69096bbc",
+          "material_read": "Mirrored Finding, offset 0",
+          "method": "Local indexed and mirrored statement comparison",
+          "title": "Rare one-point deletion sensitivity and a marked extreme-value limit",
+          "trigger": "Closest distinct marked dynamic circular-gap result"
+        },
+        {
+          "assessment": "Thinning comparison, not sequential next decrease",
+          "evidence": "Independent deletion at ε_n log n→τ gives coupled extreme gaps and unchanged-maximum probability exp(−τ).",
+          "identifier_or_url": "Resultary be203965d8ce",
+          "material_read": "Mirrored Finding, offset 0",
+          "method": "Local indexed and mirrored statement comparison",
+          "title": "Critical deletion noise for the longest empty arc of a uniform circle sample",
+          "trigger": "Same maximal arc and a perturbation on a logarithmic scale"
+        },
+        {
+          "assessment": "Static extreme field only",
+          "evidence": "Joint Poisson fields over fixed window lengths and independent Gumbel maxima, without insertion-time or parent marks.",
+          "identifier_or_url": "Resultary a7482687ed1b",
+          "material_read": "Mirrored Finding, offset 0",
+          "method": "Local statement comparison",
+          "title": "Independent spatial extreme fields for finitely many maximal uniform spacings",
+          "trigger": "Potential general spacing-process result"
+        },
+        {
+          "assessment": "Static covariance, different rank statistic",
+          "evidence": "A limiting threshold fraction e^(−2) for the covariance sign, not a distribution of a successor rank.",
+          "identifier_or_url": "Resultary 8821b74b45c3",
+          "material_read": "Mirrored Finding, offset 0",
+          "method": "Local statement comparison",
+          "title": "A universal rank threshold for Greenwood dependence among uniform spacings",
+          "trigger": "Rank-dependent exact spacing result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–33 and 61–115",
+        "Penrose Theorem 2.2 and Holst §6"
+      ],
+      "rationale": "The first subsequent decrease is the natural event at which the extremal gap changes length. The marked law distinguishes the original-parent survival mechanism from the possibility that a cut fragment wins. It shows coexistence of an exponential waiting limit, a dependent rank with infinite mean, and a light-tailed non-Gumbel drop with finite mean. The two new marks and their coupling are useful precision missing from aggregate record counts and static extremes, not just another statement of the elementary waiting law.",
+      "residual_risks": [
+        "The value is a marked one-step result, not a limit for consecutive record increments, finite-sample drop moments, or higher-dimensional coverage."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

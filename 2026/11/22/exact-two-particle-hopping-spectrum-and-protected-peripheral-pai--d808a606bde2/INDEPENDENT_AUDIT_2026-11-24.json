@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:44:35.847889Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the adjacency on unordered distinct pairs in RESULT.md 37–72. Core-pair to core-pair is U_r^T U_r−2I; mixed-to-mixed moves only the core label and give (J_r−I)⊗I_m. A core pair connects to a mixed pair precisely when the new mixed core label is one of the original two, and a peripheral pair connects to a mixed pair under the analogous peripheral-label condition. This gives exactly the two incidence couplings, with the all-ones vector for the other label. There is no peripheral-to-peripheral hop or direct core-pair to peripheral-pair hop. In each vertex space U_sU_s^T=(s−2)I+J, with eigenvalues 2(s−1) on the constants and s−2 on their orthogonal complement. Thus normalized incidence lifts give coupling strengths √(m(r−2)) and √(r(m−2)) in the two respective repeated two-dimensional sectors, with diagonals (r−4,−1) and (r−1,0). The uniform sector gives couplings √(2m(r−1)) and √(2r(m−1)), and diagonals (2r−4,r−1,0). The unused incidence kernels and mixed standard-standard sector yield exactly −2, 0 and −1 with the stated multiplicities. Determinants give A,B,C; the dimensions sum to all unordered pairs. A(0)<0, B(0)<0, C(0)>0 for all r,m≥3, including the endpoints, so no block adds a zero. The zero projector is supported on peripheral pairs, and its constant diagonal there is rank divided by binomial(m,2), including zero for m=3. The complementary evolved component remains orthogonal to the stationary projection even after peripheral restriction, so the peripheral probability is at least the projector weight d. The return amplitude equals d plus a term of modulus at most 1−d; for m≥6 the reverse triangle inequality gives the stated squared bound. Read VERIFICATION.md and verify_split_bosons.py without running the uploaded program; the invariant-subspace proof establishes the claim without the finite checks.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Reyes–Dalfó–Fiol's walk-regular spectral radius and distance-regular eigenvalue analysis does not cover the nonregular complete-split host; core and periphery have different degrees. Audenaert et al. and Gamble et al. address strongly regular hosts in the compared spectral statements.",
+          "Resultary b8133a80f978 gives the same same-part projector weight (m−3)/(m−1) for balanced complete multipartite hosts with collision loss, not the hard-core spectrum for K_{m,1,…,1}.",
+          "Resultary 4f9471da9506 gives repulsive Hubbard spectrum on K_{m,n}, allowing doubly occupied states and not covering the complete-split host."
+        ],
+        "reasoning": "The pertinent general definition and methods, or the spectral result for a different regular host/different state space, do not give all the factors for this nonregular host. Exact protection-fraction precedent is credited.",
+        "searches": [
+          "Reyes–Dalfó–Fiol doi:10.1007/s40590-023-00583-3; Audenaert et al. symmetric-square spectra; Gamble et al. arXiv:1002.3003",
+          "Resultary: incidence-kernel dark states, multipartite spectral channels, two-boson Hubbard spectra"
+        ]
+      },
+      "checked_sources": [
+        "Audenaert et al. arXiv:math/0507251",
+        "Reyes–Dalfó–Fiol doi:10.1007/s40590-023-00583-3",
+        "Gamble et al. arXiv:1002.3003",
+        "Resultary 9c686d18a910, 2d5a557c2b86, b8133a80f978, b6e6ba498da2, 40156451790b, 4f9471da9506"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The same incidence kernel and fraction already occur for uniform star weights and in the balanced multipartite same-part protection calculation. The new full-spectral question has an extra core-pair sector and coupling to mixed pairs; the two repeated quadratics and uniform cubic are not consequences of those projection formulas.",
+          "A symmetric-square definition is a construction of the matrix, not a closed formula for its entire spectrum. An existing graph cut theorem for that matrix's graph provides no all-eigenvalue factorization."
+        ],
+        "reasoning": "Do not count the protected weight or triangle-inequality return bound by itself as the new contribution; the factorization and complete identification of its zero space in the specified model are the distinct result supported by the comparisons.",
+        "searches": [
+          "Weighted-star Resultary 2d5a557c2b86 kernel/projector; balanced multipartite Resultary b8133a80f978 same-part projection; exact-family Resultary 9c686d18a910"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The configuration graph in Audenaert et al. is the same unordered-distinct-pair symmetric square, not the unrestricted two-boson tensor product.",
+          "Resultary 9c686d18a910 studies exactly F₂(K_r∨empty_n) but its theorem solves maximum cut and uniqueness.",
+          "Resultary 2d5a557c2b86 has B=wU_m for a uniform weighted star; the same kernel and protected fraction are already obtained in its distinct collision-loss dynamics."
+        ],
+        "reasoning": "The equivalent graph terminology is prior. A cut optimum and a related stationary subspace do not determine the full characteristic polynomial of the hard-core Hamiltonian.",
+        "searches": [
+          "Two-token complete-split adjacency spectrum; symmetric square and two hard-core particle walks; threshold-graph host",
+          "Audenaert et al. arXiv:math/0507251",
+          "Resultary: complete-split and hard-core two-token graphs"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Compared actual related spectrum records: Resultary b6e6ba498da2 is independent-set token sliding on a categorical product; 40156451790b computes a two-token Laplacian for K_{m,n}; 4f9471da9506 uses a Hubbard Hamiltonian on K_{m,n}.",
+          "The distinct exact-family record 9c686d18a910 gives a cut theorem rather than a spectral table. No independent exact table for this adjacency factorization was established by the lookup."
+        ],
+        "reasoning": "Changing an independent-set configuration space, a Laplacian, or a Hubbard model to this adjacency is not merely relabeling eigenvalues. A missing search hit alone is not evidence of priority.",
+        "searches": [
+          "Resultary: exact two-token spectrum of complete-split graph, threshold graphs, hard-core splitting",
+          "Focused external lookup for complete split two-token spectrum"
+        ]
+      },
+      "rationale": "The supported new content is the full adjacency factorization for the complete-split two-token family, including the nonzero coupled sectors and proof of no additional zero modes. Symmetric-square/token methods and the peripheral incidence-kernel geometry, including the exact diagonal projector fraction, have substantive prior counterparts; they are not independent novelty claims. The closest exact-family Resultary source has the same adjacency graph but proves a maximum-cut theorem, not this spectrum.",
+      "residual_risks": [
+        "An uninspected complete-multipartite, threshold-graph or equivalent symmetric-square adjacency formula could dominate the full factorization, with K_{m,1,…,1} as its specialization.",
+        "No priority inference is made from same-day catalog records, or from a missing external search hit."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same configuration rule, compared results focus on walk-regular radii and distance-regular cases.",
+          "evidence": [
+            "Uses the identical one-edge k-subset rule; regular-host hypotheses fail for the complete-split graph."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s40590-023-00583-3",
+          "material_read": "p. 1 definition and summary; pp. 3–4 roadmap, OA offset about 7600",
+          "method": "Open primary text and targeted parameter comparison",
+          "title": "On the spectra and spectral radii of token graphs",
+          "trigger": "Potential stronger exact token spectral formula"
+        },
+        {
+          "assessment": "Same symmetric-square construction and general spectral precedent; inspected strongest specialized results concern strongly regular graph families.",
+          "evidence": [
+            "Adjacent k-sets have symmetric difference a graph edge; strongly regular cospectrality or distinguishability does not supply this nonregular family factorization."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0507251 ; https://arxiv.org/abs/1002.3003",
+          "material_read": "Audenaert p. 1, OA offset about 1457; Gamble pp. 1–2 and 8–9, offsets about 1276, 12833 and 54800",
+          "method": "Open primary text, compared graph and spectral statements",
+          "title": "Symmetric Squares of Graphs; Two-particle quantum walks applied to the graph isomorphism problem",
+          "trigger": "Equivalent hard-core configurations and spectral methodology"
+        },
+        {
+          "assessment": "Same host/operator graph for a different invariant; date does not settle priority.",
+          "evidence": [
+            "The theorem gives a cut optimum and sharp uniqueness threshold, not a characteristic polynomial."
+          ],
+          "identifier_or_url": "Resultary: 9c686d18a910",
+          "material_read": "Mirrored RESULT.md opening theorem, offset 50",
+          "method": "Configured Resultary search and local mirror statement inspection",
+          "title": "Sharp split-graph threshold and uniqueness for two-token maximum cuts",
+          "trigger": "Distinct exact host and same standard two-token graph"
+        },
+        {
+          "assessment": "Substantial prior mechanism and exact projector overlap, not complete-split hard-core full spectra.",
+          "evidence": [
+            "Uniform star B=wU_m has dark dimension m(m−3)/2 and fraction (m−3)/(m−1). The balanced multipartite same-part projection has the same fraction."
+          ],
+          "identifier_or_url": "Resultary: 2d5a557c2b86; b8133a80f978",
+          "material_read": "Mirrored RESULT.md openings and projection passages at offsets 4511 and 6650, respectively",
+          "method": "Local mirror full-statement and model comparison",
+          "title": "A valence-four threshold for bosonic collision-dark states on weighted quantum stars; Three spectral protection channels and exact collision capture on balanced complete multipartite graphs",
+          "trigger": "Exact incidence kernel and protection-subclaim overlaps"
+        },
+        {
+          "assessment": "Independent-set categorical-product sliding, K_{m,n} token Laplacian and K_{m,n} Hubbard spectra are distinct.",
+          "evidence": [
+            "None specifies the adjacency spectrum for arbitrary r,m≥3 on K_r joined to an independent set."
+          ],
+          "identifier_or_url": "Resultary: b6e6ba498da2; 40156451790b; 4f9471da9506",
+          "material_read": "Mirrored RESULT.md opening spectrum statements, offsets 624, 0, and 0 respectively",
+          "method": "Local mirror statements checked against adjacency, state space and host",
+          "title": "Related full two-token and two-boson spectra on other hosts",
+          "trigger": "Potential matching exact spectrum or database result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The fully coupled clique interacting with an extensive independent periphery is a natural exactly solvable test of hard-core two-particle transport. The uniform formula gives all nonzero symmetry channels and multiplicities, not just spectral radius or the already familiar dark incidence kernel. In particular, excluding every other zero mode identifies the whole stationary subspace and its exact weight for all clique sizes. The dynamical inequalities interpret this result; they are not asserted to be sharp exact return laws.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

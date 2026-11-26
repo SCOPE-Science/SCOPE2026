@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The complete observation is the exact multiset of all 36 substring Parikh vectors, not a set or a restricted-window statistic. The polynomial reciprocal argument establishes the four-member constructions. Exhaustiveness for every finite alphabet size follows from equality of source compositions and reduction to the 22 multiplicity partitions of eight. The supplied standalone checker compares exact entire equivalence fibers for all 95,503 canonical words, confirms only the three listed multiplicity types for quadruple fibers, and independently enumerates all words over alphabets of sizes 2, 3, and 4. A separate 13,390-word canonical census proves the no-nonreversal part for lengths below eight. The class enumeration and zero-error coding interpretation follow directly.
+PASS
 
-## Originality — PASS, with priority risk
+The full-length Parikh vector fixes the labelled multiplicities. Common renaming therefore reduces completeness to the 22 partitions of eight with all their canonical labelled multiset permutations; the frozen checker generates each recursively, sorts all factor vectors retaining multiplicities, and compares whole fibers. Independently, if S_k sums the Parikh vectors of length k, then for k<=ceil(n/2) position i occurs min(i,n+1-i,k) times. Thus S_k-S_{k-1} gives the sum on the positions of mirror depth at least k, and a second difference recovers each unordered mirror pair and the center if any. I enumerated each word up to common symbol renaming by restricted-growth strings, tested every orientation of those pairs (at most 16 per word), and compared exact spectra using noncarrying base-9 codes with one digit per letter. All 48,816 candidate comparisons for lengths 1–8 agreed, including all 4,140 length-eight renaming representatives; private replay /workspace/branches/replay/length8.py and length8.txt. For the four-word template, swapping the inserted letters reciprocates the bracket in the prefix polynomial while reversal preserves spectra; the four words are distinct iff both pairs have distinct entries. The positions recover both unordered pairs separately, even when they intersect. Reversal implies every singleton is a palindrome and the classification makes every palindrome a singleton. Thus there are q^4 singletons and binom(q,2)^2 quadruples; the remaining words pair off, giving the stated fiber and zero-error code counts. The first-ambiguity statement is in the q>=2 regime.
 
-The 2010 foundational paper supplies the binary length-eight example and interleaving principle. The 2014 arXiv full text develops the general polynomial-equivalence framework and reports a binary interleaving classification through length 22. These are credited as earlier results, not replaced. The present quantitative statement—complete fiber sizes and exactly \(\binom{q}{2}^{2}\) quadruple fibers over **every** finite alphabet, yielding \(\frac{q^8+q^4}{2}-\binom{q}{2}^{2}\) distinguishable observations—was not found stated in the inspected primary text or relevant database results. Existing general factorization machinery may allow this finite special case to be recovered, and an unindexed prior computation remains a residual priority risk.
+## originality
 
-## Value — PASS
+PASS
 
-The first ambiguous blocklength is a natural boundary of the all-substring-composition reconstruction problem. Determining the entire reconstruction fiber distribution there, for all alphabet sizes, gives exact worst-case list size and exact maximal zero-error code cardinality in a natural observation channel. In particular, it quantifies rather than merely exhibits the first failure of uniqueness and distinguishes reversal-only from genuine four-way ambiguities; this is an exact classification of a well-motivated invariant, not a freely chosen parameter slice.
+Supported for the complete arbitrary-alphabet fiber classification and exact census at length eight, not for the interleaving mechanism, the binary maximum fiber size, or the first-ambiguity boundary as standalone results.
 
-## Evidence and limitations
+## value
 
-The checker is a finite exact proof because common relabeling by the source multiplicity partition reduces *every* alphabet size to the finite 22-case test. No claim is made about arbitrary blocklength, noisy reads, or independent certification. Primary literature compared: the 2010 IEEE conference paper and arXiv:1403.2439, particularly its length-eight construction, generating-polynomial criterion, and interleaving discussion. Historical equivalence under alternative terminology remains possible.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Length eight is the first intrinsically ambiguous length, not an arbitrary cutoff. The result gives the entire deterministic channel at that transition up to its observation fibers, including the overlap types of the symbol pairs and the exact loss of distinguishable words compared with reversal alone, for every finite alphabet. This is usable both as an exact benchmark for reconstruction and to determine the maximum zero-error code size at the boundary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

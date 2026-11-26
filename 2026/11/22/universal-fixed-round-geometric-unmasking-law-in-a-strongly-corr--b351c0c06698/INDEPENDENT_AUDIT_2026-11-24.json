@@ -1,0 +1,165 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:10:20.397585Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–82, including Eqs. (1)–(7)",
+        "Frozen VERIFICATION.md, lines 19–20; checker.py, lines 7–64",
+        "Baule arXiv:2611.07845v1, exact Eq. (22) and screening approximation"
+      ],
+      "rationale": "With the same independent masks in both paths, the KL chain rule gives the sum of conditional total correlations under the joint sampler. Given the old sites, unrevealed gaps are independent Markov bridges, and the conditional total correlation within a gap sums the mutual information between consecutive new sites conditioned on the two old endpoints. For two such sites d apart with endpoint offsets l,r, the Markov entropy identity H(X_v|X_u,X_w)=h(v-u)+h(w-v)-h(w-u), h(d)=log 2-I_f(d), gives precisely the four-term difference in (1). Weighting the old endpoints and absence of intervening old or new sites gives the stated p²q² and two geometric factors. With no old sites the selected process is a thinned Markov chain, giving the p=0 limit in (2); with all sites already revealed the cost is zero. At fixed f>0 the denominators in (2) are bounded below by 1-lambda² and the numerator factor q²(1-p)² equals the squared cumulative increment, ensuring continuity at saturated and empty rounds and hence existence of minimizers. Expanding I_f(d) in positive even powers and summing the geometric factors gives (2) term by term. Dominated convergence yields first-wave cost q log 2 for f/q→0 and q→0. For later waves use K=p/(4f); on k/K in a compact positive interval the kth term is asymptotic to q/(4K²)(1+k/K)^(-2) when p→0, f/p→0 and p/q→0. The full term is bounded by C q f²/(p+fk)² using 1-(1-p)(1-q)lambda^(2k)≥q, so the tails can be removed uniformly in the rescaled sum. The integral equals 1 and the cost is fq/p including q=1. Restriction to k of order (p+f)/f, with p≤1/2, gives the uniform lower bound cfq²/((p+f)(p+q+f)). The proposed trial supplies O(f^((m-1)/m)); the lower bound bounds each (p_i+f)/(p_(i-1)+f) by C f^(-1/m) up to and including the first crossing of one-half. Their product cannot cross one-half in fewer than m rounds. The full product then also bounds every ratio from below at the same scale, uniformly over minimizers. This puts every minimizer in the same compact rescaled region, and the m limiting positive cost terms multiply to log 2. Equality at the sharp AM–GM value fixes every rescaled fraction uniquely. This is convergence of all minimizers, not finite-f uniqueness or a terminal-output guarantee. The supplied finite checks were inspected, not run.",
+      "residual_risks": [
+        "No uniformity in m is claimed; the thermodynamic limit is at fixed parameters before sending f to zero. The source checker tests selected trial schedules, not the global-minimizer theorem; its p=0, q=1 checks are the adjacent-spin identity, not tests of the joint q→0 asymptotic."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Secchi–Zanella explicitly cover the same integrated dependence objective for tau-leaping, give an optimizer recursion and provide the stationary Markov dependence profile. Their geometric schedule comparison is for an exchangeable target and logarithmically growing step budget, not fixed m rare-switch asymptotics.",
+          "The other inspected alternatives use fixed-cardinality random-order reveals, finite-partition terminal-error certificates, or deterministically dilated blocks."
+        ],
+        "reasoning": "The broad exact tau-leaping representation does specialize to the Markov objective. It does not itself solve the fixed-m f→0 optimization; the other regime/schedule results are not dominating results for this objective and setting.",
+        "searches": [
+          "Secchi–Zanella arXiv:2609.21960v2 Eq. (5), Theorem 1, Corollary 1 and Propositions 6 and 9",
+          "Lavenant–Zanella arXiv:2510.25544 §5",
+          "Wainwright arXiv:2608.13520v1 Eq. (38)",
+          "Luxembourg et al. arXiv:2506.19037v5 §§3.5–3.6"
+        ]
+      },
+      "checked_sources": [
+        "Baule, Secchi–Zanella, Lavenant–Zanella, Wainwright and Luxembourg et al. as listed above",
+        "Three published Resultary special-case records",
+        "Frozen proof and literature comparison"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Baule's first-step geodesic approximation requires the first increment much smaller than 1/xi, while the audited optimum has first increment of order f^((m-1)/m), much larger than 1/xi.",
+          "Secchi–Zanella's limiting Markov profile is G'' with G(u)=u² times the geometrically weighed lag-information sum. Substituting the chain's even-power series into G and evaluating G(r)-G(p)-(r-p)G'(p) recovers the exact stage series. Its exact existence, therefore, is not the independent advance.",
+          "The new asymptotic uses a uniform positive lower estimate to force every global minimizer into a separated multiscale region; the sharp AM–GM evaluation only applies after that localization."
+        ],
+        "reasoning": "The prior stationary recursion is an implicit characterization and may have multiple candidate stationary schedules. Neither it nor a smooth many-round result mechanically yields the localization of every global optimizer, the coefficient, or the schedule constants in this singular limit.",
+        "searches": [
+          "Baule §V validity condition for dropping screening",
+          "Secchi–Zanella Theorem 1 Eq. (10), Corollary 1 recursion Eq. (11), and Proposition 6 Eq. (15)",
+          "Frozen RESULT.md, Eqs. (4)–(7) and Steps 3–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same objective is forward joint-vs-factorized path KL or the sum of conditional total correlations. Tau-leaping schedule endpoints beta and cumulative p give the same conditional site reveal q. Correlation length xi is asymptotic to 1/(2f). The three-round catalogue entry's second conditional reveal is asymptotically the second cumulative reveal because the first reveal is smaller order."
+        ],
+        "reasoning": "In matching cases, changing symbols, conditional vs cumulative small fractions, or rare-switch vs large-xi parameters gives no new result. Terminal KL and deterministic coordinated schedules are different problems.",
+        "searches": [
+          "Resultary semantic comparison for square-root first wave, cubic-root three stages, geometric reveal and fixed-round ordered Ising scheduling",
+          "arXiv:2611.07845v1 Eq. (22); arXiv:2609.21960v2 Eq. (5) and Theorem 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "At m=3 the exact prior cost is asymptotic to 3(log 2/4)^(1/3)xi^(-2/3), and both optimizer scales agree after converting conditional fraction and xi. At m=2 the two referenced entries give the square-root seeding schedule and sharp leading cost; one additionally proves finite-f uniqueness."
+        ],
+        "reasoning": "These are genuine special-case matches, not just similar exponents. Their same-day dates do not determine priority, and their statements do not imply the all-fixed-m hierarchy.",
+        "searches": [
+          "Resultary: 2026/11/22/SCOPE-a-cubic-root-optimal-three-stage-unmasking-law-at-the-ordered-is--20c36fe8a19f",
+          "Resultary: 2026/11/22/SCOPE-a-sharp-square-root-first-wave-law-for-two-round-markov-unmaskin--fd70e5caa9d2",
+          "Resultary: 2026/11/22/SCOPE-unique-two-pass-scheduling-and-a-square-root-seeding-law-for-bin--349d75d8a2fe"
+        ]
+      },
+      "rationale": "There is exact statement-level overlap at m=2 and m=3. Baule's exact screened functional and the more general Secchi–Zanella path-KL functional, Markov profile and stationarity recursion are prior inputs/frameworks. The supported distinct result is the sharp singular limit and all-minimizer localization for arbitrary fixed m, in particular beyond the already recorded two- and three-round cases. General representations and stationarity do not perform the uniform-in-schedule singular-limit proof or distinguish the global minimizers in this regime.",
+      "residual_risks": [
+        "The comparison is bounded, not a full-priority claim. The exact Markov-profile and optimizer-recursion framework could support alternative derivations; this audit does not exclude an unindexed derivation of the same arbitrary fixed-m limit."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct exact functional overlap; different optimized regime",
+          "evidence": "Exact screened gap formula; geodesic approximation drops a screening factor only when q_n min(xi,1/p_n) is small.",
+          "identifier_or_url": "https://arxiv.org/abs/2611.07845v1",
+          "material_read": "Eq. (22), p. 5, offsets 40100–44461; §V, pp. 6–7, offsets 44300–48758 and 51700–56376",
+          "method": "Primary open-access PDF passages",
+          "title": "Masked diffusion as random sequential adsorption: an exactly solvable model for parallel decoding",
+          "trigger": "Exact same chain and gap functional"
+        },
+        {
+          "assessment": "Strong overlap on formalism and exact model coverage, not the audited singular optimizer asymptotics",
+          "evidence": "Weighted dependence-profile integral; stationarity recursion for all finite-target minimizers; exact Markov profile derivative; exchangeable geometric-schedule improvement at a growing budget.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.21960v2",
+          "material_read": "Eq. (5), p. 6, about offset 25800; Theorem 1 and Corollary 1, p. 7, offsets 29300–33858; Prop. 6, p. 12, offsets 49284–51744; Prop. 9, p. 13, about offset 54800",
+          "method": "Primary open-access PDF passages",
+          "title": "Schedule optimization for tau-leaping in masked discrete diffusion",
+          "trigger": "Exact general path-KL objective, optimizer recursion and Markov profile"
+        },
+        {
+          "assessment": "Different reveal rule and large-budget analysis",
+          "evidence": "Random-order fixed-cardinality schedules and joint N,K variational limits.",
+          "identifier_or_url": "https://arxiv.org/abs/2510.25544",
+          "material_read": "§5, offsets 35800–44774",
+          "method": "Primary open-access PDF passages",
+          "title": "Error Bounds and Optimal Schedules for Masked Diffusions with Factorized Approximations",
+          "trigger": "Finite and variational schedule optimization"
+        },
+        {
+          "assessment": "Different certificate/objective",
+          "evidence": "Finite partitions for growth complexity and high-probability terminal-KL guarantees.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.13520v1",
+          "material_read": "Abstract p. 1, offset 0; Eq. (38), p. 20, about offset 91900",
+          "method": "Primary open-access PDF passages",
+          "title": "The data geometry of masking diffusion: Certified-optimal schedules via unmasking growth complexity",
+          "trigger": "Potential general optimizer guarantee"
+        },
+        {
+          "assessment": "Different schedule class",
+          "evidence": "Dilated non-adjacent groups and logarithmic number of iterations per block, not independent Bernoulli thinning at fixed m.",
+          "identifier_or_url": "https://arxiv.org/abs/2506.19037v5",
+          "material_read": "Abstract and §§3.5–3.6, offsets 0 and 32000–40985",
+          "method": "Primary open-access PDF passages",
+          "title": "Luxembourg et al., deterministic dilated unmasking",
+          "trigger": "Markov chains and possible stronger geometric schedule"
+        },
+        {
+          "assessment": "Exact m=3 case after change of variables",
+          "evidence": "Every optimizer's first and conditional second reveal scales and the sharp cubic-root path-KL coefficient.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-cubic-root-optimal-three-stage-unmasking-law-at-the-ordered-is--20c36fe8a19f",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local published-record mirror",
+          "title": "A cubic-root optimal three-stage unmasking law",
+          "trigger": "Strongest explicit finite-round overlap"
+        },
+        {
+          "assessment": "Exact m=2 asymptotics",
+          "evidence": "Cost and optimizer's first fraction in xi variables.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-square-root-first-wave-law-for-two-round-markov-unmaskin--fd70e5caa9d2",
+          "material_read": "RESULT.md Finding",
+          "method": "Local published-record mirror",
+          "title": "A sharp square-root first-wave law for two-round Markov unmasking",
+          "trigger": "Exact m=2 special case"
+        },
+        {
+          "assessment": "Same m=2 law plus stronger finite-f information for that case",
+          "evidence": "Cost and first-fraction asymptotics in f, plus strict convexity and uniqueness.",
+          "identifier_or_url": "2026/11/22/SCOPE-unique-two-pass-scheduling-and-a-square-root-seeding-law-for-bin--349d75d8a2fe",
+          "material_read": "RESULT.md Finding",
+          "method": "Local published-record mirror",
+          "title": "Unique two-pass scheduling and a square-root seeding law",
+          "trigger": "Potential stronger two-round result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Steps 2–4",
+        "Baule §V and Secchi–Zanella Theorem 1 and Proposition 6",
+        "Published two-/three-round cases"
+      ],
+      "rationale": "A fixed number of Bernoulli reveals in an increasingly ordered chain is a practically and mathematically distinct limit from a smooth many-round decoder. The result identifies the sharp entropy penalty and forces the intermediate rates of every minimizing schedule, rather than supplying one plausible schedule or computing one more round count. The uniform localization/variational argument resolves the all-fixed-m hierarchy even after accounting for the prior small-round formulas and almost exact general optimization frameworks.",
+      "residual_risks": [
+        "The value is as an exact benchmark in a specified Markov/ideal-denoiser class; no claim follows for actual language models, coordinated schedules, terminal error or jointly varying round count."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

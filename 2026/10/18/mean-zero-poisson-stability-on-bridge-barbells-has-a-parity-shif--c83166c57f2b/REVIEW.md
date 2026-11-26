@@ -1,19 +1,21 @@
-# Scientific review: bounded graph Poisson inversion on bridge barbells
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The graph is specified by two complete graphs joined by one bridge, with all clique sizes at least two and real forcing. An effective-resistance identity provides all four row types of its unnormalized Laplacian pseudoinverse. Entries of each row have a uniform sign within each clique. The unconstrained norm is its maximal absolute row sum; the zero-sum constrained norm is the minimum total absolute deviation from a median. Sorting the entries gives the exact three-branch constrained formula. Row-to-row strict inequalities identify the maximizing vertices. Elementary fixed-order comparisons establish the unique parity-dependent maximizing clique split. Fractional scaling of the closed forms gives the two different maximizing asymptotic proportions. The exact rational checker passed 195 finite parameter families including direct inversion and constructed extremizers; the general proof does not rely on numerical extrapolation. The complex-valued constrained case is expressly excluded.
+PASS
 
-## Originality — PASS within examined evidence
+Independent Poisson derivation: for zero-sum f let T=∑_A f, and let μ_A,μ_B denote solution clique means. Summing over A gives bridge drop T. At ordinary vertices the correction to the clique mean is f_i divided by the clique size, and the endpoint corrections are (f_A0−T)/a and (f_B0+T)/b. Thus μ_A−μ_B=T(1+1/a+1/b)−f_A0/a+f_B0/b, and aμ_A+bμ_B=0. In an ordinary A evaluation row, n times the coefficients, before centering, are b+1 at A0, b+1+b/a on ordinary A vertices with extra n/a at the evaluation vertex, 1 at B0, and 0 elsewhere. The sum is D=ab+n+2. The A0 row instead has b+1 at A0, b on ordinary A vertices, and the same opposite-clique coefficients, for sum ab+2. Center both rows and swap cliques for the remaining rows: same-clique entries are positive and cross entries negative. The absolute row sum (the row functional's induced norm, not the largest entry) is twice the own-clique sum. Endpoint gaps are 2b/n and 2a/n; the A-versus-B ordinary gap is 2(b−a)D/n². For mean-zero inputs, the sorted upper-half minus lower-half sum is the absolute deviation from a median, attained by the stated balanced sign forcing. In the raw ordinary A row the median can be 1 for b=a, is 1 for b=a+1, and can be 0 for b≥a+2; the deviations sum to D−2, D−1 and D respectively. The other three row values are W(A_i)−1, (a/b)W(A_i) and a²/n, with strict loss at endpoints and in the larger clique if sizes differ. In the b−a≥2 branch, ab increases strictly toward balance at fixed n. Direct comparison with the final balanced or near-balanced candidate gives the strict parity-dependent maxima, with gains 1/n at the decisive comparison and the unique n=4 split. Expansion of the exact formulas uniformly gives the two limiting polynomials with maxima 8/27 at 1/3 and 1/4 at 1/2, and fixed-a limits 2(a+1) and a+1. Fresh exact checks verified projected Poisson columns, maximizing row types, median forcing, and all fixed-order comparisons for 121 splits with 4≤n≤24.
 
-Ranjan–Zhang–Boley (arXiv:1304.2300, §§2.3.2 and 3.2.1) proves broad entrywise graph pseudoinverse identities and a generic bridge-joining procedure. These are acknowledged inputs, not new claims. Their stated results do not classify the sharp real mean-zero \(\ell^\infty\) Poisson constant on two-clique barbells or optimize it over the clique split. Bonnefont–Golénia–Keller (arXiv:1311.7221) addresses spectral theory of sparse graphs, with different operators and extremal quantities. The normalized pseudoinverse treatment of Bozzo (2013) is not the present unnormalized constrained norm; only an abstract was accessible. Searches for these particular stability norms, their median formulation and bridge-barbell aliases did not locate a covering theorem. The generic entrywise formulas make unrecorded equivalent deductions a real priority risk; the review does not assert historical uniqueness.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The physically compatible constraint on graph Poisson forcing is mathematically essential. The two exact norms unexpectedly prefer distinct macroscopic clique ratios (one-third for unrestricted and one-half for compatible inputs), while for even total order the most unstable compatible graph is subtly but strictly unbalanced, with the exact improvement \(1/(2m)\). These are complete natural optimization results over the two-clique family and provide a precise endpoint stability benchmark for bottlenecked networks, rather than a single artificial numerical invariant.
+Pass for the exact pair of sharp norms, evaluation-vertex classification and compatibility-dependent geometry, especially the finite-order shift. The clique/bridge Green matrix and median duality are established ingredients. The strongest inspected inverse formula supplies entries but not the sorted-row comparisons, equality cases, or maximization over sizes. The strongest catalog overlaps optimize a different observable on barbells or a different norm on trees.
 
-## Limitations and close literature
+## value
 
-The optimization applies to real, unit-conductance, single-bridge barbell graphs only. The checker is finite, while the argument is symbolic. General pseudoinverse and effective-resistance identities and median duality are classical. An equivalent published norm theorem might exist under an alternative name; broader library completeness and independent verification are not claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Provides exact worst-case Poisson amplification under two natural forcing constraints, including constructive extremizers. The normalization is identical in both, yet the unconstrained and compatible asymptotic worst proportions differ, extreme-imbalance amplification drops by a factor of two, and exact even-order compatibility favors a one-vertex shift from equality. The latter behavior cannot be read off from the limiting coefficient alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

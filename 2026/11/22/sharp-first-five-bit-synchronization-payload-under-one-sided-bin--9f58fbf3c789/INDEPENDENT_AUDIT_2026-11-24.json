@@ -1,0 +1,151 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T13:20:40.042004Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md:5–52",
+        "VERIFICATION.md:19–25",
+        "verify.py:13–149, inspected rather than executed",
+        "certificates.json, all rows and codebooks",
+        "Independent replay: python3 -I /workspace/reviews-evidence/05_code_audit.py 1 16 PATH_TO_CERTIFICATES_JSON; output 05-small.out and 05-end.out in reviews-evidence"
+      ],
+      "rationale": "The self-overlap exclusion is exactly the unbordered-word condition; compatibility of two vertices requires absence of both orientations of overlap. Cliques therefore correspond exactly to codebooks. In verifying the source upper bound, each color class is independent in the compatibility graph, so the remaining color count bounds the largest extension. The recursive choice of the last available vertex followed by removal from the parent exhausts cliques not pruned by this valid bound. An independent finite reproduction used the length-one overlap to reduce every nonempty code at n>1 to common first bit 1 and last bit 0, up to reversal. It generated eligible words from the binary cube, formed conflicts by equal prefix/suffix buckets, and used degree order and first-fit coloring for an exact clique search. It matched all reported capacities, eligible-word counts, and witness sizes for n=1 through 16, and checked every published witness against the language and every proper overlap in both orientations. In particular M_15=30 and M_16=42, and none of the earlier entries reaches 32. For the reversed marker families, the gaps between consecutive ones must be 1 through k−1 zeros, with exactly k trailing zeros and at least two ones. The independent composition recurrence counts all families at n=16 and gives 24 at both k=4 and k=5. This is consistent with the finding's nonexclusive claim of attainment at k=5. Thus the unrestricted choice within the no-11 language yields five whole payload bits versus four for the specified marker families.",
+      "residual_risks": [
+        "The run restriction applies to each word, not to arbitrary concatenated transmissions; overlaps are noiseless and self-overlaps count. The five-bit threshold within this setting does not imply a rate result or an error-correcting guarantee."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2025 §4 generates all maximal run-limited codes and explicitly allows adapting to symbol-specific bounds",
+          "2024 gives a general maximal-code characterization with results for the unrestricted maximum",
+          "Blackburn's recent Theorem 1 bounds the asymptotic unrestricted binary maximum"
+        ],
+        "reasoning": "Coverage of all maximal families is not an evaluation of the cardinality maximum for these constrained lengths. An asymptotic upper bound of order 2^n/n for unrestricted codes does not certify the finite threshold in this smaller language.",
+        "searches": [
+          "Stanovnik–Moškon–Mraz (2025), §4 Construction 5; their 2024 paper §§3,4,6",
+          "Blackburn arXiv:2611.21913v1 Theorem 1 and arXiv:1303.1026v3"
+        ]
+      },
+      "checked_sources": [
+        "DOI 10.1007/s40314-024-03055-0 §4",
+        "DOI 10.1007/s10623-023-01344-z §§3–6 scope and §6 comparison",
+        "arXiv:1209.0236, arXiv:1303.1026v3 abstract, arXiv:2611.21913v1",
+        "Resultary 098da1e94557, 74e0afab9676, 9f58fbf3c789",
+        "Focused primary-literature lookup"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Chee et al. prescribe k leading zeros, a nonzero last symbol and no later k-zero run; their size enumeration is for the unfiltered family",
+          "The 2025 construction extracts the run-restricted part of maximal unconstrained families, without giving a closed optimal size for individual symbol bounds"
+        ],
+        "reasoning": "Filtering the classical marker family gives a lower-bound family only; even the unrestricted maximizers cannot be assumed to have the largest intersections with the constraint. To obtain the claimed exact values from the general framework one still needs a new exhaustive maximization over candidate families or over the eligible-word graph. No inspected exact formula subsumes those values by parameter substitution.",
+        "searches": [
+          "Chee et al. arXiv:1209.0236, §3, Theorem 3.1",
+          "Stanovnik–Moškon–Mraz (2025), §4 Construction 5 and preceding paragraph"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Stanovnik–Moškon–Mraz (2025), §4 immediately before Construction 5, explicitly mentions different limits for distinct letters",
+          "For this problem the symbol-1 run limit is one, with no active zero-run limit; equivalently maximize cliques on the unbordered sublanguage"
+        ],
+        "reasoning": "There is direct coverage of the ability to construct all maximal run-constrained codes by adaptation; an equivalent framing as cross-bifix-free code or reversing endpoints does not separate that prior method. The numerical one-sided maximum values, rather than the representation, are assessed here.",
+        "searches": [
+          "Primary: non-overlapping cross-bifix-free binary codes avoiding 11 asymmetric symbol-specific run length Fibonacci exact maximum 42 30 codewords length 16 synchronization",
+          "Resultary: asymmetric Fibonacci/run-limited non-overlap and exact short-block capacities"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The subject record 9f58fbf3c789 is not an independent antecedent",
+          "Resultary 098da1e94557 tabulates polarity-balanced words with no cyclic run of three equal bits at selected even lengths",
+          "Resultary 74e0afab9676 gives a separate exact table imposing reverse-complement closure through length 12, where it reports 42 at length 12",
+          "Stanovnik–Moškon–Mraz (2024), §6, compares unrestricted tables including the n≤16 Chee et al. values"
+        ],
+        "reasoning": "None of these tables has the stipulated eligible vertices: the first other Resultary table is cyclic and balanced, the second imposes an involution on the codebook, and the published unrestricted tables admit adjacent ones. Numerical coincidences do not provide a table in the one-sided language.",
+        "searches": [
+          "Resultary: exact capacities under run restrictions and reverse-complement closure",
+          "Primary: exact asymmetric no-11 capacity 30 and 42 at lengths 15 and 16"
+        ]
+      },
+      "rationale": "The prefix/suffix construction framework and its asymmetric run-limit extension are already covered at the method level, and the classical fixed-zero-marker family is known. The supported distinct finding is the exact optimization table in the one-sided no-11 language, the certified first 32-word length, and the corresponding numeric gap to the restricted marker construction. The closest inspected primary results give all maximal codes through a general construction or compute optima for other constraints, not this finite asymmetric optimum table.",
+      "residual_risks": [
+        "An unindexed explicit computation of the asymmetric capacities could predate this table. The general maximal-family method, and its stated allowance for asymmetric limits, are not claimed as new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Explicit method-level overlap including the asymmetric extension; no statement of the exact no-11 optima in the inspected construction and discussion",
+          "evidence": "Construction 5 obtains every maximal code under a common limit; the preceding paragraph explicitly notes the generalization to distinct-letter limits. It extracts allowed words, not the maximum of their counts for this scope.",
+          "identifier_or_url": "https://doi.org/10.1007/s40314-024-03055-0",
+          "material_read": "Abstract; §4 run-restriction setup, paragraph before Construction 5 and Construction 5, pp. 12–13",
+          "method": "Original publisher HTML and bounded original OA PDF passage",
+          "title": "On maximal almost balanced non-overlapping codes and non-overlapping codes with restricted run-lengths",
+          "trigger": "Closest primary work on restricted-run maximal codes and symbol-specific specialization"
+        },
+        {
+          "assessment": "Same non-overlap condition but unrestricted optima in the numerical comparison",
+          "evidence": "§6 explicitly compares unrestricted S(q,n) for q=2, n≤16 with Chee et al.; the optimization setting admits all binary words before overlap constraints.",
+          "identifier_or_url": "https://doi.org/10.1007/s10623-023-01344-z",
+          "material_read": "Introduction's scope of §§3–6 and §6 comparison surrounding Table 2",
+          "method": "Targeted publisher full-text passages",
+          "title": "In search of maximum non-overlapping codes",
+          "trigger": "Unrestricted exact binary tables at similar lengths and general maximization"
+        },
+        {
+          "assessment": "Classical family exactly matches by reversal before no-11 filtering; the inspected definition omits that extra condition",
+          "evidence": "For 2≤k≤n−2 words start with k zeroes, end in a nonzero symbol and have at most k−1 consecutive zeroes in the last n−1 coordinates.",
+          "identifier_or_url": "https://arxiv.org/pdf/1209.0236",
+          "material_read": "§3, pp. 2–3, family definition and Theorem 3.1",
+          "method": "Original arXiv PDF; locate and read the formula and parameter passage",
+          "title": "Cross-Bifix-Free Codes Within a Constant Factor of Optimality",
+          "trigger": "Original marker family used in the comparison"
+        },
+        {
+          "assessment": "Unrestricted asymptotic bound, not a sharp finite run-specific result",
+          "evidence": "The upper bound has leading constant 5/(6e) multiplying 2^n/n for arbitrary binary non-overlapping codes.",
+          "identifier_or_url": "https://arxiv.org/html/2611.21913v1",
+          "material_read": "Theorem 1 and surrounding statement and proof roadmap",
+          "method": "Original arXiv HTML, located and read the bounded theorem passage",
+          "title": "An upper bound on non-overlapping codes",
+          "trigger": "Focused search found a recent bound on the same overlap constraint"
+        },
+        {
+          "assessment": "Different run rule and additional balance restriction; not a specialization giving these one-sided optima",
+          "evidence": "The exact table uses lengths 4,6,8,10,12,14, exact balance, and absence of cyclic triples of either symbol.",
+          "identifier_or_url": "Resultary 2026/11/2, 098da1e94557",
+          "material_read": "Finding/table and Assumptions",
+          "method": "Local mirror original RESULT.md passage",
+          "title": "Exact run-two, balanced binary non-overlapping code sizes through length fourteen",
+          "trigger": "Nearest distinct exact constrained capacity table"
+        },
+        {
+          "assessment": "Different codebook constraint and length range",
+          "evidence": "The table requires reverse-complement closure and has 42 at n=12, not n=16 in the no-11 language.",
+          "identifier_or_url": "Resultary 2026/11/22, 74e0afab9676",
+          "material_read": "Finding/table and beginning of Assumptions",
+          "method": "Local mirror original RESULT.md passage",
+          "title": "Sharp short-block capacities and extremizer census for reverse-complement-closed binary non-overlapping codes",
+          "trigger": "Distinct same-day finite table with analogous numeric optimum"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md:5–17,29–48",
+        "Independent capacity and marker recurrence outputs",
+        "Chee et al. §3 and Stanovnik–Moškon–Mraz (2025) §4"
+      ],
+      "rationale": "For a basic constrained binary language, precise capacity immediately answers the minimum fixed-length question for a concrete five-bit block payload. The table rules out all shorter lengths and certifies a feasible code, rather than illustrating only one construction at one length. The exact separation from the standard marker families crosses a whole-bit boundary and shows why choosing the common construction alone would miss feasible payload within this model.",
+      "residual_risks": [
+        "The comparison is only with the prescribed fixed-zero-marker families; it is not an assertion about all marker designs or real transmission performance."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

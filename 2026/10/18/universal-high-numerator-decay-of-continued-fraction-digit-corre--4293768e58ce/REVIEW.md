@@ -1,12 +1,21 @@
-# Scientific review: high-numerator digit-correlation scaling
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact transfer kernel and probability density agree with Lascu's stationary \(N\)-continued-fraction setting. For integer digit thresholds the first image is precisely \((N+x)/(m+x)\) almost everywhere, with affine coefficient \(u_N(1-u_N)/N\) and \(O(N^{-2})\) Lipschitz error. The trigamma identity for the image of the coordinate function implies a uniform derivative \(-1/(2N)+O(N^{-2})\). Ordered inverse-branch kernels give the crucial quantitative Lipschitz contraction; induction consequently yields the coefficient at every fixed lag with \(O_k(N^{-k-1})\) error. Stationary transfer duality and integration give the final covariance. The standalone verifier independently checks exact first- and second-lag formulas and finite special cases. No finite calculation is treated as a proof of the all-lag asymptotic.
+## correctness
 
-## Originality — PASS, residual priority risk acknowledged
-Lascu, arXiv:1510.02052, **Proposition 4.2 explicitly proves monotonicity reversal and the \(1/(N+1)\) variation contraction**. These results—and the immediate alternating covariance sign corollary—are excluded from the claimed novelty. His companion arXiv:1510.03606 addresses Gauss–Kuzmin convergence. Sebe–Lascu, arXiv:1707.08393, treats two-dimensional convergence bounds. Their inspected statements do not establish the coefficient \((-1)^k u(1-u)v(1-v)/2^k\) for fixed lag as the numerator increases; a fixed-parameter spectral or mixing bound alone cannot supply a sharp constant at every lag. The derivation from the exact coordinate mean and a rank-one high-parameter iteration supplies this missing comparison. An unindexed high-parameter spectral calculation could cover it; priority is not independently certified.
+PASS
 
-## Mathematical value — PASS
-The size of dependence between continued-fraction digits is an intrinsic statistic of the symbolic dynamical system. The finding quantifies *exactly how* these digit tails approach independence as the numerator parameter grows, and discovers a universal alternating factor per temporal lag. It substantially refines qualitative monotonicity and nonsharp exponential estimates in a natural unbounded-alphabet family. The statement controls all fixed lags and all interior macroscopic thresholds, not one arbitrary numerical slice. No large-lag-uniform or nonstationary conclusion is claimed.
+The invariant-measure inverse-branch weights telescope, giving P_N g_m=(N+x)/(m+x) for almost every x and derivative u_N(1−u_N)/N+O(N^−2). With z=N+x, P_N id=N(z Σ_{j≥0}(z+j)^−2−1). Its derivative equals N times the difference of the sum of inverse squares and 2z times the sum of inverse cubes. The two Euler–Maclaurin expansions give −N/(2z²)+O(Nz^−3), uniformly on [0,1]. The branch-index tail (N+x)/(a+x) increases in x, so a common quantile couples the sampled inverse points in reverse order. Thus the difference of their means bounds the Lipschitz action of P_N, giving an O(N^−1) seminorm bound. Each iteration multiplies the affine slope by −1/(2N) with an additional O_k(N^−k−1) Lipschitz error at lag k. Stationarity moves P_N^k to the first indicator; Cov(id,1_[0,v_N]) under μ_N is −v_N(1−v_N)/2+O(N^−1). This gives both the sign and exact coefficient uniformly in the stated interior ratios at fixed k. Terminating points are null; there is no claim for growing k. The first-lag integral and second threshold image also follow by logarithmic integration and digamma partial fractions. The frozen `python3 verify.py` (mpmath) was inspected, not run: its 56 comparisons check kernel/mean identities and sampled lags 1 and 2, not all k.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The operator, reversal of monotonicity, sign alternation and a nonsharp O(N^−k) scale are already available from earlier work. The supported distinct contribution is the signed nonzero fixed-lag coefficient with both moving threshold factors and a uniform one-order-smaller remainder. The closest inspected primary results give the operator and bounds, not that asymptotic on its iterates against these observables. This is a best-of-knowledge comparison, not a claim of historical priority.
+
+## value
+
+PASS
+
+This is a quantitative independence law for natural macroscopic digit events. It fixes the leading magnitude as well as the sign, identifies the universal ratio between successive lags, and treats both thresholds as moving parameters. The rank-one mechanism explains why a contraction estimate by itself does not capture the coefficient.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

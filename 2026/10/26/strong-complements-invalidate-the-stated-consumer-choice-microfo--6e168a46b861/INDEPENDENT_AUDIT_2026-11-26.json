@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:48:52.710960Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding, Assumptions, Proof and Limitations; VERIFICATION.md; inspected verify_model_domain.py",
+        "Frozen AUDIT.json, source inspection for the §2 and §3.1 attributions (reported, not independent evidence)",
+        "Independent replay: python3 /workspace/branches/audit_replay.py 3 — direct utility expansion with n=4, γ=−5/6 yields 3t²−4t for the chosen finite α and p"
+      ],
+      "rationale": "On the choice set expressly stipulated in the frozen assumptions, the all-goods ray t1 is feasible for all t≥0. The price-adjusted utility along it is t times the sum of α_i−p_i minus (n/2)(1+(n−1)γ)t². On 2+(n−1)γ<0 the quadratic coefficient is strictly positive for every finite price vector, proving unboundedness and therefore no global optimum. The branch is nonempty under |γ|<1 precisely for some γ when n≥4. The other n−1 eigenvalues are 1−γ>0, so strict concavity holds exactly when 1+(n−1)γ>0. The proof invalidates this unconstrained optimization interpretation, not an algebraic model with inverse demand taken as primitive. The source package identifies §2 for the first-order conditions and §3.1 for the branch; these reported locations were not independently recovered, and the verdict does not certify that the actual article rules out budget constraints.",
+      "residual_risks": [
+        "The literal article specification and inequality passage were not independently read. The verified result assumes the unbounded nonnegative choice set; it does not show that a different finite-budget or constrained consumer program has no maximizer."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The frozen inspection reports that Vives's accessible summary concerns equilibrium comparisons under regularity, not this branch. No relevant primary passage on an equivalent restriction was read from Choné–Linnemer. The usual positive-definiteness test itself is standard."
+        ],
+        "reasoning": "The regularity condition gives a general admissible parameter region once this B is inserted. The substantive comparison here is that a specified stability branch lies strictly outside the consumer region, with divergence on a feasible nonnegative ray rather than merely nonconcavity.",
+        "searches": [
+          "Vives DOI:10.1016/0022-0531(85)90086-9 as cited in frozen record; Choné–Linnemer Linear demand systems for differentiated goods as a possible broader comparator"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary 970e86047447",
+        "Wiley DOI:10.1155/2014/630351 and Chuo 6099 (bibliographic identification/retrieval attempts only)",
+        "Frozen source inspections and limitations"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The reported inverse demand fixes the Hessian at −B. The disputed inequality implies a strictly positive second derivative on the all-goods ray, which remains feasible on the stipulated domain. A finite cap could make that ray bounded."
+        ],
+        "reasoning": "The curvature criterion alone flags negative eigenvalues but does not determine the feasibility of a direction, establish what the paper literally assumes, or identify which apparent equilibrium parameters lose their optimization interpretation. The frozen theorem binds that comparison to the unconstrained case.",
+        "searches": [
+          "Compare the reported article §§2 and 3.1 with the stipulated nonnegative choice domain and the standard concavity test"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Closest identified Resultary hit 970e86047447 concerns a missing Jury factor in a cubic-cost Cournot model, not the representative consumer or the common-price-direction Hessian."
+        ],
+        "reasoning": "For the specified linear inverse demand, the integrated quadratic is unique up to an additive constant; replacing a quantity-gradient formulation by this quadratic is equivalent. A defect in a different firm's dynamic stability criterion does not give the optimizer nonexistence result.",
+        "searches": [
+          "Resultary: Theocharis Problem Reconsidered, strong complements, utility concavity, equal-consumption direction, and Cournot stability domain"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No matching diagnosis in the inspected ranked records. The available DOI listing identifies the target paper; no authorized readable text or paper-specific alternate was retrieved from it or Chuo 6099."
+        ],
+        "reasoning": "The exact lookup target is a correction or prior statement for this parameter branch, not a numeric table. The listing confirms bibliographic identity only and cannot rule out a correction or caveat in the article.",
+        "searches": [
+          "Resultary targeted branch/consumer-domain diagnosis; exact paper DOI and public Chuo 6099 working-paper lookup"
+        ]
+      },
+      "rationale": "The distinct contribution on the available evidence is the diagnosis for the particular differentiated-oligopoly branch as specified in the frozen record. The spectrum and ordinary concavity criterion are standard and not credited as new. The frozen claim is already explicitly limited to the unconstrained interpretation; an erratum about the paper's literal model or an unrestricted-prices demand theorem is not established.",
+      "residual_risks": [
+        "The target primary text and an identified open alternate were inaccessible; a pre-existing caveat or correction cannot be excluded. This is not evidence that the article lacks an income cap.",
+        "The closest broader linear-demand account was not independently checked at statement level."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Original exposition unverified in this review; conditional mathematics proves only the stipulated unconstrained interpretation",
+          "evidence": "Frozen AUDIT.json lines 78–80 report interior first-order conditions, matrix entries and the strict branch by section. These are not substitute primary passages.",
+          "identifier_or_url": "https://doi.org/10.1155/2014/630351",
+          "material_read": "Title listing and the frozen package's reported §2 and §3.1 locations; no primary equation or branch passage retrieved independently",
+          "method": "Wiley full text/PDF direct and alternate OA attempts; public legacy Hindawi copy attempt; comparison with frozen reported passages",
+          "title": "Theocharis Problem Reconsidered in Differentiated Oligopoly",
+          "trigger": "Target article and possible source of existing caveat or different domain"
+        },
+        {
+          "assessment": "Unresolved primary evidence, not evidence of noncoverage",
+          "evidence": "The exact Eq. (1)/(2), choice-domain and strict-branch passages could not be extracted.",
+          "identifier_or_url": "https://chuo-u.repo.nii.ac.jp/records/6099",
+          "material_read": "Citation in frozen package; no record-specific text obtained in fresh retrieval",
+          "method": "Repository record, public API and focused repository/PDF lookup; a different Chuo item was excluded",
+          "title": "Theocharis Problem Reconsidered in Differentiated Oligopoly (Chuo working paper)",
+          "trigger": "Exact authorized alternate for the article and the consumer setup"
+        },
+        {
+          "assessment": "Background only; no whole-paper conclusion",
+          "evidence": "Reported scope is equilibrium comparisons under regularity rather than this source-specific branch.",
+          "identifier_or_url": "https://doi.org/10.1016/0022-0531(85)90086-9",
+          "material_read": "Frozen record's report of abstract/summary only",
+          "method": "Scope comparison based on reported abstract, not full-text verification",
+          "title": "On the Efficiency of Bertrand and Cournot Equilibria with Product Differentiation",
+          "trigger": "Cited differentiated demand and regularity comparator"
+        },
+        {
+          "assessment": "Different defect and model",
+          "evidence": "A Jury-factor issue in cubic-cost stability is not the consumer Hessian problem.",
+          "identifier_or_url": "Resultary 970e86047447",
+          "material_read": "Ranked indexed description",
+          "method": "Local Resultary comparison",
+          "title": "The omitted Jury factor selects the upper cubic Cournot equilibria",
+          "trigger": "Nearest relevant indexed Cournot consistency correction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Assumptions and Limitations, and the verified ray argument"
+      ],
+      "rationale": "This distinguishes a formally analyzable firm's best-response branch from a branch implementable by the specified representative consumer. It rules out an open parameter region, not a degenerate test point. The result helps prevent interpreting a dynamical stability calculation as a consumer-founded equilibrium without checking demand's admissible domain.",
+      "residual_risks": [
+        "It does not determine the formal map's stability or the outcome of any constrained demand system."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

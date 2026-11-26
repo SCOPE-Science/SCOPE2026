@@ -1,0 +1,153 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:18:27.120650Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Plancherel with the stated pi^(-1) norm gives 2 * integral_0^infinity x^alpha exp(-2xt) dx = Gamma(alpha+1)/[2^alpha t^(alpha+1)], as required by weighted Paley–Wiener. In the Laplace model one step shifts t to t+b with input amplitude exp(-at). Iteration sums t,t+b,...,t+(n-1)b and gives amplitude exp(-ant-abn(n-1)/2). The shifted density contributes (t/(t+nb))^eta to the norm ratio. Its continuous essential supremum is one on either axis; in the open quadrant the log derivative -an+eta*nb/[t(t+nb)] has a unique zero, giving the stated rationalized root. The expansion t_n=eta/(an)+O(n^-3) gives ant_n=eta+O(n^-2) and t_n/(t_n+nb)=eta/(ab n^2)*(1+O(n^-2)), so both the prefactor and relative error follow. For each power, an infinite orthonormal sequence supported on a bounded near-maximizer interval is weakly null; compact operators kill its norm in the limit. This supplies both the finite-rank and essential-norm lower bound for all j and noncompactness. The interior radii vanish by the power norm and the quotient norm bound; the identity and the b=0 multiplier give the first two spectral rows. If a=0<b, the fibers t=r+kb, 0<r<b, carry normalized shifts with weights ((r+kb)/(r+(k+1)b))^eta. For |lambda|<1, their adjoints have eigenvectors lambda^k ((r+kb)/r)^eta times arbitrary L^2 base data on b/2<r<b, uniformly summable there. Infinite-dimensional adjoint kernel gives non-Fredholmness for the conjugate parameter; closure and norm one give both disks. For fixed n and a,b>0, evaluating the ratio at t=sqrt(b/a) lower-bounds it by exp(-abn(n-1)/2-n sqrt(ab))/(1+n sqrt(ab))^eta, confirming convergence to one as ab->0 from the quadrant. The 1158 checks in the frozen audit and inspected CHECK.py are finite corroboration, not a fresh run or proof of the spectrum.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Weighted Laplace representation and unweighted half-plane norm/essential-norm results cover b=0. Schroderus and the broader Zen-space proposition give the pure-translation spectral row [0,1]. Matache's accessible abstract covers half-plane weighted composition on Hardy space, but does not expose its exact examples or theorems."
+        ],
+        "reasoning": "The unweighted theorems apply to all pure-translation iterates and already yield each a_j=1 on this axis. They do not apply with an exponential multiplier, and the Hardy abstract cannot establish the alpha>-1 family.",
+        "searches": [
+          "arXiv:0910.0408 §3",
+          "arXiv:1605.01859v3 Theorem 3.1",
+          "arXiv:2204.05894 Proposition 3.2",
+          "DOI:10.1080/17476933.2019.1594206 publisher and institutional copy"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:0910.0408, 1605.01859v3, 2204.05894, 1106.4769v3, 1910.01475v2",
+        "DOI:10.1080/17476933.2019.1594206 (abstract and access limitation)",
+        "Resultary 2026/10/18/f5fe871223a8",
+        "Frozen RESULT.md, CHECK.py and related audit/verification material"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier half-plane iteration passages concern composition alone. Their norm/spectral-radius equality does not survive the exponential multiplication; the prior weighted-translation theorem requires translate ratios incompatible with the interior model."
+        ],
+        "reasoning": "The Laplace model is prior machinery, but it is the actual product of shift weights, the optimized sharp power law and the nonatomic finite-rank obstruction together with radius zero that are credited. The unweighted spectrum and approximation numbers are genuine corollaries of known results, not separate new results.",
+        "searches": [
+          "arXiv:1910.01475v2 §4.2",
+          "arXiv:0910.0408 Theorems 3.4–3.6 versus frozen RESULT.md lines 36–64",
+          "arXiv:1106.4769v3 Theorem 3 versus the transformed density"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For b>0 the Laplace shift can be represented as a plain right translation on density exp(-at^2/b+at)t^(-2eta); its b-step density ratio is exp(-2at)(t/(t+b))^(2eta). Petkova imposes a positive uniform lower bound on translate weight ratios."
+        ],
+        "reasoning": "The density ratio tends to zero at infinity for a>0 and near zero for all eta>0. The alternate weighted-translation formulation is genuine, but the inspected semigroup theorem does not have these hypotheses. Hardy-space results would concern alpha=-1, excluded here.",
+        "searches": [
+          "Resultary: weighted composition half-plane Bergman exponential weight translation spectrum exact powers spectral collapse",
+          "Resultary: W_{a,b}f(z)=e^{-bz}f(z+a)",
+          "arXiv:1106.4769v3, §1 and Theorem 3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-day Hardy–Sobolev record has map F(z)->F(cz+ib), c>1, on upper half-plane derivative spaces, with an essential annulus/disk distinction and exact power results."
+        ],
+        "reasoning": "This is a real thematic hit, but the operator, space and spectral regions are different. No returned catalogue item tabulates the mixed-quadrant Bergman norm. Shared date does not establish priority; the comparison rests on statements.",
+        "searches": [
+          "Resultary: frozen spectral-collapse title and explicit exponential family",
+          "Resultary 2026/10/18/f5fe871223a8, RESULT.md"
+        ]
+      },
+      "rationale": "The unweighted translation axis, including both spectra and the flat approximation numbers, follows from published results and is expressly excluded from the novelty credited here. The supported distinct claim is the mixed-quadrant Bergman calculation: the noncompact quasinilpotent regime paired with the exact weighted all-power profile, its sharp alpha-dependent asymptotic and finite-rank distances. No earlier equivalent or dominating calculation was established in the compared material.",
+      "residual_risks": [
+        "Matache's weighted Hardy full text was inaccessible; exact overlap at the excluded Hardy endpoint is unresolved.",
+        "The frozen review identifies historical disk Bergman and weighted rotation literature not exhaustively inspected here. Other formulations of weighted shifts and composition on Bergman spaces may be unindexed. No exhaustive priority conclusion follows."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the Laplace model and unweighted norm part",
+          "evidence": [
+            "For translation the angular derivative at infinity is one, giving norm and essential norm one for each iterate."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0910.0408",
+          "material_read": "§3, Lemma 3.3 and Theorems 3.4–3.6, PDF pp. 5–6, text offsets 13405–17896",
+          "method": "Open primary PDF passages",
+          "title": "Composition operators on weighted Bergman spaces of a half plane",
+          "trigger": "Same weighted Bergman spaces, pure translation and Paley–Wiener model"
+        },
+        {
+          "assessment": "Covers both spectra on the translation axis",
+          "evidence": [
+            "For the upper-half-plane translation by ia, spectrum and essential spectrum are {exp(-at):t>=0} union {0}."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1605.01859v3",
+          "material_read": "§3, Theorem 3.1, PDF pp. 6–7, offsets 24800–27983",
+          "method": "Open primary PDF passages",
+          "title": "Spectra of linear fractional composition operators on the Hardy and weighted Bergman spaces of the half-plane",
+          "trigger": "Exact pure-translation spectral row"
+        },
+        {
+          "assessment": "Covers the pure-translation spectra in the broader Zen setting",
+          "evidence": [
+            "The proposition is for composition by a translation, with no analytic exponential multiplier."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2204.05894",
+          "material_read": "§3.1, Proposition 3.2, PDF pp. 6–7, offsets 13000–15999",
+          "method": "Open primary PDF passages",
+          "title": "Composition operators on function spaces on the halfplane: spectra and semigroups",
+          "trigger": "Broader Laplace-transform spaces and translation spectra"
+        },
+        {
+          "assessment": "Inapplicable ratio hypotheses",
+          "evidence": [
+            "The uniform positive lower bound on shift ratios fails in the transformed mixed model."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1106.4769v3",
+          "material_read": "§1 pp. 1–2 and Theorem 3 p. 4, text offsets up to 6500 and 9300–14254",
+          "method": "Open primary PDF passages",
+          "title": "Wiener-Hopf operators and spectral problems on weighted L2 spaces",
+          "trigger": "Equivalent weighted right-translation model"
+        },
+        {
+          "assessment": "Relevant half-plane iteration is unweighted",
+          "evidence": [
+            "The half-plane discussion addresses composition iterates, not the mixed translation and multiplier."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1910.01475v2",
+          "material_read": "§4.2 pp. 11–12, offset about 22552",
+          "method": "Open primary PDF passages",
+          "title": "Weighted composition operators: isometries and asymptotic behaviour",
+          "trigger": "Iteration of half-plane or weighted composition"
+        },
+        {
+          "assessment": "Hardy endpoint overlap unresolved",
+          "evidence": [
+            "The abstract covers the operator class on Hardy space; publisher and repository attempts did not provide the exact theorems."
+          ],
+          "identifier_or_url": "https://doi.org/10.1080/17476933.2019.1594206",
+          "material_read": "Accessible abstract; primary text not recovered",
+          "method": "Lawful publisher and University of Nebraska Omaha repository/PDF attempts",
+          "title": "Weighted composition operators on the Hilbert Hardy space of a half-plane",
+          "trigger": "Potential qualitative endpoint spectral overlap"
+        },
+        {
+          "assessment": "Thematic, not equivalent",
+          "evidence": [
+            "Affine dilation and displacement of the argument, derivative-based Hardy–Sobolev scales, and annulus-to-disk spectral change."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-polynomial-frequency-hardy-sobolev-damping-spectral-collapse-and--f5fe871223a8",
+          "material_read": "RESULT.md finding and setting",
+          "method": "Published local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Polynomial-frequency Hardy–Sobolev damping, spectral collapse and power behavior",
+          "trigger": "Same-day spectral collapse and power profiles on a half-plane"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is an explicit analytic-function family in which combining two natural norm-one boundary operations collapses both radii without compactness, while finite-rank approximation distances remain as large as the norm at each power. The sharp Gaussian-in-n scale and polynomial prefactor quantify the effect. The mixed family and its quantitative behavior, not the individual known axis facts, have the scientific value.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

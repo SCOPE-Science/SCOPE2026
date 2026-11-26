@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem is fully specified for the 12-vertex Tietze graph and the inclusive *vertex* shortest-path Rips complex at every real nonnegative radius. At radius one the one filled triangle kills one of the graph's seven independent cycles. At radius two the provided face-enumeration, 119 legal elementary simplicial collapses, spanning tree, and 27 explicit generator–relator CW cancellations reduce 319 simplices to a based complex with exactly four trivially attached two-cells. This proves the integral homotopy type, not just rational or mod-two homology. Radius three is the entire simplex by graph diameter three. The filtration's integrally free modules appear and die at adjacent integer radii, giving the stated barcode. All critical finite steps were replayed from the actual embedded graph and witness. Finite enumeration is exhaustive here because the domain contains exactly 12 vertices, not a sample of a larger family.
+PASS
 
-## Originality — PASS against inspected evidence
+Contracting the specified triangle gives Petersen: for vertices 0 through 8 and the contracted vertex, the two-subset labels 34,15,24,35,45,25,23,13,14,12 give adjacency by disjointness. At scale one the filled triangle is a contractible subcomplex and its quotient is a connected graph with 10 vertices and 15 edges. The independent radius-two replay recomputed the face counts (12,51,96,87,51,19,3) from the vertex metric and checked the full proper-coface condition for each of 119 sequential elementary collapses. The residual complex has 12 vertices, 38 edges and 31 triangles. Contraction of the checked spanning tree gives one based vertex and 27 edge generators; at each of 27 checked steps a single-generator two-cell and its edge make a contractible subcomplex, so the quotient is a homotopy equivalence and deletes that generator from the other attaching words. The four remaining two-cells have trivial attaching maps. This proves a wedge of four 2-spheres, not merely four independent mod-two classes. The graph has diameter three; the zero stage is discrete and the third stage is a simplex. All distances are integral, and no degree has nonzero reduced homology at successive stages, so the listed half-open integral intervals are complete.
 
-The seed arXiv:2103.01040, first public 2021-03-01, classifies radius-two Rips complexes of hypercube graphs, which are distinct from the Tietze graph. The earlier arXiv:1104.0433 relates Rips complexes to graph powers and gives high-girth and cycle-family results, but its girth-seven sufficient criterion does not apply to the girth-three Tietze graph. Papers arXiv:2202.02756 and arXiv:2309.06222 concern hypercube scales/homology, not the Tietze metric. The closest indexed graph-metric calculations treat different graphs, notably the five asymmetric 12-vertex *Hamiltonian* cubic graphs, the Herschel graph, and \(GP(7,2)\). Indexed Tietze independence and matching-complex statements use different complexes. A detailed query for the exact graph, graph square, diameter-two clique complex, four-sphere wedge and integral barcode produced no covering statement. The residual risk is an unindexed or undiscovered equivalent calculation; an empty search result is not by itself proof of novelty.
+## originality
 
-## Value — PASS
+PASS
 
-The Tietze graph is the canonical small non-Hamiltonian cubic graph formed by a local triangle expansion of Petersen; this makes it a natural stress case for finite graph-metric Rips topology. Its radius-two graph power has a six-dimensional simplices but a precisely certified four-two-sphere integral homotopy type, in marked contrast to the radius-two simplex of the diameter-two Petersen graph. The complete scale-by-scale integral classification and barcode provide a concrete benchmark for topology under local graph expansion. The finite invariant is natural, motivated by known graph-metric Rips literature, and the claim does not extrapolate beyond the verified graph.
+The nontrivial supported contribution is a certificate and full intact-graph filtration determination, with an integral homotopy type at radius two. The same-day edge-fault record explicitly mentions the exact intact radius-two wedge as context; that mathematical overlap is credited. Its actual metric family and theorem are single-edge deletions; the mention does not supply an independent derivation or a chronological determination about the intact claim. The other inspected results do not establish that intact classification.
 
-## Closest literature and limitations
+## value
 
-Adamaszek–Adams arXiv:2103.01040; Adamaszek arXiv:1104.0433; Shukla arXiv:2202.02756; Adams–Virk arXiv:2309.06222; published exact graph-metric records concerning other cubic graphs. Classification applies only to the vertex metric of the Tietze graph. Search coverage has an unindexed-literature risk. Homotopy claims do not assert any canonical equivariant decomposition.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Tietze is a standard cubic graph, with a natural contrast to Petersen: a triangle expansion changes the scale-two Rips type from a simplex to a four-sphere wedge. Since homology ranks would not give this homotopy classification, the explicit integral certificate is useful as an exact test case for graph powers and as the intact baseline for fault comparisons. The routine endpoint stages complete the classification rather than constituting its value on their own.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

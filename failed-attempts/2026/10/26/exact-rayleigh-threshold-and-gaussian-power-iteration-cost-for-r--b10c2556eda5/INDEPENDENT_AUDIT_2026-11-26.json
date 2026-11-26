@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:37:41.165097Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–45",
+        "Frozen VERIFICATION.md and verify.py inspected, not executed",
+        "Independent computation: direct symmetric eigensolves in 60 parameter cases including alignment and equality at the cutoff, with 101 strengths per case; 24 independent chi-square integral/Beta comparisons"
+      ],
+      "rationale": "In a two-plane containing e and u (extend it arbitrarily at alignment), use the basis beginning with u. The plane of B_r^(1/2) A B_r^(1/2) has diagonal entries r gamma and kappa+1-gamma and determinant kappa r. In the equivalent symmetric A-energy representation, subtracting the positive semidefinite rank-one update from A gives lambda_min <= 1 <= lambda_max by interlacing; this also holds at alignment. The optimally gained contraction is the spectral spread divided by the trace. Minimizing trace/sqrt(r), or using equality of the diagonal entries when feasible, gives the stated unique r and strict midpoint; r=1/kappa gives zero at alignment. The independent chi-square threshold gives exactly the stated Beta and two-dimensional Cauchy tails. The high-dimensional statement follows by concentration of the bulk chi square and continuity of the one-degree-of-freedom law, with critical finite ratios interpreted along subsequences of (n,k).",
+      "residual_risks": [
+        "With fixed kappa and integer k, nonzero finite ratio convergence cannot generally be realized along all consecutive dimensions; a lattice transition need not have a limit under fixed rounding of the step count. The ratio endpoint limits and logarithmic transition remain valid.",
+        "No claim about rounding errors, nonlinear Hessians, or costs of running the corrected optimizer."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "d5c120ddf620 gives a 45-degree robust cutoff with q allowed above one. On the frozen q<=1 range its fixed-angle cost is nondecreasing in t, so the robust supremum at T equals the fixed-angle cost at t=T. Its minimizer is in q<=1.",
+          "Doikov–Stich–Jaggi give general low-rank preconditioning bounds; 81737ab36f99 optimizes a different Bregman/condition-number comparison with variable direction and three spectral levels."
+        ],
+        "reasoning": "The older robust optimizer restricts exactly to the frozen pointwise optimizer, and the untouched unit eigenvalues in higher dimension do not affect the extremes. The other broader efforts concern different optimization objectives or supply bounds rather than the overlap.",
+        "searches": [
+          "Resultary d5c120ddf620",
+          "Resultary 81737ab36f99",
+          "arXiv:2402.04843 §§3,6–7"
+        ]
+      },
+      "checked_sources": [
+        "Resultary d5c120ddf620, 0c9b408cc209, 81737ab36f99",
+        "arXiv:2402.04843, 1209.1963, 2209.00809 (bounded passages)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "0c9b408cc209 gives the alignment t=kappa^2 tau Z_1^2/(kappa^2 tau Z_1^2+U) with U independent chi-square(n-1); its actual Ritz improvement cutoff differs from 1/2.",
+          "For tau=kappa^(2k-2), including k=0, this prior one-product sketch has exactly the k-step power vector distribution. Its general alignment ratio evaluated at threshold 1/2 gives the frozen Beta law.",
+          "Replace U/(n-1) by 1 in probability to obtain the critical-ratio transition and logarithmic step scale."
+        ],
+        "reasoning": "The relevant implication uses the alignment distribution in the prior proof, not the different Ritz success cutoff. Combining it with the already implied deterministic cutoff leaves only a routine asymptotic specialization, not an independent new theorem.",
+        "searches": [
+          "Resultary d5c120ddf620 Finding and Proof §§1–2",
+          "Resultary 0c9b408cc209 Finding and Proof §3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In d5c120ddf620 Finding and Proof §2, the fixed (q,t) PCG squared-energy factor is 1-4 rho q/[q+rho+(1-q)(1-rho)t]^2; set rho=1/kappa, q=r, t=(kappa-gamma)/(kappa-1).",
+          "Projection-deflated CG and coordinate-diagonal optimization are not by themselves equivalent to the frozen arbitrary-direction problem."
+        ],
+        "reasoning": "The transformed denominator is the frozen trace divided by kappa, so the loss functions are identical. First-step PCG versus fixed-gain gradient descent does not differentiate the exact optimized worst-case factor.",
+        "searches": [
+          "Resultary d5c120ddf620",
+          "arXiv:1209.1963 §3",
+          "arXiv:2209.00809 §1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The relevant catalog evidence is exact analytic formulas in the first two Resultary Findings, not a tabular spectrum or database of numerical instances."
+        ],
+        "reasoning": "There is no finite table of candidate parameters to match in this continuous-parameter model; the catalogued closed forms are the decisive comparison.",
+        "searches": [
+          "Resultary d5c120ddf620",
+          "Resultary 0c9b408cc209",
+          "Resultary 81737ab36f99"
+        ]
+      },
+      "rationale": "The main deterministic criterion and optimum are directly covered by the earlier exact fixed-angle contraction in the angle-uncertainty record. The change from first-step PCG to separately tuned constant-gain gradient descent changes the error attaining the worst case, but not the sharp squared-energy factor. The extra flat eigenvalues are inside the two extremes. The power selection law is the prior Gaussian alignment law applied to a reparameterized identical vector distribution and the already-implied threshold; the dimension limit is a direct chi-square concentration consequence. This is affirmative statement-level coverage and routine implications, not failure to establish priority from unavailable papers.",
+      "residual_risks": [
+        "Coverage suffices to reject this novelty claim, not to assign the earliest historical discovery.",
+        "No exhaustive public-literature search for every formulation of optimal diagonal scaling or Gaussian power iteration was made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the determinant/trace contraction, sharp scale, and midpoint via restriction",
+          "evidence": "Fixed-(q,t) formula and robust q_star; t=T gives the worst case on q<=1.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-sharp-angle-uncertainty-frontier-for-rank-one-spectral-pcg-preco--d5c120ddf620/RESULT.md",
+          "material_read": "Finding, Assumptions, Proof §§1–2 (offset 0–4972)",
+          "method": "Local Resultary mirror; formulas compared after normalization",
+          "title": "Sharp angle-uncertainty frontier for rank-one spectral PCG preconditioning",
+          "trigger": "Same rank-one multiplier and angular cutoff"
+        },
+        {
+          "assessment": "Different preconditioner cutoff, but covers alignment law under covariance substitution",
+          "evidence": "Equation for t in Proof §3 and the Beta calculation in Finding.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-sharp-gaussian-alignment-frontier-for-one-vector-ritz-spectral-p--0c9b408cc209/RESULT.md",
+          "material_read": "Finding, assumptions and Proof through start of §3 (offset 0–5331)",
+          "method": "Local Resultary mirror; compared vector laws and cutoff separately",
+          "title": "Sharp Gaussian alignment frontier for one-vector Ritz spectral preconditioning",
+          "trigger": "Same spike and Gaussian alignment law"
+        },
+        {
+          "assessment": "Different feasible optimization and spectrum",
+          "evidence": "Bregman-selected corrections versus condition-optimal variable directions on a three-level model.",
+          "identifier_or_url": "Resultary 81737ab36f99",
+          "material_read": "Finding, local mirror offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Sharp rank-one spectral conditioning regret of Bregman log-determinant approximation",
+          "trigger": "Same-date rank-one conditioning comparison"
+        },
+        {
+          "assessment": "Motivation, not the sharp fixed-direction computation",
+          "evidence": "Low-rank spectral approximations with (H+alpha I)^(-1) steps and global convergence bounds.",
+          "identifier_or_url": "arXiv:2402.04843",
+          "material_read": "p. 2 and §3 p. 6 (OA offsets 14500, 39500)",
+          "method": "Lawful OA full-text passages",
+          "title": "Spectral Preconditioning for Gradient Methods on Graded Non-convex Functions",
+          "trigger": "Cited direct methodological antecedent"
+        },
+        {
+          "assessment": "Different operator",
+          "evidence": "Effective conditioning for a projection-deflated CG operator.",
+          "identifier_or_url": "arXiv:1209.1963",
+          "material_read": "§3 p. 5 (OA offset 12900)",
+          "method": "Lawful OA full-text passage",
+          "title": "The Deflated Conjugate Gradient Method: Convergence, Perturbation and Accuracy",
+          "trigger": "Potential equivalent conditioning framework"
+        },
+        {
+          "assessment": "No additional exact result identified in passages read",
+          "evidence": "Optimizes diagonal scaling in a prescribed coordinate basis; the older angle theorem is closer.",
+          "identifier_or_url": "arXiv:2209.00809",
+          "material_read": "Abstract and §1 p. 1 (OA offset 2400)",
+          "method": "Lawful OA full-text passage",
+          "title": "Optimal Diagonal Preconditioning",
+          "trigger": "Possible broader optimal scaling result"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding, scope and limitations",
+        "Resultary d5c120ddf620 and 0c9b408cc209"
+      ],
+      "rationale": "The Rayleigh safeguard is meaningful in practice, but the exact invariant asserted here is already available by the elementary restrictions above. The remaining reparameterized Gaussian tail and its concentration limit quantify entering that same known acceptance region without introducing a new performance criterion or resolving an independent mathematical obstacle.",
+      "residual_risks": [
+        "This assessment does not exclude new results for nonflat spectra, finite precision, or a genuine compute-versus-convergence optimization; none is proved here."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

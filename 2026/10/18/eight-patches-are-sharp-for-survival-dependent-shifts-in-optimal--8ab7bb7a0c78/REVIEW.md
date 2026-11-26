@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The intervention changes the probability of connection of an ordered patch pair precisely when the protected patch lies on the unique connecting path. The exact gain is \((1-p)F_v(p)\), including diagonal normalization. Prüfer enumeration exhausts each labelled tree of order up to eight, a canonical central-root representation identifies its unlabelled class, and an integer polynomial change-of-variables identity certifies universal dominance for every class except two. Direct rational comparisons exclude a universal optimizer in the two exceptions. Exact factorizations and strict symbolic dominance against the remaining vertices prove the switching regimes. The independent surviving-state calculation verifies the gain identity on the first example. The computation proves a bounded finite theorem, not statements about larger trees.
+## correctness
 
-## Originality — PASS, with residual literature uncertainty
-Minor and Urban (2008) treat habitat networks and resilience; Matisziw and Murray (2009) introduce a connectivity-change criterion; Saura (2010) proves its relation to landscape coincidence probability, directly covering the deterministic component-pair metric used here. Saura and Rubio (2010) analyze ecological importance of patches and links. The proposed new statement does not claim those ingredients: it classifies the smallest unweighted trees for parameter-dependent *global* protected-vertex optimality under independent random site survival. Earlier corridor reinforcement chooses an edge and models link, not vertex, failures. The inspected full available primary texts, relevant abstracts, and queried public result records did not establish the same finite classification. Matisziw and Murray's full text remained inaccessible through available permitted channels and could potentially contain relevant claims; other unknown graph-reliability classifications remain a residual originality risk.
+PASS
 
-## Value — PASS
-Protecting one habitat site to preserve reachable pairs is a natural conservation-prioritization decision. A sharp minimum of eight and complete description of the two first exceptional tree shapes demonstrates precisely when fixed site-priority rankings cease to be justified as occupancy uncertainty changes, even with identical habitat values. This is an exact structural benchmark, not an arbitrary numerical cutoff or a claimed general network-design algorithm.
+Each pair whose unique tree path uses v gains (1-p)p^d on protection, including the (v,v) term. Avoiding v in W_T removes precisely the through-v terms and leaves n-1 diagonals and twice the distinct residual unordered sum, verifying the repair's exact ranking and tie equivalence. I reconstructed the classification using all-root canonicalization and leaf attachment instead of Prüfer words and generated both bond and site path counts by tracing unique paths. Each n-tree has a leaf deletion to an (n-1)-tree, so this exhausts the 1,1,1,2,3,6,11,23 shapes. The transformed integer difference (1+t)^7 Q(t/(1+t)) is nonnegative coefficientwise for a single common optimizer at 21 order-eight shapes. The remaining two have disjoint exact maximizer sets at 1/2 and 9/10. Recounted differences are 2p(1-p²-p³) and 2p(1-2p²); I checked a nonzero nonnegative transformed difference against each otherwise excluded competitor. The equal score vectors in the second witness and its polynomial sign give the entire tie sets, not just observations at two probabilities. The repair narrows attribution, preserves the correct witness lists and certificate, and needs no change to the frozen verifier.
 
-## Scope and independence
-The result is restricted to unweighted trees, homogeneous independent survival, one guaranteed protected vertex and ordered-pair connectivity including self-pairs. No independent expert or external audit is claimed. Full prior-literature coverage cannot be guaranteed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The repaired claim is exactly the completion of the order-eight exceptional layer, with the second obstruction and its full regimes; no novelty is claimed for the cutoff, first obstruction, path-count identity, or objective. The strongest equivalent comparators do not supply that completion.
+
+## value
+
+PASS
+
+At the naturally distinguished first exceptional order, this turns existence of a switching tree into a complete classification. In particular, another topology has a switch between two automorphism orbits and a four-way tie at a different exact probability; the result is not a cosmetic translation of the known first spider. It provides a benchmark for general classifications of parameter-dependent tree deletion or protection.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

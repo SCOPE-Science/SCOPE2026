@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:42:41.656641Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–69",
+        "Frozen VERIFICATION.md, check_rees.py and check_output.txt (inspected; supplied program not executed)",
+        "Araújo et al. arXiv:2605.00041v1 §3 and Definition 3.8"
+      ],
+      "rationale": "For a nonzero element a to be fixed on both sides by gh=(i,c,λ), its indices must be (i,λ), the relevant sandwich entry p=p_{λi} must be nonzero, and cp=1. Thus outside the full identity the only domains are {0} and U_e={0} plus the maximal subgroup at a supported position. For e=(i,λ), f=(j,μ), put q=p_{μj}. If g=(i,x,μ), h=(j,y,λ) and xp_{μj}y=p⁻¹, then hg is the idempotent at f. In the coordinates ρ_e(a)=a_group p, the new coordinate is y p a_group p x q=(yp)ρ_e(a)(yp)⁻¹. Conversely arbitrary t is obtained with y=tp⁻¹ and x=p⁻¹y⁻¹q⁻¹. One identity factor alone gives a local identity or bottom; two give the full identity. Distinct local domains meet only at 0, so mismatched compositions are the bottom map on {0}, and matched compositions multiply conjugations (inverse coset labels under right action). Distinct labels are exactly cosets mod Z(G). With one support entry regularity forces one row and column, so the local identity is global; otherwise global identity is new. Minimal nonzero idempotents and their maximal groups recover |E| and G/Z(G) also at infinite cardinalities.",
+      "residual_risks": [
+        "In the one-support case the Brandt part contains the full identity; the proof's phrase 'nonidentity partial maps' must be read with its immediately following boundary qualification.",
+        "The frozen test documentation overcounts distinct tested zero-pattern shapes; the script has eleven instances in five displayed matrix-shape/zero patterns. Neither the finite checks nor the all-length conclusion relies on the pattern count."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 4.2 treats completely simple Rees matrices without zero entries. The inverse-semigroup results identify the kernel of partial conjugation as the central congruence.",
+          "The same paper explicitly leaves completely 0-simple semigroups to Problem 7.5."
+        ],
+        "reasoning": "The all-nonzero sandwich case is accessible via the zero-free case plus adjoining an absorbing element; the inverse results cover the inverse Brandt special case. Neither includes all regular sandwich zero patterns, especially non-inverse matrices with internal zeros.",
+        "searches": [
+          "Araújo et al. arXiv:2605.00041v1 Theorem 4.2, Remark 3.11 and §7",
+          "Kinyon–Stanovský arXiv:2209.13805 Theorem 1.2"
+        ]
+      },
+      "checked_sources": [
+        "Araújo et al. arXiv:2605.00041v1 and arXiv:2301.04252",
+        "Kinyon–Stanovský arXiv:2209.13805",
+        "Resultary b82db1836ccf, 240d56a8fe9d, 0a4447340ca9, d492f868ddce"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The direct source distinguishes the untouched 0-simple case from the completely simple one. The conjugacy theorem describes which nonzero elements can be related, not a normal form for every partial conjugation."
+        ],
+        "reasoning": "Establishing a simultaneous local conjugation for every parameter on each ordered pair of supported positions, and then controlling composition and the common fixed zero, adds the genuinely needed structure.",
+        "searches": [
+          "Araújo et al. arXiv:2605.00041v1 Problem 7.5 and Theorem 4.2",
+          "Araújo et al. arXiv:2301.04252 Theorem 2.19"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Definition 3.8 uses the same maps φ_{g,h}(a)=hag on a two-sided fixed domain. Theorem 2.19 of the earlier paper requires supported local positions and a group-conjugacy equation for natural conjugacy of nonzero elements."
+        ],
+        "reasoning": "The partial-map problem uses the same conjugacy operation, but an elementwise equivalence relation cannot recover the distinct maps between local groups, their central kernel, and the multiplication on mismatched supports.",
+        "searches": [
+          "Araújo et al. arXiv:2605.00041v1 Definitions in §3 and Problem 7.5",
+          "Araújo et al. arXiv:2301.04252 Theorem 2.19, natural conjugacy in Rees zero-matrix semigroups"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary b82db1836ccf is the assigned record itself. Distinct full matrix records 240d56a8fe9d and 0a4447340ca9 feature global conjugations and rank-one Brandt parts; d492f868ddce treats global conjugation restrictions of full endomorphisms in any finite dimension."
+        ],
+        "reasoning": "Those full endomorphism monoid results have additional rank layers and global operations. They are not the same classification, nor do their stated hypotheses give all completely 0-simple Rees inputs. The external search added no decisive evidence.",
+        "searches": [
+          "Resultary: partial inner automorphisms Rees zero-matrix, Brandt central quotient",
+          "External lookup on Rees zero-matrices and partial inner automorphisms"
+        ]
+      },
+      "rationale": "The completely zero-simple classification with arbitrary regular sandwich support answers a question explicitly posed in the inspected antecedent. The inverse Brandt, group and zero-free ingredients are not independently novel; the supported distinction is the full zero-matrix class and loss of all support geometry beyond its cardinality.",
+      "residual_risks": [
+        "The bounded searches do not determine absolute priority. The inverse Brandt and all-nonzero specializations are not separate originality claims."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct antecedent, not prior resolution for arbitrary regular sandwiches with zeros",
+          "evidence": "Defines the fixed-domain maps and asks the completely zero-simple question after the completely simple theorem.",
+          "identifier_or_url": "https://arxiv.org/html/2605.00041v1",
+          "material_read": "§3 (including Definition 3.8 and Remark 3.11), Theorem 4.2 near offset 32820, Problem 7.5 near offsets 132900–135400",
+          "method": "OA body passages",
+          "title": "The Inverse Monoid of Partial Inner Automorphisms of a Semigroup",
+          "trigger": "Exact problem and comparison theorem"
+        },
+        {
+          "assessment": "Relevant for inverse semigroups, not all completely zero-simple semigroups",
+          "evidence": "The partial-conjugation map's kernel is the central congruence of the inverse semigroup.",
+          "identifier_or_url": "https://arxiv.org/html/2209.13805",
+          "material_read": "Theorem 1.2, offsets 6410–8810",
+          "method": "OA body passage",
+          "title": "Abelianness and centrality in inverse semigroups",
+          "trigger": "Possible prior implication via inverse partial conjugation"
+        },
+        {
+          "assessment": "Same local conjugacy constraint, different object of classification",
+          "evidence": "The theorem characterizes a relation on elements, not the monoid of all local maps with its composition.",
+          "identifier_or_url": "https://arxiv.org/html/2301.04252",
+          "material_read": "Theorem 2.19, offsets 43600–47763",
+          "method": "OA body passage",
+          "title": "Conjugacy in Semigroups: the Partition and Brauer Diagram Monoids, Conjugacy Growth, and Partial Inner Automorphisms",
+          "trigger": "Natural conjugacy in exactly the same Rees object"
+        },
+        {
+          "assessment": "Brandt structures for different monoids, not a prior Rees zero-matrix theorem",
+          "evidence": "Statements retain global conjugations and/or different rank-dependent partial actions of full endomorphism monoids.",
+          "identifier_or_url": "Resultary 240d56a8fe9d, 0a4447340ca9, d492f868ddce",
+          "material_read": "RESULT.md Findings from offset 0",
+          "method": "Local mirror passages",
+          "title": "Partial inner automorphisms of matrix and endomorphism monoids",
+          "trigger": "Closest distinct records from the catalogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md statement, proof and example at line 69",
+        "Araújo et al. arXiv:2605.00041v1 Problem 7.5"
+      ],
+      "rationale": "The theorem gives the composition law and an intrinsic classification for a standard semigroup class, in direct response to Problem 7.5. In particular, semigroups with very different support geometry and even different finite cardinalities can have the same partial-inner monoid. This follows from the theorem for arbitrary groups and supports, not merely from sample coincidences.",
+      "residual_risks": [
+        "No classification of nonregular zero-matrix semigroups or of their presentations follows."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

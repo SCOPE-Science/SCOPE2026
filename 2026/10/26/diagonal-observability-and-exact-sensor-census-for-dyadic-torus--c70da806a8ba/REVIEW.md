@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof identifies the dual update with multiplication by \(W=X+Y\) in a finite group algebra. Because the long side is a power of two, the change of variables gives a free \(s\)-generator module over \(\mathbb F_2[W]/(W^L)\). The sensor matrix is invertible precisely when reductions of its site monomials hit every diagonal class. The counts use direct inclusion-exclusion, and the Poisson threshold follows from fixed-order factorial moments with a stated uniform error bound for \(L\ge s\). The verifier corroborates small cases only; no numerical test is mistaken for an all-size proof.
+## correctness
 
-## Originality
-PASS under the inspected literature, not a claim of independently established historical priority. The one-dimensional additive-CA orbit analyses in Tadaki (1993), general finite-field observability theory in Sundaram–Hadjicostis (2013), and affine-CA Kalman criterion in El Yacoubi et al. (2021) do not provide the explicit two-dimensional residue-class sensor rule or its complete exact sensor-set census in the inspected text. Similar sensor and reconstruction research exists: the full 2022 Plénet et al. article and 1997 Khan et al. matrix-algebra article were not inspected. Their possible specific overlaps remain residual risks. The general rank test itself is credited to prior work.
+PASS
 
-## Mathematical value
-PASS. The all-zero eventual state of this linear automaton conceals every starting configuration; the result determines exactly when a fixed set of time traces nevertheless recovers the lost information. The answer is a transparent geometric characterization for every size and every placement, with a sharp minimal sensor count, an exact budget-dependent enumeration and a coupon-collector transition for random placements. The all-placement criterion rather than a narrow numerical example is the main structural contribution.
+In the dual group algebra a time step sends a site functional to its product with W=X+Y. Substitution X=W+Y carries the defining ideal to (W^L,Y^s-1), since L is a power of two and s divides L. Thus the time span is a module over F_2[W]/(W^L), free of rank s before any sensor restrictions. Modulo W each sensor is exactly the basis element Y^(i+j mod s). Missing a basis element prevents spanning; choosing one of each gives a matrix invertible modulo W and therefore invertible over the nilpotent extension. This proves the criterion for all sets, even for indefinite readings since W^L=0, and the linear dimension bound excludes fewer than L frames with s sensors. Each class has L sites, yielding L^s optimal sets and the claimed inclusion–exclusion formula at all cardinalities including k=0 and k=Ls. For r fixed the class-avoidance probability is the product of 1-rL/(Ls-i) over 0<=i<k. Its logarithm is -rk/s+O_r(k/s^2+k^2/(Ls^2)); both errors vanish uniformly for L>=s in the critical window. Consequently the empty-count factorial moments converge to those of Poisson(e^(-c)), giving the zero-empty probability, or equivalently the same result follows by finite Bonferroni bounds and then sending their truncation to infinity.
 
-## Scope and open risks
-The theorem covers only synchronous north-east XOR on dyadic rectangular periodic grids, noiseless static sensors and full pre-extinction time observations. No claim is made about other boundary conditions or update rules. The inaccessible plausible papers and unindexed literature must be examined before asserting independent historical priority.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Known observability-rank criteria and occupancy arguments are credited as ingredients. The supported distinct contribution is the exact all-placement classification and resulting census and critical window for the specified two-dimensional torus. The closest CA results use different dynamics or occupancy events; none of the inspected statements evaluates this torus rank in terms of the claimed diagonal geometry.
+
+## value
+
+PASS
+
+For a natural finite linear dynamics the result replaces a rank test on Ls initial coordinates by a complete geometric criterion. It establishes that the information lower bound is attainable, identifies every minimal set, and distinguishes deterministic optimum s from typical fixed-size sampling at s log s. The inclusion–exclusion and Poisson calculations are routine once the partition criterion is known, but together quantify the practical difference between designed and unstructured placement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

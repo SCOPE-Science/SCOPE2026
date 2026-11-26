@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:57:34.877493Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The fixed counts leave (ab,bc,abc); the unique c cuts the m copies of b at position β. For both a's after c, the counts reduce to (v+2z,β,0) with v+z≤h, yielding the integer interval max(0,α−h)≤z≤floor(α/2). With one a on each side, the number of b's between the first a and c is γ and the number after the second a is α−γ−h, so the two feasibility intervals are sufficient and determine the unique word. For both a's before c the same interval count has budget β and argument γ, with α=γ+2h. The supports have sizes 2h+1,(β+1)(h+1),2β+1, pairwise intersection sizes h+1,β+1,1, and triple intersection size 1. Thus each cut has βh+2m+1 images, which sums to the stated polynomial. The triangular counts peak at floor(B/2)+1; they meet only at their respective endpoints, giving size 3 with the middle skeleton, while (α,β,γ)=(m,0,0) attains floor(m/2)+2 for m≥2. This also verifies m=0 and 1 via the common corner. Placement gives (m+1)(m+2)(m+3)/2 words, so the stated mean over images and the one-word-per-image zero-error interpretation are correct. The frozen checker was inspected, not run; the analytic count is exhaustive for all m.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Teh pp. 11–12: ternary rewriting",
+          "Answering Two Conjectures About Parikh Matrices, p. 3: ternary distinguishability and structural comparisons",
+          "Hahn–Cheon–Han abstract addresses unambiguity and substitution; 68116579b62c counts singleton cases across bounded lengths"
+        ],
+        "reasoning": "These results are about identifying, rewriting, separating or bounding special classes. They do not provide per-signature counts or the three-skeleton overlaps for fixed content; knowing singleton recognition is not the same as a multiplicity law.",
+        "searches": [
+          "arXiv:1506.06476, ternary transformations and matrix equivalence",
+          "arXiv:2410.15004; DOI 10.1007/978-3-031-40247-0_10; Resultary 68116579b62c"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 097158f6d402 and 68116579b62c",
+        "arXiv:1506.06476 and 2410.15004",
+        "DOI 10.1007/978-3-031-40247-0_10 (abstract)",
+        "DOI 10.3233/FUN-2002-49401 (abstract)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The (2,m,2) result records image support under a two-c measurement, not one-c word cardinalities",
+          "The 2002 article abstract primarily treats injectivity in binary alphabets, including palindromic amiable words"
+        ],
+        "reasoning": "Deleting or adding a c changes both bc and abc and does not give a count-preserving transformation between the image theorem and these fibers. The exact largest class, support census and multiplicities here require the fixed-content split at the unique c, not just a general equivalence test.",
+        "searches": [
+          "097158f6d402 RESULT.md: Finding, assumptions, and Relationship to prior work",
+          "Teh arXiv:1506.06476 pp. 2–4 and 11–12",
+          "Atanasiu–Martín-Vide–Mateescu DOI 10.3233/FUN-2002-49401"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Teh, pp. 2–4: equality of ordered Parikh entries is equality of consecutive-block scattered counts",
+          "Resultary 097158f6d402, Finding: same invariant at (2,m,2)"
+        ],
+        "reasoning": "Reversing both the word and alphabet order exchanges endpoint counts and identifies (2,m,1) with (1,m,2), but not the (2,m,2) family. An unrestricted relabeling does not preserve the ordered signature; strong M-equivalence is a finer measurement.",
+        "searches": [
+          "Resultary: ternary Parikh matrix, fixed content, composition (2,m,1), exact fiber and largest ambiguity",
+          "Teh arXiv:1506.06476, ordered matrix-entry identity and M-equivalence"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 097158f6d402, Finding: (m+1)(m+2)(2m+1)/2 images at (2,m,2), with no fiber counts",
+          "The same record, Relationship to prior work, refers to distinct prior findings at (2,m,1) without a citation or formula"
+        ],
+        "reasoning": "No returned item was a verified exact table or formula for the bound multiplicities other than the target. The unnamed reference is not identifiable as a separate covering result from the available passage.",
+        "searches": [
+          "Resultary: exact fixed-content Parikh matrix image, (2,m,1) fiber law, image cardinality and maximum fiber"
+        ]
+      },
+      "rationale": "The closest located fixed-content theorem enumerates images with two copies of each endpoint, not the multiplicities with one c. Accessible general Parikh results treat equivalence, distinguishability, rewriting or singletons, not the full pointwise fiber law. A reference to unidentified work at the same composition and an abstract-only 2023 comparison leave a priority risk, but no matching stronger or exact result was established.",
+      "residual_risks": [
+        "The reference to unidentified (2,m,1) findings in 097158f6d402 could not be matched to a distinct inspectable source and might bear on priority.",
+        "The Hahn–Cheon–Han full text was unavailable; abstract-level comparison cannot exclude an exact embedded count."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related statement; earlier exact same-content coverage not identifiable",
+          "evidence": "Two c's are required for the support formula. The note about distinct prior findings at (2,m,1) supplies no identifier or exact statement.",
+          "identifier_or_url": "2026/10/25/SCOPE-exact-fixed-content-parikh-matrix-image-and-its-parity-boundary--097158f6d402",
+          "material_read": "RESULT.md offsets 0–3132 and Relationship to prior work and references starting near offset 5900",
+          "method": "Local Resultary mirror",
+          "title": "Exact fixed-content Parikh-matrix image and its parity boundary",
+          "trigger": "Closest indexed image census; mention of the target content"
+        },
+        {
+          "assessment": "Same measurement; no covering census in inspected passages",
+          "evidence": "Gives the scattered-count identity and characterizes equivalence via rewriting and counters.",
+          "identifier_or_url": "https://arxiv.org/pdf/1506.06476",
+          "material_read": "pp. 2–4 and 11–12, offsets 6500, 33200 and 37314",
+          "method": "Targeted OA PDF text",
+          "title": "Parikh matrices and Parikh Rewriting Systems",
+          "trigger": "General equivalence and rewriting could overlap with the fiber method"
+        },
+        {
+          "assessment": "Different invariants",
+          "evidence": "Discusses distinguishability and Hamming-distance structure, rather than all fiber counts for fixed content.",
+          "identifier_or_url": "https://arxiv.org/pdf/2410.15004",
+          "material_read": "p. 3, offsets 7300–10040",
+          "method": "Targeted OA PDF text",
+          "title": "Answering Two Conjectures About Parikh Matrices",
+          "trigger": "Ternary structure of M-equivalence classes"
+        },
+        {
+          "assessment": "Full-text comparison unavailable",
+          "evidence": "Abstract describes unambiguous words and substitution rules; chapter/PDF redirects and the alternate listing did not yield full text.",
+          "identifier_or_url": "https://doi.org/10.1007/978-3-031-40247-0_10",
+          "material_read": "Accessible abstract only",
+          "method": "Abstract and lawful chapter/PDF and alternate-copy checks",
+          "title": "M-equivalence of Parikh Matrix over a Ternary Alphabet",
+          "trigger": "Same ternary M-equivalence objects"
+        },
+        {
+          "assessment": "Inspected abstract mainly concerns binary words",
+          "evidence": "Identifies a binary family whose image determines the word within that family; no ternary multiplicity claim in the abstract.",
+          "identifier_or_url": "https://doi.org/10.3233/FUN-2002-49401",
+          "material_read": "Publisher abstract, offset 0",
+          "method": "OA website mode",
+          "title": "On the Injectivity of the Parikh Matrix Mapping",
+          "trigger": "Older work cited by the closest indexed theorem"
+        },
+        {
+          "assessment": "Singleton count upper bounds only",
+          "evidence": "Bounds a count of M-unambiguous words across bounded lengths rather than counting preimages at this fixed composition.",
+          "identifier_or_url": "2026/10/4/SCOPE-unconditional-polynomial-sparsity-of-m-unambiguous-words--68116579b62c",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Unconditional polynomial sparsity of M-unambiguous words",
+          "trigger": "Indexed result on Parikh class sizes"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "One c provides a natural cut and two a's are the first repetition on the opposite end that allows growth of a fiber within one ordered skeleton. The exact law identifies all ambiguities, gives the largest reconstructible fixed-content code, and separates bounded mean occupancy from linear worst ambiguity across an entire infinite family. It resolves more than equivalence testing or a partial word census.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

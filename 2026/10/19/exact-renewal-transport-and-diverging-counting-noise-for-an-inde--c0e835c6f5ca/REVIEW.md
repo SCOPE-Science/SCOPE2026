@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** Full regeneration follows from the sole vacancy and the necessarily open gate immediately after each successful special-edge crossing. First-step recursions yield a rational service-time Laplace transform; conditioning on an independent Gamma traversal gives the exact transform, moments, and current. A positive-integral identity proves strict switching-speed monotonicity. A separate moment expansion yields a divergent slow-switching counting Fano factor and a strictly sub-Poissonian fast limit. Recomputing the full Markov generator and killed-generator absorption moments by exact rational algebra passed 96 comparison identities on 24 parameter choices. The general proof is analytic, not an inference from finite experiments.
+## correctness
 
-**Originality — PASS within the inspected evidence.** The closest 2012 intermittent-defect TASEP source has an occupation-dependent *site* defect. A later full dynamic-disorder paper has independent obstacles but examines all-site stochastic disorder, particle densities and approximate stationary currents rather than a single gated bond's exact renewal-counting law. General 2021 gated-reaction renewal identities explicitly assume the particle's spatial transition law is independent of the gate; here the gate determines that law. Published treatments of renewal counts and switching noise supply broad machinery, not an inspected all-ring theorem or an identical exact Fano crossover. Bibliographic uniqueness is not asserted; related queueing, roadblock and first-passage literature remains a residual risk.
+PASS
 
-**Value — PASS.** The formula completely resolves both flow and long-time shot-noise for a natural dynamically obstructed exclusion sector, and proves an exact separation of macroscopic mean throughput from growing low-frequency noise under slow gating. Its strictly increasing current and obligatory super-to-sub-Poisson crossover provide meaningful finite-system benchmarks against averaged-bond approximations. This does not imply a result at arbitrary particle density.
+The joint post-crossing state is always vacancy at n−1 and gate ON. The strong Markov property gives iid complete intervals, not an ordinary forward waiting time from a stationary observation epoch. The next m ungated jumps form an independent rate-one Erlang traversal S. Put a=(1−p)κ, b=pκ; the two-state killed service generator yields φ_ON=r(s+b)/Q and φ_OFF=rb/Q for Q=s²+(r+κ)s+rb. Weighting by p+(1−p)e^(−κS) and integrating gives exactly Φ. From ΦQ=N, −Φ′(0)=(Q′−N′)/(rb) and Φ″(0)=(N″−2+2μQ′)/(rb), recovering both displayed moments. The extra term in μ is (1−p)/p times the strictly decreasing integral m∫₀¹(1+κv)^(−m−1)dv. Renewal reward and particle conservation give equal current on all bonds; the counting variance rate is Var(τ)/μ³, including the stationary delayed process since the finite phase-type times have exponential moments. At small κ the numerator of the second moment tends to 2r(m+1/r)(1−p)/p and μ→(m+1/r)/p. At large κ the same moment formulas give μ→m+1/(rp) and Var(τ)→m+(rp)^(−2), not merely convergence in distribution. The fast Fano factor is strictly below one, so continuity with the divergent slow end proves existence (not uniqueness) of a finite crossing. Independent exact replay: python3 /workspace/branches/independent_checks.py 1 solves stationary and tilted-generator Poisson equations; it matches the current and Fano factor at three rational instances, from F≈13.114 at κ=1/30 to F≈0.149 at κ=51. The frozen checker was read, not run. Its printed 96 tally counts four categories per parameter point, although the Laplace category has two frequency equality assertions; this bookkeeping does not affect the proof.
 
-**Closest-source limitations.** The 2012 site-defect occupancy rule differs; the 2019 dynamic-disorder manuscript uses a different defect field and primarily mean-field arguments; 2021 gated-target reaction laws assume externally unaffected spatial motion. Equivalent special-case calculations in broader Markov-modulated queues or historical traffic models remain possible. No independent scientific audit has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass for the combined one-vacancy current and counting-noise law, including fixed-open-fraction speed monotonicity and the slow Fano prefactor. Gated reaction renewal is prior and even admits a close reduction of the interval law via independent bond attempt times as instantaneous contacts. The closest inspected exclusion formulas and catalogued Fano crossover do not cover this generator and statistic together. Neither a new general renewal method nor priority over all gated-service models is claimed.
+
+## value
+
+PASS
+
+Transmission current alone would suggest throughput remains regular as the gate slows, whereas its asymptotic count variance becomes very large. The positive limiting current, sharp noise coefficient, and forced approach to sub-Poisson noise supply an exact benchmark where effective-rate averaging loses important information. This is useful in the single-vacancy sector and does not claim a general-density law or a unique crossover.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

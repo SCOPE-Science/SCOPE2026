@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T23:28:15.845953Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The class of world 1 in the least equivalence relation containing the union is precisely its reachability component. For a fixed s-set containing 1, each partition respects its cut, the s-side restrictions must jointly connect, and the complement restrictions are arbitrary; independent marking then contributes p^s. This gives both the exact probability and the connected-count recurrence, also at n=1. For the tail, the displayed ratio of U_{s+1} to U_s is uniformly bounded below 1 for 2≤s<n/2: below n^{2/3} it is o(1), up to n/4 its limiting upper bound is 3p/4, and in the remaining range it is at most p+o(1). Above half-size one can also bound the actual tail directly by p^{n/2}, since the unmarked size probabilities sum to one. Thus for fixed positive K the first omitted bound U_{K+1} has the stated scale, and successive fixed-size terms have relative scale W(n)^r/n^{r-1}. The first-order replacement of the leading Bell ratio does not have the required two-term accuracy: at the saddle ρ=W(n), the coefficient ratio for exp(e^z−1) gives B_{n-1}/B_n=(ρ/n)(1+1/(2n)+o(1/n)). In the same-radius integrals the extra e^{iθ} factor gives the correction κ₃/(2κ₂²)−1/(2κ₂), with κ₂=n(1+ρ), κ₃=n(1+3ρ+ρ²), by Gaussian integration. The resulting relative O(1/n) change with nonzero leading constant exceeds the claimed relative remainder. Checked the frozen restricted-growth and union–find code by inspection; it compares the finite rooted histogram and p=1/2 probabilities, not the asymptotic. No uploaded code was run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The sibling proof bounds V_{n,s}=binom(n,s)(B_s B_{n-s}/B_n)^r by ε_n^s through n^{1/3}, with ε_n=O((log n)^r/n^{2(r−1)/3}), then by exp(−c_r n^{1/3}) through n/2.",
+          "Pittel's Theorem 5 gives a global failure bound O((log n)^{r+1}/n^{r−1}); the general labelled decomposition explains the recurrence, whereas neither of these cited theorem statements alone gives the marked expansion."
+        ],
+        "reasoning": "The relevant stronger information is the explicit uniform cut bounds in the matched proof, not just its displayed singleton asymptotic.",
+        "searches": [
+          "Resultary sibling proof, uniform non-singleton cut estimates",
+          "Bell–Bender–Cameron–Richmond EJC 7 R33, labelled connected component decomposition",
+          "Pittel EJC 7 R5, Theorem 5"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and checker.py",
+        "Resultary 70aeda2912b6",
+        "Pittel EJC 7 R5",
+        "Collevecchio–LiCalzi working paper",
+        "Bell–Bender–Cameron–Richmond EJC 7 R33",
+        "arXiv:2605.00523"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The rooted s-term is exactly binom(n−1,s−1) C_{s,r}(B_{n-s}/B_n)^r p^s, hence is at most (s/n)p^s V_{n,s}. Put R_K=n^K(B_{n-K-1}/B_n)^r, of order n^{-((r−1)(K+1)+1)}W(n)^{r(K+1)}.",
+          "Take M=2K+4. The finitely many terms K<s<M are O(R_K) by fixed-shift Bell ratios; M≤s≤n^{1/3} sums to O(ε_n^M)=o(R_K) using the sibling's pointwise bound; n^{1/3}<s≤n/2 is exponentially small under the sibling's other bound. For s>n/2 the actual marking factor is at most p^{n/2} and the unmarked probabilities sum to at most one."
+        ],
+        "reasoning": "The recurrence fixes every coefficient exactly, and the prior bounds with the elementary marking factor imply the required remainder for any fixed K. The two-term and leading formulas are immediate specializations. The frozen proof uses a different way to organize the tail, but no independent mathematical claim about that method survives the overlap.",
+        "searches": [
+          "Resultary 70aeda2912b6, proof Step 2 and Verification connected-count formula"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Pittel's join is the finest common coarsening; Collevecchio–LiCalzi call that same coarsening the meet. The matched Resultary record uses the identical join of r independent uniform labelled partitions and counts the component containing world 1 in its recurrence.",
+          "Zenger Definition 4.2 identifies common knowledge with truth at all worlds reachable via reflexive transitive closure of the union."
+        ],
+        "reasoning": "The model and rooted size distribution are unchanged under the notational differences. Bernoulli marking gives a probability-generating-function evaluation of that size distribution; the pointed event is not the global connectivity event.",
+        "searches": [
+          "Resultary: random S5 common knowledge, uniform partition join, rooted component and singleton obstruction",
+          "Pittel EJC 7 R5, join of uniform partitions",
+          "Collevecchio–LiCalzi, nontrivial common knowledge"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Verification section of Resultary 70aeda2912b6 gives the exact C_{n,r} recurrence, explains its rooted decomposition, and distinguishes finite enumeration from the asymptotic proof."
+        ],
+        "reasoning": "There is exact catalogue coverage of the integers a_{s,r}=C_{s,r}, not a separately located table of Q_n for continuous p. The implication check below covers that additional expression.",
+        "searches": [
+          "Resultary: exact connected partition-tuple recurrence and rooted marked Bell-ratio probability"
+        ]
+      },
+      "rationale": "The marked probability is not stated verbatim in the strongest matching distinct Resultary record. But that record already supplies the exact rooted component count and uniform cut estimates strong enough for the entire fixed-order remainder. Multiplying by p^s and splitting the prior bounds at a sufficiently large fixed size gives the frozen claims without a new estimate. This establishes mathematical coverage, not priority inferred from the matching date keys.",
+      "residual_risks": [
+        "No relative priority is inferred from same-day path keys. The negative decision rests on the explicit mathematical implication, not on an exhaustive claim about external research."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Distinct record; the stronger unmarked cut estimates and component formula imply the frozen marked result",
+          "evidence": [
+            "Proof Step 2 bounds every V_{n,s} on both size ranges through n/2; Verification counts by the component of world 1."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-the-sharp-singleton-obstruction-to-universal-common-knowledge-in--70aeda2912b6/RESULT.md",
+          "material_read": "Finding, Proof Steps 1–3 and Verification recurrence, offsets 0–8288",
+          "method": "Resultary search and local-mirror full text, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "The sharp singleton obstruction to universal common knowledge in random S5 frames",
+          "trigger": "Strong Resultary match on model, component topology and recurrence"
+        },
+        {
+          "assessment": "Same join, global failure bound alone too coarse",
+          "evidence": [
+            "Theorem 5 controls overall disconnection of the join, not the pointed marked-size expansion."
+          ],
+          "identifier_or_url": "doi:10.37236/1483",
+          "material_read": "PDF p. 1 lattice definition and p. 13 Theorem 5",
+          "method": "Lawful journal full text",
+          "title": "Where the Typical Set Partitions Meet and Join",
+          "trigger": "Same random partition ensemble and global join asymptotic"
+        },
+        {
+          "assessment": "Different event; existence of some nontrivial commonly known event",
+          "evidence": [
+            "Its meet is the finest common coarsening; Proposition 1 gives a zero limit under uniform partitions."
+          ],
+          "identifier_or_url": "https://www.unive.it/web/fileadmin/user_upload/dipartimenti/DMAN/pubblicazioni_scientifiche/working_papers/2011/2011wp6.pdf",
+          "material_read": "Working-paper pp. 6 and 8, lattice notation and Proposition 1",
+          "method": "Open university working-paper PDF",
+          "title": "The Probability of Nontrivial Common Knowledge",
+          "trigger": "Same common-knowledge setting, potential equivalent event"
+        },
+        {
+          "assessment": "The component recurrence is standard; the inspected asymptotic theorem assumes positive radius, unlike B_n^r",
+          "evidence": [
+            "A(x)=exp C(x), and Theorem 2 has R>0."
+          ],
+          "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v7i1r33/pdf",
+          "material_read": "PDF pp. 1–2 and p. 4 Theorem 2",
+          "method": "Lawful journal full text",
+          "title": "Asymptotics for the Probability of Connectedness and Distribution of Number of Components",
+          "trigger": "Broader labelled decomposition and connectivity asymptotics"
+        },
+        {
+          "assessment": "Confirms the semantic reduction, not the random-frame expansion",
+          "evidence": [
+            "C is evaluated on the reflexive transitive closure of the union of accessibility relations."
+          ],
+          "identifier_or_url": "arXiv:2605.00523",
+          "material_read": "Section 4, Definition 4.2",
+          "method": "Open arXiv full text",
+          "title": "Intuitionistic Common Knowledge",
+          "trigger": "Semantics of the operator being measured"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The pointed marked probability is a natural observable and keeping exact Bell ratios is appropriate. In this record, however, its exact coefficients and all fixed-order error bounds follow by elementary marking and summation from the matched record's recurrence and cut bounds. No independently useful unresolved estimate, regime, or structural result remains beyond that implication.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

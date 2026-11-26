@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:00:17.803400Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof",
+        "Frozen VERIFICATION.md and verify_modularity_ncut_boundary.py (inspected, not executed)",
+        "/workspace/replay_3.log"
+      ],
+      "rationale": "For one bipartition the internal edge fraction is (m−c)/m and its null term is (a^2+b^2)/(4m^2), with a+b=2m. Thus Q=(ab−2mc)/(2m^2) and Ncut=2mc/(ab), proving the stated identity, positivity equivalence, and opposite numeric monotonicity at fixed ab. Independently exhausted connected graph orbits through six, all partitions by smaller-side representatives (lexicographic on equal halves), and all unordered partition pairs. Used the integer signs of the difference of ab−2mc and the cross-product comparison of c/(ab), requiring Q>0 for both splits. Orbit-weighted labeled counts are zero strict reversals through five and 420 at six. Explicit relabelings of both decorated witnesses yield disjoint orbits of sizes 360 and 60 that exhaust the 420; the exact Q, Ncut and cut/volume statistics also match. The positivity restriction is substantive: with no positivity requirement the independent census finds 180 labeled strict reversals at order five, including pairs with both Q negative. Replay: python /workspace/replay_frozen_graphs.py 3, output /workspace/replay_3.log.",
+      "residual_risks": [
+        "The result concerns pairwise order of exact objectives on two nontrivial positive-modularity splits of the same graph. It is not a claim about global minimizers/maximizers, spectral rounding, multiway partitioning, or larger-order counts."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Reichardt–Bornholdt use A_ij−gamma p_ij, recovering the standard configuration-model modularity at gamma=1. Newman's pp. 6 and 9 are about spectral methods, not exhaustive hard partitions."
+        ],
+        "reasoning": "A theorem for all resolution parameters with the right discrete ranking hypotheses would encompass the target's gamma=1 case. The inspected generalized objective and conclusions about the effect of the resolution parameter do not compare it against normalized cut or count small order conflicts.",
+        "searches": [
+          "Literature: Newman 2013 \"Spectral methods for network community detection and graph partitioning\" modularity normalized cut identical spectral algorithms resolution parameter generalized modularity exact discrete rankings",
+          "arXiv:cond-mat/0603718, pp. 3–4 and p. 9"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1307.7729",
+        "arXiv:cond-mat/0308217",
+        "arXiv:cond-mat/0603718",
+        "DOI:10.1109/34.868688 (access attempted)",
+        "Resultary:2026/10/13/4ef3ed458378",
+        "Resultary:2026/10/13/5a39b2918ed2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Newman–Girvan's modularity formula gives the definition and enables the balance identity by elementary algebra. The checked same-day catalogue records compare or optimize Barber modularity for distinct bipartite network problems."
+        ],
+        "reasoning": "The identity forces agreement at constant volume product; it neither says how early unequal volumes can make the preferences conflict under Q>0 nor counts the decorated conflicts. The relaxed algorithm result and the Barber-modularity studies cannot supply these discrete facts. Same-day dates establish no priority.",
+        "searches": [
+          "arXiv:cond-mat/0308217, p. 8",
+          "arXiv:1307.7729, Eqs. 35–36 and conclusion",
+          "Resultary:2026/10/13/4ef3ed458378",
+          "Resultary:2026/10/13/5a39b2918ed2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Newman's normalized-cut optimization is expressed as a hard constraint followed by a relaxation; the sameness statement is explicitly in the spectral formulation. The two standard exact objectives obey Q/(ab/(2m^2))=1−Ncut."
+        ],
+        "reasoning": "The rescaled modularity score ranks exactly opposite to numeric normalized cut, but standard unrescaled modularity can rank differently as ab changes. Neither the rescaled formulation nor equality of relaxed algorithms implies the target is covered. A map exchanging the split sides leaves both exact objectives invariant.",
+        "searches": [
+          "Resultary: modularity normalized cut strict ranking reversal positive modularity small graphs six vertices",
+          "Resultary: Newman modularity normalized cut community detection graph partition objective",
+          "arXiv:1307.7729, pp. 6 and 9"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected ranked hits did not match the 420 pairs or their two simultaneous orbits. The closest finite classification, Resultary 4ef3ed458378, tabulates a Pareto frontier for NODF and Barber modularity on fixed-size connected binary 2-by-n networks."
+        ],
+        "reasoning": "The comparison units in that frontier are different graphs rather than two bipartitions of one graph. It lacks the positive Newman–Girvan filter and normalized-cut column needed to give this census.",
+        "searches": [
+          "Resultary: 420 labeled reversing partition pairs",
+          "Resultary: six-vertex modularity normalized-cut reversal positive bipartition exact enumeration",
+          "Resultary: exact finding title"
+        ]
+      },
+      "rationale": "The supported distinct result is the exact sharp positive-modularity reversal boundary at six and the complete two-class decorated first layer. The standard objective definitions, their elementary balance identity, and the spectral algorithm connection do not by themselves constitute novelty. The strongest checked connection concerns the relaxation and does not cover discrete rankings.",
+      "residual_risks": [
+        "Shi–Malik full text did not yield to the checked OA routes, and the ranked catalogue and literature queries do not exclude unindexed exercises, examples, or small-graph tables."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Relevant coverage for relaxed algorithms, not the discrete reversal theorem.",
+          "evidence": "Hard constrained normalized cut is relaxed to real variables; the statement of sameness is qualified by the spectral formulation.",
+          "identifier_or_url": "https://arxiv.org/pdf/1307.7729",
+          "material_read": "p. 6, Eqs. 35–36, text offset 39700; conclusion p. 9, offset 61500.",
+          "method": "Open primary PDF passages.",
+          "title": "Spectral methods for network community detection and graph partitioning",
+          "trigger": "Prior direct comparison of modularity and normalized cut."
+        },
+        {
+          "assessment": "Provides the null model and objective.",
+          "evidence": "Q is the within-community edge fraction minus expectation, with e_ij=a_i a_j under the null.",
+          "identifier_or_url": "https://arxiv.org/pdf/cond-mat/0308217",
+          "material_read": "p. 8, text offset 52800.",
+          "method": "Open primary PDF passage.",
+          "title": "Finding and evaluating community structure in networks",
+          "trigger": "The original modularity objective."
+        },
+        {
+          "assessment": "A generalization of one objective without the relevant covering comparison in the inspected material.",
+          "evidence": "A_ij−gamma p_ij; gamma=1 and degree-product p_ij recover standard modularity.",
+          "identifier_or_url": "https://arxiv.org/pdf/cond-mat/0603718",
+          "material_read": "pp. 3–4, offsets 18300 and 25400, including Eqs. 10 and 16–17; p. 9, offset 59200.",
+          "method": "Open primary PDF passages.",
+          "title": "Statistical mechanics of community detection",
+          "trigger": "Potential broader coverage under modularity resolution parameters."
+        },
+        {
+          "assessment": "Named access limitation; no whole-document noncoverage claim.",
+          "evidence": "No repository copy returned by DOI lookup and publisher page did not yield text.",
+          "identifier_or_url": "https://doi.org/10.1109/34.868688",
+          "material_read": "No readable full text obtained in this check; discrete and relaxed formulas were inspected in Newman's open comparison instead.",
+          "method": "OA DOI recovery and IEEE landing-page attempt.",
+          "title": "Normalized Cuts and Image Segmentation",
+          "trigger": "Original normalized-cut reference."
+        },
+        {
+          "assessment": "Different metrics and domain.",
+          "evidence": "NODF and Barber modularity across fixed-size binary 2-by-n networks.",
+          "identifier_or_url": "Resultary:2026/10/13/4ef3ed458378",
+          "material_read": "RESULT.md, offsets 19–2270, local snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4.",
+          "method": "Resultary search and local mirror passage.",
+          "title": "Exact nestedness–modularity Pareto frontier",
+          "trigger": "Same-day finite exact comparison involving modularity."
+        },
+        {
+          "assessment": "A different objective without the relevant normalized-cut comparison.",
+          "evidence": "Optimizes Barber modularity on a specific nested-network family.",
+          "identifier_or_url": "Resultary:2026/10/13/5a39b2918ed2",
+          "material_read": "RESULT.md, offsets 15–1990, same local snapshot.",
+          "method": "Resultary search and local mirror passage.",
+          "title": "Sharp Barber modularity in two-tier perfectly nested ecological networks",
+          "trigger": "Same-day exact modularity claim."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, witnesses and volume identity",
+        "arXiv:1307.7729, conclusion",
+        "/workspace/replay_3.log"
+      ],
+      "rationale": "These are standard but differently balanced discrete community scores. The positive-modularity filter keeps both splits above the null baseline, so the disagreements are not merely artifacts of comparing two poor partitions. The two minimal decorated graph types and exact objective values provide diagnostic cases for whether an objective or code really responds to volume balance as intended, despite a connection between spectral relaxations.",
+      "residual_risks": [
+        "The comparison is a controlled benchmark of pairwise preferences and does not rank community detection algorithms or imply that the displayed splits are global optima."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

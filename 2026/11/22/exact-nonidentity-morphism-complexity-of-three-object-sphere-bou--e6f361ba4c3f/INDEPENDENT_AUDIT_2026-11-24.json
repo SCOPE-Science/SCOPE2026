@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:51:08.948039Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–45, VERIFICATION.md, verify.py (inspected, not executed)",
+        "Independent replay: python3 /workspace/branches/independent_checks.py, direct total-arrow enumeration for the examples, without importing the supplied optimizer"
+      ],
+      "rationale": "Positive H₂ forces a nondegenerate composable pair; acyclicity orders its three distinct objects and excludes all reverse arrows and higher nondegenerate simplices. Write a,b,c for the 01,12,02 hom-set sizes. Counting cells gives s=2−a−b−c+ab=(a−1)(b−1)−(c−1), so u=a−1 and v=b−1 are positive and c=uv−s+1≥1. Conversely use the anchor label h₀ on the first row and column and put each of the c−1 other labels on a different interior cell. With f₀,g₀ as the spanning tree, the corner triangle kills h₀ in the fundamental group, the other anchor triangles kill remaining fᵢ,gⱼ, and the remaining labels are killed by their assigned triangles. There are no associativity constraints from triples of nonidentities. The resulting simply connected 2-complex has free H₂ of rank s, and spherical representatives give a homotopy equivalence by Hurewicz and homological Whitehead. Thus the Euler bound is attained for every feasible pair. For fixed u the cost increases strictly with v, and u>s is dominated by (s,1); the stated finite minimization and scale bounds follow. In particular s=1,7,8,100 have costs 5,10,9,23.",
+      "residual_risks": [
+        "The modular rank checker is finite and would not itself establish simple connectedness or integral homotopy type. The proof establishes them without relying on the checker."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Carcacía-Campos Theorem 4.4 minimizes the number of objects for sphere bouquets. Resultary e074a603ce27 realizes finite connected two-dimensional CW types with at most three objects, using presentation-dependent tables; its limitations expressly exclude minimal arrow counts. Tanaka p. 1 studies strong homotopy reductions rather than this arrow invariant."
+        ],
+        "reasoning": "Both existence and minimal object count are covered. The broad construction, with no sharp number of arrows, does not dominate the exact fixed-object count or give sharpness for each feasible pair.",
+        "searches": [
+          "arXiv:2611.09718 Theorem 4.4 and §2.3",
+          "Resultary e074a603ce27, three-object models of all finite connected 2D CW types",
+          "Tanaka arXiv:1707.01179"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.09718 §§2.3, 4.2–4.4",
+        "arXiv:1707.01179 p. 1",
+        "Resultary e6f361ba4c3f (self-match), e074a603ce27, dc8d988b8d35, 7f6f386c38a1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The common nerve description implies the numerical lower bound by Euler count, but does not guarantee that arbitrary admissible hom-set counts are realized with trivial fundamental group. The prior one-thin-factor construction attains s+4, not the 23-arrow minimum at s=100."
+        ],
+        "reasoning": "The new sharpness comes from the specific all-size assignment of anchor labels and singleton composite labels, which makes π₁ trivial concurrently with attaining the lower bound. Neither the compared a=2 criterion nor broad existence supplies that upper bound by direct substitution.",
+        "searches": [
+          "arXiv:2611.09718 Proposition 2.4, Corollary 2.5, §4.2 and Theorem 4.4",
+          "Resultary e074a603ce27 Finding, Proof and Limitations"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Carcacía-Campos §2.3 writes the classifying space as a mapping cone using the sink link graph; Proposition 2.4 and Corollary 2.5 give a homotopy-type criterion in the a=2 setting, corresponding to u=1 here. The sphere-wedge constructions in §4.2 fit u=1 and cost s+4; the S² examples of §4.4 fit the u=1,s=1 family up to relabeling."
+        ],
+        "reasoning": "The comparison allows reversal of the three-object order and relabeling of arrows. A thin factor stays thin under these operations; when s=100 no thin-factor solution is optimal. The abstract mapping-cone reformulation is common to both, but is not itself an exact all-factor minimum.",
+        "searches": [
+          "\"three-object\" acyclic category exact number nonidentity morphisms wedge spheres composition table Carcacía-Campos",
+          "Resultary semantic lookup for exact three-object sphere-bouquet morphism complexity",
+          "arXiv:2611.09718 §2.3 and §§4.2–4.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "e6f361ba4c3f is the assigned record itself. The exact table matches in arXiv:2611.09718 include thin-factor constructions. The other exact Resultary morphism-complexity laws concern orientable surfaces and wedges of real projective planes."
+        ],
+        "reasoning": "Neither of the adjacent extremal laws is a specialization to arbitrary positive numbers of 2-spheres; they optimize other fundamental-group and homotopy types. The sphere case s=1 has a known particular realization and is not separately credited as new.",
+        "searches": [
+          "Resultary e6f361ba4c3f, e074a603ce27, dc8d988b8d35, 7f6f386c38a1",
+          "arXiv:2611.09718 §§4.2 and 4.4 construction tables"
+        ]
+      },
+      "rationale": "The three-object formalism, thin-factor examples, and object minimum are prior. The exact minimum counting all nonidentity arrows, plus the arbitrary feasible-pair realization needed for sharpness, survive the bounded primary literature and Resultary comparisons. No chronological priority is inferred relative to the same-day records.",
+      "residual_risks": [
+        "The web lookup was bounded. An unindexed equivalent optimization, or a more efficient known specialization of general table constructions, is not excluded.",
+        "The related Resultary records share a date; their priority and intellectual relationship are not resolved by the date."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same objects and partial constructions, not the full optimum",
+          "evidence": [
+            "Proposition 2.4 and Corollary 2.5 specialize to a=2; §4.2 has S_r with r−1 spheres and r+3 arrows; Theorem 4.4 minimizes objects; §4.4 varies the thin-factor S² model."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2611.09718",
+          "material_read": "§2.3 pp. 10–11; §§4.2–4.4 pp. 16–18, including Theorem 4.4",
+          "method": "Lawful OA extracted PDF, offsets 24500–31480, 41900, 43500 and 45400",
+          "title": "How many points does it take to see the homotopy of a space? Minimal acyclic categorical models",
+          "trigger": "Same three-object composition-table formalism and sphere-bouquet targets"
+        },
+        {
+          "assessment": "Background on reductions in strong homotopy, not evidence of the stated extremum",
+          "evidence": [
+            "Point reductions and strong homotopy of acyclic categories and Δ-complexes are the objects of the inspected material."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1707.01179",
+          "material_read": "p. 1 scope/summary",
+          "method": "Lawful OA PDF",
+          "title": "Strong homotopy types of acyclic categories and Δ-complexes",
+          "trigger": "Possibly relevant reductions of acyclic category models"
+        },
+        {
+          "assessment": "Covers three-object existence and composition tables, not morphism minimization",
+          "evidence": [
+            "Explicit tables with presentation-dependent sizes; limitations exclude minimal morphism counts."
+          ],
+          "identifier_or_url": "Resultary 2026/11/22 e074a603ce27",
+          "material_read": "RESULT.md Finding/Proof, Relationship/Limits, offsets 0 and 4528",
+          "method": "Local Resultary mirror",
+          "title": "Three-object acyclic categorical models for all finite two-dimensional CW types",
+          "trigger": "Closest broader realization covering sphere wedges"
+        },
+        {
+          "assessment": "Different target; not a sphere-bouquet extremum",
+          "evidence": [
+            "Formula (2g+1)(2g+2) for closed orientable surfaces; lower bound exploits surface cup products."
+          ],
+          "identifier_or_url": "Resultary 2026/11/22 dc8d988b8d35",
+          "material_read": "RESULT.md Finding/Proof and Relationship/Limits, offsets 0 and 4836",
+          "method": "Local Resultary mirror",
+          "title": "Sharp morphism complexity of three-object categorical models of orientable surfaces",
+          "trigger": "Same numerical invariant for a neighboring family"
+        },
+        {
+          "assessment": "Different target; no reduction to wedge of 2-spheres with the same complexity",
+          "evidence": [
+            "Optimizes wedges of real projective planes, obtaining (r+1)^2+2."
+          ],
+          "identifier_or_url": "Resultary 2026/11/22 7f6f386c38a1",
+          "material_read": "RESULT.md Finding and Relationship/Limits, offsets 0 and 4559",
+          "method": "Local Resultary mirror",
+          "title": "Sharp morphism complexity for three-object categorical models of wedges of real projective planes",
+          "trigger": "Same invariant and wedge formulation but different summands"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Steps 1–4 and Limitations",
+        "Carcacía-Campos arXiv:2611.09718 §§4.2–4.4"
+      ],
+      "rationale": "After minimizing objects it is natural to ask how expensive the allowed categories are in arrows, including composites. The result optimizes this exact invariant for every sphere multiplicity and replaces the known linear size family with an optimal square-root scale; the formula determines concrete minima even when they are nonmonotone. The construction proves attainability rather than just an Euler obstruction.",
+      "residual_risks": [
+        "No minimum over more than three objects, count of generators alone, or classification of all optimizing tables is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:31:04.393410Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The frozen result is mathematically sound: for N≥2, the free maximum transform at s=1/2 contracts by 1−δ, the killed regeneration operator preserves the exponential supersolution, and nonexplosion permits the monotone infinite-cycle limit. From any positive start the reflection-killed heat kernel is strictly positive between positive points, so one surviving reset can reach a position with the bound strictly below one. A chosen particle can hit before the first alarm, so escape is never certain at finite positive parameters. The no-reset survival tail obtained by independence and reflection is of order t^(−N/2), with the mean criterion N>2; N=1 resetting is inert. As r decreases to zero, survival is bounded by the probability that the first alarm precedes the a.s. finite free hit; as r increases to infinity, the capture bound vanishes. For the repaired quantitative finding, the designated-particle first-cycle event also gives the lower bound e^(−y), y=x√(r/D). Independent Gaussian mean and difference give the conditional transform; integrating erfc by Tonelli and rationalizing yields 2/[2+s(√(2−s²)−s)] for every s∈(0,1). Thus the required contraction gap Δ(s)>0 holds on the entire interval and Δ(s)≥s(1−s)/3. The iteration works for each choice of s; choosing s=1−1/(y+2) gives the explicit 6eN(y+2)e^(−y) upper bound. Together these bounds force the sharp logarithmic rate; the proof never assumes independence of the maximum and the killing indicator within a cycle. Independent original transform quadratures agree (max absolute discrepancy below 7×10⁻¹⁴, replay `python3 /workspace/audit_checks/frozen_reconstruction.py`). The corrected package includes its own new bounded checker and `python3 /workspace/repairs/5/checker.py` passed six transform quadratures, sampled contraction bounds and rational prefactor checks. The proof, not the checker, certifies the logarithmic rate; no exact asymptotic prefactor is asserted.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lee–Yang–Lizana current-maximum protocol in harmonic confinement; Lee et al. group-reset theory with stationary center-of-mass avoidance",
+          "Majumdar–Sabhapandit–Schehr reset to a single walker's historical maximum; arXiv:2205.10273 fixed-origin relocation, in one model only the farthest particle is moved",
+          "The exact drift result includes zero drift but states an exponential-distance estimate only with an unspecified θ"
+        ],
+        "reasoning": "First-particle capture under current-maximum collective relocation is not stationary center-of-mass avoidance, a model with fixed reset target, the displacement of a historical maximum, or an OU first-passage law. The same-model general drift theorem dominates the qualitative claim, not the sharp distance exponent.",
+        "searches": [
+          "Brownian particles same current maximum rightmost collective resetting first passage capture probability sharp large distance exponential decay unconfined zero drift",
+          "arXiv:2604.24406; arXiv:2412.02524; arXiv:1509.04516; arXiv:2205.10273"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, REVIEW.md and checker.py",
+        "Corrected RESULT.md, SLOGAN.txt, VERIFICATION.md, REVIEW.md and checker.py in /workspace/repairs/5",
+        "Resultary 93a6d9240315 and 6963419da67c",
+        "arXiv:2604.24406, 2412.02524, 1509.04516 and 2205.10273"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Positive-mean reset-walk argument in Proof §3 picks sufficiently small θ with E exp(−θY)<1 and finite mark moment",
+          "The fixed-potential paper gives censored mean estimates and a harmonic quasi-stationary discussion",
+          "The repaired proof supplies explicit contraction for every 0<s<1 and a first-cycle lower bound at exponent 1 in scaled distance"
+        ],
+        "reasoning": "Substituting v=0 mechanically proves the original survival claim. An unspecified small θ is insufficient for a sharp logarithmic limit; even if one reapplies the interval-maximum method, the old bound does not control the prefactor near the critical exponent. The repair derives a quantitative gap for the full exponent range by exact transform evaluation and uses the killed renewal inequality plus lower bound, not a corollary of a survival threshold.",
+        "searches": [
+          "6963419da67c RESULT.md offsets 0, 3900 and 7275",
+          "Lee–Yang–Lizana arXiv:2604.24406, model and first-passage discussion pp. 2–3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Distinct indexed Finding at 6963419da67c: same current maximum, common independent Poisson clock, first hit by any particle, v_c=√(πDr/2) E max_i Z_i",
+          "The original record is itself indexed at 93a6d9240315; its result is not independent evidence"
+        ],
+        "reasoning": "At constant drift v=0, v_c>0 for N≥2, so positive escape and infinite unconditional mean coincide with the original headline. The repair is instead a statement about the logarithm of the probability of capture in the large common starting-distance limit. It is not a rewording of positive noncapture or ballistic speed conditional on noncapture.",
+        "searches": [
+          "Unconfined collective Brownian rightmost resetting first hit of origin sharp log asymptotic capture probability distance exponential decay sqrt(r/D) Cramer exponent zero drift exact Gaussian maximum transform",
+          "2026/11/22/SCOPE-a-sharp-inward-drift-threshold-for-survival-under-rightmost-part--6963419da67c"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest ranked distinct match gives the exact drift threshold and a bound b exp(−θx)/(1−a) for some θ>0, with a=E exp(−θY), b=E exp(θH)",
+          "Other ranked results on resetting tails concern stationary maxima, different confinement/slopes or distinct reset maps"
+        ],
+        "reasoning": "Threshold and survival-speed formulae are exact but evaluate a different quantity. The inspected exact capture estimate does not give an exact value of the distance exponent or a bound with at most linear prefactor at that exponent. The ranked catalog search is not an exhaustive census.",
+        "searches": [
+          "Resultary: Unconfined collective Brownian rightmost resetting first hit of origin sharp log asymptotic capture probability distance exponential decay sqrt(r/D) Cramer exponent zero drift exact Gaussian maximum transform",
+          "6963419da67c RESULT.md Finding and Proof §3"
+        ]
+      },
+      "rationale": "This PASS is for the substantive quantitative repair only. The original headline claim of nonzero escape at every positive reset rate (and infinite unconditional mean there) fails independent originality assessment: it is a direct v=0 corollary of the distinct inward-drift threshold record under the exact same reset and killing rules. This is demonstrated coverage, not a claim about which same-day record appeared first or a mathematical error in the frozen theorem. The repair under /workspace/repairs/5 removes the qualitative assertion as a novelty claim and makes the sharp large-distance capture exponent and an explicit polynomial-prefactor upper bound the finding. The inspected threshold proof gives existence of a nonsharp exponential bound at some small positive trial exponent. That existence statement does not determine a sharp exponent. The repaired conclusion requires the full transform contraction interval and matching lower bound, neither furnished by that theorem or its inspected proof. The original half-rate explicit bound is retained as a corollary, not as a substitute novelty claim for the old finding.",
+      "residual_risks": [
+        "The date shared by the overlapping records does not order their results; the decision concerns demonstrated implication, not priority.",
+        "An earlier exact escape-tail analysis for the same regenerative process may be unindexed. The repaired distinction is limited to the actual cross-checks; an unsuccessful search is not proof of novelty.",
+        "The sharp logarithmic exponent does not specify the exact leading prefactor or give equivalent asymptotics at finite distances."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Zero-drift specialization covers original headline; exact quantitative repaired rate not established there",
+          "evidence": "Positive escape iff v<v_c, with v_c>0 for N≥2; infinite unconditional mean in this regime. Proof §3 gives b/(1−a) exp(−θx) for sufficiently small θ; distance bound not claimed sharp.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-inward-drift-threshold-for-survival-under-rightmost-part--6963419da67c",
+          "material_read": "RESULT.md offsets 0 (Finding and Assumptions), 3900 (Proof §3 and following), 7275 (Relationship and Limitations)",
+          "method": "Published record, local mirror, targeted reading",
+          "title": "A sharp inward-drift threshold for survival under rightmost-particle resetting",
+          "trigger": "Strongest direct dominance candidate, same reset and killing rules with general drift"
+        },
+        {
+          "assessment": "Protocol is same; potential and quantitative observable differ",
+          "evidence": "Positive harmonic confinement, k=1 in the simulations and right-censored mean estimates, not unconfined ultimate capture at large starting distance.",
+          "identifier_or_url": "https://arxiv.org/abs/2604.24406",
+          "material_read": "PDF pp. 1–3; offsets 1360, 7400, 13298 and 15374 (abstract, model, simulations, tail discussion)",
+          "method": "Lawful OA PDF, targeted reading",
+          "title": "Beyond average: heterogeneous first-passage dynamics in many-particle systems with resetting",
+          "trigger": "Primary paper using precisely the rightmost relocation and first-group-hit observable"
+        },
+        {
+          "assessment": "Stationary effective center-of-mass probability is a different observable",
+          "evidence": "The avoidance probability integrates a stationary density over positive positions, not the probability that a first zero hit never occurs.",
+          "identifier_or_url": "https://arxiv.org/abs/2412.02524",
+          "material_read": "PDF pp. 1, 2, 4; offsets 0, 9400 and 28600",
+          "method": "Lawful OA PDF, targeted reading",
+          "title": "General Theory for Group Resetting with Application to Avoidance",
+          "trigger": "Broader group reset theory may imply capture bounds"
+        },
+        {
+          "assessment": "Different reset operator and process",
+          "evidence": "One discrete walk resets to its running historical maximum, not a Brownian group moved to the current largest position.",
+          "identifier_or_url": "https://arxiv.org/abs/1509.04516",
+          "material_read": "PDF pp. 1–2, offsets 688 and 10177",
+          "method": "Lawful OA PDF, targeted reading",
+          "title": "Random walk with random resetting to the maximum",
+          "trigger": "Apparent alias of reset to the maximum"
+        },
+        {
+          "assessment": "Different relocation destination even in the extreme-based model",
+          "evidence": "In model B only the particle farthest from the origin is moved to the origin; this is not collective rightmost relocation. Abstract discusses distant-target mean first passage, not the repaired distance asymptotic.",
+          "identifier_or_url": "https://arxiv.org/abs/2205.10273",
+          "material_read": "PDF p. 1, model-B excerpt offsets 1815–2353 and first-passage summary near 3377",
+          "method": "Lawful OA PDF, literal targeted passage",
+          "title": "Fluctuations and first-passage properties of systems of Brownian particles with reset",
+          "trigger": "Literature search hit on distant first passage for Brownian groups with resetting"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Unlike the already covered qualitative statement of positive escape, the repair determines how rare capture is as the starting distance increases, a natural observable of this first-hit problem. The explicit upper and lower bounds compare the infinite sequence of risky cycles to just one initial cycle: the latter sets the exact exponential scale and unlimited further cycles can change the probability by at most a linear distance factor in the proved envelope. This is a sharp rate, not merely a new arbitrary trial constant. It applies to every fixed N≥2 and all positive r,D without confinement, but does not identify a precise prefactor or simulate an infinite horizon.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

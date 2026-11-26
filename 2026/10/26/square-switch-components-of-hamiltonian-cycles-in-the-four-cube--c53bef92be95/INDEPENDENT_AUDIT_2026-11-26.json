@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:04:54.768035Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–43",
+        "Frozen VERIFICATION.md and verify.py (read, not executed)",
+        "Private exhaustive replay: python3 /workspace/branches/2e8c2e90-3747-43b1-a475-dc227ad5a3cc/independent_q4.py; independent-results.json in the same directory"
+      ],
+      "rationale": "The canonical walks through 0 distinguish neither starting point nor orientation, and a connected disjoint pair of perfect matchings gives exactly an undirected Hamilton cycle. The symmetric difference for a two-edge move is a nonempty even subgraph with four edges in a simple graph of girth four; a four-cycle of the cube alternates two axes and is a face. Adjacent removed face edges would change a vertex degree by two, so the removed edges are opposite. Thus the face test with Hamiltonicity and the cycle-pair symmetric-difference test enumerate exactly the requested adjacency. The whole cube automorphism group is accounted for: after a translation an automorphism fixes 0, a coordinate permutation accounts for its permutation of the neighbors of 0, and distances to 0 and the four unit vectors determine every vertex. The separate full enumeration reproduced 1344 cycles (also from 272 perfect matchings), all 24 faces, 1920 edges, degree counts (240,384,192,288,240) at (0,1,2,4,8), components 1^240 and 1104, radius 10 and diameter 12, eccentricity counts (96,192,816), all nine orbit-size/degree pairs, and all twelve unordered pair-distance counts, with total 608856.",
+      "residual_risks": [
+        "The enumeration is exhaustive only for the defined graph on Q₄ and the specified moves; it is not a higher-dimensional result or a formal proof certificate."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The dense-graph theorem uses switches of size up to 10 and minimum degree at least n/2+7. The 2018 study covers inversions across dimensions and reports three of nine isolated types in dimension four. The later Resultary theorem covers the same graph and gives a further orbit-neighbor table."
+        ],
+        "reasoning": "Neither the dense-graph sufficient condition (4<15 here) nor a count of isolated types implies that the remaining labeled cycles form one component or gives its distances. The later record overlaps at the required parameters and on the very same state model.",
+        "searches": [
+          "Kleer–Patel–Stroh, DOI 10.37236/9503, Theorem 1",
+          "Contassot-Vivier–Couchot–Héam, DOI 10.3390/math6060098, Table 2",
+          "Resultary 2026/11/8/SCOPE-exact-square-switch-metric-and-symmetry-quotient-of-hamilton-cyc--a9f0a06fc4c6"
+        ]
+      },
+      "checked_sources": [
+        "Contassot-Vivier–Couchot–Héam 2018",
+        "Chebiryak–Kroening Table 1",
+        "Kleer–Patel–Stroh Theorem 1",
+        "Same-day matching flip and later Hamilton-cycle metric Resultary records"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Three inversion-isolated types and nine total types are known. The earlier table does not list the corresponding labeled multiplicities or a lifted component test."
+        ],
+        "reasoning": "The unweighted count of isolated types alone does not determine their labeled union under a nonfree group action. Even knowing a symmetry quotient is connected away from isolated types would not by itself show connectedness of the labeled graph. The all-pairs metric likewise requires more than the prior unweighted tabulation or the general dense-graph sufficient condition.",
+        "searches": [
+          "Contassot-Vivier–Couchot–Héam §§2.4, 5.2",
+          "Chebiryak–Kroening Table 1",
+          "Kleer–Patel–Stroh Theorem 1",
+          "Later Resultary metric theorem, theorem and proof passages"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2018 inversion reverses a code subsequence using parallel edges on a square, and calls a code with no valid inversion isolated.",
+          "The indexed same-day flip-distance theorem uses Q₄ perfect matchings, with 272 states and a 264-state component."
+        ],
+        "reasoning": "Reversing the intervening path is the Hamiltonicity-preserving reconnection of the opposite face edges and is not a materially new move. A perfect matching is not a Hamilton cycle; representing a cycle by its two alternating matchings does not identify the two state graphs or their distances.",
+        "searches": [
+          "Contassot-Vivier–Couchot–Héam, DOI 10.3390/math6060098, §§2.2, 2.4, 5.2",
+          "Resultary 2026/10/26/SCOPE-exact-square-flip-distances-in-the-four-dimensional-hypercube--84ee7ca2c7ef"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Table 1 gives 1344 cycles and nine automorphism classes at dimension four; Table 2 gives three isolated out of nine, not a labeled orbit-weighted census. The 2026-11-08 Finding gives the exact 1920 edges, 240 isolates, 1104 component, degree and eccentricity counts and orbit pairs. The full distance histogram was not confirmed in the bounded passages inspected there."
+        ],
+        "reasoning": "The tables establish real coverage of enumeration and isolated types. The later record is an exact match on much of the principal classification but is later dated than the frozen source; the inspected earlier tables contain neither this comprehensive census nor the histogram.",
+        "searches": [
+          "Chebiryak–Kroening, DOI 10.3233/SAT190038, Table 1",
+          "Contassot-Vivier–Couchot–Héam, Table 2",
+          "Resultary later exact metric record, ID a9f0a06fc4c6"
+        ]
+      },
+      "rationale": "The novelty is the exact labeled switch graph census, its connectivity and metric, and the exact association of orbit sizes with switch degrees, not the number of cycles, the nine types, the switch operation, or the existence and count of three isolated symmetry types. The 2018 inversion paper is material prior coverage of the last two points and should be credited. No earlier inspected result establishes the whole labeled census or its metric. A strong exact later Resultary match covers much of it and is recorded as such, without inferring provenance from dates alone.",
+      "residual_risks": [
+        "Gilbert’s full paper was not accessible in the retrieval attempted; its detailed historical tables are unresolved.",
+        "The relation of the later exact classification to the frozen record is unresolved. The review does not infer priority from a date alone or claim universal historical novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantive prior coverage of isolated types under the same move",
+          "evidence": "Valid parallel transitions permit the inversion; no such transitions gives a singleton. Table 2 at dimension four reports 3 isolated, 9 total.",
+          "identifier_or_url": "https://doi.org/10.3390/math6060098",
+          "material_read": "§2.2 p. 2 around offset 4300, §2.4 p. 7 around offset 24500, §5.2 p. 14 offsets 52900–55797 including Table 2",
+          "method": "Bounded OA PDF passages",
+          "title": "Gray Codes Generation Algorithm and Theoretical Evaluation of Random Walks in N-Cubes",
+          "trigger": "Earlier same-move reconfiguration study and exact isolation precedent"
+        },
+        {
+          "assessment": "Baseline count and orbit classification are prior",
+          "evidence": "Table 1 lists 1344 four-cube cycles and nine automorphism classes.",
+          "identifier_or_url": "https://doi.org/10.3233/SAT190038",
+          "material_read": "Table 1 p. 2, offset 900",
+          "method": "Bounded OA ETH report PDF passage",
+          "title": "Towards a Classification of Hamiltonian Cycles in the 6-Cube",
+          "trigger": "Exact earlier Q₄ cycle and orbit count"
+        },
+        {
+          "assessment": "Hypotheses and allowed moves do not establish the target",
+          "evidence": "The sufficient degree bound is n/2+7, using switches of size at most ten.",
+          "identifier_or_url": "https://doi.org/10.37236/9503",
+          "material_read": "Abstract p. 1 offset 828 and Theorem 1 p. 7 offset 20146",
+          "method": "Bounded OA PDF passages",
+          "title": "Switch-based Markov Chains for Sampling Hamiltonian Cycles in Dense Graphs",
+          "trigger": "General prior switch connectivity theorem"
+        },
+        {
+          "assessment": "Different state object and census",
+          "evidence": "The states are perfect matchings, with 272 total and a 264-state component.",
+          "identifier_or_url": "2026/10/26/SCOPE-exact-square-flip-distances-in-the-four-dimensional-hypercube--84ee7ca2c7ef",
+          "material_read": "Finding, offset 0",
+          "method": "Bounded local mirror read",
+          "title": "Exact square-flip distances in the four-dimensional hypercube",
+          "trigger": "Same-day and same cube/move terminology"
+        },
+        {
+          "assessment": "Material exact coverage, later dated",
+          "evidence": "Same degree and component counts, eccentricity census and nine orbit pairs; additional neighbor counts between orbits.",
+          "identifier_or_url": "2026/11/8/SCOPE-exact-square-switch-metric-and-symmetry-quotient-of-hamilton-cyc--a9f0a06fc4c6",
+          "material_read": "Theorem passage at offset 596; proof and prior work offsets 5088–7709",
+          "method": "Bounded local mirror reads",
+          "title": "Exact square-switch metric and symmetry quotient of Hamilton cycles in Q₄",
+          "trigger": "Strong exact match on graph and several invariants"
+        },
+        {
+          "assessment": "Residual risk regarding uninspected detailed tables",
+          "evidence": "The exact cycle/orbit counts are independently already documented in the accessible Chebiryak–Kroening table.",
+          "identifier_or_url": "https://doi.org/10.1002/j.1538-7305.1958.tb03887.x",
+          "material_read": "Bibliographic identification and secondary references; full text not read",
+          "method": "Lawful publisher access attempt and use of accessible primary comparisons above",
+          "title": "Gray Codes and Paths on the n-Cube",
+          "trigger": "Foundational four-cube symmetry result, possible historical tables"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and Assumptions",
+        "Independent enumeration replay for record 1",
+        "2018 inversion study and 2020 dense-graph switch paper"
+      ],
+      "rationale": "The Hamilton-cycle move graph is a natural reconfiguration and constrained-sampling object. The precise decomposition distinguishes immobile cycles from a single freely connected class, and the distances quantify the number of moves required within that class. Orbit-degree data identify how this structure depends on symmetry type. This is a complete labeled metric census, not a re-tabulation of the known state count or the known count of isolated types.",
+      "residual_risks": [
+        "No mixing-time guarantee follows from the census; higher dimensions and larger switches are not classified."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

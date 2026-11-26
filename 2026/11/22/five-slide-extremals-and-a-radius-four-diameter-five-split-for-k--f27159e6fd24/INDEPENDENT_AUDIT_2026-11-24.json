@@ -1,0 +1,154 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:06:10.203886Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Final repaired claim, n≥8. The unobserved vertices initially are unselected pairs that hit all selections. For up to three selected spokes there are at least four unobserved spokes; a noncentral observed pair sees at least two, and every observed central pair is selected and sees no unobserved vertex. Two disjoint selected pairs leave the four cross pairs, each observed pair being adjacent to zero or at least two of them. Triangles and three disjoint pairs leave no unobserved vertex; the other two nonstar triples leave the displayed two, one forced by a pair using a fresh label and then the last forced. Thus the slide states are precisely nonstar triples. Orbit sizes use the counts of labelled ground graphs on their supports. For each selected pair there are binom(n−2,2) disjoint candidates: total invalid replacements over the three deletions are 3(n−3), 2+2(n−4), 2+(n−3), and 6 in the four respective classes, accounting for overlaps of occupancy and the forbidden star only once. This gives the degree and enumerator formulas. The obstruction is symbolic: with disjoint endpoint configurations and at most four slides, each tracked token must move, so two move once, giving a direct matching of size at least two. For the converse and all upper bounds, permutation orbits permit four roots for each n=8…12; any larger-order endpoints occupy at most 12 labels, and paths on those 12 labels remain admissible in the larger graph. The custom adjacency construction groups triples by their two retained pairs and links exactly the disjoint legal extensions, so it tests the full induced graph (not unrestricted jumping). Complete independent distance layers from all four roots at each of five orders reach every state and identify the depth-five layer with precisely the stated matching deficit; all 20 histograms and all five size/edge counts agree with both recorded outputs where applicable. Replay: python3 /workspace/branches/independent_slides.py 8, then 9 10 and 11 12; outputs /workspace/branches/independent_slides_n8.txt, independent_slides_n9_10.txt and independent_slides_n11_12.txt. Frozen scripts were inspected, not executed. For sharp lower bounds in every order, the triangle witness requires at least four by lack of a direct perfect matching, while the two original path-type witnesses and the corrected matching witness have ν=1. In the corrected case every target meets both 01 and 23 and avoids 45. These witnesses persist in all larger orders. Together with the upper layers this gives all four eccentricities, radius four and diameter five with no extrapolation assumption.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bjorkman et al. define slides but study TAR/k-TAR and token jumping for power domination in the inspected introduction.",
+          "Fischer treats full token graphs; Bartier et al. treat slides of independent sets; Cornet–Torres study static k-tuple domination and packings."
+        ],
+        "reasoning": "The relevant move restrictions and feasible classes are essential: jumping allows any destination, and minimum power domination does not impose independence. Neither other slide theorem nor static Kneser domination determines these constrained distances.",
+        "searches": [
+          "Resultary: power-domination reconfiguration token sliding adjacent move power domination sets",
+          "arXiv:2201.01798v1 abstract and token-rule introduction",
+          "arXiv:2212.14634v1 theorem 2.3",
+          "arXiv:2205.01009 Abstract/Introduction",
+          "arXiv:2308.15603 Abstract"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, both certificate programs, both JSON outputs and VERIFICATION.md",
+        "Corrected RESULT.md",
+        "Resultary 6e981f3b14e6, f2da2f07c4da, 4e3e739b312a and 2a18810eefed",
+        "arXiv:2201.01798v1, 2212.14634v1, 2205.01009 and 2308.15603"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "6e981f3b14e6 already establishes the nonstar minimum triples for n≥8.",
+          "f2da2f07c4da excludes P4 rather than stars, uses unrestricted replacements and proves diameter three. It uses an analogous twelve-endpoint finite-support argument."
+        ],
+        "reasoning": "The static result gives the vertex set but no slide geodesics. The support bound itself is known as a method, but it does not transfer reachability or any shortest paths from the different isolating-set graph to this slide graph. Neither antecedent supplies the depth-five matching equivalence or triangle versus nontriangle eccentricities. The repaired witness only corrects a supporting example and does not shift the originality claim.",
+        "searches": [
+          "Resultary 6e981f3b14e6, Finding and proof steps 2–4",
+          "Resultary f2da2f07c4da, Finding, Assumptions and All-order diameter"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "R_n is the subgraph of the full three-token graph of KG(n,2) induced on nonstar triples, not the entire token graph. The matching criterion uses no shared selected Kneser vertices, not disjoint ground supports.",
+          "Fischer's theorem 2.3 addresses the full token graph, as verified in the abstract and theorem."
+        ],
+        "reasoning": "Replacing pairs by edges of K_n or slides by full-token edge moves preserves the local rule only if the forbidden three-star states are still excluded. Full-token graph distances never provide the needed upper bounds for this induced subgraph without checking paths avoid forbidden states.",
+        "searches": [
+          "Resultary: token sliding token graph diameter Kneser graph constrained configurations",
+          "Resultary: three-edge Kneser triples five token slides disjoint configurations matching number at most one",
+          "arXiv:2212.14634v1, theorem 2.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest same-graph records 6e981f3b14e6 and f2da2f07c4da concern static power domination and isolating-triple jumping respectively.",
+          "Distinct same-day entries 4e3e739b312a and 2a18810eefed have adjacent-slide radius/diameter 6/6 on H(3,3) and 7/8 on the Pappus graph, respectively; their Findings do not concern the two-subset Kneser family."
+        ],
+        "reasoning": "These are mathematical distinctions in inputs and claims, not an inference from date or title. No distinct exact Kneser distance-five table was established by the ranked catalogue searches; the searches are not exhaustive.",
+        "searches": [
+          "Resultary: power domination minimum configurations KG(n,2) Kneser nonstar triple distance reconfiguration",
+          "Resultary: minimum isolating sets reconfiguration KG(n,2) diameter three",
+          "Resultary: KG(n,2) power domination adjacent token slide reconfiguration distance 5 bipartite matching extremal",
+          "Resultary: three-edge Kneser triples five token slides disjoint configurations matching number at most one"
+        ]
+      },
+      "rationale": "The repaired final finding is the same precise adjacent-slide theorem, not the known nonstar classification, the orbit enumeration of that classification, or the general finite-support method. The inspected literature and related records do not imply the radius/diameter split with its exact all-order criterion. In particular the nearest same-graph comparison changes both feasibility and moves, and the distinct same-day records change the base graph. This is an evidence-bounded pass, not proof of priority.",
+      "residual_risks": [
+        "A differently named exact result for a star-deleted token graph may be missed. The literature assessment used primary OA passages and bounded catalogue searches, not an exhaustive general bibliographic search.",
+        "The all-order distance upper bound is computer-assisted: the complete finite layers and their lifting proof, not a symbolic general geodesic formula, are certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known domain of configurations, not slide distances",
+          "evidence": "For n≥8, nonstar triples succeed, and a successful star requires at least n−4 selected edges.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-power-domination-polynomial-and-minimal-set-dichotomy-of-two-sub--6e981f3b14e6",
+          "material_read": "RESULT.md Finding and proof steps 2–4, offsets 0 and 4800",
+          "method": "Local mirror passage comparison",
+          "title": "Power-domination polynomial and minimal-set dichotomy of two-subset Kneser graphs",
+          "trigger": "Exact feasibility premise"
+        },
+        {
+          "assessment": "Related proof technique, different feasible vertices and exchange rule",
+          "evidence": "Isolating triples exclude P4, permit stars, and exchange selected pairs unrestrictedly; resulting diameter three does not bound minimum-power-domination slide paths.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-minimum-isolating-sets-and-three-step-reconfiguration-in-operato--f2da2f07c4da",
+          "material_read": "RESULT.md Finding and Assumptions at offset 0 and All-order diameter at offset 4400",
+          "method": "Local mirror passage comparison",
+          "title": "Minimum isolating sets and three-step reconfiguration in KG(n,2)",
+          "trigger": "Closest same-graph reconfiguration and finite-support certificate"
+        },
+        {
+          "assessment": "TAR and jumping, not these slide geodesics",
+          "evidence": "Defines TAR, token jumping and token sliding; restricts the study to TAR/k-TAR and token jumping.",
+          "identifier_or_url": "https://arxiv.org/html/2201.01798v1",
+          "material_read": "Abstract offset 0; introduction's token rules offset 2439",
+          "method": "Lawful OA primary HTML passages",
+          "title": "Power domination reconfiguration",
+          "trigger": "General theory on the same type of feasible sets"
+        },
+        {
+          "assessment": "Full token graph, not the induced optimum-state graph",
+          "evidence": "Connectivity and diameter theory is for the full token graph; both allowed and forbidden triples for the present optimization occur there.",
+          "identifier_or_url": "https://arxiv.org/pdf/2212.14634v1",
+          "material_read": "Abstract p. 1 offset 0 and theorem 2.3 p. 4 offset 12000",
+          "method": "Lawful OA PDF passages",
+          "title": "On the connectivity and diameter of Token Graphs from a vertex induced sub-graph perspective",
+          "trigger": "General diameter theory for adjacent moves"
+        },
+        {
+          "assessment": "Independent-set slide problem",
+          "evidence": "Studies parameterized complexity for independent sets with a girth hypothesis, not minimum power domination on KG(n,2).",
+          "identifier_or_url": "https://arxiv.org/html/2205.01009",
+          "material_read": "Abstract and Introduction, offsets 991–1659",
+          "method": "Lawful OA HTML passages",
+          "title": "Token sliding on graphs of girth five",
+          "trigger": "Adjacent token slide literature"
+        },
+        {
+          "assessment": "Static multiple domination, not token slides",
+          "evidence": "Treats k-tuple domination and packings in Kneser graphs.",
+          "identifier_or_url": "https://arxiv.org/html/2308.15603",
+          "material_read": "Abstract, offsets 678–1310",
+          "method": "Lawful OA HTML passage",
+          "title": "k-tuple domination on Kneser graphs",
+          "trigger": "Related graph family and domination problem"
+        },
+        {
+          "assessment": "Different base graph",
+          "evidence": "H(3,3) has 1296 minimum triples and slide radius and diameter six in that result.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-power-domination-triples-and-sharp-relocation-detours-in-the-ter--4e3e739b312a",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror passage comparison",
+          "title": "Power-domination triples and sharp relocation detours in the ternary cube",
+          "trigger": "Distinct same-day adjacent-slide and optimum-triple comparison"
+        },
+        {
+          "assessment": "Different graph and distance statistic",
+          "evidence": "On the Pappus graph, the slide radius/diameter are 7/8; five concerns the locality penalty, not the Kneser diameter.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-five-symmetry-classes-and-a-sharp-five-move-locality-penalty-for--2a18810eefed",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror passage comparison",
+          "title": "Five symmetry classes and a sharp five-move locality penalty",
+          "trigger": "Distinct same-day five-move comparator"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The feasible set is a known natural optimal-sensor family, but requiring legal adjacent motion poses a distinct constrained-geodesic problem. In this unbounded highly symmetric graph family, the theorem reconstructs all maximally distant configurations from a direct-move matching obstruction and identifies the central orbit, with a nontrivial radius–diameter gap. This is useful beyond numerical diameter per order; the complete twelve-label certificate and matching obstruction connect a finite exact computation to the all-order classification. It makes no claim for higher-subset Kneser graphs, general token counts, or the complete distance law below five.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

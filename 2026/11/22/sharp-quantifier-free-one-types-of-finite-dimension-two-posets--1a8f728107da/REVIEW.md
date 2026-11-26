@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** A two-linear-order realizer maps every nonparameter one-type into an \((m+1)\)-by-\((m+1)\) cut grid. For each marked point, the two neighboring cuts \((i-1,p_i)\) and \((i,p_i-1)\) have the same strict predecessor/successor pattern. These \(m\) edges form a forest, so the number of nonparameter patterns is at most \(m^2+m+1\). An explicit reverse-rank antichain gives each all-incomparable or one-sided consecutive-interval pattern, achieving the bound. Adding the \(m\) equality types proves the exact extremum. The actual bundled checker enumerates every parameter permutation through eight and verifies the interval patterns, returning `VERIFY_OK`. The finite enumeration is corroboration, not the proof.
+## correctness
 
-**Originality — PASS within inspected evidence.** The 2026 two-order satisfiability paper uses a richer signature and studies a different logical invariant. The 2026 bounded-model-checking paper provides general type bounds. The nearest public exact type-count result concerns complete types of a monotone two-order Fraïssé limit carrying an extra relation, so neither statement directly implies the pure dimension-two poset atomic type spectrum. Searches for aliases, two-dimensional poset one-point extensions, and complete parameter types did not find the exact bound. Residual risk: a classical permutation-poset or geometric folklore argument might be equivalent.
+PASS
 
-**Value — PASS.** Sharp all-arity quantifier-free type growth and minimal realizing model size are intrinsic finite-model-theoretic invariants. The collision forest explains the nontrivial loss of \(m\) patterns when forgetting the two order coordinates and retaining their strict product order. The antichain extremizer gives a canonical interval normal form; this is structurally more informative than a low-arity census.
+For each unmarked realization the two linear orders give prefix masks A,B of U; below/above sets are A∩B and U\(A∪B). For marked rank pair (i,p_i), opposite cuts (i−1,p_i) and (i,p_i−1) make i incomparable, and every other parameter's two-cut change leaves its type unchanged since both ranks are distinct. Each edge is the unique one crossing its own first-coordinate threshold, so every edge is a bridge. Contracting these m equal-signature edges gives the upper bound (m+1)^2−m. For reverse ranks the possible nonempty below or above sets are intervals and cannot occur simultaneously; every interval is obtained with the indicated cuts, and (0,m) realizes the empty comparison. One rational point in each chosen open cut rectangle, with all coordinates distinct, realizes the entire witness in a single poset whose coordinate orders are linear. Adding the m equality types gives (m+1)^2, which is also a lower bound for the size of any witness by counting vertices. The empty marking is witnessed by one vertex. Replay: python3 /workspace/review_evidence.py, posets section, independently enumerates m=0 through 6 with bitmasks; it does not prove the arbitrary-m result. The frozen supporting review's phrase ‘all-arity’ is not the audited statement: the theorem has one free variable and unbounded parameter count.
 
-**Scope and limits.** The result does not cover complete first-order types, arity greater than one or order dimension at least three. Priority is not independently certified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge pass for the joint named predecessor/successor signature count in the pure finite poset reduct. The closest named-order and permutation-graph statements count different data, and the general type bounds do not supply the loss of exactly m at the optimum or its simultaneous antichain realization. No claim of historical priority is made.
+
+## value
+
+PASS
+
+An exact one-variable type-growth invariant for a standard finite order class, with a proof of the precise penalty from forgetting the named orders and a simultaneous minimum-size antichain realization. Neither the general growth order nor an arbitrary small-size census explains that penalty or witness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

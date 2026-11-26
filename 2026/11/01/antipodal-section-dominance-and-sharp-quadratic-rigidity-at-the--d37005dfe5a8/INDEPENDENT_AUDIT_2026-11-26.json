@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:05:09.930262Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–81",
+        "Frozen VERIFICATION.md lines 19–21 and verify.py lines 1–46; diagnostics inspected, not executed"
+      ],
+      "rationale": "The normal covector under the affine map is A^(1/2)u, of length sqrt(q). The hyperplane volume multiplier is sqrt(det A)/sqrt(q); the ball slice at signed distance (±1−t)/sqrt(q) gives the remaining power and hence the q^(−d/2) factor. Interior containment gives q>(1+|t|)^2. On the allowed interval h(x)=log(q−x²) is strictly concave, so [h(1−t)+h(1+t)]/2≤h(1), strictly unless t=0. The centered profile has log derivative (d−q)/(2q(q−1)), hence the unique optimum at q=d, with the stated constant. All-direction equality forces c=0,A=dI; equality of the spherical geometric mean forces all-direction equality by continuity and full support. For any other λ>1, a centered determinant-preserving perturbation along the first diagonal entry of diag(1,−1,0,…) with signed ε moving q towards d improves the section pair; λ>1 keeps strict containment for small ε. At (d,0) the first derivatives vanish and the log-pair Hessian is diagonal with entries −1/[2d(d−1)] and −(d+1)/(d−1). Substitution of q−d=εd uᵀHu+O(ε²) and t=εu·b and the fourth and second spherical moments reproduce both quadratic coefficients, uniformly by compactness of the sphere. The integrated deficit has strictly positive coefficients on tr(H²) and ||b||², including d=2.",
+      "residual_risks": [
+        "This is a local integrated Hessian, not a global stability estimate or an inequality for arbitrary convex bodies; the analytic verification does not depend on the sampled matrices."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Haddad–Ryabogin Theorem 1 assumes a symmetric convex body of revolution in R⁴, equal tangent-section volumes, and a specified set of such volumes, and concludes the body is a ball."
+        ],
+        "reasoning": "Neither the constant-data hypotheses nor the conclusion give a bound for arbitrary translated ellipsoids at fixed determinant, a critical scale, or the second variation. No conclusion about coverage is drawn from the inaccessible 2010 text.",
+        "searches": [
+          "arXiv:2605.00299, Theorem 1",
+          "DOI:10.1112/S0025579310000379 (OA comparison attempted)"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 86–96",
+        "Resultary 75abc96cf1f6 and a9c59a3c2e6e",
+        "arXiv:2605.00299 Theorem 1",
+        "DOI:10.1112/S0025579310000379 bibliographic comparison only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At r=1 the older formula yields the paired factor [(q−(1−t)²)(q−(1+t)²)]^((d−1)/4). Its translation maximum is at t=0 and the remaining q profile has log derivative (d−q)/(2q(q−1)). The formula is also the starting point for a second variation, but the cited injectivity conclusion does not assert critical-scale uniqueness or an integrated second variation."
+        ],
+        "reasoning": "This is a modest optimization and stability result built from known exact data, not a new section formula or a special case of the retrieved injectivity or cap-dominance theorems. The determinant-preserving feasibility step and spherical averaging distinguish the rigidity and quantitative part from merely substituting a radius into the old identity.",
+        "searches": [
+          "Resultary: SCOPE-global-barker-larman-rigidity-for-ellipsoids--75abc96cf1f6, §Proof",
+          "Resultary: SCOPE-uniform-alpha-section-dominance-for-nested-ellipsoids-in-every-d--a9c59a3c2e6e, §Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Global Barker–Larman rigidity for ellipsoids, §Finding and §Proof, treats determination by tangent-section data and writes the same individual-section profile.",
+          "Uniform alpha-section dominance, §Finding, concerns halfspace volume fractions, with one direction for all levels up to 1/2."
+        ],
+        "reasoning": "Joint injectivity of the full section data, cap-volume comparisons in one direction, and pointwise maximization of a product of two section areas under fixed volume are different statements. The known single-section profile nevertheless gives the exact objective and is substantial overlap.",
+        "searches": [
+          "Resultary comparison on ellipsoid tangent-section rigidity and section dominance",
+          "Primary literature comparison on antipodal tangent-section geometric mean and ellipsoid rigidity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The retrieved exact profile provides the function to optimize, not a tabulation of optimized values or Hessian coefficients."
+        ],
+        "reasoning": "A finite exact census is not applicable to the continuous all-dimension/all-parameter assertion. The relevant risk is an existing closed formula or theorem; the exact prior slice formula is identified and compared instead.",
+        "searches": [
+          "Resultary formula and cap dominance records; Haddad–Ryabogin arXiv:2605.00299, Theorem 1"
+        ]
+      },
+      "rationale": "Credit the affine section formula as existing coverage. Pairing that prior formula and optimizing its scalar profile gives the basic bound and directional equality by a short calculation, so those should not be treated as a new slice identity. The supported distinct content is the combined antipodal fixed-volume optimization, identification of the single universally pointwise-optimal reference scale (including feasible improving volume-preserving deformations off that scale), and the exact integrated translation/shape second variation. No retrieved stronger extremal or stability theorem subsumes that combination.",
+      "residual_risks": [
+        "The old slice formula comes very close to the basic bound; the distinct claim is narrow.",
+        "Older equivalent translated-section work, including the cited 2010 paper not read in full, remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material prior formula and direct route to the pointwise calculation; stated objective is injectivity",
+          "evidence": "V_E(u)=κ_(n−1) sqrt(D)[s(u)−(r−y(u))²]^((n−1)/2)/s(u)^(n/2).",
+          "identifier_or_url": "Resultary 2026/10/4/SCOPE-global-barker-larman-rigidity-for-ellipsoids--75abc96cf1f6",
+          "material_read": "Finding and proof formula near offset 1000",
+          "method": "Local mirror of RESULT.md",
+          "title": "Global Barker–Larman rigidity for ellipsoids",
+          "trigger": "Same tangent data and exact formula"
+        },
+        {
+          "assessment": "Cap fractions, not antipodal section areas",
+          "evidence": "The halfspace containing fraction α of A contains fraction β(α)≥α of B in the chosen direction.",
+          "identifier_or_url": "Resultary 2026/10/4/SCOPE-uniform-alpha-section-dominance-for-nested-ellipsoids-in-every-d--a9c59a3c2e6e",
+          "material_read": "Finding, opening passage",
+          "method": "Local mirror of RESULT.md",
+          "title": "Uniform alpha-section dominance for nested ellipsoids in every dimension",
+          "trigger": "Potentially broader ellipsoid section dominance"
+        },
+        {
+          "assessment": "Constant section volume rigidity in a specified class, not the optimized pair criterion",
+          "evidence": "The theorem assumes symmetry and revolution in R⁴, tangent-section volume constant in a prescribed set; conclusion is spherical rigidity.",
+          "identifier_or_url": "https://arxiv.org/pdf/2605.00299",
+          "material_read": "Theorem 1, p. 2",
+          "method": "OA primary PDF passage",
+          "title": "On convex bodies with constant non-central sections",
+          "trigger": "Non-central sections tangent to unit ball"
+        },
+        {
+          "assessment": "No statement-level verdict on this source",
+          "evidence": "Only title and publication data were available.",
+          "identifier_or_url": "https://doi.org/10.1112/S0025579310000379",
+          "material_read": "Bibliographic citation only; OA DOI and publisher-page attempts did not recover theorem text",
+          "method": "Lawful OA retrieval attempts",
+          "title": "Characterization of ellipsoids by means of parallel translated sections",
+          "trigger": "Closest cited older translated-section paper"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–40 and 45–81",
+        "Closest prior affine section formula and injectivity result"
+      ],
+      "rationale": "The geometric comparison has a natural constraint and statistic: fixed enclosing volume, paired sections by the inner ball's two opposite supports. It identifies an exceptional radius, gives the exact directional equality condition even for translated bodies, and separates the shape and translation costs in the logarithmic averaged deficit. This is useful sharp local information about a natural extremum, not novelty in the affine section formula or a claim of global metric stability.",
+      "residual_risks": [
+        "Elementary and limited to ellipsoids; neither a general convex-body extremum nor a new reconstruction theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

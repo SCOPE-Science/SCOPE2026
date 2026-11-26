@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:35:18.491524Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Proof steps 1–4 and witness, lines 35–77; VERIFICATION.md; verify_apartness.py",
+        "/workspace/reproductions/cotransitivity.py"
+      ],
+      "rationale": "On a finite upset algebra a vertex belongs to U→V exactly when its entire upward cone misses U minus V. In this frame the negated biconditional thus has leaf trace D, the symmetric difference of the inputs' traces, and contains the root exactly when D is the whole maximal set. In particular the two distinct elements with full trace have apartness zero. For three traces, D_xy is contained in D_xz union D_zy, so failure is possible only when D_xy is full and neither right-hand difference is full. For complementary endpoint traces the right join contains the root exactly when z has one of those endpoint traces. Writing s=2^m, the s-2 ordered complementary pairs away from the empty/full pair have s-1 bad z choices apiece; the four lifts of the two empty/full ordered pairs have s-2 each. This gives (s-2)(s+3) failures among (s+1)^3 triples, including zero for m=1. Direct negation gives WEM exactly on the empty upset, the leaf-only full trace and the whole poset. The exact degrees give a positive failure fraction tending to zero for m≥2 and WEM success tending to zero. Independent replay using pointwise cone semantics rather than residuation verified the failure predicate and WEM success set on every assignment for m=1–7 (2,463,045 triples): python3 /workspace/reproductions/cotransitivity.py. The uploaded script was inspected, not run.",
+      "residual_risks": [
+        "The exact count is family-specific. The existence of this witnessing family shows no positive finite gap; it is not a classification of satisfaction frequencies over all finite Heyting algebras."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general WEM product W=∏_i(1+u(P_i minus M_i)) specializes to W=1+2=3 when the only nonmaximal point is the single root.",
+          "The height-two theorem gives unary negation-output fibre counts and a reconstruction theorem."
+        ],
+        "reasoning": "Broader WEM coverage genuinely implies the frozen unary probability, whatever the relative chronology. Neither cited result counts the joint incidence of three negated biconditionals. Reconstructing a frame would still require a new count over its triples.",
+        "searches": [
+          "Resultary 826a5e04fbd5 joint WEM/DNE spectra for finite upset algebras",
+          "Resultary 6cd6509ce01e negation-output frequencies and height-two frame reconstruction"
+        ]
+      },
+      "checked_sources": [
+        "Kocsis arXiv:2209.03920",
+        "Bumpus–Kocsis arXiv:2110.11515",
+        "Resultary 826a5e04fbd5 and 6cd6509ce01e",
+        "Frozen RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Global apartness iff WEM forces at least one counterexample on these algebras for m≥2, not any stated lower/upper frequency or the limit.",
+          "The cited no-gap result on the same algebras is for material implication, not cotransitivity."
+        ],
+        "reasoning": "The prior global equivalence combined with the known WEM count does not determine the proportion of failing triples. The new failure characterization and ordered trace-lift enumeration establish the quantitative contrast.",
+        "searches": [
+          "Kocsis arXiv:2209.03920 HTML §2.8; Bumpus–Kocsis arXiv:2110.11515 Thm. 3.15; Resultary WEM product theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A one-root frame with m incomparable maxima gives precisely the Boolean algebra on m atoms with a separate new top.",
+          "Kocsis uses exactly the apartness term ¬(x↔y); the equation asserts its cotransitivity."
+        ],
+        "reasoning": "The aliases identify the same family and condition, but universal truth is a different statistic from the probability of a uniform ordered triple satisfying the equation.",
+        "searches": [
+          "Resultary negated Heyting biconditional apartness, cotransitivity degrees and failure counts",
+          "arXiv:2209.03920, cotransitivity definition and global equivalence",
+          "arXiv:2110.11515, Boolean algebra with a new top"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The former same-day entry includes joint WEM/DNE counts on the three-point fork and a formula covering WEM for the entire rooted-star family; the latter covers negation-output fibres on height-two frames."
+        ],
+        "reasoning": "These are real matches on the object and unary information, not exact matches for the ordered cotransitivity failure predicate or count.",
+        "searches": [
+          "Resultary semantic searches for exact cotransitivity degree, weak excluded middle and finite rooted-star Heyting algebras",
+          "Inspected Resultary 826a5e04fbd5 and 6cd6509ce01e original results"
+        ]
+      },
+      "rationale": "Pass the distinct three-variable cotransitivity count and the consequent exact no-gap/contrasting-limits example. The two a priori older ingredients—the qualitative equivalence of global validity to WEM and the Boolean-plus-new-top family—are credited. The exact WEM subcount is directly covered by a distinct same-day general record and is not credited as new. None of the checked sources states or gives the three-variable count without additional reasoning.",
+      "residual_risks": [
+        "Same-day catalogue labels do not determine historical priority. Differently formulated or unindexed quantitative results may exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defines and classifies global validity, not the degree",
+          "evidence": "The term is globally an apartness exactly in algebras globally satisfying WEM.",
+          "identifier_or_url": "https://arxiv.org/abs/2209.03920",
+          "material_read": "arXiv HTML cotransitivity definition near offset 11843 and §2.8 near 14800 (numbering differs in journal version)",
+          "method": "OA locate and read relevant passages",
+          "title": "Apartness relations between propositions",
+          "trigger": "Exact negated-biconditional term and WEM relation"
+        },
+        {
+          "assessment": "Same family used for a different no-gap equation",
+          "evidence": "The Boolean-plus-new-top construction makes the degree of material implication approach one.",
+          "identifier_or_url": "https://arxiv.org/abs/2110.11515",
+          "material_read": "HTML Theorem 3.15 and proof near offset 41600",
+          "method": "OA passage reading",
+          "title": "Degree of Satisfiability in Heyting Algebras",
+          "trigger": "Same finite gap problem and same family"
+        },
+        {
+          "assessment": "Directly covers the WEM subcount, not cotransitivity",
+          "evidence": "For one component, W=1+u(P minus M); the one-root complement gives W=3.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-joint-weak-excluded-middle-and-double-negation-spectra-on-finite--826a5e04fbd5/RESULT.md",
+          "material_read": "Finding and proof passages at offsets 0 and 3600",
+          "method": "Resultary search and OA local-mirror passage reading",
+          "title": "Joint weak excluded middle and double-negation spectra on finite posets",
+          "trigger": "Same WEM statistic on a general domain and explicit fork example"
+        },
+        {
+          "assessment": "Related unary result, not a count of this ternary equation",
+          "evidence": "It counts fibres of the unary operation negation and recovers the frame.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-negation-output-frequencies-reconstruct-finite-height-two-intuit--6cd6509ce01e/RESULT.md",
+          "material_read": "Finding and proof passages at offsets 0 and 3000",
+          "method": "Resultary search and OA local-mirror passage reading",
+          "title": "Negation-output frequencies reconstruct finite height-two intuitionistic frames",
+          "trigger": "Same family covered by general height-two negation count"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Kocsis global apartness/WEM equivalence",
+        "Bumpus–Kocsis Theorem 3.15",
+        "Frozen RESULT.md exact degrees and limits"
+      ],
+      "rationale": "The motivating qualitative equivalence raises a genuine stability question. The exact counterfamily shows that arbitrarily high cotransitivity satisfaction need not even weakly enforce frequent WEM, and explains the mismatch by the rarity of complementary input traces. It provides the first-order failure rate on a natural family already used for satisfiability-gap questions, rather than treating the known unary count or family as the advance.",
+      "residual_risks": [
+        "No further implication about degrees of other apartness equations or other families is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

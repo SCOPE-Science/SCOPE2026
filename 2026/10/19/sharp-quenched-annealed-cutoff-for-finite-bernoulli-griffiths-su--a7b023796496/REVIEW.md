@@ -1,11 +1,21 @@
-# Review of the finite Bernoulli Griffiths cutoff
+# Independent mathematical audit
 
-**Correctness — PASS.** The finite-volume expectation is exactly counted with both open endpoints. The annealed rate is a Laplace principle. The quenched upper bound combines a union bound on the longest loss-free run with simultaneous Markov bounds on all run counts; independent disjoint blocks furnish the matching lower bound. Threshold differentiation and strict separation follow from a strictly convex one-variable cost. An independently executable standard-library finite checker passed 25,026 assertions, including exhaustive Bernoulli-word enumerations. The infinite claim relies on the written proof rather than the finite checks.
+## correctness
 
-**Originality — PASS, with risk.** Longhi's cited 2026 papers establish the loss-free-region surrogate and the annealed stretched-exponential saddle. Those objects and results are explicitly prior work. The assessed new statement is the constrained *sample-wise* logarithmic variational rate at a joint system-size/time scale and its strict separation from the annealed rate. A review of the full later source's Sections 2–4 and Appendices B–C found the approximate single-realization sum, the disorder-averaged integral, and finite-sample illustrations, but not the joint-limit theorem. The earlier Optics Letters paper's abstract, publisher preview and figure captions were inspected; its complete text was unavailable, so implicit treatment there remains a residual risk. Broad Griffiths reviews motivate typical-versus-mean differences but do not furnish the same formula. A more general theorem for exponentially tailed renewal sums may also imply it; independent originality validation is not performed.
+PASS
 
-**Value — PASS.** Distinguishing typical finite disorder samples from their mean at long times is a physical interpretation problem in the cited rare-region model. The precise threshold, the logarithmic-scale mean/typical separation, and the different scale exponents for the two Bloch-mode surrogates provide a motivated finite-volume validity boundary, not merely a recomputation of an ensemble saddle.
+For a run of length m<L there are L−m−1 interior starts with two markers (probability p²q^m) and two endpoint starts with one marker (probability pq^m), where q=1−p. The all-free case adds its own q^L term. On windows m≈y log L the expected contribution has cost ay+u/y^β uniformly on compact y-windows; the upper tail is bounded by a constant times Σ_{m>K log L}m q^m=O(log L)L^(−aK), and the short-length tail by L^(−u/δ^β), so there is no loss in taking the unrestricted annealed minimum. For a typical landscape, the longest-run union bound cuts off beyond (ξ+η)log L. Markov's inequality and a union bound over O(log L) lengths give the count upper bound L^[max(1−ay,0)+ε]. This yields cost min(ay,1)+u/y^β over the enlarged interval, tending to the constrained cost as η decreases to zero. Conversely, for fixed y<ξ, disjoint blocks with two lossy markers generate independent distinct maximal runs with expected count of order L^(1−ay)/log L and concentrate above L^(1−ay−ε). These give the lower bound, including the edge by approaching ξ from below. The strict convex minimum has y*=(βu/a)^(1/(β+1)), reaches ξ at u_c=ξ^β/β, and gives the asserted strict post-threshold rate gap and second-derivative jump. Log zero on the all-lossy event is harmless since its probability is p^L.
 
-**Scientific limitations.** The regional sum is assumed as an exact surrogate, not proved equal to any microscopic open-quantum-system observable. The result only gives logarithmic rates in probability and expectation; no finite-size ratio concentration, microscopic transfer fidelity, or sample-level Mpemba crossing is asserted. The full earlier photonics primary paper remains a literature-access risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct claim is the joint finite-size/time, typical logarithmic rate and its quantitative separation from the annealed rate for the defined Bernoulli surrogate. The continuum annealed saddle and rare-region physics are not new. The strongest inspected actual statements supply the annealed saddle or a longest-run input, not the paired run-count/weighted-survival limits.
+
+## value
+
+PASS
+
+The surrogate is motivated by rare-region relaxation, and the order of the size and time limits matters. The explicit threshold tells when its disorder mean ceases to represent a typical finite sample even at leading log order, and the positive exponent quantifies that failure. This is more informative than an annealed saddle or an estimate on the single longest run alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Scientific review of the Heawood two-rainbow independent domination theorem
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The theorem has an explicit finite domain: 14 vertices, 21 incidences and all functions into \(\{0,1,2\}\). The component-coloring bijection proves that enumerating \(2^{14}\) zero sets and their induced positive-component flips is exhaustive. The independent C++ implementation visits all \(3^{14}\) assignments directly and tests every condition without invoking the lemma. Both return identical coefficients and the same point-zero distributions. Exact automorphism generation and orbit coverage certify the nine minima orbit sizes. Scripts are embedded, short and replayable. The finite argument does not extrapolate to larger designs.
+PASS
 
-## Originality: PASS (best-knowledge priority)
+For a fixed zero set the source correctly uses a separate two-coloring choice on each connected component of the positive induced subgraph, including isolated vertices, and requires each zero to see both named colors. I independently used maximal cliques in the complement of the Heawood prism. Under the label-to-layer correspondence, a prism independent set uses at most one copy of each vertex; every used fiber is dominated by its vertical edge, and each unused fiber needs domination in both layers. Thus maximal independent sets of the prism give exactly the labeled functions, with weight preserved. The new census gave coefficients 868,168,42,28,2 at weights 8,9,10,11,14 and zero elsewhere, totaling 1108. It reproduced the optimum point-zero counts (70,84,168,224,168,84,70). The connected incidence graph's automorphisms either preserve or reverse the bipartition; testing every point-to-side bijection and uniquely recovering the line images from neighborhoods yields exactly 336 automorphisms. Acting on the 868 optima without exchanging the named colors gave the complete nine-orbit TSV, including all specified lexicographic representatives and sizes.
 
-The 2017 original preprint introduces the invariant and prism equivalence but supplies neither the Heawood census nor the nine orbits. The 2019 follow-up addresses high-minimum graphs, bounds and complexity. The 2023 exact-value paper treats other graph families using tropical methods and does not imply this Heawood enumerator. The 2020 near-title match studies a distinct rainbow-domination convention. Searches for the equivalent independent-domination polynomial of the Heawood prism and relevant research records also found no covering table. Unindexed computations and a latent stronger theorem remain possible and independent priority clearance is outstanding.
+## originality
 
-## Value: PASS
+PASS
 
-The Fano-plane incidence graph is a canonical regular graph where the complete weight spectrum is noncontiguous. Its 868 optimal labelings occur in nine different symmetry classes, not just one generic orbit, and the precise point/line zero distribution is geometric. These details are not obtained from the scalar definition or from general bounds, and the exact component-cut mechanism motivates future comparisons on incidence graphs. The claim is deliberately finite.
+The invariant and the prism correspondence are known. The inspected same-invariant papers and closely analogous enumerators do not imply the complete Heawood polynomial or the nine optimal orbits for named labels. The exact catalogue match was the frozen record itself; priority is assessed only relative to the evidence inspected.
 
-## Limitations
+## value
 
-Only the Heawood graph is covered. Code-based exhaustive finite proof is a reproducible exact certificate, not an expert-independent formal certification; an external mathematical review and exhaustive historical-priority check have not occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Heawood is a canonical small incidence graph. The noncontiguous feasible-weight spectrum is information not supplied by the minimum, and the nine kinds of minimum configurations separate solutions otherwise indistinguishable by weight. Together with the point-zero distribution and representatives, this supplies a precise comparison or validation instance for enumeration and symmetry calculations on other incidence graphs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

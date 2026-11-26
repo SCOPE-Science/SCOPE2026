@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:16:46.485092Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Steps 1–4; VERIFICATION.md, verify.py and verification_output.txt inspected without executing uploaded code",
+        "Independent analytic reconstruction and exact polynomial numerator checks for mirror dominance and the derivative"
+      ],
+      "rationale": "After a positive midpoint bit the posterior densities on the two halves are 1−e and 1+e and the mean is 1/2+e/4. For a second bit the two centered first moments are ±e Cov(X,1_{X≥u}), giving the displayed conditional explained variance. For b=2d the right and left covariance numerators are (1±e)(1−b)(1+b∓e)/8 respectively. Factoring their probability denominators and independently checking the polynomial numerators as integer polynomials verifies the mirror-difference and derivative identities. All mirror-difference factors have the required strict sign in the interior; the endpoints give zero, and the right derivative at zero is positive. On 0≤b≤1 the cubic's Bernstein coefficients have exactly one sign change: the third is negative since its numerator increases to −1, the last is negative and the first positive. The fractional-linear change of variable reduces this to Descartes' rule, and opposite endpoint values give existence. Evaluation at the posterior median is e(e−1)/(1+e)^2<0, so its displacement exceeds the unique maximizing displacement. The implicit series gives d_e=e/4−e³/8+O(e⁴); the conditional covariance is 1/8−3e²/32+O(e³) and the variance denominator differs from 1 by O(e⁴). This gives the claimed adaptive coefficient after adding the first-query explained variance e²/16. For parallel queries, if a response pair has probability D/4 and centered moment N/4, its contribution is N²/(4D); the Taylor expansion is even and uniform on the full threshold square since near e=0 every response probability is bounded below. Its leading coefficient has the unique repeated-midpoint maximizer. Therefore all optimizer sequences tend there. Evaluating the continuous fourth-order coefficient there using e²/[8(1+e²)] bounds the optimal limsup by −1/8 after subtracting the leading maximum; the same repeated design gives the opposite bound. The explained-variance difference is the claimed risk difference with the stated positive sign.",
+      "residual_risks": [
+        "Uniqueness is for the follow-up conditional on the given midpoint first query. The risk separation is proved only for sufficiently weak channels, against all nonadaptive threshold pairs, not against more general query sets or as a claim of globally optimal adaptive first placement."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The same-day staircase theorem covers unrestricted parallel designs with fixed k≥3, refers to k=2 as a consistency check and excludes adaptation. Variani et al. address mainly nonadaptive dyadic policies and asymptotic MSE; Zhou–Hero use excess-resolution probability."
+        ],
+        "reasoning": "Larger-budget or broader nonadaptive statements do not imply the result for a conditioned tilted posterior and one remaining query. Coding-type excess-resolution results have a different payoff, and a nonadaptive high-noise law cannot produce the adaptive cubic.",
+        "searches": [
+          "Resultary: universal high-noise staircase and optimal parallel threshold localization",
+          "Variani et al. arXiv:1504.05996v3 p. 1 and §3",
+          "Zhou–Hero arXiv:1909.12954 p. 1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary records 155cc48bc5f7, dedce94eaa8e and ae0bcd5efb3f",
+        "Jedynak–Frazier–Sznitman author PDF",
+        "arXiv:1504.05996v3",
+        "arXiv:1909.12954"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Mirrored parallel explicitly excludes unrestricted placements and feedback. The staircase's leading sixth-order change from repeating the midpoint for k≥3 is a gain from changing fixed placements; the entropy result optimizes a different expected loss."
+        ],
+        "reasoning": "Even granting the full leading parallel coefficient as overlap in the asymptotic method, none of these inspected statements determines the adaptive coefficient −3/32, the cubic all-e rule, or the resulting positive fourth-order feedback gain. The comparison uses the leading maximizer on the entire parallel square, not a symmetry assumption.",
+        "searches": [
+          "Original mirrored-parallel RESULT.md offsets 0 and 1600",
+          "Original staircase RESULT.md Finding and Relationship to prior work, offsets 0 and 7560 onward",
+          "Jedynak–Frazier–Sznitman author PDF, abstract and symmetric-channel median statement"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact indexed adaptive hit is the assigned record. Entropy-optimal querying for a symmetric channel uses the posterior median. The known mirrored-parallel design uses the same Bayes MSE and posterior mean."
+        ],
+        "reasoning": "Response reflection reduces the two adaptive branches to one posterior, but does not make the design a mirrored parallel pair: along a realized path only the selected follow-up is queried. Maximizing entropy reduction is not minimizing posterior variance; the strict nonmedian result distinguishes these formulations for every allowed noise level.",
+        "searches": [
+          "Resultary: two noisy threshold queries, squared-loss midpoint-first feedback versus parallel optimization",
+          "Jedynak–Frazier–Sznitman author PDF pp. 1–2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact top distinct two-query record dedce94eaa8e gives the optimizer and risk for t and 1−t fixed in advance. Indexed record ae0bcd5efb3f contains a nearby parallel asymptotic comparison. The exact feedback record 155cc48bc5f7 is the assigned work."
+        ],
+        "reasoning": "Neither separate exact result has a table or formula for the response-conditioned maximizing displacement d_e or for its strict median inequality. An exact law on the mirrored subfamily also cannot bound the optimum over the whole parallel square without a further argument.",
+        "searches": [
+          "Resultary: exact thresholds and risk for two noisy binary location queries, mirrored parallel and feedback"
+        ]
+      },
+      "rationale": "The supported distinct claim is the exact response-conditioned unique nonmedian optimum under squared loss and the leading weak-channel separation from unrestricted nonadaptive pairs. The same prior, channel and loss already occur in parallel design, and the same-day staircase work is materially related on the parallel side. No precedence is inferred from same-day metadata and no claim of identifying the first nonadaptive weak-noise expansion is needed for the distinct adaptive comparison.",
+      "residual_risks": [
+        "The targeted literature query did not locate a material alternate match and supplies no exclusion evidence. The checked claims are not an exhaustive historical priority search; unlocated finite-horizon design results may exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same assigned record",
+          "evidence": "Midpoint-first conditional optimum, all-noise median comparison and weak-channel risk separation",
+          "identifier_or_url": "Resultary target 155cc48bc5f7",
+          "material_read": "Frozen RESULT.md Finding, proof and limitations",
+          "method": "Resultary catalogue and frozen original",
+          "title": "Adaptive squared-loss threshold localization: a unique nonmedian follow-up and a fourth-order feedback gain",
+          "trigger": "Exact indexed feedback match"
+        },
+        {
+          "assessment": "Exact optimization for a proper nonadaptive subfamily",
+          "evidence": "Fixed midpoint-reflected pair with unique placement; excludes nonsymmetric pairs and adaptation",
+          "identifier_or_url": "Resultary 2026/11/8/SCOPE-noise-calibrated-thresholds-for-two-parallel-binary-location-que--dedce94eaa8e",
+          "material_read": "Original theorem and scope, mirror offsets 0 and 1600",
+          "method": "Local mirror original text",
+          "title": "Noise-calibrated thresholds for two parallel binary location queries",
+          "trigger": "Closest identical prior, channel, loss and query count"
+        },
+        {
+          "assessment": "Related unrestricted fixed-budget asymptotics, with no coverage of adaptive follow-up",
+          "evidence": "Theorem fixes k≥3 and forbids adaptation; cites k=2 as a consistency check; leading gain over repetition is sixth order",
+          "identifier_or_url": "Resultary 2026/11/22/SCOPE-universal-high-noise-staircase-for-optimal-parallel-threshold-lo--ae0bcd5efb3f",
+          "material_read": "Original Finding and Assumptions (offset 0), prior work and limitations (offset 7560 onward)",
+          "method": "Local mirror original text",
+          "title": "Universal high-noise staircase for optimal parallel threshold localization",
+          "trigger": "Strongest unrestricted high-noise parallel overlap"
+        },
+        {
+          "assessment": "Different loss",
+          "evidence": "Expected posterior entropy and median threshold, not posterior-mean squared risk",
+          "identifier_or_url": "https://people.orie.cornell.edu/pfrazier/pub/2011_JedynakFrazierSznitman_20questions.pdf",
+          "material_read": "pp. 1–2, abstract and symmetric-channel median rule (offsets 0 and 4000)",
+          "method": "Open author PDF",
+          "title": "Twenty Questions with Noise: Bayes Optimal Policies for Entropy Loss",
+          "trigger": "Closest adaptive posterior-median result"
+        },
+        {
+          "assessment": "Nonadaptive dyadic policies and rates, not a conditioned two-query optimum",
+          "evidence": "Uses minimum MSE estimation and studies asymptotic distortion",
+          "identifier_or_url": "https://arxiv.org/abs/1504.05996v3",
+          "material_read": "p. 1 abstract and §3 posterior mean/MSE (offsets 950 and 11000)",
+          "method": "Open-access original",
+          "title": "Non-Adaptive Policies for 20 Questions Target Localization",
+          "trigger": "Squared-error noisy location precedent"
+        },
+        {
+          "assessment": "Different objective",
+          "evidence": "Bounds for resolution under excess-resolution probability, not MSE-optimal follow-up",
+          "identifier_or_url": "https://arxiv.org/pdf/1909.12954",
+          "material_read": "p. 1, objective and summary (offset 700)",
+          "method": "Open-access original PDF",
+          "title": "Resolution Limits of Noisy 20 Questions Estimation",
+          "trigger": "Adaptive and nonadaptive noisy localization bounds"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, the median comparison and unrestricted weak-channel comparison; original entropy and parallel comparators"
+      ],
+      "rationale": "Two queries are the minimal feedback horizon and the midpoint is a canonical first query under the prior. The theorem supplies a complete all-noise conditional policy and a sharp distinction between entropy and quadratic loss there. The fourth-order term establishes a strict separation even when all fixed threshold pairs are optimized; its small absolute size reflects weak per-bit information and still decides the first order at which this form of feedback beats the unrestricted parallel design.",
+      "residual_risks": [
+        "The precise coefficient need not describe the globally optimal adaptive policy, which was not optimized over first thresholds."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,11 +1,21 @@
-# Scientific review: Six agents are necessary and sufficient for cycling in two-coalition cutoff hedonic games
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact lower-bound exhaustion ranges over all labeled undirected enemy graphs and unordered nonempty two-coalition partitions for 2–5 players. This covers every cutoff instance, including all line embeddings. Singleton departures cannot improve, so states with one coalition cannot be in a cycle. The eight transitions of the six-person example strictly reduce the moving player's rational cost. The included `check.py` reproduced 1,098 graphs, 15,834 graph-state pairs, and 28,108 improving edges; it checked all eight strict decreases.
+## correctness
 
-**Originality — PASS, subject to publication-priority risk.** The relevant 2026 preprint proves existence of cycles with a larger construction. Its inspected statements do not imply the exact minimum population or exclusion below six. Older group-formation literature uses average-distance incentives, not the ratio-of-enemies payoff. Targeted mathematical-record and literature searches found no equivalent exact threshold; unindexed work remains a possibility.
+PASS
 
-**Value — PASS.** A sharp minimum population is a natural structural boundary for nonconvergent updating, and the five-player impossibility strengthens the line-restricted theorem to all symmetric enemy relations. The example is shorter than the motivating construction and establishes attainability within the original line setting.
+A one-coalition state has no destination, and a singleton with zero cost cannot leave by strict improvement. Thus the cycle test uses exactly unordered nontrivial bipartitions. I independently enumerated all labeled simple graphs and used unordered pairs of actual vertex sets, Fraction costs, and Kahn topological elimination rather than the frozen checker’s masks, cross-products and DFS. Every state was eliminated for every graph. The (graphs, graph-partition states, profitable moves) counts by n=2,3,4,5 were (2,2,0), (8,24,12), (64,448,576), (1024,15360,27520), totaling (1098,15834,28108). Each symmetric enemy relation is one of these graphs; n=1 is trivial. The same independent replay generated the six-agent enemy relation from the displayed coordinates with the strict cutoff; starting from {2,3,4,5}|{1,6}, the movers (1,3,2,4) twice give costs 1>3/4, 1/4>0, 2/3>1/2, 1/2>1/3 twice and restore the partition. The distance-10 pair is correctly treated as friends. The later singleton states do not involve singleton departures.
 
-**Limitations.** The conclusion is for HIS cutoff costs, at most two coalitions, and strict unilateral jumps into existing coalitions. Neither multi-coalition cases nor other incentive rules are settled. No claim of publication priority or independent scientific validation is warranted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The literature supplies nonconvergence by example, but not the smallest population. The verified improvements are a six-agent line-cutoff witness and an all-symmetric-graphs exclusion through five; the prior twelve-agent result supplies neither.
+
+## value
+
+PASS
+
+The result turns an established failure of convergence into an exact boundary in a natural game model: every smaller individual-enemy graph is acyclic, and a real-line example already realizes the first possible cycle. The stronger graph lower bound separates the effect of small population from constraints of the line embedding, and the explicit witness makes the boundary reusable.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

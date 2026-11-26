@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:58:46.165522Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§ Assumptions and scope, Proof",
+        "VERIFICATION.md, check.py and symbolic_check.py (read only)",
+        "Independent symbolic generator reconstruction: python3 reproductions/reproduce_other_reviews.py, record 5"
+      ],
+      "rationale": "The common-reset coupling gives exponential convergence and uniqueness; stationary age is Exp(r), and the independent conditional Gaussian innovations give H_i=(D_i/2)(1−e^(−ω_i A))Z_i². Distinct-label subset moments reduce to moments of the conditional means, unlike moments with repeated indices. The exponential-age transform gives strictly positive pair covariance and factors the triple cumulant into a strictly positive multiplier times 2r³+2sr²−(sp−q). I reproduced the symbolic factorization through the stationary generator on products of normalized energies: (r+Σ_{i∈I}ω_i)M_I=Σ_{i∈I}ω_i M_{I∖{i}}. The constant sp−q=(a+b)(a+c)(b+c)>0 and the cubic is strictly increasing for r>0. At fixed s, log(sp−q)=Σ_i log(s−ω_i) is strictly Schur-concave, and the root increases with sp−q. At equality r*=s/3. If m is the smallest rate, sp−q >= 4m²(s−m)>2m²(s+m) unless all rates coincide, proving the strict lower bound. Energy is coordinatewise increasing in the independent age and Gaussian squares, so product-measure association, then truncation, applies to square-integrable increasing observables. The example (1,2,3) gives 1.943380912562617.",
+      "residual_risks": [
+        "Strict Schur ordering compares triples by majorization at fixed sum, not every pair of unequal triples. Parameters must be positive; the statement is about distinct labels under full common resetting, and neither repeated energies nor partial resets follow."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bressloff Eq. (4.7) gives global reset density evolution with a two-point hierarchy and a route to higher moments.",
+          "Biroli et al. give a common-age joint density and positive free Brownian pair squared-displacement covariance.",
+          "The same-day lag-reversal record addresses a shared clock and three energies but ordered times under partial contraction; its inspected crossover does not range over three unequal trap rates."
+        ],
+        "reasoning": "Raw joint-moment generation is covered in general. Getting the unequal-mode sign and strict fixed-sum ordering requires factorizing the connected expression and analyzing its symmetric dependence; no inspected broader sign theorem supplies those steps by specialization.",
+        "searches": [
+          "arXiv:2401.03501v2 §IV",
+          "arXiv:2211.00563, Eqs. (4), (6)",
+          "Resultary partial-reset lag reversal and all-but-one cumulants"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md",
+        "arXiv:2211.00563, 2310.04840 and 2401.03501v2",
+        "Resultary e140ac2fc363, 248b082bc822 and f771955abc35",
+        "Resultary nearby switching-trap records 1fcfce6ee0e4 and 94471ec2b67c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The homogeneous common-age law implies the all-equal-rate boundary, not strict heterogeneity ordering.",
+          "The switching-trap hits inspected give pair observables under a change of drift, not simultaneous reinitialization of positions; the three-body switching comparison in the frozen record could not be located by exact identifier."
+        ],
+        "reasoning": "Neither covariance positivity nor association implies any third-cumulant sign. Even if a switching-trap model has a qualitative cubic sign change, that alone is not an equivalent statement. The tested OU cubic is controlled by the product of the three pairwise relaxation sums, and no inspected result directly fixes that product as the heterogeneous critical balance.",
+        "searches": [
+          "Bressloff global cross-correlation equations",
+          "Resultary homogeneous beta law and same-day partial-reset three-time theorem",
+          "Resultary common switching traps and cross-energy thresholds"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Olsen's third cumulant is for a single position, not three distinct quadratic energies.",
+          "With equal frequencies, the common latent factor 1−e^(−ωA) has Beta(1,r/ω) law; its third cumulant yields r*=ω.",
+          "The full-reset, equal-frequency, coincident-time slice of the same-day partial-reset result likewise overlaps the homogeneous crossover."
+        ],
+        "reasoning": "Neither a marginal position skew nor a single common beta factor encodes the nonidentical functions of the common age that determine the unequal-frequency result. Only the homogeneous slice is already obtained by these specializations.",
+        "searches": [
+          "Resultary common-clock connected energies, heterogeneous/global resets and three-mode sign crossover",
+          "arXiv:2310.04840 §III, Eqs. (22)–(25)",
+          "Resultary e140ac2fc363 and same-day 248b082bc822"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The nearest exact all-order cumulant law evaluates free diffusion with random exemption; the exact lag reversal evaluates a different time-dependent statistic, with the common-frequency boundary overlap noted above."
+        ],
+        "reasoning": "This universal continuous-parameter crossover has no discrete table to exhaust. The relevant equivalent of a table lookup is an exact symbolic threshold or classification in a catalogued source; the inspected neighbouring exact laws do not give the heterogeneous cubic.",
+        "searches": [
+          "Resultary exact energy-cumulant and three-body threshold records, including f771955abc35 and 248b082bc822"
+        ]
+      },
+      "rationale": "The evaluated arbitrary-heterogeneity cubic threshold and its fixed-sum strict Schur ordering are supported as distinct. The common-age mixture, moment framework, pairwise mechanism, homogeneous specialization and generic sign-reversal phenomenon are not original here.",
+      "residual_risks": [
+        "A more general unlocated multivariate OU cumulant theorem could cover the evaluated result. The randomly switching three-particle cubic discussed in the frozen record lacks a resolvable reference; nearby pair-level titles are not substitutes. The cited run-and-tumble record c7257b4e8112 was not available in the local mirror; its stated pair observable is not evidence of triple-energy coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers age mixing and the free pair mechanism, not the confined triple sign.",
+          "evidence": "Their common-age mixture gives the distinct pair squared-displacement covariance 4D²/r².",
+          "identifier_or_url": "https://arxiv.org/abs/2211.00563",
+          "material_read": "Original PDF p. 2, Eqs. (4), (6)",
+          "method": "Lawful OA passage retrieval",
+          "title": "Extreme statistics and spacing distribution in a Brownian gas correlated by resetting",
+          "trigger": "Simultaneous Brownian resetting and squared-coordinate correlation"
+        },
+        {
+          "assessment": "Scalar position third cumulant, not a distinct-mode joint energy cumulant.",
+          "evidence": "Single-particle moments can change scalar skew for different reset distributions.",
+          "identifier_or_url": "https://arxiv.org/abs/2310.04840",
+          "material_read": "Original §III, Eqs. (22)–(25), PDF pp. 2–5",
+          "method": "Lawful OA passage retrieval",
+          "title": "Steady-state moments under resetting to a distribution",
+          "trigger": "OU third cumulant under resetting"
+        },
+        {
+          "assessment": "Broader framework credited; inspected higher-order discussion does not give the three-mode cubic sign law or Schur ordering.",
+          "evidence": "The global reset gives nonfactorizing two-point correlations and analogous higher moment equations.",
+          "identifier_or_url": "https://arxiv.org/html/2401.03501v2",
+          "material_read": "Original §IV, Eq. (4.7) and the two-point equations, around text offsets 62560–66300",
+          "method": "Lawful OA passage retrieval",
+          "title": "Global density equations for interacting particle systems with stochastic resetting",
+          "trigger": "Broad joint-law hierarchy may subsume an OU specialization"
+        },
+        {
+          "assessment": "Implies homogeneous boundary; the arbitrarily unequal relaxation frequencies do not satisfy its same-rate hypothesis.",
+          "evidence": "The latent factor is beta distributed with a single relaxation scale; its centered third moment changes sign at r=ω.",
+          "identifier_or_url": "2026/11/2/SCOPE-a-beta-law-for-macroscopic-energy-in-globally-reset-harmonic-bro--e140ac2fc363",
+          "material_read": "Mirrored RESULT.md Finding, shared-age representation",
+          "method": "Local Resultary search and mirror passage",
+          "title": "A beta-law for macroscopic energy in globally reset harmonic Brownian gases",
+          "trigger": "Exact same harmonic common-reset energy mechanism"
+        },
+        {
+          "assessment": "Homogeneous full-reset zero-gap overlap, not the heterogeneous fixed-sum theorem.",
+          "evidence": "The ordered time observables and lag are different parameters from three independent trap scales at one stationary time.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-strict-three-time-energy-arrow-and-a-unique-lag-reversal-under--248b082bc822",
+          "material_read": "Mirrored RESULT.md Finding at offset 0",
+          "method": "Local Resultary search and mirror passage",
+          "title": "A strict three-time energy arrow and a unique lag reversal under common partial resetting",
+          "trigger": "Same-day triple-energy result for common resetting"
+        },
+        {
+          "assessment": "Different free dynamics and random exemptions; the comparison with full free resetting does not add positive OU confinement.",
+          "evidence": "The all-order law uses reset exemption probabilities rather than three positive harmonic relaxation rates.",
+          "identifier_or_url": "2026/11/2/SCOPE-alternating-connected-energy-correlations-under-heterogeneous-al--f771955abc35",
+          "material_read": "Mirrored RESULT.md Finding at offset 0",
+          "method": "Local Resultary search and mirror passage",
+          "title": "Alternating connected-energy correlations under heterogeneous all-but-one resetting",
+          "trigger": "Exact connected-energy threshold under a heterogeneous common clock"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md exact cubic, signs and Schur ordering",
+        "Common-reset and homogeneous comparisons above"
+      ],
+      "rationale": "The result separates positive pair dependence and even association from the sign of a connected three-mode statistic. It gives an explicit parameter-uniform boundary and shows how balancing independently confined modes moves it at fixed sum. This is a useful diagnostic in a common-environment model, beyond computing a raw third moment or reusing the homogeneous beta law.",
+      "residual_risks": [
+        "This is a statistical sign boundary, not a thermodynamic phase transition. There is no inference guarantee for data or general ordering for other reset mechanisms."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

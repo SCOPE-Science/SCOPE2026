@@ -11,7 +11,7 @@ K=\frac{k_1}{1+k_2},\qquad B=\frac94 k\beta K^2,
 \]
 Choose \(Y,\Phi,R\) such that
 \[
-(1-a)Y\ge c,\qquad 3k\beta\Phi^2>4,\qquad
+(1-a)Y\ge c,\qquad \Phi>0,\qquad 3k\beta\Phi^2>4,\qquad
 R>\max\left\{1,|k_0|,\frac{\Phi}{K},\frac{3}{\sqrt B}\right\}.
 \]
 Then the nonempty open escape wedge
@@ -52,7 +52,7 @@ The parameters obey \(0<a<1\), \(b>0\), \(k>0\), \(\beta>0\), \(k_1>0\), \(\alph
 
 ## Proof
 
-**Step 1: strict forward invariance.** Fix a point in \(\Omega\), write its image as \((x',y',\phi')\), and use positivity of the exponential and \(\alpha\):
+**Step 1: strict forward invariance.** Fix a point in \(\Omega\), and write its image as \((x',y',\phi')\). Since \(\phi>\Phi>0\), we have \(3k\beta\phi^2>4\). Using also the nonnegative exponential and linear induction terms,
 \[
 x'\ge k_0+3k\beta x\phi^2>4x-|k_0|>3x>R.
 \]
@@ -70,6 +70,8 @@ As \(0\le k_2<1\) and \(\phi>0\), we also have
 \phi'\le k_1x<3Kx<Kx'.
 \]
 Thus the strict inequalities defining the wedge persist, and \(x_n>3^n x_0\).
+
+The positive sign of the flux cutoff cannot be dropped from these conditions. For instance, take \(a=1/2\), \(b=k=\beta=k_1=1\), \(k_2=\alpha=k_0=c=0\), \(Y=0\), \(\Phi=-2\), and \(R=3\). The other cutoff inequalities hold, but \((4,-1,0)\) lies in the resulting region and has first activation \(16e^{-5}<3\), so the region is not forward invariant.
 
 **Step 2: a delayed cubic lower estimate.** At every \(n\ge1\), invariance gives
 \[

@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:03:25.618196Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a nonempty largest part L, the lower sizes contribute factors (w+(1-w)q^j)/(1-q^j) and L contributes q^L/(1-q^L), consistent with the cited bivariate product and the empty contribution. After factoring out Q, the coefficient of w^m in the exponential has just one monomial with m factors, H_1^m/m!; all remaining monomials have at most m-1 factors. The Riemann sum for tH_1 tends to the integral of e^(-2u)/(1+e^(-u)), equal to 1-log 2. In the sector |Im z|<=Delta Re z, each 1+exp(-kz) is bounded away from zero uniformly in k: use a nonnegative real part for small k Re z and the reverse triangle inequality otherwise. Thus all fixed H_r are O(1/|z|). The eta quotient for Q has exponential exp(pi^2/(12z)) uniformly there, whose modulus is at most exp(pi^2/(12|z|)); this supplies the corrected Ingham complex bound, not just a real-axis estimate. The coefficients are nonnegative, with radius one by convergence inside and positive-axis divergence, and the cumulative theorem uses beta=-m, gamma=pi^2/12 and lambda=(1-log 2)^m/(m! sqrt(2)). Its constant lambda gamma^(-m/2-1/4)/(2 sqrt(pi)) is the printed one. Real X follows by taking the integer part. The separate replay /workspace/branches/d4847873-e9af-4fca-855e-db0059c586c6/independent_replay.py matched product and direct partition counts for n<=16 and m<=4; at X=1000 the normalized cumulative ratios were about 0.9683, 1.0099 and 1.1283 for m=1,2,3. These are diagnostics only. The supplied checker reports numerical ratios, but its assertions do not certify convergence or tight agreement.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The total over m and the aggregate first-moment identity do not resolve individual fixed-m coefficients. The corrected Tauberian theorem is general in the real singular expansion and the sector growth bound.",
+          "Returned nearby indexed results 1284bec11d63, 252a05c68d19 and e9b692c356a0 concern least-multiplicity gaps, least absent sizes by residue class, or runs of missing sizes rather than this total fixed count."
+        ],
+        "reasoning": "Changing the statistic or taking its aggregate does not dominate a fixed-count asymptotic; the Tauberian theorem alone does not supply its input constants and hypotheses.",
+        "searches": [
+          "Bhoria–Eyyunni–Santra Theorem 2.9 and Corollary 2.10",
+          "Bringmann–Jennings-Shaffer–Mahlburg Theorem 1.1",
+          "Resultary: fixed missing integers below largest part, cumulative partition counts"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–49 and reproducibility note",
+        "arXiv:2604.12557 pp. 3 and 9",
+        "arXiv:2608.00278 p. 1",
+        "Bringmann–Jennings-Shaffer–Mahlburg Theorem 1.1",
+        "Resultary comparisons above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The cited product and Tauberian theorem are inputs. The leading fixed-w coefficient comes from a single logarithmic monomial and its integral, and the analytic check must control 1+exp(-kz) in each fixed sector.",
+          "The m=0 specialization is directly implied by the classical distinct-parts law."
+        ],
+        "reasoning": "The remaining assertion is not a relabeling or a direct stronger asymptotic specialized to these coefficients; evaluating and justifying the singular inputs is the mechanism producing the new family.",
+        "searches": [
+          "Corrected Ingham theorem, DOI 10.1007/s11139-020-00377-5, Theorem 1.1",
+          "arXiv:2604.12557 Eq. (2.2)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The fixed-gap product is identical. At m=0 its coefficient equals the distinct-part count; the classical pointwise asymptotic implies the base-case cumulative law.",
+          "The m=1 generating function also counts partitions with one doubled part and all other parts distinct. The inspected exact identities do not give the all-fixed-m hierarchy."
+        ],
+        "reasoning": "Credit the known equivalent counts and the base-case asymptotic. Their scope does not establish the sequence of leading constants for m>=1.",
+        "searches": [
+          "Bhoria–Eyyunni–Santra arXiv:2604.12557 Eq. (2.2) and Corollaries 2.2–2.4",
+          "Aniceto–Ballantine arXiv:2608.00278"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact hierarchy appeared among the ranked indexed results examined. Exact product coefficients and the distinct-part sequence are already available."
+        ],
+        "reasoning": "The claim is a family of asymptotic constants for indefinitely many fixed m, not a finite collection of partition counts; an exact table of initial coefficients could not settle it. A ranked query miss is not proof of absence.",
+        "searches": [
+          "Resultary ranked searches for cumulative missing-part hierarchy and fixed count of absent sizes below the maximum",
+          "arXiv:2604.12557 Corollaries 2.2–2.4"
+        ]
+      },
+      "rationale": "The gap-free base case and exact bivariate generating product are already known. The supported distinct claim is the fixed-m cumulative hierarchy beyond that case, including its explicit factorial dependence and factor 1-log 2; it requires coefficient-sensitive asymptotic analysis and sector control. The exact enumerative identities reviewed do not themselves state that hierarchy, and the general cumulative theorem only applies after its singular inputs are established.",
+      "residual_risks": [
+        "A stronger pointwise theorem for m>=1 or an unindexed specialization would also cover its cumulative counterpart. The targeted comparison did not establish absence of such a result.",
+        "The one-gap alternative formulation may have its own asymptotic literature; novelty is assessed for the hierarchy, not asserted separately for every small m."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact enumerations and aggregates are covered, but the displayed statements do not give the fixed-m cumulative law",
+          "evidence": [
+            "Eq. (2.2) gives the identical product; the one-gap count has a duplicated-part interpretation; the summed number of missing integers is a first moment."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2604.12557",
+          "material_read": "PDF p. 3, Eq. (2.2) and Corollaries 2.2–2.4, around offset 4800; p. 9, Theorem 2.9 and Corollary 2.10, around offset 27000",
+          "method": "OA PDF passages",
+          "title": "On the number of missing integers in partitions",
+          "trigger": "Same statistic, product and low-m identities"
+        },
+        {
+          "assessment": "Related exact identity work; no asymptotic implication in the material read",
+          "evidence": [
+            "The passage attributes the generating products and describes combinatorial proofs for enumerative identities."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2608.00278",
+          "material_read": "p. 1, introduction and description of the identities, around offset 2030",
+          "method": "OA PDF passage",
+          "title": "Identities involving the number of missing integers in partitions — combinatorial proofs",
+          "trigger": "Later results for the same missing-size statistic"
+        },
+        {
+          "assessment": "General theorem, not a calculation of the missing-part singularity",
+          "evidence": [
+            "Nonnegative coefficients, a real-axis asymptotic and sectorial complex bound yield the cumulative formula."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s11139-020-00377-5",
+          "material_read": "PDF p. 3, Theorem 1.1, around offset 5750",
+          "method": "OA PDF passage",
+          "title": "On a Tauberian theorem of Ingham and Euler–Maclaurin summation",
+          "trigger": "Potential general asymptotic coverage and needed hypotheses"
+        },
+        {
+          "assessment": "Different observables in the passages actually retrieved; no whole-document exclusion inferred",
+          "evidence": [
+            "The retrieved statements concern least or consecutive missing sizes, not the total size-gap count at fixed m."
+          ],
+          "identifier_or_url": "Resultary 1284bec11d63, 252a05c68d19, e9b692c356a0",
+          "material_read": "Ranked catalogue summaries for these adjacent statistics",
+          "method": "Local Resultary search",
+          "title": "Nearby indexed missing-part results",
+          "trigger": "Competing results on missing sizes"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The law quantifies how each additional allowed missing size changes the growth scale relative to gap-free partitions: an explicit factor of order sqrt(X) at each step, with a factorial normalization and the same exponential scale. This concerns a natural fixed-defect statistic and does not conflate its distribution with aggregate or least-gap results.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

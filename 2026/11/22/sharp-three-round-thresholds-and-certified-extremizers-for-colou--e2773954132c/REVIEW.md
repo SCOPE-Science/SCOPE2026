@@ -1,22 +1,21 @@
-# Scientific review: sharp three-round coloured-pair thresholds
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof derives an exact three-step full-pair criterion from the recursive rank definition. For each of the \(q\) classes defined by a distinguished root, its selected partner needs \(q\) additional distinct witnesses, forcing \(q^2+q+1\) vertices. Counting root support and all \(q^2\) partner-to-class nonzero incidences, with overlap possible only on the \(inom q2\) partner pairs, proves the all-size minimum \(q^3-inom q2-1\). A canonical equality construction realizes the bound for any converse involution. The normal-form proof uniquely identifies each peripheral vertex from its state to its own partner, yielding the precise certified isomorphism-type product. The independent definition-level recursion and structural checker pass in `checker.py`; finite checks do not substitute for the general proof.
+PASS
 
-## Originality — PASS within inspected evidence
+Unfolding the named-extension rank leaves one root v, one partner w_i per root state i, and all q^2 ordered extension profiles at every pair (v,w_i). In class B_j, fullness for w_j requires q distinct vertices other than w_j, so |B_j|>=q+1. There are at least q^2-1 supported root pairs, and q^2(q-1) supported partner-to-class incidences away from the root. The only double counts are supported pairs between partners, at most binom(q,2); equality also rules out uncounted supported pairs. At minimum order, within each partner's own class the q peripheral vertices are uniquely labelled by the q states. For i!=j, the supported pair w_i w_j fills one of the q-1 nonzero states and the remaining q-2 are injected into q peripheral slots, leaving two zeros. These choices are independent and consistent under converse. A certificate-preserving isomorphism fixes all state labels, so the count is the product stated, not an unpointed census. Adding genuine zero-state isolates preserves the witness at all larger orders. q=2 gives (7,6,1), and q=3 gives (13,23,5832).
 
-The rank definition and general finite-rank construction in López-Callejas–Navarro-Castillo (arXiv:2604.14461v1, 2026-04-15) are prior work. The published graph extremal result of 2026-11-08 already proves the \(q=2\) values \(7\) and \(6\) and unpointed uniqueness; no novelty is claimed for that specialization. Its full proof and the relevant original arXiv HTML sections were inspected. Searches of published-finding corpus and the web for the state-general threshold, the oriented \(13\)/\(23\) case, equivalent full-pair profiles, and the \(5832\) certified count did not disclose an exact or stronger covering result. This supports best-knowledge originality; it does not certify worldwide priority, and equivalent unindexed earlier results remain a risk.
+## originality
 
-## Value — PASS
+PASS
 
-The contribution is a structural, all-parameter extremal theorem for a natural class of finite models, not a routine small-order census. It simultaneously provides sharp host order, sharp nonzero-support complexity and a complete minimum-order certified-extremizer classification. The oriented three-state case has a nontrivial new threshold and thousands of explicitly parametrized certified shapes. The value lies in the natural exact frontier and its equality structure, without invoking any speculative downstream results.
+Pass for the uniform free-pair-state theorem, support equality accounting and certified normal forms and count beyond the binary case. The known binary extremum is expressly credited. A broader class of rank constructions and a broader binary census address intersecting questions, not verified coverage of the simultaneous general minima and classification.
 
-## Limits and references
+## value
 
-The \(5832\) count is of **rooted-and-certified** structures and is not an unpointed oriented-graph count; it must not be interpreted otherwise. Only the minimal-order equality types are fully enumerated. The optional checker is a finite corroboration, not an infinite theorem prover. Relevant sources:
+PASS
 
-- C. López-Callejas and J. Navarro-Castillo, *A rank function for Fraïssé classes and the rank property*, arXiv:2604.14461v1, 2026-04-15: https://arxiv.org/html/2604.14461v1
-- *Sharp rank-three onset and six-edge extremum for finite graphs*, 2026-11-08: https://github.com/published-finding corpus/2026/blob/main/2026/11/8/SCOPE-sharp-rank-three-onset-and-six-edge-extremum-for-finite-graphs--a3c35b6162f1/RESULT.md
+Defines the sharp finite resources for simultaneous realization of all third moves in the free state class. Optimizing nonzero support separately from host order is a substantive extremal question: sharing between designated partners is exactly the correction term, and the equality argument gives a useful structural classification and exact pointed census rather than just a construction or an exhaustive run at one q.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

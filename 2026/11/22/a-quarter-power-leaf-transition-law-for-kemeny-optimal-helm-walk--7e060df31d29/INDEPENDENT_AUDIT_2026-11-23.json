@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T20:56:42.658756Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On the connected part of the compact feasible weight polytope, the inverse trace of L+J is strictly convex: diagonalizing L+J writes its second variation as a positively weighted sum of squares of the entries of any nonzero perturbation. The cost diverges as support disconnects; uniqueness enforces dihedral invariance among all edge-by-edge feasible walks. An independent check of the reduced objective uses effective resistances. Each pendant edge contributes (2n)/c to the Kirchhoff index; collapse the pendant leaves for the core part, counting each rim vertex twice and the hub once. In the weighted wheel, the sum of core rim-pair resistances is nS, and the sum of hub-rim resistances is 1/a+S, where S=Σ_{k≠0}1/(a+2bt_k): each hub-rim pair has uniform-mode resistance 1/(na) and nonuniform-mode contribution S/n. The core index therefore contributes 4nS+2(1/a+S). Dividing the total index by 2n+1 recovers A_n/c+B_n/a+2S. Increasing b always helps until rim capacity binds. The trial at a=1/n, c=n^(-1/4) and the resolvent comparison with w≤1−ε exclude c≥ε for large n. At fixed c≤1/4 and a≤1/n the sum of (1−t_k)/(a+wt_k)^2 has positive contribution of order n^(5/2) from k≤√n/8, versus negative part O(n). There is a missing factor of two if RESULT.md line 87 is read as the derivative of the entire last term of F_n; its sign is unchanged, and the hub saturation argument uses only the sign. The scalar c-derivative has opposite endpoint signs and is strictly increasing. The exact resolvent can be replayed by expanding (a+w−w cos θ)^(-1) in Fourier coefficients proportional to exp(−|k| acosh(1+a/w)) and averaging at the n grid points. At a=1/n and w→1, differentiating gives −∂_w(2S)∼n^(3/2)/√2, so c_n∼2^(1/4)n^(-1/4). The linear resolvent correction and A_n/c_n each contribute 2^(-1/4)n^(5/4). For the maximum-degree walk the remaining Riemann mean is 1/√5, confirming both comparison constants. This establishes eventual, not explicitly thresholded, hub saturation and the claimed asymptotics only for the stated symmetric stochastic domain and zero-target convention. The bundled finite diagnostics were read, not executed or treated as proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general frameworks give a reversible Markov-chain optimization problem and solution methods; the leaf-corona theorem requires a vertex- and edge-transitive core and uniform attachment."
+        ],
+        "reasoning": "The wheel core is not vertex-transitive, and the helm has leaves on the rim only. The general optimization problem encodes, but does not analytically solve, this family or yield its asymptotic allocation.",
+        "searches": [
+          "Patel–Agharkar–Bullo, DOI 10.1109/TAC.2015.2426317",
+          "Durastante–Gnazzo–Meini, DOI 10.1007/s10543-026-01152-6",
+          "SCOPE-a-universal-square-root-kemeny-allocation-law-for-symmetric-walk--6e4ca784153c"
+        ]
+      },
+      "checked_sources": [
+        "Resultary and local mirrors of the wheel, sunlet, transitive leaf-corona, and pineapple records listed above",
+        "Patel–Agharkar–Bullo (2015), open manuscript",
+        "Durastante–Gnazzo–Meini (2026), publisher PDF",
+        "Hunter, arXiv:1208.4716, pp. 1 and 11 (Kemeny conventions and identities)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "On a bare wheel the rim budget has no leaf term; in a pineapple all fixed-count pendants attach to one clique gateway and the allocation tends to a positive constant."
+        ],
+        "reasoning": "Neither implication gives the trade-off A_n/c against the leading resolvent's linear increment of order c n^(3/2). The sign argument for hub saturation must hold with the rim's competing leaf allocation, and both terms of the stated optimum require a new balance in this geometry.",
+        "searches": [
+          "SCOPE-a-saturated-hub-law-and-a-square-root-kemeny-penalty-on-wheel-ne--3468c5b7f546",
+          "SCOPE-kemeny-optimal-pineapple-walks-and-a-growing-maximum-degree-pena--2a686ba50bfb",
+          "Patel–Agharkar–Bullo, manuscript pp. 1–2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The wheel has exact hub saturation but lacks pendants; the sunlet has the pendants but no hub and an n^(-1/2), not n^(-1/4), leaf allocation."
+        ],
+        "reasoning": "Neither is the helm under relabeling or under the Kirchhoff-index convention: adding either missing edge class changes the row capacities or the low-mode denominator responsible for the exponent.",
+        "searches": [
+          "Resultary: helm/wheel Kemeny, pendant leaf allocation and joint hub–leaf optimization",
+          "SCOPE-a-saturated-hub-law-and-a-square-root-kemeny-penalty-on-wheel-ne--3468c5b7f546",
+          "SCOPE-sharp-kemeny-regret-and-optimal-stochastic-walks-on-transitive-l--be6e5140bd15"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Indexed exact results examined give a bare-wheel saturation formula, a sunlet square-root formula and a pineapple constant allocation, not the two helm coefficients."
+        ],
+        "reasoning": "A finite table of spectra or fixed-walk Kemeny indices would not tabulate the unrestricted optimum or its second-order asymptotic. The relevant indexed exact-optimum entries concern the distinct families above.",
+        "searches": [
+          "Resultary helm, wheel, sunlet, and joint hub–leaf Kemeny records; nearest Findings inspected"
+        ]
+      },
+      "rationale": "Bounded to the combined helm result: the quarter-power pendant allocation with its constant and the second optimum term, together with eventual exact hub saturation in the presence of rim pendants. General convexity, wheel hub saturation on its own, and the cyclic resolvent are not new. Inspected close sources do not give an equivalent optimization result or a dominating theorem yielding these claims.",
+      "residual_risks": [
+        "No within-day ordering is established for the distinct related catalogue records dated 2026-11-22 UTC. Their mathematical scope, not an assumed date order, supports the decision.",
+        "The comparison is bounded to the inspected passages and indexed related results; it is not historical priority or a claim that no equivalent helm analysis exists."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact saturation overlap on the wheel, not the helm theorem",
+          "evidence": "Optimum spokes 1/n and rim weights (n−1)/(2n); no leaves.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-saturated-hub-law-and-a-square-root-kemeny-penalty-on-wheel-ne--3468c5b7f546",
+          "material_read": "RESULT.md Finding, offset 0–2200",
+          "method": "Resultary and local mirror",
+          "title": "A saturated-hub law and a square-root Kemeny penalty on wheel networks",
+          "trigger": "Closest hub-saturation statement"
+        },
+        {
+          "assessment": "Private-rim-leaf phenomenon but no hub",
+          "evidence": "Cycle with one leaf per vertex, with pendant probability ∼√(3/n).",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-kemeny-regret-and-optimal-stochastic-walks-on-transitive-l--be6e5140bd15",
+          "material_read": "RESULT.md sunlet formula and scope, offset 1300–3092",
+          "method": "Resultary and local mirror",
+          "title": "Sharp Kemeny regret and optimal stochastic walks on transitive leafed graphs",
+          "trigger": "Closest cycle with private leaves"
+        },
+        {
+          "assessment": "Hypotheses exclude helm",
+          "evidence": "Core is vertex- and edge-transitive with a fixed number of pendants on every core vertex.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-universal-square-root-kemeny-allocation-law-for-symmetric-walk--6e4ca784153c",
+          "material_read": "RESULT.md allocation theorem and cycle consequence, offset 600–2871",
+          "method": "Resultary and local mirror",
+          "title": "A universal square-root Kemeny allocation law for symmetric walks",
+          "trigger": "Potential broader exact corona theorem"
+        },
+        {
+          "assessment": "Different joint optimization",
+          "evidence": "Clique with r leaves attached at one gateway; optimal leaf weight tends to 1/(r+√(r+1)).",
+          "identifier_or_url": "2026/11/22/SCOPE-kemeny-optimal-pineapple-walks-and-a-growing-maximum-degree-pena--2a686ba50bfb",
+          "material_read": "RESULT.md Finding and assumptions, offset 0–3000",
+          "method": "Resultary and local mirror",
+          "title": "Kemeny-optimal pineapple walks and a growing maximum-degree penalty",
+          "trigger": "Joint hub and pendant optimization"
+        },
+        {
+          "assessment": "General convex formulation, not a helm solution",
+          "evidence": "Reversible design with prescribed topology and stationary distribution is framed as convex/semidefinite optimization.",
+          "identifier_or_url": "https://motion.me.ucsb.edu/pdf/2014b-pab.pdf",
+          "material_read": "PDF pp. 1–2, abstract and contributions",
+          "method": "Lawful open original manuscript",
+          "title": "Robotic Surveillance and Markov Chains with Minimal Weighted Kemeny Constant",
+          "trigger": "General fixed-topology Kemeny design"
+        },
+        {
+          "assessment": "Examined material gives general structure-preserving optimization, not a family-specific solution",
+          "evidence": "Fixed stationary distribution and sparsity constraints; inspected examples include synthetic sparse chains.",
+          "identifier_or_url": "https://doi.org/10.1007/s10543-026-01152-6",
+          "material_read": "PDF p. 1 abstract; pp. 24–25 and 31 experiments",
+          "method": "Lawful open publisher PDF",
+          "title": "Kemeny's constant minimization for reversible Markov chains via structure-preserving perturbations",
+          "trigger": "Potential broader analytic or computational solution"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A classical graph combines two competing uses of rim probability mass. The optimum has an exact eventual active constraint but an intermediate, non-obvious pendant scale, neither the bare-wheel allocation nor the sunlet scale. The second term identifies the cost of that trade-off, and the diverging maximum-degree benchmark gap gives a concrete reason the optimized allocation matters. This is an asymptotic design result for the specified uniform-stationary family, not a claim about arbitrary routing or a numerical sample.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

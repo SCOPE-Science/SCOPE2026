@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:42:46.984095Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–58",
+        "Frozen VERIFICATION.md and verify.py, inspected without execution",
+        "Karvonen–Särkkä, arXiv:1906.02096, Theorem 2.4 and Gaussian integration example",
+        "Independent composite Simpson quadrature in log(u) on [-10,3] (800/3200 panels), Gaussian survival by backward Simpson integration to 12 (mesh 1/100 and 1/400), sign bisection for P′ on [.25,.6]. Fine values: q*=0.39309436259051, P(q*)=0.24697058765455, P(1)=0.17814732460119."
+      ],
+      "rationale": "Three distinct nodes are unisolvent for degree two, and the known Gaussian flat-limit theorem applies (positive target variance is handled by rescaling). Independently, removing the factors exp(-h x_i²) from the kernel system and taking Vandermonde coefficient combinations of its rows, divided by (2h)^k/k! for k=0,1,2, gives the ordinary moment system in the limit by Taylor expansion and Gaussian integrability. The signs of the Lagrange denominators are +,-,+ in sorted order. For one negative node -u and two positives, strict positivity means precisely that the positives straddle q/u; reflection and labeling supply the factor 12. Weight-zero events have measure zero. On the log scale the probability is 3/2 times g*(F(1-F)). Strict decrease of the log-density derivative gives strict decrease of the reverse hazard and strict increase of the hazard, hence strict log-concavity of both factors. In the one-dimensional Prékopa–Leindler transport proof, the strict factor inequalities cannot both be equalities when the convolution arguments differ: they would require v0=v1 and t0−v0=t1−v1. This gives a strictly log-concave convolution. Dominated convergence gives zero at both ends in q; differentiation on compact positive q intervals is justified by Gaussian tails and gives the unique critical point. At large h, the relative corrections to the strictly positive order-h^(-1/2) kernel means vanish for each fixed distinct node triple. Bounded convergence then gives both probability endpoints.",
+      "residual_risks": [
+        "The numerical values are floating-point diagnostics, not interval certificates. The argument is pointwise in fixed distinct nodes and does not give uniform rates near collisions."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The flat-limit theorem covers fixed unisolvent nodes and a Gaussian integration measure, not probabilities over a sampling law. The fixed-node diagram varies kernel shape for symmetric nodes and a bounded uniform integration measure."
+        ],
+        "reasoning": "The prior flat theorem entails the polynomial reduction. The deterministic shape diagram does not cover nonsymmetric Gaussian samples or the proposal-scale optimum in the flat limit.",
+        "searches": [
+          "Karvonen–Särkkä arXiv:1906.02096, Gaussian flat-limit theorem and unbounded Gaussian example",
+          "Resultary local mirror: bf59562e8e52, symmetric three-node Gaussian-kernel positivity diagram"
+        ]
+      },
+      "checked_sources": [
+        "Karvonen–Särkkä arXiv:1906.02096",
+        "Local Resultary mirror entries c97a80bc1618, 03159ea86990, bf59562e8e52; snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The kernel theorem yields the flat weights but not a distribution for their joint signs. The affine benchmark omits the second-moment constraint. The uniform feasibility formula uses uniform tails, not a log-half-normal convolution."
+        ],
+        "reasoning": "The covered reduction and standard log-concavity tools do not themselves give the Gaussian straddling-event integral or its unique optimum. The claim is supported only for that specific probability and its stated endpoints, not for general optimal quadrature.",
+        "searches": [
+          "arXiv:1906.02096, Theorem 2.4; Resultary c97a80bc1618, 03159ea86990 and bf59562e8e52"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "With exactly three distinct nodes, any degree-two-exact positive representation would have to equal the interpolatory weights. The uniform-node record does study this same event geometry for n=3, with P₃(q)=(3q/2)(log(1/q)−1+q) on its uniform domain."
+        ],
+        "reasoning": "Feasibility versus unique weights is not a distinction for the common three-node case. The real distinction is the Gaussian node law and optimization over its unbounded relative-variance domain, requiring a different integral and proof of strict log-concavity.",
+        "searches": [
+          "Resultary local mirror: 03159ea86990, random-node positive quadratic quadrature",
+          "Karvonen–Särkkä arXiv:1906.02096, Theorem 2.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact matching-Gaussian benchmark c97a80bc1618 gives about 0.6542087649 for affine-exact minimum-norm weights and 3/4 for affine feasibility, not the quadratic-rule probabilities. The search also surfaced the identical frozen study, not a distinct equivalent record."
+        ],
+        "reasoning": "The closest exact entry has different constraints and a different optimization domain, so neither its number nor its table gives this probability.",
+        "searches": [
+          "Local Resultary search for exact Gaussian three-node positivity and proposal-scale optimization; inspected c97a80bc1618, 03159ea86990 and bf59562e8e52"
+        ]
+      },
+      "rationale": "The supported distinction is the Gaussian three-node quadratic positivity probability as a function of proposal scale and the proof of a unique optimum. Neither the flat Gaussian reduction nor the general positivity-feasibility setup is new. No inspected distinct record or prior theorem gives the Gaussian probability and scale optimization.",
+      "residual_risks": [
+        "An equivalent unindexed or differently formulated scale-optimization result remains possible; the review does not certify historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the flat-limit reduction, not the random positivity law",
+          "evidence": "Fixed polynomially unisolvent data yield weights converging to the polynomially exact rule; the Gaussian example checks the conditions on the unbounded domain.",
+          "identifier_or_url": "https://arxiv.org/abs/1906.02096",
+          "material_read": "Theorem 2.4, pp. 6–7, PDF extraction offset 22155; Gaussian integration example p. 9, offset 34129",
+          "method": "Targeted lawful OA PDF text",
+          "title": "Worst-case optimal approximation with increasingly flat Gaussian kernels",
+          "trigger": "Same kernel limit and Gaussian integration measure"
+        },
+        {
+          "assessment": "Different moment constraints and solver",
+          "evidence": "Affine-exact least-norm weights give an exact positivity benchmark near 0.6542087649; existence of any positive affine weights has probability 3/4.",
+          "identifier_or_url": "Resultary c97a80bc1618",
+          "material_read": "RESULT.md, offset 350",
+          "method": "Configured local Resultary mirror",
+          "title": "A density-universal collision law and exact Gaussian positivity benchmark for affine least-squares quadrature",
+          "trigger": "Exact three-node matching Gaussian positivity benchmark"
+        },
+        {
+          "assessment": "Overlapping geometry but different sampling measure",
+          "evidence": "For three uniform draws on [-1,1] the exact feasibility formula is (3q/2)(log(1/q)−1+q).",
+          "identifier_or_url": "Resultary 03159ea86990",
+          "material_read": "RESULT.md, offset 900",
+          "method": "Configured local Resultary mirror",
+          "title": "Exact random-node feasibility and a two-mechanism phase transition for positive quadratic quadrature",
+          "trigger": "Same degree-two feasibility and three random nodes"
+        },
+        {
+          "assessment": "Different parameter and target",
+          "evidence": "Deterministic symmetric nodes (−a,0,a) and Lebesgue target on [-1,1]; the central sign diagram includes the a=1/√3 boundary.",
+          "identifier_or_url": "Resultary bf59562e8e52",
+          "material_read": "RESULT.md, offset 350",
+          "method": "Configured local Resultary mirror",
+          "title": "A one-crossing positivity diagram for symmetric three-node Gaussian kernel quadrature",
+          "trigger": "Same kernel and three weights, scale-dependent positivity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, finding and limitations; independently checked probabilities at q* and q=1"
+      ],
+      "rationale": "This is a motivated exact baseline for when an unaugmented Gaussian kernel rule can lose weight positivity in the flat limit. The strict scale optimum shows that matching the target is suboptimal, but even the best Gaussian proposal remains positive only about one quarter of the time. This is a benchmark about weight signs, not accuracy, optimal finite bandwidth, or arbitrary proposals.",
+      "residual_risks": [
+        "No accuracy or stability ranking follows from this positivity ranking; it is restricted to three IID Gaussian nodes."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

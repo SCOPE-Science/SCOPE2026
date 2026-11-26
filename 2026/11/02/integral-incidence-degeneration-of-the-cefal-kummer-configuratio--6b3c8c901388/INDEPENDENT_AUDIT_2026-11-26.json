@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:30:10.834365Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–75",
+        "VERIFICATION.md lines 19–25 and verify_incidence.py lines 33–126 (read only)",
+        "Independent check: form four sign vectors for each missing index by setting the first nonzero entry to 1, then take their integer dot products grouped by ordered pair of missing indices"
+      ],
+      "rationale": "On a chart setting one nonmissing coordinate to 1, the other two are independent involutions; the charts cover because no nonmissing coordinate can vanish at a geometric point. Different missing indices have disjoint supports, and the rings are free over Z, giving the schematic closures and their ranks. If i≠j, normalize both factors on one common coordinate: the incidence is x+y=0 for the signs on the other common coordinate, leaving three involution variables. If i=j, eliminate s from 1+r+s=0, r²=s²=1: 1+2r=0 and r+2=0 imply 3=0 and r=s=1. Conversely these values solve the relations over F3, leaving two independent signs and giving the diagonal there. This proves the full decomposition, not just point counts. In characteristic 2 all involution variables are 1 plus an independent square-zero variable; fixing a geometric plane leaves one such variable in each of the other three blocks, and no same-index incidence. Expanding the two squares verifies the special fibers, and (J+I)²=I over F2 and the F3 gradient verify quadric smoothness. The ordinary-characteristic marked geometry also checks directly: the gradient equations force exactly three nonzero equal-square coordinates; in the chart at [1:1:1:0] the quadratic part is -4u²-4v²+4uv+3w² with determinant 36. On the corresponding plane X0+X1+X2=0 the quartic restricts to -(X0²+X0X1+X1²-X3²)². Signs and permutations give the other cases. An independent enumeration of all 256 dot products of normalized sign representatives confirmed eight zeros per distinct-index pair of blocks and four additional, exactly diagonal, pairs per same-index block modulo 3.",
+      "residual_risks": [
+        "The disjoint displayed terms are not asserted to be irreducible over Z; 'integral closures' refers here to schematic closure, not normalization. The characteristic-two and -three marked models are not the actual singular or trope schemes."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The two characteristic-two constructions address genuine K3 or normal quotient surfaces, not the fixed double-quadric model with the specified markings. Catanese excludes characteristics 2 and 3 from Theorem 1 and separately notes degeneration of the equation."
+        ],
+        "reasoning": "Results on an actual positive-characteristic Kummer surface do not specialize to this schematic marked closure in a nonreduced quartic.",
+        "searches": [
+          "Dolgachev arXiv:2302.13101, introduction",
+          "Kondō–Schröer arXiv:1912.12015, p. 1",
+          "Catanese arXiv:2101.10501"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 2fe9c0537bec",
+        "Catanese arXiv:2101.10501",
+        "Dolgachev arXiv:2302.13101",
+        "Kondō–Schröer arXiv:1912.12015"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known coordinates are sufficient inputs for the calculation, but to deduce the integral structure one must saturate the marked closures, impose the incidence integrally, and distinguish the relation killing 3 from the involution relations becoming nonreduced at 2."
+        ],
+        "reasoning": "The known generic incidence and quartic factorizations alone do not determine these closed subschemes or their lengths; a reduced exceptional quartic equation does not specify how the marked incidence specializes.",
+        "searches": [
+          "Compare Catanese Theorem 1 and its proof with RESULT.md §§1–5",
+          "Compare indexed Göpel tetrad lattice Finding with the piecewise incidence algebra"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Catanese works with the same quartic and polarity; switching points and planes leaves the bilinear pairing symmetric. Its classical incidence is the generic fiber here, not the integral incidence with vertical diagonal."
+        ],
+        "reasoning": "No change of signs, dual coordinates or ordinary-characteristic terminology accounts for the nonflat F3 component or the nilpotents in the F2 marked incidence.",
+        "searches": [
+          "Resultary semantic comparison for integral marked Cefalù/Kummer incidence and exceptional-characteristic degeneration",
+          "Catanese arXiv:2101.10501, Theorem 1 and characteristic 2/3 passage"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2fe9c0537bec computes a lattice and quotient for the 60 Göpel tetrads of the node labels, expressly distinguished from tropes. The classical point–trope table gives 96 incidences, but not the characteristic-three diagonal or the nonreduced F2 local rings."
+        ],
+        "reasoning": "An incidence matrix on generic geometric points or a tetrad lattice on the same labels is not an exact table for the integral local incidence algebras.",
+        "searches": [
+          "Recorded local Resultary searches for the integral decomposition; strongest distinct match 2fe9c0537bec",
+          "Catanese's (16_6) incidence, arXiv:2101.10501 Theorem 1"
+        ]
+      },
+      "rationale": "The supported distinct claim is the integral scheme of marked incidences, especially its F3-torsion diagonal and characteristic-two scheme lengths, not the signed-node configuration, generic incidence or exceptional quartic square factorizations already in Catanese. The closest published catalogue and primary comparisons do not cover the integral marked-incidence statement in the passages inspected.",
+      "residual_risks": [
+        "Unindexed or uninspected integral computations of the same Cefalù model might overlap. The catalogue and selected primary passages do not establish absolute priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct prior coverage of generic marked configuration and square reductions, not the integral decomposition in those passages",
+          "evidence": "Characteristic exclusion, signed ordinary nodes and polar planes, and explicit reference to both exceptional squares.",
+          "identifier_or_url": "https://arxiv.org/abs/2101.10501",
+          "material_read": "Theorem 1, PDF p. 3 near offset 8200; proof, p. 17 near offset 46000",
+          "method": "OA PDF passages",
+          "title": "Kummer quartic surfaces, strict self-duality, and more",
+          "trigger": "Original Cefalù equation, polarity and classical incidence"
+        },
+        {
+          "assessment": "Different invariant; same-day listing is not used to decide priority",
+          "evidence": "Lattice span of the 60 tetrads with quotient Z/4 ⊕ (Z/2)^5, rather than pair incidence over Spec Z.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-the-integral-g-pel-tetrad-lattice-of-a-kummer-quartic--2fe9c0537bec",
+          "material_read": "Mirrored RESULT.md, lattice statement and tetrad-versus-trope distinction",
+          "method": "Local catalogue and mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "The integral Göpel tetrad lattice of a Kummer quartic",
+          "trigger": "Closest distinct Resultary hit on integral combinatorics of the same labelled geometry"
+        },
+        {
+          "assessment": "Different geometric model in the inspected passage",
+          "evidence": "Kummer configurations on characteristic-two K3 surfaces, rather than marked scheme fibers in the primitive Cefalù quartic.",
+          "identifier_or_url": "https://arxiv.org/abs/2302.13101",
+          "material_read": "Introduction, p. 1",
+          "method": "OA arXiv copy after DOI access returned 403",
+          "title": "K3 surfaces of Kummer type in characteristic two",
+          "trigger": "Characteristic-two Kummer configurations"
+        },
+        {
+          "assessment": "Different construction in the inspected passage",
+          "evidence": "Group-scheme quotients of products of cuspidal curves in characteristic two, not the marked point–plane incidence on the integral Cefalù model.",
+          "identifier_or_url": "https://arxiv.org/abs/1912.12015",
+          "material_read": "p. 1, construction and setting",
+          "method": "OA PDF passage",
+          "title": "Kummer surfaces associated with group schemes",
+          "trigger": "Kummer geometry with nonétale μ₂"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 11–29 and 45–75",
+        "Catanese arXiv:2101.10501, Theorem 1 and proof"
+      ],
+      "rationale": "The invariant is attached to a distinguished primitive self-dual quartic and its natural marked closures. The calculation pinpoints nonflat incidence even at a prime where both marked sets individually remain reduced and distinct, and resolves the different F2 phenomenon at scheme level, including the fixed-plane curvilinear lengths. These data are useful for specialization of the marked configuration; they cannot be read off from the generic (16_6) table or obtained by counting sign supports in residue fields alone.",
+      "residual_risks": [
+        "Value concerns this fixed arithmetic model and marking, not arbitrary integral Kummer models or simultaneous resolution."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

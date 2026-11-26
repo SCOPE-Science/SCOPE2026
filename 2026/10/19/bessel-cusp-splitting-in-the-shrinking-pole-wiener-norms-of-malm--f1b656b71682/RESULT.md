@@ -1,102 +1,49 @@
-# Bessel cusp splitting in the shrinking-pole Wiener norms of Malmquist functions
+# The local Wiener-norm profile at Bessel cusps for shrinking Malmquist poles
 
 ## Finding
-For an integer \(n\ge2\), let \(0\le c<n\), \(\lambda=c/n\), and
-\[
-f_{n,\lambda}(z)=\frac1{1-\lambda z}\left(\frac{z-\lambda}{1-\lambda z}\right)^{n-1}.
-\]
-Let \(\|f\|_W\) be the sum of the absolute Taylor coefficients of this analytic function. For every fixed \(C>0\), uniformly for \(c\in[0,C]\) as \(n\to\infty\),
-\[
-\|f_{n,c/n}\|_W = F(c)+O_C(n^{-1}),\qquad
-F(c)=\sum_{k\in\mathbb Z}|J_k(2c)|
-=|J_0(2c)|+2\sum_{k\ge1}|J_k(2c)|.
-\]
-The same limit holds for the ratio to the Hardy-space norm, since \(\|f_{n,c/n}\|_{H^2}=(1-c^2/n^2)^{-1/2}\). A precise first-order Fourier expansion is proved below.
 
-The limit \(F\) is real analytic away from the positive half-zeros \(c_{m,r}=j_{m,r}/2\), where \(j_{m,r}\) is the \(r\)-th positive zero of the Bessel function \(J_m\). It is nondifferentiable at every such point, with positive derivative jump
+For integers \(n\ge2\) and \(0\le c<n\), put \(\lambda=c/n\) and
 \[
-F'_+(c_{m,r})-F'_-(c_{m,r})=
-\begin{cases}4|J'_0(2c_{0,r})|,&m=0,\\
-8|J'_m(2c_{m,r})|,&m\ge1.
-\end{cases}
+ f_{n,\lambda}(z)=\frac1{1-\lambda z}\left(\frac{z-\lambda}{1-\lambda z}\right)^{n-1},\qquad F(c)=\sum_{k\in\mathbb Z}|J_k(2c)|.
 \]
-For every fixed \(m\ge1\) and \(r\ge1\), the two individual Fourier coefficients at signed indices \(m\) and \(-m\) of the centered function \(z^{-(n-1)}f_{n,c/n}(z)\) each have a unique real zero \(c^{(n)}_{+m,r}\), respectively \(c^{(n)}_{-m,r}\), in a sufficiently small fixed neighborhood of \(c_{m,r}\) for all sufficiently large \(n\). Their locations satisfy
+For fixed \(C>0\), \(\|f_{n,c/n}\|_W=F(c)+O_C(n^{-1})\) uniformly on \([0,C]\). At \(c_0=j_{m,r}/2>0\), where \(j_{m,r}\) is the \(r\)-th positive zero of \(J_m\), define \(D=\tfrac12(F'_+(c_0)+F'_-(c_0))\). With \(u=s-c_0/2\), the local profile is
 \[
-c^{(n)}_{k,r}=c_{m,r}+\frac{c_{m,r}(1-k)}{2n}+O_{m,r}(n^{-2}),\quad k\in\{m,-m\},
+ \lim_{n\to\infty} n\bigl(\|f_{n,(c_0+s/n)/n}\|_W-F(c_0)\bigr)
+ =D u+
+ \begin{cases}
+  2|J'_0(2c_0)|\,|u|,&m=0,\\
+  4|J'_m(2c_0)|\max\{|u|,mc_0/2\},&m\ge1.
+ \end{cases}
 \]
-so the two zero crossings split by the precise amount
-\[
-c^{(n)}_{-m,r}-c^{(n)}_{+m,r}=\frac{m\,c_{m,r}}n+O_{m,r}(n^{-2}).
-\]
-At \(m=0\) there is a single zero crossing, located at \(c_{0,r}+c_{0,r}/(2n)+O_r(n^{-2})\).
-
-There is also an explicit rescaled local norm profile at every Bessel cusp, stated in the proof. This is a result about these particular Malmquist–Walsh rational functions, not about the sharp Wiener-to-Hardy embedding constant of an entire rational function class.
+Convergence is uniform for \(s\) in compact sets. Thus after subtracting the linear part, the limiting first-order profile for \(m\ge1\) is constant between the two distinct kinks separated by \(mc_0\) in the scaled coordinate. The individual coefficient zero displacements are classical Jacobi endpoint-zero asymptotics in these coordinates; the claim here concerns the absolute sum of all coefficients.
 
 ## Assumptions and scope
-All functions are on the unit circle with its normalized Haar measure; Wiener norm means \(\ell^1\) of Laurent coefficients (or Taylor coefficients for analytic functions), and \(J_k\) denotes the Bessel function of the first kind of integral order. All quoted error terms concern \(n\to\infty\), with bounded \(c\) for the uniform norm statement and fixed \((m,r)\) for the zero-location statement. Set
-\[
-H_n(c,z)=z^{-(n-1)}f_{n,c/n}(z)
-=\frac{(1-(c/n)z^{-1})^{n-1}}{(1-(c/n)z)^n},\quad |z|=1.
-\]
-This centering preserves the Wiener norm. Here \(c<n\) guarantees the pole remains outside the unit disk.
+
+The Wiener norm is the sum of moduli of the Taylor coefficients, or of the Laurent coefficients after centering on the unit circle. Hardy norms use normalized Haar measure. Here \(J_k\) is the Bessel function of the first kind. The local limit fixes \((m,r)\) before taking \(n\to\infty\). The estimate for bounded \(c\) also holds for the ratio to the Hardy norm because \(\|f_{n,c/n}\|_{H^2}=(1-c^2/n^2)^{-1/2}\) by the unit modulus of the Blaschke factor and the geometric series.
 
 ## Proof
-**Step 1: uniform Wiener-algebra expansion.** The Banach algebra \(A(\mathbb T)\) of absolutely summable Laurent series has norm \(\|\sum a_kz^k\|_A=\sum|a_k|\). For any fixed \(C\), \(n>2C\) gives convergent Banach-algebra logarithms, and Taylor's formula (with a uniformly summable remainder) yields
+
+Center at the \((n-1)\)-st mode and work in the Banach algebra of absolutely summable Laurent series on the circle. For \(n>2C\), the logarithms of the two factors of \(H_n=z^{-(n-1)}f_{n,c/n}=(1-(c/n)z^{-1})^{n-1}(1-(c/n)z)^{-n}\) converge in the algebra. Expanding through the indicated order gives
 \[
-\begin{aligned}
-\log H_n(c,z)
-&=(n-1)\log(1-(c/n)z^{-1})-n\log(1-(c/n)z)\\
-&=c(z-z^{-1})+\frac1n Q_c(z)+O_C(n^{-2})_A,\\
-Q_c(z)&=cz^{-1}+\frac{c^2}{2}(z^2-z^{-2}).
-\end{aligned}
+ \log H_n=c(z-z^{-1})+n^{-1}Q_c+O_C(n^{-2}),\qquad
+ Q_c=cz^{-1}+\tfrac{c^2}{2}(z^2-z^{-2}).
 \]
-The exponential is analytic in the Banach algebra; hence
+The tail of each logarithmic series past degree two is bounded by \(n\sum_{j\ge3}(C/n)^j=O_C(n^{-2})\). Analyticity of the algebra exponential gives \(H_n=E_c+n^{-1}E_cQ_c+O_C(n^{-2})\), where \(E_c=\exp(c(z-z^{-1}))\). Its coefficients are \(J_k(2c)\) by the Bessel generating series. The first-order coefficient in mode \(k\) is
 \[
-H_n(c,z)=E_c(z)+\frac1n E_c(z)Q_c(z)+O_C(n^{-2})_A,\quad
-E_c(z)=e^{c(z-z^{-1})}.
+ B_k(c)=cJ_{k+1}(2c)+\tfrac{c^2}{2}\bigl(J_{k-2}(2c)-J_{k+2}(2c)\bigr)=c(k-1)J'_k(2c),
 \]
-The same expansion can be differentiated any fixed number of times with respect to \(c\) on bounded complex neighborhoods, by the Cauchy estimate or termwise differentiation of the uniformly convergent power series.
+by \(J_{k-1}+J_{k+1}=(k/c)J_k\) and \(2J'_k=J_{k-1}-J_{k+1}\). The error is in \(\ell^1\), not merely mode by mode. Centering does not change the norm, so the reverse triangle inequality gives the bounded-\(c\) limit and its rate.
 
-**Step 2: Bessel coefficients and norm.** The classical Bessel generating formula gives \(E_c(z)=\sum_{k\in\mathbb Z}J_k(2c)z^k\). Accordingly, for each integer \(k\), if \(h_{n,k}(c)\) is the \(k\)-th Laurent coefficient of \(H_n\), then
-\[
-h_{n,k}(c)=J_k(2c)+\frac{B_k(c)}n+O_C(n^{-2}),
-\quad B_k(c)=cJ_{k+1}(2c)+\frac{c^2}2\bigl(J_{k-2}(2c)-J_{k+2}(2c)\bigr),
-\]
-with the stronger \(\ell^1(\mathbb Z)\) remainder bound uniform for \(c\in[0,C]\). Taking absolute sums and using the reverse triangle inequality gives the uniform norm assertion. Because multiplication by a power of \(z\) shifts coefficients, \(\|f_{n,c/n}\|_W=\|H_n(c,\cdot)\|_A\). Since the Blaschke factor has unit modulus almost everywhere on the circle, Parseval and the geometric series give \(\|f_{n,c/n}\|_{H^2}^2=(1-c^2/n^2)^{-1}\).
+The positive zeros of each \(J_m\) are simple and, by Bourget's theorem, distinct nonnegative integral orders share none. For bounded complex \(c\), the series estimates \(|J_k(2c)|\le |c|^k e^{|c|^2}/k!\) for \(k\ge0\) give locally normally convergent tails. For positive bounded \(c\), the first term \(c^k/k!\) has a relative error bounded by \(\exp(C^2/(k+1))-1\), so all sufficiently high orders keep positive sign. Consequently \(F\) is real analytic on the positive axis off the Bessel half-zeros and the absolute-value sum restricted to nonzero modes at \(c_0\) is analytic near \(c_0\). Its derivative is \(D\), since the vanishing absolute-value terms have opposite one-sided derivatives. The derivative jumps are \(4|J'_0(2c_0)|\) for \(m=0\), \(8|J'_m(2c_0)|\) for \(m\ge1\).
 
-**Step 3: complete limiting cusp classification.** For positive \(c\), each \(J_m(2c)\), \(m\ge0\), has simple zeros, and no distinct nonnegative integral orders share a positive zero (the classical Bourget–Siegel theorem). On a fixed compact interval, all sufficiently high Bessel orders have positive values by their absolutely convergent power series with uniformly dominated tails. Hence the possible nonanalytic points of \(F\) are isolated and occur exactly at the values \(c_{m,r}\), and the remaining Bessel absolute-value series is real analytic there. At \(c_{0,r}\), exactly one Laurent mode vanishes; at \(c_{m,r}\) for \(m\ge1\), exactly the modes \(m,-m\) vanish, since \(J_{-m}=(-1)^mJ_m\). Each absolute value \(|J_k(2c)|\) contributes derivative jump \(4|J'_k(2c_{m,r})|\). Summing the one or two contributions proves both displayed jump formulas.
+Set \(a_k=J_k(2c_0)\) and \(d_k=2J'_k(2c_0)\). In the scaled coordinate \(s\), Taylor expansion in the algebra gives the coefficient sequence \(a+n^{-1}v(s)+O(n^{-2})\) uniformly for bounded \(s\), where \(v_k(s)=d_k(s+c_0(k-1)/2)\). The norm's right directional derivative is \(\sum_{a_k\ne0}\operatorname{sgn}(a_k)v_k+\sum_{a_k=0}|v_k|\): the coordinatewise difference quotients are bounded by \(|v_k|\) and \(v\in\ell^1\). Uniformity on compact \(s\)-sets follows from the uniform remainder and the Lipschitz bound \(\|v(s)-v(t)\|_1=|s-t|\|d\|_1\). For the nonzero-mode sum the terms proportional to \(k\) cancel by pairing \(k\) and \(-k\), giving \(D(s-c_0/2)\). At \(m=0\) the zero-mode contribution is \(2|J'_0||u|\); otherwise the two zero modes contribute \(2|J'_m|(|u+mc_0/2|+|u-mc_0/2|)\). This is the stated formula.
 
-**Step 4: individual zero crossings and their splitting.** At \(c_0=c_{m,r}>0\), the recurrences \(J_{m-1}+J_{m+1}=(m/c_0)J_m=0\) and \(J_m'=\tfrac12(J_{m-1}-J_{m+1})=-J_{m+1}\) imply
-\[
-B_m(c_0)=c_0(1-m)J_{m+1}(2c_0),\qquad
-B_{-m}(c_0)=(-1)^m c_0(1+m)J_{m+1}(2c_0).
-\]
-For \(m=0\), the first formula gives \(B_0(c_0)=c_0J_1(2c_0)\). The coefficient maps are real analytic in \((c,1/n)\) near \((c_0,0)\), because the Banach logarithm admits an analytic extension in the small parameter \(1/n\). Their \(c\)-derivatives at that point are \(2J_k'(2c_0)\ne0\). The real analytic implicit-function theorem gives one and only one zero per signed coefficient in a sufficiently small fixed interval, for all sufficiently large \(n\). Implicit differentiation at \(1/n=0\) gives
-\[
-\frac{d c^{(n)}_{k,r}}{d(1/n)}\Big|_{0}
-=-\frac{B_k(c_0)}{2J'_k(2c_0)}=\frac{c_0(1-k)}2.
-\]
-These identities prove the two explicit locations and the splitting distance. They do not assert that other Fourier coefficients have no zeros elsewhere.
+## Relation to individual coefficient roots and prior work
 
-**Step 5: the complete local norm boundary layer.** At any \(c_0=c_{m,r}\) define \(a_k=J_k(2c_0)\), \(d_k=2J'_k(2c_0)\), and \(b_k=B_k(c_0)\). For every fixed real \(s\), the following full series converges absolutely and provides the first-order scaling:
-\[
-\lim_{n\to\infty} n\bigl(\|f_{n,(c_0+s/n)/n}\|_W-F(c_0)\bigr)
-=\sum_{k:a_k\ne0}\operatorname{sgn}(a_k)(s d_k+b_k)
-+\sum_{k:a_k=0}|s d_k+b_k|.
-\]
-Convergence is uniform for \(s\) in compact sets. Indeed \(H_n(c_0+s/n)=E_{c_0}+n^{-1}(s\partial_cE_{c_0}+E_{c_0}Q_{c_0})+O_S(n^{-2})_A\). The directional derivative of the \(\ell^1\) norm is obtained coordinatewise using \(\bigl||a+tb|-|a|\bigr|/t\le|b|\), then dominated convergence. The error term is uniform by the reverse triangle inequality; equicontinuity in \(s\) upgrades pointwise convergence to uniform convergence on compact intervals. For \(m\ge1\), precisely two absolute-value terms remain in the second sum, with kink positions separated by \(m c_0\) in this scaled coordinate. At \(m=0\) only one kink remains.
+Binomial coefficient extraction, or the hypergeometric representation in DLMF 18.5.7, identifies the exact centered coefficient in mode \(k\ge0\) as \(\lambda^k P_{n-1}^{(k,0)}(1-2\lambda^2)\); in mode \(-m<0\), \(1\le m\le n-1\), it is \((-\lambda)^m P_{n-1-m}^{(m,0)}(1-2\lambda^2)\). The initial binomial coefficient in either extraction is the value of the indicated Jacobi polynomial at 1. By the Frenzen–Wong endpoint asymptotic (DLMF 18.16.8), the \(r\)-th zero measured in the angle \(\theta\) of \(P_d^{(\alpha,0)}(\cos\theta)\) obeys \(\theta=j_{\alpha,r}/(d+(\alpha+1)/2)+O_{\alpha,r}(d^{-3})\). Here \(d+(|k|+1)/2=n+(k-1)/2\) on both branches. Converting back by \(c=n\sin(\theta/2)\) gives precisely \(c=c_0+c_0(1-k)/(2n)+O_{m,r}(n^{-2})\) for each fixed \(k=\pm m\), with a single root at this scale for \(m=0\). Adjacent fixed Jacobi zero labels converge to different Bessel half-zeros. These individual locations are not claimed independently of the Jacobi result.
 
-## Verification
-The standalone script `CHECK.py` numerically evaluates the centered boundary Fourier series using an independent discrete Fourier transform and the Bessel limit with SciPy. It checks convergence of Wiener norms at several values of \(c\), first-order coefficients away from Bessel zeros, and the signed Fourier zero shifts for orders \(m=0,1,2,3\) and sample sizes \(n=80,160,320\). These are finite numerical stress tests; the all-order and all-zero claims are proved by the Banach-algebra expansion and implicit-function argument above.
+Auxemery, Borichev and Zarouf (arXiv:2603.03908v1) use the same Malmquist–Walsh witness in their fixed-pole inequality at \(\lambda\ge1/2\). Szehr and Zarouf (arXiv:1701.02358v1) and Borichev, Fouchet and Zarouf (arXiv:2107.00405) study fixed-pole powers of a Blaschke factor. The fixed-parameter estimates are not uniform in the shrinking-pole scaling used here. The local formula for the norm requires the summed first-order estimate and cancellation in the nonzero modes, not just the classical locations of individual zeros. For the Bessel generating formula and zero facts see DLMF §§10.12, 10.21; for the Jacobi formulas see DLMF §§18.5, 18.15–18.16.
 
-## Relationship to prior work
-Auxemery, Borichev and Zarouf (2026) study fixed pole parameters in a rational Nikolskii/Wiener inequality. Their Malmquist–Walsh witness is the precise function used here but is selected for \(\lambda\ge1/2\), while their proof selects a Dirichlet polynomial for \(\lambda\le1/2\). The present shrinking-pole regime \(\lambda=c/n\) supplies a different, finite Wiener-norm limit and resolves the associated Bessel cusp collisions. Szehr and Zarouf (2017) prove fixed-\(\lambda\) coefficient-norm asymptotics for powers of one Blaschke factor; their stated constants depend on \(\lambda\), and their results do not give the above joint scaling or signed zero-displacement formula. The Bessel generating series, zero simplicity, and Bourget–Siegel nonintersection theorem are classical ingredients, not new findings. Existing results establish neither this explicit \(1/n\) boundary layer nor the two signed-mode crossover by direct implication.
+## Verification and limitations
 
-## Limitations
-This theorem concerns one specified rational test family; it does not optimize over all rational functions, prove a new Nikolskii sharp constant, describe the fixed-positive-pole regime, or control the limit when \(c\to\infty\) with \(n\). Asymptotic uniqueness of the two *specified Fourier-mode* zeros is local; it is not asserted for the union of zero sets of every coefficient. The first-order \(\ell^1\) limit does not imply a uniform second derivative at the kink points. Historical priority for equivalent shrinking-pole identities outside indexed sources remains a risk.
-
-## References
-1. B. Auxemery, A. Borichev and R. Zarouf, *Asymptotic sharpness of a Nikolskii type inequality for rational functions in the Wiener algebra*, arXiv:2603.03908v1, 4 March 2026; full text: https://arxiv.org/html/2603.03908v1 .
-2. O. Szehr and R. Zarouf, *\(\ell_p\)-norms of Fourier coefficients of powers of a Blaschke factor*, arXiv:1701.02358v1, 9 January 2017; full text: https://arxiv.org/html/1701.02358v1 .
-3. NIST Digital Library of Mathematical Functions, §10.21, *Zeros*: https://dlmf.nist.gov/10.21 .
-4. NIST Digital Library of Mathematical Functions, §10.12, *Generating Function and Associated Series*: https://dlmf.nist.gov/10.12 .
+The accompanying `CHECK.py` uses NumPy and SciPy and is a finite Fourier check of the norm limit, first-order absolute-sum correction away from cusps, and sample root displacements. It is not a test of the full compact-uniform cusp-profile convergence; the Wiener-algebra argument proves that convergence. The result is for the prescribed rational family, not an optimal class-wide embedding constant, and is not an asymptotic for growing \(c\) or a joint classification of all finite-\(n\) coefficient zeros. Historical priority for equivalent norm-level formulas is not certified.

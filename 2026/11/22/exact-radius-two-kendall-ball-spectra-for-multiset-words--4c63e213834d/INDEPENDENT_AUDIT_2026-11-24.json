@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:45:51.730661Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, equations (1)–(6) and Proof; corrected /workspace/repairs/5/RESULT.md",
+        "Frozen VERIFICATION.md and verify.py (inspected, not executed)",
+        "Independent two-step neighbor-set enumeration over all binary words at lengths 2 through 6, and equal and unequal ternary pairs at length 2"
+      ],
+      "rationale": "The frozen maximizer characterization has a boundary error: at n=2 the consecutive-triple condition is vacuous, but an equal-letter word such as aa has ball size 1 and ab has size 2. The replacement requires unequal adjacent pairs as well and leaves the correct numeric count unchanged. For the exact identity, disjoint active swaps give distinct four-position supports. Overlapping active swaps on an all-distinct triple give two three-coordinate outputs; on a triple with one equal boundary there is one endpoint-only output, distinct from adjacent one-swap outputs. Returning and constant triples add none. These cases and the identity and one-swap outputs exhaust the ball. The transfer counts extensions by the last equality state, including exactly one returning choice from D. For binary maxima, A equals the number of consecutive active pairs; relative to the alternating ball, the difference is K(K-2m+7)/2 minus 2(e_1+e_m)+3C. For m>=8 this is strictly negative for K>0; at m=7 only K=7 could tie before penalties. At m=5,6 the bound e_1+e_m+C >= K-floor((m-1)/2) makes the few possible nonnegative quadratic terms strictly negative after penalties. Independent short-word breadth-first enumeration confirms the exceptional values. For the mean and limits the adjacent equality pattern has independent Bernoulli(1/q) entries by the sequential uniform letter counts. The binomial delta method applied to t^2/2, whose ball-size error and expected centering error are O(m), gives variance p^3(1-p). In the sparse-collision regime K is tight and converges to Poisson(lambda), while the expected C and A are o(1) and O(1), so dividing the exact deficit by m leaves K+o_P(1).",
+      "residual_risks": [
+        "The proof is for closed graph balls on linear words with unequal consecutive swaps. The distribution samples all ordered words, not fixed-multiplicity samples. Finite checking does not prove the asymptotic claims."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The multipermutation paper gives the radius-one formula and radius-two bounds for a fixed repeated-multiplicity family. Bereg et al. discuss permutation-array code-size bounds; Adamson et al. allow swaps of arbitrary positions on a fixed Parikh vector."
+        ],
+        "reasoning": "The inspected bounds do not give all-center distributions, and the other models do not furnish a transfer law or the two stated fluctuation regimes.",
+        "searches": [
+          "Buzaglo–Yaakobi–Etzion–Bruck, Error-Correcting Codes for Multipermutations, §IV pp. 725–726",
+          "arXiv:2301.11423v2, abstract and introduction",
+          "arXiv:2307.01648v3, abstract and introduction"
+        ]
+      },
+      "checked_sources": [
+        "Same-day exact-two sphere and ternary deletion Resultary records",
+        "Multipermutation paper §IV",
+        "arXiv:2301.11423v2 and arXiv:2307.01648v3, cited passages"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "With r=m-K and p=A in the companion notation, |T2|=1+binom(r,2)+a+h-2p+s. Adding the missing r-s one-swap outputs and using a+h=m-1-C exactly yields the frozen equation (1)."
+        ],
+        "reasoning": "This is a direct implication regardless of the priority of the two versions. The weighted distribution requires solving a separate extension-counting problem jointly for K,C,A; the binary maxima require a further optimization and the Gaussian and Poisson results concern distinct sampling limits. These are not direct restatements of T2 maximizers.",
+        "searches": [
+          "Exact-two adjacent-swap sphere record, Finding equation (1) and Proof §1",
+          "Buzaglo–Yaakobi–Etzion–Bruck, §IV"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The first record counts exactly two swap operations, allowing equal-letter no-ops. Its proof gives a closed formula and the number of one-effective-swap outputs already included. For 012 it gives three outputs, not the five in the closed ball.",
+          "The second record samples multiplicities and studies deletion balls, not this graph or sampling model."
+        ],
+        "reasoning": "The first match is not an identical ball definition, but its partition explicitly separates the missing outputs and allows the direct conversion credited in the replacement. The second cannot be converted by changing sampling notation. The common date gives no priority ordering.",
+        "searches": [
+          "Resultary/local mirror: SCOPE-complete-maximizers-of-exact-two-adjacent-swap-spheres-over-nonb--228c8deb5a52",
+          "Resultary/local mirror: SCOPE-boundary-layer-fluctuations-and-the-complete-ternary-radius-two--9e557f4728a6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact same-day source gives center-specific counts for T2 and nonbinary T2 maximizing counts, not the complete all-word Hamming-pattern-weighted coefficients for the closed Kendall ball. The ternary entry is a deletion-ball census; the multipermutation source gives bounds."
+        ],
+        "reasoning": "An exact count for each specified input word is different from determining multiplicities of each radius-two ball size over all q^n inputs; the strongest applicable formula for the first question is credited. No applicable all-length exact distribution table was found in the bounded comparison.",
+        "searches": [
+          "Resultary/local mirror: SCOPE-complete-maximizers-of-exact-two-adjacent-swap-spheres-over-nonb--228c8deb5a52, Finding and Proof §1",
+          "Resultary/local mirror: SCOPE-boundary-layer-fluctuations-and-the-complete-ternary-radius-two--9e557f4728a6, Finding and assumptions",
+          "Multipermutation paper, §IV"
+        ]
+      },
+      "rationale": "Equation (1) is already recoverable directly from the strongest same-day record. The repaired contribution is the full weighted all-word transfer distribution and its binary extremal and probabilistic analysis. It cites the overlap, retains the center-specific identity as an ingredient, and does not present that identity or its immediate nonbinary extremal consequence as new.",
+      "residual_risks": [
+        "The shared date of the two adjacent-swap records does not establish priority.",
+        "The Gregor–Merino–Mütze DOI/Wiley retrieval did not expose the full text; its relevance beyond the star-transposition model described by the frozen record was not independently settled.",
+        "The comparison was bounded to indexed records and cited primary passages; an earlier all-word exact spectrum under other terminology remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct derivation of closed-ball center count; different extremal problem and no full closed-ball spectrum in the inspected result",
+          "evidence": [
+            "Equation (1) gives |T2|=1+binom(r,2)+a+h-2p+s; Proof §1 identifies s as one-effective-swap outputs, implying the conversion by adding r-s."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-complete-maximizers-of-exact-two-adjacent-swap-spheres-over-nonb--228c8deb5a52/RESULT.md",
+          "material_read": "Finding, assumptions and Proof §§1–2, offset 0 through 5716",
+          "method": "Resultary and bounded local-mirror read",
+          "title": "Complete maximizers of exact-two adjacent-swap spheres over nonbinary alphabets",
+          "trigger": "Identical local operations and possible center-specific enumeration overlap"
+        },
+        {
+          "assessment": "Radius-one formula and restricted radius-two bounds, not the claimed distribution",
+          "evidence": [
+            "Run-based radius-one result and upper/lower bounds for fixed family P_(m,2)."
+          ],
+          "identifier_or_url": "https://www.paradise.caltech.edu/~yaakobi/publications/multipermutations_isit13.pdf",
+          "material_read": "PDF pp. 725–726, §IV, OA offsets roughly 19157 and 25000–28787",
+          "method": "Bounded OA PDF reading",
+          "title": "Error-Correcting Codes for Multipermutations",
+          "trigger": "Same Kendall metric, radius-two volumes"
+        },
+        {
+          "assessment": "Code-size bounds, no all-word spectrum in the inspected material",
+          "evidence": [
+            "Metric comparisons require matching symbol multiplicities."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2301.11423v2",
+          "material_read": "Abstract and introduction",
+          "method": "Bounded OA reading",
+          "title": "Improved Permutation Arrays for Kendall Tau Metric",
+          "trigger": "Kendall permutation code bounds and possible ball specialization"
+        },
+        {
+          "assessment": "Arbitrary-position swaps, not adjacent Kendall swaps",
+          "evidence": [
+            "Edges are defined on a fixed-Parikh-vector graph by swapping any two positions."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2307.01648v3",
+          "material_read": "Abstract and introduction, PDF pp. 1–2",
+          "method": "Bounded OA reading",
+          "title": "Structural and Combinatorial Properties of 2-swap Word Permutation Graphs",
+          "trigger": "Swap graphs with repeated letters"
+        },
+        {
+          "assessment": "Different operations and sampling measure",
+          "evidence": [
+            "Deletion balls and uniform sampling of multiplicity vectors."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-boundary-layer-fluctuations-and-the-complete-ternary-radius-two--9e557f4728a6/RESULT.md",
+          "material_read": "Finding and assumptions",
+          "method": "Resultary and local mirror",
+          "title": "Boundary-layer fluctuations and the complete ternary radius-two multiset deletion-ball spectrum",
+          "trigger": "Exact spectrum and fluctuations with similar radius and alphabet"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Replacement RESULT.md, equations (2)–(6), transfer proof and binary maxima",
+        "Exact-two sphere companion, Finding"
+      ],
+      "rationale": "Counting radii-two ball multiplicities rather than just evaluating a ball at one word resolves the heterogeneity of local neighborhoods in an adjacent-transposition error model. The small two-state polynomial makes those multiplicities available without enumerating all words, while the binary exception table and two sampling regimes distinguish extremal and typical behavior. This is useful information beyond the prior per-center reduction.",
+      "residual_risks": [
+        "The coefficient transform is not a simple univariate law in ball size and does not give optimal codes or higher-radius ball sizes."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

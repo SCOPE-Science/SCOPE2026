@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim concerns precisely the unnormalized four-row complex Fourier minor at prime-power order greater than five. The alternant identity shows that the determinant vanishes exactly when the ten-term complete symmetric polynomial \(h_2\) vanishes; the first three Vandermonde rows then force rank exactly three. The restriction to primes two and five follows from \(\Phi_{p^a}(1)=p\) and the ten monomials. Binary cyclotomic parity splitting yields an antipodal pair and a complete unit-circle classification into fourth-root and eighth-root types. Fifth-power descent uses the degree-five cyclotomic extension and a complete four-residue multiplicity lemma to force one order-five coset. All implications are reversible and count the translation orbits without duplication. Exact arithmetic additionally verifies all 915,793 four-column choices at ten orders and both finite residue lemmas. This program is supporting evidence; the proof applies to all exponents.
+## correctness
 
-## Originality — PASS, best knowledge
-The prime-power full-spark row-distribution theorem of Alexeev, Cahill, and Mixon already implies the existence/nonexistence part, which is not treated as original here. Its Theorem 9 does not enumerate or locate singular four-column sets. Caragea and Lee's fourier-minor paper concerns principal submatrices, while Hidaka and Itoh's Schur theorem evaluates a different set of inputs (all primitive roots). The closest indexed separate classifications involve row sets \(\{0,1,2,4\}\) and \(\{0,1,3,4\}\). Their mathematical statements do not imply the two distinct binary orbits and fifth-root orbit for \(\{0,1,2,5\}\); no affine row equivalence appears in the relevant prime-power cases. Residual risk: an unindexed explicit classification, or an unpublished theorem containing a stronger all-row census, could cover this result. Two relevant published index records were not accessible in complete text and are not represented as fully inspected.
+PASS
 
-## Mathematical value — PASS
-The row family \(\{0,1,2,d\}\) moves from an ordinary Vandermonde at \(d=3\), through a linear Schur factor at \(d=4\), to the first quadratic Schur factor at \(d=5\), motivating this precise aperture. The exact number and geometry of failed four-sample reconstructions are natural beyond the known Boolean full-spark invariant. The result gives a complete defect census for an infinite family of harmonic frames, exposes distinct two-adic and five-adic mechanisms, and reduces an otherwise \(\binom N4\)-sized enumeration to explicit orbit descriptions. These are precise natural invariants of erasure robustness; the binary eighth-root obstruction is not obtained by merely renaming the fourth-root case. No unproved improvement of conditioning or phase retrieval is claimed.
+For four distinct nodes, the remainder of X⁵ modulo their monic quartic has X³ coefficient e₁²−e₂=h₂. Row elimination thus gives the Vandermonde times h₂; the first three rows force rank at least three. The pair-sum polynomial has value 10 at 1, and divisibility by the prime-power cyclotomic polynomial forces p=2 or 5. In the binary case divide away common parity until both parities occur. The odd part must vanish; a 1+3 split is impossible by the odd term count, and the 2+2 split makes the odd part the product of two pair sums, forcing an antipodal pair. Writing the roots as u,−u,v,w reduces the equation to u²+v²+vw+w²=0; its modulus constraint gives v/w=−1 or ±i and hence the two stated shapes. The first is a subgroup coset; the second has one antipodal pair and cannot be fixed by the half-turn, so the stabilizers have orders four and one. For p=5 each residue class of pair sums must have a count divisible by 5. The 3+1 and 2+2 patterns give (6,3,1) and (3,4,3). In 2+1+1, the repeated residue contributes three pairs, the mixed pairs with the two singletons add two each at distinct different residues, and the three singleton pair sums are distinct; the maximum is four. For four distinct residues, deleting the missing residue from all five subtracts one pair per sum from three, leaving two each. Thus all four residues coincide, and iterating yields the order-five coset. Its converse follows from the reciprocal product (1−αt)/(1−t⁵). Independent exact replay checked all 625 residue tuples and all 915,337 four-sets at N=7,8,16,25,27,32,49,64 with zero mismatches; singular counts were 0,10,20,25,0,40,0,80.
 
-## Closest literature and limitations
-Full text of Caragea--Lee (arXiv:2409.09793), Hidaka--Itoh (arXiv:2403.10817), and Alexeev--Cahill--Mixon (arXiv:1110.3548) was examined in their relevant sections. The indexed published near-consecutive four-row defect record was compared at statement level, but its full text was unavailable. The theorem covers only prime powers and one row pattern. There is no independent bibliographic certification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Full-spark existence for this row set at prime-power orders follows from Alexeev–Cahill–Mixon. The preceding same-row semiprime record also explicitly establishes the order-five pattern at N=15 and the h₂ identity that proves sufficiency at any multiple of five. What survives is necessity for all prime-power orders, especially the binary two-orbit classification and the proof that no larger fifth-power configurations arise. The inspected results do not give these or their counts.
+
+## value
+
+PASS
+
+The first quadratic Schur case after the consecutive and linear cases is a motivated four-row sample-reconstruction problem. The enumeration supplies exactly which samples fail and how many, explains the distinct fourth-, eighth- and fifth-root mechanisms, and replaces the binary full-spark answer with an all-size classification. This is useful beyond repeating the known existence dichotomy or the earlier fifth-root witness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:00:50.800321Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the side of length a the only inward candidate has height h=sqrt(1-a^2/4) and parallelogram coordinates (1/2-ch/(as), h/(bs)). Existence requires a<=2; containment is equivalent to h<=bs and 2ch<=as, including the valid midpoint when a=2. Squaring nonnegative quantities gives exactly the stated bounds. The opposite side is congruent; interchanging side types gives the other inequalities. A forbidden vertex requires a=2c,b=1 or the transpose, and feasibility of both side types then forces c<=1/2 and 1+16c^2(1-c^2)>=4, hence only c=1/2,a=b=1. For c>=1/2 the length floors give the sharp perimeter bound; equality forces a=b=2c and yields admissible nonvertex witnesses except at the excluded triple, approached by rhombi from above. For c<=1/2, ordering a<=b, the inequality b^2+4s^2a^2>=4 and strict convexity of (1-x)^2+4s^2x^2 on [0,1/2], with x=a/(a+b)>0, force the stated sharp bound and equality only at a=b. For c<1/2 this rhombus has witnesses in the relative interiors of the opposite sides. The two branches agree at c=1/2 and increase strictly in c, giving the unique square global equality. The check is analytic; checker.py uses exact rational predicates but high-precision tolerances for geometry and perimeter comparisons, and its recorded PASS is finite corroboration only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1 gives L>=3 over all convex polygons with equality for the equilateral triangle; Theorem 2 gives L>=3 under its adjacent-struts and side-sum condition.",
+          "Theorem 3's centralsymmetric result assumes the separate Delta_s rectangle-inclusion condition on short edges, yielding a hexagon equality, not the all-side Delta(1) condition."
+        ],
+        "reasoning": "A weaker uniform lower bound does not imply a sharp stronger bound, side-witness containment, or the 60-degree attainment transition. The centrally symmetric theorem is not a broadening under identical constraints.",
+        "searches": [
+          "arXiv:2209.05940v1 Theorem 1; v2 Theorems 2–3",
+          "Resultary unit-strut perimeter comparison: 187d8869b5e1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and checker.py (inspected, not executed)",
+        "arXiv:2209.05940v1/v2 and 2010.06315v1",
+        "Resultary 187d8869b5e1 and 709524b7c388"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known all-side result ranges across polygon sizes and shapes and has its extremizer outside the parallelogram class.",
+          "The known opposite-leg result holds for an isosceles trapezoid under two vertex-allowed witnesses, omitting the conditions for both bases and comparing leg length, not parallelogram angle."
+        ],
+        "reasoning": "Specializing either statement does not impose the missing all-side conditions or give the sharp envelope. The simultaneous feasibility constraints and nonvertex analysis are what determine the new branch and exception.",
+        "searches": [
+          "arXiv:2209.05940v1 pp. 1–2 and v2 pp. 3, 5",
+          "187d8869b5e1 mirrored RESULT.md offset 0–4456, hypotheses and equality"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Nikonorov–Nikonorova arXiv:2209.05940v1 p. 1 defines the same strut and Delta(l) property.",
+          "Balestro et al. arXiv:2010.06315v1 p. 1 defines an infimum over centers of a supremum distance, not a side-specific equidistant point.",
+          "Indexed 709524b7c388 optimizes a visibility-kernel-area/perimeter ratio, not equidistance to edge endpoints; the web hits were irrelevant and are not negative evidence."
+        ],
+        "reasoning": "The correct equivalent language is the all-side Delta(1) property restricted to parallelograms, not visibility or relative self-Chebyshev radius. The same-property general theorem is explicitly credited.",
+        "searches": [
+          "Resultary: unit strut parallelogram exact feasibility angle-dependent perimeter nonvertex",
+          "Resultary: equidistant strut side convex polygon stopper",
+          "Web search: ‘unit strut’ parallelogram sharp perimeter angle equidistant polygon struts"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Indexed 187d8869b5e1 gives 2+2a-a^2 at a fixed leg length 0<a<1, and 11/4 with combined leg length at least 1; its equality witnesses are vertices.",
+          "Published general-polygon equality is at perimeter 3, not the angle-parametrized parallelogram envelope."
+        ],
+        "reasoning": "No canonical table is expected for a continuous parameter feasibility region. These exact results are the closest applicable numerical/formula comparisons; neither tabulates or provides the frozen fixed-angle function.",
+        "searches": [
+          "Resultary fixed-perimeter strut profiles: 187d8869b5e1 RESULT.md offset 0–4456",
+          "arXiv:2209.05940v1 Theorem 1 exact extremal value and shape"
+        ]
+      },
+      "rationale": "The edge-strut definition and a general polygon bound are established; the distinct contribution is the complete parallelogram feasible set including witness exclusion, together with the sharp angle-resolved perimeter and equality/attainment classification. The available exact trapezoid profile is for two legs and permits vertex witnesses; it neither reproduces these statements nor contains this model as a matching specialization.",
+      "residual_risks": [
+        "The bounded primary/indexed search does not exclude an unindexed treatment under geometric constraint or competition-problem terminology. Commercial search misses are not evidence of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DEFINITION_AND_WEAKER_GENERAL_BOUND_COVERED",
+          "evidence": "Same all-side unit-strut concept; L>=3 with triangle equality. Adjacent sides and the distinct Delta_s condition are treated in separate theorems.",
+          "identifier_or_url": "https://arxiv.org/abs/2209.05940",
+          "material_read": "v1 pp. 1–2 definition/Theorem 1, offsets 2683–3210 and 4966; v2 p. 3 Theorem 2, offset 8725, p. 5 Theorem 3, offsets 12800–14100",
+          "method": "Primary OA PDF passages",
+          "title": "Some extremal problems for polygons in the Euclidean plane",
+          "trigger": "Same Delta(l) predicate; possible broader sharp bounds"
+        },
+        {
+          "assessment": "DIFFERENT_INVARIANT",
+          "evidence": "One center must cover the entire curve, whereas the frozen result chooses a possibly different point for every side.",
+          "identifier_or_url": "https://arxiv.org/abs/2010.06315",
+          "material_read": "v1 p. 1, offsets 1500–3037",
+          "method": "Primary OA PDF passage",
+          "title": "Extremal problems for convex curves with given relative Chebyshev radius",
+          "trigger": "Possible alternate name or quantifier for equidistant witnesses"
+        },
+        {
+          "assessment": "PARTIAL_OVERLAP_DIFFERENT_CONSTRAINTS",
+          "evidence": "Two opposite leg witnesses, including vertices; fixed-leg-length profile and equality correspond to different parameters and do not impose struts on all sides.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-perimeter-profile-for-opposite-unit-strutted-legs-of-symme--187d8869b5e1",
+          "material_read": "RESULT.md offsets 0–4456, assumptions, sharp claims and proof excerpt",
+          "method": "Local mirror",
+          "title": "Sharp perimeter profile for opposite unit-strutted legs of symmetric trapezoids",
+          "trigger": "Closest indexed exact unit-strut profile"
+        },
+        {
+          "assessment": "DIFFERENT_WITNESS_CONDITION",
+          "evidence": "Visibility kernel and its area, not a point at distance one from the endpoints of each side.",
+          "identifier_or_url": "2026/11/17/SCOPE-sharp-guard-point-perimeter-ratio-for-a-symmetric-one-notch-pent--709524b7c388",
+          "material_read": "RESULT.md offsets 0–4427",
+          "method": "Local mirror",
+          "title": "Sharp guard-point perimeter ratio for a symmetric one-notch pentagon",
+          "trigger": "Nearby indexed optimization involving witnesses and perimeter"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This gives a natural complete classification for the first all-side centrally symmetric quadrilateral model of an established strut problem. In particular it identifies where the active obstruction changes and why the minimum is not attained at exactly 60 degrees; these facts are not conveyed by the global lower bound alone.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

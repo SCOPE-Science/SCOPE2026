@@ -1,19 +1,21 @@
-# Scientific review: exponential conductance collapse in optimized hypercubes
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof works for every integer \(d\ge2\) and every fixed real price \(t>0\), with arbitrary nonnegative edge allocations and unit linear budget. Strict convexity of \(\operatorname{tr}(L^+)\) on the connected price simplex and cube automorphisms establish the unique two-class optimizer. The exact Walsh spectrum gives a one-variable inverse-eigenvalue sum, an interior unique root, and correct normalization of the Kirchhoff index. Standard binomial concentration, coercivity, and the stationary equation prove the three fixed-price asymptotic regimes, including the exponentially small ratio for \(t>1\). The checker verifies 27 exact Kirchhoff identities, 225 exact Walsh eigenpairs, and 180 bracketed stationarity instances; these checks corroborate but do not replace the proof.
+## correctness
 
-## Originality — PASS, narrowly scoped
-Ghosh, Boyd and Saberi [1] established the general effective-resistance convex optimization framework and explicitly state uniform optimal allocation for the *equal-price* hypercube, but do not derive a distinguished-direction price classification or its high-dimensional bifurcation. Liu et al. [4] derive Kirchhoff formulas for unweighted hypercubes rather than conductance investment optimization. Tizghadam and Leon-Garcia [2,3] discuss resource planning and uniform-cost hypercubes, but the available inspected material does not provide the present distinct-coordinate price theorem. Searches for anisotropic hypercube, colored edge prices, equivalent product-network spectra, and published mathematical records uncovered no dominating theorem. Inaccessible full text for [2,3] and unidentified historical specializations are real remaining risks; a search is not proof of absence.
+PASS
 
-## Value — PASS
-Hypercube networks have exponentially many vertices but a tractable coordinate spectrum. The result solves a natural full-network investment decision and identifies an unexpected singular optimization law: charging a fixed price premium to one coordinate forces an exponentially small conductance *ratio*, whereas a fixed price discount drives linear-in-dimension growth. The exact all-dimension optimizer, strict interiority, phase boundary, and normalized objective distinguish the result from a routine fixed-weight graph computation or merely a numerical improvement.
+On the orthogonal complement of constants the objective is N times trace of the inverse. Its Hessian is strictly positive in every nonzero symmetric direction, and the simple-graph off-diagonals make edge-to-Laplacian injective. On the compact budget simplex the objective diverges at disconnected limits. Hence a unique minimizer exists, invariant under cube translations and ordinary-coordinate permutations. Each class must be positive, since omitting either class disconnects even in dimension two. The Walsh mode with k ordinary bits and distinguished bit ε has eigenvalue 2b(k+εx), with multiplicity binomial(n,k) for each ε, n=d−1. This gives precisely 2^(2d−2)F_n(x); F_n=(n+tx)(A_n+B_n). The class budget fraction tx/(n+tx) is a strictly increasing coordinate in which the conductances are affine, giving exactly one stationary root. At t=1 all directions are interchangeable. Independently differentiating gives F_n'=tA_n+Σ_{k=0}^n binomial(n,k)(tk−n)/(k+x)^2. The normalized binomial concentrates at k/n=1/2; lower-tail exponential bounds control inverse powers for k≥1. For x=ny, y>0, nF_n'/2^n tends to the derivative of f_t(y)=(1+ty)(2+1/(y+1/2)). At t<1 its derivative changes sign only at the asserted positive y_t, so fixed y on either side brackets the root and the normalized value tends to f_t(y_t)=2+2√(t(2−t)). At t>1 fixed positive x has positive derivative eventually, while the k=0 term forces negative derivative near zero. At the resulting x→0 root the k≥1 terms plus tA_n are (4(t−1)+o(1))2^n/n; the term n/x² balances this, giving the stated asymptotic. It also gives n/(2^n x)→0, so the zero-index contribution to F_n/2^n vanishes, yielding 4, the same limit as t=1. The constant conversion is N³/8=2^(3d−3). No varying-price or finite deletion claim follows. The exact small-cube inverse and eigenpair checks and bounded scalar diagnostics in verify_hypercube.py were inspected, not rerun; the independent argument supports the unrestricted and asymptotic claims.
 
-## Sources, limits, and audit status
-[1] Ghosh–Boyd–Saberi, *Minimizing Effective Resistance of a Graph*, 2008, DOI 10.1137/050645452 (full author PDF inspected, including symmetry/hypercube and extensions).
-[2] Tizghadam–Leon-Garcia, *On Robust Network Planning*, 2009, DOI 10.1109/DRCN.2009.5340013 (indexed primary excerpts only).
-[3] Tizghadam–Leon-Garcia, *Betweenness Centrality and Resistance Distance in Communication Networks*, 2010, DOI 10.1109/MNET.2010.5634437 (indexed primary excerpts only).
-[4] Liu–Cao–Pan–Elaiw, *The Kirchhoff Index of Hypercubes and Related Complex Networks*, 2013, DOI 10.1155/2013/543189 (public full article inspected).
-An earlier July 2006 proceedings version of [1] has no verified first-public day in the examined evidence. The 2008 date is the first day-exact published online date of the inspected version, not a claim that no earlier version existed. Results require fixed \(t\) as \(d\to\infty\); critical-window scaling and multi-price anisotropy remain unproved.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit prior strict convexity and equal-price cube symmetry, as well as the routine Walsh diagonalization. The supported distinct claim is the one-direction-priced Kirchhoff optimizer and its fixed-price asymptotic split and normalized cost. The closest catalogue matches change the graph, objective, or both; they were compared mathematically, not excluded by date.
+
+## value
+
+PASS
+
+The priced direction is required to keep the two halves connected. Finite positivity alone would not distinguish an order-one direction from a ratio shrinking exponentially. The exact exponent and constant, together with the cheap-side linear growth and the different limiting objective below unit price, quantify a real optimizer sensitivity in a symmetric standard network.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

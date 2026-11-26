@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:37:29.210968Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For even N>=6, the unsigned incidence matrix has BB^T=(N-2)I+J, hence rank N. The uniform c satisfies all genuine inequalities strictly, so both bodies are full dimensional in H_N. With P the tangent projector, P_ee=(N-3)/(N-1), and the coordinate-plane distance is r. For an odd cut of t=s(N-s) edges, B a has sum 2t and squared norm Nt; subtracting its normal component using (BB^T)^(-1) gives ||P a||²=2t(t-N+1)/((N-1)(N-2)). The slack is (t-N+1)/(N-1), so the squared distance divided by r² is (N-2)(N-3)(1-(N-1)/t)/2, at least (N-2)(N-4)/3>1. All coordinate feet are positive in every other coordinate and satisfy all odd cuts strictly. The normalized negative projected coordinate vectors with weights P_ee have zero mean and second moment I on ker B, certifying John optimality for both bodies. For F_N, every coordinate is in [0,1] and their sum is N/2; equality in the bound sum x_e²<=N/2 occurs exactly at perfect matchings. Matching inclusion probabilities for one edge, two incident edges, and two disjoint edges give centered covariance (N-2)P/((N-1)(N-3))=(R²/d)P, yielding the global Löwner certificate for both. Two disjoint half-weight triangles and a matching on the rest give an explicit fractional point violating an odd cut even at N=6. The ratio, dimension-asymptotic and intrinsic volume formulas follow. Replay is the projection and contact computation in RESULT.md §§1–6; the companion verify.py was inspected, not run, and only tests N=6,8,10.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lindzey supplies the complete-graph facet list and dimension used here. Behrend treats faces and vertices of fractional perfect b-matching bodies. Gartsman–Linial use ellipsoidal contact theory for the bounded metric polytope."
+        ],
+        "reasoning": "These give valid general or combinatorial inputs. None of the inspected statements decides the distance of a nontrivial odd cut from the fractional John ball or whether adding all such cuts preserves that ball.",
+        "searches": [
+          "Lindzey arXiv:1409.2057, §6, (6.1)–(6.3), Corollaries 6.3–6.4",
+          "Behrend arXiv:1301.7356, pp. 2–3",
+          "Gartsman–Linial arXiv:2305.02113, Theorems 1.2, 1.3 and 2.1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary records 71ae72613d53, 68b58451aad7, 443f302b065c and cf444a803ce6",
+        "arXiv:1409.2057",
+        "arXiv:1301.7356",
+        "arXiv:2305.02113"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The fractional result and perfect-matching outer contacts account for substantial pieces of the new theorem, but only deal with separate bodies or with the outer geometry.",
+          "The odd-cycle record shows a blossom contact at length five and strict nontangency at odd lengths at least seven, for full odd-cycle matching bodies, not complete-graph perfect matchings."
+        ],
+        "reasoning": "The main extra implication requires showing the fractional inball lies in Q_N, not just that Q_N is a face of the full matching polytope or a subset of F_N. Different tangent spaces make the full-body nontangency statement insufficient. The frozen argument supplies that missing strict quantitative comparison.",
+        "searches": [
+          "Kneser pair-eigenpolytope Finding and Proof §2",
+          "Full complete-graph matching-polytope radii Finding and Assumptions",
+          "Resultary 2026/10/18/SCOPE-a-five-cycle-blossom-transition-in-the-john-ellipsoids-of-odd-cy--cf444a803ce6, Finding and Proof §§2–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 2026/10/11/SCOPE-parity-controlled-john-and-l-wner-ellipsoids-of-kneser-pair-eige--71ae72613d53, Finding and Proof §2, identifies the polar X_n^circ with the fractional perfect-matching polytope by h=1-(n-1)y. For even n the two squared radii of X_n are 2/[n(n-1)(n-2)] and (n-3)/(n-1).",
+          "The inequality-degree relaxation in Resultary 2026/10/11/SCOPE-spectral-john-ellipsoids-of-vertex-and-edge-transitive-fractiona--443f302b065c is not F_N."
+        ],
+        "reasoning": "Centered polarity swaps and reciprocates the two ball radii, and the map from polar coordinates to fractional variables rescales by 1/(n-1). This reproduces both frozen F_N formulas exactly. The polar does not identify Q_N or include its balanced-degree odd-cut constraints.",
+        "searches": [
+          "Resultary: matching-polytope extremal ellipsoids and fractional one-factor polytope by polarity",
+          "Primary literature: matching/fractional matching inradius, circumradius and John–Löwner ellipsoids"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The full matching polytope record gives even-order circumradius n(n-2)/(2(n-1)) in squared units and exactly the maximum matchings as outer contacts; the entries 12/5, 24/7, 40/9 at 6, 8, 10 agree.",
+          "The polar record covers the fractional inner and outer radii for all even orders, already stronger than a finite table. The full-matching inner radii concern a different affine hull and different constraints."
+        ],
+        "reasoning": "These are genuine exact numerical overlaps, not independent corroboration of priority. No inspected exact prior formula or table gives the clearance of all genuine blossoms in the intrinsic perfect-matching face.",
+        "searches": [
+          "Resultary 2026/10/11/SCOPE-exact-euclidean-radii-and-contact-facet-phase-of-complete-graph--68b58451aad7",
+          "Resultary Kneser-polar record 71ae72613d53",
+          "Frozen VERIFICATION.md finite rows"
+        ]
+      },
+      "rationale": "The fractional ellipsoids, and the exact circumradius and perfect-matching contact pattern in the even complete-graph setting, have material prior coverage. The supported distinct result is that the integral perfect-matching polytope retains the fractional John ball with strictly positive clearance to every nontrivial odd cut, yielding joint John–Löwner equality for a proper relaxation. This is not a claim of priority for either fractional radius or the outer contact pattern alone.",
+      "residual_risks": [
+        "Bounded primary and catalogue comparison cannot rule out unindexed matching-polytope distance or integrality-relaxation ellipsoid results. The known fractional ellipsoids and outer sphere comparisons must retain prior credit."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Implies both exact F_N ellipsoids by polarity, not the proper odd-cut clearance in Q_N",
+          "evidence": [
+            "h=1-(n-1)y is the affine polar model; even-order X_n squared radii are 2/[n(n-1)(n-2)] and (n-3)/(n-1)."
+          ],
+          "identifier_or_url": "2026/10/11/SCOPE-parity-controlled-john-and-l-wner-ellipsoids-of-kneser-pair-eige--71ae72613d53",
+          "material_read": "Finding; Proof §2",
+          "method": "Local mirror RESULT.md passages",
+          "title": "Parity-controlled John and Löwner ellipsoids of Kneser pair-eigenpolytopes",
+          "trigger": "Dual model of the exact same fractional one-factor body"
+        },
+        {
+          "assessment": "Outer sphere overlap; inner geometry concerns the full matching polytope",
+          "evidence": [
+            "Even-order outer center and radius match, and the maximum-matching contacts are perfect matchings."
+          ],
+          "identifier_or_url": "2026/10/11/SCOPE-exact-euclidean-radii-and-contact-facet-phase-of-complete-graph--68b58451aad7",
+          "material_read": "Finding and Assumptions",
+          "method": "Local mirror RESULT.md passages",
+          "title": "Exact Euclidean radii and contact-facet phase of complete-graph matching polytopes",
+          "trigger": "Exact radius and contact overlap"
+        },
+        {
+          "assessment": "Different graph family and no Löwner comparison; date does not determine priority",
+          "evidence": [
+            "Blossom tangent on C5, strictly nontangent on longer odd cycles."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-a-five-cycle-blossom-transition-in-the-john-ellipsoids-of-odd-cy--cf444a803ce6",
+          "material_read": "Finding; Proof §§2–4",
+          "method": "Local mirror RESULT.md passages",
+          "title": "A five-cycle blossom transition in the John ellipsoids of odd-cycle matching polytopes",
+          "trigger": "Blossom nontangency for a potentially equivalent matching geometry"
+        },
+        {
+          "assessment": "Supplies established complete-graph matching facet description",
+          "evidence": [
+            "Coordinate and proper odd-set inequalities, with degree equalities and the given affine dimension."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1409.2057",
+          "material_read": "§6, pp. 10–11, (6.1)–(6.3), Corollaries 6.3–6.4",
+          "method": "Open PDF passages",
+          "title": "Erdős–Ko–Rado for Perfect Matchings",
+          "trigger": "Same integral body, dimension and facets"
+        },
+        {
+          "assessment": "Fractional polyhedral structure, not an identified ellipsoid comparison",
+          "evidence": [
+            "Defines equality-constrained fractional b-matchings and studies nonemptiness, dimensions and face/vertex structure."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1301.7356",
+          "material_read": "pp. 2–3, definitions and scope",
+          "method": "Open PDF passages",
+          "title": "Fractional Perfect b-Matching Polytopes. I: General Theory",
+          "trigger": "Same fractional body as a special case"
+        },
+        {
+          "assessment": "General contact method and metric-polytope example, not the target bodies",
+          "evidence": [
+            "Explicit extremal ellipsoids for the metric polytope and Löwner contact conditions."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2305.02113",
+          "material_read": "pp. 1–3, Theorems 1.2, 1.3 and 2.1",
+          "method": "Open PDF passages",
+          "title": "On the Löwner-John Ellipsoids of the Metric Polytope",
+          "trigger": "Extremal ellipsoids of a graph polytope"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Nontrivial odd cuts are essential to integrality and yet all miss the fractional inball by a quantitative uniform margin. Together with the exact enclosing contacts this shows that both canonical ellipsoids miss the strict integrality difference for a natural infinite family. This structural comparison is useful beyond recomputing the old fractional radii or merely recognizing a symmetric ball.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

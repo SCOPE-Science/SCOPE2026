@@ -1,19 +1,21 @@
-# Review of exact spherical hemisphere triangle-count variance
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof uses the exact spherical wedge probability, conditional independence for two triangles sharing an edge, independence for zero- and one-vertex overlaps, and exact pair counting. A common Gaussian sequence provides an almost-sure strictly decreasing coupling of the absolute inner products as dimension grows. Beta moments yield a positive and exact leading high-dimensional term. Exhaustive sign words in the first dimension and exact angular identities in the second and third dimensions were checked by the standalone deterministic program. Finite checks are confirmatory, not an infinite proof.
+PASS
 
-## Originality — PASS, conditional on inspected literature
+Write S_ij=sign⟨X_i,X_j⟩; ties have probability zero even at d=1. Independent flips of individual X_i show that only even-degree edge subsets survive when expanding products of edge indicators (1+S_ij)/2. Given X_1,X_2 with inner product C, the angular disagreement probability for the signs of a third point is arccos(C)/π, so their product has conditional mean b(C)=2 arcsin(C)/π. At C=±1 and d=1 this holds directly. The triangle sign product thus averages to E[sign(C)b(C)]=8u_d. The four-cycle 1–3–2–4–1 averages to E[b(C)²]=32h_d by independence of the two fresh points. The five-edge diamond has exactly the empty even subset, its two triangles, and this four-cycle. Hence p_d=(1+8u_d)/8 and the joint positive-diamond probability is (1+16u_d+32h_d)/32; subtracting p_d² gives c_d. The absent sixth edge is not constrained. Disjoint triples are independent, and one common vertex also gives independence by conditioning and rotational invariance. Exactly C(n,2)C(n−2,2) unordered pairs share an edge; for n=3 this term is zero. Coupling R_d by normalized Gaussian coordinates gives an almost surely strict drop including d=1→2. Both arcsine moments drop, u/4−u² is nondecreasing on [0,1/8], and p(1−p) is strictly increasing in the relevant p-range. There are always diagonal terms, so the variance is strictly decreasing regardless of whether edge-overlap pairs exist. Low-dimensional arcsine inputs are constant π/2 at d=1, uniform on [0,π/2] after arcsine at d=2, and arcsine of a uniform [0,1] variable at d=3; the last two moments there are π/2−1 and π²/4−2 by integration. Substitution yields the quoted constants. For fixed n, E[R_d]=√(2/(πd))+O(d^(−3/2)) from the gamma ratio, E[R_d²]=1/d and E[R_d³]=O(d^(−3/2)) by beta moments. Uniform bounds arcsin(r)=r+O(r³) and arcsin²(r)=O(r²) give u_d=1/(2π√(2πd))+O(d^(−3/2)) and h_d=O(1/d). The variance excess linear in u has multiplier (3/4)C(n,3)+(1/2)C(n,2)C(n−2,2); all other terms are O_n(1/d). This yields the positive coefficient and independent-edge limit. No finite check or assumption about uniformly growing n is needed.
 
-Bubeck–Ding–Eldan–Rácz analyze the same spherical model and uncentered triangle counts, but their Section 2 supplies expectation bounds, while the sparse-regime second-moment section supplies upper bounds based on overlap, not exact covariance or dimension monotonicity. Bok–Li–Yu analyze variance of *signed* triangle statistics in a planted local geometry model. Deka–Luo–Wu analyze complete-graph and atypical edge-count large deviations, not this variance invariant. The closest inspected related published findings concern *signed triangles with affine random links*, *acute Euclidean chord triangles*, and *extreme spherical side lengths* rather than ordinary hemisphere adjacency triangles. None of these statements implies the exact universal uncentered triangle variance law and its strict dimension ordering. Priority is not certified: inaccessible alternative sources or different terminology may still contain it.
+## originality
 
-## Value — PASS
+PASS
 
-Triangle counts are the canonical motif statistic for detecting the dependence hidden by pairwise-independent edges in geometric graphs. The theorem determines their *entire finite-sample variance*, makes the dependence on ambient dimension strictly ordered for every n, quantifies the sharp 1/sqrt(d) separation from the independent-edge benchmark, and exhibits exact low-dimensional constants. These facts calibrate motif noise, rather than merely re-evaluating a marginal probability or repeating asymptotic threshold results.
+The supported distinct claim is the all-dimension exact ordinary triangle variance, exact shared-edge covariance, strict variance ordering, and sharp fixed-n variance excess. The single-triangle mean formula and strict dimension decrease are already covered for the continuous spherical model in Bubeck–Ding–Eldan–Rácz §6; the frozen discussion of earlier mean bounds alone undercredits that source. The elementary d=1 extension does not warrant independent novelty credit.
 
-## Verification and limitations
+## value
 
-The full analytic scope is all integer dimensions at hard edge density 1/2 and any fixed number of vertices n>=3. Numerical checks do not prove universal claims. No general nonzero edge threshold, simultaneous large-n limit, optimal detector, or priority certification is asserted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Ordinary triangle counts measure latent dependence even though the edge density equals that of independent fair edges. An exact variance, its strict order in dimension for every fixed node count, and the sharp excess coefficient quantify that statistic's noise; the shared-edge term can grow as n⁴ and cannot be read off the prior mean. This is a natural exact invariant, not a claim about optimal testing or any joint n,d regime.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

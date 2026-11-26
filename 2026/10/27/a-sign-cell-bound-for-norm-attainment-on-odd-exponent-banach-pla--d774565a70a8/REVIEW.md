@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof partitions projective directions into at most four sign sectors. On each sector the level equation is a nonzero polynomial of degree at most \(p\); a maximizing direction is a root of multiplicity at least two. The mixed-coefficient argument excludes an identically zero sector unless \(T\) is a scalar multiple of a signed permutation isometry.
+## correctness
 
-## Originality
-PASS on the checked literature. Sain's Theorem 2.7 gives \(|M_T|\le2(8p-5)\) for integer \(p\ge2\) and explicitly leaves the optimal bound open. The present estimate \(4(p-1)\) strictly improves that bound for odd \(p\ge3\). The exact optimum is not claimed.
+PASS
 
-## Value
-PASS. The estimate materially tightens a general cardinality bound for a natural operator invariant and supplies a short sign-sector proof that can be reused in related finite-dimensional questions.
+Reconstructed the real-projective proof. On each of at most four arcs cut by the axes and nonzero row kernels, the difference of p-th norm powers is a signed homogeneous binary form of degree p. If it vanishes identically and all entries are nonzero, the two mixed coefficients imply equality of the row ratios because p−2 is odd; proportionality then makes the signed terms cancel, inconsistent with the positive pure powers on the right. With a zero entry the same equations force both rows to be coordinate-supported; the pure terms then force different coordinates and equal magnitudes, the excluded scaled signed permutation. This handles zero rows and coincident marks. A nonzero form has at most floor(p/2) distinct double roots on any arc closure: take an affine projective chart containing the closure and use differentiability of the original difference at every maximizing direction, including marked endpoints, to get the double-root condition. Four such counts, possibly overcounting endpoints, followed by antipodal lifting give 4(p−1). The cubic sentence is read as a specialization under the explicit standing exclusion of all scalar multiples of isometries, not a separate claim about every map that is not itself an isometry. Symbolic check only; no independent formal certificate or numerical exhaustion claimed.
 
-## Closest literature and limitations
-The closest primary source is D. Sain, “On the norm attainment set of a bounded linear operator,” arXiv:1608.00755, Theorem 2.7 and its optimal-bound discussion. published-finding corpus searches returned nearby results on other geometric constants of \(\ell_3^2\), not a matching norm-attainment cardinality bound. The claim is limited to real \(\ell_p^2\) for odd integer \(p\ge3\); it does not establish sharpness or equality cases.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge pass for a uniform upper bound on odd integer exponents, not for a sharp bound or for the general method of analyzing norm-attainment sets. The closest general theorem has a strictly weaker bound; the closest sharper published finding has disjoint exponent support.
+
+## value
+
+PASS
+
+This addresses the optimum-cardinality problem posed in the prior literature by materially tightening the available uniform bound (for example 38 to 8 at p=3), with a short argument that handles all matrices under the precise exclusion, rather than one special example. The significance is the uniform upper bound, not resolution of the exact maximum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

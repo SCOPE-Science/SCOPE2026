@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The covariance expansion has a finite exact coefficient formula for all positive integer window lengths. The sign-variation rule and strict negative derivative at unit correlation prove uniqueness, and the Gaussian tail conclusion is an exact monotonicity corollary. The checker tests finite instances but is not used as an all-length proof.
+## correctness
 
-**Originality — PASS (provisional historical priority).** Zhang (2008), equation (30), covers the equal-window Allan-variance component. Keim and Percival (2010), Sections 2–3, also fix equal Haar window sizes and investigate which *scale* peaks, not where persistence maximizes the contrast at arbitrary fixed unequal lengths. Kiviluoma and colleagues' published empirical wind-ramp correlations motivate but do not imply the stated frontier. No dominating statement was located in the inspected primary work or accessible prior findings. General unequal-filter covariance theorems remain a meaningful historical-priority risk.
+PASS
 
-**Value — PASS.** The exact boundary between one-reading and genuinely averaged adjacent intervals answers when longer positive temporal persistence can make large aggregated wind-fluctuation differences more rather than less likely. The 2-to-10 window example has a model-predicted variance increase of approximately 48.29%, which illustrates the substantive scale of the effect. The result is a model benchmark, not an operational wind-farm forecast.
+Direct counting of within-window and cross-window pairs reproduces all three disjoint lag-coefficient ranges, including the empty middle range when m=n. With m<=n and m>=2, the first same-window contribution already dominates 1/(mn), the other is positive, and the coefficients are strictly decreasing in the first range and negative thereafter. Descartes' rule bounds the number of positive derivative roots by one, counting multiplicity. Counting each pair's distance by the cuts separating it gives V'(1)/sigma^2=-2 times the sum of squared prefix weights, strictly negative. Thus the root is simple and in (0,1). For m=1 all coefficients are negative. Gaussianity converts the result into the same classification for every strictly positive threshold. Independent direct double summation of w_i w_j rho^|i-j|, bisection on its derivative, and normal density integration give rho=0.638158678162176, variance ratio V/sigma^2=0.889741973037229 and P=0.289075649894 at threshold sigma, versus 0.6 and 0.196705602459 at independence.
 
-**Closest literature and limits.** Zhang (2008), Keim–Percival (2010), Kiviluoma et al. (2015/2016), Gallego-Castillo et al. (2015). Exact claims require a fixed-marginal-variance, stationary Gaussian AR(1) surrogate and nonnegative correlation; do not extrapolate to physical reliability or arbitrary distributions. General filter theory may contain related results not found in completed comparisons.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best of current knowledge, the all-length classification with the singleton cutoff is distinct from the inspected earlier AR(1) Allan/Haar formulas and a scale maximization at fixed correlation. The exact Resultary match is the assigned work, not independent prior coverage.
+
+## value
+
+PASS
+
+The answer to whether persistence can amplify an adjacent reporting-window contrast changes exactly when both windows contain at least two readings. This supplies a sharp boundary and a unique worst persistence for a natural family of filters, not just a larger variance in one example or a recomputation of Allan variance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

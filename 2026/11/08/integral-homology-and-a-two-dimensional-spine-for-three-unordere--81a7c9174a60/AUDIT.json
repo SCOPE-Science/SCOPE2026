@@ -1,147 +1,96 @@
 {
   "correctness": {
-    "rationale": "Exact 25-vertex subdivided Abrams model satisfies the cited n=3 sufficient conditions. Independent cell counting yields [2300,7590,8190,2880]; all signed cubical boundary squares vanish. Every one of 7260 free-face pairs is checked and produces a subcomplex with no 3-cells. Tree contraction leaves a 1914-by-1933 integer boundary. Explicit reversible unimodular eliminations isolate 1907 units, then one residual invariant 2; rank 1908 gives H1=Z^6+Z/2 and H2=Z^25. Full executable source and expected output embedded; no infinite assertion extrapolated.",
+    "rationale": "Prue–Scrimshaw Theorem 3.2 applies after one bisection of each edge. The exact incidence check exhausts the cubical model and deletes only free square–cube pairs. The remaining connected two-dimensional subcomplex is a deformation retract. Its Euler characteristic and Ko–Park's integral first-homology formula give nonzero free second homology, proving dimension two is minimal. The exact replay is python3 verify.py.",
     "status": "PASS"
   },
-  "independent": false,
-  "independent_audit_status": "not_performed",
+  "independent_audit_status": "passed",
+  "independent_validation": true,
   "originality": {
     "broader_coverage": {
       "evidence": [
-        "Ko–Park covers the first-homology component, expressly not claimed new.",
-        "Maciążek–Sawicki Table 2 concerns its Petersen-family ten-vertex member with four and six particles, not three; its general homological constructions do not state a 25-generator integral second-homology group here.",
-        "An–Knudsen planar graph conditions do not cover the nonplanar Petersen graph.",
-        "Maciążek–Sawicki Theorem 12 is a generation-by-product-cycles statement when exactly one vertex has degree greater than three; Petersen has none. The method alone does not give the exact independent relation rank or a dimension-two spine."
+        "Sufficient subdivision gives the starting model; first-homology classification and reduced chain comparison are established results."
       ],
-      "reasoning": "The key stronger methodologies and class theorems were compared by implication. General chain models and product-generator results make computation possible but do not specify the exact three-particle Petersen degree-two rank or the recorded 7260-step collapse. Nonetheless a general-theorem deduction not presently identified remains an originality risk.",
+      "reasoning": "These general theorems do not exhibit the claimed exhaustive free-face collapse in the specified cubical model.",
       "searches": [
-        "Maciążek and Sawicki, Non-abelian Quantum Statistics on Graphs, full text, §§4–5 and Table 2",
-        "Ko and Park, Characteristics of Graph Braid Groups, arXiv:1101.2648",
-        "An, Drummond-Cole and Knudsen, Subdivisional Spaces and Graph Braid Groups, arXiv:1708.02351",
-        "An and Knudsen, On the Second Homology of Planar Graph Braid Groups, arXiv:2008.10371"
+        "arXiv:0909.5511 Theorem 3.2",
+        "arXiv:1101.2648 §§2–3",
+        "arXiv:1708.02351 Theorem 4.5 and Proposition 4.9"
       ]
     },
     "checked_sources": [
-      "arxiv:0909.5511",
-      "arxiv:1101.2648",
-      "arxiv:1708.02351",
-      "arxiv:2008.10371",
-      "doi:10.1007/s00220-019-03583-5",
-      "2026/10/11/SCOPE-two-particle-petersen-configuration-homology-as-an-s-5-module--2bac82e0590d",
-      "2026/10/11/SCOPE-three-particle-homology-of-the-heawood-graph--7524bced20b8",
-      "2026/10/11/SCOPE-top-homology-of-the-three-particle-pappus-configuration-space--94f23a73ed7c"
+      "October 18 and November 1 Petersen configuration character records",
+      "arXiv:0909.5511",
+      "arXiv:1101.2648",
+      "arXiv:1708.02351",
+      "arXiv:1806.02846"
     ],
     "claim_vs_prior_implication": {
       "evidence": [
-        "Earlier two-point Petersen homology cannot determine three-point second homology: the configuration spaces and cell complexes differ.",
-        "A general stable discretization theorem equates continuous and discrete models but leaves their homology uncalculated.",
-        "Targeted indexed results did not identify an exact three-point Petersen rank-25 result."
+        "The earlier proofs use reduced chain ranks in characteristic zero, with additional finite-field calculations. The present checker tests actual cubical square–cube incidence throughout the collapse."
       ],
-      "reasoning": "The complete numerical degree-two result and constructive 2D spine are not logical corollaries of the inspected concrete prior statements alone; they require the supplied exact cubical collapse and integral calculation. The known degree-one group is excluded from novelty.",
+      "reasoning": "Injectivity of a top rational differential does not establish geometric free faces or a two-dimensional deformation retract. The remaining claim is a geometric certificate, not a reinterpretation of rational vanishing.",
       "searches": [
-        "three particle configuration graph topology Petersen Heawood Desargues integral homology",
-        "\"Petersen\" \"B_3\" \"H_2\" graph braid",
-        "Maciążek–Sawicki 2019 §5.2 and Table 2; Prue–Scrimshaw Theorem 3.2"
+        "October 18 and November 1 Resultary primary Petersen symmetry proofs"
       ]
     },
     "equivalent_formulations": {
       "evidence": [
-        "Prue–Scrimshaw arXiv:0909.5511 Theorem 3.2 identifies the discrete cubical complex with the unordered continuous configuration space.",
-        "Maciążek–Sawicki 2019 §4 uses the notation C_n for this same unordered space."
+        "The pentagon/spokes/star and disjointness descriptions give the same graph; sufficiently subdivided unordered cubical configurations model the continuous configuration space."
       ],
-      "reasoning": "The unordered configuration and three-strand graph braid classifying-space descriptions are equivalent here. Full integer homology was compared under both wordings, not just a graph-name title; searches found no exact three-strand Petersen computation. This is best-knowledge, not a uniqueness proof.",
+      "reasoning": "Equivalent representations of the same space are included. Ordered configurations and vertex occupancy alone are not equivalent formulations.",
       "searches": [
-        "unordered three point configuration space Petersen graph B3 Petersen H2 rank 25 Z/2 second homology",
-        "web: \"Petersen graph\" \"configuration space\" \"H_2\" \"3\"",
-        "web: \"Petersen\" \"graph braid\" \"25\" \"homology\""
+        "Three-strand Petersen graph braid group; unordered configuration of three geometric points; Kneser graph KG(5,2)"
       ]
     },
     "exact_database_or_table": {
       "evidence": [
-        "2026/10/11/SCOPE-two-particle-petersen-configuration-homology-as-an-s-5-module--2bac82e0590d concerns two particles, with H2 rank 5.",
-        "2026/10/11/SCOPE-three-particle-homology-of-the-heawood-graph--7524bced20b8 concerns the Heawood graph.",
-        "2026/10/11/SCOPE-top-homology-of-the-three-particle-pappus-configuration-space--94f23a73ed7c concerns the Pappus graph.",
-        "Maciążek–Sawicki Table 2 treats four-point H2 and six-point H3 on the Petersen-family ten-vertex graph, not three-point H2."
+        "Two earlier Resultary primary records give Betti vector (1,6,25,0) over the rationals and an S5-character. The earlier Petersen-family table has blocks for four and six particles, not three."
       ],
-      "reasoning": "Database results and a primary full-size published numerical table were checked for the exact graph, particle number, integral group and possible cover by family. Nearest matches differ in graph or particle number. No exact existing table row covers this statement.",
+      "reasoning": "The exact rational ranks are already known. Neither the same-particle rank evidence nor other-particle tables give the stated spine.",
       "searches": [
-        "three strand Petersen graph braid group homology H0 1 H1 Z6 plus Z2 H2 Z25",
-        "Petersen graph three particle configuration topological dimension two 2880 three cubes collapse",
-        "Maciążek–Sawicki 2019 Table 1 and Table 2, inspected PDF page 28"
+        "Resultary: three-particle Petersen configuration homology and homological dimension",
+        "arXiv:1806.02846 Tables 1–2"
       ]
     },
-    "rationale": "The exact B3(P) integer second-homology rank 25 and concrete two-dimensional CW collapse are not stated by the inspected closest general sources, published tables, indexed research records. Ko–Park and prior B2(P) cover H1 only / two particles, respectively. Maciążek–Sawicki Table 2 treats P10 at n=4 and n=6. Identified general modeling methods enable, but do not state, the exact result. Subject to residual unindexed/general-deduction priority risk.",
+    "rationale": "Best of knowledge, the explicit cubical spine survives comparison with the earlier rational homology calculations. A rank novelty claim is not made.",
     "residual_risks": [
-      "General 2019+ graph-braid chain frameworks might permit an unrecognized straightforward specialization; no claim of first discovery is made.",
-      "Search engines and indexed research records cannot exhaust unpublished or unindexed equivalent calculations.",
-      "Independent mathematical verification is not yet available."
+      "An unindexed or differently phrased result on cubical spines could exist. No absolute priority is asserted."
     ],
     "source_inspections": [
       {
-        "assessment": "FOUNDATIONAL_NOT_COVERING_NUMERICAL_CLAIM",
-        "evidence": [
-          "Theorem 3.2 supplies conditions n−1 and n+1 for configuration-space equivalence; no Petersen rank 25 computation."
-        ],
-        "identifier_or_url": "arxiv:0909.5511",
-        "material_read": "Full ar5iv HTML and Theorem 3.2, including unordered extension and subdivision bounds.",
-        "method": "Read theorem, definitions and proof context.",
+        "assessment": "Prior exact rational ranks and character; not the spine",
+        "evidence": "Its second proof step gives ranks (679,1715,960) of reduced differentials and rational Betti vector (1,6,25,0).",
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-the-full-symmetric-group-character-of-three-particle-petersen-co--a27f53bdd4d3",
+        "material_read": "Finding, exact rational rank proof and limitations",
+        "method": "Primary RESULT.md",
+        "title": "The full symmetric-group character of three-particle Petersen configuration homology",
+        "trigger": "Same object, particle number and rational rank"
+      },
+      {
+        "assessment": "The additional ranks do not provide a collapse",
+        "evidence": "The rational character comes from the reduced model; the middle rank drops modulo two and the top rank is full. No free cubical square–cube sequence is supplied.",
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-the-full-symmetric-group-homology-character-of-three-unordered-p--4a5b127cca41",
+        "material_read": "Finding, differential ranks, character proof and limitations",
+        "method": "Primary RESULT.md",
+        "title": "The full symmetric-group homology character of three unordered particles on the Petersen graph",
+        "trigger": "Possible added coverage from modular ranks"
+      },
+      {
+        "assessment": "Justifies the starting model",
+        "evidence": "The bounds are n-1 for essential-vertex paths and n+1 for noncontractible loops.",
+        "identifier_or_url": "https://arxiv.org/html/0909.5511",
+        "material_read": "Theorem 3.2 and the paragraph extending it to unordered configurations",
+        "method": "arXiv full text",
         "title": "Abrams's Stable Equivalence for Graph Braid Groups",
-        "trigger": "Topology of finite cubical model of continuous graph configurations"
-      },
-      {
-        "assessment": "COVERS_H1_ONLY",
-        "evidence": [
-          "General abelianization formula covers H1; does not present Petersen 3-point H2."
-        ],
-        "identifier_or_url": "arxiv:1101.2648",
-        "material_read": "Full arxiv text, theorem and introduction checked; exact-term Petersen search.",
-        "method": "Compared degree-one theorem with degree-two claim.",
-        "title": "Characteristics of Graph Braid Groups",
-        "trigger": "General first integral homology of nonplanar graph braid groups"
-      },
-      {
-        "assessment": "RELATED_DIFFERENT_PARAMETERS",
-        "evidence": [
-          "Table 2 includes P10 at four particles (H2) and six particles (H3), not the three-particle H2 group; Section 5 gives computational framework and related family theorems.",
-          "Section 5.7 Theorem 12 supplies generation for a degree-constrained graph class, not a complete three-particle Petersen rank computation."
-        ],
-        "identifier_or_url": "doi:10.1007/s00220-019-03583-5",
-        "material_read": "Open-access full HTML Sections 4–5, PDF page 28 rendered and Table 1–2 read at full resolution.",
-        "method": "Compared graph P10, number of particles, integral H2 and higher groups line-by-line.",
-        "title": "Non-abelian Quantum Statistics on Graphs",
-        "trigger": "Highly plausible existing graph configuration homology tables for Petersen family"
-      },
-      {
-        "assessment": "FRAMEWORK_NOT_EXPLICIT_CLAIM",
-        "evidence": [
-          "General Świątkowski complex and modeling approach; no Petersen-specific exact rank statement found."
-        ],
-        "identifier_or_url": "arxiv:1708.02351",
-        "material_read": "Open-access full primary preprint in HTML, introductory results and relevant sections; Petersen term searched.",
-        "method": "Compared homological modeling and general theorems with concrete three-point integral group.",
-        "title": "Subdivisional Spaces and Graph Braid Groups",
-        "trigger": "Broad chain model may imply a numerical three-point result"
-      },
-      {
-        "assessment": "HYPOTHESES_INAPPLICABLE",
-        "evidence": [
-          "Principal theorem is planar; Petersen is nonplanar."
-        ],
-        "identifier_or_url": "arxiv:2008.10371",
-        "material_read": "Full open-access preprint HTML, hypotheses and planar theorem; Petersen text checked.",
-        "method": "Tested planar hypotheses against nonplanar Petersen graph.",
-        "title": "On the Second Homology of Planar Graph Braid Groups",
-        "trigger": "Potential broader coverage of degree-two graph braid homology"
+        "trigger": "Sufficient subdivision criterion"
       }
     ],
     "status": "PASS"
   },
-  "review_type": "same_model_review",
-  "same_model_review_status": "passed",
+  "previously_published_pending_reaudit": false,
   "schema_version": 1,
-  "scope_run_id": "81a7c917-4a60-4fd9-9aa0-6c152fbd269c",
   "value": {
-    "rationale": "The Petersen graph is the canonical cubic nonplanar graph. Its unordered three-particle space is the first setting admitting three-dimensional cubical cells, hence dimension reduction is nontrivial. The exact 25-dimensional free H2 and two-dimensional spine resolve a natural finite invariant not determined by known H1 or two-particle formulas. The integral answer distinguishes the remaining H1 order-two torsion from degree-two freeness; it is useful for comparison across nonplanar symmetric graph braid spaces, not an arbitrary parameter slice.",
+    "rationale": "An explicit minimal-dimensional subcomplex, reached without changing the 1-skeleton, is useful structural data for this canonical nonplanar configuration space. It proves integral second-homology freeness geometrically, without making a new claim for the known rational Betti number.",
     "status": "PASS"
   }
 }

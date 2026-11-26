@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The projection identity \(P_{ii}=k/n\) and constant edge Fiedler leverage \(k\mu/m\) follow from vertex and edge transitivity. Lifted base Fiedler modes yield a sharp global Rayleigh-budget inequality for **all** independent edge allocations. The uniform construction attains equality; the quadratic spectral branch gives the gap and equality in the projector certificate fixes every pendant rate. The remaining optimum is exactly the base graph's fixed-sum optimal face. A Fourier imaginary-part argument proves cycle uniqueness, and the full zero-sum Fiedler space proves clique uniqueness. A finite test program passed 4209 checks; it is not a universal proof.
+PASS
 
-## Originality — PASS, with risks
+Vertex and edge transitivity give respectively P_ii=k/n and edge leverage k mu/m for the k-dimensional base Fiedler projector P. The lifted mean-zero vectors (r phi,(1+r) phi) therefore have summed energy kB/n and summed squared norm k[r^2+(1+r)^2], proving the budget upper bound for any assignment, even one with zero rates. With b=b_* constant, a base weighted eigenvalue xi yields a 2x2 block with eigenvalues (xi+2b +/- sqrt(xi^2+4b^2))/2. The lower branch is strictly increasing, starts at zero, and stays below b; the upper branch is at least 2b. At xi=a_* mu the lifted vector has eigenvalue lambda_* on the lower branch (it is below b_*), and the candidate meets the budget since mt a_*/(n lambda_*)=2r^2+r. Every optimal assignment must saturate each individual Rayleigh inequality. Its leaf equation forces b_i=b_* because for each vertex some Fiedler basis vector has a nonzero coordinate there. Then the budget fixes total base rate, and the block formula reduces the gap criterion to exactly base gap optimality, including the disconnected cases. On the cycle the imaginary parts of the first Fourier mode equation force equality of neighboring edges; on the clique all mean-zero directions must have the same eigenvalue, determining the full matrix. The positive uniform solution and both class expenditure fractions are as stated; no general uniqueness of base weights is needed. The recorded 4209 checks were inspected as finite illustrations, not rerun or used as universal proof.
 
-Sun–Boyd–Xiao–Diaconis's 2006 FMMP theory (DOI `10.1137/S0036144504443821`) gives the broad convex framework and primal/dual conditions; Barik–Pati–Sarma's 2007 corona paper (DOI `10.1137/050624029`) gives unweighted corona spectral transformations; Olesker-Taylor–Zanetti's later work gives qualitative mixing bounds. Their inspected texts do not state the present exact priced-corona optimum or the all-optimizer pendant rigidity and optimal-face transfer. Earlier discrete-time sunlet SLEM optimization addresses a different spectral objective under row-stochastic constraints. The general SDP may admit a similar unpublished specialization; equivalent unindexed literature remains a real residual originality risk.
+## originality
 
-## Value — PASS
+PASS
 
-The theorem settles a natural family of continuous-time diffusion resource-allocation problems in an invariant-sharp formula and reveals which part of a globally optimal design is forced versus freely inherited from its core. It covers an infinite graph family rather than an arbitrary numerical slice, gives exact budget fractions, and avoids rerunning an SDP for every corona graph.
+Pass is for the supported distinct contribution: the characterization of every optimizer for general vertex- and edge-transitive bases, including forced uniform leaves and exact transfer to the full base optimal set. The cycle formula and unrestricted cycle uniqueness are explicitly covered; the general value and invariant rates also have a near-identical indexed counterpart. Neither is counted as distinct content against those comparators.
 
-## Scientific limitations
+## value
 
-The base must be connected, vertex- and edge-transitive; all core edges have the same price, and all private leaves have unit price. Only continuous-time symmetric Laplacian diffusion is treated. Not all base-edge optima are claimed unique. Random and exact-rational finite checks cannot establish infinite-family statements, and equivalent unnoticed literature remains possible.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An exact allocation alone could conceal qualitatively different asymmetric optima. The full transfer shows where all freedom in the design resides and which rates cannot change even in a symmetry-unconstrained solution. This is a structural characterization that remains useful despite exact overlap on the cycle specialization and general scalar value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

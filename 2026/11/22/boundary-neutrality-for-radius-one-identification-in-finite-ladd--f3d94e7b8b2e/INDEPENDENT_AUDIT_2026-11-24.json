@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:24:03.987796Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md; VERIFICATION.md; verify_transfer.py and supplied certificate.json, source packages preserved",
+        "Independent transfer and direct replay: /workspace/branches/a2283711-ff42-4777-b4e5-5291a24cf988/audit_ladder.py",
+        "Bouznif–Darlay–Moncel–Preissmann official PDF, Proposition 2"
+      ],
+      "rationale": "Closed signatures in a column only use it and its immediate neighbors. Nonempty signatures at column distance at least three are disjoint, so domination and pairwise separation of columns at relative distance 0, 1 or 2 suffice. Testing at the leftmost column of each pair requires precisely masks from relative positions -1 to +3. With fixed zero padding and omission of nonexistent vertices, this gives the length-four initialization, a single interior transition on four-mask states upon each append, and a fixed terminal predicate for the three remaining centers. Independent exact reproduction found 256 states and 737 interior transitions, recovered the terminal mask, and verified every component of v_6=3+1_{a=3}+wt(b)+wt(c)+wt(d) and v_13=v_6+6. A fixed min-plus transition commutes with the addition of 6, so the exact componentwise equality propagates to every n>=6, including after the same terminal minimization. Terminal bases and separate exhaustive direct enumeration of all subsets at n=2 through 9 give the initial minima (3,3,4,5,6,6,8,9,9,10,11) at widths 2 through 12. This establishes the asserted formula for every n>=2. At n=1 there are closed twins. Proposition 2 of the cited primary circular paper gives the same formula in its width domain n>=5, so the comparison is exact for cardinalities, without requiring any code to remain identifying after adding edges.",
+      "residual_risks": [
+        "The finite computation is sufficient only in combination with the locality equivalence and componentwise min-plus induction; it is not extrapolation of scalar optima. The result is for closed-neighborhood radius-one identification, not total-identifying domination."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 7 gives existence at a fixed length and cardinality iff its auxiliary graph has the corresponding source-sink path; Theorem 8 proves fixed-height matrix stability, leading to a constant-time noncircular algorithm after preprocessing.",
+          "Rall–Wash Section 5 gives grid bounds. The Daniel–Gravier–Moncel full text could not be independently read, including on an identified alternate route."
+        ],
+        "reasoning": "The general algorithm supports boundary-dependent evaluation; its stated results do not fix the finite height-two transient, additive shift and all residue optima, or a general equality with circular strips. General bounds or infinite density cannot recover these discrete corrections.",
+        "searches": [
+          "Bouznif–Darlay–Moncel–Preissmann Section 3.3, Theorems 6–8 and ending corollary",
+          "Rall–Wash arXiv:1602.04089 Section 5, Theorems 15–16",
+          "Daniel–Gravier–Moncel DOI 10.1016/j.tcs.2004.02.007, publisher and identified alternate copy attempts"
+        ]
+      },
+      "checked_sources": [
+        "Bouznif–Darlay–Moncel–Preissmann DOI 10.23638/DMTCS-21-3-12",
+        "Rall–Wash arXiv:1602.04089",
+        "Daniel–Gravier–Moncel DOI 10.1016/j.tcs.2004.02.007 (full text access-limited)",
+        "Resultary f3d94e7b8b2e (identical record) and d64ba582ccee"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The circular paper's general open-boundary procedure uses separate start and end tests. Its stability theorem provides eventual transfer structure, not the evaluated 256-component v_13=v_6+6 or base values for the open ladder.",
+          "Closing the rails changes endpoint closed neighborhoods. It can change domination and collisions, so there is no direct preservation of valid signatures to transfer the circular formula."
+        ],
+        "reasoning": "The open evaluation and the resulting boundary-neutrality identity do not follow by substituting height two in a stated closed formula, and a fixed-height algorithm must be run or otherwise specialized. The explicit finite certificate supplies the needed separate proof.",
+        "searches": [
+          "Official circular/open strip paper Section 3.3 versus its Proposition 2",
+          "Frozen RESULT.md and certificate.json, comparison against independent vector identities"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "An open square-grid strip of height two is exactly P_n square K_2. In the published non-circular method a strip code is represented by four-column states and five-column locality, with separate beginning and ending tests; this is equivalent in purpose to the frozen boundary-mask/min-plus reduction.",
+          "The related seven-periodic prism-graph entry instead asks for total-identifying domination in the circular graph."
+        ],
+        "reasoning": "The established method is prior and does not become new by using the word ladder. Open and circular graph signatures differ, and the additional total-domination requirement is a different problem. The evaluated open vector identity, not the transfer method as such, distinguishes this result.",
+        "searches": [
+          "Resultary semantic lookup for radius-one finite open ladders, two-row square strips and identifying codes",
+          "Bouznif–Darlay–Moncel–Preissmann Section 3.3, Theorems 6–8",
+          "Resultary d64ba582ccee"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Proposition 2 explicitly lists ceil(6n/7)+1 for residues 1 and 2 at n>=8 and ceil(6n/7) otherwise at n>=5, for circular square strips of height two. This is exact prior coverage of the right-hand side of the comparison.",
+          "Resultary returned the assigned record itself as the exact open-and-circular match; the separate period-seven result is for another identification variant."
+        ],
+        "reasoning": "The numerical expression matches the circular table but those optima are for another graph. It constitutes prior coverage of the circular formula, not independently tabulated evidence for the closed-signature optimum on open ladders. The identical assigned record is not independent evidence.",
+        "searches": [
+          "Resultary exact family matches f3d94e7b8b2e and d64ba582ccee",
+          "Bouznif–Darlay–Moncel–Preissmann Section 5.1.1, Proposition 2"
+        ]
+      },
+      "rationale": "The supported distinct content is the evaluated all-length finite open ladder optimum and its resulting equality with the circular optimum. The circular expression, infinite density and general pseudo-five-local transfer-graph framework are already present in prior work. In particular, the closest paper does not merely discuss circular strips: it gives the equivalent fixed-height min-plus method and stability for open strips. Its general stability and shortest-path statements do not give the specific transient and residue values without solving the open-boundary instance.",
+      "residual_risks": [
+        "The early Daniel–Gravier–Moncel full text and unindexed finite-strip calculations remain priority risks. The general transfer-graph technique and circular expression are already known and not counted as original."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage for circular cardinalities and general open algorithm, not evaluated finite open-ladder formula",
+          "evidence": "Theorem 6 separates beginning and ending checks from the interior property; Theorems 7–8 give a length-path characterization and matrix stability for any fixed height. Proposition 2 is explicitly circular and gives the claimed residue expression.",
+          "identifier_or_url": "https://dmtcs.episciences.org/en/articles/5458/download",
+          "material_read": "Section 3.3 pp. 8–9, Theorems 6–8 and ending corollary (text offsets about 28800–32400); Section 5.1.1 Proposition 2 pp. 12–13 (offset about 41408)",
+          "method": "Targeted reading of official lawful OA PDF",
+          "title": "Exact values for three domination-like problems in circular and infinite grid graphs of small height",
+          "trigger": "Exact circular formula and broader noncircular-strip method"
+        },
+        {
+          "assessment": "Finite-grid bounds rather than a matching open-ladder equality",
+          "evidence": "The read theorems give upper and lower bounds for grid graphs, not all finite height-two optima.",
+          "identifier_or_url": "https://arxiv.org/abs/1602.04089",
+          "material_read": "Section 5, Theorems 15–16, pp. 13–15, text offset about 40828",
+          "method": "Targeted lawful OA PDF reading",
+          "title": "On minimum identifying codes in some Cartesian product graphs",
+          "trigger": "Potential exact finite-grid or prism coverage"
+        },
+        {
+          "assessment": "Access-limited; not independently excluded",
+          "evidence": "The accessible material did not supply a decisive finite theorem; the identified alternate copy refused access. This does not support a whole-paper noncoverage finding.",
+          "identifier_or_url": "https://doi.org/10.1016/j.tcs.2004.02.007",
+          "material_read": "Landing-page/abstract-level access only; no primary full-text comparison achieved",
+          "method": "Publisher routes and located alternate public copy attempted without login",
+          "title": "Identifying codes in some subgraphs of the square lattice",
+          "trigger": "Potential early finite two-row result, cited for infinite strip density"
+        },
+        {
+          "assessment": "Different invariant and circular graph",
+          "evidence": "The matched result concerns total-identifying domination on prisms, not the minimum identifying code on the open Cartesian ladder.",
+          "identifier_or_url": "Resultary d64ba582ccee",
+          "material_read": "Catalogue matching statement and identification variant",
+          "method": "Local Resultary comparison",
+          "title": "A seven-periodic total-identifying domination law for prism graphs",
+          "trigger": "Same period and closely related ladder-family invariant"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, full finite formula and scope of the boundary comparison",
+        "Independent exact certificate reproduction",
+        "Bouznif–Darlay–Moncel–Preissmann Section 3.3 and Proposition 2"
+      ],
+      "rationale": "The optimum cardinality for the simplest open square strip is a natural exact invariant. Boundary changes can affect the code both through domination and signature collisions, so equality with the circular optimum at every comparable width is a substantive answer, not preservation of candidate solutions or just the known infinite density. The full residue correction, including the exceptional excess in two residue classes, matters for finite networks. A small componentwise certificate explains why the next seven-column block always costs the same amount; scalar numerical agreement out to a fixed length would not establish that fact.",
+      "residual_risks": [
+        "No equality of optimal codebooks, classification of all minimizers, or broader strip or radius universality is proved."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

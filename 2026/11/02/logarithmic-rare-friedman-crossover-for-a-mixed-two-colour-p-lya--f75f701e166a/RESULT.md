@@ -2,114 +2,52 @@
 
 ## Finding
 
-For each integer \(N\ge 1\), run a two-colour Pólya–Friedman urn for exactly \(N\) draws, with an independently selected Friedman rule at each step having probability \(\varepsilon_N\). The rule probability is constant within a run but may vary between runs. Suppose
+The logarithmic rare-rule crossover persists when the two rules add **unequal** total numbers of balls. Let the Pólya rule add \(c\) balls of the drawn colour, and the Friedman rule add \(a\) balls of that colour and \(b\) of the opposite colour, where \(a+b\ne c\). In a row of \(N\) draws, use the Friedman rule independently with probability \(\varepsilon_N\) per draw. Assume \(\varepsilon_N\to0\) and \(\varepsilon_N\log N\to\lambda\in[0,\infty]\). If \(Z^{(N)}_N\) is the final proportion of colour 1, then
 \[
-\varepsilon_N\to0,\qquad \varepsilon_N\log N\to\lambda\in[0,\infty].
+Z^{(N)}_N\Rightarrow\tfrac12+d(B-\tfrac12),\qquad
+B\sim\operatorname{Beta}(y_1/c,y_2/c),\qquad d=e^{-2b\lambda/c},
 \]
-With fixed positive initial colour counts \(y_1,y_2\), fixed Pólya addition \(c>0\), and Friedman additions \(a\ge0\) to the drawn colour and \(b>0\) to the opposite colour, let \(Z_N\) be the final proportion of colour 1. Set \(\alpha=y_1/c\) and \(\beta=y_2/c\). Then
-\[
-Z_N\ \Longrightarrow\ \tfrac12+e^{-2b\lambda/c}(B-\tfrac12),
-\qquad B\sim\operatorname{Beta}(\alpha,\beta),
-\]
-where \(e^{-2b\lambda/c}\) is interpreted as zero for \(\lambda=\infty\). In particular, the zero-window limit is the classical Pólya beta law, the positive finite window is a nondegenerate affine contraction of that law, and the infinite-window limit is the point mass at \(1/2\).
-
-Writing \(d=e^{-2b\lambda/c}\), the limiting first two moments are
-\[
-\lim_{N\to\infty}\mathbb E Z_N
-=\tfrac12+d\left(\frac{\alpha}{\alpha+\beta}-\tfrac12\right),
-\qquad
-\lim_{N\to\infty}\operatorname{Var}(Z_N)
-=d^2\frac{\alpha\beta}{(\alpha+\beta)^2(\alpha+\beta+1)}.
-\]
-At the critical scale the shape and contraction do not depend on the Friedman same-colour addition \(a\): only the opposite-colour contribution \(b\), the Pólya addition \(c\), and the initial counts remain.
+with \(d=0\) for \(\lambda=\infty\). In particular, the random total does not change the limiting contraction coefficient. Writing \(\alpha=y_1/c\), \(\beta=y_2/c\), the limiting mean is \(1/2+d(\alpha/(\alpha+\beta)-1/2)\) and the limiting variance is \(d^2\alpha\beta/[(\alpha+\beta)^2(\alpha+\beta+1)]\).
 
 ## Assumptions and scope
 
-Choose fixed integers \(y_1,y_2\ge1\), \(a\ge0\), and \(b,c\ge1\). For each \(N\), start independently with \(y_1,y_2\) balls. For steps \(j=1,\ldots,N\), draw one ball uniformly, replace it, and independently choose one of two addition rules: with probability \(1-\varepsilon_N\), add \(c\) balls of the drawn colour; with probability \(\varepsilon_N\), add \(a\) of the drawn colour and \(b\) of the other colour. Allow \(\varepsilon_N=0\) and assume \(0\le\varepsilon_N\le1\). Each row has independent rule choices and independent drawing uniforms. The theorem asserts weak convergence at the end of each row and convergence of bounded moments; it does not assert almost-sure convergence across rows or a quantitative rate.
+The initial counts \(y_1,y_2\) are fixed positive integers; \(a\ge0\), \(b,c\ge1\) are fixed integers, and \(a+b\ne c\). Draw a ball uniformly and replace it before adding balls. Rule indicators within each row are independent Bernoulli variables of parameter \(\varepsilon_N\in[0,1]\), independent of all drawing uniforms. The two rules add different numbers in total, but for a given rule the total increment does not depend on the colour drawn. The conclusion concerns the endpoint distribution and bounded moments, not an almost-sure limit across rows.
 
 ## Proof
 
-**1. Exact rule-conditioned recursion.** Within a fixed row let \(\xi_j\) be the indicator of the Friedman choice, let \(\eta_j\) indicate that colour 1 is drawn, and put \(T_j=Y^1_j+Y^2_j\), \(Z_j=Y^1_j/T_j\), \(V_j=Z_j-1/2\). Conditional on past compositions and the rule sequence, the colour draw is Bernoulli with parameter \(Z_{j-1}\). The number of added balls depends on the rule but not the colour drawn. Therefore exactly
+Within a row let \(\xi_j\) indicate the Friedman rule, \(I_j\) indicate the drawing of colour 1, and \(R_j=\sum_{i=1}^j\xi_i\). Use \(T_j\) for total size, \(Z_j\) for the proportion of colour 1, \(V_j=Z_j-1/2\), and \(\delta=a+b-c\). Then
 \[
-T_j=T_0+cj+(a+b-c)\sum_{i=1}^j\xi_i,
+T_j=y_1+y_2+cj+\delta R_j,\qquad
+V_j=\left(1-2b\xi_j/T_j\right)V_{j-1}+M_j,\qquad
+M_j=\frac{c(1-\xi_j)+(a-b)\xi_j}{T_j}(I_j-Z_{j-1}).
 \]
-\[
-V_j=\left(1-\frac{2b\xi_j}{T_j}\right)V_{j-1}+M_j,
-\quad
-M_j=\frac{c(1-\xi_j)+(a-b)\xi_j}{T_j}
-(\eta_j-Z_{j-1}).
-\]
-The entire rule sequence is independent of the fresh drawing uniforms. Conditional on that sequence, \(M_j\) are bounded martingale differences with respect to the uniforms revealed up to step \(j\). With \(m=\min\{c,a+b\}>0\) and \(M=\max\{c,a+b\}\), the pathwise bounds \(mj\le T_j\le T_0+Mj\) hold, and \(|M_j|\le C/j\) for a constant independent of the row.
+Indeed the addition to colour 1 is \(cI_j\) or \(b+(a-b)I_j\), respectively. Condition on the entire rule sequence. The denominators are then deterministic and \(M_j\) are martingale differences for the filtration of drawing uniforms. With \(m=\min(c,a+b)>0\), \(M=\max(c,a+b)\), we have \(mj\le T_j\le T_0+Mj\), so \(|M_j|\le C/j\) with a constant independent of the row.
 
-**2. The noise after a fixed early stage vanishes uniformly.** Select an integer \(K\) with \(m(K+1)>2b\). For all \(j>K\), the factors \(h_j=1-2b\xi_j/T_j\) lie in \([0,1]\). Set \(D_{u,v}=\prod_{j=u+1}^v h_j\). Iterating the exact recursion gives
+Choose a fixed \(K\) with \(m(K+1)>2b\) and write \(D_{u,v}=\prod_{j=u+1}^v(1-2b\xi_j/T_j)\) for \(v\ge u\ge K\). All its factors belong to \((0,1]\). Iterating the recursion gives
 \[
 V_N=D_{K,N}V_K+\sum_{j=K+1}^N D_{j,N}M_j.
 \]
-Conditional on the entire rule sequence, the coefficients \(D_{j,N}\) are deterministic and bounded by one; the martingale differences are orthogonal in conditional \(L^2\). Hence, uniformly over all \(N>K\) and all rule probabilities,
-\[
-\mathbb E\left|\sum_{j=K+1}^N D_{j,N}M_j\right|^2
-\le C^2\sum_{j>K}j^{-2}\le C_1/K.
-\]
-Thus all stochastic noise arising after a large fixed early stage can be discarded in \(L^2\), uniformly over the triangular array.
+The coefficients in the sum are deterministic conditional on the rules. Orthogonality and the bound on \(M_j\) give an unconditional squared \(L^2\) error bound \(C^2\sum_{j>K}j^{-2}\le C^2/K\), uniform in \(N>K\).
 
-**3. The logarithmic damping product.** First suppose \(\lambda<\infty\). Let \(R_j=\sum_{i=1}^j\xi_i\). Using the exact total and its deterministic bounds,
+For finite \(\lambda\), the weighted Bernoulli sum \(\sum_{j=K+1}^N\xi_j/j\) has mean tending to \(\lambda\) and variance at most \(\varepsilon_N\sum_{j>K}j^{-2}\to0\). To handle the random totals, use
 \[
-\left|T_j^{-1}-(cj)^{-1}\right|
-\le\frac{T_0+|a+b-c|R_j}{cmj^2}.
+\left|T_j^{-1}-(cj)^{-1}\right|\le\frac{T_0+|\delta|R_j}{cmj^2},\qquad
+\mathbb E[\xi_j R_j]=\varepsilon_N+(j-1)\varepsilon_N^2.
 \]
-Because \(\mathbb E[\xi_jR_j]=\varepsilon_N+(j-1)\varepsilon_N^2\),
-\[
-\mathbb E\sum_{j>K}\xi_j\left|T_j^{-1}-(cj)^{-1}\right|
-=O\bigl(\varepsilon_N+\varepsilon_N^2\log N\bigr)=o(1).
-\]
-Also independence of the rule indicators implies
-\[
-\mathbb E\sum_{j=K+1}^N\frac{\xi_j}{j}
-=\varepsilon_N\sum_{j=K+1}^N j^{-1}\to\lambda,
-\quad
-\operatorname{Var}\left(\sum_{j=K+1}^N\frac{\xi_j}{j}\right)
-\le\varepsilon_N\sum_{j>K}j^{-2}\to0.
-\]
-Consequently \(\sum_{j>K}\xi_j/T_j\to\lambda/c\) in probability. Moreover,
-\[
-\mathbb E\sum_{j>K}(\xi_j/T_j)^2
-\le m^{-2}\varepsilon_N\sum_{j>K}j^{-2}\to0.
-\]
-Since all \(2b/T_j<1\) for \(j>K\), the standard bound \(|\log(1-t)+t|\le C_Kt^2\) applies uniformly to these factors, with \(C_K<\infty\). Therefore
-\[
-\log D_{K,N}=-2b\sum_{j>K}\frac{\xi_j}{T_j}+o_{\mathbb P}(1)
-\ \xrightarrow{\mathbb P}\ -2b\lambda/c,
-\]
-and \(D_{K,N}\to e^{-2b\lambda/c}\) in probability.
+The expected absolute error after weighting by \(\xi_j\) and summing is \(O(\varepsilon_N+\varepsilon_N^2\log N)=o(1)\). Thus \(\sum_{j>K}\xi_j/T_j\to\lambda/c\) in probability, with all sums ending at \(N\). The expected sum of \((\xi_j/T_j)^2\) is at most \(m^{-2}\varepsilon_N\sum_{j>K}j^{-2}\to0\). Expanding the log factors, with a uniform quadratic remainder since \(2b/[m(K+1)]<1\), gives \(D_{K,N}\to d\) in probability. If \(\lambda=\infty\), the weighted Bernoulli sum instead diverges in probability by the same variance bound. Now \(T_j\le(T_0+M)j\) makes \(\sum_{j>K}\xi_j/T_j\) diverge in probability, and \(1-x\le e^{-x}\) gives \(D_{K,N}\to0\). No finite-window error bound in \(\varepsilon_N^2\log N\) is needed for this case.
 
-For \(\lambda=\infty\), the upper bound on \(T_j\) gives
-\[
-\sum_{j>K}\frac{\xi_j}{T_j}
-\ge\frac{1}{T_0+M}\sum_{j>K}\frac{\xi_j}{j}.
-\]
-The sum on the right has mean \(\varepsilon_N\log N+O(\varepsilon_N)\to\infty\) and variance bounded by \(\varepsilon_N\sum j^{-2}\to0\); hence it diverges in probability. From \(1-t\le e^{-t}\), \(D_{K,N}\le\exp(-2b\sum_{j>K}\xi_j/T_j)\to0\) in probability. Both cases yield \(D_{K,N}\to d\), for every fixed sufficiently large \(K\).
-
-**4. Recover the early Pólya randomness.** Couple each mixed row to a pure Pólya urn using the same colour-drawing uniforms. In the first \(K\) steps they agree whenever no Friedman rule is chosen, an event whose complement has probability at most \(K\varepsilon_N\to0\). Thus, for every fixed \(K\), \(V_K^{(N)}\) converges in probability (in this coupling) to \(V_K^{\mathrm P}=Z_K^{\mathrm P}-1/2\). The classical \(c\)-addition two-colour Pólya urn proportion is a bounded martingale converging in \(L^2\) to \(B\sim\operatorname{Beta}(y_1/c,y_2/c)\).
-
-For fixed large \(K\), the decomposition of Step 2, the convergence of Step 3, and Slutsky's theorem show that the final row variable differs in probability, up to an \(L^2\) error bounded by \(C_1/K\), from \(d V_K^{\mathrm P}\). Letting \(K\to\infty\), and using bounded-Lipschitz test functions and \(L^2\) convergence of the Pólya martingale, proves \(V_N\Rightarrow d(B-1/2)\). Translation gives the stated law. Uniform boundedness of proportions allows convergence of their first and second moments and yields the displayed mean and variance.
+Couple each row and a pure Pólya urn using identical drawing uniforms. At the fixed time \(K\) the proportions agree except on an event of probability at most \(K\varepsilon_N\). By product convergence in probability and boundedness, \(D_{K,N}V_K\) thus converges in distribution to \(d(Z^{\mathrm P}_K-1/2)\). For each bounded Lipschitz test function the remaining innovation sum changes its expectation by at most the Lipschitz constant times \(C/\sqrt K\). The classical pure Pólya proportion converges to the stated Beta random variable; sending \(K\) to infinity proves the endpoint claim. Proportions are bounded in \([0,1]\), so the first two moments converge. The stated formulas follow from the Beta mean and variance.
 
 ## Verification
 
-The standalone Python file `checker.py` checks exact finite-state transitions for several urn parameter sets using rational arithmetic and compares independently evaluated conditional drift, second moments, and mass preservation. It also checks the separate balanced-urn moment recurrence against exact distribution enumeration and evaluates finite-size triangular-array moments as a numerical diagnostic. Its attached output reports `ALL_ASSERTIONS_PASSED 3439`. These checks do not prove the weak limit: the four-step analytical argument above establishes it for all admissible parameters and sequences.
+The proof controls the random denominator, its dependence on the rule at the same step, and the conditional drawing noise. The finite exact transition and moment checks in `checker.py` are supplementary; the attached `checker_output.txt` reports `ALL_ASSERTIONS_PASSED 3439`. The numerical large-row diagnostics in that output are for the balanced comparison model, not direct numerical tests of the unequal-total limit.
 
-## Relationship to prior work
+## Relationship to prior work and limitations
 
-Shi, Yin and Miao (arXiv:2605.26669v1, May 26, 2026) formulate the same two-rule urn and establish fixed-rule-probability central limit results. Alves and Rosales (arXiv:2502.16768) prove that any *fixed positive* mixture probability leads almost surely to a balanced limit. The classical Pólya urn supplies the beta law at zero mixture probability. The new statement treats a distinct two-parameter limit in which the mixture probability itself goes to zero with the row length, and identifies the intermediate nondegenerate distribution at the critical logarithmic scale.
-
-Crimaldi, Louis and Minelli (arXiv:2102.06287) study time-dependent random diagonal reinforcements and associated random limits and fluctuations. Gao and Aguech (2023) treat dynamic opposite-reinforcement rules with a time-dependent addition scale. Their different replacement structures and fixed-asymptotic schemes do not yield the precise triangular rare-rule crossover by direct specialization. Relevant general stochastic-approximation or perturbation theory could nevertheless imply the statement indirectly; exhaustive historical priority is not asserted.
-
-## Limitations
-
-The two colours, fixed positive initial counts, positive Pólya addition, strictly positive opposite-colour Friedman addition, and rowwise independent random replacement rules are essential hypotheses of the proof as presented. The result is a distributional limit and moment limit, not a total-variation theorem, an almost-sure coupling across rows, or a convergence-rate result. The formula is not extended to more than two colours or time-varying rule probabilities within each row. Independent review and comprehensive historical-priority assessment have not been performed.
+The endpoint law in the equal-total setting is not claimed as new. *Logarithmic-time Dirichlet crossover in vanishing Pólya–Friedman urns* proves a stronger coupled path limit with more colours when both rules add the same total and the same-colour Friedman addition is positive. Its two-colour specialization implies the same endpoint formula and both limiting regimes there. The difference here is the unequal total: the denominator is random and correlated with the damping indicator. The finite-window comparison uses \(\mathbb E[\xi_j R_j]\), not deterministic balance or a substitution of the mean replacement matrix. The result is only for the two-colour endpoint and gives no rate or process limit. Shi, Yin and Miao treat fixed mixture probabilities in the same two-rule family; fixed positive probabilities do not yield the triangular window here. Alves and Rosales give fixed-positive-probability equalization in their mixture model. This comparison does not establish exhaustive historical priority.
 
 ## References
 
-1. J. Shi, Q. Yin, and Y. Miao, *Central Limit Theorem for a Pólya-Friedman Mixed Urn Model*, arXiv:2605.26669v1 (May 26, 2026). https://arxiv.org/html/2605.26669v1
-2. R. Alves and R. A. Rosales, *Friedman vs Pólya*, arXiv:2502.16768 (February 24, 2025). https://arxiv.org/pdf/2502.16768
-3. I. Crimaldi, P.-Y. Louis, and I. G. Minelli, *Urn models with random multiple drawing and random addition*, arXiv:2102.06287 (February 11, 2021). https://arxiv.org/pdf/2102.06287
-4. S. Gao and R. Aguech, *Multiple-drawing dynamic Friedman urns with opposite-reinforcement*, *Probability in the Engineering and Informational Sciences* (2023). https://www.cambridge.org/core/journals/probability-in-the-engineering-and-informational-sciences/article/multipledrawing-dynamic-friedman-urns-with-oppositereinforcement/F59521C7894E49AE1B060398EDC803B3
+1. *Logarithmic-time Dirichlet crossover in vanishing Pólya–Friedman urns*, [Resultary record](https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-logarithmic-time-dirichlet-crossover-in-vanishing-p-lya-friedman--f9652b484b0a).
+2. J. Shi, Q. Yin, and Y. Miao, *Central Limit Theorem for a Pólya-Friedman Mixed Urn Model*, [arXiv:2605.26669v1](https://arxiv.org/html/2605.26669v1).
+3. R. Alves and R. A. Rosales, *Friedman vs Pólya*, [arXiv:2502.16768v2](https://arxiv.org/html/2502.16768v2).

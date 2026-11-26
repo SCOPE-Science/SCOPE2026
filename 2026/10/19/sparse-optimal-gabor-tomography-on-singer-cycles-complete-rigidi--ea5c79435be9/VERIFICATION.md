@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -18,6 +21,6 @@
 
 # Verification
 
-The analytic proof in `RESULT.md` is self-contained apart from standard finite character orthogonality and elementary finite-field facts. The included `verify.py` enumerates nonzero ordered differences and all Weyl ambiguity coefficients of the displayed example supports. Four dimensions and arbitrary nontrivial phases are checked to confirm the expected three-level modulus multiplicities and exact minimum. It additionally checks that nonflat weights cannot exceed the bound and explicitly reports squared full/trace-free condition numbers. A separate dense \(49\times49\) Hilbert–Schmidt matrix computation for dimension seven was performed separately: its singular values matched the theoretical formula.
+The analytic proof uses finite character orthogonality, the ordered-difference count, and elementary finite-field facts. The included `verify.py` enumerates ordered differences and Weyl ambiguity coefficients in the four cyclic examples with \(k=3,4,5,6\), using example phases and selected nonuniform weight configurations. It checks the three labeled spectral blocks in those dimensions and reports ordinary (unsquared) full and trace-free singular-value condition numbers. Those runs do not include \(k=2\). In that case the multiset formula in `RESULT.md` combines the last two blocks because \(k-1=1\); for the flat support \(\{0,1\}\subset\mathbb Z_3\) it gives \(3\) once and \(3/4\) eight times.
 
-**Scope of checks:** these finite computations are supporting tests, not an exhaustive verification for all \(k\), all groups, or all coefficient choices. The universal inequality, equality classification, and Singer infinite-family argument depend on the written exact proof. Priority comparisons are documented in `AUDIT.json`; full manuscripts of arXiv:2608.11850 and arXiv:2609.09614 were inaccessible, so abstract-level comparisons were used with an explicit residual risk. Independent audit has not been performed.
+The finite computations are supporting tests. The universal inequalities, optimizer rigidity, spectral degeneracy at the endpoint, and Singer infinite-family argument rely on the analytic proof. See the comparison of prior results in `RESULT.md` for the mathematical scope of the optimization.

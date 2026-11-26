@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The cubic-to-line-graph local factorization is bijective; every ice vertex collects exactly two arrows from the two original endpoint triangles. The nine-state transfer trace incorporates the untwisted and exchanged-rail closures. Its explicit matrix, exact characteristic polynomial, antisymmetric spectrum, and monotonic sign analysis establish the complete formula and unique odd-length transition. Independently enumerated coefficients match both partition polynomials for ten finite graphs; integer polynomial seam identities hold for lengths three through one hundred. No finite extrapolation is used as proof.
+## correctness
 
-**Originality — PASS on inspected evidence, with residual priority risk.** The closest published three-by-three torus calculation already contains the isolated 148-orientation Möbius length-three value; it is credited explicitly. The published cubic-line-graph Tait-colouring seam result has different local variables and counts. Accessible full texts on cyclic kagome chromatic polynomials and strip flow polynomials count different objects; their formulas do not directly imply the weighted ice seam result. Lin's kagome ice-rule model is materially relevant but only its abstract was accessible; its broader thermodynamic solution could motivate another derivation, and equivalence of a specialized finite strip is not conclusively ruled out. Published published-finding corpus results and the own research ledger were searched by graph aliases, cyclic/twist terminology, local observables, and comparable formulas.
+PASS
 
-**Mathematical value — PASS.** A single seam modification of a natural frustrated ice graph changes a complete partition polynomial by an exact elementary term, and a local cycle penalty creates an odd/even boundary preference reversal despite identical positive-fugacity bulk entropy. This resolves a physically interpretable boundary effect over an infinite graph family with all local chiral fugacities, not an arbitrary finite numerical entry.
+In a simple cubic graph each line-graph edge lies in exactly one designated original-vertex triangle, and at an original edge the two local contributions to indegree sum to two. Each permutation of (0,1,2) has one orientation and (1,1,1) has two, each weighted z. This gives the nine-state transfer with the stated edge complementation and rail swap at closure. The extreme states 00 and 22 are symmetric singleton blocks of eigenvalue one. The state pairs (01,10) and (12,21) have symmetric/antisymmetric eigenvalues 2z+1 and 2z−1. On (02,11,20) the odd vector has eigenvalue one and the symmetric two-dimensional matrix has diagonal 1,4z² and off-diagonal √2, yielding the stated two roots. Ordinary versus swapped trace gives the two polynomials and their difference. For odd n the odd power is strictly increasing, even across its stationary point, so the root and limit follow; for even n the difference is at least two. At z=1 the dominant eigenvalue is (5+√17)/2 and both traces have coefficient one there, establishing the common entropy when divided by 3n. A separately written exact orientation enumerator with local constraint propagation reproduced the full polynomials by agreement at 2n+1 distinct integer points for both seams at n=3,4,5.
 
-The exact scalar formulas require the defined original-vertex triangular-cycle fugacity; no claim is made for general six-vertex weights or two-dimensional bulk criticality. Historical priority remains provisional and independent scientific audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinction is the full vacancy/chirality polynomial and all-z evaluated seam trace. There is actual overlap with the fully packed endpoint and with a known isolated unweighted count, but no inspected covering finite-ladder trace for variable fugacity.
+
+## value
+
+PASS
+
+The two closures share a natural bulk model but not its finite response; the all-length polynomial identifies a nontrivial odd/even reversal as a local vacancy penalty is changed, a precise small-fugacity scale, and a constant unweighted excess. These distinctions depend on the genuinely weighted partition functions, not merely on the existing isolated count, fully packed endpoint, or general transfer method.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

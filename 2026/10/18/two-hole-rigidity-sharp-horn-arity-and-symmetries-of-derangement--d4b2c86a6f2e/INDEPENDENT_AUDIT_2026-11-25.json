@@ -1,0 +1,158 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T18:01:43.560783Z",
+  "axes": {
+    "correctness": {
+      "rationale": "An extension of a matching is a perfect matching on the unused rows and columns with the remaining diagonal deleted. For residual order m≥3, even after excluding a specified further off-diagonal edge, a row has ≥m−2 neighbors, two rows have ≥m−1 neighbors (at most one column loses both edges), and ≥3 rows see every column. Hall gives existence and avoidance of every candidate forced extra cell. For m=2 there are just two completions before exclusions; the one or two diagonal forbiddances remove just one of them when present, and otherwise the two completions share no edge. At m=1 the final cell must be off diagonal, and m=0 is a full derangement. Nonmatchings have no extensions. Inclusion–exclusion gives the rook and derangement counts; for the remaining closed two-hole matchings, choose disjoint unordered unused row and column pairs in binom(n,2)binom(n−2,2) ways, then forbid the n−4 diagonal positions in the remaining board. The atom join detects exactly same-row/column conflicts, including n=4 since every compatible pair has a completion. The maximal conflict cliques are precisely the stars of the crown graph, each of size n−1≥3, and their intersection graph recovers the connected bipartite crown graph. Its missing cross pairs force identical row and column permutations up to a side swap. Atom actions determine the whole lattice action and all the listed actions are realized. For Horn sufficiency, use conflict-pair rules and the exceptional two-hole premises. From an (n−1)-matching with missing row i and column j≠i, remove the cell in row j: the reduced premise has intersecting unused labels and forces the true last cell. If the missing position is (i,i), remove any retained off-diagonal (u,v); the reduced premise forces (u,i) and (i,v), which conflict with (u,v) in the full input, yielding top by chaining. For necessity, a derangement on any n−2 labels gives a nonclosed matching all of whose proper subsets are closed; no smaller sound premise can initiate a new conclusion. This verifies the optimal unit-rule width for iterated chaining. Read both supporting files without executing the supplied script. Its finite closure/count tests, Horn replays and generator checks support different claims and ranges; the review does not treat them as an all-order proof or an exhaustive automorphism search. A replay requires Python 3.10+ for int.bit_count.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "d84d57a040aa gives all matching traces on off-diagonal supports of size at most n−2, implying c(B)=B for matching |B|≤n−3 by taking S=B∪{e} for each e outside B.",
+          "28b8e1164b5d gives a very close logical consequence lattice using all permutation matrices, but its minimum width is n−1 and it has no forbidden diagonal or intersecting two-hole rule.",
+          "Other same-day results concern Kneser disjointness, rook-neighborhood contexts or crown-graph homology actions; none presents the order automorphism group of this fixed-point-free model closure."
+        ],
+        "reasoning": "A related board or action does not transfer Horn width or exclude further lattice automorphisms. Here one reconstructs the conflict graph from joins and uses the residual diagonal structure to derive completions and inconsistency with width n−2.",
+        "searches": [
+          "Resultary d84d57a040aa, 28b8e1164b5d, 17f0d9e07aad, a5e3765e1d6a and 2ff1a31dcb85",
+          "arXiv:1906.05908 and arXiv:2307.11681"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 2c97788f0907, d84d57a040aa, 28b8e1164b5d, 17f0d9e07aad, a5e3765e1d6a and 2ff1a31dcb85",
+        "arXiv:2209.11319",
+        "arXiv:1906.05908",
+        "arXiv:2307.11681"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Trace universality settles small matching closure and existence for two-hole matchings. The forcing characterization plus the two possible bijections settles the two-hole case, and the one-hole cases reduce to checking a single allowed cell.",
+          "The existence of an (n−2)-edge forcing set and the small closure law give the no-first-step Horn lower bound. For upper width the proof must additionally force a conclusion from every nonclosed n−1 premise, including those with no extending derangement. The forcing theorem, which starts within a perfect matching, does not analyze such premises.",
+          "The atom action is determined using a specific compatibility and join test, not by assuming that every lattice automorphism comes from a crown-graph symmetry or a known crown-graph homology action."
+        ],
+        "reasoning": "Credit the mechanically recoverable classification, concept count and lower-bound ingredients. The full lattice symmetry and sound complete width-n−2 system address different assertions, in particular inconsistent premises and exhaustiveness of the lattice symmetries. No catalogue dates alone are used to adjudicate priority.",
+        "searches": [
+          "Resultary 2c97788f0907 and d84d57a040aa, exact findings; Resultary 28b8e1164b5d, assumptions and Horn theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A derangement is exactly a perfect matching of K_(n,n) minus the diagonal matching.",
+          "Resultary 2c97788f0907 characterizes forcing subsets of M_π missing two rows i,j by π(i)=j or π(j)=i."
+        ],
+        "reasoning": "For a partial matching obtained by omitting those two edges, the condition is exactly {i,j}∩{π(i),π(j)}≠∅. This covers the unique-completion boundary, but absence of uniqueness alone is not a statement that every individual extra cell is avoidable.",
+        "searches": [
+          "Resultary: crown graph forcing sets, derangement matching closure, off-diagonal perfect matching incidence",
+          "arXiv:2209.11319, crown graph matching interpretation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The forcing count at size n−2 is n d_n−binom(n,2)d_(n−2); every forcing premise at this size represents a unique matching, so the aggregate coefficient also counts distinct forcing premises.",
+          "The trace paper gives exactly r_(n,k) as the number of off-diagonal partial matchings of size k. The d_n term is the known crown-graph perfect matching count."
+        ],
+        "reasoning": "Every two-hole matching is completable, and exactly the uniquely completable ones fail to be closed. Hence the exact q_n count follows by subtracting the forcing coefficient from r_(n,n−2), giving indirect coverage of the concept count once the closure branches are combined. No inspected table gives the combination of lattice automorphism group and optimal iterative Horn width.",
+        "searches": [
+          "Resultary 2c97788f0907, aggregate forcing enumerator; Resultary d84d57a040aa, shattered-support coefficients",
+          "arXiv:2209.11319, d_n matching count"
+        ]
+      },
+      "rationale": "The closed-intent classification and count have material overlapping coverage, through prior crown-graph forcing subsets and the catalogue's trace-extension classification; the rook and derangement counts are not original. The distinct contribution supported here is the lattice-specific full automorphism reconstruction and sharp complete iterative unit-Horn arity, including the two-hole rules reaching top from a diagonal singleton hole. The inspected results on forcing or traces do not themselves supply those conclusions, and the ordinary permutation-board implication theorem has different closure and width.",
+      "residual_risks": [
+        "Crown-graph symmetry and classical counting ingredients are not new. Equivalent positive-implication systems for all-different or matching constraints could exist under different terminology; focused literature results did not resolve that possibility.",
+        "The originality pass rests on the specifically reconstructed full lattice group and sharp iterative Horn result, not novelty of the recoverable classification or enumerator."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent unique-completion branch and complementary q_n enumeration",
+          "evidence": "Omitting two edges forces iff one omitted row is the other omitted edge's column; coefficient is n d_n−binom(n,2)d_(n−2).",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-all-forcing-subsets-of-perfect-matchings-in-crown-graphs--2c97788f0907/RESULT.md",
+          "material_read": "Finding, aggregate enumerator and assumptions, offset 0",
+          "method": "Local published-record mirror, bounded passage",
+          "title": "All forcing subsets of perfect matchings in crown graphs",
+          "trigger": "Same unique completions in the same crown graph"
+        },
+        {
+          "assessment": "Implies small closure and enumerates the same off-diagonal matchings, not the lattice symmetry or Horn system",
+          "evidence": "For |S|≤n−2, every matching T⊆S is the trace of a derangement on S.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-perfect-matching-trace-universality-and-the-shattering-polynomia--d84d57a040aa/RESULT.md",
+          "material_read": "Finding and assumptions, offset 0",
+          "method": "Local published-record mirror, bounded passage",
+          "title": "Perfect-matching trace universality and the shattering polynomial of derangements",
+          "trigger": "Same model family, possible general extension and avoidance theorem"
+        },
+        {
+          "assessment": "Complete-board analogue, not broader coverage for arbitrary boards",
+          "evidence": "All n² atoms are allowed, all permutation matrices are models, and the optimal width is n−1; the exhibited basis is one-round.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-perfect-matching-implication-lattices-sharp-horn-bases-and-chess--28b8e1164b5d/RESULT.md",
+          "material_read": "Finding and Assumptions and scope, offset 0",
+          "method": "Local published-record mirror, bounded passage",
+          "title": "Perfect-matching implication lattices: sharp Horn bases and chessboard topology",
+          "trigger": "Same consequence operator, different permitted cells"
+        },
+        {
+          "assessment": "Different objects and incidence",
+          "evidence": "Disjointness incidence on subsets, not derangement incidence on cells.",
+          "identifier_or_url": "17f0d9e07aad",
+          "material_read": "Resultary RESULT.md Finding, offset 0",
+          "method": "Local published-record mirror",
+          "title": "Sharp Horn witness arity and symmetry transition in Kneser disjointness concept lattices",
+          "trigger": "Same-day closure, arity and symmetry comparison"
+        },
+        {
+          "assessment": "Different rows/columns incidence",
+          "evidence": "Rook-neighborhood incidence between board cells does not have perfect matchings as objects.",
+          "identifier_or_url": "a5e3765e1d6a",
+          "material_read": "Resultary RESULT.md Finding, offset 0",
+          "method": "Local published-record mirror",
+          "title": "Rook-neighborhood concept lattices",
+          "trigger": "Same-day board-cell concept lattice"
+        },
+        {
+          "assessment": "Different structure and symmetry claim",
+          "evidence": "S_n×C_2 acts on crown-graph complex homology, not an upper bound for derangement-intent lattice automorphisms.",
+          "identifier_or_url": "2ff1a31dcb85",
+          "material_read": "Resultary RESULT.md Finding, offset 0",
+          "method": "Local published-record mirror",
+          "title": "Crown-graph two-independence complexes",
+          "trigger": "Same-day symmetry on the same graph"
+        },
+        {
+          "assessment": "Crown graph model and d_n are covered",
+          "evidence": "The primary text identifies pm(K_(n,n)−M)=d_n for a deleted perfect matching M.",
+          "identifier_or_url": "https://arxiv.org/abs/2209.11319",
+          "material_read": "PDF p. 2, offset 5756",
+          "method": "OA primary PDF, bounded passage",
+          "title": "Deranged matchings: proofs and conjectures",
+          "trigger": "Same matching model and quantitative baseline"
+        },
+        {
+          "assessment": "Related graph derangements and intersection bounds; not a closure or implication theorem in the inspected passage",
+          "evidence": "The opening defines graph derangements and discusses extremal intersection questions for perfect matchings.",
+          "identifier_or_url": "https://arxiv.org/abs/1906.05908",
+          "material_read": "PDF p. 1, offset 0",
+          "method": "OA primary PDF, bounded passage",
+          "title": "Perfect matchings and derangements on graphs",
+          "trigger": "Potential matching-intersection formulation"
+        },
+        {
+          "assessment": "Generic framework, not the identified structural result",
+          "evidence": "The inspected material supplies the hypergraph/FCA representation, not the specific forbidden-diagonal Horn theorem.",
+          "identifier_or_url": "https://arxiv.org/abs/2307.11681",
+          "material_read": "PDF p. 1, offset 0",
+          "method": "OA primary PDF, bounded passage",
+          "title": "Formal Concept Lattice Representations and Algorithms for Hypergraphs",
+          "trigger": "Generic formal-concept formulation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result explains how a natural single forbidden matching changes consequence propagation relative to the complete assignment board: two holes can force completion, and those same implications plus conflict rules suffice even for an unextendible near-completion. The first-step lower bound proves the compression is sharp under arbitrary forward chaining. The symmetry reconstruction also gives the full automorphism group, rather than just an obvious action on the models. This is useful structural information about the closure and its presentations, not just a recomputation of derangement counts.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact formula uses the known image-union regularity criterion and counts independently over the image of the induced block map. For each occupied target, the image union is counted uniquely through a chosen nonempty subset, and the subtraction removes precisely the families with no surjective component. The uniform exponential generating function follows from the multinomial theorem. The exponential asymptotic follows by positive-coefficient exponential tilting and an aperiodic lattice local central limit theorem; uniqueness of the saddle point follows from strict positivity of variance. In the named small cases, exact integer calculations agreed with direct map enumeration and, where computationally feasible, brute-force inner inverses. Finite checks are supplementary rather than a replacement for the proof.
+## correctness
 
-**Originality — PASS, subject to stated bibliographic risk.** The regularity criterion itself is known and credited to Pei, as restated and proved in Sarkar--Singh (2023, Proposition 3.4). Sarkar--Singh (2020, Section 6.3) counts regular elements in the more restrictive block-surjective semigroup, not the full partition-preserving semigroup. Lu (2026) studies ranks and generation of wreath products. The new contribution is the all-partitions exact enumeration, uniform finite-exponential generating function and the explicitly characterized sharp asymptotic decay of regular-element density. Relevant mathematical record searches located a wreath-product relative-rank result but did not identify a covering count. An earlier equivalent count/asymptotic in unindexed or differently phrased literature remains possible.
+PASS
 
-**Value — PASS.** The full-monoid regular-element census is a natural finite-semigroup invariant; the general formula handles nonuniform partitions and the uniform case leads to a qualitative result: at every fixed block size at least two, regularity becomes exponentially rare in the number of blocks, with an exact rate and prefactor. This supplies information not contained in the existence criterion or rank theorems.
+For a partition-preserving inner inverse g, all points of an occupied target block must be sent to a single source block by g, so that source block's f-image must cover the entire occupied image union. Conversely choosing preimages in one such source block per occupied target defines g on the image and allows a partition-preserving extension everywhere. With the union fixed at size s, subtract the product of the numbers of non-surjections into it from all tuples of block maps into it. An onto component guarantees that this chosen set really is the union; distinct targets are independent. The multinomial allocation of m labelled source blocks to m labelled targets gives m![z^m] A_n(z)^m and exponentiating the resulting coefficients gives (3). For fixed n>=2 the normalized local weights p_k=c_n(k)/n^(nk) are positive, p_0=p_1=1, and p_2<1 (two distinct constant images). The mean of the tilted lattice law is strictly increasing because its derivative with respect to log t is the variance; its limits are zero and infinity, the latter by the unique leading e^t term. At the tilt of mean one the law has span one and positive finite variance, so the lattice local CLT and Stirling cancel the sqrt(2 pi m) factor and yield precisely 1/sqrt(v_n) times rho_n^m. The minimizing ratio B_n(t)/t is no greater than B_n(1)<e, ensuring rho_n<1. For n=1 all maps are regular, as in the full transformation monoid. The independent replay /workspace/branches/18e98930-9a7c-4913-bcb1-84179dc4aec6/independent_check_record3.py found 341 of 405 for (1,2,2) by exhaustive inner-inverse search as well as the formula, checked the first uniform weights (1,4,14,58) for n=2 and 60 for m=n=2, and reproduced rho_2=0.969592013730826. This replay is finite; the source verifier was inspected, not executed.
 
-**Sources and scope.** Lu (2026), arXiv:2609.20521v1; Sarkar--Singh (2023), arXiv:2310.19414v1, Proposition 3.4; Sarkar--Singh (2020), arXiv:2010.14033v1, Section 6.3. The original 2005 Pei paper is cited through the accessible, explicitly attributed modern proof rather than asserted independently read. An independently conducted mathematical audit has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the published regularity criterion and the exact two-equal-block enumerative overlap. The supported distinction is the arbitrary-block full-monoid census, its uniform EGF, and the fixed-block-size asymptotic with explicit saddle-point prefactor for increasing number of blocks. Neither the whole-block-surjective count nor the inspected rank enumerators at two equal blocks cover this joint statement.
+
+## value
+
+PASS
+
+The exact census quantifies a natural algebraic property on the full monoid, where regularity differs materially from that in the block-surjective submonoid. The many-block asymptotic answers how strongly regularity is lost in a large random member and supplies both a strict exponential rate and its asymptotic constant, not merely a few reported counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

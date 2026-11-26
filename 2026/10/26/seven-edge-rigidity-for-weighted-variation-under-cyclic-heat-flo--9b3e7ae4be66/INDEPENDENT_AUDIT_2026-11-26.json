@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:36:41.850187Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 15–51 and 57–106",
+        "Frozen VERIFICATION.md and verify.py, including the Euler first-order witness at lines 168–178"
+      ],
+      "rationale": "Subtracting the vertex equations gives the stated symmetric edge generator, acting on precisely the zero-sum gradients. Transport of positive gradient entries to negative ones decomposes each gradient into signed two-coordinate dipoles with additive weighted norm. Thus it is exact to maximize over these dipoles, each realized by an arc indicator. One-sided expansion gives F_ij and the sharp initial rate; submultiplicativity via N_w(t/m)^m gives the exponential bound. For pairs at distance >=3 the column neighbor supports do not overlap and F_ij=(Mw)_i+(Mw)_j. The far graph is (n-5)-regular. At n=7 the step-three graph is an odd cycle, at n=8 steps of length three connect and the cited five-cycle is valid, and at n>=9 steps three and four connect and 0,3,6 is a triangle. Summing nonpositive far-pair tests forces equality at each edge; the odd cycle and connectivity force Mw=0, and the positive energy form makes w constant. Then column stochasticity proves contraction. At constant weights near-pair tests are strictly negative from direct communication or a shared neighbor. Thus sufficiently small nonconstant perturbations work for n<=5; for n=6 choose nonzero M u of alternating signs, possible by symmetry and the one-dimensional kernel, and the perturbation preserves the antipodal equalities. Checking the near-pair supports gives A_i and B_i in the stipulated uniform-mass regimes; on C_6 harmonicity of the opposite sums forces them equal, and the alternating-weight distance-two test gives |epsilon|<=1/3. Common mass scaling multiplies rates by a positive constant and leaves the test unchanged.",
+      "residual_risks": [
+        "The finite script was inspected, not executed. Its explicit time-step check uses I+tM; actual small-time variation growth for the heat semigroup follows from the analytic expansion, not from an exact positive-time simulation.",
+        "The explicit A_i and B_i classification is for uniform masses; general positive masses have the F_ij tests and the rigidity/existence threshold."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The indexed tree result allows independent masses, conductances and variation weights but works on unrestricted tree gradients.",
+          "Gaubert–Qu gives a general coefficient framework, not an admissible-weight classification for the cyclic edge generators under arbitrary masses."
+        ],
+        "reasoning": "Tree gradients have no cyclic sum constraint, so their norm criterion cannot simply be applied to the cycle. A general induced-norm formula allows the test to be written but does not describe the feasible cones or show that the cutoff is uniform over the mass parameters.",
+        "searches": [
+          "Resultary SCOPE-a-conductance-independent-contraction-criterion-for-weighted-tre--9fedb9294a7c",
+          "Gaubert–Qu arXiv:1307.4649",
+          "Focused primary-literature lookup on weighted variation for cycles and related finite-state methods"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary comparison with exact matched Findings and inspected Limitations above",
+        "Focused literature query and primary text inspections above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The uniform-mass dipole approach anticipates the proof strategy. The arbitrary-mass result uses far-pair equations on Mw without assuming M commutes with cyclic shifts and solves Mu=v to handle the matching on six edges."
+        ],
+        "reasoning": "The previously inspected formulas and special cases do not supply the all-mass conclusion by substitution. It takes the regular connected nonbipartite far graph plus the energy kernel to force constant weights, and the range of the nonuniform generator plus strict near-pair slack to construct sharpness. The generic finite coefficient alone does not force either fact.",
+        "searches": [
+          "arXiv:1307.4649 §1",
+          "Resultary 669e1cf9b030 and 9fedb9294a7c Findings",
+          "Mao–Zhang–Zhang (2013), identified text retrieval attempted"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gaubert–Qu gives the classical row-difference formula, which equals the column formula here in the uniform-weight case by symmetry.",
+          "The same-cycle indexed record 669e1cf9b030 uses dipole tests and gives the same classification in the uniform-mass setting."
+        ],
+        "reasoning": "Weighted total variation of vertex data becomes a weighted induced norm on zero-sum edge vectors (equivalently the transport norm for the star metric with costs w_i+w_j off the diagonal). The norm/dual mechanism is not the claimed new content. The common unit-mass result is an exact overlap, but rescaling time can only absorb a common mass, not arbitrary relative masses.",
+        "searches": [
+          "Local Resultary cycle heat, anisotropic variation and seven-edge rigidity lookup",
+          "arXiv:1307.4649 §1 equations (1)–(2)",
+          "Mao–Zhang–Zhang weighted Dobrushin coefficient, via the journal and linked author upload"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed uniform-mass record gives the same threshold 7 and complete 3–6 classification for the combinatorial Laplacian.",
+          "No exact lookup for the arbitrary positive masses criterion and sharp threshold was identified in the inspected sources."
+        ],
+        "reasoning": "The indexed uniform-mass table is real coverage, not a coincidence from matching titles. It does not settle the generic-mass feasibility question, in particular the existence of a nonconstant admissible perturbation at n=6 without rotational symmetry of the generator.",
+        "searches": [
+          "2026/11/1/SCOPE-anisotropic-variation-stability-of-cycle-heat-flow-the-seven-edg--669e1cf9b030, local mirror Finding and Limitations",
+          "Local Resultary variations on weighted cyclic heat-flow and tree contraction"
+        ]
+      },
+      "rationale": "Supported distinct content is the exact rigidity threshold and nonconstant low-order existence for every positive mass vector, with the corresponding sharp graph-specific infinitesimal witnesses and criterion. The two-point norm method is established, and a closely matching indexed cycle record covers the uniform-mass classification essentially in full. The judgement does not credit that shared case as independent additional novel content and does not infer priority from the later indexed date.",
+      "residual_risks": [
+        "Exact overlap of the uniform-mass special case with the indexed cycle record is material. No priority is inferred from the dates.",
+        "The precise weighted coefficient in Mao–Zhang–Zhang could not be checked; an implicit broader finite-state dissipativity theorem could subsume more than the sources inspected."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact overlap for uniform masses, not the arbitrary-mass result",
+          "evidence": "The combinatorial Laplacian gives the same seven-edge threshold and near-pair tests on 3–6 edges. The setting distinguishes variation weights from vertex masses and does not assert unequal-mass sharpness.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-anisotropic-variation-stability-of-cycle-heat-flow-the-seven-edg--669e1cf9b030/RESULT.md",
+          "material_read": "Finding at offset 0; Limitations at offset 8257",
+          "method": "local indexed mirror at snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Anisotropic variation stability of cycle heat flow: the seven-edge threshold",
+          "trigger": "Strong index match on both cutoff and low-order classification"
+        },
+        {
+          "assessment": "Different graph family and gradient space",
+          "evidence": "Uses an induced l1 norm on unrestricted tree gradients and the local kappa_e criterion. The zero-sum constraint and far-pair graph of the cycle do not arise.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-a-conductance-independent-contraction-criterion-for-weighted-tre--9fedb9294a7c/RESULT.md",
+          "material_read": "Finding at offset 0",
+          "method": "local indexed mirror",
+          "title": "A conductance-independent contraction criterion for weighted tree heat flow",
+          "trigger": "Weighted heat-flow contraction criterion with arbitrary masses"
+        },
+        {
+          "assessment": "Prior coefficient mechanism",
+          "evidence": "Classical half of maximum l1 row difference; recovers the equal-weight formula here after row-column identification. Not a formula for the sharp cycle size cutoff for all masses.",
+          "identifier_or_url": "https://arxiv.org/pdf/1307.4649",
+          "material_read": "§1, p. 1, equations (1)–(2), offset 0",
+          "method": "OA full-text inspection",
+          "title": "Dobrushin’s ergodicity coefficient for Markov operators on cones",
+          "trigger": "General induced-norm framework behind the pair formula"
+        },
+        {
+          "assessment": "Unverified exact weighted convention; no negative literature conclusion drawn",
+          "evidence": "The frozen record explicitly credits weighted-coefficient literature. Journal retrieval failed and the secondary host returned HTTP 403.",
+          "identifier_or_url": "https://aps.ecnu.edu.cn/en/article/id/8844",
+          "material_read": "No full text obtained from the journal page or the identified author upload at https://www.researchgate.net/publication/265436392_A_generalization_of_Dobrushin_coefficient",
+          "method": "Lawful indicated-copy retrieval attempts",
+          "title": "A Generalization of Dobrushin Coefficient",
+          "trigger": "Possibly exact weighted-norm convention or broader implication"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 15–51 and 81–106",
+        "Uniform-mass cycle and weighted-tree comparisons above"
+      ],
+      "rationale": "The result decides whether edge variation weights can be independently designed to retain contraction under inhomogeneous holding rates. The sharp transition survives arbitrary masses even though the uniform-mass symmetry is lost, and the proof explains why the far-pair graph and its six-edge exception control it. The exact tests and arc witnesses let one check or falsify an individual design, not just infer failure asymptotically. This is useful beyond repeating the indexed uniform classification.",
+      "residual_risks": [
+        "Specific to finite simple cycles with fixed positive variation weights and unit edge conductances; no general-graph statement is inferred."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

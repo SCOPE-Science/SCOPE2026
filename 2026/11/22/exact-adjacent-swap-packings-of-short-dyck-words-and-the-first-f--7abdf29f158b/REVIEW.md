@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is finite and exact. For every semilength one through five, the included rational primal and dual vectors satisfy the required incidence inequalities under exact arithmetic, with identical objectives, while the listed integral codebooks have pairwise disjoint complete one-swap shadows. At semilength five the upper bound \(19/2\) rounds down to nine. A second standalone bitset/Bron–Kerbosch verifier reconstructs all 42 Dyck words and enumerates every maximal compatibility clique, yielding eleven maximum nine-word codebooks and nine reversal-complement fixed ones. Neither floating-point solver convergence nor incomplete sampling is used as the proof.
+PASS
 
-## Originality — PASS, qualified
+The original statement that the relaxation first fails to be integral at m=5 is false as a claim about the polytope. In lexicographic source order at m=3, (0,1/3,1/3,1/3,1/3) is feasible. The output rows for 001011, 001101, 010011 and 010101, together with x_000111=0, are tight and have rank five. The relaxations at m=1 and m=2 are simplices because a common output bounds the sum of all coordinates. The corrected RESULT distinguishes the first fractional vertex (m=3) from the first strict gap in the all-ones objective (m=5). It also corrects the effect of deleting redundant non-Dyck output rows: a swap changes only one prefix height, and a non-Dyck output A10B has a uniquely located negative prefix with unique Dyck preimage A01B. Such a row gives only x_w<=1, already implied by the no-error row. Counting pairs A,B gives C_m non-Dyck outputs, not zero extra outputs. Rebuilt output incidences and evaluated all frozen rational certificates exactly: primal and dual values are 1,1,2,4,19/2, and integral witnesses attain the floors 1,1,2,4,9. Using the dual upper bound at m=5, an ordered recursion over mutually compatible sources exhausts all nine-word codes, matching the eleven full lists; reversal-complement fixes nine and exchanges the rest. The repaired proof matches both exact replays and does not alter the validated tables, certificate data or channel definition.
 
-The closest inspected literature treats general Kendall permutation codes, general binary deletion/adjacent-transposition constructions, two-token (weight-two) swap packings, and adjacent-swap Gray-code traversals of Dyck words. None of the inspected statements determines the present five-one Dyck-restricted code size, its output-incidence fractional optimum, or the complete equality classification. The deletion-shadow census on Dyck words concerns a genuinely different channel: the length-ten graphs have 77 swap-only and 88 deletion-only conflicts, so neither channel dominates the other. Thus its claim does not imply these swap-shadow claims. Unindexed earlier finite computations and supplementary data remain residual originality risks, so this judgment is bounded to the material inspected.
+## originality
 
-## Value — PASS
+PASS
 
-Dyck words are a natural context-free language of balanced-parenthesis encodings and simultaneously a Catalan-restricted constant-weight source. The adjacent-transposition channel is a standard local synchronization/edit model. A sharp first failure of the natural fractional sphere-packing relaxation, together with **all** equality codebooks, is a nontrivial benchmark for coding subject to structural syntax constraints; it reveals a precise integer-versus-fractional distinction absent from a mere witness example. It does not need an unproved claim of large-block asymptotic improvement.
+For the repaired claim, the inspected evidence supports a distinct finite Dyck swap-shadow objective gap and exact extremizer census, supplemented by the precise distinction between first fractional vertex and first objective gap. The standard coding reduction, simplex/active-row method and Catalan convolution are not novelty claims. The exact indexed result was the assigned record itself; the stronger plausible neighboring claims have different channels or source families, not merely different notation. Same-day publication dates establish no priority.
 
-## Scientific limitations and comparison
+## value
 
-The result is restricted to semilengths at most five. It does not supply the next exact packing optimum or an infinite-family construction. The similarity to deletion and Gray-code work is conceptual; those statements neither subsume nor certify this different confusability relation. Literature coverage is not exhaustive, and no independently conducted external validation is asserted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A single local swap on properly nested binary strings is a natural constrained-channel problem. The separate earliest thresholds for polytope integrality and for this code-size objective demonstrate that an exact integer optimum can conceal nonintegral vertices. At the first objective gap, listing all extremizers and their reflection-complement symmetry gives a concrete small-block benchmark beyond producing one feasible code. This value survives correction of the false original integrality assertion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:05:54.126856Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The reachable plugs starting at the empty boundary are only the empty set, adjacent pairs, and the full set: a full plug forces an empty successor, and an adjacent pair forces either empty or its complement. Thus cutting exactly at empty plugs gives the unique monomer/full-block/alternating-tube decomposition. A square contributes once when it contains opposite matching edges. The internal block counts (1, 4, 2 for a length-two tube, and m-1 for a longer tube) and the common-ring-edge junction count exhaust the three square orientations. The lower bound is the sum of the 2m/3 bounds; equality at length divisible by three singles out length-three tubes and requires A_next != A^c, giving 4 times 3^(k-1). The residue constructions close the rounded bound even at n=1,2. The upper bound uses 3m-2 per block and two per junction; a tube has a strict deficit and a full block at an external junction cannot contribute two. This leaves precisely the uniform layer pairings, plus the isolated full block at n=2. The sixteen reachable layer types count each tiling once and assign each cap and interface exactly once, including the n=1 empty power. Independent direct matching enumeration agrees with both archived full histograms for n=1,...,8. To replay, recursively pair the first unmatched cube with each available neighbor and count flippable unit squares in all three orientations at the leaves; compare the resulting exact histograms with direct_output.txt and transfer_output.txt. The all-n proof is the block and layer argument in RESULT.md lines 25–72, not extrapolation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The two-floor source states connectivity for the exact box family. The inspected general 3D sources study connected components, twist and its distribution; the later cylinder regularity examples specify rectangular bases with both dimensions at least three.",
+          "The quadriculated-cylinder paper treats a different, two-dimensional setting and studies forcing numbers and connected components."
+        ],
+        "reasoning": "Connectivity and component invariants do not determine the branching degrees of the graph. No encompassing degree theorem was located in the inspected passages.",
+        "searches": [
+          "arXiv:1404.6509, two floors",
+          "arXiv:1410.7693, flips, trits and twists",
+          "arXiv:2007.09500, cylinders and twist",
+          "arXiv:2211.10935, forcing numbers on quadriculated cylinders and tori"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and archived exact histograms",
+        "Resultary ranked catalogue searches",
+        "arXiv:1404.6509",
+        "arXiv:1410.7693",
+        "arXiv:2007.09500",
+        "arXiv:2211.10935"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior connectivity for L×2×2 only implies no isolated vertices when the graph is nontrivial. It does not yield a lower bound growing as ceil(2n/3), the upper bound, or rigidity.",
+          "Weighting a compatible pair of floor types requires both the flippable pairs of vertical dominoes and coincident ring edges, in addition to within-floor flips; the extremal proofs require optimizing those local weights across arbitrary lengths."
+        ],
+        "reasoning": "The results do not follow by swapping axes in the published connectivity statement, specializing its flip invariant, or evaluating a transfer that counts unweighted matchings.",
+        "searches": [
+          "arXiv:1404.6509 connectivity passage PDF p. 5 and invariant description p. 3",
+          "Frozen RESULT.md block accounting and transfer steps 1–5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The L×2×2 boxes of arXiv:1404.6509 are exactly these boxes after permuting coordinates, and the elementary flip is the same move.",
+          "That paper's Laurent polynomial assigns a flip invariant to an individual tiling; it is not the distribution of flip-graph degree over tilings."
+        ],
+        "reasoning": "The geometry and move aliases were compared directly. The polynomial variables do not make an invariant of a tiling under moves equivalent to this enumerator of the available moves.",
+        "searches": [
+          "Resultary: exact 2×2×n face-flip degree bounds, degree histogram, and two-story plug transfer",
+          "arXiv:1404.6509 pp. 3 and 5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Returned catalogue hits supplied no materially matching degree spectrum, table of extremal degrees, or weighted enumerator. The frozen exact histograms agree with the independent direct enumeration.",
+          "The total-number sequence is only P_n(1). It loses even the minimum and maximum exponents and is not an exact data match to P_n(q)."
+        ],
+        "reasoning": "A plain tiling-count table can reproduce the number of vertices of the flip graph but neither the degree counts nor minimizer restrictions. The finite histograms used here are confirmation of the frozen computation, not prior art.",
+        "searches": [
+          "Resultary: 2,9,32,121,450 thin-box tilings and degree enumerator; exact minimum and maximum, 16 layer types",
+          "Resultary: sharp flip mobility in 2×2×n domino boxes"
+        ]
+      },
+      "rationale": "The same thin boxes were already known to be flip connected, and layer/plug transfer and enumeration are related frameworks. The compared statements do not cover the number of immediately available moves as a random variable over tilings, its two sharp extremes and equality structures, or its weighted enumerator. No matching exact record surfaced in the bounded catalogue inspection; that is not proof of priority.",
+      "residual_risks": [
+        "The primary comparisons outside the closest two-story paper were limited; an equivalent result under other terminology or outside the indexed corpus is possible.",
+        "The general public-web query was unproductive. This is not evidence that no prior result exists."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known connectivity; different polynomial statistic",
+          "evidence": "The authors state L×2×2 boxes are flip connected; P_t is a flip invariant of an individual tiling.",
+          "identifier_or_url": "arXiv:1404.6509",
+          "material_read": "PDF p. 5, offset 12661; p. 3, offset 8187",
+          "method": "Primary OA PDF text, bounded passages",
+          "title": "Flip invariance for domino tilings of three-dimensional regions with two floors",
+          "trigger": "Same boxes and elementary move"
+        },
+        {
+          "assessment": "Related components and twist, passage does not provide the local-degree result",
+          "evidence": "Invariant-based study of 3D tilings and moves.",
+          "identifier_or_url": "arXiv:1410.7693",
+          "material_read": "PDF p. 1 abstract",
+          "method": "Primary OA PDF text",
+          "title": "Domino tilings of three-dimensional regions: flips, trits and twists",
+          "trigger": "Possible coverage by general 3D flip results"
+        },
+        {
+          "assessment": "Different result and regularity hypotheses",
+          "evidence": "Components and twist distribution; both dimensions at least three in the listed regular rectangular bases.",
+          "identifier_or_url": "arXiv:2007.09500",
+          "material_read": "PDF p. 1 abstract and listed rectangular regularity condition",
+          "method": "Primary OA PDF text",
+          "title": "Domino tilings of cylinders: connected components under flips and normal distribution of the twist",
+          "trigger": "Fixed-cross-section framework"
+        },
+        {
+          "assessment": "Different objects/statistics",
+          "evidence": "Periodic two-dimensional tilings, flip components and forcing numbers rather than all three square orientations of this box.",
+          "identifier_or_url": "arXiv:2211.10935",
+          "material_read": "PDF p. 1 abstract",
+          "method": "Primary OA PDF text",
+          "title": "Components of domino tilings under flips in quadriculated cylinder and torus",
+          "trigger": "Cylinder terminology and flip-graph overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The established connectivity of the natural face-flip graph does not indicate the available branching at each tiling. The two exact degrees distinguish high- and low-mobility regions and show nontrivial length-three rigidity at the minimum. The transfer formula makes the full local-degree distribution computable for arbitrary lengths without building the reconfiguration graph. These are useful local structural facts for studying flip walks, not claims about distances, mixing, or connectivity novelty.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

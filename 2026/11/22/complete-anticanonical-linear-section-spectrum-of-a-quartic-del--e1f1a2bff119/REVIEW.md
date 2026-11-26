@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The surface is specified by two explicit quadrics over \(\mathbb F_5\). The squarefree discriminant of their pencil verifies smoothness; a complete projective point enumeration returns 31 points. Exact reduced-row-echelon enumeration covers all 781 hyperplanes, 20,306 planes, 20,306 lines, and 781 points in \(\mathbb P^4(\mathbb F_5)\). A second program reconstructs the 31-point set from the generator printed in [1], counts all 31,465 quadruples and recovers exactly 640 coplanar quadruples; independent incidence moments reproduce the plane histogram. The inferred generalized weights and full weight enumerator follow from the definition of a subcode support. No step extrapolates finite data to other finite fields.
+PASS
 
-## Originality — PASS, subject to priority risk
+Independently polarized the two displayed quadrics and recomputed the pencil determinant and its gcd with its derivative over F5. The determinant has degree five, so there is no singular pencil member at infinity; the five simple roots give the smooth complete intersection by the pencil criterion. The 31 normalized simultaneous zeros agree as a set with the normalized columns transcribed from the published generator matrix. The frozen enumeration of annihilators by RREF is exhaustive. Independently obtained the plane profile without RREF or a no-more-than-four assumption: for each pair of surface points, project the points from its line into the three-dimensional quotient. The zero image contains exactly that pair; each nonzero projective quotient point represents one plane through the pair. Grouping images finds every plane with at least two surface points (divide by the number of pairs); the point and total incidences give the one-point and empty counts. This gives 640 four-point planes and none larger. Independently counted hyperplanes and obtained lines from the absence of collinear triples; points are immediate. Evaluation is injective because no hyperplane contains the whole set. Maxima 10,4,2,1,0 give (21,27,29,30,31), with empty projective common zero set for the full code. Multiplying each hyperplane count by four at weight 31−s gives the stated ordinary enumerator, plus the zero word.
 
-The complete 2019 source's relevant Section 6 and displayed example were examined, including the original matrix and its published \([31,5,21]_5\) parameters; the higher support distributions and four-point plane count are not there. The 2018 Little--Schenck work treats another quartic surface over \(\mathbb F_7\), while Boguslavskii's 1998 work concerns split surfaces; neither yields this precise arithmetic table. published-finding corpus searches for the source, code parameters, plane intersections, generalized weights and aliases found related code and del Pezzo findings, but not a statement implying this census. A possible unindexed equivalent table remains a residual priority risk: database absence does not establish absolute novelty.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Blache et al. singled out the type-\(4_3\) family as attaining best-known code parameters. For their explicit \(\mathbb F_5\) representative, the full subcode-support profile supplies all four generalized weights beyond the original minimum-distance datum, with exact multiplicity 640 for the minimum-support two-dimensional subcodes. The count simultaneously enumerates completely rational four-point plane sections of a smooth nonsplit degree-four del Pezzo surface. These are canonical finite arithmetic invariants relevant to higher-weight code geometry, and are not numerically implied by the published \([31,5,21]_5\) parameters. They are restricted to this example rather than asserted to be a uniform classification.
+The published example already gives the model, point count, generator matrix and minimum distance. The supported distinct contribution is the exact complete section-frequency data (particularly the 640 four-point planes and full hyperplane weight distribution). The higher-weight tuple is partly a consequence of elementary geometry and code dimension and is not credited as five separate new facts. No inspected source gives or mechanically implies the full frequency data without actually evaluating the incidence census.
 
-## Closest literature and limits
+## value
 
-[1] Blache et al. arXiv:1903.09397v1, Section 6 and page 21; [2] Little--Schenck, SIAM J. Applied Algebra and Geometry 2 (2018), Section 5.1; [3] Boguslavskii, Problems of Information Transmission 34 (1998), split del Pezzo case; [4] Camps Moreno--Salizzoni--San-José arXiv:2608.19978, zero-dimensional reduced complete-intersection codes. The last paper's full text could not be retrieved here; its abstract concerns a distinct class, but an unnoticed broader corollary remains a risk. Independent external validation has not occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The object is an independently motivated published example of a high-performing nonsplit del Pezzo code, not a selected numerical subcase. Its finite section frequencies are canonical and distinguish the geometry of its higher-dimensional subcodes in a way the minimum-distance datum does not. In particular, 640 distinct planes give the multiplicity of minimum-support two-dimensional subcodes, and the ordinary distribution resolves all nonzero codeword weight frequencies. The low-codimension exact data, not the individually routine final generalized weights, justify the contribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

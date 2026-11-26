@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
-The alternating cycle is exact because \(T(a_j)=a_{j+1}\) and the final tent branch maps \(a_{2m-1}\) to \(a_0\). The two increasing polygonal homeomorphisms exist for arbitrary independent strictly interior \(P,Q\) of equal size. The resulting maps have exactly one maximum, and the squared Cournot map is conjugate, coordinate by coordinate, to \(T^2\). A point transitive under \(\chi^m\) exists by topological exactness, and phase decomposition proves the full claimed infinite \(\omega\)-limit. Exact-rational code reproduced 180 cases without discrepancy; this is not substituted for the proof.
+## correctness
 
-## Originality: PASS under current accessible evidence
-The 2021 Cournot literature classifies broad limit-set forms and presents selected connected empty-interior examples, not arbitrary independently placed full-span lattices with both reactions strictly unimodal. García Guirao's later 2026 general realization covers all lattices with piecewise-linear reactions but does not constrain either reaction to one turning point; indeed the unimodal case is identified as a further question. Kalies and Wehbe's product-system structural theorem and discrete-time counterexample concern attractor lattices, not this orbitwise prescribed cross-lattice. Meaning-based database queries for the exact statements, synonyms, and stronger coverage did not identify a dominating unimodal realization. The comparison is about the added critical-point restriction, not merely titles or matching coordinates. Residual risk remains from unindexed interval-map conjugacy constructions and unavailable publications.
+PASS
 
-## Mathematical value: PASS
-The restriction to one turning point in each reaction is structurally natural and not imposed by the known unrestricted piecewise-linear realizers. Proving independent free placement of every pair of \(m\) interior coordinates while preserving topological exactness of both two-step factors resolves a substantial full-span subcase of the unimodal Cournot realization question for all \(m\), rather than an arbitrary tiny numerical instance.
+For d=2^(2m)+1 the 2m distinct coordinates a_j=2^(j+1)/d lie below 1/2 except the last, 1-1/d. The tent map doubles up to the last and sends it back to a_0. This includes m=1. Increasing PL homeomorphisms h and k map the even and odd subsequences to the respective sorted prescribed points, with endpoints fixed. Thus k T h^(-1) and h T k^(-1) are onto, strictly unimodal PL, and have the specified endpoints and peaks. The return maps are conjugate to T^2, whose powers have full branches at arbitrarily fine dyadic scales, proving exactness on the whole interval. For a countable basis, the union of iterated preimages of each basis interval under the second return map's m-th power is open and dense, by exactness, even if any prescribed finite initial segment is removed. Baire therefore gives a coordinate y with every orbit tail dense under that power. On each even residue phase mod m the first coordinate is fixed at p_i and the second coordinate has dense tails by the corresponding surjective iterate; hence the even omega set is exactly P×I. Continuity and compactness give the odd omega set as the image of the even one, I×Q. There is no requirement that P and Q be disjoint, and the construction does not impose one.
 
-## Limits
-Only full-span supporting intervals and interior finite equal-size sets are proved. No polynomial/logistic implementation, perturbative robustness, or universal unimodal realization is claimed. The compositional-dynamics paper and the later Cournot realization paper address different properties; priority remains open to independent assessment. Priority remains open to independent assessment.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass only the simultaneous strict unimodality restriction for both reactions, with arbitrary independently prescribed full-span geometry. García Guirao already covers arbitrary (even proper-subspan) lattices and exact return maps when the reactions are unrestricted PL, and explicitly asks about the unimodal restriction. The strongest inspected matches do not supply the restricted conclusion; the 2021 access limitation and bounded search are noted, not treated as evidence of absence.
+
+## value
+
+PASS
+
+This settles a natural full-span case of the explicit unimodality question, uniformly for arbitrary locations and cardinality, with the least possible number of turning points for onto reactions having both endpoints zero. The alternating orbit and independent PL changes of coordinates give a reusable realization technique without the many branches of the unrestricted construction. It does not settle proper-support or logistic-family realization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

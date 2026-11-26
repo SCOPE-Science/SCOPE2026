@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof computes the exact denominator on a roots-of-unity orbit, differentiates the full simultaneous update including all off-diagonal dependencies, and diagonalizes the resulting circulant. The finite Fourier-sum recurrence is valid for every integer degree at least two; its extremal coefficient gives the sharp Euclidean-norm threshold. An independent exact-polynomial checker confirms relevant identities for degrees 2–40 and finite-difference derivatives for degrees 2–12. The checker is a consistency test, not a substitute for the arbitrary-degree proof. The order of updates, exclusion of poles, and distinction between scalar convergence and full-space linearization are explicit.
+PASS
 
-## Originality — PASS, with historical-priority qualification
+Reconstructed the holomorphic derivative at inputs with w≠0 and B≠0. The distinct-root identity gives ∑_{j≠i}(z_i−z_j)^{-1}=(n−1)/(2z_i), so D_i=B/(2z_i) and the stated one-step image holds, including the zero-scale image now explicitly excluded from further pairwise-distinct iteration. The j≠i derivative is −4(t−1)^2/[B^2(1−ζ^{j−i})^2], and rotation with cyclic reindexing gives the constant diagonal. The Fourier-sum increments follow from T_1=−(n−1)/2 and T_{k+1}−T_k=1 on the indicated range, hence S_k−S_1=(k−1)(n+1−k)/2. Evaluating the scaling-mode derivative by the quotient rule and adding this Fourier difference gives the full spectrum. The mode constants are positive with maximum n²−1, and their transverse maximum is (n−1)². At t=r^n>0, (n−1)|t−1|<B, so purely transverse perturbations always contract. Comparing √(n²−1)|t−1| with B gives τ_n on t<1; for t≥1 the norm is bounded by (n−1)/(n+1). The exact factorization of Φ(r)−1 into (r−1)^3 times a positive polynomial divided by B follows by multiplying the three-term power difference and comparing coefficients; together with the sign of Φ(r)−r it proves no overshoot, positive monotone convergence, and the unique positive fixed point. At the correctly ordered root vector the derivative is zero and the map holomorphic, so a small contracting neighborhood exists; pulling it back along each finite radial orbit proves the open-basin assertion.
 
-The closest directly relevant published results study the same simultaneous root finder but prove generic nonconvergence by attracting cycles (Grabbel–Srkalovic–Schleicher, arXiv:2611.02143), divergence under other polynomials/starts (Reinke, arXiv:2011.01660), and comparative efficiency and conventional cubic local convergence (Shemyakov et al., arXiv:2004.03217). None of their examined full texts states the exact Fourier eigenvalues for the binomial root family, nor a sharp positive-radius ambient norm frontier. The radial cubic convergence is not claimed as original by itself. Related historical literature and unindexed work could contain the spectrum; targeted searches cannot logically exclude that possibility.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Full-space perturbation sensitivity can be worse than the convergence behavior visible within the invariant symmetry class. The result identifies, for every degree, the exact spectral norm, worst Fourier direction, and sharp radius threshold for that discrepancy. This is a motivated numerical root-finding stability benchmark and explains why an apparently well-behaved symmetric initialization can transiently magnify nonsymmetric roundoff or starting perturbations.
+Best of current knowledge for the full ambient spectrum and its sharp norm frontier on positive scales. The particular scalar update is Halley's iteration on z^n−1, and the open-basin inference uses standard local dynamics; neither part is credited as a new standalone result. The verified comparison was scoped to actual catalogue summaries, the available 2026 abstract, and frozen descriptions of relevant passages whose primary versions could not be retrieved independently. No evidence established an earlier theorem giving the ambient modes or norm equality needed to obtain the frontier.
 
-## Closest literature and limitations
+## value
 
-The ambient threshold is differential and one-step only; it does not prove divergent nearby orbits and does not generalize to arbitrary polynomials, arbitrary starts, sequential updates, or floating-point arithmetic. Historical priority remains qualified by possible unindexed special-case derivations, particularly in early numerical-algorithm literature. The full texts of arXiv:2611.02143, arXiv:2011.01660, and arXiv:2004.03217 were examined in relevant sections.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Regular polygons are natural equally spaced starts for the binomial. The exact ambient decomposition identifies both the maximum one-step amplification and the unexpected fact that transverse modes strictly contract even in the scaling-mode expansion regime; it therefore separates perturbation mechanisms rather than just giving a scalar convergence rate. The result is a sharp idealized algorithm benchmark, not a claim that pure transverse perturbations expand or that nearby starts diverge.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

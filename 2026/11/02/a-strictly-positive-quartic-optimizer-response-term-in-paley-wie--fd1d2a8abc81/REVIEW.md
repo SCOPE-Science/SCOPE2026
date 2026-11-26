@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The boundary-exchange operator has a norm expansion in even powers of the exchange width; a simple isolated leading eigenvalue permits the reduced-resolvent fourth-order formula. The center optimization is resolved by evenness and strict curvature, while a compact-distribution uniqueness argument proves the new coefficient is strictly positive. The analytical proof covers every fixed positive bandwidth. Supplementary finite Fourier-quadrature calculations passed 18 assertions and are not a substitute for the proof.
+PASS
 
-## Originality — PASS under inspected evidence
+For fixed s, the bandwidth bounds control all evaluation derivatives and yield the exchange expansion m^2 Q_s+m^4 U_s+O(m^6) in operator norm, with the fourth-order endpoint derivative factor 1/12. With the leading simple eigenvalue isolated, the complementary part of the first eigenvector correction in parameter m^2 is R_s Pi Q_s psi. The scalar equation therefore adds W_s to the fourth-order Rayleigh term. For the weighted problem at m=0, the Rayleigh principle gives the global maximum at zero; equality for a nonzero shift would force a translate to be collinear with psi by simplicity, incompatible with nonzero square-integrable periodic modulus. The translated integrals vanish at infinity; uniform C^2 convergence localizes all maxima near zero, where Phi_0''(0)=2u'(a)<0 and evenness forces the unique maximizer to be zero. The slope and positive boundary value hold for the first prolate. To check nonvanishing, on the Fourier band Q_s psi is the Fourier transform of psi'(a)(delta_a+delta_-a)-psi(a)(delta'_a-delta'_-a). If proportional to psi, the eigenvalue equation would equate it on that band to the transform of an absolutely continuous compactly supported density. Both transforms extend entire, and distributional Fourier injectivity contradicts the nonzero boundary Dirac derivatives. The reduced resolvent is positive on the complement, so W_s>0. Resolvent boundedness and parity give convergence and the even-mode series. In the ratio, the denominator has leading coefficient 4u'(a)^2 m^4, which is nonzero.
 
-Zelent (arXiv:2610.01299v1) proves the broad upper inequality for the squared weighted-discrepancy error but does not establish sharpness or an optimizer-response coefficient. The closest published *Exact detachment crossover for Paley–Wiener concentration* obtains only the leading spectral deficit. The quartic positive coefficient is a finer quantity not implied by those statements. Earlier unindexed perturbation literature could still contain equivalent results; the 2026 optimal-interval paper's full body was not inspected.
+## originality
 
-## Value — PASS
+PASS
 
-This identifies a nontrivial natural saturation family and proves the quadratic discrepancy comparison cannot be strengthened uniformly to little-oh. It quantifies spectral reoptimization beyond the fixed prolate test function using a convergent positive spectral series. It does not purport to solve global stability constants or all boundary shapes.
+The supported claim is the exact positive quartic response for the specified symmetric endpoint exchange, after optimizing the prolate translation, and the resulting sharpness of the squared-discrepancy order. Compared sources supply the upper order, the interval optimizer and related one-sided loss examples, not the positive response. No absolute priority claim is made.
 
-## Closest literature and limitations
+## value
 
-The core comparison and classical ground-state properties come from Zelent's 2026 paper; interval optimality is known from Abreu–Speckbacher. The result is restricted to small equal-mass symmetric boundary exchanges, with a parameter-dependent resolvent coefficient and no dimension-uniform claim.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The natural equal-measure exchange tests a specific open sharpness issue of the existing discrepancy estimate. The theorem both rules out a uniform little-oh improvement and explains the obstruction as a strictly nonzero eigenfunction response transverse to the baseline eigenvector, rather than as a center displacement or the leading loss alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

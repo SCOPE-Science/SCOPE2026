@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-The stated family is integrable for every \(0<\alpha<1\) and real \(\beta\). The proof separates the \(3n-2\) singular-band cells, for which the exact gap laws are available, from all other cells whose variance series is summable. Strictly below the critical exponent, a summable \(p\)-moment inequality establishes almost-sure convergence. At equality, a triangular-gap tail truncation gives a summable \(n^{-1}(\log n)^{-3\beta/2}\) bound precisely when \(\beta>2/3\). The converse uses a divergent series of independent single-cell extreme events; a dyadic subsequence fixes the lower liminf. These are analytical results, not extrapolations from experiments. The standalone checker tests exact power-only moments, probability identities and logarithmic threshold asymptotics.
+PASS
 
-## Originality (PASS, qualified)
+An independent truncation check verifies the full threshold, including equality. For each fixed level c>0, summing cell probabilities of an entry greater than c n² gives exactly A_n=n² μ{f>c n²}, by equal cell areas. Since f is integrable, A_n tends to zero; by within-row independence the probability of such an entry is asymptotic to A_n when it is positive. By interchanging nonnegative sums and integrals, Σ_n A_n is finite exactly when E f^(3/2) is finite, since Σ_{n<sqrt(f/c)} n² grows as f^(3/2). Truncate entries at c n² by discarding larger ones: the normalized row variance is at most n^(−2)∫f² 1_{f≤c n²}, summable under the same moment condition by summing n^(−2) over n≥sqrt(f/c). Truncated expectations approach I. A union bound, Chebyshev and first Borel–Cantelli give convergence in the finite-moment regime. Otherwise fresh-row independence and second Borel–Cantelli at each positive integer level give limsup infinity. For any fixed bounded truncation the n^(−2) variance bound gives almost-sure convergence to its integral; monotone approximation from below yields liminf≥I. Fixed bounded truncation and the integrable tail also give convergence in probability, hence an almost-sure convergent subsequence and liminf=I. Finally the gap density is 2(1−t); the moment integral has t-power −3α/2 and log-power −3β/2, giving strict β>2/3 at α=2/3. This agrees with the frozen band, truncated critical moment, and one-entry divergence estimates. The almost-sure conclusions are for each fixed pair, not a uniform parameter limit; the converse uses the fresh redraw assumption. The inspected checker.py gives finite diagnostics, not a proof, and was not executed.
 
-Compared the claim as a whole, not merely shared terminology. Owen–Rudolf (2020, arXiv:2002.07859) concern nested scrambled nets, and their \(L^p\) sufficient condition cannot establish a necessary and sufficient \(L^{3/2}\) boundary for independently redrawn rectangular square stratification. Basu–Owen (2016, arXiv:1609.07444) analyze power singularities on the same diagonal via triangulation, extension and transformations; they do not provide a complete randomized-square-grid almost-sure classification or the critical logarithmic boundary. Pruss (1996, DOI:10.1090/S0002-9939-96-03100-0) analyzes one-dimensional equal-interval random Riemann sums and obtains a different \(L^2\) threshold; its implications do not cover two-dimensional square cells without additional arguments. Grahl's thesis provides one-dimensional stratification context and \(p\)-moment convergence conditions. Relevant published-claim, source and equivalence searches and accessible related scientific comparisons found no mathematical implication establishing this new diagonal power-log result. The possibility of a less accessible equivalent result in specialist literature is a residual risk; absence of matches is not a proof of novelty.
+## originality
 
-## Value (PASS)
+PASS
 
-Diagonal singularities occur naturally in pair-interaction and kernel quadrature, and one-point-per-cell jitter is a canonical randomized numerical-integration design. The result shows that each estimate may be unbiased and converge in probability while its independent redraw sequence develops arbitrarily large spikes almost surely. The sharp threshold and the logarithmic equality case identify the precise integrability needed for this family; they can guide sample coupling, truncation and singularity avoidance. This is a structural regime distinction, not an arbitrary finite example.
+The supported distinction is the sharp boundary and both almost-sure limits for this fresh one-point-per-square sequence. Standard stratified-sampling truncation makes the rate of row cardinalities central: a new diagonal-specific probability inequality is not required. The inspected comparison statements do not cover the exact n²-row moment boundary, its endpoint, and the infinite excursions together.
 
-## Closest literature, limitations and risks
+## value
 
-Only independent full redesigns at successive integers are treated; dependence or nested designs change the Borel–Cantelli converse. The integrand family is highly specific; no universal criterion for all \(L^1\) integrands is claimed. Full accessible arXiv HTML versions of the two closest geometric and strong-law papers were inspected; the historical one-dimensional Pruss article was available only bibliographically, and the 2011/2012 thesis was available as parsed full text in one retrieval context but PDF visual access was unavailable. Specialist precedence remains open.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For an integrable singularity on a natural grid, unbiasedness and convergence in probability hide a sharp almost-sure failure even at the pure critical power and logarithmic equality. The threshold distinguishes algorithms that converge on almost every full sequence of fresh grids from those that produce unbounded sporadic estimates. The exact lower limit additionally shows that these excursions do not reflect a persistent upward shift.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:02:22.890063Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For labeled ternary length-three words, singleton deletion shadows are exactly constants; two-shadow words are two-run and consume a diagonal digram. With five disjoint shadows, zero constants would exceed nine digrams, one constant would force four two-shadow words with only two diagonals free, and two constants would force at least two two-shadow words with one diagonal free. Thus five words require all three constants, and the only compatible remaining pairs are reversed permutations of the alphabet. This proves the global ceiling and T≥9 for five words. For shorter lengths, embeddings of distinct correcting words intersect in at most one position; two and three words need at least five and six positions respectively. The stated length-five, six, and nine witnesses and monotonicity yield the exact all-length frontier. At T=6 four embeddings have each position used twice by the degree count and each pair meeting once, hence positions are edges of K4. A constant aaa would force its three companion stars to each include exactly one a and otherwise use the two remaining symbols on the triangle. At least two companions must consume only one of the four a-involving off-diagonal digrams, hence have repeated adjacent non-a symbols; two monochromatic incident pairs on that triangle would force the same repeated symbol and a diagonal collision. Thus there are no constants. Three words must be two-run using distinct diagonal digrams, and the fourth uses all three symbols. At the distinct-symbol star, its three spokes must each supply a duplicate to the other endpoint, since the three triangle edges can supply at most three of the six required duplicate occurrences. Orientation of the triangle edges toward the vertex using their duplicate then gives a directed 3-cycle. With the distinct-symbol word normalized to 012, the two cycles force the remaining ordered words 200,110,221 or 100,211,220 by the unused off-diagonal digrams. The position constraints order the six edges uniquely in each case, yielding 201210 and 210120, respectively. These lie in disjoint relabeling orbits exchanged by reversal up to relabeling; within each orbit the distinct-symbol word and hence the code are unique. A separate exact nine-bit-mask exhaustion over all 729 references confirms capacities 1:39, 2:336, 3:342, 4:12 and one code per optimum. For the cyclic comparison, 011,022,120 fit in 012012 and adding 000 is possible in 0120120; the census excludes four at the shorter length. The two frozen scripts and VERIFICATION.md were inspected, not executed. The independent finite replay forms all index-triple words, deduplicates each one-deletion shadow, then iterates include/skip transitions indexed by occupied digram mask, counting optimizer ties.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Li–Yu–Ge Theorem 14(ii) uses W_{q,n−1}(L_q(n−1,T)) for the lower bound and qn as an upper bound for feasible sizes. Theorems 17–18 concern asymptotic regimes. Chrisnata–Kiah–Pham impose a fixed alternating quaternary reference."
+        ],
+        "reasoning": "Theorem 14 is directly broader in the parameters, but at q=n=3 its length-two weight bound is W(N)=min(N,3)+max(0,N−3)/2 for N≤9. The alternating length-four and length-five prefixes have respectively six and eight distinct digrams, so the lower bounds for M=4 and M=5 are only four and five, while the feasible-size upper bound is nine in both cases. This is not a classification. The fixed-reference model excludes precisely the noncyclic designs at issue.",
+        "searches": [
+          "arXiv:2611.13434, Theorem 14(ii), Theorems 17–18",
+          "arXiv:2305.07274, alternating quaternary reference and deletion/insertion balls"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.13434",
+        "arXiv:2305.07274",
+        "Baker–Flack–Houghten-associated ternary table",
+        "Resultary 9bd0a720270e (identical target)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 14(i) recovers cyclic optimality for unrestricted subsequence counts, but 012012 fails to synthesize a fourth correcting word that noncyclic 012021 does synthesize. The exact ceiling table provides no embedding patterns."
+        ],
+        "reasoning": "Neither an exact unrestricted size nor an exact unconstrained deletion-code size determines which compatible words can share a short reference. Resolving this requires the pairwise embedding-incidence constraint and the ordered/coded optimizers, not merely substitution into the prior bounds.",
+        "searches": [
+          "arXiv:2611.13434, Theorem 14(i)–(ii) and proof",
+          "Optimal Insertion-Deletion Correcting Codes, ternary n=3 row"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Li–Yu–Ge minimize length τᵈᵉˡ_q(n,M) with the same scattered-subsequence constraint and pairwise disjoint deletion shadows; τᵈᵉˡ_3(3,M) is the least T with F(T)≥M. The exact matching Resultary hit is the assigned record itself."
+        ],
+        "reasoning": "Passing between prescribed code size and maximum feasible code size at fixed reference length is an inverse optimization, not a distinction in claim. What is not in the inspected equivalent formulation is the exact inverse for q=n=3 with the full minimizing-reference census.",
+        "searches": [
+          "Resultary: ternary arbitrary reference length-three one-deletion correcting code exact capacity frontier 12 references length six",
+          "arXiv:2611.13434, definitions and Theorem 14"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Baker–Flack–Houghten-associated table of ternary insertion-deletion codes gives 5 at maximum word length n=3 and insertion-deletion distance d=4 (table at offset 1435; variable-length definition at offset 0). No synthesis reference is part of the table invariant."
+        ],
+        "reasoning": "For equal length three, disjoint one-deletion shadows mean distance at least four. The broader variable-length table gives an upper bound of five for this exact-length problem and the explicit exact-length witness attains it; the bare ceiling is covered. It does not show that all five-word exact-length codes demand T≥9 or classify any length-six references.",
+        "searches": [
+          "Resultary exact ternary reference frontier/optimizer query",
+          "ternary maximum single-deletion correcting code length 3 size five short length table arbitrary reference shortest common supersequence 12 ternary 012021 exact table"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the optimal synthesis-time frontier with short-reference rigidity, not the unconstrained five-word ceiling or the deletion-shadow criterion. The strongest prior formulates the exact same optimization and supplies finite-length bounds, but its bounds do not resolve the decisive lengths, optimizer orbit, or gap versus cyclic references.",
+      "residual_risks": [
+        "Historical priority of the full frontier and six-position census is not established; unindexed reference-constrained short-code results may exist.",
+        "A Library and Archives Canada thesis on ternary deletion-correcting code construction was identified but its PDF was unavailable (403); its full scope was not excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct problem overlap and broader bounds; not an exact solution for this frontier",
+          "evidence": "Theorem 14(i) solves unrestricted optimization. In (ii) the finite bounds have a gap at q=n=3 for M=4 and 5, and do not count minimizers.",
+          "identifier_or_url": "https://arxiv.org/abs/2611.13434",
+          "material_read": "PDF p. 1 offsets 674–1283; Theorem 14 and proof pp. 4–5 offset 21000; Theorems 17–18 pp. 8–9 near offset 45000",
+          "method": "Primary OA PDF, located and read bounded passages",
+          "title": "Minimum Synthesis Time for Single-Deletion Correcting Codes of Prescribed Size",
+          "trigger": "Identical arbitrary-reference optimization, earlier preprint"
+        },
+        {
+          "assessment": "Fixed-reference antecedent, not covering the arbitrary-reference optimum",
+          "evidence": "The model passage imposes an alternating quaternary reference rather than allowing arbitrary ternary references.",
+          "identifier_or_url": "https://arxiv.org/abs/2305.07274",
+          "material_read": "PDF pp. 1–3, offsets 0, 5347 and 6500–12459",
+          "method": "Primary OA PDF, abstract and specification passages",
+          "title": "Deletion Correcting Codes for Efficient DNA Synthesis",
+          "trigger": "Subsequence synthesis with one-error code designs"
+        },
+        {
+          "assessment": "Covers a cardinality bound, not reference length or rigidity",
+          "evidence": "The variable-length ternary table gives 5 at n=3 maximum length and d=4.",
+          "identifier_or_url": "https://cosc.brocku.ca/~shoughten/insdel.html",
+          "material_read": "HTML offsets 0–1394 (invariant, provenance) and 1435–1922 (ternary table)",
+          "method": "Primary table webpage",
+          "title": "Optimal Insertion-Deletion Correcting Codes (Baker–Flack–Houghten-associated tables)",
+          "trigger": "Exact ternary short-code cardinalities"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The smallest ternary case in this formulation gives a useful exact benchmark: it exhibits a one-cycle gap between an optimized reference and the unrestricted-subsequence-optimal cyclic strategy. The census makes the gap structural rather than an isolated witness, and determines when full use of the digram space is forced. The work does not claim scalability to longer words.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

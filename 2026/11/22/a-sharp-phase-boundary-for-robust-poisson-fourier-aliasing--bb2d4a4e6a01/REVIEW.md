@@ -1,19 +1,21 @@
-# Self-review of the sharp robust Poisson-aliasing claim
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-The domain is the full compact location-scale rectangle and arbitrary positive probability mixtures, with a shared uniformly random phase on an \(N\)-node cyclic grid. The Cauchy quantile change sends each component to a circular Poisson kernel with alias ratio squared \(r^2=((c-m)^2+(a-s)^2)/((c-m)^2+(a+s)^2)\). Orthogonality gives exact variance \(2r^{2N}/(1-r^{2N})\). Minkowski plus Dirac extremizers reduces arbitrary positive mixtures exactly to one component. Monotonicity in distance forces the reference center to zero; unimodality in target scale forces extreme-scale controls; a comparison of their crossing with the narrow-scale individual maximizer yields the unique two-branch optimal width and sharp cusp. The proof is infinite and analytic; 15,968 independently rerun numerical assertions support, but cannot certify, it. Edge cases \(C=0\), \(C^2=A(B-A)/2\), and \(C^2\ge AB\) were included in the reasoning.
+PASS
 
-## Originality (PASS relative to inspected evidence)
+The Cauchy quantile is the boundary parametrization for the Cayley map based at m+is; its target harmonic measure has Fourier magnitudes r^|k| with r²=((c−m)²+(a−s)²)/((c−m)²+(a+s)²). Grid averaging leaves modes k=Nℓ; orthogonality in the single shared shift gives 2r^(2N)/(1−r^(2N)). Compact support bounds r away from 1 for each reference, justifying summation/integration. Convexity of the L² norm bounds the mixture by the worst singleton, and the compactness maximum is attained by an admissible Dirac mixture. The variance is not equal to that maximum for every mixture. Maximizing over c gives distance C+|m|, strictly worse for m≠0 than m=0 at the same s because r² is increasing in that squared distance. At m=0, T_a=1−r²=4as/[C²+(a+s)²] has no interior minimum in a and is uniquely maximized in s at √(a²+C²). T_A−T_B has the sign of AB−C²−s². A positive crossing, when present, is below the maximum of T_B; the lower envelope peaks uniquely at the crossing if the crossing is at or above the maximum of T_A, and otherwise at the maximum of T_A, also when there is no positive crossing. This gives the claimed phase boundary, two radius formulas and active sets; the branch formulas coincide at equality and their slopes in C have opposite nonzero signs there. A<B rules out zero worst radius, and compactness gives R_*<1; strict monotonicity of the variance in the radius makes the optimizer independent of N. Scaling by the total mass gives the relative-variance assertion. VERIFICATION.md and verify.py were inspected without execution; the finite diagnostics are not the universal proof.
 
-The 2024 randomized Möbius rule, the 2026 polynomial-weight extension and the 2026 inverse-CDF Fourier approximation provide the changes of variables and general aliasing framework. A published single-Poisson randomized-grid result already provides exact variance and near-boundary asymptotics. A published centered Cauchy-mixture result already treats deterministic parity-dependent scale optimization. Both were read as mathematical statements, and neither contains or dominates the all-reference, all-positive-mixture location-scale minimax optimizer with the transition \(2C^2=A(B-A)\). The inspected sources cannot establish universal priority: a hyperbolic Chebyshev-center reinterpretation in less-indexed literature remains possible.
+## originality
 
-## Value (PASS)
+PASS
 
-The target is an arbitrary positive mixture with a potentially unknown normalizing mass in a natural compact location-scale uncertainty family, rather than a manufactured finite list. The result solves its continuous sharp minimax Poisson Fourier-tail problem over *every reference Cauchy center and width*, shows that mixtures cannot worsen the extremal risk, provides an \(N\)-independent optimal design and exact exponential risk, and proves a counterintuitive narrowing-then-widening cusp with a rigorous exchange of active extremal scales. This is a substantive exact extremal classification and a robust calibration principle for nonuniform Fourier sampling; it is not a claim of general quadrature optimality.
+Credit the known aliasing formula, Möbius change of variables and standard hyperbolic distance. The supported distinction is the exact globally optimal reference and positive-mixture minimax risk over the full rectangular location-scale uncertainty, with an explicit sharp active-set transition, not merely the component formula or a centered deterministic exactness scale.
 
-## Limitations and closest literature
+## value
 
-The result does not cover arbitrary reference probability measures, general integrands, noise, deterministic phases or arbitrary uncertainty shapes. Classical Fourier aliasing and Cauchy–Poisson conjugacy are not new. The main residual originality risk is an older equivalent pseudohyperbolic-center optimization. Formal independent validation has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For a natural reference-selection problem this gives the exact worst-case variance and a unique resolution-independent optimal reference, even for arbitrary positive mixing and an unknown mixture normalizer. The boundary marks a genuine change in the obstructing target scale and reverses how the optimal width responds to location uncertainty; this is more than computing a standard aliasing tail.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-23.md",
+      "INDEPENDENT_AUDIT_2026-11-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,13 +19,24 @@
 }
 ---
 
-# Verification of dispersion phase diagram
+# Independent mathematical audit
 
-The theorem is verified analytically by the following dependencies, each given explicitly in `RESULT.md`:
+## correctness
 
-1. The conditional negative-binomial factorial moments yield the exact quadratic identity in the mixture-retention weight.
-2. A derivative argument for the auxiliary function \(h_r(u)\) proves the non-numerical global sign identity \(\operatorname{sgn}(A-2B^2)=\operatorname{sgn}(1-r)\).
-3. Exponential tilting of the size-biased excess count shows \(d(A/B)/d\log q=\operatorname{Var}(Z^*)>0\). Endpoint limits establish a unique additional cutoff.
-4. Strict quadratic concavity, endpoint signs, and the vertex location supply all sign regimes and root formulas.
+PASS
 
-To reproduce the independent exact-rational witness and sampled numerical checks, run `python3 verify.py` from a directory containing that file. The checker intentionally does not claim to prove the global theorem by finite enumeration. Rational identities require no tolerance; finite-tail and boundary illustrations use explicit numerical tolerances. Neither an external certificate nor an independent mathematical audit is asserted.
+The NB generating function gives the two factorial moments, each divided by the positive-count mass after truncation. The point mass contributes to the mean but not to the second factorial moment, so variance minus the distribution's own mean is exactly −1+At−B²t², with A,B>0. At t=1 its sign is that of 1−(r+1)(1−q)^r. I checked the factorization of the endpoint derivative A−2B² using u=1−q: the auxiliary derivative h'_r(u)=r(r−1)u^(r−2)(1−u) and h_r(1)=1 give the asserted strict sign reversal at r=1. In the size-biased law of Y−1 the statistic is k, so the log-q derivative of A/B is its strictly positive variance (convergent differentiated series on each compact subinterval of 0<q<1). The limits 0 and +infinity give a unique A/B=2. For r>1 the positive vertex is below 1, and at A=2B one has B>1 and a negative endpoint value −(B−1)². The vertex and endpoint signs give all five regimes, including the interior double root and the roots B^(−2),1 at q_c. For r≤1 the derivative is strictly positive on the open retention interval, even at r=1, giving precisely the stated exceptions at t=1. An independent exact PGF differentiation (`python3 /workspace/checks/dispersion.py`, SymPy) gave −1, 2479941473/21532234108 and −421000000/37681409689 at the three witness weights. That computation is a witness, not a continuum proof. Frozen verification material was inspected, not executed.
+
+## originality
+
+PASS
+
+Qualified for the full phase diagram: the probability model, moments and quadratic reduction are covered or immediate from prior work, not original. The positive evidence is a distinct quantified statement about shape, ordered cutoffs, and strict interior root counts; the inspected same-law sources establish the ingredients but not the global shape inequality or the unique discriminant transition.
+
+## value
+
+PASS
+
+Variance relative to one's own mean is a standard unconditional summary for positive-count mixtures. A pair of underdispersed endpoint laws does not control their mixture: here the theorem says exactly when intermediate structural-one mass reverses and then reverses back the sign. The uniform real-shape result, strict cutoffs and exact witness are useful beyond a routine moment calculation, without claiming regression-residual, inference or Poisson-characterization consequences.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

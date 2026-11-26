@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The complete real-plane least-period-two census follows from the second-coordinate sum constraint and the even rational gain. Those two equations force \(v_1=-v_0\) and \(v_0^2=-a/2-1\) for every primitive orbit, so no other branches or boundary solutions are omitted. The exact derivative matrix is identical at both cycle points; its square is scalar with multiplier \(-7-16/a\). This proves the stated stability intervals. At \(a=-16/7\), a nonzero Hessian component proves quadratic rather than higher-order superattraction. Exact symbolic reproducibility checks passed, but the proof does not depend on finite sampling.
+PASS
 
-## Originality — PASS within checked sources
+The conjugacy (u,v)=(cx,y) is invertible for either sign of the nonzero c. Closure in the second coordinate of a two-step orbit forces u_1=-u_0; if u_0=0 it is a fixed point. Otherwise each scalar first-coordinate factor must be -1. The two v coordinates have equal square -a/2-1 but differ, so they are opposite and nonzero. This gives a single geometric orbit for a<-2 and none at or above -2, including the collision at a=-2. At its two points the one-step Jacobian is the same matrix with diagonal -1,1 and off-diagonal entries -8t^2/(1+t^2),1. Squaring yields the claimed scalar lambda=-7-16/a, independently of c. Its modulus is below one exactly on (-8/3,-2); the smooth return contracts there and is locally expanding with nonsingular derivative for a<-8/3. At -8/3 the double multiplier is -1 and no nonlinear stability is inferred. For the zero multiplier at a=-16/7, expand the first component u g(v)g(v+u) at (-2t,t), with t=1/sqrt(7), g(±t)=-1, g'(t)=sqrt(7)/2 and g''(±t)=7/4. The quadratic terms for increments (h,k) are sqrt(7)(3h^2/4+hk+k^2), giving exactly the stated nonzero Hessian. Odd symmetry transfers the degeneracy to the other point. The exact algebra verifies the all-real statement independently of the sampled parameters in the supplied verifier.
 
-The defining source [1] was materially examined in its full accessible article, especially equation (1), the line-of-fixed-points case, the numerical period-two observations and conclusions. It does not state the complete period-two census, identical return multipliers, or quadratic superattracting parameter. The closest explicit two-cycle comparison [2] treats a distinct planar rational map; accessed portions establish its differing formulas, not an implication covering this map. Searches of publicly indexed mathematical claims by map, aliases, period-two equations, scalar multipliers and boundaries found no theorem with these consequences. This assessment is conditional on accessible evidence and is not a guarantee against unindexed prior work; [2]'s full text could not be examined.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The fixed-point-line slice is singled out by the defining study, which numerically observes a two-cycle near \(a=-2.1\) and more complicated periodic behavior near \(a=-2.667\). The theorem supplies the missing exhaustive real-plane period-two picture, with exact stability loss at \(a=-8/3\), and exhibits a strong structural degeneracy: both Floquet multipliers always coincide and vanish simultaneously at \(a=-16/7\). The superattracting condition and exact count are natural invariants of this established bifurcation family, not arbitrary finite parameter samples.
+The zero-drive model and numerical appearances of period two are already known. No inspected same-model source supplies the whole-plane exact census, scalar return identity, exact local stability interval, or exact quadratic degeneracy. The closest indexed classification analogues act on different maps; the later same-family escape result uses a disjoint parameter regime and restricted initial states.
 
-## Closest literature, boundaries, and risks
+## value
 
-[1] Zhang et al. (2022, DOI 10.1088/1674-1056/ac4025) provides the map and numerical evidence, but no global period-two theorem. [2] Tikjha and Muni (2025, DOI 10.1007/s40435-025-01673-y) has explicit two-cycle formulas for a *different* map; only its defining formula and accessible abstract/text excerpt were compared. General theory or unindexed reports could cover aspects of the result. The full driven family, other prime periods, basins and nonlinear behavior at the \(-1\) multiplier are not classified. Publisher portals disagree about the earliest online date; this package uses the earlier date visibly reported by the legacy publisher portal.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The zero-drive slice is the same fixed-line regime previously studied by numerical bifurcation diagrams. The complete low-period census and exact endpoints turn those observations into a global count and a local stability classification. The scalar return is more informative than coincident numerical eigenvalues: it vanishes at a definite parameter and gives genuine quadratic attraction. The simple algebra addresses a motivated question about this published model rather than an arbitrary isolated slice or parameter sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

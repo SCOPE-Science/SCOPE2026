@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -17,6 +20,6 @@
 ---
 # Verification and reproducibility
 
-The claim was reconstructed from the displayed definitions and proof, including both the zero-deficit boundary and the arbitrarily large finite-coordinate domain. The decisive inequalities are Schwarz--Pick at zero for the one-variable disk polynomial, phase optimization of its even part, Cauchy's derivative estimates for arbitrary coordinate rotations, Taylor's theorem, and a sign-selection estimate. The exact three-coordinate counterfamily proves the sharpness exponent analytically.
+The analytic proof in `RESULT.md` computes the full norm by the maximum-modulus principle, an exact phase maximization, and a one-variable trigonometric maximization. It also derives a linear estimate for a single retained coordinate by the disk Schwarz–Pick bound. The general upper square-root estimate is the stated specialization of prior work.
 
-Run `python3 checker.py` to verify the finite algebraic and numerical stress checks. These checks are corroboration, not an infinite-dimensional certificate. The output of the checker and the claim of a matching sign inequality do not substitute for the analytic argument in `RESULT.md`. No independent mathematical or priority audit was performed.
+Run `python3 checker.py` to check exact rational Pythagorean instances of the optimizing angle and error/deficit identity. These finite calculations are illustrative; sharpness as the deficit tends to zero and the uniform estimates follow from the proof.

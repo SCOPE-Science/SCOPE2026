@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The source's transition graph gives a finite positive-rate route from every finite state with nonzero tumor burden to the invasion boundary. Repeated immune-death jumps can first reach \(y=0\). On that face tumor death, immune birth, immune death, and cytokine production vanish, while tumor birth remains strictly positive for every \(1\le x<K\). A finite sequence of tumor births therefore reaches \(x=K\) with positive probability. Requiring every holding time in this finite path to be sufficiently short gives strict positivity on every finite horizon \(T>0\).
+## correctness
 
-## Originality
-PASS. The source itself emphasizes limitations of the frozen branching approximation but interprets its numerical zero count and deterministic immune-threshold crossing as making extinction certain in the fully coupled stochastic model. Exact-DOI, alias, published-finding corpus, and own-ledger searches found no equivalent source-specific correction. Older tumor stochastic literature establishes branching, CTMC, and extinction-threshold context but does not imply this exact transition-graph statement in the inspected material.
+PASS
 
-## Value
-PASS. The result corrects the difference between suppression and impossibility in the exact model used for the paper's principal stochastic-invasion comparison. It also gives a mathematically precise reason that a zero count among \(10^4\) simulated paths cannot certify a zero invasion probability. This is a meaningful rare-event interpretation issue, not a change of notation or a routine recomputation.
+Table 3 and the equations below it in Jang and Yen match the frozen six jump rates. Independently, for 1≤x<K one may keep y,z fixed and take exactly K−x consecutive tumor-birth jumps: the birth rate is positive and each total rate q is finite and positive along this route. For N=K−x>0, at each step the probability of the prescribed jump within T/N is (birth rate/q)(1−exp(−qT/N))>0. Their finite product guarantees the stated strict event before T and before x=0; x=K at time zero is immediate, including K=1. The frozen immune-death-then-birth path is valid too, since immune death is positive at y>0 and y=0 disables immune-mediated tumor death and immune regeneration. The argument requires no assumption about the fate of paths outside the finite chosen route. The paper's frozen branching threshold governs eventual branching extinction, not finite first passage; even the frozen linear chain with positive birth rate can hit a finite target below criticality. The 95% one-sided zero-count endpoint 0.000299528359776612… independently replays with /workspace/audit_evidence/replay.py (tumor); it bounds the sampled fixed-horizon law given independent identically distributed runs, not the exact CTMC via the tau-leaping data. The original package describes a bundled replay but the bound evidence includes no executable for this record; the proof and independent endpoint calculation do not rely on that script.
 
-## Closest literature and limitations
-Merrill (1984), DOI 10.1007/BF00275990, is a classical branching/jump-process tumor-extinction reference. Liu, Li, and Pan (2018), DOI 10.1016/j.physa.2018.02.118, use a different tumor-immune CTMC for extinction probabilities. Yang, Tan, and Cheke (2019), DOI 10.1016/j.cnsns.2019.02.025, derive stochastic extinction and persistence thresholds in a different pulsed-treatment model. The accepted theorem does not estimate the source parameter set's exact rare-event probability, and it does not equate the exact CTMC with the article's tau-leaping approximation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported contribution is a source-specific correction: the model as printed permits the very finite-horizon first passage declared impossible in its numerical interpretation. Finite positive-rate paths, extinction thresholds for linear branching, and zero-success confidence endpoints are standard ingredients, not independently original results. No earlier equivalent correction of this CTMC surfaced in the material checked.
+
+## value
+
+PASS
+
+The source explicitly interprets a suppressive trajectory as ruling out a finite-threshold event in the coupled CTMC. The review confirms a substantive distinction between impossible and unobserved, and between the actual first-passage event and eventual extinction of a different process. That matters when using the model to interpret threshold crossings or zero Monte Carlo counts. This is a narrow exact correction, not a quantitative claim about practical risk or a rejection of strong immune suppression in the model.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

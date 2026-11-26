@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim concerns exact completed matrix nonnegativity on finite pure-birth generators with arbitrary strictly positive transition rates. A direct, independent matrix-power checker verifies the analytic coefficient expansion at exact rational rates and steps. The proof gives necessary and sufficient local positivity conditions, a nonreentrant interval, a two-case universal comparison, an attained five-state lower extremizer, a limiting upper family, and a proof excluding inversion at smaller sizes. Its infinite statements are derived by algebra and inequalities, not the finite checks. The near-zero-rate upper family is an approximation, not an attained case.
+PASS
 
-## Originality — PASS (priority provisional)
+With a terminal padded zero and strictly positive birth rates, paths of k forward jumps contribute the product of k rates times the divided difference of the end-step polynomial on the k+1 consecutive diagonal arguments (holding transitions give the extra powers). RK3: only the diagonal root rho and the two-jump factors 3-h times the triple sum in the form 3-h(a+b+c) can obstruct; its first derivative is a positive quadratic. RK4: its diagonals and second divided differences are positive; the one-jump multiplier is the average of R3(-hu) over the adjacent-rate interval (point value if equal), strictly decreasing in h; the three-jump sign is 4-h(a+b+c+d). These give nonreentrant closed horizons, with missing distances omitted. Normalize H3=1: each rate is at most rho and every three-rate sum is at most 3, so every four-rate sum is at most 3+rho and the pair roots are at least 1. At the displayed witness both a triple and a largest-rate constraint saturate and the four-rate sum is 3+rho; appending positive rates no larger than (3-rho)/2 also works at any larger n. For the strict upper bound, when H3=rho/M a pair containing M and a positive neighbor has a strictly smaller cubic root than the mean over [0,M], which vanishes at h=delta/M. When H3=3/T, every triple extends to a four-window so the ratio is at most 4/3. The family with one unit rate followed by epsilon rates tends to the endpoint ratio, since the isolated pair root tends to delta<4 and other pairs diverge. At n=4 the four-window sum equals T, so 4/S cannot limit before H3; at n<=3 no such obstruction exists. python3 /workspace/branches/independent_checks.py 2 verifies the two symbolic obstruction entries and checks signs near the five-state horizon. The exact cubic definitions govern the constants; the printed last digits of delta are slightly rounded (independently 2.78529356340528162...). Neither the original finite checks nor this replay substitutes for the inequalities.
 
-The highest-overlap published mathematical result is the heterogeneous directed-cycle RK4 theorem (published-finding corpus, 2026-11-08), whose pair-cubic and four-rate-sum formulas closely match the present RK4 local ingredients. A homogeneous pure-birth RK4 state-count classification (published-finding corpus, 2026-10-12) covers the equal-rate subfamily. A separate RK3-versus-RK2 cycle result is also related. None of their inspected claims establishes the new sharp heterogeneous **RK4/RK3** two-sided ratio, the attained four-rate extremizer, the opposite sharp limiting family, or the minimum number of pure-birth states for an RK4 disadvantage. An exact componentwise root formula by itself does not settle this rate-uniform optimization. The stronger possibility that the comparison has appeared elsewhere under a different stability or positivity terminology has not been excluded by exhaustive library coverage.
+## originality
 
-## Value — PASS
+PASS
 
-The sharp universal constant proves that higher formal order can reduce admissible probability-preserving steps by almost 13% in a natural serial transport/decay chain, while another rate architecture can yield almost a 75% gain. Five-state minimality and the explicit optimal rate architecture distinguish a structural interaction of long-path jumps with departure-rate heterogeneity. The comparison informs selection of positivity-constrained time steppers; it is not an accuracy or efficiency comparison, and the local formulas are not separately valued as new.
+Best-knowledge pass for the optimized heterogeneous RK4/RK3 comparison, the sharp witnesses and the minimum-state theorem, not for the RK4 local coefficient formula. Heterogeneous long directed cycles already give essentially that RK4 ingredient; homogeneous pure-birth thresholds and a same-day two-method result address different quantifiers or orders.
 
-## Limits and closest literature
+## value
 
-The result concerns completed RK3/RK4 matrices only, with fixed positive rates and one absorbing end. The 2014 invariance-threshold literature gives general polynomial-root methodology, not this cross-order extremum. The 2021 graph-Laplacian positivity literature motivates the problem but studies modified positivity-preserving schemes. A heterogeneous directed-cycle RK4 classification covers essentially the same local polynomial ingredients; priority of the cross-method extremal comparison remains provisional. See `RESULT.md` and `AUDIT.json` for exact implications and evidence.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This gives sharp limits on how much safe completed step length can change with method order on natural serial transport generators, including a concrete minimal-size loss and the obstruction that causes it. The joint optimization, not a reissue of local polynomial tests, is actionable when positivity rather than stability alone limits steps. No comparison of accuracy, cost, or internal-stage positivity follows.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The finite-state continuous-time generator and rate normalization are explicit. The backward recurrence has a unique transient solution since each graph is connected and a finite system of independent random walkers ultimately coalesces almost surely. Exhaustive exact-rational computations check all 560 triple equations per graph, all pair classifications, and automorphism and independently refined quotient partitions; a second 680-state sparse solve confirms the numerical values. The comparison does not conflate continuous-time and synchronous walkers.
+PASS
 
-## Originality — PASS on inspected evidence
+With r occupied vertices and an individual rate-one clock per vertex, the first holding mean is 1/r and each ordered move has probability 1/(6r). A move to an occupied site decreases r by one. The finite backward system is unique: from every transient state one can force a walk along a path to another occupied site and repeat, giving absorption within a uniformly bounded number of jumps with uniformly positive probability. I reconstructed the graphs and verified the exact integer-scaled means in every one of the 120 pair and 560 triple equations on each graph, without group computation. Classify triples by induced edges and count of common neighbors; the exact total over triples of 112 times the mean is 704960 for each graph. Each has 32 triangles, with respective scaled times 1144 and 1145. The pair values scale to 840 and 1008. This proves the claimed numbers for the finite continuous-time systems; it does not assert equality of laws or extend to synchronous walks. Independent replay: python3 /workspace/check-4.py. Both submitted scripts were inspected, not executed.
 
-The examined general papers of Oliveira (arXiv:1009.0664), Cooper et al. (arXiv:1204.4106), and Kanade et al. (arXiv:1611.02460) give general coalescence bounds and techniques, rather than these exact triangle-conditioned three-particle means. Closest public indexed results on the Shrikhande–rook pair compare single-particle cover time and other kinetic observables, not three-coalescent triangle initial conditions; the indexed exact coalescence result for star graphs addresses a different graph and initial condition. Checks against equivalent two-body meeting times, general stronger bounds, exact tables and claim-to-prior implication did not identify coverage. This is a best-knowledge originality judgment, not proof of global uniqueness or historical priority. Earlier unindexed exact calculations remain a risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Two cospectral, strongly regular networks are indistinguishable by their complete adjacency spectra, all two-site coalescence means, and the globally averaged three-site coalescence mean. Their triangle-conditioned three-particle coalescence times nevertheless differ exactly; this is a natural local probe of a higher-order kinetic structure, not a chosen arbitrary parameter slice. The effect is numerically small but structurally isolates information invisible to those lower-order and aggregated observables. The result is a precise finite benchmark for coalescing-particle kinetics, not a claim about bulk thermodynamic scaling.
+The inspected sources supply the general coalescence framework, distinct exact observables on the identical graph pair, and voter duality. None supplies these triangle-conditioned means paired with an exact common uniform-triple mean.
 
-## Closest literature and limitations
+## value
 
-The initial model and rate conventions differ from the discrete-time bounds of Cooper et al. and Kanade et al.; general continuous-time bounds in Oliveira do not imply either rational value. The exact classification is for three particles on two fixed graphs. The complete distribution of coalescence times, stochastic domination, other graph pairs and all larger systems remain unproved. The historical-priority comparison is limited by indexing and access to older literature.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The rook and Shrikhande graphs are natural spectral twins with identical strongly regular parameters. The point of the small difference is not its magnitude: the triangle-conditioned third-particle statistic separates them at an initial shape present 32 times in each, even when the pair means and the entire uniform-triple mean mask the distinction. A precise matched negative control makes the observable comparison useful beyond reporting another pair of numbers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

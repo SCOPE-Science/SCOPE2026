@@ -1,15 +1,21 @@
-# Scientific review: Petersen Hamilton-path rotation graph
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The vertex model is the Petersen graph \(KG(5,2)\), with 10 indexed two-subsets and adjacency exactly disjointness. The endpoint-path recurrence counts all paths with endpoints of either automorphism type: four per nonadjacent pair and zero per adjacent pair, yielding 120 in total. The natural \(\mathfrak S_5\)-action has a trivial stabilizer of the stated base path, so the group and path sets are in bijection. Direct substitution of the Pósa rotation formula identifies all four neighbors of the base path with the asserted inverse-closed group generators. Equivariance extends this identification to every path; the generators span \(\mathfrak S_5\). Exhaustive breadth-first exploration of 120 group elements gives diameter six and the exact sphere distribution. A genuinely separate ten-vertex-permutation enumerator reconstructs the same 120 paths and 240 undirected switching edges, then independently checks all shortest-path distributions. The included certificate lists and verifies all rows, not just log summaries.
+## correctness
 
-## Originality
-**PASS, with priority uncertainty.** Pósa rotations and backbite moves are known, as is the Petersen automorphism group. The 2005/2006 paper of Oberdorf–Ferguson–Jacobsen–Kondev defines the same local move for Hamiltonian lattice walks and analyzes square-grid examples, not the Petersen graph. Frieze–Pittel address random-graph Pósa endpoint sets rather than this complete finite rotation graph. Kazazi (2026) treats the exact same backbite graph construction in a general graph, but the full article gives sufficient conditions requiring a spanning squared path and unrelated disconnected examples; no Petersen/Cayley instance appears. The degree-four internal vertices of a ten-vertex squared path prevent its inclusion in the cubic Petersen graph. No equivalent Petersen Cayley-isomorphism, explicit four-element generator set, or exact six-diameter profile was found in the searches conducted. Neither matching complexes of the Petersen graph nor its metric embedding results imply this exact reconfiguration statement. Priority risk persists for unavailable old monographs and unindexed enumeration datasets; the absence of an indexed hit is not a proof of novelty.
+PASS
 
-## Value
-**PASS.** This is a complete natural reconfiguration classification for a canonical non-Hamiltonian vertex-transitive cubic graph, not a numerical refinement or arbitrary induced subgraph. The strong property that the entire Hamilton-path flip graph is itself a four-generator Cayley graph of the Petersen automorphism group, together with an exact transition diameter, gives an explicit symmetry-controlled example for Hamiltonian-walk/backbite dynamics. The exact classification explains both reachability and worst-case local move complexity in this graph, with a reproducible adjacency/metric certificate. No infinite-family extension is asserted.
+The adjacency is disjointness of two-subsets, paths are quotiented by reversal, and a single endpoint rotation replaces one edge. The first-step recurrence partitions paths exactly. For the given base path a label permutation fixing the ordered path fixes every two-subset pointwise as a set; a label permutation reversing it must fix 0, swap 1 and 2, and preserve {3,4}, inconsistent with sending the second vertex {3,4} to the penultimate {1,4}. Thus the stabilizer is trivial. Among 120 paths the induced S5 action is consequently regular; its commutation with rotations identifies the right Cayley graph once the four images of the base path are checked. Independent exact replay built the undirected paths recursively, checked all endpoint-pair counts and all four neighbors at every vertex in both descriptions (composition g s), and ran BFS from every path. It gives 30 nonedges with four paths each, none for edges, 120 vertices, 240 edges, degree four, and profile (1,4,11,25,39,29,11) everywhere. The supplied certificate has all 120 distinct permutation keys; the supplied row checker alone does not exclude duplicate keys, but direct inspection verifies coverage and the separate exhaustive replay establishes the result without the certificate.
 
-## Limits and closest work
-The closest source by reconfiguration object is the full-text 2026 preprint of Kazazi, whose general result does not imply the sparse Petersen instance. The 2005 preprint/2006 published work of Oberdorf et al. defines local backbite moves on grid Hamiltonian walks. Frieze and Pittel's 2011 Pósa-rotation work gives context, not this classification. An inaccessible historical Petersen monograph could conceivably have equivalent graph-specific data. All finite verification rests on transparent standard-library implementations and a complete 120-record certificate. Neither independent mathematical audit nor independent validation has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Supported distinct content is the Petersen-specific exact Cayley and metric classification. Neither endpoint rotation/backbite itself nor the standalone path census is needed as a novelty claim. Bounded comparison with the same abstract reconfiguration construction and with the strongest matching indexed findings did not reveal a distinct source establishing the Cayley generators and sphere census.
+
+## value
+
+PASS
+
+For a canonical cubic non-Hamiltonian graph, the natural local-move state graph is classified completely rather than just tested for connectedness. The regular label action and exact switch generators give a reusable description; the sharp bound of six moves answers the worst-case reachability question outside the squared-path sufficient regime. The parameter choice is the Petersen graph itself, not an arbitrary cutoff on a larger experiment.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

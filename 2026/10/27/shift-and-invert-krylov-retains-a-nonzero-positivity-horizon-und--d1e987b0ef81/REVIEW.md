@@ -1,9 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The hypothesis fixes positive diagonal \(A\), positive \(b\), a positive shift and the *compressed-resolvent inverse* formula. The proof uses strict Rayleigh–Ritz endpoint interlacing and an exact affine interpolation of \(\exp[-t(r^{-1}-1)/\gamma]\) at the two compressed-resolvent Ritz nodes. Monotonicity in \(r\) proves the complete all-coordinate first horizon; explicit moment calculations give a strictly positive stiff limit and a separate ordinary-Lanczos asymptotic. A standalone standard-library checker corroborates the inverse projection, formula, exact-rational sample and parameter family in 65,143 assertions. Experiments alone are not the proof.
+## correctness
 
-**Originality — PASS, with residual priority risk.** The source shift-and-invert formula and interpolation mechanism are established. The very close published two-step polynomial Lanczos sign-horizon theorem was inspected in full: it addresses exponentiation of the compression of \(A\), not inversion of the compressed resolvent, and does not provide the nonzero stiff-limit constant or diverging horizon comparison. The accessible 2019 and 2023 primary texts and targeted searches did not establish this combined compressed-resolvent stiff-scale separation. A broader interpolation theorem in specialized literature might cover it; the Qiang Ye 2013 full text was not accessible. No independent publication-priority certification is claimed.
+PASS
 
-**Value — PASS.** Pole selection is central to shift-and-invert time integration. The finding supplies a quantitative, dimension-minimal answer to a practical design tradeoff: fixed positive shifting can greatly delay coordinatewise positivity loss under severe stiffness, but cannot make a two-vector compression unconditionally positive. The strict positive-versus-vanishing horizon asymptotics distinguish the two numerical constructions in a natural three-mode model and are not merely a new numerical witness. This does not establish overall accuracy or speedup superiority.
+Checked the inverse of the compressed resolvent, not the compression of A. In the Krylov basis with first vector b/||b||, the off-diagonal of J is the positive standard deviation of r_i under b_i² weights, giving distinct nodes. Equality of a Ritz node with a spectral endpoint would require a nonzero affine function of r_i to vanish at the other two distinct levels. Affine exactness gives the coordinate multiplier as the two-node interpolant of exp[−t(r⁻¹−1)/γ]; its positive slope for t>0 and the sign test at r_min establish the global first crossing, including ties in the largest decay rate. The one- and two-level invariant cases are exact. A separate symbolic moment-pencil calculation in the basis {b,Db} gives the limiting resolvent characteristic polynomial x²−(10/21)x+1/84 and horizon 0.079671742512472362. For D=A_L the same pencil gives, after x=L−h/L, the characteristic polynomial 1/2−h+O(1/L); at x=3/2−h/L it gives h−1/2+O(1/L). These yield the stated root expansions and the logarithm 2 log L+O(1) in the polynomial horizon. The supplied floating-point checks are only corroboration.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The supported distinct result is the explicit noncollapsing stiff-limit witness and its unbounded ratio against the polynomial horizon on the same original operator. Neither the shift-and-invert algorithm nor the universal two-node sign law in isolation is credited as new: the latter is a direct time-rescaled consequence of the earlier polynomial sign theorem on a transformed operator. The Finding and prior-work section emphasize the stiff-limit comparison, which was not covered by the sources checked.
+
+## value
+
+PASS
+
+A concrete stiffness counterexample distinguishes positivity failure of two established approximations applied to the same diagonal system. Ordinary Lanczos loses positivity on a time scale tending to zero, but the compressed-resolvent projection retains a quantifiable positive window without preserving positivity forever. This addresses a property not measured by general error estimates; the universal threshold by itself is a reformulation, not the main value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

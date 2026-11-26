@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-Both standalone source programs `verify_affine.py` and `verify_lcf.py` were executed directly from the package directory with Python 3. The affine program used a first-free-vertex exhaustive recursion to enumerate all maximal matchings; its mathematical invariant is that leaving two adjacent vertices unmatched would prevent maximality. The independent LCF program enumerated uncovered independent pairs on the two shores and their complementary perfect matchings, using a graph constructed from an independent Hamiltonian cyclic representation. They agree on the minimum and full distance profile.
+## correctness
 
-The full cardinality count is \(36z^6+567z^7+648z^8+42z^9\). The two lower exchange budgets leave 36 isolated configurations; the three-edge exchange graph has 36 vertices, 126 edges, degree seven, 108 triangles and identical distance shells \((1,7,12,12,4)\) from every state. The affine program also checks 108 line-class-preserving affine automorphisms and transitivity on all 36 optima. Both programs enumerate finite sets exhaustively; neither makes claims about all graph orders or uses numerical experimentation to infer an infinite assertion.
+PASS
 
-The verification programs need no third-party packages or network access. Included output files are references for reproduction, not replacements for code and the mathematical justification. No independent external evaluation has been undertaken.
+An inclusion-maximal matching leaves independent uncovered shores. Four points have 12 incidences, with at most six repeated incidences because a point pair shares at most one chosen line; at most three lines avoid those four points, ruling out size <=5. For three points, at least six lines are met, and equality (required for size six) needs one distinct available line for each pair. They form a noncollinear triangle with precisely the three allowed directions. Its horizontal/vertical corner and nonzero horizontal displacement give a unique displayed T_{x,y,a}; the three avoided lines are forced. For the reference triangle, three point-to-line edges are forced, and the remaining six vertices form a 6-cycle with two perfect matchings. Translation and simultaneous negation cover the other triangles. An independent increasing-edge-index enumeration visits each matching once and tests maximality by inspecting every edge for an uncovered pair, yielding {6:36,7:567,8:648,9:42}. It reproduces the published 36 masks and 126 exchange edges exactly. Among the 630 unordered pairs the needed exchanges are 3,4,5,6 with counts 126,54,270,180; thus one- and two-edge moves are impossible. Independent graph traversal gives degree seven, 108 triangles, and the common shell profile (1,7,12,12,4), establishing connectedness and radius and diameter four. The 108 direction-preserving affine collineations give one orbit on the 36 states. An extra independent check groups the two completions for each uncovered triangle as adjacent true twins; their 18-vertex quotient is isomorphic to Pappus, so the computed exchange graph is also Pappus[K_2].
+
+## originality
+
+PASS
+
+The standard Pappus graph, edge-domination correspondence and use of incidence-free sets are prior. The same-day Pappus forcing record explicitly uses the 42 perfect matchings, so that top coefficient is not a distinct new fact here. The supported contribution is the affine classification and full census of the minimum maximal matchings, the lower-size maximal matching coefficients, and the exact three-edge exchange threshold and graph on the minima. The strongest other Pappus exchange statements act on different configurations; similar incidence-free exchange results on other graphs do not imply this exact census or mobility graph.
+
+## value
+
+PASS
+
+The Pappus incidence graph is canonical, and minimum maximal matchings model minimum edge domination on it. Describing all optima by complementary affine triangles explains their geometry rather than just outputting 36. The exact jump from every optimum isolated at budget two to a single connected transitive graph at budget three is a meaningful finite reconfiguration cutoff with a useful complete distance profile. It cannot be read off from the optimum cardinality or from the previously known perfect matchings.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

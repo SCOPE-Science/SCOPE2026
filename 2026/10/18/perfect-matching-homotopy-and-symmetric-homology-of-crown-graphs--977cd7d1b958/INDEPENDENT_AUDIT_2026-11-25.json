@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:50:44.980586Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For two or more unmatched rows, every leftover column has at most one forbidden row, so any set of at least two rows sees every leftover column, and a singleton sees at least one. Hall therefore proves the claimed extension criterion; a lone unmatched row and column must have different labels. Independently regenerated all nonempty faces for n=4,5,6,7 (99, 734, 6335, 61984), applied the specified toggle orders and topologically sorted each entire directed Hasse graph (228, 2320, 25290, 298788 incidences). It left exactly one vertex and 4, 33, 256, 2175 critical cells in degrees 1, 2, 3, 4 respectively. Discrete Morse theory then gives the wedges, since the only lower-dimensional skeleton is a point. In the reduced Lefschetz trace a setwise invariant k-element face with c vertex cycles contributes (-1)^(k-1) times (-1)^(k-c), with empty contribution -1. The independent oriented-simplex computation matched all 30 entries, both character averages 1, and transpose eigenspace dimensions 1045 and 1130. Replay: python3 /workspace/branches/3cca69d2-2b25-4196-8b52-dd76a6087e1e/crown_independent.py 4 5 6 7; the same directory contains crown_independent_n4.json and crown_independent_n5_n7.json. This is exhaustive only for the finite claimed cases; no homotopy formula for larger n or formal certification is assessed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bayer, Jelic Milutinovic and Vega define the invariant and discuss the complete bipartite case on pp. 2–3; their homotopy classifications are for honeycombs.",
+          "Chandrakar and Singh, Theorem 1.1, treats two-row grids and polygonal line tilings."
+        ],
+        "reasoning": "Neither base-graph family contains the crown boards used here by a change of parameters. For complete bipartite boards every matching extends, unlike the incomplete board here.",
+        "searches": [
+          "Resultary: perfect matching complexes broader homotopy classification honeycomb square grids polygon tilings",
+          "arXiv:2209.02803v1",
+          "arXiv:2407.05809v1"
+        ]
+      },
+      "checked_sources": [
+        "2f46336da7fa",
+        "223bbad446ab",
+        "2ff1a31dcb85",
+        "arXiv:2209.02803v1",
+        "arXiv:2407.05809v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 8 supplies acyclic-matching methodology, not a crown critical-cell census.",
+          "2ff1a31dcb85 concerns Ind_2 of crown graph vertices, not an extendible matching complex on its edges."
+        ],
+        "reasoning": "The general method does not certify specific critical cells or directly imply the rational representation, which requires the action on invariant cover-compatible faces. The independence-complex result uses a different face condition and does not transfer through the identity on the base graph.",
+        "searches": [
+          "arXiv:2209.02803v1, Theorem 8",
+          "Resultary: S7 x C2 rational homology character perfect matching complex crown graph degree four; hit 2ff1a31dcb85"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2f46336da7fa, RESULT.md offsets 0 and 2473: exactly the same perfect-matching complex for n=5, with a wedge of 33 two-spheres and its S5 x C2 character.",
+          "223bbad446ab, RESULT.md offset 0: ordinary five-crown matching complex, with 265 four-rook faces and rational Betti numbers 1 and 13 in degrees 2 and 3; the target has 220 four-rook faces and a single positive degree."
+        ],
+        "reasoning": "The equivalent extendible-rook formulation is already covered for n=5 in the later-dated record. The ordinary off-diagonal board allows codimension-one placements with the same unmatched row and column label, so its result is inequivalent, not an alternative proof of the wedge result.",
+        "searches": [
+          "Resultary: perfect matching complex crown graph K_n,n minus diagonal wedge spheres character S7",
+          "Resultary: off-diagonal chessboard complex crown graph perfect matching extendibility homotopy"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest exact indexed table inspected is 2f46336da7fa, for n=5 and S5 x C2 only. No n=7 table occurred in the bounded exact-character hits."
+        ],
+        "reasoning": "The five-label table cannot be read as a seven-label table; it concerns a different complex and action. The lack of a returned n=7 table is only a search limitation, not evidence of absolute novelty.",
+        "searches": [
+          "Resultary: S7 x C2 rational homology character perfect matching complex crown graph degree four",
+          "Resultary: perfect matching complex crown graph K_n,n minus diagonal wedge spheres character S7"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the joint finite homotopy classification and the n=7 equivariant calculation, not a claim that each constituent fact is exclusive. A later-dated indexed record states the identical n=5 wedge and a finer n=5 character calculation; the overlap is real regardless of priority. Neither that statement nor the inspected general or same-day statements cover the four-case result and the n=7 table.",
+      "residual_risks": [
+        "The bounded literature queries deferred by the shared wave supply no evidence. Conclusions rest on inspected primary passages and mirror records, not a comprehensive search of all chessboard, representation or discrete Morse literature.",
+        "The exact n=5 overlap is documented, but the relation between the two records and priority beyond the displayed dates is not determined."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact n=5 wedge overlap; no n=7 conclusion in the inspected claim",
+          "evidence": "P_5 is a wedge of 33 two-spheres, with rational S5 x C2 action; indexed date 2026-11-08, later than the frozen record date, not a determination of priority.",
+          "identifier_or_url": "2f46336da7fa",
+          "material_read": "RESULT.md offsets 0 and 2473",
+          "method": "Local Resultary mirror",
+          "title": "A 33-sphere wedge and the full symmetry character of the five-crown perfect-matching complex",
+          "trigger": "Exact equivalent object and wedge subcase"
+        },
+        {
+          "assessment": "Different complex",
+          "evidence": "Ordinary matchings include 265 four-rook placements and yield rational homology in degrees 2 and 3; the target restricts to extendible placements.",
+          "identifier_or_url": "223bbad446ab",
+          "material_read": "RESULT.md offset 0, face and homology statements",
+          "method": "Local Resultary mirror",
+          "title": "Full S5 times C2 homology characters of the five-crown matching complex",
+          "trigger": "Same date, same base graph, equivariant theorem"
+        },
+        {
+          "assessment": "Foundation and proof method, not the target classification",
+          "evidence": "Complete bipartite complexes agree with ordinary chessboard complexes; the acyclic-pairing theorem supplies a criterion, not crown matching orders or traces.",
+          "identifier_or_url": "https://arxiv.org/abs/2209.02803",
+          "material_read": "Definition 1, complete bipartite discussion on pp. 2–3, and Theorem 8 on p. 6",
+          "method": "OA PDF passage inspection",
+          "title": "Perfect Matching Complexes of Honeycomb Graphs",
+          "trigger": "Definition and possible broader homotopy theorem"
+        },
+        {
+          "assessment": "Different graph families",
+          "evidence": "The statement covers two-row square grids and polygonal line tilings.",
+          "identifier_or_url": "https://arxiv.org/abs/2407.05809",
+          "material_read": "Theorem 1.1, p. 2, PDF offset 7170",
+          "method": "OA PDF passage inspection",
+          "title": "Perfect Matching Complexes of Polygonal Line Tiling",
+          "trigger": "Broader graph class and discrete Morse approach"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": "Ind_2 is a vertex complex, not the edge complex of extendible matchings.",
+          "identifier_or_url": "2ff1a31dcb85",
+          "material_read": "RESULT.md offset 0, invariant definition and main finding",
+          "method": "Local Resultary mirror",
+          "title": "Crown-graph two-independence complexes",
+          "trigger": "Same-day crown graph and wedge result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "These are the first four positive-dimensional homotopy types in a natural family distinguished from ordinary chessboard complexes. Explicit integral wedge types are useful benchmarks for further crown complexes, and the seven-label character gives invariants of the natural symmetry action, including the nontrivial difference between the transpose eigenspaces that ranks alone cannot detect. The value rests on these exact structural results, not merely the computation or the overlapping n=5 subcase.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

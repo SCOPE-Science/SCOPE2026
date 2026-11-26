@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact total-infection identity and conservation yield a global inverse-time upper bound and disease-free convergence at the boundary. A scalar comparison proves the inaccessible fraction vanishes; an explicitly stated and proved stable-filter ratio lemma then gives the first- and second-order compartment limits. Taking the reciprocal-infection derivative establishes the sharp, initial-state-independent coefficient. An exact rational instance and a stand-alone numerical checker corroborate the algebra; the proof does not infer infinite-time behavior from finite simulations.
+## correctness
 
-## Originality — PASS (literature-bounded)
-The originating article's governing equations, Theorems 3.4 and 3.6, Corollary 3.7 and Theorem 3.9 were inspected in full-text form. They address the strict subcritical domain, equilibrium nonexistence, transcritical direction and endemic-equilibrium burden, respectively. They neither assert the global exact-critical clearance rate nor the inaccessible-infection \(t^{-2}\) law for this six-compartment system. Existing critical epidemic relaxation results for protected SEIR, awareness-mediated SIS and networked SIRS systems rely on different state equations; no known implication gives these two-channel coefficients. General scalar comparison and filter asymptotics are classical and not claimed as discoveries. Residual risk: a prior paper not found in accessible searches could contain an equivalent model reduction; independent priority review remains necessary.
+PASS
 
-## Value — PASS
-This theorem resolves the precise nonhyperbolic case omitted by the strict-threshold global theorem. It gives testable universal critical trajectories and separates the two behavioral mechanisms in an exact rate constant while identifying a second-order inaccessible-infection signature. The invariant upper bound and logarithmically growing cumulative infected person-time are useful for interpreting near-threshold surveillance outputs. The quantity is not an arbitrary finite slice: it characterizes the natural missing boundary between extinction and endemicity.
+At the frozen critical rate β=k=γ+μ, the population sum is preserved on the simplex; the equations point inward at each vanishing population component and at A=0,1. With I=I_a+I_u, exact summation gives I'=kS_a I_a−kI. Since 0≤S_a≤1−I and 0≤I_a≤I, −kI≤I'≤−kI²; this preserves I>0 for every finite time even with I_a(0)=0 and gives the stated upper bound. Stable forced equations with asymptotically zero inputs successively yield A,R,S_u→0, and then S_a→1. Direct differentiation of q=I_u/I gives q'=(1−q)(δ₁A−kS_aq)−δ₂(1−A)q, so eventually q'≤δ₁A−δ₂q/2 and q→0. Hence I'/I→0. Dividing each stable filter by I^p adds pI'/I to its damping without changing the limiting positive decay coefficient. For p=1 this yields A/I→ρ/ω, R/I→γ/μ and S_u/I→(μ+κ₁)ρ/[(μ+κ₂)ω]; for p=2 the forcing divided by I² is δ₁(A/I)(1−q), yielding I_u/I²→δ₁ρ/[ω(δ₂+k)]. Substituting (1−S_a)/I=1+S_u/I+R/I gives (1/I)'→Q, including exactly both behavioral terms and the no-awareness baseline k²/μ. Time averaging, the ratio limits and integration of the resulting 1/t asymptotic verify all listed constants and the logarithmic integral. The source CHECK.py was inspected, not executed: its all-unit example gives Q=20/3 and inaccessible coefficient 3/400 by substitution; trajectory sampling is not needed for the universal proof.
 
-## Scope and risk
-All parameters are strictly positive and newborns inherit prevailing awareness. No empirical inference, stochastic extinction, nonlinear supercritical stability or independent scientific audit is claimed. Numerical checks supplement but do not prove the limiting assertions.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact unforced SIRA model and critical parameter are inherited. The independent comparisons support a distinct model-specific theorem: a global endpoint argument for all seeded feasible trajectories and the normalized first- and second-order compartment tails. Critical inverse-time decay as a general phenomenon is not new.
+
+## value
+
+PASS
+
+The theorem supplies quantitative information at a boundary not covered by the original strict-subthreshold result. The all-initial-state coefficient decomposes the two distinct modeled feedback contributions, and the second-order compartment tail and divergent logarithmic integral distinguish different notions of deterministic clearance. The finding is appropriately scoped to this exact autonomous system, not to empirical or stochastic extinction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

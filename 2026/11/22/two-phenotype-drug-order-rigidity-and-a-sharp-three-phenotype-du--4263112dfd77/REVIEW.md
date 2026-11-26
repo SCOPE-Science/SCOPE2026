@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-Every two-state constant-rate Metzler generator has two distinct real eigenvalues. Cayley–Hamilton yields a strictly positive scalar for each positive duration, allowing an exact reduction of the two drug propagators' commutator to the product of drug contrast and initial phenotype imbalance. The one-phenotype case commutes trivially. In three states, the same conservative nearest-neighbor switching generator and two nonnegative drug-specific killing profiles yield opposite final-population rankings at durations \(1/5\) and \(1\). A standard-library exact-rational Taylor certificate checks those two strict signs with a proved absolute remainder below \(1.1\times10^{-15}\); no finite enumeration is used to prove the all-parameter theorem.
+PASS
 
-## Originality: PASS relative to inspected evidence, historical priority provisional
+For each 2×2 matrix the real-eigenvalue discriminant is (M_11−M_22)^2+4rs>0. The exponential interpolant αI+βM has β>0 at every positive time. The ordered product difference therefore equals β_A(u)β_B(v)(BA−AB); in the AB convention of the finding, BA−AB=(B−A)A−A(B−A), giving the stated positive upper-right and negative lower-left factors relative to the difference of loss contrasts. The total readout leaves r x₂−s x₁, which vanishes on the stationary ray of Q, not necessarily of the full untreated dynamics Q+G. All durations and zero factors have the stated behavior; scalar propagators commute. For the fixed three-state matrices, the norm bounds and exponential Taylor remainder in the source are valid. Independently shifted both matrices by 3I, whose common exponential factor cancels in the sign comparison, and evaluated their nonnegative Taylor polynomials with rational geometric majorants of their tails. The independent enclosures confirm both strict reported decimal thresholds, about −0.016199346015221782 and +0.0092842024968862, with the sign taken in the original order convention. Linearity and continuity preserve the strict witness at sufficiently small positive perturbations of the initial vector. The 2×2 obstruction and fixed 3×3 witness establish minimality, not a statement about arbitrary switched generators or biological treatment. Replay: python3 /workspace/branches/reproduce_3_4_5.py. The supplied checker and verification notes were inspected, not run.
 
-A targeted search of indexed mathematical results for antibiotic sequencing, phenotype switching, matrix exponentials and duration-dependent order reversals identified no equivalent sharp two-versus-three-phenotype theorem. Nearby indexed findings concern periodic two-stage growth thresholds, six-season discrete population calendars and three-state dynamical switching, rather than a single pair of treatment pulses and the terminal total count. Full scientific text of Zucca's 2012 preprint and Roemhild et al. 2015 was examined and compared by claim. Balaban et al. 2004 and Patra–Klumpp 2015 were compared at abstract/bibliographic level; the full original material was not comprehensively available. The commutator and exponential-interpolation techniques are standard and not claimed as new. Priority against uninspected sources remains a real limitation, not a novelty certificate.
+## originality
 
-## Value: PASS
+PASS
 
-Treatment order matters in phenotypic persistence models, but the exact dependence on treatment duration and minimum number of phenotypes determines which mechanism a model must contain before a length-only preference reversal can occur. The two-phenotype sign rigidity yields a falsifiable internal model diagnostic, and the same-switching three-phenotype example proves its sharp boundary without altered drug identities or switches. This is a structural biological-model finding, not an arbitrary parameter instance or clinical dosing advice.
+Two-by-two exponential interpolation and the commutator identity are standard. The supported distinct claim is the exact terminal-readout sign classification in the stated common-switching model together with a strict three-dimensional reversal for fixed matrices and equal durations, establishing the dimensional threshold. Neither the inspected mathematical analogues nor accessible primary comparisons gives the same combination. This is a bounded priority assessment.
 
-## Residual risks
+## value
 
-Two-state rigidity depends on common, time-invariant phenotype switching and common baseline growth, and the three-state result is an existence witness only. Inaccessible or only partially read primary literature might contain a mathematically equivalent result; no independent historical review has been conducted. The checker confirms rational witness signs, not empirical validity or patient treatment effects.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The constraints define a natural finite-time ordering question: fix switching, the two loss profiles, and the starting state, then ask whether the advantage of a reversed product can depend only on how long the two stages last. The complete two-state sign rule is a useful diagnostic, and the strict witness at the next dimension shows its limits without changing the readout, switching generator, or relative pulse durations. The certified threshold is more informative than a generic observation of noncommutativity. Its value is as an abstract model benchmark, not as a biological or clinical prescription.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

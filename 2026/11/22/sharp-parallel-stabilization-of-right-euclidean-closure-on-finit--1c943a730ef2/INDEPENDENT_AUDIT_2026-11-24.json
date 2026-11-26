@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T14:52:29.729838Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–30",
+        "Frozen VERIFICATION.md and verify.py",
+        "Independent exhaustive and path reproduction independent_check.py"
+      ],
+      "rationale": "A new pair has both endpoints in the original target set T, so rows outside T never change; the consequences of every such constant row were already inserted in round 1. Vertices of T gain loops at round 1. Every earlier edge on T is reversed by round 2 using the source's loop, while newly added consequences are symmetric. Thus the update on T from round 2 is Boolean squaring of a reflexive symmetric relation, giving distance at most 2^s after s more rounds. The only way to have diameter n−1 would be a spanning path with T=X. Each path adjacency must occur in R0 (in some direction), since adding edges cannot join previously separate undirected components. A round-1 row cannot point to both path neighbors, or round 2 adds a chord. The original path orientations must have an endpoint without non-loop in-edges: an in-arrow at the first endpoint forces arrows toward it successively and leaves the far endpoint without one. Starting from an endpoint lacking in-arrows, its original loop forces an immediate back-edge in round 1. To avoid two outgoing neighbors in a round-1 row, each succeeding adjacency is then forced to point backward in R0, except the first. The far endpoint now has an original loop too and forces a second outgoing neighbor at its predecessor, a contradiction including n=3. A bare directed path has a non-target first vertex and yields a round-2 path of diameter n−2, and its last endpoint pair enters at the stated round. At n=1 all relations are fixed. At n=2 there are 16 relations, not the four described in a proof sentence: with no off-diagonal edge the relation is fixed; with two opposite edges the first round adds both loops; with only x→y the first round adds y's loop and adds y→x precisely if x already has a loop, and either resulting relation is fixed. A fresh implementation exhausted 66,066 cases of orders 1–4 (maxima 0,1,2,3), checking the graph-distance and row assertions, and reproduced all 62 paths for n=3–64. Finite checks do not establish the unbounded result. The supplied verify.py was read, not executed.",
+      "residual_risks": [
+        "The graph squaring is on T, not the entire relation matrix. The statement uses synchronous updates with loops allowed, not asynchronous firing."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Boman listing and search excerpt concern relational properties and refer to global closure analysis; the excerpt gives no round bound. The textbook antecedent is described in the frozen comparison as transitive/reflexive/symmetric closure, not a sharp bound for simultaneous Euclidean completion."
+        ],
+        "reasoning": "General closure and static characterization do not by themselves supply the time taken by this particular consequence operator. A theorem about closure in the catalogue remains a relevant priority risk, not excluded by the excerpt.",
+        "searches": [
+          "Boman arXiv:2609.13317, binary relation entailments and closure analysis",
+          "Applied Discrete Structures, §6.5 Closure Operations on Relations",
+          "Resultary: difunctional saturation depth"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 0c23521a34cf (indexed statement)",
+        "arXiv:2609.13317 (search excerpt and frozen abstract description)",
+        "OEIS A398718 and Applied Discrete Structures §6.5 (scope as documented in frozen record)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The comparable indexed dynamic theorem gives distance growth 3^t for an alternating cross-shore completion rule. Here the sharp bound depends on distance growth 2^s after two rounds and on excluding a spanning path when every vertex is an original target."
+        ],
+        "reasoning": "The ternary-rule distance law is not a stronger estimate for R∪RᵀR; the witnesses and hypotheses are different. Static counts and property implications leave the diameter obstruction and sharp timing to be proved. No priority inference is drawn from the shared date of the indexed records.",
+        "searches": [
+          "Resultary 0c23521a34cf",
+          "Boman arXiv:2609.13317",
+          "OEIS A398718"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The equivalent Boolean rule is R↦R∪RᵀR. Ordinary transitive closure updates with R² from the start, whereas the Euclidean rule produces the relevant reflexive symmetric graph on T only by round 2. Resultary 0c23521a34cf uses a fully parallel Z-rule with distance 3^t on bipartite relations."
+        ],
+        "reasoning": "Plain squaring describes just the later phase here; the initial target invariant and the sharp diameter loss cannot be read off either of the other rules.",
+        "searches": [
+          "Resultary: synchronous right-Euclidean closure and distance saturation",
+          "Boman arXiv:2609.13317, global closure analysis"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A398718 is identified in the frozen comparison as a census of already right-Euclidean relations; Resultary returned the finding itself and a distinct difunctional depth record."
+        ],
+        "reasoning": "A fixed-point count is not the maximal time to reach any fixed point over all labelled relations. Neither the self-hit nor the ternary-rule depth table establishes this sequence.",
+        "searches": [
+          "OEIS A398718",
+          "Resultary: sharp right-Euclidean completion time and radius"
+        ]
+      },
+      "rationale": "The available prior statements concern static frame properties or counting, usual transitive closure, or a different ternary relation rule. None establishes the sharp synchronous right-Euclidean bound or its post-round-2 radius law. The possibility of coverage in the inaccessible relation catalogue remains explicit.",
+      "residual_risks": [
+        "The relevant Boman full text, the distinct Resultary record body and the OEIS page were not independently retrieved. Global closure in the catalogue or older relational-algebra formulations could contain an equivalent analysis."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Plausible overlap in closure terminology, no same synchronous bound established",
+          "evidence": "The search excerpt mentions global closure analysis but gives no theorem on worst-case synchronous right-Euclidean updates.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.13317",
+          "material_read": "Search excerpt and frozen description of abstract; no original full text",
+          "method": "Literature search and bounded lawful OA attempts, including arXiv HTML",
+          "title": "A Catalogue of Properties of Binary Relations: Entailments, Incompatibilities, and Independence Results",
+          "trigger": "Directly relevant property and plausible broader closure treatment"
+        },
+        {
+          "assessment": "Enumerates fixed relations rather than completion depths according to the supplied definition",
+          "evidence": "Frozen RESULT.md lines 35–43 identify a labelled census of already right-Euclidean relations.",
+          "identifier_or_url": "https://oeis.org/A398718",
+          "material_read": "Identifier and definition described in frozen record; direct retrieval unsuccessful",
+          "method": "Lawful page attempt and definition comparison",
+          "title": "Number of right-Euclidean relations on an n-element labeled set",
+          "trigger": "Exact enumerative database on the same property"
+        },
+        {
+          "assessment": "Conceptual overlap, different rule and bound in indexed statement",
+          "evidence": "A Z-rule on cross-shore pairs gives the 3^t radius and an alternating path extremizer, not the two-stage Euclidean update.",
+          "identifier_or_url": "Resultary 0c23521a34cf",
+          "material_read": "Indexed claim; full record unavailable",
+          "method": "Resultary statement search and lawful mirror attempt",
+          "title": "Exact base-three saturation depths for synchronous difunctional closure",
+          "trigger": "Closest distinct indexed synchronous distance-radius theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, target invariant, diameter lemma and sharp path construction"
+      ],
+      "rationale": "This gives the exact round budget for a natural modal-frame consequence operator and reduces the later dynamics on every input to graph distances. The exclusion of the n−1 diameter and the matching path family explain the improvement over a generic reachability bound; this is not an instance census.",
+      "residual_risks": [
+        "No parallel implementation speedup or general modal satisfiability complexity claim follows."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

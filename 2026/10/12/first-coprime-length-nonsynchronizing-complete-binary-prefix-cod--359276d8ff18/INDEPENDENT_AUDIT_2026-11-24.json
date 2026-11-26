@@ -1,0 +1,155 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:17:02.540855Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–59; VERIFICATION.md lines 18–24",
+        "enumerate_trees.py; enumerate_expansions.py; verify_certificates.py; tree_results.json; expansion_results.json",
+        "branches/independent-replays/prefix-census.js (replay: node on this independently written file; equivalent bounded code executed)"
+      ],
+      "rationale": "All root-return words are concatenations of codewords. A common length divisor d>1 would require a root-reset word w to have d dividing |w| and, by starting one level down, d dividing |w|+1. Completeness makes each literal transition defined. Synchronizing to one state is equivalent to synchronizing to the root, since following zeros from any fixed state reaches its first leaf and resets. A DFA synchronizes iff every distinct pair can merge: repeatedly merge a pair in the current image until it is a singleton. For independent enumeration I used preorder branch/leaf words, with k−1 internal symbols and k leaves, starting with one pending slot, adding one for each branch and subtracting one for each leaf. The slot count must stay positive before the end and finish at zero; these words decode bijectively into ordered full trees. For each pair I searched its forward orbit for a diagonal. The exact totals for k=2,…,9 were (1,2,5,14,42,132,429,1430), nonsynchronizing totals (0,0,1,0,0,4,1,4), and coprime nonsynchronizing totals (0,0,0,0,0,0,0,4). The resulting four sorted word lists match C1–C4 exactly. Their closed distinct-pair orbits have sizes 6,12,12,6, respectively, and each has length multiplicities 1,4,4 at lengths 2,3,4. Direct complementation gives C1↔C4 and C2↔C3. The frozen scripts and JSON were inspected, not executed.",
+      "residual_risks": [
+        "This is exhaustive only for 2–9 codewords; it is not a height-four-only claim and does not constrain reset lengths or enumerate larger sizes."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Perrin gives synchronization at sizes 2, 3, 5 and 6. The two-distinct-length criterion attributed to Gusev–Pribavkina is not independently full-text verified. Chadha gives a reset bound for synchronizing codes and a synchronization theorem for leaves at two consecutive depths."
+        ],
+        "reasoning": "Small-cardinality coverage is partial; two-length or two-depth results do not decide the three-depth count. A bound conditional on synchronization cannot certify nonsynchronizing exceptions.",
+        "searches": [
+          "Perrin, Maximal decomposition slides pp. 21–24",
+          "Gusev–Pribavkina DOI 10.1007/978-3-030-28796-2_16",
+          "Chadha arXiv:2611.05675 Theorems 1.1–1.3 and §5"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary ranked results and height-four catalogue",
+        "Perrin (2019) slides",
+        "Ryzhikov–Szykuła arXiv:1806.06299",
+        "Chadha arXiv:2611.05675",
+        "Gusev–Pribavkina (2019) and Freiling et al. (2003) access attempts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Examples in the frozen list use depths 2, 3 and 4, which rules out using a two-depth result directly. Neither the smallest cited synchronization sizes nor a later exact-height table excludes all period-one nonsynchronizing trees of 4, 7 and 8 leaves without further work."
+        ],
+        "reasoning": "A standard synchronization algorithm can be run to obtain the claim, but its existence neither evaluates the finite cut nor mechanically selects these four examples from a previously presented table. The relevant discriminating work is the complete labeled census by leaf count, not the pair criterion itself.",
+        "searches": [
+          "Perrin pp. 21–24",
+          "Ryzhikov–Szykuła arXiv:1806.06299 pp. 1–2",
+          "Chadha arXiv:2611.05675 §5 and the Resultary height-four census"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In the full binary setting the codeword count is the leaf count. The root-return period is the gcd of codeword lengths; the claim is equivalently the first aperiodic literal decoder failing to reset in this tree family. Rank-one reset and reset to the root are equivalent. The older literal-decoder paper treats shortest words and gives a synchronizing Wielandt example, not an equivalent nine-word obstruction list."
+        ],
+        "reasoning": "These representations identify the identical test even if sources use maximal codes or DFA terminology. The older shortest-reset results and the cited decomposition slide do not state the minimum under the period-one restriction or its four labeled extremizers.",
+        "searches": [
+          "Resultary: nonsynchronizing complete/maximal binary prefix codes; leaf count and coprime lengths",
+          "Ryzhikov–Szykuła arXiv:1806.06299 p. 2; Perrin June 2019 pp. 21–24"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The later height-four catalogue classifies 651 labeled codes of exact height four by reset behavior and reports 632 synchronizing and 19 nonsynchronizing. All four target codes lie in that sample space, but the inspected statement contains neither the nine-leaf gcd-one cross-tab nor all 19 word lists."
+        ],
+        "reasoning": "This is a substantive overlap, not an exact equivalent: height is not cardinality, some trees with at most nine leaves have height above four, and the target complete labeled census is not the reported height aggregate. The later catalogue is not evidence of earlier coverage.",
+        "searches": [
+          "Local Resultary ranked search for finite prefix-code catalogues and reset spectra",
+          "Resultary 2026/11/22/SCOPE-sharp-height-four-reset-threshold-and-exact-spectrum-of-binary-m--a66838b3abe4"
+        ]
+      },
+      "rationale": "The distinct claim is the least leaf count across all finite full binary trees satisfying the gcd-one obstruction, together with exactly four labeled examples at that least size. Prior small-cardinality results and general reset-word theory give partial coverage, and a distinct later indexed record covers a substantially overlapping height-restricted universe. None of the inspected earlier statements supplies the exact first-size list and cutoff.",
+      "residual_risks": [
+        "An earlier unindexed exact small census may exist. The two unavailable full texts may include examples or refinements beyond the attributed scope. The exact list of 19 later height-four failures was not established from the inspected statement."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Partial coverage of small leaf counts, with no nine-word census in the relevant passage",
+          "evidence": [
+            "Corollary states cardinalities 2,3,5,6 synchronize; slides also discuss maximal decomposition."
+          ],
+          "identifier_or_url": "https://www.sandgal19.cremona.polimi.it/wp-content/uploads/2019/06/Perrin.pdf",
+          "material_read": "Slides pp. 21–24, contiguous Maximal decomposition passage",
+          "method": "Bounded primary PDF passage",
+          "title": "Decomposition and Synchronization of Finite Codes",
+          "trigger": "Prior small-cardinality synchronization claims"
+        },
+        {
+          "assessment": "Shortest-word algorithms and complexity, not the coprime-length census in the relevant passages",
+          "evidence": [
+            "Uses both minimum and literal decoders; Figure 1 shows the synchronizing Wielandt example."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1806.06299",
+          "material_read": "Abstract and p. 2 scope, literal decoder example and paper roadmap",
+          "method": "Bounded primary PDF passage",
+          "title": "Finding Short Synchronizing Words for Prefix Codes",
+          "trigger": "Same literal decoder and synchronization question"
+        },
+        {
+          "assessment": "Potentially overlapping; precise theorem wording remains unconfirmed",
+          "evidence": [
+            "Frozen record describes a result for exactly two distinct coprime lengths; its own examples have three distinct lengths."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/978-3-030-28796-2_16",
+          "material_read": "Citation/abstract-level characterization only; full chapter not verified",
+          "method": "DOI, chapter and identified lawful PDF route tried without full-text access",
+          "title": "On Codeword Lengths Guaranteeing Synchronization",
+          "trigger": "Potentially stronger criterion by codeword length"
+        },
+        {
+          "assessment": "Related later criteria; different hypotheses from the three-depth nine-leaf examples",
+          "evidence": [
+            "Consecutive-two-depth synchronization and a 15-leaf synchronizing height-four example."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2611.05675",
+          "material_read": "Theorems 1.1–1.3 and §5",
+          "method": "Bounded primary PDF passages",
+          "title": "Reset bounds for literal decoders and two-depth synchronization (Chadha)",
+          "trigger": "Broader length/height criterion and an exact height-four example"
+        },
+        {
+          "assessment": "Overlapping later catalogue; aggregated exact-height count does not give the unrestricted first leaf count",
+          "evidence": [
+            "651 codes of exact height four; 632 synchronizing and 19 nonsynchronizing. No nine-leaf gcd-one cross-tab in the inspected statement."
+          ],
+          "identifier_or_url": "Resultary 2026/11/22/SCOPE-sharp-height-four-reset-threshold-and-exact-spectrum-of-binary-m--a66838b3abe4",
+          "material_read": "RESULT.md Finding, Proof and Relationship to prior work, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Bounded local mirror passages",
+          "title": "Sharp height-four reset threshold and exact spectrum of binary maximal prefix codes",
+          "trigger": "Plausible exact competing catalogue of all four witness shapes"
+        },
+        {
+          "assessment": "Earlier example scope unverified independently",
+          "evidence": [
+            "The frozen source attributes an asymptotic result and examples with an even-length obstruction to this paper; no negative whole-paper conclusion is drawn."
+          ],
+          "identifier_or_url": "https://doi.org/10.1109/TIT.2003.815803",
+          "material_read": "Bibliographic information and frozen source attribution only",
+          "method": "Bounded retrieval attempt via DOI and IEEE page; full text unavailable",
+          "title": "Almost All Complete Binary Prefix Codes Have a Self-Synchronizing String",
+          "trigger": "Earlier examples of nonsynchronizing full binary codes"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 28–59 and reproducible nine-leaf census",
+        "Perrin pp. 21–22 and Chadha §5 for partial structural context"
+      ],
+      "rationale": "The natural gcd condition separates synchronization from the simpler periodic obstruction; the first counterexamples show how early that condition fails to suffice and the exact count determines every labeled first witness. This is a useful benchmark for structural length criteria or decoder synchronization tests, with finite pair-orbit certificates that exhibit the obstruction directly.",
+      "residual_risks": [
+        "The census does not characterize nonmergability beyond the tested leaf counts."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

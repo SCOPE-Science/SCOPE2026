@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-Run `python3 dimensionality_boundary_check.py` with Python 3 standard library. The restricted-growth recursion enumerates each identity-singleton partition exactly once. The block-product test checks saturation; an independent direct decomposition-quantifier loop checks every accepted partition, and inversion is computed from the multiplication table. The finite abelian group list is exhaustive below order twelve using the elementary classification of finite abelian groups. The order-six nonabelian group is \(S_3\).
+## correctness
 
-Expected final output: `DIMENSIONALITY_BOUNDARY_OK`. The program also prints full boundary counts, the two witness class-product tables, and the automorphism-orbit assertion for all four exceptional \(C_{12}\) partitions.
+PASS
 
-No computational claim beyond the stated finite orders is made; reproducible enumeration is not an independent mathematical audit.
+For singleton identity, the decomposition axiom means precisely that any class meeting a setwise product AB is wholly contained in AB. Inversion is compatible exactly when every inverse image of a class is a class. The independent standard-library reproduction uses unordered bit-mask blocks with singleton identity, constructs the group tables and inverse maps, and tests all ordered products for whole-block saturation. Its recursion inserts the next point into one nonidentity block or starts a new block; deleting the last point shows this is complete and nonredundant, and Bell numbers independently check the number generated. The transcript gives 22 accepted and 12 inverse-incompatible from 52 candidates on S₃, and 44 and 4 from 678,570 on C₁₂; the four are exactly the orbit of the given witness under the four unit multipliers. It also checks the quantified decomposition axiom on every accepted partition of both boundary groups. C₁–C₁₁ and the noncyclic types C₂², C₄×C₂, C₂³ and C₃² all have zero failures; these include all groups below six and all abelian groups below twelve. Both computed witness tables have the identity in X*X and X*Y, ruling out a unique inverse. Replay using python3 /workspace/branches/f2b1f51a-ca2f-402c-8241-3d8b2da3040f/independent_dimensionality_census.py; sibling reproduction.txt:1–25 records the counts, orbit and quotient tables. Inspected the original proof, VERIFICATION.md and its checker without executing uploaded code. The supplied checker's optional direct-axiom loop is skipped for C₁–C₈, contrary to a blanket description in RESULT.md:46; exact saturation with the proved equivalence is sufficient for those groups. No enumeration of all abelian order-twelve groups or formal verification is claimed.
+
+## originality
+
+PASS
+
+The supported distinction is the two sharp first orders and the complete S₃ and C₁₂ partition censuses, including the exceptional C₁₂ orbit and explicit non-hypergroup witnesses. The inverse criterion and relational quotient framework are not credited as new. This is a best-of-knowledge finding based on statement-level comparisons and subject to the named access risks.
+
+## value
+
+PASS
+
+This is a motivated first-obstruction calculation for a published structural hypothesis, not an arbitrary small-group census. The examples show why inversion cannot be omitted even for abelian inputs, while the exhaustions determine how small either obstruction can be and the extent of its occurrence at two natural boundaries. The exceptional orbit and explicit quotient tables distinguish one cyclic obstruction type from four labeled partitions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

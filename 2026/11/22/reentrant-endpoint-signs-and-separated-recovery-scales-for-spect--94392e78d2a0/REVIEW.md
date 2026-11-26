@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The four eigenvalues and exact signed spectral-projector entries can be reconstructed directly from the stated four-by-four Laplacian. Strict monotonicity of the scaled distance-two derivative after positive exponential rescaling proves a unique minimum and hence a unique positive zero. Strict convexity of the rescaled endpoint derivative gives at most two critical points, while the exponent-two derivative change and explicit negative values at scaled times \(\log2\) and \(2\) force the exact sign patterns. Positive decompositions cover edge entries, and the constant-vector spectral projector bounds diagonals. Compact-interval convergence at the two different time scales and the exact zero count prove the asymptotic zero locations. The standalone checker passed 1574 independently computed comparisons. The numerical tests do not replace the infinite-parameter proof.
+## correctness
 
-## Originality — PASS, with residual priority risk
-Riascos–Mateos (2014), inspected through the lawful full arXiv manuscript (sections on spectral fractional graph diffusion, return probabilities, and conclusion), restrict their stochastic dynamics to \(0<\alpha\le1\) and do not address the superunit-power path sign diagram. Daners–Glück–Kennedy (2015), inspected in full readable HTML (finite-matrix semigroup theorems and applications), establish spectral criteria for eventual positivity, not the exact two endpoint crossings or large-exponent scales here. Published complete-multipartite fractional heat results use a different three-eigenvalue family, and previous four-path mixed heat concerns \(L+\eta L^2\), not \(L^\alpha\). A fixed-graph near-one theorem does not imply the change at exponent two or the two far-separated limits. Search cannot exclude unindexed equivalent exact calculations; absolute priority is not certified.
+PASS
 
-## Value — PASS
-The all-exponent sign classification resolves a concrete structural question at the first ordinary path with four distinct Laplacian eigenvalues. It demonstrates delayed loss of positivity even though the endpoint kernel initially gains positivity, with a rigorously identified exponent-two boundary and a scale separation exponential in the exponent. This is more informative than general eventual-positivity existence, a routine numerical example, or a small perturbation at exponent one; the exact finite network is an interpretable benchmark for higher-power diffusion.
+Reassessed the repaired whole-kernel claim. Independent polynomial spectral projectors at 0, 2−√2, 2, 2+√2 recover the distance-two, endpoint, and both adjacent-vertex formulas; reflection and positive semidefiniteness of the projectors handle the remaining entries. In scaled time the derivative of the distance-two entry after multiplication by exp(wτ) is strictly increasing from a negative value to infinity, since q^α−r^α>√2. The entry starts at zero and tends to 1/4, proving its unique positive crossing. The endpoint theorem has exactly the same generator, normalization and entry. Its crossing counts also follow from strict convexity of the rescaled endpoint derivative, the sign of the first Taylor coefficient (second at α=2), and negativity at scaled time log 2. The repaired explicit tests give D(log 2),E(log 2)<0 and D(2)>0>E(2) for α≥2. Hence the initial endpoint-positive window above two is blocked by the distance-two negativity, and the zeros create exactly the stated closed recovery ray and isolated time zero. For 1<α<2 both negative intervals start at zero, so their maximum sets the threshold. Fixed positive bracketing points on either side of the simple limiting zeros isolate the two early roots; in the a^αt time variable, brackets eventually lie beyond scaled time 2 and identify the late root only. This verifies the three limiting constants without assuming uniformity at the origin.
 
-## Scope and verification limits
-Only the unweighted \(P_4\) combinatorial Laplacian is classified. No unrestricted graph theorem or independent mathematical certification is claimed. Reproducibility uses `python checker.py` and its ordinary scientific dependencies.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+On the frozen claim, the endpoint-only sign classification is demonstrably covered in full by the distinct same-day record 4ec9967002dc; the shared date does not establish priority. The repaired claim uses that theorem as an explicit input and does not reassert it as novel. The surviving claim is the distance-two versus endpoint comparison, the resulting exact whole-matrix nonnegativity set, and the joint large-exponent scales. The closest same-path theorem does not determine the distance-two entry or its competing root. Comparisons with an alternative generator and a different graph support the distinction.
+
+## value
+
+PASS
+
+The sign of an individual entry is not enough to decide whether diffusion preserves the positive cone. In the shortest unweighted path with a distance-three pair, the distance-two crossings eliminate a possible early nonnegative window despite endpoint reentrance. The exact overlap test and late recovery scale quantify that distinction for every superunit exponent, with the two early events shown to share one scale. This is meaningful beyond reproducing the known endpoint classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

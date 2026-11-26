@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The probabilistic identity \(\mathbb E[Z_v]=1+W_v(p)/(n-1)\) follows by unique paths and independent percolation. Prüfer enumeration visits every labelled tree of orders two through eight; center-rooted canonical codes merge precisely the isomorphism classes, and their count is independently matched against \(1,1,2,3,6,11,23\). Each universal-optimality test uses a sufficient exact integer nonnegativity identity valid at **all** real \(0<p<1\), not a parameter grid. For each of two exception types the candidate optimum sets at exact rational \(p=1/2\) and \(p=9/10\) are disjoint, conclusively proving the absence of a universal optimizer. Explicit tree polynomials yield unique sharp thresholds. The package-contained `verify.py` was executed successfully. The computational proof is bounded to \(n\le8\) only.
+PASS
 
-## Originality — PASS, provisionally
+The repaired theorem is exactly the order-eight census, under vertex deletion, uniform remaining seed, independent homogeneous edges and a mean including the seed. Unique paths give probability p^j for each connected ordered pair of distance j, hence mean 1+W_v/7. The coefficient test transforms each competitor difference by p=t/(1+t) and multiplies by (1+t)^6; nonnegative coefficients prove the inequality for all t>0, while failure by itself proves nothing. Independently `python3 /workspace/audit-work/small_graphs.py` generates unlabelled types by attaching a leaf at every possible vertex and taking the least rooted canonical encoding over all roots, a complete invariant. Every tree has a leaf, so no class is lost. The independent path-enumeration routine increments counts for every deleted vertex outside each path, in contrast to the frozen checker’s separate post-deletion searches. It gives 23 types and 21 universal certificates, and verifies disjoint optimizer sets at 1/2 and 9/10 for the exact two exceptional shapes. The explicit competitor differences in the repaired RESULT are strictly positive in the open interval and agree with these independently computed polynomials. The remaining differences 2p(1−p²−p³) and 2p(1−2p²) yield the stated minimizing sets on either side and at equality. No inference about larger trees or real contact networks is made; the frozen package checker was inspected, not executed.
 
-Holme's full-text continuous-time Markov SIR analysis includes vaccination-related node rankings; after matching per-edge transmissibility, its **mean** tree objective agrees with independent-bond Reed–Frost despite dependence in higher-dimensional outbreak laws. Its enumeration stops at seven vertices and does not establish the first eight-vertex crossover or classify the two new exception types. Hall–Siebert's inspected full-text rooted-tree Markov SIR/SEIR theorem gives node-state probabilities without optimal single-vertex deletion rankings. Hosoya–Wiener tree-polynomial formulas give a broader computational language but not, on accessible evidence, the eight-vertex vaccination switching classification. Published mathematical-record searches using epidemic vaccination, deletion polynomial, tree and transmissibility aliases identified no covering theorem. The exact finite classification is assessed as original under available literature, not independently priority-certified.
+## originality
 
-## Value — PASS
+PASS
 
-The optimum vaccine target is typically chosen under uncertainty about per-contact transmissibility. The first possible failure of a transmissibility-independent best target is a natural structural cutoff: it quantifies when the intuitive heuristic “vaccinate the same critical tree vertex” ceases to be valid. Two distinct tree topologies and exact thresholds illustrate a meaningful choice between isolating a high-degree hub and severing an internal connector. Finite but complete size-eight census and all-parameter certificates matter even without extending to infinite families.
+The frozen finding’s threshold through seven and its broom witness are demonstrably covered; they cannot pass as a new onset theorem. The repaired RESULT explicitly gives that credit and isolates the complete census at order eight, including the second exception, its threshold and optimizer sets. The strongest comparison found does not cover that remainder. This PASS is for the repaired claim only.
 
-## Scope and remaining risks
+## value
 
-The result does not cover graphs with cycles, nonuniform infection sources, dependent outgoing contacts, multiple removed vertices or more than eight vertices. Priority uncertainty remains from literature on distance-polynomial graph vulnerability and node deletion not located in full text; the 2007 weighted Hosoya–Wiener paper was accessible at abstract level but its publisher-hosted PDF was not retrieved. Computational reproducibility and a self-review are not independent audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Order eight is fixed by the already established sharp first-onset theorem, rather than chosen as an arbitrary small test. A complete census at that natural boundary decides how exceptional the phenomenon is and exposes a second, structurally different switch between symmetric vertex pairs at a different critical value. Future work on switching families can use the exact two benchmark types and their optimizing sets. This does not rely on recrediting the known first-order cutoff or claiming applied epidemiological generality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:22:06.666294Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–35 and 41–71, rederived from the presentation",
+        "Frozen check.py and CHECK_OUTPUT.txt; inspected code and recorded counts for m=8,16,32,64, not executed"
+      ],
+      "rationale": "In normal form, (r^i s)^2=r^{hi}. If x=F(r)=r^i and y=F(s) is central then (h-2)i=0 modulo m, leaving four pairs. If x is a rotation and y is an outside involution, all m choices of i work for each of the m/2 possible y, and for nonzero i the image has size 2m/gcd(i,m); the order-four case is V4, and the larger proper images are dihedral since h acts trivially on their rotation subgroups. If x=r^i s with i odd, a central y cannot invert x, and an outside involution y=r^{2j}s would require 4j+2(h-1)i=0 modulo m, impossible modulo 4. For i even the involutions commuting with x are 1, r^h, x, xr^h, giving two C2 and two V4 maps per x. This exhausts and yields every coefficient, including n=4. For idempotence, any nontrivial x=c=r^h or any image containing c with F(c)=1 is excluded. A cyclic x with outside y must satisfy i^2=i modulo m, hence i=0 or 1; i=1 forces y=s. Outside x=r^{2j}s not killed by idempotence must have y=x, since with y=1 it maps to 1. The two proper families (1,t) and (t,t) have different kernel intersections with the characteristic rotation subgroup, and conjugation by r↦r, s↦r^{2w}s is transitive inside each. For the comparison families of the same order: dihedral has 2m proper projections onto reflections (two C2 characters per reflection; no other proper retract by the same rotation/idempotence test). In the quaternion presentation y^2=x^h, odd rotation x forces a surjective map, outside x is impossible since y would be central and unable to invert x, and even rotation x gives image within the central C2 which is killed by F; no proper nontrivial retract. For the index limit, the cyclic-x/outside-y block has weight (m^2/2)/(m^2/2+2m+4); its index exponent is the valuation of uniform i modulo m capped at n−1 (assign that cap to i=0). The geometric law 2^{-v-1} on v≥0 differs from this capped law in total variation by 2^{-n}. The discarded weight is O(1/m), proving total-variation convergence. The all-order derivation, not the finite recorded checker output, establishes the result.",
+      "residual_risks": [
+        "Restriction to n≥4 and the specified semidihedral action; no extrapolation to all metacyclic groups."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Beike et al. Thm. 2.1 lists the action by −1+2^{e−1} among powers of 2 with cyclic maximal subgroup",
+          "Flake–Thevis give the presentation and common origami strata for the three maximal-class families"
+        ],
+        "reasoning": "Action, commutator or origami-stratum classification does not enumerate homomorphisms. A broader endomorphism classification is the real comparator; no full-text noncoverage is inferred for the 2002 paper or from the abstract-only retrieval of the 1996 paper.",
+        "searches": [
+          "Beike et al., DOI 10.1017/S000497272300031X, Theorem 2.1",
+          "Flake–Thevis, arXiv:2003.13297, semidihedral presentation and Remark 4.3",
+          "Puusemp 1996 and 2002 cyclic semidirect-product endomorphism semigroups"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary searches and identity comparison",
+        "Beike et al. (2023), Theorem 2.1",
+        "Flake–Thevis arXiv:2003.13297",
+        "Puusemp (1996, 2002, 2005, 2006), bounded evidence as specified"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Available primary statements specify the group or its origami data, not complete generator-image pairs",
+          "Proof shows geometric distribution is incidental to a parametrized block with i uniform modulo m"
+        ],
+        "reasoning": "Credit the known presentation and recognize that the limit would follow from a sufficiently detailed prior enumeration. Neither identifying the abstract group from its endomorphism semigroup nor listing maximal-class actions supplies that enumeration as stated. No prior implication covering the submitted numerical classification was verified.",
+        "searches": [
+          "Beike et al. Theorem 2.1; Flake–Thevis Remark 4.3; Puusemp 2002 bibliographic entry"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The matching Resultary record b73d07e03223 is the assigned record, not a second record",
+          "Puusemp 2002 is listed as Algebras, Groups and Geometries 19, 195–212, but the identified paper could not be read"
+        ],
+        "reasoning": "The equivalent semigroup and kernel-size language was considered: endomorphism rank is group order divided by kernel size and semigroup idempotents are group retractions. The accessible bibliographic evidence for a semigroup recognizability theorem does not give the rank multiplicities or conjugation action.",
+        "searches": [
+          "Resultary: semidihedral group endomorphism image orders, retracts and geometric image-index law",
+          "Puusemp, On the definability of a semidirect product of cyclic groups by its endomorphism semigroup (2002)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The local Resultary match is this same finding",
+          "The latter two titles cover group orders 16 and below 32, respectively; the frozen audit reports a recognizability result in Puusemp 2006 Lemma 2.7"
+        ],
+        "reasoning": "Tables within those bounded orders might predate the initial case n=4, but finite-order cases alone would not supply the infinite spectrum or index law. The wrapper-reported computation is internal evidence, not an external table.",
+        "searches": [
+          "Resultary semidihedral endomorphism spectrum / composition-idempotents / image index",
+          "Puusemp 2005 DOI 10.1007/s10958-005-0463-x; Puusemp 2006 DOI 10.2991/jnmp.2006.13.s.11"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the full rank/type census and retraction geometry, together with their index-law consequence. The group action and its structural classification are prior. A prior complete family-wide generator-image census with image data would cover the polynomial and, if it gave the action/composition data, make the further deductions largely mechanical. No such census was established in inspected prior statements. In particular, the inaccessible 2002 paper covering the relevant class leaves significant priority risk, not a negative finding about its contents.",
+      "residual_risks": [
+        "Puusemp 2002 is materially relevant and its full text could contain a family-wide list; this is not a certification of historical priority.",
+        "Small-order tables and older nonindexed metacyclic-group classifications may overlap portions of the census."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior structural context",
+          "evidence": "Theorem 2.1 includes the semidihedral action; its conclusion is about group structure, not maps.",
+          "identifier_or_url": "https://doi.org/10.1017/S000497272300031X",
+          "material_read": "Theorem 2.1, journal pp. 445–446, and nearby criteria",
+          "method": "Lawful OA bounded PDF reading",
+          "title": "p-groups with cyclic or generalised quaternion Hughes subgroups: classifying tidy p-groups",
+          "trigger": "Structural family classification"
+        },
+        {
+          "assessment": "Distinct invariant",
+          "evidence": "Shared p-origami strata are not an endomorphism-rank census.",
+          "identifier_or_url": "https://arxiv.org/abs/2003.13297",
+          "material_read": "p. 17 presentation and p. 25 Remark 4.3",
+          "method": "OA PDF passage inspection",
+          "title": "Strata of p-Origamis",
+          "trigger": "Direct comparison of maximal-class groups"
+        },
+        {
+          "assessment": "Unresolved coverage",
+          "evidence": "Bibliographic entry verifies the article, not its generator-image statements.",
+          "identifier_or_url": "https://www.researchgate.net/publication/267430404_On_the_definability_of_a_semidirect_product_of_cyclic_groups_by_its_endomorphism_semigroup",
+          "material_read": "Institutional bibliography p. 84 only; full text unavailable",
+          "method": "Lawful direct OA attempt and institutional bibliographic fallback",
+          "title": "On the definability of a semidirect product of cyclic groups by its endomorphism semigroup",
+          "trigger": "Potentially dominating prime-power classification"
+        },
+        {
+          "assessment": "Scope caveat not independently adjudicated from full text",
+          "evidence": "The reported coprime cyclic-factor restriction, if used, does not apply here.",
+          "identifier_or_url": "https://doi.org/10.3176/phys.math.1996.2/3.03",
+          "material_read": "Landing/abstract only on independent attempt; frozen audit cites main theorem pp. 135–138 and coprimality",
+          "method": "DOI/OA lookup plus check of frozen comparison",
+          "title": "A characterization of the semidirect product of cyclic groups by its endomorphism semigroup",
+          "trigger": "Earlier semidirect-product semigroup result"
+        },
+        {
+          "assessment": "Identical assigned record",
+          "evidence": "Matching spectra, orbit counts and limit under the same record identifier do not constitute prior coverage.",
+          "identifier_or_url": "Resultary 2026/11/22/SCOPE-semidihedral-endomorphism-image-spectra-and-a-geometric-index-la--b73d07e03223",
+          "material_read": "Local matching statement and frozen Finding",
+          "method": "Local Resultary query and identity comparison",
+          "title": "Semidihedral endomorphism image spectra and a geometric index law",
+          "trigger": "Exact semantic match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding; rederived image and retraction strata; Beike et al. maximal-class action comparison"
+      ],
+      "rationale": "Image sizes and retracts are natural map invariants of a standard maximal-class family. The sharp absence of nontrivial retracts larger than C2, despite proper dihedral images at every nonabelian intermediate order and plentiful V4 images, is a useful distinction; the two transitive families are organized by different kernel intersections, not just a total count. The full spectrum quantifies how many maps realize each structure and directly supports the limiting index statistic.",
+      "residual_risks": [
+        "The index limit is a short consequence of the classification, not an independent classification theorem or a result for arbitrary 2-groups."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

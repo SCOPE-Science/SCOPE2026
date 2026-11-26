@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof explicitly exhausts all possible plugs between adjacent four-cube layers, giving a unique decomposition into monomers, full two-layer blocks, and alternating adjacent-pair tubes. It counts all cap and side elementary-square flips, including the second internal flip of a length-two pair tube. The block contributions yield the sharp minimum and maximum by elementary inequalities. Equality conditions classify the minimum when the length is divisible by three and all maximizing tilings. The independent direct-matching and sixteen-state-transfer programs yield exactly identical entire degree distributions through length eight. Finite checks corroborate, but do not substitute for, the all-length proof.
+## correctness
 
-## Originality — PASS with acknowledged residual risk
-The earliest relevant first-public preprint inspected is Milet and Saldanha (arXiv:1404.6509, 2014-04-25). It records the connectivity of the same thin boxes, not the local-degree extrema, equality classifications or enumerator. Their 2014 twist paper (arXiv:1410.7693) studies flip invariants and components, not this local flip-mobility spectrum. The later flat-cylinder paper arXiv:2211.10935 uses a different face selection and studies forcing numbers and components; it is not a stronger statement implying the present formulas. Targeted mathematical-record searches for the precise object, parameters, exact bounds, aliases and transfer degree distribution found no covering match. A prior result on the \(2\times3\times4\) box and one on square flips of binary hypercubes cover different boxes or finite specializations, not this complete infinite-family classification. Search failure alone is not proof of uniqueness; unindexed equivalent work remains a risk.
+PASS
 
-## Value — PASS
-Immediate-flip degree is the local move count in dimer reconfiguration and controls the number of available moves at a state in elementary flip dynamics. The sharp degrees vary from asymptotically \(2n/3\) to \(3n\), despite the known connectivity of this thin family. The exact description and exponential count of minimum-degree configurations when three divides the length disclose which configurations have the fewest choices, while the sixteen-state matrix determines all degree multiplicities. These are natural structural invariants for an infinite box family, rather than an isolated routine finite census. This does not establish a mixing-time or bottleneck theorem.
+The reachable plugs starting at the empty boundary are only the empty set, adjacent pairs, and the full set: a full plug forces an empty successor, and an adjacent pair forces either empty or its complement. Thus cutting exactly at empty plugs gives the unique monomer/full-block/alternating-tube decomposition. A square contributes once when it contains opposite matching edges. The internal block counts (1, 4, 2 for a length-two tube, and m-1 for a longer tube) and the common-ring-edge junction count exhaust the three square orientations. The lower bound is the sum of the 2m/3 bounds; equality at length divisible by three singles out length-three tubes and requires A_next != A^c, giving 4 times 3^(k-1). The residue constructions close the rounded bound even at n=1,2. The upper bound uses 3m-2 per block and two per junction; a tube has a strict deficit and a full block at an external junction cannot contribute two. This leaves precisely the uniform layer pairings, plus the isolated full block at n=2. The sixteen reachable layer types count each tiling once and assign each cap and interface exactly once, including the n=1 empty power. Independent direct matching enumeration agrees with both archived full histograms for n=1,...,8. To replay, recursively pair the first unmatched cube with each available neighbor and count flippable unit squares in all three orientations at the leaves; compare the resulting exact histograms with direct_output.txt and transfer_output.txt. The all-n proof is the block and layer argument in RESULT.md lines 25–72, not extrapolation.
 
-## Limits
-The result concerns only position-distinguished unit-domino tilings of the indicated boxes under two-domino elementary flips. Publications inaccessible through the available channels or unindexed supplements may include equivalent statements. Publication priority and independent validation are not certified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The same thin boxes were already known to be flip connected, and layer/plug transfer and enumeration are related frameworks. The compared statements do not cover the number of immediately available moves as a random variable over tilings, its two sharp extremes and equality structures, or its weighted enumerator. No matching exact record surfaced in the bounded catalogue inspection; that is not proof of priority.
+
+## value
+
+PASS
+
+The established connectivity of the natural face-flip graph does not indicate the available branching at each tiling. The two exact degrees distinguish high- and low-mobility regions and show nontrivial length-three rigidity at the minimum. The transfer formula makes the full local-degree distribution computable for arbitrary lengths without building the reconfiguration graph. These are useful local structural facts for studying flip walks, not claims about distances, mixing, or connectivity novelty.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

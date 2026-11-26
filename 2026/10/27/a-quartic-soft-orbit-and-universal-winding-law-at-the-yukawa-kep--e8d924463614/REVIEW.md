@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact derivative of the effective potential is \(\mu\lambda r^{-3}[H_\alpha(r/\lambda)-p]\), where \(H_\alpha(x)=x[1+\alpha(1+x)e^{-x}]\). The sign of its derivative is controlled globally by the unique maximum of \(e^{-x}(x^2-x-1)\) at \(x=3\). At critical coupling \(\alpha=e^3/5\) and squared normalized angular momentum \(p=27/5\), the first three radial derivatives of the effective potential vanish and its fourth derivative is positive, giving the stated quartic coefficient. Energy-integral rescaling proves the radial period and angular winding limits, and Taylor expansion around the double stationary-point merger proves the cusp-opening law. The standalone code independently checks the critical derivatives, fold ordering, three-root signatures, and beta-function asymptotics. Finite tests are not the source of infinite-domain conclusions.
+PASS
 
-## Originality — PASS (best-knowledge literature comparison)
+The exact effective-potential derivative is (μλ/r³)(H_α−p). Its derivative at a circular orbit has the sign of H′_α=1−αg, where g′(x)=x(3−x)e^(−x). The unique positive maximum g(3)=5e^(−3) gives α_c=e³/5 and the signs +,−,+ above it, with two simple folds and the claimed global one/two/three-root census from H_α(0+)=0 and H_α(∞)=∞. A fold is a stationary inflection of the radial potential, not a quartic minimum. Simultaneous vanishing of H′ and H″ occurs only at x=3, p=27/5; H‴=3/5 gives U(r_c+z)−U(r_c)=a z⁴+O(|z|⁵), a=μ/(1080λ⁵)>0. For the period, write y=z[(U(r_c+z)−U(r_c))/(a z⁴)]^(1/4), an analytic local coordinate with derivative 1 at 0. For energy at the outer turn A, y runs between ±y(A). Its inverse derivative tends uniformly to 1 after scaling y by y(A), and (1−u⁴)^(-1/2) is integrable on [−1,1]. The full out-and-back integral therefore gives AT→B(1/4,1/2)/sqrt(2a), with no turning-point uniformity assumption needed. Across the excursion the angular rate tends uniformly to sqrt(μ/(15λ³)) in the positive orientation (the swept magnitude is unchanged by reversing orientation), giving (A/λ)Δθ→6B(1/4,1/2). H′_(α_c(1+η))(3+δ)=−η+3δ²/10+O(|δ|³+ηδ²) yields δ_±=±sqrt(10η/3)+O(η); integrating from zero to these roots gives opposite shifts of magnitude (2/3)sqrt(10/3)η^(3/2) about the common center p_c+12η/5, with the correct fold-label reversal. Separate symbolic and quadrature diagnostics agree: with μ=λ=1 the period and angle ratios to the stated laws are 1.00537 and 1.00534 at A=0.02; the fold width divided by η^(3/2) is 2.43424 at η=10^(-4) versus 2.43432248 in the limit. These are finite checks only. Frozen support was inspected, not executed; expert, Lean and independent attestations were not recorded in the frozen verification fields.
 
-The Newton-plus-Yukawa model and its central force are present in Iorio (arXiv:1109.6249, equations 9–11), and qualitative orbit stability in the same model is studied by Pricopi (2016). These prior facts are not presented as new. The full accessible Iorio and Abo Hasan–Joudieh–Chamoun manuscripts were examined; the latter's stability formulas use a first-order small-radius truncation. The reviewed novel claim is confined to the exact strong-coupling quartic cusp, the dimension-independent beta-function coefficient for the divergent angular sweep, and the \(3/2\)-power width of its three-orbit interval. A bounded search of related published claims found no explicit equivalent of the quantified cusp and winding law. This absence does not establish uniqueness of priority. The full Pricopi manuscript remained inaccessible; the possibility that it, or another unlocated historical source, contains an equivalent result is a material residual risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result gives a complete local nonlinear description of an exceptional circular-orbit softening, a sharp global bifurcation boundary, and a physically interpretable universal winding law in a classical modified-gravity two-body model. Unlike merely identifying marginal linear stability, the exact beta coefficient controls arbitrarily large near-cusp apsidal advance and the fold-opening coefficient quantifies where distinct stable circles coexist. The extreme attractive coupling can be astrophysically unrealistic; no empirical applicability is asserted.
+The supported distinct claim is the quantitative exact-model degeneracy: the unique quartic soft orbit together with its nonlinear winding and period coefficients and quantified opening of the three-orbit interval. The potential, central-force reduction, generic stability criteria, cusp exponents and general quartic oscillator integral are not new. The closest exact-model stability paper by Pricopi remains a material priority risk, especially for the global classification; the inspected evidence does not establish coverage of the quantitative singularity laws.
 
-## Limits and comparison
+## value
 
-Primary references: Iorio (2011, arXiv:1109.6249); Pricopi (2016, DOI:10.1007/s10509-016-2864-3, abstract available but not complete text); Abo Hasan, Joudieh and Chamoun (2023, arXiv:2301.02498); Adkins and McDonnell (2007, DOI:10.1103/PhysRevD.75.082001). The theorem is Newtonian, nondissipative, and restricted to strictly positive radius and fixed specific angular momentum. The background potential, standard orbital equilibrium equation, and general qualitative stability interpretation are known.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For this standard exact central-force family, the result characterizes where linear epicyclic analysis fails and distinguishes the quartic confining circle from an unstable degenerate fold. It also quantifies two observables that the linear analysis cannot recover: the shrinking width of the three-orbit band and the dimensionless divergent winding from actual finite-amplitude radial cycles. No weak-coupling or Solar-System relevance is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

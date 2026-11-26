@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility and proof scope
 
-Run `python3 verify.py` with the Python standard library. The script exhaustively checks all triples of elements in the binary path algebras of the directed three-vertex line and of the directed source–sink fork; it finds six and four zero-insertive elements respectively, with direct coefficientwise comparison to the asserted descriptions. The script also independently enumerates radical coefficient triples for field sizes two, three and five and checks the displayed sharp deficit formula.
+# Independent mathematical audit
 
-Expected final output: `VERIFY_OK`. These finite checks are bounded verifications. The all-field, all-finite-acyclic-quiver theorem follows from the vertex-quotient argument, the source/sink factorization, the three-vertex quotient rank obstruction, and the path-coordinate count in the written proof. In particular, no computational run over finitely many fields is treated as proof for all fields or all quivers.
+## correctness
 
-The zero-insertive locus need not be a subspace in the non-square-zero case; all set equalities in the proof use the displayed definition with a single sandwich triple, not finite sums of sandwiches.
+PASS
+
+The commutative semisimple quotient kills each sandwich with ab=0; every positive-length path is a sandwich between distinct vertex idempotents, so the locus spans J. If J²=0, all arrows run from a source set to a disjoint target set, so the two summed vertex idempotents realize any radical element in one sandwich. If two arrows compose, keep the three vertices and those two labeled arrows and kill all others. This is a path-algebra quotient onto T₃, valid also with parallel or shortcut arrows. In M₃, UV=0 forces rank(U)+rank(V)≤3 and hence rank(URV)≤1. Thus every radical element with both chosen arrow coefficients nonzero is excluded. This proves nonadditivity and the count of (q−1)²q^(d−2) excluded coefficient choices. In T₃, if either simple-arrow coordinate is zero, the element is supported in the single corner E₁₁ X(E₂₂+E₃₃) or (E₁₁+E₂₂) X E₃₃, respectively as appropriate, proving sufficiency and equality q(2q−1). The zero or arrowless case is included. Read RESULT.md, VERIFICATION.md and verify.py without executing the supplied script. Fresh binary enumeration, taking the image of r↦arb for each zero-product pair via its values on path basis vectors, gave 6/8 for the line, 4/4 for the fork, and 20/32 for the line with the first arrow doubled; these are checks, not the universal proof.
+
+## originality
+
+PASS
+
+Credit the known zero-insertiveness of individual paths and the prior full-matrix rank criterion. The supported distinct result is the radical-wide additive-closure classification for acyclic ordinary path algebras, with the universal sharp finite-field loss and the internal T₃ witnesses. The closest comparisons do not establish that combined statement.
+
+## value
+
+PASS
+
+This determines when a natural ring-theoretic locus already equals its linear span rather than merely generating it. The classification singles out a minimal branching-in-time obstruction, a composable pair, and turns that obstruction into a sharp loss of finite-field elements. The value is in the uniform classification plus quantitative gap, not in the known rank inequality or a standalone small matrix count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,13 +1,21 @@
-## Correctness
-PASS. The explicit hyperelliptic substitution, smooth good reduction, finite-field counts, Weil polynomial, cubic splitting field and valuation-parity argument support a complete absolute-simplicity proof. `verify.py` exactly reproduces the finite certificates; the implication from all Frobenius powers to geometric simplicity is mathematical, not experimental.
+# Independent mathematical audit
 
-## Originality
-PASS at self-review. The October 2026 originating article gives the curve, genus and amoeba properties, not a calculation of the Jacobian Frobenius polynomial or absolute simplicity. Dedicated searches over indexed mathematical records and public literature found no claim covering the precise coefficient object and absolute simplicity. An unindexed prior computation remains possible.
+## correctness
 
-## Value
-PASS. Absolute simplicity settles a natural structural question about the genus-three positive-genus example: whether its Jacobian hides elliptic or lower-dimensional isogeny factors. It rules out maps to any positive-genus curve of lower genus and is certified by a single good prime with a nontrivial Galois independence argument.
+PASS
 
-## Limitations
-One explicitly defined curve; no assertion about a general family, numerical amoeba contour certificates or independent validation.
+The change of variables gives a monic squarefree degree-eight hyperelliptic model at i=2 modulo 5, so the reduction is good of genus three with two points at infinity. Independent finite-field enumeration gave 7, 43, 133 points and power sums -1, -17, -7, giving the stated numerator by Newton identities and reciprocity. For h(X)=X^3g(X+5/X), g is irreducible by the rational-root test and has discriminant 761. The product of the three quadratic discriminants is -49*71. At an unramified prime over 71, precisely one discriminant has valuation one (g and U^2-20 have only U=34 in common modulo 71); conjugation isolates each of the other discriminants as well. This proves square-class independence and the full wreath group. If a root satisfied alpha^2/5 equal to a root of unity, all its conjugates would have 5-adic valuation 1/2, impossible because the middle coefficient 11 is a unit. The independent pair swaps then exclude root-of-unity quotients between different pairs as well. Powers of the roots thus remain distinct and transitive, giving irreducibility over every finite extension in the sense of the Frobenius polynomial over Q. This excludes a proper abelian subvariety. A complex splitting would give a nontrivial rational endomorphism idempotent defined over a finite number-field extension (endomorphisms are unchanged under algebraically closed base extension); good-reduction specialization injects rational endomorphisms, contradicting geometric simplicity of the reduction. A map to genus one or two would yield a positive-dimensional proper Jacobian quotient by push-pull. The finite checks are arithmetic certificates, not a replacement for the group and specialization arguments.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The explicit curve and its geometric and amoeba analysis are prior work. The supported distinct result is the geometric simplicity of its Jacobian and the explicit finite-field certificate establishing it. The strongest same-object text does not assert or imply this invariant, and the closest indexed arithmetic examples concern other curves. This is a best-of-current-evidence judgment, not a priority certificate.
+
+## value
+
+PASS
+
+This computes a substantive intrinsic invariant of a previously singled-out genus-three example, not an arbitrary coefficient choice or a point-count table entry. It rules out splitting and all lower-positive-genus quotient morphisms for that curve via a small exact arithmetic certificate. No generality beyond the specified curve and reduction is inferred.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

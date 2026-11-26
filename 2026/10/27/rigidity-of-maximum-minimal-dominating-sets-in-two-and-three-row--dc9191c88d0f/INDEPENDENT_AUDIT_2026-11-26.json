@@ -1,0 +1,166 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:44:54.252193Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Proof, Verification",
+        "Frozen verify.py lines 11–56 and 105–146, inspected not executed",
+        "Frozen VERIFICATION.md",
+        "Independent bounded replay: python3 /workspace/reproduce_grid.py",
+        "Repaired RESULT.md, even-height-three proof and verification notes"
+      ],
+      "rationale": "A selected vertex is essential exactly when its closed neighborhood contains a real vertex whose own closed neighborhood meets the selection in just that vertex. Five masks suffice for this test and domination at the center; the last two real columns are validated by padding twice, with absent and unselected columns treated distinctly. At a fixed four-mask suffix a suboptimal prefix cannot catch up. An independently written closed-neighborhood bitset recurrence reproduced at height three the equal supports of size 1285 at lengths 16, 20 and 24, weight increments 6 on every state, and zero count second differences. It reproduced terminal pairs (24,4), (27,4), (30,4), (33,4) at lengths 16,18,20,22 and the stated even base counts; it also matched the frozen height-two certificate. A coordinate-wide additive weight shift preserves all maximizing transitions, so four steps act on counts by the same integer linear map throughout the orbit. The verified second difference yields affine count evolution; two identical terminal counts in each even residue class set its slope to zero. This proves every even length, not just the test orders. Both checkerboards and both full-column patterns have the requisite size, domination and private witnesses, and are distinct also at n=2, so the count proves exhaustiveness.",
+      "residual_risks": [
+        "The proof uses exactly reproduced finite vector identities; this is not a formal proof-assistant verification."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general bipartite identity Γ=α gives the extremal size by a matching and larger parity class; Theorem 3.5 equates uniqueness of upper domination and maximum independence for bipartite graphs.",
+          "The frozen record attributes the all-grid scalar formula to Sahbi; the identified source was not accessible in full text. The programming paper gives formulations and discusses grid computations."
+        ],
+        "reasoning": "These inspected general results identify extremal size and sometimes uniqueness. Nonunique maximum-cardinality sets that are not independent, such as these full columns, are not classified by them.",
+        "searches": [
+          "Fischermann–Volkmann, Theorems 2.3 and 3.5",
+          "Sahbi arXiv:2610.03785",
+          "Burdett–Haythorpe–Newcombe doi:10.1007/s00186-023-00831-2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary ee60eed8ab77 and 96ba1e4eb373",
+        "Fischermann–Volkmann (2003)",
+        "Sahbi arXiv:2610.03785 (access attempt, not full text)",
+        "Burdett–Haythorpe–Newcombe (2023)",
+        "OEIS A286847 and A290379"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For odd n the odd-order serpentine Hamilton path has a unique maximum independent set, which is the larger checkerboard and remains independent in the grid. Theorem 3.5 transfers this directly to uniqueness of maximum minimal domination.",
+          "The earlier ladder proof uses the same five-column locality but a height-two potential and a 41-state reachable tight-language comparison. It does not certify the larger height-three transition system or its terminal counts."
+        ],
+        "reasoning": "The odd case is a short corollary and is excluded from the repaired novelty claim. For even n, merely replacing the number of rows in the ladder automaton does not establish its maximizing language. The three-row statewise translation, count identities and even terminal extrema are new necessary work for the distinct list.",
+        "searches": [
+          "Fischermann–Volkmann Theorems 2.3 and 3.5 and both hypotheses",
+          "Earlier ladder RESULT.md proof, weighted automaton and tight-language certificate"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier open-ladder masks 111..., 222..., 1212..., 2121..., 3003..., 0330... are exactly the frozen height-two rows, checkerboards and full-column patterns, with the same parity conditions.",
+          "The prism record uses C_n square K_2 rather than a path boundary. The OEIS records count all minimal dominating sets; the repaired number is the highest-degree coefficient of the associated size polynomial."
+        ],
+        "reasoning": "Renaming the height-two masks would not be a new result; that portion was removed. Replacing boundary or summing all sizes instead of taking the extremal-size coefficient is not equivalent to the retained classification.",
+        "searches": [
+          "Local Resultary: upper domination, maximum minimal dominating sets, open ladders and three-row grids",
+          "Mirrored RESULT.md, ee60eed8ab77 and 96ba1e4eb373",
+          "OEIS A290379 and A286847"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS descriptions count all minimal dominating sets, without grading by size.",
+          "The mirrored ladder finding explicitly gives the top coefficient 4/6, but only for height two."
+        ],
+        "reasoning": "A total count does not specify the highest-degree coefficient. The only inspected exact matching coefficient table/list for a slice was the duplicated height-two slice, removed.",
+        "searches": [
+          "OEIS A286847 rectangular grids and A290379 n-ladders",
+          "Mirrored open-ladder classification ee60eed8ab77 exact upper coefficient"
+        ]
+      },
+      "rationale": "Only the exhaustive even-length three-row pattern classification and the corresponding count are claimed in the repair. The two-row duplicate, known scalar formula, odd-length uniqueness, and earlier ladder automaton framework are credited and are not independent novelty claims.",
+      "residual_risks": [
+        "The full Sahbi paper was not accessible, so any coverage there beyond the scalar formula is unresolved.",
+        "The original 1981 bipartite identity source was not read; Theorem 2.3 of the 2003 paper explicitly records the identity.",
+        "Bounded literature and catalogue searches do not establish absolute priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Complete coverage at height two, not at height three; related but distinct certificate method.",
+          "evidence": [
+            "Six exact mask families with the last two only for even n; 4/6 upper counts.",
+            "Proof certifies a potential and a reachable product-language equivalence on the two-row mask alphabet."
+          ],
+          "identifier_or_url": "SCOPE-all-maximum-minimal-dominating-sets-of-ladder-graphs--ee60eed8ab77",
+          "material_read": "Finding, assumptions and certificate proof, mirror offsets 0 and 3121",
+          "method": "Local Resultary search and mirrored RESULT.md",
+          "title": "All maximum minimal dominating sets of ladder graphs",
+          "trigger": "Exact open-ladder overlap"
+        },
+        {
+          "assessment": "Covers size and the odd uniqueness corollary; not the even classification.",
+          "evidence": [
+            "Theorem 2.3 gives equality of independence, upper domination and upper irredundance in bipartite graphs.",
+            "Theorem 3.5 transfers uniqueness among the three invariants."
+          ],
+          "identifier_or_url": "https://combinatorialpress.com/article/jcmcc/Volume%20047/vol-047-paper%2018.pdf",
+          "material_read": "Definition p. 238, Theorem 2.3 p. 239, Theorem 3.5 p. 243",
+          "method": "OA publisher PDF passages",
+          "title": "Unique Independence, Upper Domination and Upper Irredundance in Graphs",
+          "trigger": "Bipartite size and uniqueness implications"
+        },
+        {
+          "assessment": "Scalar formula credited from the frozen citation; additional scope not determined firsthand.",
+          "evidence": [
+            "Frozen RESULT.md lines 59–66 attribute Γ(P_m square P_n)=ceil(mn/2) to Sahbi."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.03785",
+          "material_read": "Title and frozen attribution; full text not retrieved",
+          "method": "Targeted OA PDF and HTML/abstract attempts",
+          "title": "Upper Domination in Rectangular Grid Graphs and Its Relation to Sub-Quorum Colorings",
+          "trigger": "Cited broader grid theorem on the identical invariant"
+        },
+        {
+          "assessment": "Optimization formulations do not give this labelled classification.",
+          "evidence": [
+            "Its grid discussion concerns computing upper-domination number, rather than enumerating all extremal configurations."
+          ],
+          "identifier_or_url": "doi:10.1007/s00186-023-00831-2",
+          "material_read": "Abstract p. 155 and grid discussion p. 162",
+          "method": "Bounded OA PDF passages",
+          "title": "Binary programming formulations for the upper domination problem",
+          "trigger": "Grid and upper-domination computations"
+        },
+        {
+          "assessment": "All-size counts, not upper-cardinality counts.",
+          "evidence": [
+            "Definitions count minimal dominating sets of ladders and grids with no size condition."
+          ],
+          "identifier_or_url": "https://oeis.org/A290379 and https://oeis.org/A286847",
+          "material_read": "Sequence definitions",
+          "method": "Catalogue equation and scope comparison",
+          "title": "OEIS ladder and rectangular minimal-domination enumerations",
+          "trigger": "Potential exact count overlap"
+        },
+        {
+          "assessment": "Distinct cyclic problem, not the repaired path strip.",
+          "evidence": [
+            "C_n square K_2 has counts 2/4/8 depending on length modulo four under cyclic boundary conditions."
+          ],
+          "identifier_or_url": "SCOPE-four-periodic-classification-of-upper-dominating-sets-in-prism-g--96ba1e4eb373",
+          "material_read": "Mirrored finding",
+          "method": "Local Resultary search and mirror",
+          "title": "Four-periodic classification of upper dominating sets in prism graphs",
+          "trigger": "Similar periodic extremizers and ladder-type geometry"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired RESULT.md Finding and proof",
+        "Fischermann–Volkmann Theorems 2.3 and 3.5",
+        "Earlier Resultary open-ladder finding ee60eed8ab77"
+      ],
+      "rationale": "The next open strip after the ladder is a natural setting to test whether the known extremal size hides further patterns. The even three-row result shows that rows drop out but the checkerboards and two full-column types exhaust all maxima, including nonindependent ones. This supplies a useful top coefficient and structural list not implied by the size theorem, with an exact all-order certificate rather than a small grid census or a restatement of the ladder result.",
+      "residual_risks": [
+        "The retained result does not settle wider strips, cyclic boundaries, or other coefficients of the size polynomial."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

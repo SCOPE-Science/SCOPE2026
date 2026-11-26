@@ -1,11 +1,21 @@
-# Scientific self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact chord-dot identity, independent obtuse-vertex reduction, Fourier expansion of the normalized sampling measure, moving-boundary integral and axis-exchange evenness together prove the fixed-exponent quadratic coefficient with a fourth-order error. The standalone script corroborates the specified finite cases without replacing the analytic proof.
+## correctness
 
-**Originality — PASS (provisional).** Edelman and Strang (2015) cover geometric-probability sampling conventions. The full exact dilogarithm law for uniform eccentric-angle ellipse sampling is prior, as are the 2025 integral formulas for Euclidean-arclength ellipse sampling. The evaluated coefficient across every fixed real speed-power exponent and its unique sign change are not given by those inspected results. The special arclength cancellation could be recovered from the older integral with additional differentiation; no historical-uniqueness claim is made.
+PASS
 
-**Value — PASS.** The local sign of anisotropy dependence changes at the geometrically distinguished Euclidean-arclength sampling exponent. This identifies an intrinsic sampling threshold, rather than a numerical special case, and contrasts it with affine-uniform sampling.
+The Euclidean dot product divided by the positive chord factors is cos(s−r)−q cos(2t+s+r), so the acute probability is one minus three times the fixed-label obtuse probability. For uniform angle the conditional probability at common phase v is (1−arccos(q cos v)/π)², giving the stated dilogarithm and quadratic term. The normalized one-point density has coefficients −(α/2)cos 2t and α(α−2)cos 4t/16. The pure quadratic density contribution integrates to zero: after rotation averaging, the three pair harmonics cos 4s, cos 4r, cos 4(s−r) all integrate to zero on |s−r|>π/2. The boundary term is the integral of α cos(s+r)/4 along each of s−r=±π/2 in the free coordinate, with unit normal delta factor in that coordinate; each cosine integral is −1, giving −α/(2π²). For the analytic remainder use h=(s+r)/2, d=s−r: the moving threshold is |d|>arccos(q cos(2t+2h)), and the triangular domain has |d|<2 min(h,π−h). The two endpoints in h solve transverse analytic equations at h=π/4 and 3π/4. They remain analytic uniformly in t near q=0. Rescaling the resulting integration intervals gives analytic probability; axis exchange gives evenness. Thus the Oα(q⁴) error and both strict local extrema for α≠1 follow. At α=1 only the quadratic cancellation is proved.
 
-**Limits and risks.** The result is local in ellipse anisotropy. It does not prove the sign of the fourth-order term when the quadratic coefficient vanishes, nor any global monotonicity. Unindexed historical literature and an independent mathematical review remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best of the evidence supports the distinct full power-density coefficient and its change of sign, not novelty of the uniform-angle law, the circular constant, or arclength sampling itself. In particular, changing axes or using the aspect ratio does not turn eccentric-angle sampling into Euclidean arclength sampling.
+
+## value
+
+PASS
+
+This gives a usable, exact sensitivity of a natural geometric statistic to the joint choice of shape and boundary measure. In particular the two effects cancel exactly for Euclidean arclength and the circle changes from a strict local maximum to a strict local minimum across the speed exponent. That distinction cannot be made using only the known affine-uniform exact law.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

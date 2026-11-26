@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The downset/upset classification partitions the nonalgebraic types into empty-side and nonempty-side cases. For bipartite height-two posets the latter case is exactly biclique-subset enumeration, equivalently independent-set enumeration in the bipartite complement. The isolated-vertex amplification and remainder bounds are exact; one integer-division query recovers the starting graph's independent-set count. The disjoint-edge factor establishes hardness for height **exactly** two, and ternary certificates establish membership in the counting class. Exhaustive small graph checks and larger samples reproduce the identities.
+PASS
 
-## Originality
+The repaired RESULT keeps the valid proof. Admissible disjoint downset/upset pairs are realized by the extension property and determine the complete type by homogeneity. The empty-side cases count 2i(G)-1; nonempty pairs across the bipartition are independent sets meeting both sides in the bipartite complement. Padding multiplies the original i(G) by 2^k, and the complement gains exactly (2^k-1)2^a independent sets using the new side vertices. The unchanged remainder has -1<=Delta<2^k, so the floor with +1 extracts i(G) exactly. A disjoint edge if needed multiplies the source answer by three and keeps a comparability after padding, ensuring exact height two even for edge-free inputs. One checked ternary labeling per nonalgebraic type and a tagged choice per equality type give the two #P memberships. Height one has only the empty-side cases. Bit lengths and the instance size are linear in the vertex count apart from explicit relation encoding.
 
-**PASS, qualified.** The previously published random-poset hardness result proves unrestricted and greatest-element hardness using a two-query ordinal-sum identity, but does not imply height-two hardness or the bipartite-complement one-query identity. The finite-poset extension lemma and bipartite independent-set hardness are acknowledged predecessors. Examined studies of minimal-element poset extensions and generalized intervals concern different enumerators. Equivalent formulations and residual publication-priority risk remain documented in the structured review.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** This locates a sharp low-height tractability frontier: height-one parameter counting is elementary, whereas height-two counting is \(\#\mathrm P\)-complete. The explicit complement identity and isolation extraction explain the boundary structurally and convert a graph counting problem into one exact type-count query. The claim is not merely a restatement of unrestricted hardness.
+For the repaired claim only: the frozen identity was presented as part of the finding without crediting an exact match in the earlier local-sensitivity record. The replacement identifies the identity as prior and narrows the contribution to one-query extraction from an absolute type count at exact height two. The matched local reduction has a one-query oracle for a shifted difference of two counts, not for the absolute count; the older result for posets with a greatest element uses two queries and does not retain the height promise. Neither inspected argument supplies this absolute one-query extraction.
 
-## Limitations
+## value
 
-Hardness is asserted under polynomial-time Turing reductions, using one query for the displayed bipartite-independent-set reduction. The construction does not establish bounded-degree or connected-input hardness, approximation hardness, or independent validation. Specialized earlier work may still cover the same restriction.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The repaired theorem separates height one from height two for a natural complete-type counting problem and shows that the harder case needs only one absolute evaluation in a reduction. Independent-set hardness of the absolute count does not follow merely because the count contains independent-set terms. The isolated-side padding addresses that obstacle without increasing poset height, and is the substantive contribution rather than the reused counting identity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

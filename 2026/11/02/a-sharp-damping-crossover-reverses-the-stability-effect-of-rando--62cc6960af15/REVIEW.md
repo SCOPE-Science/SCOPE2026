@@ -1,24 +1,21 @@
-# Review: randomized order versus frozen order for planar Lie–Trotter splitting
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The exponential of each shear generator is a scalar damping times a first-degree nilpotent shear. Directly multiplied step matrices have average Gram matrix \(e^{-4ah}(1+s^4/2)I\), so independent fair order choices yield the exact squared-energy law by conditional expectation, without distributional assumptions on current state direction. Both fixed matrices have determinant \(e^{-4ah}\) and identical normalized trace \(2-s^2\), giving the spectral threshold. The comparison reduces to a cubic polynomial whose second derivative is positive above the critical elliptic–hyperbolic boundary. The cubic has exactly one root above that boundary; explicit exact parameters witness both stability reversals. The packaged finite-arithmetic verifier passed 193 checks. No finite check is used to infer an infinite statement.
+PASS
 
-## Originality
+The exact unsplit propagator is exp(−2at) times an orthogonal rotation. Nilpotency gives the two products of opposite shears, each with damping q=exp(−2ah). Applying the two orders to a generic vector gives the same exact averaged squared-length identity as the scalar Gram calculation. Fresh independent choices make this a conditional identity at every iterate, proving the all-n law and all three mean-square regimes. The fixed undamped products have trace 2−s² and determinant 1; the endpoint s=2 is a double root −1 and q<1 suppresses any Jordan growth. For s>2 the larger modulus is R(s) and Schur stability is precisely qR(s)<1. For x=s²>4 the sign of R²−(1+x²/2) is the sign of the difference of u+u^(−1) at those two strictly larger than one arguments. The difference is x(x³−8x²+4x−16)/(2(x²+2)). The cubic starts negative at x=4, first decreases and then increases strictly to positive values, so there is a unique reversal. For s≤2 the comparison is strict in the opposite direction from large s. The two strict damping witnesses check exactly, including 21√5>41 for the fixed-order instability at s=3. Independent symbolic checks reproduced both polynomial identities and a high-precision crossover x=7.75025958832555765… (last-place difference from the printed decimal only), s=2.78392880446421576….
 
-PASS, subject to publication-priority risk. The primary random splitting source evolves individual vector fields for independent random durations rather than randomly reversing a complete two-factor step. The relevant two-shear random matrix literature studies independent individual shears and generalized Lyapunov-exponent bounds rather than a fair sequence of reversed complete pairs with an exact mean-square identity. Randomized quantum product formulas compose unitary factors, whose norms cannot realize the present instability. The newer order-selection analysis of higher-order split solvers treats fixed-order linear stability, and even remarks that reversing one Lie–Trotter pair leaves its spectrum unchanged; it does not derive an interleaved random-order second-moment stability frontier. A published-record similarity search for aliases, swapped factors, mean-square exponents, cubic crossover and isospectral stability reversal returned adjacent but not implication-equivalent results. The closest accessible sources were materially inspected; one plausible randomized operator-splitting paper could only be checked at the abstract level, leaving residual priority uncertainty.
+## originality
 
-## Value
+PASS
 
-PASS. A basic numerical-design question is whether randomizing an operator order is harmless, protective or dangerous for long-time stability. The answer is sharply nonmonotone, even though the exact continuous system is exponentially stable and the two deterministic orders have identical spectra. The theorem supplies a unique dimensionless transition and exact witness problems on both sides, distinguishing spectral stability, mean-square stability and continuous-time decay. It is a natural counterexample to importing frozen-order stability conclusions into iid operator-order selection.
+The supported distinction is the sharp two-way comparison of iid reversed complete orders and the two fixed orders for the same damped system. Reversing complete pairs at random is not itself new. Later catalogue results explicitly overlap with the moment identity; the earlier same-system record changes the random step law and the same-date deterministic word comparison changes the stability question. No earlier matching complete comparison was identified.
 
-## Closest literature and limitations
+## value
 
-- Agazzi, Mattingly and Melikechi (2022), random subflow durations and ergodicity, https://arxiv.org/abs/2201.06643.
-- Sturman and Thiffeault (2019), individual random shears and generalized exponents, https://link.springer.com/article/10.1007/s00332-018-9497-3.
-- Eisenmann and Stillfjord (2022), randomized operator-subset splitting, https://arxiv.org/abs/2210.05375; full manuscript was not accessible in the material inspected.
-- Wei, Guenter and Spiteri (2025), fixed-order stability and design, https://arxiv.org/abs/2501.02310.
+PASS
 
-The proof covers only exact two-stage subflows of a specified damped planar linear system with iid fair order choices and their mean-square norm. It does not determine almost-sure Lyapunov stability or arbitrary matrix splitting.
+A single shear crossover with exact opposing witnesses shows why two isospectral stable fixed integrators need not stay stable under random interleaving and, conversely, why interleaving can stabilize in mean square. It cleanly separates three stability notions even for an exactly decaying underlying ODE.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The complete rank-one one-point type is characterized by the four quadrant nonemptiness conditions; the rank-two sentence theory is exactly the set of realized such types. An internal position has one of nine possible masks, and masks \(6\) and \(9\) are mutually incompatible. There are at most two endpoint types, hence at most ten distinct types; the trivial size bound completes \(\min\{n,10\}\). Ten explicit small witnesses and two ten-point witnesses establish sharpness. Inflation at a type-15 point preserves all type masks for arbitrary larger lengths. The two maximal spectra are forced by the internal-mask incompatibility and the interior global minimum/maximum. The C++17 program compares direct and record-extrema routines over all \(4,037,913\) permutations up to length ten, exhaustively checks the \(328\) extremizers, and checks their \(46\) symmetry orbits. The finite computation and the all-length argument are explicitly distinct.
+## correctness
 
-## Originality — PASS with residual priority risk
-The closest primary account of the two-order permutation formalism, Albert–Bouvel–Féray (arXiv:1808.05459, Sections 2 and 4), develops first-order expressibility and Ehrenfeucht–Fraïssé methods but does not state or imply the exact ten-type all-length maximum and its two maximal spectra or 328/46 minimal-extremizer counts. Albert–Bouvel–Féray–Noy (arXiv:2210.05537, introduction and main theorem) studies logical limit laws in the restricted 231-avoiding class; its probabilistic conclusion does not imply the universal finite extremal theorem. Conceptually related published type-profile results concern different homogeneous structures or one-colour order families, not the all-permutation TOTO rank-two spectrum. Searches under one-point types, quadrant records, two-order FO rank two, and 328 minimal maximizers did not reveal identical coverage. Uninspected permutation-record terminology remains a genuine priority risk; absence from search results is not proof of novelty.
+PASS
 
-## Value — PASS
-Complete rank-two sentence equivalence is reduced to a geometrically transparent record profile, and a sharp global obstruction shows why the naive set of fifteen endpoint/interior configurations overestimates simultaneous logical richness. The optimal minimum size ten, the exact pair of maximal spectra at every larger size, and the full first-extremizer orbit census give finite, reproducible test instances for low-rank permutation logic and distinguish local type realization from unrestricted type possibility. The invariant arises from the natural TOTO language and is not an arbitrary graph-size slice.
+For a named point, a second variable falls into equality or exactly one of the four strict quadrants. A rank-one formula therefore depends only on their nonemptiness, and any rank-two sentence is a Boolean combination of outer quantifications over such one-point types. Conversely, a rank-two existence sentence selects any prescribed mask. The first and last points contribute at most two endpoint masks; the other points have both a left and a right witness and hence nine possible masks. Types 6 and 9 cannot coexist: whichever of their points comes first, the two required value comparisons disagree. This leaves eight internal types. Equality needs all the remaining internal masks, including both global extrema (5 and 10), which force endpoint masks 12 and 3. A type-15 point inflated into an increasing block retains all four external witnesses, and no exterior point changes mask. The n=1,2 cases and all smaller sharp bounds were checked in a fresh enumeration. The independent positional-bitset sweep exhausted all 4,037,913 permutations through length ten; it recovered encoded spectra 64744 and 65192 with 164 each. The dihedral fixed-point counts [328,0,0,0,20,0,0,20] give 46 orbits by Burnside, and stabilizer sizes give 10 size-four and 36 size-eight orbits. This uses a different mask computation and orbit count from the supplied code.
 
-## Scientific limitations
-Only finite nonempty permutations in the two-order vocabulary, rank-two sentence theories and realized rank-one one-point types. No independent audit; exact computational census requires a trusted compiler and execution. No complete count of all rank-two equivalence classes, no classification of all higher-length maximizers. Residual synonym and historical-priority risk persists.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The logical mask equivalence is already explicit for unrestricted permutations in the earlier Resultary record 7fe7e8086c11, which also gives witnesses for both ten-mask spectra. These are not distinct contributions here. Credit is for the unrestricted sharp ceiling by size, the forced form of every maximal spectrum with persistence at all lengths, and the exact unrestricted minimal-extremizer and symmetry census. The strongest earlier record answers a different extremal question restricted to separable permutations; its result and certificate do not give the unrestricted upper bound or the census.
+
+## value
+
+PASS
+
+The number of realized logical types offers a natural finite measure of how much a single permutation can exhibit at rank two. The theorem pins down both the first length at which the uniform ceiling is reached and the precise two ways the maximum can look at the level of types. The complete census and symmetry breakdown at the first feasible length are motivated exact invariants of that extremal class, not an arbitrary small-n table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

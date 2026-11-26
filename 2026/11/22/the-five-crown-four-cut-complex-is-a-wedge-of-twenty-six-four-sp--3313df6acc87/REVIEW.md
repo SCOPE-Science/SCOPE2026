@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is exactly a ten-vertex finite theorem. The eighty disconnected quadruples are reconstructed from graph adjacency and the three-case proof. The standalone certificate checks 697 cut faces, 335 matched pairs and every one of 2,930 Hasse cover arrows for directed acyclicity; it leaves precisely one vertex and 26 four-cells. Forman's discrete-Morse theorem therefore gives the claimed integral wedge, independently of numerical homology alone. A second 325-face Alexander-dual matching agrees. No extrapolation beyond the single graph is made.
+## correctness
 
-## Originality — PASS against inspected evidence
-The foundational 2023 cut-complex paper explicitly treats undeleted complete bipartite graphs and Cartesian clique prisms, not the crown graph. The full 2024 sequel focuses on disjoint unions, squared paths and grids. The published eight-vertex cube result is a different graph order, while the crown three-cut theorem uses a different cut parameter; neither entails this exact four-cut calculation. Relevant public bibliographic searches found no covering result. The complete text of several related published computational notes could not be retrieved, leaving a residual unindexed-equivalence risk.
+PASS
 
-## Value — PASS
-The five-crown graph is the first non-cube member of the canonical matching-deleted biclique family. The calculation determines its full integral homotopy type, rather than a Betti-number estimate, at the adjacent four-cut threshold to the previously investigated three-cut family. The jump from the established cube four-cut type to 26 four-spheres and the pure-but-nonshellable behavior give natural topological information that is neither a renamed textbook example nor an arbitrary graph slice.
+For the matching-deleted K5,5 (not a five-cycle), four vertices on one shore are disconnected (10); a 3+1 split is disconnected exactly when the minority index occurs in the majority (60); a 2+2 split is disconnected exactly when both diagonal pairs are absent, leaving two disjoint edges (10). Thus all 80 complementary six-sets are distinct facets. Membership in the cut complex is equivalent to being disjoint from a disconnected quartet, so the Alexander dual consists of sets containing no disconnected quartet. I independently generated both complexes by bit masks with an induced reachability test and constructed and topologically sorted the complete oriented nonempty-face Hasse graphs. With the two shores swapped in the pivot order, the original had f=(10,45,120,210,232,80), 697 faces, 335 matches, 2930 oriented covers, and critical counts {0:1,4:26}; the dual had f=(10,45,120,130,20), 325 faces, 149 matches, 1070 oriented covers, and critical counts {0:1,3:26}. All vertices of both directed graphs were sorted, establishing acyclicity rather than just computing counts. The discrete Morse CW theorem gives one vertex and 26 cells of dimension 4 (respectively 3), attached to a point. This proves the two full wedges and consequently the free integral homology in the stated degrees. Pure shellability of the original pure 5-complex would give zero reduced H4, so it is not shellable. Replay: python3 /workspace/reproduce_reviews.py 5.
 
-## Boundaries
-No arbitrary-order extension, unexplored map between cut thresholds, or independent validation is claimed. The finite matching's acyclicity and completeness are reproducible from the included code, with explicit computations rather than unverifiable logs.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Exact ordinary four-cut homotopy of the ten-vertex crown and its dual is distinct from the closest inspected statements. In particular, the primary clique-prism theorem concerns the graph complement, not the Alexander dual, and the strongest nearby indexed four-cut computations are for the eight-vertex and twelve-vertex crowns. The six-crown record references a five-crown one-degree calculation without separately proving or tabulating this homotopy type. No priority order follows from same-day labels.
+
+## value
+
+PASS
+
+The first crown larger than the cube is a natural next instance at the same cut parameter. The exact homotopy type of both complexes, rather than just Betti counts, gives a pure nonshellable five-complex and distinguishes this order from both the cube and the adjacent six-crown's mixed-degree behavior. The case is useful as a concrete comparison point for graph-order and cut-parameter classification, without claiming an all-order formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

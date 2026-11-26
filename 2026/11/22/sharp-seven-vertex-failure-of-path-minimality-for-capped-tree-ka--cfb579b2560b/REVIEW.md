@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For every finite unit-edge tree, the metric capped at three has precisely the two local Katětov exclusions specified in the proof. The diameter-two support lemma and unique-center decomposition yield the all-tree neighbor-degree formula without asymptotic assumptions. The pendant-tail increment is exactly one quarter after normalizing by \(2^n\); it proves the infinite path/spider identities from exact base cases. Exhaustive Prüfer enumeration through seven vertices certifies the first threshold and uniqueness up to tree isomorphism. Independent raw distance-vector and support-enumerator checks reproduced 154 instances. The only computation-dependent assertion is the finite exhaustive classification through seven.
+PASS
 
-## Originality — PASS (with priority risk)
+Homogeneity and one-point extension identify types over the named vertices with positive distance vectors. The only invalid pairings are 1/3 on edges and 1/1 at capped distance 3. For the distance-one support S, this requires diameter at most two and fixes all its external neighbors to 2; outside its closed neighborhood each label is freely 2 or 3. Singletons and edge pairs yield the vertex and edge terms. Every remaining nonempty support contains a distance-two pair and is assigned to its unique tree midpoint c; it consists of at least two neighbors A of c, with c optional. The closed-neighborhood sizes are 1+sum(deg(v):v in A) without c and 1+deg(c)+sum(deg(v)−1:v in A) with it, since branches do not meet away from c. Expanding the subset products gives the stated normalized identity. A one-leaf extension on a tail with the two internal degrees 2 changes the normalized vertex, edge and centered contributions by 1/8, 1/16 and 1/16, respectively. The bases are N(P4)=37, N(E7)=384 and N(E8)=840, so adding 1/4 to the normalized count per extension proves both formulas and the gap at every n>=8. Independent raw triangle testing of every labeled Prüfer tree through order seven matched both counting formulas; minima were (3,7,17,37,82,180,384) with labeled multiplicities (1,1,3,12,60,360,840). Each minimizing shape is a path through six and is E7 at seven; P7 has 392 types.
 
-Sauer's finite-distance Katětov criterion and the countable metric extension property are prior. Csikvári and Lin's 2014 Remark 4.13 already features the seven-vertex three-spider as a counterexample for homomorphisms into a specially chosen graph, and their tree-homomorphism results are not claimed here. An earlier exact calculation of capped-path and capped-cycle type polynomials already implies the path formula \(N(P_n)=(4n+21)2^{n-4}\) for \(n\ge5\). This part of the displayed family comparison is a known benchmark, not a new assertion; the earlier path/cycle hypotheses do not cover branching trees. The published Widom–Rowlinson one-type formula handles old distances only one and two and does not include the old-distance-three pair restrictions. The present exact capped-tree functional and all-order discrepancy were not identified in the examined sources or published-finding corpus search, but equivalent unindexed formulations remain possible. No definitive historical uniqueness is claimed.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The theorem gives a precise and surprising obstruction to a standard tree-extremal expectation, not merely a small numerical anomaly: its first threshold is sharp, its failure persists at every larger size, and its discrepancy is exact. The local degree-neighborhood formula is a structural tool for arbitrary tree bases. The theorem deliberately does not classify all larger-order minimizers.
+The supported distinct package is the all-tree local identity, the sharp order-seven extremal transition for this metric type count and the explicit infinite counterfamily. The frozen result credits the path evaluation and does not claim the three-spider shape or generic metric extension machinery as new. The strongest indexed tree census concerns injectivity rather than minimizing the invariant; the extent to which its underlying tabulation reproduces the early counts is not established.
 
-## Closest literature and limits
+## value
 
-Sauer (2010), arXiv:1010.4212, §2; Csikvári–Lin (2014), *Graph Homomorphisms between Trees*, Theorem 1.4 and Remark 4.13; and the published 2026 type-polynomial/Widom–Rowlinson result for the \(\{1,2\}\)-metric slice. The source comparison is statement-based and includes these explicitly non-covering assumptions. Unindexed similar results remain a priority risk. There is no independent mathematical audit or certification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Counting logical one-point extensions is a natural metric-space invariant. The neighborhood formula turns a priori nonlocal triangle conditions into a local tree calculation, and a sharply determined seven-vertex counterexample rules out path minimality in a different setting from graph homomorphisms. The explicit gap at every greater order makes the failure structural rather than an isolated anomaly.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

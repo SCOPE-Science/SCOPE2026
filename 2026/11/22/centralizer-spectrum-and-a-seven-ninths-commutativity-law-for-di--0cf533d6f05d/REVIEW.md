@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof checks the complete presentation, an induction eliminating repeated hub letters, and distinct normal forms via leaf-wise morphisms to a concrete five-element transformation monoid. The exact centralizer formulas follow from the verified five-element commuting table, not statistical sampling. The summation and asymptotic step use binomial identities and exact finite monoid size. The embedded checker directly verifies all centralizers for \(m=1,\ldots,5\). Risk: the computation is finite and does not certify arbitrarily many leaves; the written normal-form argument provides that proof.
+PASS
 
-## Originality — PASS (best-knowledge; residual risk)
+The induction c a_W c=a_W c combines with a_i c a_i=a_i c to produce a_S or a_U c a_V with disjoint U,V. Sending all leaves but one to 1 preserves the relations. The five transformations 1,a,c,ac,ca check the two-letter quotient, and the resulting projection tuple is injective since it recovers the normal-form type and all leaf states (m≥1). The image is the union of the two full cubes {1,a}^m and {c,ac,ca}^m. On one coordinate the leaf–leaf block has four ordered commuting pairs, either mixed block has four, and the hub–hub block has seven (only c and ca fail to commute with each other). The row counts in these blocks produce the two centralizer sizes for each element and sum to 7^m+3·4^m. Only 1 and the full-leaf form followed by c use entirely universal rows in their respective blocks. Division by (2^m+3^m)^2 gives the equivalent (7/9)^m. The source checker and its stored finite m=1,…,5 outputs were inspected, not replayed; the proof is valid at arbitrary positive m.
 
-Searches covered directed-star Hecke–Kiselman commuting pairs, centralizers, normal forms, exact numerators \(7^m+3\cdot4^m\), and the associated endomorphism census. The 2010 foundational paper provides the presentation and structural idempotent theorem; the 2013 paper treats graph dynamics, focusing on complete acyclic orientations. The 2019 general normal-form paper covers the normalization step, but not this centralizer enumerator. The indexed oriented-star endomorphism paper is the closest same-object result; its accessible summary concerns endomorphism counts and concentration, not centralizer-size multiplicities or commuting probabilities. That paper's complete text was inaccessible; this remains a material historical-priority risk. The prior general normal form makes elementary reductions available, so the new contribution is specifically the exact full spectrum and exponential commutativity law, not an assertion that the normal form itself is new.
+## originality
 
-## Value — PASS
+PASS
 
-Centralizer statistics and commuting probabilities are natural invariants of finite noncommutative semigroups. The result determines **every** element's centralizer size, not just a single small numerical count, and gives a sharp exponential noncommutativity law for an unbounded family of finite aperiodic \(\mathcal J\)-trivial monoids. The proof explains why the fixed five-element base gives two independent coordinate regimes and the nontrivial base \(7/9\). It is a motivated exact classification even if the proof techniques are elementary; significance beyond this family is not claimed.
+The size, normal-form shape, and commutation test restricted to idempotents have prior coverage and are not credited as new. The supported distinct result is the element-wise centralizer spectrum and resulting all-element commuting law for the Hecke–Kiselman star. The strongest different record gives a nearly parallel formula for a star left regular band but different hub centralizers, while the closest same-monoid prior record analyzes only idempotent commutation for its endomorphism calculation. Deriving the full spectrum needs identifying the faithful coordinate model and evaluating the local non-idempotent commutation block, not substituting m into those results.
 
-## Scope and verification risk
+## value
 
-Only inward-oriented stars, \(m\ge1\); no claim about arbitrary quivers. Tests used actual embedded code, with no reliance on previous executions. The indexed endomorphism comparison was limited to its published search summary; the three arXiv sources' pertinent sections were accessed as full HTML.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For a canonical noncommutative graph family, the full centralizer invariant and asymptotic describe all elements rather than the idempotent subfamily. The two-cube representation accounts for the growth constant and explains why an equally large star dependence band has different commutation statistics. The exact count and spectrum are individually useful without extending to mixed orientations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

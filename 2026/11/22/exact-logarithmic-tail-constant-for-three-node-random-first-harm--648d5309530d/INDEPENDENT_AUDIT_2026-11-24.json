@@ -1,0 +1,198 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:27:00.057348Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py and SLOGAN.txt",
+        "/workspace/repairs/2/RESULT.md and SLOGAN.txt: complete corrected claims and proof"
+      ],
+      "rationale": "Final assessment is of /workspace/repairs/2/RESULT.md and SLOGAN.txt. The original tail and moment threshold are correct. The original unconditional-variance wording is not valid under the usual definition requiring a mean; the precise surviving noise conclusion is infinite unconditional second moment and no well-defined mean. Rotating the labelled first node to zero and sorting the other two gives density 2/(2π)^2 and avoids the size bias from using a deterministic cut to distinguish a gap. The moment matrix has nonzero determinant a.s.; the solution is (sin b,sin c,sin a) divided by 4 sin(a/2) sin(b/2) sin(c/2). The chance all gaps are below π is 1−3/4=1/4. For disjoint triangular corners with two gaps summing to less than δ, the exact complement has at most one gap less than δ/2 and contributes O_δ(1/T). In the a+b corner the homogeneous approximation is 2√2·√(1−ab/(a+b)^2)/(ab) with uniform relative error O(δ²). As an independent check of the logarithmic coefficient, the part where the two small gaps have bounded ratio has area O(1/T) at fixed ratio bounds, since W=O((a+b)^−2) there. In the unbalanced sectors the square-root factor tends uniformly to 1 as the ratio of smaller to larger gap tends to zero. The triangular product event ab<K/T is squeezed between squares of side δ/2 and δ; each has area (K/T)(1+log(d²T/K)) for fixed side d and large T. The corner coefficient is therefore 2√2 after sending the cutoffs to zero, and three equal corners times 1/(2π²) give 3√2/π². Tail integration gives p<1. Conditional second moment is σ²W²; Tonelli yields divergence. On the unit sphere u↦E|u·ε| is continuous and strictly positive by the positive directional variance, so it is uniformly bounded below. As E W is infinite, the noise's positive and negative parts both have infinite expectation (they have equal finite expectations conditional on the nodes). The repair proves this and distinguishes conditional variance from unconditional integrability. The frozen diagnostic was inspected but not executed; its finite tests do not prove any limit.",
+      "residual_risks": [
+        "Exactly three iid uniform full-circle nodes, normalized integral and Euclidean interpolatory weight norm. Noise conclusions require the stated independence, centering and common positive finite variance. No deterministic input-error or oversampling claim."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Xu–Shen's risk formula uses the full spectrum, and Theorem 6 proves inverse squared smallest-singular-value divergence under iid sampling. Bělík–Narayan–Turnage's Theorem 6 (p.19, around offset 90787) gives high-probability stability for a size-controlled, admissible least-squares rule. Yu–Townsend and Austin–Trefethen use bounded grid perturbations; Tucci–Whiting address growing matrix dimensions."
+        ],
+        "reasoning": "Full spectral expected-risk divergence does not determine the tail of a particular normalized estimator, and different node designs or a growing sample number do not give the fixed-three-node iid limit.",
+        "searches": [
+          "arXiv:2609.29286 Theorems 1 and 6",
+          "arXiv:2609.09506 §4.5, Theorem 6",
+          "arXiv:2202.04722 §4.2 Theorem 4.2",
+          "arXiv:1612.04018 Theorem 1.1",
+          "arXiv:1202.3184 abstract",
+          "External literature: \"Bass\" \"Gröchenig\" \"Random Sampling of Multivariate Trigonometric Polynomials\" preprint full text"
+        ]
+      },
+      "checked_sources": [
+        "Resultary",
+        "323dcae74731",
+        "31e79eafd4fb",
+        "fd84114e8959",
+        "6c69054886a3",
+        "34d52f2ee2dd",
+        "arXiv:2609.29286",
+        "arXiv:2609.09506",
+        "arXiv:2202.04722",
+        "arXiv:1612.04018",
+        "arXiv:1202.3184",
+        "Bass–Gröchenig DOI (unsuccessful full-text retrieval)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Polynomial interpolation on [0,1] has a local factor (z−u)^2 depending on the cluster's position, with an ordered triple density there. The circle's normalized quadrature has three equivalent cyclic corners with different density and constant local factor. Full-inverse bounds do not identify its zero-frequency row's local coefficient."
+        ],
+        "reasoning": "The collision method is an actual precedent. The exact two-gap normalization and coefficient for this row and probability law are not obtainable by substituting n=3 into a known upper/lower bound or by changing the evaluation point in the interval result.",
+        "searches": [
+          "323dcae74731 RESULT.md offsets 0–3600 and 8500 onward",
+          "31e79eafd4fb RESULT.md offsets 0–2487",
+          "arXiv:2609.29286 PDF pp. 7 and 10 (Theorems 1 and 6)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For a square Fourier sampling matrix at frequencies −1,0,1 the same functional extracts its zero-frequency coefficient: the weight vector is the corresponding inverse row, not the matrix's full inverse-Frobenius norm. 323dcae74731 describes the latter. 34d52f2ee2dd concerns deterministic three-site motion and the ℓ1 weight amplification, not iid full-circle Euclidean amplification."
+        ],
+        "reasoning": "Rotation, reordering and replacing real first harmonics by the ±1 Fourier basis leave the normalized constant extractor unchanged. But changing the norm to all inverse rows, or changing the random law, is not an equivalent formulation of this limit.",
+        "searches": [
+          "Resultary: three iid uniform circle nodes first-harmonic interpolatory quadrature Euclidean weight norm sharp tail exact constant 3 sqrt(2)/pi^2",
+          "External literature: \"three-node\" \"random Fourier interpolation\" logarithmic tail exact constant quadrature weights independent uniform circle nodes reconstruction risk barycentric quadrature"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "323dcae74731 has exact chord-product surrogate constants but only order (log T)/T bounds on the full inverse norm at n=3. 31e79eafd4fb states the sharp tail for polynomial point evaluation, with constant 6√2∫_0^1(z−u)^2 du. fd84114e8959 uses independent bounded jitters of stratified nodes. Same-day 6c69054886a3 and 34d52f2ee2dd are deterministic cases with a condition number or ℓ1 observable. The identical target result is not earlier independent evidence."
+        ],
+        "reasoning": "These are exact neighboring results, not a lookup of the normalized iid first-harmonic quadrature coefficient. Neither polynomial Lagrange weights nor deterministic Fourier-grid norm data instantiate the assigned random model.",
+        "searches": [
+          "Resultary: Critical inverse moments and logarithmic tails of random Fourier interpolation three nodes complete inverse Frobenius norm logarithmic bounds",
+          "Resultary: Sharp positivity and logarithmic noise barrier in three-node perturbed trigonometric quadrature bounded stratified jitters",
+          "Resultary: three-node random trigonometric polynomial reconstruction risk and barycentric quadrature log over T tail"
+        ]
+      },
+      "rationale": "The repaired claim retains the distinct exact coefficient for the one-dimensional quadrature functional and removes misleading noise terminology. Credit prior logarithmic order for the full inverse and the prior sharp collision analysis for polynomial point evaluation, as well as qualitative reconstruction instability. Neither states or determines the repaired sharp coefficient under the same law and norm. No novelty is assigned to the familiar positivity probability or to deductions from the new tail.",
+      "residual_risks": [
+        "Bass–Gröchenig full text was unavailable, and equivalent unindexed treatments of the zero-frequency row cannot be excluded. The pass concerns the exact quadrature-functional coefficient, not general instability or the collision method."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material tail-order precedent, not the same exact coefficient",
+          "evidence": "n=3 gives two-sided (log T)/T order for the inverse-Frobenius norm. Exact surrogate constants do not determine the matrix constant or the quadrature row's.",
+          "identifier_or_url": "323dcae74731",
+          "material_read": "RESULT.md Finding and assumptions offsets 0–3600; related work and limitations offsets 8500 onward",
+          "method": "Local mirror published result",
+          "title": "Critical inverse moments and logarithmic tails of random Fourier interpolation",
+          "trigger": "Same iid nodes and near-singular Fourier matrices"
+        },
+        {
+          "assessment": "Close mathematical precedent, distinct law and functional",
+          "evidence": "For three uniform interval nodes and point z, the coefficient is 6√2∫_0^1(z−u)^2 du, not a normalized circle mean.",
+          "identifier_or_url": "31e79eafd4fb",
+          "material_read": "RESULT.md Finding, assumptions and two-gap proof offsets 0–2487",
+          "method": "Local mirror original result passage",
+          "title": "A logarithmic collision tail for three-node random quadratic interpolation",
+          "trigger": "Sharp iid three-node logarithmic tail with Euclidean weights"
+        },
+        {
+          "assessment": "Different, stratified bounded sampling law",
+          "evidence": "Jitters are centered on a grid; endpoint moments and positivity differ.",
+          "identifier_or_url": "fd84114e8959",
+          "material_read": "RESULT.md Finding and assumptions offsets 0–3560",
+          "method": "Local mirror published result",
+          "title": "Sharp positivity and logarithmic noise barrier in three-node perturbed trigonometric quadrature",
+          "trigger": "Same exactness space and noise question"
+        },
+        {
+          "assessment": "Same-day methodological overlap but different law and observable",
+          "evidence": "Three-periodic grid perturbations yield exact singular bands and a matrix condition-number law.",
+          "identifier_or_url": "6c69054886a3",
+          "material_read": "Published RESULT.md Finding from offset 0",
+          "method": "Local mirror published result",
+          "title": "Three-band rigidity and a sharp triple-collision law for periodic Fourier sampling",
+          "trigger": "Same-day Fourier triple-collision result"
+        },
+        {
+          "assessment": "Different deterministic design and norm; no priority inferred from date",
+          "evidence": "Local fixed-grid node motion produces quadratic ℓ1 worst-case amplification, not a random ℓ2 tail.",
+          "identifier_or_url": "34d52f2ee2dd",
+          "material_read": "Published RESULT.md Finding from offset 0",
+          "method": "Local mirror published result",
+          "title": "A sharp three-site positivity transition and quadratic noise blowup",
+          "trigger": "Same-day local three-node quadrature noise amplification"
+        },
+        {
+          "assessment": "Directly relevant risk divergence but no sharp row-functional limit in the relevant statements",
+          "evidence": "Risk uses the inverse singular-value sum; the iid theorem gives divergence of the inverse squared smallest nonzero singular value.",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.29286",
+          "material_read": "Abstract p.1; Theorem 1 p.7, offset 19780; Theorem 6 p.10, offset 29950",
+          "method": "OA original PDF passages",
+          "title": "Non-asymptotic Analysis of Expected Reconstruction Risk for Trigonometric Polynomial Models",
+          "trigger": "Closest primary result on iid uniform random Fourier instability"
+        },
+        {
+          "assessment": "Distinct high-probability stability conditions",
+          "evidence": "Theorem 6 prescribes admissibility, reference-weight concentration and a sample size for stability of an intermediate least-squares rule.",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.09506",
+          "material_read": "Abstract and introduction p.1; Gramian §4.1 p.15, offset 68580; stability Theorem 6 p.19, around offset 90787",
+          "method": "OA original PDF passages",
+          "title": "Constructive Tchakaloff results and well-conditioned quadrature through randomized least squares",
+          "trigger": "Randomized exact quadrature construction"
+        },
+        {
+          "assessment": "Perturbed-grid ℓ1 bound, not iid ℓ2 tail",
+          "evidence": "For α<1/4, absolute sum of weights bounded by 2π/(cos(πα)−sin(πα)).",
+          "identifier_or_url": "https://arxiv.org/abs/2202.04722",
+          "material_read": "§4.2, Theorem 4.2 p.11, offset 45951",
+          "method": "OA PDF passage",
+          "title": "On the stability of unevenly spaced samples for interpolation and quadrature",
+          "trigger": "First-harmonic trigonometric exactness and weight norms on random-like grids"
+        },
+        {
+          "assessment": "Different sample regime",
+          "evidence": "Convergence of rules on bounded perturbations of equispaced grids as the node count increases.",
+          "identifier_or_url": "https://arxiv.org/abs/1612.04018",
+          "material_read": "Theorem 1.1 pp.2–3, offset 8792",
+          "method": "OA PDF passage",
+          "title": "Trigonometric interpolation and quadrature in perturbed points",
+          "trigger": "Earlier results for first-harmonic interpolation and quadrature on perturbed nodes"
+        },
+        {
+          "assessment": "Dimension-growth result in the inspected passage; not evidence of whole-document exclusion",
+          "evidence": "The stated asymptotics concern growing matrices, not a fixed-size quadrature row.",
+          "identifier_or_url": "https://arxiv.org/abs/1202.3184",
+          "material_read": "Abstract p.1, offset 0",
+          "method": "OA PDF abstract only",
+          "title": "Asymptotic behavior of the maximum and minimum singular values of random Vandermonde matrices",
+          "trigger": "Random Fourier matrix singular values"
+        },
+        {
+          "assessment": "Unresolved at theorem level, not evidence for or against priority",
+          "evidence": "Available summary identifies recovery of trigonometric polynomials from random samples, not the exact tail under review.",
+          "identifier_or_url": "https://doi.org/10.1137/S0036141003432316",
+          "material_read": "Title and indexing summary only; full text unavailable",
+          "method": "Lawful OA DOI attempts returned 403; identified indexing entry could not supply full text (HTTP 202)",
+          "title": "Random Sampling of Multivariate Trigonometric Polynomials",
+          "trigger": "Random-trigonometric-sampling predecessor identified by the inverse-tail result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired RESULT.md and SLOGAN.txt",
+        "Sharp-tail comparison with 323dcae74731 and 31e79eafd4fb"
+      ],
+      "rationale": "The smallest possible interpolatory sample for a normalized circle mean exact through the first harmonic is a natural numerical design, not an arbitrary case. A sharp large-weight amplification probability quantifies the incidence of instability and gives a benchmark for comparing designs that separate, stratify or oversample nodes. This distinct exact coefficient is not given by prior order estimates. The corrected noise statement accurately interprets the instability without requiring an unconditional mean.",
+      "residual_risks": [
+        "No claim of stable designs derived from the tail, or of an exact law at other sample sizes or other norms."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

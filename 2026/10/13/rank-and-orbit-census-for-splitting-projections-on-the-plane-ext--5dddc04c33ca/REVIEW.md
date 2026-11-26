@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The Rota–Baxter identity for an idempotent map is equivalent to closure of image and kernel. The classification derives all subalgebras from the square-zero elements and the one-dimensional product \(J^2=Kz\), then enumerates all complementary pairs. The automorphism formula is verified directly from the exterior generators and proves transitivity on the incidence family. Finite subspace and operator enumerations over three prime fields independently confirm the rank counts and orbit sizes. The statement does not extrapolate an unproved splitting theorem to all positive-characteristic operators.
+## correctness
 
-## Originality — PASS, with residual risk
-The characteristic-zero splitting theorem of Benito–Gubarev–Pozhidaev and Gubarev provides a general premise but does not classify the incidence orbits and their finite-field sizes. The 2026 real classification of operators uses explicit matrix families without the rank census over arbitrary finite fields. An earlier finite-field weight-zero classification on the same algebra concerns a different equation. The exact rank and orbit enumeration, including characteristic two, is not implied by those statements. It remains possible that older work gives an equivalent complement-incidence count.
+PASS
 
-## Value — PASS
-This gives a complete orbit classification of a canonical, structurally motivated class of operators (algebra-splitting projections) on the smallest noncommutative exterior algebra. It identifies the intrinsic incidence geometry of every nontrivial orbit and computes its point counts over every finite field, complementing the known real and characteristic-zero operator classifications. The rank distribution and eight-orbit theorem are useful as a benchmark for field dependence and deformation of Rota–Baxter structures; no broader application is claimed.
+An idempotent P gives a direct sum of image and kernel. The weight −1 identity on each same-summand pair is precisely closure of that summand, and on mixed pairs both sides vanish. Since J³=0, an element a1+j with a≠0 has a polynomial relation with nonzero constant term expressing 1 as a linear combination of its positive powers. Exactly one summand of a complementary subalgebra pair therefore contains the unit. In J, the determinant product is alternating also in characteristic two; all lines are subalgebras and a plane is closed exactly when it contains Kz, since otherwise its projection to J/Kz is onto. The possible ordered dimensions and unit placement now give exactly the four isolated pairs and four incidence families. The GL₂ change on J/Kz moves any ordered transverse pair of directions to any other; a central shear matches the lift of the line without changing the plane containing Kz. This proves transitivity in each family, and ranks together with unit placement and the distinguished subspaces K1,J separate the eight orbits. The planes number q+1 and each admits q² transverse lines. Over any field the fibers are the affine planes of complements to T in J, locally trivial by choosing a fixed transverse vector on a chart. An independent F₂ replay enumerated 24 subalgebras, checked all 52 ordered complementary projections against idempotence and the 16 basis-pair identities, and found ranks (1,13,24,13,1) and orbit sizes (1,1,1,1,12,12,12,12). Replay: /workspace/branches/ddcb4f98-d799-474d-ac90-1a99fdabd08f/replay_f2.py. The supplied verifier was inspected, not executed. The bounded replay does not prove the arbitrary-field result, and no classification of nonsplitting operators is asserted.
 
-## Limitations and closest work
-The positive-characteristic theorem concerns only idempotent weight-minus-one maps. Relevant comparisons are arXiv:2609.07377v1, DOI 10.1007/s00009-018-1234-5, and arXiv:1805.00723. The original 2018 Gubarev full text was not inspected, so an unnoticed equivalent finite-field incidence statement remains a residual risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit prior splitting theorems and the real fixed-basis classification. The supported distinct contribution is the arbitrary-field conjugacy classification of the idempotent weight −1 locus with its incidence-orbit sizes and uniform field count. The distinct indexed symmetric-form result independently covers the characteristic-two labeled incidence classification and rank polynomial as a special case, but does not give the all-field exterior-algebra orbit classification. The overlapping count alone is not credited as new.
+
+## value
+
+PASS
+
+Once splitting is known, the natural classification question is which complementary pairs are equivalent under algebra automorphisms. This gives all eight orbits, not just a matrix list or a point count for one field, and explains their sizes over finite fields via the same incidence geometry in every characteristic. The extension to characteristic two respects its change in commutativity; the prior overlap of labeled counts in that one regime does not exhaust the classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

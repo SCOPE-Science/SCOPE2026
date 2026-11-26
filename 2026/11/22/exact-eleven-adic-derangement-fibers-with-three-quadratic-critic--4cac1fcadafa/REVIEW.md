@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The convergent eleven-adic falling-factorial interpolation and exact finite Taylor-jet certificate identify eight branches with unit derivative and three with quadratic critical points. Hensel lifting, an analytic square-root coordinate change, and parity splitting give the exact all-residue, all-prime-power formula. The standalone checker independently compares complete finite period histograms for powers one through six. The finite checks do not substitute for the analytic argument. Remaining risk: an independent referee has not checked the normal-form proof.
+## correctness
 
-**Originality — PASS (best-knowledge assessment).** Miska's 2015 source treats periodicity and valuations through Hensel methods; O'Desky–Richman establish local analytic interpolation of derangement-like sequences. Neither inspected section states the evaluated eleven-adic three-critical-branch constants or the exact full fiber formula. Indexed findings at primes two, three, five, and seven are related but do not provide this eleven-adic specialization. The closest general p-adic methods mean that a broader or unpublished result could still imply the statement; originality has not been independently certified.
+PASS
 
-**Mathematical value — PASS.** The distribution of a classical sequence over the first post-ternary odd prime with nonregular local derivatives distinguishes singular from regular residue fibers. It gives every count at every prime-power level, an exact image measure, and an unbounded-multiplicity phenomenon absent in the regular five- and seven-adic cases; the natural invariant and the need for quadratic branches are structural rather than chosen for a small isolated example.
+The falling-factorial summands converge uniformly since every 11 consecutive factors give at least one factor of 11. Finite partial sums are integral polynomials and one-Lipschitz, so the limit is one-Lipschitz as well. For jets of fixed order j, a coefficient removes at most j factors from each product, so the coefficient sum converges integrally and substitution T=11t gives a restricted series. The truncation at index 32 suffices for constants modulo 1331, linear coefficients modulo 121 and quadratic coefficients modulo 11: every omitted term originally contains at least three divisible factors. At n>=0 the series terminates and equals (-1)^n D_n, by the recurrence; each class modulo 11^k occurs once at each parity in the stated block. The regular branches become unit-affine isometries after normalization by 11. The singular scaled series divided by 121 reduces coefficientwise to a quadratic with a nonzero quadratic coefficient, hence a unique critical center by Hensel. Translation and division by the square of the translated variable leaves a restricted series congruent to u_a. Its ratio to u_a has a restricted square root 1 mod 11 by the binomial series, yielding a linear isometry plus an 11-divisible Lipschitz correction; lifting gives an exact bijective coordinate. This proves E as exactly eleven lifts of each square root, including the modulus-one case. The square count follows by halving an even valuation and lifting the two unit square roots (or divisibility by 11^ceil(m/2) at zero). The regular signed images already cover all seven target balls, and taking a critical value proves unbounded fibers. The claim uses a complete period, not least period. Independently python3 /workspace/replay_independent.py 2 computed modular jets by nested Horner, recovered all three critical rows including gamma=(121,1090,1050) mod 1331, and compared every fiber at k=1..5 from recurrence and direct square histograms (maxima 6,26,48,125,246). This bounded reproduction checks the certificate and consistency, not the infinite theorem; the frozen k=6 run is recorded, not asserted here as independently replayed.
 
-**Source limitations.** The cited primary papers were inspected at their theorem/argument sections. Available mathematical-index results and accessible past claim summaries were checked for implication/overlap; these sources do not exhaust historic literature. The exact claim is about the fixed prime eleven, not all primes.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The credited general interpolation, congruence period and lifting tools are not new. The supported distinct result is the evaluated prime-eleven image and full signed all-depth index-fiber law with three quadratic branches; the strongest compared same-object result at seven is regular, and the closest same-prime fiber result is for a different sequence. No compared primary result or catalogue statement gives the same critical and regular data for derangements at eleven.
+
+## value
+
+PASS
+
+For classical derangements, specifying the entire prime-power representation count is more informative than a congruence or an image alone. At eleven, critical fibers become unbounded without opening new target balls; that contrast with the compared regular seven-adic case motivates the exact invariant and the parity-aware three-sheet count. This is neither a least-period result nor a claim for general primes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

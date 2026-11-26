@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-23.md",
+      "INDEPENDENT_AUDIT_2026-11-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-Exact finite graph certificate: `python verify_graph.py`. The standalone script enumerates every one of the \(16^4\) four-column constraint tuples and constructs the 4,096-vertex directed three-step-return graph. It checks exactly 10,824 edges; sorted cyclic strongly connected component sizes \(1,1,3,3,8,136\); all cyclic-component local fixedness; both exceptional directed three-cycles; and the three-step return of both seed configurations. The edge-stream SHA-256 is `bee9571a222b202d87194ab67c8a685114cc14b3dea77a2ac79cbee421c98b26`. The all-circumference claim follows by the proved equivalence between space-cyclic configurations and closed graph walks. The program ran successfully.
+# Independent mathematical audit
 
-Independent cell-level finite tests: `python verify_direct.py`. For all labelled binary states, \(n=3\) gives 22 fixed and 28 three-step-fixed states; \(n=4\) gives 42 and 42; \(n=5\) gives 266 and 266. It ran successfully. Finite state enumeration alone is not a substitute for the graph certificate and mathematical closed-walk proof. Independent third-party audit has not been performed.
+## correctness
+
+PASS
+
+For triples of four-bit columns (a,b,c), put an edge to (b,c,d) exactly when applying the column rule f three times on the shrinking window (a,b,c,d) returns a at its first site. The overlap forces every indexed closed walk to encode exactly one labelled space word satisfying F^3 x=x, and conversely, also at circumference 3 where input columns wrap. Independent exact reconstruction over 16^4 tuples gave 4096 vertices, 10824 edges and cyclic SCC sizes 1,1,3,3,8,136; the only cyclic components containing any state with f(a,b) different from a are the two simple triangles of alternating columns 5 and 10. Their words are repetitions of (5,5,10) and (5,10,10), up to horizontal phase. The update shifts those words because the center and north inputs are opposite in each cell. Each triangle contributes three indexed starts iff 3 divides n. Every other closed walk is fixed by F, so the six labelled states form exactly two primitive temporal three-orbits when they exist; no spatial quotient was taken. Direct cellwise checks at n=3,4,5 gave fixed/F^3-fixed counts (22,28),(42,42),(266,266), corroborating rather than replacing the all-length SCC argument. Private replay: /workspace/branches/df81a38a-7468-4771-a068-7d26579f1fae/independent_graph.py and independent_graph.log (the logged digest uses comma separators, unlike the frozen colon serialization). The supplied scripts were inspected, not executed.
+
+## originality
+
+PASS
+
+The NEC rule and finite-state periodic-state enumeration are not new. The distinct supported claim is the universal circumference classification at height four: exactly two horizontal translating temporal-three orbits on multiples of three, and none otherwise. The strongest distinct catalogue match has height three and a materially different spectrum; the published statements inspected concern general enumeration machinery, stationary/critical states, or erosion and consensus. Access limitations are recorded separately.
+
+## value
+
+PASS
+
+Temporal three is the first candidate for a three-step return distinct from a fixed state or flip. At this natural strip width the calculation classifies the entire periodic sector uniformly in circumference, not a few sizes, and shows that the richer height-three behavior collapses to two explicitly described waves. The result is useful as an exact obstruction and benchmark for recurrence in anisotropic majority dynamics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

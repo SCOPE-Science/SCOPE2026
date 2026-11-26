@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:29:33.248902Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A proper power, necessarily a cube in weight three, yields a self-border; distinct rotations yield a cross-border. Removing the n/3 cubes when 3 divides n and dividing by the primitive orbit size n gives the floor bound. In the construction, proper suffixes starting at the second one have length at least b+1 and two ones while any corresponding prefix has three; suffixes starting at the third one have length at least h+1 and one one while any corresponding prefix has at least two. Suffixes starting with zero are excluded by the first symbol. The count hb-h(h+1)/2 attains the bound in all three residue classes. For n=3 the only word is 111 and the empty code attains zero. Orbit saturation proves the converse for every optimal code; the theorem does not assert that arbitrary transversals are non-overlapping. The supplied verification notes and script were inspected, not executed. Separate bounded reproduction (branches/cb444601-edb8-41de-846e-802c63c67ac3/independent_check.py and independent_check.log) checked all proper lengths for 53,940 ordered construction pairs and exact primitive-orbit coverage for 3<=n<=26.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Proposition 5 supplies the orbit-bound method in its balanced setting, not sparse attainment.",
+          "153a0585e8dd gives the same capacity and a stronger labelled classification of maximizers."
+        ],
+        "reasoning": "The general bounding method alone would not settle attainment. The specialized classification and earlier attaining theorem do.",
+        "searches": [
+          "constant-composition cross-bifix-free codes fixed weight extremal construction",
+          "Stanovnik–Moškon–Mraz arXiv:2410.18458v1 Proposition 5",
+          "153a0585e8dd"
+        ]
+      },
+      "checked_sources": [
+        "8f7e9b766ee0",
+        "d5754a3964ab",
+        "153a0585e8dd",
+        "arXiv:2410.18458v1",
+        "arXiv:1209.0236",
+        "arXiv:1303.1026 (abstract and introduction)",
+        "arXiv:2402.18896v1 (Theorem 2)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier catalogue has the same capacity via a different explicit construction; at most one primitive representative per orbit plus equality gives the frozen every-optimum assertion.",
+          "The identical indexed construction in d5754a3964ab differs only at the unmentioned n=3 case, where its index range is empty."
+        ],
+        "reasoning": "The earlier theorem plus saturation covers the substance; the wording of the converse and the minimal empty length are not a surviving distinct finding.",
+        "searches": [
+          "8f7e9b766ee0 Finding and primitive-orbit proof",
+          "d5754a3964ab Finding and construction",
+          "\"cross-bifix-free\" \"constant weight\" weight 3 maximum size OR \"non-overlapping codes\" \"weight 3\" primitive necklaces"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "8f7e9b766ee0: optimal primitive-necklace transversals and the same capacity for n>=4.",
+          "d5754a3964ab: the identical three positions and index bounds, using different dummy letters."
+        ],
+        "reasoning": "Non-overlapping and cross-bifix-free impose the same proper-prefix/suffix condition here. The constructions and orbit scope were compared with cyclic rotations, not dihedral classes.",
+        "searches": [
+          "optimal constant-weight-three binary non-overlapping codes primitive necklace transversal",
+          "maximum cross-bifix-free constant weight three code floor (n-1)(n-2)/6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Read the catalogue Findings with the exact floor formula, not merely matching search summaries.",
+          "Chee et al. describe short-length optima for their unrestricted binary problem; those are not entries in the weight-three problem."
+        ],
+        "reasoning": "The exact published catalogue formula over all nontrivial lengths is decisive without extrapolating any finite table.",
+        "searches": [
+          "non-overlapping codes weight three primitive rotation classes exact extremal bound",
+          "Resultary IDs 8f7e9b766ee0 d5754a3964ab 153a0585e8dd",
+          "Chee et al. arXiv:1209.0236 Section 3"
+        ]
+      },
+      "rationale": "The earlier October 26 catalogue record establishes the same capacity and primitive-necklace attainment for n>=4. Its attainment and the orbit bound force the same converse. A distinct November 2 record also states the identical indexed construction. The only extra length n=3 is the forced empty case. This is demonstrated mathematical coverage, not a determination of order between the same-day records or of publication priority.",
+      "residual_risks": [
+        "An earlier printed specialization may exist; the bounded search does not adjudicate full historical priority.",
+        "The relative order of distinct November 2 records is not established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers nontrivial capacity and transversal assertions",
+          "evidence": "Same floor bound for n>=4, a distinct explicit attaining threshold construction and orbit saturation.",
+          "identifier_or_url": "2026/10/26/SCOPE-optimal-weight-three-non-overlapping-binary-codes-as-primitive-n--8f7e9b766ee0",
+          "material_read": "Finding and proof, offsets 0–3813 and 4429–4649",
+          "method": "Local-mirror RESULT.md",
+          "title": "Optimal weight-three non-overlapping binary codes as primitive-necklace transversals",
+          "trigger": "Earlier exact capacity and transversal match"
+        },
+        {
+          "assessment": "Equivalent construction; same-day precedence not inferred",
+          "evidence": "The ones occur at 0,a,b with a<=floor(n/3) and a<b<=n-floor(n/3)-1.",
+          "identifier_or_url": "2026/11/2/SCOPE-necklace-perfect-constant-weight-three-binary-non-overlapping-co--d5754a3964ab",
+          "material_read": "Finding and construction, offsets 0–3566",
+          "method": "Local-mirror RESULT.md",
+          "title": "Necklace-perfect constant-weight-three binary non-overlapping codes",
+          "trigger": "Exact indexed construction match"
+        },
+        {
+          "assessment": "Same capacity and stronger stated classification",
+          "evidence": "Counts labelled maximizers by residue class rather than merely proving orbit saturation.",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-capacity-and-rigidity-of-weight-three-binary-cross-bifix-f--153a0585e8dd",
+          "material_read": "Finding, offsets 0–1607, and beginning of classification proof",
+          "method": "Local-mirror RESULT.md",
+          "title": "Exact capacity and rigidity of weight-three binary cross-bifix-free codes",
+          "trigger": "Stronger optimizer classification"
+        },
+        {
+          "assessment": "Prior method, not sparse attainment in the inspected proposition",
+          "evidence": "Counts primitive rotation orbits to upper-bound constrained non-overlapping codes.",
+          "identifier_or_url": "https://arxiv.org/html/2410.18458v1",
+          "material_read": "Proposition 5 around offset 19649",
+          "method": "OA full-text passage",
+          "title": "On maximal almost balanced non-overlapping codes and non-overlapping codes with restricted run-lengths",
+          "trigger": "Closest cited orbit bound"
+        },
+        {
+          "assessment": "Different unrestricted extremum in the passages consulted",
+          "evidence": "General constructions and short-length binary optimality are not fixed-weight-three optimality.",
+          "identifier_or_url": "https://arxiv.org/abs/1209.0236",
+          "material_read": "Abstract, Theorem 1.1 and opening of Section 3",
+          "method": "OA full-text passages",
+          "title": "Cross-bifix-free codes within a constant factor of optimality",
+          "trigger": "Potential general construction and short-length table coverage"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The original fixed-weight extremum and explicit code are mathematically useful, but already covered. Neither the forced singleton-word length n=3 nor the automatic saturation converse is an independently valuable remaining invariant. No distinct repaired result is delivered.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

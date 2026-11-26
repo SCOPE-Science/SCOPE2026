@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim's quantifiers are \(m\ge2\), \(n=3m-2\), on the labelled simple cycle with closed-neighborhood domination and single-edge token sliding only. The gap-deficit argument proves exhaustive configuration types; the invertible closed-neighborhood operator proves unique decoding of coverage-excess pairs; a cardinality comparison proves surjectivity; a coverage difference identity proves exact edge equivalence. The lifted separation strip has monotone Manhattan geodesics; the integer translation and token-exchange identification produces the all-pairs distance formula. The sum-and-gap coordinate estimate and explicit farthest target prove each eccentricity is \(\lfloor n/2\rfloor\). Degree and edge counts follow from boundary-gap restrictions. The independent finite verifier directly rebuilt every legal graph for six lengths, checked 11,290 ordered distances and all listed combinatorial invariants. Those finite cases are not substituted for the general proof.
+## correctness
 
-## Originality — PASS, qualified
-Fricke et al. (2011) prove connectivity, not the sharp radius or all-pairs metric. Hernández-Gómez et al. (2020) explicitly classify the overlap-pattern configurations and symmetries, but do not identify the inverse-three token-slide isomorphism or compute all eccentricities. Křišťan and Svoboda (2023) solve shortest domination slides on other graph classes. Public technical results on cyclic bounded-gap sliding already prove generic transport-optimal distances and are fully credited as covering the isometric metric principle; this is not claimed separately as new. A related self-centeredness result on minimum maximal matchings of cycles uses a different restricted state space, with separation bound one larger and fewer vertices, and does not imply the claimed all-state eccentricities for ordinary minimum dominating sets. The specific new claim is the sharp uniform eccentricity theorem and explicit structural derivation for this state space. Historical unindexed-equivalence risk remains.
+PASS
 
-## Value — PASS
-All optimal sensor placements on a cycle are considered, rather than an arbitrary sampled subfamily. The result sharpens known reachability to a sharp relocation budget from **every** configuration; identifies all degrees and exact graph size; and gives constant-size distance evaluation after computing coverage from the input. The two-overlap interpretation makes extremal reconfiguration distances constructive and provides an exact encoded state model. This is mathematically motivated by shortest feasible domination reconfiguration rather than a small incidental sequence calculation.
+The total cyclic-gap deficit from all threes is 2: either one gap 1 or two gaps 2. This precludes triple coverage and implies exactly two doubly covered sites. The closed-neighborhood operator A is injective because a kernel vector is 3-periodic and gcd(3,n)=1. Under multiplication by 3 inverse, the first gap type gives separation m-1 up to reversal, and the second gives separations j+m-1, 1<=j<=m-1. The counts agree (n(m+1)/2), so the map is onto. In both directions a transformed +1 move is the coverage change delta_(i+2)-delta_(i-1)=A(delta_(i+1)-delta_i); injectivity recovers a legal original slide. The lifted integer strip is L1-geodesic by monotone paths through a feasible coordinatewise minimum. All lifts of a target form one orbit under (a,b)->(b,a+n). A q nearest to the sum difference divided by n yields a sum residual <=floor(n/2) and gap residual <=m<=floor(n/2); other q cannot improve it (their sum residual alone is at least floor(n/2)). Standard-lift sums differ by less than 2n, so this nearest q is among the stated five. From every state one may shift the target sum by floor(n/2), adjusting its gap by one if needed for parity; all target lifts then have sum residual at least floor(n/2). Boundary pairs have exactly two legal moves and interior pairs four, including the n=4 case. This proves the exact distance, eccentricity and census, independently of any finite test. Replay: python3 /workspace/branches/independent_checks.py 1; independent bitmask enumeration and graph breadth layers at n=4,7,10,13,16 agreed for all 5,514 ordered pairs. The frozen script was inspected, not executed; its recorded larger finite run is corroboration only.
 
-## Closest sources and limitations
-Primary literature: Fricke et al., *γ-Graphs of Graphs* (2011); Hernández-Gómez et al., *Transitivity on Minimum Dominating Sets of Paths and Cycles* (2020); Křišťan and Svoboda, *Shortest Dominating Set Reconfiguration under Token Sliding* (arXiv:2307.10847v1, 2023). Related public technical results: *Circular bounded-gap token systems have transport-optimal sliding paths* and *Every minimum maximal matching of a cycle of order congruent to one modulo three has sharp eccentricity* (2026). The result concerns only lengths congruent to one modulo three, uses only ordinary closed-neighborhood domination, and has no independent external audit. Exhaustive historical priority is not asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass the identification of the ordinary minimum-domination slide graph with this particular two-token strip and its resulting uniform eccentricity/census. Do not credit generic transport optimality, already covered in broader token systems, or the old connectivity and state count. The general distance theorem plus the new code and the extremal argument gives the numerical bound; the distinction is not that prior distances could not be used to derive it.
+
+## value
+
+PASS
+
+This is a natural reconfiguration graph whose local moves and global distance were not specified by connectivity or counting. The ordinary-domination code turns an optimization over slide sequences into a constant-size exact calculation after an input scan and produces optimal paths. Equal eccentricity despite differing degrees is a useful structural consequence. The value does not depend on re-proving generic strip geodesics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

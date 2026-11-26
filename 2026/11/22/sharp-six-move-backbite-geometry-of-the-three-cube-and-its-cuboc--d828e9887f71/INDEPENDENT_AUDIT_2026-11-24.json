@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:59:02.886233Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The induced line graph of a set of retained cube edges is acyclic exactly when those edges form a linear forest: degree three yields an incident-edge triangle, and with degrees at most two a cycle survives as a line-graph cycle. Seven retained edges on eight vertices therefore require a spanning path, and an explicit cube Hamiltonian path proves that keeping seven is possible. In a legal exchange an added edge cannot join two old internal vertices: restoring both degree bounds with one deletion would require deleting the very edge just added. An endpoint-to-interior addition requires deletion of the old cycle edge at the interior vertex and is a slide; an endpoint-to-endpoint addition gives a cycle and the two endpoint-adjacent deletions are slides, with five more unrestricted deletions. Thus line-graph slides are exactly endpoint backbites. An independent exact reproduction regenerated the surviving sets and, separately, the unoriented spanning paths and both moves, obtaining identical graphs in the two representations. Replay with python3 /workspace/branches/848edb27-0ab4-456a-bf08-a40f784a6563/independent_check.py. Its BFS and pair verification (lines 134–173; independent_check_output.json lines 2–42) give 72 states, 144 and 264 edges, every eccentricity six in both graphs, and identical sets of 144 unordered distance-six pairs. The exact distance histograms are (144,408,624,732,504,144) and (264,408,576,684,480,144). The action of coordinate permutations and bit flips gives three orbits of 24; the replay (lines 177–230 and output lines 43–124) agrees with all shell and path signatures, not merely the diameter.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The frozen comparison at RESULT.md:48 describes a 2D backbite example of Oberdorf et al. and the spanning squared-Hamiltonian-path condition of Kazazi; attempted primary passage retrieval was unsuccessful. The Resultary summaries give exact graph-specific dynamics for Herschel and Heawood."
+        ],
+        "reasoning": "A triangle-free cube cannot contain the square of a spanning path, since any three consecutive vertices of that square form a triangle. Even a connectivity-only theorem would not establish the distance-six shells or equality of diameter-pair sets. Metrics of distinct finite graphs are not general coverage.",
+        "searches": [
+          "Primary literature search on cube Hamiltonian backbite/reconfiguration metric",
+          "Kazazi, arXiv:2610.05068 (connectivity)",
+          "Oberdorf et al., arXiv:cond-mat/0508094 (backbite sampling)",
+          "Herschel c5419e4dd1be and Heawood 2d160a5ca231 Resultary entries"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md:27–35, 45–51",
+        "Resultary Desargues, Herschel and Heawood entries above",
+        "Cited Oberdorf, Kinney and Kazazi findings as described in the frozen comparison; attempted primary retrievals above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Endpoint moves and cube path count are prior as acknowledged; the Desargues entry reports genuine reduction of distances at the diameter under jumping, unlike here."
+        ],
+        "reasoning": "Slide inclusion in jumps implies only that distances do not increase. It does not imply that all 144 diametral pairs survive, every vertex stays at eccentricity six, or the orbit histograms listed here. The explicit finite distance calculation establishes those additional facts.",
+        "searches": [
+          "Oberdorf et al., cond-mat/0508094",
+          "Kinney et al., 10.1371/journal.pone.0238322",
+          "Desargues c5d7e6e6df56"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact-object hit is the present finding, not independent prior coverage. The distinct Desargues-graph entry describes the same slide/jump comparison on 2860 states with diameters 10 and 6, respectively."
+        ],
+        "reasoning": "Searching both sides of the linear-forest duality is essential. The distinct graph-specific Desargues result gives a different state space and even a different qualitative diameter effect; it does not imply this cube result. Same-day chronology is not known.",
+        "searches": [
+          "Resultary searches for Q3 Hamiltonian path backbite distances and cuboctahedral minimum-feedback-set reconfiguration",
+          "2026/11/22/SCOPE-sharp-locality-costs-for-optimal-feedback-set-relocation-on-the--c5d7e6e6df56"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "RESULT.md:48 acknowledges Kinney et al.'s earlier 144 oriented cube paths. The available comparison identifies the states used for polymer sampling, not an all-to-all exchange metric or transition table."
+        ],
+        "reasoning": "The path number 72 modulo reversal is already known and is excluded from credit. A state count, and even a state list without transitions, is not a computed exchange distance table; using that list still requires generating the two distinct exchange graphs and determining their metrics. No accessible exact transition/distance table matches.",
+        "searches": [
+          "Kinney et al., 10.1371/journal.pone.0238322",
+          "Resultary searches for exact Q3/backbite distance tables and cuboctahedral feedback-set slide/jump tables"
+        ]
+      },
+      "rationale": "The credited assertion is the specific cube/cuboctahedral exchange metric, including the orbit shells and preservation of the diameter-pair set. Neither the backbite move nor the count of Hamiltonian paths is credited as new; the two representations encode one result. Several prior or parallel graph-specific analyses are relevant, but none of the accessible statements supplies this metric.",
+      "residual_risks": [
+        "Primary passages and two exact local-mirror comparators were inaccessible; summary-level scope comparisons are not full-paper exclusions.",
+        "An equivalent table in early compact-polymer or reconfiguration literature, including the uninspected Mansfield work, remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Natural analogue, not demonstrated coverage",
+          "evidence": "2860 optimal states with diameters 10 versus 6, contrasting with both diameters six for the cube.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-locality-costs-for-optimal-feedback-set-relocation-on-the--c5d7e6e6df56",
+          "material_read": "Resultary summary; exact mirror lookup timed out",
+          "method": "Local semantic search and targeted mirror retrieval",
+          "title": "Sharp locality costs for optimal feedback-set relocation (Desargues graph)",
+          "trigger": "Identical move model and related exact distance questions"
+        },
+        {
+          "assessment": "Graph-specific related work",
+          "evidence": "The graph inputs are Herschel and Heawood rather than Q3.",
+          "identifier_or_url": "Resultary c5419e4dd1be and 2d160a5ca231",
+          "material_read": "Resultary summaries, not full statements; Herschel mirror lookup timed out",
+          "method": "Local semantic search and targeted mirror retrieval for Herschel",
+          "title": "Exact backbite distances among Hamiltonian paths of the Herschel graph; The Klein graph hidden in Heawood backbite dynamics",
+          "trigger": "Exact backbite distance analogues"
+        },
+        {
+          "assessment": "The move is prior; primary full-text coverage unresolved",
+          "evidence": "The frozen comparison locates the computed example on a two-dimensional square grid.",
+          "identifier_or_url": "https://arxiv.org/abs/cond-mat/0508094",
+          "material_read": "Frozen comparison at RESULT.md:48; primary passage unavailable",
+          "method": "Targeted OA arXiv passage request",
+          "title": "Secondary Structures in Long Compact Polymers",
+          "trigger": "Classical backbite move and small lattice transition example"
+        },
+        {
+          "assessment": "Credit prior path count; an exact backbite metric was not established by accessible evidence",
+          "evidence": "The frozen comparison acknowledges 144 oriented paths used as sampling building blocks.",
+          "identifier_or_url": "https://doi.org/10.1371/journal.pone.0238322",
+          "material_read": "Frozen comparison at RESULT.md:48; targeted published and printable copies timed out",
+          "method": "Lawful PLOS OA requests including alternate printable PDF",
+          "title": "Crossing complexity of space-filling curves reveals entanglement of S-phase DNA",
+          "trigger": "Same 2x2x2 Hamiltonian path enumeration"
+        },
+        {
+          "assessment": "The cited sufficient condition does not apply to Q3; whole-paper coverage unverified",
+          "evidence": "A spanning squared path necessarily produces triangles.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.05068",
+          "material_read": "Frozen theorem description at RESULT.md:48; targeted primary HTML passage unavailable",
+          "method": "OA literal passage request on squared Hamiltonian paths",
+          "title": "Connectivity of the reconfiguration graph of Hamiltonian paths",
+          "trigger": "Possible broader backbite theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The cube is a canonical small three-dimensional lattice cell in backbite sampling, and its line graph is a natural test of how locality constrains optimal decycling sets. The large increase in one-step moves without any change in the full worst-case pair set is not implied by connectivity or by the known path count. Exact orbit shells and distances are useful small-instance benchmarks in both settings. No general cube theorem or mixing-time conclusion is claimed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

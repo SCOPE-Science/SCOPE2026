@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T14:56:52.548371Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The finite reset identity follows by first-hit splitting of the product-chain resolvent, followed by renewal at the independent reset clock. With u=dt and r=cd, the two kernels, after multiplying by d and d^(k+1), tend respectively to exp(-(1+c)u) and u^k exp(-(1+c)u); the same dominating functions using the minimum c in a compact positive interval give uniformity. The scaled objective tends to (1+c)^k/(k!c), whose log derivative has only the zero c=1/(k-1). Rechecking the boundary estimates: on t<=1/minimum scale as used in the proof (t<=1/d for r<=d, t<=1/r for r>=d) the numerator kernel is bounded below by an absolute positive number. For the low-rate denominator, use q(t)<=exp(-t/2) on [0,1], tanh(t)<=t, and q^d<=q(1)^d thereafter. This yields divergence of the normalized mean when r/d tends to zero; the high-rate bound from the kth power t^k gives divergence when r/d tends to infinity. The lower bounds and a fixed positive scaled trial value prove compactness of every sequence of optimizers, not just local stationarity. An independent zero-rate check is to set Δ_j=M_{d,j}(0)-M_{d,j-1}(0). Its backward equation gives jΔ_j-(d-j)Δ_{j+1}=1 and thus Δ_j=sum_{i=j}^d binom(d,i)/(j binom(d,j)); Δ_1 dominates the fixed-k sum. Finite irreducibility gives the zero-rate renewal limit, and the large-r bound implies existence by continuity. Replay: frozen RESULT.md lines 26–94 and verify.py (read, not executed); the script's two numerical finite methods are not a proof of asymptotic optimality. No claim for growing k or non-Poisson policies.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Janson–Peres optimize over more general discrete-time restart strategies and obtain Euclidean lattice asymptotics. The Evans–Majumdar results concern Brownian geometry and spatially varying or distributed resets."
+        ],
+        "reasoning": "Broader control classes and diffusion resetting formulae do not provide the infimum within constant-rate Poisson resetting on the finite cube in this scaling.",
+        "searches": [
+          "arXiv:1005.4275v1 §1",
+          "arXiv:1102.2704v1 pp. 2–3",
+          "arXiv:1107.4225 pp. 1–3"
+        ]
+      },
+      "checked_sources": [
+        "Resultary records 54dc194828f1 and 95bb7cbb670b",
+        "arXiv:1005.4275v1",
+        "arXiv:1102.2704v1",
+        "arXiv:1107.4225",
+        "arXiv:2103.10984"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The standard renewal expression determines the mean from the first-passage transform but leaves its scaled transform and the two escape regimes to analyze. The finite weighted-graph maximum-direct-hazard criterion assumes a positive direct target rate at the starting state, absent at k>=2."
+        ],
+        "reasoning": "Neither the exact finite renewal formalism nor the cited restart results give the compactness of scaled global minimizers or the factorial coefficient without new estimates.",
+        "searches": [
+          "Evans–Majumdar arXiv:1102.2704v1 renewal and optimum",
+          "Janson–Peres arXiv:1005.4275v1 grade formulation",
+          "Resultary 95bb7cbb670b Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The symmetric Ehrenfest process projected to weights is an underlying even-dimensional cube birth–death chain, but its catastrophes jump to the passage state at 0 in centered coordinates. Here resetting jumps to the initial non-target layer and the target is the rare corner."
+        ],
+        "reasoning": "Changing time units can only rescale the rate and mean; it does not relocate the target relative to the reset vertex. Matching the birth–death part does not give an equivalent first-hit problem.",
+        "searches": [
+          "Resultary: hypercube Poisson restart, fixed-distance optimum and scaling",
+          "arXiv:2103.10984 abstract and Eqs. (1)–(3)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The sole coefficient-level matching indexed record is 54dc194828f1 itself. Record 95bb7cbb670b gives an exact four-vertex weighted-graph rate and value with direct target adjacency; no matching fixed-k large-d table was identified in the inspected sources."
+        ],
+        "reasoning": "A finite weighted adjacent graph with a positive direct target jump has a different high-rate limit, and does not tabulate the target asymptotics.",
+        "searches": [
+          "Resultary: hypercube fixed-k optimum rate and optimal mean; finite-network reset threshold"
+        ]
+      },
+      "rationale": "Reset renewal and Ehrenfest dynamics are prior, but the checked time/distance normalizations and theorem scopes did not cover the fixed-distance corner mean and all-minimizer limits.",
+      "residual_risks": [
+        "Bounded searches and accessible cited passages do not exclude unlocated finite-network or Ehrenfest work with the same rare-target optimum; this is not a publication-priority determination."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "different policies, geometry and scaling",
+          "evidence": "Defines the grade over restart strategies of a countable-state chain, with asymptotics for simple walks on integer lattices.",
+          "identifier_or_url": "https://arxiv.org/html/1005.4275v1",
+          "material_read": "Abstract and §1, OA offsets 0–5283",
+          "method": "open article passages",
+          "title": "Hitting times for random walks with restarts",
+          "trigger": "broader random-walk restart optimum"
+        },
+        {
+          "assessment": "credits renewal and diffusion optimization, not cube asymptotics",
+          "evidence": "Mean and finite optimal rate for one-dimensional diffusion with return to x0 and an origin target.",
+          "identifier_or_url": "https://arxiv.org/pdf/1102.2704v1",
+          "material_read": "pp. 2–3, OA offsets around 14000 and 18250",
+          "method": "open PDF passages",
+          "title": "Diffusion with Stochastic Resetting",
+          "trigger": "same Poisson renewal and return to start"
+        },
+        {
+          "assessment": "not a result about the rare-corner cube regime",
+          "evidence": "Diffusion with a reset rate and return point, extended to spatially varying rates and reset/target distributions.",
+          "identifier_or_url": "https://arxiv.org/pdf/1107.4225",
+          "material_read": "pp. 1–3, OA offsets around 2245 and 4832",
+          "method": "open PDF passages",
+          "title": "Diffusion with Optimal Resetting",
+          "trigger": "broader resetting and target distributions"
+        },
+        {
+          "assessment": "same underlying symmetric dynamics after centering but different reset and target",
+          "evidence": "Constant-rate catastrophe transitions go directly to the central state, and passage is studied through that state.",
+          "identifier_or_url": "https://arxiv.org/pdf/2103.10984",
+          "material_read": "p. 1 abstract and p. 3 Eqs. (1)–(3)",
+          "method": "open PDF passages",
+          "title": "A Continuous-Time Ehrenfest Model with Catastrophes and Its Jump-Diffusion Approximation",
+          "trigger": "radial cube dynamics with Poisson resets"
+        },
+        {
+          "assessment": "finite example with an adjacent reset site; not the asserted family or asymptotic",
+          "evidence": "Gives a rational mean and exact positive optimum on a four-vertex graph with q_xo=1 and addresses a direct target hazard criterion.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-four-state-threshold-for-finite-rate-optimal-resetting-beside-an--95bb7cbb670b/RESULT.md",
+          "material_read": "Finding, offset 85",
+          "method": "local mirror",
+          "title": "Four-state threshold for finite-rate optimal resetting beside an absorbing target",
+          "trigger": "nearest separate indexed continuous-time graph optimum"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural local-start/rare-target benchmark for resetting: the optimal clock and exact leading mean quantify an exponential-to-polynomial change. Two-sided rate control makes this a global optimization result, not just a tuned heuristic. Both constants depend on the stated coordinate clock and on fixed Hamming distance.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

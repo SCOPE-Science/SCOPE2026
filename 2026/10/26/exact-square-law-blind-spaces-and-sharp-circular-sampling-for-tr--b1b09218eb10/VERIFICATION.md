@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The analytic proof uses normal-ordered Weyl displacement matrix elements and the fact that associated Laguerre polynomials of successive degrees form a polynomial basis. The radial blind space is given explicitly by divisibility by the monic polynomial of squared sampling radii (and by the extra factor at zero imposed by the trace constraint). No finite computation is treated as proof of the arbitrary-cutoff result.
+# Independent mathematical audit
 
-Executable verification: run `python verify.py` with dependencies from `requirements.txt`. The checker tests 72 exact rational-radius block ranks with cutoffs from zero through seven, constructs a distinct positive-density pair at cutoff three invisible on two prescribed circles, compares 45 Weyl matrix elements with independent position-space quadrature, and tests half-circle Fourier reconstruction. Results are recorded verbatim in `verify_output.txt`. The numerical quadrature discrepancy was below \(6\times10^{-16}\) on these test cases.
+## correctness
 
-Limitations: the proof assumes exact complex measurements and known trace, and gives no uniform condition number as radii approach each other. Scientific priority remains subject to independent literature assessment. Independent audit has not been performed.
+PASS
+
+Normal ordering the full displacement operator gives the stated Laguerre matrix elements. After removing the nonzero Gaussian and r^m factors, harmonic m>0 is an arbitrary complex polynomial of degree <=N-m, and harmonic zero is a real polynomial of degree <=N with its value at zero fixed by the trace. For traceless differences and Q(x)=product_j(x-r_j^2), the invisible polynomials are exactly multiples of Q for m>0 and xQ for m=0. Counting the real dimensions gives (N+1-min(K,N))^2-1, including K=0 and N=0. Any nonzero blind direction can perturb the maximally mixed state in both signs while preserving strict positivity. At positive radius and N>=1 the constant harmonic can be varied (the difference L_0(x)-L_1(x) is x), and the N complex harmonics vary independently, giving dimension 2N+1. Fewer than N+1 complex samples cannot separate these traces, and the proposed half-circle grid gives a full 2N+2-point Fourier grid by conjugacy, hence suffices.
+
+## originality
+
+PASS
+
+The displacement representation and its conjugacy symmetry are prior, as are interpolation tools. The inspected sources do not establish the exact blind dimension at arbitrary distinct positive radii, its sharp trace-known radial threshold, or the paired exact angular result for this observation model. The pass is bounded to these comparisons, not a priority certification.
+
+## value
+
+PASS
+
+The degrees of freedom lost on every insufficient family of circles are quantified exactly, even for perturbations of full-rank states. In the specified tomography model, this gives a sharp radial identifiability criterion and a usable finite per-circle protocol, rather than just generic injectivity or a point count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

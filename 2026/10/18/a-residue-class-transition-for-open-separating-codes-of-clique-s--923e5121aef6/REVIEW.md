@@ -1,19 +1,13 @@
-# Review: a residue-class transition for open-separating codes of clique subdivisions
+# Scientific assessment
 
 ## Correctness
 
-**PASS.** The proof checks domination and open-neighborhood separation separately and on both sides of the incidence bipartition. Every OD-code selects at least \(n-1\) originals. Selected subdivision vertices correspond to a spanning graph having neither two isolates nor any isolated-edge component; the sole permitted isolate must be among the selected originals. The same characterization with no isolate exactly describes OTD-codes. The counting identities follow from this disjoint decomposition and inclusion-exclusion on isolated components. The minimum formula and optimal multiplicity use the exact maximum of \(\lfloor s/3\rfloor\) tree components of order at least three, with Cayley's tree count. Direct exhaustive testing on 2,131,008 subsets over four graph orders agrees with every coefficient; symbolic checks span nine orders. The finite tests are corroboration, not proof of the unbounded claim.
+Open signatures on the subdivision shore force all but at most one original vertex to be selected. On the original shore, collisions occur from a pair of empty signatures or from the endpoints of an isolated chosen edge. Thus a non-total code has precisely one isolated original vertex in the selected edge graph, and that vertex must itself be selected. Deleting it gives the stated bijection to codes on the smaller clique subdivision. No such branch exists when only two originals would remain. The least-edge forest calculation then supplies the optimizer classification, minimum sizes and multiplicities.
 
-## Originality
+## Scope and comparison
 
-**PASS, with bibliographic risk.** The foundational 2024 Chakraborty–Wagler papers introduce OSD/OD-codes and show that OD and OLD/OTD minima differ by at most one. Their inspected discussion of graph families does not state the clique-subdivision polynomial, its forest bijection, or the residue-class threshold. The 2014 open-neighborhood locating-dominating work concerns the total-domination variant and supplies neither the claimed all-size enumeration nor the OD/OTD dichotomy. Searches under *edge–vertex incidence graph of a clique*, *complete-graph subdivision*, and *central graph of a clique* found no covering published theorem. A broad related dissertation was inaccessible for full-text comparison, and previously unindexed literature may contain equivalent statements. The originality verdict is therefore a reasoned literature comparison, not proof of priority.
+The OTD polynomial and its minimum-forest classification on the same graph are covered by *All identifying open codes of subdivided complete graphs*. Order or priority within the shared record date is not presumed. The distinct claim is the exhaustive extension to OD-codes with a permitted empty signature, giving their exact contribution and the divisibility criterion for when they improve the optimum. The general one-unit bound on the difference of the two minima is prior work.
 
-## Value
+## Value and limitations
 
-**PASS.** The result provides a natural infinite-family census of two closely related identification codes and a sharp periodic answer to the question of when their minimum cardinalities agree. The bijection to spanning graphs with forbidden one- and two-vertex components explains the polynomial and the residue classes, and also gives exact optimizer multiplicities. This goes beyond computing a generic inequality or a few small instances; the distinction between allowing one empty signature and requiring none creates an actual structural transition.
-
-## Limitations
-
-Only one-subdivisions of complete graphs are addressed. The source literature is not known to be exhaustive, and the inaccessible dissertation leaves uncertainty. Code runs test only finite orders. Independent evaluation is pending.
-
-Self-review: passed. Independent audit: not yet performed.
+The lift gives the entire non-total code distribution, not merely examples attaining one side of the general bound. Comparing eligible edge forests explains exactly when the two optima tie, when they differ, and how to count every optimizer. The claim is limited to single subdivisions of cliques and the precise OD and OTD definitions. Literature coverage is not exhaustive.

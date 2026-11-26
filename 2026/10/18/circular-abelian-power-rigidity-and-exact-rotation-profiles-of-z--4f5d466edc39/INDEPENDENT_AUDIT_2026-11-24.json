@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:09:05.846470Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In one-based ruler indices the letter is 1+v2(j); two occurrences of a maximal valuation in a linear interval would have a higher valuation between them. Thus any circular square crosses the original cut. Palindromicity gives the square starting at N-d. For an off-center square, reflection puts the cut inside the second half: with x>0 letters of that half before the cut and y>0 after it, equality of the two Parikh vectors forces P(y+2x)-P(y)=2P(x). The contiguous factor on the left contains an index divisible by 2^r for r=floor(log2 x)+1, since its length is 2x; the prefix on the right has no such letter. This excludes off-center squares. A square survives exactly the cuts d<=c<=N-d, including its endpoints; a cube would give two distinct square starts at the same half-length. The base order has no admissible square. An independent carry-free integer encoding with doubled-word prefix sums verified exact occurrence pairs, all cut counts and absence of cubes through order 9, plus the length-21 counterexample. Replay: python3 /workspace/review-evidence/check_frozen.py (zimin). This is bounded corroboration, not the all-order proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cummings–Mays and Bullock give the standard recursion and linear maximal Abelian-squarefreeness; Glen–Halldórsson–Kitaev give the recursion and generalized Zimin-type constructions for linear power avoidance."
+        ],
+        "reasoning": "Linear avoidance forces a cyclic occurrence to cross the original cut; it neither places the cut at the midpoint nor counts starts. Broader linear power avoidance does not cover circular Abelian squares or cubes.",
+        "searches": [
+          "Cummings–Mays (2001), §2",
+          "Bullock (2004), introduction",
+          "Glen–Halldórsson–Kitaev (2010), introduction"
+        ]
+      },
+      "checked_sources": [
+        "Cummings–Mays (2001)",
+        "Bullock (2004)",
+        "Glen–Halldórsson–Kitaev (2010)",
+        "Resultary 46d4b0f37cce",
+        "Resultary 3a32aa1283e5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Linear avoidance plus palindromic symmetry gives existence at the seam but not uniqueness. The frozen length-21 linear Abelian-squarefree palindrome has three starts at d=7, independently reproduced."
+        ],
+        "reasoning": "The new exclusion uses the ruler prefix-versus-interval valuation, not a theorem giving ordinary tandem repeats or palindromes. The profile and no-cube claims do follow from this exclusion and are credited as consequences, not independent priority claims.",
+        "searches": [
+          "Cummings–Mays (2001), §2; Glen–Halldórsson–Kitaev (2010), pp. 84–85; Resultary 46d4b0f37cce"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "SCOPE circular-palindrome spectrum, offsets 0 and 900: one distinct even-length palindromic factor at the seam per length."
+        ],
+        "reasoning": "An even palindrome has anagram halves, so this identifies the centered witness. But palindromic factors are stricter than Abelian squares and distinct words need not correspond to unique indexed starts. It does not exclude additional Abelian squares.",
+        "searches": [
+          "Resultary: circular Abelian square occurrences Zimin word centered cut",
+          "Resultary: circular Abelian-power rigidity exact rotation profiles Zimin words",
+          "Resultary 46d4b0f37cce, RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact indexed Zimin spectrum or tent profile in the returned catalogue results. SCOPE 3a32aa1283e5 counts length-six Abelian squares on binary order-five de Bruijn cycles, not on Zimin words."
+        ],
+        "reasoning": "The nearby census has different objects, an alphabet restriction and one fixed length; it cannot furnish this all-order occurrence table. This is a bounded search, not a global negative result.",
+        "searches": [
+          "Resultary: Zimin words circular Abelian cubes higher powers",
+          "Resultary: Zimin rotation profile number of Abelian-square occurrences",
+          "Resultary 3a32aa1283e5, RESULT.md"
+        ]
+      },
+      "rationale": "Credit the standard linear avoidance and the related seam-palindrome construction. The supported distinct claim is uniqueness among all indexed circular Abelian-square starts at every admissible half-length, with the exact rotation and higher-power consequences; no inspected source establishes that uniqueness.",
+      "residual_risks": [
+        "The frozen reference to earlier ordinary circular squares is uncited and no exact ordinary catalogue was verified. Even a matching ordinary-square theorem would not by itself exclude other anagram halves. Equivalent unindexed Abelian work is not ruled out."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers baseline, not the indexed circular claim",
+          "evidence": "Recursion up to index shift, length, linear maximal Abelian-squarefreeness.",
+          "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v8i1r27/pdf/",
+          "material_read": "§2, p. 3, around text offset 6800",
+          "method": "Lawful OA primary PDF passage",
+          "title": "A One-Sided Zimin Construction",
+          "trigger": "Closest classical Zimin construction"
+        },
+        {
+          "assessment": "Linear benchmark",
+          "evidence": "Standard recursion and linear maximality at length 2^k−1.",
+          "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v11i1r17/pdf/",
+          "material_read": "Introduction, p. 2, around text offset 2400",
+          "method": "Lawful OA primary PDF passage",
+          "title": "Improved Bounds on the Length of Maximal Abelian Square-Free Words",
+          "trigger": "Exact-length Abelian-squarefree Zimin benchmark"
+        },
+        {
+          "assessment": "Linear power avoidance, not circular enumeration",
+          "evidence": "Defines standard Z_n and discusses generalized Zimin words with linear avoidance.",
+          "identifier_or_url": "https://dmtcs.episciences.org/articles/513/download",
+          "material_read": "Introduction, pp. 84–85, around text offset 4450",
+          "method": "Lawful OA primary PDF passage",
+          "title": "Crucial Abelian k-Power-Free Words",
+          "trigger": "Potential generalized power-free theorem"
+        },
+        {
+          "assessment": "Related exact claim, not equivalent",
+          "evidence": "One distinct even palindromic word per length, not all Abelian squares or their occurrence positions.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-the-complete-circular-palindrome-spectrum-of-finite-zimin-words--46d4b0f37cce/RESULT.md",
+          "material_read": "Finding and counting convention, mirror offsets 0, 900",
+          "method": "Local Resultary mirror",
+          "title": "The complete circular palindrome spectrum of finite Zimin words",
+          "trigger": "Same words and even seam factors"
+        },
+        {
+          "assessment": "Different family and parameter",
+          "evidence": "Length-six counts on binary order-five de Bruijn cycles.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-complete-length-six-abelian-square-spectrum-of-binary-order-five--3a32aa1283e5/RESULT.md",
+          "material_read": "Finding, mirror offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Complete length-six Abelian-square spectrum of binary order-five de Bruijn cycles",
+          "trigger": "Nearby exact circular Abelian-square census"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This resolves the boundary dependence of a canonical linear Abelian-squarefree word: it locates every cyclic obstruction, gives a complete cut-by-cut count, and separates Zimin rigidity from general palindrome symmetry by a verified counterexample. It is an all-order structural classification, not just a count for a selected small rotation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

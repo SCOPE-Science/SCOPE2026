@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The quantifiers cover all integers \(N\ge2\), all annulus radii \(0<q<\rho<1\), and all boundary weights \(r>0\), with only distinct equal-radius sample points. The accepted determinant formula is a direct specialization of the Frobenius elliptic Cauchy identity in Katori–Shirai, equation (3.3). The critical extra lemma is established analytically: the theta-product potential derivative is a difference of two periodizations of the strip Poisson kernel; its Fourier transform gives a termwise strictly negative second derivative, with the positive first-frequency lower curvature bound displayed. The cyclic-gap Jensen argument supplies the global optimum and stability; Fourier residues compute the exact optimal spectrum. A separate high-precision program verified the matching derivative and determinant ratios for three parameter sets. Limits and boundary cases are explicitly excluded; numerical sampling is not used to prove the universal theorem.
+## correctness
 
-## Originality — PASS, best knowledge
-Primary full-text comparison: Katori–Shirai (2020), arXiv:2008.04177, §§2.3/3.2 (theta quotient, Frobenius determinant, two-point angular lemma), supplies the matrix factorization but does not state the globally optimal one-circle \(N\)-node configuration, the strict theta-ratio concavity, the global stability inequality, or the residue-class optimal determinant as an optimization theorem. Gafai–Murid–Wahid (2022), arXiv:2202.09114, derives annular theta products and kernel zeros, not multi-node optimal design. Dubickas–Pritsker (2019), arXiv:1902.08348, studies external-field weighted Vandermonde points; it has no annular Hardy kernel or elliptic Cauchy determinant. Closest circle Hardy/Szegő and Bergman design theorems concern different domains, weights or multiple orbits. Specific risk: an equivalent elliptic logarithmic-energy theorem might already imply the strictly concave theta-ratio spacing inequality despite terminology differences; this has not been ruled out by independent literature review.
+PASS
 
-## Value — PASS
-One sharp universal geometric optimizer now handles every sample count and every interior circle in a natural, nontrivial family of weighted annular Hardy spaces, and the precise optimal determinant follows from an explicit infinite-residue spectrum. The uniform quadratic angular deficit is a substantive robust-design result: it quantifies every departure from regular spacing and is independent of the boundary weight. This does not follow merely from the two-point theta monotonicity and goes beyond reporting a routine numerical optimization. No claim is made for variable radial nodes, general arbitrary weights or E-optimal conditioning.
+For p=q^2 and R=rho^2, Katori–Shirai's theta quotient and Frobenius identity give the asserted product of angle-dependent ratios: the extra theta argument is -r*R^N, the diagonal argument is R, and conjugate factors pair into squared moduli. The kernel is strictly positive definite on distinct nodes, also seen by restricting the Laurent quadratic form to the first N nonnegative exponents and applying Vandermonde. In the theta logarithm differentiation, the product factors give the difference of L-periodizations of sin(t)/(cosh(x)-cos(t)) at shifts 0 and a. Its Fourier transform follows by Abel-expanding in exp(-j|x|) and using the sine coefficients of the differentiated periodic resolvent for -d^2/dt^2+xi^2; at zero frequency the value is 2(pi-t). Poisson summation thus cancels the zero mode and combines opposite frequencies to give exactly the factor 4pi/L in v'. Termwise differentiation is justified by exponential decay locally in 0<t<2pi. The curvature series has nonnegative terms and h=1 gives exactly c_{q,rho}>0. The estimate is strict on every nontrivial interval since h=1 already has cosh>1 off t=pi. All k-th arcs average 2pi*k/N; counting both directions of each unordered pair introduces a factor 1/2, so strong Jensen yields c_{q,rho}/4 times the squared arc deviations. A nonregular configuration has unequal first gaps and gives strict inequality. The regular Gram matrix has Fourier eigenvalues N*A_j by residue classes, with absolute convergence since p<R<1; dividing by the common diagonal A gives the stated normalized maximum. This holds for r>0 and N>=2 on the prescribed interior circle, with no claim of sharpness of the stability coefficient. The supplied numerical script and verification notes were inspected without executing the uploaded script.
 
-## Reproducibility and limitations
-Run `python check_annular_design.py` with `mpmath` installed. Finite numerical checks passed on three interior parameter sets, corroborating the derivation without substituting for proof. The two established special-function identities are cited; the differentiations and Poisson summation apply away from pair collisions, and collision configurations have determinant zero. Historical completeness remains provisional; independent audit is still needed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The theta factorization, general cyclic Jensen step, and analogous disk Szegő optimum and stability are established. The supported distinct content is the annular equal-radius theta-ratio curvature estimate for every admissible q and rho, and its fixed-circle weighted determinant consequence. The closest inspected formulas and disk theorem do not supply that annular estimate. Equivalent Green-function literature remains an explicitly bounded priority risk.
+
+## value
+
+PASS
+
+For exact D-optimal sampling on a prescribed annular circle, the result gives the unique geometry, exact determinant and a uniform positive loss estimate with explicit domain dependence for any perturbation, independent of the boundary weight. The annular curvature estimate is the substantive addition to a known disk method. The theorem makes no claim of multi-radius optimality or a best possible stability coefficient.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

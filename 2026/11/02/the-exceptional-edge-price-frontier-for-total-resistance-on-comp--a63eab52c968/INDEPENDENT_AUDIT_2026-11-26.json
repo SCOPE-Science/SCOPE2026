@@ -1,0 +1,210 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:21:02.360191Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The Kirchhoff index is n times the inverse trace on the orthogonal complement of the constant vector. Its second derivative in a nonzero conductance direction is positive, being 2n times the trace of a nonzero symmetric square against a positive definite matrix. The Laplacian map is injective on conductances. Compactness, divergence at disconnection and scaling give a connected unique optimum using the full budget, so price-preserving symmetry is a conclusion, not an assumption. With A=2w+mx, D=2x+my the eigenvalues A,D,nx have multiplicities 1,m−1,1; the budget is (τ/2)A+((m−1)/2)D+c(τ)x. Weighted Cauchy–Schwarz gives the S-branch and its optimizer, with A≥mx exactly when τ≤n/m and D>2x throughout. On w=0 the budget and reciprocal objective reduce to two positive terms, yielding the T-branch; at τ=n/m it agrees with the first branch. For larger prices every feasible allocation using w>0 would have budget slack at the threshold price and could be scaled there to improve it, proving the unchanged face optimizer is globally unique. Differentiating S gives S'(n/m)=0 and S''(n/m)=−(m+1)/(2n)·sqrt(m/(2n)); expansion of nS²/B gives the stated strictly positive gap coefficient and continuous first derivative. The n=4 example reduces to x=1/(3+√2), y=(√2−1)x and value 11+6√2 for B=1.",
+      "reproduction": {
+        "evidence": "Independent finite full-Laplacian and cost-normalized marginal checks at n=4,7 agreed in the three regimes; symbolic differentiation agreed. The universal certification is the analytic argument, not numerical optimization. The frozen verify.py was inspected, not executed.",
+        "replay": "For finite corroboration, use n=4 and 7, unit budget, and prices below, equal to, and above τ_c. Construct L directly from the individual edge weights w_e and e_i−e_j. Compare n(tr((L+J/n)^−1)−1) to the formula; check the cost and that n||(L+J/n)^−1(e_i−e_j)||²/price_e is constant on active edges and no larger on omitted edges. Independently differentiate the displayed S with respect to τ and substitute τ_c."
+      },
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2008 paper gives convexity, uniqueness and the uniform-price complete-graph optimum n(n−1)²/2 at unit budget. The frozen formula reduces to it at τ=1.",
+          "Tovar et al. allow arbitrary positive cost coefficients and costs a_e w_e^α. Their linear case includes the mathematical program and general uniqueness, but the inspected complete-graph example uses edge-transitivity and uniform conductance, not the explicit exceptional-price solution.",
+          "Bhoite et al. give closely related normalized KKT conditions for augmentation with a fixed base network and an exact-cardinality selection constraint.",
+          "The perfect matching theorem optimizes the same loss and gives a squared improvement law, but its N/2 jointly priced edges have different symmetry, and N≥4 excludes any one-edge perfect matching."
+        ],
+        "reasoning": "The general variational results apply as ingredients, not formulas that can be directly specialized to give the frontier, active-set allocation and transition coefficient. The matching result does not allow unpricing all but one of its special edges.",
+        "searches": [
+          "Ghosh–Boyd–Saberi SIAM Review 50 (2008) §4 and §6",
+          "Tovar et al. arXiv:2610.03627, equation (4) and the complete-graph examples",
+          "Bhoite et al. arXiv:2609.29790v1, augmentation model and Proposition 2",
+          "Resultary cf3b1355b128, whole priced matching"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Ghosh–Boyd–Saberi (2008), doi:10.1137/050645452",
+        "arXiv:2610.03627 and 2609.29790",
+        "EUSIPCO 2026 paper 0002646",
+        "Resultary 84e049224f10, cf3b1355b128, 4f89042df17b, 93a220470d32, 75c0841ce157, c0a7ce2499f8"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the same feasible class the determinant threshold is (n−1)/(n−2) and the spectral-gap threshold is 2(n−1)/(n−2). At the spectral-gap threshold both positive and deleted allocations attain equality, unlike the unique resistance optimizer. These support results cannot be taken as the result for the trace-inverse loss.",
+          "For N=4 the perfect matching threshold is 16/10 rather than 2. At equal prices the general strict-convexity framework gives one point of the price curve only.",
+          "The later exact formula gives the full A-optimal curve and mechanically yields its local expansion; it does not identify a source with that exact earlier claim in the prior-work passages inspected."
+        ],
+        "reasoning": "Earlier framework permits the new analytic optimization but does not assert its heterogeneous active-set solution. Equivalent later coverage is explicit; no priority claim beyond the displayed records and inspected statements is warranted.",
+        "searches": [
+          "Compare actual objective and n≥4, k=1 case of Resultary c0a7ce2499f8 and 75c0841ce157",
+          "Compare earlier full-matching cf3b1355b128 and same-day cycle and tripartite Findings to the one-link model",
+          "Compare full later Finding 84e049224f10, offsets 0–4882"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Kirchhoff index is n times the inverse trace on the nonconstant subspace, so the one-priced-edge A-optimal formulation addresses exactly the same conductances.",
+          "The later 84e049224f10 uses a,b,c instead of w,x,y, h=sqrt(2nc(τ)/τ), and its cheap-branch denominator is S(τ) sqrt(nc(τ)). Its high-branch denominator is sqrt(nm/2) T. Substitution gives identical allocations and optimum values, as well as the same threshold and parameter domain."
+        ],
+        "reasoning": "There is demonstrable equivalent coverage in the later record. That record adds the determinant/spectral-gap comparison; differentiating its equivalent optimal value yields the same quadratic contact although it is not stated in the inspected Finding. Equivalence and publication order are different issues.",
+        "searches": [
+          "Resultary: one exceptional-edge price, resistance-optimal deletion, three-objective ladder, complete networks; exact 84e049224f10",
+          "Ghosh–Boyd–Saberi §4 and §6, trace inverse and complete-graph design"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Later 84e049224f10 states exactly the one-edge A-optimal formulas plus a three-objective comparison.",
+          "Distinct same-day 4f89042df17b has a cycle budget and r_c(4)=11/3+4/sqrt(3), not the complete-graph value 2. Its quadratic scaling refers to network size, not Taylor contact in price.",
+          "Distinct same-day 93a220470d32 uses K_{m,m,m} with an entire orbit of m² priced links and threshold 24m/(15m−7).",
+          "75c0841ce157 and same-day c0a7ce2499f8 address the same priced K_n for one marked edge but optimize determinant and spectral gap, respectively."
+        ],
+        "reasoning": "The close same-day comparisons are included without assuming their order. Their topology, price class or objective is mathematically distinct. The exact match to the core formulas is explicitly in a later-dated entry, not merely a search-summary resemblance.",
+        "searches": [
+          "Resultary: exact price threshold for one closing or exceptional edge, complete/cycle topology, optimized Kirchhoff index",
+          "Actual Findings of 84e049224f10, 4f89042df17b, 93a220470d32, c0a7ce2499f8, 75c0841ce157"
+        ]
+      },
+      "rationale": "The distinct claim at the frozen record is the explicit one-priced-link Kirchhoff-index frontier on K_n, the unique conductances on both sides, and the value's exact boundary behavior. General convex design, the uniform-price case, heterogeneous-cost KKT, and differing support changes are known. A later separately indexed record gives the equivalent resistance optimum and threshold and adds a cross-objective comparison; the overlap is confirmed from both actual formulas, not assumed from the title. It does not evidence an antecedent exact result for the frozen finding. The inspected earlier and same-day comparisons use a distinct objective, topology, price pattern, or only general principles.",
+      "residual_risks": [
+        "Full text of Yang et al.'s route-cost paper was not available for comparison. Earlier specialized A-optimal network design statements may have escaped the bounded search.",
+        "The later exact catalogue overlap is not a determination of historical priority, provenance or dependence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known framework and τ=1 specialization",
+          "evidence": [
+            "Strict convexity/uniqueness with fixed unit total conductance; uniform complete-graph design gives n(n−1)²/2."
+          ],
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/eff_res.pdf",
+          "material_read": "§4 offsets 49200–52954; §6 from offset 82800",
+          "method": "OA PDF bounded passages",
+          "title": "Minimizing Effective Resistance of a Graph",
+          "trigger": "Primary foundational and equal-price complete-graph results"
+        },
+        {
+          "assessment": "General program includes the linear case; inspected examples do not give the one-edge classification",
+          "evidence": [
+            "Weighted power costs, uniqueness for α≥1, possible deletion for α=1; edge-transitive examples with uniform conductance."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.03627v1",
+          "material_read": "Abstract; Eq. (4), offsets 7350–10176; complete-graph comparison offsets 18305–19799",
+          "method": "OA HTML bounded passages",
+          "title": "Cost convexity controls the architecture of resistance-optimal networks",
+          "trigger": "Broader conductance pricing and sparsity theorem"
+        },
+        {
+          "assessment": "Related KKT analysis, different feasible class",
+          "evidence": [
+            "Fixed-base augmentation with cost-normalized marginal conditions and exact-cardinality selection."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2609.29790v1",
+          "material_read": "Abstract, model around offset 7000, Proposition 2 around offset 18400",
+          "method": "OA HTML bounded passages",
+          "title": "Budget-Constrained Graph Augmentation for Robust Network Design via Kirchhoff Index Minimization",
+          "trigger": "Heterogeneous per-unit marginal cost rules"
+        },
+        {
+          "assessment": "Augmentation comparison and citation of possible from-scratch design",
+          "evidence": [
+            "Distinguishes from-scratch design from augmentation of an operating network; cites Yang et al. on air-network design."
+          ],
+          "identifier_or_url": "https://eurasip.org/Proceedings/Eusipco/Eusipco2026/pdfs/0002646.pdf",
+          "material_read": "P. 1, offsets 0–4654; reference 14 p. 5, offsets 48170–48683",
+          "method": "OA PDF bounded passages",
+          "title": "Cost-aware graph augmentation for robust networks via effective resistance",
+          "trigger": "Related augmentation paper and primary-source lead"
+        },
+        {
+          "assessment": "Inaccessible comparator, not counted as noncoverage or decisive overlap",
+          "evidence": [
+            "Available secondary comparison points to air-network design with a route cost constraint; no verified exact formula from this source."
+          ],
+          "identifier_or_url": "C. Yang, J. Mao, X. Qian, E. Q. Wu, IEEE Trans. Autom. Sci. Eng. 22, 3280–3294 (2024 online)",
+          "material_read": "Bibliographic entry and discussion in the EUSIPCO comparison, no primary full-text passages",
+          "method": "Primary full-text attempts via IEEE Xplore and ResearchGate did not resolve",
+          "title": "Robustness optimization of air transportation network with total route cost constraint",
+          "trigger": "Possibly relevant from-scratch heterogeneous-cost network design"
+        },
+        {
+          "assessment": "Later equivalent Kirchhoff-index result, with an added frontier comparison",
+          "evidence": [
+            "n≥4, identical prices/budget and objective, unrestricted uniqueness, same n/(n−2) threshold and equivalent conductances and value on both sides; adds A/D and A/E disagreement widths."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-a-sharp-resistance-optimal-deletion-threshold-and-a-three-object--84e049224f10/RESULT.md",
+          "material_read": "Finding, assumptions and proof opening, offsets 0–4882; relationship and references, offsets 8128–12202",
+          "method": "Resultary search followed by bounded local-mirror inspection",
+          "title": "A sharp resistance-optimal deletion threshold and a three-objective price ladder on complete networks",
+          "trigger": "Exact substantive catalogue match"
+        },
+        {
+          "assessment": "Different pricing orbit; not one-edge specialization",
+          "evidence": [
+            "Whole perfect matching on even N≥4; threshold N²/(N²−2N+2) and explicit squared improvement."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-a-sharp-matching-price-transition-in-resistance-optimized-comple--cf3b1355b128",
+          "material_read": "Finding and assumptions, offsets 0–2748",
+          "method": "Resultary and mirrored passage",
+          "title": "A sharp matching-price transition in resistance-optimized complete networks",
+          "trigger": "Earlier pricing transition and squared value improvement for the same loss"
+        },
+        {
+          "assessment": "Different candidate topology and exact threshold",
+          "evidence": [
+            "Only cycle edges are candidates, critical price is asymptotically quadratic in cycle size and differs at n=4."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-sharp-quadratic-price-threshold-for-retaining-the-closing-edge-o--4f89042df17b",
+          "material_read": "Finding and scope opening, offsets 0–1957",
+          "method": "Resultary and mirrored passage",
+          "title": "Sharp quadratic price threshold for retaining the closing edge of an optimally weighted cycle",
+          "trigger": "Same-day, same budget, exceptional edge and loss"
+        },
+        {
+          "assessment": "Different price classes and topology",
+          "evidence": [
+            "Balanced K_{m,m,m}; deletes all direct A–C links at 24m/(15m−7)."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-priced-complete-tripartite-resistance-design-has-an-exact-shortc--93a220470d32",
+          "material_read": "Finding, offsets 0–1888",
+          "method": "Resultary and mirrored passage",
+          "title": "Priced complete-tripartite resistance design: exact edge deletion and the critical 1/m price window",
+          "trigger": "Same-day Kirchhoff-index deletion on an unrestricted network"
+        },
+        {
+          "assessment": "Determinant rather than inverse trace",
+          "evidence": [
+            "Maximizes the spanning-tree enumerator with threshold (n−1)/(n−2)."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-a-sharp-single-price-deletion-threshold-for-d-optimal-complete-g--75c0841ce157",
+          "material_read": "Finding, offsets 0–1530",
+          "method": "Local-mirror passage",
+          "title": "A sharp single-price deletion threshold for D-optimal complete-graph conductances",
+          "trigger": "Identical price class and feasible set"
+        },
+        {
+          "assessment": "Spectral gap rather than inverse trace",
+          "evidence": [
+            "For one pair the critical price is 2(n−1)/(n−2), with simultaneous uniform and deleted optimizers at the boundary."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-a-single-pair-versus-multi-pair-price-threshold-for-spectral-gap--c0a7ce2499f8",
+          "material_read": "Finding and scope opening, offsets 0–1820",
+          "method": "Local-mirror passage",
+          "title": "A single-pair versus multi-pair price threshold for spectral-gap design of complete graphs",
+          "trigger": "Same-day one-pair optimizer in identical price class"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a natural sensitivity question for complete electrical network design. Its answer gives the exact premium at which one link ceases to be worth buying, the full conductance allocation for every price and size, and the coefficient by which retaining the link improves resistance near the threshold. This makes the support decision and its associated resistance loss quantitative, beyond the known equal-price result or generic first-order condition.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

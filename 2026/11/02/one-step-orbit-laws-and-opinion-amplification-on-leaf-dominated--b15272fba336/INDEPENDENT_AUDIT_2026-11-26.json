@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:44:50.104120Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md:5–74",
+        "VERIFICATION.md:19–23",
+        "verification/check.py:42–145 (inspected, not executed)",
+        "Independent bounded replay: python3 /workspace/branches/independent_replay.py, leaf_majority; exact enumeration of a seven-vertex instance with ties, ten class probabilities each at p=0,1/3,1"
+      ],
+      "rationale": "Every leaf copies its core's previous bit, making all blocks coherent in one update, even when some first-round core bits are random. Strict leaf dominance then gives the deterministic swap of core and leaf words. Its diagonal gives 2^k fixed states, while the other 4^k−2^k words pair off; no noncoherent state can recur. Conditional on the initial core word, the independent leaf blocks and tie coins give the product law for the new core word, with the two orientations summed only for distinct words. A block contributes (t_v+1)(a_v+b_v)/2 to the long-run average, and unconditional neighbor colors are independent Bernoulli-p at time zero. Adding one vote with fair ties gives M_2r=M_(2r−1); adding two odd-to-odd gains from counts r−1 and loses from counts r, with net sign 2p−1 in the interior. Positive core degrees give s_v≥3 and hence strictness. On P_k the degree sum is 2k−2, giving 4k−2 vertices and maximum degree 5.",
+      "residual_risks": [
+        "Only the proof certifies arbitrary finite eligible cores and all real p. Strict amplification is in expected long-run occupancy, not pathwise amplification or consensus."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zehmakan treats the same independent-fair-tie model and obtains exact cycle-graph results.",
+          "Turau classifies deterministic tree fixed and period-two states and gives counting algorithms in subsequent work."
+        ],
+        "reasoning": "The general tree structure is known under a different tie rule. It does not compute the first-step independent-fair-tie distribution on arbitrary cores, and the cycle-graph results use a different graph family.",
+        "searches": [
+          "Zehmakan arXiv:2302.06760v1 §2 and §4",
+          "Turau arXiv:2202.01580v1 §5.2 and arXiv:2312.13769v1 §1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2302.06760v1",
+        "arXiv:2202.01580v1",
+        "arXiv:2312.13769v1",
+        "Resultary f53926f40d07 and 7dd01f49bd84"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "K_{1,t} reproduces the frozen k=1 law; the complete bipartite argument does not allow arbitrary core adjacency with disjoint private leaf blocks.",
+          "The retention-on-tie law does not provide the independent fair-coin conditional product under the initial core word."
+        ],
+        "reasoning": "The proof uses common deterministic structure after time one, but conditional first-update independence and binomial neighborhood marginals yield a different arbitrary-core stochastic law. Neither overlap implies that full law.",
+        "searches": [
+          "Mirrored RESULT.md findings for f53926f40d07 and 7dd01f49bd84",
+          "Turau arXiv:2202.01580v1, tie rule and Theorem 16"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary f53926f40d07 gives the same three class probabilities and time average on K_{1,t} as a K_{a,b} specialization.",
+          "Resultary 7dd01f49bd84 gives the same arbitrary-core involution with retain-current-color ties."
+        ],
+        "reasoning": "The star overlap is an exact special case, not just the same vocabulary. The retention rule does not alter a coherent orbit but changes first-round tie probabilities and hence its basin weights. Same-day catalogue dates do not establish priority.",
+        "searches": [
+          "Resultary semantic searches: leaf dominance and swap; fixed and two-cycle counts; Bernoulli-p absorbing-class probabilities; expected long-run time averages"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "f53926f40d07 has exact class formulas on complete bipartite graphs; 7dd01f49bd84 has exact orbit counts and deterministic basin sizes on leaf-dominated cores."
+        ],
+        "reasoning": "The matching counts do not specify stochastic basin weights. Finite graph enumerations do not cover the law for all cores and real biases.",
+        "searches": [
+          "Resultary catalogue searches on exact recurrent-class counts and complete random-majority absorption laws"
+        ]
+      },
+      "rationale": "Credit existing deterministic tree classification and the exact same-day fair-tie law on a star. The supported distinct claim is the joint stochastic law on arbitrary strictly leaf-dominated cores, with the resulting leaf-weighted amplification formula and one-update reduction. The later deterministic leaf-domination record coincides on the structural involution but not on fair-tie initial orbit probabilities.",
+      "residual_risks": [
+        "Ranked catalogue searches do not rule out an earlier equivalent law for a leaf-decorated graph under another name. No same-day priority inference is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related exact results for cycles; distinct graph hypotheses",
+          "evidence": [
+            "Cycle outcomes and expected blue-count conservation are established under the random tie model."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2302.06760v1",
+          "material_read": "§2 Theorem 2.7 and §4 Theorem 4.2 and Corollary 4.3, OA offsets around 41564 and 52784",
+          "method": "Targeted primary full-text reading",
+          "title": "Random Majority Opinion Diffusion: Stabilization Time, Absorbing States, and Influential Nodes",
+          "trigger": "Same stochastic model and absorption questions"
+        },
+        {
+          "assessment": "Covers deterministic tree structure; not the stochastic law",
+          "evidence": [
+            "Ties retain the current state; the theorem classifies period-two colorings on trees."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2202.01580v1",
+          "material_read": "Opening pages, tie rule and §5.2 Theorem 16, OA offsets 5824–8022, 12733 and 44780",
+          "method": "Targeted primary PDF reading",
+          "title": "Fixed Points and 2-Cycles of Synchronous Dynamic Coloring Processes on Trees",
+          "trigger": "General tree periodic-state characterization"
+        },
+        {
+          "assessment": "General deterministic counting precedent",
+          "evidence": [
+            "The stated tree algorithms and bounds are not fair-tie Bernoulli-p absorption laws."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2312.13769v1",
+          "material_read": "§1 Theorems 1–3, OA offset about 3998",
+          "method": "Targeted primary full-text reading",
+          "title": "Counting Problems in Trees, with Applications to Fixed Points of Cellular Automata",
+          "trigger": "Counting fixed points and two-cycles on trees"
+        },
+        {
+          "assessment": "Exact special-case overlap on one-core stars",
+          "evidence": [
+            "Three recurrent classes on K_{a,b}; the long-run blue proportion is (H_a(p)+H_b(p))/2."
+          ],
+          "identifier_or_url": "Resultary 2026/11/2/f53926f40d07, mirror commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "material_read": "Mirrored RESULT.md Finding, offsets 0–5993",
+          "method": "Targeted local mirror reading",
+          "title": "Exact random-majority absorption laws and the sharp universal tie threshold",
+          "trigger": "Same-day exact random-majority absorption law"
+        },
+        {
+          "assessment": "Later path date; same structural law, different stochastic assumptions",
+          "evidence": [
+            "Leaf count at least core degree plus one yields identical swap and orbit counts, with deterministic retention at ties."
+          ],
+          "identifier_or_url": "Resultary 2026/11/22/7dd01f49bd84, mirror commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "material_read": "Mirrored RESULT.md Finding and proof §§1–4, offsets 0–5424",
+          "method": "Targeted local mirror reading",
+          "title": "Leaf-majority domination gives a one-step involution and exact basins",
+          "trigger": "Closest exact arbitrary-core structural match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md:5–23 and 50–74",
+        "Zehmakan arXiv:2302.06760v1 §2 and §4"
+      ],
+      "rationale": "The invariant coherence reduces a stochastic process with potentially many attractors to an exactly solvable one-step class distribution. Distinguishing expected bias amplification from consensus matters on these graphs, since many of their recurrent classes blink. A bounded-degree tree family shows that exponentially many recurrent classes can coexist with one-step absorption.",
+      "residual_risks": [
+        "The formula does not describe arbitrary graphs without strict private-leaf dominance or a different update rule."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

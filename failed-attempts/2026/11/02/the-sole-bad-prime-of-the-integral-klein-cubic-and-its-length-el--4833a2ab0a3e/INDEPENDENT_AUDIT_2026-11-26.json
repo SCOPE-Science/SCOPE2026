@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:42:09.389337Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, assumptions and proof",
+        "Frozen VERIFICATION.md and verify_klein11.py, inspected but not executed",
+        "Independent exact Laurent and Hessian calculation: /workspace/branches/fc1e44c1-0a06-497e-99d5-cf3898529d47/klein11_independent.py; captured output: /workspace/branches/fc1e44c1-0a06-497e-99d5-cf3898529d47/klein11_independent_output.txt"
+      ],
+      "rationale": "Any common projective zero of the partial derivatives has no zero coordinate (and in characteristic two there is no such zero). Their product in the torus leaves only characteristics 3 and 11; in characteristic 3 the substituted F is 2u at u^11=1, not zero. In the x_0=1 chart at 11 the first three derivatives eliminate the three other coordinates as units; the last derivative and F are respectively u^(−5)(u^11−3) and 2u^(−10)(u^11−3). Thus the ideal, not just its radical, gives F_11[u,u^(−1)]/(u−3)^11. The Hessian has zero determinant and a nonzero rank-three minor (6); the quadratic term is nonzero and corank one. The isolated geometric singular locus rules out repeated or intersecting components and, with the hypersurface S2 property, gives geometric normality.",
+      "residual_risks": [
+        "The reproduction checks identities in the specified characteristic-eleven chart. The all-primes claim and the geometric assertions rely on the proof, not on finite point tests. No assertion about the analytic normal form or a topological Milnor number is needed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary paper's proof over C rules out zero coordinates at a singularity and recursively expresses the cyclic monomial values, so F at a critical point is a common nonzero monomial times R=Σ(1−d)^i. The indexed modular theorem explicitly gives smoothness for p|d with p not dividing the coordinate count; in particular p=3, d=3, m=5."
+        ],
+        "reasoning": "The primary proof's identities are integral and use no characteristic-zero divisions in this specialization. For d=3 and five monomials R=11, so the same proof excludes all other prime characteristics. The p|d modular theorem separately covers characteristic 3 but must not be applied to 11.",
+        "searches": [
+          "arXiv:1102.3443, Example 3.5, PDF p. 8",
+          "Resultary 48497f88b377, Finding and Limitations"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1102.3443, math/9902017, 1001.4853",
+        "Resultary 30662ea7a329, 48497f88b377, 6578b54d406f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The cyclic gradient proof specializes to the sole candidate 11, and the stronger indexed germ both proves singularity there and settles its local invariants. Projective exhaustiveness adds the unit-coordinate elimination with the single Frobenius root, followed by the standard hypersurface integrality and normality tests."
+        ],
+        "reasoning": "The global and local scopes are different; the original synthesis does not justify novelty of the main local invariant. The remaining support and normality steps are short consequences of the same cyclic equations and the indicated local data, not an independent new exact classification worthy of repair.",
+        "searches": [
+          "arXiv:1102.3443, Example 3.5 proof",
+          "Resultary 30662ea7a329, formal transverse critical section and prior-work passage"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The formal contact form at the exact P is y_1²+y_2²+y_3²+t^11 in characteristic 11. The Tjurina ideal is invariant under formal contact equivalence; this form gives the geometric algebra k[[t]]/(t^11) and rank-three quadratic term."
+        ],
+        "reasoning": "This is stronger than matching a support count or length only. At the given rational point, length and embedding dimension descend; lifting a generator of m/m² generates the maximal ideal, giving F_11[t]/(t^11). Completion does not change the Artin algebra. The indexed statement is local, not itself an all-primes result.",
+        "searches": [
+          "Klein cubic threefold reduction characteristic 11 singularity cyclic equation bad prime",
+          "Resultary 30662ea7a329, Finding and Proof"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "30662ea7a329 displays P and the identical Hessian and explicitly discusses the already described length-eleven scheme; 6578b54d406f instead concerns the Hessian quintic in characteristic 3 and singular points off the cubic."
+        ],
+        "reasoning": "The local indexed match is a theorem for the same object, not a coincidental entry for the number eleven. A table of rational points alone could not support nilpotent structure or all-primes smoothness.",
+        "searches": [
+          "Resultary Klein characteristic-eleven wild normal form 30662ea7a329; modular singular schemes 48497f88b377; characteristic-three Hessian nodes 6578b54d406f"
+        ]
+      },
+      "rationale": "The strongest distinct indexed result gives a strictly stronger formal normal form at exactly the stated point of the same integral equation's characteristic-eleven fiber, so it already entails the geometric Tjurina algebra and Hessian rank. The global smooth-prime exclusion is a direct specialization of the published cyclic-monomial argument: its coefficient sum is 1−2+4−8+16=11, and the indexed germ supplies badness at 11. There is no substantial uncovered singular-scheme result in the frozen claim. This is a statement-level coverage decision, not a claim about which same-day record came first.",
+      "residual_risks": [
+        "The stronger local record refers to existing arithmetic descriptions without pinpointing one. Chronology and historical priority are unresolved and are not inferred from a shared date."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Stronger local coverage; no global prime classification in this source",
+          "evidence": "Formal transverse section and Morse splitting give y_1²+y_2²+y_3²+t^11; exact affine Hessian is displayed.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-wild-formal-hypersurface-normal-form-on-the-characteristic-ele--30662ea7a329/RESULT.md",
+          "material_read": "Finding, assumptions and proof offsets 0–3630; prior-work and limitations passage at offset 5080",
+          "method": "Published local mirror after Resultary search",
+          "title": "A wild formal hypersurface normal form on the characteristic-eleven Klein cubic",
+          "trigger": "Exact same equation, prime and singular point"
+        },
+        {
+          "assessment": "Integral identity in the classical proof mechanically supplies the good-prime exclusion",
+          "evidence": "F evaluated at a cyclic gradient zero is a common monomial times R=Σ(1−d)^i; the article states its smoothness argument over C.",
+          "identifier_or_url": "https://arxiv.org/pdf/1102.3443",
+          "material_read": "Introduction and Example 3.5 proof, PDF p. 8, offset 26354",
+          "method": "OA PDF literal locate and bounded passage read",
+          "title": "On the order of an automorphism of a smooth hypersurface",
+          "trigger": "Broader cyclic gradient argument"
+        },
+        {
+          "assessment": "Covers characteristic 3, not characteristic 11",
+          "evidence": "Explicit assumption p|d; smooth for p not dividing m; other bad-prime cases excluded from scope.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-exact-modular-singular-schemes-of-cyclic-klein-hypersurfaces--48497f88b377/RESULT.md",
+          "material_read": "Finding offset 0 and relationship and limitations at offset 5620",
+          "method": "Published local mirror after Resultary search",
+          "title": "Exact modular singular schemes of cyclic Klein hypersurfaces",
+          "trigger": "Potential stronger coefficientwise classification"
+        },
+        {
+          "assessment": "Same classical equation; no reduction claim in the inspected theorem",
+          "evidence": "Klein cubic as the characteristic-zero birational model.",
+          "identifier_or_url": "https://arxiv.org/html/math/9902017v1",
+          "material_read": "Introductory theorem, HTML offset 0",
+          "method": "OA passage inspection",
+          "title": "The moduli space of (1,11)-polarized abelian surfaces is unirational",
+          "trigger": "Classical equation and moduli provenance"
+        },
+        {
+          "assessment": "Characteristic-zero geometry, not the modular singular scheme in the inspected passage",
+          "evidence": "The equation and Fano-surface setting give context, not the exact fiber at 11.",
+          "identifier_or_url": "https://arxiv.org/abs/1001.4853",
+          "material_read": "PDF p. 2, offset 4410",
+          "method": "OA PDF passage inspection",
+          "title": "The Fano surface of the Klein cubic threefold",
+          "trigger": "Classical equation and geometry"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof",
+        "arXiv:1102.3443, Example 3.5",
+        "Resultary 30662ea7a329, Finding and Proof"
+      ],
+      "rationale": "The wild local invariant would be useful in isolation, but exact local data are already recoverable from the stronger germ. In this package the separate good-prime exclusion is the known cyclic identity evaluated at degree three in five coordinates, and the remaining projective support and normality are routine consequences. There is no genuinely surviving distinct valuable claim to repair.",
+      "residual_risks": [
+        "This does not rule out value in a broader arithmetic classification or in a new analysis of the family over the prime-local base; neither is the frozen claim."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (C): PASS.** The definition of a factor-covering attractor is fixed for linear words with all positive run lengths and zero-based positions. The three exhaustive parameter regimes are disjoint and cover all triples: if \(c\ge a\), two explicit boundary positions attract every gap factor; if \(c<a\) and \(b=1\), another displayed pair works; if \(c<a\) and \(b\ge2\), three explicit positions attract all gap factors and three mutually disjoint uniquely occurring substrings force three. The lower bound two comes from the different single-letter factors. The exception generating function follows from \(a=2+r+t\), \(b=2+s\), \(c=1+r\). Both finite verifiers were executed and independently agreed with the stated formulas in their tested domains. The proof, not enumeration, handles unbounded parameters.
+## correctness
 
-**Originality (O): PASS against inspected evidence.** The 2026 Fibonacci/period-doubling attractor paper gives minimum-attractor placements for morphic sequences, not this palindrome run family. The published unrestricted four-run result stops before the fifth run, whose insertion can create new unique-factor constraints. A published five-run result addresses \(0\,1^b0^c1\,0^e\), including a criterion for when four positions are needed, not the three-parameter symmetric family or its exact two-versus-three transition. The original 2019 combinatorial-attractor source and the October 2026 Thue–Morse coverage study are background, not an implication of this formula. Indexed mathematical records and targeted searches found no equivalent or stronger applicable statement. Unindexed or inaccessible earlier equivalents remain an acknowledged priority risk.
+PASS
 
-**Value (V): PASS.** String-attractor size measures factor-level repetitiveness and is computationally difficult on unrestricted words. The five-run palindromic family is a minimal natural symmetric run family beyond existing exact three-/four-run and morphic-sequence analyses. Its threshold \(c<a\) with both flanking one-runs nonsingleton is structural: it is certified by three pairwise disjoint unique-factor occurrences, while complementary regimes admit explicit two-position attractors. The rational enumerator and limiting one-third density quantify a nontrivial, non-rare size transition. No downstream theorem is asserted or required.
+I checked the all-length proof in RESULT.md:30–80. Every occurrence avoiding the proposed marks lies inside one of the listed gaps. For c≥a the two kinds of mixed gap factors 0^i1^j and 1^i0^j relocate across the right and left boundaries of the central run, respectively. For c<a and b=1 the only mixed gap factors are 10^i, which relocate to the selected second 1. For c<a and b≥2 the sole potentially mixed gap is 0^(c−1)1^(b−1), and its mixed factors relocate to the first boundary. The selected runs accommodate all pure gap factors, including when a gap is empty. For necessity in the third case, 0^a1 and 10^a must cross the outer boundaries, while 1^(b−1)0^c1 must cross both central boundaries. Their unique intervals [0,a], [a+1,a+b+c], [a+2b+c−1,2a+2b+c−1] are disjoint also at b=2. In every case the two single letters require two different positions. The substitution c=1+r, a=c+1+t, b=2+s is bijective and yields length 9+3r+2s+2t, proving the exceptional generating function and the two shortest exceptions. Comparing the order-three poles at 1 gives leading coefficients 1/6 and 1/2 there; all other poles give O(n) coefficients. Hence the density is 1/3.
 
-**Closest literature and limits.** Banbara et al., *The Smallest String Attractors of Fibonacci and Period-Doubling Words* (CPM 2026 full HTML, arXiv:2602.16152); Faro–Marino–Pavone, *Smallest String Attractors and Minimal Coverage Certificates of Thue–Morse Words* (arXiv:2610.10950 abstract); public four-run and five-run attractor classifications cited in RESULT.md; Mantaci et al., *String Attractors and Combinatorics on Words* (arXiv:1907.04660). This is a self-review without independent certification. See RESULT.md for the full proof and the precise finite verification boundaries.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The strongest available close statements concern all four-run words, a different restricted five-run family, or a different invariant of exactly the same words. None gives the five-run threshold or thereby implies the exception count. This is a bounded assessment, not a priority guarantee.
+
+## value
+
+PASS
+
+This gives a complete boundary, with optimal certificates, for an unbounded natural family of binary palindromes. It identifies exactly when three disjoint compulsory factors defeat a two-position attractor. The density is a useful consequence, not the sole contribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:14:26.585417Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof Steps 1–4; VERIFICATION.md and checker.py inspected, not executed",
+        "Independent finite Pascal-recurrence check: eligible totals 121, 777, 2410, 17073, 3685, 7176 for the six respective (p,r) pairs"
+      ],
+      "rationale": "Under Lucas eligibility, a carry through t trailing p−1 digits forces the corresponding n digits to be p−1, contributing units 1 to both entries. At the first changed nonterminal digit, (n_t,k_t)=(d,e) satisfies e<d, and the upper digits are arbitrary admissible equal-factor pairs. The quotient is b/a with (a,b)=(d−e,e+1) positive and a+b≤p. For fixed u there are p−1 pairs b=ua in the positive residue representatives; simultaneous complementation exchanges strict sides of the boundary a+b=p and the entire boundary occurs only for u=−1. Counting higher digits and summing over t gives the stated multiplicities and total, including the lone p=2 residue. For odd p, the ratio law gives the product sign mean χ_p(−1)/p by character orthogonality. The two one-coordinate signed totals are (H_p−p)Σ H_p^j: each local row lacks one unit endpoint and every upper digit contributes H_p. There are both signs among digit factors: −1 works for p≡3 mod 4, while the row p−2 factors (−1)^e(e+1) give a nonsquare for p≡1 mod 4. Thus |H_p|<Q_p and the marginal means vanish relative to the eligible total. Inverting the four exact sign totals verifies both the finite and limiting joint law. A separate enumeration by Pascal addition mod p, rather than the supplied Lucas implementation, reproduced the entire ratio histogram and each odd-prime joint-sign count at (p,r)=(2,5),(3,4),(5,3),(7,3),(11,2),(13,2).",
+      "residual_risks": [
+        "The separate enumeration is finite; the carry and complement arguments prove the infinite statement. It addresses consecutive nonzero entries in a single row, complete prime-power cutoffs and a prime modulus; quadratic signs require odd p."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Writing a=n−k, b=k, c=0 embeds the binomial pair in the trinomial transition up to ratio inversion. The trinomial theorem sums over c: its decisive digit counts each (x,y) with weight max(0,p+1−x−y) and its higher-digit factor is binomial(p+2,3). Wilson evaluates single-entry nondivisibility asymptotics. Barat–Grabner full text was not obtained."
+        ],
+        "reasoning": "Conditioning on c=0 changes both the digit weight and the higher-digit count; the published tridimensional aggregate does not recover the conditional law. Its proof includes the shared reduction, but the binomial complement evaluation and individual/joint signs are distinct conclusions. Single-entry totals do not retain adjacency.",
+        "searches": [
+          "Resultary trinomial quotient record 5acef2170a0a, original Finding and Proof 1–2",
+          "Wilson, Acta Arith. 83 (1998), pp. 105, 111, 113–114",
+          "Barat–Grabner DOI 10.1112/S0024610701002630, lawful OA retrieval attempts"
+        ]
+      },
+      "checked_sources": [
+        "Resultary records 37b1e7bbed06 and 5acef2170a0a",
+        "Wilson, Acta Arith. 83 (1998), 105–116",
+        "Barat–Grabner DOI 10.1112/S0024610701002630 (access attempts)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "On the trinomial slice the local support is an unweighted triangle; complementation gives half the fibers except at the full boundary fiber. The joint limiting law also uses separate first and second signed totals."
+        ],
+        "reasoning": "Neither the evaluated weighted histogram nor marginal digit-distribution results imply the unweighted exact laws as stated. Multiplicative character orthogonality is standard; its nonzero persistent value here depends on evaluating the uneven ratio law.",
+        "searches": [
+          "Trinomial record's original Proof 1–2 and Relationship to prior work",
+          "Wilson's definitions and principal asymptotics",
+          "Frozen RESULT.md, local complement and character inversion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The matching Pascal record is the assigned work. The distinct trinomial record explicitly mentions the qualitative binomial −1 extremum. A search hit on adjacent ratios of divisor counts was only identifiable from its description and does not provide evidence of coverage."
+        ],
+        "reasoning": "Taking the reciprocal swaps ratio direction and fixes the exceptional residue; equivalent coverage would have to quantify the same admissible adjacent residues, not divisors, individual-entry frequencies, or values when one coefficient is zero.",
+        "searches": [
+          "Resultary: adjacent nonzero Pascal/binomial quotient histogram, neighboring residues, persistent Legendre dependence",
+          "Targeted query: ‘adjacent’ binomial coefficients modulo p quotient neighboring Pascal entries joint distribution ratios Wilson 1998 Barat Grabner"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact all-prime, all-depth histogram match is the assigned record. The distinct same-day record states that −1 is most frequent in the binomial problem but gives its quantitative spectrum with reversed extremum for trinomial transitions."
+        ],
+        "reasoning": "The qualitative comparison is genuine overlap and same-day metadata establishes no priority. It is not the two-level multiplicity formula or the finite and limiting joint-sign table.",
+        "searches": [
+          "Resultary: exact Pascal neighboring quotient spectrum and joint Legendre signs; records 37b1e7bbed06 and 5acef2170a0a"
+        ]
+      },
+      "rationale": "Credit is for the evaluated unweighted ratio multiplicities at all complete cutoffs and the exact and limiting two-coordinate sign laws. Neither Lucas reduction, the use of a decisive carry digit, nor the qualitative prominence of −1 in the binomial problem is claimed as an independently new result. The strongest available distinct indexed theorem treats weighted counts with an additional trinomial coordinate and does not give the slice-specific evaluated histogram or joint signs.",
+      "residual_risks": [
+        "Full Barat–Grabner text was not available for comparison; a broader older digital-distribution treatment could contain an implicit transition calculation. The same-day trinomial reference does not resolve sequence of discovery or priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same assigned record",
+          "evidence": "Same formula for every p and r, and joint sign law",
+          "identifier_or_url": "Resultary 2026/11/22/SCOPE-adjacent-nonzero-pascal-quotients-an-all-prime-exact-spectrum-an--37b1e7bbed06",
+          "material_read": "RESULT.md, claim and proof, offsets 0–3591 and 3500–7672",
+          "method": "Frozen original and local mirror",
+          "title": "Adjacent nonzero Pascal quotients: an all-prime exact spectrum and persistent quadratic dependence",
+          "trigger": "Exact indexed theorem"
+        },
+        {
+          "assessment": "Shared decisive-digit method and qualitative binomial extremum; no stated evaluated binomial slice or binomial sign law",
+          "evidence": "Counts the extra digit z from 0 through p−x−y for each admissible decisive pair",
+          "identifier_or_url": "Resultary 2026/11/22/SCOPE-exact-adjacent-trinomial-quotient-spectra-and-a-sharp-extremal-r--5acef2170a0a",
+          "material_read": "Original RESULT.md: Finding, Proof 1–2 (offset 1450 onward), and binomial comparison in prior-work passage near offset 6441",
+          "method": "Local mirror original text",
+          "title": "Exact adjacent trinomial quotient spectra and a sharp extremal reversal",
+          "trigger": "Same-day adjacent quotient generalization and explicit reference to binomial case"
+        },
+        {
+          "assessment": "Inspected theorems count individual nondivisible entries",
+          "evidence": "F_p(n) is a count of entries nonzero mod p in the first n rows; β_p is a normalized liminf of F_p(n)",
+          "identifier_or_url": "https://matwbn.icm.edu.pl/ksiazki/aa/aa83/aa8322.pdf",
+          "material_read": "Original pp. 105, 111, 113–114, definition of F_p(n) and asymptotics for its normalized liminf",
+          "method": "Lawful open journal archive PDF",
+          "title": "Asymptotic behavior of Pascal’s triangle modulo a prime",
+          "trigger": "Older distribution results for prime-reduced Pascal triangle"
+        },
+        {
+          "assessment": "No full-text exclusion; residual risk",
+          "evidence": "Unavailable original, so no statement-level exclusion is inferred from the access results",
+          "identifier_or_url": "https://doi.org/10.1112/S0024610701002630",
+          "material_read": "Bibliographic identification; no original full text obtained",
+          "method": "DOI and Wiley OA attempts; Crossref lookup",
+          "title": "Distribution of Binomial Coefficients and Digital Functions",
+          "trigger": "Plausible broad digital-distribution coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, exact law and quadratic-sign consequence; Wilson single-entry comparison and distinct trinomial transition law"
+      ],
+      "rationale": "Adjacent entries are a canonical local statistic of the Pascal array. Unlike one-entry digit distributions, the evaluated ratio law supplies a full pair observable at every depth and shows that marginal quadratic balance is consistent with definite nonzero short-range dependence. The all-prime law quantifies the lone exceptional residue and the sign and size of the persistent correlation, not just isolated rows or re-tabulated residue counts.",
+      "residual_risks": [
+        "No assertion for prime powers, arbitrary row cutoffs, or longer lags."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

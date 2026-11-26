@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,52 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof in `RESULT.md` is analytic and valid for every integer \(n\ge1\) under the stated atomless symmetry and finite-variance assumptions.
+# Independent mathematical audit
 
-The standalone checker performs exact finite combinatorial checks of the two identities that carry the proof.
+## correctness
 
-For the Walsh representation it assigns distinct deterministic absolute magnitudes, exhausts all sign patterns, and verifies
-\[
-\sum_i R_i\mathbf1\{X_i>0\}
-=
-\sum_{i\le j}\mathbf1\{X_i+X_j>0\}.
-\]
-This is done through sample size \(12\).
+PASS
 
-For the signed-rank null moments it exhausts all \(2^n\) sign patterns and computes exact rational means and variances through sample size \(14\), requiring agreement with
-\[
-\frac{n(n+1)}4
-\]
-and
-\[
-\frac{n(n+1)(2n+1)}{24}.
-\]
+Independent derivation: write X_i=S_i A_i with A_i=|X_i| and independent fair signs S_i conditional on the magnitudes. The conditional signed-rank mean is constant and its conditional variance is sum r²/4, giving n(n+1)(2n+1)/24. The conditional covariance with the mean is (1/(2n)) sum r A_(r). With no ties, sum r A_(r) equals sum A_i plus the sum over unordered pairs of max(A_i,A_j). The identity max(|x|,|y|)=(|x+y|+|x-y|)/2 and symmetry give expected pair maximum Δ. Thus the unconditional covariance is μ_1/2+(n−1)Δ/4 without using the Walsh representation. The frozen Walsh proof agrees: a diagonal pair contributes E|X|/2 and each off-diagonal pair contributes E|X-X'|/2 before division by n. Atomlessness and independence give the required no-tie conditions, and the second moment guarantees finite covariance. At n=1 only the diagonal survives. Normalizing by σ²/n and the rank variance gives the displayed general, Gaussian and uniform correlations and the limit. The 3/π comparison is numeric equality with the Gaussian efficiency, not an asserted efficiency theorem for all laws. The bundled finite checker was inspected, not executed; these analytic identities apply to all n and do not rely on its checks.
 
-For an independent route to the covariance, the checker uses the centered uniform parent. If \(A_i=|X_i|\sim\operatorname{Unif}[0,a]\), then
-\[
-\mathbb E A_{(r)}=\frac{ar}{n+1}.
-\]
-Conditioning on the absolute ranks gives
-\[
-\operatorname{Cov}(\bar X_n,W_n^+)
-=
-\frac1{2n}\sum_{r=1}^n r\,\mathbb E A_{(r)}
-=
-\frac{a(2n+1)}{12}.
-\]
-The checker compares this exact order-statistic expression through sample size \(200\) with the theorem's formula using
-\[
-\mathbb E|X|=\frac a2
-\]
-and
-\[
-\mathbb E|X-X'|=\frac{2a}{3}.
-\]
+## originality
 
-The normal and uniform correlation simplifications are also checked numerically over a finite grid of sample sizes. These computations are supplementary and do not substitute for the general proof.
+PASS
 
-Independent audit has not been performed.
+The signed-rank null variance, the Walsh identity and Gaussian Pitman efficiency are not new. The accepted distinct statement is the exact finite-n mixed covariance of the signed rank and sample mean, with its law-dependent Gini coefficient and exact diagonal correction. The inspected references and catalogue results do not state or directly supply that mixed identity. The conclusion is bounded by the reported access limitations.
 
-Deterministic replay result: `VERIFY_OK walsh_identity_checks=8190 exact_null_moment_checks=28 uniform_covariance_checks=200 uniform_correlation_checks=200 normal_correlation_checks=200`.
+## value
+
+PASS
+
+For two standard location statistics, the exact dependence on the same sample is a useful quantity when comparing or combining them. The finite formula identifies the population quantity controlling that dependence, including the small-n correction and limiting contrast between Gaussian and uniform parents. This interpretation is distinct from a null marginal table or a rederivation of Gaussian efficiency.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

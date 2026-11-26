@@ -1,19 +1,21 @@
-# Review: rank and Loewner sign of integrating-factor Gramian quadrature
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The published IF-SSPRK2 and IF-SSPRK3 stage algebra, when the forcing is constant and independent of the state, reduces respectively to composite trapezoidal and Simpson integration of the integrating-factor derivative. All corresponding outer-product weights are positive. The exact Vandermonde span proves rank saturation for the controllable integrator chain; the polynomial squared-integral proves positivity of its exact finite-time Gramian. Exact quadrature errors for the quadratic and quartic monomials yield nonzero signed principal minors and a complete classification. The Cauchy--Binet determinant corroborates the rank threshold. A separate rational-arithmetic verifier executes 289 checks. No finite test is used in place of the universal proof.
+PASS
 
-## Originality — PASS, subject to stated search limits
+In the conjugated equation W'=G(t), with G(t)=e^{-tA}bb^T e^{-tA^T}, the published equation (5) gives increment h(G_left+G_right)/2. In equation (6), the 1/4 entering the intermediate convex combination and the 2/3 entering the final combination give h(G_left/6+G_right/6+2G_mid/3). The order of source evaluations is left, right, midpoint, not the order suggested by the intermediate stage output labels. Composite assembly and conjugation at T reverse a symmetric stencil, leaving N+1 and 2N+1 distinct nodes, respectively. A sum of positive weighted rank-one matrices has kernel the common orthogonal complement of the node vectors, even for b=0. For the chain e^{tJ_d}e_d has coordinates t^r/r! in reversed order; selecting the lowest s powers against s distinct nodes gives a nonsingular Vandermonde minor for s=min(d,node count). The integral is strictly positive on a nonzero polynomial squared, so both step thresholds are sharp including d=1. Cauchy–Binet gives the determinant sum; each d-node minor contributes h^{d(d-1)} divided by the squared factorials and the grid refinement factor, and the weights supply h^d. At consecutive square stencils the integer Vandermonde is the product of the factorials, leaving the recorded products of weights, 1/4 or 2^{N-2}3^{-(2N+1)}, with the stated Simpson refinement factor. On a panel starting at zero the degree-two trapezoid error is h^3(1/2-1/3), and the degree-four Simpson error is h^5((1+4/16)/6-1/5). Translation adds only lower exact powers, so the total errors multiply by N. In powers t^r/r!, the first nonzero entries give the stated rank-one cases; the (0,2) trapezoid and (1,3) Simpson principal matrices each have zero first diagonal and a strictly positive off-diagonal, hence negative determinant. This verifies exactly the claimed sign regimes, not the numbers of positive and negative eigenvalues in all indefinite cases or the signs for generic A. The supplied verification.py was inspected, not executed; its rational chain tests are finite corroboration. The stage-increment, consecutive Vandermonde and scalar panel calculations above give a direct exact replay.
 
-Zhang--Lan--Jing (arXiv:2606.15703v1), inspected through their method formulas, positivity theorem and error analysis, give the methods and semidefinite preservation, but not the dimension-sharp Loewner-inertia diagram or attainment of the exact rank thresholds. Bertram--Faßbender (arXiv:1903.05383v1 and arXiv:2003.03101v1), inspected at their relevant empirical-Gramian and Runge--Kutta sections, already provide the general quadrature/low-rank viewpoint. Consequently the finite-node rank ceiling and the scalar quadrature formulas themselves are not claimed as new ideas. The assessed contribution is their sharp simultaneous specialization to these specific newly introduced methods and a complete all-positive-step signed error classification. Plausible residual risk: an earlier specialized analysis may have explicitly worked out the same polynomial Gramian error matrices; search non-detection cannot rule it out.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The integrator chain is the canonical exactly controllable linear system, not an arbitrary selected matrix. Numerical rank matters for covariance inversion, observability/controllability diagnostics and Cholesky computations, while the Loewner sign determines whether an approximate variance is conservatively above or below exact variance in every direction. The result shows that semidefinite positivity can mask delayed strict definiteness and that neither scheme supplies even a one-sided universal covariance bound above a sharp dimension. The barriers persist under every positive mesh refinement; they are not numerical anecdotes or a trivial size-one endpoint.
+Credit the defining methods, their simple reduction for state-independent forcing, and the standard positive-node Gramian factorization and rank ceiling to prior foundations. The supported distinct result is sharp finite-step rank recovery on the chain together with the exact all-mesh signed-error dimension regimes for these particular methods. Strongly overlapping and broader indexed records from November 22 are documented; they are later than the October 19 record and do not establish earlier coverage. No examined antecedent gives those sharp regimes.
 
-## Scope and remaining limitations
+## value
 
-Rank-one constant forcing, fixed uniform positive time step and exact exponentials. The sharp sign thresholds are for nilpotent integrator chains; sampled-exponential aliasing can prevent rank attainment for a general pair. No floating-point or general stiff-system result. Only self-review has occurred; the bibliographic and computational caveats remain.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The specified chain is controllable and has strictly positive true covariance at every positive time. Thus the sharp rank-delay result gives a concrete limit on when these PSD methods allow covariance inversion. The exact first dimensions defeating either Loewner bound on every finite mesh distinguish variance ordering from norm convergence. These are natural diagnostic boundaries, not just the textbook positive-weight rank bound or isolated examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

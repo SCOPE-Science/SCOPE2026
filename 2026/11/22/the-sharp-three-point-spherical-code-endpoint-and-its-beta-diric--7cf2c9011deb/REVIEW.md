@@ -1,19 +1,21 @@
-# Review of the spherical-code endpoint result
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The upper separation bound follows from \(\|U_1+U_2+U_3\|^2\ge0\); its equality cases are exactly planar regular triples. The exact Gram density has the correct three-point Jacobian and gamma normalization, and the change to scaled slack variables is invertible on the event. The cap-lens calculation independently computes the total small-probability mass, including the tangency exponent in codimension \(d-2\). The potentially singular \(d=3\) case is normalized by that independent mass calculation and Scheffé's lemma rather than by unjustified uniform convergence. The limiting beta and Dirichlet laws follow by an explicit simplex Jacobian. The independent two-dimensional beta quadrature is a finite sanity check, not the proof. All conclusions are for fixed integer \(d\ge3\).
+PASS
 
-## Originality — PASS, with residual priority risk
+The norm of the vector sum bounds the separation by 120 degrees, characterizes equality, and restricts the scaled slacks to T≤3. Conditioning on U1 gives independent beta coordinate densities for x,y and z=xy+sqrt((1−x²)(1−y²))W with W a coordinate on S^(d−2); its Jacobian yields A_d and the displayed determinant exponent on the Gram domain. The cap lens has leading width s−cot(r)|z|²: at the midpoint of the two cap centers, expanding the two constraints gives |axial coordinate|≤s/2−cot(r)|z|²/2 to leading order. The compact radius neighborhood of π/3 gives uniform localization at transverse scale √s and axial scale s. Integrating the lens over axial overlap up to 3h yields the stated constant. As an independent check even at d=3, fix the proportions w_i and put t_i=(3−v)w_i. The rescaled determinant has v-derivative 3/2+O(δ_h) uniformly, and its root v0 is nonnegative and O(δ_h): at v=0 the Gram form vanishes on the all-ones vector and the leading two minors are positive. On v≥v0 the rescaled determinant is (v−v0)(3/2+O(δ_h)). Shift by v0 and dominate with a constant times (v−v0)^((d−4)/2) to get convergence of total mass including the d=3 boundary singularity. The beta integral with Jacobian T² yields the displayed normalization after δ_h∼√3 h/2; it factors into the independent Beta and Dirichlet laws. Almost-everywhere convergence of the normalized densities and their matching masses give total variation by Scheffé.
 
-The first publicly posted archival source (Brauchart et al., 2015) treats many-point separation and covering; its relevant separation section concerns \(N\to\infty\), not a fixed three-point, near-optimal hard-cap partition function. Rankin gives the optimal deterministic separation but no neighborhood measure. Moran gives general bounds on the minimum angle, Cai–Fan–Jiang many-point extreme-angle limits, and Jenssen–Joos–Perkins hard-cap abundance estimates outside the present near-120-degree fixed-three critical window. A direct comparison of the events and parameter limits does not yield the gamma coefficient or conditional Beta–Dirichlet distribution. Nearby published research results on three-vertex spherical *perimeter*, intrinsic *angles*, latitude-circle triangles, and four-cap *coverage* also do not imply this claim. Exact statement and implication checks were performed; absence in an index is not proof of global uniqueness. Some historical papers and derivative theorems cannot be exhaustively ruled out.
+## originality
 
-## Value — PASS
+PASS
 
-The three-point spherical code is the smallest nontrivial hard-cap packing configuration with a rigidity threshold: all three pair distances must become simultaneously critical and the Gram determinant degenerates at a planar equilateral triple. The exact probability exponent \( (d+2)/2\), its full gamma coefficient, and the marked Beta–Dirichlet law quantify the near-optimal volume of this natural configuration space, in contrast with the familiar many-point, small-separation regime. The decomposition identifies how three independent pair slacks share the rare residual Gram rank defect. This is a substantive boundary-law result, not the elementary optimization inequality alone.
+On the inspected evidence, the fixed-three, fixed-d minimum-separation endpoint coefficient and conditional total-variation law for the dot-product slacks are distinct. The packing endpoint, exact spherical coordinate densities, and hard-cap partition-function framework are prior ingredients.
 
-## Sources, reproducibility and limits
+## value
 
-The primary sources compared include Rankin (1955), Moran (1979), Cai–Fan–Jiang (2013), Brauchart et al. (first posted 2015), and Jenssen–Joos–Perkins (2018). Some accessible texts were rehosts or html versions; an unlocated older treatment of exactly three random sphere points and a cap-packing endpoint remains a possible priority risk. The packaged `verify.py` passed its independent finite numeric tests in dimensions 3 through 5 and gamma normalization tests through dimension 9. No dimension-uniform estimate or nonuniform-sampling theorem is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exactly three particles give the first triangle constraint in the canonical hard-cap probability. The packing threshold alone says nothing about how rapidly the available measure vanishes. The exact coefficient gives the near-packing normalization, while the conditional law explains how the three pairwise margins share the residual slack, including the singular two-sphere case. The per-pair inequality defines a natural observable distinct from perimeter.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

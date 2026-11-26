@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:53:30.817850Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The orbit counts, polynomial, attainable dimensions and explicit reciprocity identity are correct, but the Finding's literal assertion of polynomial degree n is false: the degree is U=Σ_i m_i ceil(i/2), less than n when N≠0. For example a single size-two block over F₃ gives 6z (degree 1, not 2), satisfying z²P(1/z)=P(z). To verify the count, choose homogeneous bases of complements in the graded filtration K_i=ker N∩im N^(i−1) modulo K_(i+1) and homogeneous lifts under N^(i−1). The resulting chains are independent by applying the largest surviving power to any putative relation, reducing to independent tail vectors. Their total length is Σ_i dim K_i=n by rank-nullity on successive images. The tail layers make generator sign counts intrinsic after a parity shift. A module endomorphism is a unit iff it is invertible on V/tV (iterate V=im A+tV using t nilpotent); its induced map there is triangular by chain length, with diagonal unrestricted size-m_i matrices, or separate size-a_i and size-b_i matrices in the graded case. A generator image in length j has coefficients t^r only for max(0,j−i)≤r<j; grading further imposes r≡σ−τ mod 2. These give exactly the displayed D,E and the two GL-product unit counts, hence G/H. Only odd chains contribute increments over L; S↦−S proves ambient-degree-n reciprocity, not literal degree n. The even/odd rectangular formulas follow by E=hm² and E=hm²+a²+b² respectively, and the two displayed examples check out. A separate full enumeration of 3^9 matrices for type (2,1) over F₃ gave 18,18 by plus-dimension; the frozen checker was not run. The erroneous degree wording could be corrected locally, but no distinct mathematical remainder justifies a repair.",
+      "status": "FAIL"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The accessible cyclic-quiver classification has arbitrary cycle length; two vertices is the grading here, and forgetting the vertex grading gives ordinary Jordan chains.",
+          "The inspected Bogdanić et al. abstract concerns commuting nilpotent types in a two-equal-block centralizer and is not the covering comparison. The named Ringel and Kostant–Rallis primary papers were identified but full text was unavailable."
+        ],
+        "reasoning": "The arbitrary-cycle indecomposable theorem supplies the complete structural input. The probability/counting statement still requires translating automorphism orders into the fixed-N fiber; the implication is demonstrated separately, not attributed to the inaccessible papers.",
+        "searches": [
+          "Schiffmann, Lectures on Hall algebras, arXiv:math/0611617 §3.5",
+          "Ringel, DOI 10.1112/plms/s3-66.3.507",
+          "Kostant–Rallis, JSTOR 2373535",
+          "Bogdanić et al., arXiv:2212.08425v1, p. 1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "arXiv:math/0611617",
+        "arXiv:2212.08425v1",
+        "Resultary records a78b15a3d4a1, e842947e3cb4, 47997eb6cbdc",
+        "Ringel DOI 10.1112/plms/s3-66.3.507, Kostant–Rallis JSTOR 2373535, Green DOI 10.2307/1993881 (access attempts only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Given a direct sum of the classified indecomposables with multiplicities d_j, its automorphism count is q^(dim End−Σ d_j²)∏_j |GL_(d_j)|: the semisimple quotient is the product of full matrix algebras over F_q. Here this also follows by triangularity on the quotient V/tV; the Hom dimensions are plain counts of allowed generator-image monomials.",
+          "The GL_n orbit of the graded representation, viewed as a pair (N,S), has |GL_n|/H points and maps onto the ungraded nilpotent orbit with |GL_n|/G points. Fibers are conjugate, so the size is G/H. The exponent merely records the dimension at vertex +, the sum of the alternating-chain plus lengths."
+        ],
+        "reasoning": "This produces the entire arbitrary-partition formula, integer orbit sizes and polynomial weights as a direct orbit count with no additional classification, constraint, or nontrivial enumeration. The rectangular specializations just collect equal lengths and rewrite the GL ratio.",
+        "searches": [
+          "Schiffmann §3.5 Prop. 3.24",
+          "Green, DOI 10.2307/1993881 (classical centralizers; attempted access)",
+          "Frozen RESULT.md lines 51–59"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Odd characteristic gives S=+I on V₊ and −I on V₋, and N is off-diagonal. This is exactly a nilpotent representation of a two-vertex cyclic quiver, or the odd nilpotent orbit problem for the type-AIII grading group.",
+          "Schiffmann Prop. 3.24 states that the nilpotent indecomposables are the I[i;l], one for each starting vertex i and length l, forming a complete collection. Its Jordan-chain proof is homogeneous."
+        ],
+        "reasoning": "Starting vertex is generator sign. Signed type is precisely the indecomposable multiplicity vector; bringing the ungraded map back to one fixed N converts the simultaneous GL_n orbit into one centralizer orbit of S.",
+        "searches": [
+          "Resultary: anticommuting involutions, signed Jordan chains, AIII orbits, cyclic-quiver automorphism counts",
+          "arXiv:math/0611617, §3.5 Prop. 3.24"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Nearest indexed records a78b15a3d4a1, e842947e3cb4 and 47997eb6cbdc concern factorization A=NU, cube-zero algebra anti-automorphisms, and involutions in jet automorphism groups respectively, not the fixed anticommuting matrix fiber.",
+          "The frozen exact test cases are finite support, not an outside census; no exact external table of the whole fiber polynomial was identified in these searches."
+        ],
+        "reasoning": "Failure to locate a matching table does not override the mechanistic implication of the standard classification and unit-count framework. The near hits do not constitute direct coverage.",
+        "searches": [
+          "Resultary: anticommuting involutions of nilpotent matrices by signed Jordan type",
+          "Resultary: finite-field AIII orbit and cyclic-quiver automorphism counts",
+          "Frozen verify.py and VERIFICATION.md"
+        ]
+      },
+      "rationale": "The valid classification and weighted count are a mechanical consequence of the known nilpotent cyclic-quiver indecomposables and standard finite-field endomorphism unit counts, not shown to be an exact published formula in this notation. The two-vertex equivalence and the orbit-size conversion below are explicit. Unavailable sources do not force this verdict.",
+      "residual_risks": [
+        "Inaccessible primary passages and unindexed literature may explicitly state the exact fixed-nilpotent fiber count. Explicit prior statement or chronological priority is not asserted; the demonstrated standard implication suffices for rejection."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the signed-type classification upon taking a two-cycle",
+          "evidence": [
+            "Indecomposables indexed by vertex and length; proof via homogeneous chains."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0611617",
+          "material_read": "§3.5, pp. 45–46, Prop. 3.24, around PDF-text offset 155500",
+          "method": "OA full-text passage inspection (expository source)",
+          "title": "Lectures on Hall algebras",
+          "trigger": "Potential exact structural coverage under the cyclic-quiver equivalence"
+        },
+        {
+          "assessment": "Different problem in the inspected statement; not used as evidence for the stronger implication",
+          "evidence": [
+            "Classifies nilpotent orbits intersecting a prescribed centralizer in a restricted two-block case."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2212.08425v1",
+          "material_read": "p. 1, abstract",
+          "method": "OA primary abstract inspection",
+          "title": "Jordan structures of nilpotent matrices in the centralizer of a nilpotent matrix with two Jordan blocks of the same size",
+          "trigger": "Named prior comparison for centralizers of fixed nilpotents"
+        },
+        {
+          "assessment": "Unknown whether the primary source explicitly contains the same count",
+          "evidence": [],
+          "identifier_or_url": "https://doi.org/10.1112/plms/s3-66.3.507",
+          "material_read": "Bibliographic identification only; full text unavailable",
+          "method": "Identified source retrieval attempt",
+          "title": "The composition algebra of a cyclic quiver",
+          "trigger": "Plausible primary source of the classification and finite-field module counts"
+        },
+        {
+          "assessment": "Exact statement and finite-field scope not assessed",
+          "evidence": [],
+          "identifier_or_url": "https://www.jstor.org/stable/2373535",
+          "material_read": "Bibliographic identification only; full text unavailable",
+          "method": "Identified source retrieval attempt",
+          "title": "Orbits and representations associated with symmetric spaces",
+          "trigger": "Plausible primary source for type-AIII nilpotent orbit structure"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The fiber polynomial is a natural summary, but the proposed closed form reproduces exactly the ordinary-to-graded orbit-size ratio of known indecomposable decompositions and automorphism counts. The support, reciprocity and rectangular cases are immediate sign and dimension bookkeeping. No independently worthwhile mathematical invariant or new obstruction survives the known structural reduction, and correcting the literal degree error would not change that.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

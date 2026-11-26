@@ -1,0 +1,160 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:15:16.137714Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–98; frozen VERIFICATION.md and verify.py",
+        "/workspace/branches/review_replay.py (argument 4)",
+        "/workspace/repairs/4/RESULT.md, SLOGAN.txt, REVIEW.md and VERIFICATION.md"
+      ],
+      "rationale": "The frozen structural and counting statements are correct. Bracket preservation forces the central block C=Λ²A; idempotence gives A²=A and BA+CB=B. For V=U⊕K, with U the image and K the kernel of A, the off-diagonal restrictions are B(U)⊂ker C and B(K)⊂im C. The shear with T|U=B|U, T|K=−B|K satisfies TA−CT=B and conjugates the graded projection to F, also in characteristic two. Counting U, its complements and the two independent restrictions of B gives the frozen map count. Images are graphs over U modulo Λ²U; each such graph is realized by a shear, has exactly the stated number of maps from the choices of K and B|K, and is not an ideal for 0<r<n because u∧k lies outside Λ²U. An independent binary n=3 packed-bit check tested all 64³ generator-image triples by checking F(F(e_i))=F(e_i) for every basis vector and comparing the image point sets. It gave [1,224,896,1] maps, [1,56,112,1] images and fibers [1,4,8,1] by rank (`python3 /workspace/branches/review_replay.py 4`). The frozen checker was inspected, not executed. For the repaired law: extracting the Gaussian factor gives W=q^E c with 1≤c≤C_q and the stated cubic E. Its derivative is positive at 0, negative at n, with unique positive root t_n; E'' at the root is −S_n. The exact cubic expansion gives left and right exclusion gaps at least S_n/2−7 and S_n/2+1 respectively, and all farther ranks are smaller by monotonicity. This proves the quantitative upper bound and ratio limit. The additional sharpness proof uses E(r+1)−E(r)=−3r²+(n−5)r+(n²+3n−4)/2. Its root is an integer r=(n−5+m)/6 on the norm-nine Pell sequence (7n+4)^2−7m²=9 with n+m≡5 mod 6. Checked the seed and that multiplication by 8+3√7 preserves both conditions and grows n, with r,r+1 admissible. Equal consecutive values and the strict increase/decrease force r=k_n. Both c-factors tend to C_q, so the two probabilities converge to 1/2 because the outside mass goes to zero. The first 12 iterations were also checked with exact integers; the first four pairs of n and tied lower rank are (24,14),(391,237),(6240,3791),(99457,60432). The infinite assertion is analytic, not numerical extrapolation.",
+      "residual_risks": [
+        "Uniform on labeled linear Lie retractions at fixed q; not uniform on distinct retract images. The two-rank window is optimal in cardinality, not necessarily in numerical constants in its tail bound."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "3c25041b20ac concerns fixed c≥3; the weight formulas formally specialize to c=2 but its growing-generator conclusion is at the scale of a limiting rank proportion, not a tie law. The star algebra has limiting quotient fraction 3/4; the Heisenberg comparison has fixed dimension and varies field order. The odd extraspecial group result has elementary abelian proper retracts."
+        ],
+        "reasoning": "Neither changing the class, retraction category, or asymptotic parameter nor merely taking the formal c=2 critical proportion resolves the repaired adjacent-rank mass split.",
+        "searches": [
+          "Resultary 3c25041b20ac class-dependent concentration; 01d5a374f4d7 star Lie algebra; 9cf8810a2ae3 Heisenberg Lie algebra; bc309d784a08 odd extraspecial groups",
+          "Mikhalev–Yu DOI 10.1080/00927879708826054"
+        ]
+      },
+      "checked_sources": [
+        "Resultary records 7573f7956962, 3c25041b20ac, 01d5a374f4d7, 9cf8810a2ae3 and bc309d784a08",
+        "Benito–Roldán-López arXiv:1911.01897v2",
+        "Frozen RESULT.md and repaired RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The enumerator specifies all finite weights. However the continuous saddle and a two-rank probability bound can coexist with single-rank concentration. The repaired proof requires the integer discriminant equation 7n²+8n+1=m² with an extra mod-6 constraint and an infinite norm-preserving iteration."
+        ],
+        "reasoning": "The calculation is a new asymptotic inference from a known input, not a specialization of a limiting-fraction theorem or a finite evaluation of the old table. The repaired assertion is independent of whether the two-rank upper bound had already been explicit elsewhere.",
+        "searches": [
+          "7573f7956962 Finding and proof of rank enumerator",
+          "3c25041b20ac §5, prior-work paragraph, limitations and references",
+          "Pell/adjacent-rank equal-exponent Resultary and primary lookups"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "7573f7956962 has the same standard generator projections and matrix rank binom(r+1,2); r is recovered uniquely. Its exponent r(n−r)(n+2r)/2 equals r(n−r)+r(N−R)+(n−r)R, so the apparent formula difference is not substantive. Benito–Roldán-López gives automorphism and derivation machinery, not this law."
+        ],
+        "reasoning": "Changing the reported rank coordinate or algebraically expanding the weight does not produce a new census. The repair asks a distinct probabilistic question: whether one moving rank can carry all asymptotic mass.",
+        "searches": [
+          "Resultary 7573f7956962, conjugacy and labeled rank spectrum",
+          "Resultary query: free two-step nilpotent Lie algebra adjacent integer rank concentration of random retractions, no single rank necessary, equal exponent subsequence Pell equation 7 n squared + 8 n + 1",
+          "Primary lookup for finite-field retraction-rank adjacent ties and Pell conditions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact map counts are indeed listed in 7573f7956962. Record 3c25041b20ac also reports a class-two sharp two-neighbor result, naming 8cb566c6da84, whose exact local path was not available. The precise ε-scale of that reference and any optimality subsequence in it were not verified."
+        ],
+        "reasoning": "The repair does not rely on novelty of the enumerator or of two-neighbor localization. No inspected table supplies the infinite tie sequence or the consequence that no deterministic single rank has probability tending to one. The missing exact cited result is an explicit residual risk, not a negative search inference.",
+        "searches": [
+          "Resultary 7573f7956962 exact q-rank polynomial",
+          "Resultary query: Exact retraction-rank spectrum and two-point concentration in free class-two Lie algebras 8cb566c6da84 two adjacent quotient ranks",
+          "3c25041b20ac prior-work paragraph and reference 5"
+        ]
+      },
+      "rationale": "Original as packaged: FAIL on the claimed complete conjugacy and labeled-map census as a distinct contribution, because 7573f7956962 already gives both over the same domain. The embedded-image formulas are straightforward supporting linear algebra; they are no longer headline claims. The repaired scope explicitly credits the known weight, uses two-rank localization as context, and makes the distinct contribution the explicit infinite subsequence with two adjacent ranks of limiting mass exactly 1/2 each. Neither the finite-count statement nor two-rank localization alone establishes that a single moving rank cannot suffice. This pass is for the repaired claim only.",
+      "residual_risks": [
+        "The exact later source cited as 8cb566c6da84 could not be inspected directly; its coverage beyond localization is not established. The Mikhalev–Yu full text was unavailable. Searches may miss a differently formulated optimality result; no priority guarantee."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct prior coverage of classification and map counts; no inspected limiting adjacent-rank tie law",
+          "evidence": "n+1 projection types, ordinary ranks binom(r+1,2), labeled coefficient [n choose r]_q q^{r(n−r)(n+2r)/2}.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-retraction-orbits-and-finite-field-rank-spectra-of-free-two-step--7573f7956962/RESULT.md",
+          "material_read": "Finding and proof, offsets 0–6588; limitations, 6800–8890",
+          "method": "Local mirror",
+          "title": "Retraction orbits and finite-field rank spectra of free two-step nilpotent Lie algebras",
+          "trigger": "Same retractions, algebra and field scope"
+        },
+        {
+          "assessment": "Related higher-class theorem and secondary evidence of two-neighbor localization in class two",
+          "evidence": "c≥3; limiting proportion from the unique maximizer of a+(1−2a)a^c; cites an exact class-two two-point concentration record but does not exhibit an equal-mass subsequence.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-retraction-rank-spectra-and-class-dependent-concentration-in-fre--3c25041b20ac/RESULT.md",
+          "material_read": "Finding offsets 0–3733; §5 near 7722; prior-work near 9780; limitations and ref. 5 near 12474",
+          "method": "Local mirror",
+          "title": "Retraction-rank spectra and class-dependent concentration in free nilpotent Lie algebras",
+          "trigger": "General nilpotency-class count and saddle concentration; cites class-two result"
+        },
+        {
+          "assessment": "Two-neighbor overlap reported secondarily; exact text and subsequence coverage unverified",
+          "evidence": "3c25041b20ac calls the class-two two-neighbor concentration law known. Repair does not advertise that upper bound as novel.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-retraction-rank-spectrum-and-two-point-concentration-in-fr--8cb566c6da84/RESULT.md",
+          "material_read": "Reference 5 and discussion in 3c25041b20ac only; no direct text obtained",
+          "method": "Exact local path and title/ID lookup",
+          "title": "Exact retraction-rank spectrum and two-point concentration in free class-two Lie algebras",
+          "trigger": "Explicit citation from the higher-class record; could cover two-rank law or sharpness"
+        },
+        {
+          "assessment": "Different Lie algebra",
+          "evidence": "Star family with limiting fraction 3/4, not the free class-two bracket with derived dimension binom(n,2).",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-retraction-spectra-of-finite-field-star-lie-algebras-and-a-four--01d5a374f4d7/RESULT.md",
+          "material_read": "Finding and scope, offsets 0–2993",
+          "method": "Local mirror",
+          "title": "Retraction spectra of finite-field star Lie algebras",
+          "trigger": "Similar retraction sampling and asymptotic saddle"
+        },
+        {
+          "assessment": "Different bracket and asymptotic regime",
+          "evidence": "Fixed generator dimension and growing field order; not the fixed-q free class-two law.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-heisenberg-lie-retractions-isotropic-affine-strata-and-a-rank-do--9cf8810a2ae3/RESULT.md",
+          "material_read": "Finding and scope, offsets 0–3000",
+          "method": "Local mirror",
+          "title": "Heisenberg Lie retractions",
+          "trigger": "Same-day class-two retraction counts and dominance"
+        },
+        {
+          "assessment": "Different object",
+          "evidence": "Proper images elementary abelian; derived space of the extraspecial group has order p rather than that of the free exterior-square center.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-retracts-and-idempotents-of-odd-extraspecial-groups-in-every-ran--bc309d784a08/RESULT.md",
+          "material_read": "Finding and scope, offsets 0–3481",
+          "method": "Local mirror",
+          "title": "Retracts and idempotents of odd extraspecial groups",
+          "trigger": "Possible odd-characteristic group correspondence"
+        },
+        {
+          "assessment": "Structural background in inspected material",
+          "evidence": "Derivations and automorphisms of the free algebra and quotients, not the normalized weights of random composition-idempotent endomorphisms.",
+          "identifier_or_url": "https://arxiv.org/html/1911.01897v2",
+          "material_read": "Abstract and theorem scope, beginning near offset 493",
+          "method": "Primary OA text",
+          "title": "Derivations and automorphisms of free nilpotent Lie algebras and their quotients",
+          "trigger": "Structural generator-endomorphism parameterization"
+        },
+        {
+          "assessment": "Unresolved for exact scope",
+          "evidence": "Applicable terminology but no verified literature passage giving the fixed-field two-rank sharpness theorem.",
+          "identifier_or_url": "https://doi.org/10.1080/00927879708826054",
+          "material_read": "Citation in related Resultary record; original full text not verified",
+          "method": "Publisher and open-copy access attempts, including publisher HTTP 403",
+          "title": "Test elements and retracts of free Lie algebras",
+          "trigger": "Classical free-Lie retraction results could subsume structural portion"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired RESULT.md, two-rank bound and equal-mass subsequence proofs",
+        "Resultary 7573f7956962 exact enumerator and 3c25041b20ac higher-class comparison"
+      ],
+      "rationale": "The repaired theorem distinguishes localization from actual concentration on a single moving rank, a distinction of interest in exact discrete rank laws. It identifies a motivated infinite resonance: on the explicit norm-equation sequence the two main counts become equal in proportion and every other rank has exponentially small total mass. Thus there is an obstruction to improving the number of retained ranks, not just a change of constants or a recomputation of a known rank table.",
+      "residual_risks": [
+        "Does not classify every near-tie dimension or describe the characteristic of all other algebras. Numerical constants in the exclusion inequality are not asserted optimal."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Review of the second-pedal rhombic-prism volume theorem
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Every step is reconstructed from the six unit-distance facet planes. The first pedal is the polar cross-polytope; its eight facet planes give the eight explicit inverted prism vertices after two steps. The two dual-horizontal diagonal directions are orthogonal, and the resulting diamond-roof hull permits a direct volume integral for all \(0\le c<1\). The derivative of that formula is a positive factor times a quintic that decreases strictly from a positive to a negative value, proving a unique maximum. At \(c=0\) the roof is flat and yields exactly \(8/27\); the excluded degeneracy \(c\uparrow1\) has volume tending to zero. The included checker confirms symbolic identities and exactly checks 48 rational configurations by tetrahedral determinants. These finite tests do not replace the all-real analytic proof.
+PASS
 
-## Originality — PASS, provisional historical priority
+All six facet distances, including the vertical half-height, are fixed at one; 0 <= c < 1 parametrizes that family up to congruence. The first pedal is the polar with exactly eight supporting planes indexed by the sign vectors; the second feet are their dual sign vectors divided by squared norm. In the orthogonal horizontal sum/difference axes the resulting four columns have radii A,B and half-heights h+,h−. A supporting functional of the projected diamond, slightly tilted vertically, exposes each endpoint. In any convex representation the total weight at the two Y-corners is at least |Y|/B, and this lower bound can be attained throughout the diamond; placing all mass on the upper endpoints therefore yields the claimed roof for h+ >= h−. This proves the four lateral quadrilaterals and four roof triangles for c>0 (two merged flat roofs at c=0). Section integration gives V=4AB(2h++h−)/3. Differentiation gives the stated quintic and positive prefactor; F′(c) <= 99(c−1)<0 before the excluded endpoint. Opposite endpoint signs and the rational bracket establish the unique interior global maximum; the cube gives 8/27, and V tends to zero as c approaches 1. An exact determinant test at c=3/5 gave 190/729 without floating hull triangulation, and the derivative replay reproduced c*=0.175097381279917 and V*=0.302143544127582.
 
-Zwierzyński's arXiv:2611.01247v1 Proposition 4.1 gives the inverted-vertex formula for every circumscribed polytope, while Proposition 4.2 gives a four-step box return. An earlier parallelotope rigidity classification says when the second pedal is a parallelotope, but not its exact volume or a unique optimizing shear. *Four-step pedal return and aspect-ratio inversion for prisms over bicentric polytopes* requires a cyclic as well as tangential planar base, unlike nonsquare rhombi, and computes no relevant volume optimum. Actual semantic-record and primary-literature searches did not identify a result implying the full new conclusion. Unindexed inversion literature remains a specific priority risk, and failure to find a match is not by itself a novelty proof.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The common unit insphere prevents arbitrary scaling and makes the rhombic-prism angle a motivated complete deformation parameter. The result determines the entire two-step pedal volume, demonstrates strict volume improvement over the cube at a unique algebraic angle, and explains a sharp change from six to eight facets. It does not solve the unrestricted parallelotope problem, for which the same conclusion is not claimed.
+Credit inversion of vertices, qualitative non-parallelepiped rigidity, and the cube endpoint to existing results. The explicit noncubical facet and volume profiles and the unique skew optimizer are supported as distinct, to the best of the inspected evidence.
 
-## Verification and limitations
+## value
 
-The analytic proof is the correctness basis; separate exact arithmetic and numerical-hull facet selection are diagnostic only. The theorem applies to right rhombic prisms with common facet distance one and a central reference point. The scientific comparison included the accessible full originating paper and a directly relevant full public prism result, but broader historical priority remains provisional. Independent mathematical assessment has not taken place.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A single natural shape parameter ranges from the symmetric cube to near-degeneracy while all facet distances are fixed. The calculation gives a sharp counterexample to cube extremality on this family, a complete facet transition, and a unique maximizing geometry. The value is the structural comparison and exact optimizer, not the size of the percentage gain.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

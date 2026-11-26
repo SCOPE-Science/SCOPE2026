@@ -1,19 +1,21 @@
-# Mathematical review: cyclic quadratic-character correlations of Apéry numbers modulo seven
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact integer binomial definition of Apéry numbers gives a Lucas digit-product modulo seven, using Lucas's binomial congruence and the low-digit carry exclusion. The seven digit values are \(1,5,3,3,3,5,1\), hence the sign vector is \(1,-1,-1,-1,-1,-1,1\). The proof computes the seven carry coefficients by finite sums, and every correlation follows recursively with the correct cyclic wrap. The induction separately handles shifts divisible by seven, interior nonzero lower digits, and both carry-boundary cases, including equality shifts. Inversion of the four sign moments proves all ordered pair frequencies. No probabilistic or finite-only argument is used for the all-depth statement. The standalone exact checker passed 3,098 assertions, which corroborate but do not replace the proof.
+PASS
 
-## Originality — PASS (with stated historical risk)
+For n=7m+d and j=7k+e, Lucas factors the low digits. A carry from d+e>=7 makes the units digit of n+j smaller than e, so these terms vanish. This is also precisely where the corresponding low-digit binomial for A(d) vanishes; the surviving sum separates. Original-binomial evaluation at d=0,...,6 gives residues (1,5,3,3,3,5,1), and hence nonvanishing signs and digit sum -3. Splitting the cyclic correlation into low-digit carry classes proves the stated recurrence with the top-block wrap. The no-carry and carry signed sums give the displayed rows. With L=7^(r-1) and c=C_(r-1)(1)=(L+2)/3, the only boundary minimum is c-2L at h=5 and its negative; the boundary maximum is 2L+c<3L for L>=7. Interior cases have absolute value at most 9L/7, below (5L-2)/3. Multiples of seven inherit the sharp maximum and miss the new minimum by at least 4, including the step from r=1. The sign-pair count is obtained by expanding (1+sigma*s(n))(1+tau*s(n+h))/4 and using equality of the two cyclic marginals. Independent replay `python3 /workspace/reproduce_frozen.py 5` computes original binomial sums through n=342 and checks every correlation and sign-pair count at depths 1–3 (399 depth/lag pairs); the supplied CHECK.py was inspected, not executed. The proof, not the bounded checks, covers all depths.
 
-Gessel (1982) and Malik–Straub (2015) give the previously known Apéry Lucas factorization and digit residues; they do not provide this sharp finite cyclic all-shift correlation classification. Fan–Konieczny (2018) treat general digit-multiplicative sequences and unwrapped correlation uniformity, but the asserted finite cyclic extrema and exact equality shifts are not consequences explicitly stated there. Related signed correlation results for different arithmetic sequences cannot transfer their coefficient vectors or equality conditions to this Apéry sequence. The closest overlap risk is an implicit specialization of a general correlation-transducer result; the precise finite cyclic theorem was not recovered in the inspected material.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The nonvanishing Apéry congruence modulo seven produces a natural, nonconstant signed digital arithmetic sequence. For that sequence the theorem solves a complete all-shift, all-depth finite cyclic correlation problem, with an unexpectedly moving positive extremizer and a fixed negative extremizer, exact sharp values, and every ordered two-sign fiber. Those sharp equality classifications are not the automatic statement of the Lucas digit product, and they quantify a meaningful extremal distinction between different shift scales.
+The mod-seven digit residues and nonvanishing are known. The supported distinct contribution is the exact finite cyclic all-shift extremal classification for the quadratic character, not the Lucas congruence, a generic two-state carry method, or the elementary inversion of two signs alone. The closest distinct same-day Apéry record concerns a different character and base and takes an unwrapped limit; no implication of the assigned finite classification was established.
 
-## Scientific limitations and references
+## value
 
-The proof concerns quadratic characters of Apéry numbers modulo seven on cyclic blocks of length \(7^r\). It does not establish modulo-49 or full nonzero-residue distributions, nor an equivalent statement for unwrapped windows. Relevant primary literature: Gessel (1982), doi:10.1016/0022-314X(82)90071-3; Malik and Straub (2015), arXiv:1508.00297, including Example 6.1; Fan and Konieczny (2018), arXiv:1806.04267, on digit-multiplicative correlations. General-formulation priority remains a residual risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A natural sign sequence from an established nonvanishing Apéry congruence has a precise scale-dependent distinction: the positive maximizer moves with the block depth while the most negative shift stays fixed up to sign. The exact finite extrema and their full equality sets quantify this difference; complete pair frequencies follow without assuming an unwrapped limit. This is not just a new tabulation of digit residues.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

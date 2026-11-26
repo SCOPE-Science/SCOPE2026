@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,22 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The infinite proof uses only the crown graph's exact distance structure and its independent sets. For \(n\ge3\), every \(a_i\) has unique distance-\(3\) antipode \(b_i\); all same-shore pairs are at distance \(2\), and all nonmatched cross-shore pairs are at distance \(1\). Therefore an independent color class is distance-\(2\) dominating exactly when it has at least two vertices.
+# Independent mathematical audit
 
-The standalone script `artifacts/verify.py` supplies two finite checks. First, for every \(3\le n\le8\), it enumerates every nonempty independent set and verifies the distance-\(2\) characterization. Second, for \(n=3,4,5\), it enumerates every unlabeled set partition of the \(2n\) vertices, filters by properness and the distance-fall condition, and recovers the exact spectra at distances \(1,2,3\).
+## correctness
 
-A replay produced:
+PASS
 
-`ALL CHECKS PASSED`
+For a_i,b_i a path a_i–b_j–a_k–b_i with i,j,k distinct establishes distance 3, since they are in opposite shores and not adjacent. Any two same-shore vertices have a common neighbor and nonmatched cross-shore vertices are adjacent. Thus the closed radius-2 ball at any vertex omits only its unique antipode. A set of size at least two meets every such ball, and a singleton misses the ball of its antipode. This proves the iff for proper colorings and the upper limit n. To realize q=2,…,n, use q−2 matched nonedges as classes and two residual shores each of size n−q+2≥2, valid also at n=3. At distance 1 an independent dominating class is either a whole shore (all same-shore vertices must be dominated) or one matched nonedge (the only mixed independent class). A whole-shore class forces the other whole shore; otherwise all classes are matched nonedges. At d≥3 the fall condition is automatic, and splitting shores with disjoint palettes gives all proper color counts 2,…,2n. The packaged artifacts/verify.py was inspected, not executed; its finite enumeration is optional corroboration and does not replace the structural proof.
 
-`independent_subset_checks=1029`
+## originality
 
-`canonical_partition_checks=120318`
+PASS
 
-`crown_orders_for_full_coloring_enumeration=6,8,10`
+The distinct claim is the complete radius-2 spectrum and the characterization of the colorings that realize it. Existing general theorems give a 3-class partition, not the full spectrum or all allowed classes. The ordinary radius-1 endpoint is explicitly not claimed as new, and the d≥3 endpoint is an elementary diameter consequence. No inspected catalogue result or full-text passage covers the radius-2 claim; historical priority is not certified.
 
-`distance2_structural_orders=6..16`
+## value
 
-The enumeration is not claimed to prove the formulas for all \(n\); the analytic proof does that. It is an independent finite consistency check on definitions, boundary cases, and the constructive spectrum.
+PASS
+
+The crown is a natural test family just beyond the diameter-2 case in distance-fall theory. The radius-2 result detects and exactly describes the obstruction to automatic feasibility, gives all attainable color counts rather than a single existence statement, and exhibits a full transition between ordinary fall and unrestricted proper coloring. The value is in that structural middle regime, not in recomputing the conventional endpoints.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

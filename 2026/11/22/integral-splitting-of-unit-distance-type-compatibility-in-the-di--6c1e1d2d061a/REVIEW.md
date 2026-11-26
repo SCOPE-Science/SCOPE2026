@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The admissible types are exactly the core \(\{2,3,4\}^n\) and the \(n\) exceptional families with one coordinate equal to one and all other coordinates in \(\{3,4\}\). The four-point metrics determining each matrix entry are governed by the original triangle inequalities. The core unit-distance matrix is the tensor power of the explicit unimodular three-by-three matrix \(T\). The cross-block rows each carry an exceptional vector annihilating every possible cross factor under \(T^{-1}\), proving the integer identity \(HD^{-1}H^{\mathsf T}=0\). The block elimination and its inverse use only integer matrices of determinant one, so the Smith-form and real-inertia conclusions hold for all positive \(n\). `VERIFY.py` reconstructs the matrix independently and checks the integer identity and modular ranks through four parameters. Computation is corroboration rather than an infinite proof.
+PASS
 
-## Originality — PASS (provisional)
+The triangle inequalities over the named equilateral distance-four base classify the nonalgebraic vectors as the core {2,3,4}^n and n exceptional classes with a unique 1 and all remaining coordinates in {3,4}. Extending the base by two distinct points at distance 1 imposes exactly the coordinate differences ≤1; sums ≥1 are automatic, so the diagonal is included. The core D=T tensor-powered n times is unimodular (det T=−1), and off-core cross-class entries vanish. The mixed rows are tensors with one factor e=(1,0,0) and other factors r3=(1,1,1), r4=(0,1,1). The row eT⁻¹=(0,1,−1) pairs to zero with all three, so every entry of HD⁻¹Hᵀ vanishes integrally. The displayed determinant-one upper block change thus gives the claimed congruence, not just equivalence over a field. Each Jq contributes exactly one unit Smith factor and one positive eigenvalue. T has two positive and one negative eigenvalue, and the tensor sign difference is (2−1)^n=1. The principal selection has Schur complement I_n and determinant (−1)^(n·3^(n−1))=(−1)^n. At n=1 the four types yield T⊕[1], consistent with rank 4, inertia (3,1,0) and no zeros.
 
-Sauer (arXiv:1010.4212, Sections 2 and 4) proves the underlying Katětov type and possible-orbit-distance criteria; Conant (arXiv:1504.02427, Introduction) establishes the general integral Urysohn framework. The previously published diameter-three Widom–Rowlinson one-type polynomial counts scalar types but does not determine this new matrix. Available historical claims include a diameter-four scalar type count and a diameter-three compatibility Smith form, neither of which implies the integral splitting claimed here. Searches for alternative Katětov, Urysohn, tensor and Smith-form formulations found no decisive covering statement. The standalone number sequence \(3^n+n\) occurs in unrelated databases and is not claimed as a new integer sequence. Residual risk: an equivalent integral principal-submatrix formula might exist under another combinatorial name.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result gives an exact integral and real-spectral classification of a natural pair-realizability relation, even though its indexing set grows as \(3^n+n2^{n-1}\). The tensor-plus-isotropic-block decomposition explains the growing nullity, why every prime sees the same rank, and the surprising linear signature \(n+1\). This is not an isolated small determinant or a rebranding of an existing type-count formula. Its directly reusable principal-unimodular-core certificate is mathematically more informative than numerical checks alone.
+The entry criterion and an aggregate unit-pair count are covered and not credited as new. The supported distinct claim is the explicit integral congruence and its arithmetic and inertia consequences. Neither Sauer’s possible-distance theorem nor the nearest compared metric or ultrametric calculations provides that congruence or the integral Schur cancellation for this matrix.
 
-## Scope and risks
+## value
 
-The theorem is limited to individually named equilateral distance-four parameter sets, mutual distance one, and the finite distance alphabet \(\{0,1,2,3,4\}\). Relevant older papers supply the logical extension setup but not independent confirmation of this new arithmetic statement. Historical priority is provisional; no independent mathematical validation has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For a natural metric extension question on a named homogeneous space the theorem explains why an exponentially sized compatibility matrix has no finite cokernel torsion in any size, via an integral orthogonality rather than enumerated ranks. It also gives the exact real signature and a full-rank principal unimodular witness. These determine distinct arithmetic and real invariants not supplied by type-count data.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

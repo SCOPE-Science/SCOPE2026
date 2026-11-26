@@ -1,0 +1,164 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T10:01:10.806676Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 37–111; VERIFICATION.md and verify_radau_bipartite.py inspected without execution",
+        "Independent replay: python3 /workspace/reproductions/exact_checks.py 5"
+      ],
+      "rationale": "The stated Radau IIA tableau yields R(z)=(6−2z)/(z²+4z+6) on negative real arguments of the usual RK stability function, written here as positive diffusion parameter z. The four invariant subspaces are the constants, the two within-part contrasts, and the contrast of part means, with eigenvalues 0,q,p,n. The off-diagonal entry across parts is (1−R(nh))/n>0; within the p-part it is h²q[h²qn+6hp+12hq+18]/[D(qh)D(nh)] with D(z)=z²+4z+6, also positive (swap p,q for the other block). Clearing these positive denominators on the diagonal gives the two stated quartics. The global scalar minimum (5−3√3)/2 and constant projection diagonal 1/n give a positive diagonal lower bound for n≤11. At h=8/q the first diagonal is strictly negative for n≥12: the denominator is positive and the sign is minus that of a quadratic with leading coefficient 15 and discriminant −128(25n²+480n−8712)<0. Interchanging the parts supplies the other witness. The quartic coefficient signs are +,−,arbitrary,+,+, so there are at most two positive roots counted with multiplicity; positivity at 0 and infinity and the strictly negative witness force two simple roots. Independent symbolic checks reproduced the quartics, off-diagonal factorization, and witness; exact signs at the supplied rational brackets establish the disjoint and overlapping examples. At h=0 the endpoint is the identity.",
+      "residual_risks": [
+        "The bracket arithmetic proves two examples, not a separate formula deciding overlap from p and q. Neither intermediate RK stages nor non-unit weights are covered."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Resultary 690509e7de2b characterizes filters preserving positivity universally over the graph family and all steps, not the signs at fixed graph and step.",
+          "Resultary 657de75ce7c2 covers every complete multipartite profile, giving an order threshold, positive off-diagonals and eventual positivity, but disclaims exact interval sets and is dated November 8.",
+          "Hairer–Lubich prove energy/operator-norm statements, not individual matrix-entry inequalities."
+        ],
+        "reasoning": "Failure of a universal filter condition proves the existence of some graph and step with failure, not the exact interval count, endpoints, or signs on each unequal bipartite graph.",
+        "searches": [
+          "Resultary: complete multipartite diffusion graph positivity criterion and order-12 barrier",
+          "Hairer–Lubich, Energy-diminishing integration of gradient systems, author manuscript p. 5"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 280b8b0c7f0a, 8c0d50ef8119, 690509e7de2b, 657de75ce7c2, ceeaeed369eb",
+        "Hairer–Lubich author manuscript p. 5; Higueras–Ketcheson–Kocsis arXiv:1505.04024 pp. 1–2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For equal bipartite parts p=q, the two nonconstant internal eigenvalues are equal and the two diagonal quartics coincide by symmetry. For p≠q these split, and the K_{2,10} example has three nonnegative step windows, unlike the two windows from a single forbidden interval.",
+          "The later broader order-threshold result neither proves exactly two roots for each diagonal nor supplies the full domain for a fixed unequal pair."
+        ],
+        "reasoning": "Credit the same threshold in previously studied domains and distinguish it from the unequal sign classification. Within-day priority for the balanced result is unresolved and unnecessary for the distinct claim.",
+        "searches": [
+          "Resultary 280b8b0c7f0a, 690509e7de2b, 657de75ce7c2 and ceeaeed369eb, RESULT.md findings and stated scope"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Nonnegative stochasticity of the endpoint is equivalent to entrywise positivity preservation since the row sums are identically one; neither spectral energy decay nor intermediate-stage monotonicity is equivalent.",
+          "The exact K_{2,q} reentry/topology record ceeaeed369eb treats one side fixed and is dated November 8, after the assigned result.",
+          "The inspected SSP work concerns absolute-monotonicity bounds relative to a forward-Euler step and perturbed/downwind methods, not this fixed-graph all-step endpoint sign pattern."
+        ],
+        "reasoning": "Compare using the actual endpoint filter applied to the combinatorial Laplacian; global RK step bounds or stage monotonicity are not equivalent statements.",
+        "searches": [
+          "Resultary: unmodified two-stage Radau IIA diffusion positivity, unequal complete bipartite graphs, reentry and forbidden step intervals",
+          "arXiv:1505.04024, pp. 1–2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Same-day result 280b8b0c7f0a has one quartic for balanced parts. Result 8c0d50ef8119 restricts to at least three equal parts. Later record ceeaeed369eb has exact windows for K_{2,q}, including the K_{2,10} topology, but not the two-variable family or K_{5,7}."
+        ],
+        "reasoning": "No matching earlier or same-day exact two-variable family of diagonal intervals was found; neither a fixed-side slice nor balanced quartics constitute that family.",
+        "searches": [
+          "Resultary: twelve-vertex reentrant Radau IIA positivity and exact complete-bipartite windows"
+        ]
+      },
+      "rationale": "The distinct claim is the all-step entrywise classification for unequal parts, including the two potentially disjoint negative intervals. The closest same-day balanced result shares the order-12 threshold and off-diagonal behavior in its own domain but has a single diagonal class. A broader multipartite threshold result dated later covers only part of this claim. No inspected earlier or same-day statement establishes equivalently the full unequal classification.",
+      "residual_risks": [
+        "Indexed and primary comparisons are bounded; a deferred broader literature lookup supplies no negative evidence of overlap.",
+        "The date alone does not establish within-day ordering of the balanced and unequal studies."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantial same-day overlap in phenomena but equal parts only",
+          "evidence": [
+            "Treats K_{s,…,s}; one common diagonal class and forbidden interval."
+          ],
+          "identifier_or_url": "Resultary 280b8b0c7f0a",
+          "material_read": "RESULT.md finding, offset 0",
+          "method": "Local mirror",
+          "title": "The twelve-vertex reentrant positivity barrier for two-stage Radau IIA on balanced multipartite networks",
+          "trigger": "Same method, threshold and a bipartite subfamily"
+        },
+        {
+          "assessment": "Not bipartite",
+          "evidence": [
+            "At least three equal parts."
+          ],
+          "identifier_or_url": "Resultary 8c0d50ef8119",
+          "material_read": "RESULT.md finding, offset 0",
+          "method": "Local mirror",
+          "title": "Sharp Radau IIA positivity and reentry on balanced multipartite diffusion networks",
+          "trigger": "Earlier exact sign classification for the same method"
+        },
+        {
+          "assessment": "Different quantifiers",
+          "evidence": [
+            "Scalar criterion for positivity universally over the whole family and all steps."
+          ],
+          "identifier_or_url": "Resultary 690509e7de2b",
+          "material_read": "RESULT.md finding, offset 0",
+          "method": "Local mirror",
+          "title": "An exact positivity criterion on complete multipartite diffusion graphs",
+          "trigger": "Potential stronger multipartite statement"
+        },
+        {
+          "assessment": "Later partial overlap",
+          "evidence": [
+            "Per-part negativity witnesses and eventual positivity but not all individual forbidden intervals."
+          ],
+          "identifier_or_url": "Resultary 657de75ce7c2",
+          "material_read": "RESULT.md, threshold and interval limitation around offset 500",
+          "method": "Local mirror",
+          "title": "Twelve vertices are the exact Radau IIA positivity barrier for complete multipartite graphs",
+          "trigger": "Broader graph family with the same threshold"
+        },
+        {
+          "assessment": "Later exact fixed-side comparison",
+          "evidence": [
+            "Disjoint intervals for 10≤q≤30, overlapping for q≥31, and no failure for 2≤q≤9."
+          ],
+          "identifier_or_url": "Resultary ceeaeed369eb",
+          "material_read": "RESULT.md offsets 0 and 5936",
+          "method": "Local mirror",
+          "title": "Reentrant Radau IIA positivity windows on K_{2,q}",
+          "trigger": "Exact interval topology on a slice of the assigned family"
+        },
+        {
+          "assessment": "Energy monotonicity does not give entrywise signs",
+          "evidence": [
+            "For the quadratic case the statements use spectral/operator-norm estimates."
+          ],
+          "identifier_or_url": "https://www.unige.ch/~hairer/preprints/gradientflow.pdf",
+          "material_read": "Author manuscript printed p. 5, around text offset 12866",
+          "method": "Primary open-access PDF",
+          "title": "Energy-diminishing integration of gradient systems",
+          "trigger": "Algebraic stability of RK methods for gradient equations"
+        },
+        {
+          "assessment": "Not an all-step unmodified endpoint classification",
+          "evidence": [
+            "Perturbations and SSP under forward-Euler step conditions."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1505.04024",
+          "material_read": "pp. 1–2, around text offsets 516 and 4323",
+          "method": "Primary open-access PDF",
+          "title": "Optimal monotonicity-preserving perturbations of a given Runge–Kutta method",
+          "trigger": "Possible positivity criterion for RK discretizations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, complete entrywise classification and both exact examples",
+        "Resultary 280b8b0c7f0a, one diagonal class for the balanced setting"
+      ],
+      "rationale": "Nonnegative endpoint values are required for preserving nonnegative inputs in diffusion. The exact threshold and two-quartic criterion decide admissibility for every unbalanced profile and step, not just in a safe small-step regime. Three separated admissible windows on K_{2,10} are a structural phenomenon absent with one diagonal class, and the contrasting K_{5,7} example shows it is not universal once imbalance is permitted.",
+      "residual_risks": [
+        "This is a fixed graph family for one specific integrator, not a classification of which general side ratios exhibit overlap or a statement about intermediate-stage positivity."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

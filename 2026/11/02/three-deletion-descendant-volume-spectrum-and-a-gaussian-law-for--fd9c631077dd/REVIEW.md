@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Every descendant is indexed uniquely by its deleted multiplicity vector. Stars-and-bars counts the admissible input centers after imposing one or two deletion constraints; the pair-distance identity is quoted accurately from [1, Theorem 9]. Three-deletion patterns partition into three disjoint types, and coordinate-count strata are counted with a correct stars-and-bars residual. The exact formulas were checked against independent direct enumerators: 38,665 inputs for the three-deletion histogram and 24,505 for all-parameter first and second moments. The fixed-\(t\) Gaussian theorem uses the exact hypergeometric support law, a uniform \(O_t(q^{t-1})\) repeated-deletion bound, and classical hypergeometric CLT and moment concentration. These finite checks do not prove the infinite claims, which follow from the displayed combinatorial and probabilistic arguments.
+PASS
 
-## Originality — PASS, with priority limitations
+Distinct exact deletion vectors give distinct residual multisets. Counting inputs above d gives B(n−t,q); for ordered pairs d,e the sum of their coordinatewise maximum is t+m for m=||d−e||₁/2, so Theorem 9's pair count gives the second moment, including zero contributions if n−t−m<0. At t=3 the only deletion shapes give counts binom(K,3), H(K−1), J. Once the nested sets of sizes k,h,j are chosen, all surplus above k+h+j goes to the j coordinates already of size at least three; at j=0 the only allowed mass is k+h. This gives precisely the histogram. Independent finite checks matched both moments in 104 cases, the coefficient formula in 80 (q,t,m) cases, and the histogram in 28 (q,n) cases, including the two exact rational examples; the supplied transcripts do not establish the infinite assertions. For the limit, K is hypergeometric with (population, marked, draws)=(n+q−1,q,n); its variance is asymptotic to p²(1−p)q under the stated regime. Nonsquarefree deletion vectors give a deterministic count error O_t(q^(t−1)). Taylor expansion of binom(K,t) at the exact mean has first derivative asymptotic to (pq)^(t−1)/(t−1)!; the remainder is bounded by O_t(q^(t−2)(K−μ)²), of L² norm O_t(q^(t−1)) by the sampling-without-replacement fourth-moment bound. Thus both the CLT and convergence of rescaled variance follow, with coefficient p^(2t)(1−p)/((t−1)!)². Keeping the exact μ avoids assuming a rate for n/q→λ. This is not the multinomial occupancy law, and t is fixed in the Gaussian claim.
 
-The primary paper arXiv:2603.18322v1 proves the distance-pair enumerator and the mean *same-level metric ball volume*, and these are explicitly credited. It does not state the complete distribution of *one-sided three-deletion descendants* or the joint growing-alphabet Gaussian fluctuation law. arXiv:2601.05636v1 studies code sizes rather than random-descendant-volume distributions. Searches under deletion sphere, descendant count, weak composition, hypergeometric support and variance terminology found related but not dominating results, including fixed-length ordered-word sphere variances and the three-survivor optimum code size. The existing pair-count theorem is acknowledged instead of represented as new. An unindexed or implicit equivalent theorem remains possible.
+## originality
 
-## Value — PASS
+PASS
 
-In an unordered-symbol deletion channel, sphere-size heterogeneity influences packing and reconstruction, while averages alone omit the spread and multiplicity profile. The complete exact three-deletion histogram gives every volume and number of sources realizing it, for any alphabet size and source length. Exact general-\(t\) variance and a nondegenerate joint-length/alphabet Gaussian limit identify the fluctuation scale in a natural high-dimensional regime. These are motivated channel invariants, not arbitrary isolated finite evaluations.
+The distinct supported result is the exact t=3 one-sided histogram and the growing-alphabet fixed-t Gaussian and variance laws for uniform multisets. The mean is routine incidence counting, and the exact second moment is a direct corollary of the prior pair-distance enumerator; neither gets independent originality credit. Inspected same-level and ordered-word results do not cover the histogram or Gaussian law on the stated probability space.
 
-## Scope and evidence
+## value
 
-No claim is made of complete distributions for other deletion counts, multinomially sampled source words, growing \(t\), or independent validation. Both companion checkers can be run directly with Python 3.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The channel's one-sided volume varies with the center; an average or a fixed-radius metric ball does not describe that variation. The complete t=3 frequencies and the leading Gaussian variance for every fixed t in a genuine growing-alphabet regime supply precise finite and asymptotic benchmarks on the natural uniform multiset model. The value rests on these volume distributions and scales, not on reusing the pair enumerator.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

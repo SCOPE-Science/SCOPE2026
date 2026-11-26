@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The shared-priority construction gives an exact samplewise identity: except when the designated clique vertex arrives first in its clique and before a star centre that precedes all its leaves, the total accepted sizes are equal. On that event the gain is precisely the number of leaves minus one. Direct integration gives its probability. With a singleton instead of a clique, the new graph is exactly a larger star and its mean yields the stated negative difference. The two-point output law follows from the location of the changed mass. Finite minimality is proved by a completely specified exhaustive rational recurrence over every simple graph through order five, with a second independent permutation evaluator and canonical marked-graph orbit check. Replay succeeded for all 1,099 graphs and all 124,469 direct orderings counted by the checker. Neither numerical sampling nor a finite test is used to justify the infinite family.
+## correctness
 
-## Originality
-PASS, with historical uncertainty. The full available 2019 preprint by Krivelevich and collaborators establishes the common random-order greedy model and a path-minimum theorem within the class of trees, not cross-graph comparisons under edge addition. The full accessible 2026 chain-graph and threshold-graph output-law results similarly cover particular structured graph classes, not this positive edge response or the minimal marked-edge classification; the full star–clique family includes non-chain and non-threshold graphs. Pippenger's 1989 abstract covers the basic adsorption process, but the full paper could not be verified for this particular finite graph perturbation. Targeted public search and research-record searches returned no equivalent statement. This supports best-knowledge originality, not a claim of historical uniqueness.
+PASS
 
-## Value
-PASS. A natural expectation for a blocking adsorption process is that an extra exclusion edge should decrease the ultimate number accepted. The result exhibits a stronger counterphenomenon than an isolated numerical anomaly: an explicit one-parameter structural boundary between negative and positive effects, a samplewise positive coupling and complete two-point law for an infinite graph family, plus the sharp smallest-order classification across all graphs. The five-vertex classification identifies both disconnected and connected source obstructions; it is not an arbitrary graph slice, since it is the exact first order at which the natural monotonicity conjecture fails.
+The only positive-change order has the marked clique vertex first globally and the centre first among its star. Its probability is 1/[(k+m+1)(k+1)]. The leaves replace the centre, contributing k−1 extra accepts; if the centre instead blocks the clique vertex, a different clique vertex replaces it for m≥2. Moving this mass from 2 to k+1 gives the law. For m=1 the mean difference of the larger star versus the smaller star plus an isolate is −2/[(k+1)(k+2)]. Independent exhaustive set-based permutation counting of 1, 2, 8, 64 and 1024 graphs tested 0, 1, 12, 192 and 5120 nonedges; positive counts were 0, 0, 0, 0, 240, all gains 8/120. The full relabelling orbits of the displayed representatives are disjoint, of sizes 60, 120, 60, and exhaust the positives; their respective old/new numerators over 120 are (320,328), (296,304), (304,312). The empty graph trivially contributes no augmentation.
 
-## Sources and remaining limitations
-The main reference is Krivelevich et al., arXiv:1907.07216v1 (July 16, 2019), especially the model definition, Theorem 1.4 and Section 6. Other checked material includes Pippenger, DOI:10.1137/0402034 (abstract available); public exact-law results for chain and threshold graphs (complete result text). Residual risks include earlier adsorption-response literature indexed under different vocabulary and inaccessible historical primary text. The result is restricted to uniform random priorities and the specified graph family for its infinite coupling; exhaustive finite classification ends at five vertices.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit only the exact star–clique comparison and the complete lowest-order marked census. Edge-addition improvement itself was already known via a bridge between two stars. The bounded literature and catalogue comparison did not establish earlier equivalent coverage of the credited claims.
+
+## value
+
+PASS
+
+The exact first failure of monotone response under one added exclusion edge has an intrinsic finite cutoff. The complete marked list distinguishes connected and disconnected mechanisms, and the signed coupled family gives a structural explanation (substitution within the clique) rather than just a small numerical gain.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

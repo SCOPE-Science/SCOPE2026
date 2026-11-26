@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-An exact sparse integral chain on 68 oriented tetrahedra has boundary three times the displayed eight-face octahedral cycle. An exact sparse rational dual two-cochain has every tetrahedral coboundary coefficient in the interval from negative one to one and pairs to 68 with the prescribed boundary. This proves the matching real and integral lower/upper bounds with no floating-point gap. Independently, reduction modulo three gives third-boundary rank 423 and a nonzero residual for the octahedral cycle, so its integral homology order is exactly three. Simplicial group actions preserve the norm and carry the octahedral cycles into a single orbit; an exhaustive independent six-vertex enumeration gives 1800. The complete certificates and a standard-library verifier are included. The conclusion is finite and exhaustively verified, not inferred from incomplete search.
+## correctness
 
-## Originality — PASS, with literature risk
-Shareshian–Wachs, arXiv:math/0409054v1, Section 5.1, Theorem 5.4, already proves that the octahedral join cycles generate the order-three chessboard homology; no novelty is claimed for this generator or homology group. Jonsson, arXiv:1203.5644v1, Theorem 3.1, proves the group independently. Their inspected statements and surrounding discussion do not assert a sharp simplicial filling norm, and targeted literature and mathematical-record searches did not identify the exact norm 68 or its dual certificate. The related sharp 28-triangle filling theorem concerns a torsion one-cycle in another matching complex, so it does not cover this second-homology result. Failed searches are not proof of absolute priority: equivalently phrased or unindexed prior calculations remain a residual risk.
+PASS
 
-## Mathematical value — PASS
-The five-by-five chessboard is a canonical first example of integral three-torsion in chessboard-complex homology. The eight-face octahedral cycle is the established natural generator. Knowing that its triple bounds says nothing about the least chain mass of a filling; an exact sharp value and its reusable primal–dual certificates quantify this fundamental simplicial isoperimetric invariant. The result applies to every minimal induced octahedral generator by symmetry. A finite quantitative answer can have standalone value without an unproved general asymptotic theorem.
+I reconstructed the oriented rook-placement bases by choosing rows and injecting them into columns, sorting the resulting tuples lexicographically. In the independent bounded replay /tmp/opencode/frozen_chessboard_independent.py, integer products using the certificate as data give the eight signed triangles of z, ∂₂z=0, and ∂₃w=3z with 68 distinct coefficients each of magnitude 1. For the stored numerator cochain n, max|n∂₃|=3 on the full 600-element tetrahedral basis and n·z=68, hence y=n/3 has |δy|≤1 and <y,3z>=68. Pairing with arbitrary signed real fillings gives the exact lower bound; integrality of the exhibited primal attains it over both coefficient rings. Dense mod-three elimination gives ranks 423 and 424 before and after adjoining z, proving nonboundary mod three, hence order exactly three integrally. For the orbit, the incompatibility graph on an octahedral support is a three-edge matching. Three row-pairs would need six distinct columns and conversely for three column-pairs. In the two-row-pair case, choose the paired column (5), the two paired rows (10), two of the other three rows (3), and two of the other four columns for the first of the chosen paired rows (6); the rest is forced. The replay exhaustively finds these 900 and their 900 transposes by the alternative condition that each rook has exactly one row-or-column conflict. Row and column permutations are transitive within each type, transposition exchanges them, and the induced signed chain permutations preserve norms, applying also to the negative orientation. This is the minimum coefficient ℓ¹ norm for the specified boundary in this complex, not a census of all optimizers. The frozen VERIFY.py was inspected, not executed.
 
-## Scope
-The finding does not claim any new description of the abstract torsion group, a global filling function, all optimal chains, or absolute publication priority. The computation is finite and all critical inequalities are replayable with exact integer arithmetic. Independent scientific assessment is not supplied by these checks.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the exact sharp norm 68 for fillings of 3z, with equality even integrally and over the entire indicated orbit. The torsion group and generator are classical. The support count and orbit also appear in the later-dated indexed shortest-carrier result, whose focus is different. The inspected primary and indexed evidence does not yield the optimal norm.
+
+## value
+
+PASS
+
+The smallest square chessboard exhibiting this torsion and its canonical octahedral generator are mathematically motivated before the filling computation. The exact cost answers a natural question not captured by homology, and equality of the real and integral optima rules out fractional savings; the finite certificates give a precise benchmark for any later quantitative study of fillings in these complexes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

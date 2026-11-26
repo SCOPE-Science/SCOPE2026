@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:13:08.278503Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For q=α+1>0 the ratio of consecutive squared monomial norms is x_n=(n+1)/(n+q+1). With S=T_z, the second term is S*²S, giving the backward coefficient x_n√x_{n-1} and zero at n=0. Expanding the commutator gives diagonal |a|²A_n+|b|²B_n and distance-two entries with modulus |ab|C_n as stated. The diagonal bound can be verified independently of the polynomial certificate by the identity -B_n=x_n²(A_n+A_{n+1})+x_n x_{n+1}A_{n+1}. All x_n lie strictly between 0 and 1 and A_n>0 decreases, including A₀ with x_{-1}=0. Thus -B_n<3A_n, while C_n+C_{n-2}<2A_n, with the missing negative-index entries taken as zero. At t=|a|/|b|≥3 the row margin is greater than |b|²A_n(t-3)(t+1), giving nonnegative quadratic form by 2|v_n v_{n+2}|≤|v_n|²+|v_{n+2}|² and density; boundedness follows from bounded symbols. In particular the proof includes equality, not a claim of a uniform spectral gap. If b=0 the commutator is the nonnegative diagonal |a|²A_n. For b≠0 the limits (n²/q)(A_n,B_n,C_n)=(1,-3,1) follow from the same identities. On L consecutive points of one parity in a far-tail block, phases can make all off-diagonal contributions nonpositive and attain the lower sign. The rescaled form tends to L(t-3)(t+1)+2t, negative for large fixed L when t<3; t=0 needs no phase choice. This proves exact necessity for each α, including -1<α<0, and all complex a,b. Replay: RESULT.md §§1–3; CHECK.py was inspected, not executed. Its finite rational and floating checks do not replace the tail or all-weight proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fleeman–Liaw's sufficient method already compares diagonal and cross terms for the opposite shifts on the unweighted space, and its coefficient form includes this exponent pattern. Kim–Lee's exact swapped-exponent classification has different symbols; the weighted sufficient result of Theorem 2.7 treats matched shifts, not opposite shifts."
+        ],
+        "reasoning": "Unweighted sufficiency can be approached directly by specializing the earlier cross-term form and checking row bounds; credit this overlap. The earlier unweighted theorems cannot by restriction prove the all-α iff, and the inspected weighted theorem has only necessary scalar tests in this exponent arrangement.",
+        "searches": [
+          "arXiv:1707.09677, Theorem 4, Remark 5, Example 6 and Theorem 7",
+          "DOI 10.1186/s13660-021-02602-1, Theorems 2.4 and 2.5",
+          "DOI 10.1007/s43034-022-00241-1, Theorems 2.7 and 2.8",
+          "DOI 10.1515/math-2023-0114"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and CHECK.py",
+        "arXiv:1707.09677",
+        "DOI 10.1186/s13660-021-02602-1, 10.1007/s43034-022-00241-1 and 10.1515/math-2023-0114 (latter attempted)",
+        "Resultary 9c993de697fc and 42fded75c8b5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The weighted prior quadratic form includes the cross terms as an operator reformulation. Its scalar theorem does not use phase-coherent simultaneous couplings. The unweighted comparison proves sufficient conditions, and its construction of some test symbols is not an exact all-weight threshold."
+        ],
+        "reasoning": "Writing the full form is not the same as deciding its positivity. The long-tail phase test gives the missing sharp necessity while the all-weight inequalities give sufficiency even at equality. The supported contribution is that exact classification, not novelty of the underlying band form.",
+        "searches": [
+          "DOI 10.1007/s43034-022-00241-1, Eq. (2.9) and Theorem 2.8",
+          "arXiv:1707.09677, Eq. (3.12) and Theorems 4 and 7"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "This is the opposite-shift pair (m,n,s,t)=(1,0,1,2) in Kim–Lee notation, or aS+bS*²S. Theorem 2.8's basis tests give the squared coefficient ratio bound 3 here; the diagonal supremum is exactly 3 by -B_n/A_n<3 and its tail limit. The boundary-Jacobian catalogue record instead uses az²+bz bar(z)^2 with criterion 2|a|≥3|b|."
+        ],
+        "reasoning": "The two az and az² problems have different distances between the coupled monomial indices and are not related by rephasing or mere normalization. Theorem 2.8 gives a weaker diagonal necessity here, not a ratio of 3 on the absolute coefficients.",
+        "searches": [
+          "Focused primary search on opposite-angular weighted Bergman Toeplitz hyponormality of az+bz bar(z)^2",
+          "DOI 10.1007/s43034-022-00241-1, Theorem 2.8",
+          "Resultary 42fded75c8b5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact catalogue search match is the frozen record. The nearby boundary-Jacobian example uses another angular exponent; Fleeman–Liaw Example 6 tests z² bar(z)+(1/7) z³ bar(z)^4."
+        ],
+        "reasoning": "Neither the neighboring classification nor the isolated example is an entry for the same symbol and power-weighted invariant. A self-match is not independent evidence.",
+        "searches": [
+          "Resultary 9c993de697fc and 42fded75c8b5",
+          "Kim–Lee weighted Theorem 2.8 and Fleeman–Liaw Example 6"
+        ]
+      },
+      "rationale": "The weighted commutator framework and unweighted opposite-shift comparison precede the record. The distinct supported claim is the sharp iff threshold, with equality, for the specific symbol throughout the power-weighted analytic scale α>-1. This is not a claim of a new commutator method or applicability to arbitrary weights.",
+      "residual_risks": [
+        "The 2023 Remarks full text was unavailable and could bear on coverage. The low-yield primary search does not rule out a stronger general necessity theorem or another exact classification. Earlier unweighted sufficiency methods are substantial antecedents; priority beyond the checked all-weight comparison is not established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Closest inspected sufficient method; unweighted and not an all-weight exact classification",
+          "evidence": "Theorem 4 assumes one hyponormal and one cohyponormal monomial term and uses sufficiently large differences; Eq. (3.12) provides the cross-term form. Theorem 7 constructs choices of exponents and coefficients rather than a weighted iff.",
+          "identifier_or_url": "https://arxiv.org/pdf/1707.09677",
+          "material_read": "Theorem 4, Remark 5 and Eq. (3.12), pp. 9–10, offsets 29370–38779 in bounded passages; Example 6 and Theorem 7, pp. 11–12, offsets 38300–45294 in bounded passages",
+          "method": "Open original author PDF",
+          "title": "Hyponormal Toeplitz operators with non-harmonic symbol acting on the Bergman space",
+          "trigger": "Earlier unweighted opposite-angular sufficiency"
+        },
+        {
+          "assessment": "Necessary in the target arrangement, exact only for different swapped exponents in the inspected comparison",
+          "evidence": "Theorem 2.5 has m-n=t-s and m≠t; Theorem 2.4 uses az^m bar(z)^n+bz^n bar(z)^m.",
+          "identifier_or_url": "https://doi.org/10.1186/s13660-021-02602-1",
+          "material_read": "Theorems 2.4 and 2.5, pp. 4–5, offsets about 14733 and 19841",
+          "method": "Open primary article passages",
+          "title": "Hyponormality of Toeplitz operators with non-harmonic symbols on the Bergman spaces",
+          "trigger": "Same exponent arrangement and a nearby exact theorem"
+        },
+        {
+          "assessment": "Includes target arrangement in necessary theorem; the sufficient arrangement differs",
+          "evidence": "Theorem 2.8 bounds |a|² by ratios of Λ terms and a supremum of diagonal quotients, and Eq. (2.9) exposes the cross terms. This yields at most the squared bound 3 in the target case.",
+          "identifier_or_url": "https://doi.org/10.1007/s43034-022-00241-1",
+          "material_read": "Theorems 2.7 and 2.8; pp. 10–12, especially offsets 31664 and 35575; Eq. (2.9)",
+          "method": "Open primary PDF passages",
+          "title": "Hyponormal Toeplitz operators with non-harmonic symbols on the weighted Bergman spaces",
+          "trigger": "Same spaces, symbols and opposite angular shifts in larger theorem"
+        },
+        {
+          "assessment": "Coverage undetermined, not classified as noncovering",
+          "evidence": "The citation identifies the follow-up but gives no decisive theorem passage.",
+          "identifier_or_url": "https://doi.org/10.1515/math-2023-0114",
+          "material_read": "Citation only; full text not obtained",
+          "method": "Bounded lawful publisher PDF/HTML requests returned HTTP 202/403; no usable lawful copy identified",
+          "title": "Remarks on hyponormal Toeplitz operators with nonharmonic symbols",
+          "trigger": "Plausibly stronger closely related follow-up"
+        },
+        {
+          "assessment": "Different sibling problem; same date does not establish priority",
+          "evidence": "Unweighted az²+bz bar(z)^2 with 2|a|≥3|b|, not the az family over the power weights.",
+          "identifier_or_url": "Resultary 42fded75c8b5",
+          "material_read": "RESULT.md, Finding and literature comparison",
+          "method": "Local mirror",
+          "title": "A sharp boundary-Jacobian criterion for a two-angular-mode Bergman Toeplitz pair",
+          "trigger": "Exact sharp criterion for neighboring mixed-angular symbols"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The opposite-step pair is a natural minimal case in which mixed terms make the diagonal test inadequate. The exact cutoff, including equality and negative Bergman exponents, is useful as a benchmark for necessary tests on nonharmonic symbols; it separates a genuine phase-coherent obstruction from scalar moment estimates. It is a narrow classification, not a general solution of weighted Toeplitz hyponormality.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

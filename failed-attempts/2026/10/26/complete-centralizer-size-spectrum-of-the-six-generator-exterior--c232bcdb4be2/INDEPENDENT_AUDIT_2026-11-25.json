@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T23:26:15.420446Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In odd characteristic the commutator is twice multiplication of the odd parts, so its rank subtracts from 64. For a nonzero linear part, the leading filtered maps from odd to even and even to odd each have rank at least 16 (wedge with the linear part), and the total rank is at most 32 since multiplication by an odd element squares to zero. With only a nonzero quintic the perfect degree-(1,5) pairing gives rank 1. With nonzero cubic and no linear part, the degree-four projection has rank 6-k, where k is the vector wedge-annihilator dimension, and the entire one-dimensional degree-six target is already hit by cubic inputs, so the quintic tail changes nothing. For a line in the annihilator the cubic factors by that line. A rank-two quotient bivector yields k=3; for the rank-four normal form e2∧e3+e4∧e5 the five quotient basis vectors give independent wedge images, hence k=1. The split cubic e1∧e2∧e3+e4∧e5∧e6 has k=0 by the two different bidegrees, so even the smallest odd field has all strata. Independently count line–cubic incidences as [6 choose 1]_q(q^10−1)=[3 choose 1]_q D+B. Counting the decomposable stratum by its unique support and the complement by subtraction, and restoring the independent degree-five and even components, gives the frozen table. The derivation handles nonprime fields as well; the symbolic checks are not the basis of that extension.",
+      "replay": "/workspace/review-evidence/exterior3.py (SymPy); exterior3.txt checks the alternative B expression, total mass and weighted commuting-pair polynomial. Frozen source and both bounded prime-field checkers were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Indexed 2667471eefe3 gives wedge-annihilator dimensions 0,1,3 with exact finite-field counts in general dimension. De Bruyn–Kwiatkowski §2 Theorems 2.1–2.2 give symplectic orbits of six-dimensional trivectors."
+        ],
+        "reasoning": "Specializing the indexed support census to dimension six yields D,B,G. The symplectic orbit list organizes the wedge-annihilator invariant, but is not the exact distribution of associative-algebra centralizers.",
+        "searches": [
+          "Resultary: geometry and finite-field census of wedge-divisible trivectors; 2667471eefe3",
+          "Primary literature: finite-field trilinear forms and six-dimensional trivector orbit classification"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 1480b4c744ea",
+        "Resultary 2667471eefe3",
+        "De Bruyn–Kwiatkowski, 10.1016/j.laa.2013.01.002",
+        "Cohen–Helminck, 10.1080/00927878808823558 (bibliographic only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 1480b4c744ea exact table directly states the result. The 2667471eefe3 specialization gives only the cubic counts without the other degrees. The commuting-pair polynomial is the size-weighted sum of the distribution."
+        ],
+        "reasoning": "It is the complete indexed table that covers the full claim; the cubic classification alone or equality of the first size moment would not establish that overlap.",
+        "searches": [
+          "Resultary 1480b4c744ea and 2667471eefe3; De Bruyn–Kwiatkowski DOI 10.1016/j.laa.2013.01.002; Cohen–Helminck DOI 10.1080/00927878808823558"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Indexed 1480b4c744ea, Finding: six centralizer dimensions for the same algebra, with D3,D1,D0 for the three nonzero cubic wedge-annihilator types."
+        ],
+        "reasoning": "Dimension d over F_q is order q^d; the six indexed dimensions 64,63,60,58,57,48 are the six frozen orders after this conversion. The full odd multiplication reduction is also the same.",
+        "searches": [
+          "Resultary: additive centralizer dimensions, commuting law and finite-field exterior algebra on six generators; 1480b4c744ea"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The six indexed row multiplicities in descending dimensions are q^32, q^32(q^6−1), q^32 q^6 D3, q^32 q^6 D1, q^32 q^6 D0, q^32(q^6−1)q^26."
+        ],
+        "reasoning": "Replacing D3,D1,D0 by D,B,G and combining factors reproduces every frozen coefficient; this is not merely a shared aggregate.",
+        "searches": [
+          "Resultary record 1480b4c744ea, RESULT.md, offsets 0–3641 and 3641–7530"
+        ]
+      },
+      "rationale": "An independently indexed record states the same exact distribution, including every multiplicity over the same odd finite fields. This is demonstrated coverage, not a priority or provenance finding.",
+      "residual_risks": [
+        "Relationship and priority among overlapping records have not been established.",
+        "The full Cohen–Helminck article was not available for statement-level comparison; this does not affect the demonstrated indexed table overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage",
+          "evidence": [
+            "All six dimensions and their counts, with D3=D, D1=B, D0=G."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-six-centralizer-dimensions-and-an-exact-commuting-law-for-the-si--1480b4c744ea/RESULT.md",
+          "material_read": "Finding and subsequent reduction and census, offsets 0–7530",
+          "method": "Local RESULT mirror, commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Six centralizer dimensions and an exact commuting law for the six-generator exterior algebra",
+          "trigger": "Same algebra, field assumptions, and exact invariant"
+        },
+        {
+          "assessment": "Covers cubic census",
+          "evidence": [
+            "The three nonzero annihilator strata and their finite-field incidence counts specialize to the frozen D,B,G."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-geometry-and-finite-field-census-of-wedge-divisible-trivectors--2667471eefe3/RESULT.md",
+          "material_read": "Finding at local mirror offset 0",
+          "method": "Local RESULT mirror, commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Geometry and finite-field census of wedge-divisible trivectors",
+          "trigger": "Broader wedge-annihilator census"
+        },
+        {
+          "assessment": "Related classification under a fixed symplectic group, not the centralizer table",
+          "evidence": [
+            "Exhaustive symplectic families and parameter equivalences, not associative-algebra centralizer counts."
+          ],
+          "identifier_or_url": "https://biblio.ugent.be/publication/3217932/file/3226894.pdf",
+          "material_read": "p. 1 scope; §2, pp. 2–4, Theorems 2.1–2.2, offsets 2350–13644",
+          "method": "OA manuscript",
+          "title": "The classification of the trivectors of a 6-dimensional symplectic space: summary, consequences and connections",
+          "trigger": "Same tensor dimension and relevant orbit normal forms"
+        },
+        {
+          "assessment": "Full scope unresolved; not used as evidence of exact coverage",
+          "evidence": [
+            "Identifies the 1988 Cohen–Helminck article in Communications in Algebra 16, 1–25."
+          ],
+          "identifier_or_url": "https://doi.org/10.1080/00927878808823558",
+          "material_read": "Bibliographic record only; no theorem text",
+          "method": "Literature lookup, OA DOI and repository recovery attempts",
+          "title": "Trilinear alternating forms on a vector space of dimension 7",
+          "trigger": "Historical low-dimensional form classification could contain equivalent cubic data"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "A complete centralizer-size distribution is a meaningful refinement of a commuting-pair count, but all of that refinement, including the separate cubic strata and the contributions of other degrees, is already in the indexed exact table. No independently useful distinct mathematical remainder is established by this record.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

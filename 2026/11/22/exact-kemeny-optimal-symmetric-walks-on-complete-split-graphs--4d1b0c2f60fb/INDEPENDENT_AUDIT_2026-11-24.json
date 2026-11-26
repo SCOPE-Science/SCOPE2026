@@ -1,0 +1,201 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:03:41.905288Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md Proof §§1–5",
+        "Frozen VERIFICATION.md and verify_split.py (inspected only)"
+      ],
+      "rationale": "On the orthogonal complement of the constants the Laplacian is positive definite for a connected design; in the disconnected limit a positive eigenvalue tends to zero, so the trace of the inverse diverges. For any nonzero symmetric Laplacian variation H on that subspace the second derivative of the inverse trace is twice the trace of L^(-1/2)(L^(-1/2) H L^(-1/2))²L^(-1/2), which is strictly positive. Off-diagonal entries identify weights, so compactness with blowup at disconnection gives a unique full-space minimizer, fixed by class permutations. Clique contrasts, independent contrasts and the class contrast give eigenvalues qb+pc, pb and (p+q)b with multiplicities p-1,q-1,1. For fixed b the optimum has c=(1-qb)/(p-1); the resulting objective is A/b+(p-1)²/(p-qb), A=(q-1)/p+1/(p+q). It is strictly convex. At b=1/q for q≥p, qA≥q-1+q/(p+q)>1, so its derivative is negative. At b=1/p for p>q, the positive term of the derivative is less than q since p²-q>p(p-1), while Ap²>p(q-1)≥q. This proves endpoint optimality, including p=q. With c=0 the objective is a positive constant divided by b, so the endpoint is again optimal; subtracting the minima gives exactly the stated piecewise penalty. At fixed q the two orders are p²/q+O_q(p) and p+O_q(1), giving the ratio. The argument also allows period two and uses the specified zero-diagonal hitting-time convention.",
+      "residual_risks": [
+        "The recorded rational experiments were not rerun; the all-size conclusion is analytic and applies only to the frozen feasible set."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The directed optimum at p=q=2 is 3/2 while the symmetric one is 5/2.",
+          "The completion theorem gives sparsity for general row-stochastic completions, not symmetric pairs; the reversible perturbation treatment uses a distance penalty.",
+          "The prescribed-graph uniform-law case lies within the convex formulation of Patel–Agharkar–Bullo, but no all-size split optimizer is furnished there."
+        ],
+        "reasoning": "A broader feasible set yielding a strictly smaller minimum does not solve its symmetric subset. A model or solver alone does not identify a parameter-uniform endpoint or sharp gap.",
+        "searches": [
+          "Resultary: Kemeny's constant minimization reversible Markov chains structure-preserving perturbations symmetric stationary distribution",
+          "Resultary: completion problems sparsity Kemeny's constant stochastic matrix graph completion",
+          "Kirkland (2010), Theorems 2.6 and 2.13; Patel–Agharkar–Bullo (2015), Problems 1–2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary split, book, rook and self-match records",
+        "Kirkland 2010 and 2025; Durastante–Gnazzo–Meini; Ghosh–Boyd–Saberi; Boyd–Diaconis–Parrilo–Xiao; Patel–Agharkar–Bullo"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "SLEM supports both choices at the very point q=p where the inverse trace has a unique all-cross minimizer.",
+          "After clique saturation the inverse trace still has competing reciprocal terms; the negative endpoint derivative for all sizes is not an implication of the generic formulations."
+        ],
+        "reasoning": "Sharing symmetry reduction or effective resistance does not recover the case-defining derivative or the sharp restricted-versus-unrestricted gap.",
+        "searches": [
+          "SCOPE-every-fastest-mixing-kernel-on-complete-split-graphs--0fb2efaf041d and SCOPE-rigidity-and-spectral-freedom-of-all-fastest-mixing-chains-on-co--45dc9950cb66, Findings",
+          "arXiv:0709.0955, abstract and introduction",
+          "Ghosh–Boyd–Saberi §2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ghosh–Boyd–Saberi §2 Eq. (2) uses the proportional resistance objective but a global budget 1ᵀg=1.",
+          "Same-graph SLEM findings have an optional clique-edge regime p≤q<2p."
+        ],
+        "reasoning": "The resistance formulation is equivalent only with the frozen vertexwise capacities; the global budget and the SLEM objective yield different optimizer problems.",
+        "searches": [
+          "Resultary: Kemeny constant optimization graph edge weights symmetric random walk effective resistance",
+          "Resultary: complete split graph fastest mixing Markov chain edge support threshold Kemeny objective"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact topical self-hit is the frozen record, not independent coverage.",
+          "The inspected exact formulas for the quadrilateral book and rook graph have different support graphs. Two indexed split claims are exact SLEM rather than Kemeny classifications."
+        ],
+        "reasoning": "The direct exact-form searches yielded no distinct matching Kemeny formula in the inspected material; exact adjacency and optimization criterion are both necessary.",
+        "searches": [
+          "Web: \"Kemeny's constant\" \"complete split graph\" optimization symmetric stochastic clique edge threshold K_p join independent set",
+          "Resultary: complete split graph fastest mixing Markov chain edge support threshold Kemeny objective",
+          "Resultary: Kemeny constant optimization graph edge weights symmetric random walk effective resistance"
+        ]
+      },
+      "rationale": "The supported distinct claim is the exact full symmetric Kemeny optimizer for all complete split sizes, including forced clique-edge deletion at q=p and the sharp deletion penalty. The closest indexed same-graph results treat the second-largest eigenvalue modulus and admit both supports at q=p. The primary Kemeny literature inspected gives directed minima, completion results, a general convex model, or different budgets/regularization. These do not provide the exact endpoint proof or penalty in the frozen feasible set. This is a best-of-knowledge conclusion, not a priority assertion.",
+      "residual_risks": [
+        "Bounded search cannot exclude an unindexed exact split classification. Same-day analogous records do not establish chronology. Conclusions about sources are confined to inspected passages."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different objective and deletion boundary",
+          "evidence": [
+            "SLEM allows both supports at p≤q<2p"
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-every-fastest-mixing-kernel-on-complete-split-graphs--0fb2efaf041d",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Every fastest-mixing kernel on complete split graphs",
+          "trigger": "Exact same graph and support threshold"
+        },
+        {
+          "assessment": "Not the inverse spectral sum",
+          "evidence": [
+            "Same optional support interval; forced deletion only at q≥2p"
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-rigidity-and-spectral-freedom-of-all-fastest-mixing-chains-on-co--45dc9950cb66",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Rigidity and spectral freedom of all fastest-mixing chains on complete split graphs",
+          "trigger": "Unrestricted optimizer-face claim on same graph"
+        },
+        {
+          "assessment": "Different graph",
+          "evidence": [
+            "Central edge in a quadrilateral book, with transition at m=3"
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-unique-kemeny-optimal-quadrilateral-book-walks-and-strict-separa--b9e32f6d72bf",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Unique Kemeny-optimal quadrilateral-book walks and strict separation",
+          "trigger": "Kemeny and support transition"
+        },
+        {
+          "assessment": "Cartesian product, not join with an independent set",
+          "evidence": [
+            "Rook graph and cubic-root allocation"
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-cubic-root-coordinate-allocation-in-kemeny-optimal-walks-on-k-p--468f0374a99a",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Cubic-root coordinate allocation in Kemeny-optimal walks",
+          "trigger": "Kemeny and two clique parameters"
+        },
+        {
+          "assessment": "Different penalized objective",
+          "evidence": [
+            "Kemeny plus Frobenius-distance penalty relative to a given matrix"
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s10543-026-01152-6",
+          "material_read": "PDF abstract and pp. 6–8, Eqs. (5)–(9)",
+          "method": "Open primary PDF",
+          "title": "Kemeny’s constant minimization for reversible Markov chains via structure-preserving perturbations",
+          "trigger": "Reversible inverse-trace optimization with fixed stationary law"
+        },
+        {
+          "assessment": "Different feasible set",
+          "evidence": [
+            "General minimizing completion has at most one positive unspecified entry per row; special diagonal and common-row cases"
+          ],
+          "identifier_or_url": "https://doi.org/10.4153/S0008439524000419",
+          "material_read": "PDF pp. 1 and 4, abstract and §2",
+          "method": "Open primary PDF",
+          "title": "Completion problems and sparsity for Kemeny’s constant",
+          "trigger": "Exact Kemeny sparsity results"
+        },
+        {
+          "assessment": "Directed minimum only yields a lower bound on symmetric designs",
+          "evidence": [
+            "(2n-k-1)/2 for longest directed cycle length k"
+          ],
+          "identifier_or_url": "https://www.hamilton.ie/skirkland/min_kemeny_final.pdf",
+          "material_read": "PDF §§2.6, 2.13, pp. 8 and 10–11",
+          "method": "Author-hosted primary PDF",
+          "title": "Fastest Expected Time to Mixing for a Markov Chain on a Directed Graph",
+          "trigger": "Exact graph-constrained Kemeny minimum"
+        },
+        {
+          "assessment": "Different budgets",
+          "evidence": [
+            "Single conductance sum, not per-vertex caps"
+          ],
+          "identifier_or_url": "https://stanford.edu/~boyd/papers/pdf/eff_res.pdf",
+          "material_read": "§2, Eq. (2), text offset 5600",
+          "method": "Author-hosted primary PDF",
+          "title": "Minimizing Effective Resistance of a Graph",
+          "trigger": "Equivalent trace objective"
+        },
+        {
+          "assessment": "SLEM method, not Kemeny classification",
+          "evidence": [
+            "Objective is the second-largest eigenvalue modulus"
+          ],
+          "identifier_or_url": "arXiv:0709.0955",
+          "material_read": "PDF p. 1, abstract and introduction",
+          "method": "Open primary PDF",
+          "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+          "trigger": "Same symmetry technique for stochastic design"
+        },
+        {
+          "assessment": "General formulation, no explicit split theorem in inspected passages",
+          "evidence": [
+            "Prescribed graph and stationary distribution; convex objective and SDP"
+          ],
+          "identifier_or_url": "https://motion.me.ucsb.edu/pdf/2014b-pab.pdf",
+          "material_read": "PDF pp. 3–4, Problems 1–2 and Theorem 4",
+          "method": "Open primary PDF",
+          "title": "Robotic Surveillance and Markov Chains With Minimal Weighted Kemeny Constant",
+          "trigger": "General convex optimization over graph-constrained reversible chains"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding, assumptions and penalty derivation",
+        "Same-graph SLEM support comparison"
+      ],
+      "rationale": "For a natural graph family in a fixed-stationary design problem the result gives an exact support boundary for the full feasible set, including forced loss of an entire clique at the critical size. The sharp penalty on the other side quantifies when deleting the same edges is arbitrarily costly. The explicit optimizer and penalty are useful benchmarks beyond merely applying the general formulation or computing isolated small graphs.",
+      "residual_risks": [
+        "The exact threshold is specific to the inverse-trace objective and does not imply thresholds for other objectives or stationary laws."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

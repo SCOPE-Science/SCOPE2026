@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:22:39.613967Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The frozen one-long-arm proof has a false simplicial equality at RESULT.md lines 36–40: removing only the long diagonal from H leaves each short diagonal in H₀, but that diagonal is an entire short arm and is forbidden in K′. For m=2 and lengths (3,2), the incorrect model counts 17 forward faces in K′ instead of 15; the short diagonal alone is a counterexample. The original proof thus fails as written, not the homotopy claim. Complete corrected affected files are in /workspace/repairs/5/. Re-audit: the only local restrictions are the first/last arc quotas, and every directed cycle is one full forward arm plus the full return. Partitioning on whether the return is full gives the stated gluing. For h≥1, both pieces are cones and their common subcomplex is nonempty; the homotopy pushout gives an unreduced suspension of the intersection. The r=1 join with the empty-face complex leaves K′; for r≥2 the intersection is K′ joined with S^(r−2), so X≃Σ^r K′. For h=1 use the bipartite endpoint complex containing all vertices but only off-diagonal edges. With the private simplex this is one cone; the other is the long diagonal joined to the private simplex boundary. Exactly their common boundary is S^(L−3), including S⁰ for L=3. Thus K′≃S^(L−2). For h≥2, the two private-arc closed stars cover: adding a private arc can only complete its own branch, and faces cannot hold both endpoint pairs. Adding both arcs introduces no joint obstruction, so the intersection is the nonempty edge star. The two stars and their intersection are cones. This proves the unchanged assertion for every allowed parameter, as ordinary homotopy. The frozen finite checker was inspected only; its 33-face minimal example is independently recovered as 18+15, and neither it nor its mod-two homology proves homotopy equivalence.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary paper treats oriented cycles and dynamical-module joins. The target contains multiple cycles sharing the return, so splitting into disjoint polygon modules does not apply.",
+          "41ac0ad7443c concerns Hamiltonian paths and one return arc; bafb14ca69f1 treats a length-one alternate arm, excluded here."
+        ],
+        "reasoning": "A coherently oriented polygon is not the directed multi-theta graph. Deleting or subdividing an arm changes the complex and the classifications read do not provide a general subdivision rule that yields this claim.",
+        "searches": [
+          "arXiv:2208.04656v1 Example 2.3, Theorem 4.11 and §§4.1–4.2",
+          "Resultary 41ac0ad7443c and bafb14ca69f1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2208.04656v1",
+        "Resultary 934b15525f68, 991b20e6f7ab, 4459b4b951bb, 41ac0ad7443c, bafb14ca69f1, 83e5f9091fe0 and 500c0c0501a0"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The common return links every coherent cycle in the same module decomposition, rather than giving independent polygon factors.",
+          "With r=1 the forward digraph has no Hamiltonian s-to-t path when m≥2; the sphere in the h=1 case is not a Hamiltonian-path sphere split off by 41ac0ad7443c. With r>1 the one-edge hypothesis does not hold."
+        ],
+        "reasoning": "The private internal arcs drive an exact transition even in the presence of arbitrary short arms; the prior all-short sphere bouquet and the feedback/homology theorems do not mechanically imply it.",
+        "searches": [
+          "arXiv:2208.04656v1 §4.1 Theorem 4.11",
+          "Resultary 934b15525f68 and 41ac0ad7443c findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:2208.04656v1 Prop. 2.8 identifies the ordinary matching complex only under alternating orientation; coherently directed internal path vertices here are not alternating.",
+          "Resultary 83e5f9091fe0 is a mixed-length undirected matching-complex classification, and 500c0c0501a0 treats vertex-induced forests, not arc multipaths."
+        ],
+        "reasoning": "Changing from arc multipaths to matchings or induced acyclic vertex sets changes the face condition. Neither analogue supplies the target via this equivalence.",
+        "searches": [
+          "Primary websearch: 'multipath complex' directed theta subdivided feedback paths homotopy contractible sphere Caputi directed cycle book",
+          "Resultary: mixed directed theta, feedback multipath complex, subdivided cycle books, and multi-theta matching"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The two book records give sphere bouquets when every forward arm has length two (one-arc and longer returns, respectively).",
+          "4459b4b951bb concerns the very same multi-theta graphs, but its exact invariant is the dichromatic polynomial."
+        ],
+        "reasoning": "The homotopy classification here concerns h≥1, not a lookup of the all-short case or a recomputation of a different invariant. Same-day indexing alone resolves no priority question.",
+        "searches": [
+          "Resultary: exact multipath homotopy of short- and long-return directed books",
+          "Resultary 934b15525f68; 991b20e6f7ab; 4459b4b951bb"
+        ]
+      },
+      "rationale": "The corrected proof establishes the same distinct h≥1 claim. Examined same-family multipath results treat h=0. The broader polygon, module and one-feedback-edge results and the same-family calculations for other invariants do not give the mixed-length classification. The repair changes the proof, not the scope or overlap.",
+      "residual_risks": [
+        "Bounded best-of-knowledge comparison; separately indexed orientation-sensitive subdivision results remain possible. No date ordering is inferred from same-day records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Standard components and different families; not the h≥1 transition",
+          "evidence": [
+            "Oriented polygon yields S^(n−2); matching equivalence requires alternation; the join theorem is over dynamical modules."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2208.04656",
+          "material_read": "§2 Example 2.3, pp. 3–4 and Prop. 2.8; §4.1 Theorem 4.11; §4.2 Lemma 4.13 and Props. 4.14–4.15",
+          "method": "OA PDF text, offsets 12192, about 16900, 42500 and 46500",
+          "title": "On the homotopy type of multipath complexes",
+          "trigger": "Foundational classification, equivalences and join theorem"
+        },
+        {
+          "assessment": "Same family at h=0, r≥2 only",
+          "evidence": [
+            "Every forward path has two arcs; the ordinary space is a bouquet of m spheres of dimension r."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-equivariant-sphere-bouquets-for-coherently-oriented-long-page-cy--934b15525f68",
+          "material_read": "RESULT.md Finding and Assumptions",
+          "method": "Local published-record mirror",
+          "title": "Equivariant sphere bouquets for coherently oriented long-page cycle books",
+          "trigger": "Exact baseline with longer returns"
+        },
+        {
+          "assessment": "Same family at h=0, r=1 only",
+          "evidence": [
+            "All forward arms have two arcs; homotopy type is a bouquet of m circles."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-equivariant-collapse-of-consistently-oriented-triangular-book-mu--991b20e6f7ab",
+          "material_read": "RESULT.md Finding",
+          "method": "Local published-record mirror",
+          "title": "Equivariant collapse of consistently oriented triangular-book multipath complexes",
+          "trigger": "Exact baseline with one return arc"
+        },
+        {
+          "assessment": "Different classification and limited to a single added edge",
+          "evidence": [
+            "Detects Hamiltonian-path classes, none of which use this forward digraph with m≥2."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-source-sink-feedback-edges-split-off-hamiltonian-path-spheres-in--41ac0ad7443c",
+          "material_read": "RESULT.md Finding and Proof",
+          "method": "Local published-record mirror",
+          "title": "Source–sink feedback edges split off Hamiltonian-path spheres in multipath complexes",
+          "trigger": "Potential structural implication for a feedback return"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": [
+            "The result recovers the path lengths from a polynomial, not multipath faces or homotopy."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-dichromatic-polynomial-rigidity-subunit-roots-and-monotonicity-f--4459b4b951bb",
+          "material_read": "RESULT.md Finding and Assumptions",
+          "method": "Local published-record mirror",
+          "title": "Dichromatic polynomial rigidity for directed theta networks",
+          "trigger": "Same mixed-length graph family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is an ordinary homotopy classification for a natural infinite graph family. A single long forward arm yields a sphere of a precise dimension, but a second removes even that homotopy type independently of lengths and other arms. It is stronger than sampled homology and adds a structural transition to the known all-short baseline. The repaired forward-face model establishes exactly this distinction.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

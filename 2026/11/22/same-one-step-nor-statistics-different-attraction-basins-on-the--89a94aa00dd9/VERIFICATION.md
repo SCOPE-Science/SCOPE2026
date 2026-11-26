@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -16,13 +19,11 @@
 }
 ---
 
-The checked objects are explicitly defined 16-vertex undirected loopless graphs and the synchronous open-neighborhood NOR map. The `verify_direct.py` script exhausts all \(65536\) initial states in each of the two graphs, constructs the complete update function using bitwise neighborhoods, checks the idempotent-two-step relation \(F^3=F\), and computes every recurrent orbit and basin size. The `verify_structural.py` script independently calculates row/column occupancies for the rook graph, verifies the two-sided bipartite incidence isomorphism, computes the same image supports, checks independent domination via subsets of sizes three and four, and checks the exact recurrent support-pair counts.
-
-Executed commands:
+For the two specified labelled 16-vertex graphs and open-neighborhood NOR, `verify_direct.py` exhausts all 65,536 inputs per graph, checks \(F^3=F\), and tabulates recurrent orbits and their basins. `verify_structural.py` uses row and column occupancies for the rook graph and checks the separate input/output permutations on all pairs of vertices and all input subsets. It compares the output-size/fiber census and independently tests fixed configurations via independence and domination. Agreement of one-step outputs and their fibers is after the indicated permutations, not literal equality on the shared label set. The proof in `RESULT.md` includes direct witnesses to the unequal labelled output supports and labelled empty/full basins.
 
 ```
 python3 verify_direct.py
 python3 verify_structural.py
 ```
 
-Both exited successfully and printed `ALL_CHECKS_PASSED` or `SIDE_ISOMORPHISM_AND_FIXED_CLASSIFICATION_PASSED`. The outputs, including 29 bivariate coefficients and all basin classes, are stored in `direct_output.txt` and `structural_output.txt`. No unverified external arithmetic data or missing file dependency is used. The finite proof covers every configuration of the two named graphs; it establishes no corresponding general statement for other graph pairs. External historical priority and independent review have not been established.
+The recorded outputs in `direct_output.txt` and `structural_output.txt` contain the census and success summaries. The finite calculation makes no assertion for other graph pairs.

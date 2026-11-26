@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof independently derives genuine variable-coefficient BDF4 Lagrange derivative weights on five nonequispaced nodes. It reduces homogeneous zero stability to a three-dimensional difference monodromy, reconstructs the exact rational characteristic cubic, and applies four necessary-and-sufficient Schur–Jury inequalities. Three required polynomial numerators have strictly positive coefficients; the remaining numerator has the explicitly factored unique-positive-root polynomial. A separate exact singular asymptotic calculation yields the transition at \(s=2\). The embedded standalone symbolic verifier reproduced each critical identity and sign certificate. The boundary has a simple neutral \(-1\) multiplier and is not mislabeled strictly damped.
+PASS
 
-## Originality — PASS on inspected evidence, with risk
+I solved the degree-one to degree-four interpolation moment equations directly in first differences, and formed the product of the three resulting companions. Its cubic z³+az²+bz+c gives a=2U/D,b=V/D,c=−W/D, with D>0. The replay verifies positivity of the three other cubic Schur expressions by positive coefficients and 1−a+b−c=−8(R+3)P/D. Descartes' rule and the signs at 59 and 60 certify the unique positive zero; a negative-axis intermediate-value argument gives a root below −1 for every larger R. At the boundary write q=(z+1)(z²+Bz+C), with B=a−1 and C=c. The quadratic has |C|<1, 1+B+C=q(1)/2>0, and 1−B+C=(1−b+ac−c²)/(1−C)>0, so −1 is simple. The full-value monodromy also has the separate constant multiplier 1; since 1 is absent from the difference spectrum throughout the power-bounded interval, no Jordan coupling at 1 can cause growth. Independent row power limits and direct characteristic coefficients recover the limiting singular polynomial; the nonzero factor has |b_lim|<1, 1+a_lim+b_lim>0 and 1−a_lim+b_lim=8(2−s)/(7(s+2)). At s=2 its roots are −1 and −1/14. Continuity of the cubic roots gives the asserted large-R finite-grid conclusions for fixed s≠2, not a finite-R classification at s=2.
 
-Skeel (1986), inspected in the actual full paper text, constructs the variable-coefficient family but does not present the claimed three-periodic threshold. Calvo–Grande–Grigorieff (1990) supply general mesh-ratio conditions, but the available abstract and metadata cannot exclude a hidden specialist comparison in their full paper. The 1983 Skeel–Jackson Nordsieck paper concerns a distinct coefficient adaptation and was not available in full. Söderlind–Fekete–Faragó (2018), inspected in its openly accessible full text, assumes smooth mesh deformation with neighboring ratios close to one and does not cover fixed high-contrast period-three meshes. Searches for BDF4 three-periodic Floquet multipliers and the exact threshold yielded no covering statement, but search silence is not itself a novelty certificate. The absent specialist full texts are explicit residual risks, not represented as having been read.
+## originality
 
-## Value — PASS
+PASS
 
-This is a complete sharp classification of a natural one-parameter three-periodic grid family rather than an isolated numerical counterexample. The value \(s=3\) is the smallest integer above the independently proved singular instability frontier \(s=2\), rather than an unmotivated slice. Its degree-seven threshold and the surrounding exact large-contrast frontier show how a fixed recurring step pattern can cross from strictly damped to unstable, which a generic sufficient adjacent-ratio condition cannot diagnose. The boundary also distinguishes neutral zero stability from asymptotic damping. The result is limited to homogeneous Floquet stability, not solution convergence for general ODEs.
+The supported distinct claims are the explicit finite high-contrast threshold for genuine BDF4 on (1,R,3) and the full fixed-s singular frontier. Nearby indexed Floquet results change the mesh word or the order; the smooth-grid theory does not cover this high-contrast recurring mesh. Specialist full-text gaps remain but are not evidence of coverage.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+A high-contrast periodic grid can expose an exact instability missed by looking only at generic sufficient smoothness/ratio guarantees. The explicit finite boundary distinguishes parasitic damping, neutral power-boundedness and exponential growth for the entire one-parameter slice. The larger singular family motivates the choice of 3 as the first integer above the limiting frontier 2, and gives an actual stability prediction for sufficiently large contrasts on either side of that frontier.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

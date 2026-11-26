@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:36:24.119771Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the printed equations (2.1)–(2.7), the disease-free equilibrium has (S+D)/N=1 and incidence only into the single E. Progression is not new infection. Thus F has just its first row nonzero, and solving Vz=e_1 gives 1/a, alpha phi_j/(a d_j), and (1-alpha) phi/(a d_C) in the respective coordinates. F V^(-1) has one positive eigenvalue, its (1,1) entry, exactly the additive expression. Independently, the infected Jacobian's eigenvalue equation in the closed right half-plane is t+a=beta[sum_j alpha phi_j/(t+d_j)+(1-alpha)phi/(t+d_C)]. If the corrected ratio is below one, the modulus of the right side is less than a while that of the left is at least a; if above one, the real right side starts above a at t=0 and decreases while t+a increases, giving a positive root. The uninfected block in order R,S,D is triangular with negative diagonal -(delta+mu), -(mu+lambda), -(mu+delta_2). The strict claims therefore hold for the full system. Equation (3.8) really uses max_j sqrt(C_0+A_j), and Theorem 3.4 uses it as a stability threshold. In the exact example the infected matrix minus its -I diagonal shift is an off-diagonal row/column product with squared nonzero eigenvalue 27/20; this gives the claimed unstable eigenvalue -1+3 sqrt(15)/10, with printed R=9/10. The frozen claim does not decide the threshold equality, endemic dynamics or the interpretation of the paper's inconsistent prose beyond the printed equations. The nested shipped checker was inspected, not run; its final numerical root assertion is floating point, but the sign follows exactly from 27/20>1.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "742f77f7a142 allows alpha in [0,1] and nonnegative progression rates phi_j, beyond the frozen strict interior. Brouwer states the general next-generation split. The other published comparators use different strain-specific exposed chains."
+        ],
+        "reasoning": "The general method explains the calculation; the material stronger overlap is the explicit solution for the same printed system in a parameter regime containing the frozen one. Correct maxima in separate chains do not justify a maximum in the pooled system.",
+        "searches": [
+          "Resultary 742f77f7a142, Assumptions and scope",
+          "Brouwer 2022, DOI 10.1007/s11538-022-01057-9, pp. 6–7",
+          "Khyar–Allali 2020 and Arruda et al. 2021 multi-strain thresholds"
+        ]
+      },
+      "checked_sources": [
+        "Casimir et al. DOI 10.28924/APJM/13-47",
+        "Resultary 742f77f7a142 and 55d93d6c81b2",
+        "Brouwer DOI 10.1007/s11538-022-01057-9",
+        "Khyar–Allali DOI 10.1007/s11071-020-05929-4",
+        "Arruda et al. DOI 10.1371/journal.pone.0257512",
+        "van den Driessche–Watmough DOI 10.1016/S0025-5564(02)00108-6 (bibliographic only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The journal paper prints a single E and a single C and uses the strainwise maximum for stability; 742f77f7a142 explicitly forms the corrected F and V for these equations and proves the additive invasion threshold."
+        ],
+        "reasoning": "The compared rank-one calculation entails all frozen strict-threshold claims; the frozen example substitutes different admissible numbers into that same discrepancy. No claim is made here about nonlinear stability at equality or actual publication order.",
+        "searches": [
+          "Casimir et al., DOI 10.28924/APJM/13-47, equations (2.1)–(2.7), (3.8), Theorem 3.4",
+          "Resultary 742f77f7a142, scope and rank-one proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "742f77f7a142 defines a_E=mu+phi, a_j=mu+mu_j+gamma_j, b=mu+delta_1+gamma and kappa=beta at the disease-free equilibrium. It gives R_*=kappa/a_E[alpha sum_j phi_j/a_j+(1-alpha)phi/b], contrasting it with max_j sqrt(A+B_j)."
+        ],
+        "reasoning": "Identify (a_E,a_j,b,kappa)=(a,d_j,d_C,beta), A=C_0 and B_j=A_j. This is exactly the same formula and printed-criterion discrepancy, on the same compartments.",
+        "searches": [
+          "Resultary: shared exposed class multi-strain additive reproduction number threshold",
+          "Resultary: Casimir Abibelaye Somdouda shared exposed class additive invasion threshold 10.28924/APJM/13-47",
+          "Resultary 742f77f7a142, Finding and proof, offset 0"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "742f77f7a142 gives an exact two-strain false-stability example with printed ratio sqrt(5/6), corrected ratio 10/9 and positive eigenvalue -3+sqrt(10). The distinct 55d93d6c81b2 concerns a fifteen-compartment COVID–Mpox coinfection system, not these equations."
+        ],
+        "reasoning": "The exact alternate rational witness already establishes the same falsification on the same equations. The different witness values in the frozen record are not a new invariant. The separate coinfection result does not overlap source-specifically.",
+        "searches": [
+          "Resultary: pooled single exposed compartment multiple infectious strains reproduction number sum versus maximum",
+          "Resultary: equation 3.8 Casimir multi strain reproduction number correction disease free local stability",
+          "Resultary 742f77f7a142 and 55d93d6c81b2, Findings"
+        ]
+      },
+      "rationale": "Distinct Resultary record 742f77f7a142 contains the same correction to exactly the same printed system, the same comparison with (3.8), the rank-one proof and a valid counterexample to false stability. Its parameter scope includes the frozen scope. This is demonstrable equivalent coverage, not a priority inference from the catalogue date. A different set of positive rationals for the counterexample does not escape the existing coverage.",
+      "residual_risks": [
+        "The exact Resultary coverage is verified, but independent commit chronology and priority have not been authenticated. No lawful full text of the 2002 method paper was obtained; it is not the basis of the rejection."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Confirms printed pooled architecture and incorrect maximum criterion; prose sometimes uses strain-specific subscripts not used in the equations",
+          "evidence": "(2.3) feeds one E from incidence in S+D; (2.4)–(2.5) are progressions from E; (2.6)–(2.7) determine the demographic block and N. (3.8) prints a maximum of square roots and Theorem 3.4 assigns it the stability claim.",
+          "identifier_or_url": "https://apjm.apacific.org/PDFs/13-47.pdf",
+          "material_read": "PDF p. 4/18, equations (2.1)–(2.7), offsets 9950–12448; pp. 8–9/18, §3.2.1, (3.8) and Theorem 3.4",
+          "method": "Lawful journal OA PDF",
+          "title": "Modeling and Optimal Control of a Multi-Strain Epidemic Applied to COVID-19 with an Underlying Chronic Disease Condition",
+          "trigger": "Exact source whose printed threshold is challenged"
+        },
+        {
+          "assessment": "Covers the central frozen result on a broader parameter regime, including an exact counterexample to the same criterion",
+          "evidence": "The displayed R_* and max_j sqrt(A+B_j) are identical after renaming, and the stated example reverses the printed stability conclusion.",
+          "identifier_or_url": "2026/10/4/SCOPE-a-shared-exposed-class-makes-the-multistrain-invasion-threshold--742f77f7a142",
+          "material_read": "RESULT.md, Finding, scope and proof, offsets 0–4102",
+          "method": "Local published-record mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "A shared exposed class makes the multistrain invasion threshold additive",
+          "trigger": "Exact substantive match in four focused searches"
+        },
+        {
+          "assessment": "Different model and coupled Perron-root formula",
+          "evidence": "Addresses COVID–Mpox coinfection, not a pooled E in the Casimir equations.",
+          "identifier_or_url": "2026/10/13/SCOPE-an-exact-coupled-reproduction-threshold-for-a-fifteen-compartmen--55d93d6c81b2",
+          "material_read": "Finding",
+          "method": "Local published-record mirror",
+          "title": "An exact coupled reproduction threshold for a fifteen-compartment model",
+          "trigger": "Closely related objection to a componentwise maximum"
+        },
+        {
+          "assessment": "Confirms the general rule, not the source-specific correction",
+          "evidence": "F comprises entries of previously uninfected individuals; V covers transfers among infected states and exits.",
+          "identifier_or_url": "https://doi.org/10.1007/s11538-022-01057-9",
+          "material_read": "PDF pp. 6–7",
+          "method": "Accessible paper passages",
+          "title": "Brouwer, next-generation matrix exposition",
+          "trigger": "Previously published general next-generation construction"
+        },
+        {
+          "assessment": "Separate exposed chains, not the assigned model",
+          "evidence": "The two strains use distinct E_1,E_2 and the threshold is the maximum of the two strain-specific numbers.",
+          "identifier_or_url": "https://doi.org/10.1007/s11071-020-05929-4",
+          "material_read": "PDF p. 5",
+          "method": "Accessible paper passage",
+          "title": "Khyar and Allali, Global Dynamics of a Multi-Strain SEIR Epidemic Model with General Incidence Rates",
+          "trigger": "Multi-strain maximum threshold comparator"
+        },
+        {
+          "assessment": "Does not use the pooled-E structure",
+          "evidence": "Separate S_j,E_j,I_j,R_j compartments and a maximum threshold.",
+          "identifier_or_url": "https://doi.org/10.1371/journal.pone.0257512",
+          "material_read": "PDF pp. 5–6",
+          "method": "Accessible journal passages",
+          "title": "Arruda et al., Modelling and Optimal Control of Multi Strain Epidemics, with Application to COVID-19",
+          "trigger": "Published strain-specific architecture comparator"
+        },
+        {
+          "assessment": "Not used to infer absence of coverage",
+          "evidence": "No full-text primary passage obtained.",
+          "identifier_or_url": "https://doi.org/10.1016/S0025-5564(02)00108-6",
+          "material_read": "Bibliographic identity only; no primary full text obtained",
+          "method": "Bounded lawful retrieval attempt; accessible Brouwer exposition used for the method",
+          "title": "van den Driessche and Watmough, Reproduction Numbers and Sub-Threshold Endemic Equilibria for Compartmental Models of Disease Transmission",
+          "trigger": "Foundational method cited by the frozen result"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Correcting a model's printed local stability threshold is meaningful in itself. But that source-specific correction and the existence of a false-stability example are already supplied by the distinct matching record. The frozen package adds only another choice of rational parameters for a known counterexample, with no separately motivated calibration, new regime, or further stability result. The numerical substitution is not a surviving worthwhile contribution to repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

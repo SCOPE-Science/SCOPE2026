@@ -1,19 +1,21 @@
-# Scientific review: two-landmark anonymity in folded cubes
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The graph is explicitly the antipodal quotient of the binary cube, with its induced minimum Hamming distance. The complete distance-signature polynomial follows by a two-class quotient of ordinary Hamming-coordinate counts, after deleting both marked vertices. The proof bounds all signature classes by analyzing complement-paired coordinate-count orbits, proves the bound is attained by a specified neighbor class, and handles the even central layer, including the exceptional four-cube, separately. Sharpness and the counts of every maximizing pair follow from vertex transitivity and exact distance-shell counts. The independent direct quotient implementation checks all two-landmark choices in dimensions four through eight; a distinct binomial implementation checks every separation through dimension eighty. Those computations corroborate, rather than replace, the unrestricted proof.
+PASS
 
-## Originality — PASS, provisional
+Translate the first landmark to zero and permute coordinates so the second differs on h coordinates. Count words by their two block weights (i,j), fold their two distances, divide by two for the free antipodal action, then remove the two landmark classes. Interior coordinate counts give at least h per complement orbit away from the central layer; the one possible self-complementary count pair still gives at least h because the second block is larger. Toggling one of the h differing coordinates exhibits the exact smallest class (1,h-1) if 2<=h<n/2. For h=1 each nonlandmark pair has an interior second-block count, so its product of binomial factors is at least n-1; the class (1,2) attains this. Line 45's literal wording about 'a binomial factor equal to one' is imprecise (the first factor is always one); the product and the intended bound are as just shown. For even n=2m and h=m, if both block counts are interior the orbit count is at least m^2, except the halved central count which is still at least 2m for even m>=4. When one is an endpoint, swapping the two blocks gives a disjoint complement orbit of size at least m with the same signature. The neighbors of a attain 2m. At n=4 the self-complementary class contributes the exceptional two vertices. The resulting comparison across h proves the optimizing separations; shell sizes n and half the central binomial coefficient give the claimed unordered-pair counts. Independent replay: python3 /workspace/review_checks/folded.py uses BFS from the Cayley quotient generators, and matches every coefficient as well as minima and optimal-pair counts for n=4..14. The frozen scripts and bounds were inspected; the universal proof is the counting argument, not finite checking.
 
-Fernández, Kuziak, Muñoz Márquez and Yero (arXiv:2304.00849, first public 2023-04-03) give the relevant antiresolving-set definition and calculate antidimension for cylinders, tori and two-dimensional Hamming graphs; the inspected abstract, main results and appendices do not address folded-cube two-marker signatures. Previously published two-marked ordinary-cube refinement formulas concern the unquotiented graph. Their binomial cells are related but do not directly determine the minimum class after antipodal cells collide. The substantive new comparison is a sharp odd/even transition of the maximizing two-sensor geometry, not the standard binomial identity alone. No exactly matching folded-cube pair-profile theorem was identified in the checked records and primary literature. Historical computations or unindexed sources may nevertheless exist.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The exact two-landmark privacy/antiresolution profile is a natural invariant of a highly symmetric, canonical graph family. The parity-controlled switch from adjacent to diametral pairs is a structural extremal phenomenon absent from the ordinary-cube formula, and the joint-distance enumerator and exact counts classify all optimal pairs, not just one finite example. This is a bounded two-landmark claim, not a general solution of graph antidimension.
+The folded profile counts are classical pair-sphere intersection numbers and the displayed polynomial is a direct aggregation of the earlier ordinary-cube profile. Do not credit either the binomial input or the folded enumerator as an independent novelty claim. The supported distinct claim, consistent with the frozen originality scope, is the all-separations smallest-positive-class evaluation after folding, including the even central exception and the parity-controlled optimal two-landmark geometry. Existing profile data determine individual values but the inspected sources give no uniform minimum theorem or inequality implying that sharp classification.
 
-## Limits and references
+## value
 
-Finite checks are not proofs for all dimensions, and publication-priority or independent mathematical validation is not certified. Key background: https://arxiv.org/abs/2304.00849 ; https://mathworld.wolfram.com/FoldedCubeGraph.html ; public ordinary-cube two-marker orbit-refinement result, *Exact two-marker colour-refinement depth on Boolean hypercubes* (2026).
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The worst nonempty distance-signature class is a natural exactly-two-landmark anonymity invariant. Uniformly locating its minimum over cropped joint profiles and proving all optimizing separations reveals a parity-dependent geometry not given by a one-landmark shell size or the unquotiented minimization. This goes beyond recomputing individual intersection tables; no claim about arbitrary landmark counts or empirical privacy follows.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

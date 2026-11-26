@@ -1,15 +1,21 @@
-# Review of the exact finite-level Kolakoski Schreier distance census
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The finite claim is supported by the published two-permutation block recurrence (Mitchell--Walton--Whittaker, arXiv:2611.06878v1, Corollary 4.8), whose base and level-two cases were checked. Every one of the \(2^n\) starting vertices was traversed by directed breadth-first search at all fifteen levels. Each graph was confirmed strongly connected and each all-pairs histogram summed to \(2^{2n}\). A second C++ program independently reconstructs the permutations and explores all reversed arrows, recovering the same diameters and ordered diametral-pair multiplicities. A Python tuple-state implementation independently confirms the first nine levels. The equality \(D_n=n+4\) is asserted only for the seven stated finite levels; it is not extended by extrapolation.
+## correctness
 
-## Originality
-**PASS within inspected evidence.** The source graph recurrence and its all-level strong connectivity are established prior results, and not independently claimed. Material read in the relevant sections of Mitchell--Walton--Whittaker, especially Corollary 4.8, Figure 6 and Theorem 5.3, disclosed no evaluated directed diameter or all-pairs metric census. MacAulay's 2026 full text concerns the closely related run-length permutation automaton, group orders through twelve levels and lengths of cycles of single permutation products, not the minimum number of arbitrary generator steps between all ordered pairs. The closest identified Kolakoski finding in published mathematical records and accessible local claim history gives shortest **symbolic shift orbit periods** for finite derivative-depth systems; this is a different dynamical invariant and does not imply these accelerated-graph directed distances. Residual risk: a specialized historical graph-distance table could be unindexed or named differently.
+PASS
 
-## Value
-**PASS.** After a qualitative strong-connectivity theorem, the minimum number of accelerated moves needed to connect arbitrary directive states is a natural quantitative invariant. A complete exact metric census of the first fifteen canonical graphs, reaching 32,768 states and more than a billion ordered pairs, demonstrates an empirically sharp finite near-Moore regime and supplies a reproducible quantitative benchmark. The exact finite cutoff is useful independently of a future general formula; no general formula is claimed.
+The primary source defines accelerated first-return edges, with each edge here assigned unit cost despite variable labels. Its adjacency matrices are row-source, column-target in right-to-left lexicographic order; Corollary 4.8 and Example 4.9 give the stated two permutation recursions and check the orientation. Both base maps swap the two vertices. In the independent packed BFS, each target stores a source bitset, initially the diagonal pair; unioning the frontier bitsets at the two predecessors and removing already visited bits gives exactly the pairs newly reached at each distance. A source's last discovery depth is its outward eccentricity. All sources reach all targets. A separate ordinary directed BFS cross-checks levels 1–9. I compared the saved independent results against the actual frozen census.tsv: all 174 distance bins, 15 radii, 15 diameters, 15 eccentricity histograms and 15 ordered diametral-pair counts match. In particular, levels 9–15 have d=n+4, and level 15 has radius 18, diameter 19, eccentricity counts 18:19720 and 19:13048, and 17,136 ordered diametral pairs out of 1,073,741,824 total pairs. The Moore comparison is valid because distance at most n−1 reaches no more than 2^n−1 vertices with two outgoing edges per vertex. The proof claims neither an all-level upper bound nor a bound on the unaccelerated shift time.
 
-## Uncertainty and limits
-The first public paper is from 4 November 2026. The graph recurrence is not novel and is explicitly credited. Computational exhaustive proof covers only levels one to fifteen, with a separate algebraic two-outdegree Moore lower bound. Directed accelerated distances must not be interpreted as unaccelerated shift durations. Historical priority remains provisional; the record is not an independent audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct result is the evaluated metric census on the specific directed accelerated graphs for levels 1–15, including the finite n+4 run and ordered farthest-pair counts. The closest exact catalogue hit is the assigned record itself. The primary source provides the very same graphs, recurrence and strong connectivity, but its inspected construction and connectivity claims do not evaluate these metrics. Nearby transformation-group computations and other Schreier graph diameter results study different invariants or graph families.
+
+## value
+
+PASS
+
+The accelerated graphs arise in an established proof about the Kolakoski shift; their directed metric quantifies how far apart targets remain after acceleration, beyond the qualitative fact of strong connectivity. The profile gives reusable exact benchmarks for tight diameter or eccentricity estimates. A full initial range through level 15 covers both the lower-level transitions and the seven-level diameter excess of four, while histograms measure the rarity of extreme paths rather than only their existence. This is a useful finite result, not evidence of a proved asymptotic pattern or any elapsed-shift-time bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

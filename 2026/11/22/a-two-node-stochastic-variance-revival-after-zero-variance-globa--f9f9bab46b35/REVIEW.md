@@ -1,19 +1,21 @@
-# Review of the two-node stochastic-variance revival
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The monic global-Lanczos polynomials for the identity-started counting spectral measure are reconstructed from moments. The inverse Hermite remainder identity and the Rademacher off-diagonal variance formula yield the exact binomial distribution without asymptotic approximations. Orthogonality, all nonbreakdown cases, the perturbation derivative and the positive-definite condition-number estimate are proved explicitly in RESULT.md. The extracted exact-rational checker independently evaluates residual matrices and exhaustively enumerates finite sign configurations. Its 1360 passing assertions are supplementary, not an infinite proof.
+PASS
 
-## Originality
+Identity-started scalar-coefficient global Lanczos uses the counting spectral measure. The inverse residual formula follows from the polynomial [1−q_m(x)²/q_m(0)²]/x and double vanishing at the Ritz nodes. For the base family, centering its eigenvalues at μ=3/2 gives sum of centered squares 7/8 and sum of centered cubes 9/32, so the monic two-node polynomial in y=x−μ is y²−(9/28)y−7/(8n), equal to the displayed q_2(x). The one-node residual on the rotated eigenpair 1 and 9/4 is 1/9 at both, giving a diagonal matrix in probe coordinates. Evaluating q_2 on the same eigenpair gives scalar residual difference Δ_n>0; the sole off-diagonal pair is therefore −Δ_n/2. Each probe's centered quadratic form is −Δ_n z_1z_2, and independent probes give exact variance Δ_n²/s. Summing scalar residuals gives the stated deficits and E_1−E_2=98n/[3(153n−49)]>0; exact Fraction evaluations at n=3,4,8,30 corroborate the symbolic computation, including Δ_3=35/15129. Trace is constant under the tridiagonal perturbation. Differentiating A^{-1}−4I/3+4A/9 gives the nonzero derivatives −2/15 at (2,3) for n=3 and −4/45 at (3,4) for n≥4. The variance is therefore positive of order t²/s at one node for small positive t, while it has a positive two-node limit. Weyl verifies κ<19/7 for 0<t<1/16. At most two spectral atoms imply exactness by two nodes or earlier breakdown, establishing dimension minimality. The exact zero is at the reducible base, not asserted for its irreducible perturbations.
 
-**PASS, qualified.** The closest primary source is Rinelli, Simunec and Vermeiren, arXiv:2611.18864v1, notably Theorem 2.6, Eq. (3.3), and Sections 4.1–4.2. It already establishes the Hermite residual and stochastic estimator; it does not state a monotonicity theorem or the present cross-depth reversal, exact sign law or irreducible unbounded ratio. Hallman–Troester (arXiv:2103.10516) uses multilevel Chebyshev approximations, and Chen–Hallman (arXiv:2205.01736) uses Krylov-based deflation, neither identical to this full-size Hermite correction. Related exact stochastic Lanczos probe laws and generic Hutchinson variance bounds do not imply the asserted two-depth construction. Incomplete indexing of related matrix-function/control-variate literature is a remaining originality risk.
+## originality
 
-## Value
+PASS
 
-**PASS.** This is a constructive obstruction to a plausible adaptive stopping principle: a smaller positive deterministic Gauss deficit does not guarantee a smaller stochastic-correction variance. The dimension-minimal binomial witness identifies the role of eigenvector orientation, while robust inflation under arbitrarily small irreducible perturbations rules out the explanation that an exact block-diagonal zero is the only reason for the phenomenon. It is a focused benchmark for depth-versus-sample allocation, not a claim about total runtime.
+The estimator, Hermite residual and sign-probe variance identity are prior work. The distinct result is a concrete one-to-two-node zero-to-positive reversal within that same estimator, with its exact law and an unbounded ratio on nearby uniformly well-conditioned irreducible tridiagonals. Known one-node comparisons to ordinary Hutchinson and two-node single-vector quadrature formulas do not establish this comparison.
 
-## Limits
+## value
 
-Exact inverse action, exact inner residual correction, independent Rademacher probes, and small well-conditioned tridiagonal spectra only. No guarantee for Gaussian probe variances or approximate practical implementations. No independent mathematical audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is a dimension-minimal witness against using improving deterministic quadrature accuracy as a proxy for cross-depth Rademacher sampling accuracy. The effect does not require severe conditioning or disconnected sparsity: the irreducible fixed-dimension perturbations have arbitrarily large ratios with κ<3. The exact sign law makes this a concrete estimator diagnostic, not just a variance-bound comparison.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

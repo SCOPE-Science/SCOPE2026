@@ -1,0 +1,165 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:56:14.437354Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The recursion uses the exact OU drift coefficient and innovation variance, not the exact Gaussian transition. The three-atom rule has odd moments zero and even moments 1,3,9 at degrees 2,4,6. A one- or two-atom rule cannot be exact through degree four because the square of its vanishing polynomial would integrate to zero instead of a positive Gaussian value. For three atoms, the monic vanishing cubic is Gaussian-orthogonal to degrees 0–2 and hence is t^3-3t; the remaining linear moment equations fix the weights. Contraction gives the unique stationary innovation series. Finite series match all joint monomials of total degree <=5 by independence, and geometric L^5 convergence passes those identities to the stationary process at any finite set of grid times. The sixth cumulant is -6 v^3(1-r^2)^3/(1-r^6); exact rational evaluation at r=1/3 yields -384v^3/91 and centered moment 981v^3/91. The balanced ternary series at that r has support [-sqrt(6v),sqrt(6v)] because every ternary cylinder has positive mass, has no atoms since any point has at most two codings and prefix probabilities are <=(2/3)^n, and is singular by the disjoint almost-sure digit frequency vectors for its law and Lebesgue measure. Thus TV as defined is one. Typical cylinder masses have exponent H/log(3); counting typical cylinders gives the upper dimension, and a restriction of positive measure with cylinder mass bounded above by 3^(-ns) uniformly for large n gives the lower bound for every s<H/log(3), since short intervals meet at most two cylinders at comparable scale. The dimension of the measure is 0.789690082143 to the stated precision. For the support frontier r>=1/3 exactly makes the three first-level intervals touch or overlap; below it they are separated. The supplied verify.py was inspected but not executed; the analytic series and entropy arguments establish the infinite claims independent of those finite checks.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "López-Yela–Míguez propagate polynomial moments and reconstruct approximate marginal densities for stochastic numerical methods.",
+          "Li et al. establish weak second order for a Gaussian mixture construction; that does not fix its stationary measure in total variation.",
+          "The indexed random-step result 6b73e39a7294 treats Gaussianity and fourth moments with conditionally Gaussian noise. The frozen process instead has a deterministic step and bounded atomic innovations."
+        ],
+        "reasoning": "These broader tools supply motivation or moment-propagation machinery but do not directly specialize to the counterexample as an invariant-law result.",
+        "searches": [
+          "arXiv:2106.06271, abstract and introduction",
+          "arXiv:1812.11932, Algorithm 1 and Theorem 3.1",
+          "Resultary: random-step, noise-surrogate and stochastic exponential OU schemes"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "arXiv:1812.11932 and arXiv:2106.06271",
+        "Resultary 3b62ad71df82, 6b73e39a7294, 743aa111efcf, d13d753808a7, 8f817ade8710 and 452c00c0c019"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For the digital law, classical Bernoulli measure theory supplies the singularity, continuity and dimension after the affine conjugacy is established.",
+          "Quadrature exactness supplies innovation moments but not by itself the stationary law or its pathwise joint moments. Covariance collapse of a Gaussian oscillator gives support in a proper linear subspace, not full interval support."
+        ],
+        "reasoning": "The contribution is selecting a minimal noise surrogate and the exact support frontier together so that the stationary series simultaneously has maximal TV error and exact grid joint moments to degree five. None of the inspected matching constructions entails that specific joint counterexample as a specialization.",
+        "searches": [
+          "Comparison of Li et al. Algorithm 1, López-Yela–Míguez introduction, and Resultary 3b62ad71df82 and 743aa111efcf with the frozen hypotheses"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "At r=1/3 the recursion is the affine image of an iid biased ternary digit law. Its support, singularity and entropy calculation alone are not separate originality claims.",
+          "The related indexed oscillator 3b62ad71df82 uses rank loss of a Gaussian covariance. The ternary convolution 743aa111efcf concerns a convolution on the 3-adic group, not an iid real ternary OU innovation series.",
+          "Li et al. use the same three-point weights to select Gaussian-mixture components and retain a normal increment when the component variance is positive."
+        ],
+        "reasoning": "Neither a degenerate Gaussian nor the indexed 3-adic convolution is this interval-supported singular continuous law; a Gaussian-mixture OU discretization with an additional normal term is not an equivalent transition.",
+        "searches": [
+          "Resultary: scalar OU affine recursion with three-node Gaussian quadrature, stationarity, singular continuous full support",
+          "Resultary: ternary full-support singular laws and covariance equivalence",
+          "arXiv:1812.11932, Algorithm 1 and equations (3.24)–(3.26)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest same-day covariance matches concern Poisson rethermalization, switching stiffness or telegraph forcing. The first two already differ from their Gaussian comparisons at fourth order; the third distinguishes laws via support radius rather than five-moment fidelity.",
+          "The Gaussian three-point quadrature weights and the entropy of a biased digital measure are known separately; no checked exact entry identifies the same stationary OU counterexample."
+        ],
+        "reasoning": "Stationary covariance matches or known node and weight tables are weaker than a six-degree moment boundary combined with the specified interval-supported singular law. No exhaustive catalogue of such constructions was established.",
+        "searches": [
+          "Resultary: invariant OU law at contraction 1/3 with three atoms, entropy and sixth moment",
+          "Resultary: covariance-matching OU or trap laws, including distinct same-day records d13d753808a7, 8f817ade8710 and 452c00c0c019"
+        ]
+      },
+      "rationale": "The Gaussian quadrature and biased-ternary measure facts are classical. The supported distinct claim is the scalar stationary numerical OU counterexample combining interval support, maximal TV error, and exact joint moments through degree five, with the first mismatch quantified. Neither the inspected numerical schemes nor the closest indexed invariant-law, covariance or ternary examples establish that combination.",
+      "residual_risks": [
+        "The targeted primary literature lookup returned no useful decisive new match. Earlier equivalent examples in the specialized weak-scheme or random affine-recursion literature may remain unindexed or uninspected; no priority conclusion is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same quadrature ingredient, different method and conclusion",
+          "evidence": [
+            "A Gaussian mixture component includes a normal variate when variance is positive; the theorem is about weak second order."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1812.11932",
+          "material_read": "p.10 Algorithm 1, equations (3.24)–(3.26), and Theorem 3.1, PDF-text around char 33950",
+          "method": "Original OA paper passages",
+          "title": "Numerical Methods for Stochastic Differential Equations Based on Gaussian Mixture",
+          "trigger": "Same three-node weights in an SDE integrator"
+        },
+        {
+          "assessment": "General background rather than a stationary counterexample",
+          "evidence": [
+            "The work propagates moments and uses Gram–Charlier marginal-density estimates."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2106.06271",
+          "material_read": "p.1 abstract and p.3 introduction, text around chars 250 and 9300",
+          "method": "Original OA paper passages",
+          "title": "Polynomial Propagation of Moments in Stochastic Differential Equations",
+          "trigger": "Moment propagation and distribution approximation"
+        },
+        {
+          "assessment": "Rank-deficient Gaussian rather than full-support singular continuous law",
+          "evidence": [
+            "Rational split resonances make the underdamped oscillator's Gaussian covariance lose rank."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-arithmetic-support-transitions-and-quadratic-covariance-collapse--3b62ad71df82/RESULT.md",
+          "material_read": "Finding and assumptions, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Arithmetic support transitions and quadratic covariance collapse for two-kick stochastic exponential quadrature",
+          "trigger": "Numerical invariant law singular to Gaussian"
+        },
+        {
+          "assessment": "Different driving mechanism",
+          "evidence": [
+            "Random steps and conditionally Gaussian noise, not fixed-step three-atom noise."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-sharp-gaussianity-and-fourth-moment-boundaries-for-randomly-step--6b73e39a7294/RESULT.md",
+          "material_read": "Finding and assumptions, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Sharp Gaussianity and fourth-moment boundaries for randomly stepped stochastic theta schemes",
+          "trigger": "Numerical stationarity and moment thresholds"
+        },
+        {
+          "assessment": "Analogous measure, not the same affine recursion",
+          "evidence": [
+            "The measure is formed by convolution on the 3-adic group with a different digit distribution, not the specified iid real ternary law."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-threefold-ternary-cantor-convolution-full-support-singularity-an--743aa111efcf/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Threefold ternary Cantor convolution: full support, singularity, and exact collision dimension",
+          "trigger": "Full-support singular ternary construction"
+        },
+        {
+          "assessment": "Second-order agreement and different higher-order behavior",
+          "evidence": [
+            "Poisson rethermalization preserves OU-like correlations but gives a positive displacement fourth cumulant."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-gaussian-covariance-twins-and-displacement-only-identification-o--d13d753808a7/RESULT.md",
+          "material_read": "Finding and assumptions, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Gaussian covariance twins and displacement-only identification of Poisson-rethermalized Ornstein–Uhlenbeck motion",
+          "trigger": "Distinct same-day exact covariance match"
+        },
+        {
+          "assessment": "Different model and moments",
+          "evidence": [
+            "Switching stiffness produces OU position covariance but positive fourth cumulant."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-complete-equilibrium-covariance-camouflage-manifold-for-a-swit--8f817ade8710/RESULT.md",
+          "material_read": "Finding and assumptions, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "A complete equilibrium-covariance camouflage manifold for a switching harmonic trap",
+          "trigger": "Distinct same-day exact covariance match"
+        },
+        {
+          "assessment": "Different target and mechanism",
+          "evidence": [
+            "Telegraph-driven models with the same complete position covariance can be distinguished via support radius."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-spectral-threefold-ambiguity-and-support-edge-identification-in--452c00c0c019/RESULT.md",
+          "material_read": "Finding and assumptions, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Spectral threefold ambiguity and support-edge identification in a telegraph-driven inertial trap",
+          "trigger": "Distinct same-day covariance and support comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A scalar OU grid is a natural setting to test whether fitting finite moments controls a stationary law. The minimal Gaussian moment rule reaches the tight boundary at which every interval subcylinder is occupied, yet yields TV error one while matching joint grid moments through degree five. This isolates a concrete failure of invariant-law fidelity that is stronger than merely non-Gaussian noise or an obvious gap in support. It does not claim a small-step theorem or novelty for Gaussian quadrature or biased ternary measures.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

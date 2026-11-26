@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The forest representation and the exact deletion bijection determine the component-count probabilities without independence assumptions. The Euler product has a unique positive saddle with scale \(t_n\sim\pi^2/(6\log n)\). A central consecutive block of integer-partition coefficients provides Fourier minor-arc decay, and cumulant bounds give a uniform local-limit ratio for shifts of order \(\log n\) with relative error \(o(1/\log n)\). This establishes the independent exponential component-count scaling and the singleton sharp constant. The bounded-height Ehrenfeucht–Fraïssé saturation argument establishes the first-order probability rate for all fixed sentences. Exact enumeration was checked independently through size 48 and small unary structures through size five; numerical checks are not a proof of the infinite claim.
+PASS
 
-## Originality — PASS within inspected evidence
+The identity makes each functional component a fixed root, its children and their leaves, so the branch-size partition gives p(m−1) types at size m. Uniformity over isomorphism classes makes adding prescribed copies a bijection, with joint survival probability U_{n−h}/U_n. Independently checked the critical local estimate: the partition Laplace exponent 2√(Am)−tm peaks at m=A/t² with width t^(−3/2), and the Hardy–Ramanujan prefactor yields weight comparable to C(t)t^(3/2) uniformly on a block of that width. In the logarithm of the characteristic function, discarding the nonpositive k≥2 real terms and summing the k=1 terms over that consecutive block gives the stated min(1,t^(−3)θ²) damping by the normalized geometric sum. The partition modular formula and derivatives give C∼nt²/A, σ²∼An/t², and a third derivative bound O(Ct^(−6)); absolute convergence gives the same bound along the vertical central arc. For |θ|≤(log n)^3/σ the cubic remainder is O((log n)^10/√n), while the complementary arc has exponentially small mass in (log n)^5. Inversion at n−h with |h|≤K log n gives the same central Gaussian mass to relative o(t_n), so U_{n−h}/U_n=e^(−ht_n)(1+o(t_n)), with t_n∼A/log n. Rounding x_i/t_n upward yields the independent rate-s_i exponential survival functions, while fixed h=bs gives the sharper deficiency asymptotic bsA/log n. For fixed quantifier rank q, cap branch leaf counts, counts of branches of each capped type, and component profile counts at q. In the q-round game each choice needs at most one new component, branch and leaf; the ancestor closure preserves all unary terms by f³=f². At least q copies of each of finitely many exact profile representatives suffice, so a finite union bound gives the first-order rate and singleton absence attains its order.
 
-The equivalent rooted-height-three and unary-idempotence formulations were compared. Riordan (1960) and OEIS A001383 already supply the full exact enumeration; Bell–Burris–Yeats (2010) already give stronger qualitative monadic second-order zero-one results. These are **not** claimed new. No inspected primary source or indexed finding states the sharp \(\pi^2/(6\log n)\) first-order obstruction and the independent fixed-component exponential scaling jointly. A general quantitative weighted-partition theorem could nevertheless imply some of the results; Mutafchiev (2011) was available in abstract only, so global priority remains uncertain.
+## originality
 
-## Value — PASS
+PASS
 
-The sharp convergence speed and leading constant quantify a natural logical limit law. The independent exponential profile determines simultaneous distributions of specified finite component types, and explains the logarithmic slowdown relative to height-one forests. The result refines, rather than restates, classical enumerative and qualitative logical results.
+The shifted Euler product and the qualitative unlabelled forest zero–one law are prior results; the frozen finding does not claim them. Compared the precise log-scale ratio consequences, sharp singleton constant and joint law with the closest actual statements. The distinct Resultary retraction finding uses labelled height-one maps and has a different normalization and deterministic limits. Compton's criterion as developed by Bell–Burris–Yeats is qualitative. The inspected Mutafchiev/Meinardus scheme does not apply to partition-number weights. No equivalent quantitative result was verified in these comparisons.
 
-## Scientific boundaries
+## value
 
-Uniform isomorphism classes, only finite one-function models satisfying \(f^3=f^2\), fixed FO sentences and finite fixed type lists. No general functional digraphs, labelled sampling, or independent mathematical certification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The logarithmically slow obstruction is a quantitative strengthening of the known logical law, with a natural singleton event attaining the leading constant. The simultaneous exponential law specifies the low-size component fluctuations and explains the rate in the unlabelled model, rather than adding numerical evidence for a known convergence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The nonnegative mass-action channels yield the four displayed equations and the normalized invariant simplex. Differentiating \(U/\sqrt X\) and \(Y+U-X/2\) gives zero identically. The resulting scalar equation \(s'=-s^2(1+2s)/4\), with \(s(0)=1/10\), has \(s>0\), \(s\to0\), and \(ts\to4\). Therefore \(Y=s^2/2\) obeys \(t^2Y\to8\). The limiting states and \(\int Y=\log(6/5)\) follow exactly. The transition graph is acyclic and the sole dependency cycle has a persistent successor \(X\) from \(Y\). The conjectured exponential estimate is incompatible with the proven inverse-square limit. Symbolic checks were replayed with the accompanying program; numerical checks are supplementary only.
+PASS
 
-## Originality — PASS (with residual risk)
+The stated channels give the four ODEs and conserve total mass. The multiplicative equations preserve positivity of X, U and Y at finite time; Z is nondecreasing. Independently differentiating U/√X and Y+U−X/2 gives zero, with respective initial values 1/2 and 1/8. Thus with s=√X−1/2, Y=s²/2 and ds/dt=−s²(1+2s)/4. From s(0)=1/10, s decreases to zero without hitting it at finite time. Then (1/s)'→1/4, so ts→4 and t²Y→8. Conservation gives the other limits; integrating −(log U)'=Y gives log(6/5). This strict algebraic tail precludes any positive exponential upper-bound rate. By the cited definitions the three transition edges are acyclic; the only dependency cycle is X↔Y and Y has persistent successor X (limit 1/4). Proposition 1, Case 1 expressly permits an on-cycle successor. The exhibited strictly positive trajectory is enough to contradict the conjecture as stated, without contradicting the integrability theorem.
 
-The 2025 motivating article states the graph assumptions and the precise exponential conjecture, explicitly observes that integrable \(t^{-2}\) decay would not contradict its theorem, and reports no counterexample. Its slow-decay examples fail the dependency assumption, while the present construction satisfies it. The same article explicitly permits a persistent successor *inside* a dependency cycle. Searches for that paper, the conjecture, inverse-square decay, equivalent interaction channels, and related published mathematical findings revealed no equivalent counterexample. The 2023 article by Chan and Mandjes concerns a different stochastic wealth-redistribution model. Residual risk: unindexed or unpublished work could contain the same counterexample or a stronger negative theorem; absence of search hits is not a uniqueness proof.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The finding resolves a concrete 2025 open conjecture negatively within exactly the stipulated graph constraints, isolating a mathematically substantive distinction between integrability and exponential extinction. It gives exact coefficients, positive initial data, and an elementary reproducible proof rather than a numerical observation. It does not claim genericity or extension to stochastic individual trajectories.
+The original paper already recognizes that its integrability theorem permits inverse-square rates, but does not exhibit one satisfying both graph assumptions. Its algebraic examples omit Assumption 2. The inspected related records use different equations and do not give a qualifying counterexample.
 
-## Sources and limits
+## value
 
-The central comparison is the full accessible preprint by Chan, Crommelin, and Mandjes, arXiv:2511.02437v1, specifically §§2–3 and Appendix C. Related dissemination research and published mathematical records were compared by statement and assumptions. Exact historical priority remains subject to independent investigation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A minimal-purpose explicit witness separates the proved integrability conclusion from a published conjectured rate under the same hypotheses. Its exact limit coefficient and integral make the distinction rigorous without relying on finite-time fits.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

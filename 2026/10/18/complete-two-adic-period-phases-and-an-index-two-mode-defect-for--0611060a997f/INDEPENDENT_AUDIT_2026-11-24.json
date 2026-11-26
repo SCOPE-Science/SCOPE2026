@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:06:28.088925Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md:5–72",
+        "VERIFICATION.md and verify.py (inspected, not executed)",
+        "Independent replay: python3 /workspace/review_checks.py periods"
+      ],
+      "rationale": "The shear factorization is invertible over each residue ring, and testing the standard basis is equivalent to testing the global permutation order. At valuation e≥2, squaring I+2^eE raises the difference valuation by exactly one; successive mod-2 reduction kernels can only contribute powers of two to the order. For even C the first valuation is r, and at r=1 the upper-right block 2C+C³ gives exact valuation two after squaring. For both parameters odd the mod-two block C is nonzero with C²=0, the first square has difference valuation one, and (M²−I)/2 squares to zero mod two, so the fourth power has exact difference valuation two. With opposite parities the order mod two is three, and the block factor C²(C²+3I) is 4I or 4 times the exchange matrix mod eight, while all blocks of M³−I vanish mod four. The resulting law includes the plateau at s=1,2, signed weights, and M=I when k=c=0. Scalar orders follow from the same identities; the minimum valuation of k±c increases by one exactly at equal finite valuations, giving the claimed factor precisely below depth s. The rational change of basis is not invertible at 2. Independently iterating the shears on every basis vector to first return verified 582 coupled cases (all residues through depth four, signed samples at five and six), including the scalar comparison.",
+      "residual_risks": [
+        "Regression is finite; the congruence seeds and lifting prove the uniform law. The law is not an individual orbit census."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The circulant paper asserts T(N;n)=N T(2;n)/2 conditional on the base period in its even-size discussion after Fig. 9, which describes a specific periodic vector family. The text states it 'in this case', does not evaluate all base periods by weights, and gives no mode-index criterion."
+        ],
+        "reasoning": "Even if read as an assertion for arbitrary two-site weights, it would give 6 mod four when T(2;2)=3 for C equal to the exchange matrix; the exact block check gives 3. It cannot be used as a valid stronger law for the arbitrary frozen family. No assertion about whether the contextual special-family scaling is correct is needed here.",
+        "searches": [
+          "Manolas–Floratos §4.1 and Eq. (57), arXiv:2605.00965v2",
+          "Resultary all-to-all two-adic orders 6ce73c0ff68d"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2208.03267v3",
+        "arXiv:2605.00965v2",
+        "Resultary 6ce73c0ff68d and 1b4dbfe9d320"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The equal-site classical model gives the right couplings. The later circulant criterion leaves a minimum-exponent problem; the unweighted exact result only evaluates two points in the two-site parameter family."
+        ],
+        "reasoning": "The valuation seeds in the both-even and both-odd branches and the signed-weight defect threshold are not obtained by specializing an inspected stronger correct period law. The (1,1) example itself should not be treated as new.",
+        "searches": [
+          "Comparison against arXiv:2208.03267v3, arXiv:2605.00965v2 and 6ce73c0ff68d"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The weighted block matrix and k±c rational scalar modes appear in the earlier model. The matrix-Fibonacci congruences give a period criterion, not the evaluated phase diagram."
+        ],
+        "reasoning": "Solving a rational eigenmode problem or finding the least exponent satisfying an unsolved matrix congruence is not an equivalent evaluation of the orders on the integral torus. Mode division by 2 is invalid there.",
+        "searches": [
+          "Axenides–Floratos–Nicolis arXiv:2208.03267v3 Eqs. (3.8)–(3.12)",
+          "Manolas–Floratos arXiv:2605.00965v2 Eqs. (24)–(28), (47)–(57)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact all-to-all table covers k=c=1 and k=0,c=1 at n=2; the numerical spectra cover selected systems. The same-day modular map hit concerns a nonlinear skew map."
+        ],
+        "reasoning": "Credit the exact unweighted entries, but neither the exact unweighted laws nor the plotted examples cover the coupled integer-weight parameter plane and the scalar discrepancy.",
+        "searches": [
+          "Resultary 6ce73c0ff68d Finding and Assumptions",
+          "Manolas–Floratos §4.1 Figs. 5–9",
+          "Resultary same-day modular period comparison 1b4dbfe9d320"
+        ]
+      },
+      "rationale": "The map, rational modes and two unweighted values are already known; the supported distinct portion is the complete signed integer-weight order law at powers of two and the exact condition for failure of the scalar-mode period prediction. An inspected circulant scaling assertion is narrower in context and cannot be applied as a universal law for the frozen family.",
+      "residual_risks": [
+        "A different unindexed weighted two-site calculation or an equivalent formulation may exist; the review does not certify priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Model and modes known; no all-weight two-adic order or defect in inspected result",
+          "evidence": "The equal-diagonal choice gives k+c and k−c; the finite denominator discussion concentrates on odd N and flags even denominators for separate study.",
+          "identifier_or_url": "https://arxiv.org/pdf/2208.03267v3",
+          "material_read": "PDF pp. 3, 9–10, Eqs. (3.8)–(3.12), text offsets 6900 and 30200",
+          "method": "Original OA PDF",
+          "title": "Arnol’d cat map lattices",
+          "trigger": "Same weighted two-site update and modes"
+        },
+        {
+          "assessment": "Period criterion and contextual conditional scaling are not an exact valid all-weight classifier",
+          "evidence": "Equation (57) gives N/2 times the mod-two period 'in this case'; the immediately surrounding text focuses on an even-size pattern and does not give arbitrary two-site weight or defect formulas.",
+          "identifier_or_url": "https://arxiv.org/html/2605.00965v2",
+          "material_read": "§3 Eqs. (24)–(28), §4.1 Eqs. (47)–(57), Fig. 9 context (HTML offset 40500–43696), Eq. (57) in original PDF",
+          "method": "Original OA HTML and PDF",
+          "title": "Coupled Arnol’d cat maps on circulant graphs",
+          "trigger": "General weighted circulant model with possible exact period law"
+        },
+        {
+          "assessment": "Prior coverage of two special points",
+          "evidence": "At n=2, couplings J_n and J_n−I_n give precisely (1,1) and (0,1), with their exact orders.",
+          "identifier_or_url": "2026/10/11/SCOPE-exact-powers-of-two-torus-orders-for-all-to-all-coupled-cat-maps--6ce73c0ff68d/RESULT.md",
+          "material_read": "Finding and Assumptions and scope",
+          "method": "Local Resultary mirror",
+          "title": "Exact powers-of-two torus orders for all-to-all coupled cat maps",
+          "trigger": "Exact same modulus and unweighted subfamily"
+        },
+        {
+          "assessment": "Different map and period problem",
+          "evidence": "The object is a nonlinear polynomial modular skew map, not the displayed block matrix.",
+          "identifier_or_url": "2026/10/18/SCOPE-periodic-point-lifting-and-a-sharp-two-cycle-phase-diagram-for-a--1b4dbfe9d320",
+          "material_read": "Finding",
+          "method": "Local Resultary mirror",
+          "title": "Periodic-point lifting and a sharp two-cycle phase diagram",
+          "trigger": "Same-day modular period comparator"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md:10–28 and 39–72",
+        "Earlier model and unweighted special cases compared above"
+      ],
+      "rationale": "It solves the order question uniformly for a previously defined weighted two-site model at a modulus where the usual mode change fails. The exact equal-valuation condition measures a genuine integral obstruction and says when the cheaper scalar computation is reliable, beyond the unweighted examples and beyond observing noninvertibility of the basis change alone.",
+      "residual_risks": [
+        "The result concerns only the indicated symmetric weights and global order, not higher-dimensional couplings, orbit-length multiplicities or hyperbolicity."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

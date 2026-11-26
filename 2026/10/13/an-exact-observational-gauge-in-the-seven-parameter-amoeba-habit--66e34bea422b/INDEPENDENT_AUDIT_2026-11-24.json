@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:41:48.637590Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Subtract the rear equilibrium level 1/a from both pressures under g_r=1, then multiply by γ. The rear equation has no constant source in these coordinates, and the front equation has source (1−h)κ0+hκ1, where κ0=γ(g_f−1), κ1=γ(g_f^s−a_s/a); output is the difference of the two scaled pressures. Thus choosing γ/c and fixing κ0,κ1 yields the stated positive rates and pressure map p↦cp+(1−c)/a for all 0<c<1. The resulting scaled initial states agree. The unstimulated matrix is stable and invertible (negative trace and determinant a[a+(1+r)d]>0), so both published day-1 equilibrium initializations map exactly. Position equality by integration persists across input switches, pressure carryover, and the daily position-only reset, and gives identical defined threshold crossing times. A different measured absolute pressure or an independently fixed initialization not preserved by the map is outside the conclusion. Differentiating the constant-output curve gives the stated nonzero null vector (γ>0), hence a singular positive-weight sensitivity information matrix when the sampled observation map is differentiable. Reconstructing the alternative from the invariants with exact fractions (independent_checks.py 4) gives 1009009/10000000, 6760153/561000, 2891/450000 within Table S3 bounds, with more than a hundredfold change in g_f. This example uses the displayed rounded Table S4 seed-308 row, not undisclosed full-precision coefficients, nor a new empirical fit. There is no claim that all six surviving combinations are identifiable.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The methodological originals define structural identifiability and discuss reparameterization. The FEPW record concerns boundary shape erasure in a static four-parameter survival law; the Klausmeier record obtains recovery of both parameters from exact positive-biomass full-state data in a different ODE."
+        ],
+        "reasoning": "An available general symmetry method is not a theorem that this particular normalized model has the exhibited symmetry. Neither unlike observation domain/model yields this claim by specialization.",
+        "searches": [
+          "Villaverde 2019 DOI 10.1155/2019/8497093, p. 1",
+          "Massonis–Banga–Villaverde DOI 10.1002/rnc.5887, abstract",
+          "Resultary FEPW boundary and non-spatial Klausmeier Fisher comparisons"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verification/verify.py (inspected, not executed)",
+        "Nishi et al. DOI 10.1007/s00285-026-02438-7 and Supplement §§S1.1–S1.2/Tables S2–S4",
+        "Villaverde 2019 and Massonis et al. 2023 (bounded passages)",
+        "Resultary 549f250e327e and 962dc48d4a2e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The original normalized ODE and crossing-time observation are prior, as are general methods for symmetries. The exact cancellation requires centering both hidden pressures at 1/a, preserving two affine source combinations, and using the same transformation on the source's initialization."
+        ],
+        "reasoning": "One-at-a-time parameter sensitivity or fitting does not imply separate identifiability, and the tested prior results do not give the joint null direction or an equivalent bound for this specific calibration.",
+        "searches": [
+          "Nishi et al. Eqs. (1)–(5), day-1 equilibrium and daily pressure-history carryover, Figure 4, and Supplement §S1.1 compared to the centered/scaled pressure equations",
+          "Prior general structural identifiability and reparameterization sources cited above"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary article uses a_de,a_de^s,r_v for the frozen a,a_s,r. The supplement fixes g_r=1; the output is the pressure difference times γ. These passages specify the same observation map and model but do not state an affine gauge or the six-combination form."
+        ],
+        "reasoning": "A model-specific parameter equivalence or an equivalent identifiable-coordinate reduction would be covering. The normalization to g_r=1 by itself does not remove this additional pressure-offset-and-scale family.",
+        "searches": [
+          "Resultary: Nishi/Physarum habituation seven-parameter structural identifiability and normalized rear pressure-source affine gauge",
+          "Nishi et al. Eqs. (1)–(5), p. 10 initialization, Supplement §S1.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Table S4 gives the original rounded fitted row and Table S3 the feasible box; they do not list a motion-equivalent transformed row. The closest catalogue passages concern distinct models and output maps."
+        ],
+        "reasoning": "An empirical seed table is not a table of observational equivalences, and a finite set of fitted rows alone cannot decide injectivity for arbitrary forcing.",
+        "searches": [
+          "Supplement Tables S3/S4, seed 308 and optimization bounds",
+          "Ranked Resultary Nishi/Physarum lookups; original mirror passages 549f250e327e and 962dc48d4a2e"
+        ]
+      },
+      "rationale": "The general use of state/output symmetries is prior art. The distinct supported result is the exact positive within-bound affine equivalence that survives the published rear normalization in this particular motion-only calibration, with its explicit six-combination normal form.",
+      "residual_risks": [
+        "The earlier bioRxiv DOI 10.1101/2025.09.15.675989 first version was not independently compared in full; the final journal model and fitting supplement were inspected.",
+        "The bounded comparisons do not establish priority or exclude an unindexed correction or equivalent model-specific reparameterization."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identical ODE and observation protocol; inspected passages do not give the gauge",
+          "evidence": [
+            "Output γ(p_r−p_f), asymmetric diffusion terms, binary quinine input, unstimulated day-1 equilibrium, pressure carryover, and daily position reset for crossing-time comparison."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00285-026-02438-7",
+          "material_read": "Primary PDF pp. 6–7 offsets 15000–19923; p. 10 offset 26700 and Figure 4 caption",
+          "method": "Original PDF equation and protocol passage comparison",
+          "title": "Mathematical modeling for a primitive form of habituation in an amoeba",
+          "trigger": "Exact model and observed output, including initialization"
+        },
+        {
+          "assessment": "Exact source normalization and example inputs confirmed; rounded table is not an identifiability result",
+          "evidence": [
+            "Tables S3/S4 impose [0.001,100] on first six coordinates and [0.001,1] on the volume ratio; seed 308 is rounded to four significant figures."
+          ],
+          "identifier_or_url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1007%2Fs00285-026-02438-7/MediaObjects/285_2026_2438_MOESM1_ESM.pdf",
+          "material_read": "PDF pp. 1–2 §S1.1 near offset 2800; p. 3 Tables S2–S4 near offset 8300",
+          "method": "Original supplement parameter, bounds and footnote inspection",
+          "title": "Nishi et al., Supplementary Information / Online Resource 1",
+          "trigger": "Published g_r=1 normalization and exact displayed fitting example"
+        },
+        {
+          "assessment": "Methodological background only in inspected material",
+          "evidence": [
+            "General definition and observation-based distinguishability, not this pressure-difference symmetry."
+          ],
+          "identifier_or_url": "https://doi.org/10.1155/2019/8497093",
+          "material_read": "OA PDF p. 1 offset 0, general setup",
+          "method": "Original PDF passage comparison",
+          "title": "Observability and Structural Identifiability of Nonlinear Biological Systems",
+          "trigger": "Prior general structural identifiability theory"
+        },
+        {
+          "assessment": "General method, not an instantiated result for Nishi's ODE in the inspected passage",
+          "evidence": [
+            "Symbolic reparameterization for nonlinear models."
+          ],
+          "identifier_or_url": "https://doi.org/10.1002/rnc.5887",
+          "material_read": "OA PDF p. 1 abstract, offset 0",
+          "method": "Original PDF abstract-level comparison",
+          "title": "AutoRepar: A method to obtain identifiable and observable reparameterizations of dynamic models with mechanistic insights",
+          "trigger": "Prior method to derive reparameterizations"
+        },
+        {
+          "assessment": "Different models and identification failure modes",
+          "evidence": [
+            "FEPW loses a shape parameter when its scale equals zero. Klausmeier reconstructs two parameters from exact full-state trajectories with positive biomass; mortality drops out on the zero-biomass set."
+          ],
+          "identifier_or_url": "Resultary 549f250e327e, 962dc48d4a2e",
+          "material_read": "Original opening claim passages, offsets 0–1707 and 0–1714 respectively",
+          "method": "Ranked catalogue queries followed by local mirror passage comparisons",
+          "title": "Exact boundary identifiability stratification of the FEPW model; Exact identifiability dichotomy and Fisher-correlation floor in the non-spatial Klausmeier model",
+          "trigger": "Closest retrieved structural identifiability analogues"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The original seven rates are fitted and mechanistically interpreted using motion data. This interior positive ambiguity survives all admissible schedules and is large at a published fit, so more motion data alone will not resolve it. The explicit reduced coordinates can be used for fitting, and the gauge shows why a pressure-sensitive measurement may be needed to distinguish original rates. This is a structural inference result, not a claim that the model's forward predictions are wrong.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

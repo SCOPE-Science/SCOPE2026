@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:28:45.921747Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In RESULT.md lines 40–58, p_i excludes q_i by the two-cycle condition and b_i by indegree at v_i. Adding a_i then fits the free outgoing slot and ends at the fresh leaf w_i, so creates no directed cycle. The reverse statement holds for q_i and b_i. All additions use disjoint new vertices and no root, so they work simultaneously even with repeated roots and a cyclic base. The replacement is therefore simplicial and contiguous to the identity, and the linear homotopy fixes the stated join pointwise and commutes with the specified symmetries. Each cone-link deletion is an elementary-collapse sequence: for a lower face containing the deleted vertex but not its dominator, all cofaces other than its paired enlargement have already been removed in descending order. Deleting attachment vertices does not delete any dominator. The reduced join-chain shift is integral and includes the augmented empty-arc case. Each zero-cycle has shifted degree one; their join gives the arm-permutation sign, and reversal negates each of the m factors. The submitted checker was inspected only as finite corroboration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The forest theorem already includes the once-subdivision of every finite forest; its local hypotheses are the same at the ear, independent of the rest of the digraph.",
+          "Proposition 5.4 adds graph-wide common sinks. Proposition 2.3 uses a different T-operation at a valence-three vertex with the specified indegree/outdegree; source/sink language belongs to the following generalization. Theorem 1.4 assumes no oriented cycles."
+        ],
+        "reasoning": "The arXiv suspension and matching results are not direct covering statements. The older forest paper's conclusion has a narrower base scope, but its actual local lemma, unlike its induction over the forest, has no base restriction.",
+        "searches": [
+          "Resultary a365e2daebfe, Finding and local proof",
+          "arXiv:2208.04656v1, Proposition 5.4",
+          "arXiv:2601.05670v1, Proposition 2.3, following generalization, and Theorem 1.4"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md; verify.py",
+        "Resultary a365e2daebfe and 09fa810d6117",
+        "arXiv:2208.04656v1; arXiv:2601.05670v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier domination proof: a face containing c can adjoin a, since b violates its outgoing slot and d forms a two-cycle; after deleting c, a face containing d can adjoin b. In fact c is already incompatible with d by the very same two-cycle test.",
+          "The prior argument explicitly uses dimension-descending matched pairs and leaves the outer two-point factor joined to the untouched arc complex."
+        ],
+        "reasoning": "The first fold's exclusion of d also supplies the second fold before any deletion. Therefore the dominator additions can be made together on different ears (they never touch the root), and their corresponding vertex maps give the claimed order-independent contiguous retraction. Equivariance is the immediate permutation of these identical pairs and the corresponding reversal. No asymptotic argument, new structural input, or modification of base hypotheses in the local proof is required.",
+        "searches": [
+          "Resultary a365e2daebfe, proof offsets 1900–4300",
+          "Resultary 09fa810d6117, proof offsets 2350–5500",
+          "Frozen RESULT.md lines 40–66"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The older spider record has exactly the same outer-arc subcomplex and character sgn(σ)(−1)^(mε).",
+          "In the forest proof's notation, (c,d,a,b) correspond respectively to (q_i,p_i,b_i,a_i) in the frozen theorem."
+        ],
+        "reasoning": "The earlier spider statement is equivalent on the canonical family and slightly wider in arm count. The relabelling of the forest folds changes neither simplex condition nor replacement.",
+        "searches": [
+          "Resultary 09fa810d6117, Finding and Proof",
+          "Resultary a365e2daebfe, First domination, Second domination and Join decomposition"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The older spider result gives the same all-arm sphere dimension, reduced integral homology and action, as well as a face enumerator. The older forest result gives the same cross-polytope homology and reversal sign on subdivisions."
+        ],
+        "reasoning": "This is a direct exact formula match rather than mere agreement on small tables. The claimed invariant of the canonical family is covered without recomputation.",
+        "searches": [
+          "Resultary 09fa810d6117, Finding and orientation calculation",
+          "Resultary a365e2daebfe, Finding"
+        ]
+      },
+      "rationale": "Two earlier published catalogue records materially cover the claim. The October 18 record already proves the entire displayed subdivided-star collapse, sphere and integral character, even allowing one arm. More decisively, the October 25 forest proof explicitly proves the identical pair of local dominations and the identical residual join. Its argument uses only the degree-two fresh midpoint, fresh terminal leaf, directed two-cycle prohibition, and the two degree slots at the midpoint, not the global forest hypothesis. Extracting those local steps gives the arbitrary-base collapse, including repeated roots, with no new obstruction to check. The earlier statements do not literally assert the equivariant strong deformation retraction, but the standard vertex replacement at each domination gives exactly the submitted map: both inner directions map to the corresponding compatible outer directions, whose images contain no other replaced vertices. These replacements commute, and arrow reversal interchanges the two pairs. Hence contiguity and symmetry of the resulting map are direct consequences of the same local folds. This is demonstrated prior coverage/implication, not a rejection based on the unavailability of a paper.",
+      "residual_risks": [
+        "The previously published forest theorem does not literally title or state the global arbitrary-base equivariant map. The failure rests on the explicit implication of its inspected local folds and the exact earlier canonical-family statement, not on matching titles or presumed priority among same-day records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same local mathematical result; proof directly implies the arbitrary-base collapse and canonical retraction",
+          "evidence": "Every face with c can add a; after removing c every face with d can add b. Only fresh midpoint/leaf incidence and the local two-cycle rules are used. The residual complex is identically S^0_{a,b} joined to the rest; no use of the forest structure occurs until iteration over the forest.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-crosspolytopal-collapse-of-multipath-complexes-of-bidirected-sub--a365e2daebfe/RESULT.md",
+          "material_read": "Finding, scope, First domination through Join decomposition and Arrow reversal, offsets 0–5114",
+          "method": "Local-mirror full statement and decisive proof inspection",
+          "title": "Crosspolytopal collapse of multipath complexes of bidirected subdivided forests",
+          "trigger": "Same bidirected ear, elementary collapses, and target join"
+        },
+        {
+          "assessment": "Covers the canonical family; does not literally claim equivariance of its chosen collapse sequence",
+          "evidence": "It collapses to the same outer-arc subcomplex for every n≥1 and computes the identical permutation and reversal action on top homology.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-bidirected-two-edge-spiders-collapse-to-cross-polytope-spheres--09fa810d6117/RESULT.md",
+          "material_read": "Finding, scope and proof of collapse and integral action, offsets 0–5511",
+          "method": "Local-mirror full statement and decisive proof inspection",
+          "title": "Bidirected two-edge spiders collapse to cross-polytope spheres",
+          "trigger": "Exact same canonical subgroup action and graph family"
+        },
+        {
+          "assessment": "Different, graph-wide suspension",
+          "evidence": "The connected base has a sink of nonzero indegree; two common new sinks are added, with arrows from every base vertex to both.",
+          "identifier_or_url": "https://arxiv.org/pdf/2208.04656v1",
+          "material_read": "Proposition 5.4, printed pp. 15–16, OA offset 70000",
+          "method": "OA PDF passage inspection",
+          "title": "On the homotopy type of multipath complexes",
+          "trigger": "Earlier multipath suspension theorem"
+        },
+        {
+          "assessment": "Different T-operation; matching comparison does not apply to the ear",
+          "evidence": "The T-operation adds a different gadget at a constrained vertex and models S^0 by two common-head arcs. The matching-complex theorem excludes oriented cycles, while the ear contains directed two-cycles.",
+          "identifier_or_url": "https://arxiv.org/pdf/2601.05670v1",
+          "material_read": "Theorem 1.4, p. 3; Proposition 2.3, p. 5; extension p. 6",
+          "method": "OA PDF passage inspection",
+          "title": "Multipath complexes of bidirectional polygonal digraphs",
+          "trigger": "Potentially covering local suspension or matching-complex reduction"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "An arbitrary-base suspension rule is a useful structural observation. Here the earlier dominated-vertex proof already does the local work independently of the base, and the fixed join, simultaneous retraction and suspension character follow by applying those same folds and permuting their factors. The remaining advance is a restatement with elementary symmetry bookkeeping, not a further motivated classification or operation. The frozen canonical application is itself already an exact published result.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

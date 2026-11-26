@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:12:17.736494Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–70",
+        "VERIFICATION.md lines 19–25",
+        "verify_split_angles.py lines 11–52",
+        "asymptotic_check.py lines 5–22"
+      ],
+      "rationale": "Independent derivation: at a fixed block count t the optimizer takes the best coordinates in each block. If the unrestricted top-k set has count T>r, the gain for a step ending at t≤r is the t-th largest first-block weight minus the (k−t+1)-st largest second-block weight; the former is in the unrestricted set and the latter is not, so the gain is positive. Hence the constrained count is min(T,r). Uniform strict Gaussian orders and transitivity within each block then give the mass 1/M below r and p/N_r at r (including T=r). Square and sum these masses for the collision law. For x=h/n and y=k/n, Stirling in a fixed standardized window gives the hypergeometric prefactor (2πn x(1−x)y(1−y))^(−1/2) and log exponential −(t−hk/n)^2/[2n x(1−x)y(1−y)]+O(n^(−1/2)) uniformly there: linear entropy terms cancel. This variance proxy differs from the stated variance by a factor tending to one. Riemann summation and Chebyshev outside a fixed large standardized window give the distribution limit. Rounding is negligible; interior collision mass times M/σ_n vanishes, and the boundary mass tends after scaling to (1−Φ(a))²/φ(a)>0. Thus localization holds and multiplication by F/M→Φ(a) yields the uniform-baseline comparison. L<r<U holds eventually under the proportional hypotheses and ensures two distinct masses in the finite result.",
+      "residual_risks": [
+        "Frozen code was inspected, not executed. The recorded exact check covers n≤8 and compares with exhaustive optimization only at n≤6 for rank-valued objectives. The recorded optional numerical check prints a completion string without convergence assertions; neither diagnostic proves an infinite claim."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Frozen RESULT.md lines 78–82 locates the elementary split class and the one-inequality hypersimplex in the split-matroid literature; the published search surfaced a hyperplane-decomposition paper, not an evaluated angular law."
+        ],
+        "reasoning": "From the available descriptions, lattice-point and face enumeration do not control the distribution of objective orders in each normal cone. General greedy optimization identifies how to maximize, but does not give an evaluated critical-window collision comparison.",
+        "searches": [
+          "DOI:10.1112/jlms.12984",
+          "DOI:10.1017/S0963548325000021",
+          "arXiv:2110.11549",
+          "arXiv:2202.04371"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md lines 78–93",
+        "Resultary 9ef06eaeb843, 75a331846ff7 and self-match 0b4ace8cb9ec",
+        "Primary search result for Matroid base polytope decomposition, ScienceDirect S0196885810000643 (snippet only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Rank-two parallel-class results operate at fixed rank; the submitted limit uses k/n→κ in (0,1). Hypergeometric local and distributional estimates are generic inputs."
+        ],
+        "reasoning": "The comparison needs the specific surface-mass transfer at the cutoff, squaring the orbit masses, and contrasting with F/M, not just applying a CLT to one random sample or substituting rank parameters into a rank-two result.",
+        "searches": [
+          "Resultary sparse-paving angular collisions and rank-two angular spectra",
+          "RESULT.md lines 78–82 and references"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2026/11/17 record 9ef06eaeb843 evaluates Gaussian angles and collisions for sparse-paving bases; the exact assigned record 0b4ace8cb9ec is a self-match."
+        ],
+        "reasoning": "Gaussian exposure is equivalent to the strict random coordinate order for this base polytope. The sparse-paving summary uses different hypotheses and supplies no law for the full single-split family.",
+        "searches": [
+          "Resultary: single-split Gaussian normal-cone angle, random greedy matroid base, collision",
+          "Published search: matroid polytope split and Gaussian normal-cone/collision formulas"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Distinct same-day record 75a331846ff7 treats split-graph graphical zonotopes; record 9ef06eaeb843 treats sparse-paving matroid polytopes."
+        ],
+        "reasoning": "These closest indexed calculations concern different objects and do not furnish the hypergeometric masses or their proportional asymptotic. The identical indexed item is not independent evidence and the same date is not a priority decision.",
+        "searches": [
+          "Resultary: Gaussian vertex angle laws and collision condensation for matroid and split families"
+        ]
+      },
+      "rationale": "Credit the known one-split polytope, random-order greedy framework and standard hypergeometric limit theorems. The supported distinct claim is the explicit two-orbit angular collision law and its sharp critical-window amplification and localization relative to uniform sampling of the same vertices. No equivalent statement or stronger evaluated law covering this regime was identified in the material compared.",
+      "residual_risks": [
+        "Relevant cited primary full texts were not available for direct passage confirmation in this review. Equivalent linear-order counting or asymptotic statements in random-greedy or generalized-permutahedron work may remain unidentified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantive analogue on a different matroid class; not shown to cover this family",
+          "evidence": [
+            "Summary specifies sparse-paving bases and a different collision parameterization."
+          ],
+          "identifier_or_url": "Resultary 9ef06eaeb843",
+          "material_read": "Indexed result summary; primary record retrieval unavailable",
+          "method": "Local catalogue search and attempted text lookup",
+          "title": "Exact Gaussian normal-cone angles and pair-sensitive collisions for sparse-paving matroids",
+          "trigger": "Closest prior invariant and sampling law"
+        },
+        {
+          "assessment": "Different polytope family; no order of priority inferred",
+          "evidence": [
+            "The indexed object is a split-graph graphical zonotope, not the one-cut hypersimplex."
+          ],
+          "identifier_or_url": "Resultary 75a331846ff7",
+          "material_read": "Indexed result summary",
+          "method": "Local catalogue search",
+          "title": "Complete Gaussian vertex angle law and rare-collision condensation",
+          "trigger": "Distinct indexed result on split objects and collision localization"
+        },
+        {
+          "assessment": "Same object is credited; angular statement not independently compared against the entire text",
+          "evidence": [
+            "RESULT.md lines 78–82 describe §2.2 as the model and face enumeration."
+          ],
+          "identifier_or_url": "https://doi.org/10.1017/S0963548325000021",
+          "material_read": "Frozen citation and §2.2 locator; direct full text unavailable",
+          "method": "Bounded lawful text retrieval attempt and comparison with cited scope",
+          "title": "Face enumeration for split matroid polytopes",
+          "trigger": "Same one-cut hypersimplex model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 22–47 and 59–70"
+      ],
+      "rationale": "The exact law explains a useful sampling distinction: an orbit vanishing in relative vertex count dominates repeated Gaussian exposure. The explicit threshold-dependent factor and concentration give a quantitative diagnostic for random linear optimization on a natural family, not just a finite face-count computation.",
+      "residual_risks": [
+        "Value is established for one canonical Euclidean split and the stated proportional regime, not for generic objectives, all matroids or multiple splits."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

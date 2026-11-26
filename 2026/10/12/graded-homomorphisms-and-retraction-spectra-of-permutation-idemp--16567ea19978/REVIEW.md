@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The degree-two PBW coordinates in Gateva-Ivanova–Majid, Theorem 3.4, are linearly independent. This makes the defining-relation test equivalent to equality of column sums, including the zero linear map. Multiplication in every positive degree yields the exact formula for all higher graded components. Idempotence reduces to a block idempotent, with the two scalar choices and eigenspace restriction on the shear vector. Every image has been checked via independent PBW monomials in its own grading. Projection counts include all complements; no characteristic assumptions are hidden. The included direct small-prime-field brute-force verifier succeeds. It is supporting evidence, not proof of the unbounded statement.
+## correctness
 
-## Originality — PASS, subject to the stated bibliographic risk
-The closest sources are the 2023 canonical-presentation paper arXiv:2308.11427 (Theorem 3.4 and Sections 6–7), its broader 2024 successor arXiv:2409.02939 (Proposition 5.3 and Sections 6–7), and the 2022 structural precursor arXiv:2212.07361 (Example 3.15 and Corollary 3.17). Their examined claims yield the algebra and PBW basis but do not state the all-graded-homomorphism criterion, retraction orbit classification, finite-vs-infinite image dichotomy or exact rank spectrum. Morphisms of solutions and degree-changing Veronese maps are not the same statement. Closest returned mathematical-result records instead cover automorphisms of different finite-dimensional monomial algebras and retractions of weak orders; neither implies these conclusions. The possibility of an equivalent older result under another algebraic description remains unresolved.
+PASS
 
-## Value — PASS
-The whole class of permutation-idempotent Yang–Baxter algebras is represented by these canonical algebras, so the result gives the complete degree-preserving homomorphism behavior rather than an isolated matrix invariant. The split between square-zero finite graded retracts and infinite canonical graded retracts, uniform \(2n\) orbit classification, and all-prime-power rank distribution are natural structural data about a family previously treated through PBW bases, Veronese constructions and Segre products. The classification is not merely a single low-rank exercise.
+This verdict is for the repaired RESULT.md. In the frozen image proof (line 55), yᵢ has augmentation zero for i>1, so yᵢyⱼ=0 rather than y₁yⱼ. The theorem survives: with W=im F and c=1, choose y₁ of augmentation one, take a basis zᵢ of W∩Hₙ, and replace zᵢ by y₁+zᵢ. The resulting basis has augmentation one on every vector, so the Aᵣ relations hold, and the images of its PBW words form a basis in each positive degree, including r=1. Re-audit: the PBW product ε(u)v forces all column sums equal as soon as any column is nonzero, and includes the zero map with c=0. In degree d the map is c^(d−1)F. The block square gives c²=c, B²=B, Bu=(1−c)u; c=0 kills all higher images and leaves a square-zero degree-one part. Shears remove u in both cases, and idempotent B is conjugate to a projection with fixed rank; c and r distinguish precisely 2n classes. For finite fields, a rank-s B is counted by choosing its image and one of q^(s(n−1−s)) complements; the extra u fiber has dimension s at c=0 or n−1−s at c=1. Substituting s=r−c gives both exponents r(n−r), and exchanging image with kernel (or Gaussian symmetry) gives the palindromic profile. In the hand check n=q=2, the multiplicities in (c,r) order (0,0),(0,1),(1,1),(1,2) were 1,2,2,1. The stated n=4,q=2 polynomial follows by substituting the Gaussian values 1,7,7,1.
 
-## Scope and risks
-Only *graded unital* maps are included. General ungraded maps and morphisms of underlying Yang–Baxter solutions may have other structures. General all-field theorems rest on the proof; finite enumeration is a cross-check. Equivalent coverage in literature missed by the queried terminology is a residual uncertainty, and no independent external audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported contribution is the complete classification of maps and retractions of the published canonical algebras, not their presentation or the generic finite-field count of complements. The strongest matching published passages establish the canonical presentation and study specific Veronese/Segre maps or the underlying solutions. The closest indexed rank-spectrum result concerns a different finite-dimensional algebra, not a theorem covering this algebra. Repairing the basis argument does not alter the claim, and the same comparisons apply to the corrected result.
+
+## value
+
+PASS
+
+The canonical Yang–Baxter algebras are a published natural family and graded splittings are intrinsic to that family. The joint result shows which retracts die above degree one and which remain in the canonical family, and when two labeled splittings are equivalent under graded symmetries. At the same positive degree-one rank these grading behaviors can differ, so the scalar type is structural, not just an extra counted parameter. The uniform exact frequencies refine that classification rather than reporting a small prime-field computation. The repair preserves the statement and supplies the missing argument for the persistent image type.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

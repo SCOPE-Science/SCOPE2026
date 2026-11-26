@@ -1,18 +1,21 @@
-# Scientific review of the helm-graph fastest-mixing theorem
+# Independent mathematical audit
 
-## Correctness: PASS
-The lower bound is a Rayleigh quotient on the first nonconstant Fourier mode of the dihedral average of any feasible symmetric Markov kernel. The test vector removes the unknown leaf-edge weight and uses the hub and rim row budgets. The explicitly proposed weights attain the bound: direct multiplication proves the top-mode eigenvalue identity; a universal trigonometric bound establishes positive feasibility for every integer \(n\ge5\); a lower-semidefinite bound controls all negative Fourier eigenvalues; and the exact radial quadratic controls both remaining eigenvalues. Dihedral averaging extends invariant optimality to the unrestricted symmetric problem. The strict equality conditions uniquely identify the invariant optimizer, not every optimizer. The companion executable independently checks the critical symbolic identities, dense spectra and finite competitors, without substituting those tests for the infinite proof.
+## correctness
 
-## Originality: PASS, with residual risk
-The 2007 full arXiv paper of Boyd, Diaconis, Parrilo and Xiao (arXiv:0709.0955v1, §§1–2 and 5.3.3) develops symmetry reduction and solves the wheel graph, but its wheel has no pendant leaves and has a radial block of size two rather than three. Its wheel formula cannot be applied to the helm graph by renaming a parameter. The full accessible 2020 Jafarizadeh text studies clique lifts and separate path, star, windmill and symmetric-tree constructions; these do not encompass a wheel with a private leaf attached to each rim vertex. A targeted literature search for helm fastest-mixing weights revealed no all-size formula, while the named graph structure agrees with MathWorld. Available mathematical-record searches gave no stronger or equivalent helm-SLEM theorem. Similarities to earlier fastest-mixing methods and the possibility of unindexed equivalent work are explicitly recognized. A failed search is not proof of worldwide priority.
+PASS
 
-## Value: PASS
-The helm family is a standard wheel augmentation with leaves, introducing a third transition orbit and a leaf--rim bottleneck. Its optimum is not the wheel answer or a trivial uniform weighting: the leaf probability is a nonlinear trigonometric function of graph size, and both hub and rim self-loops saturate exactly at zero. The complete infinite-family SLEM and invariant-weight classification quantifies a concrete asymptotic improvement of about 30.9% in spectral gap over maximum-degree weighting. This supplies exact calibration for a natural high-symmetry network family rather than an arbitrary finite parameter slice.
+The dihedral average preserves all constraints and cannot increase the centered spectral norm. In the first nonzero Fourier mode the rim diagonal is at least c(1−1/n−r), and the Rayleigh vector (1,1+sqrt(1−c)) cancels r because −c+2t−t²=0. Equality for this vector forces both hub and rim budgets tight and then the eigenvector equation fixes r=ρ. The solution is positive; the bound ρ≤δ/2+pc/(2δ) from the displayed denominator gives ρ<1/2 for 5,6 and for n≥7 separately by the stated sine bounds. This leaves q>0. The attained first Fourier eigenvalue is M and is the largest nonzero-mode eigenvalue by the ordering in cosine. The quadratic positivity check gives M≥1−p; shifting the block at cosine −1 by (1−p)I gives a positive matrix in semidefinite order, its determinant being ρ(2−p−2ρ). The two radial eigenvalues are the roots of z²−(1−p−2ρ)z−p(1−ρ); evaluating at 1−ρ, 0 and −p−ρ locates both within [−M,M]. This verifies two-sided SLEM and only invariant uniqueness. Expanding δ=√2π/n+O(n^−3) gives the stated second-order optimum gap and pendant limit. With all three weights 1/n the radial roots are 1−2/n+O(n^−2) and O(n^−1), and all Fourier eigenvalues are uniformly positive for sufficiently large n since those blocks equal I+O(n^−1) uniformly in mode. Their largest occurs at k=1 and has gap (3−sqrt(5))/(2n)+O(n^−2), giving the stated ratio. Supplied symbolic and numerical checks and their recorded scope were inspected, not executed; the proof, not the 40 finite spectra, certifies the family.
 
-## Closest literature and limitations
-- S. Boyd, P. Diaconis and L. Xiao, *Fastest Mixing Markov Chain on a Graph*, SIAM Review 46 (2004): general convex formulation; no helm-specific formula identified in accessible source material.
-- S. Boyd, P. Diaconis, P. A. Parrilo and L. Xiao, *Fastest Mixing Markov Chain on Graphs with Symmetries*, arXiv:0709.0955v1: exact wheel formula, Fourier symmetry machinery; not a pendant-wheel theorem.
-- S. Jafarizadeh, *Fastest Mixing Reversible Markov Chain: Clique Lifted Graphs & Subgraphs*, DOI:10.1109/TSIPN.2020.2964211: different families and reductions, with no inspected helm instance.
-- No global uniqueness assertion for noninvariant optimizers; no result for helm sizes three or four; no certification of novelty against inaccessible or unindexed literature.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The strongest inspected SLEM precedents solve the wheel (no leaves) and the sunlet (no hub); the exact-helm match minimizes a different objective. The universal leaf-corona theorem also has a different structural hypothesis: the helm adds leaves to the rim only, and the wheel is not regular or vertex-transitive for the sizes in scope. The supported distinct contribution is the exact two-sided helm optimum and invariant edge weights under the hub and rim constraints together, not symmetry averaging or Fourier reduction.
+
+## value
+
+PASS
+
+Adding one hub and private leaves produces competing transition constraints on a standard graph family. The exact all-size SLEM resolves those constraints simultaneously, shows that zero holding at the hub and rim is forced for the invariant solution, and quantifies a roughly 31% asymptotic gain over maximum-degree weighting. An exact calibrated example of this three-orbit fastest-mixing problem is useful even without a general theorem for other graph families.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

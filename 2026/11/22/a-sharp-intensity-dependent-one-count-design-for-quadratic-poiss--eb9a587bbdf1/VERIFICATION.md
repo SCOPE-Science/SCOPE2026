@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-23.md",
+      "INDEPENDENT_AUDIT_2026-11-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-Run `python3 verification/verify.py` after installing the packages listed in `verification/requirements.txt`. Python 3, its standard library, and SymPy are the only dependencies. A captured successful execution is included at `verification/verification_output.txt`.
+## correctness
 
-The verifier independently derives the displayed conditional-expectation coefficients from exact finite binomial and Poisson moments and rechecks those formulas over 96 rational parameter-count combinations; it computes the target covariance by two-dimensional integration; compares the explained-variance and critical-polynomial identities; evaluates the asymptotic constants; probes roots and monotonicity for seven sample intensities; and compares analytic explained variance with an independently generated Poisson jump-time simulation. Its `133` counted assertions combine exact symbolic identities, rational examples, finite numerical root checks and two simulation checks. The simulation uses a fixed seed and 300,000 independently generated paths.
+PASS
 
-**Proof versus testing:** All-intensity optimality, strict uniqueness and strict intensity monotonicity follow from the exact sign and derivative argument in `RESULT.md`; the code's finite set of intensities does not by itself certify those universal statements. The asymptotic risk comparison is an exact polynomial coefficient computation. Independent mathematical verification and comprehensive historical-priority review remain to be performed.
+Independently expand N_t^2 into its mean, (1+2lambda t) times M_t=N_t-lambda t, and C_t=M_t^2-N_t. These degrees are orthogonal across times, with covariance kernels lambda min(s,t) and 2lambda^2 min(s,t)^2. Conditioning on N_x projects these degrees onto M_x and C_x with respective factors r and r^2, where r=min(t/x,1). Integration gives coefficients D=1-x/2+lambda(1-x^2/3) and A=1-2x/3, recovering the conditional estimator and explained variance lambda*x*D^2+2(lambda*x)^2*A^2. Integrating the two covariance kernels with the degree coefficients gives Var(Q)=lambda/3+7lambda^2/6+8lambda^3/15. Both endpoint count conventions agree with the limit of this expression for explained variance. Independent expansion gives the claimed quartic derivative factor and positive Bernstein coefficients for P1 on [0,2/3]; all terms have negative derivative on the root bracket and the signs exclude extrema beyond it. At a root, differentiating in lambda gives numerator lambda P2-P0/lambda>0, so the root increases. The simple roots of P0 at 2/3 and P2 at sqrt(3/5) give the stated endpoint expansions. The compact-domain leading coefficient of the risk is minimized at sqrt(3/5), giving 0.03759146501878 versus 0.04956561499771 and a 24.1581789704% leading-coefficient reduction. Replay independent symbolic computations with python /workspace/branches/independent-algebra.py (item 1); universal optimality follows from signs, not a root grid.
+
+## originality
+
+PASS
+
+Credit the classical linear one-site optimum, Poisson-bridge conditioning, and the ordinary conditional-mean projection principle. The distinct result is the exact known-rate quadratic-target optimum and its strictly moving, uniformly bracketed root with quantified risk comparison. The closest inspected results optimize other targets or use different information; none entails this classification.
+
+## value
+
+PASS
+
+An observation budget of one count is natural, and time-integrated squared occupancy penalizes concentrated load in a way the known linear functional does not. The exact optimum quantifies a systematic failure of the standard 2/3 rule for this target and gives a substantial leading-order risk improvement at high intensity. This is not a claim for unknown intensity, noisy or adaptive observations, or other powers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Scientific review — convex-order endemic prevalence
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The finite-type SIRS equilibrium has an exact scalar reduction: for \(x=\mathcal R_0\widehat I>0\), the susceptible equilibrium is \(s_j=p_jg_x(h_j)\) with \(g_x(h)=(1+\mu h)/[1+x+(\mu+(\mu+\gamma)x)h]\). The equation \(\sum_jp_jg_x(h_j)=1/\mathcal R_0\) has exactly one positive root whenever \(\mathcal R_0>1\); every such root reconstructs the original compartment balances. Direct differentiation yields strict convexity in \(h\) and strict monotonicity in \(x\), proving the convex-order comparison. The mean-preserving two-point parametrization has strictly positive dispersion derivative away from zero for all \(0<p<1\). An implicit-function expansion establishes the stated second-order coefficient. The included checker independently passed 5,109 symbolic, exact-rational and numeric assertions. Boundaries, positivity and the exclusion of the disease-free case are explicit.
+PASS
 
-## Originality: PASS
+At I>0, summing the infectious balances gives sum s_j=1/R0. With x=R0 I, the other balances give i_j=xs_j and r_j=gamma h_j xs_j/(1+mu h_j), so conservation gives s_j=p_j g_x(h_j). Conversely these fractions have sum i_j=x/R0 when E g_x(H)=1/R0, and the susceptible equation follows from mass balance plus the other two equations. The scalar left side is continuous and strictly decreasing from 1 to 0, ensuring exactly one positive root for R0>1. The kernel has g''_x(h)=2 gamma x [mu+(mu+gamma)x]/[1+x+(mu+(mu+gamma)x)h]^3>0 for x,h>0. Convex order at fixed x and then strict decrease in x put the two roots in the asserted order; Jensen is strict for a nondegenerate spread of a point mass. For the stated two-point family, the sigma derivative at fixed x is m sqrt(p(1-p)) times g'_x(h_2)-g'_x(h_1), which is positive for every allowed sigma>0 regardless of p. At zero, using E Z=0 and E Z^2=1, F_sigma=0 and F_sigmasigma=m^2 g''_x(m); F_x=-C_0/R0^2 at x_0. The implicit-function formula for I=x/R0, with the factor 1/2 from Taylor expansion, gives the positive displayed coefficient. The denominator identity at x_0 is (1+mu m)R0, and no split p remains in the quadratic term. Independent replay: python3 /workspace/review_replay.py 5 uses the positive root of the two-class quadratic (not the supplied bisection checker), reproduces the three example values, and checks the leading coefficient at five p values by 65-digit arithmetic. This is a finite diagnostic; the derivative and equilibrium arguments establish the full claim. No uploaded scripts executed. The conclusion concerns the intrinsic reciprocals of type-specific waning rates and the stated homogeneous-mixing equilibrium, not realized lifetimes under turnover, empirical predictions, stability or transient effects.
 
-The November 2023 preprint and April 2024 journal paper by El Khalifi and Britton are the closest sources: the final publication proves increasing endemic burden with waning heterogeneity only when the lower-immunity fraction is at least one half (Proposition 2), explicitly describing the complementary smaller-fraction case as suggested by numerics rather than proved. Its Appendix A.1.2 does not establish the general finite-type convex-order comparison. The authors' earlier gradual-waning comparison changes an individual's susceptibility trajectory rather than dispersing the type-specific mean duration in the sudden-loss model. Foutel-Rodier, Charpentier and Guérin compare booster-vaccination intervals for disease-free susceptibility and invasion, not endemic burden under reciprocal waning-rate heterogeneity. Searches of relevant published mathematical findings and alternative formulations found no statement known to imply the presented comparison. General convexity tools are not themselves claimed as new. Residual risk: an unlocated general epidemic or order-theoretic theorem might yield the same specialization; independent literature review may revise the priority assessment.
+## originality
 
-## Value: PASS
+PASS
 
-The result proves a specifically documented open parameter regime, \(0<\(p<1/2\)\), in a motivating epidemiological model. The finite-type convex-order theorem explains the underlying mechanism without a two-group restriction, and the positive population-split-independent quadratic coefficient quantifies the burden of small waning heterogeneity. These statements distinguish equilibrium endemic burden from the related but different vaccination-threshold comparisons and provide a reusable analytic principle.
+The accessible primary preprint proves the same two-type monotonicity (including positive derivative for positive variation) on p>=1/2 and only reports simulations for p<1/2. It supplies the equivalent two-type equilibrium expression, not the proof of the missing range, finite-type convex-order theorem or quantified split-independent onset. The latter are the distinct supported contributions. The exact journal text was not verified; this is not a historical priority ruling.
 
-## Limits
+## value
 
-The result assumes complete homogeneous population mixing, permanent type labels, exponential waiting for sudden immunity loss within each type, shared demographic/recovery parameters, and \(\mathcal R_0>1\). It is not a transient or global-stability result. Equilibrium impact under heterogeneity in waning **rates** rather than **reciprocal rates** is not established. Potential unpublished or poorly indexed general convex-order results remain a publication-priority risk. Independent audit has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The analysis resolves a precise missing regime in an existing two-type prevalence comparison and makes the mechanism explicit through a strictly convex equilibrium kernel. It replaces an ad hoc comparison of two splits with a distribution-level ordering in the homogeneous-mixing setting, and quantifies the near-homogeneity change with a coefficient independent of the split. It makes no claims for other mixing mechanisms or epidemic dynamics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

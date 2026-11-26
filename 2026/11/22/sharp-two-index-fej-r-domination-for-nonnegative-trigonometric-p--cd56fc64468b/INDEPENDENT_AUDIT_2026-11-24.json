@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:37:55.344570Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The frozen Step 4 has a false factorwise identity for nonreal roots: for q=2, alpha=-1+i sqrt(2) and w=i/2 even give the opposite sign on its left-hand side. The complete corrected RESULT.md at /workspace/repairs/4/RESULT.md pairs each factor w-alpha with 1-conjugate(alpha)*w, using the real monic A to justify the reindexing. The identity is then exact and strict in the open disk. Enestrom–Kakeya places every root of A outside the closed disk, and coefficient reciprocity rules out outside roots of P; q=0, including n=0, is immediate. Independently checked the unchanged bound: Fejer–Riesz and normalization give exactly the triangular Gram form; shifted indicator polynomials are independent, so it is positive definite. Its second-difference kernel reduces Bu to a constant since each supported step-m ladder is affine at interior indices, including the adjoining zero at the missing end when r>0; for r=0 the coinciding ladders give constant values on the single residue class. Ordinary symmetry and evaluation at index 0 give Bu=1, also for the empty interior case. Summing u, then applying the positive-definite Cauchy–Schwarz identity, gives the exact coefficient and full equality class, for complex factors and after shifting a prescribed point. The theorem, normalization, all boundary cases and equality claims are unchanged. The frozen rational script only checks the finite matrix identities and is recorded corroboration, not a proof of the root claim or the all-index theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The unit-circle Christoffel–Darboux formula makes (1-z)K_n(z,1) a multiple of a paraorthogonal polynomial; the unit-circle roots of the kernel follow, and the repair credits this implication. The Mentz excerpt concerns inversion for symmetric Toeplitz covariance matrices; the full method could not be inspected."
+        ],
+        "reasoning": "The classical root-location result is broader and already covers unimodularity on identifying the extremizer with the kernel. It does not compute this kernel's diagonal or polynomial coefficients. The available Mentz evidence does not resolve whether that paper gives the specific closed form or an equivalent evaluation.",
+        "searches": [
+          "Barry Simon, arXiv:0806.1528, Section 1 and Eq. (3.23)",
+          "Mentz, doi:10.1137/0131036 (publisher and JSTOR)",
+          "MacDonald arXiv:2611.05363v2, Theorem 3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verification_check.py; corrected RESULT.md",
+        "arXiv:2611.05363v2",
+        "arXiv:0806.1528",
+        "doi:10.1137/0131036 (limited access)",
+        "Resultary cd56fc64468b and 30b95b398e0e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "MacDonald gives coefficient 2 and rotated cosine-square equality at m=n, precisely the r=0, q=1 restriction. Simon's general formula accounts for the root property, not the displayed sharp interpolation constant."
+        ],
+        "reasoning": "The normalization-preserving diagonal restriction recovers MacDonald's theorem, not conversely; arbitrary m,n change the matrix and which residues support its inverse vector. The surviving original assertion explicitly computes that vector and its norm for the whole range.",
+        "searches": [
+          "MacDonald arXiv:2611.05363v2, Theorem 3 and proof",
+          "Resultary 30b95b398e0e, Finding and Relationship to prior work",
+          "Simon arXiv:0806.1528, Eq. (3.23)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact quotient is (1* B^(-1) 1), the diagonal of the reproducing kernel at 1 for normalized Fejer weight, or the reciprocal Christoffel function. B is also the covariance of length-m normalized overlapping moving sums of unit-variance white noise; the same inverse vector gives generalized least-squares weights before normalization."
+        ],
+        "reasoning": "These are mathematically equivalent formulations. A prior closed form for the covariance inverse against the constant vector would cover the central calculation. An abstract Gram or reproducing-kernel identity without this evaluation does not.",
+        "searches": [
+          "arXiv:2611.05363v2, Theorem 3",
+          "arXiv:0806.1528, Eq. (3.23)",
+          "doi:10.1137/0131036, Toeplitz covariance inversion",
+          "Resultary 30b95b398e0e"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The first is the assigned record itself. The distinct second Finding computes the matched-degree slack spectrum and parity-dependent stability constant; it credits MacDonald and does not state arbitrary unequal orders."
+        ],
+        "reasoning": "The second is distinct and establishes actual diagonal overlap regardless of its date, but its matched-degree spectrum does not tabulate or imply the arbitrary quotient–remainder inverse vector.",
+        "searches": [
+          "Resultary: SCOPE-sharp-two-index-fej-r-domination-for-nonnegative-trigonometric-p--cd56fc64468b",
+          "Resultary: SCOPE-exact-spectrum-and-sharp-coefficient-stability-for-the-fej-r-poi--30b95b398e0e"
+        ]
+      },
+      "rationale": "For the repaired claim, best current evidence supports the explicit closed-form kernel value and coefficient vector for independent m,n, not the diagonal, the abstract evaluation norm formula, or the general unit-circle zero property. The repaired text gives the latter its classical context. No checked distinct work establishes the explicit two-index computation; the full Mentz comparison remains an access risk.",
+      "residual_risks": [
+        "Mentz's full inverse method could contain or specialize to this particular calculation; the excerpt cannot exclude it.",
+        "An equivalent explicit formula might appear in moving-average estimation or orthogonal-polynomial tables not found in the bounded comparison.",
+        "No priority inference is made from the dates of the distinct matched and two-index catalogue records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact diagonal coverage, not the unequal-order result",
+          "evidence": "Theorem 3 gives the sharp factor 2 and only translated, scaled cosine-square equality.",
+          "identifier_or_url": "https://arxiv.org/abs/2611.05363v2",
+          "material_read": "PDF p. 3, Theorem 3 and surrounding formulation",
+          "method": "Bounded OA PDF comparison",
+          "title": "A convolution inequality and the Krzyż conjecture",
+          "trigger": "Exact matched-index theorem"
+        },
+        {
+          "assessment": "Covers the unit-circle root property via paraorthogonal polynomials, not this explicit kernel evaluation",
+          "evidence": "The boundary evaluation specialization at 1 yields a paraorthogonal numerator divided by 1-z; the known OPUC zero geometry applies to this infinite-support nonnegative weight.",
+          "identifier_or_url": "https://arxiv.org/abs/0806.1528",
+          "material_read": "Section 1 OPUC recursion and Section 3 Eq. (3.23), PDF p. 8",
+          "method": "Bounded OA PDF inspection and specialization",
+          "title": "The Christoffel–Darboux Kernel",
+          "trigger": "Orthogonal-polynomial formulation may already determine extremizer zeros"
+        },
+        {
+          "assessment": "Plausibly relevant; specific coverage unresolved",
+          "evidence": "Accessible excerpt describes methods for inverse components of symmetric Toeplitz covariance matrices, not a verifiable evaluation at the triangular matrix and constant vector.",
+          "identifier_or_url": "https://doi.org/10.1137/0131036",
+          "material_read": "Accessible abstract/excerpt only",
+          "method": "Publisher and identified JSTOR alternate sought; no lawful full text reached",
+          "title": "On the Inverse of Some Covariance Matrices of Toeplitz Type",
+          "trigger": "Potential overlap with the length-m moving-sum covariance inverse"
+        },
+        {
+          "assessment": "Stronger stability result for the diagonal only",
+          "evidence": "Its spectrum is for a kernel and a polynomial of the matched order, not the arbitrary Toeplitz pair.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-exact-spectrum-and-sharp-coefficient-stability-for-the-fej-r-poi--30b95b398e0e/RESULT.md",
+          "material_read": "Finding and Relationship to prior work",
+          "method": "Local Resultary mirror, statement comparison",
+          "title": "Exact spectrum and sharp coefficient stability for the Fejér pointwise inequality",
+          "trigger": "Strongest distinct matching Resultary hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Allowing smoothing order and signal bandwidth to vary independently is natural. The explicit sharp loss and sparse, unique equality factor answer the resulting extremal problem across all ratios. The result is useful as an exact kernel and covariance evaluation even without treating the already-classical zero property as a contribution.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

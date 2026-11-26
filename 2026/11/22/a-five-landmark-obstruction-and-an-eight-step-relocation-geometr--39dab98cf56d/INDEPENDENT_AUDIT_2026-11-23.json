@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T18:09:42.446816Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify_mk.py and verify_mk_independent.cpp (inspected, not executed)",
+        "Independent replay /workspace/branches/79460a8d-a7fe-4159-acc1-36732190dee6/independent_mk_check.py and its exact output independent_mk_check.json"
+      ],
+      "rationale": "The three listed edge forms give the 24 edges of the 16-vertex graph. The closed-neighborhood union of the two endpoints is exactly the coverage witness for an edge. A pair of distinct edges has different distance signatures precisely when the selected vertices meet its distinguishing set, so the 24 coverage tests and 276 distinction tests are jointly necessary and sufficient. The independent exact replay enumerated all 65,536 subsets, reproduced the separate minima and four-set counts (368 resolving, 128 dominating, none joint), every coefficient of the joint polynomial including the total 50,363, and all 512 feasible five-sets. For distinct states, a symmetric difference of size two is exactly a jump, and adjacency of its two vertices is exactly the slide condition. All-root BFS confirms connectivity and 1,320 slide edges with all 512 eccentricities eight; for jumps, 3,616 edges and 368 eccentricities five and 144 six. The automorphism orbit computation reproduced all eight representatives and sizes. This is exhaustive for the specified finite graph; no inference from testing smaller subsets of states is needed.",
+      "residual_risks": [
+        "Finite exhaustive certificate for GP(8,3) only. Both relocation graphs preserve exactly five landmarks; line-graph distances or vertex resolution would give different constraints."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ikhlaq et al. Proposition 12 bounds γemd between max(γve,βe) and γve+βe. Their family formulas address classical graphs and particular products. Filipović et al. give a general cubic lower bound of 3 for βe and exact formulas at inner steps 1 and 2. The indexed same-invariant formulas for complete prisms and Boolean cubes use different host graphs."
+        ],
+        "reasoning": "The general max/sum bounds leave the key question of whether a four-set satisfies both constraints open on this host. The complete prism is not GP(8,3), and the cube geometry likewise does not determine the 512 states or their moves.",
+        "searches": [
+          "Ikhlaq–Hayat–Siddiqui arXiv:2211.09327 §§3–5",
+          "Filipović–Kartelj–Kratica arXiv:1807.00580 §§2–3",
+          "Resultary: vertex-edge dominant edge metric dimension vertex edge domination edge resolving sets Moebius Kantor graph enumeration gamma_emd edge metric basis"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2211.09327, 2005.08038 and 1807.00580",
+        "Resultary complete-prism, Boolean-cube and same-host different-feasibility results"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior witness {u0,u1,u2,v3} does not vertex–edge dominate u4u5, since neither endpoint belongs to the union of its closed neighborhoods. Prior same-host vertex-metric and weak-total relocation graphs have different vertex sets and reported diameters."
+        ],
+        "reasoning": "A prior single non-dominating edge metric basis is not a proof that all 368 such bases fail coverage; the entire intersection needs to be ruled out. The reported jump and slide metrics require the joint state space and do not follow from ordinary metric basis graphs on the same host.",
+        "searches": [
+          "arXiv:2005.08038 Figure 1.1 and §6",
+          "arXiv:2211.09327 §5 Proposition 12",
+          "Resultary exact ordinary and weak-total landmark relocation on GP(8,3)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ikhlaq–Hayat–Siddiqui §§2–3 use exactly the vertex-to-edge minimum distance, distinguishability of edges and coverage at distance at most one. Resultary returned distinct same-host vertex-metric and weak-total resolving reconfiguration results."
+        ],
+        "reasoning": "The intersection of edge-distance resolving and vertex–edge dominating sets is the equivalent object. Vertex-metric bases, edge multiset resolution, ordinary vertex cover, identifying codes and zero forcing are not equivalent to those 300 witness constraints.",
+        "searches": [
+          "Resultary: Mobius Kantor graph GP(8,3) vertex edge dominant edge metric dimension resolving dominating bases token relocation exchange reconfiguration",
+          "Literature: Möbius Kantor GP(8,3) vertex edge dominant edge metric dimension Ikhlaq Hayat generalized Petersen enumeration bases reconfiguration"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Wang et al. §6 explicitly gives βe(P(8,3))=4; Figure 1.1 supplies a size-four resolving set {u0,u1,u2,v3}. Their Table 1.1 concerns ordinary resolving sets at n≥19. Filipović et al. Table 5 is for GP(n,2), not this graph. Indexed same-host reconfiguration results concern different feasible families."
+        ],
+        "reasoning": "The strongest exact prior value confirms one marginal, not the number 368, the intersection obstruction, the full labelled polynomial, or the orbit and relocation metrics. No matching joint table was identified.",
+        "searches": [
+          "Literature: Determining the edge metric dimension of the generalized Petersen graph P(n,3) Moebius Kantor arxiv authors full text pdf 353612559",
+          "Wang–Wang–Zhang arXiv:2005.08038 Figure 1.1, Table 1.1 and §6",
+          "Resultary GP(8,3) configuration searches above"
+        ]
+      },
+      "rationale": "The joint obstruction, joint labelled polynomial and configuration geometry are distinct on the evidence inspected. The separate edge metric dimension of this exact host was already known: Wang–Wang–Zhang explicitly give βe=4. Treat that scalar as a confirmed ingredient, not an original contribution; it does not imply the joint obstruction or census.",
+      "residual_risks": [
+        "Cite Wang–Wang–Zhang explicitly when presenting the separate βe=4; the frozen prior-work list omits this close marginal antecedent. A dedicated unindexed graph invariant or configuration database may overlap further; priority for the joint result is best-of-knowledge only."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same problem definition, not the stated exact instance or metrics",
+          "evidence": "Proposition 12 gives max/sum bounds. The exact family examples concern different graphs.",
+          "identifier_or_url": "https://ar5iv.labs.arxiv.org/html/2211.09327",
+          "material_read": "Abstract, definitions in §§2–3, types of product examples in §4 and general bounds in §5 including Proposition 12",
+          "method": "Open primary preprint full text",
+          "title": "Unique identification and domination of edges in a graph: The vertex-edge dominant edge metric dimension",
+          "trigger": "Origin of the exact joint parameter and potential general bounds"
+        },
+        {
+          "assessment": "Direct prior coverage of one marginal minimum, not the joint result",
+          "evidence": "Section 6 states edge dimension 4 for the Möbius–Kantor graph; Figure 1.1 shows an explicit basis. The general theorem is at n≥11 and does not include domination or relocation.",
+          "identifier_or_url": "https://arxiv.org/pdf/2005.08038",
+          "material_read": "arXiv v3 Introduction, Figure 1.1, Theorem 1.1, Table 1.1, relevant finite-check discussion and §6",
+          "method": "Open primary author preprint full text",
+          "title": "Determining the edge metric dimension of the generalized Petersen graph P(n, 3)",
+          "trigger": "Exact same host and separate edge resolution parameter"
+        },
+        {
+          "assessment": "Weaker marginal lower bound at k=3; exact table at k=2 only",
+          "evidence": "Corollary 4 gives βE≥3 for GP(n,k). Theorems 2 and 3 and the table give exact values or examples for k=1,2, not the joint k=3 census.",
+          "identifier_or_url": "https://ar5iv.labs.arxiv.org/html/1807.00580",
+          "material_read": "§1.3 definitions; §§2.1–2.3 and Table 5; conclusions",
+          "method": "Open primary preprint full text",
+          "title": "Edge metric dimension of some generalized Petersen graphs",
+          "trigger": "Potential exact general-family result or tabulation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Exact joint polynomial and separate minima",
+        "Complete all-root slide/jump and orbit checks",
+        "Ikhlaq et al. formulation of the joint parameter"
+      ],
+      "rationale": "On a canonical cubic symmetric graph, the two natural vertex-based requirements separately admit four-landmark solutions but no four-landmark solution meets both. The record identifies every achievable size and the orbit and shortest-reconfiguration structure of all optima. Uniform slide eccentricity despite unequal degrees, and the contrast to jumps, give information not available from the scalar minima or automorphism order alone.",
+      "residual_risks": [
+        "Exact classification of one motivated host, without a family-wide generalized Petersen formula."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:35:29.384058Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md, lines 5–34 and 38–67; VERIFICATION.md and verify.py inspected, not executed."
+      ],
+      "rationale": "Two unmatched vertices on one shore cannot be distinguished: each exclusive closed-neighborhood difference has size one. For distinct deleted-edge indices i,j, both same-shore comparisons impose the same alternative: select both a_i,b_j or both a_j,b_i. For t>=2 this allows at most one omission on either shore, and simultaneous omissions must have distinct indices; conversely each such omission pattern satisfies these comparisons. An unmatched a_* forces itself and every matched b_i by comparison with a_i, and likewise for an unmatched b_*. Across shores, an adjacent matched pair has exclusive sets B without b_i,b_j and A without a_i,a_j, respectively. At t=4 in the crown, two distinct omitted indices leave two other indices that witness failure, while a full shore suffices for the single-omission case. For t>=5 each allowed crown omission leaves at least two selected vertices in both exclusive sets. With just one unmatched vertex, all t opposite-shore vertices are forced, so for t>=4 their exclusive differences suffice; at t=3 an omission causes failure on the two other indices. With both unmatched vertices only the full set survives and adjacent matched comparisons require t>=3. For pairs involving an unmatched vertex on the opposite shore the exclusive set on that shore excludes just the compared vertex; for a missing edge the two closed neighborhoods are disjoint and two-domination suffices. The admissible candidates are two-dominating: each vertex has at least two selected vertices on the opposite shore after its possible deleted neighbor is excluded. The small excluded cases have a matched adjacent pair with both exclusive differences of size at most one, or an isolated vertex/low-degree edge (at t=1 the only remaining graph under a,b>=2 is a three-edge path). The stated labelled coefficients then count the listed omissions exactly.",
+      "reproduction": "Independent exhaustive test on 13 parameter triples with at most 12 vertices: for each subset S compute R_v=N[v] intersect S directly from the adjacency matrix of the labelled graph with edges (a_i,b_i), i<=t, deleted. Accept iff each |R_v|>=2 and max(|R_u minus R_v|,|R_v minus R_u|)>=2 for all pairs. Histogram by |S|. For t=4,5,6 crowns this gives 8z^7+z^8, 20z^8+10z^9+z^10, and 30z^10+12z^11+z^12. It also finds only the full set at (t,p,q)=(3,1,0),(3,1,1),(4,1,1), the full and all t prescribed omissions at (4,1,0),(5,1,0), and zero in the tested obstructions. The supplied verifier, distinct from this reproduction, is at the bound path verify.py; use Python 3.10+ for its int.bit_count().",
+      "residual_risks": [
+        "The independent computation checks bounded cases, not completeness at arbitrary sizes. The frozen verification's Python 3.9 compatibility note is too broad; it uses int.bit_count(), introduced in 3.10."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Jean and Seo give the general recognition criterion and display hypercube constructions for Q_n, 3<=n<=5; their text describes programmatic evidence of possible optimality, not a proof or a labelled census. The 2020 matching-deletion minimum-code paper's primary full text was unavailable."
+        ],
+        "reasoning": "A general recognition theorem specifies how to test a subset but does not count all passing subsets or give the omitted-index classification. Hypercubes Q_4 and Q_5 are not further crowns, and the retrieved hypercube discussion does not settle the all-parameter EDIC enumeration.",
+        "searches": [
+          "Focused primary-literature search for error-detecting codes on crown graphs and matching-deleted complete bipartite graphs",
+          "arXiv:2208.06052, §§2 and 4.1",
+          "DOI 10.1142/S1793830920500469"
+        ]
+      },
+      "checked_sources": [
+        "Assigned RESULT.md; Resultary 6aa7618bb55f, b4f1a8b0f5de, a20d4d1c9e45; Jean–Seo arXiv:2208.06052 and arXiv:2112.01685; 2020 matching-deletion paper access check."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Q_3 has four vertices per parity class, each adjacent to all opposite-parity vertices except its bitwise complement, so the displayed Q_3 EDIC is on the t=4 crown. The paper says the authors believe the displayed codes optimal. The ordinary crown enumerator records shore trace separation with a strictly weaker condition."
+        ],
+        "reasoning": "The cube construction is prior evidence of existence at that parameter, not prior coverage of exactly eight optimal labelled detector sets, the crown transition, the exceptional absence cases, or the one- and two-unmatched-shore enumerators. The frozen discussion should acknowledge the cube figure; not crediting the existence witness as new leaves the enumerative theorem intact.",
+        "searches": [
+          "arXiv:2208.06052 §4.1, PDF p. 7 and Fig. 7",
+          "Resultary 6aa7618bb55f, Finding and scope"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorem 2.1 is exactly the directed 2-difference plus 2-domination criterion. The ordinary crown enumerator of 2026/10/18 requires nonempty pairwise distinct received signatures, not asymmetric two-distinguishing. The fault-tolerant model of arXiv:2112.01685 uses 2-distinguishing in the symmetric difference."
+        ],
+        "reasoning": "False-negative detection requires one directed difference to have at least two selected vertices; splitting two selected differing vertices one in each direction does not suffice. Hence neither the ordinary nor the redundant enumerator is equivalent to the frozen one. The familiar graph alias Q_3 for the t=4 crown does produce a genuine but only local EDIC overlap.",
+        "searches": [
+          "Resultary: crown error-detecting identifying codes; error-detecting codes of matching-deleted complete bipartite graphs",
+          "Jean–Seo arXiv:2208.06052, Theorem 2.1 and §4.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 6aa7618bb55f bivariate crown enumerator gives ordinary minima of size t-1 for t>=5 and 56 size-four ordinary minima on the cube. The b4f1a8b0f5de record also treats ordinary codes. The a20d4d1c9e45 census uses the same detection rule on the Paley graph P_13, not these graphs."
+        ],
+        "reasoning": "These are the returned records with an exact graph or exact code model, not an exact match of both. For instance the cube's ordinary size-four optima cannot give the eight size-seven EDIC minima. A ranked miss is not proof that there is no exact record.",
+        "searches": [
+          "Resultary ranked searches for EDIC census of crowns and matching-deleted bicliques",
+          "Resultary 6aa7618bb55f, b4f1a8b0f5de and a20d4d1c9e45"
+        ]
+      },
+      "rationale": "The supported distinct claim is the complete labelled EDIC census for all matching-deleted bicliques, including the unmatched-shore classification and exact multiplicities. The detection criterion and a particular Q_3 witness were available before this record and are not credited as new. The closest indexed census on the same graph family counts ordinary, not error-detecting, codes.",
+      "residual_risks": [
+        "Targeted ranked searches are not exhaustive. The journal version of the EDIC paper and full 2020 matching-deletion paper were not inspected; exact overlap was evaluated from the accessible original preprint and indexed statements. The cube witness is an explicit partial overlap, not a claim of first existence there."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Criterion and prior same-graph construction; not an all-crown census",
+          "evidence": "The two-part criterion is identical. The text says Figure 7 shows a DET:IC set for each Q_n with 3<=n<=5 and reports belief in optimality based on programmatic analysis.",
+          "identifier_or_url": "https://arxiv.org/abs/2208.06052",
+          "material_read": "Theorem 2.1, PDF p. 2; §4.1, around PDF text offset 24697, and Fig. 7 caption",
+          "method": "Open full-text preprint passages",
+          "title": "Optimal Error-detection system for Identifying Codes",
+          "trigger": "Same EDIC criterion and cube case"
+        },
+        {
+          "assessment": "Ordinary codes, different enumerator",
+          "evidence": "Nonempty distinct signatures and ordinary minima (size four and 56 minima on the cube).",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-exact-bivariate-identifying-code-enumerator-for-crown-graphs--6aa7618bb55f",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Configured local mirror",
+          "title": "Exact bivariate identifying-code enumerator for crown graphs",
+          "trigger": "Exact same graph family when p=q=0 and same type of census"
+        },
+        {
+          "assessment": "Ordinary-code minimum result",
+          "evidence": "Counts/structures minimum ordinary, not directed-two-difference codes.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-minimum-identifying-codes-of-crown-graphs-are-balanced-one-hole--b4f1a8b0f5de",
+          "material_read": "Mirrored Finding and Assumptions",
+          "method": "Configured local mirror",
+          "title": "Minimum identifying codes of crown graphs are balanced one-hole codes",
+          "trigger": "Exact crown family and minimum codes"
+        },
+        {
+          "assessment": "Different graph",
+          "evidence": "Gives 364z^9+286z^10+78z^11+13z^12+z^13 for P_13.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-error-detecting-identifying-codes-of-the-thirteen-vertex-paley-g--a20d4d1c9e45",
+          "material_read": "Mirrored Finding",
+          "method": "Configured local mirror",
+          "title": "Error-detecting identifying codes of the thirteen-vertex Paley graph",
+          "trigger": "Exact labelled count under the same EDIC model"
+        },
+        {
+          "assessment": "Different detector-removal model",
+          "evidence": "Uses two selected elements of the symmetric difference, rather than two in one directed difference.",
+          "identifier_or_url": "https://arxiv.org/abs/2112.01685",
+          "material_read": "p. 2, Definitions 3–4 and Theorem 2; overview",
+          "method": "Open full-text passages",
+          "title": "Fault-tolerant Identifying Codes in Special Classes of Graphs",
+          "trigger": "Closely related boundary of one-error fault tolerance"
+        },
+        {
+          "assessment": "Residual scope risk; not used as evidence of absence",
+          "evidence": "The accessible indexed comparison identifies prior ordinary crown minima, not the false-negative census.",
+          "identifier_or_url": "https://doi.org/10.1142/S1793830920500469",
+          "material_read": "Bibliographic identification and characterization as ordinary codes by the indexed ordinary crown record; primary full text not read",
+          "method": "Lawful OA attempt returned 403; no repository copy found",
+          "title": "Minimum identifying codes in some graphs differing by matchings",
+          "trigger": "2020 primary matching-deletion study"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Assigned RESULT.md, Finding and omission classification; Jean–Seo Theorem 2.1; distinct ordinary crown census 6aa7618bb55f."
+      ],
+      "rationale": "For a natural dense bipartite test family and an established false-negative model, the theorem determines feasibility, minimum detector counts, and the entire distribution of labelled feasible sets. It describes how unmatched vertices force detectors and change the number of optimal deployments from quadratic to linear to a unique full set, with sharp low-order exceptions. This is useful structural information not supplied by an ordinary-code count or by one witness.",
+      "residual_risks": [
+        "Usefulness is for false-negative detection, not the stronger correction or the different detector-removal criteria."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,13 +1,21 @@
-## Correctness
-PASS. A two-case decomposition of independent dominating sets by the one or two selected complementary-layer vertices reduces the entire classification to independent domination of two paths. The path gap count is exact; within-fibre slides, explicit inter-fibre slide links, and uniqueness of cyclic gap fingerprints prove both sides of the modulo-three mobility transition for all \(n\ge5\). Two separately written generators agree on all minimum configurations and adjacency metrics for \(5\le n\le12\), with additional constructive checks through \(n=21\). Finite experiments are checks, not the infinite proof.
+# Independent mathematical audit
 
-## Originality
-PASS with documented priority risks. The author-uploaded full 2013 paper treats foundational bounds and several graph families rather than the complete minimum-set exchange graph of complementary cycle prisms. The 2015 identifying-code paper uses a different covering predicate. The reconfiguration-framework literature defines the token-slide operation without the specialized modular dichotomy. A directly relevant 2018 maximal-independent-set paper was identified but its full text was inaccessible; its potential coverage of the counting part is explicitly flagged. The claim retains the structural exchange dichotomy, which does not follow from scalar domination bounds or the title of that 2018 paper. No independent priority certification is asserted.
+## correctness
 
-## Value
-PASS. A natural infinite family exhibits a sharp arithmetic transition: every optimum is frozen under even arbitrary jumps in one residue class, while all optima can be traversed via edge-constrained local moves in the other two. The exact class description, counts and constructive transition explain why the feasibility and mobility questions differ. The result is substantive even if an earlier source eventually covers an auxiliary count.
+PASS
 
-## Limits
-Only the stated cycles, independent domination, and one-token state-preserving moves. The 2009 thesis and 2018 paper are material accessibility risks; equivalent unindexed reconfiguration results remain possible. No independent audit has occurred.
+At least one complementary vertex is necessary, and their indices form a clique in the original cycle, hence there are at most two. One b_j forces a_{j−1},a_{j+1} and leaves a path of length n−5 in vertices; two consecutive b's leave n−2 path vertices and no complementary domination constraint. The type-one set has 3+ceil((n−5)/3) vertices (the 2+ in the first expression of the frozen counting paragraph is a typo); type two has 2+ceil((n−2)/3), equal to the former and to floor(n/3)+2. For a nonempty path with s=ceil(m/3), the two endpoint slack bits and s−1 gap-shortening bits have total 3s−m; counting them, with the empty path separately, gives precisely the claimed counts. For path slides, shift the ordered positions by 2(i−1): successive differences are 0 or 1. Coordinatewise minimum preserves the constraints, and lowering the first coordinate in the last constant block that differs from the target preserves the constraints. In particular, a next block at height one larger cannot obstruct this move: it would also have to differ from the target by the target's own gap bound. The displayed inter-fibre moves are valid for both mobile residues, including n=6,7: the type-one forced end vertex is in I_j, and the first and last path gaps fit in both consecutive type-two fibres. For n=3k+2 each fibre is a singleton. The unique length-2 or length-5 cyclic gap of the original-layer selection identifies its same-type fibre (one original-layer vertex suffices at n=5 in type two). Adding a second b can only add b_{j±1} and remove its matched a, but the other forced a is not in the target type-two pattern. So no one-for-one exchanges exist there. More generally a vertex removed from an independent dominating set has no neighbor in the retained set, so the inserted vertex must be adjacent to it: jumping and sliding give the same graph here. A separate increasing-cardinality search with pairwise exchange tests regenerated and matched both frozen TSVs byte-for-byte for n=5..12 (python3 /workspace/branches/reproduce_reviews.py 2). The supplied structural code for n=13..21 was inspected, not executed; no numerical check substitutes for the unbounded proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The supported contribution is principally the complete minimum-set exchange transition on complementary cycle prisms, with explicit inter-fibre moves and a freezing proof. Do not claim the exchange definition or equivalence of jumps and slides, and do not assign priority to the count independently of the unavailable earlier maximal-independent-set paper.
+
+## value
+
+PASS
+
+A natural infinite family has opposite exchange behaviors at adjacent sizes: one connected graph of every optimum, or no valid single-token exchange at all. The proof explains the mod-three switch by path slack and explicit between-fibre moves, not by a finite census. The classification and state counts also make the transition usable for enumerating or navigating the optima.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

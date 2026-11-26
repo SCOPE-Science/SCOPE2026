@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:58:40.711988Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Writing n=aU+dt, all solutions give T=t+ja and L=U−jd, j≥0, where T is the weight of a partition into 1,2,3 and L its available length. At minimum length ceil(T/3), the deficit from all 3's is 0,1, or 2, giving at most two partitions. The listed witnesses show that one extra part gives three for T≥4, with second thresholds b(T). For t≥4 and for t=3 no higher j contributes early. At t=2 exactly two j=0 partitions are already present when the first j=1 partition arrives. At t=0,1 the second j=1 partition arrives no later than the first j=2 partition, so the displayed N_t are exact even for a=4 or d=1. On each residue monotonicity gives M_t as the cutoff; taking max(M_t)−a gives the stated branches, including competition between t=1 and t=2 for a≡1. Summing the residue lengths gives ΣN_t plus the coprime floor sum (a−1)(d−1)/2, and yields H_3 including n=0. Independently ran `python3 /workspace/reviews/evidence/reproduce.py 3`: direct enumeration of quadruples on 198 coprime parameter pairs, testing 44,287 integer positions. This corroborates rather than proves the infinite law. The frozen verifier was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Komatsu–Ying's explicit formulas have exactly three generators; their final comments identify longer progressions as a harder problem.",
+          "Komatsu–Hyun–Song treats consecutive-odd blocks with length varying with the parameter.",
+          "The frozen citation to Mohammed concerns the at-least-two boundary, not at least three.",
+          "Manjunath–Smith gives general structure and an algorithm; Beck–Kifer studies an extreme family."
+        ],
+        "reasoning": "No inspected broad method or progression theorem gives the uniform four-generator at-least-three law. A generic computing algorithm is not a closed arithmetic-progression formula.",
+        "searches": [
+          "arXiv:2206.13052v3 Thm. 1 and final comments",
+          "arXiv:2608.14053v1 Thm. 1.2 and Rem. 1.4",
+          "Mohammed Cardiff repository 98161, Chapter 6",
+          "arXiv:1703.10884 and arXiv:1005.2692"
+        ]
+      },
+      "checked_sources": [
+        "Resultary fa8a216d058e",
+        "Komatsu–Ying arXiv:2206.13052v3",
+        "Komatsu–Hyun–Song arXiv:2608.14053v1",
+        "Cardiff thesis repository 98161 (reachability and cited scope only)",
+        "arXiv:1703.10884 and arXiv:1005.2692 (abstracts)",
+        "Frozen RESULT.md, VERIFICATION.md and verify.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At d=2 all three Frobenius branches agree with fa8a216d058e on its domain, including the a≡1 specialization of max(a,d)=a.",
+          "With a≡1 and d>a the other residue wins; this behavior is absent from that fixed-step theorem. The present residue proof controls the transfer index j for arbitrary d."
+        ],
+        "reasoning": "A theorem restricted to d=2 cannot provide step-sensitive bounds or the switch at arbitrary d; adding a fourth generator similarly does not preserve three-generator representation thresholds. The genus is an explicit consequence of the new general residue law, not a separate unexplained priority claim.",
+        "searches": [
+          "Compare fa8a216d058e exact residue branches/maximum with frozen M_t and F_3",
+          "Komatsu–Ying Thm. 1 and final comments: longer progression scope"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The target F_3 and H_3 are g_2 and n_2 in the S_p={n:R(n)>p} notation, and the M_t form the p=2 Apéry set indexed by dt mod a.",
+          "Resultary fa8a216d058e has the same g_2 and all M_t on odd a≥9,d=2."
+        ],
+        "reasoning": "The indexing translation does not create novelty; equivalence is exact on the fixed-step subfamily, but that subfamily does not imply arbitrary d.",
+        "searches": [
+          "Resultary: four arithmetic-progression third Frobenius threshold",
+          "Resultary: p=2 Apéry cutoff and p-genus for four generators",
+          "arXiv:2206.13052v3 definitions p. 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary fa8a216d058e Finding proves all residue cutoffs for odd a≥9,d=2; its j≥3 branch a·max(3,ceil((j+3)/3))+2j equals the target branch, and its first three branches coincide after substituting d=2.",
+          "Komatsu–Hyun–Song's A^-_3={7,9,11,13} has g_2=37, matching the a=7,d=2 specialization."
+        ],
+        "reasoning": "These are actual covered cases, not merely same-title hits. Neither covers variable d and the d>a transition. A genus in an already known residue case is mechanically summable, whether printed there or not.",
+        "searches": [
+          "Resultary: four consecutive odd denominations three representations",
+          "arXiv:2608.14053v1 Rem. 1.4 exact odd-block exceptions"
+        ]
+      },
+      "rationale": "Supported for the full four-term, variable-step residue law and its uniform threshold and genus consequences, not for the Apéry definitions or the previously settled odd a≥9, d=2 subfamily. Neither the earlier fixed-step theorem nor the three-generator and lower-multiplicity theorems cover the varying progression step and competing maxima.",
+      "residual_risks": [
+        "The precise thesis chapter could not be inspected; credit or coverage beyond its reported lower-representation theorem remains uncertain.",
+        "The bounded search cannot rule out a uniform four-generator formula in an uninspected source or another indexing convention."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact at d=2, odd a≥9; narrower than frozen theorem",
+          "evidence": [
+            "Its Frobenius branches are a(q+2)+4, a(q+3)+2, a(q+3)+4, respectively."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-three-representation-thresholds-for-four-consecutive-odd-coin-de--fa8a216d058e/RESULT.md",
+          "material_read": "Finding and residue formulas",
+          "method": "Local Resultary mirror",
+          "title": "Three-representation thresholds for four consecutive odd coin denominations",
+          "trigger": "Exact matching all-residue and Frobenius statements on an earlier subfamily"
+        },
+        {
+          "assessment": "Same indexing but explicit theorem uses three generators",
+          "evidence": [
+            "Theorem 1 gives g_p and n_p for {a,a+d,a+2d} and 0≤p≤floor(a/2); final comments discuss the difficulty of four or more generators."
+          ],
+          "identifier_or_url": "arXiv:2206.13052v3",
+          "material_read": "Definitions p. 2, Theorem 1 p. 5 and final comments p. 22",
+          "method": "OA PDF passages and original equation layout",
+          "title": "The p-numerical semigroup of the triple of arithmetic progressions",
+          "trigger": "Generalized Frobenius, genus and Apéry formulas for an arithmetic progression"
+        },
+        {
+          "assessment": "Exact small case, not the four-generator variable-step theorem",
+          "evidence": [
+            "For A^-_3={7,9,11,13}, the remark gives g_2=37."
+          ],
+          "identifier_or_url": "arXiv:2608.14053v1",
+          "material_read": "p. 1 definitions, p. 2 Theorem 1.2 and p. 3 Remark 1.4",
+          "method": "OA PDF passages",
+          "title": "p-numerical semigroup of the sequence of consecutive odd integers",
+          "trigger": "Possible overlap for four consecutive odd generators"
+        },
+        {
+          "assessment": "Strongly relevant, but reported lower threshold only; material primary comparison unavailable",
+          "evidence": [
+            "The frozen record attributes an at-least-two threshold for 1≤d<a, not the third threshold. This transcription could not be independently checked against the thesis."
+          ],
+          "identifier_or_url": "https://orca.cardiff.ac.uk/id/eprint/98161/",
+          "material_read": "Frozen citation to Chapter 6 and parallel catalog citation only; official thesis PDF inaccessible",
+          "method": "Identified official OA PDF; both lawful routes returned 403; webpage retrieval did not provide theorem text",
+          "title": "Generalised Frobenius numbers: geometry of upper bounds, Frobenius graphs and exact formulas for arithmetic sequences",
+          "trigger": "Highly relevant thesis on generalized thresholds for four-term progressions"
+        },
+        {
+          "assessment": "General algorithm and a constructed extreme family respectively; no full-text exclusion inferred",
+          "evidence": [
+            "These passages describe their respective objects, without the variable-step four-term p=2 theorem."
+          ],
+          "identifier_or_url": "arXiv:1703.10884; arXiv:1005.2692",
+          "material_read": "Both first-page abstracts",
+          "method": "OA primary PDF passages",
+          "title": "Commutative Algebra of Generalised Frobenius Numbers; An Extreme Family of Generalized Frobenius Numbers",
+          "trigger": "Broad formulas or generic coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a standard family of denumerants, the uniform result gives all low-representation exceptional integers, not just an extremal number, and explains the change of maximizing residue as the progression step increases. The variable-step extension is more than substituting a parameter in the known odd-denomination theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

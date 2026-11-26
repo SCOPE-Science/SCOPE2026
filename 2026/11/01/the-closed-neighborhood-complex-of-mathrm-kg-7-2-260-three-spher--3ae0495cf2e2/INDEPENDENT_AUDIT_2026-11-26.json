@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:38:47.982908Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–58; VERIFICATION.md, lines 18–22; verify.py, especially lines 36–109 and 139–242",
+        "Independent replay: python3 /workspace/branches/004dc69a-85db-461a-bb03-71a601fb5852/cleanroom.py"
+      ],
+      "rationale": "The ground vertices are the 21 unordered pairs, and a facet contains its center pair as well as the ten pairs disjoint from it. Independent enumeration agreed with the containment predicate on all 2,097,151 nonempty masks, producing 37,527 faces. The independent replay found 18,633 disjoint matches and sorted the entire directed Hasse graph (218,673 arrows), leaving one critical vertex and 260 critical 3-cells. The resulting CW model is a wedge of 260 three-spheres, regardless of the auxiliary mod-two check. For a permutation g the trace on H3 is 1-L(g). A nonempty invariant face consisting of r vertex cycles contributes (-1)^(r+1) to L, so it contributes (-1)^r to 1-L, where the empty face supplies +1. This clarifies the convention in the orbit-sum paragraph. The two independent trace formulas agree in all 15 classes. Exact irreducible character inner products reproduce all nine listed Specht types, with multiplicity two precisely for (4,2,1) and (3,2,1,1); their dimensions sum to 260. Rational Specht modules realize the absolutely irreducible characters, so this determines the rational module. The computation does not infer an equivariant CW model or integral Specht splitting.",
+      "residual_risks": [
+        "Use Python 3.10 or later for the frozen verifier's int.bit_count calls; 3.9 does not suffice as written. No frozen code was executed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1.2 gives ΣN[overline G] ≃ I(K2 × G), without the required calculation for G = J(7,2).",
+          "Nilakantan–Singh treats the open Kneser family and gives k²+5k+5 copies of S^k, hence 29 at k=3."
+        ],
+        "reasoning": "The broader open theorem covers the parameter but not the closed object; the closed theorem is a comparison of constructions and does not supply the rank or the character.",
+        "searches": [
+          "arXiv:2511.12608v2, Theorem 1.2 and examples",
+          "arXiv:1802.05848, Theorem 1.3"
+        ]
+      },
+      "checked_sources": [
+        "Resultary: 0c5e2cf0a30f, a413c6a778e4, 3aaf985f3450",
+        "arXiv:2511.12608v2; arXiv:1802.05848"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The open-face construction forbids a simplex's center as a member of that center's neighborhood; the closed construction allows it. The open theorem and character compute different chain groups.",
+          "The six-element exact calculation supplies neither a recurrence nor an S7 character; the suspension theorem has no product-complex calculation for the required triangular factor."
+        ],
+        "reasoning": "Even coincident sphere dimensions on the two seven-point constructions do not imply equal homotopy ranks or representations. None of these results gives the closed-complex wedge rank 260 or the two repeated constituents.",
+        "searches": [
+          "arXiv:2511.12608v2, Theorem 1.2",
+          "arXiv:1802.05848, Theorem 1.3",
+          "a413c6a778e4 and 0c5e2cf0a30f, RESULT.md findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For a simple unit-edge graph a closed unit ball is the closed neighborhood; symmetry of this relation identifies the nerve on the centers with the same facet-containment complex.",
+          "Matsushita identifies its suspension using a complementary-graph categorical-product independence complex. T7 is the complement of KG(7,2), but taking the open neighborhood complex of T7 gives a different construction, with reported mixed homotopy dimensions."
+        ],
+        "reasoning": "A closed radius-one graph Čech formulation should count as the same object. Taking the open neighborhood complex, taking the complementary adjacency, or passing only to a suspension theorem is not an exact covered computation.",
+        "searches": [
+          "Resultary: 29-sphere open Kneser neighborhood character, 0c5e2cf0a30f",
+          "Resultary: triangular graph on seven points, 3aaf985f3450",
+          "arXiv:2511.12608v2, Definition 1.1 and Theorem 1.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "0c5e2cf0a30f explicitly uses the open KG(7,2) complex and lists two constituents of total dimension 29.",
+          "a413c6a778e4 explicitly uses six ground elements and proves 64 two-spheres with a multiplicity-free S6 module.",
+          "3aaf985f3450 concerns the open neighborhoods of intersecting pairs, giving 246 three-spheres and seven four-spheres."
+        ],
+        "reasoning": "The closest distinct catalogue results were checked against their definitions and findings; their differences are mathematical, not just differences of title or date.",
+        "searches": [
+          "Resultary: open S7 Kneser character, 0c5e2cf0a30f",
+          "Resultary: closed scale-two KG(6,2), a413c6a778e4",
+          "Resultary: triangular graph on seven points, 3aaf985f3450"
+        ]
+      },
+      "rationale": "The strongest statement-level matches are the open-neighborhood S7 calculation on the same graph and the closed-neighborhood S6 calculation on the preceding graph. Neither is an equivalent formulation or a covering theorem for the closed 7-point complex. No distinct exact covering result was established in the inspected material.",
+      "residual_risks": [
+        "An equivalent unindexed computation or a specialization not identified in the inspected literature may exist. The focused literature search did not surface an additional targeted source; this is not evidence of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defines the object and gives a suspension reformulation, but no quantitative implication for the claimed case in the inspected passages",
+          "evidence": [
+            "Simplex containment in N_G[v]; ΣN[overline G] ≃ I(K2 × G); examples concern Borsuk graphs and Cartesian products of complete graphs."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2511.12608v2",
+          "material_read": "Definition 1.1 (offset 2416); Theorem 1.2 and nearby examples (offset 7250)",
+          "method": "Open-access full text, targeted passages",
+          "title": "Closed neighborhood complexes of graphs",
+          "trigger": "General theorem for the exact neighborhood convention and potential reduction"
+        },
+        {
+          "assessment": "Different, open complex",
+          "evidence": [
+            "Rank k²+5k+5 in dimension k gives rank 29 at k=3."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1802.05848",
+          "material_read": "Theorem 1.3, PDF page 2 (offset 4246)",
+          "method": "Open-access primary PDF text",
+          "title": "Homotopy type of neighborhood complexes of Kneser graphs, KG_{2,k}",
+          "trigger": "Family theorem covers the same Kneser graph parameters"
+        },
+        {
+          "assessment": "Different, open complex",
+          "evidence": [
+            "Ordinary Lovász neighborhoods, two constituents (2,2,1,1,1) and (3,1,1,1,1), and rank 29."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-the-full-s-7-character-of-the-29-sphere-kneser-neighborhood-comp--0c5e2cf0a30f",
+          "material_read": "RESULT.md, finding and definition, offset 0",
+          "method": "Indexed record located and exact text read through local mirror",
+          "title": "The full S7 character of the 29-sphere Kneser neighborhood complex",
+          "trigger": "Same graph, sphere dimension and symmetry group"
+        },
+        {
+          "assessment": "Different graph parameter",
+          "evidence": [
+            "Ground set of size six, 64 two-spheres and multiplicity-free rational S6 homology."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-the-scale-two-ech-complex-of-kg-6-2-64-spheres-and-a-multiplicit--a413c6a778e4",
+          "material_read": "RESULT.md, finding and assumptions, offset 0",
+          "method": "Local mirror",
+          "title": "The scale-two Čech complex of KG(6,2)",
+          "trigger": "Same construction at the preceding ground-set size"
+        },
+        {
+          "assessment": "Different adjacency and open neighborhood convention",
+          "evidence": [
+            "Intersection adjacency and wedge of 246 three-spheres and seven four-spheres."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-the-triangular-graph-on-seven-points-has-a-mixed-dimensional-int--3aaf985f3450",
+          "material_read": "RESULT.md, finding and definition, offset 0",
+          "method": "Local mirror",
+          "title": "The triangular graph on seven points has a mixed-dimensional integral neighborhood homotopy type",
+          "trigger": "Same pair vertices and complementary adjacency"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–25 and 38–55; open seven-point and closed six-point comparisons in originality"
+      ],
+      "rationale": "This is a complete homotopy and symmetry calculation for a canonical distance-based complex on the next pair-Kneser graph after the known six-point case. The substantial difference from the open calculation and the appearance of two genuine repeated Specht types explain why the exact closed invariant matters. It gives a useful benchmark for a general formula or a persistence computation, without claiming either.",
+      "residual_risks": [
+        "One graph and one radius; no claim about the persistence maps or the rest of the Kneser family."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

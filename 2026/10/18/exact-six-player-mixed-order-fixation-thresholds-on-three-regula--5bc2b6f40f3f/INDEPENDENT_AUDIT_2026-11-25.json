@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:56:38.458051Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–69; VERIFICATION.md line 19; inspected verify.py and COEFFICIENTS.json",
+        "Independent replay: python3 /workspace/branches/independent_frozen_math.py 2; output /workspace/branches/independent_frozen_math.out"
+      ],
+      "rationale": "The ten unordered triple partitions split into disjoint dihedral orbits of sizes 3, 6 and 1, distinguished by the 4, 2 and 0 internal cycle edges. The specified incident-group sampling gives symmetric model weights: 1/3 for cycle adjacency plus 1/6 for triple co-membership. The connected cycle allows consensus from every state with positive probability at any finite intensity. The neutral cooperator fraction is a bounded martingale, hence gives the neutral fixation probability. Differentiating the backward equation contributes the product of the payoff difference and the one-update neutral fixation change, with the logistic derivative 1/4 and an additional focal probability 1/6. Independently assembled and solved all 62 transient-state equations in the primal form for all five payoff monomials, without lumping; exact residuals, all coefficient fractions, all thresholds, and the signed slopes in the finding match. As a separate check, pure cost produces a constant up/down ratio exp(-3cw) and singleton derivative -5c/4. Analytic invertibility near neutrality gives the asserted strict signs for sufficiently small positive selection; no sign is known from this calculation on the threshold itself.",
+      "residual_risks": [
+        "The derivative fractions at the illustrative parameters use c=1; at fixed b/c the signs are the same for any c>0. No extrapolation to all intensities or other update rules is justified."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sheng et al. use uniform-order hyperedges, fitness-proportional death–birth and a large-population closure; McAvoy–Allen provide a general first-order method for frequency-dependent selection."
+        ],
+        "reasoning": "The large-population results are not exact for the stated update. The general perturbation method provides solvability, but leaves the alignment-specific rational systems and sign inequalities to be worked out; it is not itself a theorem giving the sign split.",
+        "searches": [
+          "Sheng et al. arXiv:2605.23444, §2.2 and §3.1",
+          "McAvoy–Allen arXiv:1908.03827, weak-selection expansion via linear systems, p. 2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2604.07228v1, arXiv:2605.23444, arXiv:1908.03827",
+        "Resultary records 7053e63dac2d, def1421cd289 and 732562b788a4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The primary structured experiment reports N=2400 quasistationary branches; the closest mixed-order fixation record explicitly disclaims identity with the original finite-hypergraph process. Neither computes the finite C6 sign split."
+        ],
+        "reasoning": "The frozen claim needs the exact graph-specific perturbation solutions; applying a general recipe or reading large-N means and thresholds does not determine the result under this sampling rule. The prior work is credited for the common ingredients.",
+        "searches": [
+          "Llabrés et al. §§III–IV and Fig. 5",
+          "Resultary 7053e63dac2d, Finding, assumptions and relationship section",
+          "McAvoy–Allen first-order system"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Llabrés et al. specify the same accumulation and focal–hyperedge–model logistic rule, but report stationary mean-field and structured-population outcomes, not the exact absorption calculation. The earlier Resultary mixed-order Fermi comparison uses a birth–death closure and explicitly distinguishes it from the original finite hypergraph."
+        ],
+        "reasoning": "The model is equivalent to the earlier model on the frozen specialization; the exact six-site absorption output is not an equivalent rendering of a stationary branch or the closure threshold. For interlaced triples and general state configurations, cooperator count alone does not determine the payoff-dependent displacements.",
+        "searches": [
+          "Llabrés et al. arXiv:2604.07228v1, Eqs. (1)–(3), §§III–IV",
+          "Resultary mixed-order stochastic fixation threshold and mixed-contact selection reversal records"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected entries 7053e63dac2d, def1421cd289 and 732562b788a4 give respectively a one-dimensional closure, a full-hyperedge-copying five-site example, and an imitation-probability equivalence criterion. None gives the three C6 coefficients or thresholds."
+        ],
+        "reasoning": "The same general themes are indexed, but differences in population graph, update or observable prevent exact coverage. No exact table match was located in the bounded searches.",
+        "searches": [
+          "Resultary: exact C6 mixed pair/triple nonlinear public-goods Fermi fixation and three-alignment coefficient comparison",
+          "Resultary: mixed-order stochastic fixation threshold; five-vertex mixed-contact selection reversal; incidence-kernel Fermi games"
+        ]
+      },
+      "rationale": "The nonlinear mixed-game payoff, Fermi update, and general first-order linear-system method have prior coverage. Pass only the exact six-site alignment census and its opposite-sign fixation comparison. The closest inspected mixed-order fixation result explicitly uses a different closure and supplies no identity with the finite hypergraph chain.",
+      "residual_risks": [
+        "The precision of the result is specific to the stated dynamics; bounded searches and inspected passages do not establish universal priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers payoff and update, not the inspected frozen comparison",
+          "evidence": "Same geometric group benefit and logistic imitation; structured N=2400 experiment reports quasistationary branches, not ultimate fixation derivatives for C6.",
+          "identifier_or_url": "https://arxiv.org/pdf/2604.07228v1",
+          "material_read": "Eq. (1), p. 2; Eqs. (2)–(3), p. 3; §§III–IV, pp. 3–7, including Fig. 5 caption",
+          "method": "Open-access primary PDF passages",
+          "title": "Emergence of cooperation in nonlinear higher-order public goods games",
+          "trigger": "Same nonlinear game, mixed group orders and Fermi update"
+        },
+        {
+          "assessment": "Different update, uniform order and large-population approximation",
+          "evidence": "Diffusion and hyperedge closure for sufficiently large N; pair and triple thresholds analyzed separately.",
+          "identifier_or_url": "https://arxiv.org/pdf/2605.23444",
+          "material_read": "§2.2 p. 5; §3.1 pp. 6–7",
+          "method": "Open-access primary PDF passages",
+          "title": "Hyperedge approximation for stochastic processes on higher-order networks",
+          "trigger": "Nonlinear public-goods fixation thresholds on hypergraphs"
+        },
+        {
+          "assessment": "Covers the general solution method, not the exact alignment effect",
+          "evidence": "Allows arbitrary spatial structure and frequency-dependent selection via a linear system.",
+          "identifier_or_url": "https://arxiv.org/pdf/1908.03827",
+          "material_read": "p. 2, first-order expansion and linear systems",
+          "method": "Open-access primary PDF passage",
+          "title": "Fixation probabilities in evolutionary dynamics under weak selection",
+          "trigger": "General first-order fixation formula"
+        },
+        {
+          "assessment": "Genuine prior overlap in model family and observable, not equivalent to the frozen graph process",
+          "evidence": "Derives a logarithmic crossover in an explicit Fermi birth–death closure and disclaims identity with the original finite hypergraph process.",
+          "identifier_or_url": "2026/10/13/SCOPE-a-logarithmically-shifted-stochastic-fixation-threshold-in-a-non--7053e63dac2d",
+          "material_read": "RESULT.md Finding and assumptions at offset 0, relationship around offset 6000",
+          "method": "Published-record local mirror",
+          "title": "A logarithmically shifted stochastic fixation threshold in a nonlinear public-goods model",
+          "trigger": "Closest published mixed-order Fermi fixation analogue"
+        },
+        {
+          "assessment": "Related example with distinct chain and comparison",
+          "evidence": "Five vertices, full-hyperedge copying and fitness selection, with comparison against Moran fixation, not the crossed nonlinear ring alignment.",
+          "identifier_or_url": "2026/11/8/SCOPE-a-five-vertex-mixed-contact-population-reverses-its-fitness-sele--def1421cd289",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Published-record local mirror",
+          "title": "A five-vertex mixed-contact population reverses its fitness-selection bias",
+          "trigger": "Exact topology-related sign comparison on a small mixed-contact population"
+        },
+        {
+          "assessment": "Different classification question",
+          "evidence": "Identifies when ordinary and reversed games have identical imitation probabilities; does not classify six-ring fixation responses.",
+          "identifier_or_url": "2026/10/26/SCOPE-incidence-kernel-classification-of-heterogeneous-reverse-public--732562b788a4",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Published-record local mirror",
+          "title": "Incidence-kernel classification of heterogeneous reverse public-goods games",
+          "trigger": "Same Fermi hypergraph framing and regularity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–37, 49–69",
+        "Independent 62-state exact reproduction and crossover substitution"
+      ],
+      "rationale": "The first nontrivial placement comparison for two disjoint triples on a cycle gives a controlled stochastic example: the pair graph, pair and triple participation counts, seeding and game parameters are fixed, yet alignment changes the sign relative to neutrality. That strict comparison is usable even without the large fractions, and the exact thresholds make the finite example reproducible, not a simulation artifact or an arbitrary isolated coefficient.",
+      "residual_risks": [
+        "No claim of a universal alignment ordering, persistence at stronger selection, or implications for mean-field equilibria."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

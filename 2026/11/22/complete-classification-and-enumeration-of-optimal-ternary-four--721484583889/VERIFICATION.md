@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,17 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification scope
 
-The proof in RESULT.md is the complete all-length argument. Its critical implications are an at-most-twelve one-heavy count, the monochromatic-incidence inequality \(22-T\le12\), forced deletion labels when \(T=10\), and the full mixed-pair incidence test. These arguments hold for every integer \(n\ge4\); direct checking of finitely many parameters is corroboration only.
+# Independent mathematical audit
 
-Run these two standard-library programs from the package root:
+## correctness
 
-```
-python checks/brute.py
-python checks/structural.py
-```
+PASS
 
-`checks/brute.py` independently enumerates all size-eleven subsets of the entire ternary simplex at lengths four and five. It obtains twelve and twenty-four valid codebooks after testing 1,365 and 352,716 subsets. `checks/structural.py` directly evaluates every eleven-message candidate consistent with the proven monochromatic-incidence inequality, including all one-heavy-only and one-two-heavy configurations, for each integer length from 4 to 40. It checks the six outputs, the exact total \(12n-36\), and the two families' cardinalities. Stored stdout from the actual successful runs is in checks/brute.out and checks/structural.out.
+The three monochromatic output loads sum to at most 12, and every length-n word for n≥4 contributes at least once. Size 12 would require exactly the twelve one-heavy vectors U, which overload every mixed pair. In a size-11 code at least ten vectors must be one-heavy. With eleven, the omitted vector must hit all three mixed pairs, so is a B_i. With ten, the remaining word has two heavy labels i,j and monochromatic saturation forces exactly one omission at each. Both omissions must hit ij; they therefore lie in {A_i^j,B_i}×{A_j^i,B_j}. When the third coordinate is zero, one omitted B suffices to repair both remaining mixed loads and is necessary. When it is one, both B's must be removed. Every such choice meets all six loads. These families are disjoint and the added word and missing members are determined by the codebook, so the labeled count is 3+3[3(n−3)+(n−4)]=12n−36, with zero interior choices at n=4. Separately, /workspace/reproduction/check_5.py uses exact load-vector dynamic programming over the full simplex, making no one-heavy restriction; it confirms capacity 11 and counts 12 through 108 in increments of 12 for n=4–12 (check_5.out). The all-length proof is by incidences, not extrapolation.
 
-No formal proof-assistant certificate or independent external mathematical review has been performed. A code execution timeout would not constitute a mathematical impossibility proof. This package contains all verification scripts and recorded outputs it references.
+## originality
+
+PASS
+
+The capacity eleven is prior background, explicitly not claimed as new. The supported distinct claim is the full two-family characterization and labeled optimizer count at L=4 for every n≥4. Available primary passages and the strongest catalogue comparisons do not establish this equality census. The earlier capacity source cited indirectly remains unidentified.
+
+## value
+
+PASS
+
+At the natural small list allowance just below the higher-list regime, the exact equality structures show why an extremizer need not have the large-list one-heavy saturation pattern. The distinction between deleting one one-heavy vector and adding a two-heavy vector after two forced omissions determines all optimal codebooks, their finite-length boundary and their exact multiplicity. This is useful structural information beyond an already known capacity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

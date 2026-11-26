@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:44:45.572685Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Disjoint initial and final symbol supports follow from the length-one condition. Every nonempty code is in an ordered split A versus its complement, as required; multiple representations do not alter the set union. Unequal word endpoints rule out self-borders of lengths one and three, and remove exactly |A||B| period-two words from the raw 16|A||B| candidates. Pairwise compatibility then encodes all remaining overlaps and the distance condition. The maximal-clique equivalence is within a fixed split, which suffices for maxima. Independent replay /workspace/branches/review_replay_5.py used a different exact search: choose at most one word per three-position prefix group (by distance), branch also on skipping the group, and discard a branch only if chosen size plus the surviving group count is strictly below the incumbent. The three splits up to symbol permutations gave (eligible, optimum, ties)=(45,9,72),(60,12,4),(45,9,72). Applying all symbol permutations and deduplicating produced 24 sets and verified the two displayed representatives have disjoint 12-element orbits exhausting them. This is exhaustive for the specified finite domain, not for other alphabet sizes, lengths, or additional constraints.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Levy–Yaakobi bound A_MU(n,q,d_h,d_m) by M(n,q,min(d_h,2d_m))/floor(n/d_m), which evaluates to 64/4=16 here. Blackburn's n|q exact theorem gives 27 without the Hamming separation. Wang–Fang–Feng was accessible at abstract/landing level only."
+        ],
+        "reasoning": "Neither established bound gives 12. An exact unconstrained maximum does not certify the constrained optimum. No negative full-text inference is drawn for the inaccessible paper.",
+        "searches": [
+          "arXiv:1804.05371v1 §6 Theorem 6.1",
+          "Blackburn arXiv:1303.1026 Theorem 4",
+          "DOI:10.1016/j.disc.2024.114236"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and both verify scripts",
+        "Levy–Yaakobi §6",
+        "Blackburn Theorem 4",
+        "Stanovnik–Moškon–Mraz Table 1",
+        "Chee–Kiah–Purkayastha–Wang Theorem 1.1 and Table I",
+        "Wang–Fang–Feng abstract only",
+        "Resultary d72ce427d800, 69d775364b8f and 4848b308e1f3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The ternary length-five record has coincidentally 24 maximizing sets and two size-12 orbits, but uses word reversal in addition to symbol relabeling. The adjacent quaternary length-five record has optimum 32. The quaternary length-four record with an added closure constraint has optimum 9 in that smaller class."
+        ],
+        "reasoning": "Neither changing an alphabet and length nor adding closure preserves these feasible sets. The identical counts in the ternary case do not transfer the optimum or symbol-only stabilizers; the 9 in a proper subfamily gives no upper bound on the unrestricted problem. No chronology is inferred from the same-day entry.",
+        "searches": [
+          "Resultary d72ce427d800, 69d775364b8f and 4848b308e1f3, original Findings and Assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Levy–Yaakobi require Hamming separation d_h for full words and distance at least min(i,d_m) between proper prefixes and suffixes of length i, including self-comparisons. At d_h=2 and d_m=1 this is the same problem."
+        ],
+        "reasoning": "The distance-one overlap condition is exactly inequality, not a stronger ‘near overlap’ condition. The standard cross-bifix-free formulation by itself lacks the full-word distance constraint.",
+        "searches": [
+          "arXiv:1804.05371v1 §6 Definition 6.1",
+          "Resultary: quaternary length-four non-overlap with Hamming distance two"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matching n=q=4 table entries S=27 and N=8 are defined for all non-overlapping codes, not the Hamming-distance-two subproblem; the other cited table compares unrestricted constructions."
+        ],
+        "reasoning": "A distance-constrained optimum need not be contained in an unrestricted *maximum* code, so neither exact size nor enumerated unconstrained equality cases solve the restricted classification.",
+        "searches": [
+          "Stanovnik–Moškon–Mraz DOI:10.1007/s10623-023-01344-z Table 1, p. 22",
+          "Chee–Kiah–Purkayastha–Wang arXiv:1209.0236 Table I",
+          "Resultary nearby quaternary and ternary exact-code records"
+        ]
+      },
+      "rationale": "The inspected exact code tables count ordinary non-overlapping codebooks, and the inspected theorem for the combined distance and overlap invariant stops at 16. Related indexed finite enumerations either change parameters or impose added symmetry; none supplies the exact unrestricted 12 and its two symbol orbits by known substitution or reduction.",
+      "residual_risks": [
+        "Wang–Fang–Feng full text was not lawfully retrieved; a directly applicable exact result there remains possible.",
+        "An unindexed exact combined-constraint enumeration may exist; the known unrestricted exact table is not such an enumeration."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identical invariant, upper bound 16 but not the exact 12 or its maximizing subsets",
+          "evidence": "The theorem uses d=min(d_h,2d_m) and denominator floor(n/d_m); subsequent constructions there are presented for the binary case.",
+          "identifier_or_url": "https://arxiv.org/html/1804.05371v1",
+          "material_read": "§6 Definition 6.1 and Theorem 6.1 with surrounding construction scope",
+          "method": "OA full text; evaluated stated bound in the target parameters",
+          "title": "Mutually Uncorrelated Codes for DNA Storage",
+          "trigger": "Exact combined Hamming/overlap invariant"
+        },
+        {
+          "assessment": "Different feasible set",
+          "evidence": "For n|q the sharp unrestricted size is q^n(1−1/n)^{n−1}/n; here 27, with no Hamming restriction.",
+          "identifier_or_url": "https://arxiv.org/pdf/1303.1026",
+          "material_read": "Theorem 4, p. 8",
+          "method": "OA full-text passage and parameter substitution",
+          "title": "Non-overlapping codes",
+          "trigger": "Exact unrestricted maximum at the same alphabet and length"
+        },
+        {
+          "assessment": "Exact table for ordinary non-overlap; not the joint distance invariant",
+          "evidence": "The table entry is S(4,4)=27, N(4,4)=8, where N counts distinct unrestricted maximizing codebooks.",
+          "identifier_or_url": "https://doi.org/10.1007/s10623-023-01344-z",
+          "material_read": "Definition 2, Propositions 10–11, Table 1 p. 22",
+          "method": "OA PDF passages and matching of definition to tabulated counts",
+          "title": "In search of maximum non-overlapping codes",
+          "trigger": "Plausible exact table and codebook enumeration at n=q=4"
+        },
+        {
+          "assessment": "Unrestricted asymptotic bounds and construction comparison",
+          "evidence": "The table compares code constructions rather than enumerating distance-two maximizing subsets.",
+          "identifier_or_url": "https://arxiv.org/pdf/1209.0236",
+          "material_read": "Theorem 1.1 p. 2 and Table I p. 4",
+          "method": "OA PDF passage comparison",
+          "title": "Cross-Bifix-Free Codes Within a Constant Factor of Optimality",
+          "trigger": "Possible alternative exact statement under the cross-bifix-free alias"
+        },
+        {
+          "assessment": "Exact coverage not established either way",
+          "evidence": "No theorem or exact table from the paper was inspected; this is a residual access risk, not evidence of noncoverage.",
+          "identifier_or_url": "https://doi.org/10.1016/j.disc.2024.114236",
+          "material_read": "Landing page and abstract only",
+          "method": "Lawful OA lookup by DOI; direct and alternate retrieval did not yield full text",
+          "title": "q-ary (1,k)-overlap-free codes with given restrictions",
+          "trigger": "Restricted overlap codes might include a useful small-parameter result"
+        },
+        {
+          "assessment": "Different parameters and equivalence group",
+          "evidence": "It uses q=3, n=5 and relabelings together with word reversal.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-exact-ternary-length-five-non-overlapping-codes-detecting-one-su--d72ce427d800/RESULT.md",
+          "material_read": "Finding and Assumptions",
+          "method": "Local Resultary mirror, snapshot 36a7204",
+          "title": "Exact ternary length-five non-overlapping codes detecting one substitution",
+          "trigger": "Same constraints and same numbers of labeled optima and orbits"
+        },
+        {
+          "assessment": "No transfer of the sharp length-five maximum to length four",
+          "evidence": "Its optimum 32 is for n=5, not n=4.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-sharp-quaternary-five-symbol-synchronization-codes-detecting-one--69d775364b8f/RESULT.md",
+          "material_read": "Finding and Assumptions",
+          "method": "Local Resultary mirror, snapshot 36a7204",
+          "title": "Sharp quaternary five-symbol synchronization codes detecting one substitution",
+          "trigger": "Same alphabet and constraints at neighboring length"
+        },
+        {
+          "assessment": "Adds closure not imposed in the frozen problem",
+          "evidence": "The maximum 9 is for the closure-constrained class and therefore cannot be used as an upper bound here.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-the-complete-four-mer-spectrum-of-reverse-complement-closed-non--4848b308e1f3/RESULT.md",
+          "material_read": "Finding and Assumptions",
+          "method": "Local Resultary mirror, snapshot 36a7204",
+          "title": "The complete four-mer spectrum of reverse-complement-closed non-overlapping codes",
+          "trigger": "Matching length, alphabet and distance"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a small natural test of the interaction between all overlap lengths and single-substitution detection. The exact optimum distinguishes the joint constraint from the general bound 16, and the complete two-orbit classification gives all sharp constructions rather than just one feasible lower bound. Such a baseline lets researchers test sharpness and compare finite constructions without conflating non-overlap alone with the combined invariant.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

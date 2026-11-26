@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -18,8 +21,6 @@
 
 # Reproducibility and limits
 
-Run `python3 verify.py` with Python 3. The verifier uses `fractions.Fraction` and exact Gaussian elimination to construct finite second-difference resolvents and induced monotone-jump-to-output-slope matrices. It checks row sums and signs at rational parameters bracketing the exact boundaries, the four-point corner formula, and the four-point extremal defect. An optional NumPy check (skipped if NumPy is absent) corroborates fixed-strength failures on long grids. Expected terminal marker: `VERIFY_OK`.
+Run `python3 verify.py` with Python 3. It uses exact rational Gaussian elimination to check finite matrices at sample parameters, including the four-point corner value and defect. Optional long-grid calculations require NumPy. The expected terminal marker is `VERIFY_OK`.
 
-The algebraic sign certificates and the Fourier-moment argument in `RESULT.md` are the proofs. Parameter samples and long-grid numerical experiments are corroboration only. The assertions about eventual positivity at each fixed sample length and lack of a common positive parameter are proved analytically and cannot be inferred from finite experiments.
-
-The unexamined full text of de Jong–Sakarya (2016) is a residual historical-overlap risk. No independent audit or independent validation has been performed.
+The exact sign regions follow from symbolic factorization of the slope-coordinate inverse in `RESULT.md`, not from sampled parameters. The large-length negative slope is given as a comparison and follows from known asymptotic HP filter weights and boundary bounds; a direct residual estimate is included. The source's journal version was not used as full text in this comparison; the corresponding joint-work author exposition in Sakarya's dissertation provides the decisive finite-weight and limit statements. Exact historical overlap of the first finite cutoffs outside the inspected work remains possible.

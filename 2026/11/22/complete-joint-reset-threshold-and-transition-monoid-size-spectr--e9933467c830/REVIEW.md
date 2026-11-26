@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The statement quantifies over all \(256^2=65{,}536\) ordered generator pairs and includes the identity transformation in monoid cardinality. Reachability of every generated map follows inductively from transformation-composition BFS; shortest paths to constant maps give the reset threshold. An independent subset-image search gives the same reset threshold and recomputes the transformation closure separately, matching all 179 reported cells. The two 48-element extremal orbits are reproduced by explicit conjugacy-and-letter-swap actions. Finite searches are exhaustive over the precisely stated finite universe rather than being used to infer anything at larger state count.
+PASS
 
-## Originality: PASS relative to checked evidence
+Independently enumerated all unordered pairs of four-state maps with weight two off the diagonal, recovering the ordered labeled census. I computed monoid size by closure under prepending from the identity. For reset length I worked backward from all singleton target sets under inverse images, using subsets of the four states. After d steps the reached sets are the full inverse images of singleton targets under words of length at most d. The first appearance of Q is therefore exactly the shortest constant word length, and closure without Q is exactly the no-reset case. This matched every CSV cell (179 distinct cells, exactly 65,536 automata), all row totals and extrema, the given (8,176) witness, and the absence of lengths greater than 9. Independent conjugation with all 24 permutations, plus exchange of letters, gives the exact computed sets of threshold-nine pairs for sizes 128 and 145, each of cardinality 48. The conditional maximum falls from 176 at length 8 (and each of 3–7) to 145 at length 9. The empty word contributes the identity to monoid size but does not reset four states.
 
-Szykuła's 2026 synchronization survey motivates the reset-length coordinate but supplies no monoid-size–reset-length joint table. East–Egri-Nagy–Mitchell (2017) enumerate transformation semigroups by size and rank but not by specified two generators and their shortest constant-product length. Kisielewicz–Kowalski–Szykuła (2016) establish reset-length bounds and experimental facts without this joint count. Gonze et al. (2017) study full-transition-monoid reset bounds and not the two-generator four-state spectrum. Indexed closely related small-automaton findings address adversarial synchronization or synchronizing-word language state complexity, which are distinct invariants. The classical extremal reset bound nine is acknowledged as known; the new statement is the complete 179-cell joint spectrum and the two monoid-size extremal orbits. Residual risk: unindexed exhaustive datasets or generator-specific classifications may contain an equivalent tabulation.
+## originality
 
-## Mathematical value: PASS
+PASS
 
-Reset threshold measures the shortest control sequence collapsing all states; monoid size measures the diversity of possible transformation behaviors. Their joint distribution is not derivable from either marginal alone. The sharp loss of 31 possible monoid elements when the reset threshold rises from eight to nine, and the division of the slowest machines into exactly two algebraically distinct symmetry orbits, provide a natural complete small-state boundary with uses for testing hypotheses connecting synchronization delay and transformation-semigroup complexity. The scope is explicitly small and finite, with no exaggerated asymptotic conclusions.
+Pass for the complete joint distribution and the sharp comparison of conditional maximum sizes across reset thresholds, not for the existence of the two length-nine examples or the isolated pair (9,145). The four-state examples are classical, and Trahtman expressly tabulates the CPR example at size 145 and length nine. Holzer–König give a two-generator construction whose size lower bound already specializes to 176 at four states. No inspected source couples such monoid-size information to the full labeled threshold distribution or establishes the exact 176-to-145 joint boundary across the two levels.
 
-## Limits
+## value
 
-Classification concerns all complete ordered two-letter four-state automata, not larger automata, nondeterministic devices, or partial transitions. Novelty is assessed against examined accessible literature and indexed publications, not certified universally.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Shortest control to a constant and the total number of behaviors of the two generators are natural but different structural invariants. Four states already separate the fastest reset thresholds, the longest reset thresholds, and the global monoid maximum. The exact joint table exposes a sharp boundary not visible in either marginal or in known extreme examples and gives a reusable labeled benchmark for questions about their dependence. Its value is the exact coupling, not recomputing a known reset bound or CPR's size.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

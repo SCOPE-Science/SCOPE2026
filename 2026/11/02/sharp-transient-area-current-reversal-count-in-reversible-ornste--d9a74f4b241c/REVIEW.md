@@ -1,13 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The uncentered second-moment equation \(\dot M=-AM-MA+2I\) holds for every finite-second-moment initial law; the exact solution and pairing of eigenmodes yield the signed-area rate. The independent exponential Chebyshev lemma bounds all positive zeros, including multiple roots. Distinct binary pair sums, a row-orthogonal observation construction, full-row-rank exponential interpolation, and small positive-definite covariance perturbations yield sharpness at arbitrary times in every dimension. The rational three-dimensional witness has exactly two simple zeros; a separate matrix-exponential checker corroborated both the explicit case and dimensions three and four. The proof, not a finite grid, establishes the universal theorem.
+## correctness
 
-**Originality — PASS on examined evidence, subject to historical priority.** [1] concerns sustained nonequilibrium gyration with unequal baths; [2] concerns controlled finite-time switching of a two-dimensional trap; [3] contains the general time-dependent OU covariance and area-production framework but does not give the combinatorial sharp projected reversal count or prescribed-time realizability in any dimension. The covariance algebra and Chebyshev oscillation bound are classical; novelty is the precise integrated structural classification and near-equilibrium sharp realizability, not the ingredients. Search comparisons covered the closest related published results and indexed mathematical records, including reversals of an autocorrelation trend in a slowing mode, which is a different observable. A stronger or earlier all-dimensional transient-area result is still possible.
+PASS
 
-**Mathematical value — PASS.** The criterion gives an optimal dimension-dependent limit on how often a projected circulation diagnostic can reverse during relaxation *despite exact detailed balance*. Arbitrary reversal-time interpolation and arbitrarily weak near-equilibrium perturbations show that every permitted reversal is physically realizable within Gaussian preparations. This provides a useful identifiability boundary for transient rotational inference in linear stochastic networks, rather than a routine parameter substitution.
+For any independent finite-second-moment preparation the area martingale terms have zero expectation on bounded time intervals. With the stated doubled convention the rate is p^T(AM_t−M_tA)q and M_t=A^(−1)+exp(−At)(M_0−A^(−1))exp(−At). The stationary term cancels, and combining eigenbasis entries yields exactly one candidate exponential per unordered pair. Coalescing equal exponents and removing zero coefficients can only reduce the count. A nonzero sum of s distinct real exponentials has at most s−1 real zeros with multiplicities by multiplication by one exponential and Rolle induction. Dyadic drift eigenvalues yield m=binom(d,2) distinct pair sums, and the given orthonormal plane coordinates have all pair minors nonzero. The (m−1)-by-m interpolation matrix has full row rank by the same zero lemma. A nonzero kernel combination then has exactly the prescribed zeros, each simple; for d=2 this just selects a nonzero single exponential and the empty set. Every coefficient is independently tunable by a symmetric off-diagonal covariance perturbation, which remains strictly positive definite after sufficiently small scaling. Rotations give the construction in any chosen plane. Sharpness permits choosing the drift, not promising saturation for each preassigned drift.
 
-**Main limitations.** Symmetric positive drift, isotropic noise, and fixed orthonormal projection; no count for nonlinear, colored-noise, or nonequilibrium steady-state models. The claim distinguishes mean transient area rates from sample-path winding. Prior results might imply the zero bound through generalized total positivity, but the full near-equilibrium sharpness construction and its scientific priority require independent scrutiny.
+## originality
 
-**Sources examined.** Filliger–Reimann (2007, arXiv:0710.3735v1, full paper); Baldassarri et al. (2020, Phys. Rev. E 102 030105, first two PDF pages plus relevant transient protocol discussion); Strang (2024, arXiv:2411.07613v1, main definitions, covariance equations and area-production analyses). The 2020 source inspection is limited to relevant displayed material; no whole-document exclusion is inferred from partial reading.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The OU covariance equation, area commutator and exponential interpolation are established. The closest inspected reversal theorem uses a different reversible system and observable, and the area-specific results use time-dependent or nonequilibrium mechanisms. The supported distinct claim is the sharp count for a fixed reversible OU drift within each realization, including the covariance design realizing arbitrary simple reversals near equilibrium.
+
+## value
+
+PASS
+
+The exact dimension-dependent ceiling and the arbitrary-time realization distinguish transient covariance dynamics from stationary breaking of detailed balance. They show that even arbitrarily near equilibrium a reversible diffusion can exhibit a maximally complicated signed-area transient, and specify exactly how many such reversals fit in a given dimension.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

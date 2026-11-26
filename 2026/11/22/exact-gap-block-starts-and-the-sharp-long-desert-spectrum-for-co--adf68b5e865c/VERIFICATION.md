@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,6 @@
 }
 ---
 
-# Reproducibility checks
+# Reproducibility check
 
-Run `python3 verify.py` with Python 3. The checker uses Dijkstra shortest paths for each residue class, independently predicts the complete Apéry rectangle and all gap-block starts for every \(3\le n\le120\), exhaustively enumerates actual gaps through the Frobenius number for \(3\le n\le60\), checks the exact larger-than-\(n+1\) spectrum, and verifies all membership positions by an independent coin-change recurrence for \(3\le n\le28\). The observed terminal line was:
-
-```
-VERIFY_OK n=3..120; Apéry entries and all starts checked: 583156 ; full runs n=3..60: 73776 ; independent DP n=3..28
-```
-
-All tests are finite and cannot establish the infinitely quantified statements by themselves. The proof in RESULT.md supplies the infinite argument. No external mathematical validation has been performed.
+Run `python3 verify.py`. The program computes membership by unbounded-coin reachability until the first streak of \(a=T_n\) represented integers, so it visits every gap. It compares all intervals of length strictly greater than \(n+1\) to the predicted intervals for each \(n\) from 3 to 40, inclusive. This finite test supplements the proof in `RESULT.md`.

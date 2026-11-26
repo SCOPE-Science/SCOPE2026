@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:48:53.725647Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Proof §§1–6",
+        "VERIFICATION.md and check.py (inspected, not executed)",
+        "python3 /workspace/review_checks.py 4 (independent symbolic sums and N=3 check)",
+        "Independent exact convolution checks over N=3,5,...,101 at depths 1–4",
+        "Repaired RESULT.md, REVIEW.md and SLOGAN.txt under /workspace/repairs/4"
+      ],
+      "rationale": "Reassessed the repeated-depth theorem in repairs/4/RESULT.md. Odd-order group-ring inversion gives the alternating sign kernel, hence its convolution powers; matching input signs in one row attains the l-infinity norm. Removing the alternating signs produces the stated antidifference and antiperiodic boundary equations. After scaling by N^{-(m-1)}, each step approximates the integral of the previous scaled profile with uniform O_m(1/N) error, and the boundary equation fixes the additive constant with the same error. This gives 2^{m-1} E_{m-1}(j/N)/(m-1)! and the absolute-value Riemann sum gives O_m(N^{m-1}) error in the norm. Euler reflection and the derivative identity give constant open-interval sign for positive even degree and exactly one midpoint sign change for odd degree; integrating via the derivative then gives A_m divided by m*2^{m-1} from the endpoint and midpoint generating functions. Exact symbolic checking verifies the low-depth recurrence, sign split and all sums, including a separate N=3 fourth-depth inversion. The character multiplier has minimum sin^m(pi/(2N)) for fixed odd N, and vanishes at frequency N/2 on even cycles. The tangent partial fractions identify the fixed-m ratio as K_m; 4/pi is only the subsequent limit of K_m.",
+      "residual_risks": [
+        "The error constant depends on fixed m; nothing establishes a uniform joint limit in N and m."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zhu–Hu–Kim give a continuous alternating-convolution theorem and Euler polynomial odd-mesh distribution identities.",
+          "Ohrysko studies uniform inversion bounds above a spectral threshold.",
+          "The focused search found Favard/Euler-number and recursive-representation papers, but retrieval of their decisive primary passages was unavailable."
+        ],
+        "reasoning": "These inspected continuous identities and universal bounds do not evaluate the row absolute sum of the repeated finite inverse, or supply the O_m(N^{m-1}) law for a multiplier whose minimum tends to zero. The follow-up access failures do not establish that a stronger discrete theorem is absent.",
+        "searches": [
+          "arXiv:2505.10985, Theorem 1.11 and odd-mesh Euler identity",
+          "arXiv:2609.27714, norm-controlled inversion",
+          "\"discrete Favard constants\" antiperiodic finite differences circulant inverse powers (I+P) Euler polynomials repeated averaging odd cycle"
+        ]
+      },
+      "checked_sources": [
+        "Resultary and local mirror of the earlier spline Finding",
+        "arXiv:2505.10985",
+        "arXiv:2609.27714",
+        "doi:10.1155/2013/523618 and SciELO CUBO search hits (full text unavailable)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The one-step norm and the continuous sharp constant do not give a chain rule for the l-infinity norm of powers.",
+          "At depth m the exact l2 result is the usual Fourier multiplier calculation."
+        ],
+        "reasoning": "Prior one-step bounds and continuum constants are not the finite repeated norm. Establishing the latter requires the alternating boundary recurrence, scaled profile with remainder, and sign-resolved sums. The ordinary Fourier calculation is comparison data, not separate novelty.",
+        "searches": [
+          "Resultary periodic linear spline result, midpoint endpoint",
+          "arXiv:2505.10985, Theorem 1.11",
+          "arXiv:2609.27714, abstract and p. 4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Knot-to-midpoint sampling of a periodic linear spline is the same two-tap fair average, up to indexing; interpolation of the knots preserves the supremum norm. The older result states the odd-cycle inverse norm N and even singularity at that endpoint.",
+          "The fixed-depth ratio A_m(pi/2)^m/m! is the classical Favard series, as can also be checked from the partial fractions of tan(pi/4+z/2)."
+        ],
+        "reasoning": "There is exact equivalent prior coverage at m=1 and equivalence of the comparison constants with the classical continuum ones. The prior one-step operator norm is not an equality for powers; even m=2 has norm strictly smaller than N^2. Credit both known comparisons and confine the assertion to repeated finite-cycle inversion.",
+        "searches": [
+          "Resultary: repeated two-point binomial smoothing and periodic linear spline reconstruction",
+          "Resultary 2026/11/8/SCOPE-sharp-parity-law-for-two-point-discrete-projection-onto-periodic--56b851fd8a2b, Finding",
+          "\"discrete Favard constants\" antiperiodic finite differences circulant inverse powers (I+P) Euler polynomials repeated averaging odd cycle"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The match 2026/11/22/SCOPE-euler-zigzag-amplification-law-for-repeated-binomial-smoothing-o--9ddf13292fdf repeats this frozen claim itself.",
+          "The earlier periodic linear spline record has the exact m=1 endpoint, not m=2,3,4. The closest cycle Poisson norm record, 2026/10/26/SCOPE-a-sharp-cycle-poisson-norm-and-its-irrational-lattice-phase-limi--bda401cecdc2, concerns a different Green operator."
+        ],
+        "reasoning": "Do not use the exact self-match as a table of prior values. The older exact endpoint is credited, and the other norm result has a different inverse and domain restriction.",
+        "searches": [
+          "Resultary: repeated binomial smoothing on odd cycles; sharp parity law for two-point sampling; sharp cycle Poisson norm"
+        ]
+      },
+      "rationale": "The repaired finding is the quantitative finite odd-cycle law at repeated depths m>=2 and the exact formulas at m=2,3,4. The one-step bound and parity behavior, independently covered by the earlier midpoint sampling result, are baseline, not originality. The continuum Favard constant and 4/pi limit are known; the distinct relation is to this discrete inverse and its finite-size formulas and remainder. No inspected stronger statement subsumes the repaired claim.",
+      "residual_risks": [
+        "Older or differently indexed results on circulant Euler splines or antiperiodic finite differences could cover part of the repeated-depth law. The focused search and access attempts do not rule that out."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact prior coverage of m=1 and parity, not of repeated inverse norms",
+          "evidence": [
+            "At t=1/2 the midpoint least-squares projector has exact norm N when odd and is singular when even. The spline norm equals the norm of its vector of knot coefficients."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-sharp-parity-law-for-two-point-discrete-projection-onto-periodic--56b851fd8a2b",
+          "material_read": "Finding, offset 83–2041 of local RESULT.md",
+          "method": "Resultary and local mirror",
+          "title": "Sharp parity law for two-point discrete projection onto periodic linear splines",
+          "trigger": "Distinct catalogue result with coincident midpoint endpoint"
+        },
+        {
+          "assessment": "Related continuous convolution and distribution identities",
+          "evidence": [
+            "Continuous alternating convolution of Euler polynomials, rather than the finite l-infinity norm of powers of adjacent averaging."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2505.10985",
+          "material_read": "PDF pp. 1, 3–4 and 6, offsets 680–1827, 7507, 9753, 10006 and 19035; Theorem 1.11",
+          "method": "OA PDF text",
+          "title": "On the properties of alternating invariant functions",
+          "trigger": "Alternating convolution and Euler polynomial structure"
+        },
+        {
+          "assessment": "Different universal bounds with spectral threshold",
+          "evidence": [
+            "Threshold-bound setting does not yield sharp finite cyclic formulas at a vanishing minimum multiplier."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.27714",
+          "material_read": "PDF abstract p. 1 and p. 4, offsets 326 and 10818",
+          "method": "OA PDF text",
+          "title": "Norm-Controlled Inversion in Measure Algebras",
+          "trigger": "Potential general inverse-norm result"
+        },
+        {
+          "assessment": "Contents cannot establish or exclude stronger discrete coverage",
+          "evidence": [
+            "The listing identifies recursive representations of the classical constants; it is not itself a discrete inversion theorem."
+          ],
+          "identifier_or_url": "https://doi.org/10.1155/2013/523618",
+          "material_read": "Bibliographic search listing only; no primary passage read",
+          "method": "OA DOI and identified publisher PDF attempted, unavailable",
+          "title": "New Recursive Representations for the Favard Constants with Application to Multiple Singular Integrals and Summation of Series",
+          "trigger": "Focused search for discrete Favard and antiperiodic difference analogues"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired RESULT.md, Finding, Proof and Relationship to prior work",
+        "Prior periodic linear spline Finding, midpoint endpoint"
+      ],
+      "rationale": "Repeated two-tap smoothing is a natural finite-cycle measurement operator. Its sharp worst-case uniform reconstruction error is neither the spectral error nor the power of the one-step uniform norm. Establishing the actual sharp fixed-depth law with a finite-size error order and exact norms for the first three repeated depths provides both structural and immediately usable information. The value is not the known m=1 calculation or the continuum constant itself.",
+      "residual_risks": [
+        "No optimality claim for alternative kernels, noise models, or growing-depth scaling."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

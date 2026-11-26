@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -18,6 +21,4 @@
 
 # Reproducibility and limits
 
-Running `python3 check_entropy.py` with the Python standard library passed 5633 deterministic assertions. These include direct finite-state transition-matrix and stationary-law comparisons against the compact formula over many \(m,n,r\), checks of endpoint normalization, asymptotic optimizer-rate and gain diagnostics for fixed opposite part, corresponding diagnostics for proportional parts, and independent comparison rates.
-
-The actual proof is in `RESULT.md`. In particular, global optimization requires the proved envelope bound and localization: finite numerical scans alone cannot establish an all-size or an asymptotic uniqueness statement. The result does not assert finite-size optimizer uniqueness. The comparisons with older literature are qualified, and an independent mathematical audit has not been performed.
+The unchanged companion `check_entropy.py` is a standard-library finite diagnostic. It compares explicit transition matrices with the entropy formula and checks rates, gains and comparison rates for the fixed opposite part at n=1,2,5,10. Its star and proportional-part diagnostics are contextual, not assertions of the fixed-n≥2 finding. The proof in `RESULT.md` proves the infinite limits by an entropy envelope and global localization; no finite calculation or finite-size optimizer uniqueness is required.

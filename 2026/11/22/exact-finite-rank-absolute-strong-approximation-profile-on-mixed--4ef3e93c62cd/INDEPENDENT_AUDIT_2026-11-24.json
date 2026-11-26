@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:37:56.781619Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For real L1 of an arbitrary probability space, f≥0 and a positive contractive T of rank ≤r, the Riesz–Kantorovich modulus gives an order obstruction on the diffuse part: Lyapunov bisects the finite vector of coordinate functionals evaluated on f restricted to D, yielding |h|=1_D f and Th=0. For the atomic compression C, a finite-rank expansion C=∑u_k⊗φ_k on ℓ1 makes ∑_i(Ce_i)_i absolutely convergent (bounded by ∑_k||u_k||_1||φ_k||∞) and equal to ∑_k φ_k(u_k), the trace on the range. The eigenvalues there have modulus ≤1, so the nonnegative diagonal entries d_i lie in [0,1] with sum ≤r. On each atom the output modulus contributes at least a_i(1−d_i), while on D it contributes at least 1_D f, so the disjoint-band sum and the sorted-mass inequality give the asserted lower bound. Projection onto up to r largest atoms attains it, including r=0, no atoms, and tied or zero masses. Independently replayed `python /workspace/independent_replay.py 2`: 1,000 rational contractive matrices, 5,000 exact rank/modulus/mass comparisons; this checks the finite atomic part only. No formal verification claimed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "SPAP Prop. 3.4 establishes separability, atomicity and order continuity as the qualitative condition, not a trace budget or the exact error for given f and r.",
+          "The finite-fiber theorem is for complex Bochner Lp (1<p<∞) operator-norm s-numbers of MA and yields max{γ,β_n}, not a sum of discarded mass and a diffuse test-function integral."
+        ],
+        "reasoning": "The stronger generality of the qualitative theorem and of the operator-norm profiles is along different axes. Neither is a directly specializing theorem for this objective. The named lattice trace text could not be independently read in full and is not ruled out from metadata.",
+        "searches": [
+          "arXiv:2605.12117v3, §3",
+          "Jefferies, Lattice Trace Operators, Academia 67419170",
+          "SCOPE-finite-fiber-multiplication-s-number-profile--fe72e16da558"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2605.12117v3",
+        "doi:10.1007/s43037-021-00124-y",
+        "SCOPE-20261122-4ef3e93c62cd (identical target)",
+        "SCOPE-weighted-conditional-l1-endpoint-profile--dec63dd1eae1",
+        "SCOPE-finite-fiber-multiplication-s-number-profile--fe72e16da558"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For a nonatomic space Prop. 3.4 rules out a single qualifying sequence approximating identity for all positive x; this does not give the norm of the obstruction on each x. The cited standard trace and Lyapunov facts separately control distinct output bands."
+        ],
+        "reasoning": "The exact mixed profile requires combining the sharp diffuse obstruction and an atomic rank budget in the same objective and supplying a matching coordinate projection. The original does not re-claim the qualitative or s-number results.",
+        "searches": [
+          "arXiv:2605.12117v3, Def. 3.3 and Prop. 3.4",
+          "SCOPE-weighted-conditional-l1-endpoint-profile--dec63dd1eae1",
+          "finite-rank trace on ℓ1; Lyapunov convexity theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Garcia–Luiz–Miranda v3, Def. 3.3 defines precisely the same modulus and contraction class for a sequence of approximants; Prop. 3.4 gives the qualitative sequence characterization.",
+          "Deng–de Jeu §3 describes the absolute strong operator topology via |Tα||x|, not a constrained quantitative optimization."
+        ],
+        "reasoning": "The topology and class of approximants are prior; their convergence characterization does not identify the fixed-test-function finite-rank errors.",
+        "searches": [
+          "arXiv:2605.12117v3",
+          "doi:10.1007/s43037-021-00124-y",
+          "Resultary: mixed atomic/diffuse positive finite-rank absolute-strong L1 approximation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed 4ef3e93c62cd entry is this frozen record itself.",
+          "The two distinct indexed SCOPE profiles have exact rank curves, but for weighted conditional expectation and finite-fiber multiplication in operator norm, respectively. Neither table nor closed profile matches this objective."
+        ],
+        "reasoning": "An index match on atomic truncation is insufficient: a maximum over residual block norms is mathematically different from this pointwise L1 sum.",
+        "searches": [
+          "Resultary: exact finite-rank absolute-strong error profile on mixed L1",
+          "SCOPE-weighted-conditional-l1-endpoint-profile--dec63dd1eae1",
+          "SCOPE-finite-fiber-multiplication-s-number-profile--fe72e16da558"
+        ]
+      },
+      "rationale": "The exact fixed-f rank-budget optimum in regular-operator modulus is distinct from the known qualitative SPAP characterization and from sharp operator-norm approximation numbers of other operators; the independent later-version comparison narrows the contribution accordingly.",
+      "residual_risks": [
+        "Jefferies full text was not accessible; related trace results or other unindexed quantitative positive-approximation statements may exist.",
+        "The web search miss is not evidence of historical priority; the assessment rests on the statements compared."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Qualitative precursor, not fixed-f rank profile",
+          "evidence": [
+            "Definition of SPAP and separable atomic order-continuous characterization"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2605.12117v3",
+          "material_read": "§3, Def. 3.3 and Prop. 3.4, pp. 18–19",
+          "method": "Open full-text PDF passage comparison",
+          "title": "Norm attainment for multilinear operators and polynomials on Banach spaces and Banach lattices",
+          "trigger": "Same modulus, contraction and rank class; latest version could subsume result"
+        },
+        {
+          "assessment": "Topology, not exact best approximation; authors are Yang Deng and Marcel de Jeu (frozen reference names are incorrect)",
+          "evidence": [
+            "Convergence tested through the regular modulus acting on |x|"
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s43037-021-00124-y",
+          "material_read": "§3, Cor. 3.5 and Rem. 3.6–3.7, PDF pp. 8–9",
+          "method": "Open full-text passage comparison",
+          "title": "Convergence structures and locally solid topologies on vector lattices of operators",
+          "trigger": "Broader absolute-strong theory"
+        },
+        {
+          "assessment": "Different space and objective, no direct specialization",
+          "evidence": [
+            "Complex Lp with 1<p<∞ and exact s-numbers max{γ,β_n}"
+          ],
+          "identifier_or_url": "SCOPE-finite-fiber-multiplication-s-number-profile--fe72e16da558",
+          "material_read": "RESULT.md, Statement and first proof passages",
+          "method": "Local Resultary mirror (commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4)",
+          "title": "Exact s-number profiles for finite-fiber multiplication operators",
+          "trigger": "Matching atomic order statistics and diffuse floor"
+        },
+        {
+          "assessment": "Operator norm of a fixed weighted conditional expectation",
+          "evidence": [
+            "a_k=b_k=max{γ,c*_k}, not the L1 regular-modulus error for a prescribed f"
+          ],
+          "identifier_or_url": "SCOPE-weighted-conditional-l1-endpoint-profile--dec63dd1eae1",
+          "material_read": "RESULT.md, opening statement and exact rank profile",
+          "method": "Local Resultary mirror (commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4)",
+          "title": "Weighted conditional L1 endpoint profile",
+          "trigger": "Earlier exact L1 rank profile over atoms and diffuse blocks"
+        },
+        {
+          "assessment": "No text-level exclusion made",
+          "evidence": [
+            "No full-text comparison for this source"
+          ],
+          "identifier_or_url": "https://www.academia.edu/67419170/Lattice_Trace_Operators",
+          "material_read": "Source identity only; full text unavailable",
+          "method": "Lawful direct and alternate route attempts",
+          "title": "Lattice Trace Operators",
+          "trigger": "Possible general trace result for regular operators"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Finite rank is a natural quantitative constraint in the existing SPAP problem. The exact rank needed to reach a prescribed error, or the irreducible error on a mixed space, is read from an all-rank formula valid for arbitrary positive signals, not just finite supports. The proof quantifies both the diffuse obstruction and atomic allocation and identifies an attaining operator.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

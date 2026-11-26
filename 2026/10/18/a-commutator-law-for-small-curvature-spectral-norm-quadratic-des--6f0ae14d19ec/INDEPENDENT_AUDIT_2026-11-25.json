@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:49:19.105915Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding, assumptions, and Steps 1–5",
+        "Frozen VERIFICATION.md and checks/commutator_check.py, inspected without execution"
+      ],
+      "rationale": "For D=−ρURVᵀ, substitute the feasible matrices −ρURZVᵀ with ||Z||₂≤1 into the first-order variational inequality. It says I maximizes the pairing with S=Rᵀ(Σ−ερMRN). Orthogonal perturbations of I force S symmetric; reflections I−2vvᵀ force S positive semidefinite; a positive semidefinite S suffices by spectral/nuclear duality. Thus the condition certifies global optimality. At ε=0, a contraction maximizing the pairing with strictly positive diagonal Σ has every diagonal entry one and hence equals I. At ε>0, strict convexity gives uniqueness. On K skew the derivative of skew(S) at zero is −(KΣ+ΣK)/2, invertible even with repeated singular values. The analytic implicit branch has S positive definite by continuity, so all optimizer singular values are exactly ρ there. Differentiating gives K′Σ+ΣK′=−ρC. The linear objective's rotation increment is ρ Σ_{i<j}(σᵢ+σⱼ)Kᵢⱼ²/2 to second order, and the curvature increment is ερ² Σ_{i<j}Cᵢⱼ Kᵢⱼ at first order in K. Substituting the derivative gives the stated positive improvement coefficient and O(ε³) remainder. Setting R=I is exact for all ε; for ε>0 symmetry is commutation, and congruence by Σ⁻¹ᐟ² gives the threshold including its endpoint. The example checks symbolically: with R=[cos k,sin k;−sin k,cos k] the planar increment is 4(1−cos k)+ε(sin²k+sin k cos k)/2, producing the reported candidate expansion at k=−ε/8.",
+      "residual_risks": [
+        "At zero curvature the objective is linear, and uniqueness there is by full rank, not strict convexity, as the frozen assumptions correctly state. The checker uses a small skew residual and positive symmetric-part eigenvalue, i.e. numerical corroboration, not exact optimality of the rounded fit. Local constants are for fixed positive singular values."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "QSD Prop. 4.1 treats nonuniform singular amplitudes under aligned curvature; Prop. 4.2 shows rotation for a rank-one gradient and one-sided curvature C[D]=DA. Higham's full-text perturbation argument controls polar factors of an input matrix."
+        ],
+        "reasoning": "These do not imply the full-rank, exactly flat local branch or the weighted commutator gain; the one-sided curvature case also does not test a nonzero full-rank two-factor commutator.",
+        "searches": [
+          "arXiv:2609.07597 Props. 4.1–4.2 and proofs",
+          "Bhatia–Mukherjea DOI 10.1137/0895479892243237"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary index and nearest mirrored findings",
+        "QSD arXiv:2609.07597 selected primary passages",
+        "Higham open institutional manuscript",
+        "Bhatia–Mukherjea publisher listing"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Frank–Wolfe gap controls objective suboptimality and gives monotone improvement with line search. Ordinary polar sensitivity does not compute the stationary optimal value of a changing constrained quadratic."
+        ],
+        "reasoning": "General dual optimality does reduce to the exact baseline test, so credit that implication. Neither a gap inequality nor a polar Lipschitz bound determines the signed derivative and summed squared-coefficient expansion, which need the optimizer equation and a local second variation.",
+        "searches": [
+          "QSD Appendix B.1 Prop. B.1 (open PDF offset 51178)",
+          "Higham §2.4",
+          "Resultary mirrored fb712cdc6423"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The spectral-norm quadratic is the QSD model with self-adjoint operator D↦εBDA; the known linear baseline is its matrix-sign atom. The polar equation here is a self-consistent equation because the gradient itself depends on the rotation."
+        ],
+        "reasoning": "Ordinary input-to-polar perturbation has related Sylvester denominators. To obtain the frozen law one must additionally certify an active full orthogonal branch, insert the two-sided curvature, and expand the value at its optimum.",
+        "searches": [
+          "arXiv:2609.07597 Eq. (2), Props. 4.1–4.2 and App. B.1",
+          "Higham high86p.pdf §2.4, Thm. 2.5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "fb712cdc6423 gives a sharp planar input-to-polar Lipschitz bound in max-entry norm under accretivity. ba79f41dad85 treats contraction for a different polar-descent iteration."
+        ],
+        "reasoning": "Neither statement is a catalogue entry for the constrained quadratic optimizer or its parameter derivative/value coefficient. The bounded queries did not return an exact match.",
+        "searches": [
+          "Resultary local semantic searches for Kronecker quadratic spectral descent, matrix-sign persistence and polar derivative; closest inspected records fb712cdc6423 and ba79f41dad85"
+        ]
+      },
+      "rationale": "The prior work supplies the same optimization model, qualitative rotation examples and general optimality tools. The baseline persistence condition is a direct specialization of that convex optimality framework, not an independent novelty basis. The distinct result is the quantitative full-rank small-curvature law: exact flatness on a neighborhood, the signed commutator response, and the explicit second-order optimal-value coefficient for general two-sided Kronecker curvature. No inspected result covers this combination or supplies those coefficients.",
+      "residual_risks": [
+        "Bhatia–Mukherjea full text was unavailable, and bounded section-level comparisons are not exhaustive literature priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior model, qualitative directions/amplitudes, and baseline dual tools, not explicit full-rank local coefficients in those passages",
+          "evidence": [
+            "Prop. 4.2 is a rank-one, one-sided-curvature example; Prop. B.1 bounds suboptimality by the Frank–Wolfe gap."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2609.07597",
+          "material_read": "Eq. (2) p. 2, Props. 4.1–4.2 p. 7 and Prop. 4.2 proof pp. 15–16, App. B.1 Prop. B.1 p. 13 (offsets 6801, 25727, 57163, 51178)",
+          "method": "Targeted open primary PDF passages",
+          "title": "Beyond the Matrix Sign: Quadratic Spectral Descent",
+          "trigger": "Same general model and plausible prior rotation or sensitivity result"
+        },
+        {
+          "assessment": "Related derivative tools, not a Kronecker-quadratic optimizer sensitivity theorem",
+          "evidence": [
+            "Derives polar-factor perturbation bounds and a Sylvester equation for the derivative of the positive factor."
+          ],
+          "identifier_or_url": "https://eprints.maths.manchester.ac.uk/694/1/high86p.pdf",
+          "material_read": "§2.4, Thm. 2.5, pp. 1163–64; offset 10743",
+          "method": "Lawful open primary institutional PDF",
+          "title": "Computing the Polar Decomposition—with Applications",
+          "trigger": "Polar Sylvester perturbations"
+        },
+        {
+          "assessment": "Relevant unresolved access risk, not negative evidence",
+          "evidence": [
+            "Title establishes subject only; no detailed formula inferred."
+          ],
+          "identifier_or_url": "https://doi.org/10.1137/0895479892243237",
+          "material_read": "Bibliographic listing only; full text not read",
+          "method": "DOI and SIAM PDF attempts unavailable; targeted legal alternate search found listing only",
+          "title": "Variation of the Unitary Part of a Matrix",
+          "trigger": "Direct unitary polar perturbation comparator"
+        },
+        {
+          "assessment": "Different map and assumptions",
+          "evidence": [
+            "A sharp 2×2 max-entry Lipschitz constant under uniform accretivity, not the optimizer or its surrogate gain."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-coordinatewise-sensitivity-of-planar-polar-factors-under-u--fb712cdc6423",
+          "material_read": "Finding",
+          "method": "Local Resultary mirror",
+          "title": "Sharp coordinatewise sensitivity of planar polar factors under uniform accretivity",
+          "trigger": "Closest indexed polar derivative hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md central formulas and assumptions",
+        "QSD Eq. (2) and Props. 4.1–4.2"
+      ],
+      "rationale": "For the motivated QSD surrogate, the formulas distinguish curvature-induced rotation from amplitude shrinkage at the first perturbative scale and quantify the value of changing the matrix-sign step. The coefficient is interpretable entry by entry and the exact baseline condition clarifies when rotation cannot improve it. This is more informative than the already known statement that quadratic minimization cannot worsen the baseline surrogate.",
+      "residual_risks": [
+        "This is a surrogate sensitivity theorem, not a claim of training-loss improvement or general rectangular, singular-gradient, or large-curvature behavior."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,11 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The reproducing-kernel identity gives the exact reciprocal-circle family. The strict inequality \(R'^2+RR''<1\) follows from the positive tail of a generalized binomial series; it implies strict monotonicity of the contact locus. The signs of the derivatives of the left intersection coordinates produce the precise closed or open horizontal slices. Independent asymptotic expansions give the cusp coefficient, envelope slope and two missing boundary rays. The proof treats \(0<|a|<1\) and \(|a|=1\) separately, including the tangency threshold. Finite numerical tests support the algebra but cannot replace these universal arguments.
+## correctness
 
-**Originality — PASS, subject to historical-priority risk.** The closest primary source is Bourdon–Le–Thompson, arXiv:2610.17634v1, whose Proposition 3.7 handles a general circle-filling mechanism for *nonconstant* linear-fractional factors and whose Section 3 gives boundary details for a rational symbol. Its Section 4 deals with affine symbols. The exact inverse-horn envelope for nonlinear monomials, the sharp coefficient and exponent, and especially the unit-modulus omitted-ray threshold are not asserted there. Cowen–Felder (arXiv:2109.12095) and Augustine–Garayev–Shankar (arXiv:2302.12547) focus on other operator/symbol families. Targeted mathematical-record and literature searches found no stronger covering claim. An older equivalent geometric calculation may exist; this risk is not eliminated by search failure.
+PASS
 
-**Mathematical value — PASS.** The result completely describes a canonical infinite family not covered by the explicit range classifications in the recent motivating paper. It distinguishes pointwise boundary attainment from mere closure, exhibits an exact sharp transition at unit symbol modulus, and quantifies the otherwise qualitative corner at the norm-attaining point by an arbitrary-degree cusp exponent and coefficient. These are intrinsic operator-range invariants, not an arbitrary numerical slice.
+The kernel calculation (RESULT.md, lines 43–52) gives reciprocal circles centered at s=(1−r²)^−1 of radius R(s); the angle covers every point since m−1 is positive, and the denominator cannot vanish. Recomputing R′ and R″ gives R′²+RR″<α² by the positive tail of the expansion of (1−1/s)^−2(β−1); with D=1−R′²−RR″, the two contact derivatives are D and R′D/sqrt(1−R′²). At height y>0 the right branch covers from s_0=R^−1(y) to infinity in abscissa, while the left branch has derivative with the sign of Y(s)−y. Thus an attained interior minimum gives the entire closed slice, or a decreasing left branch with unattained limit gives the open slice. At y=0 the minimum is s=1. At α=1, R=s−β+β(β−1)/(2s)+O(s^−2) gives the claimed threshold; even at equality the derivative is strictly negative at every finite admissible s. The envelope slope is sqrt(1−R′²)/R′ and strictly decreases. At s=1+t, X−1 is asymptotic to t and Y to αt^β, so inversion gives the stated cusp with its coefficient. At α<1 the expansions give X−(sqrt(1−α²)/α)Y=β+O(s^−1). Inversion gives the limiting angles (at α=1 the limit is vertical) and maps x=β to the claimed diameter circle except for the zero endpoint, which comes only from infinity. All conclusions follow analytically; checker.py was inspected as a finite floating-point diagnostic and not executed.
 
-A finite numerical checker was run from the package, with 10,358 assertions passed; its scope is explicitly diagnostic. The independent publication-priority and proof audits remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the circle description and qualitative corner to prior results, including an exact specialization of Proposition 3.7. The distinct, verified contribution is the evaluated envelope with exact ownership at α=1, including the threshold, the sharp cusp law, and the far-field geometry. The closest earlier exact monomial range claim uses a wrong kernel factor and is not an equivalent result.
+
+## value
+
+PASS
+
+The canonical monomial family tests the difference between a filled range, its closure and pointwise attainment. Knowing precisely where the left contact radius escapes at unit modulus, and hence which entire arcs (including endpoints) are missing after inversion, answers a question not settled by qualitative cusp or circle filling theorems. The cusp reads off the degree and modulus and the far-field description gives the limiting directions at zero. This is a useful complete range classification, not a resampling of the circles.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

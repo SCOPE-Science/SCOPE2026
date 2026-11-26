@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:02:25.237720Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–70",
+        "Frozen VERIFICATION.md lines 19–26 and check.py lines 7–33",
+        "Independent bounded polynomial autocorrelation calculation, n=1,…,7"
+      ],
+      "rationale": "The boundary Jacobian is triangular, with transverse entry cx; tangent–transverse mixing does not change the product of the transverse diagonal entries. Under x=4 sin²(πθ), the starting law is the stated arcsine law and evolution is a factor of angle doubling. For X=2−2 cos(2πθ) the invariant-measure transfer operator P gives PX=2. For Rf=P(X²f), R1=6+2C and RC=−4−4C with C=cos(2πθ), by keeping only the even cosines before halving frequencies. The trace 2 and determinant −16 and initial moments 1 and 6 give the recurrence, two-root formula, and positive relative variance exponent. As a fresh check, writing the product as the squared modulus of the finite Thue–Morse polynomial, the sum of squared finite aperiodic autocorrelations gave 6,28,152,752,3936,19904,102784 for n=1,…,7 and the coefficient-square sums gave 2^n. Log X is in L² with mean zero and cosine coefficients −2/k, so matching frequencies under doubling gives covariance π²/(3·2^m). Counting lag pairs gives the finite variance. The reverse martingale difference d=2φ−φ∘D has Pd=0, variance π², and the sum differs from Z_n by a uniformly L²-bounded endpoint term; the ergodic reverse martingale CLT applies. Birkhoff gives the almost-sure exponential rate; the CLT and the shift n log c_n=κ√n give Φ(κ/π). These are claims about a linearized boundary cocycle, not finite-density invasion. The frozen code was inspected but not executed.",
+      "residual_risks": [
+        "Excluding zero-measure singular orbits suffices for the logarithmic steps. The finite exact calculations do not establish the CLT or its hypotheses."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Defaveri–Smith Eq. (12) gives the tilted exponents −log 2 and log((1+√17)/16) for the unscaled logistic product. Appendix A.4 gives the polynomial operator including both inverse branches, their monomial sums and the finite polynomial span for negative-integer tilts.",
+          "Bhar–Mukherjee–Patil state the generic doubling CLT with Fourier decay and positive asymptotic variance. Gasull–Mañosa §4 supplies the original map and interior period-five/six orbit counts, not a transverse moment analysis."
+        ],
+        "reasoning": "After rescaling, the two prior exponents already imply the relative second-moment growth exponent. The full operator is stronger than its leading eigenvalue and resolves the finite-horizon question as shown below. Kac's CLT is generic, but combined with the prior covariance it supplies the variance-specific Gaussian limit.",
+        "searches": [
+          "Defaveri–Smith arXiv:2610.21288v1, Eq. (12) and Appendix A.3–A.4",
+          "Bhar–Mukherjee–Patil arXiv:2405.06881, Theorem 2.1",
+          "Gasull–Mañosa arXiv:1809.06208, §4, OA query Lotka-Volterra"
+        ]
+      },
+      "checked_sources": [
+        "Defaveri–Smith arXiv:2610.21288v1",
+        "Bhar–Mukherjee–Patil arXiv:2405.06881",
+        "Gasull–Mañosa arXiv:1809.06208",
+        "Anteneodo nlin/0309065",
+        "arXiv:2511.06386v1",
+        "Resultary 634dc48171fb, 3bff36abf380 and c21b5651cd7f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "From Eq. (A35) set Q_p f(t)=t^p[f(t_+)+f(t_−)]/2. The finite normalized raw moment is ∫Q_p^n 1 dμ, by transfer and stationarity (postweight uses t_1,…,t_n, equivalent in law to t_0,…,t_(n−1)). For p=1 the initial image is t, with Q_1 t=t/2; the arcsine first moment is 1/2. For p=2 the initial image is t². The two inverse branches sum to 1 and multiply to t/4; thus on (t²,t³) the matrix has first column (1/2,−1/4) and second column (1/2,−3/8). Its trace and determinant are 1/8 and −1/16. Cayley–Hamilton, scaled by 16^n, gives u_(n+2)=2u_(n+1)+16u_n for n≥1; the initial arcsine integrals give u_0=1, u_1=6, u_2=28, also establishing the n=0 step.",
+          "Eq. (A32) plus lag pair-counting gives Var(Z_n)=(π²/3)(3n−4+2^(2−n)). Center the prior sum by n log 4, apply the CLT (variance π²), then shift the normal threshold by κ."
+        ],
+        "reasoning": "These are explicit reductions of the whole finite and asymptotic statement, not a priority inference from the match of exponents or from catalogue dates. The frozen exact recurrence and coefficient are obtained by fixed-size algebra from the prior operator, and the near-neutral window adds only a deterministic translation.",
+        "searches": [
+          "Defaveri–Smith arXiv:2610.21288v1, Appendix A.4, Eqs. (A35)–(A41), especially the operator and monomial sums",
+          "Defaveri–Smith Appendix A.3 and Bhar–Mukherjee–Patil Theorem 2.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "With t_j=x_j/4, the normalized logistic map has observable g(t)=−log t in Defaveri–Smith. Thus Z_n=n log 4−∑g(t_j), and M_(n,c)=(4c)^n∏t_j.",
+          "For θ uniform, ∏X(D^jθ)=|∏_{j<n}(1−e^{2πi 2^jθ})|², the squared modulus of a Thue–Morse polynomial. The exact comparison in arXiv:2511.06386v1 sums squares of infinite-sequence autocorrelations η, not these finite polynomial moments."
+        ],
+        "reasoning": "The logistic change of variables preserves the starting ensemble and exactly identifies the finite-horizon observables. Multiplying by a constant shifts log means but not covariances, and scales raw moments by powers of 4c. The finite Riesz-product alias is exact; an analogous infinite autocorrelation growth rate is not by itself finite-horizon coverage.",
+        "searches": [
+          "Resultary: lacunary Riesz product moments powers of two second moment exact recurrence Fourier constant term",
+          "Resultary: finite Riesz product factors 1-cos(2^j theta) exact second moment",
+          "Web: Thue Morse polynomials exact L4 norm recurrence 6 28 152 sqrt 17 Littlewood autocorrelation sum squares 2 16",
+          "Defaveri–Smith arXiv:2610.21288v1, logistic Sections and Appendix A.3–A.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Defaveri–Smith explicitly print the exact covariance π²/(3·2^m) for positive m, the zero-lag variance π²/3 and Green–Kubo variance π².",
+          "Resultary 2026/11/17/SCOPE-exact-transverse-log-covariance-spectrum-on-the-chaotic-axis-of--634dc48171fb has a related Bernoulli-polynomial spectrum whose endpoint agrees but whose printed parameter assumptions exclude that endpoint. Same-day 3bff36abf380 concerns a matrix-logistic cocycle. Resultary c21b5651cd7f gives finite carry laws at different powers/bases and signs of amplitudes."
+        ],
+        "reasoning": "The article gives the exact lag entries, not just a comparable parameter or a numerical curve. The bounded index comparisons are not used to claim the finite product recurrence is printed there. Nearby work on log|f′| (Anteneodo nlin/0309065, Eqs. (11)–(15)) has a different observable and different lag values.",
+        "searches": [
+          "Resultary: transverse logistic cocycle Fourier fluctuation variance SCOPE 2026/10/18",
+          "Resultary: finite Riesz product factors 1-cos(2^j theta) exact second moment",
+          "Defaveri–Smith Appendix A.3, Eqs. (A29), (A32)–(A33)"
+        ]
+      },
+      "rationale": "Defaveri–Smith give both the exact logarithmic covariance at every lag and the polynomial tilted operator for the same arcsine logistic orbit. Their stated eigenvalue alone would not fix the finite prefactor, but their explicit operator and invariant polynomial span mechanically give the full first and second moments, not just their leading rates. Stationary lag counting and a threshold shift of the known CLT then cover the other quantitative claims. The new transverse label does not change this calculation.",
+      "residual_risks": [
+        "No claim is made about who first wrote the exact recurrence in this normalization. The known exact operator and covariance are enough for the coverage verdict without needing an earlier match for every displayed number."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact log covariance is printed; finite moments follow directly from the given tilted operator and its polynomial span",
+          "evidence": [
+            "Versioned PDF p. 1 shows 15 Oct 2026. Eq. (A35) uses t^(−k) times the average over inverse branches; Eqs. (A37)–(A38) yield the finite span relevant to k=−2. Eq. (A32) is the exact positive-lag covariance."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.21288v1",
+          "material_read": "Versioned PDF p. 1; p. 4 Eq. (12); Appendix A.3–A.4, Eqs. (A29), (A32)–(A41), PDF offsets around 85032, 88330, 90000 and 93905",
+          "method": "Lawful OA PDF passages",
+          "title": "Dynamical phase transition for a logarithm observable in chaotic systems",
+          "trigger": "Exact same logistic log observable, moments and tilted spectral values"
+        },
+        {
+          "assessment": "General CLT, not an independent computation of this covariance",
+          "evidence": [
+            "The logarithmic cosine coefficients are O(1/k) and the variance from the known covariances is positive, so the cited hypotheses are met."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2405.06881",
+          "material_read": "Theorem 2.1, PDF p. 3, OA offset 9310",
+          "method": "Lawful OA PDF passage",
+          "title": "Kac's Central Limit Theorem by Stein's Method",
+          "trigger": "Known limit theorem for the exact doubling observable"
+        },
+        {
+          "assessment": "Model source rather than moment coverage",
+          "evidence": [
+            "Gives the map with c=1 and analyzes orbit counts, not the finite boundary cocycle moment formulas."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1809.06208",
+          "material_read": "§4 PDF p. 8, OA offset 22500",
+          "method": "Lawful OA PDF passage",
+          "title": "Periodic orbits of discrete and continuous dynamical systems via Poincaré–Miranda theorem",
+          "trigger": "Original Lotka–Volterra map"
+        },
+        {
+          "assessment": "The printed dyadic squared-autocorrelation formula is a different quantity",
+          "evidence": [
+            "The sum concerns η of the infinite sequence and includes a nonzero constant in addition to the two root powers."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2511.06386v1",
+          "material_read": "HTML passage at offset 10580 with exact dyadic η² sum",
+          "method": "Lawful OA HTML passage",
+          "title": "On the absolute value of the autocorrelations of the Thue–Morse sequence",
+          "trigger": "Same characteristic ratio surfaced under a natural finite-polynomial alias"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 14–44 and 75–79",
+        "Defaveri–Smith Eq. (12), Appendix A.3–A.4 and explicit specialization above"
+      ],
+      "rationale": "The annealed versus quenched distinction is a meaningful way to interpret transverse neutrality, but here the predator-free derivative simply multiplies the same logistic observable already examined in the prior work. Both moment rates and every finite-horizon law claimed here follow from its exact calculations or the known limit theorem. No independent nonlinear invasion statement, new observable, or surviving exact invariant is established, so the interpretation alone does not repair the claim.",
+      "residual_risks": [
+        "The formulas can still help explain this example; no conclusion about nonlinear persistence or broader transverse dynamics was reviewed."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

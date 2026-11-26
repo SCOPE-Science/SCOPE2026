@@ -1,0 +1,156 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:52:58.468159Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–56; VERIFICATION.md; inspected verify.py and verification_output.txt",
+        "Independent replay: python3 /workspace/branches/c7320ccc-bb5d-4360-ba1c-775ec5812f28/replay.py",
+        "arXiv:2312.02639, Theorems 1.1 and 2.2"
+      ],
+      "rationale": "The XOR graph has parameters (16,5,0,2); the open neighborhoods used for the main theorem are those of its ten-regular complement. Independent replay produced the sixteen distinct ten-vertex facets, 11,804 nonempty faces, 4,780 collapse pairs and 1,050 toggle pairs. All 65,680 covers sort acyclically; using the globally reversed arrow convention in the frozen verifier does not alter acyclicity. The critical cells are one vertex, six 3-cells and 137 4-cells. Integral signed Morse elimination reproduces the stated minor on columns 2,4,9,10,23,26 with determinant +1. The six corresponding 4-cells together with the 3-skeleton have a unimodular integral degree map and form an acyclic simply connected, hence contractible, CW subcomplex. The other 131 attaching maps to that subcomplex are null, giving the exact wedge of four-spheres. The dominance condition is that no closed C-neighborhood is wholly in a face; complementing shows D(C)^∨ = N(H). Combinatorial Alexander duality on 16 vertices gives degree 16−4−3=9 in D(C) and no other reduced integral homology. The argument does not infer its homotopy type from its homology.",
+      "residual_risks": [
+        "This is a nonequivariant calculation on the specified graph. No uploaded code was executed; Python 3.10 or later supports the frozen verifier's bit-count calls."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Matsushita–Wakatsuki give the general combinatorial duality and integral degree shift, not the numerical wedge by themselves.",
+          "The inspected Shukla scope covers maximal degree at most three and four-regular circulants, not this graph. The Q_d catalogue calculation concerns ordinary hypercubes with two parity components in their neighborhood complexes, not the five-halved cube."
+        ],
+        "reasoning": "Neither lower-degree nor ordinary-hypercube classifications cover the ten-regular graph. The general duality applies and gives the interface to the exact earlier dominance certificate.",
+        "searches": [
+          "arXiv:2312.02639, Theorems 1.1 and 2.2",
+          "arXiv:1802.04526, abstract and introductory scope",
+          "Resultary: 344271f4218a"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 0b2c4cb32b46, 1dc11cc6574a, d5c9a7244f80, 344271f4218a",
+        "arXiv:2312.02639; arXiv:1802.04526; MathWorld Halved Cube Graph"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior matching has 26,799 pairs, one critical singleton {0}, and 131 critical sets of size ten. Add the pair (empty,{0}); the singleton is then a sink, so no cycle is created. Independent replay of the earlier increasing-pivot stages via the closed-neighborhood predicate reproduced all stage counts and sorted all 53,731 augmented faces through 401,104 arrows, leaving just the 131 size-ten critical sets.",
+          "Taking complements reverses all directed arrows and gives an acyclic matching on the nonfaces of N(H) in the full 15-simplex, with 131 critical sets of size six. Faces of N(H) never have outgoing edges to nonfaces, since all crossing covers point down.",
+          "To see the relative implication directly, group the matched nonfaces into two-face blocks and leave critical nonfaces as singleton blocks. A directed cycle of blocks would have one dimension drop for each edge between blocks and so would have to use a rise through the matched arrow in every block, lifting to a cycle in the original digraph. In reverse topological block order, starting from N(H), each two-face block is an elementary expansion and each singleton attaches a 5-cell, since all other required subfaces are already present. Such steps preserve components and homotopy groups through degree three. The final full simplex is contractible, so N(H) is 3-connected. Integral Alexander duality gives its only reduced homology Z^131 in degree four. Hurewicz realizes a basis by maps of four-spheres, and homology Whitehead gives the claimed wedge equivalence."
+        ],
+        "reasoning": "The prior homotopy statement directly implies the dominance corollary and its certificate supplies the connectivity needed to lift dual homology to the main homotopy result. Neither an unavailable source nor the false rule that Alexander duality preserves homotopy is used.",
+        "searches": [
+          "0b2c4cb32b46, RESULT.md, proof at offset 1670 onward and duality comparison around offset 5804",
+          "arXiv:2312.02639, Theorems 1.1 and 2.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The five-halved cube is the ten-regular complement H of the degree-five Clebsch graph; the graph naming can be ambiguous.",
+          "For a set T of vertices, T is in D(C)^∨ exactly when T is not a dominating set of C, equivalently some x has T disjoint from N_C[x]. This says T is contained in the open H-neighborhood of x.",
+          "The older dominance calculation uses the identical 16-vertex XOR graph and closed-neighborhood definition."
+        ],
+        "reasoning": "The dual is not just a complex with similar Betti numbers. The ground-set identity takes every augmented face of D(C) to a missing face of the specific N(H). It is therefore usable at the certificate level.",
+        "searches": [
+          "Matsushita–Wakatsuki, arXiv:2312.02639, Theorem 1.1",
+          "MathWorld: Halved Cube Graph, offset 1648",
+          "Resultary: 0b2c4cb32b46, graph and dominance assumptions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "0b2c4cb32b46 states a wedge of 131 nine-spheres for the same dominance complex and specifies an acyclic matching with one critical vertex and 131 critical cardinality-ten faces.",
+          "1dc11cc6574a and d5c9a7244f80 both use open neighborhoods of the degree-five original graph (rank 31 in degree two), not the complement. 344271f4218a uses ordinary Q_d."
+        ],
+        "reasoning": "The earlier dominance record is the material exact match. Its axiom-level face predicate and full matching make it stronger evidence than catalogue titles or matching sphere counts. The uncomplemented matches are not equivalent.",
+        "searches": [
+          "Resultary: 0b2c4cb32b46, 1dc11cc6574a, d5c9a7244f80, 344271f4218a"
+        ]
+      },
+      "rationale": "The archived dominance result 0b2c4cb32b46 explicitly proves the stronger dominance homotopy type for the identical graph. Combinatorial Alexander duality transfers the homology but not, by itself, the open-neighborhood homotopy type. However, the actual prior proof provides a complete acyclic face matching. Complementing its pairs yields a relative matching on the missing faces of N(H) in the full simplex, with only 131 critical 5-cells. This implies the necessary 3-connectivity and hence the four-sphere wedge. Thus the prior exact certificate, not merely its stated homology or an analogous graph, covers the main result by a direct inference.",
+      "residual_risks": [
+        "The assessment establishes existing mathematical coverage from the exact matching, not a claim that the older record explicitly phrases the dual homotopy theorem or that it was first discovered there."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Stronger explicit dominance result; its matching transfers to give the main neighborhood wedge",
+          "evidence": [
+            "Predicate: no closed neighborhood is contained in the face; 26,799 pairs; one critical vertex {0}; 131 critical ten-element faces; acyclicity verified on all 53,730 nonempty faces."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-the-dominance-complex-of-the-five-folded-cube-is-a-wedge-of-131--0b2c4cb32b46/RESULT.md",
+          "material_read": "Finding and assumptions, offset 0; face predicate, matching prescription, critical cells and acyclicity at offsets 1670–4257; duality comparison around offset 5804",
+          "method": "Resultary lookup and targeted local-mirror text; independent reconstruction of the stated matching",
+          "title": "The dominance complex of the five-folded cube is a wedge of 131 nine-spheres",
+          "trigger": "Identical dual complex and a potentially transferable certificate"
+        },
+        {
+          "assessment": "Applicable general duality; does not alone give homotopy",
+          "evidence": [
+            "D(G)^∨ = N(overline G); reduced integral homology dualizes to reduced cohomology in degree n−i−3."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2312.02639",
+          "material_read": "Theorem 1.1, PDF p. 2 (offset 4478); Theorem 2.2, p. 5 (offset 14607)",
+          "method": "Open-access primary PDF text",
+          "title": "Dominance complexes, neighborhood complexes and combinatorial Alexander duals",
+          "trigger": "Exact equivalence of the dual constructions and integral degree shift"
+        },
+        {
+          "assessment": "Both compare to the degree-five graph, not its complement",
+          "evidence": [
+            "Open N(C) wedge of 31 two-spheres and affine homology calculation on H2 of rank 31."
+          ],
+          "identifier_or_url": "Resultary 1dc11cc6574a and d5c9a7244f80",
+          "material_read": "Both RESULTS, offset 0, findings and graph definitions",
+          "method": "Local mirror",
+          "title": "Clebsch neighborhood homotopy and affine symmetry",
+          "trigger": "Closest names and degree/canonical-model ambiguity"
+        },
+        {
+          "assessment": "Confirms alias, not a topology calculation",
+          "evidence": [
+            "Five-halved cube equals the complement of the Clebsch graph."
+          ],
+          "identifier_or_url": "https://mathworld.wolfram.com/HalvedCubeGraph.html",
+          "material_read": "Graph identification around offset 1648",
+          "method": "Open website passage",
+          "title": "Halved Cube Graph",
+          "trigger": "Alternate family name for the precise graph"
+        },
+        {
+          "assessment": "Inspected graph classes do not contain the ten-regular complement",
+          "evidence": [
+            "Maximum-degree-three and four-regular circulant hypotheses."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1802.04526",
+          "material_read": "PDF pp. 1–2, offsets 0 and 4395",
+          "method": "Open-access primary PDF text",
+          "title": "Homotopy type of the neighborhood complexes of graphs of maximal degree at most 3 and 4-regular circulant graphs",
+          "trigger": "Possible broader classification"
+        },
+        {
+          "assessment": "Different graph family",
+          "evidence": [
+            "Ordinary Q_d neighborhoods and two parity components."
+          ],
+          "identifier_or_url": "Resultary 344271f4218a",
+          "material_read": "RESULT.md, offset 0, finding and graph convention",
+          "method": "Local mirror",
+          "title": "Neighborhood complexes of hypercubes collapse to explicit spheres",
+          "trigger": "Nearby distance-cube family that might cover the parameter"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof; 0b2c4cb32b46, Finding and exact matching; arXiv:2312.02639"
+      ],
+      "rationale": "The exact integral homotopy type of this canonical halved-cube complex would be valuable if it required a distinct calculation. Here the earlier exact dominance certificate already yields it by complementing the matching, and the dominance corollary is explicitly weaker than the earlier result. The separately verified integral minor is useful corroboration, but no new facet structure, equivariant invariant, or other independently motivated consequence is claimed. There is no distinct valuable remainder to repair.",
+      "residual_risks": [
+        "Does not assess a different claim about symmetry or a family-wide neighborhood theorem."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

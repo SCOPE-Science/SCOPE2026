@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:10:14.093049Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The Rule 54 truth table gives the stated four pair-state matrices and indexed cyclic trace, without quotienting rotations. The active one-bit block satisfies B_active^3=B_active+I and has Perrin traces at positive exponents; C_k has the Padovan traces from k=1 onward. Idempotence after two zeros reduces longer zero-runs to pairs. A cyclic list with a non-C1 factor can always choose a nonexceptional neighboring pair for the next merge; an all-C1 list of length >=3 starts with the triple merge. A strict trace gain at the final merge suffices even when earlier entrywise gains are masked. Two C1's alone give 3, below P_(n-2) for n>=8. For a single zero-run, fewer than n sites after truncation gives strictness by Padovan growth. Filling isolated zeros is nondecreasing by B^3>=BAB. For a last fill reaching the double-zero target, the strict gap g(a,b) applies, and when there was never an adjacent pair the single-zero comparison suffices. Recurrence reductions with a reduced coordinate >=4 stay in the appropriate positive/base domains, in particular a+b>=5 for g. All-zero has fiber 2. Independent `cd /workspace && python3 review_replay.py 3` derived the matrices from the truth table, checked 35 pair bases (minimum trace gain 1) and 30 singleton-removal bases (minimum gap 3), verified the three comparison seeds (10,4,1), (12,5,2), (17,7,2), and exhaustively checked indexed fibers through n=18 starting at n=8. The proof carries the infinite claim; the frozen checker was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Jen's N(S) is a preimage count for a finite spatial block of an infinite lattice. Proposition 2 uses a Rule 54 formula to prove the image language has finite complement.",
+          "Martínez et al. do use periodic boundaries, and the de Bruijn diagrams find periodic blocks, preimages and cycles, but the inspected results are glider and periodic-structure analyses."
+        ],
+        "reasoning": "Finite spatial-block counts use free outside bits, not cyclic continuity. Periodic de Bruijn diagrams support computation for any fixed y but do not establish strict trace inequalities over all cyclic outputs.",
+        "searches": [
+          "Jen 1989 §§2 and 5, Proposition 2",
+          "Martínez–Adamatzky–McIntosh arXiv:1410.3096, §2 and de Bruijn sections"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, proof, verification notes and checker",
+        "Jen 1989 pp. 421–423 and 445",
+        "arXiv:1410.3096 pp. 261–268",
+        "Resultary 3615c2fb7c1d, c2f1f9b3c735, 8bdc7ec87b7b, a76f7678b0a5, 53a22033084e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior noncyclic count and finite-complement theorem address which blocks occur and enumeration with different boundary conditions.",
+          "Different-rule analogues attain on a single zero (126) or a pair of ones against an all-zero background (18); they do not provide the Rule 54 matrix identities or strict zero-run comparisons."
+        ],
+        "reasoning": "The homogeneous matrix count can be read off the usual method, but the globally strict runner-up inequality, merging with its exceptional pair, and the isolated-zero strict comparison are not mechanical corollaries of the prior results read.",
+        "searches": [
+          "Jen 1989 p. 445, Proposition 2",
+          "arXiv:1410.3096 pp. 266–268",
+          "Resultary 8bdc7ec87b7b and a76f7678b0a5, Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "3615c2fb7c1d counts each reachable Rule 54 output once; c2f1f9b3c735 counts exactly one-predecessor Rule 54 outputs. Neither keeps the higher individual multiplicities needed for a ranking.",
+          "Rules 126 and 18 have analogous rankings with different rules, values and equality classes; Rule 110's Perrin maximum overlaps in numerical sequence, not in rule or runner-up."
+        ],
+        "reasoning": "No equivalent observable is recovered by counting only reachable or singleton targets, nor do the inspected different-rule theorems transfer. Same-day records were compared on content, with no inference about ordering.",
+        "searches": [
+          "Resultary: cyclic Rule 54 maximum and second-largest one-step preimage multiplicities; Padovan/Perrin and adjacent-zero equality",
+          "Resultary 3615c2fb7c1d, c2f1f9b3c735, 8bdc7ec87b7b, a76f7678b0a5 and 53a22033084e"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Table 1 lists tile types and sizes; Table 2 gives glider speed, lineal volume and capacity. The mirror generating functions count reachable or singleton outputs, not a full distribution of one-step fiber sizes."
+        ],
+        "reasoning": "No relevant exact ranking table was identified in this inspection. The inspected tables/generating functions neither duplicate the exact values nor characterize their attaining words.",
+        "searches": [
+          "Martínez et al. Tables 1 and 2, pp. 264–265",
+          "Resultary 3615c2fb7c1d and c2f1f9b3c735 Findings"
+        ]
+      },
+      "rationale": "The inspected literature gives finite-block preimage enumeration, periodic Rule 54 structure, and standard transfer machinery. The relevant indexed findings cover Rule 54 image size or singleton fibers and exact rankings for other rules. None gives or implies the all-n Rule 54 runner-up with its Padovan value and precise adjacent-zero equality class. Conventional homogeneous counting is not itself the contribution.",
+      "residual_risks": [
+        "Historical priority is bounded by the inspected passages and indexed comparisons; portions of Jen's equation extraction are garbled, although its stated setting and Proposition 2 are legible. An unindexed stronger cyclic result is not ruled out."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Boundary model differs, and Proposition 2 is not a cyclic fiber ordering",
+          "evidence": [
+            "Infinite lattice definition of N(S)",
+            "Proposition 2: sequences generated by one iteration form a finite-complement language"
+          ],
+          "identifier_or_url": "https://content.wolfram.com/sites/13/2018/02/03-5-2.pdf",
+          "material_read": "Opening and §2, pp. 421–423; Proposition 2 p. 445, OA offset around 52400",
+          "method": "Lawful published PDF, targeted passages",
+          "title": "Enumeration of Preimages in Cellular Automata",
+          "trigger": "Rule 54 one-step counting formula"
+        },
+        {
+          "assessment": "Periodic structural context, not inverse-fiber ranks",
+          "evidence": [
+            "Periodic boundary convention in §2",
+            "Tile and glider tables",
+            "Diagram uses include periodic blocks, preimages and cycles"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1410.3096",
+          "material_read": "Abstract; §2 p. 261; Tables 1 and 2 pp. 264–265; de Bruijn analysis pp. 266–268",
+          "method": "Lawful arXiv primary PDF",
+          "title": "Complete Characterization of Structure of Rule 54",
+          "trigger": "Periodic Rule 54, preimages and de Bruijn diagrams"
+        },
+        {
+          "assessment": "Distinct from multiplicity ranking",
+          "evidence": [
+            "Same-period reachability and number of reachable outputs; each output counted once"
+          ],
+          "identifier_or_url": "Resultary 3615c2fb7c1d",
+          "material_read": "RESULT.md Finding and assumptions at offset 0",
+          "method": "Local GitHub mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Periodic lifting and exact one-step image enumeration for Rule 54",
+          "trigger": "Same-day exact enumeration for the same rule and cyclic boundary"
+        },
+        {
+          "assessment": "Counts fibers of size one, not the top two levels",
+          "evidence": [
+            "An all-length generating function for the singleton-fiber set sizes"
+          ],
+          "identifier_or_url": "Resultary c2f1f9b3c735",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Local GitHub mirror",
+          "title": "Exact singleton predecessor generating function for cyclic elementary Rule 54",
+          "trigger": "Same rule and exact cyclic fiber cardinality"
+        },
+        {
+          "assessment": "Distinct local rule and extremizer structure",
+          "evidence": [
+            "The runner-up is attained on single-zero words"
+          ],
+          "identifier_or_url": "Resultary 8bdc7ec87b7b",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Local GitHub mirror",
+          "title": "Sharp cyclic one-step preimage runner-up for elementary Rule 126",
+          "trigger": "Same-day cyclic ranking with a similar homogeneous maximum"
+        },
+        {
+          "assessment": "Distinct automaton and values; no reduction to Rule 54 shown",
+          "evidence": [
+            "All-zero maximum with runner-up on adjacent pairs of ones"
+          ],
+          "identifier_or_url": "Resultary a76f7678b0a5",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Local GitHub mirror",
+          "title": "Sharp second-largest cyclic preimage fibers of elementary cellular automaton Rule 18",
+          "trigger": "Same-day cyclic ranking with an adjacent-pair runner-up"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Reachable outputs can differ greatly in probability under a uniform predecessor. Exact first and second ranks and the complete tie set answer a natural inverse-count question beyond reachability; the adjacent pair rather than isolated-zero patterns matters for that ranking. The all-length strict classification is useful as a benchmark and the merge inequalities explain the mechanism rather than just tabulating it.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

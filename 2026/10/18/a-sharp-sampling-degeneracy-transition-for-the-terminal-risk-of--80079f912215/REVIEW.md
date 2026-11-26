@@ -1,9 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The stated update uses precisely the nonuniform inverse-probability proximal parameter of the motivating algorithm. The coupled moment recurrence is derived from the two affine proximal maps. Their strict contractions give a unique stationary law and justify limiting expectations. Exact symbolic reduction yields the sign factorization and a resultant; the Bernstein coefficients, endpoint signs, and monotonicity of the quintic complete a proof over all admissible real parameters. The included verifier independently checks the identities and finite exact recurrences. Finite recurrence checks and decimal approximations are not substituted for analytic proof.
+## correctness
 
-**Originality — PASS (same-model, with remaining literature uncertainty).** The originating 2024 work supplies the proximal update and upper bounds, including importance sampling for the contraction rate and sampling for a variance-bound term, but its inspected Appendix B.3 does not give this exact stationary-risk law or the probability-boundary attainment transition. Ryu and Boyd's 2017 SPI manuscript studies convergence of general stochastic proximal iteration, without this specific p-dependent finite-sum normalization. A search of mathematically related prior records found no statement implying the exact quintic threshold; related sharp scalar stochastic optimizer results involve different update schemes. A reformulation in unexamined affine iterated-function or importance-sampling literature remains a priority risk.
+PASS
 
-**Value — PASS.** The natural issue is which sampling law minimizes the persistent error of an established fixed-step stochastic proximal optimizer, as distinct from optimizing its linear convergence guarantee. The smallest heterogeneous strongly convex test exposes a sharp change from a genuinely optimal two-component sampler to an unattained one-component limit, a structural warning for interpreting rate-optimal and variance-bound-optimal distributions. This is a motivated analytical boundary for terminal risk, not an arbitrary computed constant. The special quadratic form, stationary objective, and excluded endpoint are explicit limits.
+Differentiating the two proximal objectives gives slopes q1=p/(p+gamma), q2=2(1-p)/(2(1-p)+gamma), with affine offsets 0 and 1-q2. Both slopes are strictly less than one; conditioning on the iid next map gives triangular first- and second-moment recurrences with diagonal factors strictly less than one, so the limiting risk exists from every prescribed start. Independently recomputed the second moment centered at 1/3 and its exact sign factorization against 1/9 (the sign of the difference is the opposite of F); the endpoint limits are 4/9 and 1/9. Descartes’ rule, positivity of F(p,0) and the negative leading coefficient give exactly one positive gamma-root for each interior p. F(4/5,1)>0, and the Bernstein certificate gives F(p,2)<0 uniformly on the closed interval. Taking a maximizing sequence of gamma-roots and passing to a convergent subsequence rules out 2 and, since the supremum exceeds 1, also rules out p=0,1. Thus F=F_p=0 at a legal contact. Recomputed the requisite resultant via quartic discriminant invariants; its positive zeros are those of the frozen quintic. That polynomial is negative up to 1 and strictly increasing thereafter by the displayed derivative bounds, with opposite signs at 1 and 2. Below the contact the risk dips strictly below both endpoint limits, so it attains its infimum inside; at contact the infimum is attained at equality; above contact the strict interior inequality and the p→1 limit give nonattainment. The frozen script was inspected, not executed; the independent exact algebra and root bracket passed with `python /workspace/reproductions/3.py` (SymPy). No finite iteration tests are needed for the continuum conclusion.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The strongest indexed analogue uses the same stationary squared-error objective and includes exactly the same quadratic pair, but omits inverse-probability scaling and varies curvature rather than the proximal parameter. The primary SPPM-NS paper supplies the actual probability-scaled update but optimizes bounds, not this exact stationary risk. The supported distinction is the sharp gamma-quintic attainment transition for the specified inverse-probability update, not the general phenomenon of sampling collapse.
+
+## value
+
+PASS
+
+The inverse-probability scaling is part of a published method. On a minimal heterogeneous quadratic pair the exact stationary objective exhibits a change in whether a legal optimum exists; this addresses a question that rate and variance-bound optimization do not settle. The exact boundary and inclusion of its equality case distinguish a legally attainable optimum from a degenerate limiting prescription. The value is as a scoped analytical benchmark, not a claim about the most useful finite-time sampler or about general objectives.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

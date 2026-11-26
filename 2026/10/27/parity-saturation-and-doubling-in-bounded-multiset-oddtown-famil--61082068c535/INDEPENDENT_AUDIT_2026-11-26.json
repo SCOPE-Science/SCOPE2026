@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:23:57.691839Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Equal coordinate-parity patterns give an odd intersection, so each odd-weight pattern contributes at most once. Separately, encoding each multiplicity x_i as the initial segment of length x_i in an m-slot block gives identity Gram matrix over F_2 and the mn bound. The size-4 and size-8 witnesses meet the parity bound and remain feasible as the cap increases. At exact cap 3 and n=4, all maximizers occupy all eight parity classes. Independent enumeration builds one selection from each class and keeps precisely pairwise-compatible choices, exhausting 128 odd vectors and giving six full families; comparing with all 24 coordinate permutations gives exactly the same six families. A different traversal count in the frozen checker is not a mathematical invariant. Replay: /workspace/branches/a3a05a0a-b4ce-4725-8e7e-609e097e4b78/independent_oddtown_check.py with arguments 3 or 4 (see independent_check_n3.out and independent_check_n4.out in the same directory). The uploaded script was inspected, not executed. Concatenating disjoint-support families by zero padding preserves within-block intersections and gives zero across blocks; the excess of 8a+b_r over 2n−2 is respectively 2, 1, 0, 0. This establishes the unbounded claim by construction, not by sampling. No n>4 extremal classification is certified.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1 determines E_m(n) for the even-diagonal problem. The Oct. 26 record covers all n but only cap two; its construction has asymptotic ratio 5/3."
+        ],
+        "reasoning": "Increasing the cap preserves feasible lower-cap examples but not the corresponding upper bounds or classifications. A cap-two construction with ratio 5/3 does not imply cap-three attainability at ratio 2.",
+        "searches": [
+          "Banerjee–Dewan Theorem 1",
+          "Resultary 2026/10/18/013fa357cd1f and 2026/10/26/972d45c8eb78"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Independent cap-three enumeration and orbit replay",
+        "arXiv:2610.21636v1",
+        "arXiv:2606.03613",
+        "Resultary 013fa357cd1f and 972d45c8eb78"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Ordinary Oddtown on the enlarged ground set implies mn only. Disjoint support already occurs in the cap-two construction, but its inputs do not saturate 2^(n−1) at n=3 or 4."
+        ],
+        "reasoning": "The four-coordinate cap-three block is exactly the new input turning the known assembly into the claimed coefficient two; the complete small orbit does not follow from a single cap-two extremal count.",
+        "searches": [
+          "Classical Oddtown binary embedding; arXiv:2610.21636v1 Theorem 1; Resultary 972d45c8eb78 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Banerjee–Dewan use the identical coordinate-minimum operation but require even self-cardinality. Zou's (a,b)-town framework at k=2,a=1,b=0 is ordinary set Oddtown."
+        ],
+        "reasoning": "The first changes the diagonal condition; the second does not impose the chain-prefix block restriction when represented on the mn-slot ground set. Neither is an equivalent extremal problem supplying the sharp values and orbit.",
+        "searches": [
+          "Resultary bounded-multiset Oddtown and parity saturation",
+          "arXiv:2610.21636v1 §§1.1–1.2",
+          "arXiv:2606.03613 Definition 1.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The two close cap-two records list O_2(3)=3 and O_2(4)=6, not 4 and 8; neither gives a table of cap-three extremizers. The focused primary-literature query returned no results."
+        ],
+        "reasoning": "The verified table entries do not cover the larger cap. Empty results do not establish that no other table exists.",
+        "searches": [
+          "Resultary exact small-parameter bounded-multiset Oddtown profiles and extremizers"
+        ]
+      },
+      "rationale": "The supported distinct content is the cap-three parity saturation at n=3,4 (and the extension in m by the same witnesses), the six labelled maximizing families in one coordinate orbit at cap three and n=4, and the resulting density-two amplifier. The classical Gram bound and the disjoint-support operation are not new mechanisms. The inspected sources do not give the decisive cap-three witnesses or extremizer classification; the closest lower-cap results have different exact maxima and a smaller proved asymptotic construction ratio. This is a best-of-knowledge comparison, not historical priority certification.",
+      "residual_risks": [
+        "The bounded catalogue and literature queries cannot rule out an equivalent earlier enumeration or construction under another name.",
+        "The asymptotic upper bound at cap three is not sharpened, and the larger-order maximum is not determined."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "RELATED_DIFFERENT_DIAGONAL",
+          "evidence": "The condition includes diagonal pairs, forcing even cardinality; the theorem is for E_m(n).",
+          "identifier_or_url": "https://arxiv.org/html/2610.21636v1",
+          "material_read": "§1.1 definition (offset 2356), §1.2 Theorem 1 (offset 8531)",
+          "method": "OA HTML passages",
+          "title": "An Eventown Result for Multisets",
+          "trigger": "Same intersection model and parameter cap"
+        },
+        {
+          "assessment": "SMALLER_CAP",
+          "evidence": "O_2(1) through O_2(5) and a six-coordinate cap-two amplifier.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-oddtown-families-of-two-bounded-multisets-the-first-excess-and-a--013fa357cd1f/RESULT.md",
+          "material_read": "Finding and construction passages, mirror offsets 0–5563",
+          "method": "Resultary lookup and local mirror",
+          "title": "Oddtown families of two-bounded multisets: the first excess and a block amplifier",
+          "trigger": "Close indexed small-parameter profile and construction"
+        },
+        {
+          "assessment": "SMALLER_CAP",
+          "evidence": "First six cap-two maxima are (1,2,3,6,7,10); 10q+b_r lower bound operates on six-coordinate blocks, not the cap-three eight-on-four block.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-a-sharp-rank-obstruction-for-two-bounded-multiset-oddtown-famili--972d45c8eb78/RESULT.md",
+          "material_read": "Finding, assumptions, binary encoding and proof passages; offsets 0–5588",
+          "method": "Resultary lookup and local mirror",
+          "title": "A sharp rank obstruction for two-bounded multiset Oddtown families",
+          "trigger": "Closest indexed extremal problem"
+        },
+        {
+          "assessment": "DIFFERENT_UNDERLYING_OBJECT",
+          "evidence": "Families of subsets, with ordinary Oddtown as a specialization, not the coordinatewise minimum on bounded multisets.",
+          "identifier_or_url": "https://arxiv.org/html/2606.03613",
+          "material_read": "§1 Definition 1.1 (offset 404)",
+          "method": "OA HTML passage",
+          "title": "Zou's (a,b)-town paper",
+          "trigger": "Potential generalization of classical Oddtown"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The finite orbit classifies exactly how the cap-three model first attains its full eight-pattern ceiling, whereas the cap-two optimum on the same four labels is only six. More than a table entry, that four-coordinate witness gives a uniform lower bound of 2n−2 and a limiting lower density of two per coordinate, versus one for ordinary Oddtown and the inspected cap-two amplifier's 5/3. The finite and asymptotic aspects support each other without claiming the new lower bound is optimal in larger dimensions.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

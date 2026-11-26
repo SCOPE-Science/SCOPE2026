@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T15:15:46.424910Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, METADATA.json, AUDIT.json, REVIEW.md, SLOGAN.txt, VERIFICATION.md and source of verify.py",
+        "Barcanescu arXiv:1402.3833v1 §VI.2"
+      ],
+      "rationale": "Fourier inversion gives the normalized convolution kernel; the apparent sign difference in the exponential is harmless since −H=H. Its column sum gives the ℓ¹ norm (attained at a point mass), and its row sum gives the ℓ∞ norm (attained by a sign test at one output). Barcanescu §VI.2 gives the completed period polynomial with exactly this L convention. The shift by −1/3 gives the displayed depressed cubic and the cosine triple-angle formula, with max at θ and min at θ+2π/3. Negative σ₂ excludes three roots of one sign, and the sign of the nonzero constant product selects the exceptional sign: the absolute sum is 1+2ηmax or −1−2ηmin. Both advertised constants follow. A fresh bounded cosine-sum calculation over the 80 eligible primes ≤1000 gave branch counts 43 and 37, with maximum formula discrepancy 8.9×10⁻¹⁵; p=7 and p=13 give 1.28398834498 and 1.63144209781 in opposite branches. This reproduction is corroborative; the cited polynomial and algebra prove the universal statement.",
+      "residual_risks": [
+        "No claims on interior ℓ^q norms, arbitrary density sets, or branch distribution. In the frozen script max_poly_res is logged but not separately asserted; the explicit trigonometric root check and analytic proof do not depend on that logged diagnostic."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Barcanescu gives the coset partition and the exact monic degree-three polynomial for the multiset of periods with the unique normalized parameter. Green–Konyagin §1 gives the normalized Fourier ℓ¹ functional for any subset, while its half-density extremum is not the claim here."
+        ],
+        "reasoning": "The already known complete multiset, including its signs as real roots, fully determines the endpoint norm via the definition of the Fourier ℓ¹ functional.",
+        "searches": [
+          "Barcanescu arXiv:1402.3833v1 §I.2–3 and §VI.2",
+          "Green–Konyagin arXiv:math/0601565v2 §§1–2"
+        ]
+      },
+      "checked_sources": [
+        "S. Barcanescu arXiv:1402.3833v1, citing the classical Myerson polynomial",
+        "B. Green and S. Konyagin arXiv:math/0601565v2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Each of the three roots occurs k=(p−1)/3 times and the remaining Fourier value is k, before scaling by 1/p. The product of these real roots is p(L+3)/27−1/27 and their second elementary symmetric sum is −k. Consequently a single comparison of L with −3 determines whether to use max or min in the absolute sum."
+        ],
+        "reasoning": "Once the older exact period polynomial is supplied, the proposed formula is its direct elementary evaluation: take the absolute sum with the known multiplicities, read the sign branch from Viète, and solve the cubic by the triple-angle identity. No additional estimate for a Gauss sum, sign ambiguity across cosets, or arithmetic theorem is needed.",
+        "searches": [
+          "Barcanescu §VI.2, display attributing the cubic polynomial to G. Myerson",
+          "Green–Konyagin §1 normalized Fourier definition and Question 1.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The adjacency matrix of the additive Cayley graph with connection set H has entries 1_H(x−y) and eigenvalues K(x). Its adjacency energy divided by p is exactly the claimed norm. The algebraic number-field norm is instead the product of the periods."
+        ],
+        "reasoning": "The translation to adjacency energy shows an equivalent invariant; literal searches for just 'norm of Gaussian periods' can instead find a different, multiplicative invariant.",
+        "searches": [
+          "cubic Gaussian periods absolute sum Fourier algebra norm cubic residue subgroup Lebesgue constant Green Konyagin",
+          "Myerson period polynomials cubic Gaussian periods sign positive negative exact formula trigonometric 4p L2 27M2 Fourier norm cyclotomic",
+          "\"cubic\" \"energy\" generalized Paley graph cubic residues graph energy p 1 mod 3 Podesta Videla spectra"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Barcanescu §VI.2 specifies an all-prime exact polynomial, stronger than a finite table of the values needed for the scalar invariant."
+        ],
+        "reasoning": "Resultary returned HTTP 503 and provided no results; absence of an exact listing is not inferred. The failure below is decided by the accessible exact prior formula up to routine algebra, not by an incomplete search.",
+        "searches": [
+          "Resultary: Gaussian cubic periods absolute sum cubic-residue Fourier projection Lebesgue constant",
+          "Primary discovery query on cubic Gaussian-period polynomial, sign and norm"
+        ]
+      },
+      "rationale": "The complete multiset needed for the proposed exact invariant is already given by a classical theorem for these exact cosets, and the norm and sign split are routine consequences of that stronger data. This is a coverage-by-implication finding, not a claim that an earlier source printed the exact endpoint formula. The corpus search failed with an HTTP 503 and is not counted as negative evidence.",
+      "residual_risks": [
+        "The transport failure leaves exact bibliographic priority of the harmonic-analysis wording open. This does not affect the demonstrated implication from the older stronger data."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the complete spectral data, including the coefficient that decides the branch",
+          "evidence": [
+            "§I.2 cosets of dth powers",
+            "§VI.2 monic cubic and the uniqueness of c≡1 mod 3 and of b up to sign"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1402.3833v1",
+          "material_read": "§I.2–3 and §VI.2 on cubic residues",
+          "method": "Read full-text mathematical sections and compared each coefficient and the representation convention",
+          "title": "The coefficients of the period polynomials",
+          "trigger": "Exact polynomial and normalization for the same Gaussian-period multiset"
+        },
+        {
+          "assessment": "Supplies the normalized norm interpretation; the extremum over half-density sets is a different question",
+          "evidence": [
+            "§1 display defining the Fourier transform and display in Question 1.1 summing absolute coefficients"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/math/0601565",
+          "material_read": "§1 definitions, Question 1.1 and Theorems 1.2–1.5; §2 Fourier inversion",
+          "method": "Read the arXiv HTML mathematical statements",
+          "title": "On the Littlewood problem modulo a prime",
+          "trigger": "Same normalized Fourier-algebra functional"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof and limitations; Barcanescu §VI.2; Green–Konyagin §1"
+      ],
+      "rationale": "This is a natural subgroup and a correctly computed invariant, but the exact result is mechanically implied in this case. The entire output is an absolute sum of an already explicitly known spectrum, simplified by elementary sign and cubic-root identities. The branch presentation by itself gives no new arithmetic constraint, distribution result, extremal statement or unresolved estimate beyond that spectrum. The rejection is specific to the routine deduction here, not to the small length of a proof or to exact invariants in general.",
+      "residual_risks": [
+        "A substantive distribution or extremality result would be a different claim and has not been reviewed."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

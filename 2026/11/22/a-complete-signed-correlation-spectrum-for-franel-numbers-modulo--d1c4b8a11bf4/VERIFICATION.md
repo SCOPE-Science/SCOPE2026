@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-23.md",
+      "INDEPENDENT_AUDIT_2026-11-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification of the Franel correlation spectrum
+# Independent mathematical audit
 
-The supplied `verify_franel5.py` is standalone and uses only Python's standard library. Run it with `python3 verify_franel5.py` from the directory containing this document. The verifier reconstructs 450 Franel numbers independently from their binomial-cube definition and compares quadratic-character results to the digit-product formula, checks all five outgoing-carry coefficients, calculates the unwrapped shifted products for 151 shifts at each of depths \(1,2,3,4,5\), tests the stabilized recurrence and sharp equality classification at 1999 positive shifts, and checks all signed spectrum multiplicities for the 3905 shifts across depths one through five. All those computations completed successfully.
+## correctness
 
-The proof's infinite coverage rests on two exact algebraic transitions, not these finite checks: the unwrapped digit-carry recurrence with coefficients \((4,0),(0,1),(-1,0),(0,-1),(1,0)\), and the signed/unsigned state matrices whose \(r\)-th powers give \(Q_r(t)=1\) and \(P_r(t)=((1+4t)^r+1)/2\). The existence of fixed-shift limiting correlations and eventual constant errors follows by induction on shift. The only unresolved matters concern historical priority, other primes and moving shifts. No independent audit is implied by this document.
+PASS
+
+Lucas applied to each binomial and independent summation of its digit cubes give character weights (1,-1,0,1,1). To check the limit and spectrum independently, first restrict both n and n+h to the block. The exact Laurent polynomial for those correlations is the product for i=0,...,r-1 of (4-z^(2*5^i)-z^(-2*5^i)+z^(4*5^i)+z^(-4*5^i)). The unwrapped sum differs by at most h terms, so this gives the same normalized fixed-h limit. The exponent h is impossible if h is odd. For even h the unique balanced-quinary representation of h/2 uses digits 0, +/-1, +/-2; the value after normalization is 4^(-j) times (-1) to the number of digits +/-1, with j the number of nonzero digits. For 0<=h<5^r the balanced representations are exactly the nonnegative half of the r-digit balanced words. At each selected nonzero position two choices are positive and two negative; reflection preserves sign and halves each nonzero class. This yields the displayed signed counts and the only positive shifts of magnitude 1/4 are 2*5^i and 4*5^i with the stated signs. For the stronger exact remainder claim, splitting the unwrapped sum by n mod 5 gives the single surviving coefficient 4,+1,-1,-1,+1 and predecessor q,q+1,q,q+1,q respectively. Shifts 0 and 1 have exact values 4^r and -1; all other predecessors decrease, proving eventual constant integer remainder by induction. This also confirms the four small-shift identities. The frozen scope is fixed h, not a uniform asymptotic for growing shifts.
+
+## originality
+
+PASS
+
+Qualified best-of-knowledge pass for the evaluated all-shift signed multiplicity law and sharp equality families for this sparse arithmetic character, not for Lucas, digit automata, or generic block-product correlation methods.
+
+## value
+
+PASS
+
+The usual correlation normalization loses all information on this sparse support. The natural active normalization yields a complete exact two-point statistic: precisely the odd shifts vanish, the signs balance at each nontrivial magnitude and the strongest lags have a sharp arithmetic classification. This is an all-depth benchmark for sparse digit-defined correlations rather than a recomputation of a Franel residue table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

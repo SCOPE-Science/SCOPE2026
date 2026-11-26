@@ -1,19 +1,21 @@
-# Scientific review: annular logarithmic Szegő metric
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For the Euclidean-arclength annular Hardy kernel \(S_q\), orthogonality of Laurent monomials yields the displayed diagonal series. A half-integer rewrite and the precisely normalized classical Jacobi-cosine Fourier expansion give \(Z_h=(2\sqrt mK(m)/\pi)\operatorname{cn}(2iK(m)u/\pi\mid m)\). The Jacobi ODE and first integral yield the exact closed metric formula. Imaginary transformation makes \(C_h(u)^2\) run bijectively through \([1,\infty)\) over half of the annulus, reducing the infinite-dimensional kernel calculation to a globally exhaustive, elementary convex minimization of \(my+(1-m)/y\). The nome identity makes \(m=1/2\) equivalent to \(h=\pi\); the coefficient of the first nonzero critical Taylor term is \(8K(1/2)^6/\pi^6>0\). No numerical experiment is used to establish a global claim. The included finite checker passed 1284 numerical assertions by comparing independent expressions and checking boundary patterns.
+PASS
 
-## Originality — PASS (with historical-priority risk)
+The arclength monomial norms give the stated Laurent series, and pairing the half-integers gives the Jacobi cn Fourier series with nome e^(−h) and parameter m, not modulus m. The radial operator is (1/4)∂²/∂u²; the affine prefactor of the kernel has no effect. For α=2K(m)/π the cn differential equation and initial conditions give C″=α²[(1−2m)C+2mC³] and (C′)²=α²(C²−1)(mC²+1−m), proving the log-derivative identity. The reciprocal complementary cn increases from 1 to infinity as u traverses [0,h/2); thus y=C² covers [1,∞), and the constrained minimum of my+(1−m)/y decides all radii without a cutoff. Monotonicity of K(1−m)/K(m) gives the threshold at m=1/2, h=π. Inverting complementary cn gives the advertised radius, and y−1=α²u²+O(u⁴) gives the critical coefficient α⁶/8=8K(1/2)⁶/π⁶. The central maximum beyond threshold is radial, not pointwise strict along the central circle. Independent direct Laurent variance checks at 16 interior points and a critical divided difference corroborated the proof (python3 /workspace/evidence/review_checks.py 1); the exact argument establishes the universal claims.
 
-The focal kernel paper (Gafai–Murid–Wahid, arXiv:2202.09114, 2022-02-18) states bilateral/product Szegő formulas and their zeros, not the two-ring metric minimizer bifurcation. The highly relevant Katori–Shirai full article (arXiv:2008.04177) determines one-point zero intensities and different two-point correlation phase transitions, not the logarithmic-metric minimum or critical nome. Krantz–Wójcicki (2021) develop projective Szegő distances but do not analyze annuli. DLMF 22.11.2 gives only a Jacobi Fourier identity. The new optimization is not a restatement of the input kernel, raw Euclidean zero intensity, or an ordinary off-diagonal Szegő zero. A classical elliptic-function or kernel-curvature identity could imply parts of the theorem without matching vocabulary; priority is provisional, not proven by negative searches.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The pointwise norm geometry of an annular Hardy reproducing-kernel space changes qualitatively when the conformal modulus passes a distinguished self-complementary elliptic value. The exact switch between one center circle and two reciprocal rings, sharp transition \(q=e^{-\pi}\), complete optimizer classification, and quartic degeneracy characterize the global geometry of a natural kernel-induced metric and the cylindrical-density profile of its canonical Gaussian zero process. This is a structural threshold for a parameterized family rather than a numerical sample or unmotivated finite cutoff. The exact classical elliptic series is only an input; the motivated global classification is the contribution.
+The stand-alone curvature formula is a classical re-expression of a known annular kernel/one-point intensity. The supported distinct result is the full global classification of the logarithmic metric minimizers, their reciprocal positions and the critical quartic law.
 
-## Sources and limitations
+## value
 
-Sources examined: full texts of Gafai–Murid–Wahid (2022), Katori–Shirai (2022), Krantz–Wójcicki (2021), and NIST DLMF §22.11. The ordinary Euclidean-arclength Hardy metric is distinguished from weight-perturbed kernels, Euclidean zero intensity, and global geodesic distance. The remaining risk is an unindexed equivalent classical elliptic formulation. Numerical corroboration is finite and not independent validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This answers a natural global question about a canonical kernel metric across all annular moduli. The exact change from one central circle to two reciprocal circles and the quartic degeneracy are structural features not supplied by simply rewriting the known one-point density. It makes no claim about Euclidean-area or geodesic extremizers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,87 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:15:54.643411Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A ball move is a zero-sum integer difference of total negative mass at most r, and is lost exactly if some negative component exceeds the center multiplicity at that coordinate. Fixing one or two negative components leaves a positive-sum vector; choosing its strictly negative positions and composing their absolute mass, then weakly composing the positive mass among the rest, gives the displayed K, δ and ω. The strict differences between the δ's are witnessed by the move transferring exactly a+1 objects from the designated coordinate to another; δ_(r−1)>0 by transferring r. The interior volume generating function is (1−t)^(q−1) times the sum of binom(m+q−1,q−1)^2 t^m, by taking the constant term of the q-fold product of (1−t)/((1−tw)(1−w^−1)) and then summing through r; Euler's binomial-series transformation gives the stated H. For a fixed coordinate of size a the marginal is (q−1)/(n+q−1) times the product of (1−a/(n+j)) over j=1,…,q−2, yielding the stated negative n⁻² correction. The two-coordinate probability starts at (q−1)(q−2)/n²; three small coordinates cost O(n⁻³), or are impossible eventually for q≤3. For every fixed k, adding δ_a^k for each small coordinate and correcting each pair by its overlap-aware joint power gives D_n^k exactly through two small coordinates, with bounded error otherwise. This gives L_k and M_k, including q=2 with no pair term. The variance subtracts L_1²/n²; the rare-defect masses come from one-coordinate events, with other events of order n⁻². Independently, for q=3,r=2 the moves at distances 0,1,2 number 1,6,12 (the distance-two patterns are permutations of (2,−2,0),(2,−1,−1),(−2,1,1)). They give δ=(7,3) and ω_00=1 only. Grouping centers by which coordinates are 0 or 1 produces the six stated bins for n≥6; summing deficits and squared deficits gives (60n+36)/((n+1)(n+2)) and (348n+1332)/((n+1)(n+2)). Subtracting the square gives the −3312 correction. The uploaded checker was inspected, not executed; the stored 8964 center checks and 16 spectra are finite consistency evidence.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 9 counts all pairs at a given metric distance, hence gives the mean. The later Resultary proof instead counts the simultaneous feasibility of two moves from one center and gives the exact first two volume moments."
+        ],
+        "reasoning": "Summing the pair-distance counts only gives the first moment. The later same-center two-move expression does dominate the first two moments; expanding it yields the second-order variance, but neither the prior pair-distance result nor the later two-move formula states the explicit all-k coefficients.",
+        "searches": [
+          "arXiv:2603.18322v1 Lemma 4, Theorem 9 and Lemma 15",
+          "Resultary 9e557f4728a6 Proof §1 equations (2)–(3)"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2603.18322v1",
+        "Resultary:9e557f4728a6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact prior per-center formula can be summed over centers, but does not evaluate the conditional two-face deficit powers or the triple-face error. The later single-face law yields L_k for every k because D_n is bounded; its exact two-move formula supplies k=2 mechanically by expansion."
+        ],
+        "reasoning": "Distinguish an algorithm to compute every volume and a first-moment theorem from a closed evaluated two-term moment law. The explicit all-k overlap coefficient requires identifying the boundary interactions. The later first-two-moment coverage and table are credited even though they do not establish earlier priority.",
+        "searches": [
+          "Compare arXiv:2603.18322v1 Lemma 4 and Theorem 9 with the two-face coefficient; compare 9e557f4728a6 Proof §§1–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Lemma 4 gives the exact individual-ball generating function for the same integer-simplex metric. In 9e557f4728a6, the one-coordinate deficits h_s are the same as δ_s and the rare-defect probabilities match, under the same uniform-composition measure."
+        ],
+        "reasoning": "Boundary deficits and ball volumes differ by an additive constant and sign, so the matching rare law is a genuine equivalence. Sequence deletion outputs and ordered-string sampling would describe different geometry and weights.",
+        "searches": [
+          "Resultary: uniform multiset center, simplex half-l1 deletion ball, boundary-defect distribution and ternary radius-two frequencies",
+          "arXiv:2603.18322v1 §4.1, Lemma 4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The November 8 record gives the same six frequencies for all n≥6 and the same exact variance. Its volume-19 bin, binom(n+2,2)−6n+9, is binom(n−4,2). Lemma 15 gives ternary extrema including 3r²+3r+1 and an average asymptotic, not the frequency table in the inspected passage."
+        ],
+        "reasoning": "Compare full multiplicities, not merely the interior volume and minimum. The catalog match has materially the same table but a later record date; prior center formulas could be used to obtain the table by explicitly classifying the six cases.",
+        "searches": [
+          "Resultary: ternary radius-two multiset six ball-volume classes; 9e557f4728a6 Finding and Proof §4",
+          "arXiv:2603.18322v1 Lemma 15"
+        ]
+      },
+      "rationale": "The prior individual-center and mean theorems are credited. The explicit face-overlap n⁻² law for every fixed deficit moment evaluates a statistic not supplied by those prior statements. There is substantial exact overlap with a later Resultary record (rare deficits, leading moments, the entire six-bin table and ternary variance); that record gives a stronger finite-n formula for the first two volume moments, but does not predate the October 27 finding. No preexisting evaluation of the full moment coefficients was established.",
+      "residual_risks": [
+        "Prior exact center formulas enable alternate computations, and an earlier unindexed derivation could overlap; the comparison does not establish universal priority.",
+        "Close comparisons are statement- and passage-level, not an exhaustive survey of coding geometry."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior exact individual balls, mean and ternary extrema; distinct from the evaluated two-face law",
+          "evidence": "A_(n,q)(m) factors as a distance coefficient times binom(n−m+q−1,q−1); summing through r and normalizing counts the mean, not the square. The ternary interior value was known.",
+          "identifier_or_url": "https://arxiv.org/pdf/2603.18322",
+          "material_read": "v1 PDF p. 18 Lemma 4, pp. 28–29 Theorem 9, pp. 33–34 Lemma 15",
+          "method": "Compared generating function, ordered-pair distance counts and ternary special case to the random-center moments and frequency spectrum",
+          "title": "Polynomial Constructions and Deletion-Ball Geometry for Multiset Deletion Codes",
+          "trigger": "Same metric and strongest earlier individual-ball and averaged counts"
+        },
+        {
+          "assessment": "Substantial later coverage; not evidence of earlier priority; does not evaluate the explicit all-k n⁻² coefficient",
+          "evidence": "It states the same rare law, exact first two volume moments via feasibility counting, and identical six-class table and rational ternary variance.",
+          "identifier_or_url": "2026/11/8/SCOPE-boundary-layer-fluctuations-and-the-complete-ternary-radius-two--9e557f4728a6",
+          "material_read": "Local-mirror RESULT.md Finding and Proof §§1–4, from OA offset 0; relationship discussion offset 7442",
+          "method": "Identified its h_s with δ_s, matched all six multiplicities and compared simultaneous move counts",
+          "title": "Boundary-layer fluctuations and the complete ternary radius-two spectrum",
+          "trigger": "Exact same law and frequency parameters"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Ball-size variation is a natural missing statistic for a nonhomogeneous coding metric whose interior, minimum and mean are already used. The universal two-face term distinguishes same-center interactions that the mean cannot see; radius two in the ternary simplex is the first case where two simultaneous coordinate violations can overlap, explaining the six classes and giving an interpretable exact example. No improved code size is claimed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:58:29.779392Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–29 and 32–70; VERIFICATION.md lines 19–20; verify_howe5.py lines 30–77, inspected, not run."
+      ],
+      "rationale": "Putting t=x², the branch polynomial divided by t² is Q(t+t⁻¹) with Q(z)=z²+az+b-2. Since no root t is zero and t→t+t⁻¹ ramifies only over z=±2, Q must have distinct roots and avoid those two values. Disc(Q) and Q(±2) give exactly the three excluded factors in characteristic 5. The coefficients of f² at degrees 2,4,8,12,14 give the indicated 3-by-3 matrix: the 4 and 12 entries are a²+2b, 2 and 14 are 2a, and 8 is b²+2a²+2. Its ± basis on the outer indices and its middle vector are defined over F_5; thus every nonzero Hasse scalar stays nonzero under the twisted iterations and both rank formulas follow. Eliminating b via H_+=0 gives b=2a²+4a and H_0=4(a-1)³(a+2), with the symmetric formula for H_-. The triple intersections in the eliminant sense are at excluded boundary points; the other roots are simple, so the two smooth divisors cross transversally at each surviving point. H_+ and H_- cross at (0,0) with independent gradients, and H_0 there is nonzero. This also verifies there is no point with three vanishing factors. The Newton rows follow independently of the isogeny citation: rank is at least one, leaving at most four slopes between 0 and 1; any non-half slope and its dual require total multiplicity at least six. For counts, the three boundary graphs have q points each, three rational pairwise crossings and no triple point. On H_+, the boundary parabola and one boundary line give only (1,1), and the other line gives a²+a+1=0. H_- follows by a→-a. On H_0 insertion of the boundary parabola gives (a²-1)², while the lines give (a±1)², so only (±1,1) are lost in the affine chart. At infinity the smooth projective conic loses two points exactly when 3 is a square, i.e. in even extension degree, the same parity as square discriminant 2 for the other two intersections. Hence each retained divisor has q-1-2δ_n points. Subtract the three rational crossing points twice from the divisor incidence count to count points on precisely one divisor, then subtract from |U|. This establishes the three formulas for marked pairs in every extension.",
+      "residual_risks": [
+        "The script's matrix comparison is on 25 coefficient specializations and its census uses the derived formulas for ranks in three fields; it is not a symbolic proof or coverage of all extensions. The coefficient calculation, eliminations and conic point count above justify those steps. The nodes are intersections of divisors, not singular fibers on U."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ohashi's theorem constrains coefficients and point-maximal or point-minimal behavior conditional on superspeciality. Kani–Rosen is the general Jacobian factor framework cited for the three elliptic quotients; the full text was not obtained."
+        ],
+        "reasoning": "A theorem conditional on superspeciality does not establish this smooth locus's stable-rank strata or the marked counts. A general isogeny relation explains how to infer slopes from elliptic factors but does not count the coefficients where individual factors are supersingular. The discovery-search miss is not evidence of absence.",
+        "searches": [
+          "Ohashi arXiv:2112.11152v1 Theorem 1.1; Kani–Rosen DOI:10.1007/BF01442878; targeted search for characteristic-five genus-three hyperelliptic superspecial classification or reciprocal-family Hasse/p-rank census"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1209.2938v1 Table 1",
+        "arXiv:1305.4501 §5.2.1 Eq. (23)",
+        "arXiv:2112.11152v1 Theorem 1.1",
+        "DOI:10.1007/BF01442878, bibliographic only",
+        "Resultary c26779cc9d90 and 0a16a94d04cc, inspected actual statements"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Knowing the rank-one crossings and field tests in F_5 and F_25 does not describe the boundary deletions on each divisor. For the marked census, the two parabolas lose conjugate quadratic pairs on the excluded boundary, whereas the conic loses its conjugate points at infinity, with the same even-degree parity."
+        ],
+        "reasoning": "The geometric rank statements and their ordered-cover analogues must be credited. The new arithmetic information is not a reformulation of the isomorphism claim or a direct specialization of a prior point-count theorem. It requires computing split versus nonsplit boundary contributions and subtracting the crossing incidences on U. The complete theorem is retained, with no standalone originality claim for the shared geometric assertions.",
+        "searches": [
+          "Direct statement comparison with Resultary c26779cc9d90 and 0a16a94d04cc, Shaska–Thompson §5.2.1, and Ohashi Theorem 1.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The product (x⁴+αx²+1)(x⁴+βx²+1) gives a=α+β and b=αβ+2; Shaska–Thompson's u,v form instead directly sets u=a, v=b-2. In the indexed ordered product with minus signs, a=-(α+β), b=αβ+2."
+        ],
+        "reasoning": "These are identical coefficient families geometrically, not different families attributable to notation. On the smooth locus the ordered-root cover does not give a bijection over every finite field: only split coefficient pairs lift to rational ordered roots, so a count on that cover cannot be substituted directly for the marked count on U.",
+        "searches": [
+          "Symmetric octic and reciprocal quartic-product genus-three Howe curves; arXiv:1209.2938v1 Table 1; arXiv:1305.4501 Eq. (23); Resultary reciprocal genus-three family and rank-one Jacobians"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Record c26779cc9d90 gives the same Hasse factors, geometric ranks and three rank-one points, plus their geometric isomorphism. Record 0a16a94d04cc gives the six-component and six-point geometry on the ordered product. Inspected finite tests of the first include F_5 and F_25, and neither inspected text gives the same all-extension marked census."
+        ],
+        "reasoning": "The first is exact overlapping coverage of the rank-point geometry irrespective of path date, and the second recovers that geometry after taking the unordered coefficient quotient. Neither is an exact tabulation of the marked strata at all q, and isomorphism-class collapse does not change the three separate marked points.",
+        "searches": [
+          "Resultary exact reciprocal-family rank-one parameters and characteristic-five Hasse-divisor cases",
+          "Resultary ordered quartic-product pullback, six components and six rank-one parameters"
+        ]
+      },
+      "rationale": "Pass for the combined stratification with the exact all-extension marked census. The equation and quotient setup are not new; the same rank strata and rank-one points are covered in a distinct indexed record, which additionally compares the curves up to geometric isomorphism. The inspected matching claims do not give the parity-dependent marked counts for arbitrary extensions. The assessment credits the geometric overlap without inferring priority solely from dated paths.",
+      "residual_risks": [
+        "The focused primary-literature discovery search found no further source, which does not certify absolute novelty. Credit the substantial geometric rank overlap in any novelty description and distinguish marked-pair counts from moduli counts."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior coefficient family, no arithmetic census in the inspected table",
+          "evidence": "Table gives the product of two monic reciprocal even quartics, whose expansion is the target coefficient family.",
+          "identifier_or_url": "https://arxiv.org/abs/1209.2938v1",
+          "material_read": "Table 1, PDF p. 8",
+          "method": "OA primary PDF passage inspection",
+          "title": "Hyperelliptic curves of genus 3 with prescribed automorphism group",
+          "trigger": "Known family normal form"
+        },
+        {
+          "assessment": "Identical coefficient form under reparametrization",
+          "evidence": "The equation is x⁸+ux⁶+(v+2)x⁴+ux²+1, with u=α+β and v=αβ; the inspected section concerns moduli and automorphisms.",
+          "identifier_or_url": "https://arxiv.org/abs/1305.4501",
+          "material_read": "§5.2.1 pp. 15–16, Eq. (23)",
+          "method": "OA primary PDF passage inspection",
+          "title": "Bielliptic curves of genus 3 in the hyperelliptic moduli",
+          "trigger": "Same two-dimensional bielliptic locus"
+        },
+        {
+          "assessment": "Conditional on superspeciality, not the asserted rank census",
+          "evidence": "The theorem assumes a superspecial Howe curve and deduces field-of-definition and maximality/minimality properties over the quadratic base field.",
+          "identifier_or_url": "https://arxiv.org/abs/2112.11152v1",
+          "material_read": "Theorem 1.1, pp. 1 and 8–9",
+          "method": "OA primary PDF passage inspection",
+          "title": "On the maximality of hyperelliptic Howe curves of genus 3",
+          "trigger": "Positive-characteristic arithmetic in the same Howe setting"
+        },
+        {
+          "assessment": "No primary passage used; independent slope-multiplicity proof suffices",
+          "evidence": "Bibliographic identification confirms the Jacobian-factor reference; there was no substantive passage from which to infer either coverage or noncoverage.",
+          "identifier_or_url": "https://doi.org/10.1007/BF01442878",
+          "material_read": "Crossref bibliographic record only; article and PDF retrieval unsuccessful",
+          "method": "Bibliographic check and publisher retrieval attempts",
+          "title": "Idempotent relations and factors of Jacobians",
+          "trigger": "Cited general isogeny mechanism"
+        },
+        {
+          "assessment": "Direct rank-stratum overlap, plus isomorphism of rank-one fibers; inspected verification is finite",
+          "evidence": "Lists Hasse factors and the three rank-one coefficient pairs (0,0),(2,0),(-2,0); checks F_5 and F_25, not the all-n formula.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-the-unique-rank-one-jacobian-class-in-a-reciprocal-genus-three-f--c26779cc9d90",
+          "material_read": "RESULT.md offsets 0–5199 and 5190–8228, finding and verification",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "The unique rank-one Jacobian class in a reciprocal genus-three family",
+          "trigger": "Exact family and same Hasse factors"
+        },
+        {
+          "assessment": "Pullback geometry, not the same marked census",
+          "evidence": "The ordered quartic-product form maps by a=-(α+β), b=αβ+2; it finds six pulled-back Hasse components and six rank-one parameters.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-six-component-hasse-divisor-and-six-rank-one-parameters-for-genu--0a16a94d04cc",
+          "material_read": "RESULT.md finding and recorded finite verification",
+          "method": "Local mirror passage inspection",
+          "title": "Six-component Hasse divisor and six rank-one parameters for genus-three curves",
+          "trigger": "Ordered-root version of the same coefficient geometry"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–27 and 48–67; compared Resultary c26779cc9d90 and 0a16a94d04cc findings"
+      ],
+      "rationale": "On a standard genus-three reciprocal Howe family, the rank strata are described by an explicit transverse Hasse-divisor arrangement and an exact marked census. The parity correction pinpoints field-of-definition effects invisible in a geometric census, and gives a reproducible benchmark for the frequency of ordinary and mixed-slope behaviors over every extension. This is material arithmetic information even after crediting the prior geometry and the isomorphism of the rank-one fibers.",
+      "residual_risks": [
+        "No claim of a count of distinct Jacobian or curve isomorphism classes, nor of a general genus-three moduli census."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

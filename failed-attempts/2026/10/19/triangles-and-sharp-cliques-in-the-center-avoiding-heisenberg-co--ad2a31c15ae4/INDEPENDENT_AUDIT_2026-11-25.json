@@ -1,0 +1,157 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:15:54.798321Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–62",
+        "Frozen VERIFICATION.md and verify.py (inspected, not executed)"
+      ],
+      "rationale": "Projection to the symplectic space V identifies each center-avoiding subalgebra with a graph of a functional on a nonzero totally isotropic s-space, so there are q^s lifts. The projection of the generated algebra is the sum of the images. If that sum is V, some cross-bracket is nonzero since the form is nondegenerate and the two images are individually isotropic. This supplies the central line and makes the generated algebra all of H. The sum condition forces complementary Lagrangians, so all lower-dimensional fibers are isolated and active fibers are independent sets. Building an isotropic basis gives q^(2n−j)−q^j possibilities for the next vector; divide by the ordered-basis count and multiply by q^s for the isolates. At dimension n the quotient product simplifies to L_n. In a splitting into two complementary Lagrangians, complements to one are graphs of symmetric matrices, and common complements to both correspond to the invertible ones. The nonsingular symmetric-matrix recurrence is valid in characteristic two: a nonzero first diagonal gives the one-by-one Schur complement; for zero first diagonal and a nonzero first off-diagonal row choose coordinates making it (1,0,…,0). In block form [[0,1,0],[1,b,w],[0,w^t,D]], the determinant is −det(D); b,w give q^(k−1) choices. A zero first row contributes nothing. Substitution proves the two closed products. Multiply the base degree, edge and triangle counts by q^n, q^(2n) and q^(3n), respectively; base triangles are L_n C_n S_n/6. For a clique the projected Lagrangians have disjoint nonzero vectors, giving the bound q^n+1. Lines over K=F_(q^n) in K² attain it under the trace of the K-determinant form, a nondegenerate alternating F_q-form by nondegeneracy of the trace pairing. The first example gives L=135, C=64, S=28 and 126+1260=1386 isolated lifts, with degree 512, 276480 edges and 20643840 triangles as claimed.",
+      "residual_risks": [
+        "The finite evidence samples prime fields. The written argument covers prime powers, including even fields, and supports the clique construction without an exhaustive clique search.",
+        "No statement about full-comaximal-graph isolate, triangle or clique invariants is certified by this induced-graph proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The full-graph theorem cea008ee3276 covers m≥2 and every prime power, identifies the active graph-type edge term, and gives the isotropic counts. The earlier rank-two fiber argument in 958f18ab300e works unchanged in higher symplectic dimension.",
+          "The papers' notation H_3 denotes dimension three, not Heisenberg rank three. The later rank-two full triangle census includes a common-complement term from invertible symmetric two-by-two matrices; its scope alone would not cover this assignment."
+        ],
+        "reasoning": "The broad comparison is governed by the full-graph structural theorem, not equality of full- and induced-graph invariants. The older low-dimensional counting statements by themselves are not a higher-rank census.",
+        "searches": [
+          "Resultary cea008ee3276, exact full-graph fibers and edge count",
+          "Resultary 958f18ab300e and 7a1e9598111e, five-dimensional full-graph degree and triangle findings",
+          "Towers–Zuleta–Gutierrez arXiv:2605.09583 §4.3 and arXiv:2608.16575 Prop. 3.3"
+        ]
+      },
+      "checked_sources": [
+        "Resultary cea008ee3276, 958f18ab300e, 7a1e9598111e and fa523b955d9a",
+        "arXiv:2108.13819",
+        "arXiv:2605.09583",
+        "arXiv:2608.16575"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Every base triangle is counted by choosing an initial Lagrangian, an opposite, and one of p^n_nn common opposites. Its q^(3n) lift factor gives the claimed triangle formula. Weight the standard s-space count by q^s for isolates. A clique is a set of disjoint Lagrangians; the vector packing bound and classical symplectic spread give equality.",
+          "The earlier noncommuting-graph record concerns element-level coloring; it is not a comaximal-graph clique theorem, but exhibits the spread mechanism."
+        ],
+        "reasoning": "The added formulas follow from the exact fiber graph by restriction, ordinary graph counts and established polar-space constructions. No additional classification of intersections or maximal cliques beyond spread existence is claimed.",
+        "searches": [
+          "cea008ee3276 proof §§1–3",
+          "arXiv:2108.13819 §3.1",
+          "Resultary fa523b955d9a, symplectic spread colorings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary cea008ee3276 classifies every vertex by projected subspace and whether it is a graph of a linear functional, with adjacency exactly the quotient sum relation.",
+          "In the symplectic dual-polar scheme, d(U,W)=n−dim(U∩W), so the active base is precisely relation R_n."
+        ],
+        "reasoning": "The center-avoiding designation selects exactly the graph-type fibers. Only two dimension-n images can sum to a 2n-space; hence complementary Lagrangians are the only nonisolated pairs. This is an induced restriction of the stronger result, not an analogy with another graph.",
+        "searches": [
+          "Resultary: symplectic fibers, center-avoiding Heisenberg comaximal subalgebras and quotient sum adjacency",
+          "arXiv:2108.13819 §3.1, Lagrangian dual-polar distance and intersection numbers"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected full-graph triangle count is for dimension five; it is not the same table. However the distance-regular intersection array in the polar literature determines p^n_nn, the common-opposite count, via the three-term distance-matrix recurrence and expansion of A_n².",
+          "The standard common-complement calculation identifies p^n_nn with S_n; the later full-graph fiber result already provides the necessary lift sizes and polar subspace counts."
+        ],
+        "reasoning": "There is no need for a literal triangle table when the association-scheme parameters determine the base triangle count. The paper uses a prime-q restriction; the full-graph restriction and symmetric common-complement calculation give the same determined count over arbitrary fields.",
+        "searches": [
+          "Resultary: Heisenberg comaximal exact triangle census and clique invariants",
+          "arXiv:2108.13819 §3.1 Eqs. (19)–(23), intersection-array data"
+        ]
+      },
+      "rationale": "The structure of the assigned induced graph is already determined by a distinct indexed theorem for the full Heisenberg comaximal graph, including all fields and ranks in scope. Restrict that theorem to the functional graphs over nonzero isotropic images: exact sum-adjacency gives the stated blow-up and isolates. The induced triangle and clique claims then recover standard polar data, not independent graph invariants not already determined by the stronger description. The earlier rank-two record already uses the same projection proof without a dimension-specific step in that part. This is a statement-level coverage decision, not a claim that the November record predates the assigned October record or evidence of copying.",
+      "residual_risks": [
+        "This comparison does not settle priority or dependence between the two dated higher-rank records.",
+        "The prime-field restriction of the inspected dual-polar paper is not used as evidence of field-uniform verification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Stronger structural coverage of the target induced graph, later-dated",
+          "evidence": "All prime powers and rank m≥2; precise center-containing and graph-type fibers, exact sum-adjacency, isotropic space counts and the complementary-Lagrangian edge term.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-edge-count-and-symplectic-fibers-in-heisenberg-comaximal-g--cea008ee3276/RESULT.md",
+          "material_read": "Finding, assumptions and proof §§1–3, offsets 0–4169",
+          "method": "Bounded local mirror inspection",
+          "title": "Exact edge count and symplectic fibers in Heisenberg comaximal graphs",
+          "trigger": "Strongest same-object full-graph theorem"
+        },
+        {
+          "assessment": "Earlier rank-two statement; same dimension-independent reduction",
+          "evidence": "Graph-of-functional classification on isotropic spaces and exact sum-adjacency follow from the central quotient and nondegeneracy, without using that the quotient has dimension four in those steps.",
+          "identifier_or_url": "958f18ab300e",
+          "material_read": "Finding and proof of fibers and sum-adjacency, especially offsets 1080–2591",
+          "method": "Bounded local mirror inspection",
+          "title": "Five degree strata in the comaximal graph of the five-dimensional Heisenberg Lie algebra",
+          "trigger": "Earlier use of the projection-and-lift method"
+        },
+        {
+          "assessment": "Gives polar distance, the definition of p^k_ij, and the array determining them; the paper restricts q to primes",
+          "evidence": "Common opposites are p^n_nn; the distance-matrix recurrence fixes that intersection number as well as the valency of R_n.",
+          "identifier_or_url": "https://arxiv.org/abs/2108.13819",
+          "material_read": "§3 and §3.1, pp. 5–6, Eqs. (19)–(23)",
+          "method": "Primary OA PDF passage",
+          "title": "Symplectic dual polar graphs and their association scheme",
+          "trigger": "Stronger known base-graph invariants"
+        },
+        {
+          "assessment": "Does not by itself classify the assigned induced higher-rank graph",
+          "evidence": "The Heisenberg classification in §4.3 is for dimension three; the Frattini statement concerns isolation in the full graph.",
+          "identifier_or_url": "https://arxiv.org/abs/2605.09583",
+          "material_read": "General Frattini isolation context and §4.3 pp. 9–10",
+          "method": "Primary OA PDF passages",
+          "title": "The comaximal graph of a finite-dimensional Lie algebra",
+          "trigger": "Foundational Lie graph and Heisenberg treatment"
+        },
+        {
+          "assessment": "Lower dimension and full graph",
+          "evidence": "The full dimension-three graph has q(q−1)(q+1)^4/6 triangles, not the assigned induced count.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.16575",
+          "material_read": "Proposition 3.3 pp. 6–7",
+          "method": "Primary OA PDF passage",
+          "title": "Comaximal Graphs of finite-dimensional Lie algebras over finite fields: Triangle counts and structural invariants",
+          "trigger": "Prior Heisenberg triangle-count claim"
+        },
+        {
+          "assessment": "Later and lower rank, confirming mechanism rather than identical count",
+          "evidence": "Complementary isotropic planes contribute through nonsingular symmetric two-by-two matrices in the full-graph census.",
+          "identifier_or_url": "7a1e9598111e",
+          "material_read": "Finding and common-Lagrangian term",
+          "method": "Bounded local mirror inspection",
+          "title": "Exact triangle census of the five-dimensional Heisenberg comaximal graph",
+          "trigger": "Closest explicit triangle count in the catalogue"
+        },
+        {
+          "assessment": "Different graph and different invariant",
+          "evidence": "Optimal element-level colorings correspond to symplectic spreads; the exact use here is the spread construction, not its coloring theorem.",
+          "identifier_or_url": "fa523b955d9a",
+          "material_read": "Finding in mirrored RESULT.md",
+          "method": "Bounded local mirror inspection",
+          "title": "Heisenberg noncommuting graphs have exact spread colorings",
+          "trigger": "Related q^n+1 invariant and spreads"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md",
+        "Resultary cea008ee3276",
+        "arXiv:2108.13819 §3.1"
+      ],
+      "rationale": "Triangles and maximal clique size are natural invariants, and the self-contained reduction is useful exposition. But as a standalone new finding the exact structure is already specified by the full-graph theorem, and the formulas are routine counts on its induced relation: a lift factor times an intersection number, the elementary spread bound and attainment, and an isotropic subspace sum. There is no surviving unresolved classification or independently needed exact fact beyond these mechanical consequences in the inspected record.",
+      "residual_risks": [
+        "This does not rule out value in a new result about the full graph or about finer incidence of maximum cliques; neither is established here."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

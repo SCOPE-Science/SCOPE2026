@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T17:04:20.658336Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–43, 47–115",
+        "Frozen VERIFICATION.md and verify_bipartite.py, inspected without execution",
+        "Independent quotient and direct seven-vertex inversion; replay method in rationale"
+      ],
+      "rationale": "The pinned Laplacian is positive definite: a vector in the Laplacian kernel is constant and the positive pins exclude every nonzero constant. Its covariance for independent unit-intensity disturbances is one half the inverse. I checked the rank-two determinant expansion and independently reproduced all three rational comparisons (3)–(5) with an equitable quotient rather than the frozen pseudoinverse calculation. Use a singleton for each leader and one cell for the unpinned vertices of each part; the quotient has diagonal degree plus assigned gain and off-diagonal entries minus opposite-cell sizes. Add contrast contributions (cell size minus one)/part degree to the inverse trace, omitting an empty cell; if retained symbolically at size zero its diagonal inverse contribution cancels the formal contrast term. Compute the quotient inverse trace as the sum of diagonal cofactors divided by its determinant. This gives AB−BA with the sign of (a−b)(p−q), AA−BB strictly negative, and AB−AA with the opposite sign of P(a)=Da²−Ea−F. The displayed bounds on H, W and V are positive for the entire integer domain, and P(b)<0 accounts for equal gains and forces the positive root above b when D>0. D≤0 gives P<0 for all allowed a. The positivity criterion q²−q>3p² and enumeration of p+q≤7 give the unique smallest graph K_{2,5}. Independent exact inversion with b=1 gives J_AB−J_AA=−(a²−26a−45)/[(7a+5)(8a+5)], verifying 27, 28, and the radical tie. The finite witness supplements rather than proves the uniform algebra.",
+      "residual_risks": [
+        "No claim for weighted edges, more than two leaders, coincident pins, gain budgets, or unequal disturbance intensities."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lin–Fardad–Jovanović solve the general selection formulation algorithmically with vertex-indexed κ; the data do not encode per-placement swapping of two prescribed gains unless the objective is evaluated with different diagonal data.",
+          "The Fitch–Leonard graph-general two-leader expression is common-gain and their explicit special solutions concern paths and cycles."
+        ],
+        "reasoning": "An algorithm for objective evaluation or general selection does not give the optimizer phase diagram and imbalance threshold; the equal-gain graph-general result cannot imply unequal-gain parameter boundaries.",
+        "searches": [
+          "arXiv:1302.0450 §§II–III",
+          "arXiv:1407.1569 pp. 12–13, Theorem 2 and proof"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, prior work and references",
+        "arXiv:1302.0450",
+        "arXiv:1407.1569",
+        "Resultary 5b299daa2230 and 09287ef2a00c (statements); 17423e28b87e and 3151e2186be2 (catalogue only)",
+        "A focused primary-literature web query returned no decisive passage"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The cube result fixes the ordering across gains by vertex-transitivity and distance, whereas in unequal bipartite graphs the pinned part and the gain assignment are independent data.",
+          "A four-equal-pin transition cannot be reduced by setting only two gains to zero within its common positive gain hypothesis."
+        ],
+        "reasoning": "No inspected statement supplies the three heterogeneous orbit differences and their signs or entails the quadratic boundary as a direct specialization. The general trace methods remain prior.",
+        "searches": [
+          "Lin–Fardad–Jovanović LS1; Fitch–Leonard Theorem 2; Resultary 5b299daa2230 and 09287ef2a00c"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "LS1 is the same noisy inverse-trace objective up to the factor one half in total variance.",
+          "Fitch–Leonard Theorem 2 uses k at both pins; this loses the independent variation in a and b central to relocation."
+        ],
+        "reasoning": "Matching coherence, grounding and joint-centrality formulations identify the right prior model but not the heterogeneous transition; concretely the classification gives only AA at a=b, while switching requires unequal gains.",
+        "searches": [
+          "Resultary local search: unequal-gain two-leader coherence, complete bipartite phase transition, inverse trace",
+          "arXiv:1302.0450 §II.A; arXiv:1407.1569 §§II,V"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "5b299daa2230 gives polynomial transitions on K_{2,m} for four equal-gain leaders.",
+          "09287ef2a00c gives a strict all-gain distance order on Boolean cubes. Nearby catalogue records 17423e28b87e and 3151e2186be2 concern equal-gain corona placement and noise-free bipartite budget allocation respectively."
+        ],
+        "reasoning": "The strongest actual matching records do not supply the two-gain K_{p,q} classification or exact K_{2,5}, b=1 threshold. No exact matching external table was identified; this is not an exhaustive uniqueness claim.",
+        "searches": [
+          "Resultary local search combining heterogeneous gains, two leader, complete bipartite, exact transition",
+          "Mirrored Resultary 5b299daa2230 and 09287ef2a00c, Finding"
+        ]
+      },
+      "rationale": "The inverse-trace objective and the general update methods are prior. The supported distinct statement is the full placement and tie classification with two prescribed heterogeneous gains across all unequal unit complete bipartite graphs. The strongest inspected overlaps share either the graph, the pair-of-gains setup, or the general objective, but not the resolved heterogeneous bipartite comparison.",
+      "residual_risks": [
+        "Unindexed equivalent bipartite comparisons remain possible; no priority inference from catalogue dates.",
+        "The more remote link-noise citation arXiv:1208.0946 was not used as decisive independent evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct prior for formulation, not the resolved heterogeneous bipartite boundary",
+          "evidence": "κ_i is vertex-indexed, x binary; LS1 minimizes inverse trace with L and D_κ fixed.",
+          "identifier_or_url": "https://arxiv.org/pdf/1302.0450",
+          "material_read": "§II.A pp. 4–6, model (1), variance (2), LS1",
+          "method": "Open PDF, located text then read bounded passage at offset 12000",
+          "title": "Algorithms for Leader Selection in Stochastically Forced Consensus Networks",
+          "trigger": "Same pinned objective with positive feedback strengths"
+        },
+        {
+          "assessment": "Shared objective, common finite gain; not a heterogeneous optimizer result",
+          "evidence": "The proof sets K1[s1,s1]=k and K2[s2,s2]=k; explicit graph solutions stated for cycles and paths.",
+          "identifier_or_url": "https://arxiv.org/pdf/1407.1569",
+          "material_read": "pp. 2–3 contribution and model introduction; pp. 12–13 Theorem 2 and proof opening",
+          "method": "Open PDF, bounded read and theorem passages",
+          "title": "Joint Centrality Distinguishes Optimal Leaders in Noisy Networks",
+          "trigger": "General exact two-noisy-leader theory"
+        },
+        {
+          "assessment": "Distinct cardinality and gains",
+          "evidence": "K_{2,m}, exactly four pins all of strength κ; optimizes number selected in part of size two.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-complete-four-leader-phase-diagram-on-unequal-complete-bipartite--5b299daa2230/RESULT.md",
+          "material_read": "Finding and phase table",
+          "method": "Configured mirror, bounded reading at offset 0",
+          "title": "Complete four-leader phase diagram on unequal complete bipartite networks",
+          "trigger": "Same graph type, objective and phase behavior"
+        },
+        {
+          "assessment": "Different graph class and outcome",
+          "evidence": "Q_d has antipodal optima for every pair of gains; no part-based phase transition.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-strict-hamming-distance-ordering-of-unequal-gain-two-leader-cohe--09287ef2a00c/RESULT.md",
+          "material_read": "Finding, ranking and exact formula",
+          "method": "Configured mirror, bounded reading at offset 0",
+          "title": "Strict Hamming-distance ordering of unequal-gain two-leader coherence on Boolean cubes",
+          "trigger": "Same exact heterogeneous two-pin objective"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, optimizer statement and exact seven-vertex threshold"
+      ],
+      "rationale": "A natural design question has a nontrivial answer: unlike at equal gains, one of two noisy leaders can relocate to the larger part when the other becomes strong enough, but only in sufficiently imbalanced graphs and below a cutoff on the weaker gain. The all-parameter rule, tie classification and first feasible graph give more than a recomputed objective or isolated example.",
+      "residual_risks": [
+        "Value is for fixed finite gains in this graph family, not an arbitrary-network algorithmic advance."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

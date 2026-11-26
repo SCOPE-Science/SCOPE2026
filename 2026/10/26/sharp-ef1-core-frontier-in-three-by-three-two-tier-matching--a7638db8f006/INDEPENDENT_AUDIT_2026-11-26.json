@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:32:02.250739Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 19–57",
+        "Frozen VERIFICATION.md and verify_three_by_three.py (inspected, not executed)",
+        "/workspace/branches/c2deccbf-ab77-4880-be5b-d1429a9f8d8a/independent_check.py",
+        "/workspace/branches/c2deccbf-ab77-4880-be5b-d1429a9f8d8a/independent_check_output.txt"
+      ],
+      "rationale": "For positive entries and exactly three firms and workers, complete EF1 forces three singleton bundles, and conversely singleton bundles are EF1. The financing inequalities suffice: assign each deviating worker to a best firm in the coalition and sum that firm's deviation surplus covered by its profit. The high-edge maximum matching gives one, two or three high assignments; size one forces one common high firm, and size two forces the unfilled pair to be low. Substituting the specified normalized wages into the surplus bounds gives respectively (1+2δ)/3, at least (1+δ)/2, and one. The common-high instance has EF1 welfare 1+2δ versus unrestricted welfare three, and the grand coalition bounds the factor. At δ=1 the actual high graph is complete, the frontier is one, and subcases for noncomplete labeled graphs merely duplicate the same valuation matrix in the finite tests. An independent exact-rational reproduction checked EF1, financing and all 56 coalition inequalities for each of 1,715 certificates; matched-size counts 3, 93, 247. That replay does not replace the continuum argument.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Unrestricted three-firm theorem implies the restricted lower bound for δ≤1/2; the same upper certificate is restricted-compatible. For 1/2<δ<1, the unrestricted lower bound falls short by (1−δ)(2δ−1)/(6(1+δ))."
+        ],
+        "reasoning": "The broader theorem does not yield the higher-quality restricted lower guarantee.",
+        "searches": [
+          "Qin Theorem 9, eqs. (78)–(79)"
+        ]
+      },
+      "checked_sources": [
+        "Qin arXiv:2608.17295",
+        "Igarashi et al. arXiv:2509.24111",
+        "Resultary 59465652dd67"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 8's common-top-firm instance yields exactly the restricted upper bound; Theorem 9 leaves an open high-quality gap. The size-two matching certificate uses explicit wages for a singleton assignment."
+        ],
+        "reasoning": "Neither the prior upper witness nor a strictly weaker lower bound supplies the missing restricted lower bound on the open interval.",
+        "searches": [
+          "Qin Theorems 8 and 9, eqs. (76), (78)–(79)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Qin uses the same local financing, coalition value and firm-side EF1; this is not a novel definition.",
+          "Igarashi et al. abstract studies fairness of teams and participants with balance, Pareto and strategyproofness; it does not assert the transferable-payoff core frontier."
+        ],
+        "reasoning": "The Qin result is in exactly the same stability model; overlap is assessed on restrictions and parameter intervals, not by terminological differences.",
+        "searches": [
+          "Qin arXiv:2608.17295 §2, eqs. (10)–(14)",
+          "Igarashi et al. arXiv:2509.24111"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest topical catalogue hit 59465652dd67 concerns maximal EF1 partial allocation with identical valuations under multipartite conflicts, not this complete matching with payments."
+        ],
+        "reasoning": "The closest inspected exact-catalogue hit does not answer this optimization. This is not a claim of search exhaustiveness.",
+        "searches": [
+          "Resultary: EF1/core frontier and three-agent EF1 matching",
+          "Targeted literature lookup for the three-firm EF1–core frontier"
+        ]
+      },
+      "rationale": "The supported distinct result is the sharp lower guarantee and simple constructive certificates under the simultaneous restrictions, in the open interval 1/2<δ<1 where Qin's unrestricted bounds differ. The upper bound and the low-quality portion of the frontier are already covered, and the bounds also meet at δ=1. The frozen prose's comparison 'δ>1/2' should be read as referring to the gap on this open interval, not at δ=1. No distinct claim about closing the unrestricted gap is accepted.",
+      "residual_risks": [
+        "A separate specialized theorem or another stronger statement could cover the open interval; the search was bounded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Partial coverage",
+          "evidence": "Same model and upper witness; lower bound matches for δ≤1/2 and δ=1 but differs on the complementary open interval.",
+          "identifier_or_url": "https://arxiv.org/html/2608.17295",
+          "material_read": "§2 eqs. (10)–(14); Theorems 8–9 eqs. (76),(78)–(79)",
+          "method": "Public full-text passages; OA offsets 19196, 99568, 101975–104763",
+          "title": "Fairness–Stability Trade-offs in Many-to-One Matching",
+          "trigger": "Same objective and unrestricted benchmark"
+        },
+        {
+          "assessment": "Related model; not a whole-document exclusion",
+          "evidence": "Abstract emphasizes team and participant fairness and strategyproofness, not approximate cores financed by the matching.",
+          "identifier_or_url": "https://arxiv.org/html/2509.24111",
+          "material_read": "Abstract",
+          "method": "Public HTML",
+          "title": "Two-Sided Fairness in Many-to-One Matching",
+          "trigger": "Related many-to-one EF fairness"
+        },
+        {
+          "assessment": "Not the assigned frontier",
+          "evidence": "Identical valuations and partial allocation with conflict edges, including a four-agent obstruction; no locally financed core objective.",
+          "identifier_or_url": "Resultary 2026/10/26 record 59465652dd67",
+          "material_read": "Finding",
+          "method": "Local mirror RESULT.md",
+          "title": "The sharp three-agent frontier for maximal EF1 on complete multipartite conflict graphs",
+          "trigger": "Nearest topical catalogue hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Qin Theorem 9",
+        "Frozen RESULT.md, lines 32–57"
+      ],
+      "rationale": "This normalized two-quality model and smallest three-firm complete individual assignment resolve a concrete slice of a known tight-factor gap, separating the obstruction from cases with two or three disjoint high edges and furnishing directly checkable stability payments. The precise difference from the general model is useful; no claim for arbitrary matrices or more workers follows.",
+      "residual_risks": [
+        "No implication for unrestricted three-firm instances is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

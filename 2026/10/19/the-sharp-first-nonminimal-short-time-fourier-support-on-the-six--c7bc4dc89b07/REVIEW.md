@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The finite reduction to all 3969 possible nonempty time-support pairs is exhaustive. The independent mathematical bridge is that full column rank of a Fourier submatrix modulo a prime containing a sixth root of unity implies full complex rank; its contrapositive produces valid support lower bounds. The 50 exceptional support patterns have separate exact complex proofs excluding seven and eight, while direct integer witnesses attain six and nine. The attached program was executed and its output reproduced.
+## correctness
 
-**Originality — PASS (best knowledge).** Nicola (arXiv:2204.14176, §1 and Theorem 1.2) characterizes the minimum-six equality cases, not the sharp next level. Krahmer–Pfander–Rashkov (arXiv:math/0611493, §4, Table 2, Figure 9) provides general support lower bounds and generic-window diagrams, not the asserted arbitrary-pair gap. Related records on odd prime cycles and the four-cycle have distinct domains. Targeted semantic and bibliographic comparisons did not reveal a dominating exact-order-six result. Residual risk: an unlocated older explicit six-cycle support spectrum or an equivalent consequence hidden in ancillary proofs.
+PASS
 
-**Mathematical value — PASS.** It closes a natural first-level question left by the minimum-support/equality theory, on the first squarefree composite cyclic group. The first nonminimal support is three above the minimum, rather than one, with a reproducible finite-rank certificate and a simple exact witness. This is a local exact result, not a broad asymptotic theorem.
+Each active delay is the Fourier transform of a row of exact overlap support. Full column rank of a reduced Fourier submatrix certifies full rank in characteristic zero by the nonvanishing minor. Independently, fraction-free elimination in Z[ζ₆] verified the four families directly among all 3969 nonempty support pairs: 50 at lower bound 6, all others at least 12. Singletons give six. Opposite two-point rows have Fourier support 3 or 6 and there are two active rows. Three-point cosets have three active rows with even supports: a hypothetical total 8 gives two single-character rows on the subgroup, whose quotient forces successive translated window ratios to be scalar characters and forces the third row also to be a single character. For two full supports, total 7 or 8 would leave at least four single-character rows; two have adjacent delays and their quotient forces the scalar character property at every delay. Finally the exact witness has profiles 1+4(−1)^ℓ and 2+2(−1)^ℓ in delays 0 and 3, respectively, with other delays zero. A delta pair attains six.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The supported distinction is the sharp first nonminimal level 9 for arbitrary complex pairs on Z₆, in particular the exclusion of 8. The earlier equality theorem, support-dependent lower-bound table and separately indexed one-step theorem cover the minimum or exclusion of 7, not this exact next level.
+
+## value
+
+PASS
+
+This determines the first departure from the universal minimum in the smallest cyclic group with two distinct nontrivial proper subgroup orders, where prime-order arguments do not apply. The exclusion holds uniformly for both inputs, and an exact realizing witness makes the gap sharp rather than merely a lower bound from a finite sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

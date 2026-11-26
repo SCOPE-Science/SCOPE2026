@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,16 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof is analytic. Its critical checks are:
+# Independent mathematical audit
 
-1. \(R\) commutes with \(P\) and \(Q\), so both the Hamiltonian and the product preserve the \(R=\pm1\) sectors.
-2. On \(R=+1\), the ordered four-factor product is exactly \(e^{-ihaP}e^{-i2hbQ}e^{-ihaP}\), the Strang product for \(2(aP+bQ)\).
-3. On \(R=-1\), the middle two factors and outer two factors cancel pairwise, while the Hamiltonian vanishes.
-4. Taylor expansion using \(P^2=Q^2=I\) and \(PQ=-QP\) gives cubic difference \(\frac{4iab}{3}(2bP-aQ)h^3+O(h^4)\), whose coefficient has norm \(\frac{4|ab|}{3}\sqrt{a^2+4b^2}\).
-5. For at most three distinct Pauli directions, different unordered pairs have different Pauli products. Thus nonzero commutators are orthogonal and cannot cancel in the degree-two BCH term.
+## correctness
 
-The embedded checker instantiates \(P=X\otimes I\), \(Q=Y\otimes I\), \(R=I\otimes Z\), verifies exact quadratic-commutator cancellation numerically to machine precision, checks both sector identities, checks the predicted cubic coefficient, and confirms the expected \(r^{-2}\) repeated-step trend. These finite calculations corroborate but do not replace the proof.
+PASS
 
-The result does not classify all four-term solutions and does not establish achievability under extra geometric-locality or hardware constraints.
+Use the operator norm and real a,b≠0. The distinct directions imply R is not ±I, so its positive eigenspace is nonzero (a nonscalar Hermitian Pauli is traceless). Both operators preserve the two sectors; on R=−1 the factors cancel and H vanishes. On R=+1 anticommutation gives the exact product cos(2bh)[cos(2ah)I−i sin(2ah)P]−i sin(2bh)Q. Independently, writing d=√(a²+b²), the exact evolution on that sector is cos(2dh)I−i sin(2dh)(aP+bQ)/d. Taylor subtraction yields (4iab/3)(2bP−aQ)h³+O(|h|⁴). The square of the self-adjoint Pauli combination is (a²+4b²)I; the reverse triangle inequality gives the claimed nonzero leading norm. Unitary telescoping gives O(|t|³/r²) for fixed t. In the quadratic product defect every anticommuting pair contributes a nonzero coefficient times its product, up to phase. Among at most three distinct directions two different unordered pairs must share a letter; equality of their products modulo phase would cancel that letter in the Pauli group modulo phases and identify the other two letters. Hence every nonzero contribution has a distinct Hilbert–Schmidt basis direction and there is no cancellation in any order. Replay is the two exact sector formulas above and the shared-letter test; the numerical artifact was inspected, not executed. No assertion about repeated or half-step factors, randomized order, or observable-restricted error is needed.
+
+## originality
+
+PASS
+
+General BCH order conditions, sensitivity to ordering, and cancellations in error analysis or averaging are prior inputs. The distinct claim is the sharp four-versus-three threshold for a single deterministic full-step sweep on distinct Pauli terms, with an explicit family and nonzero local cubic norm coefficient. The strongest inspected sources did not supply this Pauli threshold or single-step construction.
+
+## value
+
+PASS
+
+This resolves a natural resource question about using order as the only freedom in a single sweep: four distinct Pauli terms suffice and three cannot. The nonzero cubic coefficient separates actual order elevation from commuting exactness, and the effect requires neither extra stages nor averaging. This is a structural boundary, not a claim of a generic simulation advantage.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

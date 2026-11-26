@@ -1,0 +1,170 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T18:01:59.426608Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a proper even border b let v=v₂(b)<k. Its comparison shift d=2^k−b has v₂(d)=v. Every interval of b≥2^v indices contains an i with i+1≡2^{v−1} mod 2^v. At i and i+d the defining valuation is v−1 and the odd quotient changes by 2 modulo 4, toggling the symbol independently of the instructions. This is an independent equivalent proof of the frozen induction and excludes every proper even border. For an odd border of length 2h+1 the shift changes parity: at offsets 0,2,…,2h one compares consecutive symbols in the decimated word against the alternating even lane. A length-four alternating segment in any decimated word is impossible, since its two absolute even positions differ, so h≤2. At length five the same lane gives w₀=w₄ and the border gives w₄=w_{N−1}. Thus five is possible only with a one-border. These arguments cover k=2 and all start parities. Direct substitution at positions 3,4,5 and N,N+1,N+2 gives 001 for both triples in the zero-instruction word for N divisible by eight, proving shortest length three. The frozen checker was inspected, not executed; its local-rule check alone would not exclude even borders for already bordered words. An independent bounded check (python3 /workspace/audit_checks.py, check 4) generated the words by interleaving folding levels and examined every border in 246,784 finite windows across all 256 depth-eight instruction choices. The infinite statement follows from the parity proof, not the enumeration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Allouche counts 4n distinct length-n factors of every paperfolding sequence for n≥7, but neither their equality relations at a chosen shift nor their border lengths are determined by that invariant.",
+          "Goč–Mousavi–Shallit Theorem 6 gives two mutually reversed unbordered factors of each length for ν_k(n+1) mod 2 (generalized period doubling), not arbitrary paperfolding instruction streams.",
+          "Lawful OA retrieval of Automatic Theorem-Proving in Combinatorics on Words failed; it is not used as negative evidence."
+        ],
+        "reasoning": "A broader factor-count theorem or a general automaton method is not a theorem asserting the specific output for paperfolding. Relevant unavailable material remains a risk, not the grounds for the decision.",
+        "searches": [
+          "DOI:10.1017/S0004972700011655 §§2,5",
+          "arXiv:1211.1301 §5 Theorem 6",
+          "arXiv:1207.5450 Theorem 3",
+          "DOI:10.1007/978-3-642-31606-7_16"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1017/S0004972700011655",
+        "arXiv:1211.1301",
+        "arXiv:1207.5450",
+        "Resultary 376fa657e5cf, 52dc399f6375, 63b75717184c, 70d4e934b1e1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The alternating lane and recursion come directly from the known definition. The additional proof uses the alignment of an even shift to a forced mismatching residue class (or induction), and uses the opposite parities of odd shifts to eliminate long comparisons and reduce length five to length one.",
+          "Repetition-factorization counts address a different decomposition. Knowing that a factor can be partitioned into powers is not knowing its border-length spectrum."
+        ],
+        "reasoning": "The certificate is a short structural argument using known facts, not a numerical rescaling, length substitution or output already implied by the inspected aggregate statements.",
+        "searches": [
+          "Allouche paperfolding decimation and factor-complexity proof",
+          "Goč–Shallit regular paperfolding least-period spectrum",
+          "Resultary paperfolding repetition factorization 63b75717184c"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A border b is the period N−b; hence the criterion says that, at N=2^k, an admissible proper period forces at least one of the periods N−1 and N−3, and there are no even proper periods.",
+          "Goč–Shallit's Theorem 3 recognizes the set of least periods realized over some regular-paperfolding factors; e.g., the least missing value is 18. This discards the length and factor quantifiers and does not test all proper periods."
+        ],
+        "reasoning": "The period reformulation is exact, but an existential spectrum of least periods over factors of arbitrary length is not this per-factor theorem, even before extending the instructions.",
+        "searches": [
+          "paperfolding factors periods shortest proper border dyadic generalized instructions",
+          "arXiv:1207.5450 §1 and Theorem 3",
+          "Resultary paperfolding dyadic unbordered length 1 or 3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact mirrored Findings concern cyclic conjugacy-class counts, scattered subsequence universality, repetition factorization counts, and (for generalized period doubling) occurrence positions and return gaps of unbordered factors, respectively.",
+          "The same-day cyclic and scattered results were compared by their statements, not set aside by date."
+        ],
+        "reasoning": "None of these exact indexed invariants is a table or classification of dyadic paperfolding factor borders; even counts of unbordered factors could not recover the boundary test or even-border exclusion.",
+        "searches": [
+          "Resultary generalized regular paperfolding dyadic unbordered border period repetition factors",
+          "Resultary 376fa657e5cf, 52dc399f6375, 63b75717184c, 70d4e934b1e1"
+        ]
+      },
+      "rationale": "The supported distinct result is the per-factor dyadic certificate and exclusion of every proper even border for all instruction streams, not factor complexity, automatic recognizability, or a count for the regular word. The inspected generalized factor theorem, regular least-period theorem, and indexed analogues do not imply those assertions. No exhaustive priority claim is made.",
+      "residual_risks": [
+        "Some automatic-theorem literature was not available in full; exact unstated output of a general period automaton was not inferred.",
+        "The searches do not exclude equivalent results under other paperfolding conventions or unindexed sources.",
+        "The ancillary Holub–Müller citation in the frozen references has an incomplete arXiv identifier and was not relied on."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Model and factor counts, not per-factor border tests",
+          "evidence": [
+            "Arbitrary instructions in §2; p(n)=4n for n≥7 in §5."
+          ],
+          "identifier_or_url": "https://doi.org/10.1017/S0004972700011655",
+          "material_read": "PDF §§2,5, especially pp. 24–25 and 27; offsets 0–7962 and around 11700",
+          "method": "Primary PDF bounded passages",
+          "title": "The Number of Factors in a Paperfolding Sequence",
+          "trigger": "Same generalized family and factor invariants"
+        },
+        {
+          "assessment": "A counting result for generalized period doubling, not generalized paperfolding",
+          "evidence": [
+            "p_k(n)=ν_k(n+1) mod 2 has exactly two distinct unbordered factors per length."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1211.1301",
+          "material_read": "Introduction and §5 Theorem 6, PDF p. 9 offset 21156",
+          "method": "Primary open PDF, sequence definition and theorem compared",
+          "title": "On the Number of Unbordered Factors",
+          "trigger": "Unbordered-factor automata and related word families"
+        },
+        {
+          "assessment": "Least-period values attained by some factor, not period sets of each dyadic length factor",
+          "evidence": [
+            "Regular paperfolding least omitted period 18 and spectrum density 57/64."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1207.5450",
+          "material_read": "§1 and Theorem 3, PDF p. 3 offsets 6000–7800",
+          "method": "Primary PDF, quantifier comparison",
+          "title": "Least Periods of k-Automatic Sequences",
+          "trigger": "Border/period equivalence on the regular paperfolding subfamily"
+        },
+        {
+          "assessment": "Different invariant and narrower family",
+          "evidence": [
+            "Counts cyclic conjugacy classes, not border certificates."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-dyadic-invariance-of-cyclic-complexity-in-the-regular-paperfoldi--376fa657e5cf",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Local mirror statement comparison",
+          "title": "Dyadic invariance of cyclic complexity in the regular paperfolding word",
+          "trigger": "Same-day, same lengths for regular word"
+        },
+        {
+          "assessment": "Scattered subsequences of prefixes rather than contiguous factor borders",
+          "evidence": [
+            "Subsequence universality at dyadic prefix lengths."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-dyadic-scattered-subsequence-universality-of-generalized-paperfo--52dc399f6375",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Local mirror statement comparison",
+          "title": "Dyadic scattered-subsequence universality of generalized paperfolding",
+          "trigger": "Same-day, generalized instructions and dyadic lengths"
+        },
+        {
+          "assessment": "Concerns repetition-factorization counts, not individual border spectra",
+          "evidence": [
+            "Counts factorizations of regular-paperfolding factors into repetitions."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-complete-repetition-factorization-ambiguity-profile-of-the-regul--63b75717184c",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Local mirror statement comparison",
+          "title": "Complete repetition-factorization ambiguity profile of the regular paperfolding word",
+          "trigger": "Prior regular-paperfolding factor repetition theorem"
+        },
+        {
+          "assessment": "Different family and observable",
+          "evidence": [
+            "Generalized period-doubling base b≥3, positions and gaps for two previously known unbordered factors."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-affine-occurrence-laws-and-universal-return-gaps-for-unbordered--70d4e934b1e1/RESULT.md",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Local mirror statement comparison",
+          "title": "Affine occurrence laws and universal return gaps for unbordered factors",
+          "trigger": "Strong unbordered-factor search match"
+        },
+        {
+          "assessment": "Content unassessed; no noncoverage finding inferred",
+          "evidence": [
+            "Bibliographic identification only."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/978-3-642-31606-7_16",
+          "material_read": "Citation only; OA retrieval did not deliver primary passages",
+          "method": "Lawful OA attempts including redirects",
+          "title": "Automatic Theorem-Proving in Combinatorics on Words",
+          "trigger": "Possibility of a general automated border result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Dyadic lengths are the natural scale of folding. A sharp boundary-only certificate at those lengths, uniform over arbitrary instructions and starts, gives strictly more local structural information than finiteness or aggregate factor counts. The length-three witness shows that endpoints alone fail; the even-border obstruction rules out a whole class of periods even for words with an odd border. The claim is useful without enumerating all unbordered factors.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

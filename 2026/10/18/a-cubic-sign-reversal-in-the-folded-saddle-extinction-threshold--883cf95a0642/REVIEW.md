@@ -1,9 +1,21 @@
-# Review of a cubic folded-saddle threshold correction
+# Independent mathematical audit
 
-**Correctness — PASS.** The branch equilibrium solves a nonsingular implicit quadratic near the reference point. Its third-order jet, the two-term stable eigenslope, and the three-term stable-manifold intersection are computed explicitly. The curvature order is not assumed: differentiating graph invariance gives a nonzero denominator, and the zero undeformed second derivative of the fast component forces the graph curvature to start at second order. Together with smooth strong-stable fibers, this controls the missing terms by the fourth power of the ramp rate. Exact rational jet tests in `verify.py` corroborate the identities without being substituted for the proof.
+## correctness
 
-**Originality — PASS under checked evidence, with a residual priority risk.** Hennessy–Popović–Sattar, arXiv:2610.12319v1, Corollary 10 explicitly proves the linear and quadratic terms and leaves the cubic coefficient inside its error. Its Appendix A.7 does not provide the third-order term. Vanselow–Wieczorek–Feudel, arXiv:1908.05507v1, Appendix F, uses an approximate eigendirection for a different functional-response model. Neither inspected statement implies the exact cubic coefficient or its one-time sign crossover. Related critical-rate and canard literature could contain an implicit equivalent derivation; that possibility is not ruled out by search results alone.
+PASS
 
-**Value — PASS.** The first two terms are everywhere positive, so the sign of the first omitted correction is not predicted by the published approximation. The derived cubic term has a unique parameter threshold, separating opposite asymptotic biases of the quadratic critical-rate estimate within a biologically motivated model. This qualitative partition and its proof require controlling separatrix curvature, not just expanding a displayed source formula. It gives a reusable criterion for when a second-order extinction-rate estimate errs upward or downward. The result is local in ramp rate and displacement, applies only to the singular reduced flow, and does not claim finite-amplitude or finite-fast-timescale control.
+At the equilibrium approaching (1,1/c), the Jacobian has trace tending to -b²/c and determinant -b² r+O_a(r²), so the positive-rate branch is a saddle in the stipulated time. At r=0 the fast eigenvalue is separated from the center eigenvalues. Translating by the continued equilibrium and including r'=0 gives a smooth local strong-stable family with a nonvertical tangent; its r=0 graph is horizontal. Differentiating g=h'f twice shows that its curvature at the saddle is O_a(r²), since f_uu at the undeformed saddle is zero, g_uu is identically zero, and the denominator tends to 2b²/c. The third graph derivative at the saddle is O_a(r) and fourth derivatives are bounded. Thus on the section, which is O_a(r) away, all nonlinear graph terms are O_a(r⁴). Independent symbolic jet calculation and inversion give the stated cubic and a0=0.44330690496759439175… . The section map has derivative 2/(bc)>0, giving a unique local positive rate. The polynomial 4b³+b²−1 increases strictly from −1 to 4 on [0,1], and the sign as a increases is reversed because b=1−a. The error convention is exact threshold minus the quadratic approximation.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The model and quadratic threshold are prior. The model-specific curvature cancellation justifying the cubic for the true separatrix, and the explicit crossover obtained from it, were not covered by the strongest available comparisons. This is a best-of-knowledge assessment, not a priority certificate.
+
+## value
+
+PASS
+
+The third-order term answers a concrete question left by the published threshold: on which side of the true threshold the quadratic falls. The unique reversal shows that one cannot assign a uniform direction of bias as Allee strength varies. It is not merely an extra coefficient of an uncontrolled tangent approximation: the cancellation shows why the true graph agrees through the necessary order.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

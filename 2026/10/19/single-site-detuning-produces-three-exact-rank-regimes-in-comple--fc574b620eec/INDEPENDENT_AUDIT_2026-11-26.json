@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:49:48.997988Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Grouping by distinct eigenvalues gives the sum of squared Frobenius norms of E_λ diag(x) E_λ as the quadratic form of the mixing matrix; no degenerate eigenspace may be split. For τ≠0 put p=a−1. The cell-constant subspace on the marked singleton, p unmarked vertices, and b vertices has determinant −τpb, so the zero spectral projector is exactly 0⊕P_p⊕P_b. In a size-s cell the zero-projector compression implies x_i+x_j=0 for each pair, forcing zero when s≥3, allowing exactly a contrast when s=2, and giving no constraint when s=1. Vanishing of all compressions also implies tr(diag(x)H_τ)=τx_w=0 and tr(diag(x))=0. These trace identities kill the marked coordinate and the possibly singleton unmarked coordinate (the other cells already have zero sums). Conversely a surviving size-two contrast has zero mean on each cell, so kills compression to every bright eigenspace and to the dark space. At τ=0 the dark space instead decomposes over the original two parts, each of size at least two; the same pair tests and zero-cell-mean sufficiency give exactly the two possible original part contrasts. Thus the change is +1 for a=2, −1 for a=3 and 0 otherwise, for every b≥2; b=2 keeps the same contrast. The frozen alternative intensity proof is valid: the bright quotient is irreducible tridiagonal after permutation, and the diagonal moments of powers 0,1,2 have determinant −τb. The reported 100 exact commutant tests were inspected, not reexecuted; the proof covers all real potentials, including the distinct τ=0 collision.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Coutinho et al., Lemmas 2.2–2.3, Theorem 3.1/Cor. 3.2 and Lemmas 4.1–4.2, give commutant projection and Gram/rank formulas.",
+          "Baptista et al., §3.1 Prop. 9, give the unmarked spectrum and a no-uniform-mixing theorem for arbitrary sampling distributions above a size cutoff."
+        ],
+        "reasoning": "The Gram/compression formula is broader as a tool but by itself does not determine which marked-cell contrasts survive. Uniform mixing under a selected sampling distribution is not the rank of the infinite-time Cesàro matrix. No stronger inspected classifier supplies the marked kernel.",
+        "searches": [
+          "Web: A New Perspective on the Average Mixing Matrix commutant rank Coutinho Godsil Guo Zhan",
+          "arXiv:2308.16378v1, Section 3.1 Complete graphs and complete bipartite graphs"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "arXiv:1709.03591",
+        "arXiv:2212.08889v1",
+        "arXiv:2308.16378v1",
+        "Resultary 2026/10/12 records ffcd7daa8532 and e2e9ee9d4aea, and 2026/10/13 record 9b0bea4304a1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The unmarked spectrum and general compression formula are reusable; the marked zero eigenspace and the survival of contrasts require evaluating the quotient determinant and dark compressions, including the singleton case.",
+          "The balanced search eigendata have only a particular mark and do not compare the combined zero eigenspace at τ=0 with its split counterpart for arbitrary part sizes."
+        ],
+        "reasoning": "The general framework is not a mechanical substitution giving the decrease at a=3; that comes from the change from a size-three dark cell to a size-two unmarked cell and the proof that there are no other kernel directions.",
+        "searches": [
+          "arXiv:1709.03591, Gram/rank characterization",
+          "arXiv:2212.08889v1, marked balanced search Hamiltonian",
+          "arXiv:2308.16378v1, Prop. 9"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Portugal–Moqadam, Sec. II.1 Eq. (1) and Sec. IV.1 Eq. (25): for K_(n,n), their search coupling γ=1/n makes −n times the search Hamiltonian equal to A+n|w><w|, with identical spectral projectors.",
+          "Their statement concerns search evolution for a balanced family, not the Cesàro kernel or its changes at τ=0."
+        ],
+        "reasoning": "The normalization gives a genuine special case, not an equivalent statement of the arbitrary-τ unbalanced classification. No exact equivalent emerged in the bounded catalogue lookups.",
+        "searches": [
+          "Resultary: exact frozen title Single-site detuning produces three exact rank regimes in complete bipartite quantum walks",
+          "Web: single-vertex-potential biclique rank",
+          "Web: marked complete bipartite graph quantum walk search Hamiltonian Portugal Moqadam coupling normalization"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Indexed records ffcd7daa8532, e2e9ee9d4aea and 9b0bea4304a1 classify marked paths, cycles, and cubes respectively, not the two-parameter bicliques.",
+          "The small unmarked biclique examples in Baptista et al. address uniform mixing, including an instantaneous example K_(2,2). The frozen package records 100 exact tests on 2≤a,b≤6 and τ=0,1/2,−2,3; these are supporting checks, not a prior table or an all-real theorem."
+        ],
+        "reasoning": "No exact tabulation covering the marked family was found. The special graph-family results and finite checks do not supply the size-two-unmarked-cell kernel or the discontinuous rank transition.",
+        "searches": [
+          "Resultary: marked vertex average-mixing rank and kernel",
+          "arXiv:2308.16378v1, Prop. 9 and small biclique examples",
+          "Frozen VERIFICATION.md and verify.py exact commutant test cases"
+        ]
+      },
+      "rationale": "The strongest inspected general mixing method and the explicitly marked balanced biclique search family are prior ingredients, not the joint all-real-mark, all-size exact kernel and rank-change theorem. The relevant indexed exact rank laws concern different graph families. The assessment is bounded to the new kernel/transition statement, not the general compression method or the ordinary biclique spectrum.",
+      "residual_risks": [
+        "A query for an exact biclique commutant rank theorem was deferred; other bounded lookups and the cited full-text comparisons suffice for this verdict but cannot rule out broader unindexed low-rank-perturbation classifications."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known commutant and Gram machinery, not the inspected family classification",
+          "evidence": [
+            "Projects X to the sum of spectral compressions; computes average-mixing rank as dimension of the projected diagonal span."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1709.03591",
+          "material_read": "PDF pp. 4–8, offsets approximately 7000–12964, Lemmas 2.2–2.3, Theorem 3.1/Corollary 3.2, Lemmas 4.1–4.2",
+          "method": "OA primary full-text passage inspection",
+          "title": "A New Perspective on the Average Mixing Matrix",
+          "trigger": "General rank/compression method"
+        },
+        {
+          "assessment": "Equivalent Hamiltonian only for the displayed balanced search parameters; different quantity",
+          "evidence": [
+            "Search coupling γ=1/n, N=2n; rescaling by −n gives the mark τ=n."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2212.08889v1",
+          "material_read": "Sec. II.1 Eq. (1); Sec. IV.1 Eq. (25), offsets around 20750–21081",
+          "method": "OA primary full-text passage inspection",
+          "title": "Implementation of Continuous-Time Quantum Walks on Quantum Computers",
+          "trigger": "Same single marked vertex on balanced complete bipartite graphs"
+        },
+        {
+          "assessment": "Ordinary spectrum, nonuniformity results for sampled time distributions; not a detuned rank theorem",
+          "evidence": [
+            "Spectrum ±sqrt(mn),0; Prop. 9 concerns existence of uniform average mixing when m+n>7."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2308.16378v1",
+          "material_read": "PDF p. 8, §3.1 Prop. 9 and examples, offsets 22480–24372",
+          "method": "OA primary PDF passage inspection",
+          "title": "Unexpected Averages of Mixing Matrices",
+          "trigger": "Same underlying graphs with no mark"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A single tunable site potential in a standard graph family can raise, lower or leave unchanged the rank of the long-time transition statistic, and the law identifies the exact vectors rendered invisible. In particular, increasing the number of distinct bright spectral components can lower rank by creating a two-vertex dark-cell contrast. The all-real nonzero result rules out additional exceptional marks. It is more informative than either a spectral list or one numerical rank change.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

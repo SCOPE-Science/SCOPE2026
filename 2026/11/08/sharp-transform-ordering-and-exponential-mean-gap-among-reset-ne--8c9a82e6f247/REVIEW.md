@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The step-dependent reflection identity is exact for every nearest-neighbor trajectory, and triangular low-power terms give linear independence of left-exit generating functions. Thus the neutral-class classification follows without a genericity assumption. The free hitting transform solves a second-order difference equation with fixed boundary values; averaging the explicit solution against the neutral reflected weights cancels the antisymmetric term. Because the hyperbolic growth ratio is strictly increasing in distance from the midpoint, the free Laplace transforms are strictly ordered on the entire open parameter range. The geometric-reset renewal formula has a strictly positive derivative in that scalar transform, so the strict order, unique extremizers, and mean inequalities follow. Two elementary hyperbolic asymptotics prove the finite-versus-exponential long-interval separation. No infinite claim is inferred from finite enumeration. The independently constructed exact-rational checker passed 2,382 assertions, including direct absorbing-chain equations.
+PASS
 
-## Originality — PASS (best-knowledge, with stated residual risk)
+Reflection gives b_(a-i)=(p/q)^i u_i; independent lowest powers v^i make constant left/right odds equivalent to pairwise tilted reflection, with odds r^(a/2). Conjugating the hitting recurrence by h^i for h=sqrt(q/p) and averaging with the tilted pair weights cancels the odd hyperbolic-sine solution. The remaining factor cosh(d eta)/cosh(d |log h|) increases strictly with d, including comparison with d=0, because eta>|log h|. The first-reset renewal map increases in the single-cycle PGF at z<1, and the mean equals (1-S)/(gamma S) at v=1-gamma and decreases in S. Averages of the single-cycle transforms give unique extremizers among mixtures. With p,gamma fixed, the outer S tends to exp(-Delta) and the central S is exp(-a Delta/2+O(1)), including both parities and p=1/2. The precise ordering is of the extreme pair laws, not a total transform order of arbitrary mixtures. The broad opening wording should not be read that way: at a=6, p=1/2 and gamma=1/3 the mixture with weights (1/8,0,7/8) crosses the second pair's PGF at z=1/2, as (S2-S3)/(S1-S3)=v/[2(1+v)].
 
-The motivating full text arXiv:2605.00657 establishes reset-neutral reflected-pair distributions and invariant exit probabilities; this background classification is attributed and excluded from the originality claim. The novel comparison is the *simultaneous strict ordering of the full absorption-time transforms throughout the complete neutral class*, its unique extremizers, and the exponential gap in times. The 2021 full-text network multi-reset studies supply general first-passage methods but do not cover this constrained sharp ordering. Published-research semantic searches, alias searches and accessible prior findings found no statement that implies the result. Companion papers arXiv:2607.10717 and arXiv:2608.15140 are plausible and their abstracts were read, but their full texts were inaccessible; their possible coverage remains a nontrivial historical-priority risk. A failed search is not proof of priority.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The underlying neutrality condition leaves the absorption-side risk *exactly unchanged* at every reset rate; a natural practical question is how much absorption duration can nevertheless be controlled. The answer is not a routine one-parameter substitution: the result optimizes simultaneously every positive Laplace-transform argument over all admissible distributions, identifies unique extremizers, and establishes a finite-versus-exponential asymptotic contrast while maintaining identical ruin probabilities. This separates directional reliability from time-to-failure and provides a structural policy comparison absent from first-order splitting-probability information. The statement is limited to this specific Markov model, not asserted as a general stochastic-reset optimality principle.
+Credit prior classification and invariant exit probability, and do not count the geometric-renewal identity as novel. The supported increment is the strict universal ordering within the neutral simplex's extreme pairs, its unique extremizers over the simplex, and the sharp fixed-parameter long-interval contrast. In the inspected sources the duality concerns exit-side probabilities or transforms of one excursion; it does not compare the total-time transforms for different reflection orbits. The comparison uses an additional monotonicity in distance and extraction of the distinct endpoint and center scales.
 
-## Closest literature and limits
+## value
 
-Main source: Vega Coso, arXiv:2605.00657 (full text), classification of reset-neutral laws, not the time extremizers. Other primary sources: González–Riascos–Boyer, arXiv:2104.00727 (full-text methods and applications); Wang–Chen–Huang, arXiv:2105.08323 (full-text renewal treatment). Potentially relevant inaccessible companions: arXiv:2607.10717, arXiv:2608.15140, and arXiv:2608.15805. Neither a general stochastic dominance ordering nor independent historical priority is established.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Fixing exit odds generally does not constrain time scales. Here the full admissible class has sharp simultaneous extreme laws for all transform arguments and reset rates; the bounded-versus-exponential separation quantifies how little exit neutrality controls timing. The classification alone and the generic renewal identity would not support this value judgment.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

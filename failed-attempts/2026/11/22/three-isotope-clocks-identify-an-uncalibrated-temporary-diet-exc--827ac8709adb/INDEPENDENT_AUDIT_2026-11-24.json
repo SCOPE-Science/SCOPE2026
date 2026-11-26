@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:41:40.450864Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The first-order relaxation with known baseline discretely switched to a common positive contrast yields d_i/lambda_i = integral of Delta*1_[a,b](s) times exp(-lambda_i*s). Two distinct positive pulses differ on a set of positive measure and have at most two sign transitions ignoring zeros: nested intervals can have a +-+ pattern, and disjoint or crossing intervals have at most one. Endpoint conventions do not affect integrals. Any nonzero combination of k distinct exponentials has at most k-1 real zeros counted with multiplicity by division by one exponential and Rolle induction. Imposing zeros at the transition locations therefore produces a sign-matching test function from the first r+1 exponentials for r transitions. Its integral against the difference is strictly positive, contradicting equality of all three Laplace samples. With two distinct rates, every sufficiently small perturbation of L=b-a preserves feasibility after solving a=(log((1-exp(-lambda2*L))/(1-exp(-lambda1*L)))-log(d2/d1))/(lambda2-lambda1), then setting Delta=d1*exp(lambda1*a)/(1-exp(-lambda1*L)); duplicated readings add no information. For harmonic rates, division by d1 gives R=u+v and S=u^2+uv+v^2, hence K=(u-v)^2 and the stated open inequalities characterize exactly the feasible data. In the Jacobian in (Delta,u,v), remove Delta and -Delta from columns two and three, replace column two by its difference from column three, and subtract (u-v) times column three from column one. The resulting columns yield (u-v)^4 before multiplying back -Delta^2. The logarithmic change of variables contributes gamma^2*u*v, and u-v is asymptotic to u*gamma*(b-a) for fixed a and gamma, giving the displayed quartic decay at fixed positive contrast. The exact scope does not establish noise robustness or empirical validity of the shared contrast.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bhaskar–Song, arXiv:1309.5056, Theorem 4 (PDF p. 9, Eq. (6), offset 26778), states that a nonzero piecewise-continuous function with finitely many sign changes has at most that many zeros in its Laplace transform, with multiplicity. All integrals converge in this compactly supported application.",
+          "The nearby proof of Theorem 5 uses the same comparison of two signals via transform zeros to prove model identifiability in its own setting.",
+          "The cited piecewise D-finite and finite atomic Prony papers give broader recovery methods and harmonic connections but are not needed for the decisive arbitrary-rate implication."
+        ],
+        "reasoning": "The sign-variation bound applies directly to the difference of the two candidate pulses. It certifies injectivity for every triple of distinct positive rates, without needing a harmonic grid or restrictions beyond the sign-change count.",
+        "searches": [
+          "Bhaskar Song Descartes rule of signs Laplace transform sign change complexity Theorem identifiability population demographic models piecewise PDF 2014",
+          "Chebyshev system interval indicator moments arbitrary three moments unique scaled interval Karlin Studden canonical representation one interval pulse Laplace sign changes uniqueness theorem",
+          "arXiv:0901.4659 §3; arXiv:1301.1187 §2 and Theorem 1"
+        ]
+      },
+      "checked_sources": [
+        "Bhaskar and Song arXiv:1309.5056 Theorem 4 and identifiability proof passage",
+        "Resultary 355f087d32be and b286682cbbd5",
+        "Batenkov–Sarig–Yomdin arXiv:0901.4659; Batenkov–Yomdin arXiv:1301.1187",
+        "Jouta et al. 10.1111/2041-210X.12695 abstract, lawful full-text access attempted",
+        "Klaassen et al. 10.1111/j.1365-2435.2010.01689.x, frozen single-switch comparison; lawful DOI access attempted without readable primary text"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "On equal data, the transform of Delta*1_[a,b] minus Delta'*1_[a',b'] vanishes at all three distinct lambda_i. A nonzero pulse difference has at most two sign changes, contradicting Theorem 4. A pulse determined almost everywhere determines its height and endpoints uniquely.",
+          "The available Jouta abstract describes two switches including return to the original isotope level. The exact known-signature assumption described by the frozen record could not be confirmed in the primary text."
+        ],
+        "reasoning": "Two tissue readings cannot be locally identifying on an open three-parameter domain, while the established sign-change theorem gives three sufficiency immediately. Thus the sharp arbitrary-rate structural threshold is already a direct mathematical consequence, even if the precise isotope question was not previously stated. No claim of ecological priority is inferred.",
+        "searches": [
+          "arXiv:1309.5056 §2.4 Theorem 4 and proof of Theorem 5",
+          "Jouta ecological forensics two diet switches 12695 PDF ABBA model isotopic equilibrium years schedules full text repository Jouta 2017"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 355f087d32be explicitly recovers a positive one-pulse amplitude and both ends from rates k,2k,3k and gives a two-reading continuum; its Q_j=C(X^j-Z^j) and square-root inverse are the harmonic isotope equations under renamed variables.",
+          "Resultary b286682cbbd5 gives the same harmonic single-pulse equation inside a four-channel one-versus-two pulse class test. Its three-channel ambiguity is between classes, not between two single pulses."
+        ],
+        "reasoning": "Removing the known positive rate factor and known tissue baseline leaves a one-interval Laplace inverse, regardless of the measured quantity. Harmonic results alone do not imply arbitrary-rate sufficiency, and no relative priority was inferred from the same-day entries.",
+        "searches": [
+          "Local Resultary one rectangular pulse height and two endpoints from terminal readings; arbitrary three rates; one-vs-two pulse discrimination",
+          "three tissue isotope two diet switches unknown contrast ABBA rectangle interval reconstruction arbitrary Laplace samples Chebyshev system sign changes moment uniqueness"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected catalogue gives a matching square-root inverse and two-channel failure in the harmonic one-pulse subproblem. The four-channel record addresses a separate union of signal classes."
+        ],
+        "reasoning": "A finite data table cannot establish this continuous-domain theorem. The exact catalogue formula verifies overlap for the illustrative harmonic case; it is not the evidence used to decide arbitrary-rate coverage.",
+        "searches": [
+          "Local Resultary one-pulse terminal measurements and harmonic uptake formulas, entries 355f087d32be and b286682cbbd5"
+        ]
+      },
+      "rationale": "The arbitrary-rate injectivity claimed as the mathematical addition is directly covered by the classical Laplace sign-variation bound, explicitly stated in Bhaskar and Song (2014), Theorem 4, adapted there from Jameson. For these pulses, a nonzero difference has at most two sign changes and its compactly supported Laplace transform would have three distinct positive zeros if the data matched. This is precisely the prior theorem's conclusion with at most two zeros, not a mere analogy or a method requiring new theory. Necessity of three locally identifying readings is also immediate from the open three-dimensional parameter domain and invariance of domain (pad a map into R^2 by a zero coordinate), with the frozen proof giving an explicit fiber. The isotope interpretation is useful but does not change the mathematical inverse problem. Harmonic inversion is expressly illustrative and substantially overlaps explicit catalogue formulas. The failure is based on demonstrated prior mathematical implication, not on inaccessible ecology papers or a same-day priority assumption.",
+      "residual_risks": [
+        "The exact extent of the older ecological papers' contrast assumptions is not independently settled; this does not undermine the direct mathematical implication.",
+        "Same-day records establish overlap but not historical ordering. The audit does not assign first appearance of the isotope interpretation or inverse formula."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive prior general result directly covering arbitrary distinct rate injectivity",
+          "evidence": "Generalized Descartes rule: at most sigma(f) zeros for Laplace transform of a nonzero piecewise-continuous f with sigma(f) sign changes. This pulse difference has sigma(f)<=2.",
+          "identifier_or_url": "https://arxiv.org/pdf/1309.5056",
+          "material_read": "§2.4 Theorem 4, Eq. (6), PDF p. 9, offset 25450 through 27698; proof of Theorem 5 passage on PDF p. 15 at offset 42735",
+          "method": "Lawful arXiv OA PDF, locate and bounded original passage read",
+          "title": "Descartes' rule of signs and the identifiability of population demographic models from genomic variation data",
+          "trigger": "Known general root bound for signed Laplace transforms and signal identifiability"
+        },
+        {
+          "assessment": "Exact harmonic subproblem overlap; no inferred intra-day priority",
+          "evidence": "At k,2k,3k, the one-pulse equations Q_j=C(X^j-Z^j) give a square-root inverse and a two-reading continuum.",
+          "identifier_or_url": "Resultary 2026/11/22/355f087d32be",
+          "material_read": "Finding, Assumptions and Proof, offsets 0–6571",
+          "method": "Local Resultary mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Three-rate passive sampler pulse recovery and a universal short-duration bound",
+          "trigger": "Closest explicit one-pulse inverse with unknown height and duration"
+        },
+        {
+          "assessment": "Shares the harmonic single-pulse submodel; not an arbitrary-rate claim",
+          "evidence": "One vs two equal-height equal-duration pulses using four harmonic rates. Three-channel ambiguity is between the two classes.",
+          "identifier_or_url": "Resultary 2026/11/22/b286682cbbd5",
+          "material_read": "Finding and Proof 1–3, offsets 0–6389",
+          "method": "Local Resultary mirror",
+          "title": "Four kinetic channels distinguish separated twin contaminant pulses",
+          "trigger": "Prior pulse-class test with same harmonic observation formula"
+        },
+        {
+          "assessment": "Broader method, not the decisive minimal arbitrary-rate comparator",
+          "evidence": "Piecewise D-finite reconstruction uses moments and derived recurrences. Harmonic data give three ordinary moments of an interval indicator after rescaling, but these passages do not give the three-rate statement.",
+          "identifier_or_url": "https://arxiv.org/abs/0901.4659",
+          "material_read": "§3, PDF text offsets 17600–30820",
+          "method": "Lawful arXiv OA PDF passage reads",
+          "title": "An algebraic reconstruction of piecewise-smooth functions from integral measurements",
+          "trigger": "Broader interval and jump recovery from moments"
+        },
+        {
+          "assessment": "Related recovery method under Hankel conditions, not needed for the coverage finding",
+          "evidence": "The Prony data are power sums of signed atomic parameters; the frozen harmonic model has known zero zeroth moment and opposite amplitudes.",
+          "identifier_or_url": "https://arxiv.org/abs/1301.1187",
+          "material_read": "§2 and §3.2 Theorem 1, PDF offsets 4850–8333 and 15700–19200",
+          "method": "Lawful arXiv OA PDF passage reads",
+          "title": "Local and global geometry of Prony systems and Fourier reconstruction of piecewise-smooth functions",
+          "trigger": "Harmonic signed two-node alias and collision context"
+        },
+        {
+          "assessment": "Confirms related excursion setting, not enough to decide precise contrast assumptions; not the basis of the FAIL",
+          "evidence": "The abstract says the method applies where the second switch reverses to the initial isotopic level. Available evidence does not independently settle calibration of the intermediate stage.",
+          "identifier_or_url": "https://doi.org/10.1111/2041-210X.12695",
+          "material_read": "Available abstract excerpt describing double switch and return to initial level; primary equations were not accessible",
+          "method": "Lawful OA attempts via DOI, Wiley and repository alternate; indexed abstract evidence only",
+          "title": "Ecological forensics: using single point stable isotope values to infer seasonal schedules of animals after two diet switches",
+          "trigger": "Closest same-application ABBA study and possible unknown-signature overlap"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The exact three-versus-two measurement threshold has a concrete interpretation for sampling a temporary dietary excursion with a common unknown contrast, and the harmonic determinant marks a degeneracy at short durations. These are useful model-design facts when the assumptions hold. That usefulness does not establish a distinct mathematical contribution given the direct prior implication, nor does it validate the assumptions in real tissues.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

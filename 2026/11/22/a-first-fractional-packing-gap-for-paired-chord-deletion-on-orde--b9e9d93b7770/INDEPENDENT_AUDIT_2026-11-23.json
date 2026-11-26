@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T17:59:39.340626Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Each unordered pair has two endpoints, the endpoint order is fixed, and the deletion output is the set of distinct order-standardized submatchings after removal of one whole pair. Equivalently, generate words with exactly two copies of each symbol and canonicalize symbols by first appearance; remove both copies of one symbol and canonicalize again. A code is valid exactly when its nonempty shadows are disjoint. The subset recurrence partitions by whether the least remaining output is unused or is covered by its unique selected source, counting distinct sources even when their shadows coincide. Independent exact replay (/workspace/reviews/replay-5.py, standard library) generates canonical double words by a Cartesian product, constructs shadows by deleting a symbol type, and exhausts sorted disjoint-shadow source subsets of the certified upper-bound size without using that recurrence or a maximal-clique algorithm. It confirms source counts (1,3,15,105), output counts (1,1,3,15), maxima (1,1,3,7), and multiplicities (1,3,1,278). For m≤3 summing the receiver constraints gives P_m≤number of outputs, and the rederived optimal codes attain this bound. At m=4 the packaged seven sources have pairwise disjoint shadows and the certified descriptions match the reconstructed indices. The integer half-unit primal loads are 2 at 14 outputs and 1 at one; the dual covers have values 2,3,4 at respectively 31,50,24 sources. Both totals are 15 half-units, and all weights are nonnegative, proving P_4=15/2 by weak duality and A_4≤7 by integrality. Thus the standard LP optimum first differs from the integer value at m=4, though flooring still gives 7. Reversing each word and recanonicalizing is the same order reversal as the endpoint map, preserves the code family, and fixes exactly 136 of the 278 maxima; enumeration of orbit representatives and Burnside both give 207. No claim is made about arbitrary two-position deletions, reconstructing from the full deck, larger m, or any other symmetry quotient. The source checker was inspected as evidence, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pilaud–Rué's generating functions count matchings by crossings, not the sets of co-occurring receiver types. Dudek–Grytczuk–Ruciński study guaranteed substructures and twins. Their introduction also cites counting matchings avoiding one given pattern, which can give a one-output degree, not the whole incidence matrix.",
+          "The Gabrys et al. permutation model deletes one distinct entry and reranks relative to value; it is not the order-only quotient of removing a matched pair from repeated symbols. The matched-pair Dyck record works only on noncrossing matchings and estimates individual shadow size/distribution."
+        ],
+        "reasoning": "These adjacent and broader pattern-counting or coding statements do not determine the joint shadow conflicts, fractional packing, or equality counts here. A result on deleting an entire repeated symbol type with the same canonical quotient could cover this case; the full Sala article remains a priority risk.",
+        "searches": [
+          "arXiv:1307.6440; arXiv:2210.14042v5; DOI 10.1109/ISIT.2014.6875337 and DOI 10.1109/ISIT.2014.6875338",
+          "Web: multipermutations deletions fixed alphabet renumber received symbol Gabrys Sala removal both copies of same symbol smallest four",
+          "Resultary: ordered perfect matching paired chord edge deletion zero error shadow packing fractional small orders"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2210.14042v5 (abstract and §§1.1–1.2 opening)",
+        "arXiv:1307.6440 (abstract and outline)",
+        "Gabrys et al. DOI 10.1109/ISIT.2014.6875337 (open PDF opening)",
+        "Sala–Gabrys–Dolecek DOI 10.1109/ISIT.2014.6875338 (metadata only)",
+        "Resultary 83c34875495f, a34e5c3f82d2 (indexed statements)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the audited channel the first nontrivial LP bound uses unequal output weights and gives 15/2, not the elementary receiver-count bound 15. One-shadow size data cannot recover which source shadows intersect, and avoidance data for a single pattern cannot show which other outputs that same matching also supports.",
+          "Permutation-entry deletion does not contain the general ordered pairing channel under a simple identification; permutation matchings with pairs between two ordered blocks form only a proper subclass. A noncrossing Dyck restriction also omits sources, making its shadow-distribution results insufficient."
+        ],
+        "reasoning": "Generic reduction to hypergraph matching does not itself provide the two numerical optima and complete codebook census. The exact half-unit certificates and exhaustive count are additional specific results, conditional on the stated channel, not a restatement of the reviewed bounds.",
+        "searches": [
+          "Gabrys et al., DOI 10.1109/ISIT.2014.6875337, abstract and opening model example",
+          "Dudek–Grytczuk–Ruciński arXiv:2210.14042v5, §§1.1–1.2; indexed matched-pair Dyck record 83c34875495f"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:2210.14042v5 defines the same linearly ordered perfect matchings and their submatchings up to order-isomorphism. Each channel output here is exactly an order-isomorphism type obtained from a size-(m−1) submatching.",
+          "In a canonical double-occurrence word this is deletion of both copies of one symbol followed by renaming by order of first appearance. A channel on absolute labels that survive unchanged, a single symbol-position deletion, or a cyclic necklace quotient does not in general give this shadow."
+        ],
+        "reasoning": "Object equivalence with the pattern-containment formulation is exact. The audited invariant further requires packing whole codimension-one shadows of distinct source objects, not estimating occurrence of patterns within a single object.",
+        "searches": [
+          "Web: coding ordered matchings chord deletion delete matched pair zero error double occurrence words pattern deletion codes packing matchings four pairs",
+          "Web: Patterns in Ordered (Random) Matchings Dudek Grytczuk Rucinski arxiv edge induced submatching pattern deletion",
+          "Resultary: paired chord whole symbol canonical matching deletion"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed exact 7, 15/2 and 278 result under this channel is the assigned record. The index has a different one-point noncrossing-partition packing gap and matched-pair Dyck shadow distributions, not a 105-to-15 packing table for all four-pair matchings."
+        ],
+        "reasoning": "Enumerating the 105 matchings, or the 15 receivers, does not determine the optimum. A prior table would need to encode equivalent simultaneous incidences or a sharper packing invariant for this very channel; no such earlier table was identified among the actually checked sources.",
+        "searches": [
+          "Resultary: ordered perfect matching paired chord edge deletion zero error shadow packing fractional small orders",
+          "Web: coding ordered matchings chord deletion delete matched pair zero error double occurrence words pattern deletion codes packing matchings four pairs"
+        ]
+      },
+      "rationale": "Qualified best-of-knowledge assessment for the exact first LP gap and optimal-code census of the whole-pair, order-standardized channel. The underlying ordered matchings, double-word representation, shadow-packing LP and generic packing machinery are not claimed new.",
+      "residual_risks": [
+        "Full Sala–Gabrys–Dolecek paper not inspected; an exact equivalent through whole-symbol deletion cannot be ruled out from its title or metadata.",
+        "Earlier unindexed finite computations for ordered matchings or standardized repeated-symbol deletion could change priority. Search and access limits are not evidence of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same ambient objects and containment relation; no exact packing implication from inspected statements",
+          "evidence": "§1.1 defines induced vertex order and ordered copies, and points to avoidance counts; the abstract studies unavoidable lines, stacks, waves and twins, not codes with disjoint sets of all outputs.",
+          "identifier_or_url": "https://arxiv.org/pdf/2210.14042v5",
+          "material_read": "Open PDF abstract and beginning of §§1.1–1.2",
+          "method": "Lawful open arXiv copy",
+          "title": "Ordered unavoidable sub-structures in matchings and random matchings",
+          "trigger": "Identical ordered matching objects, including deletion pattern under order-isomorphism"
+        },
+        {
+          "assessment": "Crossing-count distribution, not the audited invariant in the inspected statements",
+          "evidence": "The abstract and §2 outline count configurations with prescribed k crossings and study their generating functions and asymptotics.",
+          "identifier_or_url": "https://arxiv.org/pdf/1307.6440",
+          "material_read": "Open PDF abstract and outline of §§2–3",
+          "method": "Lawful open arXiv copy",
+          "title": "Analytic Combinatorics of Chord and Hyperchord Diagrams with k Crossings",
+          "trigger": "Primary enumeration of closely related ordered chord configurations"
+        },
+        {
+          "assessment": "Different deletion and output standardization, no transfer of the exact four-pair claims",
+          "evidence": "Deleting 3 or 2 from (1,3,2,4) gives (1,2,3) under relative value standardization. The proof target here instead deletes two endpoints of one edge and preserves the order of the remaining vertices.",
+          "identifier_or_url": "https://yaakobi.net.technion.ac.il/files/2015/04/40_Single_Deletion_Permutations_ISIT14.pdf",
+          "material_read": "Open institutional PDF, abstract and opening model example",
+          "method": "Lawful institutional open copy",
+          "title": "Single-Deletion-Correcting Codes over Permutations",
+          "trigger": "Standardized-deletion coding comparator with possible matching reduction"
+        },
+        {
+          "assessment": "Material historical-priority risk rather than a whole-document exclusion",
+          "evidence": "Identified as Sala–Gabrys–Dolecek, ISIT 2014, pp. 2769–2773. No accessible passage established whether whole-symbol paired deletion with a first-appearance quotient or the exact same small instances are covered.",
+          "identifier_or_url": "https://doi.org/10.1109/ISIT.2014.6875338",
+          "material_read": "Exact DOI bibliographic entry only in this audit; full article not read",
+          "method": "DOI lookup, primary-literature lookup and lawful full-text access attempt at exact DOI; no authorized Oxford tool available",
+          "title": "Deletions in Multipermutations",
+          "trigger": "Most plausible related repeated-symbol deletion comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The channel asks a natural zero-error question under the removal of one complete matching edge, so the first discrepancy between integral and fractional shadow packing is meaningful without a theorem for all sizes. The sharp small case has an exact rational certificate and a complete, nontrivial equality and reversal census useful for checking future constructions and LP relaxations. The gap is fractional only: the floor of the relaxation still gives the right capacity.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

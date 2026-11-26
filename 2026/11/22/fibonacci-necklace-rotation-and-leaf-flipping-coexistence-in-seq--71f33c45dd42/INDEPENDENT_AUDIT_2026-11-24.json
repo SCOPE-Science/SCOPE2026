@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:05:50.176414Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–49",
+        "Frozen VERIFICATION.md and both supplied verifier files (inspected only)",
+        "review_evidence/5-recurrent.py and review_evidence/5-recurrent.txt; replay with python3 /workspace/review_evidence/5-recurrent.py"
+      ],
+      "rationale": "For a cyclic independent word s of length L=n−1, let a_i=s_i OR s_{i−1} with indices mod L and repeat pair zero at i=L. During the rim sweep the closed count is 2a_i+a_{i+1}+s_i: at the first site the incoming neighbor is the repeated pair, at interior sites it is the already updated predecessor, and at the last the two updated neighbors have bits a_0 and a_1. If a_i=0 then s_i=0, if a_i=1 and s_i=0 the threshold tests a_{i+1}, and if s_i=1 then a_{i+1}=1. Thus the new rim is the shift by one. The degree-one leaf rule is b'_i=a'_i(1−b_i), giving s_{i+1} by cyclic independence. The first L leaf bits show injectivity. All-one rim states retain the rim and complement all leaves; the two families intersect only at the alternating words, two states for even L and none for odd L. The transfer matrix trace is Lucas, including the repetition test at e=1; divisor inversion on fixed words yields primitive orbit counts. Period two in the rotation occurs only at alternation, already counted among the 2^{n−1} leaf-flip orbits. This handles n=3 as well; a single one has exact period L for L≥3. An independent indegree-pruning check confirmed all stated finite recurrent counts at n=3–9, without extrapolating to general n.",
+      "residual_risks": [
+        "The theorem counts the specified invariant union, not all recurrent states; equality in the finite check does not prove all-order exhaustion. No basin or transient claims were validated."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The same-day two-sector theorem allows any fixed schedule, but only on bare C_n. Kuhlman et al. discuss graph unions with a connector and a different threshold."
+        ],
+        "reasoning": "Generalizing schedules on a smaller graph does not generalize to one pendant vertex per site. The available graph-union construction has different hypotheses and no specialization to the asserted encoding.",
+        "searches": [
+          "Resultary: two counter-rotating necklace sectors fixed permutation sequential Boolean (1,3) cycle schedule compared golden mean restriction",
+          "Kuhlman et al. arXiv:1108.2974 §4.1, offset 26181"
+        ]
+      },
+      "checked_sources": [
+        "Four distinct indexed records and the literal passages of Kuhlman et al. listed above",
+        "Frozen RESULT.md lines 30–44, 51–61"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prop. 3.6 constructs a length-(n−1) orbit on bare C_n. The broader bare-cycle records give full rotations or sector decompositions there; two constant states shared by bare-cycle sectors are not the alternating encoded sunlet states shared with the all-one rim family."
+        ],
+        "reasoning": "The period-existence pattern and use of rotation clearly overlap prior results. They do not imply the decorated-graph local identity or the second component. The date shared by two records was not used to infer precedence.",
+        "searches": [
+          "Kuhlman et al. arXiv:1108.2974 Proposition 3.6, PDF p. 8",
+          "Resultary bare-cycle binary necklaces and two counter-rotating sectors: local Finding/Assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The retrieved bare-cycle Findings encode unrestricted binary words with no leaf coordinates. The related majority sunlet Findings use synchronous strict-majority dynamics."
+        ],
+        "reasoning": "Identifying the abstract rotation factors does not identify the vertex update laws or embeddings. The primary keyword lookup returned unrelated material and does not establish absence.",
+        "searches": [
+          "Resultary: sequential (1,3) bi-threshold sunlet Fibonacci golden-mean no-adjacent-ones rotation pendant leaves closed neighborhood rim-first periodic orbit",
+          "Resultary: invariant golden-mean subset sequential hysteresis sunlet rim sweep leaf update rotation overlap all-one rim",
+          "Primary search: \"sequential (1,3)\" sunlet bi-threshold leaf dynamics periodic"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Nearby exact censuses have fixed-word counts 2^e for unrestricted necklaces or concern synchronous-majority sunlets. The Lucas formula itself counts cyclic independent words once an encoding is known."
+        ],
+        "reasoning": "Standard necklace counts do not furnish a census of this update map's specified union, which requires the conjugacy, arbitrary leaf complement component and exact overlap.",
+        "searches": [
+          "Resultary: golden mean shift Lucas primitive cyclic rotation orbit census no adjacent ones",
+          "Resultary: one pendant leaf per cycle vertex sequential bi-threshold rim-first leaf complement period two"
+        ]
+      },
+      "rationale": "The strongest retrieved overlap is the same-day two-sector classification for bare cycles under arbitrary permutation schedules. Its cyclic-order sector uses unrestricted binary words and it has no leaves. Neither it nor the synchronous sunlet results cover the encoded independent words coexisting with arbitrary leaf flips on the all-one rim in the claimed map.",
+      "residual_risks": [
+        "The bounded search cannot rule out unindexed closer studies. No historical priority follows from the comparison."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE",
+          "evidence": "For bare labelled C_n the lengths are schedule ascents and descents, n−1 and 1 in cyclic order; intersection uses constant configurations; no leaves.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-two-counter-rotating-necklace-sectors-for-every-sequential-bi-th--d0eaea0f4dd6",
+          "material_read": "Finding and Assumptions, offset 0",
+          "method": "local published mirror",
+          "title": "Two counter-rotating necklace sectors for every sequential bi-threshold cycle schedule",
+          "trigger": "same threshold and broader schedules with two overlapping components"
+        },
+        {
+          "assessment": "PARTIAL_COVERAGE",
+          "evidence": "On bare C_n the map rotates a repeated-endpoint encoding with 2^{n−1} periodic states; fixed-word counts 2^e.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-binary-necklace-attractors-and-triangular-run-basins-for-sequent--e79a108b9794",
+          "material_read": "Finding, offset 0",
+          "method": "local published mirror",
+          "title": "Binary-necklace attractors and triangular-run basins for sequential bi-threshold cycles",
+          "trigger": "same standard schedule and rotation length"
+        },
+        {
+          "assessment": "PARTIAL_COVERAGE",
+          "evidence": "Prop. 3.6 gives an (n−1)-cycle for bare C_n. The connector example in §4.1 uses a different threshold and graph.",
+          "identifier_or_url": "https://arxiv.org/pdf/1108.2974",
+          "material_read": "Proposition 3.6, PDF p. 8 offset 25255; §4.1 offset 26181",
+          "method": "OA original PDF",
+          "title": "Bifurcations in Boolean Networks",
+          "trigger": "cited original sequential bi-threshold orbit construction"
+        },
+        {
+          "assessment": "DIFFERENT_DYNAMICS",
+          "evidence": "Synchronous strict majority, not the rim-first hysteretic sweep.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-parity-factorized-periodic-orbit-census-for-majority-dynamics--8a5efe3ce640",
+          "material_read": "Finding and Assumptions, offset 0",
+          "method": "local published mirror",
+          "title": "A parity-factorized periodic-orbit census for majority dynamics on sunlet graphs",
+          "trigger": "exact orbit census on same graph"
+        },
+        {
+          "assessment": "DIFFERENT_DYNAMICS",
+          "evidence": "Uses synchronous majority and an all-vertex-flipping condition, not leaf-only flipping with fixed occupied rim.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-lucas-residue-laws-for-majority-oscillations-on-sunlet-graphs--4965dafb6e67",
+          "material_read": "Finding and Assumptions, offset 0",
+          "method": "local published mirror",
+          "title": "Lucas residue laws for majority oscillations on sunlet graphs",
+          "trigger": "Lucas count on same graph"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 30–44 and 54–55; compared bare-cycle and synchronous sunlet Findings"
+      ],
+      "rationale": "The natural decorated cycle gives a concrete mechanism for simultaneously supporting many two-cycles and long cycles in the same deterministic update. The explicit conjugacy and exact intersection resolve how two quite different recurring behaviours fit together. The value is not a new Lucas-word identity or a claim of global classification.",
+      "residual_risks": [
+        "All-order recurrent-set completeness and basin sizes remain open within this review."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

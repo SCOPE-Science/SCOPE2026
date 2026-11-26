@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:22:42.373027Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The Galois-equivariant Riemann–Mumford identification gives the two parity sets of quadratic refinements of the Weil pairing over an odd field. The difference Q(Ax)−Q(x) is linear for symplectic A, giving exactly the stated affine action u↦A(u+d_A), and Arf(Q_u)=Q(u). Independent `python3 /workspace/reviews/reproduce_4.py` enumerated the ordered symplectic bases by choosing three successive symplectic pairs in orthogonal complements; all 1,451,520 matrices were covered. It tested Q_u(A^ne_i)=Q_u(e_i) on the six basis vectors (sufficient since the difference is linear) rather than using the supplied affine permutation algorithm. It found 18,24,30 distinct signatures at the three cutoffs. Because these signatures are class invariants and ATLAS gives exactly 30 classes, each third-cutoff fiber is one class. Orbit-length inversion on one representative per fiber matched both complete parity spectra and class sizes in all 30 frozen CSV rows. The class then determines the action on the nonzero vectors of J[2]. On the hyperelliptic locus the 28 odd labels are branch pairs and the even labels are the fixed pencil and complementary four-subsets. The (7,1) and (5,3) examples really have (0,1),(0,1) through degree two and (0,1) versus (3,1) at degree three, as independently checked in `reproduce_2_3_5.py`. Products of irreducibles of those distinct degrees work over every odd finite field. These checks do not imply that all abstract classes are realized on curves over a fixed field or recover a curve Weil polynomial. The frozen C++ artifact was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 5.1 is not restricted to plane quartics. ATLAS class representatives cover the whole group and its two representations, including the classes of nonhyperelliptic Frobenius actions.",
+          "Braden–Disney-Hogg Table 6 concerns selected curves' automorphism groups, not the full finite-field inverse theorem."
+        ],
+        "reasoning": "The classical geometric identification plus the whole-group data dominate the finite-action calculation. The selected-curve tables alone do not.",
+        "searches": [
+          "Bruin–Poonen–Stoll 2016 Theorem 5.1 and §§12.1,12.3",
+          "Braden–Disney-Hogg arXiv:2404.09890v1 introduction and Table 6",
+          "ATLAS S6(2) conjugacy representatives and standard representations"
+        ]
+      },
+      "checked_sources": [
+        "ATLAS S6(2) old and v3 class pages and S62G1-p28B0/p36B0",
+        "GAP CTblLib S6(2) index",
+        "Bruin–Poonen–Stoll Theorem 5.1 and §§12.1,12.3",
+        "Braden–Disney-Hogg v1 Table 6",
+        "Resultary 32e887a65762 (identical) and bd2f0d7f5aae (distinct)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Each signature is ((χ28(w^n),χ36(w^n))) for n=1,2,3, on the same 30-class key. Counting distinct prefixes or comparing rows is a bounded deterministic operation on those published actions.",
+          "The hyperelliptic record gives precisely the (1,7)/(3,5) pair and the all-odd-field realization with the same first-three-extension counts."
+        ],
+        "reasoning": "Adding a self-contained census confirms a mechanical implication but does not supply missing action data or a different invariant. The directly overlapping all-field witness is not a separate distinct remainder here; its date relative to this finding is not established.",
+        "searches": [
+          "ATLAS standard generators and class words paired with S62G1-p28B0 and S62G1-p36B0",
+          "Resultary bd2f0d7f5aae, finding and sharpness proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorem 5.1 identifies the geometric theta set equivariantly with quadratic refinements and odd parity with Arf invariant one. The stabilizers of the minus- and plus-type refinements are O_6^−(2)≅U_4(2):2 and O_6^+(2)≅S_8. Those are the actions described by ATLAS at degrees 28 and 36.",
+          "The Resultary exact-title match is the assigned record itself; the distinct bd2f0d7f5aae finding uses the same sharpness curves but restricts to hyperelliptic branch types."
+        ],
+        "reasoning": "Counting Frobenius-fixed parity labels is evaluation of these two specific permutation characters, not a new implicit model for them. The hyperelliptic comparison overlaps on optimality but is not by itself a theorem for all Sp6(2) classes.",
+        "searches": [
+          "Resultary: genus-three parity theta Frobenius, all 30 symplectic classes, first three extension degrees",
+          "Bruin–Poonen–Stoll Theorem 5.1; ATLAS S6(2) degree-28 and degree-36 actions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The old-format ATLAS Conjugacy classes passage explicitly supplies 30 representative words in a,b; the Representations passage lists the matching a,b for both actions in GAP and MeatAxe formats. Both detailed representation pages say Standard generators and list respectively character 1+27 with U_4(2):2 stabilizer and 1+35b with S_8 stabilizer.",
+          "The CTblLib S6(2) page identifies ATLAS provenance and the ordinary table with 30 classes, dated 20 May 2025. Raw ATLAS generator files were not successfully opened in the bounded passage check; the ordinary-character entries were not transcribed. The independently recomputed frozen rows are separate evidence for the numerical values, not claimed to be an ATLAS replay."
+        ],
+        "reasoning": "For each existing representative word w one only applies it to the two supplied actions and counts their points fixed by w, w² and w³. This yields the joint six-column row without seeking any new conjugacy classes or permutation model. Full cycle spectra are obtained by following the same permutation orbits. The absence of those output columns in the ATLAS view is not a mathematical gap in the tabulation.",
+        "searches": [
+          "ATLAS /Atlas/clas/S62/, Conjugacy classes and Representations; /Atlas/v3/clas/S62/",
+          "ATLAS S62G1-p28B0 and S62G1-p36B0; GAP CTblLib S6(2) table info"
+        ]
+      },
+      "rationale": "The finite-group contribution is mechanically covered by published data for these very two actions, not merely suggested by an abstract class count. ATLAS explicitly identifies both standard-generator representations and supplies a representative word per class on the same generators. Thus evaluating those words on the 28 and 36 points and counting fixed points of each of three powers is a direct readout on 30 existing rows, with no need to construct or enumerate the symplectic group. The pages also identify the permutation characters as 1+27 and 1+35b, giving the equivalent character-value/power-map readout. Riemann–Mumford, in the cited primary source, already supplies the arithmetic identification for all curves in scope. The application is not printed verbatim in ATLAS; the failure is concrete implicit coverage, not an assertion that ATLAS prints the exact theorem. The arithmetic sharpness examples additionally overlap exactly with the distinct hyperelliptic record; priority between the two same-day findings is not inferred.",
+      "residual_risks": [
+        "The ATLAS raw representation files and full ordinary-character rows were not independently replayed as part of this comparison. The matching standard-generator actions and class-word inputs were verified, and the numerical classification was independently reproduced by another method.",
+        "No exact verbatim theorem was established in the primary passages and the two same-day Resultary entries have no established priority order."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact class-aligned input for joint reconstruction",
+          "evidence": "Lists permutations on 28 and 36 on a,b and actual representative words, e.g. 2A=a, 3B=(ab)^3.",
+          "identifier_or_url": "https://brauer.maths.qmul.ac.uk/Atlas/clas/S62/",
+          "material_read": "Standard generators, Representations near website text offset 1062, Conjugacy classes near 7135",
+          "method": "Bounded OA website passages; class and representation detail cross-check",
+          "title": "ATLAS: Symplectic group S6(2)",
+          "trigger": "Exact conjugacy table and both theta actions"
+        },
+        {
+          "assessment": "Identified standard-generator theta actions; physical generator files not replayed",
+          "evidence": "28: stabilizer U4(2):2, character 1+27. 36: stabilizer S8, character 1+35b. Both list standard generators, ranks two, and download formats.",
+          "identifier_or_url": "https://brauer.maths.qmul.ac.uk/Atlas/v3/permrep/S62G1-p28B0 ; https://brauer.maths.qmul.ac.uk/Atlas/v3/permrep/S62G1-p36B0",
+          "material_read": "About these representations, offset 0 on each page",
+          "method": "Bounded OA website passages",
+          "title": "ATLAS: S6(2) permutation representations on 28 and 36 points",
+          "trigger": "Verify that the tabulated actions really are the two theta actions and share generator labels"
+        },
+        {
+          "assessment": "Corroborates the full ordinary group table and the relevant subgroups",
+          "evidence": "30 classes; origin ATLAS of finite groups. Maximal subgroup indices 28 and 36 are U4(2).2 and A8.2.",
+          "identifier_or_url": "https://www.math.rwth-aachen.de/~Thomas.Breuer/ctbllib/ctbltoc/data/S6(2).html",
+          "material_read": "Name, number of classes, InfoText and Maximal subgroups (bounded website page)",
+          "method": "OA website passage",
+          "title": "GAP Character Table Library: S6(2)",
+          "trigger": "Check class count, prior table provenance and the two stabilizers"
+        },
+        {
+          "assessment": "Provides the geometric identification, not the numerical prefix counts",
+          "evidence": "Theta characteristics are refinements of the Weil pairing; odd parity corresponds to Arf invariant one. The bitangent action is the odd-theta Galois action.",
+          "identifier_or_url": "https://math.mit.edu/~poonen/papers/genus3.pdf",
+          "material_read": "Theorem 5.1 p. 9, near text offsets 21861–22687; §§12.1 and 12.3 pp. 40–42",
+          "method": "OA PDF passages",
+          "title": "Generalized explicit descent and its application to curves of genus 3",
+          "trigger": "Galois-equivariant identification in all odd characteristics and relation to bitangent data"
+        },
+        {
+          "assessment": "Selected examples, not the all-class cutoff",
+          "evidence": "Uses affine theta actions and tabulates automorphism-group orbits on specified curves.",
+          "identifier_or_url": "https://arxiv.org/abs/2404.09890v1",
+          "material_read": "Introduction p. 1 and Table 6 PDF pp. 23–24",
+          "method": "OA PDF passages",
+          "title": "Orbits of Theta Characteristics",
+          "trigger": "Possible prior exhaustive orbits for genus-three theta actions"
+        },
+        {
+          "assessment": "Exact overlap of the arithmetic witness, with no ordering inferred",
+          "evidence": "(1,7) and (3,5) have the same first-two-extension counts with a third-degree distinction, realized over every odd field.",
+          "identifier_or_url": "2026/11/22/SCOPE-three-extension-field-spin-counts-recover-the-branch-splitting-o--bd2f0d7f5aae",
+          "material_read": "Finding and proof of the branch-splitting theorem",
+          "method": "Resultary, local mirror and frozen companion record",
+          "title": "Three extension-field spin counts recover the branch splitting of a genus-three hyperelliptic curve",
+          "trigger": "Exact same sharpness witnesses"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The inverse question uses natural arithmetic invariants and the theorem is correct. But the proposed new contribution is a narrow table readout: prior geometry identifies the two actions and the prior class-aligned standard-generator data directly determine all rows. The all-odd-field witness repeats the distinct paired record's exact sharpness result. An exhaustive recensus or rewording supplies reproducibility rather than an unknown exact invariant or an independent scientific remainder. No repair was made.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

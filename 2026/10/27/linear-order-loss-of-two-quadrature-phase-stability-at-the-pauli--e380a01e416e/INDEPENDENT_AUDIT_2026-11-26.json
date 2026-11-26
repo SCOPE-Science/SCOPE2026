@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:25:52.240408Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 4–59",
+        "VERIFICATION.md, checker.py and checker_output.txt, inspected without execution: rank and witness values at finitely many angles"
+      ],
+      "rationale": "After dividing by h_0², the paired traces are real polynomials. The x⁴ coefficient kills H_22; the x³ and x coefficients at 0 and δ kill H_12 and H_01 since sin δ≠0. The constant and quadratic coefficients leave H_02=t exp(−iδ), H_00=−H_11=√2 t cos δ. The kernel is exactly the indicated line with block eigenvalues tending to ±1 and remaining eigenvalue −√2 cos δ. Rank eight therefore persists at π/2, with a uniform positive least transverse singular value in a small compact neighborhood (the outputs lie in a fixed finite polynomial-Gaussian space). For H=uu*−vv*=tK_δ+R with R orthogonal to the kernel, choose a unit null vector x of H: ||R||_F≥||Rx||=|t| ||K_δx||≥|t|√2|cos δ| locally. Using ||H||_F≤|t| ||K_δ||_F+||R||_F establishes the lower multiple. For u=(e_0+i e_2)/√2 and v=(e_0−i e_2)/√2 the second trace is 2 sin(2δ)h_0h_2, the first is zero and ||H||_F=√2. The integral of h_0²h_2² is 3/(8√(2π)), obtained using the x² and x⁴ moments 1/4 and 3/16 under the normalized e^(−2x²) weight. This witness gives both the exact zero and the matching upper order, for either side of π/2.",
+      "residual_risks": [
+        "The finite checks are supporting evidence, not a proof or an independent replay. The sharp multiplicative coefficient is not determined."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Jaming works with bounded Hermite expansions in more than three modes, but states qualitative uniqueness. Theorem 18 of Bandeira et al. bounds a real finite-frame Lipschitz constant by a strong-complement-property constant. The catalogue rank theorem for separated ladders h_0,h_r,… requires r>2 at d=3."
+        ],
+        "reasoning": "A broader dimensional uniqueness theorem does not dominate a quantitative estimate, a finite-frame conditioning principle requires a problem-specific estimate, and r=1 is excluded by the separated-ladder hypotheses.",
+        "searches": [
+          "Jaming Theorem 5.5, arXiv:1009.3418",
+          "Bandeira et al. arXiv:1302.4618 Theorem 18",
+          "Resultary 350acdf2ef5e Finding"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1009.3418 Theorem 5.5/Remark 5.7",
+        "arXiv:1211.4967 Eq. (6)/Table I",
+        "arXiv:1302.4618 Theorem 18",
+        "Local Resultary record 350acdf2ef5e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The explicit kernel has determinant √2 cos δ and two eigenvalues bounded away from zero near π/2. Derivation of its transversality to rank-two differences, and an admissible upper witness, close the quantitative estimate."
+        ],
+        "reasoning": "A known one-dimensional kernel and injectivity away from an isolated angle do not fix the order of its approach to rank two; they are compatible with higher-order contact. The general Lipschitz principle does not already estimate the required angle-dependent minimum.",
+        "searches": [
+          "Jaming Theorem 5.5 and Remark 5.7",
+          "Sych Eq. (6)/Table I",
+          "Bandeira et al. Theorem 18"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Jaming's qualitative nonresonance criterion here reduces to checking e^(ijδ) nonreal for j=1,2; his remark supplies resonant ambiguities. The quadrature tomography table gives eight independent POVM elements at d=3,m=2."
+        ],
+        "reasoning": "These correspond to injectivity away from π/2, degeneracy there and a known ambient lifted rank. None compares the minimum on allowable rank-two differences to the distance in angle from π/2.",
+        "searches": [
+          "Two-angle bounded Hermite phase retrieval: Jaming arXiv:1009.3418, Theorem 5.5 and Remark 5.7",
+          "Quadrature tomography: Sych et al. arXiv:1211.4967, Eq. (6) and Table I",
+          "Local Resultary exact two-quadrature recovery and blind spaces: 350acdf2ef5e"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Table I includes the exact rank eight entry. The catalogue result gives an exact rank/nullity formula for separated ladders, with statistical stability and noisy finite-sample accuracy outside its scope."
+        ],
+        "reasoning": "The claimed angular exponent is neither the known rank entry nor a count of missing dimensions. Fixed rank is compatible with different angles of contact with the rank-two cone.",
+        "searches": [
+          "Local Resultary 350acdf2ef5e (exact arithmetic blind spaces)",
+          "Sych et al. arXiv:1211.4967 Table I"
+        ]
+      },
+      "rationale": "Credit the known qualitative uniqueness and exceptional angle and known two-setting rank. The accepted contribution is specifically the sharp two-sided angular order for the global lifted pure-state ratio in the contiguous three-mode system. The strongest compared results do not already bound its angular deterioration.",
+      "residual_risks": [
+        "The passages checked cover the closest identified claims; no exhaustive literature search or priority determination is asserted. Equivalent quadratic-measurement conditioning results elsewhere remain possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers qualitative uniqueness and exceptional geometry, not the audited global rate",
+          "evidence": [
+            "Nonresonant angular factors give uniqueness for bounded expansions; the remark discusses necessity and ambiguities."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1009.3418",
+          "material_read": "Theorem 5.5 and Remark 5.7, PDF pp. 20–21, offsets 67284 and 71298",
+          "method": "OA PDF passage inspection",
+          "title": "Uniqueness results for the phase retrieval problem of fractional Fourier transforms of variable order",
+          "trigger": "Same Hermite/FrFT two-angle problem"
+        },
+        {
+          "assessment": "Exact rank overlap but not the pure-state angular stability order",
+          "evidence": [
+            "At three modes and two settings the table gives eight independent measurement elements."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1211.4967",
+          "material_read": "Eq. (6) and Table I, PDF p. 2, offsets 10016 and 14390",
+          "method": "OA PDF equation and table inspection",
+          "title": "Informational completeness of continuous-variable measurements",
+          "trigger": "Same three-mode quadrature linear measurement rank"
+        },
+        {
+          "assessment": "Does not cover the contiguous ladder or provide an angular stability estimate",
+          "evidence": [
+            "The ladder theorem requires r>2 in dimension three, whereas the current basis has r=1."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-two-quadrature-recovery-and-exact-arithmetic-blind-spaces-for-se--350acdf2ef5e/RESULT.md",
+          "material_read": "Finding, offset 0, and scope on continuous data",
+          "method": "Local Resultary search and mirror passage read",
+          "title": "Two-quadrature recovery and exact arithmetic blind spaces for separated ladders",
+          "trigger": "Strongest catalogue overlap on two quadratures and exact kernels"
+        },
+        {
+          "assessment": "General real finite-frame bounds, not the angular estimate for this complex three-mode map",
+          "evidence": [
+            "The lower Lipschitz constant in the theorem is controlled by the strongest σ-complement property of the finite frame."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1302.4618",
+          "material_read": "Theorem 18 and preceding discussion, PDF pp. 2 and 12, offsets 8685 and 60700",
+          "method": "OA PDF phrase location and bounded passage read",
+          "title": "Saving phase: Injectivity and stability for phase retrieval",
+          "trigger": "Possible stronger quantitative stability principle"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding and Proof §§1–3",
+        "Jaming Remark 5.7 and Sych Table I for the distinction from known qualitative facts"
+      ],
+      "rationale": "The Pauli pair is a natural degenerate set of observables. The exponent characterizes how the best inverse conditioning deteriorates globally over pure states as the second quadrature approaches it, separating fixed-rank ambient singular values from the tilt of the kernel relative to physically admissible differences. Exact linear order has meaning even without the optimal slope.",
+      "residual_risks": [
+        "Not an estimate for finite samples, arbitrary Hermite modes, or a different norm on signal space."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

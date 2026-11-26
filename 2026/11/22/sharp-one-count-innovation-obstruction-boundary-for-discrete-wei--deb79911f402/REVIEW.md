@@ -1,19 +1,21 @@
-# Scientific review: sharp one-count innovation obstruction
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The unique interior root follows from a four-change generalized Descartes bound, the double root at \(q=1\), and opposite signs at the open interval endpoints. The exact identity \(r_2-r_1=H_\beta(q)/(1-q)^2\) and the logarithmic derivative of the mandatory quotient establish a strictly negative probability-one innovation coefficient for all high retentions above the root. The two asymptotic laws use uniform Taylor expansion and an explicitly one-crossing two-exponential limit. Ordinary infinite divisibility is supporting prior art and independently established by a positive geometric-mixture renewal argument. The shipped checker passed the numerical coefficients and six reference boundary values.
+PASS
 
-## Originality — PASS, with residual historical risk
+For 0<β<1 strict concavity orders the six exponents as 1<A<B<1+A<1+B<2A; in particular the gaps give B<1+A and midpoint concavity gives 1+B<2A. The four sign changes bound the number of positive roots counted with multiplicity by four via differentiated Rolle induction: after dividing by the lowest power, an initial same-sign derivative costs an additional derivative zero before the first function zero. At q=1 the constant and linear terms vanish and the quadratic coefficient 2·3^β−2^β−4^β is strictly positive. Near q=0 the leading term is −q. After counting the exact double root at one, the total interior multiplicity is at most two and must be odd by the change of sign, hence exactly one and simple. The mandatory innovation PGF quotient is analytic near zero with positive constant term. Its normalized first derivative equals r_1−c(log G)'(1−c)=(1−c)(r_1−r_2)+O((1−c)^2), and the mass expansion yields r_2−r_1=H_β(q)/(1−q)^2. Thus q>q_* excludes all sufficiently high retentions at each fixed pair (β,q), without asserting sufficiency below the curve. At β=1 the negative value −q(1−q)^3 at each fixed q<1 forces q_*→1. In t=−log q the divided expansion is F_β−t+O((1−β)t+t²), yielding t_*~(10 log 2−6 log 3)(1−β). At β↓0, q=e^(−τ/β) gives H/q→−1+3·2^(−τ)−2·3^(−τ); its derivative has one positive zero and its sign around its unique positive root brackets the rescaled threshold. Ordinary ID follows separately from the geometric mixture induced by the positive stable Laplace transform: log-convex masses give nonnegative reciprocal-renewal coefficients, and the PGF logarithm has a finite nonnegative Lévy sequence. A 60-digit direct mass replay found q_*(1/2)=0.633705137004670016969118…, both endpoint constants as stated, and a normalized one-count quotient near −0.000214832801325664 at (β,q,c)=(0.5,0.8,0.99), with explicit omitted-tail bounds. The replay corroborates rather than proves the parameter-uniform theorem.
 
-Kreer, Kizilersu and Thomas (2024) treat ordinary additive infinite divisibility of the same discrete Weibull law. Their indexed abstract does not state the stronger binomial-thinning innovation coefficient classification; the article's full text was inaccessible, so priority cannot be exhaustively certified. The original discrete Weibull construction and general thinning self-decomposability definitions are not claimed as new. Related literature and public result comparisons were checked for aliases, stronger coverage, databases and parameter reductions; no direct dominating proof was found. See AUDIT.json for comparisons and access limitations.
+## originality
 
-## Value — PASS
+PASS
 
-An all-shape exact boundary for a necessary innovation-sign constraint is a meaningful structural obstacle when fitting stationary count autoregressions with high retention. The explicit two endpoint laws describe how this obstacle approaches the near-geometric and small-shape regimes. Ordinary infinite divisibility of the same laws shows why the obstruction cannot be dismissed as ordinary convolution inadmissibility. No global sufficiency below the curve is asserted.
+The general thinning definition, PGF quotient and first canonical-sequence comparison are prior tools, and ordinary ID of type-I discrete Weibull is prior art. The distinct content is the unique simple crossing and exact sign characterization of the evaluated one-count obstruction for every shape, with two explicit parameter endpoint laws. The accessible closest comparisons do not give those facts. The verdict is best-of-knowledge and does not claim priority for a complete thinning-SD classification.
 
-## Limits
+## value
 
-The first innovation coefficient is the only obstruction classified; other innovation coefficients may fail below the reported curve. No independent mathematical audit or full historical-priority certification was performed. The 2024 primary paper was available only in abstract form.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An exact exclusion region for a proposed stationary count marginal at all sufficiently high thinning retentions is operationally meaningful even without a complete sufficiency classification. This theorem turns a generic necessary coefficient test into an unambiguous sharp sign transition, including a near-geometric scale and a distinct exponentially small threshold at small shape. It also gives a family-specific separation of ordinary additive ID from the stronger thinning requirement, not just a numerical witness or restatement of that distinction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

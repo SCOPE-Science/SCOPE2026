@@ -1,19 +1,21 @@
-# Scientific review: rare-level residual exit clocks
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The stationary decomposition separates an exponentially distributed Brownian increment over the current memoryless interval from a uniformly contracted older remainder. A genuine exponential moment at a rate strictly beyond the leading Laplace tail follows from the bounded signed affine marks; this is enough for a fully quantified exponential overshoot limit. On any compact future time interval, the first reset necessarily falls below the high level except on an event whose probability vanishes, using strict contraction and conditional tightness. Reflecting Brownian motion at zero yields the exact exit-time survival kernel; integrating it against the limiting exponential overshoot gives \(\operatorname{erfc}(\sqrt{rt})\). The complete-reset equality and the joint limit are also proved. Finite rational/numerical checks verify normalization constants and independently integrate the key kernel; they do not prove asymptotic statements by enumeration.
+PASS
 
-## Originality — PASS against inspected literature
+A two-sided rate-r Poisson construction yields independent exponential backward intervals, independently marked; their Brownian displacements are independent Laplace variables with rate lambda=sqrt(2r)/sigma. The backward affine series converges absolutely and gives the stationary process; coupling with the same future noise decreases differences by at most c_* at each reset, giving uniqueness. Its additive remainder R (independent of the final Laplace innovation) is bounded by K/(1-c_*)+sum_{j>=1} c_*^j |xi_j|. For eta>lambda with eta*c_*<lambda its exponential moment is finite by the convergent Laplace-product bound, including c_*=0. Thus the positive stationary tail is asymptotic to exp(-lambda u) E[exp(lambda R)]/2; dividing tails proves exponential excess and tightness. Future noise is unchanged by conditioning. At the first future reset S, on no earlier Brownian crossing the pre-reset position is u plus the tight random variable V_u+sigma W_S. The chance it is not sent below u tends to zero since |C|<=c_*<1 and |B|<=K (also for negative C). Hence the actual exit agrees with the first of S and the Brownian hit with probability tending to one. Joint weak convergence follows, for instance by Brownian scaling H_z in law as (z/sigma)^2 times a standard Brownian hitting time from 1, independent of the excess and S. Independent replay of the mixture: if p=r+s, the Laplace integral of the limiting survival at s is (1-E[exp(-U sqrt(2p)/sigma)])/p=1/[sqrt(p)(sqrt(p)+sqrt(r))]; its clock Laplace transform is therefore 1-s/[sqrt(p)(sqrt(p)+sqrt(r))]=sqrt(r/(r+s)). This gives the Gamma shape/rate, erfc survival and the limiting mean, not convergence of conditional means. For C=B=0 the excess is exactly exponential for all u>=0 and every reset exits, proving exactness. VERIFICATION.md and verify.py were inspected, not executed; the finite contraction examples and quadrature do not prove the infinite-law limit.
 
-Palmowski–Vlasiou (arXiv:2611.14692v1, 2026) supply equilibrium and affine transform theorems, and Di Bello et al. (arXiv:2305.13722, 2023) calculate marginal laws; neither inspected text gives the rare-stationary-height forward first-exit clock. Kolb–Wübker (doi:10.1112/blms.70314, 2026) condition on **long survival times from fixed starting states**, a different limiting regime. A published weak-reset sharp-tail theorem concerns spatial tails, while inspected conditional Gamma-reset phase/age and first-passage-reset gas theorems concern past latent ages under different reset clocks. Singh and Pal (2022) derive first-passage laws for reset-to-positive-state Brownian paths from fixed starting points; the elementary complete-reset benchmark is not claimed separately as a new first-passage method. Exact hidden potential coverage of the contraction-universal statement by broader published excursion-clustering theory is a residual priority risk and has not been certified absent.
+## originality
 
-## Value — PASS
+PASS
 
-The duration remaining above a rare observed height is a natural observable for stochastic search, transient excursions and monitoring thresholds; one-time invariant densities leave it undetermined. The closed Gamma-half law, independent of the diffusion amplitude and distribution of bounded signed affine reset marks, is a structural universality statement and explains how independent Poisson reset alarms truncate a selected Brownian excursion. The joint overshoot/time limit adds the dependence information needed for conditional predictions. This is meaningful even without a broader process-level extremal-cluster theorem.
+The supported distinct result is the joint stationary rare-excess/downward-exit law for the stated fixed class of bounded affine Poisson resets, including signed contractions. Neither the stationary perpetuity/tail alone nor residual reset times or first passage from fixed points give the joint law. The stationary representation, Brownian first-passage transform and complete-reset calculation are antecedent tools or elementary boundary consequences, not standalone novelty.
 
-## Scope and limitations
+## value
 
-All claims concern a stationary process with \(|C|\le c_*<1\), \(|B|\le K\), \(r,\sigma>0\), a fixed reset law, and a large positive stationary exceedance. There is no assertion about mean convergence, changing reset parameters, heavy-tailed additive shocks, or global novelty certification. Every cited published mathematical result was compared by the actual conditioned variable and limiting operation, not merely by title.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is a trajectory-level statistic not specified by the invariant distribution. It identifies two competing mechanisms and an exact scale-free Gamma shape throughout a natural class with different reset laws and signs; the joint result also retains dependence of the Brownian hit on the observed excess. Neither convergence of means nor a changing-parameter regime is needed to give the stated limit independent mathematical value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

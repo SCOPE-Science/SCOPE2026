@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T14:51:50.739597Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–24 and 28–75; VERIFICATION.md; static inspection of verify.py",
+        "Independent replay: python3 /workspace/review-evidence/reproduce.py 4 (SymPy). It compared the exact matrix polynomial coefficientwise for seven bicliques, checked nonsingleton cutoff signs and r(45/8), and reproduced 0.861105969933870, 0.645829477450403, 5.15448764572591."
+      ],
+      "rationale": "The normalized three-stage Legendre polynomial is 7/12 + (5/12)P3(1−2t/5), so r is in [1/6,1] through t=5 and strictly decreases to −∞ afterward. The quadratic in 1−r(t)=t(1−t/2+t²/15) is strictly positive. For N=p+q, the constant, class-contrast, and within-class zero-sum eigenspaces yield eigenvalues 0,N,q,p (omit zero multiplicities). For distinct vertices in the class of size p, the entry is [p+q r(Nh)−N r(qh)]/(Np) = qh²[1/2−(p+2q)h/15]. Swapping parts gives the other within-class entry, and cross-class entries are (1−r(Nh))/N. For p≥2, the smaller class's cutoff has Nh≤5, ensuring positive scalar terms in both diagonals; the smaller-class entry is negative at every larger step (both classes tie if p=q). For a star with q≥2 the hub diagonal (1+q r(Nh))/N crosses first: r(45/8)=−343/512<−1/q while the leaf-pair zero has Nh≥45/8. Leaf diagonals are positive to the hub cutoff since r(h)≥1/6 there. On K1,1 only the constant and contrast modes contribute, so positivity coincides with |r(2h)|≤1. In every case the full stability horizon follows from the largest eigenvalue N and the exact scalar interval [0,α]. This verifies all endpoints, h=0, and nonreentry. The two horizon ratios and star limit follow by scaling and continuity.",
+      "residual_risks": [
+        "The bounded computation corroborates the proof; it is not an all-size verification. Only completed steps for uniform-conductance complete bipartite graphs are classified, not positivity of intermediate stages."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "9d9d25b6d7af indexed statement: all positive-weighted bipartite graphs; sharp gain relative to forward Euler in [1, 1.596071637983…), with stars approaching the upper bound.",
+          "014168bc0394 indexed statement concerns classical third-order RK on weighted stars; e295dbcc047e concerns two-stage RKL2 on triangular graphs.",
+          "The cited grid results arXiv:2507.17062 and arXiv:2611.16238v1 §4 Remark 4.3 were described in the frozen comparison as having specified grid hypotheses; full passages were not independently retrieved."
+        ],
+        "reasoning": "The broad cubic indexed bound cannot be applied to this RKL2 polynomial: on unit stars the gain over forward Euler is q τ_q/(q+1), which tends to 5.1544876457, not ≤1.596071638. The latter number is the zero of the Taylor cubic 1−t+t²/2−t³/6. This distinguishes the quantified gain without inferring priority from the shared publication date; an additional uninspected general-coefficient theorem remains possible.",
+        "searches": [
+          "Resultary: three-stage RKL2 graph heat positivity complete bipartite stars",
+          "Resultary exact comparison: 9d9d25b6d7af cubic coefficient 1/15 Runge–Kutta–Legendre versus 1/6 Taylor weighted graph positivity"
+        ]
+      },
+      "checked_sources": [
+        "Resultary summaries 9d9d25b6d7af, 0aa3ec090e79, 3730497a7f20, 014168bc0394, e295dbcc047e and assigned self-hit",
+        "Frozen RESULT.md lines 81–97 and corresponding bibliography"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Legendre stability polynomial is prior method input (frozen RESULT.md lines 28–37 and 91–95). The direct projector calculation gives the distinct hub cancellation and within-part crossing.",
+          "For nontrivial stars and all p≥2 the positivity horizon is strictly shorter than α/N despite the full scalar real-axis stability interval."
+        ],
+        "reasoning": "Scalar stability does not imply cone preservation. The closest prior comparisons involve either a different polynomial or different hypotheses on the generator. The original RKL2 and grid-paper passages remain unverified directly, so no whole-document claim rests on those access failures.",
+        "searches": [
+          "Meyer–Balsara–Aslam, doi:10.1016/j.jcp.2013.08.021, OA passage query ‘RKL2 stability polynomial’",
+          "arXiv:2611.16238v1 §4 and arXiv:2507.17062",
+          "Primary search: \"RKL2\" \"complete bipartite\" positivity heat graph Runge-Kutta-Legendre threshold (unavailable)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "3730497a7f20 gives disconnected positivity windows for a directed pure-birth chain for the same three-stage RKL2 polynomial (indexed summary; frozen RESULT.md lines 85, 96).",
+          "For the assigned symmetric Laplacians, M(h) has row sums one for every h, so the exact endpoint positivity question is a step-specific stochasticity question."
+        ],
+        "reasoning": "Unrestricted absolute-monotonicity conditions and the example of reentry on a different class of generators do not identify a sharp single interval for these reversible generators. The directed chain lacks the class-contrast and within-part modes determining the cutoffs.",
+        "searches": [
+          "Resultary: absolute monotonicity RKL2 graph Laplacian entrywise nonnegative complete bipartite",
+          "Resultary: RKL2 absolute monotonicity radius positivity graphs Markov generator"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "0aa3ec090e79 indexes exact Taylor thresholds and a third-order singleton/within-part phase law; the Taylor coefficient 1/6 is specified in frozen RESULT.md line 85.",
+          "The exact three-case RKL2 hit 096a0ea22672 is the assigned item itself, not independent evidence of prior coverage."
+        ],
+        "reasoning": "The strongest distinct exact table uses the Taylor cubic, not the Legendre cubic. The within-part crossing is inversely proportional to the coefficient and the hub equation also depends on it; the tabulated Taylor horizons do not transfer. No matching distinct table was verified.",
+        "searches": [
+          "Resultary: Taylor Runge-Kutta complete multipartite exact positivity radii order three",
+          "Resultary: three-stage RKL2 exact positivity threshold star K_pq graph"
+        ]
+      },
+      "rationale": "Best of the available evidence supports the distinct three-stage RKL2 complete-bipartite endpoint classification, not the polynomial, scalar stability calculation, or a general positivity principle. Known Taylor, directed-chain, and grid results are credited. The closest broad weighted-bipartite index result has a sharp star gain incompatible with applying its stated conclusion to RKL2; full-text coverage beyond that indexed conclusion was not established.",
+      "residual_risks": [
+        "Lawful full text of the original RKL2 paper, the two cited grid papers and strongest matching corpus records was not independently accessible in the review. A general cubic-coefficient theorem or unindexed graph-specific RKL positivity treatment could still cover the result. Availability and search output do not certify priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Indexed gain theorem is not a theorem for the RKL2 polynomial; wider material not verified",
+          "evidence": "Indexed universal upper factor 1.596071637983… is incompatible with the RKL2 star gain limit 5.1544876457.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-universal-positivity-gain-for-cubic-runge-kutta-on-weigh--9d9d25b6d7af",
+          "material_read": "Indexed statement, not full text",
+          "method": "Semantic and exact-identifier catalogue queries; compared limiting star gains",
+          "title": "A sharp universal positivity gain for cubic Runge–Kutta on weighted bipartite networks",
+          "trigger": "Strongest plausible coverage of every bipartite graph"
+        },
+        {
+          "assessment": "Graph family overlaps; Taylor and Legendre cubics have different exact cutoffs",
+          "evidence": "Taylor cubic coefficient 1/6 versus 1/15.",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-positivity-radii-and-an-order-three-reversal-for-taylor-ru--0aa3ec090e79",
+          "material_read": "Indexed summary and frozen RESULT.md lines 85, 97; no direct primary passage retrieved",
+          "method": "Indexed statement and polynomial comparison",
+          "title": "Exact positivity radii and an order-three reversal for Taylor Runge–Kutta diffusion on complete multipartite graphs",
+          "trigger": "Strongest exact table on an encompassing graph class"
+        },
+        {
+          "assessment": "Same polynomial, different generator",
+          "evidence": "Directed pure-birth chain has disconnected positivity windows; not an all-biclique theorem.",
+          "identifier_or_url": "2026/10/25/SCOPE-reentrant-endpoint-positivity-of-three-stage-rkl2-on-a-minimal-m--3730497a7f20",
+          "material_read": "Indexed summary and frozen RESULT.md lines 85, 96",
+          "method": "Compared indexed generator class and qualitative positivity sets",
+          "title": "Reentrant endpoint positivity of three-stage RKL2 on a minimal Markov chain",
+          "trigger": "Same RKL2 polynomial and exact positivity question"
+        },
+        {
+          "assessment": "Method credited; no direct full-text coverage judgment",
+          "evidence": "Meyer, Balsara and Aslam, JCP 257 (2014), 594–626, cited at RESULT.md line 95.",
+          "identifier_or_url": "https://doi.org/10.1016/j.jcp.2013.08.021",
+          "material_read": "Citation and frozen comparison; full text not retrieved",
+          "method": "Targeted lawful OA lookup did not return the relevant passage",
+          "title": "A stabilized Runge–Kutta–Legendre method for explicit super-time-stepping of parabolic and mixed equations",
+          "trigger": "Original method paper"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 9–24, 61–75 and 81–89"
+      ],
+      "rationale": "A graph-specific sharp safe-step benchmark is useful because the scalar stability condition is strictly too weak on every nontrivial member of a standard graph family. The exact star versus nonsingleton split and the balanced tie locate different constraints that a scalar criterion cannot identify; the horizon and stability gap are meaningful for timestep selection. It is not a claim about stage positivity or error at the endpoint.",
+      "residual_risks": [
+        "The exact endpoint benchmark does not control truncation error or intermediate stages and does not extend in this review to arbitrary weighted graphs."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

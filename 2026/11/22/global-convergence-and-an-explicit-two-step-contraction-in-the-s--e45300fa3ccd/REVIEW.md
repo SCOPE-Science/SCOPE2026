@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is fully quantified for every real \(\alpha>2\) and every off-diagonal interior initial condition. The proof derives the exact reciprocal-odds branch formulas from the original piecewise-max update; proves order preservation with \(R_xR_y>1\); shows finite branch entry by a concrete \(3/2\)-growth estimate; proves permanent switching by an explicit strict inequality; and gives a two-step contraction via divided differences of the log-odds map. The intermediate-value coefficient bounds apply simultaneously to the orbit and to the fixed point. Supporting exact rational and numerical tests are reproducible in `CHECK.py`. They do not purport to prove the infinite statement.
+PASS
 
-## Originality — PASS within inspected evidence
+The odds rewrite gives 0<z<w<=1 and R_x>1, R_x>R_y and R_x R_y>1, proving strict order preservation on both branches, including a tie. Before entry, r'-1=(r-1)(1+r/(1+w)) >= 3(r-1)/2, and r>=alpha forces R_y<1; this proves the stated ceiling bound even when it is zero. At or after entry, the denominator-minus-numerator identity for R_y' is at least alpha-2>0. The proposed fixed point has w_*=1/(alpha-1), z_*<w_* and R_y=w_*<1. The two log-odds deviations satisfy u'=u-av and v'=bu-v; the mean-value bounds a>=1/2 and b>=1-1/alpha make N nonincreasing and bound |u'-v'| by qN, q=1/2+1/alpha. At the second step each of the first two components puts weight at least 1/2 on that tightened bound, giving (1+q)/2; the difference component is bounded by qN. This proves the rate from T, not a sharp asymptotic multiplier or a contraction during the transient. RESULT.md §§1–4 and CHECK.py were inspected, not executed; the finite checker's entry-time ceiling uses floating-point logarithms even in its rational map checks. No computation is needed for the analytic proof.
 
-The original map and the location/local stability of its off-diagonal fixed points belong to Satur, arXiv:2611.13318v1, Theorem 3. The same source expressly records the rigorous supercritical global-attraction problem as open; its large numerical experiments are not a proof. The nearest published-finding corpus finding concerns nonlinear decay at the disjoint critical parameter \(\alpha=2\), and searches for supercritical global attraction and odds-coordinate contraction returned no implication of the theorem. Accessible claim records for this research topic showed no matching result. Equivalence under odds/log-odds coordinates and the possibility of a stronger general theorem elsewhere remain residual historical-priority risks. This status does not represent independent literature certification.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result closes an explicitly stated dynamical gap for a natural and recently introduced border-collision model. It converts a numerical basin conjecture into a deterministic all-orbit theorem, supplies finite switching-time control, and establishes a uniform parameter-dependent post-entry contraction rate. The scope is structural, not a selected finite computation, a textbook restatement, or a trivial improvement to existing local stability.
+Credit existing same-map global convergence and eventual branch selection for alpha>=4, and credit Satur for the fixed points, order preservation and local stability. The supported distinct claim is global attraction down to every 2<alpha<4, together with the specific explicit entry-time and log-odds estimates for all alpha>2. No equivalent coverage of this stronger parameter-and-estimate statement was identified in the sources checked.
 
-## Boundaries
+## value
 
-The invariant diagonal and the critical/subcritical parameter ranges are excluded; the contraction bound is not claimed optimal. The checker is supporting evidence only. Independent verification and historical-priority assessment remain outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The extension reaches arbitrarily close to the bifurcation threshold where the local theorem and numerical evidence did not settle the basin. The absorbing branch and explicit transient estimate give a structural reason for winner–loser selection; the two-step estimate then supplies a uniform bound even for points that enter far from the fixed point. This is not a recomputation of the fixed point or a merely local multiplier.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

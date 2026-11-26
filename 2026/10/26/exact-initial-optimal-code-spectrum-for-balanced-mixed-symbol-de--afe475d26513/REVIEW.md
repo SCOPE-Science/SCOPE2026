@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The balanced-output shadow exactly describes one-zero/one-one deletion, because a balanced word losing two symbols and remaining balanced must have lost one of each. The channel-compatibility graph has a direct pairwise-output definition. The standalone checker builds it from all deletion pairs, uses a provably valid greedy-coloring clique upper bound, and exhaustively establishes both the optimum code sizes and all optimum-codebook counts for five specified lengths. It directly rechecks all enumerated codebooks against channel outputs and checks all symmetry images. A separate exact integer-program calculation recovers the maximum sizes, but is not needed for replay.
+## correctness
 
-## Originality
-PASS under examined coverage, with residual risk. Cullina–Kulkarni–Kiyavash (2012) use full two-deletion confusability on constant-weight source layers and list aggregate constructions, not the exact different-symbol-only codebook counts. Guruswami–Håstad (2020), §§1 and 5, construct efficient codes correcting unrestricted pairs and distinguish the mixed-symbol case in their decoding analysis, without computing the present finite optimality/multiplicity profile. Targeted published-record searches found no equivalent or stronger claim and no relevant tabulation. The possibility of an unindexed small-parameter enumeration remains.
+PASS
 
-## Mathematical value
-PASS. This is a natural finite benchmark for composition-constrained synchronization coding with a restricted corruption type. The exact size and complete multiplicity/symmetry census reveal sharp small-length behavior; notably the length-ten optimum of ten has 666 distinct codebooks in 174 symmetry classes, instead of merely a feasible code or asymptotic bound. The contrast with unrestricted two deletions in the same balanced source class demonstrates the significance of knowing the deleted-symbol composition. The finite cutoff is explicit, with no unsupported extension.
+A balanced length-(n−2) subsequence of a balanced length-n source deletes exactly one symbol of each value; there is no multiplicity of an output as a constraint. Pairwise disjoint output shadows are therefore exactly the cliques of the compatibility graph. I inspected RESULT.md:30–48, VERIFICATION.md:19–25 and check.py:18–95,119–142, including the proper-color prefix bound and the exhaustive recursive partition by last chosen vertex. I independently built each output's source support by greedy subsequence matching, rather than deletion-position pairs, and ran exact integer-mask search on all five lengths and both channels. At n<=8 I branched on an output support: either use none of its available sources or use a unique one and remove its entire conflict neighborhood. A cover of candidates by fewer supports than the remaining target is a valid prune. At n=10 I used independent pairwise-conflict layers on a run-count-ordered source list and partitioned search nodes by the last selected vertex, rejecting only when remaining layers cannot meet the target. The complete mixed target search and target+1 exclusion at n=10 visited 600388 and 200216 nodes respectively; it replayed 666 distinct optima and no size-11 code. All lengths reproduced A=(1,2,2,6,10), M=(2,1,40,3,666), and orbit-size histograms for sizes 1/2/4 of (0,1,0),(1,0,0),(2,5,7),(1,1,0),(0,15,159). Taking the four reversal/complement images and checking their codebook membership gives the claimed orbit counts; the printed size-ten representative belongs to the independently found set. The arbitrary-deletion targets and one-higher exclusions also replayed exactly (1,1,2,4,8). The frozen replay path is check.py as documented in VERIFICATION.md in the record directory, not executed for this review; its mixed-only assertions do not check the arbitrary-deletion comparison or the specific printed representative. This audit's independent search did check both. No claim extends to n>10 or to an unbalanced source universe.
 
-## Closest literature and limitations
-The foundational graph model is known. The new content is the precise mixed-symbol channel optimum and labeled optimum-codebook census for the specified sizes. Related unrestricted-channel work does not imply the results. Full independent mathematical validation has not been performed, and matching results in unindexed literature cannot be completely ruled out.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct result is the complete finite maximum-codebook and symmetry census for the conditional mixed-deletion channel on balanced inputs, together with its evaluated exact maxima. The graph formulation, unrestricted two-deletion studies and the mixed-symbol case analysis as a decoding mechanism are prior. No exact conditional census or dominating exact theorem supplying its values was found in the inspected passages and catalogue matches.
+
+## value
+
+PASS
+
+The conditional, balanced binary channel is a natural composition-constrained problem, and the initial range through 252 source words gives a reproducible exact benchmark. The gap from arbitrary deletion is explicit, the complete census records which optima are genuinely distinct up to natural symmetries, and a concrete length-ten optimum is provided. This motivates the precise finite slice without implying an asymptotic construction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

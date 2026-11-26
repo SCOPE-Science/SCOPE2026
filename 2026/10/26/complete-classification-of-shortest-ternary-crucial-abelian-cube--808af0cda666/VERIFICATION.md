@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,25 +19,24 @@
 }
 ---
 
-# Verification of the shortest ternary crucial Abelian-cube-free classification
+# Independent mathematical audit
 
-`verify.py` is a standalone Python 3 program using no packages beyond the standard library. Execute:
+## correctness
 
-```
-python3 verify.py
-```
+PASS
 
-The program implements the Abelian-cube predicate directly by comparing three adjacent factor Parikh vectors. It enumerates all ternary words of lengths below eleven to test the known minimum, then independently enumerates all \(177147\) words of length eleven. It counts \(50520\) cube-free words and \(264\) crucial ones, constructs the asserted \(44\) normal-form representatives from the separate formula, obtains their six alphabet relabelings, and checks exact set equality. It also verifies the \(44\) distinct relabeling orbits and all six permutations of witness block lengths \(1,2,4\).
+Any new cube must be a suffix; a fixed constituent length determines at most one appended letter. Below length 8 there cannot be three distinct witness lengths. For lengths 8–10 the only possible triple is 1,2,3: the length-1 and length-2 constraints force the middle length-3 block of the final nine letters to contain one u and two v, incompatible with the final block uut for three distinct extension letters u,v,t. At length 11 the frozen proof also excludes 1,3,4 by comparing the count of the fourth-length witness letter in the middle and last four-blocks, and 2,3,4 by the mod-three composition of the first three and first six letters and the resulting two last-letter cases. Thus 1,2,4 are the unique constituent lengths. Labeling by that assignment gives terminal 100, with A and B permutations of 0012 and B ending in 01 or 10. No internal cube can contain a 2 because there are exactly two occurrences. All length-nine factors meet the 2 of B, and the only possible length-six factors avoiding 2 are 001100 and 010100, neither a cube. The only remaining obstruction is the four A/B joins forming 000. The 44 representatives each use all three symbols, and the normalization is unique. A separate prefix-Parikh exhaustive calculation on all words of lengths 0–11 reproduces no shorter crucial word, 50,520 cube-free length-11 words, and 264 crucial words normalizing to exactly the 44 constructions; each of the six witness assignments occurs 44 times. Replay: branches/803f0658-a80a-474d-b98c-43ae286ddbff/independent_ternary_cubes.py and its .out. The attached CSV has the stated 44 AB100 constructions.
 
-Observed successful output:
+## originality
 
-```
-PASS: no ternary crucial Abelian-cube-free words below length 11;
-PASS: 3^11=177147 words checked; 50520 Abelian-cube-free;
-PASS: 264 crucial words; 44 alphabet-relabeling orbits;
-PASS: 12 x 4 - 4 = 44 canonical constructions;
-PASS: all six length-witness permutations (1,2,4), 44 each;
-PASS: exact agreement of exhaustive and structural descriptions.
-```
+PASS
 
-All assertions must succeed for these lines to print. Exhaustion is conclusive for the specifically stated finite length and alphabet; the structural steps in `RESULT.md` explain why the family is exhaustive rather than merely empirically observed. The cited older minimum-length theorem is independent prior work. The package does not establish originality against all possible publications and has not undergone independent audit.
+The distinct result is the census, the complete normal form with its four exclusions, and the unique constituent witness-length profile. Minimum length, examples, and the full ambient avoidance count are established prior work. The sources compared support a bounded originality pass only for the distinct classification.
+
+## value
+
+PASS
+
+The cutoff is the natural minimum for a classical avoidance problem, not an arbitrary word length. The result identifies every shortest right obstruction, explains why all three witnessed block lengths are determined, and lets later work use exact labeled or symmetry-reduced examples without repeating a search. This is more than reproducing the known minimum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

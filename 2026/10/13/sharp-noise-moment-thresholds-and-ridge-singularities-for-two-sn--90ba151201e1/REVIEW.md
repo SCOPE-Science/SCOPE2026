@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The result applies to arbitrary deterministic, distinct input snapshots, independent isotropic Gaussian oracle errors, an affine scalar contraction and the displayed one-column Anderson projection. The update identity follows by substituting the one-column least-squares minimizer. The sum/difference Gaussian transform yields independent numerator and denominator vectors and a residual-difference density positive at zero. A polar lower/upper bound proves the strict moment cutoff \(q<d\), including divergence at equality. A separate polar integration of the squared ridge coefficient yields the exact leading \(\varepsilon^{-1/2}\) and \(\log(1/\varepsilon)\) constants. A uniformly bounded regular remainder controls cross terms; dominated convergence handles dimensions \(d\ge3\). The accompanying deterministic verifier cross-checks the algebra and numerically integrated leading constants, without using finite computations as an infinite proof.
+PASS
 
-## Originality — PASS, with residual risk
+The scalar normal equation gives t=1/2-(h·D+epsilon/2)/(||D||^2+epsilon). The half-sum h and difference D are independent Gaussians by zero cross-covariance; D has covariance 2 sigma^2 I and the strictly positive displayed density at zero. At zero ridge the only unbounded-in-D term is -Delta (h·omega)/r, r=||D||. Its upper bound gives the radial integral r^(d-1-q), while a compact positive-probability h set and a spherical cap (a sign in d=1) give a uniform nonzero lower bound on |h·omega| and exclude cancellation by the bounded remainder. This proves both directions including the critical divergence. For epsilon>0 the singular coefficient Q is bounded by ||h||/(2 sqrt(epsilon)); the remaining vector is uniformly bounded in L^2 as epsilon decreases. In E Q^2, replacing p_D(r omega) by p_D(0) locally costs at most O(log(1/epsilon)) in d=1 and O(1) in d=2; the integral away from zero is bounded. The full-line d=1 integral is pi/(2 sqrt(epsilon)); in d=2 the angular average integral equals pi C_h and the radial integral is (1/2)log(1/epsilon)+O(1). Cauchy–Schwarz makes the cross term lower order. For d>=3, ||h||^2/||D||^2 is integrable and gives L^2 dominated convergence. These are analytic checks; the bundled quadrature was inspected, not replayed, and is not needed for the theorem.
 
-Wei–Bao–Liu (arXiv:2110.01543v1, sections 2 and 3 plus appendix) introduces stochastic Anderson mixing, damping and adaptive regularization, but does not state the displayed unsafeguarded two-noise moment threshold and ridge singularity coefficients. The inexact/approximate Anderson full-text treatments (arXiv:2206.03915 and arXiv:1909.03245) analyze perturbation bounds and regularization, not an equivalent probability-integrability law. Related indexed records found by searches address deterministic Aitken–Steffensen contraction or unrelated Gaussian laws, without an implication of this vector stochastic-ratio theorem. The 2017 inaccurate-function-evaluations paper is plausible and only an abstract could be examined; uncertainty about material inaccessible there and unindexed literature remains. General Gaussian-ratio tail phenomena are known background, not asserted novel.
+## originality
 
-## Value — PASS
+PASS
 
-The exact moment cutoff determines whether a basic noisy Anderson update has a meaningful mean-square performance metric, and the dimension-one square-root versus dimension-two logarithmic penalty laws quantify how regularization suppresses the singularity. This sharp boundary matters for interpreting small-dimensional noisy fixed-point acceleration and justifies ridge safeguards on a natural algorithmic model. It does not claim improvement in iteration complexity or universal instability of safeguarded stochastic Anderson methods.
+Pass for the joint exact small-ridge law of the specified update, particularly its critical planar coefficient and the dimension-dependent comparison. Credit the overlapping moment cutoff and fixed-positive-penalty finiteness in the broader indexed Gaussian Anderson record and the matching scalar leading coefficient in a centered-penalty record. These overlaps are real, not rules about priority based on calendar dates. No inspected result covers the full law; in particular a bound at each positive penalty does not supply the sharp planar log coefficient.
 
-## Sources and limitations
+## value
 
-Relevant inspected full texts: F. Wei, C. Bao, Y. Liu, arXiv:2110.01543v1; D. Lupo Pasini, M. P. Laiu, arXiv:2206.03915; and H. Shi et al., arXiv:1909.03245. Abstract-only comparison: A. C. Toth et al., DOI:10.1137/16M1080677. Fixed externally specified snapshots, a scalar contraction, independent isotropic Gaussian noise, and one Anderson update are essential restrictions. Numerical cross-checks are corroborative only. The finding has no independent external assessment.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The dimension transition determines when mean square is even a valid performance measure for the unsafeguarded fixed-input update. The exact regularization cost, especially the critical logarithmic term with an explicit coefficient, gives information not available from positive-ridge finiteness or an upper bound on the regularized inverse. This is a motivated model of a single mixing step, not a convergence guarantee.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

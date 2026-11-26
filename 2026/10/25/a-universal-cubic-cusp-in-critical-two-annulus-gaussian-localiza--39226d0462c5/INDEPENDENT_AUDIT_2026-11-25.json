@@ -1,0 +1,152 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:34:31.664042Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Polar integration gives the stated eigenvalues and integration by parts gives the real-interpolated endpoint difference. For s=n+1 outside the extreme endpoints it has the appropriate strict sign since the bandwise integrand e^(-t)t^(s-1)(t-s) does. Reexpanding the logarithm of the gamma density with x=R+u sqrt(R), t=R+v sqrt(R)+w gives the order R^(-1/2) polynomial in the proof; the linear w term integrates to zero. The even mixture divided by its value at zero is exp(-u²/2)cosh(delta_R u), with quadratic coefficient (delta_R²-1)/2 and critical quartic coefficient -1/12. Direct differentiation of the first Stirling correction gives zero at u=0 and derivative -2/3 after normalization at delta=1. Stirling's differentiated remainders are uniform on the compact u-window. Integrating the derivative over a unit step therefore gives the stated scaled difference and C¹ convergence on bounded y. Away from u=0 the limit has sign tanh(u)-u; for u→0 with |u|/R^(-1/6)→∞ the cubic -u³/3 dominates the O(|u|^5+R^(-1/3)|u|+R^(-1/2)) error. Thus no roots escape the local scale. Simple roots of P' give exactly one real crossing each; their gaps in degree tend to infinity, so discretization produces one or two indices per plateau. Reflection beats every positive quartic maximizer and the negative half-line has a unique critical point; the nonzero limiting separation in peak heights gives the finite-R winner. Equality kappa=1/2 and joint limits approaching it are excluded. The independent recheck scanned the full admissible integer window at two noninteger radii and four kappa values, confirming counts and selection, and found the kappa=0 norm coefficient 0.6276208573 at the larger radius versus limit 2^(-2/3); see independent_recheck.py, annuli. The inspected frozen script asserts mode and norm accuracy, not the printed counts; the proof, not the tests, establishes the theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Esmeral–Maximenko §6 Proposition 6.5: leading Gaussian-convolution approximation",
+          "Oldfield Theorem 2.4 and Corollary 2.5: trace/eigenvalue-counting asymptotics under fixed-shape dilation",
+          "Galbis Theorem 1: radial Fock norm bound; Grudsky–Vasilevski full text unavailable"
+        ],
+        "reasoning": "A leading Gaussian or a trace approximation does not resolve the odd order-R^(-1/2) correction that survives on the cusp scale. The inspected broad results do not imply the moving-family mode classification.",
+        "searches": [
+          "Resultary: uniform asymptotics radial Fock localization annuli gamma eigenvalues mode selection",
+          "arXiv:1505.07906",
+          "arXiv:1404.2256",
+          "arXiv:2102.02031",
+          "DOI:10.1007/BF01197858"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and critical_shells_check.py",
+        "Resultary records 6bb4d239ab20 and 4a0d7bb6b91c",
+        "arXiv:1202.5841, 1505.07906, 1404.2256, 2102.02031, 2405.11147",
+        "DOI:10.1007/BF01197858 (attempted)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The October 18 proof does not claim uniformity near the critical curve; the October 26 proof excludes uniformity as delta tends to one and is a later-dated comparison",
+          "Abreu–Dörfler Proposition 1 supplies radial monomial eigenfunctions"
+        ],
+        "reasoning": "The earlier critical curve obeys a_*(eta)=1+eta²/6+O(eta^4), but substituting eta_R into a theorem for fixed eta is not justified. At fixed delta>1 the outer/inner separation has order sqrt(R); taking delta to one needs an independent two-scale argument. Diagonalization alone does not give that argument.",
+        "searches": [
+          "Resultary 2026/10/18/SCOPE-universal-cubic-root-spectral-drift-at-a-two-annulus-fock-locali--6bb4d239ab20, proof and limitations",
+          "Resultary 2026/10/26/SCOPE-two-ring-fock-localization-a-sharp-modal-transition-and-inward-s--4a0d7bb6b91c, proof and limitations",
+          "arXiv:1202.5841, §2.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 2026/10/18, record 6bb4d239ab20, offsets 0–3675 and 2500–9875: fixed positive normalized half-width eta, critical profile -gamma_eta(y^4+8y), critical drift -2^(1/3)"
+        ],
+        "reasoning": "At kappa=0 the shape and maximizing y agree up to a positive shape multiplier. The hypotheses do not agree: the new eta_R=1/(2 sqrt(R)) tends to zero and the centers detune by kappa R^(-1/3). Neither the detuned quadratic term nor the discriminant transition follows by merely renormalizing the earlier critical-profile theorem.",
+        "searches": [
+          "Resultary: critical two-annulus Gaussian localization delta_R = 1 + kappa R^(-1/3) Hermite mode transition cubic cusp",
+          "Resultary: asymmetric quartic correction negative mode global maximum two annulus localization",
+          "Bargmann Fock two thin annuli radial Toeplitz localization threshold separation δ=1 quartic flat spectral profile cubic-root Hermite mode drift fixed separation asymptotics"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "October 18 record 6bb4d239ab20 has the fixed-width critical drift; October 26 record 4a0d7bb6b91c has the same unit-width intervals at fixed delta not equal to one"
+        ],
+        "reasoning": "Exact overlap in a limiting coefficient or in the finite operator family is not crossover asymptotics. A finite table of integer modes would not establish the quantifier in R or the universal correction.",
+        "searches": [
+          "Resultary: unit squared-radius width annuli critical separation delta_R = 1 + kappa R^(-1/3) plateau threshold kappa 1/2 cubic quartic mode transition",
+          "Resultary: Fock radial Toeplitz union of two annuli fixed separation eigenvalue peaks threshold delta=1"
+        ]
+      },
+      "rationale": "The surviving distinct theorem is the detuned moving-width cusp, with off-threshold plateau count and sharp norm coefficient. Do not credit cubic-root critical drift or inward preference in general as new: the October 18 fixed-width result already gives substantial counterparts, including the same critical profile up to a scalar.",
+      "residual_risks": [
+        "A stronger uniform radial asymptotic under other terminology could subsume the detuned result; none was established in the inspected passages.",
+        "The fixed-width result already establishes the critical shape and drift in its own regime, so priority is not asserted for those features alone."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantive partial overlap; no uniform moving-family theorem",
+          "evidence": "Fixed eta>0; generalized Gaussian threshold equation, drift -2^(1/3), profile -gamma_eta(y^4+8y), fixed parameters only.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-universal-cubic-root-spectral-drift-at-a-two-annulus-fock-locali--6bb4d239ab20/RESULT.md",
+          "material_read": "Finding, proofs and scope, mirror offsets 0–3675 and 2500–9875",
+          "method": "Local Resultary mirror",
+          "title": "Universal cubic-root spectral drift at a two-annulus Fock localization threshold",
+          "trigger": "Earlier almost identical profile at criticality"
+        },
+        {
+          "assessment": "Related later-dated fixed-separation result",
+          "evidence": "One/two peaks separated by the condition delta<1 or delta>1, and explicitly nonuniform at delta=1.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-two-ring-fock-localization-a-sharp-modal-transition-and-inward-s--4a0d7bb6b91c/RESULT.md",
+          "material_read": "Finding and proof, mirror offsets 0–6790",
+          "method": "Local Resultary mirror",
+          "title": "Two-ring Fock localization: a sharp modal transition and inward selection",
+          "trigger": "Exact same interval widths at fixed delta"
+        },
+        {
+          "assessment": "Diagonalization background",
+          "evidence": "Radial measures make centered monomials orthogonal; no stated detuned cusp.",
+          "identifier_or_url": "https://arxiv.org/abs/1202.5841",
+          "material_read": "p. 4 §2.1 Proposition 1",
+          "method": "Bounded OA PDF reading",
+          "title": "An Inverse Problem for Localization Operators",
+          "trigger": "Radial localization and monomial eigenfunctions"
+        },
+        {
+          "assessment": "Leading-order approximation, not cusp-scale mode asymptotics",
+          "evidence": "Gaussian convolution approximation with no target odd correction or moving-window plateau conclusion.",
+          "identifier_or_url": "https://arxiv.org/abs/1505.07906",
+          "material_read": "p. 13 §6 Proposition 6.5",
+          "method": "Bounded OA PDF reading",
+          "title": "Radial Toeplitz operators on the Fock space and square-root slowly oscillating sequences",
+          "trigger": "General Gaussian approximation to radial Fock spectra"
+        },
+        {
+          "assessment": "Different scaling and observables",
+          "evidence": "Fixed-shape trace and eigenvalue counting, not maximizing degree of moving narrow bands.",
+          "identifier_or_url": "https://arxiv.org/abs/1404.2256",
+          "material_read": "pp. 5–6, Theorem 2.4 and Corollary 2.5",
+          "method": "Bounded OA PDF reading",
+          "title": "Two-term Szegő theorem for generalised anti-Wick operators",
+          "trigger": "Possible broader spectral asymptotic theorem"
+        },
+        {
+          "assessment": "Norm background",
+          "evidence": "General estimate, not degree selection or cubic threshold.",
+          "identifier_or_url": "https://arxiv.org/abs/2102.02031",
+          "material_read": "p. 3 Theorem 1",
+          "method": "Bounded OA PDF reading",
+          "title": "Norm estimates for selfadjoint Toeplitz operators on the Fock space",
+          "trigger": "Cited general radial norm bounds"
+        },
+        {
+          "assessment": "Related norm-bound setting; not theorem-level negative evidence",
+          "evidence": "Extends norm bounds to nonradial symbols.",
+          "identifier_or_url": "https://arxiv.org/abs/2405.11147",
+          "material_read": "p. 1 abstract",
+          "method": "Bounded OA PDF reading",
+          "title": "Norm bounds for self-adjoint Toeplitz operators with non-radial symbols",
+          "trigger": "Cited broader symbol class"
+        },
+        {
+          "assessment": "Scope not independently verified",
+          "evidence": "No primary passage was available for a stronger assessment.",
+          "identifier_or_url": "https://doi.org/10.1007/BF01197858",
+          "material_read": "Citation only; no lawful full text recovered",
+          "method": "OA DOI and repository-copy lookup",
+          "title": "Grudsky–Vasilevski radial Fock Toeplitz study",
+          "trigger": "Earlier radial Fock background cited by close Resultary result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The Gaussian degeneracy makes the ordinary fixed-separation mode picture uninformative. Resolving it locates the actual discrete plateau transition and mode positions and supplies a sharp operator norm, including the detuned range where the leading Gaussian mixture suggests two modes but the actual spectrum has one. This is a useful narrow asymptotic classification, not a claim about arbitrary windows or the excluded double root.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

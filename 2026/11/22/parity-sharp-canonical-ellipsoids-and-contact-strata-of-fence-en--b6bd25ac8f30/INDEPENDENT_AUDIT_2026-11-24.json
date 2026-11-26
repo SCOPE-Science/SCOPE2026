@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T13:11:50.183645Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, Assumptions and Proof §§1–4",
+        "Frozen VERIFICATION.md and verify.py"
+      ],
+      "rationale": "The edge inequalities reconstruct the whole body: for z=|x| satisfying them, take t uniform in [0,1], select odd i when t<z_i and even i when t>1−z_i, and assign the prescribed signs. Adjacent intervals do not overlap and the signed expectation is x. Each signed edge inequality has a point with just its two signed halves nonzero and all other inequalities strict, so is a facet. Uniqueness and sign flips force both ellipsoids to be centered and diagonal. For the John squared axes b, inscribed feasibility is b_i+b_{i+1}≤1. Disjoint edges give the even optimum by AM–GM; for n=2m+1 the stated positive edge multipliers sum at each endpoint/vertex to 1/b_i with b_odd=(m+1)/n, b_even=m/n. Concavity of log certifies the unique maximum, and all facets are tangent at their signed b_i,b_{i+1} coordinates. For Löwner inverse squared axes c, the inequalities are the independent-set sums ≤1; AM–GM on the two parity classes forces equality only for the reciprocal class-size weights, which are feasible. The even path has m+1 size-m supports and the odd path has a unique size-(m+1) support; any other odd contact must consist only of the m even vertices to have weight one. Thus all contacts and the claimed homothety follow. The opposite facet pair bounds the inradius and opposite maximum-support vertices bound the circumradius, with both radii feasible at zero. The volume products give the displayed limits. Odd n=3 is valid and layered; nonlayered odd cases begin at n=5. Independent bounded enumeration for n=3,4,5,6,8,9 returned contact counts 6,12,12,32,80,48. The original Python checker was inspected, not executed; the all-n conclusion rests on the analytic certificates.",
+      "residual_risks": [
+        "Ball and ellipsoid shape comparisons require the native Euclidean metric. Finite enumerations are supplementary, not all-rank certificates."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Resultary entropy bound is exp[(n/2)D(w/n∥1/h)], attained in specified layered cases, with roundness iff n=hw. The radii result gives 1/√h and √w and longest-chain/maximum-antichain sphere contacts. The signed-chain facet theorem is cited in the frozen proof. The indexed ellipsoid-volume comparator concerns cube sections and cross-polytope projections."
+        ],
+        "reasoning": "With h=2 and w=ceil(n/2), the radii and roundness tests are covered. At odd n≥5 the fence is not layered; the prior lower bound and feasible candidate do not optimize the nonlayered body. In the odd case the maximum-antichain sphere contacts do not include the all-even support, whereas the Löwner contacts do.",
+        "searches": [
+          "Resultary 86ee65f9050d and db93f92ff100",
+          "Ohsugi–Tsuchiya arXiv:1903.00909, Proposition 6.1",
+          "DOI:10.1007/s00454-019-00071-4"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, Proof and Relationship to prior work",
+        "Resultary 86ee65f9050d, db93f92ff100, 7461bb03158e, 1ea12cd5eeb9 (indexed statements)",
+        "Primary search excerpts and identified OA sources as noted above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior entropy candidate for the width class matches the proposed odd b; the available statement proves feasibility/lower bound and specified layered equality. For the fence the new edge certificate imposes stationarity everywhere, and tight weighted independent sets on the antiblocker must still be identified."
+        ],
+        "reasoning": "Credit the homothety as a consequence of a general max-product duality, and even roundness and ball radii as covered. Neither the bound nor the duality alone identifies the optimizer at odd n≥5. The missing facts are its path-specific sharpness and the full weighted contact and volume classification.",
+        "searches": [
+          "Resultary 86ee65f9050d, db93f92ff100; perfect-graph entropy splitting; frozen RESULT.md lines 94–102"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The indexed entropy-splitting statement is for perfect graphs. The same-date path unconditional reflexive body result concerns coordinate variances and covariance, and the same-date R10 ellipsoid result has √5 homothety and contacts for a different body."
+        ],
+        "reasoning": "For the path stable-set corner Q, John maximizes product on Q and Löwner inverse squared axes maximize product on its antiblocker. The gradient at max-product b gives ∑x_i/b_i≤n on Q; c_i=1/(n b_i) is optimal in the antiblocker by AM–GM from c·b≤1. This accounts for homothety before any path-specific computation, but neither that structural argument nor covariance or R10 gives the actual path optimizer or its list of tight supports.",
+        "searches": [
+          "Graph entropy splitting and John–Löwner ellipsoids of the unconditional stable-set polytope of a path",
+          "Csiszár–Körner–Lovász–Marton–Simonyi, https://lovasz.web.elte.hu/morepapers/ent.pdf",
+          "Resultary 7461bb03158e and 1ea12cd5eeb9"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest same-body indexed entry supplies path covariance data; the other exact geometric entries supply radii, lower bound, or ellipsoids for R10, not an axes/contact table for the fence family."
+        ],
+        "reasoning": "Covariance is not an extremal determinant problem. The overlap in the radii and the entropy formula does not give a table of the odd canonical axes or tight signed supports.",
+        "searches": [
+          "Resultary path unconditional reflexive polytope and fence canonical ellipsoid matches 7461bb03158e, 86ee65f9050d, db93f92ff100, 1ea12cd5eeb9"
+        ]
+      },
+      "rationale": "The supported distinct result is the explicit pair of path ellipsoids and parity contact census, including sharp attainment in nonlayered odd order and the odd enclosing-volume gap. The general ball radii, John roundness test and feasible odd John candidate have prior coverage; the homothety also has a standard structural explanation from antiblocker optimization and is not credited as a new generic phenomenon. The strongest available comparators do not give the missing explicit odd path optimizer and complete ellipsoid contacts.",
+      "residual_risks": [
+        "A graph-entropy or perfect-graph paper may explicitly classify the uniform path optimizer; the strongest available statements and excerpts do not settle exhaustive priority.",
+        "Timed-out full-text retrievals do not constitute negative evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known lower bound, layered sharpness, roundness, radii and sphere contacts; no demonstrated nonlayered odd optimality",
+          "evidence": [
+            "Entropy lower bound with layered equality examples; inradius/circumradius and chain/antichain ball contacts."
+          ],
+          "identifier_or_url": "Resultary 86ee65f9050d; db93f92ff100",
+          "material_read": "Indexed statements and frozen RESULT.md lines 94–102; attempted full-text passages unavailable",
+          "method": "Resultary index and local mirror retrieval attempts",
+          "title": "A sharp entropy bound for John ellipsoids of enriched chain polytopes; Height and width are the exact Euclidean radii of enriched chain polytopes",
+          "trigger": "Same body class and sharp John-volume or radii conclusions"
+        },
+        {
+          "assessment": "Strong structural overlap for the scale, not demonstrated axes/contact coverage; precise published optimizer formulation not established from excerpts",
+          "evidence": [
+            "Perfect graph entropy splitting; general volume bounds for sections/projections. Explicit independent antiblocker argument given above."
+          ],
+          "identifier_or_url": "https://lovasz.web.elte.hu/morepapers/ent.pdf; DOI:10.1007/s00454-019-00071-4",
+          "material_read": "Indexed result excerpts; lawful OA extraction of the entropy theorem did not return full text",
+          "method": "Primary-literature search and targeted OA passage attempt",
+          "title": "Entropy splitting for antiblocking corners and perfect graphs; On the Volume of the John–Löwner Ellipsoid",
+          "trigger": "Potential stronger homothety result or exact optimizer coverage"
+        },
+        {
+          "assessment": "Covariance for the path, canonical ellipsoids for R10; neither is the path ellipsoid classification on the available evidence",
+          "evidence": [
+            "Path coordinate variances; √5 ratio for a five-dimensional R10 body. No same-date priority order inferred."
+          ],
+          "identifier_or_url": "Resultary 7461bb03158e; 1ea12cd5eeb9",
+          "material_read": "Catalogue statements",
+          "method": "Resultary index",
+          "title": "Alternating boundary inertia and sharp conditioning of path unconditional polytopes; Homothetic John and Löwner ellipsoids of the sporadic regular matroid polytope",
+          "trigger": "Distinct same-date same-body and same-invariant analogues"
+        },
+        {
+          "assessment": "Background identification, independently reconstructed for the path",
+          "evidence": [
+            "For a path the signed maximal-chain inequalities are precisely the signed edge inequalities."
+          ],
+          "identifier_or_url": "arXiv:1903.00909; DOI:10.1007/s00454-020-00199-8",
+          "material_read": "Cited Proposition 6.1 and perfect-graph context as described in the frozen record; OA passage for the facet paper unavailable",
+          "method": "Frozen literature comparison and targeted OA attempt",
+          "title": "Enriched order polytopes and enriched Hibi rings; Unconditional Reflexive Polytopes",
+          "trigger": "Signed-chain inequalities and equivalent unconditional graph language"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof §§2–4",
+        "Resultary 86ee65f9050d and db93f92ff100 (indexed statements)"
+      ],
+      "rationale": "Fences are a natural nonlayered test family for the earlier height–width entropy equality problem. The exact contact supports distinguish the containing ellipsoid from the ball and show a parity change not conveyed by the homothety. The explicit e^(−1/2) enclosing-volume ratio despite axis ratio tending to one quantifies a high-dimensional geometric effect. These statements provide value independently of the known radii and generic product duality.",
+      "residual_risks": [
+        "No classification of all nonlayered posets or novelty for the general scale factor is asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

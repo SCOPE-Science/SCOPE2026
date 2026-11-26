@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The proof gives an exact circulant Fourier reduction, stable-density lower bound with an inspected literature source, uniform geometric tail estimates by discrete Abel summation, and a high-frequency alternating-tail asymptotic. The upper result applies to **all** parameters past its threshold, including the large-parameter Gershgorin regime. The lower result exhibits an explicitly negative Nyquist eigenvalue for every subcritical fixed multiplier. The exact critical-window coefficient was cross-checked separately. The numerical program supplies finite diagnostics, not a substitute for the asymptotic argument.
+PASS
 
-## Originality
+With N=2M and M even the circulant spectrum is the discrete cosine sum with only one antipodal term. Comparing with the periodization F_t of the symmetric p-stable density gives the exact wrap identity: if z=exp(iθ_k)≠1 and d_l=f_t(M+l)−f_t(M+l+1), the error is 2(−1)^k Re[z/(1−z) sum_l d_l z^l]. For A=tM^p large, f_t is convex on [M,∞); d_l decrease to zero and d_0<=ptM^(p−1)e^−A. Dirichlet summation and a direct geometric tail give, respectively, bounds O(tM^(p−1)e^−A/θ_k²) and O(e^−A(1+M/A)). The stable lower bound yields uniform relative o(1) for θ>=t^(1/p) because M^(p−1)e^−A→0 above the proposed threshold, and for θ<t^(1/p) because e^−A(t^(1/p)+A^((1−p)/p))→0 for t<=2. The zero mode is positive and t>=2 is uniformly covered by strict diagonal dominance. At Nyquist, k=M even, the wrap equals minus the alternating sum of d_l; the alternating second differences bound its difference from −d_0/2 by O(d_0−d_1). When A is of order log M, direct differentiation gives (d_0−d_1)/d_0=O(A/M) and d_0~ptM^(p−1)e^−A. The exact stable coefficient can be replayed by integrating the cosine transform of exp(−u^p) twice: its second derivative is −p(p−1)u^(p−2)e^−u plus a remainder with integrable derivative, whose cosine transform is O(1/|x|). The gamma integral then gives q_1(x)~Γ(1+p)sin(πp/2)|x|^(-1−p)/π. Scaling and dominated convergence over the odd translates (2m+1)π give F_t(π)/t→4Γ(1+p)sin(πp/2)π^(−1−p)(1−2^(−1−p))ζ(1+p)=2η(−p). The subcritical ratio M^(p−1)e^−A diverges, yielding a negative mode, and equals e^−h in the fixed-h window, giving the stated limit. This verifies last-failure asymptotics without assuming one finite-N crossing or that Nyquist controls full-matrix recovery at the finer order. Read VERIFICATION.md and verify.py without executing them; the high-precision crossover block only asserts finiteness and prints comparison values, not a numerical error bound.
 
-PASS on currently inspected evidence, with historical uncertainty. Huang–Li's full circular-Matérn discussion and appendices concern Fourier-rational CAR covariances. Bae–Kang–Kim–Lee give the stable heat-kernel estimates but no finite-cycle positivity cutoff. The closest published index hit, *A sharp \(\pi/n\) last-failure scale for geodesic Gaussian matrices on finite cycles*, treats the endpoint \(p=2\), which has a distinct kernel-tail mechanism and cannot imply the fractional-exponent law. Searches also compared signed cycle distance powers and generic geodesic exponential kernels. No matched fractional-power last-failure result or stronger general theorem was identified. The literature search is not proof of absolute novelty.
+## originality
 
-## Value
+PASS
 
-PASS. This determines a sharp cutoff for positive-semidefinite finite-cycle covariance matrices and gives the first-order endpoint-specific critical eigenvalue law in the fractional interval. It identifies the collision between a positive stable spectral floor and the reflected antipodal derivative as the structural mechanism. The exponent \(p\) varies throughout a natural whole range; the congruence restriction isolates the explicit Nyquist obstruction. The limiting rate differs qualitatively from the known Gaussian endpoint, so it is not merely a numerical refinement.
+The checked prior statements address fixed or weak angular damping, the Gaussian endpoint p=2, continuum nonpositivity, or stable reference kernels. None supplies the fractional joint-limit last-failure constant or the fixed-order Nyquist window. This is a conclusion from the inspected evidence, not exhaustive priority certification.
 
-## Closest literature and limitations
+## value
 
-The exact off-diagonal stable-density lower estimate is imported from established jump-kernel theory. A related 2026 Gaussian-endpoint result is a comparison only; it is not presented as an origin of the fractional finding. The leading threshold is proved on \(4\mid N\); the behavior on other cycle lengths and the exact finite-size last-failure constant term are not resolved. An unlocated earlier spectral study could affect priority.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The last loss of positive semidefiniteness is a useful bandwidth boundary for a natural finite covariance model; the result identifies its exact scale for fractional powers and proves uniform positivity over the whole surviving half-line, not just sampled values. The explicit Nyquist window locates a genuine sign crossover and explains the role of the stable algebraic spectrum, without overstating its control of the full-matrix window.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

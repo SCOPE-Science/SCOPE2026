@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:12:51.564939Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The two normal-form products differ only in the overlap, giving min(b,c)=min(d,a). If a>b, comparing that common minimum with b splits the centralizer into the lower diagonal idempotents and the ray with d=b and c>=b. The a<b case is the inverse of this one. For a=b the upper corner is allowed, and (a+1,a) and (a,a+1) multiply in opposite orders to distinct diagonal elements. Off the diagonal the lower idempotents act identically on the commutative ray. For the joint-length series each common minimum m leaves two independent pairs of residual exponents; each pair has at least one zero coordinate. This gives the claimed squared rational factor times (xy)^(2m), whose geometric sum is F. For the ball counts, the recurrence K_N+K_(N-1)=(N+1)^3 with K_0=1 verifies both parity polynomials, and dividing by the squared triangular ball size gives the stated asymptotic. The zero-free and ordered-pair conventions are essential to the exact formulas. The frozen script and output were inspected, not executed; the finite checks are not the general proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The matched path-matrix census assumes a finite acyclic directed multigraph and includes zero.",
+          "It states that two non-idempotents can commute only with zero product under those assumptions; in the reviewed monoid p and p² are non-idempotents and commute with product p³, which is not zero."
+        ],
+        "reasoning": "The acyclic restriction excludes the precise one-loop case, so its counts do not specialize to the claimed bicyclic word-ball law. The inspected Mesyan–Mitchell passage supplies definitions, not a covering enumeration.",
+        "searches": [
+          "arXiv:1409.4380 §2.3",
+          "Resultary 2026/11/22 record 6d445f39ca74",
+          "An alternative look at the structure of graph inverse semigroups"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, bicyclic_commutation_check.py and bicyclic_commutation_check_output.txt",
+        "PlanetMath bicyclic semigroup",
+        "arXiv:1409.4380",
+        "Resultary 6d445f39ca74"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The usual product yields equality of the two minima by direct comparison. Subtracting their shared value m from all four exponents leaves the independent conditions min(b',c')=min(d',a')=0 and weights (xy)^(2m).",
+          "The tree/acyclic-style statement about non-idempotents with zero product cannot be applied to p and p² in the one-loop case."
+        ],
+        "reasoning": "There is no independently covering prior enumerative theorem in the examined material. Nonetheless the weighted factorization and series are a direct routine transform of classical normal-form multiplication, and the parity law is ordinary coefficient extraction. These implications rule out a value pass for this package.",
+        "searches": [
+          "PlanetMath bicyclic semigroup (piecewise product)",
+          "Resultary 6d445f39ca74 (acyclic centralizers and aggregate count)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The piecewise classical multiplication in PlanetMath is equivalent to subtracting min(b,c) from both exponents.",
+          "Mesyan–Mitchell §2.3 identifies the graph-semigroup comparison via the one-loop graph and explicitly distinguishes the convention about zero."
+        ],
+        "reasoning": "The commutation test just compares the two cancellation lengths in that classical normal form. The quantitative target is the joint distribution of the two individual lengths in the zero-free case, not the unweighted relation in a finite graph semigroup.",
+        "searches": [
+          "Bounded literature search for bicyclic centralizers and simultaneous word-length counts",
+          "Resultary bicyclic and graph inverse semigroup commutation censuses",
+          "PlanetMath bicyclic semigroup"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The verified related catalogue entry computes aggregate commuting pairs and individual centralizer counts for finite acyclic graph semigroups with zero. Its count is not a bivariate generator-length distribution."
+        ],
+        "reasoning": "No examined external table settles the exact two-length coefficients or the parity ball sequence; this is bounded evidence, not a historical priority assertion. Same-day indexing is not used to infer publication order.",
+        "searches": [
+          "Resultary search for bicyclic and graph inverse semigroup centralizer/commutation counts; comparison with 6d445f39ca74",
+          "Public literature lookup for exact bicyclic counts by length"
+        ]
+      },
+      "rationale": "This is a bounded pass only for the exact joint generator-length and equal-ball counts as stated enumerations: no examined earlier enumerative theorem was found that already gives them. The underlying multiplication and its immediate commutation criterion are classical material, not original. The standard multiplication determines the new expressions by a routine calculation; absence of printed matching expressions is not evidence of a substantive new invariant, and the value axis fails on this point.",
+      "residual_risks": [
+        "Older treatments may give equivalent centralizer or length calculations; the unexamined structural article remains a possible comparator. The value decision is independent of this access limitation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the underlying calculation, not the length enumeration as a stated result",
+          "evidence": "The two product branches according as m<=k or m>=k give the overlap formula; diagonal idempotents are explicitly listed.",
+          "identifier_or_url": "https://planetmath.org/bicyclicsemigroup",
+          "material_read": "Entry text, offset 300 through end",
+          "method": "OA public webpage",
+          "title": "bicyclic semigroup",
+          "trigger": "Actual classical multiplication and diagonal idempotents"
+        },
+        {
+          "assessment": "Defines the one-loop comparison and the convention about zero",
+          "evidence": "Polycyclic monoid construction from loops; the bicyclic monoid is usually defined without zero.",
+          "identifier_or_url": "https://arxiv.org/abs/1409.4380",
+          "material_read": "§2.3, PDF p. 4, text offset 10379",
+          "method": "OA primary full-text passage",
+          "title": "The Structure of a Graph Inverse Semigroup",
+          "trigger": "General graph inverse semigroup as a possible covering framework"
+        },
+        {
+          "assessment": "Not covering: the one-loop graph is excluded",
+          "evidence": "Finite acyclic directed multigraph, adjoined zero, centralizer cardinalities and aggregate count; non-idempotent commuting pairs must have zero product there.",
+          "identifier_or_url": "Resultary 2026/11/22/SCOPE-path-matrix-commutation-census-for-finite-graph-inverse-semigrou--6d445f39ca74",
+          "material_read": "RESULT.md offsets 2850–4750",
+          "method": "Resultary local mirror",
+          "title": "Path-matrix commutation census for finite graph inverse semigroups",
+          "trigger": "Closest inspected centralizer census and pair enumeration"
+        },
+        {
+          "assessment": "Coverage unresolved, not used to infer absence of prior work or a FAIL",
+          "evidence": "No theorem-level text available in the attempted retrieval.",
+          "identifier_or_url": "https://matstud.org.ua/texts/2019/51_1/3-11.html",
+          "material_read": "Discovered title; no primary-text passage retrieved",
+          "method": "Lawful public page retrieval attempted",
+          "title": "An alternative look at the structure of graph inverse semigroups",
+          "trigger": "Possible broader graph inverse semigroup structure and centralizers"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The generator metric is natural and the formulas are correct and explicit, but this package is a routine deduction from the published multiplication law. Comparing products leaves one equality of minima. Removing their common minimum gives two independent zero-minimum pairs, each with generating function (1-xy)/((1-x)(1-y)); restoration is a geometric series. The ball law is then an alternating sum of cubes, and the centralizer dichotomy is the immediate three-case analysis of the same equality. The record establishes no further obstruction, classification phenomenon beyond those cases, or precise use that would give independent mathematical value to this mechanically determined refinement. The failure is not based on missing literature or on the algebra being infinite.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

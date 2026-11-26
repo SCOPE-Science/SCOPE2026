@@ -1,23 +1,21 @@
-# Review of arithmetic capture and firing-rate staircases
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For phase x in [0,eta], exact forward projection of x+beta produces rotation modulo one if allowed and reset to zero otherwise. Irrational minimality forces every orbit to hit the open hole, while rational q-grids meet holes of width >1/q; hence a single finite zero orbit captures all phases in these regimes. Summing r physical inter-spike intervals gives precisely mr+ceil(r beta), and one positive delay. A rational q-grid avoids the hole exactly at eta>=1-1/q; disjoint translates give |E|=q eta-q+1 and unique q-point orbit precisely at equality. Upper records of {j beta} generate monotone rational plateaux; the Diophantine bound follows from 1-{r beta} >= ||r beta||. The exact-fraction checker tests 2356 rational cases, and finite high-precision irrational sampling tests 210492 subcases; these tests are corroboration, not proof of the infinite assertions.
+PASS
 
-The proof explicitly excludes integral intrinsic phase, defines the observation scale and both rational thresholds, and distinguishes finite eventual phase capture from coincidence of absolute spike times. No numerical enumeration is used as a proof of the irrational case. The checker runs independently from `verification/check.py` using built-in Python exact rational arithmetic and high-precision floating approximations.
+Forward projection of t+tau retains its fractional part when it is in the closed window and otherwise sends it to the next integer. Until the first reset the motion is exactly rotation. Every irrational orbit hits the open hole by minimality, uniformly in the initial phase by a finite subcover of inverse images of the hole. For rational p/q, rotation traverses q grid points in each coset modulo 1/q, so every phase hits a hole longer than 1/q. In both finite-hit regimes the zero cycle visits r distinct phases before its unique reset, and a lift from zero takes elapsed time mr+ceil(r beta) over that period, not r tau. The invariant probability is uniform on the cycle since every phase enters it in bounded time. In the rational remaining regime write eta=(q-1)/q+h, with 0<=h<1/q. The safe grid cosets are exactly those with residue in [0,h] modulo 1/q, giving q closed intervals of length h (q singleton endpoints if h=0). Other phases reach zero within q steps; this proves the claimed survivor and projecting masses, the invariant-probability alternatives and the exact undelayed period mq+p. For irrational beta, if rho_i are the successive strict upper records at times r_i, then r=r_i throughout [rho_(i-1),rho_i), with the initial interval starting at zero. The average extra delay (1-rho_i)/r_i strictly decreases along i, establishing positive jumps exactly at the records. The positive discrepancy is d/[r tau(tau+d/r)], where d=1-rho_i<1-eta, and d>=c/r under the stated Diophantine condition. These give the two error bounds and the endpoint limit. Replay: RESULT.md lines 49–63 and the rational coset description above. The supplied finite verification script was read but not executed; its irrational cases check first hits and resets, not an independent staircase or jump-size computation.
 
-## Originality — PASS within checked literature
+## originality
 
-The motivating 2026 projection theorem states the universal recursion and lattice quantization, not the exact rational/irrational interval-window orbit/rate classification. Earlier hole-survival and flat-spot works explain first-hit combinatorics, but inspected assertions neither directly cover a piecewise rigid discontinuous reset clock nor its physically elapsed rate staircase. Stronger historical coverage remains a risk, explicitly acknowledged; comparisons rest on inspected material rather than negative-search proof.
+PASS
 
-Closest antecedents: Kaymakçalan–Selçuk (2026, arXiv:2611.17219v1), which supplies the exact projection recurrence; Anagnostopoulou–Díaz-Ordaz–Jenkinson–Richard (2010), which supplies a different expanding continuous flat-spot entrance-time framework; and Bunimovich–Dettmann (2004/2024), whose open-rotation-hole survival mechanism overlaps the elementary rational exceptional set. These antecedents are credited. Prior published claims in the accessible relevant ledger and published-finding corpus were checked for implication rather than title similarity; no exact integrated clock/rate statement was recovered. An inaccessible historical reset-circle theorem remains a priority risk, not a negative full-text finding. See `AUDIT.json` for query-level comparisons.
+The supported contribution is the exact capture and physical-time rate classification of the single-interval periodic observation clock, including the width staircase and strict record-jump rule. The projection law and the underlying geometry/minimality of rotations are not new. The strongest inspected neighbouring clock results use finite phase sets or aperiodic clocks, not this closed continuum window with its width-dependent rotation hole.
 
-## Mathematical value — PASS
+## value
 
-A one-periodic interval of observation availability is a natural closed time scale for event-based threshold-reset systems. An exact global classification, unique-versus-nonunique invariant phase measures, sharp rational q-grid threshold, formula for physical firing frequency, and irrational arithmetic rate steps distinguish phenomena obscured by the universal projected-recursion statement. The exact physical-time law is useful without requiring a physiological interpretation and is not an arbitrary numerical slice.
+PASS
 
-## Limitations
+The classification answers an identified gap between a lattice firing formula and a periodic clock with continuous availability within windows. The boundary distinction between a unique rational survivor cycle and a continuum, and the exact plateau heights in physical rather than iteration time, are useful quantitative information about that model. The value does not depend on novelty of irrational minimality or any claimed physiological application.
 
-No result is asserted for multiple observation windows, variable reset-to-threshold travel time, stochastic clocks, or neuron networks. The orientation of time projection is to the next permitted instant. The output concerns mathematical threshold-reset timing rather than empirically validated neuronal rates. The primary source's general reset formula and prior survivor geometry remain prior contributions.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

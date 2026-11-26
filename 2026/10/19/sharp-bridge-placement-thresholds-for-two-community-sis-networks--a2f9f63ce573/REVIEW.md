@@ -1,19 +1,21 @@
-# Scientific review: sharp bridge placement in two-community SIS networks
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The statement fixes simple, undirected, unweighted complete communities of identical size and exactly \(k\) distinct cross edges, \(1\le k\le n\). The matching lower bound follows directly from two Perron mass inequalities \(\lambda(\lambda-n+1)Y\ge kX\) and its converse, with equality precisely at degree-one incident vertices. The star upper bound follows from the Schur complement, the trace bound \(\operatorname{tr}(RBRB^{\mathsf T})\), and exact \(k^2+k\) extremal bridge-degree square sum. A rank-one star saturates both inequalities, and the positive resolvent determines a unique spectral root. The asymptotic bridge-density window is obtained by taking limits in these exact equations. For the deterministic SIS map, monotonicity, a Perron Lyapunov inequality at equality, strict radial subhomogeneity, and sandwich iterates establish the extinction/endemic dichotomy. The decisive rational four-site comparison is \(43/169>0\) for the matching polynomial and \(-128151/28561<0\) for the star polynomial. Numerical checker: 5,421 graph configurations plus nine asymptotic comparisons passed. Finite checking alone does not prove arbitrary-size claims.
+PASS
 
-## Originality — PASS, qualified
+The repaired RESULT.md closes a genuine proof gap in the frozen minimum: (lambda+1)hY>=(k+h)X does not alone imply lambda hY>=kX. Multiplying the former inequality by its exact row/column swap, cancelling XY and taking positive square roots gives lambda h>=k, with equality iff both incidence estimates are equalities. Perron positivity then forces, and is consistent with, unit degree on all occupied rows and columns. The frozen maximum can be reconstructed via the Schur complement and the Frobenius-norm bound from counting intersecting edge pairs; strictness for a nonstar follows from the incidence count, and the rank-one common-endpoint case saturates both bounds. The scalar root equation has a unique crossing because the positive resolvent coefficients decrease strictly. The two excess radii stay bounded (at most 1 for the matching and strictly less than 2 for the other extremum), so dividing their equations by n and n² respectively and taking limits establishes the asymptotics. For the stated deterministic map, linear domination gives subcritical decay. At criticality the positive Perron functional decreases strictly in the interior; a nonzero limit point would propagate to the interior by connectedness while preserving the limiting functional value, a contradiction. Above criticality the small positive subsolution, all-ones supersolution and strict radial subhomogeneity prove the unique interior equilibrium and convergence from nonzero data. The repair also distinguishes the exact algebraic witness from the bundled spectral computation, which does not simulate the map. The all-placement finding survives with its assumptions unchanged.
 
-The full available text of Hoang–Nguyen (2026), arXiv:2607.14048, supplies a community-level spectral threshold set and the universal inequality \(\tau_g\ge\tau\). Neither that theorem nor its numerical evaluations proves extremizers over all placements of a prescribed cross-edge budget. A published work on fastest-mixing chains explicitly compares the same matching/source clique connection patterns but analyzes stochastic-walk conductance and optimized mixing gaps, not the unnormalized adjacency Perron threshold. A 2026 spectral-supersaturation study uses stars/matchings in Turán parts, which is not the fixed pair-of-cliques contact network. published-finding corpus searches for the source, the alternative spectral statements and exact bridge formulas did not reveal a dominating equivalent record. The conclusion is a best-knowledge literature comparison rather than certified global novelty; unindexed spectral extremal results remain a real residual risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The fixed-budget optimization resolves a concrete missing dimension in the community-threshold perspective: identical local thresholds and identical cross-edge counts can produce sharply different global transition ratios. Both sharp extremizers are classified, all intermediate placements are bounded, a nonvanishing large-size excess-spectral gap is identified, and an exact small counterexample exhibits opposite long-term mean-field SIS behavior at the same rational rates. These are structural applied-network results rather than a mere recomputation of a single adjacency eigenvalue. In particular, the proof explains *why* bridge concentration increases SIS risk through a sharp degree-overlap bound.
+After proof repair the supported distinct result is the exact adjacency-radius optimization over all fixed-count cross-edge sets of two equal cliques, its equality classes and the joint asymptotic. The deterministic threshold and the idea of using topology to separate threshold regimes have prior overlap and are not claimed as standalone innovations.
 
-## Prior-art proximity and limits
+## value
 
-Closest material: Hoang–Nguyen, arXiv:2607.14048 (2026-07-15); *Geometric bounds on the fastest mixing Markov chain*, DOI:10.1007/s00440-023-01257-x; *Strict spectral supersaturation for cliques*, arXiv:2610.03337. Generic spectral graph inequalities and SIS stability theory are established prior art. A specialized prior theorem for this exact constrained class might be unindexed. The result assumes complete equal communities and a deterministic mean-field map, not infinite persistence of finite-population Markov epidemics.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For the natural constrained joining of two complete graphs, the result identifies exact extremal radius values, rigidity of the equality cases, and the asymptotic scale on which the reciprocal radii separate. Community-local adjacency data and bridge counts alone cannot recover that distinction. This quantifies a structural ambiguity rather than presenting two arbitrarily chosen graphs or a finite census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

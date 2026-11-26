@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification and scope
+# Independent mathematical audit
 
-Run `python verify.py` with Python 3 and SymPy installed. It must print `Total exact assertions: 752` and exit with status zero. The code reconstructs the complete weighted network Laplacian from individual edges, computes \(N(\operatorname{tr}(L+\mathbf1\mathbf1^{\mathsf T}/N)^{-1}-1)\) exactly, and compares this with the independently derived group-spectrum objective. It also verifies budgets, full-matrix edgewise KKT inequalities and equalities, optimal objective formulas, exact upper and lower price boundaries and the fixed-smaller-group asymptotics. Assertions use exact symbolic/rational arithmetic at selected parameter values; the three-regime theorem for all integer group sizes rests on the proof in `RESULT.md`, not on finite enumeration.
+## correctness
 
-Independent audit and independent validation have not been performed. The archival literature comparison is not a guarantee of novelty, and no claim is made beyond the two-group linear-cost model.
+PASS
+
+A connected feasible design exists (uniform cross edges), and tr(L restricted to the mean-zero space)^(-1) diverges on approach to a disconnected design. The trace-inverse Hessian in any nonzero symmetric direction is twice a squared Frobenius norm; off-diagonals recover independently chosen weights, so the global solution is unique and invariant under within-part permutations. The weighted spectral branches are U=px+qz, V=qy+pz and Nz with multiplicities p−1,q−1,1. At x=y=0 the larger part's per-budget marginal test binds first, at t_on=2p/(qH). For y=0, equality of the larger internal and cross marginals gives (U/z)^2=2D1/(tH_q); x>0 requires U/z>q, and the smaller part's inactive marginal requires U/z≤p. These crossings are t_on and t_fill; hence y is still zero at t_fill. With both parts active, U=V and (U/z)^2=2ND2/t, feasible precisely for U/z>p. Substitution in the budget gives the conductances; reciprocal minimization under a linear budget by Cauchy–Schwarz gives the stated total-resistance values, including the factor N. The matching spectral ratios at boundaries imply continuity, p=q merges the crossings, and leading powers give the fixed-q limits. The frozen exact-rational script was inspected, not executed, and is ancillary to the universal argument.
+
+## originality
+
+PASS
+
+The supported distinct result is the unequal-size full phase diagram, in particular the larger-part-only interval with its second threshold. The exact equal-size specialization is separately covered and is not credited as distinct. Foundational convex allocation and general linear-budget optimality also are not claimed as new.
+
+## value
+
+PASS
+
+For a natural design model, two explicit marginal transitions decide which edges can be dropped without sacrificing the global optimum. The unequal-size interval is not a guessed symmetric design: strict convexity certifies that asymmetric competitors cannot tie. The support law and exact weights are more useful than a generic convex program or the already covered balanced case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

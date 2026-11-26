@@ -1,11 +1,21 @@
-# Review of the binary two-mer collision law
+# Independent mathematical audit
 
-**Correctness — PASS.** The endpoint-flow reduction, exact Fourier identities, strict spectral-gap argument, explicit covariance and two equal saddle contributions give the stated constant. Standalone small-length checks independently agree; they are not the proof. The matrix diagonalization and determinant are the critical analytic steps.
+## correctness
 
-**Originality — PASS, qualified.** Gabrys–Milenkovic define the ordered linear multispectrum but do not compute the collision probability. Jacquet–Knessl–Szpankowski enumerate cyclic Markov types. The published result *Exact binary two-multispectrum code size and singleton classification* already supplies exact fiber cardinalities, so no novelty is claimed for their run-composition identities. The new claim is the nontrivial asymptotic evaluation of their aggregated squared masses, with exact leading constant, after accounting for two Fourier saddles and three endpoint-flow classes. Searches did not locate an equivalent limit; an unindexed result is still possible.
+PASS
 
-**Mathematical value — PASS.** The theorem supplies the leading collision probability and second-order Rényi entropy constant for a natural reconstruction observation. It concerns typical random ambiguity rather than merely counting observed profiles or maximizing one fiber.
+For N=n−1, A=c00 and B=c11 determine the total mixed count and δ=last−first determines the mixed-count imbalance. Thus Parseval must be applied within δ buckets, with the two same-endpoint contributions added before squaring. The transfer matrix has entries weighted by 1/2 and an additional 1/2 for the initial bit, as used in RESULT.md lines 23–35. Equality in the row triangle inequalities at a unit-modulus eigenvalue enforces λ²=1 and both diagonal phases equal to λ. Compactness and a uniform resolvent bound give exponential decay off the two torus neighborhoods, including potentially defective matrices. At the simple eigenvalue 1, lag-zero and lag-one indicator covariances give Σ=[[5,−3],[−3,5]]/16, det Σ=1/16. The endpoint-sector squared amplitudes sum to 3/8. Conjugation by diag(1,−1) and a global minus sign give the same squared weights at the other peak (one peak on the torus, not four corner peaks). The analytic expansion yields a uniform Gaussian bound and each peak integral is 4π/N before the Fourier normalization. The resulting factor is 3/(4πN), giving the claimed limit and entropy. Inspected RESULT.md, VERIFICATION.md and verify.py without executing the uploaded program. Review-side direct counting, dynamic counts and the run sum independently agree through n=16; the count there is 70,873,180. The two sum methods also agree at n=60,100,160 with nP_n≈0.2446063, 0.2421977, 0.2408783. These are finite checks only.
 
-**Limitations.** Uniform fair independent binary words, complete ordered adjacent two-reads, linear rather than cyclic strings, and first-order asymptotics only. No nonuniform source, noise, missing read or longer spectrum is treated. Independent validation has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The same ordered linear read model, exact fiber sizes, and formulas for the count, maximum and singleton fibers are prior coverage. The distinct result supported by the checks is the evaluated aggregate second-moment asymptotic, including its endpoint and lattice normalization, and the corresponding entropy constant.
+
+## value
+
+PASS
+
+The exact leading constant quantifies average two-sample confusability under the simplest nontrivial ordered-read model and fixes the additive term of its Rényi-2 entropy. It is not a class size or a uniqueness probability; the endpoint and lattice factors explain why estimates from closely related models need not predict this normalization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

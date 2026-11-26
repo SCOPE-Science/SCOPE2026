@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:27:30.802557Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–39; frozen VERIFICATION.md and verify_opposite_subseq.py inspected but not executed",
+        "Separate bounded reproduction check_record5.py: partition refinement and reachability for all 100 pairs 1<=r,s<=10, and 16,376 direct word checks on eight pairs through length 10. Finite corroboration only."
+      ],
+      "rationale": "Each coordinate of the greedy product represents the longest matched prefix and leaves exactly the corresponding pattern tail. In the region with i<r and j=s+t, the t post-threshold zeros are among the i zeros read, so t<=i; the other one-threshold region is its mirror. The first threshold crossing before the other forces the earlier finisher to progress when the later threshold is crossed, excluding (r,s). The supplied witnesses cover all other listed states. Testing whether continuations intersect 0*1* and 1*0* distinguishes the four regions. For example in the second region a continuation 0^a1^s0^b is accepted exactly when a>=r-i and a+b>=r-t; since r-i<=r-t, these are separately attained minima and recover both coordinates. The mirror test, two single-threshold tests in the first region, and independent remaining letter counts in the fourth cover all pairs. The four cardinalities sum to (r+s)(r+s+3)/2+rs. The acceptor is complete, with the terminal pair accepting and absorbing, and the count also gives 3t(t+1) when r=s=t.",
+      "residual_risks": [
+        "Binary alphabet, positive thresholds, scattered rather than contiguous matches, and minimal complete deterministic acceptors only."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The pattern-matching paper defines the single-pattern all-sided ideal with general state-complexity bounds. Piecewise testability gives the length-(r+s) congruence from which membership is inherited."
+        ],
+        "reasoning": "Intersection with a second principal ideal is contained in these general frameworks; the general bounds and congruence do not show that precisely the stated regional subset of the product is reachable and pairwise inequivalent.",
+        "searches": [
+          "Brzozowski–Davies–Madan arXiv:1806.04645, subsequence matching with a regular text language",
+          "Masopust–Thomazo, p. 3, Boolean combinations of piecewise-testable languages"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1806.04645 p. 3",
+        "Masopust–Thomazo p. 3",
+        "Resultary ae28400a8550 and 6dd602f692b0"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A shortest accepted word has length r+s+min(r,s) by the longest common subsequence length max(r,s), but this tells nothing about the distinct threshold continuations of all reachable pairs. The later union/intersection finding directly implies the identical count by setting a=r and b=s."
+        ],
+        "reasoning": "The older generic constructions explain the product but do not resolve the exact number of its reachable, inequivalent quotients. The later exact implication is acknowledged separately from the evidence of earlier coverage.",
+        "searches": [
+          "arXiv:1806.04645 p. 3, one-pattern ideal and matching setting",
+          "Masopust–Thomazo p. 3, subword congruence",
+          "Resultary ae28400a8550, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The language is precisely the intersection of the upward scattered-subsequence filters, equivalently (Sigma* shuffle {P}) intersect (Sigma* shuffle {Q}). The indexed finite shuffle P shuffle Q of fixed-length words is another operation and has a different complexity formula.",
+          "Simon congruence refines the needed right quotients; for r=s=1 the accepted words 010 and 0110 have the same quotient but differ in length-two scattered subwords."
+        ],
+        "reasoning": "Both the all-sided shuffle ideal and Simon frameworks apply, but a Simon-class count is not the minimal DFA count, and a finite shuffle does not define the same language.",
+        "searches": [
+          "arXiv:1806.04645, all-sided shuffle ideals",
+          "Masopust–Thomazo, On Boolean Combinations Forming Piecewise Testable Languages, p. 3",
+          "Resultary 6dd602f692b0"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary ae28400a8550 gives the exact same intersection formula for I(0^a1^b) intersect I(1^b0^a), and additionally treats union. Its catalogue date is 2026/11/08, after the frozen finding's catalogue date. Same-day 6dd602f692b0 gives (a+1)(c+1)+(b+1)(d+1) for finite shuffle of opposite two-run words."
+        ],
+        "reasoning": "The later record genuinely overlaps; nothing in the inspected result establishes earlier priority for it, nor whether it is independent. The same-day record is distinguished by the actual recognized language, not by any assumed order.",
+        "searches": [
+          "Resultary: opposite two-run subsequence intersection and shuffle ideals; matching findings ae28400a8550 and 6dd602f692b0"
+        ]
+      },
+      "rationale": "The inspected older literature provides subsequence-ideal and piecewise-testable frameworks and general bounds, not the exact restricted quotient count. A distinct later catalogued finding explicitly states the same intersection result alongside a union theorem; that is equivalent coverage, but does not show earlier coverage of the frozen finding. This is a bounded pass, not an absolute priority determination.",
+      "residual_risks": [
+        "Bounded primary and local-index evidence does not rule out earlier exact results in other descriptions of minimal automata for these pattern filters. No priority order is inferred from same-day catalogue entries."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Framework and general bounds, not an exact opposite-pattern count",
+          "evidence": "A subsequence requirement is an all-sided ideal for the single pattern; general pattern matching allows regular text.",
+          "identifier_or_url": "https://arxiv.org/abs/1806.04645",
+          "material_read": "PDF p. 3 near text offset 8400 and matching setup",
+          "method": "Primary OA text",
+          "title": "State Complexity of Pattern Matching in Regular Languages",
+          "trigger": "General subsequence matching includes this case"
+        },
+        {
+          "assessment": "General congruence, not the required minimal DFA partition",
+          "evidence": "Equality of scattered subwords through length k defines the congruence used to test piecewise testability.",
+          "identifier_or_url": "https://iccl.inf.tu-dresden.de/w/images/7/79/Tcs_bool.pdf",
+          "material_read": "PDF p. 3 near text offset 13400",
+          "method": "Primary OA text",
+          "title": "On Boolean Combinations Forming Piecewise Testable Languages",
+          "trigger": "Possible exact consequence of Simon congruence"
+        },
+        {
+          "assessment": "Exact intersection overlap, later catalogue date; priority or dependency not otherwise determined",
+          "evidence": "The intersection I(0^a1^b) intersect I(1^b0^a) has the same formula; a union formula is also stated.",
+          "identifier_or_url": "Resultary ae28400a8550, 2026/11/08",
+          "material_read": "RESULT.md, Finding",
+          "method": "Local Resultary mirror",
+          "title": "Exact state complexity for the union and intersection of opposite two-run subsequence ideals",
+          "trigger": "Directly matching object and invariant"
+        },
+        {
+          "assessment": "Different invariant on a different language",
+          "evidence": "Exact DFA size (a+1)(c+1)+(b+1)(d+1) for the finite interleavings of two prescribed words.",
+          "identifier_or_url": "Resultary 6dd602f692b0, 2026/10/26",
+          "material_read": "RESULT.md, Finding",
+          "method": "Local Resultary mirror",
+          "title": "Two-phase normal form and exact DFA complexity of opposite-run binary shuffles",
+          "trigger": "Closely matching opposite runs and terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 18–39",
+        "General matching and exact finite-shuffle comparisons above"
+      ],
+      "rationale": "This family tests simultaneous satisfaction of two opposite-order subsequence constraints, a natural composition of simple pattern monitors. The result gives the exact achievable memory in states for every threshold pair and identifies the full quotient structure, rather than only bounding the product or reporting a minimum accepted length. The two threshold regions and their separately observable continuation minima explain the state count.",
+      "residual_risks": [
+        "No general minimality formula is claimed for arbitrary pairs of patterns or arbitrary regular-language intersections."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

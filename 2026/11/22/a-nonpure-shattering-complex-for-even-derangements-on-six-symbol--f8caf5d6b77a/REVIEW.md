@@ -1,11 +1,21 @@
-# Scientific review of the even-derangement incidence complex
+# Independent mathematical audit
 
-**Correctness: PASS.** The 130 even fixed-point-free permutations are independently enumerated by two parity methods. Every potentially shattered support is a partial matching, so exhaustive enumeration of these supports through size five is complete; absence of five-faces excludes larger faces by heredity. Two independently compiled/interpreted verifiers agree on face counts, all facet sizes, and the exact GF(2) boundary ranks. Python independently checks the simultaneous-relabeling facet orbits. The result is finite; no infinite theorem is inferred from enumeration.
+## correctness
 
-**Originality: PASS within the inspected record.** The closest published record gives shattering for all derangements on six points, not the even-sign subfamily; removing concepts can invalidate shattered supports and change homology. The closest primary graph-derangement paper studies derangement/intersection proportions, rather than Boolean traces, facet orbits or simplicial homology. The current work differs in claims and implications, not merely labels. Bibliographic priority is not certified; older unindexed parity-restricted tables remain possible.
+PASS
 
-**Value: PASS.** Parity-constrained perfect matchings on the diagonal-deleted board form a canonical algebraic restriction. The full derangement family shatters every four-cell nonattacking rook placement, whereas its even-sign subfamily loses 1575 such faces and gains 360 lower-dimensional maximal faces. The two nonzero homology degrees and five total facet orbits quantify a real structural change missed by the shared VC dimension four. This is a motivated complete finite classification, not a general claim or an arbitrary numerical refinement.
+There are 90 derangements of type (4,2) and 40 of type (3,3), the only even derangement types at n=6. The full trace forces a matching, so enumeration through size five plus heredity covers all candidates. A fresh exact reproduction checked matching counts (1,30,315,1420,2715,1854) and even-family face counts (1,30,315,1420,1140,0). Sorting the inclusion test by size leaves exactly 360 triple and 1140 quadruple facets. Conjugacy preserves the family, and the orbits of the five stated representatives are disjoint and cover those facets, of sizes 360 for the triple and 360,360,240,180 for the four quadruples in the manuscript's representative order. Deletion boundaries over F2 are exact, with augmented ranks (1,29,286,750). Rank-nullity gives 1420−286−750=384 and 1140−750=390 in dimensions 2 and 3, and vanishing in all other reduced degrees, consistent with Euler characteristic −6. Independent replay: python3 /tmp/opencode/ordinal5_even_derangements_audit.py. The supplied programs were inspected, not executed; the broken-space reference URL and duplicated word in the bibliography discussion are editorial, not mathematical discrepancies.
 
-**Remaining limitations:** Only six symbols; mod-two rather than integral homology; priority may be affected by unindexed computations. Both mathematical verifiers are included in the package.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Within the inspected evidence, the substantive finite contribution is the exact parity-sensitive top stratum and the resulting facet/orbit and mod-two topology, not the ordinary derangement count, the unrestricted shattering polynomial, or VC dimension alone. The closely matching all-order record already includes the same six-symbol polynomial but expressly credits this finite treatment as the source of that case; it does not give the facet or homology census. No independently preceding source was identified for the combined finite claim.
+
+## value
+
+PASS
+
+Even derangements form a canonical restriction of a well-studied incidence concept class. At six symbols it has the same VC dimension as the unrestricted class but loses 1575 top faces and gains 360 lower-dimensional facets: these differences are invisible to dimension. A researcher studying parity-constrained matching complexes can use the exact simultaneous-label orbit decomposition and boundary ranks, particularly the two consecutive nonzero homology groups. This is a useful finite baseline and not a claim of an all-order homotopy type.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,24 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. A generic diagonal conjugation cocharacter fixes exactly the diagonal projective subspace and the off-diagonal matrix-unit points. Every one of these fixed points has maximal common spectral multiplicity with its upper-left cutoff. Therefore every closed coincidence level has the same fixed locus, while every lower exact stratum has no fixed points.
+## correctness
 
-Euler localization gives
-\[
-\chi_{\mathrm{top}}(X_{n,i})=n+n(n-1)=n^2
-\]
-for every closed level, and compactly supported Euler characteristic \(0\) for every exact stratum below the maximum.
+PASS
 
-The bundled checker verifies weight separation through matrix size \(50\) and exact characteristic-polynomial gcds in small sizes. These finite checks are regression evidence only.
+For monic characteristic polynomials p, q of degrees n, n−1, the shared algebraic multiplicity is deg gcd(p,q). The map (A,B) ↦ Ap+Bq on pairs of polynomials of degrees < n−1, < n has kernel dimension deg gcd(p,q), by dividing by the gcd and using coprimality. Consequently the lower bound on shared multiplicity is closed, and scalar multiplication of matrices preserves it. Diagonal conjugation preserves both spectra. With exponents 2^(j−1) the nonzero ordered weight differences are distinct (the sign and the 2-adic valuation recover the order and smaller index; the remaining odd factor recovers the larger index). The fixed locus in projective matrix space is the projective diagonal space and the n(n−1) off-diagonal matrix-unit points. The diagonal cutoff discards one spectral entry; an off-diagonal unit and its cutoff are nilpotent, with characteristic polynomials T^n and T^(n−1). Thus all fixed components lie in the deepest level, including for n=2. Euler localization on these invariant loci yields n+n(n−1)=n² in every closed level and zero in all lower exact levels, with compact supports on the latter. The argument is symbolic; the finite checks described in VERIFICATION.md were not rerun.
 
-## Originality
-PASS. The primary papers define exactly the relevant exact strata and closed filtration and analyze their components and orbit geometry. Full-text searches found no Euler or Poincaré statement in either source. Targeted literature searches under the exact object name and broader topology/cohomology/fixed-point formulations found no covering formula.
+## originality
 
-The closest previously recorded projective fixed-point formulas concern different matrix or quiver varieties and do not imply the cutoff-spectrum coincidence result.
+PASS
 
-Residual risk remains because the localization argument is short and could be folklore or appear under different terminology.
+No equivalent or stronger covering theorem for this paired-cutoff Euler filtration was found in the inspected sources. The same-day one-matrix subdiscriminant record shares localization and the ambient endpoint, not the spectral condition or its Euler values. This is a bounded originality assessment, not a priority claim.
 
-## Value
-PASS. The result gives a closed-form global invariant for the entire eigenvalue-coincidence filtration, a family whose algebraic geometry changes substantially with the coincidence level. The exact-stratum vanishing statement adds a sharp structural interpretation: all compactly supported Euler mass is concentrated in the deepest coincidence stratum.
+## value
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The closed and exact coincidence levels are natural strata of an established matrix problem, with changing component structure. The simultaneous determination of their projective Euler invariants shows that every lower exact layer contributes zero in additive topological calculations, despite the filtration being geometrically nontrivial. The proof is short but requires identifying the full fixed locus in the deepest level, and the inspected component theorems do not tabulate or directly imply these invariants.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

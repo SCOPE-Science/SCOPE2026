@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The closed-form spectral gap is proved by an analytic rank-one operator comparison. The included `verify.py` checks the generator's every allowed edge for the selected finite instances, detailed balance against the conditioned Bernoulli product measure, and the proposed eigenfunctions with exact fractions. The exact checks cover 61,254 directed edge comparisons for integers \(2\le n\le9\) and the values \(\sqrt{1-q}\in\{1/2,2/3,3/4\}\).
+## correctness
 
-Symmetric finite-generator diagonalization additionally tests the first positive eigenvalue at 21 pairs of parameters \(1\le n\le7\) and \(q\in\{1/8,1/2,7/8\}\), including the one-leaf exception. The finite calculations support, but do not replace, the proof for all real \(0<q<1\) and all integers \(n\ge2\).
+PASS
 
-Reproduce with `python3 verify.py`; the exact part needs Python alone, while the optional spectral check needs NumPy and SciPy. The standard chain is restricted to at least one vacancy. No check here constitutes an independent scientific audit or definitive assessment of historical priority.
+The filled-hub equation eliminates b for eigenvalues below q. On the full leaf cube the eliminated operator is H_leaf−μI+(μ−λ)P_star, with μ=λ(1−λ)/(q−λ). For 0<λ<λ* the second eigenvalue is positive by min–max and the constant Rayleigh quotient is negative, so the operator cannot have a kernel. At λ* the pairing with the centered sum of leaf occupations forces g(star)=0, because the evaluation of the sum is nq and its product weight is p^n. The degree-one leaf spectrum then gives precisely the n−1 sum-zero contrasts; reconstruction is one-to-one and leaf averaging vanishes. The three-state n=1 chain has eigenvalues 0,q,2−q. Eighteen independently assembled symmetric matrices (n=1 through 6, q=0.16,0.5,0.84) agreed in first nonzero eigenvalue and multiplicity at tolerance 1e−10; the proof does not rely on them.
+
+## originality
+
+PASS
+
+After removing the novelty claim for the gap value and the existence of the contrast family, the supported distinct claim is the exhaustion of the gap eigenspace, ruling out any other slow modes at that exact eigenvalue. The closest exact source does not show this. This is not a priority claim.
+
+## value
+
+PASS
+
+Identifying the whole gap space, rather than giving a single slow branch, determines which observables can decay at that rate. In particular every permutation-invariant observable misses all gap modes at finite n; this distinguishes radial relaxation from arbitrary relaxation without a total-variation claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

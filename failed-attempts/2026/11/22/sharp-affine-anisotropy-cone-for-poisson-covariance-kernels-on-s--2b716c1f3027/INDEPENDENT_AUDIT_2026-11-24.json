@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:27:31.011532Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check_poisson.py (inspected, not executed)",
+        "Independent numerical circle witness: python /tmp/opencode/frozen-review-math.py, poisson()"
+      ],
+      "rationale": "With probability surface measure, T_s acts as s^n on exact degree n. Multiplication by a coordinate links only degrees n−1 and n+1, since the Laplacian of its product with a homogeneous harmonic H_n is twice the directional derivative of H_n, and subtracting |x|² times that derivative divided by 2n+d−2 gives a harmonic. Degree zero links only to degree one, also on the circle. Thus on each allowed block s^(2m)+s^(2n)=(s+s⁻¹)s^(m+n). This gives T_s[aI+(s+s⁻¹)M_v]T_s, and comparison of continuous kernels gives the bridge moment. The multiplier has minimum a−(s+s⁻¹)||v||, so a nonnegative minimum suffices for finite Gram positivity. If the multiplier is negative in a cap, approximate a nonzero test function supported there by a spherical polynomial and invert T_s on that polynomial. Its integral quadratic form is negative, which continuity transfers to a finite Gram witness by quadrature. At a nonzero admissible parameter the multiplier is positive almost everywhere, including at equality when it vanishes at just one pole. Smoothing a nonzero atomic finite measure by T_s cannot identically vanish: it multiplies each harmonic moment by the nonzero s^n, and polynomial density separates measures. This proves finite-site strictness for distinct sites and the zero-kernel exception. Independently checked a negative direct Gram form on the circle at r=1/4, a=1, ||v||=9/20, with 101 distinct sites and Fourier-polynomial weights; its high-precision numerical value is −0.0384615384615384615384615, consistent with the exact continuum witness −1/26. The finite test is not used for the general cone.",
+      "residual_risks": [
+        "Neither r=0 nor r=1 is included; no arbitrary higher-degree modulation is audited."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The axial-tilt theorem on S^q, q≥2, proves critical universality and positivity for nonzero finite complex measures, not only atomic strictness. It additionally has Loewner bounds and a finite-band diagnostic. The other articles supply general harmonic criteria, not an explicit cone in their inspected passages."
+        ],
+        "reasoning": "The exact indexed comparison is stronger in conclusions about strictness but does not literally include the circle. On the circle the required degree-one selection, smoothing injectivity and measure density are immediate from Fourier modes, so adding it by the same proof yields no substantive new mechanism or exception.",
+        "searches": [
+          "Indexed axial tilts 2c30314f81a3, Finding parts (i)–(iv) and Step 3",
+          "arXiv:2105.02586 Theorem 2 and Proposition 1; arXiv:2205.07396 Theorem 2.1"
+        ]
+      },
+      "checked_sources": [
+        "Focused Resultary results including direct comparison 2c30314f81a3",
+        "Indexed mirror proof and stronger statements",
+        "arXiv:2105.02586 and arXiv:2205.07396 decisive passages",
+        "Frozen RESULT.md prior-work comparison"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Both proofs use adjacent harmonic degrees, Poisson scaling, a negative cap and density for necessity, and positivity almost everywhere plus harmonic uniqueness for critical strictness."
+        ],
+        "reasoning": "The earlier conclusion immediately gives the same sharp threshold and strictness at each overlapping dimension. The first moment is the first-degree coefficient of the earlier factorization, not a separate missing conclusion. Replacing harmonic degrees by absolute Fourier mode on the circle checks the only excluded nontrivial dimension without altering the argument.",
+        "searches": [
+          "2c30314f81a3, RESULT.md Step 1 exact factorization, Step 2 necessity and Step 3 universality/strictness"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The indexed normalized perturbation Π_r(x,y)[1+ε(u·x+u·y)] is precisely K/a for a>0, v=aεu. Its bound is |ε|≤√r/(1+r). Its exact factorization weight is 1+ε(1+r)(u·z)/√r."
+        ],
+        "reasoning": "Positive scale and the normalized tilt are equivalent on the nontrivial cone. Comparing the linear tilt term for all directions gives the identical vector bridge identity on overlapping dimensions.",
+        "searches": [
+          "Resultary: affine anisotropy threshold, Poisson bridge factorization, sharp boundary strictness and degree-one harmonic intertwining",
+          "Indexed axial tilts 2c30314f81a3, Finding and proof Step 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2c30314f81a3 lists the exact reciprocal cutoff |ε|≤√r/(1+r) and corresponding normalized bridge coefficient on all S^q, q≥2. The nearby indexed circle midpoint harmonic-modulation cutoff uses a different factor cos(k(θ+φ)) and is not the axial tilt."
+        ],
+        "reasoning": "Exact indexed coverage exists despite the change in coefficients and title. Not all directional circle covariance records coincide; it is the normalized axial-tilt record, not the harmonic-modulation one, that is decisive.",
+        "searches": [
+          "Resultary searches for the formula (1+r)/√r, equality strictness and bridge coefficient s/(1+s²)",
+          "Indexed 2c30314f81a3 Finding; indexed circle harmonic-modulation 0f4219b7a6a9"
+        ]
+      },
+      "rationale": "The distinct indexed axial-tilt finding 2c30314f81a3 covers exactly the nontrivial normalized cone, the bridge factorization, and strict finite-site positivity on every sphere of intrinsic dimension at least two; it additionally proves universality, stronger than the asserted strictness. To compare parameters, write the current sphere S^(d−1) as S^q with q=d−1, and for a>0 and v≠0 set u=v/||v|| and ε=||v||/a in that work. Its kernel multiplied by a is exactly the present kernel, with threshold a≥(1+r)||v||/√r. For a<0 the current diagonals fail somewhere, a=0 and v≠0 also fails, and v=0 is just a scalar Poisson kernel. The vector bridge identity follows by subtracting the Poisson semigroup term and comparing the coefficient of ε for each unit u. The present circle case lies outside the literal statement of the indexed result, but its proof carries over by substituting the Fourier eigenvalues s^|n| and the shifts n→n±1 for coordinate multiplication. Each such shift changes |n| by one, and all the density, cap, and strictness arguments apply unchanged. Thus this is material demonstrated coverage and an elementary adaptation, not an adverse inference from an unavailable source or from index ordering alone.",
+      "residual_risks": [
+        "This records mathematical coverage, not historical publication priority. The space-time construction paper remained inaccessible at full text; the comparison does not depend on absence of additional overlaps."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Demonstrated matching statement and proof on current d≥3, with stronger strictness; excludes S¹ from its stated hypotheses",
+          "evidence": "The threshold is |ε|≤√r/(1+r), factored weight 1+θ(u·z) with θ=ε(1+r)/√r, and equality is strictly positive for distinct sites and universal.",
+          "identifier_or_url": "2026/11/16/SCOPE-sharp-axial-tilts-of-spherical-poisson-covariances-a-dimension-f--2c30314f81a3",
+          "material_read": "RESULT.md Finding, proof Step 1 exact Poisson factorization and Steps 2–3, offsets 0, 1100 and 4234",
+          "method": "Resultary search and direct local-mirror passage inspection, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Sharp axial tilts of spherical Poisson covariances: a dimension-free positivity threshold and universal critical kernels",
+          "trigger": "Exact normalized cone and critical boundary overlap"
+        },
+        {
+          "assessment": "Abstract coefficient criteria, no explicit frontier in this passage",
+          "evidence": "The tested objects are general harmonic coefficient maps/matrices for axially symmetric covariances.",
+          "identifier_or_url": "https://arxiv.org/abs/2105.02586",
+          "material_read": "Theorem 2 and Proposition 1, p. 10, extraction offset 29313",
+          "method": "OA primary PDF passage",
+          "title": "Strict positive definiteness of convolutional and axially symmetric kernels on d-dimensional spheres",
+          "trigger": "Possible broader PSD criterion"
+        },
+        {
+          "assessment": "General SPD test, not a direct affine-Poisson classification in that passage",
+          "evidence": "Criterion expressed in terms of harmonic series, not a cone in a,v.",
+          "identifier_or_url": "https://arxiv.org/abs/2205.07396",
+          "material_read": "Theorem 2.1, §2, p. 3, extraction offset 7186",
+          "method": "OA primary PDF passage",
+          "title": "Strictly positive definite non-isotropic kernels on two-point homogeneous manifolds: the asymptotic approach",
+          "trigger": "Possible implication for boundary strictness"
+        },
+        {
+          "assessment": "No theorem-level conclusion from this item",
+          "evidence": "The observed indexed equivalent is independent of this access limitation.",
+          "identifier_or_url": "https://doi.org/10.1007/s00477-024-02681-8",
+          "material_read": "Bibliographic citation only; decisive text unavailable",
+          "method": "Lawful DOI, publisher and PDF retrieval attempted; redirects failed",
+          "title": "Positive semidefinite kernels that are axially symmetric on the sphere and stationary in time: spectral and semi-spectral theory, and constructive approaches",
+          "trigger": "Potential overlapping axial covariance construction"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md and check_poisson.py",
+        "Indexed equivalent and stronger result 2c30314f81a3"
+      ],
+      "rationale": "A sharp PSD cone and its boundary strictness are meaningful covariance questions, but the frozen record adds no independently valuable scientific remainder to the existing exact normalized classification. Scaling and isolating the bridge coefficient restate its result; the circle addendum is the identical adjacent-degree calculation with basic Fourier modes and has neither a new cutoff nor a new critical phenomenon. The finite circle example illustrates already established necessity rather than resolving a distinct, motivated finite-site question. A presentation clarification or narrower scope would not supply a surviving distinct valuable claim, so no repair is delivered.",
+      "residual_risks": [
+        "This does not question the usefulness of the underlying known classification or the correctness of its extension to the circle."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

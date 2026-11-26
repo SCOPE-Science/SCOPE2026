@@ -1,0 +1,155 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:51:11.267816Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–101; VERIFICATION.md lines 19–25; verify_picard_prym.py",
+        "Laga–Shnidman arXiv:2308.15297v3 §§2.1–2.2"
+      ],
+      "rationale": "In the regular differential basis (dx/y, dx/y², x dx/y²), parity and the two cubic characters make the Cartier matrix diagonal for p=6m+1. The first two basis vectors are anti-invariant and the third is invariant. Expanding around z=−a/2 and using Lucas gives D^m dividing B and F, where D=a²−4b; degree and specialization at b=0 give F. B is also divisible by b^m, coprime to D^m. Substitution of B=b^mD^m Q into its coefficient ODE makes the Q' multiplier (4m−1)a and the Q multiplier −3m² mod p, exactly the equation for H. The leading indicial factor −(d−m)(d−3m) is nonzero for degrees d<m, proving quotient uniqueness and the stated leading-coefficient ratio. At b=1 the boundary evaluations are nonzero. A repeated root elsewhere of order r would give leading ODE term (4−a₀²)r(r−1) times a nonzero coefficient, impossible for 2≤r≤m<p. The elliptic Cartier scalar is a unit on the smooth locus. The degree-four isogeny separates the p-divisible groups, so simultaneous vanishing of the two Prym entries gives a=2 (superspecial) and simultaneous nonvanishing gives ordinary. Normalization leaves a sign action; the root at zero is present exactly for odd m. Independent exact polynomial-multiplication and gcd checks at p=7,13,19,37,97 replay with python3 /workspace/review-evidence/reproduce.py 3 (SymPy). These are finite corroboration; the supplied checker was inspected, not executed.",
+      "residual_risks": [
+        "The count is geometric and marked; it says nothing about root fields or a rational isogeny census. The root separability statement concerns the normalized coefficient line, not a claim about a coarse quotient scheme's multiplicities."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The discriminant-six quaternionic Shimura count specializes on the Shimura curve to m+1_{p≡3 (mod 4)}=2 ceil(m/2); the marked moduli description involves the w_3 quotient.",
+          "Passing from the Shimura count to exactly this open-family count would also require checking superspecial fixed points and the omitted boundary; the mass formula alone is not relied on as proof of prior explicit-polynomial coverage."
+        ],
+        "reasoning": "The broader Shimura count is a relevant parallel route, not the decisive duplicate; the catalogue directly supplies the exact coefficient data.",
+        "searches": [
+          "Laga–Shnidman arXiv:2308.15297v3 §§2,4.3 Prop. 4.7",
+          "Terakado–Xue–Yu arXiv:2608.16036 Thm. 6.1(1)",
+          "Baba–Granath DOI:10.1112/blms.12430"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 6da8625d9e59, 3204a085956d and 1c2ce1c55b2f",
+        "arXiv:2308.15297v3 and arXiv:2608.16036; Kazemifard–Tafazolian and Baba–Granath (limited retrieval)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For s²=b, write z=s t and a'=a/s. Extraction at exponents (3m,3m,6m) in powers (2m,4m,4m) gives scale factors (s^m,s^{5m},s^{2m}), and D=s²(a'²−4). These transport the normalized B,F identities exactly.",
+          "The ordinary j=0 elliptic quotient and degree-four addition isogeny subtract one from the Jacobian p-rank and leave its a-number unchanged. Hence the prior Jacobian strata give ordinary versus a(P)=2 for the Prym.",
+          "Marked coefficient equivalence normalizes b=1 with a↦−a remaining; parity and m simple roots give ceil(m/2)."
+        ],
+        "reasoning": "The broadened coefficient domain, Prym phrasing and class count are direct corollaries of available exact data plus the known decomposition and marking, not new restrictions or strata.",
+        "searches": [
+          "6da8625d9e59 Finding and Proof §1",
+          "arXiv:2308.15297v3 §§2.1–2.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "6da8625d9e59 gives Q_m(a)=[t^{3m}](t²+at+1)^{2m} and the Hasse–Witt entries A D^m, Q_m, B D^m Q_m up to the same nonzero binomial scalar K, with A and B as in the frozen identities.",
+          "3204a085956d uses a=2t and exponent m instead of 3m, equivalent by reciprocity.",
+          "1c2ce1c55b2f gives the same split coefficient and reduced support/strata."
+        ],
+        "reasoning": "The cohomological Frobenius and differential Cartier formulations use the corresponding dual eigenspaces. Rename the variables and remove the common nonzero scalar; the two normalized coefficient identities are exactly the same polynomial facts.",
+        "searches": [
+          "Local Resultary bielliptic Picard split Cartier/Hasse comparisons",
+          "6da8625d9e59",
+          "3204a085956d",
+          "1c2ce1c55b2f"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The local exact formulas include degree m, every simple smooth root and both multipliers in the normalized family, for every p=6m+1.",
+          "The fixed-curve paper did not yield full text, and no separate exact characteristic-seven citation was identifiable in the frozen bibliography."
+        ],
+        "reasoning": "An all-prime exact formula already covers individual prime fibers and is stronger than a table; no negative inference is taken from the unavailable paper.",
+        "searches": [
+          "6da8625d9e59 Finding and Proof §1",
+          "1c2ce1c55b2f split-prime branch",
+          "Kazemifard–Tafazolian DOI:10.1016/j.ffa.2014.12.002"
+        ]
+      },
+      "rationale": "The normalized polynomial, its m simple smooth roots, both exact Cartier coefficient identities, and the Jacobian strata are already present in Resultary 6da8625d9e59 (also compare 3204a085956d and 1c2ce1c55b2f). Weighted scaling restores arbitrary nonzero b; the prime-to-p Prym–elliptic decomposition and the sign quotient recover the Prym statement and exact marked count without a new mathematical result. This failure is based on direct equivalent coverage and explicit reductions, not on inaccessible primary literature or dates alone.",
+      "residual_risks": [
+        "No claim of scholarly priority from catalogue dates. The Shimura-quotient fixed-point/boundary calculation and inaccessible two papers cannot be credited as independent exact coverage; the direct normalized duplicate does not need them."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact normalized coefficient and stratum coverage",
+          "evidence": "Q_m=H_m(a,1); coefficient identities follow from the displayed diagonal and its coefficient extraction up to K; roots are simple off a²=4.",
+          "identifier_or_url": "Resultary 6da8625d9e59",
+          "material_read": "RESULT.md offset 0–3176, Finding, scope and cohomological matrix",
+          "method": "Local Resultary mirror",
+          "title": "The doubled nonordinary Hasse divisor of the bielliptic Picard family in every characteristic p≡1 mod 6",
+          "trigger": "Same all-prime polynomial and two multipliers"
+        },
+        {
+          "assessment": "Equivalent normalized polynomial and Jacobian strata",
+          "evidence": "Reciprocity exchanges the coefficients at m and 3m; exactly m simple admissible roots.",
+          "identifier_or_url": "Resultary 3204a085956d",
+          "material_read": "RESULT.md split-prime finding and coefficient statement",
+          "method": "Local Resultary mirror",
+          "title": "Uniform Cartier strata for the bielliptic Picard pencil",
+          "trigger": "Same pencil under a=2t"
+        },
+        {
+          "assessment": "Direct split polynomial and root-count overlap",
+          "evidence": "Same coefficient at 3r under a=2T, r distinct smooth roots, Jacobian and Newton strata.",
+          "identifier_or_url": "Resultary 1c2ce1c55b2f",
+          "material_read": "RESULT.md p=6r+1 branch",
+          "method": "Local Resultary mirror",
+          "title": "A uniform Hasse divisor for the bielliptic Picard pencil",
+          "trigger": "All-prime family with the same divisor"
+        },
+        {
+          "assessment": "Provides precisely the geometric reductions, not used here as an explicit Hasse-polynomial source",
+          "evidence": "Marked weights (6,12), Prym geometry, and discriminant-six Shimura quotient by w_3.",
+          "identifier_or_url": "https://arxiv.org/html/2308.15297v3",
+          "material_read": "§§2.1–2.2 around offsets 19224 and 28600; Remark 3.16 around 65000; §4.3 Proposition 4.7 around 77000–83200",
+          "method": "Open HTML",
+          "title": "The geometry and arithmetic of bielliptic Picard curves",
+          "trigger": "Prym and marked equivalence"
+        },
+        {
+          "assessment": "Geometric count on a related Shimura curve, not explicit coefficient identities",
+          "evidence": "At discriminant six and p=6m+1 the count is twice the marked-family answer before checking quotient/boundary.",
+          "identifier_or_url": "https://arxiv.org/pdf/2608.16036",
+          "material_read": "Abstract p.1, introduction p.2, Theorem 6.1(1) p.31 around offset 113300",
+          "method": "Open PDF",
+          "title": "Superspecial Points on Shimura Curves",
+          "trigger": "Potential broader count"
+        },
+        {
+          "assessment": "Exact full-text scope not established",
+          "evidence": "Do not rely on it for absence of overlap.",
+          "identifier_or_url": "https://doi.org/10.1016/j.ffa.2014.12.002",
+          "material_read": "Landing/abstract only",
+          "method": "Lawful open retrieval and alternate-copy check",
+          "title": "A note on some Picard curves over finite fields",
+          "trigger": "Prior fixed Picard examples"
+        },
+        {
+          "assessment": "Potential implications not assessed",
+          "evidence": "Access failure gives no novelty evidence.",
+          "identifier_or_url": "https://doi.org/10.1112/blms.12430",
+          "material_read": "Bibliographic title only; full text unavailable",
+          "method": "Open retrieval and alternate-copy check",
+          "title": "Picard–Fuchs equations for Shimura curves over Q",
+          "trigger": "Possible exact mod-p modular reformulation"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and Proof; Resultary 6da8625d9e59; Laga–Shnidman arXiv:2308.15297v3 §§2.1–2.2"
+      ],
+      "rationale": "The explicit reduced divisor, its factorization and the split Prym strata are worthwhile questions, but the exact core is already solved in available records. Remaining differences are transporting the normalized formulas by weighted scaling, using the known prime-to-p factorization, and counting pairs under the established sign action. These routine deductions do not leave a distinct valuable result to repair.",
+      "residual_risks": [
+        "No new information about the root fields, arithmetic moduli points or another residue class is established."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

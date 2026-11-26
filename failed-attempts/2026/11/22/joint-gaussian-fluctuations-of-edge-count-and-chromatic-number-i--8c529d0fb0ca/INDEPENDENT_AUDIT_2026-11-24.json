@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:04:31.312462Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The endpoint rank order is unchanged almost surely by the probability integral transform for a common atomless law. The interval clique number equals maximum coverage (Helly), and the chromatic number equals the clique number (interval perfection). With A=L and B=1−R, the endpoint law is density 2 on A,B≥0, A+B≤1. The moments E[A²]=1/6, E[A⁴]=1/15, E[A²B²]=1/90 give E[h]=2/3 and E[h²]=22/45 for h=1−A²−B²; integrating over A,B≤1/2 gives E[Zh]=5/12 for the midpoint indicator Z. This yields the stated covariance 1/12. The centered edge count is (n−1) times the sum of the centered projections plus the degenerate pair kernel, whose summands with distinct pairs are uncorrelated by conditioning on any shared observation. Its variance is O(n²), so it vanishes in L² on the n^(3/2) scale. The proof's DKW localization uses a mean loss of order n^(3/4) versus a uniform error O(n^(2/3)), and local coverage increments have variance O(n^(−1/8)) per interval. Bernstein on a polynomial grid and the occupancy bound control the localized maximum; closed endpoints add at most a unit on the almost-sure no-ties event. The rare-event contribution to the squared gap is negligible using the bound n. This proves the stated L² transfer and hence also transfers covariance and variance, not just weak convergence. The exact edge variance agrees with the projection variance n(n−1)²(2/45) plus degenerate variance binom(n,2)(2/15). The residual is uncorrelated with the first coordinate and hence independent in the Gaussian limit, with variance 2/45−1/36=1/60; the correlation is √10/4. RESULT.md lines 12–71, VERIFICATION.md lines 19–23 and check_interval.py lines 9–47 were checked. The supplied script is a finite exact check of n=2,3,4, not an asymptotic certificate; it was not run. The attribution to Janson is incomplete (see originality), not a gap in this proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Janson §8 Theorem 8.1 gives a functional CLT for centered coverage; Theorem 8.4 gives the maximum CLT with all moments; Theorem 8.5 gives finer asymptotics relative to the central event index.",
+          "Iliopoulos §5.1 Theorem 5.1 and Corollary 5.3 concern a first-order maximum result, not simultaneous edge fluctuations."
+        ],
+        "reasoning": "A coverage-process CLT does not by itself include an edge coordinate. The stronger published moment theorem for the maximum does, however, give L² equivalence to the deterministic midpoint via order and moment bounds. That statement is sufficient to transfer any standard joint limit with the midpoint, so no new random-maximum estimate is needed for the asserted result.",
+        "searches": [
+          "random interval graph coverage empirical process supremum joint edge count U-statistic Gaussian limit chromatic number general theorem",
+          "arXiv:math/0701288v1, Theorems 8.1 and 8.3–8.5",
+          "Iliopoulos Random Interval Graphs 2015 edge count clique number chromatic number limit theorem"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check_interval.py",
+        "Janson arXiv:math/0701288v1",
+        "Diaconis–Holmes–Janson arXiv:1102.2841v1",
+        "Iliopoulos arXiv:1507.06275v1",
+        "Resultary 8c529d0fb0ca and 715b5395fb9f",
+        "Scheinerman DOI 10.1007/BF02189092 (abstract and bibliographic material only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Write D_n=(χ_n−C_n(1/2))/√n≥0. Janson's Theorem 8.4 gives ED_n=o(1) using EC_n(1/2)=n/2, and E[D_n⁴]=O(1) by the same theorem and the binomial moments. Therefore ||D_n||₂≤||D_n||₁^(1/3)||D_n||₄^(2/3)=o(1).",
+          "The edge Hoeffding projection makes the fixed-midpoint/edge limit an iid two-coordinate CLT. Its constants follow from the elementary h integral, also consistent with the same-day exact moment record.",
+          "Even for the proof's nonoptimal squared-gap rate, Theorem 8.5 gives Eχ_n−n/2=O(n^(1/3)) since the count at the n-th endpoint has expectation n²/(2n−1). Fifth-moment interpolation between E(χ_n−C_n)=O(n^(1/3)) and E[(χ_n−C_n)^5]=O(n^(5/2)) gives O(n^(7/8)), without the logarithm."
+        ],
+        "reasoning": "The given joint law, moment transfer and Gaussian residual follow from known exact-model input and standard U-statistic asymptotics, with no extra limit theorem needed for dependence at the random maximum. The two marginal CLTs alone would not identify the covariance; the key implication uses ordering, moment convergence and the iid projection, not a mistaken inference from marginals.",
+        "searches": [
+          "arXiv:math/0701288v1, §8, PDF pp. 28–30, equation (8.2) and Theorems 8.4–8.5",
+          "Resultary 715b5395fb9f, RESULT.md Finding",
+          "arXiv:1102.2841v1, §2.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Diaconis–Holmes–Janson §2.3 explicitly identify the random interval clique/chromatic maximum with the sock-sorting problem and give its marginal CLT.",
+          "Janson §8 writes the coverage indicator as 1[A_k≤t<D_k] for sorted independent uniform endpoints A_k,D_k; its maximum is Y_n*."
+        ],
+        "reasoning": "The priority-queue/lazy-hashing formulation is an exact alias for the coverage process, not merely a different type of run maximum. For independent atomless endpoints there are no ties, so the half-open convention preserves the maximum and the deterministic median count. The equivalence concerns the coverage coordinate, not a prior edge count in that model.",
+        "searches": [
+          "Resultary: random interval graphs chromatic number edge count central limit theorem",
+          "Diaconis Holmes Janson Interval graph limits 2011 clique chromatic number process Gaussian limit maximum coverage",
+          "arXiv:math/0701288v1, §8, equation (8.2)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "8c529d0fb0ca is the identical assigned record only.",
+          "Same-day 715b5395fb9f, RESULT.md offsets 0–2392, gives the fixed-point conditional mean, exact edge variance and midpoint covariance n(n−1)/12, and squared midpoint correlation converging to 5/8."
+        ],
+        "reasoning": "The joint limit is not a tabulated finite entry. The distinct exact moment record supplies compatible covariance data but does not state a CLT for the maximum, and the shared date is insufficient to assign priority. The implication also goes through by direct integration without using that record.",
+        "searches": [
+          "Resultary: joint Gaussian fluctuations edge count chromatic number interval graphs",
+          "Resultary: maximum coverage edge count interval graph bivariate CLT",
+          "Resultary: random intervals clique number joint edge count Resultary"
+        ]
+      },
+      "rationale": "The inspected sources do not print the bivariate maximum–edge law. Nevertheless it is a routine corollary of the exact same-model maximum theorem with moment convergence in Janson §8 and the standard first projection for the edge U-statistic. Janson's sorted endpoint event process in (8.2) is the very same coverage process (half-open intervals instead of closed, immaterial to the maximum and deterministic midpoint almost surely). Theorem 8.4 gives the centered maximum's mean convergence to zero and bounded fourth moments at the √n scale. The midpoint is binomial with the same centering and bounded fourth moments. Their scaled difference is nonnegative with expectation o(1) and bounded fourth moment, so it goes to zero in L² by interpolation. This transfer works jointly with *any* other coordinate, including edge count. An iid bivariate CLT for the midpoint indicator and the first edge projection then gives the joint law with elementary one-interval integrals. The L² transfer also gives the asymptotic correlation; the Gaussian residual statement is linear algebra. This implication does not require assuming precedence of the same-day midpoint regression, or finding the inaccessible Scheinerman full text.",
+      "residual_risks": [
+        "An explicit older joint theorem could exist; the original Scheinerman and Steinsaltz full texts were not inspected. The scientific decision rests on positive implication from accessible sources, not on lack of access or a failed search.",
+        "No ordering is inferred among same-day Resultary records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material coverage: explicit same-process representation and maximum asymptotics including all-moment convergence; no edge coordinate stated there.",
+          "evidence": "Theorem 8.4 gives the centered √n-scale maximum limit N(0,1/4) with convergence of all moments. Theorem 8.5 centers at the n-th event for the finer maximum correction. The paper credits related earlier queueing/lazy-hashing results.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0701288v1",
+          "material_read": "§8, PDF pp. 28–30, equation (8.2) and Theorems 8.1–8.5, text offsets 81700–85645 and 86140–88708; also Theorems 1.2–1.3",
+          "method": "Lawful primary PDF, literal locate and bounded passages",
+          "title": "Sorting using complete subintervals and the maximum number of runs in a randomly evolving sequence",
+          "trigger": "Exact coverage-process equivalent under the priority-queue/lazy-hashing reformulation"
+        },
+        {
+          "assessment": "Explicitly connects the chromatic maximum to the sock-sorting analysis and states the marginal CLT; does not give the joint law in the inspected passage.",
+          "evidence": "Reports (χ−n/2)/√n⇒N(0,1/4) and attributes refinements to Steinsaltz and Janson.",
+          "identifier_or_url": "https://arxiv.org/pdf/1102.2841v1",
+          "material_read": "§2.3, PDF p. 4, text offsets 9550–12050",
+          "method": "Lawful primary PDF, bounded passage",
+          "title": "Interval Graph Limits",
+          "trigger": "Same random graph and possible chromatic/edge joint theorem"
+        },
+        {
+          "assessment": "Exact moments for deterministic points; distinguishes the same midpoint covariance and regression but does not use the random maximum.",
+          "evidence": "For c=2t(1−t), Cov(K_t,E_n)=n(n−1)c²/3; at the midpoint the explained fraction tends to 5/8.",
+          "identifier_or_url": "Resultary 2026/11/22/SCOPE-the-unique-affine-point-coverage-regression-for-uniform-random-i--715b5395fb9f",
+          "material_read": "RESULT.md Finding and assumptions, offsets 0–2392",
+          "method": "Lawful local published-record mirror",
+          "title": "The unique affine point-coverage regression for uniform random interval graphs",
+          "trigger": "Strongest distinct same-model indexed record: exact edge/coverage moments"
+        },
+        {
+          "assessment": "Cannot assess detailed original coverage; not used to infer either coverage or absence of a joint limit.",
+          "evidence": "Secondary technical summaries report edge density and first-order chromatic asymptotics; they do not settle what else the 1988 paper proves.",
+          "identifier_or_url": "https://doi.org/10.1007/BF02189092",
+          "material_read": "Bibliographic/abstract information only; full text unavailable in attempted routes",
+          "method": "Lawful Springer lookup; PDF redirect errors and article-page timeout; technical summaries checked in Diaconis–Holmes–Janson §2.3 and Iliopoulos §5.1",
+          "title": "Random interval graphs",
+          "trigger": "Original analysis of edges and chromatic number for the same model"
+        },
+        {
+          "assessment": "First-order clique/chromatic results in the inspected material, not a joint maximum–edge CLT.",
+          "evidence": "Reports the asymptotic n/2 scale for the maximum and attributes the corresponding result to Scheinerman's Theorem 4.7.",
+          "identifier_or_url": "https://arxiv.org/abs/1507.06275v1",
+          "material_read": "§5.1, Theorem 5.1 and Corollary 5.3, PDF pp. 33–37, offsets 51100–61795",
+          "method": "Lawful primary thesis PDF, bounded passages",
+          "title": "Random Interval Graphs",
+          "trigger": "Same model and reference to the original chromatic theorem"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Understanding dependence of a graph's chromatic number and edge count is well motivated, and the coefficient and residual interpretation are useful. But the precise result stated has no nonroutine mathematical step once the prior same-model maximum moment theorem is used: moment interpolation, the standard vector projection CLT and the stated integrals settle the entire claim. The auxiliary weaker localization estimate is not an independent improvement over what already follows from the prior finer result. The record does not claim a different model, an additional fluctuation scale, or a substantive new estimate that escapes that coverage.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

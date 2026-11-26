@@ -1,19 +1,21 @@
-# Review of the genus and cusp transition
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The two Artin–Schreier classes have independent simple-pole principal parts globally, so their compositum is a connected rank-two cover. Their local principal parts have \(\mathbb F_p\)-rank one exactly at \(c=1\), otherwise two; Swan conductor one gives the different exponents. Hurwitz and Deuring–Shafarevich then give both genus and \(p\)-rank, while direct expansions at the only possible plane singularities give multiplicities, tangent forms, branches and delta invariants. The exact finite-field point-count verifier independently supports the genus-four and genus-eight characteristic-three instances and their ordinary zeta coefficients. The infinite family rests on algebraic proof, not on extrapolation.
+PASS
 
-## Originality — PASS (provisional)
+The affine ring identifies with the two Artin–Schreier equations over k[t,t^-1] by t=B+A, t^-1=B-A; its monic free presentation embeds in the generic fiber. Each nonzero F_p-combination has a simple pole at 0 or infinity, so the generic fiber is a field of degree p². Locally the regular terms are Artin–Schreier coboundaries over k[[u]] and the simple-pole coefficient spans rank one exactly for c=1, rank two otherwise. Nontrivial inertia characters have Swan one, hence the different is 2(e-1). The contributions of the two branch fibers give the stated values by Riemann–Hurwitz and Deuring–Shafarevich. Above infinity the leading terms of x^p and y^p agree, so x/y tends to 1, and above zero they are opposite, so x/y tends to -1. All branches at infinity are thus accounted for. Direct expansion gives distinct tangents and p smooth branches at c=1, and otherwise the unique tangent of multiplicity p-1 with intersection order p and one normalization branch. The two delta invariants in either case agree with the degree-2p arithmetic genus. The affine derivatives rule out further singularities.
 
-Fukasawa's 2013 paper introduces the family but gives a lower bound for the non-equality genus case, rather than the exact \(p^2-1\) genus or the inertia and cusp transition. The Artin–Mumford equality case is known and not claimed as new. General fiber-product genus formulas imply a route to part of the answer only after the explicit residue-rank comparison is established. Sources inspected include Fukasawa (2013), van der Geer–van der Vlugt (1995), Arakelian–Korchmáros (2015), and Montanucci–Zini (2016). A prior calculation for this exact specialized family might exist outside indexed literature; independent priority assessment remains open.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The theorem resolves the geometric-genus ambiguity left by the ambient two-Galois-point construction for a natural full nonzero-parameter subfamily, identifies a sharp two-point wild-ramification transition, and characterizes both changes in embedded singularities. It also proves the persistent ordinarity of the normalized curves and determines the exceptional boundary simultaneously; this is more than an isolated numeric or generic case computation.
+The supported increment is the exact nonexceptional ordinary genus and the accompanying inertia/Swan and singularity transition throughout Fukasawa's family. The exceptional Artin–Mumford genus and ordinarity, the construction, and the two plane singular locations are prior results, as the record acknowledges. The closest same-family general result bounds the nonexceptional genus rather than determining it, and the inspected general fiber-product formulas require the separate parameter-dependent pole calculation.
 
-## Limits
+## value
 
-No classification of unmarked isomorphism classes, full analytic cusp germs, general zeta numerators, or automorphism groups is attempted. The general standard tools and the already-known exceptional Artin–Mumford case are acknowledged explicitly.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact nonexceptional genus improves the prior family bound and the conductor computation explains why a jump in genus is compatible with ordinarity. Relating the local inertia to the plane branches identifies a genuine geometric change, not merely a numerical example or a restatement of the exceptional case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

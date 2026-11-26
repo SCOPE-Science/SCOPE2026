@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Two distinct, explicit coordinate presentations of \(\operatorname{PG}(2,4)\) generate the incidence edges; one uses normalized projective triples and the other uses affine coordinates and a line at infinity. Both exhaustive programs test every \(\binom{42}{5}\) five-set and \(\binom{42}{6}\) six-set, using the specified simultaneous recurrence. Jump/slide edges and components follow from exhaustive state enumeration and two different connectivity algorithms (union–find and breadth-first search). The replayed outputs agree on the complete time-and-shore census, all stated edge counts and all components. Finite exhaustive correctness applies only to the explicit graph and rule.
+## correctness
 
-**Originality — PASS with priority risk.** The first-source work defines power propagation time; the polynomial paper introduces cardinality enumerators; the token-jumping paper introduces the relevant reconfiguration model. Relevant full texts were searched for finite projective planes and inspected at their definitional and application sections; no inspected statement computes or implies this exact six-sensor census or the slide-frozen sector of the quaternary incidence graph. Similar published finite-plane results concern blocking, connected domination or induced matchings, and do not impose this propagation predicate. The dedicated research index returned no equivalent or stronger exact result. Unindexed historic enumerations remain possible.
+PASS
 
-**Value — PASS.** The order-four plane is the first non-prime-order projective plane and the smallest nontrivial extension-field test of propagation on a finite incidence geometry. The complete optimum time/point-line profile and sharp jump-versus-slide connectivity split identify how optimal sensing configurations can (or cannot) be modified without increasing sensor count. A natural exact six-set coefficient and \(30{,}240\) frozen states provide reusable benchmarks for finite-geometry monitoring and reconfiguration methods, not a random numerical slice.
+Independently built the incidence graph from the 21 cyclic translates of {0,1,4,14,16} modulo 21. Its ordered nonzero differences cover all 20 residues once, hence it is a projective plane of order four and isomorphic to PG(2,4) by uniqueness at that order. The independent vectorized computation takes the closed neighborhood at time 1 and uses only observed sources and the previous observation mask for all later forces. It exhausts 850668 five-sets with zero successes; monotonicity rules out all smaller sets because a force either remains available or its target is already observed in a superset. Exhausting 5245786 six-sets gave 566160 successes, with (point count,time) frequencies (2,3):65520, (3,2):52080, (3,3):383040, (4,3):65520. Each unordered jump pair has a unique common five-core. Summing binomial(f,2) by core frequency f gives 19706400 and replacing each core clique by a spanning path preserves precisely the one connected component. For slides, deleting a point and inserting an incident line counts each edge once; exact sparse connectivity gives 2257920 edges, component sizes 535920 once and 1 exactly 30240 times, with frozen frequencies (3,2):10080 and (3,3):20160. The script /workspace/reviews/evidence/pg24.py replayed with Python 3, NumPy and SciPy: first run 'seeds OUTDIR' (full, no limit) and then 'exchanges OUTDIR' on the same fresh directory. This resolves the finite claim without relying on the author's programs.
 
-Limitations: The proof is finite and code-assisted; there is no all-order formula, no independently certified originality, and no external scholarly validation. The archived source establishes the definition and motivation rather than the new numerical values.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The checked exact counts and mobility classification concern a distinct finite plane instance; formulations and prior bounds are not credited as new. The closest related record has the same invariant on the same family, but covers only the two-sensor boundary and the q=2 optimum census.
+
+## value
+
+PASS
+
+Order four is the first extension-field projective plane and a canonical finite test for the propagation/reconfiguration problem. The time-and-shore census and contrast between jumping connectivity and sliding with a giant component plus immobilized states provide an exact benchmark for both predicates, beyond a minimum-size computation or a count alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:32:48.152695Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 4–56 and 58–66; VERIFICATION.md; verify_semisimple_witnesses.cpp and verify_semisimple_witnesses_output.txt",
+        "/workspace/branches/ec2c57a4-5604-4f79-ae94-bf385bfb960d/independent_check.py and independent_check_output.jsonl"
+      ],
+      "rationale": "For odd residue order the trace pairing on sl_2(R) is unimodular. A permitted X is primitive, and ad_X has residue rank two. In a basis extending X its first column is zero and the other two columns have a unit minor; they give exactly the orthogonal hyperplane by reduction and Nakayama, so each admissible X gives q^k second factors. If Z has valuation j, the annihilator of pi^j is (pi^{k-j}). Solve the resulting primitive linear equation modulo pi^{k-j} by a unit pivot: each allowed residue X has q^{2(k-1)}q^j lifts, including at j=0 and j=k-1. Over the residue field any nonzero trace-zero leading coefficient is similar to the companion matrix with columns (0,1) and (t,0), t=Q(leading coefficient); its orthogonal plane has form c^2-t b^2. At t=0 this gives square values only and q(q-1) square-norm vectors; at t nonzero the split product or nonsplit field norm gives q-chi(t) vectors per nonzero value. At Z=0, summing ab=t-c^2 gives q^2+q chi(t) vectors per t nonzero and q^2 at t=0; multiplying by first- and second-factor lift counts proves the zero fiber and summing nonzero isotropic leading coefficients proves the missing-target count. The proof uses no ring coefficient field. A fresh exhaustive replay checked every target and both types in F_3, Z/9 and F_3[t]/(t^2); the original C++ was inspected, not executed.",
+      "residual_risks": [
+        "The independent replay is bounded to three small rings; generality rests on the unit-pivot and finite-field argument, not enumeration."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Stasinski abstract and introduction, p. 1: regular first-factor existence for size at least three, and prior field existence; distinguishes group commutators in size two",
+          "Frozen RESULT.md lines 68–79 describes full-matrix determinant fibers, not trace-plane incidence"
+        ],
+        "reasoning": "Neither such existence nor a full-matrix determinant histogram specifies the signed distribution on a trace-orthogonal plane for fixed target. No stronger covering result was identified in the inspected evidence.",
+        "searches": [
+          "Stasinski arXiv:1607.07205v2",
+          "Choosuwan–Jitman–Udomkavanich arXiv:1605.06826 as cited in the frozen record"
+        ]
+      },
+      "checked_sources": [
+        "Stasinski arXiv:1607.07205v2 p. 1",
+        "Resultary 62d56845fca2 and 251d071cafd0",
+        "Frozen RESULT.md, prior-work discussion and references"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The new count distinguishes nilpotent leading coefficient, split leading coefficient and nonsplit leading coefficient even for targets of positive valuation"
+        ],
+        "reasoning": "The adjoint-image principle and quadratic counts are standard ingredients. Obtaining the full signed fibers and nonsplit failure locus needs the varying trace-orthogonal plane and chain-ring lift analysis; the evidence does not give these as an already computed specialization.",
+        "searches": [
+          "Stasinski arXiv:1607.07205v2 p. 1",
+          "Resultary 62d56845fca2 and 251d071cafd0"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Primitive square-zero first-factor record 62d56845fca2",
+          "Unrestricted finite Takiff fibers record 251d071cafd0"
+        ],
+        "reasoning": "Square-zero forces zero residue norm, disjoint from both permitted types. The Takiff problem is the length-two equicharacteristic specialization without the character condition; marginal totals do not determine the two conditional counts.",
+        "searches": [
+          "Resultary: trace-zero Lie commutator fibers by first-factor type over finite chain rings",
+          "Primary search for Stasinski and constrained semisimple commutator fibers"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Indexed records 62d56845fca2 and 251d071cafd0 stratify their own target spaces, with distinct first-factor conditions"
+        ],
+        "reasoning": "No exact table for the two separately conditioned fibers over all odd chain rings was evidenced. The bounded replay is not an originality lookup.",
+        "searches": [
+          "Resultary finite chain-ring regular semisimple commutator-fiber lookup, including square-zero witnesses and Takiff counts"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the two conditioned labeled fiber formulas and the resulting exact image obstruction, not for regular commutator existence or classical quadratic form counts.",
+      "residual_risks": [
+        "Deeper Stasinski passages and full local catalogue texts were not retrieved; neither this nor the searches rule out a prior general orbit-incidence theorem.",
+        "Historical priority for the field case or wider family is not certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The main stated Lie result is qualitative and for size at least three; the size-two group result is for a different commutator.",
+          "evidence": [
+            "Abstract, and introduction's distinction between gl_n and sl_n and statement of Thompson's field case"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1607.07205",
+          "material_read": "Abstract and opening introduction, p. 1",
+          "method": "ArXiv PDF excerpt after targeted OA retrieval attempts",
+          "title": "Commutators of trace zero matrices over principal ideal rings",
+          "trigger": "Regular first factors over principal ideal rings"
+        },
+        {
+          "assessment": "Distinct locus of first factors",
+          "evidence": [
+            "Primitive square-zero implies Q(X)=0, whereas both audited fibers require unit Q(X)"
+          ],
+          "identifier_or_url": "Resultary 62d56845fca2",
+          "material_read": "Indexed finding; exact full text not retrieved",
+          "method": "Local catalogue and lawful full-text attempts",
+          "title": "Primitive square-zero witnesses for Lie commutators over finite chain rings",
+          "trigger": "Matching ring, target invariants and conditioned first-factor count"
+        },
+        {
+          "assessment": "Related ring specialization with unconditional counts",
+          "evidence": [
+            "Finite Takiff length two and target strata without first-operand quadratic-character conditioning"
+          ],
+          "identifier_or_url": "Resultary 251d071cafd0",
+          "material_read": "Indexed finding; exact full text not retrieved",
+          "method": "Local catalogue and lawful full-text attempts",
+          "title": "Complete commutator fibers in the finite Takiff Lie algebra of sl_2",
+          "trigger": "Closest unrestricted length-two census"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 4–28, 56 and 68–72"
+      ],
+      "rationale": "Regular semisimple witness types are intrinsic, not arbitrary filters. The result replaces qualitative existence by exact uniform conditioned counts and shows an actual asymmetry of images: all targets occur in the split type, while the nonsplit type misses precisely the nonzero isotropic leading coefficients, at every valuation. This supplies a usable baseline for finer bracket statistics over chain rings.",
+      "residual_risks": [
+        "Only the two regular semisimple types are covered; individual conjugacy classes and characteristic two are outside scope."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

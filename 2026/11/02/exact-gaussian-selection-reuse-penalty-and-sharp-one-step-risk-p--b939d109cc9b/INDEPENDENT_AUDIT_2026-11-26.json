@@ -1,0 +1,158 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:35:50.701495Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Proof §§1–5",
+        "Frozen VERIFICATION.md and verify.py, inspected without execution",
+        "Independent conditional-normal midpoint replay: integrate each row's standard Gaussian noise over ±12 standard deviations in 120000 bins against the other reading's absolute-threshold probability; four cases agreed within 1.68e−9, and bisection gave 1.240125266627191"
+      ],
+      "rationale": "The orthogonal sum/difference rotation makes V± independent with means (a±b)/√2 and common variance σ². Row one is selected exactly when their signs agree, giving probability (1+Q_+Q_-)/2. The untouched coordinate contributes the same squared error under reuse and split, and the split correction contributes σ² independently. For reuse, writing E± for the centered rotated noises gives ε₁²−ε₂²=2E_+E_−, so the excess selected square is E[E_+ sgn(V_+)] E[E_− sgn(V_−)]. Each centered sign moment is 2σφ(μ/σ); multiplying gives (2σ²/π)exp(−r²/(2σ²)). For the sharp bound set w=(a+b)²/2 and g(w)=√w erf(√w/(√2σ)), so H=g(w)g(r²−w). The logarithmic derivative of g at w>0 is (1+T)/(2w), where T is the reciprocal of the displayed integral over [0,1] that strictly increases with w. Thus log g is strictly concave: the unique maximum is at w=r²/2 (ab=0) and the only zeros are the endpoints (|a|=|b|). The best-orientation deficit is the difference of a decreasing exponential and a strictly increasing unbounded function of r/σ, with opposite signs at zero and infinity. This proves the unique crossover and equality cases, including the positive penalty at r=0.",
+      "residual_risks": [
+        "The replay is bounded numerical corroboration, not certified quadrature or proof of the phase boundary. The fixed-state mean squares compare unlike oracle costs (uniform 1, reuse 2, split 3), not long-run or equal-budget performance."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sampling Kaczmarz–Motzkin and maximum-residual Kaczmarz specify related greedy row rules. The doubly noisy signal-averaging paper addresses convergence and an error horizon with repeated measurements."
+        ],
+        "reasoning": "General row rules or iterative convergence bounds do not yield the exact fresh, split and reused single-step expectations or an orientation extremum.",
+        "searches": [
+          "arXiv:1912.03544 abstract and introduction",
+          "arXiv:2209.06082 §3.1",
+          "arXiv:2603.29372v1 introduction"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2309.13878, 1912.03544, 2209.06082 and 2603.29372v1",
+        "Resultary aae7124d8860, bb27287bed96, 42831cd177c3, 30f28a658eb2 and 532e58979b34"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "An independent update automatically contributes σ², but the same-reading selected noise need not have this second moment. The exact extra term uses the factorization of two independent Gaussian sign moments specifically after the sum/difference rotation. The stationarity and order-statistic formulas do not provide that computation or the strict orientation envelope."
+        ],
+        "reasoning": "The precise phase boundary follows mechanically from the new risk difference and envelope, not from the existing models. The special value at zero alone (maximum of two centered noise squares) is not the supported originality claim.",
+        "searches": [
+          "arXiv:2309.13878 Example 5.1 and its larger-mean predecessor citation",
+          "arXiv:2603.29372v1 introduction",
+          "Resultary 42831cd177c3 and bb27287bed96"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The excess can be written as the second moment of noise at the index maximizing absolute observed residual minus σ². Larger-Gaussian-mean estimation selects a signed maximum and compares an estimator to a fixed larger mean, not to the mean at the absolute-magnitude selected row. The scalar screened-reuse record treats Rademacher noise and long-run false attractors."
+        ],
+        "reasoning": "Order-statistic risk is a substantive analogy but not the same estimand. The two sign tests from absolute-value selection yield a product of truncated-normal moments absent in a single signed comparison.",
+        "searches": [
+          "Gaussian order-statistic squared-error risk and noisy greedy Kaczmarz measurement reuse",
+          "arXiv:2309.13878 Example 5.1",
+          "Resultary aae7124d8860 and 42831cd177c3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact neighboring records concern cyclic nonorthogonal two-row stationary refresh risk, stationary exogenous Markov row risk, scalar screened Rademacher reuse, different Gaussian Anderson extrapolation, or the Gaussian larger-mean estimator. None of the inspected formulas gives C(r) or the same-H orientation cutoff in this measurement model."
+        ],
+        "reasoning": "Same row count, noise type, or use of the term phase diagram is not enough; the selection and update dependence, risk target and time horizon must match. No date-based priority conclusion is used.",
+        "searches": [
+          "Resultary bb27287bed96, 532e58979b34, 42831cd177c3, 30f28a658eb2, aae7124d8860"
+        ]
+      },
+      "rationale": "The new claim is the exact same-reading minus split correction cost in the two-row absolute-residual selection model and its competition with the sharp directional split gain. Greedy row choice and Gaussian order-statistic risk are established; the inspected results do not supply the radial exponential excess or the resulting one-update boundary for this observable.",
+      "residual_risks": [
+        "Blumenthal and Cohen (1968), DOI 10.1214/aoms/1177698316, could contain a closer auxiliary order-statistic identity; its primary full text was not retrieved. Neither the search nor this access limitation establishes historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIFFERENT TARGET AND SIGNED ORDER STATISTIC",
+          "evidence": "Estimates the larger of two Gaussian means under squared loss, including an order statistic and its Brewster–Zidek improvement, not the selected coordinate noise under an absolute-value rule.",
+          "identifier_or_url": "https://arxiv.org/html/2309.13878",
+          "material_read": "Example 5.1, text offsets 62300–65247; predecessor attribution near 3685 and bibliography near 83298",
+          "method": "OA full-text passage inspection",
+          "title": "Garg, Patra and Misra, arXiv:2309.13878",
+          "trigger": "Gaussian order-statistic risk with common known variance"
+        },
+        {
+          "assessment": "ACCESS RISK, NO COVERAGE VERDICT FROM THE LOOKUP",
+          "evidence": "The citing paper identifies squared-error estimation of the larger of two common-variance normal means. Whether the older paper includes a closer auxiliary identity was not verified.",
+          "identifier_or_url": "https://doi.org/10.1214/aoms/1177698316",
+          "material_read": "No primary full text retrieved; scope attribution in arXiv:2309.13878",
+          "method": "Lawful OA lookup for the DOI and inspection of accessible citing paper",
+          "title": "Estimation of Two Ordered Translation Parameters",
+          "trigger": "Older two-normal squared-risk analysis"
+        },
+        {
+          "assessment": "COVERS THE GREEDY RULE, NOT THE FRESH REUSE COMPARISON",
+          "evidence": "Selects a large residual among a sampled subset; concerns greedy algorithm performance, not exact split versus reuse Gaussian one-step risk.",
+          "identifier_or_url": "https://arxiv.org/html/1912.03544",
+          "material_read": "Abstract and introduction, offsets 790–2986",
+          "method": "OA full-text passage inspection",
+          "title": "Greed Works: An Improved Analysis of Sampling Kaczmarz–Motzkin",
+          "trigger": "Maximum residual row selection"
+        },
+        {
+          "assessment": "DIFFERENT GUARANTEE",
+          "evidence": "Maximum-residual rule and its linear specialization, without independent correction versus same-reading risk formulas.",
+          "identifier_or_url": "https://arxiv.org/html/2209.06082",
+          "material_read": "§3.1, offsets 13340–15894",
+          "method": "OA full-text passage inspection",
+          "title": "Greedy randomized sampling nonlinear Kaczmarz methods",
+          "trigger": "Potential general maximum-residual theorem"
+        },
+        {
+          "assessment": "ITERATIVE NOISE AVERAGING, DIFFERENT OBSERVABLE",
+          "evidence": "Repeated-measurement averaging targets an error horizon, not the fixed two-row exact reuse penalty.",
+          "identifier_or_url": "https://arxiv.org/html/2603.29372v1",
+          "material_read": "Introduction, offsets 6500–9904",
+          "method": "OA full-text passage inspection",
+          "title": "Relaxed Greedy Randomized Kaczmarz with Signal Averaging for Solving Doubly-Noisy Linear Systems",
+          "trigger": "Noisy greedy Kaczmarz with repeated readings"
+        },
+        {
+          "assessment": "MATERIAL OVERLAP IN SETTING, DIFFERENT RISK",
+          "evidence": "Stationary risk for full cyclic sweeps with nonorthogonal rows and refresh allocation; no noisy greedy selection or angular single-step phase.",
+          "identifier_or_url": "Resultary bb27287bed96",
+          "material_read": "RESULT.md Finding, local mirror offsets 0–2599",
+          "method": "Local mirror statement inspection",
+          "title": "Exact noise-memory risk and optimal refresh allocation for two-row Kaczmarz",
+          "trigger": "Same-day exact two-row retained/refreshed noise comparison"
+        },
+        {
+          "assessment": "SAME MECHANISM, DIFFERENT LAW AND TIMESCALE",
+          "evidence": "One scalar system with bounded centered Rademacher noise, conditional moments and false equilibria, not this Gaussian two-coordinate law.",
+          "identifier_or_url": "Resultary 42831cd177c3",
+          "material_read": "RESULT.md Finding, local mirror offsets 0–2441",
+          "method": "Local mirror statement inspection",
+          "title": "Arbitrarily small measurement reuse creates false attractors",
+          "trigger": "Directly related noisy residual screening and reuse"
+        },
+        {
+          "assessment": "DISTINCT ESTIMATORS OR SAMPLING MODELS",
+          "evidence": "Respectively exact shift risk for estimating the larger Gaussian mean, correlated Gaussian Anderson extrapolation, and stationary exogenous Markov row risk. None uses the fixed greedy absolute residual with an independent or reused correction.",
+          "identifier_or_url": "Resultary aae7124d8860, 30f28a658eb2 and 532e58979b34",
+          "material_read": "Each RESULT.md Finding, local mirror opening passages (approximately first 2400–2600 characters)",
+          "method": "Local mirror statement inspection",
+          "title": "Exact Gaussian risk, coupling and two-row comparisons",
+          "trigger": "Closest exact risk and phase results outside the direct refresh comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Proof §§3–5",
+        "Resultary bb27287bed96 and 42831cd177c3 for distinct refresh/reuse regimes"
+      ],
+      "rationale": "This minimal consistent system isolates a concrete selection-versus-update tradeoff: an orientation-independent penalty from reusing the observation competes with a sharp orientation-dependent benefit from choosing the row adaptively at all. The exact phase threshold demonstrates a whole low-signal neighborhood where even the best-oriented greedy reuse loses to uniform, and equal-magnitude starts lose at every signal scale. This is a motivated sharp finite boundary, not merely an isolated numerical counterexample.",
+      "residual_risks": [
+        "No recommendation about repeated observations under an equal oracle budget, correlated or non-Gaussian noise, or multiple iterations follows from the comparison."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

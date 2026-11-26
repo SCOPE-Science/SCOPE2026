@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:17:56.458245Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The non-leading zero runs of a positive suffix r are unchanged in the concatenation of the digits of q with the padded length-m suffix. Hence any accepted longer index with that suffix has b_r=1; q=0 and r=0 are covered separately by equality and b_0=1. A shifted dyadic window uses the complementary offset sets of two aligned blocks, so summing the coordinatewise bound gives the initial weight as the maximum. After the first binary 1, admissible strings are uniquely tiled by 1 and 00, giving F_l for positive l-digit indices and 1+sum_{l=1}^m F_l=F_{m+2} including index zero and m=0. The binary prefix 101 at every index in [5*2^m,6*2^m) produces an all-zero window. Unit shifts change the weight by at most one and so realize every intermediate Parikh weight. The proof covers all positions and exponents; the supplied finite verification is corroboration only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cicalese–Lipták–Rossi give the general extremal-weight/complexity identity (Theorem 3) and a computation for uniform-morphism fixed points (Corollary 4).",
+          "Parreau et al. discuss general higher-Abelian methods with period-doubling and Thue–Morse applications."
+        ],
+        "reasoning": "Those general results explain the framework but do not supply the closed-form Baum–Sweet maximum or dominance by specialization alone. Full coverage is established instead by the earlier Baum–Sweet-specific Resultary record.",
+        "searches": [
+          "arXiv:1811.06273, Theorem 3 and Corollary 4",
+          "arXiv:1405.3532 introduction and applications"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 0753f1e5db42",
+        "Resultary 0653545412cc",
+        "arXiv:1811.06273",
+        "arXiv:1405.3532 (introductory and applications passages)",
+        "OEIS A086747",
+        "OEIS A000045"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In 0753f1e5db42 the maximum is over all shifted length-2^k windows and the defined initial block starts with b(0)=1; the same record includes both the coordinatewise and extremal statements.",
+          "0653545412cc by itself computes a prefix weight, not a maximum over all shifted windows."
+        ],
+        "reasoning": "Exact earlier coverage does not depend on reading a prefix computation as a window maximum or relaxing the zero-index convention. It holds for both the structural assertion and its consequences under the frozen quantifiers.",
+        "searches": [
+          "Resultary 0753f1e5db42 and 0653545412cc actual Findings and proof of dyadic domination"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "0753f1e5db42 states M(2^k)=sum_{i<2^k} b(i)=F_{k+2}, minimum zero and psi_b(2^k)=F_{k+2}+1.",
+          "It proves every aligned block is one of A_k, B_k, C_k, D_k, with the latter three coordinatewise dominated by A_k, the initial block."
+        ],
+        "reasoning": "The blockwise statement is exactly b_{q2^k+r}<=b_r for every q and offset r. The extremal and all-intermediate weights give exactly the same complexity, not merely the same asymptotics.",
+        "searches": [
+          "Resultary: Baum–Sweet dyadic abelian complexity, Fibonacci maximum factor weights, aligned block dominance",
+          "Resultary 0753f1e5db42 RESULT.md offsets 419–1806, 2455–4079"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 0753f1e5db42 contains the exact formula, not just a matching finite list.",
+          "Resultary 0653545412cc states the same Fibonacci dyadic prefix sum in its scattered-subsequence theorem.",
+          "OEIS A086747 gives the digit definition and records the alternate value a(0)=1 in its historical comment; A000045 gives the Fibonacci convention."
+        ],
+        "reasoning": "The OEIS entries define sequences rather than factor extrema. The catalogue's explicit Abelian finding already covers the exact formula for all dyadic lengths.",
+        "searches": [
+          "Resultary: Baum–Sweet dyadic Fibonacci Abelian and scattered subsequence invariants",
+          "OEIS A086747 and A000045"
+        ]
+      },
+      "rationale": "An earlier, distinct published Resultary result states the identical dyadic extremal weights and Abelian complexity of the same Baum–Sweet convention, and explicitly proves the same coordinatewise domination of every aligned dyadic block. The shorter binary-suffix proof does not leave an uncovered mathematical conclusion in the frozen finding.",
+      "residual_risks": [
+        "The earliest external priority is not determined; no broad external search was needed to establish the explicit earlier overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the full frozen claim, including structural domination, extrema and all weights.",
+          "evidence": [
+            "Dyadic maximum F_{k+2}, complexity F_{k+2}+1; B_k,C_k,D_k are each coordinatewise bounded by A_k."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-exact-dyadic-abelian-complexity-and-fibonacci-growth-of-the-baum--0753f1e5db42",
+          "material_read": "RESULT.md, Finding and domination proof, local mirror offsets 419–1806 and 2455–4079",
+          "method": "Actual text in local publication mirror",
+          "title": "Exact dyadic abelian complexity and Fibonacci growth of the Baum–Sweet word",
+          "trigger": "Possible earlier full overlap including the structural lemma"
+        },
+        {
+          "assessment": "Covers only the prefix-weight calculation among the components of this finding.",
+          "evidence": [
+            "B(N)=sum_{n<N}b(n), with B(2^m)=F_{m+2}; the main invariant is scattered-subsequence universality."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-exact-scattered-subsequence-universality-and-fibonacci-growth-of--0653545412cc",
+          "material_read": "RESULT.md Finding, offsets 500–1876",
+          "method": "Actual text in local publication mirror",
+          "title": "Exact scattered-subsequence universality and Fibonacci growth of the Baum–Sweet word",
+          "trigger": "Potential overlap of the Fibonacci prefix count"
+        },
+        {
+          "assessment": "General definitions, identity and computational result, not the specific Fibonacci maximum or pointwise inequality.",
+          "evidence": [
+            "Theorem 3 relates Abelian complexity to the two prefix-normal forms by a sliding-window argument; Corollary 4 gives a computation for uniform-morphism fixed points."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1811.06273; DOI 10.1016/j.tcs.2021.01.015",
+          "material_read": "PDF pages 4, 10, 12 and 15: definitions, Theorem 3 and Corollary 4",
+          "method": "Opened OA primary text and located relevant passages",
+          "title": "On Infinite Prefix Normal Words",
+          "trigger": "General factor extrema and complexity formulas"
+        },
+        {
+          "assessment": "Sequence definitions only in these passages; they do not give the factor spectrum.",
+          "evidence": [
+            "A086747 lists a(0)=0 but acknowledges the classical generating-function convention a(0)=1; A000045 uses F_0=0,F_1=1."
+          ],
+          "identifier_or_url": "https://oeis.org/A086747 ; https://oeis.org/A000045",
+          "material_read": "Definitions and A086747 historical comment on the starting term",
+          "method": "Relevant sections of the public sequence entries",
+          "title": "OEIS entries for the Baum–Sweet and Fibonacci sequences",
+          "trigger": "Exact sequences and possible convention mismatch"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The infinite dyadic extremal spectrum is a worthwhile invariant, but the frozen contribution redetermines it and the same explanatory domination lemma already available on this word. A shorter proof of this same elementary suffix implication is not presented as yielding a further invariant, useful extension, or new technique. No distinct valuable remainder of the stated finding was established.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

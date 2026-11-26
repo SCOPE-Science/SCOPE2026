@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-Run `python3 checker.py` with Python's standard library. The script uses exact integer and rational arithmetic, constructs and inverts the four-vertex matrix, verifies all eight normalized-volume determinant identities and the exact Ehrhart numerator by independently enumerating lattice points in each of 24 integer dilations (weights two to nine, dilations one to three). It also checks interior counts and the stated root and coefficient criteria.
+## correctness
 
-The observed execution exited successfully and printed `PASS: 8 exact determinants and inverses; 24 complete dilation counts; interior lattice-point counts, Ehrhart h* formula and thresholds.`
+PASS
 
-The universal proof requires neither finite extrapolation nor an external computer certificate. The positive coefficient polynomial identities and the four negative cubic discriminants may be checked algebraically independently. No independent mathematical audit has been performed. Claims are restricted to uniform positive integer weights at least two and the specified directed four-cycle simplex.
+The vertex matrix I+wS has determinant 1−w^4. The primitive coordinate-sum quotient contributes w+1, so the remaining determinant gives the proposed normalized 3-volume. Stars and bars applied to the prior count gives h1; shifted reciprocity gives h3=h1; subtracting from the volume gives h2. In the original self-contained count I also checked the barycentric extremal vectors and that an integral point with a zero coordinate is a vertex. Independently expanded both shifted inequality certificates and computed all four exceptional cubic discriminants. The strict signs at 0, 2/a, 1 and infinity locate three distinct roots for w≥7; w=2 is a separate quadratic. b>a reduces each coefficient property to the stated one-inequality test and hence the stated cutoff. Non-IDP follows from the same-model theorem, not from finite computation.
+
+## originality
+
+PASS
+
+The three finite cutoffs, not the numerator, non-IDP or eventual real-rootedness, are the contribution reassessed here. The closest earlier cycle work implies the input coefficients and calibrates a different cycle size; generic root criteria and eventual wide-polytope results do not supply these exact finite regimes.
+
+## value
+
+PASS
+
+This natural uniform even-cycle simplex is an established family of non-IDP examples. Three distinct explicit cutoffs separate weak coefficient shape, log-concavity and simple negative real roots. The cutoffs make concrete where the general eventual-width conclusions become true, rather than only duplicating a known coefficient formula or producing one favorable finite weight.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,11 +1,21 @@
-# Review of the transition-discrepancy theorem
+# Independent mathematical audit
 
-**Correctness — PASS.** The direct three-to-two recurrence for adjacent changes is algebraically reconstructed from the source word's defining recurrence. Its twofold iteration has all nine explicit offsets of magnitude at most two and contracts the index distance by at least \(4/9\). The lower witness is not a numerical extrapolation: the identity \(5g(u)+1=\frac94(5u+1)\) provides exactly \(j\) legal \(r=7\) iterations, each adding two to the normalized discrepancy. The two endpoints both lie below \(9^j\). These facts prove the two-sided logarithmic bounds for every allowed integer. As a supplementary check, the included script compares 150,000 prefixes against a separate direct generation of the word and verifies 120 arbitrary-precision witness identities.
+## correctness
 
-**Originality — PASS within examined evidence.** Cassaigne–Espinoza–Rigo–Stipulanti (arXiv:2602.21895, Section 2.1) prove the first-difference Toeplitz form, exact one-symbol density \(2/5\), and the elementary difference recurrence. All three are acknowledged as prior. Their complete available preprint does not present a finite-prefix error rate or repunit-pair oscillation theorem. The new claim requires a specific repeated arithmetic resonance and a two-scale argument beyond the quoted density result. Dekking (arXiv:2301.13563) uses a differently normalized sibling word; the cited general Toeplitz complexity theorem concerns the number of distinct factors rather than prefix discrepancy. Targeted mathematical-record, literature, and available prior-claim searches identified no theorem implying the explicit contrast and matching logarithmic order. An earlier specialized bounded-balance result in less accessible literature remains a priority risk; search absence alone is not considered a proof of novelty.
+PASS
 
-**Value — PASS.** The published rational transition frequency \(2/5\) says nothing quantitative about finite-prefix errors. The exact positive gap \(2j\) at explicit pairs below \(9^j\) proves the difference word cannot have bounded transition-frequency discrepancy; the matching logarithmic upper bound pins down the optimal *growth order*. This is a natural quantitative invariant for finite-sample factor statistics of a rational-base automatic word, not an arbitrary short-prefix census. The resonance proof provides an explicit mechanism for persistent log-scale fluctuations.
+XOR of adjacent letters gives y_(3m)=0, y_(3m+1)=1-y_(2m), y_(3m+2)=1-y_(2m+1). Summing exactly N-1 terms gives E(n)=-E(h(n))+c(n), with h(3m)=2m, h(3m+1)=h(3m+2)=2m+1, and c by residue (-1,0,-2), including E(1)=0 through its self-map. Composing gives the offsets c(n)-c(h(n))=(0,0,-2,1,1,-1,-1,2,0) for residues modulo nine. The bound h(n)-1<=2(n-1)/3 yields h^2 contraction by 4/9, so after at most 1+floor(log_{9/4}(n-1)) two-step reductions the distance is an integer less than one. Residue seven gives E((9u+1)/4)-E(u)=2 if u=3 mod 4. Since 5a_j+1=4^(j+epsilon_j) with even exponent and 5g(u)+1=(9/4)(5u+1), the first j inputs are successively legal modulo four, and the last is b_j. The endpoints are positive integers with a_j<b_j<9^j; their difference of 2j entails at least one absolute discrepancy of j. Taking j=floor(log_9 N) and dividing by five proves the two-sided bound as written. The displayed logarithmic quantity is a PREFIX COUNT discrepancy, not the absolute error of the normalized empirical frequency. Independent direct word generation and prefix counting through N=106288 confirmed all steps and gaps 2,4,6,8,10,12 for j=1 through 6. This is finite corroboration, not the basis for the universal proof; no frozen script was run.
 
-**Limitations and literature comparison.** The best asymptotic leading coefficient and the full maximum-discrepancy function remain open. The theorem is about combined changes, not each length-two factor separately. The 2026 source already proves the asymptotic transition frequency, while the present result concerns its sharp-order convergence error. Some relevant general Toeplitz and balance literature was accessible only through descriptions or references; independent historical-priority review remains advisable.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the explicit all-j repunit contrast for this normalized word. The nine-to-four Toeplitz structure and density are known, and a distinct indexed logarithmic-discrepancy result covers the sharp order even after translating to the same auxiliary word. The exact repunit endpoints and their +2j gap are not the CRT endpoints or gap of that result. The order alone would not distinguish the frozen claim from that indexed work.
+
+## value
+
+PASS
+
+Adjacent changes in this one-sided rational-base word are a natural observable with established limiting density but nontrivial arithmetic fluctuations. The exact amplification on specified repunit endpoints gives reproducible deterministic witnesses at every scale and explicit uniform bounds, beyond relying on an empirical slope or on the known frequency limit. In light of the order-level overlap, the precise progression and its additive law are the independently useful content.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

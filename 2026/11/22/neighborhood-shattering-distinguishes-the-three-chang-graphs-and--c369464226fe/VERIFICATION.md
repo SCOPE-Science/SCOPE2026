@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproduction and verification
+# Independent mathematical audit
 
-Run `python3 verify_matrix.py` and `python3 verify_bitsets.py` with a standard Python 3 installation. Both scripts reconstruct all twenty-eight-vertex graphs from first principles and use no external datasets. The first exhaustively checks \(193264\) support/family pairs across all support sizes through four, confirms the strongly regular parameters, and tests maximality of every shattered triple. The second separately constructs bitset adjacency and enumerates all traces, obtaining identical polynomials and maximal-triple counts. Both actual outputs appear in `verification_output.txt`.
+## correctness
 
-A class of only twenty-eight center concepts cannot shatter five queries because five queries require thirty-two distinct trace realizations. Thus all higher coefficients vanish independently of the finite enumeration. The ordinary source code and output permit replay, but program agreement is not an independent external mathematical audit.
+PASS
+
+The four representatives agree with the classification and the supplied switches. The independent replay constructs them by diagonal sign conjugation of the Seidel matrix and checks degrees and common-neighbor counts. A support's label traces partition the centers. A queried vertex extends a shattered support exactly when it splits every current trace cell into two nonempty parts. Since shattering is hereditary, this recursion is exhaustive through size four. For closed neighborhoods the replay uses open neighborhoods of the complement, which complement every trace without changing shattering. All eight coefficient rows and maximal open-triple counts match. There are only 28 center concepts, fewer than the 32 distinct traces needed at size five, so the eight polynomials are complete. Subtracting the triple-shadow of all shattered quadruples gives 0,1328,1624,1786 maximal triples, and the independent check that every pair extends excludes smaller facets. All four rows have shattered quadruples, so both dimensions are exactly four and the claimed purity split follows.
+
+## originality
+
+PASS
+
+The exact T(8) polynomial rows and other distinguishing invariants are prior coverage, and are not credited here. The supported contribution is the complete open and closed coefficient vectors of the three switched Chang graphs and the resulting distinction in open shattered-support facets. The best same-family prior enumeration is of common-neighbor faces, not all traces; the actual counts differ. The inspected classification and VC-dimension sources do not give the new rows or maximal triples.
+
+## value
+
+PASS
+
+The natural open and closed support complexes measure neighborhood trace diversity beyond the common VC dimension and common strongly regular parameters. The census gives reusable exact data for all four graphs, separates the three cospectral Chang graphs under both conventions, and identifies a structural distinction: the open triangular complex is pure while every Chang open complex has both triple and quadruple facets. This is meaningful independently of earlier distinctions by different invariants.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

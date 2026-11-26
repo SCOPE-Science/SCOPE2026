@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:53:40.797615Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, assumptions and proof, lines 5–87; VERIFICATION.md; verify_symbolic.py; verify_independent.cpp and recorded outputs",
+        "/workspace/reproductions/4/open_nor.py and /workspace/reproductions/4/replay.txt (python3 open_nor.py, Python and NumPy)"
+      ],
+      "rationale": "An active root edge survives precisely when isolated as a component, while an inactive edge becomes active precisely when both endpoints are isolated vertices. Thus F(S)=I(S)⊔E(U(S)). Independently, undirected open NOR is antitone with S⊆F²(S); applying this twice in the two directions gives F³=F. The complement W of the isolated vertices and isolated-edge matching supports components of order at least three, so |W| is zero or at least three. Substituting |U|≤1, |U|=2, and |U|≥3 in the image formula gives exactly the fixed matchings and the two disjoint classes of cycles; when |U|=2 its edge joins the matching, rather than forming a separate clique case. A two-edge path is not an image and realizes one-step entry. Fibres of a clique phase of order at least three uniquely specify the isolated vertices and matching. For a matching phase its fibre additionally allows replacing at most one matching edge by two isolated vertices, which gives the extra m·a_r term and the perfect/near-perfect distinction. Removing labelled components of orders one and two gives the EGF; counting unordered complementary parts gives the orbit census. For the dominant basin the complement is the union of pair-isolation and isolated-edge events with the empty graph removed. Each event prescribes 2n−3 bits; compatible shared-endpoint pairs prescribe at least 3n−6 and disjoint pairs 4n−10. Bonferroni yields the displayed relative O(n·2^(−n)) error; the empty graph correction is smaller. The union bound gives strict majority for n≥4, and n=3 gives 5/8. An independent truth-table enumeration checked F³=F and every individual basin through n=7, including 2,097,152 inputs there and distinguished basin 2,059,625.",
+      "residual_risks": [
+        "The finite replay supplements the all-n proof rather than proving it. The asymptotic uses independent fair bits; the deterministic basin statements do not. The symbol E_n is overloaded in the record for the edge set and fixed-state count, with the intended meaning clear from context."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Aledo et al. give periods at most two and periodic/fixed-point enumeration methods or bounds. Aracena et al. give fix(G⁻)=mis(G). Gadouleau–Kutner study the same MIS operation under sequential updating. The same-day coning theorem describes a basin lift on H∨K_r."
+        ],
+        "reasoning": "These establish generic periodicity, fixed points or a transformation for coned graphs, not the component constraints and exact fibres here. For n≥4 each root edge has a disjoint root edge, so the triangular network has no universal vertex and is not a nontrivial clique cone.",
+        "searches": [
+          "Primary search for triangular/Johnson, maxterm/minterm, open NOR and attraction basins",
+          "Aledo et al. 2020, Counting Periodic Points; Aracena–Richard–Salinas arXiv:1507.06141; Gadouleau–Kutner arXiv:2403.17658; Resultary 2da52f64c61c"
+        ]
+      },
+      "checked_sources": [
+        "Resultary records 4c118cb00c41, c79fc7919f54, e75c8d277ab3, 2da52f64c61c, 0294170a23db, 89a94aa00dd9",
+        "Aledo et al. (2020); arXiv:1507.06141 and arXiv:2403.17658",
+        "Frozen RESULT.md, prior-work comparison"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The closest same-family exact law has leading deficit binom(n,2)·2^(−(2n−3)), not twice that leading term, and its phases are complementary root cliques rather than clique phases sharing a matching skeleton."
+        ],
+        "reasoning": "Known antitonicity and F³=F reduce a basin to one or two fibres but do not count them. The matching skeleton, its additional fibre contribution, and the isolated-edge rare obstruction all require the exact open-NOR image and realizability constraints, not substitution into the prior classifications.",
+        "searches": [
+          "Compare the prior closed triangular basin and failure coefficient, the open Kneser basin classification, and the general fixed/periodic point statements"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The closed-NOR triangular record includes the self-coordinate, has no fixed states and has one leading family of failures. The rook record concerns L(K_{a,b}); the open two-set Kneser record concerns disjointness rather than intersection adjacency."
+        ],
+        "reasoning": "Changing the diagonal changes the survival of isolated-edge components. The difference is observable already in fixed states and the leading coefficient. Taking the complement of the interaction graph, or restricting root edges to a bipartite subgraph, does not identify NOR fibres.",
+        "searches": [
+          "Resultary: synchronous open NOR / negative conjunctive dynamics on triangular graphs, J(n,2) and L(K_n), individual orbit basins",
+          "Resultary 4c118cb00c41, c79fc7919f54 and e75c8d277ab3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "0294170a23db tabulates individual basin-size classes on Heawood, and 89a94aa00dd9 gives exact spectra on specified 16-vertex Shrikhande/rook examples. 4c118cb00c41 gives individual basins for the same graphs under closed NOR."
+        ],
+        "reasoning": "All provide comparison data, but none gives individual basins for the synchronous open dynamics on the labelled L(K_n) family. No equivalent exact table was identified in this search.",
+        "searches": [
+          "Local Resultary: exact open/closed triangular NOR basin spectra and same-day close matches 0294170a23db and 89a94aa00dd9"
+        ]
+      },
+      "rationale": "The complete matching-and-clique basin spectrum and two-family rare-event deficit are materially distinct from the inspected earlier and same-day results. The generic period bound, one-step entry identity, and maximal-independent-set fixed point correspondence are not credited as new.",
+      "residual_risks": [
+        "The 2012 maxterm/minterm paper was not available in full. No inference of absence is drawn from that. An unindexed equivalent classification remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Explicitly closed NOR, not equivalent",
+          "evidence": "No fixed states; complementary cliques and basins c_m+c_(n−m); one leading rare family; its scope excludes open NOR.",
+          "identifier_or_url": "2026/11/1/...4c118cb00c41",
+          "material_read": "Finding offsets 242–3825 and Limitations around 8735",
+          "method": "Local published mirror",
+          "title": "Basin concentration for closed-neighborhood NOR on triangular graphs",
+          "trigger": "Same graph family and exact individual basin/asymptotic quantities"
+        },
+        {
+          "assessment": "Different interaction graphs",
+          "evidence": "Full rectangles in L(K_{a,b}); two-set disjointness in KG(n,2), with exact own-type basins.",
+          "identifier_or_url": "2026/11/2/...c79fc7919f54 ; 2026/11/2/...e75c8d277ab3",
+          "material_read": "Rook Finding offsets 121–4028; Kneser Finding offsets 0–3698",
+          "method": "Local published mirror",
+          "title": "NOR dynamics on rook graphs; Complete NOR attractors and basin concentration on two-set Kneser graphs",
+          "trigger": "Exact open NOR classifications on related graph families"
+        },
+        {
+          "assessment": "Exact results on other objects; not dismissed based on dating",
+          "evidence": "Coning lift; Heawood individual basin classes; finite sixteen-vertex Shrikhande and rook spectra.",
+          "identifier_or_url": "2026/11/22/...2da52f64c61c ; ...0294170a23db ; ...89a94aa00dd9",
+          "material_read": "Findings offsets 0–3697, 0–1455, and 0–3778 respectively",
+          "method": "Local published mirror",
+          "title": "Clique-coning NOR basin lift; Fano-incidence NOR oscillator; Shrikhande/rook basin comparison",
+          "trigger": "Distinct same-day exact NOR basin results"
+        },
+        {
+          "assessment": "Inspected statement concerns periodic counts, not exact individual basin data",
+          "evidence": "Periods at most two; fixed-point counts/bounds and bounds for 2-periodic points.",
+          "identifier_or_url": "https://doi.org/10.1155/2020/1908347",
+          "material_read": "OA PDF p. 1, offset near 1100",
+          "method": "Lawful accessible PDF copy",
+          "title": "Counting Periodic Points in Parallel Graph Dynamical Systems",
+          "trigger": "Possible broader theorem for synchronous minterm/maxterm systems"
+        },
+        {
+          "assessment": "Fixed-point and sequential-update coverage only in the inspected passages",
+          "evidence": "The negative-conjunctive fixed points correspond to maximal independent sets; MIS fixing words concern sequential dynamics.",
+          "identifier_or_url": "https://arxiv.org/pdf/1507.06141 ; https://arxiv.org/pdf/2403.17658",
+          "material_read": "First PDF p. 4 (offset 13380); second pp. 1 and 11 (offsets 1000 and 45220)",
+          "method": "Primary OA passage inspection",
+          "title": "Fixed points in conjunctive networks and maximal independent sets in graph contractions; Generalising the maximum independent set algorithm via Boolean networks",
+          "trigger": "General exact results for the open NOR operation"
+        },
+        {
+          "assessment": "Full-text coverage unresolved",
+          "evidence": "Available descriptions concern fixed/eventually fixed points and general periods; they are not evidence about all contents.",
+          "identifier_or_url": "Aledo et al., maxterm/minterm parallel graph dynamics, 2012",
+          "material_read": "Available abstract descriptions only",
+          "method": "Publisher access refused; alternate author-hosted copy timed out",
+          "title": "2012 Aledo et al. maxterm/minterm paper",
+          "trigger": "Potential broader synchronous basin result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof §§1–5",
+        "Independent orbit dictionary comparison in /workspace/reproductions/4",
+        "Closed-rule triangular record 4c118cb00c41 and open Kneser record e75c8d277ab3"
+      ],
+      "rationale": "This is a natural synchronous rule on a canonical line-graph family, and generic two-periodicity leaves the distribution of initial states among orbits unresolved. Exact sizes of every individual basin expose both the matching skeleton and an explicit effect of excluding self-neighbors, including the change in the sharp leading rare-event coefficient. The classification and phase-resolved counts are materially more informative than an orbit census or a mere concentration bound.",
+      "residual_risks": [
+        "No general result for arbitrary line graphs or other update schedules is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

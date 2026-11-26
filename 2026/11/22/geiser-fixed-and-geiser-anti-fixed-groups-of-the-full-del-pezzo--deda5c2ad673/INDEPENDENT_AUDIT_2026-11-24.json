@@ -1,0 +1,165 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:11:54.986311Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, assumptions and proof §§1–4; VERIFICATION.md; verify.py inspected as source",
+        "/workspace/branches/63dcd295-cb40-40d6-9b68-d76e147496ee/smith_replay.py (independent exact replay; run with Python 3, no arguments)",
+        "/workspace/branches/63dcd295-cb40-40d6-9b68-d76e147496ee/full_replay.txt (four determinant checks and 24 prime/sign/root results)"
+      ],
+      "rationale": "The four class families reconstruct the same intersection-multiplicity multigraph for every smooth complex degree-two del Pezzo surface. The transformation E↦−K_S−E preserves intersections since (−K_S)²=2 and (−K_S)·E=1. The root-deleted Laplacian M presents the degree-zero quotient in the differences [i]−[r]; the omitted Laplacian column is minus the sum of the others, and T really sends the i-th basis difference to [ι(i)]−[ι(r)]. The critical pairing can be computed by solving Lz=x over the rationals and reducing z·y modulo one, for degree-zero x,y. This gives the perfect reduced-matrix pairing, independent of the additive constant of z, and invariant under the vertex permutation. Thus T−ε is self-adjoint and the annihilator of its image is precisely its kernel; the kernel is abstractly the dual of the augmented cokernel. An independent exact replay reproduced the determinant 2^114·5^7·7^47 at roots 0,1,7,28 and all 24 augmented Smith checks. Minimal-valuation pivots allow invertible row/column elimination over the local residue rings. Each precision exceeds the entire base determinant valuation, so no augmented factor can be hidden by reduction, and no additional prime can enter because the augmented cokernels are quotients. For + the nonzero local valuations are p=2: 1 once, 2 twenty-six times; p=5: none; p=7: 1 twenty-six times. For − they are p=2: 1 six, 2 fourteen, 4 seven; p=5: 1 seven; p=7: 1 twenty-one. Aligning the sorted local diagonals gives Z/2 ⊕ (Z/28)^26 and (Z/2)^6 ⊕ (Z/28)^14 ⊕ (Z/560)^7. Their orders multiply to 2|K|; the minus subgroup exhausts the full 5-primary subgroup. The Néron interpretation uses the equivariant identification with the dual-graph critical group under the explicit nodal, split, regular unit-thickness smoothing assumptions.",
+      "residual_risks": [
+        "The replay computed the two augmented cokernels rather than the kernels directly; the pairing argument is the needed link. No smoothing existence or unweighted-graph result is inferred, and the uploaded verifier was not executed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Reiner–Tseng give covering and signed-graph presentations and an odd-primary splitting for genuine double covers. Glass gives critical group comparisons for harmonic dihedral actions, with order comparisons rather than Sylow isomorphisms at primes dividing 2n."
+        ],
+        "reasoning": "Vertex swaps alone do not justify using general covering theorems on the paired weight-two edges; even an applicable cover presentation would require determining its particular local invariant factors. The inspected comparisons do not establish the exact two-primary groups claimed here.",
+        "searches": [
+          "Reiner–Tseng arXiv:1301.2977 Thm. 1.2 and §7 Prop. 7.1",
+          "Glass arXiv:1508.05401 Thm. 1.1 and Cor. 1.2"
+        ]
+      },
+      "checked_sources": [
+        "Rieken §3.3",
+        "Knecht–Reyes arXiv:1510.04621",
+        "Brouwer–Riebeek §5",
+        "Reiner–Tseng arXiv:1301.2977",
+        "Glass arXiv:1508.05401",
+        "Resultary deda5c2ad673 (self-match), 5a6ca5940707 and 8dd2189843e5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known curve intersection and pairing specify the matrices in principle. The known ordinary group gives only the Smith form of M; the audited presentation appends T−εI, yielding different integral groups and a product of orders equal to 2|K|."
+        ],
+        "reasoning": "Neither invariant factors of M nor rational ± eigenspaces determine the position of the integral relation lattice relative to the involution. The standard pairing reduction is not a new general theorem, but it leaves a nontrivial integral computation specific to the geometric action; neither neighboring group calculation covers that computation.",
+        "searches": [
+          "Rieken §3.3 and Knecht–Reyes arXiv:1510.04621 pp. 2,5–6, compared with frozen proof §§2–3",
+          "Reiner–Tseng §7 and Glass Thm. 1.1/Cor. 1.2, compared with the exact p=2 factors"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Rieken identifies the deck action on the 28 pairs; Brouwer–Riebeek identifies the 56-vertex Gosset graph E_(7,1) and gives spectral data. The exact Resultary formula match deda5c2ad673 is this very record; the neighboring intersection-one record 5a6ca5940707 identifies that graph with distance two in the Gosset graph."
+        ],
+        "reasoning": "One may view the audited weighted graph as distance-two Gosset edges plus two edges per antipodal pair, and the critical group as a sandpile or component group in the appropriate setting. The bare Gosset spectrum, the intersection-one graph and the ordinary group are not equivalent statements of the requested kernels.",
+        "searches": [
+          "Resultary: Geiser fixed/anti-fixed sandpile or graph Jacobian for the 56 exceptional curves",
+          "Brouwer–Riebeek DOI 10.1023/A:1008670825910 §5",
+          "Rieken DOI 10.1007/s10711-016-0174-0 §3.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact two-group entry is a self-match. The distinct ordinary-group entry omits the double edges of the Geiser pairs. The distinct Frobenius entry uses the intersection-one graph and classifies Frobenius fixed groups by q mod 8."
+        ],
+        "reasoning": "These indexed exact data and the spectral table are not data for the same graph and map. In particular, equality of the vertex set or occurrence of an involution in a different class does not establish equality of the augmented cokernels. No same-day chronology is inferred.",
+        "searches": [
+          "Resultary deda5c2ad673 (exact match), 5a6ca5940707 (intersection-one critical group), 8dd2189843e5 (Fermat double-plane Frobenius fixed groups)",
+          "Brouwer–Riebeek §5 parameter and spectrum table"
+        ]
+      },
+      "rationale": "The paired curve geometry and underlying nonequivariant group are not credited as new. The exact integral Geiser fixed and anti-fixed structures for the full weighted graph refine those data, especially at two. Inspected related computations involve either a different graph or a different action, and the general results on graph actions do not resolve the two augmented Smith forms here.",
+      "residual_risks": [
+        "Bounded searches do not rule out an unindexed computation under another geometric, antipodal or signed-graph name. No historical priority is asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Geometry underlying the action, not its integral critical groups",
+          "evidence": [
+            "The deck involution exchanges the 56 exceptional classes in 28 pairs."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s10711-016-0174-0",
+          "material_read": "§3.3 pp. 178–179, OA offsets 21069–25485",
+          "method": "Lawful OA primary text passage",
+          "title": "Moduli of real pointed quartic curves",
+          "trigger": "Same Geiser lattice action and exceptional curves"
+        },
+        {
+          "assessment": "Supplies geometric incidence and multiplicity inputs",
+          "evidence": [
+            "There are 7+21+21+7 classes; paired lifts of a bitangent have intersection multiplicity two."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1510.04621",
+          "material_read": "pp. 2, 5–6, offsets 4932 and 10793",
+          "method": "Lawful OA primary text passages",
+          "title": "Full Degree Two del Pezzo Surfaces over Small Finite Fields",
+          "trigger": "Same exceptional classes and pair intersections"
+        },
+        {
+          "assessment": "Spectral data for the underlying distance-regular graph; not the action on the weighted critical group",
+          "evidence": [
+            "Identifies E_(7,1) with the 56-vertex Gosset graph and gives its distance-regular parameters and spectrum."
+          ],
+          "identifier_or_url": "https://doi.org/10.1023/A:1008670825910",
+          "material_read": "§5 p. 17, OA offset 11592",
+          "method": "Lawful OA primary spectral passage",
+          "title": "The Spectra of Coxeter Graphs",
+          "trigger": "Gosset/Coxeter alias and exact table"
+        },
+        {
+          "assessment": "Different graph and nonequivariant invariant",
+          "evidence": [
+            "The graph is the distance-two Gosset graph, without the doubled Geiser-pair edges."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-integral-critical-group-of-the-intersection-one-graph-of-the-56--5a6ca5940707",
+          "material_read": "Original result offsets 497–804",
+          "method": "Resultary lookup followed by local mirror inspection",
+          "title": "Integral critical group of the intersection-one graph of the 56 curves",
+          "trigger": "Same-day indexed overlap on exact integral groups"
+        },
+        {
+          "assessment": "Different graph and arithmetic action",
+          "evidence": [
+            "Classifies Frobenius-fixed groups by q mod 8, for the intersection-one graph."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-frobenius-fixed-sandpile-groups-of-the-fifty-six-curves-on-the-f--8dd2189843e5",
+          "material_read": "Original finding at offset 0",
+          "method": "Resultary lookup followed by local mirror inspection",
+          "title": "Frobenius-fixed sandpile groups of the fifty-six curves on the Fermat double plane",
+          "trigger": "Same-day indexed overlap on fixed groups of exceptional graph actions"
+        },
+        {
+          "assessment": "General genuine-cover methods, not an exact determination for this graph/action",
+          "evidence": [
+            "Odd-primary splitting for graph double covers does not supply the target integral two-primary kernels."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1301.2977",
+          "material_read": "Thm. 1.2 and §7 Prop. 7.1, pp. 13–14 near offset 60725",
+          "method": "Lawful OA primary theorem passages",
+          "title": "Critical groups of covering, voltage, and signed graphs",
+          "trigger": "Potential stronger signed-graph computation"
+        },
+        {
+          "assessment": "Harmonic action framework, not the specific Geiser computation",
+          "evidence": [
+            "Comparison at primes dividing 2n guarantees equal orders rather than isomorphism of Sylow groups."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1508.05401",
+          "material_read": "Thm. 1.1 and Cor. 1.2, pp. 1–2 from offset 3235",
+          "method": "Lawful OA primary theorem passages",
+          "title": "Critical Groups of Graphs with Dihedral Actions II",
+          "trigger": "Potential stronger automorphism theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof §§2–4; compared with the ordinary and Frobenius groups in Resultary 5a6ca5940707 and 8dd2189843e5"
+      ],
+      "rationale": "The full exceptional-curve multigraph and its Geiser involution are canonical geometric data, not a parameter slice chosen after computation. The two integral structures identify exactly what remains fixed and what is negated, giving useful information for equivariant component groups when the smoothing hypotheses hold. In particular, the factor-of-two discrepancy and exact high two-power factors resolve what a rational eigenspace or ordinary critical-group calculation cannot distinguish.",
+      "residual_risks": [
+        "The result does not classify other curve-graph actions, determine the full integral representation up to conjugacy, or establish existence of an equivariant semistable model."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

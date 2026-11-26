@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The probability-integral transform is order preserving almost surely for the assumed common atomless distribution. For a competitor in the two arrays, the exact joint tail probability is \(h_\varepsilon(x,y)=(1-\max(x,y))(1-\varepsilon\min(x,y))\); integrating this gives both expectation identities. Formula (1) in `RESULT.md` accounts for the complete set of external row/column competitors and the two cross competitors for each pair of nonattacking selected cells. In the critical regime, retained diagonal marks contribute asymptotic mass \(c/n^2\) per cell, replaced marks contribute \(1/n^2\), and the remaining comparison factors yield the two stated exponential intensity densities. Integrable uniform upper bounds justify dominated convergence and control the tails. All mixed factorial moment measures therefore converge, identifying independent Poisson point processes. The standalone exact-enumeration and quadrature checker passes. Finite computations are supplementary, not the infinite proof.
+PASS
 
-## Originality — PASS, with bounded historical risk
+Reconstructed the simultaneous-event formula, not merely the mean limits. The atomless quantile transform preserves orders almost surely, even for a continuous CDF with gaps. One fresh competitor contributes (1-x)(1-y) and a retained one contributes 1-max(x,y), giving h=(1-max)(1-epsilon min). Integrating over a retained focal diagonal or the two replaced focal triangles gives the stated exact means with m=2n-2, including the full-retention and full-refresh endpoints. For r designated cells in distinct rows and columns there are 2(n-r) external competitors per cell and precisely two cross cells per focal pair, tested against the coordinatewise maxima. All other placements contribute zero. After rescaling, the rescaled retained mark density multiplied by n^2 is n(1-epsilon_n), tending to c, including c=0 where an asymptotic ratio should not be used. The analogous replaced density tends to 1. The external factors tend to exp(-4s) or exp(-2(s+t)), and all finitely many cross factors tend to 1. The exponential bound from 1-h >= (x+y)/2 dominates fixed-order integrals; Riemann sums exclude only an O_r(1/n) proportion of placements. For counts in disjoint continuity boxes and both types, tightness follows from first moments, all subsequential mixed moments pass by higher-moment uniform integrability, and the product Poisson law is moment determinate. First-moment mark tail bounds prevent escape and give total counts and the zero-count limit. Replay: RESULT.md lines 39–90; inspected VERIFICATION.md and verify.py (finite checks, not executed or used as an infinite proof).
 
-The inspected 2010 full article by Trendtel, Ünlü and Dzhafarov is an enumeration of the **single-matrix, fully compliant** Regular Minimality event. The 2011 paper by Dzhafarov, Ünlü, Trendtel and Colonius establishes a **single-matrix** count distribution. An existing exact one-copy hypergeometric count law for reciprocal row/column extrema, together with exchangeability, can account for the two **independent-copy** overlap endpoint; that endpoint alone is not claimed original. Pittel and Weishaar's accessible abstract treats one-copy bipartite nearest-neighbor graph matching and connectivity. None of the inspected material establishes the near-total **coupled refresh** crossover with two separate value-marked Poisson populations and the stated intensity measures. The 1999 and 2011 full papers were not accessible under current access and therefore remain explicit priority risks. A failed search is not taken as proof of absolute novelty.
+## originality
 
-## Value — PASS
+PASS
 
-The natural observable is the set of reciprocal best pairings reproducible after a large remeasurement of a matrix of dissimilarities. A single-matrix count or an independent-copy endpoint cannot distinguish retained pairings from chance rediscoveries when a fraction \(c/n\) of entries persists. The marked theorem identifies exactly these two mechanisms, their independent limiting counts, spatial locations and value profiles, and the sharp constant-order crossover. This is more informative for replication calibration than an unmotivated finite coefficient.
+The supported distinct claim is the finite-c retained/replaced, spatial and quantile-marked overlap law with exact finite means. One-array extrema laws, single-row perturbations, and independent geometric matching overlaps do not supply the two-copy shared-competitor calculation or the retained mark intensity. No equivalent or dominating result was found in the examined evidence; this is not a priority guarantee.
 
-## Scientific limitations and related literature
+## value
 
-The claim applies to independent cost cells with a common continuous law and independent entrywise refresh; it makes no assertion for correlated features, metric distances, nonuniform cell distributions or quantitative convergence speeds. The most relevant historical comparisons are Trendtel–Ünlü–Dzhafarov (2010, full HTML), Dzhafarov–Ünlü–Trendtel–Colonius (2011, abstract/metadata only) and Pittel–Weishaar (1999, abstract/metadata only). Broader noise-sensitivity results for minimum spanning trees concern a different statistic and do not automatically imply this claim. The inaccessibility of two plausible older full texts leaves a nonzero historical-priority risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Determines how the two mechanisms—retention of an unusually small observation and fresh rediscovery of the same minimum—coexist at the natural order-one overlap scale. Their calibrated rates and distinct value profiles quantify what a single total count would hide, in a basic iid coupled-matrix model. No claim of quantitative convergence or extension to geometric or dependent costs is needed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

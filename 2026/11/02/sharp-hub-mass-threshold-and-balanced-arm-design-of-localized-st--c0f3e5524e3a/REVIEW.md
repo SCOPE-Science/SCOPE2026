@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** The claim is a deterministic statement about a finite, undamped generalized symmetric eigenproblem. Eliminating the arms gives a single, strictly decreasing Schur-complement equation above the one-dimensional bulk edge. The exact band-edge resolvent yields the necessary-and-sufficient mass cutoff. Strictly decreasing arm-length increments prove balancing and concentration extremality for both the cutoff and the above-band eigenvalue. The infinite-arm limit is obtained from a convergent geometric transfer function. The standalone numerical checker independently diagonalizes the original stiffness–mass matrices and tests edge crossings, allocation ordering, recurrence residuals and limits; finite checks do not constitute the general proof.
+## correctness
 
-**Originality: PASS on inspected evidence, with priority uncertainty.** The strongest known predecessor, Nakatsukasa–Saito–Woei, arXiv:1112.4526, treats the unweighted starlike Laplacian and already establishes a unique high-frequency localized mode (at the edge in the exceptional claw case). Ilić, arXiv:1104.4280, covers majorization of ordinary Laplacian coefficients of unweighted trees. Neither examined full text supplies the arbitrary positive hub-mass threshold, its sharp finite-site design interval, or the weighted generalized-eigenvalue frequency-ordering theorem. Iguchi–Yamada's 2005 oscillator-network article is related, but only its abstract was accessible and historical priority remains provisional. Published mathematical-results queries for central-mass, phonon and balanced-arm aliases identified no dominating statement. Search failure is not by itself evidence of novelty.
+PASS
 
-**Mathematical value: PASS.** For specified numbers of arms and sites, the theorem gives an exact, physically interpretable criterion for a vibrational mode above the uniform-arm band, and the unique optimal topology for supporting that mode at the greatest possible hub mass. It also orders the actual high-frequency mode, not just a surrogate statistic. The example with three arms, nine sites and hub mass ratio \(6/5\) turns the mode on or off without changing spring count or mass resources. This is more informative than a restatement of unweighted starlike localization or an arbitrary finite spectral computation.
+Deleting the hub gives arm blocks strictly below 4 by the positive quadratic form in RESULT.md. At and above 4 the hub Schur complement is scalar, so inertia at 4 counts at most one generalized eigenvalue in [4,infinity), and any nullspace there is one-dimensional. The inverse entry h_L obeys h_1=1/(lambda-1), h_{L+1}=1/(lambda-2-h_L); at 4 this gives (2L-1)/(2L+1). The scalar q+sum h_L-mu*lambda is strictly decreasing and has edge value 4(sum L/(2L+1)-mu), giving all three mass cases. Above 4 the reflected geometric arm solution has alternating signs and successive magnitudes with ratios below rho. The edge marginal increments decrease strictly. At fixed lambda>4 the continued fraction gives strictly positive increments, with successive increments in ratio h_{L+2} h_{L+1}<1; thus balancing and concentration strictly order the scalar functions for unequal profiles, and order their roots when above 4. Capping at 4 accounts for all ties below the band. As all lengths tend to infinity the inverse entries approach rho from below; bracketing the zero gives the limit q^2/[mu(q-mu)] when mu<q/2, with monotonicity under coordinatewise lengthening. Each finite threshold is strictly less than q/2. An independent incidence/edge-space eigensolver checked 462 threshold/count/vector cases as well as sampled capped rankings and long-arm limits. At mu=6/5 the example tops were about 4.110839 and 3.938173, respectively.
 
-**Limitations and closest coverage.** The network has identical springs, free leaves, uniform arm masses and a single tunable hub mass; the sharp balancing statement is discrete and compares equal total site counts. The established unweighted case \(\mu=1\) and generic starlike localization are not novel contributions. Full text for one broader oscillator-network study was unavailable, leaving a concrete historical-priority risk. The independent audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The unweighted edge result and unweighted length-majorization literature are prior. The inspected statements do not cover the finite free-arm crossing as a function of hub inertia together with its sharp allocations and resulting above-band frequency ordering. The infinite-arm formula is credited as a limit of the model, not a claim to invent junction localization.
+
+## value
+
+PASS
+
+The spectral edge has physical meaning independent of the finite star. At fixed total material and hub mass the exact allocation range decides whether rearranging arm sites can create or eliminate a localized mode. The strict frequency ordering also guides allocation when several geometries already have a mode above the edge. These are distinct design decisions that unweighted existence alone does not resolve.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

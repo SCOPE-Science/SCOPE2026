@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-The provided `check.py` requires only Python 3 and its standard library. Run `python check.py` from its directory and compare the printed output with `verification-output.txt`.
+## correctness
 
-The script implements the closed rank-based count using exact row reduction modulo three. Separately, it considers each unordered three-frequency set and applies the three-residue Fourier orthogonality criterion directly to every pair of frequency columns. These are two distinct exact computations of the same finite count.
+PASS
 
-The exhaustive dimension-two check covers every one of the 84 spatial triples against every second spatial triple (7056 ordered pairs), testing all 84 frequency triples. Their common-spectrum multiplicities are 0 (4320 pairs), 3 (2592), 6 (108), and 27 (36). An exhaustive dimension-one boundary test checks its unique triple pair. Further independent randomized pair samples are tested against all 2925 dimension-three and all 85320 dimension-four frequency triples, with deterministic fixed random seed 314159. The explicit incompatible affine triangle and affine line are checked.
+A sum of three cube roots of unity vanishes exactly when the residues are all distinct. For a frequency difference h, the residues after subtracting the first are 0, h·u_i, h·(t_i-u_i); their distinctness is equivalent to h·t_i=0 and h·u_i≠0. Thus B lies in one affine fiber parallel to W-perp and each u_i evaluation must be a bijection to F_3 on B. An evaluation constant on the fiber obstructs B. In rank one, arbitrary representatives of the three first-evaluation values give exactly one unordered B each. In rank two, the first evaluation fixes the labels and there are six possible permutations for the second; the joint fibers have size 3^(d-r-2). The resulting exponents equal r+3(d-r-s), with the factor six only for s=2. Reordering preserves each nonzero quotient class up to sign. The plane counts follow by separating line directions and the four directions of nonzero triangle sums; the triangle-line witness is obstructed because the line direction equals the triangle sum direction. Independent exact-residue enumeration of all 7056 ordered spatial pairs at d=2 found 4320, 2592, 108 and 36 pairs of respective multiplicities 0, 3, 6 and 27, with no pairwise discrepancy. The proof, not this replay, covers all d.
 
-The numerical computations neither establish the all-dimension formula nor infer it from data: the independent general proof relies on character-sum rigidity and exact finite-field fiber counting; an elementary orbit count proves the entire dimension-two histogram. No assertion is made about computations in untested finite dimensions or about an independent external audit.
+## originality
+
+PASS
+
+The supported distinct result is the pairwise obstruction, exact unordered multiplicities and affine-plane census for orthogonal three-frequency spectra in the elementary abelian group F_3^d. The inspected sources provide analogous binary invertible-base counts or general character-vanishing tools; none gives this simultaneous ternary classification or a stronger count that specializes to it.
+
+## value
+
+PASS
+
+Three is the natural first size for this character-sum rigidity in exponent three. The result determines when two individually spectral sampling sets fail to share an orthogonal basis and counts all common choices when possible, with a complete smallest-plane census. It separates the simultaneous orthogonal problem from the weaker simultaneous invertible one.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

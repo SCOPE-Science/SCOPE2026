@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:57:31.336931Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Summing the logarithmic two-cycle equations fixes the midpoint by invertibility of the coexistence matrix. In antiphase coordinates the two forward equations are U_X(u)=alpha*w and U_Y(w)=beta*u, and negating the displacements gives the reverse equations. The scalar function U_L(t)=t-2atanh(t/L) has negative second derivative for positive t. Positive right sides force both loads above two, and multiplying the strict chord-slope bounds excludes equality as well as larger products. Conversely, w(t)=U_X(t)/alpha gives a positive residual near zero under the strict bound. The residual is negative at first contact with the positive zero of U_Y, or at the positive zero of U_X if there is no contact. Continuity gives an interior primitive cycle. At fixed X,Y, each chord-slope ratio can approach its upper bound only at amplitude zero, so both amplitudes vanish as the product approaches the threshold from below. Direct differentiation gives the stated determinant. This is not a stability theorem: at the boundary the trace is less than -2, so the other multiplier is below -1. The finite checker was inspected, not executed; its three reported reconstructions corroborate examples, and its four exclusions use the formula, not a search. The proof supplies the universal evidence.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Resultary 03a2c5f77427 excludes antiphase cycles in the low-load region 0<X,Y<=2; ede5f0d0607f gives at least three cycles on a smaller symmetric parameter band; 2a5a09a48e5b treats the excluded singular product 1.",
+          "Kulakov et al. use the same map (Eq. 13); their numerical bifurcation and multistability diagrams include asymmetric out-of-phase cycles."
+        ],
+        "reasoning": "None supplies a global threshold covering this full amplitude rectangle. Multiplicity in an interior subregion and existence throughout the exact region are different claims. Same-day catalogue dates do not settle priority.",
+        "searches": [
+          "Resultary: in-phase versus antiphase Ricker cycle census and multiplicity",
+          "Kulakov–Neverova–Frisman, DOI 10.3390/math10071076, sections 4–5"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, REVIEW.md and verify_antiphase_ricker.py",
+        "Resultary c3fcc7a39530, ede5f0d0607f, 03a2c5f77427 and 2a5a09a48e5b",
+        "DOI 10.3390/math10071076; DOI 10.1155/ddns/7255117; DOI 10.1080/10236198.2026.2636481"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Kulakov et al. p. 18 describe an unstable antiphase two-cycle appearing at a subcritical flip on a particular parameter slice, and stable cycles appearing at saddle-nodes. The frozen record attributes generic periodicity equations and a Jacobian test to Goldar et al. §5, not independently confirmed in full text."
+        ],
+        "reasoning": "A local flip branch, even with a matching spectral factor, does not imply global absence on the other side, sufficiency for all strict parameters, or simultaneous vanishing of every antiphase amplitude.",
+        "searches": [
+          "Resultary: -1 equilibrium flip factor versus global antiphase existence",
+          "Exact-title lookups for Goldar et al. and New global stability results for the planar Ricker model"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary c3fcc7a39530 states symmetric exchange exists iff 0<gamma<1 and log(rho)>2(1+gamma)/(1-gamma). Substituting X=Y=log(rho)/(1+gamma) yields exactly the symmetric existence boundary."
+        ],
+        "reasoning": "This is material equivalent coverage on a symmetric restriction. An exchange orbit in that model is not the required construction for arbitrary unequal loads and couplings.",
+        "searches": [
+          "Resultary: exact iff threshold for strictly antiphase planar Ricker two-cycles",
+          "Primary literature: exact antiphase threshold in planar Ricker competition"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Kulakov et al., pp. 10–11, describe parameter-sampled nullclines and note that numerical multistability boundaries are not exact; pp. 16 and 18 discuss specific bifurcation branches."
+        ],
+        "reasoning": "These diagrams are not an exact table for arbitrary parameters, do not establish exclusion at equality, and do not bound all antiphase amplitudes as the threshold is approached.",
+        "searches": [
+          "Resultary: amplitude collapse at fixed coexistence loads approaching the antiphase threshold",
+          "Kulakov et al., Figs. 5, 6 and 9 and accompanying text"
+        ]
+      },
+      "rationale": "The verified distinct claim is the global iff and disappearance of every antiphase cycle at fixed coexistence loads, allowing unequal loads and unequal positive couplings. Earlier symmetric exchange existence, complementary low-load exclusion, and bifurcation calculations overlap but do not imply that result. No claim of priority is made for the symmetric exchange threshold or the local characteristic factor.",
+      "residual_risks": [
+        "Full Goldar et al. and the cited global stability article could not be inspected independently; another equivalent argument may predate the finding.",
+        "Catalogue dating is not a priority determination. No originality claimed for the exact symmetric exchange subcase or the -1 factor itself."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers symmetric exchange existence only; also studies attraction",
+          "evidence": "The exact substitution in equivalent_formulations gives the overlap.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-sharp-universal-competition-cutoff-for-attracting-exchange-two--c3fcc7a39530/RESULT.md",
+          "material_read": "Finding, mirror offset 0",
+          "method": "Resultary index and local mirror",
+          "title": "A sharp universal competition cutoff for attracting exchange two-cycles in a symmetric Ricker map",
+          "trigger": "Exact symmetric special case"
+        },
+        {
+          "assessment": "Partial coverage of the low-load exclusion only",
+          "evidence": "For both loads at most two it counts in-phase cycles and rules out antiphase cycles.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-sharp-in-phase-two-cycle-census-for-low-load-planar-ricker-com--03a2c5f77427/RESULT.md",
+          "material_read": "Finding, mirror offset 0",
+          "method": "Resultary index and local mirror",
+          "title": "A sharp in-phase two-cycle census for low-load planar Ricker competition",
+          "trigger": "Same map and two-cycle boundary"
+        },
+        {
+          "assessment": "A restricted multiplicity theorem, not the iff",
+          "evidence": "X=Y=L>2 and equal coupling c below c_*(L)<1-2/L tame the parameter domain to an interior subregion.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-symmetry-breaking-three-cycle-guarantee-for-antiphase-ricker-c--ede5f0d0607f/RESULT.md",
+          "material_read": "Finding, mirror offset 0",
+          "method": "Resultary index and local mirror",
+          "title": "A symmetry-breaking three-cycle guarantee for antiphase Ricker cycles",
+          "trigger": "Same phase and primitive period"
+        },
+        {
+          "assessment": "Directly related examples and branch geometry, not the global criterion in the inspected passages",
+          "evidence": "The section solves iterate equations numerically and compares stability and phase diagrams; the out-of-phase saddle-node and the subcritical equilibrium flip passages distinguish stable from unstable branches.",
+          "identifier_or_url": "https://mdpi-res.com/d_attachment/mathematics/mathematics-10-01076/article_deploy/mathematics-10-01076.pdf",
+          "material_read": "pp. 9–11, Eq. (13) and §4 including Eqs. (14)–(15); pp. 16, 18 on asymmetric and subcritical branches",
+          "method": "Publisher open PDF; literal phase and bifurcation searches followed by offsets 43700, 46885, 67800, 78160",
+          "title": "The Ricker Competition Model of Two Species: Dynamic Modes and Phase Multistability",
+          "trigger": "Same map and phase behavior"
+        },
+        {
+          "assessment": "Full comparison unresolved",
+          "evidence": "Abstract describes bifurcation and periodicity results but cannot settle global antiphase coverage.",
+          "identifier_or_url": "https://doi.org/10.1155/ddns/7255117",
+          "material_read": "Publisher abstract snippet; frozen RESULT.md description of §5 distinguished from independent inspection",
+          "method": "Exact-title retrieval and lawful open-access attempts; publisher full text unavailable",
+          "title": "Dynamics and Bifurcations in a Two-Species Ricker Competition Model With Nonmonotonic Growth",
+          "trigger": "Same map, periodicity and local bifurcations"
+        },
+        {
+          "assessment": "Unresolved beyond inspected metadata",
+          "evidence": "No exact theorem was available to compare.",
+          "identifier_or_url": "https://doi.org/10.1080/10236198.2026.2636481",
+          "material_read": "Bibliographic landing result, no full text",
+          "method": "DOI/title search and open-access retrieval attempt",
+          "title": "New global stability results for the planar Ricker model",
+          "trigger": "Global conditions might imply part of exclusion"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "In a standard competitive map the result identifies the exact region permitting opposite oscillations, including unequal loads where exchange symmetry is unavailable. It distinguishes the existence boundary of any such orbit from numerical detection of stable attractors and controls all possible finite-amplitude branches as the boundary is approached. These are useful exact facts for bifurcation studies even without a multiplicity or attraction theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

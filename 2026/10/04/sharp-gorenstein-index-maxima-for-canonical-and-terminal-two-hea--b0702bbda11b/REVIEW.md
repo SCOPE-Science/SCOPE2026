@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The Cartier-index formula is reconstructed from the Picard generator and the anticanonical class. The canonical/terminal parameter triangle is reconstructed from Reid--Tai ages. The sharp bound then follows from a finite symbolic partition of the reparameterized triangle: outside eight near-corner cases the crude product bound is already strict, while the seven competing corner cases have forced divisibility or a large common factor. The remaining corner has pairwise coprime weights and anticanonical weight sum, giving equality. The \(r=2\) case is checked separately. An independent integer-arithmetic sweep through \(r=200\) agrees with every claimed maximum and equality set.
+## correctness
 
-## Originality
-PASS. Targeted published-finding searches for the Gorenstein/Cartier index, the two-heavy family, the explicit extremal formula, and canonical/terminal maximization did not locate an equivalent statement. Kasprzyk's archive source supplies general singularity criteria and studies terminal Gorenstein weighted projective spaces, but not this family-specific index maximum. Ghirlanda gives a general index formula for fake weighted projective spaces without this optimization. Bäuerle treats sharp volume and multiplicity bounds with Gorenstein index fixed as a parameter rather than maximizing the index under these hypotheses.
+PASS
 
-## Value
-PASS. The Gorenstein index is the minimal Cartier multiple of the canonical class and controls the index-one cover, so exact bounds are a standard boundedness invariant in birational and toric geometry. The theorem gives a sharp all-dimensional formula with a unique extremizer on a natural infinite singularity-constrained family and shows unexpectedly that allowing canonical boundary points does not increase the terminal maximum.
+The unit charts are smooth; the canonical character on each heavy chart has order w/gcd(w,S), with w=a,b and S=r+a+b. The lcm of those two orders is L/gcd(L,S), where L=lcm(a,b). There are no pseudoreflections because r≥2. For d=b−a>0 the b-chart age of class j (1≤j<b) is (r−d)j/b+ceil(dj/b); j=1 gives the necessary bound, and all j give sufficiency. In the a-chart, if dj<a the age is (r+d)j/a; otherwise rj≥dj≥a under the b-chart bound. The strict test uses d<r and a<r+d; necessity of the latter follows from j=1 if a≥r+d. For d=0 the nontrivial chart ages are rj/a. This proves both triangles including the unit-weight cases. In u=r−d, v=r+d−a, the product ab=(2r−u−v)(3r−2u−v) is strictly decreasing in each variable on the feasible region. Bounding it at (3,0), (2,1), (1,3) and (0,4) discards everything except the eight listed corner points. The u=0 and v=0 points have b|S and a|S respectively; (1,1) has L=6(r−1). All are strictly below (2r−3)(3r−4) for r≥3. At (1,2), b−a=r−1, gcd(a,b)=1, S−3a=2 with a odd, and S−2b=1. Thus the product is attained with no cancellations, uniquely and in the terminal triangle. Direct substitution confirms the nine r=2 indices and unique terminal maximizer (2,3). The supplied script and its recorded output are finite regression evidence only; the review uses the exact argument, not an execution of the script.
 
-## Closest literature and limitations
-The closest checked sources are Kasprzyk's canonical/terminal and Gorenstein weighted-projective analysis, Ghirlanda's general Picard/index formula, and Bäuerle's Gorenstein-index-parametrized Fano-simplex bounds. None states or implies the sharp two-heavy index maximum without the new near-corner arithmetic argument. The result is limited to \(\mathbb P(1^r,a,b)\), and search-based originality cannot exclude an equivalent older reformulation under different notation.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the known structural index and age criteria and the distinct indexed exact triangle. The supported distinct result is the sharp all-r optimization of the anticanonical Cartier index with a unique terminal maximizer, not the parameter triangle or the Gorenstein subclass.
+
+## value
+
+PASS
+
+This gives an exact obstruction to making the anticanonical divisor Cartier at a fixed multiple in a natural singularity-constrained family in every dimension. The product bound alone selects the wrong weights; local Cartier cancellations determine the sharp answer and explain why strengthening canonical to terminal does not reduce it.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T17:55:34.383995Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Proof Steps 1–4",
+        "Frozen VERIFICATION.md and verify.py, inspected without execution",
+        "Independent replay: python3 /workspace/branches/frozen_review_algebra.py (record 5 block)"
+      ],
+      "rationale": "For dimensionless H, the positive-drift hitting-time Laplace transform follows from the bounded solution of the one-dimensional backward equation and equals exp(−u). Conditioning on H gives the Erlang-two within-attempt success probability φ−qφ′; integrating its survival kernel against P(H>s) gives the mean attempt duration 2(1−φ)/q+φ′. Renewal yields the stated quotient A/B, with B>0, zero-rate limit 1/d, and q strictly increasing in u. Its derivative sign is the sign of N=A′B−AB′. Independent symbolic expansion as P(u)exp(u)+R(u) checks the low coefficients and, by the falling-factorial identity, the entire tail formula for n>=7, not merely a finite enumeration. The exact rational root brackets and Descartes' rule order the sign switches of c_6,c_5,c_4,c_3. When c_3<0, dividing by u to the power of the last negative index gives a strictly increasing function from negative to positive, proving the unique minimum below the no-reset mean. At and above sqrt(6), the coefficients are nonnegative with positive tail, proving strict monotonicity. For the critical expansion use the analytic N/u³ at u=0: c_3′(sqrt(6))=8 and c_4(sqrt(6))=3(8−sqrt(6))/2>0. The local implicit root is positive just below critical and is the global stationary point by uniqueness; converting via q=u(u+d) gives the stated slope without requiring numerical localization.",
+      "residual_risks": [
+        "Positive drift toward the target; strict conclusions concern positive stage rates, with zero rate interpreted as the limiting no-reset mean. Not an assertion for unequal stage rates or other clock distributions."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pal–Reuveni equation (3) is the general renewal mean formula. Linn–Lawley give frequent-reset limits and a driftless shape-two example.",
+          "Resultary 28e1e568a79f covers drift and general Erlang order on the half-line, but its conclusions concern the stopped spatial maximum, reset count and limiting extreme-value form."
+        ],
+        "reasoning": "Generality in the clock law or reset order does not entail global mean-absorption-time monotonicity. The closest indexed same-model calculation has a different observable.",
+        "searches": [
+          "Pal–Reuveni arXiv:1607.06048, mean under general restart",
+          "Linn–Lawley arXiv:2302.05409 §3.6 and appendix",
+          "Resultary 28e1e568a79f, Finding and Assumptions"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1811.08239v4",
+        "arXiv:1607.06048",
+        "arXiv:2302.05409",
+        "Resultary 28e1e568a79f and 991b947a8ac2",
+        "Resultary 66ebfe4019fd (boundary-triggered holding and variance, not this renewal clock)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General renewal plus the transform readily yields the exact specialized mean, and the small-rate curvature can be extracted locally. The prior gamma-two success probability matches the zero-drift specialization after rate normalization.",
+          "Neither the general mean formula, the exponential-clock optimum, nor a frequent-reset limit proves a single sign change of the exact derivative on the whole positive axis at each positive drift."
+        ],
+        "reasoning": "Credit the formula as a specialization of prior machinery. The sign classification and optimizer scaling are substantive beyond that specialization, including the strict monotonicity when local curvature first vanishes.",
+        "searches": [
+          "Pal–Reuveni arXiv:1607.06048 equation (3)",
+          "Ray–Mondal–Reuveni arXiv:1811.08239v4 equations (12)–(20)",
+          "Linn–Lawley arXiv:2302.05409 equations (41)–(43) and appendix"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "d=2Pe. Ray et al. obtain Pe=1, or d=2, for an exponential clock; that law cannot be converted into Erlang-two by scaling its rate.",
+          "Linn–Lawley shape two with scale 1/(2r) does describe an equal-stage clock with stage rate ρ=2r and q=2rL²/D, but the identified explicit case has zero drift and frequent resetting."
+        ],
+        "reasoning": "Preserving the mean reset interval is not a distributional equivalence with the Poisson clock. Tracking the equivalent gamma parametrization confirms same clock shape but different drift and asymptotic regime in the gamma example.",
+        "searches": [
+          "Resultary: drifted Brownian first passage Erlang-two or gamma-two resetting, finite-rate optimum and Péclet threshold",
+          "Ray–Mondal–Reuveni arXiv:1811.08239v4 §IV",
+          "Linn–Lawley arXiv:2302.05409 §3.6 and gamma-clock appendix"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The identified exact threshold in the same geometry is Pe=1 for Poisson resetting. The closest shape-two primary formula does not give a finite-rate threshold in positive drift."
+        ],
+        "reasoning": "No matched numeric or symbolic entry uses both the claimed geometry with positive drift and the two-stage clock for the claimed optimizer. The adjacent critical number for the one-stage clock is not equivalent.",
+        "searches": [
+          "Resultary finite-rate gamma/Erlang first-passage classification and sqrt(6) or sqrt(6)/2 threshold",
+          "Exact thresholds in arXiv:1811.08239v4 §IV; gamma-two example in arXiv:2302.05409 §3.6"
+        ]
+      },
+      "rationale": "The supported distinct result is the all-positive-rate sign classification, the critical equality case and sharp optimizer asymptotic for the same-rate Erlang-two clock and positive drift. Renewal and Laplace-transform ingredients are established. The most closely matching indexed model was checked and concerns a different observable, while primary Poisson, general renewal and frequent gamma-reset results do not yield the classification. This is best-of-knowledge assessment, not proof of priority.",
+      "residual_risks": [
+        "An unlocated finite-rate positive-drift gamma/Erlang-two analysis could overlap. Focused searches and a mirror miss do not imply absence.",
+        "The mean formula itself is a standard renewal specialization and is not credited as a separate original result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same geometry, distinct restart law",
+          "evidence": "Pe=LV/(2D), optimal Poisson rate positive below Pe=1; one exponential stage.",
+          "identifier_or_url": "https://arxiv.org/html/1811.08239v4",
+          "material_read": "§IV, equations (12)–(20), OA offset 20500",
+          "method": "OA primary manuscript passage",
+          "title": "Péclet number governs transition to acceleratory restart in drift-diffusion",
+          "trigger": "Same geometry and a sharp Péclet optimizer threshold"
+        },
+        {
+          "assessment": "Prior renewal identity, not a rate classification",
+          "evidence": "Mean equals the expected time of one attempt divided by its probability of success.",
+          "identifier_or_url": "https://arxiv.org/html/1607.06048",
+          "material_read": "Mean FPT under restart, equation (3), OA offset 8400",
+          "method": "OA primary manuscript passage",
+          "title": "First Passage Under Restart",
+          "trigger": "General-clock mean first-passage theorem"
+        },
+        {
+          "assessment": "Same clock shape for a driftless example in the frequent-reset regime",
+          "evidence": "Gamma with shape 2, scale 1/(2r), mean 1/r; zero-drift success probability agrees after stage rate 2r is substituted, not a positive-drift global optimum.",
+          "identifier_or_url": "https://arxiv.org/html/2302.05409",
+          "material_read": "§3.6 equations (41)–(43) and gamma success probability in appendix, OA offsets 34200 and 80900",
+          "method": "OA primary manuscript passages",
+          "title": "First passage times under frequent stochastic resetting",
+          "trigger": "Explicit Gamma(2) renewal resetting of a half-line searcher"
+        },
+        {
+          "assessment": "Substantial model overlap, different observable",
+          "evidence": "Pre-absorption spatial maxima, reset-count tails and Gumbel/log-log correction, not mean-time rate monotonicity.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-erlang-resetting-creates-a-clock-order-logarithmic-correction-in--28e1e568a79f/RESULT.md",
+          "material_read": "Finding and Assumptions, mirror offset 0",
+          "method": "Resultary index and local mirror",
+          "title": "Erlang resetting creates a clock-order logarithmic correction",
+          "trigger": "Same drifted Brownian geometry and Erlang reset family"
+        },
+        {
+          "assessment": "Different mechanism and observable",
+          "evidence": "Poisson resets with two resting stages, and stationary mean-square displacement rather than absorption-time optimization.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-resonant-stationary-crossings-under-two-stage-refractory-brownia--991b947a8ac2/RESULT.md",
+          "material_read": "Mirror offsets 1 and 8213",
+          "method": "Resultary index and local mirror",
+          "title": "Resonant stationary crossings under two-stage refractory Brownian resetting",
+          "trigger": "Two-stage clock and Brownian resetting"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, Proof and Limitations",
+        "Ray–Mondal–Reuveni arXiv:1811.08239v4 §IV for the Poisson benchmark"
+      ],
+      "rationale": "The first non-memoryless Erlang renewal clock preserves tractability while changing the critical Péclet number in a standard search model. Distinguishing a local small-rate gain from a unique global optimum, or ruling out improvement at every rate including the critical drift, answers the operational rate-choice question. The slope gives the rate scale as the beneficial region closes.",
+      "residual_risks": [
+        "No claim that Erlang-two is optimal among renewal laws or about higher first-passage moments."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

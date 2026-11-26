@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For multiplicity vectors of total \(n\), common deletion outputs of length \(k\) occur exactly when coordinatewise minima sum to at least \(k\). Heavy coordinates (multiplicity at least \(k\)) are disjoint between codewords, giving at most \(q\) heavy words. Two light vectors intersect in at least \(2n-q(k-1)\), excluding a second light word past the stated first threshold. The absence of any light vector after \(q(k-1)\), and the pure-word/light-word constructions, establish both exact values. The parity-dependent construction at the first threshold establishes sharpness. At the two upper endpoints the light word has respectively zero deficit and a single unit deficit, and compatibility forces all heavy words to be pure except a single possible one-symbol transfer. This proves the unique and \(q^2\) classifications. Exact finite counts in the supplied checker agree, but are not used to justify the infinite assertion.
+PASS
 
-## Originality — PASS, subject to residual literature risk
+Two codewords are confusable exactly when their coordinatewise-minimum sum is at least k. At most q words are heavy, since no coordinate can be >=k in two words. Two light words have intersection at least 2n-qh, which exceeds h for n>floor((q+1)h/2), and none exist for n>qh. The pure words and, in the plateau, any light word attain the bounds. At n=T the two light words have overlap h in the odd-q construction and 2 floor(h/2)<=h in the even-q construction; adjoining the pure words proves the required lower bound q+2, not optimality there. At qh and qh-1 (both above T), a maximal book of size q+1 has one light word and one designated heavy word per coordinate. At qh the light word is all h and each heavy word must be pure. At qh-1 the light word is all h except for one h-1: a heavy word on any other coordinate is forced pure, while the deficit-coordinate word can move at most one unit to a different coordinate. Each such choice is compatible and distinct, giving q^2 books on the labeled alphabet. Independent L1-distance clique enumeration for ternary h=3,4 verified the change at T, the 9 and 1 endpoint counts and the disappearance of four-word books past qh.
 
-The initial 2026 preprint and its July revision were inspected at their definitions, high-deletion sections and stated contributions. Their exact cases concern smaller survivor counts and single-deletion regimes; their bounds do not algebraically imply the sharp \(k\ge4\) plateau or both classifications. Existing public three-survivor findings are deliberately excluded from the theorem's range. Searches across mathematical research records, aliases using integer-simplex constant-weight \(\ell_1\) codes, and primary papers identified no stronger covering statement. A newer 2026 multiset construction preprint was available at abstract level only and remains a residual priority risk; absence of a search hit does not prove priority.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-In the high-deletion regime, the number of surviving symbols \(k\), not the number deleted, controls whether a tiny exact code is possible. The result determines an infinite two-parameter transition with a sharp first boundary, then completely identifies the maximizing codebook structure at both upper endpoints. It strengthens the known coarse high-deletion bounds without requiring large blocklength asymptotics or arbitrary finite enumeration.
+The exact three-survivor Resultary result substantially overlaps in pattern and proof strategy; the list-capacity result also supplies a heavy-incidence argument that applies at the upper threshold in unique decoding. The supported distinct content is the sharp integral lower threshold and complete plateau for arbitrary survivor budgets in the stated k>=4 regime, including the even-alphabet, odd-h rounding, and the full labeled maximum-book classifications, especially at the penultimate length. The closely matching works do not state those ingredients together or imply them by specializing a stronger theorem. The same-day three-survivor comparison was based on its proof, not priority inferred from the path date.
 
-## Scientific limitations
+## value
 
-No statement about \(n\le\lfloor(q+1)(k-1)/2\rfloor\) beyond one construction, about all interior maximizing codebooks, or about ordinary string deletion codes. Cross-checks are finite; mathematical validity rests on the exact intersection argument. Earlier literature not fully accessible may affect priority.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The transition identifies when a highly deleting multiset channel can carry just one message beyond the q monochromatic symbols and shows the first length at which the smaller bound ceases to hold. Its endpoint classifications describe how much freedom optimal codebooks have as that extra message is about to disappear: from q^2 labeled choices to one. These are exact invariants of the natural high-deletion regime, not isolated small-parameter checks. Credit is for the sharp full range and extremizer structure, not for reusing the heavy-coordinate idea.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

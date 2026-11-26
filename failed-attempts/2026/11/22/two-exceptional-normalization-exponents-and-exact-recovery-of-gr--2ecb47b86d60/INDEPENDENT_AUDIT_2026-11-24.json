@@ -1,0 +1,79 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:10:54.886738Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The mathematical claim is the rank and global injectivity of the generator map on a known admissible support for an unknown law Q. A susceptible's pool has N-1 members including I infectives. Summing first and second inclusion indicators gives E[l^2]=TI/(N-1)+T(T-1)I(I-1)/((N-1)(N-2)). With known beta, the rates at I=1 and I=2 and S>0 recover M1 and M2 even at N=3; the reverse implication includes recoveries. Put p=1-eta. There is a one-word row-operation error in RESULT.md line 39: ADD the second row to the third to get t^(p+1), not subtract. With correct row reduction, divide each column by its positive t^p to obtain [t^(eta-1),1,t]^T. For eta not 1 or 2, t^(eta-1) has strictly nonzero second derivative of fixed sign on t>0, so no three distinct points are collinear. At eta=1 or 2 this row duplicates one of the other two, and 1 and t give rank two for at least two distinct columns. This also covers singleton and two-size supports. For the joint moments multiply each column of [1,t,1/t]^T by t to get ordinary Vandermonde rows up to permutation. In every deficient case a nonzero kernel vector has zero sum and can perturb any strictly positive law in both directions; this is global noninjectivity, not a claim that every boundary law is individually ambiguous. The two rational pairs have means 2 and inverse means 1/2 as claimed. The wording 'known ... law Q' in the first paragraph should say 'unknown' as made explicit by the inverse problem and scope. Independently checked 60 exact subset-enumeration expectations, the curvature formula, the joint determinant (s-r)(t-r)(t-s)/(rst), and a finite set of noninteger exponents; replay python3 -B /workspace/branches/independent_replay.py 2. Frozen check.py was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary paper covers powers 1 through q with exact generator equivalence for q<=N-1 and beta>0, and proves the support-matrix rank criterion and the m>q+1 obstruction. Taking q=2 includes every admissible N here."
+        ],
+        "reasoning": "The four-or-more obstruction is explicitly covered; the support matrix for the other cases is supplied by the same theorem and needs only elementary power-matrix rank evaluation.",
+        "searches": [
+          "arXiv:2608.04943v1, Theorem 1, Eqs. (23)–(24), p. 12 known-support rank discussion"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2608.04943v1",
+        "Resultary: SCOPE-20261122-2ecb47b86d60 (identical frozen record, excluded as a prior)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At q=2, multiply each prior moment column by t^(eta-1) to get (t^(eta-1),1,t). Its 3-minor is a positive Vandermonde factor times the second divided difference, up to sign, hence zero only at eta=1 or 2. At eta=1 only the mean remains; at eta=2 only the reciprocal mean remains. Multiply the pooled column (1,t,1/t) by t to obtain (t,t^2,1)."
+        ],
+        "reasoning": "The complete partition, including exact ranks at collisions and the joint cutoff, follows without a new premise about contagion or a new rank theorem. A same-model prior that leaves the matrix unevaluated can still cover this routine specialization.",
+        "searches": [
+          "Muslim arXiv:2608.04943v1 Eq. (5), known-support A_qQ passage and discussion of multiple protocols"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Muslim's moment rows are t^(1-eta),t^(2-eta). Replacing the second moment by the difference of those two gives exactly the frozen factorial-moment rows, with normalization unchanged."
+        ],
+        "reasoning": "The change of basis is invertible, so this is the very same observation map up to known row operations, not a different model or a loss of information.",
+        "searches": [
+          "Web: \"Exact moment equivalence and structural nonidentifiability in nonlinear epidemics\" Muslim 2608.04943 rank prescribed supports normalization exponent quadratic",
+          "Resultary semantic searches on quadratic group-size recovery, two exceptional normalization exponents and joint recovery",
+          "arXiv:2608.04943v1 Eq. (5), known-support matrix passage"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact catalogue hit SCOPE-20261122-2ecb47b86d60 at RESULT.md offsets 746 and 3800 is the frozen record itself, not independent coverage. No other exact rank table was identified in the bounded returns; the primary paper supplies its entire matrix, not a table of numerically evaluated ranks."
+        ],
+        "reasoning": "This is a continuum-in-eta statement; a numerical table would not establish full coverage. The relevant exact antecedent is the power matrix and the rank criterion.",
+        "searches": [
+          "Resultary: exact exceptional-normalization rank and arithmetic/inverse-mean joint recovery; compared exact returned Finding with frozen support-rank formula",
+          "arXiv:2608.04943v1 p. 12, exact matrix entries and dimensions"
+        ]
+      },
+      "rationale": "The rank classification and pooled-protocol recovery are mechanically implied, not just related to an earlier model. Muslim's primary source already proves the exact same generator-to-power-moment equivalence for general q and gives the actual prescribed-support matrix and rank/nullspace criterion. At q=2 the matrix entries are exactly 1,t^(1-eta),t^(2-eta). Positive column scaling turns the classification into the elementary test for when t^(eta-1) is affine at three distinct positive points; it is affine exactly at exponents zero and one, and otherwise has fixed-sign nonzero second derivative. The combined experiment puts the two opposite power rows beside normalization; positive column scaling gives the ordinary 3-row Vandermonde. The prior need not tabulate the two numbers or print the paired experiment for both advertised increments to be direct consequences. This is substantive prior coverage by implication, not a failure from a search miss.",
+      "residual_risks": [
+        "No independently located matching explicit table and no separate historical attribution of the generalized power-matrix lemma; neither is needed for the demonstrated implication from the primary antecedent."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact moment equivalence and rank characterization cover this specialization by elementary calculation",
+          "evidence": [
+            "Weighted power moments sum Q(n)(n-1)^(k-eta); full column rank of normalized A_q is the identification condition; m-rank(A_q) gives interior ambiguity dimension; m>q+1 is an obstruction."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2608.04943 (v1)",
+          "material_read": "Primary PDF p. 3 Eq. (5), offset 20500; p. 4 Eq. (7) and Theorem 1, offset 32200; p. 9 Eqs. (23)–(24), offset 75200; p. 12 known-support passage, offset 94200",
+          "method": "Lawful OA primary PDF text, relevant bounded passages",
+          "title": "Exact moment equivalence and structural nonidentifiability in nonlinear epidemics",
+          "trigger": "Same stochastic model, exact generator, normalization and prescribed-support rank"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The focal sampling inverse problem and the two normalizations are motivated, and the examples are useful illustrations. But once the existing exact normalized moment map is used, the exceptional points are merely collisions of row exponents, and the joint recovery is the ordinary three-point Vandermonde exercise after rescaling. The record adds no non-routine invariant or obstruction to the prior identification theorem. There is no separately valuable unproved remainder to repair here.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

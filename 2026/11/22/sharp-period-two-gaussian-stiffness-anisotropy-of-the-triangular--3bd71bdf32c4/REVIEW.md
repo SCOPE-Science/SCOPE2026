@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For the unit-density triangular lattice the vectors \(a=e_1+e_2\) and \(b=e_1-e_2\) are orthogonal, have squared lengths in ratio three and generate a covolume-two index-two sublattice. The per-point Gaussian energy of its two cosets decomposes exactly into a constant plus the product of two centered one-dimensional shifted theta sums. Independent differentiation of both real-space sums and the Jacobi product produces the same Hessian, with vanishing mixed entry. The elementary inequality \(x/\sinh(cx)\) strictly decreases on \((0,\infty)\) proves \(K_A/A^2>K_B/B^2\), hence the claimed strict ratio for **every** positive Gaussian parameter. The nearest half-integer sites and the first dual Fourier term give the two asymptotic expansions and establish sharpness. Finite positive mixtures follow by summing positive Hessian gaps. The proof and its quantifiers do not rely on the numerical checker.
+PASS
 
-## Originality — PASS (provisional historical priority)
+The ordered per-point energy has one within-lattice sum and one cross-coset sum (the two cross orientations agree by reflection and are averaged over the two representatives). Gaussian summability justifies the thermodynamic limit: truncate separations first, use vanishing boundary fraction, then control the summable tails. The cross term is F_A(v_a)F_B(v_b); evenness kills the mixed derivative. Poisson summation and two log derivatives of the theta product give K_T=F_T''(0)/F_T(0)=(8π²/T²) Σ_{j≥1}q^(2j−1)/(1−q^(2j−1))², q=exp(−π²/(αT²)). The derivatives converge locally uniformly, the curvatures are positive, and each product factor minimizes strictly at the half-cell phase modulo T. With x=π²/(αT²), K_T/T² is a positive common factor times a sum of [x/sinh((2j−1)x/2)]². Each summand decreases strictly with x, since u cosh(u)−sinh(u)>0 for u>0, giving λ_A/λ_B> A²/B²=3. In real space the two nearest terms give K_T=α²T²−2α+O(α² exp(−2αT²)); dividing at A²=3B² gives 3+4/(αB²)+O(α⁻²), including sharpness. The first term in the dual sum gives the stated broad-Gaussian exponential and prefactor 1/3. The mixture inequality follows by adding diagonal Hessians with positive weights.
 
-The closest primary results are Faulhuber–Petersen's global equality theorem (arXiv:2611.06278), Leblé's quantitative local but nonsharp general-mode estimates (arXiv:2511.03353), and Hardin–Tenpas's established two-coset theta-function energy minimization and Jacobi product formula (arXiv:2307.15822). Bétermin's translated-theta minimum theorem (arXiv:1809.00473) and Bétermin–Faulhuber's centered-theta shape optima (arXiv:2007.15977) cover underlying qualitative and classical tools. None of the examined theorem statements asserts the **two physical-direction Hessian eigenvalues**, their strict **sharp factor-three ratio** over all Gaussian scales, or its exponential small-parameter law. The new comparison uses these earlier identities, not any alleged new Gaussian minimizer. Search coverage is not a priority certificate; an unindexed historical identity or a buried derivative estimate is a residual risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Optical, index-two relative-sublattice translations are a natural first nontrivial periodic displacement of the triangular crystal, for which existing optimality results guarantee an energy minimum but not the direction-dependent resistance. The uniform optimal factor three separates the long-cell and short-cell physical polarizations for every interaction length, while the exponential broad-interaction split identifies a sharply distinct susceptibility regime. The exact coefficient and optimal lower bound provide a useful reproducible benchmark against coarse local-coercivity estimates. This is a deliberately limited two-mode spectral calculation, not a claim about the complete phonon spectrum.
+The qualitative period-two and broader optimality statements are already covered. The specific comparison of two physical directional curvatures, with sharp factor and width asymptotics, was not found in the inspected primary or indexed statements. The closest distinct indexed curvature theorem controls a different scalar function and a different optimization.
 
-## Limitations and source comparison
+## value
 
-The Jacobi triple product, Poisson summation, global two-coset energy minimization and generic local optimality are prior work. The quantitative anisotropy calculation is elementary given these foundations but is a mathematically motivated, sharp **all-scale** spectral invariant, not an arbitrary sample parameter. The claim does not give all-mode stability, does not extend to signed or infinite mixtures without additional hypotheses, and lacks independent historical validation. The numerical verification program is a check, not a proof by enumeration.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The smallest nontrivial two-coset relative motion has two natural polarizations, so the exact ratio addresses the directional content left open by qualitative stability. The proof exposes a strict comparison for any rectangular pair A>B, and the sharp factor here and its exponential broad-regime enhancement quantify how far the two physical responses separate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

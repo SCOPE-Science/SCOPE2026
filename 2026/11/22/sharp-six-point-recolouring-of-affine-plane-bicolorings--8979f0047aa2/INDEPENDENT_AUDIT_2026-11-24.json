@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:30:20.603930Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, CHECKS.txt, verify.py and verify.cpp (inspected, not executed)",
+        "/workspace/review-replays/1.py and 1.out"
+      ],
+      "rationale": "I generated lines as closures of point pairs under the four field scalars, then grouped them by their translation subspaces. Scanning all 2^16 named assignments, all accepted pairs and breadth-first search from each state independently reproduced the five unique balanced-direction classes of size 24, pair counts 2880/1320/2880/60 at Hamming distances 6/8/10/16, common-neighbor counts 22/24/14/0 in G6, spheres (1,48,70,1), unique complement antipodes, and five exactly-eight components K24 minus a matching. In the quadratic proof, the two quotient maps for distinct directions jointly form an isomorphism because their kernels intersect trivially, so the sum has the direct sum of two nonsingular two-dimensional polar forms. The complete finite replay also establishes the claims without relying on the cited static census.",
+      "residual_risks": [
+        "Order four only with named colors and proper batch endpoints; no requirement of proper intermediate single flips. The common-neighbor certificate is finite exhaustion, not a formal verification artifact."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "8f2ffcc83c47 studies one- and two-point exchanges of minimum two-fold blocking sets in PG(2,4); 17c865f9e680 studies a flip geodesic defect for bicolorings of PG(2,3).",
+          "The frozen bibliography also points to an earlier projective PG(2,4) hyperoval exchange computation, 3d506c83b9c0 (168 six-point arcs)."
+        ],
+        "reasoning": "Neither a minimum two-fold projective blocking-set theorem, a ternary projective flip graph, nor a projective arc classification has the same incidence constraints on eight-point sets in AG(2,4). No reduction from these stated results was verified; same-day index entries were compared by substance, not date.",
+        "searches": [
+          "Resultary: affine/projective blocking sets, exchange connectivity, flip metrics and proper plane bicolorings",
+          "Closest Resultary entries 8f2ffcc83c47 and 17c865f9e680"
+        ]
+      },
+      "checked_sources": [
+        "Glynn DOI 10.1016/0097-3165(88)90027-1",
+        "Innamorati–Tondini (2013); Berardi–Eugeni DOI 10.1007/BF01222841; triangle-free 3-colored K-16 lead",
+        "Resultary 8f2ffcc83c47, 17c865f9e680",
+        "Frozen prior-work section"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Available same-object statements describe single-set geometry or uniqueness of an isomorphism type, not statistics on ordered pairs of blocks or their joint neighborhoods.",
+          "A list of all 120 sets allows new pair and triple computation, but does not itself state the degree-48 metric or the common-neighbor table."
+        ],
+        "reasoning": "The known single-set classification is a premise; the frozen proof needs the balanced-direction geometry and additional exact distance and common-neighbor calculations. No inspected stronger result gives those pair/triple quantities. A linkage from a more detailed, uninspected same-object decomposition is not ruled out.",
+        "searches": [
+          "Same-set geometric classification and possible pair/triple orbit characterization; Yin–Yang article, Berardi–Eugeni, and triangle-free three-colored K16 lead"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Static blocking sets in the order-four affine plane are the color-one classes; both colors meet every line. Innamorati–Tondini is cited for their Möbius–Kantor characterization, and the available index describes a unique isomorphism type.",
+          "For two eight-sets B,C, Hamming distance equals 16-2|B∩C|, so intersection-size and intersection-graph results on the same sets would be relevant even without the flip terminology."
+        ],
+        "reasoning": "The exact alternate formulation is the graph on the same 120 blocks with intersection five (six-flip) or four (eight-flip), not an exchange graph on projective hyperovals. Static isomorphism of single blocks does not determine joint orbit counts or common neighbors. Same-set intersection and association data remain the principal access risk.",
+        "searches": [
+          "AG(2,4) blocking sets and pairwise intersections; same 120 sets as an association scheme or Cayley/orbit graph",
+          "Glynn Rings of Geometries II; Innamorati–Tondini Yin–Yang Structure; Berardi–Eugeni DOI 10.1007/BF01222841"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Glynn's indexed excerpt discusses counting small-order affine blocking sets by size, and the frozen result explicitly credits his 120 census. Innamorati–Tondini's indexed description concerns static isomorphism.",
+          "The identical assigned record is indexed, but is not an independent antecedent; the closest distinct catalog entries found concern projective objects."
+        ],
+        "reasoning": "A census by set size, even complete, does not give pair incidence, common-neighbor triples or reconfiguration metrics. No inspected database passage states those outcomes on the same affine sets; the published static table itself could not be independently paged.",
+        "searches": [
+          "Glynn pp.57–59, affine blocking sets by size; pair-intersection and exchange-graph tables",
+          "Resultary: exact affine bicoloring and blocking-set exchange metrics"
+        ]
+      },
+      "rationale": "The static set count and geometric characterization of eight-point affine blocking sets are credited prior work. The supported distinct claim is the classification by balanced direction and Hamming distances together with the six-flip metric, its common-neighbor statistics, and the exactly-eight disconnected structure. The closest available same-object statements concern static sets; the closest exchange statements concern different set families or planes.",
+      "residual_risks": [
+        "None of the closest same-object geometry papers was available in decisive full text. An earlier treatment of intersections, an association scheme, or a Cayley/orbit graph on the same blocks could overlap; this assessment is not proof of priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Credits the static census; no whole-document conclusion about exchange results",
+          "evidence": "Indexed passage refers to counting blocking sets by size in affine planes of order below five.",
+          "identifier_or_url": "https://doi.org/10.1016/0097-3165(88)90027-1",
+          "material_read": "Indexed excerpt near p.57; citation to §4 pp.58–59 in frozen text; full table unavailable",
+          "method": "Primary-literature search and comparison with frozen citation",
+          "title": "Rings of Geometries II",
+          "trigger": "Exact static blocking-set census on AG(2,4)"
+        },
+        {
+          "assessment": "Static classification supported at statement level; implications beyond the indexed statement remain uncertain",
+          "evidence": "Indexed description states uniqueness up to isomorphism; frozen text credits the Möbius–Kantor characterization.",
+          "identifier_or_url": "https://combinatorialpress.com/article/ars/Volume%20110/volume-110-paper-19.pdf; https://ricerca.univaq.it/handle/11697/566",
+          "material_read": "Indexed statement and frozen comparison; pp.193–197 not independently retrieved",
+          "method": "Primary search, publisher PDF attempt, lawful university-repository alternate attempt",
+          "title": "The Yin–Yang Structure of the Affine Plane of Order Four",
+          "trigger": "Same objects and potential geometric source of intersection information"
+        },
+        {
+          "assessment": "Leads concerning static affine structures; deeper comparison unresolved",
+          "evidence": "Index excerpts mention uniqueness under a complement condition and Möbius–Kantor blocking-set characterization.",
+          "identifier_or_url": "https://doi.org/10.1007/BF01222841; https://www.researchgate.net/publication/220194153_A_derivation_of_an_affine_plane_of_order_4_from_a_triangle-free_3-colored_K-16",
+          "material_read": "Indexed description and DOI bibliographic data, not decisive full-text passages",
+          "method": "Primary-literature search and bounded publisher retrieval",
+          "title": "On blocking sets in affine planes; A derivation of an affine plane of order 4 from a triangle-free 3-colored K-16",
+          "trigger": "Other same-plane routes to a possible structural intersection theorem"
+        },
+        {
+          "assessment": "Conceptually related but not same objects by stated conditions",
+          "evidence": "Projective two-fold blocking sets over F4 and projective proper bicolorings over F3, respectively.",
+          "identifier_or_url": "Resultary 8f2ffcc83c47; 17c865f9e680",
+          "material_read": "Catalog statements, not full mirror bodies",
+          "method": "Local Resultary lookup and attempted mirror retrieval",
+          "title": "Frozen Hermitian complements and sharp two-point exchanges; A sharp two-flip geodesic defect",
+          "trigger": "Exchange graph or bicoloring metric on small finite planes"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and metric proof",
+        "Independent Hamming and graph distance replay"
+      ],
+      "rationale": "These are the valid splittings of a classical affine plane whose static geometry was known, so the number of points that must change to reach another splitting is a natural reconfiguration invariant. The sharp minimum batch size, unique complement at distance three, and disconnection for exactly-eight moves answer distinct reachability questions; the common-neighbor table describes the alternative two-step routes.",
+      "residual_risks": [
+        "No higher-order affine-plane theorem or algorithmic scaling claim."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

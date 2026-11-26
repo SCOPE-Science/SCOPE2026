@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** For each possible host marker, the exact target-index interval is reconstructed from its number of preceding zeros and the zero surplus. The interval-cover inequality and the cap of two zeros in each host zero run give a complete lower bound for all \(n\ge4\). Equality forces one possible zero-rank pattern for even \(n\), and exactly three endpoint patterns for odd \(n\); the full odd list and its converse are explicit. The embedded checker independently enumerates all short hosts without `000` through the asserted optimum for \(4\le n\le14\), verifies subsequence inclusion directly and confirms the complete optimizer sets. This finite census is not used as an infinite proof. Risk: as with any ordinary written proof, independent validation has not occurred.
+## correctness
 
-**Originality — PASS, with residual priority risk.** The general shortest-common-supersequence literature concerns computational complexity and other input restrictions; here the entire one-marker family is prescribed and the *host* has the contiguous constraint `000`. Bilotta–Pergola–Pinzani's run-pattern-avoidance enumeration does not require simultaneous scattered-subsequence coverage. Lagoutte–Tavenas's restriction is on input letters, not this output constraint. Elishco–Huleihel's optimization is asymptotic and probabilistic for random source strands, while Ma et al. treat all balanced input strands, batch costs and different length formulas. Related published mathematical records on all-binary subsequence universality, sparse reconstruction spectra and insertion radii neither state the same complete optimizer list nor imply it directly. Exact-phrase, alternate-form and broader-coverage comparisons found no decisive published covering statement; inaccessible or unindexed sources remain a historical-priority risk. Search non-returns alone were not interpreted as proof of novelty.
+PASS
 
-**Value — PASS.** All positions of a single marked bit constitute a canonical and mathematically complete sparse-source family for reference synthesis. Requiring the common reference itself to obey a homopolymer cap is distinct from limiting source strands. The theorem answers an all-length exact optimization problem, classifies every shortest reference, and exposes a sharp even/odd rigidity contrast rather than a numerical improvement at arbitrarily selected lengths. The fact that every minimizer automatically meets the stronger symmetric run-two restriction is a structural consequence. No broader multi-marker or noisy-channel application is claimed.
+For Z zeros, K ones, and surplus s=Z-(n-1), a marker at zero-rank a covers exactly [a-s,a] clipped to [0,n-1]. Covering all offsets requires K(s+1)≥n, and the host restriction gives Z≤2(K+1). For n≥4, s=0 is strictly too expensive; s=1 gives the asserted lower bound; s≥2 can attain it only at s=2 for odd n. At even length, the s=1 intervals must tile the target offsets in pairs. At odd length the s=2 word saturates all zero runs; at s=1 the first and last ranks must lie in {0,1} and {2m,2m+1}, respectively, and each gap is at most two. The feasible endpoint differences 2m and 2m-1 give precisely two end variants and the m single-short-gap variants. Each listed word meets the host constraint, covers the target offsets, has the required length, and in fact avoids 11. The boundary n=4 is included.
 
-**Closest literature and limits.** Bilotta, Pergola and Pinzani, arXiv:1108.3621 (2011); Lagoutte and Tavenas, arXiv:1309.0422 (2013); Elishco and Huleihel, arXiv:2204.07013 (2022); Ma et al., DOI:10.1186/s12859-025-06336-5 (2025). All four were inspected in publicly accessible full-text or complete article form. The result is restricted to \(n\ge4\), binary linear words, the complete one-marker target family and host avoidance of `000`. No independent mathematical or priority audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+This pass is for the output-constrained minimum and full equality classification. The strongest indexed comparison already solves the same target family without the output constraint. That is material overlap in the target family and rank method, but the unrestricted optimization is not the same, and its optimum can be strictly smaller (for example, 22 versus 24 at n=16). No equivalent constrained classification or stronger implication was found in the inspected passages.
+
+## value
+
+PASS
+
+A forbidden host factor changes the optimum for the natural all-offset, one-marker test family. The exact equality classification explains the parity effect and distinguishes the saturated zero runs from the near-tiling cases, supplying an explicit benchmark for constrained supersequence theory rather than a small-instance census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

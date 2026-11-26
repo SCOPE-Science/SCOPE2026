@@ -1,0 +1,152 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:59:14.880613Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Minimality is equivalent to coverage by positions essential to at least one input. At length |A|+|B| both embeddings would be unique and would partition the positions. For a closest equal-letter pair of opposite owners, uniqueness forces an intervening position of each owner; both intervening letters must be the opposite binary letter, contradicting closest distance. At length one less, if one essential set has a deficit of one, the two sets partition the word. Every embedding of the deficient input inserts one letter into the same fixed essential subsequence. Two possible insertions in different gaps would force identical letters between the gaps and allow both insertions while omitting one supposed essential position. Two insertions in the same gap can replace that letter and an equal immediate neighbor, since every input run has size at least two; that also omits an essential position. Thus the embeddings are unique and share exactly one position. Greedy extremal choices locate the shared letter; a same-symbol letter next to it on the wrong side would allow substitution, forcing the claimed opposite-symbol end conditions. Conversely those conditions make the first a zeros and last b ones the only embedding of A and the first c ones and last d zeros the only embedding of B, covering all positions. The two cases have different Parikh counts and each has the stated binomial product. The singleton restriction is material. The independent checker independent_replay.py tested complete extremizer sets for 80 tuples, 6,888 extremal words in total, and excluded length |A|+|B| for the 16 tuples with exponents 2 or 3. The frozen checker and its output were inspected but not executed; finite checks do not prove the general bound.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The indexed theorem gives length a+b+c+d-1 and count H(a,b,c,d)+H(c,d,a,b), for all four positive runs including singleton exceptions. Fraser's thesis derives general dynamic programming bounds; Sopp et al. Theorem 5.4 gives general polynomial-delay MCS enumeration."
+        ],
+        "reasoning": "The broader indexed classification strictly dominates the frozen parameter range and already evaluates both branches, whereas a general finite search or dynamic program would not by itself be analytical coverage.",
+        "searches": [
+          "Resultary 298375de5b88, positive-run theorem",
+          "Longest minimal common supersequence dynamic programming; Fraser 1995 §6.3.2, Fraser–Irving–Middendorf 1996, and Sopp et al. arXiv:2603.22591v1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verification_output.txt and verify.py (static inspection)",
+        "Local Resultary records 298375de5b88, 10a0d52c68a3, d41f14eae316 and 5df86cdf4ed9",
+        "Sopp et al. arXiv:2603.22591v1",
+        "Fraser thesis, Chapter 6",
+        "Fraser–Irving–Middendorf 1996 and Middendorf 1995 (abstracts only)",
+        "OEIS A112029 and bounded diagonal sequence lookup"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "With all runs at least two, the third branch of H applies to both terms. Binomial complement symmetry makes each term binom(a+c-2,a-1) binom(b+d-2,b-1). The central gap has size one; the pair-swap symmetries follow from the product."
+        ],
+        "reasoning": "No new enumeration is needed for the submitted count, sharp length, sets, or symmetries once the stronger indexed statement is given. The singleton-boundary illustration is already explained by that statement's extra branches.",
+        "searches": [
+          "Resultary 298375de5b88, H(a,b,c,d) and H(c,d,a,b)",
+          "Resultary 10a0d52c68a3 and d41f14eae316, top-layer specialization"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For a,d>=2 the indexed shared-zero branch P1 0^h 1Q has h=1 and P,Q with respectively a-1,d-1 zeros and c-1,b-1 ones. Put U=P1 and V=1Q: these are precisely the submitted U0V words. Exchanging symbols and inputs gives exactly X1Y."
+        ],
+        "reasoning": "They concern the same finite binary inputs, deletion-minimal scattered supersequences and distinct maximizing words. Central-gap and single-shared-letter language denote the same two sets on the frozen domain.",
+        "searches": [
+          "Resultary: four independent opposite binary run lengths and longest minimal common supersequences",
+          "Resultary 298375de5b88, Finding and central-gap proof"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A112029 sums squared binomial coefficients and matches half the diagonal total across lengths, not its last layer. The bounded sequence lookup did not match. The indexed equal-parameter spectrum specializes to the last layer at j=m-1; the unequal reversed-input spectrum covers c=b,d=a."
+        ],
+        "reasoning": "Neither a diagonal table nor a constrained subfamily establishes the independent four-parameter result; the decisive exact coverage is the unrestricted indexed formula and families, not a numeric coincidence.",
+        "searches": [
+          "OEIS A112029",
+          "OEIS sequence lookup 2,8,72,800,9800,127008",
+          "Resultary 10a0d52c68a3, d41f14eae316, and 5df86cdf4ed9"
+        ]
+      },
+      "rationale": "The full finding is demonstrably covered by a distinct indexed stronger theorem for arbitrary positive a,b,c,d, including both exact word families after specialization, not merely identical counts. The stronger record has a later displayed date, so this comparison does not establish historical priority. The evidence supports a failure of distinct coverage relative to examined results, not a finding that the proof is false or that the older inaccessible articles already established it.",
+      "residual_risks": [
+        "The relationship and historical ordering of the two four-run results were not established; displayed record dates are not proof of priority.",
+        "The full 1995 and 1996 articles were inaccessible; no claim is made that those full articles lack a matching formula."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the exact theorem on the frozen regime and more; dated later, not evidence of historical priority",
+          "evidence": [
+            "H+H under input/symbol exchange; P1 0^h 1Q with h=1 when a,d>=2."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-sharp-longest-minimal-common-supersequence-counts-for-four-indep--298375de5b88/RESULT.md",
+          "material_read": "Finding and scope, offsets 0–2324; central-gap and essential-zero proof, offsets 3800–6082",
+          "method": "Local Resultary index and mirrored text",
+          "title": "Sharp longest minimal common-supersequence counts for four independent binary run lengths",
+          "trigger": "Exact same extremal problem with more general exponents"
+        },
+        {
+          "assessment": "Identical diagonal case only; also gives shorter lengths",
+          "evidence": [
+            "Count at length 3m+j is 2 binom(m+j-1,j)^2 for 0<=j<m."
+          ],
+          "identifier_or_url": "Resultary 10a0d52c68a3",
+          "material_read": "Finding, offset 0",
+          "method": "Local Resultary index and mirrored text",
+          "title": "Exact length spectrum of minimal common supersequences of opposite binary blocks",
+          "trigger": "Exact diagonal specialization"
+        },
+        {
+          "assessment": "Covers the restricted relation c=b,d=a, not all four independent lengths",
+          "evidence": [
+            "Longest count 2 binom(a+b-2,a-1)^2 for 0^a1^b and 1^b0^a."
+          ],
+          "identifier_or_url": "Resultary d41f14eae316",
+          "material_read": "Finding, offset 0",
+          "method": "Local Resultary index and mirrored text",
+          "title": "Exact minimal supersequence spectra for unequal opposite binary blocks",
+          "trigger": "Unequal opposite-block enumeration with matching terminology"
+        },
+        {
+          "assessment": "General enumeration, not a closed extremal classification",
+          "evidence": [
+            "The theorem gives O(n^3) preprocessing, O(n^2) space and O(n) delay."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2603.22591v1",
+          "material_read": "Theorem 5.4, offsets 51368–53554",
+          "method": "Lawful OA HTML passage inspection",
+          "title": "Computing and Enumerating Minimal Common Supersequences Between Two Strings",
+          "trigger": "General exact MCS enumeration"
+        },
+        {
+          "assessment": "Inspected part describes general LMCS optimization, not the explicit word families",
+          "evidence": [
+            "Dynamic programming for two input strings, with extension to fixed k."
+          ],
+          "identifier_or_url": "https://theses.gla.ac.uk/74575/1/10992195.pdf",
+          "material_read": "Ch. 6, pp. 112–113, offsets 325638–329417",
+          "method": "Lawful OA thesis PDF inspection",
+          "title": "Subsequences and Supersequences of Strings",
+          "trigger": "Earlier algorithms for longest minimal common supersequences"
+        },
+        {
+          "assessment": "Cannot determine whether the full paper contains a special-case theorem",
+          "evidence": [
+            "The abstract describes dynamic-programming algorithms for maximum-length minimal common supersequences."
+          ],
+          "identifier_or_url": "10.1006/inco.1996.0011",
+          "material_read": "Indexed abstract only; publisher and identified repository attempts did not yield full paper",
+          "method": "Indexed bibliographic material and attempted lawful OA retrieval",
+          "title": "Maximal Common Subsequences and Minimal Common Supersequences",
+          "trigger": "Potential direct earlier coverage of the longest-MCS invariant"
+        },
+        {
+          "assessment": "The full specialized paper was not inspected",
+          "evidence": [
+            "The abstract concerns MAX SNP-hardness for longest minimal common supersequence on a binary alphabet, not a stated four-run formula."
+          ],
+          "identifier_or_url": "Theoretical Computer Science 145 (1995), 317–327, M. Middendorf",
+          "material_read": "Indexed abstract and DOI landing material; no full text via identified OA link",
+          "method": "Indexed bibliographic material and attempted lawful OA retrieval",
+          "title": "On Finding Minimal, Maximal, and Consistent Sequences over a Binary Alphabet",
+          "trigger": "Earlier longest-MCS work on the same alphabet"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The longest-length layer of opposite-block inputs is a natural extremal invariant. However, the frozen exact invariant, all its maximizers and its stated symmetries are already supplied by specialization of the stronger indexed theorem. A different proof of this restricted finding does not establish a separate valuable mathematical remainder; the submitted claim does not give a new length layer or settle a further regime.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

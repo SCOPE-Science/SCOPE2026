@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:34:21.499315Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–47 and 51–94",
+        "Frozen VERIFICATION.md lines 18–24 and verify.py lines 11–73, inspected rather than executed"
+      ],
+      "rationale": "For distinct i,j the only arcs shared by their bidegrees are i→j and j→i. Conditional on these independent Bernoulli variables the four remaining degree counts use disjoint arcs. The centered conditional mean has linear coefficients −d_r b_s, −b_r d_s and mixed coefficient d_r d_s; the two linear coefficients interchange at j. Their orthogonal Bernoulli products give the stated covariance. After weighting, the constant, normalized centered out-/in-degree, and product score form an orthonormal tensor basis of the affected directions. The two linear scores have block n[[1,1],[1,1]], the constant gives zero, the product gives n+n/(n−1), and the orthogonal complement has eigenvalue n. This also gives precisely two null modes, the n=2 multiplicity coincidence, and the sharp variance bound by centering the score; the score r+s attains it. As a separate finite check, fresh exact rational enumeration at n=3, p=2/5 (all 64 digraphs) matched the 9 means and all 81 covariance entries.",
+      "residual_risks": [
+        "The finite reproduction is corroboration only; all-parameter validity uses independent arcs with reverse arcs allowed, no loops, and p strictly between 0 and 1."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The prior Resultary proof gives the mixed degree law for every i≠j, n≥2, and 0<p<1. Fixed-edge asymptotic degree enumeration and undirected network testing do not provide a more relevant general theorem; the scaling-limit paper supplies the model but studies strong components."
+        ],
+        "reasoning": "The mixed degree calculation covers the entire frozen parameter range and supplies the exact kernel; no extension to a larger size or new model is needed.",
+        "searches": [
+          "Resultary 2026/10/13/SCOPE-a-three-null-direction-covariance-geometry-for-directed-random-g--464a063a69a1",
+          "Liebenau–Wormald arXiv:2006.15797; Goldschmidt–Stephenson arXiv:1905.05397; Alarfaj–Taylor–Bogachev arXiv:2303.05138"
+        ]
+      },
+      "checked_sources": [
+        "The two local Resultary records above",
+        "arXiv:0912.4812, 2006.15797, 1510.00290, 1905.05397 (p. 1), 2303.05138 (p. 2)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "That proof states P(O_i=r,I_j=t) = b_r b_t + pq a_r a_t, with a_r/b_r = (r−mp)/(mpq), after adding back the product marginals. By disjoint arc sets, (O_i,I_j) is independent of (I_i,O_j) for i≠j: outgoing i and incoming j arcs have no overlap with incoming i and outgoing j arcs when loops are absent. Thus the bidegree-pair table is just the product of two copies of precisely that known table, with columns swapped. If u=√b and v=√b(r−mp)/√(mpq), the normalized one-copy kernel is K=uuᵀ+vvᵀ/m. The off-vertex normalized covariance is (K⊗K)S−(u⊗u)(u⊗u)ᵀ, with S the swap. On the constant, symmetric/antisymmetric linear directions, and product direction it has eigenvalues 0, ±1/m, 1/m²; it vanishes on their orthogonal complement. Adding the single-vertex multinomial covariance yields all frozen eigenvalues, rank and the sharp bound by the Rayleigh quotient."
+        ],
+        "reasoning": "This uses only independent disjoint coordinate sets, product of two stated exact laws, and diagonalization of a two-vector swap. It is a mechanical consequence of that proof, even though marginal spectra alone would not determine a joint spectrum.",
+        "searches": [
+          "2026/10/13/SCOPE-a-three-null-direction-covariance-geometry-for-directed-random-g--464a063a69a1, RESULT.md Proof, mixed block and binomial normalization (mirror chars 1350–3790)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The marginal in/out histograms are linear sums of the joint cells, not equivalent statistics; the joint product mode is invisible to those marginal sums. Lin–Reinert's undirected scalar histogram and Wang–Resnick's preferential-attachment joint counts are not model-equivalent."
+        ],
+        "reasoning": "The relevant equivalence is instead between a bivariate degree-indicator covariance and the corresponding bivariate probability table: add the product of the known marginals. This identifies the exact kernel to tensorize.",
+        "searches": [
+          "Resultary: directed random graph marginal in/out and joint bidegree histogram covariance and Pearson spectra",
+          "Lin–Reinert arXiv:0912.4812 p. 6; Wang–Resnick arXiv:1510.00290 p. 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact listing of the n²-cell spectrum was identified in the compared sources. The distinct same-day spectrum uses an undirected fixed-edge graph and hypergeometric marginal weights. The material Resultary hit gives an exact two-degree law, not a census of identical tables."
+        ],
+        "reasoning": "No duplicate table is needed for the originality finding: the exact kernel in the prior proof yields the purported new spectral table algebraically.",
+        "searches": [
+          "Local Resultary degree-histogram covariance/spectrum lookup; compare 2026/10/18/SCOPE-edge-count-invariant-covariance-spectrum-of-fixed-edge-random-gr--6c2dd1be4f3b",
+          "Directed in/out degree covariance and joint counts literature comparison"
+        ]
+      },
+      "rationale": "The exact spectrum is not explicitly listed in the earlier marginal-histogram theorem, but it is an immediate tensor-and-swap consequence of the exact two-vertex mixed degree law actually proved there, in the same independent-arc model. This is demonstrable coverage by implication, not an inference from similar histograms or indexing dates.",
+      "residual_risks": [
+        "The assessment does not identify the first publication of the exact four-level list, nor assert that the earlier marginal spectrum itself states the product eigenvalue."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers by implication, not the same histogram theorem",
+          "evidence": "Proof gives the exact i≠j one-shared-arc mixed indicator covariance, the signed binomial ratio and orthonormal normalization.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-a-three-null-direction-covariance-geometry-for-directed-random-g--464a063a69a1/RESULT.md",
+          "material_read": "Finding, Proof, and limitations; decisive mixed-block proof at mirror chars 1350–3790",
+          "method": "Local Resultary search and OA mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "A three-null-direction covariance geometry for directed random graphs",
+          "trigger": "Same independent-arc model and exact degree-count spectrum"
+        },
+        {
+          "assessment": "Distinct ensemble and statistic",
+          "evidence": "Undirected fixed-edge scalar histograms with hypergeometric weights.",
+          "identifier_or_url": "2026/10/18/SCOPE-edge-count-invariant-covariance-spectrum-of-fixed-edge-random-gr--6c2dd1be4f3b",
+          "material_read": "RESULT.md mirror chars 0–3464",
+          "method": "Local Resultary and mirror",
+          "title": "Edge-count-invariant covariance spectrum of fixed-edge random graphs",
+          "trigger": "Exact degree-histogram spectral comparison"
+        },
+        {
+          "assessment": "Related method, not the same joint cells",
+          "evidence": "Entries concern scalar degrees of an undirected independent-edge graph.",
+          "identifier_or_url": "https://arxiv.org/abs/0912.4812",
+          "material_read": "pp. 2 and 6, model and covariance entries",
+          "method": "OA primary-text reader",
+          "title": "Joint Vertex Degrees in an Inhomogeneous Random Graph Model",
+          "trigger": "Exact antecedent for degree count covariance"
+        },
+        {
+          "assessment": "Different parameter ensemble and conclusion",
+          "evidence": "Asymptotic degree-sequence enumeration, not an exact joint histogram spectrum.",
+          "identifier_or_url": "https://arxiv.org/abs/2006.15797",
+          "material_read": "p. 1, scope of enumeration and fixed-edge approximation",
+          "method": "OA primary-text reader",
+          "title": "Asymptotic enumeration of digraphs and bipartite graphs by degree sequence",
+          "trigger": "Prescribed directed in/out degrees"
+        },
+        {
+          "assessment": "Same statistic type in a different model",
+          "evidence": "Preferential attachment and asymptotic normality, not the finite independent-arc kernel.",
+          "identifier_or_url": "https://arxiv.org/abs/1510.00290",
+          "material_read": "p. 1, model and statistic",
+          "method": "OA primary-text reader",
+          "title": "Asymptotic Normality of In- and Out-Degree Counts in a Preferential Attachment Model",
+          "trigger": "Counts of vertices with specified in/out degree pairs"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding, variance bound and limitations",
+        "Prior Resultary mixed-degree law and the explicit tensor comparison above"
+      ],
+      "rationale": "The nonlinear product mode and a uniform sharp variance bound are useful summaries for joint scores. However, the only claimed advance is the mechanically tensorized exact second-moment consequence of an existing kernel in the same model. No independent unresolved obstruction, additional result, or nonmechanical narrow invariant is established by this frozen claim.",
+      "residual_risks": [
+        "The decision is about this exact second-moment claim, not the possible scientific value of joint-cell limit laws or extensions to dependent arcs."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

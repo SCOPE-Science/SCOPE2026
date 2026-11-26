@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,7 +19,24 @@
 }
 ---
 
-# Verification record
-The self-contained source `verify_quintic.cpp` was compiled with C++17 and executed. It enumerates 836 eligible primes at most 31126, reconstructs their fifth-power colors both by discrete-log enumeration and independent coset construction, compares all 125 histogram counts, and verifies the 48 all-word and 43 mixed-word exceptional primes. The boundary prime 2311 misses the all-zero word and a mixed word; 2411, 2731, and 3331 miss only the all-zero word; 2341 and 3361 exhibit all words. The inequality \(125N_{\mathbf c}(p)\ge p-176\sqrt p-75\) is mathematical proof for the untested infinite prime tail, not a numerical extrapolation. The classical Weil character-sum theorem is invoked, not independently certified. No independent audit has been performed.
+# Independent mathematical audit
 
-Run: `g++ -std=c++17 -O2 -Wall -Wextra verify_quintic.cpp -o verify_quintic && ./verify_quintic`
+## correctness
+
+PASS
+
+On nonzero arguments, expansion of the three five-character projections gives the p−3 principal term. For s nonzero exponents the active polynomial has s distinct roots of multiplicities 1–4, so is not a fifth power and the order-five Weil estimate is (s−1)√p. Restoring the omitted x could affect at most 3−s nonvanishing terms. The support strata have 12, 48 and 64 terms, yielding 125N≥p−176√p−75. At 31126 the difference of squares (p−75)²−176²p is 5625 and p−176√p−75 increases thereafter. The finite run used a separate Python sieve and fifth-power-coset enumeration over all 836 eligible primes through 31126. It matched both printed exception lists (48 and 43) and all six boundary patterns. At 2311 the least generator is 3, with only (0,0,0) and (2,0,2) absent; the latter label is generator-specific. Changing generator multiplies labels by a unit modulo five and preserves the all-zero word. The C++ was inspected, not run. Independent replay and output are branches/c076698d-228a-4fbb-8203-95c042e35703/reproduce.py and census-full.txt (lines 1–9). The analytic bound covers the entire infinite tail, not sampled primes.
+
+## originality
+
+PASS
+
+Credit applies to the full ordered length-three quintic coset census and sharp mixed-word threshold, not to the known all-residue obstruction at 3331, the character-sum method, or separate results for other orders. Existing accessible statements do not give the mixed-word list or imply its boundary at 2311/2341.
+
+## value
+
+PASS
+
+The presence of local coset patterns is a natural arithmetic invariant, and the exact separation between the known all-residue obstruction and the last mixed obstruction answers a distinct question. The exact finite classification and boundaries are not predicted by the generic character-sum estimate or a neighbouring character order.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

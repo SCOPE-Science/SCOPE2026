@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:32:34.556018Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On the span of Φ+ and Ψ+, the Hamiltonian is the 2×2 matrix with diagonal (−J,J) and off-diagonal Ω. Exponentiating and tracing gives (I−y_m σ_x)/2 with y_m=[2JΩ/(J²+Ω²)]sin²(mφ) and φ=T√(J²+Ω²). With q=1−p the geometric age sum gives μ=c[1−p(1−q cos(2φ))/(1−2q cos(2φ)+q²)]/2. The fraction is strictly increasing in cos(2φ) for 0<p<1, so μ≤q/(1+q)<1/2, with equality only at c=1 and cos(2φ)=−1. For the entropy f(y)=h₂((1+y)/2), strict concavity gives f(y)≥1−y with equality only at 0 and 1. The resulting upper envelope g(μ)=f(μ)−1+μ is strictly increasing on [0,1/2], since g′≥1−(log₂3)/2>0. Thus saturation requires exactly J=Ω and φ=π/2 modulo π, which gives 0 or 1 polarization depending on parity and saturates the chord. The states commute at all parameters, so σ_x measurement gives precisely the Holevo gap. The maximal mean strictly decreases with p; its limit at p↓0 is 1/2, yielding the nonattained 0.311278124459… bit supremum. This is an analytic replay for the ideal single-spin ensemble, fixed positive T and J,Ω>0, not a claim about other reset states or noise. The finite truncation diagnostics in verify.py were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Murauer et al. give a one-bit dimension bound and the reset-age Shannon-entropy bound h₂(p)/p; neither is sharp for this ensemble.",
+          "Wald et al. full text was not obtained by the attempted DOI and journal OA routes; no claim about its contents is inferred here."
+        ],
+        "reasoning": "Dimension and input-entropy bounds admit larger gaps and contain no equality criterion on J/Ω and phase. A stationary mixture alone does not entail an optimum of the difference between its entropy and the mean conditional entropy.",
+        "searches": [
+          "arXiv:2610.40638v1 Summary and Discussion, PDF p. 16",
+          "10.22331/q-2025-05-13-1742 as a potential broader resetting framework"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Murauer et al., arXiv:2610.40638v1",
+        "Wald et al., DOI 10.22331/q-2025-05-13-1742 (full text not obtained)",
+        "Resultary a3cd551fadd0 (self) and 351c5e415d3b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The reduced-state formula already implies commutation and hence achievability by the common local eigenbasis; this measurement fact on its own is a direct consequence. Eq. (51) is an ensemble entropy sum and the discussion gives only generic upper bounds.",
+          "A binary channel with a deterministic odd-age output and a fair even-age output describes the optimizer, but does not on its own show that the Ising and geometric-age constraints force the relevant mean below 1/2 or that no other phase attains the bound."
+        ],
+        "reasoning": "The nontrivial comparison uses the cap on mean polarization and strictness of the entropy chord and geometric maximum together. Neither a numerical entropy curve nor the mere availability of the prior formula controls this joint optimization and all equality cases.",
+        "searches": [
+          "arXiv:2610.40638v1 Eq. (25), Eqs. (48), (51) and p. 16",
+          "Resultary 351c5e415d3b, finding and assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Murauer et al. give the same reduced-state polarization and identify the same Jensen gap as age Holevo information. The Resultary exact hit a3cd551fadd0 is the frozen record itself.",
+          "Resultary 351c5e415d3b shares the Bell preparation and geometric age weighting but gives a two-qubit concurrence infimum."
+        ],
+        "reasoning": "Rescaling the phase and Hamiltonian parameters identifies the starting ensemble with Murauer et al., not an earlier maximization result. The concurrence infimum is neither a reformulation nor a bound for the local age-information optimum.",
+        "searches": [
+          "Resultary: Bell reset, single-qubit reset age Holevo information, Ising dimer and sharp entropy ceiling",
+          "arXiv:2610.40638v1 §§III.A and IV, Eqs. (25), (48), (51)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The statement under a3cd551fadd0 is the same record; distinct nearby entry 351c5e415d3b gives p/(2−p) for a different observable.",
+          "The strongest same-system paper publishes the age-weighted entropy expression in Eq. (51), not the sharp envelope or a table establishing it in the inspected passages."
+        ],
+        "reasoning": "A shared geometric parity weight is not an exact table of the Holevo optimum. An indexed matching decimal alone would not establish equivalence without the optimizing restrictions and observable.",
+        "searches": [
+          "Resultary: exact single-qubit Bell-reset information ceiling, geometric-age parity, 0.311278 bits"
+        ]
+      },
+      "rationale": "The same reset dynamics, reduced-state formula and Holevo identification were already published. Exact optimization of that particular single-spin Holevo gap over the allowed couplings and phase, its full equality conditions, and the resulting absolute supremum are the supported distinction.",
+      "residual_risks": [
+        "No exhaustive priority claim. The Wald et al. full text remained unavailable on the tried lawful routes; uninspected work may contain a stronger optimized bound. The same-system dynamics and information identity, and the direct measurement consequence of commutation, are not independent novelty claims."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior model, conditional dynamics and Holevo setup; inspected bounds do not cover the sharp optimization",
+          "evidence": "Bell-reset entries V=1/2 and W=−α sin²(Ωγm)/γ²; Eq. (48) identifies the age Holevo gap, Eq. (51) gives its age-weighted term, and the discussion gives bounds of one bit and h₂(p)/p.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.40638v1",
+          "material_read": "§III.A pp. 5–6 Eqs. (15)–(17), (25); §IV p. 9 Eqs. (48), (51); Summary and Discussion p. 16",
+          "method": "OA full-PDF bounded passages, offsets 29400–43471, 62000 and 109400",
+          "title": "Entanglement diagnostics of stochastic-resetting steady states: theory and measurement on superconducting qubits",
+          "trigger": "Identical model and observable; strongest plausible overlap"
+        },
+        {
+          "assessment": "Unresolved access, not negative coverage evidence",
+          "evidence": "No decisive passage available from these retrieval attempts.",
+          "identifier_or_url": "https://doi.org/10.22331/q-2025-05-13-1742",
+          "material_read": "Bibliographic identification only; full text was not retrieved",
+          "method": "Lawful OA attempts via DOI and journal routes",
+          "title": "Stochastic resetting in discrete-time quantum dynamics: steady states and correlations in few-qubit systems",
+          "trigger": "Cited broader resetting theory"
+        },
+        {
+          "assessment": "Different invariant and extremum",
+          "evidence": "Age-averaged two-qubit concurrence infimum max(0,κ_w), including p/(2−p) for Bernoulli resets; no single-qubit Holevo maximization.",
+          "identifier_or_url": "2026/11/8/SCOPE-sharp-universal-entanglement-floor-for-parity-preserving-bell-re--351c5e415d3b",
+          "material_read": "Finding and assumptions in RESULT.md",
+          "method": "Resultary search and local mirror, offset 0, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Sharp universal entanglement floor for parity-preserving Bell resets",
+          "trigger": "Strongest distinct exact Bell-reset catalogue item"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This replaces a one-bit dimension bound by a sharp attainable fixed-reset-rate envelope, gives every exact tuning, and identifies the optimal parity-to-local-measurement channel. It explains quantitatively why the best possible single-spin readout in this model still yields at most about 0.3113 bits of age information. The simple entropy method resolves a real optimization question raised by a published physical model; no extrapolation to noisy devices, two-spin information or larger systems is justified.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

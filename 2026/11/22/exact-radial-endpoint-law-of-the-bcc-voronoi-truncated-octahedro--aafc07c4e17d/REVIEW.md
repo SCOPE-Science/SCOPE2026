@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof identifies the Euclidean BCC Voronoi cell using **all** lattice-vector bisectors, not an assumed first shell. Its 24 vertices are equiradial, the squared-deficit variance identity bounds the distance to a vertex, and a uniform interval below \(1/64\) isolates exactly three active halfspaces. A 16-Jacobian coordinate map converts the radial deficit into \(t-8Ht^2\), and the quadratic smaller root and analytic bounds exclude all other local components. A complete integral and Lagrange inversion produce the exact coefficients. The included independent exact-rational program checks finite algebraic steps; it does not replace proof of infinite claims.
+PASS
 
-## Originality — PASS (provisional priority)
+The 14 halfspaces characterize the Voronoi cell: for half-integral lattice points the cube bound controls integer parts and the l1 bound controls half-unit parts; the axial bound alone controls integral points. Any vertex is on a cube facet (the l1 ball's own vertices violate the cube), and each such facet is a diamond whose corners yield the 24 signed permutations of (1/2,1/4,0). The common squared norm is 5/16, the minimum squared separation is 1/8, and the covolume is 1/2. The equal-radius convex-combination identity forces a point of deficit below 1/64 into a disjoint radius-1/8 vertex ball where only three planes constrain membership. The cone coordinates have Jacobian 16 and deficit t-8Ht^2, with 1/10<=H<=1; its smaller root lies below 2 epsilon and within the ball, while the other root is at least 1/16 and cannot contribute inside the ball. The volume multiplier is 24 times (16/3) divided by 1/2. Lagrange inversion for t=epsilon/(1-8Ht) gives the coefficient formula, uniformly integrable on the displayed range. Integrating the monomials by factorial ratios gives the first three moments of H and the stated coefficients; the positive lower bound on H ensures positivity at all orders. Independence and the leading cubic term give the sample maximum law. In the replacement, the comparison with Luo is normalized by E[||X||^p]=2^(-p/3)E_p(A_bcc); the even moments of the independent radial-factor representation agree exactly, including total mass. Conditional integration of the radial factor gives the credited global survival quadrature.
 
-The closest primary source is Luo (arXiv:2611.09523v1), which proves global optimality of the BCC lattice across all finite Voronoi moment exponents and gives a two-dimensional integral for those moments. Since compactly supported moments determine the distribution, this is implicit coverage of the radial distribution, but the inspected text does not give the new **explicit near-endpoint distribution integral or coefficient series**. Bourne–Cagnetti–Roper (arXiv:2610.39705v1) concerns local lattice moment optimization; the established 1983 optimal quantizer paper treats mean square error. An indexed D4 24-cell near-hole result has a related method but a different cell, dimension, and coefficients. Multiple public literature and mathematical finding-index searches for aliases and exact coefficients found no statement equivalent to the explicit BCC tail law. Search failure alone is not proof of priority. See `AUDIT.json` for searches, source inspections, implication comparisons and residual risks.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The BCC Voronoi cell is the natural three-dimensional lattice-quantization optimizer and has a physically meaningful worst-case error. Its exact upper-error probability, all-orders positive rational coefficients, and cubic rare-event limit refine the known covering radius and moment data into an interpretable near-worst-case reliability law. No new optimality across lattices or global error CDF is asserted.
+The frozen presentation undercredits Luo's same-cell facet quadrature: it directly gives a global radial law, not only a moment-determinacy assertion. The corrected result claims only the explicit, fixed-simplex endpoint extraction and convergent positive rational coefficient formula. The distribution itself is credited as covered by the global quadrature and the extreme limit is a consequence, not an independent novelty claim.
 
-## Remaining limitations
+## value
 
-Only \(0<\varepsilon<1/64\) is certified for the exact integral; the endpoint is sufficient, not asserted sharp. Source overlap risk remains under radial-volume/Wigner–Seitz distribution terminology and through inversion of the full moment sequence. The included checker is finite and arithmetic; the infinite law requires the written proof. External human or other independent audit is not part of this review.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The squared-deficit endpoint is a natural quantization-error invariant at a standard lattice. Resolving its support gives a convergent series with explicitly computable rational coefficients and a positive, calibrated leading constant, information that is not furnished by global moment optimization or by the unevaluated shrinking-domain quadrature. This permits high-order near-worst-case comparisons at fixed covolume, and the same leading coefficient sets the law for sample maximum error. The contribution is that local extraction, not a second identification of the entire law or an optimization theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Scientific assessment: Euclidean inball contact tensorization
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem uses the standard polar correspondence between vertices of the centered Lipschitz polytope and facets of the associated real transportation-norm unit ball. The maximal squared support-normal length is precisely \(N\) times the maximum variance under the uniform product measure. The finite Hoeffding expansion shows that equality in the Efron–Stein bound is possible only for additive coordinate functions; equality in every factor then identifies the complete set of contact normals. Strict convexity of squared Euclidean norm makes all such maximizers actual polar vertices. The antipodal supporting inequalities force every optimal ball center into the orthogonal complement of these normals; a finite strict-slack argument shows that a neighborhood inside that complement is feasible. Orthogonality of distinct centered factor lifts establishes the exact dimension. Signed ramps uniquely saturate the variance bound on each path. The exact-arithmetic program corroborates seven finite grids without claiming that finite tests prove the general statement.
+PASS
 
-## Originality — PASS with explicit priority exclusions
+The edge-root directions span the zero-sum hyperplane, and central symmetry gives an interior origin. Its polar inequalities are exactly the centered Lipschitz constraints. Polar vertices give support-value-one facets, and the longest polar vectors are vertices by strict convexity. Central symmetry allows centering an arbitrary feasible ball at zero without loss of radius. Under the uniform independent coordinates the conditional variance sum weights each orthogonal Hoeffding term on A by |A| rather than 1. Equality forces all |A|>=2 terms to vanish. Centered additive terms are individually feasible and reconstruct a feasible sum for the sum metric; sharpness forces every term to be a factor maximizer. Uniqueness of centered factors gives the product contact count. Antipodal active inequalities force each optimal center to annihilate the contacting normals, and the gaps to finitely many remaining facets give a relative neighborhood in that annihilator. Sign differences isolate every lifted factor span, and distinct lifts are orthogonal; the codimension is therefore the sum of the q_i. For paths, the pairwise squared-distance variance bound is saturated only by the signed centered ramps, since the two endpoints must achieve their full distance. These prove the arbitrary finite metric and grid claims without extrapolation.
 
-Bobkov and Houdré (1996), Theorem 1/Lemma 5, already establish maximal-variance tensorization, so the **radius value by itself is known through standard polarity**. Higashitani–Jochemko–Michałek (2018) and D'Alì–Delucchi–Michałek (2019) establish general symmetric-edge-polytope facet geometry. Çelik and collaborators (2020) treat Cartesian path-product metrics and tabulate complete \(3\times2\) and \(3\times3\) facet totals. The present contribution is **not** any of these scalar or aggregate facts, but the characterization of every maximal-norm dual vertex as an additive combination of factor extremizers, exact product counts of the contacting facets, and the affine-hull dimension of all optimal inball centers for arbitrary finite metric product factors. Published individual-path and Boolean-cube inball formulas are proper special cases. No stronger or equivalent general geometric contact/center classification was found in the inspected full texts and accessible published summaries. Unindexed geometrically equivalent treatments remain a residual risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The family of tangent facets and the freedom to translate a largest inscribed Euclidean ball are geometric invariants more refined than the radius and the total facet count. The complete tensorization theorem handles arbitrary finite metric factors, not just a sequence of increasing grid sizes. Its sharp rectangular-grid corollary distinguishes the total number of facets from the exponentially smaller family contacting the origin-centered insphere and gives an exact large affine incenter locus \(N-s-1\). This unifies earlier path and hypercube observations and identifies their common structural reason; no downstream conjecture is required for this self-contained classification to be mathematically motivated.
+The scalar radius is covered by Bobkov–Houdré's maximal-variance tensorization and standard polarity; the Boolean-cube and path contact calculations also overlap exactly in their domains. The supported distinct claim is the full contacting-normal product classification and the affine rank law for all optimal centers for arbitrary finite factor metrics, and hence grid contacts beyond Boolean cubes. None of the inspected comparisons supplies that equality-case and geometric classification throughout this domain. Establishing it requires recovering all additive optimizers and proving the antipodal tight-normal span and local sufficiency; multiplying the scalar variance or using a total facet count does not do that.
 
-## Boundaries and bibliographic uncertainty
+## value
 
-No claim is made about a new variance inequality, small-grid total facet counts, complete optimal-center polytope boundary, or independent validation. The original 1996 scalar result and the 2020 complete face-vector table are credited expressly. Independent equivalence searches cannot exclude an unindexed geometric statement. The only scientific checks reported as completed are the derivation and exact computations described in the accompanying result; no third-party audit has been carried out.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is a complete classification of the origin contacts and a structural rank law for the translation freedom of all largest balls, not a scalar variance estimate or a recomputation of face numbers. It applies to arbitrary finite metrics and explains why path-product grids can have many facets yet relatively few contacts and a large affine incenter locus. It does not claim a complete description of the boundary of that locus.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

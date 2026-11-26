@@ -1,0 +1,152 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:26:10.280020Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 14–51; VERIFICATION.md; verification/verify.py and verification/expected.txt (read only)",
+        "Independent replay: python3 /workspace/review_evidence/matching.py (standard library)"
+      ],
+      "rationale": "Independently built lexicographic GP(n,2) edges and all matching faces by incremental edge inclusion. For ascending toggles the augmented face totals are 3418, 10990, 34880; directed Hasse relations total 14329, 52712, 187857, with a full topological order in every case. The critical cells after restriction to the nonempty face poset are a vertex plus counts (2,30), (11,25), (57,15) in degrees (3,4), (4,5), (5,6). Restriction drops the empty face and its matching arrow; its paired vertex becomes critical and the remaining oriented Hasse graph is a subgraph of the certified acyclic one. Recomputed each integer Morse column by topologically ordered sparse subtraction of the matched upper simplicial boundaries at matched-lower unit incidences, then discarding matched uppers of the target degree. Integral elimination has 2,9,15 unit pivots and zero residual matrices. Descending order independently yields the same wedge multiplicities. The CW skeleton below its upper cells is a wedge of d-spheres. Hurewicz identifies each attaching class with its degree vector, and the resulting map of wedges has the Morse CW type as its homotopy cofiber. Integral basis changes are realized by homotopy equivalences of the two wedges; unit diagonal summands have contractible cofiber and zero columns attach trivially. Hence these are integral homotopy types, not just homology ranks.",
+      "residual_risks": [
+        "The frozen script only tabulates expected forward counts and filters positive critical dimensions; the independent computation counts every critical dimension and checks both orders. No assertion for higher n, equivariance or periodicity follows."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kim gives a family theorem for the independence complex of GP(n,2) itself",
+          "Bayer–Jelić Milutinović–Vega prove contractibility or a sphere wedge for matching complexes of nonempty outerplanar graphs",
+          "12d2a57d6cde gives 98 S^7 and 6 S^8 summands for the distinct Nauru graph"
+        ],
+        "reasoning": "The independence family theorem addresses the wrong graph for the line graph reformulation. None of the assigned graphs is outerplanar, since a nonempty outerplanar graph has a vertex of degree at most two and all degrees here are three. The Nauru example is not a dominating parameter theorem.",
+        "searches": [
+          "arXiv:2611.22021v1 §4 Theorem 4.6; arXiv:2411.04601 §2 Theorem 2",
+          "Resultary ordinary edge matching complex of GP(12,5), 12d2a57d6cde"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.22021v1, arXiv:2411.04601",
+        "Resultary 70d37e80dd93, 13f009168e17, 1c34d1c9107e, 2f300b2d7d8d, 2058dcbfce11, 29af2a0878b2, 12d2a57d6cde"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Degree-two matching types S^8,S^10,S^12 for n=6,7,8 contain no claimed implication for degree-one matchings",
+          "The Dürer wedge supplies a control but not a family recursion",
+          "No inspected same-family theorem determines the needed ordinary edge matching attaching maps"
+        ],
+        "reasoning": "Homotopy type of the larger degree-two complex does not determine the subcomplex with degree at most one, nor does two-independence on original vertices determine independence on the line graph. Discrete Morse theory is a tool for the new certificates, not an automatic computation of these ranks and attaching data.",
+        "searches": [
+          "Kim §4 Theorem 4.6; Bayer–Jelić Milutinović–Vega §2 Theorem 2; Resultary 13f009168e17, 1c34d1c9107e, 2058dcbfce11"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ordinary matching is Ind(L(G)); Theorem 4.6 gives Ind(GP(n,2)), with S^(n-4) in the inspected small cases",
+          "13f009168e17 treats degree-two edge matchings; 1c34d1c9107e treats graph-vertex subsets inducing maximum degree one"
+        ],
+        "reasoning": "L(GP(n,2)) is 4-regular, not another cubic GP(n,2); the line graph identity does not turn the theorem for GP itself into the claimed theorem. Degree-two edge faces and two-independence vertex faces are not ordinary edge matchings.",
+        "searches": [
+          "Public query: \"matching complex\" generalized Petersen graph GP(n,2) integral homotopy",
+          "arXiv:2611.22021v1 Introduction, §1.1 and §4 Theorem 4.6",
+          "Resultary 13f009168e17, 1c34d1c9107e"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact match 70d37e80dd93 is the frozen record itself",
+          "Petersen GP(5,2) has 5 S^2 and 5 S^3 summands; Dürer GP(6,2) has 22 S^3 summands in the actually inspected distinct records",
+          "Same-parameter catalog comparisons use degree-two matchings or two-independence"
+        ],
+        "reasoning": "The self match is not independent evidence of coverage. Adjacent ordinary cases and similarly named complexes do not supply exact matching-complex entries for the three assigned parameters.",
+        "searches": [
+          "Resultary ordinary matching-complex homotopy of exact GP(7,2), GP(8,2), GP(9,2) parameters; neighboring records 2f300b2d7d8d, 2058dcbfce11 and 29af2a0878b2"
+        ]
+      },
+      "rationale": "No inspected distinct source establishes these three ordinary matching-complex types. The strongest same-parameter hits compute different complexes, and ordinary matching-complex results in the same family have different parameters. This concerns exact integral wedges, not only a generic applicable wedge theorem or graph-family enumeration.",
+      "residual_risks": [
+        "The literature and catalog searches are bounded and cannot exclude unindexed or inaccessible ordinary matching-complex computations. No inference of priority from dates alone."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "A broader result on a different complex",
+          "evidence": "The text distinguishes Ind(G) from ordinary matching Ind(L(G)); the theorem gives Ind(GP(n,2)), including S^(n-4) for n=6,7,8,9.",
+          "identifier_or_url": "https://arxiv.org/html/2611.22021v1",
+          "material_read": "Introduction line graph passage (offset about 820); §1.1 definitions (4050); §4 Theorem 4.6 (49480–50828)",
+          "method": "OA HTML bounded passage inspection",
+          "title": "Perfect matching complexes of antiprism graphs and independence complexes of generalized Petersen graphs",
+          "trigger": "Exact GP family and small parameters; possible line graph equivalence"
+        },
+        {
+          "assessment": "Outerplanarity hypothesis excludes these cubic graphs",
+          "evidence": "The theorem is for nonempty outerplanar graphs.",
+          "identifier_or_url": "https://arxiv.org/html/2411.04601",
+          "material_read": "§2 Theorem 2 (OA offset about 3000)",
+          "method": "OA HTML bounded passage inspection",
+          "title": "Matching Complexes of Outerplanar Graphs Are Contractible or Wedges of Spheres",
+          "trigger": "General integral homotopy result for ordinary matching complexes"
+        },
+        {
+          "assessment": "Degree-two matching complexes, not ordinary matching complexes",
+          "evidence": "Faces allow degree up to two, and the listed types are S^8, S^10, S^12.",
+          "identifier_or_url": "Resultary 13f009168e17",
+          "material_read": "RESULT.md opening, definition and n=6,7,8 findings",
+          "method": "Resultary lookup and local mirror passage inspection",
+          "title": "Three consecutive sphere homotopy types for generalized Petersen graphs",
+          "trigger": "Matching terminology and exact overlap at n=7,8"
+        },
+        {
+          "assessment": "Different complex",
+          "evidence": "Faces are vertex subsets inducing maximum degree at most one.",
+          "identifier_or_url": "Resultary 1c34d1c9107e",
+          "material_read": "RESULT.md opening, findings and vertex-face convention",
+          "method": "Resultary lookup and local mirror passage inspection",
+          "title": "Four intermediate higher-independence homotopy types in the generalized Petersen family",
+          "trigger": "Same n=7,8,9 parameters"
+        },
+        {
+          "assessment": "Only GP(5,2)",
+          "evidence": "5 S^2 and 5 S^3 summands.",
+          "identifier_or_url": "Resultary 2f300b2d7d8d",
+          "material_read": "RESULT.md opening wedge statement",
+          "method": "Resultary lookup and local mirror passage inspection",
+          "title": "Integral homotopy and the S_5 character of the Petersen edge matching complex",
+          "trigger": "Known neighboring ordinary matching case"
+        },
+        {
+          "assessment": "Known case is separate from the three assigned cases",
+          "evidence": "22 S^3 summands for GP(6,2); the character calculation does not extend the ordinary homotopy classification to n=7,8,9.",
+          "identifier_or_url": "Resultary 29af2a0878b2 and related 2058dcbfce11",
+          "material_read": "RESULT.md openings; distinction between known wedge and dihedral character",
+          "method": "Resultary lookup and local mirror passage inspection",
+          "title": "The Dürer matching complex: an integral sphere wedge and its full dihedral character",
+          "trigger": "Known adjacent ordinary GP(6,2) case"
+        },
+        {
+          "assessment": "Distinct GP(12,5), not a family formula",
+          "evidence": "98 S^7 and 6 S^8 summands.",
+          "identifier_or_url": "Resultary 12d2a57d6cde",
+          "material_read": "RESULT.md opening homotopy statement",
+          "method": "Resultary lookup and local mirror passage inspection",
+          "title": "The Nauru matching complex is a mixed-dimensional integral sphere wedge",
+          "trigger": "Potentially broader generalized Petersen ordinary matching data"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–12, 19–48, 53–59",
+        "Resultary 2f300b2d7d8d and 29af2a0878b2"
+      ],
+      "rationale": "These are the next three natural parameters after the two known named graphs in the same family. The exact integral calculation resolves attaching maps beyond mod-two Betti numbers and exhibits a mixed-dimensional wedge between two single-dimensional ones. It supplies precise benchmarks for proposed matching-complex recurrences, connectivity bounds, or periodic patterns, without claiming those generalizations.",
+      "residual_risks": [
+        "A finite classification, not a full census or general wedge theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

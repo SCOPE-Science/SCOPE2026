@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Hall's theorem reduces the simultaneous one-pollinator-per-plant feasibility event to seven explicit inequalities. Integer counting gives an exact Bernstein-basis reliability polynomial for each network. A complete enumeration of every nonempty pollinator-neighborhood multiset with at most seven pollinators establishes uniform coefficientwise-dominant additions below seven and classifies all 24 exceptions at seven. The exceptional gains are exact small vectors, and their factorizations yield the unique \(1/2\) or \(2/3\) switch. Direct assignment enumeration checks the exhibited witness independently of Hall.
+## correctness
 
-**Originality — PASS on the inspected record; historical priority not independently certified.** Earlier pollination-robustness studies motivate failures and rewiring but do not formulate capacity-limited simultaneous service via a plant-covering matching. The closest full-text mathematical work on left-perfect matchings studies random construction degree distributions, not the best one-link augmentation of an already fixed graph under independent right-vertex loss. A full-text robust-matching augmentation treatment uses adversarial single-edge removal, not stochastic pollinator loss. Existing network node-reliability works focus on connectivity. Related literature may contain an equivalent reliability identity or classification under alternative terminology, so historical-priority risk remains. No full-text claim is inferred from an abstract alone.
+PASS
 
-**Value — PASS.** A fixed budget of one new mutually compatible interaction is a natural small conservation-network design idealization, and simultaneous service with finite-capacity providers differs materially from independent plant coverage. The sharp seven-pollinator threshold and complete exceptional-guild classification show precisely when a recommendation can reverse as survival probability changes, rather than merely enumerating a random small graph. The model is theoretical and not an empirical management prescription.
+The seven nonempty neighborhood types describe the entire finite space: sorting the n masks quotients pollinator permutations and does not quotient plant labels. For each survivor count k, each particular live set has probability p^k(1-p)^(n-k), and service is equivalent to an injective assignment of three plants to live pollinators. The independent replay used direct three-pollinator assignments rather than the frozen checker's Hall test. It exhausts (84,210,462,924,1716) mask multisets at orders 3–7 and verifies the connected/serviceable and missing-link filters; the complete graph is the unique missing-link exclusion at every order. For orders 3–6 each eligible graph has a candidate maximizing every gain coefficient. At seven, 1400 such certificates and 24 exceptions exhaust the 1424 eligible graphs. All exception gains are zero or have nonzero components (d3,d4)=(4,0),(5,0),(3,1); every exception has (3,1) and a pure d3 competitor. The stronger pure d3 competitor, if both exist, dominates the other, so the exhaustive vector classification reduces exact optimality to p^3(1-p)^3 times either 1-2p or 2-3p, with one strict interior sign change and a tie at its zero. Thus coefficient incomparability alone is not used as proof of a switch. The replay confirms the 9/15 split, all five plant-label orbits, and the first witness baseline (0,0,0,26,34,21,7,1), including the claimed B–0 and A–2 gain vectors, with all other candidates accounted for. This is a proof of the stated finite range, not a classification for n>7 or measured ecological behavior.
 
-## Closest sources and residual scope
+## originality
 
-Dietzfelbinger–Rink (arXiv:1203.1506, 2012): optimal random incidence degree distributions, not fixed-network augmentation. Hommelsheim–Mühlenthaler–Schaudt (arXiv:1805.01299; STACS 2019): adversarial edge failure and minimum multi-link cost, not reliability ranking under right-vertex failures. Kaiser-Bunbury et al. (Ecology Letters, 2010): ecological re-wiring under extinction, not the capacity-limited full-service threshold. Sha–Steiglitz (Networks, 1993): failure-time matching repair, not selecting a single pre-failure incidence. Olesen et al. (PNAS, 2007): ecological background. Related specialized reliability literature remains a priority risk.
+PASS
 
-Scientific limitation: only three plants, one added link, identical independent pollinator survival and unit service capacity. The cutoff is complete only for up to seven pollinators. Source-access limitations and an absent independent audit are not concealed.
+The strongest indexed matches considered include two distinct same-day records with similar threshold language. One changes the intervention timing and the graph design space; the other changes the service event. Neither covers the fixed initially connected incidence network and capacity-one, pre-failure addition classification. The exact indexed match is the frozen item itself. The primary comparisons cover different sampling, failure, or intervention questions. This is a best-of-knowledge finding, not an assertion of historical priority.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The minimum size at which identical survival probabilities change the optimal pre-failure link is a meaningful property of the graph optimization: it tests whether the augmentation decision requires knowing p. The complete first-order exception classification and exact switches explain how saving more triples can lose to saving some quadruples. Choosing three service recipients and one new link is a motivated small matching reliability setting, and the result does not rely on a numerical grid or a claim of empirical pollination policy.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

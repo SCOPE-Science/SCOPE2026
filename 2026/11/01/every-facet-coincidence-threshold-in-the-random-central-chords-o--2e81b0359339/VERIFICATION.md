@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The standalone `central_chord_checker.py` was executed using Python, numpy and scipy. It reported `PASS: 69 independent numerical consistency checks`. These include 22 comparisons of simulated Haar-direction CDF values with analytical expressions in dimensions two and three, six exact-formula-to-quadrature comparisons for the two-face event in dimension three, and tests of the onset constants in dimensions three and four. The dimensions-two and -three CDF comparison uses 250,000 Gaussian directions in each dimension with a fixed seed. The terminal coefficient and general beta-integral constant are derived analytically in RESULT.md. The finite computations do not establish the result for every dimension.
+## correctness
 
-The proof also verifies that each active overlap integral has a strictly positive leading coefficient, that lower-order overlaps remain real analytic across later thresholds, and that the terminal tail uses a separate complement event (not an extrapolation of the right-onset formula). Numerical output should not be used as a substitute for the proof. Historical priority remains qualified by the inaccessible complete texts of Coleman (1981) and Steinerberger (2011).
+PASS
+
+The chord law is for the central line with Haar direction; T=1/max_i|U_i|. Normalized independent Gaussians give squared coordinates with Dirichlet parameters 1/2, and inclusion–exclusion of exceedances gives the exact CDF. For k<d the translation by a=t^(−2) and scaling by δ=1−ka gives Jacobian and remaining-mass power δ^(k+(d−k)/2−1); the fixed-simplex beta integral gives Γ((d−k)/2)/Γ((d+k)/2). Together with k^(k/2) from the limiting coordinate densities and δ∼2ε/√k, this yields precisely B_(d,k). At k=d the direct (d−1)-simplex volume gives the same formula. Earlier overlap terms and the extracted local factor are analytic across the active threshold (fixed domain, uniformly positive coordinate arguments, with an integrable fixed beta weight). Thus the nonzero right-onset term determines the claimed integer differentiability, and no other term at the threshold cancels it. The left upper-end tail is a separate complement-event simplex, of mass coordinate sum da−1, with the same limiting density and coefficient. There are no boundary atoms. The d=3 closed form checks by conditioning on one coordinate and integrating by parts. The code and VERIFICATION.md report finite simulations and quadratures, not an all-dimensional proof; these were inspected, not rerun.
+
+## originality
+
+PASS
+
+The supported distinct claim is the exact fixed-dimensional knot hierarchy and upper-end asymptotic for the central chord law. The maximum-coordinate alias, Gaussian normalization, individual beta tails, and basic inclusion–exclusion are standard. The inspected same-distribution maximum paper concerns growing dimension, and the closest catalogue source covers one- and two-coordinate tails as ingredients of a count covariance, not all overlap coefficients or the CDF singularities. The unavailable random-intercept papers remain explicit risks to historical priority, not negative evidence.
+
+## value
+
+PASS
+
+There is a natural geometric question at every radius where another coordinate can reach the boundary, also visible in an exact Dirichlet maximum law. The hierarchy identifies where the CDF is nonanalytic, how much differentiability survives, the signed nonzero amplitude, and where the upper tail terminates. This is more informative than the standard representation or support bounds, and is useful independently of finding elementary CDF formulas in every dimension.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

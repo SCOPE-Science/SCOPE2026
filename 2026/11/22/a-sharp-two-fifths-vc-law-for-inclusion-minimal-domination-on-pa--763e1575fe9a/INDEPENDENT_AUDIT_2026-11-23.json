@@ -1,0 +1,169 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:00:06.912343Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–49; VERIFICATION.md, verify.py, and verification_output.txt inspected, not executed.",
+        "Replay: python3 /workspace/branches/8aa52f5b-179e-4665-8cd3-dddac591be77/independent_check.py; see corresponding independent_check_output.txt.",
+        "Separate replay with terminal boundaries handled explicitly: python3 /tmp/opencode/path_domination_review.py."
+      ],
+      "rationale": "For a dominating set, deleting a selected vertex destroys domination exactly if some genuine vertex is dominated uniquely by it; this gives the five-bit criterion around each selected center. The boundaries must exclude nonexistent private-neighbor candidates: for length zero there is no test, for length one both boundary exclusions apply to its sole center, and thereafter the leftmost and rightmost genuine centers get the appropriate exclusions. Appending support marks maintains one nonempty set of possible states per assignment class, universally over labels and existentially over the unset bits. Merging equal sets preserves future viability, and accepting requires each set to contain a terminal-valid state. Weighted path counting therefore gives the claimed formal series. An independent tuple-based regeneration using direct tests for the final two centers reproduced 206 reachable families, 140 terminal families, 79 rejected edges and graph SHA-256 745e40a73b2b4c98aa3dee965bd42ffe216cefd75c1ccb361d3d905f7650bd1d. It reproduced the dimensions through 20 and all 206 coordinates of w_(n+5)=w_n+2 at n=16,…,20, including the 78 minus-infinity coordinates at n=16. The fixed transition operation commutes with addition of 2 to a whole vector, so equality at lengths 16 and 21 guarantees it at the next pair and inductively at every later pair. The accepted maximum agrees with the stated floor on the base lengths and grows by 2 per five steps. Independent literal enumeration of dominating sets and selected-vertex deletion also matched every face count through length 13, including the displayed polynomials; this is corroboration, not the all-length step.",
+      "residual_risks": [
+        "The proof is computer-assisted by an exact finite certificate, not a formal proof-assistant attestation or a hand classification. The 206-state presentation is not asserted to be minimal."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The graph algorithm literature enumerates minimal sets; Mary's bounded VC dimension is a property of the input hypergraph, not of its output family of minimal transversals.",
+          "The zero-set paper concerns linear-combination zero sets; the path domination paper's accessible abstract is about minimum-cardinality sets."
+        ],
+        "reasoning": "A bound on input VC or a characterization of minimum sets cannot be applied as an exact shattering law on the entire inclusion-minimal output class.",
+        "searches": [
+          "Bonamy et al., arXiv:1810.00789, PDF p. 2",
+          "Mary, arXiv:2407.00694, PDF p. 1",
+          "Guingona et al., arXiv:2109.04805, PDF p. 1",
+          "Hernández-Gómez et al., DOI 10.3390/sym12122053, publisher edition"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 85d3ecbad804, 2c80e8096553, ce660f6e42ec",
+        "arXiv:1810.00789, 2407.00694, 2109.04805",
+        "DOI 10.3390/sym12122053 (partial)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Every maximal independent set is an inclusion-minimal dominating set, but some minimal dominating sets contain adjacent vertices (e.g. the middle pair of P₄).",
+          "The finite connected-path theorem and disjoint-copy analysis assert no upper bound for arbitrary connected length."
+        ],
+        "reasoning": "Shattering in the independent subclass only provides a lower bound; it cannot bound the larger family above or enumerate its supports. Regular-language determinization and max-plus translation invariance are tools, not sources of the exact period and state data without a certificate for this graph.",
+        "searches": [
+          "Resultary 85d3ecbad804, 2c80e8096553 and ce660f6e42ec, statement-level comparison",
+          "Bonamy et al. and Mary, actual inputs and outputs"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Hitting every closed neighborhood is equivalent to domination, with minimality preserved, so the same objects can be viewed as minimal transversals on the closed-neighborhood hypergraph.",
+          "Resultary 85d3ecbad804 considers the very same membership concepts; Resultary ce660f6e42ec considers Walsh statistics on the same family at length 17, not all shattered supports."
+        ],
+        "reasoning": "The closed-neighborhood encoding is an equivalence of concept families, but enumerating minimal transversals or particular Walsh cancellations does not give the set of supports with every distinct pattern realized.",
+        "searches": [
+          "Resultary: shattering and trace VC dimension of all minimal dominating sets of connected paths, including exact support polynomials and same-day records",
+          "Bonamy et al., arXiv:1810.00789, closed-neighborhood transversal formulation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest exact table is the connected-path VC/Littlestone calculation through 11 vertices. The original source expressly leaves general connected-path values unstated.",
+          "The exact all-face polynomial with VC floor((n+1)/3) concerns maximal independent sets; the same-family Walsh record is at a single path size and records a different statistic."
+        ],
+        "reasoning": "The bounded same-family table agrees with the checked formula but cannot give its unbounded regime. Neither competing exact record supplies the present coefficients for the entire family.",
+        "searches": [
+          "Resultary 85d3ecbad804, Finding and Limitations",
+          "Resultary 2c80e8096553, Finding and Assumptions",
+          "Resultary ce660f6e42ec, Finding"
+        ]
+      },
+      "rationale": "The closest same-family connected-path calculation covers only n≤11, and the closest all-length shattering result concerns a strict subfamily. Neither determines the unrestricted all-length VC law or its shattered-support enumerator.",
+      "residual_risks": [
+        "The bounded survey does not exclude a differently indexed exact formula for minimal transversal traces, or resolve all coverage in the inaccessible text. A nonresponsive web search is not negative evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct partial coverage through n=11 only.",
+          "evidence": [
+            "VC dimension 4 at n=11; connected-path values established only through 11; no general formula asserted."
+          ],
+          "identifier_or_url": "Resultary 2026/10/26/SCOPE-first-vc-littlestone-separation-for-minimal-dominating-sets-of-p--85d3ecbad804",
+          "material_read": "Original RESULT.md Finding at offset 0 and Limitations at offset 7165.",
+          "method": "Local mirror bounded passages.",
+          "title": "First VC–Littlestone separation for minimal dominating sets of paths",
+          "trigger": "Same connected paths, same concepts, same invariant."
+        },
+        {
+          "assessment": "Different, strictly smaller concept family.",
+          "evidence": [
+            "Maximal independent sets only; sharp floor((n+1)/3) for that family."
+          ],
+          "identifier_or_url": "Resultary 2026/11/22/SCOPE-exact-shattering-polynomial-for-maximal-independent-sets-of-path--2c80e8096553",
+          "material_read": "RESULT.md Finding and Assumptions, offset 0.",
+          "method": "Local mirror bounded passage.",
+          "title": "Exact shattering polynomial for maximal independent sets of paths",
+          "trigger": "Same-day all-length exact path enumeration."
+        },
+        {
+          "assessment": "Same objects, different statistic.",
+          "evidence": [
+            "Studies Walsh/Fourier cancellation at P₁₇, not all label patterns of membership supports."
+          ],
+          "identifier_or_url": "Resultary 2026/11/22/SCOPE-the-first-quadratic-only-walsh-cancellation-for-minimal-dominati--ce660f6e42ec",
+          "material_read": "RESULT.md Finding, offset 0.",
+          "method": "Local mirror bounded passage.",
+          "title": "The first quadratic-only Walsh cancellation for minimal dominating sets of paths",
+          "trigger": "Same-day study of the full concept family."
+        },
+        {
+          "assessment": "Enumeration framework, not VC dimension on path traces in the inspected material.",
+          "evidence": [
+            "A minimal dominating set is a minimal transversal of the closed-neighborhood hypergraph."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1810.00789",
+          "material_read": "PDF p. 2, OA offset about 5050.",
+          "method": "OA original bounded passage.",
+          "title": "Enumerating minimal dominating sets in K_t-free graphs and variants",
+          "trigger": "Minimal domination enumeration and exact transversal equivalence."
+        },
+        {
+          "assessment": "The bounded VC hypothesis refers to the input hypergraph.",
+          "evidence": [
+            "The output is a minimal-transversal enumeration task, not a formula for the output class's trace dimension."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2407.00694",
+          "material_read": "PDF p. 1, OA offset about 1800.",
+          "method": "OA original bounded passage.",
+          "title": "Enumeration of minimal transversals of hypergraphs of bounded VC-dimension",
+          "trigger": "Both VC dimension and minimal transversals in a broader setting."
+        },
+        {
+          "assessment": "Different structural family; no matching path-constraint theorem in the inspected material.",
+          "evidence": [
+            "The concepts are zero sets of linear combinations of functions."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2109.04805",
+          "material_read": "PDF p. 1, OA offset 0.",
+          "method": "OA original bounded passage.",
+          "title": "Littlestone and VC-dimension of families of zero sets",
+          "trigger": "General dimension theorem for zero-set families."
+        },
+        {
+          "assessment": "Accessible material is about minimum cardinality; no whole-paper noncoverage claim.",
+          "evidence": [
+            "The concepts studied in the abstract are minimum dominating sets of paths and cycles."
+          ],
+          "identifier_or_url": "https://doi.org/10.3390/sym12122053",
+          "material_read": "Publisher landing page and abstract only.",
+          "method": "Lawful publisher access; full PDF request was unsuccessful.",
+          "title": "Transitivity on Minimum Dominating Sets of Paths and Cycles",
+          "trigger": "Potential exact structural coverage for path domination."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, all-length floor law and transfer identity",
+        "Resultary 85d3ecbad804 connected-path limitation and 2c80e8096553 independent-subclass law"
+      ],
+      "rationale": "The path is a natural model where local feasibility and all simultaneous membership assignments can both be studied. The exact all-length law settles an open range of the connected-path computation and has a different growth rate from the maximal independent subclass. The weighted transfer also determines every shattered-support coefficient, not just the degree or an asymptotic estimate.",
+      "residual_risks": [
+        "Does not resolve all-length Littlestone dimension or give a minimal-size transfer representation."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

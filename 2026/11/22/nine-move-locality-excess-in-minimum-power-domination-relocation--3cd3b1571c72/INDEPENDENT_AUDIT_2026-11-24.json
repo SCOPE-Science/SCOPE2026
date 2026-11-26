@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:49:24.790831Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§ Proof and Verification; VERIFICATION.md; both supplied source algorithms and both recorded result tables inspected as text",
+        "Independent replay from /workspace: python3 checks/cage.py source/2026/11/22/nine-move-locality-*/duad_results.txt; output checks/1.txt"
+      ],
+      "rationale": "The construction is the duad–syntheme incidence graph. A fresh enumeration used sequential forcing: an enabled still-unobserved target remains enabled as observation grows, so iteration to a fixed point gives the same least closure as synchronous rounds. Exhaustive testing at sizes 0 through 4 yielded counts 0,0,0,0,6540. Bucketing the four-sets by a shared triple generates exactly all jumps without duplicates; filtering the two differing vertices by incidence generates exactly the slides. I checked all 1440 permutations used for orbit reduction against the base graph. The induced side-preserving action is full: two duads have a common syntheme iff disjoint, and in the complementary intersection graph on duads the size-five cliques are exactly the six stars; fixing the stars fixes the duads and hence the synthemes. A checked duality supplies the other coset. Orbit BFS reaches all 6540 states in both graphs; weighting source histograms by orbit size and halving distinct ordered counts gives the exact unordered histograms. This independently reproduced the ten orbit rows, 126240 and 23040 edges, the jump radius and diameter 4, slide radius 11 and diameter 13, and slide eccentricity counts 1680,3420,1440 at 11,12,13. The penalty histogram agrees at every entry. Its largest entry index is 9, attained by 1440 pairs, all at (jump,slide)=(4,13); I also checked legality and geodesicity of the recorded 13-slide path.",
+      "residual_risks": [
+        "Finite exact proof for this graph and fixed minimum budget. The orbit statement concerns automorphisms induced by the base incidence graph.",
+        "The saved symplectic all-pairs computation was inspected but not rerun; the fresh exact calculation is in the duad model and uses verified symmetry."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Anderson–Kuenzel Thm. 1 bounds the number by floor(30/4)=7 here, and the sharper claw-free results do not apply to the cubic girth-eight graph."
+        ],
+        "reasoning": "The bounds do not fix the minimum at four or entail its optimizing family, much less its joint distance histogram; the reconfiguration framework defines rather than evaluates the needed comparison.",
+        "searches": [
+          "arXiv:2209.03931, cubic power-domination bounds",
+          "arXiv:2201.01798, general power-domination reconfiguration"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2201.01798",
+        "arXiv:2209.03931",
+        "Resultary records and local-mirror Findings described above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "McGee record 763cb004ebbc: diameters 4/9 and excess 7; Pappus record 2a18810eefed: diameters 3/8 and excess 5. Both are minimum-power-domination comparisons on different incidence/move graphs."
+        ],
+        "reasoning": "These are meaningful methodological neighbors, not stronger statements covering the Tutte–Coxeter graph. Even the two eccentricity/diameter marginals alone would not imply the sharp joint penalty or its 1440 equality pairs.",
+        "searches": [
+          "Resultary McGee seven-cage and Pappus minimum-power-domination relocation analogues; comparison to the cited framework and bounds"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bjorkman et al., Introduction, distinguish adjacent token sliding from unrestricted token jumping and study TAR and TJ for power domination.",
+          "The ordinary dominating-set and synchronous two-neighbor contagion records on the same cage solve different predicates."
+        ],
+        "reasoning": "Neither ordinary domination nor unconditioned two-neighbor contagion implements closed-neighborhood observation followed by unique-unobserved-neighbor forcing. TAR with budget changes also does not give these fixed-family slide distances.",
+        "searches": [
+          "Resultary and primary literature: Tutte–Coxeter / Tutte eight-cage minimum power domination, token-jump/token-slide distance and locality excess",
+          "arXiv:2201.01798"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "SCOPE-nine-move-locality-excess-in-minimum-power-domination-relocation--3cd3b1571c72 is the assigned record itself.",
+          "Related Resultary records 4561b0658340, c5758dc3a0c2 and 937ad301f17d concern other dynamics or optimization on the same graph."
+        ],
+        "reasoning": "The inspected near matches report other feasible families or dynamics, not a second table giving these counts. The search cannot establish absence of unindexed tables.",
+        "searches": [
+          "Resultary exact Tutte–Coxeter and relocation-profile lookup; bounded literature lookup for matching cage power domination and reconfiguration"
+        ]
+      },
+      "rationale": "The closest inspected work supplies the general minimum-sensor reconfiguration framework, cubic bounds, or the same comparison on different named cages. It does not imply the exact optimum family and complete sharp joint distance census on this cage. The indexed exact hit was the assigned record itself. This is a best-of-knowledge comparison, not historical priority certification.",
+      "residual_risks": [
+        "Unindexed computations or papers on the same incidence graph under another alias remain possible.",
+        "The inspection excludes implications from the stated comparison passages, not all uninspected literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Framework coverage, not the inspected claim",
+          "evidence": "The abstract frames TAR/TJ; the Introduction also defines adjacency-based sliding but identifies TAR and TJ as the graphs studied.",
+          "identifier_or_url": "https://arxiv.org/pdf/2201.01798",
+          "material_read": "Abstract and Introduction, PDF p. 1 and OA offsets 0 and 2450",
+          "method": "Lawful OA primary PDF passage inspection",
+          "title": "Power domination reconfiguration",
+          "trigger": "Same feasibility predicate and move terminology"
+        },
+        {
+          "assessment": "General upper bound only on this graph",
+          "evidence": "Thms. 1, 2 and 4: general n/4 bound and stronger results under claw-free restrictions. The three neighbors of any vertex induce a claw together with it here.",
+          "identifier_or_url": "https://arxiv.org/pdf/2209.03931",
+          "material_read": "Abstract and cubic-graphs section, pp. 2–3, OA offset 7270",
+          "method": "Lawful OA primary PDF passage inspection",
+          "title": "Power domination in cubic graphs and Cartesian products",
+          "trigger": "Possible general cubic theorem giving the cage value"
+        },
+        {
+          "assessment": "Analogues on different graphs, not equivalent coverage",
+          "evidence": "Their feasible-set counts are 576 and 486 and sharp excesses 7 and 5, respectively.",
+          "identifier_or_url": "Resultary records 763cb004ebbc and 2a18810eefed",
+          "material_read": "Each local-mirror RESULT.md Finding, offset 0",
+          "method": "Resultary search and local-mirror statement inspection",
+          "title": "Minimum-power-domination relocation on the McGee cage and Pappus graph",
+          "trigger": "Closest same-method records"
+        },
+        {
+          "assessment": "Different predicates",
+          "evidence": "Nine-vertex ordinary dominating sets, eight-vertex two-neighbor contagion seeds, and binary majority dynamics, respectively.",
+          "identifier_or_url": "Resultary records 4561b0658340, c5758dc3a0c2 and 937ad301f17d",
+          "material_read": "Local-mirror RESULT.md Findings, offset 0",
+          "method": "Resultary search and local-mirror statement inspection",
+          "title": "Ordinary domination, two-neighbor contagion and majority dynamics on the Tutte–Coxeter graph",
+          "trigger": "Same-graph candidate matches"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen definitions, orbit table and distance census; independent replay",
+        "Bjorkman et al., reconfiguration framework; McGee and Pappus analogues"
+      ],
+      "rationale": "This canonical small cage is a natural fixed-budget benchmark: connectedness survives local moves, yet imposing physical adjacency forces a sharp nine-move overhead on a nontrivial class of pairs. The exact pair census and orbit profiles separate typical from extremal behavior and let a researcher verify a relocation algorithm on a symmetric instance with genuine obstructions. This is more informative than an isolated optimum count or diameter.",
+      "residual_risks": [
+        "No extrapolation to other cages, unrestricted budgets or an algorithmic performance theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

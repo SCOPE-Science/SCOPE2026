@@ -1,0 +1,158 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T03:11:21.983609Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, norm, zeta expansions, generator and Fourier proof; VERIFICATION.md; checker.py"
+      ],
+      "rationale": "The binomial coefficients w_k decay as k^(-1-alpha), justifying periodic grouping and the zero row sum. For 0<alpha<1 every nonzero residue coefficient is negative; for 1<alpha<2 the single negative coefficient shifts to residue 1, because every coefficient from k=2 onward is positive and their total alpha-1 cannot compensate w_1=-alpha. Circulant column and row absolute sums thus give respectively twice c_0 and minus twice c_1. The beta integral for |w_k| summed over k=jn or jn+1 gives both formulas; the strictly decreasing coefficient tail implies strict size increase, with the separate alpha=1 and n=2 values as stated. Uniform gamma-ratio expansion on compact order strips gives second-term coefficients alpha(alpha+1)/2 at k=jn and (alpha+1)(alpha-2)/2 after replacing k by jn+1, and the weighted remainder is summable uniformly. For n>=3, c_2>0 above alpha=1 yields a negative entry for small positive t; the row sum of the generator is always zero. The largest absolute nonzero eigenphase is alpha(pi/2-pi/n), so the signs of the real parts give exactly the stated convergence, oscillation and exponential growth by unitary Fourier diagonalization. The threshold is interior only at n>=5; at n=3 it is 3, at n=4 it is the excluded endpoint 2, and the n=2 generator and positive spectrum are covered by A=2^(alpha-1)(I-S_2).",
+      "residual_risks": [
+        "The recorded 630 assertions are the frozen package's report; checker.py was read, not executed. Correctness here rests on analytical reconstruction. No branch or asymptotic uniformity outside the stated open order strips was used."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The symmetric periodic chain uses the centered self-adjoint symbol 2-S-S*, not the one-sided generator. The directed fractional-Laplacian work gives Markov signs for the lower strip and covers the exact same lower-order directed graph operator. The two cited binomial-definition/filter papers lacked readable full-text access in the targeted attempt."
+        ],
+        "reasoning": "Subordination and known binomial constructions cover the range through one, and broad Fourier machinery covers phases, but none of the available results states the exact above-one norm with its switched cancellation.",
+        "searches": [
+          "Michelitsch et al. arXiv:1412.5904 §3 and Eq. (4)",
+          "Riascos et al. arXiv:2004.00575v2 §§II–III",
+          "Periodic Grünwald–Letnikov binomial fractional differences and filters"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2004.00575v2 and arXiv:1412.5904 primary passages; three named Resultary comparisons; two cited DOI access attempts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2020 finite kernel and sign result do imply the lower-order exact norm; its rough image-tail bound is not itself the stated two-term zeta expansion, which follows from the exact coefficient law. The triangle record shows the same positivity split for n=3 and gives the corresponding Fourier damping; its reentry is a statement about later times, not Markov positivity at all times."
+        ],
+        "reasoning": "Known phase geometry makes the convergence cutoff a direct calculation, and aliasing extends as a method. The exact upper-order norm is not a parameter substitution in the lower-order norm: it requires controlling the competing positive tail against w_1, then periodizing the different residue to obtain the distinct size correction.",
+        "searches": [
+          "arXiv:2004.00575v2, Eqs. (35)–(45)",
+          "Directed fractional triangle mirrored Finding, offset 0"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The single-step ring has Laplacian symbol 1-exp(-i phi); depending on orientation this is I-S_n or its conjugate by reversal. Eq. (38) is the same finite-cycle binomial alias series for the fractional matrix in the lower strip; Eq. (8) and the preceding signs give one positive diagonal and negative off-diagonals."
+        ],
+        "reasoning": "With row sum zero, the endpoint norm is twice the diagonal in the lower strip, giving exact coverage of that formula as a direct consequence despite different notation and objective. Above one the diagonal is not the isolating coefficient; the residue-1 alias and its asymptotic coefficient change.",
+        "searches": [
+          "Nonlocal biased random walks and fractional transport on directed networks arXiv exact directed ring circulant",
+          "Riascos et al. arXiv:2004.00575v2, Appendix VIII, Eqs. (35)–(40)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-day aeb58b4b6533 record gives endpoint norms on the infinite symmetric lattice, the 5e90ed50fd9b record studies exact time windows on the same directed triangle, and 8a4d4a0f354d gives ratios of norms for semigroups on a unilateral infinite shift."
+        ],
+        "reasoning": "Indexed overlaps are either on different operators/observables or exact but restricted to the n=3 semigroup. None gives the above-one finite-cycle generator norm or its two size corrections.",
+        "searches": [
+          "Resultary fractional directed-cycle ℓ1/ℓ∞ norms and size corrections",
+          "Resultary directed fractional triangle positivity; infinite-shift endpoint semigroup norms"
+        ]
+      },
+      "rationale": "Pass for the substantive above-one finite-size endpoint norm profile and the full comparison across order one, not for the periodization, Fourier method, or the lower-order norm in isolation. Riascos–Michelitsch–Pizarro-Medina (2020) is a previously uncredited exact-model comparison: in 0<gamma<1 their finite directed ring alias series plus entry signs and zero sums directly give the lower-order norm, including its equivalent beta series by termwise integration. Standard coefficient asymptotics then imply the lower-order correction. Their proof is for 0<gamma<=1; it does not give the change of the unique negative cyclic residue from off-diagonal entries as a group to just residue 1 above order one, the associated switched alias correction and high-order norm profile, or state the all-size positivity-versus-convergence diagram in the higher strip. The latter's phases are straightforward consequences of the known eigenvalue form, not themselves a new spectral method. Pass is for the genuine combined exact norm classification with the above-one cancellation and sharp size dependence, not a historical-priority judgment.",
+      "residual_risks": [
+        "The two inaccessible binomial/filter papers and unindexed work may contain additional coverage. This is a bounded statement-level judgment, not proof of absence. The lower-order component is demonstrably covered and should not be advertised on its own as new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage by implication of lower-order formula and signs; range gamma<=1, not upper-order profile",
+          "evidence": [
+            "Equation (35) gives 1-exp(-i phi). Equation (38) gives the same periodic binomial alias; Eq. (8) and preceding signs prove the immediate lower-order norm relation. Eq. (45) discusses a rough image-term estimate, not the upper-order shifted-residue norm."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2004.00575v2",
+          "material_read": "PDF §II p. 4, Eq. (8); Appendix VIII pp. 13–14, Eqs. (35)–(45), bounded excerpts at offsets 25000,80300,84720,86800",
+          "method": "Lawful OA primary PDF, targeted passages",
+          "title": "Nonlocal biased random walks and fractional transport on directed networks",
+          "trigger": "Identical finite directed-ring operator and possible exact coefficient coverage"
+        },
+        {
+          "assessment": "Symmetric centered operator, not directional shift power",
+          "evidence": [
+            "Uses the centered Laplacian 2I-D-D* to power alpha/2; phases and coefficient signs differ."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1412.5904",
+          "material_read": "PDF abstract, pp. 4–7, Eq. (4), §3 Eqs. (13)–(14); offsets 10384,16325,21322",
+          "method": "Lawful OA primary PDF passages",
+          "title": "Fractional Laplacian matrix on the finite periodic linear chain and its periodic Riesz fractional derivative continuum limit",
+          "trigger": "Finite periodic fractional matrix on the same base cycle"
+        },
+        {
+          "assessment": "Unresolved access risk, not evidence of noncoverage",
+          "evidence": [
+            "The frozen comparison describes equivalence of binomial and other fractional differences; no primary norm statement could be assessed from these attempts."
+          ],
+          "identifier_or_url": "https://doi.org/10.1155/2013/104173",
+          "material_read": "Bibliographic identity and frozen comparison only; no readable full text",
+          "method": "DOI/publisher and identified lawful PDF attempt, inaccessible",
+          "title": "Fractional Sums and Differences with Binomial Coefficients",
+          "trigger": "Potential periodic specialization of binomial fractional differences"
+        },
+        {
+          "assessment": "Unresolved access risk, not evidence of noncoverage",
+          "evidence": [
+            "No primary finite-cycle endpoint norm statement was available to compare through the attempted routes."
+          ],
+          "identifier_or_url": "https://doi.org/10.1155/2012/732917",
+          "material_read": "Bibliographic identity and frozen comparison only; no readable full text",
+          "method": "DOI/publisher and identified lawful PDF attempt, inaccessible",
+          "title": "New Laguerre Filter Approximators to the Grünwald–Letnikov Fractional Difference",
+          "trigger": "Related binomial fractional-difference filter"
+        },
+        {
+          "assessment": "Different operator and infinite lattice",
+          "evidence": [
+            "Endpoint norms and integer-order cusps for powers of 2I-S-S^{-1}, without finite directed alias behavior."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-exact-endpoint-norms-and-integer-order-cusps-of-the-lattice-frac--aeb58b4b6533",
+          "material_read": "Mirrored Finding and Assumptions",
+          "method": "Local Resultary mirror",
+          "title": "Exact endpoint norms and integer-order cusps of the lattice fractional operator",
+          "trigger": "Strong exact-endpoint-norm index match"
+        },
+        {
+          "assessment": "Exact triangle semigroup overlap, no all-size endpoint norm",
+          "evidence": [
+            "One-way triangle and the same spectral phase at n=3; above one the initial two-step transition is negative and a later positive time does not restore the all-time Markov property."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-an-infinite-ladder-of-reentrant-positivity-windows-on-a-directed--5e90ed50fd9b",
+          "material_read": "Mirrored Finding and assumptions, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "An infinite ladder of reentrant positivity windows on a directed fractional triangle",
+          "trigger": "Same generator at n=3 and above order one"
+        },
+        {
+          "assessment": "Unilateral infinite shift and semigroup ratios, not finite cyclic generator norm",
+          "evidence": [
+            "Changing the underlying shift eliminates the periodic alias terms central to the reviewed norm."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-arithmetic-dichotomy-in-normalized-endpoint-norms-of-a-fractiona--8a4d4a0f354d",
+          "material_read": "Mirrored Finding and assumptions",
+          "method": "Local Resultary mirror",
+          "title": "Arithmetic dichotomy in normalized endpoint norms of a fractional shift semigroup",
+          "trigger": "One-sided shift and exact endpoints"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md exact norms, corrections and threshold; inspected prior lower-order directed-ring kernel"
+      ],
+      "rationale": "The exact induced norm detects finite-cycle cancellation that Fourier spectral magnitudes do not describe. The above-one wrap-around loss has a different alias offset and a different second zeta term, giving quantitative size corrections for a natural periodic operator. In the stable, nonpositive range a row of the semigroup can sum to one while having a negative entry, so its absolute row sum is then greater than one: asymptotic stability does not give endpoint contractivity. The exact norm comparison and sharp boundaries quantify that distinction without needing a claim for general directed graphs.",
+      "residual_risks": [
+        "No intermediate induced norms or arbitrary-network thresholds are implied."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

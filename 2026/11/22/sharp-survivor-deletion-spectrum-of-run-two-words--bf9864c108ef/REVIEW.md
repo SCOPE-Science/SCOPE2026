@@ -1,21 +1,21 @@
-# Scientific review: Sharp survivor-deletion spectrum of run-two words
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For linear indexed \(q\)-ary words \(q\ge2\), \(n\ge1\) with no three equal successive letters, outputs are counted only after one deletion and only if the output also obeys that constraint. One output per maximal run is the established unconstrained identity. The critical new filter disallows exactly interior singleton deletions joining identical neighboring run letters into a triple; double-run deletions always remain legal. The four-state transfer weights all symbol choices and all middle-run contributions, and the endpoints are counted separately. The inequality based on incidences of singleton and double runs gives the sharp minimum \(\lceil(n+2)/4\rceil\), achieved by explicit run patterns at each length. Equality at lengths \(n=4h-2\) rigidly forces the alternating double–singleton–singleton run pattern, with exactly \(q(q-1)^{h-1}\) realizations. The maximum \(n\) is attained exactly by proper words, \(q(q-1)^{n-1}\) in total.
+PASS
 
-The standalone standard-library checker enumerated all admissible source words for \(q=2\), \(n\le16\); \(q=3\), \(n\le10\); and \(q=4\), \(n\le8\). For 115,544 words, direct filtered-deletion enumeration, the run criterion, and the four-state polynomial counts agreed. Constructed extremizers were also checked for seventeen consecutive target degrees. Finite tests do not replace the proof of statements for all lengths.
+Two indexed positions produce the same deletion output exactly when the interval between them is constant. A run-delete class fails the receiver filter exactly for an interior singleton with like-letter neighbors, at least one doubled. On each run-pair transfer the appended letter has one repeat choice and q−2 other choices; the transfer scores the finalized interior run while the two endpoint scores remain fixed, and a single run is counted separately. For k double runs, b valid singletons, and e double endpoints, the invalid-singleton count is at most 2k−e and b>=2−e for at least two runs. Hence n<=4d−(3b+e)<=4d−2. A single run also obeys the bound. Alternating run colors make all designated interior singleton deletions invalid in the four constructions: use double endpoints and two singleton runs per gap at n=4h−2, shrink the final gap to one singleton at n=4h−3, or truncate to a singleton endpoint at the other two lengths. Equality at maximal span uses every double-neighbor incidence once with no valid singles, forcing exactly two singletons between successive doubles and one color choice per gap. The upper bound is the number of runs, with equality at n only for all-singleton runs. The independent bounded replay explicitly deduplicated and filtered outputs and matched local degrees and transfer histograms for 35,880 legal words: q=2 through n=14, q=3 through n=9, q=4 through n=7. It confirmed both extrema, maximum counts and all maximal-span census/equality cases in those ranges.
 
-## Originality — PASS, qualified
+## originality
 
-Primary material inspected includes Liu, Xing and Zhang, [arXiv:2307.00221](https://arxiv.org/abs/2307.00221), and Kulkarni and Kiyavash, [arXiv:1211.3128](https://arxiv.org/abs/1211.3128). These concern DNA codes and binary \((d,k)\)-run constraints respectively. The complete [public deletion-pattern theorem](https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-exact-run-pattern-collision-thresholds-and-short-deletion-extrem--2036e6f8e3be) was read and compared: it addresses unrestricted deletion descendants, without a receiver run cap. A published finite codebook optimum for a different run-constrained language, and several deletion/read-spectrum results, were also compared. No identified result implies the exact both-sided run-two filtered-degree distribution and sharp minimizer census. Equivalent terminology or unindexed older results remain a historical-priority risk; failed searches are not proof of priority.
+PASS
 
-## Value — PASS
+The supported distinct contribution is the receive-filtered distribution, sharp minimum, and rigid maximal-span census. The unrestricted class-per-run law and the general transfer-matrix method are not being credited as new, and the comparison does not establish historical priority.
 
-The same run-limit restriction on a receiver is natural for constrained-molecule outputs and makes the valid one-deletion neighborhood strictly smaller than the standard deletion sphere. The all-length structural law, four-state count, sharp universal lower bound and equality census measure possible constrained read diversity and identify fragile patterns. The finding is a motivated complete invariant rather than a preselected finite benchmark or a routine reproduction of an unrestricted sphere count.
+## value
 
-## Limitations
+PASS
 
-Only one deletion from linear words with maximum run length two is covered; the results do not establish error-correcting code capacity, nor extend automatically to cyclic words, longer runs or multiple deletions. Related inaccessible or unindexed historical work could affect priority. Computational checks support, rather than prove, the all-length statements.
+The same admissibility test on transmitted and retained words gives a natural repair/filter combinatorics problem, distinct from unrestricted deletion and from code-size optimization. The degree distribution supplies the full invariant; the q-independent sharp lower bound and its rigidity quantify the worst loss of admissible outputs and identify exactly when overlapping local losses can be maximized. This is more than the ordinary endpoint count or a finite histogram.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:39:10.431450Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–109",
+        "VERIFICATION.md, verify.py and certificate.json (inspected)",
+        "python3 replay/5.py with SymPy 1.14.0 (independent interval-law calculation)"
+      ],
+      "rationale": "The two independent arm lengths have tails p^j, with mean and second moment obtained by summing p^j and (2j-1)p^j respectively, as claimed. The expected size is strictly increasing in p; moving one step centerward changes it by p^k-p^{n-k}>0 before the center, so equality for known p identifies the reflection orbit. The full law identifies p from its all-open atom. For n=3 and 4 an independent component-interval reconstruction with exact probabilities p^(internal edges)(1-p)^(boundary edges) and factorial moments reproduced both equal-mean variance identities by polynomial remainders. The n=3 identity is strictly positive; at n=4 equal means force q<p and 1+2p>1+p+p², giving strict positivity. At n>=5 match means uniquely with q(p)<p for arms (1,m) and (2,m-1), m=n-2, since the latter mean at the same p exceeds the former by p²-p^m. The small-p expansions give q=p-p²/2+O(p³) and variance gap -2p²+O(p³). Near p=1, a single failed edge truncates one arm by a loss j, with each j on that arm available once to first order, yielding A=sum j in the mean deficit and B=sum j² in the variance. At equal mean near n the gap sign is that of B1/A1-B2/A2, strictly positive because A1-A2=m-2 and B1-B2=(m+2)(m-2), while B2/A2<=m-1<m+2. Continuity gives a nontrivial collision, and sources 2 and 3 are not reflections for n>=5. Independent exact elimination using the interval moments reproduced 4p²(p-1)P(p), exact endpoint signs of the rational bracket, and the reported p, q and mean. Positivity of P' on (0,1) and the existence proof remove ambiguous and extraneous resultant roots.",
+      "residual_risks": [
+        "The finding gives existence, not uniqueness, for general n>=6; the symbolic replay for small n is not the all-order proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Karrer–Newman gives forward component generating functions",
+          "Kenah–Robins distinguishes independent bond and correlated epidemic models",
+          "Kiss–Simon compares mean-field parameters using growth rates and final size"
+        ],
+        "reasoning": "A general forward calculation can produce both source moment curves but does not decide their intersection when both parameters vary subject to equal mean. The mean-field inverse problem uses different observations and parameters and does not specialize to exact discrete path source-orbit ambiguity.",
+        "searches": [
+          "Karrer–Newman arXiv:1003.5673 exact tree message passing",
+          "Kenah–Robins arXiv:q-bio/0610057 epidemic percolation",
+          "Kiss–Simon DOI:10.1007/s11538-023-01121-y parameter identifiability",
+          "Resultary: same-p mean-curve identifiability and source ranking on trees"
+        ]
+      },
+      "checked_sources": [
+        "Resultary IDs baeb0675150a, 58308e3188a3, 5d05a9b4e6b1, 726dcd88177e",
+        "arXiv:1003.5673",
+        "arXiv:q-bio/0610057",
+        "arXiv:0909.4370",
+        "DOI:10.1007/s11538-023-01121-y"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Shah–Zaman uses the infected vertices, not just total size moments",
+          "The same-p variance crossover has strictly different means there",
+          "Forward full-law representation retains the information p^(n-1) lost by throwing away all but two moments"
+        ],
+        "reasoning": "Identification from observed vertex sets or the full law cannot establish identification or nonidentification from two scalar moments. A same-p ordering or switch of either individual moment does not settle simultaneous matches at two different p values.",
+        "searches": [
+          "Shah–Zaman arXiv:0909.4370 abstract and §1",
+          "Resultary baeb0675150a; adjacent epidemic-source ranking and migration results"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary baeb0675150a gives a same-p variance crossover and a strictly larger centerward mean for all p",
+          "External query surfaced forward bond-percolation models and background, not a decisive inverse theorem"
+        ],
+        "reasoning": "Final cluster size in the independent-edge model is equivalent to one plus two independent truncated geometric lengths. A crossover of variance curves at the same p cannot witness a collision because the two means are then strictly ordered; equal-mean reparametrization is essential.",
+        "searches": [
+          "Resultary: path independent-edge outbreak-size mean variance with unknown probability and distinct source orbits",
+          "Websearch: homogeneous bond percolation on a path unknown seed source transmissibility identifiability from outbreak size mean variance truncated geometric sum moment curve equal mean variance source location"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary baeb0675150a has crossover data for the same parameter, not unequal-parameter aliases",
+          "Resultary 58308e3188a3 is a five-vertex threshold for reentrant sentinel placement rather than inverse source/parameter matching",
+          "Resultary 726dcd88177e matches household-size moments, not conditional outbreak size moments across path sources"
+        ],
+        "reasoning": "These inspected exact records tabulate other comparisons. Neither their cutoffs nor their moments give the n=5 root bracket, its polynomial, or the all-orders source pair here.",
+        "searches": [
+          "Resultary: order-five two-moment ambiguity on a path, heterogeneous source labels with homogeneous retention",
+          "Resultary: path source variance and mean, exact finite cutoffs"
+        ]
+      },
+      "rationale": "The distinct supported finding is the sharp order-five boundary for unequal-parameter, two-population-moment ambiguity of the source orbit, plus persistence for sources 2 and 3 at all larger orders. The strongest inspected same-model overlap is a later same-parameter variance crossover; known forward laws, fixed-parameter comparisons and mean-field identification do not cover this inverse claim.",
+      "residual_risks": [
+        "Bounded database and literature searches cannot exclude an unindexed truncated-geometric moment-curve or inverse-percolation formulation; selected primary passages do not certify whole-document noncoverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material mathematical overlap but a different comparison; later catalogue date",
+          "evidence": "The variance crossover holds at a common p where the more central mean is still strictly greater.",
+          "identifier_or_url": "Resultary/2026/2026/11/8/baeb0675150a",
+          "material_read": "RESULT.md opening statement, offset 0",
+          "method": "Indexed local record text",
+          "title": "Every two seed locations on a finite epidemic path have one variance crossover",
+          "trigger": "Closest exact statement on same model and same moments"
+        },
+        {
+          "assessment": "Forward calculation, not two-moment inverse classification",
+          "evidence": "Computes generating functions for size distributions, not equal-mean comparisons between different probabilities and seeds.",
+          "identifier_or_url": "https://arxiv.org/abs/1003.5673",
+          "material_read": "p. 6 percolation-cluster generating functions, text offset 45000",
+          "method": "Primary PDF text",
+          "title": "A message passing approach for general epidemic models",
+          "trigger": "Possible general theorem on exact size laws for independent transmission"
+        },
+        {
+          "assessment": "Model distinction, not an inverse two-moment theorem",
+          "evidence": "Nondegenerate infectious periods can make ordinary independent bond percolation give a different size law from SIR.",
+          "identifier_or_url": "https://arxiv.org/abs/q-bio/0610057",
+          "material_read": "Abstract, p. 2, text offset 800",
+          "method": "Primary PDF text",
+          "title": "Second look at the spread of epidemics on networks",
+          "trigger": "Check model equivalence and possible stronger percolation statement"
+        },
+        {
+          "assessment": "Different observed data in inspected statements",
+          "evidence": "Estimation uses the infection set and network, not just size moments.",
+          "identifier_or_url": "https://arxiv.org/abs/0909.4370",
+          "material_read": "Abstract p. 1 and §1 pp. 1–2, offsets 0 and 2964",
+          "method": "Primary PDF text",
+          "title": "Rumors in a Network: Who's the Culprit?",
+          "trigger": "Potential source-identifiability precursor"
+        },
+        {
+          "assessment": "The stated inverse problem differs in parameters and dynamics",
+          "evidence": "Studies network-based mean-field model parameters from epidemic growth and final size, rather than discrete source location on a known path.",
+          "identifier_or_url": "https://doi.org/10.1007/s11538-023-01121-y",
+          "material_read": "Abstract, p. 1, offset 0",
+          "method": "Targeted primary article passage",
+          "title": "On Parameter Identifiability in Network-Based Epidemic Models",
+          "trigger": "Possible broader inference result from epidemic aggregates"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 5–25 and 42–105",
+        "Independent small-order interval-law replay"
+      ],
+      "rationale": "Even with a known path and exact population moments, estimating a source orbit with unknown edge retention has a sharp loss of structural identifiability. The mechanism is the sign reversal of the variance contrast after equalizing the means, not sampling noise. The comparison to known retention and the full size law specifies exactly which observation loss is responsible in this model.",
+      "residual_risks": [
+        "Does not assert indistinguishability from infection identities or full laws, applicability to correlated transmission, or finite-sample robustness."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

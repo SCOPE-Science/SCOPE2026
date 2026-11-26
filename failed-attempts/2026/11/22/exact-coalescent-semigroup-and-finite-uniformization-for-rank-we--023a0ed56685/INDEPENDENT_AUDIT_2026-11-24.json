@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:31:27.573278Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The displayed mathematical claims are true. Rearrangement gives convexity of the rank penalty and the order of the minimizer; strict convexity gives uniqueness, and transfer from a positive coordinate to a zero coordinate has KL derivative -infinity, so the solution is positive. For u=z-ta and v=P_C(u), set p=softmax(v). The ordered entropy objective has gradient at p equal to v-u plus a constant vector. Since u-v belongs to N_C(v)=N_C(p) and the constant pairs to zero with simplex displacements, p satisfies the global first-order inequality. The last explanatory clause in frozen RESULT.md line 47 is incorrect: log(p_i)-u_i need not be constant within a pooled block (take u=(0,2)); the normal cone equality, not constancy of this residual, justifies the formula. For the semigroup, a tied input block in P_C(u) gives an ascending adjacent pair on subtracting s a. A strictly descending projected pair there could be replaced by its average, which remains feasible and strictly lowers squared error. Thus the first set of active normals remains active in the second fit, and adding the two normal-cone residuals yields P_C(P_C(u)-sa)=P_C(u-sa). Translations by a constant cancel under softmax; original order and ties are preserved. The constant projection criterion is the mean-zero polar cone, the nonpositive centered-prefix inequalities. For each proper prefix the mean of descending nonconstant a is strictly above the complementary suffix mean, proving positive denominators and the stated first hitting time, including uniform input. The exact example has prefix ratios log(12)/3 and log(18)/3 and first pooling at log(2). Inspected the supplied checker and verification notes, without executing uploaded code.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Lagrangian theorem gives the monotone-cone projection trajectory X(t)=P_K(X0+tV0), cluster velocity averages, and restart with those velocities, a more general phase-space evolution. Its Proposition 3.8 characterizes the polar by the sign of a centered primitive. Equal-mass step functions and sign reflection identify the descending finite cone.",
+          "The classical Bregman isotonic result applies to all strictly convex generators with the observation as the second argument; the decisive exponential generator is in this class."
+        ],
+        "reasoning": "The fixed rank case needs the short observation that raw velocities and their block averages give the same restarted projection, and normalization of the exponential fit. Both are exact forced reductions, not extra nonstandard hypotheses. The finite equal-mass primitive criterion is exactly the claimed prefix test.",
+        "searches": [
+          "Natile–Savaré arXiv:0902.4373v2, Theorem 2.6 (L.II), (L.a)–(L.c) and Proposition 3.8",
+          "Jordan–Mühlemann–Ziegel arXiv:1904.04761v2, abstract and Section 1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary (assigned self-hit and distinct mirror record 58773a9495f6)",
+        "arXiv:1904.04761v2",
+        "arXiv:0902.4373v2",
+        "Blondel et al., PMLR 119 (2020)",
+        "Laude–Ochs–Cremers arXiv:1907.04306 (retrieval attempt only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Bregman specialization in equivalent_formulations proves the logarithmic KL formula, specifying the correct loss orientation and normalization.",
+          "In descending coordinates write b=-a (ascending). For the finite equal-mass sticky motion at x=X(t), let R average velocities over equal-position blocks. Prior (L.a) and (L.c) give the restart q=P_C(x+s Rb). The input of this projection is constant on each x-block, hence q is constant there by adjacent averaging. On each such block b-Rb is ascending with zero sum, hence has nonpositive prefixes; it belongs to the cone of active order normals at q. Adding s(b-Rb) to the projection residual proves q=P_C(x+s b), the raw-rank restart. Apply the prior theorem for strictly ordered z so the initial velocity is in its required subspace; include tied z by projection continuity. The common softmax log shift cancels, giving the claimed KL semigroup.",
+          "Prior Proposition 3.8 applied to the centered step function for z-ta says its primitive has the required sign. Testing its knots gives the nonpositive centered-prefix inequalities after descending reflection; solving all of them gives exactly the stated maximum of ratios."
+        ],
+        "reasoning": "This supplies the complete chain from older stronger results to each of the asserted formula, semigroup, and first uniformization time, including the phase-space-to-fixed-rank step. It does not rely on shared subject matter, extrapolation from a table, or the exact ratio appearing in print.",
+        "searches": [
+          "arXiv:0902.4373v2, Theorem 2.6 and Proposition 3.8, primary text offsets 31300–35371 and 47250–50141",
+          "arXiv:1904.04761v2, primary text Section 1 offsets 0–6171",
+          "Blondel et al., Proposition 3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Blondel's quadratic isotonic residual is exactly P_C(z-ta), whereas its log-entropic permutahedron projection is a different optimization problem.",
+          "The older isotonic Bregman theorem, stated in Jordan–Mühlemann–Ziegel and attributed there to Barlow et al. Theorem 1.10, minimizes sum L_phi(v_i,b_i) with the same fit as squares, where L_phi(v,b)=phi(b)-phi(v)-phi'(v)(b-v). With phi(x)=exp(x) and p_i=exp(v_i), the loss is exp(b_i)+p_i(log(p_i)-b_i-1). For b=z-ta-c*1, choose c=log sum exp(P_C(z-ta)_i); then exp(P_C(b)) has sum one. On the ordered simplex the new objective differs from the ordered KL rank objective only by constants."
+        ],
+        "reasoning": "After sorting by rearrangement, apply the stronger Bregman isotonic theorem to the shifted data and restrict the resulting unconstrained ordered solution to the simplex, where it is already feasible. This is an exact specialization proving the purported new nonlinear conjugacy, not an inference from a differently defined entropic permutahedron projection.",
+        "searches": [
+          "Resultary: fixed descending rank weights, log-isotonic KL prox semigroup and uniformization",
+          "Blondel et al., Proposition 3, PMLR v119",
+          "arXiv:1904.04761v2, Section 1 equations (1)–(3) and following Bregman loss definition"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact catalogue result ending 023a0ed56685 is the assigned record, not independent prior work. The distinct same-day mirror record 58773a9495f6 states a sharp coordinatewise Lipschitz coefficient for a log-KL projection onto a positive permutahedron, not the semigroup.",
+          "No table can decide the continuous all-parameter identity; the decisive coverage is analytic rather than a tabulation."
+        ],
+        "reasoning": "The related same-day result neither establishes priority nor supplies a matching operator by itself. Lack of a separate literal catalogue hit does not weaken the older theorem-level implications.",
+        "searches": [
+          "Resultary: rank-weighted KL composition, positive-simplex uniformization, and logarithmic KL permutahedron projection"
+        ]
+      },
+      "rationale": "The failure is established mathematical implication, not limited access and not that the identical sentence was found. The initially plausible distinction from older sticky-particle projection is the specific simplex-KL-to-isotonic formula. That remaining link is itself a direct exponential-loss case of the classical isotonic Bregman-loss theorem, followed by the simplex normalization. In those coordinates both time composition and full coalescence specialize the Lagrangian theorem and polar criterion of Natile–Savaré. No separate new finding remains in the frozen claim after crediting those implications.",
+      "residual_risks": [
+        "No claim that a prior publication prints the identical simplex phrasing or exact ratio. Coverage is by the explicit deductions above.",
+        "The general Bregman proximal paper timed out and is not used to infer coverage or noncoverage. The original Barlow book was not inspected; the Bregman theorem and its attribution were read in the accessible later paper."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "BROADER_BREGMAN_ISOTONIC_THEOREM_COVERS_KL_FORMULA",
+          "evidence": [
+            "The least-squares isotonic fit is simultaneously optimal for the Bregman class, with displayed loss phi(y)-phi(x)-phi'(x)(y-x). This passage credits Barlow et al. (1972), Theorem 1.10; the original book was not inspected. Exponential phi and uniform data shift produce the exact ordered simplex problem."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1904.04761",
+          "material_read": "Abstract and Section 1 equations (1)–(3) and Bregman loss formula, PDF pp. 1–2, offsets 0–6171",
+          "method": "Primary OA PDF; literal locate and bounded passage",
+          "title": "Optimal solutions to the isotonic regression problem",
+          "trigger": "Potential prior derivation of the previously unmatched simplex-KL conjugacy"
+        },
+        {
+          "assessment": "BROADER_MOTION_AND_POLAR_CRITERION_IMPLY_COMPOSITION_AND_THRESHOLD",
+          "evidence": [
+            "(L.II) gives projection of initial positions plus initial velocities; (L.a) gives block-averaged velocity; (L.c) gives the restarted projection. Proposition 3.8 characterizes the polar by the primitive. The finite equal-mass restriction and fixed-rank restart are detailed above."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0902.4373",
+          "material_read": "Theorem 2.6 and Corollary 2.7, pp. 7–8, offsets 31300–35371; Proposition 3.8, pp. 11–12, offsets 47250–50141",
+          "method": "Primary OA PDF, bounded decisive passages",
+          "title": "A Wasserstein Approach to the One-Dimensional Sticky Particle System",
+          "trigger": "Prior projection dynamics, restart and first coalescence test"
+        },
+        {
+          "assessment": "EXACT_ISOTONIC_RESIDUAL_DIFFERENT_ENTROPIC_OPERATOR",
+          "evidence": [
+            "Proposition 3 has the exact quadratic isotonic residual P_C(z-ta). Its entropic model projects e^z onto a permutahedron of e^w; it is not the simplex prox with a rank-linear penalty."
+          ],
+          "identifier_or_url": "https://proceedings.mlr.press/v119/blondel20a/blondel20a.pdf",
+          "material_read": "Section 4 entropic projection around offset 14520; Section 5 Proposition 3 around offset 25200",
+          "method": "Bounded OA primary text",
+          "title": "Fast Differentiable Sorting and Ranking",
+          "trigger": "Potential equivalent KL or quadratic permutahedral construction"
+        },
+        {
+          "assessment": "RELATED_BUT_DISTINCT_LIPSCHITZ_CLAIM",
+          "evidence": [
+            "The formula is a sharp infinity-norm sensitivity coefficient for log of a positive permutahedron projection, not a composition or absorption theorem for a simplex rank penalty."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-coordinatewise-sensitivity-of-logarithmic-kl-permutahedron--58773a9495f6/RESULT.md",
+          "material_read": "Finding and prior-work discussion, local mirror offsets 0 and 5303",
+          "method": "Bounded original Resultary mirror passages",
+          "title": "Sharp coordinatewise sensitivity of logarithmic KL permutahedron projections",
+          "trigger": "Distinct exact same-day catalogue result in logarithmic KL isotonic coordinates"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The explicit simplex description is potentially useful as exposition or implementation guidance, but the claimed result adds no independent structural fact once the older Bregman isotonic optimum, sticky restart, and polar criterion are specialized. The normalized exponential coordinate change and the prefix ratio solve those established conditions directly. No further independently useful new invariant or regime survives in the submitted theorem to justify a repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

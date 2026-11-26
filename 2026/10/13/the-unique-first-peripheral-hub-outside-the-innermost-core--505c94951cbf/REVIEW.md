@@ -1,16 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The proof does not rely on finite search for the sharp lower bound or the isomorphism classification. If a unique maximum-degree vertex \(h\) lies outside the maximum \(k\)-core, then \(h\) has at most \(k-1\) neighbors in that core, giving \(\deg(h)\le |V|-3\). For at most six vertices this forces \(k=2\), and connectedness then contradicts uniqueness of the degree leader. At seven vertices, the same argument forces a \(3\)-vertex \(2\)-core, hence a triangle, and then forces the unique degree-\(4\) hub with exactly three pendant leaves. The exhaustive replay independently confirms all connected labeled graphs through order seven and the complete \(420\)-graph orbit.
+## correctness
 
-Risk: the result is only about the first graph order and does not assert a larger-order classification.
+PASS
 
-## Originality
-**PASS.** Prior work already owns the \(k\)-core concept and the qualitative observation that highly connected hubs can occupy peripheral low-coreness positions. The accepted claim is narrower and structural: the exact smallest connected order for a **unique** degree leader to miss the innermost core, together with uniqueness of the first obstruction and its labeled count. Searches by standard aliases, exact graph order, peripheral-hub language, and the degree-versus-coreness implication did not locate an equivalent theorem or table.
+For a failure, the top core C has k≥2, at least k+1 vertices, and an edge to its complement. The endpoint of that edge in C has total degree at least k+1, so the unique leader h has degree at least k+2. But h has at most k−1 neighbors in C (otherwise C together with h has minimum degree k), and at most |V\C|−1 outside. Hence deg(h)≤|V|−3. Together these force |V|≥7 and at equality k=2, deg(h)=4 and |C|=3. Thus C is a triangle and h hits exactly one triangle vertex and all three other outside vertices. Any additional edge would make a cycle through h, contradicting its absence from the 2-core. The displayed graph realizes this bound; its automorphisms are exactly permutations of the three leaves and a swap of the two unmarked triangle vertices. Its orbit has size 7!/12=420. Independently derived the connected denominator 1,866,256 by decomposing a labeled graph according to the size of the component of vertex 0. An independent simultaneous-pruning enumeration of all labeled edge subsets through order 7 also returned no failures below 7 and exactly the 420 relabelings at 7, with the stated representative vectors. The size-one connected graph causes no failure (its lone vertex has core number 0).
 
-Risk: search failure is not proof of bibliographic uniqueness. A small-graph atlas, lecture note, or code corpus could contain the same seven-vertex observation.
+## originality
 
-## Value
-**PASS.** Degree is the most local notion of network prominence, while coreness records survival inside recursively cohesive structure. The literature explicitly uses this contrast to explain why hubs can be peripheral. The smallest network where a single unambiguous degree leader is already expelled from the innermost core is therefore a natural structural boundary, not an arbitrary parameter slice. The fact that the whole first layer is one graph type makes the obstruction interpretable and reusable.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The same triangle–hub–three-leaf graph and its 420-member labeled orbit are indexed in work on the degree/eigenvector-leader split. That is real witness-level overlap, but the exact coreness threshold and the assertion that this is the only first-failure class are not established by that different criterion. The broad core literature inspected provides the structural terminology and peripheral-hub phenomenon, not the finite boundary.
+
+## value
+
+PASS
+
+The threshold answers when a conspicuous local hub can first be excluded from the densest core in a simple connected example. The proof characterizes all minimum counterexamples by a triangle plus a uniquely attached hub with three leaves; the exact orbit verifies that there is no other mechanism at the first order. This value is structural, not a claim about influence or spreading performance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

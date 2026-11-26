@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:50:57.149121Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 41–76 (proof reconstructed)",
+        "VERIFICATION.md lines 21–27",
+        "check_small.py lines 14–68 and check_independent.py lines 13–78 (inspected, not run)"
+      ],
+      "rationale": "For the residual graph on unselected originals, an edge means its subdivision vertex is initially unobserved. A residual cycle prevents a first force onto any of its edges. If at least one original is selected, its incident observed subdivision vertices enable observation of all originals, and leaf-edge forcing empties any residual forest. With r>=2 missing originals the forest edge bound gives at least n-2+(r-2)(r-3)/2 total tokens; r=0,1 requires more and equality for r=2,3 gives the two stated types. With no original selected, the necessary bound binomial(n-1,2) exceeds n-2 for n>=4; n=3 is C6 and any singleton succeeds. The original graph is bipartite, so a minimum slide must change types. The triple with selected w_ab has just the two incident pair states missing {a,c} or {b,c}, exactly the endpoints of the corresponding Johnson edge. Counts and connectedness follow. Distances double between old vertices; for paths involving midpoints, minimize these doubled distances over endpoints and add one for each midpoint. Every endpoint pair of a Johnson edge belongs to its support triple. For n=4, all pair–triple and triple–triple comparisons meet in a label; disjoint pairs give distance four, and for every midpoint an edge with neither endpoint in common gives distance four (e.g. (12,13) vs. (24,34) after relabelling). For n=5, two triples always intersect, but each triple has a disjoint pair, giving eccentricity five in both classes. For n>=6, pairs have disjoint triples and triples have disjoint triples, giving eccentricities five and six, respectively. For n=3 all eccentricities are three on C6. Hence both sharp metric formulas hold.",
+      "residual_risks": [
+        "The scripts print finite eccentricity histograms but do not assert the radius or the exact eccentricity classes; the all-order metric proof, not the script assertions, establishes them."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The same-family nonmatroidal-isometric exchanges record gives the residual-forest criterion for all sets, a full forest-enumerated power-domination polynomial, and the same minimum sizes and types; its move allows arbitrary replacements. The earlier minimal-forts theorem plus the closed-neighborhood zero-forcing characterization gives a route to the static forest criterion. Bjorkman et al. define and illustrate slides but the inspected family classification is for jumps."
+        ],
+        "reasoning": "General reconfiguration work and a classification of token jumps do not give the slide graph; prior forts and the stronger residual-forest classification do cover the static optima.",
+        "searches": [
+          "Resultary: same-family forest/fort and power-domination polynomial results",
+          "DOI:10.1007/s44007-025-00187-5",
+          "arXiv:1805.10984v1"
+        ]
+      },
+      "checked_sources": [
+        "Both frozen slide records; their exact Findings and proofs",
+        "Resultary jump and minimal-forts records identified above",
+        "Bjorkman et al. and Brimkov et al. OA passages"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Johnson distances are 0,1,2 according to pair equality/intersection; the subdivided-graph eccentricities are determined by whether a pair and a triple, or two triples, can be disjoint. The closed neighborhood of a nonempty set meets the full-original and star-cut forts; the cycle-subdivision forts remaining disjoint are exactly cycles in the residual graph."
+        ],
+        "reasoning": "Record 4 adds explicit derived metrics, not a new slide graph. In the static part, the residual-forest criterion already forces the two optimizer types by a forest edge bound. Neither observation requires inferring any publication order between same-day records.",
+        "searches": [
+          "Record 5 RESULT.md lines 43–47",
+          "Earlier minimal-forts theorem, Resultary ID ending 43a4c9836292",
+          "Brimkov et al., arXiv:1805.10984v1 Theorem 10"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Record 4 RESULT.md lines 20–33, 60–62 and record 5 lines 6–14, 43–45 identify the same minimum-set slide graph for n>=3. The triangular graph L(K_n) is J(n,2); pair type and triple-edge type are the same labeled configurations as A and B."
+        ],
+        "reasoning": "Both maps send the missing pair to a Johnson vertex and the triple with chosen edge ab to the midpoint between {a,c} and {b,c}. The token-slide adjacency predicates and outputs agree exactly.",
+        "searches": [
+          "Resultary: fully subdivided clique minimum power domination, slides, triangular/Johnson graph, jumps and forts",
+          "Frozen records 4 and 5, Findings and isomorphism proofs"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Besides the bound original, the separate indexed record ending 438257c07ae7 gives the exact slide graph and diameter for all n. The same-family record ending f1009b21833f supplies the exact same optimum count but describes token jumps."
+        ],
+        "reasoning": "The isomorphism is exact all-order information stronger than isolated numerical matches, and determines the counts in this record. The separate jump distances cannot be used as slide distances.",
+        "searches": [
+          "Resultary exact-family queries for S(K_n) power domination and its minimum-set replacement graph"
+        ]
+      },
+      "rationale": "The distinct frozen record 5 gives the same label-preserving isomorphism on the same optimum configurations under the same adjacent moves and the same diameter. The radius and eccentricity formulas here are exact but follow directly from the already identified graph, by distances between labels of size two and three. There is no separate structural claim left to distinguish this record. This is demonstrated equivalent coverage, not a conclusion about which same-day record has priority. The token-jump record does not establish slide equivalence; it overlaps with the static classification only.",
+      "residual_risks": [
+        "Same-day dates give no priority ordering. An attempted focused primary-literature search was unavailable; this is not evidence against earlier literature coverage. The fail rests on the demonstrated overlapping statements, not on the unavailable search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact structural and diameter overlap; other metrics immediate",
+          "evidence": "P_ab maps to pair ab; Q_ij|k subdivides the edge between ik and jk. Diameter min(n,6).",
+          "identifier_or_url": "2026/11/22/SCOPE-minimum-power-domination-token-slides-subdivide-the-triangular-g--438257c07ae7",
+          "material_read": "Frozen RESULT.md lines 4–17, 38–47",
+          "method": "Frozen original read; compared labelled incidence map",
+          "title": "Minimum power-domination token slides subdivide the triangular graph",
+          "trigger": "Distinct record with exact family and move rule"
+        },
+        {
+          "assessment": "Stronger static criterion and polynomial; different motion graph",
+          "evidence": "Residual forest characterization and same two minimum types; jump distance (n-2)-|S intersect T| without host adjacency.",
+          "identifier_or_url": "2026/11/22/SCOPE-nonmatroidal-isometric-power-domination-exchanges-in-fully-subdi--f1009b21833f",
+          "material_read": "Finding offset 0 and prior work offset 8500",
+          "method": "Resultary local mirror",
+          "title": "Nonmatroidal isometric power-domination exchanges in fully subdivided cliques",
+          "trigger": "Same host graph, predicate, and optimum count"
+        },
+        {
+          "assessment": "Implies static forest obstruction/criterion with closed-neighborhood equivalence; not slide classification",
+          "evidence": "Exhaustive minimal forts: cycle subdivisions, full original set, and star-cut forts.",
+          "identifier_or_url": "2026/11/2/SCOPE-minimal-forts-and-the-complete-zero-forcing-polynomial-of-fully--43a4c9836292",
+          "material_read": "Finding and fort/zero-forcing characterization, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Minimal forts and the complete zero-forcing polynomial of fully subdivided cliques",
+          "trigger": "Earlier complete same-family obstruction theorem"
+        },
+        {
+          "assessment": "General reduction, not exact S(K_n) slide or polynomial statement in inspected results",
+          "evidence": "S power dominates iff N[S] is zero forcing; Section 4 treats other graph families.",
+          "identifier_or_url": "https://arxiv.org/html/1805.10984v1",
+          "material_read": "Theorem 10 at offset 20347, Section 4 / Proposition 20 at offset 39965",
+          "method": "OA full-text passages",
+          "title": "Power domination polynomials of graphs",
+          "trigger": "Published possible polynomial or reduction coverage"
+        },
+        {
+          "assessment": "General context and finite slide example, family classifications concern jumps",
+          "evidence": "Defines adjacent exchange; the inspected section enumerates complete and complete bipartite graphs, paths, cycles and wheels for token jumping.",
+          "identifier_or_url": "https://doi.org/10.1007/s44007-025-00187-5",
+          "material_read": "Section 1 p. 2, Example 1.2 p. 5, Section 5.1 pp. 21–24",
+          "method": "OA full-text passages",
+          "title": "Power Domination Reconfiguration",
+          "trigger": "Closest published move-specific study"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Findings and exact distances",
+        "Inspected jump-graph finding and record 5 slide isomorphism"
+      ],
+      "rationale": "Taken once, the explicit graph identity is a natural all-order classification of constrained minimum-sensor motion. Unlike the unrestricted replacement graph, the slide graph alternates between two types of optima, and the identity predicts distances and which states minimize the maximum number of slides. This is useful structural information. The radius and eccentricities are useful readouts of that theorem, not a separate incremental contribution that would justify a second result.",
+      "residual_risks": [
+        "No separate valuable remainder distinguishes the frozen package after removing the duplicate structural claim."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

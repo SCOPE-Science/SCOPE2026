@@ -20,12 +20,13 @@ For \(d=2\), the full finite-size probability generating function is
 \mathbb E[z^{P_{n,2}}\mid K=k]
 =\frac{[u^k]\displaystyle\prod_{j=1}^{N}\left(1+u\left[1+\frac{z-1}{j}\right]\right)}{\binom Nk},\qquad N=2n-k.
 \]
-Furthermore, if \(H_N=\sum_{j=1}^N1/j\) and \(H_N^{(2)}=\sum_{j=1}^N1/j^2\), then with \(a=k/N\),
+Furthermore, if \(H_N=\sum_{j=1}^N1/j\) and \(H_N^{(2)}=\sum_{j=1}^N1/j^2\), then for \(N\ge2\), with \(a=k/N\),
 \[
 \operatorname{Var}(P_{n,2}\mid K=k)
 =a^2(H_N-H_N^{(2)})
-+\frac{a(1-a)}{N-1}\{NH_N-H_N^2-H_N+H_N^{(2)}\}.
+ +\frac{a(1-a)}{N-1}\{NH_N-H_N^2-H_N+H_N^{(2)}\}.
 \]
+For \(N=1\) (necessarily \(n=k=1\)), \(P_{1,2}=1\) conditional on \(K=1\), so the conditional variance is zero.
 
 **Refresh does not create a macroscopic persistent maximum.** For each fixed \(d\ge2\), uniformly over all \(0\le q_n\le1\),
 \[
@@ -66,7 +67,7 @@ For a uniform product sample, a point with dominance-orthant volume \(u\) is max
 =\sum_{j=1}^{N}(-1)^{j-1}\binom Nj j^{1-d}.
 \]
 
-In the plane, sorting by decreasing first coordinate makes the second-coordinate sequence a uniform random permutation. Its upper-record indicators are independent Bernoulli variables with success probabilities \(1/j\), \(1\le j\le N\). A uniformly chosen size-\(k\) core corresponds to taking the coefficient of \(u^k\) in the displayed product. The hypergeometric conditional variance formula, the record mean \(H_N\), and record variance \(H_N-H_N^{(2)}\) yield the finite variance expression.
+In the plane, sorting by decreasing first coordinate makes the second-coordinate sequence a uniform random permutation. Its upper-record indicators are independent Bernoulli variables with success probabilities \(1/j\), \(1\le j\le N\). A uniformly chosen size-\(k\) core corresponds to taking the coefficient of \(u^k\) in the displayed product. For \(N\ge2\), total variance applied to the hypergeometric law gives \(a^2\operatorname{Var}(M)+a(1-a)\mathbb E[M(N-M)]/(N-1)\), where \(M=M_{N,2}\). Using the record mean \(H_N\) and variance \(H_N-H_N^{(2)}\) gives the displayed expression. For \(N=1\), the sole point is retained and maximal under the stated conditioning.
 
 ### 2. Refreshed labels are negligible
 

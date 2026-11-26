@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:11:10.567923Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 4–67, including transfer determinant, terminal correction, moment denominators and eigenvalue derivatives",
+        "VERIFICATION.md and verify.py inspected without running the source script",
+        "Independent integer Pascal recurrence modulo 2^20 through row 381: for n≤127 each binomial residue was nonzero and yielded its exact ν₂. Reproduced the recurrence and moments on L=0–7 (at L=7, raw sums Σν₂=363 and Σν₂²=1653)."
+      ],
+      "rationale": "Legendre gives ν₂=2s₂(n)−s₂(3n). Multiplying by 3 from the least significant bit uses carries 0,1,2, and each output digit y has increment 2x−y; subtracting the digit sum of the final carry retains all leading digits of 3n. The corresponding row transitions give the displayed Laurent matrix and terminal column. The cofactor numerator of the resolvent is (1+z)(1−uz), and det(I−zM)=1−(1+u)z+(u−u²−1)z²+u(u+1)z³. Its coefficient identity gives the initial values and recurrence; at u=1 the series reduces to 1/(1−2z). For moments, D(1,z)=(1−2z)(1−z)(1+z) and D_u(1,z)=−z−z²+3z³ give the derivative fractions in the proof. In particular the second factorial moment is L²/4−L/4−4/9 + [ (L+1)/2 + (−1)^L((L+1)/6−2/9) ]/2^L, which combines with the mean to yield the displayed variance. Both moments vanish for L=0,1. The isolated eigenvalue 2 of M(1) is separated from ±1; implicit differentiation gives λ′(1)=1 and λ″(1)=4/3. The analytic leading projection contributes a factor tending to 1 under the characteristic-function scaling, and the second log derivative of λ(exp(w))/2 is 11/12. After centering by L/2, Lévy's theorem yields the stated CLT. This applies only to the initial blocks [0,2^L).",
+      "residual_risks": [
+        "Finite computations do not certify a CLT or the all-L identity; those follow from the analytic argument. The substitution of imaginary w in the proof uses characteristic functions, not real moment-generating-function convergence."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The joint law for ν₂ binom(2n,n) and ν₂ binom(3n,n) is exact for all L≥0. At first marker u=1 its numerator is 1+(1−v)z−vz² and its denominator is 1−(1+v)z+(v−v²−1)z²+(v+v²)z³.",
+          "Barat–Grabner's inspected passages concern valuation counts across Pascal rows and sums over pairs. The 2015 transducer theorem gives a framework for asymptotic normality, not an explicit finite law for this ray."
+        ],
+        "reasoning": "Dropping the first mark gives exactly the frozen enumerator with v renamed u; it is a true marginal, not a comparison bound or an overlapping finite range. The broader published frameworks are relevant context but not needed for this implication.",
+        "searches": [
+          "Resultary 767a9e2b871f joint dyadic binomial valuation law",
+          "Barat–Grabner DOI 10.1112/S0024610701002630, author manuscript",
+          "Heuberger–Kropf–Prodinger DOI 10.37236/5026, Theorem 1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 02997d82d076, 767a9e2b871f, a941d310bb46; later univariate duplicate 499526ba814d",
+        "Barat–Grabner author manuscript passages",
+        "Heuberger–Kropf–Prodinger Theorem 1",
+        "Frozen citations to OEIS A077459 and A036556, direct inspection unavailable"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For the earlier exact P_L, the variance is 2^(−L)(P_L″(1)+P_L′(1))−[2^(−L)P_L′(1)]². Differentiating the same rational function gives the moments reconstructed on the correctness axis, including all finite corrections.",
+          "The later joint statement also prints the correction −[5+3(−1)^L]/(18·4^L), equal to −(3+(−1)^L)²/(36·4^L)."
+        ],
+        "reasoning": "The finite variance uses a standard deterministic operation on the already known exact law, not a new independent combinatorial or probability estimate. The later explicit expression corroborates overlap but is not needed to establish either earlier coverage or implication.",
+        "searches": [
+          "02997d82d076 equations (1), (5), (6)",
+          "767a9e2b871f joint rational identity",
+          "Later Resultary a941d310bb46 exact finite variance for the marginal"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "C₃(n)=binom(3n,n)/(2n+1); the same record explicitly identifies the two valuations in equation (7). It gives the identical rational function, mean and Gaussian normalization on precisely n<2^L."
+        ],
+        "reasoning": "The odd denominator changes no two-adic valuation even at n=0; the two finite random variables and enumerators therefore agree pointwise. The denominator coefficient −(1−u+u²) is just u−u²−1. Results for coefficients of (1−9x)^(-1/3) are not this equivalence: at n=2 that sequence is 18, not binom(6,2)=15.",
+        "searches": [
+          "Resultary: dyadic two-adic valuation spectrum of binom(3n,n), ternary Fuss–Catalan, binary carry and digit-sum forms",
+          "02997d82d076 RESULT.md, equations (1), (5)–(7)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed ternary Fuss–Catalan rational series already gives every exact count, as opposed to a residue or parity table.",
+          "The frozen record describes A077459 and A036556 as digit-sum equality and parity-related entries, respectively. Direct retrieval in this review did not provide their substantive entries."
+        ],
+        "reasoning": "A parity or single digit-sum condition would not determine a full multiplicity distribution; the checked indexed rational formula does. No noncoverage conclusion rests on the inaccessible OEIS material.",
+        "searches": [
+          "Resultary 02997d82d076 complete finite-block counts",
+          "OEIS A077459 and A036556 as cited in RESULT.md"
+        ]
+      },
+      "rationale": "Two distinct indexed statements give exact coverage: 02997d82d076 gives the same enumerator, exact mean and CLT under the pointwise-identical ternary Fuss–Catalan valuation, and 767a9e2b871f gives a stronger joint law with this exact marginal. The printed finite variance is a direct differentiation and coefficient extraction from the already available rational function; it does not escape that coverage.",
+      "residual_risks": [
+        "The catalogue dates are not findings about discovery or reliance. The unidentified univariate antecedent mentioned in the joint record need not be resolved to establish the two checked coverage relationships.",
+        "Additional coverage elsewhere in Barat–Grabner or in OEIS is not ruled out by the inspected passages or retrieval limits."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact equivalent law, mean and CLT",
+          "evidence": [
+            "The displayed factorial-ratio divisor 2n+1 is odd; the GF and Gaussian constants are identical."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-exact-dyadic-two-adic-valuation-spectra-of-ternary-fuss-catalan--02997d82d076/RESULT.md",
+          "material_read": "Opening finding, scope and first proof passages, equations (1)–(7)",
+          "method": "Bounded local mirror statement inspection",
+          "title": "Exact dyadic two-adic valuation spectra of ternary Fuss-Catalan numbers",
+          "trigger": "Pointwise valuation equality after removal of an odd factor"
+        },
+        {
+          "assessment": "Exact earlier joint enumerator yields the frozen marginal",
+          "evidence": [
+            "Setting the mark on ν₂ binom(2n,n) to 1 gives the same numerator and denominator on the same integer blocks."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-exact-dyadic-joint-valuation-law-for-two-binomial-factors--767a9e2b871f/RESULT.md",
+          "material_read": "Opening finding, N and D, exact moments and assumptions, offset 0",
+          "method": "Bounded local mirror statement inspection and specialization",
+          "title": "Exact dyadic joint valuation law for two binomial factors",
+          "trigger": "Potential stronger exact joint coverage"
+        },
+        {
+          "assessment": "Same finite correction explicitly printed in a later indexed record",
+          "evidence": [
+            "The correction terms are identical after squaring 3+(−1)^L."
+          ],
+          "identifier_or_url": "a941d310bb46",
+          "material_read": "Opening finding, marginal variance",
+          "method": "Local mirror passage inspection",
+          "title": "Exact finite-block joint two-adic valuations of two binomial coefficients",
+          "trigger": "Exact finite-variance corroboration"
+        },
+        {
+          "assessment": "Relevant block-digit and Pascal-row theory; no whole-paper coverage judgment",
+          "evidence": [
+            "The checked count ranges over k in a fixed Pascal row, not fixed k=n along the 3n ray."
+          ],
+          "identifier_or_url": "https://www.math.tugraz.at/~grabner/Publications/Binomial.pdf",
+          "material_read": "Author manuscript abstract p. 1 and introduction p. 3, valuation row counts, offsets 202 and 3900",
+          "method": "Bounded primary manuscript inspection",
+          "title": "Distribution of Binomial Coefficients and Digital Functions",
+          "trigger": "Closest cited binomial-valuation distribution paper"
+        },
+        {
+          "assessment": "General transducer limit theory; no evaluated law for this ray in the inspected statement",
+          "evidence": [
+            "One final component and positive variance in the stated transducer setting give asymptotic normality."
+          ],
+          "identifier_or_url": "https://doi.org/10.37236/5026",
+          "material_read": "Theorem 1, pp. 6–7, extracted offset 18100",
+          "method": "Bounded primary-text inspection",
+          "title": "Output Sum of Transducers: Limiting Distribution and Periodic Fluctuation",
+          "trigger": "General theorem for the Gaussian and moment methods"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md proof and claimed contributions; 02997d82d076 and 767a9e2b871f exact statements"
+      ],
+      "rationale": "The initial-block distribution is a natural and useful exact object, but this record gives no substantive mathematical gain beyond the established complete distribution. In this context the newly printed variance correction is routine coefficient extraction from an identical generating function; the Gaussian limit already has identical constants in the pointwise-equivalent formulation. The alternative size-three transfer is tidy but the finding does not establish a distinct minimality, computational or structural benefit.",
+      "residual_risks": [
+        "A truly new interval, arithmetic family or structural minimality theorem could have value, but none is asserted or proved in this frozen finding."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

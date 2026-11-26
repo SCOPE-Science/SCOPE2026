@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact invariant axis \((0,0,z_0-bt)\) and its transverse Jacobian give a nonautonomous two-component linear system with increasing coefficient \(s=bt-z_0\). Writing the ratio \(r=u/v\) yields a Riccati equation whose sub- and supersolution barriers have common expansion \(a/(ks)+B/s^2+O(s^{-3})\). Integrating the scalar growth rate \(sr-c\) gives the slow exponent \(a/k-c\), the exact polynomial exponent \(B/b\) and the critical exponent \(-c^2/b\). A scalar second-order reduction and an exact Gaussian Wronskian furnish the independent fast mode and prove the splitting for every transverse perturbation. The finite-equilibrium calculation is checked independently and not asserted to be novel. SymPy checker `verify.py` passes on the packaged algebraic identities; asymptotic completeness rests on the proof, not finite experiments.
+## correctness
 
-## Originality — PASS within inspected evidence
-Dong (2022, DOI 10.3390/fractalfract6040190) defines the same system, explicitly solves its finite equilibria and examines forward chaotic attractors, but its publicly accessible full article does not report the asymptotic linear transverse splitting on the noncompact axial trajectory. Yang–Wei–Chen (2010, DOI 10.1142/S0218127410026320) is a predecessor without the \(kxz\) term, so its asymptotic transverse system is different. Actual published-finding corpus semantic searches found related results for different quadratic or planar systems, including a Gaussian proximity law in a planar transient center and transverse stability of a stationary equilibrium line; none of the inspected claims implies the present \(a/k-c\) stability boundary and \(t^{-c^2/b}\) critical decay in this specific flow. The closest accessible earlier finding on an axial Airy split concerns a flow with a coupling in the *third* equation, not the first. General Riccati comparison and Wronskian theory are known tools, not asserted as new. Risk: unindexed or inaccessible prior studies might contain an equivalent reduction, and the predecessor's full text was not inspected.
+PASS
 
-## Value — PASS
-The positive-\(k\) continuation passes through the natural boundary where two finite equilibria escape to infinity. The same boundary yields an exact three-regime transition in transverse linear behavior: exponential growth, algebraic critical decay and exponential decay. This connection to an escape-to-infinity equilibrium event is a motivated structural problem, with quantitative critical exponent and exceptional Gaussian-fast direction, not an arbitrary numerical invariant or relabeling of an existing equilibrium calculation.
+The axial orbit is exact, and its transverse linearization is u'=-(a+ks)u+av, v'=su-cv with s=bt-z0; the axial variation is constant. The Riccati equation for r=u/v is r'=a+(c-a-ks)r-sr^2. Matching the constant and inverse-s orders gives A=a/k and B=((c-a)A-A^2)/k in r=A/s+B/s^2. The residual is O(s^-2); adding and subtracting L/s^3 changes its leading coefficient by minus or plus kL, so for fixed sufficiently large L and then s, scalar comparison traps a solution on a forward half-line. Reconstructing v>0 and integrating sr-c gives exponent A-c and power B/b with relative error O(s^-1). For the fast line the scalar elimination is valid on that half-line. If g=W/v_s^2 is the positive integrand in the terminal reduction-of-order formula, the exact Wronskian and the slow logarithmic derivative give g'/g=-ks+O(1). Then (g/(ks))'=-g(1+O(s^-1)), so the integral tail is g/(ks)(1+O(s^-1)); this justifies both the fast logarithmic derivative and norm estimate without differentiating an unproved remainder. The derivative of the integral supplies a nonzero Wronskian and ensures independence. Both solutions extend to any finite initial time by the original nonsingular linear system, even if s=0 there. At critical k=a/c, A=c and B=-c^2, so every nonfast transverse vector gives the claimed algebraic amplitudes and the exceptional line still decays faster. The equilibrium count follows from xy=b and y=ax/(a-ck), with impossibility when a-ck=0. An independent symbolic check `python3 /workspace/replay/audit_checks.py 5` (output `/workspace/replay/5.txt`) uses w=u+kv; for D=a+k(a-c) nonzero one can eliminate v from w'=-aw+Dv, v'=sw-(ks+c)v. Removing the first derivative and taking X=(ks+a-c+2a/k)/sqrt(kb) gives Y_XX=(X^2/4+1/2+B/b)Y. The code verifies that alternative exact reduction and the D=0 triangular and critical coefficients. The long-time statements are justified by the proof, not the symbolic test.
 
-## Limits and independent validation
-The theorem applies to linearized transverse equations only. Neither linear decay along a noncompact base orbit nor a decreasing finite-time perturbation guarantees nonlinear attraction, global stability or existence of an attractor. Publication priority remains provisional, and no independent mathematical review was performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Dong's vector field, Jacobian, and finite-equilibrium boundary are prior and are credited as such. The supported distinct material is the full two-mode transverse classification on the drifting axis, including the critical power, the fast line, and coverage for all positive parameters. Classical ODE and parabolic-cylinder theory are tools, not new results; a separate model-specific reduction shows how the classical scales map to these particular coefficients. No exact Dong-axis rate or equivalent applied reduction was identified in the checked sources.
+
+## value
+
+PASS
+
+Equilibria escaping to infinity motivate this exact cutoff independently of the calculation. Leading exponential growth alone cannot tell whether the marginal transverse perturbations decay; the specific inverse-power exponent does. The complete mode splitting also identifies the exceptional fast-stable line on the growing side. This makes a useful exact stability diagnostic for the published field, not a claim of a new general ODE method or nonlinear attraction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

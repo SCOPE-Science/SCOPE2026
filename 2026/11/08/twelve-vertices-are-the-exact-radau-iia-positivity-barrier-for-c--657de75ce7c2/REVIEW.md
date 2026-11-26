@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof specifies connected unit-weight complete multipartite graphs, the two-stage Radau IIA endpoint rational function, and every nonnegative timestep. The blockwise Laplacian projector identity yields all entries. Both off-diagonal formulas have positive numerators and denominators for positive steps. The global scalar filter minimum \(\eta=(5-3\sqrt3)/2\) implies strict diagonal positivity for \(N\le11\). At \(h=8/(N-p)\), the exact diagonal formula is strictly negative for every part of every \(N\ge12\), by the positive quadratic \(45t^2-66t+53\). Continuity and the rank-one large-time limit prove the return to positivity. Exact Fraction-based matrix inversion checks 196 selected cases and 16,580 entries, while symbolic algebra independently confirms the critical rational identities. The infinite claim rests on the proof rather than finite search.
+## correctness
 
-**Originality — PASS, qualified by publication-priority uncertainty.** The 2014 Horváth–Song–Terlaky source derives rational-invariance step thresholds without an all-complete-multipartite Radau order cutoff. Horváth (1998) treats general Runge–Kutta positivity, and Horváth (2005, Theorem 17 and Remarks 18–19) analyzes a smaller eigenvector-defined cone and even discusses two-stage Radau IIA; those claims do not assert entrywise positivity from *every* nonnegative initial state, nor the twelve-vertex cutoff. Lóczi–Ketcheson (2013) gives unrestricted absolute-monotonicity radii, not this restricted graph-family classification. A prior balanced-biclique-only order-12 obstruction is contained as a special case and is not presented as new. A prior all-order scalar-filter criterion describes the universal-filter condition over unrestricted graph sizes and does not imply this exact sharp finite-order and every-graph threshold without additional analysis. Exact and alias searches in mathematical records found no dominating equivalent; failed searches are not a proof of novelty. A short Horváth 2004 note was available only in abstract, and specialist literature can remain unindexed.
+PASS
 
-**Value — PASS.** The exact smallest order at which every complete multipartite graph admits an endpoint positivity failure is a natural numerical-stability invariant. The theorem unifies all possible part profiles, gives an explicit negative-witness timestep for every part, separates graph-family positivity from classical unconditional positivity, and proves eventual recovery. It converts a high-dimensional matrix-entry sign question into sharp algebraic conditions and identifies a meaningful structural boundary rather than a narrow computed case.
+The endpoint scalar filter has no poles for nonnegative arguments. The Laplacian acts by 0 on the constants, by q=N−p on mean-zero vectors supported in a part of size p, and by N on the part-constant centered space. The projectors give diagonals 1/N+(1−1/p)R(qh)+(1/p−1/N)R(Nh). Writing f(z)=(1−R(z))/z=(z+6)/(z²+4z+6), the between-part off-diagonal equals h f(Nh)>0 and the within-part off-diagonal equals (qh/p)[f(qh)−f(Nh)]>0 for h>0, since f′ is strictly negative on nonnegative arguments. The global scalar minimum is (5−3√3)/2 at z=3+3√3. The resulting lower bound on a diagonal has numerator at least 26−15√3>0 through order 11. For h=8/q and t=p/N, direct substitution uses R(8)=−5/51 and R(8/(1−t))=−(1−t)(5+3t)/(51−22t+3t²). The negative of the resulting diagonal has positive denominator and numerator N(255−110t+15t²)−2848+1056t. For N≥12 this numerator is bounded below by 4(45t²−66t+53)>0, since the quadratic has negative discriminant. The bound holds for every part, with no inference of a common negative timestep. At zero the endpoint is the identity, so the diagonals stay positive for small positive steps; at large steps the endpoint tends to J/N, so strict positivity returns. The uniform algebra rather than the supplied finite tests establishes the theorem.
 
-The result is limited to the stated endpoint method and unweighted complete multipartite graphs, and remains subject to independent technical and publication-priority review.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Earlier balanced multipartite work already proves the same order cutoff, even with common positive edge weights, and classifies reentry more finely in its domain. This is substantial prior coverage, alongside overlapping star and K₂,q statements. The supported distinct contribution is the sharp result for arbitrary part profiles and a uniform explicit witness for each individual part at all orders N≥12. The inspected general time-discretization criteria do not imply that extension.
+
+## value
+
+PASS
+
+An all-step positivity bound for this endpoint update controls whether nonnegative data can acquire negative entries. The exact graph-order barrier for every part profile is stronger than a positive range from an unrestricted method criterion or isolated balanced examples. The simple explicit witness and all-time off-diagonal sign give usable information even though graph-specific positivity windows are not all classified.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

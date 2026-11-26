@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Computational verification
+# Independent mathematical audit
 
-Run `python3 verification/check_fourcut.py` with Python 3.10 or newer. No optional packages are used. The attached `verification/collapse_pairs.tsv` records the complete finite elementary-collapse certificate as decimal twelve-bit masks. The checker builds all graph and complex data from first principles, checks all 132 free-face pairs including uniqueness of each proper coface in the **current** complex, and verifies the residual two-dimensional complex. It also computes separate exact mod-two matrix ranks for both complexes.
+## correctness
 
-Execution from the actual packaged files completed successfully with the output in `verification/check_output.txt`: 369 disconnected induced four-sets, 449 dual faces, 3,647 cut-complex faces (including empty faces), 132 collapses, residual dual vector (12,60,112), and boundary ranks 306, 462, 49 and 11. Integer face counts and Euler characteristics are checked. The claim's integral and homotopy conclusions require the topological arguments in `RESULT.md`; the mod-two computations alone are not integral certificates.
+PASS
 
-Verification is limited to the finite object in the theorem. This is not independent external validation, and no external certification is asserted.
+The dual is precisely the complex with no disconnected induced four-subset. Enumeration via the geometric cuboctahedron independently found 126 connected four-sets, 24 five-faces, no higher dual faces, and the stated primal face vector. Independently replayed all 132 supplied pairs in cube-edge labels, requiring a unique proper coface at each deletion; the residual face vector is (12,60,112). A separate greedy collapse in geometric labels reduced the dual to (12,66,118) in 126 moves, also of reduced Euler characteristic 63. The original dual's complete two-skeleton makes it simply connected, so its collapsed two-complex has free H2 of rank 63 and is a wedge of 63 two-spheres by Hurewicz and homological Whitehead. Integral Alexander duality on 12 labels puts its cohomology in primal homology degree 12-2-3=7. The primal full five-skeleton gives 4-connectivity, and Hurewicz with vanishing H5 and H6 gives 6-connectivity. An integral basis represented by seven-spheres then gives the claimed wedge. Purity follows from the 369 distinct complements, each of size eight.
+
+## originality
+
+PASS
+
+The inspected exact and nearby statements do not give either homotopy type for the ordinary four-cut of this graph. This is a bounded comparison, not a priority determination.
+
+## value
+
+PASS
+
+The natural intermediate cutoff for a standard named graph has only top-dimensional homotopy, in contrast to both adjoining mixed-dimensional wedges. This determines an integral homotopy type and its dual in a case not handled by the complete-skeleton shortcut; it is more than a face count or a field Betti calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:17:51.323201Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, especially the positive-octant assertion in scope and Steps 1–5",
+        "Replacement RESULT.md: assumptions, Steps 1–5 and verification",
+        "VERIFICATION.md and checker.py (inspected, not executed)",
+        "Independent algebraic sign enumeration and bounded exact binary-rational sign check at b=1/2, 1 and 2"
+      ],
+      "rationale": "PASS applies to the replacement RESULT.md, not to the original positive-octant assertion. In the original coordinates, a=b=1 and (x,y,z)=(1,1,2) give a strictly positive H=1 point other than E_+ that maps to E_-=(1,−1,0) in one step rather than oscillating. The repaired text explicitly lists (1/b,1/√(ab),1+1/b), always positive, and E_+ only when b>1. This is exactly the intersection of the eight sign choices with the original positive octant. Rechecking the whole theorem: 1−z_{n+1}=x_n gives y_{n+3}=ab y_{n+2}y_n²; zero data force eventual zero, and other data give L_{n+3}=L_{n+2}+2L_n. The left projection w·U_0=log H and w·v=3r²−2r yield the leading r-mode, exact H power law, and strict-region limits because 1<s<r. Varying |x| locally on H=1 proves the common boundary. In the nonzero complementary mode the expanding rotation produces infinitely many strictly positive and strictly negative sinusoidal excursions, for both rational and irrational angles; its full log-vector norm diverges, precluding recurrence. Vanishing initial log vector gives exactly the eight sign cases and arrival at an E_± within two steps. Poincaré recurrence on a countable basis gives the three-Dirac probability census, and the normalized monomial log chart gives the three repelling eigenvalues at E_±. The derivative at E_0 is nilpotent.",
+      "residual_risks": [
+        "The analytic proof rather than the finite diagnostics establishes the exact critical surface; approximate points near H=1 can pick up a larger r-mode. No transition claim for c≠1 is made."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The exact two-cycle threshold theorem works for general positive parameters, taking t=b(1−c); at c=1 its t=0 gives N₂=0.",
+          "9175d180eec2 has a global radial separator and fixed-point-supported invariant probabilities for a different nonnegative-cone quadratic operator and gives a water-filling limit."
+        ],
+        "reasoning": "Broader parameters in a short-cycle theorem do not imply arbitrary orbit limits or the invariant-probability census. Classical spectral decomposition once a log-linear recurrence has been found is a method, not an earlier statement covering this signed map's boundary, exceptions, and critical recurrence. The water-filling class does not furnish the expanding complex critical mode.",
+        "searches": [
+          "Wang et al. §2.1 Eq. (3) and surrounding fixed-point/Jacobian passages",
+          "Local Resultary search for global basin surfaces, critical orbit oscillations and invariant probabilities",
+          "37fa6309f5c1 and 9175d180eec2"
+        ]
+      },
+      "checked_sources": [
+        "Wang et al. (2023) §2.1 Eq. (3)",
+        "Resultary 37fa6309f5c1 and 9175d180eec2; identical record e27a20e68d74"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The founding paper supplies the map/Jacobian analysis, not the compared exact full-real trichotomy. The fixed points on the slice follow directly from the displayed map, independently of the original fixed-point prose.",
+          "The cycle count's t=0 case proves that no primitive two-cycles exist, an overlap to credit. The replacement also deals with every period, aperiodic recurrence, invariant measures, and signed critical excursions."
+        ],
+        "reasoning": "Neither knowing the fixed points and their stability nor ruling out period two supplies all-real attraction, escape, or nonrecurrence. The sign-corrected octant statement is a corollary of the global eight-point classification, not a separate novelty claim.",
+        "searches": [
+          "Wang et al. DOI 10.3390/sym15101879 §2.1 pp. 2–3",
+          "37fa6309f5c1 actual Finding and parameter-t cycle count",
+          "9175d180eec2 actual Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Wang et al. Eq. (3) gives the same three-dimensional model. At c=1 the normalized signed map is (u,v,w)↦(v²,vw,u), so the nonzero absolute log map is a constant linear map with characteristic polynomial λ³−λ²−2.",
+          "37fa6309f5c1 is on the identical model but its actual theorem counts primitive two-cycles and handles their Floquet stability."
+        ],
+        "reasoning": "An equivalent claim could be stated as a signed monomial recurrence, a Perron logarithmic hyperplane with growing oscillatory projection, or a full forward classification of the polynomial map. The cited local and two-cycle results do not state these equivalent global claims.",
+        "searches": [
+          "Local Resultary queries for c=1 parabolic map, monomial/logarithmic recurrence and exact global separatrix",
+          "Wang et al. §2.1 Eq. (3); same-map record 37fa6309f5c1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "e27a20e68d74 is the exact frozen record itself. The best same-map separate hit states N₂=0, 1, or 3 across its parameter partition; the analogous global-separatrix hit treats a different map."
+        ],
+        "reasoning": "A true covering classification would need all real initial conditions and the critical dynamics and exceptions, or equivalent recurrence data. A primitive-two-cycle census or matching classification headings do not supply that; the identical record is not prior coverage.",
+        "searches": [
+          "Local Resultary search for the exact c=1 map and two expanding scales, critical oscillations, and invariant measures",
+          "Resultary e27a20e68d74, 37fa6309f5c1 and 9175d180eec2"
+        ]
+      },
+      "rationale": "For the replacement, the correction restricts the positive-octant statement to its exact content without removing the mathematical gain: the full-real separatrix, classification of nonexceptional and eventually fixed critical orbits, two spectral scales, and invariant probability census. Wang et al. supply the map and local analysis; the same-map Resultary theorem supplies a complete primitive-two-cycle count and therefore already excludes primitive two-cycles on this slice. Neither inspected statement contains the global result. The adjacent water-filling separatrix is for another operator. The elementary monomial logarithm and spectral tools are not themselves novel.",
+      "residual_risks": [
+        "A prior unindexed treatment of a conjugate signed monomial map might imply the full result. Priority is provisional and not inferred from catalogue ranking or dates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defines the same three-dimensional map; the compared local results do not cover the global slice theorem",
+          "evidence": "Eq. (3) has precisely the three verified coordinate rules with positive parameters; at c=1 direct substitution determines all three equilibria.",
+          "identifier_or_url": "https://doi.org/10.3390/sym15101879",
+          "material_read": "§2.1, Eq. (3) and adjacent fixed-point/Jacobian passages, PDF pp. 2–3, extracted offsets 10800–17279",
+          "method": "Bounded passages from the lawful publisher PDF",
+          "title": "A Novel Four-Dimensional Memristive Hyperchaotic Map Based on a Three-Dimensional Parabolic Chaotic Map with a Discrete Memristor",
+          "trigger": "Original definition and possible local/global coverage of c=1"
+        },
+        {
+          "assessment": "Partially covering: already excludes primitive two-cycles on c=1, not global or critical classification",
+          "evidence": "N₂=0 for t≥−1, 1 for −2≤t<−1, 3 for t<−2; t=b(1−c)=0 on the slice.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-a-golden-ratio-sink-boundary-and-complete-primitive-two-cycle-ce--37fa6309f5c1/RESULT.md",
+          "material_read": "Finding and exact t-threshold statement at offset 0",
+          "method": "Published text via local mirror",
+          "title": "A golden-ratio sink boundary and complete primitive two-cycle census for a three-dimensional parabolic map",
+          "trigger": "Strongest same-map earlier exact classification"
+        },
+        {
+          "assessment": "Different operator and state space",
+          "evidence": "A homogeneous quadratic operator on a nonnegative cone has a radial separator and water-filling limit, not this signed polynomial map and critical mode.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-an-exact-global-separatrix-and-water-filling-convergence-for-a-p--9175d180eec2/RESULT.md",
+          "material_read": "Finding and model scope",
+          "method": "Published text via local mirror",
+          "title": "An exact global separatrix and water-filling convergence for a positive quadratic operator",
+          "trigger": "Analogous global basin and invariant-measure structure"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Replacement RESULT.md: global classification, common boundary, critical dynamics and probability census",
+        "Prior primitive-two-cycle statement on the same map"
+      ],
+      "rationale": "The choice c=1 exactly cancels a delayed additive term and is a structurally motivated solvable slice of an existing polynomial map. The sharp common boundary and rank-two oscillatory critical dynamics distinguish true basin thresholds from a local stability or short-cycle census. The expanding full log norm despite a middle coordinate with vanishing subsequences is a meaningful mechanism for the complete invariant probability statement. The positive-octant repair removes an incorrect extra assertion without diminishing these conclusions.",
+      "residual_risks": [
+        "The theorem gives no robustness in c, no extension to the separate four-dimensional model, and no cryptographic-performance result."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

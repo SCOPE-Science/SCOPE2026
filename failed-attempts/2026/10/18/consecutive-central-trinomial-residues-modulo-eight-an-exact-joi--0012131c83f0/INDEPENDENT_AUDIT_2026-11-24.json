@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:57:46.905018Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The Finding is correct by reconstruction; the frozen proof has a false intermediate congruence at RESULT.md:27. Both children are congruent modulo four to (1+2n)T_n, not to T_n in general (T_2=T_3=3 while T_1=1). This is immediate from the preceding exact recurrences and oddness; it still implies T_{n-1}=T_n mod 4 for odd n, which is the only needed step. For the recurrences, put Q=P(z^2) and use P^2=Q+2P; the even Laurent parts of P, P^2, P^3 are respectively 1, Q+2, 3Q+4. Truncating the binomial expansions at two factors of 2P gives both stated recurrences, with the n=0 case direct. The corrected sibling equality gives the stated mod-eight transitions. Independently replayed exact finite checks confirm the 24-state communication, stationary weights, annihilator identity on every basis state, and three count anchors. The simple Perron eigenvalue and the remaining nonzero simple roots of modulus at most sqrt(2), with nilpotents at zero killed after three steps, yield O(sqrt(N)) after dyadic block decomposition. Eighth powers of the nonzero roots are 256,16,1; the three anchors uniquely force the claimed marginal count for all m>=1, and at least one of four joint discrepancies is at least sqrt(N)/8 infinitely often. Replay: python3 /workspace/review_replay.py 1. This independently verifies the finite prerequisites, not by testing an infinite set of N. No source checker was executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Krattenthaler–Müller give pointwise mod-eight residues via binary parities. Rowland–Yassawi give the mod-four automaton; the inspected section says they had not computed mod eight. Beukers gives general p-linear digit schemes. The matching Resultary finding gives eight-class character estimates and a carry analysis for all cutoffs."
+        ],
+        "reasoning": "The literature machinery alone does not state the sharp joint asymptotic, but the distinct Resultary result explicitly obtains it, with the same modulus, all prefixes and all sixteen classes.",
+        "searches": [
+          "Krattenthaler–Müller arXiv:1608.05657v3 §8.4 Theorem 17",
+          "Rowland–Yassawi arXiv:1310.8635v2 §4.2",
+          "Beukers arXiv:2211.15240 Def. 1.2",
+          "matching Resultary Proof §§3–5"
+        ]
+      },
+      "checked_sources": [
+        "Resultary d52764ad9675",
+        "arXiv:1608.05657v3",
+        "arXiv:1310.8635v2",
+        "arXiv:1008.3887",
+        "arXiv:2211.15240",
+        "Noe, JIS 9, no e35, Table 1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The match proves sharpness with sum (-1)^e=2^ceil(r/2) for adjacent-11 parity over r-bit words, and writes the matrices M_0=[[1,1],[1,-1]], M_1=[[1,1],[-1,1]]. Residue 1 requires both a=s_2(floor(n/2)) mod 2 and b=e_2(n) mod 2 to be zero."
+        ],
+        "reasoning": "For r=8m, the pure a character vanishes. For the mixed a+b character apply M_1 to each digit except the last (most significant first, start e0), then M_0 to the last digit. Its sum is (2,0)M_1^(r-1)e0=16^m since M_1^8=16 I. The pure b character is also 16^m, so Walsh inversion gives (256^m+2*16^m)/4. Thus the extra selected marginal formula is an immediate calculation with the existing explicit transfer, not a separate discovery.",
+        "searches": [
+          "matching Resultary §1 eq. (1), §3 digit matrices and §5 Sharpness, offsets 1900–4810 and 6054–6939"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The matching P_{j,k}(N) counts exactly the same indices and adjacent residues. Its alpha partitions {1,5} and {3,7}, exactly the equivalence classes modulo four on odd residues."
+        ],
+        "reasoning": "The two explicit densities 1/12 and 1/24, positive joint densities, and uniform marginals agree; the matching conditional probabilities also encode the same lack of independence. The matching file is distinct; its displayed path date is not a priority ruling.",
+        "searches": [
+          "Resultary semantic search: consecutive central trinomial residues modulo eight, joint law and sharp discrepancy",
+          "2026/11/2/SCOPE-exact-two-point-residue-laws-for-consecutive-central-trinomial-c--d52764ad9675, Finding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Noe's A002426 entry identifies the base sequence, not a table of two-point frequencies. The matching Resultary Finding is an exact formula for all sixteen cells, not just a finite table."
+        ],
+        "reasoning": "The pointwise sequence listing is not itself a rate theorem. The indexed full formula is decisive evidence of exact coverage for the claimed density array. The inconclusive outbound search is not evidence of absence.",
+        "searches": [
+          "Noe, On the Divisibility of Generalized Central Trinomial Coefficients, Table 1 (A002426)",
+          "matching Resultary Finding (full sixteen-cell law)",
+          "literature query for central trinomial coefficients modulo eight, consecutive pairs and densities"
+        ]
+      },
+      "rationale": "A distinct Resultary finding demonstrably covers the same main theorem, including simultaneous square-root discrepancy and optimality. This is a comparison of statements, not a claim of chronological priority. The additional selected dyadic marginal count is not stated there verbatim, but follows by direct Walsh evaluation from the same digit transfer already written there; it does not distinguish the original finding or supply a substantial remainder to repair.",
+      "residual_risks": [
+        "Neither catalogue ordering nor this bounded search resolves historical priority.",
+        "Uninspected applications of general automatic-sequence methods may also cover the law; exact catalogue overlap already settles the disposition."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent main theorem; selected marginal formula follows by applying its matrices exactly",
+          "evidence": "Same mod-four partition, all-prefix O(sqrt(N)), family-level optimality; explicit Walsh matrices and exact pure b character.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-two-point-residue-laws-for-consecutive-central-trinomial-c--d52764ad9675/RESULT.md",
+          "material_read": "Finding offsets 0–1770; proof §§1–3 offsets 1900–4810; §5 offsets 6054–6939",
+          "method": "Local Resultary mirror at commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4; literal locate and bounded text read",
+          "title": "Exact two-point residue laws for consecutive central trinomial coefficients modulo eight",
+          "trigger": "Same sequence, modulus, adjacency and sharp exponent"
+        },
+        {
+          "assessment": "Foundational input; inspected theorem does not give joint statistics",
+          "evidence": "Binary digit sum and adjacent 11 counts determine pointwise residue.",
+          "identifier_or_url": "https://arxiv.org/html/1608.05657v3",
+          "material_read": "§8.4 Theorem 17, around OA offset 96523",
+          "method": "Open arXiv text, bounded passage",
+          "title": "Motzkin numbers and related sequences modulo powers of 2",
+          "trigger": "Known pointwise mod-eight formula"
+        },
+        {
+          "assessment": "Mod-four coverage only in the passage",
+          "evidence": "Mod-four automaton and explicit remark about not computing modulo eight.",
+          "identifier_or_url": "https://arxiv.org/html/1310.8635v2",
+          "material_read": "§4.2, around OA offset 99199",
+          "method": "Open arXiv text, bounded passage",
+          "title": "Automatic congruences for diagonals of rational functions",
+          "trigger": "Automaton for the same sequence"
+        },
+        {
+          "assessment": "Inspected passage treats congruences, not paired frequencies",
+          "evidence": "Definition and congruence overview.",
+          "identifier_or_url": "https://arxiv.org/pdf/1008.3887",
+          "material_read": "Introduction, OA offsets 1182–7381",
+          "method": "Open PDF text, bounded passage",
+          "title": "Congruences involving generalized central trinomial coefficients",
+          "trigger": "Same classical sequence within a generalized family"
+        },
+        {
+          "assessment": "Sequence identification only in checked table",
+          "evidence": "Ordinary coefficients listed as A002426.",
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL9/Noe/noe35.pdf",
+          "material_read": "Introduction p. 1 and Table 1 p. 11",
+          "method": "Open journal PDF",
+          "title": "On the Divisibility of Generalized Central Trinomial Coefficients",
+          "trigger": "Sequence/table coverage"
+        },
+        {
+          "assessment": "Framework, not an explicit match in inspected passage",
+          "evidence": "General digit linear scheme; a name miss does not rule out application.",
+          "identifier_or_url": "https://arxiv.org/pdf/2211.15240",
+          "material_read": "Definition 1.2, p. 2, OA offset around 7137",
+          "method": "Open arXiv PDF text, bounded passage",
+          "title": "p-Linear Schemes for Sequences Modulo p^r",
+          "trigger": "Stronger general digit-matrix method"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "As mathematics, the full joint law and optimal all-prefix exponent are useful explicit correlation and discrepancy information not supplied by uniform marginals. This does not make the covered result original. Once the joint law is removed there is no worthwhile repair based solely on the direct Walsh specialization at r divisible by eight.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

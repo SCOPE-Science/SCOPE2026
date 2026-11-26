@@ -1,20 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness: PASS
-Euclidean normal-cone optimality yields the firm nonexpansivity ball for any pair of projected inputs. Its coordinate and weighted-sum estimates prove the universal bound. An explicit weighted hyperplane row-sum optimizer proves optimality for a tangent projector; the tangent-halfspace limit at every smooth support normal transfers sharpness to each smooth convex body. Strictly convex support makes the finite-point inequality strict. Rounded boxes are smooth parallel bodies and establish discontinuity. The supplementary standalone checker passed 4,228 assertions on ellipsoids and boxes. All universal quantifiers are discharged analytically, not computationally.
+## correctness
 
-## Originality: PASS (with historical priority risk)
-The previously published sharp weighted coordinate norm of **ball clipping** has exactly the same expression, and is explicitly cited rather than presented as new. Its stated scope does not cover arbitrary smooth convex bodies. The general body-invariance law, strict-convexity nonattainment, and the Hausdorff discontinuity example are not entailed merely by that ball theorem. Balestro--Martini--Teixeira (2019) provide normal geometry without this sharp two-norm formula; Leobacher--Steinicke (2021) analyze manifold projection regularity; Bednarczuk--Rutkowski (2020) treat parameter-varying polyhedral feasible sets. An older equivalent theorem under projector norm terminology remains possible. The new contribution is the full-body quantified extension, not the familiar bound or ball calculation alone.
+PASS
 
-## Mathematical value: PASS
-The exact coefficient is surprisingly insensitive to all shape, scale and curvature choices within a large natural class, but drops discontinuously at a nonsmooth limit. The proof connects firm nonexpansivity, optimal tangent hyperplane geometry, the Gauss-normal range and topological sensitivity of nonlinear projector moduli. Its weighted dual-norm and nonattainment consequences offer structural robustness information for convex repair problems.
+For v=x−y and u=P_C(x)−P_C(y), the two nearest-point inequalities give ⟨u,v−u⟩≥0, hence ||2u−v||₂≤||v||₂. Writing u=(v+(2u−v))/2 and using the sharp comparisons between Euclidean and weighted coordinate norms gives each stated universal upper bound. A direct sharpness check in dimension at least two is to take a minimum-weight coordinate i, R=||w||₂, and the reflection in the hyperplane normal to w/R−e_i. It interchanges the unit vectors w/R and e_i. Averaging the reflection with the identity gives that hyperplane's projector, attaining the upper ratio on v=w in the maximum norm and v=e_i/w_i in the sum norm. For any compact full-dimensional C¹ body the support maximum in that direction provides a point with the requisite unique normal. Its rescaled body converges locally to the supporting halfspace by the first-order boundary graph; bounded nearest points converge by testing against approximants to points in the limit halfspace. Taking the two test offsets on the exterior side by a common normal translation transfers the hyperplane ratios to limiting body secants. Strict convexity strictly separates nonidentical projected points from each other's nonzero supporting normals, so with a nonzero residual the Euclidean ball inequality is strict; the other quotients are one (both inputs inside) or zero (coincident projected points). On a full-dimensional box coordinatewise clamping has exact coefficient one. The positive distance level of a box is C¹,¹, since its squared-distance function has Lipschitz gradient and nonzero gradient on that level. The rounded boxes converge at Hausdorff distance ε. The discontinuity and strict difference L_w>1 apply in dimensions n≥2; at n=1 intervals have coefficient one as stated in the scope.
 
-## Closest literature and limitations
-- Balestro, Martini, Teixeira, *Convex analysis in normed spaces and metric projections onto convex bodies*, arXiv:1908.08742 (2019).
-- *Sharp weighted coordinate sensitivity of Euclidean-ball clipping*, published-finding corpus public record (October 2026), ball-only statement with identical factor.
-- Leobacher, Steinicke, *Existence, uniqueness and regularity of the projection onto differentiable manifolds* (2021).
-- Bednarczuk, Rutkowski, *On Lipschitz Continuity of Projections onto Polyhedral Moving Sets* (2020 online).
+## originality
 
-The result concerns finite-dimensional real Euclidean projection to a fixed smooth compact convex region. For general nonsmooth convex regions only the universal upper bound is asserted. Independent priority analysis and independent mathematical validation remain outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The ball precedent already gives the exact weighted factor and optimal directions, and a distinct same-day record also produces a qualitative unweighted Hausdorff discontinuity. Credit those overlaps. The surviving result is exact equality for every full-dimensional compact C¹ convex body in both dual weighted norms, the strict-convexity nonattainment statement in that class, and the sharp smooth-to-box realization of the discontinuity. The primary sources provide Euclidean estimates, coarse or distributional notions of stability, or local tangent regularity, not that quantified sharp statement.
+
+## value
+
+PASS
+
+The result identifies an exact global worst-case stability coefficient for a broad body class from only the weights, not curvature or orientation. The strict-versus-limiting attainment distinction and the explicit smooth approximations to a clamping projector explain where this equality is seen and where it is lost. This goes beyond the earlier single-ball computation or a qualitative single-family discontinuity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T17:01:16.335152Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the smooth genus-three model y^3=f(x)=x^4+ax^2+bx+c, use the specified basis (dx/y^2, x dx/y^2, dx/y). The relative Cartier coefficient matrix H has a 2-by-2 block M from f^8 and a scalar d=[x^12]f^4. The fresh independent replay /workspace/replays/cartier.py verified in the full polynomial ring F_13[a,b,c] that d=6T, det M=4T Delta^2, and det H=11T^2 Delta^2, with T=a^2-8c and Delta the reduced quartic discriminant. On Delta != 0 and T=0, for c != 0 one can normalize c=1 geometrically: the bottom-left entry b(4-a^2) is nonzero for b != 0, and for b=0 the bottom-right entry is 2. When c=0, T=0 forces a=0 and smoothness forces b != 0; [x^11]f^8=8b^7 is then nonzero. Hence ranks are exactly 1 and 3 on and off T=0, and the divisor has multiplicity two with smooth reduced support. Independent gcd-based enumeration confirmed 1,884 ordinary, 144 with a-number 2, and 169 singular marked F_13 triples. Over F_169, at a^2=8,b=0,c=1, the replay gave Delta=9 and H=diag(0,2,0); 8 is nonsquare in F_13. This smooth example satisfies the stated nonzero-constant and characteristic hypotheses of Nourozi–Rahmati, Theorem 3.1(1), in both inspected preprint versions, and contradicts their conclusion. This is a first Cartier-rank calculation, not a Newton-polygon or geometric 13-rank determination. The polynomial identities and rank argument establish the geometric claim; the finite census does not substitute for them. Submitted verifiers were inspected, not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Moonen §2.1, Eq. (2.1.1), gives F/V adjointness and the isotropy of ker F and ker V; the Introduction identifies the Jacobian module with H^1_dR and its Hodge subspace with H^0(Omega^1).",
+          "Fan uses the split signature (2,1) eigenspaces, the universal G-zip in Definition 4.2, and the two partial Hasse invariants with the same ordinary nonvanishing locus in §6.",
+          "In the smooth Picard family over F_13, the cube-root action is split and both de Rham eigenspaces have rank three. Write W for the Hodge subbundle and K for the kernel of relative Verschiebung. Both are Lagrangian; the minus eigenspaces W_- and K_- are the annihilators of W_+ and K_+ in the dual de Rham summand."
+        ],
+        "reasoning": "Relative Verschiebung identifies E_+/K_+ with the Frobenius pullback of W_+, and likewise in the other character. The map W_- to E_-/K_- is dual to K_+ to E_+/W_+. The latter determinant and that of W_+ to E_+/K_+ are, up to local units, the same top wedge of bases of W_+ and K_+. Both maps have fiber nullity dim(W_+ intersect K_+). Thus this standard duality gives scheme-theoretic equality of the two determinant ideals on the smooth family, not just equality of their vanishing sets, and gives equal nullities. Fan is supporting context; the complementary-minor argument is supplied here rather than attributed as a printed characteristic-13 computation.",
+        "searches": [
+          "split prime Picard modular surface Hasse invariant eigenspaces determinant duality",
+          "Moonen Ekedahl Oort Dieudonne Hodge filtration kernel Verschiebung image Frobenius dual polarized de Rham family F zip",
+          "Fan arXiv:2511.09125v2 §§2–4 and 6",
+          "Moonen arXiv:2202.08050v1, Introduction and §2.1"
+        ]
+      },
+      "checked_sources": [
+        "Nourozi–Rahmati arXiv:2306.07823v1/v2",
+        "Moonen arXiv:2202.08050v1",
+        "Fan arXiv:2511.09125v2",
+        "Resultary 6da8625d9e59 and 46687f5b6ce3 (summaries)",
+        "Laga–Shnidman DOI 10.1112/jlms.70347 (metadata/abstract)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "On the smooth chart the scalar d=6T follows directly from the prior coefficient prescription; its two contributions are 6a^2 and 4c. The complementary-minor identity forces det M/d to be a unit in F_13[a,b,c,1/Delta]. Equal nullities of the two blocks force total rank 3 off T=0 and 1 on T=0.",
+          "Delta is irreducible: its geometric vanishing set is the image of quartics (x-r)^2(x^2+2rx+s), and it is reduced as seen from the nonzero c derivative at x^2(x^2-1). Therefore the unit det M/d is a constant times a power of Delta. Weighted degrees for (a,b,c) of (2,3,4) give 28-4=24, so the power is 2. Evaluating at f=x^4+1 gives d=4, det M=8 and Delta=9 in F_13, fixing det M=4T Delta^2 and det H=11T^2 Delta^2."
+        ],
+        "reasoning": "This recovers the exact polynomial identity and multiplicity as well as the geometric ranks directly, without finding a matching table or relying on a generic ability to run a Cartier algorithm. The incorrect prior theorem is not used as a premise; its coefficient formula is. The witness is a valid correction of that statement, but the overlapping bielliptic coefficient already selects it.",
+        "searches": [
+          "Nourozi–Rahmati arXiv:2306.07823v1/v2, Eq. (3.2) and Theorem 3.1(1)",
+          "Moonen arXiv:2202.08050v1, §2.1",
+          "Fan arXiv:2511.09125v2, Definition 4.2 and §6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The published summary of 6da8625d9e59 gives the one-variable Prym coefficient on b=0,c=1 for split primes. Its p=13 specialization is [t^6](t^2+at+1)^4=6(a^2-8), covering the exhibited bielliptic parameter.",
+          "The published summary of 46687f5b6ce3 concerns stable rank zero on a subset of the c=1 slice. Stable rank zero is not the same as the first Cartier-rank stratification.",
+          "The first Cartier rank over a perfect field is unchanged on replacing the semilinear matrix entries by their thirteenth powers. The relative determinant, rather than a determinant of entrywise roots, is the scheme-theoretic quantity in the frozen claim."
+        ],
+        "reasoning": "The witness should not receive independent priority credit, although its application to refute the named statement is valid. The stable-rank record does not subsume the varying-b first-rank result; the prior polarized de Rham comparison below does.",
+        "searches": [
+          "Resultary 6da8625d9e59 (bielliptic Picard/Prym Hasse invariant)",
+          "Resultary 46687f5b6ce3 (Cartier iterates on a normalized Picard family)",
+          "Nourozi–Rahmati arXiv:2306.07823v1 and v2, §3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The two Resultary summaries concern respectively the b=0 witness locus and a stable-rank locus, not a table of monic depressed coefficient triples stratified by first Cartier rank.",
+          "The inspected Picard preprint passage gives coefficient formulas and an incorrect blanket ordinarity conclusion, not the displayed F_13 counts. The targeted literature query gave no usable table evidence."
+        ],
+        "reasoning": "No exact printed table was verified. Isomorphism-class data would not be the same census without recovering the marked triples. Failure to locate a table is not a novelty finding: the counts are forced by the prior criterion after specializing the scalar, counting squarefree depressed quartics, and testing the two roots 5 and 9 of z^2-z-7 on T=0.",
+        "searches": [
+          "Resultary 6da8625d9e59 and 46687f5b6ce3",
+          "Picard curve characteristic 13 Picard modular split primes Hasse invariant a^2 8c Cartier Picard curves quartic Estrada Sarlabous Hasse invariant p=13",
+          "Nourozi–Rahmati arXiv:2306.07823v1 and v2, §3"
+        ]
+      },
+      "rationale": "The full varying-b stratification, not merely the bielliptic witness, follows mechanically from the prior Picard Cartier coefficient formula and the standard polarized de Rham identities. Complementary minors make the two partial determinants associates on the smooth coefficient ring and force equal nullities. The scalar 6(a^2-8c) then gives the entire rank stratification and the doubled divisor; grading and one evaluation fix even the full discriminant factor and constant. The remaining marked counts are elementary counts on that forced locus. This is an implication judgment, not a claim that a prior source prints the characteristic-13 table verbatim.",
+      "residual_risks": [
+        "Estrada Sarlabous's historical full text was not located; a corrected journal version of Nourozi–Rahmati was not verified. The refutation is confined to the inspected preprint statements.",
+        "Unavailable full text and unindexed tables may affect exact priority attribution. Neither absence of a matching search hit nor access failure is the basis for the FAIL; the explicit stronger-prior implication is."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior explicit coefficient formula; the stated conclusion is falsified by the witness. Not a printed correct characteristic-13 table in the material inspected.",
+          "evidence": "Equation (3.2) supplies the Cartier coefficients and is credited there to Estrada Sarlabous; Theorem 3.1(1) asserts a(C)=0 with the smooth, nonzero-constant and p=1 mod 3 hypotheses in the finite-field setting.",
+          "identifier_or_url": "https://arxiv.org/abs/2306.07823 (v1 and v2)",
+          "material_read": "Preprint §3, basis and coefficient formula, Theorem 3.1(1) and its hypotheses in both versions",
+          "method": "Direct preprint inspection",
+          "title": "The Rank of the Cartier Operator on Picard Curves",
+          "trigger": "Same Picard family and named ordinarity theorem"
+        },
+        {
+          "assessment": "Supplies the general polarized de Rham identities underlying the complementary-minor reduction; not used as a claimed printed Picard classification.",
+          "evidence": "The Introduction identifies the Jacobian's Dieudonne module with H^1_dR of the curve; §2.1 states ker(F)=im(V), ker(V)=im(F), and that the two kernels are maximal isotropic under the polarization.",
+          "identifier_or_url": "https://arxiv.org/pdf/2202.08050",
+          "material_read": "Introduction and §2.1 including Eq. (2.1.1)",
+          "method": "Direct preprint text inspection",
+          "title": "Computing discrete invariants of varieties in positive characteristic. I. Ekedahl–Oort types of curves",
+          "trigger": "Potential implication of the first-rank result by polarized duality"
+        },
+        {
+          "assessment": "Establishes the broader split-Picard setting and common nonvanishing of partial invariants; exact ideal equality here is justified by the complementary-minor comparison, not inferred merely from common support.",
+          "evidence": "Definition 2.6 gives the signature and polarization; Definition 4.2 uses the universal G-zip; §6 defines both partial Hasse invariants and their product.",
+          "identifier_or_url": "https://arxiv.org/html/2511.09125v2",
+          "material_read": "Split signature and Hodge decompositions in §§2–3, §4 Definition 4.2 and Proposition 4.3, §6 partial Hasse invariant paragraph",
+          "method": "Direct arXiv HTML inspection",
+          "title": "Irreducibility of Newton strata in Picard modular surfaces and split local Galois representations",
+          "trigger": "Split-prime Picard-family partial Hasse invariants"
+        },
+        {
+          "assessment": "The bielliptic coefficient specializes to the witness equation; the iterator summary concerns a different rank invariant. No whole-document noncoverage inference.",
+          "evidence": "[t^6](t^2+at+1)^4=6(a^2-8) at p=13; the other summary concerns stable rank zero in a c=1 slice.",
+          "identifier_or_url": "Resultary 6da8625d9e59 and 46687f5b6ce3",
+          "material_read": "Published summaries only",
+          "method": "Resultary search",
+          "title": "Resultary entries on the bielliptic Picard/Prym invariant and Picard Cartier iterates",
+          "trigger": "Closest published exact calculations in the matching characteristic and family"
+        },
+        {
+          "assessment": "Relevant to witness priority; no full-text noncoverage claim.",
+          "evidence": "The accessible abstract concerns the bielliptic Picard/Prym family. The concrete witness implication is supported independently by the Resultary coefficient and the Cartier calculation.",
+          "identifier_or_url": "https://doi.org/10.1112/jlms.70347",
+          "material_read": "Crossref metadata and abstract, not the full text",
+          "method": "Metadata inspection; publisher full text inaccessible (HTTP 403)",
+          "title": "Laga–Shnidman study of bielliptic Picard curves and their Prym varieties",
+          "trigger": "Bielliptic b=0 subfamily containing the named witness"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Checking a purported ordinarity theorem on a smooth curve is well motivated, and this independently verified counterexample is a useful correction note. But the known bielliptic coefficient already selects the witness, and the entire varying-b first-rank divisor and its multiplicity follow by split-character duality and the immediate scalar specialization. The displayed determinant constant is then a normalization, and the marked census is an elementary evaluation of the same criterion. The record supplies no nonmechanical remainder such as a finer Cartier-iterate or Newton stratification. Thus it does not meet the value bar for an independent finding as frozen. No repair was made.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

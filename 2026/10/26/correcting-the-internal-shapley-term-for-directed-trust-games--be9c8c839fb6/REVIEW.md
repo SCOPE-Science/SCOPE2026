@@ -1,23 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The internal coalition-worth term is a sum of two-player unanimity games, one for each directed arc. Shapley linearity gives half of each arc's weight to each endpoint. The unit-weight directed 3-cycle has exact coalition worths \(0,1,2,3\) by coalition size and exact Shapley value \(1\) for every player; the displayed reciprocal-only term yields \(0\). The proof and exact-rational script agree.
+PASS
 
-## Originality
+The original internal Shapley identity and directed-cycle calculation are correct. Reassessed the repaired claim directly on the source equations for every finite loopless graph: for target j with m_j ranked in-neighbors, Delta_j(t)/t occurs in the self term (8) and exactly t-1 terms (9) for the predecessors, and the terminal subtraction b_j(m_j)/(m_j+1) occurs m_j+1 times. Thus the sum of external contributions for j telescopes to b_j(m_j)-b_j(0)-b_j(m_j)=0, including m_j=0 and ties. The printed internal sum counts each reciprocal pair's total arc weight once across the endpoints. Definition 2.1 gives all-arc weight as v(N), hence the displayed vector's efficiency shortfall is exactly the weight of one-way arcs; nonnegative weights ensure strict failure if one is positive. The internal replacement is independently justified by two-player unanimity linearity. For the unit 3-cycle each player's printed external terms are +1/2 and -1/2, the reciprocal contribution is zero, and the exact coalition worth is cardinality. Thus the printed and true vectors are zero and all ones respectively. Replay via arXiv:2605.18157v1 Definition 2.1, the b_j(0)=0 convention preceding Definition 2.2, and Corollary 3.3 equations (8)–(9); proofs and verification scope are in the repaired files. The frozen script was inspected, not executed; it checks the finite witness, not the symbolic efficiency identity or text of the preprint.
 
-**PASS, with scope limits.** The result is a source-specific correction, not a claim that the general Shapley identity is new. The 2024 predecessor defines internal trust using all directed arcs, and the 2026 preprint's own unanimity decomposition includes all arcs; its displayed Corollary 3.3 first term omits one-way arcs. published-finding corpus semantic queries and the accessible ledger yielded no directly matching correction. Search absence is not a proof of global novelty.
+## originality
 
-## Value
+PASS
 
-**PASS.** The missing term changes Shapley trust scores on any network with positive one-way arcs incident to a player. The exact three-cycle witness changes each computed score from \(1\) to \(0\) under the displayed expression, so the issue is consequential for the source's stated trust-ranking application rather than a cosmetic notation choice.
+Originality passes for the repaired source-specific quantitative defect, not the original record's prominently displayed internal formula as a new identity. An exact earlier copy of that formula is Proposition 3.6 of Bandhana–Kroupa–García, not merely a related general principle. The repair relegates it to credited background and proves how much the printed full vector falls short of efficiency, with a directed witness. The inspected precedents do not give this diagnosis of Corollary 3.3.
 
-## Closest literature and limitations
+## value
 
-- Ryzák and Kroupa, arXiv:2605.18157v1: Definition 2.1, Lemma 3.2, Corollary 3.3.
-- Bandhana, Kroupa, and García, AAMAS 2024, DOI 10.5555/3635637.3662860: Section 3, Definition 3.1.
-- MSC2020 91A12: Cooperative games.
+PASS
 
-The claim is limited to the internal Shapley contribution and its effect on the stated witness. The inspected preprint is v1; a later correction may exist. No independent audit has been performed.
+The repaired result quantifies a failure of a claimed way to compute all players' Shapley allocations: in networks with many one-way arcs the printed credit can lose the entire grand-coalition worth, not just change a tie or a normalization. The symbolic deficit is a practical check for that printed method and the cycle makes the issue independently reproducible. This is a motivated correction to a specific preprint rather than a rediscovery of the familiar endpoint-sharing identity.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

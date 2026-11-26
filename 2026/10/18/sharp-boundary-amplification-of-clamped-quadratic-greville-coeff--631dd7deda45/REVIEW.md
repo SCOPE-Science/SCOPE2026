@@ -1,15 +1,21 @@
-# Research assessment: clamped quadratic Greville coefficient recovery
+# Independent mathematical audit
 
-## Correctness — PASS
-Cox–de Boor recursion yields the stated boundary and interior tridiagonal rows. Alternating-sign diagonal conjugation turns the collocation matrix into a strictly diagonally dominant nonsingular M-matrix. The row-sum system is solved exactly by the characteristic roots \(3\pm2\sqrt2\), with boundary equations fixing its amplitude. Strict convexity of the row profile localizes all sharp positions. Separate Toeplitz and limit arguments justify the claimed persistent boundary excess. Finite arithmetic checks independently reconstruct the actual B-spline evaluations and all tested inverse entries. Risks: none identified in the claimed algebraic domain; independent proof inspection remains outstanding.
+## correctness
 
-## Originality — PASS within examined evidence
-The closest fully inspected source, Novaković–Singer–Singer (2010, arXiv:1004.4014), treats degree-two cardinal matrices with simple knots: symmetric Toeplitz arrays and spectral condition numbers, not the clamped repeated-endpoint matrix and exact \(\ell^\infty\) coefficient norm. De Boor (1975) and Marsden (1983) concern Greville spline interpolation more broadly; only their abstracts and contextual descriptions were accessible, so an implicit equivalent formula in them remains a significant priority risk. A mathematical-record semantic search for equivalent clamped-boundary norm formulas returned no direct implication; absence of a hit is not a uniqueness proof.
+PASS
 
-## Value — PASS
-The coefficient extraction map is a natural stability invariant of Greville spline reconstruction. The theorem supplies a complete sharp bound for all mesh lengths, exact extremal rows and data, a strict finite-size law, and a boundary penalty that survives grid refinement. This distinguishes clamped and pure-cardinal constructions, which share the same interior collocation stencil but have different limiting stability. This is more informative than a generic boundedness estimate; it does not assert a downstream approximation theorem.
+The Cox–de Boor stencil has identity endpoint rows, first and last interior diagonals 5/8, and pure interior diagonals 3/4. In particular the n=2 middle equations persist with no pure interior rows. Checkerboard conjugation gives a positive diagonal minus a nonnegative matrix with strictly subunit row sums after diagonal scaling, so the inverse is nonnegative by the Neumann series and its row sums give the absolute inverse row sums. Endpoint values are 1. Subtracting 2 from the other row sums leaves the homogeneous recurrence with roots q and q^(-1), and the reflected boundary equations give multiplier (sqrt(2)-1)/(1-q^n) on q^(j-1)+q^(n-j). Symmetry and strict convexity give only j=1,n as maxima; alternating data attain all row sums in modulus and work over either field. The correction is positive and strictly decreasing, and the n=2 equations give 5/2. For the cardinal comparison, the checkerboard row-sum equations have ghost values z_0=z_(m+1)=0 and solution z_j=2-2(q^j+q^(m+1-j))/(1+q^(m+1)); hence strict inequality at finite m and convergence in the middle. Independent exact rational Cox–de Boor and Gauss–Jordan checks at n=2,3,4 yielded maxima 5/2, 17/7, 29/12, with the correct positions and alternating witness.
 
-## Limitations and priority
-The result is restricted to quadratic open uniform knots and coefficient norms. Marsden's 1983 directly relevant interpolation paper was available only at abstract level; an institutional full-text attempt was not completed. Historic equivalence is not excluded. 
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best of current knowledge: exact coefficient recovery, its maximizing positions and the finite boundary correction are distinct from the strongest actual statement matches. The cardinal reference and the later same-stencil spectral result are not equivalent inverse max-row-sum statements. The Marsden risk remains explicitly unresolved.
+
+## value
+
+PASS
+
+The coefficient max norm is the worst amplification of bounded sampling error into control coefficients. The exact formula distinguishes the persistent clamped excess sqrt(2)-1 over the cardinal limit, identifies the two coefficients responsible, and gives the sharp bound 5/2 including the minimal mesh. This is a natural finite-size stability benchmark for the standard clamped discretization, not an arbitrary slice or just a bound from diagonal dominance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

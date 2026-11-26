@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:29:18.679559Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Every cycle uses complete terminal paths, so the exact cycle rank is max(R-1,0) for R completed paths. Factoring the independent Bernoulli normalizers leaves the stated multi-affine H_q. For distinct marks, the joint cumulant is the mixed log partition derivative with respect to log v at those edges; the independent factors have zero mixed derivative, so the chain rule multiplies the mixed log H_q derivative in (a_1,a_2,a_3) by e_3 times the product of (1-p_f). Independently expanding (H_123 H^2 - H sum H_ij H_k + 2 H_1 H_2 H_3) gives -(q-1)F_q; this symbolic identity and the illustrative threshold v=1.18042205579496... are replayable with `python /workspace/branches/audit_checks.py theta`. For an additional sign check put U=product(1+(q-1)a_i), V=product(1-a_i); exactly q H_q=U+(q-1)V and F_q=U-(q-1)V. Thus H_q>0 and U/V increases strictly from 1 to infinity under any prescribed common scaling, so F_q>0 for 1<q<=2 and has a unique negative-to-positive crossing for q>2. The cumulant has the opposite sign; at q=1 it is zero by independence. The crossing depends on path completion probabilities, not the particular mark choices. The packaged exact enumerator was inspected, not executed. These arguments do not address arbitrary activity trajectories, other mark placements, or thermodynamic transitions.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sokal's weighted reductions do determine the parent heterogeneous partition function and the algebraic input H_q.",
+          "An indexed all-order formula treats cactus graphs, whose cycles cannot share a path; a three-path theta graph is not a cactus.",
+          "Pairwise random-cluster association addresses covariances, not the sign of this third log derivative."
+        ],
+        "reasoning": "The normalizer is prior-computable, but no inspected stronger response theorem supplies this factorization or sign law across overlapping theta cycles.",
+        "searches": [
+          "arXiv:math/0503607 §§4.4–4.5 and §9",
+          "arXiv:1101.5826 §IX.A",
+          "Resultary: all-order FK cumulants and generalized theta forest cumulants"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:math/0503607",
+        "arXiv:1101.5826",
+        "Resultary aee43e618cc4, 8e46c5219ca1, c9111e051f9e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Series/parallel reductions yield Z, so mechanical evaluation of a mixed derivative in an individual graph is not the original contribution. The numerator factorization (or a derivation of the two-product difference) and strict monotone ratio along every heterogeneous ray provide the all-parameter statement.",
+          "The triangular-book theorem has the same q signature but uses homogeneous activity, an additional spine and full-page indicators. Its stated formula cannot simply remove the spine while preserving homogeneous positive activity or recover heterogeneously weighted individual marks.",
+          "The forest theorem gives the opposite three-path sign from the frozen q<=2 FK range, and the cactus Eulerian third-order formula also has a different q<=2 sign."
+        ],
+        "reasoning": "The close sign theorems do not specialize to the frozen model, and having the parent partition polynomial does not by itself state the sign or establish a unique crossing.",
+        "searches": [
+          "arXiv:math/0503607 Eqs. (4.20), (4.23)–(4.26)",
+          "Resultary 8e46c5219ca1, c9111e051f9e, aee43e618cc4 Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The observable is the third mixed derivative of log of the multivariate Tutte polynomial with respect to three independently marked log activities.",
+          "Shrock's ordinary Tutte formula specializes to equal-length theta graphs but does not contain independently varying marked edges.",
+          "The forest cumulant result has the matching graph and mark criterion, but replaces FK by the ensemble restricted to forests."
+        ],
+        "reasoning": "The multivariate log derivative is an exact formulation, but neither a derivative in one common activity nor the forest cumulant is the requested independent mixed FK derivative.",
+        "searches": [
+          "Resultary: three-path cumulant, heterogeneous theta/Tutte formulas, same-day FK sign findings",
+          "arXiv:math/0503607 Eq. (1.1) and §§4.4–4.5",
+          "arXiv:1101.5826 §IX.A"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact record itself was a self-match and was excluded as coverage evidence.",
+          "Distinct same-day records aee43e618cc4, 8e46c5219ca1 and c9111e051f9e supply nearby exact formulas (forest, triangular-book and cactus respectively), none for this exact marked FK response."
+        ],
+        "reasoning": "No independent matching threshold table or all-weight formula under the frozen assumptions was identified in the bounded comparison; same date establishes no ordering.",
+        "searches": [
+          "Resultary: three-path cumulant, heterogeneous generalized theta/Tutte, FK sign threshold and related same-day results"
+        ]
+      },
+      "rationale": "The weighted theta partition function is obtainable from classical multivariate series and parallel reductions; no novelty is credited for it or for taking a log derivative to define a cumulant. What is distinct on checked evidence is the explicit factorized mixed response and its sharp sign and uniqueness law in the specified heterogeneous three-path geometry. Same-day findings show genuine related sign phenomena under different hypotheses, not priority or exact coverage.",
+      "residual_risks": [
+        "A bounded search cannot exclude an earlier mixed-response derivation from the known weighted normalizer or a broader higher-order sign theorem. Related same-day statements establish neither precedence nor an exact duplicate."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the parent partition function by reduction, not the checked sign theorem",
+          "evidence": [
+            "Parallel effective variable (1+v_1)(1+v_2)-1, series effective variable v_1 v_2/(q+v_1+v_2) with prefactor q+v_1+v_2; generalized theta mentions concern chromatic roots."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0503607",
+          "material_read": "Eq. (1.1) p. 1, FK interpretation p. 5, §§4.4–4.5 pp. 17–18 OA offsets 50600–55676, §9 pp. 41,44",
+          "method": "Primary OA PDF passage inspection",
+          "title": "The multivariate Tutte polynomial (alias Potts model) for graphs and matroids",
+          "trigger": "Broad weighted exact formulas implying the theta partition polynomial"
+        },
+        {
+          "assessment": "Homogeneous partition polynomial, not independently marked sign law",
+          "evidence": [
+            "Gives ordinary Tutte polynomial of r equal-length routes, with r=3 the equal-length theta."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1101.5826",
+          "material_read": "§IX.A pp. 10–11, Eq. (9.14), OA offset 69605",
+          "method": "Primary OA PDF passage inspection",
+          "title": "Exact Results on Potts/Tutte Polynomials for Families of Networks with Edge and Vertex Inflations",
+          "trigger": "Hammock includes equal-length three-arm theta"
+        },
+        {
+          "assessment": "Strong conceptual overlap, different probability measure",
+          "evidence": [
+            "On generalized theta, weighted forest law gives positive third cumulant exactly for triples using three different paths."
+          ],
+          "identifier_or_url": "aee43e618cc4",
+          "material_read": "Local mirror RESULT.md Finding offset 0",
+          "method": "Resultary search and local mirror statement inspection",
+          "title": "A complete three-edge cumulant sign law for the weighted forest measure",
+          "trigger": "Exact matching graph class and mixed observable in a different measure"
+        },
+        {
+          "assessment": "Strong conceptual overlap, different graph, activities and marks",
+          "evidence": [
+            "Homogeneous triangular book with an additional spine; full-page indicators have cumulant theta(1-theta)(1-2 theta) p^3."
+          ],
+          "identifier_or_url": "8e46c5219ca1",
+          "material_read": "Local mirror RESULT.md Finding offset 0",
+          "method": "Resultary search and local mirror statement inspection",
+          "title": "A sharp third-cumulant sign threshold in triangular-book random-cluster models",
+          "trigger": "Same q threshold and crossing direction"
+        },
+        {
+          "assessment": "Cactus hypothesis excludes theta; third-order sign pattern is not identical",
+          "evidence": [
+            "Eulerian formula at order three gives a crossing for q>2 on a single cycle, but a positive cumulant for 1<q<=2."
+          ],
+          "identifier_or_url": "c9111e051f9e",
+          "material_read": "Local mirror RESULT.md Finding offset 0",
+          "method": "Resultary search and local mirror statement inspection",
+          "title": "All-order bond cumulant sign staircases on finite cactus random-cluster graphs",
+          "trigger": "All-order FK cumulant formulas and a third-order crossing"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Gives a strict third-order response classification in a natural graph with overlapping cycles, where pairwise positivity does not predict the result. A single mark-independent crossing criterion across heterogeneous activity rays is a structural statement, not a numerical example or a mere partition-function recomputation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

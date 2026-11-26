@@ -1,19 +1,21 @@
-# Review: singular fibers of a quintic surface pencil
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is proved for all complex affine parameter values, not inferred from experiments. All singular points are exhausted by the disjoint cases \(x=y=0\), exactly one of \(x,y\) zero, and \(xy\ne0\). The nonzero-coordinate case reduces to a primitive cube root of unity and forces \(t=1\); no singularity can occur at a parameter other than \(0\) or \(1\). The exact Hessian determinants at the twenty-four points of \(X_1\) are \(3456\) and \(3456\rho^2\), all nonzero. The quartic tangent cone of the sole point on \(X_0\) is smooth. The standard ordinary-multiple-point and Milnor-fiber formulas give the reported local and Euler invariants. The embedded SymPy checker independently verifies critical polynomial identities and the tangent-cone Jacobian length.
+PASS
 
-## Originality — PASS, with priority qualification
+Reconstructed the projective gradient exhaustion. If x=y=0, the two last derivatives exclude zw≠0 and z=0, leaving only P at t=0. With exactly one of x,y zero, the other derivative forces z=w≠0 and then t=1 and one of the two quartic equations at w/z=1. With xy≠0, z=w=0 is excluded by F_z+F_w=−12x²y². The first two derivatives then require h=(z−w)/(z+w) with h²=−3 and x²=−hy², ruling out zw=0. The mixed quartic terms cancel in F, forcing t=1 at w/z=ρ a primitive cube root. In z=1, F_w gives y⁴=−(1+ρ)/4=ρ²/4, and F_z vanishes with these substitutions. This gives 4+4+8+8 points. Independently evaluated the Hessian: at the two axial families it has determinant 3456. Off-axis, write B=1+ρ; H_xx=24By², H_xy/H_xx=−x/y, and the leading 2×2 block has determinant zero. The full determinant is −H_xx(H_yw+(x/y)H_xw)² with the squared term’s argument 24(1+h)y³. This simplifies to 3456ρ², so all points are nodes. At P the homogeneous leading quartic has no projective gradient zero; blowing up gives smooth strict transform along the exceptional genus-three quartic, with E²=−4 and discrepancy 2−4=−2. The smooth tangent cone gives the ordinary multiplicity-four Milnor number 3³=27. A smooth quintic has Euler number 55, and smoothing increases it by the sum of local Milnor numbers on a complex surface; the claimed values 28 and 31 follow. Homogenizing in the base gives the stated nonreduced fiber at infinity.
 
-Yu and Zhu, arXiv:2609.26862v1, **Lemma 3.1**, explicitly prove the affine smoothness criterion \(t\notin\{0,1\}\). It is acknowledged as prior knowledge and is NOT the new result. The complete arXiv HTML manuscript was read with special attention to Section 3.1 (the singular-parameter calculation) and the later proofs about lines, Picard rank and lattice generators. It does **not** enumerate singular points of the exceptional fibers, classify the twenty-four nodes or the ordinary quadruple point, or compute their Milnor numbers, local resolution, and Euler characteristics. Targeted searches for the same pencil and the twenty-four-node and genus-three-tangent-cone baskets returned no dominating statement. The closest same-object published mathematical research record calculates the spectrum of the eighty-five-line incidence graph on a smooth member, which cannot imply local singularities of either boundary fiber. Established formulas for ordinary multiple-point Milnor numbers and surface Euler characteristics are correctly treated as prior methods. Historical priority is provisional because not every earlier algebraic-surface source has been exhaustively searched.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result identifies the entire discriminant support and the precise local singularity basket of a recently discovered record-setting quintic pencil, including a contrasting \(24A_1\) nodal fiber and an ordinary multiplicity-four degeneration with nonrational exceptional genus-three curve. The Euler characteristics and different Milnor numbers quantify the two geometric degeneration mechanisms. These are motivated surface invariants and natural boundary data for studying specialization of its eighty-five lines, rather than an arbitrary evaluation or restatement of smoothness.
+The contribution is the exact singularity basket and its invariants for the displayed pencil, not the known exceptional affine parameter set, the standard ordinary-point invariant formulas, or the formal compactification of the defining equation. Yu–Zhu leave the singular endpoints out of their derivative argument. The closest distinct indexed result concerns the same ordinary-quadruple-point type on a different surface, not this basket.
 
-## Scientific limitations
+## value
 
-The result is over \(\mathbb C\) for the displayed equation; it is not a theorem about all quintic pencils, positive-characteristic fibers, limiting line Hilbert schemes, or complete monodromy. The original manuscript was inspected in its accessible full arXiv HTML representation; broader historical priority remains provisional. The derivation and exact-arithmetic checks have not received an independent mathematical audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The 85-line quintic pencil is already a motivated family. Classifying its two finite degenerations distinguishes markedly different local and topological behavior (one nonrational exceptional curve versus 24 nodes), giving precise input for degeneration and vanishing-cycle calculations. This value rests on establishing the complete fiber baskets, not on reapplying standard formulas in isolation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

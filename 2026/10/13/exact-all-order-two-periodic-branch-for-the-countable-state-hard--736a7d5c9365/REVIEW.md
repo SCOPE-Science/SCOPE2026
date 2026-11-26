@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The proof starts from the published scalar equations and performs reversible algebra: division defines the unique ratio coordinate \(r>1\), elimination gives \(A\) and \(B\), and direct substitution gives \(\Lambda(r)\). The logarithmic derivative is reduced to \((r-1)Q_k(r)\) over a positive denominator, where every coefficient of \(Q_k\) is a positive binomial coefficient. The critical amplitude follows from the standard expansion of \(\log(\sinh z/z)\). Exact rational and polynomial checks in `artifacts/verify.py` corroborate these identities without replacing the analytic proof.
+PASS
 
-## Originality
+Use the published two-periodic reduction for finite positive total activity. For A>B>0, division gives r=(A/B)^(1/k)=(1+A)/(1+B)>1. Combining A=r^k B with 1+A=r(1+B) gives the displayed A,B; substitution verifies the converse and the parameter is unique. An explicit coefficient replay for the all-k identity: multiply d(log Λ)/dr by r S_k S_{k−1}. For degree n the coefficient is the sum of k i−(k+1)j−1 over i+j=n, 0≤i≤k−1, 0≤j≤k−2. For 0≤n≤k−2 this is −(n+1)(n+2)/2. Reversing both indices sends n to 2k−3−n and negates the summand, so the numerator is anti-palindromic. Dividing by r−1 gives a palindromic polynomial, with coefficients equal to the negative cumulative sums on n≤k−2, namely binomial(n+3,3). This verifies every stated coefficient, including k=2. Positivity gives strict increase on r>1, with endpoints Λ_cr at r=1 and growth asymptotic to r at infinity. With r=e^s, the linear terms in log Λ cancel and the log-sinh expansion gives log(Λ/Λ_cr)=k(k+1)s²/24+O(s⁴). The order parameter is tanh(ks/2), which gives the asserted amplitude when divided by sqrt(Λ/Λ_cr−1). Swapping parities acts by r↦1/r. Replay: RESULT.md lines 59–129 and Eq. (4.2) of arXiv:2205.02025. VERIFICATION.md and artifacts/verify.py were inspected and not executed; the frozen finite tests are corroborative and not used for the all-k proof. The theorem covers scalar parity totals, not all Gibbs measures or a single spin component.
 
-**PASS.** The primary source arXiv:2205.02025 gives the two-periodic scalar system, the critical total activity and the number of solutions, but treats the general nontrivial branch implicitly and presents explicit closed formulas only for \(k=2\). arXiv:2206.06333 studies the associated scalar iteration and convergence, without the geometric-sum branch parameterization. arXiv:1007.4806 supplies broader regular-tree hard-core fixed-point theory, not the displayed all-order parameterization, positive-coefficient derivative identity, or onset amplitude. Exact-form, source-identifier, period-two, geometric-sum and threshold searches did not reveal a covering indexed statement. A residual risk remains that an equivalent elementary calculation is present in weakly indexed literature under different variables.
+## originality
 
-## Value
+PASS
 
-**PASS.** The source's phase transition is organized by the appearance of two nontranslation-invariant two-periodic boundary laws. Replacing the implicit general-\(k\) branch by a global one-parameter formula gives a complete natural classification inside that sector, proves the activity ordering directly, and extracts a sharp universal square-root order-parameter amplitude. This is structural information about the distinguished phase branch, not a numerical refinement or arbitrary parameter slice.
+Credit existing coverage of the exact same scalar equations, critical activity and solution count, including explicit k=2 and k=3 two-state slices. The supported distinct claim is the all-k geometric-sum representation together with its explicit positive-binomial derivative certificate and the exact normalized parity-total onset. The representation is a short elimination; the coefficient identity, not a new critical activity or a new solution count, is the strongest distinct structural content supported by the inspected evidence.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The explicit all-order coefficient certificate controls the entire symmetry-broken branch and removes the need to solve implicit coupled equations to parameterize the activity. The normalized amplitude is a quantitative local benchmark in the actual order parameter, beyond knowing where the bifurcation occurs or that a second pair exists. Both are natural invariants of a standard tree phase transition, useful without claiming coverage outside the two-periodic sector.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

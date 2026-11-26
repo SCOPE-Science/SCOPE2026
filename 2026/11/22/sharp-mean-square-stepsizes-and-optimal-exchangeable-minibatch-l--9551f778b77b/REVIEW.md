@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact exchangeable covariance transfer, determinant factorization, Lyapunov downward-closedness, and the integer batch-size variance inequality prove the claimed uniform if-and-only-if threshold and unique maximizing exchangeable law. The exact rational-mask and symbolic verifier produced 2241 passing assertions. This numerical evidence is corroborative; the parameter-uniform implications come from the analytic proof. Boundary cases with no pair activations, all-or-none activations, and integer or fractional mean batch size are included.
+## correctness
 
-## Originality — PASS (provisional priority)
-The established arbitrary-sampling probability-matrix framework and known uniformly fixed-size and independent samplings in Hanzely–Richtárik (2018) and the earlier arbitrary-subset NSync algorithm of Richtárik–Takáč (2015) are credited, as are the sufficient expected-smoothness bounds of Gower et al. (2019). The previously derived independent Bernoulli special case, identifier `ca6b551f-e80d-464d-b46e-ba6184a0bcfd`, is explicitly not claimed as new. The closest published published-finding corpus record on four-coordinate fixed-size-two coupling, `2026/10/12/SCOPE-exact-coupling-invariant-euclidean-risk-and-state-dependent-batc--da850d87df4f`, optimizes different finite-horizon criteria on a restricted problem; only its published summary was retrievable, so the missing full text remains an identified priority risk. No checked source was found to imply the full exact stability-maximizing law across all exchangeable batch sizes. Search failure is not considered proof of uniqueness in the literature.
+PASS
 
-## Value — PASS
-The expected number of active coordinates is a motivated computational resource constraint. An exact sharp stability-optimal batch policy, its uniqueness, the strict improvement over independent activation, and the gap between expected one-step descent and asymptotic stability give an actionable mathematical design criterion and a complete natural classification. The factor-two limiting gain quantifies its potential magnitude. No claim concerns nonexchangeable laws, runtime optimality or nonlinear objectives.
+For the specified independent exchangeable snapshots, E[DAD]=qA+(p−q)diag(A). Applying this to A=HXH in the two projector modes gives the stated nonnegative transfer matrix. Symmetrization preserves expected trace at every step, and a nondecaying Perron positive-semidefinite mode decomposes into deterministic rank-one inputs, proving the all-start criterion in both irreducible and reducible cases. With B_1=[p+(n−1)q]/n and B_2=[(n−1)p+q]/n, one has LB_1+aB_2=p+qG and B_1B_2−(n−1)(p−q)²/n²=pq; this gives the stated determinant factor pη²KF(η). Strict objective descent gives stability near zero. The first root is in (0,2) for q>0 and equals 2 at q=0. Any stable larger step would give a positive-definite expected quadratic contraction certificate, which by the quadratic dependence on η is also strict at every smaller positive step; this rules out later reentry. For fixed p, ∂_qF<0 up to 2, proving strict threshold decrease. Integer convexity of B(B−1) at fixed E[B]=np forces support on the adjacent sizes for equality, including the single-size integer endpoint, and exchangeability fixes the law. The descent ceiling comes from E[DHD]=(p−q)I+qH; F evaluated there has sign q(p−q), with equality only at the two feasible endpoints. Independently substituting n=4,c=p=1/2 gives 12/(5+sqrt(10)) for size two and 8/(4+sqrt(6)) for Bernoulli. At p=1/n the optimal boundary is 2; inserting q=p² and taking c up to 1 gives the stated ordered gain limit.
 
-## Closest literature and remaining limitations
-Read the primary arXiv HTML of Hanzely–Richtárik (2018), Section 2 and Appendix B, and the official PMLR PDF of Gower et al. (2019), including Theorem 3.1 and sampling comparisons. The four-coordinate coupling record was not accessible in full; possible additional unpublished or unindexed statements remain priority risks. Independent mathematical and historical assessment are outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit is for passing from Bernoulli to the exact exchangeable-law criterion and uniquely optimizing its upper endpoint at fixed expected batch size. It is not for the Bernoulli formula, use of covariance lifting, pair-inclusion matrices or uniform fixed-size sampling themselves. Neither the inspected Bernoulli theorem nor the indexed four-coordinate comparison supplies that classification and optimization.
+
+## value
+
+PASS
+
+Many sampling laws have the same expected work. The sharp criterion reduces their comparison to a pair-inclusion moment and identifies a unique optimal distribution even for noninteger expected work. The strict gain over Bernoulli and exact distinction from universal one-step descent make this a useful benchmark for synchronous sampling, not merely a new way to compute a sufficient bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

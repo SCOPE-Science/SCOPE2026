@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:17:11.410571Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Proof; VERIFICATION.md; verify.py inspected, not executed",
+        "/workspace/branches/c69f6811-2638-4061-b87d-3cfb7a41c198/independent_relative_check.py and independent_check_results.txt: enumerated all 27 diagonal positions for 3<=n<=8, checked relative critical cells and acyclicity"
+      ],
+      "rationale": "For all n>=3 and 0<=i<=n-2, write a,b for the edited endpoints and p,q for their two common neighbors. A relative face must contain a,b and an old independent triple made non-independent by the new edge. In a first outward column only one new vertex is a nonneighbor of both endpoints; all the allowed extras lie among this vertex, its same-column mate, and p,q, yielding the seven listed faces. At later stages, either new vertex is a nonneighbor of both endpoints, so other extras must be either p,q or its two terminal neighbors (the new mate and its predecessor). Those neighbors cannot both occur because they are nonadjacent and share a nonneighbor in {a,b}; p,q cannot both occur with a later vertex. This gives the fifteen-face list, including when both wings exist by reversing columns and exchanging rails. The latest-column stage is order preserving. Within each stage every available p-toggle is paired first, so no downward p transition can undo an upward p move; remove those matched pairs for the cycle test and apply the same argument to each successive pivot. Exactly one critical 4-cell per new column remains. The relative CW attachment thus has n-2 four-cells. The old complex is a wedge of binom(n-1,2) 3-spheres by Filakovsky's Theorem 1. Its integral square-pair basis can independently be certified: for j<k evaluate a 3-cycle on the facet consisting of the upper rail edge from square j and the lower rail edge from square k. The facet's unique perfect matching is those two edges even when the squares touch; accordingly its coefficient is ±1 for that pair and 0 for the other pairs. The old complex has dimension at most three by bipartiteness, so these evaluations split the square-pair submodule, which already has full rank. The two new triangles form a chain t_i with boundary c_i; the oriented joins t_i∧c_j (overlapping terms are zero) lie in the modified complex and map to distinct members of that primitive basis. The relative boundary is therefore injective with precisely the claimed image; primitivity and Hurewicz identify the attaching maps up to an integral wedge basis change, leaving binom(n-2,2) spheres. This includes the contractible n=3 case.",
+      "residual_risks": [
+        "Bounded check supplements the all-length proof; neither multiple diagonals nor wider strips are certified."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The connected bipartite formula gives binom(b+1,2)-c4(G) 3-spheres and reproduces the intact case when b=c4(G)=n-1; the edited ladder is not bipartite. Filakovsky's grid and square-sequence statements likewise do not allow this diagonal insertion."
+        ],
+        "reasoning": "The prior generality covers exactly the intact starting point, not either the target complex or the relative conclusion.",
+        "searches": [
+          "Resultary record 8d06720b1a2b, §Finding",
+          "arXiv:2602.11365, Theorems 1–2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2602.11365",
+        "Resultary c8dc5451add0, 8d06720b1a2b, e00e94e8e078, and exact self-match f1120d31bde9"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The primitive basis theorem identifies generators of the intact grid only. The triangle-chorded cycle theorem is for C_n+{0,2}; it gives stability for n>=7 and contractibility for n=6, not a family of coupled ladder square-pair relations."
+        ],
+        "reasoning": "The old basis does not determine which classes vanish or whether the modified homotopy is a wedge; the candidate supplies relative cells and their integral boundaries.",
+        "searches": [
+          "Resultary records c8dc5451add0 and e00e94e8e078, original result statements"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "RC_3 is independent-triple avoidance, Alexander dual to the total 3-cut complex; the cited grid formulas use the intact rectangular grid, not the graph with two triangles."
+        ],
+        "reasoning": "Changing the presentation to its total-cut dual does not bring the modified graph under the intact grid hypotheses or account for the induced map on the integral generators.",
+        "searches": [
+          "Resultary: single diagonal in a two-row ladder, robust clique homotopy and primitive square-pair kernel",
+          "arXiv:2602.11365, Theorem 1 and discussion of total k-cut duality"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The identical catalogue row was isolated. Prior grid counts and dual grid statements use different graph inputs; no distinct exact table for the one-diagonal inclusion was identified in these searches."
+        ],
+        "reasoning": "Do not double count the assigned row as priority evidence or treat a search miss as a uniqueness proof.",
+        "searches": [
+          "Resultary: one-diagonal ladder, square-pair kernel, rank n-2; exact hit f1120d31bde9",
+          "arXiv:2602.11365 grid theorem and total-cut comparisons"
+        ]
+      },
+      "rationale": "The known grid homotopy type and primitive integral square-pair basis are starting data, not the new result. The all-position relative attachment and exact inclusion kernel for the nonbipartite perturbation are distinct from the strongest inspected comparisons. The exact catalogue match is the assigned record itself.",
+      "residual_risks": [
+        "Focused accessible searches do not exclude an unindexed equivalent relative or total-cut result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides intact homotopy type, not edge-fault inclusion",
+          "evidence": [
+            "Theorem 1 gives binom((m-1)(n-1),k-1) spheres of dimension 2k-3 for grids and k=2,3."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2602.11365",
+          "material_read": "PDF pp. 2–3, Theorems 1–2, Corollaries 3–4 and duality discussion",
+          "method": "Lawful OA PDF locate and bounded passage read",
+          "title": "The topology of robust clique complexes in grid-like graphs",
+          "trigger": "Unmodified ladder and total-cut formulation"
+        },
+        {
+          "assessment": "Verifies prerequisite; no diagonal map",
+          "evidence": [
+            "The oriented products of distinct unit-square boundaries are a primitive integral basis on P_m square P_n."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-primitive-square-pair-cycle-basis-for-three-robust-clique-homolo--c8dc5451add0",
+          "material_read": "RESULT.md statement and independence/saturation proof, offsets 0–8095",
+          "method": "Local Resultary mirror",
+          "title": "Primitive square-pair cycle basis for three-robust clique homology of rectangular grids",
+          "trigger": "Exact integral basis dependency"
+        },
+        {
+          "assessment": "Bipartiteness excludes edited graph",
+          "evidence": [
+            "Connected bipartite hypothesis with wedge count binom(b+1,2)-c4(G)."
+          ],
+          "identifier_or_url": "2026/10/11/SCOPE-a-three-sphere-wedge-theorem-for-robust-clique-complexes-of-all--8d06720b1a2b",
+          "material_read": "RESULT.md, offsets 0–1600",
+          "method": "Local Resultary mirror",
+          "title": "A three-sphere wedge theorem for robust clique complexes of all connected bipartite graphs",
+          "trigger": "Potential broader theorem"
+        },
+        {
+          "assessment": "Different base graph and conclusion",
+          "evidence": [
+            "One chord {0,2} of a single cycle, not one diagonal of a ladder."
+          ],
+          "identifier_or_url": "2026/10/11/SCOPE-a-sharp-simple-homotopy-stability-threshold-for-triangle-chorded--e00e94e8e078",
+          "material_read": "RESULT.md, offsets 0–2550 and 5000–6489",
+          "method": "Local Resultary mirror",
+          "title": "A sharp simple-homotopy stability threshold for triangle-chorded cycles",
+          "trigger": "Similar one-edge triangle-making operation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md; arXiv:2602.11365, Theorem 1; Resultary c8dc5451add0"
+      ],
+      "rationale": "One diagonal is the simplest local edit leaving the bipartite ladder regime. It kills a number of generators growing with the whole ladder, independently of edit position, and identifies the killed integral classes, not just a rank. This gives a controlled test case for how a nonbipartite edit changes robust clique complexes.",
+      "residual_risks": [
+        "Relevance is mathematical; no stability rule for arbitrary graph edits follows."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

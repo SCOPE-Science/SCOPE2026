@@ -1,11 +1,21 @@
-# Scientific review: inverse-matching rigidity in the coatom class
+# Independent mathematical audit
 
-**Correctness (PASS).** The rank-\(n-1\) class is indexed by one adjacent kernel merger and one omitted image value. The mutual-inverse criterion follows from ordered transversal sections in both directions, giving an exact bipartition of the nonidempotents. The explicit paired maps satisfy both inverse equations. A coordinatewise-monotone self-bijection of a finite set must be the identity, forcing every transposition and proving uniqueness. The cardinality and reflection formulas are direct consequences. Full transformation-composition tests over ranks \(4\) through \(10\), with independent exact perfect-matching counts through \(8\), agree. The all-\(n\) conclusion rests on the proof rather than finite examples.
+## correctness
 
-**Originality (PASS, with historical risk).** Higgins (2026), arXiv:2610.01912, proves that permutation inverse matchings exist for every rank, using a balanced incidence weighting. Existence of a general permutation is logically weaker than idempotent-fixed involutivity, and does not force uniqueness. Higgins (2024) treats related involution questions, while the 2014 foundations establish Hall-type criteria; neither inspected result gives the coatom uniqueness formula. A prior rank-two formula applies to a different fixed rank when \(n\ge4\). Searches for the terms involution matching, corank one, coatom, and idempotent-fixing revealed no equivalent theorem, but an uncatalogued equivalent under inverse-transversal terminology cannot be excluded.
+PASS
 
-**Value (PASS).** The coatom Green class is the first, highest-rank nonunit stratum of a canonical finite transformation monoid. The 2026 literature settles only existence of arbitrary permutation matchings; involutive structure remains a nontrivial strengthening. This result determines a unique idempotent-preserving choice for the whole coatom stratum, rather than just constructing one partner per map: every proposed global idempotent-fixing involution must restrict to this forced assignment. It identifies a rigid obstruction to alternative matchings while leaving genuinely different global and lower-rank problems open. The restriction to fixed idempotents and lack of a global involution theorem are substantial limitations.
+Each rank-(n−1) isotone map is determined by its unique consecutive double block and its one omitted image value. Idempotence is equivalent to omitting one member of the double block. For the inverse criterion use both cross-transversal conditions: a sandwich identity f g f=f forces g to be injective on im(f) and hence onto im(g) there, and f then maps im(g) bijectively onto im(f). In reverse, with both cross-transversals, the restrictions are increasing bijections between the two ordered images; their composites are identity because increasing bijections of a finite chain to itself are identity. This justifies the criterion without relying on one transversal alone. For x=(j,k) in R, a nonidempotent inverse (u,v) must lie in L since u≥k−1≥j+1≥v, and distinct nonidempotents have no loops. The proposed pairing is feasible, with ψ(u,v)=(v,u+1) its inverse labeling. Every allowed edge has ψ(u,v)≥(j,k) in both coordinates. A perfect matching preserves the sum of each coordinate of R, so every inequality is equality, proving uniqueness. Counting R gives binom(n−1,2), and conjugation by reflection preserves the conditions, hence commutes with the unique matching.
 
-**Closest literature and limits.** Higgins (2026), arXiv:2610.01912, §3 and Theorem B; Higgins (2024), *Semigroup Forum* 109, §2; Higgins (2014), *Semigroup Forum* 89, §§1–2; Higgins (2019), *Semigroup Forum* 98, as referenced by the preceding work. Historical priority requires independent literature review. No independent mathematical audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass for rigidity of the specified matching, not for discovering the formula, its existence, its counts, or the cross-transversal encoding. Several earlier Resultary records already give the same explicit top-rank matching. The inspected earlier works do not establish that fixing all idempotents forces it. This is a distinction within the frozen exactly-one theorem, not an alteration of the theorem.
+
+## value
+
+PASS
+
+An inverse involution known by construction is now forced by a natural fixed-idempotent constraint across an entire canonical Green class, even where vertices have more than one possible inverse partner. That determines the combinatorial freedom in this class, explains equivariance intrinsically, and gives a structural distinction from unconstrained involutions. This value does not rely on the previously known formula being new.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

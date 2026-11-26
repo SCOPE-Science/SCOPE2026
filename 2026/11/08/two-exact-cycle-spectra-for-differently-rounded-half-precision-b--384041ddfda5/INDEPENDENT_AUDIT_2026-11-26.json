@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T14:15:50.503194Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–76, VERIFICATION.md and verify_beta_graph.py inspected as text",
+        "Independent replay: python3 /tmp/opencode/scope-review-15360.py (standard library struct <e and <H, indegree pruning and reverse breadth-first search)"
+      ],
+      "rationale": "The domain is exactly the positive-sign encodings 0x0000 through 0x3bff, including +0 and subnormals. The source integer encoding and parity tie rule follow from the exponent bias and the parity of the low significand bit, also at the subnormal/normal and binade boundaries. The first map wraps a rounded one to zero; in the second map the represented product minus one is exactly representable when needed. Independently reconstructed both entire successor arrays using Python struct binary16 decode/encode (nearest-even), with binary64 exact for the pre-rounding dyadic products and subtractions. Indegree pruning leaves exactly the cycle vertices of each finite functional graph; following edges on that residue and traversing reverse edges from each cycle gave these (period, basin, maximum depth) triples, each for a single cycle: A (1,468,55), (3,28,15), (8,2480,144), (18,187,27), (164,12197,136); B (1,5705,155), (3,26,15), (4,3138,133), (24,2013,77), (41,4478,67). Reverse traversal assigned all 15,360 states exactly once in each map, and zero was the only fixed point of each. The comparison gave 512 differing successors, and the reconstructed little-endian arrays matched both SHA-256 digests in the frozen record.",
+      "residual_risks": [
+        "The replay concerns only the specified deterministic encodings, rounding order, and endpoint convention. It neither runs the uploaded script nor infers any Lebesgue basin measures or behavior of other precisions."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2023 article covers Float16 dynamics across 1<=beta<2 and motivates exact or sampled orbit analysis; the 2019 paper enumerates single-precision cycles and basins and singles out beta=3/2. Distinct same-day catalogue hits exhaustively compare logistic-map implementations at parameter four, not this beta-shift."
+        ],
+        "reasoning": "Parameter-wide plots in one implementation and exhaustive analyses at another precision or of another map do not state or automatically determine this graph comparison.",
+        "searches": [
+          "Klöwer et al. main PDF pp. 5–6 and supplement Figures S1–S2; Boghosian et al. 2019 pp. 2–4; Resultary 35a3ca4a276d and 46d23de07c7c"
+        ]
+      },
+      "checked_sources": [
+        "Resultary assigned 384041ddfda5 and distinct 35a3ca4a276d, 46d23de07c7c",
+        "Klöwer et al. main paper, supplement and Zenodo code archive listing",
+        "Boghosian et al. 2019"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2023 methods passage uses the same-format B-like order, while its A-like comparison describes the 2019 Float32 calculation. The 2019 figures explicitly include beta=3/2 but their exact cycle/basin enumeration is for Float32. No displayed passage gives both binary16 graph laws and their exact discrepancies as results."
+        ],
+        "reasoning": "Knowing the analytic map or even an exact B-like invariant measure does not mathematically imply A's cycle and basin partition or the pairwise edge count. Re-running a full enumerator for a new order computes new graph information; it is not reading off a same-format prior table.",
+        "searches": [
+          "Direct comparison of supplement Figures S1–S2, Klöwer et al. p. 5 and Boghosian et al. Figures 1 and 3 with frozen RESULT.md lines 5–29"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The generalized Bernoulli map and beta-shift refer here to x ↦ beta*x mod 1. Klöwer et al.'s selected-format multiplication/subtraction is equivalent to B at binary16 and beta=3/2 because the subtraction is exact after product rounding. Their description of the 2019 study uses a wider intermediate, a pattern like A but with Float32 output."
+        ],
+        "reasoning": "The real map is identical, but precision, domain, rounding order and the wrap of one must match to identify the finite functional graphs. A single evaluation order does not fix a two-order comparison.",
+        "searches": [
+          "Resultary: generalized Bernoulli or beta-shift, beta=3/2, binary16/Float16 and rounding-order cycle/basin census",
+          "Klöwer et al. DOI 10.1038/s41598-023-37004-4, PDF p. 5",
+          "Boghosian et al. DOI 10.1002/adts.201900125, PDF p. 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact Resultary hit is the assigned record. Figure S1 states that an exact invariant measure was obtained from all 15,360 Float16 states. Figure S2 reports sampling 10,000 starts for invariant-measure plots. Neither inspected caption is a period/basin manifest; Table S1 concerns Lorenz 1996. The v0.1 archive listing identifies orbit, convergence and invariant-measure notebooks, but their decisive contents were not readable in attempted source routes."
+        ],
+        "reasoning": "An invariant-measure result can substantially overlap with one graph calculation. Its plotted aggregate and the inspected captions, however, do not provide a two-order successor database, a full ordered census, transient maxima, or the edge discrepancy. Archive contents beyond the listing remain a risk, not negative evidence.",
+        "searches": [
+          "Resultary exact record 384041ddfda5 and close records 35a3ca4a276d, 46d23de07c7c",
+          "Klöwer et al. supplement, Figures S1–S2 and Table S1; Zenodo 8138508, v0.1 archive listing and attempts to retrieve the named orbit and convergence notebooks"
+        ]
+      },
+      "rationale": "The distinct contribution supported here is the exact paired census at beta=3/2, with transient maxima and exact edge discrepancy, not the general effect of rounding or the method of enumerating a functional graph. Klöwer et al. use the B-like implementation for Float16 and report an exhaustive invariant-measure calculation in the supplement; this is material prior overlap and may extend to individual features of B. The inspected text and captions do not give the paired binary16 graph analysis. Boghosian et al. give substantive beta=3/2 results for binary32, which do not determine either binary16 graph. The conclusion does not assert priority for a standalone census of B.",
+      "residual_risks": [
+        "The figure labels and the notebook contents could provide precedent for some individual B-like outputs at beta=3/2. No publication-priority claim is made; the passage-based decision is limited to the paired exact comparison and associated discrepancy measures."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct B-like methodology, not the exact paired census in inspected passages",
+          "evidence": [
+            "Both multiplication and subtraction in the selected format; comparison to the 2019 Float64-intermediate/Float32-output calculation; Float16 results discussed across beta."
+          ],
+          "identifier_or_url": "https://pure.uva.nl/ws/files/187636674/Periodic_orbits_in_chaotic_systems_simulated_at_low_precision.pdf",
+          "material_read": "PDF pp. 5–6, particularly OA offsets about 24800–30700 and 33000",
+          "method": "Primary methods passage and scope comparison",
+          "title": "Periodic orbits in chaotic systems simulated at low precision",
+          "trigger": "Generalized Bernoulli map in Float16 and comparison of intermediate precisions"
+        },
+        {
+          "assessment": "Material all-state B-like antecedent; exact beta and fuller graph overlap not resolved from these captions",
+          "evidence": [
+            "S1 specifies an exact invariant measure using all 15,360 Float16 states. S2 uses 10,000 sampled starts; Table S1 concerns Lorenz 1996."
+          ],
+          "identifier_or_url": "https://pure.uva.nl/ws/files/187636672/41598_2023_37004_MOESM1_ESM.pdf",
+          "material_read": "Figures S1–S2 captions, pp. 1–2, and Table S1 identification, p. 6",
+          "method": "OA supplement passages; parameter labels in the figures were not recovered from text or accessible layout",
+          "title": "Periodic orbits in chaotic systems simulated at low precision — Supplement",
+          "trigger": "Potential exact binary16 orbit or basin data omitted from the main article"
+        },
+        {
+          "assessment": "Underlying notebook coverage unresolved; no inferred absence",
+          "evidence": [
+            "The preview proves existence of those files but does not establish the parameter labels or result tables inside them."
+          ],
+          "identifier_or_url": "https://zenodo.org/records/8138508",
+          "material_read": "Zenodo record (version used in the paper), ZIP listing with nb/Bernoulli_orbits.ipynb, nb/bernoulli_convergence.ipynb, nb/bernoulli_invariant_measure.ipynb and src/bernoulli_map.jl",
+          "method": "Read archive preview and attempted bounded retrieval of relevant original notebook/source files through lawful routes; notebook/source contents not inspected",
+          "title": "milankl/BernoulliMap v0.1, archived code for Klöwer et al.",
+          "trigger": "Determine whether the studied beta or exact periodic and basin data are carried by the archive"
+        },
+        {
+          "assessment": "Same-parameter binary32 antecedent, not the two binary16 counts",
+          "evidence": [
+            "Single-precision cycle and basin enumeration; Figure 1 includes beta=3/2 and Figure 3 reports an observable error comparison."
+          ],
+          "identifier_or_url": "https://discovery.ucl.ac.uk/id/eprint/10090503/1/Boghosian_et_al-2019-Advanced_Theory_and_Simulations.pdf",
+          "material_read": "PDF pp. 2–4, OA offsets near 9700–14620, 15600 and 28600",
+          "method": "Primary passage, figure and precision comparison",
+          "title": "A New Pathology in the Simulation of Chaotic Dynamical Systems on Digital Computers",
+          "trigger": "Earlier exhaustive generalized Bernoulli results at the same parameter"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md exact graph manifest and scope",
+        "Independent paired graph reconstruction",
+        "Boghosian et al. studied beta=3/2; Klöwer et al. distinguish intermediate precision and study low-precision orbit spectra"
+      ],
+      "rationale": "Beta=3/2 is a benchmark in prior finite-precision work, and binary16 makes both deterministic, naturally used intermediate-precision rules exhaustively testable. A change in only 512 of 15,360 immediate successors moves the zero basin from 468 to 5,705 states and reduces the longest cycle from 164 to 41. Knowing the full census and transient limits, not just that rounding matters, gives exact reference answers for testing implementations and diagnosing precision-dependent attraction bias. This value is in the jointly controlled comparison, not a claim that deterministic finite-state periodicity is new.",
+      "residual_risks": [
+        "The interpretation concerns uniform representable-state counts at the specified parameter and formats, not physical prevalence or a general error bound for chaotic simulations."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

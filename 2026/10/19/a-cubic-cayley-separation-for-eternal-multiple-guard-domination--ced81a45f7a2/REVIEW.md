@@ -1,12 +1,21 @@
-# Scientific assessment: mobile domination of the Pappus graph
+# Independent mathematical audit
 
-## Correctness — PASS
-The affine-incidence definition has eighteen vertices and twenty-seven edges. Point/line counting rules out dominating sets of size four; a tight incidence argument describes all eighteen five-vertex minima. The explicit test of all eighteen potential five-set destinations after a representative attack, combined with an incidence automorphism orbit, proves no five-guard eternal placement exists. Two standard-library programs, built from different graph representations and independent injective-movement algorithms, enumerate exactly 423 dominating six-sets. Every one of their 5,076 possible attacks admits 25–81 legal dominating six-set destinations. Induction establishes indefinite defense, not just one-step survival from a selected initial state.
+## correctness
 
-## Originality — PASS, residual risk acknowledged
-The 2005 multiple-guard paper claimed a universal Cayley equality; a detailed 2016 correction published an 18-vertex degree-six counterexample, not the present cubic graph. The 2015 paper treats circulant/generalized Petersen/tree families. Checked records do not report the specific Pappus cubic inequality or the 423-state complete classification. Closest published sources were assessed for statement-level implication, rather than titles alone. The 2015 publisher PDF was unavailable during review (HTTP 429); its abstract was read. Unindexed computations or undiscovered equivalent theorems remain possible. No global priority or minimal-order claim is asserted.
+PASS
 
-## Value — PASS
-The exact six-guard threshold on a canonical cubic Cayley graph strengthens the graph-degree setting of the published explicit Cayley separation and gives a complete optimal winning-state census. The fact that **every** dominating six-set is perpetually defensible, while **every** five-set has a single concrete fatal attack, isolates the strategic obstruction in a form useful for testing and constructing mobile-guard strategies. This is not merely a numerical one-vertex gain: it identifies all optimal defensive placements and their attack-response resilience.
+The bipartition cover inequalities exclude four guards and hence fewer by monotonicity. Two selected points in a five-set must share their vertical fiber, in which case the selected lines are the pencil through the omitted point; incidence duality gives the other five-sets. The displayed affine maps preserve edges; F and G generate an order-nine subgroup regular on each class, D interchanges classes and normalizes it, and DGD=G^-1 shows the extending group is nonabelian. Independent exhaustive enumeration using the affine adjacency and collision-free guard assignments found dominating-subset counts 0,18,423 for sizes 4,5,6, with 234 ordered legal five-state shifts and exactly one undefendable unoccupied vertex per five-set, all distinct. It reproduced 72,891 ordered six-state shifts and all 5,076 state/attack pairs, each with 25–81 distinct dominating destinations containing the attack target. Each source of a response can be reused indefinitely because the class of all dominating six-sets is closed under existence of a response to every attack. The 25–81 bounds are per source and attack, not per source alone. In the explicit five-set form the omitted point is fatal: a point-minority target containing it would need three entirely new lines but there are only two old point guards; a point-majority target would put its three points on a line through the attack, and both old point guards would be needed for the two new lines, leaving at most one other point of that target line reachable from the original pencil. Duality handles the other class.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The supported distinct contribution is the exact configuration-level classification in the multiple-guard eternal game on Pappus, in particular universal winning across all dominating six-sets and the per-attack response counts. Neither the general existence of nonabelian Cayley gaps nor the ordinary Pappus domination census can be credited as distinctive. Whether Pappus's basic scalar pair was already included in the earlier computational survey remains an explicit risk.
+
+## value
+
+PASS
+
+The degree-three Cayley structure is a motivated boundary for the failed Cayley equality. Beyond computing two invariants, the exact winning-state and response classification distinguishes existence of a strategy from robustness to every minimum-size winning-class placement, with a sharp obstruction at the immediately lower size. These are independently useful features of a natural symmetric graph, not a tiny unmotivated sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

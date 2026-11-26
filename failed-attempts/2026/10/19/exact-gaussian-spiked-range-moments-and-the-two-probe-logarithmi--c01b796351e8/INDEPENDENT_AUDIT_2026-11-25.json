@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:58:32.268999Z",
+  "axes": {
+    "correctness": {
+      "rationale": "An independent geometric derivation takes L=range(Omega), S=diag(1,delta I) and (SL)^perp=S^(-1)L^perp. For X=||proj_(L^perp)e_1||^2, the unit projected direction has axial squared component X; its rescaling under S^(-1) stays orthogonal to S^(-1)(L^perp intersect e_1^perp). The squared component in the new complement is therefore X/[X+delta^(-2)(1-X)]. Haar L gives X~Beta((n-s)/2,s/2), hence the stated independent chi-square ratio. Trace splitting gives the exact rank-s baseline plus the weighted deficit, and Euler's beta integral gives the moment formula. With a=s/2, b=(n-s)/2, the odds N/D have density t^(a-1)(1+t)^(-a-b)/B(a,b). For q<a use integrability of t^(-q); for q>a substitute t=delta^2 v and obtain B(a,q-a). At q=a the scaled kernel is 1/v+O(v^(-2)) on [1,delta^(-2)] before damping; the damping changes the integral by O(1) there and the two outside pieces are O(1), proving the factor 2 in front of log(1/delta). The fixed-threshold tail integrates the odds density to delta^2(1-u)/u, giving the stated coefficient. Substitution at q=1 verifies all probe-count and leading residual claims. The full-rank QR identity makes p=2 the row-aware left space, not its right factor or final reconstruction. This does not assert uniformity as n,s,q vary. The uploaded checker was inspected, not executed; archived finite-check claims are not an independent certificate.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Palitta–Portaro supply a general expected unsquared left projection norm bound with oversampling hypotheses, not the frozen exact residual distribution. The October 12 hit gives a beta-prime cutoff for two-sided reconstruction. The October 18 hit gives a two-to-three-row transition in a different rank-two nullspace sketch."
+        ],
+        "reasoning": "Different reconstruction statistics and sketch subspaces cannot be identified from a common exponent alone. Those records are context, not the decisive exact coverage; the matching one-spike range record is.",
+        "searches": [
+          "Palitta–Portaro arXiv:2408.04503 Algorithm 3.1 and Theorem 3.1",
+          "Resultary 2026/10/12/23a3fc6123ad",
+          "Resultary 2026/10/18/672f7b4a2f0b"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md:3–88, VERIFICATION.md and verify.py (inspection only)",
+        "Palitta–Portaro arXiv:2408.04503",
+        "Resultary local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4: f67f8a256b4c, 672f7b4a2f0b, 23a3fc6123ad"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The matched exact law is U=delta^2/(N/D+delta^2); integrating it against the beta-prime density gives the all-q Euler formula and the endpoint phases at q=s/2, and integrating to delta^2(1-u)/u gives the rare-event coefficient. The exact left-range loss is not the output SVD error."
+        ],
+        "reasoning": "No new random-matrix identity is needed for the additional moment and tail calculations. The two-pass leading-order comparison substitutes delta=epsilon^2 into the same law and restores the optimum baseline; it does not establish a theorem on the final row-aware output.",
+        "searches": [
+          "Resultary 2026/11/8/f67f8a256b4c Proof §§2–4",
+          "arXiv:2408.04503 Algorithm 3.1 output versus Theorem 3.1 statistic"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In the catalogue let d=n, k=s and use zero power steps with kappa=1/delta. Its excess is (kappa^2-1) times V/(V+kappa^2 N) for V~chi-square_(n-s). Multiplying by (1-epsilon^2)/(kappa^2-1) and adding (n-s)epsilon^2 reproduces R for every p.",
+          "The row-aware construction multiplies the transpose-sketched basis by A; for symmetric A its left subspace is range(A^2 Omega)."
+        ],
+        "reasoning": "Using kappa=1/epsilon and iteration index (p-1)/2 would only identify odd p, but matching the effective sketch spectrum, not the loss scale, establishes equivalence for all powers. The loss rescale does not change its random overlap.",
+        "searches": [
+          "Resultary 2026/11/8/f67f8a256b4c, exact one-spike Frobenius loss",
+          "arXiv:2408.04503 Algorithm 3.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact excess formula in f67f8a256b4c includes the same two chi-square degrees of freedom, an exact hypergeometric mean, and the one-, two-, and at least three-probe constants. The nullspace record gives the same leading mean coefficients in the comparable n-s=1 cases, but not the whole finding."
+        ],
+        "reasoning": "The later-labeled one-spike record is mathematically an exact law and mean-table match after parameter conversion. The older nullspace hit alone would not establish coverage.",
+        "searches": [
+          "Resultary 2026/11/8/f67f8a256b4c RESULT.md, Finding and proof, offsets 0–5159",
+          "Resultary 2026/10/18/672f7b4a2f0b RESULT.md, Finding"
+        ]
+      },
+      "rationale": "The bundled exact one-spike range-residual law and the titular mean transition are already stated in an equivalent natural parameterization in a distinct available Resultary record. In particular, apparent odd-power coverage does not leave a separate even-power overlap law: the zero-power-step case permits any positive spike ratio, and a change of spike variable plus a deterministic loss conversion gives the entire frozen overlap law and its mean comparison. The frozen all-q constants and fixed-u tail are not separately printed there, but follow from its exact ratio by the beta integral, the same endpoint rescaling with exponent q, and the beta CDF at zero. The date labels do not settle who derived the results first. No narrowed repair is submitted.",
+      "residual_risks": [
+        "Timing labels establish neither originality of the earlier-dated frozen input nor attribution between records. The comparison is not an exhaustive historical survey of angle or matrix-variate beta formulas."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent exact overlap and expected-risk transition; no claim about chronological priority",
+          "evidence": [
+            "Residual d-k+(kappa^2-1)V/(V+kappa^(4j+2)N) for d-by-k standard real Gaussian sketches, all kappa>=1.",
+            "Explicit one/two/three-plus leading constants and hypergeometric mean."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-three-regime-gaussian-sketch-risk-law-for-one-spike-matrices--f67f8a256b4c/RESULT.md",
+          "material_read": "Finding, Assumptions and Proof §§1–4, offsets 0–5159",
+          "method": "Local Resultary mirror passage read",
+          "title": "A three-regime Gaussian sketch risk law for one-spike matrices",
+          "trigger": "Exact chi-square ratio and same probe transition"
+        },
+        {
+          "assessment": "Construction and unsquared norm bound, not exact left-range squared-risk law",
+          "evidence": [
+            "The bound controls A-QQ^T A; the assembled rank-s output before further truncation is A PP^T with P the right subspace basis in that paper's notation."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2408.04503",
+          "material_read": "Algorithm 3.1 p. 4 (OA offset 13400); Theorem 3.1 p. 5 (OA offset 18000)",
+          "method": "Open-access passage read",
+          "title": "Row-aware Randomized SVD with applications",
+          "trigger": "Ordinary versus row-aware left range"
+        },
+        {
+          "assessment": "Related mean scalings in different geometry",
+          "evidence": [
+            "Rank-two row sketch: R_2=epsilon^2 log(1/epsilon)+O(epsilon^2) and R_s~epsilon^2/(s-2) for s>=3."
+          ],
+          "identifier_or_url": "Resultary 2026/10/18/672f7b4a2f0b",
+          "material_read": "Finding, mirror offset 0",
+          "method": "Local Resultary mirror passage read",
+          "title": "A two-to-three-row mean-angle transition in Gaussian-sketched nullspaces",
+          "trigger": "Logarithm at two Gaussian rows"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The problem is a natural test of pass count and sketch width at fixed rank, not a numerical slice. The exact critical order and leading constants explain which losses are dominated by rare nearly missed spikes, and the baseline comparison identifies what extra passes buy for the left range. This scientific motivation does not undo the demonstrated originality overlap.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

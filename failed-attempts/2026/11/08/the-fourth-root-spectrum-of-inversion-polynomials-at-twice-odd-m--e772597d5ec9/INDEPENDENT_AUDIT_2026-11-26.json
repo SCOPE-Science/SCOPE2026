@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T14:09:32.123745Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 23–45",
+        "Frozen verify.py, inspected lines 5–39",
+        "arXiv:1411.4092, §3, eq. (3.3)"
+      ],
+      "rationale": "The parity label in the paired lift is δ_j≡j−π_j mod 2, so A=Σδ_j is even. The inversion degree at j is π_j−j+2L_j; counting the endpoints of differently labeled inversion edges shows B≡Σδ_j(π_j−j)≡A≡0 mod 2. For pairs internal to the two halves equal labels double the base inversion status and unlike labels contribute once, giving 2(I_q−B)+A(q−A). For cross-half pairs, two labels 1 contribute A² and unlike labels contribute exactly once per unordered pair, for another A(q−A), hence Aq. The combined correction −2B+A(2q−A) vanishes mod 4. The odd-modulus sign character, the bijection of unit groups and character orthogonality then give the stated square/nonsquare sums, residue counts and cyclotomic conclusions for any odd q≥3.",
+      "residual_risks": [
+        "The recorded exact test of 3,994 multipliers was not rerun and is finite corroboration only. No multiplicity claim is checked."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "For every even b and odd coprime a, reducing equation (3.2) mod 4 gives I(a,b) ≡ a⁻¹[(a−1)(b−1)(a+b−1)/4 − b(1−(b/a))/2] mod 4, with the Jacobi symbol in (b/a). The use of sign alone is valid because b is even."
+        ],
+        "reasoning": "The older identity with the odd-modulus sign formula evaluates reduction mod four for the full even-modulus domain, not just twice-odd values. The a=1 term is trivial.",
+        "searches": [
+          "arXiv:1411.4092 §3, inversion reciprocity and Zolotarev"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1411.4092v1",
+        "Resultary exact match identified above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Subtracting twice the q formula gives 4a[I(a,2q)−2I(a,q)] = (a−1)(a−1+2q²) − 8q[I(2q,a)−I(q,a)]. Modulo 16 the first term is a²−1. For a>1 the bracket has parity determined by the Jacobi symbol (2/a), namely (a²−1)/8 mod 2 by the supplementary law. Thus the two terms cancel modulo 16, and a is odd. For a=1 both inversion numbers vanish."
+        ],
+        "reasoning": "This proves the exact pointwise congruence directly from the known formulas, without a new lift lemma, and the remaining Finding is immediate by (3.4) and aggregation.",
+        "searches": [
+          "arXiv:1411.4092, §3 p. 6, apply (3.2) at b=2q and b=q and use (3.3) at odd a"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "F_{2q}(i)=F_q(−1) follows from the pointwise congruence and unit bijection; the right-hand value is already (3.4)"
+        ],
+        "reasoning": "An arithmetic formulation in terms of the inversion numbers or Jacobi sign is stronger than a zero/nonzero cyclotomic test. Compare that strongest claim, not just the zero condition.",
+        "searches": [
+          "Resultary: twice-odd inversion polynomial fourth roots, Jacobi character and inversion congruence",
+          "arXiv:1411.4092 §3, equations (3.2)–(3.4)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact Resultary hit with suffix e772597d5ec9 is the same record, not independent coverage.",
+          "Cases (iii) and (iv) at c=q, k=2 predict the same i-root yes/no criterion; Table 1 is finite and concerns unexplained roots."
+        ],
+        "reasoning": "The conjecture is not a prior proof. Established coverage comes from the implication check, not a same-record hit or the table.",
+        "searches": [
+          "Resultary exact fourth-root spectrum at twice-odd moduli",
+          "arXiv:1411.4092, §2.1 Conjecture 2.1 and Table 1"
+        ]
+      },
+      "rationale": "The exact pointwise congruence is an elementary specialization of the known inversion reciprocity and Jacobi-sign formulas; this is stronger evidence than the previously conjectured root criterion. The frozen counting proof differs, but the Finding's mathematical conclusions are already covered by those formulas.",
+      "residual_risks": [
+        "The limited literature search does not settle who first wrote the exact congruence explicitly. The fail decision is established by implication, not a claim about the first explicit statement."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The exact criterion is conjectured, Proposition 2.2 gives parity at 2q, Proposition 2.4 uses an odd modulus, but the earlier reciprocity and sign formulas imply the exact mod-four lift.",
+          "evidence": [
+            "Reciprocity relates aI(a,b)+bI(b,a) to (a−1)(b−1)(a+b−1)/4; the proof of Proposition 2.2 already works by reducing reciprocity at even b, there only modulo two."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1411.4092",
+          "material_read": "§2.1 p. 3 (offset 8700), Propositions 2.2, 2.4 p. 4, §3 pp. 6–8, especially offset 16500 equations (3.2)–(3.4) and (3.7), and (3.13)–(3.15)",
+          "method": "Original PDF, bounded passage reads",
+          "title": "On the Inversion Polynomial for Dedekind Sums",
+          "trigger": "Identical invariant, conjectured fourth-root criterion and established candidate reciprocity"
+        },
+        {
+          "assessment": "Identical record, not earlier distinct evidence",
+          "evidence": [
+            "Same unit quantifier and same square/nonsquare value."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-the-fourth-root-spectrum-of-inversion-polynomials-at-twice-odd-m--e772597d5ec9",
+          "material_read": "RESULT.md, Finding at offset 0",
+          "method": "Archived primary record",
+          "title": "The fourth-root spectrum of inversion polynomials at twice-odd moduli",
+          "trigger": "Exact indexed congruence"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof",
+        "arXiv:1411.4092, equations (3.2)–(3.4)"
+      ],
+      "rationale": "The cyclotomic question is motivated, and the paired-lift proof is correct. Nevertheless the stated narrow exact invariant and its distribution are mechanically deduced by the two reciprocity substitutions and the standard supplementary law. No further independently motivated structural theorem on parity-preserving lifts is stated or established as a separate valuable contribution.",
+      "residual_risks": [
+        "This is not a judgment on other root orders, multiplicities or wider families of lift identities."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

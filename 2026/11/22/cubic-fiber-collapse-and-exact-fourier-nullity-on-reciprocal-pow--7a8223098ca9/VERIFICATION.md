@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-Run `python verification/check.py` from the package root. The program verifies: the divisibility and parity hypotheses, the exact index-three subgroup, the entire three-element preimage of every phase, the order of \(-2\), and the character-mode nullity, for 13 qualifying primes up to 700. For the first two qualifying primes, 31 and 43, an independently constructed complex matrix has numerical ranks 28 and 38, matching predicted nullities 2 and 4. Results obtained by direct execution of the embedded program:
+## correctness
 
-- \(p=31\): \(k=10\), \(d=19\), \(t=10\), nullity \(2\), rank \(28\).
-- \(p=43\): \(k=28\), \(d=13\), \(t=7\), nullity \(4\), rank \(38\).
-- Additional admissible primes checked: 157, 223, 229, 277, 283, 439, 457, 499, 601, 643 and 691.
+PASS
 
-These tests do not establish the theorem for infinitely many primes; the proof uses the exact character sum factorization and a nonvanishing cyclotomic argument. Small floating-point singular values are only supplementary diagnostics, not exact rank certificates.
+The proof establishes the exact complex rank and right kernel, not just a lower bound on the defect. With m=p−1, take d to be the specified nonzero representative of −k−1 modulo m. The product phase is f(u)=u(1+u^k), so a right character vector maps to the inverse character times its scalar phase sum. Here k is even, k≡1 mod 3, and gcd(k,m)=m/3. The index-three subgroup H=ker(u↦u^k) contains −1 and 2; 3 does not divide |H|. On the three cosets H, ωH, ω²H the multipliers of f are respectively 2, −ω² and −ω. Each is a bijection from its coset onto H, giving exactly {h/2,−ωh,−ω²h} over each h. Factoring these fibers gives the stated bracket and the common period. The period cannot vanish: adjoining ζ_p to Q(ζ_m) gives Q(ζ_pm), of relative degree p−1 by coprimality; its only possible degree-at-most-p−1 polynomial relation is a multiple of Φ_p, but the period polynomial has zero constant term and nonzero coefficients on H. Thus the bracket vanishes exactly for χ(−2)=1 and χ(ω)≠1. Subtracting the annihilator of ⟨−2,ω⟩, of size m/(3t), from that of ⟨−2⟩, of size m/t, proves the count. This also justifies subtracting exactly that many dimensions from m: character inversion permutes a basis.
 
-The proof does not establish infinitely many qualifying primes or quantitative invertibility bounds on the nonzero singular values. No independent mathematical audit has been conducted.
+## originality
+
+PASS
+
+Credit the exact cubic-resonant character kernel and order-dependent count, not character diagonalization, cyclotomic disjointness, or the use of phase fibers. The strongest compared indexed rank theorem has inverse-hyperbola degree d=1 and at most one missing quadratic character in its nondegenerate case; its phase and scope do not give the three-coset result. The compared literature on binomial permutation criteria, distribution of related character sums and prime cyclic Fourier minors does not give this ambient two-dimensional compression's complete character kernel. This is a bounded statement-level priority assessment.
+
+## value
+
+PASS
+
+Square sampling on a single algebraic curve need not permit recovery even at equal numbers of sites and samples. The index-three resonance is motivated by all the phase cosets mapping onto one subgroup, rather than by selecting examples with numerical rank drops. The result quantifies how much information is lost, using an order rather than only the image size, and identifies every unrecoverable character. This is an exact structural invariant for the full stated family; it distinguishes higher-dimensional loss from the inverse-hyperbola obstruction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

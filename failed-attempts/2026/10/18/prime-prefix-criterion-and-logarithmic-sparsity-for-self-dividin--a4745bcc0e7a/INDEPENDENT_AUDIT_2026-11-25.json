@@ -1,0 +1,157 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:16:24.229064Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–64",
+        "Frozen VERIFICATION.md and verify_repunit_lengths.py",
+        "Independent modular congruence versus prefix replay over 1..120000"
+      ],
+      "rationale": "R(n) is coprime to 10; the least prime p dividing a qualifying n>1 must be 3, since otherwise the nontrivial order of 10 modulo p divides both n and p-1. For each p_i>3 all prime factors of its order are smaller than p_i, giving the required prefix including exponents. Conversely, the tests imply ord_{p_i}(10)|n and it is prime to p_i. Odd-prime LTE supplies v_{p_i}(R(n))>=e_i+1 and v_3(R(n))=v_3(n); n=1 is separate. The exact two-prime condition follows. The primitive orders can also be checked without exceptions from Bang–Zsigmondy: for b=10^{3^{a-1}}, b^2+b+1 has 3-adic valuation one and gcd with b-1 equal to 3, hence has a prime q>3 with order 3^a for 10. Odd orders force all prime divisors into the stated quadratic splitting set, including 3. Squaring the containing set's Euler product gives zeta(s)L(s,chi)(1-2^{-s})(1-5^{-s}) times the product over chi(p)=-1; the regular factor at s=1 is positive and gives C_40 after taking its square root and dividing by Gamma(1/2). Multiplication by 3 bijects this semigroup with its multiples of 3, giving the factor 1/3. A separate bounded replay factored n and compared the prefix tests with pow(10,n,9*n)==1 over 1..120000: 27 agreements on hits and no mismatches; four seed primes with three exponents each were also checked. This is finite corroboration, not the proof. No asymptotic equality for A(X) is asserted.",
+      "residual_risks": [
+        "The displayed asymptotic equivalence is for the containing semigroup only; the actual counting function is subject to substantially stronger prior upper bounds."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2012 paper defines N_u as the indices dividing their corresponding recurrence term. For simple roots and a nondegenerate recurrence of order 2, Theorem 1.1 bounds its count by c_0(2) X/log X. The recurrence u_{n+2}=11u_{n+1}-10u_n has simple roots 10 and 1 with ratio not a root of unity, so the hypotheses hold. It has gcd(11,-10)=1 and the stated initial conditions, so the Lucas-specific Theorem 1.2 applies as well. Smyth Theorem 1 gives the prime-extension rule for all Lucas parameters and includes basic starting values; only 1 is basic here."
+        ],
+        "reasoning": "There is no loss of domain or change of counted variable: N_u(X)=A(X). The earlier estimate asymptotically dominates any positive constant times X/sqrt(log X), explicitly including C_40/3. The prime-extension theorem covers more than this decimal instance.",
+        "searches": [
+          "Smyth Shparlinski counting n divides u_n Lucas sequences indices divisibility upper bound",
+          "Alba González–Luca–Pomerance–Shparlinski DOI 10.1017/S0013091510001355, pp. 273–274, Theorems 1.1–1.2",
+          "Smyth JIS PDF, pp. 2–3, Theorems 1 and 3"
+        ]
+      },
+      "checked_sources": [
+        "Smyth arXiv:0908.3832 / JIS primary text",
+        "Alba González et al. DOI 10.1017/S0013091510001355 primary text",
+        "Wu–Lou arXiv:2508.01611v3",
+        "OEIS A095250 and A172372",
+        "Murthy 2000",
+        "Resultary semantic results and actual Lucas digit-extension finding"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In Smyth Theorem 1(a) the allowed next primes from m in the set are the primes dividing u_m Delta. Here Delta=81, hence starting from 1 only 3 may be added; for p>3 the extension condition is p|R(m), equivalent to ord_p(10)|m. Theorem 3 permits successively removing largest prime factors, since every qualifying n is odd and the even exceptional forms do not occur. Equivalently one may reorder by smaller primes, because the order divides p-1 and cannot require p or a larger prime. Iterating this gives exactly the prefix test and its sufficiency with repeated powers. Restricting it to one prime beyond 3 gives the two-support formula, and the cited primitive-divisor theorem at exponent 3^a gives infinitely many such primes immediately. The prior O(X/log X) bound implies A(X)/(X/sqrt(log X)) tends to zero."
+        ],
+        "reasoning": "The frozen conditions are not merely vaguely similar to prior work: the algebraic parameter substitution, ordering rule, and valuation exceptions match. The exact C_40 calculation is for a textbook fixed-character Euler product of a proper overcounting set, not a nontrivial improvement to the earlier bound on the reviewed lengths.",
+        "searches": [
+          "Smyth JIS PDF, Theorem 1(a)–(c), Theorem 3 and Proposition 11",
+          "Alba González et al. Theorems 1.1 and 1.2, p. 273–274",
+          "Frozen proof, characteristic and semigroup arguments"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "R(n) is U_n(11,10) with characteristic roots (10,1), discriminant 81, and u_0=0,u_1=1. Smyth studies precisely n|u_n, and Proposition 11 also identifies this with n|10^n-1 for these integral roots. Wu–Lou's fixed-prime conjecture and the density of all PINN values are not the general Lucas-index classification or a bound on lengths. The inspected Resultary Lucas-record hit concerns decimal digit extension in a recurrence with a different coefficient and no such self-index divisibility."
+        ],
+        "reasoning": "The apparently decimal-specific set is exactly a named prior Lucas-index problem, not just analogous to it. The allowed prime factors are obtained from the same repunit values when the general extension rule is applied at (P,Q)=(11,10).",
+        "searches": [
+          "Chris Smyth The terms in Lucas sequences divisible by their indices, arXiv:0908.3832 and final JIS PDF",
+          "Wu–Lou arXiv:2508.01611v3, §4.2 and §4.4",
+          "Resultary: Counts of indices n dividing Lucas sequence term U_n, n divides 10^n−1 and decimal repunit self-index divisibility, Selberg Delange fixed character logarithmic sparsity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A095250 defines a(n)=R(n) mod n, so its zeros encode exactly the reviewed set; it records the prime and power-of-three cases. A172372 gives prime ranks; for p>5 its least index is ord_p(10), while 3 is exceptional because of the denominator. The inspected Resultary record on decimal Lucas digit-extension graphs instead classifies edges U_{m+k}=10U_m+d for U_{n+2}=aU_{n+1}+U_n."
+        ],
+        "reasoning": "The remainder table is a material earlier representation of the exact set; prime ranks are mechanical inputs to the rule, not an asymptotic certificate. The table alone is not the proof of coverage: the exact characterization and stronger count follow independently from the primary Lucas-sequence theorems.",
+        "searches": [
+          "OEIS A095250 self-index repunit remainders",
+          "OEIS A172372 least repunit length for a prime",
+          "Resultary query for repunit self-index divisibility and Lucas counting"
+        ]
+      },
+      "rationale": "Established prior coverage, not an access issue. Smyth's general Lucas-index classification specializes mechanically to the prime-prefix and two-support descriptions. The same count A(X) is a direct case of Alba González–Luca–Pomerance–Shparlinski, whose Theorem 1.1 gives O(X/log X), already o(X/sqrt(log X)); their Lucas-specific Theorem 1.2 is stronger still. The exact constant of the larger containing set does not recover an original bound on A(X).",
+      "residual_risks": [
+        "This decision does not establish earliest priority for every elementary component. The verified published coverage suffices irrespective of incomplete secondary searches.",
+        "The sharper prior results concern the actual lengths, not an exact asymptotic for the larger splitting-prime semigroup."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage of the construction and deletion rule; the decimal prefix is its specialization",
+          "evidence": "Theorem 1(a) gives all prime extensions as divisors of u_m Delta, (c) gives basic starts, and Theorem 3 gives largest-prime deletion away from even exceptions. Proposition 11 equates the integral-root numerator and Lucas-quotient tests.",
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL13/Smyth/smyth2.pdf; arXiv:0908.3832",
+          "material_read": "§1 Theorem 1 and Corollary 2, §2 Theorem 3, pp. 2–3 from offset 2600; located Proposition 11, p. 6",
+          "method": "Lawful journal OA PDF, bounded passages",
+          "title": "The Terms in Lucas Sequences Divisible by Their Indices",
+          "trigger": "Exact general self-index divisibility of first-kind Lucas sequences"
+        },
+        {
+          "assessment": "Directly dominates the asserted bound for A(X)",
+          "evidence": "Theorem 1.1 bounds #N_u(X) by c_0(k) X/log X for fixed nondegenerate simple-root recurrence of order k, and Theorem 1.2 strengthens this for Lucas sequences.",
+          "identifier_or_url": "https://math.dartmouth.edu/~carlp/nthterm.pdf; DOI 10.1017/S0013091510001355",
+          "material_read": "§1 pp. 271–274, including definition and hypotheses and Theorems 1.1–1.2, offsets 0 and 6795",
+          "method": "Lawful author-hosted PDF, bounded passages",
+          "title": "On numbers n dividing the nth term of a linear recurrence",
+          "trigger": "Potential sharper count for the exact set of self-dividing indices"
+        },
+        {
+          "assessment": "A fixed-prime conjecture and a density assertion about a different set of integers; not the decisive source of coverage",
+          "evidence": "The conjecture has a finite list of possible primes. The density argument uses containment of PINN values in Niven numbers; it is not a length counting bound.",
+          "identifier_or_url": "arXiv:2508.01611v3",
+          "material_read": "§4.2 Conjecture 1 and §4.4 density argument, offsets 4700–9935 and 12400",
+          "method": "Lawful OA PDF passages",
+          "title": "Permutation-invariant Niven numbers",
+          "trigger": "Same repunit lengths and potentially competing digit-based construction"
+        },
+        {
+          "assessment": "Zero set is exactly the reviewed set; does not itself establish the general analytic bound",
+          "evidence": "a(n)=R(n) mod n; comments include prime and power-of-three cases, with a June 17, 2004 author entry.",
+          "identifier_or_url": "https://oeis.org/A095250",
+          "material_read": "Definition, comments and dated author entry from offset 0",
+          "method": "Public OEIS page",
+          "title": "Repunit of length n reduced modulo n",
+          "trigger": "Exact catalogue encoding of the qualifying indices"
+        },
+        {
+          "assessment": "Table for individual prime ranks rather than the full prefix theorem",
+          "evidence": "For the relevant primes other than 3 this rank is the decimal order; the sequence compares with reciprocal periods.",
+          "identifier_or_url": "https://oeis.org/A172372",
+          "material_read": "Definition and comments from offset 0",
+          "method": "Public OEIS page",
+          "title": "Least repunit length divisible by an odd prime",
+          "trigger": "Equivalent prime order/prime rank input"
+        },
+        {
+          "assessment": "Earlier repunit-divisor work at prime lengths, not the decisive coverage",
+          "evidence": "Its displayed congruence for divisors of repunits at prime digit lengths does not classify all self-dividing indices.",
+          "identifier_or_url": "https://fs.unm.edu/SNJ/OnTheDivisorsOfSmarandacheUnary.pdf",
+          "material_read": "Opening statement from offset 0",
+          "method": "Lawful OA PDF passage",
+          "title": "On the Divisors of Smarandache Unary Sequence",
+          "trigger": "Earlier exact repunit work cited by the catalogue and frozen record"
+        },
+        {
+          "assessment": "Different recurrence family and property",
+          "evidence": "It classifies digit-appending walks for u_{n+2}=a u_{n+1}+u_n, not divisibility of a repunit by its index.",
+          "identifier_or_url": "2026/11/8/SCOPE-complete-decimal-digit-extension-graph-for-positive-lucas-recurr--1b24624a1831/RESULT.md",
+          "material_read": "Finding and scope from offset 0",
+          "method": "Local catalogue mirror",
+          "title": "Complete decimal digit-extension graph for positive Lucas recurrences",
+          "trigger": "Thematically relevant Resultary hit from Lucas/decimal lookup"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–30 and 52–61",
+        "Smyth Theorems 1 and 3",
+        "Alba González et al. Theorems 1.1–1.2"
+      ],
+      "rationale": "The subject is natural, but the exact arithmetic classification is a mechanical Lucas specialization, and the claimed logarithmic upper bound is substantially weaker than the existing estimate for the same A(X). The exact coefficient measures only an elementary containing semigroup, not the sought lengths or a sharp obstruction for them. The two-prime family is a useful illustration of the rule but follows immediately from classical primitive divisors and does not leave an independently valuable new claim to repair here.",
+      "residual_risks": [
+        "The failed disposition is not a finding that the mathematics or the finite regression is false. No revised result is claimed."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

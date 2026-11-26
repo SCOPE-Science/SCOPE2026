@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T16:54:09.713033Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md",
+        "Frozen verify_core.py, verify_alt.py and their recorded outputs (inspected, not executed)",
+        "/workspace/clebsch_reproduction.py (independent exact-cover and orbit replay)"
+      ],
+      "rationale": "Reproduced the full labeled census from an independent even-parity representative model of the folded five-cube. Two distinct even representatives are adjacent exactly when they differ in four bits. The maximum independent set size is five, ruling out three colors. Each proper coloring gives an exact cover by four nonempty independent sets. Choosing the block of the least uncovered vertex at each stage counts each cover once; 1,190 covers times 24 palette permutations gives 28,560 states. Transfers of one vertex between color blocks, retaining only valid states, reproduce all edges, the full degree distribution and the component census: 1,680 singletons and 960 components each with 28 vertices, 60 edges, diameter 6. The BFS tests include all source vertices. Independent component orbit enumeration gives 960, 1,440 and 240. For completeness of the symmetry group, translations are transitive and the stabilizer at zero acts faithfully on the five neighbors: each other nonzero vertex is determined by its distinct pair of neighbors among them. Coordinate permutations realize the entire symmetric group on these five neighbors, and palette transpositions generate S4. Thus the full product action yields exactly those orbits; in particular transitivity on non-singletons implies isomorphism, not just common numerical invariants.",
+      "residual_risks": [
+        "Census is for the degree-five graph and distinguished colors; quotienting by palette names or changing the move set changes the problem."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "McDonald's work studies general connectivity and Hamiltonicity parameters. Asgarli et al. give a general chromatic-pairs edge-count formula. Beier et al.'s available abstract classifies which graphs can occur as coloring graphs and describes obstructions."
+        ],
+        "reasoning": "General edge counts can specialize to the Clebsch case, so the aggregate edge count is not the sole novelty. Those aggregate formulas and general connectivity questions do not resolve the individual components or their distances and orbits.",
+        "searches": [
+          "McDonald arXiv:1507.05344, introduction and searchable text",
+          "Asgarli et al. DOI 10.1007/s00373-025-02938-1, abstract, §§1.1 and 4.1",
+          "Beier et al. DOI 10.1016/j.disc.2016.03.003, repository abstract"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1507.05344v1",
+        "DOI 10.1007/s00373-025-02938-1",
+        "OEIS A159056",
+        "DOI 10.1016/j.disc.2016.03.003 (abstract only)",
+        "DOI 10.1088/1367-2630/11/2/023001 (abstract and p. 2)",
+        "Resultary 539d2b4d25c8 and 34a7c64074bc (indexed statements)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Chromatic-polynomial computations count proper colorings; the chromatic-pairs polynomial counts unordered adjacent coloring pairs in the move graph. Neither of these reported aggregate quantities supplies its connected-component, diameter, or orbit data."
+        ],
+        "reasoning": "The independent enumeration had to construct moves, trace whole components, measure their distances and track automorphism actions. Neither the known coloring total nor a routine specialization of the general edge count accomplishes those steps.",
+        "searches": [
+          "OEIS A159056",
+          "Asgarli et al., Counting Subgraphs of Coloring Graphs §4.1",
+          "Timme et al. DOI 10.1088/1367-2630/11/2/023001 abstract and p. 2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "McDonald defines the ordinary k-color graph using precisely a change at one vertex.",
+          "The related indexed records concern strong odd colorings of the Clebsch graph or injective colorings of K_b times an odd cycle, not ordinary proper labeled four-colorings under the stated move."
+        ],
+        "reasoning": "The degree-five graph here is the antipodal quotient of the five-cube, not the degree-ten complement. The move convention is the usual coloring graph, not an injective, strong odd, Kempe, or palette-quotient variant.",
+        "searches": [
+          "Clebsch graph/folded five-cube four-coloring graph, single-vertex recoloring and frozen coloring components",
+          "McDonald arXiv:1507.05344 PDF p. 1",
+          "Resultary 539d2b4d25c8 and 34a7c64074bc"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A159056 lists 28,560 at palette size four but does not give the component structure. No directly covering indexed component census was found; the strongest same-graph hit was the strong odd coloring spectrum, 539d2b4d25c8, at catalogue level."
+        ],
+        "reasoning": "A proper-coloring total is the vertex count of the move graph, not a table of its connected components. A bounded indexed search is not a priority proof.",
+        "searches": [
+          "OEIS A159056, Number of n-colorings of the Clebsch Graph",
+          "Resultary: Clebsch optimal recoloring components 1680 960, folded five-cube labeled four-coloring graph"
+        ]
+      },
+      "rationale": "The total coloring count is already recorded and the broad edge-count formula applies, but the checked work does not cover the complete component, distance and orbit census of this graph. The strongest relevant indexed comparisons address different kinds of colorings or configurations, not the stated reconfiguration graph.",
+      "residual_risks": [
+        "Beier et al.'s complete paper and the cited Cereceda et al. and Bonsma–Cereceda manuscripts were not inspectable via the attempted sources. Earlier unindexed enumeration is possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Matches move convention, not the Clebsch census in inspected material",
+          "evidence": "Adjacent colorings differ on exactly one vertex; the paper studies general connectivity/Hamiltonicity parameters.",
+          "identifier_or_url": "https://arxiv.org/pdf/1507.05344",
+          "material_read": "Introduction, PDF p. 1, and targeted Clebsch text search",
+          "method": "OA primary PDF",
+          "title": "Connectedness and Hamiltonicity of Graphs on Vertex Colorings",
+          "trigger": "The standard single-site recoloring graph"
+        },
+        {
+          "assessment": "Covers a general method for the edge aggregate, not component structure",
+          "evidence": "The chromatic-pairs polynomial counts pairs of proper colorings differing at one vertex.",
+          "identifier_or_url": "https://doi.org/10.1007/s00373-025-02938-1",
+          "material_read": "Abstract, §1.1 and §4.1",
+          "method": "OA primary HTML",
+          "title": "Counting Subgraphs of Coloring Graphs",
+          "trigger": "General coloring-graph counting formula that could specialize"
+        },
+        {
+          "assessment": "Prior coverage of 28,560 colorings only",
+          "evidence": "Initial terms include 0, 0, 0, 0, 28560; the entry enumerates proper colorings, not components.",
+          "identifier_or_url": "https://oeis.org/A159056",
+          "material_read": "Entry title and initial terms",
+          "method": "Sequence entry",
+          "title": "Number of n-colorings of the Clebsch Graph",
+          "trigger": "Exact count at palette size four"
+        },
+        {
+          "assessment": "Abstract does not cover the census; full-text overlap remains a risk",
+          "evidence": "The abstract discusses realizability as a coloring graph, order, girth and induced-subgraph obstructions.",
+          "identifier_or_url": "https://scholarship.richmond.edu/mathcs-faculty-publications/169/",
+          "material_read": "Published repository abstract; full paper not obtained",
+          "method": "OA repository page and linked PDF attempt",
+          "title": "Classifying Coloring Graphs",
+          "trigger": "Plausibly relevant classification of coloring graphs"
+        },
+        {
+          "assessment": "Indexed statement concerns a different coloring property; no full-text negative conclusion",
+          "evidence": "The stated spectrum concerns strong odd colorings of the Clebsch graph rather than the ordinary single-site move graph of proper four-colorings.",
+          "identifier_or_url": "2026/11/22/SCOPE-two-coordinate-cylinder-rigidity-and-the-strong-odd-coloring-spe--539d2b4d25c8",
+          "material_read": "Resultary summary; full mirrored passage request timed out",
+          "method": "Resultary and lawful local-mirror attempt",
+          "title": "Two-coordinate cylinder rigidity and the strong odd coloring spectrum",
+          "trigger": "Strongest same-graph indexed comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and assumptions",
+        "/workspace/clebsch_reproduction.py",
+        "OEIS A159056 (contrast with the known aggregate)"
+      ],
+      "rationale": "Recoloring at the chromatic number is a natural reachability problem on a canonical graph. The classification exposes two genuinely different frozen-state orbits and one common connected component type; it answers both reachability-structure and distance questions that the known coloring count cannot answer. It supplies a reproducible exact benchmark for minimum-palette recoloring.",
+      "residual_risks": [
+        "The benchmark does not establish an infinite family, a mixing-time result, or behavior for larger palettes."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

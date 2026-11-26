@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility
 
-Run `python3 verify.py` with Python 3.9 or later; it has no external package dependencies. The verifier independently builds graph closed neighborhoods, checks identifying signatures, classifies all minimum sets, computes one-for-one exchange edges in two independent ways, tests regularity and connectedness, and evaluates natural orbit profiles.
+# Independent mathematical audit
 
-All vertex subsets of size at most the predicted optimum were exhausted for \(m=4,5,6,7\), with respective subset totals 1586, 16384, 155382 and 1401292. The minimum code counts were 72, 540, 3240 and 17010. The corresponding exchange edge counts were 216, 3240, 29160 and 204120, with degrees 6, 12, 18 and 24; each graph was connected. The verifier also checked all 81648 predicted optimum configurations at \(m=8\) and all 1224720 exchanges, degree 30, connected. The terminal result was `ALL_VERIFY_OK`.
+## correctness
 
-These are complete finite searches only for the stated finite domains. The all-\(m\) proof is the combinatorial argument in `RESULT.md`, not a computational extrapolation. Rechecking from the delivered package can detect transport or encoding errors, but does not amount to an independent scientific audit.
+PASS
+
+For code C the signature of (i,j) is R_i∪B_j. In a row i, two column signatures agree exactly when both column contributions outside R_i are empty. An empty column thus forces at least 2(m−1) selected cells; with no empties, at most three singletons are possible and at size 2m−3 there must be exactly one per row and exactly two entries in every other column. Such words dominate and separate within rows. Equality of two signatures from different rows i,h forces each cell to lie in the other row's singleton column, by membership of the two singleton codewords; it then forces both rows to lack any other codeword. A double column must meet at least one of i,h, which rules this out for m≥4. There are m(m−1)(m−2) singleton placements and three choices per double. Preserving column counts allows only double recoloring (2 choices per double); changing them relocates an S_i into a double containing i, with 2 receiving-row labels and 2 recolorings of the vacated singleton per double. This gives all 6(m−3) distinct moves and the stated edge total. Recoloring lets any singleton move to any double column; an unfixed singleton occupying a desired target can be moved into a double buffer without dislodging a fixed marker. This connects every singleton placement and then independent double recolorings finish the path. Row and column equivalence is exactly equality of the three missing-row multiplicities up to permutation. Independent signature and token-jump enumeration at m=4,5,6 checked 1586,16384,155382 subsets through the respective optimum, found 72,540,3240 optimum words and 216,3240,29160 edges, and reached every optimum word in each exchange graph. Frozen verify.py is the supplied replay (inspected, not run): its m=8 check is on predicted configurations, not an exhaustive subset search. All-m claims use the proof, not extrapolation.
+
+## originality
+
+PASS
+
+The scalar optimum is prior and explicitly attributed. The necessary singleton-column pattern also follows from Goddard–Wash's lower-bound argument by equality. The supported distinct content is the sufficiency of the complete equality description and the exact token-jumping structure, including exhaustive moves, degree, connectivity and natural orbits, which are not established by the earlier sources inspected. A later catalogue theorem implies the static classification; its date does not certify publication priority.
+
+## value
+
+PASS
+
+Recovering every minimizer and how one-token modifications connect them goes beyond the known optimum. The minimal rectangle with three distinct singleton markers has a complete uniform move rule and reconfiguration invariants, not merely a list of small cases. The structural description directly gives all states and local transitions and supports exact reachability; the proof does not claim a diameter or results for all rectangular sizes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

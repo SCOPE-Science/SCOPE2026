@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:00:00.223050Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For measurable stationary nonnegative diffusivity independent of W, finite second moment and μ>0 justify conditioning on its path and give Γ=p²I_t/(μ²t^(2p)), where I_t is the weighted double covariance integral. In the supercritical regime 2p>η, the uniform bound h^η C(h)≤K gives an integrable rescaled majorant x^(p−1)y^(p−1)|x−y|^(−η); setting y=xz on the triangle gives 2cB(p,1−η)/(2p−η). For 2p≤η, use u=v+h and v=hz: I_t=2∫_0^t h^(2p−1)C(h)F_p((t−h)/h)dh with F_p(∞)=B(p,1−2p). In the strict subcritical range the weighted covariance is integrable at zero and infinity and has positive integral. At equality the integrand's covariance factor is asymptotic to c/h; the bound by F_p(∞) and uniform convergence to F_p(∞) for 1≤h≤t^a with a<1 yield exactly the logarithm with the stated coefficient as a increases to 1. All regimes make the normalized conditional variance converge to 1 in L² and hence the normalized position converge weakly to N(0,1) by its conditional characteristic function. For D=d_0+δG², stationarity and reversibility identify the law of the reversed conditional-variance integral with that of δp∫_0^t u^(p−1)(G_u²−1)du. Its covariance kernel 2(1+|u−v|)^(−η) yields L² convergence when 2p<η; the lag integral is B(2p,η−2p) and the variance is 4δ²p²B(p,1−2p)B(2p,η−2p). The second chaos is closed and the nonzero limit has positive fourth cumulant by the square-summable eigenvalue representation. The claims require C(h)≥0 at every lag as stated in the assumptions; the fluctuation limit is in marginal law only, with L² convergence of the forward representative, not claimed L² convergence of the original reversed process. The numerical quadrature script was inspected, not executed, and is not required for the integral proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The broader NGP framework supplies general formulas and discusses exponential and nonstationary power-law examples.",
+          "The inspected switching passages with exponential covariance and the same-kernel squared-OU Gaussianization do not treat stationary positive C(h)∼ch^(−η) in the stated range."
+        ],
+        "reasoning": "A prior exact covariance representation is broader at the level of an identity, not an evaluated long-time classification; it does not establish the competition between the endpoint singularity and nonintegrable long-lag covariance. The law of the conditional variance is also not determined by the covariance alone.",
+        "searches": [
+          "Lanoiselée–Grebenkov–Pagnini arXiv:2603.12775, random-modulated Gaussian processes and NGP",
+          "Balcerek et al. arXiv:2501.10472, Markovian switching and long-memory alternatives",
+          "arXiv:2504.19190, long-time Gaussian PDFs"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py (static inspection)",
+        "arXiv:2405.03836, 2501.10472, 2603.12775, 2504.19190",
+        "Resultary 5fb0d7185df7, 643438e1fa75, da4b27d9b2f2, aa8679b2b8bb and 8f7fb9d15625"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At 2p<η the leading coefficient involves the covariance over all lags through ∫h^(2p−1)C(h)dh. At 2p=η the scaled covariance has a logarithmically divergent lag integral. At 2p>η the rescaled square has an integrable off-diagonal power kernel and the coefficient depends on the tail amplitude c.",
+          "A qualitative Gaussian limit gives no leading coefficient or rate for Γ, and is compatible with a magnified mixing-variance limit in the non-Gaussian second chaos."
+        ],
+        "reasoning": "The covariance identity reduces the rate problem to a specific singular asymptotic analysis; one scaling or a substitution of the tail into the integral fails in the subcritical and critical regimes. For the environmental limit one additionally needs convergence in L² of the reversible weighted Gaussian-square integral, finite positive beta variance, and the second-chaos law. The inspected prior conclusions do not imply that by relabeling their parameters.",
+        "searches": [
+          "arXiv:2501.10472 kurtosis Eqs. (12)–(13); arXiv:2603.12775 non-Gaussian-parameter framework",
+          "arXiv:2504.19190 §III.B and Eq. (65), same kernel and square-Gaussian environment"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Pacheco-Pozo–Krapf and arXiv:2504.19190 exhibit the same Riemann–Liouville fractional random-diffusivity construction after p=2H.",
+          "Balcerek et al. give the fourth-moment/kurtosis double integral; in the conditional Gaussian formulation Γ is the squared coefficient of variation of the mixing variance.",
+          "arXiv:2504.19190 uses stationary squared-OU diffusivity for this same kernel and reports qualitative long-time Gaussianization."
+        ],
+        "reasoning": "The normalized fourth moment, excess kurtosis up to a constant factor, and variance of the conditional Gaussian mixing variable are interchangeable for purposes of detecting prior coverage. The squared-OU setting is genuinely the same stochastic integral, but its exponentially decaying covariance does not meet the C(h)∼ch^(−η), 0<η<1 hypotheses. The limiting law of the magnified conditional variance is not a claim about the marginal position itself.",
+        "searches": [
+          "Resultary semantic search for fractional random diffusivity, long-time kurtosis transition and second-chaos conditional variance",
+          "Primary-literature lookup for stationary algebraically correlated fractional random diffusivity, kurtosis transition and conditional variance fluctuations",
+          "arXiv:2405.03836 Eq. (4); arXiv:2501.10472 Eqs. (12)–(13); arXiv:2504.19190 §III.B"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "5fb0d7185df7 treats a telegraph drive and a bounded/logarithmic/power fourth-cumulant transition; 643438e1fa75 treats a short-lag regenerative-clock transition.",
+          "da4b27d9b2f2 gives a sign transition for modulated tumbling; aa8679b2b8bb treats matched exponential-covariance squared-OU and switching diffusivities; 8f7fb9d15625 involves a gamma clock and diffusivity sampled once per path."
+        ],
+        "reasoning": "The indexed comparisons have actual formula and mechanism overlaps, but none of the inspected findings lists the three exact long-time constants for stationary algebraic covariance, the same scale boundary H=η/4 with that hypothesis, or the subcritical weighted Gaussian-square limit. The exact comparable objects are the formula families, not a numerical table.",
+        "searches": [
+          "Resultary: exact fractional non-Gaussianity power/log transitions, 5fb0d7185df7 and 643438e1fa75",
+          "Resultary: long-time kurtosis da4b27d9b2f2; squared-Gaussian diffusivity aa8679b2b8bb; fractional volatility 8f7fb9d15625"
+        ]
+      },
+      "rationale": "The supported distinct claim is the sharp stationary algebraic-memory trichotomy with its three coefficients, together with the non-Gaussian subcritical conditional-variance limit and its variance. The fractional random-diffusivity integral, general fourth-moment identity, qualitative Gaussianization in related models, and Gaussian-square construction are not credited as new. The strongest inspected same-kernel source with Gaussian-square diffusivity uses exponential memory and does not supply the stated algebraic-memory asymptotics or fluctuation limit in the passages checked.",
+      "residual_risks": [
+        "The inspection is bounded. Other specializations of general random-diffusivity formulas or weighted long-memory Gaussian-functional results may address portions under other terminology.",
+        "A targeted kurtosis lookup in arXiv:2504.19190 did not locate a pertinent passage; that miss is not evidence of whole-paper absence. The exponential-memory comparison is based on the inspected model assumptions and results."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes model-level overlap, not the claimed asymptotic evaluation in the inspected passage.",
+          "evidence": "Fractional stochastic integral with the same power kernel and random diffusivity under p=2H.",
+          "identifier_or_url": "https://arxiv.org/pdf/2405.03836",
+          "material_read": "PDF p. 2, Eq. (4), around text offset 12750",
+          "method": "Bounded OA PDF passage",
+          "title": "Fractional Brownian motion with fluctuating diffusivities",
+          "trigger": "Same fractional random-diffusivity model"
+        },
+        {
+          "assessment": "The covariance identity is prior. Inspected Markovian switching uses exponential covariance, not the asserted stationary algebraic range.",
+          "evidence": "Generic fourth-moment/kurtosis double integral and exponentially correlated example.",
+          "identifier_or_url": "https://arxiv.org/pdf/2501.10472",
+          "material_read": "PDF p. 5 Eqs. (12)–(13) and Markovian switching discussion pp. 6–7, text around 16980",
+          "method": "Bounded OA PDF passages",
+          "title": "Evaluating Gaussianity of heterogeneous fractional Brownian motion",
+          "trigger": "Same fourth-moment observable and switching environment"
+        },
+        {
+          "assessment": "Relevant general representation and related regimes, no passage-level coverage of the stationary trichotomy and chaos limit.",
+          "evidence": "Examples include independent, exponentially correlated and nonstationary power-law modulation.",
+          "identifier_or_url": "https://arxiv.org/pdf/2603.12775",
+          "material_read": "Abstract p. 1 offset 0 and random-modulated Gaussian examples pp. 5–6 around text offset 34400",
+          "method": "Bounded OA PDF passages",
+          "title": "A unifying approach to diffusive transport in annealed heterogeneous media",
+          "trigger": "Broader random-modulation framework with NGP and power-law examples"
+        },
+        {
+          "assessment": "Substantive qualitative overlap, with exponential instead of algebraic covariance. No exact algebraic-memory Γ trichotomy or weighted second-chaos fluctuation limit established by these passages.",
+          "evidence": "RL-FBM-DD construction with D(t)=Y(t)^2 for a stationary OU environment and its reported long-time Gaussian PDF.",
+          "identifier_or_url": "https://arxiv.org/pdf/2504.19190",
+          "material_read": "PDF p. 4 §III.B, Eqs. (22a)–(24) and (30), offset 26650; p. 9 Eq. (65) and discussion, offset 58400",
+          "method": "Bounded OA PDF passages following targeted primary-literature lookup",
+          "title": "Different behaviors of diffusing diffusivity dynamics based on fractional Brownian motions",
+          "trigger": "Same RL model, stationary square-Gaussian diffusivity and qualitative Gaussianization"
+        },
+        {
+          "assessment": "Related transitions or moment diagnostics for distinct covariance models, observables or time limits.",
+          "evidence": "Telegraph-drive threshold, regenerative short-lag trichotomy, modulated-tumbling sign transition, matched exponential environments and random-clock volatility correlations.",
+          "identifier_or_url": "Resultary records 5fb0d7185df7, 643438e1fa75, da4b27d9b2f2, aa8679b2b8bb and 8f7fb9d15625",
+          "material_read": "Each RESULT.md Finding at text offset 0, local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Indexed lookup and bounded local-mirror statement passages",
+          "title": "Related indexed fractional kurtosis and volatility results",
+          "trigger": "Closest indexed formula-level matches for fractional cumulant transitions and square diffusivity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a natural fractional diffusion model the result specifies when the endpoint memory of the kernel, the covariance tail, or a logarithmic balance determines the leading non-Gaussianity. The distinction between a tail-universal coefficient and an all-lags coefficient is useful when comparing diffusivity environments. The explicit example shows that a Gaussian tracer does not exclude non-Gaussian, rescalable environmental fluctuations and quantifies them. The value rests on these sharp statements, not the already known mixture identity or Gaussianization in related examples.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

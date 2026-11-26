@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-The normal form follows because two different points of the common contact line annihilate the linear \(y\)-coefficient, and smoothness forces the remaining two coefficients nonzero. Every consecutive fourth-order contact gives one nonzero recurrence, and the product of the determinant ratios equals \((-1)^n\). This gives necessity and sufficiency; the finite-field all-pairs property follows because the differences of the binary quadratics are squares in characteristic two. Symbolic checks test the identities in several small cases, but the proof is the general algebraic argument.
+## correctness
 
-## Originality
-The accessible primary articles of Zieliński and Pokora provide combinatorial bounds, four-conic examples, and freeness constraints, not an all-length parity obstruction or a characteristic-two moduli theorem. A prior complete complex four-conic normal form covers the \(n=4\) case, which is not counted as a new result here. Searches for cyclic higher-order conic contact, cross-ratio moduli, and the characteristic-two variant did not identify a broader theorem. Unindexed classical geometry and characteristic-two conic-pencil theory present residual overlap risk; absence from search results alone cannot establish novelty.
+PASS
 
-## Value
-The parity obstruction settles existence for *every* cycle length under natural incidence assumptions; the explicit moduli identify all permitted configurations, rather than a single example. In characteristic two the contact graph becomes complete, a geometric change not visible in the earlier complex four-conic case. These statements resolve a motivated configuration-space question, not a numerical recomputation.
+In coordinates M={y=0}, P=[0:1:0], a conic has binary restriction proportional to L_(i−1)L_i since its two distinct contacts already exhaust the intersection with M. Its y-linear coefficient vanishes identically since both tangent lines contain P. Smoothness forces the y² and product coefficients nonzero; the normalized y²+c_iL_(i−1)L_i is smooth even in characteristic two (the only possible common zero of the two independent partials in x,z would be P, which is off the conic). The consecutive difference is L_i times a binary linear form; the tangent factor has order two and the other has order two exactly when it is proportional to L_i, otherwise it is a unit at p_i. This gives a nonzero recurrence; the product of consecutive determinant ratios is (−1)^n. Its consistency is sufficient, because the unordered point pairs on M distinguish the smooth conics, and Bézout counts the full intersection. Multiplying the coefficients by a common nonzero scalar is absorbed by y-scaling over the algebraic closure, and every projectivity of M lifts preserving P. The claimed quotient is thus exactly the stated set of marked classes M_{0,n}(k). In characteristic two any telescoped difference is a nonzero square of a binary linear form; on its line through P either conic restricts to y²+d s², a nonzero square. The conic-line intersection is a unique double point, so the squared difference forces fourfold contact, whether or not that point is on M.
 
-## Limits
-The result does not address arbitrary conic arrangements without its incidence hypotheses, nor all intersections of the union outside the specified contacts or freeness. The characteristic-two nonadjacent contact points need not remain on the original line.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+A known complex four-cycle overlaps a fixed-length example, but that and the comparison papers do not establish the characteristic-dependent all-length classification or realization and uniqueness for arbitrary marked configurations. The distinct contribution credited is the simultaneous parity and marked orbit theorem in arbitrary characteristic. The common-nucleus square-difference mechanism in characteristic two is elementary once the incidence is understood and does not by itself carry this verdict.
+
+## value
+
+PASS
+
+A natural geometric incidence problem has a complete realization criterion and a marked orbit classification, not merely examples or a numerical bound. The criterion changes in characteristic two, where nonadjacent pairs additionally acquire maximal contact. This gives usable control of the incidence geometry while isolating precisely which conditions are needed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

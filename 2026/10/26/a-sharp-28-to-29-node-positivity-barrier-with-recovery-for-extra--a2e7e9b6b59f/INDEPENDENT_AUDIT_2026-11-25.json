@@ -1,0 +1,159 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:49:00.354612Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For unit edge weights the constant eigenvalue is 0 and all orthogonal modes have Laplacian eigenvalue n. Thus the extrapolate is J/n+R(nh)(I−J/n), with R(x)=8/(x+2)²−1/(x+1). It fixes constants, and 1−R(x)=x(x²+6x+4)/[(x+2)²(x+1)] is strictly positive for x>0. Clearing the positive denominator of its common diagonal gives the asserted cubic H_n. Where R≥0 this diagonal is strictly positive; where R<0 the numerator 1+(n−1)R is decreasing in n. At n=28 the identity H_28=x(x−11)²−5x+112 proves strict positivity on [0,22] and on [22,∞) separately. For all n≥29, H_n(0)>0, H_n(12)=2640−92n<0 and H_n tends to +∞. Descartes' count of at most two positive roots with multiplicity gives exactly one simple root on each side of 12, and no other positive zeros. This proves the entire interval statement, including its endpoints and the identity at h=0; outside the interval the nonnegative row-sum-one matrix is stochastic, and a negative diagonal inside makes a coordinate impulse fail. Independent replay `python3 /workspace/independent_reproduction.py 1` produced exact diagonals 4/4459 at (n,x)=(28,12), −1/2639 at (29,12), and 47/10527 at (29,20), with the predicted off-diagonal signs, and recovered the two n=29 roots 10.4352065911559987… and 13.3946905220461563…. These finite checks supplement the complete algebraic proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Nov. 8 weighted-graph record proves the all-step diagonal safety threshold through 28 and directly covers the same cubic negativity window at each universal vertex of K_n from 29 onward.",
+          "The 2008 extrapolation-tableau transfer recurrence covers construction of the same stepper; the inspected page concerns transfer functions and stability rather than positivity of the graph matrix."
+        ],
+        "reasoning": "The later theorem dominates the diagonal portion on K_n and is not dismissed as a wording difference. It is publicly dated after Oct. 26 and does not assert off-diagonal signs or complete positivity. The earlier method construction requires a separate matrix-entry calculation and sign minimization over arbitrary x.",
+        "searches": [
+          "Resultary 56edd79ad0f3: universal vertex",
+          "\"Richardson extrapolation\" backward Euler positivity complete graph Laplacian entrywise positivity matrix",
+          "Constantinescu–Sandu 2008: extrapolation formula"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 56edd79ad0f3, c9c2b9f6d7e1, c08f9b38b493 and 8c0d50ef8119",
+        "Constantinescu–Sandu TR-08-13 (2008), p. 7",
+        "Mona–Lagzi–Havasi DOI 10.1155/2015/350362, p. 2",
+        "Faragó–Havasi–Zlatev (2010), abstract only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A negative scalar R does not force a negative matrix entry; the actual lower bound is R≥−1/(n−1). The prior scalar zero does not determine the global negative minimum or the reentry interval.",
+          "The later universal-vertex statement does imply the complete-graph diagonal result directly. Combining it with the verified complete-graph off-diagonal identity would give the full theorem, but there is no earlier date for that source.",
+          "The 2015 diffusion example uses forward Euler; its general Richardson formula alone gives no entrywise K_n classification."
+        ],
+        "reasoning": "The full classification requires the size-dependent comparison and equality/endpoint analysis beyond the inspected earlier results. The later mathematical implication is expressly credited without inferring earlier priority.",
+        "searches": [
+          "Constantinescu–Sandu 2008, p. 7, extrapolation formula",
+          "Resultary c9c2b9f6d7e1: 2+2\\sqrt2",
+          "Resultary 56edd79ad0f3: universal vertex",
+          "Mona–Lagzi–Havasi 2015: Richardson extrapolation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Oct. 4 scalar result is about R(x) itself: it vanishes at 2+2√2 and is negative for all larger x. The full graph step is instead tested by 1+(n−1)R and by 1−R.",
+          "The Oct. 13 case uses a pure-birth Markov chain with five states, not the two-eigenvalue complete-graph diffusion.",
+          "The same-day Radau IIA result uses a different rational propagator and equal-part multipartite graphs with parts of size at least two; it is not this claim, irrespective of same-day ordering."
+        ],
+        "reasoning": "Interpreting positivity as monotonicity of the step on coordinate impulses rather than sign of the nonconstant eigenmode distinguishes the scalar and graph claims. Changing a rate scale does not transform the directed chain or Radau propagator into the complete-graph Richardson step.",
+        "searches": [
+          "Richardson extrapolation backward Euler entrywise matrix positivity complete graph K_n Laplacian sharp node threshold 28 29 recovery",
+          "Resultary c9c2b9f6d7e1: 2+2\\sqrt2",
+          "Resultary c08f9b38b493: five states"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest indexed exact formula hit is the later Nov. 8 result: the same polynomial and the same diagonal endpoints, with scope restricted to self-transitions.",
+          "The two earlier indexed hits have a scalar cutoff and a pure-birth result respectively; no earlier exact full-matrix complete-graph table was found in these comparisons."
+        ],
+        "reasoning": "Same cubic and n=29 onset are mathematical coverage for the diagonal, not a mere similar numerical value. They do not provide earlier exact-table evidence; bounded indexing cannot establish absence elsewhere.",
+        "searches": [
+          "Richardson extrapolation backward Euler entrywise matrix positivity complete graph K_n Laplacian sharp node threshold 28 29 recovery",
+          "Resultary 56edd79ad0f3: universal vertex"
+        ]
+      },
+      "rationale": "The supported contribution is the complete-graph full-matrix cutoff and reentry for the given rational stepper, not Richardson extrapolation or its scalar sign change. There is actual material overlap with a later public weighted-graph diagonal theorem: it covers the full diagonal portion, even the same cubic on K_n. This is credited but does not establish earlier coverage or furnish a statement about all entries. Earlier directly compared results concern the scalar mode, a pure-birth chain, or the method without the graph conclusion.",
+      "residual_risks": [
+        "The Nov. 8 diagonal theorem is substantial overlap; public dates alone do not reveal unpublished development or precedence.",
+        "Only targeted earlier primary passages and bounded index results were inspected; a specialized earlier rational-propagator result may still cover an equivalent claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Actual diagonal coverage on K_n, later public date, not a full-entry result",
+          "evidence": [
+            "Weighted connected graphs through 28 have nonnegative diagonals for all steps. At a common-conductance universal vertex from 29 the same cubic gives the exact window, with the 29-vertex star also a witness."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-the-sharp-28-29-self-transition-barrier-for-richardson-accelerat--56edd79ad0f3",
+          "material_read": "RESULT.md passages at offsets 1485 and 4920, including universal-vertex theorem and scope",
+          "method": "Local published-record mirror",
+          "title": "The sharp 28/29 self-transition barrier for Richardson acceleration",
+          "trigger": "Strongest exact indexed overlap"
+        },
+        {
+          "assessment": "Earlier scalar result, not matrix positivity",
+          "evidence": [
+            "The cutoff is 2+2√2 for scalar amplification."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-richardson-acceleration-creates-a-sharp-positivity-barrier-for-b--c9c2b9f6d7e1",
+          "material_read": "RESULT.md scalar theorem around offset 1087",
+          "method": "Local published-record mirror",
+          "title": "Richardson acceleration creates a sharp positivity barrier for backward Euler",
+          "trigger": "Same rational amplification and possible equivalent threshold"
+        },
+        {
+          "assessment": "Different generator family",
+          "evidence": [
+            "Statement concerns a five-state pure-birth chain."
+          ],
+          "identifier_or_url": "Resultary 2026/10/13, c08f9b38b493",
+          "material_read": "RESULT.md passage near offset 948, located by ‘five states’",
+          "method": "Local published-record mirror",
+          "title": "Pure-birth Richardson positivity record",
+          "trigger": "Earlier same-method Markov-chain hit"
+        },
+        {
+          "assessment": "Distinct propagator and class; no priority inferred from same-day dating",
+          "evidence": [
+            "Uses two-stage Radau IIA and equal multipartite part sizes of at least two."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-sharp-radau-iia-positivity-and-reentry-on-balanced-multipartite--8c0d50ef8119",
+          "material_read": "RESULT.md Finding near offset 0",
+          "method": "Local published-record mirror",
+          "title": "Sharp Radau IIA positivity and reentry on balanced multipartite graphs",
+          "trigger": "Same-day graph method with positivity recovery"
+        },
+        {
+          "assessment": "Method and linear stability are pre-existing; no graph-positivity theorem in inspected passage",
+          "evidence": [
+            "Transfer-function recurrence from the extrapolation tableau and associated stability analysis."
+          ],
+          "identifier_or_url": "https://eprints.cs.vt.edu/archive/00001037/01/ExImex.pdf",
+          "material_read": "2008 report PDF p. 7, extracted offset 17962",
+          "method": "OA PDF query and passage reading",
+          "title": "Achieving Very High Order for Implicit Explicit Time Stepping: Extrapolation Methods",
+          "trigger": "Earlier primary source for the extrapolation method"
+        },
+        {
+          "assessment": "Different time stepping in spatial example",
+          "evidence": [
+            "General extrapolation formula and a forward-Euler diffusion example."
+          ],
+          "identifier_or_url": "https://doi.org/10.1155/2015/350362",
+          "material_read": "PDF p. 2, offset 5034",
+          "method": "OA PDF passage reading",
+          "title": "Solving Reaction-Diffusion and Advection Problems with Richardson Extrapolation",
+          "trigger": "Richardson applied to spatially discrete diffusion"
+        },
+        {
+          "assessment": "Scope comparison only; keyword miss is not whole-paper evidence",
+          "evidence": [
+            "Abstract treats active/passive Richardson stability."
+          ],
+          "identifier_or_url": "Faragó, Havasi and Zlatev (2010)",
+          "material_read": "PDF p. 1, abstract at offset 0",
+          "method": "OA PDF abstract and literal positivity search",
+          "title": "Efficient Implementation of Stable Richardson Extrapolation Algorithms",
+          "trigger": "Earlier stability treatment including backward Euler"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Complete graphs are a canonical test of diffusion time steppers with one common nonconstant decay scale. Exact state positivity, unlike scalar stability, matters for stochastic averaging and nonnegative data. The sharp dimension obstruction and bounded negative window tell users precisely when sign is lost and when it recovers; neither feature is explained by the familiar scalar sign change alone. The classification covers every step and graph order within its chosen family, not an arbitrarily selected example.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

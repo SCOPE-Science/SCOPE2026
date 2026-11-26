@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The chord formula on the anisotropic conic has the **minus** quadratic-character sign, obtained from the nonsquare norm on the orthogonal line. The tangent incidence has the same sign, and the overlap at their shared point is explicitly subtracted. The exact zero locus follows by separating fibers with and without mixed representations. The quartic family is squarefree for every admissible first coordinate except the single \(a=-2\) fiber, which is evaluated directly rather than treated elliptically. Hasse's bound proves missing sums in every order at least eleven; explicit finite field arithmetic handles the remaining orders three, five, seven and nine. Twelve independently constructed prime and extension fields pass complete convolution and character-locus comparisons. No experimental result is used as a proof for infinitely many fields.
+PASS
 
-## Originality — PASS relative to inspected evidence
+For s=(a,b)≠0 with n=a²−db², write the two conic points as s/2±t(db,a); these are exactly the candidates on the orthogonal line. The resulting square equation is t²=(n−4)/(4dn); the nonsquare d produces the minus sign in 1−χ(n(n−4)). At the origin the count is q+1. The C+L fiber has 1−χ(a(a−2)) choices, and L+L covers just a=2. Thus when χ(a(a−2))≠1 a mixed representation already exists; on the remaining fibers neither line term nor the intersection correction can contribute. The identity for a quadratic with two distinct roots gives |A|=(q−3)/2. On a regular a∈A the quartic is squarefree and has square leading coefficient, so its smooth genus-one model has two rational points at infinity and B_a=−1−t_a; anisotropy and a≠±2 give Z_a≤2. At a=−2 the double root is removed explicitly: summing χ(−d)χ(4−db²) over b≠0 gives B_a=−1+χ(−1) and Z_a=1. These facts justify the estimate and the regular-fiber positivity bound (q−3−2√q)/2>0 for q≥11. Independent enumeration over the four smaller fields, including coefficient arithmetic for F₉, reproduced M₃,M₅,M₇,M₉=0,0,4,12 and the stated fibers. Changing nonsquare d rescales b, and affine equivalence follows by centering the anisotropic quadratic form, norm rescaling, and moving the tangent point by a norm-one multiplier. The unitary Fourier identity uses the factor q for this group of size q².
 
-The closest prior additive decomposition work of Shi et al. determines the norm-one torus alone in characteristic three; the published odd-characteristic torus-only statement similarly determines \(C+C\). The Fourier-synthesis paper of Iosevich, Li and Yu develops general additive-energy connections and sphere examples. Neither inspected full-text source supplies the mixed conic-plus-tangent zero locus, elliptic fiber formula, or exact field-order cutoff. Indexed neighboring published results concern conic-only moments or polynomial graph-plus-line supports. The full text of one relevant torus-only result was unavailable, and older conic-line sumset literature remains a bibliographic risk; no formal novelty or independence certificate is claimed.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The geometric support is canonical: a nonsingular anisotropic conic and its tangent, up to affine equivalence. The zero set of its squared-spectrum inverse Fourier transform is an exact spectral-support invariant. The all-degree theorem gives a sharp, unexpected two-sum covering cutoff at field order five and identifies a genus-one obstruction above it, together with a universal quarter-density of missing sums. This is a motivated complete structural classification, not a generic finite enumerative exercise.
+The two-conic chord condition and finite Fourier convolution are prior ingredients. The supported distinct result is the joint support of the conic and tangent, including its elliptic fibers, exceptional singular fiber, uniform estimate and exact full-coverage cutoff. The strongest older indexed match analyzes the norm-one torus alone. A same-day related match concerns a twisted cubic and tangent, not an equivalent plane conic statement.
 
-## Limits
+## value
 
-Odd fields and nonsplit conics only. Elliptic fiber traces are not simplified to a polynomial in field order, and the square-root error is not asserted optimal. The review does not replace an independent audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The tangent modification is a natural geometric augmentation of the conic. The pointwise support shows exactly where its new representations do and do not repair holes, and the threshold distinguishes the exceptional fully covered fields from all larger ones. The character/elliptic reduction supplies an exact computational description beyond the asymptotic density and identifies the singular exception explicitly.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

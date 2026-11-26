@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For all \(\alpha,\beta>0\), \(\rho\geq0\) and \(\delta\in\mathbb R\), the normalizing constant is strictly positive. The only possible vanishing of the tilt at the right endpoint is \((\rho,\delta)=(0,1)\), which contributes exactly two to the right beta exponent. Endpoint orders force the two canonical beta exponents to coincide for equal laws; normalizing the polynomial at zero forces identical canonical polynomial coefficients. An explicit inverse of the nonconstant quadratic gives unique \(\rho,\delta\); the remaining constant-polynomial case yields exactly the stated beta fibers. The Fisher calculation identifies three independent, square-integrable scores and a zero fourth score. The included exact symbolic checker corroborates the beta-factor and score identities. No finite scan is used as proof of the global claim.
+PASS
 
-## Originality — PASS (best-knowledge)
+The beta moments give the specified positive normalizer. The left endpoint factor is never zero. The right endpoint vanishes only at (rho,delta)=(0,1), where absorbing (1-x)^2 adds exactly two to the right shape. After this reduction, equality of endpoint orders fixes alpha and the canonical right shape b; the factor with constant term one is then uniquely fixed. For its nonzero linear/quadratic coefficients p,q, delta=-2q/p and rho=4q/p^2-1. A constant factor gives exactly the reported beta fibers, including the strict cutoff b>2. Density zeros inside the interval do not affect this argument. At rho>0, delta=0 the rho score vanishes, and the other scores are multiples of centered log(x), log(1-x), x. A putative constant linear combination, differentiated and multiplied by x(1-x), has all three coefficients zero. The scores are square integrable, so this proves the exact Gram rank. Identical laws at every sample size give the stated consistency obstruction. The frozen SymPy checker was inspected, not executed; its algebraic checks do not prove exhaustiveness or Fisher rank.
 
-The original 2021 preprint and the full 2022-online journal article were inspected at their model definitions and identifiability arguments. The preprint claims a globally one-to-one parameter map; the journal paper's stated mixture-identifiability condition does not yield the complete parameter-fiber classification. Both explicitly know the \(\delta=0\) beta reduction; neither source supplies the second exceptional fiber member for \(b>2\), a complete global uniqueness classification away from beta laws, or the Fisher rank and consistency consequence. The equal-density example also compares directly with the published uniqueness argument. Focused literature and mathematical-record searches found no direct dominating result. Remaining risk: incomplete indexing of older identifiability or beta-mixture results; priority is not independently guaranteed.
+## originality
 
-## Value — PASS
+PASS
 
-Identifiability is a necessary structural assumption for interpreting fitted parameters. The theorem fully determines the observation-equivalent parameter vectors on the original advertised parameter domain, making precise when the claimed four parameters are estimable from population data and when no amount of data can distinguish them. The complete classification and rank statement are not merely a restatement of the already-known \(\delta=0\) reduction.
+The beta reduction at zero tilt and the model itself are known. The reviewed contribution is the exhaustive collision classification, the resulting reconstruction criterion and the exact zero-tilt rank, not rediscovery of the beta reduction. The preprint's injectivity assertion is contradicted by an admissible collision; the journal's mixture restriction does not imply the reviewed result. No independent equivalent was verified in the bounded source comparison.
 
-## Limits
+## value
 
-The result is unconditional and does not analyze multivariate regressions, estimation algorithms, or boundary-constrained Fisher information at \(\rho=0\). The exact symbolic checker is supporting evidence, not a substitute for the continuous-domain proof. Literature search cannot prove universal historical priority.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The result tells which model parameters can be recovered from arbitrarily many observations, corrects an unrestricted published-preprint inference, and distinguishes the globally nonidentifiable fibers from the exactly three first-order identifiable directions on the interior beta submodel. The boundary collision and complete off-fiber reconstruction are useful beyond the trivial zero-tilt degeneracy.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

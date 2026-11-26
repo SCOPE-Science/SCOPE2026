@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -16,4 +19,4 @@
 }
 ---
 
-The file `verify_johnson3.py` is a standalone Python 3 checker. It uses rational Gaussian elimination and exact integer hypergeometric weights, and replays the kernel/telescoping identities on all 784 pairs with n from 6 through 60 and k from 3 through floor(n/2). It also constructs complete projection matrices for sizes 20, 35, and 56 and tests idempotence with rational arithmetic. The printed cusp number and bulk asymptotic are corroborative finite-precision checks; the theorem's infinite limits and derivative jump are established analytically in RESULT.md. The independent mathematical audit has not been performed.
+The limit and the derivative jump follow from the overlap factorial moments, the exact kernel second moment and the Poisson series argument in `RESULT.md`. The existing `verify_johnson3.py` numerically compares the local second difference at \(\sqrt3\) to \(6e^{-3}\) and compares a large-mean Poisson–Charlier expectation with the limiting Gaussian constant. Its exact rational kernel checks also corroborate the finite normalization used in the proof. The finite boundary-summation tests in that script concern a classical Hahn-polynomial identity, not a claim of novelty. Neither the finite tests nor the floating-point checks establish either asymptotic limit or differentiability properties.

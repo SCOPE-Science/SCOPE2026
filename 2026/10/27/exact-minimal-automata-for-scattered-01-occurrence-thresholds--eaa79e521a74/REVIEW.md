@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The concatenation identity is an exact partition of index pairs. The three exceptional residuals are exhaustive outside the positive deficit region. In that region the expression \(h(v)+z(t(v)-1)\ge d\) makes the \(z\ge d\) collapse exact. The separating suffixes \(0^d1\), \(11\), and \(1 0^{d-z_2}1\) prove all remaining classes inequivalent. Every class is reachable. This reconstructs the proof for all \(k\ge1\), including \(k=1\), with no reliance on finite enumeration. The packaged Python checker independently confirms minimization for forty thresholds and more than 1.55 million direct concatenation checks.
+## correctness
 
-## Originality — PASS, subject to bibliographic risk
-The closest full scientific comparison is Mansour–Rastegar–Roitershtein (arXiv:1905.05646), Section 2.2: it defines a fine equivalence relation preserving every bounded occurrence count for arbitrary patterns, rather than determining the coarser Myhill–Nerode quotient for the predicate \(N_{01}\ge k\). Atanasiu–Poovanandran–Teh (arXiv:1808.04102) treats Parikh matrices under taking powers; Fazekas–Huang (arXiv:2407.04462) treats generalized occurrence-count matrices. Neither inspected primary source states the present quadratic minimal-state formula. These are statement-level contrasts, not a claim that absence from a search proves novelty. Residual risk: an uncatalogued explicit specialization or general state-minimization theorem may cover the same formula.
+PASS
 
-## Value — PASS
-The natural Parikh-matrix entry \(N_{01}\) gives an elementary but useful threshold language. Its exact minimal-state cost is a structural automata invariant, not merely a generic recognition construction: distinct raw counters collapse on a sharp diagonal, leaving \(\lfloor k^2/4\rfloor+3\) reachable distinguishable classes. The uniform formula and the complete residual classification establish an explicit complexity benchmark for pattern-count threshold recognition.
+For a prefix with z zeros and p pairs and a suffix with t ones and h internal pairs, the total is p+zt+h by splitting pairs into the three possible locations. The classes p>=k, z=0, and p<k with z>=1 and p+z>=k have residuals all suffixes, the initial language, and suffixes containing a 1, respectively. Otherwise d=k-p-z is positive, 1<=z<=k-d, and acceptance becomes h+z(t-1)>=d. The prefix 01^(k-d-z)0^(z-1) reaches every admissible pair. At t=0 all these levels reject; t=1 tests h>=d; if z>=d all t>=2 are accepted. Distinct levels are separated by 0^d1 at the smaller level, which also separates that level from the initial language. At equal d, use 10^max(d-z_2,0)1 for z_1<z_2 with z_1<d. The empty suffix and the one-letter suffix 1 distinguish the exceptional classes where needed. Summing min(d,k-d) over 1<=d<k yields floor(k^2/4); at k=1 there are only the three reachable exceptions. Inspected RESULT.md, VERIFICATION.md and verify.py. The recorded finite refinement and short-word comparisons were not replayed; they supplement the universal argument. The reported raw-state and direct-test totals also agree with sum_{k=1}^{40}(k^2+2) and 12(2^10-1)(2^7-1), respectively.
 
-## Verification limits
-The finite checker verifies bounded thresholds and direct concatenation counts; the infinity of positive thresholds follows from the symbolic proof. Published mathematical work establishing bounded-occurrence automata is acknowledged rather than re-claimed. No independently commissioned audit is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best of current knowledge for the exact inclusive-threshold quotient only. The strongest catalogue matches give different exact-equality quotients whose dead class loses the distinction between overshooting k and being below k but unable to hit it exactly. General bounded-count and Parikh-matrix constructions are background, not a minimal threshold classification. The underlying residual variables and several test words are shared with earlier work; no novelty is credited for those in isolation.
+
+## value
+
+PASS
+
+A threshold on an elementary scattered-pair statistic is a natural regular constraint, and a user designing or studying a recognizer needs the exact quotient, not only regularity or an automaton for exact counts. The theorem gives both the optimal uniform state count and a residual classification with explicit witnesses; the inclusive collapse is different from the overshoot behavior of exact equality. Value is confined to this exact binary-pattern invariant, not broader algorithms or pattern families.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

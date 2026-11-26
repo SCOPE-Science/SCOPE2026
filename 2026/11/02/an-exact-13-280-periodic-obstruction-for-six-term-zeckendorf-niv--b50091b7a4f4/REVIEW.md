@@ -1,9 +1,21 @@
-# Review
+# Independent mathematical audit
 
-Correctness — PASS. The earlier published two-shape theorem is an explicit premise, not rediscovered here. Its exact digit-weight profiles yield necessary divisor congruences. Fibonacci periods modulo four small primes and the affine denominator residues make the sieve exactly periodic with period 1680. A standalone integer-only program checks all 1680 residues, invariant over the neighboring period, and the exact 210, 112 and 78 counts. This is an infinite periodic sieve statement, not an experiment extrapolated to infinite original integers.
+## correctness
 
-Originality — PASS with residual priority risk. Lao et al. establish the initial progression problem; the second located research manuscript gives the two possible Fibonacci shapes and finite exclusion through G=501. Neither accessible statement supplies the exact 1680-period low-prime obstruction, the 33+45 distribution, or the first sub-5% sieve threshold. Searches against published research records and prior claims found no matching 13/280 theorem. The later manuscript's complete text was not accessible, so an unindexed companion congruence computation remains possible.
+PASS
 
-Mathematical value — PASS. The open six-term Zeckendorf–Niven question is reduced by its existing structural theorem to Fibonacci-index divisibility. This result eliminates an exact proportion 267/280 of all indices, unconditionally and at every scale, while identifying the first three natural small-prime frontiers. It gives a nontrivial quantitative infinite obstruction substantially different from extending a finite search bound. Its value is as a rigorous sieve toward the unresolved index problem, without claiming to resolve it.
+For G>=9 and the two fixed offsets only, start from the canonical expansions at G=8,9. For a negative offset w, adjoining F_(G+1) to the decomposition of F_G-w is nonadjacent and gives F_(G+2)-w, raising the weight by one. The positive offsets 1,3,5,7 concatenate canonically, with weights 1,1,1,2. Thus r=floor((G-3)/2) gives the three repaired profiles, including equal first two weights r in the even minus-five case. There r>=3 cannot divide both V-5 and V-3, where V=F_G. In both shapes the fixed weight-two terms require V odd; the minus-three shape requires V=2 mod 3. When G=2r+4 is even in the minus-three shape, r=1 mod 3 makes G a multiple of 3, and r=0 or 2 mod 3 requires V=0 or 1 mod 3, respectively. Hence every survivor for cutoffs >=3 is odd. When G=2r+3, the mod-3 constraints and Fibonacci residues at odd indices modulo 8 give exactly {5,11} mod 24 for minus-three and {1,5,7,11} mod 24 for minus-five. The Fibonacci pair recurrence gives periods 3,8,20,16 and the other tests have periods dividing 2p, giving a common period 1680. The independently authored repair verifier was executed with Python and exhausts indices 9..1688. The rows (minus-three, minus-five, intersection, union) are (140,280,140,280), (112,224,112,224), (80,144,72,152). Thus 19/210 is the exact union fraction at cutoff 7, with nonempty overlap. No structural premise about all possible roots and no existence claim are needed.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+For the narrowed result, the distinct claim is the exact small-prime, common-period screen for the two candidate families, including overlaps and odds-only classes. It does not claim the two-shape reduction, the first observations on progression length, or priority over a full text that was not obtained.
+
+## value
+
+PASS
+
+The two candidate shapes are singled out by the original six-term progression question and yield coupled, index-dependent divisors. The prime-three calculation eliminates every even index for both shapes and gives explicit odd classes, while the through-seven table quantifies and resolves the overlap of the surviving types across an unlimited range of indices. It gives a reusable preliminary screen for these two families, not a larger finite search or a claim to resolve the length gap.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

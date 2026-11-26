@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:54:21.818163Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–38 and 42–79; VERIFICATION.md; verify_wheel_gap.py read only",
+        "Independent analytic spectral dual and equality check above; no numerical run required"
+      ],
+      "rationale": "An independent spectral dual check uses the trace-one normalized projector Z_F on the first real Fourier plane (the plane's projector divided by two). Its quadratic edge strains are 1/n on spokes and c_n/n on rims. The trace-one projector Z_H onto the hub-versus-rim line has strains (n+1)/n and 0. A trace-one positive dual test on the constant-orthogonal subspace upper-bounds lambda_2 by tr(ZL). For t<c_n mix Z_F with coefficient (n+1)t/(c_n+nt) and Z_H with the remaining coefficient; strains are proportional to the prices and give the claimed value. For t>=c_n use Z_F alone, giving B/n and excluding positive rim weights when t>c_n. The uniform Laplacian has hub contrast eigenvalue (n+1)a and first rim eigenvalue a+c_n b, so the stated weights attain each bound. At equality the first harmonic lies in the bottom eigenspace of the constant-orthogonal restriction (the dual gives it positive weight in every regime). The imaginary part of its rim eigenvector equation forces equal rim weights because sin(2pi/n) is nonzero for n>=3. The real part then forces equal spokes. At equality of prices the remaining hub bound is precisely (n+1)a>=B/n. This covers the triangular rim and the full closed critical segment. The segment is an exposed optimal face of the lifted semidefinite problem, not a face of the weight-budget simplex itself.",
+      "residual_risks": [
+        "This is for the combinatorial Laplacian and the stated linear cost only. The frozen script's finite trials are corroborative and were not used as proof of rigidity."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The indexed theorem allows free conductances and supplies the complete continuous-time classification, as well as a sharper expansion for the reciprocal price. It explicitly assumes n>=4. Its proof's Fourier norms, two affine bounds and nonzero sine all hold unchanged at n=3."
+        ],
+        "reasoning": "General linear-cost and symmetry frameworks alone would not prove every optimizer is uniform. The indexed exact proof already does, and supplies the triangular-rim instance by direct specialization of the argument. The discrete-time wheel theorem is a different optimization.",
+        "searches": [
+          "Sun–Boyd–Xiao–Diaconis §5.3; Boyd–Diaconis–Parrilo–Xiao §5.4.3; exact indexed theorem proof Steps 1–5"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 2026/10/12/SCOPE-quadratic-spoke-price-frontier-for-fastest-mixing-on-wheels--24216ca23b99",
+        "Sun et al. 2006 §5.3; Boyd et al. 2009 §5.4.3; Ghosh and Boyd 2006; arXiv:1510.06785; Shafi–Arcak–El Ghaoui 2012"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior Steps 1–4 use the hub-vector and first Fourier mean Rayleigh bounds, the same uniform spectrum and edgewise equality in the first harmonic. After changing cost conventions, all optimal weights and optimal values coincide; Step 5 also implies the frozen deletion scale."
+        ],
+        "reasoning": "The overlap includes optimality, uniqueness off the threshold and nonuniqueness with complete symmetry at the threshold. The n=3 extension does not give an independent rigidity mechanism.",
+        "searches": [
+          "Earlier indexed theorem and proof: mirrored RESULT.md offsets 0–7444"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For source rim price t and budget B, set prior spoke price q=1/t and prior conductances equal to (t/B) times the frozen conductances. The prior budget q sum(spokes)+sum(rim)=1 then holds and eigenvalues scale by t/B. The map is bijective on all labeled allocations, not only uniform ones."
+        ],
+        "reasoning": "The prior threshold q=1/c_n maps to t=c_n and its three optimizer regimes map to the frozen regimes. At equality its interval c_n/[n(n+1)]<=a_old<=c_n/n maps to a=B/n-c_nb with 0<=b<=B/[(n+1)c_n].",
+        "searches": [
+          "Resultary: continuous-time wheel algebraic connectivity, priced spokes/rim, complete optimizer classification and critical face",
+          "Indexed Quadratic spoke-price frontier for fastest mixing on wheels"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/10/12/SCOPE-quadratic-spoke-price-frontier-for-fastest-mixing-on-wheels--24216ca23b99 surfaced at ranks 2, 1, 15 and 5. Resultary 2026/11/22/SCOPE-unique-eigenratio-optimal-conductances-on-wheel-networks--23cc3948d013 instead concerns lambda_max/lambda_2."
+        ],
+        "reasoning": "The exact match is theorem-level rather than a finite table. The eigenratio hit has a different objective and cannot be counted as corroborating coverage.",
+        "searches": [
+          "Four Resultary comparisons for the wheel model, priced frontier, exact critical family and all-weights rigidity"
+        ]
+      },
+      "rationale": "The main claim, including the critical interval and exclusion of asymmetric optimizers, is covered for n>=4 by a distinct indexed theorem. The sole extra case n=3 is obtained by the same argument verbatim: the rim Fourier vectors are independent with squared norms 3/2 and sin(2pi/3) is nonzero. Neither inverting the relative price nor restoring a budget scale creates a different mathematical result. No priority or provenance claim is needed for this coverage determination.",
+      "residual_risks": [
+        "The relationship of the two records is not established. The limited general web search contributed no relevant result; the verdict rests on the inspected matching indexed theorem, not that search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers n>=4; proof extends directly to n=3",
+          "evidence": "Independent labeled rates, inverse price convention, full optimizer interval and imaginary-part equality of adjacent rim rates.",
+          "identifier_or_url": "2026/10/12/SCOPE-quadratic-spoke-price-frontier-for-fastest-mixing-on-wheels--24216ca23b99",
+          "material_read": "Theorem, scope and proof Steps 1–5, offsets 0–7444 in mirrored RESULT.md",
+          "method": "Resultary and local mirror at 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Quadratic spoke-price frontier for fastest mixing on wheels",
+          "trigger": "Exact priced wheel classification and no asymmetric optima"
+        },
+        {
+          "assessment": "Framework and cycle spectra, not wheel optimizer coverage in this passage",
+          "evidence": "Equal-cost cycle optimum and arbitrary-cost cycle eigenvalue discussion, not a wheel with two edge classes.",
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fmmp.pdf",
+          "material_read": "§5.3 pp. 696–697, around extracted offset 50100",
+          "method": "Original OA PDF passage",
+          "title": "The Fastest Mixing Markov Process on a Graph and a Connection to a Maximum Variance Unfolding Problem",
+          "trigger": "Same continuous-time budgeted objective"
+        },
+        {
+          "assessment": "Different discrete-time problem",
+          "evidence": "Wheel Fourier blocks under transition-matrix stochasticity and SLEM minimization, not the priced generator gap.",
+          "identifier_or_url": "https://stanford.edu/~boyd/papers/pdf/fast_mix_symm.pdf",
+          "material_read": "§5.4.3 pp. 813–814, around extracted offset 79600",
+          "method": "Original OA PDF passage",
+          "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+          "trigger": "Exact wheel topology and Fourier calculation"
+        },
+        {
+          "assessment": "Different selection constraints",
+          "evidence": "Candidate-edge selection and relaxation rather than the exact two-price wheel budget.",
+          "identifier_or_url": "https://stanford.edu/~boyd/papers/pdf/growing_fast_graphs.pdf",
+          "material_read": "p. 2 around extracted offset 6500",
+          "method": "Original OA PDF passage",
+          "title": "Growing Well-Connected Graphs",
+          "trigger": "Candidate algebraic-connectivity optimizer"
+        },
+        {
+          "assessment": "Different topology and variables",
+          "evidence": "One-to-one inter-layer links, not freely priced spokes and rim of one wheel.",
+          "identifier_or_url": "https://arxiv.org/abs/1510.06785",
+          "material_read": "p. 1 around extracted offset 7800",
+          "method": "Original lawful full-text passage",
+          "title": "Maximizing Algebraic Connectivity in Interconnected Networks",
+          "trigger": "Candidate budget regime transitions"
+        },
+        {
+          "assessment": "General design examples, not exact wheel theorem in inspected passage",
+          "evidence": "Spectral constraints and network design, not the first-harmonic optimizer rigidity for this budget.",
+          "identifier_or_url": "https://people.eecs.berkeley.edu/~elghaoui/Pubs/Laplace_tac2012.pdf",
+          "material_read": "p. 3 around extracted offset 19000",
+          "method": "Original OA PDF passage",
+          "title": "Graph spectral-constraint design (Shafi, Arcak and El Ghaoui)",
+          "trigger": "Potential coverage by general Laplacian design"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md; earlier indexed proof Steps 1–5"
+      ],
+      "rationale": "The unrestricted optimizer classification and critical segment would be valuable in their own right, but the assigned contribution beyond the covered result is a price/budget renormalization and the triangular rim. That case is K4 with a designated hub and costs, and the prior proof applies with no new constraint, degeneracy argument or mechanism. No distinct motivation or result for that boundary case is established.",
+      "residual_risks": [
+        "Does not assess distinct wheel problems with other objectives, price structures or vertex masses."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

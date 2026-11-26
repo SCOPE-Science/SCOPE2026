@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:23:19.492018Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md Finding, assumptions and proof, lines 4–76",
+        "VERIFICATION.md lines 3–21 and verify.py lines 11–79",
+        "python3 /workspace/audit-work/independent_checks.py 1"
+      ],
+      "rationale": "Under normalized Haar measure the first-quadrant axial marginal is [t f(t)+∫_t^π f(s)ds]/π. Its derivative is t f′(t)/π and vanishes at zero; two integrations by parts followed by Riemann–Lebesgue give the two signed antipodal limits with the factor 1/π. Independently, write F_f=f(π)−∫ f′(r)1_{[-r,r]²}dr. For n≠0 the normalized box factors are sin(nr)/(πn), and for n=0 the factor is r/π. For the exponential, integrating the product by cosine subtraction gives the mixed formula with B_{n−m}^{−1}−B_{n+m}^{−1}>0 for positive n,m, even when n=m. The constant is a positive integral; direct integration of r e^(−ar)sin(nr) gives the axial formula. Odd terms are positive, and for even n the sign of 2a(1−e^(−πa))−π e^(−πa)(a²+n²) gives the exact threshold including equality. Q(a)>a², so the first strictly negative even frequency is the stated strict rounding, asymptotic to √(2a/π)e^(πa/2). Compact-group Fourier positivity rules out positive definiteness for every a>0. The one-circle transform has the positive coefficients given; the Euclidean sup kernel is the product of two positive 1D Laplace pullbacks. An independent midpoint integration of the layer formula at a=1 gives approximately −0.000138259 at (4,0), and direct real Gram contractions give −7.740924236 and −85.99081613 on the 16 and 32 grids. These computations corroborate the proof, not certify the infinite statements; the frozen checker was inspected, not run.",
+      "residual_risks": [
+        "No conclusion for a general profile with f′(π)=0; the complete classification concerns the Laplace profile on precisely the two-coordinate supremum torus. Numerical Gram values are not minimal-witness guarantees."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Product-sphere Fourier/Gegenbauer positivity characterizes usable coefficients; the conditional negative type theorem characterizes simultaneous positivity at all damping scales. Gneiting includes the one-circle Laplace kernel."
+        ],
+        "reasoning": "The first criterion does not evaluate signs. Failing conditional negative type alone cannot show failure at every fixed positive scale, much less odd/even and off-axis classification. One-factor positivity does not persist under a maximum by a product-kernel theorem.",
+        "searches": [
+          "Guella–Menegatto–Peron arXiv:1503.08174 Theorem 2.9; arXiv:1505.01169 §1",
+          "Feragen–Lauze–Hauberg arXiv:1411.0296 Theorem 4(i)",
+          "Gneiting arXiv:1111.7077 Table 1"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md lines 81–92",
+        "Resultary mirror 6360384890e1",
+        "arXiv:1111.7077 p. 3 Table 1, offset 5300; 1503.08174; 1505.01169; 1411.0296; 2609.05622"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The finite-p precedent uses the same twice-integrated boundary identity, but its constant integrates over radii (π^p+s^p)^(1/p) and its improper differentiation proof is for finite p. Its window shrinks to radius π, and its parity constants can approach the new ones without identifying an endpoint sign or its cutoff."
+        ],
+        "reasoning": "Negative Fourier witnesses may drift to unbounded frequencies under uniform kernel convergence; taking p→∞ does not transfer the prior all-damping nonpositivity. The endpoint marginal directly establishes the parity limit for both signs of f′(π), with an exact Laplace sign calculation beyond the shared asymptotic method.",
+        "searches": [
+          "Resultary mirror 6360384890e1 proof: regularized axial marginal and Fourier asymptotics",
+          "arXiv:2609.05622v1 p. 1",
+          "arXiv:1411.0296 Theorem 4(i)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same kernel can be described as the intrinsic quotient ℓ∞ metric or a superposition of coordinate-square layers. The strongest indexed hit 6360384890e1 gives a very similar axial marginal for finite ℓp. Zhou uses the Euclidean quotient norm."
+        ],
+        "reasoning": "The quotient ℓ∞ metric equals the maximum of wrapped coordinate arcs; it is not the wrapped Euclidean norm, and the finite-p hypothesis in the closest record excludes this endpoint. The square-layer transform yields a different exact calculation.",
+        "searches": [
+          "Resultary: T² torus max of intrinsic circle arc distances antipodal Fourier obstruction Laplace exponential coefficient parity alternating Q(a)",
+          "Resultary 6360384890e1 sharp norm transition intrinsic Laplace covariance products of circles finite p infinity maximum",
+          "websearch: max geodesic distance circle product torus Fourier coefficients exponential kernel supremum metric antipodal"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier indexed formula gives parity limits and the one-circle transform, not the lowest negative even frequency or signs of all modes. The spherical table lists a one-distance powered-exponential family, and the product-circle paper gives a positivity/support criterion."
+        ],
+        "reasoning": "The explicit Q(a), equality frequencies, and positivity of every mixed coefficient answer questions not supplied by the closest checked exact formulas.",
+        "searches": [
+          "Resultary mirror 6360384890e1 RESULT.md, Findings and proof offsets 0–7173",
+          "arXiv:1111.7077 Table 1; arXiv:1505.01169 §1"
+        ]
+      },
+      "rationale": "Credit the supremum-endpoint theorem and especially the exact all-frequency sign cutoff at every damping, not the general Fourier/antipodal method. The strongest earlier record proves the closely related finite-p antipodal-tail obstruction, including the identical one-circle comparison transform. The actual mirror text explicitly assumes finite p. Neither that text nor the primary general-purpose criteria give the complete endpoint sign spectrum.",
+      "residual_risks": [
+        "Close finite-p antipodal work limits what can be credited; the broader Fourier endpoint technique itself is not claimed original. Bounded searches do not establish that no equivalent square-layer calculation exists elsewhere."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong method and finite-p scope overlap; not the supremum endpoint exact spectrum",
+          "evidence": "Finding explicitly restricts p<∞; proof integrates the finite-p axial marginal and gives parity tails, not the frequency cutoff.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-sharp-norm-transition-for-intrinsic-laplace-covariance-on-produc--6360384890e1/RESULT.md",
+          "material_read": "Finding, assumptions, proof and prior-work discussion; mirror offsets 0–7173",
+          "method": "Configured Resultary search resolved exact ID; bounded local-mirror reading",
+          "title": "Sharp norm transition for intrinsic Laplace covariance on products of circles",
+          "trigger": "Almost identical antipodal-tail mechanism in the neighboring norm family"
+        },
+        {
+          "assessment": "General Fourier/Gegenbauer positivity criterion, not a computed max-metric classification",
+          "evidence": "Nonnegative double expansion coefficients and summability characterize the class.",
+          "identifier_or_url": "https://arxiv.org/abs/1503.08174",
+          "material_read": "PDF p. 7, §2 Theorem 2.9, offset 15891",
+          "method": "Lawful OA PDF locate and passage inspection",
+          "title": "An extension of a theorem of Schoenberg to products of spheres",
+          "trigger": "Could characterize product-circle covariance directly"
+        },
+        {
+          "assessment": "Chebyshev coefficient and arithmetic support criteria, no endpoint spectrum there",
+          "evidence": "The support criterion assumes positive definiteness, rather than computing signs for the prescribed max-profile.",
+          "identifier_or_url": "https://arxiv.org/abs/1505.01169",
+          "material_read": "PDF p. 2 §1 and Theorem 1.1, offset 1807",
+          "method": "Lawful OA PDF locate and passage inspection",
+          "title": "Strictly positive definite kernels on a product of circles",
+          "trigger": "Same compact group and double spectrum"
+        },
+        {
+          "assessment": "All-scale characterization, not fixed-scale nonpositivity and sign cutoff",
+          "evidence": "The theorem makes simultaneous positivity for every λ equivalent to conditional negative definiteness.",
+          "identifier_or_url": "https://arxiv.org/abs/1411.0296",
+          "material_read": "PDF p. 4 Theorem 4(i), offset 16250",
+          "method": "Lawful OA PDF locate and passage inspection",
+          "title": "Geodesic Exponential Kernels: When Curvature and Linearity Conflict",
+          "trigger": "Could imply an exponential-kernel obstruction by negative type"
+        },
+        {
+          "assessment": "The metric hypothesis differs",
+          "evidence": "Uses Euclidean lattice-quotient distance, not the ℓ∞ coordinate-square metric.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.05622v1",
+          "material_read": "PDF p. 1 abstract and metric definition, offset 0",
+          "method": "Lawful OA PDF locate and passage inspection",
+          "title": "Distance Energies and Negative Type of Flat Tori",
+          "trigger": "Flat-torus cut-locus Fourier obstruction might cover the same metric"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 15–23 and proof §§2–3",
+        "Resultary 6360384890e1 finite-p tail comparison"
+      ],
+      "rationale": "The supremum product of intrinsic circle distances is a natural compact covariance input, and its behavior contrasts with both the one-circle and Euclidean-supremum cases. Identifying that every finite damping fails only on even axes above a precise threshold explains why a low-frequency numerical test can misleadingly report positivity, particularly when the first negative mode grows exponentially with damping. The exact cutoff is independently useful beyond a negative-type obstruction.",
+      "residual_risks": [
+        "No classification in higher dimensions or guarantee of smallest negative finite configuration."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

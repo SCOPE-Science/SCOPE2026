@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:49:39.716834Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen ordinal 1 RESULT.md Finding, Assumptions and Proof",
+        "Frozen VERIFICATION.md and separation_rank_verify.py (inspected)",
+        "/workspace/review_checks/rank.py",
+        "/workspace/review_checks/rank.log"
+      ],
+      "rationale": "For at least four marks, consecutive pairs are exactly those which never alternate with a second marked pair, so separation recovers the undirected cyclic order. For three marks any cyclic order is the same up to reversal. If two proposed insertions are in different gaps, both arcs between them contain a mark, and there is a third mark; the resulting three-anchor separation fingerprint distinguishes the insertions. Thus exactly one type corresponds to each named gap, including gaps empty in the host. The age amalgamates by aligning the unoriented common cycle and interleaving the ordered gap contents, with arbitrary compatible choices on zero, one or two common points. From rank zero, induction gives the exact successor threshold: splitting a chosen gap into two gaps each of size at least 2^k−1 is possible exactly when its size is at least 2^(k+1)−1. Below three marks there is one type; the first three rounds therefore cost three levels and maximize over triples. The balanced triple and balanced m-set thresholds follow by summing the gaps, with ranks 0, 1, 2 when the host is smaller than three. Counting rooted gap vectors of total residual size n−m2^k and dividing by the m possible roots proves the stated tail, including k=0 and the zero tail when n<m2^k. Independent code constructs abstract extensions by labeled circular permutations over small bases and solves the minimax recurrence for all marked subsets of hosts through order 10, then checks rank tails through order 16.",
+      "residual_risks": [
+        "The independent computation is finite corroboration; the induction establishes unbounded finite orders. The displayed marked-set census is for m≥3."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary paper uses the same named-extension recursion, computes floor(log2(g+1)) for an order of length g, and characterizes marked rank by the minimum interval rank.",
+          "05f42adf13ff proves a stronger coloured gap reduction once an oriented cyclic base is fixed."
+        ],
+        "reasoning": "The finite linear rank identifies every unary gap calculation, and the stronger cyclic theorem provides the reduction itself. After anchoring, no information relevant to the recursion is lost or gained by using separation instead of orientation.",
+        "searches": [
+          "López-Callejas–Navarro-Castillo arXiv:2604.14461 Definition 2.3, Theorem 6.4, Proposition 6.5",
+          "Local Resultary oriented/coloured extension ranks"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary 05f42adf13ff, 160af653c332, 5fa0dcc54b96",
+        "arXiv:2604.14461",
+        "doi:10.1112/jlms.12796"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The oriented relative-rank formula is a minimum over independently split gaps. The separation extension diagram is identical gap by gap after three anchors; below that threshold the frozen recurrence has one challenge type."
+        ],
+        "reasoning": "The marked law follows immediately by rooted game transport. Empty rank is three plus the largest marked triple rank, from the three trivial extension stages; one balances the three gaps. The tail is the standard count of rooted m-tuples with g_i≥2^k−1, namely subtract the threshold and use stars and bars, divide by m. These are mechanical consequences, not an independent remainder with a new mechanism.",
+        "searches": [
+          "05f42adf13ff Proof 1 and scope; primary §§2,6; Assari–Hosseinzadeh–Macpherson on separation from circular order"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "05f42adf13ff, mirror RESULT.md offsets 0–4838 and 11500–13438: for m≥2 in an oriented marked cyclic order, the relative rank is the minimum linear word rank over the gaps; the statement explicitly keeps an orientation.",
+          "160af653c332 (offset 430) and 5fa0dcc54b96 (offset 340) involve different first-order quantifier-rank games."
+        ],
+        "reasoning": "In the one-colour oriented case, fix an orientation of the actual host. For each m≥3 individually named set, orientation forgetting maps its oriented extension types bijectively to the same m named gaps of the separation reduct; all concrete moves agree and descendants remain anchored. It is an isomorphism of the rooted rank games, so explicit exclusion of reversal in the other theorem does not prevent this specialization plus transport. The quantifier-rank claims do not give this transport.",
+        "searches": [
+          "Local Resultary: three-anchor/gap law, quaternary marked-subset census, circular rank-five separation, finite-linear-order Fraïssé rank"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "05f42adf13ff includes a distinct binary extremal census, not the displayed all-(n,m,k) marked-subset tail. The rank-five records are not tables of this invariant."
+        ],
+        "reasoning": "The exact tabulation is not identical to these reported tables, but the indexed gap reduction determines which subsets count; absence of the numerical binomial display does not evade the mathematical implication.",
+        "searches": [
+          "Local Resultary exact marked-subset rank-tail census and three-anchor law"
+        ]
+      },
+      "rationale": "A distinct published indexed theorem covers the full rooted rank game after three individually named anchors by a direct, rank-preserving orientation choice. In that domain the unoriented and one-colour oriented games have exactly the same legal challenges and realization sets and the identification persists after each move. The underlying marked-gap formula is therefore covered, not merely analogous. The empty-base formula differs only in the number of initial free moves; its optimization and the tail census then follow by a balanced composition and the standard rooted composition bijection. The indexed item is same-day; this is a statement-level coverage finding, not a claim about which result came first.",
+      "residual_risks": [
+        "No chronological priority claim between the same-day entries. Coverage refers to the mathematical transfer and the mechanically derived formulas."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material coverage by a direct transfer for at least three individually named marks, not temporal priority",
+          "evidence": "The marked rank is min of linear gap ranks for m≥2 in the oriented language; reversal is not identified in that source.",
+          "identifier_or_url": "Resultary 2026/11/22, 05f42adf13ff; mirror 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "material_read": "RESULT.md offsets 0–4838 and 11500–13438, especially Assumptions and Proof 1",
+          "method": "Local Resultary mirror, bounded exact passages",
+          "title": "Sharp coloured cyclic-order extension ranks and the first binary extremal census",
+          "trigger": "Closest gap law, stronger coloured problem and same-day indexed comparison"
+        },
+        {
+          "assessment": "Supplies linear component and marked interval minimum, not a separation-circle statement",
+          "evidence": "Rank of finite Y is floor(log2(|Y|+1)); relative rank is the minimum of induced interval ranks.",
+          "identifier_or_url": "https://arxiv.org/html/2604.14461",
+          "material_read": "Definition 2.3 from offset about 13206; Theorem 6.4 and Proposition 6.5 from offsets 91400 and 92250",
+          "method": "Primary HTML, decisive passages read",
+          "title": "A rank function for Fraïssé classes and the rank property",
+          "trigger": "Definition and dyadic interval law"
+        },
+        {
+          "assessment": "Background on representation, not the finite one-point rank census",
+          "evidence": "Defines separation from a circular order in a homogeneity discussion.",
+          "identifier_or_url": "https://doi.org/10.1112/jlms.12796",
+          "material_read": "White Rose OA PDF p. 6, offset about 21102",
+          "method": "Primary repository PDF passage",
+          "title": "Set-homogeneous hypergraphs",
+          "trigger": "Representation of the exact separation relation"
+        },
+        {
+          "assessment": "Different logical invariant",
+          "evidence": "Equivalence of first-order theories at a quantifier cutoff does not give the individually named finite-extension rank.",
+          "identifier_or_url": "Resultary 160af653c332 and 5fa0dcc54b96",
+          "material_read": "Local statements at offsets about 430 and 340 respectively",
+          "method": "Local mirror passages",
+          "title": "Fifteen rank-five theories of finite circular point-pair separation structures; Sharp quantifier-rank cutoff and three-variable completeness for finite cyclic orders",
+          "trigger": "Exact language and nearest logical alternative"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen ordinal 1 Proof §§1–4",
+        "Resultary 05f42adf13ff Proof 1",
+        "arXiv:2604.14461 §6"
+      ],
+      "rationale": "The explicit formulas are convenient, but the matched oriented theorem already computes exactly the same marked invariant on the stated domain. The unmarked difference is the single anchor-stage convention followed by gap balancing; the census is an immediate weak-composition count of the same threshold family. No separate nonmechanical structure or substantive exact remainder is established in the frozen package once the transported law is credited.",
+      "residual_risks": [
+        "This rejects the frozen claim as a distinct contribution under the stated standard, not its mathematical validity or possible expository use."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

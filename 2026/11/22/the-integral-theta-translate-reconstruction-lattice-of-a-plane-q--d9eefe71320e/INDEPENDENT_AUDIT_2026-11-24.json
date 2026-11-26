@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:32:09.145525Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–43; VERIFICATION.md lines 19–23; VERIFY.py lines 12–93 (read, not executed)",
+        "Bergvall arXiv:2106.13072 §2.2, p. 4, OA offset 11200, for parity and quadratic forms",
+        "Independent exact replay: python3 /workspace/branches/90fb71e8-0293-45ab-a6ab-0177c8c0e6a8/independent_snf.py (independent_snf.log in same directory; SymPy 1.14.0)"
+      ],
+      "rationale": "A smooth plane quartic has genus three and is nonhyperelliptic. An effective even theta characteristic of degree two would have at least two sections, giving a degree-two pencil, impossible here. The mod-two theta parity theorem in characteristic ≠2 identifies the 28 effective odd characteristics with the value-one locus of a nondegenerate Arf-zero quadratic form based at an even characteristic. In hyperbolic coordinates q(u,v)=u·v; the support is q=1, not q=0. The polarization gives zero autocorrelation of the sign of q at nonzero shifts, yielding the 28/12 incidence counts and M²=16I+12J with M1=28·1. The constant eigenvalue 28 and the other absolute eigenvalues 4 prove full rank and index 7·2^128. An independent exact integer Smith calculation, constructing the matrix from the parity formula without the uploaded verifier, returned 1^8,2^14,4^20,8^14,16^7,112. This agrees with the source's modular algorithm, whose unit pivots and divisions of an all-even residual block compute the valuations below its precision cutoff. The determinant has only one odd prime factor, which divisibility ordering attaches to the largest invariant factor. Finally M(7M−3J)=112I; every column of the inverse has some entry −3/112 in lowest terms, and all entries have denominator dividing 112. Thus each individual point basis vector has exact order 112. Changing the even characteristic just reindexes the family of all translates. These are formal incidence-lattice statements, not claims about divisor classes or Jacobian torsion as an integral lattice.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Crnković–Švob discuss (64,28,12) regular-Hadamard designs, orbit matrices, groups and switching, and note switching can change p-rank.",
+          "Their bibliography identifies Hamada's p-rank work. The focused follow-up search for a symplectic/Menon incidence Smith theorem did not locate a usable theorem or exact Sin passage."
+        ],
+        "reasoning": "The design parameters, rank and group classifications do not give a general integral diagonal. Even a p-rank formula for the specified design would only give the multiplicity of p-adic units, not the higher valuations. An actual dominating Smith theorem for the quadratic support design would cover it; none was identified in the material read.",
+        "searches": [
+          "Primary searches for Smith normal forms of symplectic Menon incidence designs and symmetric difference property, including Hamada/Sin",
+          "Crnković–Švob arXiv:2108.02529 §3.1 and bibliography"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2106.13072, 2003.12308 and 2108.02529 at the sections listed",
+        "DOI 10.1016/0097-3165(94)90002-7 via bibliographic and secondary evidence only",
+        "Resultary cd9c61e17f90 and b76c5509eb43"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Menon Gram identity and known spectrum determine the index and give the inverse identity, hence the sharp point order. They do not give the individual two-primary multiplicities. If M denotes support incidence, the graph-development matrix has blocks J−M,M; M,J−M. Its published Smith factors alone are not factors of those blocks."
+        ],
+        "reasoning": "Partial consequences of known parameters should be credited as such. The whole claimed quotient needs further integral information; no extraction giving all target multiplicities from the published graph table or a checked stronger theorem was established. The independent exact computation supplies the missing integer data, not priority proof.",
+        "searches": [
+          "Polujan–Pott design definitions and Table A.1; Crnković–Švob §3.1; Resultary cd9c61e17f90 exact Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The quadratic-form theta torsor gives the same support-translation construction dev(D_f) under Boolean bent-function notation.",
+          "cd9c61e17f90 gives a cubic bent support with the same (64,28,12) parameters and singular values, but its Finding gives no Smith forms. b76c5509eb43 instead studies the 28-by-63 bitangent–Steiner matrix."
+        ],
+        "reasoning": "An integral incidence result for the symplectic Menon design would be equivalent even without theta language. The Fano record supplies a different support and only real singular data; matching parameters or binary rank do not establish isomorphic designs or the desired Smith data. Algebraic degree alone in the given chart is not taken to rule out an abstract design isomorphism. The Steiner-incidence construction uses different rows and columns.",
+        "searches": [
+          "Resultary semantic lookups on theta torsors, translation/Menon/SDP designs and integral incidence",
+          "Bergvall arXiv:2106.13072 §2.2 and Polujan–Pott arXiv:2003.12308 introduction",
+          "Resultary cd9c61e17f90 and b76c5509eb43"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Table A.1 tabulates the graph-development incidence, dev(G_f), for six-variable bent functions; the table's elementary divisors are powers of two. The support-development matrix dev(D_f) has order 64 and belongs to a different incidence construction.",
+          "The 1994 work concerns the same 64-point SDP parameter family. The inspectable secondary excerpts report orbit-matrix classifications, not a full Smith table. The original tables were not readable through the lawful retrieval attempts."
+        ],
+        "reasoning": "The 128-point graph development records equality of a graph coordinate in the extended group, not membership in the quadratic support on the original group. Its Smith table is not a table of the target quotient. The secondary account is not an exclusion of exact Smith coverage in the 1994 full text.",
+        "searches": [
+          "Polujan–Pott arXiv:2003.12308 Appendix A, Table A.1, offsets 75200–83783",
+          "Parker–Spence–Tonchev DOI 10.1016/0097-3165(94)90002-7; lawful OA, configured alternate routes and secondary comparison in arXiv:2108.02529 §3.1"
+        ]
+      },
+      "rationale": "The quadratic difference set, symplectic theta model and Menon design parameters are established; they are not credited as discoveries. The supported distinct contribution is the complete integral Smith quotient for the specific 64-by-64 support-translate design, together with its interpretation as the formal point reconstruction obstruction. The relevant graph-development Smith table is for a different matrix, and the available sources on the specific Menon/SDP designs do not establish exact Smith coverage. This is a bounded conclusion; the 1994 same-parameter design tables could not be fully compared.",
+      "residual_risks": [
+        "The 1994 SDP-design classification full text could contain a relevant exact table. The focused lookup does not exclude a specialized Smith theorem missed in the design-theory literature. The abstract relationship of the cubic Fano developed design to the symplectic Menon design was not established and no exact integral claim was found in the Fano Finding."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Geometric antecedent; inspected passage does not give the integral calculation",
+          "evidence": "Quadratic forms on J[2] represent theta characteristics, Arf invariant determines parity, and odd characteristics give bitangents.",
+          "identifier_or_url": "https://arxiv.org/abs/2106.13072",
+          "material_read": "§2.2 p. 4, offset 11200",
+          "method": "OA paper text",
+          "title": "Arithmetic and topology of classical structures associated to plane quartics",
+          "trigger": "Equivalent symplectic theta formulation"
+        },
+        {
+          "assessment": "Support construction known, but tabulation is for graph development",
+          "evidence": "Separates dev(D_f) and dev(G_f); the six-variable table is labeled for the incidence of dev(G_f), with 2-power elementary divisors.",
+          "identifier_or_url": "https://arxiv.org/abs/2003.12308",
+          "material_read": "Introduction offsets 2925–5437; Appendix A, Table A.1 offsets 75200–83783",
+          "method": "OA paper text",
+          "title": "On design-theoretic aspects of Boolean and vectorial bent functions",
+          "trigger": "Exact bent-design construction and a potential Smith table"
+        },
+        {
+          "assessment": "Construction and rank evidence, not target diagonal",
+          "evidence": "Mentions regular Hadamard designs, switching and group/orbit data; p. 7 notes nonpreservation of p-rank under switching.",
+          "identifier_or_url": "https://arxiv.org/abs/2108.02529",
+          "material_read": "§3.1 pp. 6–8 offsets 10800–18653; Hamada bibliography p. 14 offset 29400",
+          "method": "OA paper text",
+          "title": "Switching for 2-designs",
+          "trigger": "Same 64-point Menon parameters and orbit design classification"
+        },
+        {
+          "assessment": "Material access risk; no whole-paper exclusion",
+          "evidence": "The later paper describes classifications via orbit matrices under specified group actions; the original paper's precise tabulated invariants were not verified.",
+          "identifier_or_url": "https://doi.org/10.1016/0097-3165(94)90002-7",
+          "material_read": "Bibliographic metadata and description in Crnković–Švob §3.1, pp. 6–8; original tables unreadable",
+          "method": "OA direct, alternate configured retrieval and repository attempts; secondary paper passage read",
+          "title": "Designs with the symmetric difference property on 64 points and their groups",
+          "trigger": "Primary same-parameter SDP classification with plausible tables"
+        },
+        {
+          "assessment": "Shares parameters but not exact integral statement",
+          "evidence": "A cubic Fano support gives (64,28,12), with convolution singular values 28 and 4; the Finding does not compute a Smith form.",
+          "identifier_or_url": "Resultary 2026/11/22/cd9c61e17f90",
+          "material_read": "Mirrored RESULT.md Finding and assumptions, offsets 0–2500",
+          "method": "Local Resultary and mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "The Fano-matroid base support is a cubic bent difference set",
+          "trigger": "Same-day exact translation-design parameters"
+        },
+        {
+          "assessment": "Different incidence lattice",
+          "evidence": "28-by-63 bitangent–Steiner incidence, not the square theta-translate matrix on J[2].",
+          "identifier_or_url": "Resultary 2026/11/2/b76c5509eb43",
+          "material_read": "Mirrored RESULT.md statement of the incidence construction",
+          "method": "Local Resultary and mirror",
+          "title": "Integral Steiner reconstruction lattice of plane-quartic bitangents",
+          "trigger": "Same quartic and integral reconstruction terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–39 and 45–51; exact Smith replay and design comparisons"
+      ],
+      "rationale": "All translates and all two-torsion points form a canonical, small incidence problem rather than an arbitrary slice. The Smith factors give the complete formal integral obstruction to reconstructing point vectors from theta incidence, data needed to distinguish integral from rational generation and not supplied by the design spectrum. The sharp multiplier 112 has a clear interpretation, although it is a direct consequence of the Gram identity and is not alone the novelty. The full exact quotient is independently useful in both the theta-torsor and Menon incidence formulations, without requiring a claim about geometric divisor groups.",
+      "residual_risks": [
+        "Interpretation is limited to formal incidence; unresolved classical table coverage is documented under originality."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

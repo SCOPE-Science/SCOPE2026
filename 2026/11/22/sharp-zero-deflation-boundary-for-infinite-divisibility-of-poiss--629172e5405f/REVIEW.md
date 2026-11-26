@@ -1,11 +1,21 @@
-# Scientific review: zero-modified Poisson–Bilal infinite divisibility
+# Independent mathematical audit
 
-**Correctness — PASS.** The mixed-Poisson integral yields the exact two-geometric rational PGF. A zero mass modification has quadratic numerator and unique logarithmic power coefficients. For zero inflation, complex roots are dominated by geometric means and positive real roots are weakly majorized; both arguments cover *every* coefficient. Under zero deflation the numerator roots have opposite signs, with one positive root always smaller than the smaller parent geometric parameter. The negative root passes the larger parameter exactly at the asserted cutoff, establishing the complete phase diagram, including equality and the excluded zero-mass endpoint. The supplementary checker confirms the root polynomial, cutoff and finite exact rational instances; it is not the universal proof.
+## correctness
 
-**Originality — PASS, qualified.** The 2023 Poisson–Bilal source presents the original count law, its hazard and other ordinary descriptive properties, but not its zero-modified infinite-divisibility classification. The 2015 Newton-distribution article explicitly gives the pre-existing independent-geometric convolution and its unmodified canonical intensities, not the zero-modification cutoff. The 2007 Vinogradov article reports a critical zero-deflation boundary for a *single* geometric law, a related but different family. Literature and mathematical-record searches for zero-modified two-geometric laws, sharp deflation thresholds, and equivalent generating-function root criteria located no source giving this exact theorem. The Vinogradov article's full text was inaccessible; any unrecognized broader implication remains a genuine priority risk, not a proven absence.
+PASS
 
-**Value — PASS.** The theorem identifies the exact robustness limit for an important structural property under the conventional extra-zero/too-few-zero adjustment used in count regression. It resolves the entire parameter phase boundary for a published model, establishes the compound-Poisson jump representation throughout the valid region, and proves that even a slight additional zero deflation eventually forces infinitely many negative canonical jump intensities. This infinite-order obstruction is not determined by the parent law's familiar mean, variance or unimodality.
+Integrating the conditional Poisson PGF against the normalized Bilal density gives c/[(1−az)(1−bz)] with 0<b<a<1. The modified positive masses remain positive exactly up to the stated upper scale, where p0 vanishes. For d=p0>0, factoring the numerator gives the formal log coefficients (a^n+b^n−ρ1^n−ρ2^n)/n. For inflation x=(1−t)/d lies in (0,1). Nonreal numerator parameters are conjugate with modulus √(xab), so their power sum is bounded by a^n+b^n by AM–GM. Real parameters are nonnegative with total x(a+b) and maximum ≤a (evaluate the polynomial at a and use the total); weak majorization then gives the same bound. At t=1 the numerator parameters vanish. For deflation the parameters are r and −s with 0<r<b (test the polynomial at 0,b) and s increasing strictly with y=(t−1)/d. The crossing s=a solves y=a/(a+2b): equivalently the numerator vanishes at z=−1/a, giving t*=1/[1−G(−1/a)]=1+3/[(β+1)(2β+7)]. Up to and including that crossing, odd and even log coefficients are nonnegative and all parameters are strictly inside the unit circle, so summation at 1 gives total intensity −log d. Beyond it s>a>b>r implies every sufficiently high even coefficient is negative. At d=0 the minimum supported value is 1, which cannot be the minimum of an iid two-fold sum on the nonnegative integers. At t=0 the law is the point mass at zero. The uploaded verify.py was inspected, not run; its finite recurrence checks are not needed for the all-order inequalities.
 
-The statement is deliberately scoped to ordinary additive infinite divisibility and to the zero-modified Poisson–Bilal path. Other zero modifications and thinning properties are not classified. Priority is qualified where primary full-text access was unavailable.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass for the sharp additive infinite-divisibility boundary on the specified zero-modified Bilal path, including critical equality and the eventual even-order obstruction, to the best of the evidence. The unmodified Newton/geometric convolution, discrete compound-Poisson criterion and power-sum machinery are not credited as new.
+
+## value
+
+PASS
+
+A scale cutoff for compound-Poisson representability of a named count law answers a natural robustness question for zero-mass modification. It shows not just that zero inflation is safe but that some deflation is admissible with a strictly positive margin, then identifies how the property fails at arbitrarily high even orders. This is a structural boundary determined by the numerator and pole geometry, not a parameter rename or a finite collection of examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

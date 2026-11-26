@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T20:59:22.365460Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Deleting either terminal neighborhood shows the minimum is at most three. The straight row and the two one-row detours are three internally disjoint paths, so a cut of size three hits each exactly once and has one selection in each row r−1,r,r+1. Write their columns a,b,c, with 1≤b≤n−2. If a≤b−2, follow the middle row to a+1 then take the upper rail to the far side; if a≥b+2, take the upper rail to b+1 then the middle row. Either bypasses the proposed cut; reflecting gives the lower bound |c−b|≤1 as well. An extra row above the top rail permits a full bypass through the endpoint columns unless a is itself an endpoint, and similarly below. Conversely, color each cut rail to the left/right of its missing vertex. Adjacent cut columns differing by at most one prohibit vertical edges between opposite colors. When an extra band exists beyond a rail, its cut is at a column endpoint, so the entire band receives the single surviving color of that rail. The two terminals thus lie in separate colors. Under legal moves exactly one of a,b,c changes, by one for a slide. At shallow depth two branches each have three consecutive free-coordinate values, giving two P₃ slides and a K₃ jump graph on each branch. A cross-branch jump is possible exactly at n=3, when b agrees, and joins matched free-coordinate values to make the prism. At deep placement both outer coordinates are endpoints; n=3 permits independent endpoint choices (four isolated slide vertices and a jump square), while n≥4 forces both endpoints on the same side and the two configurations disagree in all three coordinates. An independent direct finite grid check enumerated deletion sets of cardinality 0–3, tested reachability by BFS, and compared legal replacement graphs for 27 choices (n=3–5, w=4–6, every interior r); all matched. The finite test corroborates, not replaces, the proof. The supplied two scripts were inspected, not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general minimum-separator theorem confines each token to its canonical disjoint path; slides are along path-neighbor vertices. The second paper discusses reconfiguration of separators for general graph classes and distinguishes inclusion-minimal separators from the basic separation property."
+        ],
+        "reasoning": "The canonical-path principle supplies exactly the fixed-rail representation and the move restriction, not the allowable combinations of grid columns, endpoint conditions from extra rows, or the resulting families of components. General algorithms to test reconfiguration on a given input do not state or mechanically yield these parameter-uniform formulas without additional analysis. Do not claim the general confinement argument as new.",
+        "searches": [
+          "arXiv:2307.07782 Lemma 3 and Observation 4, PDF pp. 5–6",
+          "arXiv:2004.10873 introduction and definitions, PDF pp. 2–3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, pp. by line 5–48; VERIFICATION.md and both supplied Python checkers",
+        "arXiv:2307.07782 and arXiv:2004.10873 at the indicated passages",
+        "Resultary --45171202d901 and --8d1e7a3055c3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Omitting the extra-row endpoint restrictions recovers the width-three triple constraints, as expected. In the enlarged grid, a rail selection strictly between endpoint columns may be bypassed by using an outer row and both side columns, forcing novel coordinate restrictions and destroying most moves."
+        ],
+        "reasoning": "Width-three mobility cannot transfer to the thicker grid by the same path encoding: having one token on each path does not exclude paths that go outside all three rails. Conversely, endpoint restrictions need sufficiency via the grid coloring before the no-move claims follow. The two possible placements and the n=3 exceptions are not established by the prior reachability framework or strip result alone.",
+        "searches": [
+          "Resultary 2026/11/22 SCOPE-exact-manhattan-mobility-of-minimum-separators-in-three-rail-gri--45171202d901",
+          "arXiv:2307.07782 Lemma 3 and Observation 4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact Manhattan mobility record gives the same adjacent-column inequalities in the three-row same-middle-row-terminal strip and proves an isometric connected slide graph.",
+          "The jump distance/multiplicity record instead attaches source and sink to all vertices of opposite end columns in a three-row strip."
+        ],
+        "reasoning": "Swapping the Cartesian factors only exchanges the coordinate names; it does not identify the terminal placement and the extra-row bypasses. In particular, n=3 in the frozen result means three columns in the terminal-to-terminal direction, not the three rows of the older-style strip. Attaching terminals to whole columns likewise changes the separator model.",
+        "searches": [
+          "Resultary: grid graph minimum separator token sliding canonical paths width three strip vertex separator reconfiguration",
+          "Resultary: P3 square Pn opposite end terminals minimum vertex separators complete token slide graph grid strip"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Inspected the closest width-three same-row-terminal exact classification --45171202d901 and the closest jump-distance exact strip result --8d1e7a3055c3 at their Finding and scope passages."
+        ],
+        "reasoning": "The two same-day indexed records do not table the shallow/deep cases with w≥4; either the width or the terminal model differs. The finite enumerations in the frozen package are supporting evidence, not prior exact classifications or a substitute for parameter-uniform proof. No priority is inferred from date alone.",
+        "searches": [
+          "Resultary: grid graph minimum separator token sliding canonical paths width three strip vertex separator reconfiguration",
+          "Resultary: P3 square Pn opposite end terminals minimum vertex separators complete token slide graph grid strip"
+        ]
+      },
+      "rationale": "The three-rail confinement, general reconfiguration framework and width-three inequalities have prior or overlapping counterparts. The supportable increment is the exact classification for at least four rows: outer-row bypasses impose endpoint restrictions, generating the depth transition and both complete move graphs. Compared passages do not state or cover that classification; this is a best-of-knowledge finding, not a historical order claim about same-day entries.",
+      "residual_risks": [
+        "A less visible grid-separator classification or broader exact parametric result may still exist; the comparison is not an exhaustive literature survey.",
+        "The width-three strip result materially overlaps the underlying triple inequalities; claim only the at-least-four-row extension, endpoint mechanism and its phase portrait."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General canonical-path and movement machinery, not the exact depth-dependent graph classification.",
+          "evidence": "Each minimum separator intersects each canonical path in one vertex; a moved token stays on its path and slides to a path neighbor.",
+          "identifier_or_url": "https://arxiv.org/pdf/2307.07782",
+          "material_read": "PDF pp. 5–6, Lemma 3 and Observation 4, extraction offset 15700; p. 3 framework at offset 7138",
+          "method": "Lawful OA PDF, bounded original passages",
+          "title": "Minimum Separator Reconfiguration",
+          "trigger": "Directly matching minimum separators under both token models; possible broader theorem"
+        },
+        {
+          "assessment": "Material inspected concerns more general separator reconfiguration; it does not provide this strict minimum-cardinality grid table. No whole-document exclusion is claimed.",
+          "evidence": "Distinguishes inclusion-minimal separators and disconnection, and discusses graph-class and reconfiguration settings.",
+          "identifier_or_url": "https://arxiv.org/pdf/2004.10873",
+          "material_read": "PDF pp. 2–3, offsets 7900–8975; definitions and overview",
+          "method": "Lawful OA PDF, bounded original passages",
+          "title": "Some results on Vertex Separator Reconfiguration",
+          "trigger": "Closely related earlier reconfiguration literature and possible grid coverage"
+        },
+        {
+          "assessment": "Exact overlap on triple inequalities in width three; no extra bands or depth transition.",
+          "evidence": "Three-row strip with middle-row endpoint terminals: |i−j|,|k−j|≤1 and connected isometric slide graph.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-manhattan-mobility-of-minimum-separators-in-three-rail-gri--45171202d901",
+          "material_read": "RESULT.md Finding and scope, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Exact Manhattan mobility of minimum separators in three-rail grids",
+          "trigger": "Closest exact same-row-terminal rectangular-grid statement"
+        },
+        {
+          "assessment": "Different terminal graph and jump objective; not the stated depth classification.",
+          "evidence": "Terminals adjoined to all end-column vertices of three-row strips; extreme-cut distances and route multiplicities under jumps.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-token-jump-relocation-distance-and-route-multiplicities-fo--8d1e7a3055c3",
+          "material_read": "RESULT.md Finding and scope, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Sharp token-jump relocation distance and route multiplicities",
+          "trigger": "Exact strip jump results and similar rail geometry"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Keeping the minimum separator size three while changing only the terminals' depth exposes a structural distinction between cut capacity and mobility. The total slide freeze, and the survival of a connected jump graph for precisely the deep three-column exception, are useful sharp reconfiguration benchmarks, not merely a finite grid census. The result is limited to opposite ends of one interior row, minimum cuts, and one-token moves.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

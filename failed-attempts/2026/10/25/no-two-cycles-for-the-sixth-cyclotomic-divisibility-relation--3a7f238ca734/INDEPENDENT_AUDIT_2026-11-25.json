@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:39:19.009429Z",
+  "axes": {
+    "correctness": {
+      "rationale": "RESULT.md lines 20–38: F(1)=1 and F(x)≡1 mod x settle the case of an entry 1 and exclude nontrivial loops. For a proposed nontrivial pair with least smaller entry 2≤x<y, the integer z=F(x)/y has 1≤z<x and yz≡1 mod x. Since y is therefore invertible modulo x, y²F(z)=(yz)²−y(yz)+y²≡F(y)≡0 gives x|F(z). Together with z|F(x), this contradicts minimality or, when z=1, x|1. For A(n)=nH(n), grouping by d=n/gcd(n,j) gives ∑_{d|n}dφ(d), a multiplicative function with prime value F(p). At squarefree n, every prime must divide a factor other than its own if H(n) is integral. For two distinct primes this is impossible by the lemma; for general squarefree n, iterating any selection of one such outgoing edge produces a directed cycle in each weak component, necessarily of length at least three. Strongly connected singleton components with incoming or outgoing tails are not the scope of the statement. Independent finite replay tests both congruences for 2≤x<y≤1000 (365 candidates with y|F(x), no mutual pair). The frozen script uses symmetry and prunes impossible y rather than literally enumerating all ordered distinct pairs. Independently, trial division verifies 7,13,43,157 are prime and their product is 614341; the successive target F-values 24493,157,1807,43 are divisible by the source primes 7,157,13,43. The product of the F-values and the direct loop summing 614341/gcd(614341,j) for j=1,…,614341 both give 298791503101, or H=486361. The replay is bounded; the descent proves the universal claim.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mills studies broader signed integer chains for t²+at+1 and covers a=±1 with no primality requirement.",
+          "The later Resultary 85c9ab9d850e excludes Ω(n)≤2, including prime squares; 5d5042dd1c37 studies a different linear coefficient family k=41+21t."
+        ],
+        "reasoning": "The signed classification directly covers the present domain and parameter. The different k family does not specialize to k=1 in its stated range. The later stronger semiprime comparison does not itself establish earlier priority.",
+        "searches": [
+          "Mills 1953 §§2, 5, 10",
+          "De Koninck–Letendre arXiv:2610.10572v1 §§2, 5",
+          "Resultary 85c9ab9d850e and 5d5042dd1c37"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py (inspected only)",
+        "Mills 1953, §§2, 5, 10",
+        "arXiv:2610.10572v1 §5",
+        "OEIS A317480",
+        "Resultary 20633c534fc3, 85c9ab9d850e and 5d5042dd1c37"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The modern Proposition 1 counts the very configurations ap=q²−q+1, bq=p²−p+1 with p,q distinct odd primes, giving an upper bound rather than an exclusion.",
+          "The older integer-pair classification excludes them outright and also excludes a pair involving 2."
+        ],
+        "reasoning": "Because F(p)≡1 mod p, pq|F(p)F(q) forces the two excluded cross-divisibilities. With more primes, excluding loops and two-cycles from the existing prime-dependency graph gives the stated minimum cycle length. These are direct consequences of older exact coverage, even though Proposition 1 alone does not prove the exclusion.",
+        "searches": [
+          "Mills Theorem 3 and neighboring chain proof",
+          "De Koninck–Letendre arXiv:2610.10572v1 §§2, 5, Proposition 1",
+          "Resultary 20633c534fc3 prior-work discussion and 85c9ab9d850e Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Mills classifies the +1 linear-coefficient chains as all positive, constant −1, or alternating sign. Any pair satisfying the reciprocal equations extends to a chain.",
+          "The 20633c534fc3 record attributes the minus-sign classification to Mills while classifying a perturbed polynomial; 85c9ab9d850e repeats the target lemma."
+        ],
+        "reasoning": "Negating both arguments converts reciprocal divisibility by t²−t+1 on positive integers to reciprocal divisibility by t²+t+1 on two negative integers. Consecutive negatives belong only to the constant −1 chain, giving precisely (1,1) after undoing the signs. This resolves the OCR ambiguity in the separately extracted final equality of Theorem 3.",
+        "searches": [
+          "Mills 1953, reciprocal quadratic systems and sign reversal; primary PDF §§2, 5, 10",
+          "Resultary 20633c534fc3, 85c9ab9d850e, 5d5042dd1c37"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A317480 lists 614341 among the integers with integral reciprocal-gcd sum. Mills's table lists the three complete a=1 chains, consistent with the proof and sign reduction. The overlapping indexed record states the same exact exclusion."
+        ],
+        "reasoning": "The OEIS entry covers the witness's membership, not the universal no-two-cycle theorem. The exact signed-chain table, read with the proof that reciprocal pairs extend to chains, does decide the universal case.",
+        "searches": [
+          "OEIS A317480 (614341)",
+          "Mills §10 exact α-chain table",
+          "Resultary 85c9ab9d850e"
+        ]
+      },
+      "rationale": "Mills's 1953 Theorem 3 and its supporting classification of reciprocal quadratic chains cover the central positive-integer theorem exactly. Its squarefree-semiprime and functional-graph consequences follow directly from that theorem and the already established multiplicative reduction for reciprocal gcd sums. The inspected modern motivating proposition gives only an upper bound, but that does not make the older exact classification new. The later indexed overlap is additional coverage, not a claim about priority between catalogue records.",
+      "residual_risks": [
+        "Theorem 3's final equality is ambiguous in PDF text extraction, but the accompanying chain classification establishes equivalent coverage independently of that glyph.",
+        "The search does not settle the earliest historical appearance or the relationship between catalogue records; neither is necessary for the earlier coverage finding."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct earlier coverage of the reciprocal pair lemma",
+          "evidence": [
+            "The proof identifies exactly three +1 chains: all positive, all −1, and alternating signs. Theorem 3 also displays the minus-sign equations; the final equality is garbled in extracted text, so the conclusion is identified by sign reversal of the unambiguous chain proof rather than the OCR glyph."
+          ],
+          "identifier_or_url": "https://msp.org/pjm/1953/3-1/pjm-v3-n1-p15-p.pdf",
+          "material_read": "Chain extension near offsets 3504–3977; p. 217 proof and Theorem 3, offsets 17281–18800; p. 219 §10 chain table near offset 20100",
+          "method": "Lawfully accessible primary PDF, targeted passages",
+          "title": "A system of quadratic Diophantine equations",
+          "trigger": "Equivalent reciprocal quadratic/Vieta-chain classification"
+        },
+        {
+          "assessment": "Cited proposition studies the same pair, but gives an upper bound rather than exact impossibility",
+          "evidence": [
+            "States equations ap=F(q), bq=F(p) with distinct odd primes and a bound for the number of pairs with pq≤z."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.10572v1",
+          "material_read": "§5, Proposition 1, offsets 23812–28244",
+          "method": "Lawfully accessible primary arXiv HTML, targeted passage",
+          "title": "The Integer Values of the Sum of Reciprocal GCDs",
+          "trigger": "Same reciprocal-gcd problem and exact semiprime obstruction"
+        },
+        {
+          "assessment": "Exact witness membership already recorded; not a universal theorem",
+          "evidence": [
+            "614341 occurs in the sequence."
+          ],
+          "identifier_or_url": "https://oeis.org/A317480",
+          "material_read": "Sequence entry, offset 490",
+          "method": "Lawfully accessible database entry",
+          "title": "Integers with integral reciprocal-gcd sum",
+          "trigger": "Exact witness lookup"
+        },
+        {
+          "assessment": "Distinct shifted theorem, with specific prior attribution of this case",
+          "evidence": [
+            "The finding concerns t²−t+2, and the prior-work section credits Mills Theorem 3 for t²−t+1."
+          ],
+          "identifier_or_url": "Resultary 2026/10/25/SCOPE-complete-coprime-two-cycles-for-the-first-positive-shift-of-a-re--20633c534fc3",
+          "material_read": "Finding and Relationship to prior work",
+          "method": "Local indexed Resultary mirror",
+          "title": "Complete coprime two-cycles for the first positive shift of a reciprocal quadratic",
+          "trigger": "Same-day indexed reciprocal two-cycle theorem"
+        },
+        {
+          "assessment": "Equivalent lemma and stronger integrality exclusion, not evidence of earlier priority",
+          "evidence": [
+            "Gives the same reciprocal pair classification and excludes all n>1 with Ω(n)≤2, including prime squares."
+          ],
+          "identifier_or_url": "Resultary 2026/11/2/SCOPE-reciprocal-cyclotomic-divisibility-and-a-semiprime-obstruction-f--85c9ab9d850e",
+          "material_read": "Finding",
+          "method": "Local indexed Resultary mirror",
+          "title": "Reciprocal cyclotomic divisibility and a semiprime obstruction",
+          "trigger": "Exact indexed lemma and semiprime application"
+        },
+        {
+          "assessment": "Related mechanism, different parameter family and conclusion",
+          "evidence": [
+            "The result uses t²−kt+1 with k=41+21t in its parameter family, not the target k=1."
+          ],
+          "identifier_or_url": "Resultary 2026/10/18/SCOPE-density-one-infinite-positive-orbits-in-a-reciprocal-quadratic-d--5d5042dd1c37",
+          "material_read": "Finding and stated coefficient family",
+          "method": "Local indexed Resultary mirror",
+          "title": "Density-one infinite positive orbits in a reciprocal quadratic dynamical system",
+          "trigger": "Broader-looking reciprocal quadratic chain record"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The structural obstruction is mathematically useful, because it turns a motivating upper-bound problem into exact exclusion for a natural squarefree class and rules out the shortest dependency cycles while a longer cycle is possible. Value is not assigned to recomputing the already tabulated witness, and the established older coverage prevents acceptance as an original finding.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

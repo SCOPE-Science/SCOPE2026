@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** The proof has a complete and coherent chain. For an arbitrary compatible right-invariant metric, normalized distance bumps are Lipschitz and concentrate at the identity. Correlations \(u_n*u_n^*\) are nonnegative probability densities and retain the right-invariant Lipschitz bound. Their matrix Fourier coefficients are positive semidefinite, eventually positive definite in each irreducible representation. A positive summable mixture is consequently a Lipschitz probability kernel with every Fourier block invertible. Peter–Weyl forces convolution injectivity, and the classical connected locally compact Bebutov–Kakutani theorem supplies the initial continuous embedding. Scaling delivers an exact one-Lipschitz embedding. The necessity follows from the constant fixed functions. Exact finite-group checks test both abelian and nonabelian convolution orientation, but are not used as an infinite proof.
+## correctness
 
-**Originality: PASS, with bibliographic risk.** The closest source, Gutman–Huo–Ouyang (arXiv:2610.13091v1, §§1, 4–5), proves the Lipschitz criterion for connected Lie groups only; its open Problem 1.3 covers the compact connected non-Lie case. The earlier Jaworski–Chen statement handles continuous targets, not Lipschitz targets. Gutman–Huo–Tsukamoto (arXiv:2510.08706v1) concerns \(\mathbb R^n\), and Gutman–Huo (arXiv:2505.14653v2) gives a broad **Borel** representation, not the required continuous injection. Searches for convolution-based equivalents returned no exact covering theorem. Classical positive-definite kernels and Peter–Weyl theory are acknowledged ingredients; an older unnamed derivation is a residual risk.
+PASS
 
-**Value: PASS.** This is a natural substantial branch of an explicitly stated 2026 open problem. It removes the Lie hypothesis for all compact connected metrizable groups, including infinite-dimensional compact abelian groups and solenoids, and supplies a group-independent smoothing device which works for every compatible right-invariant metric. The distinction between continuous and Borel universality is essential.
+The Haar-normalized tent functions concentrate at the identity. The correlation formula uses only right invariance to bound the Lipschitz seminorm. For the Fourier convention used here, convolution multiplies matrices in order, and the involution becomes adjoint. Each correlation has positive semidefinite blocks, and on any fixed irreducible block all sufficiently late tents have invertible transforms; their positively weighted sum is therefore strictly positive definite on that block. Peter–Weyl gives injectivity without a uniform inverse bound. The kernel is a Lipschitz probability density; rewriting the integral with k(xb^{-1}) gives the stated Lipschitz bound after subtracting constants. Left convolution commutes with right shifts. The Jaworski–Chen observable embedding, shrunk around 1/2 and composed with Q, stays in [0,1], is 1-Lipschitz, and is still equivariant and injective. Compactness and the uniform topology give a topological embedding. The shift-fixed functions are precisely the constants. Connectedness enters only through the continuous embedding theorem.
 
-The source statements do not settle noncompact locally compact groups. The result does not assert uniqueness in the literature or any independent certification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the existing connected Lie and Euclidean cases, the connected locally compact continuous-shift theorem, and the broader Borel embedding. The distinct claim is the continuous Lipschitz criterion on the compact connected non-Lie branch of Problem 1.3, for every compatible right-invariant metric. The convolution construction supports that claim without a priority assertion for every kernel ingredient.
+
+## value
+
+PASS
+
+The theorem resolves a genuinely non-Lie part of an explicit embedding problem for all compact connected metrizable groups and for the specified metric rather than a smoothing-adapted replacement. The information-preserving convolution estimate also separates a reusable compact-group analytic step from the topological dynamics input.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

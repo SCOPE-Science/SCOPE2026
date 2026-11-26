@@ -1,0 +1,150 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:09:00.722432Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–43; VERIFICATION.md; verify.cpp; verify.py; JOINT_CENSUS.csv",
+        "evidence/05_floyd.py and evidence/05_floyd.txt; replay with the frozen JOINT_CENSUS.csv as the sole positional argument"
+      ],
+      "rationale": "From the specified open neighborhoods I encoded the synchronous successors using color indicators and a reversed ternary digit convention, then found the first cycle entry and least period by Floyd's algorithm for every one of the 531441 initial states. The collision occurs on the cycle at a step divisible by its least period; resetting one pointer to the start and advancing both identifies the first orbit entry, and one circuit gives the least period. There were zero pointwise mismatches. All six population counts, both primitive-orbit columns (entry-zero counts divided by least period), the sharp depths 8 and 10 with shells 192 and 64, and every one of the 165 joint census cells matched. No initial bounds on periods or entry times were assumed. The frozen peeling and iterate checkers implement valid exhaustive methods; they were inspected, not executed.",
+      "residual_risks": [
+        "Finite exhaustive result for the supplied graph and update rules only; no structural characterization or formal proof-assistant check."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Resultary 6edafe27dc02 proves P_GHM divides P_CCA on finite simple undirected graphs",
+          "Petersen 85df9829d668, Frucht 09b39afb00c7 and Heawood e74f89b4b1a2 supply strict cases"
+        ],
+        "reasoning": "General divisibility does not force equality even for canonical regular graphs; synchronization/activity theorems lack the required finer census.",
+        "searches": [
+          "Resultary: excitation clock reconstruction and CCA/GHM period divisibility",
+          "arXiv:1610.07320v1, Theorem 3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, prior-work and limitations sections",
+        "Resultary 05c6ca769af2, 6edafe27dc02, 85df9829d668, 09b39afb00c7, e74f89b4b1a2, 30d2612ab574, b113126832b9",
+        "arXiv:1610.07320v1; attempted arXiv:patt-sol/9304001 and Chvátal DOI 10.1016/S0021-9800(70)80057-6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Divisibility plus both identical Chvátal period margins would force pointwise equality, but the matching existing Chvátal census provides only the GHM margin",
+          "The existing divisibility result and other-graph equality examples give neither that CCA margin nor the paired entrance data"
+        ],
+        "reasoning": "Neither premises for the marginal-plus-divisibility shortcut nor an automorphism/relabeling reduction to one of the other equality records was established. The pointwise test and CCA/joint census therefore add content.",
+        "searches": [
+          "Compare Resultary 05c6ca769af2 plus 6edafe27dc02 with 30d2612ab574 and b113126832b9",
+          "Gravner–Lyu–Sivakoff abstract and Theorem 3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gravner–Lyu–Sivakoff Theorem 3 characterizes synchronization/activity, not least period",
+          "Resultary 30d2612ab574 and b113126832b9 treat matched initial colorings but on T(5) and Herschel graphs"
+        ],
+        "reasoning": "State-encoding or graph-label changes on the same graph would be equivalent; the equality studies returned are on different graphs. Equal synchronization behavior is not equal least period for recurrent nonconstant regimes.",
+        "searches": [
+          "Resultary: Chvátal graph CCA, Greenberg–Hastings, matched least-period and paired entry census",
+          "arXiv:1610.07320v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Prior GHM-only table has periods 1,3,4,7,10,11, with primitive counts 1,4768,294,1012,504,8 and 64 states at sharp depth ten"
+        ],
+        "reasoning": "This covers the GHM margins; the earlier table has 52 GHM entry/period bins, not the 165 two-model bins or the CCA column. The target's table is not an independent source for originality.",
+        "searches": [
+          "Resultary: Chvátal graph Greenberg–Hastings basin, recurrent orbit, entry-time census",
+          "Resultary 05c6ca769af2 and chvatal_joint_census.csv"
+        ]
+      },
+      "rationale": "Best of the inspected evidence supports distinct Chvátal-specific joint concordance, CCA orbit/entry data and the joint census. The GHM-only census and sharp GHM depth are existing results and do not receive originality credit. Same-day equality records on other graphs are technically relevant but not equivalent; their date establishes no priority.",
+      "residual_risks": [
+        "Historical priority beyond accessible holdings remains open. The cited scaling paper and graph DOI did not yield readable passages at the attempted locations; absence of retrieval is not evidence against overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known GHM component only",
+          "evidence": [
+            "Sharp ten-update entry bound, 64 terminal-shell states; same GHM orbit counts"
+          ],
+          "identifier_or_url": "Resultary 05c6ca769af2",
+          "material_read": "RESULT.md finding and chvatal_joint_census.csv from opening passages",
+          "method": "Local published-record mirror",
+          "title": "Excitation on the Chvátal graph",
+          "trigger": "Identical graph and GHM rule"
+        },
+        {
+          "assessment": "Broader comparison but strictly weaker",
+          "evidence": [
+            "For matched initial states P_GHM divides P_CCA"
+          ],
+          "identifier_or_url": "Resultary 6edafe27dc02",
+          "material_read": "RESULT.md opening theorem",
+          "method": "Local published-record mirror",
+          "title": "Exact excitation clock reconstruction and period divisibility",
+          "trigger": "Plausible general implication"
+        },
+        {
+          "assessment": "Different graphs and strict splits",
+          "evidence": [
+            "Petersen has 4800 eight-to-four mismatches and Frucht has 1496 mismatches; Heawood has 512736"
+          ],
+          "identifier_or_url": "Resultary 85df9829d668; 09b39afb00c7; e74f89b4b1a2",
+          "material_read": "Findings",
+          "method": "Local published-record mirror",
+          "title": "Petersen, Frucht and Heawood period comparisons",
+          "trigger": "Same two dynamics and invariant"
+        },
+        {
+          "assessment": "Technically related, different graph domains",
+          "evidence": [
+            "T(5): 59049 states; Herschel: 177147 states"
+          ],
+          "identifier_or_url": "Resultary 30d2612ab574; b113126832b9",
+          "material_read": "Findings",
+          "method": "Local published-record mirror",
+          "title": "Complementary Petersen dynamics; matched excitation periods on the Herschel graph",
+          "trigger": "Same-day matched-period positive results"
+        },
+        {
+          "assessment": "Matches rules but not the tested invariant",
+          "evidence": [
+            "Theorem 3 uses synchronization and limiting activity, not pointwise least temporal periods on Chvátal"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1610.07320v1",
+          "material_read": "PDF abstract p. 1; Theorem 3 p. 4, extracted offset near 14000",
+          "method": "OA PDF passage inspection",
+          "title": "Limiting behavior of 3-color excitable media on arbitrary graphs",
+          "trigger": "General results for these exact dynamics"
+        },
+        {
+          "assessment": "Detailed coverage unresolved; not negative evidence",
+          "evidence": [],
+          "identifier_or_url": "arXiv:patt-sol/9304001",
+          "material_read": "No readable full-text passage from the cited location",
+          "method": "Bounded OA retrieval",
+          "title": "Threshold-Range Scaling of Excitable Cellular Automata",
+          "trigger": "Cited primary model literature"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md table and scope; joint census; Resultary 6edafe27dc02 and the other-graph comparisons"
+      ],
+      "rationale": "The canonical small triangle-free four-chromatic graph gives a meaningful exact test of when cyclic and refractory dynamics retain the same least period despite period division occurring on other standard graphs. The paired census separates basin period, time to recurrence and the recurrent-orbit populations, and is useful as a finite benchmark for any proposed comparison theorem. Value does not rest on recomputing the known GHM margin.",
+      "residual_risks": [
+        "The computation does not explain which graph property produces concordance or establish a minimal or unique graph."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

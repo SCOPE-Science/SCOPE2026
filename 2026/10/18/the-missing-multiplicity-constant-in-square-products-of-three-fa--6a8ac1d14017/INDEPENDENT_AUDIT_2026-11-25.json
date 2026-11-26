@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:51:14.547328Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof steps 1–6; CHECKS.txt and verify.py (inspected, not executed)",
+        "Yudin, arXiv:2610.01899v1, Theorem 1.1 and §§3.1–3.2, especially (3.2)",
+        "Tao, arXiv:2603.27990v1, §1.3 and Lemmas 4.1–4.2"
+      ],
+      "rationale": "Erdős–Selfridge rules out equal factorial kernels across a gap of at least two. A gap of one gives equality precisely at a square, yielding disjoint pairs of indices {t²−1,t²}; their kernels exceed one (handle 2! directly). For b=n−1 the square condition is exactly s(n)=s(c!), and both indices of a repeated pair are allowed precisely when n=b_t u²≥t²+2. The exponential kernel bound leaves only finitely many lower-cutoff corrections and O(sqrt(log(2X))) significant summands, proving the error for M(X) after rounding. It also ensures convergence of both series. The distinct-endpoint count plus M(X) counts all consecutive-largest triples. Yudin's exceptional-endpoint bound alone does not bound triples with multiplicity, but his uniform estimate (3.2) bounds the two free parameters by X^η; applying the endpoint bound with exponent slack ε/2 and 2η<ε/2 gives the claimed triple error. The exceptional endpoints also account for all possible changes to the consecutive multiplicity distribution on nonsquares, whose positive leading endpoint constant is C₀−1. The first eight kernels and partial sum 0.55554194167094… were independently recomputed using Legendre exponents; the direct M counts at X=6,70,180,250 were 1,4,6,7. These checks do not prove the analytic estimates.",
+      "residual_risks": [
+        "The supplied uniform and endpoint bounds are used as primary-source inputs, not independently reproved.",
+        "The decimal is a finite partial sum, not a certified rounding of K.",
+        "Minor citation correction: Tao's conjecture is in the paragraph immediately following Theorem 1.10, not Remark 1.11."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Tao bounds the total count by X^(1/2+o(1)); Yudin bounds the exceptional endpoints and constrains both short-interval parameters."
+        ],
+        "reasoning": "The bounds suffice for controlling the nonconsecutive error, but do not determine the weighted main coefficient.",
+        "searches": [
+          "Tao arXiv:2603.27990v1, Theorem 1.10 and Lemmas 4.1–4.2",
+          "Yudin arXiv:2610.01899v1, §§3.1–3.2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2603.27990v1",
+        "arXiv:2610.01899v1",
+        "Resultary 4f6ac6e60ece, 64bc76a71550 and 391286cec09d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Tao already notes collisions at squares; Yudin's unweighted proof sums each kernel once. His exponential and short-parameter bounds can be reused."
+        ],
+        "reasoning": "The new inference must count the admissible second occurrence separately, including the index cutoff and summation error, and transfer the short-interval endpoint bound to weighted triples. The resulting positive K changes the leading term of the prior conjecture.",
+        "searches": [
+          "Tao arXiv:2603.27990v1, §1.3 and post-Theorem 1.10 conjecture",
+          "Yudin arXiv:2610.01899v1, §3.1 (3.2), §3.2 and Theorem 1.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Tao explicitly sums over distinct values of s(c!) in the definition of the constant, but conjectures that coefficient for the number of solutions in triples.",
+          "Yudin counts eligible largest arguments, not representations."
+        ],
+        "reasoning": "Counting triples weights the repeated kernel twice when both indices are eligible. The distinct-endpoint formula is therefore not an equivalent formulation of the claimed triple asymptotic.",
+        "searches": [
+          "Tao arXiv:2603.27990v1, §1.3 and text following Theorem 1.10",
+          "Yudin arXiv:2610.01899v1, Theorem 1.1 and §3.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The first two close indexed results concern prime kernels and a six-factor obstruction stratum. The same-day triple-collision hit concerns monic polynomials over finite fields."
+        ],
+        "reasoning": "Those results do not give the weighted integer factorial count or M(X). Exact small kernel values are not themselves the originality claim.",
+        "searches": [
+          "Resultary searches for weighted square products of three factorials, factorial kernels and triple multiplicity",
+          "Resultary records 4f6ac6e60ece, 64bc76a71550 and 391286cec09d"
+        ]
+      },
+      "rationale": "Credit the repeated-kernel observation, the exceptional-interval analysis, and the distinct-endpoint asymptotic to prior work. The supported distinct claim is the weighted triple count with the positive leading correction K and the resulting multiplicity asymptotics. Neither the endpoint result nor the prior total-count bound states this correction.",
+      "residual_risks": [
+        "The bounded indexing and primary-source comparison cannot exclude differently indexed statements.",
+        "No priority is claimed for the collision classification ingredients or for Yudin's analytic estimates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior distinct constant, collision observation and total-count bound; conjectural coefficient is corrected",
+          "evidence": "The constant is defined by distinct factorial kernels; the sentence after Theorem 1.10 conjectures that constant for triples. Remark 1.11 concerns higher exponents.",
+          "identifier_or_url": "https://arxiv.org/html/2603.27990v1",
+          "material_read": "§1.3 offsets 17600–20171; Theorem 1.10 and following text near 21750; Lemmas 4.1–4.2 near 60700",
+          "method": "Targeted open full-text reading",
+          "title": "Products of consecutive integers with unusual anatomy",
+          "trigger": "Prior triple-count conjecture, constant and equivalent short-interval statements"
+        },
+        {
+          "assessment": "Counts endpoints, not weighted triples; verifies the required bounds",
+          "evidence": "The exceptional set has Oε(X^(2/5+ε)) members, both parameters are ≤X^η for any fixed η>0 eventually, and the consecutive count uses distinct kernels with exponential lower growth.",
+          "identifier_or_url": "https://arxiv.org/html/2610.01899v1",
+          "material_read": "Theorem 1.1 near offset 3950; §3.1 near 14400 including (3.2); §3.2 near 21399",
+          "method": "Targeted open full-text reading",
+          "title": "Square products of factorials and a conjecture of Erdős and Graham",
+          "trigger": "Closest established asymptotic and critical analytic inputs"
+        },
+        {
+          "assessment": "Different invariants or objects",
+          "evidence": "Prime kernel and six-factor assertions do not count three-factor representations; the polynomial collision result concerns a different domain and counting problem.",
+          "identifier_or_url": "Resultary 4f6ac6e60ece, 64bc76a71550 and 391286cec09d",
+          "material_read": "Indexed findings and scope",
+          "method": "Local Resultary comparison",
+          "title": "Prime squarefree kernels of factorials; Prime stratum of the factorial six-factor obstruction set; The first correction to triple-product collisions of monic polynomials",
+          "trigger": "Indexed close kernel/obstruction and same-day multiplicity hits"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof steps 4–6",
+        "Tao, arXiv:2603.27990v1, paragraph following Theorem 1.10",
+        "Yudin, arXiv:2610.01899v1, Theorem 1.1"
+      ],
+      "rationale": "The distinction between endpoints and triples changes the leading coefficient of an explicit published conjecture, not merely its error term. The result also quantifies the positive-density two-representation stratum among the nonsquare endpoints of minimum length three, separating the systematic duplicate family from the exceptional shorter-interval configurations.",
+      "residual_risks": [
+        "There is no individual classification of all nonconsecutive triples or universal bound of two on total multiplicity."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:48:44.546319Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md pp. represented by lines 4–63; VERIFICATION.md and verify_q2_threshold.py inspected without executing the frozen code",
+        "Replay: python /workspace/branches/independent-checks/q2.py; exact results in /workspace/branches/independent-checks/q2.out"
+      ],
+      "rationale": "Independently integrated derivatives of the reference quadratic Lagrange basis (the products are quadratic, hence the Lobatto rule is exact here), used the basis integrals for the nodal quadrature weights, assembled before boundary restriction, and inverted the entire polynomial matrix 18tS(t) over Z[t] by characteristic-polynomial arithmetic, without parity blocks or the frozen script. Verified the 625 entries and their 55 reflection/exchange/transposition classes. The exact recalculation found 45 zero-variation and 10 one-variation classes, positive denominator coefficients up to allowed zeros, and strictly positive numerator constants. Only the (1,3) orbit is negative at 21/5; every other numerator is strictly positive there, hence positive throughout (0,21/5] by Descartes' rule, including multiplicities. The recomputed witness is the stated -3Q divided by the stated positive denominator. Q has one sign variation and opposite signs at 41999/10000 and 21/5, so its only positive root is simple. At that root the eight witness entries alone vanish, and at every larger t the witness is negative. The rational value at 5 and the displayed root digits agree. S is SPD by the Dirichlet energy with a positive diagonal 1D mass and SPD 1D stiffness. Right multiplication by M_2 preserves signs. This is exactly the stated homogeneous Dirichlet nodal inverse criterion, not a general boundary or time-stepping result.",
+      "residual_risks": [
+        "The proof uses exact finite polynomial arithmetic plus a global sign argument, not a formal proof-assistant certificate. The decimal root is illustrative."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 4.1 uses sufficient local mesh constraints; Remark 2 includes the sufficient ratio condition 25/32 ≤ h_m/h_n ≤ 32/25. Such bounds apply to some members of the frozen family, but not to the whole positive interval through t ≈ 4.19994.",
+          "The relevant Li dissertation could not be read through the DOI or repository routes; no theorem-level noncoverage judgement is based on its landing page."
+        ],
+        "reasoning": "The available sufficient theorem cannot prove necessity, the exact transition, or the critical eight zero entries; the unavailable thesis is not used as negative evidence.",
+        "searches": [
+          "Cross–Zhang arXiv:2310.15341, Theorem 4.1 and Remark 2",
+          "Hao Li, DOI 10.25394/PGS.14529456, dissertation full-text attempts"
+        ]
+      },
+      "checked_sources": [
+        "Cross–Zhang arXiv:2310.15341",
+        "Resultary 19c47b14620e",
+        "Li DOI 10.25394/PGS.14529456 (bibliographic/route check only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The frozen necessity is a particular Green-entry numerator changing sign once; sufficiency and the boundary require signs of all other Green entries. A sufficient mesh criterion cannot provide this necessity, and a single sampled counterexample on another mesh cannot classify the continuous parameter on this mesh.",
+          "The periodic backward-Euler matrix has a different discrete operator and includes a time-step parameter; its exact positivity criterion does not imply the spatial inverse theorem."
+        ],
+        "reasoning": "The finite symbolic classification, including its exact equality case, is the distinct claim, not Q² inverse positivity as a concept or loss of positivity on graded grids as a phenomenon.",
+        "searches": [
+          "arXiv:2310.15341, Theorem 4.1, Remark 2, §5.2 and Fig. 4",
+          "Resultary record 19c47b14620e, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Inverse nonnegativity is equivalent to preservation of nonnegative discrete nodal loads. Since the quadrature mass is diagonal and strictly positive, switching between the stiffness Green matrix and the mass-inverted operator cannot change any sign.",
+          "Cross–Zhang §5.2 uses essentially that same sign test but a 5-by-5 element geometry with more nodes and a different pattern; the reported sampled failure at ratio 5.35 is not a relabelling or rescaling of this 3-by-3 mesh."
+        ],
+        "reasoning": "Neither the equivalent nodal formulation nor physical normalization of side length produces a matching sharp classification in the inspected source.",
+        "searches": [
+          "arXiv:2310.15341, theorem/maximum-principle comparison",
+          "Resultary lookup for Q2 Gauss–Lobatto monotonicity and exact symmetric three-element Green-matrix positivity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected near hit Resultary 19c47b14620e is an exact cutoff for a five-cell periodic, piecewise-linear, consistent-mass backward-Euler map; it does not concern this Dirichlet spatial inverse.",
+          "Cross–Zhang Fig. 4 reports -6.14e-8 for a minimum inverse entry after loss of positivity on its different five-element family. The focused web search returned no hit; this is only a search limitation."
+        ],
+        "reasoning": "No inspected entry table, threshold polynomial, or exact list of zeros has both the matching operator and geometry.",
+        "searches": [
+          "Resultary, exact symmetric three-element Q² inverse-positivity transition and vanishing Green entries",
+          "Targeted web lookup for the Q² Gauss–Lobatto (1,t,1) sharp transition and Li dissertation",
+          "Cross–Zhang arXiv:2310.15341 §5.2 and Fig. 4"
+        ]
+      },
+      "rationale": "The inspected primary papers and strongest related indexed result provide a sufficient mesh condition, an experiment on a different mesh, and a different time-discretization threshold, not a covering theorem for the exact spatial transition. Pass is limited to the present family and to the best knowledge supported by accessible evidence. The Li dissertation remains a real priority risk.",
+      "residual_risks": [
+        "Li dissertation not read. Unindexed exact mesh calculations or a stronger monotonicity theorem not retrieved could affect priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Partial coverage of sufficiency and qualitative failure only",
+          "evidence": [
+            "Sufficient mesh grading constraints, including 25/32 and 32/25; different symmetric 5-by-5 cell experiment with sampled failure at ratio 5.35."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2310.15341",
+          "material_read": "Theorem 4.1 and Remark 2, PDF p. 18; §5.2 p. 19 and Fig. 4 p. 22",
+          "method": "Open primary PDF; statement and numerical-example comparison",
+          "title": "On the monotonicity of Q² spectral element method for Laplacian on quasi-uniform rectangular meshes",
+          "trigger": "Same discretization; potentially broader sufficient or sharp nonuniform-mesh results"
+        },
+        {
+          "assessment": "Related but different operator and geometry",
+          "evidence": [
+            "Consistent-mass backward Euler on a five-cell periodic piecewise-linear ring."
+          ],
+          "identifier_or_url": "Resultary 2026/10/25, 19c47b14620e",
+          "material_read": "RESULT.md Finding in local mirror",
+          "method": "Local catalogue and mirrored text",
+          "title": "Sharp subquadratic positivity threshold on a one-defect periodic mesh",
+          "trigger": "Closest inspected indexed exact positivity threshold on a graded mesh"
+        },
+        {
+          "assessment": "Full-text priority comparison unresolved",
+          "evidence": [
+            "No readable dissertation passages obtained; access/format responses do not determine coverage."
+          ],
+          "identifier_or_url": "https://doi.org/10.25394/PGS.14529456",
+          "material_read": "Bibliographic record; no relevant thesis body retrieved",
+          "method": "DOI and Purdue repository open routes; public Figshare metadata route also attempted",
+          "title": "Accuracy and Monotonicity of Spectral Element Method on Structured Meshes",
+          "trigger": "Potentially covering dissertation on Q² monotonicity predating this record"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding; independently reconstructed Green matrix",
+        "Cross–Zhang arXiv:2310.15341, §5.2"
+      ],
+      "rationale": "This is a natural graded family with a single interior element adjustable independently of overall rescaling, and with a nontrivial discrete monotonicity issue even though stiffness remains SPD. The exact interval, complete critical zero pattern and rational failure witness are useful as a graded-mesh benchmark and distinguish a genuinely sharp limit from conservative sufficient mesh bounds. The value is not a claim of new general finite-element convergence or stability theory.",
+      "residual_risks": [
+        "Exact cutoff applies to the one-parameter symmetric three-element family only."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

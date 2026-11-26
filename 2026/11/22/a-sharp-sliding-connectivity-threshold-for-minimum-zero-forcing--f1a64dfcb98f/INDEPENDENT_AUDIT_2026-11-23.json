@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:24:31.809754Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Four or more whites preclude any first force since a blue vertex misses at most two whites in the path complement. For exactly three whites, a first force exists precisely when they include a pair a,a+2 about a blue center. After it, one of a−1,a+3 exists and can force one of the last two whites, and the complement has positive minimum degree for the final force. Counting witnesses and subtracting the n−4 double-witness triples gives (n−3)²+1. Every transition has a unique common white pair, so the completion-set binomial counts are disjoint. To replay the grouped counts for separation d≥3, write k=n−d: the two inward labels are always present and coincide only for d=4; each outward label occurs in max(0,k−2) completions sets indexed by the shared pair, and both occur jointly in max(0,k−4). Thus the unrestricted group count is k+4max(0,k−2)+max(0,k−4) for d=3 or d≥5 and 2max(0,k−2)+max(0,k−4) for d=4. Together with d=1 and 2 in the completion table this reproduces the unrestricted cubic. Consecutive completions at d=2 survive in the two intervals outside the three omitted labels; d=3 and 5 each give one consecutive pair per shared pair, with no other losses, yielding n²−5n+4 prohibited moves. For n≥7, connected fibres follow because a disconnected complement of an induced linear forest with at least four vertices would give a star with three leaves or a K₂,₂ cut. Overlap links each parity; 023↔035 joins them. At n=6 the isolated positions of the two endpoint fibres are absorbed by the overlapping connected fibres. At n=5 the unrestricted cycle is 013–023–024–124–134–013 and only 134↔013 is a slide. A separate finite enumeration using single forces and all state pairs for n=5 through 14 agreed in counts and slide component sizes, including (21 exchanges, 11 slides) at n=6. The all-order replay is RESULT.md Lemmas 1–3; the supplied scripts were inspected but not executed, and finite enumeration alone is not the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Geneson et al. treat exchanges in base paths/cycles and connectivity for forests; path complements at the orders in question are not forests. Curl et al. give Z(overline T)=n−3 for complements of nonstar trees. The cycle-complement record gives slide connectivity for n≥7 and disconnectedness at n=6."
+        ],
+        "reasoning": "The scalar nonstar-tree theorem covers the old minimum. The cycle-complement result is for a different state space: deleting the cycle's wraparound edge in the original graph changes both witness triples and the allowed slides in the complement. In particular its n=6 slide graph is disconnected and the path complement's is connected. The generic forest or base path/cycle results do not subsume this case.",
+        "searches": [
+          "Geneson, Haas and Hogben, arXiv:2009.00220v1 family results",
+          "Curl et al., arXiv:2206.03932v2 Proposition 2.2",
+          "Resultary cycle-complement slide theorem 2157153ad220"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, REVIEW.md, AUDIT.json, VERIFICATION.md and both checker scripts",
+        "Primary arXiv 2009.00220v1 and 2206.03932v2 passages",
+        "Local Resultary records 6c7cf7fab756, 07fffeb0f7e1, 76693759f476, 2157153ad220 and identical f1a64dfcb98f",
+        "One targeted primary-literature query, with no useful matching source returned"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Using the prior triple characterization and the definition of an exchange determines admissible third labels for each shared pair; a slide adds the distance restriction. The cited cycle analogue uses original-graph edge slides but wraps the original path."
+        ],
+        "reasoning": "The trivial reconstruction of individual transitions is already implicit. The nontrivial claimed conclusions still require disjoint grouped counting and a constructive proof that the two families of witness fibres communicate, handling orders five and six separately. The checked antecedents did not give these conclusions as an immediate special case.",
+        "searches": [
+          "6c7cf7fab756, mirrored statement and comparison offsets 175 and 5933",
+          "arXiv:2009.00220v1 §§1–2.1",
+          "2157153ad220, mirrored statement offset 317"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "6c7cf7fab756 gives the same degree-two local criterion for the omitted triple. Geneson, Haas and Hogben define unrestricted adjacency by differing in one vertex."
+        ],
+        "reasoning": "Taking white complements preserves the exchange relation and the slide test. In that language the exchange graph is the induced one-replacement graph on the earlier classified triples; sliding deletes moves between consecutive labels of the base path. The new information is its transition enumeration and structural connectivity, not the state characterization or a renamed move rule.",
+        "searches": [
+          "Local Resultary search of minimum zero-forcing token exchange or slide on path complements",
+          "6c7cf7fab756, mirrored RESULT.md offset 175",
+          "arXiv:2009.00220v1 §§1–2.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier mirrored forcing-polynomial records give (n−3)²+1, equivalently n²−6n+10, as the minimum coefficient. The exact relocation formulas and sharp exception matched the frozen record itself; the distinct close slide result has different graph family and counts."
+        ],
+        "reasoning": "A coefficient table by set size does not encode two-state adjacency. Even a catalogue of valid triples permits finite enumeration but does not itself give the all-order pair-completion sum, connectivity or their exact closed forms. No independent exact transition table or formula was found in the bounded comparisons.",
+        "searches": [
+          "Local Resultary ranked results and mirrored claims 6c7cf7fab756, 07fffeb0f7e1 and 76693759f476, plus exact self-match f1a64dfcb98f"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass limited to relocation connectivity, the slide-only n=5 exception, and exact edge counts. Prior work supplies both the scalar minimum and the full minimum-state criterion, not just the number of states. The supplied criterion plus the move rule determines the graphs, but the checked earlier results do not mechanically give their connectedness or the all-order closed forms. A distinct same-day result concerns cycle complements and has a different exceptional regime; no priority inference is made from its date.",
+      "residual_risks": [
+        "Prior complete state descriptions make individual moves derivable, so novelty should never be stated as a new feasibility criterion or definition of relocation.",
+        "A preexisting explicit path-complement transition analysis outside the checked literature remains possible; the local index and bounded primary passages are not exhaustive."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the exchange framework, not the claimed slide theorem or path-complement exchange count",
+          "evidence": [
+            "Adjacency uses changing one vertex; the examples for base paths and cycles do not treat their complements."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2009.00220v1",
+          "material_read": "§1 and §2.1, including definition and examples; inspected stated forest connectivity scope",
+          "method": "Open primary HTML passage comparison",
+          "title": "Reconfiguration graphs of zero forcing sets",
+          "trigger": "General exchange-graph and family results may cover connectivity"
+        },
+        {
+          "assessment": "Supplies the older scalar state-space minimum",
+          "evidence": [
+            "Proposition 2.2 gives n−3 for the complement of a nonstar tree."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2206.03932",
+          "material_read": "Abstract, p. 1, and Proposition 2.2, p. 4, offset about 10178",
+          "method": "Open primary PDF passage comparison",
+          "title": "On the zero forcing number of the complement of graphs with forbidden subgraphs",
+          "trigger": "Stronger complement result for scalar minimum"
+        },
+        {
+          "assessment": "Covers minimum states including their iff criterion, not their relocation structure in the inspected statements",
+          "evidence": [
+            "The three whites contain both original neighbors of a blue degree-two vertex; the result enumerates forcing sets by size."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-zero-forcing-polynomials-of-complements-of-paths-and-cycles--6c7cf7fab756",
+          "material_read": "Mirrored RESULT.md at offsets 175 and 5933",
+          "method": "Local index and mirrored original statement",
+          "title": "Zero-forcing polynomials of complements of paths and cycles",
+          "trigger": "Same labelled family and minimum sets"
+        },
+        {
+          "assessment": "Close analogue for cycle complements; not equivalent coverage of the path-complement theorem",
+          "evidence": [
+            "The base graphs are complements of cycles. At n=6 the slide graph has a 12-state component and two isolates; connectivity starts at n=7."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-four-slide-diameter-and-a-sharp-frozen-boundary-for-minimum-zero--2157153ad220",
+          "material_read": "Mirrored RESULT.md statement offset 317",
+          "method": "Local index and mirrored original statement",
+          "title": "Four-slide diameter and a sharp frozen boundary for minimum zero forcing",
+          "trigger": "Distinct same-day slide result with close terminology and method"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Minimum-state reachability by graph-local moves is a natural question in zero-forcing reconfiguration. Three isolated optimum states at n=5 become part of a single connected space from n=6 onward even though the unrestricted graph is already connected at n=5. The fibre proof gives usable reachability structure. The exact edge formulas independently quantify the loss from restricting moves: quadratic lost edges out of cubic exchange edges, rather than just an unquantified connectivity comparison. These results go beyond reproducing a known minimum-set count.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,160 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:55:48.532936Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md Finding, assumptions and §§1–4",
+        "VERIFICATION.md and checker.py (inspected, not executed)",
+        "Independent bounded computation: python3 /workspace/branches/independent_math_checks.py (record 4 output)"
+      ],
+      "rationale": "Coupling at the first common reset gives uniqueness of the stationary law. At a generic stationary observation the common scale S=√(2DA) is independent of the Gaussian opposite extremes; (ES)²/ES²=π/4. Thus the variance and covariance share a scale and their ratio is (c_N+k m_N²)/(v_N+k m_N²), k=1−π/4. The variance is strictly positive. Integration by parts in the Gaussian maximum density yields the displayed mean and second-moment integrals. For the cross moment, integrating the min–max joint density by parts gives a diagonal φ³ integral at N=3 and an ordered-pair ∫φ(a)²φ(b)² at N=4; the N=4 mean uses the Gaussian orthant probability with correlation 1/3. Substitution yields negative signs at N=2,3 and positive at N=4; independently integrating the joint density gives correlations −0.3333333333, −0.01566413555 and 0.17064286472. For the limit, the exact joint interval probability tends to the product of two Gumbel CDFs after normalization by b_N; the upper exponential and split lower-tail estimates bound both fourth moments uniformly. Cauchy–Schwarz then supplies uniform integrability for the mixed product and b_N²c_N→0, while b_N²v_N→π²/6 and m_N/b_N→1. With b_N²∼2 log N this proves the sharp deficit coefficient π²/[6(4−π)].",
+      "residual_risks": [
+        "The independent quadrature is finite and approximate; it does not certify moment convergence or positivity for all N≥4. The latter is not claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Biroli et al. supply the same stationary joint law and reset-age mixture. The broader renewal paper treats individual order statistics, gaps and counts. The orthogonal-front theorem generalizes the reset clock, with independent conditional maxima as a hypothesis."
+        ],
+        "reasoning": "The known stationary joint density determines the observable in principle, but neither the inspected marginal results nor the planar clock envelope evaluates the conditional opposite-extreme covariance or its finite signs. Broader clock coverage does not relax the orthogonality requirement.",
+        "searches": [
+          "arXiv:2211.00563 stationary joint density",
+          "arXiv:2307.15351 order statistics",
+          "arXiv:2509.06658 order statistics",
+          "983b0034682b stationary Gaussian scale mixture and exact covariance"
+        ]
+      },
+      "checked_sources": [
+        "Resultary self-match and distinct Findings 983b0034682b, 34ec84bb2b61, e48faf832997",
+        "Planar proof §§1–3",
+        "arXiv:2211.00563 pp. 3–4",
+        "arXiv:2307.15351 abstract and pp. 3–4",
+        "arXiv:2509.06658 stationary mixture and order-statistics sections"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The planar proof has ρ_N^orth=k m_N²/(v_N+k m_N²) under Poisson resetting. In the assigned problem ρ_N^opp−ρ_N^orth=c_N/(v_N+k m_N²), with c_N strictly negative: the Gaussian opposite-extreme joint CDF is strictly below the product of the marginal CDFs, so the integrated CDF covariance is negative. The coefficient equality requires c_N=o(b_N⁻²), obtained from the joint limit and moment control, and the finite sign threshold requires the actual cross moments."
+        ],
+        "reasoning": "The coefficient transfers only after the dependence estimate; the planar statement by itself does not give it for opposite fronts or imply the first positive size. The shared common-scale mechanism and overlapping leading coefficient are credited, rather than claimed as new general reset phenomena.",
+        "searches": [
+          "983b0034682b RESULT.md Finding and proof §§1–3",
+          "arXiv:2211.00563 pp. 3–4",
+          "2026/11/8/SCOPE-an-opposing-tail-covariance-transition-in-a-synchronously-reset--e48faf832997"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For the actual leftmost position the Pearson sign reverses identically because L_N=−min Xᵢ. In the closely related planar record, the two conditional normalized maxima are independent (proof §1); opposite signed extremes in a single sample have nonzero conditional covariance.",
+          "The planar record has ρ₂=(4−π)/(3π)>0 under Poisson resetting; the assigned opposite-front result has ρ₂=−1/3."
+        ],
+        "reasoning": "Changing the sign of the leftmost position is equivalent, but changing a pair of opposite directions into orthogonal directions is not. A rotation preserves the angle, and the finite-size correlations explicitly separate the two models.",
+        "searches": [
+          "opposite maximum minimum Gaussian sample Pearson correlation two-sided extrema extreme values",
+          "synchronously reset Brownian gas opposite fronts extrema covariance correlation",
+          "2026/11/22/SCOPE-a-sharp-reset-clock-envelope-for-orthogonal-extreme-fronts-in-a--983b0034682b"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact Resultary hit 5d83eb0df715 is the assigned record. The separate same-day planar record 983b0034682b gives the identical numerical coefficient for a different pair. Records 34ec84bb2b61 and e48faf832997 give adjacent-gap and opposite-tail-count results, respectively."
+        ],
+        "reasoning": "The coefficient match is substantive but not a same-statistic table entry. The two other records use different observables. Same-day indexing is neither a priority order nor a basis for excluding a distinct record.",
+        "searches": [
+          "synchronously reset Brownian gas opposite fronts extrema covariance correlation",
+          "sharp logarithm squared asymptotic correlation opposite maxima minima Gaussian extremes",
+          "four particle first positive signed bilateral extrema common Poisson resetting"
+        ]
+      },
+      "rationale": "The common reset-age mixture, Gaussian marginal extreme analysis and the numerical value of the Poisson coefficient for orthogonal fronts are already present in the inspected work. The distinct result is for the dependent opposite extremes of one Gaussian sample, including the first positive size and the proof that the conditional extreme covariance is negligible at the scale needed for the same coefficient. The planar theorem is materially overlapping, not an equivalent statement or a more general theorem covering this pair. No priority for the numerical constant in isolation is inferred.",
+      "residual_risks": [
+        "Unindexed opposite-extrema moment or common-reset covariance calculations may affect priority. No ordering is inferred between the same-day planar and one-dimensional records.",
+        "The inspected primary-paper passages do not constitute whole-document exclusions; the focused external search was not decisive."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material overlap on the coefficient and mechanism, not the same observable; exact conditional independence and the positive N=2 contrast rule out equivalence",
+          "evidence": [
+            "For planar coordinate maxima conditional on age, maxima are independent copies; ρ₂>0 and the Poisson coefficient equals π²/[6(4−π)]."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-reset-clock-envelope-for-orthogonal-extreme-fronts-in-a--983b0034682b",
+          "material_read": "Mirrored RESULT.md Finding and assumptions/proof §§1–3, offsets 0 and 1800–5538",
+          "method": "Resultary comparison and bounded local-mirror passage reads",
+          "title": "A sharp reset-clock envelope for orthogonal extreme fronts in a planar Brownian gas",
+          "trigger": "Same sharp Poisson coefficient, same-day and closely related model"
+        },
+        {
+          "assessment": "Supplies the joint mixture and marginal-order/gap foundations",
+          "evidence": [
+            "Stationary particle positions are conditionally independent centered Gaussians indexed by age; individual ordered positions and gaps are averaged over age."
+          ],
+          "identifier_or_url": "arXiv:2211.00563",
+          "material_read": "pp. 3–4, offsets about 17150 and 22000",
+          "method": "Lawful OA bounded PDF passages",
+          "title": "Extreme statistics and spacing distribution in a Brownian gas correlated by resetting",
+          "trigger": "Identical stationary Poisson reset model"
+        },
+        {
+          "assessment": "Prior conditional-iid framework and marginal limits",
+          "evidence": [
+            "A common random parameter creates dependence, with extreme and order-statistic marginal calculations."
+          ],
+          "identifier_or_url": "arXiv:2307.15351",
+          "material_read": "Abstract and pp. 3–4, offsets 0 and about 18300",
+          "method": "Lawful OA bounded PDF passages",
+          "title": "Exact extreme, order and sum statistics in a class of strongly correlated system",
+          "trigger": "General conditional-independence framework with extreme statistics"
+        },
+        {
+          "assessment": "Supplies a broader clock framework and individual extremes, not the inspected paired statistic",
+          "evidence": [
+            "The order-statistic section gives the marginal law of Mₖ; neither opposite-front sign threshold nor Pearson deficit appears in the inspected passages."
+          ],
+          "identifier_or_url": "arXiv:2509.06658",
+          "material_read": "Introduction, stationary joint density p. 3, and order-statistics pp. 12–13; offsets about 9300, 12000 and 65800",
+          "method": "Lawful OA bounded PDF passages",
+          "title": "Dynamically emergent correlations in Brownian particles subject to simultaneous non-Poissonian resetting protocols",
+          "trigger": "Broader renewal-clock joint density and extreme statistics"
+        },
+        {
+          "assessment": "Different observable",
+          "evidence": [
+            "Limiting correlations of two adjacent right-edge gaps under renewal clocks have a sharp attainable interval [1/10,1/2)."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-sharp-stationary-edge-gap-correlation-envelope-under-common-rene--34ec84bb2b61",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Resultary and bounded local-mirror read",
+          "title": "Sharp stationary edge-gap correlation envelope under common renewal resetting",
+          "trigger": "Common-age extreme-edge correlation"
+        },
+        {
+          "assessment": "Distinct threshold-count covariance, not extrema Pearson correlation",
+          "evidence": [
+            "Observables are counts above and below fixed opposing thresholds, with their own exact sign criterion and mesoscopic limit."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-an-opposing-tail-covariance-transition-in-a-synchronously-reset--e48faf832997",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Resultary and bounded local-mirror read",
+          "title": "An opposing-tail covariance transition in a synchronously reset Brownian gas",
+          "trigger": "Opposite sides and covariance sign under the same reset model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding and proof §§1–4",
+        "Orthogonal-front record 983b0034682b exact covariance and Poisson anchor"
+      ],
+      "rationale": "The paired observable separates the finite-sample competition between opposite extremes from the positive effect of common aging. It gives the exact size where opposite signed fronts first correlate positively and quantifies how accurately the independent-front approximation predicts the leading deficit. These are meaningful distinctions from one-front marginals and from orthogonal fronts, which are positive already at N=2.",
+      "residual_risks": [
+        "The result does not determine intermediate-size monotonicity or correlations under other resetting dynamics."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:05:48.714053Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–69",
+        "Frozen VERIFICATION.md, lines 19–23",
+        "Frozen verify.py, lines 10–69 (inspected, not executed)",
+        "Independent expansion of the threshold identity and bisection of P on [29/20,3/2] (1.4722292609720324)"
+      ],
+      "rationale": "On each mode r=1−x² the update is F_a(r)=1−(1−r)(1+r/2+ar²)². Differentiation gives its sole positive interior minimum for a>3/8 at r_*=(8a−3)/(10a). At that point (1−r_*)(1+r_*/2+ar_*²)²=(16a−1)²(2a+3)³/(25000a³). Independent polynomial multiplication checked that subtracting 12500a²(2a+1) from the numerator gives (4a+1)²P(a); P(3/8)=−1125/4, P(29/20)<0<P(3/2), and convexity plus positive derivative at 29/20 isolate the relevant root. For 0<r<1 the factorization of F_a−r gives strict descent, and the positive Bernstein expression at a=3/2, together with monotonicity in a, gives F_a>−r below the cap. On the negative side r=−t, 0<t≤1/(2a_*), the multiplier is strictly between 0 and 1 for a≤U<a_*, giving F_a(−t)>−t; its upper bound F_0(−t)=t²(3−t)/4<t gives strict contraction there too. The image of the positive side stays above −1/(2a_*) by the minimum calculation, so a compact invariant interval provides a uniform contraction factor for each fixed input and cap. Writing X_k=J B_k with J=A(A²)^(−1/2) and positive B_k commuting with J handles even the nonnormal square case; in the rectangular case use the initial polar isometry in place of J. This preserves branches and makes the spectral residual norm the maximum of the modal magnitudes. At equality r_* maps to the negative fixed point −1/(2a_*); above equality the same initial-minimum construction crosses the fixed-point barrier, after which the magnitude strictly increases and cannot have a finite limit. Direct rational replay gives F_{3/2}(3/5)=1−(2/5)(46/25)²=−1107/3125<−1/3.",
+      "residual_risks": [
+        "Exact arithmetic, initially normalized full-rank matrices, and shared scalar choices only; no claim about rounding, unnormalized matrices, or what an implementation's fitting objective selects."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "PRISM's proof is for degree 3 and an objective-selected coefficient in [1/2,1].",
+          "The Polar Express designs odd minimax polynomials over tracked singular-value intervals; Topollai and Choromanska use spectral moments to select matrix-specific routines.",
+          "Earlier Resultary hit 3a5f825b4d70 describes a degree-3 Frobenius-fit overshoot in its catalog synopsis."
+        ],
+        "reasoning": "These results address selected schedules, distinct polynomials, or first-degree residual fitting, not a universal cap for the specified second-degree residual family.",
+        "searches": [
+          "PRISM Theorem 1",
+          "The Polar Express §§1.2–1.3 and 2",
+          "Cost-free Spectral Estimation for Adaptive Newton–Schulz §§4–5",
+          "Local Resultary: adaptive matrix-sign iteration and spectral failure"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary, including exact self match b861457db7cd and distinct hit 3a5f825b4d70",
+        "arXiv:2601.22137v1",
+        "arXiv:2505.16932v5",
+        "arXiv:2609.33047"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The empirical interval is strictly inside the proved cap and omits allowed choices below 3/8; degree-3 convergence and minimax polynomial design do not prove arbitrary quintic switching.",
+          "The trap is exactly at the crossing of the quintic residual minimum and its nonzero fixed point, a comparison not supplied by those results."
+        ],
+        "reasoning": "The previous bounds and polynomial designs do not entail the failure at the boundary or the universal strict contraction beneath it.",
+        "searches": [
+          "PRISM §4.1, Theorem 1 and polar/quintic examples",
+          "The Polar Express §§1.2–1.3 and 2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact match in Resultary is the assigned record, b861457db7cd, not separate evidence.",
+          "PRISM uses 1+r/2+αr² and calls [3/8,29/20] a good empirical choice for d=2."
+        ],
+        "reasoning": "Switching between sign, polar, singular values and squared residuals gives the same positive scalar dynamical system; neither the prior polynomial nor the empirical cap gives the claimed sharp theorem.",
+        "searches": [
+          "Local Resultary: exact threshold polynomial/cap, empirical interval and nonunit fixed-point witness",
+          "PRISM §4.1 and Appendix A.1: quintic residual polynomial in matrix-sign and polar formulations"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact cubic/threshold hit is the frozen finding itself; the empirical upper number in the primary comparator is 29/20."
+        ],
+        "reasoning": "No independent exact threshold entry was found; a rounded coefficient recommendation or the same record is not independent coverage.",
+        "searches": [
+          "Local Resultary: 128a³+496a²−1026a+27 and 1.47222926097203",
+          "PRISM's published degree-5 interval and Appendix A.1"
+        ]
+      },
+      "rationale": "The quintic polynomial itself is prior art. The supported distinction is its sharp cap simultaneously for every admissible coefficient schedule, together with the exact boundary trap and divergence witnesses. No inspected source establishes or implies this package.",
+      "residual_risks": [
+        "Broader literature-query results were unavailable; unindexed scalar/polynomial sign analysis could contain an equivalent argument.",
+        "The nearest earlier Resultary record could be compared only at catalog-synopsis level; its inspected claim is a different polynomial family."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior polynomial and empirical recommendation; not coverage of the sharp theorem",
+          "evidence": "Theorem 1 concerns d=1, whereas the paper labels the narrower d=2 interval empirical.",
+          "identifier_or_url": "https://arxiv.org/html/2601.22137v1",
+          "material_read": "§4.1/Theorem 1 (offset about 29,700), degree-five/polar discussions (about 69,900 and 76,000)",
+          "method": "Lawful open full-text passage comparison",
+          "title": "PRISM: Distribution-free Adaptive Computation of Matrix Functions for Accelerating Neural Network Training",
+          "trigger": "Identical adaptive quintic polynomial and empirical interval"
+        },
+        {
+          "assessment": "Different polynomial-selection criterion and admissible family",
+          "evidence": "Compositions of minimax designs tracking singular-value intervals, with a Newton–Schulz baseline.",
+          "identifier_or_url": "https://arxiv.org/html/2505.16932v5",
+          "material_read": "§§1.2–1.3 (offsets about 9,400–13,557) and §2 (15,700–20,099)",
+          "method": "Lawful open full-text passage comparison",
+          "title": "The Polar Express",
+          "trigger": "Degree-five sign/polar updates"
+        },
+        {
+          "assessment": "Related selected routines, not the asserted universal interval",
+          "evidence": "Spectral moment fitting and PE[ρ,1] candidate selection are matrix specific.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.33047",
+          "material_read": "Abstract and §§4–5, around offsets 11,700–16,700 and 27,900–31,691 in the accessible full text",
+          "method": "Lawful open passage comparison",
+          "title": "Cost-free Spectral Estimation for Adaptive Newton–Schulz in Matrix Optimizers",
+          "trigger": "Adaptive Newton–Schulz tuning"
+        },
+        {
+          "assessment": "Related, no demonstrated overlap with the quintic cap",
+          "evidence": "Indexed statement describes first-degree Frobenius-fit overshoot and its dependence on dimension.",
+          "identifier_or_url": "Resultary 3a5f825b4d70",
+          "material_read": "Local catalog synopsis; original unavailable through the local mirror",
+          "method": "Resultary statement-level comparison, limited to synopsis",
+          "title": "Critical two-level spectra force square-root-dimensional overshoot in Frobenius-fitted matrix-sign iterations",
+          "trigger": "Nearest distinct adaptive-sign failure record"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 14–20 and 53–69",
+        "PRISM §4.1 and Appendix A.1"
+      ],
+      "rationale": "The cap supplies a usable exact-arithmetic safeguard even when the coefficient is selected adaptively by an arbitrary procedure. Its value is the precise change from guaranteed contraction to a nonunit trap and then possible divergence, not the approximately 1.5 percent increase over an empirical recommendation.",
+      "residual_risks": [
+        "No claim about optimizer behavior, floating-point safeguards or performance for a specific selection rule."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

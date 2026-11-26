@@ -1,19 +1,21 @@
-# Scientific review: square-torus endpoint Hodge norms
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is for all integers \(n\ge3\), real edge-\(\ell_1\)/\(\ell_\infty\) norms and the canonical Euclidean-orthogonal projections. Fourier diagonalization yields the two-component transfer-current kernel. Its infinite-lattice multiplier has a homogeneous order-zero singularity: the inverse Fourier transform has a second-angular-harmonic \(r^{-2}\) leading term and an absolutely summable \(O(r^{-3})\) error. Square-symmetric cancellation in a Gaussian-Abel periodization gives a uniform \(O(n^{-2})\) discrepancy between centered finite-torus and infinite-lattice coefficients. Summing \(n^2\) discrepancies costs only \(O(1)\); the lattice polar integral of the absolute angular modes has angular mass eight, giving \((4/\pi)\log n\). Trace and edge transitivity give the already-known exact complementary norm gap \(n^{-2}\). A separate standalone incidence-matrix computation checked all 172 edge columns for \(n=3,4,5,6\), and discrete Fourier computations gave additional confirmations for \(n=8,12,16,24,32\). These finite checks are corroboration, not an infinite proof.
+PASS
 
-## Originality — PASS, with specified literature uncertainty
+Edge transitivity gives a single absolute column sum; sign changes of edge orientations are harmless. The incidence symbol yields the stated product kernel up to the sign chosen for spatial displacement: with inverse phase +ixθ and x the target vertex minus the source, the physical column uses a_i conjugate(a_j), so the displayed product corresponds to measuring x in the reverse direction (or to the corresponding row). Reflecting x permutes the residues and leaves the norm sum unchanged. On the infinite lattice the degree-one remainder on a dyadic annulus of radius s contributes O_N(s³(1+s|x|)^−N); summation gives the required O(|x|^−3). The inverse transform of θ_iθ_j/|θ|² away from the origin is the stated negative second derivative of −log|x|/(2π); subtracting the cutoff affects only rapidly decreasing terms away from the origin (sufficiently high derivatives of the high-frequency symbol are integrable). For Gaussian regularization the root-of-unity filter is exact before taking its limit; the zero frequency tends to the isotropic mean δ_ij/2 and must be subtracted. For m≠0 and centered x, subtract H(nm) from K(x+nm), leaving an absolutely summable O((1+|x|)n^−3 |m|^−3) error by the derivative bound. The homogeneous images cancel by quarter-turns or reflections with weights exp(−t|nm|²); changing to exp(−t|x+nm|²) contributes O(|x|√t/n²) as t→0 by the mean-value bound and counting image shells. This gives the uniform O(n^−2) comparison, hence O(1) in the column sum. The absolute angular density is Lipschitz in angle, so unit-cell quadrature errors sum absolutely; each of |cos 2φ| and |sin 2φ| integrates to 4, yielding 4/π. The rank of Q is n²−1, all its diagonals equal (n²−1)/(2n²), and complementary column sums therefore differ by n^−2. Symmetry gives the same endpoint norms at infinity. The n≥3 restriction avoids duplicate positive-direction edges. The frozen numerical script was read, not executed; no numerical extrapolation is needed.
 
-The closest primary full text is Dilworth–Kutzarova–Ostrovskii, *Cycle spaces: invariant projections and applications to transportation cost*, arXiv:2305.12582v1, especially Section 2.4.3, Proposition 27, the small-torus table and Question 32. Their exact cut/cycle trace relation is included only as a **known identity**, and their finite computations cannot imply the new leading constant. Their question explicitly seeks sharper large-torus asymptotics. Gurevich, *Asymptotics of the heat kernels on 2D lattices*, arXiv:1809.04850v1, treats lattice Green-function expansions, which give relevant kernel ingredients but not a finite-torus absolute-column-sum asymptotic with the sharp coefficient. Searches of graph Hodge kernels, discrete Helmholtz/Leray projections, transfer-current norms, Riesz transforms and related research records found no statement covering the asserted norm asymptotic. This is a bounded best-knowledge novelty judgment, not a worldwide uniqueness certificate.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The object is a standard two-dimensional discrete torus and a canonical Banach-space projection invariant, central to a published question about cycle projections. Identifying the exact coefficient rather than merely a logarithmic order reveals the angular contribution of the discrete two-dimensional Leray kernel; the bounded additive remainder is stronger than a leading-order equivalence. The result concerns orthogonal projection, and does **not** resolve the stronger optimization problem for arbitrary projections.
+The distinctive assertion is the coefficient 4/π with an absolute bounded additive remainder for the orthogonal projections. The finite complementary identity and known finite sizes are prior results and excluded from the novelty claim.
 
-## Sources and residual risks
+## value
 
-Primary: https://arxiv.org/abs/2305.12582, posted May 21, 2023. Supporting lattice analysis: https://arxiv.org/abs/1809.04850, posted September 13, 2018. Residual risk: an unindexed harmonic-analysis or transfer-current calculation may have this precise coefficient under different notation. The Gaussian-Abel periodization and kernel-remainder argument are the critical nontrivial proof steps requiring eventual independent inspection.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Answers the orthogonal-projection part of an explicit asymptotic question for square tori with a sharp constant and bounded additive error. It quantifies the endpoint norm of the canonical projection, without identifying an arbitrary norm-minimizing projection.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

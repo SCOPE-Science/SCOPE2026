@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:23:20.776026Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independently reconstructed the Legendre recurrence (RESULT.md:46–81). Integrating the derivative of the difference P_(n-1)-P_(n+1) against the exponential gives the first identity; integrating the spherical Legendre ODE and then the derivative of sin(theta)P_n gives the second, with zero endpoint terms. Eliminating the unweighted moments gives the two-step positive baseline. Multiplication by 2 cos²(theta)-1 and substitution give the stated R_n, with the low-degree zero terms omitted. The profile in z=n(n+1) is strictly increasing to its sole positive critical point and decreases to 1, giving the unique minimum at zero and the two candidate maximum degrees. The adjacent subtraction has the stated sign: its polynomial increases from a negative constant term to infinity, and a tie forces the continuous maximum strictly between the corresponding degrees. These disjoint intervals in z and the strictly increasing critical point give the strict switch ordering, no skips and no third tie. For large y, writing z=yc gives a limiting order-1/y profile 6(3c-2)/(c+1)², stationary at c=7/3; the O(y^-1/2) rounding error in c therefore contributes only O(y^-2) to R. Degree two gives the small-y asymptotic. Boundary coefficients are missing at finitely many degrees only: a zero-energy finite atomic measure would have the moments of a finite harmonic polynomial density and must vanish. Universality holds exactly with no missing degrees. The frozen numerical checker was inspected, not executed or treated as proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Three-sphere record e9c1c53ae903 uses Gegenbauer modes; the stated upper bounds give 17/7 on S³ versus 5 on S² at a=1. The circle record 027cc81ac50f uses Fourier modes. The S² record 509c2a9eeeb8 concerns cos(theta), not cos(2 theta)."
+        ],
+        "reasoning": "Higher-dimensional restriction supplies only a sufficient region when the cones differ; different modulation or dimension does not prove this exact classification. General harmonic sign criteria and baseline positivity do not by themselves perform the extremization.",
+        "searches": [
+          "Resultary: second geodesic cosine positivity and staircase on the circle, two-sphere and three-sphere",
+          "Gneiting arXiv:1111.7077"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, checker.py, requirements.txt",
+        "Resultary 48ddeabbb4c7, e9c1c53ae903, 027cc81ac50f, 509c2a9eeeb8, 543d6b941b9f (indexed statements)",
+        "Gneiting arXiv:1111.7077 (identified; targeted text attempted)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The catalog's strict-positive-definiteness threshold for the pure wave implies the sufficiency part of the pure-wave claim; the given exact cone for arbitrary real b also determines PSD of the pure wave by taking the closure as b tends to positive infinity. The exact lower envelope is unique, and adjacent crossing details require the exact controlling-degree rule or coefficient formulas."
+        ],
+        "reasoning": "Core coverage is explicit or follows from the stated exact cone, while equality annotations, the displayed crossing polynomial and its proof were not verified as textually identical.",
+        "searches": [
+          "48ddeabbb4c7 exact-cone and pure-wave statements",
+          "RESULT.md:81–113 compared with cited Schoenberg and strictness criteria"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "48ddeabbb4c7 explicitly specifies the unit two-sphere and exp(-a theta)(1+b cos(2 theta)), the exact positive-definiteness cone, a quartic-selected Legendre degree, and a separate weak-damping degree-zero upper boundary."
+        ],
+        "reasoning": "The kernel and two-sided sharp parameter set being determined coincide; selection by a quartic rather than by bracketing the continuous critical point is not by itself a different cone.",
+        "searches": [
+          "Resultary: A sharp Schoenberg staircase for second-harmonic modulation of geodesic exponentials on the two-sphere 48ddeabbb4c7 positive cone pure oscillatory factor sqrt 3 quartic"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A distinct catalog record states an infinite staircase, asymptotic active index sqrt(7/3)a, and pure-wave threshold a>=sqrt(3), in addition to the exact cone."
+        ],
+        "reasoning": "This is a concrete matching mathematical entry, not the frozen item itself. Its summary does not expose the crossing table or beta_n formula.",
+        "searches": [
+          "Resultary 48ddeabbb4c7 exact ID and title; targeted RESULT.md lookup"
+        ]
+      },
+      "rationale": "The central classification is not established as distinct. A separate indexed record expressly gives the exact cone for the identical intrinsically geodesic unit-S² kernel, with the Legendre-selected lower boundary, degree-zero upper boundary and unbounded staircase. It also states the same pure-wave threshold (in fact for strict positive definiteness) and the same controlling-degree asymptotic. These are positive statement-level matches, not an inference from a similar title, and the exact cone for a fixed family is a unique set regardless of selector notation. The same-day date does not establish priority. The text available does not establish identical crossing polynomials or proof details. Explicit tie formulas and boundary corollaries in the frozen record have not been established as a distinct central classification; no narrower repaired result is claimed.",
+      "residual_risks": [
+        "Exact beta_n formula, no-skips proof, asymptotic remainder and universality detail could not be compared against the full same-day record.",
+        "No chronological priority asserted for either same-day record; a formula-level equivalent in other literature remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material statement-level equivalent coverage of central cone; chronological priority and exact switch formula not established",
+          "evidence": [
+            "Same unit S² family, Legendre-controlled exact cone with separate degree-zero upper boundary, infinite staircase with sqrt(7/3)a active index, pure cosine strictly PD exactly when a>=sqrt(3)."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-schoenberg-staircase-for-second-harmonic-modulation-of-g--48ddeabbb4c7",
+          "material_read": "Complete indexed scientific summary; targeted original RESULT.md retrieval timed out",
+          "method": "Resultary exact-source search and targeted OA passage retrieval",
+          "title": "A sharp Schoenberg staircase for second-harmonic modulation of geodesic exponential kernels",
+          "trigger": "Same kernel and exact cone and staircase"
+        },
+        {
+          "assessment": "Analogue on S³, not the exact S² result",
+          "evidence": [
+            "S³ upper boundary (y+16)/(8-y), rather than (y+9)/(3-y) on S²."
+          ],
+          "identifier_or_url": "2026/11/16/SCOPE-a-two-sided-positivity-cone-and-every-mode-staircase-for-geodesi--e9c1c53ae903",
+          "material_read": "Catalog summary and frozen statement-level comparison, RESULT.md:121",
+          "method": "Resultary and algebraic comparison",
+          "title": "A two-sided positivity cone and every-mode staircase for geodesic exponentials on the three-sphere",
+          "trigger": "Possible restriction to S²"
+        },
+        {
+          "assessment": "No negative whole-document finding asserted",
+          "evidence": [
+            "Frozen RESULT.md:119 identifies the geodesic powered-exponential baseline as background."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1111.7077",
+          "material_read": "Frozen citation and its description; attempted OA retrieval did not provide primary passages",
+          "method": "Targeted OA lookup",
+          "title": "Strictly and non-strictly positive definite functions on spheres",
+          "trigger": "Possible baseline or broader classification"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "In isolation this is a useful exact classification of a natural signed covariance family: an infinite harmonic feasibility test is reduced to an explicit cutoff with complete boundary behavior, including strict positivity versus universality. This assesses the mathematical content, not distinctness or priority.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

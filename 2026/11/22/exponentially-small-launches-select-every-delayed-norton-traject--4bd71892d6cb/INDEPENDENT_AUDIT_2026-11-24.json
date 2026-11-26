@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:39:49.952026Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, lines 26–132; analytic energy, matching, inversion and reaction checks",
+        "VERIFICATION.md and checker.py inspected, not executed; sample quadrature is not the uniform estimate"
+      ],
+      "rationale": "Write b=bρ, s=b/ρ and use y=r/b. The energy integral has prefactor √(ρ/g). On 0<y≤1, the scaled center arclength Q is comparable to y^(1/a), Q'/Q=O(1/y), and the relative difference of the scaled height factor from Q² is O(y^((a−1)/a)+s²y^(2/a)). Subtracting the reference integrand Q'/√(η²+Q²) therefore costs O(1) uniformly even as η tends to zero; the reference integral is arsinh(Q(1)/η)=log(1/η)+O(1). Outside b the relative perturbations are O(ρ r^(-(a−1)/a)), giving integrated error O(ρ b^(-(a−1)/(2a)))=O(√(ρ/g)); the omitted point-particle integral up to b is of this same order. Applying these bounds at each positive level and inverting the increasing hitting times gives compact-time uniform convergence of the clipped paths, including T=0 and T=∞. Contact holds locally since the offset curvature is at most both κ_a and 1/ρ; these bounds give Hρ κ_q=O(r^(2/a)) and v²κ_q≤g(b/ρ)². N in the proof is the magnitude of the outward support force, despite the wording ‘inward normal reaction’.",
+      "residual_risks": [
+        "Only fixed a>1, c,g, and sufficiently small fixed stopping arclength are covered; not uniform as a approaches 1 or through loss of contact."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chen–Kuo §7 explicitly separates exact-rest uniqueness and instability under perturbation; §3.2 treats the geometry for generalized exponent a but not a uniform family of strictly positive launch speeds."
+        ],
+        "reasoning": "The reviewed general-exponent exact-rest result does not cover the uniform positive-speed estimate. Related regularizations are not interchangeable with the deterministic offset-and-launch model.",
+        "searches": [
+          "Chen–Kuo, arXiv:2611.16797v1 §§3, 7; prior comparisons in RESULT.md lines 138–153"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary comparison",
+        "Chen–Kuo arXiv:2611.16797v1 §§3.1, 3.2, 7",
+        "Frozen prior-work discussion and references"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior quadratic drop at the apex predicts hyperbolic departure at fixed radius and the local logarithm, but its zero-energy divergent integral has no positive-speed cutoff or uniform finite part."
+        ],
+        "reasoning": "The uncontrolled constants of a fixed-radius small-speed argument cannot establish the joint estimate. The radius-dependent matching scale and integrable remainder are needed for delay selection, particularly for η tending to zero exponentially.",
+        "searches": [
+          "Chen–Kuo arXiv:2611.16797v1, Theorem 3.1, eqs. (43)–(55), §7"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact indexed match has suffix 4bd71892d6cb and is the frozen finding itself. Chen–Kuo §3.1, eqs. (37)–(42) give delayed point-particle departures; §3.2, eqs. (43)–(55) give the finite-sphere integral for zero launch energy."
+        ],
+        "reasoning": "Writing the logarithm as log(vρ*/vρ) is equivalent to the frozen statement. The matched exact-rest and point-particle problems are not equivalent to taking a joint positive-speed, small-radius limit.",
+        "searches": [
+          "Resultary: Norton dome, exponentially small outward launches, delayed finite-sphere limit",
+          "Chen–Kuo, arXiv:2611.16797v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published index match: https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-exponentially-small-launches-select-every-delayed-norton-traject--4bd71892d6cb (same record and estimate)."
+        ],
+        "reasoning": "This is a self-match rather than an independent earlier result; there is no discrete table of parameters underlying the theorem.",
+        "searches": [
+          "Resultary: finite sphere Norton dome, exponential launch and arbitrary delay"
+        ]
+      },
+      "rationale": "The specific addition supported by the checked sources is the uniform two-scale first-passage estimate for positive apex speeds, and the ensuing deterministic selection of every delay by a vanishing launch. Neither offset geometry, exact-rest uniqueness at fixed radius, nor the delayed point-particle paths themselves are new here.",
+      "residual_risks": [
+        "Fletcher's Minimal Approximations and Norton's Dome was identified in the frozen discussion but not checked in full; implicit derivations in related singular-regularization work remain possible. This bounded comparison does not establish publication priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers exact-rest geometry and divergence, not the positive-launch estimate.",
+          "evidence": [
+            "Eqs. (37)–(42): delayed point-particle solutions; Theorem 3.1 and eqs. (43)–(55): fixed-radius exact-rest divergence and quadratic height; §7: uniqueness does not imply stability."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2611.16797",
+          "material_read": "v1 §3.1 pp. 7–8, §3.2 pp. 8–9 and §7 pp. 18–19",
+          "method": "Lawful OA PDF, bounded passages",
+          "title": "Finite Bodies on Norton's Dome: Escape-Time Divergence and a Center-of-Mass Barrier Theorem",
+          "trigger": "Same dome, sphere geometry, and travel-time singularity"
+        },
+        {
+          "assessment": "Identical finding; not evidence of independent prior coverage.",
+          "evidence": [
+            "Same √(ρ/g) logarithmic delay and selection of all finite waiting times."
+          ],
+          "identifier_or_url": "Resultary 2026/11/22, suffix 4bd71892d6cb",
+          "material_read": "Indexed summary compared with frozen Finding, lines 5–24",
+          "method": "Local index and bound original",
+          "title": "Exponentially small launches select every delayed Norton trajectory in the finite-sphere limit",
+          "trigger": "Closest indexed match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 5–24, 120–132",
+        "Chen–Kuo arXiv:2611.16797v1 §§3, 7"
+      ],
+      "rationale": "The result reconciles fixed-radius uniqueness with point-particle nonuniqueness using an explicit physical perturbation. It distinguishes vanishing launches selecting immediate departure, arbitrary finite delays, and remaining at rest in the limit, with an error uniform over the relevant launch speeds. Exact-rest divergence alone cannot make that distinction.",
+      "residual_risks": [
+        "No probability law, robustness claim for realistic perturbations, or extension to rolling or other body shapes."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

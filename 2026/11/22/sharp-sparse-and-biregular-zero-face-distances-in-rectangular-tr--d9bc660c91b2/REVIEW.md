@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The row–column centering operator is the Frobenius-orthogonal projector onto the zero-margin tangent subspace. Its pairing with every forced-zero face point is exactly the negative forbidden-cell count divided by total cell count. Cauchy–Schwarz gives the advertised degree-variance bound without assuming feasibility of any mask. Equality at small cardinalities forces all degrees to be at most one; the explicit projected matrix is entrywise nonnegative and has exact prescribed margins. Equality at divisible cardinalities forces regular degrees, and the uniform complement matrix realizes equality. Uniqueness comes from strict convexity. Exact-rational checks plus separate numerical quadratic programs support, but do not prove, the unrestricted statements.
+## correctness
 
-## Originality — PASS, with priority limits
-The 2023 matching-polytope source and 2024 transportation-polytope source concern integrality/combinatorics and vertices, not these Euclidean optimizations over zero patterns. The 2016 minimum-norm work provides general algorithms for a distinct fixed-margin minimization; the two sharp extremal zero-mask laws are not its stated results. The inaccessible 1977 square zero-pattern paper is a substantive risk, particularly for reducible square analogues. Priority is based on compared statements and available material, not merely on title searches. A comprehensive literature search cannot prove no equivalent theorem exists.
+PASS
 
-## Mathematical value — PASS
-Coordinate-zero faces are canonical faces of transportation polytopes, and the uniform matrix is their natural symmetry center. Determining which prescribed numbers of removed coordinates bring a face closest to that center is a meaningful exact shape invariant. The two equality mechanisms — noncolliding forbidden edges versus regular forbidden bipartite subgraphs — are structurally distinct; the degree-dispersion bound quantifies the obstruction to their optimality. The theorem is not a full fixed-cardinality census and does not claim to be.
+For B the indicator of the forbidden cells, double-centering gives the orthogonal projection PB because the discarded row/column effects pair to zero with all zero-margin matrices. Each feasible X satisfies <X-U,PB>=-k/(mn). Thus feasibility implies PB is nonzero, and Cauchy–Schwarz gives the degree bound. Its denominator comes from <PB,B>=k-sum(r_i^2)/n-sum(c_j^2)/m+k^2/(mn). For k at most min(m,n), each degree square sum is at least k, with simultaneous equality precisely for a matching. In that case every (PB)_ij on the mask is D/(mn), where D=(m-1)(n-1)+k-1. The candidate U-PB/D has zero forbidden entries, correct margins, and off-mask entries with numerators mn, n(m-1), m(n-1), or mn-m-n over mnD, all nonnegative. It is an equality case of Cauchy–Schwarz, proving attainment; strictness for every other feasible mask follows from the degree bound. For the divisible case, alternatively use ||X-U||_F^2=||X||_F^2-1/(mn) and apply Cauchy–Schwarz to the mn-k allowed cells of total mass one. Equality forces constant mass there, which has the required margins exactly when the mask is biregular. Its existence follows by giving each row a consecutive block of k/m distinct residues from the sequence 0 through k-1 modulo n; whole residue cycles give k/n in each column. These arguments address uniqueness and all claimed endpoints. The frozen line 60 calls the 941 optional cases nonmatching, but the script counts all feasible iterations, including matching and singleton masks, and may sample duplicates. That changes neither theorem nor equality proof.
 
-## Closest sources and limitations
-Torres, arXiv:2306.11910v1; Koehl, arXiv:2404.16791v1; Calvillo–Romero, DOI 10.1016/j.dam.2015.01.027; Bachem–Korte, LAA 31 (1980); Achilles, DOI 10.1080/03081087708817175. Full-text access to the last two works was incomplete. The square doubly stochastic specialization is deliberately excluded.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct contribution is the fixed-cardinality mask comparison, especially the exact sparse matching optimum and characterization, tied to a degree-sensitive certificate. The elementary allowed-cell mass bound and the general idea of projecting in a transportation polytope are not credited as independent new results. General fixed-mask minimum-norm work is directly relevant; its unresolved full-text scope is recorded rather than treated as evidence of noncoverage.
+
+## value
+
+PASS
+
+The center-to-face distance is a natural Euclidean invariant for a fixed number of imposed zeros. The exact classification resolves whether collisions of forbidden positions can ever make the nearest face closer in the sparse regime, and quantifies the trade-off through degree dispersion. The attained bound distinguishes separated sparse masks from balanced dense ones and is more informative than a per-mask optimization routine.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

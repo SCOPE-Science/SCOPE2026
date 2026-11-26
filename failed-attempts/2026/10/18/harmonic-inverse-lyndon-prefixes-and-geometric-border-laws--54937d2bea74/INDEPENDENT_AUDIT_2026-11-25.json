@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:20:37.755042Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Bonizzoni et al. Proposition 7.21 characterizes inverse Lyndon words as strict sesquipowers of anti-Lyndon words, which is equivalent to the frozen periodic-prefix formulation with root length at most k. An unbordered root of length m is the least period of its length-k extension: a smaller period would restrict to a smaller period of the root and supply a nonempty border. The root is then forced by the initial m letters. Counting primitive necklaces gives the two exact counts including m=k and m=1. The Möbius formula gives L_q(m)=q^m/m+O_q(q^{m/2}); in its sum, writing m=k−b and expanding 1/(k−b)=1/k+O(b/k²) for b≤k/2, with the remainder of the sum exponentially small relative to q^k/k, gives the stated C_q(k). The geometric limit follows at each fixed b. The first moment is justified separately: probabilities are bounded by a constant times q^(−b) up to k/2, and the weighted tail above k/2 is O_q(k²q^(−k/2)). Prefix closure gives exactly the marginal tail at each position with at least k symbols remaining. Summing tails and using linearity (without independence between entries) proves both expectation claims and their remainders. The frozen script and finite output were inspected without execution; the uniform-in-k asymptotics and convergence of the mean are analytical.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bonizzoni et al. characterize the entire language, which is stronger than a count. The earlier array papers study prefix closure and structural border correction; the inspected random-input studies report construction timings, not the expected array mass. The later-indexed 675a8e7acf95 extends reciprocal tails and logarithmic truncated means for the first entry to general positive iid sources and explicitly recovers q/(q−1) in the uniform case."
+        ],
+        "reasoning": "The structural characterization plus prefix closure controls all the needed marginals. The later indexed result overlaps the uniform first-entry behavior but neither proves priority over the reviewed result nor supplies its conditioned border law. The decisive antecedent is the checked earlier characterization.",
+        "searches": [
+          "arXiv:1705.10277 §§7.4–7.5",
+          "arXiv:2603.17537 §§3.1–3.2, Lemma 6",
+          "arXiv:2609.23401 Corollary 1 and Remark 1; random-input experiments",
+          "Resultary 675a8e7acf95"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, check.py and verification_output.txt",
+        "Bonizzoni et al. arXiv:1705.10277",
+        "Negri et al. arXiv:2603.17537",
+        "De Felice et al. arXiv:2609.23401",
+        "Resultary 675a8e7acf95"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At fixed length k each admitted root gives one word and cannot overlap a different root because the least period is the root length. Thus the known primitive-necklace count L_q(m) is already the entire bin at border k−m. In that histogram, the ratio of terms a fixed distance from k tends to q^(−b), the total normalizes by the geometric sum, and geometric domination plus the exponentially small far tail gives convergence of means. Prefix closure turns the histogram sum into the array-entry tail, and the exact total is the sum of those tails with multiplicity n−k+1."
+        ],
+        "reasoning": "The computations need no new combinatorial classification or dependence estimate; the first moment is justified by elementary domination rather than inferred merely from convergence in distribution. The new phrasing of the observables does not leave a nonroutine result beyond the direct consequences of the prior statements.",
+        "searches": [
+          "arXiv:1705.10277 Proposition 7.21 and SP definition versus frozen RESULT.md proof §§1–3",
+          "arXiv:2603.17537 Lemma 6 versus frozen RESULT.md proof §4",
+          "Resultary: geometric conditioned inverse Lyndon border law and expected total inverse Lyndon array mass"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Proposition 7.21 states inverse Lyndon iff w lies in SP. The definition of SP is (uv)^n u with n≥1, uv anti-Lyndon and |u|<|uv|. Proposition 7.15 also identifies SP as nonempty anti-Lyndon prefixes together with powers of the minimum letter. The one-letter roots already handle those powers."
+        ],
+        "reasoning": "The published language characterization supplies exactly the family of length-k prefixes of periodic anti-Lyndon roots of length at most k. Reversing the alphabet identifies the roots with Lyndon representatives of primitive necklaces. Restricting a period to the unbordered root identifies root length with least period and hence with k minus the longest border.",
+        "searches": [
+          "arXiv:1705.10277 §7.4, strict sesquipowers, Propositions 7.15 and 7.21",
+          "Resultary: inverse Lyndon exact length count and longest-border histogram",
+          "Resultary: binary prenecklace enumeration by length and least period"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No external indexed exact table was verified. The reviewed verification_output.txt lists binary totals 2,3,5,8,14,23,41,71,127,226,412,747, but it is frozen supporting evidence, not an antecedent. Attempts to retrieve candidate classical necklace-generation passages did not produce readable full text, and no exact-sequence inference is made from that gap."
+        ],
+        "reasoning": "The exact histogram follows algebraically from an independently checked language theorem and the standard one-per-primitive-necklace enumeration. An exact database hit would be additional evidence, not a necessary premise of the coverage finding.",
+        "searches": [
+          "Resultary: binary prenecklace counts and exact inverse Lyndon border frequencies",
+          "Primary lookup: prenecklaces 2, 3, 5, 8, 14, 23; number of prenecklaces as a sum of Lyndon words by least period; Ruskey and Sawada"
+        ]
+      },
+      "rationale": "The prior strict-sesquipower characterization and classical necklace enumeration together determine the full least-period/border histogram directly. The remaining conditional and array laws are elementary asymptotic and tail-sum consequences of those counts and the known prefix closure. The reviewed formulas are not asserted to appear verbatim in the earlier array papers; the failure is the demonstrated implication, not an unsuccessful attempt to find an exact table.",
+      "residual_risks": [
+        "A classical prenecklace source or exact sequence may state the counts directly, but no such passage was verified. It is not alleged that the reviewed geometric or mass formulas are verbatim in the earlier array papers. The originality decision rests on verified implication, not on search coverage or the dates of later records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact language equivalence; mechanically yields period enumeration with necklace counts",
+          "evidence": "Inverse Lyndon words are exactly strict sesquipowers of anti-Lyndon words; the form already includes a root no longer than the word.",
+          "identifier_or_url": "https://arxiv.org/pdf/1705.10277",
+          "material_read": "§7.4 definition of SP and Proposition 7.15 on PDF p. 34, offset 109530; Proposition 7.21 on PDF p. 36, offset 115400",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "Inverse Lyndon words and inverse Lyndon factorizations of words",
+          "trigger": "Exact structural antecedent"
+        },
+        {
+          "assessment": "Supplies known prefix closure; inspected section is structural",
+          "evidence": "Lemma 6 gives closure under nonempty prefixes, making each marginal a word-count probability.",
+          "identifier_or_url": "https://arxiv.org/html/2603.17537",
+          "material_read": "§§3.1–3.2, including Lemma 6 and border correction",
+          "method": "Lawful OA full-text passage inspection",
+          "title": "The Inverse Lyndon Array: Definition, Properties, and Linear-Time Construction",
+          "trigger": "Prior definition and possible statistics of the array"
+        },
+        {
+          "assessment": "Border correction and timings, not a located array-mass law",
+          "evidence": "The correction uses nearest greater suffixes and longest common extensions; the experiment observable is runtime.",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.23401",
+          "material_read": "p. 7 Corollary 1 and Remark 1; pp. 17–19 construction experiments near offset 42700",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "The Inverse Lyndon Array",
+          "trigger": "Closest array algorithm and random-input experiments"
+        },
+        {
+          "assessment": "Later-indexed overlap in the first-entry law; distinct biased-source extension",
+          "evidence": "The finding gives reciprocal tails for general positive iid sources and states the uniform coefficient; it does not make the conditioned-border or total-array claim.",
+          "identifier_or_url": "Resultary 675a8e7acf95",
+          "material_read": "Mirrored RESULT.md finding and uniform-coefficient comparison",
+          "method": "Local Resultary and mirror passage inspection",
+          "title": "A bias-sensitive reciprocal tail for the initial inverse Lyndon prefix",
+          "trigger": "Direct overlap in the uniform prefix-tail asymptotic"
+        },
+        {
+          "assessment": "Recorded finite corroboration, not an independent rerun",
+          "evidence": "Suffix and rotation comparisons cover binary word lengths through 12 and ternary through 8; direct array checks cover binary lengths through 8 and ternary through 6. The longer examples use numerical evaluations, not independent enumeration.",
+          "identifier_or_url": "VERIFICATION.md; check.py; verification_output.txt",
+          "material_read": "Verification metadata; check.py lines 11–81 and 100–118; verification_output.txt lines 1–10",
+          "method": "Read-only source inspection",
+          "title": "Frozen inverse Lyndon verification",
+          "trigger": "Clarify evidence for finite enumeration and array checks"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The border and array statistics are natural, and the expected total is not an algorithmic running time. However, the exact counts are direct consequences of the known periodic-root description, and rewriting them as marginal tails, then summing, adds only standard asymptotic estimates. The finding does not resolve a nonroutine probabilistic question about joint array structure or any comparably independent mathematical gap.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

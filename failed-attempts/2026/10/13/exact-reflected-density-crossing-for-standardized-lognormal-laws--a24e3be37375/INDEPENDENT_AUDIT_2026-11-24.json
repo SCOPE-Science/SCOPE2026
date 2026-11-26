@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:49:31.671115Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 3–56 and 58–136",
+        "VERIFICATION.md",
+        "verify_lognormal_reflection.py"
+      ],
+      "rationale": "Put s=σ², m=E X and d=SD(X)=m√(e^s−1). The common positive-z support is 0<z<m/d, and the common Jacobian cancels at x±=m±dz. Completing the square gives log f(x)=constant−(log x−(μ−s))²/(2s). Subtracting its two evaluations yields artanh(dz/m)[−3−log(1−(dz/m)²)/s], as in the record. The bracket increases strictly from −3 to +∞, so the unique interior positive crossing has (dz/m)²=1−e^(−3s), strictly between 0 and 1. Division by e^s−1 gives κ²=e^(−s)+e^(−2s)+e^(−3s), proving strict decrease, the √3 limit, and the large-σ equivalent. The cubic in q=e^(−s) is strictly increasing in q between its values 0 and 3, yielding the unique quoted one-SD transition. This is a positive-radius crossing; equality at z=0 is excluded. The supplied script was inspected, not executed; its finite checks do not establish the theorem for all σ.",
+      "residual_risks": [
+        "No fresh replay of the printed decimal or formal certification is claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The proposition determines a family-wide infimum of an absolute standardized tail. The endpoint record gives a large-σ equivalent for that tail; the Gamma entry compares reflected densities but on another family."
+        ],
+        "reasoning": "Neither an integrated limit or infimum nor a result for a different parametric family gives the finite-σ direction and location of this pointwise density crossing.",
+        "searches": [
+          "Hu–Song–Tan Proposition 3.8",
+          "Resultary 967d8f338a14 and b5686a859f59"
+        ]
+      },
+      "checked_sources": [
+        "Hu–Song–Tan Proposition 3.8",
+        "Resultary 967d8f338a14",
+        "Resultary b5686a859f59",
+        "Tables and Characteristics of the Standardized Lognormal (metadata only)",
+        "Stoimenova–Boshnakov item (metadata only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The lognormal tail uses a one-sided Gaussian tail in a degeneration; the Gamma crossing uses an equation involving artanh(r)/r and the Gamma shape. Neither supplies a finite-shape pointwise lognormal comparison. Direct substitution in the standard lognormal density does, with no extra distributional result."
+        ],
+        "reasoning": "The reviewed specialized prior claims do not cover this exact quantity. The standard density and moment identities readily calculate it, so separation from the neighboring statements does not establish substantial value.",
+        "searches": [
+          "Hu–Song–Tan Proposition 3.8 proof",
+          "Resultary b5686a859f59 lognormal endpoint and 967d8f338a14 Gamma reflection theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The unstandardized crossing would be at distance √(m²−mode(X)²) from the arithmetic mean m. More generally, completing the square in the usual density gives equality at distinct positive x and y exactly when xy=mode(X)². These equivalences were derived during review, not found as statements in the inspected references."
+        ],
+        "reasoning": "A result giving that product rule or the raw mean-centered crossing would cover the standardized radius after scaling. Sharing the same mean and SD normalization for an integrated event does not do so.",
+        "searches": [
+          "Focused literature search for standardized lognormal reflected-density crossings",
+          "Tables and Characteristics of the Standardized Lognormal",
+          "Hu–Song–Tan, arXiv:2401.09998v1 Proposition 3.8"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The accessible exact catalogue statements concern a Gamma root and a lognormal tail equivalent, not the radius or the cubic threshold. The table candidate was identified by title only; the PDF and summary page timed out."
+        ],
+        "reasoning": "The catalogue entries are not equivalent evaluations. No conclusion about the contents of the unavailable table is drawn.",
+        "searches": [
+          "Local Resultary mirror: standardized Gamma reflection crossing, 967d8f338a14",
+          "Local Resultary mirror: standardized anti-concentration endpoints, b5686a859f59",
+          "Tables and Characteristics of the Standardized Lognormal"
+        ]
+      },
+      "rationale": "Limited to the explicit finite-shape arithmetic-mean-reflected density formula and its threshold: these are distinct from the earlier integrated-tail results and the Gamma analogue in the inspected material. No checked statement explicitly covers the mean-reflected lognormal crossing or the more general equal-density-pair rule. This finding does not establish priority or a nonroutine contribution; the direct reduction to the standard density is decisive against scientific value.",
+      "residual_risks": [
+        "The unavailable standardized-lognormal table or older literature could state the equivalent equal-density rule or a raw mean-reflected crossing.",
+        "The absence of an explicit match in the inspected passages is not historical priority evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different quantity; same normalization",
+          "evidence": "For every fixed y>0 the parameter infimum of P(|X−E X|≥y SD(X)) is zero, shown by sending log-scale to infinity.",
+          "identifier_or_url": "https://arxiv.org/abs/2401.09998v1",
+          "material_read": "Proposition 3.8 and proof, PDF p. 12 near text offset 44316",
+          "method": "Lawful OA primary text",
+          "title": "On the anti-concentration functions of some familiar families of distributions",
+          "trigger": "Same mean/SD-standardized lognormal family"
+        },
+        {
+          "assessment": "Different distribution and crossing equation",
+          "evidence": "No interior crossing for shape α≤1; for α>1 its crossing equation is artanh(r)/r=α/(α−1).",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-a-universal-one-to-root-three-reflection-crossing-for-standardiz--967d8f338a14",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "A universal one-to-root-three reflection crossing for standardized Gamma densities",
+          "trigger": "Same reflected-density question"
+        },
+        {
+          "assessment": "Integrated tail equivalent, not pointwise reflection",
+          "evidence": "The absolute standardized tail at fixed y is asymptotic to e^(−σ²/2)/(yσ√(2π)) as σ tends to infinity.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-five-endpoint-laws-behind-vanishing-standardized-anti-concentrat--b5686a859f59",
+          "material_read": "RESULT.md offsets 0 and 3908, lognormal endpoint",
+          "method": "Local Resultary mirror",
+          "title": "Five endpoint laws behind vanishing standardized anti-concentration",
+          "trigger": "Exact asymptotic for the same standardized distribution"
+        },
+        {
+          "assessment": "Unresolved, not negative evidence",
+          "evidence": "Both timed out; no identified alternate copy. No inference about whether it contains equal-density points or a crossing.",
+          "identifier_or_url": "https://citeseerx.ist.psu.edu/document?doi=c9a2b4ecb0b1b1608eaa40021bd38ede169ccf09&repid=rep1&type=pdf",
+          "material_read": "Search title only; no author or relevant full-text passage recovered",
+          "method": "Lawful OA PDF and summary retrieval attempts",
+          "title": "Tables and Characteristics of the Standardized Lognormal",
+          "trigger": "Potential tabulation or equivalent standardized density identity"
+        },
+        {
+          "assessment": "Unresolved, not negative evidence",
+          "evidence": "Both timed out. The title and relevance beyond the search hit could not be verified.",
+          "identifier_or_url": "https://personalpages.manchester.ac.uk/staff/georgi.boshnakov/Publications/Boshnakov2009jeni.pdf",
+          "material_read": "Search metadata with author names; no full-text passage",
+          "method": "Lawful OA PDF and author-publications-page retrieval attempts",
+          "title": "Stoimenova–Boshnakov item; title not recovered",
+          "trigger": "Potential density comparison hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 58–136 and 143–151",
+        "Hu–Song–Tan Proposition 3.8",
+        "Independent equal-density-product reduction from the standard lognormal density"
+      ],
+      "rationale": "The statistic is naturally normalized but its precise value is a routine deduction from the textbook density and moments. The log density is quadratic in log x around the log-mode, so equal-density points have product equal to the squared mode. At x±=m±dz their product is m²−d²z²; the entire formula follows by solving that single equation, with the signs from the same quadratic difference and the threshold by setting z=1. The record identifies no substantive use requiring this precise crossing or cubic cutoff and establishes no further property beyond this direct calculation. The value decision does not depend on inaccessible papers.",
+      "residual_risks": [
+        "An independently motivated application requiring this exact sign threshold could support a different contribution; none is established here."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

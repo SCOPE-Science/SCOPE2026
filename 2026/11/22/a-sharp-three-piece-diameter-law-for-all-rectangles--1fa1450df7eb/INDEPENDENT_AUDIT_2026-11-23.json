@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:10:56.231727Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Final assessment of /workspace/repairs/2/RESULT.md. The frozen normalized theorem is correct; the scope sentence saying to multiply the displayed value by b incorrectly scales the displayed squared value if read literally. The replacement specifies bD3(lambda) for diameter and b^2D3(lambda)^2 for its square, and proves the same normalized theorem. I reconstructed the corner argument: the set holding the left corners cannot reach the right side and its top and bottom traces end at a,b<=eta. If another set holds both right corners, its traces start in x>=t-eta; the remaining set must cover both horizontal gaps up to their endpoints, giving d^2>=s^2+(t-2eta)^2. Otherwise the two closed right traces meet at (t,z). The top handoff point (a,s) is excluded from the part with the bottom right corner by a strict diameter violation, persisting in a neighborhood, so goes to the part with the top right corner by closedness. Likewise for (b,0). The larger distance from those points to (t,z) gives d^2>=(t-eta)^2+s^2/4. The cases allow shared boundaries and require no cut hypothesis. Pigeonhole and the diagonal bound force a pair of adjacent corners. With s=1,t=lambda, d^2<H<=G_v gives eta<lambda/2 and d^2<lambda^2+1/4; both alternatives yield d^2>=H. With s=lambda,t=1, d>=lambda first forces lambda<=lambda0 by the sign of F_v-lambda^2. On that interval eta^2<1/64, F_v<1+lambda^2/4, and 1-3lambda^2/4>0, so both rotated bounds can be squared and exceed or equal F_v. The factorizations verify the signs, including the square endpoint and equality of the two branches at 3/2. Attaining rectangles are nonempty and have the stated diagonals; Euclidean similarity proves the corrected scaling. VERIFICATION.md and verify.py were inspected without execution; finite sign samples are not relied on. Replay the exact inequalities and the attaining side lengths in the corrected file. There is no uniqueness or higher-piece-count claim.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general convex-body theory defines its n-divisions by successive hyperplane cuts and gives bounds. Its grid upper bound with three columns and one row gives sqrt(1+lambda^2/9), and its lower bound D(R)/3 is not tight for this problem. The square partition problem is formulated and its classical n=3 value reported by Chaidee–Wichiramala."
+        ],
+        "reasoning": "The convex body theorem has broader input shape but stricter feasible partitions and only bounds, not a sharp all-rectangle profile. The known square solution gives lambda=1 with the identical T-configuration; it gives no open interval around 1 or exact branch exchange.",
+        "searches": [
+          "Cañete–Fernández–Márquez, arXiv:2311.13882v1, §2 and §3.1, Theorem 3.3",
+          "Chaidee–Wichiramala, DOI 10.2306/scienceasia1513-1874.2016.42.150, pp. 150–151"
+        ]
+      },
+      "checked_sources": [
+        "Fekete et al., DOI 10.1007/s00454-023-00582-1, §1.2, Lemmas 3.2 and 5.1",
+        "Chaidee–Wichiramala, DOI 10.2306/scienceasia1513-1874.2016.42.150, pp. 150–151",
+        "arXiv:2311.13882v1, §2, Theorem 3.3",
+        "Heppes–Melissen, DOI 10.1023/A:1004224507766 (secondary attribution only)",
+        "Resultary ID 1fa1450df7eb (self)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The disk lower bound uses the same pigeonhole start, but moves a disk center into a symmetric position and uses the motion of two circular boundary intersections; it then optimizes placement of the next disk so that it touches specified boundary points. The arbitrary-partition proof instead bounds every trace point by distance to the opposite corner and uses compact closed traces to force a right-side interface."
+        ],
+        "reasoning": "The equal-disk upper construction directly supplies the T-shaped partition candidate, but its lower proof cannot simply be applied to arbitrary compact convex sets. A symmetrization of disk centers is not defined there, and diameter cannot be equated to twice the circumradius (e.g. an equilateral triangle). The rotated allocation and competing-strip lower bounds must be established to prove the exact convex-partition envelope. The uninspected 1997 text may contain a more general argument; it was not used to assert noncoverage.",
+        "searches": [
+          "Fekete et al., §5.1, Lemma 5.1(3)–(4), Fig. 24, DOI 10.1007/s00454-023-00582-1",
+          "Cañete–Fernández–Márquez, Theorem 3.3",
+          "Heppes–Melissen, DOI 10.1023/A:1004224507766"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact catalogue hit 1fa1450df7eb is this frozen record. Fekete et al. state a three-disk covering construction with r^2=lambda^2/16+5/32+9/(256 lambda^2)=F_v/4. In their Lemma 5.1(3), the first disk covers a full-height strip of width sqrt(4r^2-1)=u and the remaining width is split in half vertically in height, exactly the same T-arranged rectangles. The earlier equal-circle work of Heppes and Melissen is identified in Fekete et al.'s introduction."
+        ],
+        "reasoning": "The match of the expression and construction extends beyond the square and is credited as prior, not just as a similar number. But a radius-r disk guarantees diameter <=2r; a convex piece of diameter 2r need not fit such a disk. There is no equivalence in the direction needed to transfer the disk lower bound, even though disk and partition values can agree. The distinct aspect-ratio profile is for all convex pieces.",
+        "searches": [
+          "Resultary: three convex parts rectangle minimum maximum diameter, T versus strips, 3/2 aspect-ratio transition",
+          "2026/11/22/SCOPE-a-sharp-three-piece-diameter-law-for-all-rectangles--1fa1450df7eb",
+          "DOI 10.1007/s00454-023-00582-1, Lemmas 3.2 and 5.1",
+          "DOI 10.1023/A:1004224507766"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact endpoint sqrt(65)/8 is recorded in the square literature. Fekete et al.'s exact critical covering-area theorem involves three identical disks for small aspect ratios and a two-disk obstruction above its threshold lambda_2; it is not the T-versus-three-strips partition table. The inspected index yielded no distinct exact partition profile."
+        ],
+        "reasoning": "The same square number and near-square radius curve are credited. The area theorem asks to cover using arbitrary disk sizes with prescribed total area; its worst-case transition concerns a different optimization and cannot tabulate this diameter objective. No separate exact database for this continuous partition profile was identified in the bounded checks.",
+        "searches": [
+          "Resultary exact formula and aspect ratio 3/2 queries; verified self ID 1fa1450df7eb",
+          "ScienceAsia 42 (2016), p. 150, n=3 square optimum",
+          "Fekete et al., §1.2, Fig. 2, Lemmas 3.2 and 5.1"
+        ]
+      },
+      "rationale": "For the corrected all-rectangle theorem, the square endpoint, three-strip upper bound, and T construction and its exact expression have real prior coverage. The distinct claim is their sharp optimality profile over arbitrary convex partitions including the transition at 3/2. The closest equal-disk proof has substantially overlapping geometry but works with disk centers and circular intersections and does not prove the partition lower bound. The corrected record explicitly credits the strongest verified overlap.",
+      "residual_risks": [
+        "The 1997 equal-circle full text and the 1958 original square solution were not inspected; the former could contain a more directly useful lower-bound argument or a matching separate statement. The assessment is best-of-knowledge and does not exclude unindexed partition results."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact T attainment and associated disk radius; disk-specific near-square lower-bound proof, not sharp arbitrary-convex partition optimality",
+          "evidence": "Lemma 5.1(3) computes covered height 1/2 with the T partition; part (4) uses moving and centering disks and derivatives of chord reach, and is limited to lambda<=lambda_2.",
+          "identifier_or_url": "https://doi.org/10.1007/s00454-023-00582-1",
+          "material_read": "Introduction pp. 1233–1234; §1.2 near offset 11025; §3.1 Lemma 3.2 near offset 18605; §5.1 Lemma 5.1 proof and Figs. 2, 24 discussion, offsets 75205–84021, pp. 1253–1255",
+          "method": "Targeted original open publisher PDF passages",
+          "title": "Worst-Case Optimal Covering of Rectangles by Disks",
+          "trigger": "Exact algebraic T branch, analogous corner proof, three-disk coverage, and route to earlier equal-circle work"
+        },
+        {
+          "assessment": "Known square endpoint and T partition",
+          "evidence": "Reports Wenceslas–Lipman's value sqrt(65)/8 and the partition with a 1/8-by-1 rectangle and two 7/8-by-1/2 rectangles; 1958 original not inspected.",
+          "identifier_or_url": "https://doi.org/10.2306/scienceasia1513-1874.2016.42.150",
+          "material_read": "Printed p. 150 Introduction and p. 151 formulation; offsets near 2200 and 6450",
+          "method": "Targeted open publisher PDF passages",
+          "title": "Optimal partitioning of a square: a numerical approach",
+          "trigger": "Exact special case at lambda=1"
+        },
+        {
+          "assessment": "Bounds in a cut-based class, not this sharp profile",
+          "evidence": "A grid choice supplies the strip construction; the general lower bound does not force the optimum.",
+          "identifier_or_url": "https://arxiv.org/html/2311.13882v1",
+          "material_read": "§2 definition, offsets 3900–4203; §3.1 and Theorem 3.3 near offset 19560",
+          "method": "Targeted open original HTML passages",
+          "title": "Optimal divisions of a convex body",
+          "trigger": "Broader convex geometry and potentially matching successive-cut result"
+        },
+        {
+          "assessment": "Equal-circle scope verified in later source; full original scientific reach unresolved",
+          "evidence": "Fekete et al. attribute optimal solutions for n<=5 unit disks to Heppes–Melissen.",
+          "identifier_or_url": "https://doi.org/10.1023/A:1004224507766",
+          "material_read": "Bibliographic record and attribution in Fekete et al., Introduction; no original body",
+          "method": "Attempted lawful DOI, publisher article and PDF access; original text not obtained",
+          "title": "Covering a Rectangle With Equal Circles",
+          "trigger": "Earlier three-equal-circle optimum may contain the closest analogous aspect-ratio argument"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The design question is natural: it asks for the smallest worst intra-piece distance with exactly three pieces and no assumed cut order. The exact lower profile establishes when the two known styles of construction actually optimize, even against arbitrarily shaped convex competitors. The corner lemma explains why the optimal value changes regimes and is not just optimization within the two proposed families. No value is attributed merely to rescaling or reproducing the historical square value.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

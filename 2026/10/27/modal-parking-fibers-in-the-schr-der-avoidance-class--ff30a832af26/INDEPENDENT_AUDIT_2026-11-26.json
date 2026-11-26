@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:17:35.298479Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Given the outcome permutation, at the arrival of label π_i the prior labels occupy exactly their designated spots by induction. The contiguous occupied run left of i gives precisely ℓ_i choices of preference, and every independent choice gives the desired outcome. At entry n in position j the left word must avoid 123 and 213, the suffix retains its own fiber weight because n blocks its leftward run, and the entry n contributes j. In the left word all factors are 1 or 2 and the 2s cannot be adjacent; descending-by-value increasing pairs attain 2^⌊(j−1)/2⌋. Placing all left labels above all suffix labels prevents forbidden cross-subwords, since the fourth entry of either forbidden pattern is its largest. This constructs equality in the composition recurrence on weights w_j=j·2^⌊(j−1)/2⌋. For j≥8 the split 5+(j−5) strictly dominates by the respective even/odd ratios 5(j−5)/j and 5(j−5)/(2j). The listed strict inequalities then eliminate 1 and 6, followed by 4, 2 and 7, whenever n≥8. All n≥8 are represented by 3 and 5 (start at 8, 9, 10 and add 3). Exchanging 5 threes for 3 fives increases the product, and b≡2n (mod 5) is unique with 0≤b≤4. Adding five increases a by one and bounded b gives the claimed root limit. Independent enumeration to n=9 used the equivalent test that an entry with a larger successor cannot have two smaller predecessors, and a monotone stack for nearest greater predecessors. The maxima were 1,2,6,8,20,36,56,120,216, with avoidance counts 1,2,6,22,90,394,1806,8558,41586. The bounded enumeration does not prove the unbounded formula. The frozen replay is verify.py, with the recorded run in verify_output.txt; the script was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Martinez–Zeilberger's Theorem 4.4 counts the total over the exact class. Colmenarejo et al. provide a general fiber product, recovering the classical count at k=0. Pinsky's abstract concerns the distribution on all permutations."
+        ],
+        "reasoning": "The individual-weight formula is broader but leaves maximization with an avoidance constraint open; an unconditional distribution or a total over the exact class does not determine that maximum.",
+        "searches": [
+          "arXiv:2609.28650v1 Lemma 2.1 and Theorem 4.4",
+          "arXiv:2009.01124 Theorem 3.12",
+          "arXiv:2404.11529 abstract"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary index and the frustrated-parking record 0c01af7493c0",
+        "Martinez–Zeilberger arXiv:2609.28650v1",
+        "Colmenarejo et al. arXiv:2009.01124",
+        "Pinsky arXiv:2404.11529 abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Lemma 2.1 gives the input fiber formula; Theorem 4.4 sums partial aggregate bi-suffix counts pk(n,i,r). It does not use the extremum at the largest entry or optimize integer compositions.",
+          "The earlier modal result modifies where a blocked car parks; its proof optimizes that rule's fibers rather than these restricted classical fibers."
+        ],
+        "reasoning": "Changing sums to maxima on the previously aggregated states would not yield the asserted result. The tight split at n and strict global comparison of part weights are substantive additional steps beyond the known input formula.",
+        "searches": [
+          "arXiv:2609.28650v1, HTML offsets 6406 (Lemma 2.1) and 41478 (Theorem 4.4)",
+          "Earlier Resultary record 0c01af7493c0, mirrored RESULT.md Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Pattern-set inversion fixes {1234,2134}, reversal gives {4321,4312}, complementation gives {4321,3421}, and reverse-complement gives {1234,1243}.",
+          "Fiber weight is not generally invariant under these maps: 2413 has fiber 4 and its inverse 3142 has fiber 3; reverse-complement takes 132 (fiber 2) to 213 (fiber 3). Reversal and complementation already switch fibers 6 and 1 at order 3 for the increasing permutation."
+        ],
+        "reasoning": "Ordinary permutation-class symmetries do not give an equivalent weighted maximum theorem for the classical parking rule without a separate weight-preserving argument. General Naples fibers at k=0 do give the known single-fiber product, not the constrained extremum.",
+        "searches": [
+          "Resultary: maximum individual outcome fiber for Av(1234,2134); symmetry variants and the initial maxima",
+          "arXiv:2009.01124 Theorem 3.12"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The material nearby indexed result 2026/10/25/SCOPE-outcome-fibers-and-modal-parking-orders-of-frustrated-parking-fu--0c01af7493c0 uses frustrated parking and has no such outcome restriction.",
+          "Martinez–Zeilberger's listed totals begin 1,3,16,89,534, not 1,2,6,8,20."
+        ],
+        "reasoning": "The catalogue match is to a different parking rule, and the primary-source sequence is for a different invariant. The bounded index comparison does not rule out an unindexed sequence or result.",
+        "searches": [
+          "Resultary: exact class and maximal parking fiber; total versus max-product recurrence; weights j·2^⌊(j−1)/2⌋; 1,2,6,8,20,36,56 and symmetry variants"
+        ]
+      },
+      "rationale": "The individual fiber formula and the aggregate enumeration for the class are established. The inspected literature and index results do not give the maximum individual fiber in this class, the weight-composition recurrence, or the eventual optimal 3-and-5 formula. This judgment is bounded to the comparisons below.",
+      "residual_risks": [
+        "Passage-based literature and bounded index checks are not an exhaustive priority search. No dedicated OEIS lookup was performed.",
+        "An unindexed extremal result or a weighted equivalence established by a different bijection could cover the claim; none was established by the strongest sources inspected."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known input formula and exact-class sum, not the maximum theorem",
+          "evidence": [
+            "Lemma 2.1 gives ∏ℓ_i; Theorem 4.4 uses pk(n)=Σ_i pk(n,i) and recurs on aggregate bi-suffix counts."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2609.28650v1",
+          "material_read": "Lemma 2.1 and Theorem 4.4, HTML offsets 6406 and 41478",
+          "method": "Bounded primary HTML passage comparison",
+          "title": "A parking function analog of the Schröder numbers",
+          "trigger": "Exact same parking rule, weight and avoidance class"
+        },
+        {
+          "assessment": "Supplies the weight, not its restricted maximum",
+          "evidence": [
+            "A product counts the fiber at a prescribed outcome; the class constraint and optimization are absent from this result."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2009.01124",
+          "material_read": "Theorem 3.12 and classical k=0 specialization, HTML offset 34061",
+          "method": "Bounded primary HTML passage comparison",
+          "title": "Counting k-Naples parking functions through permutations and the k-Naples area statistic",
+          "trigger": "General single-outcome fiber product"
+        },
+        {
+          "assessment": "Different model and optimization domain",
+          "evidence": [
+            "A blocked car parks at the largest vacant spot above its request; the theorem does not impose Av(1234,2134)."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-outcome-fibers-and-modal-parking-orders-of-frustrated-parking-fu--0c01af7493c0",
+          "material_read": "Mirrored RESULT.md offset 0, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local Resultary search and mirror passage read",
+          "title": "Outcome fibers and modal parking orders of frustrated parking functions",
+          "trigger": "Earlier indexed modal parking theorem"
+        },
+        {
+          "assessment": "Unconditional distribution in the inspected passage; no whole-paper exclusion claimed",
+          "evidence": [
+            "The object is the distribution of the parking permutation under a uniformly random parking function without the stated class restriction."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2404.11529",
+          "material_read": "Abstract (offset 0)",
+          "method": "Abstract-level scope check only",
+          "title": "The distribution on permutations induced by a random parking function",
+          "trigger": "Possibly broader extremal parking distribution"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The maximum determines the most likely single outcome conditional on belonging to this natural avoidance class, a statistic the established total does not give. The tight recurrence reduces a constrained permutation extremum to an exact optimization over part sizes, yields a maximizing construction for every order and identifies the eventual growth law. It is not merely a table of small orders or a reformulation of the known fiber product; it makes no claim to classify all maximizing permutations.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

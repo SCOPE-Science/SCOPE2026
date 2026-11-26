@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:40:43.464041Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md:4–55",
+        "VERIFICATION.md:19–25; CHECK.py:42–114",
+        "Independent replay: python3 -B /workspace/replays/frozen_math.py 3"
+      ],
+      "rationale": "The objects are total maps on X, restricted only by f(Y) being contained in Z. Once a path enters Y it enters Z and never leaves, so cycles are wholly in Z or wholly outside Y. For specified cyclic vertices and permutations, delete their outgoing cycle edges. The noncyclic vertices in Z form a forest rooted at the a cyclic Z vertices and vertices in Y outside Z have k independent target choices each. Outside Y the forest roots are the m vertices of Y together with the b designated cyclic vertices outside Y, since no path can return to the exterior after entering Y. The rooted complete-graph forest minor is NI-J on the nonroots, giving r N^(N-r-1), with the empty minor equal to 1. These choices are independent and recover the map uniquely. Choosing the root sets and the two permutations yields (1); partition summation yields (2). Normalizing the product gives independence and the two probabilities, including the all-root case w=0. The stable image supports a permutation, so eventual period is the lcm, with divisor Möbius inversion valid. Bidegrees recover k and w; for fixed k,w the coefficient sum k^m(m+w)^w is strictly increasing in m except for the stated singleton family.",
+      "residual_risks": [
+        "The replay compares all cycle-type pairs for 35 nested-set cardinality triples n<=5, covering 9055 maps and reproducing the displayed (5,3,2) example. The frozen checker is additional recorded finite evidence; the proof establishes the unrestricted parameter range."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 6 counts by index and period in the unrestricted full singular-transformation semigroup. The Hansen–Jaworski cited PDF yielded no extractable passages."
+        ],
+        "reasoning": "The full-map aggregate covers prior eventual-period counting in the unrestricted case, not conditioning on f(Y) being contained in Z or splitting the cycles into partition profiles by zone. The classical one-zone forest–permutation formula is the specialization n=m=k of (1).",
+        "searches": [
+          "Ayik–Ayik–Ünlü–Howie DOI:10.1017/S0004972700038028, Theorem 6",
+          "Hansen–Jaworski, Ars Combinatoria 94 (2010), 341–359"
+        ]
+      },
+      "checked_sources": [
+        "Jin (2021), Jin–You (2023), Ayik et al. (2005), and retrieval attempt for Hansen–Jaworski (2010)",
+        "Resultary 32778df6a6ff, 12bb479c61e2, 19e836b5c0a7, 0c1fa0e07cad"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Jin–You give the same-object total k^m n^(n-m) and an idempotent count. The earlier full-transformation period count does not resolve cycle partitions."
+        ],
+        "reasoning": "The total is B(1,1), not its coefficients. An idempotent has only fixed-point cycles and one-step stabilization; maps with period one can have longer transient tails, so even that period stratum is not recovered from the idempotent total. The explicit decomposition at the one-way restriction produces the joint law; reconstruction is a consequence of bidegrees and mass, not a new semigroup isomorphism theorem.",
+        "searches": [
+          "Jin–You arXiv:2306.00822, §§2–4",
+          "Jin DOI:10.2298/FIL2114925J, abstract and §2",
+          "Ayik et al. Theorem 6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "32778df6a6ff is the same frozen claim, not another discovery. 12bb479c61e2 counts monotone quasi-idempotents by stable and ordinary rank. 19e836b5c0a7 treats power stabilization in partition-preserving classes. Jin defines the same semigroup."
+        ],
+        "reasoning": "Neither an order-preserving quasi-idempotent law nor a block-character stabilization law describes the permitted arbitrary cycles on both zones. Jin's generating rank is the size of a generating set, not the cardinality of the stable image.",
+        "searches": [
+          "Resultary 32778df6a6ff, 12bb479c61e2, 19e836b5c0a7, 0c1fa0e07cad",
+          "Jin DOI:10.2298/FIL2114925J, §2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed two-zone statement was the assigned record itself. 0c1fa0e07cad instead gives the joint number of cyclic and indegree-zero vertices in a uniform full map."
+        ],
+        "reasoning": "None of the distinct inspected exact counts tabulates partitions in Z and outside Y for the frozen domain; stabilization removes nontrivial periodic behavior and terminal counts record a different statistic.",
+        "searches": [
+          "Local Resultary matches 32778df6a6ff, 19e836b5c0a7, 12bb479c61e2, 0c1fa0e07cad; compared Findings"
+        ]
+      },
+      "rationale": "The supported distinction is explicit joint arbitrary cycle-type enumeration and the resulting independent stable-rank factors for this nested restricted partial range. The one-zone rooted-forest calculation and the permutation/lcm identification are prior mechanisms; total cardinality and generating rank are already known. Inspected related theorems and indexed records do not imply the two-zone result without the new separation at Y.",
+      "residual_risks": [
+        "Best-of-knowledge assessment; the scan of Hansen–Jaworski could not be read for exact scope. Earlier general constrained-mapping enumerators could contain an equivalent special case not located in the bounded comparison."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same object; different invariant",
+          "evidence": [
+            "Defines the semigroup and treats isomorphism/generation rank, not stable cyclic images."
+          ],
+          "identifier_or_url": "https://doi.org/10.2298/FIL2114925J",
+          "material_read": "Abstract and §2; offsets 0, 3955–7489",
+          "method": "OA primary text",
+          "title": "On the Rank of Semigroup of Transformations with Restricted Partial Range",
+          "trigger": "Same semigroup and ambiguous use of rank"
+        },
+        {
+          "assessment": "Known total and regularity/idempotent statistics",
+          "evidence": [
+            "The total count in §4 agrees with B(1,1); idempotent counts do not resolve arbitrary cycles."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2306.00822",
+          "material_read": "§§2–4, offsets 6200 and 26500–29957",
+          "method": "OA primary text",
+          "title": "Semigroup of transformations with restricted partial range: Regularity, abundance and some combinatorial results",
+          "trigger": "Same-object enumeration"
+        },
+        {
+          "assessment": "Covers prior unrestricted aggregate period counting",
+          "evidence": [
+            "Theorem 6 resolves index and period, not two marked cycle partitions. Original issue is volume 71 (2005), pp. 69–74; the frozen bibliography gives 2009."
+          ],
+          "identifier_or_url": "https://doi.org/10.1017/S0004972700038028",
+          "material_read": "pp. 69–74, offsets 0, 3976–11879, 15100 (Theorem 6)",
+          "method": "OA primary text",
+          "title": "The structure of elements in finite full transformation semigroups",
+          "trigger": "Prior period census and permutation factorization"
+        },
+        {
+          "assessment": "Scope not established from the paper; not negative evidence",
+          "evidence": [
+            "Independent comparison uses the classical one-zone formula, not an attributed partition theorem from the unread PDF."
+          ],
+          "identifier_or_url": "https://combinatorialpress.com/article/ars/Volume%20094/volume-94-paper-34.pdf",
+          "material_read": "No extractable primary passages after direct/VPN tries",
+          "method": "Lawful OA retrieval attempt",
+          "title": "Random mappings with a given number of cyclical points",
+          "trigger": "Closest classical cyclic-point/permutation–forest comparison"
+        },
+        {
+          "assessment": "Different mapping constraints or statistics",
+          "evidence": [
+            "Order-preserving f^3=f^2; block-character fixed stabilization; and cyclic/terminal counts, respectively."
+          ],
+          "identifier_or_url": "Resultary 12bb479c61e2; 19e836b5c0a7; 0c1fa0e07cad",
+          "material_read": "Each RESULT.md Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Closest distinct stable-rank, stabilization, and full-map laws",
+          "trigger": "Potentially equivalent exact rank or periodic statistics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md:20–40,43–55",
+        "Same-object comparisons with Jin and Jin–You"
+      ],
+      "rationale": "The periodic part is the canonical eventual action of each transformation. Resolving the two cycle profiles goes beyond an unrestricted rooted-forest exercise: it gives the full distribution of stable-image sizes and exact periods under a natural semigroup restriction, makes the two rank counts independent despite exterior attachments into Y, and retains enough information to distinguish cardinality triples with precisely one exception family.",
+      "residual_risks": [
+        "Neither complete functional-graph isomorphism types nor transient heights are classified. The reconstruction is for cardinality triples of the stated presentation."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,54 +1,40 @@
-# Klein-bottle singularities and affine homology of the eleven-point Paley tournament flag complex
+# Klein-bottle links in the eleven-point Paley tournament flag complex
 
 ## Finding
-Let \(R=\{1,3,4,5,9\}\) be the subgroup of quadratic residues in \(\mathbb F_{11}^{\times}\). Let \(P_{11}\) be the tournament on \(\mathbb F_{11}\) with \(u\to v\) if and only if \(v-u\in R\), and let \(K=\operatorname{dFl}(P_{11})\) be the simplicial complex whose faces are its transitive subtournaments. The unique transitive order orients each face.
 
-**Theorem.** The three-dimensional complex \(K\) is a normal pseudomanifold with an isolated nonmanifold singularity at each of its eleven vertices. Every vertex link is a triangulation of the Klein bottle. Under the natural action of \(G=\{x\mapsto ax+b:a\in R,b\in\mathbb F_{11}\}\cong C_{11}\rtimes C_5\), the complete reduced rational homology is
-\[
-\widetilde H_2(K;\mathbb Q)\cong \ker\!\left(\mathbb Q[\mathbb F_{11}]\xrightarrow{\sum}\mathbb Q\right),
-\qquad \widetilde H_i(K;\mathbb Q)=0\quad(i\ne2).
-\]
-Here \(G\) acts on the right-hand permutation module through its natural affine action on eleven points. The degree-two character takes the values \(10\) at the identity, \(-1\) on the ten nonidentity translations, and \(0\) on the other forty-four affine maps. In particular,
-\[
-\widetilde H_*(|K|/G;\mathbb Q)=\widetilde H_*(|K|/C_{11};\mathbb Q)=0,
-\qquad H_2(|K|/C_5;\mathbb Q)\cong\mathbb Q^2.
-\]
-The subgroup \(C_5\) is the stabilizer of the vertex zero, consisting of nonzero-square dilations.
-
-## Assumptions and scope
-All homology representations in this statement use rational coefficients; the local link assertion and pseudomanifold assertion are integral/combinatorial. The directed flag complex is **not** the directed out-neighborhood complex, the full tournament complex, or a directed Hom/multipath complex. A transitive subtournament has exactly one total ordering consistent with its arcs, so every simplex has a canonical orientation.
-
-The complete face vector in dimensions zero through three is \((11,55,110,55)\). There are no simplices of dimension greater than three. The four-subtournament and three-subtournament counts are **already implied** by the published formulas of McCarthy–Springfield, and the nonequivariant homotopy type \(M(\mathbb Z/2,2)\vee\bigvee^{10}S^2\) was already established by Govc. Neither is asserted as a new result here.
+Let \(R=\{1,3,4,5,9\}\subset\mathbb F_{11}^\times\), and orient \(u\to v\) if \(v-u\in R\). Let \(K\) be the simplicial complex whose faces are the transitive subtournaments of this tournament. Then \(K\) is a normal three-dimensional pseudomanifold. Its nonmanifold locus consists of its eleven vertices, with a Klein-bottle link at each vertex.
 
 ## Proof
-**1. Exact finite incidence certificate and links.** A subset of a tournament is transitive precisely when its vertices admit outdegrees \(0,1,\ldots,k-1\) within that subset; its descending-outdegree ordering is then the unique transitive order. Enumerating all \(\binom{11}{k}\) subsets for \(1\le k\le5\) by this test gives \(11,55,110,55,0\) for the respective cardinalities. Every triangle lies in exactly two tetrahedra, and the graph connecting tetrahedra along triangular faces is connected. Hence the complex is pure and connected in codimension one.
 
-For reference, the twenty triangles of the link at vertex zero, using the symbol `a` for vertex ten, are
+A subtournament is transitive exactly when it admits successive deletion of a source (a vertex with an arc to every other remaining vertex) down to the empty set. In one direction, delete the first vertex of the transitive order. In the other direction, the deletion order gives a transitive order. The accompanying finite checker applies this test to every subset of sizes one to five. It finds face numbers \((11,55,110,55)\), with no transitive five-vertex set and thus no larger face. Every triangle belongs to exactly two tetrahedra, and the tetrahedron adjacency graph, joining tetrahedra sharing a triangle, is connected. There are no maximal edges or isolated vertices: each edge lies in a triangle, and the one-skeleton is complete. Hence \(K\) is a pure connected pseudomanifold.
 
-`134, 139, 145, 157, 178, 189, 235, 23a, 257, 267, 268, 28a, 34a, 359, 459, 469, 46a, 67a, 689, 78a`.
+Write \(a=10\) for a vertex label. The complete list of link triangles at zero, obtained by removing zero from the tetrahedra containing it, is
 
-They have ten vertices and thirty edges. Each link edge belongs to exactly two triangles; at each link vertex, the triangles form a single six-cycle. The dual triangle-adjacency graph is connected. This proves that the link is a connected closed combinatorial surface. Its Euler characteristic is \(10-30+20=0\). The edge-sign equations for a coherent orientation have a contradiction: writing each triangle in increasing order, adjacent triangles whose common edge is omitted in positions \(i,j\) must have relative orientation signs \((-1)^{i+j+1}\); the finite certificate detects inconsistent propagation around the dual graph. Thus the connected closed surface is nonorientable and of Euler characteristic zero, so it is the Klein bottle. Translation by any element of \(\mathbb F_{11}\) carries this calculation to every other vertex. All vertex links are therefore connected, and the codimension-one incidence and dual-connectivity checks show that \(K\) is a normal three-pseudomanifold with exactly those eleven singular vertices. (The edge links are circles as follows from the vertex-link calculation.)
+```
+134 139 145 157 178 189 235 23a 257 267
+268 28a 34a 359 459 469 46a 67a 689 78a
+```
 
-**2. Rational homology and exact rank bounds.** Orient every face by increasing numerical vertex order to form the usual simplicial chain complex. The boundary matrices in degrees one, two, and three have exact ranks \(10,45,55\) over \(\mathbb F_3\), by exhaustive modular row reduction in `paley11_checker.py`. These are also their ranks over \(\mathbb Q\): the rank of the first boundary is at most ten because its image lies in the augmentation kernel of the eleven-dimensional degree-zero chain group. The degree-two rank is at most \(55-10=45\), because \(\partial_1\partial_2=0\) and \(\operatorname{rank}_{\mathbb Q}\partial_1=10\). The degree-three rank is at most its fifty-five columns. Since rank cannot decrease on passing from \(\mathbb F_3\) to \(\mathbb Q\), all three ranks are exactly as stated over \(\mathbb Q\). The rational Betti vector is therefore \((1,0,10,0)\).
+The checker verifies that this list spans the whole link, has ten vertices and thirty edges, and has connected triangle adjacency. Every link edge lies in two triangles, and the link of every vertex of this surface complex is a single six-cycle. Thus it is a connected closed triangulated surface, with Euler characteristic \(10-30+20=0\).
 
-**3. The affine representation.** Multiplication by a quadratic residue and addition by an arbitrary field element preserve the tournament arcs, and hence act simplicially on \(K\). If such an automorphism maps a transitive subtournament to itself, then it restricts to an automorphism of a linearly ordered tournament. Distinct outdegrees force this restriction to be the identity. Consequently every stabilized simplex is fixed pointwise and contributes sign \(+1\) to the cellular Lefschetz number. An affine map has eleven fixed vertices if it is the identity, none if it is a nonzero translation, and exactly one if its multiplier is not one. The corresponding ordinary Lefschetz numbers are \(\chi(K)=11\), \(0\), and \(1\).
+To test orientability, start with each triangle in numeric vertex order. If the common edge of two adjacent triangles omits positions \(i,j\) in their respective orders (positions start at zero), their relative orientation signs must multiply to \((-1)^{i+j+1}\). On the closed dual walk
 
-Because the only rational homology degrees are zero and two, with trivial degree-zero action, the degree-two traces are those numbers minus one: respectively \(10,-1,0\). But the augmentation submodule of the natural eleven-point permutation representation has precisely the same character, since its trace is the number of fixed points minus one. By Maschke's theorem and equality of rational characters (over characteristic zero), these two \(\mathbb Q[G]\)-modules are isomorphic.
+```
+268 — 267 — 257 — 157 — 178 — 189 — 689 — 268
+```
 
-**4. Quotients.** The action has no inversions of simplices, and over \(\mathbb Q\) passing to finite-group coinvariants is exact. Thus the rational homology of each geometric quotient is the invariants in the homology of \(K\). The affine group and its translation subgroup are transitive on eleven vertices; their augmentation module has no invariant vectors. The order-five subgroup of dilations has precisely three vertex orbits, namely \(\{0\},R,-R\); the augmentation condition removes one dimension from the three-dimensional fixed permutation subspace, leaving two invariant degree-two classes. No other positive-degree rational quotient homology can occur.
+the required products are \(-1,-1,-1,+1,+1,-1,-1\), which multiply to \(-1\). Coherent triangle orientations would make the product \(+1\). The surface is therefore nonorientable and, by the classification of closed surfaces, is the Klein bottle. Translation carries this link to every other vertex link in \(K\).
 
-## Verification
-Execute the embedded standalone Python 3 file `paley11_checker.py` using `python3 paley11_checker.py`. It imports only the Python standard library. The checker enumerates every vertex subset of sizes one through five, every incidence in both the complete complex and all eleven links, and all fifty-five affine transformations. It checks the surface, connectedness and nonorientability conditions, exactly reduces all three signed boundary matrices over \(\mathbb F_3\), and verifies character values and three quotient-invariant multiplicities. Its success marker is `PALEY11_LINK_AND_AFFINE_CHARACTER_EXACT_OK`. The finite calculation is exhaustive for this eleven-vertex complex; no infinite-family claim is made. The above rank comparison and Lefschetz argument are independent mathematical proof steps, not assumptions made by the code.
+Every edge link is the link of a vertex inside one of these triangulated surfaces and hence is a circle. Together with the triangle incidence, this shows that the links of all faces of codimension at least two are connected, as required for normality. Points in the relative interior of an edge, triangle, or tetrahedron have manifold neighborhoods (their transverse links are respectively a circle, a pair of points, or empty). A Klein-bottle link has \(\widetilde H_1(-;\mathbb Q)\cong\mathbb Q\), giving nonzero local homology at the linked vertex in degree two. Thus none of the eleven vertices is a manifold point.
 
-## Relationship to prior work
-Govc's Proposition 3.4 already determines the homotopy type of the unique eleven-vertex doubly regular tournament flag complex, including its integral two-torsion and ten rational two-sphere generators. The present tournament is doubly regular (all outdegrees five; every pair has two common outneighbors), so that theorem applies. In particular, no new nonequivariant homotopy classification or first appearance of torsion is claimed. McCarthy and Springfield's Corollaries 2.3 and 2.7 already determine the counts of transitive four- and three-vertex subtournaments; those counts do not determine local surface links or a homology action. The separately studied Paley-tournament *out-neighborhood* complex and *directed Hom* complex are different functorial constructions, not equivalents of this directed flag complex. Prior work on Klein-bottle triangulations likewise does not by itself identify every link of this tournament complex or its affine rational homology module.
+## Reproducibility
 
-The contribution here is the joint local-geometric and equivariant identification: eleven Klein-bottle links in a natural finite tournament pseudomanifold, with complete order-fifty-five symmetry on second rational homology and differing rational quotient homologies. The already-known torsion makes this local geometry especially natural to examine.
+Run `python3 paley11_checker.py`. It uses only the Python standard library and exhausts this finite complex, including exact incidence and the named orientation obstruction. It prints `PALEY11_KLEIN_BOTTLE_LINKS_OK` if all checks succeed.
 
-## Limitations
-The theorem does not determine the full integral equivariant module, the fundamental groups of the quotient spaces, or the actions of automorphisms outside the stated affine subgroup. It does not establish a new nonequivariant homotopy type, new face numbers, or an infinite-family result. The comparison used the named primary papers and indexed records; unindexed equivalent descriptions of this finite complex or its links remain possible. No independent audit or external validation has been performed.
+## Relationship to prior work and scope
 
-## References
-1. D. Govc, *Computing Homotopy Types of Directed Flag Complexes*, arXiv:2006.05333 (first posted 2020-06-09), especially Proposition 3.4. https://arxiv.org/abs/2006.05333
-2. D. McCarthy and M. Springfield, *Transitive subtournaments of k-th power Paley digraphs and improved lower bounds for Ramsey numbers*, arXiv:2311.02135 (first posted 2023-11-03), especially Corollaries 2.3 and 2.7. https://arxiv.org/abs/2311.02135
-3. D. Govc, R. Levi, and J. P. Smith, *Complexes of Tournaments, Directionality Filtrations and Persistent Homology*, arXiv:2003.00324 (2020). https://arxiv.org/abs/2003.00324
+The complex here is the directed flag complex, not an out-neighborhood, directed Hom, or graph Rips complex. Counts of its transitive triangles and tetrahedra follow from McCarthy–Springfield [2]. Govc [1] already determined its nonequivariant homotopy type, and the affine second-homology character and rational quotient Betti numbers are explicitly stated in [3], which goes further by computing integral quotient homology. Those global invariants are not asserted as contributions here. The assertion is the local surface type and precise singular set of this natural complex. No priority over previously catalogued abstract Klein-bottle triangulations is claimed; nor is there a claim for other tournament sizes.
+
+1. D. Govc, *Computing Homotopy Types of Directed Flag Complexes*, Proposition 3.4, [arXiv:2006.05333](https://arxiv.org/abs/2006.05333).
+2. D. McCarthy and M. Springfield, *Transitive subtournaments of k-th power Paley digraphs and improved lower bounds for Ramsey numbers*, Corollaries 2.3 and 2.7, [arXiv:2311.02135](https://arxiv.org/abs/2311.02135).
+3. *A Moore-space affine quotient of the Paley-11 directed flag complex*, “The two subgroup quotients” and “Independent structural checks,” [Resultary record bae7258c42e0](https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-a-moore-space-affine-quotient-of-the-paley-11-directed-flag-comp--bae7258c42e0/RESULT.md).

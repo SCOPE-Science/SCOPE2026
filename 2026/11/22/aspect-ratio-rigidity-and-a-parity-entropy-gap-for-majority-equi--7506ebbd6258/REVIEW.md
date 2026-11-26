@@ -1,19 +1,21 @@
-# Scientific assessment of the rectangular rook majority equilibrium classification
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The open-neighbor count is \(r_i+c_j-2x_{ij}\), giving the sharp conditions \(r_i+c_j\ge(m+n)/2+1\) at ones and \(\le(m+n)/2-1\) at zeros. Alternating submatrices are impossible, giving unique Ferrers representatives. Ferrers corner checks are precisely the two-barrier path conditions. An invertible two-column insertion removes aspect-ratio dependence within parity. The final path counts follow from an explicitly derived rank-one peak-transition kernel, rather than finite extrapolation. Standalone exhaustive partition/word checks and small labelled-state enumerations agree. Boundary cases \(m=1\), \(m=n\), and opposite-parity \(n=m+1\) are included. Risk: independent proof-checking is not performed; algebra and combinatorial reasoning have only received same-model scrutiny.
+PASS
 
-## Originality — PASS, qualified
+The open degree m+n-2 and neighbor count r_i+c_j-2x yield exactly the two fixed-state inequalities including tie retention; an alternating rectangle would force two opposite column-sum differences both >=2. The row multiset then determines the Ferrers representative uniquely. On its boundary, each occupied row-length block has its minimum r+c at the southeast occupied corner, and each unoccupied block its maximum at the northwest unoccupied corner, giving precisely the two turn barriers including full and empty edge blocks. In the width inverse the starting altitude s=(n+2-m)/2>=1. A leading D-run that ends in a valley has length >=s+1; any interior D-run connects an allowed peak to an allowed valley, and the end is symmetric. If there is only one D-run it contains all n+2>=3 D's. Thus removing the first and last D leaves all relevant runs nonempty. A first peak before any D was at height >=s+1 and a final valley below the last D was at height <=-s-1, so they survive their unit shifts. No interior extremum changes altitude. For odd endpoints, reaching a peak directly gives x^(1+a), with a first valley adding z^(2+b), while leaving it directly gives y^(2+a), with a terminal valley adding z^(1+b); internal two-run transitions have z^(3+b)y^a x^a'. The even case has endpoint valley factors z^(1+b) and internal exponent 2+b. These geometric series and the no-peak cases give the stated rank-one sums. The cubic has one real root >1 (its two stationary values are negative) and the conjugate pair has modulus rho^(-1/2), so the growth comparison follows from the simple positive pole. Read RESULT.md, VERIFICATION.md and verify.py; the frozen script was not executed. A separate bounded reproduction in branches/8260f815-b315-49f7-ac49-a009a2c8d7a9/rectangular_count_check.py with output expanded.out corroborated small Ferrers, path and labelled counts. The proof, not the finite reproduction, covers all rectangles.
 
-The square case \(2^n\) and Ferrers nesting are prior work, not new. This claim determines a new genuinely rectangular invariant, showing stability when the longer dimension increases by two, and an unexpected parity alternation between \(2^t\) and coefficients of \(1/(1-2z+z^2-z^3)\). The complete inspected Benjamini et al. majority paper treats period-two behavior and random graphs. The inspected Bujtás et al. Cartesian-product paper maximizes the number of colors of majority C-colorings rather than enumerating two-color equilibria. Related published records describe three-row rook transients and a general line-graph two-cycle reduction, neither implying the all-rectangle fixed-class count. OEIS A005314 already indexes the opposite-parity sequence in other combinatorial contexts, so the integer sequence is not novel. Risk: published full text of the three-row rook-transient record and older unindexed equivalent theorems could not all be examined.
+## originality
 
-## Value — PASS
+PASS
 
-The graph family is the line graph of a complete bipartite graph and a basic two-factor Hamming graph. Exact fixed-state class counts quantify the multiplicity of stable opinions and their dependence on board anisotropy. Holding the short dimension fixed while increasing the long dimension does not create additional equilibrium types, yet increasing the longer side by just one can change the growth base from \(2\) to approximately \(1.7548776662\). This is a natural complete classification with a structural proof, not a forced parameter substitution or a mere known-table recomputation. The comparison concerns quotient-class counts and should not be mistaken for labelled populations.
+Pass applies to the width-two invariance and complete parity distinction for rectangles, not to Ferrers nesting, the exact square enumeration or the opposite-parity sequence as a numerical sequence. The strongest distinct Resultary match exactly covers the square specialization, but not the rectangular extension. Source coverage and historical priority are separate, and the displayed same day does not order the square and rectangular records.
 
-## Closest literature and scientific limits
+## value
 
-Benjamini et al., arXiv:1405.2486 (2014), supply the period-two setting. Bujtás et al., arXiv:2608.27669 (2026), treat the color-maximization invariant on the same graph. The earlier square-board classification is subsumed and explicitly credited. OEIS A005314 records the recurrence and sequence but not this graph interpretation in the retrieved evidence. An accessible published summary on three-row rook relaxation does not establish the present fixed-point formula. Unindexed equivalences remain possible, and no independent audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+On a natural graph family the theorem determines every symmetry-reduced fixed-state count, with a structural bijection explaining why arbitrarily large aspect-ratio changes preserve the count within one parity. The opposite-parity change alters exponential growth rather than just a boundary term. This is useful new rectangular structure beyond the square count, the known recurrence in another setting, and finite enumeration. It does not quantify labelled populations or primitive two-cycles.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

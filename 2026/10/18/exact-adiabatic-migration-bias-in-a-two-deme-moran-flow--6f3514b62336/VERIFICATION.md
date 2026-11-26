@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-The `verify.py` program operates on the equations displayed in `RESULT.md`. Run with Python and installed `sympy`, `numpy`, and `scipy`:
+## correctness
 
-```sh
-python verify.py
-```
+PASS
 
-The run performed for this package passed exact symbolic checks of the two stationary polynomial numerators, their factorized sum, the Jacobian at the isolated-deme equilibrium, the analytic interior equilibrium branch, and the small-amplitude bias coefficient. Direct constant-migration equilibria and two finite-period forced simulations were also checked. The numerical examples use \(q=0.05\), periods \(T=100\) and \(T=400\), and report period means approximately \(0.513031239651\) and \(0.512992746477\), converging toward the proved adiabatic target \(0.512989176043\). The equal-mean constant-flow comparison is approximately \(0.512820512821\).
+The migration weights and death factor 1/2 agree with the source model's Appendix B in the specified symmetric equal-rate case. Clearing the two stationary denominators gives P+Q=(x−y)[1−(1−m)(x+y)]. At the isolated equilibrium the Jacobian is diag(−1/6,−1/4); the implicit branch has X=1−2m+4m²+O(m³), Y=3m−3m²+O(m³), so it stays in the physical rectangle and has X≠Y. Thus F(m)=1/[2(1−m)] there. At m=0 the artificial faces of a sufficiently small rectangle are strictly inward, and this persists uniformly for small m. The physical faces remain weakly inward; the symmetric part of the Jacobian is uniformly negative in that same convex rectangle by continuity. The time-T map is then a contraction, giving one attracting T-periodic orbit there for each T>0. On the x=1 and y=0 faces the inward drift is bounded below by a positive constant times m in the rectangle. Each distance to its physical face therefore satisfies w′≥−Lw+c m(t); integration over any preceding period rules out boundary contact even at isolated times when m=0. The moving branch has bounded derivative and |m′|≤πq/T, so contraction gives a uniform O(q/T) tracking error on the periodic orbit. Averaging F(q cos²θ) and substituting tan θ on the half interval gives 1/(2√(1−q)). It is strictly between F(q/2) and F(q); Taylor expansion of the equal-mean excess yields q²/16. This is local and adiabatic, not an all-amplitude, all-finite-period or stochastic-fixation statement. The frozen checker was inspected, not executed; the algebra and limit were independently reconstructed.
 
-The script does **not** certify all parameter ranges, convergence for every initial state, or the infinite-time/adiabatic assertion by sampling. Those assertions follow from the invariant-rectangle contraction and tracking argument in the proof. No external independent audit has been performed.
+## originality
+
+PASS
+
+The two-deme model, forcing schedule and average-frequency observable are established prior work. The supported distinct claim is the exact stationary balance on the small-migration separated-deme branch and its consequent slow-period value strictly between the equal-mean and peak baselines. In particular the source's full-amplitude interpretation does not state this answer; tracking the frozen equilibrium throughout the cycle gives a different limit in the proved regime.
+
+## value
+
+PASS
+
+The exact adiabatic invariant answers a specific comparison left ambiguous in the motivating model: matching the time-mean migration gives a strict increase, whereas matching its peak gives a strict decrease. The branch formula and uniform tracking establish this baseline dependence for a nonempty interval with a quantified leading excess, rather than drawing a conclusion from a few finite-period simulations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

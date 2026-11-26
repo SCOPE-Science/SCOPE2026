@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The NOR map on the two shores is explicitly \(F(A,B)=(\beta(B),\alpha(A))\), with \(\alpha\beta\alpha=\alpha\) and \(\beta\alpha\beta=\beta\). This proves \(F^3=F\), hence the claimed one-step first-entry bound and exact structure of the recurrent image. The concept-symbol involution gives \(r\) fixed points and \(\binom r2\) primitive two-cycle orbits, and direct preimage-fiber formulas give each individual basin. Both standalone checkers reproduce all finite numbers, one by concept closures and one by direct full-state NOR for 262,144 states per graph. The three triple systems pass degree, incidence and pair-nonrepetition tests. Their noncollinearity cycle decompositions and six-cycle counts distinguish the graphs. The prior classification [1] provides the three-type exhaustiveness premise. No claim of infinite-size computational certification is made.
+PASS
 
-## Originality — PASS, qualified
+The point and line avoidance operators reverse inclusions and satisfy B⊆alpha(A) iff A⊆beta(B). Extensivity on each shore and antitonicity give alpha beta alpha=alpha and its dual, hence F³=F. The image is the Cartesian product of the two avoidance images; these images are in bijection by restriction of alpha and beta. The update swaps two symbols, so r fixed points and choose(r,2) primitive two-cycles follow. For each recurrent state the one-step predecessors form the product of the two avoidance fibers; summing these products over the one or two phases counts exactly the full attractor basin including recurrent points. A separate replay constructs each shore's update by lowest-set-bit recursion, builds the full successor table and checks every one of its 262144 destinations per graph; it reproduces every EXPECTED_COUNTS.json field and both full histograms. The resulting fixed counts (110,112,113) rise while fixed-attraction totals (914,912,911) fall, and nonrecurrent states exist in each system. Incidence checks give the required cubic linear configurations. For an independent exhaustiveness check, uncollinear pairs form a 2-factor; for the four partitions 9, 3+6, 4+5, 3+3+3, exact-covering the remaining pairs by line triples gives 2, 6, 0, 12 labeled solutions on fixed 2-factors, respectively, and quotienting by their automorphism groups gives 1, 1, 0, 1 classes. Distinct Levi six-cycle counts also rule out identification by swapping shores. Bokowski–Pilaud Table 1 independently reports the required combinatorial count; the k=3 row is credited there to Betten–Brinkmann–Pisanski, distinct from the authors' topological enumeration.
 
-The claim is the exact **complete NOR periodic-orbit and attraction-basin distributions** across all three combinatorial \((9_3)\) configurations, not the known classification of these configurations, the general Galois involution, or fixed-point counting alone. Claim-level comparisons found that [1] enumerates configurations rather than NOR dynamics; [2] gives general fixed-point formulas but does not determine temporal two-cycle basin histograms; [3] studies fixed-point bounds; and accessible related finite-network results concern majority dynamics or other graph families. No retrieved result implied the complete set of individual basin-size histograms and the opposite orderings of fixed-point counts and fixed-attraction totals. One relevant article was not available as a fully downloaded PDF, and unindexed equivalent historical calculations remain possible; no claim of definitive priority is made.
+## originality
 
-## Value — PASS
+PASS
 
-The first order with three inequivalent cubic point–line configurations is a natural complete comparison class. Exactly classifying all attractors and their basins shows that a higher equilibrium count can coexist with a lower total probability of eventual equilibrium for a uniformly random initial state, even though the transient bound and degree sequence are identical. This gives a fully reproducible finite dynamical fingerprint that separates all three incidence types and a precise benchmark for nonlinear dynamics on regular bipartite networks. It is more informative than a single arbitrary orbit count and does not require a downstream infinite-family theorem to be useful.
+Do not credit the configuration classification, the universal closure identity, the product-of-fibers rule or the maximal-independent-set interpretation as new. The distinct checked claim is the complete numerical basin and orbit comparison across all three smallest inequivalent cubic point–line incidence types, including the direction reversal between the number of equilibria and the total fixed-basin mass. No distinct covering table or theorem yielding those exact data without new graph-specific fiber calculations was established in the examined sources.
 
-## Closest literature and limits
+## value
 
-[1] Bokowski and Pilaud, arXiv:1210.0306; [2] *Exact enumeration of fixed points of AND-OR-NAND-NOR Boolean networks*, https://doi.org/10.1016/j.chaos.2025.116182; [3] Aracena, Richard, Salinas, https://doi.org/10.1016/j.jcss.2014.04.025 . The numerical result applies to exactly three explicitly specified eighteen-vertex graphs, and its novelty assessment is provisional because comprehensive historical coverage is impossible to certify from these sources alone.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The graph set is the first nontrivial complete comparison class of cubic point-line geometries, not an arbitrary selection of instances. An exact attractor-by-attractor basin benchmark distinguishes the types even while degree, update, and transient bound are fixed. The contrast in fixed-attraction population versus fixed-point count matters for using equilibrium counts to describe random initial conditions; those are different measurable aspects even in this minimal setting.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

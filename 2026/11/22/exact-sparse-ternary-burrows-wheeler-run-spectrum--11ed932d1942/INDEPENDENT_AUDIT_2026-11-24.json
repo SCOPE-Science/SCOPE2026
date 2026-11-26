@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:49:07.907597Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–50 and VERIFICATION.md",
+        "Frozen proof_mask_gf.py and check_direct.py (inspected, not executed)",
+        "Independent replay: python3 /workspace/branches/replay_ternary_bwt.py"
+      ],
+      "rationale": "The unique 1 makes every necklace primitive and canonically gives three nonnegative zero gaps. Rows starting in zeros first sort by decreasing leading-zero length, then by the next nonzero letter; for the two rows with next letter 2, the comparison is b versus c and at equality the B row reaches 1 first. The same tie-break applies to the marker-start rows. A gap contributes its nonzero predecessor on its first active level only; further levels at a constant active set contribute zeros, so one zero preserves all run boundaries for two or more levels. The multiplicities give a geometric factor for each repeated active-set size. Independently, I used all weak rankings of the three gaps with zero allowed and with adjacent positive length increments either 1 or at least 2. I sorted the literal rotations of each representative and used integer polynomial arithmetic to reproduce every numerator over (1-z)(1-z^2)(1-z^3) in exactly 111 cases; I also enumerated and sorted all rotations at each length 3–54 as a finite cross-check. For positivity, F3 has denominator 1-z^6 and numerator z^4(2+2z+z^2+3z^3+z^4+2z^5), F5=zF3/(1-z), F4 has positive numerator z^4(1+2z+3z^2) over (1-z^2)(1-z^3), and F6 has a z^6 contribution with denominator containing 1-z. Contributions below six runs grow at most linearly, versus quadratically many necklaces.",
+      "residual_risks": [
+        "The finite direct enumeration is a cross-check; all-length validity uses the rotation-order and zero-block invariance argument. Results concern ordinary linear runs only, not cyclic runs or sentinel-based BWT."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The permutation theorem is general in the Parikh vector but does not enumerate by run count. Simpson–Puglisi characterize a descending three-block output. The general sparse-weight law addressed binary words, bounding runs by 2k and establishing a sufficient-gap family and an asymptotic."
+        ],
+        "reasoning": "The descending-block result can intersect only a portion of the three-run stratum; the binary bound and typical behavior cannot supply the mixed-marker ternary all-stratum frequencies.",
+        "searches": [
+          "Crochemore–Désarménien–Perrin, arXiv:cs/0502073 Theorem 1",
+          "Simpson–Puglisi EJC 15 R83 §3",
+          "Resultary 31ca9d66545f"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md Finding and prior comparisons",
+        "Resultary 17765181f4c4, 1b2e4b268091, 31ca9d66545f, bbcb3b429bd2 (mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4)",
+        "EJC 15 R83 §3; arXiv:cs/0502073 §3 and Theorem 1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Existing rotation ordering and LF structure can enumerate candidate columns; Simpson–Puglisi's descending order describes at most the one possible fixed-content output 2210^(n-3) per length with three descending symbol blocks. Binary sparsity results cannot resolve comparisons between the unique 1 and two markers of type 2."
+        ],
+        "reasoning": "To derive these frequencies still requires a run-refined enumeration. In particular, the b/c tie-break and whether simultaneous levels separate nonzero predecessors from each other and the marker-start rows are needed for the odd and even classes; they are not consequences of the descending case or the general fixed-content inversion alone.",
+        "searches": [
+          "Resultary 17765181f4c4 and 31ca9d66545f",
+          "Crochemore–Désarménien–Perrin §3 and Theorem 1",
+          "Simpson–Puglisi §3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The unique marker gives a bijection between the assigned necklaces and nonnegative zero-gap triples. By primitive BWT inversion the same census counts last columns of the fixed content whose LF map is one cycle, stratified by the number of linear runs. Crochemore–Désarménien–Perrin give the inverse/permutation relation and a fixed-Parikh-vector bijection, not counts of this run statistic."
+        ],
+        "reasoning": "Neither rephrasing as color-gap vectors nor as single-cycle LF permutations removes the run constraint. Binary identical markers are not equivalent under letter relabeling to the ordered mixed-marker content.",
+        "searches": [
+          "Local Resultary fixed-composition ternary BWT run spectrum, sparse markers, and inverse-LF run enumeration",
+          "Focused primary search for Burrows–Wheeler ternary run spectrum and fixed composition",
+          "arXiv:cs/0502073 §3 and Theorem 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact earlier necklace and indexed-word tables have three identical binary markers. The same-day ternary table has fixed length 27 and the order-three de Bruijn condition, with many occurrences of each symbol, and counts joint linear/circular runs."
+        ],
+        "reasoning": "The same-day record was checked by object and statistic, not excluded by date. The exact compared tables neither give the target frequencies nor allow them to be recovered by dividing a count of indexed words or selecting a shared length.",
+        "searches": [
+          "Local Resultary exact BWT run-spectrum census: 17765181f4c4, 1b2e4b268091, bbcb3b429bd2",
+          "Focused primary search for ternary BWT fixed-composition run enumeration"
+        ]
+      },
+      "rationale": "The supported distinct claim is the all-length joint census of frequencies by linear run count at the ordered ternary content (n-3,1,2), not the standard transform, general inversion, gap-order methods, or the existence of odd runs by itself. No inspected source covered the whole run census or implied the rational generating functions as a direct specialization.",
+      "residual_risks": [
+        "An earlier unindexed exact sparse-color enumeration or a run-refined fixed-composition LF calculation under other terminology may exist. The conclusion is best-of-knowledge, not a priority certificate; no inference of absence is made from search misses."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same transform and run convention, different content",
+          "evidence": "The necklace census is for three identical binary markers and only the 2,4,6 run counts.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-exact-burrows-wheeler-run-spectrum-of-cyclic-binary-words-with-t--17765181f4c4",
+          "material_read": "RESULT.md at offset 0, opening 4539 characters",
+          "method": "Local Resultary mirror",
+          "title": "Exact Burrows–Wheeler run spectrum of cyclic binary words with three markers",
+          "trigger": "Closest earlier exact run spectrum"
+        },
+        {
+          "assessment": "Not the target even after identifying rotation classes",
+          "evidence": "Counts indexed binary words with three 1s and the 2,4,6 spectrum.",
+          "identifier_or_url": "1b2e4b268091",
+          "material_read": "RESULT.md at offset 0, opening 4139 characters",
+          "method": "Local Resultary mirror",
+          "title": "Exact run spectrum of the circular Burrows–Wheeler transform for binary words with three ones",
+          "trigger": "Possible equivalent indexed-word census"
+        },
+        {
+          "assessment": "Binary bound and asymptotic, not the exact ternary distribution",
+          "evidence": "Gives r≤2k and a sufficient-gap family attaining it for sparse binary words.",
+          "identifier_or_url": "31ca9d66545f",
+          "material_read": "RESULT.md at offset 0, opening 4332 characters",
+          "method": "Local Resultary mirror",
+          "title": "A sharp sparse-weight law for circular Burrows–Wheeler runs",
+          "trigger": "Possible higher-generalization coverage"
+        },
+        {
+          "assessment": "Partial and differently scoped",
+          "evidence": "Characterizes transforms c^i b^j a^k over a<b<c; does not give the full fixed-ternary-content distribution across run classes.",
+          "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v15i1r83/pdf",
+          "material_read": "Section 3, p. 4, offset 7911",
+          "method": "Lawful OA primary PDF",
+          "title": "Words with Simple Burrows-Wheeler Transforms",
+          "trigger": "Primary ternary three-block characterization"
+        },
+        {
+          "assessment": "General bijective background, not the run refinement",
+          "evidence": "Relates BWT and permutations and gives a bijection for primitive words of a fixed Parikh vector to a cyclic-permutation class defined by descents.",
+          "identifier_or_url": "https://arxiv.org/pdf/cs/0502073",
+          "material_read": "Section 3 p. 3, offset 4945; Theorem 1 p. 5, offset 11631",
+          "method": "Lawful OA primary PDF",
+          "title": "A note on the Burrows–Wheeler transformation",
+          "trigger": "Possible general fixed-composition inversion implies the count"
+        },
+        {
+          "assessment": "Distinct ternary family",
+          "evidence": "An 18-cell joint linear/circular census for 373248 ternary order-three de Bruijn necklaces of length 27.",
+          "identifier_or_url": "bbcb3b429bd2",
+          "material_read": "RESULT.md at offset 0, opening 4552 characters",
+          "method": "Local Resultary mirror",
+          "title": "Exact Burrows–Wheeler run spectrum of ternary order-three de Bruijn necklaces",
+          "trigger": "Same-day exact ternary run spectrum"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and finite symbolic classification",
+        "Independent replay, /workspace/branches/replay_ternary_bwt.py",
+        "Resultary binary three-marker record 17765181f4c4"
+      ],
+      "rationale": "BWT runs are the statistic used in run-length compression; this is a natural first sparse ternary extension of the three-marker binary family, with just one marker changing letter. The complete generating functions quantify which run values persist at every length, how often each exceptional value occurs, and the concentration on six runs. This gives a reusable fixed-content benchmark rather than a single example of an odd run count.",
+      "residual_risks": [
+        "No universal ternary compression or asymptotic claim for other compositions is supported."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

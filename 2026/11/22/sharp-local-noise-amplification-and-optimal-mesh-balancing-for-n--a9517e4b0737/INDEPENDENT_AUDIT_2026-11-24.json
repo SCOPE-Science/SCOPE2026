@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T12:17:41.529262Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 24–88; VERIFICATION.md lines 19–25; pchip_sensitivity_verify.py lines 10–89, inspected but not executed"
+      ],
+      "rationale": "The weighted harmonic mean has partials rv²/(rv+su)² and su²/(rv+su)². On strict monotone data the Hermite gradient has nonpositive outer entries and nonnegative inner entries: the latter are bounded below by 1−S−3U=(1−t)³ and S−3V=t³, since the central-secant slope derivatives are less than 3. Translation equivariance gives sum 1, so its maximum norm dual is 1 plus twice the magnitudes of the outer entries. Their derivative bounds are approached simultaneously as the two positive outer secants tend to zero with fixed positive central secant. Taking the directional quotient with (−1,+1,+1,−1) before letting the outer secants vanish realizes this supremum within the strict cone. Segment integration proves the upper bound there; approaching any closed-cone endpoints by adding the same tiny strictly increasing ramp extends by continuity. At t=0,1 the map is a nodal coordinate. For u=q(a,b), v=q(c,b)>0 the derivative of t(1−t)[u(1−t)+vt] is a quadratic with opposite strict signs at 0 and 1 (linear for u=v), hence exactly one interior root. The midpoint lower bound and strict convexity of q in the outer spacing prove unique balancing, attained at t=1/2; direct substitution gives 2 and 14/5. As a→0 with b,c fixed, dividing the profile increment by q(a,b) gives uniform convergence to 2t(1−t)², with maximum 8/27, and q(a,b)∼3b/(2a).",
+      "residual_risks": [
+        "Only the middle cell with standard interior slopes and fixed knots, for two nondecreasing data vectors; not the endpoint slope rules, a relative error bound, or a claim about nonmonotone inputs."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fritsch–Butland describe the local monotone interpolant. The located §3 Brodlie passages in arXiv:2102.11564v1 concern the same slopes, shape preservation and smooth-data accuracy.",
+          "The subdivision article is relevant to the uniform midpoint specialization. A lawful full text was not recovered from the DOI route; it is not ruled out for that specialization."
+        ],
+        "reasoning": "Standard construction, smooth-data order and iterated uniform-grid subdivision stability do not supply a sharp one-step, all-position coefficient on arbitrary triples of lengths or its mesh minimization.",
+        "searches": [
+          "Fritsch–Butland doi:10.1137/0905021",
+          "Aràndiga–Baeza–Yáñez arXiv:2102.11564v1 §3",
+          "Aràndiga–Donat–Santágueda doi:10.1016/j.amc.2015.07.071"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 34–106",
+        "Resultary de285d8ac3be, 479993d5519d, c024605d3664",
+        "Fritsch–Butland p. 300; arXiv:2102.11564v1 §3 located excerpts; subdivision DOI landing route"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "de285d8ac3be estimates each secant column over three output cells and sums continuous variation, with a flat center secant and nonzero neighbors. It gives 1+(8/27)sup_j[Φ(h_{j−1}/h_j)+Φ(h_{j+1}/h_j)].",
+          "The max-norm witness instead takes flat outer secants, a positive center secant and opposite signs on outer versus inner nodal displacements. Its all-t response involves two Hermite basis functions attaining their maxima at different positions."
+        ],
+        "reasoning": "Foregoing location by bounding each Hermite basis contribution separately, as in the variation formula, does not recover the exact mixed-position maximum or strict fixed-sum balance. The shared single-neighbor asymptotic is not the evidence for distinctness.",
+        "searches": [
+          "de285d8ac3be mirror, proof of one-secant response and sharpness (offsets 3600–6911)",
+          "Frozen RESULT.md lines 45–88"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The closest same-rule nonuniform record de285d8ac3be gives the V_d-to-V_c operator factor on a full grid; Φ(b/a)=q(a,b), and its adjacent one-sided slope contributions share the same derivative caps.",
+          "Record 479993d5519d gives the uniform total-variation factor 59/27, not the monotone nodal max-norm factor 2."
+        ],
+        "reasoning": "Variation measures all increments, while the present denominator is the largest nodal displacement and the output is a single evaluation. A one-secant-column sharp witness in variation is not the signed four-input extremizing direction for the maximum norm.",
+        "searches": [
+          "Resultary: Brodlie harmonic-mean cubic, PCHIP monotone two-input Lipschitz and mesh-ratio variation",
+          "Primary search for nonlinear Hermite/PCHIP stability, max norm, noise sensitivity and uniform subdivisions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Distinct relevant exact records are de285d8ac3be, 479993d5519d and c024605d3664. The last uses the Steffen limiter. They provide exact variation factors, not a catalogue of pointwise max-norm factors."
+        ],
+        "reasoning": "This is a continuous three-spacing and cell-position formula, not a finite table. The nearest exact formulas have different norms or a different selector. The frozen record itself does not count as independent coverage.",
+        "searches": [
+          "Resultary: exact max-norm PCHIP amplification and nonuniform harmonic/Steffen interpolation stability"
+        ]
+      },
+      "rationale": "The distinct contribution is the exact pointwise maximum-norm coefficient on unequal stencils and its minimax mesh balance. The harmonic selector, its derivative bounds, the same mesh-ratio function in variation stability, and closely related uniform-grid stability techniques are existing coverage. The leading coefficient from a single shrinking neighbor also appears in the variation calculation, but there it describes a different gain.",
+      "residual_risks": [
+        "Uniform-grid special cases merit separate attribution if a sharp coefficient appears in the full subdivision paper. No same-day order or exhaustive historical priority is asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong shared method and ratio function; different sharp norm",
+          "evidence": "One-secant-column continuous variation is h_j+(8/27)(h_{j−1}a_j+h_{j+1}b_j); sharpness holds for a flat central secant.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-sharp-mesh-ratio-variation-stability-of-brodlie-harmonic-cubic-i--de285d8ac3be/RESULT.md",
+          "material_read": "Finding, assumptions, derivative/variation response and sharpness, decisive offsets 3600–6911",
+          "method": "Local Resultary mirror",
+          "title": "Sharp mesh-ratio variation stability of Brodlie harmonic cubic interpolation",
+          "trigger": "Identical nonuniform interior slope rule and sharp two-input amplification"
+        },
+        {
+          "assessment": "Construction and monotonicity in the inspected passage",
+          "evidence": "Local derivative selection from neighboring secants.",
+          "identifier_or_url": "https://doi.org/10.1137/0905021",
+          "material_read": "p. 300",
+          "method": "OA PDF",
+          "title": "A Method for Constructing Local Monotone Piecewise Cubic Interpolants",
+          "trigger": "Original method for interior harmonic slopes"
+        },
+        {
+          "assessment": "Located statements treat monotonicity and accuracy; not a whole-paper exclusion",
+          "evidence": "Brodlie derivative with nonuniform weights and smooth-data order statements.",
+          "identifier_or_url": "https://arxiv.org/html/2102.11564v1",
+          "material_read": "Located §3 formula (39) and Theorem 3.2 excerpts, offsets around 46801 and 47955–48234; full passage request timed out",
+          "method": "OA text, literal locate",
+          "title": "Monotone cubic spline interpolation for functions with a strong gradient",
+          "trigger": "Explicit nonuniform Brodlie rule"
+        },
+        {
+          "assessment": "Open risk for the uniform specialization, not relied on for distinctness",
+          "evidence": "The subdivision setting concerns iterated uniform-grid refinement; the inspected material does not resolve its sharp one-step maximum norm.",
+          "identifier_or_url": "https://doi.org/10.1016/j.amc.2015.07.071",
+          "material_read": "DOI landing/abstract route only; no full-text inspection",
+          "method": "OA direct and alternate route unsuccessful",
+          "title": "The PCHIP subdivision scheme",
+          "trigger": "Uniform-grid harmonic subdivision and stability potentially covers the midpoint specialization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–32, 69–88",
+        "Resultary de285d8ac3be, sharp variation comparison"
+      ],
+      "rationale": "For a standard shape-preserving algorithm, the exact amplification of bounded nodal perturbations is an operationally natural invariant. Dependence on relative position and unequal adjacent spacings matters: the optimal balance under a fixed length budget is unique, while the same monotonicity-preserving rule has unbounded amplification under mesh grading. The sharp coefficient and balance quantify a limitation that range preservation for individual data does not address.",
+      "residual_risks": [
+        "No probabilistic noise or knot-error model, floating-point estimate, or global claim about endpoint-cell sensitivity."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For \(u=x+y\) and \(v=x+z\), the three bottleneck path costs are exactly \(\max\{u,v\}\), \(\max\{u,1\}\), and \(\max\{1,v\}\). The combined-cost objective is affine in the shortcut flow \(x\) for fixed \(u,v\), so its minimum lies at \(x=0\) or \(x=\min\{u,v\}\). The first endpoint has the unique minimum \(2(1-B)\) at \(u=v=1\). The second is bounded below by \(-B^2/4\) or \(1-B\), both strictly above \(2(1-B)\) on the stated interval. The equilibrium and combined-cost calculations follow directly from the common used-path cost \(B\). The exact-rational script reproduces the representative value \(B=6/5\); it does not replace the all-parameter proof.
+PASS
 
-## Originality — PASS, with residual priority risk
+The frozen Finding fails as stated. At B=6/5, (0,6/5,6/5) is Nash with travel 12/5, above the optimal 2; the three route costs and the outside option are all 6/5. Under no-profitable-deviation Nash, at B=7/4 the full-travel flow (0,3/2,3/2) costs 9/2, not 21/4. Even if indifference is imposed at full participation, the first counterexample still applies. The replacement proves the complete Nash family for 1<B<2: the common used cost exceeds 1 (it equals B with nonparticipants, and it is at least 3/2 with full participation because r<=u+v<=2c). Unequal variable-edge loads would make every route using the larger load strictly worse than the other outer route, so u=v=w. This yields w=B below full participation and 3/2<=w<=B at full participation, and the shortcut-only flow attains worst Nash cost 3B. The objective is affine in shortcut flow at fixed u,v. Using both extended endpoint values as lower bounds, not claiming both are feasible for each u,v, gives two sharp minima 2(1-B) and -B^2/4 after subtracting 3B. They occur at different (u,v) and feasible flows, proving uniqueness off the threshold and exactly two optimizers at the threshold. The ratio and the benchmark survive; the universal demand reversal does not.
 
-The primary full text by Cole, Dodis, and Roughgarden explicitly states that the case of elastic traffic with nonlinear path norms and lower equilibrium traffic than optimal traffic is not analyzed. The exact parameterized benchmark here supplies a specific result in that gap, not a general bound. Gabriel and Bernstein's publisher abstract concerns equilibrium existence, uniqueness, and computation for nonadditive path costs; the full text was not inspected. Chau and Sim's abstract concerns elastic demand with symmetric cost maps; the accessible full-text attempt returned a 403 response, and the abstract does not establish coverage of the bottleneck path norm. A less-indexed prior example may still subsume the benchmark.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The flow reversal is economically meaningful: a Nash flow of size \(B<2\) coexists with a unique optimum of size \(2\), and the exact welfare ratio is \(3B/(B+2)\) on an open parameter interval. The result gives a reproducible benchmark for a case expressly left open in the primary source, while making no claim to settle the general class.
+Best of current knowledge for the corrected network-specific Nash classification, sharp optimum switch and worst-equilibrium cost ratio. The established model and Braess latency pattern are not new. The closest primary bounds use different hypotheses and do not specify the equilibrium correspondence or optimize the combined objective on this network.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+A sharp topology-specific optimizer switch and full equilibrium demand interval quantify precisely what can and cannot be inferred from elastic participation. In the upper regime equilibria occur on both sides of optimal travel despite a determinate worst cost. This gives an exact benchmark for the low-equilibrium-travel, non-subpath-optimal bottleneck regime and distinguishes it from a global welfare bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

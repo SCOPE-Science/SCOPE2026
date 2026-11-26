@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:58:58.414849Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Regeneration gives stationarity from the mixture of walks since the last reset, and coupling at the first reset gives uniqueness. The line resolvent satisfies the stated second-order recurrence; z(q+q^(-1))=2 and 1−zq=d normalize its absolutely summable solution. Projecting modulo n sums the two geometric image tails and gives the stated neighbor occupation. For every n>=3 the two neighbors of zero are distinct, and only their rows merge one hop with reset; the positive loss per such row is (γ+a)H_2(γ/(γ+a)). Subtraction from the line leaves the exact factor (1+q²)q^(n−1)/(1−q^n); the ratio of consecutive positive deficit factors is strictly below one at fixed 0<γ<1. For finite n, γ/d=(1−q)/(1+q) gives π_n(1)=1/n+O_n(sqrt(γ)) as γ tends to zero; on the line the neighbor mass is O(sqrt(γ)). Both B−log 2 and Δ equal γ log(1/γ)+O(γ), yielding an interior maximum for every size, including the continuous endpoint extension of the line formula. Comparing at a finite-cycle maximizer yields strict order of maxima, pointwise convergence evaluated at a limiting maximizer yields convergence of maxima, and strict collision loss plus compactness gives M_infinity<log 3. There is no stationary probability law on the unreset line at γ=0; its endpoint value is a continuous extension, not a stationarity assertion there. Reviewer-authored `python3 /workspace/independent_reproduction.py entropy` (Python 3.12.3) propagated the unreset walk for 420 reset ages and directly computed merged-destination row entropies in 72 finite examples. Omitted mass is at most (10/11)^420, and the largest absolute discrepancy from the formula was 1.33e−15. The proof, not the sampled rates, establishes the strict continuum result.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "4bc2723b4c40 gives h=B_k−ρΔ_k, the strict universal-cover upper envelope and high-girth convergence",
+          "For k=2 the cover is the line and the high-girth sequence includes the cycles; the general result already supplies maxima above log 2 and convergence toward the line-envelope maximum",
+          "86b682727fbd gives explicit entropy and optimal-reset results for complete graphs"
+        ],
+        "reasoning": "Credit those conclusions as inherited on cycles. Upper comparison with a common limit, even with convergence, does not order two finite cycles, and the complete-graph family does not supply that order.",
+        "searches": [
+          "Resultary:4bc2723b4c40 Finding and Proof §§1–2",
+          "Resultary:86b682727fbd exact merged entropy for complete graphs",
+          "Wang–Chen arXiv:2208.05665 stationary reset framework"
+        ]
+      },
+      "checked_sources": [
+        "Resultary:4bc2723b4c40",
+        "Resultary:86b682727fbd",
+        "arXiv:2208.05665",
+        "DOI:10.3390/e25020293",
+        "DOI:10.1103/PhysRevE.101.062147"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At degree two the prior correction becomes h=B−2π(1)Δ and the prior envelope is the same h_infinity",
+          "The exact difference in neighbor occupation is the periodized image sum over nonzero windings; its positive rational geometric form strictly decreases with n",
+          "Unreset return probabilities at three and four steps order the triangle and square differently, so termwise ordering of that sequence would not supply the theorem"
+        ],
+        "reasoning": "The implicit entropy, strict comparisons with the line and qualitative convergence are already implied. Without evaluating the image sum the cited general bounds do not provide the exact prefactor or consecutive-size strictness. The distinct optimized inequality then follows from consecutive-size strictness at an interior maximizer, rather than from a new optimizer computation.",
+        "searches": [
+          "Degree-two specialization of Resultary:4bc2723b4c40 and comparison with arXiv:2208.05665"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Wang–Chen Eq. (5) merges probabilities in the state kernel, but their specialized entropy calculation splits reset from a hop even when they share a successor",
+          "Resultary:4bc2723b4c40 uses observed successor probabilities and supplies the collision correction",
+          "The cycle resolvent can be written as a Fourier sum or the image sum of the nearest-neighbor line resolvent"
+        ],
+        "reasoning": "Action-label entropy is invariant across these cycle sizes but is not the target. The implicit resolvent is an equivalent representation of the entropy at each size. The exact finite-size formula requires evaluating it for the ring and comparing a positive image tail.",
+        "searches": [
+          "Resultary: observed-vertex entropy under stochastic reset on cycles, cycle deficit and ring size ordering",
+          "Wang–Chen arXiv:2208.05665 Eqs. (5), (13), (17)–(19)",
+          "Primary search: finite-ring discounted reset stationarity and exact cycle Green function"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact cycle-specific Resultary hit ff025580f0d4 is the frozen record itself",
+          "The closest distinct indexed expression 4bc2723b4c40 leaves ρ in Green-function form",
+          "The retrieved bibliographic entry for Riascos et al. does not provide an inspectable closed form"
+        ],
+        "reasoning": "An active finite-ring stationary distribution bibliography makes an explicit periodic Green-function precedent plausible. No exact cycle deficit or consecutive-order table was identified among the material actually read; this is not an exhaustive exclusion.",
+        "searches": [
+          "Resultary: exact cycle entropy and (1+q²)q^(n−1)/(1−q^n) line deficit",
+          "Primary literature lookups for stochastic restarting on the discrete finite ring and DOI:10.1103/PhysRevE.101.062147"
+        ]
+      },
+      "rationale": "The reset resolvent and merged-action collision formula are known. The regular-graph entropy envelope already implies an implicit cycle entropy, a strict line upper bound, and convergence of cycle entropies and maxima. The distinct contribution is the exact positive size-dependent deficit evaluated by resumming the periodic images, its leading constant, and strict successive-size and successive-maxima comparisons. No checked prior theorem was shown to cover that remaining quantitative hierarchy.",
+      "residual_risks": [
+        "Related finite-ring or circulant resolvent formulas may already have been evaluated in uninspected sources, notably Riascos et al.; if the same explicit occupation is known, the known entropy correction would directly give the deficit. The unresolved articles are not evidence of either coverage or noncoverage.",
+        "The assessed novelty is limited to the explicit deficit and hierarchy beyond the established envelope. It does not extend to the reset kernel, the entropy collision mechanism, convergence to the line limit, or an optimum's uniqueness."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SUBSTANTIAL_PARTIAL_COVERAGE",
+          "evidence": "The general collision correction and universal-cover envelope specialize to cycles with an implicit Green function, a strict line bound and convergence, but the inspected theorem does not compare successive finite cycles or state the exact size-dependent deficit.",
+          "identifier_or_url": "Resultary:4bc2723b4c40",
+          "material_read": "Original Finding and Proof §§1–2 at text offset 0",
+          "method": "Resultary search and local mirror original passage inspection",
+          "title": "Sharp regular-graph entropy envelope for random walks with stochastic resetting",
+          "trigger": "Strongest potential prior implication: same observed entropy and a general graph theorem"
+        },
+        {
+          "assessment": "RESET_RESOLVENT_KNOWN_ENTROPY_SIMPLIFICATION_DIFFERENT",
+          "evidence": "The transition kernel adds reset mass to the correct destination, but the entropy simplification separates reset and hops; the resolvent is a prior premise, not the audited finite-size hierarchy.",
+          "identifier_or_url": "https://arxiv.org/abs/2208.05665",
+          "material_read": "PDF pp. 2–3, Eqs. (5), (13), (17)–(19), text offsets about 7795, 13765, 19641 and 25604",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "Entropy rate of random walks on complex networks under stochastic resetting",
+          "trigger": "Primary reset entropy model and possible prior exact formula"
+        },
+        {
+          "assessment": "DIFFERENT_GRAPH_FAMILY",
+          "evidence": "Includes merging and exact optimization aspects on K_n; varying n there changes the degree and does not yield the constant-degree cycle law.",
+          "identifier_or_url": "Resultary:86b682727fbd",
+          "material_read": "Original Finding, offset 0",
+          "method": "Resultary search and local mirror inspection",
+          "title": "Lambert-W entropy-optimal resetting on complete graphs",
+          "trigger": "Exact entropy and optimum for a competing finite graph family"
+        },
+        {
+          "assessment": "UNRESOLVED_FULL_TEXT",
+          "evidence": "The identified work concerns resetting and search efficiency; the material retrieved here cannot rule out an explicit cycle occupation formula.",
+          "identifier_or_url": "https://www.mdpi.com/1099-4300/25/2/293",
+          "material_read": "Article identification/landing page only on this review; full text not established",
+          "method": "Bounded lawful OA retrieval, including publisher PDF route",
+          "title": "Random Walks on Networks with Centrality-Based Stochastic Resetting",
+          "trigger": "Possible same merged reset model and a ring example"
+        },
+        {
+          "assessment": "UNRESOLVED_FULL_TEXT",
+          "evidence": "No formula or noncoverage claim is supported by the access attempts. A prior closed form for the same ring neighbor occupation would increase the overlap substantially.",
+          "identifier_or_url": "DOI:10.1103/PhysRevE.101.062147; PMID:32688619",
+          "material_read": "Bibliographic identification only; no primary passage retrieved",
+          "method": "Primary literature search and lawful publisher and bibliographic OA attempts",
+          "title": "Random walks on networks with stochastic resetting",
+          "trigger": "Plausible earlier spectral calculation for the finite ring"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Cycles are the finite connected simple two-regular geometries. Their exact observed-entropy error relative to the line quantifies size effects with degree and local action probabilities fixed. The full reset-rate ordering and exponential prefactor provide a benchmark not supplied by an upper envelope or a numerical comparison, and the optimized hierarchy uses the order without claiming a unique best rate. The narrow value lies in that finite-size comparison rather than in a new theory of resetting entropy.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

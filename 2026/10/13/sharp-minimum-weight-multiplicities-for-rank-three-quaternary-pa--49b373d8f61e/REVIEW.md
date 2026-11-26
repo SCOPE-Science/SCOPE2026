@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For projectively distinct columns in \(\mathbb F_4^3\), the local checks force a repeated kernel code; any three collinear columns support exactly three nonzero relation words. Thus \(A_6=3T(S)\). The 21-point projective-plane construction and all pair/line incidence axioms are independently asserted by the standalone verifier. The proof derives the three line-occupancy moment equations and identifies the only two cardinalities where their integral lower bound is not attained. Both impossible profiles are excluded by the geometry of two unoccupied lines and their three remaining pencil lines. The subset dynamic program is exhaustive over \(2^{21}\) masks by its increasing-mask, least-set-bit recurrence, and checks every minimum count. Direct incidence recounts and all kernel codewords for four cardinalities provide independent critical cross-checks. No extension to larger projective planes is claimed.
+PASS
 
-## Originality — PASS, with residual risk
+The repair equations repeat each kernel word, and the projectively distinct columns prevent supports of size 1 or 2. A line has five points, giving rank three for u>=7. A cap has at most six points since each of its other points uses a different line through any chosen cap point, and only five such lines exist. Thus there is a dependent triple, and its one-dimensional relation space has exactly three nonzero words, each with all three coordinates nonzero. This proves A6=3T and distance six. For the occupancy relaxation I independently enumerated the six counts with sum 21 and retained the point and pair moments. The two unique unrealizable minimizers are (2,2,3,14,0,0) and (2,1,1,16,1,0) with T=14,20. At the intersection of their two empty lines, the other three pencil lines partition S into parts of size at most four; sizes 10 and 11 force at least one and two four-secants respectively, a contradiction. I then reproduced the entire fifteen-row table by exhaustive direct summation over the 21 lines of an independent affine-plus-infinity realization. The check visits all 2^21 masks and verifies the binomial number at each size; it does not use the frozen dynamic program. The frozen recurrence itself counts each new triple once, since its pair lies on a unique joining line through the inserted point.
 
-Li–Fu–Yang (2026, Theorem 1 and Equation (12)) provides the family and its parameters but not the optimized coefficient of the minimum-weight term. Cuypers' finite-plane analysis provides classical hyperovals, explaining part of the \(u=7\) geometry; Cameron's exposition supplies background point-line incidence geometry. A separate public result optimizes eight chosen lines against eight chosen points, whereas the present objective counts all contained collinear triples across all 21 lines and all fifteen cardinalities; those objectives do not logically imply one another. Searches for shortened quaternary Hamming weight-three minima, projective collinear-triple supersaturation, rank-three LRC weight-six multiplicities, and occupancy-profile obstructions did not identify a covering theorem. The closest alternative geometry material may contain related unindexed finite tables; the eight-by-eight result was available as a public summary rather than its full source, which remains a real but not decisive risk.
+## originality
 
-## Value — PASS
+PASS
 
-The newly introduced quaternary paired-repair codes all have distance six, so their distance alone cannot discriminate among choices of global checks. The sharp minimum coefficient \(A_6\) is the first nonzero term after the zero word in the Hamming enumerator and directly affects small-error-weight undetected-error counts. The table simultaneously settles every rank-three admissible length, quantifies each extremal choice in the labelled projective plane, and demonstrates a nontrivial geometric obstruction at two intermediate lengths. It does not claim improved dimension or greater minimum distance.
+Pass for the complete optimized multiplicity and labelled subset census, especially the exact sharp results at the two infeasible occupancy minima. The construction, standard plane facts, and individual geometrical examples are not new. The indexed length-15 example supplies the same extremal profile and its natural family gives the reported count in that row; this material overlap does not subsume the all-length classification. The closest indexed incidence census optimizes a different functional and does not give the small-triple minima or the complete complementary maxima.
 
-## Limits and literature
+## value
 
-The result covers only simple projective columns and exactly three global checks. An older finite-geometry configuration classification may subsume portions; published references and this risk are stated in the main result. No assertion of inequivalent-code counts is made.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Within a motivated family whose minimum distance is fixed at six, A6 distinguishes the number of smallest undetectable error patterns. The exact number of configurations attaining each minimum is a meaningful complete finite invariant. The geometric obstruction at sizes 10 and 11 explains why integral moment feasibility alone produces wrong answers and is not just recomputation of a known table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

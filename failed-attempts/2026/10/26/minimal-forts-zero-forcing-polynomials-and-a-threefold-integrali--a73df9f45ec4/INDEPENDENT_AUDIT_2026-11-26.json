@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:09:59.181324Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a proposed fort with index sets P,Q, an exterior a_i sees |Q|−1_{i∈Q} selected vertices, and analogously for b_i. A same-shore triple is a fort, but no same-shore singleton or pair is. Thus a minimal fort other than a triple has both side sizes ≤2. A singleton selected on one side forces every outside vertex on the other side to be its matched non-neighbor. The only surviving size possibility is n=3 with one selected vertex on one side and the two complementary indices on the other; this fails the neighbor test at an outside vertex on the singleton side. With two on each side, the test requires identical pairs. The resulting aligned quartet is a fort, and the preceding size tests exclude every proper nonempty subfort. Complementing the minimal fort test yields the displayed ordinary forcing polynomial, whose lowest degree is 2n−4 with C(n,2)(C(n,2)−1) sets. For the fort-cover LP, the constant vector 1/3 is feasible. For each shore, summing the triple inequalities gives total weight at least n/3 by the exact incidence multiplicity C(n−1,2), proving the optimum. Equality forces all triple sums to be one. For n≥4 each pair of weights can be compared by using the same two other vertices in the two triples, forcing equality; for n=3 weight one at a_1 and b_2 and zero elsewhere is also feasible and optimal. For K_{n,n}, the same-side pairs are its minimal forts, giving fractional value n and ordinary value 2n−2. Independent literal adjacency/forcing and subset DP for 3≤n≤7 matched exact fort families, every polynomial coefficient, and the triple incidence LP certificate; fort totals were 5,14,30,55,91 and minimum-set counts 6,30,90,210,420. Replay: python3 /workspace/reproductions/check_fan_crown_skew.py crown. The finite check does not prove the all-order result; the LP uniqueness argument is exact. The frozen checker was inspected, not run, and its Python 3.8 note should be 3.10 or later because it uses int.bit_count().",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The two matching-deletion records give an exact general ordinary enumerator that specializes to the crown when both parts and the matching have size n.",
+          "The inspected public literature establishes the fractional fort-cover definition, the complete-bipartite baseline and the isolated crown cases C_6 and Q_3. Boyer and Becker's complete multipartite/bipartite results do not themselves cover deletion of the matching."
+        ],
+        "reasoning": "The general indexed matching-deletion estimates must be compared at full matching size; the exact enumerator there covers the theorem's ordinary part, not just a nearby undamaged graph. The public complete-bipartite results are baseline comparisons only.",
+        "searches": [
+          "Resultary: K_{a,b} minus a matching dbea30a31d6d and 8a368cb2e9c6",
+          "Boyer et al., arXiv:1801.08910v1 Proposition 4; Cameron et al., arXiv:2310.17904v3 Definition 2.3, Example 3.4, Example 3.10 and Proposition 3.15; Becker et al., arXiv:2404.05963 Proposition 9"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py",
+        "Resultary be3fdc156edb, dbea30a31d6d, 8a368cb2e9c6 and 44226e489656",
+        "arXiv:1801.08910, 2310.17904, 2404.05963, 2507.10826, 1906.03079"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The minimal violations of the earlier exact rule are each white triple on one side and each aligned 2+2; there are no others. Hence the prior rule mechanically identifies the LP constraints too.",
+          "Averaging the all-triple constraints gives both lower bounds n/3, with the constant solution feasible; every triple is tight at an optimum. Subtracting two tight triples with two shared vertices yields equality of their third weights for n≥4, while the two-point weight witness works at n=3."
+        ],
+        "reasoning": "The scalar shift, gap, and optimizer statement are direct consequences of the already determined eligibility rule and the established LP. The uniqueness comparison uses the tightness conditions and does not rely on a purported exact textual match for uniqueness.",
+        "searches": [
+          "Crown eligibility rule in be3fdc156edb; Cameron et al. Definition 2.3; 44226e489656 fractional argument"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "be3fdc156edb gives the exact successful white-complement rule and polynomial A_n(z)^2−C(n,2)z^{2n−4}, with A_n(z)=z^n+n z^{n−1}+C(n,2)z^{n−2}.",
+          "Expanding that square gives the frozen double sum exactly. The same rule excludes white triples on a shore and aligned pairs on the two shores; its minimal forbidden sets are exactly these exclusions."
+        ],
+        "reasoning": "Minimal forbidden white sets are precisely minimal forts by the action rule and terminal-fort test. The prior membership theorem, not merely its polynomial coefficients, determines them.",
+        "searches": [
+          "Resultary: crown graphs, complete bipartite minus a perfect matching, ordinary forcing polynomial and fractional fort gap; be3fdc156edb, 44226e489656"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier-dated crown-specific entry contains the exact ordinary polynomial and optimum multiplicity; the two general matching-deletion entries contain the corresponding exact specialization.",
+          "The inspected 44226e489656 statement gives the exact minimal-fort families, ordinary polynomial, Z*=2n/3 and limit 3, but its finding and LP argument do not assert optimizer uniqueness."
+        ],
+        "reasoning": "These are statement-level exact matches, with the remaining equality conditions evaluated separately. The same-day or later-dated entries are mathematical comparisons, not independent evidence of earlier publication.",
+        "searches": [
+          "Resultary exact comparisons be3fdc156edb, dbea30a31d6d, 8a368cb2e9c6, 44226e489656"
+        ]
+      },
+      "rationale": "An indexed crown result already gives the exact ordinary membership test and polynomial. Its test mechanically supplies the same minimal-fort hypergraph, from which the fractional optimum and its equality conditions follow directly. Another indexed result states the exact structural and fractional-gap core as well. The explicit optimizer uniqueness clause was not found verbatim in that comparison, but follows directly from tightness of the known triple constraints. No publication priority is inferred from directory dates.",
+      "residual_risks": [
+        "The bounded searches are not broad priority certification. Exact index similarities and directory dates alone do not establish authorship or chronology. The direct implication from the inspected crown membership rule is what makes the overlap decisive, even without a verbatim prior optimizer uniqueness statement."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact ordinary overlap and direct minimal-fort implication",
+          "evidence": [
+            "At most two whites on each side; the two chosen pairs cannot be aligned. The stated polynomial is the corresponding square minus the aligned pairs."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-all-zero-forcing-sets-of-crown-graphs--be3fdc156edb",
+          "material_read": "Mirrored RESULT.md finding: white-set criterion, polynomial and minimum counts",
+          "method": "Local Resultary search and original mirror statement comparison",
+          "title": "All zero-forcing sets of crown graphs",
+          "trigger": "Exact graph and all-set criterion"
+        },
+        {
+          "assessment": "Broader ordinary enumerator covers the frozen ordinary specialization",
+          "evidence": [
+            "The formula applies to K_{a,b} with a matching removed, including the whole matching of K_{n,n}."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-zero-forcing-polynomial-and-matching-deletion-thresholds-in-dens--dbea30a31d6d",
+          "material_read": "Mirrored RESULT.md five-term formula and crown specialization",
+          "method": "Local Resultary and statement-level mirror inspection",
+          "title": "Zero-forcing polynomial and matching-deletion thresholds in dense bipartite graphs",
+          "trigger": "General matching-deletion theorem"
+        },
+        {
+          "assessment": "Exact ordinary specialization; no ordering inferred from the date",
+          "evidence": [
+            "The general polynomial and crown minimum multiplicity agree with the frozen formula."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-zero-forcing-sets-of-complete-bipartite-graphs-with-a-deleted-ma--8a368cb2e9c6",
+          "material_read": "Mirrored RESULT.md general enumerator and crown minimum count",
+          "method": "Local Resultary and statement-level mirror inspection",
+          "title": "Zero-forcing sets of complete bipartite graphs with a deleted matching",
+          "trigger": "Same-day general family and exact parameters"
+        },
+        {
+          "assessment": "Exact substantive core overlap; uniqueness not explicit in inspected material; priority not inferred",
+          "evidence": [
+            "The same triples and quartets give the same ordinary polynomial and all-order 2n/3 optimum with limit ratio 3."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-minimal-forts-complete-zero-forcing-polynomial-and-fractional-ga--44226e489656",
+          "material_read": "Mirrored RESULT.md finding and fractional fort-cover proof",
+          "method": "Local Resultary and original mirror statement comparison",
+          "title": "Minimal forts, complete zero-forcing polynomial and fractional gap of crown graphs",
+          "trigger": "Exact combined structural and fractional scope"
+        },
+        {
+          "assessment": "Covers complete K_{n,n} without deletion",
+          "evidence": [
+            "All part sizes at least two gives the bottom-degree coefficient equal to the sum of cross-part products."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1801.08910",
+          "material_read": "v1 Proposition 4, around OA text offset 17024",
+          "method": "Bounded original OA passage inspection",
+          "title": "The zero forcing polynomial of a graph",
+          "trigger": "Complete multipartite polynomial as possible general coverage"
+        },
+        {
+          "assessment": "Known LP, complete-bipartite comparison, and exact fractional values for C_6 and Q_3, not an all-order crown assertion in the inspected passages",
+          "evidence": [
+            "Z*(K_{p,q})=(p+q)/2 for p,q≥2; Z*(C_6)=2; Z*(Q_3)=8/3."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2310.17904",
+          "material_read": "v3 Definition 2.3 (offset 17937), Example 3.4 (20640–24139), Example 3.10 (28392), Proposition 3.15 (36548)",
+          "method": "Bounded original OA passage inspection",
+          "title": "Forts, (fractional) zero forcing, and Cartesian products of graphs",
+          "trigger": "Exact fractional definition, baseline and crown boundary cases"
+        },
+        {
+          "assessment": "Retrieved passage discusses scalar zero forcing and minimum rank; not evidence of the full crown enumeration",
+          "evidence": [
+            "The retrieved title-page date differs from the frozen citation's stated first-public date; this retrieval is not used for priority."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1906.03079",
+          "material_read": "§3, around OA text offset 13333",
+          "method": "Bounded original OA passage inspection",
+          "title": "Maximum nullity and zero forcing of circulant graphs",
+          "trigger": "Bipartite circulants could cover graph family aliases"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "A complete cover and gap analysis for crowns is naturally motivated, but the frozen exact quantities already occur in equivalent results or follow immediately from the indexed all-set test. The added uniqueness assertion follows from elementary tight-constraint subtraction on the already determined triple family, not a distinct unresolved structural result.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

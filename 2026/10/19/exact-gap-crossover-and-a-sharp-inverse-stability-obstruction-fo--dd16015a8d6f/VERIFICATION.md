@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification details
+# Independent mathematical audit
 
-**Exact identities.** The four-tent equality and squared \(L^2\) norm follow analytically by Plancherel and direct tent-overlap integration. The power data are squared Fourier magnitudes, not Fourier magnitudes themselves. The quotient geometric metric minimizes symmetric-difference mass under translations and reflections; the reference equal-length set is reflection invariant.
+## correctness
 
-**Executable check.** Run `python3 verification/covariogram_check.py` with Python 3 standard library only. The program evaluates eight cases by exact rational endpoint and covariogram integration, including ratios below one, between one and two, and at or above two; it also independently compares forty nonzero-frequency Fourier integrals with the closed identity. Successful output: `PASS: 8 exact rational covariogram integrals; 40 direct Fourier checks.`
+PASS
 
-**Limits.** Finite checks are not exhaustive. The universal validity rests on the displayed elementary analytic identities. The printed Lipschitz conclusion of Xia–Xu (Theorem 1.3(ii)) conflicts with this explicit family under its stated lower-bound assumptions; the contradiction should be independently assessed before drawing conclusions about the other results of that paper. No independent audit or external validation is claimed.
+Direct interval correlation gives T_(ell+a)+T_(ell-a)-2T_ell for the self terms, the two tents at ±ell, and cancels the mixed terms except for the negative tents at ±d (the shorter interval produces the flat part of each mixed overlap). Plancherel in the stated 2pi convention turns the squared intensity norm into the four-tent energy. Positive and negative supports separate as a<ell; the only cross terms are same-side pairs at distance g. The tent autocorrelation is the convolution of four centered length-a boxes, equivalently the cubic truncated-power difference with knots -2a,-a,0,a,2a. It gives 2a^3/3-ag^2+g^3/2 up to a, (2a-g)^3/6 up to 2a, and zero thereafter. Substitution in 8a^3/3-4C_a(g) verifies the joins and plateau. For the quotient distance, reflection fixes E_0. Its L1 translation discrepancy is continuous, strictly positive off zero and constant at large translations. Triangle inequality forces any minimizer into a small fixed neighborhood of zero as a tends to zero; there the endpoints do not interact and the cost is 2|t-a/2|+2|t+a/2|, minimized at 2a. At fixed positive gap this proves exactly the stated obstruction, not an upper estimate for arbitrary pairs. The checker named in RESULT.md:68 was not supplied or replayed; the reasoning is analytic.
+
+## originality
+
+PASS
+
+The distinct claim is the exact intensity crossover for the fixed-gap length-imbalance direction and its uniformly separated inverse obstruction at equal component lengths. The cubic tent overlap profile itself is shared with the equal-width gap-variation problem and is not novel in isolation. The directly inspected Xia–Xu estimate is incompatible with the explicit family under the printed hypotheses and metric; it does not cover the contribution.
+
+## value
+
+PASS
+
+The degeneration occurs at a natural equal-length geometry with neither a vanishing component nor a closing gap. The explicit family tests a specific claimed stability regime and rules out every exponent above 2/3 there, while the exact overlap calculation quantifies the fixed-center gap crossover. This is a useful obstruction without claiming a matching general upper bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

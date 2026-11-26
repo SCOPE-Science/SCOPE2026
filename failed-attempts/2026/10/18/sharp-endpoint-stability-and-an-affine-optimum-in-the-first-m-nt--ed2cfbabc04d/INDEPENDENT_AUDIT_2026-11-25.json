@@ -1,0 +1,151 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:12:58.882226Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–104",
+        "Frozen VERIFICATION.md and verify_muntz.py (read only)",
+        "python /workspace/review_evidence/2.py (mpmath; passed)"
+      ],
+      "rationale": "The centered monomial has variance α²/((2α+1)(α+1)²)>0, giving the stated real symmetric kernel, including for complex data. The L∞ upper bound is sharp by applying to the sign of a maximizing kernel row and using continuity even if that row is at an endpoint; duality then gives the L1 norm. In x^α the row mass is convex; the value at the monomial mean is 1, below both endpoint values, so the segments split at that point exclude every interior maximizer. Each endpoint kernel has a single zero. At the left endpoint its positive integral is (α+1)h₀/α; at the right endpoint its negative mass is h₁. The norm formulas follow using total mass 1. The right branch increases by log(1+s)>s/(1+s); the left branch decreases because in t=1/α the derivative of its logarithmic positive mass is 2z+log(1−z)>0 for z=1/(t+2) in (0,1/2). Their equality at α=1 gives the exact switch and unique minimum 5/3. The diagonal is strictly convex in x^α, with endpoint heights (1+1/α)² and 2(α+1), and these have the same switch. Simplifying the logarithms as α tends to zero or infinity verifies the claimed asymptotics. Independent inverse-Gram quadrature and diagonal evaluations reproduced the endpoint values at eight exponents.",
+      "residual_risks": [
+        "The numerical comparison is a cross-check; the analytic proof covers every α>0. The claim is about the fixed Lebesgue L²-orthogonal projector with a constant basis function, not the least norm of arbitrary projections."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "For all positive Dirichlet parameter vectors, the theorem gives the exact common L1/L∞ norm F_A(a*) and precisely the vertices of least parameter as maximizers.",
+          "Its kernel is A(A+1) Σ_i x_i y_i/α_i − A."
+        ],
+        "reasoning": "Take the two simplex coordinates (x,1−x) with parameters (η,1), η=1/α. If η>1 the smaller parameter is at x=0; if η<1 it is at x=1. The integral defining F_A has exactly the submitted endpoint values when specialized to this beta law (there is one sign change and a power antiderivative). The diagonal is convex and evaluation at the vertices gives A(A+1)/α_i−A, yielding both submitted peak branches by substitution.",
+        "searches": [
+          "Resultary 5c9fbf13aa23, Finding and kernel reconstruction, offset 0–3998"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 5c9fbf13aa23, 99c2b9dd9b34, 57a70e7bfcf9",
+        "Milovanović (author PDF)",
+        "arXiv:1110.5422v1",
+        "arXiv:1608.00512v1",
+        "10.3150/11-BEJ403"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Dirichlet balanced-vector theorem fixes A, whereas A=1+1/α varies on this path. Its stated concentration limit holds for fixed fractions, not this varying-fractions path. Müntz orthogonalization and sampled Christoffel estimates by themselves do not prove the sharp continuous norms."
+        ],
+        "reasoning": "The strict monotonicities in α and the path optimum require comparing the specialized branches, rather than blindly applying the balanced-minimizer statement. The displayed norm laws and diagonal laws themselves, and their elementary asymptotic limits, are consequences of the broader endpoint and kernel result. No chronology between the two same-day entries is inferred.",
+        "searches": [
+          "Resultary 5c9fbf13aa23, Finding (fixed A versus fixed fractions) and kernel reconstruction",
+          "Milovanović §§1–2.1 and Cohen–Migliorati pp. 4–5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "x=t^α sends Lebesgue measure to the Beta(1/α,1) probability law. The associated composition map is an isometric identification on L1, L2 and L∞ and sends the given two-generator space to affine functions."
+        ],
+        "reasoning": "It conjugates the orthogonal projections and the Lebesgue functions. The claimed unweighted assumption therefore does not exclude coverage by the weighted affine theorem.",
+        "searches": [
+          "Resultary: exact two-term Müntz/Jacobi/weighted affine endpoint projectors",
+          "Resultary 5c9fbf13aa23 Finding and Assumptions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "5c9fbf13aa23 gives an exact beta-integral norm throughout the full range, not a table or a bound. Earlier uniform simplex record 99c2b9dd9b34 gives 5/3 at d=1. Later record 57a70e7bfcf9 concerns the same projector but the BV→L2 residual objective, not the endpoint norm."
+        ],
+        "reasoning": "A general exact formula containing this entire path counts as coverage even if its elementary two-case simplification is not printed. The β=1 pure affine benchmark alone and the later residual result would not be decisive.",
+        "searches": [
+          "Resultary 5c9fbf13aa23, 99c2b9dd9b34 and 57a70e7bfcf9",
+          "Primary search: Müntz L∞ norm orthogonal projector span 1 x^alpha"
+        ]
+      },
+      "rationale": "The central sharp endpoint norm and maximizer classification have demonstrable coverage by the distinct indexed affine Dirichlet theorem 5c9fbf13aa23. There is an isometric change of variable, a direct specialization of its exact theorem, and a mechanical evaluation of its diagonal kernel. This is a same-calendar-day catalogue record; coverage is definite, but earlier priority and ordering are not established, and neither is claimed here. Its balanced minimization at fixed concentration does not itself show the variable-concentration optimum in this record. That distinction does not establish originality of the frozen claim as a whole.",
+      "residual_risks": [
+        "Gurariy–Lusky, Projection Types and the Isomorphism Problem for Müntz Spaces (10.1007/11551621_10), was identified; the cited abstract concerns Banach projection types, and bounded OA chapter/PDF attempts redirected without a lawful full-text copy. The fail decision does not depend on that lack of access.",
+        "Catalogue dates alone do not give priority or establish which proof, if either, preceded the other."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive exact broader coverage, with same-day priority unresolved",
+          "evidence": "F_A(a*) and exact least-parameter vertex rule for all positive Dirichlet parameters include Beta(η,1); the explicit kernel also gives the diagonal peak.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-least-concentrated-vertices-govern-asymmetric-dirichlet-affine-p--5c9fbf13aa23/RESULT.md",
+          "material_read": "Finding, Assumptions and kernel reconstruction at offsets 0–3998; targeted subsequent proof passages",
+          "method": "Resultary search and OA local mirror",
+          "title": "Least-concentrated vertices govern asymmetric Dirichlet affine-projection stability",
+          "trigger": "Exact endpoint projection norms and maximizing vertices for weighted affine spaces"
+        },
+        {
+          "assessment": "Covers the affine benchmark only",
+          "evidence": "Uniform dimension one gives 5/3.",
+          "identifier_or_url": "Resultary 99c2b9dd9b34",
+          "material_read": "Finding and scope at offsets 0–4300",
+          "method": "Resultary local mirror",
+          "title": "Exact positivity defect and max norm of the affine least-squares projector on a simplex",
+          "trigger": "Earlier affine benchmark"
+        },
+        {
+          "assessment": "Different objective and later catalogue date",
+          "evidence": "The claimed switch concerns the BV→L2 residual norm.",
+          "identifier_or_url": "Resultary 57a70e7bfcf9",
+          "material_read": "Finding and scope at offsets 0–4614",
+          "method": "Resultary local mirror",
+          "title": "Sharp worst-jump switching for two-mode Müntz projection",
+          "trigger": "Identical unweighted two-dimensional projector"
+        },
+        {
+          "assessment": "Basis background",
+          "evidence": "Orthogonalization and explicit power coefficients, not the sharp continuous endpoint operator norm in these passages.",
+          "identifier_or_url": "https://www.mi.sanu.ac.rs/~gvm/radovi/BC16.pdf",
+          "material_read": "§§1–2.1, pp. 179–180",
+          "method": "OA author-hosted PDF passages",
+          "title": "Müntz Orthogonal Polynomials and Their Numerical Evaluation",
+          "trigger": "Explicit orthogonal basis of the same Müntz system"
+        },
+        {
+          "assessment": "Sampling-based stability",
+          "evidence": "The estimates use the Christoffel diagonal to control sampled least-squares stability and sample budgets.",
+          "identifier_or_url": "https://arxiv.org/abs/1608.00512v1",
+          "material_read": "pp. 4–5, offsets 14000–20382",
+          "method": "OA primary-text passages",
+          "title": "Optimal weighted least-squares methods",
+          "trigger": "Christoffel diagonal and stability amplification"
+        },
+        {
+          "assessment": "Kernel framework, not a decisive sharp norm passage",
+          "evidence": "Identifies orthogonal reproducing kernels for the Dirichlet/Jacobi setting.",
+          "identifier_or_url": "10.3150/11-BEJ403",
+          "material_read": "pp. 1 and 3–4, abstract and kernel passages",
+          "method": "OA author-hosted Bernoulli PDF",
+          "title": "Orthogonal polynomial kernels and canonical correlations for Dirichlet measures",
+          "trigger": "Dirichlet/Jacobi polynomial projection kernel framework"
+        },
+        {
+          "assessment": "Embedding scope, not evidence excluding hidden coverage elsewhere in the text",
+          "evidence": "The abstract treats boundedness, compactness and Schatten properties of embedding operators.",
+          "identifier_or_url": "https://arxiv.org/abs/1110.5422v1",
+          "material_read": "Abstract, p. 1",
+          "method": "OA PDF passage",
+          "title": "Embeddings of Müntz Spaces: The Hilbertian Case",
+          "trigger": "Functional-analytic results for the same class of spaces"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 13–28 and 71–100",
+        "Resultary 5c9fbf13aa23, exact Dirichlet theorem and kernel"
+      ],
+      "rationale": "The norm and endpoint location are natural stability quantities, but the frozen exact invariant and nearly all of its contrast with the diagonal are direct evaluations of the broader vertex and kernel formulas. The nonliteral addition is the optimization along a variable-concentration one-parameter path; here it reduces to differentiating two known elementary branches and comparing them at their common point. The residual observation does not establish a separate, nonroutine mathematical gap sufficient to support the submitted exact-invariant claim or a substantive repair.",
+      "residual_risks": [
+        "This does not deny pedagogical usefulness of the elementary exposition or significance of the broader Dirichlet result."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

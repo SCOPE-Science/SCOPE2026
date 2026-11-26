@@ -1,15 +1,21 @@
-# Review of second-order recoding fluctuations
+# Independent mathematical audit
 
-## Correctness
-PASS. The exact conditional parity mean is \((1-2p_n)^{\binom{S_n}{d}}\). A uniform binomial/log expansion gives its \(L^2\) linearization in the walk position with remainder norm \(O(n^{-1})\). The history statistic has independent-increment harmonic weights and a two-dimensional Lindeberg limit with exact covariance \(\left(\begin{smallmatrix}1&1\\1&2\end{smallmatrix}\right)\). Conditional independence of coefficient rows gives a conditionally Gaussian centered noise component whose characteristic functions converge to a constant, proving asymptotic independence from the history term. The combined CLT and the moments follow with an \(L^2\)-negligible remainder. The quenched first-order Brownian claim follows from the conditional strong law and bounded martingale jumps. Finite exact checks supplement this proof.
+## correctness
 
-## Originality
-PASS with historical-priority limits. Hamza--Tournier (arXiv:2610.01658v1) include a general row-independent coefficient setting (Proposition 10) and first-order Brownian criteria, so a bare first-order sparse-degree correlation would not suffice as a new contribution. The final claim instead concerns the \(\sqrt N\) fluctuations of the empirical predictable cross-covariation: their Gaussian law, variance inflation from shared increment history and the degree dependence that persists even when the first-order Brownian correlation is held fixed. The 2020 foundational Brownian criteria do not evaluate this second-order law. Accessible prior claim 962714ec-bc50-4276-a0a6-593cf8a62647 uses a time-invariant cardinality-grouped fair environment with a different fluctuation scale. Targeted searches identified no direct second-order covering result.
+PASS
 
-## Value
-PASS. First-order invariance principles can identify two randomizations as asymptotically equivalent even when their internal mechanisms differ. This result supplies a mathematically natural diagnostic—the empirical cross-covariation of the two walks—whose fluctuations distinguish any two positive degrees at the same limiting Brownian correlation. The explicit additional variance \(2d^2\rho^2(\log\rho)^2\) quantifies the cost of persistent dependence on the shared increment history, rather than giving a routine reparameterization of the first-order CLT.
+Given the whole sign path, rows are independent, and each row's mean is the parity mean (1−2p_n)^binom(S_n,d), with empty product 1. The strong law for S_n/n and conditional Hoeffding give H_N/N→ρ almost surely; Fubini disintegrates this over environments. The bracket of the fixed-environment martingale is H_{N−1}+1, with deterministic diagonal brackets, so the bounded-jump functional CLT applies (uniform bracket convergence on compact rescaled time intervals follows from the partial-sum strong law). For all S_n, replacing the falling factorial and log by their leading terms incurs O(n^−1) for fixed d, including d=1. Taylor expansion gives slope −f′(1/2)/2=a since S_n/n−1/2=−X_n/(2n), and the fourth-moment bound gives a total L² error O(log N). The harmonic weights sum to N, their squares sum to 2N−h_N by summing min(r,s)/(rs), and their maximum h_N is o(sqrt(N)); Lindeberg gives the stated history Gaussian. Conditional characteristic functions of the bounded centered row noise converge almost surely to the deterministic characteristic function with variance 1−ρ²; bounded convergence permits multiplication by the varying unit-modulus characteristic factors of the history statistics. Conditional orthogonality and L² error control also establish the moment limits, not merely convergence in distribution. The bounded bracket shift and finitely many clipped probabilities do not change these limits.
 
-## Limitations
-The second-order law is annealed and assumes independent coefficient rows and a fixed degree; it does not assert quenched second-order behavior. A very broad unlocated historical theorem could imply this special Gaussian decomposition, so independent priority review remains necessary.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The two-walk Brownian limit and the use of the bracket are within existing theory. The supported distinct claim is the joint second-order annealed law and the explicit degree-dependent variance at fixed positive Brownian correlation; neither the inspected general criteria nor the closest static-coefficient results supply it.
+
+## value
+
+PASS
+
+The formula identifies a concrete mechanism hidden by the first-order Brownian covariance: different interaction degrees tuned to the same ρ yield strictly different bracket variance rates. It gives a usable second-order invariant and separates conditional coefficient noise from the history contribution, rather than just exhibiting two models with the same correlation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

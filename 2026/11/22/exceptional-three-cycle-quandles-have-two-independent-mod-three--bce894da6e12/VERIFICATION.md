@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Reproducing the finite-rank proof
+# Independent mathematical audit
 
-Use Python 3 with its standard library and run:
+## correctness
 
-```sh
-python3 check_exceptional.py
-```
+PASS
 
-The script reconstructs the three-cycle conjugacy quandles without downloaded tables. It generates every normalized degree-three generator, calculates its four signed boundary terms (dropping degenerate pairs), verifies the integer chain identity, and computes the complete degree-three boundary ranks in characteristics two and three. The field-three coefficients are encoded as disjoint coefficient-one and coefficient-two bit planes, and every arithmetic operation is an exact bitwise truth-table implementation of finite-field addition. The pivot insertion algorithm is a standard Gaussian elimination proof of matrix rank. All generated triples are included, not a sample; there are respectively 7,220, 60,840, and 333,270 at five, six, and seven letters.
+For right conjugation the four signed normalized boundary terms in RESULT.md are correct and cancel under d2 by self-distributivity. I independently generated oriented support triples, computed conjugation by relabeling through the inverse of the acting cycle, and removed a directed spanning tree of pair coordinates. On its span d2 is an isomorphism onto the augmentation-zero subgroup, so projection to non-tree pair coordinates identifies ker(d2) with a space of dimension 1521 or 4761 (and preserves d3 rank). Exact elimination over F2 and F3 over all 60840 and 333270 normalized triples gave d3 ranks (1520,1519) and (4761,4759), with the n=5 control giving (360,360). Replay: python3 /workspace/checks/1.py 5 6 7; complete output /workspace/checks/1.txt. The frozen checker and CHECK_OUTPUT were inspected, not executed. The finite connected injective quandle finiteness theorem and torsion-free H1=Z justify interpreting the mod-prime dimensions as counts of p-primary summands, not as torsion exponents.
 
-The lower-dimensional boundary has rank one less than the number of quandle elements, which follows from connectedness and is checked by graph traversal. The script checks right self-distributivity and \(\partial_2\partial_3=0\). It verifies characteristic-two ranks with reversed row order in every case, and characteristic-three ranks with reversed order at five and six letters. A five-letter calculation checks against the already-known coefficient dimensions. `CHECK_OUTPUT.txt` is a record of a complete successful checker execution, not a substitute for running the checker itself.
+## originality
 
-The output does not determine torsion exponents, non-tested prime characteristics, the whole integral homology or any higher homology. Independent mathematical audit has not been performed.
+PASS
+
+Bounded pass for the four exceptional normalized coefficient ranks, not for the general method, Schur multipliers or the n=5 control. The directly relevant odd-cycle theorem explicitly omits these cases.
+
+## value
+
+PASS
+
+The two degrees are singled out by exceptional Schur multipliers and by an explicit gap in the general k-cycle classification, not by an arbitrary size cutoff. The exact 2- and 3-primary generator counts constrain future integral calculations in both exceptions and distinguish their 2-primary behavior.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

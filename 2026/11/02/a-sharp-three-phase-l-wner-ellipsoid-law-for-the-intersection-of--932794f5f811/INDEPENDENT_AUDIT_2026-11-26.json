@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:20:51.107566Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–68, VERIFICATION.md and verify_lens.py (inspected, not executed)",
+        "Complete correction: /workspace/repairs/5/RESULT.md",
+        "Independent exact replay: python /workspace/evidence/replay.py 5"
+      ],
+      "rationale": "The frozen formulas are correct, but the iff statement in original RESULT.md line 32 omits R>r: with equal radii the point d=n(R−r)=0 is not interior, even though R/r<(n+1)/(n−1). The delivered RESULT.md fixes the radius-ratio criterion and rechecks the full phase law. The axial profile is the lower of the two spherical quadratics. The candidate has a≤b, so the ellipsoid's containment expression on each arc is convex in x and its maximum is at an endpoint. Independent exact algebra reproduces the right-tip excess, the aspect ratios, and equality at both transitions. In normalized coordinates the appropriate left-tip and latitude weights 1/(n+1), n/(n+1) give first moment zero and covariance I/n. With two poles and rim coordinate k=(R−r)/d the stated rim weight and pole weights satisfy the moment equations; p_+=(1−nk)/(2n(1−k)) proves the sharp nonnegativity threshold. The smaller-ball latitude lies inside the lens precisely at t−d≥r/n. The increasing quadratic g=d²+2dr/n+r²−R² locates d₀: for unequal radii, g(R−r)<0<g(n(R−r)) and g(R+r)>0. Thus the first transition is interior, and the second is interior precisely when R−r>0 and n(R−r)<R+r, i.e. 1<R/r<(n+1)/(n−1). Equality at the upper ratio is excluded tangency. For equal radii only the two-pole phase occurs in the proper-overlap domain. The normalized contact measures give a sufficient global optimality certificate, not just stationarity.",
+      "residual_risks": [
+        "The repair changes the statement of where the second transition lies, not the formulas for the candidate ellipsoids. The proof concerns proper Euclidean lenses; disjoint bodies and external tangency are not full-dimensional cases."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kahan's original pp. 437 and 440 stipulate origin-centered ellipsoids and explicitly identify noncentered tightness as a further question; the author copy abstract likewise states common center. Yousefi et al. give approximation for planar ellipses; arXiv:1804.00106 §3.1 labels its general SDP method suboptimal."
+        ],
+        "reasoning": "A proper ball lens has distinct centers and invertible affine transformations cannot coalesce them. Thus the common-center exact result does not give this phase diagram. An outer approximation or relaxation, without a tightness theorem and optimization on these parameters, does not yield the exact minimum-volume law.",
+        "searches": [
+          "Primary search: Circumscribing an ellipsoid about the intersection of two ellipsoids Kahan 437 441",
+          "Kahan DOI 10.4153/CMB-1968-050-2 (published PDF and author's OA version)",
+          "arXiv:1709.06021 pp. 6, 20–21",
+          "arXiv:1804.00106 §3.1"
+        ]
+      },
+      "checked_sources": [
+        "Corrected /workspace/repairs/5/RESULT.md and original prior-work section",
+        "Todd 2007 ICIAM slides",
+        "Kahan 1968, doi:10.4153/CMB-1968-050-2",
+        "arXiv:1709.06021 and arXiv:1804.00106",
+        "Resultary 424a15eeef51 and a1fa5399323a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Todd: 'We can similarly derive the minimum-volume ellipsoid containing the intersection of two balls.' His passage gives the method but not the distinct unequal thresholds. Kahan explicitly separates noncentered bodies as a more complicated problem. The equal-radius statement lacks unequal-radius contact bifurcations."
+        ],
+        "reasoning": "A statement that an optimal-measure computation is possible does not furnish the formulas or the exact switch from clipped-ball contacts to rim-and-tip and then to rim-and-two-tips. The two inequalities controlling latitude membership and right-tip contact must be established; the corrected availability criterion is part of that unequal-radius solution.",
+        "searches": [
+          "Todd, PDF p. 14, offset about 7090",
+          "Kahan, Cambridge PDF p. 4 / print p. 440, offset 13870",
+          "Resultary a1fa5399323a, mirrored Finding offsets 17–1100"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Todd names the same outer minimum-volume ellipsoid and the optimal-measure method. The indexed unequal-ball contact law concerns the convex hull; the indexed equal-ball lens entry gives an outer ellipsoid for equal radii. The planar ellipse reference uses outer approximation."
+        ],
+        "reasoning": "Enclosing the intersection, enclosing the union or its convex hull, and finding an inscribed maximum-volume ellipsoid are different optimizations and cannot be identified by sharing axial symmetry. Only Todd's mention and the indexed equal-ball subcase are the same outer-lens problem; neither inspected statement supplies the unequal-radius branches.",
+        "searches": [
+          "Todd 2007 PDF, The Ellipsoid Method, 2",
+          "Resultary 424a15eeef51 and a1fa5399323a, mirrored Findings",
+          "arXiv:1709.06021"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "424a15eeef51 has three regimes and a scalar-root formula for the convex hull, not the lens. a1fa5399323a explicitly matches the equal-radius outer lens formula in every n≥2 and is dated later in the index."
+        ],
+        "reasoning": "The actual equal-radius overlap must be credited, but it has no smaller-ball and one-pole phases. The earlier unequal-ball indexed law describes a different body and does not supply either radius-dependent lens threshold. No exact unequal-ball intersection formula was found in the bounded local comparison.",
+        "searches": [
+          "Local Resultary semantic lookup for the Löwner ellipsoid of intersecting balls, unequal radii and contact phases",
+          "Resultary 424a15eeef51 and a1fa5399323a"
+        ]
+      },
+      "rationale": "The corrected claim retains the supported distinct explicit all-dimensional unequal-ball intersection formulas and thresholds. Todd explicitly named the same optimization problem and approach, an important historical caveat, but the inspected passage does not give the formulas. Kahan's original result was recovered and is restricted to common centers; the paper explicitly leaves noncentered tightness as a complication. The nearest indexed statements concern the convex hull of unequal balls or the equal-radius lens slice. No exact encompassing theorem was established in the checked primary or indexed evidence. This is best-of-knowledge, not a claim to originating the problem or its method.",
+      "residual_risks": [
+        "Todd's direct identification of the problem and use of contact measures leave a material possibility of an earlier explicit unequal-ball derivation in other sources. No exhaustive priority search is implied. The equal-radius specialization is also covered separately in the catalogue."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same problem and method; no unequal-radius formulas in the inspected passage",
+          "evidence": "After an optimal-measure construction for a slice, explicitly says the minimum-volume enclosure of two intersecting balls can similarly be derived.",
+          "identifier_or_url": "https://people.orie.cornell.edu/~miketodd/ublndetz.pdf",
+          "material_read": "Title page and PDF p. 14, The Ellipsoid Method, 2, offset about 7090",
+          "method": "OA PDF text",
+          "title": "Minimum-Volume Ellipsoids: Applications, Duality, and Algorithms",
+          "trigger": "Direct historical mention of the same optimization problem"
+        },
+        {
+          "assessment": "Exact common-center result does not cover distinct-center lenses",
+          "evidence": "All ellipsoids in the theorem are centered at the origin. Noncentered tightness is discussed as a further question. Author version abstract specifies common center.",
+          "identifier_or_url": "doi:10.4153/CMB-1968-050-2; author copy https://people.eecs.berkeley.edu/~wkahan/Ellipint.pdf",
+          "material_read": "Published PDF pp. 1 and 4 / print pp. 437 and 440, introductory centered condition and closing noncentered remarks; author version PDF p. 1 offset 650–3691",
+          "method": "Targeted literature search then lawful OA published PDF and author copy, passage reads",
+          "title": "Circumscribing an ellipsoid about the intersection of two ellipsoids",
+          "trigger": "Plausible stronger prior result, identified in Yousefi et al. references"
+        },
+        {
+          "assessment": "Approximation algorithm, not exact all-dimensional ball lens law",
+          "evidence": "Describes approximation via polygons for finitely many planar ellipses and cites the historical Kahan result.",
+          "identifier_or_url": "arXiv:1709.06021",
+          "material_read": "PDF p. 6 (offset 15960), pp. 20–21 (offset 61250), reference to Kahan (offset 65493)",
+          "method": "OA PDF text",
+          "title": "A Novel Approach for Ellipsoidal Outer-Approximation of the Intersection Region of Ellipses in the Plane",
+          "trigger": "Primary outer-enclosure work in a broader shape class, n=2"
+        },
+        {
+          "assessment": "General relaxation, not an exact covering theorem in the inspected section",
+          "evidence": "Introduces the SDP relaxed feasible set and explicitly calls the resulting enclosure suboptimal.",
+          "identifier_or_url": "arXiv:1804.00106",
+          "material_read": "PDF p. 6, §3.1, offsets 17528–19120",
+          "method": "OA PDF locate and offset read",
+          "title": "Intersection of Ellipsoids",
+          "trigger": "Broader possible minimum-volume intersection-enclosure theorem"
+        },
+        {
+          "assessment": "Different body and thresholds",
+          "evidence": "Encloses the convex hull and gives a three-regime classification with threshold L_c, not the lens intersection law.",
+          "identifier_or_url": "Resultary 424a15eeef51",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Local Resultary search and mirror",
+          "title": "A sharp contact bifurcation for the Löwner ellipsoid of two unequal balls",
+          "trigger": "Closest indexed unequal-ball contact classification"
+        },
+        {
+          "assessment": "Matches the equal-radius outer law only; later index date is not priority evidence",
+          "evidence": "Exact outer ellipsoid of equal-ball lenses for n≥2; does not state the unequal-ball phase thresholds.",
+          "identifier_or_url": "Resultary a1fa5399323a",
+          "material_read": "Mirrored RESULT.md Finding, offsets 17–1100",
+          "method": "Local Resultary search and mirror",
+          "title": "Exact John and Löwner ellipsoids of equal-ball lenses in every dimension",
+          "trigger": "Exact intersection model for equal radii"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Corrected RESULT.md phase statement and exact contact certificates",
+        "Todd 2007 lecture passage on the same optimization problem",
+        "Resultary a1fa5399323a (equal-radius comparison)"
+      ],
+      "rationale": "The minimum-volume outer enclosure of a spherical lens is a standard geometric optimization object, and unequal radii produce a new set of potential contacts relative to the equal-radius case. Knowing exactly when the smaller ball remains optimal despite being clipped, when the right pole first becomes active, and which phases can occur provides more than an existence argument or a numerical approximation. The corrected transition condition prevents attributing an interior transition to a family in which only the two-pole regime is present.",
+      "residual_risks": [
+        "No claim of algorithmic or empirical improvement for general intersections of ellipsoids follows from this exact two-ball classification."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

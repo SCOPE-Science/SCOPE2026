@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-Run the enclosed `verify.py` with Python 3 from the same directory using `python verify.py`. It uses only the Python standard library and prints a summary on success.
+## correctness
 
-The program carries out exact rational state-distribution sums for \(d=2,3,4\), positive quota vectors, integer and fractional positive initial masses, and a range of finite observation times. It compares these with the closed completion CDF and the quota-proportional terminal-colour formula in the unit-mass case. A separate direct time-step path propagation reconstructs these probabilities without calling the Dirichlet–multinomial formula. The minimal completion-time comparison for contrasting quota allocations is checked algebraically at several masses. Finally, numerical spot checks compare beta–binomial low-count probabilities with their theoretical Gamma-ratio asymptotic constants.
+PASS
 
-The checked program printed `PASS 6214 exact rational comparisons and asymptotic-constant spot checks`. The integers in this total include both strict-exact rational comparisons and explicitly approximate large-time constant checks; they must not be confused with a formal proof of an asymptotic statement. The proof's all-parameter conclusions require, and are supported by, the displayed Dirichlet–multinomial formula, Gamma-ratio asymptotics, low-count pair bounds, and finite quota-pattern comparison.
+Every ordered draw sequence with counts n has probability ∏(a_i)_{n_i}/(A)_t, giving exchangeability and the multinomial multiplicity in (1). Grouping colors yields the beta-binomial marginal; taking the Gamma ratios with each count k fixed gives Γ(A)(a_i)_k/[Γ(A−a_i)k!] times t^{−a_i}(1+O(t^{−1})). Grouping into three blocks gives O(t^{−a_i−a_j}) for joint deficiencies; with d=2 the combined deficient counts cannot sum to large t. The union bounds with pair corrections give C_*; the discrete tail-sum has the same convergence as ∑t^{q−1−a_*}, including divergence at equality. Independently, conditioning on the final counts and using exchangeability, the marked completion mass is exactly (r_i/t) times the probability of N_i(t)=r_i with all other counts meeting quota. The pair bound shows their constraint changes only lower order, giving the coefficient Γ(A)(a_i)_{r_i}/[Γ(A−a_i)(r_i−1)!]=a_i c_i. Summing and taking ratios gives both reported unmarked and conditional limits. At unit masses count compositions are uniform; shifting by quotas gives the CDF and imposing N_i(t)=r_i gives the same marked formula for each i except for the factor r_i. For rigidity, at t=R the only permissible count vector is r. Comparing one 2 against the other possible location at R=d+1 forces symmetry, then comparing (3,1,…) with (2,2,1,…) at R=d+2 yields 2(a+2)/[3(a+1)]=1, hence a=1; both comparisons are available at d=2.
 
-This verification is a reproducibility aid and does not constitute independent validation. Historical-priority assessment also remains non-exhaustive.
+## originality
+
+PASS
+
+The pointwise finite-time Pólya completion law, including a prior sum that resolves the last color, is covered. The distinct result evaluates the fixed arbitrary-quota joint tail constants and marked local asymptotics and characterizes the exact quota-blind case; it does not claim the model or underlying exact summation law as new.
+
+## value
+
+PASS
+
+This turns a finite occupancy sum into a sharp heavy-tail and marked-exit law, identifying which colors dominate late completions and how the fixed quotas alter their weights, including tied minimal masses. The finite-moment criterion and exact converse for when quota allocation is invisible are usable structural consequences. Neither value assessment rests on newness of the urn or the unit-mass stars-and-bars calculation alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

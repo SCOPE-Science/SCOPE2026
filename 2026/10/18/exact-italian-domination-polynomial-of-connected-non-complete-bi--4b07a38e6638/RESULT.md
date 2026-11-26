@@ -59,7 +59,7 @@ Then
 \boxed{D_I(G;x)=\sum_{\alpha=1}^{p+1}\sum_{\beta=0}^{p}
 \mathcal A_{\alpha\beta}(x)\,\mathcal B_{\beta\alpha}(x).}
 \]
-This is a sum of \(p(p+1)\) explicitly factored polynomial contributions with only weight-zero and weight-one truncations; no enumeration of the \(3^{|V(G)|}\) labelings is required.
+This is a sum indexed by \((p+1)^2\) frontier pairs (including the no-zero options on both sides). Each contribution uses only products and weight-zero and weight-one truncations; no enumeration of the \(3^{|V(G)|}\) labelings is required. The number of nonzero contributions can be \((p+1)^2\): if all classes have size at least two, each prescribed zero frontier can carry a zero and a two, and every other class can be labeled entirely by twos. Every required prefix or suffix then has weight at least two.
 
 ## Assumptions and scope
 
@@ -75,15 +75,15 @@ Suppose \(\alpha\le p\). Every zero-labeled vertex in \(A_i\) has \(i\ge\alpha\)
 
 Dually, when \(\beta\ge1\), every zero-labeled vertex in \(B_j\) has \(j\le\beta\) and neighborhood \(A_j\cup\cdots\cup A_p\). All such vertices are defended if and only if the label weight on \(A_\beta\cup\cdots\cup A_p\) is at least two. The condition is vacuous for \(\beta=0\). Truncation on this suffix gives \(\mathcal A_{\alpha\beta}\).
 
-For fixed \((\alpha,\beta)\), the constraints on labels in the \(A\)-classes and \(B\)-classes are independent, so multiplication of their weight polynomials counts exactly the Italian dominating functions having those two zero frontiers. Every valid function has exactly one pair of frontiers, and the pairs are disjoint. Adding the \(p(p+1)\) products proves the identity for all allowed sizes and weights. In particular the formula has no unproved infinite-step or asymptotic premise. \(\square\)
+For fixed \((\alpha,\beta)\), the constraints on labels in the \(A\)-classes and \(B\)-classes are independent, so multiplication of their weight polynomials counts exactly the Italian dominating functions having those two zero frontiers. Every valid function has exactly one pair of frontiers, and the pairs are disjoint. Adding all \((p+1)^2\) products proves the identity for all allowed sizes and weights. \(\square\)
 
 ## Verification
 
-The standalone Python 3 script `verify.py` evaluates every frontier-cell polynomial from the formula and independently enumerates labelings from the graph's explicitly generated edges and the local defense test. On 76 class-size profiles (including complete-bipartite baseline tests), it evaluated 793620 labeled assignments and compared 1143 separately counted frontier cells; all comparisons agreed. A fixed pair of connected chain graphs with \(3\) vertices on each side, both of Italian domination number \(4\), illustrates the additional information: for \((a_1,a_2)=(2,1)\), \((b_1,b_2)=(1,2)\), the coefficient of \(x^4\) is \(4\); for \((a_1,a_2,a_3)=(b_1,b_2,b_3)=(1,1,1)\), it is \(6\). The script checks these figures independently. Execute `python3 verify.py` in the directory containing the script. Finite enumeration is a consistency test, not the proof for arbitrary sizes.
+The standalone Python 3 script `verify.py` evaluates every frontier-cell polynomial from the formula and checks it by direct enumeration using adjacency and the local defense rule. Its test list has 76 entries, two of which repeat earlier class-size profiles. Counting repetitions, it checks 793620 labeled assignments and compares 1143 frontier cells; there are 74 distinct ordered profiles, with 754254 assignments and 1111 cells across them. A pair of connected chain graphs with three vertices on each side, both of Italian domination number \(4\), illustrates the additional information: for \((a_1,a_2)=(2,1)\), \((b_1,b_2)=(1,2)\), the coefficient of \(x^4\) is \(4\); for \((a_1,a_2,a_3)=(b_1,b_2,b_3)=(1,1,1)\), it is \(6\). The script displays the corresponding coefficients. Execute `python3 verify.py` in the directory containing the script. Finite enumeration is a consistency test, not the proof for arbitrary sizes.
 
 ## Relationship to prior work
 
-Shao and Zhao introduced the all-weight Italian-domination counting program for paths, trees and cycles, with dynamic programs and selected explicit cycle coefficients [1]. The present identity gives every coefficient, in a closed zero-frontier sum, for non-complete-bipartite connected chain graphs, a different infinite class containing cyclic examples. Padamutham and Palagiri previously obtained the **minimum** Roman \(\{2\}\) (equivalently Italian) domination number of chain graphs [2]; knowing that minimum does not determine the weight polynomial. Published formulas for the ordinary Roman-domination polynomial of chain graphs [3] impose the stronger requirement that every zero have a label-two neighbor, and therefore count a different collection. The existing all-weight Roman \(\{2\}\) formula on complete multipartite graphs [4] includes the complete-bipartite boundary \(p=1\) but not general chain graphs with \(p\ge2\).
+Shao and Zhao give dynamic programs for all-weight Italian-domination counting on paths, trees and cycles, and selected explicit cycle coefficients [1]. The present identity gives every coefficient, in a closed zero-frontier sum, for non-complete-bipartite connected chain graphs. Prior work on the **minimum** Roman \(\{2\}\) (equivalently Italian) domination number of chain graphs [2] addresses the least nonzero degree, not the weight polynomial. The ordinary Roman-domination polynomial on chain graphs [3] uses a stronger requirement: every zero must have a label-two neighbor. For example, on the four-vertex path an internal vertex labeled zero with all other labels one is defended in the Italian sense but not in the ordinary Roman sense. All-weight Roman \(\{2\}\) enumeration on complete multipartite graphs [4] is relevant to the complete-bipartite boundary \(p=1\), but a connected bipartite complete multipartite graph must be complete bipartite, so that class does not include the graphs with \(p\ge2\) considered here.
 
 ## Limitations
 
@@ -95,6 +95,6 @@ The theorem does not cover arbitrary convex bipartite graphs, general chordal bi
 
 [2] C. Padamutham and V. S. R. Palagiri, *Complexity of Roman {2}-domination and the double Roman domination in graphs*, AKCE International Journal of Graphs and Combinatorics 17 (2020), 1081–1086, DOI:10.1016/j.akcej.2020.01.005.
 
-[3] *Roman domination polynomial of chain graphs*, published research record, https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-roman-domination-polynomial-of-chain-graphs--e846e0fa619b.
+[3] *Roman domination polynomial of chain graphs*, related research record, 4 October 2026, identifier `e846e0fa619b`.
 
-[4] *Weight enumerator of all Roman {2}-dominating functions on complete multipartite graphs*, published research record, https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-weight-enumerator-of-all-roman-2-dominating-functions-on-complet--4a62f97e627e.
+[4] *Weight enumerator of all Roman {2}-dominating functions on complete multipartite graphs*, related research record, 4 October 2026, identifier `4a62f97e627e`.

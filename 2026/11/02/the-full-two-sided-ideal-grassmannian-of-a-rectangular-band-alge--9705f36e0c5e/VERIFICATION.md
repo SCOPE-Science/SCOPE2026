@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run the included standalone Python 3 program:
+## correctness
 
-```sh
-python3 checks/verify_rectangular_band.py
-```
+PASS
 
-The script enumerates every reduced-row-echelon \(k\)-subspace of \(k^{mn}\) in each selected small field. To decide whether a subspace is a two-sided ideal, it multiplies every generator of that subspace in both orders by each semigroup basis element, using only the original rule \((i,j)(h,\ell)=(i,\ell)\), and independently tests membership in the subspace by Gaussian elimination. The test therefore does not use the proposed row/column ideal classification to decide ideal membership. Predicted counts are computed separately from Gaussian coefficients. The included output records the resulting dimension histograms.
+From the basis law XY=rho(X) tensor gamma(Y). A basis sandwich of any element of nonzero augmentation yields every basis element up to the same nonzero scalar. Thus proper ideals lie in J. Multiplication by each basis element on either side forces P into an ideal with images U,V; the image conditions give I contained in H, and the same multiplication identity proves sufficiency. P already realizes both images, proving uniqueness. Split each sum map using a coordinate basis vector, so the two non-annihilator summands of H already belong to P; inclusion of R0 tensor C0 induces the asserted canonical quotient. The dimension of P follows by its intersection V tensor U, and counting planes in that quotient gives the stated polynomial. Products of augmentation-zero elements range over a spanning set of R0 tensor C0, using the chosen sum-one vectors; this space annihilates A on both sides. The radical designation also follows in the unitization since J is nilpotent and the quotient of the unitization by J is k x k. For the geometric assertion, on the rank loci the images of the universal ideal bundle are subbundles. Universal H and P are subbundles over the base Grassmannians with quotient the specified vector bundle. Taking I/P and taking inverse images are mutually inverse regular constructions; the dimension and smooth geometric irreducibility follow on the reduced strata in every characteristic. Independent reproduction: python3 -B /workspace/reproductions/rectangular_ideals.py grows subspaces as sets of vectors via one-dimensional extensions and tests both multipliers from the basis law on every word. For (m,n,q)=(2,3,2),(3,2,2) it scanned 2825 subspaces each and got histogram (1,3,4,4,4,1,1); for (2,2,3),(2,2,4) it scanned 212 and 529 and got (1,1,2,1,1). The finite checks corroborate the algebraic argument, not the scheme geometry or arbitrary-field assertion by extrapolation.
 
-The seven exhaustive cases have \((m,n,q)=(2,2,2),(2,2,3),(2,2,4),(2,3,2),(2,3,3),(3,2,2),(1,4,2)\). The fourth-order field uses an explicit non-prime-field multiplication rule. The \((1,4,2)\) test checks a valid degenerate boundary even though the main statement focuses on \(m,n\ge2\). The final line is:
+## originality
 
-`RECTANGULAR_BAND_IDEALS_OK 7 EXHAUSTIVE_CASES`
+PASS
 
-These checks are exhaustive only for the listed finite instances. The all-field theorem follows from the exact algebraic classification proof. No independent audit has been performed.
+The supported distinct claim is the combination of all proper linear ideals with their dimension census and reduced rank-stratum geometry for the bare rectangular band. Neither the standard rank-one sandwich description, the known radical context, nor the inspected nearby semigroup and quiver theorems determine this census and geometry without a further analysis of the common invariant subspaces. This is a bounded priority judgment, not a claim to a new product law or radical theory.
+
+## value
+
+PASS
+
+The full ideal locus of these natural nonunital semigroup algebras is meaningfully richer than the semigroup ideal structure or the radical alone. The canonical fibers give both the exact dimension-by-dimension finite-field counts and geometric structure of each rank stratum across all rectangle sizes and field characteristics. This is structural information, not an isolated census or a general claim about components of the full scheme.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

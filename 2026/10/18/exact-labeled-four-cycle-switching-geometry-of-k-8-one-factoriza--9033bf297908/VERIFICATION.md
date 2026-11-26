@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction of the finite result
+# Independent mathematical audit
 
-Two self-contained standard-library programs are provided: `verify_matchings.py`, enumerating perfect matchings then exact covers, and `verify_coloring.py`, assigning the opponent of team zero to each factor and testing all four-vertex alternating switches. Execute `python3 verify_matchings.py .` in a writable directory and `python3 verify_coloring.py`. Both recompute every edge and shortest-path eccentricity rather than trusting the saved output.
+## correctness
 
-`factorization_states.txt` contains 6240 lines of seven sorted hexadecimal masks; mask bits index the lexicographically ordered 28 unordered edges on teams 0 through 7. `fourcycle_edges.txt` has 17640 sorted distinct pairs of 0-based row indices. The programs independently yield the SHA-256 digests `544c02ebaa1e834f533f4e04aa3b8524b517d46fbc5900c8d72d43e70e36e9f3` and `278543195bffe9e837bb1ed4358cc87cabb4b2ac7929b06a24e6c4bcbc253c4a`, respectively. Their recorded standard outputs agree byte-for-byte, with component sizes and eccentricities as in the theorem.
+PASS
 
-Both programs were run on the actual supplied source paths and the saved output and certificate files checked. All cases are finite and covered, including the exact enumeration of 105 matchings and all 6240 factorizations. A third-party reproduction and literature priority examination have not occurred. No conclusion about larger complete graphs follows.
+A factorization is counted once under either first-uncovered-edge descent or anchoring each factor to the unique opponent of vertex 0; neither identifies vertex labels. In a pair of factors the union consists of even cycles of length at least four, so the only possibilities are an 8-cycle and two 4-cycles. Only the latter permits a changed unordered factorization. Choosing the other 4-cycle just interchanges the names of the two resulting factors. A separately written full census generated all 105 matchings, enumerated all disjoint anchored covers, tested all 21 factor pairs per cover by connected components, and deduplicated the constructed neighbor sets. Component traversal plus BFS from all 5280 nonisolated states independently reproduced 6240 vertices, 17640 edges, degree counts 0:960, 3:1680, 7:2520, 9:420, 13:630, 21:30, component sizes 1:960 and 5280:1, and nontrivial eccentricities 9:30, 10:3570, 11:1680. The degree-zero characterization follows exactly from having only Hamiltonian two-factor unions. The frozen verifier code, saved outputs and summary were inspected without executing the uploaded scripts. The frozen replay entry points are verify_matchings.py (exact covers) and verify_coloring.py (anchored covers); the independent implementation also uses the anchoring principle but constructs switches from cycle components.
+
+## originality
+
+PASS
+
+Credit is limited to the exact fixed-vertex-label graph statistics: its edges and degree census, connectivity of the non-perfect states, and their full distance geometry. The factor-switch move, quotient graph, perfect-factorization isolation and 6240 labeled state count are known. The closest primary prior computes the quotient under vertex relabeling; the information in its reported quotient and loops is insufficient to recover the connectivity or distances of the labeled state graph. No inspected indexed result gives a dominating unquotiented census.
+
+## value
+
+PASS
+
+The graph is the natural smallest complete one-factorization setting with a nontrivial labeled component and perfect isolated states of this kind; K8 permits both types of two-factor union, unlike the smaller K4 and K6 cases where every two-factor union is one cycle. The meaningful invariant is the fixed-participant edit geometry, not a repeated count of states or isomorphism classes. In the active component, exact connectivity decides mutual convertibility without team renaming and diameter 11 gives the sharp worst-case number of legal round edits; eccentricities give the worst-case guarantee by starting schedule. Those precise invariants are useful independently of any extrapolation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

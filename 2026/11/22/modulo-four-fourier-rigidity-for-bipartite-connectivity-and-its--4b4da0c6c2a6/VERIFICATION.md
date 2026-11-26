@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The self-contained script `verify.py` recomputes all Boolean connectivity indicators on the 16 edges of \(K_{4,4}\) and transforms the entire 65,536-entry array using integer butterflies. In a logically separate calculation it enumerates the 15 partitions of the four left vertices, applies the partition-lattice Möbius formula to each of the 65,536 frequency sign matrices, and checks equality coefficient by coefficient.
+# Independent mathematical audit
 
-Observed exact outcomes: 36,317 connected edge subsets, 49 signed coefficient levels, 65,536 nonzero multipliers, 11,664 multipliers of magnitude three (all equal to \(-3\)), maximum magnitude 36,317, and 131,072 pointwise formula-and-residue assertions. The finite Parseval check \(\sum_{\xi}W(\xi)^2=2^{16}\cdot36317\) also passed. The histogram is stored in `spectrum.csv`. No stochastic computation or floating-point tolerance is involved.
+## correctness
 
-The all-size modulo-four congruence and the thin-shore sharpness are derived symbolically from partition-lattice Möbius inversion and constructive sign choices in `RESULT.md`; the finite checker is corroboration, not an infinite certificate. External independent audit has not been performed.
+PASS
+
+For an edge subset with no isolated right vertex, its nonempty right neighborhoods generate a partition of the left shore by equivalence closure. The subset is connected exactly when this generated partition is one block. Summing the signed weights of neighborhoods lying inside blocks, then applying the partition-lattice Möbius function, proves equation (1). The source's phrase 'common coarsest partition' should be understood as this finest compatible partition, or join of neighborhood-generated relations; the actual inversion uses the correct containment. Even numbers of blocks give even column factors and hence products divisible by four; factorials discard all block counts ≥5. The surviving one-block term is (−1)^n and each three-block term is 2 modulo four. The Stirling recurrence gives S(m,3)≡m mod 2, including m=2. For m=2 opposite signs in every column kill the two-block term. For m=3 columns (++−) and (−−+) include one column annihilating each two-block term, as do (++−) and (+−+); the specified multiplicities give −1 for even n and +1 for odd n, with transposition covering n=2. Nonzero integer multipliers give invertibility and the sharp thin unit gaps. Fresh BFS plus integer Walsh transform reproduced all 65,536 coefficients and every bin of the 49-level frozen histogram: rank 65,536, |W|min=3 (11,664 instances of −3), |W|max=W(0)=36,317, and Parseval sum 2,380,070,912. Counting convolution on the unitary character basis therefore has inverse norm 1/3 and condition number 36,317/3.
+
+## originality
+
+PASS
+
+The signed connected-subgraph polynomial, Fourier diagonalization, and Möbius machinery are established. The distinct content is the residue for every edge-sign assignment, the simultaneous sharp thin-shore unit gaps, and the first unrestricted nonunit gap and complete histogram. The closest inspected sources concern vertex-colouring data, fixed edge counts including spanning trees, or known polynomial expressions rather than the evaluated congruence and gaps. In particular the K(2,n) layer formulas give overlap in the summands of the thin case, not a formula in the inspected statements for the whole theorem.
+
+## value
+
+PASS
+
+The natural connected-spanning indicator defines a recovery operator whose nonvanishing is not guaranteed by generic Fourier theory. A sign-uniform mod-4 invariant establishes exact recoverability across all bicliques; explicit small-shore witnesses and the complete first thicker case identify where the unit spectral floor first increases. The exact multiplicity and extremal coefficients answer conditioning questions for a standard host and distinguish the observable sharply from the spanning-tree projection.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

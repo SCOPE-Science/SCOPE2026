@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:04:04.784539Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At positive C^2 support h with Q=h+h''>0 and R=sqrt(h^2+(h')^2), the boundary point h n+h' tau sweeps radial angle with derivative hQ/R^2, so J_q=int hQ R^(q-2). At fixed ray the support variation f gives radial variation (R/h)f by projecting the boundary-point derivative onto its normal. Thus J'_q/q=int f R^(q-2)Q. Differentiate and integrate f f'' by parts: (R^(q-2))'=(q-2)R^(q-4)h'Q cancels the cross term, leaving J''_q/q=int [R^(q-2)(f^2-(f')^2)+(q-2)R^(q-4)hQ f^2]. The normalized root adds the stated rank-one term. At the disk the Hessian has weights (q-1)-k^2 on nonconstant even Fourier modes. For each fixed q<5 the negative weights are uniformly coercive in H^1 on mean-zero functions. The displayed Hessian and first-variation weights converge uniformly as h tends to 1 in C^2, so the gap persists with the same mean-zero complement. Degree-one homogeneity makes h a null direction for the bilinear Hessian, allowing any f to be replaced by f-h mean(f)/mean(h). This proves nonpositivity on a convex small support ball and hence concavity on whole segments. For q>5 the disk Hessian in cos(2phi) is (q-5)/2>0. For q=5 the normalization derivative vanishes by quarter-turn symmetry at h_b=1+b cos(4phi). In the integral Hessian the first-order term is b cos(4phi)(-36 f^2-3(f')^2). Its mean is -36/4+3=-6, while the constant-term mean is zero, and the normalized radial integral is 1+O(b^2). Hence F''_5=-6b+O(b^2) shows positive curvature in the direction f at arbitrarily close h_b with b<0. For |b|<1/15 the base has Q>0; choose t sufficiently small that 15|b|+3|t|<1 and both supports h_b±tf stay in the prescribed neighborhood. Taylor gives the strict reversed midpoint inequality.",
+      "reproducibility": "Inspected frozen VERIFICATION.md and CHECKER.py without executing the uploaded script. Independent exact replay uses cos^2(2phi)=(1+cos(4phi))/2 and 4 sin^2(2phi)=2(1-cos(4phi)); the two means against cos(4phi) are 1/4 and -1. Combined with R^3=1+3b cos(4phi)+O(b^2) and Rh_bQ=1-13b cos(4phi)+O(b^2), these reproduce the endpoint slope exactly. The frozen finite quadrature is corroboration only; frozen expert, independent-audit and Lean channels report not_performed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Li–Wan–Zhang prove the origin-symmetric global endpoint q=n+2 and construct global failures for q>n+2.",
+          "Tao's planar global p=1 range ends at q=4, with strict counterexamples outside it."
+        ],
+        "reasoning": "Global concavity covers the subrange q<=4, and is not credited to the finding. Global failure past 4 does not say whether failures occur arbitrarily close to the disk. The neighborhood and sharp endpoint require a local argument.",
+        "searches": [
+          "arXiv:2608.03949 Theorems 1.4–1.5",
+          "arXiv:2610.09636 Theorem 1.1"
+        ]
+      },
+      "checked_sources": [
+        "DOI 10.1090/proc/17647 (metadata and indirect statement only)",
+        "MaRDI Q7262023",
+        "arXiv:2608.03949",
+        "arXiv:2610.09636",
+        "Resultary 9743ab536ba0",
+        "Resultary cf768f8ad83d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known ball Hessian already gives q>5 failure and strict coercivity at the disk for q<5; extending the latter uses stability of the weighted form after quotienting scaling.",
+          "At q=5 the computed mixed third variation is nonzero and changes sign with the fourth harmonic, information missing from the disk Hessian and from the global threshold."
+        ],
+        "reasoning": "Even a routine neighborhood extension of the strictly negative disk Hessian would not settle the degenerate endpoint. No available statement inspected resolves that endpoint for all disk neighborhoods. The inaccessible Xu–Yang full text is not treated as negative evidence.",
+        "searches": [
+          "arXiv:2608.03949 Remark 3.1 and introduction",
+          "arXiv:2610.09636 Theorem 1.1",
+          "DOI 10.1090/proc/17647; MaRDI Q7262023"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The functional is the 1/q power of the q-th dual quermassintegral up to a fixed positive factor, and p=1 is ordinary Minkowski addition.",
+          "Li–Wan–Zhang attribute the symmetric ball-point q<=2n+1 threshold to Xu–Yang. In n=2 that is q<=5, but this is a Hessian test at the disk."
+        ],
+        "reasoning": "Changing normalization or quoting the L_p formulation at p=1 does not yield new science. The relevant distinction is testing all nearby pairs, not merely the ball-point second variation. In particular that variation is zero rather than positive in the critical mode at q=5.",
+        "searches": [
+          "arXiv:2610.09636 §1 and Theorem 1.1",
+          "arXiv:2608.03949 Remark 3.1",
+          "DOI 10.1090/proc/17647"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest checked record 9743ab536ba0 gives a q=4 global rectangle identity and thin-box limit, not a q=5 near-disk variation.",
+          "The checked same-day record cf768f8ad83d concerns annular affine-projection norms, not radial moments under Minkowski addition."
+        ],
+        "reasoning": "No matching indexed statement was verified. The overlap in topic of the rectangle result is real but at a different base body and critical order; shared date of another record is no evidence of coverage or priority.",
+        "searches": [
+          "Resultary local dual Brunn–Minkowski, q=5 disk endpoint and neighborhood concavity",
+          "Resultary 9743ab536ba0",
+          "Resultary cf768f8ad83d"
+        ]
+      },
+      "rationale": "Credit the global threshold q=4, the disk-point spectral threshold q=5, and the immediate q>5 disk failure. The supported distinction is two-point concavity throughout a neighborhood in the range 4<q<5 and, particularly, failure in every neighborhood at the critical q=5 despite the neutral disk Hessian. The latter uses a varying base point and an explicit cubic interaction; it is not decided by the known disk spectrum or by a global counterexample. Xu–Yang full-text priority remains a named risk after lawful retrieval attempts.",
+      "residual_risks": [
+        "Xu–Yang is directly relevant; lawful access attempts did not yield full text, so earlier two-point neighborhood coverage or an endpoint obstruction cannot be excluded.",
+        "Priority is limited to the compared statements and available source passages, not a guarantee of exclusivity."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Confirmed ball-point overlap indirectly; full neighborhood scope unresolved",
+          "evidence": "Attributed symmetric disk-point threshold q<=2n+1; no full primary text obtained for the neighborhood quantifiers or critical witness.",
+          "identifier_or_url": "https://doi.org/10.1090/proc/17647",
+          "material_read": "Publication metadata, MaRDI Q7262023; Li–Wan–Zhang introduction p. 2, Remark 3.1 p. 7, and reference [28] p. 27 (offsets 7843, 20905, 92994)",
+          "method": "Lawful DOI direct and VPN retrieval attempts returned 403; sought lawful repository copy; consulted OA indirect attribution and metadata",
+          "title": "A note on the Brunn–Minkowski inequality for dual quermassintegrals",
+          "trigger": "Earlier near-ball study and strongest plausible priority overlap"
+        },
+        {
+          "assessment": "Direct global and disk-point coverage, not the checked critical neighborhood obstruction",
+          "evidence": "Global symmetric endpoint q=n+2 and counterexamples for q>n+2; separate ball-point threshold.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.03949",
+          "material_read": "Theorems 1.4–1.5, PDF p. 3, offsets 8637 and 9213; Remark 3.1, p. 7, offset 20905",
+          "method": "Lawful OA arXiv passages",
+          "title": "On the Brunn–Minkowski inequality for q-th dual quermassintegrals with q>n",
+          "trigger": "Same radial-power functional, global symmetric endpoint and local ball criterion"
+        },
+        {
+          "assessment": "Global classification, not a near-disk classification",
+          "evidence": "p=1 denotes ordinary Minkowski addition; the global range ends at q=4 with strict failures outside.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.09636",
+          "material_read": "Section 1 PDF p. 2, offset 5101; Theorem 1.1 PDF p. 3, offset 7306",
+          "method": "Lawful OA arXiv passages",
+          "title": "On the L_p Brunn–Minkowski inequality for planar dual quermassintegrals",
+          "trigger": "General planar classification includes p=1 and may dominate the claim"
+        },
+        {
+          "assessment": "Distinct body and endpoint",
+          "evidence": "Planar rectangle identity at q=4, (16/3)(1-t^4), and higher-dimensional thin-box limit.",
+          "identifier_or_url": "Resultary 9743ab536ba0",
+          "material_read": "Mirrored RESULT.md Finding, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Resultary semantic lookup and local mirror passage",
+          "title": "Quartic stabilization of the rectangle obstruction at the dual Brunn–Minkowski endpoint",
+          "trigger": "Closest indexed planar dual Brunn–Minkowski endpoint result"
+        },
+        {
+          "assessment": "Unrelated observable",
+          "evidence": "Concerns sharp affine-projection norms on annuli.",
+          "identifier_or_url": "Resultary cf768f8ad83d",
+          "material_read": "Mirrored RESULT.md Finding, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Resultary semantic lookup and local mirror passage",
+          "title": "Strict hole-radius stabilization and a 5/2 cusp for the annular affine-projection problem",
+          "trigger": "Additional nearby ranked same-day comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Separates three different thresholds or tests for the same natural Minkowski functional: the global range, stability of the disk's quadratic form, and concavity uniformly near the disk. The exact borderline witness detects a failure that the quadratic test misses and produces smooth positive-curvature counterexamples as close to the disk as desired. In the gap 4<q<5, local concavity is nonvacuous because nearby behavior is not decided by the known global failure.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

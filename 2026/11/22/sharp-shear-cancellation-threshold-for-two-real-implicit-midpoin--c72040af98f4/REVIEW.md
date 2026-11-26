@@ -1,15 +1,21 @@
-# Scientific review of the stated sharp two-step theorem
+# Independent mathematical audit
 
-## Correctness — PASS
-The endpoint Cayley map is an exact rational function of a single nilpotent Jordan block. Product coefficients \(d,v\), the exact upper-triangular singular-value norm, and the factorization of \(q^2-d^2\) reconstruct the proof without relying on finite sampling. The strict partition \(y<1\), \(y=1\), \(y>1\) covers all strictly positive allocations with \(H>4/a\); the reduced threshold \(B_x(y)\) decreases from \(2\), proving both the sufficient and necessary directions and uniqueness up to step interchange. Exact-fraction and numerical checks reproduced the algebra and the example. The exceptional horizon \(H=4/a\) is correctly excluded from the equivalence.
+## correctness
 
-## Originality — PASS, qualified
-The closest accessible full works concern nonnormal exact-flow transient growth (Reuter, arXiv:1909.05931), complex-valued midpoint compositions for order improvement (George–Jung–Mangan, arXiv:2110.04402), and nonuniform Crank–Nicolson-type stability for a fractional PDE (Liao–Tang–Zhou, arXiv:2012.10740). Their inspected results do not state or imply the sharp **real-positive two-step minimax operator-norm** threshold for the Jordan shear. Related published indexed results on normal Cayley modes, Jordan backward Euler, and affine Jordan norm pencils have different feasible matrix families; their claims do not entail this theorem. Search incompleteness and older unpublished equivalences remain priority risks, and no independent historical validation is asserted.
+PASS
 
-## Value — PASS
-For the smallest defective stable linear test system, minimizing *terminal norm* rather than eigenvalue modulus yields a sharp universal transition at \(s=2a\), exactly the boundary of continuous Euclidean dissipativity. Above that transition an explicit, strictly positive, highly unequal two-step schedule cancels a potentially arbitrarily large nonnormal shear, giving a norm independent of its magnitude. The theorem is a finite-budget, sharp structural allocation law, not merely a computed improvement or a trivial reparameterization. It is not a claim of endpoint accuracy, arbitrary-system performance, or optimality in the complementary low-shear regime.
+Let x=aH/2>2, b=s/a and y=a²h1h2/4, so unordered positive allocations correspond one-to-one to 0<y<=x²/4. Nilpotent Cayley multiplication gives M=dI+vN, where d=(1−x+y)/(1+x+y) and v=2bx(1−y)/(1+x+y)². The point y=1 has M=−qI, q=(x−2)/(x+2)>0; y<1 gives d<−q. For y>1 the increasing diagonal satisfies −q<d<=q²<q. Then q²I−MᵀM has positive leading diagonal and determinant (q²−d²)²−q²v², so the exact condition for a norm at least q is |v|>=(q²−d²)/q. Factoring q²−d² gives the equivalent b>=2(x²−2y−2)/(x²−4). The right side strictly decreases from 2 on the feasible interval, proving strict superiority of y=1 to every alternative if b>=2 and strict improvement immediately to its right if b<2. The quadratic with sum H and product 4/a² gives the stated unequal positive pair and norm. At H=4/a, the equal-step nilpotent factors multiply to zero; this boundary does not obey the equivalence. For s=0 all products are scalar, which does not make the designated product allocation optimal.
 
-## Comparisons and limits
-The primary paper inspections were of the Reuter 2019 full HTML (Jordan subspaces, transient matrix exponential/powers, conclusions), the George–Jung–Mangan 2021 full web text (real/complex path construction and implicit midpoint section 8), and Liao–Tang–Zhou 2020 full web text (variable-step nonlinear fractional PDE method). A related weighted-and-shifted BDF2 source was available at abstract level only and was not used to assert full-text noncoverage. Exact finite examples and source searches are supporting checks, not independent verification or a proof of global priority.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct claim is the global iff threshold and unique optimality of a particular positive real split at fixed total duration. It is not the existence of a cancellation pair, the Cayley-map formula, the dissipativity boundary alone, or a general statement about transient growth. The strongest indexed analogues share either the model or the method/constraint but do not, in their available statements, imply this threshold.
+
+## value
+
+PASS
+
+The exact threshold identifies when norm reduction should use cancellation of the nilpotent term rather than push the scalar attenuation further. Eigenvalues alone miss this trade-off. The threshold coincides with the boundary for Euclidean dissipativity, includes rigidity at equality, and gives a sharp unequal-step damping benchmark for analyzing nonnormal integrators.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

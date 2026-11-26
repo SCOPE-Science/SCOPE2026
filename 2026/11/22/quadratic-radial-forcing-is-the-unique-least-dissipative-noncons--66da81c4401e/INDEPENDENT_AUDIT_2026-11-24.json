@@ -1,0 +1,154 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:13:40.128780Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–83, VERIFICATION.md lines 19–21 and checker.py lines 16–69 (inspected, not executed)",
+        "Da Costa–Pavliotis arXiv:2212.05125, p. 3, stationary current identity"
+      ],
+      "rationale": "With D=diag(1,1,η), stationarity makes the current J divergence-free; in the full even-coordinate entropy rate ∫J·D⁻¹J/p, the stationary log-density gradient and the equilibrium drift gradient drop out upon integration. This leaves η⁻¹∫fJ_z=V/η−E[fZ]; f is independent of z, so the axial density derivative integrates to zero. For the integration steps one can condition the stationary axial convolution on the current transverse state v: the backward OU history is e^(−u)v plus Gaussian noise, and Z is the resulting random smooth mean plus independent standard Gaussian noise. Polynomial bounds on the mean and its derivatives give finite score moments (conditional Jensen), as well as a polynomial bound on |log p| by Jensen on the Gaussian mixture. These justify integration with cutoffs. Stationary convolution gives E[fZ]=∫₀^∞e^(−ηu)E[f_u f_0]du. The squared transverse radius divided by two has Exp(1) law and generator 2s∂²+2(1−s)∂, so the centered Laguerre modes have eigenvalues −2m. The entropy weights are therefore 2m/[η(η+2m)], a bounded multiplier on L²; the calculation extends from finite sums. Strict increase gives the unique quadratic mode (4c²=V), and the difference of the second and first weights is 2/[(η+2)(η+4)], with equality exactly on modes 1 and 2 (transverse degrees 2 and 4). Each weight is strictly below 1/η and they converge to it; admissible normalized polynomial modes prove nonattainment and sharpness. The supplied checker’s generator recurrence follows by applying the joint generator to ZS^k; the reported finite checks were inspected as evidence, not rerun or relied on for the theorem.",
+      "residual_risks": [
+        "The analysis is for the full three-coordinate even-variable process with the displayed diffusion matrix. It does not identify the rate from partially observed data or claim experimental realizability."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General elliptic current identity; exact matrix entropy formula for linear OU; stochastic-work relation for fluctuating trap stiffness."
+        ],
+        "reasoning": "The general current identity is not a force-profile optimization and does not diagonalize the force response. A linear Gaussian drift formula cannot include the nonlinear radial Laguerre modes; a random stiffness model couples the modulation to the axial coordinate, unlike the additive drive here.",
+        "searches": [
+          "Resultary: stationary Ornstein Uhlenbeck spectral formula entropy production Laguerre radial force",
+          "arXiv:2212.05125, p. 3; arXiv:2610.03355, Eq. (46); arXiv:2405.09460, Eqs. (56)–(58)"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2110.04362, 1812.09188, cond-mat/0503686, 2212.05125, 2610.03355, 2405.09460; DOI:10.1088/1751-8121/ab78d0",
+        "Resultary 66da81c4401e (self-hit), 862d45a61789, 98cf815307f4 (summary)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The inspected optical theory selects a fixed quadratic profile, and the general entropy theory gives the starting identity for arbitrary diffusions. The examined Martin–Ford multidimensional OU comparison is restricted to symmetric drift."
+        ],
+        "reasoning": "The optimization can be derived using established tools, but it requires reducing the full current functional in this triangular model to a force autocorrelation and identifying the radial spectrum of the resulting filter. Once this is done the Rayleigh minimum and sharp gap are immediate; a known model-specific multiplier for the whole class would therefore be close to dominating coverage. No such statement was established in the inspected sources.",
+        "searches": [
+          "arXiv:2110.04362, Eqs. (3)–(7), (78)–(81); arXiv:cond-mat/0503686, Eqs. (14)–(17); arXiv:2212.05125, p. 3; DOI:10.1088/1751-8121/ab78d0, pp. 25,34"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:2110.04362, p. 3, Eqs. (3)–(7) supplies the particular quadratic force; Eqs. (78)–(81) and conclusion discuss density, currents and circulation. arXiv:1812.09188, p. 2 examines time-reversal-breaking signals and position spectra."
+        ],
+        "reasoning": "At fixed variance the equivalent optimum maximizes the Laplace transform of the stationary force autocorrelation, not a one-profile current estimate or just a time-asymmetric positional spectral signal. The ingredients and known candidate are credited.",
+        "searches": [
+          "Resultary: quadratic radial forcing least entropy production fixed force variance Laguerre stability gap optical trap OU",
+          "Resultary: optical trap entropy production arbitrary radial force fixed variance optimized dissipation quadratic",
+          "Web: overdamped Ornstein-Uhlenbeck stochastic thermodynamics spectral entropy production arbitrary force autocorrelation spectrum optimization fixed variance optical trap radial"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact self-hit 66da81c4401e. The closest distinct optimization, 862d45a61789, concerns planar linear OU at fixed covariance and drift spectrum, optimizing anisotropy; 98cf815307f4 concerns active-particle trap orientation (summary)."
+        ],
+        "reasoning": "Neither invariant is indexed by admissible centered radial functions at fixed Gaussian force variance. Varying noise anisotropy or orientation does not recover the first/second Laguerre mode equality classes or the upper limiting sequence.",
+        "searches": [
+          "Resultary: quadratic radial scattering optical trap least dissipative entropy production sharp stability remainder"
+        ]
+      },
+      "rationale": "The force profile, stochastic-thermodynamic identities and OU mode calculus are prior. The distinctive claim is the full stationary entropy shape optimization at fixed transverse Gaussian variance, including the sharp remainder and equality classes. No inspected source combines the same admissible force class and entropy functional so as to cover that optimization directly.",
+      "residual_risks": [
+        "An unlocated prior additive-filter dissipation formula with the same admissible radial input class could implicitly cover the extremal conclusions. Priority is not certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior explicit quadratic source, not the profile comparison in these passages",
+          "evidence": "Quadratic scattering and steady density, currents and circulation.",
+          "identifier_or_url": "https://arxiv.org/abs/2110.04362",
+          "material_read": "OA PDF p. 3 Eqs. (3)–(7) and pp. 12–13 Eqs. (78)–(81) and conclusion, offsets 9000 and 67800",
+          "method": "OA PDF passages",
+          "title": "Steady state of overdamped particles in the non-conservative force field of a simple non-linear model of optical trap",
+          "trigger": "Exactly the minimizing model and force profile"
+        },
+        {
+          "assessment": "Related perturbative and spectral tools",
+          "evidence": "Position spectra and time-reversal-breaking correlations, not a fixed-force-variance optimization.",
+          "identifier_or_url": "https://arxiv.org/abs/1812.09188",
+          "material_read": "OA PDF p. 2, offsets 1544 and 5400",
+          "method": "OA PDF passages",
+          "title": "The role of non-conservative scattering forces and damping on Brownian particles in optical traps",
+          "trigger": "Spectral treatment of optical forcing"
+        },
+        {
+          "assessment": "General machinery",
+          "evidence": "Path probability ratio and endpoint-density terms.",
+          "identifier_or_url": "https://arxiv.org/abs/cond-mat/0503686",
+          "material_read": "p. 2, Eqs. (14)–(17), offset 11800",
+          "method": "OA PDF passage",
+          "title": "Entropy Production along a Stochastic Trajectory and an Integral Fluctuation Theorem",
+          "trigger": "General path entropy theorem"
+        },
+        {
+          "assessment": "Supplies the current functional, not its model-specific multiplier",
+          "evidence": "Quadratic irreversible-drift functional in the elliptic setting.",
+          "identifier_or_url": "https://arxiv.org/abs/2212.05125",
+          "material_read": "Abstract and p. 3, offset 10000",
+          "method": "OA PDF passage",
+          "title": "The entropy production of stationary diffusions",
+          "trigger": "Potential stronger stationary identity"
+        },
+        {
+          "assessment": "Restricted OU computation",
+          "evidence": "Symmetric drift in the multidimensional example; nonconservative systems identified as further work.",
+          "identifier_or_url": "10.1088/1751-8121/ab78d0",
+          "material_read": "pp. 25,34, offsets 78200 and 107800",
+          "method": "OA PDF passages",
+          "title": "Stochastic entropy production in diffusive systems",
+          "trigger": "General entropy and OU example"
+        },
+        {
+          "assessment": "Different linear-Gaussian class",
+          "evidence": "Full even-coordinate entropy given as a matrix functional for two-dimensional OU.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.03355",
+          "material_read": "p. 1 and pp. 7–8 Eq. (46), offsets 0 and 42500",
+          "method": "OA PDF passages",
+          "title": "Stochastic thermodynamics and predictability of Ornstein–Uhlenbeck processes",
+          "trigger": "Nearby exact OU entropy formula"
+        },
+        {
+          "assessment": "Different forcing mechanism",
+          "evidence": "Stiffness fluctuations and work/moment computation, not additive radial forcing.",
+          "identifier_or_url": "https://arxiv.org/abs/2405.09460",
+          "material_read": "pp. 21–22 Eqs. (56)–(58), offset 66500",
+          "method": "OA PDF passage",
+          "title": "The OU2 process: Characterising dissipative confinement in noisy traps",
+          "trigger": "Exact dissipation for an OU-driven trap"
+        },
+        {
+          "assessment": "Different variables and constraints",
+          "evidence": "Planar linear OU at fixed stationary covariance and drift eigenvalues, varying noise anisotropy.",
+          "identifier_or_url": "2026/11/8/SCOPE-exact-inverse-spectrum-dissipation-and-anisotropy-frontier-for-p--862d45a61789",
+          "material_read": "Local RESULT.md Finding, offset 0",
+          "method": "Local published record mirror",
+          "title": "Exact inverse-spectrum dissipation and anisotropy frontier for planar OU",
+          "trigger": "Strongest distinct catalogue entropy optimizer"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 5–33 and 49–75",
+        "arXiv:2110.04362, Eqs. (3)–(7)"
+      ],
+      "rationale": "The budget compares physically different profile shapes on a common stationary force scale. The result explains why the earlier optical quadratic is extremal and quantitatively controls all deviations across an infinite smooth class, nonperturbatively. The sharp second-mode remainder and unattained upper endpoint distinguish it from merely computing the quadratic example.",
+      "residual_risks": [
+        "No claim about experimental beam constraints or a physical realization of the upper sequence."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

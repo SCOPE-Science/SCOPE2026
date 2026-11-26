@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The Rule-22 local rule is exactly the three single-one neighborhoods; the complete zero- and one-edge de Bruijn graph is explicitly enumerated. A positive ones run between output zeros restricts the ring-predecessor path to two states, whose three residue matrices can be verified directly by following the one-edge three-cycle. Every closed path determines exactly one fixed-period input, even on one- and two-cell rings. Partial-permutation rank establishes the exact zero/one/two fiber classification, and the all-ones exception is counted independently. Weighted trace cycles convert marked gaps to indexed outputs using the exact \(n/m\) factor; the only duplicated fibers are all-residue-two even gap lists. Exact formal determinant differentiation yields the count. The standalone checker enumerates every input through ring length 17 and checks coefficients through length 120, independently of the proof. No finite experiment is treated as an all-length proof.
+PASS
 
-## Originality — PASS, qualified
+The exactly-one neighborhoods yield the three-cycle 00→01→10→00 of 1-edges. Immediately before an isolated zero only 00 and 10 can both follow a 1 and start a 0-edge that permits the next 1. Following that 0-edge and the next a steps of the three-cycle gives the stated two-state partial permutations. Closed walks represent same-length indexed inputs, including n=1,2 with repeated neighbors. A projector forces at most one fixed start; a pure product of swaps fixes both states precisely at even gap count. All-ones has the three cyclic starts exactly when 3 divides n. The determinant of I-U has factors (1+z)(1-z-z^3)/(1-z^3); counting marked zeros gives n/m, even for words with smaller least period. At n=3k the duplicate contribution is Σ_{m≥2 even}(3k/m)binom(k-1,m-1)=3(2^(k-1)-1), confirming the subtraction and rational OGF independently of its log expression. The recurrence t_n is the sum of nth powers of the three roots of x^3-x^2-1 by Vieta; the conjugate pair has modulus λ^(-1/2), so the error bound and unit leading coefficient follow. All cyclic 00-avoiding words have count φ^n+(-φ^(-1))^n by the two-state adjacency trace, which gives the stated rate. No proof for unrestricted outputs is inferred.
 
-Jen (1989) already supplies a general Rule-22 linear-preimage framework. Voorhees (1997) **already computes the numerical growth constant** of a zero-labelled Rule-22 de Bruijn fragment. Gravner and Griffeath (2010) develop the exactly-one rule from finite seeds. Martínez et al. (2019) supply Rule-22 de Bruijn and subset diagrams and explicit forbidden-pattern families. These overlap the mathematical ingredients but the inspected results do not assert the exact all-length *distinct fixed-ring image count constrained by avoiding cyclic `00`*, the multiplicity-two classification, or the precise gap-residue predecessor test. The 2019 regular-language approach could imply algorithmic computability of the constrained count, and the 1997 matrix is a close numerical match. Historical priority is consequently qualified; this review does not assert uniqueness across all literature.
+## originality
 
-## Value — PASS
+PASS
 
-High-density outputs avoiding adjacent zeros are a natural forbidden-pattern constraint. Even though one-step predecessor existence is decidable by classical de Bruijn methods, a complete closed-form reachability law and the complete fiber-ambiguity cutoff identify exactly which such targets can be synthesized with the same periodic boundary and quantify the exponential loss of attainable constrained configurations. The explicit all-length formula and sharp two-predecessor characterization are the substantive outcomes, not the already-known growth constant alone.
+Qualified to the same-length isolated-zero fiber law and exact distinct indexed image census, including its duplicate correction. Neither the Rule-22 de Bruijn graph, period-three behavior in previous preimage problems, the auxiliary recurrence, nor λ in isolation is credited as new.
 
-## Closest literature and limitations
+## value
 
-E. Jen, *Complex Systems* 3 (1989), 421–456; B. Voorhees, *Complex Systems* 11 (1997), 373–385; J. Gravner and D. Griffeath, *Journal of Statistical Physics*, online December 10, 2010, DOI 10.1007/s10955-010-0103-9; G. J. Martínez et al., *Complex Systems* 28 (2019), 125–174, DOI 10.25088/ComplexSystems.28.2.125. The archive date is anchored to a verified online publication date, not guessed for the older sources. Only one step and cyclic `00`-avoiding indexed outputs are treated, and the published regular-language results create a nonzero residual priority risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The shortest forbidden-word constraint on zeros is natural and isolates a structured high-density target class in a canonical rule. An exact same-ring existence test becomes a complete fiber size law; it distinguishes when counting paths overcounts targets, and the exact image census quantifies the loss of reachable configurations at every length. The value lies in this joint characterization and the distinct count, not in recomputing a spectral radius.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:18:16.906705Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 13–34 and 36–57",
+        "VERIFICATION.md lines 3–14 and replay notes",
+        "verify.py (inspected, not executed)"
+      ],
+      "rationale": "At each s>0 the finite transformed kernel has maximal row sum rho<1; in particular, the probability of at least m jumps by time t is at most exp(st) rho^m by iterating the discounted jump kernel. The Laplace renewal system is valid even for deficient rows, and D_S has positive diagonal. Its noninitial occupation equations are y=qZ and (I-R)Z=D_S+ry, so Z=B+hy. The inequality r<=(I-R)1 and the nonnegative inverse give 0<=h<=1 entrywise and qh<1. Hence y(1-qh)=qB, and z=yB^(-1) satisfies q=z/(1+zh). A single s recovers one transform vector; a complete occupation profile supplies all such vectors, which determine the finite measures by Laplace uniqueness. Multiplication of homogeneous rows (q,1) by the invertible block matrix with top row blocks B,-h and bottom blocks 0,1 gives nonzero rescalings of (y,1), preserving affine ranks. The initial-state transform, if included, is redundant by total occupation 1/s. Under independent rate-r resets that also restart age, the equilibrium elapsed reset time is exponential, giving pi_j(r)=r y_j(r). At K prescribed rates, K+2 positive support times allow a nonzero weight perturbation satisfying K Laplace constraints plus normalization; small opposite perturbations give two different genuine laws in a single exit channel and the same observed occupations.",
+      "residual_risks": [
+        "The frozen replay path is python verify.py with NumPy. Its finite consistency checks are not required for the proof and were not independently replayed. Identifiability is noiseless, not a stability guarantee; the finite-rate result is for prescribed observations and unrestricted laws."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "RESULT.md lines 65–67 describe a forward renewal-resolvent framework and exact aggregation; RESULT.md line 76 cites the different transition-based inference setting.",
+          "For the present observation map, B invertible and qh<1 follow from the positive-wait and known-row hypotheses, then block elimination yields an inverse without sampling the waiting times directly."
+        ],
+        "reasoning": "The general forward equation can be used to derive this theorem but a broader inverse or an already nonsingular projective local forward characterization would be stronger prior coverage. General transient forward solutions and inference from individually observed transition waits do not themselves state that recovery is possible from one complete occupation trajectory.",
+        "searches": [
+          "arXiv:2610.13505v1, Voits, graph-theoretic semi-Markov framework (alternate PDF attempted)",
+          "Bradley–Dingle–Knottenbelt (2003), Exact aggregation strategies for semi-Markov performance models",
+          "arXiv:2203.12020, van der Meer–Ertel–Seifert, transition-based waiting times"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md lines 15–57 and 64–76",
+        "Local Resultary exact record, curvature example and Brownian tomography synopses",
+        "One focused primary-literature lookup returned no relevant statement"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known forward renewal matrix, as given in RESULT.md line 39, allows the block calculation but is not in itself a statement that the restricted observation recovers the unknown row.",
+          "If the exact nonsingular projective map on arbitrary rows were already a prior finding, its inverse and affine-rank invariance would be immediate: M is invertible and homogeneous rows merely rescale. The available statement-level comparison identifies only the sufficiency of a line perturbation."
+        ],
+        "reasoning": "The cited line criterion in one direction and a curved example cannot force the general converse or full rank preservation. The finite-scan nullspace is a separate direct consequence of observing only finitely many transforms, once equivalence of reset observations and transform vectors is established. The residual possibility of exactly the same nonsingular map in a forward paper is material and not resolved by the failed retrievals.",
+        "searches": [
+          "Most relevant cited source arXiv:2611.06490v1, alternate OA HTML attempt",
+          "Forward framework arXiv:2610.13505v1, alternate OA PDF attempt",
+          "Local Resultary curvature record f14a371650f9 (catalog synopsis)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "At fixed s the theorem is identifiability of a known-background transfer system with one unknown outgoing row: the entire observed vector is related to that row by an invertible projective map.",
+          "The bound prior-work discussion (RESULT.md line 65) describes an earlier sufficient response theorem along a one-dimensional perturbation, not an earlier arbitrary-family inverse; its primary full text was not retrievable."
+        ],
+        "reasoning": "Equivalent statements need not use tomography language: any proof of recovery from the same one-age-zero start with the same known rows and observation set would cover the inverse. A theorem only mapping an affine input line to a response line does not imply injectivity or the reverse line implication for arbitrary families.",
+        "searches": [
+          "Local Resultary: inverse semi-Markov outgoing kernel from one-start occupations; reset-rate tomography; mutual linearity",
+          "arXiv:2611.06490v1, Voits–Schwarz",
+          "Primary-literature lookup for one-start semi-Markov kernel identification and inverse renewal systems"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact Resultary match is the reviewed record. The distinct curvature synopsis concerns a competing exit rate bending leaf occupation responses in a specified three-state reset network, with a straight line at gamma shape one.",
+          "The distinct Brownian tomography synopsis concerns sparse reset location laws on a ring observed through absorption time and arrival direction. Neither distinct full text was available for comparison."
+        ],
+        "reasoning": "These are the closest indexed response-geometry and reset-tomography statements, respectively. Neither summary gives an exact formula or rank classification for arbitrary admissible semi-Markov joint rows in the fixed-background model. The exact match supplies no independent precedent, and the Brownian result is distinguished by hypotheses, not by shared date.",
+        "searches": [
+          "Resultary exact-title and local-kernel identification searches",
+          "2026/11/8/SCOPE-sharp-curvature-and-competing-branch-occupancy-reversal-in-a-min--f14a371650f9",
+          "2026/11/22/SCOPE-sharp-finite-rate-two-channel-tomography-for-sparse-brownian-res--7c4ab5c0453e"
+        ]
+      },
+      "rationale": "The supported distinct content is the one-entry, full-view local joint-kernel inverse, the converse and full affine-rank assertion on arbitrary admissible families, and the reset-sampling interpretation including finite nonidentification. The forward renewal representation, one-dimensional sufficiency and Poisson reset transform are not new. The closest cited full texts could not be independently retrieved and the known forward method makes the residual implication risk substantial, but available statements do not establish prior coverage of the complete inverse and rank result.",
+      "residual_risks": [
+        "The two strongest cited arXiv texts and older renewal/inverse-process literature could contain equivalent row identification or the same nonsingular projective local forward map. Lawful attempts did not yield decisive primary passages; this is a best-of-evidence comparison, not a priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Reported sufficient line theorem is credited; arbitrary-row inverse and equivalent projective forward formula could not be assessed in full text",
+          "evidence": "RESULT.md line 65 attributes forward affine response under a one-dimensional affine perturbation to Voits and Schwarz.",
+          "identifier_or_url": "https://arxiv.org/abs/2611.06490v1",
+          "material_read": "Frozen description of main result and supplement (RESULT.md line 65), not the primary equations",
+          "method": "Citation comparison and lawful OA landing and alternate HTML attempts; timed out",
+          "title": "Mutual linearity in semi-Markov networks",
+          "trigger": "Strongest overlap, affine Laplace-occupation response to local perturbation"
+        },
+        {
+          "assessment": "Reported general forward machinery overlaps; possible implicit exact inverse not resolved",
+          "evidence": "The frozen text attributes a general forward graph-theoretic description to this work and uses the usual transformed renewal resolvent in lines 36–41.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.13505v1",
+          "material_read": "Frozen description and comparison (RESULT.md line 67), not primary results",
+          "method": "Lawful OA landing and alternate PDF attempts; timed out",
+          "title": "Graph-theoretic framework for semi-Markov networks: transient and stationary occupation probabilities, hitting times and weak ergodicity breaking",
+          "trigger": "General occupation and first-passage transform formulas that could dominate the local calculation"
+        },
+        {
+          "assessment": "Restricted example does not show general inverse or all-family rank equivalence; whole-document scope not assessed",
+          "evidence": "The synopsis describes varying a competing exit rate in a three-state resetting network and the effect of gamma shape on line or curved leaf-occupation responses.",
+          "identifier_or_url": "2026/11/8/SCOPE-sharp-curvature-and-competing-branch-occupancy-reversal-in-a-min--f14a371650f9",
+          "material_read": "Local catalog synopsis only",
+          "method": "Local Resultary statement comparison; exact mirror passage not obtained",
+          "title": "Sharp curvature and competing-branch occupancy reversal in a minimal semi-Markov network",
+          "trigger": "Closest distinct indexed occupation-response geometry"
+        },
+        {
+          "assessment": "Available theorem differs in model, observations and sparsity assumptions",
+          "evidence": "The synopsis uses absorption time and arrival direction for sparse reset locations on a Brownian ring, rather than unrestricted waiting-time laws and state occupations.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-finite-rate-two-channel-tomography-for-sparse-brownian-res--7c4ab5c0453e",
+          "material_read": "Local catalog synopsis only",
+          "method": "Local Resultary statement comparison",
+          "title": "Sharp finite-rate two-channel tomography for sparse Brownian reset laws",
+          "trigger": "Strong local match on finite-rate reset tomography"
+        },
+        {
+          "assessment": "Forward transient-state formulas and exact aggregation are reported; no independently checked local-kernel inverse statement",
+          "evidence": "The cited comparison identifies forward transient-state formulas and exact aggregation, which are not themselves an inverse observation theorem.",
+          "identifier_or_url": "https://www.academia.edu/521204/Exact_aggregation_strategies_for_semi_Markov_performance_models",
+          "material_read": "Frozen description in RESULT.md line 67 only",
+          "method": "Cited-source comparison; primary full text not retrieved",
+          "title": "Exact aggregation strategies for semi-Markov performance models",
+          "trigger": "Older forward and inference-adjacent semi-Markov renewal methodology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 4–16, 34, 43–57 and 69–70"
+      ],
+      "rationale": "Occupations do not directly measure waiting times or exit events, so exact reconstruction of an unrestricted joint row from one start provides a meaningful identifiability boundary under stated information assumptions. Full affine-rank preservation identifies when the entire response can appear mutually linear, not merely when one selected pair happens to align. The reset interpretation distinguishes an ideal continuum scan from every finite prescribed scan without imposing parametric waiting laws.",
+      "residual_risks": [
+        "The result assumes known background rows, full occupations and a fresh entry. It does not solve noisy recovery, quantify conditioning, or identify hidden self-jumps or multiple unknown rows."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

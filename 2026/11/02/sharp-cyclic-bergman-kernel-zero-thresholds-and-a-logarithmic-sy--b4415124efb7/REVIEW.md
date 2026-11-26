@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The kernel is an orthogonal cyclic projection of the weighted Bergman power kernel. The beta moment identity rigorously reduces the exponent range to a positive mixture of the explicit rational kernel at exponent two. Its imaginary part has the strict sign of the scalar variable's imaginary part, so all possible zeros lie on the negative real quotient ray. Strict monotonicity there and strict stochastic ordering of the beta law prove the unique exponent threshold and exact simple-root count. A controlled boundary layer in the beta integral proves the large-order logarithmic constant. Finite checker tests corroborate but do not replace those proofs.
+## correctness
 
-## Originality
-PASS under best-knowledge comparison. Ghosh's group-averaging result supplies the standard invariant-kernel projection and is not claimed new. The quotient Toeplitz work does not assert the beta-mixture zero classification or large-order threshold. Miña-Díaz's distinct Blaschke-weight representation does not imply this cyclic-subspace zero transition. Published work on Euclidean boundary-distance weights concerns different weight families and does not imply it. Searches of semantic research records did not identify an equivalent theorem or stronger dominating parameter theorem; this is not a guarantee of uniqueness. The main residual risk is an older hypergeometric or cyclic-kernel zero theorem with another formulation.
+PASS
 
-## Mathematical value
-PASS. This is a natural full Lu Qi-Keng classification for the invariant part of every finite cyclic rotation action in the complete interpolating range between Hardy and ordinary Bergman kernels, not a single numerical test. It gives all interior zero locations and multiplicities, proves strict uniqueness of the threshold, and supplies its sharp large-symmetry-order logarithmic scale.
+The monomial kernel projection gives the stated root-of-unity filter. The beta moment E[U^m]=(lambda)_m/(2)_m matches every coefficient of F with the rational endpoint Q_d( U^d x); the analytic expectation is valid absolutely on compact subdisks. The imaginary-part bracket is bounded below by (1-|v|)(d+1+(d-1)|v|), so zeros are real, and coefficient positivity excludes the nonnegative axis. The derivative of Q_d(-v) is strictly negative for 0<=v<=1, giving a strictly negative derivative in rho under the expectation and hence simplicity. Increasing likelihood ratios give strict stochastic order for the beta laws; the endpoint lambda=2 is a point mass at 1. The boundary value is continuous by the finite rotation sum and has endpoint values 1/2 and (2-d)/4. This gives the exact zero-free threshold, including equality and d=2, and exactly d simple nonzero t-roots above it, from a single x-root. For the scaling lambda=1+eta/log d, the first expectation tends to 1 by dominated convergence on u in (0,1): the changing beta densities are bounded by a constant times (1-u)^(-1/2). After y=d(1-u), the second integral is dominated by C exp(-y) max(1,y^(-1/2)), with limit e^eta/2. Bracketing the strictly monotone boundary function therefore gives log 2. An independent numerical bisection and beta quadrature reproduced the d=3 value and sampled d through 512; these are corroboration only.
 
-## Limits
-The result does not treat exponents above two, other isotypic components or arbitrary group actions. Finite checks do not establish infinite statements. Independent audit is outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass based on the distinct d>=3 noninteger-exponent threshold, exact scalar zero count in the all-order theorem and its logarithmic asymptotic. No novelty credit for the group projection, the exactly matching d=2 subcase, or the covered integer end of the filtered series. The same-day indexed records matter as mathematical overlaps; their dates do not establish precedence.
+
+## value
+
+PASS
+
+The result determines zero-freeness and the full zero geometry of a natural cyclic-invariant analytic kernel across a continuous exponent range. It also explains at what rate the zero-free range collapses toward the Hardy endpoint as the symmetry order increases. The transition and its constant are not consequences of merely projecting the kernel or checking integer endpoints.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

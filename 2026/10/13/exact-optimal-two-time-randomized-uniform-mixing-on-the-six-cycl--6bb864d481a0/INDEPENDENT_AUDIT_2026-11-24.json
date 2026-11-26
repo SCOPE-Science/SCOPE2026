@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:22:19.486080Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md:11–53",
+        "Frozen VERIFICATION.md:19–21 and verify_c6.py",
+        "Independent symbolic replay: python3 /workspace/branches/private-checks/c6.py"
+      ],
+      "rationale": "I reconstructed the phase matrix using polynomial spectral projectors of the six-cycle adjacency matrix, rather than evaluating the bundled formulas alone. The two proposed cosines satisfy c²=(1−sqrt(6)/2)c+sqrt(6)/4, and their weighted mean is (1−sqrt(6))/10. This gives the moments through degree four by the two-term recurrence; exact substitution into the four distance classes gives 1/6 in every case. The cosines are distinct and in (−1,1) (e.g. sqrt(6)<2.5, sqrt(10)<3.2 and sqrt(6)>2.2); the weight perturbation has magnitude less than 1/2. Equality of the distance-one and distance-two probabilities forces c=0,1,−1/2, giving distance-one probabilities 1/9,0,0. Translation and reflection cover all entries. Integral eigenvalues give a common 2π shift, so both times can be put strictly beyond any cutoff.",
+      "residual_risks": [
+        "Only the specified unweighted adjacency evolution and exact expected matrix are certified; no claim about all two-time laws or robustness."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Baptista–Coutinho–Marques exhibit designed laws for P3 and P4, not this C6 support bound. Odd-prime cycle results do not include six. The standard Cesàro matrix uses a different time law."
+        ],
+        "reasoning": "Broader graph-family and expectation frameworks inspected either omit C6, use different sampling, or do not control C6 support at two.",
+        "searches": [
+          "Resultary: C6 arbitrarily late two observation times exact randomized uniform mixing period integral adjacency",
+          "Resultary odd-prime cycle record b40648d0edbf",
+          "arXiv:2308.16378, §§3.2 and 4.3",
+          "arXiv:2208.08971, p. 4"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 715745e5641d and b40648d0edbf",
+        "arXiv:0708.2096, 2308.16378, 2208.08971",
+        "Frozen RESULT.md:5–13,47–65"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Adamczak et al. rule out instantaneous mixing for n=2^u q, u>=1 and q congruent to 3 mod 4, including six. The crown record proves a four-atom upper bound; an integral spectrum allows a shift of either witness."
+        ],
+        "reasoning": "Taken together these give 2<=minimum<=4 and arbitrary lateness of a known four-atom witness, not equality at two. Once two is attained, lateness is not a further independent gap.",
+        "searches": [
+          "Resultary: C6 instantaneous uniform mixing impossibility theorem no single observation time Adamczak cycles",
+          "arXiv:0708.2096, Theorem 7",
+          "Resultary crown-graph record 715745e5641d"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 715745e5641d identifies Cr3 with C6 and gives an exact law at 0, π/3, 2π/3, π with four positive masses 1/12, 1/2, 1/6, 1/4, expressly not determining minimum support."
+        ],
+        "reasoning": "The graph is the same under relabeling, but four-atom existence is not a two-atom law; both the rank of the support requirement and the sampling rule matter.",
+        "searches": [
+          "Resultary: C6 exact two-atom randomized-time uniform mixing support two no one-point law",
+          "Resultary: six-cycle arbitrary observation-time probability law uniform expected mixing four times crown graph Cr3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-graph exact indexed witness has four distinct time points and its limitations explicitly omit the minimum. No exact support-two entry appeared among the inspected hits."
+        ],
+        "reasoning": "An entry for existence, or for a different cycle or time law, is not an entry evaluating the minimum-support invariant at six.",
+        "searches": [
+          "Resultary exact C6/two-atom and C6/Cr3 four-time searches",
+          "Resultary record 715745e5641d, RESULT.md"
+        ]
+      },
+      "rationale": "The supported distinct claim is the exact two-atom witness, giving minimum support two. The singleton obstruction is prior work, arbitrary-support existence for C6 is explicitly covered by a distinct Resultary crown-graph result with a four-atom witness, and lateness is a periodicity consequence. The inspected stronger-looking statements do not settle the two-point feasibility question.",
+      "residual_risks": [
+        "Targeted Resultary returns and inspected primary passages are not exhaustive; a broad search wave was deferred. An unlocated equivalent exact witness remains possible. No priority inference rests on dates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact C6 existence already covered, minimum support explicitly not covered",
+          "evidence": [
+            "Cr3 is C6; a four-atom law yields J6/6."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-randomized-time-uniform-quantum-mixing-on-crown-graphs-exactly-t--715745e5641d",
+          "material_read": "RESULT.md, opening findings and limitations near offset 4870",
+          "method": "Local Resultary mirror",
+          "title": "Randomized-time uniform quantum mixing on crown graphs",
+          "trigger": "Strongest same-graph Resultary overlap"
+        },
+        {
+          "assessment": "Covers one-time exclusion, not arbitrary designed laws",
+          "evidence": [
+            "The arithmetic case u=1,q=3 is C6."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0708.2096",
+          "material_read": "§3 Theorem 7, p. 7, offsets 21340 and 26326",
+          "method": "Primary OA PDF passages",
+          "title": "Non-uniform mixing of quantum walk on cycles",
+          "trigger": "Singleton obstruction on the identical adjacency graph"
+        },
+        {
+          "assessment": "Related short paths, not a two-time C6 result",
+          "evidence": [
+            "Explicit P3 and P4 examples concern different adjacency graphs."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2308.16378",
+          "material_read": "§3.2 p. 9 and §4.3 pp. 12–13, offsets 23800 and 34680",
+          "method": "Primary OA PDF passages",
+          "title": "Unexpected Averages of Mixing Matrices",
+          "trigger": "Original framework for random observation time"
+        },
+        {
+          "assessment": "Different time weighting",
+          "evidence": [
+            "Standard average is the long-time Cesàro limit, not a freely designed probability law."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2208.08971",
+          "material_read": "p. 4, offset 10000, definition of average mixing",
+          "method": "Primary OA PDF passage",
+          "title": "Irrational quantum walks",
+          "trigger": "Possible coverage via cycle average-mixing formulas"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md:5–13,41–53",
+        "Adamczak et al., Theorem 7",
+        "Resultary crown-graph record 715745e5641d"
+      ],
+      "rationale": "The number of time settings is a natural exact resource for random-time quantum mixing. C6 is a concrete case known to fail at a single time and known to succeed with a larger support. The positive exact witness closes the gap at the first possible support size, rather than just recomputing nonuniformity or showing approximate flattening. A future comparison of support bounds can use this sharp example directly.",
+      "residual_risks": [
+        "No separate value is assigned to periodic shifting or to re-proving the singleton obstruction."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

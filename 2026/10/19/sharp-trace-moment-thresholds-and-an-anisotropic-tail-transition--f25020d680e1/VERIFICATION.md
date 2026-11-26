@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification record
 
-Run `python VERIFY.py` with NumPy and SciPy available. The direct matrix expression is formed from each generated Gaussian right vector and Gaussian left matrix. The script verifies angular moments, the first two moments of the conditional location, the one-column pseudoinverse trace, the exact conditional scale, and near-rank-one tail constants. All 64 assertions passed; output reproduced in `VERIFICATION_OUTPUT.txt`.
+# Independent mathematical audit
 
-The numerical tests use finite instances and numerical integration. The proofs of the tail and moment thresholds rely on the distributional argument in `RESULT.md`, not numerical tail extrapolation. An independent audit has not been performed.
+## correctness
+
+PASS
+
+For v=Ag and w=A²g the trace is the scalar regression slope of Ψᵀw on Ψᵀv through the origin. Orthogonal regression conditional on g gives the stated independent normal/chi-square ratio, with location vᵀw/||v||² and scale |det(v,w)|/||v||². Scale is positive almost surely and bounded, so location cannot remove the positive-moment divergence at p≥s. If Q=ε²Y²/(X²+ε²Y²), half-Cauchy integration gives E Q=ε/(1+ε); differentiation gives E Q(1−Q)=(ε/2)d(E Q)/dε. This recovers E Q², Var(μ)=E τ² and, with E W_s⁻¹=1/(s−2), the stated moments and strictly positive variance limit. Integrating the chi CDF at zero against Z_+ gives k_s, with a uniform power bound yielding the two bounded-mixture tail limits. For the anisotropy limit, the exact rescaled half-Cauchy integral is E τ^s/ε=(2/π)(1−ε)^s∫₀^∞ u^s/[(1+u²)^s(1+ε²u²)] du, using u=|X/Y|/ε. This supplies integrable domination and the beta constant for s>1; for s=1 partial fractions give 2ε log(1/ε)/[π(1+ε)] for E τ. The normalization in the Student ratio is 1/√s relative to standard Student-t.
+
+## originality
+
+PASS
+
+The generalized Nyström formula and the conditional Gaussian regression ratio are established ingredients. The supported distinct result is their trace-specific angular mixture analysis, in particular the exact signed-tail scale transition and residual right-sketch variance. No matching or dominating statement was identified in the bounded comparisons.
+
+## value
+
+PASS
+
+A minimal positive-definite model isolates left-sketch noise from right-sketch variation. The thresholds distinguish an undefined absolute mean, finite mean without variance and finite variance; the positive variance floor shows why left oversampling alone cannot stabilize all fluctuations. The sharp anisotropic scale identifies an additional borderline regime that bounded-moment estimates do not show.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

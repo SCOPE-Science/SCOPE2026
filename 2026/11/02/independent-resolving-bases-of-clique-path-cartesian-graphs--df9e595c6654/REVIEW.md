@@ -1,19 +1,21 @@
-# Scientific review: independent resolving bases of clique-path Cartesian graphs
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The distance identity for the Cartesian product reduces every potential collision to an integer-valued monotone function whose parity is independent of the landmark position. Distinct fibers and colors enforce the lower bounds; for at least four colors the parity argument proves every candidate injection resolves, while the three-color family has a genuine monotonicity obstruction separating alternating and nonalternating repeated colors. The two-color case is forced to endpoint landmarks. This supplies necessary and sufficient conditions, not an extrapolation from computer experiments. An independently implemented BFS enumeration agrees across 28 small instances, including all no-solution boundaries.
+PASS
 
-## Originality
+An independent set uses at most one vertex per position, and two omitted colors would be indistinguishable in each clique. For vertices at i,j, distance equality at a landmark (t,a) fixes |i−t|−|j−t| to 0 or ±1 as dictated by its color; the left side has constant parity and is monotone in t. For q>=4 an injection of q−1 colors has both a matching and a neutral landmark for every pair of different colors and hence resolves by parity. Equal colors are resolved by two distinct landmark positions. For q=3 the two-landmark candidate with different colors a,b at s<t fails on (s+1,a) and (s,b). Three distinct colors resolve as before. An alternating triple a,b,a rules out a collision of a and b by monotonicity; pairs involving the omitted color have a matching and neutral landmark. Nonalternating two-color triples have a cut at s, the last position of the earlier color a, and the same collision (s+1,a),(s,b) works on both entire sides. With q=2, a single landmark has two neighbors, different-color pairs fail by the cut collision, and same-color pairs not covering both endpoints fail on the site just beyond an extreme versus the other color at that extreme. At the endpoints the path difference has opposite signs, so same-color endpoint pairs resolve and are independent exactly for L>=3. These characterize the labeled bases and give the claimed counts, including the short-path impossibilities from the projection cap. My independent finite check compared actual basis sets, not just their counts, on 11 graphs; replay `python3 /workspace/review_evidence/check_4.py`. The proof, not the finite range, establishes the universal result.
 
-PASS, with residual priority uncertainty. Chartrand, Saenpholphat and Zhang (2003), DOI:10.21136/MB.2003.134003, introduce independent resolving numbers but do not classify clique–path Cartesian products. Cáceres et al. (2007), arXiv:math/0507527, establish the ordinary metric dimension and graph-product projection bounds, which do not imply that a minimum basis can be independent. Suganya and Arumugam (2021), DOI:10.1080/09728600.2021.1963643, study independent resolving sets of grids and cylindrical products, without the exact clique-path existence criterion, complete minimum-basis classification, or multiplicities in the inspected text. Searches for independent metric bases of \(P_L\square K_q\) and for the explicit exceptional \(K_3\) count produced no dominating equivalent result in accessible sources. Relevant nonindexed or differently named results remain a priority risk.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. The article introduces independent resolving sets for Cartesian products and tests whether graph-product bases can be made independent. This exact family gives a complete feasibility threshold when the clique factor grows with the path, an exceptional strict gap between independent and ordinary metric dimensions at three colors, and a closed formula for every minimum independent basis. The full counting classification provides materially more information than a single extremal number and is not implied by the known Cartesian projection lemma.
+The independence feasibility and full labeled minimum-basis classification are supported as distinct from the inspected clique–path results. Independently resolving sets in Cartesian products are an existing topic; the scope of one relevant paper remains incompletely checked, and this is not a priority certification.
 
-## Evidence and limits
+## value
 
-The proof and exact test program are in the accompanying files. The source comparisons are limited to accessible published text and recorded literature searches; no claim of worldwide uniqueness or independent validation is made. The code verifies only finite cases. The theorem covers only independent *minimum* resolving sets, not all larger resolving sets.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For the standard clique–path Cartesian family, the classification explains when imposing independence destroys resolvability and identifies the exceptional three-color penalty despite a uniform ordinary dimension formula. It gives all optimal labeled configurations, including both geometrically distinct kinds at q=3, rather than merely exhibiting a construction or obtaining a few exact instances.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

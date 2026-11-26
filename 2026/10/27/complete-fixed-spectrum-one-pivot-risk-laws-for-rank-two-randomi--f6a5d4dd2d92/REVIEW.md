@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (PASS).** The Schur-complement trace after one selected row is exactly \(\lambda_2+(\lambda_1-\lambda_2)t_i\); diagonal-proportional selection fixes \(\mathbb Et_i=\lambda_2/(\lambda_1+\lambda_2)\). For any desired finite-support law with that mean, paired row vectors cancel cross terms and recover the prescribed eigenvalues and atom probabilities exactly. Convex-order, variance and sharp-tail statements then follow with explicit attaining inputs. The standalone finite verifier reconstructs 1,116 rank-two integer Gram cases and 100 paired-row examples. Its finite tests support but do not replace the proof.
+## correctness
 
-**Originality (PASS, subject to priority risk).** Direct comparison with Chen et al. (arXiv:2207.06503, Eq. (5.3)), Epperly (arXiv:2608.20633, Thm. 1.2 and Lemma 4.2), Divan–Gilles (arXiv:2609.06287, Thm. 3.1), and Steinerberger (arXiv:2404.11487, Secs. 1–3) distinguishes known expected-matrix or multistep estimates from the finite-law realizability converse. The familiar mean identity and endpoint Markov inequality are expressly prior or elementary ingredients, not presented as new. No retrieved result implies the exact fixed-spectrum class of attainable distributions. General frame/ensemble literature and unindexed sources may bear on historical priority.
+PASS
 
-**Value (PASS).** The paper's motivation is the reliability of diagonal-weighted randomized low-rank factorization beyond expected trace bounds. At fixed eigenvalues, this natural and complete classification proves that no finer spectrum-only one-pivot confidence law is possible; it also identifies both risk extremizers and a four-row sharp intermediate-tail example. The answer is useful in interpreting how much high-probability information can be deduced from spectral decay alone. It is an exact finite-dimensional classification, not merely an isolated negative test.
+In a real Gram factorization A=BB^T with B^TB diagonal, the residual trace is T minus the Rayleigh quotient of B^TB in the chosen row direction, where T=lambda1+lambda2. With t the squared fraction of a nonzero row in the second eigendirection, that gives R=lambda2+(lambda1−lambda2)t. Weighting the rows by squared norm/T gives E[t]=lambda2/T, hence exactly the stated mean. Conversely two rows of norm squared w_j T/2 with second-coordinate fractions t_j and opposite signs of the second coordinate give diagonal covariance contributions w_j T(1−t_j,t_j), without off-diagonal terms. Summing gives the two strictly positive eigenvalues and ensures the two pivots associated to atom j have the prescribed total mass w_j; the endpoint and one-atom cases need no exceptions. Jensen and the secant bound yield attainable convex-order and variance extremes; for m<u<=lambda1 the inequality R−lambda2 >= (u−lambda2)1_{R>=u} is exact on the two-point witness supported at lambda2 and u. The deterministic law handles u=m and lower, and the interval support handles u>lambda1. No fixed-dimension claim is needed.
 
-**Limitations and closest work.** The analysis concerns one pivot, exact arithmetic, real rank two and variable dimension. The four primary works above develop the pivot rule, expected error and general convergence but not this complete scalar-law converse. The proof does not generalize automatically to rank three or multiple steps, and complete historical priority is not independently established.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Do not credit the pivot rule, the mean, or a new general convex risk inequality. The supported distinct content is the exact inverse statement: every finite scalar law with the specified interval and mean is attained by real rank-two inputs of the specified spectrum, and the worst-case intermediate tail is attained within that class. The inspected work gives expectations, convex estimates, or different input/sampling restrictions, not this realizability and sharpness.
+
+## value
+
+PASS
+
+A spectrum-only expectation does not quantify the reliability of the randomized numerical step. The converse resolves whether that information can be strengthened to a finer universal distributional constraint: in this base case there is none except finite support, the interval, and the mean. In particular, exact attainable probability at any threshold and actual equal-spectrum witnesses show why the first moment cannot certify typical behavior. The elementary bounds by themselves would not be the contribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

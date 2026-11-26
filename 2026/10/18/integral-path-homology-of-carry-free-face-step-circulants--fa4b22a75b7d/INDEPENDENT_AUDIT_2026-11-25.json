@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:22:41.778245Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 19–62, VERIFICATION.md, verification_output.txt and verify_face_downsets.py (inspected, not run)",
+        "/workspace/review-evidence/03_top_cycle.py (independent exact small-case check)"
+      ],
+      "rationale": "Because sums of two incidences have digits 0,1,2 and their encodings are bounded by 2 max S < n, equality of all empty, single and two-step sums agrees before and after encoding. The merge relations reduce any face generator to singletons, and the incidence map shows there are no further singleton relations. The kernel N of the map from Z^d to Z/n is finite index, of rank d, since the first singleton step is 1. On the lattice digraph an upward threshold clamp deletes at most one coordinate from every incidence step, keeping it allowed by downward closure or making it stationary. Consecutive clamps have pointwise vertical singleton arrows or coincidences. The integral signed prism between them takes allowed paths to allowed paths modulo stationary degeneracies and induces the chain homotopy on Ω, by the prism boundary identity. Finitely many clamps in each coordinate contract the finite support of every reduced cycle; global uniform boundedness is not needed. The only forbidden terms in a boundary of an allowed word are internal two-step deletions; they preserve the start vertex, and coincidences among their increment words are exactly the short equalities already compared. Thus the same finite-rank free integer kernel W_m occurs at each start in the lift and quotient. The lifted augmented Ω is a free Z[N]-resolution (translation by N is free on starts), and its coinvariants identify with quotient Ω without assuming that coinvariants in general preserve kernels. The integral Koszul resolution of this deck group gives the claimed exterior groups, including H_0=Z and vanishing beyond d. Independently replayed pair-sum counts and signed top-cycle cancellations for the three sample graphs give pairings 150, 162 and 1752. Multilinearity of the determinant, with merged vectors equal to sums, provides the cochain identity for all parameters.",
+      "residual_risks": [
+        "The separate modular Fourier block checks mentioned in RESULT.md are not supplied by the bound script/output and were not relied on. The universal integral proof, not the finite pairings or modular arithmetic, carries the exact homology and torsion statement.",
+        "No statement is made for wraparound moduli, non-downward-closed families, or a different digraph homology theory."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The field-coefficient acyclic-cover descents are conditional on acyclicity. In the specific circulant criteria either legal merges are forbidden or unordered two-sums must be unique."
+        ],
+        "reasoning": "A non-singleton face gives a legal merge by downward closure. In the three-vertex path case 1+12=4+9 also shows failure of pair-sum uniqueness. Thus the more abstract conditional theorems supply the mechanism but no stated unconditional result covers the whole target.",
+        "searches": [
+          "Tang–Yau arXiv:2602.04140 Proposition 5.2, Theorem 6.2",
+          "Di–Ivanov–Mukoseev–Zhang arXiv:2305.15683 Corollaries 3.24 and 4.8, Theorem 4.11"
+        ]
+      },
+      "checked_sources": [
+        "Tang–Yau arXiv:2602.04140, pp. 20–25",
+        "Di–Ivanov–Mukoseev–Zhang arXiv:2305.15683, pp. 28 and 32–33",
+        "Resultary 999997208601, 2c5633a9d2b2, f3e7f5d0652f, 4d9708a13438"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The cited descents use an acyclic lifted graph; Koszul only computes the group side after a resolution or descent has been proved."
+        ],
+        "reasoning": "The deck rank alone does not force a free path-chain resolution. Coordinatewise integrally valid contraction for every downset and compatibility of forbidden words with coinvariants establish the missing identification.",
+        "searches": [
+          "Tang–Yau Proposition 5.2 pp. 20–21",
+          "Di–Ivanov–Mukoseev–Zhang cover spectral sequence pp. 28 and 32",
+          "Standard integral group homology of Z^d by the Koszul resolution"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Closest catalogue results 999997208601, 2c5633a9d2b2 and f3e7f5d0652f concern step families with integral torsion. Resultary 4d9708a13438 uses a multipath complex of a tournament."
+        ],
+        "reasoning": "Integral GLMY of circulants is the right framework, but those step families and assertions do not match the arbitrary simplicial downset. A multipath complex of a tournament is not another formulation of regular GLMY path homology.",
+        "searches": [
+          "Resultary: integral GLMY path homology of face-incidence steps in circulants",
+          "Resultary: two-sum marked lattice cover and exterior homology"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Example 4.13 gives the field exterior-group answer for the singleton powers. Example 6.4 is merge-free; comparable Resultary entries give torsion for explicitly different generators."
+        ],
+        "reasoning": "The singleton family is an exact proper-subcase overlap, not a table covering arbitrary higher faces. No table entry inspected represents the required universal parameter class.",
+        "searches": [
+          "Resultary: integral path homology circulant exact step-set families",
+          "Tang–Yau arXiv:2602.04140 Examples 4.13 and 6.4"
+        ]
+      },
+      "rationale": "The covering mechanism, the field singleton case and the Koszul endpoint are known. The checked circulant theorems either assume no merges/unique unordered two-sums or require acyclicity of the lift over a coefficient field. These results do not prove acyclicity for a general incidence downset with legal merges and collisions. The uniform integral lift and consequent exterior groups for the full family retain a distinct scientific contribution on the inspected evidence.",
+      "residual_risks": [
+        "A prior equivalent acyclicity criterion for downset-step lattice digraphs or a specialization not captured in the inspected statements may exist. A catalogue miss does not certify novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Proper subcase and conditional field mechanism; not integral arbitrary-downset coverage",
+          "evidence": "Singleton powers have exterior field homology; Proposition 5.2 assumes lift acyclicity over K; the rectangular case excludes legal merges.",
+          "identifier_or_url": "https://arxiv.org/abs/2602.04140",
+          "material_read": "PDF pp. 20–25, Example 4.13, Proposition 5.2, Lemma 6.1, Theorem 6.2 and Example 6.4",
+          "method": "OA PDF",
+          "title": "Path homology of circulant digraphs",
+          "trigger": "Same digraph homology and short-relation lattice construction"
+        },
+        {
+          "assessment": "Prior cover method but no stated acyclicity for arbitrary incidence downsets",
+          "evidence": "A field acyclic-cover criterion is conditional, and the exterior theorem assumes no generator is a sum of two generators and requires unique unordered pairs.",
+          "identifier_or_url": "https://arxiv.org/abs/2305.15683",
+          "material_read": "PDF pp. 28 and 32–33, Theorem 3.23/Corollary 3.24, Theorem 4.7/Corollary 4.8, Theorem 4.11",
+          "method": "OA PDF",
+          "title": "On the path homology of Cayley digraphs and covering digraphs",
+          "trigger": "Potential general theorem implying the assigned result"
+        },
+        {
+          "assessment": "Different step sets or different chain theory; no whole-record claim from summaries",
+          "evidence": "The first three concern nonzero torsion in H1 for other generators, and the last concerns multipath homology of a seven-vertex tournament.",
+          "identifier_or_url": "999997208601; 2c5633a9d2b2; f3e7f5d0652f; 4d9708a13438",
+          "material_read": "Returned scientific statements of the compared families",
+          "method": "Local Resultary",
+          "title": "Resultary integral circulant and multipath comparisons",
+          "trigger": "Ranked comparable exact-family catalogue matches"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof stages 1–3 and illustrative collision",
+        "Tang–Yau Proposition 5.2 and rectangular hypothesis"
+      ],
+      "rationale": "These are natural families of cyclic digraphs whose shortcuts encode arbitrary incidence faces. Both legal merges and collisions can change chain constraints, so their uniform inability to alter the integral path homology (including torsion) is substantive. The integral clamp argument supplies a reusable criterion on finite-support chains and addresses a wide class beyond isolated singleton steps, not just a few numerical examples.",
+      "residual_risks": [
+        "The result is not an assertion of topological or path-homotopy equivalence after arbitrary shortcut additions."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim quantifies over all integers \(n\ge4\) and fully specifies the query model. Inclusion-maximal intersecting pair families are exactly stars and triangles, as reconstructed in the proof. Every legal three-edge support is explicitly realized in all eight labelings; disjoint pairs and larger pairwise-intersecting supports have explicit forbidden labelings. The support counts and adaptive dimension follow exactly. The homotopy argument uses simply connected star two-skeleta joined along isolated vertices, then fills every triangular generator of the resulting graph fundamental group. Euler characteristic gives free second homology and hence a wedge of two-spheres. Independent Python and C++17 implementations agree with the theorem for all supports up to size four at \(n=4,5,6,7,8\), and Python verifies mod-two boundary ranks. Finitary checks are corroboration, not an all-order proof.
+PASS
 
-## Originality — PASS, qualified
+The hypotheses are exactly full stars and triangles. The all-positive trace excludes disjoint pairs; for four edges at a common center, marking three positive forces the full star and cannot exclude the fourth. For either type of triple the proof has all eight witnesses, including the triangle of the leaves for the zero trace on a star and an outside star for the zero trace on a triangle; both work at n=4. Counting gives the stated f-polynomial and purity. Following any first positive answer, the next positive branch of any nonconstant query has at most two concepts, insufficient for a remaining depth of two in a putative depth-four tree. The star two-skeleta are simply connected; their singleton overlaps underlie K_n. Each added triangle kills the corresponding triangular loop, and those based at a fixed vertex normally generate the graph's fundamental group. Thus the two-dimensional complex is simply connected; Euler characteristic gives B_n, and Hurewicz and homological Whitehead give the wedge of spheres. Inclusion in the full complex kills the extra n binom(n−2,3) classes: each full star simplex fills its own two-skeleton cycles, which have rank binom(n−2,3), with disjoint triangle supports across distinct stars. At n=4 there are no extra cycles of this kind.
 
-Frankl–Kupavskii, arXiv:1701.04110, count intersecting set families asymptotically; the model of maximal intersecting two-set families is a natural concrete specialization, but they do not give the shattering/online theorem. Nikseresht, arXiv:2007.13082, establishes algebraic characterizations of the **full** line-graph clique complex. Goyal–Shukla–Singh, arXiv:2009.12130, identify maximal stars and triangles and establish the **full** complex homotopy; in particular, their Lemma 3.2 and Theorem 3.4 do not characterize membership shattering or the two-skeleton's additional \(n\binom{n-2}3\) homology classes. Actual semantically targeted research-record searches retrieved Kneser dissociation and neighborhood results but no equivalent full shattering statement. This does not establish unique historical priority; equivalent unindexed work remains possible.
+## originality
 
-## Value — PASS
+PASS
 
-This resolves a natural complete classification problem at the intersection of maximal intersecting families, shattering theory and line-graph topology. A genuinely nontrivial feature is that the hypothesis class has \(n+\binom n3\) members but both static and online ranks stay at three, while its shattering complex has pure dimension two and \(\Theta(n^4)\) independent two-sphere classes. Its full parent clique complex has only \(\Theta(n^3)\) such classes; the extra \(n\binom{n-2}3\) topological generators explain exactly the effect of the shattering truncation. These are all-order, naturally defined invariants, not an arbitrary single-size table. The star/triangle structural component is elementary and explicitly credited; novelty and value are assigned to the exact shattering/topological identification and its consequences.
+The line-graph clique classification and full-complex topology are prior. The supported distinct claim is that maximal-clique membership traces on L(K_n) give this precise truncation and that both the static and online ranks are three. The Betti formula is a consequence of the identification and elementary skeleton topology, not an independent discovery about full line-graph clique complexes.
 
-## Limits and nearby literature
+## value
 
-The result concerns precisely membership tests on maximal intersecting pair families, not higher-uniformity intersecting families or the full clique complex. The computational homology check is over \(\mathbb F_2\); integral torsion-freeness is proved mathematically. The closest topological comparison is to the **full** line-graph clique complex, not to this two-skeleton. The literature search cannot exclude unindexed equivalences.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The claim identifies all membership supports in a canonical unbounded family and gives a uniform adaptive limit despite the growing number of concepts. The truncation changes the second Betti rank from order n³ to order n⁴ while preserving purity and simple connectivity. This quantifies the difference between structural feasibility of positive edges and full realizability of patterns, an invariant useful for comparison with other maximal-clique models.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

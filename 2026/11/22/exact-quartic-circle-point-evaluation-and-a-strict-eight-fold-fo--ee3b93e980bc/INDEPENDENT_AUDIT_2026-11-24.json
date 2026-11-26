@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:55:16.450810Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For complex polynomials of degree ≤4 under normalized Haar probability, optimizing evaluation at a fixed point with P(1)=1 gives the sharp fourth-power constant by rotation. The L4 fourth power is coercive on the finite-dimensional affine space by norm equivalence and is strictly convex: distinct polynomials differ on a set of positive measure. The unique minimizer is fixed under coefficient conjugation and degree-four reversal, both norm-preserving, so is real palindromic. Parseval on P² gives exactly Q; minimizing this differentiable strictly convex function gives the unique real common zero of f and g. The independently written SymPy replay at /workspace/branches/ddc79506-dd99-436d-b4a4-da2c3dfcfd67/independent_replay.py with log independent_replay.log checks Q by convolution, both scaled gradients, resultant −189R and linear subresultant 63(Ay+B). Exact root counts show one real R-root in the stated rational interval and A positive there; reducing the recovered y equations modulo R verifies both. Independently the specified positive tangent weights sum to one, cancel the gradient and yield the global bound 14888369619/116976484375>1/8, so C_(4,4)<8 without a numerical step. The replay verifies the displayed decimal prefixes including kappa. A normalized minimizing polynomial cannot have modulus greater than one elsewhere (rotation and rescaling would improve its integral); equality is precisely given by undoing the normalization and rotation, plus the trivial zero case. Haar torus integration of a homogeneous quartic reduces to the ratio of its coordinates on the circle, and its diagonal has normalized-area fourth power |P(1)|^4/9. Thus the diagonal operator norm is (C_(4,4)/9)^(1/4), not the fourth-power value C_(4,4), and is attained. Only the frozen checker text and its recorded status were read; it was not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Instanes's sharper integral upper bound at d=p=4 is about 8.4102 by numerical specialization, not a sharp value; Section 7 discusses numerical lower bounds and optimization.",
+          "Brevig et al. prove general p>2 contractivity with equality cases; these give a qualitative strict gap on the positive-degree homogeneous quartic block and the upper bound 9, not an explicit block norm or a strict numerical bound of 8."
+        ],
+        "reasoning": "The broader theorems do cover the qualitative setup and ordinary contraction, but their upper/lower estimates and equality classification for the unrestricted operator do not determine the finite block minimizer or its norm. The directly accessible primary passages resolve the frozen access limitation for the relevant comparison.",
+        "searches": [
+          "arXiv:2509.22035v1 Theorem 14 and Section 7",
+          "arXiv:2610.16227v1 Theorem 1.1, §4.1 and Corollary 4.1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2509.22035v1",
+        "arXiv:2610.16227v1",
+        "Resultary 038070a4eb80"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior uniqueness/symmetry imply the qualitative palindromic setup, but not solution of the two-variable quartic stationarity equations, selection of the unique real degree-nine root or the exact tangent certificate.",
+          "Known homogeneous reduction makes the sharp block norm a corollary of the newly evaluated circle invariant, not of a lower-degree sharp constant or the general contractivity bound alone."
+        ],
+        "reasoning": "Distinguish inequality improvement and exact evaluation from known structure. No statement read yields the specified degree-four numerical threshold or minimizer by specialization.",
+        "searches": [
+          "arXiv:2509.22035v1 Theorems 1, 14 and 16",
+          "arXiv:2610.16227v1 Corollary 4.1 and continuation of §4.1",
+          "Resultary 038070a4eb80 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Instanes defines the same sharp evaluation problem for complex analytic polynomials and proves uniqueness and symmetry; the stated general estimate gives 9 at d=p=4.",
+          "Corollary 4.1 of Brevig et al. explicitly reduces the homogeneous bidisc block to the same circle inequality with factor (np/2+1)^(1/p)."
+        ],
+        "reasoning": "The circle point-evaluation norm, its fourth power and the homogeneous diagonal norm encode one invariant, not independent originality claims. The older formulation and equivalence are not novel; the exact value and optimizer are the content assessed here.",
+        "searches": [
+          "Resultary: quartic d=4,p=4 exact circle point evaluation and fourth moment",
+          "Resultary: diagonal Hardy-to-Bergman homogeneous quartic exact norm",
+          "arXiv:2509.22035v1 Theorem 1 and §7",
+          "arXiv:2610.16227v1 Corollary 4.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact matching quartic catalog entry is the assigned record itself. The distinct exact entry 038070a4eb80 explicitly covers d=2,p=4 only.",
+          "The numerical candidate lower bounds in Instanes are relevant same-problem data, but do not give the specified algebraic optimum, coefficient recovery or a matching upper bound."
+        ],
+        "reasoning": "Increasing d adds a coupled real coefficient parameter even after symmetry; the degree-two minimization does not determine degree four. Numeric data without a sharp certificate do not constitute the exact table entry needed here.",
+        "searches": [
+          "Resultary: exact fourth-power point evaluation for degree-four analytic circle polynomials",
+          "Resultary: exact homogeneous quartic diagonal restriction norm",
+          "Resultary 038070a4eb80",
+          "arXiv:2509.22035v1 §7 and Theorem 16"
+        ]
+      },
+      "rationale": "Credit the prior identical optimization problem, uniqueness and symmetry of normalized extremizers, general contractivity, and the homogeneous reduction. The distinct surviving content is the exact evaluated degree-four fourth-moment constant and coefficients with an explicit strict upper bound of eight. Neither the same-parameter bounds nor the wider contractivity theorem determines these quantities.",
+      "residual_risks": [
+        "Older or unindexed exact computations could exist; closest inspected same-problem numerical work does not certify the exact invariant.",
+        "Both named primary texts were lawfully accessible; the comparison is based on the specified substantive passages and does not make a world-priority claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct antecedent for setup and extremizer structure, bounded and numerical rather than exact for this parameter",
+          "evidence": "Theorem 1 gives dp/2+1 and uniqueness/symmetry. Theorem 14 gives an integral upper bound through degree four. Section 7 gives candidate lower bounds and describes possible numerical refinement.",
+          "identifier_or_url": "https://arxiv.org/pdf/2509.22035v1",
+          "material_read": "Theorem 1, PDF pp. 1–2, offset 3000; Theorem 14 and discussion, pp. 12–13 offsets 39500–42055; §7/Theorem 16 and following discussion, pp. 15–16 offset 48500",
+          "method": "Direct OA PDF passage inspection",
+          "title": "Point evaluation for polynomials on the circle",
+          "trigger": "Same optimization problem, same degree and exponent, possible explicit low-degree bound or optimizer"
+        },
+        {
+          "assessment": "Covers general contractivity and the homogeneous point-evaluation reduction, not the exact positive-degree block norm",
+          "evidence": "Corollary 4.1 gives (np/2+1)^(1/p). The remaining §4.1 applications include trigonometric polynomial estimates and extensions to spectral boxes or simplices, not an exact quartic optimizer.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.16227v1",
+          "material_read": "Theorem 1.1 p. 1 offset 2720; Corollary 4.1 and proof p. 11 offsets around 32600–34942; §4.1 continuation p. 12 from offset 34939",
+          "method": "Direct OA PDF passage inspection",
+          "title": "Contractivity of Rudin's diagonal restriction operator for H^p of the polydisc",
+          "trigger": "Potential wider theorem and point-evaluation corollary covering the homogeneous quartic norm"
+        },
+        {
+          "assessment": "Relevant lower-degree invariant, not a theorem at degree four",
+          "evidence": "It evaluates the sharp degree-at-most-two fourth-power constant and the homogeneous quadratic diagonal norm only.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-exact-fourth-power-point-evaluation-constant-for-quadratic-circl--038070a4eb80",
+          "material_read": "RESULT.md Finding and scope, offset 0",
+          "method": "Local Resultary mirror passage inspection",
+          "title": "Exact fourth-power point-evaluation constant for quadratic circle polynomials",
+          "trigger": "Same exponent and sharp quantity at closest distinct exact parameter in the catalog"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The named point-evaluation problem was already studied through degree four, which is the first even degree with two coupled real free coefficients after symmetry. A sharp algebraic value with normalized extremizing coefficients and a simple global strict certificate supplies independently useful exact stability information for both circle evaluation and the natural homogeneous diagonal block. This is a motivated low-degree invariant, not a randomly chosen coefficient slice, a lost norm normalization or a claim of a new general contractivity theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

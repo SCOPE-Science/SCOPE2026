@@ -1,19 +1,21 @@
-# Review — Isolated coupling resonances on prime-prism ladders
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The projection onto the eigenspaces orthogonal to the localized sink is the only nondecaying sector for positive sink strength, by a strict imaginary-eigenvalue argument on its orthogonal complement. The opposite-rung source and sink have opposite signs in the two Fourier parity bands, leading to the nonnegative collision identity. For a prime cycle, a cyclotomic minimal-polynomial argument proves all differences of distinct cosine levels are unique. The exact momentum multiplicities then give the two claimed survival fractions; no energy overlap occurs elsewhere. Normalization, signs of hopping, the smallest prime, and strictly positive coupling and sink strengths have been checked. The finite dense-matrix and no-jump propagator verifier corroborates but is not used to replace these proofs.
+PASS
 
-## Originality — PASS, provisional priority
+In each H-eigenspace the subspace orthogonal to the sink reduces H and is unaffected by loss. On the orthogonal complement every eigenvalue has strictly negative imaginary part: the imaginary part of the eigenvector's Rayleigh quotient is -kappa times the squared sink overlap divided by twice its squared norm, and a zero overlap would give an H-eigenvector in the omitted dark sector. Jordan polynomial factors still decay, so the surviving norm is the initial dark weight. Plane waves with layer signs ± have energies 2g c_j±t and overlap magnitudes 1/sqrt(2p) at each rung endpoint; one endpoint acquires the relative minus sign. At an energy with multiplicities a,b their dark weight is [(a+b)-(a-b)^2/(a+b)]/(2p) = (2/p)ab/(a+b). Only cross-band energy equalities contribute; the sign of g swaps the band labels but not the set of positive t or weights. For prime p any rational relation of the cosines corresponds to a polynomial of degree at most p-1 vanishing at a primitive p-th root, hence its coefficients are all in the ratio prescribed by Phi_p. The cosine relation vector is proportional to (1/2,1,...,1), whose coordinate sum is nonzero. Thus equality of two ordered positive gaps, with zero-sum coefficient vector, forces identical pairs. The multiplicity products (1,2) and (2,2) yield 4/(3p) and 2/p; p=3 has just the first case, at 3|g|/2. A unit cosine gap would give e_a-e_b-e_0 proportional to the positive relation vector, impossible by sign or support, so t=|g| is off resonance. All statements use positive sink rate; none assumes normality of the loss generator.
 
-The dark spectral projector is classical prior work, especially Krovi–Brun (quant-ph/0606094), Novo et al. (1412.7209), and Razzoli et al. (2011.13794). The Thiel et al. (1906.08112) general bright-projector formula concerns stroboscopic measurements; Xu (0812.3452) considers another cycle family; Mareš et al. (1908.10173) consider a different coined open ladder. The inspected material does not provide the evaluated exceptional positive rung-coupling set for the weighted odd-prime Cartesian prism with opposite-rung capture. Its uniqueness and the exact two surviving weights require a separate prime-cyclotomic argument. An unlocated broader theorem or literature treating exactly these resonances remains a publication-priority risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A single source adjacent to a perfect absorber would suggest robust capture, yet every odd-prime two-ring network admits exactly \((p^2-1)/8\) isolated coupling strengths with protected amplitude and two distinct, exact surviving fractions. At ordinary equal-magnitude edge weights, complete absorption returns. The exceptional set, its cardinality, and the state-resolved weights are natural, nontrivial invariants of the family that distinguish resonant transport from the generic regime. Discontinuous infinite-time trapping is not a guarantee of experimentally robust finite-time suppression; no such claim is made.
+The supported distinct result is the complete positive real rung-coupling classification with exact opposite-rung trapped weights on a prime prism. The generic bright-sector formula is established; the prime cosine gap uniqueness follows directly from a relation also present in the prime-torus comparison, and the unweighted zero-survival corollary follows from the earlier unweighted-prism collision proof and the generic sink formula. Those components are not credited as separate original results.
 
-## Reproducibility and limits
+## value
 
-The exact proof and definitions are in `RESULT.md`; `verify.py` requires packages specified in `requirements.txt`. The dense spectral checks cover six odd primes and both signs of hopping, and selected direct loss evolutions. Exhaustion of all larger primes, other initial states and finite-time decay rates is not claimed. No independent scientific or publication-priority audit was performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The measured invariant is the actual fraction surviving from the opposite end of a rung, not just whether the graph has dark modes. The exact finite set and two weights give a complete diagram for a natural single-sink periodic model and show that generic perfect capture coexists with isolated positive surviving fractions. This goes beyond the already implied unweighted case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

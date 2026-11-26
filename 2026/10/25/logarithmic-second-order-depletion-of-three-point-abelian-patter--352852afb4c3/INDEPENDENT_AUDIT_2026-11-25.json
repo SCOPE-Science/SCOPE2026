@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:36:17.445899Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 18–66; VERIFICATION.md and verify.py inspected, not executed",
+        "Zeng–Xue–Zeng arXiv:2609.28059v3, Theorem E, p. 5",
+        "Independent symbolic proof of the Toeplitz cutoff and weighted-deficit estimate; bounded independent graph comparisons with the inequality and finite formula"
+      ],
+      "rationale": "Theorem E of Zeng–Xue–Zeng supplies the infinite forest characterization. The sum-c perfect matching contracts to the simple graph of distances A=c−a and B=c−b on c+1 vertices. Independently, on A+B vertices the two-distance graph is the union of gcd(A,B) cycles, obtained by stepping by A modulo A+B. Deleting the last gcd(A,B) vertices breaks all cycles since each lies in a different residue class, whereas deleting fewer leaves a full cycle. For larger vertex sets the graph still contains the original cycles. This proves the required cutoff and the strict arithmetic inequality. Strict doubling adds only disjoint new edges with fresh endpoints and cannot create a cycle, so the finite forest criterion is sufficient for an infinite support with exactly these first three positions. For gaps x=b−a, y=c−b, the allowable starts satisfy 0≤a≤N−x−y and a<y−gcd(x,y). Without the gcd term, set y=a+1+j and x=1+i; this gives 2a+i+j≤N−2 and leading volume 1/12. The gcd deficit is exact on x+2y≤N+1; outside this triangle the only nonzero deficit is in a strip of width gcd(x,y). Writing x=du,y=dv with d=gcd(x,y), each d gives at most one possible integer u+2v in the strip, yielding O(N²) in total. The main triangle has divisor-sum count Σφ(d)floor((floor((N+1)/d)−1)²/4) and leading term (N²/4)Σ_{d≤N}φ(d)/d², after truncating at d≤N. Möbius inversion gives (6/π²)log N+O(1) for this last sum, verifying the correction and the normalized proportion. Separately, bounded graph and count comparisons covered 969 triples with c≤18 and 22 cutoff values through N=23; these are checks of the finite reductions only.",
+      "residual_risks": [
+        "The checked result counts first-three prefixes across all infinite supports, not three arbitrary occurrences or distinct full words. The inaccessible 2013 theorem passage is not needed to validate the cutoff because of the independent cycle proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zeng et al. give the general infinite-support forest characterization. The earlier Resultary envelope states that there are at most 1+floor(log₂(N+1)) support positions up to N in a single word, with a Mersenne example attaining the bound. The relevant 2013 paper was not available at theorem level."
+        ],
+        "reasoning": "A sharp single-word occupancy bound does not count choices of prefixes across many words. The broader forest and Toeplitz criteria are legitimate mathematical inputs, but they provide the pointwise test, not a quantitative estimate on aggregate admissibility.",
+        "searches": [
+          "Primary literature lookup for incidence forests, two-distance Toeplitz graphs and gcd-sum prefix counting",
+          "arXiv:2609.28059v3",
+          "DOI 10.1016/j.dam.2013.05.020",
+          "2026/10/4/SCOPE-sharp-logarithmic-support-envelope-for-abelian-pattern-sturmian--71c60228ce20"
+        ]
+      },
+      "checked_sources": [
+        "Resultary ranked searches and the cycle-rank/envelope mirror passages",
+        "arXiv:2609.28059v3, Theorem E",
+        "Cited 2013 DOI retrieval and repository attempt",
+        "Frozen weighted gcd deficit derivation"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The gap test gives the finite count by summing over the initial position. Euler's divisor-sum identity and the classical weighted totient mean then apply to the main triangular region, but alone do not control the strip where the allowed start interval clamps at the cutoff."
+        ],
+        "reasoning": "The finite sum is direct from the prior-style pointwise criterion. The claimed sharper asymptotic requires showing that the strip contributes only O(N²), isolating the triangular main deficit and evaluating its coefficient. No inspected result supplies that estimate as an exact substitution.",
+        "searches": [
+          "Claim-level comparison with arXiv:2609.28059v3 Theorem E, the cited Toeplitz criterion, and the catalog cycle-rank proof",
+          "Literature lookup for the associated weighted gcd sum; no usable primary passage retrieved for that arithmetic comparison",
+          "RESULT.md lines 44–63 for the specific deficit decomposition"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorem E identifies binary Abelian pattern Sturmian words with infinite support forests. The later three-spike catalog result gives exact cycle rank max(0,a+b−c+gcd(b−a,c−b)+1), so its vanishing gives precisely the same admissibility test."
+        ],
+        "reasoning": "These are the same graph and underlying accept/reject condition, not a new characterization by renaming. Neither passage counts how often the condition holds on 0≤a<b<c≤N. The later date is noted, not used as prior priority evidence.",
+        "searches": [
+          "Resultary searches for Abelian pattern Sturmian three-point or three-spike prefix extendibility and exact cycle rank",
+          "arXiv:2609.28059v3 Theorem E",
+          "2026/11/8/SCOPE-exact-cycle-rank-and-admissible-three-spike-prefixes-for-abelian--e3a97eafa17a"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest inspected ranked results are the exact per-triple cycle rank and the extremal support count. The former's Finding and main reduction do not give the number of triples up to N or the weighted aggregate asymptotic. No same-day direct aggregate census was returned in the bounded ranked search."
+        ],
+        "reasoning": "The analogous exact formulas tabulate different quantities, not reparameterizations of the finite gap sum or of the prevalence asymptotic.",
+        "searches": [
+          "Resultary searches for finite counts and the two-term prevalence asymptotic of three-position Sturmian prefixes",
+          "2026/11/8/SCOPE-exact-cycle-rank-and-admissible-three-spike-prefixes-for-abelian--e3a97eafa17a",
+          "2026/10/4/SCOPE-sharp-logarithmic-support-envelope-for-abelian-pattern-sturmian--71c60228ce20"
+        ]
+      },
+      "rationale": "Pass for the aggregate prefix count, in particular the explicit nonzero N² log N depletion with O(N²) remainder. The forest equivalence, the arithmetic admissibility test it yields and the totient estimates are not separately credited as new. The strongest inspected matching classification concerns a single prescribed triple, not the weighted loss in the population of triples.",
+      "residual_risks": [
+        "No full-text theorem passage was retrieved from the 2013 paper, and no usable passage was retrieved for a dedicated prior weighted gcd-sum comparison. An earlier equivalent aggregate prefix estimate outside the inspected sources cannot be excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Verifies the primary forest input; not an aggregate count in the inspected passage",
+          "evidence": "Up to identification of the two letters, the word is the indicator of an infinite support whose bipartite sum-incidence graph is a forest.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.28059v3",
+          "material_read": "Theorem E, p. 5, OA PDF offset 17251",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "Abelian maximal pattern complexity and extremal words",
+          "trigger": "Exact forest equivalence on the symbolic object"
+        },
+        {
+          "assessment": "No direct theorem-passage comparison available; the cutoff is separately proved, and no priority is claimed for it",
+          "evidence": "The alternate repository retrieval did not supply the paper. This is not evidence of noncoverage.",
+          "identifier_or_url": "https://doi.org/10.1016/j.dam.2013.05.020",
+          "material_read": "Landing page or abstract only; no theorem text",
+          "method": "Bounded lawful OA retrieval and identified repository alternative",
+          "title": "Bipartite finite Toeplitz graphs",
+          "trigger": "Cited exact two-distance forest threshold"
+        },
+        {
+          "assessment": "Direct pointwise criterion overlap, later dated; no direct aggregate count in inspected passages",
+          "evidence": "Exact cycle rank via matching contraction and a two-distance graph gives the same prefix inequality.",
+          "identifier_or_url": "2026/11/8/SCOPE-exact-cycle-rank-and-admissible-three-spike-prefixes-for-abelian--e3a97eafa17a",
+          "material_read": "RESULT.md offsets 0–4974, mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Resultary search and bounded local-mirror passages",
+          "title": "Exact cycle rank and admissible three-spike prefixes for Abelian pattern Sturmian words",
+          "trigger": "Closest exact comparison on the same admissible triples"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": "Upper envelope for the number of positions up to N in one support, attained by Mersenne positions.",
+          "identifier_or_url": "2026/10/4/SCOPE-sharp-logarithmic-support-envelope-for-abelian-pattern-sturmian--71c60228ce20",
+          "material_read": "RESULT.md finding around mirror offset 311",
+          "method": "Resultary search and local mirror",
+          "title": "Sharp logarithmic support envelope for Abelian pattern Sturmian words",
+          "trigger": "Earlier same-word-class logarithmic asymptotic"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 3–16 and 34–63; comparison with the prior per-prefix criterion and single-support envelope"
+      ],
+      "rationale": "Passing from a decision criterion for one prefix to the prevalence of extendible prefixes fills a natural counting gap. The limiting one-half density by itself misses an arithmetic bias larger than the usual quadratic counting remainder. Isolating its coefficient separates geometric volume from gcd depletion, a meaningful use of the exact criterion rather than just evaluating small cases.",
+      "residual_risks": [
+        "No higher-prefix counting theorem is inferred."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

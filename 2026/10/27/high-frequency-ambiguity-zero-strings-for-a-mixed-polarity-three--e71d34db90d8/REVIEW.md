@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The exact pulse follows by convolution and is integrable; the ambiguity convolution identity applies by Fubini. A direct convolution and differentiation yield a rational-exponential zero equation without divisors vanishing for \(a>b>0\). A uniform large-frequency expansion is algebraic. The unique positive limiting delay has a strictly positive derivative in the defining equation. A two-real-variable analytic implicit-function theorem then proves a zero for every sufficiently large half-integer phase, including the asserted location errors and simplicity. A separate Lambert-W inversion proves the close-rate delay divergence. Nine direct numerical integrals, nine root checks, and exact symbolic identities reproduce the proof's finite intermediate steps.
+PASS
 
-## Originality
+For w=pi*nu the one-sided ambiguity integrals give exp(-u|T|)/(2u) and exp(-v|T|)/(2v), with u=a+iw and v=b-iw. Changing variables in the four-factor integral gives convolution in delay; splitting the two-kernel convolution at 0 and T and then applying (1/u)-partial_u gives the stated three-kernel expression. None of its denominators vanish on the real w axis for a>b>0. An independent algebra check writes the zero-equation right side R exactly as -(1+lambda*T)+(3*lambda*T/2)x+((3-lambda*T)/2)x^2-x^3/2 for x=lambda/u. Thus the first reciprocal-w correction is imaginary and the frozen second-order coefficient also agrees. The limiting equation is strictly convex with negative derivative at zero and a unique transverse positive crossing at T_*. With w=(pi*(n+1/2)+theta/2)/T the real Jacobian at infinite index is diagonal with entries F'(T_*) and exp(d*T_*). Analytic implicit continuation therefore produces real zeros; the imaginary correction gives theta=O(1/n), the real equation gives T-T_*=O(1/n^2), and the frequency and spacing laws follow. At fixed delay the complex derivative tends to -2i*T_*exp(d*T_*), and the ambiguity function is holomorphic near each real frequency by its exponential tails. For the boundary limit let h=d/lambda and y=d*T_*; h=y/(exp(y)-1) implies y tends to infinity, and y=log(1/h)+log(y+h) gives y/log(1/h) tending to 1 and then the log-log term with o(1) remainder. This verifies RESULT.md lines 49–129 for fixed rates, with a separate limit for T_* only. The inspected checker and its recorded nine roots are corroboration, not the asymptotic certificate.
 
-PASS relative to the inspected literature and accessible historical claims. The closest paper on zeros of ambiguity functions (Gröchenig–Jaming–Malinnikova 2018) gives two-factor zero-freeness with reflected exponentials and repeated same-direction convolution results, but not a three-factor mixed-polarity high-frequency zero family. Jaming 2006 proves moment-based zero-free neighborhoods, which do not exclude remote zeros. Kloos–Stöckler 2013 concerns Zak transforms and Gabor frames; those statements do not imply the asserted real delay–Doppler zeros. Semantic searches for the same rational poles, convolution order, aliases, and Doppler asymptotics did not reveal a covering statement. A result in older or unindexed ambiguity or exponential-spline literature remains possible; no independent priority certification is claimed.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. The result answers a natural higher-convolution question left open by the simplest zero-free totally positive examples: adding a third exponential factor of opposite polarity can introduce infinitely many genuine ambiguity zeros. It identifies the exact limiting delay by a scalar equation, a nondegenerate analytic mechanism for one zero in each sufficiently distant phase band, a sharp Doppler density, and a singular near-equal-rate delay scale. This is not a trivial substitution in the two-factor nonvanishing theorem.
+The pass concerns the quantitative cofinite simple-zero string and limiting-delay law for the specified asymmetric three-factor family. It does not credit the qualitative observation that totally positive windows can have ambiguity zeros.
 
-## Scientific scope
+## value
 
-The result does not classify all zeros, prove zero-freeness for the complementary rate range, or give uniform estimates when the rates coalesce. The computation is supporting evidence, not an infinite proof; a separate independent audit has not occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The next mixed-polarity repeated convolution is a natural test against zero-free unequal two-factor and same-polarity families. It gives infinitely many genuine real nulls, not numerical near-cancellations, and explains where they concentrate and how that limiting delay escapes near equal rates. The quantitative location and simplicity answer a more precise question than the already known existence of zeros for some totally positive functions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

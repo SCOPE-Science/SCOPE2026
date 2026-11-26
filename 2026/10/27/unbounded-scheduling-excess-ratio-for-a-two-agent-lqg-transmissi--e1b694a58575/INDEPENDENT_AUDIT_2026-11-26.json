@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:04:51.266254Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md: assumptions and proof; VERIFICATION.md; verify.py (inspected only)",
+        "Hashemi–Maity arXiv:2609.21974v1, Eq. (2), (4), (9)–(11), (18), (20) and Algorithm 1"
+      ],
+      "rationale": "Square completion gives Γ_k=A²P_{k+1}²/(R+P_{k+1}); the scalar recursions reproduce a=ε²/[16(1+ε²)(5+4ε²)], b=1/[16(1+ε²)], c=ε/3 and ℓ=ε³ in the frozen notation. Under the source's exact reception and prediction/reset convention the squared errors are fixed by the realized binary schedule; neither the selected auction schedule nor the minimizing schedule signals initial signs. The source's current-decision bid sums over the whole remaining horizon, hence the first comparison is a+b−ℓ>c−ℓ>0, and both next bids are −ℓ. All nine feasible schedules reduce to the five listed costs by deletion of wasteful packets. The differences between each alternative and a+2ℓ are c−a−ℓ, b−ℓ, c−ℓ and (b−ℓ)+(c−ℓ), all strictly positive on 0<ε≤1/10. The ratio is therefore (c+ℓ)/(a+2ℓ)∼80/(3ε). In particular the exact result concerns the objective after removing the same schedule-independent constant on both sides. Both plants have A=1/2; the source requires finite moments, not nondegenerate Gaussian inputs, and admits zero process noise.",
+      "residual_risks": [
+        "The optimum is for the stated Eq. (10) schedule objective with the specified estimator, not a comparison to designs using packet identity or silence as a separate signaling channel.",
+        "No unbounded ratio for the full LQG cost is asserted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The precursor papers describe scheduling/MILP in single-system settings, one with channel losses.",
+          "Equation (18) gives optimization of all schedules, while Algorithm 1 uses the current decision and replans."
+        ],
+        "reasoning": "An exact optimizer or a single-system scheduling comparison is useful background but provides no bound or separation for the named multi-agent policy. A combinatorial greedy failure also needs realizability by these Riccati recursions.",
+        "searches": [
+          "arXiv:2509.10671 and arXiv:2604.06060 abstracts",
+          "arXiv:2609.21974v1, Sections III-B, III-C and Conclusion",
+          "\"event-triggered\" LQG communication scheduling auction Hashemi Maity greedy performance suboptimality unbounded approximation counterexample shared capacity finite horizon"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.21974v1",
+        "arXiv:2509.10671 and arXiv:2604.06060 (abstracts)",
+        "Relevant Resultary retrievals and one focused literature query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The conclusion explicitly proposes deriving analytic suboptimality bounds; no bound is given in the inspected algorithm or cost arguments.",
+          "The identical score and admissible lossless estimator are used; the construction creates competition between deferrable value b and expiring value c."
+        ],
+        "reasoning": "Evaluating the prior MILP does not mechanically give a sequence of admissible Riccati parameters that makes the ratio diverge; the counterexample supplies that sequence.",
+        "searches": [
+          "arXiv:2609.21974v1, future work and suboptimality bound passages",
+          "arXiv:2609.21974v1, Eq. (18), (20) and Algorithm 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The actual auction ranks horizon-summed marginal benefits minus communication fees and grants capacity only to positive bids.",
+          "The same-day quadratic network-game price-of-anarchy hit has different actions, objective and equilibrium notion."
+        ],
+        "reasoning": "The ratio here compares the exactly specified current-decision policy and centralized excess cost; generic greedy scheduling or equilibrium welfare ratios are not equivalent.",
+        "searches": [
+          "Hashemi Maity two-agent LQG scheduling current-score auction excess ratio stable counterexample (Resultary)",
+          "two-agent event-triggered LQG shared capacity auction suboptimality bound (Resultary)",
+          "arXiv:2609.21974v1, Eq. (10), (20), Algorithm 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The primary numerical comparison reports a 2.39% average increase over MPC, not a worst-case parameter sweep or exact approximation-ratio formula.",
+          "The same-day quadratic game interval is for a different model."
+        ],
+        "reasoning": "The reported sample average does not limit the worst-case ratio in this parameter family, and the indexed game ratio evaluates another objective.",
+        "searches": [
+          "Unbounded scheduling-excess ratio for a two-agent LQG transmission auction (Resultary)",
+          "arXiv:2609.21974v1, numerical comparison and Conclusion"
+        ]
+      },
+      "rationale": "The primary paper defines the auction and exact benchmark, and reports numerical performance, but explicitly leaves analytic suboptimality bounds to future work. The inspected single-agent antecedents do not define the same shared-capacity competition. No covering statement of the stable scalar horizon-two separation was identified in the bounded source and index comparisons.",
+      "residual_risks": [
+        "The targeted negative search does not rule out an unindexed version of the same scheduling comparison or a broader theorem in related greedy allocation literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The policy and objective match; the paper calls the approximation one-step because of the decision, not because it truncates the score.",
+          "evidence": [
+            "Moment assumptions near OA offset 15026; Eq. (20) near 45514; Algorithm 1 near 41680; conclusion near 63994."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2609.21974v1",
+          "material_read": "PDF p. 2 objective and moment assumptions; §§III-A/B/C, Eq. (9)–(11), (18), (20) and Algorithm 1; numerical comparison and p. 7 Conclusion",
+          "method": "Lawful arXiv PDF and bounded OA passages",
+          "title": "Multi-Agent Event-Triggered LQG Control under Shared Communication Constraints",
+          "trigger": "Defines the exact policy, objective and model admissibility."
+        },
+        {
+          "assessment": "Evidence of related optimization methods, not an inspection of all results.",
+          "evidence": [
+            "Describes a lossless single-system scheduling formulation."
+          ],
+          "identifier_or_url": "arXiv:2509.10671",
+          "material_read": "Abstract",
+          "method": "Lawful OA abstract comparison",
+          "title": "A Linear Programming Framework for Optimal Event-Triggered LQG Control",
+          "trigger": "Single-agent MILP antecedent."
+        },
+        {
+          "assessment": "Different channel/benchmark comparison; abstract-level evidence only.",
+          "evidence": [
+            "Models a single control system with unreliable communication."
+          ],
+          "identifier_or_url": "arXiv:2604.06060",
+          "material_read": "Abstract",
+          "method": "Lawful OA abstract comparison",
+          "title": "Linear Reformulation of Event-Triggered LQG Control under Unreliable Communication",
+          "trigger": "Comparisons of performance under different channel assumptions."
+        },
+        {
+          "assessment": "The compared objective is not LQG communication scheduling.",
+          "evidence": [
+            "Price-of-anarchy interval for a directed quadratic network game."
+          ],
+          "identifier_or_url": "2026/10/27/SCOPE-sharp-welfare-interval-for-a-directed-two-agent-quadratic-networ--e05e82179b2b",
+          "material_read": "Indexed summary",
+          "method": "Resultary comparison",
+          "title": "Sharp welfare interval for a directed two-agent quadratic network game",
+          "trigger": "Same-day indexed two-agent ratio hit."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Hashemi–Maity arXiv:2609.21974v1, Algorithm 1, numerical comparison and Conclusion",
+        "Frozen RESULT.md: Finding and Limitations"
+      ],
+      "rationale": "The paper introduced a practical low-complexity policy and motivated an analytic performance comparison. This example identifies why its horizon-summed bids can misallocate a scarce current slot, even for stable scalar plants with only two stages. The strict unbounded separation holds for the actual objective passed to the schedule optimizer, so it rules out a specific guarantee rather than reporting a large finite example.",
+      "residual_risks": [
+        "Does not predict typical performance or constrain multiplicative ratios measured on the full objective."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

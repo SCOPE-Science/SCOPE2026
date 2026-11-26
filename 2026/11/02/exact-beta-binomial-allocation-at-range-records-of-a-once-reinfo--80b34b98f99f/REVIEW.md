@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The next-side transition law is derived from the *original* walk by the finite gambler's-ruin recurrence with two weighted killing boundaries, not postulated. The base case and the simultaneous positive/negative joint recursion then yield the finite exact formula for all \(c>0\). Direct computation of the two three-sign probabilities establishes nonexchangeability; beta-mixture identities give the mean, variance, and one-dimensional weak limit. The independent exact-rational checker additionally tests the original harmonic system and finite record recursion (10,002 assertions). It is not used as proof of universal quantifiers or weak convergence.
+## correctness
 
-## Originality — PASS (with explicit priority risk)
-Compared the full-line 2019 preprint (range moments, its remarks about maximum/minimum) and the 2026 half-line paper (range moments and boundary excursion times). Neither inspected mathematical statement provides this exact finite-record joint allocation. Searched public mathematical literature for beta-binomial/record-sign/Pólya equivalents, and searched relevant mathematical records and published literature. This is a best-knowledge priority judgment, not proof of global novelty. Laurent Serlet's 2018 chapter *Explicit Laws for the Records of the Perturbed Random Walk on the Integer Line* is especially relevant: only its abstract and bibliographic chapter headings were accessible. Its full content could contain the same or a stronger identity; that unresolved historical risk must be checked before any external claim of first discovery.
+PASS
 
-## Mathematical value — PASS
-The positive/negative split of the range is an intrinsic geometric statistic of a reinforced walk, and it relates directly to existing moment-based attempts to understand how the two extremes grow. The theorem determines the *entire finite-range allocation law* at arbitrary weight, the last-sign conditional law, and the order-one random limiting proportion. The nonexchangeability example distinguishes an equality of one-dimensional count laws from the much stronger Pólya-process representation, addressing a substantive structural ambiguity rather than merely computing a small special case.
+At range k the k internal edges all have weight c; the outgoing edges have weight 1 and the walk starts at the last record endpoint. Absorption is almost surely finite. Solving the affine harmonic equation with the two weighted endpoint conditions gives right-exit probability (i+c)/(k+2c) from i, including k=1. Thus from either sign the next sign changes with probability c/(k+2c); the first sign is fair. With B_k(j) the proposed count mass, the recursion for the positive joint mass simplifies to [(j-1+c)/(k+2c)]B_k(j-1)=(j/(k+1))B_(k+1)(j); the negative side follows by reflection. The zero/outside masses and the initial level satisfy the boundary conditions. The two three-step paths differ by exactly the factor (1+c)/c and have positive probability for all c>0. The binomial mixture with a Beta(c,c) parameter gives the moments and weak convergence without making the original process exchangeable or claiming pathwise convergence. The frozen check_output.txt records 10002 exact-rational assertions. A separately written check returned 114 passes for c=1/2 and 2, exit widths 1–4 and record counts 1–4. To replay that bounded procedure, solve the tridiagonal exit equations in RESULT.md §1 as a linear system over fractions at those widths, then enumerate sign strings with the solved endpoint probabilities, aggregate by count and final sign, and compare masses and the stated path ratio. Frozen check.py and check_output.txt describe the larger finite check; the general result rests on the induction, not these tests.
 
-## Closest literature and limitations
-Hu et al., arXiv:2602.10721v1 (2026-02-11); Pfaffelhuber–Stiefel, arXiv:1903.05234v1 (2019); Serlet (2018), DOI:10.1007/978-3-319-92420-5_14, not fully accessible. Applies only at first hitting times of range levels on the full integer line. No deterministic-time endpoint law or full joint record-time law is asserted. Inaccessible related primary literature is a residual priority risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Support is for the exact arbitrary-c finite-record beta-binomial count law and its joint final-side refinement, not for the record transition kernel, nonexchangeability, or the beta weak limit as new results. Same-model prior work gives the kernel exactly, and prior coin-turning results cover the limit and the c=1 count special case. The inspected comparisons did not establish the arbitrary-weight finite joint identity in an earlier source.
+
+## value
+
+PASS
+
+At a fixed range, the right count directly measures how the explored sites are allocated between the two sides; the terminal side determines the current endpoint. An exact joint law for these observable quantities for every reinforcement level and range is a natural finite invariant, useful even in the presence of known record dynamics and limiting theorems. The count agrees with an exchangeable urn even though the signs do not, so the count and last-sign identities give genuine information not captured by the path analogy or an isolated finite test.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

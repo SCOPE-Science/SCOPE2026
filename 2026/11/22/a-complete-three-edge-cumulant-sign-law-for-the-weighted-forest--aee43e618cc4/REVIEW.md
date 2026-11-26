@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The path-completion event reduction is exact: on this graph every cycle uses two fully occupied terminal paths. Independent Bernoulli parameters are \(b_e=t_e/(1+t_e)\). Normalization is \(Z_0=\prod_i(1-p_i)(1+\sum_iR_i)\); conditional path-completion states are mutually exclusive with probabilities \(\pi_i\). The three case formulas follow respectively from a categorical third cumulant, a conditional second-moment decomposition, and a mixed derivative of the explicitly normalized path marginal PGF. All strictness factors have defined positive denominators, with \(0<\pi_i<p_i<1\), \(0<r_i<1\). Finite exact exhaustive tests of seven graph/weight examples matched all 420 triple formulas and signs, also independently verifying acyclicity via union-find. Their finite scope is not substituted for the algebraic proof.
+PASS
 
-## Originality — PASS on examined evidence; residual historical risk
+A cycle must traverse two entire arms: an internal vertex has degree two, so a cycle entering a path cannot leave it before a terminal. Thus complete arms prior to the forest conditioning are independent with probabilities p_i, and the conditioning is that at most one completes. Write D=1+sum_i R_i. The forest partition function is product_e(1+t_e)*product_i(1-p_i)*D; differentiating its log in distinct log-activities gives the joint third cumulant. Independent derivation of the first two cases: for e in arm i, the log-activity derivative of R_i is R_i*d_e; for distinct e,f in arm i the mixed derivative is R_i*(1+p_i)*d_e*d_f. For three different arms only log D contributes, giving 2*pi_i*pi_j*pi_l*d_e*d_f*d_g. For a 2+1 split, differentiate R_j*d_g/D twice on arm i, giving pi_i*pi_j*(2*pi_i-1-p_i)*d_e*d_f*d_g. In the remaining case keep other arms fixed; (1-p_i)*D=(1+S_i)*(1-r_i). Only log(1-r_i) contributes to the three-distinct-edge mixed derivative within arm i. Each derivative of r_i at a distinct edge multiplies it by (1-b_e), so the remaining scalar derivative is (r*d/dr)^3 log(1-r)=-r*(1+r)/(1-r)^3. All denominators are strictly positive, pi_i<p_i follows from the presence of another positive-weight path, and 0<r_i<p_i<1. These facts prove strict signs and the stated positive-triple census for every finite allowed activity vector. No use of tree-only measures or repeated-edge cumulants.
 
-Actual checked directions include synonyms “arboreal gas,” “weighted spanning forest,” “third mixed cumulant,” “three-edge connected correlation,” and “generalized theta”; the public scientific-index searches returned titles concerning **two-edge** anticorrelation or **degree covariance** rather than three distinct inclusion indicators. Jacobsen–Salas–Sokal (arXiv:cond-mat/0401026) study the forest gas as a Potts limit; Erickson (arXiv:1008.3660), Theorem 1.2 and main proof, give second-order Rayleigh inequalities on series-parallel hosts. Çiçeksiz–Ravichandran (arXiv:2610.00549) study two-edge Rayleigh differences and two-point connectivity. Neither the stronger graph family of Erickson nor the newer statistical mechanical results imply a sign classification for three-edge third cumulants; indeed positivity in the three-distinct-arm case coexists with pairwise negativity. An equivalent unindexed direct conditioning calculation remains a real, nonzero priority risk. The archived-source date is the initial arXiv release of the 2004 Potts-forest paper, not its journal date or later revision.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A natural third-order response of a finite statistical-mechanical forest gas is classified exactly, for **every** theta arm length and heterogeneous activity without perturbation limits. The sign is determined by topology alone; it has a sharp onset with the third arm and an exact positive-triple census. This is not an arbitrary numerical coefficient slice: the third connected moment is a first higher-order dependence statistic not determined by the established pairwise negative correlation. No claim is made about a thermodynamic phase transition or arbitrary host graphs.
+Best-of-knowledge pass for the complete all-activity third connected edge-occupancy sign law and its case formulas on theta graphs. Neither the forest ensemble nor pairwise anticorrelation is new here.
 
-## Scientific limits
+## value
 
-The theorem is for all-subset spanning forests, not trees-only; every edge activity must be finite and positive; edges in the triple must be distinct. The verifier contains seven finite cases and cannot prove the unrestricted quantifiers. Earlier unpublished or unindexed special-purpose arguments may exist.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A distinct-edge third cumulant measures how one edge's activity changes the correlation of two others. On this natural family the direction depends only on whether three paths are occupied, even with unrestricted heterogeneous activities. This isolates a sharp third-arm onset for positive nonlinear response and counts exactly how many triples exhibit it, beyond a second-order result and beyond a single symmetric example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

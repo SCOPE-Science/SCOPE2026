@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The sign cannot change under a legal adjacent north/east swap, since crossing the failed layer's horizontal coordinate would require visiting its forbidden equality. Each nonempty sign class is the intersection of meet/join-closed order ideals and filters, hence an order interval in the finite distributive lattice of monotone paths. Its cover graph is connected, median and convex. The symmetric-difference cell argument gives the exact distance and diameter. Independent four-step blocks realize every one of the \(2^k\) signatures. For the diagonal construction, primitive-return decomposition and the even part of \(C(t)=1+tC(t)^2\) give the Catalan total. Two standard-library verification programs independently check representative finite cases and exact counts; finite checks are not used as infinite proofs.
+PASS
 
-## Originality — PASS, with residual risk
+For unit-edge opposite-corner routes retaining length a+b, each adjacent swap changes one layer by one, so it cannot cross the excluded value at a failed vertex. Each side condition is an order-convex sublattice under pointwise path minima and maxima. The nonempty intersections are intervals of the rectangular cell-ideal lattice; deleting maximal excess cells and adding minimal missing cells realizes symmetric-difference distance, and every ambient shortest path changes only disagreement cells. This proves convexity and the extremal diameter. The coordinatewise majority ideal supplies the unique median. Feasibility uses the exact interval recurrence with increments {0,1} and terminal layer {a}; empty layers stop the calculation. This works for boundary faults and when no original-length route survives. For the odd-diagonal family, independent EENN/NNEE blocks realize all signs, while the primitive signed excursions have even semilength and Catalan even-part generating function. No assertion applies to longer detours.
 
-The known intact-grid staircase graph and its adjacent swaps are not claimed as new, nor is the previously determined single-vertex failure classification. Published planar and general shortest-path reconfiguration work addresses decision algorithms or different graph classes. The present theorem gives a simultaneous-fault signature partition, exact convex median structure and metric for every nonempty class, a sharp exponential component envelope, and a Catalan enumeration for its natural extremal construction. Searches did not find an equivalent complete statement. An unindexed equivalent, or a consequence of broader planar-routing results not explicit in their inspected material, remains possible.
+## originality
 
-## Value — PASS
+PASS
 
-Simultaneous vertex failures are a natural network rerouting constraint. The theorem distinguishes merely preserving some shortest routes from preserving their *reconfigurability*: \(k\) failures can generate \(2^k\) islands even when \(C_{2k}\) length-optimal routes remain. Within each island the reconfiguration distance and diameter are exact, with a simple feasibility test for prospective fault-side assignments. The combination is an all-size structural and quantitative benchmark rather than a small isolated census.
+The intact graph and one-interior-fault metric are established inputs; intersection of convex one-fault fibers substantially anticipates the multifault metric and decomposition. The supported distinct contribution is the full fault formulation with explicit feasibility and the sharp exponential family together with its Catalan survivor enumeration, not a new intact or single-fault metric.
 
-## Scope and limitations
+## value
 
-Only original-distance monotone routes between opposite rectangle corners are covered. Arbitrary damaged-network detours and higher-dimensional grids require separate analysis. Source comparison is bounded; independent mathematical audit is unperformed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A linear signature feasibility test and exact component geometry are useful even with exponentially many components. The same family attains the fragmentation bound and admits a closed complementary survivor count, distinguishing the number of components from the amount of remaining path space.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

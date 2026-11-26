@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The construction is explicit and well-normalized. The proof derives two exact conditional-moment recurrences and a martingale variance recursion, establishes a simple positive increment for all cross-batch covariances, and proves the limiting constant and the \(m=3\) integer optimum by a monotone integral and strict rational bounds. Conditional recruiter choices are independent across steps given the tree history; the argument never substitutes independent birth depths. The standalone rational checker verifies 4,332 finite assertions, including every cross-covariance for enumerated small trees and a rational separation of the limiting candidates. Unbounded assertions are supported by mathematical arguments, not extrapolated enumeration.
+PASS
 
-## Originality — PASS under examined evidence
+At step t the conditional mean of the recruiter depth is the current mean depth A_(t−1); a_t=1/(t−1+1/m) is the fraction of vertices just born. Updating the depth mean and second raw moment gives expected drift a_t and a_t(1+2A_(t−1)), respectively. Thus centered average depth is a martingale; the expected within-tree variance q_t yields V_t−V_(t−1)=a_t²q_t and q_(t+1)=(1−a_t²)q_t+a_t(1−a_t). Conditioning D_j on the whole tree at time i gives 1+A_i plus a deterministic sum, so Cov(D_i,D_j)=V_(i−1)+a_iq_i for every j>i. Substituting the recursions and a_(i+1)=a_i/(1+a_i) cancels the q_i coefficient, leaving a_i a_(i+1)(1−a_i). D_2 is deterministic. Summation gives the nonnegative finite law and its strictly positive increments, and partial fractions and a 1/r²+O(r^−3) tail give L_m and the coefficient 1 of 1/i. For c≤1/4 the integral form of g shows strict decrease in its argument because x(1−e^(−u/x)) increases; the exact lower bound at 5/4 gives f′(c)>0. This leaves only m=1..4. I reproduced the exact rational K=30 interval separation and derivative inequality, the reported decimal values to their stated precision, and all 75 off-diagonal covariances for m=1..5 and steps 2..7 by enumerating finite recruiter-vertex choices; replay python3 /workspace/branches/independent_checks.py 4. The supplied CHECK.py was inspected, not run.
 
-The 2026 motivating full text treats marginal depth distributions, tree height, global path length and Wiener-index distributions. Its global path-length variance constant is explicitly acknowledged, not rebranded as a new individual covariance parameter. The 2022 recursive metric-space paper concerns one-point insertion depth limit laws, and Lodewijks’s 2022 full-text paper establishes joint normalized depth limits for prescribed birth labels only in the ordinary \(m=1\) case; these asymptotic normal limits do not fix the unscaled \(O(1)\) covariance. The older original level-size paper concerns grouped depth levels rather than a complete joint law for **distinct birth indices** in batch recursive trees. Closest mathematical-index results concern degree-versus-depth, subtree sizes, terminal leaves or maximum degrees. None of the examined statements implies the precise \(i<j\) formula or the strict integer optimum on its own; the aggregate variance does not determine all labeled pairwise covariances. Residual risk remains from unindexed earlier literature and the limited abstract-only access to the 1999 path-length paper.
+## originality
 
-## Value — PASS
+PASS
 
-This is a natural two-point dependence statistic for the same recent random-growth model whose one-point depths were already studied. The later-birth invariance is a structural property of sampling from the mean-depth martingale, and the nonzero large-birth covariance contrasts with the increasingly dispersed individual depth distributions. The unique best batch size is a meaningful nonmonotonic dependence effect: aggregate path-length variance can rise while normalized inter-batch shared variability peaks at three. The constant alone, without the full cross-age profile, would not constitute the same contribution.
+The distinct substantive result is the exact off-diagonal birth-index law, its independence of the later index, its 1/i correction and the globally proved integer optimum. The scalar function L_m is not new as an aggregate variance coefficient after normalization: the motivating paper effectively gives m²L_m. That prior result should be credited, not claimed as a newly computed total-path-length coefficient. The inspected prior results do not give the full indexed covariance or mechanically give the global optimum.
 
-## Limits of this review
+## value
 
-The result is theoretical for fixed positive integer batch size and uniform recruitment. Independent scrutiny and a comprehensive historical-priority audit remain outstanding. The full source materials assessed here do not justify a universal absence claim about all prior work.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact indexed covariance answers a natural dependence question not resolved by marginal depths or the total variance. Invariance under any increase of the later birth time and a persistent positive limit despite diverging single-batch depth variance describe the structure of shared history. Analytic optimization shows a genuine nonmonotonicity in the normalized two-point scale with a strict maximum at three, not just an observed best entry in a table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

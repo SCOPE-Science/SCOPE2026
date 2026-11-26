@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:32:41.385442Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof §§1–4",
+        "Frozen VERIFICATION.md; artifacts/check_jordan_plane.py lines 14–81 and 84–117; artifacts/check_results.txt lines 1–10 (inspected, not executed)",
+        "Independent bounded replay: exhaust ordered pairs of n×n matrices over F_q, directly compare XY−YX with Y², then independently convolve the rational Euler factors through degree n. (q,n)=(2,2),(2,3),(3,2) gave 40, 2192, 153; normalized coefficients were 20/3, 274/21, 51/16 respectively."
+      ],
+      "rationale": "Trace on each individual Jordan diagonal block gives e a²=0, including when the same eigenvalue appears in more than one block. Finite-field separability preserves lengths upon splitting a primary block. The derivation t²d/dt descends to every allowed cyclic summand and its commutator with multiplication by t is multiplication by t². Thus each nonempty fiber is a translate of the commuting algebra with the stated dimension (sum of pairwise minima, or squared column lengths); empty and nilpotent cases are included. The fiber weight cancels the q-power of the centralizer-unit order by orbit–stabilizer. Summing independent multiplicities by Euler's identity, then using polynomial unique factorization for sizes divisible by p, gives the normalized product, with constant coefficient 1. At n=p the nonnilpotent types are single length-p blocks with q−1 choices of eigenvalue and weight q/(q−1), giving qG_p(q).",
+      "residual_risks": [
+        "Independent enumeration is bounded to the listed cases; all dimensions and extension fields rely on the proof. Frozen F4 result is recorded evidence, not part of the independent replay."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "218bc561696d supplies the periodic product across characteristics and dimensions and also discusses a geometric dimension jump.",
+          "Fulman–Guralnick Theorem 1.1 is the unrestricted commuting-pair formula, not XY−YX=Y²; Iyudu's complex nilpotence theorem does not cover the modular nonnilpotent fibers."
+        ],
+        "reasoning": "The catalogue result covers the frozen field and dimension ranges. The inspected classical papers provide context, not the same scope.",
+        "searches": [
+          "Resultary records 2b81b92bf0db and 218bc561696d; primary-text checks of Iyudu arXiv:1209.0746v1, Fulman–Guralnick arXiv:1611.05499, and access check for Shirikov DOI 10.4213/mzm3796"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md §§1–4 and prior-work section",
+        "Resultary 2b81b92bf0db and 218bc561696d",
+        "Iyudu arXiv:1209.0746v1; Fulman–Guralnick arXiv:1611.05499",
+        "Access attempts for Shirikov, Bourgeois, Feinberg"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "On an invertible Y-primary component [Y⁻²X,Y]=I, explaining the connection to the criterion attributed to Feinberg; the Feit–Fine product does not impose the primary block restriction.",
+          "Both catalogue products already imply the entire exact enumeration; 2b81b92bf0db also states the primary criterion, affine fiber count, and first nonnilpotent contribution."
+        ],
+        "reasoning": "The demonstrated overlap concerns the actual claimed arithmetic contribution, independently of whether the textbook ingredients alone imply it or an older primary source covers it.",
+        "searches": [
+          "2b81b92bf0db and 218bc561696d; Feinberg DOI 10.1080/03081087908817267; Fulman–Guralnick arXiv:1611.05499"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The normalized product in 218bc561696d is ∏_{j≥1,h≥0}(1−q^(1_{p|j}−h)u^j)^−1.",
+          "2b81b92bf0db gives an irreducible-polynomial product for the same labeled count."
+        ],
+        "reasoning": "Splitting the periodic product on p|j gives exactly the frozen two products. Applying polynomial unique factorization to the irreducible factors for p-multiple sizes converts the October 12 expression to the same product.",
+        "searches": [
+          "Resultary: modular finite-field Jordan-plane representation counts, primary blocks, periodic Feit–Fine product; matches 2b81b92bf0db and 218bc561696d"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier records give an all-orders exact normalized generating series in the same q and p, not merely a small-order numerical table."
+        ],
+        "reasoning": "With the same factor |GL_n(F_q)| multiplying each coefficient, these records cover every labeled number claimed in the frozen record.",
+        "searches": [
+          "Local mirror RESULT.md for Resultary 2b81b92bf0db and 218bc561696d"
+        ]
+      },
+      "rationale": "Two distinct prior catalogue records already give the all-dimensional labeled enumerator. In particular the periodic Feit–Fine product in the October 18 record is algebraically identical factor by factor, not merely a related characteristic-zero result or a matching finite row. The October 12 record also covers the fiber classification and first nonnilpotent contribution. This is a coverage conclusion, not a determination of historical priority.",
+      "residual_risks": [
+        "Shirikov, Bourgeois and Feinberg full-text comparisons remain open. These cannot remove the demonstrated catalogue overlap; first historical priority is not adjudicated."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS",
+          "evidence": "Same normalized coefficients for every n and q by Euler product and polynomial unique factorization; same qG_p(q) threshold count.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-modular-representation-counts-for-the-jordan-plane-over-finite-f--2b81b92bf0db",
+          "material_read": "RESULT.md: primary-block criterion, fiber count, normalized irreducible product and first nonnilpotent case",
+          "method": "local Resultary mirror",
+          "title": "Modular representation counts for the Jordan plane over finite fields",
+          "trigger": "Same relation and finite-field counting problem"
+        },
+        {
+          "assessment": "COVERS",
+          "evidence": "Exponent 1_{p|j}−h gives precisely both factors in the frozen statement.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-modular-primary-blocks-and-a-periodic-feit-fine-product-for-the--218bc561696d",
+          "material_read": "RESULT.md: periodic count and geometric dimension jump",
+          "method": "local Resultary mirror",
+          "title": "Modular primary blocks and a periodic Feit–Fine product for the Jordan plane",
+          "trigger": "Exact periodically shifted product"
+        },
+        {
+          "assessment": "Read results over C do not cover the finite-field product",
+          "evidence": "Characteristic-zero nilpotence and stratification do not give admissible nonzero modular eigenvalues.",
+          "identifier_or_url": "https://arxiv.org/html/1209.0746v1",
+          "material_read": "Offsets 3236 and 9765, including discussion of nilpotence and partition strata, Lemma 2.1 and Theorem 12.1",
+          "method": "OA text",
+          "title": "Representation spaces of the Jordan plane",
+          "trigger": "Same equation and representation variety"
+        },
+        {
+          "assessment": "Methodological overlap; distinct count",
+          "evidence": "XY=YX gives weight q^(1−h) for every size, not the p-dependent shift.",
+          "identifier_or_url": "https://arxiv.org/pdf/1611.05499",
+          "material_read": "Page 1, abstract and Theorem 1.1",
+          "method": "OA PDF text",
+          "title": "Enumeration of Commuting Pairs in Lie Algebras over Finite Fields",
+          "trigger": "Possible Feit–Fine count already matching the product"
+        },
+        {
+          "assessment": "Paper-level comparison unresolved",
+          "evidence": "Title and scope alone do not settle finite-field enumerator overlap.",
+          "identifier_or_url": "10.4213/mzm3796",
+          "material_read": "MathNet landing/abstract material, not paper full text",
+          "method": "DOI and MathNet retrieval",
+          "title": "The Jordan Plane over a Field of Positive Characteristic",
+          "trigger": "Same algebra in positive characteristic"
+        },
+        {
+          "assessment": "Passage not independently verified",
+          "evidence": "Example is credited by the frozen source; not required for the catalogue equivalence.",
+          "identifier_or_url": "10.1155/2014/745029",
+          "material_read": "No readable Remark 6",
+          "method": "DOI and OA PDF attempts returned HTTP 403",
+          "title": "The Matrix Equation XA−AX=X^α g(X) over Fields or Rings",
+          "trigger": "Claimed characteristic-three nonnilpotent example"
+        },
+        {
+          "assessment": "Exact primary text unresolved",
+          "evidence": "Reduction verified directly, but the earlier theorem's exact wording was not inspected.",
+          "identifier_or_url": "10.1080/03081087908817267",
+          "material_read": "No readable full text retrieved",
+          "method": "DOI and lawful repository lookup",
+          "title": "The Identity as a Matrix Commutator",
+          "trigger": "Invertible-block reduction to the identity-commutator criterion"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof",
+        "Resultary 2b81b92bf0db and 218bc561696d"
+      ],
+      "rationale": "The exact census is intrinsically useful for the natural finite-field representation problem: it gives every labeled dimension, explains the periodic effect of the characteristic, and quantifies the first possibility of a nonnilpotent representation. This is more than a tiny-instance check; it does not supply a new contribution in this submission because the same result is already covered.",
+      "residual_risks": [
+        "This count is not a classification up to simultaneous conjugacy or a scheme-theoretic description; no incremental scientific value beyond the matched records is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

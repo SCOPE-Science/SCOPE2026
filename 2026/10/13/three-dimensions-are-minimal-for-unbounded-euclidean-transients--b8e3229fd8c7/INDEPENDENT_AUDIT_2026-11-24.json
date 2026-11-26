@@ -1,0 +1,97 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:26:07.118360Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Write C=αI+S and D=(αI−H)(αI+H)^−1. The similarity CMC^−1=DQ with orthogonal Q=(αI−S)C^−1 gives the spectral bound, not in general the ordinary Euclidean norm bound. In real dimension two, S²=−s²I makes C a scalar times an orthogonal matrix; thus the original M and DQ have the same singular values. In dimension one S=0. For the displayed dimension-three family use k=(e1−e3)/sqrt(2), h=(e1+e3)/sqrt(2), m=e2. D swaps k,h with factor 1/3 and kills m. S kills k, sends h to −sqrt(2)t m and m to sqrt(2)t h. The image of DQ lies in span(k,h), and its restriction there sends k to h/3 and h to rk/3 with r=(2−t²)/(2+t²). Its characteristic polynomial is therefore λ(λ²−r/9), including the zero-rate case t²=2. Also D(2I−S)m=−sqrt(2)t k/3; C^−1 divides that vector by two. This gives the asserted exact image at t=6 and lower bound t/(3 sqrt(2)) for all t. The classical factor is minimized by balancing the two endpoint magnitudes at α=2 and equals 1/3. Every A is positive definite since its skew part contributes zero to xᵀAx. The conclusion is exact one-step growth across a family, not unbounded powers of an individual matrix; the fixed data do not include the actual spectral radius or the full system's condition number. The rational sample checker was read only, and the all-t and low-dimensional results were verified analytically.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bai–Li p. 6 explicitly gives the similarity to the product of the Hermitian rational function and the skew Cayley transform, with the product's singular values |ν_j|. Publisher/author-institution abstract material on Bai–Golub–Ng describes a bound dependent only on the Hermitian spectrum."
+        ],
+        "reasoning": "With C scaled orthogonal the known similarity does mechanically yield the 2D identity. In 3D it only bounds spectral radius and gain in the C-weighted norm. A large conditioning factor for the similarity allows but does not itself establish large ordinary gain at fixed H.",
+        "searches": [
+          "Bai–Golub–Ng, DOI 10.1137/S0895479801395458, contraction bound and norm",
+          "Bai–Li, Convergence Properties of Preconditioned Hermitian and Skew-Hermitian Splitting Methods, unpreconditioned proof and semidefinite extension"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py (read only)",
+        "Bai–Golub–Ng available abstracts and same-paper retrieval attempts",
+        "Bai–Li author-hosted PDF, proof of Cayley similarity",
+        "Resultary PartRosExp2 Finding and scope"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known similarity controls DQ, not C^−1 DQC. The frozen example makes the Cayley factor act in span(h,m) while D transfers h to k in ker(S), so amplification actually attains an unbounded scale under the similarity. The known upper bound on ρ is independent of t."
+        ],
+        "reasoning": "Generic nonnormal examples or deterioration of a bound involving cond(C) do not prove the existence of such an HSS realization. The construction establishes failure exactly in the first dimension not protected by scaled orthogonality.",
+        "searches": [
+          "Compare the HSS spectral estimate, Bai–Li p. 6 similarity proof and the frozen 3D choice of skew axis"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 2026/10/25/SCOPE-unbounded-euclidean-transients-and-a-weighted-stability-law-for--3a006a7e6ef7 gives a PartRosExp2 fixed weighted stability versus unbounded ordinary Euclidean one-step phenomenon for symmetric negative semidefinite split generators. The HSS factors instead use an SPD Hermitian part and a skew part."
+        ],
+        "reasoning": "The shared phenomenon is real, but it is not an equivalent matrix family or HSS operator identity. No mapping to the exact HSS family or minimal dimension follows from that split-integrator result.",
+        "searches": [
+          "Hermitian/skew-Hermitian splitting and HSS: ordinary Euclidean norm, singular values, one-step transients and minimal dimension",
+          "Resultary: unbounded Euclidean transients with weighted stability"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest indexed match found was the PartRosExp2 result with a different iteration; no exact HSS classification or tabulated matching family was identified."
+        ],
+        "reasoning": "The finding quantifies over a continuous matrix class and asks for the smallest real dimension; it is not an entry in a known finite classification table. A prior explicit family or sharper uniform bound would nevertheless count.",
+        "searches": [
+          "HSS Euclidean transient growth and exact low-dimensional threshold in literature and Resultary"
+        ]
+      },
+      "rationale": "Credit the joint HSS-specific sharp real dimension boundary, especially the explicit fixed-H, fixed-α arbitrarily amplifying 3D family. Do not credit the prior Cayley similarity, weighted-norm contraction, standard optimal bound parameter, or the low-dimensional identity in isolation as a substantial departure from that similarity.",
+      "residual_risks": [
+        "The full Bai–Golub–Ng paper was not recovered by the lawful available routes; independently verified similarity and the follow-up do not rule out other examples in its inaccessible body.",
+        "A prior exact HSS transient family may exist outside the bounded comparison. No novelty claim is made for generic nonnormal transient growth or for the similarity identity."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Original spectral estimate is acknowledged; accessible abstract not used to claim the paper lacks every Euclidean discussion",
+          "evidence": "The abstract ties its bound to the Hermitian-part spectrum. The weighted versus ordinary norm distinction is verified directly from the HSS formula and follow-up similarity proof.",
+          "identifier_or_url": "https://doi.org/10.1137/S0895479801395458",
+          "material_read": "Publisher/indexed and author-institution abstract material; exact primary theorem body was unavailable",
+          "method": "Lawful OA and repository-copy retrieval attempts, with available abstracts compared to algebra and accessible follow-up",
+          "title": "Hermitian and Skew-Hermitian Splitting Methods for Non-Hermitian Positive Definite Linear Systems",
+          "trigger": "Original iteration and convergence theorem"
+        },
+        {
+          "assessment": "Covers the transformed singular values and the elementary low-dimensional inference, not the ordinary 3D counterfamily in the examined passage",
+          "evidence": "The proof distinguishes the original iteration L(α) from its similar Cayley product; the quoted singular values are those of the product.",
+          "identifier_or_url": "https://www.people.wm.edu/~cklixx/baili2nd.pdf",
+          "material_read": "Proof for identity preconditioner, p. 6, near equation (3.1), offset 12580 onward",
+          "method": "Author-hosted lawful PDF, located and read exact similarity and singular-value passage",
+          "title": "Convergence Properties of Preconditioned Hermitian and Skew-Hermitian Splitting Methods",
+          "trigger": "Same iteration and stronger convergence setting; potential singular-value implication"
+        },
+        {
+          "assessment": "Meaningful analogue but not same algorithm or class; no priority inferred from catalogue date",
+          "evidence": "PartRosExp2 uses symmetric negative semidefinite split generators and varying implicit stiffness, not an HSS skew part at fixed H.",
+          "identifier_or_url": "2026/10/25/SCOPE-unbounded-euclidean-transients-and-a-weighted-stability-law-for--3a006a7e6ef7",
+          "material_read": "Finding and assumptions from offset 0, prior comparison near offset 6297",
+          "method": "Resultary discovery and local mirror passage reading",
+          "title": "Unbounded Euclidean transients and a weighted stability law",
+          "trigger": "Closest Resultary analogue in norm and scope of transients"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Sharp minimal dimension for losing practical stepwise Euclidean error control answers a natural distinction left by a spectral-rate guarantee. The fixed-H construction shows that the parameters practically used to select α and predict a rate do not control even one Euclidean error step, and demonstrates the phenomenon at its first possible real dimension.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

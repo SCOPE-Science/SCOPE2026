@@ -1,19 +1,21 @@
-# Scientific review — exact five-row monochromatic rectangle minimum
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof identifies twenty coloured row-pair loads, counts each rectangle as one pair of columns within one load, and obtains the unrestricted convexity bound by a discrete balancing argument. When the width is an odd multiple of five, nonbalanced columns force at least two additional rectangles. For balanced columns, a zero- or one-defect load distribution would have at most two row pairs with odd equality counts, contradicting the parity condition that every triple of rows must contain an odd pair. The explicit ten-column balanced block, four-column rectangle-free subblock and five-column two-defect block prove sharpness for all ten width residues. The standalone checker independently verifies their exact finite incidences and direct rectangle counts. Boundary widths one through four and five are included.
+PASS
 
-## Originality — PASS with historical-priority qualification
+Every rectangle is counted once by the two columns belonging to its row-pair/color slot. Each column contributes at least four slot incidences, with equality at weights two and three. Pairwise balancing of integer loads proves R≥20 binom(q,2)+4qr at b=5q+r. When b=5q is odd, an unbalanced column adds at least two incidences and hence at least 2q to this bound. Otherwise the sum of deviations from q is zero and the defect is one-half the sum of their squares. An independent form of the parity argument: let e_i be the parity of ones in row i; then the number s_ij of same-color agreements is odd precisely when e_i=e_j, since b is odd. At least four of the ten pairs are within the two parity classes (the minimum is the 2+3 split). Each odd pair forces at least one nonzero integer deviation, so defect ≥2. Independently recomputed the B, C, W slot histograms as {2:20}, {0:4,1:16}, {0:2,1:16,2:2}. In B the two-one masks form a 5-cycle and the two-zero masks its complement; regularity explains the uniform loads. C is a subset of B with no repeated slot. W has exactly two rectangles, from mask pairs (24,12) and (24,18). Add copies of B, append a prefix of C or remove it from the next copy, or append W at residue five; the corresponding distributions give the stated equality and exceptional defect for all widths, including b<5. Independent direct counts through width 120 are supporting checks rather than the universal proof.
 
-The public preprint by Alm and Miller, arXiv:2611.19635v1 (14 November 2026), defines this invariant, supplies only finite data in its Table 2 and Appendix A, and expressly asks for exact values and the sharpness of the convexity bound in Problem 4. Cooper–Fenner–Purewal's Proposition 7.3 gives an exact *integer-optimization representation* for all dimensions but does not evaluate the all-width five-row minimum. Earlier rectangle-free and monochromatic checkerboard articles establish forcing or existence classifications rather than this multiplicity formula. Search comparisons under checkerboard, bipartite four-cycle, supersaturation, periodic-width and integer-quadratic formulations located no equivalent evaluated theorem in the inspected material. The possibility of an unindexed historical all-width evaluation remains a residual priority risk; an unsuccessful search is not itself proof of novelty.
+## originality
 
-## Value — PASS
+PASS
 
-This is the full infinite-width exact solution at five rows of a concrete recent extremal counting question, including a sharp modular obstruction to equality in the natural lower bound and a uniform constructive family. It extends finite tabulated instances to an all-order classification and distinguishes the two-dimensional counting invariant from mere rectangle existence. The narrow fixed-height scope is mathematically intrinsic because the first nonzero square example occurs at five rows and because its parity obstruction produces a genuine residue-sensitive gap.
+The counting identity, convexity lower bound, and several small exact widths are known. The inspected closest primary source explicitly poses the broader exact evaluation and equality problem and notes the 5×5 exception. The new content supported by the comparison is the symbolic evaluation for every width at height five, including the precise odd-multiple obstruction and matching constructions.
 
-## Scope and limitations
+## value
 
-Exactly two colours and five rows; no statement about all optimizers, other heights or three-dimensional box-free stacking. Historical priority remains provisional; independent audit has not been performed. The included finite replay establishes only finite block and example checks, not a replacement for the unrestricted proof.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This gives a complete one-parameter solution of a natural small-height case of a published exact-minimum and sharpness question. The bounded parity effect is not an isolated improvement: it characterizes exactly an infinite congruence class where the otherwise sharp convexity bound fails, and comes with portable finite constructions certifying all other widths as well.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

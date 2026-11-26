@@ -1,16 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** If positive cases occupy ranks \(r_1<\cdots<r_P\), empirical ROC-AUC is \(1-\sum_j(r_j-j)/(P(N-P))\), while classical average precision is \(P^{-1}\sum_j j/r_j\). These exact formulas reconstruct the two metrics without interpolation or floating-point ambiguity. Exhaustive rational enumeration checks every fixed-prevalence ranking pair through \(N=5\), giving one weak-only split at \(N=4\), no strict reversal through four cases, and exactly two strict reversals at five cases. The packaged verifier returns `VERIFY_OK`.
+## correctness
 
-Risk: score ties and alternative numerical conventions for precision-recall area are outside the theorem.
+PASS
 
-## Originality
-**PASS.** Kishida establishes the discrete average-precision definition and its top-rank sensitivity. Davis–Goadrich establish the ROC/precision-recall correspondence and explicitly note that optimizing ROC area need not optimize precision-recall area. Saito–Rehmsmeier demonstrate the practical difference between ROC and precision-recall evaluation in biological classification. The checked literature therefore owns generic non-equivalence. The searched literature and database records did not state the fixed-prevalence no-tie minimum \(N=5\), the \(N=4\) tie boundary, or the complete two-pair first strict layer.
+For 0<P<N, AUC counts correctly ordered positive-negative pairs divided by P(N-P), and classical AP averages the prefix precisions at positive ranks. These are exactly the two quantities in the frozen proof; neither tied scores nor interpolated PR area is used. A fresh exhaustive calculation using direct pair counts and prefix precisions compared 1, 6, 27 and 110 unordered same-prevalence ranking pairs at N=2,3,4,5. It found no disagreements through 3, just 0110 versus 1001 at 4 (AUC 1/2 for both; AP 7/12 and 3/4), and exactly the two strict reversals at 5: 01100 versus 10001 (AUC 2/3 and 1/2; AP 7/12 and 7/10) and 01110 versus 10011 (AUC 1/2 and 1/3; AP 23/36 and 7/10). The one-class cases do not have ordinary ROC-AUC and are excluded. Reproduce with python3 /workspace/branches/independent_checks.py 2; the uploaded script was inspected, not run.
 
-Risk: a five-item pedagogical example or unit test could be unindexed.
+## originality
 
-## Value
-**PASS.** ROC-AUC and average precision are two standard threshold-free ranking summaries, with AUC weighting all positive-negative pairs uniformly and average precision emphasizing early positives. Fixing prevalence removes the most immediate baseline confounder. The sharp five-case boundary gives the smallest possible exact demonstration that these distinct weighting principles can reverse model selection and identifies every minimal mechanism.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The supported distinct claim is the fixed-prevalence, no-ties boundary and its first-layer classification for empirical AUROC and classical discrete AP, not the known general phenomenon that ROC and PR criteria can disagree.
+
+## value
+
+PASS
+
+This gives a minimal controlled test case for two standard ranking measures: a test of whether the measures actually prefer opposite rankings must use at least five cases, whereas a test of tie behavior needs only four. Exhausting the first strict layer separates the effect of redistributing positive ranks from prevalence changes and makes both witnesses useful as exact metric sanity checks. The contribution is small but the boundary is natural, not an arbitrary instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

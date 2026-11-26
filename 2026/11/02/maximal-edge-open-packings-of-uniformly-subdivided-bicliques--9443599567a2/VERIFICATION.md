@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Direct finite verification
+# Independent mathematical audit
 
-Run `python3 verify.py` using the Python standard library only. The program independently constructs the edges of the complete bipartite graph subdivision, computes the conflicting edge pairs by examining **actual distinct third edges**, and tests inclusion-maximality by attempting single-edge additions.
+## correctness
 
-For each \(2\le b\le5\), it inspects all \(2^{4b}\) edge subsets and compares the complete cardinality distribution to the proposed formula. Their total is **1,118,464 candidate edge subsets**. It independently checks edge-conflict incidence identities through \(b=9\) (176 graph edges across eight parameter values) and enumerates the closed pairs \(A=N(B),B=N(A)\) for each \(2\le b\le9\), comparing all coefficients and totals. A separate small direct invocation at \(b=1\) confirms four size-two sets. Expected main verifier output:
+PASS
 
-`VERIFY_OK direct_edge_subsets=1118464 incidence_edges=176 closure_parameters=8`
+Same-type incidences never conflict; opposite types conflict exactly when they share just one of row or column. Hence a maximal set must take on either side every position compatible with all selected positions on the other. The resulting mutual closures are the two pure sets, b(b−1) identical transverse pairs, 4b oriented singleton/full-neighborhood pairs, and the complementary single-row blocks. In the last case each block has at least two positions; otherwise double closure adds an opposite-row position or fills the full pure side. If both rows are used and one has at least two positions, the other side is forced to a singleton or empty, so there are no additional cases. For b=1 the conflicts form a matching and for b=2 two disjoint K_{2,2}, giving the stated four counts in each small case. The binomial sum for the blocks, overlapping exponents and total follow; for b≥3 all mixed cases have size at most b+1, while each pure set has size 2b. The subdivisions have degeneracy at most two by deleting the subdivision vertices first. An independent run enumerated directly from third-edge witnesses for each b=1,…,5, matching the full distributions, including the collisions at b=3 and b=4.
 
-These experiments do not establish a theorem for unbounded \(b\). The proof of the complete four-type classification and the exhaustive fixed-point correspondence is the mathematical certificate for that range. Source-priority review is provisional; independent mathematical audit was not performed.
+## originality
+
+PASS
+
+The prior general S(G) decomposition of all packings and maximum-cut formula materially cover the feasible packings and imply the maximum size and its two attaining sets here for b≥3. The supported distinct part is the explicit classification and cardinality distribution of all inclusion-maximal sets, including the gap, not that prior decomposition or its extremal consequences. This requires analyzing extensions that can change the matching or center sets; the inspected prior result does not give a maximality filter or the mixed-type contributions.
+
+## value
+
+PASS
+
+The polynomial enumerates the possible sizes of saturated packings, not just which packings can attain the maximum. The four-type description explains how exponentially many smaller maximal choices coexist with only two largest ones. Unbounded missing sizes on connected bipartite graphs of degeneracy two provide a natural structural contrast with the familiar scalar extremum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

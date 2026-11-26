@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:38:39.643313Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The fine diagonal block is SPD and its Schur complement is 1−2ε²>0. The largest absolute row sum of A is bounded by 1+2ε<2, so all eigenvalues are in (0,2) and the symmetric Type-II error map at β=1 has norm <1. For Type III the applied inverse is diag(1,α,α/δ); its first and second coordinate test gains are at least αε/√δ and exactly √(ε²+(1−α)²), respectively. Norm ≤1 would force α≤√δ/ε≤ε²/2 and thus squared gain at least 1+ε⁴/4, impossible. At α=δ, F^(1/2)AF^(1/2) is SPD with row sums <2, so the similar FA gives spectral radius <1 for I−FA. The same α gives a norm limit √(1+ε²); every sequence of bounded near-minimizers as δ→0 has α=O(√δ), so the second coordinate test proves the matching lower limit. The rational example has exact gains bounded below by max(64α,√(1/16+(1−α)²)); at α≤1/64 the latter is at least 65/64. With a one-dimensional complement, compression of T⁻¹ is a positive scalar, so the two scaling families coincide after reparameterization. The obstruction range is sufficient, not claimed to be a sharp transition for fixed δ. The checks in check.py are finite corroboration; the uploaded program was inspected, not run, and the universal bounds were independently derived.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fan–Hu–Zhang prove nonsingularity and use Type I for the inspected Richardson bounds. The earlier coarse-grid comparisons treat CG or PCG, including spectral properties; Nabben–Vuik also compare iterate errors in the A-norm."
+        ],
+        "reasoning": "Neither nonsingularity nor a spectral or A-norm convergence statement supplies a universal lower bound on original-Euclidean one-step amplification for left Richardson with Type III.",
+        "searches": [
+          "arXiv:2609.11097v1, §3.2 Theorem 5 and §3.4 Proposition 7",
+          "doi:10.1002/nla.571; doi:10.1007/s10915-009-9272-6"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check.py",
+        "arXiv:2609.11097v1",
+        "Resultary 2026/10/12/…2c112d7d6145 and 2026/11/2/…647b225e9e83",
+        "doi:10.1002/nla.571",
+        "doi:10.1007/s10915-009-9272-6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier codimension-one result has a three-dimensional example with all α giving amplification and some giving spectral convergence. However its Type-II family itself fails for all α; its one-dimensional complement makes all Type-III scalings equivalent to Type-II scalings."
+        ],
+        "reasoning": "That example has no safe Type II against which to exhibit a reversal, and does not imply the two-coordinate anisotropy limit. The family here exploits conflicting coordinate gains under the same scalar α while leaving Type II strictly safe.",
+        "searches": [
+          "2026/10/12/…2c112d7d6145, Finding and comparison (mirror offsets 0 and 7790)",
+          "arXiv:2609.11097v1, §3.2 Remark 6 and §3.4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The frozen F is the applied inverse M_(2/3)⁻¹ in the motivating paper's notation; Type II is obtained from Type III with T=I.",
+          "The strongest prior catalogue hit, 2026/10/12/…2c112d7d6145, classifies Type II with only one complementary coordinate and contains a three-dimensional obstruction with a two-dimensional coarse space."
+        ],
+        "reasoning": "Equating the preconditioner and its applied inverse would confuse conventions. A similarity that rescales the fine variables can preserve eigenvalues but does not preserve the tested original Euclidean norm; that conversion does not turn the anisotropic two-coordinate complement into a prior Euclidean result.",
+        "searches": [
+          "Resultary: Euclidean tuning of additive reduced-basis inverse preconditioners; exact Type-III complement vs Type II; transient norm versus spectral convergence",
+          "arXiv:2609.11097v1, §3.1 equations (7)–(8) and §3.2 Remark 6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The October catalogue formula is for a scalar complement and can give all-scaling Type-II amplification. The November catalogue formula is a worst-case optimum (κ−1)/(2√κ) for two-dimensional Type II, and postdates the frozen record."
+        ],
+        "reasoning": "These exact records are the plausible lookup comparisons for the continuous optimization problem. Neither tabulates the contrasting Type-II/III safety on the same fixed rank-one-space family or the limit √(1+ε²) for its two-dimensional anisotropic fine block.",
+        "searches": [
+          "2026/10/12/SCOPE-exact-euclidean-tuning-frontier-for-codimension-one-additive-red--2c112d7d6145, Finding",
+          "2026/11/2/SCOPE-sharp-euclidean-transient-barrier-for-a-rank-one-additive-reduce--647b225e9e83, Finding"
+        ]
+      },
+      "rationale": "The inspected close literature and catalogue statements do not cover the combined Type-II-safe, exact-complement Type-III-unsafe example and sharp limiting infimum in the same original Euclidean norm. This is a bounded judgment about that specific separation, not a claim that nonnormal transient amplification or spectral-versus-Euclidean distinctions are new.",
+      "residual_risks": [
+        "Broader numerical linear algebra may contain equivalent examples under other terminology. Only the relevant inspected passages, not every result in the older coarse-grid papers, were compared; no absolute priority is inferred."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Definitions agree under inverse-action convention; inspected theorems do not give the claimed obstruction",
+          "evidence": "Remark 6 specializes Type III to Type II at T=I; §3.4 explicitly uses Type I.",
+          "identifier_or_url": "https://arxiv.org/html/2609.11097v1",
+          "material_read": "§3.1 (7)–(8); §3.2 Theorem 5 and Remark 6 (OA offset 25700); §3.4 (9) and Proposition 7 (34750)",
+          "method": "Bounded OA full-text inspection",
+          "title": "Additive Reduced Basis Preconditioners for Large-Scale Parametrized PDEs",
+          "trigger": "Primary definitions and claims about Type III and Richardson"
+        },
+        {
+          "assessment": "Closest earlier catalogue statement, with a scalar complement and a different failing family",
+          "evidence": "Norm infimum is max{c,p√(1+c²)/√(d²+p²)} in the stated codimension-one setting; the dimension-three obstruction there fails for every Type-II scaling.",
+          "identifier_or_url": "2026/10/12/SCOPE-exact-euclidean-tuning-frontier-for-codimension-one-additive-red--2c112d7d6145",
+          "material_read": "Finding and comparison, offsets 0 and 7790",
+          "method": "Bounded local-mirror excerpts",
+          "title": "Exact Euclidean tuning frontier for codimension-one additive reduced-basis preconditioning",
+          "trigger": "Sharp norm optimization and spectral convergence with norm amplification"
+        },
+        {
+          "assessment": "Later comparison, different two-mode Type-II setting",
+          "evidence": "Exact two-dimensional Type-II optimum, no anisotropic complement.",
+          "identifier_or_url": "2026/11/2/SCOPE-sharp-euclidean-transient-barrier-for-a-rank-one-additive-reduce--647b225e9e83",
+          "material_read": "Finding, offset 0",
+          "method": "Bounded local-mirror excerpt",
+          "title": "Sharp Euclidean transient barrier for a rank-one additive reduced-basis method",
+          "trigger": "Closely matching optimization and rank-one coarse space"
+        },
+        {
+          "assessment": "Scope comparison only; treats A-norm CG errors in addition to spectral questions",
+          "evidence": "Abstract explicitly compares the A-norm of the errors of the iterates.",
+          "identifier_or_url": "https://doi.org/10.1002/nla.571",
+          "material_read": "Abstract, p. 3, OA offset 1210",
+          "method": "Lawful Delft submitted-version OA PDF passage",
+          "title": "A comparison of abstract versions of deflation, balancing and additive coarse grid correction preconditioners",
+          "trigger": "Cited earlier additive coarse-grid comparison"
+        },
+        {
+          "assessment": "Scope comparison only, focused on PCG rather than this Euclidean Richardson family",
+          "evidence": "Abstract treats equivalence, robustness, spectral and convergence properties of two-level PCG.",
+          "identifier_or_url": "https://doi.org/10.1007/s10915-009-9272-6",
+          "material_read": "Abstract, p. 1, offset 429",
+          "method": "Bounded OA publisher PDF passage",
+          "title": "Comparison of Two-Level Preconditioners Derived from Deflation, Domain Decomposition and Multigrid Methods",
+          "trigger": "Cited alternative two-level preconditioner comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This example answers a concrete tuning question: even an exact inverse of the fine block with an optimally chosen positive scalar may be strictly worse than leaving that block unpreconditioned for Euclidean one-step Richardson safety. The sharp limiting gap and the minimum dimension distinguish it from a generic example of nonnormal growth and give an explicit benchmark.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

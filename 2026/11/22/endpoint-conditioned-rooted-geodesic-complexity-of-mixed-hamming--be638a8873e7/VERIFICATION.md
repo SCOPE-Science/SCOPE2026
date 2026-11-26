@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproduction and proof boundary
+# Independent mathematical audit
 
-Run `python check_ipco.py` and `python check_endpoint.py` with Python 3.10 or later. They use only Python's standard library. The exact saved stdout from these runs is `verification_output.txt`.
+## correctness
 
-`check_ipco.py` enumerates all distinct endpoint pairs and all orders of coordinate changes for the listed small Cartesian products of cliques, computes maximum antichains directly, compares the results to the asserted global formula, and solves an independent rooted-geodesic set cover for the extremal examples of dimensions at most three. `check_endpoint.py` computes the exact maximum over all geodesic orders for every endpoint pair in five selected instances and checks the terminal-conditioned identity.
+PASS
 
-The proof is independent of finite exhaustive tests. Its nonstandard critical steps are: the exact rooted-reachability condition, equivalence of chains and rooted paths, the two-type characterization of incomparability on a geodesic, and the constructive saturation of the segment-charging upper bound. An arbitrary-dimensional assertion cannot be certified by checking finitely many graphs. No randomized or unverified numeric certificates are used.
+A rooted Hamming geodesic only activates root coordinates and keeps every activated symbol fixed. Thus reachability is x<=_r y iff every nonroot coordinate of x is the same in y, and any chain can be realized by concatenating successive activations. Dilworth gives equality of minimal rooted cover size and antichain width on the target path (overlaps in covers cause no issue, since every vertex can be assigned to one covering chain). An endpoint geodesic changes each differing coordinate once. Two vertices along it are incomparable exactly when their intervening segment has a replacement or both adding and erasing. Therefore the consecutive disjoint segments of an m-vertex antichain consume at least m-1 distinct replacements or disjoint erasure/addition pairs, bounding m by 1+h+min(e,a). A path ordering the min(e,a) disjoint pairs and then all replacements achieves this width by selecting the start and the vertex after each pair or replacement, before unused changes. This works also with no changes, yielding cover size one. Globally, h<=t and e+a<=b+t-h give h+min(e,a)<=floor((b+t+h)/2)<=t+floor(b/2). Set all t nonbinary coordinates to replacements and use disjoint erasure and addition sets of floor(b/2) binary coordinates to attain it for each root. The terminal formula concerns the maximum over geodesic orders, not each path, and the graph parameter covers one geodesic at a time, not all vertices at once.
 
-Scientific limitations: the theorem is restricted to genuinely mixed products of complete graphs and maximization over paths with fixed endpoints. It neither computes the minimum covering number for each *individual* ordering in closed form nor settles the problem for noncomplete factors.
+## originality
+
+PASS
+
+The rooted cover and antichain-width equivalence are established and credited, as is the general distinction between fixing a root and demanding the bound for every root. The checked primary statements do not supply the mixed-clique width or the fixed-terminal maximum. The latter gives the algebraic reason that a replacement contributes one unit and other changes contribute in pairs, rather than just recasting the standard antichain formulation.
+
+## value
+
+PASS
+
+The result evaluates a natural rooted single-path invariant exactly on a family where two types of complete-graph factors coexist. The terminal-conditioned result is stronger than a table of product values: it identifies how endpoint choices constrain the adversarial order and gives both a tight upper bound and an attaining geodesic. One can use the formula without enumerating product vertices or geodesics. This does not settle analogous questions for arbitrary Cartesian products.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

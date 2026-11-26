@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:09:18.002571Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the specified impulse initial conditions, multiplying the recurrence denominator by 1-z gives B+z^(k+1), with B=1-3z+z², and the generating numerator is z(1-z). Two terms of the formal geometric expansion leave a remainder of valuation 2k+3. Thus through index 2k+2 the sequence equals the odd-index Fibonacci values less the first shifted correction E=z(1-z)/B². The odd-index residues (1,2,5,5,2,1) cycle by their second-order recurrence, so all indices through k+1 avoid residue 3. I independently divided z(1-z) by B² modulo 8 using its coefficients (1,-6,11,-6,1), obtaining E's degrees 0 through 15 as (0,1,5,3,1,2,6,1,7,1,1,4,4,1,1,7). For r=k mod 6 and offsets h=1,...,16, subtract degree h-1 from entry 1+((r+h-1) mod 6) of the Fibonacci cycle. These six rows give first-hit offsets (7,16,9,6,6,7); k>=14 ensures the whole window is inside the exact coefficient range. Directly adding the preceding k terms with weight 2 on the most recent and reducing modulo 8 from initial values 0,1 reproduces the complete exceptional table for k=3,...,13. For k=2 the starting consecutive pair (0,1) repeats after eight steps with no residue 3. This proves the infinite and finite cases separately. The frozen checker was inspected, not executed. The result concerns this single residue and not the full periods or a new prime-exclusion theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bravo–Herrera–Luca give a recursive correction formula for every n>=k+2 and a nonrecursive convolution through n=2k+2. Kaggwa proves the exclusion through k+1, notes k=2 never hits, and says all k>=3 hit, without least indices. Kaggwa's Wagstaff-prime exclusion is a different global conclusion."
+        ],
+        "reasoning": "The important broader coverage is the explicit convolution on the whole needed window, not simply the availability of an algorithm to iterate the recurrence. The modulus-2 period and the order-three dyadic cycle classifications do not give first scalar hits for all k.",
+        "searches": [
+          "Bravo–Herrera–Luca Theorem 2.2 and equation (1.3)",
+          "Kaggwa §3.2",
+          "Resultary orders-three Pell dyadic cycles and all-order parity periods"
+        ]
+      },
+      "checked_sources": [
+        "Bravo–Herrera–Luca DOI 10.21136/MB.2020.0098-19 via open copy",
+        "Kaggwa arXiv:2611.01170",
+        "Resultary records e14633894234, b14d6eaa3ba8 and 497a63a751d5",
+        "Primary lookup on k-Pell first hits of 3 modulo 8"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Equation (1.3) writes each P_(k+h) on the decisive window as F_(2(k+h)-1) minus a correction depending only on h. The pre-window exclusion and six-period odd-Fibonacci residues settle all earlier indices and make the entire k-dependence of each column periodic modulo six. The correction residues in correctness, applied for h=1 through 16, give first matching columns 7,16,9,6,6,7."
+        ],
+        "reasoning": "Plugging n=k+h into the published exact convolution separates k from the correction immediately; the period of the other summand supplies the six phases without an additional theorem. Since 16<=k+2 for k>=14, that single fixed-size arithmetic scan certifies the full stable region. No new argument over growing k or later feedback is required; the small-order table is ordinary finite evaluation. The value of 16 is an output of the scan, not a published first-hit result.",
+        "searches": [
+          "Bravo–Herrera–Luca p. 2, equations (1.2) and (1.3), p. 3 Theorem 2.2",
+          "Kaggwa §3.2, Proposition 3.1 and Remark 3.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For s=n-k-1, the exact published correction is sum over j=1,...,s of F_(2j-1) F_(2(s+1-j)). It equals the coefficient of z^s in z(1-z)/B²: the odd and even indexed Fibonacci generating series have respective numerators z(1-z) and z over B, and the product is divided by z."
+        ],
+        "reasoning": "This is the frozen correction coefficient for every required degree, not just the first exceptional term or a differently seeded recurrence. The generating-function proof is another derivation of the same exact prior identity.",
+        "searches": [
+          "Primary lookup on k-generalized Pell sequences and first occurrence of residue 3 modulo 8",
+          "Bravo–Herrera–Luca, equations (1.2)–(1.3)",
+          "Kaggwa arXiv:2611.01170, Proposition 3.1 and Remark 3.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed exact table found is this very record. The separate catalogue results give k=3 state-cycle periods modulo powers of two, or least periods and a half-period identity modulo two for all k. Kaggwa does not tabulate the least scalar residue-3 indices."
+        ],
+        "reasoning": "Neither same-day distinct catalogue claim is an independent first-hit table for all k, and the indexed self-match is not priority evidence. The originality failure is instead the short exact implication from primary literature.",
+        "searches": [
+          "Resultary SCOPE-sharp-first-occurrence-of-residue-3-modulo-8-in-generalized-pell--e14633894234",
+          "Resultary SCOPE-complete-all-seed-dyadic-cycle-spectrum-for-the-three-step-pell--b14d6eaa3ba8",
+          "Resultary SCOPE-exact-parity-period-dichotomy-and-half-period-complementation-fo--497a63a751d5",
+          "Kaggwa §3.2"
+        ]
+      },
+      "rationale": "No inspected source prints the complete first-hit table as such, but the entire parameter-uniform correction on the decisive window is already explicit in Bravo–Herrera–Luca, equation (1.3), attributed to Kılıç. Combined with the established early exclusion and the modulo-8 odd-Fibonacci cycle, the six-class formula is mechanically determined by a fixed sixteen-column substitution and scan, with only direct recurrence iteration for the remaining eleven orders. This is coverage by implication, not a claim that the older sources printed these numerical offsets or that the frozen result is false.",
+      "residual_risks": [
+        "The ultimate priority of the correction attributed by Bravo–Herrera–Luca to Kılıç was not separately determined. Whether the numerical first-hit table was itself printed earlier remains unresolved; the decision relies on the checked implication rather than on that historical question."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the entire pre-second-feedback identity and makes the stable-region table a direct modular computation",
+          "evidence": "For k+2<=n<=2k+2, equation (1.3) subtracts the convolution of F_(2j-1) and F_(2(n-k-j)) from F_(2n-1); Theorem 2.2 gives the recursive generalization with preceding k-Pell terms.",
+          "identifier_or_url": "https://pdfs.semanticscholar.org/9f02/455769836029d1c980e19e9958faf6d659ed.pdf",
+          "material_read": "Printed p. 2, equations (1.2)–(1.3), and p. 3, Theorem 2.2",
+          "method": "Identified lawful open copy after the DOI route was unavailable; PDF text around offset 4600",
+          "title": "On a generalization of the Pell sequence",
+          "trigger": "Explicit corrections to the very same impulse k-Pell sequence"
+        },
+        {
+          "assessment": "Covers early exclusion and classical nonoccurrence, not explicit first-hit offsets",
+          "evidence": "The prior Fibonacci segment cannot equal 3 modulo 8; the classical case never has that residue; the remark notes eventual occurrence for k>=3.",
+          "identifier_or_url": "https://arxiv.org/pdf/2611.01170",
+          "material_read": "§3.2, Proposition 3.1 and Remark 3.1, PDF p. 5",
+          "method": "OA PDF text around offset 16755",
+          "title": "On Wagstaff primes in the k-Pell number sequence",
+          "trigger": "Exact residue 3 modulo 8 and same recurrence"
+        },
+        {
+          "assessment": "One-order related state-period classification",
+          "evidence": "Its invariants are state-cycle periods for order three, not the all-order first scalar occurrence of residue 3.",
+          "identifier_or_url": "2026/11/22/SCOPE-complete-all-seed-dyadic-cycle-spectrum-for-the-three-step-pell--b14d6eaa3ba8",
+          "material_read": "Original Finding",
+          "method": "Local published mirror",
+          "title": "Complete all-seed dyadic cycle spectrum for the three-step Pell recurrence",
+          "trigger": "Same recurrence at k=3 modulo powers of two"
+        },
+        {
+          "assessment": "Different modulus and invariant",
+          "evidence": "Its least periods and anti-period law are modulo 2, not first occurrences modulo 8.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-parity-period-dichotomy-and-half-period-complementation-fo--497a63a751d5",
+          "material_read": "Original Finding",
+          "method": "Local published mirror",
+          "title": "Exact parity period dichotomy and half-period complementation",
+          "trigger": "Same recurrence for all orders and modular periodicity"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The residue and least index are naturally motivated by the initial obstruction to odd-exponent Wagstaff-type terms, and the displayed table is a convenient reference. But the substantive all-order structure reduces to evaluating the existing parameter-separated convolution on six residue classes and scanning a fixed short window, plus direct iteration of eleven orders. The record adds no nonmechanical exact invariant beyond those evaluations, and its exclusion before the first hit is the immediate residue test, not a further Diophantine result. It therefore does not meet the value criterion for a narrow exact invariant.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

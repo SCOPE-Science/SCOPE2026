@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:27:52.482417Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Centering and independence give conditional risk (1-α)²s+α²v/b; the one-step oracle minimizes this at bs/(v+bs), including α=0 at s=0. The minimized risk f_b(s)=vs/(v+bs) is strictly increasing and strictly concave, with 1/f_b(s)=1/s+b/v for s>0 and f_b(0)=0. The additive reciprocals and Jensen give pooled versus sequential dominance for all prescribed partitions; the squared norm after the first step is nonconstant for positive initial error and nondegenerate Gaussian noise, making the step-two inequality strict and propagating it. The stated dispersion identity follows by subtracting f_b from its tangent at the mean. At fixed d,b1,b2 and increasing initial norm, the first oracle update converges in L2 to minus its Gaussian block mean, so bounded continuous second-stage risk and the pooled limit give R_d(t) with Q_d=χ²_d/d. R_d<1 at all t>0 by strict concavity in Q, and the endpoint limits follow by dominated convergence (at infinity use (1+t)Q/(Q+t)<=2Q for t>=1). The derivative sign is that of the reweighted mean minus one. Weight ratios for increasing t are strictly increasing in q, hence that mean is strictly increasing by covariance. Its small-t numerator converges to 1 while its denominator tends to E[1/Q], infinite for d<=2, and at large t the rescaled moments give E[Q²]/E[Q]=1+2/d. The resulting unique minimum moves strictly upward in value with dimension by strict Jensen on the leave-one-out means at the minimizer for d+1. Gaussian quadrature of the derivative and risk, independent of the frozen erfc root algorithm, gave t=0.604867542154887602248340196450407322274728952 and R=0.68041531003775229177944465141633806949972205. Rational ratios are dense, justifying the infimum without asserting an integer optimizer. Three other split cases confirmed strict finite-signal improvement numerically (python /workspace/branches/independent_replay.py 3). The uploaded verifier was inspected, not run; the bounded replay is not the theorem's proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gower et al. use a complexity objective involving iterations times gradient evaluations.",
+          "AdAdaGrad uses batch statistics to select a later batch size in an AdaGrad training scheme.",
+          "The AdaScale record treats a constant-base-rate stability frontier with random curvature."
+        ],
+        "reasoning": "Complexity bounds, adaptive batch schedules and mean-square stability are not stronger exact finite-sample mean-square risk laws for this oracle. Their assumptions and conclusions do not imply the state-reoptimized comparison or the spectral limit.",
+        "searches": [
+          "Gower et al. arXiv:1901.09401 §4",
+          "Lau–Liu–Kolar arXiv:2402.11215 abstract and Algorithm 1",
+          "Resultary population AdaScale stability record a2a83df2d386"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2311.16956",
+        "arXiv:1901.09401",
+        "arXiv:2402.11215",
+        "Resultary 9551f778b77b",
+        "Resultary a2a83df2d386"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known oracle formula gives the single-step rule, not the result of reallocating a prescribed budget across stochastic intermediate states.",
+          "The two published catalogue comparisons optimize stability, not risk at a prescribed terminal sample budget."
+        ],
+        "reasoning": "The risk ordering requires the reciprocal risk-map composition with Jensen. The unique split and dimension-sharp value additionally require the high-signal limit, a strict reweighted-mean argument and leave-one-out concavity. None of the inspected statements establishes those conclusions or a dominating one.",
+        "searches": [
+          "arXiv:2311.16956 Eq. (3.2)",
+          "arXiv:1901.09401 §4",
+          "arXiv:2402.11215 Algorithm 1",
+          "Resultary 9551f778b77b and a2a83df2d386 Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The general moment step specializes exactly to s/(s+v/b) for L=1 on the quadratic.",
+          "The closest batch-law record, 9551f778b77b, studies sampling coordinate subsets for stability, not successive additive-gradient query blocks."
+        ],
+        "reasoning": "The step equivalence is credited. What must also survive reformulation is the sequential reoptimization at each random current state, fixed total queries, and the resulting risk ratio, not merely an optimized single-step size.",
+        "searches": [
+          "Köhne–Kreis–Schiela–Herzog arXiv:2311.16956 §3 Eq. (3.2)",
+          "Resultary: fixed-budget sequential quadratic risk, variance-aware scalar oracle and Jensen composition"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Located exact formulas optimize exchangeable coordinate laws or compare stability boundaries; neither evaluates the χ² ratio or its minimizing allocation."
+        ],
+        "reasoning": "A tabulated transform of the χ² variable or an erfc identity alone would not imply the unique optimizer or minimum across dimensions. No inspected exact formula covered that optimization.",
+        "searches": [
+          "Resultary: chi-square/gamma risk ratio and exact high-signal split",
+          "Resultary records 9551f778b77b and a2a83df2d386"
+        ]
+      },
+      "rationale": "Pass for the exact same-budget ordering and the dimension-sharp two-block high-signal split theorem. The oracle step is an exact known specialization, and neither general minibatch tuning nor Jensen's inequality is new. The compared prior results do not supply the remaining sequential-risk ordering together with the optimizing Gaussian split.",
+      "residual_risks": [
+        "The broad literature search and passage-level comparisons are not exhaustive; equivalent quadratic control or gamma-allocation results may exist elsewhere.",
+        "No independent historical priority is certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact prior coverage of the scalar oracle rule via specialization",
+          "evidence": [
+            "Moment ratio uses squared population gradient norm over the Lipschitz factor times the stochastic squared-gradient moment."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2311.16956",
+          "material_read": "§3, Eq. (3.2), OA offset about 33500",
+          "method": "Bounded OA HTML text inspection",
+          "title": "Adaptive Step Sizes for Stochastic Gradient Descent in Hilbert Spaces",
+          "trigger": "Exact oracle-step provenance"
+        },
+        {
+          "assessment": "Convergence/total complexity optimization, not prescribed-budget terminal oracle risk",
+          "evidence": [
+            "Total complexity includes iterations times gradient evaluations."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1901.09401",
+          "material_read": "§4, PDF offsets about 44400 and 48000",
+          "method": "Bounded OA PDF text inspection",
+          "title": "SGD: General Analysis and Improved Rates",
+          "trigger": "Potential stronger minibatch optimum"
+        },
+        {
+          "assessment": "Different update, batch policy and objective",
+          "evidence": [
+            "Uses batch observations to adjust later sample sizes within adaptive gradient training."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2402.11215",
+          "material_read": "Abstract (offset about 500), Algorithm 1 p. 9 (offset about 32143)",
+          "method": "Bounded OA PDF text inspection",
+          "title": "AdAdaGrad: Adaptive Batch Size Schemes for Adaptive Gradient Methods",
+          "trigger": "Adaptive allocation and stepsize precedent"
+        },
+        {
+          "assessment": "Distinct analysis of coordinate descent stability",
+          "evidence": [
+            "Exchangeable coordinate subsets with fixed expected size on an equicorrelated quadratic."
+          ],
+          "identifier_or_url": "Resultary 9551f778b77b (2026-11-22)",
+          "material_read": "RESULT.md, Finding",
+          "method": "Local published-record mirror",
+          "title": "Sharp mean-square stepsizes and optimal exchangeable minibatch laws",
+          "trigger": "Closest indexed mean-square minibatch optimization"
+        },
+        {
+          "assessment": "Distinct random-curvature model and stability criterion",
+          "evidence": [
+            "Concerns a population gain and constant-base-rate stability, not a sequence of reoptimized oracle blocks."
+          ],
+          "identifier_or_url": "Resultary a2a83df2d386 (2026-10-13)",
+          "material_read": "RESULT.md, Finding",
+          "method": "Local published-record mirror",
+          "title": "Population AdaScale preserves the exact mean-square stability frontier",
+          "trigger": "Population variance-step rule on a quadratic"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a fixed-gradient-query benchmark for the benefit of observing one intermediate state before reoptimizing the next step. It gives universal non-strict dominance within the additive-noise model and a strict, exactly optimized Gaussian benchmark rather than a rate bound or tuned single example. The dimension-monotone loss of benefit and the nontrivial asymmetric optimal split are useful distinctions. The 31.958…% gain is high-signal and two-block only, with exact population information; it neither optimizes finite-signal multi-block methods nor predicts runtime or practical training performance.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

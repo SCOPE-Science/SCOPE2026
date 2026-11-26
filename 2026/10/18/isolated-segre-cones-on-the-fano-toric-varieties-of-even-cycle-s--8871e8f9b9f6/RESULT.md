@@ -1,79 +1,41 @@
-# Isolated Segre cones on the Fano toric varieties of even cycle symmetric-edge polytopes
+# Affine Segre charts of the even-cycle symmetric-edge face fan
 
 ## Finding
 
-For each integer \(n\ge 3\), let \(C_n\) be the simple cycle on \(n\) vertices. In the root lattice
+Let \(C_n\) be the labelled simple cycle, \(n\ge3\), let \(N=\{a\in\mathbb Z^n:\sum_i a_i=0\}\), and write \(v_i=e_i-e_{i+1}\) cyclically. Set \(P_n=\operatorname{conv}\{\pm v_i:1\le i\le n\}\). Work over any algebraically closed field \(k\). Let \(X_n\) be the toric variety of the cones over the proper faces of \(P_n\), not its normal fan.
+
+If \(n=2r\) with \(r\ge2\), the entire affine toric chart at **each** maximal-cone fixed point is isomorphic to the rank-at-most-one \(r\times r\) matrix variety
 \[
-N=\{(a_1,\ldots,a_n)\in\mathbb Z^n:\textstyle\sum_i a_i=0\},
+D_r=\operatorname{Spec}\bigl(k[z_{ij}:1\le i,j\le r]/I_2(z_{ij})\bigr).
 \]
-put \(v_i=e_i-e_{i+1}\), with indices taken cyclically, and define the symmetric-edge polytope \(P_n=\operatorname{conv}\{\pm v_i:1\le i\le n\}\). Let \(X_n=X_{\Sigma(P_n)}\) be the normal projective toric Fano variety of the fan of cones over the proper faces of \(P_n\). (This is the **face fan**, not the normal fan of \(P_n\).) Work over any algebraically closed field \(k\).
-
-**Theorem.** If \(n=2r\) with \(r\ge2\), the reduced singular locus of \(X_n\) consists of exactly
-\[
-\binom{2r}{r}
-\]
-**isolated torus-fixed points**. At each point, the entire affine toric chart (not merely its tangent cone) is isomorphic to the affine rank-at-most-one determinantal variety
-\[
-D_r=\operatorname{Spec}\left(k[z_{ij}:1\le i,j\le r]/I_2(z_{ij})\right),
-\]
-where \(I_2\) is the ideal of all \(2\times2\) minors. In particular, every singular point has local embedding dimension \(r^2\), Hilbert–Samuel multiplicity \(\binom{2r-2}{r-1}\), and local divisor class group \(\mathbb Z\); its completed local ring is normal, Cohen–Macaulay and Gorenstein. The non-\(\mathbb Q\)-factorial locus consists of these same isolated points. All other points are smooth. If \(n\) is odd, \(X_n\) is smooth (a previously known parity criterion, included solely for contrast).
-
-For \(n=4,6,8\), the even-cycle singular point counts are respectively \(6,20,70\), and their multiplicities are respectively \(2,6,20\). Thus the six singularities for \(n=4\) are ordinary threefold conifolds, whereas for \(n=6\) the twenty singularities are rank-one \(3\times3\) determinantal cones.
-
-## Assumptions and scope
-
-The toric lattice is the **root lattice** \(N\), not the ambient \(\mathbb Z^n\) nor the vertex lattice of a normal-fan construction. The edges are oriented only to specify \(v_i\), and the symmetric polytope makes their orientation irrelevant. As \(v_1,\ldots,v_{n-1}\) form a \(\mathbb Z\)-basis and \(v_n=-\sum_{i=1}^{n-1}v_i\), \(\dim X_n=n-1\). The projective fan is complete since \(0\) lies in the interior of \(P_n\). All assertions are characteristic-independent. The claim of new geometric content is the **complete even-cycle singular-support and local determinantal classification**, not the previously published odd/even smoothness dichotomy.
+In particular, the reduced singular and non-\(\mathbb Q\)-factorial loci consist of the \(\binom{2r}{r}\) isolated fixed points. Here the number and balanced-sign description of the maximal cones come from the known facet classification [1]. At each singularity the local embedding dimension is \(r^2\), the Hilbert–Samuel multiplicity is \(\binom{2r-2}{r-1}\), and the local divisor class group is \(\mathbb Z\). Its completed local ring is normal, Cohen–Macaulay and Gorenstein. The known odd-cycle smoothness statement is recalled for contrast.
 
 ## Proof
 
-**1. All facets and maximal cones.** Fix the basis \(v_1,\ldots,v_{d}\) of \(N\), where \(d=n-1\). In dual coordinates, the polar polytope is
+**Fan and rays.** The vectors \(v_1,\ldots,v_{n-1}\) form a basis of \(N\), and \(v_n=-\sum_{i<n}v_i\). The polar in the dual basis is \(\{u: |u_i|\le1,\ |\sum_i u_i|\le1\}\). Its vertices have integer coordinates: the active independent hyperplanes force all coordinates to be signs or all but one to be signs with the last determined by \(\sum_i u_i=\pm1\). The polytope \(P_n\) contains the origin in its interior, has primitive rays and integral polar, and its face fan is the normal fan of its polar. Thus the fan is complete and its anticanonical divisor is Cartier and ample.
+
+Use the explicit even-cycle facet description of [1, Corollary 4.1]: the rays at a maximal cone are the \(2r\) vectors \(w_i=\epsilon_i v_i\) with exactly \(r\) positive and \(r\) negative signs, every balanced sign pattern occurring. Equivalently, the polar vertices for \(n=2r\) are cube corners with sum \(\pm1\); the possible remaining coordinate after activating the sum constraint and all other coordinates is odd, so cannot lie strictly between \(-1\) and \(1\). Every subset obtained by deleting one ray is a basis (changing the omitted cycle vector in the displayed basis preserves determinant up to sign). Thus all proper faces generate lattice-smooth cones, whereas the full cone is nonsimplicial. This proves the claimed support of both loci, with the known facet count giving its cardinality.
+
+**Chart.** For any maximal cone \(\sigma\), the exact sequence of lattices given by \(e_i\mapsto w_i\) is surjective with kernel \(\mathbb Z(\epsilon_1,\ldots,\epsilon_{2r})\). Dualizing and enforcing nonnegative pairings with the \(w_i\) gives the **integral** monoid
 \[
-Q_n=P_n^\circ=\{u\in\mathbb R^d:|u_i|\le1\ (1\le i\le d),\ |u_1+\cdots+u_d|\le1\}.
+\sigma^\vee\cap M\cong
+\{a\in\mathbb Z_{\ge0}^{2r}:\sum_{\epsilon_i=+1}a_i=\sum_{\epsilon_i=-1}a_i\}.
 \]
-Because at any vertex of \(Q_n\) at least \(d\) independent bounding hyperplanes meet, each vertex has either all \(d\) coordinates in \(\{\pm1\}\), or at least \(d-1\) in \(\{\pm1\}\) and the final coordinate determined by a hyperplane \(\sum u_i=\pm1\). In the latter case that coordinate is an integer of parity opposite to \(d-1\); if it is strictly between \(-1\) and \(1\), it must equal \(0\).
+Order each sign class separately. Every balanced exponent is a sum of cross-pairs by pairing its positive and negative occurrences; the monoid algebra map is \(z_{ij}\mapsto s_i t_j\). The only binomial relations needed are the switches \(z_{ij}z_{i'j'}=z_{ij'}z_{i'j}\): two decompositions with the same row and column multisets differ by transpositions of the matching of the column list to the row list. Hence the kernel is exactly \(I_2\), giving the full affine chart with its fixed point at the vertex. In particular no finite lattice quotient or completion is needed for this identification.
 
-When \(n=2r\) is even, \(d=2r-1\) is odd. The remaining-coordinate candidate above is an odd integer, hence cannot be strictly interior to its interval. Consequently every vertex of \(Q_n\) is a cube corner \(u_i\in\{\pm1\}\) satisfying \(\sum_i u_i=\pm1\). There are
-\[
-2\binom{2r-1}{r-1}=\binom{2r}{r}
-\]
-such vertices, which correspond bijectively to facets of \(P_n\) and maximal cones of its face fan.
+**Local invariants.** The dimension is \(2r-1\); the ideal has only quadratic generators, so the embedding dimension at zero is \(r^2\). The projectivization is \(S=\mathbb P^{r-1}\times\mathbb P^{r-1}\) with polarization \(L=\mathcal O(1,1)\), and the vertex multiplicity equals the degree of that embedding, \(\int_S c_1(L)^{2r-2}=\binom{2r-2}{r-1}\). The semigroup is saturated, and its interior lattice points are the all-ones translate of the semigroup. The normal affine semigroup ring is Cohen–Macaulay and its canonical module, generated by the interior monomials, is therefore principal. These properties give a Gorenstein local ring and persist under completion, with normality of the completion following from excellence.
 
-Choose one such \(u\). For each \(1\le i\le d\), set \(\epsilon_i=u_i\), and set \(\epsilon_n=-\sum_{i=1}^d u_i\). Then \(\epsilon_i\in\{\pm1\}\) for all \(i\), and \(\sum_{i=1}^n\epsilon_i=0\). The facet dual to \(u\) has precisely the \(n\) vertices \(w_i=\epsilon_i v_i\), since \(\langle u,w_i\rangle=1\) for each \(i\). All are distinct and primitive. Its cone \(\sigma_u\) has dimension \(n-1\), with \(n\) rays, so is nonsimplicial. Each maximal cone therefore gives a non-\(\mathbb Q\)-factorial singular torus-fixed point.
+For the local class group, blow up the cone vertex; the blow-up is the total space of \(L^{-1}\) over \(S\), with exceptional zero section \(S\). Its Picard group is \(\operatorname{Pic}(S)\) by invariance for a line bundle over a smooth base. After restricting the blow-up to the local scheme at the vertex, the class group is still \(\operatorname{Pic}(S)\): restriction is surjective by taking closures of divisors and injective by restriction to the surviving zero section. Removing the zero section gives the smooth punctured local cone. The zero section contributes the subgroup generated by \(L^{-1}\), hence the local class group is \(\operatorname{Pic}(S)/\mathbb Z[L]\cong\mathbb Z\).
 
-**2. Every proper cone is smooth.** The only integral dependence among the \(n\) cycle vectors is \(\sum_{i=1}^n v_i=0\). It has full support; equivalently,
-\[
-\sum_{i=1}^n\epsilon_i w_i=0.
-\]
-Deleting any one \(w_i\) leaves a \(\mathbb Z\)-basis of \(N\): the vectors \(v_1,\ldots,v_{n-1}\) are a root-lattice basis, and replacing a deleted \(v_j\) by \(v_n=-\sum_{i<n}v_i\) changes the determinant only by a sign. Every **proper face** of \(\sigma_u\) omits at least one of its rays, so its primitive generators extend to a lattice basis. It is therefore smooth. Every nonmaximal cone belongs to some maximal cone; hence all nonmaximal cones of \(\Sigma(P_n)\) are smooth. Toric orbit–cone smoothness now shows the singular locus is exactly the fixed points of the \(\binom{2r}{r}\) maximal cones. These points are mutually distinct and isolated.
+**Odd contrast.** For odd \(n\), the polar vertices are cube corners with sum zero, or have one coordinate zero and sum \(\pm1\) with all other coordinates signs. Exactly \(n-1\) cycle roots (with signs) are active at each of them; each such tuple is a lattice basis. This agrees with the published parity criterion [3].
 
-**3. Exact affine charts.** Let \(\sigma_u=\mathbb R_{\ge0}\langle w_1,\ldots,w_n\rangle\). The map \(\pi:\mathbb Z^n\to N\), \(e_i\mapsto w_i\), is surjective, and its kernel is the primitive rank-one lattice generated by \((\epsilon_1,\ldots,\epsilon_n)\). Therefore the dual semigroup is
-\[
-\sigma_u^\vee\cap M\ \cong\ \bigl\{a\in\mathbb Z_{\ge0}^n:\sum_{\epsilon_i=+1}a_i=\sum_{\epsilon_i=-1}a_i\bigr\}.
-\]
-There are \(r\) indices of each sign. Each nonnegative balanced vector can be written as a sum of vectors \(e_i+e_j\) with \(\epsilon_i=+1\), \(\epsilon_j=-1\), simply by pairing its positive-side and negative-side occurrences. These \(r^2\) elements generate the semigroup. The corresponding monomial homomorphism is \(z_{ij}\mapsto s_it_j\); its kernel is the ideal generated by the \(2\times2\) minors, since pairings with fixed row and column multisets are related by transposing two paired partners, a single minor move. Consequently the entire affine chart \(U_{\sigma_u}\) is isomorphic to \(D_r\).
+## Scope, prior work and reproducibility
 
-For \(r\ge2\), the rank-one matrix cone is singular only at the zero matrix (its nonzero rank-one stratum is smooth); its dimension is \(2r-1\), and its tangent space at zero has dimension \(r^2\). The projectivized cone is the Segre embedding \(\mathbb P^{r-1}\times\mathbb P^{r-1}\) under \(\mathcal O(1,1)\), so the vertex multiplicity equals its degree
-\[
-\int_{\mathbb P^{r-1}\times\mathbb P^{r-1}}(H_1+H_2)^{2r-2}=\binom{2r-2}{r-1}.
-\]
-The determinant presentation gives a normal Cohen–Macaulay semigroup ring. Its canonical module is principal since the two Segre factors have equal dimension (or, equivalently, the semigroup's interior lattice points are a translate of the semigroup by the all-ones vector); hence it is Gorenstein. Its local class group is \(\operatorname{Pic}(\mathbb P^{r-1}\times\mathbb P^{r-1})/\mathbb Z[\mathcal O(1,1)]\cong\mathbb Z\) at the cone vertex. This proves all even-cycle assertions.
-
-**4. Odd-cycle contrast.** For odd \(n\), \(d=n-1\) is even. The polar vertices are (i) cube corners with \(\sum_i u_i=0\), and (ii) points with exactly one zero coordinate, all other coordinates \(\pm1\), and \(\sum_i u_i=\pm1\). Type (i) activates exactly \(d\) signed \(v_i\) rays; type (ii) activates \(d-1\) such coordinate rays and the signed \(v_n\) ray, altogether \(d\). Every selected \(d\)-tuple is a signed subset of \(d\) of the \(n\) cycle vectors and hence a lattice basis. The fan is smooth. This recovers the known parity statement, independently of any finite experiment.
-
-## Verification
-
-`check.py` is standalone Python 3 (standard library only). Run `python3 check.py` after extracting this result's embedded file. It enumerates polar vertices by exact integer coordinates, checks facet activity, all relevant maximal minors and balanced primitive relations for \(3\le n\le10\), and checks balanced-semigroup generation to small degree. Its successful output ends in `VERIFY_OK`. The finite checker corroborates examples and integral calculations; the complete infinite result is proved in the preceding four steps, not inferred from that enumeration. The rank-one-minor argument and Segre degree formula are independent symbolic ingredients.
-
-## Relationship to prior work
-
-Matsui–Higashitani–Nagazawa–Ohsugi–Hibi introduced and studied symmetric edge polytopes, including their reflexive structure and Ehrhart invariants [1]. Higashitani's smoothness criterion for symmetric directed graphs [2, Corollary 2.3] **already proves** that a graph without an even cycle gives a smooth Fano polytope and that an even cycle obstructs global smoothness. Ohsugi–Shibata [3] explicitly describe odd-cycle symmetric-edge polytopes as known smooth Fano examples. Those statements are not claimed as discoveries here. The present result adds the exact count of *all* singular points in an even cycle and the explicit isomorphism type, embedding dimension, multiplicity and local class group of *every* such singularity. The comparisons concern toric varieties of the **face fan**; normal-fan toric varieties have a different construction.
-
-## Limitations
-
-No classification for graphs other than simple cycles is asserted. The odd-cycle parity criterion is recalled, not original. The rank-one-chart classification is supported by a complete elementary proof and finite reproducibility checks, but a differently phrased or unindexed published treatment of even-cycle singularities may exist. Independent validation has not been performed. The scientific statements do not depend on any particular finite-field test or on generic characteristic assumptions.
+D’Alì, Delucchi and Michałek [1] give the balanced facets and their exact count as well as the lower face poset. Chen, Davis and Korchevskaia [2] give general face-subgraph and circuit criteria including the balanced oriented-cycle dependence in the proof of their Theorem 12. The count and isolation of singularities are consequences of the known face data and unimodularity of cycle forests. The statement assessed here is the explicit identification of the **full affine chart** on that data and the resulting local classification, not novelty of the facet number, the odd/even smoothness criterion, or a new general fact about Segre cones. For \(n=4,6,8\), the chart types are \(D_2,D_3,D_4\), with counts \(6,20,70\) and vertex multiplicities \(2,6,20\). This does not classify other graphs or varieties of the normal fan of the symmetric-edge polytope. The attachment `check.py` provides finite integer checks of the ray bases, signed relation and low-degree semigroup generation for small cycles; the proof is characteristic-independent and does not extrapolate those checks.
 
 ## References
 
-1. T. Matsui, A. Higashitani, Y. Nagazawa, H. Ohsugi, T. Hibi, *Roots of Ehrhart polynomials arising from graphs* (first public 2010-03-29), arXiv:1003.5444, https://arxiv.org/abs/1003.5444.
-2. A. Higashitani, *Smooth Fano polytopes arising from finite directed graphs* (first public 2011-03-11), arXiv:1103.2202, particularly Theorem 2.2 and Corollary 2.3, https://arxiv.org/abs/1103.2202.
-3. H. Ohsugi, K. Shibata, *Smooth Fano polytopes whose Ehrhart polynomial has a root with large real part* (first public 2011-09-05), arXiv:1109.0791, https://arxiv.org/abs/1109.0791.
+1. A. D’Alì, E. Delucchi and M. Michałek, *Many faces of symmetric edge polytopes*, arXiv:1910.05193, §4.1, Corollary 4.1 and Proposition 4.3 in the open preprint.
+2. T. Chen, R. Davis and E. Korchevskaia, *Facets and facet subgraphs of symmetric edge polytopes*, arXiv:2107.12315, Theorems 7 and 12.
+3. A. Higashitani, *Smooth Fano polytopes arising from finite directed graphs*, arXiv:1103.2202, Corollary 2.3.
+4. H. Ohsugi and K. Shibata, *Smooth Fano polytopes whose Ehrhart polynomial has a root with large real part*, arXiv:1109.0791, for the even-dimensional (odd-cycle) smooth del Pezzo examples.

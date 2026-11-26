@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof describes an explicit bijection between ideals and pairs of selected vertices and induced edges, derives the four-subset induced-edge census using independence, four-cycle and edge-pair counts, and establishes the polynomial identity exactly. The rowmotion transition follows directly from minimal complement elements. The bundled verifier exhausts every ideal in both posets and confirms each transition by a second, generic top-to-bottom toggle construction. The entire cycle partitions, least common multiples, rank counts and graph symmetries are checked by exact integer computation, not estimates. No claim about an infinite graph family is inferred from the computation.
+## correctness
 
-## Originality — PASS, with residual risk
-Grinberg and Roby's 2014 foundational treatment proves rowmotion principles and skeletal/rectangular/triangular orders, not these two exact incidence-poset spectra. Elizalde, Plante, Roby and Sagan treat fences, rather than these cubic incidence posets. Primary text and targeted mathematical-record searches did not find this rank-eight identity or the paired full orbit distribution. A prior unindexed calculation or a publication using different graph nomenclature remains possible; absence from a database is not a mathematical novelty proof.
+PASS
 
-## Value — PASS
-The cube and Wagner graph are canonical vertex-transitive cubic graphs on eight vertices with the same vertex, edge and poset rank sizes. A concise proven identity shows their rank-generating polynomials are identical in every coefficient except one, yet exhaustive dynamics reveal a factor of \(2204\) in the order of rowmotion and radically different long cycles. This is a motivated finite boundary example for the extent to which coarse lattice rank data predict rowmotion, and the full histograms form independently reproducible benchmarks.
+An ideal is uniquely a vertex subset U and any subset of its induced edges, giving H=F(t,1+t). Equal cubic triangle-free counts agree through triples, and m(U)=12-3|V\U|+m(V\U) handles sizes at least five. For four-sets, the independent-set counts are 2 and 0, and the induced squares number 6 and 4. In the Wagner graph a square must use two disjoint opposite chords and parallel cycle edges (0 or 1 chord cannot close in four steps, three or four cannot lie in a four-cycle because the chords are a matching); the cube squares are its faces. Counting all four-sets and occurrences of single edges and pairs of edges gives the three common equations for the intervening coefficients, hence difference (2,-8,12,-8,2). Independently ran an exhaustive Python enumeration, different from the supplied checker: scan all 2^20 subsets for each graph, dropping any that include an edge but omit an endpoint; map each valid I to P minus the upset of max(I), which is inverse rowmotion because maximal elements of the generated ideal are exactly its complement-minimal generators. Verify the inverse images give exactly the ideal set; traverse the cycles and count ranks directly. This reproduced both complete histograms in RESULT.md, all ideal/orbit/max-length counts and both automorphism orders (also independently enumerated over 8! permutations). The computed LCMs are 110880 and 244379520, ratio 2204, and the directly enumerated rank defect is (8,+2).
 
-## Closest literature and limitations
-The two closely related full texts were inspected in their relevant definitions, stated families, selected orbit results, and bibliographies: Grinberg–Roby, arXiv:1402.6178 (first public 2014-02-25), and Elizalde–Plante–Roby–Sagan, arXiv:2108.12443 (2021-08-27). Neither inspected material contains the claims. Search indexing and uninspected literature cannot exclude all earlier computations. These results are finite exact statements, and independent audit remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct contribution is the induced-edge and rank defect paired with the full classical rowmotion cycle contrast on these two precise labelled incidence posets. The strongest same-object archive hit studies a different dynamics; closest same-dynamics sources do not include the two posets. No exact table overlap was found by the bounded checks.
+
+## value
+
+PASS
+
+The cube and Wagner graph are standard, comparably small connected vertex-transitive cubic graphs; the shared parameters force almost all of their incidence-ideal rank data to match. The contrast between a single two-ideal discrepancy and a 2204-fold order change is a concrete test of how little those near-equal static statistics constrain the order of the dynamics. The exact census is a usable benchmark for methods computing classical rowmotion on graph incidence posets, where full rather than sampled profiles matter.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

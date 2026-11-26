@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The hub-exclusion lemma is proved using the spectral projection of the dimer block and the identity \(TT^*=4t^2I\). The resulting magnetic incidence equations force minimum vertex degree two. Four- and six-edge supports can only be elementary and double-plaquette cycles; the exact flux holonomy conditions rule them in or out. A seven-edge theta construction works at every remaining flux, and bipartite gauge symmetry transfers the construction between the two nonzero flat-band energies. Independently assembled finite Hamiltonians reproduce ten exact predicted mode supports and give residuals below \(10^{-12}\). Exhaustive small-window edge-support enumeration corroborates but does not replace the graph-theoretic infinite proof.
+## correctness
 
-## Originality — PASS (self-review)
-The closest primary source, Hanafi et al. (arXiv:2207.01480v1), already supplies an eight-site octagonal state and multi-band oscillation at zero magnetic flux; those results are not claimed anew. Its five-page article does not discuss a uniform-flux minimum-support classification. Zhang et al. (arXiv:1605.04389) previously analyzed related five-site lattices, and Centała and Kłos examined magnonic Lieb-5 compact modes. Zaslavsky's frame-matroid theorem supplies broader combinatorial circuit theory—including balanced cycles and unbalanced thetas—that substantially overlaps the incidence construction. It does not itself identify the \(\pm t\) physical eigenspaces or imply numerical flux thresholds without an additional operator reduction and lattice argument. Literature gaps and the incomplete full-text comparison of a 2016 precursor are explicit residual risks; independent priority adjudication remains necessary.
+PASS
 
-## Value — PASS
-The source’s natural engineering question is how many sites must be illuminated to realize an exact stationary compact mode or dual-band confined oscillation when magnetic flux is varied. The sharp \(8/12/14\) law is a complete and counterintuitive geometric resource threshold: an arbitrarily small nonzero flux forbids the original octagon, whereas half flux saves two sites relative to generic flux. The theorem applies to every real flux, including irrational values, without requiring a larger system-size parameter or downstream theorem.
+At λ=±t, projecting the dimer equation onto its λ eigenspace gives T*h orthogonal to this eigenspace. The orthogonal part of z is T*h/(2λ); TT*=4t²I then makes the hub inner-product equation λ||h||²=2λ||h||², forcing h=0. Equivalently the projected equation relates adjacent hubs by a nonzero phase, so one zero vertex propagates to all hubs for a finitely supported state. Each occupied edge then contributes exactly its two dimer sites, and the residual condition is precisely the signed magnetic incidence equation. Its nonzero support has no degree-one vertex. A graph with minimum degree two and at most six edges is a single cycle: two distinct square cycles can share at most one edge, and a distinct cycle cannot be contained in a simple six-cycle. No even cycles shorter than four exist, and four- and six-cycles enclose one and two squares respectively. They are admissible exactly at the stated holonomies. In the seven-edge witness at the displayed origin the hub equations reduce, among others, to b-a+f=0, d-c-ωf=0, and -d-ω²g=0; the other three are a+e=0, g-b=0, and c-e=0. The supplied coefficients solve all six, with only f dropping out at ω=-1. The zero-flux square solves its four equations. Tail checkerboard parity gives the other energy, preserving every occupied site, and the energy difference is 2t in the stated time convention. No rational-flux assumption enters. I inspected the frozen nested verification/lieb5_flux_checker.py, which constructs the open matrix and checks numerical null vectors at five fluxes and both signs, plus finite candidate-edge enumeration. It was not run and does not certify infinite-lattice minimality or the printed symbolic witness; those follow from the analytic checks.
 
-## Limitations
-Ideal equal hopping and zero onsite values are essential. The classified minimum concerns stationary finite-support eigenvectors at either selected flat-band energy, not arbitrary local time evolution, stronger disorder, a finite torus, or all waveguide implementations. The graph-theoretic core has close classical antecedents, and unreviewed literature could alter priority. Independent review has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct supported claim is the all-flux exact physical-site minimum at the two nonzero energies of the twice-subdivided Hamiltonian, using the reduction that excludes original-vertex amplitudes and identifies the full compact eigenspaces at those energies. The 4/6/7 ground-graph circuit answer, the zero-flux eight-site mode, and two-band beating at zero flux are not novel. The strongest indexed result has exactly the same reduced incidence kernel but is a one-midpoint Hamiltonian at zero eigenvalue; it supplies the complete incidence minimum once the additional nonzero-energy dimer reduction is proved, not the target physical minimum or that reduction by itself.
+
+## value
+
+PASS
+
+The physically occupied-site cutoff matters for how many sites a localized input must address at either of the two flat-band energies of a single standard decorated lattice. The result proves sharp impossibility as well as constructions, including irrational flux: an arbitrarily small nonzero flux removes eight-site confinement, whereas the half-flux case allows twelve sites instead of the generic fourteen. Exact support transfer to both energy sectors also preserves the possibility of two-band beating within the same support. The value lies in the physical eigenspace and resource threshold, not in recounting the already covered incidence circuits.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

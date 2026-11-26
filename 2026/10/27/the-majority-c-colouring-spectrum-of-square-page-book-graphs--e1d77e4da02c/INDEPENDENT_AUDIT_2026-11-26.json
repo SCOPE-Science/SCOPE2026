@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:01:28.375506Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Each degree-two page vertex needs one same-coloured neighbour. With equal spine colours every page must be monochromatic; at least L=floor(b/2) complete pages must share the spine colour because the spine edge already counts. Choose those pages and partition the others by Stirling numbers. For distinct spine colours, the only page types are (X,Y), (X,X), (Y,Y), and (Z,Z) with Z a non-spine colour. If these multiplicities are p,x,y,z, the two spine quotas are p+x,p+y≥H=L+1, so the multinomial chooses all page indices and S(z,k−2) allocates the non-spine pages without dividing by two (spine classes are anchored). The two cases are disjoint. The equal-spine maximum forces exactly L spine-coloured pages and separate classes on all other pages. For distinct spines z≤b−H, and equality in the colour bound forces p+x+y=H and then x=y=0, giving the second extremal type. Pascal's identity gives the total count. Merging classes preserves feasibility, so the spectrum has no holes up to the attainable maximum; k=1 and b=1 are included by the Stirling conventions. Named surjections have exactly k! labellings per partition. Independent finite enumeration checked spectra {1:1,2:2}, {1:1,2:3}, {1:1,2:19,3:6}, and {1:1,2:31,3:10} through b=4, agreeing with the frozen outputs. The frozen script and recorded arithmetic checks through b=20 were inspected, not executed; the proof covers all b.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The product paper defines the same local condition and studies maximum colour numbers, especially for Hamming graphs and products of paths. Its product-of-paths results can only overlap this family at the star parameters where the star is a path.",
+          "Yero et al. use the very graph K1,4 × K2 but report a minimum defensive 2-alliance size, not partitions into defensive zero-alliances.",
+          "The windmill record has one shared center and monochromatic clique blades, so there is only a one-center quota."
+        ],
+        "reasoning": "Neither exact extremal results for different Cartesian factor families nor a minimum size at alliance level 2 counts the full set of local alliance-0 partitions in books; the windmill family also omits the heterochromatic spine and its coupled quotas.",
+        "searches": [
+          "arXiv:2608.27669v2, §§1.2–1.4 and 2–4",
+          "arXiv:0901.4923v2, Cartesian product results and p. 12 book example",
+          "Resultary 2026/10/12/SCOPE-majority-c-colorings-of-generalized-windmill-graphs--e2105075c8f2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2604.20752",
+        "arXiv:2608.27669v2",
+        "arXiv:0901.4923v2",
+        "Resultary 2026/10/12/e2105075c8f2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Observation 1 says optimal colour classes induce connected subgraphs; ordinary merging of colour classes also preserves feasibility.",
+          "The windmill proof uses monochromatic clique blades and distinguishes pages absorbed by a single center from those grouped freely."
+        ],
+        "reasoning": "A maximum gives the set of feasible k by merging, but not the multiplicity of each k or the extremal partition count. Connectivity of optimal classes does not classify nonoptimal classes. The second Stirling/multinomial term requires the distinct-spine page types and two inequalities not present in the windmill model.",
+        "searches": [
+          "arXiv:2608.27669v2, Observation 1 and maximum-colour product results",
+          "Resultary e2105075c8f2, Finding and Proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A sum-satisfactory k-partition uses exactly the half-of-open-neighbours condition; satisfactory partition alone ordinarily refers to two classes.",
+          "A defensive zero-alliance block satisfies δ_S(v)≥δ_outside(v), equivalently 2δ_S(v)≥deg(v)."
+        ],
+        "reasoning": "The full unlabelled spectrum is equivalently the distribution of partition sizes in the set of local defensive zero-alliance partitions, without a global domination requirement. The literature's definitions identify the object but do not count these partitions. No exact equivalence with the phrase cohesive colouring was established.",
+        "searches": [
+          "arXiv:2604.20752, §1 on satisfactory and sum-satisfactory partitions",
+          "arXiv:0901.4923v2, definitions of defensive k-alliances and alliance partition number",
+          "Resultary square-page books, sum-satisfactory and defensive zero-alliance partitions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact tabulation-style catalogue hit gives Stirling counts for W_{n,m}=K1∨nK_m, not the book product.",
+          "The book example in the alliance paper has the number 8 for a different statistic, minimum 2-alliance size."
+        ],
+        "reasoning": "A record giving all k or a symbolic enumeration on the same family would cover the central claim. These exact comparisons differ in graph family or parameter, and the frozen finite test output is correctness evidence only.",
+        "searches": [
+          "Resultary majority C-colouring spectrum for square-page books / K2 square K1,b",
+          "Resultary 2026/10/12/e2105075c8f2, Finding and Proof",
+          "arXiv:0901.4923v2, K1,4 × K2 example"
+        ]
+      },
+      "rationale": "The majority condition and maximum-colour invariant are established, under equivalent names. The supported distinct result is the complete square-page book spectrum and all extremal partitions, not the general colouring definition or the use of Stirling partition enumeration itself.",
+      "residual_risks": [
+        "Earlier sum-satisfactory partition papers are characterized in the inspected introduction, not independently adjudicated from their full text. Unindexed alternative terminology or exact family treatments could overlap.",
+        "The public keyword lookup was unproductive, not evidence of absence. The comparison does not assert novelty of the maximum on isolated instances covered by other graph families."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes equivalent formulations but not full book spectrum in the inspected passage",
+          "evidence": [
+            "The source links majority C-colouring to the earlier sum-satisfactory k-partition condition, distinguishing two-class satisfactory partitions."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2604.20752",
+          "material_read": "§1, HTML offsets 12480–16280",
+          "method": "Bounded OA original HTML",
+          "title": "Majority C-coloring of graphs",
+          "trigger": "Terminology, equivalent older literature and initial results"
+        },
+        {
+          "assessment": "Same definition and extremal invariant; no inspected result supplies this count",
+          "evidence": [
+            "Observation 1 forces connected classes for an optimal colouring. Hamming graphs and Cartesian grids dominate the family-specific results inspected, rather than star products."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2608.27669v2",
+          "material_read": "§§1.2–1.4 and §§2–4 sampled passages, PDF pp. 2–5 and 15–16 (offsets about 4500–16700 and 45200–50200), including Observation 1",
+          "method": "OA original PDF passages and targeted searches",
+          "title": "Majority C-coloring in Cartesian products",
+          "trigger": "Same invariant on Cartesian products; possible general implication"
+        },
+        {
+          "assessment": "Equivalent condition at k=0; same graph used at different alliance level and for a different invariant",
+          "evidence": [
+            "The partition number is the maximum number of defensive blocks. The K1,4 × K2 example reports minimum defensive 2-alliance size 8."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0901.4923v2",
+          "material_read": "Definitions pp. 1–2 (offsets 2100–5500); book example p. 12 (about 28750)",
+          "method": "Bounded OA original PDF passages",
+          "title": "Partitioning a graph into defensive k-alliances",
+          "trigger": "Exact alternative formalism and exact b=4 graph overlap"
+        },
+        {
+          "assessment": "Methodological analogue, not a stronger or equivalent family",
+          "evidence": [
+            "A universal center joins n disjoint clique blades; at least ceil(n/2) monochromatic blades share its colour. There is no two-vertex spine or split-spine case."
+          ],
+          "identifier_or_url": "2026/10/12/SCOPE-majority-c-colorings-of-generalized-windmill-graphs--e2105075c8f2",
+          "material_read": "Finding and Proof, offsets 259–5256",
+          "method": "Local Resultary published-statement mirror",
+          "title": "Majority C-colorings of generalized windmill graphs",
+          "trigger": "Nearest exact Stirling spectrum with repeated pages around a spine or center"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Square-page books form a natural repeated Cartesian-product family with two high-degree vertices and locally constrained degree-two pages. The exact enumeration separates spine agreement from the coupled two-quota case, gives each coefficient rather than just maximum feasibility, and explains the two extremal types. It is reusable for exact counts on the whole family, not an arbitrary small-instance table.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

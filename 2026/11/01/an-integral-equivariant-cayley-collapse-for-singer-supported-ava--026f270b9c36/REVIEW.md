@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The perfect-difference axiom gives exactly one intersection point between any two translates. Every positive-dimensional face lies in precisely one facet, so deleting the non-root faces with cardinality at least two, paired with root extensions in descending cardinality, is an actual free-face collapse. Choosing the unique ordered unit difference makes this equivariant and leaves one Hamiltonian cycle and exactly the predicted chord orbits. An explicit chord-minus-arc integer cycle basis reconstructs every one-cycle with unique integer coordinates, yielding the integral group-ring lattice without torsion assumptions or appeals to rational semisimplicity. The finite standard-library verifier independently executes 1,096 elementary collapse pairs for four design orders and checks integer cycle recovery and rotation covariance.
+## correctness
 
-## Originality — PASS, with qualified search coverage
-Riihimäki–Smith (2026) supplies the avalanche definition and treats selected directed-cycle supports, not planar Singer difference sets or a rotation-equivariant integral module classification. Singer's existence theorem is classical. Prior projective-plane Čech/neighborhood results already give the same nonequivariant wedge rank; that rank is **not** a novelty claim. Gaschütz's finite-cover theorem over complex coefficients predicts the broad rational character once a cyclic graph cover is known, but does not itself furnish this equivariant simplicial collapse or an explicit **integral** cycle lattice. A focused check of published mathematical sources, equivalent formulations and existing indexed results found no direct coverage of the complete stated avalanche-plus-integral-equivariant theorem. The possibility of an unindexed general integral graph-cover lemma or an unpublished Singer-avalanche application remains a residual risk.
+PASS
 
-## Value — PASS
-The new avalanche theory permits nonconsecutive binary initial supports not classified by its primary cycle theorems. A cyclic perfect difference set is a natural extremal design with exact pairwise intersections; it converts a high-dimensional avalanche complex into a fully specified equivariant one-dimensional model. Its integral translation lattice has a fixed generator and \(q-1\) free regular summands for every prime-power \(q\), information strictly stronger than the previously known \(q^3\) Betti rank or the general complex-coefficient covering character. The explicit basis and equivariant collapse can be used in exact integral symmetry and fixed-point comparisons. The point is a structural infinite family rather than a routine recomputation of a table.
+The binary parallel firing rule translates the support, so the facets are exactly the translates D+t. An intersection of two facets is indexed by the unique ordered representation of their nonzero translation difference, hence positive-dimensional faces have just one facet owner. In each facet rooted at a+t, take the pairs (σ, σ∪{a+t}) for faces σ excluding the root of size at least two. Descending size removes every competing coface before σ, and pairs at each size do not interfere. These are equivariant stages of elementary orbit-family collapses: translation preserves the families and the free-face retractions can be chosen on one facet and translated, relative to shared vertices. The surviving step orbits are disjoint by unique ownership and the unit edges form the spanning cycle. Replacing each chord by its start loop followed by the forward unit arc, with inverse sending that loop to chord followed by reversed arc, gives equivariant inverse homotopies by path cancellation relative to the cycle. For the integral basis, a chord-minus-arc cycle has coefficient 1 on its own chord and 0 on all others; subtracting these terms from any integral cycle leaves constant coefficients on the oriented unit edges. Thus the norm cycle is a trivial summand and each nonunit step supplies one free regular summand, with no divisibility or extension assumption. Singer's theorem gives the stated parameter family and the rank simplifies to q³.
 
-## Limits
-No filtration-level persistence is calculated. Only the relevant natural cyclic action is classified, not every automorphism of a projective plane. The integral basis depends on the chosen unit-difference pair. The finite verifier covers \(q=2,3,4,5\) only; the general theorem is proved combinatorially. Earlier equivalent work under other indexing remains possible, and independent scientific validation has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The underlying complex and nonequivariant collapse/rank are already covered by the Steiner-design point-side calculation, and the complexified character is a graph-cover consequence. Credit the narrow refinement: a specified unit-step Cayley target and translation-compatible elementary collapse, together with the integral decomposition in explicit rotated coordinates on that graph. Neither the previously identified incidence cycle lattice nor the complex character is an explicit integral permutation basis on this avatar of the avalanche complex.
+
+## value
+
+PASS
+
+The ordinary wedge rank and complex trace would be insufficient as new findings. Here a natural cyclic symmetry from the firing dynamics is kept throughout an explicit collapse, and the output is a usable integral basis with translation acting by permutations of whole families of cycles. It distinguishes integral coordinates from a complex character and gives a uniform model for a natural family of cyclic supports; the utility is in that refinement, not in the known q³ count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

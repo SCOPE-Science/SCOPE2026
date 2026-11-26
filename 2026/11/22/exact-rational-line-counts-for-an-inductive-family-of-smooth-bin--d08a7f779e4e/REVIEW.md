@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The source's base quartic is **coordinate-transformed** to secure a smooth coordinate hyperplane section; both the base and its section satisfy its hypotheses. The accepted line count uses precisely this transformed quartic. The identity \(\phi(u,v)=\det(u,v)st(s+t)\) is verified by a basis argument, and the residual vector is an exact polynomial condition for the entire projective line to lie on the hypersurface. The five orbits partition all 16 finite states; the 256 base cases and all transitions give \(v_3=(22,14,18,18,14)\) and the explicit transfer matrix. Rational inversion yields \(K_{m+3}=64\cdot4^m+12\cdot2^m\); rank-deficient words are counted exactly and rank-two words each represent one of six bases. The resulting formula holds for every \(n\ge3\). Exact direct GF(2) polynomial enumerations in dimensions three to seven and a 32-term recurrence check passed. The proof—not finite testing—establishes the infinite statement.
+PASS
 
-## Originality — PASS (best-knowledge; qualified)
+The family uses the F2-linear invertible change (a,b,c,d) to (a,b,c+d,c), not the untransformed starting polynomial in the induction. Lemma 9.2 proves smoothness before the change, Definition 9.3 transfers it, Lemma 9.4 verifies the section, and Proposition 9.1 applies. Space-filling follows as each phi vanishes on binary coordinates. The line test is polynomial containment, not vanishing on the three rational points. Every rank-two word gives one parametrization, the GL2 action is free with size six, and phi restricts to det(u,v) st(s+t). Checking the 256 base words and each of 16 successor states confirms the five per-state orbit counts and every transfer entry. More directly than a series fit, v3=16·1+(6,-2,2,2,-2), with the two summands 4- and 2-eigenvectors. The zero-residual functional is (1,0,3,0,0), so K_(m+3)=64·4^m+12·2^m for all m>=0. The three dependent-word families intersect only at zero, giving 3·2^(n+1)-2 exclusions. Division by six, geometric-series summation, and the ordered-independent-pair count of ambient lines yield the claimed formula, generating function, and density. Independent bounded certificate: python3 -B /workspace/evidence/check_5.py (base, all transitions, and the two eigenvectors); the fixed matrix gives the unrestricted result. No geometric or extension-field enumeration is inferred.
 
-Bourgeois-Conti et al., arXiv:2611.15768v1, §9, prove the existence and smoothness of the explicit quartics, not their contained-rational-line count. The exact matrix recurrence, generating function and asymptotic density are not deducible from a point-filling count. A previous result on the projectively equivalent base K3 computes unrelated cohomological properties and does not cover the higher-dimensional line counts. Semantically close published research on smooth binary plane quartics, a different characteristic-two quartic surface, and space-filling complete intersections addresses different objects/predicates. Asgarli–Duan–Lai and Bruggemann–Choi–Freidin–Whyte study transversality, not this exact containment count. Some potentially relevant older full texts and archival records could not be fully inspected; no absolute publication-priority claim is made.
+## originality
 
-## Value — PASS
+PASS
 
-The Fano scheme's base-field point count is a natural intrinsic incidence invariant for a recently constructed family of smooth space-filling quartics in arbitrarily large projective dimension. Determining it uniformly with the exact rational generating function shows an asymptotic one-quarter proportion among ambient rational lines, despite all ambient rational points lying on the hypersurface. This constitutes a motivated geometric arithmetic classification, rather than a one-dimensional instance or routine substitution.
+Best of available evidence for the uniform enumeration across dimensions. Credit the construction and smoothness to Bourgeois-Conti et al. and give no distinct originality credit to L3=5: a distinct same-day record proves the stronger five geometric lines, all binary, on the projectively equivalent base. Neither that record nor the inspected primary material covers L_n for n>=4. The boundary-state transfer, not vanishing on points or the base line count alone, determines the sequence. No priority order is inferred from same-day posting.
 
-## Scope and risks
+## value
 
-The theorem counts only base-field-defined lines and makes no claims about all geometric lines, scheme multiplicities or other fields. Smoothness and the source's construction are taken from the inspected 2026 paper; arithmetic restriction and counting are proved here. The historical original-text coverage remains incomplete and the review is not independent.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Contained binary lines are an intrinsic incidence statistic beyond the point count, which is fixed by space-filling. The all-dimensional formula and density are useful for comparing this existing smooth family to other space-filling quartics. The exact transfer handles a real obstruction (residual polynomial vanishing), not just a conversion of the already covered base count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,32 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The infinite-family theorem is established by the geometric proof in `RESULT.md`. The standalone programs perform independent finite crosschecks, not an exhaustive search of all finite generalized quadrangles.
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3.8 or later. It constructs the symplectic \(W(3,2)\) from nonzero vectors of \(\mathbb F_2^4\) and a quadrangle of order \((2,4)\) from 27 cubic-surface curve labels, then tests incidence axioms, all-pairs distances and mutual maximality, independent-set omission counts on each shore, the direct strong-resolving criterion for all 225 bases of \(W(3,2)\), all 593,775 six-vertex omission candidates, and basis-exchange components.
+## correctness
 
-Compile and run `g++ -std=c++17 -O2 -Wall -Wextra -pedantic verify_duads.cpp -o verify_duads && ./verify_duads`. This independently constructs \(W(3,2)\) from 15 duads and 15 synthemes of \(K_6\), and verifies the MMD graph, all six-omission candidates, exchange edges, connectivity and diameter.
+PASS
 
-Actual tested output (Python):
+The incidence axioms give distances 2 and 4 on each shore and 1 and 3 across shores. The distance-4 pairs are MMD; every shorter pair has a neighbor at a greater distance from its opposite end (for a nonincident point and line, use a different line through the point from the unique one meeting that line). A third vertex cannot strongly resolve an MMD pair, and every shortest path can be extended at its ends until the resulting end pair is MMD, showing why covering MMD pairs suffices. Omitted points must be pairwise collinear and hence on one line by the unique-collinear-point axiom; omitted lines obey the dual pencil criterion, independently. A subset of size at least two identifies its line or pencil uniquely. Counting empty, singleton and larger subsets gives the two polynomials; completing each shore yields every maximal omission, proving purity, dimension st(s+t+2) and N_P N_L bases. Exchange cost is half the symmetric difference, added over shores, giving costs s/s+1 and t/t+1 for the respective single-coordinate changes and at least s+t for simultaneous changes. Below max(s,t) a coordinate is fixed; at this budget the allowed single-coordinate moves yield the stated connected Cartesian factors. A point has s(t+1) collinear neighbors and s^2 t noncollinear others, so every point has collinearity-graph eccentricity 2 by the quadrangle axiom; dually every line has intersection-graph eccentricity 2. The complete factors have eccentricity 1. Additivity of product distances gives both the radius and diameter 4 or 3 for the two cases.
 
-```text
-W(3,2) exchange k= 1 components [(1, 225)] edges 0
-W(3,2) exchange k= 2 components [(225, 1)] edges 1350
-W(3,2) verified points 15 lines 15 MMD edges 120 strong dim 24 bases 225 point omit counts {0: 1, 1: 15, 2: 45, 3: 15} line omit counts {0: 1, 1: 15, 2: 45, 3: 15}
-GQ(2,4) exchange k= 1 components [(1, 1215)] edges 0
-GQ(2,4) exchange k= 2 components [(45, 27)] edges 7290
-GQ(2,4) exchange k= 3 components [(45, 27)] edges 26730
-GQ(2,4) exchange k= 4 components [(1215, 1)] edges 32805
-GQ(2,4) verified points 27 lines 45 MMD edges 936 strong dim 64 bases 1215 point omit counts {0: 1, 1: 27, 2: 135, 3: 45} line omit counts {0: 1, 1: 45, 2: 270, 3: 270, 4: 135, 5: 27}
-ALL CHECKS PASS
-```
+## originality
 
-Actual tested output (C++17):
+PASS
 
-```text
-W(3,2) independent duad-syntheme construction: points 15, lines 15, MMD edges 120, six-vertex omitted independent sets 225, swap edges 1350, diameter 4. ALL CHECKS PASS
-```
+The general MMD vertex-cover criterion and the quadrangle axioms and distances are established inputs. The distinct claim is the full GQ-specific strong-resolving classification and polynomial coupled with the sharp exchange graph. Same-day and earlier catalogued analogues and ordinary GQ metric dimension were compared without treating a shared invariant name or date as equivalent coverage.
 
-All checks use exact combinatorial or integer arithmetic. They do not test every order \((s,t)\), establish existence for arbitrary parameters, or provide independent external validation. Originality is assessed against inspected sources and may be revisited if earlier priority evidence appears.
+## value
+
+PASS
+
+An explicit geometric description of every strong resolving set is more useful than the minimum cardinality alone: it gives the full size distribution and shows all locally deletion-minimal sets are optimal. The sharp exchange budget and exact product distances determine how to reconfigure those optimal sets without increasing their size. This holds uniformly for thick quadrangles without symmetry assumptions, including unequal orders.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

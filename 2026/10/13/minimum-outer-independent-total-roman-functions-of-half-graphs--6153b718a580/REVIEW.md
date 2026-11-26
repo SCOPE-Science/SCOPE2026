@@ -1,12 +1,21 @@
-# Review of Minimum outer-independent total Roman functions of half graphs
+# Independent mathematical audit
 
-## Correctness
-PASS. The matching \(a_i b_i\) forces every positive support to have at least \(n\) vertices. All size-\(n\) vertex covers are proved to be the staircase covers \(D_t\). Only the interior covers are total, and their zero sets meet both bipartition classes, forcing at least two defenders; the two leaves then force these defenders to be \(a_1\) and \(b_n\). Equality with a size-\(n+1\) support forces all zeros onto one side, and totality forces the unique added positive vertex and unique defender. This exhausts all equality cases. Direct enumeration of \(5{,}380{,}830\) ternary labelings for \(2\le n\le7\) agrees exactly.
+## correctness
 
-## Originality
-PASS. The introducing 2019 primary paper was inspected in full text and contains no half-graph occurrence. Its general bounds do not classify equality on half graphs. The 2022 primary follow-up was also inspected; it gives the complete-bipartite scalar formula but contains no half-graph occurrence. Exact and semantic searches under half graph, chain graph, Ferrers graph, and the outer-independent total Roman parameter found no equivalent staircase optimizer classification.
+PASS
 
-## Value
-PASS. Half graphs are canonical twin-free chain graphs and a natural stress test for parameters mixing independence, vertex covers, and total Roman support. The theorem determines every optimum, not merely its weight, and shows that nested neighborhoods produce an exact staircase of \(n+1\) minima for all \(n\ge3\), with a sharp exceptional boundary at \(n=2\). This is structural information not supplied by the general inequalities or the complete-bipartite formula.
+The matching a_i b_i forces positive support of size at least n. In an independent zero set of size n, the largest chosen B index t forces all chosen A indices to exceed t; equality forces exactly the two full intervals, including the single-side endpoints. For support of size n, totality excludes the single-side supports and the two zero leaves b_1 and a_n force two 2s, at a_1 and b_n. Each of these interior staircases is feasible: the positive prefix and suffix are completely joined, and the two defenders cover the respective zero sides. At support size n+1 a labeling of weight n+2 has one 2, so all zeros lie on one side. For zeros in A, B is fully positive and its unique positive A-neighbor must be a_1 (to serve b_1); the zero leaf a_n forces b_n to be the defender. The other case follows by reversing indices and exchanging sides. These endpoints are feasible by their universal cross-side neighbors. Larger support gives higher weight whenever any zero remains. With no zero the weight is at least 2n, attaining n+2 only at n=2 with all labels 1. This checks the value and all n+1 staircases, including the three staircases plus all-ones at n=2.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Pass for the exhaustive optimizer classification and count only. The minimum weight and a construction of the staircases can already be recovered from the 2022 general theorem and its proof. Its construction is sufficient, not a converse: the full classification requires ruling out other supports and other defender choices and finding the n=2 exception. No inspected statement or direct implication established that exhaustive result.
+
+## value
+
+PASS
+
+The relevant result is the full equality structure on a standard nested-neighborhood bipartite family, not the already implied scalar n+2. The support changes through n+1 precise thresholds, and positive-support totality and the leaves determine the defenders at each threshold. The classification and its small-order exception give an explicit census for comparisons or later work on chain-graph rigidity, beyond producing one optimum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

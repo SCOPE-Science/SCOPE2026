@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:46:10.257483Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With u=πr², area is du dθ/(2π); the Hermite STFT phases make the disk operator diagonal and the first three integrals equal 1−5e^(−2). For the tail recurrence put A=Q_(m−1), B=Q_m; then A−A'=B and mA−(m−2)B=uB'. These make (1−d/du) of the claimed polynomial increment exactly the difference of the densities with the exponential removed. At u=2 the factors Q_j(2)=(j−1)(j−4) give P_3=P_4=P_5=17/3 and strictly larger tails thereafter, so the complementary gap is (2/3)e^(−2). The annular integral of smooth rank-one projectors admits the stated trace-norm expansion. The h1 boundary STFT is zero, the other amplitudes have angular orders two apart, and the diagonal integrations vanish by zero mean. Thus the compressed eigenvalues are 0 and ±c, where c=√2 e^(−2)|bhat(2)|. The eigenvalue lower bound uses the appropriate extremal vector in the top space; the upper bound uses the fixed gap to absorb the O(|ε|) coupling to the complement with an O(ε²) loss by completing a square. The ellipse is exactly area preserving and b=2 cos(2θ). The result concerns smooth local exact-area perturbations only; if bhat(2)=0, no linear gain is inferred. Independent replay: python /workspace/branches/independent_checks.py 3 (formal polynomial expansion in m and direct Gaussian generating-function STFT coefficients through m=6). The source checker reports finite symbolic tests, not a separate certification.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Abreu–Gröchenig Eq. (2.4) supplies the Hermite transform; Abreu–Gröchenig–Romero pp. 1–2 cover general localization operators and accumulated-spectrogram asymptotics; Nicola–Tilli Theorem 1.1 assumes a Gaussian window."
+        ],
+        "reasoning": "These broader frameworks give the transform or the operator, not the relevant compressed signed eigenvalue splitting. The Gaussian theorem cannot be transferred by rescaling the domain while keeping h2 fixed.",
+        "searches": [
+          "arXiv:1012.4283v1 §2.2",
+          "arXiv:1404.7713v2 introduction",
+          "arXiv:2106.03423v1 Theorem 1.1",
+          "Resultary a2df20aeb429"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, CHECK.py and VERIFICATION.md",
+        "Resultary a2df20aeb429, 50f65f60373f and d0f938681288",
+        "arXiv:1012.4283v1",
+        "arXiv:1404.7713v2",
+        "arXiv:2106.03423v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The inspected resonances are for disks. The frozen gain uses a boundary term between h0 and h2, and the zero boundary amplitude of h1, in the full three-dimensional top eigenspace."
+        ],
+        "reasoning": "The disk result is a special case of the spectral catalogue result; neither the disk statement nor the general transform identity evaluates the top space variation for nonradial domains. The new conclusion requires the off-diagonal compression and its gapped perturbation estimate.",
+        "searches": [
+          "a2df20aeb429 Finding: all-radii second-sector eigenvalues",
+          "arXiv:1012.4283v1 Eq. (2.4)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "a2df20aeb429, Finding: second-Hermite disk spectrum at all radii and the exact triple and gap at u=2.",
+          "50f65f60373f: Gaussian simple-top shape Hessian; d0f938681288: first-Hermite rank-N ellipse splitting."
+        ],
+        "reasoning": "The second-excited Hermite sector is the same fixed h2 window. The Gaussian second-order statement and the first-Hermite subspace result change either the window, the spectral multiplicity, or the objective; neither is the stated degenerate h2 operator-norm first variation.",
+        "searches": [
+          "Resultary: second-Hermite area-two disk, Hermite ellipse splitting, higher-Landau-level shape variation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact analytic spectrum there gives λ0=λ1=λ2, λ3=λ4=λ5, and λ0−λ3=2/(3e²) with disk variable u=2."
+        ],
+        "reasoning": "This exactly covers the spectral anchor; a radial spectrum evaluates diagonal integrals, not the angular cross-mode matrix for a deformed disk.",
+        "searches": [
+          "Resultary a2df20aeb429, area-two triple spectral resonance"
+        ]
+      },
+      "rationale": "Pass for the sharp first-order fixed-h2 shape law, including local equal-area ellipse improvement. The disk triple and gap overlap exactly with Resultary a2df20aeb429 and are supporting spectral data, not a distinct contribution on their own. That distinct catalogue record is dated later; the date does not resolve priority. Its inspected disk spectrum does not give the off-diagonal boundary coupling or the sharp angular selection rule. No equivalent shape law was established by the comparisons below.",
+      "residual_risks": [
+        "An equivalent higher-Landau-level nonradial shape calculation may exist beyond the inspected primary texts.",
+        "Catalogue dates alone do not establish historical priority for the common disk spectral data."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact disk overlap but does not state the local nonradial perturbation theorem in the inspected result.",
+          "evidence": [
+            "All-radii eigenvalues; two triples at u=2; exact gap 2/(3e²)."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-three-mode-disk-localization-and-triangular-spectral-resonances--a2df20aeb429/RESULT.md",
+          "material_read": "Finding and spectral statements at local-mirror offsets 0 and 2700",
+          "method": "Bounded local public corpus full-text inspection",
+          "title": "Three-mode disk localization and triangular spectral resonances",
+          "trigger": "Exact same h2 disk and area-two crossing"
+        },
+        {
+          "assessment": "Provides transform machinery used by the frozen proof.",
+          "evidence": [
+            "Equation (2.4) relates the true polyanalytic Bargmann transform to the Hermite-window STFT."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1012.4283",
+          "material_read": "§2.2 pp. 3–4 and Eq. (2.4)",
+          "method": "Open preprint, bounded full-text inspection",
+          "title": "Banach Gabor frames with Hermite functions: polyanalytic spaces from the Heisenberg group",
+          "trigger": "Classical Hermite STFT identity"
+        },
+        {
+          "assessment": "Inspected results concern general windows and accumulated-spectrogram asymptotics, not this fixed-area shape response.",
+          "evidence": [
+            "The general concentration operator is the common object; the area-two h2 top-space variation is not the stated problem."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1404.7713",
+          "material_read": "v2 pp. 1–2, operator and asymptotic setup",
+          "method": "Open preprint, bounded full-text inspection",
+          "title": "On accumulated spectrograms",
+          "trigger": "Possible general localization-spectrum coverage"
+        },
+        {
+          "assessment": "Sharp theorem for a Gaussian analysis window, not a fixed second Hermite window.",
+          "evidence": [
+            "Gaussian-window hypothesis in the statement and setup."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2106.03423",
+          "material_read": "Gaussian window definition p. 1 and Theorem 1.1 p. 3, v1",
+          "method": "Open preprint, bounded full-text inspection",
+          "title": "The Faber–Krahn inequality for the short-time Fourier transform",
+          "trigger": "Sharp disk optimality may appear to contradict local instability"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The theorem pinpoints a limit of Gaussian disk optimality for a natural non-Gaussian window: an exactly area-preserving ellipse already improves the norm linearly. The selection rule gives the sharp magnitude and identifies the only boundary Fourier mode that can improve the norm to first order, information unavailable from a disk-spectrum table or a numerical counterexample.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,169 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:52:22.617037Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–44, clique_cover.json and optima.json",
+        "Frozen verify.py lines 11–127, alternate_verify.py lines 6–54 and VERIFICATION.md lines 19–23 (inspected, not executed)",
+        "Independent replay: python3 independent_check.py from the reproduction directory; the detailed output is independent_check_results.json beside the script"
+      ],
+      "rationale": "Length-one overlap exclusion makes the first- and last-symbol sets disjoint. Over three symbols, reversal and relabeling can therefore always place a nonempty code among the 48 unbordered length-five words with starts in {0,2} and end 1. A checked conflict clique can meet a legal code at most once. The 28 weighted groups cover every eligible word with numerator at least 16, and their total numerator is 98, so 16|C|≤98 and |C|≤6. Independently rebuilt compatibility graphs and an exact coloring-bounded clique census confirmed the six-word witness, checked all 954 within-group pairs of the frozen certificate, and found (T_n,E_n)=(1,6),(2,18),(3,60),(6,72) at n=2,3,4,5. Comparing complete sets of codebooks under common alphabet relabeling and global reversal verified all seven listed orbit representatives and sizes 12,12,12,6,12,12,6, not just their total. A separate run without the deletion conflict confirmed 17. At length one the sole deletion descendant of every word is empty, so the first blocklength with at least four messages is indeed five. Deletion may occur at any coordinate of the identified word.",
+      "residual_risks": [
+        "The census is exhaustive only for the stated finite lengths and alphabet. It does not certify streaming resynchronization after boundary-crossing corruption or after edits of more than one symbol."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Blackburn bounds pure non-overlap, and the 2024 table gives S(3,5)=17. The deletion-only maximum is 24. Non-overlap with Hamming distance at least two has maximum 9."
+        ],
+        "reasoning": "These give upper bounds, not the sharp 6. Single-deletion correction implies distance at least two, since a differing coordinate in a distance-one pair can be deleted from both words. The converse does not give disjoint deletion shadows, and neither of the single-constraint optima proves a sharp joint result.",
+        "searches": [
+          "Blackburn arXiv:1303.1026 Theorem 1",
+          "Stanovnik–Moškon–Mraz DOI 10.1007/s10623-023-01344-z Table 1",
+          "Resultary 831d8cb03d53 and d72ce427d800"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1303.1026; DOI 10.1007/s10623-023-01344-z and DOI 10.21512/comtech.v10i1.4716",
+        "Resultary 0189e09c44ac, e8e2fd1a9e7a, 831d8cb03d53, d72ce427d800, f262ebab78e2 and 51c6a485cde6",
+        "DOI 10.1016/j.disc.2024.114236 (limited access)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The frozen six-word witness shares two-deletion descendants and includes a pair at Hamming distance two. The closest indexed records impose either two-deletion correction without overlap restrictions, or a Hamming error model."
+        ],
+        "reasoning": "Neither the matching two-deletion size nor the Hamming-model results are specializations that give the one-deletion optimum or enumeration. A two-deletion upper bound for a stricter channel is not an upper bound for one-deletion codes, and an optimum without the framing condition is not automatically a witness with it.",
+        "searches": [
+          "Resultary f262ebab78e2 (two deletions), d72ce427d800 (substitution detection), 51c6a485cde6 (substitution correction)",
+          "DOI 10.1016/j.disc.2024.114236"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Non-overlap is also called cross-bifix-free. The exact joint catalogue hit 0189e09c44ac is the frozen item itself. Affaf's ternary cross-bifix-free constructions, in the inspected text, do not require disjoint deletion shadows."
+        ],
+        "reasoning": "Word reversal and common alphabet permutations preserve both conditions but cannot transform a pure non-overlap or Hamming constraint into the deletion-shadow condition. Arbitrary coordinate permutations are not part of the quotient.",
+        "searches": [
+          "ternary cross-bifix-free codes single deletion correction length 5 deletion descendants exact capacity",
+          "Resultary: ternary length-five non-overlap, single-deletion shadows and short-block synchronization",
+          "Blackburn arXiv:1303.1026, abstract"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Table 1 and e8e2fd1a9e7a give the uncorrected length-five maximum 17 and count 12. The number 6 occurs for two-deletion-only codes, with 478 labeled maxima and 46 orbits. The distinct same-day substitution-correction result gives size 4, 300 labeled maxima and 29 classes."
+        ],
+        "reasoning": "Those counts refer to different optimum sets, not the exact 72 sets and seven orbits for these joint conditions. The same-day date is not used as evidence for or against priority.",
+        "searches": [
+          "Resultary exact constrained maximum and equality census; records e8e2fd1a9e7a, d72ce427d800, f262ebab78e2, 51c6a485cde6 and 831d8cb03d53",
+          "Stanovnik–Moškon–Mraz Table 1, p. 1320"
+        ]
+      },
+      "rationale": "The exact uncorrected maximum 17 is established prior coverage, not the contribution. The inspected primary table and the closest indexed deletion and substitution results do not give the joint single-deletion/non-overlap maxima, labeled counts, or symmetry classes.",
+      "residual_risks": [
+        "The Wang–Fang–Feng full text was not inspected, and an unindexed equivalent exact classification is not ruled out. This is a best-of-knowledge originality decision, not a priority certificate."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different feasible family: non-overlap only",
+          "evidence": "The abstract identifies cross-bifix-free terminology; Theorem 1 bounds code size without an edit-correction requirement.",
+          "identifier_or_url": "https://arxiv.org/abs/1303.1026",
+          "material_read": "Abstract and p. 1 definition; Theorem 1 p. 4, OA offsets 0 and 8429",
+          "method": "Lawful OA arXiv passages",
+          "title": "Non-overlapping codes",
+          "trigger": "General cross-bifix-free coding bound"
+        },
+        {
+          "assessment": "Covers the pure non-overlap comparison",
+          "evidence": "Table entries S(3,5)=17 and N(3,5)=12 are for the uncorrected problem.",
+          "identifier_or_url": "https://doi.org/10.1007/s10623-023-01344-z",
+          "material_read": "Table 1, p. 1320, OA offset 85800",
+          "method": "Lawful OA full-text passage",
+          "title": "In search of maximum non-overlapping codes",
+          "trigger": "Exact published ternary length-five table"
+        },
+        {
+          "assessment": "Does not establish the joint optimum in the inspected passages",
+          "evidence": "The body discusses non-expandability in a restricted set and the conclusion qualifies optimality. The consulted passages do not impose deletion correction.",
+          "identifier_or_url": "https://doi.org/10.21512/comtech.v10i1.4716",
+          "material_read": "PDF p. 1 abstract and body/conclusion, OA offsets about 990, 25500 and 30500",
+          "method": "Lawful OA PDF passages",
+          "title": "Maximality on Construction of Ternary Cross Bifix Free Code",
+          "trigger": "Ternary maximum-code claim under cross-bifix-free terminology"
+        },
+        {
+          "assessment": "Covers size 17 without deletions",
+          "evidence": "States S(3,5)=17, N(3,5)=12 for prefix/suffix non-overlap alone.",
+          "identifier_or_url": "Resultary e8e2fd1a9e7a",
+          "material_read": "Mirrored RESULT.md theorem (offset 0) and references (offset 9000)",
+          "method": "Local Resultary mirror",
+          "title": "Exact size and enumeration of maximum length-five non-overlapping codes",
+          "trigger": "Closest distinct indexed baseline"
+        },
+        {
+          "assessment": "Covers deletion-only optimum",
+          "evidence": "Pairwise disjoint single-deletion shadows have maximum code size 24 without the overlap constraint.",
+          "identifier_or_url": "Resultary 831d8cb03d53",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Exact ternary length-five single-deletion code size",
+          "trigger": "Exact deletion-only comparison"
+        },
+        {
+          "assessment": "Supplies only a weaker upper bound",
+          "evidence": "Hamming distance at least two gives size 9 with 24 maximum codebooks.",
+          "identifier_or_url": "Resultary d72ce427d800",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Exact ternary length-five non-overlapping codes detecting one substitution",
+          "trigger": "Same framing condition, weaker error requirement"
+        },
+        {
+          "assessment": "Matching optimum number, different claim",
+          "evidence": "Two-deletion-only optimum 6, with 478 maxima and 46 orbits; the non-overlap requirement is absent.",
+          "identifier_or_url": "Resultary f262ebab78e2",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Exact ternary length-five two-deletion optimum and equality census",
+          "trigger": "Same numerical optimum and a different deletion model"
+        },
+        {
+          "assessment": "Different error model",
+          "evidence": "Minimum Hamming distance three gives length-five maximum 4 and 300 maxima in 29 symmetry classes.",
+          "identifier_or_url": "Resultary 51c6a485cde6",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Sharp ternary short-block synchronization and single-substitution correction",
+          "trigger": "Distinct same-day short-block classification"
+        },
+        {
+          "assessment": "Full comparison unresolved",
+          "evidence": "Full-text §4 was not available to verify the reported Hamming-sphere interpretation; the landing page is not negative evidence of coverage.",
+          "identifier_or_url": "https://doi.org/10.1016/j.disc.2024.114236",
+          "material_read": "Landing/abstract only; the frozen record reports a partial comparison of §4",
+          "method": "Lawful OA retrieval attempt",
+          "title": "q-ary (1,k)-overlap-free codes with given restrictions",
+          "trigger": "Potential broader bound for overlap with an error-correction restriction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–12 and 24–44",
+        "Frozen optima.json and clique_cover.json",
+        "Stanovnik–Moškon–Mraz Table 1 for the uncorrected baseline"
+      ],
+      "rationale": "The finite cutoff has a concrete coding interpretation: length five is the smallest ternary blocklength carrying four messages with both framing and single-deletion correction. The sharp comparison 17 versus 6 isolates the cost of the added constraint at that length. The upper certificate and complete equality classification identify all optimal designs up to the natural symmetries, rather than reporting a single feasible code or recomputing the known uncorrected table.",
+      "residual_risks": [
+        "These are exact short-block invariants, not a rate theorem or a decoder result for concatenated blocks."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

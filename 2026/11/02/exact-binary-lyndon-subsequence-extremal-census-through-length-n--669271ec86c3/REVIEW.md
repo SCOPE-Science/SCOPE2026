@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem is explicitly finite. A unique sentinel-bit encoding of each binary string, the exact two-case recurrence for subsequences when the final host symbol is appended, and a complete direct rotation test for Lyndon membership reconstruct the score for every host. The implementation examines all \(2^n\) hosts separately for each \(1\le n\le19\), with no statistical sampling or missed symmetry classes. Tagged-set membership prevents duplicate patterns. The independent Python set-based computation matches all exact maxima, tie counts, first witnesses and aggregate scores at every length through \(16\). The C11 census completes the remaining three finite lengths and prints the stated values.
+PASS
 
-## Originality — PASS, subject to residual literature risk
+The frozen recurrence is an exact set union because a subsequence either uses the last host position or omits it; the sentinel encoding separates lengths. The C membership tags, saved pre-append list length, rotation comparisons (strict, including the unary and periodic cases), and full fixed-length host loop implement these definitions within the stated integer bounds. I recomputed by a different, pattern-first count: a Lyndon pattern is strictly smaller than all proper nonempty suffixes. For each tuple of earliest greedy match positions ending at n, all skipped bits must be the opposite of the next required bit, fixing a single length-n host for this pattern/tuple. Different tuples cannot count that pattern twice in a host. The per-host score is its prefix score plus the new patterns whose greedy match ends at n. Exact integer accumulation recovers all 19 maxima, all 19 tie counts and the first witnesses, as well as both length-twelve attainers. At n=17,18,19 the results are 1292,1941,3132, all unique. Replay: /workspace/review-work/lyndon_dual.py 1 19 (Python/NumPy); recorded results in lyndon_small.txt, lyndon_middle.txt and lyndon_upper.txt in the same directory. The frozen Python crosscheck differs in data structure and predicate but shares the set recurrence; the pattern-first replay is independent of that recurrence. No claim outside n=1..19.
 
-The nearest established formula concerns maximum counts of **all positional occurrences** of Lyndon subsequences; that maximum cannot imply the maximum number of **distinct** patterns because repeated embeddings contribute more than one occurrence. Open-access work on computing a longest Lyndon subsequence concerns a different statistic. OEIS A290743 tabulates maxima for **contiguous Lyndon factors** and has different values. Actual semantic searches of mathematical result records for the distinct binary Lyndon *subsequence* maximum, its aliases and numeric profile found no equivalent enumeration or stronger formula. Unindexed finite tables remain possible, so this is not a guarantee of worldwide novelty.
+## originality
 
-## Value — PASS
+PASS
 
-A complete finite profile through length nineteen gives exact benchmark values and full optimizing-word multiplicities for the distinct-pattern variant of a published Lyndon-subsequence counting problem, in contrast to the known positional and contiguous variants. The two distinct optimizers at length twelve and changes in the shape of extremal words are nontrivial structural features, useful for formulating and testing future extremal classifications. No extension to arbitrarily large lengths is claimed.
+The precise maximum of distinct scattered Lyndon strings was posed before; the inspected papers, open-problem note and closest catalogue records do not give the exact ordered-binary census or its attainer counts. The pass is limited to the finite result, not the problem, underlying definitions, or an all-length characterization.
 
-## Closest literature and scientific limits
+## value
 
-Hirakawa et al. (2021), arXiv:2106.01190; Bannai et al. (2022/2023), arXiv:2201.06773; Glen–Simpson–Smyth's 2017 Lyndon **factor** enumeration as recorded in OEIS A290743. Enumeration by correct exhaustive loops proves the finite census but not any infinite pattern. The final three lengths were exhaustively checked by C11; the second independent implementation stops at length sixteen.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is a reproducible finite answer to the binary specialization of a published open extremal question, not a recomputation of occurrence or factor counts. Exact numbers of optimizing hosts add information beyond the maximum sequence; the length-twelve tie and changing extremizer shapes are useful constraints on any proposed characterization. The complete contiguous range of verified host lengths is useful as a benchmark without implying an all-length solution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

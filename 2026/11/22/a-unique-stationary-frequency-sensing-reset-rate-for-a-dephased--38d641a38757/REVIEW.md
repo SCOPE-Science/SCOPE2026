@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The Bloch generator is strictly relaxing for positive dephasing and reset rates and has a unique full-rank stationary state. Direct application of the exact single-qubit QFI identity produces the rational frequency-information law. Exact differentiation reduces its positive-rate derivative to a polynomial with four positive and three negative consecutive coefficients, so Descartes' rule plus the endpoint signs proves one and only one global optimizer. Exact factorizations establish the zero-detuning root and the strict scaled lower bound; implicit-function and fixed-scale polynomial trapping prove both asymptotic laws. The accompanying checker independently verifies rational identities and matrix-SLD quadrature comparisons. No finite numerical test is used to infer a universal statement.
+PASS
 
-## Originality
+The stationary transverse Bloch coordinate is the renewal transform r/(r+γ−iω), and the longitudinal component vanishes; the drift eigenvalues have negative real part and the Bloch radius is strictly below 1. Taking the local ω derivative at fixed γ and r in the polar full-rank SLD metric gives the stated rational QFI. Independent symbolic differentiation of that expression gives the stated sextic with positive derivative prefactor. For every t>=0 its ascending coefficient signs are ++++---. Descartes' rule and opposite signs at zero and infinity prove existence, simplicity and global maximality of the unique positive root. At t=0 the sextic factors as −(u−1)(u+1)^3(2u+1)^2, giving u*=1 and γ²F=1/16. Evaluating it at b=√(1+t) gives b^5(b−1)(b+1)^2, establishing strict separation above b for nonzero detuning. The derivative ratio at (1,0) gives the small-t coefficient 19/36. For v=√t tending to infinity and fixed c>0, v^(−8)P(cv,v²) tends to 1+2c²−2c⁴, with a unique simple positive root; bracketing on both sides and uniqueness give u*/v→√((1+√3)/2). Substitution into the scaled QFI gives 2√3/9. These are fixed-γ derivatives, not derivatives along the optimized reset schedule.
 
-**PASS, with residual priority risk.** The 2022 quantum stochastic-reset ensembles and 2024 discrete-time reset-state work do not state or imply this strictly dephased continuous-time steady-state QFI optimization. A publicly summarized discrete-time phase-information optimum is close but concerns a unitary gate with Bernoulli, rather than continuously dephased Poisson, resetting. Li–Tong–Bao (2026) develop broad QFI response theory and related frequency metrology, but their specifically treated frequency probe is transient and amplitude damped; their analytically optimized stationary task is thermal parameter estimation. Exact source passages are compared in the accompanying structured record. A general derivative identity could reduce the algebra but does not itself yield this all-frequency one-positive-root theorem. Independent publication-priority verification remains outstanding, and continuous-time QFI generalizations not captured in this comparison remain possible.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** In open-quantum-frequency metrology the reset clock is a natural controllable resource: too rare resets permit dephasing, while too frequent resets obstruct phase accumulation. A rigorous unique global optimum, a strict nonzero-detuning frequency/dephasing lower bound, and sharp weak- and strong-detuning laws give a complete quantitative rate-design benchmark not provided by stationary-state formulas alone. This result is about locally optimal single-copy stationary QFI, not time-normalized metrology, measurement-record information, preparation overhead or adaptive frequency-global performance.
+The principal distinct result is the global known-γ scalar-QFI optimizer, its sextic, and its strict detuning-dependent bound and weak-detuning behavior. The stationary state and scalar information formula are already derivable from the same-day joint-sensing metric; the strong-detuning constants also occur in the earlier undamped discrete scaling. Neither is credited as a standalone new contribution. No ordering is inferred from the same-day date.
 
-## Closest literature and limitations
+## value
 
-Magoni et al., arXiv:2202.12655 (2022), provide continuous quantum-reset ensembles; Wald et al., arXiv:2410.11497 (2024), analyze unitary discrete-time resets; Li, Tong and Bao, arXiv:2610.31249 (2026), derive a broad QFI-response identity and study transient amplitude-damped frequency sensing. The published discrete-phase optimization record is especially close and its complete publicly accessible theorem/proof was compared by state generator, dephasing, clock and estimated parameter. The closest discrete stationary phase-QFI full theorem was inspected and does not address positive continuous dephasing. The possibility of another broader unpublished or implicitly specializing theorem is not excluded; only the newly stated claim received this scientific assessment.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This solves a natural resource-setting problem for frequency estimation when dephasing is calibrated: a global, one-dimensional root test for all detunings, an informative strict threshold, and a clear contrast with joint estimation on identical dynamics. The new scalar optimizer is useful independently of the standard QFI calculation and known undamped scaling constants.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification protocol
+# Independent mathematical audit
 
-Run `python3 verify_ternary.py ternary_lottery_witnesses.json` in a directory containing both supplied files. Python 3 standard library is sufficient. The checker evaluates all 5,053 rational lottery certificates, all six expected envy inequalities, ex-post EFX checks, and Pareto nondomination against 81 possible allocations; it also proves coverage of all 531,441 labeled profiles by exact orbit counting.
+## correctness
 
-Observed output:
+PASS
 
-```
-VERIFY_OK canonical=5053 labeled=531441 all_three_level=392 any_three_level=3767 max_support=4 support_hist={1: 1123, 2: 2091, 3: 1772, 4: 67}
-```
+Exhaustively and independently checked the supplied JSON as data. The canonical ordering is the lexicographically least sorted sequence of base-3 column codes under row permutations. Explicitly expanded every representative under both row and column permutations, marking all 531441 labeled profiles with no intersection between representative orbits. Checked each positive unique support and exact normalization with cleared integer denominators; checked the six expected envy inequalities, EFX by removal of each comparison bundle's least-valued good for the evaluating agent, and nondomination against the own-utility vectors of all 81 complete allocations. All 5053 witnesses pass, including the illustrative lottery; 392 profiles have all three levels in every row, and the support histogram is (1123,2091,1772,67). Relabeling preserves every condition, so this is exhaustive for the claimed finite domain. Replay: `python3 /workspace/branches/frozen_replay.py 3`.
 
-All arithmetic in the acceptance checker uses integers and exact fractions. The proof is finite and exhaustive for the stated domain only. The sources establish contextual prior work but do not independently validate the certificates. No independent audit has been performed.
+## originality
+
+PASS
+
+The distinct finding is the joint EF/EFX/integral-PO guarantee, with four support points sufficient, on the fixed smallest consecutive positive three-level alphabet at the four-good, three-agent size. The closest indexed material gives a three-level counterexample on a different numerical alphabet; available positive theorems restrict the valuations in different ways or have extra hypotheses. No inspected prior statement or mechanical implication establishes this fixed-domain theorem.
+
+## value
+
+PASS
+
+The first consecutive positive integer alphabet beyond the known bi-valued guarantee settles a meaningful compatibility boundary in the same small market that already permits impossibility. The comparison with the nearby {1,3,4} counterexample shows that the actual levels, not just their cardinality, matter. The certificate gives an exact finite benchmark for identifying which domains allow ex-ante fairness with complete EFX/PO support, plus a usable uniform support bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

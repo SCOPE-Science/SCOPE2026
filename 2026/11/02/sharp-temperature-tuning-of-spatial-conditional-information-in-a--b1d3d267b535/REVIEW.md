@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The published stationary mode covariance is independently reconstructed from the active OU oscillator's moment equations, including its force variance normalization. The reciprocal-spectrum Fourier identity gives exact spatial precision coefficients and the Gaussian conditional-information formula; cold nearest-neighbor Markov structure and positive-temperature complete precision support follow analytically. Strict logarithmic concavity proves one and only one maximizer for each \(n\ge2\), monotone optimizer movement with distance, and all boundary and asymptotic constants. The embedded standalone code passed 6020 checks, including independent Lyapunov systems and finite-ring matrix inversions. The code is corroboration, not an all-distance proof. All hypotheses and the distinct \(n=1\), \(T=0\) cases are explicitly handled.
+PASS
 
-## Originality — PASS (qualified)
+The stationary v–force cross moment of each nonzero mode is (gamma a/tau)/(gamma+1/tau+k tau); the v-variance balance adds this moment divided by gamma to t. The zero mode has the same velocity limit and does not require a stationary displacement. For t>0 the reciprocal spectrum is 1/t−(a/t²)/(H−B cos q); Fourier inversion gives r^{|j|}/Delta for the latter resolvent. At t=0 the reciprocal is degree one in cos q. For the split into the selected pair and its complement the uniformly positive covariance has a bounded invertible complement block; Gaussian projection on the closed span of the remaining velocities gives the Schur complement, whose inverse is exactly the pair restriction of J. Thus −J_n/J_0 is the conditional correlation, positive and strictly less than one when t>0. In the strictly increasing r coordinate, the factor multiplying r^{n−1} is (r_0−r)(1/r_0−r)/(2(alpha−r)); its log derivative is negative for n=1 and the full log derivative for n≥2 is strictly decreasing from +infinity to −infinity. Increasing n adds 1/r, so the root moves strictly right. The root equation gives n(r_0−r_n)→r_0; H'(r_0)=−sqrt(A²−B²)/r_0 and the smooth factor after division by r_0−r tends to 1. This gives the linear t_n coefficient and the e^(−1)/n peak correlation, and the Gaussian log formula then gives the peak information. Checked the proof independently; the finite-ring and mode checks described in the frozen files were inspected as code and not executed or treated as an all-distance proof.
 
-The underlying stationary covariance and ordinary pair correlations are known from Marconi–Löwen–Caprini (2024). The general effect of adding independent noise to an autoregressive Gaussian field is also familiar and is not claimed by itself as novel. The assessed contribution is the **global, unique temperature optimum of all-rest-conditioned pair information for each \(n\ge2\)**, its strict distance ordering, and its sharp \(n\)-dependent temperature and peak-information laws. The full relevant 2024 source, the 2024 Paul–Dhar–Chaudhuri paper, and the 2018/2019 quantum chain conditional-information work were compared by objects, conditioning sets, parameters and claimed implications. The closest general Gaussian predictive-information article (Chavez 2016) was available only in abstract; broader time-series literature could still contain an equivalent algebraic special case. Publication-priority certainty is therefore limited; this is not an independent scholarly certification.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Ordinary pair covariances at nonzero distance are independent of thermal temperature, so they cannot reveal the nonmonotone **conditional** information dependence. The theorem exhibits noise-assisted indirect conditional connectivity under fixed nearest-neighbor dynamics, a rigorous optimal thermal scale for every separation, and a universal \(e^{-1}/n\) penalty atop geometric long-distance decay. This is a natural full classification of how bath strength controls spatial information rather than a freely chosen small instance or a known-table recomputation.
+Pass for the exact distance-dependent optimization of two-site conditional information with all other velocity sites conditioned on: existence, uniqueness, strict ordering and coefficient-level peak and temperature asymptotics. The input covariance is published; inversion and the generic loss of a sparse precision pattern under additive white noise are not independent novelty. No inspected earlier statement covers the distinctive optimizer result under the exact Gaussian AR(1)-plus-white-noise equivalence. This judgment is bounded by the cited access and search limits.
 
-## Closest literature and limitations
+## value
 
-Marconi–Löwen–Caprini, arXiv:2401.07972, Eq. (28), already gives the spectral covariance that is inverted here. Malouf et al., arXiv:1809.09931, address block conditional information in a different quantum boundary-driven model. Paul et al., arXiv:2402.11358, focus on active tracer/displacement correlations. Chavez (2016), doi:10.1111/jtsa.12199, studies Gaussian time-series prediction information, but full text access was unavailable and it remains a residual novelty risk. The result is for an infinite homogeneous linear active Ornstein–Uhlenbeck velocity field with \(m,\gamma,\tau,\omega_E,T_a>0\), and a thermal bath \(T\ge0\); no finite-time, nonlinear, quantum or thermodynamic-entropy generalization is proved.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Ordinary nonzero-lag pair covariance is blind to the thermal contribution, yet conditional dependence changes from local to dense and displays a unique intermediate-temperature peak at every nonadjacent distance. The strict optimizer ordering and simultaneous sharp scales for temperature and peak give a natural quantitative classification beyond a routine Fourier inversion. The claim is about the equal-time infinite Gaussian velocity field, not finite-ring optimization, displacement stationarity, or entropy production.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

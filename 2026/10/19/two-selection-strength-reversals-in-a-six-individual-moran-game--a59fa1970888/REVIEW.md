@@ -1,9 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The defined six-person, no-self-interaction game has integer payoff-advantage sequences derived directly from its matrix. The exact Moran recurrence produces two positive Laurent-polynomial fixation denominators. Clearing denominators gives an integer polynomial with three coefficient sign changes; exact rational signs together with Descartes' rule prove precisely two crossovers for all positive selection intensities. The independent rational absorbing-chain checker agrees with the formula on five test inputs. The numerical thresholds are explanatory approximations rather than proof.
+## correctness
 
-**Originality — PASS, with residual risks.** The fixation recurrence and exponential transformation are prior work, especially Cooney–Allen–Veller (2015). The assessed statement concerns two different mutants separately introduced into the *same third resident*, not the opposite directions of a two-type invasion in one game. Antal et al. (2009) derive weak-selection equilibrium abundance results, not this strong/weak/intermediate all-parameter preference reversal. The 2019 computational reference gives general methods, not this explicit polynomial witness. Semantic research-record searches did not identify the exact claim; that is not a proof of novelty. Older unindexed examples could imply it, and the incomplete-access 2015 model-comparison source leaves some residual risk.
+PASS
 
-**Value — PASS.** The counterexample rigorously separates all-strength relative success of two possible mutant types from low- and high-selection comparisons, in a standard finite game with nonnegative payoffs and a common resident. It makes the distinction between within-game opposite-type fixation ratios and cross-mutant fixation rankings mathematically concrete. Robust strict inequalities occur at separated rational intensities; the complete two-crossover classification supplies more than a simulation. It does not classify all games or establish a minimal population.
+The two experiments are separate, so only the A/B and C/B payoff submatrices matter. Under random replacement the common reproduction/target factor cancels from T_i^-/T_i^+, leaving exp(-w times mutant payoff advantage). Taking first differences in the absorption recurrence and summing up to the fixed boundary at i=6 gives the reciprocal-fixation denominator. Independent exact reconstruction gives prefix sums (-4,-4,0,8,20) and (3,4,3,0,-5), hence D_A=2+2z^4+z^-8+z^-20 and D_C=2+2z^-3+z^-4+z^5. Termwise subtraction verifies z^20(D_A-D_C)=P(z). Exact replay by substitution gave P(1)=0, P'(1)=-15, P(6/5)=3174820597963420709/298023223876953125>0, P(2)=-323583. Three Descartes variations and disjoint brackets at 1, (1,6/5), (6/5,2) exhaust the positive roots counting multiplicity, so the crossings are simple. The fixation difference is -P/(z^20 D_A D_C), giving the stated ordering and neutrality tie. The frozen checker was read, not run. The reported decimal refinements are illustrative; the exact brackets, rather than an independent decimal refinement, were used to certify all positive-selection regimes.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The standard Moran recurrence is covered. The supported distinct claim is an exact two-switch ranking of distinct rare mutants versus the same resident as selection strength varies in one well-mixed model. The closest inspected results change the parameter, comparison or observable; they do not realize this reentry.
+
+## value
+
+PASS
+
+The witness tests a natural inference about using weak- and strong-selection rankings to screen rare invaders of the same resident. Both ends favor the same mutant, yet a whole intermediate interval favors its competitor. The exact two-crossing result establishes the failure in a fixed elementary model without conflating mutant identity with an update rule, invasion site, or coexisting mutant dynamics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Review of optimal strong odd colorings of the McGee graph
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** For cubic graphs, the positive neighborhood multiplicities must be either three equal or three distinct. This gives a necessary-and-sufficient reduction to partitioning the vertices into independent sets meeting no neighborhood twice. The two included exhaustive algorithms use different state spaces—canonical vertex color assignments versus exact covers by independently generated valid color classes—and return identical sets of all \(1304\) five-color partitions, with zero four-color partitions. The square and automorphism profiles are checked over this entire census. The first five-color witness can be checked directly from the explicit LCF edge rule.
+PASS
 
-## Originality
+For a cubic graph, a proper coloring is strong odd exactly when each color class is independent and no open neighborhood meets it twice. The LCF edges give 36 edges, cubic degree and girth seven (computed by shortest paths with one edge deleted). Independently enumerating independent subsets and applying the neighborhood filter gives 1,196 admissible nonempty classes. For a fixed remaining vertex mask one can pick any deterministic pivot in it and branch over all wholly remaining classes containing that pivot; every completion has a unique such class and is reached exactly once. This gives 0,0,0,0,1304 partitions for k=1..5. The resulting set agrees with both frozen lists and contains the stated witness. Sorting sizes yields the six counts 16,48,96,336,400,408 in the reported order. The 32 automorphisms are exactly the bijections preserving the graph-distance matrix (distance one is adjacency); backtracking with pairwise distance constraints gives the full group. Its action on partitions gives orbit multiplicities 5,19,30 for sizes 8,16,32. Exactly 320 partitions have three distinct colors in every open neighborhood, hence are proper square colorings; the complement is 984. Five occupied named colors multiply the unnamed count by 120. The supplied search and exact-cover code were inspected, not run.
 
-**PASS under best-knowledge comparison; priority not certified.** The inspected 2024 primary articles develop the definition and general bounds, not this McGee-graph classification. Publicly indexed McGee-graph work on identifying codes, perfect matchings, and independence topology does not imply strong odd coloring counts. General sparse-graph upper bounds cannot yield the exact optimum or classify all \(1304\) partitions. Prior related finite color censuses on other cubic graphs are distinct objects. No full-text evidence of the same McGee five-color census was found in the checked sources, though uncataloged computations and later literature remain possible.
+## originality
 
-## Value
+PASS
 
-**PASS.** The McGee graph is the unique smallest cubic girth-seven graph, making it a natural finite extremal test of parity-constrained colorings. Beyond the minimum palette, the complete \(1304\)-set census separates \(320\) square colorings from \(984\) genuinely weaker odd-neighborhood colorings, provides six color-class profiles, and resolves \(54\) automorphism types. This distinguishes a canonical cage's optimal-coloring geometry from a mere upper-bound example.
+The supported distinct finding is the complete strong-odd optimum census for the specified McGee graph, including profiles, orbits and the square subset. The graph definition, automorphism order and strong-odd definition are not discoveries. Neither the inspected sparse-coloring bounds nor the closely related catalogue entries cover the exact claim.
 
-## Limits
+## value
 
-The proof is a fully specified finite enumeration, not a proof of a general cubic-graph formula. Source comparisons are necessarily incomplete, and independent audit has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The unique cubic girth-seven cage is a natural benchmark rather than an arbitrary sampled graph. The census resolves both the optimum and its multiplicity modulo two meaningful symmetries (color names and graph automorphisms), and measures how much larger the strong-odd family is than the distance-two family at the optimum. These exact benchmark data are substantively useful even without a theorem for all cages.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Review of the graph-incidence furtherness classification
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem is quantified over all finite connected simple graphs with at least two vertices, every root, every coefficient field, all homological degrees, and inclusive real thresholds. Principal lower-set differences yield precisely the four filtration times and prove that the order complexes are one-dimensional. The intermediate vertex-root graph is a star; the intermediate edge-root graph is a double star whose fundamental cycles are indexed by common neighbors. The integral graph cycle lattice has no two-boundaries, so all first-homology maps are injective and the interval ranks follow from component mergers. `verify.py` reconstructs the poset from edges and checks 14,946 roots on 1,100 connected test graphs, plus 50 roots in the Petersen/prism pair. These tests do not substitute for the symbolic proof. No critical unproved lemma remains beyond standard graph homology and the credited finite-space core theorem.
+## correctness
 
-## Originality — PASS, with residual priority risk
-The original 2026 furtherness paper treats zeroth persistence generally, not the complete rooted incidence-graph invariant or local triangle births. The closest published Steiner-incidence calculation proves an all-degree statement for Steiner designs and already covers **complete graphs** when the block size is two. It does not cover arbitrary sparse or heterogeneous-degree graphs, nor the arbitrary-edge codegree formula. The existing graph 2-core theorem implies the nonhomotopy part of the explicit example but not the barcode equality; these contributions are separated. Targeted published-finding corpus and literature searches for full incidence-graph furtherness barcodes, edge-root triangle births, and equivalent barycentric-subdivision filtrations found no broader covering theorem. Remaining risk: uncatalogued or unindexed work may contain this elementary-looking generalization, and not every section of every relevant source was accessible during review. Search absence is not a novelty certificate.
+PASS
 
-## Mathematical value — PASS
-The classification covers every connected simple graph, not a selected graph or arbitrary small parameter slice. At an edge root, a persistence birth count recovers an otherwise nonhomological local triangle statistic, while all rooted barcodes together recover degrees and triangle totals. The explicit pair of nonhomotopy-equivalent finite spaces with identical full rooted barcodes clarifies the limitation of this new graph-topological descriptor. Although the proof uses elementary graph homology, its full all-root formula and local-reconstruction/nonseparation consequences are motivated structural statements rather than a numerical recomputation.
+A graph vertex has a singleton lower set and a graph edge has a three-point lower set. For a vertex root, all other vertices enter at 1 and its incident edges enter at 2, joining exactly d_v isolated vertices to the root component without a cycle. For an edge root the two endpoints with the subdividing point already form a connected path at 0; the other vertices enter at 1. The level-2 double star joins k_e distinct outside vertices, and after taking its root edge and one edge per outside vertex as a tree, the remaining edges are precisely one per common neighbor. This proves the c_e cycle births at 2. All remaining edges enter at 3; graph inclusions inject cycle spaces and introduce nothing in higher dimension, and the full subdivision is connected with cycle rank m-n+1. This gives the claimed ordinary barcodes, also for a single edge, with triangle recovery by summing c_e and dividing by three. Petersen and the pentagonal prism have the same substituted profiles. They differ by existence of a four-cycle; both incidence posets have no beat points and are their own Stong cores. The finite-space nonhomotopy is not a claim of distinct order-complex weak types. Fresh replay on 771 connected labelled graphs (8100 roots) through five vertices and the named pair corroborates these deductions.
 
-## Limits and priority comparisons
-The class is restricted to simple connected graphs and to the lower-Alexandrov furtherness filtration, not arbitrary finite spaces. The independent mathematical audit is outstanding. The published Steiner formula is acknowledged in its complete-graph specialization, and the incidence core classification is acknowledged as prior work.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct contribution is the full degree/common-neighbor barcode formula for arbitrary connected simple graphs and the explicit barcode collision across distinct finite-space cores. The underlying filtration, general H0 principle, complete-graph subcase, Steiner-design collision precedent, and graph-core method are already covered and are not credited as new.
+
+## value
+
+PASS
+
+For a basic family of finite spaces this gives an exact interpretation of what the established filtration sees: all rooted intervals have a simple combinatorial origin, and a degree-one edge-root birth counts local triangles. The named pair shows the complete root-tagged invariant cannot determine the ordinary finite-space core, despite detecting these graph features. That joint classification and limitation is useful beyond a small computation or the known complete-graph substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

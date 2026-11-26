@@ -1,17 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Claim reviewed.** For an unweighted simple wheel \(K_1\vee C_n\), \(n\ge3\), binary conformist/rebel responses have the four exact pure-equilibrium and strict-equilibrium count formulas stated in `RESULT.md`, with either all rim players rebels or exactly one rim conformist.
+## correctness
 
-## Correctness — PASS
-Every rim player has odd degree three, so its binary best response is uniquely determined by its neighbors. With a fixed hub action, an all-rebel rim is in equilibrium precisely when its zero vertices form a maximal independent set of the cycle. A transfer-matrix trace establishes the classical Perrin enumeration; the hub's own best response reduces to the half-size bound on the independent set. In the one-defect rim, a conformist at the designated position is forced to oppose the hub, forcing a length-four distinguished gap and leaving ordered two-/three-step internal gaps, which proves the composition formula and strictness. The edge cases with three and four rim vertices are explicitly resolved. The verifier directly implements the local decision inequalities and checks 52 type/size cases (524,224 profiles) plus the rational cycle-count identity. The all-size theorem rests on the analytic proof, not the finite checks.
+PASS
 
-## Originality — PASS (qualified)
-The recent full-text works by Cao, Sánchez and Zhang (arXiv:2607.05932) and Pei, Cao and Zhang (arXiv:2607.10997) establish general network game frameworks and existence tests but do not state the wheel multiplicity/strictness phase table. Earlier full-text fashion-game work by Cao and Yang, and the 2019 dynamic matching-pennies analysis of Cao et al., treat different graph classes and/or limit-cycle behavior. Bisdorff and Marichal's cycle maximal independent-set/Perrin identity is expressly prior art and covers the all-rebel rim enumeration step alone, not the hub or defect cases. Searches of accessible semantic research records and overlapping mathematical results found no dominating equivalent claim. Plausible Shen–Lin graph/planar-fashion primary manuscripts were available only at abstract level, so priority is not established exhaustively; the accessible material did not reveal a decisive counterclaim.
+Action complement gives a bijection between hub bits, so fix the hub at zero. For every rim rebel, zero is the unique best response exactly when both rim neighbors are one. On the all-rebel rim the zero set is therefore independent and dominating, with cyclic gaps 2 or 3. Closed walks on the allowed ordered bit pairs have characteristic polynomial λ³−λ−1 and trace initials 3,0,2, giving the labeled Perrin count without quotienting by rotations. The number of zeros is at most n/2, with equality exactly for the two alternating words when n is even. The conformist hub is feasible only at equality and then ties; the rebel hub is always feasible and ties only at equality. For the defect, the conformist cannot choose zero, as it would need an adjacent zero rebel, which is impossible. Choosing one forces neighbors one and the next vertices zero. The n=3 forcing conflicts, n=4 gives a single word, n=5 has adjacent forced zeros, and thereafter the remaining interval has gaps 2 or 3 and length n−4. The gap of length 4 across the defect leaves at least two more ones than zeros. Thus a conformist hub cannot respond and a rebel hub strictly responds; every rim response is strict. An unweighted binary payoff/flip reproduction in /workspace/branches/71fe088b-4d09-43b9-a5c4-75ac1145d331/direct_reproduction.py matched all 40 size/type cases for n=3,…,12 (65,472 profiles). This is a finite check, not the proof. Frozen verification and code were inspected, not executed. No extension to arbitrary rim types, weights, dynamics or symmetry-orbit counts is asserted.
 
-## Mathematical value — PASS
-The four exact cases form a natural complete classification of a hub-mediated network coordination/anti-coordination problem with a controlled single-vertex type perturbation. Its sharp disappearance of all equilibria with a conformist hub on even wheels, versus strictly stable rebel-hub equilibria whenever its composition count is positive, is an informative structural sensitivity boundary. The infinite-family counts and strictness distinctions go beyond a routine standalone cycle Perrin enumeration.
+## originality
 
-## Closest literature and limitations
-The original pure-network fashion-game model and 2026 heterogeneous extensions provide the scientific setting; the Perrin count on isolated cycles is known. The theorem is confined to binary actions, uniform weights, one or zero rim conformists and pure equilibria. Unindexed equivalences and the unread full texts of Shen–Lin (2020; 2022) remain risks. No claim is made about arbitrary type words, behavior over time, or mixed equilibria.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Credit the distinct combined heterogeneous-wheel classification, particularly the one-defect composition law, strictness and conformist-hub extinction. Do not credit the all-rebel wheel case as new: an earlier indexed theorem proves its two counts in a stronger weighted setting. Neither that result nor general equilibrium existence nor the classical Perrin correspondence supplies the heterogeneous rim and hub comparison.
+
+## value
+
+PASS
+
+The wheel naturally couples cycle responses to a strategically responding hub. The one-defect formula explains an exact class-wide change from four conformist-hub equilibria to none, and distinguishes surviving strict equilibria for rebel hubs for all sizes, with boundary exceptions handled. That is useful beyond recovering the known homogeneous Perrin count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

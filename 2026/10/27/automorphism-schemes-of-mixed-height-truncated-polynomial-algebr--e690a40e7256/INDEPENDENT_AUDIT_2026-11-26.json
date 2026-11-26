@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:31:03.897825Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For each i and each commutative k-algebra R, raising a proposed generator image to q_i=p^{e_i} gives only q_i-th powers of coefficients, by Frobenius. Its surviving monomials x^(q_i α) are distinct; their indices have α_j=0 for e_j≤e_i and 0≤α_j<p^(e_j−e_i) otherwise. Thus there are exactly c_i independent relations a^(q_i)=0, with no reduced-base assumption. Their universal coefficient ideal is nilpotent. Modulo this ideal the image of the origin is the origin and the linear coefficient matrix is block triangular by height, with unrestricted equal-height diagonal blocks. Over every residue field the finite local algebra criterion is invertibility on m/m², by the finite maximal-ideal filtration. Consequently the universal endomorphism determinant is invertible exactly on the open where the diagonal blocks are invertible: the conditions agree at all primes, and nilpotent terms cannot change that open. The remaining polynomial coordinates are independent and give precisely the stated affine dimension. In characteristic p all defining power equations have zero derivative, equivalently each derivation can assign arbitrary values to the generators, so the tangent dimension is rN and the excess is Σ_i c_i. This is a statement about schemes, not a splitting of the group law. In the mixed (2,4) example, the constrained coordinates are the constant and y coefficients for x and the constant for y, exhibiting all three over a nonreduced base by x↦x+ε+δy, y↦y+γ with ε²=δ²=γ⁴=0. Over F_2 they vanish, and two further free coefficients must be 1, leaving 11 binary choices, hence 2048 automorphisms. The frozen verifier was inspected, not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chang–Shu–Yao treat common height and the ideal-preservation/invertible-Jacobian criterion.",
+          "Tziolas derives a²=0, b invertible and α_2⋊G_m for the dual numbers over arbitrary test algebras; Lie Aut=Der is general.",
+          "The common-height box record includes infinitesimal translations and tangent excess but explicitly leaves the full nilradical outside scope."
+        ],
+        "reasoning": "These yield key tests, known special cases and the derivation identification, not the mixed-height product. At equal heights c_i=1; distinct heights introduce extra nilpotent directions in higher-height variables that do not occur as translation coordinates.",
+        "searches": [
+          "arXiv:2401.11072v1 §3 Lemma 3.1",
+          "Tziolas 10.1007/s11565-024-00514-8 Example 3.11 and Proposition 3.19",
+          "Resultary 962bc42e198d, common-height boxes"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_small_case.py",
+        "Resultary 183198c7b07b, 6aede90aadc6, 962bc42e198d and 8bdc2462d3e6",
+        "arXiv:2401.11072v1 and Tziolas DOI 10.1007/s11565-024-00514-8",
+        "Chase chapter PII B9780122913501500097 (description and contents only), AMS S0002-9947-99-02361-2 (indexed description only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known equal-height and single-variable cases constrain only constants. In (e_i)=(1,2) at p=2 the coefficient of y in the image of x is an additional independently square-zero coordinate; even the reduced automorphism variety and Lie dimension would not identify its scheme structure.",
+          "The published Lie identification recovers the tangent statement; the new count of independently powered coordinates supplies the full scheme. The related general field-extension article was located but no usable theorem text was obtained."
+        ],
+        "reasoning": "A field Jacobian test and a tangent computation alone cannot yield the nonreduced product. The arbitrary height-coordinate analysis is supported as distinct in the inspected comparisons. No claim that the inaccessible field-extension work excludes this result is made.",
+        "searches": [
+          "Exact coordinate scheme versus field-valued Jacobian tests and mixed-height modular base-change formulations",
+          "AMS S0002-9947-99-02361-2, Automorphism Scheme of a Finite Field Extension"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A generic modular extension L/K obtained by adjoining p^{e_i}-th roots of independent parameters satisfies L⊗_K L≅L[x_i]/(x_i^{p^{e_i}}), by subtracting the roots after base change. The automorphism functor of the finite algebra commutes with this base change.",
+          "Chase's publisher description specifies modular purely inseparable fields that are tensor products of primitive extensions, and a lawful book preview gives the exact chapter citation but not the theorem."
+        ],
+        "reasoning": "Thus the modular field literature is potentially about a geometric form of exactly this mixed-height split algebra, not an unrelated analogy. A scheme-level description after field base change could substantially overlap; the available material does not determine if it gives the stated product, its full height exponents, or its field of definition.",
+        "searches": [
+          "Resultary: automorphism scheme of mixed-height or box-truncated polynomial algebras, infinitesimal symmetry defect",
+          "Stephen U Chase On the automorphism scheme of a purely inseparable field extension modular scheme geometrically product"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "183198c7b07b treats k[x,y]/(x²,y^m), with dimension and tangent data for the subfamily p=2, m a power of two.",
+          "6aede90aadc6 gives the one-variable prime-power coefficient equation and full scheme open; 962bc42e198d gives common-height results. Later 8bdc2462d3e6 treats the reduced scheme and field counts for the two-variable characteristic-two family."
+        ],
+        "reasoning": "The catalog contains exact special cases and overlapping invariants, but the inspected records do not give the full nonreduced decomposition for arbitrary r and height profile. In particular, the dimension and field counts would not determine the nilpotence orders of independent coefficient directions.",
+        "searches": [
+          "Resultary: characteristic-dependent automorphism schemes k[x,y]/(x^2,y^m), one-variable prime-power truncation, box truncations and full tangent excess"
+        ]
+      },
+      "rationale": "Credit the full mixed-height coordinate scheme over arbitrary bases, particularly the separate nilpotent factors for every surviving Frobenius coefficient and the exact count depending on all higher heights. The inspected common-height, one-variable, two-variable and Lie-algebra results do not establish that arbitrary-height package. The strongest further plausible equivalence is through the geometric splitting of modular purely inseparable field extensions; the relevant Chase theorem text was not accessible, so this is a genuine remaining prior-coverage risk, not a negative comparison.",
+      "residual_risks": [
+        "The explicit geometric-base-change correspondence makes Chase and subsequent modular inseparability work a consequential unresolved comparison. The accessible descriptions cannot settle scheme-level equivalence.",
+        "The conclusion concerns a supported distinct statement relative to inspected comparisons, not priority or absence of earlier equivalent calculations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Common-height criterion, not full mixed-height nonreduced scheme",
+          "evidence": "Uses ideal preservation and invertible Jacobian for truncated polynomials with common height.",
+          "identifier_or_url": "https://arxiv.org/abs/2401.11072v1",
+          "material_read": "PDF pp. 2–3, §3 Lemma 3.1, near offsets 2700 and 5948",
+          "method": "Open-access original passages",
+          "title": "Inverse limits of automorphisms of truncated polynomials and applications related to Jacobian conjecture",
+          "trigger": "Truncated-polynomial automorphism criterion"
+        },
+        {
+          "assessment": "Exact dual-numbers case and general Lie theorem",
+          "evidence": "Over arbitrary test algebras the dual-numbers substitution has square-zero constant and invertible linear coefficient; Lie Aut is the derivation space.",
+          "identifier_or_url": "https://doi.org/10.1007/s11565-024-00514-8",
+          "material_read": "Article pp. 905–906 Example 3.11 and p. 912 Proposition 3.19, near offsets 44755 and 65283",
+          "method": "Open-access original passages",
+          "title": "Topics in group schemes and surfaces in positive characteristic",
+          "trigger": "Explicit non-smooth algebra automorphism functor and tangent theorem"
+        },
+        {
+          "assessment": "Overlapping dimension and tangent invariants for a subfamily",
+          "evidence": "Setting char k=2 and m=2^e gives the height pair (1,e); this does not give the displayed arbitrary-height scheme product.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-characteristic-dependent-automorphism-schemes-of-k-x-y-x-2-y-m--183198c7b07b",
+          "material_read": "RESULT.md Finding, near offset 0",
+          "method": "Bounded local indexed mirror passage",
+          "title": "Characteristic-dependent automorphism schemes of k[x,y]/(x²,y^m)",
+          "trigger": "Mixed-height two-generator exact dimension precedent"
+        },
+        {
+          "assessment": "Exact one-variable overlap",
+          "evidence": "For prime-power truncation the sole power relation on coefficients is c_0^q=0 with the linear coefficient invertible.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-smoothness-threshold-for-automorphism-schemes-of-truncated-polyn--6aede90aadc6",
+          "material_read": "RESULT.md Finding, near offset 0",
+          "method": "Bounded local indexed mirror passage",
+          "title": "Smoothness threshold for automorphism schemes of truncated polynomials",
+          "trigger": "Exact prime-power one-variable scheme"
+        },
+        {
+          "assessment": "Common-height dimension and translation overlap",
+          "evidence": "Includes infinitesimal translations and tangent excess, but does not compute the full nilradical and does not treat arbitrary mixed heights.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-a-sharp-smoothness-boundary-for-automorphism-schemes-of-box-trun--962bc42e198d",
+          "material_read": "RESULT.md Finding and scope, near offsets 0 and 4189",
+          "method": "Bounded local indexed mirror passages",
+          "title": "A sharp smoothness boundary for automorphism schemes of box truncations",
+          "trigger": "Multivariate equal-height scheme precedent"
+        },
+        {
+          "assessment": "Overlap in reduced geometry and tangent excess, not full mixed-height product",
+          "evidence": "The algebra k[x,y]/(x²,y^n) has a stated reduced automorphism variety and field counts; no general arbitrary-r nonreduced decomposition follows.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-an-unbounded-infinitesimal-symmetry-excess-for-truncated-complet--8bdc2462d3e6",
+          "material_read": "RESULT.md bounded statements on characteristic-two two-variable family",
+          "method": "Local indexed mirror passage",
+          "title": "An unbounded infinitesimal symmetry excess for truncated complete intersections",
+          "trigger": "Related mixed-height reduction and point counts"
+        },
+        {
+          "assessment": "Plausible material overlap unresolved; no verdict inferred from access failure",
+          "evidence": "Contents identify Stephen U. Chase as author; publisher description mentions modular tensor products of primitive extensions. No actual automorphism-scheme theorem was read.",
+          "identifier_or_url": "https://www.sciencedirect.com/science/chapter/edited-volume/abs/pii/B9780122913501500097",
+          "material_read": "Indexed publisher description and lawful Ring Theory preview contents, PDF p. 6 offset 1682; chapter pp. 75–106 not retrieved",
+          "method": "Targeted source search and bounded open book preview; direct chapter access unsuccessful",
+          "title": "On the Automorphism Scheme of a Purely Inseparable Field Extension",
+          "trigger": "Chase's modular purely inseparable extension theorem could split to exactly these boxes"
+        },
+        {
+          "assessment": "Open prior-coverage risk, no negative conclusion from retrieval limits",
+          "evidence": "Indexed introduction mentions a broader class of finite algebras; accessible material does not identify its relationship to these mixed exponent coordinate equations.",
+          "identifier_or_url": "https://doi.org/10.1090/S0002-9947-99-02361-2",
+          "material_read": "Indexed description only; no externally retrieved theorem passage",
+          "method": "Primary PDF and alternate identified public page retrieval attempted",
+          "title": "Automorphism Scheme of a Finite Field Extension",
+          "trigger": "Related broader article on automorphism schemes of finite algebras and field extensions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Over a field, all constrained coordinates vanish and field-valued automorphisms miss the entire infinitesimal structure being measured. The scheme product quantitatively isolates how taller variables create additional nilpotent directions for shorter generators, and gives the exact height-sensitive difference between dimension and tangent dimension for a natural family. This is more informative than a nonsmoothness assertion or a point count.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

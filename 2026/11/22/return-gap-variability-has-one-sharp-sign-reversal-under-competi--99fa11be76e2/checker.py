@@ -1,45 +1,36 @@
 #!/usr/bin/env python3
-"""Exact, standalone rational tests for the stated two-memory gap witness.
+"""Exact rational check of two moment-matched return gaps."""
+from fractions import Fraction as F
 
-The universal convex-order assertion is proved in RESULT.md rather than by finite tests.
-"""
-from fractions import Fraction as Q
+P = ((-1, F(1, 2)), (1, F(1, 2)))
+Q = ((-2, F(1, 8)), (0, F(3, 4)), (2, F(1, 8)))
 
-# All powers are exact: if J=log 2, exp(-s*k*J)=2**(-s*k).
-def pow_two(k):
-    return Q(2)**k
 
-P={-1:Q(1,2),1:Q(1,2)}
-R={-2:Q(1,8),0:Q(3,4),2:Q(1,8)}
+def excess(law, s):
+    return sum(p * F(2)**(-s*k) for k, p in law) - 1
 
-def excess(distribution, rate):
-    assert sum(distribution.values())==1
-    return sum(prob*pow_two(-rate*k) for k,prob in distribution.items())-1
 
-def moment(distribution, power):
-    return sum(prob*k**power for k,prob in distribution.items())
+def difference(law, x):
+    return (excess(law, 2) - x * excess(law, 1)) / x**2
 
-for dist in (P,R):
-    assert moment(dist,1)==0
-    assert moment(dist,2)==1
-    assert all(Q(5)>Q(2)**(-k) for k in dist)  # mu + k*J = log(5*2**k)>0
 
-assert excess(P,1)==Q(1,4)
-assert excess(P,2)==Q(9,8)
-assert excess(R,1)==Q(9,32)
-assert excess(R,2)==Q(225,128)
+def main():
+    for law in (P, Q):
+        assert all(p > 0 for _, p in law)
+        assert sum(p for _, p in law) == 1
+        assert sum(k*p for k, p in law) == 0
+        assert sum(k*k*p for k, p in law) == 1
+    assert (excess(P, 1), excess(P, 2)) == (F(1, 4), F(9, 8))
+    assert (excess(Q, 1), excess(Q, 2)) == (F(9, 32), F(225, 128))
+    lower, upper = (excess(law, 2) / excess(law, 1) for law in (P, Q))
+    assert (lower, upper) == (F(9, 2), F(25, 4))
+    assert max(F(2)**(-k) for law in (P, Q) for k, _ in law) < lower < 5 < upper
+    assert difference(P, lower) == 0 < difference(Q, lower)
+    assert difference(P, upper) < 0 == difference(Q, upper)
+    assert difference(P, F(5)) == -F(1, 200)
+    assert difference(Q, F(5)) == F(9, 640)
+    print('PASS: moments, gap support, full sign interval thresholds, endpoints and exact witness')
 
-# v0=D=A=a=1, d=2, mu=log 5.
-def change(dist, five):
-    return excess(dist,2)/five**2-excess(dist,1)/five
-assert change(P,Q(5)) == -Q(1,200)
-assert change(R,Q(5)) == Q(9,640)
-assert change(P,Q(4)) == Q(1,128)
-assert change(P,Q(8)) == -Q(7,512)
 
-# Unique crossover means are log(9/2) and log(25/4).
-assert excess(P,2)/excess(P,1)==Q(9,2)
-assert excess(R,2)/excess(R,1)==Q(25,4)
-assert Q(9,2)<Q(5)<Q(25,4)
-assert Q(5)>Q(4)   # all support points of R are strictly positive
-print('PASS: exact first/second moments, support, four exponential moments, two opposite signs, and both thresholds')
+if __name__ == '__main__':
+    main()

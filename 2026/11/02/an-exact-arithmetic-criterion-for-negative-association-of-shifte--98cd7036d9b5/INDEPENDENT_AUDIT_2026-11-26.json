@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:03:35.684073Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In each odd prime-power factor the only nonconstant coordinates have unit shifts, and they leave baseline 1 on their respective mod-p classes. At 2 the even shifts stay at 1, the odd shifts have baseline 2, and departures are possible only when the exponent is at least 2, on their respective mod-4 classes. With distinct classes at most one coordinate departs, so for disjoint groups the nonnegative increments of arbitrary increasing observables have zero product. CRT gives independent factors. Conditioning on one block gives nonpositive conditional covariance within the other block and nonpositive covariance of the increasing conditional means; induction and products on disjoint prime-coordinate sets give the full divisor-order assertion. On a collision the two threshold indicators coincide and have positive variance (probability 1/(p-1) at odd p and 1/2 at 4), proving necessity on pairs. At n=1 and on a sole factor 2 all coordinates are constant. For unit opposite shifts the local mean e+1 follows by summing phi(p^j) times the probability of a congruence mod p^j. At odd primes at least one local gcd equals 1; at 2 at least one equals 2. These identities give the stated mixed means and strict covariance except at n=1,2.",
+      "replay": "python3 /workspace/review-evidence/bounded_checks.py 4 (independent exact support upper-set checks; two four-shift cases satisfying the criterion give 6018 and 928 inequalities, and distinct odd-prime and mod-4 collision cases fail). Bounded corroboration, not the general proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Regular-residue correlation counts take all residues and test regularity of shifts, not divisibility thresholds of gcds on one uniform unit.",
+          "Polynomial gcd sums and sums with separately varying reduced residues have different observables or sampling."
+        ],
+        "reasoning": "General negative-association closure combines blocks already proved negatively associated; it needs the local criterion and does not supply the collision witnesses. The inspected arithmetic results do not fill that gap.",
+        "searches": [
+          "Resultary: SCOPE-exact-higher-order-correlations-and-maximal-runs-of-regular-resi--ff65dda93828",
+          "doi:10.1214/aos/1176346079",
+          "arXiv:2110.07271v4 §§4.4, 4.13"
+        ]
+      },
+      "checked_sources": [
+        "Resultary ff65dda93828",
+        "Resultary d0d4030cbb8f",
+        "arXiv:1306.1020",
+        "arXiv:2110.07271v4",
+        "doi:10.1214/aos/1176346079 (access attempt)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Menon identity gives the one-shift expectation; the arithmetic of mutually exclusive prime-local departures then gives the illustrative opposite-shift mixed expectation, which is not claimed new.",
+          "Even exact raw covariances for unit shifts on prime powers do not provide the groupwise covariance inequalities or the positive threshold witnesses at collisions for the divisor order."
+        ],
+        "reasoning": "Full association requires monotone tests coupling coordinates and primes. Prior results covering moments or closure alone do not establish the full iff.",
+        "searches": [
+          "arXiv:1306.1020 p. 2 (8)",
+          "arXiv:2110.07271v4 §§4.4, 4.13",
+          "Resultary: d0d4030cbb8f RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "First nonconstant divisibility indicators generate nested chains at each prime; separation of the first events separates those chains. The shifted-Menon spectrum finding concerns raw covariance, not covariance of all increasing functions on disjoint groups."
+        ],
+        "reasoning": "Pairwise association here is a statement about all increasing tests, not a rephrasing of raw pairwise covariance or of a scalar gcd-sum.",
+        "searches": [
+          "Resultary: SCOPE-geometric-square-covariance-spectrum-of-shifted-menon-gcd-statis--d0d4030cbb8f",
+          "arXiv:2110.07271v4 §§4.4, 4.13"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The retrieved precise prime-power formulas report regular-residue counts or the covariance matrix of raw gcds; neither records negative-association decisions for arbitrary shifts and moduli."
+        ],
+        "reasoning": "No covering criterion was established from the catalogue; the check is not evidence of exhaustive absence.",
+        "searches": [
+          "Published Resultary/SCOPE: ff65dda93828; d0d4030cbb8f"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the sharp classification of full divisor-order negative association for a common uniform unit, including its pairwise equivalence. Neither the inspected arithmetic moment and simultaneous-count results nor the classical general closure argument supplies that classification. No novelty is attributed to the opposite-shift mean, individual covariance formulas, or negative association closure.",
+      "residual_risks": [
+        "A plausible specialized joint-divisibility or stochastic-order formulation may be unindexed or missed; the web lookup did not provide a useful primary passage.",
+        "The Joag-Dev–Proschan full text was not inspected; there can be additional overlap with local probabilistic lemmas. No absolute priority claim is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Raw moment overlap, not full association",
+          "evidence": "It specifies raw covariance by congruence depth for unit-indexed shifts on prime powers, e.g. -k² for distinct residues modulo an odd prime at modulus p^k.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-geometric-square-covariance-spectrum-of-shifted-menon-gcd-statis--d0d4030cbb8f",
+          "material_read": "RESULT.md opening finding, offset 0",
+          "method": "Published catalogue lookup and mirrored text",
+          "title": "Geometric-square covariance spectrum of shifted Menon gcd statistics",
+          "trigger": "Same uniform-unit shifted-gcd object and dependence"
+        },
+        {
+          "assessment": "Distinct event family and sampling law; no inference from shared date",
+          "evidence": "Counts simultaneous regularity of shifted residues over all residue classes.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-higher-order-correlations-and-maximal-runs-of-regular-resi--ff65dda93828",
+          "material_read": "RESULT.md opening finding, offset 0",
+          "method": "Published catalogue lookup and mirrored text",
+          "title": "Exact higher-order correlations and maximal runs of regular residues",
+          "trigger": "Same-day arithmetic overlap and prime-local collisions"
+        },
+        {
+          "assessment": "Covers single-shift mean, not dependence classification",
+          "evidence": "The unit-residue sum of gcd(k-1,n) equals phi(n) tau(n).",
+          "identifier_or_url": "https://arxiv.org/abs/1306.1020",
+          "material_read": "p. 2, formula (8)",
+          "method": "OA text comparison",
+          "title": "Another generalization of the gcd-sum function",
+          "trigger": "Menon moment antecedent"
+        },
+        {
+          "assessment": "Moment formulas and distinct sampling in the multivariable comparison",
+          "evidence": "Polynomial gcd sums and sums over independently varying reduced-residue coordinates, respectively.",
+          "identifier_or_url": "https://arxiv.org/html/2110.07271v4",
+          "material_read": "§4.4 around offset 77800; §4.13 around offset 103900",
+          "method": "OA section comparison",
+          "title": "Proofs, generalizations and analogs of Menon's identity: a survey",
+          "trigger": "Potential joint gcd identities"
+        },
+        {
+          "assessment": "General closure is credited; no whole-text noncoverage assertion",
+          "evidence": "Closure used here is independently proved by conditioning in the frozen proof.",
+          "identifier_or_url": "https://doi.org/10.1214/aos/1176346079",
+          "material_read": "Full text not accessed in the bounded OA attempt",
+          "method": "OA retrieval attempt",
+          "title": "Negative Association of Random Variables with Applications",
+          "trigger": "Standard closure properties and possible general dependence result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a common sample of a standard arithmetic quantity the classification replaces exponentially many group monotonicity tests by simple congruence checks. It identifies the nontrivial 2-adic boundary (parity alone is insufficient) and explains precisely why checking pairs suffices in this family, rather than just giving a known average.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

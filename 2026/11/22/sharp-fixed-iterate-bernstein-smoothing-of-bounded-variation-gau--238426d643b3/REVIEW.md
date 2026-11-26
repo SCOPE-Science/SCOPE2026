@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim concerns fixed \(r\) and finite \(p\) on real \(BV(0,1)\), plus the separately stated \(L^\infty\) boundary. The proof reduces the complete variation unit ball to unit jumps, verifies exact one-step mean/variance for the two Markov kernels, obtains a fixed-time Gaussian random-walk limit with variances \(r x(1-x)\) and \(2r x(1-x)\), and integrates the limiting jump profile. The key boundary argument is a uniform Chebyshev integral bound excluding jumps approaching either endpoint; uniqueness of the Gaussian coefficient maximum then forces location \(1/2\). A strict outside-midpoint norm gap proves rigidity of the full derivative variation measure. The separate uniform endpoint norm uses positivity and the non-atomic transition kernel. Exact-rational checker results comprise 266 assertions, with 16 additional finite numeric checks; these do not replace the asymptotic proof. The limiting constant depends on exactly the normalization in RESULT.md.
+PASS
 
-## Originality — PASS, qualified
+The derivative-measure representation and Minkowski identify the seminorm-to-norm constant with a single-step-function supremum; continuity in its jump position attains it for finite p, away from the two constant end steps. In the Durrmeyer beta mixture, conditional variance contributes another x(1−x)/n to the binomial variance; the gamma representation and the delta method have centered Gaussian limits along every interior sequence of starts. Conditioning characteristic functions for the fixed r successive increments adds their Gaussian variances, since the intervening states converge to the same interior limit and the conditional limits are uniform for starts converging to it. Chebyshev gives an integrable |z|⁻² majorant away from the center in the rescaled crossing profile. The endpoint crossing estimate integrates to O(sqrt(t(1−t)/n+n⁻²)+(1+log(n+1))/n); neither endpoint can compete at the n⁻¹/² scale of the pth power. The moving-center limit is therefore maximized uniquely at 1/2, and compactness gives the strict relative gap outside any fixed midpoint neighborhood. Minkowski then forces any near-optimal input to have vanishing relative variation outside that neighborhood. For L∞, continuity in the start gives an essential lower bound by the smoothed jump evaluated at zero (take x→0 with x<t); this tends to 1 as t↓0 by atomlessness. The matching upper bound is by positivity and constant reproduction. The two degree-two, two-iterate squared L² midpoint examples were independently checked by integrating affine residuals.
 
-Hoeffding (1971) and prior sharp one-step \(L^1\) work cover an important special case; this is credited, not claimed as independent novelty. Jones (1976) treats a Bernstein polynomial error but the accessible description concerns absolutely continuous input for point sampling, not integrated operators and fixed iterates; the complete original was inaccessible, explicitly retained as a historical risk. Öksüzer–Karsli–Yeşildal (arXiv:1605.03976, material sections 1–4) establish variation seminorm results. Berdysheva–Dyn–Farkhi–Mokhov (arXiv:2212.00439, material sections 3–6) give pointwise and nonsharp integrated \(L^1\) bounds involving the same operators. Adell–Garrancho–Martínez-Sánchez (arXiv:2410.19893, full method and examples) address pointwise jumps. No inspected accessible theorem implies the joint all-finite-\(p\), fixed-iterate sharp limit with its factor-of-two variance distinction and variation-measure rigidity. It remains possible that a different, unindexed classical result subsumes it.
+## originality
 
-## Value — PASS
+PASS
 
-The integral kernels are standard alternatives for discontinuous-data approximation. The theorem gives exactly calibrated worst-case convergence rates in every fixed finite \(L^p\) metric, including the precise penalty of adding the Durrmeyer posterior sampling stage, the effect of repeated smoothing, and the non-convergent \(L^\infty\) endpoint. The concentration theorem identifies the sharp worst-case geometry, beyond a generic upper rate bound. These quantities are motivated by selecting smoothing operators for edge-preserving approximation, not by an arbitrary degree-specific parameter.
+Qualified pass for the broader sharp finite-p fixed-iteration asymptotic for both classical integral kernels and the concentration of all near-extremal variation. The one-step L¹ specializations are covered and are not credited as new. The finite jump reduction, Markov interpretation and L∞ boundary use standard arguments, not independent grounds for originality.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The uniform worst-case comparison of two canonical approximants distinguishes their smoothing penalty by an exact factor 2^(1/(2p)) and calibrates repeated smoothing by r^(1/(2p)). The strict away-from-center gap describes where any nearly worst discontinuous datum must place its variation; this is useful beyond estimating a test jump. The L∞ obstruction separates uniform-norm approximation from finite-p decay.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

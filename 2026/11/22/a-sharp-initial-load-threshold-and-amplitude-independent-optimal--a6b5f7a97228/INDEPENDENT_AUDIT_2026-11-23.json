@@ -1,0 +1,151 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:15:32.378438Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independently checked the moving-switch derivative. Write A_r(t)=∫_0^t exp(-rv)dv, U=T-h, z=C_0 exp(-bτ)+qA_b(τ) and w=exp(-ah)z+qA_a(h) for the start and end concentrations. Translation of both switches gives J'=(a-b){z[A_a(h)+exp(-ah)A_b(U-τ)]-wA_b(U-τ)}=(a-b)A_a(h)[z-qA_b(U-τ)]. The leading factor is exactly the strictly positive G in the result, even when b=0. For b>0 and E=q/b, C_0≥E makes J' strictly positive, and C_0<E makes it strictly increasing and positive at U. Its sign at zero is the sign of C_0-E(1-exp(-bU)), with equality giving the unique boundary minimum. The interior zero gives the stated logarithm. For b=0 the derivative is affine with slope 2Gq>0, giving the clipped formula. At an interior optimum with b>0 the derivative is 2Gk sinh[b(τ-τ_*)]; integrating it, and integrating the appropriate derivative on the boundary and for b=0, verifies all four regret cases. An independent segment calculation gave 2.578509392222384 and 2.196190111820411 for the canonical immediate and optimal exposures. VERIFICATION.md and check.py were inspected; the optional replay path is python3 check.py from the frozen package directory. The finite checks are not the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Evans's stated reachability theorem for x'=Mx+Nα guarantees existence of a suitable bang-bang control for terminal steering. NISTIR 7042 abstract describes simulated ventilation and concentration under alternative strategies."
+        ],
+        "reasoning": "Neither terminal reachability nor ventilated-building simulations establish the optimizer for multiplicative state removal with a mandatory contiguous fixed window and a running concentration cost. A more specialized switching theorem remains possible.",
+        "searches": [
+          "Fixed-duration single boosted cleaning interval scalar ODE cumulative exposure; generic bang-bang/rearrangement framework",
+          "Evans, An Introduction to Mathematical Optimal Control Theory, §2.5, Theorem 2.8"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, check.py, AUDIT.json",
+        "Resultary f81123358ad7, 0031cd3b8d1b, 6dd0c0e2f3e5",
+        "Evans §2.5 Theorem 2.8",
+        "NISTIR 7042",
+        "DOI:10.1016/j.energy.2009.07.039 (access limited)",
+        "PMC8457902 (access limited)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The purge proof gives benefit proportional to (1-exp(-a(T-τ)))(1-exp(-aτ)-x exp(-βτ)), with x>0, not an augmented removal rate over h. The two-compartment entry gives a different spectral benefit after an instantaneous removal from a surface reservoir. Lawful access attempts for Kusiak–Li and Risbeck et al. did not expose full primary text."
+        ],
+        "reasoning": "Positive-baseline time-dependence can be recovered from the constant-source impulse formulation once the finite-window equivalence is proved. This is new content of the finite-window statement, not something the impulse theorems themselves assert. Access failures for ventilation studies do not establish absence.",
+        "searches": [
+          "Resultary 0031cd3b8d1b proof of exact purge benefit",
+          "Resultary 6dd0c0e2f3e5 theorem on reservoir removal",
+          "Kusiak–Li DOI:10.1016/j.energy.2009.07.039; Risbeck et al. PMC8457902"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Record f81123358ad7 gives the positive adult mortality, constant-emergence limit in RESULT.md lines 21–25 and 74–78. Set its formal immature loss to zero, adult loss to the air baseline b, recruitment to the air source q, initial adults to C_0, horizon to U, and fractional impulse removal to G. The pulse reduction of its burden is G z(τ)A_b(U-τ), whose negative derivative is exactly J'(τ). Thus for b>0 the entire air-window ranking, threshold and regrets coincide with that impulse's up to a τ-independent constant. The b=0 case follows by continuity of this reduction, though the cohort statement assumes positive mortality. Record 0031cd3b8d1b also has this impulse product on a shifted time interval when outdoor and indoor decay rates are equal; its stated unshifted scope has zero initial indoor concentration and positive outdoor concentration."
+        ],
+        "reasoning": "Same-day entries cannot establish a chronology. Neither prior formulation varies a finite-length augmented rate or provides the interval-to-impulse identity. The equivalence requires eliminating the within-window source and both moving switches, rather than identifying their control actions by notation or invoking a zero-duration limit.",
+        "searches": [
+          "Resultary: fixed-window scalar exposure, finite-duration ventilation schedule, and efficacy-independent impulse timing",
+          "Resultary f81123358ad7 and 0031cd3b8d1b"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact assigned catalogue hit is the same record. Distinct results 0031cd3b8d1b, f81123358ad7 and 6dd0c0e2f3e5 concern impulse calculations. The NIST abstract concerns simulated strategy comparisons, not tabulated exact time/rate laws."
+        ],
+        "reasoning": "These are not independent tables or published formulas for the all-rate finite-window invariant; the exact impulse overlap is accounted for above.",
+        "searches": [
+          "Resultary: single prescribed cleaning window, fixed source, exact initial load and start-time threshold",
+          "NISTIR 7042, indoor concentration strategy simulations"
+        ]
+      },
+      "rationale": "The constant-source impulse counterpart is exactly, not merely qualitatively, related to the fixed window. The joint comparison narrows the incremental content to the nontrivial reduction of a finite translated rate interval to that impulse timing objective, its consequences for the entire admissible window (including exact regret and the zero baseline), and the positive rate factor. No inspected work was found to establish that finite-window reduction or an equally strong solution. This is not a priority claim for the positive-baseline impulse timing law alone.",
+      "residual_risks": [
+        "More specialized finite-interval rearrangement/switching literature or unread ventilation full text could yield equivalent coverage. No priority inference follows from shared catalogue dates or from access limitations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EQUIVALENT_OBJECTIVE_ON_FORMAL_POSITIVE_BASELINE_IMPULSE_LIMIT_NOT_WINDOW_COVERAGE",
+          "evidence": [
+            "The avoided exposure product matches the window objective up to a constant with T mapped to U and efficacy mapped to G, after the interval identity is established."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-initial-cohort-and-horizon-threshold-for-one-adult-targe--f81123358ad7",
+          "material_read": "Frozen RESULT.md lines 21–25 and 36–78; mirrored finding and proof",
+          "method": "Frozen record and Resultary local mirror; explicit mapping of derivatives",
+          "title": "A sharp initial-cohort and horizon threshold for one adult-targeted mosquito intervention",
+          "trigger": "Closest exact objective equivalence"
+        },
+        {
+          "assessment": "RELATED_IMPULSE_WITH_EXACT_RESTRICTED_REDUCTION",
+          "evidence": [
+            "At equal decay rates the old factor 1-(1+x)exp(-aτ), restricted to times after its zero and recentered, gives the sub-equilibrium constant-source impulse shape, not the finite-window identity."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-outdoor-decay-transition-in-one-shot-indoor-air-purging--0031cd3b8d1b",
+          "material_read": "RESULT.md offset 2240 through the model and proof §§1–2, eqs. (5),(7)",
+          "method": "Resultary local mirror",
+          "title": "A sharp outdoor-decay transition in one-shot indoor air purging",
+          "trigger": "Same scalar indoor exposure setting and efficacy-independent purge optimum"
+        },
+        {
+          "assessment": "DIFFERENT_SYSTEM_AND_CONTROL",
+          "evidence": [
+            "Two decay mechanisms, surface-reservoir impulse and an always-interior optimum."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-unique-spectral-cleaning-clock-for-a-two-compartment-indoor-po--6dd0c0e2f3e5",
+          "material_read": "RESULT.md finding, assumptions and theorem from offset 0",
+          "method": "Resultary local mirror",
+          "title": "A unique spectral cleaning clock for a two-compartment indoor pollutant model",
+          "trigger": "Efficacy-independent optimum for accumulated airborne concentration"
+        },
+        {
+          "assessment": "DIFFERENT_GOAL_AND_CONTROL_CLASS",
+          "evidence": [
+            "Terminal reachability with additive controls."
+          ],
+          "identifier_or_url": "https://math.berkeley.edu/~evans/control.course.pdf",
+          "material_read": "§2.5, Theorem 2.8, p. 26; offset 47214",
+          "method": "Lawful open notes PDF",
+          "title": "An Introduction to Mathematical Optimal Control Theory",
+          "trigger": "General bang-bang implication"
+        },
+        {
+          "assessment": "SIMULATED_STRATEGIES_IN_INSPECTED_PASSAGE",
+          "evidence": [
+            "Scenarios compare ventilation, pollutant concentration and energy across spaces."
+          ],
+          "identifier_or_url": "https://nvlpubs.nist.gov/nistpubs/Legacy/IR/nistir7042.pdf",
+          "material_read": "Abstract, PDF page 3, offset 1869",
+          "method": "Lawful government report PDF",
+          "title": "Simulations of Indoor Air Quality and Ventilation Impacts of Demand Controlled Ventilation in Commercial and Institutional Buildings",
+          "trigger": "Earlier quantitative ventilation scenarios"
+        },
+        {
+          "assessment": "ACCESS_LIMITED",
+          "evidence": [
+            "The frozen record attributes multiobjective threshold/fan scheduling to the paper; that characterization is not an independent passage check."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.energy.2009.07.039",
+          "material_read": "No readable primary full text via the publisher or cited author page",
+          "method": "Lawful access attempts",
+          "title": "Optimal decision making in ventilation control",
+          "trigger": "Closest cited direct ventilation scheduling paper"
+        },
+        {
+          "assessment": "ACCESS_LIMITED",
+          "evidence": [
+            "No inference of whole-document noncoverage."
+          ],
+          "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8457902/",
+          "material_read": "Bibliographic/landing information only; no readable full text from PMC or Europe PMC routes used",
+          "method": "Lawful access attempts",
+          "title": "Modeling and multiobjective optimization of indoor airborne disease transmission risk and associated energy consumption for building HVAC systems",
+          "trigger": "Broader HVAC dose/scheduling formulation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Under a genuine operating constraint (one contiguous fixed-runtime episode), the exact cancellation of the enhanced rate from all timing comparisons is a useful model benchmark. The result quantifies how much, not just which way, mistiming hurts; the finite interval has exactly the time-ordering and regret of the calibrated instantaneous proxy despite its continuing emissions and two switches. This does not assert optimality for split schedules, physical safety, or HVAC performance outside the well-mixed constant-source model.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

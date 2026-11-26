@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The exact-rational script `checker.py` constructs the Walsh-Paley characters directly on sufficiently fine dyadic grids, integrates step functions coefficient by coefficient, computes the orthogonal projection residual by Parseval, and compares it with the proved closed formula. Tests cover integers from 1 to 40, selected dyadic cells and rational jump positions, predicted equality positions, and finite sums of signed jumps. The package was executed successfully with 1,658 rational assertions.
+## correctness
 
-The proof of the universal assertion is analytical: dyadic subspace identity, next-Rademacher block identity, optimization of an explicit quadratic, finite-measure representation of bounded variation, and noncollinearity of distinct maximizing step residuals. The finite checker is not a universal proof and contains no assertion of external certification.
+PASS
 
-To reproduce: `python3 checker.py`. Requires only a standard Python 3 installation. Scientific boundaries are ordinary interval variation, the standard Paley Walsh order, unweighted \(L^2(0,1)\), and real input functions. No independent audit has been conducted.
+For M the dyadic floor of N, the first M characters span cell constants and the r extra orthonormal modes are the next Rademacher times r cell-constant sign characters. The unit jump at relative position q has M-mode residual variance q(1-q)/M; each extra coefficient has magnitude min(q,1-q)/M because whole cells cancel under the Rademacher sign. Thus the squared residual is exactly the stated formula. Its left-half quadratic is (q-(N/M)q²)/M, whose unique maximizer is M/(2N), with its reflection on the right; the maximum is 1/(4N). This includes N=1 and r=0. The derivative-measure representation of real interval BV is a Bochner integral of jumps modulo constants (the jump map is L²-continuous), with total mass in variation equal to TV. Equality for a nonzero signed derivative forces its variation measure onto the finite maximizing set. Triangle equality then requires proportional signed residuals. Distinct maximizing jumps cannot be proportional: every projected function is constant near each maximizer, using the half-cell grid for r>0 and the cell grid for r=0, so any asserted proportionality would leave an uncancelled jump. The sharp equal-cell comparator follows from unit-step cell variance and the same integral bound.
+
+## originality
+
+PASS
+
+The inspected comparisons do not cover the exact non-dyadic correction, sharp all-cutoff bound and rigidity for the Paley-ordered joint residual. The dyadic averaging mechanism and its midpoint case are not credited as new.
+
+## value
+
+PASS
+
+Paley partial sums have natural non-dyadic cutoffs not handled by cell averaging alone. The result gives a worst-case BV approximation benchmark at every rank, identifies how the extra block changes the jump response, and locates all extremizers. Equality with the regular equal-cell error is a useful comparison, not a global optimality claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

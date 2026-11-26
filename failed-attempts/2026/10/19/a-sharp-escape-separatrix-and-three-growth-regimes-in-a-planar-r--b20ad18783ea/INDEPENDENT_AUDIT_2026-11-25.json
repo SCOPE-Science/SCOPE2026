@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:30:08.014815Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–37 and 40–95",
+        "Frozen VERIFICATION.md and verify.py, independently inspected but not executed"
+      ],
+      "rationale": "Set u=cx and f(y)=1/(1+y^2). Each positive step is of width u_n, and u_{n+1}=u_n(1-q f(y_n)); u_n decreases and y_n increases. Telescoping velocity loss and comparing left rectangles with the integral gives q∫f <= u_n-v <= q∫f+q u_n[f(y_n)-f(Y)], with both bounds strict on an unbounded orbit since the first rectangle is already strict. The capture certificate follows by a geometric majorant below a chosen R>y_n; the escape certificate forces v>0 by the loss bound. The strict certificates characterize the two open nonempty phases, so their complement contains a critical trajectory. Critical u_n is asymptotic to q/y_n, giving squared-height increments tending to 2q; two critical speeds at the same height would have the ratio of their subsequent speeds bounded below by the initial ratio>1 by order preservation, yet both have the same universal leading speed. Thus the separator is unique. Strict integral bounds imply the small-q limit. For bounded height the multiplier is bounded by its limiting value strictly below one. For positive terminal speed the tail loss is q/y_n+O(y_n^-2); summation and back substitution yield the claimed summable speed error and the height's logarithm and constant. At q=1, V=yu obeys V'-1=(V-1)(1+V/(1+y^2)), so the unique critical curve is V=1; the squared height w has increments 2+1/w, implying w_n=2n+O(log n), and the difference 1/w_n-1/(2n) is summable. These arguments prove the quantified claims without finite simulations.",
+      "residual_risks": [
+        "Neither a closed form at 0<q<1 nor behavior outside the specified positive sign sector is claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "5d815edc0f3b gives y_n^2=2λn+((5λ-2)/6)log n+C+o(1) on every critical orbit and the velocity-height expansion through order y_n^-3.",
+          "7b5d143a6371 gives the same hyperbola, both open phases with their rates, and critical/ballistic height errors O(log n/n).",
+          "The 2022 article's primary Case I passage was not independently accessible."
+        ],
+        "reasoning": "Both stronger passages are applicable in their respective slices. Neither the opposite-sign feedback analog nor the no-fixed-line example supplies these claims; the verdict relies on the direct comparator records.",
+        "searches": [
+          "Resultary 5d815edc0f3b Finding and assumptions, offsets 385–1856",
+          "Resultary 7b5d143a6371 Finding, offsets 245–1693",
+          "Zhang et al., DOI 10.1088/1674-1056/ac4025, Case I retrieval"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary records 5d815edc0f3b and 7b5d143a6371",
+        "Adjacent Resultary records c216a2b82ab6 and a68c4d4e0fdd for distinctions",
+        "Zhang et al. DOI 10.1088/1674-1056/ac4025 (retrieval attempted only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The generic proof states order preservation and nonempty open phases, and gives λI(y_n)<=u_n<=λI(y_n)+λu_n f(y_n) on its critical interval; the same upper loss estimate holds on escaping orbits.",
+          "For two critical initial speeds at fixed y_0, order and increasing 1-λ f make their speed ratio at least its initial value>1, contrary to the ratio one from the comparator's universal critical laws. Strictness of the two threshold bounds follows termwise from strict decrease of f, and division by λ squeezes the weak-damping limit.",
+          "For ballistic orbits the lower rectangle comparison plus the generic comparator's upper loss estimate gives u_n-v=λ/y_n+O(y_n^-2); summing first gives y_n=vn+O(log n) and then the exact log coefficient with a convergent residual. Bounded orbits have multiplier bounded by a constant below one."
+        ],
+        "reasoning": "Singleton uniqueness is not quoted as a prior explicit theorem; it is a short forced consequence of the checked stronger laws and the map order. The bounds and rates likewise require only strict rectangle comparison or summation of the displayed loss estimate. No material independent remainder of the frozen claim remains on these comparisons.",
+        "searches": [
+          "Resultary 5d815edc0f3b, Proof §§2–3, offsets 2420–4507; 7b5d143a6371 Finding offsets 245–1693"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Record 5d815edc0f3b uses λ=-a in (0,1), u=cx, y'=y+u and u'=u(1-λ/(1+y^2)), exactly the generic recurrence, also for y_0=0.",
+          "Record 7b5d143a6371 treats a=-1, b=d=0 and c,x_0,y_0>0, the identical endpoint."
+        ],
+        "reasoning": "The substitutions introduce no hypotheses beyond the stated matching slices; the generic and endpoint slices together exhaust the target domain.",
+        "searches": [
+          "Local Resultary same rational map, fixed line, hyperbolic/parabolic escape separator and second-order damping aliases"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Confirmed both as distinct local-mirror records. Their catalogue paths are dated 2026/11/22; the assigned source path is dated 2026/10/19."
+        ],
+        "reasoning": "The database contains analytic coverage, not a numeric lookup for a continuum of initial conditions. Path dates do not establish authorship, priority or derivation, and the results were credited on their mathematical statements.",
+        "searches": [
+          "Configured local Resultary search for the normalized map and escape thresholds; exact indexed IDs 5d815edc0f3b and 7b5d143a6371"
+        ]
+      },
+      "rationale": "Two distinct inspected Resultary records jointly cover the claim's material content. The endpoint record gives the exact same q=1 separator and stronger endpoint remainder bounds. The generic-coupling record proves a nonempty critical interval and stronger asymptotics in the identical map for a sector including all target y_0>0, and supplies the tail and monotonicity estimates. Although that record expressly leaves the singleton assertion unstated, any two critical speeds at the same height have speed ratio bounded below by their strictly ordered initial ratio, whereas its stronger critical laws force ratio one. This and the direct estimates below mechanically yield the claimed generic classification, bounds and rates. This is a finding of substantive equivalent coverage in the inspected catalogue, not a finding that either comparison record preceded the frozen manuscript or that the 2022 primary source already knew it.",
+      "residual_risks": [
+        "The primary Case I has not been independently inspected; it may supply additional coverage. The chronological relationship of the two comparator records to the frozen work is not established by the catalogue comparison."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Generic critical laws and estimates cover the generic claims by direct implication",
+          "evidence": "Three phases, nonempty critical interval not claimed singleton, stronger squared-height/velocity laws, and explicit integral comparisons.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-parabolic-escape-separator-and-a-sign-changing-logarithmic-dri--5d815edc0f3b",
+          "material_read": "RESULT.md offsets 385–1856 and 2420–4507, Finding and §§2–3; Limitations around offset 6411",
+          "method": "Local Resultary mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4, located then paged",
+          "title": "A parabolic escape separator and a sign-changing logarithmic drift in a rational plane map",
+          "trigger": "Same generic damping recurrence and initial sector"
+        },
+        {
+          "assessment": "Covers endpoint classification and asymptotics with stronger height remainders",
+          "evidence": "cxy=1, exponential capture, sqare-root escape with (1/2) log n in squared height, and v plus log ballistic law.",
+          "identifier_or_url": "2026/11/22/SCOPE-an-exact-hyperbolic-escape-boundary-with-square-root-critical-mo--7b5d143a6371",
+          "material_read": "RESULT.md offsets 245–1693, Finding and parameter conditions; proof passages of critical and ballistic rates",
+          "method": "Local Resultary mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "An exact hyperbolic escape boundary with square-root critical motion in a rational plane map",
+          "trigger": "Exact q=1 separator in matching positive quadrant"
+        },
+        {
+          "assessment": "Coverage in the primary paper unresolved; not the basis of the failure",
+          "evidence": "The frozen attribution describes the fixed-line case, multipliers and numerical regimes. The inspected catalogue statements provide the direct overlap independently of that attribution.",
+          "identifier_or_url": "https://doi.org/10.1088/1674-1056/ac4025",
+          "material_read": "Article identifiers and source attributions; primary Case I not read",
+          "method": "Lawful OA attempts on cited publisher article, DOI and IOP HTML/PDF endpoints",
+          "title": "A class of two-dimensional rational maps with self-excited and hidden attractors",
+          "trigger": "Parent map and positive fixed-line Case I"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–27 and 101–107",
+        "Local Resultary matches on endpoint and generic escape regimes"
+      ],
+      "rationale": "As a mathematical classification, an exact separator and rigorous critical and ballistic scales are useful for the natural monotone fixed-line regime of this published map. This value assessment is of the concrete mathematical content; it does not credit the manuscript with a distinct result given the originality failure.",
+      "residual_risks": [
+        "No utility is claimed for chaotic, forced or nonmonotone regimes excluded by the hypotheses."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

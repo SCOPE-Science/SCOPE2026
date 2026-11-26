@@ -1,23 +1,21 @@
-# Scientific review: sharp all-prefix block-reshuffling risk
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The result fixes a finite vector array, a uniform permutation of equal-size labeled blocks, a deterministic internal order, and a matched number of individual vector evaluations. Equation (1) is reconstructed from the finite-population covariance and the conditional law of the block immediately following the first \(q\) blocks. The bias term remains present for incomplete prefixes. The scalar quadratic form decomposes into the constant-across-blocks mode and the \(K-1\) block-contrast modes; its two-dimensional matrix (5) has the claimed top eigenvalue. The determinant calculation and strict convexity of \(\mathcal H(r)\) give a strict matrix inequality whenever \(0<r<b\). At \(r=0\), block-constant nonzero contrasts give equality. Exact rational exhaustive short-permutation checks and algebraic integer-parameter checks passed, but do not replace this proof.
+PASS
 
-## Originality — PASS (best-knowledge comparison, with residual risk)
+Grand-center the fixed vectors and write the prefix sum as the sum of q full block totals plus the fixed r-position total of the next block J. E[S]=mean(C); conditioning on J=j gives expected full-block contribution −qB_j/(K−1), proving the mixed term, with the squared bias retained. In scalar coordinates split the input into its common within-block position profile and its zero-sum block contrasts. Their orthogonal risk forms have top quotients D/K and λmax(M)/K, respectively, where M acts on the all-ones and centered r-position indicator directions by [[A,H],[H,D]]. The contrast form is PSD and its top eigenvalue is at least D; a pair of opposite block contrasts realizes it. The RR squared-norm coefficient for the unnormalized prefix is m(n−m)/(n(n−1)). For the strict gap there is a separate trace proof: T−(A+D)=D/(K−1)>0 when 0<r<b, and a PSD two-dimensional form has largest eigenvalue at most its trace. This covers q=0 and q=K−1, including K=2. At r=0 only block-constant contrast directions attain the nonzero bound; the within/between decomposition gives the claimed strict improvement rule. Scalar arguments extend coordinatewise, with positive RR risk exactly for nonconstant data. Independent finite replay: python3 -B /workspace/branches/reproduce_frozen_checks.py 2 checked the entire exact centered permutation-mask second moment at 72 prefixes (2≤K,b≤4), including the bias term. The frozen recorded finite checks were inspected, not re-executed.
 
-The 2026 source gives the block-level and individual-level sampling formulas, not a per-individual-budget spectrum over *all* prefixes; its calculations are building blocks for the complete-block case. The 2020 source gives the standard finite-population lemma and does not analyze fixed-order block permutations. Classical whole-cluster sampling already covers the general phenomenon of design-effect inflation at complete blocks; that part is excluded from the novelty assertion. The additional result is a closed, attained sharp comparison for every incomplete prefix and its exact order bias, with a rigorous strict global-envelope gap. No equivalent exact partial-prefix statement was identified in the searches and inspected materials. Earlier survey-sampling analyses of partially observed clusters remain a substantive bibliographic overlap risk.
+## originality
 
-## Value — PASS
+PASS
 
-Block reshuffling is proposed as a way to improve gradient-prefix variance constants, but actual epoch prefixes consume individual gradients. The exact per-sample profile distinguishes the full-block and partial-block regimes, quantifies the maximum variance amplification (which can grow approximately linearly with block size), and provides a sharp grouping criterion for improvement at block boundaries. The nontrivial arbitrary-prefix classification, rather than the basic variance-decomposition identity, is the mathematically useful contribution. It is a reusable, dimension-free benchmark for evaluating structured shuffles, not a claim of improved convergence or runtime.
+Pass is for the explicit, attained incomplete-prefix comparison and its strict gap, in the frozen matched-individual-budget fixed-order design. Complete-cluster design effects, the RR comparator, and the complete-block variance formula are established ingredients, not distinct contributions. Search and claim comparison are bounded. The v1 Mishchenko finite-population lemma is in Section 6 (Eq. (17)), rather than the frozen reference's Section 7: the locator does not affect the result.
 
-## Sources and limitations
+## value
 
-- Nguyen, Phan, Kalagnanam (2026), arXiv:2604.00260v1: Sections 2.2, 3.1 and Appendix A.1--A.3 materially compared.
-- Mishchenko, Khaled, Richtárik (2020), arXiv:2006.05988: Section 7 and methodological context materially compared.
-- Classical cluster sampling design effects: verified as a closely related full-block precedent, not as a source for an exact partial-prefix theorem.
+PASS
 
-The result assumes uniform block permutation, equal-size blocks, fixed internal order and a fixed deterministic vector array. It does not prove algorithmic convergence. Bibliographic originality remains subject to independent literature review.
+Matched individual-gradient evaluation budgets make incomplete blocks unavoidable in a prefix comparison. The result gives an exactly attained uniform benchmark at each such budget, accounts for the otherwise missed order bias, and isolates where the coarser complete-block inflation factor cannot be sharp. This is a useful finite-population design invariant without implying any optimization-iterate or runtime improvement.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

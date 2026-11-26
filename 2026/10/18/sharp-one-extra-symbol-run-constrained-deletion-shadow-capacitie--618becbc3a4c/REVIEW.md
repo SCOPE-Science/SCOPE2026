@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof specifies \(q\ge2\), \(r\ge q\), \(n=r+1\), and \(0\le t\le q\), and distinguishes unique subsequences from deletion patterns. The previously proved cyclic run-symbol monotonicity lemma reduces the global maximum to \(r\) words; a last-occurrence polynomial recurrence gives the exact deletion-shadow coefficients, including the first order sensitive to the doubled-run position. The position correction is minimized exactly. Finite executable checks confirm the formula on 540 cyclic examples and global maxima on 40,680 enumerated words. The infinite result depends on the proof, not these tests.
+## correctness
 
-**Originality — PASS, subject to stated residual access risk.** Li–Wang–Fu (arXiv:2601.06493) give the cyclic-reduction lemma and divisible-length case, but explicitly leave nondivisible extrema open and do not derive this first \(n=r+1\) formula or its location spectrum. Liron–Langberg (arXiv:1202.1644) investigate the binary setting and equal-run sharpness. Mercier–Khabbazian–Bhargava (DOI 10.1109/TIT.2008.924730) offer related general counting machinery; its full text was unavailable for direct comparison, so a preexisting equivalent theorem remains possible. The indexed literature searches did not show an implication or exact prior table covering this all-alphabet theorem. The cyclic monotonicity lemma itself is not claimed as original.
+PASS
 
-**Value — PASS.** The first nondivisible run-length regime resolves an identified gap in recent subsequence-deletion bounds. The theorem is uniform over all alphabet sizes and run counts, and detects the first deletion order where the unique double-run position influences the answer. It gives exact sharp bounds and canonical extremal placements rather than a routine numerical substitution.
+The last-occurrence recurrence subtracts exactly the subsequences ending in the appended symbol that one can already embed using its most recent old occurrence. For cyclic run labels, repeats of physical spacing q contribute one loss each at degree q, the adjacent duplicate contributes z(1+z)^(r-1) through that degree, and repeats spanning the insertion with spacing q+1 contribute nothing through degree q. The left and right counts are (j-q)_+ and (r-j-q+1)_+, and their sum is minimized precisely between q and r-q+1 inclusive, in either endpoint order. The cited cyclic-label reduction applies to fixed run lengths. Independently, a direct upper bound avoids this citation: count leftmost greedy embeddings by discarding all deletion sets that remove the first copy but retain the second copy of the doubled letter. This discards binom(r-1,t-1). At t=q, split the word into the prefix ending at the first copy and the suffix starting at the second. Every (q+1)-window in either stretch contains a repeated letter. Delete the whole window except the later occurrence of such a pair; that retention is not leftmost. Each set contains the window start as its least deleted index, so the sets from different windows are distinct. The only possible overlap with the baseline is the prefix window ending at the first copy when that copy is deleted. In this case swap its deletion to the second copy; the earlier repeat still witnesses non-greediness, the least deleted index is unchanged, and the new set is no longer a baseline deletion. This gives exactly the needed lower bound on losses for every j. The cyclic construction attains the bound by the recurrence. The supplied finite checker was inspected as corroboration only. The statement about positions classifies cyclic maximizers, not all maximizing words.
 
-**Limitations.** No classification of arbitrary noncyclic optimizers is asserted, only of canonical cyclic placements. Nothing beyond \(t=q\), or for more than one extra run symbol, is proved. The older 2008 paper could not be compared at full-text level. Independent verification beyond the explicitly identified executable finite checks and cited mathematical lemma has not been undertaken.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct contribution is the exact loss and position law at t=q. The t<q formula is a baseline, explicitly covered by a broader later Resultary theorem and not credited as a distinct contribution here. The closest inspected collision thresholds, general upper bounds and counting recurrences do not supply the t=q global maximum and position profile. This is a best-of-knowledge comparison, not a priority certificate.
+
+## value
+
+PASS
+
+The first nondivisible length and first alphabet-size deletion order form a natural boundary: the collision-free run-pattern bound ceases to describe the answer uniformly over positions. Resolving the exact loss for every alphabet and both end versus interior placements is useful beyond recomputing the known short-deletion baseline.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

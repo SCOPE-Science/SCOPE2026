@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The signed functional has norm one and cannot attain its norm because the positive and negative parts meet at zero. Every projection onto its kernel has the prescribed rank-one form. The Daugavet identity reduces minimization to the supremum norm of the correction. The pointwise differences across symmetric pairs satisfy both the amplitude and Lipschitz bounds; a clipped ramp attains every bound simultaneously. Strict positivity of the density guarantees the unique amplitude root and the unique minimizer. The critical budget follows from the unrestricted first-moment Lipschitz bound. The exact tail identity and dominated convergence give the density-dependent asymptotic. Direct power integration yields the root, the second asymptotic term, and the inverse budget formula. A numerical checker passed 288 independent sample assertions; the proof does not rely on sampling.
+PASS
 
-## Originality
+For any projection onto ker(mu_w), I-P factors through the one-dimensional quotient, giving a unique correction with mu_w(g)=1. Directly, the Riesz measure of evaluation of P_g at x is delta_x-g(x)mu_w; the two measures are mutually singular since mu_w is nonatomic, so taking the supremum of their total-variation norms gives 1+||g||_infty. For a budget L and amplitude M the pointwise difference is bounded by 2 min(M,Lt), achieved at every t by the clipped ramp. The maximal moment over all amplitudes is L/L_c, including the zero-budget case, and strict positivity gives strict increase of F_L before La. An optimal g has equality at every t by continuity and positivity almost everywhere. Within the unsaturated region, equality in the Lipschitz bound forces slope L across each nested symmetric segment. Beyond the clipping point equality in the amplitude forces both signed plateaus. At L=L_c the segment is the whole interval, and the endpoint bounds still fix the additive constant to zero. The exact deficit is 2 times the integral of w(t)(M_L-Lt) from zero to M_L/L. Positivity near zero gives M_L>1, monotonicity and dominated convergence give M_L decreasing to 1, and continuity at zero prevents attaining the unrestricted norm. Substitution t=(M_L/L)s establishes the density coefficient by an integrable s^beta(1-s) bound. Direct integration for the normalized power densities gives the scalar equation; expansion around M=1 gives the quadratic term, and L_min follows by inversion on 1<M<=L/2 or saturation at the threshold, with matching branches at epsilon=1/(beta+1).
 
-**PASS, with bibliographic qualification.** The 2026 Kania–Lewicki hyperplane classification already establishes the unconstrained constant \(2\) and the attainment criterion, which are background and are not claimed as original. The closest inspected published mathematical record on regularity budgets treats an accumulating atomic signed functional with stretched-exponential lattice-phase behavior, not an absolutely continuous sign-change density. Another inspected record concerns two simultaneous annihilating moments and a codimension-two polar optimization. A third treats positive, pairwise singular probabilities and only an order-of-growth estimate for a different codimension-two example. The new statement is the exact regularity curve for all symmetric positive densities, its unique clipped optimizer, the local-density rate classification and all power-family constants. Classical bounded-Lipschitz duality supplies the underlying constraint language, not these explicit constrained projection norms. Unindexed equivalent formulations remain a priority risk.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** This is a complete exact classification of a natural, nonattaining family of codimension-one projection problems under a metric regularity constraint. It identifies the precise feasibility threshold, establishes uniqueness of the best correction, and connects the vanishing order of a sign-changing density to an arbitrary sharp polynomial convergence exponent. The inverse law states exactly how much regularity is necessary to approximate the classical infimum. Distinct absolutely continuous densities all have the same unregularized projection constant but drastically different quantitative approximation rates. The value is the structural rate classification, not the routine algebra of an isolated example.
+The classical norm identity and unrestricted constant are prior work. An earlier indexed atomic theorem already gives a clipped optimizer and an exact budget for another nonattaining functional. General bounded-Lipschitz duality describes the constrained functional supremum, but the inspected statements do not supply the exact solution and equality rigidity for this symmetric nonatomic family or its density-dependent leading law. This pass is confined to that stated conjunction, not the optimization framework or clip construction in isolation.
 
-## Related work and limits
+## value
 
-The Kania–Lewicki proof and abstract were inspected; its hyperplane classification is taken as prior input. Three closest related public mathematical proofs were inspected for overlap. Neither atomic/lattice nor codimension-two formulas logically specialize to this symmetric signed-density theorem. Abstract-level literature on bounded-Lipschitz dual norms leaves residual risk of an older differently phrased general formula. The theorem does not treat asymmetric densities, atoms or higher codimension.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This measures a genuine distinction that the constant 2 erases: the regularity needed to approach the unattained optimum. The exact feasible curve, uniqueness (including the threshold), and sharp dependence on the density near the sign interface provide quantitative information for a natural class of hyperplanes. The power family realizes every positive rate and turns a norm tolerance into an exact budget. The contribution is that structural package, not a new duality or the isolated uniform-density algebra.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

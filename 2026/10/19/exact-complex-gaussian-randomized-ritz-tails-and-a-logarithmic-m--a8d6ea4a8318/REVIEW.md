@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For the specified three-dimensional diagonal Hermitian matrix and two-dimensional trial space, the compressed pencil is exactly lower triangular after multiplying by the almost-surely invertible square Gaussian sketch. Its eigenbranch and corresponding normalized eigenvector admit closed rational expressions. Unitary invariance identifies the Gaussian-nullspace ratios with ratios of three independent circular Gaussians. An orthogonal Gaussian linear combination gives independent exponential numerator and denominator; direct integration establishes the exact CDF and mean. The explicit radial tail yields divergence of the second absolute moment, and a small-angle Taylor expansion gives the coefficient of the logarithmic mean squared-angle penalty. The standalone computation checks representative identities but is not relied on for the universal claim.
+PASS
 
-## Originality — PASS, with bibliographic risk
+For the frozen record and the narrowed theorem in /workspace/repairs/1/RESULT.md, independently solve (A-mu I)(c,eta,s)^T proportional to K, where K represents the Haar null line of Omega*. The solution is mu=bsK1/(sK1-cK3) and eta=-bscK2/((a-b)sK1-acK3). The first denominator expresses pencil nonsingularity, the second excludes collision with the exact spectator a, and the fixed-sketch branch tends to zero as K3 is nonzero a.s. The denominator of eta is independent of K2 with variance (a-b)^2 s^2+a^2 c^2=(a-beta)^2+gamma^2, proving |eta|^2=q V/U with independent unit exponentials. Normalization then yields S=s^2+c^2 qV/(U+qV). The exponential-ratio CDF gives the stated compact-interval law, and integrating its complement gives Phi with the continuous uniform case q=1. Substituting q=(b/a)^2 theta^2+O(theta^4) into -q log(q)+O(q) verifies the leading coefficient and O(theta^2) remainder. The near-zero deterministic branch is w1 and its deterministic tie at resonance is handled explicitly in the repair. Separately, subtracting beta from mu gives gamma times a quotient of independent unit complex Gaussians via the orthogonal forms cK1+sK3 and sK1-cK3; the tail and divergence are correct but already covered. The frozen simulation and quadrature checker was inspected, not needed for the analytic proof.
 
-Shao's *Stabilizing the Rayleigh–Ritz procedure by randomization* (arXiv:2604.01037v1), including its algorithm, main high-probability eigenpair results, and numerical study, was compared directly: this analysis uses the proposed square complex-Gaussian test pencil but supplies an exact complex-projective distribution and expectation/tail classification, not merely the same high-probability conclusion. Nakatsukasa–Tropp's full sketched Rayleigh–Ritz treatment analyzes embedding/oversampled sketches and spectral approximation; Haas–Nakatsukasa (arXiv:2506.01207) derives deterministic approximate-eigenvalue bounds. Neither inspected material asserts the specific exact noncentralized angle distribution, its logarithmic expectation, and the unrefined eigenvalue's infinite second moment for this trial-space model. Published mathematical records and related result summaries were queried for Cauchy, exponential-ratio, random-test-space, tail, and implication-equivalent formulations; no dominating prior claim was identified. Classical Gaussian ratio laws are acknowledged; an older equivalent specialized result remains possible, and failed database retrieval does not certify uniqueness.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The explicit model exposes a concrete limitation of translating an important randomized Rayleigh–Ritz high-probability guarantee into a mean-square guarantee. The model has an elementary positive-semidefinite diagonal Hermitian matrix with a simple extremal eigenvalue, and the same trial space yields a deterministic squared-angle error of order \(\theta^2\) but a randomized expected error of order \(\theta^2\log(1/\theta)\). The exact finite-sample CDF quantifies rare large-angle outcomes, and the unrefined eigenvalue has no finite second moment even as it converges in probability. This distinguishes eigenvector and eigenvalue reliability metrics and motivates oversampling, robust refinement and tail-aware numerical reporting, without asserting results for those modifications.
+PASS is for the repaired finite-angle eigenvector law and expected squared-sine asymptotic only. The frozen originality claim is too broad: the unrefined eigenvalue law and infinite second moment are directly covered by earlier indexed results. The repair removes that component from the Finding as a new claim and explicitly credits it as background. The finite-angle normalized eigenvector distribution and its mean remain distinct from the strongest inspected prior coverage.
 
-## Closest prior literature and limitations
+## value
 
-N. Shao, arXiv:2604.01037v1, Sections 1, 4 and 5, https://arxiv.org/html/2604.01037v1; Y. Nakatsukasa and J. A. Tropp, *Fast Randomized Algorithms for Linear Systems and Eigenvalue Problems*, §§1.3 and 6, https://tropp.caltech.edu/drafts/NT21-Fast-Accurate-draft.pdf; I.-B. Haas and Y. Nakatsukasa, arXiv:2506.01207, https://arxiv.org/pdf/2506.01207. The result treats one fixed square complex-Gaussian sketch pencil; alternate trial spaces, oversampling, postprocessed Rayleigh quotients, and real Gaussian sketches can have different distributions. Classical complex-Gaussian ratio probability is not claimed new.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The repaired model supplies an exact diagnostic for an established algorithm, separating fixed-confidence angle accuracy from expected squared-sine performance on the very same trial plane. The finite-angle normalization produces an explicit logarithmic loss versus deterministic Ritz and gives the coefficient and resonance law, quantities that neither an eigenvalue heavy-tail bound nor the limiting angle slope alone supplies.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

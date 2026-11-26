@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T14:19:39.849912Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–37; VERIFICATION.md and nested verification/comb_exhaustive.cpp inspected, not executed.",
+        "Independent replay: python3 /workspace/reviews/comb_full_state_check.py. It uses repetition of the entire encoded state and memoizes the exact distance to a cycle, without a unicycle detector. All 4·3^(n−2) starts at each n=2 through 12 were checked; maxima were 3, 10, 21, 36, 55, 78, 105, 136, 171, 210, 253 and the asserted initializer was unique in each size."
+      ],
+      "rationale": "At first arrival at frontier v_j, every earlier rotor points toward it. A departure into a subtree whose rotors all point back toward the frontier makes a full excursion, moving twice along every edge in that subtree including its attachment; this follows inductively because each child starts with its rotor pointing to its parent and the next parent exit follows a complete cycle through its children. All these excursions restore the parent-pointing orientations. Before the first exit to v_{j+1}, the 2j+1 edges of the prefix tree can contribute at most 4j+2 traversals; equality uses every prefix branch and requires the untouched frontier rotor initially to point to v_{j+1}. The final exit contributes one step and puts the prefix in the same rooted form for the induction. A periodic state on the tree must be a unicycle with the chip on its cycle: over a period every vertex visited uses all its exits and thus every vertex is visited, and last-departure times strictly increase along last-exit arrows away from any nonchip vertex unless the next vertex is the terminal chip position. Conversely, removing the chip rotor from a unicycle gives rotors directed toward the chip; a full root tour restores the state. First arrival at v_{n−1} always satisfies this criterion, and summing 4j+3 gives the bound. With terminal rotor pointing to its leaf that off-chip dimer prevents earlier recurrence. With terminal rotor left and all others forward, recurrence already occurs at first arrival to v_{n−2}, including at time zero for n=2. Hence the maximizer is unique.",
+      "residual_risks": [
+        "The exhaustive check is finite; the induction and recurrence proof establish all n. The result fixes the starting endpoint and the specified orders."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chalopin et al. give the previously known general bound 2mD, here 2(2n−1)(n+1). Poghosyan–Priezzhev characterize recurrent unicycles."
+        ],
+        "reasoning": "The general bound has a larger leading coefficient and gives no equality case; a criterion at an already reached state is not an exact time to reach it.",
+        "searches": [
+          "arXiv:1407.3200, PDF p. 1, abstract and introduction; arXiv:1310.1225, PDF pp. 2–4, §§I–II."
+        ]
+      },
+      "checked_sources": [
+        "The identified Resultary path/sunlet comparators and the cited OA rotor-walk primary passages above."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The cited comb work describes sequential many-particle cluster growth, keeping the rotors for successive insertions. The sunlet text explicitly limits its claim to a witness and general upper bound."
+        ],
+        "reasoning": "Neither an aggregate-growth shape nor a closed-comb witness identifies the unique maximizing full-state transient with the fixed open-comb order. The sharp bound here requires adding the two traversal costs of each prior leaf excursion and locating the first chip-containing dimer.",
+        "searches": [
+          "arXiv:1103.4797, PDF p. 1, abstract and §1; compare the path and sunlet Findings and the general 2mD bound."
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The bare path formula is tau(S)=2 sum_{i in S} i−max S with maximum (n−2)^2. The closed sunlet has one leaf per vertex but asserts a witness at n²−ceil(n/2), not an exact maximum."
+        ],
+        "reasoning": "First entrance concerns the whole state; having a comparable time statistic does not make these equivalent. Deleting leaves loses their rotor phases and step cost; cutting the sunlet changes the excursions and its recurrence criterion.",
+        "searches": [
+          "Resultary queries for finite comb, one-chip first recurrence, rotor walk lock-in / transient; path record ending 3d32c930eef2 and sunlet record ending 32f87e3148da."
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matching comb entry ending 2f01f57bf6cd is the identical frozen result, not another computation or a prior table. Path and sunlet entries compute different clocks."
+        ],
+        "reasoning": "The claim is a symbolic all-n extremum and unique equality case. A small-n simulation is not independent existing coverage of the classification.",
+        "searches": [
+          "Resultary/SCOPE finite-comb entrance-clock results, including the exact target and neighboring graph-family records."
+        ]
+      },
+      "rationale": "The bare-path law, closed-sunlet witness, general unicycle characterization and general stabilization bound each overlap with a component of the setup, but do not establish the exact maximum and its unique initial rotor configuration on an open comb.",
+      "residual_risks": [
+        "The original 2003 source for the general bound was not directly inspected. Same-day records do not establish priority. An unindexed equivalent remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "A distinct neighboring family; no within-day priority inferred",
+          "evidence": "No private leaves and exact maximum (n−2)^2.",
+          "identifier_or_url": "2026/11/17/SCOPE-endpoint-initiated-rotor-walks-on-paths-an-exact-lock-in-polynom--3d32c930eef2",
+          "material_read": "Mirrored RESULT.md at offset 0",
+          "method": "Local Resultary search and mirror reading",
+          "title": "Endpoint-initiated rotor walks on paths: an exact lock-in polynomial",
+          "trigger": "Exact endpoint-initiated full-state transient on a related graph"
+        },
+        {
+          "assessment": "Strong structural comparator but different topology and claim",
+          "evidence": "Closed cycle with a witness at n²−ceil(n/2); no global maximizer claim.",
+          "identifier_or_url": "2026/11/17/SCOPE-a-quadratic-first-recurrence-witness-for-rotor-routing-on-sunlet--32f87e3148da",
+          "material_read": "Mirrored RESULT.md at offsets 0 and 4600",
+          "method": "Local Resultary search and mirror reading",
+          "title": "A quadratic first-recurrence witness for rotor routing on sunlets",
+          "trigger": "Identical private-leaf construction on a cycle"
+        },
+        {
+          "assessment": "Different process and observable",
+          "evidence": "Successive particles build a growing aggregate while retaining rotor states.",
+          "identifier_or_url": "arXiv:1103.4797",
+          "material_read": "PDF p. 1, abstract and §1",
+          "method": "Open primary text",
+          "title": "Rotor-Router Aggregation on the Comb",
+          "trigger": "Same comb terminology and rotor model"
+        },
+        {
+          "assessment": "Credit recurrence criterion as known; not the entrance-time formula",
+          "evidence": "A recurrent rotor configuration is a unicycle with chip on its directed cycle.",
+          "identifier_or_url": "arXiv:1310.1225",
+          "material_read": "PDF pp. 2–4, §§I–II",
+          "method": "Open primary text",
+          "title": "Euler tours and unicycles in the rotor-router model",
+          "trigger": "Criterion used to convert frontier behavior into recurrence"
+        },
+        {
+          "assessment": "Cites Yanovski et al. (2003) for the more general bound, not an exact comb calculation",
+          "evidence": "The stated one-chip bound is 2mD.",
+          "identifier_or_url": "arXiv:1407.3200",
+          "material_read": "PDF p. 1, abstract and introduction",
+          "method": "Open primary text",
+          "title": "Lock-in Problem for Parallel Rotor-router Walks",
+          "trigger": "General sharpness baseline"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md §§ Finding and Proof; path/sunlet comparisons and arXiv:1407.3200 p. 1."
+      ],
+      "rationale": "The comb is a natural next family beyond paths and a standard rotor-routing graph. The exact clock gives a benchmark for quadratic transients at an endpoint, quantifies the effect of the private leaves beyond a generic order bound, and identifies which terminal cycle delays periodic entry. The maximizer is not determined by the general recurrence characterization.",
+      "residual_risks": [
+        "Not a maximum over starts, rotor orders, or trees, and no distribution of submaximal transients is asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

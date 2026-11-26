@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:57:42.758898Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A nonscalar A has a rational commutant spanned by I,A (choose a vector cyclic for A). Its integral commutant is parametrized by one free diagonal entry and an integer multiple j of the primitive triple (b,c,a−d)/g by Bézout. The box permits |j|≤S=⌊2gH/M⌋ with M=max(2|b|,2|c|,|a−d|); for each j the diagonal overlap is 2H+1−(p/g)|j| with p=|a−d|. Summing gives (2H+1)(2S+1)−(p/g)S(S+1). Because S≥g≥1 and p/g≤2H/S, this is at least 2HS+2S+1. Thus C_H≤4H forces S=g=1, while p≥L_H(z)≥H+2 with g=1 conversely forces S=1 and enforces the threshold 6H+3−2p≤zH. Scalars are excluded by their full box count. The multiplicity of p is 2(2H+1−p) and the coprime (b,c) count is Möbius inversion, giving the exact sum including empty bands. Taking p=2H,b=1,c=0 attains the lower bound 2H+3. The unrestricted diagonal-pair count T is (z−2)^2H²/4+O(H), uniformly including the empty region. For multiples of r, count diagonal pairs by the same linear weight on a progression: weighted summation by parts gives T_r=T/r+O(H) from prefix discrepancy at most one. The off-diagonal count of one coordinate is (2H+1)/r+O(1), so the error in the Möbius sum is bounded by ∑_{r≤2H}O(H³/r²+H²/r+H)=O(H³). Extending the main series produces 1/ζ(3); division by (2H+1)^4 gives the uniform stated law and the z=4 density. The independently written bounded replay agreed with direct AB=BA at all 3,107 A at H=1,2,3, and with the finite event formula in all 35 tested half-step thresholds over H=1,…,7 (evidence note /workspace/branches/4762f248-a59e-4f6c-95bd-6fdf1b17ee01/bounded-centralizer-check.md). The supplied checker and VERIFICATION.md were inspected, not executed. The uniform error follows from the proof, not from the replay; no Lean or external expert attestation is claimed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The pointwise theorem covers each centralizer even beyond the first band, but does not evaluate its statistics across the box.",
+          "Mudgal gives the arbitrary-measure commuting bound T(μ)≤8δ(μ), not a sharp distribution, and Chapman–Mudgal give a box-wide total with asymptotic constant 10ζ(2)/(3ζ(3)) multiplying (2H)^5."
+        ],
+        "reasoning": "These results provide broader individual counts or global pair estimates. None states an evaluated distribution theorem specializing to this uniform asymptotic. A systematic reduction to primitive triples, separation of integer S strata and a uniform weighted lattice summation are required.",
+        "searches": [
+          "arXiv:2611.11287v1 Theorem 1.1",
+          "doi:10.1007/s00209-026-04097-2 Theorem 1.1",
+          "arXiv:2504.15839v1 Theorem 1.2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, edge_checker.py",
+        "arXiv:2611.11287v1",
+        "arXiv:2504.15839v1",
+        "doi:10.1007/s00209-026-04097-2",
+        "Resultary target mirror and distinct square-zero-matrix finding listed above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 1.1 yields the exact C_H for each fixed A. The minimal count is a short consequence of it using S≥1 and the sharp endpoint example.",
+          "The total pair asymptotic concerns a completely different summatory weight, so its ζ(3) factor does not deliver the tail's coefficient or shape."
+        ],
+        "reasoning": "Do not credit the pointwise formula or minimal count alone as substantive advances. The added distributional statement is the exact two-condition predicate isolating S=g=1, its weighted Möbius sum, and a uniform O(H⁻¹) asymptotic after normalization. This is an evaluated statistic not delivered by simply substituting a parameter in the known pointwise formula.",
+        "searches": [
+          "arXiv:2611.11287v1 pp. 1–3 (Theorem 1.1 and §1.1)",
+          "arXiv:2504.15839v1 pp. 1–2 (definition and Theorem 1.2)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Afifurrahman–Wicaksono give the same pointwise bounded C_H(A) for fixed nonscalar A; their statistics in §1.1 concern dimensions of rational centralizers.",
+          "Chapman–Mudgal count all commuting pairs and hence the first moment ∑_A C_H(A)."
+        ],
+        "reasoning": "The exact lower-tail probabilities are neither a dimension distribution nor an average pair count. A first moment cannot specify the lower-tail CDF, including its uniform z-dependence. The target could equivalently be phrased as the box measure of a coprimality-restricted diagonal-difference region; that identification requires the band reduction.",
+        "searches": [
+          "Resultary: bounded integral matrix centralizers and first-band cardinalities",
+          "arXiv:2611.11287v1 Theorem 1.1 and §1.1",
+          "arXiv:2504.15839v1 Theorem 1.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact matching Resultary hit is the assigned finding itself. The related distinct catalogue result gives content, height and kernel-direction statistics on nonzero square-zero matrices, and the inspected pointwise paper gives rational centralizer dimensions for its statistics."
+        ],
+        "reasoning": "Neither the different restricted sampling space nor rational dimensions tabulate C_H(A) for the full uniform integer box. No independent exact table or evaluated first-band formula was identified in the inspected sources.",
+        "searches": [
+          "Resultary first-band bounded centralizer queries",
+          "Resultary 2026/10/26/SCOPE-independent-content-height-and-kernel-direction-limits-for-integ--5b82a46e1b08",
+          "arXiv:2611.11287v1 §1.1"
+        ]
+      },
+      "rationale": "The fixed-matrix formula is already known and determines what a brute-force distribution would be. The claimed contribution is a structural first-band predicate, exact distribution summed across the growing entry box, and uniform lower-edge CDF, not the parametrization or the commuting-pair total. No equivalent evaluated tail law was found in the inspected comparisons.",
+      "residual_risks": [
+        "The search does not exclude a yet-unlocated stronger exact lattice-distribution result. The minimum is a short deduction of the fixed-matrix formula and is not relied on as the originality-bearing component."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct prior input; distribution of dimensions is a different statistic",
+          "evidence": [
+            "Theorem 1.1 counts the bounded commutant of a fixed nonscalar matrix. §1.1 statistics concern dim C(A)."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2611.11287v1",
+          "material_read": "Theorem 1.1 pp. 1–2 offset 4000; §1.1 pp. 2–3 offset 8200",
+          "method": "OA PDF passages",
+          "title": "Statistics of centralizers of integer matrices",
+          "trigger": "Exact pointwise formula for the same object and entry bounds"
+        },
+        {
+          "assessment": "Same objects, total ordered pair count rather than exact lower-tail distribution",
+          "evidence": [
+            "C_2(H)=K(2H)^5+O(H^4 log H), K=10ζ(2)/(3ζ(3))."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2504.15839v1",
+          "material_read": "p. 1 definition offset 0; Theorem 1.2 p. 2 offset 5600",
+          "method": "OA PDF passages",
+          "title": "On commuting integer matrices",
+          "trigger": "Same uniform box and commuting relation"
+        },
+        {
+          "assessment": "General bound for total commuting pairs/probability, not evaluated box CDF",
+          "evidence": [
+            "T(μ)≤8δ(μ), where δ(μ) measures mass in 2-dimensional subspaces."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00209-026-04097-2",
+          "material_read": "Theorem 1.1 p. 2 offset 3500",
+          "method": "OA publisher PDF passage",
+          "title": "On commuting pairs in arbitrary sets of 2×2 matrices",
+          "trigger": "Broad quantitative theorem on pair counts"
+        },
+        {
+          "assessment": "Different ensemble and invariants",
+          "evidence": [
+            "Joint content, height and kernel-direction limits for nonzero square-zero matrices."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-independent-content-height-and-kernel-direction-limits-for-integ--5b82a46e1b08",
+          "material_read": "Recorded Finding on the nonzero square-zero locus and its statistics",
+          "method": "Resultary comparison",
+          "title": "Independent content, height and kernel-direction limits for integral matrices",
+          "trigger": "Related catalogue distribution law for bounded 2×2 matrices"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For commuting-pair statistics in the standard symmetric entry box, a lower-tail CDF is a natural complement to the known mean. The range is a structural band, cut out by the gap between S=1 and S≥2, not arbitrary sample heights. The exact primitive-region characterization and uniform quadratic edge law describe where small centralizers occur and give their mass; the pointwise formula and example attaining the minimum alone would not justify the value verdict.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

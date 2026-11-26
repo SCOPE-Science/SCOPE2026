@@ -1,12 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The claimed sharp constant is exactly the inverse-energy quadratic form \({\bf1}^*(L+\operatorname{diag}w)^{-1}{\bf1}\): matrix positivity resolves arbitrary complex phases, and the unique maximizer has nonnegative constant phase. Strict convexity in all penalty coordinates, the exact KKT equal-height conditions, discrete concavity of unpinned gaps, and an explicit reflected parabolic-flat torsion profile establish necessity and sufficiency for *all* dimensions and real budgets. The support thresholds follow from separate nonnegativity and off-support maximum inequalities. The standalone checker exercises \(2,261\) finite assertions and nonlinear optimizer comparisons, but infinite uniformity is proved by algebra, not sampling. Risk: the model assumes a nonnegative budget and Dirichlet endpoints; it gives no unrestricted-graph classification.
+## correctness
 
-## Originality — PASS with residual priority risk
-The motivating full text arXiv:2610.19010v1 treats the unpinned higher-order \(\ell^1\)-difference inequality and contains the first-order zero-budget constant, but does not state or directly imply the variable-stiffness optimization with its global unique allocation and exact support transitions. Inspected available pinning-control abstracts arXiv:1804.10818 and arXiv:2110.12576 concern optimizing an eigenvalue or selecting pinned vertices, so neither objective dominates the inverse-energy budget profile. Related studies of Schrödinger potential design address spectral objectives or nonidentical potential constraints. Published research-record queries for aliases, strict-compliance pinning and point-anchor optimization found a discrete Dirichlet point-evaluation boundary-layer result (record 489778b0342d), which optimizes a different scalar inequality, not spatial penalty allocations. Classical compliance optimization may contain a stronger equivalence; its full historical literature was not exhaustively read. Uniqueness of publication is therefore not certified.
+PASS
 
-## Mathematical value — PASS
-The first-difference endpoint of a recent sharp Sobolev theorem is sensitive to spatially allocated pinning. Solving the complete exact min-over-potentials problem answers where to place a fixed anchoring budget; a surprising centered flat torsion region expands through rational budget thresholds rather than distributing pinning uniformly from the outset. The all-dimension formula, exact extremizer and optimizer, and sharp thresholds are structural, reproducible and useful for optimal reinforcement, and not merely a routine restatement of the unpinned inequality.
+For fixed w, positivity of the Dirichlet inverse makes the constant-phase dual vector optimal, giving F=1^T A_w^{-1}1. Differentiation gives gradient -g_j^2 and positive definite Hessian 2 diag(g) A_w^{-1} diag(g), so the simplex optimum is unique and reflected. In the KKT conditions support sites have g=H and the others have g<=H. An unpinned gap between support sites solves Lg=1 with equal boundary values H, so is strictly above H, impossible. On a tail the unique solution is i(m-i)/2+iH/m, and summation of the loaded equation gives (Lambda+2/m)H=d+1-m. The last unpinned site yields H>=m(m-1)/2, which also controls the whole tail since H-g_i=(m-i)(H/m-i/2). With two or more plateau sites nonnegative end weights give H<=m(m+1)/2; a single center instead gives H<=m^2/2 and the zero-budget endpoint. At a shared t_m the (m-1)-st site has g=H and zero weight, so both formulas agree. The zero-budget simplex is a singleton, and d=1,2 give the full flat profile directly. Summing g yields the displayed constant and equality uses a common phase. Independent replay (python3 -B /workspace/branches/independent_replay.py 3) passed 468 exact rational cases across d=1..24, with direct tridiagonal solves, budget and support checks and endpoint samples; finite evidence is corroboration only. The frozen checker clips negative candidates and its line-49 inequality is vacuous with the supplied initial value, so neither is relied on to certify nonnegativity or KKT.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Pass for the complete fixed-total-budget solution on the discrete Dirichlet path, including the exact support transitions and piecewise rational value. The unpinned constant, general inverse derivative, and general potential/spectral optimization are not credited as new. The inspected sources do not establish the specific all-ones compliance solution; this is a bounded best-of-knowledge assessment.
+
+## value
+
+PASS
+
+The design problem asks where to put a fixed amount of damping to improve a sharp, structured norm bound, not just to evaluate an already selected matrix. The answer identifies exactly which sites switch from unpinned to pinned as budget increases, certifies the global optimizer among asymmetric allocations, and gives the corresponding sharp inequality rather than a numerical optimization prescription. The support transition and flat-torsion mechanism are informative independently of bibliographic novelty.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

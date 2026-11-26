@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:28:00.617204Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 3–23 and 25–71",
+        "VERIFICATION.md lines 3–14 and 18–24",
+        "verify.py lines 11–62"
+      ],
+      "rationale": "The announced complete-period and Haar theorems are sound, but the frozen scope section (line 23) asserts E_m(n)=O_n(m) for a fixed ordinary integer n under least nonnegative residues. The bound is false as written: for n=−1 each term is k−1, so E_m(−1)=m(m−1)/2. More generally any fixed negative n has n mod k=k+n for k>|n|. The linear bound is valid for n≥0. For the core theorem, with g=gcd(a,b), the uniform common residue modulo g has variance (g²−1)/12 and conditional CRT independence leaves just that covariance, including equal moduli and modulus 1. Sum the means and covariances and use the Jordan divisor identity. Möbius inversion gives the uniform summatory estimate x³/(3ζ(3))+O(x²) for J₂; summing against 2r−1 at x=m/r gives the stated cubic coefficient, harmonic error O(m² log(2m)), and tail O(m²). Haar level marginals match the complete-period laws; Chebyshev on the squares and monotone interpolation prove the almost-sure limit without independence. The recorded finite tests were inspected, not rerun; they corroborate the main identities, not the fixed-negative-input scope aside or the asymptotic theorem.",
+      "residual_risks": [
+        "No assertion is made for short sampling intervals or limiting centered fluctuations. No repair is delivered: correcting the fixed-integer aside would not address the originality and value findings."
+      ],
+      "status": "FAIL"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "En-naoui establishes the same remainder sum and its complete period, but the inspected outlook poses distributional questions. The weighted averages of Kaltenböck et al. and the November 8 record do not state the unweighted square-truncated covariance theorem."
+        ],
+        "reasoning": "A fixed-argument Pillai sum, a weighted average over a triangle, and a square sum with 1/(ab) times complex weights are not interchangeable with the frozen unweighted double sum. Direct equivalent coverage comes instead from the October 12 result.",
+        "searches": [
+          "arXiv:2509.10592, Proposition 9.8 and distributional outlook",
+          "arXiv:2002.11984, weighted gcd-sum definitions",
+          "Resultary 2026/11/8/SCOPE-uniform-logarithmic-squared-gcd-means-for-unimodular-completely--391a260e92a6"
+        ]
+      },
+      "checked_sources": [
+        "Exact-claim and related source passages in source_inspections",
+        "Frozen RESULT.md lines 77–91"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier O(m³) variance already gives O_ε(m⁻¹) deviation probabilities for the Haar-level marginals. At m=j² the sum is finite; any m between the squares is bounded by the two subsequence values with normalization ratios tending to one."
+        ],
+        "reasoning": "No new covariance or dependence estimate is required for the almost-sure limit; the nonnegativity of the existing remainder summands supplies monotonicity in the canonical Haar coupling. The earlier Finding was not relied on for an explicit Haar statement.",
+        "searches": [
+          "October 12 Resultary Finding for complete-period variance and concentration",
+          "Frozen RESULT.md lines 62–71"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier Finding has the same complete-period law, (gcd²−1)/12 covariance, Jordan-floor sum and (2ζ(2)−ζ(3))/(36ζ(3)) coefficient with the same order of error."
+        ],
+        "reasoning": "Summing over the complete common period or projecting that uniform law onto individual moduli gives identical pair and energy moments.",
+        "searches": [
+          "Resultary local lookup for modular energy complete-period remainder covariance, cubic variance and concentration",
+          "2026/10/12/SCOPE-exact-complete-period-variance-and-cubic-concentration-of-modula--df2825cad6bd"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The catalogue gives a closed all-m exact moment identity and the asymptotic constant, stronger evidence than a matching finite table."
+        ],
+        "reasoning": "This exact check is by formula comparison; a finite sequence of matching modular energy values would not suffice.",
+        "searches": [
+          "2026/10/12/SCOPE-exact-complete-period-variance-and-cubic-concentration-of-modula--df2825cad6bd, RESULT.md Finding"
+        ]
+      },
+      "rationale": "A distinct October 12 Resultary finding already states the same covariance, exact Jordan identity, leading coefficient and error, and convergence in probability. The Haar sentence is a direct consequence of this exact complete-period model and its variance bound via the canonical compatible coupling and a general monotone interpolation argument. This is coverage of the mathematics, not a bibliographic priority determination.",
+      "residual_risks": [
+        "The bounded primary search did not settle whether classical GCD-sum literature already states the same unweighted cubic expression. This does not affect the demonstrated catalogue overlap. No earliest historical priority is assigned."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Explicit finite and cubic overlap; Haar conclusion is a direct implication",
+          "evidence": "The Finding gives the same pair covariance, finite variance/Jordan-totient identity, cubic coefficient with error, and probability concentration.",
+          "identifier_or_url": "2026/10/12/SCOPE-exact-complete-period-variance-and-cubic-concentration-of-modula--df2825cad6bd",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Exact complete-period variance and cubic concentration of modular remainder energy",
+          "trigger": "Exact same-object catalogue hit"
+        },
+        {
+          "assessment": "Matching definition and period; not itself the inspected exact variance statement",
+          "evidence": "Defines the sum of least nonnegative remainders, states L_m-periodicity, and identifies distributional questions for investigation.",
+          "identifier_or_url": "https://arxiv.org/abs/2509.10592",
+          "material_read": "PDF p. 1 offsets 0 and 1231; Proposition 9.8 p. 10 offset 39078; outlook p. 11 offset 42639",
+          "method": "OA primary passages",
+          "title": "The Modular Energy Function: Exact Identities and a Primality Equivalence",
+          "trigger": "Primary source for the same object"
+        },
+        {
+          "assessment": "Related weighted sums, not an exact overlap shown by these passages",
+          "evidence": "Uses M_r(x;f) with an inner triangular range and weights, and the single-fixed-argument Pillai sum.",
+          "identifier_or_url": "https://arxiv.org/abs/2002.11984",
+          "material_read": "PDF p. 1 weighted sums and Pillai definition, offsets 0 and 1743",
+          "method": "OA primary passages",
+          "title": "Sums of averages of gcd-sum functions II",
+          "trigger": "Plausible broader arithmetic average theorem"
+        },
+        {
+          "assessment": "Different weighted asymptotic",
+          "evidence": "Uses weights a(m) conjugate(a(n))/(mn) and obtains a linear-scale mean, not the unweighted cubic sum.",
+          "identifier_or_url": "2026/11/8/SCOPE-uniform-logarithmic-squared-gcd-means-for-unimodular-completely--391a260e92a6",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Uniform logarithmic squared-gcd means for unimodular completely multiplicative functions",
+          "trigger": "Same square cutoff and gcd² kernel"
+        },
+        {
+          "assessment": "Different object and output",
+          "evidence": "Concerns positive definiteness of a prescribed kernel on the p-adic integers rather than energy or least nonnegative residues.",
+          "identifier_or_url": "2026/10/26/SCOPE-arithmetic-positivity-islands-for-log-periodic-covariances-on-p--9e9fab847820",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Arithmetic positivity islands for log-periodic covariances on p-adic integers",
+          "trigger": "Same-date covariance catalogue hit"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding and lines 62–71",
+        "En-naoui distributional outlook",
+        "October 12 exact variance and concentration Finding"
+      ],
+      "rationale": "Complete-period fluctuation scale was a motivated question for this arithmetic object, but the exact covariance, cubic constant, and concentration are already available. The only apparent addition is an almost-sure restatement in the natural compatible coupling, obtained by a standard square-subsequence squeeze from the existing bound. It requires no new arithmetic estimates and preserves no substantively distinct finding suitable for repair.",
+      "residual_risks": [
+        "This does not assess the value of an actual limiting fluctuation law or a short-interval theorem, neither of which is established in this record."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

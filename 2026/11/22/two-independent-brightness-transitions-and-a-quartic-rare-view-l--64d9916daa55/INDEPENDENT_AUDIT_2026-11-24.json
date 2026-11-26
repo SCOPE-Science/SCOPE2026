@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:44:02.553329Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The corrected RESULT.md in /workspace/repairs/1/ is complete; its mathematics is verified as follows. The absolute-normal integrals of the two lateral halves agree by central reflection, and the bicone has no equatorial surface face. For radius one, parameterizing the upper surface by radius rho and azimuth gives normal times area element rho*(k cos(phi),k sin(phi),1) d rho d phi. Hence Cauchy's projection formula gives half the integral of |z+c cos(phi)|, with c=k sqrt(1-z^2). For c<=z the sign does not change; otherwise integration between the zeros gives 2[S+z arcsin(z/c)] with S=sqrt(c^2-z^2), equivalent to (1), including the limiting endpoints. Differentiating, F'_k=2t(H(t)-k^2)/(1+t^2) with t=z/S increasing; the derivative numerator of H is t+(t^2-1)arctan(t), positive also when t<1 by arctan(t)<t. H increases from 1 to infinity, so the only possible interior extremum is a strict nondegenerate minimum for k>1; the maxima follow from comparing endpoints 2k and pi. Uniformity of |U3| converts exactly these monotonic sublevel intervals into (3), with no atoms. The near-equator quadratic coefficient is (1-k^2)/k, and at k=1 expansion of the derivative gives F=2+z^4/3+2z^6/5+O(z^8); inversion gives the quartic tail and conditional uniform law. Expanding H=1+2t^2/3+O(t^4) gives z_*^2 asymptotic to 3(k-1), and local analyticity in k and z gives the minimum deficit asymptotic to 3(k-1)^2. At the axial maximum the tail is exactly linear; the equatorial maximum contributes a square-root probability with O(epsilon^(3/2)) error, so their separate contributions at the tie give (5). At tangency the excess is 2[S-z arctan(S/z)] asymptotic to 2S^3/(3z0^2); S^2 is asymptotic to 2(1+k^2)z0(z0-z). This gives (6) with matching first derivatives but unbounded left second derivative. All asymptotics are at fixed aspect except the stated separate bifurcation limit. The frozen numerical checker was inspected, not executed; these symbolic arguments do not depend on finite tests.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cauchy's average-area theorem determines the mean rather than the critical classifications; Finch's cone passages concern mean width and lateral area.",
+          "The nested near-brightest windows are for single cones; the two-switch analogue is for square pyramids. Vickers–Brown's abstract reports projected-area distributions for conical particles, but its decisive full text was not available."
+        ],
+        "reasoning": "No verified broader theorem computes the repaired bicone's two critical aspect ratios and their rare-view laws. The nearest broad distribution paper remains an access risk.",
+        "searches": [
+          "Vickers Brown DOI 10.1098/rspa.2000.0667 projected area conical particles",
+          "Finch arXiv:1212.5946",
+          "Slepian arXiv:1109.0595",
+          "Resultary 70b5e3232fba and 4d135c65c64a"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check_bicone.py; corrected repairs/1/RESULT.md",
+        "Resultary 19c34891a8b8, 0f13e384bdf1, 70b5e3232fba, 4d135c65c64a, 94c36f959083",
+        "Vickers–Brown abstract and attempted full-text routes",
+        "Finch arXiv:1212.5946 and Slepian arXiv:1109.0595"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The single-cone integral and its exact evaluation already give the bicone profile by removing the base; the inverse CDF construction is a uniform-variable pushforward, and the tangency coefficient follows from the profile expansion.",
+          "The known single-cone maximum switches at about 2.6414; the bicone perimeter minimum switches at about 0.66274."
+        ],
+        "reasoning": "The repair expressly removes independent novelty attribution for the formula, contact and generic inverse construction. The shape-specific sign analysis of the area derivative after base removal, the competition of two global endpoints, and the quartic and mixed critical tail laws do not follow just by copying any of the inspected optimization or distribution statements.",
+        "searches": [
+          "19c34891a8b8 proof §1",
+          "70b5e3232fba Finding and scope",
+          "0f13e384bdf1 Finding and scope"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For a single cone the standard base contribution is pi*z/2; its two reflected lateral contributions produce the entire bicone profile.",
+          "The indexed symmetric-bicone result uses h as the height to either apex, but optimizes perimeter, not projected area."
+        ],
+        "reasoning": "The exact relation to the single cone covers the profile as an independent novelty claim. It does not transport the single cone's extrema when a nonconstant term is subtracted. Perimeter is a different projection functional even at the same aspect.",
+        "searches": [
+          "circular bicone projected area orthogonal projection shadow area distribution brightness",
+          "Resultary 19c34891a8b8 proof §1",
+          "Resultary 0f13e384bdf1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact bicone-area hit was the assigned record itself. Distinct hits treat bicone perimeter, one-cone brightness or spherical-cap contact; the inspected findings distinguish the bodies or functionals."
+        ],
+        "reasoning": "The repaired assertion is symbolic over a continuum of aspect ratios, not a table recomputation. Bounded indexed comparisons did not establish an exact prior record of the two bicone transitions and critical tails.",
+        "searches": [
+          "Resultary: symmetric circular bicone projected-area distribution and brightness transitions",
+          "Resultary 0f13e384bdf1, 19c34891a8b8, 70b5e3232fba, 94c36f959083"
+        ]
+      },
+      "rationale": "Applies to the repaired claim, not the frozen broad novelty attribution. The earlier single-cone profile yields the frozen bicone profile exactly by F_bicone=2F_single-pi*z. The repaired RESULT.md credits that implication, retains the contact expansion and inverse construction as supporting consequences, and limits the contribution to the global bicone minimum and maximum transitions and the specific rare-view laws. The available closest sources do not supply those extremal classifications and critical laws for this body. The inaccessible Vickers–Brown comparison is explicitly unresolved rather than treated as evidence of absence.",
+      "residual_risks": [
+        "Vickers–Brown full-text scope remained unresolved after lawful alternate routes; the abstract cannot rule out overlap.",
+        "The source comparisons are bounded and do not certify absolute priority.",
+        "Same-day records were compared by content, not treated as ordered by their date."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Profile covered by a direct consequence; different extremal result",
+          "evidence": "Its normalized brightness is pi*z/2 plus a quarter of the absolute-normal integral. It gives the evaluated arc-sine form and the one-cone maximum switch at about 2.6414.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-a-sharp-global-brightness-direction-switch-for-right-circular-co--19c34891a8b8/RESULT.md",
+          "material_read": "Finding, assumptions and proof §1, offsets 0–3712",
+          "method": "Local mirror passage inspection, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "A sharp global brightness-direction switch for right circular cones",
+          "trigger": "Direct precursor for the exact brightness formula"
+        },
+        {
+          "assessment": "Same body, different functional",
+          "evidence": "Its transition at about 0.66274 concerns perimeter, and it distinguishes the area problem from its scope.",
+          "identifier_or_url": "Resultary 0f13e384bdf1",
+          "material_read": "Finding, assumptions and proof opening, offsets 0–3295",
+          "method": "Local mirror passage inspection",
+          "title": "Sharp oblique orientation transition for the minimum shadow perimeter of a circular bicone",
+          "trigger": "Same symmetric body and orientation optimization"
+        },
+        {
+          "assessment": "Single-cone upper-tail theory, not the repaired bicone thresholds",
+          "evidence": "It analyzes moving and fixed upper-tail regimes at the single-cone threshold, with the base-face term present.",
+          "identifier_or_url": "Resultary 70b5e3232fba",
+          "material_read": "Fixed-aspect and moving-window statements, scope and proof opening, offsets 0–4781",
+          "method": "Local mirror passage inspection",
+          "title": "Two nested critical windows for near-brightest projections of circular cones",
+          "trigger": "Closest same-day cone rare-view comparison"
+        },
+        {
+          "assessment": "Exact overlap unresolved",
+          "evidence": "The abstract mentions projected-area distributions for conical particles; it is not sufficient to determine whether the circular bicone is included.",
+          "identifier_or_url": "https://doi.org/10.1098/rspa.2000.0667",
+          "material_read": "Publication abstract only; no decisive full-text geometry or theorem passage was available",
+          "method": "DOI/publisher and cited Academia attempts, plus identified JSTOR PDF link; access or landing-page limitations",
+          "title": "The distribution of projected area and perimeter of convex, solid particles",
+          "trigger": "Primary projection-area distributions including conical particles"
+        },
+        {
+          "assessment": "Relevant geometry, not the claimed bicone transitions",
+          "evidence": "The inspected passage computes right-cone lateral area and mean width.",
+          "identifier_or_url": "https://arxiv.org/abs/1212.5946",
+          "material_read": "p. 1 abstract and introduction; p. 7 right-cone mean-width and lateral-area passage",
+          "method": "OA PDF passage inspection",
+          "title": "Oblique Circular Cones and Cylinders",
+          "trigger": "Cone projection and intrinsic-volume precedent"
+        },
+        {
+          "assessment": "Gives mean normalization, not directional optimization",
+          "evidence": "Mean projected area in three dimensions is one quarter of surface area.",
+          "identifier_or_url": "https://arxiv.org/abs/1109.0595",
+          "material_read": "pp. 1–2, abstract and theorem discussion",
+          "method": "OA PDF passage inspection",
+          "title": "The Average Projected Area Theorem — Generalization to Higher Dimensions",
+          "trigger": "Cauchy mean-area precedent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The two parameter transitions give a complete global directional classification for a natural convex body. At the minimum threshold the quadratic term disappears and the probability exponent is one quarter. At the maximum threshold two equal brightest latitudes make unequal contributions to near-brightest views. The distinction between equal deterministic extrema and unequal random tails is a substantive, sharp conclusion even after removing standalone novelty claims for the profile and its routine consequences.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

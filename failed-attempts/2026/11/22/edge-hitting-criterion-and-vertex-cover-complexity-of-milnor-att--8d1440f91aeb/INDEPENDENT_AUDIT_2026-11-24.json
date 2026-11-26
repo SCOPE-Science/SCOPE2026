@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:38:31.487994Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–64",
+        "Frozen VERIFICATION.md and CHECK.py, inspected, not executed",
+        "Uehara Technical Report No. 4, 1996, abstract and Theorem 3, pp. 1–2"
+      ],
+      "rationale": "A graph homeomorphism preserves topological valence and permutes the essential open edges. A positive iterate preserves each chosen edge; compactness of its closure forces an accumulation point there for every start in that edge. Full support gives the obstruction to avoiding its closure. Conversely, after parametrizing each edge, fix A and the essential vertices, and use increasing interval maps on the complementary gaps. Every gap has at least one target endpoint. With two target endpoints, a single fixed midpoint separates two monotone drifts; with one endpoint the whole interior drifts toward it. The displacement on a gap is at most half the distance to its gap endpoints, so the maps glue continuously, also with identified loop endpoints. They are edgewise increasing bijections. Off the target, only countably many fixed midpoints and finitely many essential vertices can fail to converge to A, a null set. For any a in A and neighborhood U, either some open subinterval there is fixed in A, or take a nearby complement point on an incident parameter arc from a, with no intermediate essential vertex. The gap containing it has an intervening endpoint belonging to A inside U; an open one-sided subinterval flows to that endpoint. Thus any closed C missing a point of A misses limits of a positive-mass set; A is the smallest full-basin closed set. The circle follows by cutting at a target point. On a nondegenerate simple graph with no degree-two vertices, essential closed edges are the ordinary closed edges. Replacing any interior hitter by a corresponding endpoint cannot lose coverage of any other edge. This establishes exact equality with vertex-cover size. A vertex cover is a polynomial certificate and Uehara's Theorem 3 gives hardness already on a subclass of connected cubic planar simple graphs. Exact-size and at-most-k cover versions coincide on k<=|V| by enlarging a cover.",
+      "residual_risks": [
+        "The nondegeneracy assumption excludes the single isolated vertex; its vertex-cover number would be zero, not the attractor cardinality. The triangle in the supplied finite graph-cover check is a test of ordinary closed-edge hitting, not of the degree-two-suppressed attractor identity on a circle."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hantáková–Mlíchová give conditional root-contraction and interval/circle realization for Riemannian length; a tripod singleton is excluded and general branched continua remain open there.",
+          "The exact indexed graph proof permutes essential open edges, glues interval maps, has only countably many exceptional fixed points, and supplies a nonempty open basin witness against any closed set missing a target point."
+        ],
+        "reasoning": "The root-contraction theorem alone is not the graph iff. The distinct exact graph proof does subsume the stated more general measure condition: full support replaces positive arclength on open witnesses and nonatomicity replaces arclength-null countable exceptions. No other property of arclength is used in the necessity, sufficiency or minimality arguments.",
+        "searches": [
+          "arXiv:2611.15353v1 Theorem 3.2, Corollary 3.3, Theorem 4.1 and Proposition 6.4",
+          "Resultary bf1de8186f38, Proof §§1–3"
+        ]
+      },
+      "checked_sources": [
+        "Resultary bf1de8186f38",
+        "arXiv:2611.15353v1",
+        "Uehara Technical Report No. 4, Theorem 3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The indexed proof gives convergence outside a countable fixed set and open witnesses for every target neighborhood, with the same conclusion on loop edges and circle treatment.",
+          "The replacement of an edge-interior point by an endpoint weakly enlarges the set of ordinary edges hit. Therefore every finite attractor yields a cover at most as large and every vertex cover is a realizable target. The target decision then agrees instance-by-instance with VERTEX COVER."
+        ],
+        "reasoning": "The gap between the exact indexed statement and the submitted package consists of replacing the measure assumptions by those its proof already uses and applying the incidence criterion to ordinary edges. The hardness identity reduction is then automatic from the existing graph difficulty theorem. No chronology or inference from a title is needed for this coverage assessment.",
+        "searches": [
+          "Resultary bf1de8186f38, Proof §§1–3, mirrored RESULT.md offset 3100",
+          "https://www.jaist.ac.jp/~uehara/pdf/triangle.pdf, Theorem 3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The distinct indexed finite metric graph theorem is stated with the same essential-edge closures and a Milnor full-measure basin, and adds a residual-basin theorem.",
+          "Hantáková–Mlíchová use the same Milnor notion; their tripod result is a special obstruction, not a graph classification."
+        ],
+        "reasoning": "Essential-edge incidence and hitting every closed essential edge are the same condition, not merely names for analogous invariants. The essential vertices are defined topologically and valence-two subdivisions are suppressed in both results.",
+        "searches": [
+          "Resultary bf1de8186f38",
+          "arXiv:2611.15353v1 §§3–4 and §6.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact catalogue hit is a different record, not the assigned finding; it contains the finite graph edge-incidence iff and a realizing homeomorphism, but no vertex-cover theorem.",
+          "Uehara's report supplies an exact decision hardness result on a stricter graph family; it is not itself a statement about dynamical attractors."
+        ],
+        "reasoning": "The catalogue provides statement-level coverage for the primary classification. The additional numerical optimizer is the ordinary vertex-cover hitting problem once interior choices are replaced by endpoints, not an independently computed invariant missing from the exact graph theorem.",
+        "searches": [
+          "Resultary bf1de8186f38",
+          "Uehara 1996 Theorem 3"
+        ]
+      },
+      "rationale": "There is material equivalent coverage of the flagship edge-closure characterization in distinct indexed record bf1de8186f38. Although that record states the Milnor part for measures equivalent to arclength, its actual proof uses arclength only to give positive mass to nonempty open sets and zero mass to a countable exceptional set. The same proof therefore gives the full claimed nonatomic full-support version, not merely its arclength specialization. Its separate generic-limit-set conclusion is stronger in another direction. The frozen record's vertex-cover identity and complexity conclusion are not stated in the comparison record, but are immediate consequences: a graph of the designated type has precisely its ordinary closed edges as essential edges, and replacing an interior hitting point by an incident vertex cannot uncover any other edge. The known vertex-cover hardness then transfers by identity. The evidence establishes overlapping coverage and mechanical implication, not chronological priority between records dated the same day.",
+      "residual_risks": [
+        "Same-day publication does not determine priority or direction of influence. This FAIL rests on demonstrable coverage, not a priority attribution or an unavailable source."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent Milnor classification for arclength-equivalent measures; the proof extends immediately verbatim to all measures in the frozen finding",
+          "evidence": [
+            "Positive measure of a nonempty open edge is used for necessity. A countable exceptional fixed set and open interval witnesses give full measure and minimality. The statements also treat generic limit sets, but not vertex cover."
+          ],
+          "identifier_or_url": "Resultary bf1de8186f38",
+          "material_read": "Mirrored RESULT.md Finding, assumptions, Proof §§1–3 (especially offsets 3100–8499) and circle scope",
+          "method": "Local mirror at snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact edge-incidence criterion for homeomorphic Milnor and generic limit sets",
+          "trigger": "Strongest materially matching exact edge criterion"
+        },
+        {
+          "assessment": "Construction and special cases, not a full graph characterization",
+          "evidence": [
+            "Root contraction is conditional. Every closed target is realizable on the interval or circle with the stated Riemannian length measure; a free-leaf singleton on a tripod is not."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2611.15353v1",
+          "material_read": "§3 Theorem 3.2 and Corollary 3.3, pp. 3–8; §4 Theorem 4.1, pp. 8–11; §6.2 Proposition 6.4, p. 24",
+          "method": "Open primary text",
+          "title": "Universal Realization of Milnor Attractors in Low Dimensions",
+          "trigger": "Prior construction and branch obstruction"
+        },
+        {
+          "assessment": "Supports the known vertex-cover hardness premise",
+          "evidence": [
+            "Vertex cover remains NP-complete on cubic planar 3-connected graphs of girth greater than three, a subclass of the graph family used in the finding."
+          ],
+          "identifier_or_url": "https://www.jaist.ac.jp/~uehara/pdf/triangle.pdf",
+          "material_read": "Technical Report No. 4, abstract p. 1 and Theorem 3 and reduction p. 2",
+          "method": "Open primary PDF",
+          "title": "NP-complete problems on a 3-connected cubic planar graph and their applications",
+          "trigger": "Exact hardness premise"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Proof §§4–5",
+        "Resultary bf1de8186f38 Proof §§1–3",
+        "Uehara Theorem 3"
+      ],
+      "rationale": "A sharp finite-graph attractor classification and a link to vertex-cover optimization are mathematically natural. In this submission, however, the classification is covered and the difference does not yield a distinct substantive result: the measure variant is a direct reading of the compared proof, and the vertex-cover size and NP-completeness require only substituting ordinary closed edges and replacing interior points by endpoints. They are useful interpretations but not a separately unknown exact invariant after the indexed theorem is accounted for.",
+      "residual_risks": [
+        "This judgment does not diminish the value of the edge-incidence theorem itself, nor make a claim about a genuinely different computational problem such as prescribed dynamics on a fixed target."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

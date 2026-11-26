@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction
+# Independent mathematical audit
 
-With Python 3 standard library installed, run `python3 verify.py` from this directory. It reads `representatives.csv` and verifies all 220 canonical codebooks, exhaustive admissibility at sizes 8 and 9, the double-syndrome construction, monotone-word statistics, and preservation of the deletion-confusability relation by all symmetry generators. The expected success line begins `VERIFY_OK rank_del_S5=8 labeled_optima=1568 classes=220`.
+## correctness
 
-With a C++17 compiler, run `g++ -std=c++17 -O2 verify.cpp -o verify && ./verify`. This second implementation separately constructs the standardized-deletion bit masks and searches all index-increasing candidate sets of sizes 8 and 9. Its success line begins `INDEPENDENT_VERIFY_OK n=5 maximum=8 labeled_optimal_codes=1568`.
+PASS
 
-These programs constitute two ordinary finite proof replays, not external or infinite certification. Their search is exhaustive because any admissible subset has a unique increasing-index presentation and branch pruning occurs only when too few compatible candidates remain. The conclusions are exact for five-cell permutations but say nothing about larger blocklengths. No independent audit has been performed.
+Exactly one deletion followed by standardization gives a set D(p) of distinct four-permutation outputs; single-deletion correction is exactly pairwise disjointness of these sets, even when a word's own outputs repeat. The increasing-index enumeration visits each admissible set once and cannot discard an admissible branch on the candidate-shortfall test. The independent replay (branches/ef0d61bf-8c7a-4831-a402-809fe629a222/replay_s5.py and replay_output.txt) independently rebuilt outputs, found 1568 eight-sets and zero nine-sets, so no larger code exists either. Position reversal and value complement commute with relabeling the survivors; inversion transposes the matrix and exchanges the omitted row and column, deriving the inverse standardized output. The first two involutions commute and inversion swaps them, giving the eight transformations of the action. The replay recovered 220 orbits with counts 2,1,43,174 at sizes 1,2,4,8, and 36 sets avoid both monotones. It also enumerated the 25 ascent/inverse-ascent weighted residue classes modulo five, finding the displayed eight-word set as the unique largest class. The supplied verifiers were inspected, not executed; this is finite exhaustive evidence, not formal or expert certification.
+
+## originality
+
+PASS
+
+Credit the rank-standardized channel, its inversion duality, and the double-signature construction (including specialization to the displayed size-eight example) to Gabrys et al. The supported distinct claim is the exact finite upper bound and full unrestricted labeled and orbit census, not a new construction or asymptotic theorem. The later journal text was lawfully accessible at review and its directly relevant PID passages were inspected; the frozen access disclaimer describes its original check, not this one.
+
+## value
+
+PASS
+
+The exact small fixed-length optimum tests the established asymptotic construction in a natural benchmark with 120 possible words and a nontrivial confusability graph. The full equality classification shows that the construction is far from unique even modulo the natural symmetries, and that including a monotone word is not necessary for optimality. The census answers a meaningful structural question not resolved by producing one code.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

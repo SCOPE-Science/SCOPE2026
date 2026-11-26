@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:16:28.346503Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independently express the centered statistic as n^(-1) times a sum over unordered observation pairs of g(theta_i-theta_j), where g has Fourier coefficients w_|k| for all nonzero signed integer k and zero constant coefficient. Mean zero and integration at a degree-one observation vertex give the variance: only a repeated pair survives and its integral is 2 sum w_k^2. At order three only a triple use of one pair or the three edges of a triangle survive. The former has integral 6 sum_{a,b>=1} w_a w_b w_{a+b}: two choices of sign of the lone-sign frequency and three positions for it. There are binom(n,2) choices of pair. The triangle integral is 2 sum w_k^3 by balancing the signed characters around the cycle, with 6 binom(n,3) ordered triples of edges. Division by n^3 gives both coefficients in the theorem, including n=2, zero weights, and repeated harmonics. Unit weights give M(M-1)/2 ordered additive pairs, yielding the stated skewness after division by the exact variance to power 3/2. For b=4n-11 the sign of the adjacent difference of 3 sqrt(M)+b/sqrt(M) is the sign of 3-b/sqrt(M(M+1)). For n>=3 equality would force the coprime consecutive M and M+1 to both be squares, which is impossible for M>=1. At n=2 the difference is always positive and the minimum skewness is zero. The threshold gives M_opt/n -> 4/3; substitution gives sqrt(n) times the minimal skewness -> 2 sqrt(3). In the other joint limits the leading skewness terms are (3/2)sqrt(M)/n and 2/sqrt(M); this gives the stated limits without asserting a distributional converse. Supplied finite code was inspected, not executed; the unrestricted identities are analytic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The official and cited routes did not yield inspectable passages, but the author-hosted published Bernoulli PDF supplied Eq. (4), Proposition 4.1 and Appendix proof passages (including Lemma A.3). Proposition 4.1 is a CLT for M tending to infinity with M=o(n^2); the appendix uses the same pairwise harmonics in a martingale argument and gives resonance conditions for four-factor integrals.",
+          "The inspected stabilization preprint addresses critical-value corrections and projected-ECDF statistics, not an exact Sobolev third moment."
+        ],
+        "reasoning": "A null weak limit does not give n-dependent cubic coefficients even in its own regime. Fourth-product orthogonality and a pairwise representation supply methods, but not the mixed third identity, its edge/triangle contributions or the discrete optimum.",
+        "searches": [
+          "\"On Sobolev tests of uniformity on the circle\" exact third moment skewness finite-sample optimal truncation",
+          "\"On Sobolev tests of uniformity on the circle with an extension to the sphere\" Jammalamadaka Meintanis Verdebout preprint full PDF arxiv author repository 19-BEJ1191",
+          "Proposition 4.1.",
+          "Appendix",
+          "Data-driven stabilizations of goodness-of-fit tests",
+          "uniformity on the hypersphere"
+        ]
+      },
+      "checked_sources": [
+        "Jammalamadaka–Meintanis–Verdebout (2020), DOI 10.3150/19-BEJ1191",
+        "Jammalamadaka–Jiménez-Gamero–Meintanis (2019), DOI 10.2436/20.8080.02.90",
+        "Fernández-de-Marcos–García-Portugués, arXiv:2112.01808",
+        "Resultary records 751c20eb9d3e, 5a9b09cdea50 and 62e4b27a5ace"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Bernoulli paper's Eq. (9) uses a normalization with asymptotic variance one, not the exact standardized third moment. Lemma A.3 analyzes additive balance for products of four trigonometric terms. The other primary trigonometric-moment paper uses an asymptotic Gaussian-element result for a parametric-family statistic.",
+          "The rank-permutation result's condition is n dividing 3k or 3l for a single bivariate rank energy; the other catalogue optimum is a maximum over n, not a minimum over cutoff M."
+        ],
+        "reasoning": "These hypotheses and outputs do not specialize to the iid Haar-circle identity for arbitrary finite weights, or mechanically yield the skewness-minimizing harmonic cutoff. Frequency orthogonality supplies the method, but variance alone and the located quartic identities do not evaluate the two cubic diagrams.",
+        "searches": [
+          "2020 Bernoulli paper: Eq. (4), Eq. (9), Proposition 4.1 and Lemma A.3",
+          "2019 SORT paper: Theorem 1",
+          "SCOPE-third-moment-torsion-resonance-in-fourier-energies-of-uniform-ra--5a9b09cdea50",
+          "SCOPE-exact-finite-sample-skewness-and-its-two-observation-maximum-for--62e4b27a5ace",
+          "SCOPE-exact-third-cumulant-and-skewness-scale-crossover-of-circular-nu--751c20eb9d3e"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2020 paper's trigonometric-moment Eq. (4) equals 2 H_w with identical Fourier weights restricted to finite support. The closest earlier circular third-moment record concerns interval-occupancy number variance."
+        ],
+        "reasoning": "The factor two has no effect on standardized skewness, so the statistic is not new. A formula on one interval-width family of kernels does not provide the cubic functional for arbitrary finite weights or for the unit cutoff family.",
+        "searches": [
+          "circular Sobolev statistic exact finite sample third cumulant weighted harmonics cutoff skewness",
+          "19-BEJ1191 Eq. (4) in author-hosted PDF, offset 10300",
+          "SCOPE-exact-third-cumulant-and-skewness-scale-crossover-of-circular-nu--751c20eb9d3e"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact Resultary hit was the assigned record itself. The closest distinct Fourier cubic result uses torsion in a rank-permutation model and the closest other finite skewness optimizer varies sample size for a characterization-based uniformity statistic."
+        ],
+        "reasoning": "Neither comparison supplies a table or formula for the iid circular harmonic-cutoff problem. The self-hit is not independent evidence of coverage; no global absence is inferred.",
+        "searches": [
+          "exact finite-sample third centered moment weighted circular Sobolev statistic additive frequency resonances skewness optimal integer cutoff",
+          "circular Sobolev statistic exact finite sample third cumulant weighted harmonics cutoff skewness"
+        ]
+      },
+      "rationale": "The Sobolev family, standard harmonic kernel method and growing-cutoff CLT are prior. The independently inspected strongest matches do not supply the exact weighted signed-frequency cubic count and strict finite integer minimum for this statistic. The pass is for those exact conclusions, not historical priority across all cumulant literature.",
+      "residual_risks": [
+        "The literature inspection is bounded, not a historical priority certificate. Equivalent cubic identities may be indexed under degenerate U-statistic or Fourier-kernel cumulant terminology.",
+        "Dates of the same-day records are not used to infer priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same statistic, asymptotic calibration and fourth-product identities; different result",
+          "evidence": [
+            "Eq. (4) fixes the exact factor of two, Prop. 4.1 gives the growing-cutoff CLT, and Lemma A.3 treats single-angle four-factor signed-sum conditions."
+          ],
+          "identifier_or_url": "https://jammalam.faculty.pstat.ucsb.edu/html/Some%20Publications/2020_Sobolev_tests_of_uniformity.pdf",
+          "material_read": "Section 2 Eqs. (3)–(4) at offset 10300; Section 4 Eq. (9) and Prop. 4.1 at 21470; Appendix proof and Lemma A.3 at 55098, 59000 and 62100",
+          "method": "Lawful author-hosted copy of the published paper; original PDF passages by offset after other routes failed",
+          "title": "On Sobolev tests of uniformity on the circle with an extension to the sphere",
+          "trigger": "Same statistic and cutoff with potentially covering null-calibration results"
+        },
+        {
+          "assessment": "Different statistic and asymptotic conclusion",
+          "evidence": [
+            "Uses a characteristic-function procedure for a parametric family and a Gaussian-element limit."
+          ],
+          "identifier_or_url": "https://www.idescat.cat/sort/sort432/43.2.6.meintanis-etal.pdf",
+          "material_read": "Section 2 and Theorem 1/Corollary 1 at offsets 2100 and 11200",
+          "method": "OA published PDF passages",
+          "title": "A class of goodness-of-fit tests for circular distributions based on trigonometric moments",
+          "trigger": "Related trigonometric-moment null methods"
+        },
+        {
+          "assessment": "Calibration and distinct test construction in inspected passages",
+          "evidence": [
+            "Adjusts exact-n critical values and discusses projected-ECDF hypersphere statistics."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2112.01808",
+          "material_read": "Abstract and p. 3 discussion at offsets 0 and 14200",
+          "method": "Primary OA preprint passages",
+          "title": "Data-driven stabilizations of goodness-of-fit tests",
+          "trigger": "Potential covering calibration or optimization procedure"
+        },
+        {
+          "assessment": "Different kernel family and no cutoff optimization",
+          "evidence": [
+            "Statistic is circular interval-count number variance V_n(s) with 0<s<=1/3."
+          ],
+          "identifier_or_url": "SCOPE-exact-third-cumulant-and-skewness-scale-crossover-of-circular-nu--751c20eb9d3e",
+          "material_read": "Local-mirror RESULT.md Finding and Assumptions, offset 0",
+          "method": "Resultary match and original passage",
+          "title": "Exact third cumulant and skewness scale crossover of circular number variance",
+          "trigger": "Earlier exact cubic result on the same sampling space"
+        },
+        {
+          "assessment": "Different sampling model and resonance",
+          "evidence": [
+            "Single bivariate rank-permutation energy and order-three finite torsion."
+          ],
+          "identifier_or_url": "SCOPE-third-moment-torsion-resonance-in-fourier-energies-of-uniform-ra--5a9b09cdea50",
+          "material_read": "Local-mirror RESULT.md Finding and Assumptions, offset 0",
+          "method": "Resultary match and original passage",
+          "title": "Third-moment torsion resonance in Fourier energies of uniform ranks",
+          "trigger": "Third Fourier moment with resonances"
+        },
+        {
+          "assessment": "Different statistic and optimization variable",
+          "evidence": [
+            "Characterization-based uniformity statistic, maximized over sample size."
+          ],
+          "identifier_or_url": "SCOPE-exact-finite-sample-skewness-and-its-two-observation-maximum-for--62e4b27a5ace",
+          "material_read": "Local-mirror RESULT.md Finding and Assumptions, offset 0",
+          "method": "Resultary match and original passage",
+          "title": "Exact finite-sample skewness and its two-observation maximum",
+          "trigger": "Exact uniformity-test skewness and optimizer"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Choosing the harmonic cutoff is intrinsic to the published test. The exact mixed moment detects dependence that the diagonal covariance hides; the finite strict optimizer and the different n and n^2 scales quantify how a real calibration diagnostic changes with cutoff. This is useful without interpreting smallest skewness as optimal size, power or proximity to a Gaussian law.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

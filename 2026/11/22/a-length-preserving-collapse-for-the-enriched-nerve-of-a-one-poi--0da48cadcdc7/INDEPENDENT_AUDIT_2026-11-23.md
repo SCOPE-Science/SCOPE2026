@@ -1,0 +1,21 @@
+# Independent mathematical audit
+
+## correctness
+
+PASS
+
+Re-audited the complete result in /workspace/repairs/1/RESULT.md. The original conclusion survives; the corrected text makes the topological step explicit rather than treating an incidence number of ±1 as sufficient for a regular-CW collapse. It also handles the singleton gluing and restricts the pointed strict-cutoff convention to r>0. A mixed nondegenerate word has a unique first nonbasepoint factor switch; toggling the one available intervening basepoint is an involution since it does not change the nonbasepoint word and the switch endpoints differ. The before/after lengths agree by the directed gluing equality. Two different single deletions of the same tuple cannot produce the same word unless entries between the deletion indices are all equal; neither nonconsecutively repeated vertices nor degenerate facets contribute a second incidence to the matched open face. An alternating directed cycle must use codimension-one descents, because the upward moves are isolated and have step +1 in dimension. Every unmatched such descent from an upper to a matched lower deletes a nonbasepoint (deleting any other basepoint leaves a degenerate face or retains the switch's gate, hence an upper face), strictly decreasing their count. For actual removals choose the pair maximizing (upper dimension, nonbasepoint count). The upper cell has no remaining coface, and another coface of its lower partner would have to be a same-dimensional upper with greater nonbasepoint count; pure cofaces are impossible. The unique free facet is parametrized once, so retract the characteristic simplex to the other facets, fixing them pointwise. The motion descends despite boundary identifications because those identifications occur on the retained facets, and no other cell attaches to the removed open cells. Strictness and finiteness bound the number of cells. The pairs have equal length, so every elementary homotopy either fixes a smaller sublevel entirely or moves only inside its closed simplices. Their concatenation is relative to the wedge and preserves each smaller sublevel of the fixed finite cutoff. Naturality of the inclusion gives persistence, and the wedge restrictions identify the positive-degree cohomology product factorwise. The independent replay (path /workspace/branches/2f9d2f23-3a33-46e5-817b-f642f2fb22ea/point_gluing_replay.py) checked five asymmetric two-factor cutoffs up to 1165 cells and one three-factor case of 258 cells, including repeated vertices; (1,2,1,3) and (1,2,1,0,3) both have length 8 in one case. It checked the unique incidence as well as acyclicity. The supplied code and output were inspected, not executed. Its directed graph checks nondegenerate codimension-one faces; the all-cutoff realization argument is not a numerical or mod-two inference.
+
+## originality
+
+PASS
+
+Pass for the repaired relative realization collapse of the directed length-sublevel filtration. The closest additional prior work is Tajima–Yoshinaga: it already contains the symmetric fixed-length gate-toggle mechanism and a homotopy gluing theorem, not just magnitude homology. The repaired text explicitly credits it and separates the known or mechanically recoverable homological part. The claim retained concerns a finite bounded subfiltration of actual nerves: one relative deformation fixing the wedge and preserving all retained levels, allowing asymmetric distances and repeated vertices. It is not the associated-graded homology theorem nor the fixed-length quotient gluing theorem.
+
+## value
+
+PASS
+
+The surviving claim gives a constructive cut-vertex decomposition of actual ordered path-length homotopy types, including asymmetric spaces, with the removal fixing both the wedge and smaller filtration thresholds. It supplies geometric information beyond associated-graded chain homology, e.g. it keeps cup products and lets one reduce full filtered realizations to simpler factor realizations. The shortcut example establishes a natural boundary (failure already on components) and the four-cycle examples have nontrivial positive-degree stages. The constructive statement is worthwhile even though symmetric homological additivity can be recovered from earlier excision.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

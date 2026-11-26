@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:41:34.911546Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–63, VERIFICATION.md, artifacts/verify_primary.py and artifacts/verify_independent.py (read-only)",
+        "Independent bounded computation /tmp/opencode/review_cube_tar.py: subset transform, upper-star overlap graph, and compressed weighted shortest paths"
+      ],
+      "rationale": "A shortest cube path flips each used coordinate once; a path of length less than four extends along an unused coordinate. Thus the maximal geodesics are exactly the 192 unoriented antipodal paths. I generated their masks and marked every subset contained in a path complement by a Boolean subset transform; the unmarked masks are exactly the transversals. In ascending cardinality I marked the whole upset of each newly found inclusion-minimal set; the complete census and minimal census agree coefficient by coefficient with the frozen T and M, including totals 22499 and 460. For components I used the cover of the budgeted graph by upper stars of its inclusion-minimal sets: a star is connected by adding vertices from its root; two stars intersect exactly if their root union fits the cap; and every legal edge lies in a star because the smaller endpoint contains a minimal set. This independent component computation gave exactly 40 singleton components at 6, 160 singletons and 40 size-11 components at 7, 260 singletons and one size-3250 component at 8, and one component of size 9430 at 9. The budget-seven minima have ten neighbors each, and no two share a seven-set, so those components are stars. At budget eight, the singleton components are precisely the minimal eight-sets, so all forty six-sets connect. There are no minimal sets larger than eight, so any additional states at higher budgets can delete down into the connected budget-nine graph without violating feasibility. For optimum distances, I removed the eight-set vertices and replaced each feasible 7–8–7 segment between distinct seven-sets by an edge of weight two, keeping six–seven edges at weight one; this preserves distances between six-sets by expansion of the edges. Exact shortest paths in that graph reproduce the histogram (4:60, 6:160, 8:480, 12:80).",
+      "residual_risks": [
+        "These are exact finite results for Q4, maximal geodesics and single-vertex addition/removal with the stated cap. The counts and distances need not extend to larger cubes or other move rules."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chen–Ma–Wu establish the scalar gt(Q4)=6 in their broader hypercube work.",
+          "The general k-path cover reconfiguration study has a different hitting constraint.",
+          "The indexed Petersen and Clebsch geodesic-transversal results give thresholds on their respective graphs, not a theorem including Q4 with its exact thresholds."
+        ],
+        "reasoning": "An optimization bound or a generic move definition does not determine components or distances among the actual Q4 transversals; the other graph-specific classifications do not dominate this instance.",
+        "searches": [
+          "Chen–Ma–Wu arXiv:2610.39298v1, §3 Theorem 3.1 and Remark 3.4",
+          "Hoang–Suzuki–Yagita arXiv:1911.03026, p. 2",
+          "Resultary geodesic-transversal reconfiguration results a06407b63dfe and efb0c8697d2c"
+        ]
+      },
+      "checked_sources": [
+        "Resultary e937d60d04fd, a06407b63dfe, efb0c8697d2c and 503caad49ec2",
+        "arXiv:2610.39298v1, 2101.08042v1 and 1911.03026"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known two families of minima can already be used to verify that distinct optima cannot share a seven-set, accounting for the minimum-centered stars at budget seven.",
+          "From the published minima one knows their upward closure, but there are minimal covers at sizes seven and eight outside it; compare frozen M(z) and the independently checked full graph."
+        ],
+        "reasoning": "Credit the mechanically obtainable lower-budget minimum component obstruction. The higher-budget connections can pass through feasible sets that contain no global optimum, and an exact full-state threshold requires accounting for such states. The earlier minimum classification does not give the complete distance profile or the larger minimal configurations.",
+        "searches": [
+          "e937d60d04fd, finding and Proof §§1–4 (offsets 0 and 4337)",
+          "arXiv:1911.03026, cap and feasibility definition"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Manuel–Brešar–Klavžar define the maximal-geodesic hitting-set invariant.",
+          "Hoang–Suzuki–Yagita use a cap and the same move rule but their feasible sets must hit every k-vertex path, not just maximal shortest paths.",
+          "Resultary e937d60d04fd treats the exact same feasible family but only the minimum configurations."
+        ],
+        "reasoning": "The cube hitting sets here are equivalent to hitting all antipodal coordinate-flip orders, not to covering every five-vertex path. Sharing the TAR convention does not identify the state spaces. The earlier four-cube optimization result is equivalent only for the minimum layer.",
+        "searches": [
+          "Resultary: four-cube maximal-shortest-path hitting sets, antipodal geodesic transversals and TAR",
+          "arXiv:2101.08042v1, Abstract",
+          "arXiv:1911.03026, abstract and p. 2 TAR definition"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The original e937d60d04fd gives forty minimum six-sets split into the two structural families. The primary hypercube source gives the scalar optimum."
+        ],
+        "reasoning": "These describe the lowest nonzero cardinality coefficient (and its states); neither supplies the remaining coefficients, minimal seven- and eight-sets, the budget component tables or the exact budget-eight shortest-path table. No independently indexed matching table was found in the bounded comparison.",
+        "searches": [
+          "Resultary exact four-cube census and constrained relocation distances; closest earlier record e937d60d04fd",
+          "arXiv:2610.39298v1, Theorem 3.1 and Remark 3.4"
+        ]
+      },
+      "rationale": "Credit the known minimum six and the forty optima in two families. The distinct contribution is the full transversal and minimality data, the first connected budgets for optima and for all feasible states, and constrained shortest distances. The checked literature and related records do not supply that joint census and dynamics.",
+      "residual_risks": [
+        "The search is bounded; unindexed hitting-set or reconfiguration tables may exist. Same-day related calculations for Petersen and Clebsch graphs do not match this object regardless of their exact posting order."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers all forty optima and their two families, not the larger-state classification and constrained metric",
+          "evidence": [
+            "Forty six-sets are enumerated in lifted-neighborhood and middle-sphere families; minimum six treated as known."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-forty-minimum-geodesic-transversals-of-the-four-dimensional-cube--e937d60d04fd",
+          "material_read": "Mirrored RESULT.md finding and Proof §§1–4 at offsets 0 and 4337",
+          "method": "Local Resultary and bounded original mirror passages",
+          "title": "Forty minimum geodesic transversals of the four-dimensional cube",
+          "trigger": "Exact same feasibility family and optimum states"
+        },
+        {
+          "assessment": "Covers scalar minimum, not the TAR and census findings",
+          "evidence": [
+            "gt(Q4)=6."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.39298v1",
+          "material_read": "Theorem 3.1 p. 4 (PDF offset 11962) and Remark 3.4 p. 6 (18800)",
+          "method": "Targeted OA original PDF passage inspection",
+          "title": "On two problems concerning the geodesic transversal number of graphs",
+          "trigger": "Prior hypercube optimum claim"
+        },
+        {
+          "assessment": "Supplies the definition, not evidence of coverage of the new dynamics",
+          "evidence": [
+            "A geodesic transversal intersects every maximal geodesic."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2101.08042v1",
+          "material_read": "Abstract p. 1 (PDF offset 1267)",
+          "method": "Targeted OA original PDF passage inspection",
+          "title": "The geodesic-transversal problem",
+          "trigger": "Original maximal-geodesic cover definition"
+        },
+        {
+          "assessment": "Same move model; not the same feasible family",
+          "evidence": [
+            "A k-path vertex cover must hit all k-vertex paths; TAR adds or removes one chosen vertex under the bound."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1911.03026",
+          "material_read": "Abstract p. 1 and TAR definition p. 2 (PDF offset 7073)",
+          "method": "Targeted OA original PDF passage inspection",
+          "title": "Reconfiguring k-Path Vertex Covers",
+          "trigger": "Potential general reconfiguration cover comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 14–35 and 49–53",
+        "Earlier minimum-set classification e937d60d04fd"
+      ],
+      "rationale": "The four-cube is a standard small benchmark with already classified minimum covers. Under the natural detector addition/removal constraint, this result shows a real difference between mobility among the most economical configurations and mobility among all admissible configurations: isolated saturated minimal covers persist after the optima connect, and allowed relaxation of the cap first increases the component count. The exact constrained optimum metric quantifies the necessary detours; neither that metric nor the distinct thresholds is just a relabeling of the prior optimum census.",
+      "residual_risks": [
+        "The significance is the sharp phenomenon in this natural finite benchmark, not evidence for a systematic high-dimensional law or operational robustness beyond the specified move model."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

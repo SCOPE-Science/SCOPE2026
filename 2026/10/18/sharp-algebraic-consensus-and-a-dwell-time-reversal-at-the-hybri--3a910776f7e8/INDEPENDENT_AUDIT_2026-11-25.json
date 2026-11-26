@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:22:01.725591Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–109; VERIFICATION.md; verification/check.py (read, not executed). The recorded stationary-weight diagnostic is a floating-tolerance comparison, not a symbolic proof.",
+        "Independent replay: python3 /workspace/review_replay.py 4; 3/8-rule integration or the explicit α=0 flow over 60,000 updates for each of the five cases. Maximum relative amplitude error 0.0002065625; all checks passed."
+      ],
+      "rationale": "At the critical attention value, for M=max(|z|,|v|)>0 the held-v flow points strictly inward at z=±M since tanh(LM)<LM. Thus for every fixed h>0 the continuous update is strictly inside the interval, and the positive convex-average jump puts the other coordinate strictly inside as well, including at gain 1. Compact-annulus continuity proves convergence for all real initial pairs, and inward invariance bounds the continuous trajectory between jumps. Nonzero nonnegative initial data give strictly positive samples after one jump: if z starts positive it cannot hit zero in finite time, and if only v starts positive, the vector field at z=0 is positive. This includes α=0; the nonlinear deficit may vanish on the first interval if v=0, without affecting the proof. For g=γ_h, q=e^(−ah), D=1−q+gq, the left stationary probability vector is (gq,1−q)/D. Its scalar component s satisfies s_next=s−(g/D)δ with δ the integrated nonlinear flow deficit, and y=z−v satisfies y_next=(1−g)(qy−δ). Positivity gives δ=O(s³) and s_next/s→1. Consequently y/s→0 by the strictly stable ratio recursion, and both states equal s+o(s), uniformly inside each dwell. Substitution into the cubic tanh deficit gives δ/s³→(dL²/3)(1−q)/a. Thus s_next^(−2)−s^(−2)→2C and telescoping gives the stated jump-time limit; t/n→h gives the real-time limit. Oddness gives the negative-quadrant limit, not a mixed-sign amplitude. Inverting C gives 1/C=(a/K)[1/g+1/(e^(ah)−1)] with K=dL²/3, yielding strict increase in g and h. For x=ah the sign of the h-derivative of C/h is the sign of gxe^(−x)−(1−e^(−x))D, strictly negative since xe^(−x)<1−e^(−x) and D≥g. This also covers g=1, and C/h→K at small h.",
+      "residual_risks": [
+        "Finite trajectories corroborate the constant, not the global theorem. Strict entry is for each positive time; an initial boundary state need not have a single uniform margin as time decreases to zero. No convergence amplitude is inferred for mixed signs and no assumption extends to overshooting jumps."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2023 continuous-network theorem gives the threshold d/(α+λ_max γ) for a cooperative opinion-forming pitchfork. The logistic-network result gives a continuous-time diameter envelope, and the synchronous-response result includes the same rate exponent for cubic responses."
+        ],
+        "reasoning": "Broader network coverage or a family of analytic response orders does not include the sampled continuous–discrete state, its global critical contraction and its g,h-dependent amplitude.",
+        "searches": [
+          "Bizyaeva–Franci–Leonard Eq. (14), Corollary IV.1.2",
+          "Resultary: logistic threshold synchronization, algebraic consensus and critical pitchfork/flip relaxation"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 114–123; primary/model sources and Resultary findings above; the initial broad literature query was uninformative and is not negative evidence."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Linear criticality gives neither global attraction nor the cubic term. A general recursion with a positive cubic deficit explains n^(−1/2), but determining δ and the weighted slow mode is required to compute C. Converting n to t is elementary once C is known, but does not by itself prove the resulting strict opposite derivative signs."
+        ],
+        "reasoning": "No verified comparator supplies those model-specific hypotheses and values together; the contribution is not the textbook exponent or the change of clocks alone.",
+        "searches": [
+          "Kumar–Yao supplement A1.1–A1.2; Bizyaeva–Franci–Leonard Corollary IV.1.2; Resultary critical-relaxation Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source model's sample-and-hold tanh flow matches the supplement's node-flow setup, but the supplement's normal form is an alternating map with eigenvalue −1. The submitted positive-quadrant amplitude is governed by a neutral +1 mode at zero."
+        ],
+        "reasoning": "Neither a time rescaling nor the use of a cubic coefficient equates the two bifurcations; the coefficient, critical equilibrium and ordering of updates differ.",
+        "searches": [
+          "Resultary: hybrid tanh dyad critical pitchfork, algebraic consensus and dwell-time ordering",
+          "Kumar–Yao DOI:10.1109/lcsys.2026.3708586 and supplement A1.1–A1.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A1.2 gives the flip coefficient β in y_next=−y+βy³+O(y⁴). The logistic-network critical coefficient √(3/2) is for its diameter. The later two-choice-map record gives an exact n^(−1/2) amplitude for a different discrete map without dwell."
+        ],
+        "reasoning": "The accessed exact formulas concern different quantities or parameter regimes and give no coefficient table for this +1 critical amplitude or its dependence on dwell.",
+        "searches": [
+          "Resultary exact pitchfork/flip slowing and same-day algebraic-rate records",
+          "Kumar–Yao supplement, cubic coefficient and stability formula passages"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the specific global nonovershooting critical dyad result with its sharp coefficient on both clocks and the strict dwell-time reversal. The tanh dyad model, the pitchfork location, and the general cubic inverse-square-root exponent are prior inputs or mechanisms, not credited as new. The same-model supplement's cubic coefficient is for a −1 flip at an opinionated equilibrium, not the neutral +1 pitchfork. Same-day and later critical-relaxation records do not state the exact dyad coefficient or relate the two clocks. The full same-model article was not recovered in this review, so priority is not certified.",
+      "residual_risks": [
+        "Full Kumar–Yao article coverage remains unverified despite alternate access attempts. The checked supplement does not resolve what the article itself may contain.",
+        "Same-day archive dates do not imply priority, and retrieval is nonexhaustive."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Relevant model source; full-text coverage unresolved",
+          "evidence": "Article metadata and companion supplement identify the same dyad. Lack of article access does not show absence of a critical-rate result.",
+          "identifier_or_url": "https://doi.org/10.1109/lcsys.2026.3708586; PMC13441232",
+          "material_read": "Landing/abstract where accessible; no article theorem or proof passage obtained",
+          "method": "DOI/PMC retrieval attempts and alternate Europe PMC fullTextXML via lawful OA routes (406)",
+          "title": "Analysis of Bifurcation-Induced Indecisive Limit Cycles in Hybrid Opinion Dynamics with Social Attention-Controlled Consensus",
+          "trigger": "Same hybrid dyad and pitchfork location"
+        },
+        {
+          "assessment": "Inspected section covers the opinionated-equilibrium flip, not the submitted critical neutral coefficient",
+          "evidence": "Eigenvalue −1 and cubic map y_next=−y+βy³+O(y⁴), rather than +1 at zero.",
+          "identifier_or_url": "https://ciaolab.org/wp-content/uploads/2026/06/LCSS.pdf",
+          "material_read": "A1.1–A1.2, pp. 1–2, OA offsets 0–5994 and cubic-map passage at 1722 onward",
+          "method": "OA paper",
+          "title": "Kumar–Yao Supplementary Material",
+          "trigger": "Exact same model and plausible normal-form coverage"
+        },
+        {
+          "assessment": "Analogous pitchfork in a continuous network, not this hybrid convergence theorem",
+          "evidence": "Critical attention d/(α+λ_max γ) for the cooperative continuous opinion-forming bifurcation.",
+          "identifier_or_url": "https://naomi.princeton.edu/wp-content/uploads/sites/744/2023/03/Nonlinear_Opinion_Dynamics_With_Tunable_Sensitivity.pdf",
+          "material_read": "Eq. (14) and Corollary IV.1.2, printed p. 1423, offsets 67600–72263",
+          "method": "OA paper",
+          "title": "Nonlinear Opinion Dynamics With Tunable Sensitivity",
+          "trigger": "Published continuous opinion pitchfork analogue"
+        },
+        {
+          "assessment": "Same-day analogue; different model and observable",
+          "evidence": "Continuous network diameter bound, sharp two-node equality and critical coefficient √(3/2).",
+          "identifier_or_url": "2026/10/18/SCOPE-sharp-nonlinear-synchronization-envelope-for-logistic-threshold--3ecc92a730da",
+          "material_read": "RESULT.md Finding and critical coefficient passage, offsets 0 and 4200",
+          "method": "Local mirror passage",
+          "title": "Sharp nonlinear synchronization envelope for logistic threshold networks",
+          "trigger": "Closest critical tanh-like cubic mechanism and exact rate"
+        },
+        {
+          "assessment": "Related order-dependent rates, not the held-flow dyad",
+          "evidence": "Analytic synchronous response leading at order m gives exponent 1/(m−1), with m=3 matching the exponent only.",
+          "identifier_or_url": "2026/10/18/SCOPE-vanishing-response-opinion-biases-subgeometric-consensus-and-exa--0299c02712ba",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror passage",
+          "title": "Vanishing-response opinion biases, subgeometric consensus and exact rates",
+          "trigger": "Same-day discrete algebraic consensus"
+        },
+        {
+          "assessment": "Later archive entry; exact critical rates in a different discrete map",
+          "evidence": "Two-choice threshold map with n^(−1/2) endpoint amplitude but no held state or physical dwell clock.",
+          "identifier_or_url": "2026/11/8/SCOPE-exact-reflection-duality-and-global-critical-relaxation-in-a-two--4388eff2b6c7",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror passage",
+          "title": "Exact reflection duality and global critical relaxation in a two-choice map",
+          "trigger": "Exact pitchfork and flip slowdown"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–36 and 84–109; continuous-network and discrete critical-rate analogues above."
+      ],
+      "rationale": "At the critical threshold linear stability alone is inconclusive. Global attraction for the whole nonovershooting regime is useful, and the explicit sharp constant determines the real asymptotic tuning tradeoff: increasing dwell improves relaxation when measured in updates and degrades it when measured on the physical clock. The inverse-square-root exponent by itself would not resolve this question, or determine the common amplitude of both coordinates.",
+      "residual_risks": [
+        "Model-specific for a regularly sampled scalar dyad; no claim of extension to larger networks, variable dwell, mixed-sign amplitudes, or overshooting updates."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

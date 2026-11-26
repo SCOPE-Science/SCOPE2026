@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -24,4 +27,4 @@ Run `python3 check_exact.py` from this directory. The standard-library-only chec
 
 Run `python3 check_gram.py` with SymPy installed. It derives the three nonidentity two-by-two tetrahedral Gram blocks using the differentiated addition-theorem identity, applies every Klein-four character, and checks the exact eigenvalue factorization symbolically. Its successful replay printed one PASS line. Code files are embedded exactly as executed, not supplied as screenshots or run-log substitutes.
 
-The infinite-degree step is analytic: the classical Bernstein interior bound for Legendre polynomials, the Legendre ODE and its first two derivatives give normalized eigenvalue perturbation bounds less than one for all degrees at least 25. The rational terminal constants in the theorem are independently evaluated in check_exact.py, but the inequalities themselves are justified explicitly in the proof. Neither finite enumeration nor a successful run alone proves the unrestricted theorem. No external or independent mathematical validation has been performed.
+Run `python3 reproduce_tetra.py` with SymPy installed to check the low-degree inequalities using the finite Rodrigues expansion, derive the character-block spectra using directional Taylor coefficients, and evaluate the three rational tail constants at degree 25. The minimum low-degree branch ratio is \(4/81\) at degree four. The infinite-degree step is analytic: the classical Bernstein interior bound, the correctly differentiated Legendre ODE, and monotone rational estimates bound each relative eigenvalue perturbation by a constant strictly below one for every degree at least 25. Neither finite enumeration nor a successful run alone proves the unrestricted theorem.

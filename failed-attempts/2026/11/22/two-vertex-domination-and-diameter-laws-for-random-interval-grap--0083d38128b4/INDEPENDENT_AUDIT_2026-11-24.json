@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:18:38.289200Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–43",
+        "Frozen VERIFICATION.md and check.py (read; no frozen code executed)",
+        "Diaconis–Holmes–Janson, Interval Graph Limits, §2.3, arXiv:1102.2841v1, p. 4, for the exact 2/3 premise"
+      ],
+      "rationale": "Common atomless endpoints have uniformly random ranks and may be handled in uniform-quantile coordinates. For any 0<b<1/2, the probability that min R<b or max L>1-b is at most 2nb². A left-anchored interval reaching the midpoint has probability b, as does a right-anchored one, so the union of the two missing-anchor events has probability at most 2(1-b)^n. When present under the extreme bounds, the anchors intersect and their union dominates; a single interval that serves as both anchors is universal and can be paired with another, and the complete case also gives a pair for n>=2. Substituting b=2 log(n)/n gives the claimed inequality for n>=9. Any common neighbor of the two disjoint extremal intervals spans [min R,max L], hence is universal, and if the extremes are not disjoint the graph is complete. This proves D<=2 iff U>0, including the disconnected convention. The exact 2/3 universal probability is independently supported by Diaconis–Holmes–Janson. By the interval Helly property the complete event is precisely that all matching pairs cross the midpoint cut in endpoint ranks; its probability is n!/(2n-1)!! = 2^n/binom(2n,n). Subtracting yields the two exact diameter probabilities and the claimed missing-mass bounds. Total domination cannot use one vertex, and a connected dominating pair yields both the connected-domination claim and the diameter bound.",
+      "residual_risks": [
+        "The finite reported rank-pair enumeration is not an independent rerun or an all-n proof. The quantitative estimate is not claimed to be optimal."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "DHJ §2.3 states that maximum degree equals n-1 with probability 2/3 for every n>1, crediting the 1990 work.",
+          "The Poisson-corner work gives considerably more than the binary distance split: a limit law for the number of unbridged disjoint pairs, and an explicit two-anchor event to relate that count to distance three."
+        ],
+        "reasoning": "The known 2/3 premise is exact, not asymptotic; a connector of the one maximal gap is universal. The broader count theorem and the anchor event make the diameter split a consequence, even though it is not that record's title.",
+        "searches": [
+          "Diaconis–Holmes–Janson, Interval Graph Limits, arXiv:1102.2841v1 §2.3 and reference [24]",
+          "Justicz–Scheinerman–Winkler, Random Intervals, DOI 10.1080/00029890.1990.11995679",
+          "Resultary Poisson-corner graph-distance proof §§1, 5–6"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 31–54",
+        "Local Resultary same-record and distinct Poisson-corner comparison",
+        "DHJ §2.3 and ref. [24]",
+        "JSW DOI access attempt and interval graph primary literature lookup"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Comparator §6: probability of an offending extreme endpoint is at most 2n delta²; the missing-left-anchor probability is (1-delta)^n and the right side is symmetric; on success both anchors meet each other and together meet all intervals.",
+          "Comparator Finding and §5 give T_n converging to an integer count with mass 2/3 at zero. Its §1 states the common-neighbor criterion L<=r and R>=1-s for any disjoint pair."
+        ],
+        "reasoning": "Those finite estimates retain their proofs for arbitrary 0<delta<1/2. Choosing delta=2 log(n)/n yields the reported bound without a new geometric or probability argument. For a noncomplete sample, §1 applied to the extremal pair reduces the event T_n=0 exactly to existence of a universal interval, giving the finite probability by DHJ and the rest by midpoint-cut counting. Exact wording and rates need not appear in the comparator to be covered.",
+        "searches": [
+          "Resultary SCOPE-a-logarithmic-mean-and-a-finite-poisson-corner-limit-for-distanc--9fe9f29e1eca Finding, proofs §§1, 5 and 6",
+          "DHJ §2.3 exact maximum degree law"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In SCOPE-a-logarithmic-mean-and-a-finite-poisson-corner-limit-for-distanc--9fe9f29e1eca, T_n=0 precisely when every disjoint pair has a common neighbor, equivalent to D_n<=2 under the common conventions.",
+          "Its §6 constructs an adjacent dominating pair even though the stated graph consequence is phrased as D_n<=3. Conversely, for a noncomplete finite interval graph with D<=3, use a shortest path between the minimum-right and maximum-left intervals: a single common neighbor is universal, or the adjacent interior pair of a length-three path has union covering the extremal gap and dominates."
+        ],
+        "reasoning": "The rephrasing as total or connected domination does not change the anchor event. In this model the diameter-at-most-three and adjacent-dominating-pair events are equivalent by the extremal-gap argument.",
+        "searches": [
+          "Local Resultary random interval graph diameter, adjacent domination, and distance-three/unbridged pairs",
+          "interval graph diameter two universal vertex connected domination diameter three random intervals Justicz Scheinerman Winkler exact complete graph probability"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "SCOPE-two-vertex-domination-and-diameter-laws-for-random-interval-grap--0083d38128b4 matches the frozen record itself and is not independent evidence.",
+          "SCOPE-a-logarithmic-mean-and-a-finite-poisson-corner-limit-for-distanc--9fe9f29e1eca is a distinct same-day record with the same endpoint law and anchor event. No numerical table is required: exact event/probability coverage is inspected directly."
+        ],
+        "reasoning": "Catalogue priority is not inferred. The material comparison is to the distinct record's proof, not to the identical record, degree-only summaries, or a hit list.",
+        "searches": [
+          "Local Resultary exact two-vertex domination headline and random interval diameter/Poisson-corner coverage"
+        ]
+      },
+      "rationale": "A distinct indexed Resultary record on the identical random-interval model already contains the same two mutually adjacent, midpoint-spanning anchors and the same cutoff-dependent failure estimates in its actual proof §6. Its specific cutoff delta=n^(-3/4) is not essential: the displayed estimates are 2n delta² and (1-delta)^n for each missing anchor, so the present exact epsilon is obtained by replacing delta with 2 log(n)/n and applying 1-b<=exp(-b). The dominating-pair and total/connected-domination consequences apply to that very same pair. The comparator's unbridged-pair count equals zero exactly when D<=2, and its zero-mass limit, its diameter upper bound, and the vanishing complete mass already imply the two/three diameter split. The finite D<=2 identity transfers the classical exact universal-vertex law by the same gap-bridging criterion applied to the extremal pair, and the complete and D=2 terms use the elementary midpoint matching count. The quantitative headline and limits thus have demonstrable equivalent coverage or are routine deductions from it; the finite identities do not establish a substantively distinct finding. Both indexed records have the same displayed date; this decision is about scientific coverage, not historical priority, authorship or dependence.",
+      "residual_risks": [
+        "The full JSW paper was not accessible, so further older overlap remains unresolved. The fail judgment instead rests on inspected equivalent coverage.",
+        "The same-day publication ordering, if any, is unknown and immaterial here."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material equivalent coverage: same adjacency and coverage construction, quantitative bound by direct cutoff substitution; diameter split implied",
+          "evidence": [
+            "§6 explicitly gives both endpoint and empty-anchor probability estimates and explains why the two midpoint anchors link all intervals.",
+            "Finding and §5 give the limiting 2/3 zero mass; §1 gives the finite common-neighbor criterion for any disjoint pair."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-logarithmic-mean-and-a-finite-poisson-corner-limit-for-distanc--9fe9f29e1eca",
+          "material_read": "Finding and §§1–2, offsets 0–4764; §§4–6, offsets 5400–8903, especially §6 Recovering genuine graph distances",
+          "method": "Local Resultary mirror",
+          "title": "A logarithmic mean and a finite Poisson-corner limit for distance-three pairs in random interval graphs",
+          "trigger": "Strongest distinct match in the identical model; possible equivalence of the diameter and domination results"
+        },
+        {
+          "assessment": "Exact 2/3 universal-vertex probability, not the quantitative two-anchor result",
+          "evidence": [
+            "Maximum degree is n-1 with probability exactly 2/3 for n>1; attribution to Justicz, Scheinerman and Winkler."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1102.2841",
+          "material_read": "§2.3, p. 4, near OA offset 10000, and reference [24], p. 26",
+          "method": "OA arXiv full-text passages",
+          "title": "Interval Graph Limits",
+          "trigger": "Independent source for the classical exact probability"
+        },
+        {
+          "assessment": "Priority uncertainty beyond the attributed exact premise; not a reason for failure",
+          "evidence": [
+            "DOI route returned 403 and no readable lawful alternate was recovered."
+          ],
+          "identifier_or_url": "https://doi.org/10.1080/00029890.1990.11995679",
+          "material_read": "Bibliographic data and exact attributed statement in DHJ; original full text unavailable",
+          "method": "Lawful DOI and repository-recovery attempts",
+          "title": "Random Intervals",
+          "trigger": "Primary same-model source, potential broader finite-graph claims"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–26 and 31–46",
+        "Distinct Resultary Poisson-corner comparison §§1, 5–6",
+        "DHJ §2.3"
+      ],
+      "rationale": "The geometry and exact diameter probabilities are useful to state clearly, but the contribution beyond the inspected coverage is a parameter substitution in the existing anchor bound and elementary exact consequences of the classical universal probability and matching model. The chosen logarithmic cutoff gives an explicit faster convergence bound but does not resolve a new mechanism, sharp order, or other substantive gap. No separate nonroutine remainder of the frozen claim was established for repair.",
+      "residual_risks": [
+        "This judgment is about incremental value under the evidence inspected; it is not a statement that domination or exact random interval diameter probabilities are uninteresting or incorrect."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

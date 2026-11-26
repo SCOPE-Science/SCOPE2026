@@ -1,19 +1,21 @@
-# Self-review: independent birthday laws for sparse histogram variation
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For the iid uniform ordered-bin model, the deterministic identity \(2N-T=X_1+X_n+2Z\) holds exactly, and the difference between adjacent occupied-bin overlaps and adjacent sample-pair counts is bounded by an explicit triple-collision factorial moment. The two-color pair dependency graph has exact aggregate intensities and shared-index probabilities, so the process version of the Arratia–Goldstein–Gordon Poisson bound gives a rigorous bivariate total-variation error. Independent-set counting and Stirling surjections prove both extreme-value formulas. The finite verifier passed 75,160 checks; it corroborates but does not establish the infinite asymptotics. Risks are confined to interpretations outside the stated growth range and independent proof checking, not an unproved computational extrapolation.
+PASS
 
-## Originality — PASS with limitations
+The exact path identity is 2N−T=X₁+Xₙ+2Z, with Z the sum of neighboring occupancy minima. The difference between the adjacency-pair count W and Z is a nonnegative integer bounded by the sum of the two ordered-triple counts across each edge. Their factorial moments are (N)₃/n³ apiece. Thus the mismatch probability between the joint statistics (C,2N−T) and (C,2W) is at most 2N/n+2(n−1)(N)₃/n³ under the sampling coupling. For the two-color process, an index is independent of the entire outside family when the observation pairs are disjoint. Each observation pair meets 2N−3 pairs including itself and 2(N−2) other pairs. Conditional on the shared observation's label, the support size for a same-or-adjacent mark is 2 at either end and 3 in the interior. Its first and second moments give qₙ and sₙ, including for n=2; different colors on the same pair are mutually exclusive. AGG Theorem 2 in event-supremum TV gives the claimed 2(b₁+b₂) with b₃=0. Summing by color and doubling the second count contract TV. The error O(N/n+N³/n²) tends to zero in the stated range; vanishing, finite positive and diverging Poisson means give the three phases, with common deterministic standardization for the Gaussian comparison. Zero defect requires empty endpoints and separated occupied interior sites. Removing the mandatory gaps counts these sites by the stated binomial, and counting labeled surjections yields the two exact formulas. They concern attainment of the ceiling 2N (unattainable at n=2), not the actual largest attainable value at n=2. Inspected the frozen checker and recorded evidence without executing it: exact identities and extremal counts are checked in finite cases, the displayed joint TV bound is capped at 1 on that enumerative grid, and the simulations are diagnostic only. The nonvacuous estimate follows from the proof.
 
-The inspected *Comb Test* paper provides a finite dynamic program but no uniform birthday-sparse limit. The inspected Part 1 gives expectations and mentions separate sparse/null-law work; Part 2 derives variance mainly at fixed bin count. The mathematical result on the same object in the proportional-occupancy regime does not imply this vanishing-occupancy bivariate Poisson law. The 1989 multivariate Chen–Stein theorem is an indispensable known proof tool and is not claimed as new. The remaining priority risk is substantive: an unlocated companion manuscript, or older near-birthday literature, might already contain the same model-specific specialization. Search absence is not proof of priority.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The birthday threshold is forced by the number of observation pairs, not chosen arbitrarily. The explicit finite TV bound characterizes the transition from a maximally oscillatory histogram to a non-Gaussian doubled-Poisson defect and then to independent Gaussian collision/variation fluctuations. Because both variables come from the same sample, their limiting independence provides a useful joint null calibration beyond separate marginal means/variances. The exact maximal-variation mass is a natural extreme-event invariant. Claims about power, nonuniform nulls, cyclic boundaries or larger samples are expressly excluded.
+Pass for the path-specific joint collision/variation-defect estimate and closed extremal counts, not for the underlying Comb statistic, exact-null computation in general, or Poisson process theorem. The closest identified indexed analogue is cyclic and univariate, and does not give the path coupling or the joint distribution.
 
-## Sources and limits
+## value
 
-The scientific references are the 2026 Banić–Elezović Comb Test and its Part 1/Part 2 analytical sequels; Arratia, Goldstein and Gordon (1989) for the exact multivariate Poisson bound; and classical birthday-collision literature as background. The separate sparse and null-distribution manuscripts advertised by the authors could not be inspected as a located public document, so comprehensive historical priority is not certified. The finite programs use the standard library; no external certification or independent audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The theorem calibrates a naturally used histogram statistic in a regime different from large samples on a fixed grid. The joint estimate shows that coincidences and neighbor interactions behave independently even though they use the same sample; its error gives a usable simultaneous range and also transfers the independent Gaussian phase. The endpoint-aware exact formula gives a finite check for zero defect. This is more than a rephrasing of a marginal birthday approximation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

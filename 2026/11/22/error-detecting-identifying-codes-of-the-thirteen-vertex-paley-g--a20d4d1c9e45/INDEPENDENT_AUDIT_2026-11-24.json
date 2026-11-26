@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:36:24.910860Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–51",
+        "Frozen VERIFICATION.md, check_direct.py, check_orbits.cpp, output_direct.txt and output_orbits.txt, inspected without executing them",
+        "Independent replay: from /workspace run python3 audit-evidence/paley13_reproduction.py (Python standard library)"
+      ],
+      "rationale": "The asymmetric condition uses a maximum of two directed closed-neighborhood witness counts, not their sum. With omission set U, the two differences are disjoint and each has size 3 for an edge and 4 for a nonedge; |N[u]|=7 throughout. Consequently all omissions through size 3 work, and for size 4 the only obstructions consist of choosing two from each difference of an adjacent pair. I independently enumerated the set-valued predicate for all 8192 subsets, generated the 39×9 adjacent-pair tetrads with multiplicity, tested every five-set, and canonically grouped four- and five-sets under all 78 affine maps. Counts by omissions 0 through 4 were (1,13,78,286,364) with none larger; the 351 generated tetrads were distinct and exactly the bad four-sets. Five-set obstruction multiplicities were 1:273, 2:312, 3:546, 4:156, with no zero. Monotonicity explains why every larger omission set fails as well. The valid four-sets have seven affine orbits of sizes 26,26,39,39,78,78,78; complementation is equivariant and the displayed detector set passes. These checks reproduce the polynomial and the full claimed structural obstruction.",
+      "residual_risks": [
+        "The exact enumeration is for the labeled graph P13 and the specified affine subgroup only; no claim about other orders or identification of the full automorphism group."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general characterization is a decision predicate and does not enumerate its satisfying sets on P13.",
+          "The broader Paley results in Gravier et al. concern ordinary identifying code bounds and growth."
+        ],
+        "reasoning": "No inspected general theorem supplies the claimed polynomial, unique forbidden witnesses, or affine orbit distribution.",
+        "searches": [
+          "arXiv:2208.06052v1 §2 Theorem 2.1",
+          "Gravier et al., E-JC 22(4) P4.6 §5.2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary/SCOPE local index and matched mirror",
+        "arXiv:2208.06052v1",
+        "arXiv:2112.01685",
+        "Gravier et al., E-JC 22(4) P4.6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The pair criterion tells how to test a detector set but gives no count or incidence distribution among forbidden tetrads.",
+          "The locating-dominating census does not determine which four-omission patterns meet the two-directed-witness criterion."
+        ],
+        "reasoning": "The census and obstruction structure require graph-specific reasoning/enumeration beyond the established predicate, not a specialization of an existing enumeration theorem.",
+        "searches": [
+          "arXiv:2208.06052v1 Theorem 2.1 and ref. 18",
+          "Resultary/SCOPE bb59f463fd26 RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorem 2.1 of the DET:IC paper uses two witnesses in one directed difference and two-domination; the redundant criterion uses symmetric difference.",
+          "Multiplication by 2 interchanges residues and nonresidues modulo 13, giving an isomorphism P13 to its complement, not a different code criterion.",
+          "The distinct Resultary record enumerates 247 minimum size-four locating-dominating sets, of which 26 are ordinary identifying codes."
+        ],
+        "reasoning": "The complement and detector-versus-omission formulations preserve the stated invariant, but ordinary or redundant identification does not. Neither compared variant supplies the equivalent DET:IC enumeration.",
+        "searches": [
+          "Jean–Seo, arXiv:2208.06052v1 §2",
+          "Jean–Seo, arXiv:2112.01685 Theorem 2",
+          "Resultary/SCOPE: SCOPE-the-thirteen-antipodal-code-pairs-in-the-paley-locating-dominati--bb59f463fd26"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The local mirror gave the target itself and the materially related antipodal-code-pairs record; the latter counts a different invariant and is not excluded merely for being same-day.",
+          "The E-JC paper's remark about computed small strongly regular graph values refers to metric dimension, not a DET:IC table."
+        ],
+        "reasoning": "No separate exact table for this invariant was identified in the checked sources; same graph or same date is not equivalent coverage.",
+        "searches": [
+          "Local Resultary/SCOPE semantic lookup for Paley-13 identifying-code findings",
+          "Gravier et al., E-JC 22(4) P4.6, p. 3, §5.2 and refs. 4, 30"
+        ]
+      },
+      "rationale": "Credit the published general DET:IC predicate and distinguish ordinary and redundant codes. The nearest distinct Resultary record counts ordinary identifying codes and locating-dominating sets, not error-detecting codes. The exact polynomial, the obstruction hypergraph census and its five-set coverage, and the seven affine orbits are distinct on the available statement-level evidence.",
+      "residual_risks": [
+        "A bounded comparison does not establish priority against unindexed or uninspected catalogues; no such exact DET:IC table was verified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the criterion, not a P13 census",
+          "evidence": "2#-distinction requires at least two selected vertices in one directed closed-neighborhood difference; also requires 2-domination. The characterization is attributed to Seo–Slater.",
+          "identifier_or_url": "https://arxiv.org/abs/2208.06052v1",
+          "material_read": "OA PDF §2 pp. 2–3 (text offsets 7700–10525), Theorem 2.1; ref. 18 p. 13",
+          "method": "Targeted OA PDF passage reading",
+          "title": "Optimal Error-detection system for Identifying Codes",
+          "trigger": "Definition and strongest equivalent fault-model formulation"
+        },
+        {
+          "assessment": "Different fault model",
+          "evidence": "Redundant codes use 2-distinction by symmetric difference, not the directed condition.",
+          "identifier_or_url": "https://arxiv.org/abs/2112.01685",
+          "material_read": "OA PDF Theorem 2 p. 2 (offsets 5000–7040)",
+          "method": "Targeted OA PDF passage reading",
+          "title": "Fault-tolerant Identifying Codes in Special Classes of Graphs",
+          "trigger": "Potential equivalent fault-tolerant terminology"
+        },
+        {
+          "assessment": "Ordinary Paley bounds; small-graph tables referenced are metric dimension",
+          "evidence": "The Paley section gives ordinary identification bounds and growth, and the stated references for small strongly regular graph values study metric dimension.",
+          "identifier_or_url": "E-JC 22(4) (2015), P4.6",
+          "material_read": "§5.2 p. 14 (offsets 41800–44559); p. 3 and references pp. 24–25 (offsets 71000–75998)",
+          "method": "Targeted OA PDF passage reading",
+          "title": "Identifying codes in vertex-transitive graphs and strongly regular graphs",
+          "trigger": "Same graph class and possible exact census"
+        },
+        {
+          "assessment": "Different census; no implication of the reviewed counts",
+          "evidence": "247 minimum locating-dominating sets of size four, 26 also ordinary identifying codes.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-the-thirteen-antipodal-code-pairs-in-the-paley-locating-dominati--bb59f463fd26",
+          "material_read": "Mirrored RESULT.md offsets 0–4649",
+          "method": "Local Resultary search and mirror passage reading",
+          "title": "The thirteen antipodal code pairs in the Paley locating-dominating census",
+          "trigger": "Distinct indexed same-day result on the identical graph"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, statements and obstruction proof",
+        "Independent exact reproduction and Jean–Seo's DET:IC characterization"
+      ],
+      "rationale": "P13 is a standard small strongly regular graph, and DET:IC is a preexisting fault model with a distinct separation rule. The full labeled polynomial gives an exact benchmark beyond the minimum and the partition by affine symmetry makes the optimal patterns reusable. The forbidden-four-set uniqueness and full coverage of five-sets identify what forces the optimum, a meaningful finite cutoff rather than an arbitrary tested slice.",
+      "residual_risks": [
+        "The value is an exact finite benchmark and obstruction classification; no wider Paley-order theorem or practical network performance is asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

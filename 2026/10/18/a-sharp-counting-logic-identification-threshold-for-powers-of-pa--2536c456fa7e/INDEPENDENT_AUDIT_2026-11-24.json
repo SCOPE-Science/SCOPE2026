@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:57:15.282736Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Use the standard colour-refinement/C² equivalence in the adjacency-only language, comparing against arbitrary finite simple graphs. For n≤k+1 the vertex count and full degree force the complete graph. For k≥2 and t=n−k−1∈{1,2,3}, the degree formula min(i,k)+min(n−1−i,k) gives the distinct pairs A_i={i,n−1−i} with degrees k+i, plus a universal class (which is empty at n=6,k=2). Reflection makes each pair equitable and the universal vertices have identical quotient counts. Between distinct pairs i<j, same-side distances are ≤2≤k and opposite-side distance is k+t−i−j, so the block is complete for i+j≥t and a perfect matching otherwise. The matching subgraph on classes is a forest; its arbitrary matching choices can be normalized by flips propagated along each tree, leaving internal edges and complete blocks unchanged. This reconstructs any refinement-equivalent graph. For k=1, refinement peels distance-from-nearest-end classes, a chain of pair matchings with a central singleton if odd and a central within-pair edge if even. For k≥2,n≥k+5, A_0 and A_1 are distinct exact degree pairs; A_2 is also an exact degree pair when k≥3 and otherwise consists of the degree-four neighbours of A_0, distinguished by the next round. Reflection prevents any of these pairs from splitting. Their three interclass blocks are matchings, because opposite-side distances between distinct classes are at least n−4>k. The stated switch changes just the A_0–A_2 matching while preserving every stable-class neighbour count (and hence all round colours by induction). It reduces the count of triangles meeting all three intrinsic classes from two to zero regardless of within-class edges. Thus the switched graph is nonisomorphic and witnesses the claimed first obstruction, including n=7,k=2. The two finite Python checkers were inspected, not run; the proof covers the full quantifiers and does not rely on testing a comparison corpus.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lemma 7(D) forbids a uniform anisotropic cycle in an amenable graph: the three matching blocks in the frozen obstruction give precisely that configuration. Theorem 9 is a general amenability characterization.",
+          "Theorem 17 characterizes C²-identified graphs via their flips being bouquet forests, a structural test on the stable colour cells."
+        ],
+        "reasoning": "The general theory covers the mechanism and decides individual instances, but yields no numerical boundary without analyzing the quotient along the entire path-power family.",
+        "searches": [
+          "Arvind–Köbler–Rattan–Verbitsky, arXiv:1502.01255, Lemma 7(D) and Theorem 9",
+          "Kiefer–Schweitzer–Selman, arXiv:1503.08792, Theorem 17"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, REVIEW.md, AUDIT.json, VERIFICATION.md, verify.py and verify_alt.py",
+        "arXiv:1502.01255 and 1503.08792",
+        "Resultary records 263f4c1f8553, d9bd8b8e27ff and 12303a7cfe70"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the positive cases t≤3, the precise inequality i+j<t characterizes matching blocks and results in a forest. In the negative range the first three pairs form an intrinsic matching triangle; A_2 is not itself an exact degree class when k=2, so the refinement test is needed.",
+          "The prior uniform-anisotropic-cycle obstruction yields nonamenability once these cells have been exhibited. The explicit switch between A_0 and A_2 and its rainbow-triangle certificate give the concrete witness."
+        ],
+        "reasoning": "The numerical family boundary is not a direct substitution into a prior statement: it needs the stable-class arithmetic, matching classification, and boundary treatment. Neither the elementary k=1 slice nor generic cell switching qualifies as a new part.",
+        "searches": [
+          "arXiv:1502.01255, Lemma 7(D), Theorem 9, versus frozen RESULT.md lines 21–35",
+          "arXiv:1503.08792, Theorem 17",
+          "Resultary equivalent path query and October 12 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The general literature treats colour-refinement amenability and C² identification against all graphs, not just comparison within a structured family.",
+          "The October 12 Resultary finding 263f4c1f8553 determines the C² defining depth of ordinary finite paths up to isomorphism, and hence implies the k=1 slice."
+        ],
+        "reasoning": "Changing the name to amenability or 1-WL does not create a distinct invariant. The known path statement is equivalent on k=1, not on positive higher powers.",
+        "searches": [
+          "Resultary: C² identification of powers of finite paths, colour refinement, graph amenability",
+          "websearch: \"powers of paths\" \"identified by\" \"colour refinement\" graph C2",
+          "arXiv:1502.01255 and arXiv:1503.08792"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier undirected-path defining depth is genuinely covering for k=1.",
+          "The same-day cycle-power entry concerns rooted refinements of cycle powers according to its summary; the full passage was not obtained. The later three-round path-power entry studies bounded-rank FO theory of long graphs, not identification by full C² against every graph."
+        ],
+        "reasoning": "Neither near-hit supplies the higher-power threshold or its witness in the examined material. Same-day order was not inferred, and the limited cycle comparison does not establish the contents of its full proof.",
+        "searches": [
+          "Resultary: powers of paths, two-variable counting depth, colour refinement and matching cycle obstruction",
+          "2026/10/12/SCOPE-exact-two-variable-counting-depth-of-finite-paths--263f4c1f8553",
+          "2026/10/18/SCOPE-sharp-colour-refinement-wavefronts-in-rooted-powers-of-cycles--d9bd8b8e27ff",
+          "2026/11/2/SCOPE-sharp-three-round-stabilization-of-finite-path-powers-with-five--12303a7cfe70"
+        ]
+      },
+      "rationale": "Credit the established equivalence, generic amenability characterizations, and switching mechanism. The earlier exact C²-depth result already covers ordinary paths (k=1). The supported distinct contribution is the explicit boundary n=k+5 for every k≥2 and its uniform switch witness. Extracting it from general characterizations requires a concrete stable-cell classification in the positive regime and a distinct stable matching triangle across the entire negative regime (including the extra refinement at k=2). Bounded checks did not identify this specialized threshold in another source; that does not settle publication priority.",
+      "residual_risks": [
+        "A specialized prior computation for path powers with k≥2 could have been missed. General amenability criteria and the prior k=1 case are explicitly credited.",
+        "The same-day rooted-cycle entry was compared only by its summary; no priority ordering or claim about its uninspected text is inferred."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Gives the general obstruction and structural criterion, not the specialized cutoff in these passages",
+          "evidence": [
+            "Uniform anisotropic cycles are prohibited; the negative-case matching triangle is an instance."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1502.01255",
+          "material_read": "Lemma 7(D) p. 8 and Theorem 9 p. 10, offsets 24426 and 33300",
+          "method": "Targeted OA original PDF passages",
+          "title": "Graph Isomorphism, Color Refinement, and Compactness",
+          "trigger": "General amenability classification and matching-cycle switch"
+        },
+        {
+          "assessment": "General bouquet-forest description requires analyzing the stable cells of the particular family",
+          "evidence": [
+            "G is identified by C² iff its flip is a bouquet forest."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1503.08792",
+          "material_read": "Theorem 17, p. 16, offset 46916",
+          "method": "Targeted OA original PDF passage",
+          "title": "Graphs Identified by Logics with Counting",
+          "trigger": "Stronger graph-wide C² identification criterion"
+        },
+        {
+          "assessment": "Covers ordinary undirected paths (k=1), not path powers k≥2",
+          "evidence": [
+            "Exact C² quantifier depth for defining each finite undirected path up to isomorphism."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-exact-two-variable-counting-depth-of-finite-paths--263f4c1f8553",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror bounded passage",
+          "title": "Exact two-variable counting depth of finite paths",
+          "trigger": "Earlier C² identification in a subfamily"
+        },
+        {
+          "assessment": "The stated rooted cycle problem differs; no whole-document conclusion",
+          "evidence": [
+            "The summary concerns rooted cycle powers with a distinguished vertex, not uncoloured path-power amenability."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-sharp-colour-refinement-wavefronts-in-rooted-powers-of-cycles--d9bd8b8e27ff",
+          "material_read": "Indexed summary only; local-mirror passage unavailable",
+          "method": "Resultary summary, attempted targeted mirror read",
+          "title": "Sharp colour-refinement wavefronts in rooted powers of cycles",
+          "trigger": "Same-day nearby graph power and refinement problem"
+        },
+        {
+          "assessment": "Different logic and comparison question; not used as evidence of prior coverage",
+          "evidence": [
+            "Bounded-rank FO theories of long path powers, rather than unrestricted-depth C² identification among all graphs."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-sharp-three-round-stabilization-of-finite-path-powers-with-five--12303a7cfe70",
+          "material_read": "Indexed claim on three-round stabilization",
+          "method": "Resultary statement comparison",
+          "title": "Sharp three-round stabilization of finite path powers with five variables",
+          "trigger": "Later indexed record concerning finite path powers and logic"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An exact boundary for identification against all graphs is useful even for this structured family: the first failure for each nontrivial power is explicit, and a two-edge switch gives a uniformly small concrete witness with an intrinsic certificate. The cutoff depends on when the end-layer quotient first supports conflicting matchings, not on an arbitrary finite scan. The already known logical equivalence and ordinary-path case do not provide this family-specific information.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

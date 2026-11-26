@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T13:53:34.433694Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding, scope and Steps 1–5; check_prime_spectrum.py and VERIFICATION.md",
+        "Conrad, Galois Theory at Work, Theorems 4.23 and 4.25"
+      ],
+      "rationale": "The monic cubic with constant 1 can have only ±1 as rational roots; the evaluations 1 and −2u−1 exclude them for integral u. Direct expansion gives Δ=(u²+u−3)²−32, which cannot vanish. Writing m=u²+u−3 gives odd m≥−3; if Δ=k², the integers (m−k)/2 and (m+k)/2 multiply to 8 and have odd sum. The only such sums are ±9; the bound leaves 9, giving u=3,−4, each with Δ=49. The alternating criterion therefore gives precisely two cyclic parameters. For z=ζ₇+ζ₇⁻¹ the standard relation z³+z²−2z−1=0 gives F₃(1−z)=0. With w=−4+z+2z², reduction gives w²=16−4z−7z² and w³=−65+16z+29z², verifying F_{−4}(w)=0. Both generators have degree three, so their cubic field is the real seventh cyclotomic field. At p≠7 the good reduction Frobenius is trivial in (Z/7)×/{±1} exactly for residues ±1; it has three fixed points then and no fixed point otherwise. At every good prime for the remaining parameters, the S₃ conjugacy types have sizes 2,3,1 for 0,1,3 fixed roots. Chebotarev gives the natural densities and a prime divides some value iff it has a residue root. Each such root is simple and has one lift at every prime-power depth, with no other lifts. Finite checker evidence is not used to justify universal statements; no uploaded code was executed.",
+      "residual_risks": [
+        "The root-count and lifting uniformities exclude bad primes; the density limits fix u before varying primes."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 1999 Thue paper treats this exact one-parameter family in the specialization a₁=0,a₂=1,a₃=u,d=−1, but its stated result is conditional and concerns Thue solutions. Its Section 3 S_n conclusions are generic. Pethő's recurrence paper includes Q=X−1 with nonnegative u, whereas the Noubissie–Tichy recurrence paper assumes q>3."
+        ],
+        "reasoning": "An almost-everywhere Galois assertion does not enumerate all exceptions along a fixed integer slice, and the Thue and recurrence theorems concern different statistics.",
+        "searches": [
+          "Halter-Koch–Lettl–Pethő–Tichy Sections 3 and 4; Pethő arXiv:2611.17962 Theorem 1; Noubissie–Tichy arXiv:2606.27885"
+        ]
+      },
+      "checked_sources": [
+        "Halter-Koch–Lettl–Pethő–Tichy (1999)",
+        "Pethő arXiv:2611.17962",
+        "Noubissie–Tichy arXiv:2606.27885 abstract and introduction",
+        "Conrad Theorems 4.23 and 4.25",
+        "Shanks indexed family",
+        "Exact elliptic root-spectrum Resultary record"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The square-discriminant criterion reduces the question to an exact Diophantine equation. The shared polynomial identity by itself gives neither the complete integer factor-pair classification nor the dichotomy without applying the Galois group per u."
+        ],
+        "reasoning": "The general Chebotarev and Hensel consequences should be credited as standard; the distinctive input is the exhaustive integer exceptional set with no further exceptional u. The known standard results are not stronger theorems that already enumerate this slice's exceptions.",
+        "searches": [
+          "Conrad irreducible cubic group criterion; 1999 ABC generic S_n results; finite-field exact histogram Finding and first proof steps"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The polynomial z³+z²−2z−1 is the a=−1 Shanks form x³=ax²+(a+3)x+1. The changes of integral power basis from (1,z,z²) to powers of 1−z and −4+z+2z² have determinants −1 and +1. Thus the two exceptions are not new cubic fields."
+        ],
+        "reasoning": "Known splitting of that field accounts for the modulo-seven criterion once these parameters are identified. The alias does not classify every integer parameter in the ABC polynomial family.",
+        "searches": [
+          "ABC specialization X(X−1)(X−u)+1; Shanks simplest cubic field and unimodular power-basis aliases"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The other record's N_j(q) counts u in one fixed finite field, for either sign ε, and uses an elliptic curve for its histogram. It gives the same discriminant when ε=1, and the limiting generic proportions match the S₃ numbers, but the two exceptional integer parameters and their varying-prime densities are not its quantifiers."
+        ],
+        "reasoning": "A column histogram at each p need not determine the individual density along a fixed u across all p. Same-day metadata does not establish order or override this comparison.",
+        "searches": [
+          "Resultary elliptic root spectra for cubic Ankeny–Brauer–Chowla polynomials; compare the exact Finding"
+        ]
+      },
+      "rationale": "The field at the exceptional parameters is a classical simplest cubic, and the Frobenius and lifting arguments are classical deductions. The verified prior uses of the very same polynomial concern recurrence or Thue equations, or finite-field statistics across varying parameters. The available statements do not settle the all-integer exceptional locus for this fixed subfamily, which is what makes the density dichotomy exact for every u rather than generic.",
+      "residual_risks": [
+        "No full text was obtained for Shanks. The specific complete slice classification may have appeared elsewhere; the available quoted results and neighbouring finite-field histograms do not give it. No inference of priority is made from source dates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Actual family overlap is stronger than the frozen Section 3-only description, but no coverage of the stated exceptional-set or density theorem in those results",
+          "evidence": [
+            "Generic S_n statements; conditional Thue family including n=3 and |a₂|=1"
+          ],
+          "identifier_or_url": "https://doi.org/10.1112/S0024610799007474",
+          "material_read": "Author PDF §§3–4, Theorem 3.1/Proposition 3.2 on pp. 8–10 and Theorem 4.1 and remark on pp. 11–12",
+          "method": "Lawful author-hosted OA PDF",
+          "title": "Thue Equations Associated with Ankeny–Brauer–Chowla Number Fields",
+          "trigger": "Broad ABC results and exact same cubic specialization"
+        },
+        {
+          "assessment": "Same polynomials with nonnegative parameters, different theorem about recurrence values",
+          "evidence": [
+            "P_u=XQ(X)(X−u)+1; theorem for sufficiently large u"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2611.17962",
+          "material_read": "Abstract and introduction, p. 1; Theorem 1, p. 3",
+          "method": "OA PDF",
+          "title": "Common Values of Linear Recurrences Related to Ankeny–Brauer–Chowla Polynomials",
+          "trigger": "Polynomial Q=X−1 specialization"
+        },
+        {
+          "assessment": "Exact overlap on the discriminant and per-field polynomial, not the density quantifier",
+          "evidence": [
+            "N_j(q)=#{u:r_{u,ε}=j}; coefficients in a fixed finite field of odd characteristic different from 7"
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-elliptic-root-spectra-for-cubic-ankeny-brauer-chowla-polynomials--43596fc8d8b1",
+          "material_read": "RESULT.md Finding, assumptions and start of proof, offsets 0–3234",
+          "method": "Resultary and exact local mirror",
+          "title": "Elliptic root spectra for cubic Ankeny–Brauer–Chowla polynomials",
+          "trigger": "Exact polynomial and root-count topic"
+        },
+        {
+          "assessment": "Matches the exceptional field by an explicit transformation; whole-paper coverage not inferred from the abstract",
+          "evidence": [
+            "a=−1 in the indexed cubic x³=ax²+(a+3)x+1"
+          ],
+          "identifier_or_url": "https://doi.org/10.1090/S0025-5718-1974-0352049-8",
+          "material_read": "Indexed abstract for the Shanks form; official full text not obtained",
+          "method": "Targeted citation comparison and attempted OA PDF",
+          "title": "The Simplest Cubic Fields",
+          "trigger": "Possible earlier identification of both exceptional generators via aliases"
+        },
+        {
+          "assessment": "General group criterion only, not a classification of this slice",
+          "evidence": [
+            "Irreducible cubic has alternating group precisely when its discriminant is a square"
+          ],
+          "identifier_or_url": "https://kconrad.math.uconn.edu/blurbs/galoistheory/galoisapp.pdf",
+          "material_read": "pp. 14–15, Theorems 4.23 and 4.25",
+          "method": "OA PDF",
+          "title": "Galois Theory at Work",
+          "trigger": "Stronger generic criterion for all cubics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and classification",
+        "1999 ABC comparison and exact adjacent finite-field claim"
+      ],
+      "rationale": "For the natural cubic specialization of the ABC family, the exhaustive exception calculation distinguishes two explicit integers from every other one when asking which primes divide polynomial values. A generic S₃ theorem or a varying-parameter finite-field statistic cannot be used for this purpose. The exact modulo-seven criterion and the stability through all good prime-power depths make the result directly usable, without presenting standard density machinery or the exceptional field itself as new.",
+      "residual_risks": [
+        "No quantitative uniform error bound or distribution of prime divisors of recurrence terms is asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

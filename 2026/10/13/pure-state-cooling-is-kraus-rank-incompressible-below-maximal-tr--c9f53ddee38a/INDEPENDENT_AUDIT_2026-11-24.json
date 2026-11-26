@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:26:24.682855Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, statement and proof, lines 2–50",
+        "Frozen VERIFICATION.md, lines 18–27",
+        "Yu–Chen–Lin, arXiv:2609.40328v1, model and Theorem 1"
+      ],
+      "rationale": "For a minimal Kraus family K_j, the linear map psi -> (⟨G|K_j|psi⟩)_j has rank at most r. If r<d, a unit vector in its kernel is sent to a state supported on G-perp, attaining norm difference 2; the triangle inequality gives the matching upper bound. The exact replacer has Choi matrix I_d tensor |G⟩⟨G|, with rank d. A pure m-mode environment gives at most 2^m Kraus operators after a single coherent unitary evolution and final trace, so uniform error below 2 implies m>=N. In the unconstrained model the exact replacer dilation at m=N can be extended to a joint unitary. Yu–Chen–Lin's model and Theorem 1 provide the stated 2N-mode comparison under their physical hypotheses. No numerical experiment is required.",
+      "residual_risks": [
+        "The lower bound assumes a fixed pure target and uniformity over the full input state space; the bath corollary assumes initial purity and no intermediate discards or resets."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The entropy bound applies to exact channels and gives r>=d when the maximally mixed input has pure output; the discussion leaves channel-specific approximating rank open."
+        ],
+        "reasoning": "This broader framework covers exact pure replacement, but its exact-channel and entropy estimates do not provide the maximal-error obstruction at every r<d.",
+        "searches": [
+          "arXiv:1711.00697v3, p. 15 Eq. (28) and p. 16 discussion"
+        ]
+      },
+      "checked_sources": [
+        "Resultary/SCOPE local index",
+        "arXiv:1711.00697v3",
+        "arXiv:2609.40328v1",
+        "SCOPE-exact-deterministic-state-barrier-for-two-copy-qubit-power-purif--581924dc7eb0"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact rank lower bound could coexist with approximants at nonmaximal error without the kernel/orthogonality argument. The 2N-mode existence theorem contains no N-mode lower bound."
+        ],
+        "reasoning": "The new inference uses a single worst-case pure input annihilating all target amplitudes. It does not follow as a specialization of the best matching approximation estimates inspected.",
+        "searches": [
+          "Lancien–Winter, arXiv:1711.00697v3, Eq. (28) vs. Eq. (29)",
+          "Yu–Chen–Lin, arXiv:2609.40328v1, Theorem 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The statewise 1→1 approximation criterion is already used by Lancien–Winter. The bath formulation requires a single pure coherent environment; Yu–Chen–Lin give an upper construction, not a worst-case rank obstruction."
+        ],
+        "reasoning": "Changing from Kraus operators to an environment or rescaling between trace distance and trace norm does not hide a matching approximation lower bound in these sources.",
+        "searches": [
+          "arXiv:1711.00697v3, Eq. (3) and Eqs. (28)–(29)",
+          "arXiv:2609.40328v1, Theorem 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The mirrored SCOPE record concerns minimax approximation to a state-dependent normalized square of a diagonal input qubit from two copies, not a fixed pure output or rank-constrained Kraus family."
+        ],
+        "reasoning": "The exact indexed minimax barrier concerns different inputs, targets and feasible channels. Same-day listing is not a priority argument.",
+        "searches": [
+          "Resultary/SCOPE search for pure replacer and Kraus-rank compression; closest distinct record SCOPE-exact-deterministic-state-barrier-for-two-copy-qubit-power-purif--581924dc7eb0"
+        ]
+      },
+      "rationale": "Credit the established environment-rank equivalence, exact pure-output rank bound and the existing cooling protocol. The distinct assertion supported by the bounded review is the maximal worst-case statewise trace-norm error for every rank-deficient approximant to a pure replacer and its sharp no-reset resource consequence, not the exact rank or the cooling construction alone.",
+      "residual_risks": [
+        "The sharp obstruction has a short rank-nullity proof; an uncatalogued quantum information or erasure resource formulation could give equivalent coverage. The bounded search is not proof of priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Partial coverage only",
+          "evidence": [
+            "Same statewise approximation framework and generic entropy lower bound for the exact rank; no threshold at maximal statewise norm error for pure replacement."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1711.00697v3",
+          "material_read": "p. 2 Eq. (3); pp. 15–16 Eqs. (28)–(29) and channel-dependent discussion",
+          "method": "Primary OA text and equation comparison",
+          "title": "Approximating quantum channels by completely positive maps with small Kraus rank",
+          "trigger": "Closest general uniform Kraus compression theorem"
+        },
+        {
+          "assessment": "Existing upper bound, not lower bound",
+          "evidence": [
+            "Two initially empty bath modes per system mode, coherence until the final trace, and global trace-norm guarantee for arbitrary initial system state under the theorem's hypotheses."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2609.40328v1",
+          "material_read": "Model and assumptions pp. 3–4; Theorem 1 pp. 4–5",
+          "method": "Primary OA model and theorem passages",
+          "title": "Bath-assisted cooling without resets",
+          "trigger": "Exact protocol used for comparison"
+        },
+        {
+          "assessment": "Distinct",
+          "evidence": [
+            "Target is the normalized square of the input, and the barrier optimizes over deterministic CPTP maps rather than over low-rank approximants to a fixed replacer."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-exact-deterministic-state-barrier-for-two-copy-qubit-power-purif--581924dc7eb0",
+          "material_read": "Mirrored RESULT.md, main minimax statement",
+          "method": "Local Resultary lookup and mirror comparison",
+          "title": "Exact deterministic state barrier for two-copy qubit power purification",
+          "trigger": "Nearest distinct indexed minimax trace-distance finding"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Limitations",
+        "Yu–Chen–Lin, arXiv:2609.40328v1, Theorem 1"
+      ],
+      "rationale": "The result isolates a sharp discontinuity for worst-case cooling: even tolerance arbitrarily close to the maximum yields no environment compression relative to exact replacement. This turns the bath resource comparison into a quantitative statement against the unconstrained information-theoretic minimum, rather than simply restating the exact replacer's rank or counting the modes used by an existing protocol.",
+      "residual_risks": [
+        "There is no assertion that N bath modes achieve cooling under the locality, gap and interaction restrictions of the upper construction."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

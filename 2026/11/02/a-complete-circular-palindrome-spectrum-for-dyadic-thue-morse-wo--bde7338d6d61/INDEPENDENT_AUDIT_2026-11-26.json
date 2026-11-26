@@ -1,0 +1,158 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:29:16.012965Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, lines 4–42",
+        "VERIFICATION.md, rank table",
+        "checker.py"
+      ],
+      "rationale": "Check the argument on periodic extensions, only counting strings of length at most one period. At rank j≥1 each length-three window contains a full complementary substitution pair, hence there is no constant triple even across the boundary. A length-five palindrome at either alignment forces a constant triple in the preceding periodic extension. Both 010 and 101 occur in T_3 as ordinary factors and persist since each T_j is a prefix of T_{j+1}; odd antipalindromes are impossible. For length 2t, the even- and odd-aligned maps are μ(v) from t input symbols and G(u)=complement(u_1) μ(u_2...u_t) u_{t+1} from t+1 input symbols. Both are injective and reversal of either output is its map applied to the reverse-complemented input. Thus a palindrome comes from an antipalindrome, forcing one of the two alignments according to t parity, whereas antipalindromes come from palindromes in both alignments. An output G(u) also in the even-aligned image must have complementary pairs at positions (1,2),(3,4),..., forcing consecutive u symbols equal. This is impossible for t≥2 by the triple prohibition. At t=1, both 01 and 10 occur in both images: the preceding iterate contains 00 and 11 cyclically from rank 2 onward (visible at rank 2, and both occur internally in rank 3 and persist). At t=2^{k−1} the only over-one-period input relevant to the antipalindrome count would be an odd palindrome of length at least 5, excluded even in the periodic extension. For k=3 that exclusion uses the no-triple fact already at rank 1 to rule out length 5 in periodic T_2. Direct enumeration of the rotations and short factors of 0110 gives the base p_2=6, a_2=4. Summation counts each even input length twice in the palindrome recurrence and loses two unit palindromes plus the two overlaps in the antipalindrome recurrence. Hence p_k=4+2a_{k−1} and a_k=2p_{k−1}−4, so p_3=12 and p_{k+2}=4p_k−4 for k≥2. Solving on parity classes yields the two displayed totals and their distinct density limits.",
+      "residual_risks": [
+        "Frozen replay path is python3 checker.py. Recorded rank-1 to rank-9 enumeration and rank-3 to rank-9 recurrence checks are corroboration; the written argument proves the unbounded-rank result. Code was inspected, not independently executed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Allouche et al. apply an infinite substitution result to the square of the Thue–Morse morphism. The Simpson landing page concerns palindromes in circular words; its full theorem evidence was unavailable. The f-palindrome manuscript could not be inspected via the identified listing."
+        ],
+        "reasoning": "Infinite factor results do not specify presence in a particular dyadic period. General circular bounds alone would not give an exact length spectrum or rank-parity total. No claim of full-document noncoverage is made for either unavailable source.",
+        "searches": [
+          "arXiv:math/0106121, application to Thue–Morse morphism squared",
+          "Simpson DOI 10.1016/j.tcs.2014.07.012",
+          "Blondin-Massé–Brlek–Garon–Labbé, exact f-palindrome title and public listing"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:math/0106121",
+        "arXiv:1306.6768",
+        "Simpson DOI 10.1016/j.tcs.2014.07.012 landing page",
+        "Blondin-Massé et al., public listing access attempt",
+        "Resultary records 3742eafffb98, 46d4b0f37cce, b756136621a6, 6d42cbf17aad"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The strongest same-day analogue gives a complete, eventually stabilized finite circular language for Rudin–Shapiro; the Zimin analogue applies to words defined over distinct symbols at different construction stages. The checked classical comparators have infinite-word scope."
+        ],
+        "reasoning": "These results do not supply the two injective Thue–Morse maps on finite periodic factors or their length-two overlap, and do not determine the finite-boundary contribution at every rank. The same-day analogues were compared on content and no relative priority is inferred from dates.",
+        "searches": [
+          "Resultary 3742eafffb98, RESULT.md at offset 0",
+          "Resultary 46d4b0f37cce",
+          "arXiv:math/0106121, pp. 1 and 12",
+          "arXiv:1306.6768, pp. 1–2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The indexed Thue–Morse conjugacy result b756136621a6 counts rotation classes in the infinite factor language; record 6d42cbf17aad counts ordinary factors made from two palindromes. Allouche et al. define the palindrome statistic in infinite sequences; Peltomäki's primary recurrence counts privileged factors there."
+        ],
+        "reasoning": "A single palindrome, a product of two palindromes, and a conjugacy class are different counted objects. Circular factors of T_k can be phrased as windows of T_kT_k with lengths ≤2^k, but not as all factors of the infinite fixed point. For example, the infinite word has 010 and 101 whereas T_2 has no length-three circular palindrome.",
+        "searches": [
+          "Resultary: exact title, dyadic Thue–Morse circular palindromic complexity, circular palindrome and antipalindrome spectra",
+          "arXiv:math/0106121, pp. 1 and 12",
+          "arXiv:1306.6768, pp. 1–2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest exact indexed circular tables are for Rudin–Shapiro (36 words stabilizing at rank 8) and Zimin (one palindrome at each even length plus odd-length counts); the indexed Thue–Morse matches concern other metrics."
+        ],
+        "reasoning": "The two exact tables count different languages and do not determine the rank-indexed binary Thue–Morse spectra. No exact matching table was identified in the targeted indexed results; ranked retrieval is nonexhaustive.",
+        "searches": [
+          "Resultary: dyadic Thue–Morse distinct circular palindrome counts and exact palindrome/antipalindrome spectra",
+          "Resultary records 3742eafffb98 and 46d4b0f37cce"
+        ]
+      },
+      "rationale": "The supported distinct claim is the exact finite-dyadic one-period circular palindrome and antipalindrome spectra, and in particular the parity-split palindrome total. Neither general infinite-word complexity nor exact circular classifications for other sequences were found to cover it; full-text access to two relevant comparators remained limited.",
+      "residual_risks": [
+        "Simpson and Blondin-Massé et al. full texts were not inspected; possible stronger finite/cyclic coverage in them remains unresolved.",
+        "Indexed results do not exhaust historical literature. No priority ordering of distinct same-day analogues is asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Relevant infinite-language method, not the finite circular spectrum in inspected passages",
+          "evidence": [
+            "Defines factors of infinite sequences and names the square of the Thue–Morse morphism as an application."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0106121",
+          "material_read": "PDF p. 1 at offset 0; p. 12 near offset 33000",
+          "method": "Bounded OA primary PDF excerpts",
+          "title": "Palindrome Complexity",
+          "trigger": "Classical Thue–Morse-specific palindrome complexity"
+        },
+        {
+          "assessment": "Recursive result concerns privileged complexity in the infinite word",
+          "evidence": [
+            "Abstract states a recursive formula for privileged complexity; introduction distinguishes it from palindromic complexity."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1306.6768",
+          "material_read": "PDF pp. 1–2, offsets 0 and about 5700",
+          "method": "Bounded OA primary PDF excerpts",
+          "title": "Privileged Factors in the Thue–Morse Word",
+          "trigger": "Thue–Morse factor recurrence and relation to palindromes"
+        },
+        {
+          "assessment": "Plausible general comparator; stronger implications not excluded by a full-text check",
+          "evidence": [
+            "Public description concerns circular palindrome bounds; no exact Thue–Morse spectrum was established from available material."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.tcs.2014.07.012",
+          "material_read": "Landing page/abstract only; no readable full theorem text retrieved",
+          "method": "Lawful OA access attempt and alternate route",
+          "title": "Palindromes in circular words",
+          "trigger": "Exact circular-palindrome object at a general word level"
+        },
+        {
+          "assessment": "Coverage unresolved, not evidence of noncoverage",
+          "evidence": [
+            "The identified listing did not provide a readable passage. The distinct work on palindromic lacunas is not a substitute."
+          ],
+          "identifier_or_url": "https://www.researchgate.net/publication/242744004_Combinatorial_properties_of_f-palindromes_in_the_Thue-Morse_sequence",
+          "material_read": "No primary text retrieved; exact title and listing identified",
+          "method": "Lawful public listing access attempt",
+          "title": "Combinatorial properties of f-palindromes in the Thue–Morse sequence",
+          "trigger": "Most relevant cited comparator for the antipalindrome component"
+        },
+        {
+          "assessment": "Close analogue on a different input family",
+          "evidence": [
+            "Counts the distinct circular palindrome language of Rudin–Shapiro; 36 words at stabilization from rank 8."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-cyclic-factor-fidelity-and-the-complete-circular-palindrome-lang--3742eafffb98",
+          "material_read": "Mirrored RESULT.md finding at offset 0",
+          "method": "Local Resultary search and mirror passage",
+          "title": "Cyclic-factor fidelity and the complete circular-palindrome language of dyadic Rudin–Shapiro words",
+          "trigger": "Strongest indexed match to finite dyadic circular palindrome language"
+        },
+        {
+          "assessment": "Different alphabet construction and word family",
+          "evidence": [
+            "One palindrome per even length plus odd counts and total for finite Zimin words."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-the-complete-circular-palindrome-spectrum-of-finite-zimin-words--46d4b0f37cce",
+          "material_read": "Indexed finding",
+          "method": "Local Resultary search",
+          "title": "The complete circular-palindrome spectrum of finite Zimin words",
+          "trigger": "Indexed analogue of the exact circular length spectrum"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, finding and proof",
+        "arXiv:math/0106121, abstract"
+      ],
+      "rationale": "Dyadic substitution iterates of Thue–Morse are canonical finite objects. The exact one-period spectra resolve wraparound without overcounting aligned occurrences and show that even the aggregate normalized palindrome count does not converge across ranks. The two-map count and sole overlap are useful structural controls beyond the infinite-language complexity bounds.",
+      "residual_risks": [
+        "No conclusions for arbitrary prefix lengths, factors longer than a full traversal or other substitutions."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

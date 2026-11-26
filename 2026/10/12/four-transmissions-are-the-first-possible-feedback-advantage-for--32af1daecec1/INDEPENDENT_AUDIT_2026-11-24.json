@@ -1,0 +1,88 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:11:23.847238Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With uniform messages a basis code succeeds on S with probability equal to its number of projected words divided by M. For M=1 use one word, and for M=2 use opposite vertices (with the full-cube cases handled by repetition). At n=2 the three-word core covers both symbols in each coordinate. At n=3 the three-word core has distance two and both symbols at every coordinate, and the even-parity core projects bijectively on each pair. Adding distinct unused vertices after the latter core preserves saturation on each proper subset; after exhausting the cube, repetitions preserve all projection counts. This includes S empty and all M above the cube size. Thus one code saturates every pattern bound at once for any exogenous survivor-set distribution. Wilde's Corollary 4.3 gives the matching feedback optimum without initial shared entanglement; Theorem 6.1 supplies the strict quantum no-feedback gap at n=4, M=4 and 0<p<1. Its strictness follows because equality forces four mutually orthogonal, pure two-qubit marginals in every two-survivor sector, hence product codewords. Every message pair would need local orthogonality on at least three sites (18 incidences); each qubit site permits at most four orthogonal message pairs (16 total). The finite state/POVM optimum is attained by compactness. A separate exhaustive search over binary cube subsets found simultaneous saturators at every size through the full cube for n<=3 and no four-word binary saturator at n=4; this last check does not establish the quantum converse. Replay with python3 /workspace/branches/independent_checks.py 4. The source checker is in artifacts/verify.py and was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wilde gives the feedback optimum at arbitrary blocklength and the strict gap at n=4; his no-feedback equality regimes do not exhaust n<=3. Rosati gives a general converse and a conditional lower bound, not an all-M short-block optimum."
+        ],
+        "reasoning": "The broader feedback expression and no-feedback upper bound supply the target, not simultaneous attainment of that target in the unspecified short-block cases. The correlated-erasure feedback formula is itself prior.",
+        "searches": [
+          "Wilde §1.3, Theorem 4.1, Corollary 4.3, Theorem 6.1 and Remark 6.3",
+          "Rosati Eqs. (34)–(35) and Theorem 5"
+        ]
+      },
+      "checked_sources": [
+        "Wilde arXiv:2610.00440v1",
+        "Rosati DOI 10.1088/2399-6528/ad6f6b",
+        "Resultary catalogue queries"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The first cited theorem already proves the positive n=4 side. The repeated-word construction in Rosati does not imply injectivity for the intervening counts, and Wilde does not give their simultaneous projection achievability."
+        ],
+        "reasoning": "The four-use gap alone says 'at most four', not 'first at four'. The missing achievability argument, including deletion and adding distinct words rather than repetitions before saturation, is necessary to exclude all shorter lengths and works for correlated patterns without reoptimizing the code for the law.",
+        "searches": [
+          "Wilde Theorem 6.1 and Remark 6.3",
+          "Rosati Theorem 5 and its explicit repeated encoding in Eqs. (41)–(42)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Wilde treats MDS attainability at special message counts. Rosati §4.2, Eqs. (40)–(42), uses fixed-size classical codes and repeats words for intermediate sizes."
+        ],
+        "reasoning": "Saturating the bound for every pattern is equivalent for basis codes to having each projection be injective or surjective as dictated by its size. The binary parity array already solves n=3,M=4. The cited regimes do not establish saturation for n=2,M=3 or n=3,M=3,5,6,7; for intermediate sizes, repeating words from a smaller code does not even make the full projection injective. The frozen construction handles exactly that distinction.",
+        "searches": [
+          "Wilde arXiv:2610.00440v1, Remark 6.3 and §9.2",
+          "Rosati DOI 10.1088/2399-6528/ad6f6b, Theorem 5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest inspected primary statements list sufficient code regimes, not a table giving universal saturation for all M and all patterns through n=3. The focused catalogue searches returned no materially overlapping record."
+        ],
+        "reasoning": "Minimum-distance/MDS tables can certify individual cores but do not in general record both injection on large subsets and surjection on every smaller subset at intermediate M. No table covering the whole stated boundary was identified.",
+        "searches": [
+          "Resultary searches for short blocklength qubit erasure feedback advantage and exact small-code survivor projection saturation",
+          "Wilde Remark 6.3; Rosati §4.2 on classical code parameters"
+        ]
+      },
+      "rationale": "Credit Wilde for the feedback formulas and the four-use quantum example, and Rosati for the precedent for the no-feedback converse. The supported new content is the simultaneous patternwise no-feedback achievability for every short-block message count, and with it the sharp first-blocklength statement.",
+      "residual_risks": [
+        "Equivalent small-code constructions or a short-block observation could occur in a separately indexed coding or orthogonal-array source; the catalogue and primary-source checks do not certify priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage of feedback, sector bound and four-use gap, partial coverage of no-feedback attainability",
+          "evidence": "Corollary 4.3 allows arbitrary message-independent survivor patterns; Theorem 6.1 includes arbitrary mixed or entangled codewords without initial shared entanglement. Remark 6.3 lists sufficient regimes and §9.2 leaves the exact four-use no-feedback optimum open.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.00440v1",
+          "material_read": "§1.3, §2.2 (p. 7), §3.1 Eq. (3.1), Theorem 4.1 (pp. 13–14), Corollary 4.3 (p. 16), Theorem 6.1 and Remark 6.3 (pp. 24–26), §9.2 (p. 42)",
+          "method": "Bounded OA PDF comparison",
+          "title": "Finite-blocklength classical communication over the quantum erasure channel with and without classical feedback",
+          "trigger": "Frozen result invokes the source for feedback and strict converse"
+        },
+        {
+          "assessment": "Antecedent bounds and classical codes, not an all-message short-block assertion",
+          "evidence": "The lower bound is conditional on code parameters; the repeated encoding in (42) is not the enlargement by distinct vertices needed for full-projection injectivity at intermediate message count.",
+          "identifier_or_url": "https://doi.org/10.1088/2399-6528/ad6f6b",
+          "material_read": "Eqs. (34)–(35), §4.2 Theorem 5 and construction (41)–(42), pp. 7–9; OA offsets 26900–33817 and 31950–37329 for the achievability passage",
+          "method": "Bounded OA PDF comparison",
+          "title": "The n-shot classical capacity of the quantum erasure channel",
+          "trigger": "Earlier no-feedback coding and converse"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The positive example alone left a concrete question about the minimum quantum channel blocklength. Proving simultaneous saturation identifies this sharp boundary even when the erasures at shorter lengths are correlated. It also establishes that classical basis encoding suffices for every message count at those lengths, rather than only for a few code parameters.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

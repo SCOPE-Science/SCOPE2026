@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The Fourier-intensity identity is reduced to equality of each exact aperiodic autocorrelation, and the real-coordinate intensity equality is reduced to sign choices. The unique maximal-lag term forces the two extreme signs to agree. For three sites, the only exceptional arithmetic progression sign flip yields signed reflection. For four sites, all possible nontrivial sign patterns either have an uncancelled singleton cross-sign distance or force a symmetric support and signed-reflection coefficients by two explicit bilinear equations. The five-site construction has exact magnitude agreement through reciprocal polynomial factors and cannot be a signed reflection because its endpoint moduli differ. The result applies to arbitrary nonzero real amplitudes and arbitrary integer spacing, not just the finite computational search.
+PASS
 
-## Originality
+Full Fourier intensity equality is equality of every aperiodic autocorrelation by trigonometric coefficient uniqueness; coordinate magnitudes give common support and real relative signs. Normalize the signs at the left endpoint; the largest lag then forces agreement at the right endpoint. Each positive lag of the cross-sign pairs must have vanishing sum of products, so none may be a singleton. For three sites an interior flip forces equal gaps and opposite endpoints, yielding minus the reflected sequence. For four sites one interior flip has three cross distances that cannot all coincide. With both flipped and consecutive gaps a,b,c, the only repeated-pair partition of a,a+b,b+c,c permitted by b>0 is a=c and a+b=b+c. Then the two equations are A0*A1+A2*A3=0 and A0*A2+A1*A3=0. Nonzero amplitudes give A3=A0 and A2=-A1 or A3=-A0 and A2=A1, exactly the two signed reflections. Support sizes zero through two are trivial. For sharpness the reversal of 1+tz-z^2 has the same unit-circle modulus; multiplying both factors by 1+uz^2 gives precisely the claimed coefficients. Parameter exclusions make every coefficient nonzero, the matching linear and opposite constant coefficients exclude a global sign, and the unequal endpoint magnitudes exclude the only possible reflection of the common finite support. Inspected the frozen checker; its tests are finite supplementary checks, not the proof for arbitrary real values or gaps.
 
-**PASS, subject to priority risk.** The closest complete full-text comparison is Shkarin (2013), Lemma 4.1 and Proposition 4.2, which classify complex coefficient vectors on four **consecutive** equal-length steps, but do not claim the arbitrary-spacing real sparsity cutoff five. Novikov–Xu (2026), Theorem 2 and Example 2, provide general complex Pauli-partner constructions but no sharp least-support theorem for real integer signals. Ramos–Sousa (2024) and Lysen (2026) study sampled rather than full Pauli data, with continuous-function decay assumptions; their theorems do not imply the five-site cutoff. Available published research search records contain a complex four-site integer onset and a prime-cyclic signed four-atom onset, neither of which covers the real infinite-lattice theorem. Residual risk: an earlier real finite-impulse-response sign-ambiguity classification with equivalent wording may exist outside indexed searches.
+## originality
 
-## Value
+PASS
 
-**PASS.** The smallest number of nonzero coefficients that permits Pauli nonuniqueness is a natural exact sparsity invariant for reconstruction using both coordinate and Fourier intensity. Fixing the real coefficient field changes the first possible obstruction relative to complex coefficients. Proving the sharp cutoff for arbitrary integer supports, rather than only consecutive vectors, isolates a genuine cross-sign distance-cancellation mechanism; an explicit nondegenerate real two-parameter family attains it.
+The distinct claim is the sharp five-site threshold for all real finite sequences on Z with both magnitude data, up to signed reflection as well as global sign. Neither the general Fourier-only characterization nor the inspected four-consecutive-tap and sampled-real-line results give this sharp universal two-data conclusion. The factor reversal itself is classical.
 
-## Limitations
+## value
 
-No classification of all five-support partners is claimed. The theorem assumes exact global Fourier magnitudes, not finite noisy samples. The computational verification is supplementary and no independent audit is asserted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A sharp minimal-support obstruction for simultaneous magnitude data is a natural quantitative uniqueness boundary. The result resolves even repeated-distance supports, not just generic cases, and supplies a minimal witness that is not a symmetry of the data.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

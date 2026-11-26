@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:13:39.288489Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For binary n>=2 the first-bit and last-bit sets must be disjoint by length-one overlap, forcing one of two complementary orientations. The reversal-plus-bit-flip involution preserves the chosen orientation. Valid codes are unions of internally valid orbits, and pairwise conflict in either prefix/suffix direction is exactly the obstruction to joining orbits; sizes count words, hence weights one or two. Checked every frozen finite certificate row with independent checker /workspace/branches/ce9e9cb2-57a4-4e9e-ae32-1e8f26b6ebfa/check_record3.py, invoked on frozen certificates.json (without executing uploaded verify.py). The checker regenerated the whole oriented orbit graph, validated the primal selection and all weighted clique coverage, and obtained equal selected-word and clique totals at n=2..16: 1,0,1,0,2,0,5,2,14,10,42,44,132,170,430. The largest row has 592 vertices and 4034 edges. For the upper bound, an independent set uses at most one vertex of each clique, so integer cover cost bounds its total weight. The even fixed-word singleton is unbordered; for the odd family at k>=5, a short overlap is excluded by the opposite constant-bit end runs, and a longer one needs an initial zero-run of length >=k-2 in a proper suffix. In the first word this leaves cuts after the first or second symbol (the offsets called positions one and two in the text), and both fail by their initial pattern; in the partner no such proper suffix exists. For k=4 the extra proper suffix starting at the partner's interior two-zero run also mismatches both same-length prefixes (the third symbol already differs in the first word, and the fourth in the partner). The n=9 graph independently confirms positivity. At n=3,5,7 the checker exhausts the 2,8,32 oriented words respectively and finds no internally valid orbit. The n=1 exception holds vacuously for proper overlaps. This certifies the all-length positivity threshold and finite maxima only through 16.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The indexed even-alphabet length-three result covers binary length three as a special case and gives only the empty code there.",
+          "Stanovnik–Moškon–Mraz and Chee et al. work in the unrestricted non-overlap class, without closing under the involution."
+        ],
+        "reasoning": "An exact result in broader alphabets dominates the single n=3 row only. Unrestricted capacities bound the restricted ones but need not equal them: unrestricted n=3 is positive, whereas the restricted capacity is zero.",
+        "searches": [
+          "2026/11/2/SCOPE-complete-size-spectrum-of-reverse-complement-closed-length-three--0a0389fdc4a8",
+          "10.1007/s10623-023-01344-z",
+          "arXiv:1209.0236"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, certificates.json, VERIFICATION.md and verify.py",
+        "Independent certificate checker linked in correctness",
+        "2026/11/22/SCOPE-sharp-short-block-capacities-and-extremizer-census-for-reverse-c--74e0afab9676",
+        "2026/11/2/SCOPE-complete-size-spectrum-of-reverse-complement-closed-length-three--0a0389fdc4a8",
+        "arXiv:1209.0236",
+        "arXiv:1303.1026",
+        "arXiv:1709.05214",
+        "10.1007/s10623-023-01344-z"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The short indexed table settles small parity exceptions and some positive examples but gives no all-length extension theorem in its inspected statement.",
+          "The unrestricted proofs and constructions do not ensure every orbit is internally valid or that taking orbit unions preserves non-overlap."
+        ],
+        "reasoning": "A length-nine witness does not imply positive capacity at every larger odd length. The odd all-length family is a needed new argument relative to the inspected results, and the n=13..16 upper bounds are not mechanical substitutions into those prior bounds.",
+        "searches": [
+          "Indexed exact short-block capacities and indexed even-alphabet length-three spectrum above",
+          "arXiv:1303.1026",
+          "arXiv:1209.0236"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Blackburn's introductory definition is equivalent to cross-bifix-free when all ordered pairs including self-pairs are checked; his domain lacks closure under the bit-flip/reversal involution.",
+          "Yazdi et al., Definition 1 and abstract, impose proper overlap and/or a sufficiently-long-substring avoidance condition, not mandatory inclusion of the involution partner.",
+          "Indexed sharp short-block capacities use the same closure and proper-overlap conventions and count words, not orbits."
+        ],
+        "reasoning": "Ordinary non-overlap bounds from the unrestricted class apply, but neither dropping closure nor forbidding a match under the involution is equivalent to requiring closure. The indexed short-block capacity result is mathematically equivalent on its shared range.",
+        "searches": [
+          "Resultary: reverse-complement-closed binary non-overlapping codes and exact short-block capacities",
+          "arXiv:1303.1026",
+          "arXiv:1709.05214"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed exact table overlaps every n=1..12 row (including the separately stated n=1 value) and additionally counts optimizers. It does not tabulate n=13..16.",
+          "Chee et al.'s Table I includes unrestricted small binary code results. Blackburn p. 6 credits Chee et al. with the finite optimality results through n=16 except n=9; the comparison is to the unrestricted table, not an independent closure table."
+        ],
+        "reasoning": "The shared indexed rows are verified duplicate mathematical coverage, not evidence against distinct terminal rows. The tempting unrestricted numerical table answers a different maximization problem.",
+        "searches": [
+          "2026/11/22/SCOPE-sharp-short-block-capacities-and-extremizer-census-for-reverse-c--74e0afab9676",
+          "arXiv:1209.0236, Table I",
+          "arXiv:1303.1026, p. 6",
+          "10.1007/s10623-023-01344-z, binary-code discussion"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the extended exact spectrum through n=16 and the all-length threshold. The configured indexed literature contains actual equivalent coverage of shorter rows, including a complete table through n=12, and a stronger n=3 theorem; these are not credited as independently distinct findings. Neither inspected result yields the four terminal maxima or the all-length threshold. No historical priority is inferred merely from catalogue dates. The mathematical claim reviewed concerns abstract binary words only.",
+      "residual_risks": [
+        "The indexed short-block result directly overlaps the restricted table at small lengths; the order of catalogue dates alone is not a priority finding.",
+        "An unsuccessful external search does not rule out earlier unpublished or differently indexed involution-stable synchronization-code tables or existence theorems."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same problem, exact overlap through length 12 and additional optimizer counts",
+          "evidence": "Matches values for n=1..12, neither tabulates lengths 13–16 nor states the all-length threshold.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-short-block-capacities-and-extremizer-census-for-reverse-c--74e0afab9676",
+          "material_read": "Mirrored RESULT.md, capacity statement and extremizer census",
+          "method": "Configured local text mirror",
+          "title": "Sharp short-block capacities and extremizer census for reverse-complement-closed codes",
+          "trigger": "Direct claim-level match in Resultary"
+        },
+        {
+          "assessment": "Dominates n=3 only",
+          "evidence": "Binary size spectrum consists of zero only at length three.",
+          "identifier_or_url": "2026/11/2/SCOPE-complete-size-spectrum-of-reverse-complement-closed-length-three--0a0389fdc4a8",
+          "material_read": "Mirrored size-spectrum statement for even alphabets and binary specialization",
+          "method": "Configured local text mirror",
+          "title": "Complete size spectrum of reverse-complement-closed length-three codes",
+          "trigger": "Strongest indexed exceptional small-length theorem"
+        },
+        {
+          "assessment": "Unrestricted competitor, not the same table",
+          "evidence": "Small unrestricted results through length 16 except n=9, with no closure requirement.",
+          "identifier_or_url": "https://arxiv.org/abs/1209.0236",
+          "material_read": "Sizes of cross-bifix-free codes for small lengths and Table I, OA offsets 25180 and 28600",
+          "method": "Open-access primary PDF passages",
+          "title": "Cross-Bifix-Free Codes Within a Constant Factor of Optimality",
+          "trigger": "Unrestricted binary small-length table"
+        },
+        {
+          "assessment": "Same overlaps without orbit-closure condition",
+          "evidence": "Credits Chee et al. with numeric optimality for unrestricted binary lengths at most 16 excluding 9.",
+          "identifier_or_url": "https://arxiv.org/abs/1303.1026",
+          "material_read": "Introduction definition and p. 6, OA offset 13740",
+          "method": "Open-access primary PDF passages",
+          "title": "Non-overlapping codes",
+          "trigger": "Equivalent naming and potential prior exact spectrum"
+        },
+        {
+          "assessment": "Avoidance, not the closure condition",
+          "evidence": "The f-APD condition compares sufficiently long substrings; it does not require each involution mate to belong to the code.",
+          "identifier_or_url": "https://arxiv.org/abs/1709.05214",
+          "material_read": "Abstract and Definition 1, p. 2, OA offsets 0 and 14300",
+          "method": "Open-access primary PDF passages, mathematical constraint comparison only",
+          "title": "Mutually Uncorrelated Primers for DNA-Based Data Storage",
+          "trigger": "Similar terminology for reverse-complement constraints"
+        },
+        {
+          "assessment": "Unrestricted maxima and counts, no involution",
+          "evidence": "Attributes the earlier binary search through length 16 to Chee et al.; no required inclusion of involution mates.",
+          "identifier_or_url": "https://doi.org/10.1007/s10623-023-01344-z",
+          "material_read": "Abstract, introduction and binary discussion, OA offsets 250, 2500 and 8000",
+          "method": "Open-access primary PDF passages",
+          "title": "In search of maximum non-overlapping codes",
+          "trigger": "Further exact capacities and enumeration"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A whole-orbit closure condition is a natural symmetry restriction on synchronization codes and changes even the question of existence. The exact exceptional odd lengths and the sharp certificate-backed small maxima quantify its effect, especially the nontrivial terminal rows beyond the other indexed table. This supplies usable benchmarks for orbit-based constructions, not just a trivial extremum or a rerun of an unrestricted table.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

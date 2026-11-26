@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The stated map and domain are exact: \(q,c,\tau,\rho>0\), fixed 2-dimensional real iteration, universal convergence over all starts. Matrix inversion gives the displacement trace \(t\), determinant \(d\) and discriminant \(\Delta\). Positive real roots and conjugate roots yield exhaustive Schur boundaries. Equioscillation or strict convexity gives unique relaxation optima. Requiring zero eigenvalues determines the unique discriminant-zero step \(\tau_*\) and relaxation \(\rho_*\). Cayley--Hamilton supplies the square-zero identity while an off-diagonal entry proves the matrix itself nonzero. The standalone exact-rational and randomized reproduction checks pass. Numerical sampling is not used to infer any global or infinite assertion.
+PASS
 
-## Originality — PASS, with bounded residual risk
+The KKT matrix is invertible with determinant c² and zero satisfies the saddle inequalities. Inverting I+τS gives D=(I−K)/ρ=[(s²+h,−s);(s(1−h),s²)]/(1+s²). Its trace is t and its determinant is s²/(1+s²)=d. Real roots μ± are positive, so the exact Schur limit is ρ<2/μ+, and the maximum modulus is minimized uniquely by balancing the opposed endpoints at ρ=2/t. For conjugate roots the squared radius is 1−ρt+ρ²d, giving the strict interval and the unique minimizer t/(2d). At the repeated root the strict limit is 4/t and the radius is zero only at 2/t; at each extreme stability boundary at least one eigenvalue has modulus one. A fixed K terminates universally in finite time iff both eigenvalues vanish, requiring Δ=0; factoring the discriminant numerator gives τ²[q²+4c²(τq−1)], with exactly one positive root iff q<2c. At that root the positive (1,2) entry prevents index one, and Cayley–Hamilton gives index two. Exact alternate replay: with ζ=q/(2c) at the terminating tuning, K=(2ζ/(1+ζ²))(1,ζ)ᵀ(−ζ,1), whose square vanishes since the row and column pair to zero. At ζ=3/4 this produces all four rational entries in the finding exactly. Solving ρ*>2 gives ζ>1/√3. These checks apply to all deterministic starts, not only eigenvector starts or monotonic norm decay. Supplied code and run description were inspected and not executed.
 
-The September 30, 2026 motivation establishes an abstract forward--backward representation and nonexpansiveness/relaxation sufficiency, not this 2-by-2 skew-resolvent's exact Schur phase diagram, universal two-step termination threshold or unique tuning. The classic monotone-plus-skew paper instead analyzes a forward--backward--forward map. Nearby published descriptions of PDHG and ADMM finite termination concern different recurrences and cannot directly imply the statement. Actual semantic and alias searches were made; accessible previous claims were checked. Novelty is assessed as best knowledge, not as certification of absence from all publications. Related published records whose full bodies were not accessible remain residual risks.
+## originality
 
-## Value — PASS
+PASS
 
-The criterion \(q<2c\) is a sharp structural feasibility boundary for exact finite-step convergence of a natural two-parameter primal--dual fixed-point iteration, not an arbitrary isolated example. The complete piecewise rate and Schur formulas distinguish stability, rate optimality and nilpotence and explain why valid model-specific tuning can exceed generic relaxation values. Potential use is a calibrated numerical benchmark for splitting and parameter-selection claims; the result does not assert practical robustness or large-scale gains.
+The method is established relaxed forward–backward splitting, also expressible as preconditioned Richardson, and its generic spectral minimization is standard. The supported distinct contribution is the sharp behavior in this motivated monotone-plus-skew model, especially the exact curvature/coupling feasibility of a unique positive, nontrivial nilpotent tuning and a region of such tuning beyond relaxation two. No inspected stronger convergence or different splitting theorem supplies that condition or tuning.
 
-## Closest work and scope
+## value
 
-Zhang--Liu--Zhang (arXiv:2609.38808v1), Briceño-Arias--Combettes (arXiv:1011.5517v1), and published records on scalar PDHG fixed-product tuning and warm-start over-relaxed ADMM are the closest comparisons. The exact result is restricted to the displayed constant skew-resolvent matrix, not anchored acceleration or ADMM.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The spectral formulas alone are standard two-eigenvalue analysis. The smallest curved bilinear saddle model gives an exact separation between generic sufficient relaxation rules and what a fixed natural splitting can achieve: there is a precise curvature threshold for hitting the saddle from every start in two steps, and it can occur for relaxation greater than two. At the nilpotent tuning the displayed rank-one factorization gives ‖K‖₂=2ζ=q/c, which can exceed one despite exact termination. This is a precise witness distinguishing spectral behavior from per-step contraction, not a claim that extrapolation is generally numerically safe.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

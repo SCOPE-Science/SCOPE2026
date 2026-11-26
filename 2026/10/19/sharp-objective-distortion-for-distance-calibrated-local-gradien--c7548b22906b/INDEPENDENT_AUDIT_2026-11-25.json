@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:38:39.196307Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the replacement files, normalize λ_min=||x||=1 and let m_j be the jth eigenvalue moment under squared-coordinate masses. Direct quadratic expansion gives 1−2θ√m₂/m₁+θ²m₃/(m₁m₂). Since m₁≥1 and m₃≤κm₂, this is bounded by 1+4κ²/(κ+1)²<5 for every finite κ, with κ=1 giving zero. For the repaired spiked family, dp converges in law to a χ²₁ variable by normalized independent Gaussians. Tightness and the absence of an atom at zero give κp→0 and κ²p→∞ in probability because κ≪d≪κ². Thus m₁→1, m₂→∞, m₃/(κm₂)→1, and θ²m₂≤4/κ+4κp→0. The ratio tends to 5 in probability, which gives instances arbitrarily close to 5 at finite κ and proves nonattainment. The exact κ=8 spot check follows from f(T)=22−100s+274s² with s=2√74/45. The prior squared-distance theorem applies to precisely the same step. For the frozen claim, the endpoint chord of z^{3/2} separately confirms its correct sign threshold: the maximum m₃/m₂^{3/2} occurs at upper-eigenvalue mass (2κ+1)/[(κ+1)(κ²+κ+1)] and the crossing is the unique root above one at about 7.3066744332. The cutoff was removed as a contribution for originality, not for incorrectness. If κ is read as an upper spectral bound with fixed calibration, the same cutoff holds; the repaired statement defines κ unambiguously as the actual condition number. No simulation is needed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The v1 theorem at offset 29800 uses exactly θ and bounds squared distance by a factor 1−θ². The v2 theorem at offset 33570 gives a geometric objective envelope at predetermined radii based on an initial gap certificate. Richtárik–Mahran give a projection and Fejér bound when their Polyak-depth condition applies. arXiv:2611.24645 studies failure of distance decrease for non-Euclidean balls."
+        ],
+        "reasoning": "A distance bound does not substitute for a sharp objective quotient; simple conversion by the eigenvalue interval loses a factor up to κ. The predetermined schedule and the Polyak-radius condition use different calibrations from θ||x||, and the general-norm counterexamples measure distance. These passages do not imply the repaired magnitude or its sphere limit.",
+        "searches": [
+          "arXiv:2605.08850v1 Theorem 3.5",
+          "arXiv:2605.08850v2 §3.3 Theorem 3.3",
+          "arXiv:2609.33383v1 Theorem 2",
+          "Broximal Gradient Descent local LMO normalized proportional LARS strong convexity radius one-step quadratic objective increase amplification ratio worst 5"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md; repaired RESULT.md and VERIFICATION.md",
+        "Resultary 70b4a7c981f6",
+        "arXiv:2605.08850v1 and v2; arXiv:2609.33383v1; arXiv:1801.03137v1; arXiv:2611.24645"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Comparing θ with ρ*(κ) gives 4(κ²+κ+1)³≤27κ(κ+1)^4; the difference has factors κ³−6κ²−9κ−4 and 4κ³+9κ²+6κ−1. The second factor is positive for κ≥1."
+        ],
+        "reasoning": "Thus the frozen cutoff and two-point strict-increase witness are direct consequences of the stronger prior theorem, irrespective of naming or date. The retained sharp 5 requires a bound on the full normalized objective change and a scaling in which the spike is negligible for m₁ but dominates m₂. Neither the exact sign frontier nor the contraction theorem identifies such near-worst-case starts, much less a probability limit.",
+        "searches": [
+          "70b4a7c981f6, exact descent frontier and proof",
+          "arXiv:2605.08850v1, Theorem 3.5",
+          "arXiv:2605.08850v2, Theorem 3.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "70b4a7c981f6 states x⁺=x−ρ||x||Hx/||Hx||, and determines the sharp trust parameter for objective descent and the optimizing endpoint mass.",
+          "The 2018 LARS text at offset 16000 analyzes a different scalar step for its convergence-region calculation."
+        ],
+        "reasoning": "The frozen local oracle and the proportional core-LARS update are the same for ρ=θ and H=Q. This rules out crediting the sign frontier as new. The retained quotient asks how much the objective can exceed its initial value and depends on m₁ as well as m₂,m₃; the sign characterization by itself does not optimize that quotient.",
+        "searches": [
+          "Resultary: objective amplification supremum 5 Broximal gradient norm-calibrated one-step quadratic objective ratio uniform sphere high dimension normalized gradient proportional LARS",
+          "Resultary 70b4a7c981f6, core LARS sharp trust frontier",
+          "arXiv:1801.03137v1 §§4.1–4.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Mirror Finding and Proof, offset 0 at snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4, give ρ*(κ)=3√3 κ(κ+1)/(κ²+κ+1)^{3/2} and the exact endpoint mass. Other retrieved catalog matches concern LAMB descent or weighted proximal inflation, not the calibrated step."
+        ],
+        "reasoning": "There is exact indexed coverage of the cutoff, but the mirror finding is a parametric descent criterion, not a table or characterization of amplification sizes. Finite numerical tables cannot settle the repaired supremum over all κ or a varying-dimensional probability law.",
+        "searches": [
+          "Resultary 70b4a7c981f6 exact core-LARS frontier",
+          "Resultary: objective amplification supremum 5 Broximal gradient norm-calibrated one-step quadratic objective ratio uniform sphere high dimension normalized gradient proportional LARS"
+        ]
+      },
+      "rationale": "This PASS is for the re-audited replacement in repairs/2, not the frozen claim as submitted. The frozen universal descent threshold and endpoint witness are covered by the distinct Resultary core-LARS frontier 70b4a7c981f6. The repaired finding removes that contribution, cites its coverage, and retains only the sharp global magnitude of objective amplification and its near-attainment in probability under a specified spiked spectrum. The relevant compared results do not supply that magnitude and typicality law.",
+      "residual_risks": [
+        "The much longer v2 revision was inspected at the relevant geometric-radius statement, not exhaustively excluded.",
+        "A full performance-estimation treatment of proportional normalized-gradient steps may have an equivalent bound elsewhere; the bounded comparison does not establish historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the frozen sign cutoff and endpoint mass; not the repaired sharp amplification and limit",
+          "evidence": "States exact ρ*(κ), derived from max m₃/m₂^{3/2} at endpoint eigenvalues, and sharpness for every larger ρ.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-sharp-condition-number-frontier-for-objective-descent-in-core-la--70b4a7c981f6/RESULT.md",
+          "material_read": "Finding, Assumptions, Proof and verification discussion, offsets 0–4169",
+          "method": "Local mirror at snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Sharp condition-number frontier for objective descent in core LARS",
+          "trigger": "Same normalized-gradient rule with arbitrary trust parameter"
+        },
+        {
+          "assessment": "Supplies distance contraction, not objective amplification",
+          "evidence": "Equations (11)–(12) use the same θ but bound squared Euclidean distance.",
+          "identifier_or_url": "https://arxiv.org/html/2605.08850v1",
+          "material_read": "§1.1 offset 8000; §3.3 Theorem 3.5 offsets 29800–31975",
+          "method": "OA HTML passages",
+          "title": "Local LMO: Constrained Gradient Optimization via a Local Linear Minimization Oracle",
+          "trigger": "Source of the oracle and radius"
+        },
+        {
+          "assessment": "Located theorem uses a different radius schedule",
+          "evidence": "Equation (16) sets a predetermined geometric radius based on an initial objective-gap certificate; (17) gives corresponding geometric error bounds.",
+          "identifier_or_url": "https://arxiv.org/html/2605.08850v2",
+          "material_read": "§3.3 Theorem 3.3 and start of §3.4, offsets 33570–35940",
+          "method": "OA HTML passages located by linear-convergence and objective-value queries",
+          "title": "Broximal Gradient Descent: A Projection-Free Sister of Projected Gradient Descent",
+          "trigger": "Revised primary source and possible objective control at strong convexity"
+        },
+        {
+          "assessment": "Projection and Fejér decrease under a radius condition, not sharp quadratic amplification",
+          "evidence": "The discussion uses retention of the minimizer in the cut and bounds squared distance under the stated depth condition.",
+          "identifier_or_url": "https://arxiv.org/html/2609.33383v1",
+          "material_read": "Theorem 2 proof and discussion, offsets 26300–30999",
+          "method": "OA HTML passage",
+          "title": "Local LMO is Secretly a Projection Method!",
+          "trigger": "Potential one-step consequence of projection equivalence"
+        },
+        {
+          "assessment": "Method background; does not supply the repaired theorem",
+          "evidence": "The located boundedness analysis uses the scalar η||w||²/||∇f(w)||², rather than θ||w||/||∇f(w)||.",
+          "identifier_or_url": "arXiv:1801.03137v1",
+          "material_read": "§§4.1–4.2 p. 4, offset 16000",
+          "method": "OA full-text passage",
+          "title": "Large Batch Training of Convolutional Networks",
+          "trigger": "Prior LARS stability and normalized update"
+        },
+        {
+          "assessment": "Different norm and measured quantity",
+          "evidence": "The stated examples concern failure of distance decrease for ℓ∞ and ℓ_{3/2} balls, not Euclidean-quadratic objective amplification despite distance contraction.",
+          "identifier_or_url": "https://arxiv.org/html/2611.24645",
+          "material_read": "Introduction and contributions, offsets 4000–5849",
+          "method": "OA HTML passage",
+          "title": "Broximal Gradient Descent in General Norms: Convergence without Fejér Monotonicity",
+          "trigger": "Similar one-step increase in a later BroxGD analysis"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The repaired result quantifies how far verified distance decrease can diverge from objective decrease: a one-step increase can approach a factor of five. Demonstrating typical near-attainment under a natural uniform-sphere start with one high-curvature direction is stronger than a single counterexample. It identifies the separated scales κ≪d≪κ² at which the spike is negligible for the initial objective but dominates the squared gradient. The covered cutoff is not credited as a new contribution.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

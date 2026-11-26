@@ -1,15 +1,21 @@
-# Review: sharp boundary profiles for clipped quadratic dynamics
+# Independent mathematical audit
 
-## Correctness — PASS
-The domain is exactly \(0<\alpha<1\), \(0<\varepsilon<1/2\), with state \(p\in[\varepsilon,1-\varepsilon]\). The logarithmic-radius identity reduces escape to the atomless random binary sum. The two prefix events are proved by binary lexicographic order, including null dyadic-boundary events. The all-one/all-zero feedback paths saturate at explicit finite indices, giving the exact renormalization identities. Two-sided radial bounds and optimality of the exponent follow with constants uniform in the initial state. The rational witness \(H_{1/2,1/4}(3/4)=27/32\) is proved by the first two symbols; standard-library exhaustive cylinder checks reproduce the corresponding finite identities. No numerical experiment is used as an infinite proof.
+## correctness
 
-## Originality — PASS within checked sources
-The closest primary source is Endo, arXiv:2603.20653, Section 4 Example 4.2. Its proved assertion for this model is continuity of the escape probability, including its value at radius \(2\); it does not present either the exact finite-level dyadic profile or the sharp endpoint exponent and oscillation witness. Arcozzi's arXiv:2607.07344 and Okamura's arXiv:1507.05829 study different de Rham equations and singular measures. Searches of related mathematical records and accessible prior claims did not locate an equivalent assertion or a stronger statement implying the pair of exact feedback profiles. This is a bounded evidence-based assessment, not a claim of exhaustive mathematical priority.
+PASS
 
-## Mathematical value — PASS
-Quantifying the boundary regularity of the published example fills a specific gap left by a continuity theorem. The model has a nontrivial state-feedback process, yet finite clipping creates a common exact profile at both escape boundaries, a uniform exponent independent of feedback strength, and explicit discrete-scale non-power behavior. These identify structural rather than merely numerical features and offer a precise benchmark for other state-dependent random-iteration systems.
+For the specified state-dependent transition law, iteration gives log2|z_n| = 2^n(t-R_n), with t=log2 r. At t=R the scaled remaining tail lies in [0,1], so there is no escape; every coding cylinder has mass at most (1-eps)^n and the at-most-two expansions of a point give no atoms. Hence endpoint threshold conventions do not affect either exact identity. On the upper and lower endpoint intervals of width 2^-n in t, the forced prefixes are respectively n ones and n zeros; subtract the prefix and rescale the tail. The two deterministic runs saturate after at most any N such that (1-alpha)^N(1-eps)<=eps, uniformly in p. Their masses then factor into the displayed positive prefactors times (1-eps)^n. Digit/state complementation identifies the two tails; for phases u in [1/2,1] the common profile is in [1-eps,1], yielding uniform sharp bounds, with the radial changes of variable having nonzero endpoint derivatives. At alpha=1/2, eps=1/4 the probability of the prefix 01 is 3/32, giving H(3/4)=27/32; (3/4)^log2(4/3) > sqrt(3)/2 > 27/32, giving distinct normalized subsequential limits. The finite-cylinder checker is supplementary, not a replacement for these arguments.
 
-## Limitations and residual priority risk
-The result does not control interior moduli, global Hölder regularity, arbitrary random polynomial systems, or the entire parameter set for profile nonconstancy. Earlier general work on binary-cylinder local dimensions may contain a broader abstract formulation of the exponent, although no checked source gives the finite-state-saturation identities for Endo's particular model. Independent assessment remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The clipped law, polynomials, continuity, and escape probability one at r=2 are prior, not contributions. In the evidence inspected the paired exact all-state endpoint profiles and the explicit non-power-law witness are not established by an existing endpoint theorem. They use a finite-saturation and complement argument in the exact prior model; proximity to that model considerably limits the novelty claim.
+
+## value
+
+PASS
+
+The sharp modulus at both boundaries is a natural quantitative gap for a known escape function. The exact finite-level common profile gives state-uniform control while distinguishing a genuine discrete-scale oscillation from a pure power asymptotic; this is useful beyond either endpoint continuity or a local-dimension number. It does not claim arbitrary parameters oscillate or give interior regularity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

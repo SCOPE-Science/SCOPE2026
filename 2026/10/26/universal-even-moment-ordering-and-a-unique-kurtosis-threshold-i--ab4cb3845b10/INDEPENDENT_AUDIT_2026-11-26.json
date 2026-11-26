@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:08:05.377926Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–68",
+        "Frozen VERIFICATION.md and verify.py, read without executing",
+        "Touzo–Le Doussal arXiv:2308.06118v1, Eqs. (17) and (19)–(21)",
+        "/workspace/replay/kurtosis_root.py"
+      ],
+      "rationale": "The source rank formula and jump condition give u=2|r|, continuous positive quantile u+(b^2-1)artanh(u), and its truncation at 2b-1 for b<1. The resulting plateaus have probability 1-b at each signed edge. Before either plateau the ratio for b2>b1 is a strictly increasing fractional linear function of artanh(u)/u; once the smaller-b quantile flattens, the numerator continues to increase until any second plateau. An independent way to transfer this to moments is to normalize the squared quantiles to mean one. Their ratio is nonconstant and nondecreasing, so their difference has negative values below a crossing and positive values above it. At the crossing the common quantile value is c. Subtract the tangent at c from the strictly convex function y^m: the resulting function decreases below c and increases above c, so it is strictly larger on the second normalized quantile wherever the two differ. The tangent's linear part integrates equally, proving strict increase for every integer m>=2, including comparisons through b=1. The logarithmic endpoint gives finite moments and the variance is positive. For b>=1, the transform T=artanh(W) for W uniform on (-1,1) makes (1+W)/2 a Beta(1+z/2,1-z/2) variable under exponential z tilt. Its moment polynomials give M2=1/3+t+pi^2 t^2/12 and the displayed M4; direct subtraction gives the quartic with exactly one positive root. Independent decimal bisection gave b*=1.5435938337944687791701585849909913..., and the cumulant signs at 1.543593833794468779 and 1.543593833794468780 were opposite. The lower limit uses the quantile divided by its edge height: this is bounded by one and equals one on the plateau of probability tending to one. The uniform law gives 9/5 at b=1; the b^2-rescaled quantile converges in all required moments to T, giving 21/5. Subtracting three gives the quoted excess limits.",
+      "residual_risks": [
+        "The result is conditional on the specified large-population stationary law, not a finite-population stationarity theorem. The rounded root is independently corroborated; monotonicity and uniqueness follow from analytic arguments, not numerical quadrature."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The original moment integrals include the edge contribution and give the explicit smooth-regime second moment, but the inspected passage does not compare normalized ratios.",
+          "The related later paper describes harmonic confinement and nonreciprocity. The hierarchy record considers trapped three-state run/pause dynamics and crossing Gaussian-normalized ratios as the pause-exit rate varies."
+        ],
+        "reasoning": "A general moment integral yields computability, not a strict parameter order valid simultaneously at every order in both phases. The nearest all-order comparator does not reduce to the same stationary family and comparison.",
+        "searches": [
+          "arXiv:2308.06118v1, supplement Eqs. (160)–(164)",
+          "arXiv:2502.09466, accessible arXiv abstract on extensions",
+          "Resultary 6e97e004c31a, all-even-moment crossover hierarchy"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2308.06118v1",
+        "arXiv:2502.09466 abstract",
+        "Resultary 9a21f4969a84",
+        "Resultary 6e97e004c31a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact prior law implies that raw moments can be computed from a truncated rank integral plus atom masses; on the smooth branch the kurtosis polynomial can be derived from that law by evaluating cross-moments.",
+          "The strict ratio ordering needs the family comparison before and after each plateau, which a moment representation alone does not establish."
+        ],
+        "reasoning": "Credit the prior law and moment-polynomial framework, not a new stationary solution. Neither a generic star-order implication with the order as a hypothesis nor the ability to integrate raw moments proves that order or the global uniqueness of a kurtosis zero here.",
+        "searches": [
+          "Touzo–Le Doussal arXiv:2308.06118v1, Eqs. (17), (21), and (160)–(164)",
+          "Resultary 9a21f4969a84, RESULT.md finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source rank-field trace and edge condition become exactly the displayed absolute quantile after u=2|r| and b=v_0/kappa.",
+          "Nondecreasing squared-quantile ratios are star order; standardization to unit mean then gives the convex-moment implication. The order of this particular family across the two phases is the property to be established."
+        ],
+        "reasoning": "Recognize the raw moments as the exact same law and distinguish the family-specific quantile-ratio comparison from its abstract known consequence. Raw absolute moments or Gaussian-normalized ratios with another parameter are not equivalent to ordering R_m in b.",
+        "searches": [
+          "arXiv:2308.06118v1, Eqs. (17), (19)–(21), (160)–(164)",
+          "Resultary comparison for standardized even moments and zero-kurtosis boundaries in active particles"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "9a21f4969a84 uses a known fourth-cumulant-zero curve in a harmonically trapped planar direction-reversing active Brownian particle and proves a sixth-cumulant law there.",
+          "The known phase boundaries at 1/2 and 1 are not the kurtosis-zero speed; the compared primary moment passage gives the variance but no exact zero of this normalized fourth cumulant."
+        ],
+        "reasoning": "The apparent threshold and all-moment overlaps were inspected and correspond to different statements; a catalogue search miss of the decimal is not itself novelty evidence.",
+        "searches": [
+          "Resultary active particle zero-kurtosis and rank-diffusion moment-order comparison",
+          "Resultary 9a21f4969a84 and 6e97e004c31a",
+          "arXiv:2308.06118v1 moment and phase equations"
+        ]
+      },
+      "rationale": "The stationary law, edge masses and morphological boundaries, and raw-moment integral are prior inputs. The supported distinct contribution is the family-specific strict standardized-moment ordering through the edge-cluster and smooth regimes, and the exact kurtosis sign boundary. General star-order implications require establishing the quantile ratio order here; raw-moment integrals do not supply it or its strictness across the junction. The closest compared catalogue results address different dynamics, observables and varied parameters.",
+      "residual_risks": [
+        "An unindexed use of star order for this exact stationary family or a published explicit fourth moment beyond the inspected passages could narrow the increment. This is not a global priority claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact prior input law and moment integrals, not the claimed standardized ordering in the inspected passages",
+          "evidence": [
+            "Smooth rank relation and edge trace r(x_e^-)=b-1/2",
+            "Raw integral plus edge atoms and explicit smooth second moment"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2308.06118v1",
+          "material_read": "Eqs. (17), (19)–(21) and nearby phase text, HTML offsets about 17200 and 21800; supplement Eqs. (160)–(164), about 120700",
+          "method": "Targeted primary OA reading",
+          "title": "Non-equilibrium phase transitions in active rank diffusions",
+          "trigger": "Exact same stationary law and prior moment calculations"
+        },
+        {
+          "assessment": "Describes different added mechanisms; no whole-paper exclusion is inferred",
+          "evidence": [
+            "Harmonic confinement in the active jellium and nonreciprocal interaction with linear confinement"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2502.09466",
+          "material_read": "Accessible arXiv abstract, beginning at offset 0; publisher endpoint unavailable",
+          "method": "OA abstract and scope comparison",
+          "title": "Run-and-tumble particles with 1D Coulomb interaction: the active jellium model and the non-reciprocal self-gravitating gas",
+          "trigger": "Later related rank-interaction work"
+        },
+        {
+          "assessment": "Different stationary process and claimed cumulant",
+          "evidence": [
+            "Harmonically trapped planar direction-reversing active Brownian motion; fourth-cumulant zero is an input to a sixth-cumulant calculation"
+          ],
+          "identifier_or_url": "Resultary 9a21f4969a84",
+          "material_read": "RESULT.md finding, opening passage",
+          "method": "Local Resultary search and mirror read",
+          "title": "A strict sixth cumulant witness on the zero-kurtosis curve",
+          "trigger": "Closest same-date kurtosis-zero comparison"
+        },
+        {
+          "assessment": "Different stationary model, normalizing comparison and varied parameter",
+          "evidence": [
+            "Harmonically trapped three-state run/pause particles, Gaussian-normalized moments, pause-exit rate"
+          ],
+          "identifier_or_url": "Resultary 6e97e004c31a",
+          "material_read": "RESULT.md finding, opening passage",
+          "method": "Local Resultary search and mirror read",
+          "title": "A sharp Gaussian moment crossover hierarchy for a trapped finite-state process",
+          "trigger": "Closest all-order crossover comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–16 and 31–68",
+        "arXiv:2308.06118v1 phase and moment equations"
+      ],
+      "rationale": "A single quantile comparison orders every standardized even moment across a change in the structure of the stationary measure, from edge atoms to unbounded smooth support. It adds information not obtainable by treating the known morphological boundaries as shape thresholds, and separates the exact kurtosis sign change from both known boundaries. The significance comes from the strict order valid at all orders and across regimes, not the decimal root alone.",
+      "residual_risks": [
+        "This does not establish shape ordering for finite-temperature, trapped or finite-population variants."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

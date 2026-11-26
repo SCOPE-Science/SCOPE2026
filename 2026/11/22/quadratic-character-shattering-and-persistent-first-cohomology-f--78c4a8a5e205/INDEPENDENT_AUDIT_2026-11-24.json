@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:55:04.755250Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A positive trace forces a matching. For an ordered point pair the PGL stabilizer is conjugate to the nonzero scalings, half of which have square determinant, so PSL remains 2-transitive with pair stabilizer (q−1)/2. Sharp triple transitivity of PGL gives a unique potential all-positive witness. On a supported triple, excluding the third positive removes one from the pair stabilizer, leaving a witness iff q≥5. Inclusion–exclusion gives the listed counts for the singleton and empty traces, strictly positive for n=q+1≥6; matching pairs have positive trace counts already at q=3. Four cells would violate uniqueness on three equations. Counting graph triples once gives |PSL| binom(n,3)=3 binom(n,3)², and every matched pair extends along a realizing graph. The edge character is symmetric since interchanging endpoints negates both determinants; for a projectivity the vertex rescalings occur twice around a triangle and the product equals the character of its determinant. Thus it is a cocycle on all selected triangles, and changing representatives adds the coboundary of the product of source and target rescaling characters at each cell. The triangle (∞,∞),(0,0),(1,a) for nonsquare a has a closed edge boundary with evaluation one, proving nonvanishing without any homology approximation. The compatible-pair graph is connected (any two cells have a common compatible cell in a row and column different from their own). For finite data, review_checks/psl.py closes the determinant-one permutation generators x↦x+1 and x↦−1/x, checks their group cardinalities, intersects bit masks for every labeling on every matching of size ≤3, and row-reduces the resulting incidence matrix over F₂. It independently gives (f₀,f₁,f₂; rank ∂₂)=(16,72,0;0),(36,450,1200;414),(64,1568,9408;1504) for q=3,5,7, and (β₁,β₂)=(1,786),(1,7904) for the last two. This tests prime-field claims only; the all-prime-power result is analytic. Here persistent means nonvanishing for each eligible q, not a claim about a filtration or persistence module.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The group paper studies intersection density and derangement graphs of group elements, including the same doubly transitive action. The matching paper concerns all matching faces of M(K_{m,n}). The VC paper treats open neighborhoods in Johnson and Hamming graphs."
+        ],
+        "reasoning": "Pair transitivity is input, not all trace realizability. All matching triples appear in the ordinary chessboard complex, where the excluded cycle is filled; the full-complex topology does not imply the twisted topology. Graph neighborhoods have a different concept incidence relation.",
+        "searches": [
+          "arXiv:2306.07851 natural action and Theorem 1.3",
+          "arXiv:1906.03328 matching-complex definition",
+          "DOI:10.1016/j.dam.2021.09.017 Theorem 1.1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2306.07851",
+        "arXiv:1906.03328",
+        "DOI:10.1016/j.dam.2021.09.017",
+        "Resultary 9a18c2c0e02d and 78c4a8a5e205 (self)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior action statement provides pair homogeneity; the ambient chessboard paper treats every matching triple as a face. The vector GL comparator has independence, not equality of signed projective triangle characters."
+        ],
+        "reasoning": "The proof needs both precise Boolean avoidances in the stabilizers and a determinant parity test that vanishes on present but not all matching triangles. Neither agreement-intersection densities nor the untwisted complex yields those conclusions. A more general two-graph or permutation incidence theory remains a possible unlocated comparison.",
+        "searches": [
+          "arXiv:2306.07851 natural projective action",
+          "arXiv:1906.03328 matching-complex definitions",
+          "Resultary: quadratic-character triangle selection and persistent mod-two H1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same-day indexed GL finding builds concepts from graphs of invertible maps on nonzero vectors and characterizes shattered supports by independence of each coordinate tuple. Here the query points are projective and three distinct points can be shattered in dimension two; there is an additional determinant-character condition."
+        ],
+        "reasoning": "Passing to lines identifies scalar multiples separately; it is not the vector-query problem. Three nonzero vectors in dimension two cannot be independent, so the vector tuple criterion cannot recover the projective criterion. The target also has a cochain on compatible pairs, not merely a rank or independence rule.",
+        "searches": [
+          "Resultary: projective point-image shattering, determinant-character oriented chessboard and two-graphs",
+          "Resultary 9a18c2c0e02d Finding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact-rank query surfaces 78c4a8a5e205, the assigned self-hit. Related 9a18c2c0e02d gives a binary (q,d)=(2,3) computation for GL on vectors, not these ranks."
+        ],
+        "reasoning": "The exact ranks are for these selected projective triangles, not ranks of the full chessboard complex or of the vector-query incidence problem. Catalogue retrieval cannot certify absence.",
+        "searches": [
+          "Resultary: PSL2(q) determinant-selected chessboard binary ranks 414 and 1504, q=5,7"
+        ]
+      },
+      "rationale": "The group action and full matching complex are standard, and a same-day record shares the point-image graph concept construction. The distinct content is the square-determinant half of the projective matching triples and its linked universal mod-two obstruction, with exact small-field ranks. No historical priority beyond the comparisons is claimed.",
+      "residual_risks": [
+        "Possible earlier equivalent projective-group or Paley-type two-graph constructions under other terminology.",
+        "Same-day chronology of the vector comparator does not establish priority; the comparisons concern statements, not chronology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies group-action context but studies different invariants",
+          "evidence": [
+            "Natural projective-line action is doubly transitive; Theorem 1.3 is an intersection-density result on coset actions."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2306.07851",
+          "material_read": "PDF pp. 2–3, offsets 6690 and 10352, natural projective action and Theorem 1.3",
+          "method": "OA passages and hypothesis/conclusion comparison",
+          "title": "On the intersection spectrum of PSL₂(q)",
+          "trigger": "Exact natural group action and possible incidence result"
+        },
+        {
+          "assessment": "Full matching complex is not the character-selected subcomplex",
+          "evidence": [
+            "Chessboard complex is M(K_{m,n}) with every set of disjoint edges a face."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1906.03328",
+          "material_read": "PDF pp. 1–2, offsets 646 and 2118, matching definitions and setting",
+          "method": "OA passages and comparison of face criteria",
+          "title": "Manifold Matching Complexes",
+          "trigger": "Same ambient chessboard complex"
+        },
+        {
+          "assessment": "Open-neighborhood VC dimensions do not imply the point-image result",
+          "evidence": [
+            "The concepts are open vertex neighborhoods; the dimensions are 4 and 3 in the two specified graph families."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.dam.2021.09.017",
+          "material_read": "White Rose accepted PDF pp. 1,5, offsets 2500 and 11559, abstract and Theorem 1.1",
+          "method": "OA alternate primary copy; compare concepts and ground sets",
+          "title": "Vapnik–Chervonenkis dimension and density on Johnson and Hamming graphs",
+          "trigger": "Possible broader VC theorem at similar dimensions"
+        },
+        {
+          "assessment": "Material framework overlap but different underlying geometry and homology",
+          "evidence": [
+            "Queries are pairs of nonzero vectors; shattering requires independence on both sides. Includes a binary GL case (q,d)=(2,3)."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-point-image-shattering-of-finite-general-linear-groups--9a18c2c0e02d",
+          "material_read": "Mirrored RESULT.md Finding, offsets 14–1200",
+          "method": "Resultary retrieval and mirror statement comparison",
+          "title": "Point-image shattering of finite general linear groups",
+          "trigger": "Same point-image concept framework and indexed homology computation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The natural index-two subgroup keeps every compatible pair but deletes exactly half the matching triples, and the arithmetic deletion is detectable in first homology, not just in the face count. The complete shattering formula and universally witnessed obstruction are structurally useful; the first eligible finite cases quantify the obstruction without extrapolating a Betti formula.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

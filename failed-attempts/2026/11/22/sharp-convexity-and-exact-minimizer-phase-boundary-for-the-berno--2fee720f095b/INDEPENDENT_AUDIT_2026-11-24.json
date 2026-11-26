@@ -1,0 +1,96 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T13:10:37.152608Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the scalar soft label 0<q<1 and g=0, setting p=sigmoid(x) gives E'=(p-q)[1-gamma p(1-p)] and E''=p(1-p)[1-gamma Q_q(p)], with Q_q(p)=-3(p-(1+q)/3)^2+(1-q+q^2)/3. Its vertex is interior and yields the exact inclusive convexity threshold. At equality the curvature vanishes at only that point, so the derivative is strictly increasing; above it the two roots are both interior because Q_q(0)=-q and Q_q(1)=q-1, and bound the entire region of negative curvature. For 0<gamma<4 the bracket in E' stays positive, so E decreases to and increases from the unique solution p=q. This claim is explicitly limited to the standard open stepsize range; it does not assert where exact minimization is lost beyond that range. In fact the unique minimum persists at gamma=4, despite an isolated derivative zero for an unbalanced label. The fixed-gamma label condition concerns convexity in x for a given label, not convexity in q. Independent exact differentiation in probability coordinates and rational witness: python3 /workspace/review_replay.py, check 3 (-7733/540000).",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The indexed sparse-logistic result extends to l1 penalization and separable weighted losses. The motivating abstract mentions l1 logistic, and the Giselsson–Fält abstract discusses envelopes and stationary/fixed-point correspondence; neither accessible abstract alone settles the exact scalar frontier."
+        ],
+        "reasoning": "Sparse with penalty strength zero specializes to unregularized; no multivariate result is needed. If the sparse theorem were stated for strictly positive strengths only, the frontier still follows from the reported formula by the limit argument in the implication check. General stationary/fixed-point theory is not treated as evidence for the label-specific convexity constant.",
+        "searches": [
+          "Resultary d4ff6c7201eb exact sparse-logistic formula and weighted extension",
+          "Zhang–Gao–Udell arXiv:2609.10732; Giselsson–Fält DOI 10.1007/s10957-018-1328-z and standard FBE exactness; cited Zhang envelope exposition"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, AUDIT.json, REVIEW.md and SymPy verifier source",
+        "Resultary 2fee720f095b and d4ff6c7201eb",
+        "arXiv:2609.10732 and DOI 10.1007/s10957-018-1328-z abstracts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "No full-text sparse-record passage was retrieved. The exact formula in its returned statement tends to the bound frontier as lambda decreases to zero.",
+          "On the standard stepsize interval the minimization is unchanged by the envelope, directly because 1-gamma p(1-p)>0. Strict convexity at the frontier and locations of negative curvature follow by completing the known curvature quadratic."
+        ],
+        "reasoning": "Even if lambda=0 were excluded from its formal assumptions, convexity below and at the limiting threshold transfers by a pointwise limit. Conversely, if E for zero penalty were convex strictly above the limiting threshold, at an intermediate stepsize gamma' between the threshold and that step its curvature would dominate c f'' with c>0, by affine dependence on the step. The sparse envelope differs by the Moreau envelope of lambda|.| evaluated at y=x-gamma' f'; its second derivative where defined adds a nonnegative term plus a term of magnitude at most lambda gamma' |f'''|<=lambda gamma' f''. Thus it would still be convex for small positive lambda at gamma', contradicting the indexed sharp threshold. In the admitted unbalanced window one can take gamma'<4; at the balanced label the direct curvature at p=q already rules out gamma>4. The covered frontier plus standard exactness already gives the claimed nonconvex-exact interval.",
+        "searches": [
+          "Resultary d4ff6c7201eb exact threshold statement; its RESULT.md mirror targeted for the lambda regime and theorem; frozen RESULT.md lines 39–61 for the minimization and curvature derivations"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The distinct Resultary record d4ff6c7201eb reports an exact scalar soft-label logistic curvature threshold 3/[3/4+(|q-1/2|-lambda)_+^2]. The exact target hit 2fee720f095b is the assigned record itself."
+        ],
+        "reasoning": "At zero l1 penalty, g is identically zero and the FBE is exactly the bound E. The formula then uses 3/4+(q-1/2)^2=1-q+q^2 and is identical, not just a matching sample value.",
+        "searches": [
+          "Resultary semantic retrieval for the exact scalar soft-label logistic FBE convexity frontier, sparse-logistic generalizations, and nonconvex exactness"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Indexed record d4ff6c7201eb supplies the same entire q-dependent curve at lambda=0; no table interpolation is involved."
+        ],
+        "reasoning": "This is an exact database statement match after removing the penalty. It covers the q-dependent curve, not merely the shared maximum value 4.",
+        "searches": [
+          "Resultary matching the soft-label phase formula and q=1/2 balance condition"
+        ]
+      },
+      "rationale": "The exact headline threshold is covered at the statement level by the indexed sparse-logistic result d4ff6c7201eb when the penalty is set to zero. This is a strong overlap with a distinct more general claim, not a same-record hit or a priority judgment from the date. Exactness in the standard stepsize range is established general FBE behavior (here a direct derivative sign); combining that behavior with the covered threshold gives the nonconvex-but-exact window. The strict convexity at the frontier and the two roots of the same quadratic do not provide a substantial independent originality remainder. This rejection is for demonstrated mathematical overlap, not a failure to retrieve the complete text.",
+      "residual_risks": [
+        "The sparse result's full statement and proof were unavailable beyond the exact indexed formula. The index establishes formula overlap, but not independent coverage of each auxiliary fact or historical priority.",
+        "Motivating and general FBE full theorem and appendix passages were not obtained; these access limits were not the reason for FAIL."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact formula coverage by removing penalty; no priority order inferred; coverage of all auxiliary details in the full text not verified",
+          "evidence": "3/[3/4+(|q-1/2|-lambda)_+^2] reduces exactly to the bound 3/(1-q+q^2).",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-sharp-global-convexity-restoration-in-sparse-logistic-forward-ba--d4ff6c7201eb",
+          "material_read": "Resultary indexed statement with full threshold formula; targeted mirror passage timed out",
+          "method": "Local semantic lookup and exact RESULT.md mirror attempt",
+          "title": "Sharp global convexity restoration in sparse logistic forward–backward envelopes",
+          "trigger": "Same scalar logistic object with added l1 penalty; exact matching frontier"
+        },
+        {
+          "assessment": "Motivates object; no exact frontier in abstract; later sections not independently resolved",
+          "evidence": "The abstract relates splitting to envelopes and includes l1-regularized logistic regression among applications.",
+          "identifier_or_url": "arXiv:2609.10732",
+          "material_read": "PDF p.1 abstract only",
+          "method": "OA primary PDF retrieval",
+          "title": "Operator Splitting Methods with Online Scaling",
+          "trigger": "Motivating paper, envelope scaling and sparse logistic regression"
+        },
+        {
+          "assessment": "Earlier general method and stationary-point connection credited; not decisive on the scalar formula",
+          "evidence": "Abstract describes envelope convexity and smoothness under assumptions and stationary versus fixed-point relations.",
+          "identifier_or_url": "10.1007/s10957-018-1328-z",
+          "material_read": "Published abstract, p.673; relevant theorem passes could not be fetched",
+          "method": "OA primary lookup",
+          "title": "Envelope Functions: Unifications and Further Properties",
+          "trigger": "General FBE exactness, smoothness and convexity"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The convex-versus-exact distinction is a meaningful diagnostic for envelope optimization, but this precise diagnostic is already obtained by combining the stronger indexed frontier with standard exactness. The remaining exact curvature roots and stationary-point checks are routine consequences of the same quadratic and the slope bound, with no further distinctive use established for them alone. No independently valuable surviving repair is substantiated.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

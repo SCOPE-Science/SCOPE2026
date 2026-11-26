@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:50:05.165971Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A legal force fills the closed neighborhood of the center, a blue interval. If interior, the vertex k-1 positions inward from its left edge has exactly one possible outside neighbor, so the interval extends to the left endpoint; a prefix of length at least k+1 can then extend one site at a time. An already blue candidate is absorbed without a force. Reflection handles a suffix. The interior supports consist of n-2k+1 consecutive blocks and 2k-2 distinct internal-hole types with n-2k translates each, including n=2k+1. For a fixed factorial moment, a cluster of distinct overlapping supports has at least 2k+1 distinct sites, versus 2k for an isolated support; m clusters have O(n^m) placements and any overlap supplies an extra factor p. The disjoint tuples give the stated Poisson moments. Boundary first forces and fully blue interior windows introduce errors O_k(p^k+np^{2k+1}); the all-blue event is negligible. The c=0 case is immediate and the nonconstant increasing finite Bernoulli success event has strictly increasing probability (couple nested seeds and choose a pivotal set). Bracketing proves the median asymptotic. The finite verifier was inspected, not used as the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Abiad et al. prove Z(P_n^k)=M(P_n^k)=k in the relevant range.",
+          "Curtis et al. give a general lower bound at the ordinary path scale; Han–Liang's weak-dual-path result is a deterministic statement about maximal outerplanar graphs."
+        ],
+        "reasoning": "The general threshold results and deterministic minima do not give an exact curve at n^(-1/(2k)); ordinary paths concern k=1.",
+        "searches": [
+          "arXiv:2610.03892 Proposition 7",
+          "arXiv:2208.12899 Theorems 1.3–1.4",
+          "arXiv:2610.31138v1 abstract and §1.1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Resultary 850ba66c3452 and 816bf7a10356",
+        "arXiv:2610.03892",
+        "arXiv:2208.12899",
+        "arXiv:1801.08910",
+        "arXiv:2610.31138v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The first-move theorem reduces success to a deterministic support event; the cycle theorem distinguishes the 2k-1 local types.",
+          "Neither of the compared statements computes the path boundary correction or the limiting factorial moments."
+        ],
+        "reasoning": "These are substantive antecedents to the graph-specific inputs, not a substitute for controlling distinct overlap clusters and the boundary and omitted-site events at this scale. The generic Poisson method itself is not claimed as new.",
+        "searches": [
+          "850ba66c3452 Finding",
+          "816bf7a10356 Finding",
+          "arXiv:2208.12899 Theorems 1.3–1.4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The indexed first-move theorem explicitly gives the proper-set first-force equivalence for 1<=k<n, and the minimal elements of the omitted-neighbor support family.",
+          "Boyer et al. count successful sets by size via the zero-forcing polynomial; Curtis et al. use the equivalent Bernoulli probability framework."
+        ],
+        "reasoning": "The deterministic equivalent is an exact overlap regardless of chronology. Switching between forcing-set coefficients and Bernoulli probabilities does not supply those path-power coefficients or their critical-scale asymptotics from the compared results.",
+        "searches": [
+          "Resultary: First-move forcing in powers of paths and the minimal zero-forcing spectrum of path squares",
+          "arXiv:1801.08910",
+          "arXiv:2208.12899"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Indexed first-move record 850ba66c3452 restates the deterministic assertion with broader n,k coverage.",
+          "Same-date record 816bf7a10356 gives n(2k-1) distinct minimum supports for cycle powers and the minimum-cardinality endpoint seeds for path powers."
+        ],
+        "reasoning": "The shared cycle generator accounts for the same local type count but is not the open path's exact census or a random window. The identical frozen claim is excluded as self-match, not the two distinct records. Same-date priority is unresolved.",
+        "searches": [
+          "Resultary: First-move forcing in powers of paths and the minimal zero-forcing spectrum of path squares",
+          "Resultary: Exact optimal zero-forcing seed classifications for powers of paths and cycles"
+        ]
+      },
+      "rationale": "The surviving distinct contribution is the exact iid critical-window law on path powers, with its deduplicated support coefficient and hence exact median constant. The first-force characterization is separately covered by a distinct overlapping indexed theorem and is not credited independently; the same-day cycle calculation also shares the local pattern types. Neither implies the full claimed probability law as stated without the path enumeration and rare-pattern argument.",
+      "residual_risks": [
+        "A finite-state or graph-power enumeration indexed under different terminology could subsume the exact limit; the cited inspection is bounded.",
+        "Shared local supports and the exact indexed structural overlap are not independent claims of novelty; same-date ordering cannot be inferred."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact for proper-set first-force equivalence; not the window law",
+          "evidence": "1<=k<n; also identifies inclusion-minimal elements of the omitted-neighbor family.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-first-move-forcing-in-powers-of-paths-and-the-minimal-zero-forci--850ba66c3452",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror, bounded reading",
+          "title": "First-move forcing in powers of paths and the minimal zero-forcing spectrum of path squares",
+          "trigger": "Strongest exact deterministic overlap"
+        },
+        {
+          "assessment": "Material local pattern overlap; no path probability law",
+          "evidence": "n(2k-1) distinct cycle minimum supports; path minimum supports are endpoint patterns.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-optimal-zero-forcing-seed-classifications-for-powers-of-pa--816bf7a10356",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror, bounded reading",
+          "title": "Exact optimal zero-forcing seed classifications for powers of paths and cycles",
+          "trigger": "Same-day local support inventory"
+        },
+        {
+          "assessment": "Deterministic minimum only in inspected claim",
+          "evidence": "Z(P_n^k)=M(P_n^k)=k for n>=k+2.",
+          "identifier_or_url": "arXiv:2610.03892",
+          "material_read": "§3 Proposition 7 and preceding proof, PDF p. 6",
+          "method": "OA PDF passage",
+          "title": "The Zero Forcing Number of Graph Powers",
+          "trigger": "Same graph family"
+        },
+        {
+          "assessment": "General model and broader bounds, not the higher-path-power exact law",
+          "evidence": "General comparison p(G)=Omega(n^(-1/2)); expression via forcing-set counts.",
+          "identifier_or_url": "arXiv:2208.12899",
+          "material_read": "Introduction and Theorems 1.3–1.4, PDF pp. 1–3",
+          "method": "OA PDF passages",
+          "title": "Zero Forcing with Random Sets",
+          "trigger": "Same random experiment"
+        },
+        {
+          "assessment": "Framework rather than this path-power law",
+          "evidence": "The polynomial counts successful seeds by size; selected graph families are treated.",
+          "identifier_or_url": "arXiv:1801.08910",
+          "material_read": "Abstract and introduction, PDF pp. 1–2",
+          "method": "OA PDF passages",
+          "title": "The zero forcing polynomial of a graph",
+          "trigger": "Equivalent enumerative language"
+        },
+        {
+          "assessment": "Different graph class and target",
+          "evidence": "P(G)=Z(G)=2 when the weak dual is a path.",
+          "identifier_or_url": "arXiv:2610.31138v1",
+          "material_read": "Abstract and §1.1",
+          "method": "OA HTML passages",
+          "title": "Zero forcing on maximal outerplanar graphs: capacities and phase repair",
+          "trigger": "Potential path-like deterministic coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For the natural Bernoulli experiment, deterministic minimum seeds and threshold exponents do not give the limiting success curve or the half-success constant. Counting overlapping descriptions only once changes the limiting intensity, and the first-force mechanism explains the gap between optimal small endpoint seeds and rare interior events at the random threshold.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

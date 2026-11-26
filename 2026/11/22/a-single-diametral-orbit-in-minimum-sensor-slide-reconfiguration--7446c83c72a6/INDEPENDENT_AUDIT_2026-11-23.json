@@ -1,0 +1,172 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:20:08.312736Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Assumptions and Proof; VERIFICATION.md; check_gp.py, check_cayley.py and check_symmetry.py inspected without execution",
+        "/workspace/branches/96f8928b-9cff-4cd5-99ee-2b86879a98ee/independent_replay.py --full and full_replay.json: independent GP construction, sequential forcing, pairwise adjacency, exhaustive BFS and DFS automorphism search; all 165600 pairs"
+      ],
+      "rationale": "In GP(12,5) the graph built from outer step 1, inner step 5 and the spokes has 24 vertices of degree three. Starting from N[S], unique-neighbor forcing computes a well-defined closure: enlarging the observed set cannot invalidate a force to a vertex still unobserved. Exhaustion of 24 singletons, 276 pairs and 2024 triples gives 0,0,576 successes. On precisely these minimum triples, an exchange generates a jump and an exchange of adjacent vertices generates a slide; the latter always changes the occupancy parity in one part of the bipartite base graph. Independent all-source distance calculations on both graphs cover all 165600 unordered pairs, including the full paired-distance penalty profile. They confirm 6660 and 1152 edges, slide degree four, radius/diameter 4/4 and 9/10, slide eccentricities 432 of nine and 144 of ten, and exactly 396 maximum-penalty pairs split by (slide,jump) lengths (8,1):324 and (10,3):72. In the permutation-star presentation, symbol permutations and permutations of positions 1–3 preserve star edges; the two commuting actions have trivial common kernel since the center of S4 is trivial. The checked explicit adjacency-preserving bijection maps those 144 automorphisms to the GP labels. The orbit computation gives the five stated triple orbits; separate GP automorphism enumeration verifies that the displayed pair generates exactly all 72 diametral pairs and these cover each eccentricity-ten vertex once. Since the displayed subgroup already has 144 elements, the independent group enumeration applies to the stated subgroup too.",
+      "residual_risks": [
+        "The finite exhaustion is exact for this graph and these minimum-set move models, not an extrapolation to generalized Petersen graphs or larger admissible sets."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bjorkman et al. define TAR, TJ and TS but describe their power-domination results for TAR/k-TAR and TJ. Anderson and Kuenzel's general cubic bounds do not count the optima or their moves; the sharper claw-free hypothesis fails at u_0. The Petersen-pair classification covers GP(n,2), n>=9, with minimum cardinality two and unrestricted exchange."
+        ],
+        "reasoning": "A framework or bound cannot give the exact distance structure without additional case-specific information, and GP(12,5) is not the stated GP(n,2) pair regime.",
+        "searches": [
+          "arXiv:2201.01798v1, introductory definitions and scope",
+          "arXiv:2209.03931v1 p. 2, cubic bounds",
+          "Resultary 3c1ce6b06fcb, generalized Petersen GP(n,2)"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2201.01798v1; arXiv:2209.03931v1",
+        "Resultary 7446c83c72a6 (identical assigned claim), 763cb004ebbc, 3b21bc72324c, a654b0dd27ba, 3c1ce6b06fcb, 1a193aab529a and 7dd6a167fbed"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The closest finite analogues use the same definitions but none gives the slide radius/diameter 9/10, 72 diametral pairs forming one orbit, or the two types of penalty-seven pairs for Nauru. The Robertson result shares the single-orbit phenomenon only for a different graph and numbers."
+        ],
+        "reasoning": "These are distinct finite theorems, not implications of each other; no priority inference is made solely from the same-day catalogue dates.",
+        "searches": [
+          "Resultary McGee, Robertson and Doyle–Holt original finding statements",
+          "arXiv:2201.01798v1 paper scope"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The star-transposition graph on S4 is equivalent to GP(12,5), not to the reconfiguration space itself. The same-base-graph Kempe reconfiguration, Resultary 1a193aab529a, has 504 edge-colourings; anti-forcing, 7dd6a167fbed, concerns perfect matchings."
+        ],
+        "reasoning": "An alias changes the labels of the same base graph and therefore preserves power domination; neither colouring nor matching moves describe these configurations or distances.",
+        "searches": [
+          "Primary literature query: Nauru graph and power-domination reconfiguration",
+          "Resultary: Nauru GP(12,5), minimum power-dominating triples, jump-or-slide distances and extremal pair orbit",
+          "arXiv:2201.01798v1 pp. 1–2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact hit is the assigned row. McGee has the same 576 triples, jump diameter four and maximum penalty seven, but slide radius/diameter 8/9 and only eight maximum-penalty pairs. Robertson has a single diametral orbit of 24 pairs on a 753-state system; Doyle–Holt has 567 triples and penalty five. These are not the Nauru data."
+        ],
+        "reasoning": "Matching individual table entries from another graph is neither exact coverage nor priority. No separate exact Nauru table was identified; the negative primary keyword search establishes no absence.",
+        "searches": [
+          "Resultary exact Nauru hit 7446c83c72a6; targeted matching metric/orbit hits 763cb004ebbc, 3b21bc72324c and a654b0dd27ba"
+        ]
+      },
+      "rationale": "Existing reconfiguration definitions, cubic power-domination bounds, the classical Nauru graph and its symmetry are background. The supported distinct result is the exact minimum-configuration jump and slide metric comparison, in particular the distance-ten orbit and its perfect pairing of the eccentricity-ten configurations. Related results on different cubic graphs share some exact numbers or orbit phenomena but do not give the Nauru values or pair structure.",
+      "residual_risks": [
+        "Unindexed exact computations may exist; focused primary and catalogue checks do not establish uniqueness. The minimum cardinality by itself is not the basis for the originality decision."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides modeling framework, not exact Nauru metrics",
+          "evidence": [
+            "Defines TAR/TJ/TS and documents its power-domination focus on TAR/k-TAR and TJ."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2201.01798v1",
+          "material_read": "PDF pp. 1–2, offsets 478 and 5784",
+          "method": "Lawful OA PDF passages",
+          "title": "Power domination reconfiguration",
+          "trigger": "Potential reconfiguration framework or earlier distance results"
+        },
+        {
+          "assessment": "Bounds, not optimum triple census or slide graphs",
+          "evidence": [
+            "The sharper claw-free/diamond-free regime cannot include u_0 with its independent neighbors."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2209.03931v1",
+          "material_read": "PDF p. 2, offset 6938",
+          "method": "Lawful OA PDF passage",
+          "title": "Power domination in cubic graphs and Cartesian products",
+          "trigger": "Potential broad cubic result"
+        },
+        {
+          "assessment": "Different step parameter and minimum configuration size",
+          "evidence": [
+            "GP(n,2) with n>=9; pair reconfiguration under unrestricted exchanges."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-all-minimum-power-dominating-pairs-in-generalized-petersen-graph--3c1ce6b06fcb",
+          "material_read": "Original finding and scope",
+          "method": "Local Resultary mirror",
+          "title": "All minimum power-dominating pairs in generalized Petersen graphs",
+          "trigger": "Potential Petersen-family coverage"
+        },
+        {
+          "assessment": "McGee graph, genuinely different slide and penalty data",
+          "evidence": [
+            "576 minimum triples but radius/diameter 8/9 for slides and eight maximum penalty pairs."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-eight-exceptional-relocation-detours-for-optimum-power-dominatio--763cb004ebbc",
+          "material_read": "Original finding",
+          "method": "Local Resultary mirror",
+          "title": "Eight exceptional relocation detours for optimum power domination",
+          "trigger": "Closest numerical overlap on another 24-vertex graph"
+        },
+        {
+          "assessment": "Single orbit on another graph, not Nauru",
+          "evidence": [
+            "24 diametral pairs, 753 minimum triples and maximum penalty four."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-the-24-exceptional-four-slide-detours-of-the-robertson-cage--3b21bc72324c",
+          "material_read": "Original finding",
+          "method": "Local Resultary mirror",
+          "title": "The 24 exceptional four-slide detours of the Robertson cage",
+          "trigger": "Closest diametral orbit analogue"
+        },
+        {
+          "assessment": "Different base graph and metric",
+          "evidence": [
+            "567 minimum triples, slide diameter eight and maximum penalty five at 351 pairs."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-exact-power-domination-and-five-step-relocation-obstructions-in--a654b0dd27ba",
+          "material_read": "Original finding",
+          "method": "Local Resultary mirror",
+          "title": "Exact power domination and five-step relocation obstructions in the Doyle–Holt graph",
+          "trigger": "Potential same-series metric coverage"
+        },
+        {
+          "assessment": "Different configurations and moves",
+          "evidence": [
+            "504 labelled edge-colourings under Kempe switches, not 576 minimum sensor sets."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-a-cayley-sector-and-an-irregular-sector-in-nauru-edge-colouring--1a193aab529a",
+          "material_read": "Original finding",
+          "method": "Local Resultary mirror",
+          "title": "A Cayley sector and an irregular sector in Nauru edge-colouring reconfiguration",
+          "trigger": "Same graph and reconfiguration wording"
+        },
+        {
+          "assessment": "Not power domination",
+          "evidence": [
+            "Perfect matchings and anti-forcing edge deletions, not power-dominating sets."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-nauru-graph-anti-forcing-spectrum-and-the-hidden-split-of-two-fa--7dd6a167fbed",
+          "material_read": "Original finding",
+          "method": "Local Resultary mirror",
+          "title": "Nauru-graph anti-forcing spectrum and the hidden split of two-factor profiles",
+          "trigger": "Same graph and forcing terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding and Proof; exact independent replay full_replay.json",
+        "arXiv:2201.01798v1 framework; compared McGee, Robertson and Doyle–Holt records"
+      ],
+      "rationale": "This is a natural symmetric cubic benchmark for the difference between unrestricted exchange and graph-local movement at the optimum. The 4-regular slide graph is not vertex-transitive: only one configuration orbit is eccentricity ten, and a unique diametral partner pairs precisely that orbit. Even a single jump sometimes requires eight optimality-preserving slides. The paired metric and symmetry certify these distinct obstructions, rather than just adding another graph's count of optimum triples.",
+      "residual_risks": [
+        "No prediction for general sensor networks or universal penalties is supported; scientific value is as an exact structural benchmark."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

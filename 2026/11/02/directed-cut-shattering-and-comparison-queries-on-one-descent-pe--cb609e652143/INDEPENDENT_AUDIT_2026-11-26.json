@@ -1,0 +1,161 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:34:20.438421Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–47 (proof replay)",
+        "VERIFICATION.md, verify.py (inspected, not run), verification_output.txt lines 1–8"
+      ],
+      "rationale": "The all-ones trace forces every nonisolated support vertex to be either a source or a sink. In this bipartite support a three-edge simple path cannot have trace (1,0,1) on its consecutive edges, because its two outer edges fix the middle edge's labels to give 1. A connected bipartite graph with no such path is a star: if a vertex has two neighbors, any second incident edge at either neighbor produces a three-edge path, so every neighbor is a leaf, and connectedness exhausts the component. Conversely the fixed center label and independent leaf labels realize every star trace. Listing B increasingly and then its complement increasingly gives a one-descent word at most, and splitting at the descent represents every eligible word. For i<j, the inversion on the value pair is exactly i outside B and j in B. Thus centers must be extremal on their own component. All nonidentity words have unique B, and exactly n+1 choices of B give the identity. The n−1-edge minimum-label star gives the lower bound, and 2^n−n distinct concepts cannot realize the 2^n distinct leaves of a depth-n tree. At n=1 both dimensions are zero. For the EGF, labeled components of size r have edge weight z^(r−1) and multiplicity 1 for r=1,2 or 2 for r≥3. This also proves the maximum-support counts, with n=2 having one edge and n=1 the empty support.",
+      "residual_risks": [
+        "The recorded exhaustion is only through n=6 for rankings and four vertices for general graphs. The result is not a sorting or identification-query complexity theorem."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kozma–Moran shatter orientations under graph constraints, not patterns of directed-cut indicators from vertex bits.",
+          "Alon et al. optimize the size of one directed cut, not surjectivity of the cut-pattern map on an edge support.",
+          "Peters–Procaccia analyze distributional elicitation with priors, rather than one-descent Boolean trace complexity."
+        ],
+        "reasoning": "These general methods and nearby concepts do not imply the support classification on the stated permutation family.",
+        "searches": [
+          "Kozma–Moran (2013) abstract/introduction, pp. 1–3",
+          "Alon et al. (2007), Maximum directed cuts in acyclic digraphs, pp. 1–2",
+          "Peters–Procaccia (2021), Preference Elicitation as Average-Case Sorting, abstract"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and verification package",
+        "Closest Resultary records and primary text passages identified above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Fixed-cardinality same-block responses give different forest/component-order conditions, not the unconstrained directed crossing conjunction.",
+          "The classical Eulerian size 2^n−n gives the upper bound on adaptive depth but supplies no shattered star or complete support profile."
+        ],
+        "reasoning": "The strongest graph overlap can be used as the structural lemma, but to obtain the ranking result one still needs the Boolean trace identification from the increasing blocks on value labels. The investigated positional inversion theorem and other permutation classes do not replace it. Raz's full text was not available; the frozen description of its parameter was not independently checked there.",
+        "searches": [
+          "Resultary rectangle, Grassmannian, even-permutation and fixed-cardinality-cut Findings",
+          "Raz, DOI 10.1007/s004930070023 (lawful article and PDF attempts)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2026/11/08 rectangle record gives exactly the star-forest iff in a preassigned bipartition. All-positive directed-cut traces force a fixed source/sink bipartition for that support, within which trace realizability is rectangle trace realizability.",
+          "The 2026/11/22 Grassmannian record queries positions, not values. The frozen class queries positional inversions of the inverse words."
+        ],
+        "reasoning": "The general graph statement implies the rectangle statement; conversely the rectangle classification plus the all-positive test gives the directed-cut classification. This is substantive mathematical overlap with a later-dated record, not evidence of priority in either direction. Inversion need not preserve the one-descent property, so the positional Grassmannian theorem is not equivalent.",
+        "searches": [
+          "Resultary lookup on directed cuts, combinatorial rectangles and one-descent/Grassmannian comparison shattering",
+          "Focused primary search on directed-cut shattering and Boolean conjunction traces"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The rectangle record has a two-sort EGF in left and right vertex counts. The frozen EGF is one-sort with extremal allowable centers; no bipartition is preassigned across supports on [n].",
+          "The positional Grassmannian dimensions include VCdim=floor((n+1)/2), while the frozen value-label dimensions equal n−1. The even-permutation comparison theorem is for a different family."
+        ],
+        "reasoning": "Neither a numerical coincidence in a small dimension nor the two-sort rectangle profile supplies the frozen exact support profile; the latter needs the subset-word reduction, extremal centers and a separate labeled component enumeration. No catalogue-priority claim beyond the inspected record comparisons is made.",
+        "searches": [
+          "Resultary comparison of the combinatorial-rectangles and Grassmannian records and their exact enumerative or dimension findings",
+          "Resultary comparison of fixed-cardinality cuts and parity-refined permutation comparison shattering"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the complete value-label trace classification and size profile on one-descent permutations, with the learning dimensions as consequences. The graph characterization is closely equivalent to the rectangle star-forest theorem after a simple consistency test, so it should not be treated as an unrelated contribution or as having established historical priority. The compared records with the same permutation family or broader orientation methods do not give this value-label classification and profile.",
+      "residual_risks": [
+        "No absolute precedence claim. A preexisting theorem cast as conjunction or inverse-Grassmannian trace shattering might be equivalent; the focused search was not exhaustive and Raz's primary text remained inaccessible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent structural result after consistency test; different permutation and enumerative conclusions",
+          "evidence": "The support is a bipartite star forest iff shattered; the EGF has two labeled sorts.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-shattered-edge-supports-of-combinatorial-rectangles-are-star-for--41f165ae6da1/RESULT.md",
+          "material_read": "Finding and opening assumptions, offsets 0–2380",
+          "method": "Published record local mirror",
+          "title": "Shattered edge supports of combinatorial rectangles are star forests",
+          "trigger": "Exact structural overlap after source/sink reduction"
+        },
+        {
+          "assessment": "Different query class",
+          "evidence": "Asks whether π(i)>π(j) for positions i<j and gives floor((n+1)/2).",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-sharp-comparison-vc-dimension-of-grassmannian-permutations--4d0cb72fed82/RESULT.md",
+          "material_read": "Finding and opening assumptions, offsets 0–1440",
+          "method": "Published record local mirror",
+          "title": "Sharp comparison VC dimension of Grassmannian permutations",
+          "trigger": "Same permutation family and apparently different dimension"
+        },
+        {
+          "assessment": "Different cut predicate and constraints",
+          "evidence": "Same-block queries and prescribed block size produce forest/component-order tests.",
+          "identifier_or_url": "Resultary 2026/11/02/SCOPE-forest-size-profiles-determine-shattering-by-fixed-cardinality-c--e71e3de9534e",
+          "material_read": "RESULT.md Finding",
+          "method": "Published record local mirror",
+          "title": "Forest size profiles determine shattering by fixed-cardinality cuts",
+          "trigger": "Same-day cut/shattering overlap"
+        },
+        {
+          "assessment": "Different class despite related query convention",
+          "evidence": "Class is even permutations, with a forest criterion and spanning-path exception.",
+          "identifier_or_url": "Resultary 2026/11/02/SCOPE-parity-refined-comparison-shattering-of-even-permutations--824e5263ec2a",
+          "material_read": "RESULT.md Finding",
+          "method": "Published record local mirror",
+          "title": "Parity-refined comparison shattering of even permutations",
+          "trigger": "Same-day comparison-shattering overlap"
+        },
+        {
+          "assessment": "Different concepts in inspected passages",
+          "evidence": "Graph orientations and connectivity/flow properties replace directed-cut trace indicators.",
+          "identifier_or_url": "https://doi.org/10.37236/3326",
+          "material_read": "Abstract and introduction, pp. 1–3",
+          "method": "Open PDF passage inspection",
+          "title": "Shattering, Graph Orientations, and Connectivity",
+          "trigger": "Graph-shattering framework"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": "Maximal cut size is the objective, not shattering.",
+          "identifier_or_url": "https://web.math.princeton.edu/~nalon/PDFS/abgls4.pdf",
+          "material_read": "Abstract and directed-cut definition, pp. 1–2",
+          "method": "Open PDF passage inspection",
+          "title": "Maximum directed cuts in acyclic digraphs",
+          "trigger": "Identical directed-cut object"
+        },
+        {
+          "assessment": "Different statistical and algorithmic question",
+          "evidence": "Uses Mallows and Plackett–Luce priors for adaptive comparison elicitation.",
+          "identifier_or_url": "https://ojs.aaai.org/index.php/AAAI/article/view/16709/16516",
+          "material_read": "Abstract, p. 1",
+          "method": "Open PDF passage inspection",
+          "title": "Preference Elicitation as Average-Case Sorting",
+          "trigger": "Comparison query elicitation"
+        },
+        {
+          "assessment": "Residual access risk, no noncoverage inference from failed access",
+          "evidence": "The frozen record describes a full-pattern parameter, but the primary article was not retrieved.",
+          "identifier_or_url": "https://doi.org/10.1007/s004930070023",
+          "material_read": "Bibliographic identification; full article and PDF unavailable",
+          "method": "Bounded lawful retrieval attempts",
+          "title": "VC-dimension of sets of permutations",
+          "trigger": "Potential equivalent permutation VC parameter"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–19 and 31–47",
+        "Resultary rectangle and Grassmannian records cited above"
+      ],
+      "rationale": "The complete support classification resolves which sets of comparisons can vary independently, not just how many. It yields the edge-count distribution for all orders and describes its maximizers, while distinguishing the natural value-label problem from positional Grassmannian comparisons. The equality of static and adaptive dimensions is meaningful for this restricted ranking model, although the entropy bound itself is routine.",
+      "residual_risks": [
+        "No identification algorithm, exact query complexity or general bounded-descent extension is asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:17:14.305693Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–63; VERIFICATION.md and verify.py inspected, supplied code not executed.",
+        "Independent replay: /workspace/branches/645cd267-a760-4d94-b3df-2e51543e0a55/independent_check.py. It checked rank two at n=2–8, all rank-three length-eight multisets and 1,344 affine maps, and a separate pair-state XOR DP at rank four, length sixteen. Recovered 561, the three stated orbit sizes, and B_4(16)=13,032,001."
+      ],
+      "rationale": "For unordered multisets with indexed occurrences, at every d≥2 and n≥2, taking the complement changes the zero-sum condition into a pair of occurrences summing to the total T. At T=0 the allowable objects are distinct-element zero-sum subsets, giving the stated binomial and W term by character orthogonality. At T≠0 at most one endpoint of each {x,x+T} pair is occupied. Projection onto the quotient by <T> gives the U term: each nontrivial quotient character gives (E²−O²)^(m/2)=1 for the even and odd occupancy series, hence zero coefficient in positive degree. Remove the V term of all-even occupancies, and flip the endpoint of a fixed odd-occupancy pair to divide the projected-zero remainder equally between totals 0 and T. The same criterion gives B_d(2)=0. At d=3,n=8 a nonzero total forces exactly four odd multiplicities on four points, since zero odd counts give T=0 and two give a prohibited pair. The four points must form an affine basis, and conversely each such basis works. There are 56 bases as unordered sets; the two multiplicity patterns each form an orbit by affine transitivity. Affine translations preserve the condition because six is even. The resulting counts are 1, 224, and 336.",
+      "residual_risks": [
+        "Finite replay corroborates examples only. The proof, not enumeration, covers all d,n; it does not cover ordered words, other forbidden lengths, or other group exponents."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Han et al. count all zero-sum multisets, which may repeat entries; Sidorenko gives thresholds for fixed forbidden lengths."
+        ],
+        "reasoning": "The avoidance census uses distinct entries at total zero and sum T≠0 with endpoint exclusions otherwise; neither general result gives the required restricted census directly.",
+        "searches": [
+          "arXiv:2606.11005v1, pp. 1–2",
+          "arXiv:1808.06555v6, §4 and Theorem 5.9"
+        ]
+      },
+      "checked_sources": [
+        "Zhang–Zhang arXiv:2610.21577v1",
+        "Sidorenko arXiv:1808.06555v6",
+        "Han et al. arXiv:2606.11005v1",
+        "Resultary d86ded899098 and 64bb7f4a2394"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The threshold s_6(F_2^3)=9 is attributed by Zhang–Zhang to Sidorenko. Sidorenko's lower-bound witness specializes to the multiplicity pattern (5,1,1,1); the upper bound excludes length-nine avoiders."
+        ],
+        "reasoning": "The prior witness and threshold do not determine how many length-eight avoiders there are. The all-rank coefficient formula needs the separate total-conditioned count, and the full orbit split needs the parity and support exhaustiveness argument.",
+        "searches": [
+          "arXiv:2610.21577v1, Thms. 1.2 and 2.6, Lemma 2.8 and proof of Thm. 1.2",
+          "arXiv:1808.06555v6, (4.1) and proof of Thm. 5.9"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Complementation for zero-total sequences and the binary-code forbidden-weight reformulation are prior. Zhang–Zhang Lemma 2.8(v) gives the even-subset sum property for four points of nonzero sum."
+        ],
+        "reasoning": "Those reductions do not count unordered multiset configurations with a variable total T and T-pair occupancy constraints, or derive the exhaustiveness of the affine-basis multiplicity patterns.",
+        "searches": [
+          "Web: zero-sum multisets elementary abelian 2-groups exact number avoiding subsequence length n-2 deleted pair complement generating function F_2^d length 8",
+          "arXiv:2610.21577v1, (2.1), Lemma 2.8",
+          "arXiv:1808.06555v6, §4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The former counts length-eight profiles of eight nonzero binary rank-four vectors in a matching problem; the latter treats ternary line separation. Neither table/object is the 561 binary rank-three avoiding multisets."
+        ],
+        "reasoning": "The nearby exact enumerations concern different objects and restrictions; no matching table was found in this bounded comparison.",
+        "searches": [
+          "Resultary local searches for the binary deleted-pair census and rank-three extremizers (50 and 25 ranked hits)",
+          "Resultary IDs 2026/10/4/SCOPE-complete-prescribed-difference-matching-multiplicity-spectrum-in--d86ded899098 and 2026/10/26/SCOPE-a-sharp-rank-three-obstruction-to-cyclic-line-separation-for-zer--64bb7f4a2394"
+        ]
+      },
+      "rationale": "Available prior work covers the rank-three threshold, the standard repetition witness of type (5,1,1,1), a complement relation, and enumeration of the zero-total stratum as a restricted subset problem. None of the inspected results covers the complete three-orbit census or the arbitrary-length multiset avoidance distribution, particularly the nonzero-total stratum.",
+      "residual_risks": [
+        "Gao–Thangadurai (2003) inverse zero-sum work was cited but not retrieved; matching-count reformulations and unindexed work remain possible.",
+        "Han et al. were compared at their defining and counting passages, not exhaustively throughout the paper."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Partial overlap; threshold, complement identity and support property, not the complete census",
+          "evidence": "The proof sends the binary base case to cited Sidorenko; Lemma 2.8(v) treats sums of even and odd subsets of four points of nonzero total.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.21577",
+          "material_read": "Thm. 1.2 and (2.1), pp. 2–3; Thm. 2.6 and Lemma 2.8, pp. 4–5, PDF offset 10400; proof of Thm. 1.2, p. 13",
+          "method": "Lawful OA PDF, bounded original passages",
+          "title": "Generalized Erdős–Ginzburg–Ziv Constants for finite abelian groups of rank three",
+          "trigger": "Identical group and six-term threshold"
+        },
+        {
+          "assessment": "Covers a threshold, a reduction and one witness type",
+          "evidence": "The lower bound repeats zero 2m−1 times and takes one copy of each basis vector; the upper bound uses the code redundancy formula. At 2m=6,d=3 this does not supply the other orbit types or cardinalities.",
+          "identifier_or_url": "https://arxiv.org/pdf/1808.06555",
+          "material_read": "§§3–4, especially (4.1) and the parity-check reformulation; proof of Thm. 5.9, p. 10",
+          "method": "Lawful OA PDF, bounded original passages",
+          "title": "On generalized Erdős–Ginzburg–Ziv constants for Z_2^d",
+          "trigger": "Binary-rank threshold theorem and its extremal construction"
+        },
+        {
+          "assessment": "Related unrestricted zero-sum census",
+          "evidence": "M(G,m) is the set of all zero-sum multisets of size m, not the objects with exclusion of a specified subsequence length.",
+          "identifier_or_url": "https://arxiv.org/pdf/2606.11005",
+          "material_read": "pp. 1–2, definition and counting, offsets 0 and 3600",
+          "method": "Lawful OA PDF, bounded original passages",
+          "title": "On zero-sum polytopes: reciprocity, rigidity, and cyclic sieving",
+          "trigger": "General exact zero-sum-multiset enumeration"
+        },
+        {
+          "assessment": "Different matching and ternary separation problems",
+          "evidence": "Rank-four matching profiles count 20,295; the other statement is over F_3, not binary multisets.",
+          "identifier_or_url": "d86ded899098; 64bb7f4a2394",
+          "material_read": "Both mirrored RESULT.md findings, offset 0, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local Resultary mirror",
+          "title": "Prescribed-difference matching census and rank-three cyclic-line separation",
+          "trigger": "Closest exact or rank-three catalogue hits, including a distinct same-date record"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 25–60; Sidorenko §4 and Thm. 5.9; Zhang–Zhang Thm. 2.6"
+      ],
+      "rationale": "The deleted-pair length is natural: it is the first complement constraint involving two occurrences, where distinct support and repeated entries behave differently. The exact distribution distinguishes prevalence from the existence information in generalized EGZ thresholds. The complete length-eight orbit census specifies all extremizers of a prior sharp threshold, not merely another example or a recomputed threshold.",
+      "residual_risks": [
+        "No larger inverse classification, other prescribed lengths, or extension beyond binary rank is asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

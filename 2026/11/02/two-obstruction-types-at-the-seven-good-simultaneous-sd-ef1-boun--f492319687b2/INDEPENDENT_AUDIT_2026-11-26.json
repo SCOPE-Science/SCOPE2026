@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:26:19.000321Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md §§ Proof and Verification",
+        "VERIFICATION.md",
+        "verify.py and independent_full.cpp (read, not executed)",
+        "Independent replay: python3 -B /workspace/audit-replay/seven_good.py"
+      ],
+      "rationale": "Removing the highest-ranked good in the other bundle witnesses all the relevant prefix inequalities at once. With complete allocation, the own-count lower bound is floor(prefix length/2); odd bounds follow from the previous even bound. The market therefore forces one per pair and leaves the singleton free. An independent exhaustive replay used actual per-ranking good removals and compared sorted positions for SD dominance; it tested all 128 bundles for market feasibility, all 5040 strict orders for the resulting 16 market bundles, and checked each strict refinement within the 630 paired orders before grouping. It confirmed the full histogram, 96 exceptional paired profiles and the identical exceptional union of two disjoint 48-profile orbits generated from the reported representatives. The 64 refinements per paired profile yield 6144 failures and 8/33075. For the mean, reflection of a length-seven prefix walk at its first visit to −2 gives 35−21=14 successful three-good position sets and 35−7=28 four-good sets. Independence gives 16(14/35)(28/35)=128/25, also confirmed by the exact allocation incidence 130056192.",
+      "residual_risks": [
+        "Exact only for two agents, seven completely allocated goods and strict rankings; the probability and mean require the uniform independent model."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 2 guarantees existence only up through six goods for two agents. Lemma 1 concerns a common-ranking block structure, not an exhaustive law for two distinct subjective rankings.",
+          "The related catalogue hits concern a common ranking with item conflicts, and Random Priority with preference types, respectively."
+        ],
+        "reasoning": "None of these statements is a stronger theorem on the relevant seven-good ranking profiles.",
+        "searches": [
+          "arXiv:2410.23137, Lemma 1 and Theorem 2",
+          "Resultary 2026/11/8/SCOPE-exact-random-ranking-sd-ef1-reliability-with-multipartite-confli--796321c46ee1",
+          "Resultary 2026/10/4/SCOPE-two-preference-types-restore-stochastic-dominance-envy-freeness--6e7d900d7fa1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2410.23137",
+        "arXiv:2310.03475",
+        "The two published Resultary records identified under broader_coverage"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prefix/market framework gives the candidate allocations. The published Type I contradiction only concerns that profile; its entire orbit leaves a distinct invariant class of failures still to be explained. The probability is simple once the exhaustive zero count is known; the mean follows separately from ballot counting."
+        ],
+        "reasoning": "Credit originality to Type II and exhaustiveness at the boundary, not to the prefix framework, Type I, or the arithmetic corollaries on their own.",
+        "searches": [
+          "arXiv:2410.23137, proof of Theorem 1 and Lemma 1",
+          "arXiv:2310.03475, abstract and Theorem 3.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Barman et al. write the exact Type I orders. The Type II representative has good 7 in pair two for both agents, invariant under the specified group; Type I has it in pair three.",
+          "Bu et al. study doubly EF1; ordinary EF1 is not SD-EF1 across strict-rank-compatible utilities."
+        ],
+        "reasoning": "Neither renaming the Type I witness under the claimed action nor restating the weaker EF1 result gives Type II or the exhaustive classification.",
+        "searches": [
+          "Resultary searches by simultaneous SD-EF1 with market values, representative rankings, and exact counts",
+          "arXiv:2410.23137, Theorem 1",
+          "arXiv:2310.03475, Theorem 3.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Table 1 is a high-level fairness-results summary; Theorem 1 gives a witness, not a census. No matching 96/6144 profile census appeared among the returned catalogue results."
+        ],
+        "reasoning": "The known witness and the table do not fix either an orbit count or a frequency. Catalogue nonreturn is limited evidence, not a priority guarantee.",
+        "searches": [
+          "Resultary exact-number and representative-profile searches",
+          "arXiv:2410.23137, Table 1 and Theorem 1"
+        ]
+      },
+      "rationale": "The seven-good boundary, market-pair construction and Type I are explicitly prior. The complete two-orbit census and distinct obstruction Type II are not supplied by the strongest identified source; its common-ranking reduction does not resolve the two subjective SD-EF1 constraints. No equivalent census was identified in the bounded comparisons.",
+      "residual_risks": [
+        "A bounded catalogue and literature check cannot exclude other unpublished or differently indexed enumerations; the targeted web query returned no hits, which is not positive evidence of originality."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the boundary, Type I and the market block method; inspected results do not give the new census.",
+          "evidence": [
+            "Theorem 1 explicitly writes the Type I rankings and rules out both assignments of good 1.",
+            "Theorem 2 bounds universal existence by at most six goods."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2410.23137",
+          "material_read": "PDF p. 4 Lemma 1 and Theorem 1; p. 5 Theorem 2; Table 1 (text offsets about 19260, 21180, 23380, 12050)",
+          "method": "Lawful OA primary PDF, bounded statement and proof comparison",
+          "title": "Fair Division with Market Values",
+          "trigger": "Exact model and known seven-good counterexample"
+        },
+        {
+          "assessment": "Different fairness criterion, no implication for the obstruction classification.",
+          "evidence": [
+            "The guarantee concerns doubly EF-1 for monotone valuations."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2310.03475",
+          "material_read": "p. 1 abstract and p. 8 Theorem 3.1",
+          "method": "Lawful OA primary PDF, bounded statement comparison",
+          "title": "Fair Division with Allocator’s Preference",
+          "trigger": "Closely related subjective/allocator fairness"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding and Proof",
+        "arXiv:2410.23137, Theorems 1–2"
+      ],
+      "rationale": "The first impossible layer is a published, mathematically motivated cutoff. Its complete orbit classification distinguishes a new obstruction from relabelings of the known one, and the exact zero frequency quantifies how exceptional worst-case nonexistence is in the natural uniform model.",
+      "residual_risks": [
+        "No extension to larger instances, ties, or nonuniform ranking laws is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

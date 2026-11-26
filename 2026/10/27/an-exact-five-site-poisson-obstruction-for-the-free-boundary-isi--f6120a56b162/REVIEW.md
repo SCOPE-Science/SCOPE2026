@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** For the nine-spin free-boundary Ising measure, inversion of positive avoidance probabilities uniquely determines every candidate Poisson intensity. The center-plus-four-arms constrained partition sums are computed by two center-spin cases, and the exact degree-56 factorization plus a degree-28 Descartes sign certificate proves a unique temperature crossing. The separate 512-configuration enumeration corroborates the sign and closed formula at five temperatures. The complete all-parameter proof is algebraic rather than inferred from finite samples.
+## correctness
 
-**Originality — PASS (with bounded priority risk).** The 2024 general theory supplies the inversion method and infinite-volume high-temperature obstruction; the January 2025 Ising mixing paper gives infinite-volume results. The January 2025 tree paper gives parameter regimes for tree-indexed Markov chains, not this cyclic, boundary-constrained nine-spin atom. The exact sharp five-site obstruction polynomial and its unique sign threshold were not located in the inspected primary texts or meaning-based record searches. The result claims the exact finite-grid atom transition, not novelty of Möbius inversion or the general fact that some Ising models are nonrepresentable. Unindexed prior computations may remain.
+PASS
 
-**Mathematical value — PASS.** The \(3\times3\) grid is the smallest square *grid* possessing a fully interior degree-four vertex; its four-arm cross directly tests the local four-way interaction underlying known Ising nonrepresentability phenomena. The precise sharp cutoff converts a qualitative obstruction into a reproducible natural finite-volume benchmark and demonstrates that the same local necessary condition changes sign, without wrongly suggesting that complete representability follows.
+On the free nine-site graph, Poisson avoidance gives log Pr(plus set contained in B) equal to a constant plus the sum of intensities of subsets of B, so the fifth Möbius difference isolates this one nonempty atom. With the corners forced minus, an allowed arm costs three disagreements when the centre is minus and one extra disagreement when the centre is plus (its two corner edges replace its one centre disagreement). The centre-plus baseline costs four disagreements. Thus the two constrained polynomials are (1+t^3)^k and P_k; the log global normalization and the fourth difference of the centre-minus log term both vanish. Independent integer multiplication confirmed the degree-56 factorization; an exact rational Sturm chain for Q gave variations 14 and 13 at 0 and 1. Bisection located t*=0.6276872898128175508386809846705... and beta*=0.2328565913441155004710230108510.... The denominator is positive, the prefactor of Q is negative in (0,1), Q(0)=-1 and Q(1)=32, and t decreases with beta. The same endpoint factors give the stated -2 beta^4 and exp(-16 beta) asymptotics. Frozen replay references: verification/check_cross_intensity.py and verification/check_output.txt, inspected as evidence, not executed. The independent computation checks the algebra and root; the avoidance argument is the proof. A positive cross intensity at higher beta says nothing about all other intensities.
 
-**Limits.** No conclusion about full representation at or above \(\beta_*\), no other grid size and no infinite-volume threshold. All source comparisons remain open to historical priority surprises.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The checked sources cover finite avoidance inversion and several Ising or tree nonrepresentability mechanisms, but not the exact five-site intensity and sharp sign interval for this free cyclic graph. The passed claim is the single-atom calculation and its obstruction, not the general framework or an Ising representability phase diagram.
+
+## value
+
+PASS
+
+The symmetric cross is a natural local branching test with its four corners outside the atom, not an arbitrary spin subset. The exact root shows where this particular local witness ceases to certify nonrepresentation; the small free planar box avoids assumptions about ordered phases or boundary fields. It is useful as an exact finite witness and benchmark even without a full atom census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

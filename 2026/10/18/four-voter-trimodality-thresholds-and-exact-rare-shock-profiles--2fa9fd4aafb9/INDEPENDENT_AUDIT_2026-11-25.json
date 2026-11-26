@@ -1,0 +1,150 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:06:33.692790Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–113, VERIFICATION.md, verify.py (inspected without execution)",
+        "Replay: python /workspace/checks/voter_exact.py"
+      ],
+      "rationale": "With the specified with-replacement update the chain is irreducible for 0<eta,r<1. Reflection at N=4,k=2 gives (a,b,c,b,a). In reset odds h=r/(1-r), the zero and one balances give a/b=(3+eta)/(16(h+eta)) and c/b−1=[16h²+(2+22eta)h+eta(5eta−1)]/[4(1+eta)(h+eta)]. Thus the endpoint comparison requires eta<1/5 and h<(3−15eta)/16; in this eta domain the center comparison has one positive threshold. Substitution in r gives the stated quadratic and discriminant, and at the upper threshold c/b−1=5(1−5eta)/(4(1+eta))>0, proving a nonempty strict interval. Strict maxima cannot be adjacent, so three require at least five counts; the rational example attains this bound. For fixed N the killed zero-noise interior walk is transient; its embedded simple walk Green function is piecewise affine in the start with unit source, and multiplying by the holding time N²/[2j(N−j)] gives the stated rows. The interior resolvent is bounded near (r,eta)=(0,0) with difference O_N(r+eta); boundary injection is O_N(eta), giving O_N(r²+eta) error. The mean uses the exact one-step drift eta(1−2j/N); its stationary limit is k when eta=o(r), yielding boundary masses 1−k/N and k/N. Strict interior Green inequalities on each side of an allowed k persist with o(r) error, while both boundary masses dominate their neighbors. An independent symbolic solution of the full five-state stationary system and exact inverses of the killed chains for N=4 through 12 confirmed the ratios, threshold discriminant, rational example and Green matrix.",
+      "residual_risks": [
+        "The exact window is only for k=2 at N=4; the limiting argument fixes N and requires 2<=k<=N−2. Ties are excluded and no joint N→∞ uniformity is implied."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The direct source derives a continuum pure-voter diffusion stationary reset density as a Gegenbauer series. Switching environments/influencers, partisan preferences and independent individual resets are other models for multiplet stationary peaks or resetting."
+        ],
+        "reasoning": "Neither the continuum description nor a different mechanism gives the discrete first-order coefficients, boundary masses and strict neighboring peak comparisons in the two-parameter fixed-size limit.",
+        "searches": [
+          "arXiv:2609.39858 Appendix Eqs. (32)–(34)",
+          "arXiv:2305.19096v2",
+          "arXiv:2301.09563v4",
+          "arXiv:2207.08590v6"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.39858, 2305.19096v2, 2301.09563v4, 2207.08590v6",
+        "Resultary 34f2f028eecb and 628bdf083df8 summaries; 235cd640600d mirrored passages"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior transition-matrix framework allows exact finite balance equations but does not report solutions for the thresholds and their strict nonempty window.",
+          "The diffusion solution and discussion of r→0 do not give the fixed-size eta/r→0 expansion; finite interior transience, boundary injection and the exact mean close the latter argument."
+        ],
+        "reasoning": "The smallest-size lower bound is elementary once an achieving example is known, but neither sharpness nor the exact band follows from observing large-N trimodality. The rare-shock coefficients use a standard resolvent, which still needs a distinct finite-size calculation and asymptotic/modal comparison.",
+        "searches": [
+          "arXiv:2609.39858 pp. 3, 7–9 and Appendix pp. 11–12; Eq. (27), Fig. 6, Eqs. (32)–(34)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Set the cited model's theta=j/N and take a delta reset distribution: the probabilities and reset mechanism match the frozen count chain exactly. The paper's earlier classical-voter formulas instead use the N(N−1) convention.",
+          "The cited paper names peaks at both unanimity states and at the reset destination, with Fig. 6 computed at N=500, m0=mr=0.3."
+        ],
+        "reasoning": "The qualitative overlap is actual coverage, not just terminological similarity. The inspected phase diagram does not state the strict inequalities or the sharp minimum for the five-state symmetric-target chain.",
+        "searches": [
+          "arXiv:2609.39858 p. 3 and Eq. (27), pp. 7–8",
+          "Local Resultary search for exact four-voter and finite-population trimodality"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The existing same-model phase plot uses N=500 and a noncentral magnetization, not N=4 and k=2.",
+          "The inspected full mirrored multistate result uses three or more opinions and unanimity-two updates with no shocks. Indexed summaries of the other records concern a consensus-time response or a biased Gillis walk, not this exact table."
+        ],
+        "reasoning": "No inspected table supplies the stated small-population window or fixed-N coefficients. Search rank is not exhaustive and indexed summaries alone cannot exclude all overlap with inaccessible texts.",
+        "searches": [
+          "arXiv:2609.39858 Fig. 6 and pp. 8–9",
+          "Local Resultary indexed searches for global-reset noisy-voter modes, four-voter strict window and fixed-N Green profile; records 34f2f028eecb, 628bdf083df8, 235cd640600d"
+        ]
+      },
+      "rationale": "The same discrete model and the qualitative occurrence of trimodality are already published. The supported increment is sharp finite-size onset via the exact strict N=4 window, together with the quantitative fixed-N rare-reset interior profile and strict-mode proof. Neither the ordinary Green function as a mathematical tool nor the generic reset resolvent is novel.",
+      "residual_risks": [
+        "Two related indexed results were available only as summaries. The main same-model primary paper was checked directly; bounded local and literature comparisons do not rule out an unindexed exact finite-size analysis."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Qualitative overlap and genuine related continuum formula, not the finite strict thresholds/profile",
+          "evidence": "Eq. (27) agrees with theta=j/N, delta shocks fix the count, stationary plots use N=500, m0=mr=0.3, and the analytic appendix solves a diffusion with resets.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.39858",
+          "material_read": "Version 1 (2026-09-30 UTC), p. 3 shock mechanism, Eq. (27) pp. 7–8, Fig. 6 and phase discussion pp. 8–9, Eqs. (32)–(34) pp. 11–12",
+          "method": "OA PDF passages",
+          "title": "Opinion dynamics under large-scale exogenous events",
+          "trigger": "Same discrete model, trimodal phase and possible Green-profile overlap"
+        },
+        {
+          "assessment": "Different sources of multimodality",
+          "evidence": "Environment switching or influencers, not one-step collective count resets.",
+          "identifier_or_url": "https://arxiv.org/abs/2305.19096v2",
+          "material_read": "Abstract p. 1 and model definitions pp. 2–3",
+          "method": "OA PDF passages",
+          "title": "Noisy voter models in switching environments",
+          "trigger": "Stationary multipeak noisy voters"
+        },
+        {
+          "assessment": "Related, different object",
+          "evidence": "Partisan preferences and idiosyncratic changes, not collective projection shock.",
+          "identifier_or_url": "https://arxiv.org/abs/2301.09563v4",
+          "material_read": "Abstract p. 1",
+          "method": "OA PDF passage",
+          "title": "Partisan Voter Model: Stochastic description and noise-induced transitions",
+          "trigger": "Prior finite voter transition results"
+        },
+        {
+          "assessment": "Local, not global, resets",
+          "evidence": "Voters independently reset to their own initial opinions.",
+          "identifier_or_url": "https://arxiv.org/abs/2207.08590v6",
+          "material_read": "Abstract p. 1, discussion p. 3",
+          "method": "OA PDF passages",
+          "title": "Voter model under stochastic resetting",
+          "trigger": "Potentially equivalent reset process"
+        },
+        {
+          "assessment": "Summary suggests different statistic; full-text overlap not ruled out",
+          "evidence": "Poisson reset of neutral consensus diffusion; weak-reset response of consensus time.",
+          "identifier_or_url": "2026/10/18/SCOPE-a-unique-critical-magnetization-and-a-certified-linear-restart-onset-o--34f2f028eecb",
+          "material_read": "Indexed summary only; exact local RESULT.md unavailable",
+          "method": "Local Resultary index and attempted mirrored passage",
+          "title": "A unique critical magnetization and a certified linear restart onset …",
+          "trigger": "Same-day voter reset record"
+        },
+        {
+          "assessment": "Summary identifies a different walk; full-text overlap not ruled out",
+          "evidence": "A biased Gillis walk with a reset, not an all-to-all voter count chain.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-nonempty-three-peak-coexistence-window-in-the-reset-gillis-wal--628bdf083df8",
+          "material_read": "Indexed summary only; exact local RESULT.md unavailable",
+          "method": "Local Resultary index and attempted mirrored passage",
+          "title": "A nonempty three-peak coexistence window in the reset Gillis walk",
+          "trigger": "Similar exact three-peak reset window"
+        },
+        {
+          "assessment": "Different transitions",
+          "evidence": "Three or more opinions and unanimity-two updates with no global shock.",
+          "identifier_or_url": "2026/11/2/SCOPE-finite-multistate-noisy-voter-modes-exact-equilibrium-and-a-two--235cd640600d",
+          "material_read": "Mirrored finding and model definitions",
+          "method": "Local mirrored RESULT.md passage",
+          "title": "Finite multistate noisy voter modes: exact equilibrium and a two …",
+          "trigger": "Exact finite stationary voter modes"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–39 and 55–109",
+        "arXiv:2609.39858 Fig. 6 and Appendix Eqs. (32)–(34)"
+      ],
+      "rationale": "The window gives an exact answer to how small a population in the already motivated collective-shock model can exhibit this phase. The Green profile and endpoints explain which probability comparisons sustain three peaks for each fixed larger population and separated reset target, instead of extrapolating from a large-population numerical diagram. The natural smallest chain and two-scale limit are substantive, not arbitrary slices.",
+      "residual_risks": [
+        "No exact full phase diagram for arbitrary N, arbitrary shock distributions or other update normalizations is shown."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

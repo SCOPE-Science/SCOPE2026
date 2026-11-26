@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -18,8 +21,6 @@
 
 # Verification and scope
 
-Run `python verify.py` with Python 3 and no third-party packages. It executes 906 checks: exact rational dynamic programs for optimal decisions and odd/even cover CDFs over \(2\leq m\leq6\) at five steering probabilities; independent convolution of geometric laws; and numerical finite-size Laplace-transform comparisons for four critical parameters and two transform arguments.
+The critical-window law is proved analytically in `RESULT.md`: the monotone two-count coupling covers all admissible policies, the two clock laws follow from disjoint independent count transitions, and the exact geometric transform converges on a two-sided neighborhood of zero. In particular, the proof uses bounded real shifts in the gamma ratio, not interpolation from integer values of the limiting steering intensity.
 
-Critical analytical steps independent of those tests are: monotone coupling for the *whole* adaptive policy class, independence of the two alternating-part clocks, exact gamma-ratio asymptotics on a neighborhood of the origin, and a vanishing Lyapunov ratio when \(m\varepsilon_m\to\infty\). No finite computation is treated as proving these limits. The checker prints the number of passed checks and exits nonzero on a failed assertion.
-
-The limiting conclusions are for \(\varepsilon_m\to0\) only, whereas the finite exact cover-time formula holds for all \(\varepsilon\in[0,1]\). No independent scientific audit or infinite formal certification is asserted.
+The unchanged companion `verify.py` contains bounded finite-clock checks and numerical transform comparisons at selected critical parameters and arguments. Those checks diagnose parity offsets and transform normalization; they do not certify distributional convergence or independence for every parameter sequence. No check of a fixed-positive or a supercritical limit is needed for this statement.

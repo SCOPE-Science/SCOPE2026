@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:41:28.580743Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Atomlessness makes the probability-integral transform uniform, with almost-sure order preservation even when the CDF has flat intervals. A prescribed k-matching has Q=k(2n-2k-1) distinct touched edges. Its marked success requires all Q clocks to exceed t. After t the first touched edge must be one of the k selected edges. Its identity is uniform and independent of the waiting time; after removing its endpoints, memorylessness recurses on the surviving touched edges. Thus the marked probability has the exact product in (2), and conditional on success the largest selected weight minus t is the sum of independent exponential waiting times of rates j(2n-2j-1). The ordered matching count is (n)_(2k)/2^k; the count touching r specified isolated vertices is rn-r(r+1)/2. These give the claimed marginal factorial-moment normalizations. For disjoint configurations, isolation leaves the complement clocks unconditioned. Its matching success upper-bounds full matching success, and matches it whenever the selected edge weights are at most u. The probability of the excluded tail, relative to complement matching success, is O(1/log n) by the conditional O(1/n) total waiting time and u-t asymptotic to log(n)/(2n). For j shared endpoints, at least one selected clock must exceed u, costing the same vanishing factor conditional on matching success; independently, the other r-j isolated vertices require edges to wholly unmarked vertices to exceed u, costing O(n^{-(r-j)}). Combined with O(n^{r+2k-j}) configurations and O(n^{-2k}) marked matching probability, this is o(1). The resulting all-orders mixed factorial moments determine the independent Poisson pair (tightness and moment convergence follow from the higher moments). The joint zero event gives the Gumbel law. The formula includes the empty matching; n=2 is valid and the threshold argument only needs large n for fixed x,y. The source checker was inspected, not run, and the limit does not depend on its finite tests.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gupta–Iyer's theorem is a one-clock result for spatial point data in dimension at least two.",
+          "Same-day catalogue b4fb3931b856 advertises joint geometric extremes in dimension one; ab86211def3e advertises finite component-size densities and counts in the same random-link model. Originals were unavailable at the checked mirror paths."
+        ],
+        "reasoning": "Spatial distances have geometric dependence not present in the shared iid complete-graph array. Component densities/counts do not by their stated scope dominate a time-marked joint extreme limit. The absent source texts leave the exact comparisons bounded.",
+        "searches": [
+          "Resultary: coupled Poisson extremes and marked reciprocal structures",
+          "Resultary b4fb3931b856 and ab86211def3e",
+          "Gupta–Iyer arXiv:math/0604599 Thm 1.2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and VERIFY.py",
+        "Resultary f51047a8a8b8 and catalogue summaries b4fb3931b856 and ab86211def3e",
+        "Durrett Lemma 1.9.2",
+        "Gupta–Iyer arXiv:math/0604599",
+        "Cooper–Frieze manuscript extraction attempt"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Shifting all touched exponentials by t gives the marked formula directly from the prior unmarked one.",
+          "Durrett proves Poisson(e^-x) isolation counts at p=(log n+x+o(1))/n."
+        ],
+        "reasoning": "Both known inputs and the marked formula give marginal information. Independence requires a mixed analysis in the shared array; the frozen proof conditions on the isolated candidate vertices and separately controls overlaps with selected matching endpoints.",
+        "searches": [
+          "f51047a8a8b8 unmarked theorem",
+          "Durrett Chapter 1 Lemma 1.9.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A reciprocal edge is exactly the birth of a K2 from two isolated vertices when its exponential clock rings.",
+          "The classical isolation marginal applies to the same graph process; no joint pair-birth theorem was identified in the returned sources."
+        ],
+        "reasoning": "At time s the process is G(n,1-exp(-s)); changing to this formulation preserves the random model. Counting components of size two at a snapshot instead would track survival after birth and is not the second statistic here.",
+        "searches": [
+          "random link mutual nearest neighbor isolated vertices joint Poisson Gumbel",
+          "Erdos Renyi random graph process last appearance of isolated edge birth component two isolated vertices mutual nearest neighbors joint extinction Poisson Gumbel isolated vertices"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "f51047a8a8b8 states the exact finite unmarked matching probability and full component-count law."
+        ],
+        "reasoning": "The finite unmarked data cover the t=0 formula, but not a joint threshold exceedance law. The claimed theorem is about n tending to infinity with calibrated moving thresholds, not a finite table entry.",
+        "searches": [
+          "Resultary f51047a8a8b8, Finding and Proof",
+          "Resultary: symmetric random-link nearest-neighbor forest isolated vertices and reciprocal edges"
+        ]
+      },
+      "rationale": "The prior unmarked matching law and the isolated-vertex marginal are credited. The supported distinct claim is the calibrated joint Poisson/Gumbel limit for both clocks in the same symmetric random-link graph. The inspected sources do not provide their mixed-moment decoupling or an equivalent joint theorem. The two clocks can be expressed in the Erdős–Rényi process, but the last birth of a two-vertex component is not the time at which no such component remains.",
+      "residual_risks": [
+        "The exact Cooper–Frieze theorem passages were not legible in the available extraction.",
+        "Some same-day catalogue full texts were unavailable; date alone establishes no priority or ordering.",
+        "An unindexed equivalent random-graph-process theorem about the last birth of a K2 may exist; targeted search did not verify one."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact unmarked overlap; not a marked joint extreme theorem",
+          "evidence": "Probability for a specified matching is the product of the reciprocals of 2n-2j-1, and the record gives the finite component-count law.",
+          "identifier_or_url": "Resultary f51047a8a8b8",
+          "material_read": "Finding and Proof, offsets 0–5382, and following prior-work passage",
+          "method": "Local mirror passage inspection",
+          "title": "Exact mutual-nearest-neighbor component law in symmetric random-link graphs",
+          "trigger": "Exact same-model matching formula"
+        },
+        {
+          "assessment": "Exact marginal at the equivalent time scale",
+          "evidence": "At lambda=log n+c_n+o(1), c_n to c, the isolation count in G(n,lambda/n) converges to Poisson(e^-c).",
+          "identifier_or_url": "https://sites.math.duke.edu/~rtd/DoG/Chapter1.pdf",
+          "material_read": "p. 56, Lemma 1.9.2 and proof, offset 139943",
+          "method": "OA PDF passage inspection",
+          "title": "Erdős–Rényi Random Graphs",
+          "trigger": "Classical last-isolated-vertex marginal"
+        },
+        {
+          "assessment": "Spatial one-clock limit, not the symmetric random-link joint law",
+          "evidence": "The data are iid points in Euclidean space of dimension at least two; the longest nearest-neighbor link has a Gumbel limit.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0604599",
+          "material_read": "p. 2 setting and pp. 4–5 Theorem 1.2",
+          "method": "OA PDF passage inspection",
+          "title": "Criticality of the Exponential Rate of Decay for the Largest Nearest Neighbor Link in Random Geometric Graphs",
+          "trigger": "Nearest-neighbor Gumbel precedent"
+        },
+        {
+          "assessment": "Exact coverage unresolved; not evidence of absence",
+          "evidence": "The frozen comparison reports edge-count/connectivity theorems. The extraction did not independently establish the theorem scope.",
+          "identifier_or_url": "https://www.math.cmu.edu/~af1p/Texfiles/ok.pdf",
+          "material_read": "Author manuscript retrieval; decisive theorem passages could not be checked from garbled extraction",
+          "method": "OA PDF retrieval and extraction attempt",
+          "title": "On the Connectivity of Random k-th Nearest Neighbour Graphs",
+          "trigger": "Same-model primary precedent"
+        },
+        {
+          "assessment": "Reportedly a different model and three statistics; exact full-text scope unresolved",
+          "evidence": "Summary specifies one-dimensional geometric data and largest gap, directed nearest-neighbor and mutual-neighbor extremes.",
+          "identifier_or_url": "Resultary b4fb3931b856",
+          "material_read": "Catalogue summary only; matching result file unavailable at the checked local path",
+          "method": "Resultary lookup and attempted local mirror inspection",
+          "title": "Three independent extreme scales in one-dimensional nearest-neighbor geometry",
+          "trigger": "Especially close same-day joint-Gumbel analogy"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The two maxima depend on the same edge array and have different characteristic scales. The joint result resolves whether that dependence survives at the extremes; the mixed rare-configuration argument explains why it disappears. This is more than reproducing two Gumbel marginals.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

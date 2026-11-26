@@ -1,15 +1,21 @@
-# Self-review: sharp negative-type phases for cones over disjoint cycles
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The independent anchored-distance Gram construction matches the analytic three-sector decomposition, and the critical eigenvalues are strictly positive before the first zero and acquire a negative eigenvalue after it. The parity spectrum, odd-cycle least Fourier mode, rational-algebraic-integer no-tie argument, endpoint kernel and rank deductions have been checked explicitly. The accompanying checker reported 499 finite Jacobi spectral comparisons, including four and six-dimensional endpoint nullspaces. These tests supplement rather than replace the proof of all parameter cases.
+## correctness
 
-## Originality
-**PASS, with historical-priority qualification.** Sánchez (2011) establishes the general determinant characterization and already obtains the five-cycle exponent and two-dimensional critical kernel, which are excluded from novelty. Robertson (2020) provides general Gram/Cayley–Menger machinery. Ipsen–Mallik (2022) and Balaji–Bapat–Goel (2020/2021) give wheel matrix-inverse results with different operators or fixed exponent. Public record searches and accessible earlier research claims did not reveal the multi-cycle-cone formula together with its phase, no-resonance and endpoint-support classification. Deza–Maehara (1990) has a general graph-truncated-metric spectral treatment but its primary full text was inaccessible; overlap at the level of an implicit spectral substitution is a material risk, not disproved.
+PASS
 
-## Value
-**PASS.** The result completely classifies a natural graph-family negative-type boundary and identifies a sharp transition between localized and globally supported equality loads. Arbitrary even endpoint dimension defects are constructible, while the global phase has defect one; the absence of a tie is an arithmetic rigidity phenomenon, rather than an imposed genericity assumption. The answer is stronger than evaluating a single small graph, and the full-support question is motivated by the Hilbert-snowflake embedding obstruction.
+The hub-anchored matrix is [qI+(q−1)A+(2−q)J]/2, with A the rim adjacency and J all ones. On the overall constants and between-rim mean-zero constants it has eigenvalues [2(n−1)−(n−3)q]/2 and (3q−2)/2 respectively. All remaining modes have eigenvalues [q+2(q−1)cos(2πj/ell)]/2. An even cycle first contributes one zero at q=2; otherwise the least eigenvalues are attained exactly on the longest odd rims and yield the stated local root. Positive cross-multiplication gives the comparison at n=cot²(π/(2L)); a tie would give the rational algebraic integer 2cos(π/L)=2(n−1)/(n+1), strictly between 1 and 2. Each first zero crosses with negative slope. The kernel and dimensions follow by the group and Fourier multiplicities and Gram rank, including unbounded even nullities by taking a fixed number h of equal sufficiently long odd rims, since cot²(π/(2L))/L→∞. The frozen notes report a bounded run (499 checks); its referenced script is not among the attached support. The independent `python /workspace/branches/independent_reproduction.py 2` passed 11 shortest-path/Gram cases, including mixed rims, multiple critical modes, and both sides of the seven-cycle/triangle switch. The analytic argument covers all permitted parameters, not the finite run.
 
-## Scientific boundaries
-Only finite unweighted cones over disjoint cycles with a nontriangle rim are addressed. No statement extends to general graph cones, weighted metrics, complete-multipartite prior cases, or general Banach targets. A primary older spectral result remains to be checked for historical priority. Independent mathematical validation has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The general diameter-two test and wheel spectral methods are prior, as is the isolated C5 threshold. The distinct supported claim is the full mixed-rim phase and endpoint-nullity classification, including the impossibility of resonance and arbitrary positive even nullity in the local phase. The closest inspected indexed result uses shared-vertex bouquets, not universally joined hubs on disjoint rims. No exact coverage of the mixed-rim claim was established in the inspected evidence.
+
+## value
+
+PASS
+
+The local-versus-global decision answers where critical equality loads live, not merely what the exponent is. It gives a concrete transition from adding triangle rims without changing the longest local cycle, proves no critical-mode collision, and realizes arbitrarily large even embedding-rank drops. These conclusions are useful beyond a one-off wheel calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

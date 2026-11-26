@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:04:40.358501Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The graph is unweighted, unnormalized K_{m,n}, with fixed d>1. No equilibrium coordinate is 1. A positive coordinate makes every neighbor positive at equilibrium; connectivity rules out mixed support, and identical input within each part then forces equal coordinates x or y. Dividing the two equations gives F_d(x)/F_d(y)=n/m with F_d(s)=s^{d+1}/(1-s), strictly increasing onto (0,infinity). The resulting increasing smooth y(x) defines L(x)=y/[m x^d(1-y)] with divergent endpoints (near zero y is asymptotic to (m/n)^{1/(d+1)}x). Log differentiation reduces its sign to 1-d^2(1-x)(1-y), whose derivative is strictly positive, and it changes from negative to positive exactly once. This proves the one nondegenerate minimum and the claimed equilibrium counts. The Jacobian restricted to the within-part zero-sum directions is strictly negative; on the part-constant subspace its diagonal is (-1/(1-x),-1/(1-y)), its off-diagonal product is d^2, and its trace is negative. The determinant changes from negative through zero to positive, proving one unstable eigenvalue, one simple zero, or all stable, as claimed. At the fold both left and right null vectors of the collective block can be positive. The left vector pairs strictly positively with the parameter derivative; twice differentiating the equilibrium curve at L'=0 pairs its quadratic field derivative with -L'' times that positive quantity, proving dynamical saddle-node nondegeneracy. At zero, the derivative is -I (one can use a continuously differentiable extension using positive parts), giving local exponential stability on the cube. On a star, x_c<=x_*=1-d^-2 bounds F_d(x_c), so F_d(y_c)=F_d(x_c)/n forces y_c to zero and the product equation gives x_c to x_*. Substituting y_c asymptotic to x_* d^{2/(d+1)} n^{-1/(d+1)} yields the stated constant, including 2^{8/3}/3 when d=2. Minimizing the scalar degree-averaged expression independently gives d^d/[(d-1)^{d-1} mean_degree]; mean degree tends to two and that scalar threshold tends to 2 at d=2. The methods were checked with a separate exact rational unequal biclique witness (m,n,d)=(375,32,2), (x,y,lambda)=(1/3,5/8,1/25), and direct fold-product parameterization for star examples. The tests are supplementary; they are not the proof for real d and all graph sizes. The frozen self-review's phrase 'finite-density adoption' is not used: the hub has a nonzero limiting fold coordinate, but the mean adoption at the fold tends to zero. No basin, stochastic or time-varying exponent claim follows.",
+      "replay": [
+        "/workspace/reproductions/analytic_checks.py (fold)",
+        "/workspace/reproductions/analytic_checks.txt"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Appendix A of the originating model expands in small relative fluctuations of degree and discards second-order terms before obtaining the averaged equation",
+          "Payoff-biased stochastic imitation and hypergraph master-equation group contagion treat alternative mechanisms, not a broader exact result for the fixed-d neighbor-power adoption ODE"
+        ],
+        "reasoning": "A scalar approximation on concentrated degree distributions does not supply an exact full-spectrum result in a network with different degrees on its two parts. Standard fold existence methods do not by themselves give an evaluated threshold or that there is exactly one fold.",
+        "searches": [
+          "Resultary: network adoption equilibria heterogeneous graphs power-law influence and higher-order fold",
+          "arXiv:2607.05608v1 Appendix A; arXiv:2406.14922 abstract; DOI 10.1038/s42005-021-00788-w"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2607.05608v1",
+        "arXiv:2406.14922",
+        "DOI 10.1038/s42005-021-00788-w",
+        "DOI 10.1103/PhysRevE.87.012811 (bibliographic)",
+        "Resultary e52a8b9c2a88",
+        "Resultary 0b532b2a2959",
+        "Resultary 8dc24e9fdac5 (self-match)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The mean-degree equation has a positive limiting star threshold when d=2; its approximation assumption fails on stars. It does not imply the exact positive-branch saddle and attractor with a vanishing threshold",
+          "The analogous full-dimensional hypergraph fold follows from dynamics with products of group inputs; its threshold does not specialize to the present sum of individual powers"
+        ],
+        "reasoning": "The governing law is known and symmetry gives two equations, but uniqueness, full-mode signs, and the asymptotic constant require separate analysis. The claim is a rigorous comparison of two specified models, not a contradiction of the literature or a claim about broad stochastic social influence.",
+        "searches": [
+          "arXiv:2607.05608v1 Eq. (1) and Appendix A (A1)–(A3)",
+          "Resultary e52a8b9c2a88 and 0b532b2a2959, Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary node-level Eq. (1) matches after rate rescaling and fixing d; Eq. (2) is scalar and uses a narrow-degree approximation",
+          "The multipartite hypergraph law uses products of group infection sums, not separate powers inside the ordinary adjacency sum; the homogeneous adopter–dissatisfied record is a different discrete-time system with a larger per-node state"
+        ],
+        "reasoning": "The equal-part case reduces to the known homogeneous scalar fold. For unequal parts the exact two-variable equations, null determinant condition and spectral result are not reformulations of the approximating scalar fold; the models with different state variables or infection products cannot be identified by relabeling the parts.",
+        "searches": [
+          "Resultary: complete-bipartite fixed exponent adoption, nonlinear neighbor-power sums and star fold",
+          "arXiv:2607.05608v1 Eq. (1), Eq. (2), Appendix A",
+          "Resultary e52a8b9c2a88 and 0b532b2a2959 Findings"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed match 8dc24e9fdac5 is the assigned work itself. The separate structural match e52a8b9c2a88 is a different equation",
+          "The star-specific primary search did not furnish usable comparisons. The Cator–Van Mieghem title is for exact stochastic SIS on complete and star graphs; its full text was not accessed"
+        ],
+        "reasoning": "The target is an all-size analytic formula, rather than a finite table. No separate matching formula or table was verified. Search misses and inaccessible material are not evidence of global absence.",
+        "searches": [
+          "Resultary: exact biclique fold threshold and star n^{-1/(d+1)} leading constant",
+          "Primary web query for Ariwayo–Morsky–Asllani exact star/complete-bipartite threshold",
+          "DOI 10.1103/PhysRevE.87.012811"
+        ]
+      },
+      "rationale": "Credit the exact motivating node-level equation, scalar mean-field fold, homogeneous behavior, symmetry reduction and bifurcation tools as prior or standard. The distinct supported content is the heterogeneous complete-bipartite full-network equilibrium and stability classification in the fixed-exponent model, and the exact star scaling. The closest structural catalogue theorem has a different incidence law, and the primary scalar model is not an exact heterogeneous reduction. Comparisons are bounded to the inspected mathematical statements and passages.",
+      "residual_risks": [
+        "An earlier exact theorem under a change of response coordinates or in nonlinear positive feedback systems might cover heterogeneous stars; no such matched theorem was substantiated.",
+        "The stochastic star SIS full text could not be inspected at the cited DOI. The checks of some secondary model comparisons were limited to opening passages."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the node law and approximate scalar fold, not the heterogeneous exact classification in inspected statements",
+          "evidence": "Appendix A explicitly assumes small relative degree fluctuations and neglects second-order terms; Eq. (A3) is the scalar mean-field equation rather than an exact invariant two-part restriction.",
+          "identifier_or_url": "https://arxiv.org/pdf/2607.05608v1",
+          "material_read": "PDF p. 2 Eqs. (1)–(2), text offsets about 10000–15082; p. 6 Appendix A, offsets 40010–44208, especially (A1)–(A3)",
+          "method": "Primary OA PDF p. 2 and supplemental bounded passage inspection",
+          "title": "Collective action through adaptive awareness",
+          "trigger": "Originating exact model and closest potentially covering analytic theory"
+        },
+        {
+          "assessment": "Strong structural analogy, non-equivalent generator",
+          "evidence": "The exact theorem covers an m-uniform multipartite hypergraph closure with products of group infection sums, not the neighborwise powered ODE or its star law.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-sharp-endemic-fold-and-a-balancing-principle-for-pure-higher-o--e52a8b9c2a88",
+          "material_read": "Local-mirror RESULT.md Finding, offset near 0",
+          "method": "Resultary mirror passage inspection",
+          "title": "A sharp endemic fold and a balancing principle for pure higher-order contagion on multipartite hypergraphs",
+          "trigger": "Strongest distinct catalogue overlap for exact full-dimensional folds"
+        },
+        {
+          "assessment": "Different dynamical system",
+          "evidence": "Discrete-time all-to-all susceptible–adopter–dissatisfied dynamics with three components per node.",
+          "identifier_or_url": "2026/10/18/SCOPE-a-sharp-adoption-fold-and-robust-bistability-in-the-homogeneous--0b532b2a2959",
+          "material_read": "Local-mirror RESULT.md Finding, offset near 0",
+          "method": "Resultary mirror passage inspection",
+          "title": "A sharp adoption fold and robust bistability in the homogeneous adopter model",
+          "trigger": "Close adoption-fold terminology"
+        },
+        {
+          "assessment": "Different mechanism in inspected material",
+          "evidence": "Payoff-biased imitation modeled by a finite-population stochastic process with a continuum replicator-like ODE.",
+          "identifier_or_url": "https://arxiv.org/abs/2406.14922",
+          "material_read": "Abstract on OA PDF p. 1",
+          "method": "Primary OA PDF opening passage inspection",
+          "title": "Social learning with complex contagion",
+          "trigger": "Nonlinear social adoption comparison"
+        },
+        {
+          "assessment": "Different exposure law in inspected material",
+          "evidence": "Multibody hypergraph contagion and group seeding are studied via an approximate master-equation framework.",
+          "identifier_or_url": "https://doi.org/10.1038/s42005-021-00788-w",
+          "material_read": "OA PDF p. 1 abstract",
+          "method": "Primary opening passage inspection",
+          "title": "Influential groups for seeding and sustaining nonlinear contagion in heterogeneous hypergraphs",
+          "trigger": "Heterogeneity and nonlinear-contagion onset"
+        },
+        {
+          "assessment": "Different documented setting; complete-text comparison unavailable",
+          "evidence": "Finite-state stochastic SIS setting does not identify a deterministic fold for a fixed real neighbor-power exponent.",
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevE.87.012811",
+          "material_read": "Bibliographic title and scope; direct DOI full-text request returned 403",
+          "method": "Bibliographic check and OA access attempt",
+          "title": "Susceptible-infected-susceptible epidemics on the complete graph and the star graph: Exact analysis",
+          "trigger": "Exact star-graph threshold comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Complete bipartite graphs are the canonical reduction retaining two genuinely different degrees, and their star limit sharply tests extrapolation of a narrow-degree approximation. The equilibrium table addresses all vertex patterns, the spectral calculation rules out additional within-part instabilities, and the sharp hub threshold explains why degree averaging can miss a qualitative onset change. The value is the exact deterministic threshold and stability, not an asserted nonvanishing global adoption fraction, a stochastic prediction, or a global basin characterization.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

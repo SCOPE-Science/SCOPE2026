@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The state reduction and probability model are explicit. The proof uses a strict entropy-chord inequality, computes the reset-age trigonometric sum exactly, and optimizes its unique cosine endpoint before characterizing equality in both inequalities. This establishes every quantifier and boundary: \(0<p<1\), \(J,\Omega,T>0\), the full family of odd-half-turn equality cases and the nonattained \(p\downarrow0\) ceiling. A separate four-dimensional unitary implementation agrees at thirty parameter assignments and twenty exact optimum assignments.
+## correctness
 
-**Originality — PASS, qualified.** The motivating 2026 study already derives the Bell-reset one-qubit reduced density matrix, identifies the Jensen gap as Holevo age information, and gives generic entropy bounds. Its sections on the two-qubit model, entropy, phase matching and appendices were compared with the precise proposed theorem. They do not state or imply a globally sharp fixed-\(p\) information ceiling and its complete equality conditions without performing a new optimization. The earlier resetting framework addresses general stationary mixtures and spectral resonances. Other close published results on concurrence, CHSH and gate-phase Fisher information concern different mathematical functionals and have no implication yielding this optimum. A potentially undiscovered or unindexed equivalent optimization remains a priority risk.
+PASS
 
-**Value — PASS.** The motivating work proposes measuring age information locally in a stochastic-reset quantum circuit, making a sharp local-information ceiling and attainable coupling recipe directly relevant. The result improves the generic one-bit dimension bound to a model-specific maximum below one-third of a bit, classifies every equality case, and identifies a simple saturating local measurement. It is an exact benchmark for the ideal two-qubit device, without an unsupported claim of noise robustness or large-chain universality.
+On the span of Φ+ and Ψ+, the Hamiltonian is the 2×2 matrix with diagonal (−J,J) and off-diagonal Ω. Exponentiating and tracing gives (I−y_m σ_x)/2 with y_m=[2JΩ/(J²+Ω²)]sin²(mφ) and φ=T√(J²+Ω²). With q=1−p the geometric age sum gives μ=c[1−p(1−q cos(2φ))/(1−2q cos(2φ)+q²)]/2. The fraction is strictly increasing in cos(2φ) for 0<p<1, so μ≤q/(1+q)<1/2, with equality only at c=1 and cos(2φ)=−1. For the entropy f(y)=h₂((1+y)/2), strict concavity gives f(y)≥1−y with equality only at 0 and 1. The resulting upper envelope g(μ)=f(μ)−1+μ is strictly increasing on [0,1/2], since g′≥1−(log₂3)/2>0. Thus saturation requires exactly J=Ω and φ=π/2 modulo π, which gives 0 or 1 polarization depending on parity and saturates the chord. The states commute at all parameters, so σ_x measurement gives precisely the Holevo gap. The maximal mean strictly decreases with p; its limit at p↓0 is 1/2, yielding the nonattained 0.311278124459… bit supremum. This is an analytic replay for the ideal single-spin ensemble, fixed positive T and J,Ω>0, not a claim about other reset states or noise. The finite truncation diagnostics in verify.py were inspected, not executed.
 
-**Limits.** The exact result is restricted to Bell-reset ideal two-spin transverse Ising gates with geometric reset ages; it is neither a new formula for the source's reduced states nor an independent audit of the source. The absolute upper endpoint in reset probability is a supremum only.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The same reset dynamics, reduced-state formula and Holevo identification were already published. Exact optimization of that particular single-spin Holevo gap over the allowed couplings and phase, its full equality conditions, and the resulting absolute supremum are the supported distinction.
+
+## value
+
+PASS
+
+This replaces a one-bit dimension bound by a sharp attainable fixed-reset-rate envelope, gives every exact tuning, and identifies the optimal parity-to-local-measurement channel. It explains quantitatively why the best possible single-spin readout in this model still yields at most about 0.3113 bits of age information. The simple entropy method resolves a real optimization question raised by a published physical model; no extrapolation to noisy devices, two-spin information or larger systems is justified.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,166 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T20:08:26.417743Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof §§1–5; VERIFICATION.md, verification_output.txt and verify.py inspected, not executed",
+        "Independent walk expansion and rational bisection replay"
+      ],
+      "rationale": "For n≥4, zero through three forward moves cannot reach the same column. In row i, a walk with k jumps contributes the product of the first k rates; the stays are distributed over the k+1 visited vertices, contributing the complete homogeneous polynomial in the negative rates. The quadratic diagonal is strictly positive; the one-hop entry changes sign at 2/(r_i+r_{i+1}). In the cubic, the diagonal is strictly decreasing in r_i h to and beyond its unique zero ρ, the one-hop bracket has discriminant −(5a²+2ab+5b²)/12 for a=r_i,b=r_{i+1}, and the two-hop constraint is h≤3/(r_i+r_{i+1}+r_{i+2}). The last hop is positive. Thus the horizons are exact, with no later reentry and row sums one. The inequalities M<A<C≤A+M<2A and ρ>3/2 give strict bounds. On the alternating and adjacent-fast four-cycles the triple constraint is active as the slow rates tend to zero, yielding the two distinct endpoints of the range. On the single-fast-state family the two constraint ratios cross 1 at R=1 and R=ρ/(2−ρ), respectively, giving precisely the stated ties and strict inequalities. An independent rational bisection gives ρ≈1.596071637983321523 and switch ≈3.951373035591441433. The prose's last printed digit in ρ is a rounding slip; the defining cubic, frozen check output and exact comparisons determine the result.",
+      "residual_risks": [
+        "Only the completed stability polynomials, one-way cycles with n≥4, strictly positive rates and h≥0 are checked. There is no internal-stage, nonlinear SSP, cost or accuracy conclusion."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "For the general quadratic theorem the two-hop alternative along an existing edge is zero on this cycle and the two local exit rates sum to r_i+r_{i+1}, so its cutoff is exactly 2/A.",
+          "The primary general results give a valid Taylor-invariance threshold or absolute-monotonicity-based scaling, not the exact joint profile of the two methods on this cycle."
+        ],
+        "reasoning": "The first horizon is a specialization and is not credited. A sufficient step bound does not give the largest step or all profiles attaining or approaching a sharp ratio.",
+        "searches": [
+          "Resultary: Sharp graph-local positivity horizons and an SSP equality motif, opening RESULT.md",
+          "arXiv:1406.6755, Lemma 3.2, Theorem 3.3 and Corollary 1",
+          "Lóczi–Ketcheson, Rational functions with maximal radius of absolute monotonicity, pp. 159–160"
+        ]
+      },
+      "checked_sources": [
+        "Resultary: graph-local quadratic theorem, heterogeneous RK3 triangle, heterogeneous RK4 cycle and multipartite order reversal",
+        "arXiv:1406.6755",
+        "arXiv:2102.08242, opening positivity framework",
+        "Lóczi–Ketcheson, pp. 159–160",
+        "Gerisch–Weiner 1999 report, introduction on positive IVP splitting",
+        "Horváth 2005, landing page only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known walk identity supplies a route to the entry polynomials, not the cubic sign and extremum analysis. The published degree-four comparison uses different local constraints and a forward Euler baseline. The triangle's diagonal has a return term absent here."
+        ],
+        "reasoning": "There is an additional optimization over competing adjacent-pair, triple and maximum-rate obstructions: both strict bounds, which obstruction is active near them, and simultaneous attainability in limits of distinct length-four patterns have to be established. The comparison is not a substitution in the degree-four or sufficient-step theorem.",
+        "searches": [
+          "Resultary: Exact RK4 positivity on heterogeneous directed cycles and a sharp CFL gain, Finding and walk expansion",
+          "arXiv:1406.6755, Theorem 3.3 and Corollary 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact local match is the frozen finding. The graph-local general RK2 result gives the quadratic cutoff under the same entrywise-nonnegativity condition. Nearby exact RK3 and RK4 findings have different hypotheses."
+        ],
+        "reasoning": "Polynomial Markov stochasticity and endpoint positivity are equivalent in this setting because Q kills the constant vector. This does not equate the frozen rate-profile ratio to a universal method-level SSP radius.",
+        "searches": [
+          "Resultary: variable-rate one-way Markov cycles, exact quadratic and cubic positivity horizons and sharp RK3/RK2 ratio",
+          "Primary-literature search: exact RK positivity for directed cycles with variable rates and quadratic/cubic stability polynomials"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Nearby exact frontiers cover n=3 with wraparound, or undirected unweighted graph partitions. The degree-four local result treats n≥5 and a different polynomial. No separate exact all-profile comparison or table covering the two sharp constants was identified."
+        ],
+        "reasoning": "A triangular or uniform-rate entry table cannot capture the different spatial rate patterns required for both extremal ratios.",
+        "searches": [
+          "Resultary: 3/4 and 3/2 endpoint ratio, one fast state and directed-cycle RK2 versus RK3",
+          "Resultary: third-order heterogeneous triangle and Taylor RK diffusion on complete multipartite graphs"
+        ]
+      },
+      "rationale": "The exact quadratic horizon has stronger local coverage, and both the walk-expansion technique and the general principle of finding a positivity threshold are known. The distinct contribution is the sharp two-sided RK3/RK2 comparison for every positive rate profile, including both sharpness configurations and the contrast switch. The checked general step-size constructions do not yield this optimized comparison; related exact results change the order, graph, or wraparound regime.",
+      "residual_risks": [
+        "Historical priority is bounded, especially for older specialist positivity work not independently accessible in full text. The minor numerical transcription does not enter any exact comparison."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE",
+          "evidence": [
+            "The exact quadratic bound specializes to 2/A; no cubic/RK2 comparative ratio is provided by that bound."
+          ],
+          "identifier_or_url": "Resultary, finding 4f9e85fe71de",
+          "material_read": "Opening RESULT.md, finding and proof passage",
+          "method": "Local mirror passage read",
+          "title": "Sharp graph-local positivity horizons and an SSP equality motif",
+          "trigger": "Exact horizon for arbitrary weighted directed generators"
+        },
+        {
+          "assessment": "DISTINCT_WRAPAROUND_REGIME",
+          "evidence": [
+            "The distinct diagonal term includes abc h³/6 from a three-jump return."
+          ],
+          "identifier_or_url": "Resultary, finding 6bce00c73ed2",
+          "material_read": "Opening RESULT.md, theorem/entry formulas",
+          "method": "Local mirror passage read",
+          "title": "A sharp positivity frontier for third-order Runge–Kutta on heterogeneous directed triangles",
+          "trigger": "Same cubic polynomial and direction, nearby cycle size"
+        },
+        {
+          "assessment": "METHOD_OVERLAP_ONLY_FOR_COMPARISON",
+          "evidence": [
+            "Degree-four constraints, n≥5 and a different comparison baseline; not the quadratic/cubic sharp rate envelope."
+          ],
+          "identifier_or_url": "Resultary, finding 36d0a038ee0c",
+          "material_read": "Opening RESULT.md, theorem and walk method",
+          "method": "Local mirror passage read",
+          "title": "Exact RK4 positivity on heterogeneous directed cycles and a sharp CFL gain",
+          "trigger": "Same topology and general walk algebra"
+        },
+        {
+          "assessment": "DIFFERENT_GENERATOR_CLASS",
+          "evidence": [
+            "Undirected unweighted complete multipartite graphs; no directed heterogeneous-rate envelope."
+          ],
+          "identifier_or_url": "Resultary, finding 0aa3ec090e79",
+          "material_read": "Opening RESULT.md, theorem and hypotheses",
+          "method": "Local mirror passage read",
+          "title": "Exact positivity radii and an order-three reversal for Taylor Runge–Kutta diffusion on complete multipartite graphs",
+          "trigger": "Exact comparison of quadratic and cubic positivity"
+        },
+        {
+          "assessment": "GENERAL_VALID_BOUND_NOT_SHARP_COMPARISON",
+          "evidence": [
+            "Nonnegative coefficient-polynomial construction gives a valid invariance step; not the evaluated exact ratio for these generators."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1406.6755",
+          "material_read": "Printed pp. 5 and 7, Lemma 3.2, Theorem 3.3, Corollary 1",
+          "method": "Bounded OA original-text passages",
+          "title": "Steplength thresholds for invariance preserving of discretization methods of dynamical systems on a polyhedron",
+          "trigger": "Potential general implication by polynomial-root threshold"
+        },
+        {
+          "assessment": "DIFFERENT_UNIFORM_GUARANTEE",
+          "evidence": [
+            "R(ψ)h₀ is a scaling principle for positive/contractive steps, not a fixed-generator exact horizon ratio."
+          ],
+          "identifier_or_url": "doi:10.1112/S1461157013000326",
+          "material_read": "Printed pp. 159–160, definitions and step scaling",
+          "method": "Bounded OA original-text passages",
+          "title": "Rational functions with maximal radius of absolute monotonicity",
+          "trigger": "Possible method-level optimality implication"
+        },
+        {
+          "assessment": "ACCESS_LIMITATION",
+          "evidence": [
+            "No independent whole-paper inference made."
+          ],
+          "identifier_or_url": "doi:10.1016/j.apnum.2004.08.026",
+          "material_read": "Landing-page material only; OA full-text retrieval unavailable",
+          "method": "DOI and publisher-PDF access check",
+          "title": "On the positivity step size threshold of Runge–Kutta methods",
+          "trigger": "Specialist older exact-threshold literature"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof §§4–5 and scope",
+        "Resultary graph-local quadratic and heterogeneous fourth-order comparison passages"
+      ],
+      "rationale": "The largest completed positive step is a natural constraint on integration of a transition network. A strict sharp range showing that the higher-order method can win or lose, with a cheap local decision rule and a one-site contrast switch, is more informative than positivity of one method or examples at selected rates. The different spatial arrangements of fast rates explain the two limits.",
+      "residual_risks": [
+        "No performance conclusion at equal runtime or equal error. The ratio endpoints are limits, not attained at positive rates."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

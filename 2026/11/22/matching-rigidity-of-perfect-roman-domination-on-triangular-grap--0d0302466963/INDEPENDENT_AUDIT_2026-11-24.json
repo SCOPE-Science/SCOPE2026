@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:39:21.651300Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–59; VERIFICATION.md; support_enum.cpp; ternary_enum.cpp; formula_check.py; the recorded outputs",
+        "/workspace/reproductions/3/roman_direct.py and /workspace/reproductions/3/replay.txt (python3 roman_direct.py)"
+      ],
+      "rationale": "For a fixed label-two support H in K_n with t edges, the exact best weight is N_n+t-ab, where a and b count root vertices of degree zero and one: an edge outside H sees d_H(u)+d_H(v) defenders and all ab eligible edges must be zero at optimum. Let c=n−a−b. If c>0 and b is even, 2t≥b+2c makes ab−t at least c(b+1) below the value Q_n(b)=b(n−b)−b/2 from a matching on b vertices. If b is odd, integrality gives an extra 1/2 loss; b−1 and b+1 are feasible even sizes and the two changes from Q_n(b) sum to −2, so one matching loses at most 1 and still strictly wins. Thus every optimum support is a matching. The matching weight is N_n+4r²+(1−2n)r, with unique nearest feasible integer to (2n−1)/8, namely floor((2n+3)/8); no ties occur because 2n−1 is odd. The labels are forced by the conditional optimum, so counting labelled partial pairings gives exactly the factorial formula. This covers n=3 and the entire permitted range. An independent direct original-adjacency check agreed for all supports through n=6, also testing every ternary labelling through n=5.",
+      "residual_risks": [
+        "The finite check corroborates but does not establish the all-n theorem. The proof concerns standard vertex perfect Roman domination, not the neighborhood-label-sum variant."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2019 abstract uses the exact-one definition. Theorem 11 of Fernau–Mann concerns pointwise-minimal ordinary and perfect Roman functions, and may relabel zeros to ones."
+        ],
+        "reasoning": "A pointwise-minimal-function bijection is not a minimum-weight theorem or a weight-preserving formula. The available 2019 material confirms the setting but does not supply this family’s result.",
+        "searches": [
+          "Primary search: perfect Roman domination line graphs, triangular graphs, perfect edge Roman on complete graphs",
+          "Fernau–Mann arXiv:2309.07018, Theorem 11",
+          "Perfect Roman domination in graphs, DOI 10.1016/j.tcs.2019.08.017"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary record 66092f59608f and the exact assigned hit",
+        "arXiv:2309.07018",
+        "DOI 10.1016/j.tcs.2019.08.017 (abstract)",
+        "Accessed IIP Series PDF cited in the frozen result"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The ordinary minimum n−1 is only a lower bound under the stricter perfect condition (e.g. 4 versus 5 at n=5). The perfect-edge model gives a smaller feasible class than standard vertex PRD on L(K_n)."
+        ],
+        "reasoning": "Neither a weaker condition’s lower bound nor the complete-graph optimizer for a stricter condition gives equality for the target; the ordinary-to-perfect minimum-family correspondence can change weights. The strict rejection of all nonmatching supports and the optimizing matching size do not follow from the inspected statements.",
+        "searches": [
+          "October Resultary record 66092f59608f; Fernau–Mann Theorem 11; edge PDF Theorem 2.13"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The direct Resultary hit was the assigned record itself. The edge PDF includes the additional zero/one-neighborhood restriction in its definition and partition conditions."
+        ],
+        "reasoning": "The reformulation of the target on root edges counts exactly one 2-neighbor while allowing 1-neighbors. An optimum for n=5 has a zero cross edge incident with an edge labelled 1 among the unmatched vertices; it is impermissible under the label-sum condition. Thus the edge theorem on the same root clique is not an equivalent statement.",
+        "searches": [
+          "Resultary: exact perfect Roman domination on triangular graphs; standard perfect Roman on line graphs; perfect edge Roman on K_n",
+          "IIP Series PDF rsl202441AB696ED5500FF.pdf, §II"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "October record 66092f59608f gives the ordinary Roman weight polynomial and minimum n−1 for the same graph, with matching-based ordinary minimizers."
+        ],
+        "reasoning": "Its coefficients count admissible functions with at least one 2-neighbor per zero, and do not record which zeros have multiple 2-neighbors. The output cannot be filtered to the perfect parameter or its optimizer count by weight alone. No inspected exact table encoded the target quantity.",
+        "searches": [
+          "Resultary: Roman domination polynomial and minima of triangular graphs; perfect Roman optimum census for L(K_n)"
+        ]
+      },
+      "rationale": "The strongest inspected overlaps use a materially different admissibility condition or a comparison that does not preserve weight. No equivalent determination of the standard perfect parameter, optimum matching support, and exact optimizer count was found in the bounded checks.",
+      "residual_risks": [
+        "The 2019 article was not available in full. The different edge formulation was verified without interpreting the extracted numerical display. The frozen citation metadata for that PDF should be checked separately. Unindexed exact results remain possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Ordinary Roman, not perfect Roman",
+          "evidence": "Requires an adjacent 2; minimum stated as n−1.",
+          "identifier_or_url": "2026/10/13/...66092f59608f",
+          "material_read": "Finding and definition, RESULT.md offset 0 (mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4)",
+          "method": "Local published mirror",
+          "title": "Roman domination polynomial of triangular graphs with minimum functions",
+          "trigger": "Same family, weight enumerator and matching minimizers"
+        },
+        {
+          "assessment": "Relation is not weight preserving",
+          "evidence": "The pointwise-minimal-function bijection can change zeros to ones, affecting the optimization objective.",
+          "identifier_or_url": "https://arxiv.org/pdf/2309.07018",
+          "material_read": "Abstract and Theorem 11 and associated construction, pp. 27–28",
+          "method": "Primary OA PDF statement and proof comparison",
+          "title": "Perfect Roman Domination and Unique Response Roman Domination",
+          "trigger": "Same definition and a general relation to ordinary Roman functions"
+        },
+        {
+          "assessment": "Different admissibility; numerical theorem not relied upon",
+          "evidence": "The zero/one-neighborhood restriction excludes a standard optimum. The accessed front matter lists 2023 and DOI 10.58532/V3BKCM2P1CH6, unlike the metadata cited in the frozen text.",
+          "identifier_or_url": "https://www.iipseries.org/assets/docupload/rsl202441AB696ED5500FF.pdf",
+          "material_read": "Front matter; §II definition and conditions, p. 3; Theorem 2.13 location, p. 7 (numerical display unreadable in extraction)",
+          "method": "Primary OA PDF passage inspection",
+          "title": "Perfect Edge Roman Domination in Fuzzy Simple Graphs",
+          "trigger": "Complete-graph theorem on an apparently equivalent edge problem"
+        },
+        {
+          "assessment": "Definition verified; full-result coverage unresolved",
+          "evidence": "The available passage requires exactly one adjacent 2 and says nothing about the triangular-graph classification.",
+          "identifier_or_url": "https://doi.org/10.1016/j.tcs.2019.08.017",
+          "material_read": "Publisher abstract; full text not retrieved",
+          "method": "Publisher passage plus direct and configured alternate lawful retrieval attempts",
+          "title": "Perfect Roman domination in graphs",
+          "trigger": "Exact standard parameter in the previously published article"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof, lines 3–56",
+        "October ordinary-Roman Resultary record 66092f59608f",
+        "Fernau–Mann arXiv:2309.07018, Theorem 11"
+      ],
+      "rationale": "Triangular graphs are a canonical highly symmetric family, and imposing uniqueness of the defending neighbor changes the order of the minimum from ordinary Roman’s linear value to quadratic. The degree-class argument proves an actual rigidity result, not just an example giving the optimal weight: every optimizer has a unique matching support with a forced labelling. This yields an exact count usable independently of the scalar parameter and identifies why ordinary-Roman polynomial information is inadequate.",
+      "residual_risks": [
+        "The result does not enumerate all perfect Roman functions or treat arbitrary line graphs."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

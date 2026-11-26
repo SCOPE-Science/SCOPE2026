@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:52:12.754658Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The ordered draws give linear coefficients (t,t²,t) and pair coefficients (t²+t,t²+1,t²+t) in order xy,xz,yz, with total (2t+1)². For the general degree-two form αx+βy+γz+Axy+Bxz+Cyz the xy Rayleigh difference is (α+Bz)(β+Cz)−Aγz. The three discriminants coincide and equal (u²−v²−w²)²−4v²w² with u=√(Aγ), v=√(Bβ), w=√(Cα); hence their being nonpositive is precisely the triangle condition for u,v,w. Here u=w=t√(t+1), v=t√(t²+1), giving t²+1≤4(t+1) or 0<t≤2+√7. All leading coefficients are positive, so discriminant equality is included by the all-real multiaffine criterion. The rederived exact witness is R_xz(7/36)=−325/36 at t=5. For each pair and each draw, joint absence has lower probability than the product of the two absence probabilities; combining independent draws and complementing yields strict negative covariance. The count is 1+Bernoulli with success probability 1−(t²+2t)/(2t+1)². One draw gives a stable linear form, at most two types give just Ax+By+Cxy with Rayleigh difference AB≥0 for nonzero rounds, and zero rounds give the constant 1. Thus the type and draw counts really are minimal. The supplied verify.py was inspected but not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3.2 gives the all-real Rayleigh-difference characterization, not stability for any particular weighted occupancy family.",
+          "The accessible abstracts of the two uniform group-drawing papers concern uniform packages and completion-time or unseen-count fluctuations, not an evaluated nonuniform stability criterion."
+        ],
+        "reasoning": "The general characterization is the method of proof, leaving the nontrivial sign question open until the three-variable coefficient/discriminant calculation. A real-rooted count distribution cannot certify all-real multivariate Rayleigh inequalities.",
+        "searches": [
+          "Borcea–Brändén–Liggett arXiv:0707.2340",
+          "Anari Geometry of Polynomials lecture 3 Theorem 3.2",
+          "Uniform group-drawing papers arXiv:2605.06953 and arXiv:2202.07485"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Resultary 6614ecd26c48 and 9153a89fb309",
+        "Anari lecture 3",
+        "arXiv:0707.2340",
+        "Uniform contexts arXiv:2605.06953 and arXiv:2202.07485 (abstracts)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For positive three-type laws p,q, coefficients are α_i=p_iq_i and β_ij=p_iq_j+p_jq_i; the criterion leads to a discriminant test for these coefficients. The frozen choice gives a positive discriminant beyond 2+√7, excluding any claimed unconditional extension of uniform stability."
+        ],
+        "reasoning": "The prior multiaffine criterion does not itself assert the discriminant sign for this family, and the uniform theorem's symmetry assumption does not extend under varying draw weights. The inference audited here is a sharp computation and minimal witness, not a new stability criterion.",
+        "searches": [
+          "Compare Anari Theorem 3.2 and Resultary 6614ecd26c48 theorem and scope to the evaluated Rayleigh discriminant"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Complementation preserves real stability of a real multiaffine generating polynomial via ∏x_i f(1/x_i) and conjugation, so vacancy studies are relevant.",
+          "Resultary 6614ecd26c48 is for uniform packets, and Resultary 9153a89fb309 treats uniform coupon updates with deletion."
+        ],
+        "reasoning": "Even under vacancy/occupancy duality the older uniform packet result covers only the t=1 member of this family. The lossy uniform process has a different law, not the two specified independent weighted rounds.",
+        "searches": [
+          "Local Resultary weighted two-draw occupancy, real stability, strong-Rayleigh and vacancy/complement formulations",
+          "Resultary 6614ecd26c48 and 9153a89fb309",
+          "Compare the exact three-variable Rayleigh differences and positive coefficient formulation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The older catalogue entry's exact result is a Poisson-binomial vacancy law for uniform packets. It explicitly excludes arbitrary weighted packets in its scope passage (mirror offset 7200)."
+        ],
+        "reasoning": "For a continuous parameter threshold the relevant exact lookup is a formula/theorem catalogue, not finite integer tables. The identified exact entries do not provide the weighted threshold or a general formula enclosing it.",
+        "searches": [
+          "Local Resultary exact two-round, three-type occupancy stability thresholds; uniform and weighted vacancy terms",
+          "Closest exact occupancy catalogue entries 6614ecd26c48 and 9153a89fb309"
+        ]
+      },
+      "rationale": "The supported distinct claim is the exact weighted two-draw transition, with a size-minimal separation of strong Rayleigh from pairwise negative correlation and real-rooted cardinality. Credit established multiaffine stability theory, uniform occupancy results, and standard pairwise negative dependence. No stronger evaluated weighted classification or equivalent exact threshold was established by the compared sources; priority is not certified.",
+      "residual_risks": [
+        "An earlier evaluated classification of weighted occupancy, or of an equivalent small polynomial family in another normalization, could affect priority; the search and primary comparison were bounded.",
+        "No new general negative-dependence theorem or count law is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Uniform fixed-size packets only; no weighted cutoff",
+          "evidence": "Independent packets may have varying sizes, but are permutation invariant within a round; arbitrary weighted packets are outside scope.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-poisson-binomial-vacancy-law-for-heterogeneous-group-coupon-draw--6614ecd26c48/RESULT.md",
+          "material_read": "Finding and weighted scope passage, offsets 0 and 7200",
+          "method": "Local Resultary mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Poisson-binomial vacancy law for heterogeneous group coupon drawings",
+          "trigger": "Closest older exact vacancy result, applicable in principle by complementation"
+        },
+        {
+          "assessment": "Different dynamics and uniform draw mechanism",
+          "evidence": "Updates use uniform redraws followed by independent deletions; they do not form the weighted two-round law above.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-strong-rayleigh-persistence-in-a-lossy-coupon-collection-process--9153a89fb309/RESULT.md",
+          "material_read": "Finding, offset 400",
+          "method": "Local Resultary mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Strong-Rayleigh persistence in a lossy coupon collection process",
+          "trigger": "Closest distinct same-day strong-Rayleigh occupancy result"
+        },
+        {
+          "assessment": "Established abstract criterion used explicitly, not evaluated weighted coverage",
+          "evidence": "Real multiaffine stability is equivalent to all pairwise Rayleigh differences being nonnegative at all real points.",
+          "identifier_or_url": "https://math.berkeley.edu/~nikhil/courses/270/lec3.pdf",
+          "material_read": "PDF p. 1, Definition 3.1 and Theorem 3.2, OA offsets 1250–3348",
+          "method": "OA PDF passage",
+          "title": "Geometry of Polynomials, Lecture 3",
+          "trigger": "Exact test needed to turn the algebra into an iff real-stability result"
+        },
+        {
+          "assessment": "Supports established framework; not an exact weighted comparison in that passage",
+          "evidence": "The strongly Rayleigh class is defined through stability of measure-generating polynomials.",
+          "identifier_or_url": "https://arxiv.org/abs/0707.2340",
+          "material_read": "PDF p. 1 opening passage, OA offsets 100–1408",
+          "method": "OA primary PDF passage",
+          "title": "Negative dependence and the geometry of polynomials",
+          "trigger": "Foundational definition and scope of strongly Rayleigh measures"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The explicit boundary answers how far uniform-packet stability persists in a strictly positive, round-dependent deformation, and exactly where it stops even though familiar negative-dependence and one-variable diagnostics still hold. The obstruction occurs at the smallest possible type and draw counts, not an arbitrary large example. This makes the sharp witness and transition useful; the shifted-Bernoulli marginal on its own is routine.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

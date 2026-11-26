@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:42:05.147306Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Assumptions and scope, Proof",
+        "Frozen certificate.json and VERIFICATION.md",
+        "/workspace/branches/e465e93e-62d6-4281-9f38-b7379bc82b5a/replay_record5.py and replay_record5.log"
+      ],
+      "rationale": "The stated integral program is exactly disjointness of the distinct output sets after deleting one adjacent pair, with no wraparound. An independent exact replay rebuilt those sets from binary strings and checked the listed codes and all rational primal and dual inequalities for n=2,...,8. Their respective objectives certify (1,2,4,4,8,13,21) for the LP, and the exhibited codes match the LP through n=7. At n=8 every one of the 77 weighted families was checked pairwise for conflict; the minimum coverage of a word is 1 and the total weight is 482/23. Each code meets a family at most once, so its integral size is at most floor(482/23)=20, achieved by the displayed code. This proves the first gap, not optimality of the clique-augmented relaxation or any assertion for n>8.",
+      "residual_risks": [
+        "Exact finite certificate replay only; no formal proof-assistant or expert attestation is inferred."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 4 bounds exact-burst codes by (2^(n-b+1)-2^b)/(n-2b+1), equal to 124/5 at n=8,b=2.",
+          "The separate same-day Resultary record concerns list size two and deletion of any two positions; its n=8 optima are 15 and 2188/135."
+        ],
+        "reasoning": "The general bound only rounds to 24, and the lists of size two with arbitrary two-position deletion do not specialize to the row capacities and channel in this claim. Ye–Ge constructions do not provide a matching upper or fractional result in the inspected passages.",
+        "searches": [
+          "arXiv:1602.06820, Theorem 4 and §VI",
+          "arXiv:2610.05696, Introduction",
+          "Resultary 2026/11/2 record d1017049c488"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1602.06820",
+        "arXiv:2610.05696",
+        "Resultary c5e794e99f8a, d1017049c488, 31ecb6da01be",
+        "Levenshtein (1967), secondary descriptions only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General numerical bound 24 exceeds the exact 20; n=6 classification concerns a different length; row capacity two and arbitrary position deletion change the relaxation."
+        ],
+        "reasoning": "The first gap requires both comparison through seven and matching integral and rational LP certifications at eight. Those do not follow from any of these actual prior statements.",
+        "searches": [
+          "Schoeny et al., Theorem 4; October 13 exact length-six result; same-day arbitrary two-deletion two-list comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Schoeny et al. define an exact b-burst as b consecutive bits and distinguish it from at-most-b correction; §VI discusses Levenshtein's construction also correcting one deletion.",
+          "Ye and Ge distinguish t-burst and (≤t)-burst; the October 12 Resultary record deletes two blocks of length two rather than one pair."
+        ],
+        "reasoning": "Packing the distinct shadows is equivalent to independent sets of their conflict graph for a single exact 2-burst; exchanging a single exact burst with a variable-length burst, two bursts, or arbitrary two deletions changes the constraints. An at-most-two construction could supply a lower bound for the exact model, but cannot certify its LP or exact optimum merely by regime inclusion.",
+        "searches": [
+          "arXiv:1602.06820, Introduction and §VI",
+          "arXiv:2610.05696, abstract and Introduction",
+          "Resultary 2026/10/12 record 31ecb6da01be"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The October 13 Finding explicitly gives the exact adjacent-pair optimum 8 at length six and classifies two optimal codes.",
+          "Neither of the inspected distinct catalogue claims gives the exact-model n=8 values; the bounded web query produced no relevant evidence."
+        ],
+        "reasoning": "Credit the n=6 overlap as known; it does not give the table through eight or the gap, and the absence of a useful search hit is not a priority argument.",
+        "searches": [
+          "Local Resultary search for adjacent pair deletion and fractional packing gaps; strongest exact match c5e794e99f8a, related d1017049c488 and 31ecb6da01be",
+          "Bounded primary-literature search for exact adjacent-burst small-length optima and fractional packing"
+        ]
+      },
+      "rationale": "The specifically supported distinct claim is the first integral/fractional separation for the exact adjacent-pair shadow LP, with A_2(8)=20, F_2(8)=21 and the explicit clique bound. The length-six integral optimum 8 is already covered, and neither the model nor the LP framework is new. No inspected comparable statement gives or implies the claimed separation.",
+      "residual_risks": [
+        "The 1967 full text was not available in the check; an older unindexed small-length benchmark remains possible.",
+        "The web query was uninformative and the inspected primary passages do not establish universal historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same model; stated general upper bound is weaker; §VI distinguishes historical variable-length construction.",
+          "evidence": "Theorem 4 gives 124/5 at (8,2); §VI requires all burst lengths a≤b in the at-most model.",
+          "identifier_or_url": "https://arxiv.org/abs/1602.06820",
+          "material_read": "OA PDF, Introduction p. 1 (offset ~950), Theorem 4 p. 4 (~22480), §VI p. 9 (~48042)",
+          "method": "Locate and read bounded primary PDF passages",
+          "title": "Codes Correcting a Burst of Deletions or Insertions",
+          "trigger": "Same exact-burst model and general upper bound"
+        },
+        {
+          "assessment": "Terminology and constructions checked; no matching finite table established by these passages.",
+          "evidence": "Distinguishes t-burst from (≤t)-burst and describes Levenshtein's binary result as an at-most-two construction.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.05696",
+          "material_read": "OA abstract and Introduction, PDF offsets 0 and ~5700",
+          "method": "Read original bounded passages",
+          "title": "Substring Edit Correcting Codes and Optimal Single Burst-Deletion Correcting Codes",
+          "trigger": "Possibly broader modern burst models and benchmarks"
+        },
+        {
+          "assessment": "Partial coverage, n=6 integral value only relative to this claim.",
+          "evidence": "Exact adjacent-pair optimum 8 at length six, with two optimal codes.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-exactly-two-perfect-six-bit-codes-for-an-adjacent-pair-deletion--c5e794e99f8a/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirrored record",
+          "title": "Exactly two perfect six-bit codes for an adjacent pair deletion",
+          "trigger": "Closest same-model exact optimum"
+        },
+        {
+          "assessment": "Different channel and list size, not equivalent coverage.",
+          "evidence": "Arbitrary two-position deletion with capacities two, M_8=15 and F_8=2188/135.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-first-integer-rounding-failure-in-binary-two-list-two-deletion-p--d1017049c488/RESULT.md",
+          "material_read": "Finding and assumptions, offset 0",
+          "method": "Local mirrored record",
+          "title": "First integer-rounding failure in binary two-list two-deletion packing",
+          "trigger": "Distinct indexed same-day gap at n=8"
+        },
+        {
+          "assessment": "Different channel.",
+          "evidence": "Two disjoint length-two blocks are removed, rather than a single adjacent pair.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-exact-short-block-binary-two-burst-deletion-codes-and-a-perfect--31ecb6da01be/RESULT.md",
+          "material_read": "Finding and assumptions, offset 0",
+          "method": "Local mirrored record",
+          "title": "Exact short-block binary two-burst deletion codes and a perfect code",
+          "trigger": "Adjacent/burst terminology and exact small-length values"
+        },
+        {
+          "assessment": "Unresolved historical risk, not negative evidence.",
+          "evidence": "Both descriptions concern a construction correcting one or two adjacent losses; neither supplies the finite exact-model LP result.",
+          "identifier_or_url": "Levenshtein (1967)",
+          "material_read": "Later descriptions in Schoeny et al. §VI and Ye–Ge Introduction, not the original full text",
+          "method": "Trace historical citation in accessible primary literature",
+          "title": "Asymptotically optimum binary code with correction for losses of one or two adjacent bits",
+          "trigger": "Historical adjacent-pair work may contain an exact short-block result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Proof",
+        "Independent exact certificate replay",
+        "Resultary c5e794e99f8a; Schoeny et al., Theorem 4"
+      ],
+      "rationale": "The length cutoff is dictated by the first failure of a standard relaxation, not an arbitrary range of computations. The exact equality through seven followed by failure at eight is a usable benchmark for burst-deletion bounds; the clique certificate shows that pairwise conflicts can tighten the output-star constraints enough to certify the true optimum by rounding. This value does not depend on re-establishing the known n=6 result.",
+      "residual_risks": [
+        "No claim of asymptotic improvement, optimal clique relaxation, or applicability to a stronger error model."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

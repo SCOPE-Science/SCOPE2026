@@ -1,0 +1,152 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:43:39.362844Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Adjacent inequality gives signs ±1 mod 3, and abab is exactly an alternating sign triple, so only boundary sign-runs may be singletons. An interior insertion replaces s by −s,−s, the unique possible replacement. A new alternating triple must use one member of the identical pair on its boundary, with two old signs on one side. Its forbidden positions are the second position of a noninitial run and the penultimate position of a nonterminal run; they coincide only for an internal run of length three. A singleton boundary run transfers its one obstruction from an internal replacement to an end insertion. A single run has none. Two deletions can yield the same source from a destination only if the intervening segment is constant, impossible here. Thus among m+4 candidates the loss for r≥2 is 2r−2−t_3, and the degree is m+6−2r+t_3. The boundary weights z^L u^(L−1) and internal weights z^L u^(L−2+[L=3]), plus the one-run term, yield the rational series with six labels per composition. For r≥2 the excess d−4 is at most m−2. The cases of excess zero or one use all minimal internal lengths and either both minimal endpoints or exactly one incremented endpoint; they give the stated parity and multiplicities. Keeping internal lengths two realizes the parity of m through m−2; one internal length three realizes the opposite parity from 2 (m odd) or 3 (m even) through m−3. This includes empty ranges at the smallest lengths. One run alone attains m+4. Independent enumeration of valid destinations and inverse deletion (python /workspace/reproductions/insertion.py) matched every coefficient for 3≤n≤15. The all-length result follows from the run proof, not the cutoff.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Tang et al. investigate correction of tandem duplications of length at most three with edit errors for alphabet size at least four.",
+          "Mol–Rampersad classify lengths with an unextendable ternary word under full square-freeness. Dębski–Grytczuk–Pawlik study existence of a valid insertion at every gap under full square-freeness."
+        ],
+        "reasoning": "The mixed-channel result does not specialize to the stated ternary legal-degree census. Full square-freeness is stricter, e.g. 012012 is permitted here, and gapwise possibility or zero-degree existence does not give the distribution of positive degrees.",
+        "searches": [
+          "arXiv:2208.02330, abstract",
+          "arXiv:2001.11763, extension definition and Theorem 1.1",
+          "arXiv:2209.08507, bifurcate-word theorem"
+        ]
+      },
+      "checked_sources": [
+        "Resultary records 63d30c872f2e (identical), e1dd2f70f4bd, 228c8deb5a52 and 8fc0108f4393",
+        "arXiv:1801.02310",
+        "arXiv:2208.02330",
+        "arXiv:2001.11763",
+        "arXiv:2209.08507",
+        "arXiv:1911.09973"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The substitution result uses the same sign-change representation, then partitions a length layer into Hamming-one components. Its stated component sizes do not determine insertion degree: at n=5 the words 01020 and 01201 both have Hamming-one degree two and lie in four-cycle components, yet their insertion degrees are four and eight, by direct letter/gap tests.",
+          "The known length counts are recovered from this result by setting u=1; they do not distinguish the indicated words or track the forbidden replacement positions."
+        ],
+        "reasoning": "The prior count and coding graph do not entail the bivariate coefficients without a new inter-layer analysis. Knowing the sign encoding is shared prior structure, not a prior calculation of the one-insertion spectrum.",
+        "searches": [
+          "Chee et al. arXiv:1801.02310 §II",
+          "Resultary e1dd2f70f4bd RESULT.md Finding, Scope and Proof §1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Chee et al.'s ≤2 tandem-deduplication irreducibility is exactly absence of aa and abab; their I_(≤2)(n,3) counts unrefined length layers.",
+          "Harju's irreducibly square-free property is instead an obstruction to deleting any internal letter of a fully square-free word."
+        ],
+        "reasoning": "Tandem-irreducibility is a genuine alias of the source language, not of its degree statistic. The deletion terminology in fully square-free work does not encode legal reverse deletions from all admissible destinations here.",
+        "searches": [
+          "arXiv:1801.02310 §I-A and §II: ternary 2-irreducible words and length enumeration",
+          "arXiv:1911.09973, irreducibly square-free words",
+          "Resultary: ternary aa/abab avoidance and short-tandem irreducibility"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact hit is the frozen record itself. The distinct record e1dd2f70f4bd gives the exact Hamming-one components and independence polynomial for the same language. Its Finding and scope explicitly exclude insertion.",
+          "The distinct record 228c8deb5a52 counts maximizers of exactly-two-adjacent-swap spheres; one equality class is this source language, but its count has no insertion refinement. The older 8fc0108f4393 gives the minimum length of a fully square-free word with a completely blocked gap, not a spectrum."
+        ],
+        "reasoning": "The same language occurs in two distinct same-day exact catalog entries; that is genuine overlap, not priority evidence or an exact match of graph degree. The older insertion obstruction measures a different object.",
+        "searches": [
+          "Resultary: exact one-insertion spheres and run spectra for ternary short-tandem-irreducible words",
+          "Resultary: exact substitution graph detecting code capacity ternary short tandem irreducible words e1dd2f70f4bd",
+          "Resultary: 228c8deb5a52 and 8fc0108f4393"
+        ]
+      },
+      "rationale": "The source language and its counting recurrence are known. Its length-preserving substitution graph is also studied in a distinct same-day finding. Neither covers this length-changing graph or its complete one-insertion degree spectrum. Fully square-free insertion extremality concerns a strictly smaller language and a different invariant. The supported distinct claim is the exact bivariate spectrum and its resulting support/extremizers.",
+      "residual_risks": [
+        "An unindexed short-tandem insertion spectrum or a stronger edit-graph analysis could imply the same coefficients; inspected statements do not establish historical uniqueness."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same source words and sign representation, different Hamming graph",
+          "evidence": "Hamming distance one is the only edge criterion; the conclusion is a component census and independence polynomial. Scope explicitly excludes insertion or deletion.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-exact-substitution-graph-and-detecting-code-capacity-of-ternary--e1dd2f70f4bd/RESULT.md",
+          "material_read": "Finding, Assumptions and scope and opening of Proof, offset 0–2740",
+          "method": "Targeted local Resultary mirror read using the exact record ID",
+          "title": "Exact substitution graph and detecting-code capacity of ternary short-tandem-irreducible words",
+          "trigger": "Strong exact same-language editorial similarity"
+        },
+        {
+          "assessment": "Language count as equality class for a different operation",
+          "evidence": "The class with unequal neighbors and no abab is counted as extremizers of the exact two-swap sphere.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-complete-maximizers-of-exact-two-adjacent-swap-spheres-over-nonb--228c8deb5a52/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Targeted local Resultary mirror read",
+          "title": "Complete maximizers of exact two-adjacent-swap spheres",
+          "trigger": "Same aa/abab avoidance class as a swap extremizer"
+        },
+        {
+          "assessment": "Different gap-blocked statistic and full square-freeness",
+          "evidence": "Defines b(q) as the shortest length having a completely blocked gap; reports b(2),…,b(6)=(2,4,6,10,14).",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-first-insertion-obstruction-thresholds-for-five-and-six-letter-s--8fc0108f4393/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Targeted local Resultary mirror read",
+          "title": "First insertion obstruction thresholds for five- and six-letter square-free words",
+          "trigger": "Potential exact catalog insertion threshold"
+        },
+        {
+          "assessment": "Same source language for k=2,q=3, univariate count",
+          "evidence": "Irreducible means no deduplication up to length k; the recurrence counts I_(≤k)(n,q).",
+          "identifier_or_url": "https://arxiv.org/pdf/1801.02310",
+          "material_read": "§I-A p. 1 offset 7658 and §II p. 2 offset 10800",
+          "method": "Targeted OA PDF passages",
+          "title": "Efficient Encoding/Decoding of Irreducible Words for Codes Correcting Tandem Duplications",
+          "trigger": "Known encoding and count of this exact language"
+        },
+        {
+          "assessment": "Correcting mixed errors, not the ternary legal-insertion spectrum",
+          "evidence": "Alphabet size ≥4, tandem duplication length ≤3 and at most p edit errors.",
+          "identifier_or_url": "https://arxiv.org/pdf/2208.02330",
+          "material_read": "Abstract, p. 1, offset 0",
+          "method": "Targeted OA PDF passage",
+          "title": "Low-redundancy codes for correcting multiple short-duplication and edit errors",
+          "trigger": "Tandem irreducibles and insertion in a mixed channel"
+        },
+        {
+          "assessment": "Full square-freeness; length existence of unextendable words",
+          "evidence": "An extension inserts one letter at any position and must remain fully square-free. Extremality means no such extension.",
+          "identifier_or_url": "https://arxiv.org/pdf/2001.11763",
+          "material_read": "Extension definition, p. 2 offset 4074, and Theorem 1.1",
+          "method": "Targeted OA PDF passages",
+          "title": "Lengths of extremal square-free ternary words",
+          "trigger": "Exact one-letter extension extremality"
+        },
+        {
+          "assessment": "Gapwise existence in a stricter word language",
+          "evidence": "Bifurcate means admitting a valid insertion at every gap; their theorem relates steadiness to bifurcation under full square-freeness.",
+          "identifier_or_url": "https://arxiv.org/pdf/2209.08507",
+          "material_read": "Abstract and introduction, p. 1 offsets 1000 and 2900",
+          "method": "Targeted OA PDF passages",
+          "title": "Extensions and reductions of square-free words",
+          "trigger": "Insertion at all positions, possible stronger theorem"
+        },
+        {
+          "assessment": "Different deletion and full-square-avoidance conditions",
+          "evidence": "Irreducibly square-free means that deleting any internal letter creates a square.",
+          "identifier_or_url": "https://arxiv.org/pdf/1911.09973",
+          "material_read": "Abstract and introduction, pp. 1–2 offsets 0 and 3000",
+          "method": "Targeted OA PDF passages",
+          "title": "On extremal and irreducibly square-free words",
+          "trigger": "Potential irreducibility terminology alias"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The complete local neighborhood distribution resolves a natural structural question for a word language used in tandem-duplication coding. The parity-sensitive minima, missing runner-up and exact extremizers go beyond total language or suffix counts. They can inform constrained insertion counting without implying any packing, covering or general edit-channel theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

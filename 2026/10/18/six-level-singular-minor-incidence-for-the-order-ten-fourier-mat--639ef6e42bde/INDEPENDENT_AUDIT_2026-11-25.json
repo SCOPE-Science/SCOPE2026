@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:33:52.676531Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–41",
+        "Frozen VERIFICATION.md, line 19; verify_fourier10.py, fourier10_modcheck.py, and verification_output.txt inspected only",
+        "Independent replay: /workspace/reviews/evidence/fourier10-subset-dp.js (node /workspace/reviews/evidence/fourier10-subset-dp.js)"
+      ],
+      "rationale": "Reproduced the full 44,100-pair complex vanishing census with independently written subset dynamic programming in the integral group ring of a cyclic group of order five. Put t=−ζ, a primitive fifth root. Each matrix entry is represented by (−1)^(rc) t^(rc mod 5). A subset state is the determinant for the first |S| rows and chosen column positions S in increasing order. Appending an unused position j in the next row multiplies by the corresponding entry and the sign (−1)^(number of positions in S larger than j), so Laplace expansion proves the DP. The final five integer coefficients evaluate to zero precisely when all are equal, by 1+t+t²+t³+t⁴ being the minimal polynomial. Integers are exact in the replay: each determinant has at most 24 signed terms. The independent result was (degree,count)=(0,20),(10,100),(20,50),(30,20),(110,10),(130,10), totaling 5000 of 44100; it also verified bitwise transpose symmetry. The affine orbit representatives, sizes and degrees from the run were (0123,20,0), (0124,40,10), (0125,40,10), (0126,20,30), (0134,10,20), (0135,40,20), (0138,20,10), (0156,10,110), (0246,10,130). All counts agree and 5000/44100 reduces to 50/441. The frozen cyclotomic coefficient recurrence is valid as written; its recorded modular digests agree but are not used to infer complex vanishing.",
+      "residual_risks": [
+        "The independent run compares the exact histogram and total and tests transpose symmetry; it does not assert that it compared its own full digest with the packaged digest. No extrapolation in order or minor size is made."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The sufficiency part of the prime-power theorem excludes 10. The odd-semiprime record uses orders 3p and one selected support; it does not include 10. The five-frequency census uses 252 choices per side instead of 210 and gives 5×5 ranks."
+        ],
+        "reasoning": "No inspected wider theorem gives the claimed counts by specialization. Broader sampling guarantees concern existence of an inverse for every sample set or a different cardinality, not the distribution of singular samples for each support. The same-day odd-semiprime record was compared by hypotheses rather than discarded by its date.",
+        "searches": [
+          "ACM Theorem 9, prime-power uniform distribution and composite-order obstruction",
+          "Tang Theorem 2.4, DFT sampling",
+          "Resultary 04538f9363bb, odd-semiprime four-row rigidity",
+          "Resultary 34f830ed8504, same-order five-frequency rank incidence"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 579f4b382450, bb8a5601ae6d, 04538f9363bb and 34f830ed8504",
+        "Alexeev–Cahill–Mixon Theorem 9 and p. 16",
+        "Tang Theorem 2.4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The full-spark result is Boolean; the near-consecutive result, together with affine invariance, fixes a 40-row orbit. The ACM pair certifies one failure, plus symmetry-related witnesses. The 5×5 ranks do not encode the ranks of all 4×4 deletions."
+        ],
+        "reasoning": "The known exact zero class and the exact near-consecutive orbit together cover 60 of the 210 degrees. Neither the witness, the prior formulas on those orbits, nor linear algebra connecting neighboring minor sizes mechanically supplies the other degrees or their aggregate 5000. A fresh exhaustive exact calculation establishes that residual information.",
+        "searches": [
+          "Resultary 579f4b382450 Finding and bb8a5601ae6d Finding/specialization to N=10",
+          "ACM p. 16 exact singular minor",
+          "Resultary 34f830ed8504 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Full spark is exactly degree zero, classified for order 10 by Resultary 579f4b382450. ACM gives the singular witness with rows 0134 and columns 0126, up to sign convention.",
+          "Resultary bb8a5601ae6d gives the exact nonzero degree at 0124, hence at its 40 affine images as rows of the same DFT."
+        ],
+        "reasoning": "The Fourier frame and recoverability formulations use the same determinants. Translation multiplies columns by units and affine multiplication reindexes columns, so the single-support theorem is stronger than one row value alone, but does not give the other degree classes. Adjacent descriptions by full spark or a witness report only zero versus nonzero, not the count. Complementary minors of the inverse identify 4×4 with 6×6, not 5×5; transpose or conjugation does not change vanishing.",
+        "searches": [
+          "Resultary: order-10 harmonic Fourier four-row supports, full spark, singular maximal-minor counts and rank incidence",
+          "Alexeev–Cahill–Mixon, Full Spark Frames, Theorem 9 and p. 16",
+          "Sui Tang, Universal Spatiotemporal Sampling Sets, Theorem 2.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The first exact table/classification supplies the 20 degree-zero rows; the second supplies the singular column pattern of 0124. The later 34f830ed8504 gives exact 5×5 rank profiles in affine orbits, with 63504 ordered pairs and rank multiplicities 240, 6640, 56624."
+        ],
+        "reasoning": "This is a direct table-overlap check. The partial order-ten results give genuine coverage but not the six-level profile. The 5×5 rank table does not resolve the ranks of subminors obtained by deleting a particular row and column; it is not a table of the claimed invariant.",
+        "searches": [
+          "Resultary searches for all-row order-10 four-frequency Fourier minor counts, singular-minor census and rank profiles",
+          "Mirrored 579f4b382450, bb8a5601ae6d, 34f830ed8504"
+        ]
+      },
+      "rationale": "Pass for the full degree distribution and singular-pair probability at four rows and four columns of F_10. Do not credit the zero class, one complete affine orbit at degree 10, or the existence of singular minors as new. The closest same-order census found for a different cardinality is not equivalent.",
+      "residual_risks": [
+        "The bounded searches do not rule out an uncatalogued exact minor table or an equivalent 6×6 table. The primary-literature search coverage beyond the inspected papers is limited."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage of the 20 degree-zero rows only",
+          "evidence": "Classification of full spark for all nonempty proper supports, with exceptional affine orbit of 0134 at cardinality four.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-complete-order-10-full-spark-classification-for-harmonic-fourier--579f4b382450/RESULT.md",
+          "material_read": "Finding near offset 169",
+          "method": "Bounded local-mirror passage",
+          "title": "Complete order-10 full-spark classification for harmonic Fourier row sets",
+          "trigger": "Exact order and row supports, possible degree table"
+        },
+        {
+          "assessment": "Exact degree 10 for the support 0124 and thus its orbit",
+          "evidence": "Two complete antipodal pairs are exactly the singular four-columns at this support; there are binomial(5,2)=10.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-singular-minors-for-the-near-consecutive-four-row-harmonic--bb8a5601ae6d/RESULT.md",
+          "material_read": "Finding and N=10 specialization, offsets 0 and 2222",
+          "method": "Bounded local-mirror passages",
+          "title": "Exact singular minors for the near-consecutive four-row harmonic frame",
+          "trigger": "Exact singular-column degrees for same order and cardinality"
+        },
+        {
+          "assessment": "Different Fourier orders and a single fixed row pattern",
+          "evidence": "Rows 0125 at 3p have no singular minors for p≥7, with 15 rank-three minors at order 15; not order 10.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-an-odd-semiprime-full-spark-rigidity-theorem-for-a-four-row-four--04538f9363bb/RESULT.md",
+          "material_read": "Finding from offset 0",
+          "method": "Bounded local-mirror passage",
+          "title": "An odd-semiprime full-spark rigidity theorem",
+          "trigger": "Related four-row exact-rank theorem, same catalogue date"
+        },
+        {
+          "assessment": "Later and different cardinality; no equivalent table in the inspected claim",
+          "evidence": "5×5 ranks 3, 4 and 5 with multiplicities 240, 6640 and 56624; profiles over 252 columns per row set.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-the-complete-five-frequency-rank-incidence-census-for-the-ten-po--34f830ed8504/RESULT.md",
+          "material_read": "Finding and scope, including offset 0 through the start of the orbit table",
+          "method": "Bounded local-mirror passages",
+          "title": "The complete five-frequency rank-incidence census for the ten-point Fourier transform",
+          "trigger": "Exact same-order rank-incidence table"
+        },
+        {
+          "assessment": "Direct witness and necessary condition, not the all-row table",
+          "evidence": "The iff criterion is for prime powers; at order ten rows 0134 and columns 0126 give the explicit singular counterexample to sufficiency of uniformity.",
+          "identifier_or_url": "https://arxiv.org/pdf/1110.3548",
+          "material_read": "Theorem 9, pp. 11–12; discussion after its proof, p. 16, offsets 59540–60518",
+          "method": "Bounded OA PDF passages",
+          "title": "Full Spark Frames",
+          "trigger": "Primary prior criterion and exact order-ten counterexample"
+        },
+        {
+          "assessment": "Full-spark sampling criterion, not exact order-10 degree counts in the inspected passages",
+          "evidence": "Explains full-spark Fourier row selections in terms of universal sampling.",
+          "identifier_or_url": "https://arxiv.org/pdf/1702.05345",
+          "material_read": "PDF p. 3 and Theorem 2.4 pp. 8–9",
+          "method": "Bounded OA PDF passages",
+          "title": "Universal Spatiotemporal Sampling Sets for Discrete Spatially Invariant Evolution Systems",
+          "trigger": "Fourier frame/sampling alias"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding",
+        "Alexeev–Cahill–Mixon p. 16",
+        "Tang Theorem 2.4",
+        "Prior order-10 full-spark finding"
+      ],
+      "rationale": "Order ten with four rows is the classical concrete obstruction to sufficiency of divisor-uniformity. At that motivated finite boundary, the degree gives the exact failure probability of recovering coefficients on a fixed Fourier support from four sample sites chosen uniformly. The earlier full-spark comparison only distinguishes zero risk from positive risk, while the six-level distribution distinguishes, for example, 10 failures from 130 among the same 210 choices and fixes the probability for uniformly chosen supports and samples. This is a natural complete incidence invariant at that boundary, not an arbitrary computer census.",
+      "residual_risks": [
+        "This measures exact noiseless rank failure, not conditioning, stability or asymptotics in order."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

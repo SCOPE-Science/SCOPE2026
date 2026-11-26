@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-# Verification of the finite classification
+# Independent mathematical audit
 
-The scripts `verify.py` (Python 3 standard library only) and `independent_check.cpp` (C++17, standard library only) were executed from the supplied source files. Both reported `VERIFY_OK` and agreed that there are no qualifying primitive binary words for \(1\le n\le15\), and exactly \(96\) at \(n=16\), comprising precisely the six listed primitive necklaces. The Python code tests two mathematically equivalent predicates written separately—substring Parikh comparisons and circular centered-height comparisons—for every primitive word in the exhaustive domain, and generates all sixteen shortest-border witnesses for each canonical representative.
+## correctness
 
-Reproduce with:
+PASS
 
-```sh
-python3 verify.py
-c++ -std=c++17 -O2 independent_check.cpp -o independent_check
-./independent_check
-```
+Independent exhaustive replay visits all 131,070 strings at lengths 1–16, tests primitivity and every cyclic conjugate using exact binary prefix/suffix counts, and finds no qualifiers through 15 and 96 at 16. Each qualifying word has eight ones; the six least rotations and the full shortest-border vectors match RESULT.md. The six canonical-root lengths in the stated order are 8,8,8,6,8,4. Primitivity gives orbit size 16; explicit dihedral/complement comparison gives three pairs of necklaces. The two bundled implementations corroborate the count, but do not explicitly check the reversal/complement classification. The independent replay does. Taking complements of the compared factors inside the whole word proves that border lengths k and n-k are equivalent; in particular the frozen half-length cutoff is exhaustive. Nothing about larger lengths follows from this run.
 
-The exhaustiveness is finite and explicit: for each \(n\in\{1,\dots,16\}\), each of the \(2^n\) bit strings is visited exactly once and every cyclic root is tested. The divisibility/primitivity test and shortest-border-length reduction are proved in the main text. Neither random sampling nor an unreported table is used. The result makes no claim about complete classifications at lengths greater than sixteen.
+## originality
 
-The length-sixteen existence case already appears through the earlier 2015 block construction. Historical-priority review of the exact lower bound and six-necklace classification is limited by inaccessible full text of one relevant 2014 article and possible unindexed earlier work. Independent mathematical validation has not been performed.
+PASS
+
+Credit prior existence at length 16. The supported distinct claim is the exact lower cutoff for primitive binary words together with the census and symmetry classification of all first examples. Best-of-knowledge conclusion from the checked primary and indexed claims, not a guarantee of priority.
+
+## value
+
+PASS
+
+The natural question is where the primitive-word obstruction for ordinary borders first fails when equality is replaced by Abelian equivalence. A prior witness alone does not identify that boundary. A complete list of the first counterexamples supplies all minimal tests for structural conjectures about the circular property, not merely further examples or an arbitrary finite count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

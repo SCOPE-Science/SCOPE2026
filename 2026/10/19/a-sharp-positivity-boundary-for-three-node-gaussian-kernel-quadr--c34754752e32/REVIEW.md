@@ -10,7 +10,7 @@ The nearest source [1] studies scaled Gauss–Hermite nodes and states that posi
 Positive quadrature weights control the worst-case amplification of noisy bounded nodal data, and the source motivates scaled nodes precisely through observed positivity and stability. The theorem proves a nontrivial instance of that observation (three exact weights at all length scales) and gives a sharp, actionable design boundary where weight signs reverse, with explicit normalized high-dimensional amplification when nodes cluster. It separates exact kernel weights from Mercer-surrogate weights, and unnormalized exactness from normalized constant reproduction. It is a structural classification for a motivated configuration, rather than a routine arbitrary slice or unsupported speedup claim.
 
 ## Scientific limitations
-Only three symmetric nodes, a standard-Gaussian target, a Gaussian kernel, and tensor powers are covered. The normalized tensor functional no longer integrates the original kernel translates exactly. The analysis does not establish positivity at every Gauss–Hermite order or a kernel-RKHS approximation-error bound. Equivalent specialized results may exist beyond the inspected literature.
+Only three symmetric nodes, a standard-Gaussian target, a Gaussian kernel, and tensor powers are covered. If the original rule does not already reproduce constants, normalization changes the integral estimates on the original kernel translates. The analysis does not establish positivity at every Gauss–Hermite order or a kernel-RKHS approximation-error bound. Equivalent specialized results may exist beyond the inspected literature.
 
 ## References
 [1] Karvonen and Särkkä, arXiv:1803.09532, Sections 1, 2.4, 4, 5.3.

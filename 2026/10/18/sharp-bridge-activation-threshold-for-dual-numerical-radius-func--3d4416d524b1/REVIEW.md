@@ -1,19 +1,21 @@
-# Scientific review of the double-star numerical-radius dual functional
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** For every positive pair of pendant counts and every nonnegative bridge multiplier, the proof starts from the operator numerical-radius definition, identifies it with half the nonnegative weighted adjacency Perron root on a tree, and justifies modulus and permutation averaging. The four-vertex compression is exact, its singular-value criterion covers boundary points, and the one-variable concave optimization yields both branches and explicit attaining coefficients. The derivative threshold and interior stationary point are reconstructed algebraically. Exact rational certificates and reproducible finite tests support—but do not replace—the analytic argument. The assertions of uniqueness are deliberately restricted to orbit-symmetric maximizers.
+PASS
 
-## Originality
+The frozen complex equality sentence was false: at p=q=1, beta=2 the optimal vector (1,3/2,1) can be multiplied by -1 with no change in norm or absolute objective, so even an orbit-constant maximizing bridge need not be positive real. The frozen proof's broad permutation-invariance assertion was also false without restriction to graph automorphisms (two equal unit weights on adjacent vs disjoint edges of a three-link path have different adjacency radii). The complete repair retains the true dual value, restricts permutation invariance to the leaf automorphisms, and proves activation for the modulus of every maximizing bridge, with strict real positivity only after phase normalization. Indeed the tree gauge and depth grading give half the nonnegative adjacency radius; modulus and averaging preserve the bridge modulus of any maximizer. The four-node quotient gives the exact determinant condition 4c^2 <= (4-u^2)(4-v^2), together with 0<=u,v<=2. Maximizing first over one angle gives a strictly concave scalar function with derivative at zero of sign beta^2-sqrt(pq). Its unique endpoint/critical point determines the value and forces c=0 even at beta=0 and at the threshold; above threshold strict increase in c forces the positive feasible boundary value. Triangle equality yields the common phase since all nonzero coefficients are counted with positive weight, except for the already zero bridge at beta=0. Independent two-by-two operator/nuclear duality reproduces both branches and bounded grid checks corroborate the witnesses.
 
-**PASS under inspected-literature comparison, with residual risk.** The 2017 directed-tree weighted-shift framework deals with multiplier algebras, reflexivity, and decompositions. Sharif's 2023 shift numerical-radius norm estimates concern unilateral sequences and Banach limits. A highly relevant public graph-edge numerical-radius work was read in full: it proves global strict-convexity and Fréchet-smoothness criteria but not this bistar dual support-function value. The elementary unweighted three-link path identity is already covered at the special point \(p=q=1,\beta=1\), and that special case is not the novelty claim. Targeted semantic searches found no all-branching bridge-threshold formula. Equivalent results in less easily indexed spectral-matrix or Perron-root literature are a nonzero residual risk.
+## originality
 
-## Value
+PASS
 
-**PASS.** The dual norm of a canonical linear functional is a natural invariant of a finite-dimensional numerical-radius Banach space. The first nontrivial two-hub tree combines branching with a bridge; its exact all-dimension support law exhibits a non-obvious parameter threshold at which the optimizing weight switches from a disconnected pair of stars to a connected weighted bistar. The sharp cutoff and explicit optimizers explain how the two leaf multiplicities affect the bridge's contribution. This is not asserted to be a theorem for arbitrary trees or all dual functionals.
+Best of current evidence for the repaired claim: the primal adjacency formulation and the uniform three-link path special case are not novel, but neither gives the explicit dual value and activation for an independently varied bridge price and arbitrary pendant counts. The phase wording is a correction, not the ground for originality.
 
-## Limits and related literature
+## value
 
-The full numerical-radius tree model and the unrestricted complex coefficient domain are essential. The theorem does not characterize all nonsymmetric maximizers or arbitrary edge-functional coefficients. The closest full-text sources concern directed-tree shifts and unilateral numerical-radius norms; the exact graph-edge primal convexity/smoothness theorem is mathematically distinct. Formal independent validation has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The independent bridge multiplier probes a natural face of the primal unit ball. The plateau, sharp threshold and bridge activation give exact information about which graph features support the dual extremum, including the degenerate zero-price case and the transition itself. They apply to a full family, not just an isolated uniform path. The correction preserves this value without making a false claim about complex positivity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

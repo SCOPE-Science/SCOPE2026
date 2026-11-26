@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The domain, metric, support-function normalization and full parameter interval are explicit. For the rank-one projector extreme points, \(-tp(u)\in K\) exactly when \(t\le1/2\), establishing the containment threshold. The direct Rayleigh-quotient support function is reduced to a one-angle eigenvalue law with explicitly derived Vandermonde density \(3\sin3\theta/2\); the two switching sectors are disjoint on \(0\le t\le1\). The remaining elementary integral gives the claimed closed rational expression. Monotonicity, the cubic onset and the endpoint follow algebraically. Reproducibility checks in `verify.py` passed, but are not used as an infinite-parameter proof.
+PASS
 
-## Originality — PASS, subject to literature risk
+For the trace-one PSD model of K the reflected rank-one generator corresponds to (1+t)I/3-t uu^T, so its least eigenvalue gives the exact containment threshold t=1/2. Rayleigh support gives the two maxima in RESULT.md. The real Vandermonde on the ordered trace-zero, Frobenius-unit eigenvalue circle is proportional to sin(3θ), with normalized density (3/2)sin(3θ). By spectral reflection the baseline is sqrt(3) times the integral of cos(θ)sin(3θ) from 0 to π/3, namely 9sqrt(3)/16. For k=(2t-1)/sqrt(3)>0 each switch occupies a chamber end of angle arctan(k). Differentiating the total increment with respect to k has no moving-boundary term because the support excess is zero there; integration of (3/2)cos(θ)sin(3θ) to arctan(k) gives 3k²(3+k²)/(4(1+k²)²). Its zero-at-k=0 primitive is 3k³/(4(1+k²)). This gives the claimed monotonicity, endpoint, cubic coefficient 2/sqrt(3) and third-derivative jump 4sqrt(3). The switch intervals meet only at a tie when t=1. Reviewed RESULT.md, VERIFICATION.md and verify.py without executing the supplied file. Finite numerical checks are supplementary; the calculation above covers the full parameter interval.
 
-Compared by mathematical implication rather than title: the motivating covering paper provides the projector body but no partial-reflection mean width; the classical orbitope paper provides convex algebraic background but not this law; the spectral-polyhedra work gives a broad Weyl-integral framework but neither the reflected-hull support-switch threshold nor this explicit cubic phase coefficient. Publicly searchable related results on ball-covering, random widths of unrelated disk hulls, and projector-center rigidity did not directly contain or dominate this exact claim. The known spectral Jacobian is credited, not claimed original. Inaccessible or unindexed equivalents remain an originality risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The reflection-hull interpolation is a natural quantitative probe of a body's Minkowski asymmetry. The theorem detects not just the sharp containment threshold but the *order of first geometric response* of an important highly symmetric noncentrally symmetric spectrahedron. The exact rational profile, rigid silent interval, explicit all-parameter transition and cubic non-smoothness describe a concrete geometric invariant beyond a generic spectral integral.
+Best of current knowledge, the distinct contribution is the evaluated mean-width profile and its cubic onset for this particular reflection hull, not the projector body, support-function calculus or Vandermonde law.
 
-## Scope and risks
+## value
 
-Only the specified five-dimensional Frobenius-normalized real projector convex body, its one-sided reflection hull, and Euclidean mean width are covered. Broader spectral-integral machinery may give alternative derivations. No independent external validation is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Mean width is a canonical Euclidean invariant of the diameter-normalized projector body. The profile quantifies how the extremal reflected orbit begins changing that invariant, distinguishing immediate set enlargement from third-order mean-width sensitivity. The explicit coefficient and endpoint are useful for quantitative comparison with other width or symmetrization bounds; this is not just the PSD containment test.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

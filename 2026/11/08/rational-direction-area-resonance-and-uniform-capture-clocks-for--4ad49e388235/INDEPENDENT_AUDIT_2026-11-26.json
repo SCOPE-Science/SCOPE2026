@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:28:55.073601Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 7–65",
+        "VERIFICATION.md lines 19–28",
+        "checker.py, inspected but not executed",
+        "Beck–Chen–Yang, arXiv:2404.00078, §2 Figure 5 and Theorem 1"
+      ],
+      "rationale": "For local fractional horizontal position r, the next seam is reached at height y+alpha(1−r)=u+alpha mod 1. The remaining r units of horizontal motion restore the coordinate r, so the same phase formula applies to all slices, with area Jacobian one. At an arrival height in the barrier both sheet histories merge into the left sheet; otherwise they are exchanged. Each target phase has a unique base ancestor and loses exactly one sheet iff one of its preceding n arrival heights is in the barrier. A full q-cycle has either only swaps (so the period divides 2q) or a constant composition with exactly one fixed sheet (so the periodic label returns after q steps). Away from boundary lines the stable image is locally constant in the sheet coordinate; its complement has neighborhoods with no returns after q steps, and a short phase neighborhood excludes earlier returns when q>1. The translated intervals form a 1/q-grid, giving union length min(1,qb). In the disjoint case, the transient sheet over B−j alpha first agrees with the periodic sheet at step j, so the area of each such class is b and normalization by qb gives 1/q. The proof includes q=1; when qb=1 and B is open the grid endpoints can be missed, without changing area. The irrational-area comparison agrees with the originating paper's Theorem 1.",
+      "residual_risks": [
+        "The claim is for horizontal unit advances and up to boundary conventions, not an exactly uniform distribution in continuous time or the first actual impact of the transient particle on the barrier. The finite checker stress-tests rational strata; the proof establishes the all-denominator formula."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The theorem allows a finite union of barrier intervals and asserts areas one plus equal-distribution properties under irrational slope. The proof bounds the reverse time to the first visit to A or B uniformly using irrational equidistribution."
+        ],
+        "reasoning": "A broader barrier class in this theorem does not cover rational slopes, where a positive measure of base phases may never hit either marked interval.",
+        "searches": [
+          "arXiv:2404.00078 §2, Theorem 1 and proof Step 2 near (2.3)–(2.4)"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md",
+        "Beck–Chen–Yang arXiv:2404.00078",
+        "Beck–Chen–Yang arXiv:2106.14001",
+        "Resultary descriptions of records 4ad49e388235 and 2c2c7a7af3f0"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior recipe assigns a point to a set according to whether, moving backward on the ordinary torus, it hits the marked barrier before the corresponding marked outer interval. The subsequent area argument uses a hit for every base trajectory and a symmetry of complementary projections. Rational cycles can avoid all barrier phases, and the frozen work counts them twice rather than once; it also analyzes the forward time of agreement of periodic and transient sheet histories."
+        ],
+        "reasoning": "The earlier construction suggests the method but its equal-area conclusion cannot be specialized. To evaluate the rational transient measure and capture law requires treating no-hit fibers and identifying the first forward merging step. The grid spacing and union-length calculation themselves are standard.",
+        "searches": [
+          "arXiv:2404.00078 §2, Reverse flow recipe and Theorem 1",
+          "RESULT.md proof Steps 2–5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The §2 passage around Figure 5 identifies the same restart at the corresponding height on the far-left edge and explicitly depicts merging of two segments. The Veech gate serves as a two-circle exchange, not a reset; the indexed half-plane result is for symmetric alternating islands."
+        ],
+        "reasoning": "The modified two-square torus is the same object as the frozen model. Merely using rotation arithmetic on two circles or area resonance in another model does not provide the constant-on-fiber update responsible for capture.",
+        "searches": [
+          "arXiv:2404.00078 §2, Figures 4–9",
+          "arXiv:2106.14001, Veech two-circle model and Figures 1.2–1.4",
+          "Resultary: 2026/11/8/SCOPE-the-exact-alternating-island-area-law-for-symmetric-half-plane-r--2c2c7a7af3f0"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed hit is the same assigned record, not independent evidence. The distinct same-day description reports symmetric half-plane island areas, not the one-sided two-square capture law. The primary theorem gives the constant irrational area 1."
+        ],
+        "reasoning": "There is no canonical finite-object table for this continuous barrier family; the exact comparison is to formulas indexed for the same family. No separate matching rational formula was identified in the inspected material. Date is not used as a priority criterion.",
+        "searches": [
+          "Resultary: 2026/11/8/SCOPE-rational-direction-area-resonance-and-uniform-capture-clocks-for--4ad49e388235",
+          "Resultary: 2026/11/8/SCOPE-the-exact-alternating-island-area-law-for-symmetric-half-plane-r--2c2c7a7af3f0",
+          "arXiv:2404.00078 Theorem 1"
+        ]
+      },
+      "rationale": "The single-barrier model and its merging mechanism, two-sheet symmetry and irrational equal areas are in Beck–Chen–Yang. The strongest verified predecessor studies the same surface for irrational slopes and uses a reverse-flow construction with guaranteed encounters; it does not give the finite-depth image formula or evaluate the rational paired-sheet and no-hit cases. These cases, including the exact conditioned first-capture masses, form the supported distinct claim. The related symmetric half-plane rotation and invertible two-circle gate have different sheet dynamics.",
+      "residual_risks": [
+        "The distinct indexed half-plane result was compared by its description only. The elementary reduction makes unpublished or unindexed rational analogues plausible; absolute priority is not established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact model match, with distinct slope hypotheses and conclusion",
+          "evidence": "At a barrier the flow continues from the corresponding point on the left edge; two segments continue along one. Theorem 1 assumes alpha irrational and gives both areas one. The reverse flow has a uniform encounter time by irrational equidistribution.",
+          "identifier_or_url": "https://ar5iv.labs.arxiv.org/html/2404.00078",
+          "material_read": "§2 around Figure 5; Theorem 1; reverse-flow recipe and proof near (2.3)–(2.4)",
+          "method": "Bounded sections of lawful full-text HTML after OA passage retrieval attempts",
+          "title": "Irreversible and dissipative systems",
+          "trigger": "Originating model and strongest possible prior"
+        },
+        {
+          "assessment": "Related rotation model; distinct gate mechanism",
+          "evidence": "The description takes usual circle rotations and alternates between circles via the gate; it is not a many-to-one reset at the mark.",
+          "identifier_or_url": "https://ar5iv.labs.arxiv.org/html/2106.14001",
+          "material_read": "Two-circle and two-square-b passages around Figures 1.2–1.4",
+          "method": "Bounded sections of lawful full-text HTML",
+          "title": "New Kronecker-Weyl type equidistribution results and diophantine approximation",
+          "trigger": "Two-circle rotation and gate arithmetic"
+        },
+        {
+          "assessment": "Different dynamics and invariant in the available statement",
+          "evidence": "Reports island areas for symmetric half-plane rotations, not first capture into the periodic set of a dissipative two-square map.",
+          "identifier_or_url": "2026/11/8/SCOPE-the-exact-alternating-island-area-law-for-symmetric-half-plane-r--2c2c7a7af3f0",
+          "material_read": "Indexed claim description",
+          "method": "Local Resultary search",
+          "title": "The exact alternating island area law for symmetric half-plane rotations",
+          "trigger": "Same-day area resonance claim"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, Finding and proof",
+        "Irreversible and dissipative systems, §2 Theorem 1"
+      ],
+      "rationale": "The rational directions are a natural gap left by the same model's irrational theorem. This precisely identifies the denominators with excess recurrent area and gives a nontrivial capture law, not just an eventual-area bound. The area and time normalization allow direct comparisons with other barrier configurations.",
+      "residual_risks": [
+        "Value attaches to the exact geometry and conditional time law, not to the elementary grid count alone or to untested generalizations."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:03:14.494637Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Rotate a uniformly marked sampled site to the origin. The other n-1 positions remain iid uniform relative to it, so their ordered positions give the Dirichlet(1,...,1) indexed gap vector. Its density is symmetric, and the rank permutation is uniform conditional on the entire increasing gap vector. At any vertex, a shortest route toward another site starts across one of two incident gaps; the smaller incident gap is at most 1/2, reaches a neighbor, and no other endpoint is closer. Hence reciprocal pairs are precisely strict cyclic minima of the gaps, including configurations with a gap above 1/2. For r<1/2, any geometric edge has a short arc of length at most r, so it can be replaced by a path across consecutive gaps each at most r. Conversely each consecutive gap at most r gives an edge. Thus the components are exactly those of a cycle with Q_r long-gap edges removed, numbering max(1,Q_r); the formula has the stated singleton and connected limits at r=0 and r>=1/2. The entire path is therefore a measurable function of the sorted gaps and independent of the rank-only pair count. Each minimum indicator has mean 1/3. For n>=5 adjacent minima are incompatible, two indices at distance two are jointly minima with probability 2/15 (for example, integrate 2*(1-x)^2*(x-x^2/2) for x in [0,1] over five independent continuous ranks), and disjoint rank neighborhoods are independent. This gives variance n*(2/9-2/9+2/45)=2n/45. For n=3 the minimum is unique, and for n=4 there are two minima exactly when the bottom two ranks lie opposite, with probability 1/3. The supplied verification and checker were inspected, not run; rank permutations at n=3 through 8 and the three tested profiles do not replace the process-level proof. None of this establishes independence from the component sizes or isolate count.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The prior lemma conditions on the full increasing order statistics of any absolutely continuous exchangeable gap vector without ties and gives the uniform assignment given that vector. It is applied there to the same local-minimum count.",
+          "Theorem 14 concerns the circular cluster-count/Euler-characteristic distribution for Poisson sites and does not itself assert the present joint law."
+        ],
+        "reasoning": "Conditional uniformity for the whole vector yields independence of every rank function from every symmetric gap statistic. The result specializes immediately to fixed-size Dirichlet spacings and to the given M_n, and the prior lemma's conditioning argument needs no lower bound of five; that bound is the regime of the earlier record's isolate-covariance theorem.",
+        "searches": [
+          "Resultary bcec85e2394a, Finding, Assumptions and Proof step 1",
+          "Decreusefond–Ferraz arXiv:1008.5140 Section 4.2 Theorem 14"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Resultary 41299bfd168a, bcec85e2394a and fb83bca256ed",
+        "arXiv:1605.01940, arXiv:1203.6264, arXiv:1008.5140",
+        "Lawful access attempts for Huillet 10.1239/aap/1059486818 and Pickard 10.2307/3213499"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior bcec85e2394a: conditional on the increasing order statistics, their assignment to the n indexed sites is a uniformly random permutation; its M is the local-minimum count.",
+          "All component counts in the submitted record are deterministic transforms of the thresholded sorted gaps, via C_n(r)=max(1,Q_r) in the nontrivial range."
+        ],
+        "reasoning": "Independence at each fixed r would not by itself imply process independence. The prior full conditioning statement is stronger: the conditional expectation of any bounded function of M given the whole sorted vector is constant. Applying this to the measurable map from that vector to the whole count path yields the claim at once; the geometric cut identity is an immediate consequence of replacing any short-arc edge by adjacent short gaps. The large-n-range moments are row sums from the prior cyclic kernel, and the two excluded sizes are resolved by one- and two-minimum counting.",
+        "searches": [
+          "Resultary bcec85e2394a Proof step 1",
+          "Resultary fb83bca256ed covariance-kernel proof",
+          "arXiv:1008.5140 Section 4.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary bcec85e2394a, Assumptions and Proof step 1, states the identical geometric characterization of reciprocal pairs by gap local minima and the conditional uniformity of the rank assignment.",
+          "Caron et al. study reflexive pairs on a uniform interval, not the circle; Ma–Chow's cycle-decomposition peak notion is not the wraparound rank statistic here."
+        ],
+        "reasoning": "Reciprocal and reflexive are aliases, but the interval law is not a direct circular precedent. The identical reciprocal-count-as-rank-function reduction is already made explicitly by the earlier circular record and is the equivalent formulation that matters.",
+        "searches": [
+          "Resultary: reciprocal nearest-neighbor pairs and sorted circular gaps; independent cyclic gap ranks; isolated-vertex covariance on the uniform circle",
+          "Caron et al. arXiv:1605.01940 Theorem 3.1; Ma–Chow arXiv:1203.6264 p. 3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The assigned record 41299bfd168a is a self-match. The distinct earlier bcec85e2394a has the exact relevant rank statement; fb83bca256ed, dated 2026-11-16, gives cyclic local-minimum covariance A_0=2/9, A_+/-1=-1/9, A_+/-2=1/45, zero otherwise, for n>=5."
+        ],
+        "reasoning": "The kernel supplies the claimed variance exactly as n times its row sum even if the reciprocal-neighbor variance is not named there. That coverage is stronger than finding the same numerical totals in a table. The kernel's hypotheses exclude n=3,4.",
+        "searches": [
+          "Resultary: reciprocal pairs and component-count independence over all radii; cyclic permutation local-minimum mean and covariance"
+        ]
+      },
+      "rationale": "The main claim is mechanically covered by the exact prior rank argument for the very same circle model and reciprocal-pair count. Resultary bcec85e2394a, dated 2026-10-18, explicitly identifies the count with cyclic local minima and conditions the uniform rank assignment on the entire increasing gap vector, not just on one threshold count. The variance for n>=5 also follows by summation of the already published cyclic local-minimum covariance kernel fb83bca256ed. The simple cycle-cut identity and the two elementary boundary moments do not supply a distinct substantive remainder of the submitted claim. This is affirmative evidence of coverage, not a failure to access external literature.",
+      "residual_risks": [
+        "Broader historical provenance of the circular spacing interpretation and the moment formulas is not fully resolved. The unavailable primary texts cannot negate the inspected earlier Resultary implication or establish additional coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive prior implication, stronger than fixed-radius independence",
+          "evidence": "Uses the same Dirichlet marked gaps, identifies reciprocal pairs as cyclic local minima, and makes the rank assignment uniform conditional on the entire increasing order-statistic vector.",
+          "identifier_or_url": "Resultary bcec85e2394a",
+          "material_read": "Mirrored RESULT.md Finding, Assumptions and Proof step 1, offset 0 onward",
+          "method": "Local Resultary and mirror full-text passages",
+          "title": "A strictly negative exact covariance between reciprocal nearest neighbors and isolated vertices on the uniform circle",
+          "trigger": "Identical sample, reciprocal statistic and gap-rank independence"
+        },
+        {
+          "assessment": "Covers variance by summation for n>=5, not the geometry or small-size cases",
+          "evidence": "Cyclic covariance kernel at offsets 0, +/-1, +/-2 is 2/9, -1/9, 1/45 respectively and otherwise zero.",
+          "identifier_or_url": "Resultary fb83bca256ed",
+          "material_read": "Mirrored RESULT.md proof, text offset 1900 onward",
+          "method": "Local Resultary and mirror full-text passage",
+          "title": "Sharp two-channel Fourier sampling of cyclic permutation extrema",
+          "trigger": "Exact cyclic local-minimum covariance and hence count variance"
+        },
+        {
+          "assessment": "Related exact interval model, no direct circular independence coverage",
+          "evidence": "For the uniform interval, mean n/3 for n>=3 and variance 2n/45 for n>=5; cites an exact distribution recurrence.",
+          "identifier_or_url": "https://arxiv.org/abs/1605.01940",
+          "material_read": "p. 5 Theorem 3.1, text offset 15150",
+          "method": "OA PDF passage",
+          "title": "On the Number of Reflexive and Shared Nearest Neighbor Pairs in One-Dimensional Uniform Data",
+          "trigger": "Nearest-neighbor alias and exact moments"
+        },
+        {
+          "assessment": "Different extrema statistic",
+          "evidence": "Cyclic peaks and valleys are defined in cycle-decomposition notation, at internal listed cycle positions, not by making the one-line permutation wrap at the ends.",
+          "identifier_or_url": "https://arxiv.org/abs/1203.6264",
+          "material_read": "p. 3, text offset 8490",
+          "method": "OA PDF passage",
+          "title": "Enumeration of permutations by number of cyclic occurrence of peaks and valleys",
+          "trigger": "Potential cyclic-extrema equivalence"
+        },
+        {
+          "assessment": "Related circular topology but different law and target statistic",
+          "evidence": "Obtains the circular Euler-characteristic distribution for Poisson points; the inspected passage does not give fixed-size reciprocal-pair independence.",
+          "identifier_or_url": "https://arxiv.org/abs/1008.5140",
+          "material_read": "Section 4.2 Theorem 14 and proof opening, p. 12, text offsets 42150–46336",
+          "method": "OA PDF passage",
+          "title": "On the One Dimensional Poisson Random Geometric Graph",
+          "trigger": "Circular component-count literature"
+        },
+        {
+          "assessment": "Residual historical scope uncertainty, not a basis of failure",
+          "evidence": "Exact overlap with circular spacing observables not independently established.",
+          "identifier_or_url": "https://doi.org/10.1239/aap/1059486818",
+          "material_read": "No primary full text accessible in bounded attempts",
+          "method": "Lawful OA retrieval attempted",
+          "title": "Random covering of the circle: the size of the connected components",
+          "trigger": "Potential circular component and spacing overlap"
+        },
+        {
+          "assessment": "Residual historical scope uncertainty, not a basis of failure",
+          "evidence": "No direct statement-level comparison supported by the access attempt.",
+          "identifier_or_url": "https://doi.org/10.2307/3213499",
+          "material_read": "No primary full text accessible in bounded attempts",
+          "method": "Lawful OA retrieval attempted, timed out",
+          "title": "Isolated nearest neighbors",
+          "trigger": "Potential older nearest-neighbor count precedent"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Distinguishing component count from isolate count is a useful exposition of why cyclic placement matters. But for this narrow invariant the whole-path conclusion follows immediately by applying the already established same-model conditional rank lemma to a symmetric gap-count path, via the elementary cycle-cut rule. The stated variance is already determined by the cyclic covariance kernel for n>=5. The remaining n=3 and n=4 checks are elementary exceptional counts without a separate substantive motivation. There is no nonroutine surviving exact fact in this submission that independently justifies acceptance.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

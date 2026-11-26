@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:58:21.231045Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–75; verify.py and verify_output.txt inspected as recorded finite checks only",
+        "Independent valuation, cylinder-count and residue-class arguments above"
+      ],
+      "rationale": "Writing a^d=1+pc with c a p-adic unit, binomial powering by a p-unit multiplies the leading coefficient by that unit, and each p-th power increases the valuation by one while preserving the leading unit. Thus the valuation is 1+v_p(m) with leading residue c times the leading residue of m. The success set is (p/c) times the nonzero p-adic squares, hence is A disjoint union p²S. The measure is 1/(2(p+1)). At shift valuation one, the finite-field intersection count is (p−3)/4 by the sum of the Legendre character of x(x+w), equal to −1 for w nonzero, and cancellation of the two endpoint character terms. Exactly one mixed shallow/deep orientation is possible, because precisely one of w and −w is in the required unit class; its measure is μ_p/p². Unit shifts have empty intersection, and shifts divisible by p² preserve the shallow layer and rescale the deep overlap, proving all valuation cases. For discrepancy, truncate the two disjoint cylinder lists at a cutoff with modulus greater than N+t; omitted Haar mass is O(1/N) and the sample omits at most O(1) indices. Each nonempty intersection of two cylinders is the finer cylinder of the pair, so there are only O(log N) distinct disjoint cylinders, each with rounding error at most one. For p=7 the index classes modulo three have statuses E, all, and none, respectively. This gives the stated density, both cases for J, and the covariance signs. The even and odd valuation deviations of K_7 from 1/16 are respectively (1/16)49^(−j) and (2/49)49^(−j), with the latter strictly between successive even deviations; the lag weights follow from the geometric valuation law. The exceptional zero exponent does not affect densities.",
+      "residual_risks": [
+        "No extension to integer squares or to arbitrary Wieferich inputs; finite sampled counts are not the density proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "fe145761546d, Finding and proof of the shift partition, gives every shift modulo every odd prime power, all parity and unit cases, and multiplies them for composite moduli.",
+          "Bennett–Levin treats ordinary integer repunit perfect powers. Zaharescu §3 counts root-pair representations of a difference. Davenport's cited power-residue paper was not obtained in full."
+        ],
+        "reasoning": "The modular square-support theorem is strictly broader than the needed m→∞, p≡3 mod 4 local overlap. Integer repunit equations and weighted representation counts do not supply that direct match.",
+        "searches": [
+          "Resultary fe145761546d all odd moduli, valuation strata",
+          "Bennett–Levin arXiv:1312.4037; Zaharescu §3; Davenport DOI 10.1112/jlms/s1-7.2.117"
+        ]
+      },
+      "checked_sources": [
+        "fe145761546d; targeted Resultary Mersenne table comparison",
+        "Zaharescu DOI 10.4153/CJM-2003-019-6; arXiv:1312.4037; Davenport DOI 10.1112/jlms/s1-7.2.117"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "After p^(−m) normalization the finite square residues approximate the p-adic square set with discrepancy in Haar measure at most p^(−m) at the zero cylinder; the shifted pair has at most twice that error. Substitute h=ct/p. An even v_p(t)>0 means an odd shift valuation in A, so only its lower-valuation layers contribute. An odd v_p(t) gives the even shift case, with the Paley same-layer count and exactly one mixed contribution.",
+          "Nonmultiples of three at p=7 sample just one E-versus-all class, and multiples of three sample all-versus-all and the local K_7. The signs and lag-level weights are therefore residue/valuation consequences. The exact O(log N) index discrepancy uses a separate cylinder-count step, not an assertion from fe145761546d."
+        ],
+        "reasoning": "The central formulas are consequences of a stronger exact result plus scaling and the elementary exponential square criterion. The explicit error estimate is distinguished from that coverage.",
+        "searches": [
+          "fe145761546d RESULT.md Finding and proof §§1–3: A_{p^m}, S_{p,m}, U_{p,m}, N_p(u)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The frozen Proof §1 gives S=(p/c)(Q∖{0}) for Q the p-adic square set and c an arbitrary unit lift of the leading coefficient. For p|t this gives K_p(t)=p^(−1) times the Haar overlap of Q and Q−ct/p. The unit-shift case p∤t vanishes outright.",
+          "fe145761546d counts x and x+h both in Q(n), including zero and nonunit residues. Zaharescu instead counts differences of squared inputs with multiplicity."
+        ],
+        "reasoning": "The first comparison is an exact change of variable in an unweighted indicator intersection. A weighted root-pair count is not equivalent on its own.",
+        "searches": [
+          "Resultary: exact two-point square-residue correlations on odd residue rings; fe145761546d",
+          "Zaharescu DOI 10.4153/CJM-2003-019-6, pair correlation vs square support"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "fe145761546d provides an exact symbolic table A_{p^m}(h) for every valuation and unit residue, with h=0 included and unit-shift dependence collapsing for p≡3 mod 4.",
+          "The targeted Mersenne search surfaced the assigned record itself and neighbors on different sequences (including Delannoy and Apéry), not a distinct statement of the exact Mersenne table. Self-hits are excluded as prior coverage."
+        ],
+        "reasoning": "The prime-power table implies the local limits; there is no need for an independent literal string match to the reduced Mersenne fractions. The keyword outcome is not a historical-absence claim.",
+        "searches": [
+          "Resultary: exact two-point square-residue correlations on odd residue rings; seven-adic 7-adic Mersenne numbers 2^n−1 local square indicator lag correlations 17/48 1/48 267/784"
+        ]
+      },
+      "rationale": "The central universal local correlation law is mathematically covered by the verified stronger square-residue translate table in distinct same-day Resultary record fe145761546d. The exact non-Wieferich success set is a unit-dilated p-copy of the nonzero square set, not a different correlation object. Its natural density law follows from the table by a normalized prime-power limit; the Mersenne lag values then follow by grouping exponents modulo three. The exact finite-index error bound is not stated by that source. This is a failure of distinctness for the main claim as presented, not a determination of which same-day entry came first or an allegation that every statement is duplicated verbatim.",
+      "residual_risks": [
+        "Same-day precedence is not established. Davenport full text was unavailable. An older general square-set Fourier treatment may exist; no conclusion rests on an unsuccessful search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Broader exact coverage of the central K_p law; no same-day precedence determination; not an index-discrepancy theorem",
+          "evidence": "Explicit A_{p^m}(h) cases include h=0, arbitrary valuation, and N_p(u) with χ(u)+χ(−u)=0 for p≡3 mod 4.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-exact-two-point-square-residue-correlations-on-odd-residue-rings--fe145761546d/RESULT.md",
+          "material_read": "Finding, assumptions and proof §§1–3, offsets 0–5145; prior-work paragraph at offset 7259",
+          "method": "Local Resultary mirror; normalized prime-power comparison and unit dilation",
+          "title": "Exact two-point square-residue correlations on odd residue rings and a prime-power reversal",
+          "trigger": "Exact unweighted square-support intersections with odd prime-power valuation strata"
+        },
+        {
+          "assessment": "Different statistic; not direct coverage of the support intersection",
+          "evidence": "Pair differences of u z² are counted; the complete-residue calculation counts root pairs via a product equation.",
+          "identifier_or_url": "https://doi.org/10.4153/CJM-2003-019-6",
+          "material_read": "Abstract p. 432, equation (9) p. 434, Theorem 1 p. 435, equations (11)–(12) pp. 435–436",
+          "method": "OA full-text passages",
+          "title": "Pair Correlation of Squares in p-Adic Fields",
+          "trigger": "Closest primary-literature pair correlation phrasing"
+        },
+        {
+          "assessment": "Different global problem",
+          "evidence": "Classifies constraints on integer solutions of a geometric-repunit perfect-power equation rather than simultaneous local membership.",
+          "identifier_or_url": "https://arxiv.org/abs/1312.4037",
+          "material_read": "pp. 1–2",
+          "method": "OA preprint passages",
+          "title": "The Nagell–Ljunggren Equation via Runge’s Method",
+          "trigger": "Repunit power-equation background"
+        },
+        {
+          "assessment": "No full-text conclusion; classical input not claimed new in the frozen record",
+          "evidence": "The frozen proof separately derives the specific Paley difference count from the quadratic character sum.",
+          "identifier_or_url": "https://doi.org/10.1112/jlms/s1-7.2.117",
+          "material_read": "Bibliographic identification; publisher PDF unavailable",
+          "method": "Lawful OA attempt",
+          "title": "On the Distribution of l-th Power Residues (mod p)",
+          "trigger": "Classical character-count ingredient"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 17–30 and 69–75; fe145761546d scope and exact finite-modulus formulas"
+      ],
+      "rationale": "The effective integer-sampling statement is a useful distinction from the modular or Haar limit alone: the logarithmic rate explains how all fixed-lag frequencies can be read from finite exponential blocks despite arbitrarily deep singular shells. The valuation and mod-three decomposition also makes the sign pattern and distribution of lags explicit for a canonical sequence, rather than just listing a few lags. This assessment does not count the broader source's local overlap table as a new contribution or waive the originality failure.",
+      "residual_risks": [
+        "No optimality of the logarithmic error is claimed; the estimates concern fixed shifts and local-square status."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

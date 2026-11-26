@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:44:32.671883Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md proofs §§1–4; VERIFICATION.md and verify.py inspected without executing the supplied code.",
+        "Independent direct-orbit and exact rational replay: python3 branches/97abeb7c-7638-4dfe-9f10-713a17384284/independent_check.py; independent_complete.txt in the same directory records ten complete ensembles (p=3,N=2–5; p=5,N=2–4; p=7,N=2–3; p=11,N=2). All 342 parameters together matched the cycle formulas and type counts; means and all covariance entries matched in each ensemble."
+      ],
+      "rationale": "For g=X+pQ and nonzero displacement d of valuation v, the first p iterates differ from the starting point by id modulo p^{v+1}. Taylor expansion, divisibility of the sum of i by odd p, and 2v+1≥v+2 give g^p(x)-x=pd modulo p^{v+2}. The argument iterates, and a prime-to-p iterate does not raise the valuation. The quadratic map is bijective by its difference factor 1+p(x+y). Consequently the number fixed by the p^t-th power is p^{t+1}R_{L-t}; successive differences divided by p^t give the exact primitive-cycle counts. The valuation and simple unit-root lift give the stated strata; the first level beyond the smaller valuation distinguishes types, and the triangular map recovers the root-count vector, including at N=2. Conditional counting of possible lifts makes R_j a martingale. The invertible change (x−y,x+y) reduces the second moment to uv=0; each of the j nonzero-u valuation strata contributes (p−1)p^{j−1}, besides p^j for u=0. Thus the martingale increments have common variance b and are orthogonal. In the form C_t=(p−1)R_{L−t}−(R_{L−t+1}−R_{L−t}), these facts give precisely the variance, covariance and strict sign formulas, with C_0=pR_L. Haar root counts stabilize except at a=0, a null event; the square-unit strata provide the listed masses. The nonzero masses sum to p/(2(p+1)), their weighted first moment is p−1, and each contributes the same positive amount to the second moment.",
+      "residual_risks": [
+        "All-prime and Haar-limit assertions come from the proof, not the finite replay. The law assumes uniform parameters and odd p, with positive cycle indices fixed as N grows."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Terskii's Corollaries 3.5(c), 3.7 and Proposition 3.8 cover individual period growth for an appropriate time-one map of a suitable p-adic vector field.",
+          "Caruso and Shen study random-coefficient p-adic root statistics; the inspected ensembles are not the one random constant in a monic quadratic with fixed zero linear coefficient."
+        ],
+        "reasoning": "A theorem about state periods supplies the deterministic period input but not class frequencies, parameter covariance or the Haar distribution. An independent-coefficient ensemble does not restrict to this fixed-coefficient slice by specialization of its moment or limit statements.",
+        "searches": [
+          "Terskii arXiv:2611.24982v1; Caruso arXiv:2110.03942; Shen arXiv:2608.06576"
+        ]
+      },
+      "checked_sources": [
+        "Terskii §§3.1–3.2; Panraksa–Tangboonduangjit abstract/introduction; Caruso and Shen abstract/introduction; Resultary self-match and distinct valuation-law leads as specified"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The time-one period law plus standard point-counting recovers the individual cycle-vector formula from quadratic roots. No such input evaluates the cross-level count of pairs of roots modulo varying p-powers or the probability law of the stabilized counts.",
+          "The covariance proof requires conditioning on the digits of a and counting solutions to x²≡y² on the identical residue level; the strict sign change arises after subtracting successive fixed-point totals."
+        ],
+        "reasoning": "Credit the prior deterministic period implication. The supported distinction is the exact parameter ensemble analysis, not the period lemma or a new general theorem about p-adic flows or polynomial roots.",
+        "searches": [
+          "Terskii Cor. 3.5(c), Cor. 3.7, Prop. 3.8 versus frozen formulas (1)–(4); Caruso and Shen introductions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The identical record e87aa849607b is a self-match. The distinct same-day f6b288710442 index describes paired polynomial valuations/simple-root collisions and covariance, not cycle counts across quadratic shifts; the exact local mirror was unavailable.",
+          "The fixed-point identity expresses the cycle statistics as a triangular transformation of the root-count process of x²−a, so a prior joint root-count law for these same shifts and levels could cover the result."
+        ],
+        "reasoning": "Covariances of two polynomial valuations in their sequence input are not the covariances of root multiplicities, let alone cycle counts, across a sampled right-hand-side parameter. The strongest catalogue lead could be compared only at index-summary level.",
+        "searches": [
+          "Resultary: quadratic near-identity cycle census and covariances; quadratic valuation collision laws",
+          "Terskii arXiv:2611.24982v1 §§3.1–3.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact census match is the frozen record itself. Other same-day index leads concern adjacent dyadic valuations or three-point quadratic valuation cumulants, distinct objects by their indexed descriptions.",
+          "The primary prime-power census located gives fixed-point, period and cycle-count formulas for Chebyshev maps, not this parameter distribution."
+        ],
+        "reasoning": "Neither a table of values of another map nor finite values of this map would cover the all-level distribution and covariance theorem. The closest distinct index summaries do not identify such a table or formula for these data.",
+        "searches": [
+          "Resultary quadratic congruence valuation/cycle census matches e87aa849607b, f6b288710442, 099fc39844b1, 4b62c8282c43",
+          "Panraksa–Tangboonduangjit arXiv:2605.04417"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the valuation-stratified distribution of cycle vectors, complete cross-parameter covariance and common stabilized law for this family. Individual periods, quadratic root lifting, and standard martingale identities are not new. The bounded statement-level comparisons do not establish priority, but identify no prior result covering the combined parameter statistics.",
+      "residual_risks": [
+        "Same-day records cannot be ordered by the date alone. The f6b288710442 original was unavailable; other valuation records were compared at summary level. A stronger uninspected joint root-count law for this precise ensemble remains a priority risk."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies period growth, not parameter statistics",
+          "evidence": [
+            "Orbits meet p^{max(m−k,0)} classes modulo p^m under the stated hypotheses, where k is the valuation of the field at the point; sufficiently near-identity analytic maps are time-one maps."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.24982v1",
+          "material_read": "§3.1 Corollaries 3.5(c), 3.7 and §3.2 Proposition 3.8; offsets near 7200 and 26500–30891",
+          "method": "Bounded primary HTML passages",
+          "title": "Orbits of p-adic flows: balls, time-one maps and minimal group actions",
+          "trigger": "Prior near-identity individual period result"
+        },
+        {
+          "assessment": "Different map family",
+          "evidence": [
+            "Prime-power cycle classification is for Chebyshev polynomials."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2605.04417",
+          "material_read": "Abstract and introduction, offsets 580–2951",
+          "method": "Primary HTML passages",
+          "title": "Fixed points and exact periods of Chebyshev polynomials modulo odd prime powers",
+          "trigger": "Cycle-census comparison"
+        },
+        {
+          "assessment": "Different random ensemble",
+          "evidence": [
+            "Studies roots with Haar-random polynomial coefficients, including joint correlations in subsets."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2110.03942",
+          "material_read": "Abstract and introduction from offset 0",
+          "method": "Primary HTML passages",
+          "title": "Where are the zeroes of a random p-adic polynomial?",
+          "trigger": "Higher root moments and correlation"
+        },
+        {
+          "assessment": "Random coefficients and universality, not the specific random-shift cycle law",
+          "evidence": [
+            "Treats polynomial roots under independent coefficient models as well as random-matrix eigenvalues."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2608.06576",
+          "material_read": "Abstract and introduction, offsets 0 and 1420–2985",
+          "method": "Primary HTML passages",
+          "title": "The Resultant Distribution Method: Universality for p-adic Random Matrices and Polynomials",
+          "trigger": "General random-polynomial root statistics"
+        },
+        {
+          "assessment": "Related observables but not demonstrably equivalent; exact statement remains an access risk",
+          "evidence": [
+            "Indexed claim treats joint valuations for polynomial pairs and a covariance-sign trichotomy, not the stated cycle-vector distribution."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-root-collision-law-for-joint-polynomial-valuations-and-a-quadratic-covariance-trichotomy--f6b288710442",
+          "material_read": "Resultary index summary only; exact local mirror unavailable on identified path",
+          "method": "Configured Resultary index and bounded exact local-mirror retrieval",
+          "title": "A root collision law for joint polynomial valuations and a quadratic covariance trichotomy",
+          "trigger": "Strongest distinct same-day catalogue match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen census, covariance, and Haar-limit theorems and proofs; exact small parameter ensembles"
+      ],
+      "rationale": "The natural quadratic near-identity family is fully classified across its shift parameter, not only along an individual orbit. In particular the strictly negative correlation with the longest length versus strictly positive shorter-length covariances is not implied by the marginal mean or by the deterministic local period law. The common Haar limit with infinite second moment explains the exact variance growth despite almost-sure stabilization, giving a useful benchmark for parameter ensembles and for distinguishing levels from limits.",
+      "residual_risks": [
+        "No analogous covariance signs are established for general degree, p=2, or nonuniform parameter ensembles."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

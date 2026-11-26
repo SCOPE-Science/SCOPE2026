@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:55:26.411474Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For any closed odd token walk the mod-two chain of projected base edges has zero boundary and odd weight. It contains an odd simple cycle, so its weight and the original walk length are both at least g. Equality forces each edge of that unique shortest base cycle to be used exactly once, all outside occupancies fixed, and occupancy conservation forces the directed moves to follow a common cyclic orientation. With that orientation chosen, a vertex starts occupied exactly when its outgoing edge is earlier than its incoming edge. This criterion is sufficient as well as necessary: a vertex toggles only on its two incident moves and is ready at both. No proper nonempty subset of the base cycle has zero mod-two boundary, so each legal g-step tour is a simple token cycle. Re-rooting edge-time lists at their maximum gives g times the indicated Eulerian number; dividing by g forgets the token cycle's start, without an extra factor of two because the movement direction was fixed. The feasible h interval [max(1,k−(n−g)),min(k,g−1)] is nonempty for every stated k. Outside choices give the binomial coefficient, and bipartite base graphs give a two-coloring by token parity. At g=3 Pascal's rule gives the known triangle count, and the g=7 Eulerian row agrees with the example. Inspected VERIFY.py and the recorded finite check (39 base graphs, 126 token counts); did not rerun it. The parity and edge-order arguments, not enumeration, establish the general theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The digraph theorem gives equality of oriented girth for a digraph and its token digraph, not equality of undirected odd girth.",
+          "Max-Cut on Token Graphs states the equivalence of bipartiteness for base and ordinary token graph; it gives exact triangle lifting as well."
+        ],
+        "reasoning": "Bipartiteness identifies the case of infinite odd girth but not the minimum finite odd length. Replacing every undirected edge by opposite arcs does not transfer an oriented girth theorem to a count of shortest odd undirected cycles.",
+        "searches": [
+          "arXiv:2410.20189v1, §6 Theorem 6.1",
+          "arXiv:2611.25153v1, ordinary-token bipartiteness and §3.2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary token-cycle entries",
+        "c46a125db54b",
+        "arXiv:2410.20189v1",
+        "arXiv:2611.25153v1",
+        "Fabila-Monroy et al. via cited attribution only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior results supply oriented length, triangle multiplicity, or a set of edge-disjoint cycles. None of these gives the parity-chain equality case tying an arbitrary shortest odd token cycle to one parent, or its cyclic edge-order multiplicity when g>3."
+        ],
+        "reasoning": "The prior facts are not sufficient to sum over uniquely determined base cycles with the claimed Eulerian weights. Both the rigidity argument and the legal edge-order count matter.",
+        "searches": [
+          "arXiv:2410.20189v1, Theorem 6.1",
+          "arXiv:2611.25153v1, §3.2",
+          "SCOPE-c46a125db54b Finding and decomposition proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "On a base cycle the audited formula counts all legal full circuits of indistinguishable tokens by cyclic edge-use order; taking complements changes h to g−h but leaves the Eulerian number unchanged by symmetry.",
+          "The distinct Resultary record c46a125db54b partitions the edges of F₂(Cₙ) into n−2 simple n-cycles. At n=5 this partition has 3 cycles, while the complete census gives 11."
+        ],
+        "reasoning": "An edge partition is not an enumeration of all shortest odd cycles, even at the common odd-ring parameters. Rephrasing motions as exclusion-process jumps does not identify an equivalent count in the sources inspected.",
+        "searches": [
+          "Resultary: shortest odd cycles and simple cycle decompositions of token graphs",
+          "Primary search: ring exclusion, cyclic descents and Eulerian full circuits",
+          "SCOPE-an-equal-length-cycle-decomposition-and-exact-maximum-cut-of-two--c46a125db54b"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The prior two-way triangle lift gives binom(n−3,k−1)+binom(n−3,k−2) cycles per base triangle, exactly the g=3 formula.",
+          "The hit cdcce5aaaf0a is the assigned record itself; the distinct c46a125db54b gives a decomposition size, not an all-cycle table."
+        ],
+        "reasoning": "Credit the exact table entry for g=3. No distinct tabulation for the whole odd-girth range or the g>3 ring census was identified in the bounded check; the classical Eulerian array alone does not establish what it counts in a token graph.",
+        "searches": [
+          "Resultary: Eulerian short-odd-cycle counts and exact ring token cycles",
+          "arXiv:2611.25153v1, §3.2 equation (10)"
+        ]
+      },
+      "rationale": "The triangle lift/count and bipartiteness inheritance are prior work. The distinct content is the all-shortest-odd-length census beyond triangles, with unique supporting shortest base cycle and Eulerian multiplicity. The strongest ring specialization overlap counts the members of a particular decomposition rather than all cycles. The assessed novelty is bounded by the sources inspected.",
+      "residual_risks": [
+        "Foundational publisher passages were not retrieved. An equivalent census under ring-exclusion or cyclic-order terminology may be unindexed or missed; an unsuccessful primary search is not evidence against it."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related directed girth theorem; does not cover the undirected odd-cycle census",
+          "evidence": [
+            "Both hypothesis and output are directed and the parameter is oriented girth."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2410.20189v1",
+          "material_read": "§6, Theorem 6.1 and proof, text offsets 48340–51639",
+          "method": "OA article passages",
+          "title": "A study on token digraphs",
+          "trigger": "Potential stronger girth inheritance for token graphs"
+        },
+        {
+          "assessment": "Prior coverage of bipartiteness inheritance and g=3 count",
+          "evidence": [
+            "Bipartiteness iff base bipartite; two lifts per parent triangle type with binomial outside choices."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.25153v1",
+          "material_read": "Bipartiteness statement around offset 40728; §3.2 offsets 43222–44185 including (10)",
+          "method": "OA article passages",
+          "title": "Max-Cut on Token Graphs",
+          "trigger": "Ordinary token graph cycles, lifted triangle counts and parity"
+        },
+        {
+          "assessment": "Material overlap, but counts cycles in a partition only. No priority inferred from same-day date.",
+          "evidence": [
+            "The edge partition has n−2 simple n-cycles and serves a max-cut calculation."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-an-equal-length-cycle-decomposition-and-exact-maximum-cut-of-two--c46a125db54b",
+          "material_read": "Finding and decomposition argument, local text around offsets 189 and 2860",
+          "method": "Resultary and local mirror text",
+          "title": "An equal-length cycle decomposition and exact maximum cut of two-token graphs of cycles",
+          "trigger": "Closest distinct same-object exact claim for k=2 on rings"
+        },
+        {
+          "assessment": "Known earlier attribution; no whole-paper exclusion of other claims inferred",
+          "evidence": [
+            "The later inspected paper attributes the ordinary-token bipartiteness and triangle construction facts to Fabila-Monroy et al."
+          ],
+          "identifier_or_url": "DOI:10.1007/s00373-011-1055-9",
+          "material_read": "Attribution via Max-Cut on Token Graphs only; publisher full text not inspected",
+          "method": "Attempted DOI retrieval led to repeated publisher redirect; later OA citation checked",
+          "title": "Token Graphs",
+          "trigger": "Earliest cited source for ordinary token triangle and bipartiteness facts"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This counts a standard graph invariant for arbitrary graphs of prescribed odd girth, all token numbers, and all base components, rather than just determining whether a lifted odd obstruction exists. The unique-parent structure explains precisely why shortest odd token cycles cannot combine moves on different base cycles and makes the count depend only on n, k, g and the base shortest-cycle census. It generalizes the practically useful triangle calculation with a nontrivial Eulerian factor.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

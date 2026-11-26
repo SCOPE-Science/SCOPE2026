@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:20:23.828268Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, lines 5–83",
+        "VERIFICATION.md, lines 18–28",
+        "verify_cycles.py, lines 8–52"
+      ],
+      "rationale": "Conditional on |S|=s, the loss is at least f_H(s). Its convex minorant and Jensen therefore bound the objective below by ell_H(nq). The lower hull is the optimum of a finite mixture of cardinalities at fixed mean nq, attained with at most two cardinalities. Given a minimizer at each, uniform group translation yields marginal s/n at cardinality s by transitivity and preserves the cost, including for equivariant multiplicities, so the bound is attained. This covers q=0 and q=1 as deterministic endpoints. On a cycle 2s=2e(S)+boundary and boundary is at most 2 min(s,n-s). Independent sets attain the zero part and their complements attain the dense part of max(0,2s-n), including n=3. Integer slopes 0,1,2 for odd n and 0,2 for even n give the interpolation and excess over the summed Frechet bound. The introductory dependence statement should be read as 'in general': q=0,1 or all singleton hyperedges give expectation fixed by marginals, while otherwise perfect coupling and independence give different expectations. No exception to the stated sharp theorem is needed. The finite checker was inspected, not run.",
+      "residual_risks": [
+        "The optimization is over all laws, not a model of which dependence structures occur ecologically. The hull reduction does not make the hypergraph profile computationally easy."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gupte et al. permit arbitrary vertex means and signed edge coefficients on a cycle, not only x_i=q and a_i=+1.",
+          "Huber–Marić frame their admissible-correlation/CUT_n theorem at symmetric marginals q=1/2 and therefore already recover the balanced slice with the cycle maximum-cut size.",
+          "The broad Chaganty–Joe feasibility characterization is described second-hand in Huber–Marić, p. 2; original full text was not obtained."
+        ],
+        "reasoning": "The cycles theorem gives strictly more than the submitted all-q slice, including the odd-cycle facet. Neither that theorem nor the balanced-marginal result claims the vertex-transitive hypergraph hull reduction.",
+        "searches": [
+          "arXiv:1702.04813, Theorem 2, Eqs. (12)–(13)",
+          "Huber–Marić doi:10.1186/s40488-019-0091-5 Theorem 2",
+          "Chaganty–Joe doi:10.1093/biomet/93.1.197"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1702.04813, Theorem 2",
+        "Huber–Marić Theorem 2",
+        "Resultary 28552821b6bf, 2e6d1f5df008, 5f1bacbf6d05",
+        "Chaganty–Joe, Memmott et al., and Bane et al. (access limitations as specified)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For positive weights a_i=1, E^+=V^+=[n] and E^-=V^-=empty. At x_i=q, McCormick bounds give max(0,2q-1)<=y_i<=q. Inequality (12) adds only sum y_i<=nq, whereas (13) gives sum y_i>=nq-floor(n/2). Setting all y_i=max(0,2q-1,q-floor(n/2)/n) meets every displayed condition, so projection gives min sum y_i=max(0,n(2q-1),nq-floor(n/2))."
+        ],
+        "reasoning": "The formula reduces exactly to the two even or three odd pieces, including the half-plant excess at q=1/2. For general hypergraphs the displayed reduction is standard symmetrization of a linear optimization: orbit-averaged coordinates are |S|/n and fixing that coordinate cuts the convex hull of cost-cardinality points. No explicit earlier hypergraph coextinction statement is alleged.",
+        "searches": [
+          "Gupte et al., arXiv:1702.04813, introduction and Theorem 2, PDF pp. 1 and 6–7"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For C_n let f(x)=sum_i x_i x_(i+1). The infimum of E f(X) at E X = x is the lower boundary of the convex hull of the binary graph of f; for a multilinear f this is also the lower boundary of its continuous cube graph (product Bernoulli variables interpolate each graph point).",
+          "ArXiv:1702.04813 Theorem 2 describes exactly that convex hull for every chordless cycle. The closest returned Resultary records are 28552821b6bf (pairwise-independent unanimity), 2e6d1f5df008 (stable-set covariance) and 5f1bacbf6d05 (zero forcing), none the same optimization."
+        ],
+        "reasoning": "The formulation as an equal-marginal Fréchet optimization, a lower convex envelope of a bilinear edge sum, or a fixed-mean cut objective changes no mathematical content in the cyclic case. The other catalogue records differ in feasible laws, statistic, or objective, independently of their dates.",
+        "searches": [
+          "Resultary: transitive-hypergraph envelope, odd-cycle bounds, orbit-averaged LP, cut-polytope/all-marginal comparison",
+          "Gupte–Kalinowski–Rigterink–Waterer: extended formulations convex hull bilinear functions cycle graph theorem all positive McCormick cycle inequality odd cycle arXiv"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No matching numerical catalogue table was identified in the returned records. The published cycle inequalities give a stronger exact symbolic representation across all n and q."
+        ],
+        "reasoning": "Exact numeric tabulation of a continuum is not required to cover it: the stronger symbolic description mechanically supplies even the locations of the breakpoints and their exact heights.",
+        "searches": [
+          "Resultary: odd-cycle bounds, transitive-hypergraph envelope and cut-polytope/all-marginal comparison",
+          "arXiv:1702.04813, Theorem 2"
+        ]
+      },
+      "rationale": "The central evaluated all-marginal cycle phase diagram is a direct specialization of an exact prior polyhedral theorem, not merely a known q=1/2 slice. The general hypergraph formula is a correct orbit-averaging reduction; no earlier verbatim hypergraph statement was established, but this does not restore novelty to the evaluated cycle contribution.",
+      "residual_risks": [
+        "No priority statement about a verbatim hypergraph-level formulation is established. The originality failure is based on positive coverage of the evaluated central cycle law, not unavailable ecological papers or catalogue misses."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly implies all submitted cycle formulas",
+          "evidence": [
+            "Projection of McCormick plus two signed cycle inequalities gives exactly the convex hull; in the all-positive case only the odd all-edge lower bound can be nonredundant."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1702.04813; doi:10.1016/j.disopt.2020.100569",
+          "material_read": "Introduction definition of X(f), p. 1; Theorem 2 and remarks, pp. 6–7, OA offsets 25100–29039",
+          "method": "Read the OA statements and specialized cycle inequalities (12)–(13)",
+          "title": "Extended formulations for convex hulls of some bilinear functions",
+          "trigger": "Exact convex envelope for arbitrary edge weights on chordless cycles"
+        },
+        {
+          "assessment": "Balanced-slice coverage",
+          "evidence": [
+            "CUT_n represents disagreement probabilities when marginals are 1/2."
+          ],
+          "identifier_or_url": "doi:10.1186/s40488-019-0091-5",
+          "material_read": "OA PDF pp. 2–5, condition of symmetric marginals, Theorem 2 and LP",
+          "method": "Statement-level comparison",
+          "title": "Admissible Bernoulli correlations",
+          "trigger": "Balanced mean cut-polytope equivalence"
+        },
+        {
+          "assessment": "Unresolved exact overlap; not a basis for failure",
+          "evidence": [
+            "Secondary source reports characterization of attainable correlations for general marginals without the present cycle evaluation."
+          ],
+          "identifier_or_url": "doi:10.1093/biomet/93.1.197",
+          "material_read": "Bibliographic record and Huber–Marić p. 2 secondary description; primary full text unavailable after publisher and OA recovery attempts",
+          "method": "Bounded lawful access attempt and secondary comparison",
+          "title": "Range of correlation matrices for dependent Bernoulli random variables",
+          "trigger": "General prescribed Bernoulli marginals"
+        },
+        {
+          "assessment": "Unverified independent text comparison",
+          "evidence": [
+            "Cited as knockout network analysis in RESULT.md; no DOC-wide exclusion is inferred."
+          ],
+          "identifier_or_url": "doi:10.1098/rspb.2004.2909",
+          "material_read": "Bibliographic identification; primary text not retrieved from publisher or PMC recovery",
+          "method": "Lawful OA attempt only",
+          "title": "Tolerance of pollination networks to species extinctions",
+          "trigger": "Primary ecological loss model"
+        },
+        {
+          "assessment": "Unverified independent text comparison",
+          "evidence": [
+            "Cited model-comparison role in RESULT.md; no DOC-wide exclusion is inferred."
+          ],
+          "identifier_or_url": "doi:10.1002/ece3.4529",
+          "material_read": "Bibliographic identification; no publisher or repository full-text retrieval succeeded",
+          "method": "Lawful OA attempt only",
+          "title": "Effects of model choice, network structure, and interaction strengths on knockout extinction models of ecological robustness",
+          "trigger": "Related ecological model choices"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, lines 19–79",
+        "Gupte et al., Theorem 2"
+      ],
+      "rationale": "Dependence is a meaningful modeling issue, but the demonstrated explicit cycle invariant is already mechanically supplied by a published convex hull. The remaining general result performs ordinary group averaging and one-dimensional convexification and leaves the underlying hypergraph extremal profile unevaluated. No additional nonroutine hypergraph case or scientifically distinct consequence is demonstrated to make a viable standalone repair of this record.",
+      "residual_risks": [
+        "New evaluations for other motivated incidence families may have independent value; none is claimed here."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

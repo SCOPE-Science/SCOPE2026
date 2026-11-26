@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:06:36.014791Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, assumptions and proof §§1–3",
+        "Frozen CHECK.py and VERIFICATION.md (inspected, not executed)"
+      ],
+      "rationale": "Right reduction of X^j modulo the right factor X−u has constant remainder N_j(u): left multiplication by X changes the preceding remainder v to σ(v)u. Zero is excluded by the constant term. With t=N(u) and n=2m+1 the equation is t^n+at^m u+1=0. For nonzero a, solving for u and imposing N(u)=t is both necessary and sufficient, giving N(a)=z+2+z⁻¹ for z=t^n. Each z in the image contributes exactly gcd(n,q−1) distinct roots because it has that many distinct t and each t determines one u. Equality of the rational-map values is exactly equality or inversion; z=1 gives norm 4 and z=−1 gives the excluded norm zero. For a=0 the latter value contributes an entire norm fiber for each t^n=−1. For n=2m the equation fixes a=−(y+y⁻¹) in the base field with y=t^m. Each allowed y contributes gcd(m,q−1)(q+1) roots and again the only singleton inversion orbits are ±1 when present. These arguments verify the zero bins, the special coefficients and the exact incidence q²−1 (one a per nonzero u). For odd n the defined ε is always one, since gcd(n,q−1) is odd; for even n the limit case L=1 gives only a=−2 with roots. No separability in n or assumption that q is prime is used.",
+      "replay_paths": [],
+      "residual_risks": [
+        "The supplied finite checker is for prime q only and was not rerun. The algebraic proof covers arbitrary odd prime powers, including characteristic dividing n."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "With quadratic coefficient extension the reduced-norm substitution in Lemma 3.1 treats the same trinomials, while Lemma 3.2 and the split/irreducible distinction in §4 target irreducibility of the central polynomial and fibers of its coefficient for irreducible quadratics. The citing paper characterizes Tsushima's Cor. 3.12 as an unrestricted reciprocal-Frobenius fiber distribution."
+        ],
+        "reasoning": "The prior irreducibility result includes this family but not this observable: the absence of linear right factors is weaker than irreducibility. The general unrestricted distribution does not, as described, give arbitrary power-subgroup restrictions.",
+        "searches": [
+          "arXiv:2611.04767 v1 Lemmas 3.1–3.2 and Proposition 4.1",
+          "Tsushima DOI:10.5281/zenodo.23878333, Corollary 3.12 as described in arXiv:2611.04767 p. 3"
+        ]
+      },
+      "checked_sources": [
+        "Resultary unrestricted reciprocal-map table and related entries",
+        "arXiv:2611.04767 v1",
+        "Tsushima DOI 10.5281/zenodo.23878333 as described by the citing paper"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier map proof already gives the reciprocal quadratic in r=N(c) for parameter 1, and the earlier reduced norm gives the corresponding substituted central polynomial. Neither count gives the right-root histogram with power restrictions. The frozen argument counts inverse orbits on each actual subgroup, including the exceptional norm-zero target and the even case with full norm fibers rather than a unique u per t."
+        ],
+        "reasoning": "There is shared algebra and an immediate coprime odd specialization, but neither the tabulated unrestricted distribution nor the irreducible-polynomial count mechanically gives the remaining counts by parameter substitution. The subgroup and lifting analysis is the supported additional content.",
+        "searches": [
+          "arXiv:2611.04767 v1 §3 Lemma 3.1; §4 Proposition 4.1",
+          "Resultary 2026/11/2/SCOPE-exact-fiber-spectra-of-frobenius-reciprocal-maps-over-quadratic--5efc6835f6df, Norm reduction and converse"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For odd n=2m+1, prescribing a is equivalent to asking for the fiber over −a of c↦c^q+c⁻¹ on the domain N(c)∈(F_q^×)^n, with c=uN(u)^m and exactly gcd(n,q−1) preimages of each c there. The November 2 table includes the full unrestricted map with parameter 1, so the histogram when gcd(n,q−1)=1 is covered, not just n=1."
+        ],
+        "reasoning": "When the gcd is larger, one must know how many norm classes in every map fiber lie in the specified proper power subgroup. The unrestricted histogram alone loses that information. The even case instead has target a in F_q and group of inputs (F_q^×)^(n/2).",
+        "searches": [
+          "Resultary 2026/11/2/SCOPE-exact-fiber-spectra-of-frobenius-reciprocal-maps-over-quadratic--5efc6835f6df",
+          "Hayata–Tsushima arXiv:2611.04767 v1 §§1,3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact all-exponents hit was the bound record itself. The November 2 table gives the unrestricted quadratic reciprocal-map spectrum, including parameter 1. The distinct cyclotomic census concerns least-period-four orbits of a reciprocal map, not its fiber counts or this equation's right-root counts."
+        ],
+        "reasoning": "Count the real overlap with the earlier unrestricted table; neither other entry is an identified exact table for both unrestricted and restricted skew-exponent cases.",
+        "searches": [
+          "Resultary 2026/11/22/SCOPE-complete-right-root-spectra-of-frobenius-skew-trinomials-over-qu--d7345a193acb",
+          "Resultary 2026/11/2/SCOPE-exact-fiber-spectra-of-frobenius-reciprocal-maps-over-quadratic--5efc6835f6df",
+          "Resultary 2026/11/22/SCOPE-a-cyclotomic-fourth-cycle-census-for-the-reciprocal-map-over-fin--b563d77fd864"
+        ]
+      },
+      "rationale": "Credit is limited to the combined parity-dependent, power-subgroup right-root histogram for all exponents. The entire coprime odd subfamily already follows from the earlier unrestricted reciprocal-map table, and the same skew trinomial family and norm polynomial also have material prior coverage. Those facts do not give the remaining restricted histograms as stated.",
+      "residual_risks": [
+        "Direct access to Tsushima's original preprint was unavailable; an additional subgroup refinement there or in an unlocated source is not ruled out."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same family and important norm overlap; different enumerative claim",
+          "evidence": "Lemma 3.1 is the substituted product-of-conjugates reduced norm formula. Lemma 3.2 separates quadratic irreducibility, coefficient degree, and a binomial irreducibility test; Proposition 4.1 counts coefficient fibers under the irreducible-quadratic hypothesis.",
+          "identifier_or_url": "https://arxiv.org/abs/2611.04767",
+          "material_read": "v1 pp. 1–3; §§3–4, Lemmas 3.1–3.2 and beginning of Proposition 4.1 (OA offsets 18900–31035)",
+          "method": "Bounded open-text inspection",
+          "title": "Counting irreducible skew polynomials X^{2n}+aX^n+1",
+          "trigger": "Identical Ore polynomial family and related norm machinery"
+        },
+        {
+          "assessment": "Covers unrestricted odd subfamily, not the complete exponent profile",
+          "evidence": "For map parameter 1 the full-domain spectrum includes the exceptional zero target and gives exactly the odd gcd-one histogram after target negation. Its hypothesis is the entire nonzero quadratic field domain.",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-fiber-spectra-of-frobenius-reciprocal-maps-over-quadratic--5efc6835f6df",
+          "material_read": "Finding, scope, norm reduction and odd-order proof up to offset 4178",
+          "method": "Resultary lookup and local-mirror full-statement excerpt",
+          "title": "Exact fiber spectra of Frobenius–reciprocal maps over quadratic finite-field extensions",
+          "trigger": "Equivalent unrestricted map for odd exponents coprime to q−1"
+        },
+        {
+          "assessment": "Named residual risk, not evidence of absence",
+          "evidence": "The citing passage describes a complete full-field fiber distribution; it does not describe subgroup restrictions.",
+          "identifier_or_url": "https://doi.org/10.5281/zenodo.23878333",
+          "material_read": "Hayata–Tsushima v1 p. 3 account of Cor. 3.12 and p. 22 bibliographic reference; original full text not read",
+          "method": "Lawful OA DOI and Zenodo record retrieval attempted; indirect comparison to explicit citing passage",
+          "title": "The Distribution of x^{p^n}+x^{-1} over Finite Fields and Self-Adjoint Irreducible Polynomials",
+          "trigger": "Potential stronger reciprocal-Frobenius distribution"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof",
+        "Hayata–Tsushima arXiv:2611.04767 v1",
+        "Resultary November 2 unrestricted-map Finding"
+      ],
+      "rationale": "The trinomial family is a previously motivated irreducibility problem. The exact distribution of distinct linear right factors complements, rather than repeats, an irreducible-coefficient count: it separates different root multiplicities among coefficients, isolates the exceptional a=0 fiber, and shows that coefficients with roots are confined to the base field for even exponents but not for odd ones. The dependence on the two power-subgroup indices gives an explicit reference across exponents, including noncoprime regimes not addressed by the earlier unrestricted-map table.",
+      "residual_risks": [
+        "The histogram cannot distinguish irreducibility from reducibility without a linear right factor; no such application is asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

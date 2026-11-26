@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:27:10.800420Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, and check.py"
+      ],
+      "rationale": "For common exactly-t descendants in a positional alignment, source deletions spoil at most t blocks and target deletions in internal matched gaps spoil at most t additional blocks. Thus one full source block occurs consecutively in the other power when r≥2t+1. Its first matched positions differ by the difference of the preceding deletion counts and hence by at most t, giving the claimed signed phase shift. Conversely, the common unchanged overlap at a phase shift s has length rm−|s| and can be shortened to rm−t. The observation remains a linear word. At least period d each orbit is a labeled cycle-power conflict graph: the maximum independent set has gaps at least t+1 for two or more selected points, yielding the floor when feasible and one otherwise. For d>t, marking a chosen vertex, counting the ordered excess gaps and dividing by k counts each maximal-size set exactly once; for d≤t the only choices are singletons. Primitive-period Möbius inversion supplies the orbit counts. Proper periods contribute at most Σ_{d|m,d<m}q^d=O(mq^(m/2)) messages, so the full-length term proves the claimed limit. The up-to-t consequence uses further deletion of a common descendant of length at least rm−t.",
+      "replay": "python3 /tmp/opencode/frozen_nov24_replay.py 2; computed exact LCS by dynamic programming for 6,606 message pairs across seven families, including extra repetition and t=3,4. Separately enumerated orbit-level independent sets to check component capacities and maximizing counts and obtained the eight stated binary capacities. The frozen script was inspected but not run.",
+      "residual_risks": [
+        "The repetition threshold is sufficient; sharpness is not established or needed. The independent finite calculations corroborate only their listed ranges."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "White explicitly enumerates independent k-sets in C_n^s; Sloane identifies single-deletion codes with independent sets; Sala et al. analyze insertion outputs at a specified edit distance."
+        ],
+        "reasoning": "The abstract graph formula gives h_d when the component and its radius are already known. The general code and reconstruction articles do not identify those components for this encoder.",
+        "searches": [
+          "arXiv:2605.03083, Theorem 1 and corollary; arXiv:math/0207197v1, deletion graph; arXiv:1604.03000, common supersequences"
+        ]
+      },
+      "checked_sources": [
+        "White arXiv:2605.03083",
+        "CPM 2025 DOI 10.4230/LIPIcs.CPM.2025.13",
+        "Resultary 05adac328b6c and 658d35d30c24",
+        "arXiv:math/0207197v1 and arXiv:1604.03000"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For (s+1)k≤n White's n/(n−sk)·binom(n−sk,k) equals (n/k)·binom(n−sk−1,k−1), exactly the frozen constituent formula at n=d,s=t,k=k_d for d>t."
+        ],
+        "reasoning": "Credit this constituent as known, along with primitive-necklace Möbius inversion and the general deletion graph reduction. The clean-block lemma linking arbitrary linear powers to these abstract graphs is the missing step in the inspected prior sources. Same-day catalogue dating alone does not determine priority.",
+        "searches": [
+          "White Theorem 1 and corollary; local Resultary 05adac328b6c and 658d35d30c24 Findings; CPM 2025 periodic LCS §4.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The deletion-shadow condition is LCS(U^r,V^r)≥rm−t. The periodic comparison paper computes LCS for general powers; the inspected theorem does not convert this threshold into a signed phase test. Resultary single-insertion record 05adac328b6c has a related cyclic criterion for UU and one insertion."
+        ],
+        "reasoning": "An algorithm evaluating the pairwise LCS does not itself provide the structural characterization or closed-form aggregation. The single-insertion criterion does not substitute for the general deletion-budget criterion.",
+        "searches": [
+          "Resultary: exact phase confusability, repeated message blocks, periodic powers and edit shadows",
+          "Gaevoy–Zolotov–Tiskin, Doubly-Periodic String Comparison, §4.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact all-budget self-hit is the frozen record. Distinct hits 05adac328b6c (single insertion in a doubled message) and 658d35d30c24 (phase offsets of a fixed cyclic alphabet word) are related but have different hypotheses."
+        ],
+        "reasoning": "Neither distinct source supplies all-alphabet, all-block labeled K and H for the full multi-deletion regime.",
+        "searches": [
+          "Resultary: exact repeated-block deletion ambiguity, optimum subcodes and phase ordering"
+        ]
+      },
+      "rationale": "The distinct result is the signed phase criterion for repeated blocks at general deletion budget and its resulting exact restricted-code optimum and enumerator. Abstract cycle-power counts are known, and there is closely related single-insertion work; neither establishes the full multiple-deletion conflict graph.",
+      "residual_risks": [
+        "An earlier equivalent structural theorem for near-perfect alignment of powers may be indexed differently. The Dolecek–Anantharam full text was unavailable and no negative conclusion is drawn from that access failure."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage of the graph counting constituent",
+          "evidence": "Enumerates independent sets of given size in powers of cycles under (s+1)k≤n; does not establish which pairs of repeated blocks are adjacent.",
+          "identifier_or_url": "https://arxiv.org/pdf/2605.03083",
+          "material_read": "Theorem 1 and corollary, p. 2, OA passage from offset 4173",
+          "method": "Open-access primary PDF passage",
+          "title": "Cyclic Sieving Phenomenon for Independent sets of graphs",
+          "trigger": "Possible exact cycle-power enumerator antecedent"
+        },
+        {
+          "assessment": "Computational overlap without explicit phase characterization",
+          "evidence": "Computes the LCS of periodic powers, without the inspected results stating the restricted near-perfect overlap graph or K and H.",
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.CPM.2025.13",
+          "material_read": "Abstract p. 1 at offset 750; §4.2 Theorems 45–46 and Corollary 47, offsets 43277–47626",
+          "method": "Open-access primary PDF passages",
+          "title": "Doubly-Periodic String Comparison",
+          "trigger": "LCS for periodic powers of exactly the relevant kind"
+        },
+        {
+          "assessment": "Related radius-one structure, distinct encoder/error regime",
+          "evidence": "One insertion in UU, adjacent cyclic phase conflicts, primitive-class graph components and counts; no multi-deletion claim at r≥2t+1.",
+          "identifier_or_url": "2026/11/22/SCOPE-the-exact-single-insertion-ambiguity-and-optimal-expurgation-of--05adac328b6c",
+          "material_read": "RESULT.md offsets 0–5863",
+          "method": "Local mirror at snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "The exact single-insertion ambiguity and optimal expurgation of repeated messages",
+          "trigger": "Closest distinct repeated-message Resultary hit"
+        },
+        {
+          "assessment": "Narrower fixed-template comparison",
+          "evidence": "Compares deletion intersections and LCS for phase offsets of a fixed cyclic alphabet word, not all pairs from arbitrary repeated messages.",
+          "identifier_or_url": "2026/11/8/SCOPE-exact-deletion-ambiguity-spectra-and-phase-ordering-for-cyclic-a--658d35d30c24",
+          "material_read": "Mirrored Finding",
+          "method": "Local Resultary mirror",
+          "title": "Exact deletion ambiguity spectra and phase ordering for a cyclic alphabet word",
+          "trigger": "Possible deletion/phase equivalent"
+        },
+        {
+          "assessment": "Known deletion problem framework",
+          "evidence": "Graphs encode shared deletion descendants and correctable subcodes are independent sets; no repeated-power phase test.",
+          "identifier_or_url": "https://arxiv.org/html/math/0207197v1",
+          "material_read": "Definition 1.1 and following graph passage, offsets 0–4300",
+          "method": "Open-access primary HTML",
+          "title": "On Single-Deletion-Correcting Codes",
+          "trigger": "General graph formulation"
+        },
+        {
+          "assessment": "Different channel/reconstruction question",
+          "evidence": "Studies extremal common supersequence overlaps and insertion-trace reconstruction, not the repeated-block deletion conflict graph.",
+          "identifier_or_url": "https://arxiv.org/pdf/1604.03000",
+          "material_read": "Abstract and p. 3, offsets 0–4200 and 23600–26712",
+          "method": "Open-access primary PDF passages",
+          "title": "Exact Reconstruction from Insertions in Synchronization Codes",
+          "trigger": "Related exact intersection formulas"
+        },
+        {
+          "assessment": "Detailed comparison unavailable",
+          "evidence": "The frozen comparison describes local repetition errors rather than repetitions as the encoder; full-text independent confirmation unavailable.",
+          "identifier_or_url": "https://doi.org/10.1137/080730093",
+          "material_read": "No primary full-text theorem passage retrieved",
+          "method": "Bounded direct and VPN DOI attempts returned HTTP 403",
+          "title": "Repetition Error Correcting Sets: Explicit Constructions and Prefixing Methods",
+          "trigger": "Cited related repetition-error work"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof; periodic LCS and cycle-power comparisons above"
+      ],
+      "rationale": "For a natural redundancy encoder, the theorem resolves exactly which messages stay confusable despite extra repetitions. The graph result gives constructive optimum selection and the count of optimum labeled subcodes; the exact penalty tends to a nontrivial fraction determined by the deletion budget. The value is the channel-specific structure, not the known cycle-power enumerator by itself.",
+      "residual_risks": [
+        "Restricted encoder family only, not a bound on all deletion-correcting codes of length rm."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

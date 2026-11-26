@@ -1,0 +1,157 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:24:14.802507Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–64",
+        "Frozen VERIFICATION.md and verify_cycle_delegations.py, inspected, not executed",
+        "Independent bounded check: enumerate binary neighbor choices for each root set, follow to termini and reject directed cycles, then compare the exact weight, covariance and tally counts; 2,255 raw maps, 1,208 feasible orientations; no standalone replay file was retained"
+      ],
+      "rationale": "A full directed circuit cannot pass through a guru, and on the interior of an arc the only directed cycle possible is an adjacent clockwise/counterclockwise two-cycle. Excluding that pair forces a prefix pointing to the first endpoint followed by a suffix pointing to the second; every cut is feasible and the uniform law makes distinct cuts independent. The weight vector is the deterministic term plus the sum of each cut variable times e_i−e_{i+1}. The discrete uniform variance m(m+2)/12 gives the stated Laplacian, with two separate contributions for parallel arcs at k=2. Same-ballot arcs have constant contribution with multiplicity and opposite-ballot arcs give one copy of every intervening tally; coefficient sums give exactly the two thresholds. The convolution bound counts arithmetic operations, not bit operations. In the two-guru case the central sum on an even cycle is attained once for every value of the shorter cut variable, so the tie probability is the reciprocal of one plus the longer arc interior length. Its equality cases and the symmetry of the win probabilities follow, including zero-length interiors. A separate bounded enumeration found no mismatch for all 218 root sets on n=3,…,7 and all 3,212 associated ballot patterns; the proof does not depend on that finite check.",
+      "residual_risks": [
+        "Only fixed gurus, labeled simple cycles and a uniform law conditioned on feasibility. The extrema assume opposing ballots and even n; odd n precludes ties, not necessarily equal tie-inclusive counts in unrelated models."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bentert et al. identify counting winning delegations as a variant rather than proving this tally count.",
+          "Utke–Schmidt-Kraepelin give connection probabilities for uniformly sampled minimum-cost branchings, not a joint marked ballot distribution. Colley et al. study a priori power with different direct/delegate choices and cyclic abstentions."
+        ],
+        "reasoning": "Marginal probabilities and existence/robustness decisions do not imply the joint distribution, exact count-by-tally, or central coefficient.",
+        "searches": [
+          "arXiv:2205.05482, p. 14",
+          "arXiv:2307.01174, p. 3",
+          "arXiv:2301.02462, pp. 1 and 3–4"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2205.05482, 2307.01174, 2301.02462, 2107.11868",
+        "Resultary 1b77836d9c13 and af9fc3ce9313",
+        "Classical fixed-root matrix-tree equivalence"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The generic forest minor already implies total feasibility but is unmarked by the destination of each ballot.",
+          "Berinsky et al. bound the load of random delegation processes with high probability, not the exact tie probability in the fixed-root cycle law."
+        ],
+        "reasoning": "The marked formula is a short evaluation from arc separability, not a new root-forest counting principle. Once evaluated it supplies exact probabilities, including dependence on guru location, not implied by the inspected decision results or concentration bounds.",
+        "searches": [
+          "Matrix-tree fixed-root reduction",
+          "arXiv:2205.05482, counting discussion",
+          "arXiv:2107.11868, pp. 1 and 7"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A feasible choice is a rooted oriented spanning forest. The tridiagonal gap minor has determinant m+1; equivalently each gap loses one edge in a tree after the gurus are identified. This gives the known unmarked count and independent uniform cuts.",
+          "The inspected two-guru cut result af9fc3ce9313 concerns a path under random ranks with a minimum-cost cut, giving a different, arcsine law."
+        ],
+        "reasoning": "Credit the equivalent uniform-forest description. The distinct election claims follow by retaining root-attached component sizes and the two physical arcs, which the unmarked determinant does not report.",
+        "searches": [
+          "All-minors matrix-tree theorem, fixed-root principal Laplacian minor on cycles",
+          "Resultary: cycle ballot dispersion 1b77836d9c13; two-guru cut law af9fc3ce9313"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest indexed cycle summary uses clockwise-only delegation with independently random gurus and an expected squared-ballot-weight invariant, not two-way feasible choices conditioned on fixed gurus.",
+          "The two-guru path source uses a preference-dependent optimum, not independent uniform arc splits."
+        ],
+        "reasoning": "The closest indexed exact invariants are about different random objects. No exact table or theorem for the claimed tie extremum was identified; this is not a finding of exhaustive absence.",
+        "searches": [
+          "Resultary cycle ballot-dispersion and two-guru cut comparisons: 1b77836d9c13, af9fc3ce9313",
+          "Targeted primary-literature lookup for cycle delegation counts and two-guru ties (no useful passage returned)"
+        ]
+      },
+      "rationale": "The unmarked count and the underlying rooted-forest structure are standard; the supported distinct claim is the explicit joint component-size and tally laws for this conditional election model and the sharp opposing-guru positional tie consequence. Neither the inspected general decision/branching work nor the closest cycle record supplies these marked formulas under the stated sampling law. The elementary uniform-sum calculation alone is not claimed as original.",
+      "residual_risks": [
+        "Best-of-knowledge only. Full primary text of 1b77836d9c13 was not accessible in the mirror; its indexed model differs, but exact coverage by that text is not ruled out. General rooted-forest machinery and independent gap deletions are credited, not claimed new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Proposes counting variant; does not supply this cycle tally law in the inspected material",
+          "evidence": [
+            "Distinguishes the decision scope of the paper from the useful variant of counting winning delegations."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2205.05482",
+          "material_read": "PDF p. 14, counting-variant discussion (OA offset 54649)",
+          "method": "Primary PDF passage",
+          "title": "Who won? Winner Determination and Robustness in Liquid Democracy",
+          "trigger": "Direct antecedent for counting delegations that make a candidate win"
+        },
+        {
+          "assessment": "Related machinery, different output",
+          "evidence": [
+            "Computes connection probabilities for the uniform minimum-cost branching."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2307.01174",
+          "material_read": "PDF p. 3, algorithm scope (OA offset 8450)",
+          "method": "Primary PDF passage",
+          "title": "Anonymous and Copy-Robust Delegations for Liquid Democracy",
+          "trigger": "Uniform branching law and possible all-graph coverage"
+        },
+        {
+          "assessment": "Different model and output",
+          "evidence": [
+            "Direct vote or delegate; cycling may entail abstention; computes a priori power indices."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2301.02462",
+          "material_read": "PDF pp. 1 and 3–4, model and power indices (OA offsets 0 and 9679)",
+          "method": "Primary PDF passages",
+          "title": "Measuring a Priori Voting Power—Taking Delegations Seriously",
+          "trigger": "Exact liquid-democracy statistics"
+        },
+        {
+          "assessment": "Load concentration, not exact fixed-root equal-tally probabilities",
+          "evidence": [
+            "Studies competing random delegation mechanisms and high-probability bounds on incoming delegation weights."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2107.11868",
+          "material_read": "PDF pp. 1 and 7 (OA offsets 2606 and 24717)",
+          "method": "Primary PDF passages",
+          "title": "Tracking Truth with Liquid Democracy",
+          "trigger": "Random aggregation statistics"
+        },
+        {
+          "assessment": "One path, random ranks, minimum-cost law; different from the two uniform physical cuts",
+          "evidence": [
+            "Arcsine asymptotic under a preference-based optimization."
+          ],
+          "identifier_or_url": "Resultary af9fc3ce9313",
+          "material_read": "Mirrored RESULT.md finding at offset 0",
+          "method": "Local indexed search and mirror",
+          "title": "An arcsine concentration law for minimum-rank delegations between two gurus",
+          "trigger": "Two-guru exact cut-law overlap"
+        },
+        {
+          "assessment": "Summary distinguishes the model, but full-text coverage not established",
+          "evidence": [
+            "Clockwise-only with independent direct-voting probability q; exact mean-square ballot weights."
+          ],
+          "identifier_or_url": "Resultary 1b77836d9c13",
+          "material_read": "Catalogue summary only; local mirror unavailable",
+          "method": "Local indexed search and attempted mirror retrieval",
+          "title": "Exact ballot dispersion and the competence frontier for clockwise delegation on a cycle",
+          "trigger": "Closest indexed cycle/ballot result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 15–44 and 62–64",
+        "Bentert et al., arXiv:2205.05482, p. 14"
+      ],
+      "rationale": "The exact winner count is a tractable, natural special case of a proposed counting problem and the joint law also supplies coalition uncertainty without re-enumerating orientations. Most notably, with two opposing gurus both candidates have the same strict-win chance, yet guru locations change the tie probability by nearly a factor of two. That sharp dependence is a useful benchmark for delegation models beyond just counting forests.",
+      "residual_risks": [
+        "The method exploits cycle separability; it does not settle the general counting problem or support claims about empirical voters."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

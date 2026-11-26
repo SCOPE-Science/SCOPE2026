@@ -1,0 +1,151 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:39:02.452556Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–88 and 90–91",
+        "Frozen VERIFICATION.md lines 3–23 and checks/verify.py lines 10–15, 44–84",
+        "Complete corrected files under /workspace/repairs/5/"
+      ],
+      "rationale": "For repaired claim, thin QR gives F=ER⁻¹ with QᵀF=0 and ‖EA†‖=‖F‖. The normal equations give displacement −Tu+Kr with T=FᵀF(I+FᵀF)⁻¹ and KKᵀ=T−T². For unit z, putting a=‖Tz‖ bounds the dual pairing by ‖u‖[a+ρ√(a−a²)], since zᵀTz≤a and a≤δ²/(1+δ²). Scalar concavity gives the interior optimum a*=(1+1/√(1+ρ²))/2 for ρ>0 and the cap for ρ=0. F=−s wvᵀ with v=u/‖u‖ and w in the old orthogonal complement aligned with r (arbitrary if r=0) attains the bound. It is rank one for positive budgets and zero for zero budget; the retained assumptions ensure w exists. Independent exact replay: A=(1,0)ᵀ, b=(1,ρ)ᵀ and E=(0,−s)ᵀ give x̂=(1−ρs)/(1+s²), hence the stated normalized displacement. At ρ=1 and δ=3 the maximizer has s=1+√2<3 and gives (1+√2)/2, larger than the value 6/5 at s=3. The rewritten script distinguishes 6×7 positive-budget and 6 zero-budget scalar checks; supplied code was inspected, not executed. No computation is needed for the upper bound, attainment, or correction.",
+      "residual_risks": [
+        "No claim for unstructured errors, simultaneous perturbation of b, or coefficient norm. The alternate numerical suite was not reproduced and is not relied on."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Garrison–Ipsen Theorem 4 and Ipsen Lemma A.1 bound coefficient errors with condition-number and residual factors, using different perturbations or normalization."
+        ],
+        "reasoning": "Generality in perturbations does not produce the optimal joint tradeoff under AᵀE=0 or an attaining perturbation. Broader older sources were not available in full.",
+        "searches": [
+          "arXiv:2603.16644v1 §3.2",
+          "arXiv:2507.18466v2 Appendix A",
+          "DOI 10.1016/j.laa.2016.03.027",
+          "DOI 10.1137/1019104"
+        ]
+      },
+      "checked_sources": [
+        "Resultary targeted searches and matching local-mirror statements",
+        "arXiv:2603.16644v1 §3.2",
+        "arXiv:2507.18466v2 Appendix A",
+        "Bounded OA attempts for the three classical papers listed in source_inspections"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The sketch result relates original versus sketched objective improvement under a norm embedding; the graph result bounds preconditioner spectra; the perturbation lemma bounds general coefficient error."
+        ],
+        "reasoning": "None of those implications has the hypotheses and conclusion needed to recover the joint scalar envelope and its saturation. The dual bound must couple both displacement terms through the same direction, and a separately constructed perturbation shows equality.",
+        "searches": [
+          "SCOPE f91adc354294",
+          "SCOPE 029f60e61b0f",
+          "arXiv:2507.18466v2 Appendix A"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "SCOPE 029f60e61b0f treats spectral enclosure and convergence for a row-split Gram preconditioner, not a variable graph displacement at fixed A,b."
+        ],
+        "reasoning": "Representing A+E as a graph over the original range does not turn a preconditioning spectral result into sharp prediction sensitivity for the fitted answer. An exact older projection formulation remains an access risk.",
+        "searches": [
+          "Resultary: sharp graph Gram frontier / residual consistency",
+          "Ding (1998), DOI 10.1137/S0895479896306604"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact comparison in the ranked results; nearest sharp envelope f91adc354294 concerns a sketched objective-improvement ratio."
+        ],
+        "reasoning": "There is no finite tabulation at issue for the continuum of data and budgets. The pertinent exact-record search did not identify a distinct exact match, which is bounded evidence only.",
+        "searches": [
+          "Resultary exact title: Sharp residual-dependent prediction error under column-orthogonal least-squares perturbations",
+          "Resultary fixed-data column-orthogonal prediction displacement and relative multiplicative budget"
+        ]
+      },
+      "rationale": "The surviving distinct claim is the fixed-data, dimension-free attained envelope including finite saturation and positive-budget rank-one attainment. Known residual-sensitive perturbation bounds and sharp sketching envelopes inspected do not materially cover it. The zero-budget correction is elementary, not a novelty claim.",
+      "residual_risks": [
+        "A restricted corollary in older full texts on multiplicative or projection perturbations was not ruled out. Ranked database and OA searches are not exhaustive."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different quantity and perturbation model",
+          "evidence": "Sharp lower envelope for original quadratic improvement versus sketched improvement under squared-norm embedding and exact sketched minimization.",
+          "identifier_or_url": "2026/10/12/SCOPE-sharp-norm-distortion-descent-envelope-for-exact-sketched-least--f91adc354294",
+          "material_read": "RESULT.md Finding and assumptions, offset 89",
+          "method": "Local mirror",
+          "title": "Sharp norm-distortion descent envelope for exact sketched least squares",
+          "trigger": "Closest indexed sharp least-squares envelope"
+        },
+        {
+          "assessment": "No equivalence in inspected statement",
+          "evidence": "Spectral enclosures and convergence for a row-split Gram preconditioner.",
+          "identifier_or_url": "2026/10/18/SCOPE-a-sharp-graph-gram-frontier-and-a-residual-consistency-barrier-f--029f60e61b0f",
+          "material_read": "RESULT.md Finding, offset 97",
+          "method": "Local mirror",
+          "title": "Sharp graph-Gram frontier and residual consistency barrier",
+          "trigger": "Geometric graph alias"
+        },
+        {
+          "assessment": "Coefficient forward bound, not sharp structured envelope",
+          "evidence": "Condition-number and computed-residual factors; normalization by computed coefficients.",
+          "identifier_or_url": "https://arxiv.org/html/2603.16644v1",
+          "material_read": "§3.2 Theorem 4, text offset 16313",
+          "method": "OA primary text",
+          "title": "Perturbation Analysis for Preconditioned Normal Equations in Mixed Precision",
+          "trigger": "Residual-sensitive perturbation theorem"
+        },
+        {
+          "assessment": "Different budget and quantity",
+          "evidence": "General E, budget ‖E‖/‖A‖, relative computed coefficient error, with residual contribution.",
+          "identifier_or_url": "https://arxiv.org/html/2507.18466v2",
+          "material_read": "Appendix A Lemma A.1, text offset 57762",
+          "method": "OA primary text",
+          "title": "Solution of Least Squares Problems with Randomized Preconditioned Normal Equations",
+          "trigger": "General least-squares perturbation theorem"
+        },
+        {
+          "assessment": "Exact implication unresolved",
+          "evidence": "Broader multiplicative perturbation setting; relevant full theorem text not obtained.",
+          "identifier_or_url": "https://doi.org/10.1016/j.laa.2016.03.027",
+          "material_read": "Publisher landing/abstract only",
+          "method": "Bounded lawful OA lookup",
+          "title": "Multiplicative perturbation theory of the Moore–Penrose inverse and the least squares problem",
+          "trigger": "Multiplicative-budget analogue"
+        },
+        {
+          "assessment": "Exact implication unresolved",
+          "evidence": "No mathematical exclusion inferred from access failure.",
+          "identifier_or_url": "https://doi.org/10.1137/S0895479896306604",
+          "material_read": "No primary full-text passage retrieved",
+          "method": "Bounded lawful OA lookup",
+          "title": "Perturbation results for projecting a point onto a linear manifold",
+          "trigger": "Projection geometry could encode the envelope"
+        },
+        {
+          "assessment": "Exact implication unresolved",
+          "evidence": "No mathematical exclusion inferred from access failure.",
+          "identifier_or_url": "https://doi.org/10.1137/1019104",
+          "material_read": "No primary full-text passage retrieved",
+          "method": "Bounded lawful OA lookup",
+          "title": "On the perturbation of pseudo-inverses, projections and linear least squares problems",
+          "trigger": "Classical broader perturbation comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired RESULT.md, scalar optimization and equality construction"
+      ],
+      "rationale": "This natural orthogonal error geometry isolates loss of the original prediction from coefficient conditioning. Knowing the sharp envelope distinguishes quadratic sensitivity for consistent data from linear small-error sensitivity and finite saturation for inconsistent data. Attainment for each fixed data set makes the plateau a worst-case phenomenon, not just looseness in a bound.",
+      "residual_risks": [
+        "The value is for the stated structured model, not for arbitrary randomized sketches or algorithms."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

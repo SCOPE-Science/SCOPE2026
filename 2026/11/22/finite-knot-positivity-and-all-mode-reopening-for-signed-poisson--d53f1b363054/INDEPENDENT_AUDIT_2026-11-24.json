@@ -1,0 +1,155 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:37:45.531964Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the stated nonzero positive compactly supported non-point measure and d>=2, k>=1, the change y=2-2 cos(theta) expresses F as a Stieltjes transform of a positive weighted pushforward onto t=(1-r)^2/r. Complete-Bernstein reciprocity and its integral representation were verified in Kwaśnicki, Corollary 2.16 and Proposition 2.17(a). The representation can be integrated termwise (0<=y<=4 yields an integrable bound proportional to (1+t)^(-1)); the positive geometric resolvent coefficients of (y+t)^(-1) give only nonpositive off-diagonal Fourier coefficients of 1/F. They are all strictly negative because the representing measure cannot be zero. Independently of transform uniqueness, if W is the mass and m_j the normalized t-moments of the weighted pushforward, the reciprocal has expansion y/W+m_1/W+(m_1^2-m_2)/(Wy)+O(y^(-2)), ruling out an affine reciprocal when the pushforward has positive variance. The inverse Fourier coefficients are summable and have positive row sum. Applying the minimum argument directly outside the finite set {0,+/-k,...,+/-dk} proves nonnegativity, and an exterior zero contradicts its strictly negative coupling to a positive knot. This also verifies the original two-stage proof. Invertibility follows from the positive weighted cosine Gram matrix (the factor 2 in the nonconstant mask columns is removed by column scaling); hence every nonzero feasible mask has a positive knot. Bochner, the consecutive-frequency Vandermonde argument, and the Fourier character density/missing-coefficient test prove PSD, finite-site strictness, and the universality equivalence, including the zero-mask exception. An independent exact calculation gives b_0,...,b_4=(1,0,0,1/30,1/30) in the example and b_n=[(3/4)^(n-2)-(1/4)^(n-2)]/15 for n>=2. Replay: /workspace/branches/b9005369-05b0-45d9-8a9b-e24720b8f5d5/two_radius_exact.txt. Neither this example nor the inspected, unexecuted package checker proves the full mixture theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kwaśnicki Corollary 2.16 and Proposition 2.17(a) give the general representation and reciprocal theorem",
+          "Resultary 969b187a914f has a weaker support assumption but only the normalized one-cosine modulation",
+          "Positivity of both factors is an input of the product alternative"
+        ],
+        "reasoning": "General reciprocity supplies a functional representation, not the strict sign of every nonzero lattice Fourier coefficient unless the resolvent and non-affine reciprocal are analyzed. General support criteria address strictness once the Fourier support is known. Neither the one-cosine result under broader mixing nor product criteria address arbitrary independent signed mask coefficients at multiple harmonics.",
+        "searches": [
+          "Schilling–Song–Vondraček Chs. 6–7 via DOI; Kwaśnicki arXiv:1006.0524 §2.5",
+          "Bonfim–Guella–Menegatto arXiv:1803.03105v2 and Buhmann–Jäger arXiv:2105.02586 §5",
+          "Resultary 969b187a914f"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and checker.py (inspection only)",
+        "Resultary 2dc7842600c0 and 969b187a914f",
+        "arXiv:1006.0524, arXiv:1803.03105, arXiv:2105.02586 and arXiv:1505.01169",
+        "Schilling–Song–Vondraček DOI (attempted, not full text)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Single radius is strictly positive definite on the cone iff the last knot is positive, not at every nonzero face point",
+          "The one-harmonic exact boundary only permits zeros at +/-k in the non-point case",
+          "The general reciprocal representation does not mention knot support, a mask cone, or its spectral zeros"
+        ],
+        "reasoning": "The one-harmonic result does not extend by checking each signed harmonic separately: that would impose different conditions, with no control over arbitrary signed combinations and simultaneous zero knots. The proof instead establishes a strictly dense inverse off-diagonal sign pattern and solves the whole Dirichlet sign problem, with the finite Gram invertibility establishing independent knot coordinates. No inspected stronger statement entails the complete classified mixture cone. The dates of the companion records do not establish priority.",
+        "searches": [
+          "Compare original Resultary 2dc7842600c0 and 969b187a914f findings and assumptions",
+          "Compare complete-Bernstein reciprocity and compact-circle spectral support criteria against the signed support claim"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The spectrum is the response of the Toeplitz covariance convolution to a finite signed source; the reciprocal Fourier symbol gives a strictly diagonally dominant Z-matrix with strictly negative off-diagonal entries",
+          "Resultary 2dc7842600c0 gives the analogous finite cone in the single-radius, tridiagonal-precision case"
+        ],
+        "reasoning": "The equivalent extension problem is positivity for a discrete operator harmonic off the source set. In the non-point case all exterior sites couple strictly to every positive boundary knot. The single-radius nearest-neighbor precision has zero long-range couplings and can give whole missing intervals or tails, so its result does not imply the new strict spectral classification.",
+        "searches": [
+          "Resultary: finite-knot Poisson-mixture positivity; signed circle masks; inverse-convolution/M-matrix criteria; all-mode reopening",
+          "Literature: mixtures of exponential covariance sequences, inverse M-matrices and discrete potential kernels"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "969b187a914f gives an exact two-rate reopening formula for the single-cosine critical ray",
+          "2dc7842600c0 gives exact pure-scale interpolation and tail coefficients"
+        ],
+        "reasoning": "The bound claim is uniform in degree, spacing, and the whole compact mixing law, not a finite table problem. The exact neighboring formulae were checked for dominance: neither evaluates even the target's degree-two ray with two zero knots as a covered multi-harmonic case. The rational example is correctness evidence, not a claim of novelty by itself.",
+        "searches": [
+          "Resultary: all-mode reopening and exact two-scale coefficients; 969b187a914f and 2dc7842600c0"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the exact arbitrary multi-harmonic mixture cone and classification of its spectral zeros, not for complete-Bernstein reciprocity, the maximum principle, or one-harmonic reopening. The closest indexed results overlap materially but specialize either to a single Poisson radius or to a mask with one nonconstant harmonic. The verified analytic literature supplies a representation and general spectral tests, not a previously verified full classification in this signed-mask setting.",
+      "residual_risks": [
+        "An equivalent statement may be available under discrete potential kernels, inverse covariance of mixtures of geometric sequences, or M-matrix Dirichlet extensions; bounded searches and the checked sources do not settle that priority.",
+        "The same-day one-harmonic reopening and single-radius cone comparisons are substantive; neither their ordering nor priority for the exact mixture extension was inferred."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The single-radius cone overlaps on the PSD certificate but has different spectral boundaries",
+          "evidence": [
+            "A geometric tail is identically zero when the last knot vanishes"
+          ],
+          "identifier_or_url": "Resultary 2026/11/22, 2dc7842600c0",
+          "material_read": "Finding, assumptions and inverse/interpolation in frozen sibling; original local mirror finding near offset 339",
+          "method": "Frozen original and local mirror passage",
+          "title": "Finite knot positivity cones for signed periodic Poisson covariances",
+          "trigger": "Strongest finite-knot cone overlap"
+        },
+        {
+          "assessment": "Directly covers one cosine and a two-rate boundary identity, not degree-d independent signed coordinates",
+          "evidence": [
+            "Q=1+b cos(k theta); sharp cutoff -2a_k/(a_0+a_(2k)); non-point boundary zeros exactly +/-k"
+          ],
+          "identifier_or_url": "Resultary 2026/11/22, 969b187a914f",
+          "material_read": "Finding, scope and Fourier reduction, offsets 385–3602",
+          "method": "Local mirror original passage at snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "A universal harmonic positivity cutoff and spectral reopening for Poisson mixtures",
+          "trigger": "Strongest non-point mixture reopening overlap"
+        },
+        {
+          "assessment": "Confirms the standard analytic ingredient but does not itself state the finite signed-mask positivity problem",
+          "evidence": [
+            "A nonzero CBF has a Stieltjes reciprocal, and the equivalence read in reverse gives the needed reciprocal; representation has constant, linear, and positive resolvent-integral terms"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1006.0524",
+          "material_read": "§2.5, Corollary 2.16, Eqs. (2.23)–(2.24), Proposition 2.17(a), pp. 20–21, offsets 61200–63976",
+          "method": "Original open PDF passages",
+          "title": "Spectral analysis of subordinate Brownian motions on the half-line",
+          "trigger": "Open full-text verification of cited reciprocal theorem and possible potential-theory coverage"
+        },
+        {
+          "assessment": "Book not assessed beyond the cited analytic ingredient",
+          "evidence": [
+            "No claim about book-wide scope based on access failure"
+          ],
+          "identifier_or_url": "https://doi.org/10.1515/9783110269338",
+          "material_read": "DOI route did not yield full chapter text; exact mathematical statement inspected in Kwaśnicki §2.5 instead",
+          "method": "Lawful retrieval attempt and independent open reference for the theorem",
+          "title": "Bernstein Functions: Theory and Applications",
+          "trigger": "Source cited for Stieltjes reciprocity"
+        },
+        {
+          "assessment": "Does not imply the signed-mask cone",
+          "evidence": [
+            "Both factors are assumed positive definite"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1803.03105",
+          "material_read": "Abstract and §1, offsets 0–3420",
+          "method": "Original open source passage",
+          "title": "Strictly Positive Definite Functions on Compact Two-Point Homogeneous Spaces: the Product Alternative",
+          "trigger": "Potential prior product theorem"
+        },
+        {
+          "assessment": "Support/block criteria are different from determining when an arbitrary signed Poisson mask yields nonnegative coefficients",
+          "evidence": [
+            "Circle strictness criteria use spectral structure, rather than a cone in the signed mask coordinates"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2105.02586",
+          "material_read": "Introduction and §5, offsets 0–3587 and 69910–73695",
+          "method": "Original open source passages",
+          "title": "Strict Positive Definiteness of Convolutional and Axially Symmetric Kernels on d-Dimensional Spheres",
+          "trigger": "Potential broad harmonic-block/support criterion"
+        },
+        {
+          "assessment": "Covers support-based strictness, not a finite-knot positivity criterion for this modulation",
+          "evidence": [
+            "Support criteria concern the existing Fourier support; they do not classify the signed mask"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1505.01169",
+          "material_read": "§1 and Theorem 1.1, offsets 3683–6615",
+          "method": "Original open source passages",
+          "title": "Strictly positive definite kernels on a product of circles",
+          "trigger": "Prior circle and product support criteria"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Signed harmonic modulation is a natural case not resolved by multiplying two positive-type kernels. Reducing infinitely many Fourier inequalities to independent finite knot inequalities is useful; the sharper distinction from the one-radius case is that every nonzero cone face gives a cofinite spectrum and strict finite-site positivity, even with several zero knots and without universality. That boundary result requires the non-point mixture's full inverse coupling; it does not follow from geometric nearest-neighbor interpolation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

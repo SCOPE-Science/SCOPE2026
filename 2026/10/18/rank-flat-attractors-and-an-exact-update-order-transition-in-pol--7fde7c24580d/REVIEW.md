@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The canonical partial polar factor preserves the initial singular-vector-pair span. For nonvanishing modes, post-step singular values obey the exact contraction \(s^+=|qs-\tau|\) with factor \(q<1\); the countable resonant preimage set is excluded when asserting full rank. The signed recurrence distinguishes post-step sign preservation from pre-step sign reversal above \(\eta a=1\). Exact proximal shrinkage reaches zero in finitely many steps. Fractional and dense-SVD checks replay the formulas, but the proof supports all dimensions.
+## correctness
 
-**Originality — PASS with limitations.** The motivating 2026 source states the polar post-step rule and a one-step update-order bound. Its inspected full text and appendices do not supply the asymptotic rank-flat attractor classification or unbounded long-horizon ratio. The analogous SLORR pre-step rule, classical singular-value thresholding, general constant-step subgradient instability, exact-line-search matrix-polar descent, and a smoothed Polar-Express scalar update were compared at the level of hypotheses and dynamical implications. These results do not imply the exact simultaneous post/pre/prox theorem as stated. The inaccessible full SLORR text and unindexed work on nonsmooth spectral dynamics leave bibliographic uncertainty.
+PASS
 
-**Value — PASS.** Low-rank induction and update ordering are explicit central motivations for spectral weight decay. The theorem gives a complete sharp limiting benchmark: the same nonzero regularized quadratic has a rank-flat attractor under the ideal post-step rule, a singular order transition, and a diverging pre/post long-run separation, while true proximal shrinkage terminates. The exact limiting residual objective and the countable exceptional set quantify the phenomenon rather than only furnishing a small counterexample.
+Use the initial orthogonal singular-vector pairs with signed coefficients y, even for repeated singular values; the partial polar factor acts by sign(y), with sign(0)=0, in these pairs. For q>0 the post-step positive radii follow |qs−τ|, and the reverse triangle inequality gives contraction to δ=τ/(1+q) for every mode that stays nonzero. Zero is absorbing and is not governed by the positive-radius formula. More explicitly the first positive zero preimage is τ/q>τ, and every radius >τ has exactly one positive preimage (radius+τ)/q. The exceptional radii are therefore τ∑_(i=1)^j q^−i, j≥1. All surviving radii eventually satisfy qs<τ; then the post signed modes flip for α>0 and preserve sign for α<0, yielding the stated antipodal limits or the fixed matrix. Pre equals post for α>0. For α<0 pre always flips on nonzero modes and has radial map qs+τ, converging to τ/(1−q). In the nonresonant rank-r comparison the Frobenius factors √r cancel, giving ηa/(2−ηa); the post objective is 3rλ²/(2a) when α<0. The critical step has post zero and pre an exact cycle after one step. The prox radii decrease by at least τ while positive, so they hit the unique minimizer in finitely many steps. The normalized nonzero spectrum becomes uniform on the surviving rank, proving the effective-rank assertion. The nonzero rank-r and Frobenius-ratio claims are read with the nonresonance condition in Finding and Limitations (not for every positive-rank initialization); for example α=−1/2, τ=1, y₀=2 gives post zero and pre nonzero.
 
-**Restrictions:** Canonical exact partial polar, isotropic centered quadratics, deterministic nonadaptive constant steps, exact arithmetic, generic initial singular spectrum where required. The claimed pre/post ratio concerns asymptotic magnitudes of separately evolved trajectories, not a direct difference lower bound, and does not contradict one-step order sensitivity estimates.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
 
+Pass the supported distinct comparison of three constant-step rules on the centered isotropic quadratic, especially the pre/post asymptotic order split and diverging norm ratio. The rules themselves are known, and the post-only rank/floor/phase theorem overlaps materially with a distinct later-dated catalogue finding. Treat neither the post-only theorem nor classical soft thresholding as a separately substantiated novelty here.
+
+## value
+
+PASS
+
+The comparison is a motivated counterbenchmark for reading an additive polar correction as rank reduction or a proximal step, and for reading a one-step order bound as long-run robustness. Above the critical step the two methods exhibit qualitatively different matrix attractors, with an exact dimension-independent nonresonant ratio that diverges at the stability boundary. That comparative result is the useful contribution, not textbook proximal thresholding by itself.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

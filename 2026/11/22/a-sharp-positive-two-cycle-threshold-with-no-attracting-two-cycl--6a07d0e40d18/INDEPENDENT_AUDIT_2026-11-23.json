@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:48:26.002235Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At h=1 the second-coordinate reset forces any positive primitive pair to be (p,q²),(q,p²) with p≠q. The sum and divided difference of the first-coordinate equations give u=1+(v+2)/a and P_a(v)=v²−Bv+a+2=0, where u=p+q, v=pq and B=a²−a−3. Conversely these two symmetric identities recover both cycle equations when u²−4v>0 and v>0. For positive a≤(√5−1)/2 the real roots are negative; after that the discriminant is negative through the interval up to a_Δ=(3+√13)/2. At a_Δ the double root has u²−4v=3(1−√13)/2<0. For a>a_Δ both roots are positive. With w=a+v+2, the remainder of a²(u²−4v)=w²−4a²v modulo P_a is (a+2)(a+1)+(−3a²+a+1)v, so the discriminant at v_- is strictly larger than at v_+. Their product after scaling each by a² is −a²(a+2)(3a³−10a²−8a−4). By continuity and this sign change at the unique positive cubic root a_*, both are negative below a_*, only the larger reaches zero there, and only the larger is positive above. At the zero p=q is not primitive. On the surviving branch det K=4v_-²; implicit differentiation gives v_- strictly decreasing to zero and crossing 1/2 at a_d=(3+√39)/2>a_*. Thus det K>1 already excludes attraction below a_d. For a≥a_d, using the orbit equations in the trace gives H=a²v(1+tr K+det K), a polynomial whose product at the two v-roots is −a²(a+2)Q(a). I reproduced this product and verified all coefficients of Q(t+9/2) are positive. The branch has no zero of H there and its sign is negative as seen at a=5, where det(I+K)=(39269−7347√29)/50<0. The characteristic polynomial at −1 is therefore negative, giving a real multiplier below −1 including at a_d. These arguments establish the positive primitive census and linear nonattraction for h=1 only, not global basins, longer periods or other steps.",
+      "replay": "Independent exact replay: /tmp/opencode/frozen_1_to_5_math_replay.py, section 3. For the remainders r(a)+k(a)v, the product over the two roots is r²+Brk+(a+2)k². This reproduces the threshold product and the Floquet resultant without assuming the expressions in the supplied checker; the script also verifies the shift signs and exact sign at a=5.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 4 assumes nonzero normal-form quantities and treats h in a small neighborhood of the flip locus. It states a sign-conditional local stability result for bifurcating period-two orbits.",
+          "The examples for α=4.04 and α=9 have h near 0.8874794 and 0.2519820562 respectively, not the reset slice h=1."
+        ],
+        "reasoning": "A local theorem in the larger two-parameter family can identify the collision or an adjacent branch but cannot rule out disconnected branches or changes of Floquet stability along the whole unit-step slice. The examples do not conflict with instability for h=1.",
+        "searches": [
+          "Al-Kaff et al., §§2–3, especially Theorem 4, PDF p. 8 / offset 45077",
+          "Al-Kaff et al., §5.1 period-doubling examples, PDF offsets 68459 and 69707"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.3390/math12091354, equations (1), (4), Theorem 4 and §5.1",
+        "doi:10.1016/j.amc.2013.11.088 (original text unavailable)",
+        "Resultary 6a07d0e40d18 (self-match)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At the positive fixed point (r,r²), r²+ar=a and the unit-step Jacobian has trace 1−ar and determinant 2r². The multiplier condition λ=−1 gives 2−ar+2r²=0, which eliminates to the same cubic. At this collision the other multiplier is −2r² with modulus greater than one.",
+          "Neither that multiplier calculation nor the local bifurcation sign statement shows that exactly one primitive pair persists for all larger a or that some multiplier exceeds unit modulus even after det K falls below one."
+        ],
+        "reasoning": "Credit the fixed-point threshold and locally accessible information. The algebraic root census and sign certificate ruling out late attraction are additional and are the claims passed here.",
+        "searches": [
+          "doi:10.3390/math12091354 fixed-point equations and characteristic polynomial, local Theorem 4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Eq. (4) is the exact two-parameter modified Euler map; h=1 makes it the scalar second-order recurrence x_{n+1}=x_n(1+a−ax_n−x_{n-1}²). Positive primitive 2-cycles are exchanged pairs of positive first coordinates in this recurrence.",
+          "The 2024 article's equations (1) and (4) distinguish the earlier reduced Lorenz system from its quadratic self-limited modification. Its description of the 2014 predecessor is not an inspection of that earlier full text."
+        ],
+        "reasoning": "The second-order recurrence or a fixed point of F_a² excluding those of F_a gives the same problem, but no distinct exact match was found for the modified map. Generic period doubling or results on the unmodified model do not identify those solutions.",
+        "searches": [
+          "Al-Kaff et al. doi:10.3390/math12091354 equations (1) and (4), §§2–3",
+          "Resultary semantic lookup for the unit-step modified Lorenz map and exact positive 2-cycle",
+          "Elabbasy–Elsadany–Zhang doi:10.1016/j.amc.2013.11.088"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matching indexed 2026/11/22/SCOPE-a-sharp-positive-two-cycle-threshold-with-no-attracting-two-cycl--6a07d0e40d18 is the assigned record itself.",
+          "The closest published same-map examples are parameter-specific figures/prose, not a unit-step census or an exact all-a stability table. No distinct same-map Resultary match emerged from the bounded lookup."
+        ],
+        "reasoning": "The apparent exact hit is a self-match. Published local numerical demonstrations neither exhaust positive pairs nor settle the absence of a stable window; a search miss does not exclude unindexed results.",
+        "searches": [
+          "Local Resultary focused queries for exact a_*, h=1 and positive period-two stability",
+          "doi:10.3390/math12091354 §5.1, Figures 1–4 and accompanying parameter examples"
+        ]
+      },
+      "rationale": "The map, positive fixed point and local flip analysis are prior; the cubic at h=1 follows from the fixed-point multiplier condition and is not itself a new local threshold mechanism. The supported distinct result is a complete positive primitive period-two census along the reset slice and the global-in-parameter exclusion of attracting two-cycles on that slice. The primary prior text gives local conditional results and selected examples, not this full census or all-parameter Floquet inequality.",
+      "residual_risks": [
+        "The 2014 source was not read in full; alternative recurrence or broader polynomial-map formulations may be indexed outside the names searched.",
+        "The checked primary passages and catalogue comparisons do not establish comprehensive historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Map and local flip analysis are prior, with conditional period-two stability. Inspected material does not provide a complete h=1 positive period-two census or full-branch instability.",
+          "evidence": [
+            "Theorem 4 says h differs in a small neighborhood of the flip locus and uses a sign condition on Ψ₂. Example parameters use steps different from unity."
+          ],
+          "identifier_or_url": "https://doi.org/10.3390/math12091354",
+          "material_read": "OA PDF equations (1), (4), §§2–3 including Theorem 4 at p. 8 / offset 45077; §5.1 period-doubling discussion around offsets 68459 and 69707",
+          "method": "Open-access primary PDF passage inspection",
+          "title": "Dynamic Behavior and Bifurcation Analysis of a Modified Reduced Lorenz Model",
+          "trigger": "Exact map and plausible prior flip or period-two classification"
+        },
+        {
+          "assessment": "Secondary evidence identifies a different earlier map. Exact extent of the 2014 coverage has not been independently determined.",
+          "evidence": [
+            "The 2024 source distinguishes its modified Eq. (4) from the earlier system in Eq. (1)."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.amc.2013.11.088",
+          "material_read": "Bibliographic record and identification of the unmodified predecessor in the 2024 primary source; earlier paper full text not obtained",
+          "method": "Lawful DOI lookup and bounded 2024 source comparison",
+          "title": "Bifurcation analysis and chaos in a discrete reduced Lorenz system",
+          "trigger": "Possible earlier period-two results for a closely named Lorenz discretization"
+        },
+        {
+          "assessment": "The assigned finding, not distinct prior coverage.",
+          "evidence": [
+            "Identical statement of the h=1 positive primitive threshold and instability; same record ID."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-positive-two-cycle-threshold-with-no-attracting-two-cycl--6a07d0e40d18",
+          "material_read": "Mirrored RESULT.md finding offset 314 and prior-work comparison offset 5400",
+          "method": "Local Resultary search and mirrored statement comparison",
+          "title": "A sharp positive two-cycle threshold with no attracting two-cycle in a modified Lorenz Euler map",
+          "trigger": "Exact catalogue match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The slice is mathematically natural: the reset of the second coordinate exposes exactly solvable exchange constraints absent at a generic Euler step. The local flip location alone does not settle whether other positive pairs exist or whether a sink appears farther from the collision. The full census plus exclusion of attraction on the whole surviving branch answers both questions for an established map, including the harder region where the determinant test ceases to decide. It gives no claim about continuous-time periodic orbits or other step sizes.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

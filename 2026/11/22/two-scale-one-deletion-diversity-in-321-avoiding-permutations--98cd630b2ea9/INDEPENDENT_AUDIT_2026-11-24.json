@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:36:54.601346Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–62 and 66; VERIFICATION.md; verify.py (inspected, not executed)",
+        "Independent diagnostic: python3 /workspace/review_checks.py 3 generates avoiders by inserting the maximum only before an increasing suffix. It checks all joint binomial moments through n=11 against Lagrange coefficients of the proposed marked series, and checks the mean. At n=11 there were 58,786 avoiders in 36 joint cells."
+      ],
+      "rationale": "For deletions at i<j to agree after standardization, comparing the entries from positions i to j forces a run of consecutive values in the direction from the first deleted value to the second; such a run also suffices. This gives the usual n minus number of bonds. In the marked ascending expansion, an increasing consecutive-value interval contributes at most one entry to any decreasing triple. Contraction is precisely invertible by positive marked-block lengths, giving the Catalan substitution. If adjacent x+1,x forms a descending bond, any larger preceding value or smaller following value would witness 321. Thus this pair forms a direct-sum component. A marked 21 contributes z^2(v−1) and its seams cannot create an ascending succession: they meet the larger entry on the left of 21 or its smaller entry on the right. This proves the geometric-series assembly. For transfer, T=2/(1+sqrt((1−(u+3)z)/(1−(u−1)z))); the Puiseux coefficient for sqrt(1−z/rho) is −2 sqrt((u+3)/4). Composition with T/(1−(v−1)z^2 T) multiplies it by (1−2(v−1)/(u+3)^2)^−2. In a common slit neighborhood in z/rho for u,v close to 1 the other square-root point is far away and the denominator stays nonzero; hence transfer is uniform. The resulting prefactor at u=1 is (8/(9−v))^2, while the expansion of log((3+e^s)/4) has linear coefficient 1/4 and quadratic coefficient 3/32. The recentered joint mgf factors as claimed, and tightness of d and Slutsky give the R limit. Finally the derivatives z^2 C'(z) and z^2 C(z)^2 give (n−1)C_(n−1) and C_(n−1) for n≥2, including n=2; n=1 is correctly excluded from the mean formula.",
+      "residual_risks": [
+        "Finite diagnostics do not establish all-length transfer. The law concerns a uniform classical 321-avoider and single deletions only; no finite-sample independence is inferred."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Claesson's multivariate cluster theorem marks Hertzsprung antichains over all permutations. Baril's Lemma 1 gives successions in expanded deflation-closed classes. Elizalde–Rivera–Zhuang Proposition 2.12 and Theorem 2.8 give W(s,t,x) for small descents and ordinary descents on Av(321)."
+        ],
+        "reasoning": "The unrestricted cluster theorem has no classical 321 restriction in those passages. Baril marks only ascending successions. W has a different second statistic: an ordinary descent count is not an ascending succession count. In particular ascending bonds can be created at arbitrary direct-sum seams (1 sum 1), so the direct-sum argument for ordinary descents is not a generic substitution of a marker for a.",
+        "searches": [
+          "doi:10.5802/alco.202",
+          "doi:10.46298/dmtcs.2158",
+          "doi:10.1007/s00026-026-00805-1"
+        ]
+      },
+      "checked_sources": [
+        "Claesson, Homberger, Baril and Elizalde–Rivera–Zhuang original passages",
+        "Local Resultary mirror 89e00cc30dc1; arXiv:2608.30266 p. 1 for scope only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Taking t=1 in ERZ's W gives 2/(1+2(1−s)x^2+sqrt(1−4x)), exactly the proposed H(z,1,v). Baril's substitution gives H(z,u,1). Those exact precedents also supply the separate Gaussian and tight negative-binomial limits with ordinary algebraic transfer. The ERZ first-return proof for W marks ordinary descents using UDD path occurrences."
+        ],
+        "reasoning": "The two marginals alone determine the mean and the deletion-count CLT but not the finite joint law or the dependence in the limit. To obtain this joint refinement one must use the marked 21 seams specifically: although the ascending statistic is not additive under arbitrary direct sum, it does split at these seams, and the free pieces retain their full Catalan-substitution weights. The reviewed results provide the ingredients but do not already combine them in a theorem tracking these two markers.",
+        "searches": [
+          "Baril Lemma 1 and 321 application",
+          "Elizalde–Rivera–Zhuang Lemmas 2.9–2.11 and Proposition 2.12",
+          "Homberger Lemma 5 and Theorem 6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Hertzsprung 12 and 21 exactly count the two directed bonds. Homberger's one-deletion law is exactly R=n−a−d. A near-title 321 result explicitly constrains vincular patterns, not the classical class at issue."
+        ],
+        "reasoning": "The unrestricted joint Hertzsprung statistic, the deletion-count pushforward, and restricted classes with other avoidance rules are not equivalent to the classical Catalan-class directed joint law. Likewise the zero-bond kings event is only one specialization.",
+        "searches": [
+          "Local Resultary/SCOPE: kings, one-deletion spheres and classical 321-avoiding permutations",
+          "doi:10.5802/alco.202",
+          "arXiv:1211.7117",
+          "arXiv:2608.30266"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact 132-avoider deletion-spectrum record and its Gaussian volume result use undirected bonds and a different avoider class. The separate W(s,1,x) table in algebraic-series form is exactly the small-descent marginal, not the requested simultaneous bond table. The exact match for this frozen record itself was excluded as a self-match."
+        ],
+        "reasoning": "In particular even symmetry between classical length-three classes as unweighted Catalan sets does not identify their directed succession statistics. Neither inspected exact series yields these joint cells simply by extracting an already marked coefficient.",
+        "searches": [
+          "Local Resultary/SCOPE: directed bonds and one-deletion reconstruction spectra",
+          "SCOPE-89e00cc30dc1",
+          "doi:10.1007/s00026-026-00805-1 Proposition 2.12"
+        ]
+      },
+      "rationale": "The supported contribution is the simultaneous ascending/descending bond law on classical Av(321) and the factorized joint limit. The one-deletion identity, the two marginals, and their separate limit consequences (including the deletion-count CLT via Slutsky) are known or implied. The joint law is a close synthesis, not a claim of novelty for its separate ingredients.",
+      "residual_risks": [
+        "This joint refinement is close to known enumerative constructions; an unindexed directed-bond refinement or an appropriately restricted cluster theorem could overlap. This is evidence-limited, not a claim of exhaustive priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact bond interpretation, unrestricted ambient permutations",
+          "evidence": "Hertzsprung occurrences are consecutive translated patterns and the antichain cluster series ranges over all permutations.",
+          "identifier_or_url": "https://doi.org/10.5802/alco.202",
+          "material_read": "PDF offsets 1800 and 8275, definitions and multivariate cluster passage",
+          "method": "OA original PDF passages",
+          "title": "From Hertzsprung’s problem to pattern-rewriting systems",
+          "trigger": "Exact local 12/21 pattern matching and a possible general cluster formulation"
+        },
+        {
+          "assessment": "Fully covers deletion identity",
+          "evidence": "Equal standardized one-deletion outputs are the same bond-run; the number is n minus the bond count.",
+          "identifier_or_url": "https://arxiv.org/pdf/1211.7117",
+          "material_read": "Lemma 5 and Theorem 6, pp. 3–4 offset 9800",
+          "method": "OA original PDF passage",
+          "title": "Counting Fixed-Length Permutation Patterns",
+          "trigger": "Same deletion count definition"
+        },
+        {
+          "assessment": "Exact ascending marginal implication",
+          "evidence": "Successions are marked by inflation of irreducible permutations via x/(1−yx); taking the ordinary Catalan specialization gives the stated T.",
+          "identifier_or_url": "https://doi.org/10.46298/dmtcs.2158",
+          "material_read": "Lemma 1 p. 15 offset 6500; 321 application pp. 18–19 offsets 21319 and 22574",
+          "method": "OA original PDF passages",
+          "title": "Avoiding patterns in irreducible permutations",
+          "trigger": "Ascending successions in Av(321)"
+        },
+        {
+          "assessment": "Exact descending bond marginal; ordinary descent marker does not track ascending bonds",
+          "evidence": "Small descents correspond to level-zero UUDD and the second variable marks UDD (ordinary descents). Setting that second variable to 1 yields C(z)/(1−(v−1)z^2 C(z)).",
+          "identifier_or_url": "https://doi.org/10.1007/s00026-026-00805-1",
+          "material_read": "Small descent definition, Lemma 2.9 offset 30900, Lemmas 2.10–2.11 and Proposition 2.12/Theorem 2.8 proof offsets 35100 and 38900",
+          "method": "OA original PDF passages",
+          "title": "Counting Pattern-Avoiding Permutations by Big Descents",
+          "trigger": "Classical 321 with small descents and a second marker"
+        },
+        {
+          "assessment": "Distinct avoidance class and undirected statistic; no chronological priority inferred",
+          "evidence": "Exact deletion-ball spectrum and Gaussian volume limit for Av(132).",
+          "identifier_or_url": "2026/11/22/SCOPE-algebraic-one-deletion-reconstruction-spectrum-law-for-132-avoid--89e00cc30dc1",
+          "material_read": "Mirrored Finding at offset 0",
+          "method": "Local Resultary and bounded mirror passage",
+          "title": "Algebraic one-deletion reconstruction spectrum law for 132-avoiding permutations",
+          "trigger": "Very close indexed reconstruction-spectrum title"
+        },
+        {
+          "assessment": "Different pattern notion",
+          "evidence": "The abstract explicitly states 321 vincular-pattern avoidance.",
+          "identifier_or_url": "https://arxiv.org/pdf/2608.30266",
+          "material_read": "PDF p. 1 offset 470, avoidance restriction",
+          "method": "Primary literature search, then OA PDF passage",
+          "title": "Vincular 321 avoidance paper (near-title search hit)",
+          "trigger": "Possible prior 321 bond enumeration"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 5–32 and 43–60",
+        "Baril succession specialization and Elizalde–Rivera–Zhuang Proposition 2.12 for comparison"
+      ],
+      "rationale": "Undirected deletion volume and separate directed marginals conceal the coupling. The exact directed enumerator distinguishes the linear-scale source of collision variability from the tight small-descent count and identifies their independence in the joint limit. This is a useful fine description of the deletion spectrum in a natural class, beyond the mean or marginal deletion CLT alone.",
+      "residual_risks": [
+        "No inference about code optimality, multiple deletions, or uniformity in other avoidance classes follows."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

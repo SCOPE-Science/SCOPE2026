@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:29:07.001738Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The carry/parity state gives a bijection with the accepted positive-step progressions: trailing and internal zero runs are checked at the next one, leading zeros are irrelevant at termination, and the final carries detect overflow. I independently constructed the ten-state matrix and solved the formal system, obtaining the stated rational series and matching direct counts through L=12 (python /workspace/branches/independent_frozen_checks.py 4). The separate induction is global: an odd step hits residue 2 mod 4; an even step allows (n−1)/2 on odd terms or n/4 on even terms, strictly decreasing the step. The witness (1,4,7) and its dilations are valid.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Example 4.3 states the zero-run rule and automaticity. Resultary 0abca7625fff gives two-summand results and Fibonacci population counts. Resultary 8b2885fb5572 gives the unrestricted-in-depth positive-step census and global four-AP exclusion for E."
+        ],
+        "reasoning": "Automaticity and population counts do not themselves determine this exact invariant. The fibbinary results have precisely the depth and step coverage needed for the affine transfer.",
+        "searches": [
+          "Rowland–Yassawi arXiv:1209.6008v1, Example 4.3",
+          "Resultary: same-set zero-run-even additive sumsets and fibbinary APs"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and CHECK.py (read only)",
+        "Resultary 8b2885fb5572",
+        "Resultary 0abca7625fff",
+        "Rowland–Yassawi 1209.6008v1, Example 4.3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The fibbinary result states z^2/P(z) and excludes every nonconstant four-AP; the affine maps split A into two residue classes and enforce a one-piece AP constraint."
+        ],
+        "reasoning": "Multiplication by z+z^2 gives exactly z^3(1+z)/P(z); exclusion transfers at every sufficiently large dyadic cutoff. This is demonstrated coverage, not speculation based on same-day titles.",
+        "searches": [
+          "8b2885fb5572, RESULT.md, offsets 0–2167 (Finding, Assumptions and four-term obstruction)",
+          "Frozen RESULT.md lines 5–28 and 51–76"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The distinct record's E is the fibbinary set (no adjacent ones). Baum–Sweet support is the complement of even 1-runs up to one leading padding bit; even 1-runs are exactly 3E."
+        ],
+        "reasoning": "A and E are not equal, but their dyadic sections admit the exact two-piece affine reduction in the rationale. Different set names and different numerators do not establish a distinct census.",
+        "searches": [
+          "Resultary: Baum–Sweet / zero-run-even dyadic arithmetic-progression census",
+          "2026/11/22/SCOPE-exact-maximal-progression-census-for-odd-binom-3n-n--8b2885fb5572, RESULT.md Finding and Assumptions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact-string hits reproduced the assigned record, not an independent earlier match. The separate fibbinary table starts 0,0,1,2,7,16,40,92; adding its two successive lags yields 0,0,0,1,3,9,23,56,132."
+        ],
+        "reasoning": "The sequence comparison is supported by the exact all-depth identity, not extrapolated numerology.",
+        "searches": [
+          "Resultary: z^3(1+z)/((1-z-z^2)(1-z-3z^2+2z^4)) and 1,3,9,23,56,132,303,687,1539,3425",
+          "8b2885fb5572, RESULT.md, initial coefficient table"
+        ]
+      },
+      "rationale": "The principal results are mathematically covered by the distinct published fibbinary progression census below, via an exact dyadic affine decomposition. No chronological priority between the two same-day records is inferred. To see the implication, write E for the no-adjacent-ones integers and E_r=E∩[0,2^r). The numbers whose 1-runs are all even are precisely 3m with m∈E: pair consecutive ones within each run from the low end, or use m+2m with no carry. For L≥2, complement the L-bit representation of n∈A. If the ignored padding has even length, all 1-runs in the complement are even, so n=2^L−1−3m with m∈E_{L−1}. If the padding has odd length, delete the most significant one of the complement (subtract 2^{L−1}); the remaining 1-runs are even, so n=2^{L−1}−1−3m with m∈E_{L−2}. Both converses hold; the convention at zero agrees. The two images are disjoint residue classes mod 3, so every 3- or 4-AP in their union stays in one image (otherwise the first three terms use all three residues), and reflection and scaling preserve APs. Thus T_L=A_{L−1}+A_{L−2} for the published census A_r of E. The levels L=0,1 are zero. The published GF and global four-term exclusion give both frozen claims, with length three attained already by the transferred E_2 triple (0,1,2) at L=3. The frozen dilation witness is the same triple (1,4,7) followed by the standard multiplication-by-four closure.",
+      "residual_risks": [
+        "No priority ordering within the shared catalogue date is inferred; verdict rests on the explicit implication.",
+        "The original Baum–Sweet 1976 full text was not retrieved through the bounded OA lookup; this does not affect affirmative coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers via exact affine reduction, not by set equality",
+          "evidence": "Fibbinary identification, z^2/P(z), all-depth scope, and proof excluding any four consecutive AP terms in E.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-exact-maximal-progression-census-for-odd-binom-3n-n--8b2885fb5572/RESULT.md",
+          "material_read": "Finding, assumptions, and exclusion proof (offset 0–2167); carry description and transfer matrix passages (offsets 2342–3826)",
+          "method": "Resultary lookup and bounded local-mirror reads",
+          "title": "Exact maximal-progression census for odd binom(3n,n)",
+          "trigger": "Distinct same-day positive-step census with same denominator"
+        },
+        {
+          "assessment": "Same set, different invariant",
+          "evidence": "A+A=A+2A=N_0 and a characterization for A+4A; Fibonacci counts of individual elements.",
+          "identifier_or_url": "2026/10/25/SCOPE-three-exact-additive-sumsets-of-the-zero-run-even-integers--0abca7625fff",
+          "material_read": "RESULT.md finding passages at offsets 425 and 759",
+          "method": "Resultary lookup and local-mirror passage reads",
+          "title": "Three exact additive sumsets of the zero-run-even integers",
+          "trigger": "Same set and dyadic counts"
+        },
+        {
+          "assessment": "Confirms the underlying set, not an evaluated AP census in the inspected passage",
+          "evidence": "Even-zero-run rule with the empty representation at zero.",
+          "identifier_or_url": "https://arxiv.org/abs/1209.6008v1",
+          "material_read": "Example 4.3, p. 14",
+          "method": "Open full-text passage",
+          "title": "A characterization of p-automatic sequences as columns of linear cellular automata",
+          "trigger": "Baum–Sweet definition and broader automatic-sequence setting"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The maximal progression problem and exact count are natural, but the frozen result is a second calculation of an exact invariant mechanically obtainable from the published fibbinary theorem. The alternate carry certificate is valid but does not, as stated, provide an independently useful new structural claim beyond the covered conclusions. No repair is claimed.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

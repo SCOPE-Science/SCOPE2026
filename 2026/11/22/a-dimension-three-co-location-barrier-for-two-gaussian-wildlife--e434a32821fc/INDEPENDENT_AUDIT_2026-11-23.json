@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T16:53:44.105647Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a coordinate normal of variance sigma², E exp(-k X²/(2 ell²))=(1+k s)^(-1/2); shifting the first-coordinate mean in the single-detector integral adds exp[-a²/(2 ell²(1+s))]. Multiplying the two kernels removes the cross term and contributes exp(-a²/ell²) times the k=2 product over all d coordinates. Conditional inclusion–exclusion therefore gives C_d(t)=A exp(-alpha t)-B exp(-t) with t=a²/ell², alpha=1/[2(1+s)], A=2q(1+s)^(-d/2), B=q²(1+2s)^(-d/2). The ratio of positive to negative derivative terms is (q/q_c) exp[-(1-alpha)t]; it strictly decreases. At equality q=q_c only t=0 has zero right derivative, and every t>0 strictly underperforms. For q>q_c, the unique root is a strict global maximum, including the boundary at zero, since the sign changes from positive to negative. The logarithmic derivative in s has numerator d/2-1-2s and positive denominator. Thus f_d=log q_c starts at zero and decreases strictly for d<=2, or rises and then falls strictly to -infinity for d>=3. This gives one positive crossing and the q<=1 obstruction including equality. At d=4 the exact polynomial reduces to s(s²-s-1)=0, and independent decimal bisection of (1+2s)^3-(1+s)^5 on [0.5,1] yields s_3=0.63770838850224109…. For S=2^(d/2) the expansion uniformly on [S/2,2S] is log(S/s)-(d/4+1)/s+O(d/s²). The endpoints have opposite signs for large d; at the root exponentiation gives S/s=1+(d/4+1)/s+O(d²/s²), which proves the stated correction and remainder. The frozen checker was read, not executed; the numerical root at exactly the transition has ordinary floating-point sensitivity, whereas the analytic derivative decides the equality exactly. The quadrature code is composite Simpson (not the midpoint rule despite one code comment).",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sun et al. use the half-normal capture model in simulations, but evaluate abundance and scale estimation for different arrays. The Durbach DOI provided a bibliographic entry; the distinct manuscript lookup was empty. The search returned D-optimal Gaussian-process reconstruction and a two-dimensional stochastic-target barrier paper (arXiv:2505.00825 abstract)."
+        ],
+        "reasoning": "None of those compared mathematical objects supplies an unrestricted optimal pair for the same expected union probability under a fixed Gaussian position law. Estimator precision and crossing a barrier by a stochastic line process do not determine this static reflected-pair optimum. An exact arbitrary-d Gaussian coverage theorem would cover it; absence of search hits is not proof one does not exist.",
+        "searches": [
+          "sharp exact optimal placement two probabilistic sensors Gaussian target distribution coverage one detection Gaussian kernel optimum symmetry colocation overlapping independent two facilities Gaussian dimension 3 variance threshold",
+          "doi:10.1371/journal.pone.0088025",
+          "Durbach Borchers Sutherland Sharma Fast flexible alternatives regular grid designs spatial capture recapture 2041-210x.13517 arxiv accepted manuscript PDF"
+        ]
+      },
+      "checked_sources": [
+        "Resultary planar Gaussian camera record b1e8a3b75a1e (full RESULT)",
+        "doi:10.1371/journal.pone.0088025",
+        "doi:10.1371/journal.pone.0101205",
+        "doi:10.1111/2041-210x.13517 (bibliography)",
+        "arXiv:2505.00825 (search abstract)",
+        "Resultary related coverage records"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The full planar source gives the same two-exponential derivative ratio under d=2 and does not consider any dimension-dependent admissible quality cap. Tracey et al. integrate trivariate kernels over observed movement, with horizontal and vertical variances allowed to differ. Sun et al. simulate multiple visits, recaptures and arrays, not the single-capture optimal threshold."
+        ],
+        "reasoning": "Once the effective-quality reduction is made, the new classification requires comparing log q_c to zero over all positive spreads; near zero its derivative switches sign at d=2. Neither the old planar theorem nor use of trivariate kernels entails where the d>=3 crossing falls or its exponential scale with the linear-in-d correction. No priority is claimed for the inclusion–exclusion framework, Gaussian moments, or the planar specialization.",
+        "searches": [
+          "Published planar Resultary record, Gaussian coverage identity and Exact co-location transition",
+          "doi:10.1371/journal.pone.0101205, 3D movement-based kernel and utilization distribution",
+          "doi:10.1371/journal.pone.0088025, Methods and Discussion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The nearest Resultary hit other than the assigned record is SCOPE-a-sharp-co-location-transition-and-a-unique-best-detection-range--b1e8a3b75a1e. Its accessible full RESULT gives exactly the d=2 Gaussian coverage formula, threshold q(k)=(1+2k)/(1+k)^2, and optimum in its Eqs. (1)–(2). It separately studies width optimization in the plane."
+        ],
+        "reasoning": "Write U=(1+s)^(-(d-2)/2) and V=(1+2s)^(-(d-2)/2). At fixed s the entire dimension-d objective is U²/V times the planar objective with effective sensitivity qV/U. Thus in d>=3 the optimizer conditional on effective quality is an immediate reduction to the planar theorem, not a new optimization principle. The planar threshold is below one, but the relevant cap on effective quality is V/U<1; comparing these two moving quantities yields the distinct new question, whether q_c(s,d)>=1 and for which s,d.",
+        "searches": [
+          "Two Gaussian half normal detection kernels independent detectors expected union co-location barrier optimum spacing dimension Gaussian activity center",
+          "spatial capture recapture two detectors Gaussian home range optimize expected detection probability at least one detector symmetric spacing half normal colocated two trap exact Gaussian animal activity center"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed planar sibling lists a numerical illustration for fixed p=1/2 and a small-p range scaling; the inspected proof and theorem restrict position to N(0,w² I_2). Nearby sharp thresholds indexed for linear transects or Gaussian-kernel quadrature change the objective or prior."
+        ],
+        "reasoning": "The planar example and width asymptotic vary a different quantity and cannot be a tabulation of the critical perfect-quality variance ratios in d>=3. The golden ratio here is a fact about the specific positive root, not an independently novel number.",
+        "searches": [
+          "Two Gaussian half normal detection kernels independent detectors expected union co-location barrier optimum spacing dimension Gaussian activity center",
+          "Resultary SCOPE-a-sharp-co-location-transition-and-a-unique-best-detection-range--b1e8a3b75a1e Finding and Proof"
+        ]
+      },
+      "rationale": "The precise novelty is limited to the dimension-three onset of a nonzero all-quality co-location interval, the dimension-specific crossings and the high-dimensional expansion. The two-exponential maximization itself and the planar transition are already covered. Factoring transverse Gaussian coordinates is elementary, but the stated cutoff in physical q, its change of kind with dimension and its asymptotic correction require further analysis and are not statements of the closest source.",
+      "residual_risks": [
+        "General probabilistic facility-location or sensor-coverage literature might contain the exact arbitrary-dimensional Gaussian result; this is a bounded priority judgment.",
+        "An elementary reduction accounts for most of the optimizer formula; novelty and value are assessed only for the nonzero all-quality interval, exact crossings and dimensional scaling, not the old localization technique."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the planar optimizer and technique; it does not classify the higher-dimensional all-quality spread crossing or its asymptotics",
+          "evidence": [
+            "Eq. (2) has derivative-term ratio p(1+k)^2/(1+2k)",
+            "The width optimization treats fixed p,w and k→infinity at p→0, not fixed q=1 and d→infinity"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-a-sharp-co-location-transition-and-a-unique-best-detection-range--b1e8a3b75a1e/RESULT.md",
+          "material_read": "Full scientific result page, in particular Finding, assumptions, proof Eqs. (1)–(4), asymptotics and scope",
+          "method": "Read published rendered result and compared the coefficients after transverse-coordinate factorization",
+          "title": "A sharp co-location transition and a unique best detection range for two symmetric ecological cameras",
+          "trigger": "Identical conditional Gaussian detectors, same symmetric family, same objective in d=2"
+        },
+        {
+          "assessment": "Common detector kernel but a different stochastic objective and design scope",
+          "evidence": [
+            "The simulated activity centers are uniform over a finite landscape",
+            "Uses comparative RMSE for estimates of N and sigma from repeated capture histories"
+          ],
+          "identifier_or_url": "https://doi.org/10.1371/journal.pone.0088025",
+          "material_read": "PLOS abstract, SCR model formulation and implementation, objectives, results and discussion",
+          "method": "Read primary HTML and compared loss functions, parameter domain and design variables",
+          "title": "Trap Configuration and Spacing Influences Parameter Estimates in Spatial Capture-Recapture Models",
+          "trigger": "Half-normal conditional detection and spatial design"
+        },
+        {
+          "assessment": "Motivates three-dimensional modeling, not this placement theorem",
+          "evidence": [
+            "The 3D kernel is integrated over path moves and time; vertical variance can differ from horizontal variance"
+          ],
+          "identifier_or_url": "https://doi.org/10.1371/journal.pone.0101205",
+          "material_read": "Abstract, 3D MKDE methods, utilization distribution, and avian and aquatic example descriptions",
+          "method": "Read PLOS primary HTML and compared assumptions",
+          "title": "Movement-Based Estimation and Visualization of Space Use in 3D for Wildlife Ecology and Conservation",
+          "trigger": "Three-dimensional animal use and Gaussian modeling"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This answers a concrete first-detection design question at the transition from a planar to a volumetric model: even perfectly responsive colocated independent devices need not benefit from being separated, and the spread needed to make separation worthwhile has a sharp cutoff. The dimension-three cutoff is pertinent to the idealized volumetric setting, and the asymptotic gives a structural severity scale rather than a new placement algorithm. This is model-level value for a conditional-independent reflected pair, not a field recommendation or an unrestricted design theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

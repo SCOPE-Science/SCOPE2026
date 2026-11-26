@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:39:20.544484Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–31 and 35–76",
+        "Frozen VERIFICATION.md and verify_dual.py (inspected, not executed)"
+      ],
+      "rationale": "With the four diagonal coefficients nonzero, the primal gradient vanishes only on the coordinate lines, and the restriction to each line is the square of a nonzero binary quadric. Thus the singularities are isolated; reducibility or a repeated factor would force a positive-dimensional singular locus. On the projective torus, C(C(x))=P(x)^2 x and G(C(x))=P(x)^8(P(x)+Q(x)^2); these are scheme-level identities with unit factors on the torus. Every coordinate-plane restriction is a nonzero b_i^2 times the fourth power of the product of the three remaining coordinates, so no additional factors or multiplicities are lost in passing to the torus. The derivative P(u)^2 C_i(u) gives the inverse Gauss map on the torus and vanishes exactly on the boundary of V(G), which consists of the six lines. A generic line has a nonzero order-two initial form of Q(C) (the two squared transverse variables cannot cancel), while P^3 starts in order six. At a vertex the three distinct degree-four square monomials in Q(C) survive all cross terms, while P^3 starts in order nine. This proves orders four and eight and nonnormality in codimension one.",
+      "residual_risks": [
+        "The tetrahedral support is reduced; this is not a determination of the Jacobian scheme or normalization. No formal verification or expert attestation is claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General results constrain Gauss maps, singularities and nonnormality. The degree formula is deg(gamma) deg(X^vee)=36 minus local polar intersection contributions, not an evaluation for the entire coefficient domain of this family."
+        ],
+        "reasoning": "These bounds and degree formulas neither specify the dual boundary nor compute its local orders for arbitrary cross coefficients, including collisions of primal singularities.",
+        "searches": [
+          "arXiv:2106.09988, Lemma 11, Proposition 12, Theorem 14",
+          "arXiv:2110.03078v2, §2, degree formula"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2206.03295",
+        "arXiv:2106.09988",
+        "arXiv:2110.03078v2",
+        "Resultary f0a07bc20820",
+        "Resultary 2253bd84ce62"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier substitution and no-boundary-factor argument transfer to the larger family. Its explicit restricted polynomial also makes the boundary computable there. The proof of the full uniform boundary uses the derivative and initial forms with independent coefficients, not the primal node count or a general nonnormality criterion."
+        ],
+        "reasoning": "Do not credit the reciprocal technique or the degree in the covered subfamily. The surviving claim specifies which divisors appear, their local orders and the plane section scheme across the full coefficient family; this does not follow as a special case of the inspected results.",
+        "searches": [
+          "Resultary 2253bd84ce62, Proof §5 (local mirror, offset 8100)",
+          "arXiv:2206.03295, Example 19",
+          "arXiv:2106.09988, Lemma 11"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The independent l_i in the Catanese–Schütt construction can be put in the coordinate normal form; Example 19 is a primal construction.",
+          "In the primitive Heisenberg equation, divide by e and take square roots in k: the four b_i are all sqrt(a/e), and the cross coefficients are equal in opposite pairs. Its dual from substitution is exactly the restriction of G, not an unrelated example."
+        ],
+        "reasoning": "The same Cremona result on that restricted coefficient subspace is prior coverage, not a new consequence there. Neither formulation supplies the independent-coefficient dual-boundary classification.",
+        "searches": [
+          "arXiv:2206.03295, §3.8, Example 19, eq. (7)",
+          "Resultary: the primitive Heisenberg quartic Cremona dual, 2253bd84ce62, Finding item 3 and Proof §5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "f0a07bc20820 treats an all-ten-coefficients-nonzero chamber and the length-24 primal Jacobian scheme. 2253bd84ce62 states the degree-twelve dual for the paired coefficients but does not classify the dual's boundary in its Finding or dual proof."
+        ],
+        "reasoning": "A primal node count or singular scheme is not the table of the dual's boundary; the indexed subfamily dual is material partial coverage, not coverage for independent coefficients.",
+        "searches": [
+          "Local Resultary lookup: tetrahedral square quartic exact node chamber f0a07bc20820 and primitive Heisenberg quartic Cremona dual 2253bd84ce62"
+        ]
+      },
+      "rationale": "Credit the earlier explicit Cremona dual and degree on the primitive Heisenberg subfamily, including the same substitution and exclusion of boundary factors. The distinct result supported here is the uniform dual for independent allowed coefficients and, in particular, the exact reduced dual boundary and its multiplicities throughout that family, including primal coefficient walls. No inspected result covers that full claim.",
+      "residual_risks": [
+        "Bounded comparison; related descriptions via reciprocal varieties may appear in other characteristic-two duality literature. Coverage on the primitive Heisenberg subfamily is established, not a residual risk."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Primal family and generic nodes are prior",
+          "evidence": "The product of four linear forms plus q squared defines the twelve-node construction; the relevant passage describes the primal and resolution, not the dual boundary.",
+          "identifier_or_url": "https://arxiv.org/pdf/2206.03295",
+          "material_read": "§3.8, Example 19, eq. (7), p. 10, offset 26850",
+          "method": "Lawful OA PDF passage",
+          "title": "Singularities of Normal Quartic Surfaces III",
+          "trigger": "Same primal family"
+        },
+        {
+          "assessment": "Applicable background, not a boundary classification",
+          "evidence": "General restrictions on Gauss maps, dual normality and primal singular points.",
+          "identifier_or_url": "https://arxiv.org/pdf/2106.09988",
+          "material_read": "Lemma 11, Proposition 12 and Theorem 14, pp. 16–18",
+          "method": "Lawful OA PDF passages",
+          "title": "Singularities of Normal Quartic Surfaces I",
+          "trigger": "Gauss maps and nonnormal duals"
+        },
+        {
+          "assessment": "General formula, not the tetrahedral calculation",
+          "evidence": "Product of Gauss-map and dual degrees is expressed using local polar intersection lengths.",
+          "identifier_or_url": "https://arxiv.org/html/2110.03078v2",
+          "material_read": "§2, degree formula, offset 4400",
+          "method": "Lawful OA HTML passage",
+          "title": "Singularities of Normal Quartic Surfaces II",
+          "trigger": "General dual degree relation"
+        },
+        {
+          "assessment": "Distinct primal invariant",
+          "evidence": "Exact twelve-node chamber and length of primal singular scheme.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-exact-12-node-chamber-for-the-tetrahedral-square-quartic-family--f0a07bc20820/RESULT.md",
+          "material_read": "Finding and coefficient restrictions",
+          "method": "Local mirror",
+          "title": "Exact 12-node chamber for the tetrahedral square quartic family",
+          "trigger": "Indexed same-family claim"
+        },
+        {
+          "assessment": "Explicitly covers the dual on a proper subfamily; excludes standalone credit for the method and restricted degree computation",
+          "evidence": "After normalizing e, equal fourth-power coefficients and paired square coefficients give exactly the restricted G by the same substitution.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-the-flat-length-24-singular-scheme-and-cremona-dual-of-primitive--2253bd84ce62/RESULT.md",
+          "material_read": "Finding equation, item 3, assumptions, and Proof §5; offsets 110 and 8100",
+          "method": "Local mirror",
+          "title": "The flat length-24 singular scheme and Cremona dual of primitive Heisenberg quartics",
+          "trigger": "Strongest indexed overlap on the dual"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 18–31 and 53–76",
+        "arXiv:2206.03295, Example 19",
+        "Resultary 2253bd84ce62, Proof §5"
+      ],
+      "rationale": "This is the complete reduced dual-boundary geometry for an established characteristic-two quartic family. Identifying the six nonnormal lines, quantifying how local order rises at the vertices, and computing the nonreduced plane sections gives information for studying normalization and degeneration that neither the Gauss-map degree nor a count of primal nodes provides. The result applies unchanged on cross-coefficient walls, rather than being a calculation at an isolated sample.",
+      "residual_risks": [
+        "The result does not itself determine the normalization, conductor or transverse analytic types."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

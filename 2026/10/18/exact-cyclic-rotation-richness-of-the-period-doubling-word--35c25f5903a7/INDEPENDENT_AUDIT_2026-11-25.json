@@ -1,0 +1,98 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:19:10.698524Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Checked the all-length proof directly. The identities p[2i]=0 and p[2i+1]=1−p[i] forbid 11 and then 0000. Every even-length window of 2n letters is either an aligned image of a length-n factor or its one-step rotation (the next block's leading zero wraps to the end). For n≥2 images contain a 1, so the two relative parities are disjoint, injective phases, and even rotations desubstitute to ordinary rotations. Thus every represented class lifts with twice its cardinality. For odd m, the only odd circular distance between successive 1s is the closing distance g; in any factor rotation it straddles the boundary, so the initial and final zero lengths s,t satisfy s+t=g−1 with 0≤s,t≤3. The possibilities g=1,3,5,7 permit at most 1,3,3,1 cuts respectively, and the all-zero factor contributes size at most one. For the sharp lower bound, any even distance 2e is realized between ones: choose even j with j+e even if e is even, or j+e≡3 mod 8 if e is odd, to get p[j]=p[j+e]=0 and ones at the corresponding odd positions. Choose even d amongst (m−1)/2,(m+1)/2; the two ones at distance d create two 000 runs under substitution, whose 00 starts can be picked at distance 2d±1=m. In 00u00 the three shifted m-windows are distinct, since period one or rotation by two at odd length would force a constant word, contradicting no 0000. The bases M(1)=1 and M(2)=2 and iteration give the formula; a class of size n entails primitivity. Inspected the finite checker and its two-block completeness argument, without executing it; the proof does not use that checker or extrapolate from length 192.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Proposition 17 and Example 1 in the inspected preprint give an aggregate value of two classes at powers of two. The earlier Lie record identifies every full class and proves by phase alignment that substitution induces a bijection for those classes."
+        ],
+        "reasoning": "Phase alignment already explains the extension to classwise lifting, but the complete-class test merely rules out full classes at odd lengths ≥5; it does not count how many partial shifts can or do occur.",
+        "searches": [
+          "Cassaigne–Fici–Sciortino–Zamboni arXiv:1402.5843 §5.1",
+          "Resultary 2026/10/12/SCOPE-exact-lie-complexity-of-the-period-doubling-word--2678ea387347"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, REVIEW.md, VERIFICATION.md and verify.py",
+        "Resultary --2678ea387347; later --d2b1e5730ed7, --8148ba3a1211 and --7d3e9aa0bffe",
+        "arXiv:1402.5843",
+        "arXiv:2102.03821"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier Finding's representatives use substituted single letters and the 000 and 001 classes. Its proof aligns even shifts by a nonzero odd-offset symbol, obtains odd shifts by the next block's first zero, and proves injection by parity."
+        ],
+        "reasoning": "The primitive full-class classification follows from these representatives and parity preservation of primitiveness for lengths ≥2 with the small bases direct. Applying the same phase logic to arbitrary represented subsets gives the class-size lift. Neither supplies the 00u00 triple for every odd length or the exact bound of three from the four-zero exclusion and permitted cuts in the sole odd gap.",
+        "searches": [
+          "Earlier exact Lie complexity --2678ea387347 Finding and proof, offsets 0 and 2070–6685",
+          "Bell–Shallit arXiv:2102.03821 introduction; Cassaigne et al. §5.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cyclic complexity counts classes with at least one factor; Lie complexity counts classes with every shift present, including periodic words. Neither invariant as a definition is the largest size of a represented part of a class."
+        ],
+        "reasoning": "Partial multiplicity is not recovered from the Lie count; the frozen full-primitive-orbit consequence is a special implication about full classes, not an independent novelty.",
+        "searches": [
+          "Represented conjugacy-class cardinality, cyclic complexity, Lie complexity, full conjugacy classes",
+          "Bell–Shallit arXiv:2102.03821 pp. 1–2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier exact Lie-complexity catalogue record lists complete classes, not partial maxima. Later relevant catalogue records --d2b1e5730ed7, --8148ba3a1211 and --7d3e9aa0bffe concern complete classes, class lifting, and an odd ceiling with infinitely many sharp lengths, respectively."
+        ],
+        "reasoning": "Even the odd-ceiling comparison does not give sharpness at every odd length. No exact earlier table for M was identified by these bounded checks; absence of a match is not itself priority evidence.",
+        "searches": [
+          "Resultary: period-doubling cyclic class sizes, full rotations, exact odd lengths and 2-adic structure",
+          "Primary literature: period doubling cyclic complexity, conjugacy class sizes, complete rotation classes"
+        ]
+      },
+      "rationale": "Credit the exact maximum, especially the sharp three rotations at every odd length m≥5 and the resulting 2-adic law at all their multiples. The earlier Lie-complexity result already covers the full primitive-orbit existence corollary via its explicit fully represented classes and uses the same phase lifting for complete classes. The extension of that phase argument yields classwise doubling; it is not a distinct novelty pillar. The inspected earlier sources do not imply the matching upper and lower multiplicities for partially represented classes at every odd length.",
+      "residual_risks": [
+        "Only the relevant portions of the literature were compared; equivalent sharp odd-length bounds outside the inspected material remain possible. The frozen discussion should credit the earlier period-doubling Lie result for the full-orbit consequence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers full-orbit corollary and phase mechanism, not sharp partial multiplicity at all odd lengths",
+          "evidence": "L=2 at powers of two and three times those powers, with explicit full classes; L=0 otherwise. The even/odd image argument was read directly.",
+          "identifier_or_url": "2026/10/12/SCOPE-exact-lie-complexity-of-the-period-doubling-word--2678ea387347",
+          "material_read": "Finding, scope and proof of doubling and odd lengths, offsets 0, 2070–6685",
+          "method": "Local catalogue and mirror read",
+          "title": "Exact Lie complexity of the period-doubling word",
+          "trigger": "Same word, full-shift lengths and substitution doubling"
+        },
+        {
+          "assessment": "Aggregate dyadic count, not the all-length extremum",
+          "evidence": "Two cyclic classes at powers of two for the displayed period-doubling sequence. In the inspected version the relevant proposition is 17, and the displayed morphism in the example does not match its displayed word.",
+          "identifier_or_url": "arXiv:1402.5843",
+          "material_read": "PDF p. 13, §5.1 Proposition 17 and Example 1, near offset 49000",
+          "method": "OA PDF",
+          "title": "Cyclic Complexity of Words",
+          "trigger": "Exact period-doubling cyclic complexity"
+        },
+        {
+          "assessment": "Defines the related invariant and states general results; not evidence of an exact M formula",
+          "evidence": "Full conjugacy-class counts, bounds and automaticity rather than maximum multiplicity in the portions inspected.",
+          "identifier_or_url": "arXiv:2102.03821",
+          "material_read": "PDF pp. 1–2, offsets 0–6946",
+          "method": "OA PDF",
+          "title": "Lie Complexity of Words",
+          "trigger": "Full-rotation class formulation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Partial conjugacy multiplicity measures an aspect of the factor language not given by aggregate cyclic complexity or the census of complete classes. The gap and triple-witness arguments resolve its extremal law uniformly, including all odd lengths where no complete orbit exists. This is a structural refinement of a natural invariant rather than a finite table or a restatement of Lie complexity.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

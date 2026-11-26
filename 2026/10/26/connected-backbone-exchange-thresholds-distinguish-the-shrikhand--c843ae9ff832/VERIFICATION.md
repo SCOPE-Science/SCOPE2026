@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility record
+# Independent mathematical audit
 
-The exact claim is about all 16-vertex connected-dominating configurations of each of two fully specified graphs, for cardinalities four, five and six. The source files `verify.py` and `verify_alt.cpp` are complete and standalone, and construct adjacency from coordinates without external data. They independently enumerate all nonempty bitmasks (65,535 candidates per graph) and test every subset with up to six selected vertices for domination and connectivity. The checkers construct every one-element exchange, verify the edge and component counts, and perform breadth-first search from every five-vertex configuration to establish eccentricity distributions. A connected-component breadth-first search at six establishes the rook threshold. Four-vertex equality cases have additional explicit structural checks in Python.
+## correctness
 
-Execute `python3 verify.py`. A successful execution ends `ALL_VERIFY_OK`. For the independent implementation, compile with `c++ -std=c++17 -O2 -Wall -Wextra -o verify_alt verify_alt.cpp` and run `./verify_alt`; successful execution ends `INDEPENDENT_VERIFY_OK`. Each checker uses the full finite universe and terminates deterministically. Neither a timeout nor a sampled subrange is interpreted as a proof.
+PASS
 
-Checked output: Shrikhande state/edge/component triples are (32,0,32), (672,5136,1), (4064,74304,1); rook triples are (8,0,8), (384,2112,2), (3744,63024,1). Five-state eccentricities: Shrikhande 672 of eccentricity five; rook 96 of eccentricity six and 288 of eccentricity seven. All claimed computations were executed successfully from the presented sources. These computations provide a finite proof of their exact combinatorial statements and are not an external independent research audit.
+A fresh exact set-based replay, without running either supplied checker, generated the two coordinate graphs, enumerated all k-subsets for k=1,…,6, tested induced reachability by closure and domination by neighborhood union, then bucketed eligible states by all their (k−1)-subsets. Joining all pairs in each bucket is exactly the one-replacement rule and introduces no false adjacency. BFS gave all components and every within-component eccentricity at k=5. At k=1,2,3 neither graph has a state (maximum connected coverage 7, 10, 13). At k=4,5,6 the triples (states,edges,component sizes) were Shrikhande (32,0,32 singletons), (672,5136,[672]), (4064,74304,[4064]); rook (8,0,8 singletons), (384,2112,[192,192]), (3744,63024,[3744]). The size-five degree and eccentricity histograms agree in full, with 48 eccentricity-six and 144 eccentricity-seven states per rook component. Direct degree/common-neighbor checks give A²=4I+2J, hence eigenvalues 6,2,−2 with multiplicities 1,6,9; local neighborhoods distinguish the graphs. The replay also matched all induced claws to the Shrikhande four-states and all rows/columns to the rook four-states. Structurally the rook states correspond to connected selected edge supports in K₄,₄ that cover one entire side. Five edges covering four rows require exactly two columns and form a tree with one bridge row. Switching the leaf assignments, moving the bridge by removing one of its incidences and adding a missing incidence at another row, and replacing the extra cell of a whole-column-plus-one support connect an orientation. An exchange across orientations would give a connected spanning union on eight vertices with at most six edges, which is impossible. Transposing the board exchanges the two components isomorphically. Together with the reproduced six-state connectivity this proves the first connected layers, without inference about later layers. The bounded replay recipe above reproduces the finite census; inspectable package verification paths are verify.py and verify_alt.cpp, both read but not executed.
 
-Limits: no infinite graph family is asserted. The proof depends on complete, inspectable finite enumeration for the larger exchange graphs, supplemented by conceptual minimum-set and rook orientation arguments. Independent scholarly auditing has not been performed.
+## originality
+
+PASS
+
+The supported distinct claim is the different first connected fixed-cardinality one-replacement layers for these cospectral graphs, with their exact exchange structure and size-five metrics. Neither the common SRG parameters nor the rook minimum-size classification or state counts alone are credited as new.
+
+## value
+
+PASS
+
+The canonical same-spectrum graph pair has the same minimum size but different first connected jump layers, so the spectrum cannot determine this reconfiguration threshold. The bipartite orientation barrier explains why rook k=5 is qualitatively different and why testing k=6 is meaningful. The exact components and within-component distances describe that obstruction and contrast, not an arbitrary list of subset counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

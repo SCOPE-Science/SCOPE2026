@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:21:00.611499Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The two-site mismatch in each W off-diagonal gives phase attenuation (1-p)^2; under amplitude damping each excitation survives with weight 1-p, with the lost weight going to the vacuum. For PD the transverse generator has no support-to-support entries, so the ordered-pair SLD expression reduces to 4 tr(rho J_x^2): the pure W value is 3N-2 and the uniform excitation mixture gives N. For AD the squared transverse matrix elements on the vacuum–W and W–two-excitation edges are N/4 and (N-1)/2. With their SLD weights this gives N(1-2p)^2+2(N-1)(1-p), including when either occupied weight becomes zero. Commutation with J_z and rotation about z give F(J_u)=(1-u_z^2)F(J_x). Factoring F_AD-N as 2(1-p)(N-1-2Np) verifies the threshold and equality points, and the convex quadratic has the stated interior minimizer and positive minimum. The N=3 comparisons agree with the 2014 channel and per-qubit conventions. The proof suffices for all N. The finite-grid program artifacts/verify.py was inspected, not executed; VERIFICATION.md supplies an expected output, not an independent numerical replay.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Resultary Dicke loss-spectrum theorem is stated for N≥4 and 2≤k≤N−1, expressly excluding k=1, and treating only AD. Its spectral expression formally continued to k=1 agrees with the AD branch, a material overlap in method and formula structure.",
+          "The general rank-deficient methods supply the QFI identity, not a channel-specific evaluation; the inspected Erol calculation is fixed to N=3."
+        ],
+        "reasoning": "Substitution of an excluded k is not an implication of the stated theorem; even an AD extension would not give the independent PD correction. A general evaluation identity still requires the noisy spectrum and transitions.",
+        "searches": [
+          "Resultary 3e7c31477efe (multi-excitation Dicke amplitude damping)",
+          "Erol arXiv:1704.07367 §2 (noisy W/GHZ superposition)",
+          "Liu et al. arXiv:1312.6910v1 and arXiv:1401.3154v1 (arbitrary-rank QFI methods)"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and artifacts/verify.py",
+        "arXiv:1403.2376v1",
+        "arXiv:1704.07367",
+        "Resultary 3e7c31477efe and b23c11a55197",
+        "DOI retrieval attempts: 10.12693/APhysPolA.127.1233 and 10.7498/aps.67.20180040"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At p=1/2 and N=3, the exact AD and PD values per qubit are respectively 2/3 and 4/3, whereas the matched prior equations both give zero.",
+          "The multi-excitation record explicitly declines a single-excitation result, while the support/kernel method makes no assertion of this comparison or robustness boundary."
+        ],
+        "reasoning": "The earlier W claim is contradicted rather than generalized by substitution. Establishing the distinct correction uses channel-specific support-to-kernel terms; the interpretation that the earlier calculation omitted them is not proved.",
+        "searches": [
+          "2014 Eqs. (8)–(11) against the SLD support/kernel terms",
+          "Resultary 3e7c31477efe Finding, assumptions and Relationship to prior work"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "After dividing by N, Eq. (9) is the same AD W observable at N=3 but omits 4(1-p)/3; Eq. (11) instead gives zero for all p>0. These are not equivalent formulas in another normalization.",
+          "Resultary b23c11a55197 treats a spin-flipped W superposition and fixed longitudinal J_z, not optimization on an unmixed W input."
+        ],
+        "reasoning": "The same Kraus parameter and collective normalization were matched explicitly. A longitudinal result on a different state does not give the transverse W optimum.",
+        "searches": [
+          "Resultary semantic search: pure W_N phase/amplitude damping optimal collective spin Fisher information; exact all-N formula",
+          "Özaydın arXiv:1403.2376v1, Eqs. (2), (8)–(11)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No direct pure-W all-N PD formula hit in the searched catalogue; the strongest AD hit excludes the single excitation.",
+          "The direct N=3 source prints different exact values; N=3 superposition plots may represent the W endpoint but do not encode an all-N closed form."
+        ],
+        "reasoning": "The relevant exact-formula and finite-case evidence does not supply the claimed family or its amplitude-damping minimum. A negative catalogue search is not proof of priority.",
+        "searches": [
+          "Resultary all-N formula and W-state wording search",
+          "arXiv:1704.07367 pp. 1–2, §2",
+          "Özaydın arXiv:1403.2376v1, Eqs. (9), (11)"
+        ]
+      },
+      "rationale": "The supported distinct result is the exact all-N matched-channel correction, including the collective optimum and the damping/shot-noise boundaries, not the general rank-deficient SLD identity or the first qualitative observation of robustness. No implication-equivalent claim was established by the closest comparisons.",
+      "residual_risks": [
+        "Unread 2015 and 2018 full texts may include correct finite-size W values; possible unlocated all-size treatment.",
+        "The multi-excitation AD family is close methodologically; no priority inference is made merely from catalogue dates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Contradicted at matched nonzero p; not coverage of the corrected result",
+          "evidence": "Eq. (2) uses c_max/N. AD Eqs. (8)–(9): (1−2p)^2 for p>0; PD Eqs. (10)–(11): zero for p>0; both give 7/3 at p=0.",
+          "identifier_or_url": "https://arxiv.org/pdf/1403.2376v1",
+          "material_read": "pp. 2–3, Kraus operators and result equations; Eq. (2)",
+          "method": "Primary OA PDF equation comparison",
+          "title": "Quantum Fisher Information of W States in Decoherence Channels",
+          "trigger": "Exact motivating W-state claim"
+        },
+        {
+          "assessment": "Matching spectral specialization outside the proved domain; no PD coverage",
+          "evidence": "N≥4, 2≤k≤N−1; the relationship section explicitly excludes k=1.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-exact-loss-spectrum-and-late-damping-metrological-deficit-for-mu--3e7c31477efe/RESULT.md",
+          "material_read": "Finding and assumptions, offset 0; Relationship to prior work, around offset 6953",
+          "method": "Local repository mirror, statement/scope comparison",
+          "title": "Exact loss spectrum and late-damping metrological deficit for multi-excitation Dicke states",
+          "trigger": "Closest all-N AD overlap"
+        },
+        {
+          "assessment": "Different probe and rotation problem",
+          "evidence": "D_n^1+D_n^{n−1} probe, fixed J_z.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-unique-phase-damping-crossover-of-w-spin-flipped-w-and-ghz-probe--b23c11a55197/RESULT.md",
+          "material_read": "Finding and assumptions at offset 0",
+          "method": "Local repository mirror, observable and input comparison",
+          "title": "Unique phase-damping crossover of W, spin-flipped W and GHZ probes",
+          "trigger": "Closest PD-related catalogue hit"
+        },
+        {
+          "assessment": "Possible N=3 numerical overlap only in the material read",
+          "evidence": "Fixes N=3 and varies the state coefficient and noise in plots.",
+          "identifier_or_url": "https://arxiv.org/pdf/1704.07367",
+          "material_read": "PDF pp. 1–2, §2",
+          "method": "Primary OA PDF inspection",
+          "title": "Quantum Fisher Information of W and GHZ State Superposition Under Decoherence",
+          "trigger": "Pure W endpoint could overlap"
+        },
+        {
+          "assessment": "Unresolved finite-case overlap, not negative evidence",
+          "evidence": "ResearchGate did not return readable text; DOI attempt did not recover full text.",
+          "identifier_or_url": "doi:10.12693/APhysPolA.127.1233",
+          "material_read": "No full text retrieved",
+          "method": "DOI and identified ResearchGate copy attempted",
+          "title": "Quantum Fisher Information of Bipartitions of W States",
+          "trigger": "Possible matched finite-size W case"
+        },
+        {
+          "assessment": "Unresolved finite-case overlap, not negative evidence",
+          "evidence": "The available retrieval paths did not yield readable primary text.",
+          "identifier_or_url": "doi:10.7498/aps.67.20180040",
+          "material_read": "No full text retrieved",
+          "method": "Journal article and identified PDF locator attempted",
+          "title": "Influence of noise on tripartite quantum probe state",
+          "trigger": "Noisy W/GHZ spin-QFI antecedent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Corrects a specific discontinuous/zero prediction under identical channel and observable conventions. The all-size formulas separate loss of metrological enhancement from disappearance of QFI, and give the exact AD optimum axis, minimum and threshold; these are usable checks for decohered collective probes rather than merely an exercise in restating the spectral formula.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,151 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:40:28.262828Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 7–48",
+        "Frozen VERIFICATION.md, lines 19–23 and verify.py, lines 8–86"
+      ],
+      "rationale": "The token graph is the vertex-edge incidence graph of K_n. With omitted originals R of size at least two, every internal edge-vertex of R must be selected and these vertices suffice to dominate R. With one omitted original, an incident selected edge lets its other endpoint be deleted, so this case never gives a minimal state. With none omitted, the only minimal state is the all-original set U. Each exact internal-edge state D_R is minimal: dropping an edge leaves it undominated; dropping an original leaves an unselected edge from it to R undominated. The sizes start at b_2=n-1 and b_3=n and rise by r-1. At budget n, distinct minima indexed by pairs have union size n-|R∩R'|+2≥n+1, so no common size-n neighbor; every nonminimal size-n state attaches to exactly one minimum. U and any triples at that ceiling are isolated. At k≥n+1 a subceiling D_R with |R|≥3 can add an omitted original and delete its incident selected edge-vertices, reaching D_(R minus that original) with peak b_r+1. Pair minima connect to U with peak n+1. Thus all non-ceiling minima and all nonminimal states lie in one core; ceiling minima are isolated. This also covers n=2,3, empty budgets, and budgets beyond the vertex count. In the prose the n-3 exceptional budgets are the losses after first connectivity, not a count including the two initial nonempty disconnected budgets for n≥4.",
+      "residual_risks": [
+        "The supplied output is a recorded finite author check through n=5; the independent proof check rather than a script replay establishes the unrestricted claim."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Blanché et al. address reachability/optimization and general complexity under add/delete moves; the inspected statements give no component counts in this family. Benítez-Bobadilla et al. study domination numbers for other host families."
+        ],
+        "reasoning": "The general budget model and scalar optimum do not provide the one-core/isolated-ceiling decomposition or the low-budget counts.",
+        "searches": [
+          "Primary literature: TAR connectivity thresholds for dominating sets on subdivided cliques/two-token stars",
+          "arXiv:1906.05163, p. 1",
+          "arXiv:2611.15124, pp. 1–2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and supporting proof/check files",
+        "arXiv:2509.16448",
+        "arXiv:2611.11191",
+        "arXiv:1906.05163",
+        "arXiv:2611.15124",
+        "Resultary records 07ecc14d7349, 8bbe887cbe49, 51eec929be14, 4fa1b36deec0"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 3.1 gives gamma=n-1 and canonical pair-indexed optima. The crown-graph record shows an analogous loss/recovery phenomenon on a different family. The frozen result acknowledges separate static enumeration but supplies no precise locator for it."
+        ],
+        "reasoning": "The pair optima explain the start of the census, but do not determine paths among minima or the later isolated size levels. A static domination polynomial counts states, not their incidence under single additions. No priority credit is taken for static enumeration.",
+        "searches": [
+          "arXiv:2509.16448, Theorem 3.1",
+          "Frozen RESULT.md, lines 50–52; Resultary comparison 8bbe887cbe49"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A center–leaf token pair is an original vertex and a leaf–leaf pair is the edge-vertex joining the two corresponding originals. The token-star structure paper addresses the graph structure and scalar parameters.",
+          "The indexed total-domination spectrum for F_2(K_{r,t}), r≥2 (4fa1b36deec0), excludes the star and changes the feasibility predicate."
+        ],
+        "reasoning": "The incidence-graph reduction changes the description, not the theorem. Results for total domination, other hosts or token-sliding do not transport to the stated ordinary-domination TAR graph.",
+        "searches": [
+          "Resultary: ordinary domination and bounded-budget TAR for the two-token star / once-subdivided clique",
+          "arXiv:2611.11191, pp. 1–2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Catalogue record 07ecc14d7349, RESULT.md opening, is the assigned record itself. Record 8bbe887cbe49 gives an all-budget TAR phase diagram on crown graphs. Record 51eec929be14 gives a static ordinary domination polynomial for F_2(K_{2,n})."
+        ],
+        "reasoning": "The self-match contributes no independent priority evidence. Crown graphs have different adjacency and thresholds, and static counts on a different token graph are not a component table for this family.",
+        "searches": [
+          "Resultary: exact two-token-star TAR component census, ordinary domination polynomial, and budget-disconnection phase diagrams"
+        ]
+      },
+      "rationale": "The supported distinct claim is the all-budget ordinary-domination TAR component census and repeated losses after first connectivity. The minimum domination number, incidence-graph identification, static size counts and general reachability methods are not credited as new. No distinct covering claim was found in the inspected evidence.",
+      "residual_risks": [
+        "The earlier same-graph static enumeration mentioned in the frozen prior-work paragraph was not independently located; no originality credit is taken for it.",
+        "Ranked catalogue and bounded literature comparisons do not certify priority or exclude an unindexed family-specific result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the numerical minimum and constructions, not the census in that theorem.",
+          "evidence": "gamma(F_2(S_n))=n-1, attained by D_ij.",
+          "identifier_or_url": "https://arxiv.org/abs/2509.16448",
+          "material_read": "Theorem 3.1, p. 5",
+          "method": "OA primary PDF passage",
+          "title": "Domination number of Token Graphs",
+          "trigger": "Same graph and scalar optimum"
+        },
+        {
+          "assessment": "Structural and scalar-parameter overlap; no component formula in inspected passages.",
+          "evidence": "The two-token graph uses incidences of singleton and two-element leaf subsets.",
+          "identifier_or_url": "https://arxiv.org/abs/2611.11191",
+          "material_read": "Abstract and incidence/inclusion setup, pp. 1–2",
+          "method": "OA primary PDF passages",
+          "title": "Token graphs of stars",
+          "trigger": "Same host and equivalent graph structure"
+        },
+        {
+          "assessment": "Same move framework, different result.",
+          "evidence": "Reachability and decremental optimization variants under single-vertex addition or removal.",
+          "identifier_or_url": "https://arxiv.org/abs/1906.05163",
+          "material_read": "Problem descriptions, p. 1",
+          "method": "OA primary PDF passage",
+          "title": "Decremental Optimization of Dominating Sets Under the Reconfiguration Framework",
+          "trigger": "General TAR results"
+        },
+        {
+          "assessment": "Different host hypothesis and scalar objective.",
+          "evidence": "Cites the known star minimum; studies domination numbers for other host families.",
+          "identifier_or_url": "https://arxiv.org/abs/2611.15124",
+          "material_read": "Abstract and introduction, pp. 1–2",
+          "method": "OA primary PDF passages",
+          "title": "Domination in token graphs of graphs with domination number two",
+          "trigger": "Related two-token domination"
+        },
+        {
+          "assessment": "Analogous result for another family, not an equivalent formulation.",
+          "evidence": "Counts components for K_{n,n} minus a perfect matching.",
+          "identifier_or_url": "2026/10/13/SCOPE-exact-component-phase-diagram-for-dominating-set-reconfiguration--8bbe887cbe49",
+          "material_read": "RESULT.md opening, characters 0–2000",
+          "method": "Local mirror text",
+          "title": "Exact component phase diagram for dominating-set reconfiguration",
+          "trigger": "Closest indexed TAR phase diagram"
+        },
+        {
+          "assessment": "Different feasibility criterion and parameters.",
+          "evidence": "Total domination in F_2(K_{r,t}) with r≥2, not ordinary TAR on F_2(K_{1,n}).",
+          "identifier_or_url": "2026/11/22/SCOPE-total-domination-spectra-of-two-token-complete-bipartite-graphs--4fa1b36deec0",
+          "material_read": "RESULT.md opening",
+          "method": "Local mirror text",
+          "title": "Total domination spectra of two-token complete bipartite graphs",
+          "trigger": "Distinct same-day two-token domination record"
+        },
+        {
+          "assessment": "Different graph and invariant.",
+          "evidence": "Static ordinary domination polynomial on the two-hub host.",
+          "identifier_or_url": "2026/11/2/SCOPE-domination-polynomial-and-hub-threshold-for-f-2-k-2-n--51eec929be14",
+          "material_read": "RESULT.md opening",
+          "method": "Local mirror text",
+          "title": "Domination polynomial and hub threshold for F_2(K_{2,n})",
+          "trigger": "Static all-cardinality census analogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 7–24 and 34–44"
+      ],
+      "rationale": "The count exposes an unbounded number of distinct connectivity losses caused by new maximal-budget minimal states, despite continued connectivity of the old core. This is a structural obstruction within a natural infinite graph family, not a static enumeration: it gives each exceptional budget, counts its isolated states, and separates first from permanent connectivity at linear versus quadratic scales.",
+      "residual_risks": [
+        "The mechanism is proved only for this family and move rule."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

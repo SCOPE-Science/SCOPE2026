@@ -1,19 +1,21 @@
-# Research review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The local coclique bound gives the exact upper bound 32. A reciprocal-neighborhood solver enumerates all equality cases. An executable from the package checks full token adjacency, type counts and group orbits, and every counted candidate is independently validated. Completeness follows from exhaustive domains and reciprocity propagation, not a sampling experiment.
+PASS
 
-## Originality — PASS
+In the auxiliary graph of selected unordered pairs, token conflicts are exactly two incident auxiliary edges whose other endpoints are adjacent in the base graph. Hence each auxiliary neighborhood is a base coclique. Both bases have cocliques of size four and none of size five, so degree sum bounds the size by 32; equality requires four neighbors at every vertex and the reciprocity of those neighbor choices. Independently reimplemented the exhaustive census in /workspace/audit_replay/token_census.py: assign the rows in fixed vertex order, with each new row indexed by the lower-bit pattern prescribed by all previous rows. This bijectively enumerates every reciprocal assignment, with no assumption about its type. The script verifies the quotient by identical open neighborhoods has respectively four size-four classes inducing two disjoint edges, or eight size-two classes inducing a single cycle; checked complete joins across quotient edges and absence of intra-class edges. Independently enumerated the entire base automorphism group by extending injective partial vertex maps preserving both adjacency and nonadjacency. Replay with python3 returned 24/16 base four-cocliques, 144/54 order-32 solutions, base group orders 1152/192, type counts (72,72)/(30,24) in the stated order, and precisely the claimed typed orbit sizes. This checks the full base actions, not any assertion about the token graphs' own full groups. The inspected frozen verifier's different CSP ordering is consistent. Cospectrality itself follows from the cited strongly regular symmetric-square theorem under exactly this unordered-pair definition.
 
-The known symmetric-square cospectral theorem does not give extremal independent-set counts. The accessible full texts of Audenaert et al. and de Alba et al. were compared by object, hypotheses and implication; the former is spectral, while the latter determines independence on other families. A published base independence-complex comparison concerns a different graph construction. Targeted exact-count and alias searches found no covering result, although search absence is not uniqueness proof. A plausible 2019 two-token article was indexed but its full text was unavailable; earlier unindexed computations are possible.
+## originality
 
-## Value — PASS
+PASS
 
-The chosen pair is the canonical smallest nonisomorphic strongly regular pair with the same parameters. Their two-token graphs are cospectral yet have different numbers of maximum noninterfering two-particle placements. The complete two-type decomposition and orbit census explain the difference geometrically and supply a reusable spectral-invariant benchmark, rather than an arbitrary finite slice.
+The supported distinct result is the exact extremal-set census, with structural types and base-group orbits, on the specified known cospectral pair. Cospectrality and base coclique data are prior; even if a less accessible source turns out to give the independence numbers, that alone does not cover the census or structure.
 
-## Verification boundaries
+## value
 
-Finite exhaustive proof only; no independent mathematical audit and no generalization asserted. Full text of the 2019 paper and the closest published base-complex record were unavailable. Source material is credited where known.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The canonical equal-parameter, cospectral pair motivates the exact comparison before computation. The same maximum size but different leading independence coefficients gives a concrete separation on symmetric squares, and the two auxiliary-graph types with full base-action refinements make the result useful beyond the raw coefficients for anyone studying the extremal configurations. The enumeration is complete for the specified natural pair and is not extrapolated.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

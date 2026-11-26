@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The projected spherical generator is derived from the field-aligned rotational diffusion. The positive Green kernel solves the killed backward equation with the regular north-pole boundary and yields the exact mean. Substitution to a coordinate measuring distance from the antiparallel pole gives the boundary-layer integral. Splitting it at the field scale and bounding the cancellation near its upper endpoint supplies the second-order remainder. A separate recursion for all first-passage moments proves concentration of the Green kernel in the aligned orientation sector and hence convergence of every normalized moment to its factorial; exponential moment determinacy yields the distributional limit. The attached numerical verifier checks the integral identity and sharp constants independently for representative parameters; it is not used as a proof of any infinite-dimensional or asymptotic claim.
+PASS
 
-## Originality
+Reconstructed the killed axial generator D exp(-ξu) [(1-u²) exp(ξu) f′]′. Boundedness at the north pole eliminates the nonzero homogeneous flux, yielding the stated positive Green operator and exact mean. The fixed-b endpoint Laplace estimate uses a neighborhood of b; the remaining interval, including the removable pole at 1, is exponentially smaller. In s=ξ(1+u) coordinates the scaled integrand is (exp(-s)-exp(-2ξ))/(s(1-s/(2ξ))). On s≤ξ the second-order remainder is bounded after integration by a constant times ξ⁻²∫s exp(-s)ds. On s≥ξ, (1-exp(-(2ξ-s)))/(2ξ-s)≤1 gives an exponential tail. The first two integrals give E₁(η) and exp(-η)/(2ξ). For the moments, the ordered positive Green rows give m_k=kK m_{k-1} and 0≤m_k/(k!M^k)≤1. The normalized rows for u≥0 differ from the row at 1 in mass by at most exp(ξ)/(DξM), which tends to zero. The row at 1 assigns v<0 mass at most exp(ξ)E₁(η)/(DξM), by changing variables in the outer integral. Thus normalized moments converge inductively to 1 in the well, giving k! for the mean-normalized exit time. The first moment gives tightness and the factorial moments determine the exponential law. This uses fixed D,η>0 and an interior absorbing axial threshold; it does not cover a point target or spatial arrival.
 
-PASS, best-knowledge and subject to independent publication-priority verification. The primary article (Kuznetsov et al., arXiv:2606.31914) was materially inspected: it supplies the field-aligned rotational generator, then treats spatial transport and spatial first passage, not reversal of the orientation into an antiparallel shrinking cap. Searches of published research records and the accessible literature compared the exact target observable, equivalent angular-coordinate diffusion, general sphere narrow escape, and magnetic-moment first passage. General one-dimensional diffusion resolvent formulas, classic spherical narrow-escape principles and metastable exponential exit laws are not claimed as original. The assessed result is their specific, jointly scaled strong-field/vanishing-cap combination with the exponential-integral *two-term* rate and simultaneous all-moments exponential waiting-time theorem. The 2006–2007 magnetic-moment first-passage preprints were directly read, including their high-barrier approximate exponential waiting times, but their anisotropy-driven model differs. The older 1994 rotational-diffusion article was accessible principally by abstract, so exact noncoverage cannot be certified and remains a priority risk.
+## originality
 
-## Value
+PASS
 
-PASS. Rare magnetic swimmer heading reversals affect steering reliability and off-target motion. Fixed-angle strong-field asymptotics become nonuniform precisely when an opposite-direction acceptance cone shrinks on the inverse-square-root angular scale. The explicit crossover quantifies that geometry-activation competition and the full normalized exit-time law gives a falsifiable statistical prediction beyond an average waiting time. This is a natural simultaneous physical limit, not an arbitrary parameter slice. The theorem has no claims about interactions, spatial arrival or external-field protocols.
+Credit is limited to the fixed-η joint strong-field/shrinking-antipodal-cap asymptotic with its second term and the simultaneous normalized exponential law with all fixed moments. The scale-speed representation, endpoint Laplace method, and general exponential metastability mechanism are established techniques, not independent novelty claims. No inspected prior statement supplies or directly implies the joint result.
 
-## Related sources and limitations
+## value
 
-Direct primary source: https://arxiv.org/abs/2606.31914 . Relevant theoretical predecessors: https://doi.org/10.1103/PhysRevE.49.3976 , https://arxiv.org/abs/cond-mat/0702001 , https://doi.org/10.1137/080733280 , and https://doi.org/10.1103/PhysRevB.20.2558 . General first-passage methods and classical asymptotic escape theory remain essential prior background; related priority is not independently certified.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The cap is not an arbitrary small target: at angular width of order ξ⁻¹ᐟ², selection near a pole where the axial diffusion coefficient vanishes changes the activation prefactor relative to fixed thresholds. The E₁(η) dependence and sharp correction quantify that balance, and the concentration argument shows a usable exponential waiting-time law on the very same scale rather than merely an estimate of its mean. These are useful orientation-reversal statistics under the specified model, not an assertion about spatial transport.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

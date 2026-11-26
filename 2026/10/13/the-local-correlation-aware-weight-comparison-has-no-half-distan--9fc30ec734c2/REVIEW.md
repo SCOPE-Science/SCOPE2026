@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The final claim is a direct all-parameter consequence of the source's displayed packet and complement costs. For every odd \(d\ge3\) and every \(1\le n<d\), the complement contains \(d-n\ge1\) local edges. Under \(0<p_{\mathrm{gate}}\le p_{\mathrm{net}}<1\), monotonicity of \(-\log\) gives \(w_{\mathrm{net}}\le w_{\mathrm{gate}}\), and positivity gives \(w_{\mathrm{gate}}\le(d-n)w_{\mathrm{gate}}\). The strict and tie boundaries are fully stated. No simulation is used to extend a finite check to an infinite claim.
+## correctness
 
-## Originality
-PASS. Exact-source, alias, parameter, and implication searches did not locate the all-\(n\) consequence. The closest public source-specific review already observes that the half-distance rule is heuristic because other matching classes are not excluded, but it does not notice that the displayed packet-versus-complement comparison itself has no half-distance threshold. Earlier correlated surface-code work does not contain the multi-gate-teleportation object or this logical-complement parameterization.
+PASS
 
-## Value
-PASS. The source elevates \(n_{\max}^{\mathrm{corr}}=\lceil d/2\rceil\) to a central design rule. The finding identifies a structural mismatch between that ceiling and its stated local rationale: the rationale continues to favor the packet edge all the way to \(n=d-1\). This cleanly separates what the local argument proves from what would require a global detector-error-model theorem and therefore changes how the proposed design rule should be interpreted.
+For the stipulated on-chain X packet, multiplication by the weight-d logical X cancels the packet sites and leaves d−n sites. Multiplication by a logical Pauli preserves the syndrome. With g=−log p_gate>0, the assumed independent-edge sum is (d−n)g, while −log p_net≤g. For n≤d−2 the second inequality is strict; for n=d−1 equality occurs exactly at p_net=p_gate, including the central case d=3, n=2. At n=d the packet has zero syndrome and is not part of this comparison. Read RESULT.md lines 4–46 and VERIFICATION.md lines 18–32; this proof is analytic, so no simulation or certificate is needed. In the conclusion, ‘favored’ is weak preference, subject to the explicit tie.
 
-## Closest literature and limitations
-The anchor itself is the closest source and openly warns that a third matching class could be cheaper. That unresolved global issue is preserved, not dismissed. Fowler's correlated surface-code decoding work is broader background but does not imply the packet-specific statement. The result does not claim fault tolerance for packets above half distance; it proves only that the logical-complement comparison cannot establish a half-distance upper bound.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The primary source compares these two costs at the central packet size, not for all packet sizes, and warns that the full decoding rule is heuristic. The distinct result is a source-specific limitation on that rationale, not the monotonicity of −log or a new matching theorem. No inspected statement establishes the same limitation. The comparison to the source-specific public commentary is access-limited.
+
+## value
+
+PASS
+
+The ceiling is a central design rule of the source. Showing that its local justification fails to change sign anywhere below d identifies exactly what the global decoder analysis must add. For instance at d=7, n=5 the packet still strictly beats the length-two complement even at equal probabilities. This is a motivated model-boundary correction, not a claim of full decoder performance or fault tolerance past half distance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

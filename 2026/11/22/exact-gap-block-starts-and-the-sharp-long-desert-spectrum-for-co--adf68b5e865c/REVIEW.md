@@ -1,11 +1,21 @@
-# Self-review: consecutive-triangular semigroup gap blocks
+# Independent mathematical audit
 
-**Correctness — PASS.** The Apéry normal form follows from two exact generator trades and pairwise distinct residues. Adjacent Apéry thresholds classify every gap start and give the parity-dependent block count. A separate q-coin layering argument classifies all blocks longer than \(n+1\); no numerical sample substitutes for either infinite proof. The attached `verify.py` matched the exact predictions through \(n=120\) for starts and \(n=60\) for full gap enumerations; it also uses separate coin-change DP through \(n=28\). The remaining shorter-block length histogram is not claimed.
+## correctness
 
-**Originality — PASS on inspected comparisons.** Robles-Pérez–Rosales (2017) established the same Apéry rectangle, while Komatsu (2022) established different generalized Frobenius thresholds. The closest published result on isolated gaps of the same triangular family determines only singleton gaps; its full result and proof were inspected and the shared Apéry input is expressly acknowledged. Neither establishes the long-desert cutoff and full all-block-start count. The all-start part is close to the published rectangle; a general implicit theorem or unindexed table remains a priority risk.
+PASS
 
-**Mathematical value — PASS.** The exact number and positions of maximal intervals missing from a natural numerical semigroup convey genuinely different structural information from its Frobenius number and genus. The sharp \(n+1\) separation identifies every exceptional large desert by a coin-count-layer proof valid uniformly for all admissible indices.
+The original start/count formulas check out but were removed for prior coverage. For the repaired long-block theorem set u=n+1, v=2u+1. In a fixed-q layer the j-th subprogression has step u; the next lower endpoint is at most u+1 above the previous upper endpoint, and the new upper endpoint increases by u+1. Thus successive represented points in the layer are at most u+1 apart, including overlapping progressions. A gap intersecting any layer span cannot cross either represented endpoint, so every gap longer than u lies between successive spans, whose endpoints increase with q. Each nonempty uncovered interval is genuinely missing and bounded by represented endpoints. Its length is a−1−qv. With u=4K+r, 0≤r≤3, subtracting u at q=K−1 and q=K gives u(r+1)/2−K>0 and u(r−3)/2−K−1<0 respectively, including n=3. Independent Dijkstra enumeration in /workspace/branches/4cdad8b1-ae1d-4725-b6d0-ae7385fe4857/independent_enumeration.py matched the original 583156 starts and all 1800 long intervals for n=3..120; separate reachability cross-checked full blocks at n=3..28. The repaired checker /workspace/repairs/4/verify.py ran successfully (n=3..40, 200 long blocks). The frozen script was inspected, not executed; finite reproduction does not prove the uniform formula.
 
-**Scientific limitations.** The complete length spectrum of shorter blocks is not obtained, and general three-generator numerical semigroups are not classified. The statement is a self-review, not externally certified priority or independent verification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS applies only to the repaired exact spectrum above n+1. The original all-start formula and parity count fail originality: the prior exact-family isolated-gap proof already evaluates the left-neighbor bound in every Apéry cell. Dropping the right-neighbor requirement recovers the starts immediately. For w(y,z)−ta with t≥1, the prior left bound is B−1 at y=A−2,A−1 for each z=1..d−1, and is otherwise nonpositive (including z=0). Thus it gives exactly 2(d−1)(B−1) starts, the original parity count, as well as every lift in the original formula by taking y=(j_r−2) mod A and z=ell+1. This is prior-coverage evidence even though the prior theorem advertises singleton gaps. That calculation does not compare long stretches between consecutive represented points; the repaired result establishes an exact cutoff and exhaustion via coin-count layers.
+
+## value
+
+PASS
+
+The repaired claim gives a sharp cutoff at the natural generator spacing b−a. It classifies every exceptionally long void, not merely a family of large examples, gives their positions and all their distinct lengths without scanning through the conductor, and distinguishes inter-layer gaps from all gaps within one coin-count span. This geometric consequence is useful apart from the removed start census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

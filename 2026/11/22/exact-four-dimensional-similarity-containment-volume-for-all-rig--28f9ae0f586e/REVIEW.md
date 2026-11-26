@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness (PASS).** The convex-gauge fiber formula follows directly from the triangle's three defining halfplanes. The complete polar list consists of eight normals selected from 27 candidate normals; all 200 distinct-candidate edge-support inequalities are certified on a real parameter interval using exact Bernstein coefficients, not finite sampling. Shoelace area yields the displayed rational four-volume. The fixed-area maximum follows from a factored positive derivative; the \(C^2\)/non-\(C^3\) assertion follows from exact one-sided derivatives. The checker also constructs original four-dimensional halfspace vertices at rational parameters. The symbolic proof does not claim the full four-dimensional face lattice.
+## correctness
 
-**Originality (PASS, best-knowledge with residual historical uncertainty).** Choi and Choi's new primary containment-polytope paper concerns silhouette and maximum-scale algorithms. A directly relevant 2026 self-containment note already proves the fiber-gauge identity and an all-triangle result when source and target coincide; the self-case and methods are credited. Its assumptions exclude unequal right-triangle targets and do not imply the all-aspect volume, transition and extremum. Related rectangle targets have different facet geometry. Exact formula, aliases, reductions and published records were compared; no implication-equivalent law was identified. Unindexed historical computations and the 1998 source's unavailable full text remain priority risks.
+PASS
 
-**Mathematical value (PASS).** This is a complete natural two-parameter geometric invariant for four-dimensional containment of one fixed right-isosceles triangle into any right-triangle target, with a unique shape extremizer and an octagon/pentagon combinatorial change inducing a precisely quantified differentiability transition. It answers a motivated volume question for the recently studied containment polytope rather than a fine-tuned finite numerical instance.
+The three target inequalities on each image vertex suffice by convexity. Translating the two lower coordinate bounds to zero leaves a triangle scaled by 1−W, or an empty fiber. The W sublevel areas are r² times the footprint area, so integrating the fiber area (ab/2)(1−W)² gives ab/12 times the footprint area in ordinary Lebesgue coordinates. The gauge is coercive: a placement bounds the distance between the first two image vertices by the target diameter, so its unit sublevel is bounded, and continuity gives interior about zero. With a=t≤1=b, I checked the edge inequalities for the scaled polar normals via the exact minimum of each degree-at-most-two polynomial on [0,1], and checked eight strictly positive consecutive turns for 0<t<1. There are 25 distinct normals from the 27 indexed triples; 200 distinct edge tests therefore suffice. The supporting-line intersections and shoelace sum give the claimed area f(t) and five distinct limiting vertices of a genuine pentagon at t=1. Scaling gives V=t f(t)/12 in the normalized case and the stated formula in m,M; the increasing f(t)/t proves the unique fixed-area maximizer. At fixed b=1 the right branch minus the analytic extension of the left branch is a(a−1)^3(3a²−a+3)/[48(a+1)(a²+1)], so the first two derivatives match and the third jumps by 5/32. Zero-scale maps have measure zero; no reflected placements or Haar weighting are included.
 
-**Limits.** The theorem concerns orientation-preserving similarities and the stated parameter-space measure; it does not cover arbitrary source polygons or prove global novelty. Independent mathematical review is absent.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The feasible four-polytope and its projection are known general objects, and the triangle self-containment gauge integral and equal-leg instance are known. The distinct claim is the exact fixed-source, all-right-target volume and multiplier polygon, the resulting fixed-area maximizer and the cubic derivative jump. The strongest inspected prior formulas and algorithms concern either different target/source families or a different invariant of the same polytope.
+
+## value
+
+PASS
+
+Knowing the largest similarity does not quantify the size of the feasible set. The exact ordinary volume over a full one-parameter shape family yields a normalized measure of containment and a sharp area-constrained shape comparison. The loss of footprint vertices exactly at equality and a cubic, rather than first-order, smoothness break give a concrete geometric benchmark for parametric polytope volume calculations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

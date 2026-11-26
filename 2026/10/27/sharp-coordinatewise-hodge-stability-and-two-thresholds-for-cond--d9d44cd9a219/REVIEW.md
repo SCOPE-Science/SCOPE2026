@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The complete projection is reconstructed from the weighted incidence matrix. An explicit inverse of the massive cycle Laplacian supplies all kernel entries, while the two block row sums and sign-vector attainment give the exact sharp operator norm. A strictly monotone diagonal spectral sum proves the weight transition; positive-factor algebra proves the first size that can exceed factor two. The exact-rational standalone checker additionally passed 486 assertions. The checker alone would not prove any infinite-family assertion; the general arguments are included in the result.
+## correctness
 
-**Originality — PASS, provisional historical priority.** General weighted Hodge least squares and transfer-current formulas are known. Explicit unweighted wheel incidence inverses are also known, so neither the operator's existence nor the unweighted inversion is presented as new. The inspected primary sources do not imply the claimed continuously weighted endpoint row-norm competition, sharp six-rim cutoff, or uniform weight-one stability boundary. The closest further wheel-ellipsoid record addresses a different geometric invariant and was available only in summary; alternative terminology remains a bibliographic risk.
+PASS
 
-**Value — PASS.** The sharp constants directly quantify worst-case entrywise measurement amplification in a canonical symmetric but locally heterogeneous family of networks. The two distinct transitions and global factor-three envelope turn an abstract Hilbert-space projection into concrete finite-weight robustness laws. This is a motivated all-weight, all-size classification, not a one-off computation.
+For the repaired claim, use the known row norms in the square-root conductance normalization. At fixed t, g_0 decreases in n while a(g_0−g_m)=(1−x)(1−y)/(1−xy) with x=r^floor(n/2), y=r^ceil(n/2) increases: one exponent increments and each partial derivative in x,y is strictly negative. This also bounds the latter expression by one, so every spoke row is strictly below two. The rim row strictly increases in n. At five rims multiply R_5<2 by positive quantities and substitute sqrt(t)=(1−u²)/u, u=sqrt(r). The resulting (1−u^4)p(u) is positive: p>=15/64 for u<=1/2 and the cleared polynomial in v=(2u−1)/(1−u) has all coefficients positive on the other half. With n=6,t=1/4 the exact periodic Green recurrence gives g_0=1188/1105 and g_3=512/1105 and rim row 2292/1105>2. Thus this same weight works for every n>=6 and no weight works at sizes 3–5. The repair's exact standard-library verifier ran successfully, checking both coefficient identities and the full rational Green column and witness. The frozen script was inspected, not executed.
 
-The statement is restricted to normalized edge coordinates, equal spoke weights, and unit rim weights. No independent mathematical review or historical-priority audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit is confined to an exact finite-size crossing boundary for level two, with an all-weight sign certificate ruling out the smaller sizes. The known exact two-row norm, crossover asymptotic and global/fixed-weight limits are credited as inputs or omitted. The same-family publications inspected do not give the repaired six-rim cutoff; the different six-rim circulation projection result is not equivalent. This is a bounded assessment, not a historical priority certification.
+
+## value
+
+PASS
+
+The coordinatewise norm is the worst possible amplification of normalized measurement error. Locating the first wheel size where it can exceed a factor of two separates an all-weights guarantee at small sizes from an explicit construction that works at every larger size. The global sign certificate is essential to ruling out smaller counterexamples; the exact rational witness and already known formula, by themselves, would not establish the cutoff.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,14 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The lower bound follows from the number of nonempty traces on four points. For five points, symmetric-design incidence counts determine the zero-, first-, and second-moment equations, and trace injectivity limits singleton traces to five. Solving the resulting nonnegative integer cases forces exactly one block to contain the full five-point set. Conversely, the unique second-block-through-each-pair property verifies all punctured blocks, providing an if-and-only-if proof for **every** symmetric design with these parameters. The Clebsch Cayley realization and all 65,536 code candidates were checked independently by `verify.py`. No finite exhaustive computation is offered as a proof of the universal incidence statement.
+## correctness
 
-## Originality — PASS, with residual risk
-Directly related full-text sources were inspected. Assmus–Salwach (1979) classifies the three biplanes by code ranks and incidence relations; Bhattacharya–Smith (2008) classifies difference sets, not point-trace identifying families. Gravier et al. (2015, arXiv:1411.5275) addresses identifying codes of vertex-transitive and strongly regular graphs at the level of general bounds and geometric families, without the present biplane classification. Bailey's arXiv:1312.4973 gives the **metric dimension** of the Clebsch graph, a weaker type of distance-separation requirement whose value four is not the identifying-code minimum. Searches for identifying codes, block-separating point families, punctured blocks, biplanes and their design aliases yielded no covering statement. Published classification of biplanes and the standard information-theoretic bound alone do not imply the necessary and sufficient optimal-set classification. The residual possibility of an equivalent result under design-test or separation terminology remains; absence of a search hit is not evidence of novelty.
+PASS
 
-## Value — PASS
-The theorem exactly solves a natural point-test problem across all three classical sixteen-point biplanes without splitting into isomorphism classes, and explains why the complete family of optimizers consists of precisely one type of geometric object. The Clebsch corollary turns this design classification into a complete optimal identifying-code census with two visibly distinct induced-subgraph types, useful for diagnosing size-optimal monitoring placements. The quantity and its extremizers were not obtained from the cited incidence or metric-dimension classifications.
+Sixteen distinct nonempty traces need at least five points. The symmetric design parameters imply each point has replication six and distinct blocks intersect in two points. For five points the trace-size counts obey sum a_j=16, sum j a_j=30 and sum binom(j,2) a_j=20. The displayed equation 2a_3+6a_4+12a_5=12 is correct, although the prose just before it misdescribes the linear combination: take twice the pair count minus twice the first moment plus twice the zeroth moment. If a_5=0, the three possibilities (a_3,a_4)=(6,0),(3,1),(0,2) require respectively 8,7,6 singleton traces, impossible on five points. Thus one block contains C. Conversely, every pair in that block occurs in exactly one other block, so puncturing gives the sixteen distinct traces of sizes 5 (one), 2 (ten) and 1 (five); uniqueness follows from block intersection size two. For the Clebsch graph, sums of distinct XOR generators are the ten distinct vectors of weights 2 and 3. This proves triangle-freeness and the two common neighbors for nonadjacent pairs. Adjacent pairs share just their endpoints in their closed neighborhoods. Symmetric adjacency then gives the stated design and the code split into independent open neighborhoods and four-leaf stars.
 
-The investigation of prior literature cannot rule out every alternate phrasing; no external independent verification has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+No inspected theorem supplies the universal punctured-block characterization or the corresponding exact Clebsch census. The classification of the designs and the standard incidence identities are inputs, not new. The statement-level evidence supports a distinct exact identification result, without establishing absolute priority.
+
+## value
+
+PASS
+
+This is a parameter-only exact solution to a natural discrimination and coverage problem on the classical sixteen-point biplanes; it describes every optimizer without choosing an isomorphism class. The explicit Clebsch code sizes and two induced types give a small benchmark for distinguishing neighborhoods, not just another lower bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Scientific review: perfect cyclic Kendall codes on five symbols
+# Independent mathematical audit
 
-## Correctness — PASS
-The model uses the five cyclic adjacent **position** transpositions, not the four ordinary adjacent swaps. Every closed ball has six elements. The affine subgroup \(H\) has order twenty, and its six translates by the ball generators form a disjoint transversal, giving an analytic existence proof. Global uniqueness follows from a complete exact-cover search normalized by the transitive value-relabeling isometry: exactly 41 nodes, four impossibility leaves and one completed twenty-center cover. Two separately implemented complete checkers agree on the normalized solution, which is \(H\), and independently reproduce the 120-point neighborhood incidence. All six labeled cosets are explicitly tested for perfect coverage. The complete code, recursion invariant and outputs are included.
+## correctness
 
-## Originality — PASS, with qualification
-The 2013 Buzaglo–Etzion article's Section IV explicitly gives the affine size-twenty example and the definition of cyclic Kendall distance; its existence statement is recognized as prior work. It does not state a complete uniqueness classification. The published 2026 census of 3,192 optimal ordinary Kendall-distance-three codes was read and compared in detail: its 24 orbit sizes include a six-member orbit, but it does not assert a cyclic metric or eliminate all the other ordinary-code orbits under the wraparound restriction. The current theorem is therefore not implied by the published orbit-count summary alone; it establishes the extra cyclic constraint by a dedicated exact-cover proof. The 2014 and 2020 ordinary-metric texts are not interchangeable with cyclic balls. Remaining priority risk: unindexed old computations, or an uninspected portion of a less directly related work treating this exact cyclic specialization.
+PASS
 
-## Value — PASS
-This is the full equality classification of a natural perfect single-error-correcting rank-modulation code on the smallest nontrivial length where the cyclic channel has the celebrated affine perfect construction. The rigidity result determines the complete design freedom, not merely a sample codebook or a minor improvement in code size. It provides a direct classification benchmark for cyclic permutation-channel codes and graph perfect one-codes. It does not claim a general theorem for all block lengths.
+Under the stated convention a position swap acts on the right, so balls are gT for the identity plus five involutions. They each have six words, forcing twenty centers. The six right translates Ht are disjoint: the difference of generators is a transposition with three fixed symbols, a three-cycle, or a disjoint pair of cycle-edge transpositions. The first two cannot belong to the affine group (fixed points and order); an affine involution x↦−x+b pairing consecutive residues on two distinct edges would require their sums, hence their starting indices, to agree. Thus H is perfect, and all left cosets are perfect by relabeling values. The supplied Python and C++ exact covers search all compatible balls covering a chosen uncovered word after starting at the identity, which is legitimate by relabeling. Their first-singleton shortcut may postpone finding a zero-candidate word, without changing completeness; it does not always choose a global minimum as informally stated. An independent unrestricted implementation chooses the lexicographically first uncovered word, enumerates all possible disjoint balls through it without requiring identity or affine structure, and returns exactly the six left cosets (1937 nodes and 696 dead ends). The last phrase 'no nonaffine perfect code' is understood in context as no inequivalent design outside those cosets, not as saying every labeled codeword is literally affine in the fixed coordinates.
 
-## Evidence and limitations
-Both standalone programs are finite exhaustive verifiers and the identity normalization is proved by channel isometry. Reproducibility does not replace independent external review. The first public source date, 2013-10-21, is an arXiv first posting, not a later journal publication date. The literature evidence includes the 2013 primary text, later ordinary Kendall texts, a relevant published exact census and targeted semantic searches. A 2016 related ordinary-metric paper was inspected through bibliographic information and abstract only; no claim of comprehensive priority clearance is made.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the exact affine construction and all its relabelings as consequences of Buzaglo–Etzion's known example. What survives is exclusion of every other code. No source read supplies that exclusion or an exact cyclic classification. The ordinary-Kendall catalogue is relevant candidate data, but neither its aggregate orbit counts nor its exact ordinary optimum settle the wraparound constraint.
+
+## value
+
+PASS
+
+This classifies all perfect designs for the cyclic channel at the length of its canonical affine example. The result determines the exact design freedom (one isometry orbit, six labeled codebooks) rather than just improving a bound or exhibiting another example. It is a useful small exact benchmark for rigid perfect codes in permutation Cayley graphs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

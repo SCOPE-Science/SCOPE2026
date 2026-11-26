@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:06:42.008285Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Stable sorting by (observation, label) makes the gaps nonnegative, with a mandatory unit gap at each descent; the contribution of gap j to the sum of observations is n−j times that gap. This gives exactly the comajor statistic and the claimed prefactor from the independent sum over the minimum. Independently, for M the maximum and L the minimum, translating all observations by k gives Pr(L=k,R=r)=q^(nk) Pr(L=0,R=r). Hence L and R are independent, L is geometric with ratio q^n, and M=L+R. Applying the classical q-Eulerian series to Pr(M≤k)=(1−q)ⁿ[k+1]_qⁿ, differencing the CDF, and cancelling the minimum PGF yields the same range identity. Savage–Visontai's exact comajor-index theorem holds for all q>0. With constant term 1 and all coefficients positive through degree n−1, the real zeros are strictly negative. Normalizing the linear factors and geometric factors at z=1 proves the independent decomposition. The nonnegative bidiagonal Toeplitz factors are totally nonnegative. Positive diagonal scaling reduces the geometric Toeplitz kernel to the indicator i≥j; prefix-row differences in a finite minor give disjoint ordered row intervals, hence nonnegative determinants. Cauchy–Binet gives the claimed PF-infinity closure and adjacent minors give log-concavity. All series used converge in the stated disk. Frozen finite verification was inspected and not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pitman–Yakubovich's independent geometric gaps are for random GEM(0,theta); its inspected fixed-geometric paragraphs concern ties, missing values, and maxima, not the claimed fixed-iid range.",
+          "The classical q-Eulerian series and real-rootedness already determine both relevant polynomials and their factors. The Badiella–del Castillo–Puig full text was not retrieved through the attempted lawful route."
+        ],
+        "reasoning": "The random-environment theorem is not a general result for the fixed geometric sample; the prior implication instead uses the classical unrestricted weighted-word enumeration and established location of its numerator zeros.",
+        "searches": [
+          "arXiv:1701.06294, Theorem 1.1, p. 5, and §4 Proposition 4.3",
+          "arXiv:1203.6736, §2",
+          "arXiv:1208.3831v3, §5.1",
+          "DOI:10.1016/j.spl.2023.109900"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1203.6736",
+        "arXiv:1208.3831v3",
+        "arXiv:1701.06294",
+        "SCOPE-a-sharp-infinite-divisibility-cutoff-for-maxima-of-geometric-sam--f4ffc4d1aca7",
+        "SCOPE-eventual-ultra-log-concavity-of-discrete-uniform-sample-ranges-a--831e52f5333e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Multiplying the maximum CDF series by 1−z gives the PGF of M, cancelling the j=0 factor in the Carlitz denominator. The sample translation identity makes M the independent sum of R and a geometric variable with ratio q^n, so division by its PGF cancels j=n and inserts 1/(1−q^n)."
+        ],
+        "reasoning": "These two exact cancellations give the complete range PGF from an existing identity, not just a matching special case. The independent Bernoulli factors are the normalized linear factors of the known real-rooted polynomial; the remaining normalized poles are geometric PGFs. PF-infinity now follows from ordinary Toeplitz product closure. No independent coefficient or root classification remains.",
+        "searches": [
+          "Han–Jouhet–Zeng Eq. (2.1), arXiv:1203.6736",
+          "Savage–Visontai Theorem 5.4, arXiv:1208.3831v3",
+          "Fixed geometric-law minimum shift, compared to the frozen sorted-gap proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Han–Jouhet–Zeng, arXiv:1203.6736, Eq. (2.1), states sum over k≥0 of [k+1]_q^n z^k = A_n(z,q)/product from j=0 to n of (1−q^j z).",
+          "Savage–Visontai, arXiv:1208.3831v3, §5.1 Theorem 5.4, equates the MacMahon–Carlitz major and comajor numerators and proves real-rootedness for q>0."
+        ],
+        "reasoning": "Major versus comajor is not a difference of polynomials; reverse-complement sends descents at j to descents at n−j. The series is precisely the CDF series of the maximum up to the constant (1−q)^n. Removing the minimum gives the range version without a new weighted enumeration.",
+        "searches": [
+          "Resultary: fixed-geometric sample range, q-Eulerian numerator, independent Bernoulli–geometric decomposition and PF-infinity (four focused lookups)",
+          "Literature: geometric distribution sample range joint minimum independent maximum range probability generating function q Eulerian MacMahon Carlitz Pólya frequency iid",
+          "Literature: Carlitz q Eulerian polynomial identity sum q integer powers numerator product Chow Gessel On the descent numbers major indices hyperoctahedral group equation type A"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-day maximum record addresses infinite divisibility, and the inspected n=2 maximum denominator has an additional factor (1−q²z) rather than the range normalization (1−q²). The uniform range record addresses a different parent and property.",
+          "No meaningful finite table settles the continuously parameterized claim. Equation (2.1) is the relevant all-size exact coefficient source."
+        ],
+        "reasoning": "Neither neighboring record is an exact all-n range claim. The cited coefficient series, not matching numerical entries, gives the exact comparison.",
+        "searches": [
+          "Resultary: geometric parent sample range and PF-infinity (focused exact-law lookup)",
+          "SCOPE-a-sharp-infinite-divisibility-cutoff-for-maxima-of-geometric-sam--f4ffc4d1aca7, RESULT.md",
+          "SCOPE-eventual-ultra-log-concavity-of-discrete-uniform-sample-ranges-a--831e52f5333e, RESULT.md",
+          "arXiv:1203.6736, Eq. (2.1)"
+        ]
+      },
+      "rationale": "No exact fixed-geometric range statement was found in the nearby indexed or GEM sources. Nevertheless, the claimed generating function is an immediate probabilistic specialization of the inspected MacMahon–Carlitz identity: that identity enumerates weighted words with a cap on their maximum, and shifting by the minimum cancels precisely the factor for the initial gap. The Bernoulli and PF conclusions are forced by standard factorization of that same already real-rooted numerator. The failure is by explicit prior implication, not a claim that earlier papers printed the range law in those words.",
+      "residual_risks": [
+        "No claim that the inspected older sources explicitly print the distribution of the range or its PF-infinity property; the coverage argument is by mathematical implication.",
+        "The Badiella–del Castillo–Puig paper and attempted Chow–Gessel copy were inaccessible; the operative earlier identity and theorem were verified in other primary papers."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The cited Carlitz identity gives the exact all-size numerator and denominator before deleting the initial gap",
+          "evidence": "The sum of [k+1]_q^n z^k equals the MacMahon–Carlitz q-Eulerian polynomial divided by (z;q)_(n+1).",
+          "identifier_or_url": "https://arxiv.org/pdf/1203.6736",
+          "material_read": "PDF p. 3, §2, Eq. (2.1), offsets 6700–about 10400",
+          "method": "OA primary PDF passage",
+          "title": "Two new triangles of q-integers via q-Eulerian polynomials of type A and B",
+          "trigger": "Exact classical q-Eulerian power-series identity"
+        },
+        {
+          "assessment": "Exact numerator and parameter range",
+          "evidence": "The MacMahon–Carlitz polynomial can be expressed with the comajor statistic and is real-rooted for all positive q.",
+          "identifier_or_url": "https://arxiv.org/pdf/1208.3831v3",
+          "material_read": "§5.1 and Theorem 5.4, PDF pp. 22–23 near offset 70800",
+          "method": "OA primary PDF passage",
+          "title": "The s-Eulerian polynomials have only real roots",
+          "trigger": "Check the precise real-rootedness theorem and statistic"
+        },
+        {
+          "assessment": "Different model for independent gaps; inspected deterministic passages not an exact range result",
+          "evidence": "For GEM(0,theta), independent gaps have geometric parameters i/(i+theta). Fixed geometric hazards are distinguished explicitly.",
+          "identifier_or_url": "https://arxiv.org/pdf/1701.06294",
+          "material_read": "Theorem 1.1 and equation (1.11), PDF pp. 3–4; deterministic geometric discussion p. 5; §4 Proposition 4.3 and equations (4.3)–(4.8), PDF pp. 14–15",
+          "method": "OA primary PDF passages",
+          "title": "Extremes and gaps in sampling from a GEM random discrete distribution",
+          "trigger": "Potential range result under geometric sampling"
+        },
+        {
+          "assessment": "Neighboring, not the fixed-geometric range PF result",
+          "evidence": "The statistic is the maximum and the principal claim is infinite divisibility, not range total nonnegativity.",
+          "identifier_or_url": "2026/10/18/SCOPE-a-sharp-infinite-divisibility-cutoff-for-maxima-of-geometric-sam--f4ffc4d1aca7",
+          "material_read": "Local-mirror RESULT.md, finding and n=2 maximum PGF",
+          "method": "Local mirror passage inspection",
+          "title": "A sharp infinite-divisibility cutoff for maxima of geometric samples",
+          "trigger": "Same-day result on a related statistic under the same parent"
+        },
+        {
+          "assessment": "Different parent and shape property",
+          "evidence": "Discrete finite uniform parents and eventual strict ultra-log-concavity, rather than geometric parents or PF-infinity.",
+          "identifier_or_url": "2026/10/18/SCOPE-eventual-ultra-log-concavity-of-discrete-uniform-sample-ranges-a--831e52f5333e",
+          "material_read": "Local-mirror RESULT.md finding",
+          "method": "Local mirror passage inspection",
+          "title": "Eventual ultra-log-concavity of discrete uniform sample ranges",
+          "trigger": "Same-day result on ranges and shape restrictions"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The PF-infinity interpretation is stronger than log-concavity and is a useful way to explain the law. As a standalone finding, however, all its exact information is read off the classical generating function after the elementary geometric shift and standard factorization. The illustrative binomial-parent counterexample is a two-draw calculation, not a surviving classification of which parents preserve total nonnegativity.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

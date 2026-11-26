@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The automorphism normal form follows from orbit-preservation of rows and the operation equation \(F_b(a+b-d)=F_b(a)+h(b)-h(d)\). The earlier labeled-fiber classification is rederived directly for use here. The quotient by independent row shears produces translation-equivalence classes of quotient-space subsets, and the remaining affine group acts by induced linear maps. The twisted Burnside trace and cycle decomposition prove the exact all-field polynomial, with no reliance on sampled cases. Independently implemented finite checks compute every automorphism and actual quandle subquandle for the 4- and 9-point cases, and verify the entire distribution by two methods for the 16- and 81-point cases. The scope is finite \(V\), with all primes and all positive dimensions, nonempty subquandles only.
+PASS
 
-## Originality — PASS relative to inspected evidence
+The right translations generate inner orbits equal to the rows. Every automorphism thus has row maps F_b and a common base permutation h, satisfying F_b(a+t)−F_b(a)=h(b)−h(b−t) for every a,t. This difference is additive in t and is a bijective slope. Expressing the same h through each row shows all slopes equal one F_p-linear L, with h(b)=L(b)+v. Conversely these maps with arbitrary independent u(b)=F_b(0) preserve the operation. For a fixed support B, differences b−d for any one b generate all differences of B; finite closure is therefore equivalent to every nonempty fiber being a union of W_B-cosets. Quotient first by the normal group of independent u(b)-translations. Each row now independently carries a nonempty subset of V/W_B up to translations; its size in Q is |W_B| times its size in the quotient. The residual affine group moves the rows and acts by the corresponding induced L on the labels. Closing an h-cycle of length ℓ requires the initial translation-orbit to be fixed by the induced L^ℓ. For any such fixed translation-orbit O in a quotient H, each of its |O| representatives has exactly |H|/|O| translating vectors bringing its image under M back to itself. Thus its contribution to the average in (1) is exactly one, including nonfree translation-orbits; nonfixed orbits contribute zero. Fixed subsets of each affine bijection are exactly cycle unions. Weighted Burnside then yields (2), including W_B=V where the nonempty zero-space subset contributes a single monomial. For f=1 a singleton row support gives the full affine subset action on its fiber, while all supports of size ≥2 have full rows and give affine support orbits. Counting translations and the multipliers of each order yields (4)–(5) and the identity-term asymptotic. The argument uses the additive F_p-space and applies in characteristic two.
 
-The 2026-10-18 same-family result counts **labeled** subquandles and expressly does not identify automorphism orbits; its complete RESULT.md was inspected. Jedlička et al.'s 2017 paper enumerates quasi-affine quandles by **abstract isomorphism**, a different equivalence relation than ambient conjugacy of embeddings. Their 2014 affine-mesh framework and Hou's 2011 full automorphism-group theory imply structural ingredients, which are not claimed as original. Higashitani–Kurihara (2022), Amsberry et al. (2023), and a previous retraction-image theorem do not imply the full orbit polynomial. The assessed novelty is the explicit full-automorphism quotient for every finite \(V\), with prime-field formula, exact extension-field counts, and the reduction via quotient-subset translation classes. The residual risk is an overlooked general orbit-enumeration theorem; Hou's full text was not accessible through open sources, but the group theory it covers is fully credited rather than treated as new.
+## originality
 
-## Value — PASS
+PASS
 
-The all-field polynomial is a natural complete symmetry invariant of the **entire** nonempty embedded-subquandle population of a canonical nilpotent Alexander family, rather than a reparametrized labeled count. It reduces a large action on subsets of \(V^2\) to a finite nested action on base supports and smaller quotient spaces, distinguishes ambient equivalence from abstract subquandle isomorphism, and exhibits nontrivial extension-field orbit spectra: \(119\) embedded subquandles collapse to \(9\) ambient classes over \(\mathbb F_2^2\), and \(10{,}933\) collapse to \(39\) over \(\mathbb F_3^2\). The prime-field closed form and asymptotic quantify the symmetry reduction across infinitely many different characteristic primes. No further downstream theorem is required for this complete natural classification to have mathematical value.
+Credit prior labeled fibers, general ambient automorphism structure, and standard Burnside counting. The assessed distinct result is the explicit all-prime all-dimension orbit polynomial of embedded subquandles under the full group, through a residual affine action on translation-classes. No evidenced prior statement yields this polynomial or its orbit coefficients without the extra quotient analysis.
 
-## Limits and priority
+## value
 
-The orbit formula may be computationally expensive for large extension degrees; it does not classify abstract subquandle isomorphism types or arbitrary Alexander modules. General affine-group Pólya counting and the prior labeled-fiber theorem are credited. An earlier unindexed general orbit formula could cover the result, and access to Hou's entire primary article is incomplete; this does not invalidate the proved all-field count but limits certainty about publication priority. Independent mathematical audit has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This counts the full natural embedded population modulo its actual symmetries, not only labeled subsets, retraction images, or abstract types. The quotient-space factors make the computation much smaller than direct Burnside on the full automorphism group, expose when equal-size labeled results have distinct ambient types, and give both a prime-field asymptotic and reproducible nontrivial extension examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

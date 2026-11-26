@@ -1,11 +1,21 @@
-# Review: exact characteristic-five Schur quartic zeta
+# Independent mathematical audit
 
-**Correctness — PASS.** The four partial derivatives rule out projective singularities. Two independent exact finite-field counting methods agree with the closed fiber identities over \(\mathbb F_5\) and \(\mathbb F_{25}\). The latter saturates the K3 Weil bound, and equality in the triangle inequality together with the former count determines the complete Frobenius spectrum. General extension counts follow mathematically rather than by extrapolation. Picard-rank supersingularity uses the established odd-characteristic K3 Tate theorem.
+## correctness
 
-**Originality — PASS, qualified.** Rams–Schütt establish the Schur equation and 64-line theorem; these are background, not new claims. Katsura–Kondō–Shimada give the same numerical quadratic-field maximum for a different Kummer K3 model but do not establish arithmetic descent to this explicit Schur quartic. The closest indexed Schur result concerns its line-incidence spectrum. Direct searches for matching zeta formulas, point counts, finite-field tables and model equivalences found no dominating statement. Full text of a recent Schur-line study was inaccessible and unindexed calculations may exist, so absolute historical priority is not certified.
+PASS
 
-**Mathematical value — PASS.** The complete zeta function and all-extension point-count dichotomy constitute a motivated exact arithmetic invariant of a classical extremal quartic surface. The sharp quadratic-extension Weil equality and prime-field Frobenius signs distinguish the specific arithmetic form from generic facts about geometric K3 surfaces.
+The two gradient entries for either binary quartic force both coordinates to vanish in characteristic five, so the displayed projective quartic is smooth and is a K3 surface. Independent enumeration of the projective charts gave 36 and 1176 points over F5 and F25. Subtracting H^0 and H^4 yields H^2 traces 10 and 550. Purity gives 22 eigenvalues of modulus 5, so the latter trace is equality in the bound on the sum of their squares; each square must be +25. The first trace then gives twelve eigenvalues +5 and ten −5. The signed characteristic polynomial, all extension counts and the zeta factors follow; semisimplicity need not be assumed for this argument. The cited odd-characteristic Tate theorem over F25 implies geometric Picard number 22, but this does not compute the Artin invariant.
 
-Closest literature: S. Rams and M. Schütt, arXiv:1212.3511; T. Katsura, S. Kondō and I. Shimada, arXiv:1312.0687; M. Schütt, arXiv:0804.1558. Limitations: no Artin invariant or arithmetic isomorphism to a Kummer model is claimed; the same-object Naskręcki–Pokora arXiv:2607.07898 full text was not accessible. The entire proof relies on mathematical theorems as well as exact arithmetic checks, not on a finite-experiment inference.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct claim is the full surface zeta function of the specified F5 model, particularly the two Frobenius sign multiplicities. The Schur equation, 64 lines, arithmetic of its line configuration, and the maximal count 1176 on a different Kummer model are not credited as new. No equivalent surface formula or decisive arithmetic-model implication was found in the comparisons below.
+
+## value
+
+PASS
+
+The Schur quartic is a naturally distinguished quartic with known line geometry. Computing the precise Frobenius descent of its whole cohomology, rather than an invariant of a line configuration or a single common maximal count, distinguishes its arithmetic form and gives the exact counts over every extension. The sign split records genuine arithmetic information not apparent from geometric supersingularity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

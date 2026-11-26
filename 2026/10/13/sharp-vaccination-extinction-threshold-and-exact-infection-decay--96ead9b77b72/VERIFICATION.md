@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Mathematical and computational verification
+# Independent mathematical audit
 
-The analytical proof covers every finite nonnegative initial state and the complete parameter family given in `RESULT.md`; computations here test exact identities and illustrative trajectories only.
+## correctness
 
-Run `python3 verify.py` with Python 3 and standard library, from the same extracted directory as `verify.py`. The program independently constructs exact fractions for \(S_0\), \(V_0\), \(\mathcal R_c\), and \(\mathcal J_c\), checks the determinant and full characteristic polynomial of the infected block for the two rational witnesses, verifies the critical positive left null vector, and runs two distinct nonnegative initial states for each of two transmission strengths with fourth-order Runge–Kutta time stepping. Output on the tested interpreter:
+PASS
 
-`VERIFY_OK: exact rational matrices, critical kernel, and non-proof trajectories`
+Replayed RESULT.md lines 13–107 for the autonomous Holling-II model on the full nonnegative cone. Inward boundary derivatives and the host-population differential inequality give global bounded solutions, with bounded environmental coordinate from its stable filter equation. The S,V block is Hurwitz Metzler (trace negative, determinant D>0), and subtracting its nonnegative infection losses gives the exponentially convergent infection-free upper envelope. For the infected block, a positive test vector (H/ξ,1,φ/ω) has image (AH(R_c−1)/ξ,0,0) under B0. Multiplication by its positive left Perron vector proves the spectral sign equivalence, and the full linearization is block triangular. For R_c>1, the instability is also relative to the cone: any trajectory with a positive infected/contaminated sum that stayed in a sufficiently small disease-free neighborhood would grow by comparison with a constant lower Metzler block with positive spectral abscissa. Subcritically, the upper comparison block is strictly stable after a transient. At R_c=1 the left Perron projection W satisfies the stated upper inequality with an integrable envelope error and negative saturation term. Comparison against the linear lower bound on S gives an eventual positive S floor; integration then gives integrability of C²/(κ+C). Bounded derivatives give C→0 and C′→0, then I→0 and E→0; stable linear convolution returns the other coordinates to equilibrium. For small initial perturbations all needed coefficient bounds are uniform by the host and environment bounds, and the envelope error is proportional to the initial displacement, establishing Lyapunov stability as well as attraction. Finally B(t)→B0; the same positive left Perron projection satisfies W′/W=s(B0)+o(1) whenever the initial infected/contaminated sum is positive, since the perturbation term is bounded by o(1)W. This gives the exact normalized logarithmic rate, including zero at criticality and no positive exponential decay rate there. Independently checked the two rational witnesses using the factorized determinant (λ+2)²(λ+1)−b(λ+1)−b in that family: the displayed thresholds and characteristic coefficients agree, and (1,2,2) is the exact critical left null vector. The uploaded RK4 script was inspected, not executed; those example trajectories are not evidence of the global theorem or of the exact exponent.
 
-Expected exact subcritical identities: \((S_0,V_0)=(4/31,18/31)\), \((\mathcal R_c,\mathcal J_c)=(15/31,3/2)\), characteristic polynomial \(\lambda^3+5\lambda^2+(218/31)\lambda+64/31\).
+## originality
 
-Expected critical identities: \((\mathcal R_c,\mathcal J_c)=(1,31/10)\), \(B_0=[[-2,2,2],[1,-2,0],[0,1,-1]]\), and characteristic polynomial \(\lambda(\lambda+2)(\lambda+3)\), with left zero eigenvector \((1,2,2)\).
+PASS
 
-The numerical runs are not exhaustive, prove neither positivity for arbitrary time steps nor the global result, and cannot establish any asymptotic logarithmic exponent. The proof's critical steps are the Metzler comparison envelope, integral saturation-dissipation inequality, uniform-continuity limit, and positive spectral sandwich, all written in `RESULT.md`.
+The supported claim is the sharp global vaccinated Holling-II disease-free threshold through equality on the full cone, paired with the exact trajectory logarithmic extinction rate in the stated class. The same model, reproduction number, and strict local threshold are prior; the motivating global theorem has a stricter sufficient condition, and the sharp unvaccinated corollary does not cover positive vaccination. General positive-system tools and analogous critical theorems are antecedents, not new claims of this record.
+
+## value
+
+PASS
+
+The result closes the gap between the local and sufficient global extinction tests for a motivated deterministic model. It proves global stability at the nonhyperbolic boundary and determines exactly what the asymptotic logarithmic decay rate does there. Two exact witnesses show genuine coverage beyond the earlier test, including at equality. The contribution is mathematical disease-free analysis, not field validation, control calibration, or an algebraic prefactor at criticality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

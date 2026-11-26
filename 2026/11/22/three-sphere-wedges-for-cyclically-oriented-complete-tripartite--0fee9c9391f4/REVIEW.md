@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The three-layer arc constraints yield the exact union of a crown-graph/discrete-set join and two cones. The square-generation lemma has an explicit chord-splitting and induced-six-cycle filling proof. Each cone base is simply connected and the integral second-homology map is surjective using an unused fifth column. The exact face polynomial and simply connected, three-dimensional Whitehead argument then give the claimed wedge. An independent directed-arc enumerator and mod-two boundary calculation agree for every parameter from three through ten; the infinite quantifier is discharged by the proof, not by testing.
+PASS
 
-## Originality
+Reconstructed RESULT.md Steps 1–5 over the integers. Degree constraints permit at most one incoming and one outgoing hub arc and a matching of at most two middle arcs. Any cycle uses the hub and is exactly a directed triangle, so the missing middle vertex in each cone base is exactly v_ij. The crown graph and each single-vertex deletion are connected (left-side pairs have a common neighbor, and every opposite vertex still has a neighbor). An induced cycle has at most three vertices per shore, since each left vertex has only one available nonneighbor; any induced hexagon uses three common labels and is tiled by three squares meeting at an extra left vertex off those labels. Chord splitting and these disks yield integral cycle generation and normal generation by squares. In each L_i every square is coned over an unused label on shore i, killing π₁. K₀ is the union of cones on a connected graph; attaching both u_i cones along connected bases keeps X simply connected. For H₂(K₀;ℤ), the boundary of the w_j-cone over z_j gives the separate ∂z_j constraints and the common sum constraint Σz_j=0. There are no 3-boundaries in either base. Generating by (e_j−e_k) times a square and routing a mixed-shore pair via an unused fifth label gives integral surjectivity from the sum of the two bases. Relative homology then gives H₂(X;ℤ)=0. Direct face counting gives reduced Euler characteristic −n³+6n²−8n+1; top homology is free as a subgroup of the dimension-three chains. Hurewicz in degrees two and three and the simply connected homological Whitehead theorem give the wedge. The recorded checker output was inspected without executing the uploaded code. Independent replay `python3 /workspace/branches/30dab567-ed4f-416a-a806-e53af33d78d6/independent_n4_boundary.py` checks all 2^14 arc subsets for n=4: f=(14,68,128,72), mod-two boundary ranks (13,55,71), and ordinary Betti vector (1,0,2,1). This proves the stated mod-two obstruction, not a smaller-n homotopy classification.
 
-**PASS against inspected evidence.** The closest primary multipath-complex paper (arXiv:2208.04656, Sections 2–5) computes different classes including alternating complete bipartite orientations and transitive tournaments. The predecessor path-poset paper (DOI:10.1007/s10801-022-01180-9, Sections 6.1–6.3) establishes the general construction and realizability but not this concrete three-layer family. Relevant public indexed classifications concern a fully bidirected biclique or cyclically oriented octahedron on \((2,2,2)\), and an apparent cyclic-blowup neighbor addresses directed path homology rather than arc-set multipath homotopy. These statements have different hypotheses or different functors and do not imply the new infinite-family result. No matching claim was recovered in the accessible preexisting claims. Unindexed equivalence remains possible; indexed records for some neighbors provided summaries rather than accessible complete source material.
+## originality
 
-## Value
+PASS
 
-**PASS.** The cyclic orientation is the first nontrivial strongly cyclical three-layer blow-up beyond a one-row book, and a uniform all-parameter homotopy type is a natural gap in the multipath literature. The threshold at five columns is not cosmetic: the excluded four-column complex has nonzero mod-two second homology, while each larger member is two-connected. The argument gives a structural integral explanation of this stability and an explicit cubic sphere count, rather than a table recomputation or small isolated improvement.
+The inspected multipath literature studies the same functor, and the catalogue contains close cyclic tripartite and bipartite wedge results. None of these statements covers the integral homotopy type for cyclic shores (1,2,n), its rank formula, or the n=4 boundary. The exact blow-up comparison uses path homology instead and is not equivalent. This is a best-of-knowledge comparison, not a priority claim.
 
-## Limits and closest sources
+## value
 
-The result applies only to the specified \((1,2,n)\) cyclic orientation for \(n\ge5\). It does not classify other shore sizes or the excluded small cases, and has not been independently audited. Primary texts consulted: Caputi–Collari–Di Trani–Smith, arXiv:2208.04656; Caputi–Collari–Di Trani, DOI:10.1007/s10801-022-01180-9. A highly related indexed octahedral case has distinct shores \((2,2,2)\); its complete text was not accessible in the inspected source route.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This gives the integral homotopy type for a natural strongly cyclic infinite family under an established functor, and settles when the sphere-only pattern begins, rather than furnishing just ranks at several n. The fifth-label argument explains why the two independent cone attachments jointly kill the entire integral second homology and identifies a meaningful threshold. The mod-two boundary is a substantive contrast, not claimed to be a classification in its own right.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

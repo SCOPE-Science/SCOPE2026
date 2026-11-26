@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem was reconstructed from the continuous-time generator and regenerative site representation. Conditional Poisson immigration gives the stationary single-site PGF exactly; the first-order expansion is controlled for each positive site reset rate, and multiplying independent site PGFs yields a normalized compound-Poisson law. The one-founder birth–death transition probability was independently checked by its linear-fractional form. On the high-fitness scaling, the proof verifies the essential quantifier condition \(n(1-\ell)\to0\) from \(n r(\ell)\to s>0\) and \(0<\nu<1\). The moving-index geometric factors have a small-\(y\) negligible part and an integrable majorant elsewhere, establishing the Bessel kernel. The included `CHECK.py` passed 319 consistency checks; no finite computation stands in for the limit proof. The exact probability law of a simultaneous interacting finite network remains unproved.
+PASS
 
-## Originality — PASS (best-knowledge priority)
+For fixed interior fitness and positive R, conditioning on the last clearing age gives the stationary Poisson-family PGF. Its first immigration derivative is controlled by the integrable clearing age; taking the v-fold product yields the compound-Poisson exponent with finite total intensity ≤a/R. The one-founder mass has geometric ratio x=λ(1−e^(−gt))/(μ−λe^(−gt)), and dx/dt is λ times its positive-state prefactor. An independent limit replay therefore gives Λ_n=(a/λ)∫_0^(λ/μ) x^(n−1)[(λ−μx)/(λ(1−x))]^(R/g) dx. Set μ=1, w=g, u=n(1−x). The support becomes nw≤u≤n; the bracket before exponentiation is (1−nw/u)/(1−w) in [0,1]. Since nR→s and nw→0, its power tends to exp(−s/u) at each u>0; (1−u/n)^(n−1) is bounded by exp(−u/2) for n≥2. The upper-edge density is finite by ν<1 and the β condition, and q tends to zero there, so a/λ→1. Dominated convergence gives nΛ_n→∫_0^∞exp(−u−s/u)du=2√s K_1(2√s), with the stated two endpoint asymptotics of the profile. This proves the ordered limits under the frozen site model, not simultaneous network convergence. CHECK.py was inspected, not executed; its finite experiments are supplementary.
 
-The motivating full text by Grange (2023) establishes the local-reset mean-field model and mean density, while Kapodistria, Phung-Duc and Resing (2015) already prove fixed-site factorial moment formulas. A previously available same-model study, *A hidden co-occupation threshold below fitness condensation*, proves the integrated pair-occupancy threshold. An accessible earlier result also covers all higher-order integrated factorial-intensity transitions; accordingly, no moment threshold is presented as novel here. The present assessed claim is instead the entire dilute-level compound-Poisson jump law and the universal near-critical Bessel moving-size limit. Full relevant primary sections and the earlier pair result's complete text were inspected. Searches for Bessel-family cutoff equivalents in published-finding corpus and broader branching-catastrophe literature found no matching statement, but publication-priority uncertainty remains, particularly for differently named immigrant-family representations.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result describes actual large-family jump intensities, not just their low-order moments or a slight parameter variation. A single rescaled function \(2\sqrt{s}K_1(2\sqrt{s})\) predicts the whole crossover between critical family-size abundance and the clearing cutoff, revealing the characteristic size scale and its non-exponential stretched-tail shape. That observable supplies a new physical diagnostic of fitness-dependent clearing. It is confined to a rigorously specified mean-field marginal system and is not asserted to solve finite-network joint fluctuations.
+The distinct result is the exact joint moving-size cutoff, including its normalized kernel. The same-model Grange Eq. (32) already contains the site PGF that yields the dilute compound-Poisson representation by first-order expansion and independence; no separate priority is assigned to that mechanism or to log-series or factorial-moment formulas. The checked same-model moment and mixed-occupation results give different observables, and the catastrophe-family paper's analyzed power-law approximation does not provide the stated exact rescaled cutoff. Priority remains best of current knowledge.
 
-## Closest literature and limits
+## value
 
-See Grange, arXiv:2311.12414v1, Sections 3–5; Kapodistria et al., Eurandom 2015-006, Lemma 3.1 and Section 5.3; the published prior pair-threshold result; and Lambert, arXiv:1009.0118 (log-series background). The full texts of Lambert and Dori et al. were not inspected, so unindexed near-critical branching-family equivalences are a residual scientific risk. The parameter window is \(0<\nu<1\) with the multiplicity limit before the joint fitness/large-family limit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The crossover function determines individual large-clan intensities on the clearing scale, distinguishes the near-log-series and stretched-exponential regimes, and explains which parameters disappear under rescaling. Neither a fixed-fitness tail nor finitely many integrated moment thresholds describes this crossover. The model's independently factorized scope and the ordered limits are essential to this interpretation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

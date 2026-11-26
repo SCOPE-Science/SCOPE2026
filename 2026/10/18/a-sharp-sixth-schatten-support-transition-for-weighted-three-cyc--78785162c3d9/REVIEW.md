@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-For every nonnegative three-cycle with unit sum of squared weights and each closed-interval weight parameter, the finite Schatten-six moment is expanded exactly. Its only phase-dependent term is proportional to the nonnegative product of all three squared edges and \(\cos(6\theta)\). The phase supremum is therefore attained at zero angle. After elementary-symmetric reduction, Schur's sharp cubic inequality and the standard \(s_2\le1/3\) inequality yield a two-branch minimum with complete equality classifications, including the central degenerate parameter. The transition is the unique admissible root of a monotone rational equation. Supplementary exact Gaussian-rational checks verify 98 matrix identities, and exact rational-grid tests cover 8,575 parameter-simplex instances. Finite checks alone do not prove the theorem.
+PASS
 
-## Originality (PASS, residual priority risk)
+Independently reconstructed the moment using H=A_theta* A_theta. Writing s2=xy+yz+zx and s3=xyz, tr H=t^2+u^2, the second elementary symmetric function of H is t^2u^2+(t^2-u^2)^2 s2, and det H=(t^6+u^6+2t^3u^3 cos(6 theta))s3, by the two directed-cycle terms in det A_theta. Newton's identity gives the claimed phase polynomial, whose maximum is achieved at theta=0 including zero coefficients. For sorted x>=y>=z, cubic Schur's gap is (x-y)^2(x+y-z)+z(x-z)(y-z); its zeros are exactly the uniform and equal two-edge profiles. Combining Schur with s2<=1/3 proves the minimum and strict equality regimes on either side of E/D=9/4. The D=0 case instead gives all and only boundary profiles. E/D=(1-q)^2/(1-2q) away from the center, strictly increasing for 0<q<1/2, and elementary bisection is not needed: the quadratic root and direct evaluation give t*=0.359741911255301. Endpoints and reflection t↔1−t are included. RESULT.md, VERIFICATION.md and the supplied checker were inspected; the checker was not executed, and finite grid checks are not used to justify the continuum claim.
 
-The precise asserted object is the **global minimum and complete support transition** of a weighted Schatten-six numerical radius on a normalized directed three-cycle. Published fourth-order results on nilpotent path shifts treat a different topology, exponent and extremal direction. Published general even-moment bounds assume continuous circle covariance, impossible for a fully supported three-cycle with nonzero discrete spectrum, and supply upper bounds rather than the claimed minimum. The recent Pal–Chandok paper introduces related weighted Schatten radii, but only its abstract and metadata could be inspected. No exact covering theorem emerged from the described mathematical-record, literature, and local-claim comparisons; this is not a claim of exhaustive priority or uniqueness. Classical Schur's inequality is acknowledged as prior mathematics and is not claimed as new.
+## originality
 
-## Mathematical value (PASS)
+PASS
 
-The sixth Schatten moment is the first even moment detecting closed length-three winding, and thus the smallest natural cyclic test case for a phase-dependent weighted Schatten optimization. The theorem resolves a complete parameter family, establishes a discontinuous full-support-to-two-edge transition at an explicit algebraic point, and classifies degenerate coexistence and flat-boundary behavior. It is not a mere restatement of an operator norm inequality or a numerical experiment.
+The inspected papers give the same functional or an equivalent block formulation and general inequalities; the closest indexed cycle results give a phase formula or different Schatten-fourth minima. None inspected establishes the exact normalized three-cycle minimum with the claimed support transition and complete equality sets. The pass is for that classification, not for the functional, Schur's inequality, or exclusive ownership of the harmonic formula.
 
-## Literature and limits
+## value
 
-Primary motivation: Pal and Chandok, arXiv:2610.11336v1 (2026-10-08), abstract and classification metadata accessible; full text inaccessible. Comparisons: *Sharp weighted Schatten-fourth radii of nilpotent shifts* and *Sharp even Schatten numerical-radius moments under circle covariance*, both publicly readable full result/proof documents. General Schatten-radius bounds by Hamza and Issa, arXiv:2204.02469, were located at the abstract level. Priority could change upon review of uninspected primary text or broader matrix-moment optimization literature. There has been no independent audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The directed triangle is a natural first test for nonzero winding at Schatten order six. At fixed Hilbert–Schmidt energy the exact threshold distinguishes a uniform supported cycle from a broken path, resolves coexistence at the transition, and reveals the larger equality family at symmetry. This is a useful extremal benchmark that general upper bounds and fourth-moment path results cannot supply.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

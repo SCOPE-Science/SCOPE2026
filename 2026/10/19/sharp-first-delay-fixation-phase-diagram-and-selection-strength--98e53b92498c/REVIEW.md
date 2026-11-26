@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The four-state first-step recurrence follows directly from the specified history-dependent Moran births and uniform replacement without self-replacement. Almost-sure absorption establishes uniqueness of the four-state solution. The four rational functions satisfy all four equations as integer bivariate polynomial identities; subtraction from the classical zero-delay probability factorizes globally without singular factors. The positive-payoff realization and sharp selection-intensity threshold are direct rational identities, not numerical extrapolations. An independent construction of the transient transition matrix was solved at 144 rational parameter choices as a supplementary reproducibility check. Full proof and exact checker are supplied.
+PASS
 
-## Originality
+I independently built and solved the instantaneous and delayed chains in symbolic arithmetic by listing all ordered distinct reproducer/victim pairs, weighting the reproducer by the historical ratio and the current type. A hold changes the delayed state to (current,current), as required. Eventual absorption follows because a path of bounded length to an endpoint has probability bounded uniformly away from zero over the finite transient state space. Starting at (1,1), elimination gives both frozen probabilities and the factorization -x(x-y)(xy-2y-2) over the stated positive denominator. On the witness game the two sign factors have numerators w(5+13w) and 31w^2-4w-3, with positive denominators. The first is positive for w>0 and the second has its only positive root at (2+sqrt(97))/31 in (0,1); this proves the strict reversal and neutral cases without reversing the relative fitness ordering. For N=2, all pre-absorption history counts are one under the deterministic all-one initialization, for any finite delay. The two exact example differences are 1/70 and -15/2132. Finally the average-payoff identities imply x/y<4 for positive games, and the construction with alpha between x/(4y) and 1 attains every point of that region.
 
-**PASS, subject to residual publication-priority risks.** Mohamadichamgavi and Broom (arXiv:2403.09864 and its subsequent 2024 journal version) introduce the delayed-fitness Moran chain, reproduce its general transition probabilities, and solve finite instances by Markov-chain inversion; neither the chain itself nor the matrix method is new. The inspected main source text does not provide the complete three-person two-equality-curve sign classification, the strict first possible population-size boundary, or a fixed positive payoff game whose first-delay effect reverses at \(w_*=(2+\sqrt{97})/31\). Related evolutionary branching under assortativity has a different update rule and object. A sufficiently broad prior matrix identity or uninspected supplementary text could imply these results; searches do not establish unconditional novelty.
+## originality
 
-## Value
+PASS
 
-**PASS.** The result exactly resolves an interpretable gap left by plotting selected delayed evolutionary games: when does just one historical update help or harm an invading mutant, and can the same game change sign solely by changing selection strength? The complete first nontrivial population-size phase diagram and sharp within-game reversal answer both without fitted numerical thresholds. The result is a finite-population benchmark rather than a theorem for arbitrary population sizes or delays.
+The lagged Moran model, no-self-replacement rule, deterministic all-one history, history-valued Markov-chain method, and qualitative dependence on the game and selection strength are prior work. The inspected matches do not resolve the complete first-delay sign boundary in three individuals or the exact sign reversal of the delay effect along the specified fixed positive-game strength path. The smallest-population statement is supported as part of this exact classification, not as a separate novelty claim for the observation that N=2 has only one transient count.
 
-## Closest literature and limitations
+## value
 
-The closest source is J. Mohamadichamgavi and M. Broom, *The Impact of Time Delay on Mutant Fixation in Evolutionary Games* (first public 14 March 2024), arXiv:2403.09864, particularly the transition equations and numerical comparisons. Its journal version is *The impact of time delays on mutant fixation in pairwise social dilemma games*, Proc. R. Soc. A 480 (2024), 20240195, DOI:10.1098/rspa.2024.0195. The present claim requires positive fitness, a three-individual well-mixed population, one update of delay, and no-self-replacement birth–death dynamics. General stronger theorems might subsume it, and not all ancillary literature was accessible in full. No independent audit has occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For the established delayed Moran model, the earliest size at which composition history can matter already has two distinct exact neutrality loci, and the second is reachable within strictly positive games. The fixed-game path separates reversal of the delay effect from reversal of relative fitness ordering. This provides an interpretable phase boundary for when a delay helps, not just isolated numerical fixation values.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

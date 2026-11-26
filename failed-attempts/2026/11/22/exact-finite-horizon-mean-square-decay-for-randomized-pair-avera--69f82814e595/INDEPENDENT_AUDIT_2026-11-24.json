@@ -1,0 +1,154 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:47:41.420848Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The claim for iid uniform star-edge choices at discrete interactions is correct. The energy observable is T^k(I-J), where T(B)=m^-1 sum_i W_i B W_i. Leaf symmetry makes it scalar on the hub-contrast line and leaf-contrast subspace. For a unit hub contrast, the W_i image has hub component alpha=(m-1)/(2m) and squared leaf component alpha-alpha^2. The projector trace identity then gives exactly the displayed matrix. Its row sums are alpha and nu_m. Subtracting the two rows on (q,r) gives r_next-q_next=q/2+3(m-1)(r-q)/(4m); positivity of the matrix yields the strict maximizing eigenspace from horizon one. The trace and determinant give the stated distinct positive eigenvalues for m>=3. The characteristic polynomial is positive at nu_m, with nu_m to the right of the trace midpoint, so nu_m exceeds both roots. Therefore the coefficient of the smaller-root power is negative, yielding strict log-concavity and ratios decreasing from nu_m to lambda_+. Expanding the radical verifies the large-m rate gap. The separately stated m=2 trajectory has a zero smaller root; strict log-concavity for all horizons is scoped to m>=3. Exact bounded replay: python3 /workspace/independent_checks.py 1 follows individual edge histories, including mixed inputs, for m=2 through 5 and horizons 0 through 5. The source checker was inspected rather than executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The formal bipartite theorem has p>=2 and its three modes are positive-dimensional there. Its proof is the operator identity B_next=B-(DB+BD)/2+sD/4, valid also when one projector vanishes. Its reset coupling proving the order uses d<=1 and cannot simply be quoted when p=1; ordering follows directly from the specialized matrix instead."
+        ],
+        "reasoning": "Removing the zero projection requires no replacement operator identity or invariant-space theorem. The older general gossip and Kaczmarz frameworks alone would leave a genuine problem of finding an effective reduction, but this specific bipartite calculation has already made that reduction.",
+        "searches": [
+          "Resultary: sharp all-horizon modes for complete bipartite gossip",
+          "c93f751b4cab, transfer proof and Assumptions",
+          "Boyd et al. 2004 and 2006, Sec. II.B",
+          "Loizou–Richtárik arXiv:1905.08645, Sec. 3.3.1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary focused searches and mirrors, especially c93f751b4cab",
+        "Boyd et al. 2004 and 2006 author PDFs",
+        "Loizou–Richtárik arXiv:1905.08645",
+        "Sirocchi–Bogliolo DOI 10.1038/s41598-022-25974-w",
+        "Mo and Agaskar–Wang–Lu access attempts only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At p=1,q=m the bipartite proof has P_A=0, w_A=0; (d_B,d_C)=(1/m,1+1/m), (w_B,w_C)=(1-1/m,1+1/m). The A column vanishes. Its (C,B) block is exactly M_m, with (c,b)=(q_k,r_k). The operator proof is unaffected because D, B and the edge projection-length formula simply omit the zero summand."
+        ],
+        "reasoning": "The frozen ordering is immediate from subtracting the two live rows: the coefficients of q and r-q are 1/2 and 3(m-1)/(4m). The closed form and log-concavity then follow via a quadratic characteristic polynomial and the signs determined by the known one-step data. The 4/3 limit follows by expanding that root (also the same fixed-small-shore first-order eigenvalue calculation). This does not assert the formal p>=2 theorem itself states the boundary or that it was published first.",
+        "searches": [
+          "Resultary: finite-horizon extremal subspace, exact asymptotic star rate and gap versus spectral bound",
+          "c93f751b4cab, Finding and Proof Steps 1–4, plus scope discussion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "69f82814e595 is the exact self-hit. c93f751b4cab has the same update law on K_{p,q}, with the star exactly K_{1,m}. Its larger-shore fluctuation and inter-shore projections become the leaf and hub-versus-leaves projections, respectively. Boyd et al. supply the exact general lifted second-moment representation."
+        ],
+        "reasoning": "There is no change of stochastic model, clock, norm or centering. The star is a boundary specialization of the bipartite proof, not just a family with a similarly named spectral rate.",
+        "searches": [
+          "Resultary: exact finite-horizon expected squared disagreement on stars",
+          "Resultary mirror c93f751b4cab, Finding and Proof Step 1",
+          "Boyd et al. 2006, Sec. II.B"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The complete-bipartite Resultary entry tabulates the transfer matrix as (1-d_i)delta_ij+d_iw_j/4 and gives the resulting sharp mode and rate; it does not list the star radical on its stated domain. The original credits the three-node 5/8 factor to Mo; the notes were not retrieved. Sirocchi–Bogliolo's inspected results concern measured convergence and topological predictors."
+        ],
+        "reasoning": "Neither a base-case number nor the one-step spectral bound would establish the all-size law. The pertinent exact catalogue entry is the structurally matching transfer matrix, whose live block computes all star horizons; lack of a separate printed radical is immaterial.",
+        "searches": [
+          "Resultary: exact star gossip contraction factors or finite-horizon star spectral formulas",
+          "c93f751b4cab, Finding",
+          "Yilin Mo Caltech notes URL cited by the frozen source",
+          "Sirocchi–Bogliolo DOI 10.1038/s41598-022-25974-w"
+        ]
+      },
+      "rationale": "The distinct indexed complete-bipartite record c93f751b4cab explicitly excludes the star from its formal theorem, but its transfer-matrix identity and proof mechanically give the star recurrence when the one-vertex shore's zero subspace is removed. This is demonstrated mathematical coverage, not an inference of publication order from two same-day records. The details of the two-root expression, gap, optimizer, log-concavity and limiting ratio follow by elementary algebra from that identical matrix. The general gossip literature alone would not justify this disposition.",
+      "residual_risks": [
+        "The two distinct Resultary records have the same displayed date; relative historical priority is not inferred.",
+        "Mo's notes and the primary Agaskar–Wang–Lu text were not retrieved; no negative conclusion is drawn from that.",
+        "The exact star log-concavity was not found verbatim in the comparison; the assessment rests on the demonstrated reduction and direct two-root calculation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Explicitly excludes p=1 formally; its exact operator calculation supplies the same live transfer block at p=1, with the star ordering and rates obtained directly",
+          "evidence": [
+            "The three-sector matrix is (1-d_i)delta_ij+d_i w_j/4; w_A=1-1/p.",
+            "The proof expands the same orthogonal edge update QBQ and requires no nonzero contribution from P_A.",
+            "The discussion acknowledges the distinct two-sector star case; no publication order is inferred."
+          ],
+          "identifier_or_url": "Resultary c93f751b4cab",
+          "material_read": "Mirrored RESULT.md Finding, Assumptions and transfer/ordering/rate proofs at offsets 0–8500, plus prior-work boundary discussion from 8450",
+          "method": "Lawful local published-record mirror, bounded passages",
+          "title": "Sharp finite-horizon disagreement modes and a continuous aspect-ratio speedup law for bipartite gossip",
+          "trigger": "Identical update and potential boundary specialization"
+        },
+        {
+          "assessment": "General lifted framework; not the star optimizer or finite trajectory in the inspected passage",
+          "evidence": [
+            "Discusses both the covariance recursion/expected tensor product and the easier first-moment spectral bound."
+          ],
+          "identifier_or_url": "https://web.stanford.edu/~balaji/papers/06randomizedgossip.pdf",
+          "material_read": "Sec. II.B, OA offsets 27301–32485",
+          "method": "Lawful author PDF passages",
+          "title": "Randomized Gossip Algorithms",
+          "trigger": "Exact general covariance evolution versus spectral bound"
+        },
+        {
+          "assessment": "One-step spectral bound, not the exact star law in that passage",
+          "evidence": [
+            "Uses the second eigenvalue of E[W^T W]."
+          ],
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/gossip_opt.pdf",
+          "material_read": "Sec. II.B, p. 3, OA offset 13260 onward",
+          "method": "Lawful author PDF passage",
+          "title": "Analysis and Optimization of Randomized Gossip Algorithms",
+          "trigger": "Possible earlier bound or exact factor"
+        },
+        {
+          "assessment": "Covers the averaging update under a broader framework, not the stated finite star extremal law in the passages",
+          "evidence": [
+            "Eq. (18) identifies pairwise averaging as a special case."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1905.08645",
+          "material_read": "Abstract and Sec. 3.3.1 Eq. (18)",
+          "method": "Lawful OA PDF passages",
+          "title": "Revisiting Randomized Gossip Algorithms: General Framework, Convergence Rates and Novel Block and Accelerated Protocols",
+          "trigger": "Broader randomized-gossip or Kaczmarz formulation"
+        },
+        {
+          "assessment": "Reports topology predictors and averaging-time experiments; no star law established in inspected passages",
+          "evidence": [
+            "The material studied measurements and pairwise error reduction, not a transfer-matrix evaluation for all stars."
+          ],
+          "identifier_or_url": "https://www.nature.com/articles/s41598-022-25974-w",
+          "material_read": "Abstract and OA passages on metrics and measurements at offsets 25367–33108",
+          "method": "Lawful OA full-text passages",
+          "title": "Topological network features determine convergence rate of distributed average algorithms",
+          "trigger": "Graph-specific rates or tables"
+        },
+        {
+          "assessment": "Three-node priority comparison unresolved; not grounds for rejection",
+          "evidence": [],
+          "identifier_or_url": "https://murray.cds.caltech.edu/images/murray.cds/1/13/Cds27010.pdf",
+          "material_read": "No original passage retrieved; attribution in frozen RESULT.md lines 44 and 128 only",
+          "method": "Lawful cited-route retrieval attempts",
+          "title": "Gossip Algorithm",
+          "trigger": "Frozen source credits the three-node base case"
+        },
+        {
+          "assessment": "General exact moment overlap reported, but precise primary comparison unresolved",
+          "evidence": [],
+          "identifier_or_url": "Agaskar–Wang–Lu (2014), reference in Resultary c93f751b4cab",
+          "material_read": "Secondary description in c93f751b4cab; no primary passage obtained",
+          "method": "Lawful cited and alternate-access attempts",
+          "title": "Exact Mean-Squared Error Analysis of Randomized Kaczmarz Algorithms",
+          "trigger": "Potential older exact tensor-power result applicable to gossip"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The sharp finite-horizon rate is a natural quantity, but the matched bipartite operator reduction already computes it at the star boundary after deleting a zero sector. The remaining star-only statements amount to subtracting two rows, solving a quadratic and expanding its root. No distinct substantial invariant or boundary phenomenon remains beyond this mechanically inherited law.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

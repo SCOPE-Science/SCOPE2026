@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:32:54.825582Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md proof §§1–5",
+        "VERIFICATION.md; wheel_period_two_verify.py and wheel_transfer_symbolic.py with both recorded outputs",
+        "Independent review_checks.py, case 2"
+      ],
+      "rationale": "A two-step return gives L(f_0+f_1)=0. Connectivity makes f_0+f_1 constant, and the values zero and two give fixed points, so f_1=1-f_0 for every primitive orbit. For a proposed cut each firing vertex loses k_v cut chips and each waiting vertex gains k_v; complementary threshold inequalities give exactly k_v choices per vertex, all in the stated height box. Conversely every such independent choice returns after two steps and has distinct firing sets, hence minimal period two. Counting once at the hub-wait phase, the hub contributes k, and the run-local cut degree gives the asserted four-state transition weights and labelled closed-walk trace, without a spatial quotient or extra factor of two. Expanding det(I-tT(z)) and logarithmically differentiating at z=1 gives t(1+5t+2t²)/((1+t)(1-3t-t²)); its denominator expands to 1-2t-4t²-t³. The coefficient at the 1/(1+t) term is obtained by evaluating t(1+5t+2t²)/(1-3t-t²) at -1 and equals 2/3. The other two terms give the claimed conjugate coefficients, and |λ_-|<1<λ_+ gives the stated scale separation. Independent replay: python3 /workspace/branches/review_checks.py 2, direct hub-wait states versus exact marked transfer coefficients for n=3–6 (totals 60,276,1125,4476). The frozen symbolic checker compares its polynomials at z=1 and prints examples; the new replay checks all marked coefficients at the tested sizes. Frozen checkers were inspected, not run.",
+      "residual_risks": [
+        "Bounded simulations cannot prove the all-n census, which follows from the cut bijection and transfer. The enumeration concerns labelled primitive orbits, not arbitrary recurrent states or fixed-energy counts."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Jiang §2 gives confinement and equal firing counts; the firing-pattern paper discusses possible binary sequences, not configuration multiplicities.",
+          "5004d505b623 counts primitive orbits of general graphs by conserved chip mass via cut degrees. Later-indexed ef82f229430e gives a full wheel mass generating polynomial and states that the orbit count is half the state count."
+        ],
+        "reasoning": "General dynamics gives background, not an exact evaluated wheel invariant by itself. The mass-spectrum wheel comparator additionally retains a compatible marker: phase-B rim zeros are firers in the complementary hub-wait phase. It supports statement-level overlap, not an inference of earlier priority from a later date.",
+        "searches": [
+          "Jiang arXiv:1003.0943, §2",
+          "Jiang–Scully–Zhang arXiv:1211.6786v3; DMTCS Firing Patterns in the Parallel Chip-Firing Game",
+          "Resultary general cut-degree census and wheel mass spectrum"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md references and Steps 2–5",
+        "Actual local-mirror passages of 4649ebc87d0f, 5004d505b623, ef82f229430e, e1ecad5150c3",
+        "Jiang and Jiang–Scully–Zhang primary passages"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior normalized generating function is t(1+5t+2t²)/((1+t)(1-3t-t²)); its own proof names the -1 pole. Multiplying by 1+t and evaluating at -1 gives 2/3; factoring 1-3t-t² supplies the two displayed exponential bases."
+        ],
+        "reasoning": "The exact parity coefficient, radical form, recurrence and initial values are mechanically implied; the full marked formula is the prior trace differentiated without evaluating the marker. No genuinely different evaluated wheel claim survives in the original.",
+        "searches": [
+          "4649ebc87d0f actual proof §§4–5, local-mirror offset 4550–7334"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "4649ebc87d0f, proof Step 4, mirror offset 4550 onward: ‘The same local interior transition, now with periodic rather than open rim boundaries, yields [trace T(z)^n] for the weighted rim colorings. Differentiation supplies the hub cut count.’ The very next display gives the identical normalized rational series."
+        ],
+        "reasoning": "The compared quantity is actual configuration orbits of the same labelled wheel. In the prior cyclic trace z marks rim firers in the hub-wait phase, so applying z d/dz before substituting 1 gives exactly this marked polynomial, not just equal totals at selected n.",
+        "searches": [
+          "Resultary: wheel graph parallel chip-firing primitive two-cycle counts marked by hub-wait rim vertices, fan boundary response, parity term"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "4649ebc87d0f has the same all-size rational series and even the same dominant coefficient; ef82f229430e records corresponding state totals 120,552,2250,8952.",
+          "Same-day e1ecad5150c3 instead studies strict-neighbour binary majority with tie retention."
+        ],
+        "reasoning": "This is exact transfer-function coverage, not a numerical sequence collision. The majority-dynamics record uses a different rule and gives no chip-firing census.",
+        "searches": [
+          "Resultary exact wheel primitive two-cycle census and parity-split wheel dynamics"
+        ]
+      },
+      "rationale": "The earlier indexed fan-versus-wheel result 4649ebc87d0f already evaluates precisely this wheel census in Step 4, with the same marked T(z), periodic trace and hub-count differentiation. Its normalized rational series is identical, with the same dominant coefficient and explicit -1 pole. The bound marked polynomial, recurrence, radical formula and alternating coefficient are direct readouts of that exact prior calculation, not merely analogous results or possible inaccessible overlap.",
+      "residual_risks": [
+        "Bitar–Goles full text was not inspected. This does not affect the failure, which is based on explicit equivalent indexed coverage, not a search gap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct exact prior coverage including elementary marked and parity consequences",
+          "evidence": "The periodic weighted trace, hub differentiation and identical rational series are stated; the dominant coefficient and other poles, including -1, are explicitly identified.",
+          "identifier_or_url": "2026/11/1/SCOPE-a-one-edge-boundary-response-for-primitive-two-cycles-in-paralle--4649ebc87d0f",
+          "material_read": "Actual mirrored proof §§4–5, offset 4550–7334, and the preceding transfer setup",
+          "method": "Resultary and targeted local mirror inspection",
+          "title": "A one-edge boundary response for primitive two-cycles in parallel chip-firing",
+          "trigger": "Identical marked wheel transfer and all-n counts"
+        },
+        {
+          "assessment": "Broader cut-census method",
+          "evidence": "Counts primitive two-cycle orbits using cut degrees, graded by conserved chip mass, not the evaluated wheel recurrence itself.",
+          "identifier_or_url": "2026/11/1/SCOPE-cut-degree-census-and-maximum-cut-thresholds-for-period-two-chip--5004d505b623",
+          "material_read": "Finding and proof, offsets 0–4738",
+          "method": "Resultary and targeted local mirror inspection",
+          "title": "Cut-degree census and maximum-cut thresholds for period-two chip-firing",
+          "trigger": "General graph primitive-two configuration multiplicities"
+        },
+        {
+          "assessment": "Strong overlapping but later-indexed record",
+          "evidence": "Contains an exact mass polynomial and returns orbit counts as H_m(1)/2; its rim marker tracks zeros in the complementary phase.",
+          "identifier_or_url": "2026/11/8/SCOPE-exact-primitive-two-cycle-chip-mass-spectrum-on-wheel-graphs--ef82f229430e",
+          "material_read": "Finding, proof §§1–4 and 7, offsets 0–5774 and 5700–9479",
+          "method": "Resultary and targeted local mirror inspection",
+          "title": "Exact primitive two-cycle chip-mass spectrum on wheel graphs",
+          "trigger": "Same wheel and primitive configurations, extra mass grading"
+        },
+        {
+          "assessment": "Different dynamics",
+          "evidence": "Binary strict-neighbour majority with tie retention, rather than integer chip transfer.",
+          "identifier_or_url": "2026/11/2/SCOPE-parity-split-primitive-two-cycle-census-for-majority-dynamics-on--e1ecad5150c3",
+          "material_read": "Finding and Assumptions, offset 0",
+          "method": "Resultary and targeted local mirror inspection",
+          "title": "Parity-split primitive two-cycle census for majority dynamics on wheels",
+          "trigger": "Same-day parity and wheel count"
+        },
+        {
+          "assessment": "General background, not exact wheel coverage",
+          "evidence": "Per-vertex confinement for nontrivial periodic states and the equal-firing-count criterion.",
+          "identifier_or_url": "https://arxiv.org/abs/1003.0943",
+          "material_read": "§2, Lemma 2.1 p. 3, Proposition 2.5 p. 5",
+          "method": "Primary OA text inspection",
+          "title": "On the Period Lengths of the Parallel Chip-Firing Game",
+          "trigger": "Foundational confinement and return criteria"
+        },
+        {
+          "assessment": "Pattern classification, not multiplicity enumeration",
+          "evidence": "Binary firing patterns and their feasibility are the objects; counts of actual integer height assignments are different.",
+          "identifier_or_url": "https://arxiv.org/abs/1211.6786v3; Scully–Jiang–Zhang, DMTCS, §§2–3",
+          "material_read": "Preprint pp. 1–3; DMTCS pp. 539–540, Theorem 3.1",
+          "method": "Primary OA text inspection including alternate route after primary timeout",
+          "title": "Firing Patterns in the Parallel Chip-Firing Game; Motors and Impossible Firing Patterns in the Parallel Chip-Firing Game",
+          "trigger": "Possible firing-word equivalence"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding and proof §5",
+        "Prior 4649ebc87d0f proof §§4–5"
+      ],
+      "rationale": "Counting actual chip configurations on a natural graph family is worthwhile, but this particular calculation adds no independent invariant to the prior identical marked wheel transfer. Extracting the -1 coefficient by a one-point evaluation, or rewriting the rational series as a recurrence or radical expression, is routine. A stronger point such as mass-conditioned asymptotics is not proved in this frozen record. No surviving substantive repair is identified.",
+      "residual_risks": [
+        "The fail is for additional mathematical value over actual coverage, not for correctness or for interest in wheel dynamics as a topic."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

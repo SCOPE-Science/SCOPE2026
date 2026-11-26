@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:26:14.740712Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The smooth branch sextic gives a K3 double plane in characteristic 5. Shimada proves that the 22 chosen rational-curve classes over F25 form the full integral geometric basis (Artin invariant one and the matching determinant −25), not just a rational spanning set. The published Gram matrix and Frobenius and deck isometries act in this same basis. The identification w↦√2·w gives the Frobenius cocycle J for the nonsquare twist because Frobenius sends √2 to −√2. Since the finite-field Brauer group vanishes, the fixed integral classes are the actual arithmetic Picard classes. Separate exact calculations from the published arrays recover the fixed lattices using columns of unimodular Smith transformations; zero columns yield a saturated integral kernel. The ranks, Gram determinants and nonunit Smith factors are (12,−5120, nine 2s and 10) and (11,10240, ten 2s and 10). The full divisor basis over F25 spans H² after the Tate twist, so the involution multiplicities 12/10 and 11/11 give the stated ±5 eigenvalues and point counts for all n by the trace formula. Direct enumeration independently confirms 36 and 26 over F5 and 1176 for both over F25 only. The frozen program does not itself implement the claimed orthogonal-complement checks; those optional checks are not needed for the independently reproduced Finding.",
+      "replay": "python3 /workspace/branches/9c8a5cb5-dcbd-4462-a98c-142c74db313a/independent_lattice_check.py (published data); python3 /workspace/branches/6ab25138-526f-439a-a9ff-5c29530d066a/independent_check.py (fixed kernels, certificate, and point counts)",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary source specifies the full integral pairing and both actions, rather than just the invariant ranks. The 2026-10-26 characteristic-three Hermitian quartic record gives a parallel 12/11 dichotomy with elementary factors 2 and 6, not 2 and 10. The distinct Fermat quartic F5 record has rank 8 and determinant −4096."
+        ],
+        "reasoning": "The similar Resultary entries change the surface or characteristic and do not imply the result; the strong coverage is the full representation and pairing already provided for this exact double plane.",
+        "searches": [
+          "Katsura–Kondō–Shimada arXiv:1312.0687 §4.1 and exact supplement compdataB.txt",
+          "Resultary 5b5ce8fba9df, 0907faf105cd, 4c8353f211cf"
+        ]
+      },
+      "checked_sources": [
+        "Shimada arXiv:1201.4533 §§1–2 and arXiv:math/0309451 §5.1",
+        "Katsura–Kondō–Shimada arXiv:1312.0687 §4.1 and compdataB.txt",
+        "Resultary 5b5ce8fba9df, 0907faf105cd, 4c8353f211cf"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Equation (4.1) describes J on the same basis as F; F and J are commuting involutions. Plain quadratic descent gives row actions F and FJ. From A=Mᵀ−I and UAV=D, the zero-column block of V yields K; the determinant and Smith factors of KᵀGK are the claimed invariants. Trace of M determines the ranks and the ±5 multiplicities."
+        ],
+        "reasoning": "The fixed lattices and their forms are part of the information rigidly specified by the earlier integral action. The standard kernel and Smith steps suffice with the exact published arrays; no additional lattice construction, unknown index, or original twist geometry is needed. The point counts are an even more immediate consequence of the rational action.",
+        "searches": [
+          "Shimada §2 basis/determinant passage",
+          "Katsura–Kondō–Shimada Eq. (4.1), Tables 4.2 and 4.3 and exact supplemental data"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Shimada describes the Artin-invariant-one surface in characteristic five in its Fermat sextic double-plane model and identifies a full basis of h_F-line classes over F25. Katsura–Kondō–Shimada write the pairing and the 5-Frobenius and covering involution in that basis."
+        ],
+        "reasoning": "The relevant alternate description is the full integral Néron–Severi lattice with actions, not a rational model or a different diagonal twist. For this K3 the Picard and Néron–Severi lattices coincide; ordinary finite-field descent identifies the arithmetic group with its appropriate fixed lattice.",
+        "searches": [
+          "Resultary: characteristic-five Fermat sextic double-plane fixed or arithmetic Picard lattices; quadratic twists",
+          "Shimada arXiv:1201.4533 §2",
+          "Katsura–Kondō–Shimada arXiv:1312.0687 §4.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The three exact arrays are present in the supplement at offsets 193791, 217915 and 219532. Parsing these published arrays, with no new geometric computation, gives both claimed outputs by exact integral linear algebra."
+        ],
+        "reasoning": "These are not merely matching ranks or unrelated tables. The supplement supplies all integral input needed to calculate the exact outputs; a separate printed table of outputs was not found.",
+        "searches": [
+          "Katsura–Kondō–Shimada Tables 4.2 and 4.3 and compdataB.txt entries GramSX, Frob, Flip",
+          "Resultary: exact discriminant groups of the two F5 Fermat sextic twists"
+        ]
+      },
+      "rationale": "No checked source was found that prints both fixed-lattice discriminant groups as a table, but the exact same surface's full geometric integral pairing and both relevant commuting actions were already published in the same basis. The nonsquare model multiplies Frobenius by the published deck action by ordinary quadratic descent. Taking the integral kernels, restricting the pairing and putting the two restricted matrices in Smith form directly extracts the claimed numbers from that stronger exact result. This is documented prior implication, not an assertion that the restricted matrices or both groups were already printed, and not a failure of the computations.",
+      "residual_risks": [
+        "A matching standalone table may exist; this unresolved bibliographic question does not alter the exact implication from the checked published data. The calibration here distinguishes extraction from the original proof and publication of the full integral representation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identifies exact surface and full geometric lattice basis over F25",
+          "evidence": "Selected 22 h_F-lines have determinant −25 and form a Z-basis of NS of the Artin-invariant-one K3 surface.",
+          "identifier_or_url": "https://arxiv.org/pdf/1201.4533",
+          "material_read": "§§1–2, model and basis passages, pp. 1 and 3–6; OA offsets 1500–2300, 6680 and 14500–17274",
+          "method": "Lawful OA PDF passages",
+          "title": "Projective models of the supersingular K3 surface with Artin invariant 1 in characteristic 5",
+          "trigger": "Identification and integral generation for the same model"
+        },
+        {
+          "assessment": "Stronger exact data for the frozen claim",
+          "evidence": "Gives Frobenius induced by √2↦−√2 and the deck action swapping the first two lines and sending each other class to h_F minus that class; provides the same-basis pairing and action.",
+          "identifier_or_url": "https://arxiv.org/pdf/1312.0687",
+          "material_read": "§4.1, pp. 8–10, Eq. (4.1), Tables 4.2–4.3; OA offsets 28500–31062 and 36900",
+          "method": "Lawful OA PDF passages",
+          "title": "On the supersingular K3 surface in characteristic 5 with Artin invariant 1",
+          "trigger": "Same surface, integral pairing and actions potentially imply the exact target"
+        },
+        {
+          "assessment": "Supports direct extraction of the claimed results",
+          "evidence": "Reproduces both fixed-lattice Gram determinants and Smith groups without executing the frozen verifier.",
+          "identifier_or_url": "https://home.hiroshima-u.ac.jp/ichiro-shimada/preprints/KKSssK3char5/compdatassK3char5/compdataB.txt",
+          "material_read": "GramSX, Frob, Flip at offsets 193791, 217915, 219532",
+          "method": "Public supplement, exact numeric arrays parsed as data",
+          "title": "Supplemental computational data for the characteristic-five Artin-invariant-one K3",
+          "trigger": "Verify full exact integral data, not just existence of matrices"
+        },
+        {
+          "assessment": "Structural precedent, not same surface or groups",
+          "evidence": "Characteristic 3; determinants −3072, 6144 and groups with a 6 factor.",
+          "identifier_or_url": "2026/10/26/SCOPE-arithmetic-line-and-picard-lattice-dichotomy-for-frobenius-hermi--5b5ce8fba9df",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Published Resultary mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Arithmetic line and Picard lattice dichotomy for Frobenius-Hermitian quartics",
+          "trigger": "Close parallel at ranks 12 and 11"
+        },
+        {
+          "assessment": "Different K3 model and arithmetic lattice",
+          "evidence": "Quartic with arithmetic rank 8, discriminant −4096 and group (Z/2)^6⊕(Z/8)^2.",
+          "identifier_or_url": "2026/10/25/SCOPE-integral-frobenius-trace-picard-lattice-of-the-fermat-quartic-ov--0907faf105cd",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Published Resultary mirror",
+          "title": "Integral Frobenius trace Picard lattice of the Fermat quartic over F5",
+          "trigger": "Same characteristic and Fermat name, possible source overlap"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The two arithmetic Picard groups are natural and could be convenient as reference data. Here, however, the primitive fixed kernels and their discriminant groups are mechanically determined by exact already-published data on a single lattice, using the standard twist rule and standard normal forms. The record does not establish any additional integral structure not available through that direct extraction, such as a new characterization beyond the input representation. The rational Frobenius and point-count deductions add no separate result of value.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

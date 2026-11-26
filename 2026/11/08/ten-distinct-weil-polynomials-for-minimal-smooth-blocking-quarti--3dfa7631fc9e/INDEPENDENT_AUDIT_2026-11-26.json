@@ -1,0 +1,152 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T14:31:03.625741Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–44, representatives.json, VERIFICATION.md, verify_blocking_quartic_zeta.py and verify_independent_field.py (inspected)",
+        "/workspace/independent_checks/quartics.py (independent exact run; Python 3 with SymPy 1.14.0)",
+        "/workspace/branches/6fba22a9-1831-4539-960f-92c8b36e9b2a/independent_f3_quartic_audit.py (independent exact Buchberger and census run)"
+      ],
+      "rationale": "Independently enumerating the 13 points and line incidences gives no nontrivial blockers of sizes 0–5 and 234 of size six, a single projective orbit with stabilizer size 24. Solving via all sign patterns on the seven nonzero evaluations of a form with a fixed zero set gives 567 candidates. The evaluation matrix on those 13 points has rank 12; the rank-six restricted matrix in the frozen proof and its nine-dimensional kernel are consistent with the separate reproduction. Euler's degree-four identity in characteristic three makes the homogeneous gradient vanish exactly at singular points. Testing its ideals on disjoint affine strata by exact Gröbner bases leaves 222 geometrically smooth forms; a separate exact Buchberger reproduction agreed. Independent polynomial substitution shows that the frozen representatives have disjoint stabilizer orbits of sizes 24 nine times and 6 once, with union equal to the smooth candidate set. Multiplication by 234 gives 51,948 and the displayed global orbit sizes. Point counting in independent explicit extension fields gives (N2,N3)=(12,33),(10,33),(16,30),(8,27),(10,36),(14,39),(12,42),(12,36),(16,45),(12,18), with N1=6 in every row. Newton identities and the genus-three functional equation give all the displayed coefficients, with ten distinct pairs (c2,c3). For the Jacobians, the zeta numerators are the reciprocal Frobenius characteristic polynomials, so distinctness gives nonisogeny over F3.",
+      "residual_risks": [
+        "The result concerns geometrically smooth plane quartics with a minimum nontrivial blocking set and isogenies only over F3. Field point counts alone do not establish smoothness; that was separately checked over the algebraic closure via the chart ideals. No absolute nonisogeny or simplicity claim is supported."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The blocking construction theorem assumes p>3; the line-union counts address degree at least five. Lercier–Ritzenthaler–Rovetta–Sijsling's complete-database algorithm assumes p>7. The Frobenius-trace study's cited complete quartic enumeration and trace computation is for primes 11≤q≤53, not q=3."
+        ],
+        "reasoning": "Those primary results do not cover the required degree/field pair with the extended field point counts. The earlier Resultary orbit enumeration does cover the equations, but its tabulated invariants are only the orbit size, smoothness, F3 point count and flex counts.",
+        "searches": [
+          "arXiv:2208.13299 Theorem 5.1 and arXiv:2211.08523 Example 7.2",
+          "Literature query: complete smooth nonhyperelliptic genus 3 curves over F3 ternary plane quartics 805 zeta functions Frobenius polynomials enumeration database",
+          "arXiv:1403.0562 §5/Algorithm 1 and arXiv:1510.05601v1 introduction"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 3dfa7631fc9e, 0cd27d77201d, 72387a8e16d3, 7961baef95c0, 4df7fbcb0d83",
+        "arXiv:2208.13299, 2211.08523, 1403.0562 and 1510.05601",
+        "LMFDB AbVar/Fq q=3 and g=3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "All ten smooth blocking representatives can be selected directly from the earlier orbit census; all have N1=6. The known zeta functional equation at genus three does not fix c2,c3 from N1. Distinct F3 projective classes of curves also do not imply distinct F3 isogeny classes of Jacobians."
+        ],
+        "reasoning": "The earlier enumeration shortens the arithmetic computation by starting from existing representatives, but it does not certify pairwise noncollision of the Frobenius polynomials. The distinctness uses new extension-field evaluations for this natural incidence stratum.",
+        "searches": [
+          "Resultary 0cd27d77201d, exact orbit data and RESULT.md §§Assumptions and Proof",
+          "LMFDB q=3 g=3 exact isogeny classes",
+          "arXiv:2208.13299 Theorem 5.1 and arXiv:1510.05601v1 introduction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The assigned 3dfa7631fc9e is the exact indexed hit. The records 72387a8e16d3 and 7961baef95c0 treat the same minimum blockers as point sets, but as conic unions or as rational loci for cubics. The same-date record 4df7fbcb0d83 treats quartics over F5 and nine-point blockers."
+        ],
+        "reasoning": "Reciprocal Weil numerators and Frobenius isogeny types are equivalent arithmetic formulations. Shared rational-incidence patterns, a different degree, or an analogous result over F5 do not imply the F3 arithmetic theorem.",
+        "searches": [
+          "Resultary: minimal nontrivial blocking ternary quartics, genus-three zeta numerators and isogeny",
+          "Resultary: six-point ternary projective blockers and blocking quartic orbits",
+          "arXiv:2208.13299 Theorem 5.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Decoding the 1,557 exact orbit rows, 86 are smooth with six rational points. Evaluating the incidence test on those 86 rows leaves codes 79005,79362,85842,197265,199398,201558,203632,552207,611895,612504; the sizes are 5616 except for code 79362 of size 1404. Their total is exactly 51948. The table columns contain neither extension point counts nor Weil coefficients. The LMFDB isogeny table lists 677 abstract dimension-three classes for q=3 but no blocking quartic equation-to-class matching in that table."
+        ],
+        "reasoning": "The geometric counts are a routine extraction and no independent novelty is credited to them. The extension-field point evaluations are additional exact invariants of the selected curves, not a join on fields or a lookup of data available in these tables.",
+        "searches": [
+          "Resultary 0cd27d77201d data/flex_orbits.tsv, REPRODUCE.md and coefficient-encoding passage",
+          "LMFDB AbVar/Fq table restricted to q=3 and g=3"
+        ]
+      },
+      "rationale": "Pass is for the arithmetic separation and the attached Weil data, not for the incidence/orbit census in isolation. An earlier comprehensive orbit table already determines the ten embedded classes and the total 51,948 by a direct filter, which was actually performed. It omits counts over F9 and F27. The abstract LMFDB isogeny table does not label realizations by these quartic equations. No inspected earlier exact table matches these ten quartics to their polynomials or supplies an implication that the ten polynomials are distinct without the additional arithmetic computation.",
+      "residual_risks": [
+        "A prior F3 equation-to-zeta table or filtering calculation outside the inspected coverage could subsume the arithmetic refinement. This is a bounded prior-work judgment, not universal historical priority. The prior orbit census must be credited even though it was not mentioned in the frozen record."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Contains all geometric classes and covers the census by routine extraction, but not the arithmetic separation",
+          "evidence": "Header enc, orbit_size, smooth, points, ordinary_flex, hyperflex; the decoded ten blocking rows sum to 51948.",
+          "identifier_or_url": "Resultary 0cd27d77201d",
+          "material_read": "RESULT.md encoding at offset 2454 and proof offsets 2850–7644; REPRODUCE.md census description; complete data/flex_orbits.tsv parsed for the incidence filter",
+          "method": "Local source mirror inspection at snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4 and exact finite filtering",
+          "title": "Rational inflection spectrum of smooth plane quartics over F3",
+          "trigger": "Earlier complete ternary quartic orbit data"
+        },
+        {
+          "assessment": "Does not cover the F3 arithmetic classification",
+          "evidence": "Construction assumes p>3.",
+          "identifier_or_url": "https://arxiv.org/pdf/2208.13299",
+          "material_read": "Theorem 5.1, PDF p. 13, offset 47100",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "Plane curves giving rise to blocking sets over finite fields",
+          "trigger": "Blocking constructions and possible degree-four coverage"
+        },
+        {
+          "assessment": "Different degree range and statistic",
+          "evidence": "Exact rational line-union counts used for nonblocking density at degree d≥5.",
+          "identifier_or_url": "https://arxiv.org/pdf/2211.08523",
+          "material_read": "§7 Example 7.2, PDF p. 19, offset 71500",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "Most plane curves over finite fields are not blocking",
+          "trigger": "F3 projective-line union counts and possible exact quartic data"
+        },
+        {
+          "assessment": "Isogeny classes without the necessary quartic-equation/point-incidence join",
+          "evidence": "The filtered table reports 677 abstract isogeny classes, complete in the dimension-three and q=3 range.",
+          "identifier_or_url": "https://www.lmfdb.org/Variety/Abelian/Fq/?q=3&g=3",
+          "material_read": "Public filtered table and scope notice",
+          "method": "Public website inspection",
+          "title": "LMFDB abelian varieties over finite fields, q=3, dimension 3",
+          "trigger": "Exact Frobenius-polynomial database"
+        },
+        {
+          "assessment": "Database does not cover characteristic three",
+          "evidence": "Complete smooth-quartic database procedure restricted to p>7.",
+          "identifier_or_url": "https://arxiv.org/abs/1403.0562",
+          "material_read": "§5, p. 11, and Algorithm 1, p. 12, offsets 47931 and 51112",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "Representing smooth plane quartics by their invariants",
+          "trigger": "Complete quartic database could subsume orbit or arithmetic data"
+        },
+        {
+          "assessment": "Inspected complete smooth-quartic trace census is for different q",
+          "evidence": "The cited complete enumeration with traces treats prime fields with 11≤q≤53.",
+          "identifier_or_url": "https://arxiv.org/html/1510.05601v1",
+          "material_read": "Introduction offsets 5250–6773",
+          "method": "Lawful OA HTML passage inspection",
+          "title": "Distributions of traces of Frobenius for smooth plane curves over finite fields",
+          "trigger": "Closest literature discovery result for enumeration with Frobenius invariants"
+        },
+        {
+          "assessment": "Same minimum blocker sets in related degree/conic problems, or a different field; not an earlier polynomial list",
+          "evidence": "234 six-point ternary blockers in the conic-union and cubic comparisons; nine-point blockers over F5 in the same-date quartic result.",
+          "identifier_or_url": "Resultary 72387a8e16d3, 7961baef95c0, 4df7fbcb0d83",
+          "material_read": "Opening RESULT.md findings at offset 0 and blocking-set computation in the cubic record §1",
+          "method": "Local source mirror passage inspection",
+          "title": "Related ternary blocking incidence records and a distinct quartic result over F5",
+          "trigger": "Exact incidence alias and same-date quartic overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–21 and 35–37",
+        "Resultary 0cd27d77201d data/flex_orbits.tsv",
+        "LMFDB isogeny-class table restricted to q=3,g=3"
+      ],
+      "rationale": "The natural genus-three locus is singled out by minimal projective blocking incidence, not by an arbitrary coefficient slice. Merely recovering the ten orbits from the earlier dataset is not an independent contribution. What matters is the exact image of the locus in Jacobian isogeny classes: even with common N1, no two of the ten arithmetic types coalesce. The two new extension counts per class and the resulting invariant give a complete checkable answer to that natural collision question; this is not a recomputation of the flex table or the abstract isogeny catalogue.",
+      "residual_risks": [
+        "The distinction is exact and limited to this minimal F3 locus. It does not imply that larger incidence strata separate into different isogeny classes or that any Jacobian is absolutely simple."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

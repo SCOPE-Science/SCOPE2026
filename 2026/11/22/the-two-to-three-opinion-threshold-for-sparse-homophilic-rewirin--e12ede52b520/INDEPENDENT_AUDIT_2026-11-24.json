@@ -1,0 +1,150 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:06:49.478656Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Findings, hypotheses, and Proof 1–4",
+        "Frozen VERIFICATION.md and check.py, inspected as source only"
+      ],
+      "rationale": "Reconstructed the microscopic generator under uniform sampling of a discordant edge, fair retention, and weighted sampling from prior nonneighbors excluding self. The total target weight is at least w_min (N−1−K_N), so each specified vertex's arrivals are dominated by a fixed-rate Poisson process and the maximum degree stays o_P(N) over bounded times. Removing the unavailable neighbors and self perturbs the normalized class weights by O((1+max degree)/N) plus the class-proportion error. Thus the unordered-type drift is the displayed average of target-class moves with old type probability x_ab/d and endpoint probability 1/2; the bounded jumps give coordinate martingale variance O(1/N). On any compact interval before d=0 the vector field is Lipschitz on a neighborhood of the deterministic path bounded away from d=0, and a stopped Doob–Gronwall comparison also excludes premature exit from this neighborhood with high probability. For two classes, the concordant count has the same constant limiting normalized compensator rate v on the entire pre-absorption interval, independently of d>0. In particular C_N(t)=C_N(0)+v(t∧τ_N)+o_P(1) uniformly on bounded intervals. Before τ_N cap the approximation at one; after τ_N use the approximation at τ_N to obtain the same uniform error for min(1,C(0)+vt), including C(0)=1. For the matching comparison, endpoint normalizers in units of 1/5 are 9n−8 and 11n−8 for 01, and 9n−6 at either endpoint for 02; each concordant target numerator in those units is 5(n−1). The strict ordering follows since the numerator over the common denominator of 2/(9n−6)−1/(9n−8)−1/(11n−8) is 18n²−56n+32=(n−3)(18n−2)+26. Multiplying the limiting event probabilities 50/99 and 5/9 by N/K_N=3 gives 50/33 and 5/3. Their positive continuous local derivatives even exclude a common law applied only at positive times: both traverse the same short C-interval, where a single drift would have to tend to both limits as C descends to zero. One class is trivial. This is a proof check and exact algebra, not execution of the supplied script or a simulation-based fluid limit.",
+      "residual_risks": [
+        "No claim of finite-N lumpability or of a generic three-class failure; the boundary is existential.",
+        "The general type equation is reviewed only before d=0; the stopped formula is proved for q=2."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Nagel et al.'s scalar drift is λ/e times one minus a stagnation factor under a representative step-density ansatz. Their Appendix explicitly leaves rigorous microscopic convergence outside scope.",
+          "General martingale–Gronwall fluid estimates supply the method, conditional on drift control; they do not identify the approximately closed coordinates of this graph process or resolve concordance closure."
+        ],
+        "reasoning": "More general opinion distributions in an approximate scalar model or more general abstract convergence estimates do not subsume the exact class-dependent drift and obstruction.",
+        "searches": [
+          "arXiv:2606.25872v1, §V eqs. (24)–(26), App. D including eq. (67)",
+          "arXiv:0710.3269, §4.1, differential-equation approximations"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2606.25872v1",
+        "arXiv:2511.15043v1",
+        "arXiv:0710.3269",
+        "Resultary e12ede52b520 and 1ab5a16fb31f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The graphon limiting formula as e→0 averages with the prescribed representative's discordant-domain distribution; it does not allow alternative initial occupied pairs 01 versus 02 with the same C=0 and different endpoint-class weights.",
+          "The fixed-state alternative has state-independent coefficients r and d by equality class; setting d=0 still leaves a node-first update and cannot reproduce all three linear affinity values of the present example."
+        ],
+        "reasoning": "The prior formulas alone cannot imply the theorem by taking two or three classes. The needed step is to derive the correct law of the retained class and its target in the microscopic sparse process for arbitrary permitted initial graphs.",
+        "searches": [
+          "arXiv:2606.25872v1, eq. (1), §II.2 update and Appendix D eq. (67)",
+          "arXiv:2511.15043v1, §§II–III",
+          "Resultary one-shot homophilic rewiring and cascade, 1ab5a16fb31f"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Active-link density is exactly 1−C for the frozen separated classes. The fixed-state active-link mean field in arXiv:2511.15043v1 weights disconnection and connection by equality versus inequality and starts updates by choosing a non-isolated vertex, not a uniform discordant edge. Its homogeneous approximation (3) has a ρ-dependent drift rather than the frozen universal stopped linear law.",
+          "The nearest different Resultary lead uses a one-shot rewiring before an adoption cascade, not repeated fixed-label dynamics."
+        ],
+        "reasoning": "The change from concordance to active-link density does not make either other process's transition law and closure equivalent.",
+        "searches": [
+          "Resultary: fixed-opinion sparse homophilic rewiring, concordance scalar closure, edge-type fluid limit",
+          "arXiv:2606.25872v1, §§II.2, V and App. D",
+          "arXiv:2511.15043v1, §§II–III, active-link density"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 2026/11/22/SCOPE-the-two-to-three-opinion-threshold-for-sparse-homophilic-rewirin--e12ede52b520 matches the actual matching pair and slopes; it is the same record, not a different indexed result.",
+          "The primary paper's illustrative graphon curves and formal linear limit are not a tabulation of initial typed matchings at fixed K_N/N or of their distinct right derivatives."
+        ],
+        "reasoning": "This is a universal limit and counterexample rather than a table invariant, but the natural exact-record and matching-slope comparisons were still made.",
+        "searches": [
+          "Resultary fixed-opinion rewiring and class-threshold equivalents; mirror RESULT.md at offsets 0 and 5905",
+          "arXiv:2606.25872v1, Fig. 12 context and formal very-sparse limit (67)"
+        ]
+      },
+      "rationale": "Credit the fixed-opinion stochastic rule, the scalar graphon approximation, and its formal asymptotically linear very-sparse behavior to Nagel et al. The distinct claim supported here is exact sparse convergence on typed edges for the stated class populations and initial sequences, including the universal two-class stopped law and the minimal three-class obstruction. Neither the graphon approximation nor the different stationary active-link model studied in the closest fixed-state lead entails that combined claim.",
+      "residual_risks": [
+        "Literature- and catalogue-bounded conclusion; an unindexed exact theorem for this sparse edge-sampling rule could change priority.",
+        "Some adjacent adaptive and coevolutionary models were not reexamined in full; the closest fixed-state model and originating threshold model were materially inspected."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the motivating process up to time scaling and explicit self exclusion, and approximate scalar reduction; does not establish the exact frozen claim.",
+          "evidence": [
+            "Uniform discordant-edge selection, fair endpoint choice and linear similarity with adjacency exclusion.",
+            "Appendix D explicitly says rigorous microscopic convergence is beyond scope; its constant-rate limit is within the ansatz."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2606.25872v1",
+          "material_read": "Eq. (1) and conserved graph state; §II.2 update; §V eqs. (24)–(25); Appendix D limitation and very-sparse eq. (67), offsets 8152, 13088, 41166, 61425, 77790",
+          "method": "Lawful OA article, located then read bounded full-text passages",
+          "title": "Collective variables for homophily-driven network rewiring dynamics",
+          "trigger": "Source of the threshold model and possible prior sparse closure"
+        },
+        {
+          "assessment": "Different update law and homogeneous mean field; does not imply the typed sparse limit or the class-count threshold.",
+          "evidence": [
+            "Select node of positive degree first; independent same-/different-state rates govern disconnect/connect.",
+            "Eq. (3): ρ̇=2[d(1−r)(1−ρ)−r(1−d)ρ]/k̄."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2511.15043v1",
+          "material_read": "§II assumptions and update, §III homogeneous drift and solution incl. (1)–(5), offsets 6550, 8400, 9290, 10400",
+          "method": "Lawful OA article, relevant full-text passages",
+          "title": "Structural transitions induced by adaptive rewiring in networks with fixed states",
+          "trigger": "Potential competing fixed-state active-link closure; frozen record had only abstract coverage"
+        },
+        {
+          "assessment": "Standard technique, not a theorem about the required drift, state reduction, or counterexample.",
+          "evidence": [
+            "Approximation to a chosen ODE via transition rates, Doob's inequality and Gronwall."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0710.3269",
+          "material_read": "Method statement and §4.1 L² estimate passages, PDF pp. 2 and 7",
+          "method": "Lawful OA PDF passage lookup",
+          "title": "Differential equation approximations for Markov chains",
+          "trigger": "General possible fluid-limit coverage"
+        },
+        {
+          "assessment": "Identical record, not independent coverage.",
+          "evidence": [
+            "Same fixed labels, sparse assumptions, example opinions and slopes 50/33 and 5/3."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-the-two-to-three-opinion-threshold-for-sparse-homophilic-rewirin--e12ede52b520",
+          "material_read": "Finding, assumptions and the matching construction in mirrored RESULT.md, offsets 0 and 5905",
+          "method": "Configured Resultary search and local mirror",
+          "title": "The two-to-three opinion threshold for sparse homophilic rewiring closure",
+          "trigger": "Exact Resultary hit"
+        },
+        {
+          "assessment": "Related rewiring mechanism but no overlapping fluid or closure theorem.",
+          "evidence": [
+            "A single selected adopter–nonadopter edge is rewired before an adoption cascade; no repeated edge-type dynamics."
+          ],
+          "identifier_or_url": "Resultary 2026/11/8, 1ab5a16fb31f",
+          "material_read": "Indexed finding about one-shot edge change and adoption closure",
+          "method": "Configured Resultary search",
+          "title": "A single homophilic rewiring gives an unbounded cascade",
+          "trigger": "Closest different catalogue mechanism"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Proof 2–4",
+        "Nagel et al., §V and App. D"
+      ],
+      "rationale": "The initiating work motivates concordance as a practical coarse coordinate. The theorem identifies precisely the first allowable class count at which that variable ceases to suffice uniformly, while supplying a concrete sufficient typed state and an order-one, fixed-density drift separation on two graph sequences with identical C(0). This is a test of the limits of the approximation's interpretation, not just a numerical comparison or a proposed replacement for its empirical fits.",
+      "residual_risks": [
+        "Specialized sparse separated-class regime; no adverse conclusion about accuracy on typical graphs or for evolving opinions."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

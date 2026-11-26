@@ -7,7 +7,7 @@ Fix coprime integers \(1\le m<n\) and a complex number \(c\in\mathbb C^*\) trans
  x=\frac{u^m+u^{-m}}2,\qquad
  y=\frac{cu^n+c^{-1}u^{-n}}2,\qquad u\in\mathbb C^*.
 \]
-Then \(C_{m,n,c}\) is an irreducible rational plane curve of degree \(2n\). It has exactly \(2mn-m-n\) ordinary nodes in the affine chart; this affine count is background, not the new contribution. Its projective boundary consists of a single point \(Q=[0:1:0]\), with exactly two branches. Both have Puiseux pair \((n-m,n)\), and their mutual intersection number is \(n(n-m)\). Consequently,
+Then \(C_{m,n,c}\) is an irreducible rational plane curve of degree \(2n\). It has exactly \(2mn-m-n\) ordinary nodes in the affine chart; this affine count is background, not the new contribution. Its projective boundary consists of a single point \(Q=[0:1:0]\), with exactly two branches. If \(n-m>1\), each has one Puiseux pair \((n-m,n)\); if \(n-m=1\), both branches are smooth and have no Puiseux pairs. In both cases their mutual intersection number is \(n(n-m)\). Consequently,
 \[
 \delta(C_{m,n,c},Q)=(n-m-1)(n-1)+n(n-m).
 \]
@@ -37,7 +37,7 @@ For reference, the two types of affine coincidences can be enumerated. For type 
 \xi=c\,u^{n-m}(1+O(u^{2m}))(1+O(u^{2n})),\quad
 \zeta=2c\,u^n(1+O(u^{2n})).
 \]
-At \(v=t/s=0\), the leading coefficients are instead \(c^{-1}\) and \(2c^{-1}\). Put \(a=n-m\). Since \(\gcd(a,n)=1\), each germ has characteristic pair \((a,n)\) and local \(\delta=(a-1)(n-1)/2\). This also covers \(a=1\), when the branch is smooth.
+At \(v=t/s=0\), the leading coefficients are instead \(c^{-1}\) and \(2c^{-1}\). Put \(a=n-m\). A local change of parameter that makes \(\xi\) an exact \(a\)-th power preserves the order \(n\) of \(\zeta\). For \(a>1\), the first exponent \(n\) is coprime to \(a\), so there is exactly one Puiseux pair \((a,n)\) and the branch has \(\delta=(a-1)(n-1)/2\). For \(a=1\), \(\xi\) is a local parameter, so the branch is smooth with \(\delta=0\), the same value given by the formula.
 
 The weighted initial equations of the two branches are, respectively,
 \[
@@ -81,7 +81,13 @@ After multiplying by \(c\), this is \(c^2F(u)+G(u)\), with
 F=u^{2n}\bigl((n-m)u^{2m}-(m+n)\bigr),\qquad
 G=(m+n)u^{2m}-(n-m).
 \]
-The polynomials \(F\) and \(G\) are coprime: \(G(0)\ne0\), and at a nonzero zero of the second factor of \(F\), one has \(G=4mn/(n-m)\ne0\). Hence the rational function \(-G/F\) is nonconstant and separable in characteristic zero. Its critical values form a finite algebraic set, so at a transcendental value \(c^2\), the polynomial \(c^2F+G\) has exactly \(2(m+n)\) distinct roots, all in \(\mathbb C^*\). None is a singular affine parameter: its coincidence with a node is an algebraic condition on \(c\) (or follows from the derivative formulas and the two collision types). A simple zero of the curvature determinant at a smooth immersed parameter gives an ordinary flex. Thus there are exactly \(2(m+n)\) distinct ordinary affine flexes.
+The polynomials \(F\) and \(G\) are coprime: \(G(0)\ne0\), and at a nonzero zero of the second factor of \(F\), one has \(G=4mn/(n-m)\ne0\). Hence the rational function \(-G/F\) is nonconstant and separable in characteristic zero. Its critical values form a finite algebraic set, so at a transcendental value \(c^2\), the polynomial \(c^2F+G\) has exactly \(2(m+n)\) distinct roots, all in \(\mathbb C^*\).
+
+To exclude node parameters, set \(X=u^{2m}\) and \(Y=c^2u^{2n}\), so that
+\[
+cP=Y((n-m)X-(m+n))+(m+n)X-(n-m).
+\]
+At a type A collision, \(Y=\xi^{-n}\) is a root of unity and \(X\) is transcendental: if \(X\) were algebraic, so would \(u\) and then \(c\). The coefficient \((n-m)Y+(m+n)\) of \(X\) is nonzero since \(|Y|=1\); the other term is algebraic, so \(cP\ne 0\). At a type B collision, \(X=\eta^{-m}\) is a root of unity and \(Y\) is transcendental. Now the coefficient \((n-m)X-(m+n)\) of \(Y\) is nonzero, again giving \(cP\ne0\). A simple zero of the curvature determinant at a smooth immersed parameter gives an ordinary flex. Thus there are exactly \(2(m+n)\) distinct ordinary affine flexes.
 
 At either parameter above \(Q\), the three-dimensional hyperplane linear series has vanishing orders \((0,n-m,n)\). Its ramification weight is therefore \((n-m-1)+(n-2)=2n-m-3\). The total weight
 \[

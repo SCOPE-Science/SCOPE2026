@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:23:54.225906Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–81",
+        "Frozen VERIFICATION.md and check_harmonic_quadratic.py (read but not executed)",
+        "/workspace/audit_work/disk_reproduce.py and disk_reproduce.out (independent exact area and optimization calculation)"
+      ],
+      "rationale": "Independently integrated the polynomial powers using ∫z^i conjugate(z)^j dμ=δ_ij/(i+1). After sign choice and rotation the moments are as given; the phase dependence is exactly ab²C cos(ψ), forcing alignment when all degrees occur. At fixed q=C/a and nonzero a, the normalized linear-degree energy fraction makes the phase-aligned quotient quadratic with strictly positive initial and strictly negative final slopes. Its sole maximizer reproduces the claimed s(q) and rational envelope. The derivative factors as stated and changes sign once by Descartes' rule and the endpoint signs. Direct optimization on each coordinate face gives 7/3, 63/23 and 297/86, all below the unique interior optimum. In the (1,2) formula at lines 75–81 the printed fraction t is actually the degree-one fraction, contrary to the preceding 'second' convention; replacing t by 1−t puts the maximizing degree-two fraction at 25/43 rather than 18/43. This notational swap does not change the bound or any equality case in the Finding. All claimed constants and the strict gap are reproduced.",
+      "residual_risks": [
+        "The check applies to real-valued polynomials and probability area, not to complex-valued harmonic polynomials, boundary mass or higher degree."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The spherical Nikolskii result treats lacunary degrees with gaps at least three, not the full consecutive band.",
+          "The weighted Bergman sources use analytic polynomials; their estimates and alignment results do not optimize the real-part fourth moment."
+        ],
+        "reasoning": "A spherical lift does not embed the stated degree set in the lacunary hypothesis. Taking a real part changes both moments, so analytic sharp constants do not transfer.",
+        "searches": [
+          "Dai–Gorbachev–Tikhonov arXiv:1905.00323, Theorem 1",
+          "Wang–Zhang arXiv:2505.12760, Theorem 1.2",
+          "Resultary 9d0e2b39f308"
+        ]
+      },
+      "checked_sources": [
+        "Configured Resultary lookup; records d4106097159f, b2361d093e8d and 9d0e2b39f308",
+        "Frozen assignment ordinal 5",
+        "arXiv:1905.00323 and arXiv:2505.12760 primary passages"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The real-harmonic constant, linear and quadratic modes have a phase-interaction term and normalization coefficients not given by the analytic moment formula or any homogeneous-only result.",
+          "In the Poisson variant changing boundary L² to area L² changes the objective nonuniformly across harmonic degrees."
+        ],
+        "reasoning": "None supplies the actual scalar envelope or solves its maximization with this measure; the exact mixed-degree result does not follow by specialization.",
+        "searches": [
+          "Homogeneous spherical RESULT.md d4106097159f",
+          "Poisson-band RESULT.md b2361d093e8d",
+          "Frozen Bergman RESULT.md ordinal 5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Disk area can be seen as a marginal of normalized sphere measure on S³, but the pulled-back space mixes the constant, linear and quadratic harmonic degrees.",
+          "The Poisson-band record uses the same harmonic frequency band but has boundary L² in the denominator."
+        ],
+        "reasoning": "Equivalence would need consecutive degrees together with the same disk-area weights on all degrees in both norms. A change of norm by individual degree does not preserve the quartic interactions.",
+        "searches": [
+          "Configured Resultary search for real harmonic disk fourth moments and harmonic Nikolskii constants",
+          "Spherical harmonic record d4106097159f and quadratic Poisson-band record b2361d093e8d"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-day analytic Bergman result has constant 2.67977554..., and the homogeneous spherical result omits mixed degrees. No exact match was verified among the inspected records."
+        ],
+        "reasoning": "The object is a closed-form norm and equality classification, not a profile census. Matching degree and exponent do not identify the invariant; unsuccessful exact lookup is not proof of novelty.",
+        "searches": [
+          "Configured Resultary search for sharp harmonic quadratic fourth moments and three-degree extremizers",
+          "Same-day assigned analytic Bergman record (ordinal 5) and later Poisson-band result b2361d093e8d"
+        ]
+      },
+      "rationale": "The inspected spherical, Poisson-band and Bergman results differ in the allowed input space or norm pair. The exact optimum with all equality cases for the real degree-at-most-two disk-area problem, and its exact two-degree benchmark, were not found covered. This is a best-of-knowledge comparison, not priority certification.",
+      "residual_risks": [
+        "A treatment under other Zernike, spherical-marginal or finite-band terminology may have escaped the bounded comparison.",
+        "Same-day records were compared by statement, not treated as a priority ordering."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Homogeneous-only comparison",
+          "evidence": "Sharp fourth moment for homogeneous degree-two spherical harmonics excludes the constant and linear interaction.",
+          "identifier_or_url": "Resultary d4106097159f, 2026/9/20",
+          "material_read": "Mirrored RESULT.md Finding and hypotheses",
+          "method": "Local mirror statement comparison",
+          "title": "Sharp L4 degree-two spherical harmonics",
+          "trigger": "Sharp degree-two fourth moment with spherical-area connection"
+        },
+        {
+          "assessment": "Different norm pair and later date",
+          "evidence": "Uses boundary L² input and disk-area L⁴ output, not area in both. Date is not used to infer coverage.",
+          "identifier_or_url": "Resultary b2361d093e8d, 2026/11/2",
+          "material_read": "Mirrored RESULT.md Finding and hypotheses",
+          "method": "Local mirror statement comparison",
+          "title": "Sharp fourth-power Poisson embedding on the quadratic harmonic frequency band",
+          "trigger": "Same harmonic band"
+        },
+        {
+          "assessment": "Related method and phenomenon, not a consequence",
+          "evidence": "Both concern complex analytic quadratic observables, not real harmonic quadratics. The exact normalized real moment differs already at the level of coefficients.",
+          "identifier_or_url": "Frozen assignment ordinal 5; Resultary 9d0e2b39f308",
+          "material_read": "Frozen analytic proof and Finding; mirrored weighted Finding",
+          "method": "Actual objective and spaces compared",
+          "title": "Sharp fourth-moment norm and three-mode rigidity for Bergman quadratics; Strict three-mode mixing and the sharp high-weight correction",
+          "trigger": "Same-day related exact norm and broader weighted alignment"
+        },
+        {
+          "assessment": "Different degree set and estimates",
+          "evidence": "Lacunary spherical degrees separated by at least three; not the mixed consecutive three-degree sharp constant.",
+          "identifier_or_url": "https://arxiv.org/abs/1905.00323",
+          "material_read": "Abstract p. 1 offset 456 and Theorem 1 p. 3 offset 7431",
+          "method": "Bounded OA primary PDF passages",
+          "title": "Nikolskii inequality for lacunary spherical polynomials",
+          "trigger": "Spherical representation of disk problem"
+        },
+        {
+          "assessment": "Analytic estimate, not the real-harmonic sharp optimum",
+          "evidence": "The theorem bounds weighted analytic polynomial norms, not this real harmonic disk quotient.",
+          "identifier_or_url": "https://arxiv.org/abs/2505.12760",
+          "material_read": "Theorem 1.2, PDF p. 3",
+          "method": "Bounded OA primary PDF passage",
+          "title": "Hypercontractive inequalities and Nikol'skiĭ-type inequalities on weighted Bergman spaces",
+          "trigger": "Degree-sensitive area norm estimate"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proofs of interior and two-degree extrema",
+        "Independent exact disk moment and boundary calculations"
+      ],
+      "rationale": "For a natural first real harmonic band with a genuine phase interaction, this gives the exact disk-area embedding norm and resolves whether two degrees can already be extremal. The independent constrained optimum quantifies the improvement from mixing all three degrees, and the unique aligned amplitudes give a usable comparison benchmark for other harmonic norm problems.",
+      "residual_risks": [
+        "The value is an exact finite-band benchmark, not a claim about general harmonic embedding norms."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

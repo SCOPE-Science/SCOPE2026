@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:59:43.167828Z",
+  "axes": {
+    "correctness": {
+      "rationale": "F^(h+1)=F^h exactly says the height is at most h with one fixed point per component. For a fixed layer vector the multinomial label choice times the product of parent choices counts every map once. In the Poisson path probabilities the parameter factors contribute r^(sum a_j) times exp(∑_{j<h}a_j t_(h−j−1)), which cancels the offspring Poisson exponential; conditioning on total n therefore gives exactly the labeled counting law. The strictly increasing saddle equation is the sum of the unconditioned layer means. For fixed h, a first failed relative-step bound can be charged against a Poisson parameter bounded below by a positive constant times μ_0; on the remaining paths the finitely many step errors multiply within the target tolerance. Rounding the first h means and fixing the last to make the sum n yields positive counts within O_h(1) of those means, and their path means are perturbed by at most O_h(log n). The lowest mean is much larger than (log n)², so Stirling gives each local factor asymptotic to (2πμ_j)^(-1/2). Their product gives the stated polynomial lower bound, absorbable into the root-scale tail exponent. The last product dominates the saddle equation; taking logarithms gives t_(h−1)~log n since logarithms of all other factors are lower order, and each descending recursion subtracts only log r, negligible relative to log t_i for i≥1. Inverting t_1=r exp(r) gives the Lambert scale. The cited μ_j are unconditioned means, not claimed exact conditional means. I inspected but did not execute the uploaded checker; the independently implemented complete finite checks for n=1..5 and h=3,4 matched all profile counts (python /workspace/review-evidence/independent_checks.py), and the asymptotic claim is justified by proof rather than enumeration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The bounded-height tree recurrence is classical. Koponen–Tousinejad study random relational expansions of a specified sequence of trees, and Koponen's bounded-height example concerns conditions for finite model constructions."
+        ],
+        "reasoning": "Those constructions are not the target labeled forest measure. The recurrence gives enumeration/parameterization but not the root-scale conditioned tail without a total-size conditioning estimate and bounds on the cascade means.",
+        "searches": [
+          "Moon, Counting Labelled Trees §7.4 as cited",
+          "Koponen–Tousinejad arXiv:2410.11775",
+          "Koponen arXiv:2610.16163v1 §2 Example 2.2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 7aa757d5f1dc and 78c3b4b45ec0",
+        "Koponen–Tousinejad arXiv:2410.11775",
+        "Koponen arXiv:2610.16163v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The accessible bounded-height random-expansion source puts probability on extra relations over base trees, not on the underlying functions here. Full text for the Stepanov and Compton comparisons was not available in the bounded retrieval."
+        ],
+        "reasoning": "No checked stronger conditioned-tree theorem implies the stated bound. Qualitative level limits or a bounded-height counting recurrence alone would not imply the exponential estimate. Whether an older strata or assembly theorem gives it for precisely this measure remains an access risk, not evidence of novelty.",
+        "searches": [
+          "Stepanov (1969), On the Distribution of the Number of Vertices in Strata of a Random Tree",
+          "Compton component-distribution comparison",
+          "Koponen–Tousinejad arXiv:2410.11775 abstract and model"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same-day result concerns the uniform labeled height-one model, and gives asymptotics for counts of components of prescribed star size and a zero–one law.",
+          "The distinct November 8 height-two result (78c3b4b45ec0) samples unlabelled isomorphism classes and treats fixed component multiplicities."
+        ],
+        "reasoning": "Neither count of small star components at height one nor multiplicities under the unlabelled measure give the level-vector concentration of uniform labeled forests at h≥3. The same-day result is compared by statement, without inferring priority.",
+        "searches": [
+          "Resultary: labelled unary forests f^3=f^2 height two depth profile root levels iterated logarithm concentration fixed point uniform labelled functions",
+          "Resultary same-day labeled f^2=f star-count theorem (7aa757d5f1dc)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest formulas found tabulate asymptotic fixed-component multiplicities in the star or unlabelled height-two problems. The frozen formula instead counts every labeled profile by parent choices."
+        ],
+        "reasoning": "A finite enumerative table would not establish the asymptotic result. The inspected component-size formulas are for incompatible parameters or measures and do not recover the simultaneous all-level theorem.",
+        "searches": [
+          "Resultary depth/profile and component-multiplicity matches 7aa757d5f1dc, 78c3b4b45ec0"
+        ]
+      },
+      "rationale": "The distinct content is the fixed-height labeled forest level law with a simultaneous exponential relative tail and the explicit hierarchy of scales. The standard bounded-height EGF and conditioned Boltzmann construction are not treated as independent novelty. No prior statement or direct specialization covering the concentration theorem was established in the searched sources.",
+      "residual_risks": [
+        "Stepanov's 1969 strata paper was not retrieved in full text; the Compton repository link returned HTTP 403. Neither was used as negative evidence.",
+        "Moon §7.4 and the lower-height calculation mentioned by the frozen article were not independently matched in full text; the recurrence and lower-height comparisons are not credited as original here.",
+        "Related older assembly techniques could contain an equivalent theorem; comparison establishes no historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different height and observable",
+          "evidence": "For f²=f, star-component counts C_s/(log n)^(s+1) tend to 1/s! for fixed s; it is not a joint depth theorem for h≥3.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-polylogarithmic-star-counts-and-the-zero-one-law-for-uniform-fin--7aa757d5f1dc/RESULT.md",
+          "material_read": "Finding offset 0; Relationship to prior work offset 5219",
+          "method": "Resultary local full-text mirror",
+          "title": "Polylogarithmic star counts and the zero-one law for uniform finite idempotent maps",
+          "trigger": "Same-day uniform labeled unary functions"
+        },
+        {
+          "assessment": "Different measure, invariant, and date",
+          "evidence": "Uniform unlabelled f³=f² isomorphism classes with fixed component multiplicity limits.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-sharp-logarithmic-first-order-limits-for-unlabelled-height-two-u--78c3b4b45ec0/RESULT.md",
+          "material_read": "Finding offset 0; prior-work discussion offset 5977",
+          "method": "Resultary local full-text mirror",
+          "title": "Sharp logarithmic first-order limits for unlabelled height-two unary forests",
+          "trigger": "Bounded-height unary forest sampling"
+        },
+        {
+          "assessment": "Random expansions of specified trees, not uniform unary forests",
+          "evidence": "The model is built over a sequence of bounded-height trees using a graphical model for additional relations.",
+          "identifier_or_url": "https://arxiv.org/abs/2410.11775",
+          "material_read": "OA PDF p.1 abstract/model summary",
+          "method": "Lawful OA PDF text",
+          "title": "Random expansions of trees with bounded height",
+          "trigger": "Potential bounded-height tree probability theorem"
+        },
+        {
+          "assessment": "Model-construction context and a different probability space",
+          "evidence": "Example 2.2 specifies finite DAGs with bounded height and parent count, rather than joint layer concentrations of uniformly sampled functions.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.16163v1",
+          "material_read": "OA PDF p.1; HTML §2 Example 2.2 offset 13338",
+          "method": "Lawful OA PDF and HTML",
+          "title": "A characterization of the finite model property for ω-categorical theories",
+          "trigger": "Cited model-theoretic bounded-height comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The simultaneous quantitative bound distinguishes all depth levels, including the root-scale rare deviations that a last-layer fraction law would miss. The Lambert and iterated-log factors identify actual scales of the natural uniform finite model. A finite conditioning argument makes the quantitative result usable without assuming an unproved local limit theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

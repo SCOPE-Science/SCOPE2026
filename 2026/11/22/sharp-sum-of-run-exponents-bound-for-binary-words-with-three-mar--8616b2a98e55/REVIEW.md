@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (C): PASS
-The exact object is the sum of length divided by least period over all maximal periodic occurrences, with a separate check for period-one runs. The proof eliminates nonadjacent one-pair periods by two-block parity, derives two position-sensitive upper bounds for the only possible nonunary run periods, and uses an integer two-case optimization with \(m\ge3\). The explicit witness attains equality with four zero runs and two nonunary runs; its period lengths and endpoints are checked directly. Independent exact-rational enumeration of 31,465 inputs and 715 cross-checks of distinct run-enumeration methods corroborates the proof. Risk: the interval and least-period convention must be preserved in any adaptation.
+## correctness
 
-## Originality (O): PASS against the inspected evidence
-Czarkowski (CPM 2026) considers the same sum-of-exponents invariant but optimizes over all words, providing only general linear bounds. The closest mathematical record on three-one binary strings classifies the **number** of runs, not their rational exponent sum or its sharp extremum; its full theorem and argument were read and do not logically imply the present numerical extremum without a new interval optimization. The classical Runs Theorem concerns the number, not weighted exponents. Targeted prior-result and literature searches for exact fixed-three-marker exponent sums and aliases found no stronger coverage. The possibility of an earlier unindexed or implicit exact specialization remains.
+PASS
 
-## Mathematical value (V): PASS
-This is a natural, exact sharp extremal variant of a major run statistic at the first sparse composition permitting two distinct nonunary run periods and up to four unary zero runs. The theorem resolves all lengths from thirteen onward, exhibits a nontrivial four-step correction to the linear main term, and distinguishes maximizing exponent sums from maximizing run counts. The finite threshold is sharp, as length twelve does not satisfy the formula. No consequence for unrestricted optimal strings is claimed.
+The first 2h letters of a nonunary h-periodic run contain exactly two copies of one marker: zero markers would make the run unary by periodicity, and four exceed the weight. Thus the period is one of the adjacent distances, and a three-marker run requires equal gaps. A fixed pair and period determine at most one maximal interval. Equal gaps or a unit gap have exponent sums strictly below the candidate for n>=13. For distinct gaps 2<=p<q, the potential run intervals are contained in [max(0,x-p+1),x+2p) and [x+1,min(n,x+p+2q)); the upper bounds are positive even when the corresponding run is absent. Ignoring endpoint losses yields the first bound in (1); charging combined loss at least (2p+2q-1-n)_+/q yields the second. For p<=m the first bound is optimized by q=p+1 and then p=m. For p>=m+1, the second decreases with p after setting q=p+1; n<=4m+4 and m>=3 give the stated comparison. The witness contributes n-3 from the four zero runs plus the stated maximal intervals [0,3m-1) and [m,4m+1), with least periods m and m+1. At n=12 the same bounds give at most 83/6 for p<=2 and at most 9+g(3)=167/12 for p>=3; the equal/unit-gap cases are below 167/12. Markers (2,5,9) attain 9+8/3+9/4. A separate longest-border maximality enumerator checks 2,380 weight-three words at lengths 3..16, confirming the n=12 exception and the n=13..16 formula and witness. This finite replay is supplementary to the analytic proof.
 
-## Literature and limitations
-The closest sources are Czarkowski 2026 (DOI 10.4230/LIPIcs.CPM.2026.23) and the 2026-11-08 exact run-count record cited in RESULT.md. General bounds cannot imply the sharp composition result; run counts lack the run-length/period data needed to optimize the exponent total. Independent review is pending, and possible unindexed equivalent derivations are residual risks.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the earlier weight-three run-spectrum proof for the restriction to adjacent-gap periods, which this record re-derives. The supported distinct claim is the exact optimization of the sum of lengths divided by least periods, including the sharp threshold and explicit attaining word. None of the compared statements yields that optimization.
+
+## value
+
+PASS
+
+The sum of run exponents is a standard invariant distinct from run count. Weight three is the first sparse composition permitting two unequal nonunary periods. Balancing both periods and boundary losses yields a sharp length-dependent correction, a verified sharp onset, and a uniform attaining family. This is a concrete benchmark unavailable from unrestricted bounds or the known count distribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

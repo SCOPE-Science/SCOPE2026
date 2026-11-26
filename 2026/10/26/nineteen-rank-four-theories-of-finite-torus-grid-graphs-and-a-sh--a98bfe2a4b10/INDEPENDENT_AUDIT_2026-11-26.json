@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:59:05.258606Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–45",
+        "Frozen VERIFICATION.md, verify.py, classification.json and verification_output.txt inspected without executing the frozen code",
+        "Independent replay: python3 /workspace/branches/torus_rank4_independent.py; output: 105 exact torus pairs, 19 classes, largest least representative (64, 8, 8), C8 and C11 distinct"
+      ],
+      "rationale": "Independently verified without needing the cited sharp cutoff for cycles. After the first move on cycles of size at least 16, use a private cyclic orientation to maintain that each gap between consecutive pebbled sites is either equal on the two cycles or is at least 2^(r+1) on each, where r rounds remain. A repeat is matched exactly; a new vertex splits a gap. Equal gaps may be split identically, and for a large gap one matches a side shorter than 2^r if there is one, or splits into two gaps of at least 2^r. With no moves left the gap-1 incidences and equality are preserved, including the two-pebble wraparound case. Coordinatewise replies preserve equality and Cartesian adjacency in the products, so 105 unordered pairs with dimensions 3 through 16 suffice. The independent computation fixes the first move using transitivity and uses three disjoint vertex bitsets per pebble (equal, adjacent, otherwise). It records all nonempty intersections for fourth-move patterns, retaining sets of rooted extension types at ranks up the game tree without multiplicities. This is precisely the back-and-forth criterion, not a heuristic invariant. It found the asserted 19-class partition and largest least representative (64, 8, 8), and also distinguished C8 from C11. Any noncanonical smaller representative would truncate to one no larger, so sharpness holds throughout the family.",
+      "residual_risks": [
+        "The bound is only among unmarked Cartesian products of two simple cycles of length at least three, not other toroidal graphs or logical signatures.",
+        "The exact citation to Brown–Hoshino Theorem 4.9 was not independently read; the alternative cutoff and finite computation remove that dependence for the Finding."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The arbitrary-factor Cartesian-cycle classification inspected holds at rank three and gives a sharp 27-vertex bound. The frozen citation describes a four-round equivalence for single cycles; only the finite factor reduction follows directly from the product strategy."
+        ],
+        "reasoning": "Broader geometry at lower quantifier rank does not dominate the stated rank-four equivalence, and the factorwise implication cannot provide the converse.",
+        "searches": [
+          "2026/11/2/SCOPE-eight-three-round-theories-of-cartesian-products-of-finite-cycle--f00dc56a8e27, RESULT.md Finding",
+          "Brown–Hoshino, The Ehrenfeucht–Fraïssé Game for Paths and Cycles, Theorem 4.9 citation"
+        ]
+      },
+      "checked_sources": [
+        "Resultary mirror records f00dc56a8e27 and 2f443c965dd8, titles and Findings",
+        "Brown–Hoshino theorem attribution in the frozen record; lawful primary access attempted",
+        "Frozen proof and independent extension-type computation"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "C8 and C11 have distinct rank-four types, as independently computed, but C8 square C8 and C8 square C11 have the same type. Factorwise product preservation alone leaves this merger undecided."
+        ],
+        "reasoning": "The independently verified merger witnesses information beyond the known reduction and component test. The exact mergers, separations and sharp 64-vertex bound require the further finite calculation, not a substitution in the cited theorem.",
+        "searches": [
+          "Frozen RESULT.md §§1–4 and Relationship to prior work",
+          "Brown–Hoshino cited Theorem 4.9, p. 211",
+          "Closest rank-three same-family Resultary Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Compared unmarked adjacency/equality theories with four-round game types, identifying factor exchanges. The closest same-family Resultary result concerns three rounds, not four."
+        ],
+        "reasoning": "The rank-three class relation is a coarser invariant, and its eight classes do not distinguish the additional equivalences or separations required by the claim. The literature query returned no results; that is not absence evidence.",
+        "searches": [
+          "Resultary semantic searches for rank-four torus-grid theories, four-round Ehrenfeucht–Fraïssé equivalence of Cartesian products of finite cycles",
+          "Literature query: \"Cartesian products of finite cycles\" \"quantifier-rank\" toroidal grid Ehrenfeucht Fraisse first-order theories"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No matching 19-class or sharp 64-vertex entry among the indexed comparisons. The exact rank-four circular/Möbius ladder table gives 13 theories and ceiling 18 in a different family."
+        ],
+        "reasoning": "An ordinary circular ladder has K2 as its second factor, not a simple cycle of permitted length; Möbius ladders are twisted. This exact table does not subsume the present one.",
+        "searches": [
+          "Resultary semantic searches for exact rank-four partitions of toroidal graphs",
+          "2026/10/25/SCOPE-thirteen-rank-four-theories-of-ordinary-and-m-bius-circular-ladd--2f443c965dd8, RESULT.md Finding"
+        ]
+      },
+      "rationale": "Supported distinct claim: the exact rank-four partition of the unmarked two-cycle Cartesian-product family, including its sharp least-representative ceiling of 64. The plausible indexed comparisons change the rank or graph family; the cycle cutoff and coordinatewise preservation provide an upper reduction but do not determine the strict quotient partition. No equivalent exact table or dominating implication was found in the bounded review.",
+      "residual_risks": [
+        "The cited Brown–Hoshino passage could not be inspected directly; no conclusion about unread text is drawn.",
+        "The bounded catalogue and literature comparison does not exclude an unindexed exact product classification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different quantifier rank, no implication for the required partition",
+          "evidence": "Eight three-round classes and sharp 27-vertex bound for arbitrary-dimensional products.",
+          "identifier_or_url": "2026/11/2/SCOPE-eight-three-round-theories-of-cartesian-products-of-finite-cycle--f00dc56a8e27",
+          "material_read": "RESULT.md Finding, offset 0, mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local catalogue and source mirror",
+          "title": "Eight three-round theories of Cartesian products of finite cycles",
+          "trigger": "Same Cartesian cycle graph family with broader number of factors"
+        },
+        {
+          "assessment": "Graph family differs materially",
+          "evidence": "Classification is of ordinary and Möbius circular ladders with sharp 18-vertex ceiling, not products of two simple cycles of length at least three.",
+          "identifier_or_url": "2026/10/25/SCOPE-thirteen-rank-four-theories-of-ordinary-and-m-bius-circular-ladd--2f443c965dd8",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local catalogue and source mirror",
+          "title": "Thirteen rank-four theories of ordinary and Möbius circular ladders",
+          "trigger": "Exact rank-four table for cyclic grid-like graphs"
+        },
+        {
+          "assessment": "The claimed cycle cutoff is a prior premise for a reduction, not evidence of a torus-product classification; no whole-paper noncoverage asserted",
+          "evidence": "The frozen attribution states equivalence for equal cycle sizes or both at least 11; the product counterexample to a converse does not require access to that theorem.",
+          "identifier_or_url": "https://combinatorialpress.com/article/ars/Volume%20083/volume-83-paper-13.pdf",
+          "material_read": "Primary theorem passage not recovered; the theorem attribution and statement were read in frozen RESULT.md lines 24–30",
+          "method": "Lawful publisher PDF and identified article-page requests; both direct and alternate retrieval found no extractable PDF text",
+          "title": "The Ehrenfeucht–Fraïssé Game for Paths and Cycles",
+          "trigger": "Primary theorem for quantifier rank four on factor cycles"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and §§1–4",
+        "Independent 105-pair computation and cycle comparison"
+      ],
+      "rationale": "The natural class of toroidal grids has an exact finite set of logical theories at a specified rank. In particular the merger threshold 8 for the large product class, despite rank-four distinctions between some factor cycles of those sizes, shows why the exact table is not just the known factor cutoff. The table gives a precise sharp representative-size result useful for testing rank-four statements in this family.",
+      "residual_risks": [
+        "No claim of a higher-rank cutoff or a bound for arbitrary finite graphs."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

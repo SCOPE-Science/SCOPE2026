@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T15:30:16.728025Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 7–27 and 29–66; VERIFICATION.md, lines 19–25; verify.py, lines 11–100 (inspected, not executed)",
+        "Independent bounded replay: python3 /workspace/branches/frozen_claim_checks.py (spacing)"
+      ],
+      "rationale": "The compact simplex has a minimum of the log-denominator. Moving length into any zero gap from a positive gap strictly lowers that cost. Equal derivatives at an interior stationary point give equal or reciprocal gap lengths. Two long gaps have a negative transfer-direction curvature, so a nonuniform minimum has two short gaps x and one long gap 1/x. The mixed tangent direction (1,1,-2) excludes x>1/sqrt(2) on the two-short branch. At the merged branch the unequal denominator exceeds the equal one by 31/2916; at s=3 the unequal value is 125/16 against 8. On (sqrt(8),3), the stationary log-cost difference has derivative g'(a)-g'(s/3)<0 because 0<a<s/3<1. Beyond 3 the equal point has negative tangent curvature. These arguments account for all minimizers, including both endpoint values of the crossing bracket. For two gaps, the denominator is s^2+(uv-1)^2 and the attainable products range continuously from 0 to s^2/4, giving continuous onset at s=2. Independently, setting u=a^2 gives the crossing equation 729u^2(1+u)^3=(4u^2+13u+1)^3. Exact rational sign bisection on [1/4,1/2] reproduced 2.8475678593462526382177 and short gap 0.6294894794440552583894.",
+      "residual_risks": [
+        "The theorem is for the exact independent-hop model; finite numerical corroboration neither proves the continuum classification nor tests field applicability."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "30ac821a1e2e describes a Poisson-establishment chain with a unique ordered optimum; 904d722bd814 a global fixed-budget switch for the sum of Steele responses x exp(-x); eddb13bade10 a two-compartment substrate-inhibition allocation."
+        ],
+        "reasoning": "A shared fixed-budget constraint or a similar symmetry-breaking diagram is not a dominating theorem. Respectively the establishment law, response function, and number and type of components differ. Available descriptions do not cover log(1+x^2) with these global minimizers.",
+        "searches": [
+          "Resultary: m-hop higher-hop inverse-quadratic independent success product fixed total distance optimal gaps stepping stones",
+          "Resultary: separable nonconvex resource allocation minimize sum log(1+x_i^2) subject to fixed sum; reciprocal stationary values"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 7f2a14fcab85 (same record), 30ac821a1e2e, e11da55e7695, 904d722bd814, eddb13bade10",
+        "Saura, Bodin and Fortin (2014), DOI:10.1111/1365-2664.12179 (excerpt only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Saura et al. abstract, Synthesis and applications, concerns the importance of stepping stones to rare dispersal events and the effects of habitat connectivity; it does not state this continuous inverse-quadratic placement theorem. The available fixed-budget Steele catalog statement concerns a different integrand."
+        ],
+        "reasoning": "A stage-by-stage connectivity or maximum-product path principle would motivate the objective but would not identify the set of global optima as node positions vary continuously, nor prove the reciprocal branch crosses once. No covering implication was present in the available evidence.",
+        "searches": [
+          "Primary literature search: stepping stones successive dispersal stages maximum product path spacing optimization inverse quadratic kernel three hops resource allocation",
+          "Saura, Bodin and Fortin, DOI:10.1111/1365-2664.12179; publisher abstract excerpt, OA and publisher full-text attempts"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The top exact hit, 7f2a14fcab85, is the assigned result itself; RESULT.md lines 19–27 and 47–66 identify the objective and distinguish the two- and three-hop statements. No separately indexed exact two-hop result was returned in the inspected list."
+        ],
+        "reasoning": "Maximizing survival product, minimizing the denominator product, and minimizing sum log(1+x_i^2) are equivalent. Even an antecedent for uv=1 in the two-gap case would not give the three-gap crossing, competitor exclusion or coexistence.",
+        "searches": [
+          "Resultary: two-hop stepping-stone placement reciprocal inverse-square success probability exact continuous threshold equal versus unequal gaps fixed distance",
+          "Resultary: two-hop inverse-quadratic spacing exact reciprocal product identity continuous transition gaps (s plus or minus square root)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed exact spacing hit is the claim under review; related entries address other objective functions. No applicable exact lookup table was identified."
+        ],
+        "reasoning": "A numerical table of threshold constants or empirically fitted dispersal laws would not decide membership in the exact all-s optimizer set or certify uniqueness of the crossing. The relevant lookup is for an exact optimizer classification under the same kernel.",
+        "searches": [
+          "Resultary: two-hop inverse-quadratic spacing exact reciprocal product identity continuous transition gaps (s plus or minus square root)",
+          "Resultary: m-hop higher-hop inverse-quadratic independent success product fixed total distance optimal gaps stepping stones"
+        ]
+      },
+      "rationale": "The supported distinct result is the global three-gap inverse-quadratic switch, its coexistence configurations, and the contrast with the continuous two-gap onset. The closest available connectivity and allocation statements do not supply the same objective or its global crossing. This is a bounded comparison, not a claim of absolute priority.",
+      "residual_risks": [
+        "No publication order inferred among same-day catalog hits.",
+        "Full texts of the closest catalog items and the cited Saura paper were not retrieved; scope comparisons are confined to the material read.",
+        "Equivalent separable minimization could appear under unfamiliar terminology outside the retrieved literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different model in the available statement; no whole-document assessment",
+          "evidence": [
+            "Poisson-establishment chain, unique ordered optimum and large-distance law rather than the three-gap coexistence under p(d)=1/(1+d^2)."
+          ],
+          "identifier_or_url": "30ac821a1e2e",
+          "material_read": "Catalog statement; full local mirror unavailable",
+          "method": "Resultary search and targeted mirror attempt",
+          "title": "Complete spacing and minimum-quorum tail laws for Poisson stepping stones",
+          "trigger": "Closest indexed multi-stage spacing result"
+        },
+        {
+          "assessment": "Structural analogue, no matching integrand in the inspected statement",
+          "evidence": [
+            "The Steele function x exp(-x) is summed; the reviewed problem minimizes a sum of log(1+x^2)."
+          ],
+          "identifier_or_url": "904d722bd814",
+          "material_read": "Catalog statement; full local mirror unavailable",
+          "method": "Resultary search and targeted mirror attempt",
+          "title": "A sharp module-count transition in fixed-budget Steele photoinhibition",
+          "trigger": "Discontinuous global switch in separable fixed-budget allocation"
+        },
+        {
+          "assessment": "Different model in the available statement",
+          "evidence": [
+            "Fire-return gaps and two rescue opportunities, not three independent mandatory hops."
+          ],
+          "identifier_or_url": "e11da55e7695",
+          "material_read": "Catalog statement; full local mirror unavailable",
+          "method": "Resultary search and targeted mirror attempt",
+          "title": "Reentrant equal spacing in a two-opportunity seed-bank rescue model",
+          "trigger": "Related reentrant spacing result"
+        },
+        {
+          "assessment": "Excerpt motivates connectivity comparison but cannot exclude whole-paper overlap",
+          "evidence": [
+            "The excerpt says static models underestimate the role of stepping stones in rare dispersal; no inverse-quadratic continuous placement classification is present in the excerpt."
+          ],
+          "identifier_or_url": "https://doi.org/10.1111/1365-2664.12179",
+          "material_read": "Publisher search excerpt, Synthesis and applications; no full text retrieved",
+          "method": "Primary literature search; OA and publisher full-text attempts",
+          "title": "Stepping stones are crucial for species’ long-distance dispersal and range expansion through habitat networks",
+          "trigger": "Closest cited ecological connectivity study"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 29–66 and 76–78"
+      ],
+      "rationale": "Three is the first route length in this model where an unequal global optimum appears discontinuously while the equal solution remains a strict local optimum. This supplies an exact counterexample to using loss of local stability as the onset criterion in simple serial placement models. Giving the crossing, multiplicities and minimal number of hops makes the result useful as a benchmark; the significance is not an assertion about actual habitat design.",
+      "residual_risks": [
+        "No ecological calibration or generality across success kernels is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

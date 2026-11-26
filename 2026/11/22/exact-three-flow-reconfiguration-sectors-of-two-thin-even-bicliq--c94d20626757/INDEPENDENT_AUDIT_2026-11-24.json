@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:55:24.340316Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–44; VERIFICATION.md; verify_flow.py inspected but not executed.",
+        "Cranston et al., arXiv:2606.24685, Lemma 2.3; Baggett and Yan, arXiv:2607.13165, p. 2.",
+        "Independent replay: python3 /workspace/branches/63557d1c-b515-4d51-a6e2-9976e8656224/independent_record2_check.py"
+      ],
+      "rationale": "Kirchhoff conservation gives 2 outdeg(v) = deg(v) mod 3, forcing column sums a/2 and row sums t mod 3. For a=4 any admissible margins have total 4t and maximum at most 2t: arrange 4t row tokens in four consecutive blocks and pair opposite positions, which never have the same label. These pairs give the columns. Fixed margins are exactly the cycle-reversal classes; interchanges suffice, and no directed reversal changes those margins. The four-row sector count is the central coefficient of (1+z+...+z^(2d))^4; the stated binomial subtraction simplifies to the cubic formula. Two different columns always supply a switch; identical columns make all rows sources or sinks, and satisfy conservation exactly when 3 divides t. The three-residue filter has factors 36, 9, 0 with multiplicities 1, 14, 12; common phase shift reduces 81 phase vectors to 27. Independent exact checks confirmed these multiplicities, sample flow totals and the full K_{4,6} sector profile. The argument also gives the single 90-state K_{4,4} sector and handles d=0.",
+      "residual_risks": [
+        "The replay checks exact characters and bounded arithmetic, not a proof for arbitrary shore sizes or all t. The unbounded formulas follow from the margin and character arguments."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General orientation flip equivalence is exactly equality of outdegrees; Ryser's theorem even gives local switches in the matrix encoding. The general flow polynomial counts all nowhere-zero group flows by T(G;0,1-|H|)."
+        ],
+        "reasoning": "The connectivity claim is already implied; the flow polynomial is a general representation and still needs explicit evaluation for these bicliques. It does not resolve flow sizes by fixed integer-margin component.",
+        "searches": [
+          "arXiv:2512.17342; arXiv:2606.24685 Lemma 2.3; arXiv:0803.3079 Theorem 14; arXiv:2607.13165 p. 2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 201ce296d529 and self-match to the bound record",
+        "arXiv:2512.17342 p. 1; arXiv:2606.24685 p. 4; arXiv:2607.13165 p. 2; arXiv:0803.3079 pp. 16–17"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Substitution in the general flip lemma gives the sector criterion immediately. The Tutte formula gives the signed evaluation at (0,-2), but not the character spectrum 36, 9, 0 or the number of attainable exact row vectors. The central-margin census omits all nonzero row deviations."
+        ],
+        "reasoning": "Credit the direct specializations and known balanced counts, not as novel. Obtaining the quantitative joint classification needs the admissible-margin analysis, central-coefficient count across the space of deviations, and the exact four-row residue aggregation.",
+        "searches": [
+          "arXiv:2606.24685 Lemma 2.3, arXiv:0803.3079 Theorem 14, and 201ce296d529 Finding and prior-work comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "An orientation satisfying the mod-3 balance is exactly a flow by sign encoding. Directed four-cycles are alternating 2-by-2 matrix switches; central balanced matrices are Eulerian orientations."
+        ],
+        "reasoning": "The exact row-outdegree sector criterion is covered by the known full outdegree criterion and the forced right outdegrees. Eulerian-orientation counts cover the central sector, not orientation vectors with nonzero drift in multiples of three.",
+        "searches": [
+          "Resultary: complete bipartite mod-3 flow sectors and balanced binary matrices",
+          "arXiv:2606.24685 Lemma 2.3; arXiv:2607.13165 p. 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The distinct 201ce296d529 Finding counts 1860 balanced 4-by-6 matrices and studies their Walsh spectrum. Its prior-work passage attributes the Eulerian complete bipartite counts to Nester."
+        ],
+        "reasoning": "These are exactly the states of the central K_{4,6} sector. They do not count the 18 additional components in that example or classify the noncentral components for variable t.",
+        "searches": [
+          "Resultary: labelled four-row binary margins with two ones per column; record 201ce296d529",
+          "Literature: complete-bipartite flow and Eulerian orientation counts, including Nester (1994)"
+        ]
+      },
+      "rationale": "The equivalence of directed-cycle classes with outdegree sequences is a direct prior specialization, and the balanced K_{4,6} count 1860 is explicitly known. The two-row total is elementary after suppressing right-shore degree-two vertices. The distinct contribution supported by the comparison is quantitative: the complete all-order sector census, including non-Eulerian margins for four rows and their aggregate mod-3 flow population. The inspected broader results and exact central-sector record do not cover that census.",
+      "residual_risks": [
+        "Nester's original passages were not readable through the attempted open retrieval; no absence inference is made from that limitation. An unlocated explicit complete-bipartite flow-polynomial evaluation could cover the total count, and the review does not claim historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage of structural classification; does not enumerate these sectors in the passage",
+          "evidence": "Flip equivalence holds if and only if all outdegrees agree.",
+          "identifier_or_url": "https://arxiv.org/pdf/2606.24685",
+          "material_read": "p. 4, Lemma 2.3 and surrounding definitions, offset 13800",
+          "method": "Bounded open PDF read",
+          "title": "Reconfiguration of Nowhere-zero Flows",
+          "trigger": "General directed-cycle reversal classification could subsume sector connectivity"
+        },
+        {
+          "assessment": "Structural coverage via classical Ryser theorem",
+          "evidence": "Equal-margin binary matrices are connected by 2-by-2 interchanges.",
+          "identifier_or_url": "https://arxiv.org/pdf/2607.13165",
+          "material_read": "p. 2, offset 3800",
+          "method": "Bounded open PDF read",
+          "title": "Interchange graphs of (0,1)-matrices are maximally Hamiltonian",
+          "trigger": "Same-margin binary-matrix encoding of the flows"
+        },
+        {
+          "assessment": "General flow-polynomial representation; not explicit biclique evaluation",
+          "evidence": "Theorem 14 identifies the nowhere-zero group flow count as (-1)^(|E|-r(E)) T(G;0,1-|H|).",
+          "identifier_or_url": "https://arxiv.org/pdf/0803.3079",
+          "material_read": "pp. 16–17, Theorem 14, offsets 55500–60989",
+          "method": "Bounded open PDF read",
+          "title": "Graph Polynomials and Their Applications I: The Tutte Polynomial",
+          "trigger": "Flow polynomial identity or explicit specialization might give the population formula"
+        },
+        {
+          "assessment": "Exact overlap on balanced matrices, not the mod-3 sector census",
+          "evidence": "All rows have sum n and every column has sum two; in the 4-by-6 case the census is 1860.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-eight-column-type-walsh-compression-and-the-complete-spectrum-of--201ce296d529",
+          "material_read": "Finding and proof offsets 0–5752; prior-work discussion at offset 6500",
+          "method": "Local mirror passage reads",
+          "title": "Eight-column-type Walsh compression and the complete spectrum of balanced binary matrices",
+          "trigger": "Explicit census on the same labelled bicliques with possible exact-table overlap"
+        },
+        {
+          "assessment": "Secondary evidence establishes balanced-orientation overlap; full scope not independently read",
+          "evidence": "The cited account describes a general Eulerian K_{4,2n} count, which fixes all row margins to n.",
+          "identifier_or_url": "Nester (1994), as cited in Resultary record 201ce296d529",
+          "material_read": "No original text from the image-only PDF; read the cited account in 201ce296d529 at offset 6500",
+          "method": "Bounded open PDF retrieval and secondary citation comparison",
+          "title": "Nester (1994), Eulerian orientations of complete bipartite graphs",
+          "trigger": "Prior complete bipartite enumerative result might cover more than the sample"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–17 and 23–41",
+        "arXiv:2606.24685 Lemma 2.3; distinct balanced census 201ce296d529"
+      ],
+      "rationale": "For the first two positive even left sizes for which mod-3 conservation forces an exactly balanced column, the census quantifies how flow counts split into cycle-reconfiguration components. It explains the three-step plateaus and the onset of both singletons and large sectors, and distinguishes the total mod-3 flow population from the classical Eulerian count. For example the balanced K_{4,6} sector has 1860 states, but the labelled flow space has 2106 in 19 components. This numerical and parametric distinction matters for sampling or comparing the full flow space with a single reconfiguration class; the already-known connectivity theorem is not the contribution.",
+      "residual_risks": [
+        "The result concerns populations and classes, not diameters, mixing or path lengths."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:54:23.926174Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "frozen RESULT.md lines 5–89, check.py and VERIFICATION.md (inspected, not executed)",
+        "repairs/3/RESULT.md and VERIFICATION.md",
+        "checks/ancestry.py"
+      ],
+      "rationale": "Pass applies to the repaired files. Birth two joins deterministically; at every subsequent step both outcomes have positive probability, so the conditional transition and Gamma statements must not quantify over s=1 at n>=2 without choosing a version on null events. The replacements restrict both statements to the actual support and make the Bonferroni argument explicit. Given the entire history, exactly s of k^q parent tuples extend an agreed ancestry. The mean product stays bounded, proving a finite monotone limit; the second moment obeys a summably forced linear recursion with factors 1+2/k^q. Conditional on the current agreement set, independent tests into that fixed set identify the first future join, giving the exact product and a Bonferroni error bounded by s^2 (sum_{k>=n} k^{-q})^2/2. Averaging gives the stated leading term with error O_q(n^{-q}). Gamma telescoping and the sine product give the atom, and the Yule comparison at each birth follows from 1-(1-1/k)^(s/k) >= s/k^2 by concavity; the total Yule time is finite. The independent edge-count indicators have mean harmonic and variance at most harmonic. Replay python3 -B /workspace/checks/ancestry.py: direct enumeration of whole paths for (n,q)=(6,2),(5,3) agrees exactly with the law and reachable states; product numerics give mean 3.6760779104 and atom 0.2169542944. These are checks, not substitutes for the infinite argument.",
+      "residual_risks": [
+        "Fixed q>=2, fixed birth labels; the bound on the size tail is not an asymptotic equivalence."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bäumler et al., p. 1, prove an n^0.83 lower bound for an optimized unlabelled common subtree, using Ulam–Harris labels as a starting construction.",
+          "Baur proves distributional limits for large clusters in near-complete homogeneous retention."
+        ],
+        "reasoning": "A label encoding by positions along ancestral child lists differs from equality of global birth labels, and an optimized-size bound cannot supply the timing distribution of fixed-label agreements. A macroscopic homogeneous percolation theorem also does not determine the present finite limiting cluster.",
+        "searches": [
+          "Primary query above; arXiv:2609.30098v1 and arXiv:1407.2508"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1407.2508v1",
+        "arXiv:2609.30098v1",
+        "Resultary:99d116c44962",
+        "Resultary:7fdde96d74b1 (target)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For two trees, births can give the same number of shared edges but position one shared edge on a vertex with noncoincident ancestry, which changes S_n.",
+          "The exact Gamma ratio and atom depend on a product with the current reachable s fixed, not on the total number of matching edges."
+        ],
+        "reasoning": "Neither inspected edge counts nor differently matched subtree bounds yield the exact conditional product or the n^{1-q} coefficient.",
+        "searches": [
+          "Resultary records 7fdde96d74b1 and 99d116c44962; Baur §1; Bäumler et al. p. 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Baur arXiv:1407.2508, abstract and §1, retains every edge with the same probability p(n) for a tree of size n.",
+          "In the exact alternate model here, the edge born at k+1 survives independently with probability k^{1-q}, and the common parent is conditionally uniform on [k]."
+        ],
+        "reasoning": "This is a genuine reformulation. The homogeneous schedule does not specialize to the indicated birth-dependent schedule.",
+        "searches": [
+          "Resultary: independent uniform random recursive trees shared identical birth-labelled root paths common ancestry root component exact transition s/k^q stabilization Gamma law",
+          "Primary: independent random recursive trees same labels common root-connected subtree shared ancestral paths identical parent choices percolation thinning"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact entry 7fdde96d74b1 is the assigned record, not independent coverage.",
+          "Distinct entry 99d116c44962 describes counts of common immediate-parent edges over graph-indexed tree pairs."
+        ],
+        "reasoning": "The edge-count catalog claim omits parent locations, which are needed for the root component; its summary gives no table or equivalent expression for this distribution.",
+        "searches": [
+          "Resultary: ancestry / s/k^q / Gamma stabilization search above"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the quantitative, fixed-birth-label root-component law for an age-dependent retention schedule, especially the sharp late-join rate and exact two-copy stabilization probabilities. Classical special-function products and the independent-parent construction are not new. The support correction does not change the published comparison.",
+      "residual_risks": [
+        "Equivalent age-dependent thinning may be treated in unindexed work. The detailed Ulam–Harris analysis and the graph-indexed record's full text were not available for this comparison; only inspected statements support the distinction."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Inspected theorem scope and definition use homogeneous retention; not the schedule here",
+          "evidence": [
+            "Each edge is removed independently with probability 1-p(n), with p(n) tending to 1 in the main regime."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1407.2508",
+          "material_read": "v1 p. 1 abstract and §1 definition (extracted lines 14–25, 34–46)",
+          "method": "Public arXiv PDF excerpt after targeted retrieval attempts",
+          "title": "Percolation on random recursive trees",
+          "trigger": "Same root-cluster construction under thinning"
+        },
+        {
+          "assessment": "Inspected claim optimizes unlabelled embedding, not fixed birth labels",
+          "evidence": [
+            "The abstract states the n^0.83 bound and names a Ulam–Harris common subtree as the starting point."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2609.30098v1",
+          "material_read": "p. 1 abstract (lines 11–18); full Ulam–Harris construction not inspected",
+          "method": "Public arXiv PDF excerpt",
+          "title": "On the largest common subtree of uniform attachment trees",
+          "trigger": "Same independent recursive-tree inputs"
+        },
+        {
+          "assessment": "The stated overlap is individual edges, not the connected common-ancestry count",
+          "evidence": [
+            "Graph-indexed shared-parent counts and their independence/cumulants are advertised."
+          ],
+          "identifier_or_url": "Resultary:99d116c44962",
+          "material_read": "Catalog summary; targeted full record retrieval timed out",
+          "method": "Resultary semantic search",
+          "title": "A graph-indexed overlap law for independent random recursive trees",
+          "trigger": "Exact same birth-labelled parent-vector construction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "repairs/3/RESULT.md, Finding and proof §§1–6"
+      ],
+      "rationale": "The root cluster is a natural stringent measure of agreement between genealogies with common birth labels. Finite eventual agreement despite order-logarithmic edge matches is structurally meaningful; the exact atom and sharp late-join constant quantify size and timing, not just finiteness. The support repair changes none of those conclusions.",
+      "residual_risks": [
+        "No claim on optimizing unlabelled embeddings or on the sizes of all nonroot components."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

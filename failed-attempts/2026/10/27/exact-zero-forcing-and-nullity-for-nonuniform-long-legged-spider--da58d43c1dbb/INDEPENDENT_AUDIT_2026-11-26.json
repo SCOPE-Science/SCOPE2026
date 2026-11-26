@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:20:35.213561Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§1–5; VERIFICATION.md and verify.py (integer witness, force replay and bounded subset checks)",
+        "/workspace/spider_power_check.py"
+      ],
+      "rationale": "For every unequal tuple in scope, an inward force at depth a+k sees neither the hub nor another arm, and a is the least depth it sees. Once the first m−1 arms are black, their depth-k vertex forces the hub; the shallower forcers expose successively depths 1 through k−1 on the last arm, the hub forces depth k, and within-arm forces proceed outward. Every pair of depths a≤b with b−a≤k is covered by a window starting at max(1,b−k), even at an end or at length k+1. The Gram block is therefore exactly supported on the required within-arm pairs; the nonnegative threshold couplings neither cancel entries nor introduce false edges. The zero-sum window recurrence permits arbitrary first k coordinates on each arm. Choosing their sum to be zero makes the hub and all threshold-block contributions vanish, giving (m−1)k independent null vectors. For any exact-support matrix, restriction of its kernel to a forcing set is injective by the forcing-row equations. This proves equality and the rank formula. Independent replay: python3 /workspace/spider_power_check.py; BFS power, exact rational rank and forcing closure agreed at (4,4,5), k=3; (5,7,11), k=4; (9,9,9,10), k=8; all size-five initial sets were also excluded in the first case. The reproduction is bounded; the written argument handles the full quantifier. Uploaded scripts were inspected, not run.",
+      "residual_risks": [
+        "No conclusion for shorter arms or trees with additional branch vertices; no formal verification was performed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "5580508bfee7 establishes the identical formulas for m≥2, k≥1 and all individual lengths ≥k+1, without requiring uniformity or nonuniformity."
+        ],
+        "reasoning": "The frozen m≥3, k≥3, not-all-equal requirement only restricts this theorem. Tree squares and ordinary path powers alone would not cover it.",
+        "searches": [
+          "Resultary 2026/10/18 record 5580508bfee7, Finding and Assumptions; Chang–Lin tree squares; DeAlba et al. tree and path powers"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 5580508bfee7 and 8e9d1cb373f9",
+        "arXiv:2610.03892v1",
+        "Chang–Lin, Minimum Rank of Powers of Cycles and Trees, §4 Thm. 4.1",
+        "DeAlba et al., Minimum Rank of Powers of Trees, ELA 23 (2012), §3.1 Thm. 3.2 and the strict-power distinction"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Writing C_i=R_i and E_i for the first-k coordinate projection, the indexed matrix has arm block D+UᵀBU and hub coupling hᵀU with U=ΣE_i, precisely the frozen Gram-plus-threshold matrix. The indexed proof imposes ΣE_ix_i=0 and lists the same forces."
+        ],
+        "reasoning": "The indexed theorem explicitly covers the conclusion and the proposed variable-length kernel and forcing certificates. Abiad et al. alone only give a uniform upper bound and conjecture uniform equality.",
+        "searches": [
+          "5580508bfee7, RESULT.md Proof §§1–2; arXiv:2610.03892v1 Proposition 9 and Conjecture 10"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Indexed 5580508bfee7 defines exactly the same ordinary distance-at-most-k power of paths joined at a hub, and the same exact real symmetric off-diagonal support."
+        ],
+        "reasoning": "Renaming its hub-and-arms graph T as S does not change the graph or matrix parameters. Its minimum rank is the complement of maximum nullity on the same vertex set.",
+        "searches": [
+          "Resultary: spider-power zero forcing, maximum nullity, minimum real rank and unequal arms; records 5580508bfee7, 8e9d1cb373f9",
+          "arXiv:2610.03892v1 §3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "5580508bfee7 contains the exact expressions Z=M_R=(m−1)k and mr_R=1+Σℓ_i−(m−1)k. The 8e9d1cb373f9 entry is uniform only."
+        ],
+        "reasoning": "The indexed theorem supplies the exact all-parameter data; this is not a question of completeness of a numerical table.",
+        "searches": [
+          "Resultary index: 5580508bfee7 and 8e9d1cb373f9; matching full findings via the local mirror"
+        ]
+      },
+      "rationale": "The October 18 indexed theorem includes every frozen nonuniform instance and gives the same minimum rank, maximum nullity, forcing number, matrix entries, and forcing chronology. The failure is established coverage of the actual claim, not a mere title match, inference from uniform symmetry, or allegation about authorship or priority.",
+      "residual_risks": [
+        "The indexed contents establish coverage. The mirror does not by itself authenticate historical timestamps or establish independent historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING",
+          "evidence": [
+            "Theorem quantifies over all ℓ_i≥k+1 without an equality constraint; proof uses identical window rows and depth-threshold couplings."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-sharp-zero-forcing-and-minimum-real-rank-of-spider-powers-with-u--5580508bfee7/RESULT.md",
+          "material_read": "Finding, Assumptions and scope, Proof §§1–2, offsets 0–5584",
+          "method": "Resultary search and bounded local mirror full-text read",
+          "title": "Sharp zero forcing and minimum real rank of spider powers with unequal arms",
+          "trigger": "Exact unequal-arm overlap"
+        },
+        {
+          "assessment": "UNIFORM_ONLY",
+          "evidence": [
+            "Z=M=(m−1)k for m≥2, k≥1, equal ℓ≥k+1; common-length window witness."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-exact-zero-forcing-and-maximum-nullity-of-powers-of-equal-leg-sp--8e9d1cb373f9",
+          "material_read": "Finding and Proof",
+          "method": "Resultary search and local mirror text",
+          "title": "Exact zero forcing and maximum nullity of powers of equal-leg spiders",
+          "trigger": "Possibly equivalent spider-power formula"
+        },
+        {
+          "assessment": "UPPER_BOUND_AND_UNIFORM_CONJECTURE",
+          "evidence": [
+            "Proposition proves the uniform upper bound; Conjecture 10 is about Z for equal arms."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.03892v1",
+          "material_read": "§3 Proposition 9 and Conjecture 10, offsets 22128–27102",
+          "method": "Primary OA HTML",
+          "title": "The Zero Forcing Number of Graph Powers",
+          "trigger": "Cited motivating conjecture"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Proof",
+        "Resultary 5580508bfee7 Finding and Proof"
+      ],
+      "rationale": "The heterogeneous spider-power problem is intrinsically worthwhile, but this submission does not add a new regime, certificate, or interpretation to the exact more general indexed result. The restriction to unequal lengths does not create a distinct contribution.",
+      "residual_risks": [
+        "This assessment does not deny the mathematical usefulness of the covering theorem."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

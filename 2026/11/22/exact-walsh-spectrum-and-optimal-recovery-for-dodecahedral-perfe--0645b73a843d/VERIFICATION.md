@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-## Reproducibility
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3.9 or newer. The certificate uses only the Python standard library. It checks the graph isomorphism, the two complete matching enumerations, 2048 signed coefficient classes in each of two graph encodings, the independent Walsh transform, all 30 edge marginals and 435 edge pairs, exact projection-kernel inversion, and the derived full Fourier rank and nullity. Expected result begins with `PASS:`.
+## correctness
 
-## Limits
+PASS
 
-Computations are exhaustive for the specified dodecahedral graph but make no assertions for infinite graph families. The extension from 2048 sign classes to all 1073741824 Boolean frequencies follows from the exact vertex-star switching argument in `RESULT.md`. Minimality among unrestricted projections follows from finite-group translation averaging. The independent mathematical audit remains not performed.
+Independent construction of GP(10,2) gave 30 edges and 36 distinct 10-edge perfect matchings. In a connected graph, the vertex-star space restricts bijectively to tree-edge coordinates and has dimension 19; every switch changes all matching terms by a common sign. The replay enumerated the 2,048 normalized signings using its own tree and exact Walsh transform: absolute multiplicities (700,882,240,140,84,2) at (0,4,8,12,16,36). Since each class has 2^19 frequencies, rank and nullity are 706740224 and 367001600; gap 4 and maximum 36 give inverse norm 1/4 and condition number 9 on the range. Direct evaluation of all 30 singletons and 435 pairs reproduced the 12 matching incidences per edge, zero singleton cancellations and 60 pair cancellations. The empty signing has value 36. Inverse-transforming the nonzero indicator gives a cycle-space kernel with exactly 1,024 nonzeros and integer absolute sum 21,248 with denominator 2,048. Translation averaging preserves any projection's action as the identity on the range and maps into it, and cannot increase either endpoint norm; the unique translation-invariant projection is the Fourier range projection. Its row/column absolute sums attain 83/8. The supplied verifier uses int.bit_count (Python ≥3.10) despite the stated Python 3.9 minimum; the replay does not rely on the uploaded verifier.
+
+## originality
+
+PASS
+
+The unsigned count 36 is not credited as new. Checked nearby works discuss cuts of the same graph or the same Walsh invariant on another graph. None establishes coverage of the signed dodecahedral census, first cancellations, or sharp endpoint norm. The nearest cited count-source full text remained inaccessible; this limits the comparison, not the verdict.
+
+## value
+
+PASS
+
+The dodecahedral graph is a natural nonbipartite cubic model. For binary matching incidence, the result gives a complete cancellation profile at all frequency classes, the minimum size and number of cancelling edge tests, and sharp recovery and endpoint projection costs. In particular exact endpoint cost and nullity are not encoded by the unsigned matching count. This is a useful benchmark for graph-specific matching incidence computations without claiming a fullerene-family law.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

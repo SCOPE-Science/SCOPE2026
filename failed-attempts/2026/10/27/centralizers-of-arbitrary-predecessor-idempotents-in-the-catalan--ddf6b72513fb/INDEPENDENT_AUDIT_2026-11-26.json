@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:09:57.721806Z",
+  "axes": {
+    "correctness": {
+      "rationale": "An order-preserving regressive idempotent sends i to the largest fixed point at most i, since every smaller fixed point is at most its image. Commutation with this projection is equivalent to taking each block minimum to the minimum of a target block and sending that entire source block into the same target block. The induced block map g is weakly increasing and regressive. In each run of identical target blocks, monotonicity forces all but the final source block to be constant. The final block is independent of the other runs: its restrictions are Catalan maps for a self-block and arbitrary weakly increasing fillings of the noninitial entries for a strictly earlier target block, giving the stated binomial. This proves the product sum for all n>=1, including constant and identity projections. Accounting for the previous factor at each extension of a g-prefix yields exactly D_j(b), with the terminal weight applied once. The quadratic arithmetic count is for the transfer with weights supplied; if computing weights as well, precomputing factorials through 2n gives an O(n+k^2) arithmetic implementation, without a bit-complexity assertion. Independent enumeration over all 132 order-preserving regressive degree-six maps gave 18 and 31 by direct composition, the product sum, the transfer and Theorem 3.8 of the comparator. Frozen verify.py was read, not executed; bounded replay uses all tuples f(1)<=...<=f(6) with 1<=f(i)<=i and tests both compositions with each listed projection. This checks the two numerical examples, not universal validity.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3.4 characterizes all commuting maps for any idempotent of C_n; Theorem 3.8 counts them. Nearby Resultary records concern commuting idempotents only, interval clamps in the 1-Lipschitz monoid, the center of the centralizer, or unrestricted finite maps."
+        ],
+        "reasoning": "The full-element theorem has the exact relevant scope. Centralizing idempotents and other ambient transformation monoids do not by themselves give this count.",
+        "searches": [
+          "Resultary: general idempotent-centralizer theorems for ordered transformations",
+          "Konieczny–Korkmaz Theorems 3.4 and 3.8"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–68, companion VERIFICATION.md and verify.py",
+        "arXiv:2611.21071v1 and arXiv:1806.06531v1",
+        "Resultary records above",
+        "2026/11/22/SCOPE-bicommutant-rigidity-of-idempotents-in-catalan-transformation-mo--2f4548cf9f09",
+        "2026/11/22/SCOPE-rank-spectra-of-centralizers-of-finite-transformation-retraction--cabfb16a59f1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 3.8 applies weight 1 off run ends, a Catalan factor at a self-block, and a binomial factor at an earlier target block. Only the prefix-sum presentation was not found verbatim in that theorem."
+        ],
+        "reasoning": "Given the run-weight formula, extending the last label either continues a run at weight 1 or ends it at its block weight. Keeping the last label and taking prefix sums is a routine evaluation, not a distinct centralizer invariant or substantive survivor.",
+        "searches": [
+          "Konieczny–Korkmaz Lemmas 3.5–3.6, Eq. (3.2), Theorem 3.8",
+          "Frozen RESULT.md transfer proof, lines 46–50"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorem 3.8 sums over increasing image indices i_r and run starts j_r with i_1=j_1=1 and i_r<=j_r; its proof sets g(j)=i_r exactly for j_r<=j<j_{r+1}.",
+          "Extensive order-preserving Catalan maps in the alternate convention are conjugate by chain reversal to regressive ones."
+        ],
+        "reasoning": "Grouping g by runs bijectively gives these pairs and selects just the free factors at indices j_{r+1}-1. Theorem 3.8 takes the same weighted sum over the same full element-centralizer, without any convention mismatch.",
+        "searches": [
+          "Resultary: predecessor-idempotent Catalan centralizers",
+          "Resultary: block-weight counts for an arbitrary Catalan idempotent",
+          "Konieczny–Korkmaz arXiv:2611.21071v1 Theorem 3.8",
+          "Margolis–Steinberg arXiv:1806.06531v1 Section 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The theorem gives contributions by number of distinct g-values (1,3,14) and (1,16,14), respectively. These total 18 and 31, as in direct enumeration."
+        ],
+        "reasoning": "No separate table is needed for coverage: the general published formula instantiates at exactly the supplied fixed-point placements, so the examples cannot distinguish the records.",
+        "searches": [
+          "Resultary: placement-sensitive centralizer counts for same-rank Catalan idempotents",
+          "Konieczny–Korkmaz Theorem 3.8 evaluated at (1,4,1) and (4,1,1)"
+        ]
+      },
+      "rationale": "Konieczny and Korkmaz, Centralizers in Catalan Monoids, Theorems 3.4 and 3.8 and Eq. (3.2), cover the full general count exactly. Their pairs of ordered index sets encode the distinct values and run starts of g. The separate prefix recurrence reorganizes the same run weights by the last value via the immediate equality/strict-increase split. This is equivalent coverage for the count at review, not evidence of earlier priority: the inspected version is dated 2026-11-16 UTC, later than the frozen record's dated path.",
+      "residual_risks": [
+        "The present mathematical overlap does not settle historical priority. The evaluation recurrence was not found literally in the decisive source; the claimed redundancy is by derivation from its exact formula."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact independently indexed mathematical coverage; not evidence of earlier priority",
+          "evidence": "Its distinct target indices and run starts index precisely the run-end weighted blocks in the assigned result.",
+          "identifier_or_url": "https://arxiv.org/abs/2611.21071v1",
+          "material_read": "Theorem 3.4, Lemmas 3.5–3.6, Eq. (3.2), Theorem 3.8 and its proof, pp. 6–8; Theorem 3.8 near PDF text offset 29381",
+          "method": "OA full text, bounded passages",
+          "title": "Centralizers in Catalan Monoids",
+          "trigger": "Exact scope of arbitrary-idempotent full centralizers"
+        },
+        {
+          "assessment": "Convention comparison, not the general centralizer count",
+          "evidence": "Conjugation by chain reversal preserves composition and hence transports the centralizer problem.",
+          "identifier_or_url": "https://arxiv.org/abs/1806.06531v1",
+          "material_read": "Section 2 normal form, p. 2",
+          "method": "OA full text, bounded passage",
+          "title": "The algebra of the Catalan monoid as an incidence algebra: a simple proof",
+          "trigger": "Extensive rather than regressive Catalan convention"
+        },
+        {
+          "assessment": "Different counted subset",
+          "evidence": "Only idempotent commuting elements are counted.",
+          "identifier_or_url": "2026/10/25/SCOPE-commuting-idempotents-of-catalan-monoids-a-gap-criterion-central--1bd10f020d19",
+          "material_read": "Finding and scope",
+          "method": "Published record full-text passage",
+          "title": "Commuting idempotents of Catalan monoids",
+          "trigger": "Closest indexed Catalan commuting count"
+        },
+        {
+          "assessment": "Different monoid and class of idempotents",
+          "evidence": "Maps are 1-Lipschitz contractions and projections are interval clamps.",
+          "identifier_or_url": "2026/10/25/SCOPE-centralizer-profiles-and-a-quadratic-limit-law-for-idempotent-fi--22387dfffecf",
+          "material_read": "Finding and scope",
+          "method": "Published record full-text passage",
+          "title": "Centralizer profiles and a quadratic limit law for idempotent fixed-point clamps",
+          "trigger": "Placement-dependent monotone centralizer counts"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The full-centralizer cardinality is a natural invariant, but the assigned contribution now reproduces a covered exact result. A prefix sum over the preceding label under a monotonicity constraint and two evaluations of the same count do not supply a substantive distinct result.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

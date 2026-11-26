@@ -1,26 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim concerns specialized public-good equilibria, identified precisely with digraph kernels. For each ring edge the probabilities of clockwise-only, counterclockwise-only and bidirectional status are respectively \((1-r)/2,(1-r)/2,r\); different undirected edges are independent. A noncoherent strict orientation of a cycle is acyclic and therefore has a unique kernel. Restoring reverse arcs preserves kernels, which identifies the only kernel-free configurations exactly. A kernel's cyclic gaps have lengths two or three, giving probabilities \(u=a(2-a)\) and \(v=a^2\). Marked cyclic-gap enumeration proves the expectation, and a logarithmic generating function proves the cubic trace formula. Primitivity of the companion matrix proves the Perron asymptotics; implicit differentiation gives the crossover coefficient \(4/9\). An eight-edge gadget has two interchangeable internal kernel patterns, independent across disjoint nine-edge windows; a binomial Chernoff argument yields the typical exponential bound. Direct enumeration from `verify.py` passed all \(9828\) three-state rings through eight vertices, 60 exact rational aggregate comparisons, and three explicit gadget-flip tests.
+PASS
 
-**Risks/limits:** finite verification cannot prove statements for every ring size; the proof itself supplies the general argument. The result says nothing about nonspecialized Nash equilibria, noncyclic architectures, asymmetric direction laws, or a distributional limit in the vanishing-reciprocity window.
+A noncoherent strict orientation is acyclic, so all sinks are forced and recursively deleting them and their in-neighbors gives its unique kernel. A reciprocal edge permits a noncoherent strict suborientation, and restoring those arcs neither introduces adjacency in a kernel nor destroys outgoing absorption. The remaining coherent one-way cycles enforce alternating membership, giving the parity exception and exact probability. For each candidate maximal independent set the selected-vertex gaps are 2 or 3, including the one-gap triangle. Gap constraints involve disjoint sets of edges, with success probabilities u=1-(1-a)² and v=a². Counting marked cyclic selections and dividing by the number of marks gives the weighted sum; its generating series is the logarithmic derivative of (1-uz²-vz³)⁻¹, which gives the root powers with multiplicities. The companion matrix is irreducible and has periods 2 and 3 among its closed walks; the Perron root is simple and dominant. At r=0 the roots are 1,-1/2,-1/2 and implicit differentiation gives 4/9, with the two smaller root powers uniformly negligible when nr stays bounded. For the eight-edge gadget the two sinks are forced, vertices 1 and 5 excluded, and the path 2,3,4 has the two independently switchable internal configurations {3} and {2,4}. Its boundary is unchanged by the switch. The tested blocks use disjoint edges and one success guarantees existence. The binomial lower tail with m≥n/18 proves both stated constants; r=1 follows separately from the Perrin endpoint.
 
-## Originality — PASS (qualified)
+## originality
 
-Huang, Sun, Xu and Zhao (2025), arXiv:2512.23193, establish the specialized-equilibrium/kernel correspondence, a qualitative monotonicity principle for converting one-way edges to reciprocal edges, and large dense-random-digraph existence results. The model-specific probability, weighted expectation, crossover, and typical exponential multiplicity on a fixed cycle are not results of those statements. Bisdorff and Marichal (2008) identify maximal-independent-set counts of undirected cycles with Perrin numbers; that explicitly covers the fully reciprocal endpoint, which is not claimed as original. Earlier literature on weighted independent dominating set polynomials may imply the first-moment identity but not automatically the constructive high-probability exponential transition.
+PASS
 
-Public research-record and literature searches did not identify an implication covering the combined stochastic ring theorem. This is a best-knowledge comparison, not a uniqueness or priority certificate. Relevant full primary sections of the 2025 paper were inspected; the 2008 publisher page and abstract were accessible but not its full PDF/text. Unindexed results and stronger weighted-enumeration techniques remain residual risks.
+The supported distinction is the edge-weighted partial-reciprocity expectation with its small-r crossover and the typical exponential multiplicity mechanism in the same random-ring model. The equilibrium correspondence, sink recursion, preservation of kernels by reciprocation and endpoint Perrin enumeration are prior mathematics. The exact nonexistence formula is a short consequence of those structural principles on a ring, not sufficient novelty on its own.
 
-## Mathematical value — PASS
+## value
 
-The motivated gap is *how many* specialist equilibria network reciprocity creates, rather than the previously known fact that it cannot remove an equilibrium. The exact probability law distinguishes existence from multiplicity, and the doubling-gadget proof establishes that any fixed positive reciprocity changes the typical equilibrium count from bounded to exponential. The weighted spectral formula separately identifies the \(1/n\) scale at which the mean first departs from one, a quantitative prediction distinct from fixed-reciprocity typical behavior. These are structural and asymptotic laws for a canonical sparse network game rather than an arbitrary small-case calculation.
+PASS
 
-## Prior work and residual limitation
+The ring isolates a substantive effect of reciprocal public-good links. Almost all strictly one-way rings have exactly one specialized equilibrium, whereas any fixed positive edge reciprocity gives exponentially many with high probability, not just an expectation inflated by rare instances. The exact mean identifies a separate, motivated rare-reciprocity scale and allows finite-size comparison; the forced-sink gadget explains how local choices accumulate in the typical case.
 
-- Huang, Sun, Xu, Zhao, *Public Goods Provision in Directed Networks: A Kernel Approach*, arXiv:2512.23193 (first posted December 29, 2025): theorem on kernels and reciprocity monotonicity, but not the random ring distribution.
-- Bisdorff, Marichal, *Counting Non-Isomorphic Maximal Independent Sets of the n-Cycle Graph*, Journal of Integer Sequences 11 (2008), Article 08.5.7: known Perrin endpoint and cycle enumeration.
-
-The weighted-Perrin relation is close to known cyclic independence enumerators; priority for that component alone is not asserted. The high-probability doubling transition is the main structural contribution. All claims remain subject to independent scientific scrutiny.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

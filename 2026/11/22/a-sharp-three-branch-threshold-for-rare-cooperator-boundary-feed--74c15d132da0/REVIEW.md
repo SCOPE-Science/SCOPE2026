@@ -1,19 +1,21 @@
-# Scientific review: sharp three-branch boundary feedback
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim concerns exactly the regularized all-defector boundary fixed-point problem of Betz–Fu–Masuda (2026), not the original finite stochastic population. Rewriting their boundary Eqs. (52)–(54) produces a fractional-linear conditional environment \(c(r)\) and a logistic equation \(G(r)=d\). The derivative has a quadratic numerator with discriminant \(K[K-4a(a+b)]\); the minimum ratio is exactly \(4a(a+b)\). This proves both the maximum of three roots and the full sharp classification, including tangencies. The auxiliary stability identity is differentiated independently. The rational example checks every model constraint and has an exact middle root with negative scalar-logit derivative. Rational verification and supplementary numerical roots were reproduced from the included `verify.py`. No finite simulation is used as an infinite proof.
+PASS
 
-## Originality — PASS (bounded to inspected literature)
+Betz–Fu–Masuda's Eqs. (47)–(54) give exactly the stated reduction at x=0 with c₃=v. The strict switch-probability order gives q₁p₂<q₂p₁ and hence u<v. For every root r of the logit equation, c₂ is a strict convex combination of u and v and Eq. (51) gives a unique admissible c₁; the construction is reversible. For F=β(G−d) the sign of F′ is that of (a+br)²−Kr(1−r), which equals [a−(2a+b)r]²+[4a(a+b)−K]r(1−r). This proves strict increase below and at equality, with at most an isolated stationary point at equality. If that point is the root at equality it is triple, without changing the distinct count. Above equality the positive function (a+br)²/[r(1−r)] diverges at both ends and crosses K twice, giving the displayed critical points. The logit limits and the increase–decrease–increase pattern yield the claimed one/two/three count including the two double-root levels. A supercritical threshold alone does not give three roots; d must lie between the two critical levels, as the record specifies. The boundary Jacobian has the triangular eigenvalues of Eqs. (55)–(58); its c₂ eigenvalue is −(a+br)r(1−r)F′(r). The middle branch repels in that scalar direction and is a saddle, not a full repeller, on the three-dimensional boundary. The rational witness satisfies the strict source-model inequalities; c(1/2)=13/19=−d/h and F′(1/2)=−1836/361. The other two roots bracket 1/2 and are tangent-attracting; their transverse linear growth rates have opposite signs, with exactly zero linear growth at the central root. This does not select a physical rare-invader branch. The supplied verify.py was inspected, not executed; its rational identities and bisections check the witness, not the analytic root count.
 
-The closest primary paper [1] provides the implicit boundary equations and explicitly says multiple candidate solutions might occur; it does not derive a multiplicity criterion or exhibit opposite-signed stable auxiliary boundary candidates. Its remaining mean-field bifurcation and oscillation results concern different states. Betz–Fu–Masuda (2024) [2] studies continuous environmental variables on two communities; Su et al. (2019) [3] treats game transitions with weak-selection fixation criteria; Ito–Yamamichi (2024) [4] considers a different continuously varying environmental-resource model. Available scientific searches and previously indexed related claims did not reveal an implication covering this exact binary-edge conditional-environment classification. Searches cannot establish global priority. The Ito–Yamamichi mathematical exposition and Su et al. full text were not inspected, although their documented models differ materially; a general sigmoid–rational fixed-point theorem might contain the algebra abstractly.
+## originality
 
-## Value — PASS
+PASS
 
-The originating article leaves the number of regularized rare-invader candidates undetermined and explicitly calls for stronger justification of its boundary treatment. A universal sharp threshold and a legal example with two environmentally attracting candidates whose transverse growth tests have opposite signs address a substantive ambiguity in applying that boundary approximation. This is a natural complete classification of a specific implicit scientific criterion, not merely a numerical fixed point or an arbitrary parameter cut. It identifies when auxiliary boundary initialization matters, while refraining from asserting actual ecological bistability or multiple invasion probabilities.
+The source already derives the implicit system and explicitly anticipates possible multiplicity. Credit only the exact condition for appearance of folds, full level-dependent root count, and admissible example with opposite candidate growth signs. The inspected source neither gives those boundaries nor supplies the example, and the older continuous feedback classification is not the same fixed-point system. The judgment is bounded by the inspected literature and catalogue results.
 
-## Scientific limitations
+## value
 
-The result applies to the auxiliary all-defector boundary of the infinite-population mean-field approximation, with \(\beta>0\) and the strict switching order. It does not prove branch selection by a genuinely rare mutant, fixation, full-dimensional basins, or empirical outcomes. Some additional historical coverage remains possible; independent assessment is outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The source itself leaves open whether multiple candidate invasion calculations occur. The threshold and witness establish that the ambiguity can actually change the sign of a rare-invader prediction even if attention is restricted to conditionally attracting branches. The exact criterion tells when the boundary prescription is single-valued and when a separate branch selection question arises. The value is a diagnostic of this natural approximation, not a claim about finite-population fixation or multiple physical invasion probabilities.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

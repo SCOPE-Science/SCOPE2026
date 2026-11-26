@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:32:50.995537Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The repaired statement explicitly sorts the unordered axes in positive cyclic order; a cyclic shift of an arbitrary input tuple is insufficient (reversing the tuple of a maximizing design preserves the objective). The squared sum is the normalized forward information gain, not the squared norm of the inverse. Also corrected which step of the largest-gap bound has strictness. Independently verified the continuum estimate by uniform convexity of exp(-t q) in a fixed distance band around δ, where q' is uniformly positive. Jensen gives the two-endpoint lower bound throughout each midpoint neighborhood, a nearer axis excludes all off-midpoint neighborhoods, and a largest-gap midpoint provides the upper bound with exponential error. AM–GM and compactness locate all optimizers, then the gap/squeeze increments force the two little-o scales. The angular Taylor coefficient is q'_a(δ)/2=cos(π/m), and the squeeze coefficient is cos²(δ)/a_m³. Verified m=1,2 separately. Read the frozen verification note and nested checker; neither its recorded 86 checks nor finite angle sampling is relied on for the continuum theorem. The complete corrected RESULT.md contains the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hardin–Kendall–Saff require a nonincreasing convex geodesic potential. Here its second derivative is strictly negative at zero when a>1."
+        ],
+        "reasoning": "The potentially dominating polarization result does not apply in the relevant squeeze regime. The targeted public search did not yield a stronger applicable theorem.",
+        "searches": [
+          "\"Gaussian polarization\" equally spaced points circle Gaussian potential minimax theorem",
+          "arXiv:1208.5261 Theorem 1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2410.05486 §2.1 and Remark 2.1",
+        "arXiv:1208.5261 Theorem 1",
+        "Resultary a5ef66ef0375",
+        "Resultary 5dbcb6b18396"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "AM–GM on the published ellipse denominator gives a_m and s_m. The fixed-angle result permits weights and gives a finite-radius squeeze transition, but cannot bound all variable-angle designs."
+        ],
+        "reasoning": "Credit the rate and fixed-triple asymptotic explicitly. Neither provides the required arbitrary-angle upper bound with relative error, let alone dictates how all gap deviations and common squeeze affect the simultaneous local loss.",
+        "searches": [
+          "arXiv:2410.05486 Remark 2.1",
+          "Resultary record a5ef66ef0375, RESULT.md (offsets 0 and 4802)",
+          "arXiv:1208.5261 Theorem 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Alaifari–Yang's rotated threshold ellipses use denominator D=a⁻¹cos²δ+a sin²δ. Their recovery sum is of positive unsquared ambiguity functions."
+        ],
+        "reasoning": "Threshold union, unsquared sum and equal-precision squared information are different objectives. The rate factor after matching squaring and t conventions coincides; a max-to-sum comparison gives the exponent but not the sharp prefactor.",
+        "searches": [
+          "Resultary: Gaussian ambiguity magnitude common squeeze equally spaced orientations sum of squared ambiguity magnitudes disk minimax prefactor 2/m",
+          "arXiv:2410.05486 §2.1, Remark 2.1 and Eq. (7)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "a5ef66ef0375 gives (2/3) exp(-√3 t/2) with equal optimal weights for the fixed three axes. 5dbcb6b18396 optimizes an unsquared sum on fixed axes and uses the half-sized radial parameter."
+        ],
+        "reasoning": "The exact three-axis prefactor is real overlap on that slice; neither record gives the full arbitrary-placement or fixed-offset law. This conclusion rests on the objectives and quantifiers, not dates or missing hits.",
+        "searches": [
+          "Resultary: common squeeze arbitrary orientations m equal weight large disk Gaussian ambiguity 2/m prefactor angular rigidity",
+          "Resultary: Gaussian ambiguity angular perturbation law two scale optimizer rigidity squeeze gap offsets t^-1 t^-1/2"
+        ]
+      },
+      "rationale": "The supported distinct claim is the global squared-sum prefactor for arbitrary orientations and fixed m, the correctly ordered all-maximizer scales and the fixed-offset penalty. The threshold rate and the leading constant restricted to a fixed equiangular triple are overlapping results, not grounds for priority claims.",
+      "residual_risks": [
+        "The bounded comparison does not exclude an unindexed exact Gaussian polarization or asymptotic stability result. No priority inference relies on record dates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the geometric rate ingredient, not the sharp squared-sum theorem",
+          "evidence": [
+            "The prescribed axes are equispaced; covered-radius denominator is q_a(δ); recovery denominator sums unsquared ambiguity functions."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2410.05486",
+          "material_read": "§2.1 and Remark 2.1, pp. 5–6, including the radius denominator and Eq. (7)",
+          "method": "Open primary PDF, bounded passages near text offsets 18200 and 20200",
+          "title": "Multi-Window Approaches for Direct and Stable STFT Phase Retrieval",
+          "trigger": "Same rotated squeezed Gaussian geometry and disk coverage"
+        },
+        {
+          "assessment": "Hypothesis fails for a>1",
+          "evidence": [
+            "The geodesic potential must be convex; the Gaussian angular potential has negative second derivative at zero."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1208.5261",
+          "material_read": "p. 2, Theorem 1 including strict-convexity statement",
+          "method": "Open primary PDF near text offset 4700, compared potential curvature",
+          "title": "Polarization optimality of equally spaced points on the circle for discrete potentials",
+          "trigger": "Potentially stronger circle maximin theorem"
+        },
+        {
+          "assessment": "Exact restricted overlap, not broader coverage",
+          "evidence": [
+            "Axes fixed at 0, π/3, 2π/3; optimization is over weights and common squeeze; no arbitrary-angle quantifier."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-sharp-squeezing-threshold-for-three-rotated-gaussian-ambiguity-w--a5ef66ef0375",
+          "material_read": "RESULT.md finding and asymptotic/scope passages, offsets 0 and 4802",
+          "method": "Resultary mirror, statement-level comparison",
+          "title": "Sharp squeezing threshold for three rotated Gaussian ambiguity windows",
+          "trigger": "Identical m=3 exponent and prefactor"
+        },
+        {
+          "assessment": "Different objective",
+          "evidence": [
+            "Fixed-angle sum of positive unsquared magnitudes, with T=πR²/2."
+          ],
+          "identifier_or_url": "2026/11/1/SCOPE-sharp-squeezing-transition-for-three-rotated-gaussian-ambiguity--5dbcb6b18396",
+          "material_read": "RESULT.md finding, offset 0",
+          "method": "Resultary mirror; compared objective and radial convention",
+          "title": "Sharp squeezing transition for three rotated Gaussian ambiguity windows",
+          "trigger": "Nearly identical Gaussian threshold nomenclature"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The sharp factor controls the best worst-direction linear noise variance, which the exponent alone cannot determine. The all-design rigidity and explicit limiting loss trade off squeeze errors on the t^-1/2 scale against angular gap errors on the t^-1 scale. This distinguishes near-optimal designs even when their exponential rates coincide. No nonlinear recovery significance is asserted.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

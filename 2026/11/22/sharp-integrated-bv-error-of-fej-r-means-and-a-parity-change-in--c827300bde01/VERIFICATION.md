@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -18,14 +21,6 @@
 
 # Reproducibility and verification
 
-Run `python verify_fejer_bv.py` from this directory with Python 3, NumPy and SciPy. The package was tested with the original standalone file, returning:
+The expansion in `RESULT.md` is analytic. The two harmonic quantities are differences of ordinary harmonic sums and reciprocal-square tails. Expanding those differences by Euler–Maclaurin and substituting \(2\lfloor n/2\rfloor\) gives the coefficients and the remainder without numerical extrapolation.
 
-```text
-FINITE_FOURIER_VS_INTEGRAL_ARC_TESTS_PASS 96
-PARITY_QUADRATIC_QUARTIC_TESTS_PASS 36
-PARITY_THIRD_ORDER_ASYMPTOTIC_CHECKS_PASS 6
-RANDOM_PERIODIC_BV_FFT_TESTS_PASS 240
-ALL_FEJER_BV_CHECKS_PASS
-```
-
-The exact proof is contained in `RESULT.md`: its indispensable analytical steps are flux conservation and translation overlap, periodic BV coarea and strictness under disconnected components, finite Fourier integration, kernel Taylor expansion at the antipode, and Euler–Maclaurin asymptotics. No finite-grid verification proves the infinite-dimensional BV inequality or the all-degree asymptotic. In the FFT checks, discrete Riemann sums approximate continuous error, with a declared numerical tolerance; their role is error detection. No external certification or independent mathematical review is asserted.
+The supplied `verify_fejer_bv.py` can be used with Python 3, NumPy and SciPy. Its `PARITY_THIRD_ORDER_ASYMPTOTIC_CHECKS_PASS` check uses the finite Fourier expression at six degrees and is only a finite numerical check. The other sections concern the first-moment and arc background and numerical discrete inputs; none establishes the all-degree expansion or the scope of originality. No formal verification or expert attestation is claimed.

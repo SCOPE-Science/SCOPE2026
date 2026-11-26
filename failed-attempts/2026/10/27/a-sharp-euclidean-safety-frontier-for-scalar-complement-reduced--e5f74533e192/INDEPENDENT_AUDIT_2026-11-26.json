@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:47:20.177376Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–76, analytic characteristic-polynomial and Gram replay",
+        "Frozen VERIFICATION.md and verify.py (inspection only)"
+      ],
+      "rationale": "Rotate c into one complementary coordinate. The 2×2 core U=[[0,−k/a],[−kt,1−bt]] dominates the scalar complementary block in norm and spectral radius, including at zero coupling. For k>0 let η=k²/a<b and p_t(λ)=λ²−(1−bt)λ−ηt. The roots have opposite signs, p_t(1)=t(b−η)>0 and p_t(−1)=2−t(b+η), giving the exact convergence interval. Put r=√(η/b). Then p_t(r)=r(r−1)(1−bt) and p_t(−r)=r(r+1)(1−bt), so away from 1/b one root has magnitude strictly greater than r. At k=0 the radius is |1−bt|, with the same unique optimum. The top-left entry of I−UUᵀ is 1−q and its determinant is −q+2bt−[b²+k²(1−q)]t². For k<a the discriminant divided by four is (1−q)(b²−k⁴/a²)>0, and strict Sylvester positivity is exactly between the two roots. Its norm-one boundary includes t=0 only in the zero-coupling continuous extension. For k≥a the fixed first row rules out strict contraction. At 1/b the off-diagonal entries give norm max(k/a,k/b). Transposition preserves the residual norm. In the displayed family the core square is I/2 and the fixed row has norm R, verifying the parity and universal-in-weight lower bound.",
+      "residual_risks": [
+        "Uniform exponential decay in initial vectors for each fixed R is not a uniform bound across the unbounded R-family. The latter already fails at the first step. No numerical claims beyond the exact formulas were relied on."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2c112d7d6145 proves the exact best one-step norm for arbitrary reduced dimension with a scalar complementary coordinate, and strict contractibility iff c<1 and d>pc. Its spectral interval is 0<α<2/(d+τ).",
+          "d5b5fc32ba2a proves the sharp factor δ√κ₂(A) for SPD Richardson with symmetrically preconditioned spectrum in [1−δ,1+δ]."
+        ],
+        "reasoning": "In the frozen core d>pc is just SPD. Adding decoupled scalar modes leaves both criteria unchanged. The general sharp bound already covers the possibility of arbitrarily large Euclidean amplification at a fixed spectral enclosure; it does not by itself impose the Type-II weights, which are separately analyzed in the earlier core result.",
+        "searches": [
+          "Resultary 2c112d7d6145, exact minimax and convergence interval",
+          "Resultary d5b5fc32ba2a, sharp SPD Richardson amplification",
+          "arXiv:2609.11097 §3; arXiv:1911.02664 §2.1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 2c112d7d6145, 647b225e9e83 and d5b5fc32ba2a",
+        "arXiv:2609.11097 and arXiv:1911.02664"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier codimension-one proof gives the pointwise 2×2 core, Schur spectral reduction, universal lower bound c and equality at α=1/d when dc≥p. The later same-core proof already states the exact off-diagonal matrix at α=1/b."
+        ],
+        "reasoning": "For the old scalar core the characteristic polynomial evaluated at ±√(τ/d) gives the two opposite sign tests in the correctness review, so 1/d is the unique spectral optimizer. Take c=p=R, d=2R² and τ=R² in the earlier core: the norm is ≥R for every α, equals R at α=1/d and the off-diagonal product there is 1/2. Its parity formula is just the resulting square identity. These immediate consequences do not recover a distinct scientific claim separate from the overlaid frontier.",
+        "searches": [
+          "2c112d7d6145, Exact minimax and Strict contraction and spectral convergence proof",
+          "647b225e9e83 §§2–3",
+          "d5b5fc32ba2a, Finding/Proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2c112d7d6145 writes the identical core with c=||H⁻¹b||, p=||b||, d=qᵀAq and obtains F_z(α)=z(z−c²−1)+2zdα−[(z−c²)p²+zd²]α².",
+          "For m=1, H=a and (c,p,d,τ)=(k/a,k,b,k²/a)."
+        ],
+        "reasoning": "With z=1 the frozen safety determinant is F_1(t). For c<1, a fixed positive diagonal entry and F_1>0 are equivalent to strict contraction; thus taking the two roots is already an immediate consequence. The frozen n-dimensional operator is this core plus modes at 1−bt, which never control the answer.",
+        "searches": [
+          "Resultary Type-II exact Euclidean tuning/frontier and transient-barrier matches 2c112d7d6145 and 647b225e9e83",
+          "Local mirror 2c112d7d6145 RESULT.md, offsets 4068–7099"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "647b225e9e83 states the entire 2D safety interval with r=|h|/a, s=|h|/b, y=αb and norm max(r,s) at y=1.",
+          "2c112d7d6145 explicitly computes max(c,p/d) at α=1/d and supplies the same pointwise determinant for every trial z>c²."
+        ],
+        "reasoning": "Substitute r=k/a, s=k/b and y=tb, then divide the endpoints by b. They are exactly t_±, and max(r,s)<1 gives the same selection test. The later indexed result corroborates exact overlap, not priority; the direct earlier quadratic already suffices for coverage.",
+        "searches": [
+          "Local mirror 647b225e9e83 RESULT.md Finding and §§1–3, offsets 0–7011",
+          "Local mirror 2c112d7d6145, exact-minimax and norm-at-1/d passages"
+        ]
+      },
+      "rationale": "The asserted Euclidean frontier and selection regimes are mechanically covered by the earlier codimension-one Type-II result, not merely similar to it. Its trial-norm quadratic at z=1 is exactly the frozen determinant, and its block spectrum and exact norm at α=1/d supply the needed comparisons. Isotropy makes the higher-dimensional extension an identical two-dimensional calculation with a dominated scalar block. A second indexed result states the full safety window in dimension two explicitly, and a general earlier result already treats sharp amplification at fixed spectral enclosure. The unique spectral optimum and the fixed-rate family are checked, but follow by direct polynomial comparison and substitution into the previously analyzed block; this is not a distinct safety frontier.",
+      "residual_risks": [
+        "The comparison does not assign historical priority for the additional elementary formulas, or imply that every prior source explicitly states them. The failure rests on demonstrated coverage and direct implications of the checked results."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the frozen core and mechanically implies the safety classification",
+          "evidence": [
+            "F_1 is the exact frozen safety quadratic. The same spectral-convergence interval is stated for arbitrary reduced dimension in the codimension-one case."
+          ],
+          "identifier_or_url": "Resultary 2c112d7d6145",
+          "material_read": "RESULT.md Finding, block reduction, F_z calculation, norm at 1/d and Schur spectral proof (offsets 0–7099)",
+          "method": "Local mirror",
+          "title": "Exact Euclidean tuning frontier for codimension-one additive reduced-basis preconditioning",
+          "trigger": "Direct Type-II frontier overlap"
+        },
+        {
+          "assessment": "Exact overlap on the 2D core, confirmed by parameter substitution; later catalogue date does not establish priority",
+          "evidence": [
+            "The stated endpoints in y=αb and norm at y=1 are identical after scaling."
+          ],
+          "identifier_or_url": "Resultary 647b225e9e83",
+          "material_read": "RESULT.md Finding and proof including §§1–3 (offsets 0–7011)",
+          "method": "Local mirror",
+          "title": "Sharp Euclidean transient barrier for a rank-one additive reduced-basis preconditioner",
+          "trigger": "Likely exact same contraction interval"
+        },
+        {
+          "assessment": "Covers the general fixed-spectral-enclosure phenomenon, not the Type-II choice of family",
+          "evidence": [
+            "Sharp δ√κ₂(A) bound for Euclidean residual amplification under SPD spectral equivalence."
+          ],
+          "identifier_or_url": "Resultary d5b5fc32ba2a",
+          "material_read": "RESULT.md Finding/Proof (offsets 0–6483)",
+          "method": "Local mirror",
+          "title": "Sharp Euclidean residual safety frontier for spectrally equivalent Richardson",
+          "trigger": "General degree of amplification at fixed spectral bound"
+        },
+        {
+          "assessment": "Defines Type II, but the cited Richardson estimates use Type I",
+          "evidence": [
+            "Eq. (3.5) is the additive reduced-basis construction; nonsingularity and Type-I norm estimates do not supply the frozen frontier."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2609.11097",
+          "material_read": "§3.1 Eq. (3.5), Theorem 3.4 and §3.4 Richardson estimates, PDF pp. 6–9",
+          "method": "Original OA PDF passages",
+          "title": "Additive reduced basis preconditioners for large-scale parametrized PDEs",
+          "trigger": "Primary source of the Type-II construction"
+        },
+        {
+          "assessment": "General supporting context, not the fixed Type-II threshold",
+          "evidence": [
+            "Block-Jacobi fixed-point power formulas."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1911.02664",
+          "material_read": "§2.1 Eq. (2.5), PDF p. 7",
+          "method": "Original OA PDF passage",
+          "title": "On fixed-point, Krylov, and two-by-two block preconditioners for nonsymmetric problems",
+          "trigger": "Block fixed-point powers and spectral context"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof",
+        "Resultary 2c112d7d6145 (scope, minimax and trial-norm quadratic)",
+        "Resultary d5b5fc32ba2a (general sharp amplification)",
+        "Resultary 647b225e9e83 (same-core threshold)"
+      ],
+      "rationale": "This is a useful interpretation of a known Type-II tuning calculation, but it does not supply a worthwhile new exact frontier. In the stated isotropic model the extra dimensions are dominated scalar modes. Once the earlier norm quadratic and convergence interval are credited, the remaining single-weight spectral comparison and fixed-rate example are direct two-by-two deductions and do not identify a new obstruction beyond the earlier norm/amplification results. No substantively distinct repair is supported by these calculations.",
+      "residual_risks": [
+        "This value decision is about the frozen exact result as a distinct finding, not about whether the formulas are useful in teaching or implementing Richardson iteration."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

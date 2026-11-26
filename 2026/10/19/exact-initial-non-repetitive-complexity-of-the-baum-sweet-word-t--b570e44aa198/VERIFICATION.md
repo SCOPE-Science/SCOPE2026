@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-The table gives a finite exact claim for factor lengths 1 through 8192. The mathematical reduction verifies only two endpoints per constant interval, using monotonicity of first-collision position and uniqueness of the earlier match.
+# Independent mathematical audit
 
-C++17 commands:
+## correctness
 
-```sh
-g++ -O2 -std=c++17 profile.cpp -o profile
-./profile 8192 > recomputed.csv
-cmp recomputed.csv profile8192.csv
-g++ -O2 -std=c++17 verify_endpoints.cpp -o verify_endpoints
-./verify_endpoints 8192 profile8192.csv
-```
+PASS
 
-Observed: `CALC_COMPLETE length=8192 longest prefix=65536` and `VERIFY_OK M=8192 intervals=25 boundary_cases=50`. The direct endpoint verifier uses the ordinary binary zero-run arithmetic definition and compares bytes exactly after hash filtering, so its correctness does not assume collision-free hashing. The independent suffix-array construction uses the four-state substitution and a length-65536 prefix. Neither calculation proves the displayed patterns for factor lengths above 8192. No independent audit has been performed.
+The review reproduction starts with the ordinary binary zero-run criterion, b_0=1. At each of the 50 endpoints it scans starts in increasing order and resolves candidate equalities by exact byte comparison, so fingerprint collisions cannot alter the first match. Every (R,P) pair in the frozen table is reproduced, including the largest R=24576 at n=8192, whose last needed bit is at index 32767. A length-b witness is also a witness at every length <=b, and no length-a collision before the certified R can become a collision at any length >=a. Hence each interval [a,b] has its stated first repeat, and P agrees throughout because at the first collision two earlier matches are impossible. The intervals are consecutive, cover exactly 1..8192, and each adjacent pair of rows differs, giving maximality within that domain.
+
+## originality
+
+PASS
+
+No equivalent finite table, explicit covering formula or sequence-specific implication was found in the inspected sources. Same-word work concerns Parikh vectors or scattered subsequences, and same-invariant work gives formulas for other words. The standard word definition and generic finite search do not supply the 25 exact intervals or their witnesses without an additional mathematical computation. The pass is restricted to the demonstrated finite classification.
+
+## value
+
+PASS
+
+Baum–Sweet is a canonical automatic word, and the initial repeat threshold measures a different aspect of its prefixes than ordinary or Abelian factor complexity. The complete finite profile through 2^13 crosses many binary scales and resolves exact transition positions, alternating earlier-index patterns and the short exceptions. For example, the upper endpoint of a plateau can shift by one past three halves of the preceding power of two (1537 versus the unshifted 3072 at the next scale). Those exact boundaries and predecessors form a benchmark for any proposed structural or all-length formula; selected sample lengths or the leading scale alone could miss them.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

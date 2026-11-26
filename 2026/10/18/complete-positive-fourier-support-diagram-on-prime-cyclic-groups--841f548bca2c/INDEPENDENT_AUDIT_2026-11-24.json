@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:53:02.932587Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md §§Finding, scope, Proof; Tao Theorem 1.1",
+        "VERIFICATION.md and CHECK.py (inspected, not run)",
+        "Independent replay: python3 /workspace/audit_checks.py 1"
+      ],
+      "rationale": "Tao gives the sum bound; reality gives conjugate pairing and nonnegativity gives strictly positive DC. On the p-point grid each midpoint cosine factor is nonnegative and zero exactly at its two closest samples. The possible last one-point factor is likewise nonnegative and has just the specified zero. The resulting p-k zeros use degree at most d=ceil((p-k)/2), and parity plus the sum bound forces the entire band [-d,d]. The positive multiplier preserves the zeros. At frequency d+s the unique contribution of order epsilon^s comes from the old coefficient at d with s positive frequency increments, giving the stated nonzero binomial leading term; no lower old frequency contributes at that order. Old coefficients persist by continuity and negative frequencies are conjugate. Degree D <= (p-1)/2 prevents aliasing. This includes k=p (constant starting function), k=1, zero multiplier exponent and p=3. Independent numerical replay checks 439 grid witnesses through p=23.",
+      "residual_risks": [
+        "The finite replay uses floating-point thresholds; the universal claim rests on the proof.",
+        "No quantitative epsilon threshold or arbitrary prescribed support-set statement is proved."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Tao covers more signal types and arbitrary prescribed locations, but existence of a complex witness is not existence in the positive cone.",
+          "The dyadic positive-atom record gives possible zero counts 0, g, 2g and sharp N/4 bound for three atoms."
+        ],
+        "reasoning": "The stronger location-specific complex statement does not give sign control, and a result for three positive atoms on powers of two does not specialize to all cardinalities on odd primes.",
+        "searches": [
+          "Tao Theorem 1.1 and its converse proof",
+          "Resultary positive three-atom dyadic Fourier zeros, ae69a4bd3390"
+        ]
+      },
+      "checked_sources": [
+        "Tao arXiv:math/0308286",
+        "Entropy 25 (2023) 1075",
+        "Resultary ae69a4bd3390 and 207a5682f64c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The sum bound and elementary symmetry explain the necessary conditions. Neither gives a nonnegative witness for each admissible pair. The grid-zero product and bandwidth extension supply this converse."
+        ],
+        "reasoning": "No priority is asserted for the bound, the unrestricted diagram or the parity observation. The mathematical distinction is simultaneous attainment under the sign condition.",
+        "searches": [
+          "Tao Theorem 1.1 and converse proof",
+          "Entropy 25 (2023) 1075 Introduction",
+          "Resultary exact positive-atom comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Tao Theorem 1.1 is the complex-valued cardinality bound and location-specific converse.",
+          "The Entropy article concerns nonnegativity of a Kirkwood–Dirac quasiprobability, not pointwise nonnegativity of the function."
+        ],
+        "reasoning": "Neither the unrestricted diagram nor the different meaning of positivity is equivalent to realizing nonnegative vectors with exact time and Fourier support sizes.",
+        "searches": [
+          "Tao arXiv:math/0308286; prescribed supports",
+          "Entropy 25 (2023) 1075; DFT uncertainty diagram and Kirkwood–Dirac positivity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Returned exact profiles concern either three-atom dyadic zeros or a complex exact-support minimum on even semiprime cycles. No examined table gives the constrained odd-prime profile."
+        ],
+        "reasoning": "The semiprime parity/jump result has a different modulus and no sign constraint; it is not exact data for the reviewed problem. The ranked search is not an exhaustive absence result.",
+        "searches": [
+          "Resultary: pointwise-positive Fourier support diagram on prime cycles",
+          "Resultary records ae69a4bd3390, 207a5682f64c"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the exact diagram with pointwise nonnegativity, especially that it creates no additional cardinality obstruction beyond parity. The complex support diagram and the uncertainty bound themselves are known.",
+      "residual_risks": [
+        "The frozen result's uncited allusion to published positive small-atom work on even prime powers was not resolved as a specific reference.",
+        "Equivalent unindexed positivity results are not excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known unrestricted bound and converse, not a nonnegative converse",
+          "evidence": "For nonzero complex f the bound is p+1, and each admissible pair of prescribed supports is realized.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0308286",
+          "material_read": "Theorem 1.1 (p. 2, offset 5400), converse proof (p. 5, offset 14000)",
+          "method": "OA PDF, bounded passages",
+          "title": "An uncertainty principle for cyclic groups of prime order",
+          "trigger": "Same group and support diagram"
+        },
+        {
+          "assessment": "Different positivity constraint",
+          "evidence": "No missing states above the Tao sum line in the unrestricted diagram; KD positivity refers to a quasiprobability.",
+          "identifier_or_url": "https://doi.org/10.3390/e25071075",
+          "material_read": "Introduction (offset 0)",
+          "method": "Published OA full text via Europe PMC PMC10377937",
+          "title": "Characterizing an Uncertainty Diagram and Kirkwood–Dirac Nonclassicality Based on Discrete Fourier Transform",
+          "trigger": "Uncertainty diagram and positivity language"
+        },
+        {
+          "assessment": "Partial thematic overlap, different objects and scope",
+          "evidence": "Exactly three positive atoms on Z/(2^k); Fourier-zero counts 0, g, 2g.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-sharp-quarter-zero-law-and-extremizer-dichotomy-for-positive-thr--ae69a4bd3390/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Resultary semantic lookup and local mirror text, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Sharp quarter-zero law and extremizer dichotomy for positive three-atom Fourier transforms on dyadic cycles",
+          "trigger": "Pointwise-positive witnesses and exact zero counts"
+        },
+        {
+          "assessment": "Complex minimum profile at 2p, not this constrained diagram",
+          "evidence": "For k up to p it treats complex-valued functions on Z/(2p) without a positivity requirement.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-support-fourier-uncertainty-on-even-semiprime-cycles-a-par--207a5682f64c/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Resultary semantic lookup and local mirror text, same snapshot",
+          "title": "Exact-support Fourier uncertainty on even semiprime cycles: a parity law and sharp odd-support jumps",
+          "trigger": "Potential equivalent exact parity profile"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Proof; Tao Theorem 1.1 for the contrast"
+      ],
+      "rationale": "The natural uncertainty diagram changes when witnesses are constrained to the nonnegative cone. The exact classification shows that the evident parity obstruction is the only additional one for cardinalities and supplies constructive witnesses all the way from the sharp boundary to full Fourier support. It is not merely the known complex inequality with an extra necessary condition.",
+      "residual_risks": [
+        "Does not resolve which arbitrary support locations or robust numerical witnesses can occur."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

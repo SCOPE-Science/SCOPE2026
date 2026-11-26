@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The unique super-mean saddle is determined by the strictly increasing Poisson rate function, and a uniform geometric expansion of the conditional Poisson tail reduces the mixture to an endpoint Laplace integral. Stirling's expansion produces the full normalization constant and sharp logarithmic correction. The joint exceedance density is dominated by the same endpoint bound and a geometric overshoot ratio, giving independent normalized marks. The standalone diagnostic script passed 50 high-precision checks; the mathematical proof, rather than finite diagnostics, supports the universal statements.
+PASS
 
-## Originality — PASS (qualified)
+Reconstructed the asymptotics for fixed c, α>0 and a normalized fixed mixing density with endpoint constant H. Let ℓ=log n and L=cℓ. I_c is strictly increasing from 0 to infinity above c, so the saddle t exists and is unique. For k=tℓ+O(log ℓ) and λ≤L, the tail/mass series is geometrically dominated uniformly, since L/k stays below 1; replacing ∏(k+v) by k^j gives 1/(1-λ/k) with O(k^-1) error via a summable j(j+1) bound. For the intensity deficit s=L-λ, the mass ratio is exp(s)(1-s/L)^k, tending to exp(-(t/c-1)s) with an integrable exponential envelope after multiplying by the rescaled density bound Cs^(α-1). Away from the endpoint the exponentially small conditional mass bounds the integral using only total mixing mass, so no interior boundedness of h is needed. The limit integral is H Γ(α)L^-α (t/c-1)^-α/(1-c/t) times p_k(L). Stirling contributes n^-1 exp(-log(t/c)(k-tℓ))/sqrt(2πtℓ), with uniform Taylor error O((log ℓ)^2/ℓ); the resulting constant is HΓ(α)√t/[√(2π)(t-c)^(α+1)]. Hence the level centering and sharp log log n coefficient hold, and iid counts give the maximum law along lattice-aligned thresholds, not a continuous full-sequence Gumbel law. For the marks, adding j to k contributes (c/t)^j, with a summable uniform geometric bound; combined with the same deficit domination the limiting conditional kernel factors as the specified normalized geometric law and Gamma(α, rate t/c-1). The count mark is an excess and the intensity mark a deficit. For c=1 and h=1 the saddle is e. The recorded finite numerical assertions were inspected as diagnostics, not rerun or used to establish the limits.
 
-Valiquette et al. (2023) establish fixed-upper-endpoint tail classes and discuss fixed-bound Poisson-mixture maxima, which do not imply the moving logarithmic bound and latent mark factorization. Anderson, Coles and Hüsler (1997) establish triangular-array Poisson-maxima results in a different asymptotic regime and do not state the present endpoint-power correction. Search comparisons with Poisson-mixture asymptotics, growing-bound extrema, and endpoint localization identified no directly covering theorem. Classical large deviations and Laplace's method are acknowledged as proof ingredients. Historical-priority uncertainty remains; the overlap search cannot certify global uniqueness.
+## originality
 
-## Value — PASS
+PASS
 
-The endpoint exponent changes the order-one lattice calibration by an unbounded multiple of \(\log\log n\), so treating the mixed model as a pure Poisson law gives asymptotically erroneous maximum thresholds. The joint Gamma–geometric limit also identifies which latent intensities generate extreme observed counts. This addresses a motivated gap between the fixed-endpoint mixture literature and growing-intensity Poisson triangular arrays.
+The supported distinct result combines a moving logarithmic endpoint with a nonvanishing Poisson tail/mass factor and gives the density-shape centering and the joint normalized latent-intensity and count marks. Fixed-endpoint asymptotics and analogous Gamma localization are established precedents; the standard Stirling and endpoint-Laplace methods are not claimed new. Two plausible Poisson-extreme comparators could not be fully inspected and do not support a claim about absolute priority.
 
-## Limits and closest literature
+## value
 
-The law concerns logarithmically increasing bounded intensities with a power endpoint density. It is not a continuous Gumbel limit and does not establish analogous claims for endpoint atoms, dependent counts, or other endpoint scales. See arXiv:2305.17095v1, especially Theorems 2.5, 2.8 and Section 3.3, and Anderson–Coles–Hüsler (1997), Sections 2–4.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The calculation separates the Poisson saddle from the mixing endpoint cost: the density exponent changes the sharp log log n centering and determines a measurable Gamma localization for latent intensity. The independent geometric count excess quantifies a different, lattice-scale effect. These exact constants and marks are useful for the non-Gumbel full-sequence regime and go beyond applying an iid maximum identity to an unspecified tail.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

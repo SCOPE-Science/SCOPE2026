@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:22:30.171327Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–59; frozen VERIFICATION.md, verify_primary.py, and verify_alt.cpp inspected, not executed",
+        "Independent backtracking reproduction: /workspace/branches/99bc1c95-970f-49f5-a029-f5c86bb44d37/independent_derangement_check.py and bounded_census.log. Exhausted n=3,...,8 for the degree and connectivity census; checked all pairs at n=4 and the designated witnesses at n=5,6."
+      ],
+      "rationale": "A position swap is forbidden exactly when at least one of the two directed arcs between the positions occurs in the permutation; each two-cycle accounts for one double count. Marking two-cycles in the labelled permutation EGF gives the degree enumerator, and marking a single one gives the handshake formula. Splitting cycles at cyclic separation two and joining pairs of three-cycles give the stated normal forms. Four-label pairing swaps and connectivity on the 44 states of X_5 suffice to connect those forms. At n=4, each of the six odd vertices has two of the three even vertices as neighbors. Viewing those six neighbor pairs as edges of a multigraph on the three even vertices gives degree four at each vertex, hence multiplicity two on each pair. This proves distance two within either sign, and distance at most three across signs; ambient adjacency agrees since the subgraph is induced. For the given witnesses a relative three-cycle has no factorization into two transpositions using any outside position; the first internal swap would create a fixed point. Sign excludes odd lengths. Both four-swap sequences are legal, and extending the n=5 witness by an arbitrary derangement works for n>=7. Finally det(J-I)=(-1)^(n-1)(n-1) gives the sign imbalance that excludes a Hamiltonian path.",
+      "residual_risks": [
+        "The finite census does not establish a general pair-distance law or maximum excess. The all-order conclusions use the combinatorial reductions and witness extension, with a finite base check at n=5."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Diaconis–Graham–Holmes explicitly state that the two order-three derangements are disconnected and that all derangements are connected by transpositions for n>=4. The chordal-bipartite theorem of Dyer–Jerrum–Müller is not what implies this: three matched index pairs in a crown induce a six-cycle.",
+          "0b3ffe565987 treats all three-position restrictions as induced subgraphs of K_{3,3}. When the position set T equals its image set, precisely the two three-cycles survive, of the same sign. a01ace1f3db3 proves a larger distance for simultaneously reversing multiple triangles; the relevant coverage here is one four-swap block inside its constructive proof, not that multi-triangle distance by itself."
+        ],
+        "reasoning": "The published connectivity result covers the exact family. The local older census and the distinct detour construction determine the obstruction and its remedy; one does not have to infer any statement about all distances from the multi-triangle theorem.",
+        "searches": [
+          "Diaconis–Graham–Holmes, PDF p. 17, offsets 51865–53903",
+          "Dyer–Jerrum–Müller, §2.1, PDF pp. 3–4",
+          "Resultary 0b3ffe565987, proof Steps 1–4; a01ace1f3db3, proof Steps 2–3"
+        ]
+      },
+      "checked_sources": [
+        "Diaconis–Graham–Holmes 2001, p. 17",
+        "Resultary 0b3ffe565987, a01ace1f3db3, 6d5778bc7d5d",
+        "Dyer–Jerrum–Müller arXiv:1501.07725",
+        "Jain DOI:10.13140/RG.2.2.35817.42088 (indexed material only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For a three-cycle reversal, all two-transposition ambient paths stay on its three positions. The q=3 case of 0b3ffe565987 leaves only the two endpoints on that support, excluding a legal two-step path. Such a triangle and an unchanged derangement on its complement exist at every n>=5.",
+          "In a01ace1f3db3, the four consecutive swaps in the middle of the ten-move template have form (x,a),(x,c),(x,b),(x,a). On an initial triangle a->b->c->a and an external image x->y, the four swaps give entries (x,a,b,c) successively (b,y,c,a), (a,y,c,b), (c,y,a,b), (y,c,a,b). They reverse just that triangle and restore x->y. Legality requires only that x and y lie outside the triangle and x!=y, independent of the complement's size or cycle type; even n=5 qualifies. Parity then gives exact distance four.",
+          "At n=4 the three even derangements have degree four and the six odd ones degree two by the existing degree law; the three-vertex multigraph calculation gives the isometric boundary. The remaining generating-function and parity formulas follow from ordinary cycle marking and the determinant, respectively."
+        ],
+        "reasoning": "The verified sources already supply the exact algebraic ingredients, including the same local four-step move, and the frozen statements follow by relabelling, the local obstruction, and the small boundary count. The distinct same-day record supplies mathematical coverage of a construction; no chronological priority is inferred from that date. No substantively new remainder was found.",
+        "searches": [
+          "0b3ffe565987, proof Steps 1, 2 and 4",
+          "a01ace1f3db3, proof Step 3, ten-move template, middle swaps (1,7),(1,9),(1,8),(1,7)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Matching a position to its value identifies derangements with perfect matchings of the crown graph, and a position transposition with a matching switch on two positions and two values. The forbidden diagonal is identical in the two descriptions. The relative permutation describes ambient distance independently of the crown constraint."
+        ],
+        "reasoning": "The target graph in the degree/cycle census, the inverse-triangle comparison, and the restricted-permutation connectivity source is exactly the same state graph, not the different Cayley graph generated by derangements. Gray-code moves that also permit rotations do not preserve the metric being tested.",
+        "searches": [
+          "Resultary: derangement switch graph, transposition distance, inverse triangle detours, four-cycle census",
+          "Jain, Transpositions in Derangements, DOI:10.13140/RG.2.2.35817.42088; Diaconis–Graham–Holmes, DOI:10.1214/lnms/1215090070; Dyer–Jerrum–Müller, arXiv:1501.07725"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "0b3ffe565987, proof Step 4, states deg(pi)=binom(n,2)-n+c_2(pi) and double counts the same total degree. It also gives the local three-position survival counts in Step 2. The order-nine record gives radius, diameter and diameter pairs, not the layer at ambient distance two or a general threshold."
+        ],
+        "reasoning": "The degree comparison is already an exact symbolic formula for every vertex. For the degree polynomial it fixes the exponent pointwise; the remaining histogram simply counts derangements with a given number of two-cycles by the usual labelled cycle construction. No metric table at one order could alone establish the claimed infinite threshold.",
+        "searches": [
+          "Resultary 0b3ffe565987 exact degree/edge formulas and local support census",
+          "Resultary 6d5778bc7d5d, order-nine metric Finding"
+        ]
+      },
+      "rationale": "The connectivity threshold is explicit in Diaconis–Graham–Holmes; the exact degree and edge count are explicit in Resultary 0b3ffe565987, and the full degree polynomial is the standard two-cycle marking of that degree formula. The metric statement is also covered by direct implications: 0b3ffe565987 supplies the local three-position obstruction and a distinct inverse-triangle record, a01ace1f3db3, contains the four-swap local move resolving precisely that obstruction. The small n=4 positive case follows from the already explicit degree formula. This compares mathematical content, not authorship or priority inferred from a catalogue date.",
+      "residual_risks": [
+        "The exact scope of Jain's results could not be determined from accessible primary material. This does not change the positive coverage evidence from the other sources. Same-day release order has not been inferred."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact connectivity overlap",
+          "evidence": "The two S_3 derangements cannot be connected; for n>=4 all derangements are connected by transpositions.",
+          "identifier_or_url": "https://fanchung.ucsd.edu/ron/papers/01_07_permutations.pdf (DOI:10.1214/lnms/1215090070)",
+          "material_read": "PDF p. 17, offsets 51865–53903, discussion of zero patterns and derangements",
+          "method": "Targeted primary-literature search, then located and read the lawful author-hosted PDF passage",
+          "title": "Statistical problems involving permutations with restricted positions",
+          "trigger": "Primary source on the exact restricted transposition graph"
+        },
+        {
+          "assessment": "Exact degree/edge overlap and direct local obstruction",
+          "evidence": "Step 4 states b+c_2(pi) and the same designation sum; Steps 1–2 give K_{3,3} locally and only the two three-cycles survive at q=3.",
+          "identifier_or_url": "2026/10/25/SCOPE-exact-four-cycle-census-and-fourth-adjacency-moment-of-the-deran--0b3ffe565987",
+          "material_read": "RESULT.md Finding offsets 0–2017; proof Steps 1–4 offsets 2000–6333; Prior Work and References offsets 7550–9937",
+          "method": "Configured Resultary search and verified local mirror passages",
+          "title": "Exact four-cycle census and fourth adjacency moment of the derangement switch graph",
+          "trigger": "Same graph and exact edge count, with a potentially decisive local two-step calculation"
+        },
+        {
+          "assessment": "Different headline pair, but proof contains the decisive local four-swap block",
+          "evidence": "In the listed ten-swap template the consecutive swaps (1,7),(1,9),(1,8),(1,7) reverse triangle (7,8,9) and restore the hub's image; that block works with any outside hub and outside image.",
+          "identifier_or_url": "2026/11/2/SCOPE-an-exact-linear-derangement-swap-detour-between-inverse-triangle--a01ace1f3db3",
+          "material_read": "RESULT.md Finding and assumptions, offsets 0–3175; proof Steps 2–3 and comparison, offsets 2850–7046",
+          "method": "Configured Resultary search and verified local mirror passages",
+          "title": "An exact linear derangement swap detour between inverse triangle products",
+          "trigger": "Same graph and exact detours for reversing triangles; check constructive proof for the single-triangle move"
+        },
+        {
+          "assessment": "Specific order and different metric slice",
+          "evidence": "It states radius, diameter and diameter-pair classification at n=9.",
+          "identifier_or_url": "2026/11/8/SCOPE-unique-antipodes-in-the-nine-symbol-derangement-switch-graph--6d5778bc7d5d",
+          "material_read": "RESULT.md Finding",
+          "method": "Configured Resultary search and local mirror passage",
+          "title": "Unique antipodes in the nine-symbol derangement switch graph",
+          "trigger": "Exact metric data in the same state graph"
+        },
+        {
+          "assessment": "General framework, but the chordal-bipartite theorem does not apply directly",
+          "evidence": "A switch is a transposition in matching coordinates. The hereditary-class condition excludes induced six-cycles, which occur in crowns.",
+          "identifier_or_url": "https://arxiv.org/abs/1501.07725",
+          "material_read": "PDF p. 3 near offset 12380 and §2.1, p. 4 near offset 17037",
+          "method": "Primary PDF passages",
+          "title": "On the switch Markov chain for perfect matchings",
+          "trigger": "Broader switch-chain framework"
+        },
+        {
+          "assessment": "Additional possible direct overlap unresolved, not used to force the decision",
+          "evidence": "The related Resultary paper cites Jain's connectivity and bypass results, but the accessible fragments are insufficient to attribute a precise shortest-path theorem to Jain.",
+          "identifier_or_url": "https://doi.org/10.13140/RG.2.2.35817.42088",
+          "material_read": "Bibliographic title, indexed fragments and the references in 0b3ffe565987; no primary full text read",
+          "method": "Lawful direct and VPN attempts by DOI and publisher-hosted PDF; repository recovery identified no copy and the PDF returned 403",
+          "title": "Transpositions in Derangements",
+          "trigger": "Exact same derangement graph and potential earlier small-support bypass routes"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Findings and proof",
+        "0b3ffe565987 and a01ace1f3db3, exact proof passages"
+      ],
+      "rationale": "The sharp contrast between ambient and constrained distances is well motivated, but the frozen result uses already available local obstruction and swap constructions, with an elementary smallest-order boundary check. Likewise the mobility specification follows from the existing degree law by standard cycle marking. As submitted, the combination does not leave a distinct exact invariant or a new distance phenomenon beyond those calculations.",
+      "residual_risks": [
+        "This does not assess the value of a genuinely new distance classification or a broader quantitative reconfiguration theorem; neither is the frozen claim."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

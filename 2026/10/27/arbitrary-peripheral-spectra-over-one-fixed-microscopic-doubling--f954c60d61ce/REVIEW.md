@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The pushforward test-function calculation defines the strong-to-weak differential, the explicit harmonic coefficients yield the companion block, and the rank-one resolvent plus sharp high-frequency lower bound supplies the complete spectrum outside the radius-one-half disk and the exact full spectral radius. The proof does not promote finite numerical samples to a universal conclusion. The verifier checks separate examples using exact rational polynomial arithmetic and numerical quadrature.
+## correctness
 
-**Originality — PASS under inspected evidence.** Ahmad–Tanzi (arXiv:2609.27484v1) analyze observable growth via the differential; Castorrini–Galatolo–Tanzi (Journal of Nonlinear Science, 2025) develop the differential's spectral theory. Galatolo (Communications in Mathematical Physics, 2022, Section 11) optimizes an observable equilibrium average, rather than the spectrum of the equilibrium differential. A nearest mathematical-record result titled *Arithmetic resonance and exact linear-response radius for mean-field expanding circle maps* treats one forcing harmonic and a scalar spectral radius, not a freely chosen full polynomial or the outer spectrum with multiplicities. The full text of the nearest record was inaccessible and remains an explicit priority risk; unsuccessful searches do not establish historical uniqueness. Previously available mathematical statements were compared solely for overlap.
+PASS
 
-**Value — PASS.** A natural inverse problem—what collective linearized spectral modes are possible while the microscopic map is held fixed—has a constructive answer for every finite real-conjugate multiset. The result separates spectral possibility from microscopic Lyapunov instability and makes no unsupported nonlinear stability claim.
+The uniform density has M(1)=0 and is fixed by doubling; the p-dependent neighborhood makes both inverse branches expanding. Taylor expansion of their Jacobians has a C¹ error O(M²); composing the perturbation with the displaced inverse branches costs O(|M|‖η‖C²) in C¹. This gives the claimed strong-to-weaker expansion and the bounded operator P−(Pg_p)'M, not differentiability of the C¹ self-map. On the doubled cosine chain the observable picks out e₀, and the exact normalization gives (Pg_p)'=Σ c_j e_{j−1}. Thus the shift with replaced first column has characteristic polynomial p. The quotient by this invariant finite block has powers bounded by those of P, which are O(2^(−n)) on mean-zero C¹ by differentiation and the mean-zero oscillation estimate. The exterior resolvent and all exterior generalized eigenspaces therefore reduce to the companion block. Unforced arbitrarily high dyadic modes retained for n steps attain norm ratios bounded below by a constant times 2^(−n); this proves the floor even when all roots are small or zero. Independently computed all nine strong-response matrix pairings for a triple root at 3/4 (python3 /workspace/audit-work/independent_checks.py 3). Repeated/complex modes and exterior multiplicities are covered analytically; checks are corroborative only. The frozen checker was inspected, not run.
 
-**Scientific limits.** Perturbations are local, and the operator is derived from the nonlinear map with a stronger input and weaker output topology. No claim is made for the full interior spectrum, global attractors, actual finite-population Lyapunov exponents, or independent audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass for arbitrary real-polynomial exterior spectral assignment in this fixed microscopic model, not for discovering the self-consistent differential, companion-matrix algebra, or single-harmonic resonance. The strongest indexed predecessor was read in the mirror: its one harmonic supplies a binomial block and exact radius, whereas this proof assembles a shared multiharmonic shift chain and identifies the entire outside spectral multiset.
+
+## value
+
+PASS
+
+Keeping the microscopic equilibrium dynamics and Lyapunov exponent fixed while choosing the macroscopic modes, including oscillations, repeated unstable roots or fast decay, is a precise separation useful for interpreting collective stability. The radius floor and exclusion of spurious outer modes make this a usable test family rather than a finite matrix illustration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

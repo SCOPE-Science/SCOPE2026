@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:15:36.263727Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The row sums of T_j are mixtures of p0,p1 with nonnegative weights that sum to one, so all survival tails are at most p_*^k and the differences of consecutive tails give a probability law. Direct subtraction of the two rows and differentiation in j give the stated R(v) identities. On the appropriate cone R(v) has the strict sign of Delta whenever the free coordinate is positive; that coordinate stays positive under all product steps since the free-free entry is positive. The recurrence V_{k+1}(j)=T_j V_k(j+1) and entrywise nonnegativity then propagate the monotone shift, with a strict first-coordinate inequality at every k>=1. This argument includes n=0 and u1=0. Equal ratios instead give constant row sum p1 and hence exactly geometric tails. The infinity norm of T_j-T_infinity is attained by the free row and equals (U1+b)(u0+p1 U0)/D_j. Telescoping yields the stated bound on each tail; half the sum of the absolute mass differences is bounded by the sum over positive-index tail errors since the mass errors are consecutive tail differences and the index-zero tail error is zero. The exact first-tail error is -Delta(U1+b)/(U1 D_n), so the event K>=1 witnesses the lower bound, also when the target is a point mass at u1=0. The theorem proves order-sharpness, not a sharp upper constant, and concerns the reduced count law only. RESULT.md §§1–5, VERIFICATION.md and CHECK.py were inspected; the supplied code was not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bokes–Singh's inspected abstract concerns a piecewise-deterministic burst feedback model and noise suppression. The accessible description of Bokes (2022) points to WKB and stationary-distribution calculations; no full-text comparison there was possible. A returned chapter description addresses general nonnegative matrix products."
+        ],
+        "reasoning": "A result about stationary-noise statistics or a general product norm does not directly imply strict comparison for the specified nonstationary product as its starting index changes. An applicable broader order theorem would have to yield the strict all-tail signs and the positive matching lower-order bound under these kernel hypotheses; the inspected evidence does not show one.",
+        "searches": [
+          "Bokes–Singh arXiv:1602.08568v2",
+          "Bokes DOI 10.3934/dcdsb.2021126 and identified bioRxiv copy",
+          "Inhomogeneous Products of Non-negative Matrices, search result"
+        ]
+      },
+      "checked_sources": [
+        "Jia arXiv:2611.18062v1",
+        "Bokes–Singh arXiv:1602.08568v2 (abstract)",
+        "Bokes DOI 10.3934/dcdsb.2021126 (indexed description; full-text attempts)",
+        "Resultary 090167febc76 (self match) and ddf90b482081 (summary)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "From the earlier kernel the first survival tail immediately gives order 1/n for the single event and hence a TV lower bound. The Geometric limit shape is already discussed qualitatively; the other compared work treats different laws or observables."
+        ],
+        "reasoning": "The one-event formula and qualitative limit do not provide the upper bound in total variation or the all-threshold ordering. These require a cone preserved through varying indices, with a strict comparison in the free coordinate, and a summable uniform-in-threshold error estimate. Only the supported additional conclusions are credited.",
+        "searches": [
+          "Jia Eq. (5), defining T_j and large-n geometric discussion",
+          "Bokes–Singh arXiv abstract and Resultary nearby hit ddf90b482081"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Jia uses the identical two-state indexed kernel. Survival products T_n ... T_{n+k-1} applied to the all-ones vector are the same law as the absorbing mass formula by telescoping.",
+          "Jia's Eq. (3) compares u1/v1 to u0/v0 for stationary protein means, and p1-p0 has the same sign as Delta. This is not the conditional stochastic-order statement."
+        ],
+        "reasoning": "Using translation-to-decay ratios instead of Delta, or tails instead of masses, does not change the model or constitute novelty. A sign criterion for a stationary mean does not order every finite conditional tail at successive pre-burst counts.",
+        "searches": [
+          "Resultary: Jia fast-mRNA burst sizes, stochastic order, conditional survival tails and geometric limit",
+          "Jia arXiv:2611.18062v1, Eq. (5) and definitions",
+          "Primary literature: autoregulated burst sizes, tail order and geometric approximation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "090167febc76 is the assigned record itself. The distinct indexed summary ddf90b482081 concerns size-biased particle counts at an early Brownian targeting event, not the same kernel. Jia plots conditional distributions for selected n and describes their approximate shape."
+        ],
+        "reasoning": "Neither the self match nor the unrelated particle-count summary supplies independent coverage. The primary distributions plotted at selected n do not establish equality or a strict tail sign for all n and k or a total-variation rate.",
+        "searches": [
+          "Resultary exact kernel and tail-order queries, records 090167febc76 and ddf90b482081",
+          "Jia Eq. (5) and Fig. 1(c), PDF p. 2"
+        ]
+      },
+      "rationale": "Jia supplies the exact kernel and qualitative large-n geometric behavior. Credit that model, the equal-ratio geometric mechanism and the first-tail information already directly available from the kernel. The supported distinct contribution is strict stochastic order of every positive-threshold tail for every initial count and quantified sharp-order total variation for the same kernel. I found no verified equivalent or stronger statement covering this contribution in the compared sources.",
+      "residual_risks": [
+        "The Bokes (2022) full text was unavailable in the bounded lawful retrieval; overlap cannot be ruled out based on that access failure.",
+        "An equivalent inhomogeneous-order theorem applied to this kernel elsewhere remains possible; this was not an exhaustive priority search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identical starting law and qualitative geometric behavior; no verified same all-tail and TV result in the inspected application",
+          "evidence": [
+            "Page 2 defines the inhomogeneous product and says that the distribution is approximately geometric for large n. Eq. (3) concerns stationary means rather than the conditional tail comparison."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2611.18062v1",
+          "material_read": "PDF p. 2, Eq. (5) and kernel definition near text offsets 9975 and 14876, Eq. (3) and the geometric approximation discussion near 16800–17146",
+          "method": "Lawfully accessible arXiv PDF, bounded passages",
+          "title": "Exact Stochastic Theory of Post-Transcriptional Gene Autoregulation Mediated by RNA-Binding Proteins",
+          "trigger": "Identical fast-mRNA reduced model and normal/geometric regimes"
+        },
+        {
+          "assessment": "Different model and primary observable in the inspected passage; not a whole-document exclusion",
+          "evidence": [
+            "Describes a piecewise-deterministic self-regulating model and compares feedback effects on noise suppression."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1602.08568v2",
+          "material_read": "Abstract, PDF p. 1, text offset 0",
+          "method": "Lawfully accessible arXiv copy, bounded abstract passage",
+          "title": "Gene expression noise is affected differentially by feedback in burst frequency and burst size",
+          "trigger": "Potentially comparable earlier burst-size feedback result"
+        },
+        {
+          "assessment": "Unresolved source-level comparison; failure to obtain the text is not negative evidence",
+          "evidence": [
+            "Indexed description concerns WKB quasi-potentials and prefactors; it does not suffice to determine the full theorem scope."
+          ],
+          "identifier_or_url": "https://doi.org/10.3934/dcdsb.2021126",
+          "material_read": "Indexed description only; full text not obtained",
+          "method": "Lawful DOI/AIMS and identified bioRxiv copy attempted; no accessible text in these attempts",
+          "title": "Exact and WKB-approximate distributions in a gene expression model with feedback in burst frequency, burst size, and protein stability",
+          "trigger": "Plausible related general bursting treatment"
+        },
+        {
+          "assessment": "Summary-level distinction: Brownian targeting counts, not Jia's two-state reduced kernel",
+          "evidence": [
+            "Concerns particle counts at an early binding event rather than successive comparisons in the starting protein count of a reduced burst."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-burst-tail-amplification-in-the-population-present-at-firs--ddf90b482081",
+          "material_read": "Configured Resultary indexed statement only",
+          "method": "Local catalogue lookup",
+          "title": "Sharp burst-tail amplification in the population present at first binding",
+          "trigger": "Nearby indexed burst-tail statement"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Strict ordering for the entire law is stronger than a mean trend and applies uniformly in the threshold, even at the complete repression boundary. Explicit TV control answers when a simpler law is quantitatively justified for all count events, and the lower bound proves that replacing the rate by o(1/n) is impossible when the ratios differ. These are meaningful extensions of the qualitative approximation, not just verification of a known burst formula.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

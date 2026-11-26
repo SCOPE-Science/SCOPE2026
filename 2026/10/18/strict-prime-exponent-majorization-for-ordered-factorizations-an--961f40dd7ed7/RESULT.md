@@ -2,6 +2,8 @@
 
 ## Finding
 
+Here an ordered sum system of \(\{0,1,\ldots,n-1\}\) means an ordered tuple of finite sets whose Cartesian product maps **bijectively onto that interval** under addition. Sums outside the interval are prohibited.
+
 For an integer \(n>1\), let \(c_j(n)\) count its ordered factorizations into exactly \(j\) integer factors greater than one. For \(2\le m\le\Omega(n)\), let \(\mathcal N_m(n)\) be the number of **ordered** \(m\)-part sum systems of \(\{0,1,\ldots,n-1\}\), with all component cardinalities greater than one and unique representations. Write \(n=\prod_{i=1}^r p_i^{a_i}\), where the primes are distinct, each \(a_i\ge1\), \(r=\omega(n)\), and \(k=\Omega(n)=\sum_i a_i\).
 
 **Theorem (strict simultaneous majorization).** Fix \(k\ge2\), \(2\le r\le k\), and any positive integer exponent vector \(\mathbf a=(a_1,\ldots,a_r)\) summing to \(k\). If \(a_u\ge a_v+2\) for distinct indices \(u,v\), and \(\mathbf a'\) is obtained by decreasing \(a_u\) by one and increasing \(a_v\) by one, then **simultaneously**
@@ -25,6 +27,8 @@ The uniqueness is modulo permutation of exponent coordinates. For \(r=1\) or \(r
 Thus the whole vector of ordered-factorization counts, and the whole vector of ordered sum-system counts, increase strictly at every nontrivial exponent-balancing step: their extrema agree **in every length and every number of parts**, rather than only after summing over lengths.
 
 ## Assumptions and scope
+
+In this article a sum system of the interval is exact: the addition map from the Cartesian product of the parts to the interval is a bijection. No tuple may sum outside the interval. In particular the component cardinalities multiply to \(n\). This requirement is necessary for the stated counts to be finite.
 
 All integer factorizations are counted **with order**; the prime factors \(p_i\) are distinct, but their actual magnitudes are irrelevant. A sum system is an ordered tuple \((A_1,\ldots,A_m)\) of finite subsets of nonnegative integers, all \(|A_i|>1\), such that each integer in \(\{0,\ldots,n-1\}\) occurs **exactly once** as \(a_1+\cdots+a_m\) with \(a_i\in A_i\). If \(m>\Omega(n)\), the number is zero, and strict comparison is not asserted. Permuting the underlying prime bases does not alter any count; uniqueness concerns exponent *multisets*, not actual integers. The theorem has no limiting or probabilistic assumption.
 
@@ -89,6 +93,8 @@ The standalone program `verify.py` uses only the Python standard library. It com
 
 ## Relationship to prior work
 
+The strict balancing and support-extremum laws for the **total** ordered-factorization count are already implied by the recursive-divisor result [7] and Fink's identity \(\kappa_0(n)=2\sum_{j\ge1}c_j(n)\) for \(n>1\). By the published sum-system transform, this also covers the two-part case \(\mathcal N_2(n)=2(\sum_j c_j(n)-1)\), since \(S(j-1,1)=1\) for \(j\ge2\). The strict inequality simultaneously at each fixed factorization length, and its transfer to all part counts including \(m\ge3\), are the claims beyond that aggregate law.
+
 Huxley, Lettington and Schmidt (2026) define the divisor-function polynomials and give the **already known** positive sum-system transform, plus Dirichlet-series identities (their Theorem 5.1, Remark 5.2, and Theorem 5.3). The new assertion is the **simultaneous strict ordering of every individual coefficient** under prime-exponent majorization, and the consequent complete extremizer classification for all ordered sum-system dimensions; it does not assert novelty for the transforms or binomial formulas. Law, Lettington and Schmidt (2025), and Hylock, Lettington and Schmidt (2026), enumerate multifactorizations and colored-path encodings but do not establish this exponent-balancing theorem. Lettington and Schmidt (2020) develop nontrivial divisor functions and joint sum systems. Fink (2023) derives hypergeometric and divisor-count formulas for the total ordered-factorization function \(K(n)\), whereas the theorem here concerns **every fixed length** and simultaneously all sum-system part counts. Classical Schur positivity and Kostka dominance are used, not presented as newly proved representation-theoretic facts.
 
 ## Limitations
@@ -103,3 +109,4 @@ Counts depend only on exponent shapes, so this does **not** compare the integer 
 4. M. C. Lettington and K. M. Schmidt, *Divisor functions and the number of sum systems*, *Integers* **20** (2020), A61. https://orca.cardiff.ac.uk/id/eprint/133889/8/u61.pdf
 5. T. M. A. Fink, *Number of ordered factorizations and recursive divisors* (2023 preprint), arXiv:2307.16691. https://arxiv.org/html/2307.16691v1
 6. Classical Pieri rule and Young's rule/Kostka dominance criterion, as in I. G. Macdonald, *Symmetric Functions and Hall Polynomials*, 2nd ed., Chapter I.
+7. *Strict exponent balancing and sharp support extrema for recursive divisor counts* (2026), published mathematical record, https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-strict-exponent-balancing-and-sharp-support-extrema-for-recursiv--263a7e9c189f . Balancing and support splitting for \(\kappa_0\).

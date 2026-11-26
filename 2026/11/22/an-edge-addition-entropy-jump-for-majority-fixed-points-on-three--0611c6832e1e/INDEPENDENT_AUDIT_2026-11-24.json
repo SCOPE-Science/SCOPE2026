@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:32:45.066696Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The local inequalities are precisely the synchronous open-neighbor fixed-point rule with ties retained; at n=3 the horizontal neighbors are distinct. The pair-state overlap recovers the full cyclic column string with its specified starting index, so closed walks count labelled configurations via tr(T^n), without a rotation quotient. A fresh exact reproduction gives 110 transitions, SCC sizes 20 and 44 singletons, and characteristic polynomial X^46(X−1)^5(X+1)^2pqr as claimed. This finite certificate works for the trace at every n, independently of diagonalizability. A separate vertex-neighbor enumeration agrees at n=3–6 (8, 36, 78, 146). Exact strict Schur reductions for q and r at radius 2 and the derivative and product for p give a simple leading rho, bracketed by 2.2055 and 2.2056, with all other eigenvalues below 2 in modulus. An independently constructed comparison matrix for the triangular cross-section confirms a simple eigenvalue 3 and all other moduli below 2, establishing the ratio with leading constant 1. Replay: python3 /workspace/branches/0b0f1035-a9a8-416f-b4ac-dd28dadabeb9/reproduce.py; output is reproduce.log in that directory. The frozen verify.py and VERIFICATION.md were inspected, not executed. The invalid or unavailable cited triangular-report link does not affect the comparison, which has a readable prior statement and a direct exact reproduction.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Benjamini et al., Introduction p. 2, give the finite-graph eventual-period-two fact, not a fixed-state census in that passage.",
+          "The DOI and identified AFK88.pdf did not yield readable full-text passages for an independent scope comparison."
+        ],
+        "reasoning": "An eventual-period bound does not give the number of fixed states versus points on two-cycles. No implication of the exact strip spectrum was found in that theorem; no scope exclusion is inferred for the unreadable older paper.",
+        "searches": [
+          "Benjamini et al. arXiv:1405.2486 finite majority dynamics period at most two",
+          "Agur–Fraenkel–Klein DOI 10.1016/0012-365X(88)90005-2 and cited AFK88.pdf"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–26, 30–57 and 59–71; VERIFICATION.md and verify.py",
+        "Resultary November 2 exact triangular-majority spectrum and November 8 triangular-minority near hit",
+        "Benjamini et al. Introduction",
+        "Agur–Fraenkel–Klein OA access attempts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact prior triangular result already implies the denominator asymptotic H_n=3^n+O(2^n). The new path strip removes a vertical edge from each column, changing admissible triples and therefore the matrix.",
+          "Input from the prior exact spectrum does not evaluate the new matrix determinant or establish its spectral gap."
+        ],
+        "reasoning": "The final comparison is a corollary once both counts are known. The P₃ characteristic factorization is the independently needed result, not a parameter substitution in the triangular formula or a consequence of eventual periodicity.",
+        "searches": [
+          "Resultary November 2 wider-cylinder majority exact spectrum, RESULT.md offset 0",
+          "Benjamini et al. Introduction p. 2 compared with frozen proof and transfer predicate"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The closest exact catalogue passage treats C₃□C_n, which is the triangular-column graph C_n□K₃, with the same four-neighbor tie-retaining update. It is not another name for the three-row path cylinder.",
+          "The primary-literature query returned irrelevant results, which are not negative evidence."
+        ],
+        "reasoning": "Binary fixed points are exactly the colourings in which each vertex sees at least half of its neighbors in its own state. Transfer on adjacent columns gives a different predicate when two outer degrees drop to three and ties disappear there; labelled counts are compared under the same update convention.",
+        "searches": [
+          "Resultary majority fixed points and entropy on C_n square P_3 (three-row path cylinder), C_n square K_3, and edge addition",
+          "Primary literature: majority rule fixed points counts tie retention three row cylinder strip C_n P_3 majority stable configurations transfer matrix fixed point Agur Fraenkel Klein"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/11/2/SCOPE-exact-fixed-point-entropy-gap-for-majority-tie-breaking-on-a-wid--d7b5940b2c83 has an exact 64-state majority spectrum with leading 3 for the comparison cylinder C₃□C_n.",
+          "2026/11/8/SCOPE-exact-minority-fixed-state-census-and-entropy-on-triangular-cyli--fe442305d1ec concerns minority, not majority. The cited majority record suffix 874a8ff5f9e5 did not resolve; the dated November 2 comparison does resolve."
+        ],
+        "reasoning": "The existing exact triangular calculation is a decisive comparator, whereas the minority spectrum and the inaccessible citation cannot stand in for a path-column majority table. The inspected passages do not give the P₃ factors p,q,r.",
+        "searches": [
+          "Resultary path strip majority exact spectrum; triangular-column majority entropy; edge-addition comparison; exact cited triangular-cylinder title"
+        ]
+      },
+      "rationale": "The transfer-matrix method and the triangle-cross-section growth base are prior inputs. The supported distinct contribution is the exact spectrum and closed trace counts for the path cross-section, with the consequent comparison upon closing its two end rows. No priority is claimed for the triangular count or for the method.",
+      "residual_risks": [
+        "The exact cited November 8 majority result and the 1988 paper could not be inspected in full. An unindexed equivalent P₃ strip spectrum cannot be ruled out."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Established comparator, not path strip",
+          "evidence": [
+            "Same incumbent-tie rule on the triangular cross-section; characteristic polynomial has simple leading root 3 and a 64-state transfer, independently reproduced."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-exact-fixed-point-entropy-gap-for-majority-tie-breaking-on-a-wid--d7b5940b2c83",
+          "material_read": "Mirrored RESULT.md, opening finding at offset 0, including its transfer polynomial",
+          "method": "Local mirror and independent exact matrix comparison",
+          "title": "Exact fixed-point entropy gap for majority tie-breaking on a width-three cylinder",
+          "trigger": "Exact comparator on C₃□C_n and same local majority rule"
+        },
+        {
+          "assessment": "Not verified from this cited item; comparison is verified via the November 2 source and a fresh exact check",
+          "evidence": [
+            "The near-title hit with suffix fe442305d1ec states a minority rule at the opening finding and is not a substitute."
+          ],
+          "identifier_or_url": "Frozen reference 3, catalogue suffix 874a8ff5f9e5",
+          "material_read": "Frozen citation only; mirror and plausible citation-URL correction did not resolve",
+          "method": "Local search and exact-path access attempt",
+          "title": "Exact majority-fixed census and entropy on triangular cylindrical strips",
+          "trigger": "Stated source of the denominator asymptotic"
+        },
+        {
+          "assessment": "Background eventual periodicity; not the enumeration claim",
+          "evidence": [
+            "On finite graphs the stated convergence theorem bounds eventual period by two; it is not a count of one-step fixed states."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1405.2486",
+          "material_read": "OA PDF Introduction, printed p. 2, located from offset 0",
+          "method": "Original statement and implication comparison",
+          "title": "Convergence, unanimity and disagreement in majority dynamics on unimodular graphs and random graphs",
+          "trigger": "Plausible general majority theorem"
+        },
+        {
+          "assessment": "Unresolved detailed scope; no whole-paper noncoverage claim",
+          "evidence": [
+            "The title identifies fixed-point enumeration, but no theorem statement was obtained from the available retrievals."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/0012-365X(88)90005-2",
+          "material_read": "Metadata and citation only; cited AFK88.pdf not text-extractable, DOI page yielded no readable comparison passage",
+          "method": "OA retrieval attempts, including the identified author-institute PDF",
+          "title": "The number of fixed points of the majority rule",
+          "trigger": "Directly relevant title and cited prior fixed-point enumeration"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Closing the path inside each column is a natural, uniform edge modification with the same number of sites and a fixed update convention. The exact count and spectral gap quantify a strict entropy increase for that comparison, despite the changed local degree/tie constraints. The result is an all-length enumeration, not a handful of tested lengths or an unsupported universal monotonicity claim.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

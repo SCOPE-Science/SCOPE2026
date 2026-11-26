@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:57:15.047816Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof",
+        "Frozen VERIFICATION.md, check_retractions.py and verification_output.txt",
+        "Atalaye–Baker–Marques, arXiv:2610.02393v1, Proposition 3.1 and Corollary 3.2"
+      ],
+      "rationale": "An identity-preserving multiplicative idempotent is exactly a map restricting to the identity on its image. The only multiplicative idempotents of the residue ring are 0 and 1, by reduction modulo p and invertibility of one of x and 1-x. If a monoid endomorphism sends 0 to 1 then it is constant one. Otherwise it fixes 0, sends units to units, and is determined by those unit images and the image of p. The cyclic unit restriction gives the condition t²=t modulo N. For a nonzero f(p)=p^v r, equality f²(p)=f(p) requires v=min(v²,e), hence v=1; for f(p)=0 all nonunits collapse. In the surviving nonzero case f²(p)=p r^(t+1), giving exactly r^t=1 modulo p^(e-1). For p^u b with u≥1, b is determined modulo p^(e-u) and r modulo p^(e-1) suffices, so the formula is well-defined. Multiplicativity follows by adding valuations and multiplying unit parts, including when the valuation reaches e. Distinct t and r are detected on a primitive unit and on p. There are 2^omega(N) unit idempotent powers, and gcd(t,N_-) roots per power in the valuation-preserving case. CRT factors the weighted sum: the 0 choice contributes the full prime-power factor of N_-, including 1 when the exponent is zero, and the 1 choice contributes 1. This reproduces 11,17,15,33 for the four examples without assuming that the examples exhaust the domain. The supplied checker and saved output were inspected, not executed.",
+      "residual_risks": [
+        "The cyclic group argument requires odd p; neither nonunital homomorphisms nor the prime 2 is covered."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The prime-power endomorphism normal form in both the dissertation and paper includes every map in the claimed scope; the specialization to endomorphisms does not impose a further unit-map liftability obstruction.",
+          "Resultary 3c198a0e93df gives a stronger image-size enumeration in addition to the same three-way classification and total count."
+        ],
+        "reasoning": "The broader normal form leaves the composition constraint unsolved. The later size-spectrum result does cover the count by setting its size variable to one, but is not evidence of matching earlier coverage.",
+        "searches": [
+          "Atalaye dissertation, Corollary 4.4.2",
+          "Atalaye–Baker–Marques, arXiv:2610.02393v1, Proposition 3.1 and Corollary 3.2",
+          "Resultary lookup for prime-power modular monoid retractions"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.02393v1",
+        "Atalaye dissertation, Corollary 4.4.2",
+        "arXiv:2408.06278v2",
+        "Resultary 3c198a0e93df"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The normal form supplies parameters, not the elimination of intermediate valuations by iteration, the condition r^t=1 on the surviving valuation branch, or the weighted idempotent CRT sum."
+        ],
+        "reasoning": "The full earlier endomorphism parametrization is an input, not a statement classifying its composition idempotents. The extra steps select and count them rather than just specialize the normal-form parameters. The later size-spectrum record does state the classification and imply the count directly.",
+        "searches": [
+          "Comparison of Corollary 3.2 with the frozen valuation and CRT arguments",
+          "Comparison with Atalaye dissertation Corollary 4.4.2 and Resultary 3c198a0e93df"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A retraction onto its image and a composition-idempotent endomorphism are the same object here. Idempotence under the paper's pointwise product on maps is a different condition.",
+          "The earlier automorphism paper concerns only the invertible subclass, where composition-idempotence gives the identity alone."
+        ],
+        "reasoning": "Neither the same word 'idempotent' with a different operation nor the group of units of the composition monoid covers the noninvertible retractions.",
+        "searches": [
+          "Focused literature lookup for composition-idempotent endomorphisms, retractions and retracts of prime-power multiplicative residue monoids",
+          "arXiv:2610.02393v1, §3.2",
+          "arXiv:2408.06278v2, abstract"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 2026/11/8, 3c198a0e93df, RESULT.md offsets 0 and 4793, mirror commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4, gives the same classes and count.",
+          "In that expression the CRT factor is (1+p^(e-2)) times the product of (1+l^b) for l^b exactly dividing p-1, and the unit-idempotent contribution is 2^(omega(p-1)+1)."
+        ],
+        "reasoning": "Since p is coprime to p-1, these are the same terms as in the frozen formula, even for e=2. The distinct located hit is later dated than the frozen record.",
+        "searches": [
+          "Local Resultary lookup for the exact count and retraction size spectrum of odd-prime modular multiplicative monoids"
+        ]
+      },
+      "rationale": "The older thesis and the cited paper already give the general parametrization of endomorphisms; the distinct contribution is the classification under composition-idempotence and the exact weighted CRT count. A later Resultary record gives both in full and extends them to an image-size spectrum; that is explicit equivalent coverage, but the located record is later dated and does not establish earlier priority. The checked earlier primary statements did not give that composition classification or its count.",
+      "residual_risks": [
+        "The thesis comparison was targeted, not exhaustive; additional broader thesis searches were incomplete. No exhaustive priority claim is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Earlier normal form and different map product, no corresponding composition count in compared statements",
+          "evidence": [
+            "Corollary 3.2 allows arbitrary v≥1, unit parameter r and unit homomorphism, or the constant-one map."
+          ],
+          "identifier_or_url": "arXiv:2610.02393v1",
+          "material_read": "Proposition 3.1, PDF p. 12, offset 35450; Corollary 3.2, p. 13, offset 40020; §3.2 on pointwise multiplication",
+          "method": "Lawful OA primary-text passages",
+          "title": "Prime-Power Multiplicative Modular Monoid Morphisms",
+          "trigger": "Cited general parametrization could include the exact retraction result or constraints"
+        },
+        {
+          "assessment": "Full thesis was retrievable for this comparison; same normal form was confirmed, not an exact composition-idempotent statement in the passages checked",
+          "evidence": [
+            "Corollary 4.4.2 gives unrestricted prime-power endomorphism form; exact retraction coverage remains unestablished."
+          ],
+          "identifier_or_url": "https://scholar.sun.ac.za/server/api/core/bitstreams/34ac3e49-a014-49c7-b376-84aa27df66cc/content",
+          "material_read": "Corollary 4.4.2, printed pp. 80–81, offset 292700",
+          "method": "Public university repository PDF, targeted OA passage",
+          "title": "Exploring the multiplicative structure of Z/nZ",
+          "trigger": "March 2026 thesis cited as a residual priority risk"
+        },
+        {
+          "assessment": "Invertible subclass; does not supply count of noninvertible retractions",
+          "evidence": [
+            "The classified object is the automorphism group."
+          ],
+          "identifier_or_url": "arXiv:2408.06278v2",
+          "material_read": "Abstract, PDF p. 1",
+          "method": "Lawful OA PDF passage",
+          "title": "On the automorphism group of the monoid of the integers modulo a prime power",
+          "trigger": "Earlier same-object classification could address the counted maps"
+        },
+        {
+          "assessment": "Later direct equivalent coverage and a stronger image-size polynomial",
+          "evidence": [
+            "Same three composition-idempotent classes and normalized total count."
+          ],
+          "identifier_or_url": "Resultary 2026/11/8, 3c198a0e93df",
+          "material_read": "RESULT.md offsets 0 and 4793",
+          "method": "Local mirror",
+          "title": "Retraction size spectrum of odd-prime modular multiplicative monoids",
+          "trigger": "Strongest exact catalogue match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, classification and CRT count",
+        "Atalaye–Baker–Marques, Corollary 3.2 for the scope of the earlier classification"
+      ],
+      "rationale": "Retracts are natural in a finite multiplicative monoid; here the three forms show which valuation behavior can survive a projection and exactly what choices of unit projection and twist are compatible. The closed count is uniform in p and e, resolves the multiplicities of the twist parameters, and answers a natural complete enumeration rather than recomputing a few small moduli or merely relabeling the endomorphism theorem.",
+      "residual_risks": [
+        "The result counts maps, not isomorphism classes of image submonoids."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

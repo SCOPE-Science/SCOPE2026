@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:25:01.619174Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On each shore the only external signal is whether either other shore contains color 2, so the image of each occupied support is determined without multiplicities. The independent replay exhausts all 31^3 ordered nonempty triples, canonicalizes directed cycles by rotation and computes color-return permutations on the actual occupied colors. It reproduces 89 cycles, the length-1,2,3,5,6 census (27,1,20,1,40), basin counts (27,24,60,28684,996), and maximum preperiod 40. On a recurrent support orbit, the local surjections are bijections because support cardinalities cannot decrease and then return. A labelled state uses every occupied color, so its least period is the support period times the least common multiple of the three permutation orders. This also proves that microscopic and support entry times coincide. The permutation census yields exactly 5,6,9,18, all realizable with shores of size at least 5. For each ordered assignment of monodromy orders (1,2,3), the period-18 size profiles are twice (1,4,3) and once (2,4,3); the three phases and the identity 2q_1(n)+q_2(n)=2^n give the stated factor 3/18=1/6. The two surjection factors give the distinct-shore criterion; (1,3,4) has 48 orbits and (2,2,2) has none. The submitted full-state run was inspected as recorded corroboration, not independently rerun.",
+      "replay_paths": [
+        "/workspace/branches/5908573d-36e8-43fb-81ad-b73453b3186d/replay_support_independent.py",
+        "/workspace/branches/5908573d-36e8-43fb-81ad-b73453b3186d/replay_support_output.txt"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The closest catalogue theorem applies to all complete bipartite graphs; Lyu's finite-tree theorem applies to acyclic graphs."
+        ],
+        "reasoning": "With three positive shores the graph contains triangles, and neither scope includes the assigned graphs. Merging two shores changes adjacency and can change which vertices inhibit.",
+        "searches": [
+          "Resultary: exact period-18 orbits firefly dynamics complete multipartite graphs",
+          "Literature lookup for the five-color inhibitory firefly rule on complete tripartite graphs",
+          "Lyu arXiv:1610.00837, Section 1.1 and Theorem 1.2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md §§ Finding, Proof, Verification; VERIFICATION.md; verify_fca5_tripartite.py; verify_fca5_micro.py; verify_output.txt",
+        "Resultary 212ec4166570",
+        "arXiv:1407.1103",
+        "arXiv:1610.00837"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The rule determines a finite support map; neither the rule nor the two-shore or tree classification determines the three-shore cycle census without new analysis."
+        ],
+        "reasoning": "The independent exhaustive three-shore cycle/return-permutation census and its surjection-weighted count are the precise new step, rather than a parameter substitution in the earlier formula.",
+        "searches": [
+          "Resultary 212ec4166570, Finding",
+          "Lyu arXiv:1407.1103, Definition 1",
+          "Lyu arXiv:1610.00837, Theorem 1.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Definition 1 is the same dynamics at five colors with blinking color 2.",
+          "Resultary 212ec4166570 has the same local rule but exactly two nonempty shores."
+        ],
+        "reasoning": "The rule is known under pulse-coupled-oscillator terminology. The three-shore support map has three external-union tests and is not the cited two-shore map under a relabelling.",
+        "searches": [
+          "Resultary: five-color inhibitory firefly automaton complete tripartite graph",
+          "Lyu arXiv:1407.1103, Definition 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact orbit and transient data in the closest match are bipartite: time bound 25, period set {5,6,18}, and a two-shore primitive-period-18 formula."
+        ],
+        "reasoning": "These are not the tripartite support-cycle/monodromy tables or N18(a,b,c); in particular the tripartite period spectrum includes 9.",
+        "searches": [
+          "Resultary: exact period-18 orbits firefly dynamics complete multipartite graphs",
+          "Resultary 212ec4166570, Finding"
+        ]
+      },
+      "rationale": "The distinct contribution is the exact classification and primitive count for three nonempty shores. The strongest same-rule catalogue hit treats two shores and already has period 18, so the new claim is not discovery of period 18 for the automaton in general. No inspected result covers the tripartite classification or its weighting.",
+      "residual_risks": [
+        "A bounded catalogue and literature search does not exclude unindexed equivalent three-shore enumerations.",
+        "No priority inference follows from the dates of the bipartite and tripartite records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material overlap, not three-shore coverage",
+          "evidence": "Same five-color rule on K_{a,b}, a bound of 25, periods 5,6,18, and exact primitive-period-18 count. Shared catalogue date does not determine priority.",
+          "identifier_or_url": "2026/11/1/SCOPE-an-orbit-basin-inversion-for-five-color-firefly-dynamics-on-comp--212ec4166570",
+          "material_read": "RESULT.md, Finding at offset 176",
+          "method": "Local mirror statement inspection",
+          "title": "An orbit-basin inversion for five-color firefly dynamics on complete bipartite graphs",
+          "trigger": "Closest same-rule complete multipartite orbit census"
+        },
+        {
+          "assessment": "Covers the rule, not the asserted census",
+          "evidence": "The inhibitory update specializes to blink color 2 at five colors.",
+          "identifier_or_url": "https://arxiv.org/abs/1407.1103",
+          "material_read": "Definition 1, PDF p. 3 (text offset 8999)",
+          "method": "OA PDF passage inspection",
+          "title": "Synchronization of finite-state pulse-coupled oscillators",
+          "trigger": "Primary definition and earlier graph synchronization results"
+        },
+        {
+          "assessment": "Materially different graph hypothesis",
+          "evidence": "Theorem 1.2 gives a synchronization-time result for finite trees, not graphs with three nonempty complete shores.",
+          "identifier_or_url": "https://arxiv.org/abs/1610.00837",
+          "material_read": "Section 1.1, PDF p. 3; Theorem 1.2, PDF p. 7",
+          "method": "OA PDF passage inspection",
+          "title": "Time complexity of synchronization of discrete pulse-coupled oscillators on trees",
+          "trigger": "Closest cited five-color uniform time result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A fixed and natural complete multipartite family with arbitrary labelled shore sizes gets an exact synchronization-failure invariant, a sharp shore-size existence criterion, a uniform transient bound and a new period spectrum. The finite quotient does substantive work: it turns a computation whose microscopic state size grows exponentially in total vertices into one fixed census sufficient for the entire infinite family. The closed orbit count is usable without running that census.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

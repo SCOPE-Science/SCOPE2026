@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:56:40.676319Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The beta-integral gives marginal density 1/2, and converting to [0,1]^2 multiplies all energies by the same 2^(-beta). In the central square the log potential is continuous and has distributional Laplacian 2 pi f_3. If the potential were additive, the mixed derivative of its Laplacian would vanish; on the positive quadrant the mixed derivative of f_3 is strictly positive, as also witnessed by the strict rectangle difference in RESULT.md. Smoothing two pairs of coordinate point masses yields one fixed zero-marginal g with nonzero linear variation; the candidate densities are bounded below on its support uniformly near p=3. The densities converge almost everywhere and have mass one, so they also converge in L1. In passing to the limit in (r^beta-1)/beta the near-diagonal part is bounded by the locally integrable |log r| times a uniform local density bound; away from the diagonal the difference quotient converges uniformly. Thus the first and quadratic variations divided by beta have finite limits A_0 != 0 and B_0. Choosing one sufficiently small t of the sign of A_0 preserves feasibility and makes 2tA_0+t^2 B_0 positive for all sufficiently small beta. This proves the interval claim, not an explicit endpoint. The frozen checker was inspected, not executed; it only corroborates the rectangle sign, already proved by strict convexity.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 11 proves the circular optimum and energy pi/6 for unpowered Euclidean distance, beta=1.",
+          "The available literature check did not identify a covering small-exponent or logarithmic equilibrium theorem."
+        ],
+        "reasoning": "A single-exponent optimality proof gives no small-exponent uniform perturbation result, and the small-beta obstruction does not conflict with beta=1. A general stationarity test alone still would require the nonadditivity and stability checks for this family.",
+        "searches": [
+          "arXiv:2004.11770v1 Theorem 11",
+          "Bounded primary-literature search for an earlier small-beta refutation or fixed-margin log-equilibrium result"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary results and mirrored support-boundary finding",
+        "arXiv:2206.10180v1",
+        "arXiv:2004.11770v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The conjecturing paper gives heuristic evidence for the proposed support, not a proof or counterexample.",
+          "The closest exact optimum and the support estimation theorem treat, respectively, a different exponent and a different observable."
+        ],
+        "reasoning": "Neither prior result implies a nonzero zero-marginal first variation at the p=3 logarithmic limit or the same perturbation at every sufficiently small positive exponent.",
+        "searches": [
+          "arXiv:2206.10180v1 pp. 9–10",
+          "arXiv:2004.11770v1 p. 11",
+          "Resultary support-boundary estimator original finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Conjecture 9 uses E||X-Y||^beta for independent X,Y with a common bivariate copula and proposes p=3-beta for all beta in (0,2).",
+          "The closest inspected Resultary statement, 2026/10/12 SCOPE-weibull-limit-for-the-natural-support-boundary-estimator-in-l-p--d363caf19ac0, estimates p from the support boundary and explicitly excludes the circular version."
+        ],
+        "reasoning": "Centering the copula and expressing the small-beta variation as a log potential do not change the optimization being refuted. The original conjecture asserts the opposite, and the support estimator is not an equivalent energy result.",
+        "searches": [
+          "Resultary: Conjecture 9 L_(3-beta)-spherical copula power-distance energy, logarithmic potential zero-marginal perturbation",
+          "arXiv:2206.10180v1 §3.2, Conjecture 9"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The conjecture paper uses a 1,000-point discretization and heuristic swaps at beta=0.2, 0.5, 1.5 and 1.8; it provides no exact interval certificate.",
+          "No matching exact result appeared among the retrieved Resultary hits, which is not an exhaustive check."
+        ],
+        "reasoning": "This all-sufficiently-small-beta statement is not determined by finite numerical optima or support plots; there is no finite table on which the proof relies.",
+        "searches": [
+          "Local Resultary search for small-beta spherical copula energy and Conjecture 9",
+          "arXiv:2206.10180v1, §3.2 numerical discussion pp. 9–10"
+        ]
+      },
+      "rationale": "The supported distinct claim is a fixed admissible witness refuting the proposed optimizer throughout a nonempty exponent interval. The density, conjecture, and beta=1 result are prior work; no matching refutation or stronger covering result was established in the inspected evidence.",
+      "residual_risks": [
+        "An earlier refutation could be indexed under logarithmic energy or constrained equilibrium terminology.",
+        "The foundational Perlman–Wellner full text and the final journal rendering of the conjecture were not independently compared; the exact conjecture was inspected in v1."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defines the exact problem and conjectures opposite conclusion",
+          "evidence": [
+            "Conjecture 9, p. 9, proposes the circular p=3-beta copula for beta in (0,2)."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2206.10180v1",
+          "material_read": "§3.2, v1 pp. 9–10, Conjecture 9 and nearby numerical discussion",
+          "method": "OA PDF passage comparison",
+          "title": "L_p-norm spherical copulas",
+          "trigger": "Exact optimizer conjecture"
+        },
+        {
+          "assessment": "Prior coverage at beta=1 only",
+          "evidence": [
+            "S(C,C) <= S(C°,C°)=pi/6 for unpowered Euclidean distance."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2004.11770v1",
+          "material_read": "Theorem 11, p. 11",
+          "method": "OA PDF passage comparison",
+          "title": "Dependence uncertainty bounds for the energy score and the multivariate Gini mean difference",
+          "trigger": "Closest rigorous circular energy optimum"
+        },
+        {
+          "assessment": "Different copula setting and observable",
+          "evidence": [
+            "Support-boundary estimator for p and Weibull limit, expressly not the circular case."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-weibull-limit-for-the-natural-support-boundary-estimator-in-l-p--d363caf19ac0",
+          "material_read": "Opening finding in mirrored RESULT.md",
+          "method": "Local Resultary search and local mirror comparison",
+          "title": "Weibull limit for the natural support-boundary estimator in L_p-spherical copulas",
+          "trigger": "Closest inspected topical database hit"
+        },
+        {
+          "assessment": "Access limitation, no whole-document noncoverage conclusion",
+          "evidence": [
+            "Accessible material did not permit an independent full-text scope comparison."
+          ],
+          "identifier_or_url": "https://doi.org/10.3390/sym3030574",
+          "material_read": "Citation and landing information only; the decisive full text was not obtained",
+          "method": "Lawful MDPI and PMC retrieval attempts",
+          "title": "Squaring the Circle and Cubing the Sphere: Circular and Spherical Copulas",
+          "trigger": "Cited foundational circular-copula reference"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This resolves a stated conjecture negatively on an entire interval, not just at a numerical sample, and explains why the geometric ansatz fails using a necessary potential condition. It leaves the positive beta=1 theorem and the problem of locating the actual optimum intact.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

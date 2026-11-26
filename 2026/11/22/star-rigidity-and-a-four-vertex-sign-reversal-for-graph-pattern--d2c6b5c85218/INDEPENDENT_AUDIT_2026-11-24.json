@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:06:29.457500Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For each column, the supported columns of A are independent by positive definiteness. In a tree the distance-two row sets of different neighbors of j are disjoint. Squaring their residuals yields s_i x_i², leaving one central residual z and one term (w_ij x_0−d_i x_i)² per neighbor. Eliminating the x_i in the normal equations gives r_i x_i=w_ij(d_i x_0−z), (1+V_j)z=1−D_j x_0, and D_j z=E_j x_0. Since w_ij<d_i and r_i≥d_i², the subtractions from d_j total less than d_j (empty sum handled by the singleton case); thus D_j>0 and Δ_j>0. This proves the local sign formula, including the diagonal. At a hub E_j=0, and at a leaf with one neighbor the sign numerator reduces to d_i d_j−w_ij²>0. At unit weights, ((1+μ)d_i+s_i)/r_i<1 by the positive difference (1+μ)d_i(d_i−1)+μs_i, so (1+μ)D_j−E_j>μ(deg(j)+1+μ)>0 whenever j has a neighbor. For the weighted P4, in column 2 take r_3=5t²+4t+1, D_2=t+3/2−t²(2t+1)/r_3, E_2=t⁴/r_3 and V_2=1/4+t²/r_3. Substitution gives the stated rational expression, in particular −357/124695=−7/2445 at t=9. Its denominator has positive coefficients and the numerator has exactly one positive zero (one sign change and opposite endpoint signs). Fixing the enlarged support at zero attachment weights causes no discontinuity because the relevant Gram matrix remains positive definite; the columns outside the P4 cannot change this coefficient at the limit. Every nonstar tree has such an induced P4. The supporting exact-arithmetic checker was inspected, not run; the proof covers the full quantifiers.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The theorem assumes a nonnegative computed M and concludes diagonal dominance of AM, with a nonsingularity consequence under strict diagonal dominance.",
+          "General Frobenius SPAI/RSAI sources address construction or sparsity adaptation, not positivity for a fixed neighborhood support."
+        ],
+        "reasoning": "The nonnegativity sought here is a hypothesis, not a consequence, of the most pertinent general M-matrix result; the negative P4 is consistent with it.",
+        "searches": [
+          "Wang–Lawlor–Kale, SPAI for strictly diagonally dominant M-matrices, §3.2 and Theorem 3.7"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and verify_spai.py",
+        "Wang–Lawlor–Kale",
+        "Jia–Kang",
+        "Holland–Wathen–Shaw",
+        "Resultary eb788de3c836, ad15fe4b80b2 and the assigned self-hit",
+        "2010 smoothing source lookup, no full text"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The least-squares equations are known, but have no general sign-preserving property; even the strictly diagonally dominant shifted path here gives a negative coefficient.",
+          "The nearby exact-sign Chebyshev and CG results fix a different operator or vector. The full 2010 smoothing paper was not accessible via identified lawful routes."
+        ],
+        "reasoning": "Tree geometry enabling disjoint distance-two elimination, the weighted versus unweighted sign analysis, and extension of the obstruction to all nonstars are not supplied by those prior claims. This bounded priority assessment does not exclude older equivalents.",
+        "searches": [
+          "Wang–Lawlor–Kale Theorem 3.7 hypotheses",
+          "Jia–Kang normal equations",
+          "DOI 10.1155/2010/930218, fixed-pattern and regularization comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Jia–Kang arXiv:1503.04500, pp. 2, 4, describes right-residual minimization and fixed-pattern column problems (2.2)–(2.3).",
+          "Holland–Wathen–Shaw, pp. 1–2 of repository version, uses the row formulation for the left residual. For symmetric A, transposition relates the two orientation conventions when support is symmetric."
+        ],
+        "reasoning": "Neither orientation of the general least-squares setup gives an existing sign criterion or the tree dichotomy. Do not infer entrywise symmetry of the optimizer. The exact Resultary self-hit is not a separate result.",
+        "searches": [
+          "Resultary: weighted tree star rigidity; fixed graph-pattern sparse approximate inverse; local sign and P4 witness",
+          "Primary SPAI literature for fixed-pattern Frobenius residual minimization"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Record eb788de3c836, Finding, exact-endpoint three-step Chebyshev inverse, unweighted-tree bound through order 11 and a 12-vertex witness.",
+          "Record ad15fe4b80b2, Finding, third CG iterate on weighted trees, with a five-vertex broom threshold."
+        ],
+        "reasoning": "These are meaningful exact finite thresholds, but are for a polynomial conditioning scheme and a CG iterate, respectively. Neither tabulates the fixed-pattern SPAI coefficients or subsumes the four-vertex threshold. An exact self-hit of the frozen record provides no independent coverage.",
+        "searches": [
+          "Resultary: sharp minimum-order sign loss and exact local sign tests for tree inverse approximations"
+        ]
+      },
+      "rationale": "Standard SPAI elimination is prior; the new contribution is the weighted-tree sign criterion and topology classification with its sharp witness and the unweighted guarantee. Closest indexed sign reversals concern different matrix constructions. The inspected M-matrix result assumes rather than proves optimizer nonnegativity.",
+      "residual_risks": [
+        "The 2010 paper's full text is unavailable through the inspected routes. Narrow literature and indexed-record comparisons cannot exclude earlier equivalent formulas or classifications."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Conditional theorem, not optimizer positivity",
+          "evidence": "The nonnegative M hypothesis precedes the conclusion on AM.",
+          "identifier_or_url": "https://charm.cs.illinois.edu/newPapers/05-21/sai.pdf",
+          "material_read": "§3.2 PDF p. 6, §3.3 Theorem 3.7 PDF p. 9",
+          "method": "OA primary PDF reader",
+          "title": "The Nonsingularity of Sparse Approximate Inverse Preconditioning and its Performance Based on Processor Virtualization",
+          "trigger": "General sign-related theorem for diagonally dominant M-matrices"
+        },
+        {
+          "assessment": "Framework already known",
+          "evidence": "Fixed support reduces the problem to independent constrained least-squares solves; those passages do not treat tree-specific signs.",
+          "identifier_or_url": "https://arxiv.org/pdf/1503.04500",
+          "material_read": "PDF pp. 2 and 4, equations (2.2)–(2.3)",
+          "method": "OA arXiv full text passages",
+          "title": "A residual based sparse approximate inverse preconditioning procedure for large sparse linear systems",
+          "trigger": "Same right-Frobenius objective and columnwise solve"
+        },
+        {
+          "assessment": "Known left-residual analog of the framework",
+          "evidence": "Uses I−PA and rowwise least squares; no tree classification in the inspected material.",
+          "identifier_or_url": "10.1137/030601132",
+          "material_read": "Repository version, PDF pp. 1–2",
+          "method": "Lawful Oxford repository copy via OA reader",
+          "title": "Sparse approximate inverses and target matrices",
+          "trigger": "Fixed prescribed sparsity pattern"
+        },
+        {
+          "assessment": "Different inverse approximation",
+          "evidence": "B is a polynomial in A selected by spectral endpoints, not a neighborhood-support minimizer.",
+          "identifier_or_url": "Resultary 2026/11/22, eb788de3c836",
+          "material_read": "RESULT.md offsets 0–2600",
+          "method": "Resultary search and OA local mirror",
+          "title": "Twelve vertices are sharp for loss of positivity in three-step Chebyshev approximation",
+          "trigger": "Sharp positivity threshold for an approximate inverse on shifted Laplacians of trees"
+        },
+        {
+          "assessment": "Different optimization output",
+          "evidence": "Third unpreconditioned CG iterate and five-vertex broom, not the SPAI column problem.",
+          "identifier_or_url": "Resultary 2026/11/22, ad15fe4b80b2",
+          "material_read": "RESULT.md offsets 0–2417",
+          "method": "Resultary search and OA local mirror",
+          "title": "A local third-iterate sign criterion for conjugate gradients on weighted trees",
+          "trigger": "Local weighted-tree signs and explicit witness"
+        },
+        {
+          "assessment": "Unresolved access risk",
+          "evidence": "Full-text routes reported HTTP 403; no passage-based exclusion of coverage is made.",
+          "identifier_or_url": "10.1155/2010/930218",
+          "material_read": "No full text retrieved",
+          "method": "DOI, publisher and identified lawful alternate checked",
+          "title": "Smoothing and regularization with modified sparse approximate inverses",
+          "trigger": "Cited fixed-pattern source with possible overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This resolves exactly when graph structure alone guarantees positivity for a standard approximate-inverse objective on trees. The negative coefficient despite strict diagonal dominance separates inverse positivity from sparse approximation positivity. The all-unit-weight theorem, minimal heterogeneous obstruction, and local criterion distinguish the regimes and can be used without computing a dense inverse.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

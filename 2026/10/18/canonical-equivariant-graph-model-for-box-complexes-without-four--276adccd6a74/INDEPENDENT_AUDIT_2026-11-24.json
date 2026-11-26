@@ -1,0 +1,170 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:16:00.643606Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–30; explicit permutation-symmetric local retraction and oriented chain-trace verification",
+        "Frozen VERIFICATION.md line 19, verify.py lines 31–158, and checks.txt lines 1–9; recorded checks inspected, frozen code not executed"
+      ],
+      "rationale": "Both coordinates of a Hom cell cannot have cardinality at least two, since four distinct alternating vertices would then form a four-cycle, even if chorded. The left and right simplex families meet only at the specified oriented-edge vertices. Minimum degree two ensures their centers are distinct from those vertices. The equivariant radial retraction can be seen explicitly: in a simplex with r vertices and barycentric weights x_i, let m be the second-largest weight, including ties, and λ=max_i x_i−m. Map to weights (1−λ)/r+max(x_i−m,0). This is continuous and permutation-equivariant, lies in the center-to-vertex tree, and fixes the tree pointwise, also for r=2 and ties. Straight-line homotopy gives the required local strong retraction and fixes all shared vertices, so both coordinate swap and every automorphism commute with the glued retraction. Each oriented-edge vertex subdivides exactly one edge of the double cover; its geometric quotient by swap is G after suppressing subdivisions. The cover has 2n vertices and 2m edges; path parity gives one component for nonbipartite G and two for bipartite G, proving integral homology by graph chains. In the rational trace identity H1=H0−C0+C1 in the representation ring, no-swap fixed cover vertices and forward-oriented edges have counts 2f and 2e. Swap fixes no cover vertices; each exchanged original edge fixes both lifts with reversed orientation, giving −2s. The action on the two bipartite components is the XOR of the graph bipartition swap and the cover layer swap, giving the stated H0 terms.",
+      "residual_risks": [
+        "Finite checks of mod-two Betti numbers and Lefschetz traces are corroboration, not a proof of the integral homology or equivariant strong deformation statement. Heawood results cover two specified automorphisms with both swap options, not its full automorphism group.",
+        "Graphs with leaves, isolated vertices or four-cycles are not covered by the stated literal embedding."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The two square-free-codomain classifications allow general connected source graphs and already supply the relevant ordinary Hom(K2,G) homotopy result",
+          "Kamibeppu's strong swap retraction in B(G) does not require the frozen minimum-degree hypothesis; Walker's reported high-girth result supplies a one-dimensional C2-model",
+          "The KURIMS proof sketch collapses local simplices onto their cover intersections, defines the opposite-shore retraction by conjugation under swap, and glues stationary overlaps; it does not require or explicitly establish naturality in Aut(G)"
+        ],
+        "reasoning": "Broader graph or source classes dominate the ordinary and swap-only results, not the specified simultaneous strong retraction of the polyhedral Hom complex. The old local gluing strategy is closely related, so it would be incorrect to claim that idea, the double cover by itself, or the quotient as new.",
+        "searches": [
+          "arXiv:2412.19144v3 and arXiv:2412.19039v2 Theorems 1.2",
+          "Kamibeppu KURIMS Theorem 3 and proof sketch",
+          "Shukla arXiv:1802.04526 and Walker account in arXiv:1605.06222v1"
+        ]
+      },
+      "checked_sources": [
+        "Kamibeppu DOI 10.21099/tkbjm/1496165231 and same-title KURIMS version",
+        "arXiv:2412.19144v3, 2412.19039v2, 1802.04526, 1404.1549v4, math/0503613v3 and 1605.06222v1",
+        "Resultary dd6b91667963, 52cf23582d57, 01644b290750, d8ec1dc07b6e and 2a06a7b44214"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The old strong retraction already gives B(G)/C2 ≃ G, and the known C2-homotopy-type comparison covers the corresponding swap quotient consequence; ordinary Betti numbers follow from the known cover type",
+          "The KURIMS version defines local retractions f^v and constructs the opposite-shore ones by involution; this is very close in method but does not check the graph-automorphism action or exhibit the Hom simplex-center tree",
+          "The later Aut(G)-only formula and the old C2 model do not specify the character on pairs (g,1) with g nonidentity. In the frozen model those pairs fix oriented-edge vertices precisely at endpoint exchanges and acquire reversed cover-edge signs"
+        ],
+        "reasoning": "Knowing an action up to C2-homotopy and separate no-swap traces is not the same as identifying the full product-group action on one topological model. The surviving topological assertion establishes the retraction relative to a canonical embedded subgraph with no arbitrary choices breaking the combined symmetries. Mixed traces are structurally useful consequences, not independent of the chain model.",
+        "searches": [
+          "Kamibeppu KURIMS PDF pp. 67–69 definitions and Theorem 3 proof sketch; Fujii–Kimura–Nozaki p. 3; Resultary 52cf23582d57 and 01644b290750 Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kamibeppu's KURIMS Theorem 3 gives a strong C2-deformation retract of the simplicial box complex onto the actual canonical double cover in the no-four-cycle case",
+          "Fujii–Kimura–Nozaki arXiv:2412.19039v2 p. 3 attributes the Hom(K2,H) ordinary and C2-homotopy types to Kamibeppu and relates Hom to B(H)",
+          "Kozlov arXiv:math/0503613v3 compares simple homotopy of Hom and neighborhood complexes"
+        ],
+        "reasoning": "Subdividing a cover does not create a new abstract or swap-equivariant type. Kamibeppu's B(G) has graph-vertex shores and faces with empty shore when the other shore has common neighbors; the frozen X uses products of two nonempty simplices, with a different specified embedded spine. A comparison of types does not itself give a strong retraction onto that spine under both the graph automorphism and swap actions.",
+        "searches": [
+          "Literature on square-free graph Hom(K2,G), box complexes, neighborhood complexes and canonical/Kronecker double covers",
+          "Exact-title follow-up on Kamibeppu's Homotopy type of the box complexes of graphs without 4-cycles"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Earlier dd6b91667963 gives ordinary rooted forest spines for neighborhood complexes of square-free bipartite graphs",
+          "Later 52cf23582d57 specializes in the absence of squares to the same Aut(G) trace without the source swap; 01644b290750 gives the Petersen cover lattice and S5-character, expressly excluding source swap",
+          "d8ec1dc07b6e gives an equivariant graph collapse for the neighborhood complex of the prism G□K2; 2a06a7b44214 treats higher cycle sources"
+        ],
+        "reasoning": "There is exact overlap with the no-swap character and the unsigned topological model in the noted scopes; the indexed prism formula is for different input and different complex. These checked statements do not include the mixed (g,1) traces for arbitrary automorphisms of the frozen graph class. No archive date by itself is treated as proof of priority.",
+        "searches": [
+          "Resultary indexed comparators dd6b91667963, 52cf23582d57, 01644b290750, d8ec1dc07b6e and 2a06a7b44214, inspect their Findings"
+        ]
+      },
+      "rationale": "Credit a narrow increment: the specified embedded spine in the polyhedral Hom model with a simultaneous Aut(G)×C2 strong retraction, and the explicit full action including the mixed trace. The abstract homotopy type, ordinary homology, coordinate-swap-only graph model, and its swap quotient are materially covered by the older square-free literature (especially Kamibeppu), and do not constitute novelty. The later indexed Lovász/neighborhood result also covers the no-swap trace. The inspected prior claims do not give the joint action on this embedded Hom spine, nor a statement of the full mixed character; that character is a direct chain consequence once the full model is established, not a new representation-theoretic method.",
+      "residual_risks": [
+        "The Kamibeppu journal full proof was not available via the attempted lawful journal routes. The 2008 KURIMS proof sketch and the secondary comparison establish real swap-only coverage; one could ask whether a particular choice of Kamibeppu's local collapse is natural and transfers under an appropriate functorial Hom comparison. That has not been identified as the claimed embedded Hom retraction in inspected prior statements. The difference in subdivision alone is not credited."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong exact swap-only overlap in a related standard model; separate combined-action claim remains",
+          "evidence": [
+            "For graphs without four-cycles the canonical cover is a strong Z2-deformation retract of B(G). The sketch collapses each maximal simplex relative to its cover edges and conjugates by the involution for the other shore.",
+            "No product-group assertion or mixed character is given in these passages."
+          ],
+          "identifier_or_url": "https://doi.org/10.21099/tkbjm/1496165231; same-title 2008 version https://www.kurims.kyoto-u.ac.jp/~kyodo/kokyuroku/contents/pdf/1578-13.pdf",
+          "material_read": "KURIMS pp. 67–69, definition of B(G) around offsets 2400–6020, cover definition around offset 11700, Theorem 3 around offset 16431 and local gluing proof sketch offsets 18500–25175; journal landing page only",
+          "method": "OA PDF inspection of lawful KURIMS version after journal PDF retrieval was unavailable",
+          "title": "Homotopy type of the box complexes of graphs without 4-cycles",
+          "trigger": "Direct same-class equivariant double-cover claim"
+        },
+        {
+          "assessment": "Broader ordinary homotopy classification, not the combined action",
+          "evidence": [
+            "Connected components are homotopy equivalent to a point, circle, the target, or a connected double cover."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2412.19144v3",
+          "material_read": "PDF p. 2, Theorem 1.2, around offset 4970",
+          "method": "OA PDF passage inspection",
+          "title": "Hom complexes of graphs whose codomains are square-free",
+          "trigger": "Published general square-free-codomain classification"
+        },
+        {
+          "assessment": "Direct evidence that the ordinary and swap homotopy types are already known",
+          "evidence": [
+            "The K2 remarks identify H×K2 and attribute its coordinate-swap homotopy type to Kamibeppu."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2412.19039v2",
+          "material_read": "PDF pp. 1–3, square-free definition, Theorem 1.2 around offset 6650 and K2 discussion around offset 12550; Kamibeppu reference p. 29",
+          "method": "OA PDF passage inspection",
+          "title": "Homotopy types of Hom complexes of graph homomorphisms whose codomains are square-free",
+          "trigger": "Ordinary classification and explicit K2/swap comparison"
+        },
+        {
+          "assessment": "Known ordinary wedge/simple-homotopy results, abstract isomorphism of covers, or existence of a high-girth one-dimensional swap model",
+          "evidence": [
+            "These inspected comparisons do not give the specific retraction with the product-group action and its mixed-coset character."
+          ],
+          "identifier_or_url": "arXiv:1802.04526; arXiv:1404.1549v4; arXiv:math/0503613v3; arXiv:1605.06222v1",
+          "material_read": "Shukla abstract and Remark 4.1; Matsushita double-cover Theorem 1.2; Kozlov p. 1; Walker attribution in Matsushita p. 2",
+          "method": "OA PDF/HTML passages; Walker comparison secondary only",
+          "title": "Related neighborhood/box-complex comparison literature",
+          "trigger": "Named precursors and older one-dimensional models"
+        },
+        {
+          "assessment": "Related ordinary spine in the bipartite case",
+          "evidence": [
+            "Uses rooted-forest contractions of the two neighborhood-complex components and credits earlier Hom homotopy-type coverage."
+          ],
+          "identifier_or_url": "Resultary dd6b91667963",
+          "material_read": "RESULT.md Finding",
+          "method": "Local Resultary search and mirror inspection",
+          "title": "Explicit graph spines for neighborhood complexes of square-free graphs",
+          "trigger": "Earlier indexed square-free spine result"
+        },
+        {
+          "assessment": "No-swap character overlap and special-case lattice with no swap factor",
+          "evidence": [
+            "Removing square contributions gives the frozen Aut(G)-only trace; the Petersen record excludes coordinate swap."
+          ],
+          "identifier_or_url": "Resultary 52cf23582d57 and 01644b290750",
+          "material_read": "RESULT.md Findings",
+          "method": "Local Resultary search and mirror inspection",
+          "title": "Integral symmetry modules and square-orbit characters of Lovász complexes; integral S5 homology of the Petersen graph Hom complex",
+          "trigger": "Exact automorphism character and same-object special-case comparisons"
+        },
+        {
+          "assessment": "Different complexes",
+          "evidence": [
+            "Prism result concerns the neighborhood complex of G□K2; cycle result concerns Hom(C_m,G), m≥6."
+          ],
+          "identifier_or_url": "Resultary d8ec1dc07b6e and 2a06a7b44214",
+          "material_read": "RESULT.md Findings",
+          "method": "Local Resultary search and mirror inspection",
+          "title": "Prisms over four-cycle-free graphs collapse to the bipartite double cover; rigidity and dihedral cycle detection in high-girth graph Hom complexes",
+          "trigger": "Indexed equivariant double-cover and alternate Hom source comparisons"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Steps 2–4 and independent equivariant barycentric check",
+        "Kamibeppu direct swap-only comparison and indexed 52cf23582d57 no-swap comparison"
+      ],
+      "rationale": "The useful refinement is a simultaneous equivariant model in the original Hom space: it gives a concrete integral cycle module and controls subgroup fixed spaces and the mixed swap/automorphism action, data an unadorned graph homotopy equivalence and Betti numbers do not encode. Keeping the swap sign on endpoint-exchanged edges gives an exact character for a natural symmetry action across the full stated class, not just a computation for selected examples. Neither the already-known graph type nor the routine graph-chain trace principle alone is credited as new value.",
+      "residual_risks": [
+        "No classification of Hom complexes with four-cycles or other source graphs, and no claim of a new general character formula for arbitrary CW actions."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

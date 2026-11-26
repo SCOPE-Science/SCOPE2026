@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The independent-branch transfer formula is explicitly derived for the stated three-branch map. Indicator-function image identities yield a closed two-function subspace, whose coefficient update has a fixed point and a signed \(-1/2\) eigenmode; at the upper endpoint this mode vanishes because its two functions agree. Normalization uses exact integrals \(\int g_0=\int g_1=2\alpha\). All nine adjacent-symbol probabilities follow from interval integrals and stationarity. The forbidden three-positive-digit word with a positive two-positive cylinder proves interior non-Markovity, while full branch-cylinder images prove endpoint Markovity. The conditional-entropy derivative has a strictly negative logarithm on the entire open interval. Exact rational tests are supplementary, not proofs of infinite assertions.
+## correctness
 
-## Originality — PASS, subject to specialist priority verification
-Dajani–Kalle (arXiv 1703.06335, 2017) already establishes the map, transfer formula, matching, the invariant density and the constant zero frequency. The present result does not rebrand those as new. Dajani–Kraaikamp–Liardet (2006) already gives the classical separated signed-digit Markov chain, which is the upper endpoint here and likewise is not claimed as new. The asserted additional content is the parameter-uniform closed two-function transfer dynamics, its mode degeneration, exact interior adjacent-digit statistics, strictly varying one-step conditional entropy, and the exact boundary between non-Markov and classical Markov behavior. These statements were not located in the inspected relevant sections, comparisons, or indexed mathematical research results. The density formula makes some probability entries accessible by further integration, and an equivalent unindexed analysis may exist; these are real priority limitations, not evidence of independence.
+PASS
 
-## Mathematical value — PASS
-The natural zero-frequency plateau conceals a strictly varying full two-digit law and a sharp qualitative change in the stationary symbolic process. A complete parameter interval, an explicit finite-dimensional transfer mode with alternating exact convergence, and a rigorous non-Markov/Markov boundary are structural invariants, not isolated numerical coefficients. The theorem is deliberately restricted to the two-step-matching parameter region and does not claim whole-spectrum information or the entropy rate.
+Reconstructed the identities a.e. for the whole closed interval. The center branch sends I_(alpha-1) to I_(2alpha-2)/2. For g1, both summands contribute on the single center branch; writing c=alpha-1 and s=4-3alpha in [0,c], the two truncated right-branch images are (-c,s) and (-c,-s), and the reflected left images bring the total outer-image multiplicity to two on (-c,c). Thus Lg1=g0, and the inverse-branch formula gives Lg0=(g0+g1)/2. Both masses are 2alpha. The coefficient map t↦(1-t)/2 proves the alternating TV equality and the g0−g1 eigenmode; its disappearance at 3/2 is only in this span. The ++ cylinder begins at alpha/2+1/4≥2alpha−2 in the lowest-density region, giving a; symmetry, stationarity and the fixed one-letter masses give b,c. Opposite signs cannot follow one another and +++ is impossible, so positive ++ rules out first-order Markovity below 3/2. At 3/2 all allowed branch cylinders map onto the entire destination digit cell, so conditional uniformity inducts over any finite past. Direct differentiation gives log(ac/b²)/(2alpha²); the numerator of b²−ac has positive minimum on the interval. The entropy conclusion is only one-step. The frozen rational-grid checker was inspected, not run; it tests partitions and pairs but is not the continuum proof. RESULT.md line 47 should say two contributions on the one central inverse branch, not two central inverse branches; the identity is unaffected.
 
-## Closest literature and limits
-The 2017 originating invariant-density theorem supplies the principal input. The 2006 separated-expansion Markov chain covers the endpoint; the 2023 symmetric golden-base family is a different dynamical system. Further historical priority comparison is desirable, especially for earlier signed-digit cylinder statistics.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct claim is the specific two-function transfer closure with exact signed relaxation and degeneration. The known invariant density, marginals and classical endpoint are not originality credit. A distinct indexed record exactly covers the adjacent-pair law on a larger interval and gives the same obstruction to Markovity; it also makes the one-step entropy a direct statistic of its pair law. This is substantive overlap, not a finding of chronological priority. Neither that record nor the inspected originating results give the nonstationary two-density law.
+
+## value
+
+PASS
+
+The exact evolution of a concrete family of starting densities isolates a transient mode and a precise degeneration invisible to the constant stationary frequencies. It gives a usable relaxation benchmark and distinguishes this subspace claim from an unrestricted spectral result. The digit-memory comparison provides context rather than independent originality credit for the overlapping components.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

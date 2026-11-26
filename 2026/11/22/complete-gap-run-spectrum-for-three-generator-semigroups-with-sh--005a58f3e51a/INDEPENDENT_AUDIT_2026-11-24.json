@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:29:46.639802Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The gcd is one and the three generators are distinct and minimal since a+5<2a. For m≥2, the explicit D_m fixed-summand offsets follow from D_{m+1}=D_m∪(3+D_m)∪(5+D_m), with m=2 and the first nonempty central interval at m=3 checked directly. For rows m≤k+3, 5(m−2)<2a rules out every representation with at most m−2 summands; later rows are full because the second offset set covers 1,2,4,7. Each row starts with ma∈S, so missing intervals cannot join. In rows 2…k the duplicate singleton at m=2 is counted once; row k has a tail only for r≥2. Counting singletons for k≥2 gives 4k+2·1_{r≠1}+1_{r∈{2,3,4}}, and the usual doubletons in rows 1…k+1 gain exactly one at r=3. The initial tails decrease by 5, with the terminal length 3 in row k only at r=4. Direct endpoint checks at a=8 give (B_1,B_2)=(7,3) and only long length 7, and at a=9 give (7,2) and long lengths 3 and 8. Independent shortest-path Apéry computation through the exact conductor (python3 /workspace/branches/449e0ad0-5943-41f6-ba70-695bc066e6c4/independent_apery_check.py; saved check-8-1000.txt) agreed on all 993 semigroups a=8…1000 and 499,479 length slots. The run was bounded corroboration; the offset proof establishes the full quantifier. The uploaded checker was not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Liu–Xin–Ye–Yin give Apéry minimization and Frobenius/genus methods. 16981d7827be treats all coprime two-generator pairs. adf68b5e865c treats consecutive triangular triples and explicitly does not give a full shorter-run histogram."
+        ],
+        "reasoning": "A general membership or Apéry method does not directly resolve the parameter-uniform run counts. The frozen family is minimally three-generated, so the broad binary theorem cannot subsume it.",
+        "searches": [
+          "arXiv:2306.03459 v4 §2",
+          "Resultary 16981d7827be and adf68b5e865c"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and checker evidence",
+        "Resultary edac8df7ef94, adf68b5e865c, 16981d7827be, 3c7cf6d7bb81, 584c998005ae, 1a98ce07f8f0, f5f54396a028",
+        "arXiv:2101.01760",
+        "arXiv:2306.03459"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Genus is the single weighted sum of run counts and the conductor locates the end, while the other complete exact law splits at a different row width and gives different long-run multiplicities."
+        ],
+        "reasoning": "Neither gives the fixed-summand offset set and the terminal five residue cases for <a,a+3,a+5>. The known row method is a reusable technique, not a theorem giving these counts.",
+        "searches": [
+          "Resultary edac8df7ef94 and adf68b5e865c",
+          "arXiv:2306.03459 v4 Proposition 2.3 and Frobenius/genus discussion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A maximal gap run of length g is a spacing of g+1 between successive semigroup elements; it can be detected from adjacent Apéry thresholds in rows. Shor's Apéry criterion concerns equidistribution of the individual missing residues, not the spacing histogram."
+        ],
+        "reasoning": "The reformulations motivate checking both deserts and Apéry results, but neither counts the target histogram without analyzing the successive representable positions for this triple.",
+        "searches": [
+          "Resultary: numerical semigroup gap-run spectrum, maximal gap blocks, long deserts and shifted triples",
+          "arXiv:2101.01760 §3 Proposition 3.9"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "edac8df7ef94 computes every run length for <a,2a+2,4a+6> at odd a, with each eligible long run occurring twice. The repunit and isolated-gap records use different generator systems; the isolated-gap records address only one bin."
+        ],
+        "reasoning": "The matching invariant and row method are material overlap, but distinct minimal generating triples and multiplicities rule out reparameterization of the central theorem. Same-day dates were not used to infer priority.",
+        "searches": [
+          "Resultary edac8df7ef94, 3c7cf6d7bb81, f5f54396a028, 1a98ce07f8f0 and 584c998005ae"
+        ]
+      },
+      "rationale": "The exact invariant is the multiplicity distribution of all maximal missing runs, not residue frequencies of individual gaps, genus, Frobenius number, or only singleton incidence. The strongest matching run-spectrum record in Resultary has a different affine triple and a different law. The inspected general methods recover membership case by case but do not evaluate this all-a histogram or its short-run transitions. No exact prior implication was found in the closely compared sources.",
+      "residual_risks": [
+        "Older work on three-generator semigroups or bounded offset sumsets could contain an unindexed equivalent. The focused web search did not give a decisive result and is not negative evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Close overlap in invariant and method, not in the parameter family or theorem.",
+          "evidence": "Odd a, <a,2a+2,4a+6>, even long runs occurring twice when present.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-exact-gap-run-spectrum-of-an-odd-parameter-affine-repunit-triple--edac8df7ef94",
+          "material_read": "RESULT.md finding and row/Apéry method",
+          "method": "Resultary and local mirror passages",
+          "title": "Exact gap-run spectrum of an odd-parameter affine-repunit triple",
+          "trigger": "Same-day exact full run-spectrum result for triples"
+        },
+        {
+          "assessment": "Different minimal triples and different long-step size; shorter full histogram not claimed.",
+          "evidence": "Consecutive triangular generators, long lengths a−1−q(2n+3) above n+1.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-exact-gap-block-starts-and-the-sharp-long-desert-spectrum-for-co--adf68b5e865c",
+          "material_read": "RESULT.md finding and scope of length formula",
+          "method": "Local mirror passages",
+          "title": "Exact gap-block starts and the sharp long-desert spectrum for consecutive triangular generators",
+          "trigger": "Possibly equivalent desert terminology and complete block data"
+        },
+        {
+          "assessment": "Does not extend to this minimally three-generated system.",
+          "evidence": "Coprime generators a and qa+d, frequencies affine in q.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-affine-rigidity-of-the-complete-gap-run-spectrum-of-two-generato--16981d7827be",
+          "material_read": "RESULT.md finding and restrictions",
+          "method": "Local mirror passage reading",
+          "title": "Affine rigidity of the complete gap-run spectrum of two-generator numerical semigroups",
+          "trigger": "Broader complete-invariant result in the binary setting"
+        },
+        {
+          "assessment": "A distribution of individual gap residues, not run lengths.",
+          "evidence": "Characterizes equidistribution via Apéry residues.",
+          "identifier_or_url": "https://arxiv.org/abs/2101.01760",
+          "material_read": "v2 §3 Proposition 3.9, p. 8, extraction offset 31272",
+          "method": "OA PDF passage",
+          "title": "Equidistribution of Numerical Semigroup Gaps Modulo m",
+          "trigger": "General Apéry identities and possible equivalent gap distribution"
+        },
+        {
+          "assessment": "Computes Frobenius and genus via representatives; does not evaluate this run histogram.",
+          "evidence": "Coin minimization criterion for Apéry representatives and Frobenius/genus formulas.",
+          "identifier_or_url": "https://arxiv.org/abs/2306.03459",
+          "material_read": "v4 introduction and §2 around Proposition 2.3 (offset 13560)",
+          "method": "OA passages",
+          "title": "On the Frobenius Number and Genus of a Collection of Semigroups Generalizing Repunit Numerical Semigroups",
+          "trigger": "Families of affine generators and Apéry minimization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a complete spacing invariant for an infinite family of genuinely three-generated numerical semigroups. It separates a uniform multiplicity-one arithmetic progression of long gaps from a five-class correction for the short gaps. That distinction is not encoded by genus or conductor; the full formula answers which deserts occur and how often, including the many short ones.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

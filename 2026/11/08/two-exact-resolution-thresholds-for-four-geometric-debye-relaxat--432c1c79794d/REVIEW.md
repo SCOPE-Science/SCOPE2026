@@ -1,15 +1,21 @@
-# Scientific review of the four-process dielectric-loss theorem
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The normalized loss is an even four-translate hyperbolic-secant sum. Pairing symmetric translates gives an exact rational expression in \(\cosh s\), whose derivative is the cubic \(Q_h\). Exact symbolic identities establish the derivative numerator, the factorized cubic discriminant and the central curvature polynomial. Descartes' rule gives a unique relevant root of the discriminant factor; a separate monotonicity argument gives a unique lower threshold. A rational four-sign witness at \(h=10\), together with parameter continuity and nonvanishing discriminant/boundary values, places all three upper-regime roots in the physical interval. The critical multiplicities and derivative signs complete an infinite-parameter proof, and the extracted `verify.py` file checks 81 algebraic/numeric conditions. Direct numerical tests do not substitute for the proof. Risks: exact floating-point approximations are illustrative only; the algebraic root characterizations are authoritative.
+PASS
 
-## Originality — PASS on examined evidence, provisional
+For four equal strengths and exact geometric spacing, pairing the translates of sech gives the rational function of z=cosh(s). For s>0 its derivative has the sign of the cubic Q on v>4/(h−3). The independently checked curvature and discriminant factors have exactly one zero each for h>3, by the stated translation and Descartes/sign arguments. At h=10 three alternating sign brackets put all three roots inside the physical domain; continuity, nonzero leading coefficient and no boundary crossing extend this to h>h2. At h1 the simple boundary root gives a negative quartic term at the center; at h2 the interior double root creates a shoulder on each side without adding a strict maximum. These facts yield the stated inclusive endpoints and nondegeneracy away from the thresholds. The remote translates vanish in local coordinates around a component center; around a midpoint the scaled loss and its first two derivatives approach those of 2 cosh(y). This supports the claimed limiting locations and heights. No experimental resolving power follows.
 
-The author-posted text of Ribeiro and Vieira (2003), https://doi.org/10.1140/epjb/e2003-00313-2, discusses the usual Debye sum formula and its limitations, then develops a distinct product/factorization framework rather than four-pole geometric loss-peak thresholds. The full accessible text of Jakobsen et al. (2008), https://arxiv.org/abs/0805.4519, addresses measured multi-process dielectric peaks but not the four-equal-term geometric family or its mode-count thresholds. The full accessible text of Dean et al. (2012), https://arxiv.org/abs/1201.0547, explicitly derives sums of Debye responses but analyzes relaxation of thermal Casimir forces rather than extrema of the dielectric-loss curve. The accessible publisher abstract of Clegg and Robinson (2012), https://doi.org/10.1088/0031-9155/57/19/6227, concerns optimization of multipole Debye fits; its complete paper was not inspected, so no whole-document noncoverage claim is inferred from the abstract. The known three-equal-term geometric model exhibits one transition, whereas this four-term family requires a cubic root-locus and exhibits a second, distinct fold with a two-peak intermediate interval; the earlier formula neither entails nor numerically encodes the new degree-seven threshold. Targeted search for four-mode geometric Debye thresholds, hyperbolic-secant translations, equivalent mixture formulations and exact algebraic constants did not identify a decisive published coverage claim. Risks: undiscovered specialist spectroscopy or kernel-mixture work might contain an equivalent classification. Search failure is not a proof of historical uniqueness.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The question asks how many ideal relaxation processes can be resolved as actual loss maxima, a meaningful distinction from the number of fitted Debye poles. The result gives a complete all-separation phase diagram with algebraic critical ratios, a noncentral fold, stationary-shoulder behavior, and controlled large-separation peak/valley asymptotics. The intermediate two-peak regime is qualitatively new relative to the symmetric three-process model; this is more than a parameter substitution or an isolated numerical example. The claim does not imply an experimental resolution criterion for noisy, broadened spectra.
+The exact two thresholds and global 1/2/4 count for this four-shift sech spectrum are distinct from the strongest adjacent results inspected. This is a best-of-knowledge finding, not a priority guarantee.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+For the symmetric equal-strength four-process benchmark, the exact intermediate two-peak window and noncentral shoulders distinguish two mechanisms for loss peaks to become distinct. The complete classification gives an analytic baseline that visual separation or adjacent-pair heuristics cannot supply.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

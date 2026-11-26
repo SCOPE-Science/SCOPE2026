@@ -1,0 +1,168 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:24:04.021555Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Proof, Verification; VERIFICATION.md and verify.py",
+        "Independent replay: python3 /workspace/branches/independent_checks.py 1; direct distinct-substring reversal checks and histograms for 8,568 five-run words at lengths 5–18."
+      ],
+      "rationale": "For a nonconstant binary palindrome the initial and final symbols agree, so the factor has an odd number of runs. The single-run counts are the two symbol-wise maxima. Each internal run of a three- or five-run factor is traversed in full. The two 0-1-0 families intersect in min(a,c,e) factors if and only if b=d; in that case the five-run family adds min(a,e) factors. With x=min(a,e) and v=max(a,e), the three zero-run terms sum to v+c+min(x,c), while the two one-run terms sum to b+d. This gives the exact defect. For at most four runs the two possible three-run families have distinct end symbols and the corresponding maxima plus minima sum to the length (omitting absent families). At positive defect r, ordered unequal (b,d) have series 2z^3/((1-z)^2(1+z)), and the outer pair with minimum c+r has series z^(2c+2r)(1+z)/(1-z). Summing over c and marking r gives the stated coefficients and joint series after replacing the positive-defect terms of the unmarked composition series. The positive count and first-moment series have dominant terms (1-z)^(-5)/3 and (1-z)^(-6)/6 respectively, with other poles of lower order; division by binomial(n-1,4) gives the claimed asymptotics. The first possible length at defect r>0 is 2r+6; (r+1,1,1,2,r+1) realizes it and lengthening one of its outer runs realizes every larger length. Complementation handles initial symbol 1.",
+      "residual_risks": [
+        "Finite tests are corroboration, not a proof outside the tested lengths. The frozen checker's length-by-length 'direct_histogram' uses predicted defects rather than extracting palindromes; the frozen separate center-expansion loop and the independent substring check actually extract them."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The preprint's Theorems 5–6 give a sufficient run inequality and a global lower bound for rich words. The block-reversal work characterizes universal richness under block reversal. The catalogue extension fde03d745d08 adds six-run defects and counts bounded-run minimal obstructions."
+        ],
+        "reasoning": "Broader word families or a stronger richness predicate do not, without further counting, supply frequencies of each positive defect at fixed length. A minimal-obstruction census counts a different population, even where the formulas for individual words agree.",
+        "searches": [
+          "arXiv:1503.09112 §4 and journal DOI 10.1016/j.ipl.2016.07.001",
+          "arXiv:2302.02109 Propositions 4.17 and Theorem 4.21",
+          "Resultary fde03d745d08"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 0ea5ed9577a7",
+        "Resultary fde03d745d08",
+        "arXiv:1503.09112",
+        "DOI 10.1016/j.ipl.2016.07.001 (landing page)",
+        "arXiv:1908.03169",
+        "arXiv:2302.02109",
+        "arXiv:1708.06911"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Richness and infinite-word repetition thresholds do not specify positive defect sizes. The later catalogue records supply the pointwise constraint also used in the frozen proof, but not the weighted enumeration over ordered unequal inner pairs, fixed minima and free middle-run length."
+        ],
+        "reasoning": "The exact pointwise constraint is a starting point for deriving the same distribution, not a new observation relative to those entries. The multiplicity law solves the further length-constrained weighted count and determines the density and linear mean.",
+        "searches": [
+          "arXiv:1503.09112 §4, Proposition 6 and Theorems 5–6",
+          "arXiv:1908.03169 Theorem 1",
+          "Resultary 0ea5ed9577a7 and fde03d745d08"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 0ea5ed9577a7 and fde03d745d08, Finding and Proof, contain exactly the pointwise five-run defect formula.",
+          "Counting the empty palindrome and subtracting from n+1 is equivalent to counting nonempty ones and subtracting from n. Guo–Shallit–Shur, Proposition 6(iii), formulates richness via uniqueness of longest palindromic suffixes."
+        ],
+        "reasoning": "Matching the convention does not make binary richness equivalent to the positive-defect distribution. The pointwise identity does match both catalogue results, so that identity is not a distinct contribution relative to those records.",
+        "searches": [
+          "Resultary: five-run palindromic defect, five-block binary words, run-length defect spectrum and distribution",
+          "arXiv:1503.09112 §4",
+          "arXiv:1708.06911 introduction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "0ea5ed9577a7 gives the set of attainable defects, first positive length and the maximum, not their multiplicities. fde03d745d08 enumerates bounded-run minimal non-rich words rather than all five-run words at each defect."
+        ],
+        "reasoning": "Neither a set of attainable values nor a table of minimal forbidden words determines the stated histogram without the additional parameter counting. No exact multiplicity table was identified in these checks.",
+        "searches": [
+          "Resultary: exact five-run positive palindromic-defect spectrum, histogram and bivariate generating function",
+          "Resultary findings 0ea5ed9577a7 and fde03d745d08, mirrored RESULT.md"
+        ]
+      },
+      "rationale": "The supported distinction is the full length-by-defect multiplicity law and its consequences, not exclusive novelty for the defect formula, attainable values, or the qualitative richness criterion. Two distinct published catalogue findings contain the identical pointwise five-run formula; one also gives the attainable spectrum and maximum, but neither contains the joint count, density or first moment. Both are listed later than the frozen record; chronology alone is not evidence about their derivations or priority. The older sources inspected do not establish the multiplicity law by a covering result.",
+      "residual_risks": [
+        "The 2016 journal text was not obtained; older qualitative run-length coverage is possible. Broader web search was not informative and does not count as evidence against coverage. Unindexed equivalent distributions remain possible. No priority over the matching catalogue entries is inferred from dates alone."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identical pointwise formula; overlapping attainable spectrum and maximum, not the multiplicities.",
+          "evidence": [
+            "Finding: maximum max(0,floor((n-6)/2)); first positive defect at n=8."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-palindromic-defect-and-sharp-defect-spectrum-of-binary-fiv--0ea5ed9577a7",
+          "material_read": "RESULT.md Finding and Proof",
+          "method": "Local publication mirror",
+          "title": "Exact palindromic defect and sharp defect spectrum of binary five-run words",
+          "trigger": "Exact same five-run invariant"
+        },
+        {
+          "assessment": "Identical five-run formula, additive six-run defect and different enumerator.",
+          "evidence": [
+            "Finding: generating function concerns bounded-run minimal non-rich words, not frequencies of every defect on the five-run family."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-palindromic-defect-and-minimal-obstructions-for-binary-wor--fde03d745d08",
+          "material_read": "RESULT.md Finding and Proof",
+          "method": "Local publication mirror",
+          "title": "Exact palindromic defect and minimal obstructions for binary words",
+          "trigger": "Exact five-run defect as part of a broader result"
+        },
+        {
+          "assessment": "Related richness tests and global counts, not a positive-defect census.",
+          "evidence": [
+            "Proposition 6(iii), Theorem 5 and Theorem 6."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1503.09112",
+          "material_read": "§4, PDF pp. 8–9",
+          "method": "Open preprint, statement comparison",
+          "title": "On the Combinatorics of Palindromes and Antipalindromes",
+          "trigger": "Earlier run-length methods for binary richness"
+        },
+        {
+          "assessment": "Unresolved beyond accessible evidence.",
+          "evidence": [
+            "The landing-page response did not supply journal full text."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.ipl.2016.07.001",
+          "material_read": "Landing page only; primary preprint checked separately",
+          "method": "DOI and bounded lawful OA retrieval attempt",
+          "title": "Palindromic rich words and run-length encodings",
+          "trigger": "Journal treatment could add a relevant run-length statement"
+        },
+        {
+          "assessment": "Infinite rich-word repetition threshold, not distribution of positive defect at five runs.",
+          "evidence": [
+            "Theorem 1 addresses the 14/5 threshold."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1908.03169",
+          "material_read": "Abstract and Theorem 1, PDF pp. 1 and 3",
+          "method": "Open preprint passage comparison",
+          "title": "The repetition threshold for binary rich words",
+          "trigger": "Motivating binary rich-word study"
+        },
+        {
+          "assessment": "A predicate on the full block-reversal set, not an enumerator of the original word's defect.",
+          "evidence": [
+            "Both statements concern richness of every block reversal."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2302.02109",
+          "material_read": "Proposition 4.17 and Theorem 4.21, PDF pp. 13 and 16",
+          "method": "Open preprint passage comparison",
+          "title": "Rich Words in the Block Reversal of a Word",
+          "trigger": "Binary five-run characterization"
+        },
+        {
+          "assessment": "Equivalent convention; no positive five-run distribution in the inspected material.",
+          "evidence": [
+            "Zero-defect rich words and compatibility of rich words."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1708.06911",
+          "material_read": "Abstract and introduction, PDF p. 1",
+          "method": "Open preprint passage comparison",
+          "title": "On Words with the Zero Palindromic Defect",
+          "trigger": "Equivalent defect convention and general zero-defect theory"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, exact formula, joint enumerator and consequences; prior richness and spectrum comparisons above."
+      ],
+      "rationale": "Five runs are the first binary run restriction in which positive defect is possible. The distribution distinguishes how often richness fails and by how much, including an exact sparse-length cutoff, a positive limiting fraction and a linear mean. It is a natural baseline for defect statistics with more runs, not just a zero-defect test or list of attainable values.",
+      "residual_risks": [
+        "The value concerns distinct contiguous palindromic factors in this first nontrivial run family; it does not establish consequences for unrestricted random words."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

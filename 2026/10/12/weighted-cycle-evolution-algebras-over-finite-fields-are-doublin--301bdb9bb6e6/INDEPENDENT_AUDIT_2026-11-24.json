@@ -1,0 +1,151 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:19:33.500915Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–181 and 183–394",
+        "Frozen VERIFICATION.md and artifacts/verify.py (read, not executed)",
+        "python3 /workspace/review_work/definition_replays.py 4",
+        "Independent exponent-coordinate replay: weighted_cycle_check.py, F4 and F8 pair tests and F16 orbit test"
+      ],
+      "rationale": "The nonzero cycle weights make the target squares a basis. Since images of distinct natural-basis elements multiply to zero, their supports are disjoint. Invertibility then forces one nonzero coordinate per image. Comparing squares forces the resulting permutation to commute with the directed successor, hence it is a rotation r. Starting with λ₀, the scalar recurrence c_i λ_{i+1}=λ_i² b_{i+r} closes iff λ₀^(2^n−1)=Δ(c)/Δ_r(b). One step of rotation replaces Δ(b) by Δ(b)²/b₀^(2^n−1), so the diagonal quotient of size d=gcd(2^n−1,q−1) has rotation action by doubling. A representative with all but the last weight 1 and last weight Δ(c) therefore always works. The fixed subgroup of the r-th doubling iterate has size gcd(d,2^r−1), including d at r=0, yielding Burnside's sum also for d=1. For automorphisms the rotation homomorphism hits exactly the stabilizer and the diagonal kernel is parametrized multiplicatively by the d roots for λ₀. The exact sequence makes no splitting claim. For an idempotent, one zero coordinate forces all to vanish; the recurrence x_{i+1}=c_i x_i² gives x₀^(2^n−1)=Δ(c)^−1 for nonzero solutions. It yields d of them exactly in the trivial orbit. Independent checks included an F7 length-two direct test of invertible linear maps against all basis multiplications and full idempotent coordinates, giving class sizes 12 and 24, automorphism orders 6 and 3, and idempotent counts 4 and 1; separate exponent checks cover F4 and F8 length-three classifications and reproduce the F16 length-four five-orbit example.",
+      "residual_risks": [
+        "Finite checks supplement the symbolic proof only. The cyclic quotient size, gcd census and kernel cardinality d require a finite field; for general fields the same recurrence leaves a possibly noncyclic quotient.",
+        "The proof assumes an invertible one-cycle support, not several cycles or zero weights, and does not classify automorphism groups up to abstract group isomorphism."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wei–Zou count all invertible structure matrices up to monomial action, using a partition/diagonal sum over fixed matrices. Their equations (3.1)–(3.2) impose invertibility rather than this specific support.",
+          "Elduque–Labra give the diagonal group to automorphisms to graph automorphisms exact sequence, with image potentially proper. Costoya–Mayorga–Viruel give natural-basis rigidity in perfect algebras."
+        ],
+        "reasoning": "The general finite-field total cannot be specialized to the desired count by setting n or q: one must isolate the single-cycle support stratum and compute its orbit quotient. The general image-in-graph-automorphisms statement does not decide which rational rotations lift for given weights. These underlying general results are not treated as new.",
+        "searches": [
+          "arXiv:2310.12368 Theorem 2.1 and equations (3.1)–(3.2)",
+          "arXiv:1902.02191 Theorem 3.2 and Corollary 3.4",
+          "arXiv:2401.05924v2 Theorem 2.4 and Corollary 2.5"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2310.12368, 1902.02191, 2401.05924v2, 2005.05793",
+        "Resultary e8db04aa8932 and 68b762be11e4 and bounded semantic searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Restricting the known matrix criterion gives c_i λ_{i+1}=λ_i² b_{i+r}; it does not state its complete quotient invariant. General graph theory gives the diagonal kernel and a map into graph rotations, not the coefficient-dependent image.",
+          "Narkuziyev writes the coordinate idempotent equations; suppressing an extra incoming coefficient yields the single-edge recurrence, so that equation itself is not new. The specialized power obstruction connects its solvability to the isomorphism invariant.",
+          "The later catalogue e8db04aa8932 argues for the same finite-field specialization of exactly these ingredients and includes additional distribution data."
+        ],
+        "reasoning": "The new content is an explicit solution of the support-restricted orbit problem, not the observation that the algebras are monomial or that one can apply Burnside. One has to eliminate the scalar variables, compute the residual doubling action and evaluate the image of the rational automorphisms. The known coordinate recurrence and the general exact sequence alone do not imply the joint formula without this calculation. The later same-profile entry does imply the numerical conclusions but was not established to be antecedent.",
+        "searches": [
+          "arXiv:2310.12368 Theorems 1.1 and 2.1, §3 equations (3.1)–(3.2)",
+          "arXiv:1902.02191 Theorem 3.2 and Corollary 3.4",
+          "arXiv:2005.05793 §4 equation (4.1)",
+          "Resultary e8db04aa8932 Finding and Relationship to prior work"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Wei–Zou's P^−1BP^(2)=A is a necessary and sufficient arbitrary-field monomial criterion, and restricting to this support immediately gives a scalar recurrence for a rotation.",
+          "Narkuziyev's cycle decomposition and normalization results inspected there concern a two-permutation model; Proposition 4 and Theorem 6 specifically require nonzero contributions from a successor and the vertex itself.",
+          "The Finding of Resultary e8db04aa8932 gives the same power-quotient obstruction and doubling orbit criterion."
+        ],
+        "reasoning": "The prior monomial condition covers the setup rather than the reduced normal form: solving the cyclic scalar system and taking the quotient still leaves a residual rotation action which must be computed. The later catalogue contribution is genuinely equivalent on this part, unlike the different two-edge support.",
+        "searches": [
+          "Resultary: single weighted directed-cycle evolution algebra, Δ and doubling-orbit classification",
+          "arXiv:2310.12368 Theorem 1.1 and Corollary 1.1",
+          "arXiv:2005.05793 §5 Theorem 5, Proposition 4 and Theorem 6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The later catalogue e8db04aa8932 matches the Burnside count, automorphism order and idempotent dichotomy on the same field and cycle lengths and adds a weight distribution. Record 68b762be11e4 gives the F4 specialization for all lengths.",
+          "Wei–Zou's explicit low-dimensional enumeration is for the entire perfect-algebra space, not a table of this weighted-cycle family or its automorphism/idempotent profiles."
+        ],
+        "reasoning": "The exact catalogue matches are reported as such, rather than dismissed for title differences. The derivative F4 slice and general perfect-algebra totals do not replace the arbitrary-q support-specific count; no prior table of the complete profile was established.",
+        "searches": [
+          "Resultary arithmetic symmetry and idempotent-profile comparisons: e8db04aa8932 and 68b762be11e4",
+          "arXiv:2310.12368 abstract and §2 Theorem 2.1"
+        ]
+      },
+      "rationale": "The exact contribution supported here is the one-cycle reduction to the power quotient with residual doubling action and its explicit coupled finite-field classification, class count and stabilizers, with the idempotent boundary as a consequence of the same invariant. General monomial isomorphism, the graph exact-sequence framework, Burnside's method and the idempotent coordinate equation are prior ingredients. The strongest overlapping indexed item, e8db04aa8932, really gives the same core mathematics plus a distribution; that later-dated entry is evidence of equivalent catalogue content, not evidence establishing earlier availability or independent derivation. The inspected primary publications do not already give the complete arithmetic reduction.",
+      "residual_risks": [
+        "The provenance relationship between the two substantially overlapping catalogue findings is not established; a displayed date is not certification of authorship or priority.",
+        "The separate dissertation summary identified in the frozen record was not independently checked. The primary preprint passages are available and compared, but the literature search is not exhaustive."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General orbit and enumeration framework, not explicit one-cycle reduction",
+          "evidence": "Criterion is P^−1BP^(2)=A for monomial P; Theorem 2.1 sums fixed invertible matrices over partitions and diagonals; (3.1)–(3.2) give general fixed-matrix equations.",
+          "identifier_or_url": "https://arxiv.org/pdf/2310.12368",
+          "material_read": "Theorem 1.1 and Corollary 1.1, pp. 2–4; Theorem 2.1 and start of §3, pp. 5–6, text offset 13000",
+          "method": "OA primary PDF, bounded theorem and fixed-matrix passages",
+          "title": "Isomorphism Classes of Idempotent Evolution Algebras",
+          "trigger": "Strong general classification and finite-field census including all perfect evolution algebras"
+        },
+        {
+          "assessment": "Prior exact sequence framework; lifting subgroup not evaluated for these rational weights",
+          "evidence": "There is a map to graph automorphisms with diagonal kernel. The graph group need not be reached in full.",
+          "identifier_or_url": "https://arxiv.org/abs/1902.02191",
+          "material_read": "§3 Theorem 3.2 and Corollary 3.4, pp. 7–9",
+          "method": "OA primary PDF passages",
+          "title": "Evolution algebras, automorphisms, and graphs",
+          "trigger": "General automorphism exact sequence, diagonal kernel for graph supports"
+        },
+        {
+          "assessment": "Prior rigidity ingredient",
+          "evidence": "Natural bases of a perfect evolution algebra over an arbitrary field differ only by scalings and order.",
+          "identifier_or_url": "https://arxiv.org/abs/2401.05924v2",
+          "material_read": "Theorem 2.4 and Corollary 2.5, pp. 3–4",
+          "method": "OA primary PDF passages",
+          "title": "Permutation representations and automorphisms of evolution algebras",
+          "trigger": "Perfect-algebra natural-basis rigidity"
+        },
+        {
+          "assessment": "Cycle and idempotent ingredients; inspected isomorphism statements do not give the target quotient",
+          "evidence": "Equation (4.1) is a two-incoming-term idempotent system. Theorem 5 decomposes matching cycle supports; Proposition 4 and Theorem 6 normalize a cycle with a nonzero diagonal component, unlike the single-edge multiplication here.",
+          "identifier_or_url": "https://arxiv.org/pdf/2005.05793",
+          "material_read": "§4 equation (4.1) on p. 9 (text near 34509); §5 Theorem 5/Proposition 4/Theorem 6 on pp. 11–12 (near 37900)",
+          "method": "OA primary PDF, bounded primary passages",
+          "title": "Some remarks on evolution algebras corresponding to permutations",
+          "trigger": "Most directly relevant primary permutation and idempotent source"
+        },
+        {
+          "assessment": "Equivalent core and additional scope in later-dated catalogue item; provenance relationship unresolved",
+          "evidence": "Same Δ-class and rotation action, class count, automorphism orders and two idempotent cases; additional uniform-weight joint distribution. The comparison text acknowledges the known idempotent equation and general monomial framework.",
+          "identifier_or_url": "Resultary e8db04aa8932",
+          "material_read": "RESULT.md Finding and Relationship to prior work, text offset 6521 for the latter",
+          "method": "Local Resultary mirror, exact claim comparison",
+          "title": "Arithmetic isomorphism and idempotent symmetry profiles of cyclic evolution algebras",
+          "trigger": "Exact core overlap plus a distribution"
+        },
+        {
+          "assessment": "Narrower later-dated overlap",
+          "evidence": "Gives the F4 specialization rather than all finite fields.",
+          "identifier_or_url": "Resultary 68b762be11e4",
+          "material_read": "RESULT.md Finding and field assumptions",
+          "method": "Local Resultary mirror",
+          "title": "A complete splitting trichotomy for weighted-cycle evolution algebras",
+          "trigger": "Same classification at q=4 for all cycle lengths"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 23–165 and 228–356",
+        "Wei–Zou Theorems 1.1 and 2.1; Elduque–Labra Theorem 3.2"
+      ],
+      "rationale": "The directed cycle is a basic connected permutation support and a motivated case where algebra structure, automorphisms and solutions of x²=x can be studied together over finite fields. The reduction replaces a large space of structure matrices and change-of-basis choices with an explicit small cyclic orbit problem for any n and q. In particular, among the many possible arithmetic isomorphism classes exactly one has a nonzero idempotent, and the same orbit invariant gives all rational stabilizer sizes. This is useful exact structure, not a table of small cases or a formal relabeling of the general orbit equation.",
+      "residual_risks": [
+        "Value is for a single-cycle arithmetic classification, not a full permutation evolution-algebra or abstract automorphism-group classification."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

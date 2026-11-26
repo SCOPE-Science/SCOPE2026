@@ -88,19 +88,16 @@ def discrete_factorization_test(barrier):
     capture_law = normalized(capture_weight)
     return_to_zero = free_hitting(barrier, barrier, upper, q, "zero")
     observed_prob = sum(direct.values())
-    checks = 0
     for i, x in enumerate(points):
         for j, y in enumerate(points):
             expected = extreme_law[i] * (return_to_zero * (i == j)
                                          + (1 - return_to_zero) * capture_law[j])
             actual = direct[(x, y)] / observed_prob
             assert abs(actual - expected) < 5e-10, (barrier, x, y, actual, expected)
-            checks += 1
     marginal = [sum(direct[(x, y)] for y in points) / observed_prob for x in points]
     for i in range(2):
         assert abs(marginal[i] - extreme_law[i]) < 5e-10
-        checks += 1
-    return checks, return_to_zero, observed_prob
+    return return_to_zero, observed_prob
 
 
 def brownian_atom_test():
@@ -122,7 +119,6 @@ def brownian_atom_test():
     var_b = b[0] * b[1] * (x[1] - x[0]) ** 2
     assert abs(cov - t * var_b) < 3e-14
     assert abs(joint[0][0] - 0.11761957068539448) < 2e-14
-    return 4
 
 
 def killed_lattice_continuum_test():
@@ -135,7 +131,6 @@ def killed_lattice_continuum_test():
         approximate = math.sinh(lam * int(round(x / h))) / math.sinh(lam * n)
         errors.append(abs(approximate - analytic))
     assert all(errors[i + 1] < errors[i] / 3.7 for i in range(3)), errors
-    return 4
 
 
 def beta_boundary_layer_test():
@@ -156,19 +151,18 @@ def beta_boundary_layer_test():
         errors.append(abs(lower_mean - alpha) + abs(upper_mean - beta))
     assert errors[2] < errors[1] < errors[0], errors
     assert errors[2] < 0.35, errors
-    return 6
 
 
 def main():
-    n = brownian_atom_test() + killed_lattice_continuum_test()
+    brownian_atom_test()
+    killed_lattice_continuum_test()
     for barrier in (5, 6):
-        count, direct_return, exceed = discrete_factorization_test(barrier)
-        n += count
-        print(f"Discrete threshold {barrier}: exact joint-mark factorization; "
+        direct_return, exceed = discrete_factorization_test(barrier)
+        print(f"Discrete threshold {barrier}: joint-mark factorization within tolerance; "
               f"post-threshold return probability {direct_return:.9f}; "
               f"exceedance probability {exceed:.9f}")
-    n += beta_boundary_layer_test()
-    print(f"PASS: {n} independent numerical and finite-state consistency checks; "
+    beta_boundary_layer_test()
+    print("PASS: numerical and finite-state consistency diagnostics; "
           "continuous-space proof is in RESULT.md")
 
 

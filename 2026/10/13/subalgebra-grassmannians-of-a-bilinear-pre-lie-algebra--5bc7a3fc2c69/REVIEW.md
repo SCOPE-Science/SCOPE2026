@@ -1,15 +1,21 @@
-# Scientific assessment: Subalgebra Grassmannians of a bilinear pre-Lie algebra
+# Independent mathematical audit
 
-## Correctness — PASS
-The product is exactly \(x\cdot y=\lambda(x)y+\widetilde B(x,y)e\). Its left multiplication operators satisfy the pre-Lie representation identity because \(\widetilde B\) is symmetric. For each linear subspace \(S\), either \(e\in S\), in which case closure is immediate, or \(e\notin S\), when closure is equivalent to \(\widetilde B(S,S)=0\). The alternatives are disjoint, including the zero subspace. For odd \(q\), nondegenerate \(B\), extension of a totally isotropic subspace is counted by isotropic lines in the nondegenerate quotient \(U^\perp/U\). The elementary Gauss-sum zero-vector count establishes the exact recursion, including nonsplit maximal-isotropic boundary cases. The packaged Python verifier independently enumerates all subspaces for twelve prime-field examples, checks closure from the raw multiplication, and reproduces the rank polynomial. Finite tests do not prove the unrestricted statement; its algebraic proof does.
+## correctness
 
-## Originality — PASS, with residual risk
-Cerqua–Facchini, arXiv:2301.02627v1, 6 January 2023, Example 1(3), explicitly discusses the dimension-two multiplication and credits its original predecessor; Sections 4 and 6 study ideals, idempotent endomorphisms and semidirect decompositions. The full text was examined to compare the claimed all-subalgebra classification and finite-field rank polynomial, not just the title. Their results do not imply a classification of all embedded subalgebras of the arbitrary-dimensional symmetric-bilinear extension. Facchini–Heidari Zadeh, arXiv:2210.08230v1, concerns unital bilinear-form algebras and idempotent endomorphisms; its text does not supply this correspondence. Counts of totally isotropic subspaces are classical and expressly excluded from novelty. Searches under subalgebra/polar geometry and left-symmetric/pre-Lie aliases, including analogous published mathematical results, did not identify a covering statement. Residual risk: an equivalent subalgebra formula may occur in older literature using a different presentation of this algebra; neither keyword search nor any repository establishes uniqueness.
+PASS
 
-## Value — PASS
-Subalgebras (rather than only ideals or retract images) form an intrinsic and generally difficult lattice invariant of nonassociative algebras. The exact decomposition into an ordinary Grassmannian and an orthogonal polar Grassmannian applies to all dimensions and characteristics structurally, and gives the entire embedded subalgebra-dimension distribution for every odd finite field and nondegenerate symmetric form. The discriminant-independence dichotomy in even generator dimension is an interpretable structural consequence, and the odd-dimensional contrasting examples show that it is a genuine boundary. This is not an arbitrary parameter slice or a recomputation of the orthogonal count itself.
+With λ(ae+u)=a and β_x(y)=B̃(x,y), the product is λ(x)y+β_x(y)e, where B̃=⟨1⟩⊥B. The commutator of left multiplications is e⊗(λ(x)β_y−λ(y)β_x), since β_x(e)=λ(x). Symmetry of B̃ gives [x,y]=λ(x)y−λ(y)x with λ([x,y])=0, proving the pre-Lie identity over every field. The term λ(x)y stays in any subspace containing x,y; thus closure is equivalent to containing e or having B̃ vanish on every pair in the subspace. These alternatives are disjoint since B̃(e,e)=1. For odd finite fields with nonsingular B, the first family is counted by the Grassmann polynomial of V with degree shifted by one. For an isotropic r-space U the induced quotient U⊥/U has dimension N−2r and determinant class (−1)^r det B. The zero-norm count in this quotient follows from the finite-field quadratic Gauss sum, and double counting one-dimensional extensions gives I_{r+1}=I_r(C_r−1)/(q^{r+1}−1). This includes the nonsplit vanishing case. Odd N has zero counts independent of the determinant; even N has different I_1 for the two signs. The independent direct prime-field closure enumeration reproduced all twelve selected cases and the displayed coefficients.
 
-## Literature and scope limits
-Primary: M. Cerqua and A. Facchini, *Pre-Lie algebras, their multiplicative lattice, and idempotent endomorphisms*, arXiv:2301.02627v1, Example 1(3), Sections 4 and 6 (full text inspected). Related: A. Facchini and L. Heidari Zadeh, *Algebras with a bilinear form, and Idempotent endomorphisms*, arXiv:2210.08230v1 (full text inspected). Orthogonal-subspace context: M. De Boeck and G. Van de Voorde, arXiv:2409.12312v1 (abstract inspected only). The discriminant formula is for odd \(q\) with nondegenerate \(B\); general fields and degenerate forms retain the structural criterion, not this numerical recursion. Neither publication nor originality has been independently validated.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct contribution is the arbitrary-dimensional pre-Lie extension and identification of its embedded subalgebra lattice with the polar/Grassmann families over every field. The rank-two-module pre-Lie example and the orthogonal counts are already known. There is also exact mathematical coverage of the odd nonsingular numerical part by the separately indexed rank-one evolution census after an explicit same-lattice reduction. That is not just a similar counting method. Its catalogue date is later; the comparison establishes mathematical overlap, not prior priority over this record or coverage of the stated pre-Lie result and its general-field scope.
+
+## value
+
+PASS
+
+The family naturally extends a standard small pre-Lie example by a symmetric form. Its closure criterion identifies the entire collection of embedded subalgebras, including nonunital ones, with two explicit families even for degenerate forms and in characteristic two. In odd nonsingular cases it explains structurally why the census can detect the discriminant in one parity and not the other. Value lies in the identification and the field-sensitive interpretation for these pre-Lie algebras, not in independently recounting standard polar subspaces or a second rank-one census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The four-rate Markov chain is fully specified with uniform receiving-vertex and neighbor selection, strictly positive acceptance probabilities, and connected finite undirected bipartite graph. All nonconsensus configurations can reach one of the two absorbing consensuses, so optional stopping is applicable to bounded martingales. For biregular graphs the two edge orientations give zero drift for the explicit product potential, using both of its parameter identities. At the product-balance surface the edge drift of the degree-weighted linear potential vanishes even on irregular graphs. The denominators are nonzero as proved. Exact rational verification covers 5760 biregular state/parameter pairs, 366 independent absorbing-chain solves, and 30 critical irregular-path solves. Finite tests are validation samples, not an infinite proof.
+PASS
 
-## Originality: PASS, with residual priority risk
+For a discordant U=0,W=1 edge the conditional relative drift of H=z_U^k_U z_W^k_W is proportional to (p_U/d_U)(z_U-1)+(q_W/d_W)(z_W^(-1)-1). It is zero by the stated A and z bases; z_U z_W=Q then makes the reverse orientation cancel too. Both positive bases are on the same side of 1, so the off-critical denominator is nonzero. At Q=1, the weighted mass with U weight c times degree, c=q_W/p_U, has both orientations balanced since cp_U=q_W and cq_U=p_W; degree cancellation is per edge and uses no biregularity. Strictly positive rates and connectedness give a positive-probability route to consensus from every transient state; finite state space gives almost-sure absorption. The two bounded harmonic functions at the consensus boundaries yield both formulas, including initial consensus. An independently written rational absorbing-chain solve matched all 30 transient states each on an irregular five-vertex critical path and a noncritical K_{3,2}. The shipped script was not executed.
 
-The source studies by Becchetti et al. (arXiv:2305.07377) and Zimmaro et al. (DOI:10.3390/e25060838) do not state either general exact theorem for this four-rate acceptance process. The substantially closer bithermal result of Houchmandzadeh and Vallade (arXiv:1211.2782) covers globally uniform copying bias and is expressly excluded from novelty. An already-known alternate-equal-intensity bipartite martingale lies on the product-balance surface and is likewise not new. In contrast the exact four-rate noncritical formula permits different local biases, and the arbitrary-irregular-graph balanced theorem permits unequal total responsiveness. Fitness-weighted neighbor selection from the positional voter model is a different Markov chain. No claim of exhaustive literature coverage is made; previously unnoticed equivalent treatments are possible.
+## originality
 
-## Mathematical value: PASS
+PASS
 
-The result supplies exact finite-network fixation probabilities for arbitrary initial configurations in a motivated conflicting-preferences social-dynamics model. On a broad graph family it gives rewiring-independent predictions despite four separate class parameters, and proves that the macroscopic drift boundary is the product of the local adoption rates rather than the sum of partisan preferences. The sharp critical surface admits exact degree-weighted fixation even without regularity. These are structural identities for an infinite graph family, not a small parameter substitution or a finite enumeration.
+The surviving scope is independent receiver-class adoption rates in the biregular noncritical formula and the heterogeneous-response degree weighting at criticality. The analogous bithermal product-form argument, its uniform-rate specialization, and the alternating complementary-rate critical case are established coverage. The nearest partisan-voter model uses complementary rates and the inspected analysis does not supply the claimed four-rate absorption theorem. A plausible martingale paper could not be read and is an explicit residual risk, not evidence of novelty or a basis for rejection.
 
-## Scientific limitations
+## value
 
-The off-critical statement does not extend to all irregular bipartite graphs. Adoption probabilities must remain strictly positive and class-homogeneous. The literature priority assessment remains a self-review, not an independent audit. Classical uniform-bias and alternate equal-intensity neutral special cases are known and are not treated as new.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The result resolves fixation, not just drift or expected opinion at a given time, for a natural two-community process allowing distinct adoption and responsiveness rates. It provides a connectivity-independent law within the biregular class and a distinct weighted influence formula at product balance even for irregular graphs. The ability to separate opposing local preference from unequal class responsiveness, and still compute exact initial-state fixation, goes beyond the already-known single-bias and alternating-complementary cases.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Scientific review of the multisink block-design capture law
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The design identity \(BB^{\mathsf T}=(\rho-\lambda)I+\lambda\mathbf1\mathbf1^{\mathsf T}\) proves full row rank and establishes the exact bright space \(W\oplus B^{\mathsf T}W\) with dimension \(2(t+1)\). Strictly positive losses make every mode in that bright space decay; modes orthogonal to it have zero loss. Point probabilities follow from averaging the unmarked coordinates, while the block formula follows from the constant row-space leverage \(v/b\) minus the exact incidence variance \(u(s-u)/(s(\rho-\lambda))\). The proof includes the full nonsymmetric case. The attached checker has passed 244 marked-subset comparisons, 6,936 local values, 150 exact projector cases and 20 dissipative survival checks, with worst numerical projector error \(1.110\times10^{-15}\). Finite tests are corroboration, not a substitute for the analytical proof.
+PASS
 
-## Originality
+For 3≤t<v, BBᵀ=δI+λ11ᵀ has full row rank and acts as δ on the zero-sum space. Applying A² to a sink point generates the constant point vector modulo that sink, hence the minimal adjacency orbit is W⊕BᵀW, where W is spanned by the sink coordinates and 1. The orthogonal complement is invariant and lossless. An eigenvector of the dissipative generator in this orbit with zero real part would have every sink coordinate zero by strict positivity of the losses; it would then be an adjacency eigenvector orthogonal to every orbit generator and hence zero. All orbit modes decay, including in the presence of Jordan blocks. The resulting orthogonal projector averages the s unmarked point coordinates. On the block side the row-space leverage is k/(vρ)+(k−k²/v)/δ=k/ρ=v/b, and its dark subspace subtracts u(s−u)/(sδ). This proves the point, block and trace laws and the stated certainty criteria. For s=1 the correction is zero. The Fano line-intersection distributions are one line with three marked points and six with one for a collinear triple, versus three with two, three with one and one with none for a noncollinear triple. The prior independent replay used literal adjacency powers on 237 sink sets, including unequal positive rates and labeled repeated blocks; finite propagation is corroboration, not the limit proof. The frozen checker uses s−u in the symmetric product and was not executed. The frozen slogan was false if read at t=v: s=0 makes the block expression undefined and the true mixed efficiency is 2v/(v+b), not 2(v+1)/(v+b). The complete replacement repairs/2/SLOGAN.txt restores 3≤t<v and the uniform positive hopping hypothesis, without changing the theorem.
 
-**PASS, subject to historical-priority uncertainty.** The invariant-subspace transport method belongs to Novo et al. (arXiv:1412.7209), and spectral decomposition of symmetric incidence designs, including multiple marked sites in Hermitian search, belongs to Lugão and Portugal (arXiv:2310.14141). The latter full text was compared at its spectral theorem, multiple-marked derivations and conclusion: it studies finite-time coherent search, not absorptive dynamics, and it does not cover nonsymmetric designs or the blockwise capture formula. Razzoli et al. (arXiv:2011.13794) treat the single-trap efficiency framework. Previously calculated two-trap affine-plane cases do not imply the claimed general multisink, all-\(2\)-design theorem. Semantic comparisons with published mathematical results identified related design spectra and unrelated quantum transport, not a statement implying this formula. Search absence does not establish unique historical priority.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** Exact sitewise absorption is physically meaningful: identical average efficiencies hide a geometric distinction between collinear and noncollinear triple absorbers in the Fano plane. The sharp upper bound \(v/b\) is an exact obstruction to full capture from block sites in every nonsymmetric design, even when the marked set nearly covers the point part. The formula is parameter-uniform over infinitely many balanced designs, and quantitatively separates sink-placement geometry from the universal bright-space dimension.
+The distinct claim is the evaluated local intersection law and certainty obstruction for arbitrary balanced 2-design incidence graphs with the stated point sinks, not the known Krylov projection principle or design spectra. The two-point affine-plane result genuinely overlaps in the model, but not the stated range or family. Related multi-marked Hermitian search and capture ranks on other host graphs do not give these sitewise probabilities.
 
-## Limitations and closest literature
+## value
 
-The claim is restricted to uniform coherent hopping, at least three and fewer than all point absorbers, strictly positive absorption strengths and infinite-time single-excitation dynamics. It makes no statement about traps on block vertices, noisy evolution or time-to-capture. The multiple-marked Hermitian design-search result is a significant antecedent with a different observable and different generator; more specialized absorption literature could affect priority.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The local and mixed efficiencies answer different natural transport questions. The Fano cases give different perfect-capture behavior at the same mean. The leverage bound gives a strict placement-independent obstruction for block starts in nonsymmetric designs even at s=1, where the variance correction vanishes. The law is a useful exact diagnostic over the full design family, without claims about time to capture or noise.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,154 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:02:33.113706Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md steps 1–5 and VERIFICATION.md",
+        "check.py inspected, not executed",
+        "Independent replay: python3 /workspace/review_checks/check_2_and_5.py (submodularity section)"
+      ],
+      "rationale": "The six mixed differences suffice for submodularity, without monotonicity or normalization. Their rank-four image is cut out by equality of the three paired slack differences. With nonzero common difference only its lower side in each pair can be zero; with zero common difference zeros occur by whole pairs. Every such pattern is feasible, so there are 1+14+7=22. A fresh exact computation enumerated slack vectors in {0,1,2}^6 (enough for each feasible pattern by normalizing the nonzero difference to ±1) and built the projectors by rational Gram–Schmidt. It reproduced each class norm and the five maximal masks 15, 21, 42, 51, 60 with norm 7/4. For each face, its relative interior plus the normal cone's relative interior contains an open Euclidean projection region, on which the projection is the projector onto the face span. The closed face-plus-normal regions cover space and meet a segment in finitely many intervals; summing their bounds proves the global constant. At the sharp witness the residual is in the relative interior, not the ambient interior, of the normal cone (the wording in Step 4 is read with Step 2). The empty-set row is (5,2,2,−1,2,−1,−1,0)/8, so sufficiently small sign perturbations give equality. For one element the fit is unchanged; for two, the active half-space derivative I−aaᵀ/4 has norm 3/2 and is attained on an open region.",
+      "residual_risks": [
+        "The face enumeration and sharp perturbation apply only to unweighted Euclidean regression on all eight coordinates. They say nothing about weighted, normalized, or larger submodular problems."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Submodular superdifferential and extension theory, isotonic projection subroutines, and Euclidean 1-Lipschitz projection do not provide induced infinity-norm sharpness for this submodularity cone."
+        ],
+        "reasoning": "Euclidean nonexpansiveness alone gives a dimension-dependent infinity-norm comparison, not the exact factor or its facewise witnesses. The inspected isotonic results impose coordinate-order constraints and are not this regression.",
+        "searches": [
+          "Iyer–Bilmes arXiv:1506.07329",
+          "Bach arXiv:1511.00394",
+          "Németh–Németh arXiv:1503.08458",
+          "Chatterjee–Guntuboyina–Sen arXiv:1311.3765"
+        ]
+      },
+      "checked_sources": [
+        "The indexed two-row stability result and the primary literature passages above",
+        "Frozen proof and exact independent face computation"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known 2×m result is a chain-product family; its m=4 instance has rank-three normal span. The frozen fit involves three coupled pairs of elementary differences and five optimizing active sets. The general piecewise-affine formula leaves those feasible regions and exact row norms to be computed."
+        ],
+        "reasoning": "The exact Boolean-lattice modulus is not a parameter substitution in the inspected formulas, and the active table is not a generic consequence of an isotonic projection assertion.",
+        "searches": [
+          "Resultary two-row supermodular record SCOPE-20261026-9895722cef5e",
+          "Németh–Németh arXiv:1503.08458",
+          "Frozen RESULT.md active classification and projection table"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Hütter et al. use supermodularity/anti-Monge on a chain product. The exact indexed 2×4 array result has only three independent adjacent constraint rows. The Boolean-lattice fit and its sign-dual supermodular fit both have rank four and six elementary inequalities."
+        ],
+        "reasoning": "The change of sign between submodular and supermodular preserves the norm, but changing the underlying lattice changes the cone. Different lineality dimensions exclude linear equivalence even though both spaces have dimension eight.",
+        "searches": [
+          "Resultary: exact coordinatewise stability of submodular least-squares regression on three variables; weighted two-row supermodular projection",
+          "Hütter et al., arXiv:1904.03136",
+          "Resultary SCOPE-20261026-9895722cef5e"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed two-row formula gives 2−1/m at equal weights, hence the same numerical value 7/4 for m=4, but no 22-pattern Boolean-lattice table or five maximizing patterns. The available comparisons did not identify an exact table for the assigned cone."
+        ],
+        "reasoning": "A match in dimension and a single number is not coverage of a table or an equivalent exact invariant when the feasible cones differ.",
+        "searches": [
+          "Resultary: 7/4 modulus, three-element submodular cone, 22 active patterns and five maximizers",
+          "Local mirror SCOPE-20261026-9895722cef5e RESULT.md Finding offsets 0–3032"
+        ]
+      },
+      "rationale": "The strongest indexed match is the same-day sharp coordinatewise modulus for weighted two-row supermodular regression. Its equal-weight m=4 case also gives 7/4 in eight coordinates, but it has three independent adjacent constraints and a five-dimensional lineality space, versus six constraints of rank four and four-dimensional lineality here. In particular these are not coordinate relabelings, sign changes or linearly equivalent cones. Its formula does not give the six-constraint face structure or directly imply the modulus for the three-element Boolean lattice. The prior convex-analytic face mechanism and baseline nonexpansiveness are standard; the supported distinct fact is the Boolean-lattice norm and face classification, not the method of polyhedral projection. No priority is inferred from the shared publication date or number.",
+      "residual_risks": [
+        "Uninspected general projection results or exact finite tables under different set-function coordinates could contain an implication. One bounded web search and the local record comparisons do not certify absolute originality."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material numerical overlap, different cone, no established implication or priority",
+          "evidence": [
+            "2×m constrained arrays; equal-weight formula 2−1/m"
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-exact-coordinatewise-stability-of-weighted-two-row-supermodular--9895722cef5e",
+          "material_read": "RESULT.md Finding, offsets 0–3032",
+          "method": "Local Resultary mirror, commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact coordinatewise stability of weighted two-row supermodular regression",
+          "trigger": "Same-day exact 7/4 on eight coordinates"
+        },
+        {
+          "assessment": "Related submodular polyhedra, not the stated projection modulus in inspected material",
+          "evidence": [
+            "Superdifferentials, modular bounds, concave extensions"
+          ],
+          "identifier_or_url": "arXiv:1506.07329",
+          "material_read": "p. 1, offset 2256",
+          "method": "OA primary PDF passage",
+          "title": "Polyhedral aspects of Submodularity, Convexity and Concavity",
+          "trigger": "Same set-function class and polyhedral aspects"
+        },
+        {
+          "assessment": "Inspected projection is an isotonic-regression substep and not this fit",
+          "evidence": [
+            "Projected-subgradient method"
+          ],
+          "identifier_or_url": "arXiv:1511.00394",
+          "material_read": "p. 27, offset 113900",
+          "method": "OA primary PDF passage",
+          "title": "Submodular Functions: from Discrete to Continuous Domains",
+          "trigger": "Potential projection on submodular set-function values"
+        },
+        {
+          "assessment": "Coordinate-order isotonic projection, not this exact constant or active table",
+          "evidence": [
+            "Order-constraint cones"
+          ],
+          "identifier_or_url": "arXiv:1503.08458",
+          "material_read": "pp. 1–2, offsets 0 and 2654",
+          "method": "OA primary PDF passages",
+          "title": "Isotonic regression and isotonic projection",
+          "trigger": "Possible general theorem for coordinatewise projection sensitivity"
+        },
+        {
+          "assessment": "Statistical estimation rates for Monge arrays, not the claimed deterministic sharp coefficient",
+          "evidence": [
+            "Chain-product definition and minimax estimation"
+          ],
+          "identifier_or_url": "arXiv:1904.03136",
+          "material_read": "Abstract and introduction, pp. 1, offsets 0–2573",
+          "method": "OA primary PDF passages",
+          "title": "Estimation of Monge Matrices",
+          "trigger": "Supermodular/anti-Monge regression alias"
+        },
+        {
+          "assessment": "Euclidean nonexpansiveness only in inspected statement",
+          "evidence": [
+            "1-Lipschitz Euclidean projection property"
+          ],
+          "identifier_or_url": "arXiv:1311.3765",
+          "material_read": "p. 3, offset 8586",
+          "method": "OA primary PDF passage",
+          "title": "On risk bounds in isotonic and other shape restricted regression problems",
+          "trigger": "General least-squares projection stability"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding, table and sharp witness",
+        "Exact independent replay"
+      ],
+      "rationale": "Coordinatewise error propagation is a natural worst-case stability question even though the fit minimizes squared error. Three elements is the first instance with interacting inequalities; the exact amplification factor, full region norm table and realizable sharp direction provide a useful benchmark rather than a sample or an arbitrary coefficient slice. The two-element baseline alone would be routine; the coupled three-element result is what carries the value.",
+      "residual_risks": [
+        "No claim of generalization or statistical rate improvement for higher dimensions."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

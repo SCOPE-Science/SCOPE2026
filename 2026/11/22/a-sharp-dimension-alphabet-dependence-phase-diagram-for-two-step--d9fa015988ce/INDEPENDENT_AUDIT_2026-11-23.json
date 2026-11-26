@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:10:35.587531Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–49 and 53–89",
+        "Frozen VERIFICATION.md, lines 19–25, and checker.py, inspected without execution",
+        "Independent arithmetic: substituting d=t+3,b=u+1, compare (b+1)(c2+2b)[d(2+(d−1)b)]²−c2[(d+1)(2+db)]² with the six listed C_j(t)u^j terms at t=0,…,6 and u=0,…,5. The difference has degree at most five in each variable; the grid therefore certifies the identity, not just parameter tests. Intermediates fit exactly in small integers. For the bases, multiply (1+b)^d[−1+2(d−1)b+b²]−[db+binom(d,2)b²]² and shift by b=2+u or 1+u."
+      ],
+      "rationale": "Reconstructed the result for iid uniform q-ary words with replacement, excluding distance zero. A common neighbor of a distance-one pair either uses a new distinguishing value with zero or one extra change, or uses an endpoint value with exactly one extra change. For distance two, the choices are two mixed endpoint combinations, one or two new values, or a mixed endpoint combination with one extra change. These give exactly c1 and c2. Conditional on the two words, each third word supplies an iid four-outcome trial; conditioning further only on the edge mixes the two powers with the stated weights. Both single-coordinate means stay p, so no between-type covariance term is missing. Forest independence follows by conditional leaf integration. Of distinct triples of edges only triangles contribute, and pairwise independence annihilates terms with exactly one repetition; the triangle centered moment is pΔ. Independently checked S1, S2, S3, binary S4, the two shifted base polynomials and the monotonicity certificate described below. For the cumulant sign, adding a Hamming coordinate changes p by (b/q)(Pr{H=0}−Pr{H=2}) for H∼Bin(d,b/q); this is negative for d≥3. In negative-Δ regimes p≥1/2, including equality at (2,1), and in positive-Δ regimes p≤1/2 except at (4,3). There p=9/16, Δ=5/256 and direct substitution gives the claimed 5n−17 factor. This checks d=1, n=3 and all strict/no-zero assertions.",
+      "residual_risks": [
+        "The supplied finite enumeration was inspected, not rerun; no proof-assistant or external expert certification is claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The signed-cycle formula is a sum of powers of Fourier coefficients and gives the signed-triangle identity in this entire q-ary model.",
+          "The noisy spherical latent-space triangle setting differs in the space, sampling connection rule and conclusions."
+        ],
+        "reasoning": "General triangle formulas cover the structural identity only: the individual signs require a further exact count and an all-parameter inequality.",
+        "searches": [
+          "Bangachev–Bresler arXiv:2305.04802v1, centered cycle formula (5), Observation 2.12, finite-group extension",
+          "Liu–Rácz arXiv:2103.15249, abstract and model"
+        ]
+      },
+      "checked_sources": [
+        "Resultary and local mirror (d9fa015988ce, 5b09804d510c)",
+        "Bangachev–Bresler arXiv:2305.04802v1",
+        "Liu–Rácz arXiv:2103.15249",
+        "Adamaszek–Adams arXiv:2103.01040"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior Fourier formula gives pΔ after specialization. It does not sign the sum over the entire alphabet/dimension range. In the q=4,d=3 case, translating triangle sign alone to skewness is not valid: the negative Bernoulli term dominates at n=3 but not n≥4."
+        ],
+        "reasoning": "The new conclusion needs the exact count inequality and a separate p comparison in order to separate third-cumulant signs; neither is supplied by the general formula.",
+        "searches": [
+          "arXiv:2305.04802v1 Eq. (5) and Observation 2.12",
+          "Frozen RESULT.md, lines 28–45 and 57–89"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A q-ary word is an element of (Z/qZ)^d, and the connection function is the indicator of difference weight one or two. The centered triangle and the covariance numerator are exactly linked by E(product of centered triangle edges)=pΔ.",
+          "The deterministic binary Vietoris–Rips setting describes a graph power but does not sample labelled vertices with replacement or state the edge-conditioned law."
+        ],
+        "reasoning": "Checked algebraic connection and deterministic graph-power formulations in addition to the frozen vocabulary. They recover background structure, not the full sharp law.",
+        "searches": [
+          "Resultary comparison for sampled two-step Hamming covariance, conditional degrees and edge skewness",
+          "https://arxiv.org/html/2305.04802v1 §2.3.1–2.3.2",
+          "https://arxiv.org/html/2103.01040 abstract"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/11/22/SCOPE-a-sharp-dimension-alphabet-dependence-phase-diagram-for-two-step--d9fa015988ce is the identical record; the exact table at mirror RESULT.md offsets 0–4987 is not another source.",
+          "2026/11/22/SCOPE-two-step-enriched-hamming-nerves-and-their-translation-quotients--5b09804d510c studies ordered enriched nerve topology and translation quotients, not q-ary degree covariance or edge-count skewness."
+        ],
+        "reasoning": "No separate exact sign table was established from the inspected hits. The distinct same-day topology record is excluded by mathematics, not by its date.",
+        "searches": [
+          "Resultary: frozen entry d9fa015988ce and near-neighbor 5b09804d510c; corresponding local mirror"
+        ]
+      },
+      "rationale": "On the sources inspected, the original content is the sharp specialization across both alphabet size and dimension, with the exact finite-sample sign exception. The general convolution/signed-triangle identity applies to every q through (Z/qZ)^d, not merely to the binary subcase; it and the standard intersection-number method are not new. The conditional PGF is an elementary consequence of those intersection counts and is not the main basis for this judgment.",
+      "residual_risks": [
+        "Best-of-knowledge priority only. A specialized sign classification in older Hamming graph or association-scheme literature under other terminology may have escaped the focused checks; a catalogue hit on this same record is not independent corroboration."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers centered triangle framework for finite abelian groups, not the specialized sign theorem",
+          "evidence": "The nontrivial Fourier modes contribute their cubes to the centered triangle moment; the argument generalizes beyond the hypercube.",
+          "identifier_or_url": "https://arxiv.org/html/2305.04802v1",
+          "material_read": "Abstract; §2.3.1 and §2.3.2, Eq. (5) and Observation 2.12 (HTML offsets around 71310–75728)",
+          "method": "Open-access primary text, bounded relevant passages",
+          "title": "Random Algebraic Graphs and Their Convergence to Erdős–Rényi",
+          "trigger": "Same latent-group formulation and exact triangle moments"
+        },
+        {
+          "assessment": "Related technique, different model",
+          "evidence": "The model is noisy/spherical rather than deterministic Hamming-distance-one-or-two edges.",
+          "identifier_or_url": "https://arxiv.org/html/2103.15249",
+          "material_read": "Abstract/model at opening passage",
+          "method": "Open-access primary text",
+          "title": "Phase transition in noisy high-dimensional random geometric graphs",
+          "trigger": "Signed triangles of latent-space random graphs"
+        },
+        {
+          "assessment": "Topological comparison; does not give the sampled-graph law",
+          "evidence": "Deterministic hypercube Vietoris–Rips complexes are its object.",
+          "identifier_or_url": "https://arxiv.org/html/2103.01040",
+          "material_read": "Abstract at opening passage",
+          "method": "Open-access primary text",
+          "title": "On Vietoris–Rips complexes of hypercube graphs",
+          "trigger": "Graph power on binary Hamming words"
+        },
+        {
+          "assessment": "Same work, not independent prior coverage",
+          "evidence": "The mixture PGF, complete sign table and (4,3,3) exception all coincide.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-dimension-alphabet-dependence-phase-diagram-for-two-step--d9fa015988ce",
+          "material_read": "Mirror RESULT.md finding, offsets 0–4987; prior comparison from offset 6500",
+          "method": "Local Resultary mirror",
+          "title": "A sharp dimension–alphabet dependence phase diagram for two-step Hamming random graphs",
+          "trigger": "Exact ranked match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 19–45 and 95–101",
+        "Bangachev–Bresler arXiv:2305.04802v1, centered triangle comparison"
+      ],
+      "rationale": "The first natural non-nearest-neighbor Hamming connection set already gives three distinct onset dimensions across alphabets. The exact covariance and its sign distinguish dependence hidden by pairwise independence; the lone finite-sample skewness reversal shows why triangle sign is not the entire edge-count story. This is a complete reusable classification of a canonical radius-two model, not a small numerical slice or a claim to have invented signed triangles.",
+      "residual_risks": [
+        "The law is for labelled iid words with repeats and edge-conditioned degrees, not single-realization assortativity, other connection sets or a stochastic ordering."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:51:43.865217Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md Steps 1–6 and VERIFICATION.md",
+        "Frozen verify_staircase.py, inspected without execution"
+      ],
+      "rationale": "Use the same iid uniform levels and independent exponential marks for every p. Then S_k=−log(a_k) is the arrival clock and the ceiling of E_k/[−log(1−p a_k)] has exactly the positive-integer geometric law, with the endpoint p a_k=1 handled separately by G_k=1. At the n-step cutoff completed holds contribute Σ λ_jG_j and the unfinished hold contributes λ_K(n−T_K), with n−T_K<G_K. The sum of |λ_jG_j−E_j| has expectation at most Σ 2p·2⁻ʲ≤4. For q=ceil(3t), the high-probability event in Step 3 controls S_q, the extrema of the first O(t) exponentials and their sum by gamma/exponential tails. For S_k≤t−10 log t the upper hold sum is at most 6t e^{S_k}/p+q<n. If S_k≥t+10 log t, S_{k−1}≥S_k−3 log t, its rate is at most 1/2, and its last hold alone is at least e^{S_k}/(2p t⁶)>n. This excludes q and larger indices and brackets K by the two Poisson counts. Unfinished reward is bounded by E_K+1; the mark sum over the clock band has expectation equal to the band length by independence. This proves both errors on the same coupling and uniformly for deterministic triangular p. The compound-Poisson jump (1,E) has second-moment matrix [[1,1],[1,2]], giving the joint CLT by characteristic functions since log(t)=o(√t). Independent finite checks: the chain is the running minimum of Bernoulli-p accepted uniforms, hence P(X_m>x)=(1−px)^m for 0≤x<1; integration and the jump compensator give the stated means and bound the geometric-harmonic remainder by e^{−np}/(np). At p=1, integrating the two joint-survival triangles gives E[M_iM_j]=1/[(j+1)(j+2)]+1/[(i+1)(j+2)] for i≤j. Rank independence gives zero covariance of I_j and M_i for j≤i; for i<j integrate the new record over 0<u<M_i with factor (1−u)^{j−i−1}, giving the claimed covariance. Their sums and the independent record indicators give the three calibration formulas.",
+      "residual_risks": [
+        "The O_P bound is not an almost-sure rate or a claim of optimality. The Gaussian correlation does not assert convergence of all triangular-array moments. Finite exact or simulated checks are not used to infer the infinite coupling."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Yoshida's joint-state survival law determines all joint finite-dimensional path-functional laws and is stronger than a pair of marginal transforms for that purpose. The separately recorded count PGF and occupation Laplace transform do not state the common coupling."
+        ],
+        "reasoning": "A representation of path laws or separate scalar CLTs is not the explicit simultaneous error estimate. Classical joint record-time possibilities remain an access risk and are not written off from titles.",
+        "searches": [
+          "arXiv:2604.22637v1, Thms. 2–4",
+          "Gouet 1989, Berkes–Horváth 2001 DOI 10.1016/S0304-4149(00)00056-4, Fahrner 2001 DOI 10.1016/S0304-4149(00)00103-4, and Resnick 1973 via titles and bibliographic records"
+        ]
+      },
+      "checked_sources": [
+        "Yoshida primary arXiv:2604.22637v1",
+        "Resultary local index and mirror 2c3715075ad4",
+        "Classical Gouet, Resnick, Berkes–Horváth and Fahrner records"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Yoshida's formula is a product of survival factors using suffix maxima; the indexed work expresses each state as a record minimum. Neither cited passage controls the sum of hold-duration rewards and the random jump cutoff against the same independent marks."
+        ],
+        "reasoning": "A prior result with both an exponential hold reward and quantitative log-time cutoff control could imply the coupling. Determining laws, or deriving separate CLTs via the known kernel, does not supply those bounds or the joint Gaussian covariance by routine substitution.",
+        "searches": [
+          "Yoshida Thm. 2 p. 4 and Thms. 3–4 pp. 5, 7",
+          "Same-model Resultary record 2c3715075ad4",
+          "Resnick 1973 and Gouet 1989 bibliographic/abstract lookups"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bernoulli-p thinning of uniforms realizes exactly the kernel; p=1 gives ordinary running minima, or maxima after complementing. The two occupation conventions differ by 1−X_n before scaling."
+        ],
+        "reasoning": "These equivalences transfer any applicable running-minimum result. The occupation after thinning still weights random physical holds, so the reduction does not by itself give the required joint marked-clock control.",
+        "searches": [
+          "arXiv:2604.22637v1, Thms. 1–2",
+          "Resultary mirrored same-model record 2c3715075ad4",
+          "Gouet DOI 10.1016/0167-7152(89)90125-9; Resnick Cambridge record"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-chain entry proves negative pairwise jump-indicator dependence, a Poisson-binomial count law and a three-step strong-Rayleigh classification, via a thinned running-minimum representation."
+        ],
+        "reasoning": "Its exact count and dependence findings do not describe the occupation variable or shared marks. No exact coupled result appeared in this bounded comparison.",
+        "searches": [
+          "Resultary local semantic search for Poisson hyperbolic staircase jumps and occupation, quantitative marked-Poisson coupling, triangular p; closest verified mirror 2c3715075ad4"
+        ]
+      },
+      "rationale": "The chain, marginal mean, state-vector law, count and occupation transforms, and separate fixed-p record/minimum limit laws are not the distinct claim. The supported advance is the explicit simultaneous marked approximation with a uniform quantitative error and no rate restriction beyond np_n→∞, yielding the joint covariance. None of the inspected statements gives that coupling or a stronger result that has been shown to imply it.",
+      "residual_risks": [
+        "Classical full-text access was unsuccessful, particularly Gouet and Resnick; equivalent older joint constructions cannot be excluded. No priority is inferred from catalogue dates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Model, finite path law and separate transforms prior; not the quantitative marked comparison",
+          "evidence": [
+            "The joint state survival is a product of 1−p·max of suffix thresholds. Theorems 3 and 4 separately address the jump PGF and occupation transform."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2604.22637v1",
+          "material_read": "Thm. 1 p. 3, Thm. 2 p. 4 near offset 9848, Thm. 3 p. 5 near 11469, Thm. 4 p. 7 near 21000",
+          "method": "Targeted open primary PDF passages",
+          "title": "Poisson Hyperbolic Staircase in Discrete Time",
+          "trigger": "Identical model, joint state law and related transforms"
+        },
+        {
+          "assessment": "Exact model and a useful reduction, not an occupation/clock estimate",
+          "evidence": [
+            "The stated count is Poisson-binomial and the record-minimum representation is exact; no shared time-band or mark claim in the inspected result."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-a-minimal-three-step-strong-rayleigh-transition-in-a-discrete-hy--2c3715075ad4",
+          "material_read": "Mirrored RESULT.md Finding and thinned-minimum construction",
+          "method": "Local Resultary mirror",
+          "title": "A minimal three-step strong-Rayleigh transition in a discrete hyperbolic staircase",
+          "trigger": "Strongest same-model indexed match"
+        },
+        {
+          "assessment": "No detailed theorem inferred; meaningful residual risk",
+          "evidence": [
+            "The works concern extremal embedding or record-value times, which are directly relevant, but their detailed joint conclusions were not verified."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/0167-7152(89)90125-9; S. I. Resnick, Journal of Applied Probability (1973), exact title",
+          "material_read": "Bibliographic and landing/abstract material only; no readable full texts",
+          "method": "DOI, publisher and lawful OA alternate retrieval",
+          "title": "Embedding in extremal processes and the asymptotic behavior of sums of minima; Extremal processes and record value times",
+          "trigger": "Classical potential coupling comparisons"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md joint coupling and CLT",
+        "Yoshida Thms. 1–4 for the model and known observables"
+      ],
+      "rationale": "This directly answers how jump count and integrated occupation fluctuate together for a studied stochastic model. The approximation explains the cross-covariance using shared randomness rather than combining scalar limits. Its uniformity also controls sparse triangular thinning, where a fixed-parameter CLT alone cannot be applied without additional analysis.",
+      "residual_risks": [
+        "The error is an upper order for the specified family, not a universal result for arbitrary jump multipliers or hold rates."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

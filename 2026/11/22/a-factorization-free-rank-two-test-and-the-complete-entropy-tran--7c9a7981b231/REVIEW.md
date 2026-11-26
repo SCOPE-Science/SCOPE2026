@@ -1,25 +1,21 @@
-# Review: exact binary two-channel entropy–transitivity census
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The rank-two finite test is a fully quantified deduction from the cited spectral characterization [2, Theorem 6]: an obstructing irreducible characteristic-polynomial factor either has quadratic degree and unit determinant, or is linear with Laurent-unit root. Polynomial integrality and the highest-degree term in the characteristic equation restrict such roots to the finite stencil interval. For the binary span-one family, both exact root identities are computed in the polynomial ring, rather than as evaluations at 1. The topological entropy formula is normalized exactly as in [1, Theorem 4]. Two separate standalone finite enumerators agree on all 256 rule classifications; the independent coefficient computation verifies each of 32 trace–determinant multiplicities, and the first computes the full 56 onsite-basis orbits. The finite checker does not replace either cited general theorem. The limits exclude general four-symbol nonlinear automata and arbitrary dynamical conjugacy.
+PASS
 
-## Originality — PASS, within documented search scope
+Checked the cited Theorem 6 of arXiv:2611.22365 for the actual finite-field bilateral full shift and the definition with n >= 0. It requires a nonzero determinant and excludes every monic irreducible characteristic factor over the Laurent ring's fraction field with unit constant term. All monic factors have coefficients in the integrally closed Laurent ring. In particular even in the reducible case a unit determinant forces both linear constant terms to be units, since their product is a unit. With nonunit nonzero determinant a quadratic irreducible factor cannot obstruct, so it suffices to test roots cz^j. Factoring z^L out of A gives a polynomial matrix H supported in [0,U-L]; its monic characteristic equation makes the scaled root integral, hence polynomial, and its square has unmatched highest degree if j-L>U-L. This handles all finite Laurent stencils, including L=U; the zero map fails surjectivity. Theorem 4(1) of arXiv:2611.16746 gives width including zero times log p, with inversion of the spatial variable leaving width unchanged. In the span-one binary case the only possible unit roots are 1 and z; their two tests are polynomial identities. If both occur, the determinant is z, already excluded. Independent exact replay used the four values f(0),f(1),f(2),f(3) of each of the 16 linear maps on two-bit column vectors, with polynomial supports computed by symmetric difference and exponent convolution. The trace–determinant rows, written in increasing support bit-mask order, were 10,10,6,6,10,10,6,6; 18,2,6,6,6,6,18,2; 18,6,6,18,2,6,6,2; 18,6,18,6,6,2,6,2. The exclusion counts were 64,84,18,18 and there were 72 survivors. The five nonempty (entropy,strong-transitivity) counts in record order were 40,102,18,42,54. Acting by the six bijective maps on each pair via p∘f∘p^(-1), taking the orbit of the least unseen pair and deleting it, gave cell counts 12,17,3,10,14 and sizes 1:4, 2:6, 3:12, 6:34. Burnside checks the total: a nonscalar 2x2 invertible matrix has a cyclic vector, so its commutant consists exactly of the four linear polynomials in it. The two frozen scripts were inspected as text; finite replay supports the census, not the infinite theorems.
 
-[1] already establishes the general characteristic-polynomial entropy formula, and [2] already establishes the general strong-transitivity criterion. In particular the factorization-free two-channel root test is presented as an explicit specialization, not as a new independent general theorem. The single evaluated joint census (256 rules, a 72-case strongly-transitive stratum, its entropy split, and the 56 onsite-basis orbits with their five-stratum distribution) is not stated in the inspected full relevant sections of [1]–[3]. An exact implication check shows that the general criteria decide individual rules but do not supply the evaluated simultaneous population/orbit statement without further finite counting. Indexed searches of aliases, exact counts, and related classifications found no direct earlier table; this is an evidence-based assessment, not a proof of priority. Kari's relevant 2000 multiple-state-variable paper [4] was discoverable only at abstract level and full-text priority remains unresolved. Other unindexed tables are also a residual risk.
+## originality
 
-## Value — PASS
+PASS
 
-The first nonscalar binary group-automaton alphabet with a two-site neighborhood is a natural complete classification domain, not a sparse or ad hoc parameter slice. Jointly quantifying temporal entropy and strong transitivity distinguishes two different modes of dynamics in this small canonical family. The 56 similarity orbits remove redundant onsite coordinate choices, and exact strata allow all rules to be classified and compared reproducibly. This finite evaluated theorem is not claimed to replace the broader general results, and its utility is specifically as a complete baseline for small matrix-valued cellular automata.
+Best-of-knowledge pass for the evaluated joint population and onsite orbit classification. The general entropy and strong-transitivity criteria are prior art, and the finite Laurent root test is their explicit rank-two specialization, not a separate originality basis. The joint distribution and orbit refinement require a separate coefficient-incidence and conjugation calculation.
 
-## Closest literature and limits
+## value
 
-[1] N. Castronuovo, A. Dennunzio, J. Kari, L. Margara, *Topological Entropy of Group Cellular Automata is Effectively Computable*, arXiv:2611.16746 (first public 2026-11-12), especially Theorem 4.
+PASS
 
-[2] N. Castronuovo, A. Dennunzio, L. Margara, *Strong Transitivity of Group Cellular Automata: Characterization and Decidability*, arXiv:2611.22365 (first public 2026-11-17), especially Theorem 6.
+This is the full smallest binary matrix-valued span-one family, not a parameter list hand-picked for the outcome. The joint table separates positive temporal entropy from strong transitivity and provides exact incidence data for testing classification algorithms; the orbit strata show which counts survive removal of redundant onsite coordinates. It is a finite baseline, not a classification of nonlinear four-symbol automata or general dynamical conjugacies. The specialized root test also avoids factorization on the stated rank-two stencil without claiming the same for higher rank.
 
-[3] A. Dennunzio et al., *Additive Cellular Automata Over Finite Abelian Groups: Topological and Measure Theoretic Properties*, MFCS 2019, DOI 10.4230/LIPIcs.MFCS.2019.68.
-
-[4] J. Kari, *Linear Cellular Automata with Multiple State Variables*, STACS 2000, DOI 10.1007/3-540-46541-3_9 (abstract only; full text not obtained).
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

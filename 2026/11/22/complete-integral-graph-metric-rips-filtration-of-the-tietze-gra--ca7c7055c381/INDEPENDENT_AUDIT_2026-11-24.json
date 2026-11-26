@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:57:56.449983Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–49; VERIFICATION.md; collapse_certificate.json; verify_tietze.py; verification_output.txt",
+        "Independent replay: python3 /workspace/branches/52e7f228-09c6-4107-a54b-0eb9df7fce8e/replay_tietze_independent.py; observed output: /workspace/branches/52e7f228-09c6-4107-a54b-0eb9df7fce8e/replay_tietze_independent_output.txt"
+      ],
+      "rationale": "Contracting the specified triangle gives Petersen: for vertices 0 through 8 and the contracted vertex, the two-subset labels 34,15,24,35,45,25,23,13,14,12 give adjacency by disjointness. At scale one the filled triangle is a contractible subcomplex and its quotient is a connected graph with 10 vertices and 15 edges. The independent radius-two replay recomputed the face counts (12,51,96,87,51,19,3) from the vertex metric and checked the full proper-coface condition for each of 119 sequential elementary collapses. The residual complex has 12 vertices, 38 edges and 31 triangles. Contraction of the checked spanning tree gives one based vertex and 27 edge generators; at each of 27 checked steps a single-generator two-cell and its edge make a contractible subcomplex, so the quotient is a homotopy equivalence and deletes that generator from the other attaching words. The four remaining two-cells have trivial attaching maps. This proves a wedge of four 2-spheres, not merely four independent mod-two classes. The graph has diameter three; the zero stage is discrete and the third stage is a simplex. All distances are integral, and no degree has nonzero reduced homology at successive stages, so the listed half-open integral intervals are complete.",
+      "residual_risks": [
+        "The classification concerns the vertex metric, not the continuum metric or a filtered homotopy equivalence. The supplied verifier was inspected, not executed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The radius-two high-girth criterion requires girth at least seven, not three. For the common-neighborhood criterion the clique {0,1,7} has no vertex in all three closed neighborhoods.",
+          "The hypercube result is about Hamming cubes, and the metric-gluing abstract does not give a Tietze classification or show that this graph fits the appropriate hypotheses."
+        ],
+        "reasoning": "These candidate theorems do not dominate the stated low-girth example.",
+        "searches": [
+          "arXiv:1104.0433, Proposition 2.2 and Theorem 3.1",
+          "arXiv:2103.01040, abstract p.1; arXiv:1712.06224, abstract p.1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, lines 61–79",
+        "Primary excerpts and Resultary sources above",
+        "arXiv:1712.06224, abstract",
+        "Resultary Tietze independence/matching summaries …df0227a3b583, …66b3f7013d3d and …0885c0b19a46; not full text"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The edge-fault comparison uses the intact wedge as context, rather than obtaining it from a single-edge-deletion classification.",
+          "Collapsing the triangle in the graph metric gives Petersen, whose radius-two Rips complex is a simplex, so the known Petersen diameter by itself does not imply the intact wedge."
+        ],
+        "reasoning": "Deleting edges can increase shortest-path distances, so even identical wedge multiplicities for some fault inputs do not imply the intact result. No dominating prior implication for this exact integral homotopy classification was established.",
+        "searches": [
+          "Adamaszek, graph-power hypotheses at pp.3–4",
+          "…--6dd21f475e8e, Finding and Relationship to prior work"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The clique complex of the square graph is exactly the inclusive radius-two vertex Rips complex, so graph-power results were compared directly.",
+          "Tietze independence and matching catalog hits use other face predicates; the exact intact Rips hit is the assigned record itself."
+        ],
+        "reasoning": "The graph-power rephrasing is genuinely equivalent, but the other Tietze simplicial complexes do not have the same faces or metric filtration.",
+        "searches": [
+          "Resultary Tietze graph-metric Vietoris–Rips / graph power clique complexes",
+          "Adamaszek arXiv:1104.0433, §1 p.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The target hit is self-identical. The edge-fault table concerns recomputed metrics after deletion and includes some four-sphere wedges; its comparison section also explicitly mentions the intact four-S² wedge."
+        ],
+        "reasoning": "The shared intact radius-two value is exact overlap in the discussion; the fault table does not list the intact input as a member, nor give its complete filtration. Same-day dates do not settle priority.",
+        "searches": [
+          "Resultary named cubic graph Rips search; intact Tietze …--ca7c7055c381 and four fault orbits …--6dd21f475e8e"
+        ]
+      },
+      "rationale": "The nontrivial supported contribution is a certificate and full intact-graph filtration determination, with an integral homotopy type at radius two. The same-day edge-fault record explicitly mentions the exact intact radius-two wedge as context; that mathematical overlap is credited. Its actual metric family and theorem are single-edge deletions; the mention does not supply an independent derivation or a chronological determination about the intact claim. The other inspected results do not establish that intact classification.",
+      "residual_risks": [
+        "Unindexed exact tables or a stronger unidentified general result remain possible. The same-day fault record does not establish priority for either record, and the inaccessible candidate was not used to exclude overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Framework applies; the compared determining criteria do not",
+          "evidence": "Tietze girth three fails the 3r+1 bound, and {0,1,7} violates the common closed-neighborhood condition.",
+          "identifier_or_url": "https://arxiv.org/abs/1104.0433",
+          "material_read": "§1 p.1; Proposition 2.2 p.3 and Theorem 3.1 p.4, PDF offsets 10020 and 14347",
+          "method": "OA paper",
+          "title": "Clique complexes and graph powers",
+          "trigger": "Equivalent formulation and general radius-two criteria"
+        },
+        {
+          "assessment": "Material same-day statement overlap at radius two; not a dominating theorem or established priority",
+          "evidence": "States that prior results for the intact graph include its radius-two four-sphere wedge and classifies metrics after deleting an edge.",
+          "identifier_or_url": "2026/11/22/SCOPE-four-sharply-distinct-edge-fault-rips-filtrations-of-the-tietze--6dd21f475e8e",
+          "material_read": "Finding at offset 0; Relationship to prior work at offset 7109",
+          "method": "Resultary and local mirror",
+          "title": "Four sharply distinct edge-fault Rips filtrations of the Tietze graph",
+          "trigger": "Same named graph and explicit intact wedge mention"
+        },
+        {
+          "assessment": "Different input family",
+          "evidence": "The theorem described in the abstract is for hypercube vertices and yields 3-spheres at radius two.",
+          "identifier_or_url": "https://arxiv.org/abs/2103.01040",
+          "material_read": "Abstract p.1",
+          "method": "OA paper",
+          "title": "On Vietoris–Rips complexes of hypercube graphs",
+          "trigger": "Broader-looking structural sphere-wedge result"
+        },
+        {
+          "assessment": "Unassessed; not negative evidence",
+          "evidence": "The attempted identified retrieval did not expose scientific text.",
+          "identifier_or_url": "PMID 27853540",
+          "material_read": "Search metadata only; no usable paper passage",
+          "method": "OA retrieval attempted",
+          "title": "Persistent homology in graph power filtrations (search metadata)",
+          "trigger": "Possible general graph-power persistence literature"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 29–49 and 61–71",
+        "Independent certificate replay",
+        "Same-day Tietze edge-fault comparison passage"
+      ],
+      "rationale": "Tietze is a standard cubic graph, with a natural contrast to Petersen: a triangle expansion changes the scale-two Rips type from a simplex to a four-sphere wedge. Since homology ranks would not give this homotopy classification, the explicit integral certificate is useful as an exact test case for graph powers and as the intact baseline for fault comparisons. The routine endpoint stages complete the classification rather than constituting its value on their own.",
+      "residual_risks": [
+        "This one triangle expansion is not evidence of a general expansion theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

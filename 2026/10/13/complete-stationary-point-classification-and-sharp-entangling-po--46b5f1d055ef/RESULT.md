@@ -10,10 +10,10 @@ Define the entangling power \(\mathcal E(\alpha,\beta)\) as the mean of \(1-\ope
 
 | \(\alpha\) | \(\beta\) | \(\mathcal E\) | Type |
 | --- | --- | --- | --- |
-| \(0\) | \(0,\pi\) | \(0\) | strict global minima |
+| \(0\) | \(0,\pi\) | \(0\) | strict local minima attaining the global minimum |
 | \(0\) | \(\pi/2,3\pi/2\) | \(1/4\) | saddles |
 | \(\pi\) | \(0,\pi\) | \(20/81\) | saddles |
-| \(\pi\) | \(\pi/2,3\pi/2\) | \(131/324\) | strict global maxima |
+| \(\pi\) | \(\pi/2,3\pi/2\) | \(131/324\) | strict local maxima attaining the global maximum |
 
 In particular the sharp all-gate bound within this rotationally invariant two-spin-one family is
 \[

@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:51:52.866121Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Pythagoras gives |y−cx|≤sr|x| on the target line. Uniform arclength is therefore multiplication by c+sU with U uniform on [−r,r], for either sign of x; independence across half-steps gives two independent factors per sweep. The largest magnitude c+sr is attained and can be chosen at every step, giving sharp adversarial robustness and a constant nonzero sweep at its boundary. Taking the p-th absolute moment factors exactly, and the stated antiderivative integrates over intervals crossing zero as well. For p=2 the one-step factor is c²+s²r²/3, hence r=√3 is critical and does not give decay in mean square. For r>0 an exact zero has probability zero; the logs have finite second moment and positive variance. Apply the SLLN and, at zero mean, the LIL to the iid sums of two log increments per sweep: the critical limsup and liminf are +∞ and −∞ in log magnitude. When c>0 the mean is negative through r=c/s by Jensen and integration, and beyond that point its derivative has sign 1−t artanh(t) for t=c/(sr), changing from negative to positive once. The mean diverges to +∞, so the positive zero is unique. When c=0 the mean is log r−1 and the cutoff is e; deterministic r=0 contracts, with immediate absorption for perpendicular lines. Strict Jensen at r=√3 makes the pathwise cutoff larger, and r_rob=s/(1+c)≤1. The frozen checker was inspected, not run; its finite rational and numerical tests do not prove the infinite-time thresholds. The log gain can have unbounded support below, despite the verifier prose: the proof correctly uses finite variance, not boundedness.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The QAP theory specializes to (c+s√(σ_A²−1))(c+s√(σ_B²−1))<1; with equal tolerances this recovers c+sr<1. Perpendicular axes are explicitly treated.",
+          "Resultary d828788ae3af treats deterministic relaxation; 5aa4f64e94d3 treats random reciprocal metrics in a primal–dual scheme."
+        ],
+        "reasoning": "The deterministic theorem covers the robust region but does not calculate a stochastic threshold for a specified arclength law. The related exact mean-square result has a different update and probability mechanism.",
+        "searches": [
+          "Budzinskiy arXiv:2308.16097v3 and DOI 10.1007/s00211-025-01483-6, convergence condition and perpendicular example",
+          "Resultary: relaxed projection safety frontier and randomized two-line moment thresholds"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Budzinskiy arXiv:2308.16097v3 and published article, specified passages",
+        "Resultary d828788ae3af and 5aa4f64e94d3",
+        "Bibliographic/landing records for Furstenberg–Kesten and Diaconis–Khare–Saloff-Coste"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Deterministic QAP gives the worst-case safe region; selecting its upper feasible endpoint at every half-step shows the equality and divergence cases in this model.",
+          "An iid-product criterion reduces stability to E log|c+sU|<0. It does not provide uniqueness of the cutoff for this shifted uniform law; that requires the derivative analysis through the sign-changing interval. Strict separation from the second-moment cutoff uses the strictly nonconstant gain."
+        ],
+        "reasoning": "The generic product criterion and known deterministic region are credited. The probabilistic ordering and exact boundaries are the distinct substance, rather than an assertion that Jensen, SLLN, LIL or a standard moment antiderivative is new.",
+        "searches": [
+          "Budzinskiy, equal-tolerance line specialization and perpendicular example",
+          "Resultary d828788ae3af and 5aa4f64e94d3",
+          "Products of Random Matrices and Stochastic alternating projections"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The oracle is equivalent to iid scalar multipliers uniform on [c−sr,c+sr], used twice per sweep; no independent random choice of line is needed.",
+          "Budzinskiy's admissibility is the same distance-ratio definition, but it does not impose this probability law."
+        ],
+        "reasoning": "Comparing under the iid scalar-product formulation is necessary; arbitrary admissible choices, random metric switching and exact projections in stochastic conditional-expectation constructions do not yield the same gain distribution.",
+        "searches": [
+          "Resultary: uniform random quasioptimal alternating projections, two-line mean-square and almost-sure thresholds",
+          "arXiv:2308.16097v3, definition of QAP",
+          "Furstenberg–Kesten, Products of Random Matrices"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The actual findings of d828788ae3af and 5aa4f64e94d3 give exact benchmarks for other two-line models, not the formulas or critical cases for this oracle.",
+          "The frozen verifier's rational examples and root brackets are finite checks rather than an exact source table."
+        ],
+        "reasoning": "The claim is an analytic threshold function of a continuous angle with exact endpoint behavior, not a natural finite-table lookup. The targeted catalog check found comparable benchmarks, not a matching full-interval classification.",
+        "searches": [
+          "Resultary: random full-interval quasioptimal projections sharp threshold; exact two-line stability frontier; scalar uniform gains"
+        ]
+      },
+      "rationale": "Credit the deterministic admissibility and robust contraction to the prior QAP theory rather than counting them as a new result. The supported distinct claim is the stability classification for independent uniform sampling over the full feasible interval: exact angle-independent second-moment boundary, unique angle-dependent almost-sure boundary with the critical case classified, and their strict separation from one another and from worst-case selection. Standard scalar random-product results supply moment factorization and the log-drift criterion, not the particular projection law, uniqueness or separation of its cutoffs. No inspected applicable prior statement supplies the combined random classification.",
+      "residual_risks": [
+        "The bounded lookup cannot exclude a specialized earlier theorem on shifted uniform scalar random gains. Full text for the two general stochastic antecedents was not obtained, so no whole-document scope judgment is made for them."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact robust safe-region specialization; no uniform random oracle in the inspected criterion",
+          "evidence": "Two-tolerance contraction specializes to the product of the two endpoint factors; the perpendicular example exhibits divergence outside the safe regime.",
+          "identifier_or_url": "https://doi.org/10.1007/s00211-025-01483-6; arXiv:2308.16097v3",
+          "material_read": "ArXiv v3 definition and perpendicular example, PDF pp. 3–4; theorem numbered 5.6 in retrieved HTML and 6.6 in retrieved PDF/article",
+          "method": "Targeted primary HTML and OA PDF passages",
+          "title": "Quasioptimal alternating projections and their use in low-rank approximation of matrices and tensors",
+          "trigger": "Identical quasioptimality definition and deterministic line antecedent"
+        },
+        {
+          "assessment": "Different operator and notion of safety",
+          "evidence": "Deterministic relaxed AP with a Euclidean nonexpansivity interval and a spectral-versus-one-step comparison.",
+          "identifier_or_url": "d828788ae3af",
+          "material_read": "Published RESULT.md, Finding",
+          "method": "Local Resultary mirror",
+          "title": "Sharp one-step safety frontier and angle-dependent transient expansion",
+          "trigger": "Exact angle-dependent thresholds on two lines"
+        },
+        {
+          "assessment": "Different random mechanism and state update",
+          "evidence": "The random variables are reciprocal scalar metrics of a primal–dual scheme, not uniform arclength quasioptimal outputs.",
+          "identifier_or_url": "5aa4f64e94d3",
+          "material_read": "Published RESULT.md, Finding",
+          "method": "Local Resultary mirror",
+          "title": "Sharp mean-square metric-switching threshold for two-line proximal iterations",
+          "trigger": "Exact stochastic two-line mean-square threshold"
+        },
+        {
+          "assessment": "Full text not independently inspected; no noncoverage inference based on that",
+          "evidence": "Identified as a general product-model antecedent, not an available exact passage for this projection oracle.",
+          "identifier_or_url": "https://doi.org/10.1214/aoms/1177705909",
+          "material_read": "Bibliographic landing pages only",
+          "method": "Lawful retrieval attempts at Project Euclid and JSTOR and an identified mirror",
+          "title": "Products of Random Matrices",
+          "trigger": "General random product coverage"
+        },
+        {
+          "assessment": "Residual risk; not declared non-covering from a title or inaccessible source",
+          "evidence": "The frozen record describes exact conditional expectations and Gibbs-sampler relationships, in contrast with a uniform sample of feasible Euclidean outputs.",
+          "identifier_or_url": "https://doi.org/10.1215/ijm/1336568522",
+          "material_read": "Bibliographic record; full text unavailable in the bounded attempt",
+          "method": "Lawful full-text retrieval attempt and comparison with frozen citation",
+          "title": "Stochastic alternating projections",
+          "trigger": "Plausible title match for a random projection scheme"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A standard admissibility tolerance is often interpreted as a single notion of numerical safety. On the same simple geometry, the exact thresholds show that all-selection contraction, moment stability and almost-sure decay are sharply different: a tolerance can yield almost-sure decay while the second moment grows. The comparison is useful precisely because the sampling rule is specified and the critical equalities are settled, without making claims for other random solvers.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

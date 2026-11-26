@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:03:43.646096Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The frozen interval argument recovers the two positions directly if their separation is at least k. Otherwise two-one reads give the separation d and force a unique position except on the stated plateau; within that plateau the sum of offsets of single-one reads changes by r−d per unit shift, and at d=r the offset multisets themselves are constant. An independent replay uses the sum over reads of the unit vectors for their (k−1)-prefixes minus those for their (k−1)-suffixes. It telescopes to the prefix-minus-suffix of the whole word. If nonzero, it gives both ordered ends, which cover the word because k>r implies 2(k−1)≥n. If zero, the word has period r. Here n≥2r, so a period-r word of weight two has one nonzero residue containing exactly two positions; those phases are precisely n−2r≤a≤r−1, and changing the phase permutes the r read starts. Thus the potential fiber has size max(0,3r−n), with a collision only when size is at least two. The injectivity cutoff is k≥ceil((2n+2)/3), within the long regime for n≥5. For all shorter k≥3, valid two-copy phases are max(0,n−2r)≤a≤min(r−1,n−r−1). There are at least two phases: if n<2r the upper endpoint is at least one, and otherwise the count is 3r−n≥2. At k=1 all words collide, and at k=2 the stated pairs (0,2),(0,3) have equal bigram counts. No monotonicity of single-length reconstruction is assumed. Replay: RESULT.md lines 31–73; inspected scripts and captured outputs corroborate only their finite test domains. The conclusion is in-class, linear, ordered within reads, and multiplicity-sensitive.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "7dce4e71091d proves a largest ambiguous length at weight three, using the general identity c_(t+1)−c_t=w_(t+r)−w_t and exact phase witnesses at its extremal length. 2eaec66ac849 identifies fibers of window compositions for n≥3h−1. The coding paper defines injective selected codebooks and addresses rate/redundancy rather than the fixed-weight census."
+        ],
+        "reasoning": "The general chain identity is a genuine reusable ingredient. Its stated weight-three theorem does not specialize numerically to weight two, and the composition theorem both coarsens the reads and does not apply in this long-window regime. An additional weight-two argument is needed to rule out all competing fibers and to handle every length below the cutoff, not just its last ambiguous length.",
+        "searches": [
+          "Resultary 7dce4e71091d, Finding and proof steps 1–4",
+          "Resultary 2eaec66ac849, Finding and Assumptions",
+          "arXiv:1804.04548 §II, around offset 10350"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify_spectrum.py/.out and verify_witness.py/.out",
+        "Resultary 14cf0c12c2fc, 2eaec66ac849, 7dce4e71091d and 13779c08da71",
+        "Primary passages of Alekseev–Smetanin and arXiv:2610.41110v1, 2602.19408v1, 1804.04548"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "With the published chain identity, a long-read collision at weight two would require differing all-ones chains of length exactly two; counting these and proving identical full decks by phase rotation gives a short alternate route to the reviewed classification. The prior proof uses a related phase witness only at the largest ambiguous k in a different class. The title-close periodic reconstruction source gives sufficient bounds in a scattered observation model."
+        ],
+        "reasoning": "The shared identity constrains any collision but is not itself a full-deck equivalence or count. It requires the weight-two exclusion of any other nonzero chains, a converse for all eligible phases, and separate shorter-range witness analysis; these are not conclusions of the compared weight-three theorem. The actual Alekseev–Smetanin hypotheses and set-spectrum storage results do not cover this observation and quantifier combination. No historical precedence is inferred from same-day dates.",
+        "searches": [
+          "7dce4e71091d RESULT.md steps 1–4, offsets 1516–4576",
+          "Chakraborty et al. arXiv:2602.19408v1, Abstract and §1",
+          "Alekseev–Smetanin Theorems 1 and 2 and definition of fragment"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Alekseev–Smetanin's p. 62 definition permits any increasing index sequence, not just consecutive positions. Angal et al. also define a deck using strictly increasing positions. In contrast arXiv:1804.04548, §II, defines precisely the contiguous substring multispectrum, and studies reconstruction codes chosen to have unique observations."
+        ],
+        "reasoning": "A substring spectrum is equivalent here only if it retains multiplicity, the order inside adjacent windows, and linear endpoints. Scattered-subsequence decks, spectra retaining only occurrence/non-occurrence, and composition-only windows are different channels. Constructing an injective codebook does not assert injectivity on all weight-two words or classify their fibers.",
+        "searches": [
+          "Fixed-weight binary contiguous-factor multiset; linear substring profile/multispectrum and periodic rotations",
+          "Alekseev–Smetanin DOI 10.1134/S106456242202003X; arXiv:2610.41110v1; arXiv:1804.04548"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "14cf0c12c2fc counts exact fibers for two-marker inputs and k=3 at n≥8; 13779c08da71 addresses unrestricted binary words at k=2. Neither tabulates the unique long-read collision class and its count for all n≥5."
+        ],
+        "reasoning": "These are natural exact catalogue neighbors, but fixed small k gives no long-read classification. At n≥8, k=3 is outside the reviewed long-read range; the single explicit shorter-length collision used here is not claimed novel in isolation.",
+        "searches": [
+          "Resultary 14cf0c12c2fc (three-mer fibers), 13779c08da71 (two-mer count), 2eaec66ac849, 7dce4e71091d"
+        ]
+      },
+      "rationale": "The distinct supported contribution is the exact weight-two long-read fiber and spectrum count, plus the first length that is identifying with a witness at every shorter length. Periodic phase collisions, degree balance, and the column-marginal rigidity method are not new. A closely related same-day result gives a general residue-chain observation and its application to weight three; it is strong method-level overlap but does not supply a full fiber classification or an all-shorter-length result for weight two. No containing exact theorem was established in the sources inspected.",
+      "residual_risks": [
+        "The inspection is bounded, particularly for broader substring-profile reconstruction; a general exact long-read collision theorem could cover more. The related same-day residue-chain result significantly overlaps ingredients, not the exact reviewed statement, and the inspection does not establish historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong overlap of tools and model, distinct exact claim",
+          "evidence": "Uses observable column differences along residue chains, establishes rigidity for weight three, and gives a collision at its maximal ambiguous length by choosing phases of a single-one period.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-sharp-single-length-substring-reconstruction-of-three-marker-bin--7dce4e71091d/RESULT.md",
+          "material_read": "Finding and proof (in particular offsets 1516–4576)",
+          "method": "Local mirror",
+          "title": "Sharp single-length substring reconstruction of three-marker binary words",
+          "trigger": "Closest same-channel sparse reconstruction and periodic phase method"
+        },
+        {
+          "assessment": "Exact different short-length question",
+          "evidence": "Exact class counts and sizes at k=3 for n≥8, outside the reviewed long-read range.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-three-mer-multiplicity-fibers-for-two-marker-words--14cf0c12c2fc",
+          "material_read": "RESULT.md Finding and Assumptions, offset 0",
+          "method": "Local mirror",
+          "title": "Exact three-mer multiplicity fibers for two-marker words",
+          "trigger": "Same weight and full linear multiplicity channel"
+        },
+        {
+          "assessment": "Coarser channel and different range",
+          "evidence": "Each window retains only composition; exact fibers for n≥3h−1.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-exact-fixed-window-composition-spectra-of-binary-words-with-two--2eaec66ac849",
+          "material_read": "RESULT.md Finding and Assumptions, offset 0",
+          "method": "Local mirror",
+          "title": "Exact fixed-window composition spectra of binary words with two markers",
+          "trigger": "Same weight and related fiber enumeration"
+        },
+        {
+          "assessment": "Different observation channel; sufficient reconstruction bounds, not this theorem",
+          "evidence": "Fragments use arbitrary i_1<…<i_k. The abstract gives a sufficient scattered-fragment length floor(16p/7)+5 under its hypotheses.",
+          "identifier_or_url": "https://doi.org/10.1134/S106456242202003X",
+          "material_read": "Springer PDF pp. 61–63: abstract offset 0, fragment definition at 4893, Theorems 1 and 2 at 9788 and 28391",
+          "method": "Lawful primary OA PDF",
+          "title": "On the Word Fragment Length for Unambiguous Reconstruction of a Periodic Word from a Complete Multiset of Fragments of Fixed Length",
+          "trigger": "Title-close apparent prior about periodic words and equal-length multiset reconstruction"
+        },
+        {
+          "assessment": "Fixed weight but scattered decks",
+          "evidence": "Includes words with exactly s ones; its multiplicity deck counts subsequences via strictly increasing index maps.",
+          "identifier_or_url": "https://arxiv.org/html/2610.41110v1",
+          "material_read": "Abstract and §1 including deck definition, starting offset 0",
+          "method": "Public primary arXiv HTML",
+          "title": "Deck Reconstruction for Restricted Word Classes",
+          "trigger": "Fixed-weight deck reconstruction"
+        },
+        {
+          "assessment": "Set-preserving compression, not full multiplicity-based input reconstruction",
+          "evidence": "Constructs spectrum-preserving representations for storage/compression.",
+          "identifier_or_url": "https://arxiv.org/html/2602.19408v1",
+          "material_read": "Abstract and §1, offsets 0 and 3576",
+          "method": "Public primary arXiv HTML",
+          "title": "Variations on the Problem of Identifying Spectrum-Preserving String Sets",
+          "trigger": "Similar k-mer terminology"
+        },
+        {
+          "assessment": "Same channel but different code design question in inspected passage",
+          "evidence": "Defines all n−L+1 contiguous factors counted with multiplicity, gives a periodic ambiguity example, and optimizes selected reconstruction codes for rate/redundancy.",
+          "identifier_or_url": "https://arxiv.org/abs/1804.04548",
+          "material_read": "Definition, Example 1 and reconstruction-code objective, PDF offsets 10350–13922",
+          "method": "Public primary arXiv PDF",
+          "title": "Unique Reconstruction of Coded Strings from Multiset Substring Spectra",
+          "trigger": "Identical linear multispectrum and code-level reconstruction thresholds"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact fiber tells not only when length alone permits reconstruction, but precisely which two-marker placements fail and how many indistinguishable source words each ambiguous observation represents. Separately certifying every earlier length is important for one-length observations, where longer read spectra need not directly encode the shorter multiset including its end effects. The two-thirds cutoff and recurrence of the same phase mechanism in all short ranges are structurally useful beyond a small enumeration.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

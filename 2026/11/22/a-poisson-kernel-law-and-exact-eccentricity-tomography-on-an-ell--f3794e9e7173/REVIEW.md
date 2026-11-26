@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The sampled object is precisely the ordered pair of supporting tangents with outward normals \(\Theta\) and \(\Theta+\pi/2\). Both supporting-line equations, the circle radius, inverse normal-to-position Jacobian, Fourier coefficients, exact total variation, and singular weak and local limits follow from explicit identities given in RESULT.md. The strict positivity of the angular Jacobian excludes fold multiplicities. The Cauchy total-variation limit uses normalized pointwise density convergence and Scheffé's lemma. An executable verifier checked 327,728 deterministic statements; these checks supplement rather than replace the proof.
+PASS
 
-## Originality — PASS, with historical qualification
+The two perpendicular supporting equations give Q=e^(iθ)(h(θ)+i h(θ+π/2)) and constant modulus R by summing squared supports. The support phase stays in a quadrant, so winding is one, and |ψ′−1|≤c<1 makes the angle map one-to-one. Squaring the valid supporting equation R cos(ψ−θ)=h(θ) yields cos(2ψ−2θ)=c cos(2θ). Equivalently the phase of e^(2iψ)−c gives 2θ up to an additive constant locally; invertibility makes the positive derivative the actual inverse Jacobian, not a sum over branches. Its real part decomposes as (1+P_c)/2. Fourier orthogonality proves both parities and rotation covariance; radius plus the second moment gives the two semiaxes and (only for c>0) the axis modulo π. For 0<c<1 the positive part of f−uniform lies at cos(2ψ)>c. With v=arccos c, the tangent half-angle formula is 4 arctan(((1+c)/(1−c))tan(v/2))=π+2arcsin c for the Poisson-kernel integral; the arc length is π−2arcsin c, giving TV arcsin(c)/π after the mixture factor. At c=0 the difference is identically zero (the strict positive-region description is only for c>0). The thin limit follows from the disk kernel concentrating at 0 in doubled angle, and the conditional local density δ P_c(δx)/(2π) tends pointwise to 1/[π(1+x²)] with integral one on each side of the limit, proving TV by Scheffé. The conditioning is on the Poisson component, not the entire mixture.
 
-The nearest classical sources establish the director circle, conic isoptics, and general support-function parametrizations. Odehnal's 2010 paper treats the locus and equations of equioptics; Csima–Szirmai's 2013 paper treats conic isoptics in constant-curvature geometries; Cieślak–Mozgawa's 2021 support-function theorem describes circular orthoptics without choosing a tangent-angle probability measure. The 2008 ellipse isoptic demonstration gives an explicit curve-generation method but not a probability pushforward. A comparison with published related results on ellipse boundary normals, normal multiplicity and isoptic area did not identify a statement implying the *specific probability law plus inversion and total-variation limit*. The general parametrization is acknowledged and only the sampling-induced consequences are claimed. Historical uncatalogued treatments remain possible; no independent priority determination has occurred.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A classical locus alone gives only the radius and does not distinguish ellipses with the same sum of squared semiaxes. The new observable is a natural invariant of sampling uniformly in tangent-normal angle. Its exact half-uniform/half-Poisson decomposition gives the complete law, one complex moment recovers anisotropy and axis orientation, an exact total-variation distance measures deviation from circularity, and a striking half-diffuse/half-atomic limit quantifies the collapse of highly eccentric ellipses. These features make this a fully resolved inverse-geometric measurement problem, not merely another equation for the director circle.
+The director circle and the support-angle parametrization are classical; the standard Poisson kernel, its Fourier series and approximate-identity behavior are not contributions here. The inspected precedents establish the geometric forward locus and angle parametrization; they do not state or already encode the specific inverse Jacobian and the normal-angle sampling measure. The contribution is the exact mixture and identifiability of anisotropy under this observation model, with TV and singular/local consequences. Historical priority remains provisional.
 
-## Closest literature and residual qualifications
+## value
 
-Primary geometric sources: B. Odehnal (2010), https://www.geometrie.tuwien.ac.at/odehnal/tr200.pdf ; G. Csima and J. Szirmai (2013), https://arxiv.org/abs/1301.6991 ; W. Cieślak and W. Mozgawa (2021), https://doi.org/10.1007/s00010-021-00828-4 ; Csima–Szirmai–Tóth (2008), https://demonstrations.wolfram.com/IsoOpticCurveOfTheEllipse/ . One 2008 online resource exposes only a year, not an independently verified date to the day. The precisely dated primary 2010 report gives the recorded source date. The theorem is restricted to ellipses and normal-angle uniformity; it does not claim a rigidity characterization among all ovals.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+There is a natural inverse problem when only intersection angle and radius are observable: radius alone cannot separate ellipses, while the second harmonic does at fixed radius. The exact mixture says how much orientation information survives and gives a quantitative measure of departure from uniformity and the angular resolution scale for very slender ellipses. These are exact properties of a distinct sampling protocol, not a reparametrization of a known locus invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

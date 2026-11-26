@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T13:43:19.988722Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reflection of all three coordinates preserves both the flow and H, so consider x>0. The exact identities for w=z+x^q y are xw=h+y²/2 and w'=−x^(q−1)y². Hence 0<w≤w(0) and x≥h/w(0), excluding the interface. When y≤0 its derivative is positive; when y≥0 it satisfies y'≤w(0)−(h/w(0))^q y. These bounds on y, hence on x and z over finite intervals, give forward continuation. If y never becomes positive, x stays bounded above and y'≥h/sup(x)>0, a contradiction; upward crossing at y=0 prevents a return to negative y. Bounded increasing x would imply y'≥h/sup(x)−sup(x)^q y and thus positive limiting lower velocity, again impossible. With x→infinity, any fixed positive velocity level is eventually crossed downward because y'≤w(0)−x^q y, so y→0. On y=b=(1±epsilon)h x^(−q−1), the derivative of y−b is ∓epsilon h/x+(q+3/2)b²/x, giving inward signs at large x. Remaining forever above the upper barrier forces y'≤−epsilon h/(2x) at late times, and remaining below the lower forces y'≥epsilon h/x. Bounded y gives x=O(1+t), so neither is possible by the divergent integral of 1/x. The eventual inward trap yields x^(q+1)y→h, and integrating (x^(q+2))' proves the original-time position limit. Reflection gives the sign in the velocity limit. This checks every positive level including q=1 on the open half-lines, not the zero level, interface dynamics or backward time.",
+      "replay": "python3 -B /workspace/review_replay.py 5 (SymPy): symbolic differentiation verifies conservation, the w' identity, and the two signed barrier derivatives. Frozen numerical summaries were inspected but the reported integrations were not replayed; no solver code or precise initial data were supplied. Globality and convergence follow from the analytic estimates, not the identities alone or numerical trials.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1 establishes negative-energy periodic cylinders for q=1,2,3 in the parameter slice k=q+1; Theorem 2 gives sufficient conditions for other q, with computational tests through 100, not unconditional positive-level classification.",
+          "The 1999 and 2024 papers are relevant periodic-dynamics works but their full statements were not retrievable; the 2023 paper reports earlier periodic observations at q=2, k=3."
+        ],
+        "reasoning": "A family with more parameters is not a stronger theorem on the intersection unless its conclusion and energy range actually specialize to the escape law. The inspected strong primary results use incompatible sign hypotheses.",
+        "searches": [
+          "Llibre–Novaes–Valls arXiv:2307.00087, Theorems 1 and 2 and generalized parameters",
+          "Géronimi–Feix–Leach DOI 10.1007/BFb0105938",
+          "Zhuang–Liu–Luo DOI 10.1063/5.0209050"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md",
+        "arXiv:2307.00087 and nlin/0104074",
+        "Resultary 5c0d8b323b18, 2d7de2b8a816, 027cb0928569",
+        "Limited evidence for DOI 10.1007/BFb0105938 and DOI 10.1063/5.0209050"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The available comparison theorems treat periodic trajectories on negative levels or a scalar equation at the critical level, rather than forward existence and both normalized limits for h>0. At q=1 nonsmooth behavior can occur at x=0; H≤0 there, and the positive-level proof also bounds x away from zero on each initial half-line."
+        ],
+        "reasoning": "The leading balance y≈h/x^(q+1) from the energy relation is only formal absent global escape and eventual trapping for all initial velocities. Neither the known integral nor the neighboring energy results supply those implications.",
+        "searches": [
+          "arXiv:2307.00087, pp. 3–5: q=1 interface, Theorems 1–2 and energy reduction",
+          "Resultary 5c0d8b323b18 and 2d7de2b8a816, Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "On x>0 and H=h>0 the frozen flow eliminates z to x'=y and y'=(h+y²/2)/x−x^q y, without time change.",
+          "Llibre–Novaes–Valls reduce the same family on H=−omega² using a time rescaling and a return map. The inspected general parametric-integral passages of arXiv:nlin/0104074 do not establish a mapping to the positive system or its limits."
+        ],
+        "reasoning": "The equivalent positive-level planar form and reflection are checked explicitly. The comparison must preserve the energy sign and physical time, so a negative-level return map or general first-integral technique is not an equivalent escape-rate statement.",
+        "searches": [
+          "Llibre–Novaes–Valls arXiv:2307.00087, negative-level planar reduction p. 5",
+          "Géronimi–Leach–Feix arXiv:nlin/0104074, abstract and generic third-order form",
+          "Local Resultary generalized-Chazy first integral, escape, and critical-energy dynamics"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact positive-energy indexed hit d80233ee60f1 is the assigned statement itself. Distinct 5c0d8b323b18 gives an exact zero-energy scalar reduction for q≥2, 2d7de2b8a816 concerns q=1 and H<0, and 027cb0928569 concerns q≥2 and H<0."
+        ],
+        "reasoning": "These are independent comparisons by their energy ranges, not aliases of an exact positive-energy theorem. The exact escape exponent and prefactor are symbolic invariants rather than tabulated numerical values; finding the assigned record itself gives no prior coverage.",
+        "searches": [
+          "Local Resultary: generalized Chazy positive-energy forward asymptotics, critical-energy dynamics, and periodic flow on invariant energy leaves"
+        ]
+      },
+      "rationale": "Pass for the complete forward behavior and exact positive-energy position/velocity limits in the original time scale. The same equation, first integral and use of an energy-surface reduction are prior. The decisive available same-flow statements concern negative-energy periodic orbits or the zero level, not the positive-flow conclusion. Related inaccessible periodic-orbit papers leave a priority risk but did not supply evidence of equivalent coverage.",
+      "residual_risks": [
+        "The 1999 and 2024 full texts were not available for decisive direct comparison. Do not infer non-coverage from that access limitation.",
+        "Equivalent positive-level asymptotics may occur in differently parametrized ODE literature outside this bounded comparison."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same model; prior energy reduction and negative-energy conclusions, not matching positive-energy rates",
+          "evidence": "Negative-level periodic cylinders and return-map theory for k=q+1, including q=1,2,3.",
+          "identifier_or_url": "https://arxiv.org/abs/2307.00087",
+          "material_read": "Abstract p. 1 offset 1120, p. 1 offset 2423, Theorem 1 p. 3 offset 8760, Theorem 2 p. 4 offset 11850, planar reduction p. 5 offset 15800, references p. 28 offset 109627",
+          "method": "Open primary-text passages",
+          "title": "Existence of a cylinder foliated by periodic orbits in the generalized Chazy differential equation",
+          "trigger": "Same flow and first integral"
+        },
+        {
+          "assessment": "Full comparison unresolved",
+          "evidence": "The cited account describes numerical periodic solutions for q=2,k=3, not an exact positive-energy theorem.",
+          "identifier_or_url": "https://doi.org/10.1007/BFb0105938",
+          "material_read": "Bibliographic identification and 2023 cited account only",
+          "method": "DOI and publisher routes did not yield lawful full text; secondary account in arXiv:2307.00087 p. 1",
+          "title": "Periodic Solutions and Associated Limit Cycle for the Generalised Chazy Equation",
+          "trigger": "Earlier same-equation work"
+        },
+        {
+          "assessment": "Scope cannot be ruled out or credited as a match",
+          "evidence": "Title and citation identify a plausible related periodic-dynamics source, not a decisive positive-level statement.",
+          "identifier_or_url": "https://doi.org/10.1063/5.0209050",
+          "material_read": "Bibliographic identification via related catalogue record; no full text",
+          "method": "Publisher access denied; targeted title/DOI query for a lawful author manuscript not productive",
+          "title": "On the periodic behavior of the generalized Chazy differential equation",
+          "trigger": "Same equation and broader periodic-dynamics study"
+        },
+        {
+          "assessment": "Adjacent method; no exact mapping established from the inspected material",
+          "evidence": "General parametric first-integral methods for symmetry classes.",
+          "identifier_or_url": "https://arxiv.org/abs/nlin/0104074",
+          "material_read": "Abstract offset 0 and generic third-order form p. 2 offset 2500",
+          "method": "Open primary-text passages",
+          "title": "Géronimi–Leach–Feix parametric first-integral study",
+          "trigger": "Possible equivalent integrated third-order formulation"
+        },
+        {
+          "assessment": "Different energy level and restricted q",
+          "evidence": "Scalar reduction and classification for H=0 and q≥2, not h>0.",
+          "identifier_or_url": "Resultary 5c0d8b323b18",
+          "material_read": "Finding, mirror offset 0",
+          "method": "Local Resultary and mirrored passage",
+          "title": "Complete critical-energy dynamics for the generalized Chazy flow",
+          "trigger": "Closest indexed nonperiodic energy-level study"
+        },
+        {
+          "assessment": "Distinct neighboring negative-energy results",
+          "evidence": "The first concerns q=1 and H<0; the second q≥2 and H<0.",
+          "identifier_or_url": "Resultary 2d7de2b8a816 and 027cb0928569",
+          "material_read": "Findings and energy restrictions",
+          "method": "Local Resultary comparison",
+          "title": "Generalized Chazy periodic-orbit indexed studies",
+          "trigger": "Same potential positive-level theorem under related parameterizations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This fills the natural positive-energy counterpart to periodic negative levels, globally excluding slow or fast alternative escape behaviors and extracting both universal coefficients for every initial condition on each positive level. The moving barriers justify a leading balance that is not established by the known integral alone. The separate original-time velocity limit is useful even after the growth exponent is known.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

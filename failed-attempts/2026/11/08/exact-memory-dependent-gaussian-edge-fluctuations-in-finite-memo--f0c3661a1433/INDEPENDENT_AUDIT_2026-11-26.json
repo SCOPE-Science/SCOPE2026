@@ -1,0 +1,152 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:24:22.455404Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 7–107; VERIFICATION.md and check.py inspected as text",
+        "Independent exact symbolic Poisson solution and path transform in rationale"
+      ],
+      "rationale": "For fixed M, strict positivity of every append probability makes the shift chain irreducible, and its zero-state loop makes it aperiodic. Extending the initial Pólya block by one draw and dropping its first coordinate preserves the law by exchangeability. An independent analytic variance check uses f(H)=Z_M−ρ and the Poisson solution g(H)=∑_{j<M}jδ(Z_j−ρ)+(1+Mδ)(Z_M−ρ): substituting the append mean gives (I−P)g=f, including M=1. Within the stationary block the distinct-coordinate covariance is vδ/(1+δ), from the Pólya two-draw law. Hence 2〈f,g〉−v gives exactly vD_M. In the frozen argument the bounded innovations have predictable variation converging uniformly after division by N, by the ergodic theorem and monotonicity, so the martingale functional CLT applies. Lag shifting in the edge-weighted sum costs O_M(N) uniformly in the edge horizon, and division by N^(3/2) makes this negligible. Summation by parts maps a draw partial-sum path x to tx(t)−∫_0^t x(s)ds at continuous limits; applied to Brownian motion this is ∫_0^t s dB_s. The covariance is therefore vD_M min(s,t)^3/3; dividing by the asymptotic N²/2 edge denominator gives the stated density variance. Ergodicity and the conditional Bernoulli law respectively give the finite-memory deterministic density limit and the infinite-memory Beta limit. The monotonicity and quadratic growth of D_M follow from its formula, without asserting a joint M,N limit.",
+      "residual_risks": [
+        "Fixed M, positive δ, interior ρ and the unconditioned stationary model are essential to the audited scope. The recorded finite checks cannot prove functional convergence."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The graph paper gives the finite-memory construction and consensus simulations, not this graph FCLT in the passages checked. The memory-kernel paper gives the general exact covariance recurrence including this finite cutoff. The interacting urn network paper studies a different network process and marginal infection probabilities."
+        ],
+        "reasoning": "The kernel theorem covers the covariance recurrence needed here; a general Markov FCLT alone would not supply the coefficient without the known covariance or a separate computation.",
+        "searches": [
+          "Yu–Alajaji–Gharesifard arXiv:2603.18452, §4.2.2 and conclusion",
+          "Mori–Hisakado–Nakayama §II equations (2)–(3)",
+          "Singh–Alajaji–Gharesifard arXiv:2010.00463, Proposition 1 and Theorem 1"
+        ]
+      },
+      "checked_sources": [
+        "Earlier Resultary edge-count Finding and proof",
+        "Zhong–Alajaji–Takahara Theorem 3 and ACF recurrence",
+        "Mori–Hisakado–Nakayama finite-cutoff equations",
+        "arXiv:2603.18452",
+        "arXiv:2010.00463"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For normalized r_h=Cov(Z_0,Z_h)/v, prior recurrence gives r_h=r=δ/(1+δ) up through h=M and r_h=a∑_{j=1}^M r_{h−j} thereafter, with a=δ/(1+Mδ). Exponential covariance decay follows from the finite irreducible aperiodic chain. Summing with S=∑_{h≥1}r_h gives S−Mr=a(MS−M(M−1)r/2), hence 1+2S=D_M.",
+          "The earlier same-model draw FCLT transfers by x↦tx(t)−∫_0^t x to exactly the frozen graph FCLT."
+        ],
+        "reasoning": "No additional stochastic limit theorem for graph paths is needed beyond the earlier draw limit. The covariance, endpoint CLT, and fixed-M strong law then follow by standard substitutions or ergodicity.",
+        "searches": [
+          "October 18 Resultary edge Finding and partial-sum proof",
+          "Zhong et al. §3.1.3 and Theorem 3; Mori et al. §II finite-cutoff covariance"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The uniform finite queue (α=1) and contagion chain have identical block transitions with ε=Mδ/(1+Mδ). The finite-cutoff urn has the frozen transitions with θ=1/δ and initial masses ρ/δ,(1−ρ)/δ."
+        ],
+        "reasoning": "Changing queue or kernel parameters leaves the same stationary bounded finite-state process; the graph converts its centered bits into a deterministic weighted sum.",
+        "searches": [
+          "Zhong–Alajaji–Takahara queue channel, Theorem 3 and §3.1.3",
+          "Mori–Hisakado–Nakayama, Pólya urn with memory kernel, §II, finite cutoff"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The October 18 Finding and proof give the terminal edge CLT, edge variance limit and draw partial-sum FCLT with τ_M=(M+κ)(M+κ+1)/(κ(κ+1)). The November 9 joint edge/triangle result gives the same edge process as a component."
+        ],
+        "reasoning": "At κ=1/δ the October multiplier equals [(1+Mδ)(1+(M+1)δ)]/(1+δ)=D_M. The November 9 result is a mathematical overlap, not earlier-priority evidence.",
+        "searches": [
+          "Resultary edge-count Pólya threshold graph exact finite-memory variance and process-limit lookup",
+          "2026/10/18/SCOPE-exact-memory-amplification-of-edge-count-fluctuations-in-p-lya-t--2bd246f774b4",
+          "2026/11/9/SCOPE-joint-triangle-fluctuations-and-a-nondegenerate-edge-square-exce--2604022e91d9"
+        ]
+      },
+      "rationale": "The earlier edge-count record gives the same terminal edge CLT and the draw FCLT under an equivalent parameterization. The remaining time-indexed statement follows mechanically by deterministic summation by parts, and the explicit multiplier also follows by a direct summation of older exact covariance recurrences. This is prior coverage by mathematical implication, not a claim that the earlier papers printed the full graph path theorem or that catalogue dates establish authorship.",
+      "residual_risks": [
+        "Original Alajaji–Fuja full text remained unread; verified older coverage and implications suffice independently.",
+        "Coverage assessment is not a bibliographic priority or provenance determination."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact terminal coverage; process claim follows from its draw FCLT",
+          "evidence": "τ_M and same-model draw partial-sum invariance principle.",
+          "identifier_or_url": "2026/10/18/SCOPE-exact-memory-amplification-of-edge-count-fluctuations-in-p-lya-t--2bd246f774b4",
+          "material_read": "Mirrored Finding and proof, offsets 0 and 5600",
+          "method": "Resultary passage comparison and parameter identification",
+          "title": "Exact memory amplification of edge-count fluctuations in Pólya threshold graphs",
+          "trigger": "Earlier identical graph statistic and variance"
+        },
+        {
+          "assessment": "Process equivalence and prior exact covariance recurrence",
+          "evidence": "Uniform queue and finite-memory contagion have identical block transitions.",
+          "identifier_or_url": "https://mast.queensu.ca/~communications/Papers/it-qbc.pdf",
+          "material_read": "§2.3 p. 6; §3.1.3 p. 12; Theorem 3 and proof pp. 19–20, offsets 18570, 46606, 82011–87483",
+          "method": "Lawful OA bounded passage inspection",
+          "title": "A Binary Communication Channel with Memory Based on a Finite Queue",
+          "trigger": "Same chain and exact autocorrelation"
+        },
+        {
+          "assessment": "The recurrence specializes and sums to the frozen multiplier",
+          "evidence": "Finite-cutoff memory d(t)=1 for t<M and 0 otherwise.",
+          "identifier_or_url": "Mori–Hisakado–Nakayama, exact title",
+          "material_read": "§II pp. 5–7, equations (2)–(3), offsets 7000–11128 and 12000–13611",
+          "method": "Lawful OA passage comparison",
+          "title": "Pólya urn with memory kernel and asymptotic behaviors of autocorrelation function",
+          "trigger": "Strong general covariance result including finite cutoff"
+        },
+        {
+          "assessment": "Prior graph construction; inspected passages not an edge FCLT",
+          "evidence": "The consensus runs require the universal final vertex; the conclusion identifies finite-memory stochastic properties for further work.",
+          "identifier_or_url": "https://arxiv.org/html/2603.18452",
+          "material_read": "§4.2.2 and conclusion, offsets 78662–82890 and 83800",
+          "method": "Lawful OA HTML passage read",
+          "title": "Pólya Threshold Graphs",
+          "trigger": "Original same graph construction"
+        },
+        {
+          "assessment": "Original article's exact limit scope unverified; not the basis for failure",
+          "evidence": "The later queue paper gives the prior contagion process equivalence directly.",
+          "identifier_or_url": "https://drum.lib.umd.edu/items/d75027ea-d89e-475f-85be-1bc14d97dc5d",
+          "material_read": "Original full text not obtained; model and invariant law checked via Zhong et al. §2.3",
+          "method": "Lawful source and journal retrieval attempts, then checked the later comparison",
+          "title": "A Communication Channel Modeled on Contagion",
+          "trigger": "Earliest cited finite-memory contagion source"
+        },
+        {
+          "assessment": "Different network and observable",
+          "evidence": "Order-M network process and limiting marginal infection probabilities.",
+          "identifier_or_url": "https://arxiv.org/abs/2010.00463",
+          "material_read": "Proposition 1 pp. 5–7 and Theorem 1 p. 11",
+          "method": "OA statement comparison",
+          "title": "Interacting urn network study by Singh–Alajaji–Gharesifard",
+          "trigger": "Potential finite-memory contagion generalization"
+        },
+        {
+          "assessment": "Direct overlap, not evidence of earlier priority",
+          "evidence": "Joint process edge component has exactly D_M.",
+          "identifier_or_url": "2026/11/9/SCOPE-joint-triangle-fluctuations-and-a-nondegenerate-edge-square-exce--2604022e91d9",
+          "material_read": "Mirrored Finding and proof, offsets 0 and 5500",
+          "method": "Local Resultary comparison",
+          "title": "Joint triangle fluctuations and a nondegenerate edge-square excess",
+          "trigger": "Same edge process as a component"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding; October 18 edge-count Finding and draw FCLT proof; known covariance recursion"
+      ],
+      "rationale": "The explicit inflation coefficient is useful, but the frozen submission adds only the deterministic weighting of an already obtained draw FCLT and rederives a known edge variance and terminal limit. The classical Beta comparison and elementary properties of the multiplier do not leave a distinct valuable remainder. No genuine repair within the frozen evidence was identified.",
+      "residual_risks": [
+        "This is a judgment on incremental value of the frozen claim, not on the utility of the finite-memory edge fluctuation law itself."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

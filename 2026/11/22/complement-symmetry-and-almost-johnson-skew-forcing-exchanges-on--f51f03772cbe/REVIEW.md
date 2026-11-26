@@ -1,12 +1,21 @@
-# Scientific review: complement symmetry and skew-forcing exchange on the folded five-cube
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim fixes the five-regular Clebsch graph by explicit adjacency, and the skew rule permits a forcing vertex of either color. The mask closure algorithm is an exhaustive monotone process, so examining all \(65536\) initial masks proves the entire forcing polynomial and sharp minimum. The affine group action has exactly \(1920\) automorphisms because its vertex image and the permutation of its five neighbors determine an automorphism uniquely. BFS from nine orbit representatives certifies all \(6490\) eccentricities and the exact number of pairs violating Johnson-distance equality. Two independent constructions, one four-bit and one even-parity five-bit, gave identical results. Risk: the calculation proves only the explicitly named finite graph; extending to larger folded cubes would require new arguments.
+## correctness
 
-## Originality — PASS
-The checked foundational 2014 skew-forcing paper concerns extreme parameters and particular multipartite, bipartite and unicyclic families; it does not state the Clebsch census. The inspected 2020 reconfiguration paper uses ordinary zero forcing, not the skew rule. The nearest indexed work on Clebsch graph matchings or determining sets counts different configurations; the nearest skew-forcing work on odd prisms uses another graph family. The current mathematical-result search and accessible previous scientific claims did not contain an equivalent or dominating statement. Risk: indexed summaries of some related mathematical records were accessible without their full papers, and an unindexed exact census cannot be ruled out.
+PASS
 
-## Value — PASS
-The five-regular Clebsch graph is a small, canonical, highly symmetric nonbipartite benchmark; skew forcing is tied to minimum skew rank. The complete polynomial and nine-orbit classification enable exact sampling and comparison, while complement closure contrasts sharply with failure of the matroid basis-exchange axiom. The reconfiguration graph is connected and self-centered despite four distinct degrees and exactly \(9120\) exceptional Johnson-distance pairs. These combined phenomena establish nontrivial structure, not a mere numerical gain in a pre-existing bound. Risk: no all-order generalization or application to a new external problem is claimed.
+An independent reproduction (branches/reproduce-exchanges.py clebsch; output in branches/reproduce-exchanges.out) used dynamic programming on all 65,536 white sets: the empty set succeeds, and a nonempty white set succeeds iff an open neighborhood hits it in a singleton whose deletion gives a previously successful set. The deleted bit decreases the index, so this evaluates the first-force recurrence exactly with no restriction on the forcing vertex's color. It reproduces every polynomial coefficient, the 6,490 optima, complement closure, and the stated stalled exchanges for the matroid counterexample. For automorphisms an image of 0 and a bijection of its five neighbors prescribe the other ten images via their pairs of shared neighbors; the reconstruction verifies all 1,920 adjacency-preserving permutations and the nine orbits. Pairwise XOR population two constructs precisely the legal jumps. Full unweighted shortest-path searches from all 6,490 sources, without relying on the orbit reduction, return 116,320 edges, the four asserted degree multiplicities, all eccentricities eight, and exactly 9,120 unordered pairs at Johnson distance plus one and none farther. The representative counts and the distance-three example also agree.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The result is the census and metric for skew forcing on the five-regular Clebsch graph, not for ordinary forcing, matching flips or the ten-regular graph sometimes called Clebsch. No checked prior result supplies these data or implies the exchange-distance bound and detour count.
+
+## value
+
+PASS
+
+On a canonical strongly regular graph the minimum family is invariant under complementation but not a matroid basis family. Its exchanges are nevertheless connected and uniformly within one step of the ambient Johnson lower bound, with a complete count of genuine detours. This tests specific structural expectations about mobility in skew forcing and supplies a reusable exact benchmark beyond the forcing number alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,153 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:19:46.011393Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–42 and VERIFICATION.md; verify.py inspected without execution",
+        "repairs/2/RESULT.md (complete corrected result and proof)",
+        "Cohen, Table 1, printed p. 6, OA offset 16750: H_4 row 1+1316t+4566t²+1316t³+t⁴",
+        "review_evidence/2-exceptional.py and review_evidence/2-exceptional.txt; replay with python3 /workspace/review_evidence/2-exceptional.py"
+      ],
+      "rationale": "In the repaired proof, length additivity in w=uv holds also with v replaced by vs for s∈J. Thus the right descents in J are exactly those of v, and the unnormalized character sum is the parabolic Eulerian value multiplied by the index. Components give a product and longest-element complementarity kills odd ranks. Type A/B secant-tangent evaluations, the type D identity, and the dihedral calculation give nonzero even ranks: tan'=1+tan² implies odd-indexed zigzag numbers beyond E_1 are even (paired terms, with an even central binomial coefficient if unpaired), and sec'=sec·tan then implies even-indexed numbers are odd. The original H_4 evaluation 1936 came from the erroneous printed Cohen row, whose coefficients sum to 7200 instead of the group order 14400. Expanding ∏(2·1_{s is not a right descent}−1) reduces P_W(−1) to the signed weighted parabolic indices. At sizes 0 through 4 the sums for H_4 are 14400, −57600, 68160, −21120, 16 and give the corrected nonzero 3856. Exact independent parabolic arithmetic also matched F_4, E_6 and E_8. The parity-boundary bijection is valid: a tree edge set of positive odd degrees has even components; conversely pair the vertices in each even induced component and take the symmetric difference of paths, unique since no nonempty forest edge set has all degrees even. Rooting at a leaf (or the singleton) gives 0, 1, or 2 children; the absent/present-parent counts from two branches are ac+bc+ad and ac+bd, with only the permitted incident degrees. The Fibonacci addition law gives F_{s+1},F_s for s vertices; F_{r+1} counts the nonzero characters. The real Walsh basis gives both fields' ranks and the factorization for a direct product. The correction changes a real proof evaluation but does not change the support or rank theorem.",
+      "residual_risks": [
+        "The frozen finite verifier checks B/D support and small trees, not the exceptional values or all ranks; the new independent computation evaluates parabolic sums on the explicitly named diagrams only. Degree at most three is essential for the universal tree count; no arbitrary-rank graph generalization or inverse norms are claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Record 5b74c389fdab classifies selected comparison-edge forests by odd vertex order of each component and proves extremal bounds. Its condition means even edge counts, hence even component sizes in the line graph of the comparison tree. Reiner covers general Coxeter descent distributions and their parabolic machinery. The Bishop et al. abstract instead concerns Orlik–Solomon and descent-algebra characters."
+        ],
+        "reasoning": "Selected edge sets can be turned into vertex subsets of a line graph. This covers paths but not branching Coxeter trees: an induced K_{1,3} occurs at a degree-three tree vertex, whereas line graphs are claw-free. The broader results on Coxeter descent statistics do not supply the shape-independent tree count.",
+        "searches": [
+          "Resultary: Coxeter diagram parity subsets Fibonacci rank descent convolution",
+          "Resultary record 5b74c389fdab, local Finding/Proof",
+          "Primary search: finite Coxeter groups Boolean Fourier Walsh transform complete descent-set distribution all characters parabolic Eulerian polynomial P_W(-1) nonzero support induced subdiagram even components rank"
+        ]
+      },
+      "checked_sources": [
+        "Reiner and Cohen original passages",
+        "distinct Resultary type-A and comparison-tree findings",
+        "Celano–Sieger–Spiro Theorems 1.4 and 1.6",
+        "Two focused primary searches with remaining access limit stated above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Classical parabolic information directly yields the multiplier expression and, with even-type evaluations and reciprocity, yields the even-component support. The additional sum over frequency masks for all subcubic trees is resolved by the boundary bijection and the two-state recurrence. CSS Theorems 1.4 and 1.6 address a different parity statistic with shape-dependent bounds."
+        ],
+        "reasoning": "Credit the mechanically implied parabolic multiplier and the prior path calculation. They do not imply the counting lemma by a change of normalization or parameters. The same-day records establish coverage of their actual overlapping portions, not precedence.",
+        "searches": [
+          "Reiner §II and Theorem 5; Cohen Proposition 1 and Lemma 2, Theorem 4 and Table 1",
+          "Resultary 241a4544ed1f and 5b74c389fdab compared with repaired boundary recursion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Distinct same-day type-A record 241a4544ed1f gives F_n for n−1 simple-reflection positions and the same even-run condition. Celano–Sieger–Spiro count signed orderings and prefix parity of edges, not even-component subsets of vertices; on P_3 their path evaluation is 2, not this count of 3."
+        ],
+        "reasoning": "The type-A result is genuinely the path case. Neither prefix-induced edge parity nor counting orderings is equivalent to the all-subcubic vertex-subset count. The focused tree web query returned no result, which is not evidence of absence.",
+        "searches": [
+          "Resultary: finite Coxeter descent set Walsh Fourier multiplier support nonzero induced parabolic components even rank P_W(-1",
+          "Resultary: subcubic tree vertex subsets induced components even order Fibonacci count parity boundary",
+          "Primary search: subcubic trees count vertex subsets whose induced components all even order Fibonacci odd-degree edge subgraphs parity boundary comparison edge subsets Celano Sieger Spiro arXiv:2309.07240"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The assigned record is an exact catalog hit, and 241a4544ed1f is the matching path census. The printed tables and formulas tabulate Coxeter Eulerian values, not all diagram-subset support sizes. The printed H_4 row is erroneous (see the exact repair), so its agreement with 1936 is not independent evidence."
+        ],
+        "reasoning": "Known Eulerian data are necessary premises, not a novel numerical computation or a table of the claimed universal rank. Local classification of alternating sums must be combined with an enumeration of the nonzero frequencies.",
+        "searches": [
+          "Resultary: Fibonacci rank convolution descent profile finite Coxeter group Fourier",
+          "Cohen, Eulerian Polynomials of Spherical Type, Theorem 5/Table 1 and Theorem 4",
+          "Reiner, Theorem 5 equation (10)"
+        ]
+      },
+      "rationale": "The classical descent distribution, parabolic factorization and local Coxeter Eulerian evaluations are prior ingredients. Type-A path support and rank appear in a distinct same-day record. The surviving contribution is the all-type frequency support linked to a shape-independent Fibonacci count of even-component vertex subsets in all subcubic trees. No inspected source gives that universal count as a specialization; the strongest comparison-tree theorem concerns selected edge sets, equivalent to vertex subsets in line graphs, and does not cover branching Coxeter trees.",
+      "residual_risks": [
+        "Inaccessible descent-algebra paper and unindexed odd-subgraph/even-component formulations remain priority risks. The retrieved sources do not certify historical priority or absence of equivalent results."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_PARABOLIC_INGREDIENTS",
+          "evidence": "Defines right descents and the length-additive coset decomposition; specializes to tanh(x)/x and sech(x) exponential Eulerian series at −1, with order factors.",
+          "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/ejc/article/download/v2i1r25/pdf/",
+          "material_read": "§II p. 3 OA offset 6579; Theorem 5 Eq. (10) pp. 10–11 offsets 30881, 33428",
+          "method": "OA original PDF",
+          "title": "The Distribution of Descents and Length in a Coxeter Group",
+          "trigger": "classical parabolic descent distribution"
+        },
+        {
+          "assessment": "COVERS_LOCAL_EVALUATION_INGREDIENTS_WITH_H4_TABLE_ERROR",
+          "evidence": "Gives P_D(t)=P_B(t)−2^{n−1}ntP_{A_{n−2}}(t), reciprocity and factorization. F_4, E_6 and E_8 rows give the asserted alternating sums. H_4 printed coefficients add to 7200 and cannot be the descent enumeration of H_4. The inspected results do not provide the graph subset count.",
+          "identifier_or_url": "https://pure.tue.nl/ws/files/2928709/Metis225320.pdf",
+          "material_read": "Proposition 1 and Lemma 2, printed p. 3; Theorem 4 pp. 4–5; Table 1 p. 6, bounded read at OA offset 16750",
+          "method": "author-accessible original PDF",
+          "title": "Eulerian Polynomials of Spherical Type",
+          "trigger": "exact type D and exceptional inputs of the proof"
+        },
+        {
+          "assessment": "COVERS_PATH_CASE",
+          "evidence": "For permutation descents in S_n a mask survives exactly when all path runs are even and the rank is F_n; this is the type A_{n−1} support and rank, not the other Coxeter types.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-fibonacci-fourier-rank-of-permutation-descent-patterns--241a4544ed1f",
+          "material_read": "Local RESULT.md Finding, lines 5–19",
+          "method": "local published mirror and frozen record",
+          "title": "Fibonacci Fourier rank of permutation descent patterns",
+          "trigger": "distinct same-day Fibonacci rank and even-run support"
+        },
+        {
+          "assessment": "PARTIAL_OVERLAP_DIFFERENT_TREE_INVARIANT",
+          "evidence": "The support concerns selected comparison edges with odd-order components of the resulting forest. Its line-graph reformulation explains the common path case and the lack of branching Coxeter tree coverage.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-sharp-fibonacci-to-dyadic-fourier-rank-bounds-for-permutation-co--5b74c389fdab",
+          "material_read": "Local RESULT.md offsets 0–4970 and 4900–7263",
+          "method": "local published mirror",
+          "title": "Sharp Fibonacci-to-dyadic Fourier rank bounds for permutation comparison trees",
+          "trigger": "tree-based parity support and Fibonacci extremal rank"
+        },
+        {
+          "assessment": "DIFFERENT_TREE_INVARIANT",
+          "evidence": "Counts signed orderings and orderings whose prefix-induced subgraphs contain even numbers of edges. On paths it gives alternating permutation numbers; for odd-order trees the bounds have hairbrush and star equality cases.",
+          "identifier_or_url": "https://arxiv.org/pdf/2309.07240",
+          "material_read": "pp. 3–5, offsets 8125, 10118, 11947, 14015, including Theorems 1.4 and 1.6",
+          "method": "OA original PDF",
+          "title": "Eulerian Polynomials for Digraphs",
+          "trigger": "signed Eulerian tree parity interpretation"
+        },
+        {
+          "assessment": "ABSTRACT_CONCERNS_DIFFERENT_CHARACTERS",
+          "evidence": "Concerns character decompositions for the Orlik–Solomon and descent algebras in ranks five and six; no Boolean Walsh support or Fibonacci rank in the material inspected.",
+          "identifier_or_url": "https://arxiv.org/pdf/1201.4775",
+          "material_read": "p. 1 abstract (offset 0)",
+          "method": "OA original PDF, bounded abstract comparison",
+          "title": "Coxeter-group character decompositions in ranks five and six (Bishop et al.)",
+          "trigger": "Coxeter descent-algebra Fourier/character search hit"
+        },
+        {
+          "assessment": "ACCESS_RISK_NOT_COVERAGE_EVIDENCE",
+          "evidence": "No statement-level conclusion about this paper based on the title or access failure.",
+          "identifier_or_url": "https://www.sciencedirect.com/science/article/pii/S0001870804001677",
+          "material_read": "Indexed title only; no full-text passage retrieved",
+          "method": "Lawful OA direct and VPN attempts both returned HTTP 403",
+          "title": "A symmetry of the descent algebra of a finite Coxeter group",
+          "trigger": "relevant subject and same finite Coxeter setting"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "repairs/2/RESULT.md, subcubic-tree counting proof and direct-product consequence",
+        "Comparison with path-only and comparison-edge counts from the named indexed records"
+      ],
+      "rationale": "The degree-three parity count is an independently meaningful exact invariant: despite branching, the number of vertex subsets with all components even depends only on order in this natural tree class. The boundary interpretation and two-state mechanism explain why the same rank extends from path diagrams to branching finite Coxeter diagrams. The value does not rest on recomputing the classical Eulerian table or correcting one of its entries.",
+      "residual_risks": [
+        "No extension to degree four is claimed; the degree-four star already gives 9 rather than F_6=8. No use beyond support/rank in this convolution is needed for the stated result."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

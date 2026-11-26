@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The full-observation tangent equation reduces exactly to \(W=P_T X_\star\). The full-rank two-by-two Gram blocks give strict improvement for every genuinely interior start. The mutually orthogonal start is the only undefined rank-one retraction; the singly orthogonal and singly aligned cases are explicitly solved. Exact target-coordinate Gram off-diagonals give cubic angle recurrences and, via a logarithmic recurrence with eigenvalues three and minus one, the sharp \(\log3\) double-logarithmic exponent. The standalone checker passed 15,310 supplementary assertions; the infinite theorem rests on the analytic proof.
+## correctness
 
-**Originality — PASS, qualified.** In [1], the truncated-SVD Riemannian Gauss–Newton algorithm and local quadratic sensing guarantee are explicit, but an all-start classification for the identity measurement operator and the exact cubic exponent were not found in its theorem statements, proof sections or appendices. In [2], the full-population one-step identity uses a different orthographic retraction (Lemma 5.3); it does not imply the SVD iteration's global nontermination/cubic rate. The retraction survey [3] describes both constructions without this iteration-rate classification, and [5, §3.3] uses an orthographic retraction and proves quadratic rather than exact SVD cubic convergence. The full-observation gradient-descent analysis [4] concerns another update. Targeted searches for aliases, population rank-one iterations, cubic-order SVD retractions and tangent-projection spectra located no covering full statement. An uncatalogued equivalent calculation is a residual priority risk.
+PASS
 
-**Value — PASS.** The exact full-observation model is the natural zero-noise reference for the new rank-optimal SVD-based Riemannian Gauss–Newton analysis [1]. A complete basin classification identifies its sole structural breakdown, and the non-obvious cubic gain over the general quadratic guarantee isolates the effect of SVD retraction in this model. The exact exponent also establishes a rigorous baseline for testing disturbed tangent solves and observation operators. The simple full-data geometry does not imply a result for the substantially harder incomplete-data setting.
+The frozen headline and assumptions overlap the one- and two-update cases: with X_star=e_1 e_1^T and X_0=e_2 e_1^T, exactly one factor is orthogonal, but the right factor is already aligned and W=X_star, so the target is reached in one update, not two. The repaired Finding, scope and proof explicitly give precedence to any aligned factor and reserve exactly two steps for one orthogonal factor and a strictly interior angle on the other side. I rechecked the repaired theorem. The double-orthogonal projection is zero; with exactly one orthogonal and the other strictly interior the first projection is rank one with the orthogonal-side span corrected and the nonaligned opposite span unchanged. In the interior the old-factor Gram off-diagonals are positive and the left dominant eigenvalue is strictly between c^2 and c^2+a^2 d^2. Its slope is strictly between zero and a/c, with the symmetric argument on the right. This yields simple leading singular values, strictly decreasing positive angle sines, and convergence to zero by continuity on the compact region bounded away from double orthogonality. The target-basis Gram entries are exactly ab^2 c^3 and a^2 b d^3. The dominant-eigenvector formula in that basis yields the two cubic angle recurrences with uniform relative errors O(a^2+b^2). The scale deficit is bounded by a^2 b^2 and is negligible relative to the new maximum angle. Negative log angle sums satisfy S_{k+1}=3S_k+o(1) and differences D_{k+1}=-D_k+o(1), giving S_k=C 3^k+O(1) with C>0 by divergence, and D_k=O(k). The log matrix error equals minus the smaller negative log angle up to a bounded term, proving log 3 for the relative double-log precision limit. The correction leaves this interior theorem and the basin intact.
 
-The source [1] was inspected in full HTML (algorithm, main theorem, technical appendix), as was [2] (retraction definitions, Lemma 5.3, and its proof). The accessible general retraction survey, the full earlier gradient-descent paper and [5] (the open 49-page arXiv RISRO preprint, especially §3.3 and convergence theorems) were also compared. The SVD/orthographic distinction is essential. This review is not an independent check or a universal proof of priority.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The repaired result uses a prior SVD-retracted Gauss–Newton algorithm. Its supported distinct claim is the deterministic full-data rank-one basin and sharp double-log exponent for all interior starts, not the update itself. Rechecking after boundary correction does not change this comparison. The exact two-step condition is not credited as a separate originality claim.
+
+## value
+
+PASS
+
+The repaired all-start classification supplies a deterministic baseline for a published algorithm: it finds exactly when the method is not defined, distinguishes finite termination from the interior dynamics, and gives an exact precision exponent strictly more informative than a local quadratic bound. The different population outcome under orthographic retraction makes the exact SVD analysis useful rather than a mere rescaling or a generic local estimate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

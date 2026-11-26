@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T16:47:31.000169Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Checked the cited Theorem 6 of arXiv:2611.22365 for the actual finite-field bilateral full shift and the definition with n >= 0. It requires a nonzero determinant and excludes every monic irreducible characteristic factor over the Laurent ring's fraction field with unit constant term. All monic factors have coefficients in the integrally closed Laurent ring. In particular even in the reducible case a unit determinant forces both linear constant terms to be units, since their product is a unit. With nonunit nonzero determinant a quadratic irreducible factor cannot obstruct, so it suffices to test roots cz^j. Factoring z^L out of A gives a polynomial matrix H supported in [0,U-L]; its monic characteristic equation makes the scaled root integral, hence polynomial, and its square has unmatched highest degree if j-L>U-L. This handles all finite Laurent stencils, including L=U; the zero map fails surjectivity. Theorem 4(1) of arXiv:2611.16746 gives width including zero times log p, with inversion of the spatial variable leaving width unchanged. In the span-one binary case the only possible unit roots are 1 and z; their two tests are polynomial identities. If both occur, the determinant is z, already excluded. Independent exact replay used the four values f(0),f(1),f(2),f(3) of each of the 16 linear maps on two-bit column vectors, with polynomial supports computed by symmetric difference and exponent convolution. The trace–determinant rows, written in increasing support bit-mask order, were 10,10,6,6,10,10,6,6; 18,2,6,6,6,6,18,2; 18,6,6,18,2,6,6,2; 18,6,18,6,6,2,6,2. The exclusion counts were 64,84,18,18 and there were 72 survivors. The five nonempty (entropy,strong-transitivity) counts in record order were 40,102,18,42,54. Acting by the six bijective maps on each pair via p∘f∘p^(-1), taking the orbit of the least unseen pair and deleting it, gave cell counts 12,17,3,10,14 and sizes 1:4, 2:6, 3:12, 6:34. Burnside checks the total: a nonscalar 2x2 invertible matrix has a cyclic vector, so its commutant consists exactly of the four linear polynomials in it. The two frozen scripts were inspected as text; finite replay supports the census, not the infinite theorems.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2026 theorems decide the properties of every individual rule (indeed in higher rank). The strong-transitivity paper explicitly raises avoiding full factorization in general.",
+          "Dennunzio et al. (2019) give qualitative transitivity results and a first characterization of strong transitivity. Kari (2000) describes a determinant criterion for injectivity/surjectivity in its abstract; the abstract is not evidence about the complete text."
+        ],
+        "reasoning": "The individual tests are covered as specialization. The broader theorems do not by themselves count how many pairs realize each combination of trace and determinant, nor count joint strata after simultaneous conjugation.",
+        "searches": [
+          "arXiv:2611.22365v1, Theorem 6 and concluding factorization question",
+          "arXiv:2611.16746v1, Theorem 4 and width definition",
+          "DOI 10.4230/LIPIcs.MFCS.2019.68",
+          "DOI 10.1007/3-540-46541-3_9"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.22365v1",
+        "arXiv:2611.16746v1",
+        "DOI 10.4230/LIPIcs.MFCS.2019.68 (publisher abstract)",
+        "DOI 10.1007/3-540-46541-3_9 (abstract only)",
+        "Resultary related elementary and matrix automaton hits"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The entropy rows are determined for a given rule by the highest exponent; the unit-root conditions similarly decide an individual rule. Neither decides multiplicities without counting actual preimages of the coefficients.",
+          "Two pairs can share trace/determinant and have different stabilizers (for example C=0 with B=0 vs B a nonzero nilpotent). Thus the simultaneous orbit refinement is not supplied by a list of possible characteristic polynomials."
+        ],
+        "reasoning": "The census is an additional evaluated population and orbit statement, not merely a relabeling of any published criterion. The factorization-free test itself does follow by a short rank-two argument and is not credited as independent novelty.",
+        "searches": [
+          "Rank-two reduction of arXiv:2611.22365v1 Theorem 6",
+          "Binary span-one reduction of arXiv:2611.16746v1 Theorem 4(1)",
+          "Kari STACS chapter abstract and MFCS 2019 publisher abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The equivalent parameter space is ordered pairs of endomorphisms of the elementary abelian group of order four, with diagonal conjugation by its automorphism group S_3. It is not the elementary binary nonlinear 256-rule class, nor a four-symbol arbitrary local rule census.",
+          "The Resultary self-hit reproduces the target. Nearby elementary-automaton results concern other local-rule classes, finite periodic orbits, or image entropy."
+        ],
+        "reasoning": "Reversing the Laurent spatial sign preserves support width and the unit-root test, and onsite linear relabeling is exactly simultaneous conjugation. Those equivalences do not convert the related indexed censuses into the present one.",
+        "searches": [
+          "Resultary: binary two channel linear cellular automata entropy strong transitivity census 256 rules 56 simultaneous conjugacy orbits",
+          "Web: binary matrix linear cellular automata two state variables two site nearest neighbor complete entropy strongly transitive classification 256 72 56 Kari",
+          "arXiv:2611.22365v1 Theorem 6; arXiv:2611.16746v1 Theorem 4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The web query returns a 256-rule elementary binary catalogue unrelated to this matrix linear alphabet. The closest Resultary hit with the five-cell census is the assigned record itself; adjacent hits describe e.g. elementary Rules 18/126 or pairs of elementary rules.",
+          "No matching evaluated census appears in the inspected sections of the source theorems; those sections contain rule-level formulas."
+        ],
+        "reasoning": "An equal catalogue size is not an equal object. A count-only match without the same dynamical entropy, strong transitivity and onsite equivalence would not establish anticipation of the joint result.",
+        "searches": [
+          "Exact 256, 72 and 56 count terms in the matrix-linear nearest-neighbor web query",
+          "Resultary joint census and conjugacy query",
+          "arXiv:2611.16746v1 and arXiv:2611.22365v1 theorem text"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the evaluated joint population and onsite orbit classification. The general entropy and strong-transitivity criteria are prior art, and the finite Laurent root test is their explicit rank-two specialization, not a separate originality basis. The joint distribution and orbit refinement require a separate coefficient-incidence and conjugation calculation.",
+      "residual_risks": [
+        "The Kari chapter could contain uninspected special examples; no whole-text negative conclusion is made.",
+        "An unindexed table for pairs of endomorphisms of the Klein four group could be equivalent. Priority is not claimed for the spectral criterion, the width formula or their immediate rank-two/one-sided consequences."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers individual rule transitivity and implies the rank-two reduction; the inspected material does not give the joint population",
+          "evidence": [
+            "Theorem 6 excludes monic irreducible factors with Laurent unit constant term and requires nonzero determinant.",
+            "Conclusion asks whether an obstructing factor may be detected without complete factorization in general."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.22365v1",
+          "material_read": "Definition of strong transitivity, introductory characterization, pertinent statements/proof of Theorems 5 and 6 and concluding paragraph on factorization",
+          "method": "ArXiv PDF extraction and comparison with native arXiv HTML equations",
+          "title": "Strong Transitivity of Group Cellular Automata: Characterization and Decidability",
+          "trigger": "Stronger spectral theorem for the exact automaton class"
+        },
+        {
+          "assessment": "Directly covers each entropy value but not the evaluated joint populations and orbits",
+          "evidence": [
+            "One-dimensional entropy is (E^+ - E^-) log p and the support interval includes zero."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.16746v1",
+          "material_read": "Introduction, width definition and Theorem 4(1) in the characteristic-polynomial discussion",
+          "method": "ArXiv PDF extraction and comparison with native arXiv HTML equations",
+          "title": "Topological Entropy of Group Cellular Automata is Effectively Computable",
+          "trigger": "Stronger entropy formula"
+        },
+        {
+          "assessment": "Abstract-level evidence for qualitative overlap, not whole-document noncoverage",
+          "evidence": [
+            "The abstract distinguishes the general finite abelian alphabet from n by n matrix rules over a cyclic ring and discusses transitivity and mixing."
+          ],
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.MFCS.2019.68",
+          "material_read": "Publisher bibliographic page and abstract",
+          "method": "Open publisher HTML",
+          "title": "Additive Cellular Automata Over Finite Abelian Groups: Topological and Measure Theoretic Properties",
+          "trigger": "Earlier strong-transitivity results on a broader alphabet class"
+        },
+        {
+          "assessment": "Abstract-level comparison only",
+          "evidence": [
+            "The abstract treats one-dimensional factorization and relates injectivity/surjectivity to the determinant automaton, rather than stating this joint table."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/3-540-46541-3_9",
+          "material_read": "Public chapter abstract; attempted publisher PDF did not return readable text",
+          "method": "Publisher entry and lawful web lookup; no authorized Oxford Download tool available",
+          "title": "Linear Cellular Automata with Multiple State Variables",
+          "trigger": "Earlier work on the same matrix representation; potential numerical priority"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is the full smallest binary matrix-valued span-one family, not a parameter list hand-picked for the outcome. The joint table separates positive temporal entropy from strong transitivity and provides exact incidence data for testing classification algorithms; the orbit strata show which counts survive removal of redundant onsite coordinates. It is a finite baseline, not a classification of nonlinear four-symbol automata or general dynamical conjugacies. The specialized root test also avoids factorization on the stated rank-two stencil without claiming the same for higher rank.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

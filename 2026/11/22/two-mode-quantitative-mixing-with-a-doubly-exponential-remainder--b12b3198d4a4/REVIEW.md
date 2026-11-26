@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The asserted quantitative \(L^1\) estimate follows from Corona--Della Corte's exact cylinder-transfer identity (their Lemma 3.6), the demonstrated dyadic-resolution halving, the explicit two-cell transfer eigenmodes, and a summable telescoping construction of the coefficient functional. The tail bound \(9\operatorname{Lip}(\varphi)2^{-2^n}\) follows from \(L^1\)-contraction and geometric domination of \(2^{j+2-2^j}\). The positive smooth-coordinate residue is bounded by four exact dyadic rational computations and the proven remainder, not by finite simulation alone. The checker is supplementary evidence, not an infinite proof.
+PASS
 
-## Originality — PASS within checked sources
+The decisive cylinder identity can be recovered without relying on inaccessible literature. The first pass emits one digit for each input one, marking its original position parity (odd maps to 0, even to 1). The second pass therefore emits one digit for each even-position input one, and that digit is determined by the parity of the rank of the one among all original ones. Condition on any fixed even-length prefix w and then on all even-position bits of the independent fair suffix. Between successive even-position ones of the suffix, and before the first, there is at least one independent fair odd-position bit, with disjoint odd-bit blocks. The odd-bit parities are independent and fair, so the successive rank parities, which are their cumulative parities plus known offsets, are themselves independent and fair. Thus the output has prefix rho^2(w) followed by a fair suffix almost surely, verifying the exact pushforward weight 2^(|rho^2(w)|-|w|), including the empty word and Lebesgue invariance. No exceptional dyadic representation affects this proof. Since |rho^2(w)| counts even-position ones, dyadic resolution falls to ceil(m/2); odd input depth is handled by embedding in the next even depth. Evaluating the four two-bit inputs gives P1=1 and Pr=r/2. On V_m for m>=1 the quotient by V_1 is nilpotent, giving the two simple nonzero modes and no other nonzero eigenvalue. For L-Lipschitz phi, E_(2^n) has L1 error at most L*2^(-2^n), and its nth transfer is the mean plus a_n*r. Contraction of P and Pr=r/2 give |2^(n+1)a_(n+1)-2^n a_n|<=L*2^(n+2-2^n). Summing from n (successive ratios at most 1/2, with strict inequality later) and adding the dyadic error gives 9L*2^(-2^n); stationarity and transfer duality give the covariance statement. Independent exact word-image enumeration recomputed c1=1/4, c2=9/32, c3=1181/4096, c4=38745189/134217728: initialize cell values (2j+1)/2^(2^n+1), push with the cylinder weight on each output prefix, and take 2^n times half the last two cells' difference. At n=4 the tail bound is strictly less than 1/512, yielding the two stated rational endpoints, not an exact value for Lambda(x). The amplitude is positive and integral r*x=1/4. RESULT.md lines 32–82 and the independent word-image procedure allow replay. The supplied VERIFICATION.md and verify.py were inspected, not executed.
 
-The 2021 original substitution paper establishes primarily topological dynamics. The 2023 measure-theoretic paper establishes strong mixing, supplies the cylinder identity, and already derives the \(1/2\) first-bit recurrence. Those components are credited. Its inspected statements and proof do not supply a universal quantitative asymptotic residue for every Lipschitz observable, nor a doubly exponential remainder or the certified continuous-coordinate amplitude. Related published results found during literature comparison concern different transfer maps and therefore do not imply this statement. Residual risk: an unindexed, more general transfer interpolation theorem might subsume the quantitative deduction; independent publication-priority review is outstanding.
+## originality
 
-## Value — PASS
+PASS
 
-The motivating map has dense discontinuities, unusual topological properties and measure-theoretic mixing; its exact rate for ordinary continuous measurements is a natural unresolved refinement of qualitative mixing. The result quantifies observable correlations at all lags using only a single leading linear functional and a tiny, explicitly bounded multiscale remainder. Its exact nonzero coordinate coefficient rules out an artificially loose leading rate, making the refinement relevant to temporal statistics rather than merely rewriting a finite-bit identity.
+The binary map, cylinder pushforward and first-bit contraction are not credited as original. The supported refinement is a common linear leading residue for every Lipschitz observable with an explicit L1 remainder on a doubly exponential scale, and a rigorous nonzero witness using the smooth coordinate. The indexed comparisons concern other maps and observable classes; the primary strong-mixing paper is closely relevant, but its full quantitative details were not independently accessible. The pass is bounded to the refinement and is not a priority certificate.
 
-## Limits and checks
+## value
 
-The result is \(L^1\) quantitative mixing for Lipschitz test functions, not a statement about arbitrary bounded observables, the full transfer spectrum, or optimality of the second-order bound. Exact rational checks were run from the accompanying source code; the analytic source identity was inspected in the originating full text. Independent mathematical validation remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For a previously qualitatively mixing map, this separates the persistent half-bit mode from all other contributions to smooth/bounded correlations, and provides a uniform estimate at a very different scale for the latter. The coordinate certificate shows that removing the 2^(-n) mode is genuinely necessary even for a natural smooth observable, rather than just detecting an eigenmode among discontinuous cylinder functions. The scale separation and sharp leading rate are useful beyond qualitative mixing and beyond the individual finite rational numbers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

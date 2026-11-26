@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:02:45.751051Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The displayed mathematical claims check out; the frozen proof and verification narrative have two specific errors noted below. The two-sided linear-filter solution of the irreducible chain is stationary with |Z|≤1; the exponentially damped initial term tends to zero in probability in any stationary solution, giving uniqueness. For n≥1 the generator equations give m_n=C_{n-1} and C_n=n A_{n-1}/(n+R), with A_j=(j+T)m_j/(j+R+T) also at j=0. These give the displayed compact-support moment recurrence and the Beta(T/2,R/2) times Beta(1/2,R/2) square law. The two U densities have ratio proportional to u^{(T_2-T_1)/2}(1-u)^{(R_2-R_1)/2}, strictly decreasing throughout (0,1); the V densities are weakly ordered in the same direction. Conditioning the product tail on v>x² yields strict comparison for all interior x since the V densities are positive. The quantile and strictly increasing cost claims follow. For the density write a=T/2, c=R/2, t=x², D=B(a,c)B(1/2,c). For 0<|x|<1 the product integral is D^{-1} I_{a-1/2}(t), where I_p(t)=∫_t^1 u^{p-1}(1-u)^{c-1}(1-t/u)^{c-1}du. For p>0 split at 2t; the lower interval is O(t^p), and dominated convergence on the rest gives B(p,c). The substitution u=t/y gives I_p=t^p I_{-p}; for p=0 the middle interval [2t,1/2] gives log(1/t)+O(1) and both ends are O(1). At t→1 the substitution u=t+(1-t)s factors out (1-t)^{2c-1}, with remaining integral tending to B(c,c). These yield exactly the displayed constants and transitions, and c=1 reduces the same integral to an elementary power or logarithm. In the frozen proof line 71 the intermediate formula expressed as E|Y|^{-T}/B(T/2,c) omits a factor of two, though the displayed central coefficient is correct. The frozen script's 24 rate entries give 576 iterations but only 21 distinct rates and 441 distinct ordered pairs; the reported 37,096 assertion count is consistent with repetitions, not the distinct-pair claim. The frozen script was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sun–Ye–Chen derive the same position law for two independently exponential stages, as well as state-resolved densities. The stick-breaking model inspected redraws velocities without a separate exponentially held rest stage.",
+          "The indexed Beta–Bernoulli law supplies the position and run/tumble status and explicitly orders position tails by either rate."
+        ],
+        "reasoning": "The Beta–Bernoulli theorem is broader for this actual generator. The instantaneous-reset model is not assumed to cover it just because the trapping equation is similar.",
+        "searches": [
+          "arXiv:2610.24961v1 section IV and Appendix C",
+          "arXiv:2602.08436v1 section II",
+          "Local Resultary record 49ef86730472"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check.py",
+        "Local Resultary 49ef86730472 and 432388eb4847",
+        "arXiv:2409.00578v2, 2610.24961v1, 1910.10083v1 and 2602.08436v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At fixed R the indexed result strictly increases every interior tail with T; at fixed T it strictly decreases every interior tail with R. Composing these inequalities gives the frozen simultaneous comparison, its fixed-budget statement, and the resulting quantile/cost conclusions.",
+          "The density is B(c,c)(1-t)^{2c-1}/D times 2F1(c+1/2-a,c;2c;1-t). At the edge the hypergeometric argument goes to zero; at the center the standard Gauss connection with exponent a-1/2 gives the three stated cases and beta amplitudes. For c=1 the product integral is just ∫_t^1 u^{a-3/2}du/D."
+        ],
+        "reasoning": "The main ordering and representation are explicit in the indexed joint-law result. The other exact consequences are routine endpoint evaluation and specialization of a known density, not a different confinement law.",
+        "searches": [
+          "Resultary 49ef86730472 strict tail statements and assumptions",
+          "arXiv:2409.00578v2 equation (39) versus the exact localization amplitudes and R=2 line"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sun–Ye–Podgornik characteristic-function and density formulas (38)–(39) encode the same Pochhammer moment product of the squared position.",
+          "Resultary 49ef86730472 uses r/k and u/k for R and T and samples Y=S sqrt(AB) from exactly the same two independent Beta factors, with an additional latent motility flag."
+        ],
+        "reasoning": "This is the same three-state generator and normalization, not merely a similar central exponent. Taking the marginal of the indexed joint law recovers precisely the frozen beta representation.",
+        "searches": [
+          "Local Resultary: exact beta-product stationary position, rate monotonicity and finite exponential tumble/rest",
+          "arXiv:2409.00578v2 section III"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Equation (39) of 2409.00578v2 and equation (57) of 2610.24961v1 give the exact density for all positive rates; earlier critical-location discussion includes the central and edge exponents.",
+          "The older equal-rate result covers the logarithmic center at R=T=1 and the triangular profile at R=T=2, not arbitrary independent rates.",
+          "Both indexed hits explicitly give strict position tail order, not just separate moment estimates."
+        ],
+        "reasoning": "An all-rate exact formula already supplies the distribution table even if the limiting amplitudes and full R=2 specialization are not separately listed. The indexed near-wall coefficient is for conditional tumble probability, not the frozen total density amplitude; that coefficient is not conflated with the exact density coverage.",
+        "searches": [
+          "arXiv:2409.00578v2 sections II.4 and III",
+          "arXiv:2610.24961v1 Appendix C",
+          "arXiv:1910.10083v1 section 2",
+          "Local Resultary 49ef86730472 and 432388eb4847"
+        ]
+      },
+      "rationale": "The fixed-rate stationary law was already given by an exact characteristic function and hypergeometric density. More decisively, a distinct indexed result gives the same independent-beta representation and strict all-threshold ordering in both rate coordinates, as consequences of a result for the stationary position–motility joint law. The simultaneous partial order and rate-budget consequence follow by chaining the coordinate comparisons. The density coefficients and elementary line follow directly from the already known density by standard endpoint formulas. The close indexed overlap is later-dated, so this is a conclusion about coverage, not prior authorship, dates of derivation or dependence.",
+      "residual_risks": [
+        "The local catalog overlap demonstrates present coverage, not earlier priority or dependence. No historical priority inference is made from the dated paths.",
+        "The checks do not amount to an exhaustive history of beta representations for trapped active-particle models."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the stationary marginal and strict two-coordinate tail comparisons, and adds joint state information",
+          "evidence": "The two beta factors and sign give exactly Y=S sqrt(AB); the Finding gives strict inequalities for every interior tail threshold separately in both rates.",
+          "identifier_or_url": "Resultary 2026/10/26/49ef86730472",
+          "material_read": "Finding and assumptions, mirrored RESULT.md text offsets 0–3034",
+          "method": "Local Resultary search and local mirror passage reading",
+          "title": "Beta–Bernoulli stationary coupling and universal near-wall motility in a run-and-tumble trap",
+          "trigger": "Closest same-model overlap with positive coupling and strict full-tail order"
+        },
+        {
+          "assessment": "Explicit overlap, different main invariant",
+          "evidence": "Uses the same beta product and coordinatewise strict order; focuses on inverse identification from two moments.",
+          "identifier_or_url": "Resultary 2026/11/2/432388eb4847",
+          "material_read": "Mirrored Finding/representation and tail-order passages",
+          "method": "Local Resultary search and mirror reading",
+          "title": "An exact two-moment inverse fold in a trapped run-and-tumble particle",
+          "trigger": "Additional same marginal and ordering comparison"
+        },
+        {
+          "assessment": "Covers the exact fixed-rate law and location of transitions",
+          "evidence": "The characteristic function has the even moments of the two beta factors, and the exact hypergeometric density serves all independent positive rates.",
+          "identifier_or_url": "arXiv:2409.00578v2",
+          "material_read": "Section II.4 equation (28); Section III equations (38)–(43), PDF pp. 6–7 at the density",
+          "method": "Open primary full-text and original PDF passage comparison",
+          "title": "Exact moments for a run and tumble particle in a harmonic trap with a finite tumble time",
+          "trigger": "Primary same-process stationary density and exact moments"
+        },
+        {
+          "assessment": "Exact same marginal and additional state resolution",
+          "evidence": "Equation (57) gives the position density; surrounding equations give run/rest/direction contributions and discuss singularities.",
+          "identifier_or_url": "arXiv:2610.24961v1",
+          "material_read": "Section IV equations (27)–(31) and Appendix C equations (55)–(60)",
+          "method": "Open primary full-text passages",
+          "title": "Run-and-tumble particles in a harmonic external field: constructing the solution of the Fokker-Planck equation from the equations of motion",
+          "trigger": "Independent exponential stages and stronger state-resolved laws"
+        },
+        {
+          "assessment": "Equal-rate subfamily only",
+          "evidence": "The one common dimensionless rate gives the critical logarithm at one and the triangular density at two.",
+          "identifier_or_url": "arXiv:1910.10083v1",
+          "material_read": "Section 2 and the equal-rate density discussion",
+          "method": "Open primary full-text passages",
+          "title": "Exact stationary state of a run-and-tumble particle with three internal states in a harmonic trap",
+          "trigger": "Earlier central logarithm and elementary density"
+        },
+        {
+          "assessment": "Related distributional method, different generator",
+          "evidence": "The inspected Poisson velocity-redraw law does not implement the separate, exponentially timed zero-velocity stage of the frozen result.",
+          "identifier_or_url": "arXiv:2602.08436v1",
+          "material_read": "Section II equations (2)–(8) and II.1 equations (16)–(18)",
+          "method": "Open primary full-text passages",
+          "title": "Exact Stationary State of a d-dimensional Run-and-Tumble Particle in a Harmonic Potential",
+          "trigger": "Possible broader stick-breaking representation"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "A strict all-threshold confinement order is useful, but this exact ordering and factorization are already supplied by a matching stronger joint-law result. What remains is the Gauss endpoint expansion of a known density and its elementary c=1 specialization; this does not warrant a separate finding. Correcting the intermediate factor and clarifying the finite test counts would improve exposition but would not produce a substantive repaired claim.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

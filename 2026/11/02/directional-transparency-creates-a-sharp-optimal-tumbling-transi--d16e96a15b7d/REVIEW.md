@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The finite-mean property follows from a uniform geometric absorption bound on no-tumble blocks. The two signed backward equations use the proper *transparent*, not reflective, boundary conditions, which reduce to the exactly solvable \(D'=-2\) and \(S'=2zD\). Their positive determinant \(H=sz+pq\) yields the stated rational MFPT. Differentiation rigorously proves the sharp strict-inequality transition, boundary-equality case and uniqueness. Direct symbolic manipulation and the independently discretized killed-generator Poisson check corroborate the closed form. Finite computations do not prove the theorem.
+## correctness
 
-**Originality — PASS, provisionally on examined evidence.** Sources directly compared in full include Masoliver–Porrà–Weiss (1993, partially reflecting point), Tejedor–Voituriez–Bénichou (2011, perfect-target discrete optimal persistence), Angelani (2016, two partially reflecting boundaries), De Gregorio–Iafrate (2020, unabsorbed circular telegraph process), Mercado-Vásquez–Boyer (2021, stochastic gating between reflecting walls), Jeon–Go–Kim (2023, isotropic absorption and velocity optimization), and Marris–Giuggioli (2024, general discrete directional/partial first passage). The latest is closest in scope and remains a priority risk: its general formalism might produce this continuous limit through additional work. The exact transparent point-boundary model and sharp reversal-rate optimum were not identified as direct consequences of their stated results. Database comparisons and accessible prior claims were also checked; search absence is not proof of novelty.
+PASS
 
-**Value — PASS.** This is a natural exact optimization boundary for periodic transport with chiral detection, providing an if-and-only-if design rule rather than a numerical optimum or a negligible performance adjustment. When reactivities differ enough, tumbling improves the mean capture time even though symmetric detection always favors ballistic passage.
+For any allowed finite reversal rate, each block of duration L/v has conditional probability at least exp(−λL/v) min(p,q) of absorption, giving a finite mean. The backward equations for dimensionless directional means give D'=−2 and S'=2zD, where D is their difference and S their sum. Writing D=1+c−2y and S=B+2z((1+c)y−y²), the transmitting survival boundaries at 0 and 1 reduce to pB+(p+2z)c=2−p and qB−[q+2(1−q)z]c=2−q. The determinant has nonzero magnitude 2H, H=pq+sz. Hence c=(q−p)/H and averaging S/2 gives B/2+z/6+zc/2, which simplifies to the stated mean. At z=0 this is (1/p+1/q−1)/2 as also obtained directly from the half-traversal mean plus repeated ballistic trials. Its derivative is 1/6−(p−q)²/(2H²). For unequal p,q the derivative strictly increases to 1/6; the minimum is interior exactly when the derivative at zero is negative, and is unique at zero at equality or below. At p=q the term with the squared difference is absent and the slope is strictly positive. The example gives z*=(3√3−1)/4 and T*=5/6+√3/4 with ballistic T=2. The positive p,q restriction is essential for the ballistic endpoint.
 
-**Closest literature and limitations.** The most material overlap risks are the general correlated-walk renewal framework of Marris–Giuggioli (2024), the 1993 partial-radiation boundary construction, and Angelani's (2016) asymmetrically reactive reflecting interval. The new result excludes zero reaction probabilities, reflecting or sticky target encounters, nonuniform starts and non-Poisson velocity changes. Self-review analysis is not independent validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The contribution supported here is the continuous circle's exact mean and sharp positivity boundary for a direction-dependent transparent detector. Telegraph transport, partial absorption, and persistence optimization have clear precedents. The closest discrete framework classifies internal-state-dependent traps and provides first-passage tools, but the inspected formulas do not give the stated continuous mean or threshold without evaluating a specific periodic two-state trap limit. The nearest indexed continuous threshold uses reflected failures and a fixed interior start.
+
+## value
+
+PASS
+
+The result separates a ballistic regime from a tumbling-assisted one for a natural transparent point trap, and identifies the exact balance between directional asymmetry and the reaction probabilities. The optimum and its transition are testable predictions; they show why asymmetry alone does not suffice and why results with reflection cannot automatically be used. This applies throughout the stated range of both reaction probabilities, not only at the illustrative parameter choice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

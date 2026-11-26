@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:58:26.721548Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The Jordan variation dominates variation along the actual sampling nodes. On that finite path, splitting positive and negative levels into contiguous components expresses the nodal vector as a signed mixture of interior blocks, with total block weight half its nodal variation (each component has two jumps). The Bernstein derivative of a nonzero unimodal block has coefficients with exactly one sign change after removing the positive binomial prefactor and using odds x/(1-x); it is positive near zero and negative near one. Sampling and iteration preserve unimodality and the two zero endpoints. Thus each block's output variation is twice its peak. The full block peaks at 1/2 by symmetry and the same derivative argument; a proper block has strictly smaller peak, since every interior node has positive mass from any interior start at any r >= 1 and each nonzero block peaks in the interior. This proves the norm, its attainment and equality classification, including no excess between-node variation. Binomial conditioning gives both small-power formulas and the transient-matrix formula. Applying positivity to 4h <= u <= n^2 h/(n-1) on the grid, where h(x)=x(1-x), and checking B_n h=(n-1)h/n proves the rate bounds. The positive transient matrix has Perron eigenvalue (n-1)/n and normalization q^T h=(n-1)/(4n), giving the stated asymptotic constant. Next-step absorption proves strict decrease. For n >= 4 a nonconstant symmetric strictly unimodal output from the maximizing plateau has unequal interior samples, so cannot maximize the next iterate's quotient; n=3 gives (3/4)(2/3)^(r-1) and n=2 gives 2^(-r). These prove the claimed strict versus exact multiplicativity. All degrees and powers are covered analytically; the frozen script was inspected, not run, and its finite tests are not needed for the theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Czudek recalls the Lorentz bound V(B_n f) <= V(f) and studies generalized variation.",
+          "Kelisky–Rivlin gives convergence to the endpoint line for fixed degree; Gonska–Raşa considers local Bernstein operators and modulus-of-continuity bounds."
+        ],
+        "reasoning": "The general variation bound specializes to 1, not the strictly smaller sharp factor. Convergence and local approximation theorems do not identify an anchored variation extremum.",
+        "searches": [
+          "Czudek arXiv:1609.00973, p. 2",
+          "Kelisky–Rivlin, Iterates of Bernstein Polynomials, convergence passage",
+          "Gonska–Raşa arXiv:1402.2520, abstract and definitions"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check.py",
+        "Resultary assigned record and distinct record 3019bdce0f24",
+        "Kelisky–Rivlin; Czudek; Manté; Gonska–Raşa; Cooper–Waldron (landing only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The two signed endpoint defect terms in the related source sum in absolute value to the pointwise survival function. The theorem there controls an integral and its equality class, not output variation.",
+          "The familiar spectral rate comes from a known eigenstructure; it is not the decisive originality claim."
+        ],
+        "reasoning": "A proof still needs block decomposition, variation-to-peak control and strict omitted-block gaps; neither an integral defect norm nor a spectral formula mechanically supplies those facts or strict submultiplicativity.",
+        "searches": [
+          "Resultary 3019bdce0f24 full-text statement and endpoint step-defect formulas",
+          "Czudek variation inequality",
+          "Manté spectral theorem and Cooper–Waldron landing material"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The assigned record itself is a Resultary hit, not an independent source.",
+          "The distinct record 3019bdce0f24 gives the L1 defect from the affine endpoint interpolant divided by input variation, with uniform post-first-step weights (and a factor 1/2). The present result gives variation of the output with zero endpoint data and uses binomial midpoint weights."
+        ],
+        "reasoning": "On the common anchored plateau the related result measures the integral of survival, whereas the new norm measures twice its peak in the numerator, and the peak is what matters. Even the first-power constants differ. Overlapping extremizer data and the same matrix are not equivalence of the norms.",
+        "searches": [
+          "Resultary: fixed-degree Bernstein iteration, endpoint-anchored variation and absorbing binomial chain",
+          "Primary-literature lookup for sharp BV/variation norms of Bernstein iterates",
+          "Resultary record 3019bdce0f24, original Finding and first proof step"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected spectral formulas give eigenvalues and decomposition; the matching Resultary record gives a different scalar of the same transient matrix. Neither supplies a table of these exact anchored variation norms or equality cases."
+        ],
+        "reasoning": "Spectral data determine linear iteration but do not give the nonlinear maximization over the variation ball; matrix availability is not an exact norm table.",
+        "searches": [
+          "Resultary search for iterated Bernstein survival, including 3019bdce0f24",
+          "Manté HAL-01092713, p. 8, spectral decomposition"
+        ]
+      },
+      "rationale": "No inspected prior establishes the specific sharp Jordan-variation coefficient, attained midpoint survival, and rigidity. Related exact Bernstein iteration and survival results are credited, including the distinct Resultary record with the same transient matrix; publishing chronology is not inferred from their listed dates.",
+      "residual_risks": [
+        "The bounded primary-literature lookup was unproductive, not evidence of absence; older work could give an equivalent interval-indicator norm.",
+        "Cooper–Waldron full text was not inspected; coverage beyond accessible passages is not excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Distinct metric, compatible overlapping technique and leading rate",
+          "evidence": "Displayed sharp defect is (1^T Q_n^(r-1) 1)/(2(n+1)); the proof begins with the martingale step reduction. No midpoint variation norm is given by this theorem.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-exact-integrated-bv-decay-for-all-iterates-of-the-bernstein-oper--3019bdce0f24/RESULT.md",
+          "material_read": "Finding, scope, proof beginning, offsets 70–2970",
+          "method": "Bounded read of local mirrored RESULT.md",
+          "title": "Exact integrated BV decay for all iterates of the Bernstein operator",
+          "trigger": "Strongest distinct catalog match: identical iteration and survival matrix"
+        },
+        {
+          "assessment": "Convergence result, not sharp anchored norm",
+          "evidence": "Fixed-degree iterates converge uniformly to the endpoint-interpolating line.",
+          "identifier_or_url": "https://msp.org/pjm/1967/21-3/pjm-v21-n3-p12-p.pdf",
+          "material_read": "Convergence passage, PDF p. 2, offset 400",
+          "method": "OA PDF bounded reading",
+          "title": "Iterates of Bernstein Polynomials",
+          "trigger": "Classical fixed-degree iterations"
+        },
+        {
+          "assessment": "General variation bound with constant one does not settle sharp anchored contraction",
+          "evidence": "Recalls Lorentz's V(B_n f) <= V(f) for all BV data, then studies generalized variation.",
+          "identifier_or_url": "https://arxiv.org/abs/1609.00973",
+          "material_read": "PDF p. 2, offset 5100",
+          "method": "OA bounded reading",
+          "title": "Bernstein and Kantorovich Polynomials Diminish the Lambda-Variation",
+          "trigger": "Plausible stronger variation-diminishing theorem"
+        },
+        {
+          "assessment": "Spectral context only for the claim under review",
+          "evidence": "Gives decomposition and operator eigenvalues, citing Cooper–Waldron.",
+          "identifier_or_url": "https://hal.science/hal-01092713",
+          "material_read": "p. 8, offset 13403, spectral theorem",
+          "method": "OA bounded reading",
+          "title": "Iterated Bernstein operators for distribution and density estimation",
+          "trigger": "Fixed-degree iteration and spectral structure"
+        },
+        {
+          "assessment": "Different error measure and local operators",
+          "evidence": "Modulus-of-continuity approximation and quadrature estimates for piecewise local Bernstein constructions.",
+          "identifier_or_url": "https://arxiv.org/abs/1402.2520",
+          "material_read": "Abstract and definitions, pp. 1–2, offsets 0 and 2700",
+          "method": "OA bounded reading",
+          "title": "On the sum of iterated and composite Bernstein-type operators",
+          "trigger": "Iterated/composite Bernstein bounds"
+        },
+        {
+          "assessment": "Limited access, not a negative whole-paper finding",
+          "evidence": "Spectral comparison relies on the inspected Manté theorem, not on inferring contents from this title.",
+          "identifier_or_url": "Cooper–Waldron, J. Approx. Theory 105 (2000), 133–165",
+          "material_read": "Landing material/abstract only",
+          "method": "OA retrieval attempt; no full text inspected for this source",
+          "title": "The Eigenstructure of the Bernstein Operator",
+          "trigger": "Potential stronger fixed-degree spectral result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Matching the endpoints removes the reproducing affine direction, so contraction in Jordan variation is intrinsic to the remaining error. The exact coefficient at every power, plateau rigidity and strict versus exact multiplicativity determine whether one-step error guarantees compound sharply; the unit variation bound or spectral radius cannot answer this. The survival representation also gives exact rational coefficients without optimizing over functions.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

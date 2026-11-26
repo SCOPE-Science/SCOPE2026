@@ -1,20 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The fixed-forest extension probability is reconstructed by contracting forest components and using the weighted complete-graph tree enumerator. It gives exact probabilities \(2/n\) for one edge, \(3/n^2\) for incident edge pairs, and \(4/n^2\) for disjoint pairs. The weighted matrix-tree theorem recovers the *previously known* binomial edge-count law. A coupling at fixed edge count, using exchangeable uniform matchings and explicit wedge-probability bounds, proves the whole-graph total-variation inequality. The wedge Poisson limits follow from fixed-order factorial moments: vertex-disjoint wedges supply the limiting moments, and all overlapping union types vanish at the critical scale. The point-process limit follows from independent-edge Laplace functionals transferred by graph total variation. The finite checker passed 142 exact rational assertions, supplementing but not replacing the infinite proofs.
+PASS
 
-## Originality — PASS, with priority limitations
+The contracted weighted Cayley count gives n^(−e)∏s_i for any prescribed forest and zero for a cycle. The weighted Laplacian edge-count generating function gives Bin(k−1,k/n), also valid at k=1 and k=n. The comparison binomial has the same mean; the sum of the two Poisson approximation costs is [k²(k−1)+2k(k−1)]/n². Given the coupled counts, draw matching flags with the correct conditional probabilities in each model; when both flags indicate matchings and counts agree, permutation invariance permits the same uniformly chosen matching. The wedge costs are at most (9+12) binom(k,3)/n². For ordered distinct wedge tuples the leading vertex-disjoint count is (k)_(3r)/2^r, with inclusion probabilities (3/n²)^r and (4/n²)^r. Each connected overlap component has e≥3 edges and v≤e+1, giving order n^((2−e)/3) or smaller; isolated wedge components contribute bounded factors. Thus every fixed factorial moment converges to its Poisson counterpart, giving the claimed matching-event liminf. At k=⌊b√n⌋ the TV error is O_b(n^(−1/2)); the Bernoulli point-process Laplace functional is a Riemann sum with intensity 2 on the triangle. Ties at the first later endpoint imply a wedge, negligible in any such bounded prefix; tail control comes from the exact no-edge probability, and the first-point density is intensity times the void probability, 2e^(−v²). Inspection of checker.py and VERIFICATION.md corroborates the finite checks' stated scope, not a proof of the limit; neither script was executed.
 
-The reviewed primary full texts are Grimmett–Winkler's paper on negative dependence of uniform spanning-tree edges (arXiv:math/0302185), Hackl–Panholzer–Wagner on uncovering the vertex-labeled tree and its *edge counts* (arXiv:2301.00664, especially Section 2), and Janson on uncovering graph edge-count and small-subgraph fluctuations (arXiv:2312.13823, especially Sections 1 and 9). The exact edge-count marginal and scalar first-edge scale are already covered or directly implied by Hackl–Panholzer–Wagner and are expressly not asserted to be novel. The distinct claim is a total-variation coupling for the **full labeled induced graph**, its sharp \(n^{2/3}\) obstruction distinguished by two Poisson wedge intensities, and the labeled-endpoint point-process law. Further nearby scientific records on *bivariate induced-edge counts* and *singleton-count covariances* were compared by statement and inspected in full; neither of those scalar/bivariate-count results states the complete induced-graph approximation or sharp wedge separator. No publication search can exclude unpublished or unindexed equivalent results; independent priority certification remains outstanding.
+## originality
 
-## Value — PASS
+PASS
 
-The precise scale \(k=o(n^{2/3})\) characterizes when an induced random tree may be replaced by an independent-edge random graph as a **whole labeled object**. The threshold failure is witnessed by a natural, easily observable local motif with distinct explicit intensities \(3c^3/2\) and \(2c^3\). Thus the result identifies where a common independent-edge approximation breaks and why, with a location-marked Poisson description at the earlier edge-onset scale. This is a structural threshold with use for analysis of random-tree uncovering and local rare subgraphs, rather than an arbitrary finite statistic.
+The edge-count marginal and scalar onset are treated as already known. Neither the related marked-extremal result nor the closest published count/dependence results supply the whole labeled TV comparison and its unequal Poisson wedge obstruction on the critical prefix. The marked prefix result uses standard point-process transfer and is secondary to that sharp comparison.
 
-## Closest sources and limitations
+## value
 
-The 2023 and 2025 works treat number-of-edge processes, including results implied by the present proof; they are explicitly credited. The 2003 source supplies a verified archival anchoring and edge-dependence context, not the new claim. Index coverage cannot prove absence of earlier equivalent work. The upper bound is not optimized and the exact critical total-variation limit is not calculated. Computer checks cover only \(3\le n\le7\); infinite-dimensional results rely on the mathematical proof.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Using independent edges to replace a constrained tree prefix is a natural approximation problem, and the whole-law rather than count guarantee decides when every labeled statistic may safely use it. The differing first local collision intensities identify where that guarantee breaks, with an explicit positive critical separation and a simple observable. The marked early-edge law is a useful secondary consequence.
 
+The dated certificate retains the supplied scientific assessment, sources and limitations.

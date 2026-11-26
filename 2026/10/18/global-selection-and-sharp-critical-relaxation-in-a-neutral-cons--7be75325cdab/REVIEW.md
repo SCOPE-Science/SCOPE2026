@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The model agrees algebraically with the primary publication's noise-free equations (7)–(9) at zero direct reversal. The bounded physical simplex is invariant. The exact \((q,w)\) reduction gives a single symmetric equilibrium, and two additional polarized equilibria precisely below the explicit \(\alpha=w_0\) threshold. For \(q>0\) below threshold, the entropy Lyapunov function is coercive at \(q=0\) and has a strictly negative derivative away from the polarized stationary point. At and above threshold, a different quadratic Lyapunov function gives global convergence. At criticality the auxiliary ratio \(s=-(w-\alpha)/q\) tends to \(c/B\), yielding \(tq(t)\to B/(2\rho c)\). Exact symbolic verification and sample integrations passed. The universal assertions depend on the proof, not the experiments.
+## correctness
 
-## Originality — PASS, qualified
-The primary Sontag–Hoffmann–Rogers–Yates article gives the precise model and local fixed-point geometry, including the existence of polarized equilibria. Its main text does not supply the two exact global Lyapunov identities or the universal finite critical amplitude of the full planar dynamics; the stated stochastic and reduced one-dimensional results do not directly imply that coefficient without a full-system argument. Exact-source, mathematical-claim and alias searches in an available mathematical-results index did not surface an identical claim. An inaccessible 18.4-MB primary supplement reportedly contains an equilibrium/phase-portrait classification; global qualitative coverage in that supplement is an acknowledged material risk, but there was no identified direct overlap with the critical decay amplitude. Neither absence of a search hit nor partitioning by subject proves uniqueness. Standard planar quadratic-system and consensus theories remain possible sources of a stronger formulation.
+PASS
 
-## Mathematical value — PASS
-Opinion-model equilibrium classification alone does not quantify how slowly the neutral state is approached precisely where polarized states disappear. The threshold is a natural codimension-one boundary in a published social-decision model, and the universal explicit \(t^{-1/2}\) imbalance law quantifies critical slowing in the full two-dimensional model independently of separation of timescales or initial asymmetry. The paired global Lyapunov functions show that the local bifurcation exhausts the interior asymptotic alternatives, resolving possible recurrent dynamics without unverified simulations. No probabilistic switching-time conclusion is asserted.
+In the closed physical region 0≤w≤1, 0≤q≤(1−w)^2, direct substitution gives z′=ρz(w−α), q′=2ρq(w−α), w′=G(w)−cq. No boundary equilibrium exists in the simplex, and the upward-opening G changes sign exactly once in (0,1), at a simple root w_s. In the polarized case G(α)=cq_*>0 so w_s>α and the diagonal equilibrium is a saddle (its z and w eigenvalues have opposite signs). Differentiation of the entropy Lyapunov function cancels the q term and leaves (w−α)[G(w)−G(α)], strictly negative off w=α. Its sublevels stay away from q=0 and the only invariant state on w=α there is q=q_*. Sign preservation gives the two basins relative to the interior. The quadratic Lyapunov function gives (w−w_s)G(w)+cq(w_s−α) for w_s≤α; the zero set at equality reduces to the single invariant point by w′=−cq at w=α. At criticality q>0 tends to zero, so u=w−α must eventually be negative (at any zero u′=−cq<0). The exact quotient s=−u/q obeys s′=c−[B−(c−ρ)u]s. The bracket tends to B>0; comparison above and below by constant coefficients gives s→c/B. Integrating (1/q)′=2ρs gives the claimed 13/16 in the example and B/(2ρc) generally. The unchanged companion verification/check_consensus.py corroborates algebra and samples; the review relies on the analytic reconstruction, not finite integrations.
 
-## Scientific limitations and closest literature
-The main comparator is Sontag et al. (2026), DOI: 10.1002/advs.202512301, which owns the model, its fixed points, and the principal consensus mechanisms. Svenkeson and Swami (2015) analyze a different three-state indecision construction. The supplementary Section SI.1 could not be reviewed, and general center-manifold theory may supply an abstract route to similar asymptotics; the contribution claimed here is the exact model-specific coefficient and global full-flow demonstration. Applicability stops at the deterministic, homogeneous, zero-direct-reversal model. External expert review is still warranted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass the distinct exact critical coefficient and its every-unequal-interior-start law for the full deterministic flow at arbitrary positive beta and rho. The source model, equilibrium geometry and local types are antecedents; no separate priority is assigned to the qualitative basin portrait given the closest supplement's advertised scope. The reviewed comparisons do not establish coverage of the exact amplitude.
+
+## value
+
+PASS
+
+An exact critical observable in the full model is materially more informative than a threshold and local stability picture. It gives a normalization-sensitive benchmark for deterministic relaxation at every positive rate ratio, and the invariant sign and Lyapunov arguments show precisely which initial conditions obey it without a fast–slow hypothesis. It makes no stochastic or experimental extrapolation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

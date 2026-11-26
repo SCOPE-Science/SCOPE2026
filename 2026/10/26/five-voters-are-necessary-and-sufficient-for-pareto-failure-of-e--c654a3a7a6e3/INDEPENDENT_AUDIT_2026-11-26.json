@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:35:43.748671Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A dominating pair overlapping W would be one strictly profitable swap. For disjoint pairs, only the restrictions to their four names enter the four necessary swap inequalities. In units of ordinary PAV the six compatible per-ballot swap sums at (u,v)=(0,0),(0,1),(0,2),(1,1),(1,2),(2,2) are 0,2,4,-1/2,1,0. Thus (0,2) needs nine voters, and (0,1) needs at least five; with five and one (0,1), all four gains must vanish. Naming its approval a0, the gains for w0→a1 and w1→a0 are -x+y/2 and 1-y+x/2, where x and y count {w0,a0} and {w1,a1}, forcing x=2/3. For a (1,2) approving {w0,a0,a1}, the two swaps dropping w1 force both w1 cross types, since a negative contribution to a swap requires approving the dropped winner and just the alternative not added. Those two cross ballots then each add +1/2 to one swap dropping w0, forcing both w0 cross types by the same rule. This exhausts all five ballots. In the four-candidate witness the W and O scores are 5 and 11/2, the swap gains are (-1/2,-1/2,0,0), and just the final ballot is strictly better under O. Four candidates are necessary by disjointness. Outside approvals can affect swaps to outsiders but do not change the necessary profile restrictions. Independent exact replay /workspace/branches/replay_2.py enumerated all four-name ballot multisets through five voters and returned counts [0,0,0,0,2], with the two labeled patterns one within-pair orbit; the unrestricted candidate result is analytic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "PVY gives weak PO for its local rule and ordinary-PO counterexamples for general committee sizes; its k=2 construction uses 4M+2 voters with M>=2.",
+          "Schünke treats interval-domain Pareto structure and reconfiguration; Kraiczy–Elkind treats swap-path iteration complexity."
+        ],
+        "reasoning": "Neither the weaker efficiency guarantee nor a parametric failure example or a convergence bound supplies an at-most-four ordinary Pareto theorem or five-voter uniqueness.",
+        "searches": [
+          "arXiv:2609.07554v1 Theorem 3.1 and Appendix B",
+          "arXiv:2605.30490v1 Pareto committees on interval domains",
+          "Kraiczy–Elkind ESA 2024 local PAV lower bound"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and VERIFY.py (read only)",
+        "Resultary db4451a4d20f",
+        "arXiv:2609.07554v1",
+        "arXiv:2608.27605v1",
+        "arXiv:2605.30490v1",
+        "DOI:10.4230/LIPIcs.ESA.2024.82"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "PVY uses copies of the same four cross types and a triple ballot for each winner at k=2, so its construction gives the ingredients for a modified small witness. Its displayed family has at least ten voters and strictly negative swap gains.",
+          "The apportionment example certifies objective improvement, not voterwise improvement."
+        ],
+        "reasoning": "The construction ingredients are not claimed new. A modified witness alone would only give an upper bound; the universal lower bound and uniqueness at equality do not follow.",
+        "searches": [
+          "PVY Appendix B pp. 30–31, specialized to k=2",
+          "Gölz–Yaghoubizade Appendix B four-party case"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "PVY §2 pp. 7–8 uses the same exact local criterion at tolerance zero, with tied swaps allowed; positive thresholds are additive.",
+          "PVY distinguishes ordinary PO (weak improvement for everyone and strict for someone) from weak PO (strict improvement for everyone)."
+        ],
+        "reasoning": "The comparison needs ordinary PO and exact nonpositive swap gains; strict-local or approximate formulations can have different minima.",
+        "searches": [
+          "Resultary exact two-seat local-PAV five-voter Pareto obstruction searches",
+          "Peters–Vaish–Yadav arXiv:2609.07554v1 §2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest nearby exact catalogued comparison has four parties and two seats; the cited local-but-not-global example is {a,c},{a,d},{b,c,d},{b}, with local {c,d}. The higher-scoring {a,b} reduces the third ballot's utility from two to one."
+        ],
+        "reasoning": "An exact local/global gap is not an ordinary-Pareto obstruction. No matching exact census or threshold was evidenced in the scoped checks.",
+        "searches": [
+          "Resultary five-voter Pareto obstruction and same-object local PAV; 2026/11/2/SCOPE-every-exchange-local-pav-apportionment-is-globally-optimal-with--db4451a4d20f",
+          "Gölz–Yaghoubizade arXiv:2608.27605v1 Appendix B Example B.3 and Proposition B.8"
+        ]
+      },
+      "rationale": "The ordinary Pareto failure of exact local PAV is already known. The supported distinction is the sharp voter lower bound and the classification of all minimal restrictions, not failure itself or the cross-ballot construction idea. The strongest checked primary counterexample and nearby exact indexed record do not entail that boundary.",
+      "residual_risks": [
+        "No priority certification: a small profile or equivalent obstruction classification could be in other indexed or unindexed work. The exact conclusion is best-of-knowledge for the inspected comparisons."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong overlap for failure and witness ingredients; does not supply the extremal theorem.",
+          "evidence": [
+            "Exact zero convention admits ties; the ordinary-PO construction yields 4M+2 voters at k=2 with M>=2, and strictly negative swap gains."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2609.07554v1",
+          "material_read": "§2 pp. 7–8, Theorem 3.1, Appendix B pp. 30–31",
+          "method": "Lawful OA PDF, relevant definitions and proof",
+          "title": "Finding Representative and Approximately Efficient Committees",
+          "trigger": "Exact previous ordinary-PO failure for local PAV"
+        },
+        {
+          "assessment": "Non-global PAV example in a model allowing repeated seats per party, not a Pareto failure of the stated type.",
+          "evidence": [
+            "The improving committee {a,b} makes the {b,c,d} voter worse off than {c,d}."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2608.27605v1",
+          "material_read": "p. 1 model and Appendix B Example B.3/Proposition B.8, p. 15",
+          "method": "Lawful OA full-text passages",
+          "title": "Approval-Based Apportionment",
+          "trigger": "Nearby exact four-voter two-seat local PAV example"
+        },
+        {
+          "assessment": "Local/global optimization, not ordinary-Pareto threshold.",
+          "evidence": [
+            "Three-party guarantee with a four-party gap concerns global PAV scores rather than voterwise order."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-every-exchange-local-pav-apportionment-is-globally-optimal-with--db4451a4d20f/RESULT.md",
+          "material_read": "RESULT.md opening statement and relation to four-party example",
+          "method": "Configured local mirror",
+          "title": "Every exchange-local PAV apportionment is globally optimal with at most three parties",
+          "trigger": "Strongest nearby exact Resultary hit"
+        },
+        {
+          "assessment": "Swap iteration complexity, not the claimed electorate boundary.",
+          "evidence": [
+            "An additive improvement threshold and lexicographic iteration lower bound are studied."
+          ],
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.ESA.2024.82",
+          "material_read": "Proceedings pp. 1–3, swap rule and results",
+          "method": "Lawful OA proceedings PDF",
+          "title": "A Lower Bound for Local Search Proportional Approval Voting",
+          "trigger": "Related exact local PAV analysis"
+        },
+        {
+          "assessment": "Interval domains and Pareto reconfiguration, not exact one-swap PAV threshold.",
+          "evidence": [
+            "The domain and question are Pareto structure on intervals and reconfiguration."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2605.30490v1",
+          "material_read": "Abstract and p. 1 scope/results",
+          "method": "Lawful OA full-text passages",
+          "title": "Pareto Optimality in Approval-Based Multiwinner Voting",
+          "trigger": "Same Pareto concept in approval elections"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This gives a sharp electorate boundary for a natural efficiency guarantee of the simplest nontrivial PAV committee size and a complete extremal pattern valid even with arbitrary extra candidates. It characterizes where single-swap tests first fail to detect a Pareto improvement and shows that at the first failure the swap ties matter.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

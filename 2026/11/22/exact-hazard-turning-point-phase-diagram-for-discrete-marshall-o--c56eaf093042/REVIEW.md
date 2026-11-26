@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. Starting from the normalized discrete survival function in the original article, the cross-product of three consecutive survivals cancels the quadratic tilt terms. The exact comparison threshold is positive and finite for every integer age. The real interpolation of these thresholds has derivative with sign given by a cubic, whose coefficient signs imply exactly one positive root by Descartes' rule. This gives the global classification over the entire infinite support, not a finite approximation. The explicit two-turn example is established by rational Taylor enclosures and the proved unimodality. The limiting constant and the rescaled turning-point laws follow from uniform Taylor convergence on compact intervals and the unimodal threshold curve.
+## correctness
 
-## Originality
-PASS on a best-knowledge literature comparison. The 2023 DMOLBE paper contains the distribution and hazard formulas and graphical shape illustrations, not the exact finite cubic threshold or two-turn classification. The earlier continuous Marshall–Olkin length-biased exponential article does not itself classify sampled integer hazards. Related Marshall–Olkin stochastic ordering and a power-half-logistic hazard phase diagram concern different observables or different baseline distributions; their accessible statements do not imply this theorem. Searches of mathematical research records found related shape studies but no covering statement. Priority is not independently certified and inaccessible/unindexed work remains a risk.
+PASS
 
-## Value
-PASS. The object is a published count-lifetime family for reliability applications; nonmonotonic discrete failure risks affect ageing interpretation and model selection. The result gives a necessary-and-sufficient global monotonicity criterion requiring only one cubic root and at most two integer evaluations, proves an upper bound on the number of risk reversals, supplies an exact counterexample to a purely monotone hazard description, and resolves the scale of both transitions under fine sampling. These are intrinsic structural questions for the source model rather than arbitrary parameter substitutions or decimal refinements.
+With A=U_n, B=U_(n+1), D=U_(n+2), the sign of the usual hazard increment is the sign of S_(n+1)^2-S_n S_(n+2). Clearing positive factors gives B^2-AD-cB[B(A+D)-2AD]; B^2-AD=e^(-2(n+1)t)t^2 and B(A+D)>2AD. The failure-odds convention preserves all signs and ties. Independently expanding with r=1+z+t gives P=r[2(cosh(t)-1)r^2-2t sinh(t)r+2t^2], and yields the displayed cubic coefficients. The constant coefficient of P-P' is negative, the leading coefficient positive; when q>=1/2 both middle coefficients are nonpositive (the linear coefficient is strictly negative using 1-q>=qt and 5-4/q+1/q^2<=2), and when q<1/2 the quadratic coefficient is positive, allowing only one sign change irrespective of the linear coefficient. The positive root is unique and the continuous threshold strictly decreases then increases; comparing its two neighboring grid points gives the exact minimum, strict sublevel sets give one finite block, and C_0<1 follows from E-(B^2-AD)=D(1-B)^2 at A=1. For t approaching zero, the scaled cubic tends to z(z^2-2z-1); fixed positive brackets on either side of 1+sqrt(2) trap its unique positive root despite the limiting root at zero. Local uniform convergence, strict transverse limiting level crossings and lattice unimodality trap both extreme indices for the stated fixed c, and prove the critical-tilt limit. A separate rational certificate verifies the six strict signs in the example; the infinite tail follows from unimodality, not the finite computation.
 
-## Scope and limitations
-The theorem concerns the mathematical distribution at specified positive parameters. An observed-data fit and statistical uncertainty are not addressed. The boundary permits equality ties; strict patterns apply away from those level sets. No independent mathematical audit or complete worldwide priority search has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The same-model survival, discrete failure odds and qualitative hazard illustrations are known. The supported distinct contribution is the exact lattice-age threshold and finite global minimization, the all-parameter contiguous-block theorem, and the associated discrete fine-resolution limits. Inspected same-model and analogous results do not give that combination or imply the exact discrete decision rule.
+
+## value
+
+PASS
+
+For an existing fitted lifetime family, the cubic gives a sharp finite decision procedure in place of arbitrary finite-age plots, identifies a certified regime with two reversals, and rules out hidden decreasing blocks on infinite support. The limiting turn separation explains a feature that a fixed observation window can miss.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

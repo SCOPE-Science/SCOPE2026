@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:08:42.241171Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Under the iid uniform simple null the centered upper-tail feature has the same squared empirical norm as the centered CDF. Integrating the upper-tail feature gives U−1/2, so Watson subtracts the orthogonal constant-function projection. In the product of two empirical quadratic statistics a covariance survives only for a shared diagonal label or an identical unordered off-diagonal pair; all one-label overlaps involving a degenerate pair vanish on conditioning. Hence each of the six moments is affine in 1/n. An independent exact integration of the defining statistics over the sorted-sample simplex verifies all six moments at n=1 and 2, which determines those two affine coefficients, and also at n=3 as a cross-check. This checks the finite-n terms, not just the Gaussian limit. Symbolic differentiation gives the stated positive derivatives of squared correlations and their positive gap for n≥2. The covariance share decreases from 29/35 to 10/13, not reaching 10/13. At n=1 Watson is deterministic and its correlation is undefined. The frozen check.py was inspected but not executed. Independent replay: python3 /workspace/checks/4.py (SymPy); output /workspace/checks/4.out.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hwang–Kuriki studies classical/generalized EDF quadratics and their limiting eigenstructures. The relevant introduction defines CvM and Watson but does not give this finite-n weighted-indicator cross-law.",
+          "The general centered-kernel index identity supplies a method, but to obtain the comparison one still needs the diagonal covariance and both evaluated mixed projections."
+        ],
+        "reasoning": "The bounded comparison did not find a stronger evaluated result that specializes to the claimed constants. Limiting marginal second moments alone lose the diagonal finite-sample term and do not quantify same-sample coupling.",
+        "searches": [
+          "arXiv:2404.06040, introduction and generalized empirical-measure scope, PDF pp. 3–5",
+          "arXiv:2108.06391, limiting Gaussian kernel"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2108.06391",
+        "arXiv:2404.06040",
+        "Resultary: 5b761aa791ae, 8ee16efc1824, 62e4b27a5ace"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The mixed contractions 13/1260 and 1/126 and the diagonal term 1/140 produce the two affine-in-1/n covariances with W and M. For V one subtracts, giving a zero diagonal contribution. Earlier marginal cumulants and the classical-pair covariance cannot fix these weighted-indicator terms."
+        ],
+        "reasoning": "The rank-one projection identity is standard; the share is new only insofar as the specified exact mixed terms are evaluated. Pairing on the same iid sample is essential; noting a common marginal null distribution or performance as competing tests does not imply the finding.",
+        "searches": [
+          "arXiv:2108.06391, Theorem 2.1 and §4.1",
+          "2026/10/13/SCOPE-cram-r-von-mises-and-watson-statistics-have-an-exact-finite-samp--5b761aa791ae, RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The characterization kernel is the centered weighted upper-tail indicator, whereas the classical kernel is the centered ordinary upper-tail indicator (up to the sign convention for the CDF). In the original paper CvM and Watson appear as power comparators.",
+          "The mixed diagonal contribution and the squared mixed-kernel contribution are needed here; the limiting marginal kernel is not a mixed covariance under shared observations."
+        ],
+        "reasoning": "The weighted empirical process and CDF formulations are equivalent for the comparison when centered as in the frozen statement; neither swapping from CDF to survival nor subtracting the constant projection turns the exact classical-pair result into this mixed pair.",
+        "searches": [
+          "Resultary: exact same-sample finite-n covariance of the Ebner–Liebenberg–Visagie uniformity statistic with Cramér–von Mises and Watson; mean-mode split",
+          "arXiv:2108.06391, Theorem 2.1 and §4.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The October record's mixed covariance (n−1)/(180n) is for the two classical tests. The other distinct same-day records report a leading limiting eigenvalue/tail exponent and a marginal finite-sample third cumulant/skewness, respectively. The assigned record also appears in the index and is not independent coverage."
+        ],
+        "reasoning": "These are statement-level scope differences, not a priority inference from dates. None of the inspected neighboring records tabulates Cov(T,W), Cov(T,V) or Cov(T,M).",
+        "searches": [
+          "Resultary, same-sample exact covariance / mean shift / characterization-based uniformity versus CvM and Watson",
+          "2026/10/13/SCOPE-cram-r-von-mises-and-watson-statistics-have-an-exact-finite-samp--5b761aa791ae",
+          "2026/11/22/SCOPE-certified-leading-covariance-eigenvalue-for-a-characterization-b--8ee16efc1824",
+          "2026/11/22/SCOPE-exact-finite-sample-skewness-and-its-two-observation-maximum-for--62e4b27a5ace"
+        ]
+      },
+      "rationale": "Pass is for the evaluated exact mixed finite-sample laws of the characterization statistic against these classical statistics and the finite-n mean-mode share. The statistic, the contraction method, and the constant-mode definition of Watson are not new. The closest inspected statements concern the classical pair, marginal limiting cumulants/eigenstructure, marginal finite-sample skewness, or empirical power, none of which gives the mixed contractions. This is a bounded best-of-knowledge assessment.",
+      "residual_risks": [
+        "An earlier treatment under weighted EDF or quadratic empirical-process terminology could already have evaluated these mixed moments; the inspected sources are not an exhaustive priority search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Marginal limit and power comparisons, not the exact cross-test law",
+          "evidence": [
+            "Theorem 2.1 gives the limiting covariance kernel for the characterization process; §4.1 uses CvM/Watson as empirical power competitors."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2108.06391",
+          "material_read": "Abstract; Theorem 2.1 (PDF p. 3, OA text offset 13818); §4.1 (PDF pp. 6–7, offsets 32400 and 34429)",
+          "method": "Primary open-access PDF passages and targeted full-text search",
+          "title": "A new omnibus test of fit based on a characterisation of the uniform distribution",
+          "trigger": "Defines the same T_n and compares it with both target tests"
+        },
+        {
+          "assessment": "Inspected contribution is generalized classical EDF tests and limiting properties, not the specified finite-n coupling",
+          "evidence": [
+            "The introduction defines classical CvM/Watson and describes limiting eigenstructures; the iterated empirical measures are the basis of the generalization."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2404.06040",
+          "material_read": "Introduction and generalized-statistics scope, pp. 3–5 (offsets 7000 and 12500)",
+          "method": "Primary open-access PDF passages with focused text search",
+          "title": "Integrated empirical measures and generalizations of classical goodness-of-fit statistics",
+          "trigger": "Potential broader EDF and Watson coupling theory"
+        },
+        {
+          "assessment": "Exact but for the classical pair only",
+          "evidence": [
+            "States Cov(W_n²,U_n²)=(n−1)/(180n) with its own notation for the two classical statistics."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-cram-r-von-mises-and-watson-statistics-have-an-exact-finite-samp--5b761aa791ae",
+          "material_read": "Original RESULT.md finding",
+          "method": "Resultary then local publication mirror",
+          "title": "Cramér–von Mises and Watson statistics have an exact finite-sample correlation",
+          "trigger": "Closest indexed exact covariance for same-null EDF tests"
+        },
+        {
+          "assessment": "Different output",
+          "evidence": [
+            "Limiting covariance eigenvalue and tail exponent, not covariance of different statistics at finite n."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-certified-leading-covariance-eigenvalue-for-a-characterization-b--8ee16efc1824",
+          "material_read": "Original finding",
+          "method": "Resultary then local publication mirror",
+          "title": "Certified leading covariance eigenvalue for a characterization-based uniformity test",
+          "trigger": "Uses the same characterization test"
+        },
+        {
+          "assessment": "Marginal, not mixed",
+          "evidence": [
+            "Third cumulant and skewness of T_n do not determine its covariance with a separate statistic."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-exact-finite-sample-skewness-and-its-two-observation-maximum-for--62e4b27a5ace",
+          "material_read": "Original finding",
+          "method": "Resultary then local publication mirror",
+          "title": "Exact finite-sample skewness and its two-observation maximum",
+          "trigger": "Exact finite-sample moments for the same statistic"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The initiating uniformity paper compares these particular tests, making their redundancy on the same observations a natural question. The exact formulas quantify a distinction not visible in marginal variances or power: the squared empirical mean accounts for more than 10/13 of the CvM cross-covariance at every n≥2, while Watson centering leaves a weaker but positive association. This is useful for reasoning about comparisons on one sample; it is not a joint calibration, a power guarantee, or a claim of independence.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

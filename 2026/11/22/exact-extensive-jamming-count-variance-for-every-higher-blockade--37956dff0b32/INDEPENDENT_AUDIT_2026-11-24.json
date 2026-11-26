@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:32:09.322191Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Assumptions and scope and Proof, especially mean asymptotics, toll, and boundary transfer; checker.py and VERIFICATION.md inspected without executing the supplied checker",
+        "Došlić et al., arXiv:2312.02747 §2 first-split geometry and mean recurrence",
+        "Independent numerical replay: /workspace/branches/713139a0-678e-4186-b1b9-4c3d01cc93fe/quadrature_repro.py; 60-digit working precision, cutoffs 40,80,160; 40-to-80 change about 7.03e-21"
+      ],
+      "rationale": "In the original-distance conflict graph the first accepted site leaves two noninteracting pieces with the stated A/B indices, including the zero-index B singleton. Conditional on the first choice (and its priority value), each surviving piece sees a uniform relative priority order, independently; these order laws do not depend on the first priority value. Total variance therefore adds the child variances and the nonnegative variance of the child-mean sum. Averaging gives the stated scalar ODE with homogeneous factor exp(-P_b(z))/(1-z)^2. The affine part of each child mean yields the same summed baseline for every root. In each row the deviations are one rapidly decaying sequence from each end, with finitely many terms for negative indices; their overlap and missing tails are supergeometrically small. Thus the first and second raw deviation sums each tend to a constant at supergeometric speed, giving kT_k=K_b+D_b/k plus a supergeometric error. Multiplying H_b' by (1-z)^2 leaves a polynomial from K_b and absolutely summable coefficients with finite first absolute moment from the second differences of 1/k, as well as the analytic remainder. Entire factors and integration preserve the needed summability for the numerator. Convolution with (1-z)^(-2) then gives V_k=nu_b k+O(1). The variance difference obeys the stated delayed contraction with O(1/k) toll difference, so both shapes have the same slope. At k=b the toll is (b-1)/(2b^2)>0, proving strict positivity in the convergent integral. Coupling A and the open ladder changes only two end vertices; any acceptance discrepancy propagates along strictly increasing priorities, with a factorial path-length bound despite exponentially many paths. On a two-row finite-range strip this gives a uniform second moment for the number of discrepancies, hence an O(sqrt L) variance transfer. Independent high-precision evaluation for b=2 gives 0.0267945787085631864907625185535257686419051279 at both cutoffs 80 and 160 after subtracting and integrating the endpoint tail terms; this supports the stated decimal without certifying rounding by intervals.",
+      "residual_risks": [
+        "The decimal replay is numerical and tail-corrected, not an interval-certified rounding. The all-b proof uses fixed finite range and the specified dynamic priority law, not a simulation or a varying-range limit."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Coletti et al. give a jamming-limit CLT normalized by the standard deviation under their hypotheses, using mixing/stabilization.",
+          "The ladder mean equations already apply for arbitrary blockade and supply the required lower-order input."
+        ],
+        "reasoning": "General fluctuation and stabilization results are relevant background but do not evaluate the variance-per-rung constant for this strip. A known mean generating function does not itself evaluate the higher-blockade law's second moment.",
+        "searches": [
+          "Coletti et al., doi:10.1007/s10955-024-03336-2, Theorem 2.3 and §3",
+          "Došlić et al., arXiv:2312.02747 §2"
+        ]
+      },
+      "checked_sources": [
+        "Došlić et al. arXiv:2312.02747",
+        "Chern–Hwang–Tsai arXiv:1406.0614",
+        "Coletti et al. doi:10.1007/s10955-024-03336-2",
+        "Local Resultary search and same-day comparator 597cc65b3dcf"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The original mean split is a substantial input. The variance toll is a variance over root choices and needs the independent residual laws plus control of endpoint deviations.",
+          "The general normalization and nearest-neighbor formulas do not substitute for the exact positive integral at b>=2."
+        ],
+        "reasoning": "The new calculation applies a conditional-variance argument and then extracts a positive and finite coefficient via an endpoint-tail analysis and boundary transfer; it is not just a parameter substitution or a rephrased existence of fluctuations.",
+        "searches": [
+          "Došlić et al. §2 equations (2.1)–(2.3)",
+          "Chern–Hwang–Tsai §3 and Coletti et al. Theorem 2.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Uniform sequential seating among available vertices and uniform continuous priorities give the same dynamic law; the seating paper has a nearest-neighbor conflict, b=1.",
+          "The higher-blockade ladder paper uses the exact A/B decomposition for first moments."
+        ],
+        "reasoning": "A change of terminology does not make b=1 cover b>=2. A static maximal-independent-set law is not equivalent to either dynamic seating or random-priority RSA.",
+        "searches": [
+          "Local Resultary and focused literature search for two-row ladder RSA, random unfriendly seating, jamming variance and higher blockade",
+          "Chern–Hwang–Tsai arXiv:1406.0614 §§2–3",
+          "Došlić–Puljiz–Šebek–Žubrinić arXiv:2312.02747 §2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact Resultary match is the assigned item itself, 37956dff0b32.",
+          "Same-day 597cc65b3dcf gives the probability of attaining maximum occupation for b=1 and contrasts uniform jammed states; Chern–Hwang–Tsai give variance slope 3/(4e) for the b=1 dynamic law."
+        ],
+        "reasoning": "Neither the maximum-occupation probability nor the nearest-neighbor variance slope supplies a higher-blockade count variance; no distinct exact match was found in the bounded searches.",
+        "searches": [
+          "Local Resultary exact coefficient and related ladder-RSA comparisons",
+          "Same-day 597cc65b3dcf original RESULT.md",
+          "Chern–Hwang–Tsai §3 exact variance slope"
+        ]
+      },
+      "rationale": "The supported distinction is the exact convergent variance coefficient for every fixed higher blockade and its b=2 evaluation, not the existing first-moment recurrence, nearest-neighbor fluctuation law, or general stabilization and Gaussian fluctuation framework.",
+      "residual_risks": [
+        "Higher-blockade second-moment calculations could exist under other sequential parking terminology or in unindexed work. The empty result of one focused public query is not evidence of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct prior for geometry and mean, not the variance coefficient",
+          "evidence": "The A/B recurrences average child expectations and give the mean generating function.",
+          "identifier_or_url": "https://arxiv.org/abs/2312.02747",
+          "material_read": "§2 pp. 6–7 equations (2.1)–(2.3), OA offsets 17400 and 20500",
+          "method": "Lawful OA PDF passages",
+          "title": "A model of random sequential adsorption on a ladder graph",
+          "trigger": "Same dynamic ladder and general blockade"
+        },
+        {
+          "assessment": "Exact nearest-neighbor fluctuation prior, outside higher blockade",
+          "evidence": "Two-row nearest-neighbor seating has extensive variance with slope 3/(4e).",
+          "identifier_or_url": "https://arxiv.org/abs/1406.0614",
+          "material_read": "§2 p. 4 and §3 p. 8, OA offsets 11800 and 23200",
+          "method": "Lawful OA PDF passages",
+          "title": "Random unfriendly seating arrangement in a dining table",
+          "trigger": "Same dynamic seating terminology and a ladder variance"
+        },
+        {
+          "assessment": "General fluctuation result, does not evaluate this strip coefficient",
+          "evidence": "The CLT uses the count's standard deviation as normalization.",
+          "identifier_or_url": "https://doi.org/10.1007/s10955-024-03336-2",
+          "material_read": "Theorem 2.3 p. 5 and §3, OA offsets 12400 and 19600",
+          "method": "Lawful OA full-text passages",
+          "title": "Fluctuations of the Occupation Density for a Parking Process",
+          "trigger": "Potential general theorem dominating asymptotic variance claims"
+        },
+        {
+          "assessment": "Different blockade and statistic",
+          "evidence": "Treats the b=1 probability of maximum occupation rather than the b>=2 variance.",
+          "identifier_or_url": "597cc65b3dcf",
+          "material_read": "RESULT.md §Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Exponential enrichment of perfect packing in random sequential adsorption",
+          "trigger": "Distinct same-day ladder-RSA exact law"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding, Proof and Limitations",
+        "Došlić et al. §2 and Chern–Hwang–Tsai §3 for scope of existing exact results",
+        "Independent b=2 evaluation"
+      ],
+      "rationale": "The dynamic second moment is a natural gap between exact higher-blockade mean results and nearest-neighbor counting laws. A positive variance per rung measures fluctuation amplitude, separates it from the density, and gives concrete numerical input for comparisons across blockade ranges. The positive quadrature also makes the coefficient accessible without trying to extrapolate finite ladder simulations.",
+      "residual_risks": [
+        "The result is for open ladders at fixed range with dynamic uniform priorities, and the quadrature is not an elementary closed form or a general CLT."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

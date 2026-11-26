@@ -1,19 +1,21 @@
-# Scientific review: Kemeny-optimal walks on gear graphs
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem concerns the entire convex feasible set of symmetric, irreducible, stochastic matrices on a gear graph, not an a priori two-parameter restriction. The inverse trace is strictly convex in the independent undirected edge weights; the unique optimum is therefore invariant under the graph's full dihedral symmetry. Positive-semidefinite monotonicity forces the alternating rim-edge weight to its vertex-capacity boundary. The remaining two-parameter spectrum separates into a three-dimensional radial block and \(n-1\) Fourier blocks, yielding an explicit strictly convex scalar objective. Jensen plus Cauchy–Schwarz prove its upper-endpoint derivative negative for all \(n\ge7\); exact rational evaluations handle \(n=4,5,6\); the \(n=3\) derivative has a unique interior root. The cyclic Poisson-kernel resolvent identity and a Riemann sum give the exact optimum and the baseline ratio. The standalone checker passed 528 finite assertions, including direct independent Laplacian eigenvalue calculations; those tests are supplementary, not an infinite proof.
+PASS
 
-## Originality — PASS with residual priority risk
+For L=I−P the regularized inverse trace is strictly convex in the unrestricted edge variables: its second derivative in a nonzero direction H is twice the squared Frobenius norm of A^{-1} H A^{-1/2}. Compactness and divergence at disconnected limits give a unique optimum. Dihedral invariance leaves two weights, and increasing y at fixed x lowers the trace strictly, so y=(1−x)/2. The constant Fourier block has two positive eigenvalues with sum (n+1)x+4y and product 2(2n+1)xy. The nonconstant two-by-two blocks have determinant 2xy+4y² sin²(π j/n) and trace x+4y, giving the scalar objective. At x=1/n the nonconstant derivative contribution has sign given by (3−x)S1−(2−x)S2, where S_k=sum d_j^{-k}. The mean of d_j is (n+2)/(2n); Jensen and Cauchy–Schwarz give the strictly negative sign for n≥7 since n²−7n+2>0. The constant-block contribution is negative there as well. Exact differentiation of full rational inverse matrices confirms all four endpoint derivatives for n=3–6; the n=3 objective is also exactly recovered. Strict convexity implies saturation precisely for n≥4 and the unique interior quartic root at n=3. The cyclic resolvent sums a geometric progression of surviving Fourier coefficients; after removal of the zero grid point it gives the stated coth formula. Its prefactor is 2n+1+1/(n−1), the constant block tends to 3/2, and the coth correction is exponentially small. For the benchmark, the Riemann integral of 1/(2+4 sin²(π u)) is 1/(2√3).
 
-Full-text primary comparisons included Boyd–Diaconis–Xiao (2004), whose target is second-largest eigenvalue modulus rather than Kemeny's inverse spectral trace; Boyd–Diaconis–Parrilo–Xiao (2007), whose graph-symmetry construction applies to a different objective; and Patel–Agharkar–Bullo (2014), whose general Kemeny-convexity/SDP framework does not give the explicit gear-graph optimum, threshold, or asymptotic constants. Gear-graph reference tables list unweighted Kirchhoff indices, not an optimal stochastic transition assignment. Other known wheel, helm and sunlet results concern genuinely different graphs: the inserted rim vertices in a gear graph have two cycle neighbors and are not pendant leaves. A search covering gear/bipartite-wheel/Jahangir terminology and Kemeny/symmetric-walk/maximum-degree alternatives found no statement equivalent to the complete theorem. This supports best-knowledge novelty, not a guarantee against unindexed or differently phrased literature.
+## originality
 
-## Value — PASS
+PASS
 
-Gear graphs are a standard infinite family of hub-and-ring networks with alternating degree classes. The result gives the globally optimal transition probabilities in every size, identifies an exact and qualitative holding-probability transition at four rim vertices, gives an exact spectral resolvent for the optimal Kemeny objective, and proves that a conventional maximum-degree allocation incurs a growing \(\sqrt n\)-order penalty. These are natural network-design outcomes, not a single arbitrary parameter evaluation or a numerical exercise. No claim of a paper-scale contribution is required or made.
+The identical catalogue entry is the bound finding, not an independent antecedent. The strongest distinct inspected analogues are exact saturated-hub and Kemeny results on wheels and helms; neither has the alternating subdivided rim or the relevant Fourier denominators. The general reversible optimization framework and fixed-conductance index do not give the exceptional size or asymptotic constants. This is a bounded, best-of-knowledge judgment.
 
-## Boundaries and uncertainty
+## value
 
-This is a uniform-stationary, symmetric-chain result and is not a theorem for arbitrary reversible stationary distributions or directed walks. The baseline comparison is max-degree weighting, not the global fastest-SLEM chain. Finite checks are not a substitute for the inequalities. Unindexed equivalent results and possible translations from general resistance formulas are residual originality risks. Independent audit is outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is a complete allocation and holding classification for a standard graph family, with an actual change of active constraint at n=4. The exact threshold and the change from n² to n^{3/2} show why a natural degree-based symmetric walk is not order-optimal. Neither a fixed-weight index nor a generic solver would supply that structural conclusion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

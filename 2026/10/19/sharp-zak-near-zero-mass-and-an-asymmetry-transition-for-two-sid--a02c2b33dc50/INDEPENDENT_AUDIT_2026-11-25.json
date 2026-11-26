@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:50:52.037753Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–126",
+        "Frozen VERIFICATION.md, verify_zak.py, and verification_output.txt (inspected, not executed)",
+        "Independent replay: /workspace/branches/e91e866c-9b28-4976-8caa-b3b17e38bbc2/independent_record2_check.py and adjacent output"
+      ],
+      "rationale": "The rational Zak numerator is P(x)+Q(x)e^{2πiω}, with Q/P strictly increasing from zero to infinity, so its only zero is at ω=1/2 and P=Q. At this zero the two unnormalized derivative columns are −(a+b)A and −2πiβA; the normalization multiplies the real determinant by 2ab/(a+b). Thus J=4πabβA², and local change of variables plus the positive modulus away from the zero gives π/J as the sharp area coefficient. The coefficient of δ² in the fixed-sum logarithm is 1/(4q²)−tanh(q)/(2q)+sech²(q)/2; the equivalent threshold function is strictly increasing by sinh(q)cosh(q)>q. Boundary divergence gives attained minima and excludes balance above the threshold. For the large-rate limit, sC is bounded below by e^{a/2}/(4a) on a≤s/2 and admits a bounded fixed-a comparison, giving compactness of all smaller minimizing rates. On such compact sets A→1/(1+e^a), β→1/(1+e^{−a}) uniformly, giving F(a); its derivative equation has exactly one root, which implies the limit for every selection of minimizers. An independent replay reproduced the three numerical constants and checked Zak sums and determinants; it is corroboration, not the limiting proof.",
+      "residual_risks": [
+        "Fixed positive rates are used in the small-area limit. No strict extremum at the threshold, global balance below it, or exhaustive finite-s classification is asserted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kloos–Stöckler Corollary 3.5 addresses a unique Zak zero for finite-type totally positive functions; de Dios Pont et al. §2.1 gives a general zero theorem and a qualitative shifted pre-Gramian statement."
+        ],
+        "reasoning": "These broader zero and sampling statements do not determine the real Jacobian's value or classify decay splits by the area coefficient.",
+        "searches": [
+          "General Zak zero and shifted sampling results: arXiv:1311.7359 and arXiv:2608.04992v1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary record acaeec402fe4",
+        "arXiv:1311.7359",
+        "Janssen (2003) §§1–2",
+        "arXiv:2608.04992v1 §2.1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior symbol can be differentiated and the standard inverse function theorem yields π/J at a simple zero once both derivatives are evaluated.",
+          "The prior sharp grid bounds do not give the fixed-total-rate stability equation or compactness and limiting optimization of the smaller rate."
+        ],
+        "reasoning": "The inverse-Jacobian principle is standard and the symbol is not new. The supporting ingredients do not amount to a stronger theorem with the exact normalized coefficient and its design conclusions as immediate instances.",
+        "searches": [
+          "Resultary record acaeec402fe4 Steps 2–5 compared with frozen RESULT.md Steps 2–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary record acaeec402fe4 gives the same rational symbol and its unstable shift y₀=x₀, plus a quadratic degeneration of the optimal sampling lower bound based on |Z_y(θ)|²/G(θ).",
+          "Janssen's inspected exponential example is even and unit normalized."
+        ],
+        "reasoning": "A translated-grid worst-case bound and a planar sublevel measure are not equivalent: the latter depends on both derivative directions and normalization, and is optimized over the decay split rather than the sample shift.",
+        "searches": [
+          "Resultary asymmetric two-sided exponential Zak symbol and shifted sampling",
+          "arXiv:1311.7359 Corollary 3.5; arXiv:2608.04992v1 §2.1; Janssen (2003) §§1–2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest exact catalogue result gives tight phases and a quadratic sampling-bound collapse, not the thresholds or design constant for area."
+        ],
+        "reasoning": "There is no table or census claim; the exact analytic overlap is the symbol and zero, while the displayed decimal constants here evaluate root equations for a different problem.",
+        "searches": [
+          "Resultary shifted sampling versus Zak sublevel-area constants"
+        ]
+      },
+      "rationale": "The rational Zak symbol and zero coordinate for this window are prior. The distinct claim is the explicit L²-normalized two-dimensional area coefficient and its fixed-total-decay local stability threshold and global large-rate design. The closest prior sampling record studies a different statistic on a one-dimensional grid; the inspected general zero theorems supply no such optimization.",
+      "residual_risks": [
+        "Section 5 of arXiv:2608.04992v1 was not retrieved in the targeted inspection. The comparison is bounded and does not exclude an unindexed equivalent optimized local-symbol result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material overlap for symbol and zero but not the planar area or design",
+          "evidence": [
+            "Unstable one-dimensional translated-grid shift and quadratic asymptotic of a sampling bound using |Z_y(θ)|²/G(θ)."
+          ],
+          "identifier_or_url": "2026/10/11/SCOPE-sharp-shifted-sampling-bounds-and-two-tight-phases-for-asymmetri--acaeec402fe4",
+          "material_read": "RESULT.md Finding and formulas at offsets 0–4802; Steps 2–5 and discussion at offsets 4700–8900",
+          "method": "Resultary search and local mirror passages",
+          "title": "Sharp shifted sampling bounds and two tight phases for asymmetric two-sided exponentials",
+          "trigger": "Same asymmetric family, symbol and exceptional shift"
+        },
+        {
+          "assessment": "Broader zero result only",
+          "evidence": [
+            "Unique Zak zero for a totally positive finite-type window in the stated cell."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1311.7359",
+          "material_read": "PDF p. 16 Corollary 3.5, offset 43509",
+          "method": "Primary full-text passage",
+          "title": "Zak transforms and Gabor frames of totally positive functions and exponential B-splines",
+          "trigger": "General one-zero theorem for this finite-type family"
+        },
+        {
+          "assessment": "Even family and critical-density normalization; no asymmetric fixed-sum design in the passages",
+          "evidence": [
+            "Treats the unit-L²-normalized even exponential and its single Zak zero."
+          ],
+          "identifier_or_url": "https://pure.tue.nl/ws/files/3079889/Metis235352.pdf",
+          "material_read": "§§1–2, extracted offsets 8500–12905",
+          "method": "Primary full-text passages",
+          "title": "On generating tight Gabor frames at critical density",
+          "trigger": "Prior Zak computation for a two-sided exponential"
+        },
+        {
+          "assessment": "General qualitative structure in the inspected passage, not evidence of whole-paper absence",
+          "evidence": [
+            "General unique-zero theorem for continuous totally positive functions and a qualitative shifted pre-Gramian result."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2608.04992v1",
+          "material_read": "§2.1 offset 20872; targeted §5 retrieval timed out",
+          "method": "Primary full-text passage",
+          "title": "Gabor Frames of Totally Positive Functions: A Complete Characterization",
+          "trigger": "Plausible broader Zak and sampling theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Proof",
+        "Closest shifted-sampling result compared above"
+      ],
+      "rationale": "The sharp area coefficient measures how much of a normalized Zak cell has small transform magnitude, beyond simply detecting the zero. The fixed-budget local switch and the global all-minimizer limit explain when and how unequal rates improve this statistic; the surviving smaller decay tends to a specific finite value rather than tracking the growing total rate.",
+      "residual_risks": [
+        "This area law is not itself an exact oversampled frame bound; no such downstream significance is needed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

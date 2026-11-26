@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-The symbolic proof conditions each clique on the label of its bridge endpoint and the label across the bridge. The four endpoint rows are exhaustive, and gluing the two sides yields the matrix identity
-\[
-\mathcal D_n(x)=\operatorname{tr}\bigl(M_n(x)^2\bigr).
-\]
-For \(n\ge4\), the minimum-layer proof is separate from the generating-function calculation: every clique side has weight at least \(3\), and side weight \(3\) is possible exactly with one label \(3\) and all other labels \(0\). Hence the minimum weight is \(6\) with exactly \(n^2\) minimum functions.
+# Independent mathematical audit
 
-The packaged `verify_double_roman_barbell.py` constructs the graph directly and tests the double Roman conditions from adjacency. It exhaustively checks all \(4^{2n}\) labelings for \(2\le n\le5\), compares the full coefficient table to the closed transfer formula, and verifies the minimum layers. It then evaluates the exact formula through \(n=12\) as an additional finite consistency check.
+## correctness
 
-Replay output:
+PASS
 
-`VERIFY_OK n_bruteforce=2..5 labelings=1118464 valid_functions=892974 formula_n=2..12 coefficient_checks=408 max_order=24`
+Condition on the endpoint labels (a,b) of the bridge. On the a side, a=3 protects all internal vertices; a=2 leaves only assignments with at least one zero and no internal 2 or 3 to delete. For a=0 or 1, internal validity requires a 3, two 2s, or one 2 and all remaining internal labels 1. The last case protects a=1 already, but protects a=0 only when b≥2. These give exactly the four matrix rows including the exceptional terms in G_n and J_n. The two sides involve disjoint choices conditioned on (a,b), so the weight exponents add and the sum of the products is tr(M_n²). For n≥4, a side weighing at most 2 necessarily leaves an undefended internal zero. A side of weight 3 without a 3 has either one 2 and one 1 (leaving an undefended internal zero) or only 1s and 0s (no defender for any internal vertex). Thus each side must contain one 3 at weight 6, giving n² choices. Fresh direct adjacency enumeration over all labelings for n=2 and 3 in /workspace/branches/769a392d-55ad-4d41-9a0d-d72547d36996/reproduce_barbell.py confirmed every coefficient: 114 and 2325 valid functions, with leading terms 4x⁵ and 13x⁶ respectively. The frozen verifier and recorded output were inspected, not executed; the independent finite test supports the boundary cases, not the all-n proof.
 
-The finite replay does not establish the infinite family. The all-\(n\) statement rests on the symbolic endpoint-state proof in `RESULT.md`.
+## originality
+
+PASS
+
+The distinct supported contribution is the full ordinary double-Roman weight polynomial on two K_n joined by one edge, including minimum-layer multiplicities. The strongest checked indexed hits either match the graph but not the domination rule, or match the rule but not the graph. Available primary descriptions of optimization do not give all-weight coefficients. This is a best-of-evidence pass for the coefficientwise result, not a priority claim for scalar minimum weights or for the transfer-matrix method.
+
+## value
+
+PASS
+
+A barbell is a natural first case of two dense blocks interacting through a cut edge. The polynomial gives all feasible weights and multiplicities, not just an optimization number; it identifies the extra tied optima at n=3 and the rigid one-3-per-block classification from n=4 onward. These exact coefficients and boundary layers are useful for evaluating counting methods and for comparison with other glued-clique graphs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

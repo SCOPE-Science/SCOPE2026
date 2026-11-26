@@ -1,0 +1,162 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:36:22.758661Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Full Fourier intensity equality is equality of every aperiodic autocorrelation by trigonometric coefficient uniqueness; coordinate magnitudes give common support and real relative signs. Normalize the signs at the left endpoint; the largest lag then forces agreement at the right endpoint. Each positive lag of the cross-sign pairs must have vanishing sum of products, so none may be a singleton. For three sites an interior flip forces equal gaps and opposite endpoints, yielding minus the reflected sequence. For four sites one interior flip has three cross distances that cannot all coincide. With both flipped and consecutive gaps a,b,c, the only repeated-pair partition of a,a+b,b+c,c permitted by b>0 is a=c and a+b=b+c. Then the two equations are A0*A1+A2*A3=0 and A0*A2+A1*A3=0. Nonzero amplitudes give A3=A0 and A2=-A1 or A3=-A0 and A2=A1, exactly the two signed reflections. Support sizes zero through two are trivial. For sharpness the reversal of 1+tz-z^2 has the same unit-circle modulus; multiplying both factors by 1+uz^2 gives precisely the claimed coefficients. Parameter exclusions make every coefficient nonzero, the matching linear and opposite constant coefficients exclude a global sign, and the unequal endpoint magnitudes exclude the only possible reflection of the common finite support. Inspected the frozen checker; its tests are finite supplementary checks, not the proof for arbitrary real values or gaps.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fourier-only factorization lists ambiguities, not their intersection with the same coordinate magnitude data at fixed support.",
+          "Generic almost-everywhere sparse recovery does not rule out exceptional parameters. Sampled continuous-time partners can have unequal global time magnitudes; translated template constructions do not give the real five-site threshold."
+        ],
+        "reasoning": "The broader settings do not mechanically restrict to an exhaustive small-support classification satisfying both sets of constraints. Intersecting root-flip possibilities with the exact magnitude data on arbitrary sparse supports is the missing step.",
+        "searches": [
+          "Beinert–Plonka Theorems 2.3 and 3.1",
+          "arXiv:1311.2745 Theorem II.1",
+          "arXiv:2604.25662 Theorem 2 and Example 2",
+          "arXiv:2410.12065 Theorem 2 and arXiv:2605.23079 Theorems 2–3"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1209.1225",
+        "Beinert–Plonka public preprint on discrete phase retrieval ambiguity",
+        "arXiv:1311.2745",
+        "arXiv:2604.25662",
+        "arXiv:2605.23079",
+        "arXiv:2410.12065",
+        "Resultary 5454fe769fbc, 9fe6c81e37df and 3383b59ee81f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The five-site family uses a known reversal mechanism; the inspected consecutive-tap classification has no cases for general distances a,b,c.",
+          "In the frozen proof the distance multiplicities, rather than a general position assumption, are what force a reflection at four sites."
+        ],
+        "reasoning": "The classical generation mechanism is credited, but it does not establish the minimum support size or guarantee same-coordinate magnitudes and nontriviality for the stated parameter family. The older exact four-consecutive-coefficient statement can at most cover the equal-gap subcase.",
+        "searches": [
+          "Shkarin arXiv:1209.1225 Proposition 4.2",
+          "Beinert–Plonka convolution and root-flip characterization",
+          "Resultary 5454fe769fbc and 3383b59ee81f"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Shkarin's Lemma 4.1 uses the same autocorrelation reduction on a step-function encoding, and Proposition 4.2 classifies four consecutive complex coefficients.",
+          "The signed four-atom prime-order Resultary comparator has unequal support in its equal-Fourier-modulus pair."
+        ],
+        "reasoning": "Consecutive steps encode only equal gaps, and ordinary phase retrieval with potentially different support misses the fixed coefficient-magnitude constraint. Neither is equivalent to this universal real arbitrary-gap problem.",
+        "searches": [
+          "arXiv:1209.1225 §4 (autocorrelation equations and step-function Pauli pairs)",
+          "Beinert–Plonka, Ambiguities in One-Dimensional Discrete Phase Retrieval from Fourier Magnitudes (zero flips and reversal)",
+          "Resultary searches for finite sign ambiguities and four-tap Fourier–Pauli data"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "5454fe769fbc classifies complex four consecutive taps, including three-class fibers; 9fe6c81e37df concerns complex QPSK on consecutive sites; 3383b59ee81f uses prime cyclic groups and permits different supports."
+        ],
+        "reasoning": "Finite alphabet or consecutive-tap lists do not exhaust arbitrary real amplitudes and support gaps on Z. In particular the differing-support cyclic examples are not Pauli partners with the specified coordinate data.",
+        "searches": [
+          "Resultary exact fibers: 5454fe769fbc, 9fe6c81e37df, 3383b59ee81f"
+        ]
+      },
+      "rationale": "The distinct claim is the sharp five-site threshold for all real finite sequences on Z with both magnitude data, up to signed reflection as well as global sign. Neither the general Fourier-only characterization nor the inspected four-consecutive-tap and sampled-real-line results give this sharp universal two-data conclusion. The factor reversal itself is classical.",
+      "residual_risks": [
+        "An unindexed or differently phrased real sparse two-data classification is not excluded.",
+        "No priority claim is made for autocorrelation, zero flips or consecutive complex-tap classifications."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the finite autocorrelation method and a close equal-gap case, not arbitrary-gap real sequences.",
+          "evidence": "The four coefficients encode four consecutive equal intervals; Proposition 4.2 is complex-valued.",
+          "identifier_or_url": "https://arxiv.org/pdf/1209.1225",
+          "material_read": "§4 Lemma 4.1 and Proposition 4.2, PDF pp. 7–8, OA offsets 31779 and 33578.",
+          "method": "Original OA PDF passages.",
+          "title": "On Pauli Pairs",
+          "trigger": "Autocorrelation reduction and exact small-support comparison."
+        },
+        {
+          "assessment": "Covers the construction mechanism, not the coefficientwise constraint or sharp threshold.",
+          "evidence": "Factorization, convolutions and reciprocal-conjugate choices describe Fourier-magnitude ambiguity.",
+          "identifier_or_url": "https://www.static.tu.berlin/fileadmin/www/10005553/beinert/preprints/BeinertPlonka2015.pdf",
+          "material_read": "Theorems 2.3 and 3.1, PDF pp. 6–9, OA offsets 15071, 17524 and 21491.",
+          "method": "Lawful public preprint and actual theorem passages.",
+          "title": "Ambiguities in One-Dimensional Discrete Phase Retrieval from Fourier Magnitudes",
+          "trigger": "Plausibly dominating description of finite Fourier data fibers."
+        },
+        {
+          "assessment": "Not a uniform all-amplitude result with the same data.",
+          "evidence": "Generic uniqueness for aperiodic support, up to standard symmetries.",
+          "identifier_or_url": "arXiv:1311.2745",
+          "material_read": "Abstract and Theorem II.1, PDF pp. 1–2, OA offsets 0 and 7200–9817.",
+          "method": "Original OA PDF passages.",
+          "title": "Phase Retrieval for Sparse Signals",
+          "trigger": "Short-support exact-recovery comparator."
+        },
+        {
+          "assessment": "No sharp arbitrary-gap real support threshold.",
+          "evidence": "Nonuniqueness constructions use translated templates.",
+          "identifier_or_url": "arXiv:2604.25662",
+          "material_read": "Theorem 2 and Example 2, PDF p. 4, OA offset 16487.",
+          "method": "Original OA PDF passage.",
+          "title": "On Phase Retrieval for Continuous and Discrete Fourier Transforms",
+          "trigger": "Recent nonuniqueness constructions."
+        },
+        {
+          "assessment": "Different domain and coordinate data; does not imply this finite-support threshold.",
+          "evidence": "Even and odd functions with pointwise orthogonal Fourier transforms give pairs with equal time magnitudes at sample sites but unequal global time magnitudes.",
+          "identifier_or_url": "arXiv:2605.23079",
+          "material_read": "Theorems 2 and 3 and Remark 1, PDF pp. 5–6, OA offsets 11400, 14282, 14971 and 18149.",
+          "method": "Original OA PDF passages.",
+          "title": "Discrete Pauli pairs",
+          "trigger": "Same Pauli terminology and two-sided sampled data."
+        },
+        {
+          "assessment": "Does not classify sign ambiguities on Z.",
+          "evidence": "Deals with sampled sets of real frequencies and Gaussian decay hypotheses.",
+          "identifier_or_url": "arXiv:2410.12065",
+          "material_read": "Theorem 2, PDF pp. 4–5, OA offset 12032.",
+          "method": "Original OA PDF passage.",
+          "title": "On Pauli pairs and Fourier uniqueness problems",
+          "trigger": "Related discrete sample sets and Pauli data."
+        },
+        {
+          "assessment": "Close but its complex equal-gap classification does not cover the arbitrary-gap real threshold.",
+          "evidence": "Triangular condition in the four coordinate magnitudes and a complex three-class example.",
+          "identifier_or_url": "Resultary 5454fe769fbc",
+          "material_read": "Mirrored Finding and assumptions defining four consecutive complex taps.",
+          "method": "Actual statement read through the local mirror.",
+          "title": "Sharp amplitude triangle and threefold fibers for four-tap Fourier–Pauli data",
+          "trigger": "Exact four-tap theorem with both magnitude data."
+        },
+        {
+          "assessment": "Different coefficient alphabet and support regime.",
+          "evidence": "Full consecutive QPSK support and first ambiguity at length six.",
+          "identifier_or_url": "Resultary 9fe6c81e37df",
+          "material_read": "Mirrored finding on support length and ambiguity counts.",
+          "method": "Actual statement read through the local mirror.",
+          "title": "First Fourier-magnitude ambiguities for six-symbol quadrature phase sequences",
+          "trigger": "Explicit threshold in a discrete phase alphabet."
+        },
+        {
+          "assessment": "No contradiction or equivalent result for the same coordinate data.",
+          "evidence": "Finite prime cyclic group and the displayed partners have different supports.",
+          "identifier_or_url": "Resultary 3383b59ee81f",
+          "material_read": "Mirrored finding and displayed ambiguity pair.",
+          "method": "Actual passages read through the local mirror.",
+          "title": "Prime-order onset and first ambiguous fibers for signed four-atom Fourier phase retrieval",
+          "trigger": "Real four-atom equal-Fourier-modulus comparator."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A sharp minimal-support obstruction for simultaneous magnitude data is a natural quantitative uniqueness boundary. The result resolves even repeated-distance supports, not just generic cases, and supplies a minimal witness that is not a symmetry of the data.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

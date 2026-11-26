@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:37:43.578728Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed RESULT.md lines 19–54. Multiplication and addition are monotone for the natural order; s≼s² makes every positive power nondecreasing, and the evaluation of θ on A is Σ_a w_a^|A|, so adding elements cannot decrease it. For any candidate prenex existential NNF sentence, separate its expansion on J_t into old assignments and assignments that use b. At t=1 all factors are 0 or 1. The old sum equals 1, and the new total is 1, so unit nonabsorption and zero-sum-freeness force every extra monomial to have a zero factor. No zero factor changes at t=u≠0, so extra assignments still contribute zero; equality with θ would force u²=u. The argument requires no absence of zero divisors, and works for arbitrary existential tuple length, including no quantifiers. The saturation map from ℕ preserves both operations (including multiplication by zero). The natural order is the ordinary order and u=2 distinguishes the powers at M≥3; at M=1,2 multiplication is idempotent, so θ collapses to ∃x R(x). Both sentences are zero on the empty domain if allowed. VERIFICATION.md and checker.py were inspected, not executed. The proof, not bounded checks over example interpretations, addresses every existential formula.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 5.11 is positive for finite interpretations over non-Boolean lattice semirings, unlike capped addition, where 1⊕1≠1 for cap≥2.",
+          "The earlier saturation transfer derives witnesses from classical extension-preservation failures and yields nondefinability at every fixed existential-first prefix level; its vocabulary can depend on the level."
+        ],
+        "reasoning": "The existential assertion that some witness exists on finite caps is covered more broadly. This does not establish the fixed unary sentence's behavior or the criterion for semirings without a common additive saturation top.",
+        "searches": [
+          "Brinke–Dawar–Grädel–Pago ICALP 2026 Theorem 5.11",
+          "Dawar–Sankaran arXiv:2007.05459, Theorem 4.1",
+          "Resultary 92371b6cf7d8 saturation-transfer theorem"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2605.10829; DOI:10.4230/LIPIcs.ICALP.2026.172",
+        "arXiv:2007.05459",
+        "Resultary 92371b6cf7d8"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Unbounded powers in ℕ or ℕ^∞ do not supply the bounded case, because c↦min(M,c) can collapse powers and semantic inequivalence.",
+          "The saturation transfer only recovers a classical support obstruction. The truth support of θ is classically existential, so that argument cannot establish nondefinability here."
+        ],
+        "reasoning": "The annotation argument using nonabsorption at 1 and a nonidempotent square is a distinct finite proof, not a quotient or hierarchy substitution.",
+        "searches": [
+          "arXiv:2605.10829 Lemma 3.1 and Theorem 5.1",
+          "Resultary 92371b6cf7d8, Boolean support and saturated-sentence proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Lemma 3.1 uses the same ∃x∀y R(x) over ℕ^∞; Theorem 5.1 handles finite interpretations over the infinite coefficient semiring ℕ.",
+          "The witness is Boolean-equivalent to ∃x R(x) under the support map, so Boolean formula equivalence cannot capture its finite capped obstruction."
+        ],
+        "reasoning": "Finite domain is not finite coefficient range. The proof for the capped sentence distinguishes actual annotated values t and t² on the same truth support.",
+        "searches": [
+          "Semiring semantics finite extension preservation, truncated naturals, capped counting and the fixed unary sentence",
+          "Brinke–Dawar–Grädel–Pago, arXiv:2605.10829 Lemma 3.1 and Theorem 5.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 2026/10/13/SCOPE-additive-saturation-transfers-the-finite-extension-preservation--92371b6cf7d8, RESULT.md Finding and proof steps 1–3: S_k has k+1 elements and fails the hierarchy for each cap k≥2, including the three-element cap-two semiring."
+        ],
+        "reasoning": "This is prior coverage of general finite capped failure, not of θ. At cap two θ is existential, so the prior existential assertion necessarily uses a different witness.",
+        "searches": [
+          "Resultary: finite extension preservation capped-counting semiring bounded counting same unary existential-universal witness"
+        ]
+      },
+      "rationale": "Pass for the fixed one-unary-symbol finite nondefinability theorem, its algebraic criterion, and the cap threshold for this witness only. General failure of finite extension preservation for capped counting is already covered, including at cap two with another sentence. The original does not assert global minimality of four elements. The unbounded-semiring formulation for the same sentence is also prior work.",
+      "residual_risks": [
+        "A prior statement for this specific unary formula or the unit-nonabsorption criterion may appear under bounded provenance terminology outside the inspected passages.",
+        "The bounded external search did not produce a further relevant hit; this is not proof of priority.",
+        "Four elements is the threshold for this sentence in the capped family, not a minimum over counterexamples."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact formula prior for unbounded semirings; lattice case does not cover finite caps",
+          "evidence": "Unbounded power argument in Lemma 3.1, theorem over finite ℕ-interpretations, and lattice-specific hypothesis in Theorem 5.11.",
+          "identifier_or_url": "https://arxiv.org/html/2605.10829",
+          "material_read": "§3 Lemma 3.1 around HTML offset 33835 and §5 Theorem 5.1 around offset 95078; ICALP version p. 15 Theorem 5.11",
+          "method": "OA HTML and OA conference PDF text",
+          "title": "Preservation Theorems in Semiring Semantics",
+          "trigger": "Same sentence and same preservation problem"
+        },
+        {
+          "assessment": "Covers general capped failure, even at smaller cap, but not this unary witness or criterion",
+          "evidence": "Uses common additive saturation and transfers classical Σ_n nondefinability; covers every k≥2.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-additive-saturation-transfers-the-finite-extension-preservation--92371b6cf7d8/RESULT.md",
+          "material_read": "Finding, scope and proof of Boolean support, saturated sentence, and nondefinability",
+          "method": "Local published-record mirror",
+          "title": "Additive saturation transfers the finite extension-preservation hierarchy to capped counting semirings",
+          "trigger": "Earlier exact cap-family match"
+        },
+        {
+          "assessment": "Classical finite hierarchy rather than weighted unary equivalence",
+          "evidence": "A classical extension-preserved but prefix-nondefinable witness at each fixed level; not a theorem about equality of capped-count values.",
+          "identifier_or_url": "https://arxiv.org/html/2007.05459",
+          "material_read": "Theorem 4.1 around HTML offset 27340",
+          "method": "OA HTML text",
+          "title": "Extension Preservation in the Finite and Prefix Classes of First Order Logic",
+          "trigger": "Source of the indexed hierarchy comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Unlike generic transfer from a classical counterexample, a sentence that is already classical-existential fails elimination on a one-predicate annotated domain. The two-domain mechanism locates an algebraic obstruction and explains exactly when this witness stops working under saturation. This isolates a different mechanism even though general finite capped failure is known.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

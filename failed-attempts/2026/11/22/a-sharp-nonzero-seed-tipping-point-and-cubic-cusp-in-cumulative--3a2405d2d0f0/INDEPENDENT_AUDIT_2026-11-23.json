@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:22:02.524100Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the stated continuous-time homogeneous ODE and strictly positive active seed, S+I+R is invariant and I remains positive at every finite time. Integrating d log S/dR=−(B+AR) leaves the scalar flow R'=μ[1−R−(1−ε)e^(−BR−AR²/2)]. A bounded increasing R converges to the first positive zero: a positive velocity at the limit contradicts convergence, and uniqueness prevents passage through any equilibrium, including a touch without a sign change. The derivative of the log level function is q(z)/(1−z), q=B−1+(A−B)z−Az². If A≤B the polynomial stays negative; for A>B its vertex is interior and its value becomes positive exactly above the larger discriminant root (1+√(1−B))². This establishes the smooth, cubic and fold regimes. In the fold regime the local minimum u is the first root at ε_c; all earlier seeds select the left branch and all larger seeds select the right branch, with right limit w>v. There is one jump. At the cusp q=−A(z−z*)², and integration gives H(z)−H(z*)=−A e^(s−s²/2)(z−z*)³/3+O((z−z*)⁴), confirming the signed cube-root coefficient; H(z*)<1 follows by strict decrease. At the fold the velocity coefficient in the gap is μA(v−u)/2 at degree two, and at the cusp it is μA/3 at degree three. Integrating the negative gap derivative gives the two time prefactors. Independent high-precision scalar quadrature (/tmp/opencode/frozen_math_samples_a91d.py, μ=1) gives t(u−R)≈3.99816697 at gap 10⁻⁵ for B=1/2,A=3 (limit 4) and t(z*−R)²≈0.66666167 at the same gap for B=3/4,A=9/4 (limit 2/3); the proof, not those samples, establishes the quantifiers. Frozen verify.py was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2005 primary text covers general admissible generating series, with convergence to the first negativity in Theorem 2.1 and a Brownian sign choice among earlier contacts and the first negativity in Theorem 2.2. The mapped generating polynomial has infinite radius of convergence, so these hypotheses apply.",
+          "Xue et al. use the same qualitative recovered-fraction feedback, but a capped discrete per-edge probability, and vary intrinsic attractiveness for their reported jump. St-Onge et al. analyze persistent endemic states and supply a qualitative bifurcation precedent, not the equivalent final-size law."
+        ],
+        "reasoning": "The Xue and St-Onge differences do not dispose of the strongest comparison. The stronger hypergraph result applies to the exact scalar geometry even though the underlying stochastic law and deterministic ODE are not interchangeable.",
+        "searches": [
+          "Darling–Norris Theorems 2.1–2.2, Eq. (2), Example 2.2 and §6.2",
+          "Xue et al. arXiv:2512.15371v1, Eq. (3) and §III",
+          "St-Onge et al. arXiv:2105.07092, hypergraph stationary branches"
+        ]
+      },
+      "checked_sources": [
+        "Darling–Norris 2005, arXiv:math/0503460v1",
+        "Xue et al. arXiv:2512.15371v1",
+        "Bidari et al., Solvability of implicit final size equations for SIR epidemic models",
+        "St-Onge et al. arXiv:2105.07092",
+        "Resultary 0b532b2a2959 and the assigned self-match"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For the mapped prior root function, (1−z)g′(z)=B−1+(A−B)z−Az², independent of patch intensity b₁. Its vertex test gives the same A*. Shifting b₁ to lift the local minimum to zero gives exactly ε_c; the first sign crossing switches from the lower to the upper branch. At the fold the prior Theorem 2.2 puts equal probability on u and w; at the cubic sign-changing root there is no earlier zero and Theorem 2.1 applies. The cubic Taylor coefficient directly yields the same static seed cusp.",
+          "Darling–Norris §6.2 gives the fluid patch curve y(z)=(1−z)g(z) with collapse clock x₁=t. The deterministic physical velocity is μy(R)[(1−e^(−g(R)))/g(R)], a smooth factor tending to μ at a critical root. This relation does not claim identical clocks or that the paper states the ODE time tails."
+        ],
+        "reasoning": "The material static result is obtained by substituting in the general selection rule and differentiating the same scalar curve, including the jump branches; exact-fold deterministic selection and physical-time relaxation are the distinctions. For the latter, the smooth-factor identity reduces the remaining critical time constants to local Taylor coefficients of the same known patch curve and elementary scalar integration.",
+        "searches": [
+          "arXiv:math/0503460v1, Eq. (2), Theorems 2.1–2.2, §6.2 fluid path",
+          "Substitution 𝓑(z)=−log(1−ε)z+(B/2)z²+(A/6)z³ in the published rule"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For the Poisson generating polynomial 𝓑(z)=b₁z+b₂z²+b₃z³, set b₁=−log(1−ε), b₂=B/2 and b₃=A/6. All are admissible, with initial patch fraction 1−e^(−b₁)=ε. The published g(z)=𝓑′(z)+log(1−z) is exactly log H(z)−log(1−ε), not merely a local normal form.",
+          "Bidari et al. give the normalized A=0 final-size equation as an ordinary SIR special case; it has no positive-feedback fold."
+        ],
+        "reasoning": "For generic seeds the ODE first root is the same location as the published first negativity z*. For the double contact the two observables differ in selection exactly at one seed, not in the level equation, one-sided branches or their limiting jump. The cubic contact changes sign, so its selected root agrees at criticality as well.",
+        "searches": [
+          "Resultary: Poisson hypergraph collapse, β′(z)+log(1−z), identification first root, patch density cusp and discontinuous terminal fraction",
+          "Darling–Norris arXiv:math/0503460v1, generating function, §§1.7, 2.1 and 2.2",
+          "Bidari et al., Solvability of implicit final size equations for SIR epidemic models, Eqs. (1)–(4)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed threshold/jump/cusp hit ending 3a2405d2d0f0 is the same finding, not distinct prior evidence. Resultary 0b532b2a2959 studies equilibria of an adoption–opinion map, not this final-size geometry. The hypergraph source provides an exact analytical selection formula, not a table of threshold numbers."
+        ],
+        "reasoning": "A search need not return the same exact decimal or title to identify coverage: the analytic rule already covers the mapped noncritical roots and critical contacts. The FAIL is based on that primary-text equivalence, not on the indexed self-match or a missing tabulation.",
+        "searches": [
+          "Resultary: cumulative-retirement feedback positive-seed fold and signed cubic inverse, exact threshold",
+          "Resultary: patch hypergraph collapse first root, patch-density cusp and discontinuous terminal fraction",
+          "Resultary earlier adoption fold 0b532b2a2959"
+        ]
+      },
+      "rationale": "The central final-size geometry is already a direct specialization of a published stronger result for Poisson hypergraph collapse, not just an analogy with unrelated cusp theory. The exact parameter mapping makes the known first-crossing function identical, yielding the same two selected branches away from the fold, the location of their finite positive seed jump, and the cubic crossing. The displayed constants are algebraic/Taylor evaluations of that same function, not an independent classification. The deterministic ODE selects the lower root exactly at the fold, unlike the earlier stochastic branch mixture, and has physical-time tails not stated in that paper. These are real distinctions, not a reason to certify the frozen claim centered on the static threshold and cusp. No substantive repaired finding was made.",
+      "residual_risks": [
+        "The result does not identify deterministic and finite-network stochastic selection at the fold, nor the physical clocks; the originality failure is confined to the dominant shared final-size geometry and its mechanically evaluated constants.",
+        "The related 2004 Darling–Levin–Norris paper on continuous and discontinuous phase transitions in hypergraph processes was identified in the 2005 paper's references but not read. Bass diffusion DOI 10.1287/mnsc.15.5.215 full text was unavailable; neither access limitation drives the decision."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Demonstrated exact scalar coverage of the static geometry, distinct critical stochastic choice and clock",
+          "evidence": [
+            "Eq. (2) defines first negativity; Theorem 2.1 gives its generic limit; Theorem 2.2 gives equal branch probabilities for a single prior touch; §6.2 displays (t,(1−t)(𝓑′(t)+log(1−t)),…)."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/0503460v1 (DOI 10.1214/105051604000000567)",
+          "material_read": "§1.7 and §2, PDF pp. 5–7, offsets 14500–19931; §6.2 fluid path, p. 23, near offsets 55900–58067; continuous-time embedding on p. 21",
+          "method": "Direct bounded primary OA PDF passages with explicit substitution and comparison of root selection",
+          "title": "Structure of large random hypergraphs",
+          "trigger": "Potential exact scalar equivalence under Poisson patch intensity"
+        },
+        {
+          "assessment": "Related mechanism, not the finite-positive-seed ODE theorem",
+          "evidence": [
+            "Eq. (3) uses capped discrete per-edge transmission; reported jump occurs while varying intrinsic attractiveness."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2512.15371v1",
+          "material_read": "Model at offsets 5500–10495 and intrinsic threshold results at 12000–16877",
+          "method": "Bounded primary OA HTML passages",
+          "title": "Network localization governs social contagion dynamics with macro-level reinforcement",
+          "trigger": "Same model motivation and recovered-fraction reinforcement"
+        },
+        {
+          "assessment": "Covers A=0 equation, not positive feedback",
+          "evidence": [
+            "R∞=N−S₀ exp(−τn R∞/(γN)), which normalizes to the A=0 equation."
+          ],
+          "identifier_or_url": "https://real.mtak.hu/46138/1/final_epidemic_size_second_revision.pdf",
+          "material_read": "Abstract and Eqs. (1)–(4), PDF pp. 1 and 3",
+          "method": "Bounded author-repository PDF passages",
+          "title": "Solvability of implicit final size equations for SIR epidemic models",
+          "trigger": "Equivalent final-size equation in standard SIR"
+        },
+        {
+          "assessment": "Qualitative nonlinear bifurcation antecedent, different observable",
+          "evidence": [
+            "Bistability/tricriticality of stationary endemic states, rather than selected terminal fraction under permanent retirement."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2105.07092",
+          "material_read": "PDF pp. 7–8, offsets near 44000 and 56500",
+          "method": "Bounded primary OA PDF passages",
+          "title": "Influential groups for seeding and sustaining nonlinear contagion in heterogeneous hypergraphs",
+          "trigger": "Potential prior nonlinear seeding and tricritical analysis"
+        },
+        {
+          "assessment": "Different adoption–opinion equilibrium problem",
+          "evidence": [
+            "The theorem concerns positive-adoption equilibria in a coupled map, not the first crossing of a final-size potential."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-a-sharp-adoption-fold-and-robust-bistability-in-the-homogeneous--0b532b2a2959",
+          "material_read": "Mirrored RESULT.md finding and model scope",
+          "method": "Resultary search and originating file in local mirror",
+          "title": "A sharp adoption fold and robust bistability in the homogeneous adoption–opinion model",
+          "trigger": "Earlier indexed exact adoption fold"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The mathematical question is natural, but the principal value proposition—an exact finite-seed jump/cusp diagram—evaluates the already known Poisson collapse curve and selected noncritical roots. Isolated from that overlap, deterministic selection at the exact touch is the usual no-passage consequence of scalar ODE uniqueness, and the two remaining power laws and coefficients are routine integrations of the quadratic and cubic zeros of the same curve after a smooth positive time rescaling. The supplied result establishes no independently valuable new dynamical invariant beyond those deductions (for example, no near-critical delay law uniform in seed detuning). This is a scientific rejection of the frozen finding, not a finding that its mathematics is false or that every use of the model lacks value.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

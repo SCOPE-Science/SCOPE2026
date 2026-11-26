@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The first-step equations of the explicitly specified five-agent Markov chain reduce by opinion-complement and hypergraph automorphism symmetry to a five-by-five linear system. A rational-polynomial certificate validates the displayed mean absorption-time function, and an independent thirty-transient-state exact construction reproduces it at several rational parameter values. The differentiated numerator is strictly negative on the full allowed interval; the limiting prefactor follows from leading rational coefficients. The minimum-order claim has a short majority-flip reachability proof for every connected three-uniform hypergraph on at most four vertices, plus an explicit two-state limiting nonconsensus class at five vertices. Exact arithmetic is supplementary, not a claim of infinitely many cases from finite testing.
+PASS
 
-## Originality — PASS, bounded by accessible evidence
+Independently enumerated the per-vertex, per-incident-edge flips at the five representatives and canonicalized by opinion complement, permutation within a leaf pair and exchange of petals. This gives exactly 10A in RESULT.md, including its absorption rates and the omission of within-class flips. With D=2u(1+5u)(3+7u+u^2), polynomial multiplication of 10A by the five numerator polynomials divided by 5 gives 2D in every row. The first-step solution is unique for u>0 because any initial opinion can be spread along this connected hypergraph by positive-probability flips. The derivative numerator, after removal of its positive factor, has ascending coefficients (-9,-132,-701,-1596,-1318,230,440); the positive terms are at most 225u^4, and the scaled limit is 15/6. For at most four vertices a lone dissenter can flip using any incident triple, and a two-two split can be turned into a three-one split by selecting the lone minority in any triple. These two-step paths yield a geometric tail bound independent of u, including at u=0. At five vertices the two polarized states communicate by hub flips at u=0 and have no exit there. The frozen symbolic/rational checker and verification notes were inspected but not treated as the independent proof. The result is about attempted updates from the specified profile and discrete q, not physical clock time or general hypergraphs.
 
-The 2026 Kim–Lee–Goh manuscript concerns hypergraph group-driven voter dynamics and mean-field consensus optimality; its 2025 predecessor defines the with-replacement nonlinear update rule. A published loose-hyperstar majority result covers polarized recurrent classes at infinite reinforcement, which are explicitly treated here as known. Neither that stated limiting result nor accessible summaries of the primary group-voter papers imply the finite-reinforcement rational absorption law, its monotone ordering, or the \((5/2)2^q\) singular escape scale. Research-record searches for the exact formula, five-agent motif, replacement-sample synonyms and strong-reinforcement slowdown did not return a covering theorem. A detailed public synopsis provided the update rule, but the full 2025 and 2026 manuscripts remained inaccessible. This prevents a comprehensive historical-priority guarantee and is a specific residual risk, not evidence that a paper was inspected in full.
+## originality
 
-## Value — PASS
+PASS
 
-The result quantifies the time-scale cost of strong unanimity preference on a natural minimal overlapping-group structure, despite eventual consensus at every finite reinforcement strength. Its exact threshold between uniformly bounded and unbounded strong-reinforcement mean time identifies an important structural limitation of extrapolating annealed-network optimality to fixed, small, polarized groups. The sharp coefficient and finite formula allow reproducible quantitative comparisons; the limiting trapped class alone is not the claimed contribution.
+The local q-sample rule and the limiting hyperstar obstruction have prior coverage. The fixed-network finite-reinforcement expectation, its full sign in q, its leading coefficient, and the minimum order across connected three-uniform topologies remain distinct on the evidence inspected.
 
-## Limits
+## value
 
-This is a finite-state theorem for a particular five-vertex hypergraph and starting profile. It neither predicts human behavior nor supplies a network-universal consensus law. The relevant underlying manuscripts' inaccessible full text leaves residual priority uncertainty.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact slowdown on the minimum connected triple structure distinguishes finite fixed-overlap dynamics from annealed predictions; the uniform small-order bound and matching five-agent witness make the size threshold substantive. Strict monotonicity and the escape prefactor quantify the obstruction rather than merely repeat the limiting trapped class.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

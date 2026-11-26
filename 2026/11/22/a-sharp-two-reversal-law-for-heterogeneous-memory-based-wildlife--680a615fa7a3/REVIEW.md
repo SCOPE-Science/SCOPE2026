@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The stated positive hazards give the exact positive-denominator identity \(\log(h_+/h_-)=Q(\rho)/D(\rho)\). Root-count and vertex arguments prove a global bound of two strict preference reversals, including all signs and endpoint conditions. An exact rational example makes both reversals strict. The bundled standalone checker passed 60,017 assertions. The analytic result does not rely on a finite parameter grid.
+## correctness
 
-**Originality — PASS against inspected sources, with priority risk.** The 2024 OU-memory capture-recapture manuscript establishes a related hazard mechanism but does not state or prove the unequal-efficiency two-switch phase law. The 2022 heterogeneous-detectability and 2015/2019 competing-risk/SECR sources address complementary ingredients but do not establish the present sharp two-reversal result. Mathematical Gaussian integration and quadratic root properties are credited as classical, not claimed as independent discoveries. Semantic mathematics-index searches found no directly matching published result. An exhaustive literature priority guarantee is impossible.
+PASS
 
-**Value — PASS.** Detector ranking at two endpoints does not determine the ranking at intermediate recapture lags. The strict two-reversal example demonstrates this in a motivated heterogeneity-and-movement benchmark with both the last position and activity center inside the trap span. An exact criterion tells analysts when endpoint-only assumptions are safe and when they are not. It is a structural model boundary, not a field claim.
+The Gaussian footprint average follows by completing the square (with the v=0 limit immediate). In the log hazard ratio, the common prefactor cancels and the squared-distance difference is 4a m(t). Thus the sign is that of η[w²+σ²(1−ρ²)]+2a[s+(x₀−s)ρ] with ρ=e^(−κt). Its degree is two for unequal gains and at most one for equal gains, including the identically equal case. Exactly two strict switches require two simple roots strictly between 0 and 1: if these exist the vertex is between them, its sign is opposite the leading coefficient and both endpoints have the leading sign. Conversely three strict signs with the vertex interior force roots on each side, with no extra roots by degree. A double root does not reverse the sign; the two endpoints are not finite positive switching times. In the given example η=−1 and exact substitution gives coefficients (1,−1,3/16), hence roots 3/4 then 1/4 in time order and ties at log(4/3)/κ and log(4)/κ. The endpoint and vertex signs are strict, so the double reversal holds in an open parameter neighborhood. The proof is analytic; the frozen checker was inspected, not run.
 
-The strongest source overlap is the 2024 OU-memory hazard formulation; the key difference is the explicit heterogeneous detector comparison and two-root classification. Limits include common Gaussian spatial footprint width, prescribed hazards rather than no-detection-conditioned path filtering, no unknown-center integration, and no estimated field data.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct claim is the exact sharp switching law and robust interior-position witness for unequal gains in the specified common-footprint, OU-transition-averaged hazard. Gaussian convolution and quadratic root logic are standard. The strongest prior OU-memory paper prescribes common gain and a different covariance in the hazard, and detector-specific baseline work uses detection probabilities rather than a continuously evolving competing hazard. A natural heterogeneous extension is close; it was not the printed model or a proved two-switch result in the inspected sources.
+
+## value
+
+PASS
+
+The ecological modeling question is whether endpoint rankings or monotone drift determine preference at intermediate lags. They do not: the given witness has monotone drift, both locations strictly inside the detector span, and an intermediate interval favoring the opposite detector. Varying uncertainty can offset the spatial advantage temporarily when gains differ. This open-set counterexample and the criterion for its occurrence give modelers a precise diagnostic; the quadratic root lemma by itself would not be a valuable new result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

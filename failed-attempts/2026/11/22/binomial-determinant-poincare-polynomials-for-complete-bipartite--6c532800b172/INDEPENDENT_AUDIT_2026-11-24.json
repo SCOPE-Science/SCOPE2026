@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:59:38.090770Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Proof; VERIFICATION.md, verify_k2n.py and verification_output.txt inspected, not executed",
+        "Independent replay with Python 3: /workspace/branches/a925a760-d244-4f95-aac3-b8a5eaf401de/check_k2n.py. Independently formed Chevalley–Eilenberg matrices and reduced ranks over F_101 for n=2,3; these give (1,4,14,25,28,25,14,4,1) and (1,5,25,63,111,159,159,111,63,25,5,1). Independently evaluating the determinant gives totals 116,728,4792,32568 for n=2,3,4,5 and Poincaré symmetry."
+      ],
+      "rationale": "For each fixed exterior degree in A=Lambda(x_i,z_i,w_i), the differential is the two-operator cochain Koszul differential for E12 and E13. The end cohomologies are their common kernel and their joint coinvariants, and the middle dimension is the sum of the end dimensions by Euler characteristic. In a GL3 summand of highest weight (a,b,c) the kernel is stable under the lower-right GL2; each irreducible constituent's GL2 highest line would also be GL3 highest, so there is exactly one constituent of weight (b,c). Coinvariants are dual to the common kernel on the dual representation of weight (-c,-b,-a), hence have dimension a-b+1. The middle dimension is a-c+2. Skew Cauchy gives multiplicity dim S_(a,b,c)'(C^n), which dual Jacobi–Trudi at n ones gives as the displayed determinant, including zero binomial entries and nonnegativity. Degree shifts and scalar extension are valid, and Nomizu with the rational graph structure gives the claimed Betti numbers. The independent finite calculations agreed with the vectors and totals. Standard parabolic Kostant theory also reproduces the exact formula term for term, as detailed under originality.",
+      "residual_risks": [
+        "Finite-field rank agreement only is diagnostic, not a proof over Q or an integral torsion calculation. The all-n result relies on characteristic-zero representation theory."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kostant's theorem decomposes the graded cohomology of the nilpotent radical of a parabolic in characteristic zero into Levi irreducibles indexed by distinguished Weyl coset representatives, with degree the Coxeter length and highest weight the shifted action on the original highest weight.",
+          "Aldi et al. 2402.14188v3 gives induced-subgraph decompositions and star formulas, but the inspected passages do not give this complete bipartite calculation; 2611.17014v1 addresses path graphs."
+        ],
+        "reasoning": "The controlling stronger theorem is the parabolic one, not the more directly titled works on graph nilmanifolds. Here the trivial coefficient has highest weight zero; all terms are positive Levi modules and their dimensions are character evaluations. The general theorem predates these graph calculations.",
+        "searches": [
+          "Kostant (1961), Lie algebra cohomology and the generalized Borel-Weil theorem; precise stated version in Uniform twisted homological stability §4.3.2 Theorem 4.9",
+          "Aldi et al. 2402.14188v3 Theorem 17 and star example; 2611.17014v1 pp.1–2"
+        ]
+      },
+      "checked_sources": [
+        "Kostant parabolic theorem as stated explicitly in Theorem 4.9 of arXiv:2402.00354v2, with direct type-A application above",
+        "arXiv:2402.14188v3, 2611.17014v1, 2308.00272",
+        "Resultary self-hit and distinct star, finite-field ideal, pentagon and hexagon comparisons"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Take N=n+3 and write a distinguished shuffle as a sequence of original coordinate indices r_1,...,r_N increasing within block sizes 2,1,n, using inverse representatives if necessary. Its Levi highest weights are i-r_i since rho_i-rho_j=j-i. Let u<v<w be the three indices outside the last block, written u=c+1,v=b+2,w=a+3. The number of inversions between the first three positions and the last block is a+b+c. Choosing the singleton index w,v,u respectively gives 0,1,2 additional inversions; the GL2 dimensions are respectively v-u,w-u,w-v, i.e. b-c+1,a-c+2,a-b+1.",
+          "For the increasing last block entries r_{3+i}=j_i, the Levi weight 3+i-j_i counts the omitted indices larger than j_i. It is exactly the partition (a,b,c)' (c entries 3, b-c entries 2, a-b entries 1, and n-a entries 0). Its GLn dimension is D_n(a,b,c) by dual Jacobi–Trudi at n ones."
+        ],
+        "reasoning": "The correspondence is bijective: omitted triples are in one-to-one correspondence with partitions in the displayed range, and the singleton choice realizes each of the three terms. Thus the sorted shuffles are precisely the displayed cancellation-free formula, including its O(n^3) summand count and nonnegativity. The rewrite uses standard dimension formulas only. The frozen proof is a valid alternative specialized argument, but produces no new Betti invariant beyond that exact prior implication.",
+        "searches": [
+          "Uniform twisted homological stability §4.3.2 Theorem 4.9; compare frozen RESULT.md skew Cauchy and dual Jacobi–Trudi evaluation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For the (2,1,n) three-block nilradical, map the left part's vertex generators to E_{i,3}, i=1,2, the right part's to E_{3,3+j}, and their edge generators to E_{i,3+j}, adjusting signs to the cochain convention. The only brackets are exactly the edge brackets.",
+          "Kostant's theorem for arbitrary parabolics is stated in Miller–Patzt–Petersen–Randal-Williams §4.3.2 Theorem 4.9."
+        ],
+        "reasoning": "The bracket rule [E_{i,3},E_{3,3+j}]=E_{i,3+j} is an explicit rational isomorphism carrying the graph cohomology problem to a standard nilradical, not a similarity in ranks or notation. This works with (m,1,n) for the full complete bipartite family.",
+        "searches": [
+          "Resultary searches for complete bipartite K_{2,n} nilmanifold rational Betti numbers and binomial determinant; graph cohomology characters and complete bipartite Lie algebras",
+          "Literature: Kostant Lie algebra cohomology parabolic nilradical trivial coefficients shuffles type A block parabolic w rho rho formula complete bipartite graph nilpotent Lie algebra"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "6c532800b172 is the self-hit. The distinct 5ec1b9fba4b1 is a K_{1,n} cohomology character/quotient result, and f31f1793ea7b is an ideal-dimension enumerator over finite fields. Other nearby graph-character records concern fixed pentagon and hexagon graphs."
+        ],
+        "reasoning": "These items are not exact table matches for the frozen K_{2,n} polynomial or its n=2,3 vectors. But an exact table match is unnecessary because the whole polynomial follows termwise from the stronger theorem; the absence of a literal printed value is not distinct scientific content.",
+        "searches": [
+          "Resultary exact family and small-polynomial lookup; compare IDs 6c532800b172, 5ec1b9fba4b1, f31f1793ea7b, a5fcdddd7bd7, 52fcc3a8cb47",
+          "Aldi et al. 2402.14188v3 induced-subgraph results and star example"
+        ]
+      },
+      "rationale": "The exact contribution is covered by the stronger Kostant parabolic nilradical cohomology theorem. The complete bipartite graph Lie algebra is itself the nilradical of the upper triangular three-block parabolic of sizes (2,1,n) in sl_(n+3). Under the usual shuffle indexing, Kostant's full graded character gives the frozen coefficients and determinant term by term, with no further rank or multiplicity problem. No verbatim printed K_{2,n} instance is required to establish this implication.",
+      "residual_risks": [
+        "No claim that a prior printed table used the same coordinates or displayed the same small vectors. The original theorem was checked via the explicit attributed modern restatement, not an original 1961 full-text inspection. The decision rests on mathematical implication, not exhaustive bibliographic absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "States older Kostant theorem that implies the frozen result exactly; article's own application is a different parabolic",
+          "evidence": "For every q, H^q(u;V(lambda)) is the direct sum of the irreducible Levi modules at shifted highest weights w^{-1} dot lambda for distinguished representatives of length q. It allows any semisimple characteristic-zero g and any parabolic p.",
+          "identifier_or_url": "https://www.sas.rochester.edu/mth/sites/doug-ravenel/otherpapers/MPPRW.pdf (arXiv:2402.00354v2)",
+          "material_read": "§4.3.2, PDF p.30, offset 125425–127175 including Theorem 4.9",
+          "method": "OA literal locator and bounded PDF offset read",
+          "title": "Uniform twisted homological stability",
+          "trigger": "Exact readable statement of Kostant's prior theorem for arbitrary parabolic nilradicals"
+        },
+        {
+          "assessment": "General graph decomposition and distinct star family; not the source of the exact prior implication",
+          "evidence": "Gives an induced-subgraph cohomological decomposition and third-degree weighted counts; the cited explicit example uses a star.",
+          "identifier_or_url": "https://arxiv.org/abs/2402.14188",
+          "material_read": "v3 introduction p.1 offset about 2550; Theorem 17 p.5 offset about 13800; star example pp.8–9 offset about 23800",
+          "method": "OA bounded PDF passage inspection",
+          "title": "On the cohomology of Lie algebras associated with graphs",
+          "trigger": "Same graph construction and possible family cohomology coverage"
+        },
+        {
+          "assessment": "Path family and diameter bound, not the claimed K_{2,n} family",
+          "evidence": "Explicit and recursive all-degree formulas there concern paths.",
+          "identifier_or_url": "https://arxiv.org/abs/2611.17014",
+          "material_read": "v1 pp.1–2 offsets about 500 and 4500",
+          "method": "OA bounded PDF passage inspection",
+          "title": "Poincare polynomials of nilmanifolds associated with path graphs",
+          "trigger": "All-degree results for graph nilmanifolds"
+        },
+        {
+          "assessment": "Different graph and invariant; no date-based ordering inferred",
+          "evidence": "Treats the S_n-graded cohomology character and quotient Betti numbers for K_{1,n}.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-arm-permutation-cohomology-characters-and-a-linear-quotient-spec--5ec1b9fba4b1",
+          "material_read": "Mirrored RESULT.md Finding at offset 0",
+          "method": "Local mirror bounded passage inspection",
+          "title": "Arm permutation cohomology characters and a linear quotient spectrum",
+          "trigger": "Closest distinct indexed graph-nilmanifold family of cohomology formulas"
+        },
+        {
+          "assessment": "The inspected complete bipartite calculation is for graded derivations, not an alternative Betti source",
+          "evidence": "The abstract and §5 introduction identify derivation algebras as the invariant calculated on the bipartite examples.",
+          "identifier_or_url": "https://arxiv.org/html/2308.00272",
+          "material_read": "Abstract passage and §5 opening located near offsets 1043 and 24630",
+          "method": "OA literal passage inspection; no whole-document exclusion",
+          "title": "Lie algebras associated with labeled directed graphs",
+          "trigger": "Same complete bipartite Lie algebra under literature aliases"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and Proof, and termwise specialization of Kostant's theorem given under originality"
+      ],
+      "rationale": "Complete bipartite graph nilmanifolds are natural, and the short independent proof may have pedagogical value. As a research finding, however, the exact rational invariant is mechanically given by standard parabolic Lie algebra cohomology, with the same number and indexing of positive summands and the same multiplicities. The determinant notation and diagnostic checks do not create new cohomological information or a new computational reduction over the published theorem.",
+      "residual_risks": [
+        "Integral torsion, cup products and genuinely different families are not asserted and cannot supply value for this claim."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

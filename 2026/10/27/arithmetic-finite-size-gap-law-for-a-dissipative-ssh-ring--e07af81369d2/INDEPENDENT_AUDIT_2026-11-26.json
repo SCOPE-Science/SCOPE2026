@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:58:09.657867Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the periodic gap 2 min Re beta, including zero rapidities, the source grid and branch formula have the stated normalization. With u=a+b cos q, v=b sin q, D=u²+(v+ig)², S=u²+v²+g² and Y=|Im sqrt D|, one has S²−|D|²=4g²u² and 2(g−Y)=4g²u²/[(S+|D|)(g+Y)]. All denominators are positive. The only zeros are ±q*, and the quadratic coefficient at either is g(b²−a²)/(b²−a²+g²). The nearest-grid distance is d_N=2π||Nθ||/N. Testing a nearest grid point gives an O(d_N²) upper bound; compactness away from the two zeros and the positive local quadratic lower bound then put every minimizer within O(d_N) of one zero. Bounding the Taylor coefficient there from below, and at a nearest point from above, gives the uniform relative O(N⁻¹) estimate regardless of which grid point minimizes and without dividing by a possible zero. Rational residue cycling, irrational density and convergent-denominator bounds give the exact resonance sizes, upper/lower limits and N⁻⁴ subsequence statements. The badly approximable lower bound follows from inf_N N||Nθ||>0. No finite script is needed for these all-size conclusions; the accompanying samples use the same band formula and are not an independent proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Song et al. treat an interior algebraic-decay regime and endpoint quartic soft dispersion at a=b. The bounded primary search returned no additional candidate."
+        ],
+        "reasoning": "The endpoint's quartic momentum law neither includes fixed 0<a<b nor produces the interior N⁻⁴ near-resonant subsequences, where dispersion is quadratic.",
+        "searches": [
+          "Song–Yao–Wang arXiv:1904.08432, Eqs. (11)–(12)",
+          "Bounded primary literature search for the interior finite-size arithmetic gap"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2203.01333",
+        "arXiv:1904.08432",
+        "Resultary f5a2406fc87a",
+        "Resultary ac4a37ad49df"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior ingredients give a bulk dispersion and a grid, with different endpoint behavior. No all-N relative error or classification by rotation distances was located."
+        ],
+        "reasoning": "One must control the minimizer and the Taylor remainder relative to a potentially arbitrarily small leading term, and then apply arithmetic to that estimate. Credit the band and grid fully; the combination producing resonance/dip statements is the distinct claim.",
+        "searches": [
+          "Yang–Jiang–Bergholtz Eqs. (2.23), (2.45) and App. A; Song–Yao–Wang Eqs. (11)–(12)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact finite-grid specification determines each individual gap; Eq. (2.45) gives the periodic closure regime and not the set of finite sizes hitting the soft momenta."
+        ],
+        "reasoning": "The finite ring is not the continuum minimization. The relative estimate uniform in the grid-to-zero mismatch is not a restatement of the band energies or regime.",
+        "searches": [
+          "Resultary: periodic dissipative SSH gap and arithmetic/dark-mode resonance comparisons",
+          "Yang–Jiang–Bergholtz arXiv:2203.01333, Eqs. (2.5), (2.23), (2.45), App. A"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest inspected hits, f5a2406fc87a and ac4a37ad49df, concern open-chain dark states/survival or weak-loss reopening, not periodic size-dependent gaps."
+        ],
+        "reasoning": "No matching indexed finite-size law surfaced; shared SSH and arithmetic terminology does not establish equivalent coverage.",
+        "searches": [
+          "Resultary periodic-gap, arithmetic resonance and SSH dark-mode terms"
+        ]
+      },
+      "rationale": "The exact spectral solution, allowed momenta and thermodynamic closure are prior. The supported distinction is the interior uniform relative finite-size law and its arithmetic consequences; neither the closest model-specific primary source nor the inspected related indexed results supply an equivalent theorem. This is a best-of-knowledge assessment, not priority certification.",
+      "residual_risks": [
+        "Bounded primary and indexed searches are not exhaustive; differently named finite-ring asymptotics could remain unlocated."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies the spectrum, convention, grid, and continuum regime, not the asserted arithmetic finite-size law in those passages",
+          "evidence": "PBC q=2πm₀/N; Eq. (2.45) states closure for γ₂=0 and |t₁|≤|t₂|.",
+          "identifier_or_url": "https://arxiv.org/abs/2203.01333",
+          "material_read": "PDF pp. 3, 5, 7 and 17, Eqs. (2.5), (2.23), (2.45), Appendix A and Eq. (A3)",
+          "method": "OA PDF passages located by equation and read at bounded offsets",
+          "title": "Liouvillian skin effect in an exactly solvable model",
+          "trigger": "Exact model and spectral normalization"
+        },
+        {
+          "assessment": "Different quartic mechanism and parameter regime",
+          "evidence": "The quartic expansion is at t₁=t₂; this result fixes t₁<t₂ and has two quadratic zeros.",
+          "identifier_or_url": "https://arxiv.org/abs/1904.08432",
+          "material_read": "PDF p. 3, Eqs. (11)–(12) and adjacent interior/endpoint discussion",
+          "method": "OA PDF bounded passage",
+          "title": "Non-Hermitian skin effect and chiral damping in open quantum systems",
+          "trigger": "Possibly equivalent N⁻⁴ effect"
+        },
+        {
+          "assessment": "Different spectral problem and boundary condition",
+          "evidence": "Gcd-classified dark states of an open, odd-site chain with multiple loss sites.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-arithmetic-loss-pattern-classification-and-survival-plateaux-in--f5a2406fc87a",
+          "material_read": "Finding and open-chain setting",
+          "method": "Local Resultary comparison",
+          "title": "Arithmetic loss-pattern classification and survival plateaux in an SSH chain",
+          "trigger": "Closest arithmetic SSH hit"
+        },
+        {
+          "assessment": "No periodic-ring gap classification",
+          "evidence": "Weak-loss reopening after single-site loss in an open chain.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-algebraic-dark-mode-resonances-and-quadratic-loss-reopening-in-f--ac4a37ad49df",
+          "material_read": "Finding and loss setup",
+          "method": "Local Resultary comparison",
+          "title": "Algebraic dark-mode resonances and quadratic loss reopening",
+          "trigger": "Related exact resonance and quadratic law"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A bulk-closed gap alone cannot distinguish exactly resonant finite rings from positive gaps or describe sporadic anomalies in their decay scale. The result gives both the sharp normalization and a usable size/parameter classification including exact zeros, typical upper envelope, and N⁻⁴ near-resonances, without confusing them with the endpoint quartic band. The value attaches to that predictable finite-size behavior, not to a new band solution or claims about every observable.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

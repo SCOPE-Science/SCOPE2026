@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof identifies the reducing sink-invisible eigenspace and shows every complementary eigenvalue of the effective non-Hermitian generator has negative imaginary part. Removing the junction gives two sine-mode paths; each even Dirichlet index cancels its own endpoint coupling. Equal-energy odd-index modes across paths exist only at common rational phase \(q/d\), with both reduced cycle-length quotients odd. The resulting normalized mixed-mode projection yields the explicit sitewise probability and dimension, and a finite roots-of-unity identity yields the all-parameter perfect-capture criterion. Independent matrix diagonalization on a range of sizes, including junction overlap and non-Hermitian finite-time evolution, corroborates these calculations. The analytical steps, not the numerical samples, support the infinite-family statement.
+PASS
 
-## Originality — PASS, residual risk
+The orthogonal sum of adjacency eigenspace kernels at the junction reduces both the adjacency matrix and the sink projection. On the complement, an eigenvector of the lossy generator with real eigenvalue would have junction coordinate zero by the imaginary part of its Rayleigh quotient, which is impossible there; all Jordan blocks on that complement decay. Deleting the junction gives two discrete paths. Dirichlet sine mode k has endpoint sum proportional to 1+(-1)^{k+1}, so the reflection-odd modes (even k) are already dark. Cosine is injective on the mode interval, so cross-petal equal energies are exactly k/m=l/n=q/d. An additional rank-one cancellation occurs precisely when both indices are odd. Normalizing its null vector of the junction coupling gives first-branch squared norm m/(m+n), hence site weight 2 sin²(pi q x/d)/(m+n). For odd d, pairing q and d−q halves the full sine-square sum; for even d the odd-index cosine sum vanishes except at x=0 or d/2 modulo d. At an even antipode with equal valuations the residue is d/2, giving a strictly positive d/(m+n). At all other nonjunction sites reflection alone gives 1/2; at the junction the projector vanishes. The independent exact rational projector check matched all 100 graph pairs (cycle lengths 3–12) and all 1400 site weights including junctions.
 
-General quantum-walk dark-space and detection ideas were established by Krovi–Brun (2006), Varbanov–Krovi–Brun (2008), Caruso et al. (2009), and Pemberton-Ross–Kay–Schirmer (2010). Inspected primary results concern general symmetries, measured walk hitting times, fully connected exciton networks, or controlled spin-network accessibility, not the exact two-cycle wedge projection. The figure-eight theorem is not simply a restatement: its two endpoint couplings per loop create an even/odd Dirichlet selection rule and cross-loop, shared-eigenvalue resonances. No inspected source directly gives the resulting greatest-common-divisor sum or the necessary-and-sufficient 2-adic perfect-capture condition. More general unidentified spectral results may imply the formula; independent publication-priority determination remains outstanding.
+## originality
 
-## Value — PASS
+PASS
 
-The result completely classifies trapping for a natural minimal network with two independent loops and one shared absorbing junction. It explains the counterintuitive all-or-nothing behavior of an antipodal input: joining an even ring to another ring of a different 2-adic length permits eventual certain capture, while equal 2-adic valuations protect a nonzero fraction. The explicit sitewise probabilities and exact count of protected states are relevant to coherent trapping and network detection, not arbitrary parameter slicing. The theorem does not make finite-time or noise robustness claims.
+The generic dark-subspace criterion and the path-mode method are not credited as novel. The checked literature and distinct local records do not cover the combined exact gcd/valuation classification of common dark modes, their site projector weights, and the antipodal capture boundary for this two-petal graph with one shared sink.
 
-## Prior literature and limitations
+## value
 
-The nearest general frameworks are arXiv:quant-ph/0606094 (2006), arXiv:0803.3446 (2008), arXiv:0901.4454 (2009), and arXiv:1003.4290 (2010). Their distinct detector conventions and graph families matter. Only the unweighted adjacency model, homogeneous real hopping, and a single strictly positive junction sink are covered. The calculations are self-review and do not establish independent validation or publication priority.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The discrete figure-eight is the minimal natural two-petal cycle geometry for one-junction coherent loss. Knowing mere eigenvalue degeneracies or antisymmetry does not decide exact trapped fraction at a site. The theorem gives the complete rank and local response and a sharp change from perfect capture to nonzero survival at an antipode under the two-adic resonance, independently of absorber rate. These are directly usable transport invariants on arbitrary lengths, not a tiny-instance projector check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The all-probability-space proof is an exact polynomial sum-of-squares identity, followed by a nearest-root decomposition. The lower estimate controls both the chosen event-mass error and the mean of every near-extremizer; the upper estimate uses a centered two-valued witness for any measurable event. The two deficit regimes close the global estimate, including mean-zero functions, one-atom spaces, and nonatomic measures. The exponent is forced by the two-point family. Exact polynomial identities were replayed from the packaged source; 1,400 sampled finite checks only corroborate the proof.
+PASS
 
-## Originality — PASS, with residual risk
+Independently expanded the exact polynomial using a+b=−√3 and ab=−3(1+√3)/2. The residual after subtracting A(z−aμ)²(z−bμ)² from Kz⁴−(z−μ)⁴ is (10+6√3)μ³(z−μ), which integrates to zero. Equality for nonzero f requires μ≠0 and the two root values, with the mean forcing mass α=(a−1)/(a−b) on the b root; the reverse construction works. For a normalized input, nearest-root error e satisfies E|e|⁴≤D/A and E|e|²≤4D/(Ad²μ²) when μ≠0. The mean of e is dμ(t−α), where t is the measurable selected-root mass, so D≥Ad⁴μ⁴δ²/4. If D<A/16, the triangle inequality forces |μ|>1/(2M); otherwise δ≤α supplies the other lower-bound branch, including zero mean. For the upper bound shift both roots by d(t−α) to give mean one and denominator E|g|⁴≥1; the exact squared remainder is bounded by Ad⁴(1+|t−α|)²|t−α|². Approximate the infimum over t to get C*. The separate numerical arithmetic gives c=0.07659598858 and C*=502.99071645. The two-atom formula was also reconstructed: the centered output is (x−y)(1−p,−p), and the weighted dual fourth power of the difference functional is (p^(−1/3)+(1−p)^(−1/3))³, yielding the stated two-atom check and the quadratic sharp order near α. For uniform n the grid of event masses and the polynomial for α give the claimed finite gap; for a rational root the cleared polynomial forces 3 to divide the denominator, after which the leading term alone has 3-adic valuation three. These are arbitrary-space estimates, including the trivial space, not inferences from sampling. The two norm/equality criteria are correct; they need not be interpreted as suggesting a space with δ=0 but no α event: the range of a probability measure is compact by separating its countable atoms from the divisible nonatomic part (a compact subset-sum set plus a closed interval). Algebra is replayable from RESULT.md lines 37–75; the supplied verify.py was inspected but not run.
 
-Franchetti's and Móri's general sharp fourth-moment benchmark \(K\) and two-point extremizer phenomenon are prior results. The inspected 2010 projection paper treats symmetry-based projection minimality; the inspected 2009 centered-moment paper gives universal sharp constants; and the inspected 2022/2023 survey establishes universal and conditional-expectation bounds and reports finite-uniform formulas. None of these inspected passages supplies the all-space two-sided quadratic law in distance to attainable event masses. The 2016 paper's original full text and Franchetti's 1990 article were not completely accessible. Their possible stronger theorems remain an explicit bibliographic risk; no historical uniqueness certification is claimed.
+## originality
 
-## Value — PASS
+PASS
 
-The attainable event probabilities form a natural invariant of a probability space. Their distance to the forced extremal Bernoulli mass completely determines, to universal quadratic order, how much the norm of centering loses. The result applies simultaneously to arbitrarily weighted finite and countable atoms, mixed measures, and nonatomic spaces. It gives a sharp rate and an equality criterion, not merely a restatement of the already known unrestricted constant. Computing the exact norm at positive gap and optimizing the numerical comparison constants remain open within this result.
+Pass for the dimension-free, two-sided quantitative deficit across arbitrary probability spaces. Credit the unrestricted sharp constant, Bernoulli model, and exact norms in known finite-uniform cases. No verified stronger statement supplies the weighted-arbitrary-space quadratic gap or its explicit uniform constants. The exact remainder is a mechanism for the estimate; this is not a separate priority ruling for every ingredient or for unrestricted extremizers.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The estimate turns the unobtainability of a particular Bernoulli mass into a quantitative loss in the operator norm on an arbitrary fixed space. It gives the matching exponent in both directions, applies to nonuniform measures without dimension assumptions, and explains arithmetic gaps for uniform finite spaces. The usefulness is in the fixed-measure stability theorem, not a new calculation of the known unrestricted constant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

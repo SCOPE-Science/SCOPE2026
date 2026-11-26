@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:53:35.851121Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md:15–74, 84–86; VERIFICATION.md and VERIFY.py (inspected, not executed)",
+        "Replay: python /workspace/evidence/reproduce.py 3; output /workspace/evidence/3.txt"
+      ],
+      "rationale": "Substitution verifies the positive coexistence solution. At the constant state the no-flux conditions give Neumann conditions for the linear perturbations: the public-good derivative vanishes, so the defector boundary flux reduces to its own derivative. The defector taxis contribution is -2wD_v v_* times the public-good Laplacian; on cos(kx) this yields +qw/4 in entry (2,3), q=k^2. I independently reconstructed the reaction Jacobian and used trace, principal minors and determinant to compute A,B,C and H=AB-C exactly. A,B,C are positive on q,w>=0; the q=0 margin is 19/2 and each k>=3 has nonnegative w slope because H_w=q(2q-11)/16. For q=1,4 the margins are (1297-18w)/32 and (5908-24w)/32, with ordered zeros 1297/18 and 1477/6. Routh–Hurwitz gives stability before each zero and instability after; positive coefficients exclude any nonnegative real root, so any unstable eigenvalues form a conjugate pair. At equality the polynomial is (lambda+A)(lambda^2+B), with B computed as 3431/144 and 797/3. At a simple imaginary root implicit differentiation gives Re(lambda')=-H_w/[2(A^2+B)]>0, establishing transverse crossings. The first pair is already unstable at the second threshold and no zero eigenvalue is possible. For any fixed w the scaled modal matrices M(k^2,w)/k^2 tend to -I/4 plus a nilpotent off-diagonal term, so the large modes have real parts tending to minus infinity, consistently with the all-mode result. This is a linear spectral conclusion, not exclusion of all nonlinear stationary patterns and not a nonlinear Hopf theorem.",
+      "residual_risks": [
+        "The conclusions pertain to the stated parameter path, boundary conditions and equilibrium, not to dynamic selection or nonlinear periodic solutions."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Piskovsky gives necessary-and-sufficient criteria for three-species reaction-diffusion with J(q)=J-q diag(d_i), not the parameter-varying taxis operator.",
+          "Zhao et al. give general modal coefficients and analyze cooperator sensitivity; their reported determinant-limited onset does not establish oscillatory defector-only onsets."
+        ],
+        "reasoning": "The diffusion-only broader instability theorem does not cover the equal-diffusivity matrix with the nonzero nilpotent off-diagonal insertion. The general source linearization supplies algebraic inputs, not the specialized all-mode conclusion.",
+        "searches": [
+          "arXiv:2603.21025v1, Eqs. (3.3), (3.29)–(3.35)",
+          "arXiv:2405.14682v1, Section 2 Theorem 1",
+          "Resultary: Zhao public-goods model and spatial oscillatory instability"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2603.21025v1",
+        "arXiv:2405.14682v1",
+        "Resultary: 776a8745b9dc, 34553756ddbd"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier same-model record proves one oscillatory mode and excludes stationary instability even for continuous squared wavenumbers, but for a fixed diffusion-only setting.",
+          "Here the sign of the w_v slope on k=1,2 versus k>=3 and positivity of all characteristic coefficients for all w_v are decisive additional results."
+        ],
+        "reasoning": "No inspected theorem entails these two crossings without constructing/analyzing the different taxis parameter path; the standard Routh–Hurwitz implication supplies the criterion, not the example.",
+        "searches": [
+          "arXiv:2603.21025v1, equal-diffusion directed motion",
+          "Resultary: 776a8745b9dc, Finding and assumptions",
+          "arXiv:2405.14682v1, Theorem 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Zhao et al. use both movement sensitivities; the reported equal-diffusion example varies cooperator sensitivity at fixed w_v=1 and uses a different domain scaling.",
+          "The actual Resultary Finding 776a8745b9dc has no taxis, D_u=1 and D_v=D_phi=1/10, and isolates k=1."
+        ],
+        "reasoning": "The varying off-diagonal transport term in the frozen path is not an unequal diagonal diffusivity effect or a change in cooperator response. The two distinct thresholds survive neither as a relabeling of the previously reported scalar onset nor as a domain rescaling.",
+        "searches": [
+          "Resultary: pure defector taxis with equal diffusion Hopf",
+          "Resultary: two oscillatory Neumann modes in the Zhao three-field model",
+          "arXiv:2603.21025v1, Eqs. (3.14)–(3.16), (3.29)–(3.35)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Semantic searches recover the assigned record and the different 776a8745b9dc calibration. Zhao's reported threshold is w_u approximately 6.4603 at w_v=1, not a w_v threshold."
+        ],
+        "reasoning": "No distinct inspected table gives these thresholds, critical frequency squares or higher-mode exclusion for the specified calibration; the exact-number query miss on its own conveys no absence claim.",
+        "searches": [
+          "Resultary exact fractions 1297/18 and 1477/6",
+          "Resultary two-mode Hopf spectrum",
+          "arXiv:2603.21025v1, reported equal-diffusion example"
+        ]
+      },
+      "rationale": "The model, modal linearization and cubic stability machinery are prior. The supported distinct result is the exact, two-crossing and all-mode linear classification under defector attraction alone at equal fixed diffusivities. The closest actual published claims use a different varied coefficient or unequal diffusion with zero taxis; they do not specialize to this phase diagram.",
+      "residual_risks": [
+        "The comparison is literature-bounded; another exact taxis calibration or stronger prior off-diagonal transport result might exist. The identified same-model diffusion-only record was checked at statement level, not presumed absent."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior model and stability criteria; different sweep and onset in the stated example",
+          "evidence": [
+            "High defector diffusion and strong cooperator sensitivity drive the reported instabilities; the equal-diffusion example sets w_v=1 and varies w_u."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2603.21025v1",
+          "material_read": "Abstract p. 1; model Eq. (3.3) p. 10; linearization Eqs. (3.14)–(3.16) pp. 12–13; equal-diffusion criteria Eqs. (3.29)–(3.35) pp. 18–20 (offsets about 38000, 46000–50000, 70000–78000)",
+          "method": "Primary PDF passage comparison",
+          "title": "Pattern Formation in a Spatial Public Goods Dilemma due to Diffusive or Directed Motion",
+          "trigger": "Exact governing model, two taxis sensitivities, possible equal-diffusion coverage"
+        },
+        {
+          "assessment": "Not equivalent: diffusion-only calibration and one unstable mode",
+          "evidence": [
+            "Both taxis sensitivities vanish, with diffusivities (1,1/10,1/10); only k=1 is unstable."
+          ],
+          "identifier_or_url": "Resultary 2026/11/2: 776a8745b9dc",
+          "material_read": "Exact Finding and assumptions, mirrored RESULT.md offset 0",
+          "method": "Resultary search plus local mirror inspection",
+          "title": "An isolated oscillatory Neumann mode without stationary instability in a public-goods reaction–diffusion system",
+          "trigger": "Closest earlier oscillatory exclusion using the same three-field model"
+        },
+        {
+          "assessment": "Diagonal reaction-diffusion operator without this taxis sweep",
+          "evidence": [
+            "J(q)=J-q diag(d_i) in the theorem's setup."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2405.14682v1",
+          "material_read": "Section 2 Theorem 1 and operator formulation, offset about 4900",
+          "method": "Primary OA HTML passage inspection",
+          "title": "Turing instabilities for three interacting species",
+          "trigger": "Generic exact three-component Turing–Hopf criteria"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md:5–29, 53–74",
+        "arXiv:2603.21025v1, Eqs. (3.29)–(3.35)",
+        "Resultary: 776a8745b9dc"
+      ],
+      "rationale": "This is a concrete counterexample to relying on the stationary determinant condition when interpreting stronger defector attraction as suppressing spatial instability. The fixed equal-diffusivity path isolates the directed-motion mechanism; two exact thresholds and an all-mode exclusion give a reproducible classification rather than one computed example of an unstable complex pair. The second crossing is a change in the unstable mode count, not a second loss of stability of an otherwise stable equilibrium.",
+      "residual_risks": [
+        "No evidence about nonlinear bifurcation, empirical public-goods dynamics or persistent oscillatory patterns follows from the eigenvalue calculation."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

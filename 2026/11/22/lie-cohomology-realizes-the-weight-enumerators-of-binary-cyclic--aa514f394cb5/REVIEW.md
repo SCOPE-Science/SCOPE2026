@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof computes the ordinary Chevalley–Eilenberg differential, diagonalizes the additive exterior derivation over a separable splitting field, and counts exactly the binary subset sums that vanish. It does **not** conflate the induced exterior derivation with the multiplicative exterior power. The realization theorem uses the normal-basis module isomorphism and the polynomial annihilator identity, even when the cyclic polynomial has repeated factors. Degree \(d\) follows from the absence of weight-one/two words. Independent construction of Lie cochain matrices and Frobenius codewords agreed for all 21 irreducible binary polynomials of degrees two through six. The full characterization rests on proof, not those finite experiments.
+## correctness
 
-## Originality — PASS relative to checked sources
-The 2019 Vilca Rodríguez–Schneider–Usefi paper concerns enveloping-algebra isomorphism and codimension-one metabelian ideals, not this Lie-cohomology/coding equivalence. The 2026 de Andrade Pinto–do Brasil Maia–Cavenaghi–Martins paper offers a broad two-term exterior differential for generalized cohomology over real/complex algebras; this is credited, but does not specialize to binary cyclic-code realization. Winterhof's classic result links Frobenius modules to cyclic codes, and that part is not claimed as new. The supported new implication is the exact **two-way** equivalence of realizable Lie Betti profiles and Hamming weight enumerators of all length-\(d\) binary cyclic codes with distance at least three. Existing generic Chevalley–Eilenberg calculations are acknowledged as partial inputs; no matching all-degree realization statement was located. Priority risk remains for unindexed discussions of this specific bridge.
+PASS
 
-## Mathematical value — PASS
-The result exactly characterizes a natural infinite family of modular Lie-cohomology spectra by a familiar but independent invariant, cyclic-code weight distributions. It also identifies a cohomological normal-basis criterion, a universal vanishing of central-extension cohomology, and two nonisomorphic, equally primitive four-dimensional examples distinguished in higher cohomology. Crucially, the converse realizing **every** eligible cyclic code makes this more than a one-way reformulation of an isolated rank computation. The theorem does not claim a new cyclic-code classification or the full cup-product ring.
+In the ordinary alternating CE complex, extending covectors on K by zero on t gives dτ=0 and dη=τ∧(η∘T), where T is multiplication by α; the sign disappears over F₂. The Leibniz rule gives the two-term maps D_r induced additively on the exterior powers. In degree r the dimension is dim ker D_r+dim coker D_(r−1), equal by rank–nullity to the sum of two nullities (including endpoints). Since 1,α,…,α^(d−1) form a basis, T has irreducible separable characteristic polynomial of degree d and eigenvalues α^(2^i). After scalar extension, the exterior derivation has sum, not product, eigenvalues; the r-subsets with sum zero are exactly the weight-r codewords. Frobenius closes the kernel under rotation, and the conjugates are nonzero and distinct, excluding weights one and two. For the converse let R=F₂[X]/(X^d−1) act on K through Frobenius. A normal basis makes K free of rank one as an R-module. For C=(g) choose α as the image of h=(X^d−1)/g; (X^d−1)|ch iff g|c by polynomial cancellation even in repeated-root lengths. Distance ≥3 forces α nonzero of Frobenius orbit length d, since a shorter orbit repeats a conjugate. This includes C=0 using h=1, so all listed profiles occur. The Betti consequences follow by coefficients. The degree-three traces are 0 and 1, so only the first cubic gives the possible weight-three relation; both nonidentity roots in the group of order seven are primitive, and the derived ideal is K, forcing Lie isomorphisms to conjugate the two distinct multiplication polynomials. As a separate even-length check, a root of X^4+X+1 is full-degree and trace zero; a weight-three relation and its one-position shift would yield weight two. Its only nonzero word is 1111 and its Betti polynomial is (1+z)(1+z^4).
 
-## Limits
-Ordinary trivial-coefficient cohomology only; binary ground field; full-degree nonzero adjoint scalar. Source inspection establishes best-knowledge priority, not exhaustive publication uniqueness. Computations independently corroborate degrees up to six; no all-degree computation is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the two-term cochain calculation, zero-sum exterior spectrum and classical cyclic-module machinery; the supported distinct claim is the identification of the precise attainable ordinary binary Lie Betti profiles with all length-d cyclic-code weight enumerators of distance ≥3 multiplied by 1+z. The strongest same-day catalogue overlap has square-zero adjoint action; the closest inspected subset-sum theorem is over a real/complex generalized-cohomology construction. Neither covers this classification.
+
+## value
+
+PASS
+
+The full-degree condition gives a natural irreducible family; its ordinary cohomology initially asks for exterior differential ranks in every degree. The theorem gives an exact independent invariant and the converse answers a realizability question, including the repeated-root case. In particular it separates primitive scalars with different cohomology, explains universal H² vanishing, and detects normality. These are useful structural consequences of the complete classification, not a new name for one computed Betti number or a finite list.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

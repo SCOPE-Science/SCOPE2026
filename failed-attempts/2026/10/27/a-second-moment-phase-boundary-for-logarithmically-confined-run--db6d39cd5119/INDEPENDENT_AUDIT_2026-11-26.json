@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:13:31.936765Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The frozen proof asserts an incorrect exact backward equation (RESULT.md lines 56–60), rather than an incorrect threshold. Let u,r be respectively the half-sum and half-difference of the first moments, and m,h those of the second moments. With f=−1/(1+x), the generator equations give f u′+v r′=−1, f m′+v h′=−2u, and v m′+f h′−2γh=−2r. Thus 2γv h=(v²−f²)m′−2fu+2vr. Differentiate and substitute for r′ and h′: (v²−f²)m″+2f(γ−f′)m′=2(f′−2γ)u+4fu′+2, not +4. Independent symbolic elimination confirms this; the frozen checker only asserts the two Lyapunov identities and leading coefficient matching, so it does not detect the error. The incorrect constant does not affect leading-order conclusions. The protected interval is invariant, with uniformly positive absorption probability in fixed time blocks at the turning point. In the exterior, finite moments propagate between signs and launch points by positive-probability deterministic-direction runs and flips; on a compact interior interval, no-flip probabilities from its endpoints bound the moments uniformly, and conditioning at the next flip or downstream endpoint gives the classical backward equations since neither drift vanishes there. The Lyapunov calculations reproduce exactly: H_2=y²+(v/γ)σy has generator −2(1−D)−vσ/(γy), and H_4=y⁴+(2v/γ)σy³ has generator −4(1−3D)y²−6vσy/γ, y=1+x. For D<1/3 a positive combination, shifted to be nonnegative, controls the integral of twice the first moment up to hitting the turning point; the protected-region remainder is uniformly bounded. This gives the O(x⁴) bound needed to remove the homogeneous solution. In the corrected equation, the integrating factor is proportional to x^(−1/D), and the divided forcing still has leading term −2c x²/D, c=1/[2(1−D)]. For 1/3<D<1 integrating gives m′∼−2c x³/(3D−1); at D=1/3 it gives m′∼−6c x³ log x, contradicting a nonnegative m in both regimes. At D≥1 mean divergence suffices. For D<1/3 integration from infinity gives m′∼2c x³/(1−3D); the displayed exact relation for h gives h=O(x³), preserving the coefficient in each sign. Thus the theorem is supported after correcting the false identity, not refuted. The fixed-mesh killed-box experiments at lower level 1.5 (the turning point is 1 for v=0.5) can corroborate cutoff trends only; they do not verify the critical logarithm or identify infinite-domain moments. No replacement was submitted because the corrected scientific claim is independently covered by the catalogue comparisons below.",
+      "status": "FAIL"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "For the identical velocity-jump model and either initial orientation, the hierarchy b5b06a8ce81b states finiteness exactly for β>2n−1 and the coefficient C_n=1/[2^n product over j=1,…,n of (1−(2j−1)/β)]; it also resolves the lower-order orientation difference.",
+          "The Brownian logarithmic model has the analogous sharp boundary but uses continuous Brownian noise and the singular force −V_0/x, not the bounded-speed RTP. The Lamperti and Gillis comparisons use discrete chains and different return or resetting hypotheses."
+        ],
+        "reasoning": "Set n=2 to recover both deterministic-sign second-moment coefficients and strict critical divergence, and n=1 for the mean threshold. Mixtures follow by linearity. The Brownian and discrete analogues do not themselves imply those results for the bounded-speed process.",
+        "searches": [
+          "Resultary b5b06a8ce81b, Finding and large-launch coefficients",
+          "arXiv:2307.12699 Eq. (116), Brownian logarithmic first passage",
+          "arXiv:2208.12955 Theorem 3.1 and arXiv:2208.10220, Lamperti/Gillis moment analogues"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "arXiv:2409.16951, arXiv:2307.12699 and arXiv:2208.12955; arXiv:2208.10220 as discrete resetting comparator",
+        "Resultary e8413b5016ce and b5b06a8ce81b, mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Eq. (42) gives convergence of the mean integral iff β>1, and Eq. (44) its known quadratic leading coefficient. Appendix B takes higher moments to be well-defined and supplies their ODE, with boundary conditions to be specified. The formal quartic particular solution from n=2 does not exclude a faster homogeneous solution or prove existence of the moment.",
+          "The indexed hierarchy already supplies existence, nonexistence at equality, growth selection and coefficients for any sign; the exact order-two record supplies the protected-region exponential bound."
+        ],
+        "reasoning": "The formal primary-paper recurrence could motivate and partially derive the threshold but is not sufficient for the claimed iff or asymptotic limit. In contrast, specializing the catalogue hierarchy to n=2, and using the exact order-two catalogue result in the protected region, mechanically gives the complete frozen claim; correcting the constant does not produce a distinct remainder.",
+        "searches": [
+          "arXiv:2409.16951 Eqs. (42), (44) and (B9), compared with exterior boundary and growth selection",
+          "Resultary b5b06a8ce81b C_n and n=1,2, combined with protected region in e8413b5016ce"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The model is a velocity-jump process with flip rate γ, not total switching intensity 2γ. Writing β=2γ/v²=1/D, its exterior launch condition is x>v^(−1)−1 and the second moment condition is β>3.",
+          "Resultary e8413b5016ce uses exactly the same force, absorbing zero, turning point and flip normalization; it gives the averaged second moment limit 1/[4(1−D)(1−3D)]."
+        ],
+        "reasoning": "The substitutions merely identify the same physical process and inequalities, including equality. The separate hierarchy explicitly removes the possible difference of deterministic rather than averaged signs.",
+        "searches": [
+          "arXiv:2409.16951 Section IV and Appendix B under equal initial sign, symmetric telegraph velocity and logarithmic drift",
+          "Resultary: log-confined run-and-tumble first passage second moment and sign-conditioned moment hierarchy"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4 contains distinct record e8413b5016ce; its Finding points 1–3 give the identical protected/exterior separation, strict second-moment threshold and quartic coefficient for equal signs, and Proof step 2 gives the correct +2 constant.",
+          "In the same snapshot b5b06a8ce81b gives the all-order orientation-conditioned version; its Finding treats the second-order result as already covered, and its prior comparison cites e8413b5016ce."
+        ],
+        "reasoning": "The only scope difference in the exact second-order match is initial-sign conditioning, which the other available record covers explicitly. The protected-region exponential moment in the exact match also implies all moments there. None of these observations attributes historical priority or textual dependence.",
+        "searches": [
+          "Resultary: sharp second passage moment threshold for a run-and-tumble particle in a logarithmic trap",
+          "Resultary: all-order first passage moment thresholds and orientation memory, logarithmic run-and-tumble trap"
+        ]
+      },
+      "rationale": "The distinct indexed record e8413b5016ce gives the same protected region, second-moment threshold with strict inequality, finite-mean/infinite-variance regime, and quartic coefficient for the identical dynamics and equally likely signs. The stronger distinct record b5b06a8ce81b explicitly covers either initial sign and every integer order; n=1,2 recover exactly the exterior theorems and the sign-conditioned quartic coefficient, and so also all independent mixtures. These are statement-level mathematical coverage, not title matches or the frozen record itself. Their catalogue dates do not settle priority, derivation or attribution; the finding is not distinct in the evidence now available. The 2024 primary paper alone does not establish the full theorem.",
+      "residual_risks": [
+        "No priority ordering or inference of dependence is established between the frozen and indexed records. The failure rests on demonstrated exact and stronger scientific coverage, not priority inferred from dates.",
+        "The primary-literature assessment is bounded; an older continuous-state velocity-jump theorem could give further coverage, but no such external result is needed for this disposition."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact mean threshold and leading mean; formal backward hierarchy for already well-defined higher moments, not their finiteness and growth selection.",
+          "evidence": [
+            "Mean integral tail y^(−2γ/v²) diverges at β=1; mean leading coefficient is 1/[2(1−D)].",
+            "The averaged recurrence is accompanied by a statement that explicit solutions need conditions that may depend on n."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2409.16951",
+          "material_read": "Section IV, Eqs. (42) p. 16 and (44) p. 18, OA offsets approximately 73500 and 81300; Appendix B Eq. (B9) p. 26, offsets 128900–132300",
+          "method": "Primary OA PDF passages",
+          "title": "Run-and-tumble particle in one-dimensional potentials: mean first-passage time and applications",
+          "trigger": "Identical model and possible explicit higher-moment computation"
+        },
+        {
+          "assessment": "Sharp Brownian analogue, not an implication for RTP dynamics or the protected turning point.",
+          "evidence": [
+            "First-passage-time moments in the Brownian model require ν>m, giving D<V_0/(2m−1); force is −V_0/x with Brownian noise."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2307.12699",
+          "material_read": "Eq. (116), p. 12, and model specialization to first-passage time",
+          "method": "Primary OA PDF passage",
+          "title": "First-passage functionals of Brownian motion in logarithmic potentials and heterogeneous diffusion",
+          "trigger": "Exact logarithmic first-passage-moment boundary in a different transport model"
+        },
+        {
+          "assessment": "Irreducible discrete chains under bounded increments and uniform local irreducibility; not the continuous RTP moment problem and does not handle equality in its strict criterion.",
+          "evidence": [
+            "Concerns conditional return and last-exit times for chains on the nonnegative integers."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2208.12955",
+          "material_read": "Theorem 3.1, p. 4, OA offset approximately 8800",
+          "method": "Primary OA PDF passage",
+          "title": "Strong transience for one-dimensional Markov chains with asymptotically zero drifts",
+          "trigger": "Possible broad Lamperti return-moment criterion"
+        },
+        {
+          "assessment": "The indexed statement covers the equal-sign-mixture claim exactly and implies all protected-region moments for both signs.",
+          "evidence": [
+            "Protected exponential moment; exterior E T² finite iff D<1/3; finite-mean/infinite-variance interval and exact quartic coefficient.",
+            "Proof step 2 has the additive constant +2 in the averaged second-moment ODE."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-second-passage-moment-threshold-for-a-run-and-tumble-parti--e8413b5016ce/RESULT.md",
+          "material_read": "Finding points 1–3, assumptions and Proof steps 1–2, offsets 0–3188",
+          "method": "Resultary search and local mirror passage",
+          "title": "Sharp second-passage-moment threshold for a run-and-tumble particle in a logarithmic trap",
+          "trigger": "Exact-model exact-order match"
+        },
+        {
+          "assessment": "Strong exact exterior coverage for both signs and all positive integer orders, including n=1 and n=2 and the boundary.",
+          "evidence": [
+            "β>2n−1 for finiteness, with the product formula for C_n and a next-order orientation difference.",
+            "The hypotheses are exactly 0<v<1, same potential, symmetric rate-γ flips, same killing and launch beyond the same turning point."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-all-order-first-passage-moment-thresholds-and-orientation-memory--b5b06a8ce81b/RESULT.md",
+          "material_read": "Finding, assumptions and Step 1, offsets 0–2880; coefficient computation, offsets 7630–8315; prior-work credit of the second-order result",
+          "method": "Resultary search and local mirror passages",
+          "title": "All-order first-passage moment thresholds and orientation memory in a logarithmic run-and-tumble trap",
+          "trigger": "Dominating claim under the same assumptions, including each sign"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The finite-mean/infinite-variance separation and exact asymptotic are natural and substantively useful in isolation. As a distinct deliverable, however, this record supplies no additional exact invariant, phenomenon or useful scope beyond the verified exact second-order and broader orientation-conditioned comparisons. Fixing the additive constant restores the derivation of the same result, not a surviving new contribution.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

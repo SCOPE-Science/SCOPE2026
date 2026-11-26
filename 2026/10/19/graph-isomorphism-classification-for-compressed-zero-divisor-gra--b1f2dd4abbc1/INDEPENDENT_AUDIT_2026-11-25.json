@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:55:56.581332Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The Gorenstein condition and m^3=0!=m^2 give Soc(R)=m^2, so the pairing on m/m^2 is well-defined over the residue field even without a coefficient field. A radical vector would lift to the socle and hence vanish in m/m^2. The annihilator of a nonsocle element is the inverse image of its orthogonal hyperplane, and nonsingularity identifies equal hyperplanes exactly with equal projective directions. Thus the compressed graph has one universal socle vertex and all projective points; product-zero pairs are precisely orthogonal pairs after excluding loops. The hyperplane has Q points, so each isotropic point has full degree Q, each other point Q+1, and summing gives N+(NQ-I)/2 edges. In characteristic two B(v,v) is the square of a linear functional, giving either N or Q projective zeros. In odd characteristic the Gauss-sum average for a diagonal form has zero nontrivial-character contribution in odd dimension (sum of the quadratic character is zero); in even dimension G^2=chi(-1)q gives the stated signed correction, after removing the vector zero and dividing by q-1. The socle is unique since N-Q=q^(d-1)>1. With two nonsocle degrees their minimum is Q and q=(N-1)/Q. With a single degree the only cases are binary dimension alternating or anisotropic (degrees 1 or 2, then q=N-1), or higher even dimension alternating (degree Q). For odd q and even d>=4 the signed correction has magnitude strictly smaller than both Q and N-Q, so there are no hidden regular cases. These data recover d from N and the form's similarity type from I, with determinant class needed only for odd q and even d and alternating status for even q. Conversely a linear equivalence up to scalar preserves adjacency. In d=2 the orthogonal-complement involution gives fixed points and transposed pairs, hence pendant edges and triangles at the socle; one-vertex gluing multiplies the Tutte polynomials and tree counts. Both explicit rings have two radical generators with zero squares and cross-product generating m^2, through xy and 2t respectively; their characteristics differ. Bounded independent projective enumerations checked q=2 and 3 in d=2 for both form types and q=3,d=3 for the identity form (I=4, |E|=37). Replay by normalizing nonzero vectors to first nonzero coordinate 1 and testing the Gram product on distinct pairs. The uploaded checker was inspected but not executed; the proof does not rely on finite tests.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem A compares the associate-class and annihilator-compressed graphs of a given ring. It detects the Gorenstein property, not inter-ring isomorphism within the short Gorenstein family.",
+          "Cameron Proposition 6.2 relates polarities of a given projective space to reflexive forms.",
+          "The October 13 reconstruction theorem applies to the ordinary graph of a specified standard graded algebra family."
+        ],
+        "reasoning": "With a known projective incidence structure, classification of polarities supplies powerful antecedents. This does not treat reconstruction from the simple adjacency relation with all loops erased and unknown q and d, especially on the projective line. An ordinary-graph theorem on a narrower ring family does not dominate reconstruction from a different graph.",
+        "searches": [
+          "Kadu–Tanpure arXiv:2609.36021v1 Theorem A",
+          "Cameron, Polar spaces §6.1, dualities and polarities",
+          "Resultary 4c304d68b8d2, graded reconstruction from ordinary degrees"
+        ]
+      },
+      "checked_sources": [
+        "Kadu arXiv:2010.06924v1",
+        "Kadu–Tanpure arXiv:2609.36021v1",
+        "Resultary 4c304d68b8d2",
+        "Resultary 3dd8b506381f",
+        "Cameron, Polar spaces §6.1",
+        "MIT 18.704 classification of bilinear forms over finite fields, Theorem 3-3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Kadu reduction yields the vertex and adjacency model, not identification of q from that graph when the form's self-incidence and the field order are unknown.",
+          "Ordinary graph degrees and multiplicities include field-dependent sizes of annihilator fibers that are not part of the compressed simple graph. The November 8 dimension-two formula does imply the bouquet by compression."
+        ],
+        "reasoning": "One cannot invoke ordinary-graph reconstruction on the compressed input without first recovering the fiber sizes and the isotropic types needed to expand it. The new step is the identification of q,d,I from the varying degree patterns, including when a degree class is absent. This uses known forms and counting but is not an application of the cited theorem about the degree sequence on the individual elements.",
+        "searches": [
+          "Kadu arXiv:2010.06924v1 Proposition 3.6 and Lemma 3.7",
+          "October 13 ordinary degree multiset theorem and November 8 embedding-dimension-two theorem",
+          "Cameron §6.1 polarities and finite-field form classification"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kadu Proposition 3.6 and Lemma 3.7 give the pairing, zero-product equivalence and annihilator relation. These are exact overlap with the structural reduction.",
+          "The closest Resultary findings classify ordinary zero-divisor graphs, either for standard graded rings or for d=2. The latter's subspaces reduce to the same projective bouquet under annihilator compression."
+        ],
+        "reasoning": "The equivalent geometric target is the simple graph on all projective points with self-incidence removed and one universal vertex adjoined, not a graph only on isotropic points. A structural identification with projective orthogonality is not yet a statement that two such unlabelled graphs determine the same field size, dimension and similarity type.",
+        "searches": [
+          "Resultary: compressed zero-divisor graph, annihilator/projective orthogonality, finite short Gorenstein similarity classification",
+          "finite field orthogonality graphs full projective space symmetric bilinear form graph isomorphism projective polarity compressed zero divisor graph Gorenstein classification"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "October 13 provides the same classical isotropic-vector table Z(B), with I=(Z(B)-1)/(q-1), and a degree table for the uncompressed element graph.",
+          "November 8 gives K_(q-1) joined to I copies of K_(q(q-1)) and (q+1-I)/2 copies of K_(q(q-1),q(q-1)) in d=2. Its clique and bipartite-side fibers are the projective directions, and the universal clique is the socle fiber."
+        ],
+        "reasoning": "Compressing the indicated fibers gives exactly the binary-dimensional bouquet; its Tutte specialization is then routine. These exact overlaps do not tabulate or classify the compressed graph from unlabeled data in every dimension.",
+        "searches": [
+          "Resultary isotropic degree distribution and dimension-two Tutte/graph specialization",
+          "Resultary 4c304d68b8d2 and 3dd8b506381f exact Findings"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for recovering q, d and the multiplication similarity class from the unlabelled loop-free compressed graph over the entire finite short Gorenstein family. The bilinear/annihilator model and the isotropy counts are established ingredients. There is very close catalogue coverage of ordinary graphs in the standard graded family and effectively a dimension-two compressed slice via the ordinary-graph fiber description. Neither supplies the compressed reconstruction across unknown field sizes and dimensions.",
+      "residual_risks": [
+        "A specialized result for loop-free orthogonality graphs on all projective points, rather than polar spaces with the incidence data retained, might supply a dominating geometric statement; the focused searches are nonexhaustive.",
+        "The known isotropic-vector table and dimension-two reduction are not claimed independently new. Catalogue timing does not establish priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PROJECTIVE MODEL COVERED; COMPARISON IS NOT RECONSTRUCTION",
+          "evidence": [
+            "Product-zero is orthogonality; Gorenstein corresponds to nondegeneracy in the stated short setting; proportional directions give the same annihilator."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2010.06924v1",
+          "material_read": "Proposition 3.6 and Lemma 3.7(ii), extracted offsets around 24150–29340 and the adjoining annihilator passage",
+          "method": "OA primary HTML passage inspection",
+          "title": "On the problem of the finiteness of the clique number of compressed zero-divisor graphs of Artinian rings",
+          "trigger": "Same annihilator-compressed graph and same short-ring pairing"
+        },
+        {
+          "assessment": "DIFFERENT GRAPH ISOMORPHISM QUESTION",
+          "evidence": [
+            "Compares the associate-class graph and the compressed graph of a ring; the conclusion is a Gorenstein criterion."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2609.36021v1",
+          "material_read": "Abstract, graph definitions and Theorem A, around extracted offsets 445, 3300 and 7200",
+          "method": "OA primary HTML passage inspection",
+          "title": "Zero-divisors of Gorenstein rings",
+          "trigger": "Same Gorenstein graph and potential isomorphism comparison"
+        },
+        {
+          "assessment": "EXACT ISOTROPY TABLE; DIFFERENT GRAPH AND FAMILY",
+          "evidence": [
+            "Standard graded rings with coefficient field; vertices are all nonzero maximal ideal elements. The ordinary degree multiset determines q and the form, with q-1 universal elements."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-degree-sequence-reconstruction-of-finite-graded-socle-degree-two--4c304d68b8d2",
+          "material_read": "Finding and assumptions, offsets 0–2714",
+          "method": "Local catalogue mirror",
+          "title": "Degree-sequence reconstruction of finite graded socle-degree-two Gorenstein rings",
+          "trigger": "Closest earlier exact reconstruction and finite-field degree table"
+        },
+        {
+          "assessment": "COVERS THE D=2 GRAPH STRUCTURE THROUGH A REDUCTION; NOT ARBITRARY D",
+          "evidence": [
+            "The ordinary graph decomposes into a universal clique joined to cliques and complete bipartite blocks; compressing each same-annihilator fiber yields the d=2 socle bouquet."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-complete-ordinary-zero-divisor-graphs-of-short-finite-gorenstein--3dd8b506381f",
+          "material_read": "Finding, offsets 0–2722",
+          "method": "Local catalogue mirror and comparison by compression",
+          "title": "Complete ordinary zero-divisor graphs of short finite Gorenstein local rings",
+          "trigger": "Same short-ring family for d=2 and exact ordinary graph structure"
+        },
+        {
+          "assessment": "PROJECTIVE GEOMETRY BACKGROUND",
+          "evidence": [
+            "The duality/polarity equivalence starts from a given projective space and its flats; it is not the loop-free graph reconstruction statement."
+          ],
+          "identifier_or_url": "https://webspace.maths.qmul.ac.uk/p.j.cameron/pps/pps6.pdf",
+          "material_read": "§6.1 and Proposition 6.2, p. 77, extracted offsets 4260–5683",
+          "method": "OA PDF passage inspection",
+          "title": "Polar spaces",
+          "trigger": "Potential broader projective polarity result suggested by targeted literature search"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The graph loses multiplicities of elements in annihilator classes, and in particular can lose ring characteristic. A complete answer to which multiplication data survive that loss is a natural graph-isomorphism classification. Recovering the field and form even when the two expected nonsocle degrees collapse, and delineating failure of ring reconstruction by an explicit mixed-characteristic example, gives value beyond the classical isotropic table and the routine bouquet invariant.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

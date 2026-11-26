@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof begins with the exact symmetric Gaussian self-ambiguity formula, including the frequency normalization and cross-term cosine phase. Dividing by the positive mixed Gaussian leaves a strictly positive two-exponential envelope plus a cosine. Outside a \(T^{-1}\)-thickened wedge the envelope exceeds one; within a smaller wedge it is less than one half. At all possible roots for large \(T\), the envelope has positive second derivative, so every negative cosine lobe is strictly convex and contains at most two roots counted with multiplicity. All fully interior lobes contain exactly two simple roots. Counting lobes gives \(N_+(T)=((b-a)^2/(a+b))T^2+O(1)\) and rules out hidden remote roots. Direct high-precision integrals and finite numerical counts support, but do not replace, the proof.
+PASS
 
-## Originality — PASS, with stated risk
+Completing squares in the two mixed terms yields conjugate phases ±π(b−a)Tν/(a+b); the diagonal terms give the two positive real envelopes in (1). Dividing by the nonvanishing cross amplitude preserves analytic multiplicities. The envelope exponents vanish at aT and bT respectively and change by ∓2βK and ±2βK, up to O(T⁻²), at the corresponding offsets ±K/T. Monotonicity gives the uniform inner and outer bounds. On each negative lobe intersected with the enlarged wedge the normalized function has strictly positive second derivative: ν≥aT/2 makes even the decreasing Gaussian term strictly convex for large T. An interior lobe has positive endpoints and negative midpoint, hence two simple roots; a clipped lobe has at most two in the wedge counted with multiplicity (a stationary zero has order two). Negative lobes have spacing 2(a+b)/[(b−a)T], so the two edge strips change the count by O(1). For any fixed T>0, including short delays, the increasing envelope summand tends to infinity as ν→∞; analyticity and h_T(0)>0 imply finitely many zeros in the remaining compact interval. At zero delay the cosine is one; if a=b or c=0 the pulse is a single Gaussian. The archived finite numerical checks were inspected, not rerun, and are not needed to certify multiplicities or the unbounded-delay count.
 
-Faulhuber's Gaussian examples and Gröchenig–Jaming–Malinnikova's unequal-width cross-ambiguity formula supply known elementary inputs. The finding does not claim these formulas as new. The inspected complete articles did not state the all-parameter positive-mixture real-zero growth law, sharp wedge, or weight-independent coefficient. Relevant local prior mathematical claims involve single-width chirps, exponential cascades or different finite-dimensional Gabor invariants rather than the two-scale census. Korevaar et al.'s general Hermite-operation paper was checked at the abstract level but not in full because legal full-text access failed; an older unindexed equivalent asymptotic remains possible. A failed search is not a novelty certificate.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-For any fixed unequal widths, arbitrarily weak but positive admixture changes a zero-free Gaussian ambiguity surface into one with order-\(T^2\) real Doppler nulls along large-delay sections. The exact, weight-independent coefficient and moving two-sided wedge give a structural zero-density theorem rather than a single computed instance. The result does not assert a finite-delay closed count or a uniform limit as the mixture collapses.
+The Gaussian cross integral and the possibility of real zeros are not the novelty. The supported distinct claim is the sharp positive-frequency count with bounded discrepancy, the O(T⁻¹) edge localization, and multiplicities for a positive centered two-width mixture. Neither the known Gaussian identities nor the closest inspected ambiguity-zero classifications supply this census.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The simplest positive superposition of unequal widths changes the one-Gaussian zero-free behavior to a growing, sharply located population of real nulls. The exact count to O(1), with simple crossings in the bulk and only boundedly many edge exceptions, determines more than existence or growth order; it explains which parameter controls bulk null density and why amplitude imbalance moves only the edges at fixed parameters.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

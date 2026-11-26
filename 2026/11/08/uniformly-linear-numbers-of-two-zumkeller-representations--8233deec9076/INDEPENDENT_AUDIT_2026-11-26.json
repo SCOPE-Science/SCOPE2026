@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T14:12:23.605016Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The multiplicative partition proof is correct for coprime factors. The displayed binary divisor subsets give the two progression families, with k≥1 and k≥3, respectively. An independent exhaustive check of all proper-divisor subset sums confirms the six even seeds and all 88 odd seeds from Table 1, full coverage of the 44 odd residues, the nonzero quotient differences modulo 11, and maximum seed M=94185. In the even case n−a−β is a multiple of 18 and is at least −2, so it is nonnegative even at n=90. The shifts 18a²t give floor(m/a²)+1 distinct ordered pairs. In the odd case n>M makes each integral seed quotient positive. Select one quotient m not divisible by 11. Among the first T=ceil(m/s²) shifts the other summand stays positive and at most ceil(T/11) fail its divisibility test (none if 11 divides s). Combining the two slopes with R(n)≤n−1 proves the liminf and order claims; no limit is asserted. Frozen replay files: check.py and check_output.txt. The uploaded script was inspected rather than executed; the exhaustive seed check was independently written, and finite sampling is not used to prove the unbounded estimates.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The fixed-length record proves G_3=983 and G_k=6k+955 for k≥4, thresholds for existence with exactly k summands, not two-summand multiplicities.",
+          "Somu–Kukla–Tran attribute multiplier and base-family facts to Peng–Bhaskara Rao. The paper provides necessary structural ingredients rather than a quantified count."
+        ],
+        "reasoning": "The checked longer-sum thresholds and multiplication closure do not themselves count pair representations. The prior seeds and progressions can be used to prove such a count, but doing so requires passing from an isolated residue witness to a family of summand shifts.",
+        "searches": [
+          "arXiv:2310.14149v1, §§2 and 4",
+          "2026/10/18/SCOPE-sharp-fixed-length-zumkeller-sum-thresholds--0595ebc48afa",
+          "Peng–Bhaskara Rao, DOI 10.1016/j.jnt.2012.08.016"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, check.py and check_output.txt",
+        "Somu–Kukla–Tran arXiv:2310.14149v1",
+        "Resultary and the October 18 fixed-length record",
+        "OEIS A083207 and A368007",
+        "Peng–Bhaskara Rao DOI 10.1016/j.jnt.2012.08.016 (landing/abstract only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source gives the coprime-multiplier property, the two even progression classes, the 88m criterion, and two residue witnesses per odd class. Its odd existence proof selects one seed with an admissible quotient.",
+          "The frozen proof instead introduces a family indexed by t, retains positivity and the even residue or odd mod-11 condition, and counts the admissible indices. The interval has order n uniformly because all chosen seeds belong to one finite set."
+        ],
+        "reasoning": "The prior existence conclusions alone do not imply the new bound; the extra step is a simultaneous controlled alteration of both summands, not a different expression for the same single representation. The new estimate depends on the prior construction and does not claim a new set of seeds or sharper existence threshold.",
+        "searches": [
+          "arXiv:2310.14149v1, Lemma 2.1, Remark 2.3, Lemmas 4.1 and 4.5, Observations 4.2–4.4, Proposition 4.6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The indexed exact-title result is the frozen record itself. Proposition 4.6 and Lemma 4.5 of Somu–Kukla–Tran establish representability rather than a uniformly positive lower bound for R(n)/n.",
+          "A368007 detects R(n)=0, not multiplicity. Counting unordered rather than ordered pairs would alter the count by at most a factor of two and does not turn the prior existence assertion into the new order claim."
+        ],
+        "reasoning": "The relevant equivalence is linear growth of the additive convolution 1_Z*1_Z on all sufficiently large n; a cofinite support theorem only gives R(n)≥1.",
+        "searches": [
+          "Resultary: uniform linear numbers of two-Zumkeller representations, fixed-length Zumkeller sums",
+          "arXiv:2310.14149v1, §4",
+          "OEIS A368007"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Table 1 is exactly the 44-pair odd seed certificate used by this result; its values and safeguards are not new. The even residue witnesses coincide with Proposition 4.6(a), reordered.",
+          "A083207 lists Zumkeller numbers; A368007 lists exceptions to two-sum membership. Neither gives multiplicities. The only exact multiplicity-title index hit is record 8233deec9076 itself."
+        ],
+        "reasoning": "Frozen evidence takes the table as input and checks it exhaustively. The distinct output is a bound on multiplicities for arbitrarily large targets, not a re-enumeration of the table or the exceptional integers.",
+        "searches": [
+          "OEIS A083207",
+          "OEIS A368007",
+          "arXiv:2310.14149v1, Table 1",
+          "Resultary: two-Zumkeller representations"
+        ]
+      },
+      "rationale": "The original membership facts and residue certificate are already published. The supported distinct result is the uniform quantitative multiplicity bound obtained by moving each seed through coprime multiples and counting the admissible simultaneous shifts; none of the inspected close statements supplies a multiplicity conclusion. This is a bounded comparison, not a priority certification.",
+      "residual_risks": [
+        "Equivalent multiplicity results may be unindexed; the older Peng–Bhaskara Rao full-text passages were not inspected.",
+        "The result is not a claim of optimal constants or of existence of a normalized limit."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the input facts and existence theorem, not uniform multiplicities",
+          "evidence": [
+            "Table 1 has the same 44 pairs; Observations 4.2–4.4 supply their safeguards. Lemma 4.5 proves odd representability above M and Proposition 4.6 gives the even classification."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2310.14149v1",
+          "material_read": "Printed pp. 2–3, §2 Lemma 2.1 and Remark 2.3; pp. 6–8, §4 Lemma 4.1, Table 1, Observations 4.2–4.4, Lemma 4.5 and Proposition 4.6",
+          "method": "Open-access v1 full-text pages",
+          "title": "Some Results on Zumkeller Numbers",
+          "trigger": "Exact source of the parity constructions and candidate prior coverage"
+        },
+        {
+          "assessment": "Does not cover the two-summand count",
+          "evidence": [
+            "Its quantified statements concern existence with exactly 3 or at least 4 summands."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-sharp-fixed-length-zumkeller-sum-thresholds--0595ebc48afa",
+          "material_read": "RESULT.md, theorem statement",
+          "method": "Local Resultary index and mirror",
+          "title": "Sharp fixed-length Zumkeller sum thresholds",
+          "trigger": "Close indexed sum theorem"
+        },
+        {
+          "assessment": "Membership and exceptions only",
+          "evidence": [
+            "Neither sequence is the ordered representation-count function."
+          ],
+          "identifier_or_url": "https://oeis.org/A083207 ; https://oeis.org/A368007",
+          "material_read": "Sequence definitions and cofinite-representability note",
+          "method": "Public OEIS pages",
+          "title": "Zumkeller or integer-perfect numbers; positive integers not sums of two Zumkeller numbers",
+          "trigger": "Exact sequence and exception database check"
+        },
+        {
+          "assessment": "Full-text overlap assessment limited",
+          "evidence": [
+            "The 2023 paper attributes the closure and base-family ingredients to this source."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.jnt.2012.08.016",
+          "material_read": "Landing/abstract; Corollary 5 and Theorem 11 not directly available in the retrieved material",
+          "method": "Lawful open-access retrieval attempt and attribution in the inspected 2023 paper",
+          "title": "Peng–Bhaskara Rao, Journal of Number Theory 133 (2013), 1135–1155",
+          "trigger": "Source cited for multiplier and base-family results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The additive question changes from eventual solvability to how abundant solutions are in every sufficiently large target, including the harder odd targets. Turning a finite residue certificate into a uniformly linear family and showing how to control the mod-11 losses yields the sharp growth order, not a tiny threshold improvement or a recomputed membership table. The small explicit constant is a certified byproduct, not the source of the value.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

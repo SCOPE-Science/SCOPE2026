@@ -1,19 +1,21 @@
-# Review of the extremal-forest enumerator
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The exact three cases of distance differences yield the sufficiency of positive degrees without single-edge components; empty-class and single-edge obstructions both exceed the claimed optimal size. A connected-component edge bound forces exactly \(q\) small tree components at equality; constructive bipartite star/path layouts prove attainability. Standard labelled tree enumeration then yields the coefficient formula. The standalone exact-arithmetic checker and direct distance tests support, but do not replace, the unrestricted proof.
+PASS
 
-## Originality
+For the two nonaligned corners, incidence degree sums count the crossed landmarks twice even though each contributes zero; subtracting twice their indicators yields the exact separation. Positive degrees and no single-edge component suffice, since two occupied cross corners are disjoint edges whose endpoint sums are each at least three. At s=ceil(2N/3)≤2n−3, an empty row or column would require at least 2n−2 landmarks. A K₂ component forces all other components to have order ≥4 by applying the nonaligned test with its edge and any other edge. This gives ≥(3N−2)/4>s for N≥16. Hence N−c≤|S| and c≤q, so equality |S|=N−q forces exactly q spanning tree components with total excess r over order three. The star and larger-tree constructions have the needed part sizes and realize the bound. The component coefficients follow from counting bipartite trees on the fixed color classes (e.g., for (2,3), choose the shared column and attach each other column to one row, giving 12), and division by factorials accounts for unordered components of equal size. A fresh check verified direct distance sums for the constructions across all 72 admissible pairs with 8≤n≤16 and reproduced all three displayed exact counts, 31,046,400; 1,079,038,800; and 47,628,000.
 
-PASS, provisional historical priority. Fernández et al. (arXiv:2505.19642, full paper inspected) and Kumar (arXiv:2609.32161, full HTML inspected) establish the graph framework and threshold; the 2025 square-case proof already rules out one-edge components for optimum incidence graphs, a key mechanism reused here. A released mathematical resolution at trureturing.org already proves the full scalar minimum for the remaining rectangular cases, and its incidence and degree estimates strongly overlap the present proof. Those known claims are explicitly excluded. The assessed statement is the classification of **all** minimum bases by component-size profile together with an exact **labelled bivariate enumerator** for every stated parameter. Searches for these statements and their aliases did not disclose a covering formula. An equivalent unindexed enumeration or an implicit corollary of a prior classification remains a residual risk.
+## originality
 
-## Value
+PASS
 
-PASS. Minimum-basis enumeration is a natural refinement of the fully determined weak-metric dimension: knowing the minimum size does not yield the number or shapes of extremizers. The theorem gives an unrestricted structural census in the near-square range and computable exact counts that are large already at small orders, with a three-way residue-class transition.
+Credit the scalar optimum, the distance identities and the component lower-bound method to prior work. The supported contribution is the equality-case classification of all spanning labelled incidence forests throughout the stated range, together with their enumeration. The prior rectangular construction produces particular forests and its degree-charging lower bound does not characterize all equality cases; the older square component argument anticipates the rigidity method.
 
-## Scope and remaining risks
+## value
 
-The statement concerns labelled row-column products in \(8\le n\le m\le2n-5\), not symmetry orbits or larger parameters. Historical novelty is not independent verification; the original scalar result is fully credited. The exact enumerative claim has not been independently audited.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The scalar optimum cannot describe or count individual optimal landmark configurations. The spanning-forest theorem reduces all of them to a short list of component profiles, and the enumerator distinguishes the full labelled families without checking landmark subsets one by one. The strict near-square conditions arise from excluding empty rows and columns, not from an arbitrary finite slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

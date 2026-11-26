@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:18:48.342485Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§1–4; VERIFICATION.md; VERIFY.py; VERIFY_THRESHOLD.py; VERIFY_EXTENSION_FIELD.py",
+        "/workspace/reproductions/check.py (case 5) and 5.log"
+      ],
+      "rationale": "RESULT.md lines 23–91 give a characteristic-free proof. The independent coordinates of a symmetric multiplication are its values on basis multisets, not the coefficients of its diagonal polynomial. The annihilator of the span of the pure tensors is exactly the space of homogeneous degree-m polynomials vanishing at all K-points. For finite K of order q and m≤q, induct on the number of variables: restriction to the last-coordinate hyperplane vanishes identically by induction, so factor off that variable. On the chart where it is 1, the remaining polynomial has degree ≤m−1<q in each variable; repeated root counting and homogeneity force zero. This includes equality m=q, even in small characteristic. The infinite-field identity principle gives the other positive case. From a basis of N evaluation columns, express the multiplication as a sum of pure forms times vectors v_j; their defining linear forms separate points since all pure forms lie in their span. Defining the jth natural-basis power to be the embedded v_j preserves multiplication and places every ambient product in the embedded image, proving ideal closure and the quotient assertion. For m≥q+1, the natural-basis coordinate difference between the two claimed products factors as a^(m−q−1)(a^q b−a b^q)=0, so the identity holds even for arbitrary-dimensional natural-basis algebras. The two distinct basis multisets have assigned outputs e_1 and 0 in the counterexample, which survives zero padding to every n≥2. In dimension one there are no mixed natural-basis products. Independently enumerated the pure-span over F_4 in dimension two using representatives (1,t) and (0,1), checking rank 4,5,5,5 in arities 3–6 and the failure of the explicit output vector to lie in the span at arities 5 and 6. Replay: python3 -B /workspace/reproductions/check.py 5; output /workspace/reproductions/5.log. Only finite corroboration; the frozen scripts were inspected rather than executed.",
+      "residual_risks": [
+        "No numerical sweep covers the universal quantifiers; these are supported by the proof. No extra associativity/Filippov identities or optimality of the dimension bound are proved."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 2.1 gives the binary N=n(n+1)/2 ideal construction. Question 4.7 asks the higher-arity question, expressing an expectation in characteristic zero or characteristic p>m.",
+          "The distinct catalogue item calculates the minimum binary ideal envelope for the single associative field F_(q^3) over F_q: 6 for q=2,3 and 5 for q≥4."
+        ],
+        "reasoning": "The bibliographic match in terminology is not broader coverage of all symmetric m-linear products, nor does a minimum dimension for a single binary example imply the universal higher-arity threshold.",
+        "searches": [
+          "arXiv:2609.32784, Theorem 2.1 and Question 4.7",
+          "Resultary local mirror: SCOPE-sharp-finite-field-threshold-for-cubic-fields-inside-evolution-a--45faead11e59"
+        ]
+      },
+      "checked_sources": [
+        "Resultary: SCOPE-20261122-c94a0c3555b0 (identity); SCOPE-20261102-45faead11e59 (distinct)",
+        "arXiv:2609.32784, Theorem 2.1 and Question 4.7",
+        "arXiv:2312.05072v2, pp. 2–3",
+        "doi:10.1109/18.104317 (attempted, no primary passage retrieved)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Classical evaluation controls which scalar tensors are spanned. The new construction interprets the resulting coefficients as natural-basis products, and the negative part uses the scalar relation as a multiplicative identity preserved under homomorphism.",
+          "The binary paper explicitly leaves higher arity as a question."
+        ],
+        "reasoning": "Generalizing the binary mechanism to invariant tensors, obtaining an ideal in arbitrary characteristic, and deriving a sharp embedding obstruction require algebraic steps beyond the earlier scalar-evaluation results.",
+        "searches": [
+          "arXiv:2609.32784, pp. 3 and 11",
+          "arXiv:2312.05072v2, pp. 2–3",
+          "Frozen RESULT.md lines 35–91"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "San-José, pp. 2–3, treats evaluation of homogeneous forms on projective points and its vanishing ideal and dimension. The exact reformulation uses the annihilator of pure symmetric multilinear evaluation columns; no diagonal polarization is valid by fiat in small characteristic.",
+          "The classical degree-(q+1) homogeneous vanishing relation X^qY−XY^q is the scalar antecedent of the obstruction."
+        ],
+        "reasoning": "Known evaluation theory yields the rank boundary, not by itself the ambient natural-basis multiplication with image in the ideal or the explicit algebra that fails even to embed as a subalgebra.",
+        "searches": [
+          "arXiv:2312.05072v2",
+          "doi:10.1109/18.104317",
+          "Frozen RESULT.md lines 23–33, 68–83"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed summary for SCOPE-20261122-c94a0c3555b0 gives the same dimension bound, cutoff and obstruction and is precisely the assigned record, not a separate disclosure.",
+          "The inspected distinct rank hit 45faead11e59 has the binary, single-field scope described above."
+        ],
+        "reasoning": "No distinct indexed exact universal claim is evidenced by these hits; the matching assignment itself is not evidence of prior or separate coverage.",
+        "searches": [
+          "Resultary semantic search: universal m-ary ideal embeddings and finite-field threshold; local RESULT.md for 45faead11e59"
+        ]
+      },
+      "rationale": "The sharp algebra-embedding classification survives comparison with the binary predecessor, the closest distinct indexed finite-field envelope, and the classical homogeneous-evaluation boundary. Neither the polynomial rank nor the binary theorem is new. The surviving claim is the characteristic-free universal ideal embedding with this exact threshold, together with the obstruction even to a subalgebra embedding.",
+      "residual_risks": [
+        "Search and targeted source reading are bounded; other higher-arity work or an equivalent formulation may exist. The classical cutoff is not a priority claim. The Sørensen full text was not obtained."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Binary embedding covered; universal sharp higher-arity statement not supplied by these passages",
+          "evidence": "Binary bound n(n+1)/2; Question 4.7 asks for higher arity and suggests characteristics zero or p>m.",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.32784",
+          "material_read": "Theorem 2.1, p. 3 (offset 8474); Question 4.7, p. 11 (offset 37052)",
+          "method": "Lawful OA PDF, targeted passages",
+          "title": "Commutative algebras are ideals of evolution algebras",
+          "trigger": "Exact binary predecessor and possible higher-arity coverage"
+        },
+        {
+          "assessment": "Scalar rank ingredient is classical; passages are about codes, not ideal/subalgebra embeddings",
+          "evidence": "Homogeneous forms evaluated on projective representatives; vanishing ideal and a code-dimension formula.",
+          "identifier_or_url": "https://arxiv.org/pdf/2312.05072",
+          "material_read": "pp. 2–3 (offsets 8354 and 10967), evaluation, vanishing ideal and dimension",
+          "method": "Lawful OA PDF, targeted passages",
+          "title": "A recursive construction for projective Reed–Muller codes",
+          "trigger": "Stronger results for equivalent homogeneous-polynomial evaluation"
+        },
+        {
+          "assessment": "Access limitation, not exclusion of coverage",
+          "evidence": "No passage attributed to the inaccessible text.",
+          "identifier_or_url": "doi:10.1109/18.104317",
+          "material_read": "No primary full text obtained at DOI or IEEE page",
+          "method": "Bounded lawful OA attempts; inspected San-José separately as mathematical background, not as a copy of this paper",
+          "title": "Projective Reed–Muller codes",
+          "trigger": "Original classical background for the scalar cutoff"
+        },
+        {
+          "assessment": "Related, distinct binary result",
+          "evidence": "edim_Fq(F_(q^3)) is 6 for q=2,3 and 5 for q≥4; scope is one cubic extension with binary multiplication.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-sharp-finite-field-threshold-for-cubic-fields-inside-evolution-a--45faead11e59",
+          "material_read": "RESULT.md Finding and Assumptions in local mirror",
+          "method": "Resultary search and local mirror",
+          "title": "Sharp finite-field threshold for cubic fields inside evolution algebras",
+          "trigger": "Closest distinct catalogue hit with finite-field ideal envelopes"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Findings and proof",
+        "arXiv:2609.32784, Question 4.7"
+      ],
+      "rationale": "This addresses a specifically posed higher-arity extension. The sharp distinction between field size and characteristic is consequential (for example F_4 permits arity four in characteristic two); the uniform constructive bound and the universal identity obstructing even subalgebra embeddings answer different parts of the embedding problem. This is not simply a dimension calculation for a code or an individual algebra.",
+      "residual_risks": [
+        "Does not solve minimal ambient dimensions or embedding problems with additional algebraic identities."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

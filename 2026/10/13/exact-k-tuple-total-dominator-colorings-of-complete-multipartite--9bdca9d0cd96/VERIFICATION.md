@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,22 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The theorem is analytic. The executable checker performs finite, independent stress tests.
+# Independent mathematical audit
 
-It first enumerates every color-count vector for complete multipartite profiles with two through four parts and each part size at most five. For every tested \(k\), it compares the direct minimum of \(\sum_i c_i\) subject to \(\sum_j c_j-c_i\ge k\) against the stated \(k+\tau\) formula, including infeasible cases.
+## correctness
 
-It then enumerates labeled vertex colorings for every ordered complete multipartite profile of total order at most six. For each feasible \(k\), it checks that no coloring with one fewer color exists and that the exact number of optimal labeled colorings agrees with
-\[
-(k+\tau)!\sum_{\substack{1\le c_i\le\min\{n_i,\tau\}\\\sum_i c_i=k+\tau}}\prod_i {n_i\brace c_i}.
-\]
-Finally it checks the complete-bipartite specialization \(\chi_{k,d}^t(K_{m,n})=2k\) for every \(1\le m\le n\le50\) and every \(1\le k\le m\).
+PASS
 
-The finite computations do not establish the infinite theorem; correctness for arbitrary part sizes and arbitrary feasible \(k\) rests on the proof in `RESULT.md`.
+A proper color class lies in a single part. If c_i classes lie in part i and q is the total, a vertex in part i wholly dominates exactly q-c_i classes. This never exceeds N-n_i and singleton coloring attains N-n_i for every i, giving feasibility k≤N-L. For fixed t=q-k the exact integer multiplicity constraints are 1≤c_i≤min(n_i,t) and sum c_i=k+t. Every integer total between r and the sum of the caps is attained by starting at all ones and adding units within the caps. Thus the least feasible t gives exactly the optimum, and all and only the indicated per-part partitions attain it. Each unordered partition into q blocks has q! distinct labelings by [q], giving the displayed Stirling sum. The one-color-per-part and two-shore cases reduce respectively to r for k≤r-1 and 2k for feasible k on K_{m,n}; singleton parts and k=N-L pose no exception. The frozen verifier and output were inspected, not executed. A separate finite census of canonical set partitions covered 40 profile–k cases on ten profiles with 2≤N≤5 and matched the minima, counts and feasibility. The unbounded claim follows from the argument, not the census.
 
-Replay output from the packaged checker:
+## originality
 
-```text
-ALL CHECKS PASSED; vector_cases=9550; assignment_cases=124; assignment_checks=847396; labeled_count_checks=124; bipartite_cases=22100; small_total_order<=6; vector_part_sizes<=5; bipartite_range=1<=m<=n<=50
-```
+PASS
+
+The supported distinct contribution is the simultaneous arbitrary-k complete multipartite optimum, characterization and enumeration; not the established k=1 or k=2 definitions, or the general minimum-degree existence observation on its own. No inspected source covers the combined evaluation. The initiating k-tuple paper and double-TDC paper could not be fully inspected and remain explicit risks.
+
+## value
+
+PASS
+
+The feasibility observation is routine, but the natural family is fully evaluated in the nontrivial k>r−1 regime, including exactly which part splits attain the optimum and how often. The capacity criterion and exact counts give researchers a usable benchmark for the general k-tuple coloring invariant, without enumerating proper colorings or relying on the elementary special cases for significance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

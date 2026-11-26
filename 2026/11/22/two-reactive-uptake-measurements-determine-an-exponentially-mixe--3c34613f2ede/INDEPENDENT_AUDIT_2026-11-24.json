@@ -1,0 +1,168 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:27:54.665479Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–91",
+        "VERIFICATION.md lines 19–25",
+        "verify.py lines 11–100"
+      ],
+      "rationale": "With y=x exp(z/(2ℓ)) and C=yW, the forward ODE becomes y²W''+yW'−(y²+1)W=0. Only K₁ satisfies decay, and (yK₁)'=−yK₀ ensures decreasing positive C and gives U=√(D₀k)F(x), F=K₀/K₁∈(0,1). The water-side correction is exactly T=k_m v/(k_m−v)=θU; positive finite parameters require 0<v<k_m. The Riccati equation gives E=xF'/F=1+x(F−1/F) and E'=2F+x(F²−F⁻²)=−H/F². The small-x expansion gives H=x+o(x); the large-x coefficients of F are 1, −1/2, 3/8, −3/8 in successive powers of 1/x, yielding H=1/(2x²)+O(x⁻³). At a zero of H, F'=(1−F²)²/(2F²), which gives H'=−2(1−F²)²/(1+F²)<0. All zeros would cross downward, impossible given positivity at both ends. Thus for r=√(k₂/k₁)>1, the log derivative of R(x)=rF(rx)/F(x) is [E(rx)−E(x)]/x<0; the small-x x log(1/x) behavior and large-x F→1 give the unattained endpoints r² and r. Every corrected ratio inside the open interval gives a unique x, then direct positive reconstruction of D₀ and ℓ from T₁. With only one admissible reading, letting x vary over (0,∞) yields the entire continuous ambiguity family of distinct pairs. The supplied SciPy checker was inspected, not run; its root bracket and tests cover bounded ranges and are not a proof or a universal implementation guarantee.",
+      "residual_risks": [
+        "Exact-data statement for the specified half-line exponential profile with shared parameters and known porosity and transfer coefficient. It gives no noise robustness or practical bracketing guarantee near the open endpoints."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Segura treats Riccati bounds and ratio monotonicities, with logarithmic derivative of I_ν/K_ν in the inspected p. 9 passage. Salazar's K classification concerns K_ν'/K_ν². Kaltenbacher–Rundell use two differently forced solution profiles and spatially resolved final-time data in a parabolic inverse problem."
+        ],
+        "reasoning": "Those special-function properties concern different expressions or types of monotonicity. Two full parabolic profiles are not two steady scalar boundary responses; the theorem's much smaller data set is not covered by those hypotheses.",
+        "searches": [
+          "Segura, Theorems 1–2 and p. 9",
+          "Salazar arXiv:2607.05538v1, overview and Section 5 summary",
+          "Kaltenbacher–Rundell arXiv:2101.06656, §2.1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md references and comparison",
+        "Segura 10.1007/s00025-021-01531-1",
+        "arXiv:2607.05538v1, 2408.01755v2 and 2101.06656",
+        "Resultary d9b6a6d6cd5f, 1d30ea7555b9 and b85c2498a4eb"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The forward law and asymptotics would give the two endpoint limits without proving injectivity or excluding overshoot. Concavity or increase of an unscaled positive ratio alone does not imply the required elasticity monotonicity. The located Karp–Vishnyakova–Zhang statement concerns a conjecture for ratios of scaled I functions, not K₀/K₁. The closest older K-ratio article of Yang–Zheng was inaccessible on the attempted routes."
+        ],
+        "reasoning": "The strict elasticity step supplies what turns endpoint information into a bijection, and hence gives existence and uniqueness throughout the open interval. No inspected result makes that step automatic. A prior exact matching sign bound or geometric concavity theorem would change this assessment.",
+        "searches": [
+          "Segura DOI 10.1007/s00025-021-01531-1, Section 2",
+          "Yang–Zheng DOI 10.1090/proc/13522; publisher and identified author-uploaded open PDF attempts",
+          "arXiv:2607.05538v1, K-quotient overview",
+          "arXiv:2408.01755v2, Conjecture 1, p. 12"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Undoing known mass-transfer resistance gives the intrinsic boundary conductance θU, and positivity of the inverse is controlled by the scaled ratio F(rx)/F(x). The exact shape property used is strict concavity of log F(e^t), equivalently strict decrease of xF'/F, not ordinary monotonicity of F or log-concavity in x.",
+          "The frozen citation locates the forward model and estimation of reaction rather than mixing parameters in Monofy et al.; the primary passages were not retrieved."
+        ],
+        "reasoning": "An exact inverse stated in conductance rather than uptake would be equivalent via the known one-to-one transformation, as would an exact theorem for the scaled Bessel ratio combined with the forward map. The inspected evidence does not establish such coverage.",
+        "searches": [
+          "Monofy et al., DOI 10.1029/2024AV001373 and preprint DOI 10.22541/essoar.172073028.80888968/v1",
+          "Search for K₀/K₁ logarithmic elasticity, geometric concavity and scaled-argument ratio monotonicity",
+          "Segura DOI 10.1007/s00025-021-01531-1, Section 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "d9b6a6d6cd5f gives four water observations for a two-pool pulse model with a selective decay perturbation. 1d30ea7555b9 gives four point concentrations at two flows and sharp amplitude-ratio constraints for full-line source transport. b85c2498a4eb uses two entire reset-dependent first-passage profiles."
+        ],
+        "reasoning": "These are related exact inverse benchmarks but not entries for the same forward object and data. No exact statement/table for the corrected-uptake interval was found in the identified matches; their same-day dates settle no priority.",
+        "searches": [
+          "Resultary searches for reactive uptake, exponential bed or sediment mixing length and two-rate identification",
+          "Resultary matching RESULT.md findings d9b6a6d6cd5f, 1d30ea7555b9 and b85c2498a4eb"
+        ]
+      },
+      "rationale": "The forward bed model and Bessel identities are credited as inputs. What survives the bounded comparison is global scale identification from two known reaction rates, the sharp data interval, and one-reading minimality. No retrieved stronger statement supplied the required geometric concavity of this particular Bessel ratio or the exact inverse design. Relevant unavailable texts are identified below and are not negative evidence.",
+      "residual_risks": [
+        "Monofy et al. and Yang–Zheng primary full texts were unavailable after lawful retrieval attempts. An older equivalent boundary-response inverse or exact Bessel elasticity theorem may exist; this assessment does not certify priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Forward-law attribution is reported by the frozen record, not independently confirmed from Monofy full text. Potential same-model inverse overlap remains an access risk.",
+          "evidence": [
+            "Frozen RESULT.md line 101 describes the published forward model and estimation of reaction with independently regressed mixing parameters. This is secondary evidence only."
+          ],
+          "identifier_or_url": "https://doi.org/10.1029/2024AV001373; https://doi.org/10.22541/essoar.172073028.80888968/v1",
+          "material_read": "No primary section retrieved. Frozen citation points to §2.1 Eqs. 3–6 and §4.2.2.",
+          "method": "Lawful article, Wiley PDF and separate preprint/repository attempts; access errors/timeouts; bounded search for an alternate open copy",
+          "title": "Toward a Universal Model of Hyporheic Exchange and Nutrient Cycling in Streams",
+          "trigger": "Same physical model and forward Bessel flux; strongest direct application source"
+        },
+        {
+          "assessment": "Riccati framework and ratio bounds are prior; inspected p. 9 derivative is for a different combination.",
+          "evidence": [
+            "Discusses d log(I_ν/K_ν)/dx, not the log-scale slope of K₀/K₁."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00025-021-01531-1",
+          "material_read": "Section 2, Theorems 1–2, PDF pp. 5–7, and p. 9 logarithmic derivative passage",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "Monotonicity Properties for Ratios and Products of Modified Bessel Functions and Sharp Trigonometric Bounds",
+          "trigger": "Potential general lemma implying monotonicity of F(rx)/F(x)"
+        },
+        {
+          "assessment": "Unresolved access risk; no finding of noncoverage based on title or snippet.",
+          "evidence": [
+            "Title directly concerns K-ratio shape; no statement-level evidence was obtained from this paper."
+          ],
+          "identifier_or_url": "https://doi.org/10.1090/proc/13522",
+          "material_read": "Bibliographic/title information; no theorem passage retrieved",
+          "method": "Publisher PDF and identified author-uploaded ResearchGate PDF/page attempts, all unavailable",
+          "title": "The monotonicity and convexity for the ratios of modified Bessel functions of the second kind and applications",
+          "trigger": "Plausible older stronger theorem for adjacent K ratios"
+        },
+        {
+          "assessment": "The inspected classification is for another K expression; the ratio result highlighted in the overview is for I.",
+          "evidence": [
+            "Theorem 5.3 concerns K_ν'/K_ν², while Theorem 3.2 concerns a Bernstein property involving x I_ν/I_(ν+1)."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2607.05538v1",
+          "material_read": "HTML overview and summaries of Sections 3–5, offsets 4830–8368",
+          "method": "Lawful OA HTML passage inspection",
+          "title": "Riccati Reductions for Modified Bessel Ratios",
+          "trigger": "Potential prior K-ratio Riccati sign result"
+        },
+        {
+          "assessment": "A conjecture for scaled I ratios, not a covering K theorem.",
+          "evidence": [
+            "Conjecture is for I_(ν₁)(a₁x)/I_(ν₂)(a₂x)."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2408.01755v2",
+          "material_read": "PDF p. 12, Conjecture 1, offset 59508",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "Unimodality preservation by ratios of functional series and integral transforms",
+          "trigger": "Search surfaced a conjecture for scaled-argument modified Bessel ratios"
+        },
+        {
+          "assessment": "Different model, inverse variables and overposed full spatial data.",
+          "evidence": [
+            "Two forcing profiles and full final-time spatial data rather than two known reactions and two steady measured fluxes."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2101.06656",
+          "material_read": "Abstract and §2.1, PDF p. 5 onward",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "On the simultaneous recovery of the conductivity and the nonlinear reaction term in a parabolic equation",
+          "trigger": "Potential broader conductivity/reaction inverse theorem"
+        },
+        {
+          "assessment": "Substantive thematic overlap, not the exponential-bed boundary admittance inverse.",
+          "evidence": [
+            "Respectively: four water-only observations under a selective decay intervention; four spatial concentrations over two flows; two spatial first-passage profiles at distinct reset rates."
+          ],
+          "identifier_or_url": "Resultary d9b6a6d6cd5f; 1d30ea7555b9; b85c2498a4eb",
+          "material_read": "RESULT.md findings and measurement designs in the three local-mirror records",
+          "method": "Resultary and local mirror passage inspection",
+          "title": "Closest distinct inverse-design catalogue records",
+          "trigger": "Exact identifiability, perturbation and minimality analogues"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–29 and 62–91",
+        "Comparison with full-profile and multi-condition inverse designs"
+      ],
+      "rationale": "In a motivated two-parameter uptake model, the exact range separates physically incompatible readings from uniquely identifying readings and tells which perturbation is needed to break the continuous one-reading ambiguity. The strict interval is stronger than local Jacobian nonsingularity: it describes the whole attainable data set including singular endpoint behavior.",
+      "residual_risks": [
+        "No demonstration of applicability to noisy stream experiments, unchanged mixing under interventions, or stable numerical inversion near the endpoints."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

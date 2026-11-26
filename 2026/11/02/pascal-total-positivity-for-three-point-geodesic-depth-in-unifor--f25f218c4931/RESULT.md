@@ -19,7 +19,7 @@ H\mid(D=d+1)\quad<_{\mathrm{lr}}\quad H\mid(D=d),
 \]
 where the direction signifies decreasing likelihood-ratio order, with the laws distinct. Thus for every pair of strictly increasing real functions \(f,g\) on the finite relevant supports, \(\operatorname{Cov}(f(D),g(H))<0\).
 
-A finer geometric statement holds: conditional on a prescribed ordered path from \(u\) to \(v\), on \(w\) not belonging to that path, and on \(H=h\ge1\), the closest vertex of that path to \(w\) is uniform among all \(d+1\) path vertices. Its location is independent of \(H\) under this conditioning.
+A finer geometric statement holds: conditional on a prescribed ordered path from \(u\) to \(v\) not containing \(w\), the closest path vertex to \(w\) is uniform among the \(d+1\) path vertices for every feasible value \(H=h\ge1\). Thus its location is independent of \(H\) conditional on this path.
 
 ## Assumptions and scope
 
@@ -27,7 +27,7 @@ All trees are unrooted, simple, and uniformly sampled among the \(n^{n-2}\) Cayl
 
 ## Proof
 
-**1. Conditional path and forest.** Fix \(D=d\) and an ordered path \(u=x_0,x_1,\ldots,x_d=v\). There are \((n-2)_{\underline{d-1}}\) possible ordered interior label sequences. Deleting the path edges leaves a rooted forest whose prescribed roots are exactly these \(d+1\) path vertices: all remaining vertices independently attach within one of the rooted components, and conditioning on the path makes the forest uniform among such rooted forests. Conversely each such forest and path uniquely determines the original tree. By the classical rooted-forest count there are \(q n^{n-q-1}\) such forests on \(n\) labels with a prescribed root set of size \(q\). This gives the positive conditional event probability for every feasible \(d\), and shows
+**1. Conditional path and forest.** Fix \(D=d\) and an ordered path \(u=x_0,x_1,\ldots,x_d=v\). There are \((n-2)_{\underline{d-1}}\) possible ordered interior label sequences. Deleting the path edges leaves a rooted forest whose prescribed roots are exactly these \(d+1\) path vertices. Conversely, adding back the prescribed path edges to any such forest recovers a unique tree with that path. Thus the forest is uniform by bijection, not by independent attachment of the nonroots. By the classical rooted-forest count there are \(q n^{n-q-1}\) such forests on \(n\) labels with a prescribed root set of size \(q\), including the all-root case \(q=n\). This gives positive probability for every feasible \(d\) and shows
 \[
 \Pr(w\notin P_T(u,v)\mid D=d)=\frac{n-d-1}{n-2}.
 \]
@@ -47,12 +47,12 @@ This telescopes to
 \]
 The uniform choice of the root endpoint in the above counting also proves that the root reached by \(w\), conditional on \(L=\ell\), is uniform among all prescribed roots.
 
-**3. Geodesic survival and Pascal structure.** Apply step 2 with \(q=d+1\), and multiply by the off-path probability from step 1. For \(h\ge1\),
+**3. Geodesic survival and Pascal structure.** If \(d=n-1\), then \(H=0\) and the claimed positive-level tails vanish. Otherwise apply step 2 with \(q=d+1\), and multiply by the off-path probability from step 1. For \(h\ge1\),
 \[
 \Pr(H\ge h\mid D=d)=\frac{n-d-1}{n-2}\frac{(n-d-2)_{\underline{h-1}}}{n^{h-1}}
 =\frac{(n-d-1)_{\underline h}}{(n-2)n^{h-1}}.
 \]
-The column-scaled Pascal representation follows from \((k)_{\underline h}=h!\binom{k}{h}\). The Pascal matrix is totally nonnegative by the planar path interpretation: \(\binom{k}{h}\) counts northeast/horizontal directed lattice paths from \((-k,0)\) to \((0,h)\). The Lindström–Gessel–Viennot determinant expansion identifies each ordered minor with a nonnegative count of nonintersecting path families. Such a family exists exactly when the ordered source/sink indices satisfy \(k_i\ge h_i\) for every \(i\). Multiplication of columns by positive scalars preserves minor signs and strict support.
+The column-scaled Pascal representation follows from \((k)_{\underline h}=h!\binom{k}{h}\). In the Pascal network, \(\binom{k}{h}\) counts directed paths from \((-k,0)\) to \((0,h)\) using steps \((1,0)\) and \((1,1)\). An inverted pairing of sinks forces an intersection: the path starting farther left is at least as high at the other path's start, but ends strictly lower. The Lindström–Gessel–Viennot lemma therefore counts vertex-disjoint families in the matching order. Such a family requires \(k_i\ge h_i\) for every \(i\). Conversely choose each path to make all its northeast steps first: its height at abscissa \(x\) is \(\min(h_i,x+k_i)\), strictly increasing in \(i\) wherever two paths coexist. Thus that support condition suffices. Multiplying columns by positive scalars preserves minor signs and support.
 
 **4. The stronger likelihood-ratio comparison.** Subtract consecutive tails. For \(h\ge1\),
 \[

@@ -1,0 +1,164 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:43:34.722041Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§1–5; VERIFICATION.md and both C++ sources (inspected, not executed)",
+        "Ishitsuka–Ito arXiv:1412.8336 Theorem 2.2",
+        "/workspace/review_check_3.py"
+      ],
+      "rationale": "The affine Jacobian criterion at Y=0 gives nonzero X derivative for X=0 or X^3=c; infinity is smooth and is the rational hyperflex. The diagonal order-nine automorphism preserves the smooth quartic in every allowed characteristic. Faithfulness needed here follows for this nonhyperelliptic genus-three curve from its canonical embedding and the tangent representation of its Jacobian. The mod-two reduction kernel on the Tate module is pro-two, so the action still has order nine. Since ord_9(2)=6 its characteristic polynomial is Phi_9, and the linear centralizer is multiplication by F64^*. The adjoint involution for the Weil form sends the primitive ninth-root multiplier to its inverse, hence acts on F64 by the eighth-power automorphism. The symplectic centralizer is exactly the norm-one subgroup b^9=1. Arithmetic Frobenius commutes with the rational automorphism and preserves the form, so its linear action lies in this subgroup. Using the rational hyperflex theta characteristic as origin makes all these actions linear on the theta torsor. Under transport by (X,Y) -> (t^3 X,t^4 Y) with t^9=c, the exponent changes by 4j where t^(q-1)=zeta^j. This character is surjective with equal fibers, independently of the base exponent. Every nonidentity power has no eigenvalue one on J[2], so its only fixed theta is the odd hyperflex theta. The odd nonfixed and even orbit lengths are exactly the order of the Frobenius power; this gives the table and the zeta factors. A Frobenius-fixed theta line bundle descends over a finite field by the vanishing Brauer group (and the square relation is checked after injective Picard base change). Even theta characteristics on a smooth plane quartic are ineffective, so the shortest even cycle gives the asserted minimum symmetric determinant extension degree. An independent F19 enumeration used all 381 projective lines and compared homogeneous quartic restrictions with a precomputed set of projective quadratic squares. It found 28 rational bitangents exactly at c=4,15 and one otherwise; together with the shift proof this reproduces the sample degrees. Replay: python /workspace/review_check_3.py.",
+      "residual_risks": [
+        "The source's general wording about faithfulness on the Jacobian for positive genus is unnecessarily broad; the required faithfulness is for a canonical nonhyperelliptic genus-three curve, as checked above. No statement about genus-one translations is needed.",
+        "The uniform table counts marked coefficients and uses the order of a shifted character, not in general the unshifted order of c^((q-1)/9). The finite-field example is corroboration, not a proof for all fields. A rational octad denotes a rational equivalence class, not eight individually rational points."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bergvall counts marked moduli points and gives the even-theta/octad correspondence. Elsenhans–Jahnel's Galois realization theorem has an infinite-field hypothesis. Ishitsuka–Ito give a general theta criterion which directly supplies the determinant step once the even cycles are known. Lercier–Ritzenthaler–Rovetta–Sijsling classify and enumerate finite-prime-field plane-quartic forms."
+        ],
+        "reasoning": "Neither global moduli counts nor counts of isomorphism classes by automorphism group disaggregate this marked family by lengths of even-theta Frobenius cycles. The infinite-field realization theorem does not settle finite-field frequencies. The determinant implication alone is prior, not its uniform arithmetic input.",
+        "searches": [
+          "arXiv:2106.13072 pp. 2–4",
+          "arXiv:1710.07279 Theorem 1.2",
+          "arXiv:1412.8336 Theorem 2.2",
+          "arXiv:1403.0562v4 Theorem 3.1 and §5"
+        ]
+      },
+      "checked_sources": [
+        "Resultary b8d8cc6b1ea4, 8a91037e03f9 and index-only be0b52c88fb6",
+        "NYJM 26 (2020) 636–655",
+        "arXiv:1604.02410, 1403.0562v4, 2106.13072, 1710.07279, 1412.8336"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The complex predecessor includes the irreducible Phi_9 level-two action and its free order-nine orbits away from the hyperflex odd theta. Its assumptions fix C over C and its proof uses holomorphic and antiholomorphic eigenvalues. The finite-prime-field catalogue tabulates forms but not these theta invariants."
+        ],
+        "reasoning": "The old cycle data do determine the cycles of the powers within that order-nine group, and standard descent converts even cycles to determinant degrees. To get the target distribution one must establish the primitive action in the permitted positive characteristics, show base Frobenius belongs to the order-nine group via the symplectic centralizer, and evaluate the coefficient twist cocycle. In particular, in a mere permutation centralizer the three or four free orbits could also be permuted. Neither the complex theorem nor the finite-field forms table entails the required Frobenius identification without this arithmetic argument.",
+        "searches": [
+          "Resultary b8d8cc6b1ea4 RESULT.md, Finding and proof",
+          "arXiv:1403.0562v4 §§3,5",
+          "arXiv:1412.8336 Theorem 2.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Liang's C9 model has the same geometric quartic and bitangents. Resultary b8d8cc6b1ea4 has the complex geometric cycles 1+9+9+9 and 9^4. Lorenzo García parametrizes C9 twists by ninth-power classes over number fields."
+        ],
+        "reasoning": "The twist space and geometric action are not the target invariant. The relevant equivalence is between the shortest even-theta Frobenius orbit and the least extension carrying a symmetric determinant. A twist parametrization by itself does not compute that orbit length, which depends on the total, shifted Frobenius action.",
+        "searches": [
+          "Resultary: order-nine Picard quartic level-two orbit profile, ninth-power twists and determinant extensions",
+          "Liang NYJM 26 (2020) Theorems 1.2–1.3",
+          "arXiv:1604.02410 Proposition 5.9"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Table 2 gives nine Fp-isomorphism classes for geometric C9 when p is 1 mod 9, six more than the p=4 mod 9 row and eight more than generic. The database algorithm enumerates isomorphism representatives. The Göpel-kernel record assumes a stable octad. The indexed Aronhold-heptad record describes an abstract spectrum; its mirror was unavailable."
+        ],
+        "reasoning": "Nine forms is not the three theta-descent frequencies. The inspected table is grouped by automorphism group, not rational bitangents, geometric theta cycle types or minimum determinant degrees. The prior geometric cycles and the index-only abstract spectra do not constitute a census of realized arithmetic strata.",
+        "searches": [
+          "Resultary: Cayley-octad Frobenius cycles and symmetric determinant degrees for order-nine Picard twists",
+          "Lercier–Ritzenthaler–Rovetta–Sijsling arXiv:1403.0562v4 Algorithm 1 and Table 2",
+          "Resultary 8a91037e03f9 and indexed be0b52c88fb6"
+        ]
+      },
+      "rationale": "The geometric order-nine action and orbit patterns, and the twist and determinantal frameworks, are already known. The accepted distinct contribution is the realization and exact frequencies of three arithmetic strata, including the minimum degree-nine obstruction, uniformly for all the allowed finite fields. These follow by combining known ingredients with the finite-characteristic symplectic-centralizer and uniform Frobenius-transport calculation; they are not a new classification of geometric actions, a new twist parametrization, or a specialization of an inspected theorem of arithmetic theta-cycle distributions.",
+      "residual_risks": [
+        "Existing explicit finite-field computations or a different choice of order-nine base model could contain an equivalent arithmetic result. No historical-priority assertion or whole-text conclusion from the unavailable Aronhold record is made. The uniform table is not an explicit formula for the base Frobenius exponent for every q."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive overlap on geometric cycles and J[2], not a finite-field theta twist distribution",
+          "evidence": "Over C the unique fixed odd theta comes from the hyperflex; three further odd and four even orbits have length nine; Phi_9 acts on J[2].",
+          "identifier_or_url": "Resultary 2026/10/13 b8d8cc6b1ea4",
+          "material_read": "Mirrored RESULT.md offsets 0–5764, especially assumptions and proof after 1738",
+          "method": "Local Resultary mirror",
+          "title": "The order-nine Picard quartic has level-two orbit profile 1,9,9,9",
+          "trigger": "Same geometric curve and cycle patterns"
+        },
+        {
+          "assessment": "Direct geometric coverage, not arithmetic twist frequencies",
+          "evidence": "C9 is y^3=x(x^3-1); explicit bitangents are given, while the cited matrix theorem concerns C6.",
+          "identifier_or_url": "https://nyjm.albany.edu/j/2020/26-29v.pdf",
+          "material_read": "Introduction and Theorems 1.2–1.3 pp. 637–638, offsets near 3037 and 5050",
+          "method": "Journal OA PDF",
+          "title": "Invariants, bitangents, and matrix representations of plane quartics with 3-cyclic automorphisms",
+          "trigger": "Same exceptional curve and explicit bitangents"
+        },
+        {
+          "assessment": "Prior number-field twist parametrization; no finite-field theta-cycle classification in those statements",
+          "evidence": "Case IX is the C9 quartic; Proposition 5.9 asserts parametrization by k^*/k^{*9}. The number of forms is not the minimum theta extension degree.",
+          "identifier_or_url": "https://arxiv.org/pdf/1604.02410",
+          "material_read": "Henn model table PDF p. 2 near offset 10265 and Proposition 5.9 p. 9 near 41014",
+          "method": "OA PDF passages",
+          "title": "Twists of non-hyperelliptic curves of genus 3",
+          "trigger": "Potential prior C9 ninth-power twist classification"
+        },
+        {
+          "assessment": "The finite-field forms census overlaps the family, but Table 2 counts isomorphism classes, not theta descent",
+          "evidence": "One geometric C9 class; nine twists over Fp when p is 1 mod 9. Algorithm 1 uses invariants and twisting to select representatives over prime fields, for p>7.",
+          "identifier_or_url": "https://arxiv.org/pdf/1403.0562v4",
+          "material_read": "Theorem 3.1 p. 5 C9 entry near 19935; Algorithm 1 pp. 12–13 near 50800; Table 2 and discussion p. 14 near 58000",
+          "method": "OA PDF passages",
+          "title": "Parametrizing the moduli space of curves and applications to smooth plane quartics over finite fields",
+          "trigger": "Stronger finite-field quartic census and possible exact table"
+        },
+        {
+          "assessment": "Global moduli point counts and structural correspondence",
+          "evidence": "Even theta characteristics correspond to the 36 octads; the point-count setting is global marked moduli.",
+          "identifier_or_url": "https://arxiv.org/pdf/2106.13072",
+          "material_read": "PDF pp. 2–4, offsets 5565 and 12626",
+          "method": "OA PDF passages",
+          "title": "Arithmetic and topology of classical structures associated with plane quartics",
+          "trigger": "Finite-field octad and theta counts"
+        },
+        {
+          "assessment": "Different realization setting",
+          "evidence": "Theorem 1.2 assumes an infinite field and the authors expressly distinguish finite fields.",
+          "identifier_or_url": "https://arxiv.org/pdf/1710.07279",
+          "material_read": "Theorem 1.2 and discussion, PDF pp. 2–3 offset 4838",
+          "method": "OA PDF passage",
+          "title": "On plane quartics with a Galois invariant Cayley octad",
+          "trigger": "Galois realization of octads"
+        },
+        {
+          "assessment": "Covers determinantal correspondence, not the family-specific distribution",
+          "evidence": "The iff criterion is a non-effective theta characteristic over the field; for plane quartics even theta is non-effective.",
+          "identifier_or_url": "https://arxiv.org/pdf/1412.8336",
+          "material_read": "Theorem 2.2 and plane-quartic theta discussion, pp. 3–4 offset 11256",
+          "method": "OA PDF passage",
+          "title": "The local-global principle for symmetric determinantal representations of smooth plane curves",
+          "trigger": "Prior determinant-descent implication"
+        },
+        {
+          "assessment": "Different invariant and requires a stable octad",
+          "evidence": "The 22 profiles are for quartics already equipped with a Frobenius-stable regular Cayley octad.",
+          "identifier_or_url": "Resultary 2026/11/22 8a91037e03f9",
+          "material_read": "Mirrored RESULT.md Finding and assumptions",
+          "method": "Local Resultary mirror",
+          "title": "Complete Frobenius spectra of Göpel kernels for Cayley-octad quartics",
+          "trigger": "Potential same-day finite-field octad coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and §§2–5",
+        "Resultary b8d8cc6b1ea4",
+        "arXiv:1403.0562v4 Table 2; arXiv:1412.8336 Theorem 2.2"
+      ],
+      "rationale": "The order-nine Picard quartic is a distinguished geometric source of a Frobenius obstruction. The calculation upgrades an abstract allowable permutation to guaranteed geometric realizations with exact multiplicity over every admissible finite field, and separates the existence of a rational hyperflex from that of a rational symmetric determinant by a sharp ninth-extension barrier. This goes beyond either listing nine twists or restating the geometric order-nine cycle type.",
+      "residual_risks": [
+        "No explicit determinant matrix, classification of arbitrary forms outside the stated family or extension claim outside the admissible fields."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

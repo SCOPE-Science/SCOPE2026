@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,7 +19,24 @@
 }
 ---
 
-## Exact checks performed
-Run `python3 verify_fano.py` with Python 3. It constructs the 168-element group by all invertible binary 3-by-3 matrices and independently builds the independent-set simplicial complex. It identifies the twelve subgroup profiles from 179 actual subgroups, then certifies **all** subgroups by checking closure of the computed set of subgroups under adjoining any new matrix generator. It recomputes the quotient barycentric flag-orbit counts and the Euler-Lefschetz formula for every subgroup, and verifies the four Singer relators and their exponent normalizations. The exact terminal marker `VERIFY_OK` is recorded in `verification_output.txt`.
+# Independent mathematical audit
 
-The proof also uses non-computational elementary homotopies of missing Fano-line triangles, Armstrong's orbit-space fundamental-group theorem, the elementary normal-subgroup structure of the order-21 Frobenius group and the simple 168-element group, CW Tietze cancellations, Hurewicz and Whitehead. The finite verifier exhausts the specified finite object but does not certify these general homotopy theorems or establish publication priority. No external independent audit is asserted.
+## correctness
+
+PASS
+
+The replacement proves the same full ordinary orbit-space classification while deriving the Singer row explicitly from previously published attaching data. Cone each missing Fano-line loop to an outside point; thus all triangle loops in the complete one-skeleton die and the independence complex is simply connected. An independent exhaustive generator-adjunction computation (branches/71688266-17ef-453a-b90f-70f9e1543c18/independent_fano_audit.py; output independent_audit_full.txt lines 1–19) found all 179 subgroups and matches the 12 profiles, all flag-orbit Euler computations, and the four oriented Singer boundary words. Independently, the signed invariant-face counts give Lefschetz Euler values 14, −2, 2, 2, 0; for example an involution fixes three points, acts on three edges pointwise and two by swaps, and stabilizes four triangles with reversed orientation, giving 3−(3−2)−4=−2. Flags of distinct ranks have no inversions. Including the added Sylow-three action arguments at orders twelve and twenty-four, the group labels follow from the census. Only order-seven elements lack geometric fixed points; the stated commutator argument in order 21 and simplicity at order 168 eliminate those elements in the Armstrong quotient outside the order-seven case. Thus the eight order-seven subgroups are exactly the exceptions. For the other cases, Hurewicz and homological Whitehead give wedges of χ−1 two-spheres in this dimension. The repaired Singer proof identifies the same two-skeleton, makes homotopic changes to the other attaching maps before canceling the two generator-defining cells, and leaves two degree-seven disks on a circle; the second is attached along a nullhomotopic loop in the first Moore complex. The original finite checker was inspected without execution; the separate finite enumeration does not formally verify these topological deductions.
+
+## originality
+
+PASS
+
+The frozen discussion did not credit the closest prior cap result, which already gives all four attaching maps and homotopy cancellations for the geometric two-skeleton and thereby mechanically gives the Singer row. The replacement explicitly withdraws independent novelty for that row and focuses the claim on the complete integral classification across the subgroup lattice. No inspected source covers that remaining claim. Character and module data and the numerical sphere-rank input are also credited as known.
+
+## value
+
+PASS
+
+The natural finite symmetry family has qualitatively different orbit spaces: contractible, wedges of spheres of several ranks, and one exceptional cyclic type. A complete integral classification tells a researcher exactly when isotropy kills the whole fundamental group and when a free cyclic quotient retains torsion, information not given by the earlier rational table or cyclic calculation. The exact census and topology address the whole subgroup lattice rather than a selected subgroup or a recomputation of known character data.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

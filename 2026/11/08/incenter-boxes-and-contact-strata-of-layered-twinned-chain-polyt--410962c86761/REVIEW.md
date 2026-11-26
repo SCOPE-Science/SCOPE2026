@@ -1,19 +1,21 @@
-# Scientific review: layered twinned-chain incenter boxes
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The object is the ordinary-coordinate Euclidean symmetric twinned chain polytope of an ordinal sum of nonempty antichains. Every antichain lies in one level. Thus the polar factors as a Cartesian product of signed subset-sum polytopes, whose vertices can be characterized exactly by splitting the positive and negative supports into simplices. The farthest polar-vertex norm is the square root of the sum of one for each singleton level and two for each wider level. Symmetry proves global optimality of the origin-centered ball. Tightness of all farthest opposite polar inequalities forces precisely the blockwise-constant center subspace. Remaining inequalities collapse to singleton coordinate bounds by strict convexity of the explicit radius-loss function. An independent finite polar enumeration checked 27 profiles (7,210 polar vertices), 121 center-box corners, tangent counts, and exact rational farthest-normal ranks; a separate Euclidean Chebyshev LP calculation checked 13 examples. These finite checks corroborate, rather than substitute for, the universal proof.
+PASS
 
-## Originality — PASS, with historical priority risk
+Since every antichain lies in one block, the polar factors into Q_m=Δ_m−Δ_m, where Δ_m is the simplex on 0 and the coordinate unit vectors. The candidates are 0, signed units and ordered differences. The origin is interior; a signed unit is exposed by a same-sign functional with a unique largest absolute coordinate, and e_a−e_b is exposed by the functional with 1 at a, −1 at b and 0 elsewhere. Thus the list of norms and vertices is exact. All product normals have squared norm at most H, and a pair of opposite farthest normals bounds every possible radius by 1/√H; the origin attains it. At this radius all farthest normals annihilate the center. Comparing normals that differ only by opposite singleton signs or opposite ordered differences gives exactly the indicated zero and block-constant coordinates. If j wide blocks use units, the worst dot product for that subset is the sum of the corresponding |t_i|. Its slack threshold f(j)=1−√(1−j/H) satisfies f(j)>j f(1) for j≥2 by strict convexity, with equality for j=0,1. Thus precisely the singleton bounds determine the center locus; exactly one-unit normals with matching signs can add contacts at an active coordinate. The product choices give both exact counts, and block indicators have mutually orthogonal lengths √m_i. With w=0 only the origin remains and all 2^s farthest facets touch it, including the interval k=m_1=1. These arguments are a universal verification from the polar inequalities in RESULT.md Steps 1–5. The reported 27 profiles, 7,210 test vertices and 121 corner counts were inspected in VERIFICATION.md and verification.py, not rerun. The separate reported 13-profile LP evidence was not needed or independently replayed.
 
-Tsuchiya, arXiv:1512.08332 (first posted 2015), supplies a stronger-than-background facet and polar-vertex description. Accordingly the central-radius consequence is expressly credited as already implied by prior work. The assessed claim is the entire incenter locus and the exact contact counts on each boundary stratum; these do not follow as a stated theorem from the inspected prior work without the new center-optimization analysis. Freij-Hollanti and Lundström, arXiv:2312.13890 (first posted December 21, 2023), study layered ordinal sums and face numbers. Searches for twinned-chain incenters, inspheres, and center boxes found no equivalent statement. Related published geometry of ordinary/enriched chain polytopes concerns different bodies. Residual risk: earlier results in the language of anti-blocking symmetrization or Chebyshev centers may subsume this formulation.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is a natural complete metric classification, not a numerical sample or an arbitrary parameter slice. The original combinatorial data determine a surprising inradius stability law under arbitrary increases of all nonsingleton layer sizes, while the incenter locus can have arbitrarily large affine dimension. Its actual Euclidean side lengths retain the layer sizes, and every face of this locus has a precise, strictly larger tangent-facet set. The result distinguishes metric centrality from previously enumerated face numbers and directly describes the full family of optimal Euclidean balls.
+The polar/facet list, free-sum structure, and direct consequences for radius and centered contacts are credited. The distinct result is the exact full optimal-center box in the fixed Euclidean metric and the classification and count of contacts at all its strata. The compared prior results do not establish the necessary singleton-reduction and no-extra-contact conclusions.
 
-## Scope and limitations
+## value
 
-Only ordinal sums of antichains with the same poset on both sides are covered, in their canonical Euclidean coordinates. Older general facet results are not new contributions here. A proof-based self-review was conducted, but independent mathematical validation was not performed; historical priority is provisional.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact set of translated maximum-radius balls is a natural refinement of a single centered radius in canonical Euclidean coordinates. It has unbounded dimension across the family, edge lengths that retain the actual block sizes, and a complete active-coordinate rule for contact counts on every face. These distinctions are not captured by total face counts or the centered insphere alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

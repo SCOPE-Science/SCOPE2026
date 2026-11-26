@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The balanced generator is decomposed exactly into the complete-graph mean operator and independent pairwise centered perturbations. The proof explicitly bounds the perturbation by rectangular matrix Bernstein, controls its stationary remainder in Euclidean norm and coordinatewise by exchangeability, derives the finite-dimensional Gaussian limit from independent external edge pairs, and establishes the global squared-deviation law by a covariance calculation including the shared edge. The degenerate detailed-balance boundary is exact. A standalone finite diagnostic solves 96 independent stationary systems, verifies the exact balance identity and compares three correlation structures. Its finite size cannot certify the universal limit.
+## correctness
 
-## Originality
-PASS, qualified. A claim-level comparison was made with Calvert (2026), which proves uniform Boltzmann occupation and depicts qualitative fluctuations, Calvert--den Hollander--Randall (2025), which proves total-variation approximation to an exit-rate law, and Bordenave--Caputo--Chafaï (2014), whose invariant-measure result is a uniformity estimate. Their inspected formulations do not assert the joint \(n^{3/2}\)-Gaussian law with pair-antisymmetry variance and the exact global susceptibility. The literature comparisons inspected did not identify a stronger covering statement. This is not a proof of global novelty. A wider random stationary-vector fluctuation theorem could imply the result and remains a publication-priority risk.
+PASS
 
-## Value
-PASS. The first-order steady-state distribution of dense random networks is insensitive to strong nonequilibrium circulation, so the first nontrivial size-dependent invariant is scientifically motivated. The theorem provides both a local fluctuation distribution and an extensive diagnostic that recovers the rate-pair antisymmetry variance. The three exact coupling examples have the same one-edge marginals but distinguish reversible, independent, and perfectly anticorrelated nonequilibrium disorder. The result is not merely a renamed equilibrium calculation: the nontrivial cancellation of symmetric disorder follows from the full stationary balance equation.
+For the column generator the imbalance is s=B1 with s_i=Σ_{j≠i}(X_{ij}−X_{ji}), giving δ=s/(μn²)+Bδ/(μn). Each independent centered edge matrix is supported on a two-coordinate subspace; both Bernstein variance operators are bounded by a constant times Σ_{i<j}(E_ii+E_jj)=(n−1)I times that constant. Thus ||B||=O_P(√(n log n)), ||s||=O_P(n), and the remainder has ℓ² norm O_P(n^(−3/2)√log n). Exchangeability and a permutation-invariant truncation of this norm give o_P(n^(−3/2)) per fixed vertex; the norm bound alone would not do that. Removing the finitely many internal pairs separates the sums at finitely many vertices for the joint CLT; two-coordinate asymptotic independence then gives the empirical law. For the squared sum, conditioning on the single shared pair gives Cov(s_i²,s_j²)=Var((X_ij−X_ji)²), while each Var(s_i²)=O(n²). This gives L² concentration of n^(−2)Σs_i², and the remainder is negligible after n² scaling of ||δ||². At v=0 symmetrization is exact because X=X' almost surely. For the two-point example μ=2 and v is respectively 0, 2, 4, as claimed. The uploaded verifier was inspected, not executed; numerical finite instances are not needed to establish the bounds or limits.
 
-## Limits and closest prior work
-Equal vertex energies, strictly positive bounded rates, unordered-pair independence and exchangeability are essential stated restrictions. Standard perturbation bounds are prior mathematical ingredients. The plausible wider random-matrix eigenvector literature was not exhaustively inspected, leaving a specific residual originality risk. There is no claim of external or independent validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The checked prior work gives closely related models and first-order estimates, but does not give or dominate this joint pair-correlation-sensitive second-order law. This is a bounded comparison, not certification of priority.
+
+## value
+
+PASS
+
+Equal marginals and an identical uniform first-order limit can hide three different disorder responses. Identifying a pair-antisymmetry invariant that controls both local fluctuations and global susceptibility distinguishes these ensembles, rather than just refining an error bound by a constant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-The accompanying `verify.py` is self-contained apart from NumPy. Invoke `python verify.py` in its directory. It checks exact characteristic-coefficient expansions and quadratic discriminants using Python rational arithmetic, deterministic companion-matrix eigenvalues across full-interval sample grids, and the normalized Joukowski identity for the constructed minimax controller.
+## correctness
 
-The mathematical proof itself uses exact algebra, the Joukowski inverse map, and the Schwarz lemma with equality characterization. The finite checks do **not** establish uniqueness or an inequality for infinitely many controllers or interval values; those assertions follow from the proof in `RESULT.md`. The tests do not cover perturbations in input gain, time-varying switching, or arbitrary dynamic compensators.
+PASS
 
-The motivating 2026 manuscript was inspected in its accessible full HTML text, including its scalar counterexample, FIR policy definition, and main convergence theorem. The closely related 1990 interval-Schur-stability article could be examined only through accessible abstracts; this limits the originality comparison. No independent audit has been performed.
+For one tap, the maximum of |a+k0| on the interval is t+|c+k0|. With at least two taps, k0=-c and k1=-t²/4 yield the characteristic factor z²-(a-c)z+t²/4; its roots have modulus t/2 throughout, including the double roots ±t/2 at the endpoints. For arbitrary gains, let r be their maximum spectral radius and L(z)=z−Σ k_j z^(−j). For positive R≥r the open exterior |z|>R omits the entire uncertainty interval under L, by p_a(z)=z^(H−1)(L(z)−a). Applying the inverse Joukowski map Φ of that slit and the reciprocal gives a disk self-map g(ζ)=1/Φ(L(R/ζ)), removable at zero with g(0)=0 and g′(0)=t/(2R). If r<t/2 take positive r<R<t/2 to contradict Schwarz. At r=t/2 take R=r; the derivative is positive one, hence g is the identity. Inverting yields L(z)=c+z+t²/(4z), fixing every Laurent coefficient. Continuity of the companion spectral radius on the compact interval makes pointwise strict Schur stability equivalent to a maximum <1; the thresholds are strict. At t=0 exact cancellation puts all poles at zero. Read the proof and support; no numerical test is used to establish the continuum bound or rigidity. The result is for fixed drift and fixed real taps, not switching, general compensators, or an endpoint power estimate at repeated poles.
+
+## originality
+
+PASS
+
+The closest inspected comparisons do not establish the sharp all-length full-interval radius and its rigidity for the fixed FIR state-feedback class. This finding is supported as distinct to the extent of available evidence, not a priority certification for robust Schur theory or for the classical slit map.
+
+## value
+
+PASS
+
+The prior two-plant example motivates a concrete memory question. Quantifying the greatest benefit of any finite number of taps for a full drift interval and proving that only one lag is needed, with a unique optimum and exact thresholds, converts it into a useful sharp design theorem. The nonattainment of strict stability at the critical widths is meaningful; the claim is not merely a familiar existence test or an empirical improvement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-## Reproducibility
+# Independent mathematical audit
 
-Run `python3 verify_fixed_space.py` using Python 3 without external dependencies. It independently constructs the actual labeled Möbius ladder, enumerates perfect matchings and every down-closed extendible face, computes the antipodal graph-edge orbits, compares the entire geometric orbit-face model with original extendible faces for each n from 2 to 8, and computes exact mod-two boundary ranks. The process prints `VERIFY_OK` on success. In total it checks 1,966 fixed orbit faces across seven sizes. This is a finite check, not a proof of infinite correctness.
+## correctness
 
-## Proof checkpoints
+PASS
 
-The orbit PL triangulation is valid because invariant barycentric coordinates are constant on vertex orbits. Every intersection of spoke stars is a cone on an admissible simplex; the nerve is full. Outside that core there are exactly zero (odd width) or two (even width) complete rim dimer tilings. The even simplices have full boundaries inside the core. Case n=2 is an edge and two isolated vertices. Only these structural arguments give the universal claim.
+A geometric fixed point has invariant support and its weights on each edge orbit are constant. The simplex map sending an orbit to its barycenter has inverse given by summing weights, so it gives the claimed PL homeomorphism, not merely the complex of fixed vertices. A disjoint collection of occupied antipodal columns extends to a perfect matching by filling the unused columns with their spokes. The intersection of any chosen spoke stars consists exactly of faces that can be joined with the whole chosen spoke set; spokes never conflict with one another. This intersection is a nonempty cone, and the full nerve makes the union B contractible. Any face outside B has no spokes and covers every column by dimers; odd cyclic length has none and even cyclic length at least four has exactly the two alternating tilings. Their proper faces free columns and lie in B. Collapsing B is a homotopy equivalence because it is a contractible subcomplex, and the quotient is a wedge of two spheres of dimension n/2−1. For n=2 the separate rim choices and the spoke edge give three components, as claimed. Agarwal–Basak's Main Theorem 1(b) gives the same ambient even homotopy type, hence total mod-two Betti number 3 in both spaces; part (c) gives nontrivial sphere wedges for odd n≥3. The finite total 1966 including empty faces also checks independently: for each n=2,…,8 sum n·binom(n−k,k)·2^(n−2k)/(n−k) over k≤n/2, counting a k-dimer placement and a subset of the remaining spokes, with both parallel choices at n=2.
 
-## Limits
+## originality
 
-The independent-audit channel is not performed. No formal proof assistant or external mathematical certifier is asserted. The integral homotopy type follows from ordinary topology, not from finite mod-two ranks. Originality remains qualified by the possibility of unindexed equivalent work.
+PASS
+
+The prior invariant-face monomer–dimer description is exact overlap; combined with the standard orbit-barycenter construction it already gives the underlying fixed-space model. The supported distinct claim is the all-n geometric homotopy classification and resulting even Smith equality. Neither the known complex of ambient homology representations nor the ambient homotopy theorem classifies the fixed space.
+
+## value
+
+PASS
+
+The half-turn is the central natural involution on the ladder. A complete fixed-point classification separates two genuinely different parity regimes, including contractible fixed points in ambient noncontractible wedges and an exact infinite family of Smith equalities. The homotopy argument retains information not contained in the earlier trace computations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

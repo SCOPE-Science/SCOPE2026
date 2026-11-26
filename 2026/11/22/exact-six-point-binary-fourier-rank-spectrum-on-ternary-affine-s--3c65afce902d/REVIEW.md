@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-The exact Fourier-zero equivalence is the cyclotomic identity for third roots of unity, and the rank is the number of surviving characters. All six-point supports span affine dimensions two through five. In dimension three, two independent finite-enumeration methods agree on all 296010 cases; the orbit method gives the ten representative classes with complete sizes. Dimension-four supports have precisely one affine dependence; the 106 possible projective relation vectors partition into five types, with balanced-label counts verified exactly. Dimension-five supports are affine simplices, giving 30 zeros out of 243 frequencies. Affine-span scaling and Gaussian-binomial flat enumeration prove the all-dimensional formulas. Local extreme cases and all population counts are covered.
+PASS
 
-## Originality
+The convolution is over C; the only rational relation on the three cube roots forces a Fourier zero precisely at phase counts (2,2,2). Restricting to the unique intrinsic affine r-flat has fibers of size 3^(d-r) on frequencies, so the normalized rank is unchanged; r is 2 through min(d,5). In a plane the complement triple is either a line, with rank 3, or noncollinear, with rank 7 (exactly one projective direction gives distinct phases to its three points). The independent integer sweep of all 296010 subsets in ambient dimension 3 verifies the rank-to-count table 9:468, 15:10530, 21:78624, 23:113724, 25:75816, 27:16848; separate affine row reduction gives planar counts 468 at rank 9 and 2808 at rank 21. In dimension 4 the unique projective affine relation cuts out the phase words modulo a common translation. Its five signed support patterns have counts 20,45,30,1,10 with respectively 12,12,6,30,12 balanced words modulo translation: a triple of equal coefficients must see all three labels, the two-sign four-support pattern requires equal pair sums, and the five-support pattern identifies the label at the omitted coordinate with that at the minority sign. For six-support patterns the condition is automatic for equal coefficients and reduces to a distinct-label triple for three entries of each sign. The 106 relation vectors account for disjoint labeled realizations, each with 3^4|GL_4(3)| choices; division by 6! is legitimate after summing labeled patterns. For an affine simplex all 243 relative phase words occur, of which 30 are balanced. Multiplication by the numbers of intrinsic flats proves the stratum counts and their binomial sum for all d, the 2/6/7/8 thresholds and the planar rigidity; no sampling extrapolation is used.
 
-The closest general antecedent is Meshulam's uncertainty inequality (arXiv:math/0312407, 2003), which controls the minimum Fourier support for general signals but does not classify six-point ternary indicator masks or their counts. Kiss and Somlai's *Special directions on the finite affine plane* (arXiv:2109.13992) covers planar equidistribution phenomena and makes the two-dimensional component non-original by itself. That planar work does not imply the new higher-dimensional rank strata, ten-orbit three-space census, affine-relation counts, or the dimension-uniform multiplicity formula. Searches of published mathematical records for six-point ternary indicator Fourier support and affine hyperplane balance revealed related four-point and binary-space results but no identical six-point theorem. Residual priority risk: an unindexed equivalent calculation may exist.
+## originality
 
-## Value
+PASS
 
-The exact six-point indicator problem is a canonical smallest nontrivial fixed-weight ternary Fourier-recovery question: all masks have six active sampling locations but may recover from one-third to all character directions. The result is a complete classification in every ambient dimension, not a single arbitrary small instance. It gives rigid minimum-rank geometry, quantifies every possible rank deficiency, and exact counts of masks at each deficiency level. It sharply separates the behavior of rank-two, three-, four-, and five-dimensional affine support geometries. No unproved downstream theorem is invoked.
+The planar component is elementary and anticipated by planar direction results. The distinct claim is the complete higher-dimensional indicator rank spectrum and its multiplicity formulas by intrinsic affine dimension, including the universal lower bound and identification of all possible equality supports. No examined prior statement supplies or implies that complete claim.
 
-## Scientific limits
+## value
 
-Only indicator coefficients equal to one are treated. Frequency magnitudes and conditioning are not classified. The three-dimensional census is computer-assisted but exact and fully reproducible. Independent validation and unrestricted novelty certification are not claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+After size three, six is the next support size at which a ternary unit indicator can have a Fourier zero. The complete spectrum quantifies missing character directions and the counts distinguish sporadic and abundant deficiencies across affine dimensions; for instance full rank comes from intrinsic dimension three, not from the affine simplex. Those data and the exact minimizer geometry are useful in analyzing fixed-weight convolution masks and are not an arbitrary cut of a numerical table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

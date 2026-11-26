@@ -1,11 +1,21 @@
-# Scientific review: bfloat16 logistic basin inversion
+# Independent mathematical audit
 
-**Correctness — PASS.** The claimed maps use explicitly defined bfloat16 encodings, exact rounding operators, domain and tie semantics. The integer grid formula derives every representable state from its exponent and significand. Every one of the 16,257 successors of each map is computed by exact integer comparisons, and both complete functional graphs are classified by following each successor to a cycle. Independent exact `Fraction` distance calculations agree on every successor; a separate indegree-peeling and reverse-propagation procedure independently reproduces the complete four-cell basin-intersection table. The decoded `verify.py` in this package executed successfully. The result is a finite exact census, not a proof about continuous chaos.
+## correctness
 
-**Originality — PASS within inspected evidence.** Klöwer et al.'s full 2023 open-access logistic/bfloat16 sections provide numerical bifurcation data but no exhaustive one-round versus subtraction-rounded bfloat16 graph or basin table. Their first public manuscript is dated 2022-11-08 and supplies the earlier low-precision motivation. Sayed et al. (2017) analyze fixed-point digital logistic formats and operation order, rather than this bfloat16 nearest-even map. The 2011 Miyazaki et al. integer-rounding article was checked at abstract level only and is a residual priority risk. The closest published full mathematical records classify IEEE binary16 (different exponent/fraction allocation), and a stochastic *uniform-grid* logistic Markov chain; neither gives these graphs by implication. An unindexed bfloat16 graph enumeration remains possible and independent publication-priority review is needed.
+PASS
 
-**Value — PASS.** The motivating 2023 paper explicitly highlights poor bfloat16 logistic bifurcation fidelity. The exact 16,257-state census gives a reproducible full-population benchmark for two naturally distinct evaluation trees, rather than a sampled orbit list. Most importantly, only 275 changed one-step edges divert 10,423 encoded starting states from a primitive eleven-cycle to zero and replace the nontrivial period by four. The concentrated edge perturbation and drastic basin inversion are not consequences of the broad observation that finite rounding changes cycles. This supplies a specific, meaningful diagnostic for low-precision nonlinear dynamics, without asserting a general physical-accuracy theorem.
+In units of the least positive subnormal with U=2^133, an input scaled integer v gives the exact scaled arguments 4v(U-v)/U and 4v R_scaled(U-v)/U. My independent replay rounds by exact quotient/remainder on the exponent-local spacing, tests all adjacent bfloat16 midpoints through 256, evaluates both successors for every code 0x0000–0x3f80, asserts closure, and classifies every start by a separate Floyd orbit walk. It reproduces the representatives 0000, 3f40, 3dbc (periods 1,1,11) and 0000, 3f40, 3e8d (periods 1,1,4); all basin counts; depths 81 and 99 and depth sums 623656 and 773744; and both stated SHA-256 digests with unsigned little-endian two-byte successors. Exactly 275 successors differ; the four nonempty cross-basin cells have counts 4374 (zero to zero), 65 (3/4 to 3/4), 10423 (11-cycle to zero), and 1395 (11-cycle to 4-cycle). No negative zero or extra hidden rounding is used.
 
-**Closest literature and limits.** Klöwer et al. (2022 preprint/2023 published), Sayed et al. (2017), Miyazaki et al. (2011 abstract), the two public binary16 complete logistic graph results (2026), and a uniform-grid stochastic logistic census (2026) were compared by exact state space, rounding semantics and implied dynamics. The study does not classify arbitrary compiler execution, other numbers, other parameters or uniform real-initial conditions. Earlier identical unpublished calculations are a priority risk. Independent review is outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Prior bfloat16 logistic collapse and evaluation-order sensitivity are known. The distinct result supported here is the exact pair of specified finite graphs and their full cross-basin transfer, not discovery of these general phenomena or of the map itself.
+
+## value
+
+PASS
+
+Parameter four is the canonical fully developed logistic example; bfloat16 and rounding a subtraction are independently motivated choices. The information added is not simply an alternative period list. On a shared state set, an exact comparison shows that changing only 275 one-step edges sends 10423 initial encodings from a long nonfixed basin to zero, while preserving the 65-code fixed-point basin. This quantifies the amplification of a specific local arithmetic choice and supplies a reproducible benchmark a numerical-dynamics researcher can use.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

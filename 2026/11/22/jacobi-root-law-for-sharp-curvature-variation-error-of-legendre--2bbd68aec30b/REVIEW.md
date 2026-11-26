@@ -1,15 +1,21 @@
-# Review: Jacobi-root law for sharp curvature-variation error of Legendre projections
+# Independent mathematical audit
 
-## Correctness — PASS
-The function class is the real space of absolutely continuous functions whose first derivative has finite ordinary distributional variation on \((0,1)\), modulo affine functions. The exact signed-measure hinge representation reduces the infinite-dimensional sharp norm to a compact one-parameter maximum without loss. Equality in the Hilbert-valued variation triangle inequality is rigid because distinct hinges have distinct Dirac singularities after applying two distributional derivatives. Legendre orthogonality proves the coefficient-residual formula. The all-degree derivative factorization follows by induction from a Jacobi contiguous identity proved independently using weighted orthogonality and leading coefficients. Standard Jacobi zero interlacing proves that the candidate knots are precisely the stated finite root set. Exact polynomial comparisons establish every global claim at degrees one, two and three. The standalone symbolic checker passed 126 tests for degrees through ten; the infinite-degree claim is proved analytically, not inferred from tests.
+## correctness
 
-## Originality — PASS, with historical-priority risk
-The closest full primary text inspected was Liu–Wang–Wu (arXiv:2006.00667), which treats Legendre projections of interior hinges and bounded-variation derivatives (including finite-degree coefficient estimates). Its Theorem 3.4 is a general \(L^2\) *bound*, not the sharp operator norm optimized across arbitrary curvature measures and knot positions; it does not state the Jacobi-product derivative identity or the first-three-degree global knot classification. Wang–Xiang (DOI 10.1090/S0025-5718-2011-02549-4) concerns coefficient decay and uniform error; Xiang (arXiv:1411.7746) treats interpolation rather than orthogonal projection. Related indexed results for BV first derivatives, Legendre BV residuals, polynomial projection total-variation gain and Volterra spectral norms have different objects or norms and do not imply this claim without new proof. The complete full text of every historical source was not examined, so an earlier equivalent cannot be excluded.
+PASS
 
-## Value — PASS
-Sharp \(L^2\) spectral approximation on the natural curvature-variation ball is a canonical operator error invariant: it quantifies approximation of piecewise-linear functions with corners. The Jacobi-product identity converts an infinite-dimensional optimization into an explicit set of exactly \(2n-1\) algebraic candidates for *every degree*, including all equality shapes. The strict local parity flip and exact displaced degree-two optimum demonstrate that worst-case corner placement is not universally central. This is a structural sharp-norm theorem, not an unmotivated isolated numerical calculation.
+Integrating the interior measure D²f twice gives a hinge integral modulo an affine function. The affine part is reproduced for n≥1. The triangle inequality gives the upper norm bound and a hinge at a maximizing interior knot attains it (the endpoint residuals are zero, whereas each interior residual is nonzero). In equality, pairing the signed residual integral with its own unit direction forces almost every signed residual to be the same maximal vector. Their second distributional derivatives have atoms at their respective knots and otherwise are smooth, so this is possible only for a single knot. For the factorization, write a=t(1−t), J_j=P_j^{(1,1)}(2t−1). The shifted Legendre differential equation gives c_j′=−aJ_{j−1}/j; the weighted Jacobi equation integrated from 1 gives c_j=a²P_{j−2}^{(2,2)}(2t−1)/(j(j−1)) for j≥2. The difference J_{j−2}/(j−1)−J_j/(j+1) vanishes at both endpoints; its quotient by 1−z² is orthogonal with weight (1−z²)² to degrees ≤j−3 and leading coefficients give the stated connection constant. This proves that the difference between successive proposed derivatives equals −2(2j+1)c_jc_j′; the degree-one base is a³/3. Jacobi interlacing supplies exactly 2n−1 simple interior stationary points, and parity and positive leading coefficients give the stated strict midpoint signs. The degree-two maximizing a is 1/5, while the degree-three candidates a=1/7, 1/5, 1/4 give 1/7203, 1/9375, 1/3072, respectively; degree one peaks at a=1/4. These verify both constants and knot sets. The frozen SymPy checker was inspected, not executed; its reported finite identities are not the all-degree proof.
 
-## Scope and limitations
-No all-degree global winner selection beyond evaluation of the finite root set is established, and no extension to other weights, other input seminorms or independent verification is claimed. A historically inaccessible or unindexed equivalent remains the principal priority risk; the analytic proof itself does not rely on an inaccessible paper.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The strongest open prior work supplies exact Legendre coefficient representations and general error bounds, including input from which the hinge coefficients can be obtained. The supported distinct claim is the exact curvature-variation projection norm via the explicit all-degree Jacobi stationary law and its knot classification, not the general hinge reduction or Jacobi coefficients alone.
+
+## value
+
+PASS
+
+The sharp norm over a natural variation ball is reduced to a finite exact list for every degree, rather than a bound or a search over all knots. The equality rigidity and the first three global cases show why selecting a knot matters; already at degree two, the midpoint is not worst. This is useful independently of any new global classification of the maximizing roots.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Scientific review: heterogeneous Dirichlet majorization-join extremes
+# Independent mathematical audit
 
-## Correctness — PASS
-The asserted fixed-dimensional limit follows from four independently inspectable steps: Beta aggregation of a Dirichlet coordinate subset; elimination of overlaps between distinct smallest-subset faces; a cross-rank small-ball exponent strictly greater than one; and a deterministic concavity argument using the strictly decreasing sequence of shape sums. Each hypothesis and quantifier appears in `RESULT.md`. The critical nonstandard cross-rank estimate is explicit: for ranks \(k<\ell\), coordinate sets \(K\) and \(J\setminus K\) are disjoint, the latter is nonempty, and their Dirichlet joint small-ball exponent is \(a_K/\gamma_\ell+a_{J\setminus K}/\gamma_k>1\). This proves the needed independence rather than relying on finite simulations. The separately replayed `check.py` verifies finite subset exponents, exact integer-Beta tail constants and controlled simulations, but is not an infinite proof. Boundary cases include \(d=2\), tied minimal shape parameters, and fractional positive parameters.
+## correctness
 
-## Originality — PASS against inspected evidence
-The October 2026 source by Hariharan–Krishnan–Deshpande defines majorization joins and proves Rényi-metric identities, but does not take random Dirichlet sample joins. Bisi–Cunden–Gramegna–Ligabò's November 2026 Theorem 4.12 proves the same type of joint limiting law **only for the uniform simplex**, i.e. all Dirichlet parameters equal to one; their Section 7.3 explicitly identifies more general Dirichlet laws as a different problem. The all-equal case is not claimed here as new. Their theorem cannot be specialized to a nonconstant parameter vector, whose componentwise minimum-face shapes differ. Hashorva (2014) handles weighted aggregate Dirichlet risks and related joint asymptotic independence, but does not construct a majorization join, evaluate the full heterogeneous sequence of lowest-subset shape sums, or prove the least-concave-majorant reduction. Corradini–Strokorb (2024) study stochastic orders of max-stable Dirichlet dependence families, not finite-sample join extrema. Relevant database records concern Dirichlet affine projections, covariance thresholds or other stochastic-majorization models without this statement.
+PASS
 
-Residual priority risk: another specialized Dirichlet extremal-order result could exist outside the inspected full texts and searchable records. Exhaustive priority certification is not claimed.
+For a fixed proper subset J, Gamma aggregation gives a Beta(a_J,A-a_J) sum; integrating its density from 0 to t yields t^{a_J} Gamma(A)/(Gamma(a_J+1)Gamma(A-a_J)) times 1+O(t) with no integrality restriction. The deficit is the minimum over J of the prescribed size. Distinct equal-size faces overlap only if the union sum is <=2t; that union has shape strictly larger than the least a_J, or is the full coordinate set and the event is impossible. Thus exactly the minimizing subsets contribute the first-order coefficient, including ties. With k<ell and thresholds x_k m^{-1/gamma_k}, x_ell m^{-1/gamma_ell}, any simultaneous witness J,K forces disjoint sums on K and on the nonempty J minus K. Integrating their aggregated joint Dirichlet density on the small rectangle yields O(m^{-a_K/gamma_ell-a_{J minus K}/gamma_k})=o(1/m); if their union is full the event is empty. This bounds all pair overlaps, so multiplying the per-sample complementary union probability over m independent draws gives the product survival function. The same calculation for every subcollection (or with thresholds zero in the other coordinates) gives joint weak convergence. Positive limiting variables imply each successive deficit ratio tends to zero in probability by tightness and boundedness away from zero in probability after rankwise scaling. Consequently successive slopes, asymptotic in probability to 1, Delta_1, ..., Delta_{d-1}, are strictly decreasing with high probability; this also treats d=2 with just the first and last slopes. On that event no concavification changes the join. Independently substituting (1,1,2,4) gives shapes (4,2,1), multiplicities (1,1,2) and constants (35,21,14).
 
-## Mathematical value — PASS
-Unequal Dirichlet concentrations are a natural model for heterogeneous compositions and probability vectors. A join of samples probes how much a common majorizing distribution must concentrate; its different prefix coordinates approach the vertex at different rates. The result supplies an exact simultaneous distribution for *all* those rates, displays how repeated minimal concentration parameters affect intensities, and proves that the lattice-specific concavity correction disappears despite dependent coordinates within each observation. This is more than a renamed one-dimensional Beta minimum or an arbitrary finite numerical invariant. The nonuniform case includes distinct powers, tie multiplicities and a cross-scale independence mechanism absent from a simple one-coordinate computation.
+## originality
 
-## Limitations and literature
-Only fixed positive parameters and fixed finite dimension are covered; no finite-sample error bounds or growing-dimension classification are asserted. One uniform-parameter specialization is published separately, and broader historical priority is not fully certain. The standard-library checks are supporting evidence, not independent validation.
+PASS
 
-References: https://arxiv.org/abs/2610.16687 ; https://arxiv.org/abs/2611.23612 ; https://doi.org/10.1016/j.jmva.2014.09.018 ; https://doi.org/10.1007/s10687-024-00486-0 .
+The independent rank limit and inactive join correction for uniform simplex samples are prior work. The supported distinct claim gives the heterogeneous shape exponents and tied-face intensities and establishes the joint law and join transfer under the resulting heterogeneous scales.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Unequal shape parameters are a natural model of heterogeneous compositions. A sharp joint law for all ranks of the least common upper bound quantifies concentration and distinguishes repeated from isolated minimum faces. The rank separation and exact high-probability join simplification explain why the result is stronger than a calculation for one Beta minimum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

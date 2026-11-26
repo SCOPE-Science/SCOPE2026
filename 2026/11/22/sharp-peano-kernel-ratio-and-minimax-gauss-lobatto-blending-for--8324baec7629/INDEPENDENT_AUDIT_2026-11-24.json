@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:06:38.303936Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On [0,1] I reconstructed the two Peano kernels using left hinges (t−x)_+^5/120, equivalent to the right hinges by degree-five exactness, and independently checked both rules’ twelve moment equalities. With a=(5−√15)/10 and b=(5−√5)/10, the first piece has A=t^6/720, D=t^5/1440. Write R=25−6√15, U=R+√5 and H=RD−UA. For H on the first piece the sign factor R−2Ua has a rational lower bound 860899/10^6. For the scaled kernels 720A,720D,720H on [a,b] the respective Bernstein-coefficient minima have positive rational lower bounds 2,9,7 divided by 10^6; on [b,1/2] the bounds are 249,610,76 divided by 10^6, with the last bound for 720H/(1−z)^2 where z=(t−b)/(1/2−b). Divisibility is exact. The independent reconstruction (python /workspace/branches/independent_peano.py, with SymPy) used rational radical enclosures; no uploaded script was executed. Reflection supplies the other half. At 1/2 the scaled kernels are R/1600 and U/1600; at the outer boundary A/D tends to zero. D is positive off the endpoints, so the gap vanishes only for f^(6) identically zero under the sign assumption. Continuous nonnegative sixth derivatives supported in shrinking interior neighborhoods approach both ratio extremes; negation preserves the ratio for the other sign. Hence the blend’s worst-case normalized error is max(|q|,|c*−q|), uniquely minimized at c*/2. With a fixed finite partition the signed gaps cannot cancel, and placing the bump inside one cell also proves composite sharpness. The signed brackets, not the normalized ratio, reverse for the nonpositive case.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The comparison theorem covers this rule pair and sign class but only yields 1/2. The optimization precedent concerns degree-three rules and 3-convex functions. The closest additional catalogue hit uses fifth-root endpoint-derivative rules and other constants."
+        ],
+        "reasoning": "Neither the weaker same-rule comparison nor other optimized rule pairs dominate the sharp sixth-order three-Gauss/four-Lobatto claim.",
+        "searches": [
+          "arXiv:1612.08086v1, n=3 specialization",
+          "DOI 10.1007/s00010-022-00868-4, Theorem 9",
+          "Resultary 4fd3a785d8d0"
+        ]
+      },
+      "checked_sources": [
+        "Frozen source and verification files",
+        "arXiv:1612.08086v1",
+        "arXiv:2601.16796v1",
+        "DOI 10.1007/s00010-022-00868-4",
+        "Resultary 4fd3a785d8d0"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Optimizing over the prior assured interval [0,1/2] yields the published q=1/4 certificate. To prove c*<1/2 and sharpness, the comparison of H with zero throughout the panels and equality of A/D at the midpoint are additional obligations; the weaker bound does not supply these. Summing same-signed gaps is routine once the new local bound holds."
+        ],
+        "reasoning": "Credit the prior proof concept and certificate, and count only the sharp domination and its consequences as supported distinct content.",
+        "searches": [
+          "arXiv:1612.08086v1 Eq. (10)",
+          "arXiv:2601.16796v1 Proposition 1 and Corollary 2",
+          "DOI 10.1007/s00010-022-00868-4 Theorem 9"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "0≤I−G≤L−I is equivalent to 0≤(I−G)/(L−G)≤1/2 for a positive gap. Sharp one-sign integral ratios are equivalent to the extreme pointwise Peano-kernel ratios by concentration."
+        ],
+        "reasoning": "The same ratio was already bounded in equivalent signed remainder language, but not by the claimed strict smaller sharp constant in the inspected result.",
+        "searches": [
+          "Resultary: Peano kernel domination and minimax 3-node Gauss/4-node Lobatto blending",
+          "arXiv:1612.08086v1 p. 3 Eq. (10)",
+          "arXiv:2601.16796v1 pp. 3–4 §3–4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matching all-parameter catalogue entry is the frozen target itself. The independently read closest same-rule source gives q=1/4 and a 1/4 gap bound, not q=c*/2. The additional certificate record is for a different pair with best-blend constant 1/(24√5)."
+        ],
+        "reasoning": "The actual numeric constants and rule parameters distinguish the prior results; catalogue absence alone is not novelty evidence.",
+        "searches": [
+          "Resultary: sixth-derivative-sign Gauss–Lobatto gap certificate and best blend",
+          "arXiv:2601.16796v1 §4 Corollary 2"
+        ]
+      },
+      "rationale": "The rule pair, comparison, gap certificate, and equal-panel use are established precedents. The new content supported by the comparison is the exact sharp kernel domination constant, with its nonpolynomial limiting extremizers and uniquely optimized coefficient for the same nodes; optimizing an already known ratio interval would by itself be routine.",
+      "residual_risks": [
+        "Bounded literature comparison, not a global claim of priority; the alternate endpoint-rule record was accessible only at statement level.",
+        "Same-day indexing establishes no priority order."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Weaker same-rule result",
+          "evidence": "0≤I−G≤L−I implies the ratio bound 1/2.",
+          "identifier_or_url": "https://arxiv.org/pdf/1612.08086v1",
+          "material_read": "p. 3, definitions and Eq. (10) with n=3",
+          "method": "Open preprint PDF",
+          "title": "Inequalities between remainders of quadratures",
+          "trigger": "Same degree, rules and sign class"
+        },
+        {
+          "assessment": "Directly covers same rule pair and earlier blend, not the exact minimax weight",
+          "evidence": "Q=3G/4+L/4, |I−Q|≤|L−G|/4; equal subdivisions in the composite discussion.",
+          "identifier_or_url": "https://arxiv.org/pdf/2601.16796v1",
+          "material_read": "p. 3, §3 Eq. (2) and Proposition 1; pp. 3–4 §4 Corollary 2 and composite construction",
+          "method": "Open preprint PDF",
+          "title": "Adaptive integration of 5-convex and 5-concave functions",
+          "trigger": "Closest exact rule pair and published gap certificate"
+        },
+        {
+          "assessment": "Methodological precedent for a different family",
+          "evidence": "Positive symmetric rules exact through degree three; 3-convex test functions.",
+          "identifier_or_url": "https://doi.org/10.1007/s00010-022-00868-4",
+          "material_read": "Abstract, §§1–2 including Theorem 9, pp. 627–628",
+          "method": "Lawfully accessible primary text",
+          "title": "On optimal inequalities between three-point quadratures",
+          "trigger": "Optimal quadrature combinations precedent"
+        },
+        {
+          "assessment": "Different rule pair and constants on the evidence seen",
+          "evidence": "Sharp width 1/(12√5) and error 1/(24√5) times the gap for fifth-root endpoint-derivative rules.",
+          "identifier_or_url": "4fd3a785d8d0",
+          "material_read": "Indexed mathematical summary; full mirror unavailable",
+          "method": "Resultary",
+          "title": "Sharp derivative-only certificates for the two fifth-root endpoint quadratures",
+          "trigger": "Closest distinct catalogue hit for sharp gap-based blend"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This sharp coefficient improves an existing a posteriori certificate for a standard, already implemented rule pair. The old q=1/4 weight genuinely has worst-case coefficient 1/4, approached at the small-ratio end. The minimax weight reduces it to about 0.22036, an 11.85% reduction with the same seven evaluations per panel, and identifies the precise limit of what that gap and the sign assumption can ensure among linear blends. No wall-clock speedup or floating-point guarantee follows.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

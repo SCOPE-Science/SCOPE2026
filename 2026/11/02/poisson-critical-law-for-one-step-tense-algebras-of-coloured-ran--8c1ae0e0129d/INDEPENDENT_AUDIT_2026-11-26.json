@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:32:17.424966Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–30 and 34–74",
+        "Frozen VERIFICATION.md and checker.py, inspected without execution; reported finite tests cover n≤3, not the limit",
+        "Independent proof reconstruction via the exact rectangular-block factorial moment, color-concentration tail and signature-fibre comparison"
+      ],
+      "rationale": "Conditioning on colors makes the q² ordered edge blocks independent. The zero-row and zero-column counts in C_a×C_b are X⁺_{ab} and X⁻_{ba}. Their conditional mixed factorial moment of orders r,s is (N_a)_r(N_b)_s(1−p_n)^(rN_b+sN_a−rs): exactly rs entries are selected both ways, also in diagonal blocks because loops are included. Uniformly for |N_c−n/q|≤n^(2/3), this tends to λ^(r+s); the complementary probability is exp(−Ω(n^(1/3))) and fixed factorial moments there are bounded by fixed powers of n. This proves the joint moment convergence to independent moment-determinate Poisson coordinates. Two different hole constraints at one vertex share at most a loop, so a union bound gives o(1) probability of any multiple-hole vertex. The tight total hole count and linearly large color classes give a hole-free representative of each color with high probability. The actual modal generator signature then has one default fibre per color and one additional fibre for each positive hole count. This yields the binomial excess law, and |B_1| converges in distribution to 2^(q+J), rather than having an exact finite-n binomial formula. With a hole-free representative in each color, closure of B_0 under the two union-preserving modalities is equivalent to no holes, giving exp(−2q e^(−t)). When |t_n|=o(log n), the total hole expectation is asymptotic to 2q e^(−t_n). It vanishes on the upper side. On the lower side an outgoing block count alone is conditionally binomial with diverging mean, while the total remains o_p(n), so at least one class splits with high probability. These claims concern the high-density window, not global monotonicity.",
+      "residual_risks": [
+        "No separate finite replay was required for the asymptotic proof. The law for full closure is only a saturation probability; it does not give the structure or distribution of B_∞ conditional on nonsaturation."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Penrose concerns fixed-degree Poisson limits, not Boolean modal signatures. Figallo–Sarmiento–Pezzini give join-preserving tense operations. Kiefer–McKay count neighbor-color multiplicities; the frozen model uses existential presence bits for both directions. The accessible Halpern–Kapron abstract states modal zero-one laws; its precise Section 4 statements and their erratum were not recovered in readable form."
+        ],
+        "reasoning": "The general tense axioms do not imply the random limits, and ordinary multiset refinement is not the first existential tense refinement. No inspected broader theorem implies the particular algebraic calculation. The inaccessible passages leave a source risk, not a negative finding.",
+        "searches": [
+          "arXiv:1507.07132, Theorem 2.1",
+          "arXiv:2610.01547v1, tense Boolean algebra definition",
+          "arXiv:2005.10182v1, color-refinement definition",
+          "Halpern–Kapron 1994 abstract and 2003 erratum"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary records 3c40796d6471, df83f464cdce, 0107f583e07a, 1c00a43bb824, df13150ad5d9, 4c6f84cc27e6 and 7794921470b6",
+        "arXiv:1507.07132 Theorem 2.1; arXiv:2610.01547v1 p. 2; arXiv:2005.10182v1 p. 4",
+        "Halpern–Kapron 1994 abstract; 2003 erratum entry and snippets only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The same zero-line defect counts feed a different algebra in 3c40796d6471, with worlds equal to matrix entries and a marked predicate on the cells; both accessibility relations are equivalences. In df83f464cdce, whole equivalence classes are the support samples and a type appearing can contribute multiple atoms. Here worlds are vertices, and the matrix entries define the relation, not a predicate on worlds."
+        ],
+        "reasoning": "The isolation vector transfers from the square result, but its counts alone do not encode whether different hole types affect the same anchor, whether a color class has a hole-free representative, or whether first refinement actually splits that class. The proof of these events and their link to exact closure give the distinct algebraic claim, not a parameter substitution into either previously computed algebra law.",
+        "searches": [
+          "Resultary 3c40796d6471, Finding and proof step 3, offsets 0–2232 and 5120–6652",
+          "Resultary df83f464cdce, Finding, offsets 0–1964",
+          "Frozen RESULT.md, lines 57–68"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "An inspected catalogue result proves joint independent Poisson limits for the two isolation counts in a square array at (log m+c)/m. The ordered block C_a×C_b here is a nearly square bipartite Bernoulli graph, with both independent sides even when a=b after making row/column copies.",
+          "Penrose Theorem 2.1 gives related fixed-degree Poisson limits in random-connection models."
+        ],
+        "reasoning": "With m=floor(n/q), the shift for the square array is c=t+log q+o(1). Missing or extra rows and columns against a common square coupling are O(n^(2/3)) on the color event. The probability that one is isolated is collectively O(n^(−1/3)); changing an isolated row or column's status via those added entries costs O(n^(−1/3) log n) in expectation. Thus the known pair law transfers; q² edge-disjoint blocks extend it to the joint vector. This identifies probabilistic coverage even without identical parameters.",
+        "searches": [
+          "Resultary: isolation-driven Poisson row/column laws and generated modal algebra cardinality; 3c40796d6471, proof step 3",
+          "arXiv:1507.07132, fixed-degree counts"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The epistemic grid has limiting algebra cardinalities 4, 8 and 32; the same-day non-contingency result has support-class occupancy counts and a weighted shifted binomial law. The inspected separation result studies injectivity for a growing palette, commutation uses common neighbors in another density window, and orientation-profile findings use tournaments or successor permutations."
+        ],
+        "reasoning": "These exact laws and cutoffs were compared as mathematical statements, not excluded by title or date. None gives the first-refinement binomial on 2q² hole types or the stated directed tense saturation law.",
+        "searches": [
+          "Resultary: probabilistic tense saturation and Poisson–binomial algebra sizes; 3c40796d6471 and df83f464cdce",
+          "Resultary: directed modal separation, commutation and orientation defects; 0107f583e07a, 1c00a43bb824, df13150ad5d9 and 4c6f84cc27e6"
+        ]
+      },
+      "rationale": "The square Bernoulli zero-row/zero-column joint Poisson law is already explicit in Resultary 3c40796d6471. Conditioning on colors, perturbing the dimensions negligibly from a square, and taking independent blocks give the probabilistic vector by a direct known-law reduction, so it is not credited as a standalone novelty. The supported distinct claim is the directed two-way tense-algebra application: the all-hole-type signature-fibre mechanism, exact critical first-step atom distribution, and resulting full-saturation window for fixed color palettes. The closest inspected modal results have different underlying worlds and different type-count mechanisms or limits.",
+      "residual_risks": [
+        "Unread precise passages in Halpern–Kapron remain an adjacent literature risk; no whole-paper claim is made. Equivalent sparse logical extension-axiom or random-algebra formulations may be unindexed. The square isolation law is verified covered regardless of those gaps."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact base probabilistic result; not the directed tense-algebra results",
+          "evidence": "The factorial moments (m)_r(m)_s(1−ρ)^(m(r+s)−rs) tend to Poisson mixed moments. Matrix cells are the worlds, and the row and column equivalence modalities give a three-point law on 4, 8 and 32 elements.",
+          "identifier_or_url": "2026/10/12/SCOPE-isolation-driven-three-point-law-for-random-finite-epistemic-gri--3c40796d6471",
+          "material_read": "RESULT.md Finding, offsets 0–2232; proof step 3, offsets 5120–6652",
+          "method": "Local Resultary mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Isolation-driven three-point law for random finite epistemic grids",
+          "trigger": "Strongest overlap: identical squared-block isolation limit and modal use"
+        },
+        {
+          "assessment": "Material analogue, different probability model and invariant calculation",
+          "evidence": "Atoms are counted by |S| for each realized equivalence-class color support S; no directed blocks or tense closure.",
+          "identifier_or_url": "2026/11/2/SCOPE-multicritical-poisson-binomial-laws-for-finite-non-contingency-a--df83f464cdce",
+          "material_read": "RESULT.md Finding, offsets 0–1964",
+          "method": "Local Resultary mirror",
+          "title": "Multicritical Poisson–binomial laws for finite non-contingency algebras",
+          "trigger": "Same-day Poisson–binomial atom law for q=2^k"
+        },
+        {
+          "assessment": "Related Poisson degree law; the strongest exact base-case match is the square array above",
+          "evidence": "Poisson limits for fixed-degree counts in specified random-connection models.",
+          "identifier_or_url": "https://arxiv.org/abs/1507.07132",
+          "material_read": "Theorem 2.1 p. 4, OA offset 10000",
+          "method": "Bounded primary OA PDF inspection",
+          "title": "Inhomogeneous random graphs, isolated vertices, and Poisson approximation",
+          "trigger": "Potential general theorem for the probabilistic vector"
+        },
+        {
+          "assessment": "Defines the setting, not a sparse random model",
+          "evidence": "Conjugate, join-preserving tense operators and their duals.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.01547v1",
+          "material_read": "p. 2, OA offset 6300, definitions",
+          "method": "Bounded primary OA PDF inspection",
+          "title": "Tense Logic via Truth Degrees: An Algebraic Completeness Result for Kashima's Calculus",
+          "trigger": "Tense Boolean algebra setting"
+        },
+        {
+          "assessment": "Uses a different neighbor statistic",
+          "evidence": "Refinement retains the previous color and the multiset of neighbors' colors, not only existential bits.",
+          "identifier_or_url": "https://arxiv.org/abs/2005.10182v1",
+          "material_read": "p. 4, OA offset 15000, definition",
+          "method": "Bounded primary OA PDF inspection",
+          "title": "The Iteration Number of Colour Refinement",
+          "trigger": "Potential equivalent first-refinement law"
+        },
+        {
+          "assessment": "Partial access; no whole-paper noncoverage inference",
+          "evidence": "The abstract describes modal 0–1 laws; the frozen proof does not rely on the cited frame-validity result.",
+          "identifier_or_url": "https://www.cs.cornell.edu/info/people/halpern/papers/0-1law_modal_logic.pdf",
+          "material_read": "Accessible abstract; bibliographic entry and available erratum snippets. Neither the relevant §4 statements nor the precise correction were readable in the retrieved material.",
+          "method": "Lawful author PDF and publisher access attempts; extraction garbled and publisher page returned 403",
+          "title": "Zero-One Laws for Modal Logic and its erratum",
+          "trigger": "Plausible prior random modal reduction and saturation result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 11–21 and 57–68",
+        "Resultary 3c40796d6471 and df83f464cdce for the distinct prior algebra laws"
+      ],
+      "rationale": "For a fixed palette, the law quantifies how much one application of the two tense operations enlarges the generated Boolean algebra and identifies the threshold for no enlargement at any depth. The nondegenerate explicit atom law uses the number of realized defect types rather than the number of defective vertices. The contrast is useful in the random algebra setting; multiplication of known block Poisson laws alone would not justify a value pass.",
+      "residual_risks": [
+        "Fixed q, independent ordered edges with loops, and the high-density window only. Does not characterize the growth of deeper refinement upon nonsaturation."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,153 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:18:46.495910Z",
+  "axes": {
+    "correctness": {
+      "rationale": "If both members of a position are omitted, every possible original witness for its duplicate also sees the omitted original; hence only three omission symbols are needed. A neighboring original witness must itself be selected and see no omission at its other neighboring position; a duplicate witness works only for an original omission and must see no other original omission. These are exactly the two clauses in the radius-two rule, including nonexisting path positions. The cyclic wrap for n=4 remains valid. The independent reconstruction reproduced the displayed potential, all 178 arcs on 81 states, all 90 tight arcs, three simple tight cycles of length eight, and boundary state counts 46 each with maxima −2 and 4. Summing 4w−3≤Δh around a cyclic walk gives the 3n/4 omission bound. Equality forces the entire walk to be tight; decomposition into the checked simple cycles requires an order divisible by eight. For the path, the initial four positions contribute explicitly, and the boundary maxima yield floor((3n+2)/4). Direct graph-level enumeration of 174,672 omission subsets for paths of orders 2–8 and cycles 4–8 confirms the small cases and the four-omission maximum for P6. All 14 path and 8 cycle seeds and the necessary eight-step returns were checked. Inserting at a shared four-symbol state adds six omissions in eight positions while preserving all local constraints and endpoints; induction on each residue class, not the finite sample through order 64, proves attainment for arbitrary orders. Replay: cd /workspace/branches/9c41858f-5640-4e3c-9db1-d616e01b6608 && python3 reproduce_split_certificate.py --full (output certificate_reproduction.log). The frozen verifier was inspected, not run; no claim extends to C3 or arbitrary factors.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Corollary 3.4 excludes H=K1; §7(a) asks for that case, giving γ_sp(G⋆K1)≤γ_sp(G)+|V(G)|.",
+          "The 2026 paper concerns maximum cardinality of an inclusion-minimal super dominating set, including on bare paths and cycles."
+        ],
+        "reasoning": "The general upper bound supplies neither the matching lower bound nor these exact values and periodic corrections; the upper invariant on bare base graphs differs in graph and objective.",
+        "searches": [
+          "arXiv:2209.01795v1, Corollary 3.4 and §7(a)",
+          "arXiv:2611.23464v1, pp. 2, 3, 7"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verifier structure",
+        "arXiv:2209.01795v1",
+        "arXiv:2611.23464v1",
+        "Vaidya–Kothari DOI 10.1155/2013/795427, limited access",
+        "Resultary 5a93dfe1022b, 16bec2bc3654, 43238c264b1d, 6a92bd2ea251"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior product formula specifically omits the singleton factor. The cycle-period and corona near-matches respectively change the invariant and the product."
+        ],
+        "reasoning": "There is no supported specialization of the prior equalities to this factor. The checked obstruction that a tight closed walk has length divisible by eight is a new constraint for these splitting cycles on the inspected evidence, not inherited from a bare-cycle period or product bound.",
+        "searches": [
+          "arXiv:2209.01795v1, pp. 9 and 25",
+          "Resultary 16bec2bc3654 and 6a92bd2ea251"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The singleton neighbor-corona definition agrees exactly with the splitting graph: the new vertex is adjacent to original neighbors of its parent, not to its parent.",
+          "The leaf-corona record instead treats private leaves; the Vaidya–Kothari cited title concerns domination integrity on the same families, but full text was inaccessible."
+        ],
+        "reasoning": "The first alias is equivalent and was compared; the ordinary corona is not interchangeable. Ordinary domination or domination integrity alone does not constrain unique external witnesses as required here. No assertion about unseen full text is made.",
+        "searches": [
+          "arXiv:2209.01795v1, neighborhood-corona definition and §7(a)",
+          "Resultary 6a92bd2ea251 (leaf coronas and sunlets)",
+          "Vaidya–Kothari DOI 10.1155/2013/795427 (splitting graph of path and cycle)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The path and cycle records address Γ_sp on bare graphs (e.g. floor(5n/7) on paths and a period-seven law on cycles). The same-day 43238c264b1d concerns ordinary domination polynomials of cycle powers."
+        ],
+        "reasoning": "Neither an upper-invariant table on bare graphs nor domination-polynomial coefficients on cycle powers are exact tables of the minimum witness invariant on splitting graphs. The reported finite reproduction is for correctness and does not establish originality.",
+        "searches": [
+          "Resultary 5a93dfe1022b, 16bec2bc3654, 43238c264b1d",
+          "arXiv:2611.23464v1, path table p. 3"
+        ]
+      },
+      "rationale": "The exact minima on splitting paths and cycles, with the isolated P6 exception and the mod-eight cycle obstruction, survive the bounded statement-level comparison. The strongest directly relevant prior bound explicitly leaves the neighborhood corona with K1 open in general. Bare-base and ordinary-corona findings concern different graphs or different optimization objectives. This is not an assertion of global priority.",
+      "residual_risks": [
+        "Full text of the 2013 same-family domination-integrity paper was not obtainable; its detailed scope is unverified.",
+        "The prior paper establishes that its own method leaves K1 open, not that no subsequent or unindexed source has treated these two families."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Open-case attribution verified; prior gives general upper bound, not the exact splitting path/cycle values",
+          "evidence": [
+            "Defines neighborhood corona; states the exclusion and asks for γ_sp(G⋆K1)"
+          ],
+          "identifier_or_url": "arXiv:2209.01795v1",
+          "material_read": "§1 pp. 1–2 offsets 4000–6536; p. 9 Corollary 3.4 offset 26357; p. 25 §7(a) offset 106903",
+          "method": "Targeted OA PDF passage reading",
+          "title": "Super Domination: Graph Classes, Products and Enumeration",
+          "trigger": "Exact graph alias and stated open singleton-factor case"
+        },
+        {
+          "assessment": "Unresolved full-text coverage risk; cited problem is domination integrity",
+          "evidence": [
+            "Title names domination integrity, not a proved super-domination formula"
+          ],
+          "identifier_or_url": "https://doi.org/10.1155/2013/795427",
+          "material_read": "Citation and title; DOI and publisher PDF attempts returned HTTP 403, no accessible full text identified",
+          "method": "Lawful OA attempts at DOI and publisher PDF",
+          "title": "Domination Integrity of Splitting Graph of Path and Cycle",
+          "trigger": "Same splitting graph families"
+        },
+        {
+          "assessment": "Different invariant (maximum over inclusion-minimal sets) and bare graphs",
+          "evidence": [
+            "Defines Γ_sp and compares Γ_sp(C_n) with Γ_sp(P_n)"
+          ],
+          "identifier_or_url": "arXiv:2611.23464v1",
+          "material_read": "Definition p. 2, bare-path table p. 3, cycle comparison p. 7",
+          "method": "Targeted OA PDF passage reading",
+          "title": "Minimal super dominating sets of maximum cardinality",
+          "trigger": "Related paths and cycles and super domination"
+        },
+        {
+          "assessment": "Different invariant and graph",
+          "evidence": [
+            "Γ_sp(P_n)=floor(5n/7) for bare paths"
+          ],
+          "identifier_or_url": "Resultary 5a93dfe1022b",
+          "material_read": "Indexed matching finding on the objective and formula",
+          "method": "Local Resultary lookup and statement comparison",
+          "title": "Exact upper super domination number of every path via a finite local analysis",
+          "trigger": "Nearby exact path law and P6 value"
+        },
+        {
+          "assessment": "Different invariant and graph",
+          "evidence": [
+            "Period-seven maximum-size inclusion-minimal result on bare cycles"
+          ],
+          "identifier_or_url": "Resultary 16bec2bc3654",
+          "material_read": "Indexed matching finding on graph, objective and period",
+          "method": "Local Resultary lookup and statement comparison",
+          "title": "Inclusion-minimal super domination on cycles: a five-gap census",
+          "trigger": "Nearby periodic cycle law"
+        },
+        {
+          "assessment": "Ordinary corona, not the neighborhood corona",
+          "evidence": [
+            "The new vertex is a private leaf attached to its parent"
+          ],
+          "identifier_or_url": "Resultary 6a92bd2ea251",
+          "material_read": "Indexed matching finding on leaf attachment and sunlets",
+          "method": "Local Resultary lookup and statement comparison",
+          "title": "Inclusion-minimal super domination of leaf coronas",
+          "trigger": "Potential corona alias"
+        },
+        {
+          "assessment": "Different graph and domination invariant; date was not used to decide coverage",
+          "evidence": [
+            "Ordinary domination polynomials of cycle powers"
+          ],
+          "identifier_or_url": "Resultary 43238c264b1d",
+          "material_read": "Indexed finding on invariant and graph family",
+          "method": "Local Resultary lookup and statement comparison",
+          "title": "Ultra-log-concavity of dense cyclic block transversals and cycle-power domination",
+          "trigger": "Same-date cycle domination and exact enumeration near-match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Paths and cycles are canonical inputs for the explicitly excluded singleton neighborhood-corona case. The exact laws, not just a few small values, identify where the density bound is unattainable: a genuine period-eight obstruction for the cycle and a separate small-order exception for the path. The finite potential and splice argument explain the effect and close both infinite families.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

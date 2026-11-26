@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:24:44.758214Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–60; verify.py inspected, not executed; frozen verification_output.txt lines 1–8 and VERIFICATION.md",
+        "/workspace/branches/2cd9817d-72cb-47a6-bce3-0baf2f7fc6a5/record2-replay.md lines 3–30 (independent exact enumeration and direct singleton-filter checks over all 85 shapes)"
+      ],
+      "rationale": "For named parameters in the homogeneous strict poset, every complete nonalgebraic singleton type is determined by its lower ideal L and upper filter U. Disjointness and strict comparability L<U are necessary and, with ideal/filter closure, sufficient for transitivity of the one-point extension. The coefficient of v comes only from singleton filters, exactly the maximal elements (leaves). For a leaf at depth k, its strict ancestors form a k-element chain and the eligible L are precisely its k+1 initial segments, including the empty ideal. This gives one contribution at each d from 0 through k and proves the full extraction formula, the adjacent-difference formula and the leaf-depth sum, including the root-only tree. Setting v=0 leaves the exact ideal-size enumerator; conditioning on inclusion of the root gives I_T=1+u times the product of the child polynomials (i.e. 1+u∏ I_child). Exact grouping of complete nonplane child-multiset enumerations gave 1,1,2,4,9,20,48 shapes and one size-seven doubleton, with no earlier collision. The witness coefficient lists match; their v-linear rows are 3+3u+2u²+u³+u⁴ and 3+3u+3u²+2u³. The ideal polynomial has degree equal to the number of vertices, so different sizes cannot collide.",
+      "residual_risks": [
+        "Minimal collision claims are only through size seven; the all-size leaf-depth identity is symbolic and does not assert complete reconstruction by the bivariate invariant."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wild is cited for general fixed-cardinality ideal enumeration. The accessible Misanantenaina–Wagner search excerpt describes a trivariate polynomial with deletion-contraction and a maximal-antichain expansion, generalizing Liu. The e2121450dd04 index reports full E injectivity through seven; 698050a8acf9 concerns full E for height-two tree-cover posets."
+        ],
+        "reasoning": "Generic enumeration supplies the ability to compute but not the exact first equality class. Full E injectivity implies inequalities in some mixed coefficient for any equal-marginal pair of that size, but not that the v-linear row counts leaf depths or the identity of the first marginal pair. A tree-distinguishing refinement does not imply its specialization remains distinguishing.",
+        "searches": [
+          "Primary search: rooted tree order-ideal rank polynomial collision first seven vertices ideal polynomial rooted trees",
+          "Resultary: graded one-point type polynomial finite posets ideals filters exact census collision reconstruction",
+          "Wild arXiv:1208.2180 §§1,6; Misanantenaina–Wagner arXiv:1803.09623 §§1,2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 62–73",
+        "Resultary indices and primary-source searches/extracts above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Poset one-point type classification, ideal-size enumeration and tree-polynomial constructions predate the finding. The current leaf-depth formula uses singleton upper filters and chain-shaped strict lower intervals at leaves."
+        ],
+        "reasoning": "The extraction is an elementary specialization of extension conditions, not a new extension theorem. Its all-tree identification of a concrete statistic and its use to separate the unique first marginal obstruction are the contribution; the indexed equal-size rank cutoff and the full-type cutoff do not establish them.",
+        "searches": [
+          "Frozen RESULT.md lines 62–73",
+          "Resultary indexed 23601d3f3c1e, e2121450dd04, 698050a8acf9",
+          "Primary local subtree polynomial query recorded above"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Every nonempty rooted-tree ideal is a connected vertex set containing the root, and conversely. Thus the local/root-containing subtree polynomial is exactly I_T−1 with the same size grading. The global all-subtree polynomial counts subtrees not necessarily through the root.",
+          "An antichain-size enumerator is different: on a three-vertex chain it is 1+3u rather than 1+u+u²+u³. The usual ideal enumerators satisfy I_(P dual)(u)=u^|P| I_P(1/u)."
+        ],
+        "reasoning": "An exact minimal collision theorem for the local subtree-size polynomial would cover the marginal collision. A theorem about the global polynomial, antichain cardinality, or all order duals does not directly do so; branching rooted-tree duals generally have several minimal elements. No such local collision statement was verified.",
+        "searches": [
+          "Resultary: rooted-tree ideal-rank polynomial first collision seven vertices leaf depths",
+          "Resultary: rooted tree ideal rank polynomial antichain polynomial cutset polynomial duality order ideals",
+          "Primary search: rooted subtree polynomial connected subtrees containing root number vertices coefficient nonisomorphic rooted trees same local subtree polynomial seven collision Liu Wagner"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact hit bbe2a0cb8dd5 was the assignment itself. Distinct same-day 23601d3f3c1e is indexed as a seven-point rank-polynomial cutoff with six colliding pairs among 2045 seven-element posets. The index does not give a polynomial definition or a rooted-tree marginal table."
+        ],
+        "reasoning": "If its reported first general-poset collision is at seven, its rank cannot be simply I_P as defined here: already at size four the disjoint union of a 3-chain and a singleton and the poset with strict relations a<c, b<c, b<d both have ideal polynomial 1+2u+2u²+2u³+u⁴. A full table of the bivariate data could nevertheless give the rooted-tree finite collision by filtering; such a table was not established from the accessible statements.",
+        "searches": [
+          "Resultary: rooted-tree ideal-rank polynomial first collision seven vertices leaf depths",
+          "Resultary: graded one-point type polynomial finite posets ideals filters exact census collision reconstruction",
+          "Exact Finding mirror request for 23601d3f3c1e"
+        ]
+      },
+      "rationale": "The credited background is the ideal-rank invariant and its ordinary rooted subtree interpretation. The supported distinct contribution is the first, unique rooted-tree marginal collision together with a uniform interpretation of exactly which mixed row supplies the missing depth information. The known or indexed general-poset comparisons do not in their available statements yield this joint claim.",
+      "residual_risks": [
+        "An inaccessible equivalent root-containing subtree table or a specialization/extraction from a richer full census could cover the finite collision. The accessible sources do not establish priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Cannot be the same ideal marginal if the indexed first collision is indeed at seven; coverage by an underlying table was not verified.",
+          "evidence": [
+            "Index reports six pairs at size seven; the explicit size-four ideal collision above rules out equivalence of the cutoff under direct identification of invariants."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-sharp-seven-point-failure-of-graded-singleton-type-reconstructio--23601d3f3c1e/RESULT.md",
+          "material_read": "Indexed summary only; exact Finding passage retrieval timed out.",
+          "method": "Local Resultary and bounded mirror passage request",
+          "title": "Sharp seven-point failure of graded singleton-type reconstruction",
+          "trigger": "Same numerical cutoff in the larger generic-poset domain"
+        },
+        {
+          "assessment": "Richer bivariate invariant, with different domain in the height-two result.",
+          "evidence": [
+            "Full E first collides at eight in the general domain and at ten in the reported height-two domain; neither index states an ideal-marginal classification."
+          ],
+          "identifier_or_url": "Resultary e2121450dd04; Resultary 698050a8acf9",
+          "material_read": "Indexed summaries",
+          "method": "Local Resultary",
+          "title": "Sharp eight-point collisions of graded one-point types in the generic poset; Sharp ten-vertex collisions of graded one-point types over height-two tree covers",
+          "trigger": "Stronger grading or a different family of tree-cover posets"
+        },
+        {
+          "assessment": "Established background and possible richer formulations. No full-text noncoverage claim.",
+          "evidence": [
+            "The Misanantenaina–Wagner abstract excerpt describes an expansion over maximal antichains and an extension of Liu's bivariate polynomial. The frozen text credits Wild for rank/Whitney enumeration."
+          ],
+          "identifier_or_url": "arXiv:1208.2180; arXiv:1803.09623; https://www.sciencedirect.com/science/article/pii/S0166218X20303851",
+          "material_read": "Frozen literature discussion and indexed abstracts/excerpts; requests for targeted primary passages timed out.",
+          "method": "Reference-bound OA requests; Resultary and primary search excerpts",
+          "title": "Output-polynomial enumeration of all fixed-cardinality ideals of a poset, respectively all fixed-cardinality subtrees of a tree; A Tutte-like polynomial for rooted trees and specific posets; A tree distinguishing polynomial",
+          "trigger": "Known ideal-rank and possible equivalent rooted-tree polynomial classifications"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–25 and 31–60; independent finite comparison in record2-replay.md"
+      ],
+      "rationale": "The result shows exactly when the natural ideal-size marginal first loses a standard branching statistic and gives a single graded row recovering that statistic at every order. The unique two-shape obstruction, its mixed coefficient separation and the leaf-depth/Sackin interpretation make the finite cutoff useful beyond an unmotivated small census.",
+      "residual_risks": [
+        "Recovering the leaf-depth distribution is strictly narrower than recovering general branching structure."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

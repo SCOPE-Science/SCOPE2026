@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,19 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-The exact Fourier-series calculation and the stationary-point Hessian in `RESULT.md` establish the theorem analytically. The following numerical programs test the formula in finite precision but do not certify universal quantifiers.
+## correctness
 
-Run with Python 3 plus SciPy and mpmath installed:
+PASS
 
-```
-python annular_opt_check.py
-python high_precision_bias.py
-```
+The angular probability normalization gives the stated squared evaluation norm. The paired Laurent series gives strict convexity, endpoint divergence, a strictly radially decreasing first t-derivative, and reflection. Independently recalculating the beta transform and its first harmonic gives the stated sine-phase correction to the objective and negative cosine-phase correction to the stationary mass. A relative bound uniform in t localizes the minimum, and the compact derivative bounds give the claimed remainders and sign reversals (with exact midpoint equality). In the thick regime, first-mode derivative sign brackets justify both the bounded-logistic-window estimate and the relative odds asymptotic when the optimizer approaches an endpoint.
 
-The first program passed 270 test assertions over annular thicknesses, radii, reflection symmetry, convex derivatives, and the two asymptotic limits. It numerically differentiates the paired Laurent series analytically term-by-term and solves the unique derivative zero by Brent's method. Truncation uses an exponential mode cutoff.
+## originality
 
-The second program uses high-precision mpmath and an independent differentiation/root scheme. At \(\alpha=0.2\), \(h=0.45\), the actual optimum displacement was approximately \(3.11472300957\times 10^{-9}\) against predicted \(3.11472352296\times10^{-9}\). At \(\alpha=0.35\), \(h=0.45\), the actual displacement was approximately \(-4.83396288989\times10^{-9}\) against predicted \(-4.83396372635\times10^{-9}\). Additional cases checked signs down to \(10^{-13}\).
+PASS
 
-**Limits of computation.** Finite-precision tests are not an infinite proof; near-zero phases produce tiny signed differences and need arbitrary precision. The formal error term in the thin-annulus formula is absolute, so near zeros of the cosine the leading term is not claimed as a relative approximation. No independent audit or validation has been performed.
+The weighted kernel and standard transform techniques are prior inputs. The supported distinct claim is the normalized fixed-total-mass optimum, in particular its signed beyond-all-orders thin-annulus correction and its thick logistic and fixed-alpha limits. The same-day Bergman result shares a Fourier scale and method, not this operator or optimizer.
+
+## value
+
+PASS
+
+The theorem determines a sharp allocation for a natural evaluation problem. The stationary mass is not harmonic measure: its discrepancy changes sign infinitely often beyond all algebraic orders, with an explicit phase and effect on the sharp value. The thick limits identify the scale where the minimizing mass changes between boundary components.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

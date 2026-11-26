@@ -1,19 +1,21 @@
-# Scientific review: low-character fourth moments on \(SU(3)\)
+# Independent mathematical audit
 
-## Correctness (C): PASS
+## correctness
 
-The proof specifies ordinary trace characters, normalized Haar measure and nonzero coefficient triples. Low tensor products give an exact expression for the fourth moment by character orthonormality. A separately implemented Laurent-tableau/Weyl-constant-term calculation verifies every coefficient of the six-variable moment polynomial, without sampling an infinite space. Nonnegative multiplicities justify phase alignment; strict monotonicity in the fundamental cross-product forces equal fundamental magnitudes. A unique positive cubic root controls the global one-variable optimum by a derivative sign argument. Equality congruences give exactly three projective phase classes. The analytic proof, not the numerical bisection, establishes the all-coefficients claim.
+PASS
 
-## Originality (O): PASS, best knowledge
+With ordinary characters and Haar probability, the six SU(3) tensor products and character orthogonality give the stated fourth-moment polynomial. In particular, the trivial and adjoint entries of F² are c²+2ab and 2c²+2ab, and the two pairs of overlapping entries are a²+2bc and b²+2ac. Taking moduli is an upper bound attained with positive phases. At fixed s=|a|²+|b|²>0 and z=|c|, the phase-aligned expression is strictly increasing in q=|ab| because 4q² is strictly increasing on the nonnegative interval and the other q-terms are nondecreasing. Therefore |a|=|b|>0. The adjoint-only edge gives 8, below the witness 316/36, and the z=0 edge after symmetrization gives 3. The one-variable derivative is −8(r³+6r²−12r−4)/(r²+2)³; a single sign change and the endpoint signs give the unique global maximum at the stated positive root. Triangle equality reduces, after removing arg c, to α+β≡0 and 3α≡0 modulo 2π. Hence the three projective phase classes, all attained, are exactly the stated center translates. The supplied script and its saved output were inspected, not executed, and are not treated as a formal or independent certificate.
 
-Primary full-text material in Martins–Suffak–de Guise (arXiv:1909.09055, sections 1, 2, 5.2 and Appendix C) describes tensor-coupling algorithms, not sharp nonlinear optimization over the character packet. Zhang (arXiv:2005.11451, Theorem 1.1 and introductory discussion) gives asymptotic eigenvalue-dependent bounds for irreducible characters, not this exact finite-packet constant. Jonnadula–Keating–Mezzadri (arXiv:2003.02620, Introduction and Section 2) develops symmetric-function ensemble moments, mainly for Hermitian ensembles. These frameworks do not imply the cubic optimizer and complete phase classification as a stated result. Searches for the trace-polynomial alias, the three Dynkin labels, sharp \(L^4\) constants and the numerical invariant uncovered no explicit prior equivalent. Absence of a match is not proof of priority; unindexed equivalent formulations remain possible.
+## originality
 
-## Mathematical value (V): PASS
+PASS
 
-The packet \(\chi_{(1,0)},\chi_{(0,1)},\chi_{(1,1)}\) is canonical: the defining representation, its dual, and their tensor-product adjoint. Its exact coefficient-optimized \(L^2\)-to-\(L^4\) norm quantifies concentration in a small nonabelian Fourier subspace. The theorem proves that including the adjoint genuinely changes the optimal mixture, gives an exact nontrivial algebraic constant, and completely classifies center-related phases. These are not consequences of knowing the individual norms or the tensor decompositions alone. It makes no claim of a general theorem for all groups.
+The strongest inspected exact catalogue result concerns the trivial, rather than adjoint, third character. It already gives center-related phases in rank three, but has a different subspace and different optimization. Standard coupling or character-growth results do not by themselves solve the frozen quotient. The assessment is limited to checked sources.
 
-## Closest literature and limitations
+## value
 
-The cited papers give source methods and general bounds; classical tensor coefficients alone are not a sharp variational inequality. A potentially older result formulated as a trace-polynomial extremal problem is the main residual bibliographic risk. Only self-review has occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The two smallest dual fundamental characters and the adjoint produced in their tensor product form a natural representation-theoretic packet. Its sharp invariant quantifies forced mixing, including improvement over the pure adjoint, and identifies the three projective phase classes without losing the unrestricted complex problem. Neither the classical moment table alone nor the analogous result with the trivial character gives the adjoint-packet invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Scientific review: optimal connected domination in the ternary Hamming three-cube
+# Independent mathematical audit
 
-## Correctness — PASS
-Every 27-vertex subset of sizes four through eight was tested by explicit closed-neighborhood domination and selected-induced connectivity. Sizes one through three are excluded by the degree-six coverage bound. The 11,340 minimum eight-subsets are then indexed without omissions; exact replacement transitions and an all-roots BFS prove the 73,386 jump edges, 14,094 slide edges, connected jump diameter and radius nine, complete jump distance histogram, and all 504 slide components with exact diameters. A separately written Python program reconstructs the graph with different labels and independently tests all states and moves; it verifies jump self-centeredness by the eleven automorphism orbits and all four slide component orbits. Both programs were actually executed successfully and their outputs are packaged. Critical computational assertions refer to the included exact source files, not orphaned earlier-run logs.
+## correctness
 
-## Originality — PASS with residual historical risk
-The published binary four-cube optimal connected-domination Cayley graph has a distinct input graph (16 binary vertices), different optimum size (six) and wholly different mobility structure (192 configurations and no slides); no implication to the ternary three-cube's 11,340 configurations or its 504 slide components is available. Abu-Khzam et al. 2022 study general inclusion-minimal connected-dominating-set enumeration without the exact Hamming-instance reconfiguration graph. Lokshtanov et al. 2019 study size-capped token addition/removal reconfiguration rather than fixed-minimum token jumps and slides. Targeted searches of Hamming-graph connected domination, cube exchange metrics, synonyms, and relevant indexed finite computations yielded no covering result. Exact finite computations might be unindexed and priority is not independently certified.
+PASS
 
-## Value — PASS
-This is a fully specified benchmark for changing a minimum-size connected network backbone on a natural three-coordinate ternary communication network. It establishes a nontrivial quantitative contrast: all 11,340 optimal backbones communicate under one-token jumps within nine moves, while adjacency-only guard moves split the same optimum set into 504 components, despite **every** slide component being nontrivial. Exact counts, diameters, and complete jump pair-distance spectrum give reproducible testing targets for minimum-solution reconfiguration algorithms; the local-mobility obstruction is not a mere reformulation of connectivity or domination.
+Reconstructed the graph on the 27 triples. The seven-vertex closed-neighborhood bound rules out sizes below four. An independent enumeration used combinations, closed-neighborhood unions and union-find on the selected vertices, obtaining zero connected dominating sets through size seven and 11,340 at eight. Independently formed transitions by grouping eight-sets by their seven-vertex intersections; each jump is counted once, and a Hamming-distance-one test on the two extensions distinguishes slides. This gave 73,386 jump and 14,094 slide edges. Unweighted sparse shortest paths over seven disjoint source slices covered every jump source, all reached all states, every eccentricity was nine, and the unordered-pair histogram at distances 1–9 was 73386, 448416, 1964574, 5972616, 12581730, 19397880, 17513334, 6099786, 240408. All slide components were checked, giving (order,diameter,count) = (2,1,162), (9,4,72), (18,9,108), (52,11,162). Directly applying all 6^4 coordinate/symbol maps returned one orbit per component order and state orbit counts 1, 3, 7 at sizes 324, 648, 1296. Inspected both original verifier sources and distinguished their recorded outputs from this fresh full finite reproduction. Replay: /workspace/branches/census.py, census_aggregate.py and census-run/{structure.txt,jump-*-*.txt,jump-aggregated.txt}; pass a scratch output directory to census.py, then run the slices [0,256), [256,2048), [2048,4096), [4096,6144), [6144,8192), [8192,10240), [10240,11340) and aggregate. This proves the finite census, not any larger-family result.
 
-## Closest literature and scientific limitations
-The closest published same-invariant fixed-graph example is the binary four-cube Cayley exchange graph. The closest systematic literature is the 2019 connected domination reconfiguration complexity paper and the 2022 connected dominating set enumeration paper. The claim is a fixed finite result supported by exhaustive algorithms, not an infinite theorem or a claim of independent external certification. An earlier unindexed identical Hamming-graph census remains the principal historical overlap risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The inspected literature and the closest indexed records cover general enumeration, a different move model, or a different graph or invariant. They do not state or give the specific fixed-minimum connected domination and exact jump/slide census here. Approval is bounded by the searches and material inspected.
+
+## value
+
+PASS
+
+A complete metric and orbit classification for the first ternary three-coordinate product is a usable benchmark for optimal connected-backbone reconfiguration. The all-state split between global jump connectivity with every eccentricity nine and 504 small non-isolated slide components is substantive routing information, not determined by the static optimum or ordinarily available from a general reconfiguration algorithm without doing the census. The exact distances and slide orbit data let other implementations test reachability, routing and symmetry reductions on a reproducible fixed graph.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

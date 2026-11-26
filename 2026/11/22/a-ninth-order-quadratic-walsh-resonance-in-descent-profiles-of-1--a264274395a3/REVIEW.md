@@ -1,19 +1,21 @@
-# Scientific review: positional descent-profile Fourier cancellation
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The precise claim is the identity for the two Walsh characters supported at \(\{1,2\}\) and \(\{1,3\}\) for every \(n\ge4\), the iff-ninth-order zero, and the exhaustive two-character census through \(n=9\). The unique maximum-element decomposition of a \(132\)-avoider gives four explicitly displayed formal power-series recurrences. Substitution into \(C(z)=1+zC(z)^2\) yields \(D(z)-A(z)=z^3\) and the Catalan-coefficient identity. The rational expression factors as \((n-2)(n-9)\), establishing the exact zero domain. `checker.py` uses independent factorial enumeration and independent Catalan recursion and compares every character through order nine; the finite census is exhaustive within its stated scope. No unproved extension to all quadratic frequencies at larger orders is claimed.
+PASS
 
-## Originality — PASS with residual priority risk
+The unique maximum split has an ascent into the maximum and a descent out of it when the relevant block is nonempty. Reconstructing the signed series by left-block size gives the displayed recurrences; in the {1,3} series, the length-two left block contributes zero (its signed singleton counts cancel), and the length-three block contributes -z^4 C. With 1-zC=1/C, the series differ only by the z^3 correction, and the Catalan ratios give the factor (n-2)(n-9) on the claimed n>=4 domain. An independent integer descent-mask recursion and direct signed character sum through order nine reproduced no two-coordinate zero at orders 2–8, the four listed two-coordinate zeros at nine, and no singleton zero at nine. This is exhaustive for the stated band and orders, not a classification beyond nine. The frozen checker compares transforms but prints rather than asserts the expected zero lists, contrary to the stronger wording of VERIFICATION.md; the independent reproduction checks the lists directly. The uploaded script was inspected, not executed.
 
-The nearest structural theorem is Reifegerste's 2002 descent-set/excedance-set preserving bijection; it transfers the problem but does not state or calculate either of the two fixed-position signed moments or the first quadratic-band cancellation. The inspected 2004 Mansour paper concerns positional extrema and inversion-sign statistics; the 2010 Barnabei–Bonetti–Silimbani paper identifies the \(132\)-descent Narayana distribution but studies aggregate \(123\)-avoidance descents. Published Fourier computations for the same avoidance class use inversion-incidence coordinates, not descent-position coordinates. Published quadratic sampling for stack-sortable permutations studies injectivity of an observation map, not signed descent-profile convolution. An unindexed derivation in the language of \(321\)-avoiding excedance sets or Dyck valley positions could nonetheless subsume this identity, so historical priority is provisional rather than guaranteed.
+## originality
 
-## Value — PASS
+PASS
 
-The equality of two geometrically different coordinate pairs is an exact all-length signed correlation identity on a canonical Catalan family. Its factorization selects the isolated natural order \(n=9\), where exactly four quadratic Fourier characters become invisible while all linear characters remain visible. This resolves a concrete low-degree recovery boundary, not merely an arbitrary recomputation of Catalan numbers. The finite four-mode list and the infinite two-mode statement are intentionally distinguished.
+The bijection and inversion-coordinate embedding give genuine overlap at the representation and small-order data levels. Neither inspected source states or gives the all-length identity and first complete quadratic-band cancellation census. The originality judgment is limited to that combined contribution.
 
-## Limitations
+## value
 
-The finding gives neither the full convolution rank at length nine nor quadratic-band zero classifications at lengths exceeding nine. Inference of full-spectrum invertibility from low-degree characters is expressly excluded. The independent audit channel has not been used.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The quadratic character band directly tests which pair-parity observables can be recovered by descent-profile convolution. Its exact first lost modes, with the linear band still intact at that order, are a natural low-band cutoff rather than an arbitrary table. The all-length equality for adjacent versus nonadjacent position pairs explains two zeros exactly and distinguishes an isolated cancellation from a generic rank statement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

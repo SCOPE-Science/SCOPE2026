@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness: PASS.** The definition fixes exactly five nonzero coefficients and projectivizes only by global scalar. Exact cyclic-integer arithmetic represents every maximal minor and 121 Fourier evaluations with no rounding. Every four-zero row set of rank four yields a unique projective coefficient ray. Exhaustive rank-drop checks and the prime Fourier minor theorem rule out missing full-support six-zero rays of lower evaluation rank. Counting normalized origins and the free group action yields the full support-by-support census. The included checker has been compiled and run to completion.
+## correctness
 
-**Originality: PASS, subject to historical-priority risk.** Li (arXiv:2609.16030) already proves at most six zeros and attainability for five-point supports; neither assertion is attributed as new. The new statement counts equality coefficient rays for each of the six affine support orbits over the field of eleven elements. The closest published field-seven five-support census concerns a different characteristic and only five zeros; the published field-eleven seven-support witness concerns seven coefficients. A bounded search did not identify an implication covering the precise new equality-ray counts. Uninspected complete text of some related works remains a limitation.
+PASS
 
-**Value: PASS.** This is a natural complete equality-classification problem at the first prime where the sharp odd-five zero bound is attained, answering which support geometries can attain sharpness and the exact number of optimal complex rays for each. It is substantially more informative than another existence witness or an arbitrary table lookup, and provides a reusable exact incidence-census certificate.
+The frequency modulation action is free because a quadratic minus a constant cannot vanish on five distinct field points unless identically zero. Its orbit of 121 rays contains exactly six origin-normalized rays for a six-zero ray. Affine changes of support transport zero sets by an invertible frequency change and a nonzero phase. For completeness, normalize one zero at the origin. If at least four zero rows had collective rank below four, the verified rank-drop property forces all zero frequencies onto one line. On that line the prime Fourier minor theorem makes four distinct samples have rank min(4, number of distinct quadratic fiber values). Rank drop therefore forces exactly three fiber values, of sizes 2,2,1, and vanishing at all four samples forces all fiber sums to vanish, contradicting the singleton's nonzero coefficient. Thus every relevant ray is seeded by four independent rows. Its full zero set determines that ray, so set deduplication is valid. An independent enumeration checked every triple for every affine representative, using reduction at the order-11 root 26 modulo 65539 as a one-sided filter and exact signed 4-by-4 cyclotomic minors for every surviving case. Every rank drop survives that filter; none is off-line. Exact origin-normalized six-zero counts are 60,30,150,0,30,0 in table order. There are full-support five-zero sets in each orbit, and no seven-or-more-zero sets, so all six maxima follow even without importing the reported external sharp bound. The orbit sizes and 121/6 conversion give the stated 532400 total.
 
-**Limitations.** Exhaustive finite proof depends on the distributed exact checker; it gives no theorem for other field sizes. Historical priority requires independent confirmation. The six-zero bound and its sharpness were already published.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The sharp six-zero ceiling and at least one sharp example are already in Li v1 and are not credited as new. The supported contribution is the full projective equality census, including the sharp-support classification and exact per-orbit counts. The inspected primary and published-catalogue claims do not supply it.
+
+## value
+
+PASS
+
+At the first field size in this five-point equality question beyond the analogous F7 census, the known sharp bound leaves a substantive structural question: do all shapes attain it, and with what equality multiplicities? The answer separates four attaining affine shapes from two nonattaining ones, with materially different counts among the attaining shapes. This is exact equality data for a motivated Fourier uncertainty problem, not a new computation of the already known ceiling or an isolated arbitrary witness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

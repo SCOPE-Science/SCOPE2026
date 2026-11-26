@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact partition by omitted original vertices is disjoint and exhaustive. The forced internal subdivision vertices, nonempty independent choices at induced isolated vertices, and remaining free edges account for every selected vertex exactly once; the graph is arbitrary, including disjoint components and isolated originals. The induced-component inequality bounds the minimum by the maximum induced matching, with an explicit attaining construction. Equality proves the forest classification and counts the minima without duplication. The supplied adjacency-based verifier confirms all coefficients, minima and forest structures on 56 graphs and 104,426 directly checked subsets. A finite test is not treated as an infinite proof.
+PASS
 
-## Originality — PASS (qualified)
+For each set W of omitted originals, all edge-vertices internal to W are forced. These dominate every nonisolated vertex of G[W]; each remaining vertex v in W needs a nonempty selection from its incident star. Such stars are mutually disjoint and disjoint from internal edges. All other edge-vertices have a selected old endpoint and are free. The fixed-W generating product follows, including zero terms for omitted degree-zero originals. Its least feasible degree is n-|W|+e_W+|I_W|. The savings from n are the sum of |V|-|E| over nontrivial components, at most one per component. Edges taken one per component give an induced matching in G, and omitting the endpoints of a maximum induced matching attains the bound. Equality forces a tree in every nontrivial component and exactly the specified boundary choice at each isolate, with no selections in the free class; W is recovered from its dominating set, so the multiplicity formula does not overcount. The complete/biclique specializations follow by listing their eligible induced trees; the biclique star count subtracts its twice-counted single edges. The edgeless case forces all originals, including the empty set of a null graph. Independent replay on 79 graphs (all labeled roots through four vertices and additional complete, biclique and disconnected cases) checked 47,735 candidate subsets, full coefficients and the complete list of minimum sets against direct adjacency enumeration. Replay: python3 /workspace/branches/audit_finite_reproduction.py.
 
-The inspected 2012 domination-polynomial study provides graph recurrences, but no explicit full-subdivision induced-vertex-set transform or induced-matching minimum equality. The fully inspected 2022 central-graph study treats a graph operation that adds complement edges; its scalar complete-root specialization is known and not claimed here. Earlier related induced-matching/vertex-cover work and 2021 subdivision-number work address different statements. The inspected 2024 dominating-induced-matching paper concerns a stronger property of matchings and does not supply this ordinary domination polynomial. The abstract of a plausible 2025 full-subdivision study treats identifying codes; its complete text was not accessible. An independently unpublished or differently indexed equivalent formula remains possible; an unsuccessful search does not prove uniqueness.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is a complete polynomial for **every** finite simple root graph, not an arbitrary parameter slice. It transforms the enumeration from subsets of \(n+m\) subdivided vertices into a subset sum over the original \(n\) vertices, supplies the exact parameter equality \(\gamma(S(G))=n-\nu_s(G)\), and structurally classifies and counts all minima, including natural complete and complete-bipartite families. These conclusions address sensor-placement and graph-domination structure beyond a previously known scalar for complete central graphs.
+The distinct result is the ordinary set enumerator and all-minima classification with its boundary-star factors. No separate novelty is credited to the scalar minimum: it follows from the earlier indexed independent-domination theorem once ordinary and independent domination are identified on these incidence graphs, and multiple scalar specializations already appear in the subdivision literature. Neither the independent polynomial nor the inspected scalar results give the extra ordinary choices. The exact biclique minimum count also appears as a value described as originating in earlier ordinary-domination analysis; its priority is not credited or resolved here.
 
-## Limitations and remaining risks
+## value
 
-No statement is made about weighted variants, repeated edge subdivisions, or arbitrary multigraphs. The identity does not establish a polynomial-time algorithm for general root graphs. A 2025 primary full text and some earlier matching papers were not completely available; publication priority is not independently certified. This report documents a self-review only.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The product formula expresses a standard graph invariant directly in root-graph data and explains precisely which boundary choices create nonindependent minima. It reduces the enumerative description from subsets of original and subdividing vertices to subsets of the originals and produces the entire minimum family, not just an optimum value recoverable from known work. That structural enumeration applies uniformly to all finite simple roots, including isolates and disconnected graphs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

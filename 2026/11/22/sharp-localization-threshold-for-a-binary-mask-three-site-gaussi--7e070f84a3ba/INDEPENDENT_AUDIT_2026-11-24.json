@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:16:20.746763Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–61 and VERIFICATION.md; verify.py source inspected",
+        "Independent replay: cd /workspace && python3 reproductions/scalar_checks.py ; recorded output reproductions/scalar_checks.txt"
+      ],
+      "rationale": "Reflection separates the matrix into its odd eigenvalue 1-x^4 and an even block [[1+x^4,y],[2x,1]]. Since 0<x<y<1, the determinant sign is the even-block determinant sign. The minimum in the closure of the admissible middle-width range occurs at y=1; its value (x-1)(x^3+x^2+x-1) is nonnegative exactly for x<=rho in (0,1). At x=rho the excluded y=1 is the only zero, so the threshold is inclusive. For x>rho, y_*=(1+x^4)/(2x) is below 1 and exceeds x by (1-x^2)^2/(2x); y decreases strictly as beta increases, so this gives existence, uniqueness and both signs. At fixed R>1, f_p=1+x^4-2x^p, p=1+R^-2, has one interior minimum, is negative just left of 1 because f_p'(1)>0, and tends to one at zero. This proves exactly one interior crossing. For fixed x, f_p is strictly increasing in p; hence the first root is increasing in p, and continuity with the p=1 and p=2 limiting functions gives the stated endpoint limits. The rational witness has exact rank two and the stated null line. The two-site determinant verifies the minimal possible dimension, not priority of the example.",
+      "residual_risks": [
+        "Three equispaced sites, exact real arithmetic, symmetric outer shapes and flatter center only. Does not assert that an adaptive indicator produces the mask or any condition-number bound."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The frozen paper inspections report exact zero off-diagonal entries in the modified delta columns, sufficient perturbative conditions for the more general scaling problem, and almost-everywhere invertibility respectively."
+        ],
+        "reasoning": "An exact replacement with zeros does not give a sharp finite cutoff at nonzero matrix entries. An almost-everywhere theorem leaves an exceptional locus possible and does not identify its intersections with a symmetric shape slice, and the available sufficient-condition statement supplies neither necessity nor a global sign classification.",
+        "searches": [
+          "arXiv:2603.23074v1, Eq. (5), Lemma 3.1 and Proposition 3.2",
+          "Bozzini et al., Interpolation by Basis Functions of Different Scales and Shapes, Sections 1–3",
+          "doi:10.1016/j.amc.2020.125159, Theorem 2.2"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary comparison and targeted literature lookup",
+        "Frozen AUDIT.json lines 24–103 and RESULT.md lines 67–81 for recorded prior-paper passages"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The uniform guarantee requires minimizing 1+x^4-2xy over x<y<1, including the unattained extremum y=1; the ratio result requires analyzing the derivative of 1+x^4-2x^p. Prior reported claims are exact replacement, an isolated singularity, and an almost-everywhere statement."
+        ],
+        "reasoning": "A limiting invertibility result has no necessary-and-sufficient finite-width converse, and neither existence somewhere nor a generic invertibility result forces one singular width below the cubic boundary or a single crossing at fixed ratio. The analytical classification is distinct from its motivating premises.",
+        "searches": [
+          "arXiv:2603.23074v1, Lemma 3.1/Proposition 3.2",
+          "doi:10.1016/j.amc.2020.125159, Example 2.1/Theorem 2.2",
+          "Frozen RESULT.md lines 20–52"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The frozen primary-source inspection of Chiu–Ling–McCourt reports the same column-wise shape convention and three equispaced nodes with shape vector (t,0.3,0.4). Here the first and third shapes must agree and be larger than the middle shape, and the contribution quantifies all admissible widths."
+        ],
+        "reasoning": "Rescaling the spacing is already absorbed in alpha*h and beta*h. Permuting or transposing the interpolation convention cannot turn a singular example with unequal outer shapes into a theorem about every symmetric-shape pair; even a shared isolated example would not give the universal cutoff.",
+        "searches": [
+          "doi:10.1016/j.amc.2020.125159, Section 2 Example 2.1 and Theorem 2.2",
+          "Resultary: symmetric three-site binary Gaussian interpolation threshold and fixed-ratio singularity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed threshold hit is the assigned 7e070f84a3ba, not an independent record. The independently indexed comparison found no stronger statement. The existing figure/example is known evidence of singularity, not a table of all symmetric widths."
+        ],
+        "reasoning": "The self-hit provides no independent coverage, and the prior example does not supply a cubic cutoff or the ratio-indexed crossings. The bounded searches do not prove absence of an earlier special case.",
+        "searches": [
+          "Resultary: finite-width binary-mask three-site Gaussian interpolation threshold",
+          "Resultary: symmetric outer widths and unique fixed-ratio Gaussian singular crossing",
+          "Scientific comparison: Chiu et al. Fig. 2.1 and Example 2.1"
+        ]
+      },
+      "rationale": "The assessed increment is the necessary-and-sufficient universal finite-width threshold, the singular-locus classification and the fixed-ratio crossing, not the variable-shape matrix, the mask rule, three-site singularity, or an ideal replacement criterion. The strongest available comparisons do not cover this increment; access limits prevent a priority guarantee.",
+      "residual_risks": [
+        "Decisive primary passages were not independently retrievable in this review; an older equivalent symmetric special-case classification is not ruled out."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Three-point singularity is known; the reported odd/even-family cutoff is not supplied by the example or the almost-everywhere result",
+          "evidence": [
+            "Recorded example: sites 1,2,3 and shapes (t,0.3,0.4); recorded theorem: almost-everywhere invertibility."
+          ],
+          "identifier_or_url": "doi:10.1016/j.amc.2020.125159",
+          "material_read": "Available web result described the variable-shape problem; frozen AUDIT.json lines 80–90 records inspection of Example 2.1, its figure and Theorem 2.2. Independent OA retrieval timed out.",
+          "method": "Compare the recorded example shapes, hypotheses and quantifiers with the exact symmetric mask",
+          "title": "On variable and random shape Gaussian interpolations",
+          "trigger": "Same Gaussian column convention and concrete three-site singularity"
+        },
+        {
+          "assessment": "Covers mask rule and an idealized theorem, not a finite-width criterion by implication",
+          "evidence": [
+            "Reported rule epsilon/(c+psi); exact zero off-diagonal values in replaced columns."
+          ],
+          "identifier_or_url": "arXiv:2603.23074v1",
+          "material_read": "Frozen AUDIT.json lines 68–78 records Eq. (5), Lemma 3.1 and Proposition 3.2; independent OA retrieval timed out",
+          "method": "Compare the exact column replacement with finite Gaussian entries",
+          "title": "Data-dependent approximation through RBF",
+          "trigger": "Same binary shape map and cited nonsingularity result"
+        },
+        {
+          "assessment": "The reported sufficient conditions do not imply sharpness and uniqueness",
+          "evidence": [
+            "Recorded Sections 1–3 establish sufficient perturbative conditions."
+          ],
+          "identifier_or_url": "https://num.math.uni-goettingen.de/schaback/research/papers/IbBFoDSaS.pdf",
+          "material_read": "Frozen AUDIT.json lines 93–102 records abstract and Sections 1–3; independent OA retrieval timed out",
+          "method": "Compare sufficient perturbation hypotheses with the necessary-and-sufficient special-case determinant boundary",
+          "title": "Interpolation by Basis Functions of Different Scales and Shapes",
+          "trigger": "General different-scale interpolation solvability"
+        },
+        {
+          "assessment": "Assigned self-hit, not an independent duplicate",
+          "evidence": [
+            "Same record identifier and exact threshold statement."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-localization-threshold-for-a-binary-mask-three-site-gaussi--7e070f84a3ba",
+          "material_read": "Resultary summary and the frozen result",
+          "method": "Compare identifier and finding",
+          "title": "Sharp localization threshold for a binary-mask three-site Gaussian interpolation matrix",
+          "trigger": "Exact indexed claim match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 14–61 and 67–73; independently reconstructed determinant and crossing argument"
+      ],
+      "rationale": "The fixed symmetric binary mask is motivated by a concrete adaptive approximation rule, and the first dimension admitting singularity is the right place to separate finite-Gaussian behavior from exact ideal column replacement. A dimensionless sharp safety boundary with both signs and a unique fixed-ratio singular crossing is materially more useful for choosing parameters or testing a solver than just another singular matrix.",
+      "residual_risks": [
+        "It is a small exact test case, not a general adaptive-method guarantee or a robustness estimate."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

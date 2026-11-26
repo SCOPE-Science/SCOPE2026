@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The two-level effective collision probability, parity-sensitive simultaneous modular collision count, and conditional Rademacher orthogonality are proved explicitly in `RESULT.md`. They imply the variance identity without extrapolating from finite experiments. Uniform factor magnitudes are the unique equality class by Cauchy–Schwarz and strict monotonicity. The standalone program passed 395 exact modular checks, 3190 finite extremal checks, and 8 independent direct three-layer simulation settings. The signs must meet the specified conditional fourth-moment assumptions; less independent implementations are not addressed.
+PASS
 
-## Originality — PASS, with residual uncertainty
+On expanding the squared norm, diagonal terms sum to one, and every nontrivial effective sign character has mean zero after conditioning on the hashes and internal signs. Independence up to four coordinates per leaf is sufficient to ensure orthogonality of the single-factor and two-factor pair characters. A composed hash difference is zero with probability q and takes each nonzero value with probability s. For the two-factor pair character, the two orientations have independent-factor collision probability q²+(m−1)s² each, and their intersection has probability q²+(g−1)s² because 2Δ=0 mod m; thus the expected squared sum of their indicators is 2U, not just twice the single collision probability. Summing the paired squares gives 2q(a+b)+2Uab (including m=1). Positive coefficients and Cauchy–Schwarz force both factors to have constant coordinate magnitude at equality. The limits mq→2 and mU→1 give the stated sequential limiting constant, not a uniform cap of 10. Independent exact replay: python -B /workspace/review_replay.py 2 enumerates all composed hash images and effective relative signs, with exact rational factors at d=2 and widths 1–5, and directly reconstructs each four-entry tensor sketch and its moments. The proof, not this finite example, covers arbitrary fixed unit factors and widths.
 
-The 2026 Khan–Pratap–Sharma estimator provides a loose degree-dependent variance upper bound, not the exact two-factor sharp law. Ahle and coauthors supply the underlying recursive construction and second-moment composition, not the exact finite input-profile classification. Pham and Pagh analyze the ordinary single TensorSketch construction, whereas Sharma and coauthors' newer paper addresses complex variants. The closest available mathematics records concern different tensor/variance objects. No equivalent or dominating complete theorem was identified after comparison of statements and implications. A relevant PMLR full text was not accessible, and an unindexed exact fourth-moment computation could potentially subsume the finding. Absence of retrieved overlap is not proof of global priority.
+## originality
 
-## Value — PASS
+PASS
 
-The exact all-width, all-factor-dimension variance and extremizer classification answers a motivated calibration question for a new recursive trace-estimation method. It exposes two-level collision inflation and the parity-sensitive self-intersection correction, establishing a sharp leading variance constant on the natural separable PSD benchmark. The claim does not purport to improve variance for every PSD input.
+Best-of-knowledge pass for the exact law and sharp benchmark of this real three-layer separable rank-one estimator. The sketch, moment method and nonrecursive collisions are not claimed as contributions. The inspected prior bounds and alternative probes do not provide the displayed variance.
 
-## Scope and limitations
+## value
 
-Only real degree-two recursive TensorSketch, independent layers and the explicit sign/hash moments, and separable rank-one PSD inputs are included. No numerical-runtime or floating-point claim, no nonseparable theorem, and no independent external validation is asserted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The variance is a directly relevant accuracy measure for a published estimator. This is a natural low-rank input class rather than an arbitrary parameter slice. The parity-sensitive exact law and attaining inputs give researchers a finite-width benchmark for cost of recursion and for assessing general upper bounds; a coarse bound or a nonrecursive benchmark would not serve that purpose.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -2,7 +2,7 @@
 
 ## Finding
 
-Let \(n\ge3\) independent points be uniform on the unit-circumference circle, arranged in cyclic order. Write \(\rho_i\) for the shortest circular distance from sample point \(i\) to another sample point, and set \(L_i=\log(2\rho_i)\). Define the universal constant
+Let \(n\ge3\) independent points be uniform on the unit-circumference circle. Choose one of the original sampling labels before seeing the point locations, and index the points in clockwise order starting from that point. Write \(\rho_i\) for the shortest circular distance from cyclic position \(i\) to another sample point, and set \(L_i=\log(2\rho_i)\). Define the universal constant
 \[
 C=\frac{\pi^2}{6}+2\operatorname{Li}_2(-1/2)
  =0.748105653000934\ldots,
@@ -44,17 +44,17 @@ with limiting variance \(2.141145372850094\ldots\). At \(n=2\), the two nearest-
 
 ## Assumptions and scope
 
-Sampling is i.i.d. Haar-uniform on the circle \(\mathbb R/\mathbb Z\). The observations are distinct almost surely; the shortest geodesic distance is measured in units of circumference, not Euclidean chord distance. The indices are arranged cyclically after choosing an arbitrary sampled point as the starting index; the matrix statement is unchanged under cyclic relabeling. Equations (1), (2), and (4) apply to every integer \(n\ge3\), with the separately stated \(n=2\) case. No claim is made for nonuniform densities or higher-order nearest neighbors.
+Sampling is i.i.d. Haar-uniform on the circle \(\mathbb R/\mathbb Z\). The observations are distinct almost surely; the shortest geodesic distance is measured in units of circumference, not Euclidean chord distance. Equations (1) and (2) use an anchor chosen by sample label independently of the observed locations; deterministic cyclic shifts give the same matrix. The formula need not hold for an anchor picked by the geometry of the realized sample. For example, if position 1 is the clockwise initial endpoint of the shortest gap, then \(L_1=L_2\) almost surely, contrary to the strictly positive contrast variance in (1). Equation (4), and the centering and limit for the average, are unaffected by the choice of anchor. Equations (1), (2), and (4) apply to every integer \(n\ge3\), with the separately stated \(n=2\) case. No claim is made for nonuniform densities or higher-order nearest neighbors.
 
 ## Proof
 
-**1. Uniform spacings and exact centering.** Let \(G_1,\ldots,G_n\) be the clockwise sample gaps. They have the Dirichlet\((1,\ldots,1)\) law, represented by \(G_i=E_i/S\) with independent \(E_i\sim\operatorname{Exp}(1)\) and \(S=\sum_iE_i\sim\operatorname{Gamma}(n,1)\). The normalized vector \((G_i)\) is independent of \(S\). Let \(Y_i=\min(E_{i-1},E_i)\), with cyclic indices. Then \(\rho_i=Y_i/S\), and \(Y_i\sim\operatorname{Exp}(2)\). Consequently \(\mathbb E\log Y_i=-\gamma-\log2\) and \(\mathbb E\log S=\psi(n)=H_{n-1}-\gamma\), proving \(\mathbb EL_i=-H_{n-1}\). Independently, the Dirichlet simplex-volume identity yields
+**1. Uniform spacings and exact centering.** Conditional on the anchored point, the clockwise offsets of the other \(n-1\) points are independent uniform positions in \((0,1)\). Sorting them and taking differences, including the gaps to 0 and 1, gives a constant joint density on the gap simplex. Thus the clockwise gaps \(G_1,\ldots,G_n\) have the Dirichlet\((1,\ldots,1)\) law, represented by \(G_i=E_i/S\) with independent \(E_i\sim\operatorname{Exp}(1)\) and \(S=\sum_iE_i\sim\operatorname{Gamma}(n,1)\). The normalized vector \((G_i)\) is independent of \(S\). Let \(Y_i=\min(E_{i-1},E_i)\), with cyclic indices. Then \(\rho_i=Y_i/S\), and \(Y_i\sim\operatorname{Exp}(2)\). Consequently \(\mathbb E\log Y_i=-\gamma-\log2\) and \(\mathbb E\log S=\psi(n)=H_{n-1}-\gamma\), proving \(\mathbb EL_i=-H_{n-1}\). Independently, the Dirichlet simplex-volume identity yields
 \[
 \mathbb P(2\rho_i>t)=(1-t)^{n-1}\quad(0\le t\le1),
 \]
 so that \(2\rho_i\sim\operatorname{Beta}(1,n-1)\) for every \(n\ge2\). This also proves exact centering.
 
-**2. The only local shared-exponential covariance.** \(\operatorname{Var}(\log Y_i)=\psi_1(1)=\pi^2/6\). Nonneighboring \(Y_i,Y_j\) involve disjoint exponentials and are independent; for neighbors, put \(Y=\min(A,B)\), \(Z=\min(B,D)\) for independent rate-one exponentials \(A,B,D\). Their joint survival function is \(\exp[-u-v-\max(u,v)]\), while the product of marginal survivals is \(\exp[-2u-2v]\). The logarithmic covariance identity (obtained from the Frullani integral for the logarithm, with Fubini justified by the exponentially bounded tails) gives
+**2. The only local shared-exponential covariance.** \(\operatorname{Var}(\log Y_i)=\psi_1(1)=\pi^2/6\). Nonneighboring \(Y_i,Y_j\) involve disjoint exponentials and are independent; for neighbors, put \(Y=\min(A,B)\), \(Z=\min(B,D)\) for independent rate-one exponentials \(A,B,D\). Their joint survival function is \(\exp[-u-v-\max(u,v)]\), while the product of marginal survivals is \(\exp[-2u-2v]\). To obtain the logarithmic covariance identity, first use the representation \(\int_1^x du/u\) with \(x\) clipped to \([\epsilon,M]\) for \(0<\epsilon<1<M\). The resulting bounded indicator integrals give the survival covariance over \([\epsilon,M]^2\). The clipped logarithms converge in \(L^2\), and the survival covariance is nonnegative, so the double integral follows by monotone convergence. Splitting the integral into \(v\le u\) and \(u\le v\) and setting \(v=xu\) on the first region gives
 \[
 \begin{aligned}
 \operatorname{Cov}(\log Y,\log Z)

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification and proof boundaries
+# Independent mathematical audit
 
-The exact proof uses four palindrome families of bit length \(\ell\ge8\), represented by the fixed prefixes `1000`, `1100`, `1010`, and `1001`, followed by a variable zero block and mirrored suffix. Direct recurrence multiplication gives their Stern values \(\ell\), \(4\ell-12\), \(9\ell-42\), and \(16\ell-104\), whose gcd is \(\gcd(\ell,2)\). The parity converse follows from the modulo-two Stern recurrence and the divisibility by three of each even-length binary palindrome. All lengths below eight are exhausted separately.
+## correctness
 
-Run `python verify.py` from the extracted package. The standard-library program checks all 4,094 palindromic indices of lengths one through twenty-two, the exact gcd classification for each tested length, the parity obstruction at every tested even length, and four affine template formulas, including selected zero-block lengths up to 113. The proof is required for the infinite conclusion; successful finite execution is not an exhaustive computational certificate. No independent audit has been conducted.
+PASS
+
+Applying the binary recurrence to each fixed prefix, the middle zero block of length t=ell-8 and the reversed suffix gives ell, 4ell-12, 9ell-42 and 16ell-104. All four are canonical palindromes, including t=0. Subtracting multiples of ell gives a common divisor of ell and gcd(12,42,104)=2. The residue indicator of nonzero modulo three satisfies the Stern recurrence modulo two, so every even-length palindrome has even Stern value: mirrored digits cancel since 2=-1 modulo three. This gives the matching lower bound at even lengths. The short-length table exhausts the choices of a leading-one half word. Independent recurrence enumeration matched every short value and all gcds over 8190 canonical palindromes of lengths 1–24, plus 484 witness values for lengths 8–128. The four witnesses and parity argument, not the finite replay, prove the unrestricted law.
+
+## originality
+
+PASS
+
+The supported distinct claim is the exact gcd on the reversal-fixed set in each canonical binary layer, including the three exceptions to gcd(ell,2). The ingredients of binary transfer and the even-length divisibility obstruction are not new; the strongest inspected comparisons do not give the uniform upper bound or the fixed-length classification.
+
+## value
+
+PASS
+
+Canonical binary palindromes are precisely the fixed points of a natural symmetry of Stern values. A gcd across a whole fixed-length layer detects exactly its common arithmetic obstructions, rather than a chosen pair or numerical sample. The classification separates the forced factor two from all additional length-specific factors and supplies a uniform bounded-size witness for sharpness. This gives a reusable test of common divisibility in these layers without computing exponentially many values.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

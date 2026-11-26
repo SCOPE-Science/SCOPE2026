@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification scope
+# Independent mathematical audit
 
-Run `python verify.py` after installing Python 3, NumPy (via SciPy), SciPy, and SymPy. It checks the exact symbolic identity connecting the full Jacobian determinant with the one-dimensional inverse equation, including the target-dependent affine flux substitution. For three nonzero couplings (two positive and one negative), three positive flux parameter pairs, two choices of the remaining parameters and target, and 31 successive large flux cells, it constructs 558 inverse solutions by bracketing and verifies the complete original map, positivity of both inputs, noncriticality, and the stated first correction to their asymptotic lattice positions.
+## correctness
 
-Expected completion banner: `VERIFY_OK symbolic_Jacobian_identity=1 asymptotic_regular_positive_preimages= 558`.
+PASS
 
-The all-target, all-parameter, infinite-branch and count-asymptotic conclusions are proved in RESULT.md. Finite tests are corroboration, not certification of infinite quantifiers. The original literature establishes the source map but does not independently verify these new claims. Independent review has not been performed.
+For fixed target and nonzero k, the second equation forces φ=νx−Φ/k₂, with ν>0. Division by kx on x>0 gives a cosine equal to g(x)=(X−k₀)/(kx)−xe^(r−x)/k, with g=O(x⁻¹) and g′=O(x⁻²). Opposite endpoint cosine values give a root in each high flux cell since |g|<1/2. All roots there lie in the same middle interval, on which the absolute cosine derivative is at least πν√3/2 and has fixed sign, so that the difference is strictly monotone and its root simple. The undivided scalar equation extends analytically past both excluded lower boundaries of x; it is not identically zero because the cosine term has amplitude |k|x along the high integer-flux endpoints. Thus compact portions have only finitely many zeros, including for X=k₀. The Jacobian is −k₂ times the reduced derivative, with the latter equal to kx times the cosine-minus-g derivative at a root. High roots are therefore regular. Counting completed flux cells gives νR+O(1). At center z_j the midpoint sine expansion has sign (−1)^(j+1); the root displacement is O(1/z_j), so replacing 1/x_j by 1/z_j and linearizing the sine incurs O(z_j⁻³), with exponential terms negligible. This even strengthens the stated O(z_j⁻²). For k=0 the x-only first coordinate is strictly increasing to x=2 and strictly decreasing afterwards, with the stated first-coordinate range; the flux equation adds no multiplicity. The claimed proper strip is not a claim of properness as a map into the plane. No bound here is uniform as k goes to zero or asserts forward-invariance of the quadrant.
+
+## originality
+
+PASS
+
+The exact model and its local dynamical analysis are prior work. The distinct supported result is the positive-source all-target inverse-fiber structure of the untruncated Chialvo map, including exact density, regular high branches and the contrast at decoupling. No covering statement was verified; the closest ample-overlap oscillator record is a different map and is dated later.
+
+## value
+
+PASS
+
+This is a global inverse-geometry statement for an established model, not an attractor claim or a numerical preimage table. Even arbitrarily weak cosine coupling changes finite inverse valence and a bounded first-coordinate range into surjectivity with one regular branch per high flux cell for every target. The exact slope and location term quantify backward branching and show why conclusions based on bounded input simulations need not transfer to the untruncated system. The exact domain and fixed-parameter scope are essential to that value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

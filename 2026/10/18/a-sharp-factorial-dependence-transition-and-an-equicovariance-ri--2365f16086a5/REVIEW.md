@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For each admissible vector of cycle lengths and falling-factorial multiplicities, direct marking in the Ewens sampling formula yields the exact identity \(\mathbb E\prod_i (C_{r_i})_{\underline{k_i}}=F_n(\sum_i r_i k_i)\prod_i (\theta/r_i)^{k_i}\), with \(F_n(t)=\prod_{a=0}^{t-1}(n-a)/(n+\theta-1-a)\). The successive factor ratio has the sign of \(1-\theta\), establishing the strict comparisons for every feasible collection. The two-cycle mixed difference gives covariance; the fixed-length second-order expansion is explicit. At \(\theta=2\), \(F_n(t)=(n-t+1)/(n+1)\) yields exact common covariance \(-4/(n+1)^2\). The difference of two admissible covariances factors with positive denominator and numerator proportional to \((\theta-1)(\theta-2)\), yielding rigidity for every \(n\ge4\). A standalone rational program verified 1,165 finite assertions; the infinite-domain statements rest on the proof.
+## correctness
 
-## Originality — PASS on compared material; residual priority risk
-The full Ewens sampling law and independent-Poisson conditioning are classical, explicitly presented by Tavaré (2021). Da Silva, Jamshidpey and Tavaré (2020) study the Ewens law conditioned on derangement, not the unconditioned \(\theta\)-varying cross-length statement. Stark (2021) treats random injections. The assessed result does not claim the factorial-moment formula as new. Its target is the *complete strict sign transition*, *common leading covariance independent of cycle lengths*, and especially the *unique nonzero all-pairs equicovariance point* together with its rigidity. Inspection of the cited materials and targeted searches did not identify the conjunction or a dominating theorem. An earlier text may imply these identities directly from standard Ewens moment formulas; that is a material priority risk, not a claim of demonstrated uniqueness. Bakshajeva–Manstavičius (2014) and general Ewens dependence literature warrant independent full-text follow-up.
+PASS
 
-## Value — PASS
-Cycle lengths are canonical observables in the Ewens sampling model. The result supplies a complete finite-size sign phase boundary for their factorial dependencies, shows a length-independent leading covariance for fixed cycle lengths, and classifies exactly the two positive \(\theta\) values producing all-pair equicovariance. The isolated nonzero \(\theta=2\) point offers a natural exact structural parameter rather than an arbitrary numerical case. The result is an elementary structural consequence of the classical distribution, not a new probability law or global association theorem.
+The frozen claim that the covariance is always negative when r+s>n lacked the individual bound: e.g. n=4,r=1,s=5 gives C5 identically zero and covariance zero. The complete replacement RESULT.md now states strict negativity only for distinct lengths both at most n, with the zero case explicit. SLOGAN.txt also now specifies n>=4 for rigidity. Independently checked the repaired theorem: shifting marked cycle counts in the Ewens law leaves the normalizer ratio Fn(m), times the marking factors; q[a]=(n-a)/(D-a), D=n+theta-1, is strictly monotone in a with sign of increment 1-theta, giving all feasible product comparisons. For fixed r,s, summing log q[r+a]-log q[a] cancels the order 1/n terms and gives -(theta-1)rs/n²+O(n^-3), yielding the stated covariance limit. At theta=1 the ratio is constant and at theta=2 it is affine in marked size, giving respectively 0 and -4/(n+1)². For necessity, Cov(C1,Cs)=-theta²(theta-1)Fn(s)/(D(D-s)) for admissible s>=2. In subtracting the s=3 value from s=2 the remaining factor is 1-(n-2)/(D-3)=(theta-2)/(D-3); every denominator factor is positive, including at n=4. This proves the iff across the full domain. The frozen finite verification is corroboration only; its loops sample lengths at most n and cannot justify the original out-of-range wording. No frozen script was executed.
 
-## Scope and limits
-At sample sizes with \(r+s>n\), cycle classes cannot coexist; such pairs are not part of the equicovariance rigidity assertion. Zero covariance at \(\theta=1\) is not independence. Fixed-length asymptotics are not uniform in growing lengths. Full independent scientific and historical-priority evaluation remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the repaired finding only for classifying the positive theta that give equal covariance on all admissible distinct-length pairs in the unconditioned law for each n>=4. The classical law, marked moments, and direct sign and asymptotic calculations are acknowledged input or context, not separate originality credit. The strongest retrieved neighbor results do not classify this uniformity or establish a structural theorem covering it.
+
+## value
+
+PASS
+
+The admissible range removes the unavoidable incompatibility of pairs whose total length exceeds n. Classifying exact constancy within that range distinguishes an exceptional nonzero covariance profile from uniform-permutation cancellation and from the generic merely asymptotic coincidence of length coefficients. The precise finite-n classification, not re-evaluating the familiar sampling formula, is the useful contribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

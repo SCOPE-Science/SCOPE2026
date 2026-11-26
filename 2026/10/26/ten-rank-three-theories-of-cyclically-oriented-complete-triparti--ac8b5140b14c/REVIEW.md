@@ -1,19 +1,21 @@
-# Scientific review: cyclic tripartite digraph rank-three classification
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The finding is an exact statement for all positive part sizes, in the pure directed-edge vocabulary. Fixing a first vertex makes its own class, outgoing class, and incoming class atomic regions. With two moves remaining, their complete pointed Ehrenfeucht–Fraïssé profile is exactly the three capped cardinalities specified in the theorem. One more move lifts this to equality of sets of pointed profiles. The eleven cyclic orbits among the twenty-seven capped triples have exactly one pair of coincident profile sets, yielding ten classes. The nine-vertex kernel is sharp because only a triple with all parts of size at least three has a singleton footprint with first component three. All quantifier depths and equality cases have been checked; the packaged verifier independently checks the entire capped pair table.
+PASS
 
-## Originality — PASS, with residual risk
+After choosing the first vertex, equality and the two ordered incidences to it identify its singleton, its own part minus itself, its outgoing part and its incoming part. With two further selections one distinguishes exactly the counts in those last three regions truncated at two. Conversely, mapping each choice to the corresponding region, reusing an image on repetitions and choosing a fresh vertex otherwise, always preserves the atomic diagram for the two remaining rounds. This argument works irrespective of the side chosen. Thus the unrooted three-round invariant is exactly the set of realizable pointed types, not their multiplicities. Independently grouping the capped words by the number of singleton parts gives 1, 2, 4, and 3 types for three, two, one, and zero singletons respectively; with one singleton the ordered pair of other sizes contributes four different directed profiles, and with zero singletons both mixed necklaces 223 and 233 give the same footprint. The all-3 footprint requires every part to have at least three vertices, giving the sharp 9 bound. The general game proof, not the finite verifier, covers all positive sizes.
 
-Pikhurko–Veith–Verbitsky (arXiv:math/0311041, first public 2003-11-04) provide general distinguishability bounds for binary structures, not a class-by-class quantifier-rank-three computation for directed-triangle blow-ups. Rabinovich's composition theorem (Fundamenta Informaticae 79, 2007) provides a general sum principle, and discusses complete bipartite graphs and cycles, but does not tabulate the necessary-and-sufficient oriented footprint or the nontrivial merger. The nearest identified published complete-multipartite depth classification concerns *undirected* adjacency, which discards the orientation information crucial here. Searches under the directed triangle, cyclic tripartite orientation, and lexicographic sum aliases did not locate stronger coverage. Non-indexed literature and the general composition method remain substantive originality risks, so PASS is a best-knowledge assessment, not a priority certificate.
+## originality
 
-## Value — PASS
+PASS
 
-This is a natural exact bounded-depth logical invariant for all nonempty independent-set blow-ups of the directed three-cycle, not an arbitrary finite slice. Orientation matters: \((1,2,3)\) and \((1,3,2)\) lie in different theories, yet the distinct cyclic size patterns \((2,2,3)\) and \((2,3,3)\) merge. The proof gives an interpretable rooted profile, an exact complete classification, and a sharp nine-vertex representative bound. These features support reuse in finite-model-theoretic comparisons of graph substitutions, beyond the finite verification exercise.
+The supported distinct claim is the exact unrestricted-variable but depth-three oriented footprint in the directed-triangle family, including its unique merger and minimal representative bound. The closest same-family finite-variable result instead gives 11 types at three variable names with unrestricted depth and separates the merged pair; the inspected general methods do not supply that merger.
 
-## Scope and remaining risk
+## value
 
-The conclusions are restricted to rank three without extra predicates or counting. The result is supported by a mathematical proof and independently implemented finite verification of its small quotient. Equivalent historical literature cannot be ruled out, and the independent audit has not taken place.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For the smallest cyclic directed template the exact invariant detects the order of differently sized outgoing and incoming parts, while rank three loses exactly one distinction visible at variable width three. The uniform nine-vertex bound is sharp, and the 223/233 pair supplies a concrete boundary witness for treating depth and variable width separately. This is an exact theorem for an infinite natural family, not just the count of a finite sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

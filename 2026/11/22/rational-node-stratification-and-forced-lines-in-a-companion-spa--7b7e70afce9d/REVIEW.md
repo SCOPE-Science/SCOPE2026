@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The rational gradient follows directly from the Frobenius expressions, and its four vanishing conditions force all projective coordinates nonzero for \(b\ne0\). Choosing \(X_3=1\), the equations yield the unique parameter \(t\), its exact value \(b=t^5-t^3\), and a direct converse. A full local Taylor expansion through order two yields the recorded Hessian and determinant \(2t(2t^2-3)\); the corank-one case is not called an ordinary node. The contained line follows from a rigorous degree-bound multiplicity argument, not from tests at a finite list of points. The standalone checker separately differentiates the actual polynomial and enumerates all rational points for six prime fields. Finite checks are corroboration only; algebraic arguments handle all odd prime powers.
+PASS
 
-## Originality — PASS, with limitations
+The Frobenius brackets vanish at all rational points. Differentiating them at a rational point gives four cyclic bilinear gradient equations. If X3 were zero, the first and second equations would force X1=X2=0 and the fourth would force bX0²=0; if X3 is nonzero, X2 X1=X3² and X1 X0=X2² give the other nonzero coordinates. Normalize X3=1: the gradient vanishes exactly at (t⁻³,t,t⁻¹,1) for b=t⁵−t³; the fourth equation follows from the first three. The degree-two Taylor term is the product of the linear coefficient variations and the linear parts of the Frobenius brackets, since q≥3. The displayed Hessian has determinant 6b/t²−2t³=2t(2t²−3); at its zeros, 3t⁻² is a nonzero two-by-two minor. Odd characteristic gives the ordinary-node criterion. At an exceptional point, (1,t²,1/2) annihilates the Hessian, so the rational line restriction has multiplicity at least three there plus q other distinct zeros, exceeding its degree q+2. The incidence count removes exactly t=±1; the roots of 2t²=3, if nonzero and present, give distinct b=3t/4. Characteristic three has none. Replay: from /workspace, python3 reproductions/algebra.py surfaces. The independent run exhausted the rational gradient incidence sets over F3, F5, F19, F9 and F25 (0, 2, 16, 6 and 22), and checked the formal polynomial restriction on every exceptional line in those fields (0, 2, 2, 0 and 2). The frozen checker was inspected, not executed; its evaluations at rational line points alone cannot detect geometric containment, since all rational points lie on the surface. The uniform proof establishes containment and the rational census; neither the proof nor the run classifies nonrational singularities or the exceptional analytic germs.
 
-The closest source, Bourgeois-Conti–Moon–Perez–Warren, already specifies the companion family, derives a **necessary** relation between its rational singularity parameters, and constructs choices with no rational singularities. It does not supply this complete three-dimensional rational-node/Hessian stratification or the exceptional line-containment result in its relevant sections. The other inspected primary papers concern plane-filling curves and space-filling complete intersections, which do not imply the stated classification. Mathematical literature searches and comparisons with accessible related records found no equivalent or dominating statement. Inaccessible historical literature and unindexed calculations remain residual priority risks; failed searches are not a proof of global uniqueness.
+## originality
 
-## Value — PASS
+PASS
 
-The input family is a natural explicit degree-\(q+2\) construction whose rational smoothness is central to the initiating work. The theorem converts the existing parameter-exclusion condition into an exact singular-incidence census and identifies a sharp geometric boundary between nodes and corank-one points. The latter boundary forces a line contained in the surface, a geometric phenomenon not supplied by mere parameter exclusion. This is meaningful structure for studying possible smooth members and their degeneration, rather than a numerical count without motivation.
+Pass the supported distinct local Hessian and node/corank stratification with its contained-line consequence, not the companion construction or the first-order singular point relation. The exact converse and total incidence count are close deductions from the published gradient equations; the exceptional stratification needs the additional quadratic computation.
 
-## Limits and verification
+## value
 
-The classification applies only to base-field rational singular points; higher-degree geometric singularities and the exceptional analytic germs are not settled. Computational checks cover six prime fields only, while the proof is uniform in odd prime powers. Independent mathematical assessment remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The original family was constructed to study rational smoothness of space-filling surfaces. At parameters where rational smoothness fails, a sharp second-order criterion separates ordinary nodes from exceptional points and identifies a geometrically contained line, uniform over all odd finite fields. This information is not recoverable from a rational-point count alone and gives concrete local geometry for the known family without overstating what happens over the algebraic closure.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

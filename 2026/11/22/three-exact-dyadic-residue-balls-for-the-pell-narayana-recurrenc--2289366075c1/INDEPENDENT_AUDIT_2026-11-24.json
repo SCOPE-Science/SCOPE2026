@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:48:38.471195Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–111; VERIFICATION.md; VERIFY.py (read, not executed)",
+        "Independent replay: python3 /workspace/reviews/evidence/pell_narayana.py --max-k 13 (5,152 residues modulo 8,192)"
+      ],
+      "rationale": "The companion matrix advances (P_n,P_{n+1},P_{n+2}) by one index. Exact recomputation gives entry valuations at least 1,2,4 for K^h−I at h=3,6,24, and the four rows of first and second Mahler coefficient valuations are (1,5),(3,5),(9,13),(9,15). For a row with matrix divisibility exponent s and first coefficient valuation d, uniform convergence follows from v2(c_j)≥sj and the integral binomial basis. Vandermonde and i·binom(t−u,i)=(t−u)binom(t−u−1,i−1) give the binomial difference bound v2(t−u)−floor(log2 j). The j=2 valuations exceed d+1. For j≥3, floor(log2 j)≤j−2 proves the required sj≥d+1+floor(log2 j) in each row (check at j=3 with this stronger linear bound, then slopes s≥1). Thus the linear term determines the exact difference valuation. The normalized maps induce injections of Z/2^k into itself and hence bijections for all k. With continuity and compactness this proves the four full branch disks, including the two complementary 512-disks centered at 258 and 2. For containment, the two nonzero classes mod 3 are odd, n=6t lies in 8Z2, and n=6t+3 has constant 2 modulo 256 since its next three coefficients are 256,29184,3330304 and all later ones are divisible by 4^4. Nonnegative parameter lifts of any finite residue yield infinitely many indices. The even disks collide only at k=1; from k=2 onward all three projections are disjoint, giving the stated cardinalities and Haar measure 161/256. The all-level argument does not depend on the finite recurrence period test.",
+      "residual_risks": [
+        "Distribution of hits within a period and odd-prime images are outside the claim."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary abstract addresses p-adic valuations of third-order recurrences. The all-seed three-step Pell spectrum uses T(a,b,c)=(2a+b+c,a,b) and gives state-cycle lengths."
+        ],
+        "reasoning": "Even an index-valuation theorem for individual terms would need to give difference valuations or an equivalent residue-coverage result to subsume the full image. The all-seed spectrum uses an extra recurrence term and gives cycle lengths, not values of this scalar projection. The general valuation paper was only checked at its abstract.",
+        "searches": [
+          "third order linear recurrence 2-adic image value set isometry residue balls Mahler",
+          "arXiv:2402.18279; Resultary b14d6eaa3ba8"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2305.04786 and 2402.18279",
+        "Resultary 5a09b024255a, 1d412e89dd2f, 9db364243951, b14d6eaa3ba8 and the assigned-record self-match"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The period formula is 3·2^(k−1) for this recurrence. The Pell–Lucas record has measure 9/64 for a different recurrence."
+        ],
+        "reasoning": "Return of the full state after that period does not imply any local bijection of parameters with scalar values; those require valuations of specific Mahler coefficients and exhaustion of the even branches. The analogous Pell–Lucas proof does not supply these for P.",
+        "searches": [
+          "arXiv:2305.04786 §2.1 Theorems 2 and 6, Example 7",
+          "\"three exact 2-adic residue balls\" Pell Lucas; Resultary 5a09b024255a"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Pell–Lucas theorem uses Q0=Q1=2 and Q(n+2)=2Q(n+1)+Q(n); its disks have moduli 16,16,64.",
+          "Narayana-cows matches use a(n+3)=a(n+2)+a(n), not multiplier 2."
+        ],
+        "reasoning": "The similar naming and local lifting method are not equivalence. The characteristic polynomials differ, and the normalization and resulting disk decomposition differ; the one sequence is not merely the same companion recurrence indexed differently.",
+        "searches": [
+          "\"Pell-Narayana\" \"2-adic\" residue image values recurrence",
+          "Resultary: Pell–Lucas three residue balls and Narayana-cows isometric branches (5a09b024255a, 1d412e89dd2f, 9db364243951)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Theorem 6 and Example 7 give the period at powers of 2; the exact three-ball catalogue match was the assigned record itself.",
+          "The independent finite scan confirms 5,152 distinct residues in a period of length 12,288 at k=13."
+        ],
+        "reasoning": "A period table bounds scans at each precision but does not give the distinct residues, and even finite residue tables would not imply the uniform rule. The identical record does not constitute independent existing coverage.",
+        "searches": [
+          "Pell Narayana sequence modulo powers of 2 period Kuloğlu Özkan Marin arXiv:2305.04786 residue classes",
+          "Resultary exact Pell–Narayana dyadic image lookup (2289366075c1)"
+        ]
+      },
+      "rationale": "The closest primary work has exactly the same recurrence and seeds, and gives prime-power periods, but not the residues within the periods. The closest prior three-disk theorem concerns a different, second-order recurrence, and analogous Narayana-cows results concern coefficient 1 rather than 2. The supported distinct claim is the exact image and its containment and surjectivity, not the period theorem or the standard Mahler machinery.",
+      "residual_risks": [
+        "A prior equivalent image theorem under different terminology or outside the sources checked is not ruled out. A period-only source does not settle priority for the image."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strict coverage of periods, not of the scalar value closure.",
+          "evidence": [
+            "The initial periods modulo 2 and 4 are 3 and 6; the prime-power lifting yields the successive doubling."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2305.04786",
+          "material_read": "Definition p. 1, offsets 22–1139; §2.1 Theorem 2 p. 4 near 8000; Theorem 6 and Example 7 p. 6 from around 12164",
+          "method": "Bounded OA PDF passages",
+          "title": "On the period of Pell-Narayana sequence in some groups",
+          "trigger": "Identical seeds and third-order recurrence"
+        },
+        {
+          "assessment": "Methodological analogue, not equivalent coverage.",
+          "evidence": [
+            "For Q0=Q1=2 and the second-order Pell–Lucas recurrence the disks are 2+16Z2, 14+16Z2 and 6+64Z2."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-three-exact-2-adic-residue-balls-for-the-pell-lucas-sequence--5a09b024255a/RESULT.md",
+          "material_read": "Finding and local proof, offsets 0–6138",
+          "method": "Resultary search and bounded local-mirror read",
+          "title": "Three exact 2-adic residue balls for the Pell–Lucas sequence",
+          "trigger": "Closest three-ball image theorem by name and technique"
+        },
+        {
+          "assessment": "Different recurrences; similar image questions.",
+          "evidence": [
+            "Both have the coefficient-1 recurrence, with different seeds across the two records; 1d412e89dd2f has sections covering all odd and even residues."
+          ],
+          "identifier_or_url": "Resultary 1d412e89dd2f and 9db364243951",
+          "material_read": "Findings at offset 0 of both RESULT.md files",
+          "method": "Resultary search and bounded local-mirror reads",
+          "title": "Narayana-cows dyadic residue sections and isometric branches",
+          "trigger": "Possible equivalent normalization"
+        },
+        {
+          "assessment": "Different recurrence and invariant.",
+          "evidence": [
+            "State-cycle lengths are 7·2^j for T(a,b,c)=(2a+b+c,a,b)."
+          ],
+          "identifier_or_url": "Resultary b14d6eaa3ba8",
+          "material_read": "Finding at offset 0",
+          "method": "Resultary search and bounded local-mirror read",
+          "title": "Complete all-seed dyadic cycle spectrum for the three-step Pell recurrence",
+          "trigger": "Candidate stronger parameter coverage"
+        },
+        {
+          "assessment": "Inspected abstract does not give the scalar image; no whole-paper claim made.",
+          "evidence": [
+            "The focus is valuations of third-order recurrence terms."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2402.18279",
+          "material_read": "Abstract, p. 1 offset 702",
+          "method": "Bounded OA PDF passage",
+          "title": "Third-order recurrences and p-adic valuations",
+          "trigger": "General p-adic analogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and Proof; same-recurrence period comparator; independent exact arithmetic certificate"
+      ],
+      "rationale": "For the natural Pell–Narayana recurrence, periods leave open a different arithmetic question: which target values are achievable to arbitrary dyadic precision. The answer isolates a particularly thin even disk at level 256, distinguishes infinitely many hits from unattained residues, and supplies an exact density and all finite-precision counts. The isometric-subsection method also explains how the thin disk is filled, rather than extrapolating it from a finite scan.",
+      "residual_risks": [
+        "The density is Haar measure of the closure, not a limiting empirical frequency of hits."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

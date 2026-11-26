@@ -6,7 +6,7 @@ The published self-parameterized logistic construction at its maximal external c
 \[
 f(x)=\left(\frac{197}{50}+\frac{x}{25}\right)x(1-x),\quad 0\leq x\leq1.
 \]
-Let \(S\) be the complete set of 16,257 distinct nonnegative IEEE bfloat16 numbers in \([0,1]\). Let \(R\) mean exact rounding to nearest representable bfloat16, with midpoint ties sent to the even low mantissa bit. Define **different arithmetic evaluation rules for this same real polynomial**:
+Let \(S\) be the complete set of 16,257 distinct nonnegative bfloat16 numbers in \([0,1]\). Let \(R\) mean exact rounding to nearest representable bfloat16, with midpoint ties sent to the even low mantissa bit. Define **different arithmetic evaluation rules for this same real polynomial**:
 \[
 A(x)=R\!\left[\left(\frac{197}{50}+\frac{x}{25}\right)x(1-x)\right],\qquad
 B(x)=R\!\left[R\!\left(\frac{197}{50}+\frac{x}{25}\right)\,R\!\bigl(x(1-x)\bigr)\right].
@@ -21,7 +21,7 @@ Every multiplication, addition and subtraction not enclosed by an \(R\) is mathe
 | Gain and kernel rounded \(B\) | 1 (zero) | 2 | 1 |
 | Gain and kernel rounded \(B\) | 20 | 16,255 | 83 |
 
-Exactly **2,205** of the 16,257 one-step edges differ between \(A\) and \(B\). Thus, the 2,026-state basin of an independent five-cycle in \(A\) merges with all other nonzero states into the single period-twenty basin in \(B\). In particular, merely changing the indicated intermediate rounding suppresses one nonzero recurrent class and alters the periods of all nonzero recurrent classes.
+Exactly **2,205** of the 16,257 one-step edges differ between \(A\) and \(B\). The two nonzero cycle basins of \(A\), of sizes 2,026 and 14,229, together form the single period-twenty basin of \(B\). This basin consists of all representable states strictly between zero and one. The basin of the zero fixed point remains \(\{0,1\}\) in both maps.
 
 ## Assumptions and scope
 
@@ -48,7 +48,7 @@ The singleton cycle is zero in both graphs; the other state converging to it is 
 
 ## Verification
 
-Run `python3 verify_bfloat_spm.py` with Python 3's standard library; no external data, third-party packages or hardware are needed. It checks independent exact rounding methods against all 16,257 successors for each map, then two exact graph-decomposition algorithms against each other. It asserts the reported period/basin/depth table and differing-edge count. A standalone canonical numerical certificate is provided as `certificate.json`.
+Run `python3 verify_bfloat_spm.py` with Python 3's standard library; no external data, third-party packages or hardware are needed. It checks independent exact rounding methods against all 16,257 successors for each map, then compares the two graph decompositions' per-cycle summaries and per-state depths. It asserts the reported periods, basin sizes and differing-edge count, and prints the cycle lists and maximum preperiods for comparison with `certificate.json`.
 
 The SHA-256 digest of little-endian two-byte successor codes ordered by the 16,257 input codes is `a5f97abb67189fa2fe6942a74ea9a7b31a83ce6b4d3b85e96061598db896a519` for \(A\), and `7f213b1c256c08bf6156c0a034482c16ef633738e0ee03149f47cfe46fbd5327` for \(B\). The digests are reproducibility fingerprints, **not** independent proof in place of the exact computations.
 

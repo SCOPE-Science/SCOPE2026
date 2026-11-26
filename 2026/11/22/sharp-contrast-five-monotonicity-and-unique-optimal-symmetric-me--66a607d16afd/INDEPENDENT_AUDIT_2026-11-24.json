@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T13:04:06.793503Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For four natural knots with gaps (1,r,1), normalize by the smallest positive secant, not by the smallest data increment. The derivative coefficients sum to one, so the minimum on the resulting contrast cube is one minus (K-1) times the negative coefficient mass. On the left interval, the first coefficient is strictly positive and the other two have opposite signs; the negative mass peaks at the outer endpoint at 1/(r+2). Reflection gives the right interval. In the middle the b coefficient is positive, so maximize the largest of zero, each individual negative coefficient and their joint negative sum. The joint expression peaks at the midpoint with mass r/[2(r+2)]. Each individual vertex gives J=r(3r^2+6r+4)/[(r+2)(3r+2)^2]. For r<=2, the difference after clearing denominators against 1/(r+2) is 4+8r+3r^2-3r^3>0: putting r=2u, it is at least 4+16u-12u^2>0 for 0<u<=1. For r>=2, J<=r/[2(r+2)] follows from 3r^2>=4. The endpoint and midpoint attain the competing bounds, and the specified positive corner slopes attain each failure for any larger K. A negative endpoint derivative gives a negative interval by continuity. Equality is included, and the two monotone-in-r branches meet uniquely at r=2. Independent symbolic replay of witnesses and the interior vertex via the knot first-derivative system: python3 /workspace/review_replay.py, check 1. Proof, not finite checks, establishes all r and all t.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "4a9c25b174e4 returns a sharp grid-independent threshold 2+sqrt(3) with asymptotic attainment on uniform grids.",
+          "The frozen primary comparison describes exact local Hermite segment criteria, modified/limited derivatives, and endpoint-slope-adjustment limitations, respectively; no new primary-text passage was obtained."
+        ],
+        "reasoning": "The grid-independent quantifier is over all finite uniform grids. It gives a weaker guarantee than 4 for four uniform knots and no conclusion about asymmetric gap scales (1,r,1) with r not 1. A local test for prescribed derivatives can be applied, but still requires finding the entire natural-spline slope image and optimizing its most negative derivative over the data and evaluation point.",
+        "searches": [
+          "Resultary 4a9c25b174e4 for the unmodified natural uniform-grid case",
+          "Fritsch–Carlson DOI 10.1137/0717021; Aràndiga–Baeza–Yáñez arXiv:2102.11564; Baeza–Yáñez arXiv:2402.01324 and DOI 10.1016/j.apnum.2022.06.012"
+        ]
+      },
+      "checked_sources": [
+        "Frozen source package and local replay",
+        "Resultary 66a607d16afd, 4a9c25b174e4, a68c76ffcd7c, 287732549e93, afe8e7596c94",
+        "Frozen comparisons to Fritsch–Carlson, Aràndiga–Baeza–Yáñez, Baeza–Yáñez, and Beatson–Chacko"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The implication 2+sqrt(3)<4 is strictly weaker at r=1; the index's asymptotic sharpness does not give a fixed-length counterexample.",
+          "An integrated unrestricted variation ratio cannot certify pointwise nonnegativity on the secant contrast cube. The proof here supplies analytic extrema and exact positive corner witnesses for both branches."
+        ],
+        "reasoning": "A more complete uniform-grid proof might compute the four-knot case, but even that would not imply the exact nonuniform family or its optimizer. No priority inference is made from the distinct result's shared date.",
+        "searches": [
+          "Resultary 4a9c25b174e4 uniform-grid summary, and frozen RESULT.md lines 112–129 for spline comparison literature and variation claims"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 66a607d16afd is the assigned record. Resultary afe8e7596c94 concerns flat clamped endpoints and a different data parameterization.",
+          "The exact statement is a pointwise derivative operator optimization on the positive secant cube, or equivalently a uniform upper bound on its negative coefficient mass."
+        ],
+        "reasoning": "Comparisons must fix the interpolation operator and use secant slopes; prescribing zero first derivatives changes the operator, and using raw increments changes the contrast cube when r is not 1.",
+        "searches": [
+          "Resultary semantic queries for sharp contrast monotonicity, natural endpoints, four-knot symmetric grids and variation objectives",
+          "Primary search for natural cubic monotonicity, sharp slope ratios and unmodified four-knot interpolation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The fixed-four-knot variation optimum in a68c76ffcd7c has r about 1.42882553. The equispaced 287732549e93 is a total-variation constant. The value four in afe8e7596c94 pertains to clamped, not natural, endpoints."
+        ],
+        "reasoning": "No distinct indexed exact radius function R(r) or symmetric-mesh contrast optimum was identified. Matching a number under a different boundary condition is not an exact invariant match, and total variation is not pointwise derivative sign.",
+        "searches": [
+          "Resultary exact value and objective searches, including IDs 4a9c25b174e4, a68c76ffcd7c, 287732549e93 and afe8e7596c94"
+        ]
+      },
+      "rationale": "The supported distinct result is the exact fixed-mesh contrast radius for unmodified natural splines on (1,r,1), with two sharp obstruction locations and its unique optimum. The closest indexed uniform-grid claim produces an explicitly weaker guarantee for r=1 and covers no r other than 1. Classical segment characterizations supply a method, not the optimization of the uniform data guarantee. This is a bounded overlap decision, not a historical-priority finding.",
+      "residual_risks": [
+        "The related uniform-grid record's full proof was not obtained. It may contain closer fixed-grid computations; the index alone cannot exclude them.",
+        "The named primary full-text passages were not independently available. Earlier unindexed equivalent formulas or stronger principles are not excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Weaker guarantee at r=1, not the nonuniform result; unresolved whether proof contains fixed-size corollary",
+          "evidence": "2+sqrt(3) sharp uniformly in grid size, asymptotic attainment, versus fixed-four 4, optimized to 5 by nonuniform gaps.",
+          "identifier_or_url": "Resultary 4a9c25b174e4",
+          "material_read": "Returned local catalog statement; mirror text not obtained",
+          "method": "Resultary plus lawful local mirror attempt",
+          "title": "Sharp uniform-grid monotonicity contrast for unmodified natural cubic splines",
+          "trigger": "Strongest overlap: same operator and contrast on every finite uniform grid"
+        },
+        {
+          "assessment": "Different objective and quantifiers",
+          "evidence": "The variation minimax ratio favors about 1.42882553, and the equispaced statement bounds integrated variation, not positive-cube derivative sign.",
+          "identifier_or_url": "Resultary a68c76ffcd7c and 287732549e93",
+          "material_read": "Local summaries and frozen RESULT.md 116, 128–129",
+          "method": "Resultary and frozen comparison",
+          "title": "Unique variation-optimal symmetric four-knot natural cubic interpolation; sharp equispaced variation amplification",
+          "trigger": "Identical natural four-knot families or r=1 specialization"
+        },
+        {
+          "assessment": "Different endpoint operator and data parameterization",
+          "evidence": "Clamped zero first derivatives versus natural zero second derivatives.",
+          "identifier_or_url": "Resultary afe8e7596c94",
+          "material_read": "Local index summary",
+          "method": "Resultary",
+          "title": "A sharp contrast-four monotonicity threshold for clamped cubic splines",
+          "trigger": "Matching contrast and four knots"
+        },
+        {
+          "assessment": "Credit exact local Hermite segment criterion; not a verified global contrast optimization",
+          "evidence": "A condition on prescribed segment slopes is not the maximized necessary-and-sufficient data-uniform threshold.",
+          "identifier_or_url": "10.1137/0717021",
+          "material_read": "Frozen RESULT.md 114, 124; no independently obtained decisive passage",
+          "method": "Frozen comparison and bounded primary literature lookup",
+          "title": "Monotone Piecewise Cubic Interpolation",
+          "trigger": "Potential general monotonicity implication"
+        },
+        {
+          "assessment": "Comparisons of modified derivatives or endpoint adjustment, as described in the frozen record; full-text overlap not independently excluded",
+          "evidence": "Neither reported statement optimizes the unchanged natural interpolant for bounded positive contrast.",
+          "identifier_or_url": "arXiv:2102.11564; arXiv:2402.01324",
+          "material_read": "Frozen RESULT.md 114, 125–126; primary text retrieval timed out",
+          "method": "Lawful original lookup and frozen comparison",
+          "title": "Monotone cubic spline interpolation for functions with a strong gradient; A note on some bounds between cubic spline interpolants depending on the boundary conditions",
+          "trigger": "Natural/clamped boundary monotonicity alternatives"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is an actionable four-knot design criterion for a standard unmodified interpolant in the first coupled natural-spline geometry. It identifies the tradeoff between outer-endpoint loss and central derivative reversal, with explicit failures and a unique mesh equalizing the constraints. The exact improvement from 4 to 5 is substantive for this design problem; neither a general-grid guarantee nor variation minimization substitutes for it.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,9 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** The affine product reproducing kernel is the sum of factor kernels minus the excess constant terms. Each factor kernel is justified from exact Dirichlet moments; convexity places the maximum Lebesgue function at a product vertex, where the exact beta expectation follows. The exponential limit includes zero limiting weights and is justified by an exact second-moment bound. Pairwise exponential symmetrization proves strict Schur-convexity, and gamma/exponential integrations give the sharp equality constants. The reproducibility checker verifies finite rational examples and moment identities independently of the infinite-family argument.
+## correctness
 
-**Originality — PASS, with residual risk.** The closest published exact *single-simplex* affine projector norm does not cover global affine projection on a product: its kernel has one beta coordinate, while the present product kernel is an additive sum of independent factor contributions. Chernov's primary full text gives Sobolev/trace convergence on individual simplices; the inspected Duan et al. abstract concerns numerical finite-element methods rather than sharp supremum operator norms. Searches for product-simplex projection constants, beta convolutions, exponential limits, and equivalences in available mathematical records did not reveal a dominating statement. An inaccessible article on adaptive product-simplex visualization and unindexed historical literature remain nonzero coverage risks. Failed search alone is not proof of novelty.
+PASS
 
-**Mathematical value — PASS.** Sharp local stability constants are useful in error amplification analysis for least-squares approximation on Cartesian product cells. The distinction between globally affine and tensor-product projection is structural, and strict majorization supplies an exact aspect-ratio design principle across every fixed factor count. The full dimension-profile theorem is neither a known one-simplex special case nor a trivial substitution.
+The affine factor Gram matrix in barycentric coordinates is (I+11^T)/((d+1)(d+2)), whose inverse gives the vertex kernel (d+1)(d+2)U-(d+1). Independence makes centered factorwise affine spaces orthogonal; adding them and the shared constant yields the sum of factor kernels minus k-1. The product kernel is affine in its evaluation point, so its L1 mass is convex and cannot exceed the maximum over product vertices; barycentric symmetry makes their masses equal. The sign of the chosen vertex kernel attains the norm: the resulting projected function is continuous, so its vertex value is bounded by the essential supremum on the full-support domain. At a product vertex the U_i are independent Beta(1,d_i). For d_i/N→w_i>0, d_i U_i tends in law to a unit exponential and the scale multiplier tends to w_i; zero proportions vanish in L1 by expectation (d_i+2)/N, including bounded dimensions. Independence gives joint convergence, and E[K^2]=1+sum_i d_i(d_i+2) gives uniform integrability after dividing by N. To prove strictness for a pair of weights with sum s>0, swap the two iid exponentials and average, obtaining max(|R+s(X+Y)/2-1|, |a-b||X-Y|/2). For any two distinct imbalance magnitudes there is positive probability that the first term is smaller than the larger imbalance term and X≠Y: take R<1 and unequal positive X,Y with sum near 2(1-R)/s, then use the positive density on an open neighborhood. This proves strict balancing even with zero weights, and the usual characterization by balancing transfers gives the stated equality cases. At a vertex, the positive excess over one gives 2/e. At equal weights, the derivative of z^k exp(-z) integrates the gamma positive excess to 2k^k exp(-k)/k!; Stirling gives the iterated large-k law. For k=2 the two-exponential convolution and positive-excess integral give the divided difference, including continuous limits. Independently replayed all three rational norm examples.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The one-simplex result, the exact two-factor product law and the two-exponential divided difference have material coverage and are not credited as distinct on their own. The added result is a single projection theorem for arbitrary fixed k, including exact independent-beta norm, limits for all weight proportions and the strict balancing and equality structure. The general symmetric convex expectation heuristic supplies non-strict majorization but not the strict nonsmooth claim or the projection result. The inspected narrower results and general bounds do not cover the combined theorem.
+
+## value
+
+PASS
+
+Uniform-volume least-squares projection onto total-degree-one polynomials is a natural operator on product cells; the exact L∞ norm measures worst-case amplification and is not the easier tensor-product norm. The supported arbitrary-factor law distinguishes all limiting aspect profiles via strict balancing and gives the precise best and worst cases. It unifies the known lower-factor examples and quantifies how the optimal amplification changes with the number of factors. This is a sharp, potentially useful benchmark, not a claim of any solver-performance improvement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,12 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The algebraic specification reconstructs a 21-dimensional code. Exhaustive enumeration matches the published global weight distribution before any new incidence conclusion is used. The coordinate-degree count sums to \(72\cdot9826\), and every degree lies strictly between zero and 9,826. Those two strict inequalities give the all-coordinate puncturing and shortening conclusions by direct minimum-weight and kernel arguments. The packaged verifier replays these checks exactly.
+## correctness
 
-## Originality
-PASS. The closest source is the parent-code paper itself: it gives the explicit construction, global weight distribution, and generic standard modifications, but not the coordinate-resolved minimum-support degrees. published-finding corpus, exact-parameter literature searches, and CodeTables were checked for equivalent support-design or all-coordinate formulations. No stronger or equivalent published statement was found. A residual risk is an unindexed companion computation on the released generator data.
+PASS
 
-## Value
-PASS. The result measures coordinate robustness of a new record code rather than only its global distance. It proves that every coordinate choice supports both exact one-step descendants, while simultaneously showing that minimum supports are far from a 1-design. This is a natural structural invariant relevant to using the record code as a modification seed.
+The four factors of h, f_2, and all 14 ordered five-bit patterns match Appendix A. Its generator row j uses bit c_{j mod 5} of the printed c_0…c_4, so the reconstruction has the correct tail orientation. The first block (bg of degree <85) embeds the message space, proving dimension 21. A fresh census (`python3 /workspace/branches/r4-census.py`) used coefficientwise polynomial division, cyclic shifts and split-message XOR enumeration, not the supplied Gray-code checker. It enumerated exactly 2,097,152 distinct messages including zero, reproduced the frozen weight distribution and gave weight 72 first among the nonzero words, with 9,826 occurrences. The incidence histogram was {2108:1,2346:2,2482:2,2516:3,2550:6,3940:17,3956:17,3958:102,3968:34}, summing with multiplicities to 707,472. Thus every coordinate is both hit and missed by a minimum word. A hit yields punctured weight 71, and every weight decreases by at most one; no unit word is in C, so dimension stays 21. A miss yields shortened weight 72, and restricting to zero there is a codimension-one kernel since the coordinate is hit. Omitting that zero coordinate is weight preserving, giving [183,20,72]. Unequal incidences rule out a 1-design. This is exhaustive only for the specified finite code and single-coordinate operations.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The construction, minimum distance, and count 9,826 are prior work and rechecked here as identity/census controls. The distinct finding is the exact coordinate-incidence histogram with uniform exact distance behavior for all single-coordinate punctures and shortenings. The prior tables checked do not supply that information. The bare non-1-design conclusion is already forced by nonintegral mean incidence 72·9826/184 and is not independent novelty.
+
+## value
+
+PASS
+
+For this explicit high-distance construction, the relevant question is whether selecting a coordinate for an elementary code modification can affect the resulting exact distance. The census certifies there is no such choice for either one-coordinate operation, despite materially different replication counts. The histogram provides the actual one-point minimum-shell data rather than just rechecking the construction or observing the arithmetic obstruction to a 1-design. It does not imply optimality of the resulting parameters or stability for multiple operations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

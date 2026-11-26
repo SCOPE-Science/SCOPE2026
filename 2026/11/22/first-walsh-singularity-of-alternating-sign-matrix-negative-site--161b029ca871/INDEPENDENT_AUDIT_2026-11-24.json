@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:06:30.596149Z",
+  "axes": {
+    "correctness": {
+      "rationale": "I independently enumerated every order-1 through order-6 ASM by first enumerating explicit ternary rows with alternating nonzeros starting and ending at +1, then appending rows with a last-nonzero sign test per column and requiring the final sign in each column to be +1. This generates precisely the ASMs with labelled rows/columns; no boundary site can be negative since it would start or end a nonzero row/column sequence. Counts are 1,2,7,42,429,7436 with respective distinct negative masks 1,1,2,7,41,407. I retained multiplicities and computed the full unnormalized spectrum by direct integer sums with signs 1−2·parity(s & x), rather than a butterfly. The trivial-group cases have their scalar ASM counts, n≤5 has no zeros, and n=6 has 180 zeros, 60402 positive and 4954 negative values, least nonzero magnitude 2 and greatest 7436. Thus rank=65356, nullity=180, pseudoinverse norm=1/2 and nonzero-singular-value condition ratio=3718. I checked every listed canonical zero orbit, including the unique weight-eight orbit represented by the given pattern, and all weight counts (4,8,40,96,4,28) for weights 8–13. Exactly 21 orbits have size eight and three have size four. Another direct integer parity sum over the zeros gives H(0)=180 and Σ_(x≠0)|H(x)|=689004. Under unnormalized convolution, the range projection has kernel δ_0−H/65536, giving the exact absolute kernel sum 94295/8192. Convolution attains that endpoint norm on a point mass in ℓ1 and on an aligned sign vector in ℓ∞. Averaging any projection onto the range over translations is contractive in both operator norms, still fixes the range and takes values in it, and must be the unique diagonal Walsh projection onto those characters. This proves the lower bounds without assuming translation invariance. Replay: python3 /workspace/review_evidence/asm_walsh.py with NumPy 2.5.3; see asm_walsh.log. I inspected but did not execute the frozen certificate. The result is confined to orders 1–6.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Behrend uses a six-vertex Izergin–Korepin calculation for boundary statistics, generalized inversions and the total number of negatives. Han–Yang also track counts and boundary positions, and Lalonde restricts to the exactly-one-negative class."
+        ],
+        "reasoning": "Aggregate-variable results do not specialize to independent local minus-entry signs. A genuinely site-weighted partition function or equivalent complete evaluated data would warrant a different comparison; the inspected partition-function specialization does not provide them.",
+        "searches": [
+          "arXiv:1203.3187, abstract and §2.2",
+          "arXiv:2601.10870, abstract and introduction",
+          "arXiv:math/0401339, abstract"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1203.3187",
+        "arXiv:2601.10870",
+        "arXiv:math/0401339",
+        "Resultary: bb35a5ff64ab, ccd05ce98078, 6b2d73d6c591"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier and same-day comparisons share the Walsh and averaging framework. Total-count weighting may yield the uniform all-sites character but loses spatial distinctions. The exactly-one-negative subclass cannot account for cancellations over all ASMs."
+        ],
+        "reasoning": "Neither standard projection theory nor aggregate ASM counts determines the zero frequencies used by the projection theorem. Known total ASM counts already exclude zeros at odd-total orders by parity, but do not decide the even-total case at six, its full zero locus, or the endpoint constant.",
+        "searches": [
+          "arXiv:1203.3187 §2.2",
+          "Resultary: bb35a5ff64ab, ccd05ce98078, 6b2d73d6c591"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For the site-weighted polynomial Σ_A∏_(Aij=−1) z_ij the desired frequencies are precisely the evaluations at independent signs. The exact matching Resultary hit is the reviewed record itself; the distinct records use occupied-site masks or low-degree ternary marginals."
+        ],
+        "reasoning": "The negative mask is not a Boolean-linear re-encoding of the occupied mask that transports characters. Interpolation of arbitrary laws from ternary marginals is not spectral diagonalization of convolution by one fixed mask multiplicity law.",
+        "searches": [
+          "Resultary ASM negative-site Fourier spectrum / Walsh nullity / sharp endpoint projection: bb35a5ff64ab, ccd05ce98078, 6b2d73d6c591",
+          "arXiv:1203.3187"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The order-four all-nonzero-support result gives 15360 zeros and norm 199/32; the distinct same-day order-five one-negative occupied-site result gives 4194816 zeros and norm 2170129/32768. The order-five cell-marginal result is not a Walsh zero census on negative-site masks."
+        ],
+        "reasoning": "These exact tables are for different dimensions, encodings or populations. None of the inspected data gives the complete order-six negative-site mask multiplicities, zero orbit table, or the 180-character kernel absolute sum. The target makes no claim to a printed histogram of every nonzero eigenvalue.",
+        "searches": [
+          "Resultary finite ASM spectra and projection norms: bb35a5ff64ab, ccd05ce98078, 6b2d73d6c591",
+          "arXiv:1203.3187 site-statistics comparison"
+        ]
+      },
+      "rationale": "Best-knowledge pass for the first singular size of the multiplicity-weighted negative-site operator, its order-six zero locus and its evaluated endpoint norm. The underlying ASM bijections, bulk refinements, and projection-by-translation-averaging method are not new, and the same spectral methodology appears for other ASM ensembles.",
+      "residual_risks": [
+        "A differently parameterized or unindexed fully site-resolved ASM calculation remains possible.",
+        "The same-day date of the distinct analogue establishes no chronological priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Aggregate statistics rather than fully localized sign weights",
+          "evidence": "Six-variable generating function tracks four boundaries, bulk inversions and the number of −1s.",
+          "identifier_or_url": "https://arxiv.org/pdf/1203.3187",
+          "material_read": "Abstract, p. 1 offset 0; §2.2, p. 7 offset 25950",
+          "method": "OA PDF passage; Cardiff copy inaccessible, used accessible arXiv version",
+          "title": "Multiply-refined enumeration of alternating sign matrices",
+          "trigger": "Potentially stronger refined ASM and six-vertex formula"
+        },
+        {
+          "assessment": "No negative-site joint statistic in the inspected refinement",
+          "evidence": "Tracks number of negatives and first-/last-row 1 positions.",
+          "identifier_or_url": "https://arxiv.org/pdf/2601.10870",
+          "material_read": "Abstract and introduction, pp. 1–3, offsets 0 and 6250",
+          "method": "OA PDF passage reading",
+          "title": "Han–Yang refinement of alternating sign matrix enumeration",
+          "trigger": "Recent refinement potentially tracking interior negatives"
+        },
+        {
+          "assessment": "Strict subclass only",
+          "evidence": "Studies exactly-one-negative ASMs, including reflection and path bijections.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0401339",
+          "material_read": "Abstract, p. 1 offset 350",
+          "method": "OA PDF passage reading",
+          "title": "Alternating sign matrices with one −1 under vertical reflection",
+          "trigger": "Explicit negative-site subclass"
+        },
+        {
+          "assessment": "Closely related method, different mask and order",
+          "evidence": "All occupied cells of all 42 order-four ASMs; 15360 zeros and norm 199/32.",
+          "identifier_or_url": "Resultary: bb35a5ff64ab",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror passage reading",
+          "title": "Exact Walsh nullity and sharp endpoint projection norm for 4-by-4 ASM supports",
+          "trigger": "Closest earlier Walsh and endpoint calculation"
+        },
+        {
+          "assessment": "Similar calculation for a different ensemble and embedding",
+          "evidence": "Occupied cells of 200 order-five ASMs with exactly one negative; 4194816 zeros and norm 2170129/32768.",
+          "identifier_or_url": "Resultary: ccd05ce98078",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror passage reading",
+          "title": "Exact Fourier recovery of the one-negative order-five alternating-sign matrices",
+          "trigger": "Distinct same-day Fourier overlap"
+        },
+        {
+          "assessment": "Different inverse problem",
+          "evidence": "Low-degree ternary cell marginal recovery of laws on order-five ASMs, not negative-mask XOR convolution.",
+          "identifier_or_url": "Resultary: 6b2d73d6c591",
+          "material_read": "RESULT.md, offset 800",
+          "method": "Local Resultary mirror passage reading",
+          "title": "Exact cubic Fourier blind space and quartic recovery for order-five ASMs",
+          "trigger": "Alternative Fourier recovery formulation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Injectivity is a natural first-failure question for deconvolution by the labelled minus-entry statistics of ASMs. At order six the complete missing characters describe precisely which signals cannot be recovered, beyond a single singularity witness; the optimal projection norms quantify the best endpoint cost of projecting onto the recoverable range. These are exact benchmarks for that particular natural ensemble, not a new general Walsh algorithm, asymptotic result, or assertion that the range projection inverts the convolution.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

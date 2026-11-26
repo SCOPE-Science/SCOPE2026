@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof is analytic and all-dimensional for the orbit-star part. Strict positive definiteness follows from a positive Gaussian mixture, while a positive two-dimensional principal minor fixes the denominator sign. The sign numerator becomes a strictly convex exponential sum with one possible positive zero. For regular polygons, the sharp finite-size coefficient follows from a uniform Euler--Maclaurin expansion and a simple root; Gaussian subordination gives positive Fourier coefficients and strict cyclic aliasing inequalities. The standalone program independently verifies the formulas on finite examples; its finite samples do not constitute the proof.
+## correctness
 
-**Originality — PASS (best knowledge, provisional).** Direct full-text inspection of Roff--Willerton (arXiv:2607.05349) and Devriendt (arXiv:2510.14684) identified the general weighting theory, microscopic sign geometry and general circumcenter-containment criterion, but not an all-positive-scale one-crossing result for an orbit-star, nor the sharp polygon-to-circle threshold asymptotic. Related cyclic two-chunk examples have two equal-size orbits and do not imply the singleton-hub statement. A previously recorded centered spherical-cloud claim covers negative **microscopic** hub mass only; the present claim adds exact finite-scale uniqueness and an asymptotic order law. Semantic searches did not return an equivalent theorem. Priority is not certified: unindexed special-function and magnitude literature and an inaccessible closely related full text remain risks.
+PASS
 
-**Value — PASS.** Signed magnitude weights matter as scale-dependent geometric contributions and for the positive-weighting regime. The theorem gives a sharp complete sign-phase classification for a natural symmetric geometric class, proves finite-to-continuous behavior beyond a limiting sign assertion, and determines the exact convergence exponent and coefficient for regular polygon sampling. These nontrivial threshold and asymptotic properties are not routine reformulations of the microscopic endpoint. No broader arbitrary-cloud theorem is claimed.
+The positive mixture of Gaussian distance kernels is strictly positive definite on distinct Euclidean points; uniqueness and rim transitivity reduce the system to the constant-on-rim sector. In the center plus unit rim-indicator basis the determinant is Q−nE²>0, with E=e^(−rt) and Q=Σe^(−tℓ_j). The rim weight is (1−E)/(Q−nE²)>0, while the center sign is the sign of Σe^((r−ℓ_j)t)−n. This function has value zero at zero, slope n(r−mean chord), everywhere positive second derivative and divergence at infinity (the self-chord has length zero). That proves both cases including equality; the microscopic denominator 2r−mean chord is strictly positive. For polygon rims the mean chord is (2/n)cot(π/(2n))>1. The continuous analogue has initial slope 1−4/π<0, strict convexity and divergence from any interval of chord length less than one, giving a unique simple positive zero and D>0. The uniform Euler–Maclaurin endpoint jump is 4πt, so the average differs from I(t) by πt/(3n²)+O(n⁻⁴). Uniform convergence traps the root on both sides of the simple limit, and solving first for O(n⁻²) error then substituting yields the sharp coefficient. For divisibility, there is a direct check independent of the Fourier proof: f_t(x)=exp(−2t sin πx) is strictly convex on [0,1], since f_t''/f_t=4π²t² cos²(πx)+2π²t sin(πx)>0. The endpoint-matched sum is the trapezoid rule; any proper panel refinement strictly decreases its value while it remains strictly above the integral. Evaluating at the unique roots gives t_n<t_mn<t_∞, only a divisibility ordering as claimed. Independent quadrature gave t_∞≈1.36351481573219, D≈0.06794808738018 and coefficient ≈21.01412167889. The supplied checker and verification note were inspected, not executed; numerical values are corroboration only.
 
-**Limitations.** Euclidean chordal distances, distinct sites, transitive rim and equal hub radii are essential to the stated theorem. The circular root is implicit. Independent validation has not been conducted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact microscopic endpoint and symmetry-reduction method have verified antecedents. The supported distinct result is the classification at all positive scales including equality, coupled to the sharp vertex-polygon threshold expansion and divisibility order. The compared microscopic, circumcenter-criterion, block-constant and polygon-chord results do not state or imply that combined law. Euler–Maclaurin and nested trapezoid ordering themselves are standard.
+
+## value
+
+PASS
+
+Scale-dependent signs determine when the weighting of a natural one-point extension is positive. The classification yields a sharp, easily computable geometric criterion beyond a microscopic limit, and regular polygons give a canonical discretization with a sharp bias in the scale of positivity. The value is in the classification and correction, not the routine two-by-two solve or quadrature in isolation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

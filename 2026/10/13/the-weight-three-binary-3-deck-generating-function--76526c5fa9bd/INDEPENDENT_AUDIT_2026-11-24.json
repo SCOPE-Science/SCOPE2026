@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:45:27.323364Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The three counts for 011,101,110 impose respectively 3 delta a+delta b=0, delta b+delta c=0, delta c+3 delta d=0, so the only possible gap displacement is t(1,-3,3,-1) for integral t. Let p=(a,a+b,a+b+c) count zero prefixes before each 1; these change by t(1,-2,1). In sum_i binom(p_i,2), the linear part of the change is t(p_1-2p_2+p_3)=t(c-b) and the quadratic part is 3t^2. The shifts sum to zero. For fixed zero total m=n-3 the suffixes are m-p_i, and sum_i binom(m-p_i,2) differs from the prefix count by an affine function of sum_i p_i; hence the 100 change equals the 001 change. The three exactly-one-one counts sum to 3 binom(m,2), so the 010 change is minus twice that change. The all-zero and all-one counts are fixed. For a distinct partner, t=(b-c)/3 is thus forced; the partner is allowed only if all gaps stay nonnegative. Orient by increasing a and write d=t+e, giving the stated unique parameterization with no missing or multiply counted class. Its length is a+e+2c+4t+3, yielding the correction series with first possible term z^7, while all words contribute z^3/(1-z)^4. For n<3 both counts vanish. Independent replay: python3 /workspace/checks/5.py constructs decks by incremental subsequence counts (without gap formulas), classifies 58,905 words for n=0..35, and checks every resulting pair and the coefficients computed by successive geometric-series multiplication. The census corroborates but does not prove the all-length argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The direct source proves asymptotic order Theta(n^3) for the fixed-weight slice and finds the kernel.",
+          "Nilforoushan–Parvaresh prove D_{2,3}(n)=Theta(n^9) with indices alphabet size and deck length, over all words. Their stated result is asymptotic and unrestricted.",
+          "Later SCOPE-20261102-f95f52cd118b counts the doubletons and derives the same exact per-length correction."
+        ],
+        "reasoning": "Neither asymptotic bound determines the exact coefficients or pairs in this weight slice. Later exact collision classifications do imply the formula, but no earlier catalogue coverage of this kind was established.",
+        "searches": [
+          "DOI 10.3934/amc.2021032, §5.3 through Conjecture 1",
+          "arXiv:2609.23106v2, abstract and stated binary asymptotic result",
+          "Resultary exact three-deck class searches"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.3934/amc.2021032",
+        "arXiv:2001.11732",
+        "arXiv:2609.23106v2",
+        "SCOPE-20261025-39c59472a4df",
+        "SCOPE-20261026-61b009fefb1e",
+        "SCOPE-20261102-ddfb28b06c4a",
+        "SCOPE-20261102-f95f52cd118b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The conjecture paper exhibits the length-seven pair 1000110, 0110001 and the kernel (1,-3,3,-1), then gives lower-bound arguments rather than an iff condition for a collision.",
+          "The Oct. 25 proof explicitly says no equivalence class has more than two words and gives each pair exactly once as (r,s+3t,s,t+u) and (r+t,s,s+3t,u). These are the identical pairs under r=a, s=c, u=e."
+        ],
+        "reasoning": "The earlier kernel is necessary, not sufficient; the factor t(c-b+3t) is needed to solve the remaining equality and prove global classification. The Oct. 25 record demonstrably covers the full finding, but its later archive date does not establish earlier public coverage or how the results were obtained.",
+        "searches": [
+          "Chrisnata et al. §5.3, pp. 15–17, PDF text offsets 50500–64967",
+          "SCOPE-20261025-39c59472a4df, Proof Step 2 offset 3732 and Step 3 offset 4005"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The direct source uses D_{k,w} for deck length k and weight w. Lejeune–Rigo–Rosenfeld use counts of scattered subwords up to length k and describe binary classes at k=2, leaving the k>=3 structural extension open in their discussion.",
+          "Later Resultary SCOPE-20261025-39c59472a4df and SCOPE-20261102-ddfb28b06c4a give equivalent fixed-weight-three gap classifications."
+        ],
+        "reasoning": "At fixed n>=3, summing the multiplicities of a shorter pattern within all 3-deck members counts each embedding of that pattern a fixed number of times, so equal 3-decks here are equivalent to 3-binomial equivalence. The k=2 structural theorem is not the needed k=3 theorem. The focused web query had no decisive hit and does not establish absence.",
+        "searches": [
+          "Resultary: D_{3,3}, fixed-weight-three binary 3-deck collisions and 3-binomial equivalence",
+          "Web: (\"3-binomial equivalence\" OR \"3-binomially equivalent\") binary words exactly three ones weight-three collision classes exact generating function formula",
+          "arXiv:2001.11732, §6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Conjecture 1 writes the identical rational series and the discussion reports a computational check of the first 20 coefficients.",
+          "SCOPE-20261026-61b009fefb1e displays the exact generating function and twin-pair classification as a theorem in a later index entry."
+        ],
+        "reasoning": "The rational expression itself and a finite prefix were known; the all-length theorem does not follow from a finite table or an unproved generating-function conjecture. The new contribution at the frozen record's date is a proof and complete class structure, not proposing the expression.",
+        "searches": [
+          "Chrisnata et al., §5.3, Conjecture 1 and following verification remark",
+          "Resultary: exact fixed-weight D_{3,3} generating function and two-word classes"
+        ]
+      },
+      "rationale": "The exact rational generating function and one-dimensional kernel were already stated, as conjecture and proved partial step respectively. The distinct claim assessed here is the all-length proof and exact pair classification for the fixed-weight slice. Indexed records later in October/November contain the same result, including the identical parametrization up to renamed variables, so the catalogue now has duplicate mathematical coverage. Those entries do not establish coverage before the October 13 frozen record. In the substantially earlier primary text, the general generating function is expressly conjectured and only 20 coefficients are checked. No earlier exact theorem was established in the comparisons performed; this is not a historical-first claim.",
+      "residual_risks": [
+        "An older independently phrased or unindexed proof of the fixed-weight binary 3-binomial class formula is not ruled out.",
+        "Later catalogue matches prove present overlap but do not establish the time of private derivation or provenance. The earliest provenance of the known length-seven witness was not independently established and does not affect the all-length comparison."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact statement as conjecture, not proof; contains substantial partial progress",
+          "evidence": "Gives the known length-7 pair and kernel, then states the target formula under Conjecture 1 and reports first-20-coefficient checking.",
+          "identifier_or_url": "doi:10.3934/amc.2021032; https://yaakobi.net.technion.ac.il/files/2022/08/60_k_Decks_Disc_Math21.pdf",
+          "material_read": "Author-hosted primary §5.3, pp. 15–17, offsets 50500–64967, including the displayed pair, kernel condition, asymptotic bounds and Conjecture 1",
+          "method": "OA author-hosted original passages after publisher retrieval did not return full text",
+          "title": "On the number of distinct k-decks: Enumeration and bounds",
+          "trigger": "Original attribution, kernel and exact conjecture"
+        },
+        {
+          "assessment": "Relevant terminology and k=2 result; no implication for this k=3 class formula",
+          "evidence": "Discusses the generalization of its switches to k>=3 as having no clear answer yet.",
+          "identifier_or_url": "arXiv:2001.11732; doi:10.1142/S0218196720500459",
+          "material_read": "§6, p. 19, PDF text offset 54856 and definitions",
+          "method": "OA primary-text approximation of scope by direct statement comparison",
+          "title": "On the binomial equivalence classes of finite words",
+          "trigger": "Potential exact structural coverage under equivalent names"
+        },
+        {
+          "assessment": "Unrestricted Theta(n^9) result does not cover exact fixed-weight-three formula",
+          "evidence": "Uses D_{q,k} indexed by alphabet size q and deck length k and proves the binary q=2,k=3 asymptotic order.",
+          "identifier_or_url": "arXiv:2609.23106v2",
+          "material_read": "OA abstract, text offset 0, and stated scope of the unrestricted binary bound",
+          "method": "OA primary result statement comparison",
+          "title": "Improved upper bound on the number of distinct k-decks for any k and alphabet size by counting the independent parameters",
+          "trigger": "Closest later primary distinct-deck counting study (Sept. 29 2026 version)"
+        },
+        {
+          "assessment": "Full mathematical coverage in later catalogue entry, not demonstrated earlier priority",
+          "evidence": "States the same series; no class has more than two words and all pairs are parametrized once by (r,s+3t,s,t+u) and (r+t,s,s+3t,u).",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-proof-of-the-weight-three-binary-three-deck-enumeration-conjectu--39c59472a4df/RESULT.md",
+          "material_read": "Finding and Proof Steps 2–3, offsets 3732 and 4005",
+          "method": "Local Resultary mirrored primary passages, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Proof of the weight-three binary three-deck enumeration conjecture",
+          "trigger": "Strongest indexed exact-topic overlap"
+        },
+        {
+          "assessment": "Later equivalent exact and doubleton-count coverage",
+          "evidence": "Oct. 26 gives the same rational formula and twins; Nov. 2 gives a gap-swap classification and, in the separate collision entry, D_{3,3}(n)=binom(n,3) minus the doubleton class count.",
+          "identifier_or_url": "SCOPE-20261026-61b009fefb1e; SCOPE-20261102-ddfb28b06c4a; SCOPE-20261102-f95f52cd118b",
+          "material_read": "Findings in the local mirror",
+          "method": "Local Resultary statement comparisons",
+          "title": "Later Resultary exact weight-three deck entries",
+          "trigger": "Additional exact-topic matches in the indexed collection"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The weight-three slice is singled out in the published enumerative problem, not chosen post hoc. The nontrivial collision classification resolves a named exact generating-function conjecture, explains both the delay to length seven and the rational correction factors, and yields the exact equivalence classes rather than just an improved finite coefficient list or asymptotic bound. No unrestricted binary 3-deck enumeration is claimed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

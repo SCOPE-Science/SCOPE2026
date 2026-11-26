@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the endpoint projection formulas
+# Independent mathematical audit
 
-The all-parameter proof appears in `RESULT.md` and does not depend on numerical enumeration. The supporting checker `check_srg.py` uses exact rational arithmetic and the Python standard library to form the grounded graph Laplacian, invert it by Gauss–Jordan elimination, reconstruct each edge-source potential, and compare every corresponding cut/cycle column \(\ell_1\) norm with the local induced-edge formula. Graph strongly regular parameters are independently recomputed from adjacency lists, not supplied as trusted inputs.
+## correctness
 
-Execute `python check_srg.py` in a directory containing the checker. Expected closing line: `SRG_HODGE_EXACT_OK cases=8 columns=333`. The eight tested graphs and all \(333\) columns are enumerated in the checker. Exact expected values for the cospectral pair are \((9/4,21/8)\) for the rook graph and \((19/8,11/4)\) for the Shrikhande graph. No floating-point tolerance is used.
+PASS
 
-The mathematical proof requires \(\mu>0\), standard counting-measure edge norms and the canonical Euclidean-orthogonal projector. The finite tests do not establish arbitrary-parameter claims or exhaust all strongly regular graphs. The originality assessment is based on identified literature comparisons and may be revised if a covering source is found. Independent audit status: not performed.
+Strong regularity and (n−d−1)μ=dm imply (dI−A)[(d−λ+μ)I+A]=μ(nI−J). Applied to the mean-zero edge dipole, this gives the unique mean-zero potential with levels 0, ±1/(μn), ±(m+μ)/(μn). Summing the four level-cut sizes with weights 1, 1, m+μ−1, m+μ−1 (before division by μn) gives the per-edge formula: each of the two wider cuts has size d(m+1)−2m−2 times the number of internal exclusive-neighbor edges on that side, and each singleton cut has size d. The diagonal is 2(m+μ)/(μn) and lies in [0,1], so taking the complementary projector adds the stated constant to every column sum; symmetry gives the row sums. Rook and Shrikhande have respectively 6 and 4 for τ_e on every edge, giving the exact four norms and gap 1/8. The shared parameters give the two nontrivial adjacency eigenvalues ±2 with multiplicities 6 and 9 by the trace. Independent incidence-SVD checks in both examples and K₃,₃ corroborate 105 columns (replay: python3 /workspace/evidence/review_checks.py 3); the exact general argument, not that finite check, establishes the result.
+
+## originality
+
+PASS
+
+The supported contribution is the general strongly regular column formula and its exact cospectral separation; the projection framework, resistance diagonal identities, local graph shapes, and known special-family values are not independent novelty claims.
+
+## value
+
+PASS
+
+A local combinatorial invariant determines each column's endpoint amplification and hence the worst edge for two natural projections. The exact cospectral separation demonstrates that spectral data and common edge resistance miss this information, rather than merely tabulating examples or asserting optimality of the canonical projectors.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

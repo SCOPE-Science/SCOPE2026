@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness (PASS).** The tooth resolvent solves a second-order recurrence with a reflecting cap; eliminating the teeth leaves a one-dimensional backbone resolvent, and the standard Poisson-reset renewal identity yields an exact formula for all finite positive integer parameters and all positive reset rates. Uniform-at-fixed-parameter Taylor expansions establish the stated joint \(H/L^2\) and \(rL^4\) limit; independent numerical matrix checks reproduce 21 finite and scaling tests. No finite enumeration is used to justify an infinite result.
+## correctness
 
-**Originality (PASS on examined evidence, with residual historical risk).** Full accessible primary text of Méndez et al., arXiv:1509.01670, analyzes finite-tooth transport but not stochastic resetting or target search. Full accessible primary text of Singh et al., arXiv:2105.08112, analyzes resetting FPT on a continuous comb with a confining *potential on infinite teeth*, not reflecting finite teeth, and its formula does not imply this tanh mesoscopic scaling by literal specialization. The 2023 comb-resetting MSD study's full text could not be verified from the accessible sources, but the accessible sections concern diffusivity, not this target search. Targeted source/alias searches and research-index comparisons did not locate a result implying the particular joint limit; searches are not mathematical uniqueness proofs. Priority risk from otherwise unindexed literature remains.
+PASS
 
-**Mathematical value (PASS).** The equality of the tip mixing-time scale \(H^2\) and the infinite-comb target-search time scale \(L^4\) selects the natural nontrivial regime \(H\asymp L^2\), and the limiting formula resolves the entire reset-rate response between physically distinct normal and anomalous transport. It predicts quantitative search-performance profiles, not an arbitrary finite numerical invariant.
+The tooth Laplace problem b_0=1 has characteristic resolvent 2cosh θ=2+s and reflecting ghost b_{H+1}=b_H, so b_1 is exactly the half-integer cosh ratio even when H=1. Back-substitution at a backbone vertex gives 2cosh γ=s+3−b_1; on the left half-line only the decaying root is compatible with the bounded hitting transform and f_L=1. No trajectory from the start can pass that backbone coordinate without hitting its target vertex. An attempt has success probability exp(−Lγ) and mean duration (1−exp(−Lγ))/r, giving the renewal MFPT. For s=u/L⁴ the cosh difference gives L²(1−b_1)→√u tanh(κ√u); the direct backbone term L²s vanishes and arcosh then gives the claimed exponent. For u=v/κ the argument of tanh tends to zero and the exponent tends to √v; the large-κ exponent follows by saturation. At fixed κ>0 the profile diverges at both u endpoints, hence has a positive finite interior minimum. Neither convergence of finite-model optimizers nor uniqueness is implied. Inspected the frozen verification code and the recorded 21 tests, not rerun; finite truncation is approximate, and the limit rests on the analytic expansion.
 
-**Limits.** Symmetric edge-rate-one single-particle model, one-sided equally high reflecting teeth, one perfectly absorbing backbone vertex, Poisson reset to the starting point; no uniqueness claim for intermediate-regime optima, and no bulk phase transition. The novelty claim is limited to the specified crossover, not elementary renewal theory.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the standard restart identity, effective waiting-time reduction, and previously studied normal/anomalous endpoints. The distinct result supported here is the normalized single-target crossover for the discrete one-sided, unit-edge-rate, reflecting comb in the simultaneous H/L² limit, with its exact finite-L,H input. The closest finite-tooth transport formulas use a different junction and holding-time model, and the closest explicit reset-search formula uses a different confining impedance. No inspected stronger statement gives the complete frozen law by specialization. This is a bounded assessment, not a priority finding.
+
+## value
+
+PASS
+
+The nontrivial finite-κ profile resolves the regime in which the reflecting cap is neither negligible nor fully sampled during a reset attempt. It gives a quantitative search-time benchmark at precisely H comparable to L², where choosing either the usual normal or anomalous endpoint alone gives the wrong prediction. The exact lattice boundary response and the controlled simultaneous limit are the useful contribution, not the textbook resetting identity or an unsupported claim about optimizer convergence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

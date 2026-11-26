@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T23:52:02.583302Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed RESULT.md (1)–(5). Conditional on an edge being absent, absence across a gap Δ at scaled times has probability 1-p_n(1-e^(-Δ/log n)): either there was no refresh or the most recent sample was absent. Stationarity and the Markov property give q_n(S). Taking logs, the first factor contributes -(log n+x)+o(1) to (n-1)log q_n(S); the remaining factors contribute the negative sum of consecutive requested gaps, since n p_n/log n→1. Edges between two tags must meet the union of their requests, while untagged incident edges factor independently. With r fixed this gives the exact tagged product and its product limit after scaling by n^r. Inclusion–exclusion annihilates omitted indices interior to an exact signature, and for a block the left and right sums factor; selecting any index further out makes selecting the nearest exterior index immaterial, so only the two nearest-neighbor differences survive. Multiplying the limiting tagged probabilities by (n)_r yields all mixed factorial moments; bounded higher moments give uniform integrability of each fixed order and the independent Poisson moment law is determinate. In the stationary Poisson lifetime construction, the intensity alive at t_a but not at t_(a-1) is λ(1-e^(-gap)) for a>1 and λ at a=1; exponential survival through t_b and death before the next sample give the other factors. For t>0 the three Poisson intensities yield joint zero probability exp[-λ(2-e^(-t))]; t=0 is the identical-snapshot case. Snapshot connectivity agrees asymptotically with having zero isolates, simultaneously at fixed finitely many times by the classical threshold theorem and a union bound. This does not show path tightness or rule out short unobserved isolation episodes. The supplied checker and verification notes were inspected, not executed; their finite tests do not replace this limit argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The minimum-degree noise theorem includes connectivity and proves a positive covariance lower bound at critical noise. Penrose provides static isolated/low-degree Poisson approximation; Clementi et al. treat flooding times; Mandjes–Wang describe regime-switching dynamic graphs and inference in the retrieved abstract."
+        ],
+        "reasoning": "A noise threshold and lower bound do not determine a limiting covariance or joint law. Static Poisson approximation can be applied to each snapshot but cannot distinguish the proposed Poisson lifetime dependence from other couplings. Flooding time and regime inference are different quantities, with the latter comparison limited to its abstract.",
+        "searches": [
+          "arXiv:1306.6373, Theorems 1.4 and 3.6 with proof",
+          "arXiv:1507.07132, Theorems 2.2–2.3",
+          "arXiv:1103.0741, p. 1",
+          "arXiv:2501.11624v2, abstract"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1306.6373v1",
+        "arXiv:1507.07132",
+        "arXiv:1103.0741",
+        "arXiv:2501.11624v2",
+        "Resultary 4b026cc8d5e9 (self-hit), 2d57165165cb, 90e1e402c35b, f45e0f344ac4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Lubetzky–Steif proof uses a vertex zero-witness to obtain a nontrivial critical effect, not the mixed factorial moments of exact signatures. The catalogue analogues either have different incident-event dependency structures or no stationary refresh."
+        ],
+        "reasoning": "Identifying the common two-time intensity λe^(-t) and the exact block intensities requires the multi-tag overlap calculation and finite inclusion–exclusion in this graph model. The limit of e^[-λ(2-e^(-t))] for joint connectivity does not follow by substituting a parameter into the prior covariance bound.",
+        "searches": [
+          "arXiv:1306.6373, §3.3 pp. 19–21",
+          "Mirrored RESULT findings for 2d57165165cb, 90e1e402c35b and f45e0f344ac4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For two snapshots the independent resampling parameter in Lubetzky–Steif is exactly 1-e^(-t/log n), and their critical regime and connectivity property match the audited model. The independent block decomposition is the equivalent marked-Poisson form of the explicit limit."
+        ],
+        "reasoning": "The comparison is not dismissed as discrete versus continuous noise: their coupling is the same at two snapshots. Their conclusions give a qualitative critical dependence result, not a law for the paired isolate counts or for all fixed sample times.",
+        "searches": [
+          "Resultary: isolation process, critical connectivity window, temporal signatures and immigration–death",
+          "Primary literature: critical joint Poisson law for isolate counts under edge refreshing",
+          "arXiv:1306.6373, noise definition and §3.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact match 4b026cc8d5e9 is the record itself. Mirrored findings 2d57165165cb, 90e1e402c35b and f45e0f344ac4 are distinct, involving expiring coupons, rewired perfect matching chords and vertex revelation on cycle powers, respectively."
+        ],
+        "reasoning": "The first two include the same type of limiting law, in fact at path level, but do not tabulate or determine the limit for independent edge-refresh isolation. The last is a marked isolation result with different dynamics. This continuous critical-time law is not a lookup of one finite tabulated value.",
+        "searches": [
+          "Resultary: stationary immigration–death limit, marked isolation deaths and bivariate Poisson zero events"
+        ]
+      },
+      "rationale": "The critical refresh scale, static Poisson marginals, and nonvanishing critical two-time dependence are prior. The supported addition is the quantitative graph-specific joint law for exact multitime signatures and the resulting immigration–death finite-dimensional limit, including the exact two-time connectivity probability. No equivalent or stronger graph theorem was established in the examined material.",
+      "residual_risks": [
+        "A general multitime rare-event theorem or an exact analysis expressed in different noise terminology could cover the model; bounded statement-level comparison does not certify historical priority.",
+        "The regime-switching graph comparison is abstract-level only."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct partial coverage; no explicit finite-dimensional limit from inspected theorem and proof",
+          "evidence": "Independent Bernoulli edge resampling at ε of order 1/log n yields neither sensitivity nor stability; the proof gives a positive covariance lower bound and a conditional witness estimate.",
+          "identifier_or_url": "https://arxiv.org/abs/1306.6373v1",
+          "material_read": "Noise definition p. 1; Theorem 1.4 p. 4; Theorem 3.6 and proof §3.3 pp. 19–21, text offsets about 54200–62200",
+          "method": "OA PDF passages",
+          "title": "Strong noise sensitivity and random graphs",
+          "trigger": "Exact two-time coupling and known noise threshold for connectivity"
+        },
+        {
+          "assessment": "Static marginals, not dynamic dependence",
+          "evidence": "Poisson approximation for static isolated or low-degree vertices under stated hypotheses.",
+          "identifier_or_url": "https://arxiv.org/abs/1507.07132",
+          "material_read": "Theorems 2.2–2.3, p. 5, offset near 12100",
+          "method": "OA PDF passage",
+          "title": "Inhomogeneous random graphs, isolated vertices, and Poisson approximation",
+          "trigger": "Broader Poisson approximation of isolates"
+        },
+        {
+          "assessment": "Different statistic in the material read",
+          "evidence": "Flooding-time results for stationary Markovian evolving networks.",
+          "identifier_or_url": "https://arxiv.org/abs/1103.0741",
+          "material_read": "p. 1, offset near 900",
+          "method": "OA PDF passage",
+          "title": "Information Spreading in Stationary Markovian Evolving Graphs",
+          "trigger": "Earlier stationary graph dynamics"
+        },
+        {
+          "assessment": "Different model, not a general theorem for edge refresh",
+          "evidence": "Path limit for missing coupons in deterministic sliding windows.",
+          "identifier_or_url": "2026/11/2/SCOPE-a-stationary-immigration-death-limit-for-critical-expiring-coupo--2d57165165cb",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror",
+          "title": "A stationary immigration–death limit for critical expiring coupons",
+          "trigger": "Same limiting mechanism at a critical scale"
+        },
+        {
+          "assessment": "Different model, not discarded on date",
+          "evidence": "Immigration–death path law for adjacent chords of a rewired perfect matching, not isolated vertices of a Bernoulli graph.",
+          "identifier_or_url": "2026/11/22/SCOPE-immigration-death-dynamics-of-simple-chords-under-stationary-two--90e1e402c35b",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Immigration–death dynamics of simple chords under stationary two-edge rewiring",
+          "trigger": "Strong same-day temporal and zero-probability analogue"
+        },
+        {
+          "assessment": "Different ensemble and time law",
+          "evidence": "Last-isolation deaths in random vertex revelation on cycle powers, not equilibrium independent edge refresh.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-marked-poisson-law-for-the-last-isolation-deaths-in-randomly-u--f45e0f344ac4",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror",
+          "title": "A marked Poisson law for the last isolation deaths in randomly uncovered cycle powers",
+          "trigger": "Marked rare isolation events"
+        },
+        {
+          "assessment": "Abstract indicates a different objective; not a full-text exclusion",
+          "evidence": "Regime-switching dynamic graph modelling and parameter inference.",
+          "identifier_or_url": "https://arxiv.org/abs/2501.11624v2",
+          "material_read": "Abstract, PDF offset 0",
+          "method": "OA PDF passage",
+          "title": "Mandjes–Wang, dynamic Erdős–Rényi graphs",
+          "trigger": "Potential related dynamic graph model from literature search"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "At the known critical refresh scale, one-time connectivity probabilities or qualitative sensitivity do not quantify persistence across snapshots. The theorem gives both an explicit joint reliability probability and a structural Poisson decomposition that distinguishes persistent from newly appearing isolates at the observed times. This is worthwhile without making an unsupported claim about episodes between observations or full path convergence.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

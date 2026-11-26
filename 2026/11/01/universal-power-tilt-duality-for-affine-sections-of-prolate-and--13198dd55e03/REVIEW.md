@@ -1,19 +1,21 @@
-# Review: universal power-tilt duality for spheroid sections
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For every integer \(d\ge3\) and \(\kappa>1\), restriction of the two quadratic-form matrices to the section normal's orthogonal complement gives explicit semiaxis ratios independent of offset. IUR conditioning contributes the support-function weighting, not uniform normals alone. The two monotone Jacobian transformations yield normalized densities, whose ratio is exactly \(r^{d+2}/\mathbb E_p R_p^{d+2}\). This strict monotone likelihood ratio establishes stochastic ordering and an exact optimal shape-only classifier. Haar-coordinate Gaussian convergence, width-weight concentration, the two second-order expansions and threshold convergence establish the error-function total-variation limit. Independent finite numerical checks of density Jacobians, full quadratic forms and limiting rates passed; these checks are supplementary, not the proof.
+PASS
 
-## Originality — PASS, with explicit priority risk
+Reconstructed the finite densities and the sharp limit in RESULT.md lines 5–109. Completing the quadratic form at x0=tQ⁻¹n/(nᵀQ⁻¹n) makes the offset a common scale, so it cancels from the semiaxis ratio. Compressing each rank-one perturbation to n⊥ gives d−2 equatorial eigenvalues 1 and the indicated special eigenvalue. For u=|n_d|, conditioning on hitting weights Haar orientation by h_i(u); the absolute inverse Jacobians are κ²/(√b r²√(κ²−r²)) and r/(√b√(κ²−r²)). Substitution gives the asserted f_p,f_o, whose ratio is proportional to r^(d+2). Its normalized, increasing single crossing is interior, gives strict survival ordering, and minimizes equal-prior classification error among ratio-based rules, uniquely up to a null set. At fixed κ the orientation reweightings differ from Haar by O_κ(1/d) in total variation, since |h_i(u)−1|≤C_κu² and E_Haar u²=1/d. Thus d u² converges under each to χ²₁ and the quadratic Taylor expansions give the two claimed scales. The exact threshold satisfies log(r*/κ)=(log(J_o/J_p)−log κ)/(d+2), with J_o/J_p→1. Applying the continuous limiting CDFs at d(κ−r*)→κ log κ yields exactly the difference of error functions; weak convergence alone is not taken as TV convergence. There are no atoms at the shape endpoints. In lines 95–96 ν_p and ν_o are an unambiguous notation slip for the inverse maps u_p and u_o defined in lines 82–83; the quadratures and Finding are sound on that reading. The finite script was inspected, not run, and is not the justification for the all-dimension result.
 
-The 2023 IUR hyperplane paper treats section *area* density existence, whereas the present theorem determines the coupled spheroid *shape* laws and a dimension-dependent power tilt. The 2016 spheroid unfolding research studies stereological 3D profiles and may contain implicit special-dimensional identities, but its inspected material does not state the full all-dimensional likelihood-ratio and sharp discrimination theorem. The indexed central one-spike ellipsoid radius result concerns a different random section model and a different statistic. Older stereology studies by Jensen–Møller and Møller remain incompletely accessible, so priority risk is retained rather than represented as a completed negative verification.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The problem is natural in stereological shape inference: two basic axially symmetric body families share a geometric aspect ratio but produce different random-section shapes. The exact \((d+2)\)-power-bias correspondence is a structural relationship between complete distributions, stronger than isolated moments. The strictly positive high-dimensional total-variation constant quantifies a sharp inference boundary even though both unscaled observed ratios converge to the same limit. This is not a routine substitution or an isolated special-case numerical computation.
+Pass is for the paired affine-hyperplane power tilt and the exact persistent discrimination limit for fixed κ, not for the rank-one sectional eigenvalue formulas, the IUR width reweighting, or the use of likelihood-ratio testing itself. Checked sources cover those ingredients and some individual section laws, but do not establish the matched paired relation with its all-dimensional TV limit. This is a best-of-knowledge judgment, not a historical priority guarantee.
 
-## Limits
+## value
 
-The classifier is optimal only when using the intrinsic section aspect ratio and only with equal class priors; further observed section features may improve discrimination. The ambient dimension is at least three, the anisotropy parameter exceeds one and is fixed under the dimension limit, and the section measure is invariant-affine. Some specialized earlier primary texts were inaccessible; this residual risk cannot be resolved by a search-result absence.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A section axis ratio is an intrinsic observable unaffected by unknown cutting depth. The exact comparison for reciprocal families gives a population classification rule and shows, with a sharp positive TV constant, that two laws concentrating at the same aspect ratio do not become statistically indistinguishable. This is a substantive conclusion about the natural sampling model, not merely a new expression for a central section radius.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:19:41.153056Z",
+  "axes": {
+    "correctness": {
+      "rationale": "After translating the spectrum by −z₀, a Schur eigenvector x of a compression imposes y perpendicular to x and Nx. For a 2×2 Schur form the smallest support radius about its symmetry center is half the magnitude of the off-diagonal entry, so the in-disk diameter is that magnitude. Maximizing it for fixed x projects N*x onto span{x,Nx}⊥; the centered normal vectors have squared norm V and inner product of magnitude |c|. Thus the squared objective is V−|c|²/V=4det(C)/tr(C) for the real planar covariance C. Symmetrizing opposite weights adds mmᵀ and strictly improves every positive-definite C with nonzero mean, since the harmonic-mean objective increases in both eigenvalues; degenerate C has zero objective. Centered weights give det(C)=D²(1−κ²) and tr(C)=A+2Bκ. The derivative has the opposite sign of Bκ²+Aκ+B, whose derivative is positive on [−1,1]; its unique interior zero is −2B/(A+h), with objective 8D²/(A+h). The projection witness is unique up to phase and its opposite-vertex squared moduli agree, forcing both Schur diagonals to vanish. The resulting nilpotent has disk radius Δ/2, and equality forces the same weights and companion direction for every maximizing plane; diagonal phases yield the orbit. Translation restores center z₀. Sababheh’s Theorem 3.2 supplies the separate positive-block bridge. The supplied numerical checker was inspected, not executed; its finite comparisons cannot prove the optimization or equality classification.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general positive-block identity reduces the norm problem to a two-dimensional width problem; the inspected examples in Sababheh concern a different three-point spectrum. Gau–Wu provides relevant normal-compression geometry, but the cited theorem passages were not obtainable."
+        ],
+        "reasoning": "The inspected general norm/width inequalities do not compute the optimum over compressions for a general parallelogram or classify all equality cases. A general compression geometry paper could overlap, so inaccessible sections remain a specific risk, not negative evidence.",
+        "searches": [
+          "arXiv:2610.04377v1, Theorem 3.2 and §5",
+          "arXiv:2111.15180v1, Theorem 2.1",
+          "DOI 10.1016/j.laa.2004.04.013, Theorems 2.3 and 3.1 sought"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_oblique.py",
+        "Local Resultary rectangle and triangle records and oblique-width search",
+        "arXiv:2610.04377v1",
+        "arXiv:2111.15180v1",
+        "DOI 10.1016/j.laa.2004.04.013 (abstract only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The rectangle uses orthogonal half-sides; the triangle uses three spectral vertices, not four. The general bridge is an equality to a variational invariant, not a rule for evaluating that invariant."
+        ],
+        "reasoning": "For B≠0 the optimizer differs from the uniform law, e.g. u=1 and v=exp(iπ/3) yield squared width 6/(2+√3)>3/2. The covariance equality analysis selects new weights and associated planes; neither the prior constant for a rectangle nor the positive-block reduction provides them by substitution.",
+        "searches": [
+          "Rectangle RESULT.md, finding and scope, offsets 400 and 8700",
+          "Triangle RESULT.md, finding, offset 560",
+          "arXiv:2610.04377v1, Theorem 3.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The rectangle formula is exactly the B=0 case, with uniform probabilities; the oblique formula instead has κ=−2B/(A+h). The positive-block norm excess is equivalent to elliptical width by Sababheh’s theorem."
+        ],
+        "reasoning": "Rotations, translations and scalings preserve the relevant shape class, but a nonconformal real-linear shear can change the in-disk problem. Transforming a maximizing rectangle disk therefore does not solve the stated circular compression problem for the oblique spectrum.",
+        "searches": [
+          "Resultary: parallelogram and oblique spectral elliptical width, centered disk and maximizer orbit",
+          "Resultary rectangle RESULT.md (2026-10-11)",
+          "arXiv:2111.15180v1 and arXiv:2610.04377v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed rectangle has diameter 2ab/√(a²+b²), disk rigidity and a single commutant orbit. The triangle has the incircle value and disk rigidity for three noncollinear eigenvalues. No oblique or broader match appeared among the returned indexed records."
+        ],
+        "reasoning": "Both are exact symbolic coverage of different inputs or a proper subfamily. A table of numerical tests on selected spectra would not by itself establish the continuously parameterized oblique formula and rigidity.",
+        "searches": [
+          "Resultary: oblique/parallelogram plus circular compression; indexed rectangle c714a536b540 and triangle 9f87930b22d4 RESULT.md files"
+        ]
+      },
+      "rationale": "The supported distinction is the genuinely oblique case B≠0, with its exact value and nonuniform maximizing weights, and the accompanying full compression rigidity. The known B=0 rectangle, triangle disk phenomenon and general positive-block identity are acknowledged, not credited as new.",
+      "residual_risks": [
+        "The uninspected Gau–Wu theorem passages, or an equivalent result under covariance or compression terminology, could alter the comparison. No universal priority claim is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact rectangle overlap, explicitly acknowledged in the frozen record",
+          "evidence": "The spectrum is ±a±ib; width is 2ab/√(a²+b²), all maxima have the same disk and belong to a single diagonal-unitary orbit.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-elliptical-width-and-complete-compression-rigidity-for-fou--c714a536b540",
+          "material_read": "RESULT.md finding and relationship to prior work, offsets 400 and 8700",
+          "method": "Local Resultary mirror passages",
+          "title": "Sharp elliptical width and complete compression rigidity for four-corner normal matrices",
+          "trigger": "Same invariant and rigidity for four-corner normal spectra"
+        },
+        {
+          "assessment": "Related equality phenomenon for a different spectral family",
+          "evidence": "For three noncollinear spectral points, the maximum disk is the triangle incircle and all maximizing compressions have that numerical range.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-the-incircle-is-the-unique-maximal-numerical-range-of-a-two-dime--9f87930b22d4",
+          "material_read": "RESULT.md finding, offset 560",
+          "method": "Local Resultary mirror passage",
+          "title": "The incircle is the unique maximal numerical range of a two-dimensional compression of a three-point normal operator",
+          "trigger": "Same disk-rigidity phenomenon for finite normal spectra"
+        },
+        {
+          "assessment": "Confirms the cited bridge; the inspected example is not a parallelogram computation",
+          "evidence": "The theorem identifies the supremal norm defect with elliptical width via the bound and asymptotically extremal blocks. The example uses a 3×3 cube-root spectrum.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.04377v1",
+          "material_read": "Theorem 3.2 and proof, pp. 9–10 (offsets near 29286 and 28800), §5 example, p. 15 (offset 44650)",
+          "method": "Original OA PDF passages",
+          "title": "An Extremal Formula for Elliptical Width and the Bourin–Lee Conjecture",
+          "trigger": "General bridge claimed in the frozen positive-block consequence"
+        },
+        {
+          "assessment": "General framework, not the explicit oblique evaluation",
+          "evidence": "Elliptical width is defined through two-dimensional compressions and controls positive-block eigenvalue bounds.",
+          "identifier_or_url": "https://arxiv.org/abs/2111.15180v1",
+          "material_read": "Definition p. 2 (offset 7233) and Theorem 2.1 p. 3 (offset 7687)",
+          "method": "Original OA PDF passages",
+          "title": "Eigenvalue inequalities for positive block matrices with the inradius of the numerical range",
+          "trigger": "Definition and general inequalities for the invariant"
+        },
+        {
+          "assessment": "Unresolved overlap risk, not counted as noncoverage",
+          "evidence": "Available material identifies the relevant topic but does not resolve whether the requested passages imply a parallelogram in-disk optimum.",
+          "identifier_or_url": "https://doi.org/10.1016/j.laa.2004.04.013",
+          "material_read": "Publisher landing page/abstract only; the requested Theorems 2.3 and 3.1 were not available",
+          "method": "DOI and publisher access attempts; full article not inspected",
+          "title": "Numerical range of a normal compression II",
+          "trigger": "Potentially subsuming normal-compression geometry"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is an exact optimization of a motivated numerical-range invariant for a natural four-point family. It shows how obliquity changes the optimal distribution, and gives every equality plane rather than just the value or one witness. Through the existing identity it evaluates the sharp fixed-off-diagonal positive-block defect on that family. It does not claim the identity or the rectangular result as a new contribution.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

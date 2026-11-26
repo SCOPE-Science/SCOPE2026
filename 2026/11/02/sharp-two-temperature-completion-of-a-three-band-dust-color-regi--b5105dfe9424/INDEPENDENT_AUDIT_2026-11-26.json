@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T13:27:09.169386Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Writing r=exp(hν/(kBT)) and u=1/(r+1) reduces the normalized component colors to (u,u³/(1−2u+2u²)). First-band intensity contributions give positive barycentric weights. The differentiated curve is strictly convex and u/2−f(u)=u(1−2u)/(2(1−2u+2u²)) is strictly positive on the allowed domain, giving the equality and unattained-bound claims. At fixed U the chord between t and 1/2−t varies continuously from upper-line height U/2 to f(U). At U=1/4 both endpoints tend to U and the weights stay 1/2; the lower limit holds by continuity, not by one weight tending to one as in the noncentral case. Inverting each endpoint and setting its c proportional to its barycentric weight times (r−1) gives distinct finite positive temperatures, positive amplitudes, and the exact first-band normalization. One band pair at fixed β is always reproducible by one temperature. With free β the separate single-component quotient is (r+1)/(r²+1)<1, and the frozen two-temperature example gives 3187075/2993536>1 by exact fractions. The script was inspected, not run; these checks establish the result analytically, not through finite sampling.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Shetty pp. 18, 22, offsets 52750 and 64600: analyzes temperature and β estimators on two- and three-flux data; e.g. 450, 850 and 1200 µm for the latter discussion.",
+          "The standard planar connected-set convex hull theorem yields an abstract two-point representation once the connected curve and its hull are identified."
+        ],
+        "reasoning": "The geometric representation principle is not claimed as new. Neither it alone nor the inspected observational method gives the rational harmonic-frequency boundary, its strict upper unattainability under finite positive temperatures, or the exact dust diagnostic.",
+        "searches": [
+          "dust temperature mixing three flux ratios color inequalities Shetty two-temperature mixture",
+          "Shetty et al. arXiv:0902.3477v1, §§4.1 and 4.3, beginning of §5",
+          "Frozen RESULT.md, proof Steps 1–4"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–126, VERIFICATION.md and verify.py (inspection only)",
+        "Resultary f4f7c1429594, Finding/Assumptions",
+        "Shetty et al. arXiv:0902.3477v1, specified passages",
+        "Planck (2011) §2.5/Fig. 2 citation locator"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Shetty treats choice of wavelengths, noise and estimation error, not a bounded image of all common-β mixtures.",
+          "The starspot inverse identifies three unknowns only with one known, hotter Planck component and observations of reciprocal depths.",
+          "The target's quotient witness uses emissivity cancellation at geometric frequencies; its complete region still requires known β."
+        ],
+        "reasoning": "A fixed photosphere supplies no theorem for the full open temperature range of positive mixtures. The original boundary and completion depend on eliminating the single-component curve parameter and its strict convexity plus the two excluded limiting temperatures; ordinary fitting or a component-count theorem does not supply those facts.",
+        "searches": [
+          "Shetty et al. arXiv:0902.3477v1, §4.1 and §4.3 offsets 52750 and 64600",
+          "Resultary f4f7c1429594, RESULT.md offsets 0–2800",
+          "Frozen RESULT.md Steps 1–6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Shetty et al., arXiv:0902.3477v1, §4.1 p. 18 (offset 52750): compares isothermal and two-component ratio-based temperature estimation, including noise and β errors.",
+          "Resultary f4f7c1429594, RESULT.md offsets 0–2800: exact data inequalities for reciprocal transit depths at harmonic wavelengths with known photospheric temperature."
+        ],
+        "reasoning": "The dust theorem is the convex hull of an open single-temperature color graph, not a test of uniqueness of a constrained transit inverse or an estimate of a column temperature from ratios.",
+        "searches": [
+          "modified blackbody mixture geometric frequency color convex hull exact feasible region three bands two temperatures",
+          "dust modified blackbody color-color diagram fixed emissivity index geometric frequencies convexity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary f4f7c1429594, RESULT.md offsets 0–2800: uses R=(Y₂−Y₁)/(Y₃−Y₂), a known-temperature parameter s, and constraints including R<2s(s+1)/(s²+1).",
+          "Frozen RESULT.md lines 12–20 and 93–104 give an inequality in normalized intensities and a quotient witness instead."
+        ],
+        "reasoning": "Reversing the wavelength ordering to match frequency ratios does not remove the known-temperature, cool-spot and depth constraints. Its exact inequalities and band-count obstruction are for a different image. No numerical match or tabulation is the basis of this decision.",
+        "searches": [
+          "modified blackbody dust colors U I2/(2^(beta+3) I1) V I4/(4^(beta+3) I1) three geometric frequencies sharp boundary",
+          "emissivity-independent dust color ratio I1 I4 / I2 squared single modified blackbody mixture obstruction"
+        ]
+      },
+      "rationale": "Credit modified-blackbody fitting, two-component models, flux-ratio inference, and the standard convex-geometric mechanisms. The supported distinct finding is the exact normalized ν:2ν:4ν fixed-index region with its asymmetric boundary attainability and a positive finite two-component realization throughout the interior. The closest retrieved harmonic Planck inverse concerns occultation of a known photosphere and does not give this mixture region. Historical priority beyond the compared sources is not certified.",
+      "residual_risks": [
+        "Not all historical dust-fitting papers or the inaccessible cited Planck passage were compared in full. A prior exact harmonic color envelope is not excluded by search misses.",
+        "No claim of a new convex hull theorem, generic three-band fitting method, or free-β complete region."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Overlap in flux-ratio inference, not the stated feasible region in the inspected passages",
+          "evidence": "Two-component versus isothermal simulation at selected bands and β assumptions; three-flux estimation and noise sensitivity.",
+          "identifier_or_url": "https://arxiv.org/pdf/0902.3477v1",
+          "material_read": "§4.1 p. 18, offset 52750; §4.3 and start of §5, p. 22, offset 64600",
+          "method": "Bounded OA primary PDF text",
+          "title": "The Effect of Line of Sight Temperature Variation and Noise on Dust Continuum Observations",
+          "trigger": "Closest cited dust mixture/ratio method"
+        },
+        {
+          "assessment": "Different observable and hypotheses; not an equivalent color-region theorem",
+          "evidence": "Known T_star, single cooler component, reciprocal transit depths and unknown achromatic planetary depth.",
+          "identifier_or_url": "2026/11/22/SCOPE-three-channel-planck-inversion-of-cool-starspot-transit-contamin--f4f7c1429594",
+          "material_read": "RESULT.md offsets 0–2800: Finding, theorem, formulas and scope",
+          "method": "Local full-file mirror, bounded passage",
+          "title": "Three-channel Planck inversion of cool-starspot transit contamination",
+          "trigger": "Closest indexed exact three-channel harmonic Planck feasibility theorem"
+        },
+        {
+          "assessment": "Possible adjacent literature; no whole-document judgment",
+          "evidence": "Frozen RESULT.md lines 112 and 126 characterize its loci as isothermal with nongeometric photometric bands.",
+          "identifier_or_url": "https://www.aanda.org/articles/aa/full_html/2011/12/aa16472-11/aa16472-11.html",
+          "material_read": "Frozen citation to §2.5, Fig. 2 only; publisher primary text not retrieved",
+          "method": "Primary retrieval attempts and frozen cited locator",
+          "title": "Planck early results. XXIII. The first all-sky survey of Galactic cold clumps",
+          "trigger": "Cited precedent for fixed-index color–color loci"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact analytic acceptance region turns a standard emission model into a falsifiable three-flux test and separates one-temperature data from data that require mixing under the stated hypotheses. It specifies both attainability and the minimum number of finite temperatures, without claiming parameter identification or general applicability to finite passbands.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

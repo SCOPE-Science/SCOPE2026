@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The matrix identity \(L_x=A\operatorname{diag}(x)\) yields the exact two-step coefficients. Without four-cycles an occupied edge yields a uniquely witnessed nonzero matrix-square entry, with the isolated-edge case handled separately. The cycle adjacency nullspace recurrence isolates precisely the two possible parity-supported column relations and proves the rank polynomial. Independent exhaustive checks of all labeled four-cycle-free graphs with at most five vertices in selected fields, and direct multiplication/rank enumeration on cycles, corroborate the proof. All hypotheses, including graph simplicity, absence of four-cycles and nonassociative operator composition, are explicit.
+## correctness
 
-**Originality — PASS under the inspected comparisons, with priority risk.** The original graph-evolution framework addresses algebra nilpotence and automorphisms rather than square-zero left multiplication operators. Adjacency matroids provide a classical dependency mechanism but not the operator support condition. The closely named graph-face-algebra result has a different associative product. Work on square-zero elements of complete multipartite evolution algebras studies \(x^2=0\), a different equation from \(L_x^2=0\). The all-graph characterization and rank-refined cycle statement were not found as statements or as direct corollaries of the inspected source material. An earlier implicit equivalence cannot be excluded by search.
+PASS
 
-**Value — PASS.** Nilpotence of an individual multiplication operator is a natural structural property of a nonassociative algebra, and the theorem converts its full finite-field census into a classical hard-core/independent-set invariant over a broad graph class. The four-cycle obstruction identifies a mathematically motivated boundary. In the cycle family, the sharp all-rank spectrum exposes characteristic-dependent losses invisible in the total count, including the different spectra of the six-cycle over two and three elements.
+The tested equation is composition of a k-linear map with itself, not the element equation. Applying L_x twice to e_j gives x_j times weighted two-walk sums; independent support kills the intermediate weights. An occupied edge u-v produces the entry (w,u) from the unique common neighbor v of distinct u,w if v has another neighbor w. This uniqueness uses absence of any four-cycle, including non-induced ones. Either endpoint can be used, and for an isolated edge the diagonal entry is x_u x_v. On C_4 the two distinct row neighborhoods are the opposite parity pairs; both have weight sum zero for (1,1,-1,-1), giving the stated counterexample. For a cycle, rank loss relative to support size equals the dimension of adjacency-kernel vectors supported there. The recurrence y_(i+2)=-y_i makes all nonzero odd-cycle kernel vectors full-support (possible only in characteristic two). On an even cycle the two parity chains close after n/2 steps, admitting a full-parity dependency precisely when (-1)^(n/2)=1. An independent support containing a whole parity class must equal that alternating class, so each such support loses exactly one rank. Marked cyclic gaps give n/j times binomial(n-j-1,j-1) for j>0 and the empty support contributes one; weighting by (q-1)^j and moving the two alternating terms gives the displayed correction and the C_6 examples. Isolated coefficients are counted with multiplicity as required. Field order already determines characteristic, so the final prose about holding cardinality fixed is vacuous; the substantive assertion is that the total needs only the independence polynomial evaluated at q-1, whereas the rank formula has a characteristic-dependent correction. In a separately written bounded check (python3 /workspace/check_cycle_gf4.py), direct double multiplication and image cardinalities on all 4^6 vectors give 1+18z+135z^2 over F_4, extending the recorded prime-field examples. Frozen checker and output were inspected, not rerun.
 
-**Closest literature and limitations.** Elduque–Labra (2013), Brijder–Hoogeboom–Traldi (2011/2012), and the public graph-face-algebra and square-zero-element enumerations are compared in RESULT.md and AUDIT.json. The arbitrary-graph statement is only a sufficient C4-free criterion; similarity classes and higher nilpotent indices are not classified. Finite tests do not certify the theorem for all fields. The record is not an independent audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct package is the C_4-free equivalence for the square of one natural-basis multiplication operator and its all-field, rank-weighted cycle census. The adjacency column-rank facts and the independent-set counts are ingredients, not independent novelty claims. Closely titled index hits study different products or equations, and their uninspected full texts leave a bounded priority risk.
+
+## value
+
+PASS
+
+An exact operator-nilpotence locus in a natural class of nonassociative algebras reduces to an independently useful graph invariant. The unique-witness proof and four-cycle counterexample explain why the support reduction can fail rather than fitting a few examples. The cycle refinement identifies and quantifies rank losses that the total count cannot detect; it applies to all cycle sizes in scope and all finite fields.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

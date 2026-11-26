@@ -1,12 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof exhausts the three shapes \(p\), \(p^2\), and \(pq\). Parity bounds for \(\pi(x)\) eliminate all but the small prime and prime-square cases. For semiprimes with \(p\ge5\), the exact identity \(2\varphi(pq)-\sigma(pq)=(p-3)(q-3)-8\) eliminates every pair beyond the single checked boundary \((5,7)\). The \(p=3\) branch is reduced by a modulo-\(6\) prime-counting bound to three exact checks. The \(p=2\) branch is reduced by a modulo-\(30\) bound to all odd primes \(q\le61\), exhaustively tabulated in `small_cases.csv`; only \(q=17\) survives.
+## correctness
 
-## Originality
-PASS. A067787 is the exact public database object and reports large finite searches, but its inspected entry does not state a low-\(\Omega\) classification. The inspected De Koninck–Luca full text studies a different composition quotient of the same arithmetic functions and uses prime-counting notation only as auxiliary notation. Exact-equation, database-identifier, semiprime, prime-square, and prime-pair searches found no equivalent or stronger theorem.
+PASS
 
-## Value
-PASS. The first two multiplicative-complexity layers are a natural structural regime of an unusually sparse exact sequence. The result replaces finite evidence through \(10^9\) with an unrestricted theorem on all primes and semiprimes, and the semiprime proof gives a transparent elementary mechanism rather than a larger computation.
+The odd-candidate bound for pi includes the prime 2 separately. The modulo 6 and 30 bounds count at most two or eight residues per full or final partial block and add the exceptional primes. In the prime and prime-square branches the odd-candidate bound is strictly less than the totient for p>=5, and direct evaluations at p=2,3 leave 3 and 9. For distinct p<q with p>=5, twice the totient minus the divisor sum is (p-3)(q-3)-8, strictly positive except at (5,7), which fails directly. For p=3 the modulo 6 inequality forces q<=11, and for p=2 the modulo 30 inequality forces q<=64. My independent trial-division table agrees with all 21 rows of small_cases.csv; (2,17) is the only equality, with pi(54)=16. The symbolic cutoff and checked finite part exhaust the stated domain; the claimed large sweep is not needed.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The equation and the three solution values are old. The distinct supported result is unbounded exclusion of all other primes, prime squares and squarefree semiprimes. The exact database entry gives finite searches and does not imply that exclusion.
+
+## value
+
+PASS
+
+This is an unbounded theorem for the first two natural multiplicative layers of an established arithmetic equation, not a report of a new finite sweep or an arbitrary numerical cutoff. It proves there are no additional solutions of those types and reduces their determination to a reproducible small exact table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

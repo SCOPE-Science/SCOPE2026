@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** For any invertible real three-by-three generator matrix, the two pedal layers are derived from their actual facet equations. If the eight feet form a parallelepiped, its four antipodal body diagonals admit a signed zero-sum relation. The four prescribed rays have a unique dependence with strictly positive coefficients equal to their squared pre-normalization norms, forcing all four norms equal. A four-row sign expansion then proves that the original generating columns are perpendicular. Conversely perpendicular columns make every second-step denominator equal and give a rectangular box. A standalone exact-rational checker verifies five representative matrices but is not substituted for the universal proof.
+## correctness
 
-**Originality — PASS (best-knowledge, provisional priority).** The motivating 2026 source proves the return formula for orthogonal boxes and the special concentric-sphere case but does not characterize all oblique parallelepipeds. Scientific searches for second-pedal parallelepipeds, facet-foot iteration, polarity, and oblique-box returns found no statement equivalent to the sharp converse, or a stronger theorem implying it. The closest other public comparisons concern polar rectification or different geometric constructions, not this second-iterate question. A possible older result under nonstandard terminology is the residual risk.
+PASS
 
-**Value — PASS.** This is an exact structural boundary of an active higher-dimensional pedal-return construction. It answers a natural nearest extension of the known box example for the full continuum of spatial parallelepipeds, rules out accidental nonrectangular two-step parallelotope returns, and provides an explicit nonnegative algebraic rigidity certificate. This is not a mere recomputation of the box return, because the obstruction is specific to oblique generators.
+The six supporting planes give first feet ±q_i/κ_i, forming the asserted linear cross-polytope. Its eight facet planes have normals Cε at offset 1, so the second feet are Cε/||Cε||². The eight feet are distinct; if the hull is a parallelepiped then all are vertices, and symmetry forces its center to be zero. Four parity-class representatives span dimension three and have unique relation with coefficients s_j>0. Any parallelepiped's four antipodal pairs can be signed to satisfy a relation with all coefficients of modulus one, so uniqueness makes the s_j equal. For the norm-variance computation, it is the three length-four columns (η_ji η_jk)_j that have zero mean and are mutually orthogonal, with squared length four; this gives the asserted factor 16. Thus vanishing is exactly orthogonality of the A columns, and in that case the second pedal is the constant radial rescaling C[-1,1]^3/s_1. This checks all real invertible A without assuming the feet lie in their facets or assuming eight vertices a priori. The shear example has (11,3,3,11) and variance sum 64. The finite script was inspected, not executed.
 
-**Limits.** The theorem does not address dimension four or higher, geometric similarity after later iterations, or combinatorial cubicality. All foot projections use facet *hyperplanes*. Historical priority is provisional, and independent validation has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The rectangular positive direction and some special skew cases are covered. The supported remainder is the arbitrary centered spatial parallelepiped converse, together with the exact norm-variance obstruction. The closest distinct catalogue record gives a restricted rhombic-prism theorem and mentions an unidentified general classification; it does not present such a classification or the certificate and does not identify a distinct source for them. The reference could be to the assigned result itself, so it is retained as residual risk, not treated as a verified duplicate.
+
+## value
+
+PASS
+
+Determines a sharp and natural affine-shape boundary for a standard geometric iteration where a positive rectangular example was known. Even allowing skew output parallelepipeds does not preserve the affine type for any skew input. The exact obstruction isolates Gram-matrix shear terms and tests the boundary without reconstructing second-pedal facets; it is not a distance estimate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

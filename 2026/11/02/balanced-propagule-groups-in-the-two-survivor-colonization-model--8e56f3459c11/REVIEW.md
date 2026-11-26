@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The two-survivor binomial tail has exactly the positive marginal \(m(j)=jp^2(1-p)^{j-1}\). The strict pair lemma is justified by the increasing threshold \(Q_s(t)\), reduced to the elementary monotonicity of \(\operatorname{artanh}(z)/z\). It excludes all unequal optimal positive groups, even with a free number of sites. The six-founder algebra has been independently coefficient-expanded in `checker.py`; exhaustive finite tests are supplementary, not substituted for the proof.
+## correctness
 
-## Originality — PASS, provisional historical priority
-The closest directly relevant full primary study is Shea and Possingham's biological-control release optimization (DOI 10.1046/j.1365-2664.2000.00467.x). Its stochastic dynamic program considers limited strategy types, not a theorem for unrestricted integer partitions under a two-survivor Bernoulli establishment event. Duncan et al. (DOI 10.1111/2041-210X.12288), Goodsman and Lewis (DOI 10.1111/2041-210X.12573), and Koontz et al. (DOI 10.1002/ece3.4226) address establishment-versus-size or introductions under distinct mechanisms; their read sections do not entail the present structural conclusion. Fernandez et al. (DOI 10.1111/j.1600-0706.2011.20181.x) was available only at abstract level. Broader sigmoidal-resource allocation theory remains a plausible source of implicit coverage, so independent priority verification is required.
+PASS
 
-## Value — PASS
-The size-versus-number release dilemma is an explicit ecological management problem. Even though the one-site establishment probability is S-shaped rather than globally convex/concave, the exact exchange lemma reduces optimization over all integer partitions to linearly many balanced candidates. The minimal six-founder threshold example gives an operational distinction between targeting one, two and three sites, and excludes mixed \((4,2)\) releases entirely under the stated model. This is not a prediction for heterogeneous or multi-year biological control.
+By linearity of expectation the objective is additive in the site sizes. The binomial marginal is j p^2(1-p)^(j-1) for j>=1, strictly positive; merging a singleton into another group helps. For fixed pair sum s, the first exchange from t=0 hurts, and every later exchange has the sign of Q_s(t)-(1-p) where Q_s(t)=(t/u)^(1/(u-t)) and u=s-t-1>t. Strict increase of Q_s follows because log Q_s is -artanh(h/c)/h with c=(s-1)/2 and h=c-t, and artanh(z)/z is strictly increasing on (0,1) (e.g. its positive power series). With a strictly negative first difference and at most one intervening zero between decreases and increases, every interior pair is strictly dominated by at least one endpoint, even when the two endpoints tie. A globally optimal allocation cannot contain a pair differing by two or more, since a merge is admissible; this does not assert balance is optimal at each externally fixed k. Checking all allowed k proves the exact formula and the classification of ties. For N=6 an independent count of survivor patterns expands the adjacent score differences as p^2(p^2-3p+3)(5p^2-9p+3) and p^2(3-4p). The first factor changing sign does so only at p_0 in (0,3/4); the adjacent signs then suffice for all three ranges and the two ties. N<6 cannot support three groups of at least two. The incidental 'exponential family' description should mean exponential in order sqrt(N), not in N; the exact finite reduction is unaffected.
 
-## Residual limitations
-Only the idealized one-shot, two-survivor model is proved. Empirical survival probabilities and establishment thresholds need field assessment. Novelty remains provisional against any broader matching resource-allocation theorem; no independent audit was conducted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinction is the strict all-maximizers theorem for the indivisible Bernoulli two-success expected-count problem, with its first three-way budget example. Continuous equal-positive-support results and other stochastic founding objectives are genuine analogues, but do not provide this discrete strict pair lemma or its consequence for all integer optima. No absolute priority is asserted.
+
+## value
+
+PASS
+
+This is a sharp structural reduction of a nonconcave integer allocation, not a table of optima for one probability. Strict domination excludes every unbalanced optimal partition for all probabilities in the open interval and reduces the search to at most floor(N/2) candidates. The N=6 example is a minimal boundary illustrating two distinct changes in the active-group count. Its value is as a stylized probability and optimization result, not a real release prescription.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

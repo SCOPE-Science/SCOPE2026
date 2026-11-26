@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproduction and limits
+# Independent mathematical audit
 
-The accompanying `check.py` requires Python 3 and `sympy`. Running `python check.py` computes the stationary generator identities and derivatives symbolically, independently reconstructs fourth moments for a grid of rational parameters using `fractions.Fraction` elimination rather than substituting the claimed fourth-moment formula, checks positivity and identities in those rational cases, and tests peak ordering on an explicit deterministic sample grid. It prints `PASS 2668 exact-rational, symbolic, and deterministic numerical assertions` when successful.
+## correctness
 
-The code establishes reproducibility and spot-checks the equations. The all-parameter proof rests on exact stationary generator identities, symmetry, and the derivative sign polynomials described in RESULT.md. No simulation, finite enumeration, or automated check proves bibliographic originality or independently validates the research. A plausible 2022 primary source could only be inspected through its published abstract, so implicit-priority risk remains.
+PASS
+
+Uniform drift contraction at rate at least a−g constructs the unique stationary process from the infinite Brownian past, with finite moments. Reflecting Y and the shared telegraph sign gives zero cross-product at every time pair; simultaneous inversion of X and Y gives both zero means (the reflection alone would only give the Y mean). As a separate reconstruction, condition on the sign path: the law is centered Gaussian, with equal diagonal covariance S and off-diagonal L satisfying S′=−2aS+2gσL+2D and L′=−2aL+2gσS. These yield E[S]=D(a+q)/(b+aq) and close the linear stationary system for E[S²], E[σSL], E[L²], including the −2q multiplier for sign-bearing moments. Solving gives κ₄=3 Var(S)=3D²g⁴q/[a(b+aq)²(2b+aq)], independently matching the frozen position-generator solution. Normalizing yields the stated excess. The derivative sign numerators for the two scaled profiles are 1−x−x² and r−rt−t². They change sign exactly once on the positive axis. The raw peak value follows by φ²=φ+1; at t=r/φ the excess root polynomial is r(r−1)<0. The roots scale as r/φ and √r in units of a, giving the stated separation.
+
+## originality
+
+PASS
+
+Credit is for the coordinate fourth-order formula, its two distinct unique maxima under raw and variance-normalized observations, and their scale separation in the specified shared-sign overdamped model. Covariance-invisible fluctuating coupling is explicitly credited to prior work. The assessed joint-coordinate fourth-order result is not implied by the inspected scalar switching laws or the published spectral observation. The closest oscillator paper's full text was not available, a material but not dispositive risk.
+
+## value
+
+PASS
+
+The fourth cumulant detects a coupling that disappears from all cross-position covariances, and switching rates optimized for the unnormalized and normalized diagnostic separate parametrically near instability. This is a meaningful distinction between measurements on a natural stochastic harmonic model, not solely another moment identity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

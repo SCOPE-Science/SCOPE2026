@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification notes
+# Independent mathematical audit
 
-The separate `VERIFY.py` program constructs the two-token adjacency matrix from the base friendship-graph edge list, without using the symmetry decomposition or precomputed spectra. It evaluates the integer characteristic polynomial with SymPy and compares it to the factored formula for \(m=3,4,5,6,7\), covering matrix sizes \(21,36,55,78,105\). Each comparison returned `True`. The proof of all sizes is the orthogonal decomposition and unsigned incidence Gram calculation in `RESULT.md`; no finite sample establishes an infinite theorem.
+## correctness
 
-The three fixed-energy orthogonal mode families have dimensions \(\binom m2\), \(m(m-2)\), and \(m(m-3)/2\) with total complement dimension \(5m\). The last family is zero-dimensional at \(m=3\). The limiting measure is a multiplicity-counting measure, not a claim about all localized initial states.
+PASS
 
-The other closely related published calculation treats the **Laplacian** of the same nonregular token graph; it does not yield a scalar-shift formula for the adjacency Hamiltonian. The originality assessment is a best-knowledge comparison, not definitive proof of priority. Independent scholarly audit has not been performed.
+The unordered-pair hopping matrix is precisely token-graph adjacency with weight one. On each pair of distinct petals the internal hopping is the sum of the two leaf swaps; its tensor sign modes have eigenvalues 2, 0, 0, −2. The double-odd modes decouple. At each petal the single-odd sector is a star of m−1 cross-petal modes coupled to the odd hub-pair mode with weight √2, with central diagonal −1; its contrasts and two-dimensional block give the zero modes and the quadratic. The even sector couples the hub-pair modes both to same-petal pairs by √2 times the identity and to cross-petal modes by √2 times unsigned incidence B. BBᵀ=(m−2)I+11ᵀ has eigenvalues m−2 and 2(m−1), with multiplicities m−1 and 1. Each singular direction of squared singular value s yields (λ−2)(λ²−λ−2)−2sλ, and ker B yields the stated +2 factor. These blocks exhaust the space. Compact eigenvectors use a double-odd cross mode, differences sharing the odd petal, and an alternating four-cycle in ker B, respectively; the last needs m≥4 and +2 is absent at m=3. The explicit flat blocks have the stated dimensions, not necessarily the total multiplicities after accidental coincidences; the other blocks carry mass 5m/[m(2m+1)], which vanishes for bounded continuous tests.
+
+## originality
+
+PASS
+
+The distinct claim supported by the accessible statements is the complete adjacency spectrum of this two-particle family, with explicit compact states and the adjacency level-counting limit. Neither the token/symmetric-power identification nor the incidence method is new. The closest reported same-object result concerns the combinatorial Laplacian; full text was unavailable and the possible scope of its block calculation is a named risk, not negative evidence.
+
+## value
+
+PASS
+
+This is a full exact invariant across a natural highly connected family for which the hard-core condition prevents reading off the energies from the one-particle modes. The computation identifies an extensive flat-state component, with bounded configuration support witnesses and a precise limiting density, not merely a small spectrum or a reformulation of token adjacency.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

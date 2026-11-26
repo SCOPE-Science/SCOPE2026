@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:58:57.153371Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Verified the Finding for the stated deterministic simplex. Subtracting log derivatives cancels the common demographic term; each ratio y_i=x_i/x_1 is nonincreasing and bounded by its initial value. In the scalar equation for x_1 the logistic coefficient is r times S(t)=sum_i y_i(t), with 1<=S(t)<=S(0), so x_1 is uniformly bounded below by min(x_1(0),(r-d)/(r S(0))). The clock p_1 times its time integral is therefore unbounded. In that clock y_2 is exponential and integrable, allowing y_3 to have a strictly positive limit; each positive predecessor gives exponential decay of the next ratio and each integrable predecessor gives a positive limit of the next one. This proves parity through the final species. As S(t) tends to a positive limit, scalar logistic comparison with coefficients arbitrarily close to r S(infinity) gives x_1(infinity)=(r-d)/(r S(infinity)). Integrating y_2 yields precisely the three-species expression. The rescaled clock removes a common positive predation multiplier, and finite-time ODE dependence on the multiplier is continuous while at zero all ratios are constant, proving noncommutation. These arguments also cover d=0. The verifier is supplemental and was not executed. The separate Limitations remark about a single zero edge should not be read as a universal discontinuity: e.g. for n=3 at fixed p_1>0 the displayed composition extends continuously to p_2=0. This does not affect the all-rates-zero Finding.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The October 12 result handles arbitrary nonempty initial support and establishes exponential convergence. Samanta et al. give the model, the adjacent-support obstruction at equilibrium, maximum coexistence bounds under the independent-set restriction and lower-dimensional stability examples. Hou gives a conditional single-attractor result."
+        ],
+        "reasoning": "The catalogue theorem strictly exceeds the support and convergence conclusions of the frozen theorem for positive mortality. The cited primary equilibrium results alone neither determine which equilibrium is selected nor imply the normalized composition.",
+        "searches": [
+          "Resultary: global attractor selected limit all equilibria competitive Lotka-Volterra replicator hierarchical May-Leonard",
+          "arXiv:2609.09027v1, Eqs. (4)–(5), Proposition 1 and Theorem 1",
+          "arXiv:0711.3385, Theorem 2.1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py",
+        "Resultary fe1c9e5a7741",
+        "arXiv:2609.09027v1",
+        "arXiv:0711.3385"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier proof uses a logistic lower bound with a=r-d>0, a triangular ratio cascade with demographic parameters absent, and a scalar convergence equation. Its invariant-boundary calculation becomes nonpositive at d=0, which still implies forward invariance."
+        ],
+        "reasoning": "The full-support d=0 extension needs no new dynamical mechanism. Multiplying the predation coefficients by lambda simply speeds up the earlier cascade by lambda; for any lambda>0 this leaves terminal ratios unchanged. At exactly lambda=0, the ODE directly preserves every initial ratio. Thus rescaling and the zero endpoint are immediate consequences rather than a new selection theorem.",
+        "searches": [
+          "Resultary fe1c9e5a7741, proof Steps 1–5; local-mirror text from offset 334"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The strongest result for both searches was fe1c9e5a7741. With full support its greedy rule chooses exactly the odd indices. In its clock tau=integral x_1, du_i/dtau=-p_(i-1) u_(i-1)u_i."
+        ],
+        "reasoning": "The clocks differ only by s=p_1 tau. The earlier result has the same composition via the same trajectory, not just an equilibrium with the same survivor set.",
+        "searches": [
+          "Resultary: hierarchical May-Leonard odd-indexed species survival global coexistence initial conditions predation scale invariance",
+          "Resultary: feed-forward ecological chain triangular ratio clock selected equilibrium persistence odd species"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matching published catalogue record has the exact three-species ratio R=(x_3(0)/x_1(0)) exp(-p_2 x_2(0)/(p_1 x_1(0))) and the vector (K/(1+R),0,KR/(1+R))."
+        ],
+        "reasoning": "This is an exact symbolic match over arbitrary admissible abundances and predation rates on the positive-mortality slice, not a finite numerical coincidence.",
+        "searches": [
+          "Resultary: common predation-rate scaling invariant asymptotic species composition directed competition chain",
+          "Resultary fe1c9e5a7741, Finding and terminal-abundance proof"
+        ]
+      },
+      "rationale": "The October 12 Resultary record fe1c9e5a7741 already proves a stronger support-dependent exponential selection theorem, the same triangular cascade, the same normalized terminal formula, and the same three-species formula. Its proof applies at d=0 by replacing strict inward pointing at the unit boundary with nonpositive outward derivative; every other estimate uses r-d>0, not d>0. Common rate scaling is a time change in its cascade, and the all-zero singularity follows immediately by comparing this known positive-scale composition with the zero-predation logistic model. No distinct valuable remainder is established.",
+      "residual_risks": [
+        "Access to additional Baigent–Ching and Calleja-Solanas full texts failed in the bounded retrieval; this does not affect the demonstrated overlap with the inspected catalogue result.",
+        "The comparison establishes coverage, not original historical priority for the ratio-clock technique."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Stronger direct coverage plus immediate extensions",
+          "evidence": "All nonempty support patterns converge exponentially by greedy selection; for full support the exact limit and ratios coincide. The clock and logistic comparison require only positive net demographic growth once nonpositive boundary flux is allowed.",
+          "identifier_or_url": "2026/10/12/SCOPE-exact-greedy-survival-and-terminal-abundance-in-a-symmetric-hier--fe1c9e5a7741",
+          "material_read": "Finding, assumptions, proof of the ratio cascade and support selection, and terminal-abundance calculation; local-mirror offsets 334 and 4061 onward",
+          "method": "Semantic catalogue search and bounded reading of the original local-mirror text",
+          "title": "Exact greedy survival and terminal abundance in a symmetric hierarchical May–Leonard chain",
+          "trigger": "Ranked match for the identical chain and terminal composition"
+        },
+        {
+          "assessment": "Identical model, not the closest global selection result",
+          "evidence": "The equilibrium independence restriction and maximum coexistence number do not identify limits of all fully seeded trajectories.",
+          "identifier_or_url": "arXiv:2609.09027v1",
+          "material_read": "Mean-field Eqs. (4)–(5), Proposition 1, Theorem 1, Appendix B; HTML offsets about 12005, 49902, 45706, 81834",
+          "method": "Bounded OA full-text comparison",
+          "title": "Selection Rules for Species Coexistence in a Hierarchical May–Leonard Model",
+          "trigger": "Same ecological hierarchy and homogeneous regime"
+        },
+        {
+          "assessment": "Conditional unique interior attractor, not initial-state-dependent boundary selection",
+          "evidence": "The target has a continuum of possible terminal states, not one interior equilibrium attracting every positive trajectory.",
+          "identifier_or_url": "arXiv:0711.3385",
+          "material_read": "Definition and Theorem 2.1, p. 3; PDF text offsets about 2166 and 9704",
+          "method": "Bounded OA full-text comparison",
+          "title": "Global Attractor in Competitive Lotka–Volterra Systems",
+          "trigger": "Potential stronger global convergence theorem for competitive systems"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The underlying selection and abundance question is mathematically worthwhile, but it is already answered with stronger scope. The surviving formal differences are turning a strict boundary inequality into a weak one and rescaling a standard time variable or putting the predation coefficients to zero. They do not form a substantive new ecological or mathematical result under the review standard.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

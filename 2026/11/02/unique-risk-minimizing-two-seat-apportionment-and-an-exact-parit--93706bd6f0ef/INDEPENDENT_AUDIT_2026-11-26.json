@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:14:20.733795Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–76",
+        "Frozen VERIFICATION.md lines 3–23 and verify.py (inspected, not executed)",
+        "/workspace/audit_checks.py, apportionment()"
+      ],
+      "rationale": "For selected labels a<b, there are n-a-1 and n-b unselected labels above them, respectively. Their combined expected label sum is n+1, fixed by the 2/n marginals, so the variance is the expectation of (a+b-n-1)^2. For even n the zero-cost edges form a disjoint perfect matching and each row forces mass 2/n. For odd n, subtract a dual weight of 1 on edges incident to the center (n+1)/2; all resulting costs are nonnegative, and the tight edges are the outer mirror edges and the central triangle. Their marginal equations force 2/n on isolated edges and 1/n on each triangle edge, attaining 2/n and giving the stated envy masses. The triangle-only n=3 case is feasible and unique. Permutation invariance forces the uniform law; order its two labels at random so they are draws without replacement. Their covariance is minus the population variance divided by n-1, giving (n+1)(n-2)/6. This equals the unrestricted value only at n=3; the stated ratio for odd n follows. Replay: `cd /workspace && python audit_checks.py 1` confirms tight supports, exact marginals, direct inversion counts and uniform variances for n=3 through 40; the proof handles all n.",
+      "residual_risks": [
+        "The covariance argument needs random draw order, not the ascending order statistics. Results depend on the fixed label tie order and exactly two upper quotas."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Proposition 4.4 gives polynomial-time minimization of total-envy variance in single-floor cases and therefore applies to every instance here.",
+          "Correa et al. instead analyze monotone joint selection probabilities under quota rounding, including Sampford sampling."
+        ],
+        "reasoning": "The LP computes an optimizer per input but its existence and description do not determine the equality support, strict uniqueness or parity formula. Monotonicity of selection probabilities is a different objective.",
+        "searches": [
+          "arXiv:2610.24217v1 §4.3 Proposition 4.4",
+          "arXiv:2405.03687 Theorem 1.1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.24217v1",
+        "arXiv:2405.03687",
+        "Tillé DOI metadata",
+        "Resultary 572fc2f2d8d9 and 2b1ea0112be4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Ex-ante mean invariance specializes directly; so does computability of an optimal law. The relevant literature does not give the constrained odd central vertex's positive minimum incident cost or the set of tight edges."
+        ],
+        "reasoning": "The all-n solution uses the central vertex's compulsory 2/n degree and then solves the tight support's marginal equations. A rule finding a feasible zero-envy lottery with different strata or a generic optimizer does not supply that exact classification.",
+        "searches": [
+          "arXiv:2610.24217v1 Theorem 3.2 and proof of Proposition 4.4",
+          "Resultary 572fc2f2d8d9 and 2b1ea0112be4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:2610.24217v1 uses i>j, X_i=0, X_j=1, with the same arbitrary tie order; its theorem gives the same mean n-2 on substitution.",
+          "The equivalent sampling-design cost is the variance of the sum of a fixed-size sample of two distinct labels with equal first-order inclusion probabilities. Even n permits exact balance, whereas odd n precludes it at the singleton center."
+        ],
+        "reasoning": "Exact balance describes the even objective but by itself yields neither the best imperfect balance at odd n nor the uniqueness of the central-triangle law. The available Tillé metadata does not resolve whether the chapter has a sharper matching design.",
+        "searches": [
+          "Resultary: equal populations two residual seats index-ordered envy variance mirror pairs central triangle",
+          "arXiv:2610.24217v1 §§2.2–2.3 and Theorem 3.2",
+          "DOI 10.1007/978-3-642-04898-2_130, Springer landing and PDF retrieval"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The two close same-day records were read in the local mirror. 572fc2f2d8d9 concerns uniqueness of feasible envy-free lotteries in three distinct floor strata; 2b1ea0112be4 concerns inversion-free feasibility and a support bound with six parties and three residual seats."
+        ],
+        "reasoning": "Neither distinct indexed record solves the two-seat single-floor variance or its anonymous benchmark. Same-day dating does not show priority or remove the need to compare these statements.",
+        "searches": [
+          "Resultary semantic searches for mirror/central triangle law and ordered envy in exact apportionment",
+          "Resultary 572fc2f2d8d9 and 2b1ea0112be4 Findings and Assumptions"
+        ]
+      },
+      "rationale": "The exact parity optimum, forced support and risk law are supported as a distinct evaluation of a previously defined and algorithmically solved optimization problem. The statistic, rule-independent mean, generic linear program and ordinary sampling-variance identity are not new.",
+      "residual_risks": [
+        "The Tillé chapter could not be inspected; a distinct older exact solution in sampling-design or pairing literature remains possible.",
+        "Catalogue and literature comparisons are bounded, not a certification of historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers metric, invariant mean, optimization algorithm, not the symbolic unique optimizer and parity law in the inspected results.",
+          "evidence": [
+            "Within-block inversion definition with arbitrary equal-quota ties",
+            "Mean formula and single-floor polynomial-time variance minimization"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.24217v1",
+          "material_read": "§§2.2–2.3, §3.1 Theorem 3.2, §4.3 Proposition 4.4 and proof (OA offsets around 27000, 34500, 68500–69284)",
+          "method": "OA primary HTML statement and proof comparison",
+          "title": "Envy-Free Randomized Apportionment",
+          "trigger": "Same statistic and same variance objective in a broader domain"
+        },
+        {
+          "assessment": "Conceptually relevant; insufficient access to decide chapter-level coverage.",
+          "evidence": [
+            "Metadata identifies the cited Tillé chapter. Redirect failures yielded no full-text evidence."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/978-3-642-04898-2_130",
+          "material_read": "Bibliographic metadata only; no substantive chapter passage obtained",
+          "method": "Literature lookup and lawful OA attempts via DOI, Springer and PDF routes",
+          "title": "Balanced Sampling",
+          "trigger": "Equivalent fixed-size sampling of label totals"
+        },
+        {
+          "assessment": "Different optimization property.",
+          "evidence": [
+            "Theorem 1.1 concerns selection monotonicity of Sampford sampling."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2405.03687",
+          "material_read": "Abstract/introduction and Theorem 1.1 (OA offsets 650 and about 14677)",
+          "method": "OA primary HTML theorem comparison",
+          "title": "Monotone Randomized Apportionment",
+          "trigger": "Related dependent quota rounding"
+        },
+        {
+          "assessment": "Different quota strata, feasibility objective and scope.",
+          "evidence": [
+            "Three distinct lower-quota strata, strictly ordered residues, with six-party nonuniqueness example."
+          ],
+          "identifier_or_url": "Resultary 572fc2f2d8d9",
+          "material_read": "Finding and assumptions",
+          "method": "Local Resultary mirror",
+          "title": "A sharp six-party boundary for uniqueness of envy-free proportional apportionment",
+          "trigger": "Indexed exact feasibility/uniqueness finding on envy-free rounding"
+        },
+        {
+          "assessment": "Not the equal-entitlement two-seat law.",
+          "evidence": [
+            "Three distinct-floor pairs, three residual seats, inversion-free feasibility and support bound."
+          ],
+          "identifier_or_url": "Resultary 2b1ea0112be4",
+          "material_read": "Finding and assumptions",
+          "method": "Local Resultary mirror",
+          "title": "Three paired apportionment strata: exact envy-free feasibility",
+          "trigger": "Indexed paired support result in the same problem area"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 11–32 and 50–76",
+        "arXiv:2610.24217v1 §4.3"
+      ],
+      "rationale": "The concrete obstruction to exact balancing for odd n and the unique optimal law are useful benchmarks for dependent rounding with prescribed marginals. The solution distinguishes representational fairness (the same inclusion probability) from permutation invariance, and quantifies a natural variance tradeoff that a per-instance LP output would not explain.",
+      "residual_risks": [
+        "No tie-independent fairness prescription or result for more than two residual seats follows."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

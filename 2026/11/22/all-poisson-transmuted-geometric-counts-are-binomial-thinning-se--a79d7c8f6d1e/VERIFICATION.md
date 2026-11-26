@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -17,4 +20,4 @@
 ---
 # Reproducibility
 
-Run `python verify.py` with SymPy available. The file checks the exact PGF numerator, the zero-location identities, the logarithmic jump coefficients, the strict consecutive canonical inequalities for a finite rational test grid, and a generic geometric-mixture failure with exact difference \(35/5832\). These checks supplement the analytic proof; the finite grid alone does not establish a universal \(j\)-quantifier. The all-index step is proved in RESULT.md by a unimodal beta-kernel inequality. The standard thinning self-decomposability criterion is sourced in the references. No independent mathematical audit is claimed.
+Run `python3 verify.py` using the Python standard library. The checker tests the signed partial fractions by polynomial multiplication; computes the exact negative-transmutation obstruction; and checks the rational log-coefficient formula and positive lower bound at finite samples. These checks are not needed to infer positivity from a grid: the all-index beta-kernel estimate and the integral of nonnegative binomial-thinning probabilities in RESULT.md prove the full result.

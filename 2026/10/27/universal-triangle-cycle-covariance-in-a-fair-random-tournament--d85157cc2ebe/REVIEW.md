@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The conditional local triangle probabilities are \(1/4\) with zero or one fixed arc, \(1/2\) with two prescribed arcs forming a directed path, and \(1\) for an entire prescribed directed triangle. A simple directed cycle has exactly \(k\) two-arc triple overlaps for \(k\ge4\), with a separate exact boundary calculation at \(k=3\). Counting rotation classes of candidate cycles proves the mixed moment. The variance bound follows from the exact triangle variance and Cauchy–Schwarz. The 37 exact finite checks independently confirm these identities in the stated tested ranges; they are not used as an infinite proof.
+## correctness
 
-**Originality — PASS, provisional.** Full accessible primary HTML treatments of tournament three-/four-cycle extremal relations (Linial–Morgenstern 2014; Chan et al. 2019) and arbitrary-length cycle expectation/extrema (Grzesik et al. 2020) were compared by implication. None of the inspected statements gives \(\operatorname{Cov}(C_3,C_k)\) for all finite \((n,k)\); deterministic four-vertex relations and one-variable cycle expectations do not independently determine this joint moment. Searches for random-tournament mixed cycle moments did not uncover a dominating published identity. Janson's 1995 Hamiltonian random-tournament full text was inaccessible; it may contain an \(k=n\) specialization. Residual historical priority uncertainty remains.
+PASS
 
-**Mathematical value — PASS.** The all-length response is independent of the number of extra vertices and includes the boundary \(k=3\) without altering the coefficient. It supplies a single exact mixed-moment identity across two basic random-tournament motif statistics, and yields a uniform finite-sample lower bound on relative cycle-count fluctuations (of order \(1/n\) for Hamilton cycles), not obtainable from marginal means alone. The theorem does not assert broader stochastic ordering.
+An unconditioned triple is cyclic with probability 1/4; fixing one arc does not change this, and fixing a directed two-edge path increases the probability to 1/2. A specified k-cycle with k >= 4 fixes two arcs on exactly its k successive triples (distinct even for k = 4) and fixes at most one on every other triple. For k = 3 the one fully fixed triple gains 3/4 instead. The conditional gain is therefore k/4, including when n = k. Each of the (n)_k/k oriented candidates, modulo rotation but not reversal, has probability 2^(-k); summing its indicator covariance gives (n)_k/(4*2^k). Since C_3 = T, Var(T) = 3*binom(n,3)/16, and Cauchy–Schwarz yields the claimed relative-variance bound, its k = 3 equality, and the stated Hamiltonian specialization. The supplied verifier was inspected, not executed or relied on for the proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Pass is for the uniform exact finite covariance and conditional-response identity for all cycle lengths with its uniform variance consequence, not for the already documented k = 4 specialization, the k = 3 triangle variance, or asymptotic Hamiltonian fluctuations. The strongest exact overlap recovered is confined to three- and four-cycle counts; the broader inspected results do not supply the uniform law. This is a best-of-knowledge assessment.
+
+## value
+
+PASS
+
+This computes a uniform finite cross-statistic of natural dependent cycle counts: it identifies exactly how a prescribed long cycle biases triangles, and gives a computable projection-based variance floor at every length without enumerating overlaps of two long cycles. The Hamiltonian specialization gives a relative-variance floor of order 1/n. The value is in the uniform calculation, not the known four-cycle entry or the routine Cauchy–Schwarz step alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -65,13 +65,13 @@ All coefficients are nonnegative. Writing the density of a difference of two cop
  e^{-(n+1/2)d}.
  \tag{4}
 \]
-Thus \(g_a\) is strictly decreasing on positive arguments; symmetry gives \(g_a(-d)=g_a(d)\). This covers the remaining parameters, including \(a=1\). Consequently, for **every** \(a>0\), the density of \(D_a\) is continuous, symmetric, positive, and nonincreasing away from zero, without a nontrivial flat interval. The log-concavity convolution statement may alternatively be proved directly from the Prékopa--Leindler theorem.
+Thus \(g_a\) is strictly decreasing on positive arguments; symmetry gives \(g_a(-d)=g_a(d)\). This covers the remaining parameters, including \(a=1\). Consequently, for **every** \(a>0\), \(D_a\) admits a symmetric unimodal density. No continuity or boundedness at zero is needed: for \(a\leq 1/2\), the autocorrelation integral at zero diverges because \(h_a(w)^2\) is proportional to \(w^{2a-2}(1+o(1))\) as \(w\downarrow0\). This is a density singularity, not an atom.
 
-**3. A strict smoothing inequality.** If \(D\) has a symmetric positive unimodal density as above, then
+**3. A strict smoothing inequality.** If \(D\) has a symmetric unimodal density \(g\), possibly unbounded at zero, then
 \[
  H(s)=\mathbb E F(D+s)
 \]
-is even and strictly decreasing for \(s>0\). To see this without differentiating an infinite integral, use the layer-cake decomposition of the continuous, symmetric, strictly distance-decreasing function \(F\) into indicators of centered intervals. For any radius \(r>0\), the mass of a translated interval \([s-r,s+r]\) under a symmetric strictly unimodal density decreases strictly with \(s>0\): the interval-mass derivative, where defined, is \(g(s+r)-g(s-r)<0\). Integrating over the positive layer-cake weights proves the claim. Therefore, if \(E\) is any independent, nondegenerate random variable with \(\Pr(E\ne0)>0\),
+is even and strictly decreasing on \([0,\infty)\). Apply layer cake to \(g\), whose positive superlevel sets are centered intervals up to null endpoints. For a positive level the radius \(r\) of such an interval is finite by integrability; a set of levels of positive measure has \(r>0\) since \(\int g=1\). The contribution of this interval to \(H(s)\) is \(J_r(s)=\int_{s-r}^{s+r}F(v)\,dv\). For each \(r>0\) and \(s>0\), \(J_r'(s)=F(s+r)-F(s-r)<0\), since \(|s+r|>|s-r|\). Tonelli's theorem now gives the strict comparison of \(H\) at any two nonnegative shifts. Therefore, if \(E\) is independent of \(D\) with \(\Pr(E\ne0)>0\),
 \[
  \mathbb E F(D+E)<\mathbb E F(D).
  \tag{5}
@@ -121,6 +121,6 @@ The theorem concerns one angular harmonic of the **stationary position angle** i
 
 ## References
 1. N. R. Smith, P. Le Doussal, S. N. Majumdar, and G. Schehr, “Exact position distribution of a harmonically-confined run-and-tumble particle in two dimensions,” arXiv:2207.10445v1 (first public 2022-07-21), *Physical Review E* 106, 054133 (2022). https://arxiv.org/abs/2207.10445 ; public full text https://arxiv.org/html/2207.10445.
-2. B. Loewe, T. Kozhukhov, and T. N. Shendruk, “Anisotropic run-and-tumble-turn dynamics,” arXiv:2305.03663v1 (2023-05-05), *Soft Matter* 20, 1133--1150 (2024). https://arxiv.org/abs/2305.03663 . This studies anisotropic turning kinetics, not the harmonic-trap angular inverse result.
-3. “A two-shell radial concentration transition for a square-supported run-and-tumble particle,” public mathematical research record, https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-a-two-shell-radial-concentration-transition-for-a-square-support--d357046fa9e1 (radial, not angular, comparison).
-4. “Sharp fourth-moment envelope for correlated-turn swimmers in a harmonic trap,” public mathematical research record, https://github.com/published-finding corpus/2026/tree/main/2026/10/26/SCOPE-sharp-fourth-moment-envelope-for-correlated-turn-swimmers-in-a-h--965a51cb75a3 (radial moments of a different turning model).
+2. B. Loewe and T. N. Shendruk, “Anisotropic run-and-tumble-turn dynamics,” arXiv:2305.03663v1 (2023-05-05), https://arxiv.org/abs/2305.03663v1. This preprint studies anisotropic turning kinetics, not the harmonic-trap angular inverse result.
+3. “A two-shell radial concentration transition for a square-supported run-and-tumble particle,” https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-two-shell-radial-concentration-transition-for-a-square-support--d357046fa9e1 (radial, not angular, comparison).
+4. “Sharp fourth-moment envelope for correlated-turn swimmers in a harmonic trap,” https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-sharp-fourth-moment-envelope-for-correlated-turn-swimmers-in-a-h--965a51cb75a3 (radial moments of a different turning model).

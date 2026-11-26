@@ -1,24 +1,21 @@
-# Scientific review: cuboctahedral edge-landmark mobility
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Two explicit reconstructions of the twelve-vertex cuboctahedron, one as \(L(Q_3)\) and the other from Cartesian coordinates, agree. The first checker enumerates all \(495\) four-subsets and all \(792\) five-subsets, obtaining zero and \(168\) edge-resolving sets respectively; the second checker uses an independent witness-mask characterization. Both exhaustively generate all legal one-token moves and compute all component eccentricities. The parity obstruction is proved combinatorially: a slide of cube edges sharing a corner changes only one bipartition side, while every optimum covers exactly three corners on one side and four on the other. The two independent output files agree on all reported counts and metrics. This verifies the exact finite claim, not generalizations.
+PASS
 
-## Originality — PASS, qualified
+Cube-edge incidence determines the full 12-vertex, 24-edge graph. Resolving means the distance-to-edge columns restrict to distinct signatures; the fresh exhaustive check found no resolving set through size four and 168 at size five, each omitting exactly one cube vertex and 21 omissions of each vertex. A slide replaces ab by ac, so only the coverage on the parity class of b and c can change. Switching the omitted parity would change both classes' coverage counts from (3,4) to (4,3), which is impossible. Enumeration of all legal moves and all finite state distances gives 948 jumps in one component of radius and diameter 5; 360 slides in two 84-state components, each of radius and diameter 6, exactly the parity classes. A bit flip interchanges them. Every triangle of the line graph is a star of the triangle-free cube, so the line-graph automorphism group induces the cube group on those eight stars; the action is faithful and every cube automorphism induces one in return. The 48 coordinate permutations and independent bit flips exhaust the group since the image of a cube corner and of its three neighbours determines the automorphism. Its basis orbits are 24,48,48,48. Ordinary vertex resolution gives dimension 3, 96 optima, connected slides, radius 7 and diameter 8. Replay: python3 /workspace/branches/fefce843-c088-4901-b7d4-ebad2819196f/independent_check_record5.py. This is a complete enumeration of this finite graph, not extrapolation.
 
-Actual published-finding corpus searches for edge-metric landmark mobility, the cuboctahedron, \(L(Q_3)\), \(168\) optima, \(84\)-component parity and aliases returned related but noncovering records, including exact edge-metric results on the Heawood and Chvátal graphs and different cuboctahedral invariants. Searches of the public web for "cuboctahedral edge metric dimension", "line graph of cube edge metric dimension" and "edge metric basis reconfiguration cuboctahedron" yielded no covering primary theorem or exact table. Examination of Yi's 2021 edge-dimension paper shows general results rather than this graph-specific optimizer classification; Avis–Hoang concerns independent sets, not the edge-resolving predicate. MathWorld identifies the base graph but supplies no optimum-set geometry. The exact statement and implication comparisons are recorded in AUDIT.json. These searches support a best-knowledge novelty assessment, not proof of priority; an unindexed or unpublished equivalent remains possible.
+## originality
 
-## Value — PASS
+PASS
 
-The finite result identifies a natural, structurally motivated disconnection invariant in the minimum edge-failure-localization sensors of a canonical polyhedral network. The sharp difference from ordinary vertex localization on the same graph—two immovable-with-respect-to-each-other edge-basis communities versus one connected metric-basis slide network—clarifies which sensor task controls mobility. The exact \(84\)-state component sizes and radius/diameter provide reproducible relocation benchmarks, not arbitrary sampled constants. The invariant supplies a conceptual explanation for disconnectedness beyond raw exhaustive counts. The claim remains valuable even though it is limited to one canonical graph.
+The definition of edge-metric dimension, the graph and its cube-line-graph representation, and the move rules are antecedent. The verified distinct result is the cuboctahedral minimum edge-basis reconfiguration classification with its missing-parity obstruction and connected ordinary vertex-metric comparison. The closest indexed Heawood result has the same minimum size, number of edge bases, and jump diameter, but has a different base graph and a materially different slide classification. The checked general papers do not establish the target exact classification.
 
-## Closest sources and limitations
+## value
 
-- Yi, *On the edge dimension and fractional edge dimension of graphs*, arXiv:2103.07375 (first posted 2021-03-12); general edge dimension and fractional edge dimensions, not exact cuboctahedral reconfiguration.
-- Avis and Hoang, *On Reconfiguration Graphs of Independent Sets under Token Sliding*, arXiv:2203.16861 (first posted 2022-03-31); reconfiguration graph framework for a different feasibility class.
-- MathWorld, *Cuboctahedral Graph*; confirms the twelve-vertex line-graph representation, not minimum edge bases.
-- Published indexed records on the Heawood and Chvátal edge-metric basis graphs; distinct base graphs and no general result implying the present enumerator.
+PASS
 
-The result is a finite theorem with reproducible exhaustive checkers, not an assertion of an infinite-dimension pattern. No external independent audit was performed; historical-priority uncertainty remains.
+This is an exact benchmark on a canonical graph for how optimum edge-location sensor sets may be moved. An invariant tied to the omitted cube vertex explains the disconnectedness rather than merely reporting it; the exhaustive counts show that the invariant is also sufficient for slide connectivity. On exactly the same base network, optimum vertex-location sensors have connected slides, establishing a natural, task-dependent contrast.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

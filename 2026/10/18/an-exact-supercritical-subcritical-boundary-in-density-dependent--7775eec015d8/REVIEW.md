@@ -1,11 +1,21 @@
-# Review of the exact ecological Hopf-criticality boundary
+# Independent mathematical audit
 
-**Correctness — PASS.** The positive parameter domain is explicit, the exact equilibrium and eigenvalue crossing are derived, and the radial coefficient is checked by two independently structured symbolic formulas. The nondegenerate Hopf theorem gives the asserted unique nearby cycle on the stated side and its orbital stability; shrinking amplitude proves confinement to the antagonistic region. The coefficient-zero boundary is expressly not classified at higher order. The reproducible program checks algebra but is not substituted for the existence theorem.
+## correctness
 
-**Originality — PASS (qualified).** The motivating full text provides the same polynomial population system but not this two-parameter exact criticality boundary or the equal-frequency opposite-stability pair. A full earlier open-access trophic-cascade study proves that opposite Hopf types are possible in a different nonlinear ecological model, so that general phenomenon is not claimed. A later obligate-mutualism article treats saturating responses rather than the present polynomial specialization; its complete text was inaccessible, and possible broader coverage remains a residual risk. Searches of scientific literature and published mathematical research records did not show the exact derived surface; that negative search is not a proof of global novelty.
+PASS
 
-**Mathematical value — PASS.** The two-parameter surface \(B(D+2)=3\) is a natural and sharp local stability classification for a published ecological population law. It distinguishes attractor-producing and repellor-producing onset even at identical linear frequency, and establishes a precise structural boundary to the notion that mutualism-associated oscillations must themselves pass through mutually beneficial density regions. The theorem is not a general ecological prediction or a claim about global cycles.
+The shifted field fixes (u,v)=(0,0) throughout the admissible unfolding; its Jacobian has trace 2μ and determinant BD−1−2μ. The eigenvalues are complex near μ=0 and the real part crosses with speed one. Independent polar return-map algebra gives L=average(C_r−Q_r Q_θ/ω): the quadratic radial term averages to zero, so its iterated contribution to the cubic return coefficient vanishes. Exact angular moments give the stated −D[B(D+2)−3]/[8B(BD−1)]. The nondegenerate Hopf theorem yields locally unique attracting or repelling cycles on μL<0, with the stated leading radius and period. The condition D>1 is necessary for the subcritical regime under BD>1; the examples give −1/4 and 5/16 at the same frequency. Small cycles remain near (1,1), so they are strictly positive and lie in y>1/2. No Bautin claim is justified or made on L=0.
 
-**Closest sources and risk.** Mian et al. (arXiv:2509.06062, Eq. (4), Sections 4 and 6) is the closest inspected full text. Morales–Morris–Wilson (2008, DOI 10.1007/s12080-007-0006-9) gives different system-specific Hopf behavior. Song et al. (2025, DOI 10.1007/s11538-025-01531-0) supplies a related benefit/cost model; only its abstract and bibliographic material were available. Standard Hopf theory supplies the existence mechanism but not the calculated ecological parameter classification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact quadratic interaction law is prior, and either ecological Hopf type and the coefficient machinery are prior. The supported distinct result is the exact sign surface for this unfolding, including matched spectra with opposite outcomes and the location of the small cycles. The strongest same-law and indexed inspections do not cover that result.
+
+## value
+
+PASS
+
+For a previously proposed nonmonotone ecological law, the exact boundary tells which stable versus unstable local oscillation is possible for all members of a simple positive unfolding, even at fixed linear frequency. It also distinguishes small oscillations confined to antagonism from the source example crossing ecological regimes. This is useful classification beyond running a standard Hopf test at a single hand-picked point.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

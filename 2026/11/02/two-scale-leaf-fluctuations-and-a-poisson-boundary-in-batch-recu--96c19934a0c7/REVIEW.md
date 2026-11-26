@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The count of intact sibling cohorts is well-defined even when the parent recruits other cohorts. The precise three-outcome Markov kernel and both conditional drift recurrences have been reconstructed from the tree construction. Exact means and all three second-moment recurrences were independently compared with exhaustive rational state evolution for small cases. The martingale triangular-array proof identifies correct weights, conditional covariance, bounded jumps, and the required variances, including the singular one-child boundary. The coupling to independent Bernoulli variables gives a quantitative, finite-size total-variation Poisson bound. The standalone test passed 1,955 assertions, and the infinite conclusions follow analytically rather than from extrapolation.
+PASS
 
-## Originality — PASS (provisional)
+The old leaf is lost exactly for a leaf recruiter, and an intact cohort is lost exactly for a recruiter among its members. The events are nested, giving the three transitions and covariance q(1-p). The first deterministic round initializes both means and all second moments; direct substitution checks the claimed means and total covariance gives the exact recurrences. An independent exact enumeration of individual recruiter histories verifies the first and second moments at 18 finite (m,n) pairs. For the fixed-m martingale CLT, the propagated weights converge to x^(1/m) and x, giving integrals m/(m+2), m/(2m+1), and 1/3. For predictable variations, it suffices to average the pointwise L1 errors from the variance bounds, with no uniform-in-time limit assumption. For growing m, the leaf weights tend to one in averaged square; m E|p_t-Ep_t| is at most sqrt(m)/((m+1)sqrt(t)), and the cross term is O(m^-1/2) in L1 after normalization. The maximal normalized innovations vanish under m=o(n); the cohort CLT alone has no such restriction. At m=1 the observables coincide, so the singular covariance is required. For the Poisson regime the repeat-recruitment chain couples below independent Bernoulli(t/(mt+1)) increments: the expected mismatch and the correction to the Poisson mean each cost at most n/[m(m+1)], and Le Cam adds n/m^2. This proves the stated finite-n TV bound and both limiting cases.
 
-The 2026 construction paper studies distances, not these birth-cohort statistics. The 2014 blocks-tree paper and the 2020 hooking-network central limit theorem establish related but narrower fixed-block *leaf/degree marginal* laws. The 2017 fringe-subtree theorem is for different tree distributions and counts actual fringe subtrees; in the present tree an intact sibling cohort can have a parent with arbitrarily many other children. The 2023 \(m\)-ary hooking-network parameter is a capacity constraint, not simultaneous cohort size. The compared published mathematical finding on random-recursive-tree root-degree/leaf covariance is not a birth-cohort result. The new finite covariance profile plus independent two-scale triangular limit and Poisson crossover are not implications of those cited statements alone. Broad general martingale/urn methods may encompass intermediate steps; further independent priority checking is still appropriate.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Intact birth cohorts capture the persistence of an entire simultaneous recruitment event, not merely the degree of an individual node. Their fluctuations remain of order \(\sqrt n\), while leaf fluctuations shrink to order \(\sqrt{n/m}\) for growing batch sizes. This resolves a structural dependence and scaling question in a recent random-tree model. When \(m\) becomes proportional to \(n\), the leaf excess instead has a discrete Poisson limit, exposing a sharp boundary between a Gaussian many-event regime and a rare-event regime. These are natural observables and quantitative regimes with possible use in other block-growth or batch-recruitment models; no broad application theorem is claimed.
+Neither the batch model nor the fixed-m leaf-marginal CLT is new. The intact birth-cohort observable with its explicit joint covariance, and the growing-batch Gaussian-to-Poisson transition with a quantitative leaf-count coupling, are the distinct supported contributions.
 
-## Sources and residual risks
+## value
 
-Primary model: Bhutani et al. (2026), arXiv:2609.33636. Related established results: Desmarais–Holmgren (2020), DOI 10.37236/9139; Gopaladesikan–Mahmoud–Ward (2014), DOI 10.1017/S0269964813000338; Bhutani–Kalpathy–Mahmoud (2023), arXiv:2308.03857; Holmgren–Janson–Sileikis (2017), arXiv:1603.08125. Residual risks include indirect coverage by a general marked-urn limit theorem and unindexed literature. No claim of independently certified novelty is made. The proof requires uniform recruiter selection and equal-sized batches per row.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Preserving birth groups gives an observable not measurable from the degree counts. Its fluctuations remain of order sqrt(n) even while the leaf fluctuations shrink, and the explicit covariance, decorrelation and Poisson boundary quantify that loss of leaf-count variability. The finite TV estimate provides a mechanistic rare-repeat explanation rather than just a numerical transition.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

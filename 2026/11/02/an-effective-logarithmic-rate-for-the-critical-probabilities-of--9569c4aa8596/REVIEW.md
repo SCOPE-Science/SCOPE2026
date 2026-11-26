@@ -1,19 +1,21 @@
-# Scientific review: effective semi-best stopping threshold
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The source's exact threshold property for the state with one unit of drawdown is used with its correct quantifiers. The proof of the new finite-horizon certificate independently reconstructs the tail-event split for the optimal Bellman values, and the first-hitting probability change of measure has the exact factor \((p/q)^2\). Hoeffding's exponent is \(-u^2/(2m)\) for \(m\) increments in \([-1,1]\), and the deviation thresholds are applied only when positive. For \(n\ge32\), the chosen \(\delta\) lies in \((0,1)\), the concentration prerequisites hold, and the error is strictly below the drift margin. The finite checker passed 24,257 assertions. The proof, not those assertions, establishes all integers \(n\ge32\).
+PASS
 
-## Originality
+Allaart's p_n^* is the frozen p_n and the strict inequality p_n<1/2 holds on the claimed range. At drawdown 0 or 1 the stop reward with k steps left is U_k=P_p(T_2>k); above drawdown 1 it is zero. For downward drift delta=q-p>0 put rho=p/q and nu=1-rho^2. First-hit paths to 2 have likelihood ratio rho^2 under drift reversal and hit almost surely under the up-drifting law, proving U_L-nu=rho^2 P_q(T_2>L). With at least L steps left a winning stop has conditional reward at most U_L; starting from drawdown 2, it additionally needs ever to reach displacement +1, of probability rho. In the last L times a winning stop from i needs displacement at least i-1, so the separate union bounds cover every adapted rule. Hoeffding applies since delta*m>=1 for all these m and for L; T_2>L under the up-drifting law implies S_L<=1. The continuation bound then uses p+q*rho=2p and nu(1-2p)=delta^2/q^2. At delta=sqrt(6 log(n)/n), n>=32 implies 0<delta<1 and delta*floor(n/3)>1. Using L>=n/3-1 and n-L>=2n/3 gives total error <=(exp(3/2)+exp(1)/3)/n<6/n, below delta^2/q^2. Thus U_n>W_n at the test probability; the exact threshold gives the claimed inequality and limsup. No convergence or rate is inferred from the finite checker.
 
-PASS, with historical-priority uncertainty. The closest primary source, Islas (2026), proves convergence of the critical probabilities but explicitly leaves their rate unspecified. Allaart (2010) establishes the threshold structure and oscillations; Islas (2017/2024) establishes additional oscillation properties and small-index bounds. None of these inspected sources states the effective \(\sqrt{\log n/n}\) bound or the explicit concentration certificate. Published-record searches for the exact model, drift window, threshold and equivalent rate found only unrelated Bernoulli stopping and concentration results. Existing general concentration inequalities are ingredients, not prior quantitative statements for this stopping threshold. The later journal version of the 2017 preprint was not accessible for full-text comparison; other optimal-stopping literature may contain a stronger bound.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. Quantifying the approach to the critical fair-walk probability is a natural next question after the newly resolved convergence conjecture. The inequality supplies a certified stopping region for every horizon beyond a finite explicit cutoff and an effective convergence rate, avoiding evaluation of high-degree critical polynomials. Its logarithmic overhead and loose finite-size constants are material limitations; the result is not a sharp asymptotic determination. This is not a numerical re-tabulation or a parameter substitution: the proof makes the prior qualitative long-horizon comparison uniform in the vanishing drift.
+The effective bound is distinct from the known qualitative convergence and finite inequalities. It is not claimed to be sharp or the exact critical window.
 
-## Closest literature and limitations
+## value
 
-The main input is J. A. Islas, arXiv:2610.26670v1 (19 October 2026), particularly Proposition 2.1, Theorem 3.1 and Remark 3.3. Historical comparators are P. C. Allaart, RIMS 1682 (2010), and J. A. Islas, arXiv:1711.08857v1 (2017). This result is deliberately one-sided: it does not show a matching lower bound for the threshold deficit or identify its sharp constant.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This puts a finite sufficient stopping window and an explicit near-critical rate on the exact threshold sequence whose recently proved convergence came without a rate. The constants apply from a stated horizon, not only eventually.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

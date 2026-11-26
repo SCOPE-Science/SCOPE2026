@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:55:46.025915Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 7–68",
+        "VERIFICATION.md lines 19–21",
+        "verify_sparse_privileged.py lines 10–74 (inspected, not run)",
+        "/workspace/branches/review_replay.py, words()"
+      ],
+      "rationale": "A proper prefix–suffix cannot contain all the ones: its suffix occurrence would then have to start at the position of its prefix occurrence to contain the same first one at the same offset. For a zero-ended three-one word, a complete return to a zero-only border requires equal outer gaps strictly longer than both inner gaps. A one-one privileged border has equal flanking zeros and, if it brackets the first and last ones, occurs around the middle one too. A two-one privileged border forces equal outer gaps and equal inner gaps, with the latter at least the former. One-ended words must use the two-one border and have equal inner gaps. All qualifying borders give exactly two occurrences, including overlaps. The split generating functions follow by summing free gaps; the total fraction is proper, so roots-of-unity partial fractions give a quasipolynomial from length zero, not just eventually. Its numerator at primitive third and fourth roots does not vanish, and its order-three pole at one gives n²/24. Independent exhaustive enumeration of all binary strings through length 15 confirmed the predicate, split, and low-weight palindromicity.",
+      "residual_risks": [
+        "The finite enumeration corroborates only the lengths tested; the border proof is the all-length evidence."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Forsyth et al., Corollary 2 and §2: equal endpoint runs in general, and a restricted three-one form with adjacent last ones.",
+          "Schaeffer–Shallit, Theorem 8: general privileged-word recognition.",
+          "Gabrić, introduction and Table 2: unrestricted enumeration and enumeration by length of the return border."
+        ],
+        "reasoning": "The historical sources cover structural ingredients and a proper subfamily, not the full sparse-stratum count in the inspected passages.",
+        "searches": [
+          "arXiv:1311.7403",
+          "DOI:10.37236/5752",
+          "arXiv:2206.14273"
+        ]
+      },
+      "checked_sources": [
+        "Resultary b1b3dd5b256d",
+        "arXiv:1311.7403",
+        "DOI:10.37236/5752",
+        "arXiv:2206.14273",
+        "OEIS A231208",
+        "OEIS A235609"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The indexed nonpalindromic summand is 2z^8/[(1-z²)(1-z³)(1-z⁴)]; its palindromic addend is z³/(1-z²)²."
+        ],
+        "reasoning": "The general recognition theorem requires specialization; by contrast the exact two indexed addends immediately give the total series, poles at primitive third and fourth roots, and relative dominance of the order-three pole at one. The explicit period statement does not rescue a distinct contribution.",
+        "searches": [
+          "Schaeffer–Shallit, Theorem 8",
+          "Resultary b1b3dd5b256d, Finding and enumeration"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Indexed Finding: equal outer gaps a=d, and either a>max(b,c) or b=c≥a."
+        ],
+        "reasoning": "Splitting the first branch into equal and unequal inner gaps and merging the equal-gap part with the second branch recovers the frozen disjoint union exactly.",
+        "searches": [
+          "Resultary: three-one privileged binary words, complete gap classification",
+          "2026/11/8/SCOPE-three-one-privileged-binary-words-a-complete-gap-classification--b1b3dd5b256d"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A231208 records the first nonpalindromic example 00101100; A235609 lists words without a weight-three restriction.",
+          "The indexed three-one record gives both exact generating-function addends, not just initial coefficients."
+        ],
+        "reasoning": "The OEIS overlap alone is insufficient, but the indexed exact expressions already determine every coefficient.",
+        "searches": [
+          "OEIS A231208",
+          "OEIS A235609",
+          "Resultary b1b3dd5b256d, enumeration"
+        ]
+      },
+      "rationale": "The distinct indexed November 8 three-one record explicitly gives the equivalent full gap classification and the same palindromic and nonpalindromic counts in generating-function form. The sum, nonpalindromic fraction limit, and period twelve follow directly from those expressions. There is no supported distinct main claim in the currently inspected corpus. This is equivalent coverage, not evidence that the later-dated record has priority over the frozen October 19 record.",
+      "residual_risks": [
+        "This establishes indexed coverage as inspected, not authorship, priority, or the absence of still earlier equivalent statements."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent classification and enumerative coverage",
+          "evidence": "The equivalent gap condition and both generating-function addends are explicit.",
+          "identifier_or_url": "2026/11/8/SCOPE-three-one-privileged-binary-words-a-complete-gap-classification--b1b3dd5b256d",
+          "material_read": "Finding and enumeration, extracted offsets 0–8714",
+          "method": "Local mirror text",
+          "title": "Three-one privileged binary words: a complete gap classification",
+          "trigger": "Closest distinct indexed match"
+        },
+        {
+          "assessment": "Direct overlap with preliminaries and a proper three-one slice",
+          "evidence": "The form 0^{a+1}1 0^{b+1}11 0^{c+1} qualifies exactly if a=c and a>b.",
+          "identifier_or_url": "https://arxiv.org/pdf/1311.7403",
+          "material_read": "PDF pp. 2–3, Theorem 1, Corollary 2, §2",
+          "method": "OA preprint passages",
+          "title": "Remarks on Privileged Words",
+          "trigger": "General border results and sparse examples"
+        },
+        {
+          "assessment": "Recognition, not explicit sparse counts",
+          "evidence": "A characterization via unique prefix and suffix factors applies to arbitrary words.",
+          "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v23i1p25/pdf",
+          "material_read": "Abstract and §8 Theorem 8",
+          "method": "OA journal PDF passages",
+          "title": "Closed, Palindromic, Rich, Privileged, Trapezoidal, and Balanced Words in Automatic Sequences",
+          "trigger": "Potential stronger recognition theorem"
+        },
+        {
+          "assessment": "Different counting statistic",
+          "evidence": "Table 2 conditions on border length, not on the number of ones.",
+          "identifier_or_url": "https://arxiv.org/pdf/2206.14273",
+          "material_read": "Introduction and Table 2, PDF pp. 2, 4",
+          "method": "OA preprint passages",
+          "title": "Asymptotic Bounds for the Number of Closed and Privileged Words",
+          "trigger": "Potential indexed count"
+        },
+        {
+          "assessment": "Known example and unconditioned counts/list",
+          "evidence": "Length eight has the first nonpalindromic example; no fixed-weight count is stated in the inspected entries.",
+          "identifier_or_url": "A231208; A235609",
+          "material_read": "Definitions and examples",
+          "method": "Public entries",
+          "title": "Binary privileged words in OEIS",
+          "trigger": "Exact word lists and tabulated totals"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 7–31, 57–68",
+        "Resultary b1b3dd5b256d, Finding and enumeration"
+      ],
+      "rationale": "A complete minimal-weight nonpalindromic classification is a worthwhile structural result in isolation. Once the equivalent indexed classification and exact series are credited, the only explicit refinement identified is an immediate pole analysis, not a separately valuable new result to repair and retain.",
+      "residual_risks": [
+        "The assessment concerns incremental content over the inspected equivalent statement, not the inherent mathematical merit of the classification."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

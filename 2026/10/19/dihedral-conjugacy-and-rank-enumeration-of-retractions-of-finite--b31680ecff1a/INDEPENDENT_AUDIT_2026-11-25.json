@@ -1,0 +1,182 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:19:24.136631Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–55 and example at line 61",
+        "VERIFICATION.md and both supplied verifier sources inspected; not executed",
+        "Independent replay: python3 /workspace/branches/independent_replay.py 1; adjacency-list enumeration and canonical dihedral orbit keys for every n=3..16, compared with the strip and midpoint counts, reflection-binomial sum and inverse-continuant coefficient"
+      ],
+      "rationale": "For n>=3 every cycle edge has a uniquely signed lift; a closed n-step word has displacement 0 or ±n. Odd parity excludes 0 for odd n, and the two remaining walks give automorphisms, of which only the identity is idempotent. An idempotent fixes its image pointwise. A proper connected image is an induced path, not a point because adjacent vertices cannot be identified. On an image arc of k edges the complementary arc must go from k to 0 in L=2m−k steps, requiring k<=m. Conversely each strip walk defines exactly one retraction onto the chosen arc. There are 2m arcs, including at k=m; the only arc-set stabilizers are the identity and the endpoint-swapping reflection. The latter acts by w(t)↦k−w(L−t). At an even midpoint it requires height k/2, and at an odd midpoint either orientation of the central edge between (k−1)/2 and (k+1)/2 is admissible. The walk can be freely specified until that midpoint, giving s and integral Burnside counts. The endpoint entry of (I−tA)^(-1) has cofactor t^k and denominator the path continuant. Independently, alternating free-walk images at the two absorbing walls give binomial terms with period k+2; by binomial symmetry the direct-image index can be written m+j(k+2), and the reflected index is m+1+j(k+2). Prepending k up-steps gives a Dyck path whose initial maximal ascent attains the global maximum, allowing later returns. These arguments cover n=3 and n=4 and the endpoint k=m without an exception.",
+      "residual_risks": [
+        "Replay is finite; the induced-arc, wall-reflection and stabilizer arguments supply the all-size conclusions."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The cycle-monoid paper distinguishes full and weak endomorphisms and treats ordinary monoid rank as a minimum generating-set size.",
+          "Lin–Zeng count equal-image partitions of path vertices induced by path homomorphisms, not automorphism-conjugacy classes of cycle retractions.",
+          "No copy of the closest older congruence study of both paths and cycles was lawfully retrievable for statement comparison."
+        ],
+        "reasoning": "The surveyed broader monoid setting supplies objects, not the orbit statistic, and equal-image partitions do not identify the simultaneous relabeling quotient on retractions. An unavailable comparison is retained as a risk rather than treated as negative evidence.",
+        "searches": [
+          "Dimitrova–Fernandes–Koppitz–Quinteiro arXiv:2310.04149v1",
+          "Lin–Zeng arXiv:1112.4026",
+          "Michels–Knauer DOI 10.1016/j.disc.2008.11.022"
+        ]
+      },
+      "checked_sources": [
+        "OEIS A287709, arXiv:2310.04149v1, arXiv:2403.08120, arXiv:1112.4026",
+        "Local Resultary semantic search and three matching records",
+        "Michels–Knauer bibliographic comparison only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prepending the initial ascent recovers the OEIS total and grouping by height yields a natural rank refinement once the retraction/strip bijection is proved.",
+          "Neither the total count nor the definition of monoid generating rank supplies the reflection on the complementary arc, its midpoint constraint or a fixed-point count. The later orbit-size census does imply the frozen enumerator by summing its size classes at each rank."
+        ],
+        "reasoning": "Prior walk counting ingredients and the known total are not being recounted as original. The supported contribution is the classification on actual graph endomorphisms and their rank-refined dihedral quotient; the identified stronger exact orbit census is chronologically later in the inspected catalogue.",
+        "searches": [
+          "OEIS Dyck-path comment; Bacher Definition 1.1",
+          "Dimitrova et al. abstract/introduction and generating rank definition",
+          "Nov. 22 orbit-size record Finding and relationship passage"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Under r=k+1, the Nov. 8 labeled census n(A_r^(n−r+1))_(1,r) equals 2m b_(m,k). The Nov. 22 orbit census has T_(n,r)=b_(m,k) and S_(n,r)=s_(m,k) in K_n=z^n+sum_r(T+S)z^r/2.",
+          "The initial-ascent-max Dyck reformulation is exact; the rushed Dyck family has the same unranked count but forbids subsequent returns to the maximum."
+        ],
+        "reasoning": "The two later cycle records are exact overlaps of the respective counts, and the Nov. 22 one further resolves orbit sizes. The Dyck equivalence accounts for the older unranked sequence but not the fixed-walk quotient. The later path case instead has two exterior tails and only reversal symmetry.",
+        "searches": [
+          "Local Resultary semantic search for cycle idempotent/retraction image ranks and dihedral unit conjugacy",
+          "OEIS A287709",
+          "Bacher arXiv:2403.08120 Definition 1.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS identifies a(m+1) with semilength-m Dyck paths attaining their maximum in the initial ascent, so a(m+1)=sum_k b_(m,k), and the unrefined labeled total is 1+2m a(m+1).",
+          "The closest later exact catalogue findings are 2026/11/8/SCOPE-exact-idempotent-rank-spectrum-and-sharp-stretched-exponential-l--503622b19b3b and 2026/11/22/SCOPE-unit-conjugacy-orbit-sizes-of-idempotent-cycle-graph-endomorphis--4f6d49d71533."
+        ],
+        "reasoning": "There is a verified older exact table for the total in a different representation; it gets full credit. Grouping by height alone does not determine the midpoint-fixed orbit count. The later recorded tables/formulas have exact rank and orbit overlap and are disclosed as such.",
+        "searches": [
+          "OEIS A287709 entry comments",
+          "Local Resultary exact spectrum/orbit records"
+        ]
+      },
+      "rationale": "Credit the natural graph retraction classification refined by image rank and especially the reflection-fixed dihedral orbit formula. Do not credit the unranked Dyck numbers or the standard path walk identities. Later indexed findings have demonstrably exact coverage of these counts, not just similar titles. Their stated Nov. 8 and Nov. 22 dates are later than the Oct. 19 frozen record and do not establish that the frozen result is a corollary of earlier work. Independence among those records is not inferred. In the earlier sources inspected the monoid generating rank and path congruence counts are different invariants; the Dyck entry identifies the total count combinatorially but gives no dihedral fixed-point refinement.",
+      "residual_risks": [
+        "Earlier congruence work could not be inspected in full. The broad literature search did not yield additional useful primary passages and is not evidence of absence.",
+        "Catalogue date comparison does not certify historical priority or independence of the later records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known monoid setting and a different meaning of rank, not an inspected orbit result.",
+          "evidence": [
+            "Rank is minimum size of a generating set; listed objects include Green relations, regularity and total cardinalities."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2310.04149v1",
+          "material_read": "Abstract/introduction and generating-rank definition, offsets 0 and 2474",
+          "method": "Bounded lawful OA HTML",
+          "title": "On monoids of endomorphisms of a cycle graph",
+          "trigger": "Same full cycle monoids and possible rank results"
+        },
+        {
+          "assessment": "Exact older Dyck total, not the quotient.",
+          "evidence": [
+            "The semilength is n−1 and the first ascent reaches maximum height."
+          ],
+          "identifier_or_url": "https://oeis.org/A287709",
+          "material_read": "Sequence and comment, offsets 0 and 750",
+          "method": "Lawful public entry",
+          "title": "OEIS A287709",
+          "trigger": "Exact unrefined integer sequence"
+        },
+        {
+          "assessment": "Related equinumerous path families; not the same paths at a fixed maximum by definition.",
+          "evidence": [
+            "A rushed path may not return to the height attained by its initial climb."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2403.08120",
+          "material_read": "Abstract and Definition 1.1, offsets 0 and 1180",
+          "method": "Bounded lawful OA HTML",
+          "title": "Progressive and rushed Dyck paths",
+          "trigger": "Potential equivalent rank-refined path class"
+        },
+        {
+          "assessment": "Partition coclass counts for path homomorphisms, not unit conjugacy.",
+          "evidence": [
+            "Equivalent source vertices have equal images; classes are grouped by number of blocks."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1112.4026",
+          "material_read": "Abstract and definitions at offsets 0 and 2085",
+          "method": "Bounded lawful OA HTML",
+          "title": "On the number of congruence classes of paths",
+          "trigger": "Possible conjugacy/congruence terminology overlap"
+        },
+        {
+          "assessment": "Precise cycle congruence theorem not compared.",
+          "evidence": [
+            "The identified publication is an unresolved older comparison, not evidence of earlier unit-conjugacy coverage."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.disc.2008.11.022",
+          "material_read": "Bibliographic metadata only; paper/abstract URL inaccessible",
+          "method": "Lawful OA and repository resolution attempts",
+          "title": "The congruence classes of paths and cycles",
+          "trigger": "Same cycle objects under a different equivalence relation"
+        },
+        {
+          "assessment": "Exact later labeled formula plus asymptotics.",
+          "evidence": [
+            "Replace r by k+1 and use path adjacency symmetry to obtain precisely 2m b_(m,k)."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-idempotent-rank-spectrum-and-sharp-stretched-exponential-l--503622b19b3b",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Exact idempotent rank spectrum and sharp stretched-exponential law for even-cycle endomorphisms",
+          "trigger": "Exact same labeled image-rank problem"
+        },
+        {
+          "assessment": "Exact later rank-orbit formula plus a size split; no dependence or independence established.",
+          "evidence": [
+            "The S_(n,r) orbits of size n and (T_(n,r)−S_(n,r))/2 orbits of size 2n add to the frozen rank coefficient."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-unit-conjugacy-orbit-sizes-of-idempotent-cycle-graph-endomorphis--4f6d49d71533",
+          "material_read": "RESULT.md Finding and relationship at offsets 0 and 7800",
+          "method": "Local Resultary mirror",
+          "title": "Unit-conjugacy orbit sizes of idempotent cycle-graph endomorphisms",
+          "trigger": "Exact same dihedral quotient"
+        },
+        {
+          "assessment": "Related later path object, not the cycle quotient.",
+          "evidence": [
+            "The path has two exterior tails and path reversal rather than a complementary arc and dihedral conjugacy."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-reflection-conjugacy-orbit-spectra-of-idempotent-path-endomorphi--4c53adec9545",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Reflection-conjugacy orbit spectra of idempotent path endomorphisms",
+          "trigger": "Related retractions and reflection orbit count"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md image-arc bijection and the two enumerators",
+        "Cycle-monoid and Dyck sequence comparisons above"
+      ],
+      "rationale": "Finite cycles are natural graph cores/retract examples, and image rank and unit conjugacy measure distinct features of their idempotents. The strip identification and reflection fixed-point rule give a complete rank-by-rank classification rather than just a repeat of an unrefined integer sequence. The orbit count is an exact invariant useful in cycle-endomorphism comparisons and identifies precisely how a nontrivial stabilizer changes the count.",
+      "residual_risks": [
+        "Does not classify weak/partial endomorphisms or semigroup conjugacy under nonunits."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

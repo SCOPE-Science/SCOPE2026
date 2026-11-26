@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T23:22:46.894291Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Fubini gives the frozen row kernel with the subtraction (1-t)^α/α before the overall 1/Γ(α). The input sign of a row realizes its L¹ mass, and the L¹-continuous rows on [0,1] give an attained maximum. On x≤b=α^(1/(1−α)) the ratio of the positive and subtractive terms increases in t and starts at ≥1, so the mass differentiates to x^(α−1)−2(1−x)^α/α. The function x^(1−α)(1−x)^α increases up to 1−α then decreases, and its value at b exceeds α/2, yielding exactly one upward crossing on the first branch. Beyond b, put y=1−t* at the extra zero and z=1−x: y'=(1−α)/(1−αz/y) lies strictly between 0 and 1. The derivative of the row mass there is −(1−z)^(α−1)+2(y^α−z^α)/α; differentiation in z gives a negative result from y>z and y'<1. Hence that branch is convex and its maximum is at b or 1. Direct endpoint integration and α^α≤1−α+α²≤(1+α)/2 for α≥1/2 show the terminal row does not exceed the initial one, proving the unique interior maximum. The maximizing row is nonzero a.e.; equality in the complex triangle inequality and |f|≤1 forces exactly its sign times one global phase. The Abel quadratic and norm radical check out; at α=1 the row mass is [x²+(1−x)²]/2. With ε=1−α, the small root lies below ε and satisfies x≤α2^(−1/ε); substituting into the logarithmic equation gives log x=(log α−log 2)/ε+o(1). Substituting stationarity into the mass difference and Taylor-expanding gives 2εx/α²+O(x²), with uniform remainder and x²=o(εx), confirming the leading gain. Independent replay: python3 /workspace/branches/independent_reproduction.py fractional; singularity-removed quadrature and a logarithmic fixed-point calculation reproduce the Abel norm 0.89568534008928865309 and sampled rows, with gain/asymptotic ratio 1.0018466485563 at ε=0.002. These are finite checks only; the uploaded checker was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Katugampola treats boundedness for a generalized fractional operator on weighted spaces; the second paper treats L²/fractional Sobolev equivalences.",
+          "Curbera’s full text was not available in the bounded OA attempt; the available abstract concerns Volterra convolution with rearrangement invariant ranges."
+        ],
+        "reasoning": "The inspected mapping and equivalence theorems do not optimize the row absolute integral after the specific rank-one uniform mean subtraction. The inaccessible paper is a residual risk, not negative evidence.",
+        "searches": [
+          "Katugampola arXiv:1010.0742 Thm. 3.1",
+          "Gorenflo–Luchko–Yamamoto arXiv:1411.7289 §§2–3",
+          "Curbera DOI 10.1112/S0024610799007759 lawful OA attempt"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check.py",
+        "arXiv:1107.5732v1",
+        "arXiv:1010.0742",
+        "arXiv:1411.7289",
+        "Resultary 2b376b3b891a and df858f1a100d",
+        "Curbera DOI 10.1112/S0024610799007759 (limited)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Inspected results do not give an L∞ row optimizer with the stated uniform output centering; the related BV record studies a different worst jump and parameter limit."
+        ],
+        "reasoning": "Standard row duality gives an optimization problem but does not compute the global maximum, exclude the second sign branch, establish uniqueness, or imply the ε2^(−1/ε) gain.",
+        "searches": [
+          "Set Theorem 7; Katugampola Theorem 3.1; Resultary 2b376b3b891a and df858f1a100d"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Set’s Theorem 7 compares f(x) to combinations of left/right fractional integrals under an s-convex derivative hypothesis.",
+          "The two closest catalogue findings compare Schatten singular values or a normalized BV-to-L¹ error, not this induced norm."
+        ],
+        "reasoning": "A comparison for differentiable functions with derivative convexity is not dual to the norm over all essentially bounded inputs, including the exact step extremizer, and changing the range norm or applying input-dependent normalization changes the optimizing functional.",
+        "searches": [
+          "Sharp L∞ norm and signed row optimizer of uniformly mean-centered left Riemann–Liouville integration; fractional Ostrowski formulations",
+          "Set arXiv:1107.5732v1 Theorem 7; Resultary rank-one-corrected Volterra and sharp fractional-integration matches"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2b376b3b891a RESULT.md concerns complex L² and rank-one corrections built from a weighted integral of the input.",
+          "df858f1a100d RESULT.md concerns a constant-preserving fractional average and the sharp integrated BV error, with large-order retreat."
+        ],
+        "reasoning": "The actual statements, rather than topical proximity or chronology, rule out those hits as equivalent exact-constant records; neither tabulates this Abel norm or optimizer.",
+        "searches": [
+          "Resultary mean-centered fractional Volterra / exact norm optimizer; closest records 2b376b3b891a and df858f1a100d"
+        ]
+      },
+      "rationale": "The closest inspected results optimize different operators, spaces, or parameter limits. The standard reduction to the absolute row integral is not new; the supported distinct claim is the sharp value and optimizer for the output-mean-centered fractional operator, including the explicit Abel case and the exponentially small improvement over the initial row.",
+      "residual_risks": [
+        "Curbera full text was not available; a broader sharp formula or equivalent historical treatment may exist.",
+        "A general web lookup returned irrelevant results and supplies no negative evidence; comparisons are bounded to actual inspected statements."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Adjacent inequality, not the same norm",
+          "evidence": "Differentiability and s-convex |f′| hypotheses and a left/right combination differ from unrestricted L∞ inputs.",
+          "identifier_or_url": "https://arxiv.org/abs/1107.5732",
+          "material_read": "v1 Theorem 7, pp. 4–5, offsets 14600–17738",
+          "method": "Bounded OA PDF passage",
+          "title": "New inequalities of Ostrowski type for mappings whose derivatives are s-convex in the second sense via fractional integrals",
+          "trigger": "Potential alternate fractional-inequality formulation"
+        },
+        {
+          "assessment": "Weighted boundedness, no output-mean correction",
+          "evidence": "Mapping estimate for a generalized integral in weighted spaces.",
+          "identifier_or_url": "https://arxiv.org/abs/1010.0742",
+          "material_read": "Theorem 3.1, p. 4, offset 10250 onward",
+          "method": "Bounded OA PDF passage",
+          "title": "New Approach to a Generalized Fractional Integral",
+          "trigger": "Potential broader sharp mapping theorem"
+        },
+        {
+          "assessment": "Different norm and objective",
+          "evidence": "L²/fractional Sobolev norm equivalences, not L∞ to L∞ optimization.",
+          "identifier_or_url": "https://arxiv.org/abs/1411.7289",
+          "material_read": "§§2–3, pp. 4–5, offsets 9000–12180",
+          "method": "Bounded OA PDF passage",
+          "title": "Time-fractional diffusion equation in the fractional Sobolev spaces",
+          "trigger": "Fractional-integral norm equivalences"
+        },
+        {
+          "assessment": "Different spaces and correction",
+          "evidence": "Complex L² singular-value and Schatten comparisons for a correction involving ∫wf.",
+          "identifier_or_url": "Resultary 2b376b3b891a",
+          "material_read": "RESULT.md offsets 0–7490",
+          "method": "Published record local mirror",
+          "title": "Radial singular-value majorization for reflection-symmetric weighted Volterra operators",
+          "trigger": "Rank-one-corrected Volterra operator"
+        },
+        {
+          "assessment": "Different operator, norms and asymptotic regime",
+          "evidence": "Normalized constant-preserving average; BV-to-L¹ error and large-order logarithmic retreat.",
+          "identifier_or_url": "Resultary df858f1a100d",
+          "material_read": "RESULT.md offsets 0–5457",
+          "method": "Published record local mirror",
+          "title": "Sharp integrated BV error of normalized fractional integration",
+          "trigger": "Sharp optimizer for a fractional integration problem"
+        },
+        {
+          "assessment": "Unresolved at full-text level",
+          "evidence": "Bibliographic and abstract material is insufficient to rule out a related general formula.",
+          "identifier_or_url": "https://doi.org/10.1112/S0024610799007759",
+          "material_read": "Available abstract only; full paper not retrieved",
+          "method": "Bounded lawful OA attempt",
+          "title": "Volterra Convolution Operators with Values in Rearrangement Invariant Spaces",
+          "trigger": "Possible broader Volterra norm formula"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This gives the best uniform oscillation bound relative to the output mean and identifies all inputs realizing it, for a natural fractional Volterra family. It shows an interior optimizer despite the integer-order endpoint maximizers, and quantifies an exponentially small gain that sampling and ordinary expansions at order one do not resolve. This is more than a routine kernel norm bound or evaluation at one arbitrary point.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:58:03.424818Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–105, with independent counting, boundary and root checks",
+        "Frozen VERIFICATION.md and verify.py, inspected without execution"
+      ],
+      "rationale": "Condition on diagonal coordinate pairs (a_v,b_v) with a_v b_v=0. Each arrow equation gives a factor q times [1+(q-1)1_{a_u=b_v=0}], independently, so summation over the selected labelled arrows yields the stated q^(-2n-m) normalization and the three vertex factors 2q-1, q, 1. Bipartite source–sink orientations attain the termwise bound; one incoming and one outgoing selected arrow give strict deficiency in any other orientation. On a path only interior vertices of selected runs can change their factors: a passage gives 1 and a turn gives q. Selecting the two edges at a nonconforming vertex proves strictness, with n=1,2 separately tied. The three-state directed transfer weights are the arrow factor times the multiplicity of the next diagonal state; the alternating two-state weights are the vertex factor times (q-1) when the next edge is selected, with zero boundary indicators. Their quadratic factors give the displayed recurrences and initial values, with the zero eigenvalue in the directed matrix handled by the initial L_3 check. In the spectral comparison, P_U(lambda_L,+)=(q-1)^2(2q-1-lambda_L,+)<0 and P_U(2q-1)<0, giving strict root separation and positive leading amplitudes. Multiplying the path probabilities by q^(2(n+m)) yields the stated pair counts. A hand expansion at n=3,q=2 gives 27+24+4 versus 27+24+8 over 256.",
+      "residual_risks": [
+        "The small-field bundled enumeration was not replayed by running uploaded code. It is not the basis for the prime-power or asymptotic conclusions."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The all-quiver result gives a right-annihilator spectrum, and an exact height-two lattice-gas count for an already source–sink directed comparability graph.",
+          "The cycle result compares two orientations of C4 and says this is not a complete ordering of orientations. Structural finite-ring consequences of a zero-product probability bound do not order these orientations."
+        ],
+        "reasoning": "The general counting results determine individual scores, but do not give an orientationwise bound with exact equality classes or the comparison of extremal path rates.",
+        "searches": [
+          "Resultary 24446a4eca8e, Finding and proof Step 3",
+          "Resultary 0002cf92295d, Finding and Limitations",
+          "Shumyatsky–Vannacci, arXiv:2307.12633v1, Theorem 1.3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, lines 9–13 and 111–130",
+        "The Resultary entries and primary passages itemized above",
+        "Khasraw, arXiv:1810.13312v1, p. 1 (commutative-ring bounds and computations)",
+        "Dolžan, DOI 10.1017/S0004972721001246 (full text unavailable)",
+        "Targeted primary-literature keyword lookup on quiver orientation extremizers (no decisive hit)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Expanding q^e_G(S) into subsets in the height-two formula recovers the candidate source–sink value (2), without comparing it to mixed orientations.",
+          "The coherent-cycle root equation, divided by the appropriate powers of q, gives the same directed bulk characteristic polynomial P_L. A cycle trace does not give the open-path boundary weights or select the minimum; neither it nor the height-two value gives the strict comparison with lambda_U,+."
+        ],
+        "reasoning": "Credit the prior values, matrices and all-quiver enumeration. The claimed ordering uses positive termwise comparison with strict two-edge witnesses, and the path ratio needs open-end conditions and a comparison of two distinct transfer spectra.",
+        "searches": [
+          "Resultary 24446a4eca8e, proof Step 3 at mirror offset 6208",
+          "Resultary 0002cf92295d, coherent-cycle spectral equation at mirror offset 970"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The general finite-ring identity expresses the probability of xy=0 through right-annihilator sizes. Resultary record 24446a4eca8e specializes this to all finite quivers.",
+          "The cycle record uses the same one-sided invariant for cycles; its invariant on general graphs is the different condition xy=yx=0. Record 55470d91a5dd counts annihilating ideal pairs, not pairs of elements."
+        ],
+        "reasoning": "These are mathematical overlaps in the one-sided counts where the sampled objects and multiplication constraint agree, not matches based solely on the word annihilation. The equivalence of counting approaches does not itself give equality in orientation optimization.",
+        "searches": [
+          "Resultary: radical-square-zero quiver one-sided zero products, annihilator spectra and orientation extrema",
+          "Dolžan, arXiv:2504.12886v1, Lemma 2.3",
+          "Resultary 0002cf92295d, Finding and scope"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Catalogue near matches are 24446a4eca8e (includes an exact alternating P4 count), 0002cf92295d (coherent cycles and C4 orientation gap), and 55470d91a5dd (annihilating ideal pairs)."
+        ],
+        "reasoning": "A score for a specific orientation or finite graph is prior coverage of that score, not a classification or an all-length asymptotic. No equivalent extremal table was established by these searches.",
+        "searches": [
+          "Resultary semantic lookup on one-sided zero-product path extremizers and separated path rates"
+        ]
+      },
+      "rationale": "The distinct claim is the orientation comparison with equality on bipartite multigraphs and both path extremizers with their exponential gap. The all-quiver count, the count at the source–sink orientation, and the directed bulk Perron root after scaling are covered ingredients, not standalone novelty. The checked prior records do not establish that these scores are strict extrema over competing orientations, the path endpoint normalizations, or the comparison of the two path growth rates.",
+      "residual_risks": [
+        "The 2022 Dolžan full text was not lawfully obtained in the bounded retrieval attempt.",
+        "An unlocated oriented partition-function comparison could provide related coverage; the lookup is not a proof of priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers underlying all-quiver count and candidate source–sink values, not strict orientation comparison",
+          "evidence": [
+            "The proof fixes one diagonal coordinate per vertex according to the given bipartition direction and sums q^(m+e_G(S)) times the diagonal factors."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-right-annihilator-dimension-spectra-of-radical-square-zero-quive--24446a4eca8e/RESULT.md",
+          "material_read": "Finding, height-two formula and proof Step 3, worked star and path example",
+          "method": "Resultary and local-mirror passages",
+          "title": "Right-annihilator dimension spectra of radical-square-zero quiver algebras",
+          "trigger": "Same count, general quivers, and a height-two path"
+        },
+        {
+          "assessment": "Covers the scaled coherent bulk polynomial and a finite cycle comparison, not the path theorem",
+          "evidence": [
+            "The coherent cycle uses a trace and a quadratic with coefficients q(3q-2) and q^2(q-1)^3; Limitations explicitly disclaims a full ordering."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-orientation-sensitive-zero-products-and-orientation-invariant-mu--0002cf92295d/RESULT.md",
+          "material_read": "Finding, assumptions, coherent-cycle polynomial and Limitations",
+          "method": "Resultary and local-mirror passages",
+          "title": "Orientation-sensitive zero products and orientation-invariant mutual annihilation",
+          "trigger": "Same orientation-sensitive invariant and transfer spectra"
+        },
+        {
+          "assessment": "Different sampled objects",
+          "evidence": [
+            "The event is IK=0 for two-sided ideals I,K, not XY=0 for algebra elements."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-a-three-state-census-of-ordered-annihilating-ideal-pairs-in-radi--55470d91a5dd/RESULT.md",
+          "material_read": "Finding",
+          "method": "Local mirror",
+          "title": "A three-state census of ordered annihilating ideal pairs in radical-square-zero algebras",
+          "trigger": "Same algebra family and annihilation count"
+        },
+        {
+          "assessment": "Covers annihilator-count identity only in the inspected passage",
+          "evidence": [
+            "The probability for a prescribed product, specialized at zero, is a sum of right-annihilator sizes."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2504.12886v1",
+          "material_read": "p. 2, Lemma 2.3",
+          "method": "Targeted OA full text",
+          "title": "The Multiplication Probability of a Finite Ring",
+          "trigger": "General finite-ring probability formulas"
+        },
+        {
+          "assessment": "Structural consequences of probability bounds, not orientation extremizers",
+          "evidence": [
+            "The theorem uses a lower bound on probability to constrain ring structure."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2307.12633v1",
+          "material_read": "pp. 1–2, including Theorem 1.3",
+          "method": "Targeted OA full text",
+          "title": "Commuting and product-zero probability in finite rings",
+          "trigger": "Product-zero probability"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 15–50 and 74–105",
+        "Resultary 24446a4eca8e and 0002cf92295d, as compared above"
+      ],
+      "rationale": "For a fixed underlying graph and fixed algebra dimension, the one-sided invariant can still detect how arrows are oriented. The result specifies exactly which orientations maximize it on bipartite multigraphs, and shows for paths that the difference between optimum and pessimum is exponential, not just an isolated finite example. The exact equality conditions and both path endpoint rates are the useful new content; generic annihilator counting is not the value claim.",
+      "residual_risks": [
+        "The minimization and rate comparison are for paths at fixed q, not a general minimum theorem for bipartite graphs."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

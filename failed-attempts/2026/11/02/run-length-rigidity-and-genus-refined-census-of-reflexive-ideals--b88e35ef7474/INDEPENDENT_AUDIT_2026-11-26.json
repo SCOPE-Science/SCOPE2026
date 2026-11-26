@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:59:10.127697Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For I≠S, 0 is excluded from S−I, which contains the entire conductor tail and only possible additional shifts z in [m,2m−h−1]. Intersecting S−z over those shifts excludes in the low band precisely the union of their full length-h windows [2m−h−z,2m−1−z]. Any subset of shifts together with the conductor tail gives a reflexive intersection by the antitone colon Galois relation; the tail forbids negatives and all such intersections contain the high band. The union characterization is equivalent to every omitted run having length at least h, including the empty complement. S is fixed separately. Once the high gaps have been included, the ideal contains every integer ≥m, so addition by positive S-elements cannot leave it. This is the reason ideal closure holds; the frozen sentence saying such sums are either in H or ≥2m misses sums in the middle band. The j zero-run lengths give weak compositions of r−jh, and the separating ones give binom(n−r+1,j); out-of-range counts are understood as zero. Alternating one- and zero-runs have series A=z/(1−z) and B=(uz)^h/(1−uz), and their word series is (1+A)(1+B)/(1−AB), yielding the asserted generating functions, extreme cases, and the extra contribution of S. An independently written translate-intersection and word-automaton check (python3 /workspace/reproductions/reflexive_ideals.py) reproduced the complete ideal sets in 45 parameter pairs through m=10 and all genus coefficients in 260 (n,h) pairs. These are finite checks supplementing the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "arXiv:2610.06426 defines the dual and treats general reflexive-ideal structure and Apéry sets",
+          "Chavan's abstract concerns ideal enumeration by codimension/conductor, not this reflexive filtering",
+          "The earlier Resultary theorem also gives inclusion, join and growth consequences from its window classification"
+        ],
+        "reasoning": "The general colon framework and general ideal enumerations do not by themselves assert the genus series of the reflexive subfamily. The stronger material comparison is the already evaluated window family and its explicit intersection/completion calculation.",
+        "searches": [
+          "Campochiaro–D’Anna–García-Sánchez, arXiv:2610.06426, definition and §6",
+          "Chavan, arXiv:2304.13690",
+          "Spirito, DOI 10.1142/S0219498818502055"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, two checker programs and their recorded outputs",
+        "Resultary 62b4b8c42504, checked against the actual window relation",
+        "arXiv:2610.06426 and arXiv:2304.13690; DOI 10.1142/S0219498818502055 access attempt"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Older closure excludes exactly the positions in full windows indexed by i outside Z; the positivity of h and h<m suffice for this transposition",
+          "The earlier language argument is an alternating-run enumeration; in the dual low-gap language the genus parameter simply marks each omitted position"
+        ],
+        "reasoning": "Reading the prior incidence relation in its other coordinate gives the long zero runs. For a length-k zero run, insert weight u^k, giving B=(uz)^h/(1−uz); the intervening one-runs give A=z/(1−z). The regular-language count, or weak compositions of run lengths and spaces, gives the complete frozen genus formulas mechanically. For h=1 every low-gap subset is permitted and h=2 is just the same rule forbidding singleton omission runs; no separate structural ingredient appears.",
+        "searches": [
+          "62b4b8c42504, Proof §§1–5, mirror offsets 100–7635",
+          "Reduced parameters h=1 and h=2 in the same window formula"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "62b4b8c42504, Finding and Proof §§1–4: the same S_{m,h}, high band included, and I_Z low membership iff E_x⊆Z",
+          "The operations called divisorial closure and reflexive closure are both S−(S−I) here"
+        ],
+        "reasoning": "Put L=m−h. In the older record, x is a missing low position iff some i outside Z belongs to E_x. For a fixed i the x with i∈E_x are exactly [L−i,L+h−1−i]. These intervals are the full family of length-h windows of [1,m−1]. Hence the earlier completion formula already gives exactly the frozen union-of-full-windows classification and therefore the long-run condition, not merely the same counts.",
+        "searches": [
+          "Resultary: numerical semigroup reflexive or divisorial ideals, consecutive final gaps, sliding windows, run conditions",
+          "arXiv:2610.06426: relative ideals and the reflexive/divisorial operation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "62b4b8c42504: all-parameter total 1+a_h(m−h), with A_h(z)=1/(1−z)+z/[(1−z)((1−z)^2−z^{h+1})]",
+          "No explicit bivariate genus table in the inspected record; its unnamed earlier h=2 reference was not resolved"
+        ],
+        "reasoning": "The older exact enumerator already supplies the full ungraded census for h≥3. Multiplying A_h(z) by z^{h−1} and adding 1+z+⋯+z^{h−2} gives the frozen ungraded word series: lengths below h−1 have only the all-one word, and n≥h maps to L=n−h+1. A matching genus table is unnecessary for the direct marked-run implication.",
+        "searches": [
+          "62b4b8c42504, total-count generating function and verification; targeted Resultary h=2 search",
+          "Genus-refined count comparison with the earlier length-indexed word enumeration"
+        ]
+      },
+      "rationale": "The earlier Resultary record 62b4b8c42504 classifies exactly the same semigroups and all the same reflexive ideals for h≥3 by dual incidence windows. Transposing its displayed completion relation gives the frozen low-gap run rule directly. Its proof uses no h≥3 restriction in this passage, so h=1 and h=2 require no new argument; its relationship section also mentions earlier h=2 coverage without an identified source. The genus grading is not printed in the inspected earlier record, but is a routine marking of the occupied length in the mechanically equivalent run language. The frozen package has no established nonroutine originality beyond the earlier classification. This judgment does not rely on an unverified h=2 match or inaccessible literature.",
+      "residual_risks": [
+        "The earlier record's unidentified h=2 antecedent and inaccessible Spirito full text remain unresolved.",
+        "The genus grading was not located verbatim in the inspected earlier source; the rejection is based on a constructive implication, not a claim that the formula appeared there verbatim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive earlier exact classification and ungraded count for h≥3; the completed marked enumeration is a routine consequence",
+          "evidence": [
+            "I_Z=S∪B∪{x:E_x⊆Z}, E_x=[L−x,L+h−1−x]∩[0,L−1], with all admissible supports; explicit total-count series"
+          ],
+          "identifier_or_url": "Resultary 62b4b8c42504 (2026-10-26)",
+          "material_read": "RESULT.md Finding, assumptions and Proof §§1–5, mirror offsets 100–7635; relationship passage on h=2",
+          "method": "Bounded mirror read; transposed the window relation and compared the counting series",
+          "title": "Sliding-window classification and growth of reflexive ideals in depth-two numerical semigroups",
+          "trigger": "Same consecutive-gap semigroup and exact normalized divisorial ideals"
+        },
+        {
+          "assessment": "General theory and normalization background; inspected passages do not evaluate the frozen family's genus count",
+          "evidence": [
+            "Defines reflexivity by the double colon and develops the Apéry-set framework"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.06426",
+          "material_read": "v1, p. 1 offset 221; §6 p. 14 offset 54770",
+          "method": "Bounded primary PDF inspection",
+          "title": "Reflexive ideals of a numerical semigroup",
+          "trigger": "General theory and potential prior family classification"
+        },
+        {
+          "assessment": "Related ideal enumeration; the abstract does not assert the specific reflexive-family genus census",
+          "evidence": [
+            "Counts by codimension and conductor"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2304.13690",
+          "material_read": "p. 1 abstract, offset 0",
+          "method": "Bounded primary reading of scope",
+          "title": "Counting ideals in numerical semigroups",
+          "trigger": "Earlier enumeration by related statistics"
+        },
+        {
+          "assessment": "Historical scope unresolved and not used as a rejection premise",
+          "evidence": [
+            "Earlier source on non-divisorial ideals identified in the frozen bibliography"
+          ],
+          "identifier_or_url": "https://doi.org/10.1142/S0219498818502055",
+          "material_read": "Bibliographic identification; full text unavailable from tried routes",
+          "method": "Lawful DOI and repository alternate retrieval attempted",
+          "title": "Embedding the set of non-divisorial ideals of a numerical semigroup into N^n",
+          "trigger": "Historical divisorial-ideal comparisons"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The complete reflexive-ideal classification for these semigroups is a worthwhile structural object, but the previous window classification already supplies it. Rewriting the same incidence matrix in the opposite coordinate and weighting the lengths of already determined runs does not yield a separately motivated structural or genus-sensitive result beyond the routine enumeration. No nonroutine surviving component warrants a repaired acceptance.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

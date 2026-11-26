@@ -1,23 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Under the stated exact-Hessian and zero-memory assumptions, the practical Sophia update reduces coordinatewise to
-\[
-T(x)=x-\eta\,\operatorname{clip}(x/\gamma,1).
-\]
-The three branches of this map give an exact complete classification: global convergence for every start occurs precisely for \(0<\eta<2\gamma\); the post-entry multiplier is \(1-\eta/\gamma\); every \(\eta\ge2\gamma\) has the explicit two-cycle \(\pm\eta/2\); and \(\eta=\gamma\) is exact soft-thresholding.
+PASS
 
-Risk: stochastic Hessian estimates, momentum memory, and an active denominator floor change the map.
+The practical update divides h_i x_i by γh_i under the floor inequality (ties do not change the quotient). In signed coordinates x has the starting sign before first entry; from x_0>γ it decreases by η until the first integer N_i for which x_0−N_iη≤γ. The landing point is greater than γ−η>−γ. This proves the exact ceiling even if the final saturated step changes sign: the proof's informal magnitude wording should be read as subtraction in the starting signed coordinate. Negative starts follow by odd symmetry. The core is invariant because |1−η/γ|<1. Outside it, 0<η<2|x| gives strict decrease of |x|; positive curvatures give strict objective decrease away from zero. At and above η=2γ the signed points ±η/2 are exchanged, including equality. At η=γ the shrinkage law subtracts γ from the magnitude up to zero; its exact iteration gives the first all-zero iterate. The common linear multiplier after max N_i squares in the quadratic objective.
 
-## Originality
+## originality
 
-PASS. The defining Sophia source gives the practical clipped diagonal-Hessian recurrence and proves condition-number-independent convergence for a simplified full-Hessian variant. The inspected full text does not state the sharp practical diagonal boundary, the explicit failure cycle, or the finite-time resonance. Focused published-record and owned-ledger searches found no implication-equivalent Sophia result.
+PASS
 
-Residual risk: an equivalent elementary clipped-Newton calculation may exist under different terminology.
+The practical algorithm and scalar gradient-clipping map class are known, as are the qualitative transient/contraction split and soft-thresholding. The supported distinct claim is the exact joint calibration for practical diagonal quadratic Sophia: an all-start iff stability range with explicit obstruction throughout the excluded range, the clipped-core first passage law and exact resonance hitting time. The compared known analyses of the same scalar recurrence as clipped gradient descent bound accuracy or transient overhead, rather than giving that all-start description. Closest indexed analogue AGC behaves differently beyond a second outer threshold.
 
-## Value
+## value
 
-PASS. The theorem directly resolves how Sophia's two defining scalar controls interact in the exact-curvature regime. It sharpens condition-number independence into a complete dynamical law and identifies a finite-time setting where every diagonal quadratic is solved exactly regardless of its curvature spectrum.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For the concrete optimizer update, this determines the stable parameter range uniformly over positive diagonal curvature spectra, gives a simple failure witness for every excluded step, and gives an exact time to stop clipping and an exact hitting prediction at the matched step. This is a useful calibration and implementation benchmark under explicitly idealized hypotheses. The value lies in the exact finite trajectory and sharp stability test together, not in the soft-threshold identity or generic local linearization alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

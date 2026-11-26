@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The eigenbasis follows from coordinate-phase invariance, with monomial norms \(\alpha!/(d)_m\). Weighted squared moduli obey the integer-parameter Dirichlet law, and comparison of unnormalized gammas gives the stated eigenvalues. The key nonstandard step is strict Poisson survival-tail log-concavity. The displayed tail-ratio proof establishes it for every \(t>0\) and every nonnegative exponent, leading to unique pure-rival minima. Strict stochastic coupling gives the pure selected maximum. Gamma exchangeability yields the exact lower endpoint. The full proof establishes all degrees, not just finite tests. The attached exact-rational and numerical checker passed 32 small complete spectra and nine independent high-precision gamma integrals.
+PASS
 
-## Originality — PASS (best knowledge, with risk)
+The frozen proof gives correct sharp bounds and eigenspaces, but the literal lower equality clause excludes the zero polynomial although the inequality is quantified over all f and both sides vanish at zero. The replacement gives both full equality spaces, including zero, and clarifies the dimensions in the optional exact enumeration. Torus rotations diagonalize the chamber Gram matrix in monomials; the probability-normalized moment α!/(d)_m and the |e_α|² tilt give Dirichlet(α+1). Gamma normalization cancels from the ordering, and conditioning on G1 gives the rational spectrum by expansion and gamma integration. Coupling integer shapes by additional independent exponentials strictly favors degree in the selected coordinate for the maximum and moves it into the rivals for the minimum. At fixed t>0, q_a/F_(a−1) is strictly increasing in a by the displayed reciprocal series, hence F_a/F_(a−1) is strictly decreasing. Comparing products of successive ratios proves F_a F_b>F_0 F_(a+b) for a,b>0, ensuring strict improvement when merging rival degree and establishing the lower equality space. The upper evaluation uses the gamma Laplace transform; exponential exchangeability divides the complement by k−1 for the lower value. The first nonconstant inclusion-exclusion term proves the fixed-k asymptotic, and Haar symmetry handles m=0. At (k,m)=(3,2) an independent direct integral gave the intermediate probabilities 47/108 and 7/54, distinct from 85/108 and 23/216 as required.
 
-The 2016 projective moment-map Toeplitz work, 2018 k-quasi-radial Bergman work, and 2021 torus-invariant monomial formulas provide structural background and are acknowledged. They allow generic diagonal matrix elements, not the evaluated extreme-order gamma allocation theorem or sharp condition number. Published related work on union-of-two-coordinate caps and two-coordinate product caps uses fundamentally different observation inequalities; a distinct relative-phase wedge theorem concerns angular rather than modulus-order selection. Statement and implication comparisons found no covered sharp extrema. The main residual risk is an unindexed equivalent Dirichlet/gamma maxima optimization or a pre-existing toric chamber formula.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is a natural full-degree observation problem for a projective Weyl chamber. The exact stability constant, dimension independence, complete all-rational spectrum, sharp extremizing subspaces and universal exponential growth quantify the viability of reconstruction from an equal-area coordinate-order cell. These are natural exact invariants of a canonical observation region; no unsupported downstream theorem is claimed.
+Torus-invariant Toeplitz diagonalization, Dirichlet weighting and generic stochastic-order tools are background. Closest chamber and holomorphic-cap sources do not cover both the order chamber and this exact-degree holomorphic space, and the compared gamma-majorization work concerns sums rather than rival maxima. The assessed distinction is the all-degree sharp chamber spectrum endpoints, equality allocations and the resulting conditioning law. The review does not claim Poisson-tail log-concavity itself as new or certify priority.
 
-## Limits
+## value
 
-Results are for fixed-degree holomorphic polynomials, not arbitrary spherical harmonics or general Hardy bands. The large-degree asymptotic fixes the number of compared coordinates; global historical priority and independent audit are open.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For recovery from a symmetry-selected partial observation, the minimum and maximum relative energies are natural observability invariants. The result gives both exact worst-case directions and an exponential squared conditioning law uniform in ambient dimension for fixed k. The optimization over all compositions, including unobserved coordinates and competing rivals, provides information not supplied by a spectral integral alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

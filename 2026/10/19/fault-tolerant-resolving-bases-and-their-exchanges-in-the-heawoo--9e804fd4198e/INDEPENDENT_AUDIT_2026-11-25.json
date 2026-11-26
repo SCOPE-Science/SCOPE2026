@@ -1,0 +1,166 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:37:22.755062Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–44",
+        "Frozen VERIFICATION.md, verify_distances.py, verify_geometry.py and recorded stdout",
+        "Frozen reconfiguration_certificate.json (all states, edges, large-component indices and eccentricities)",
+        "Independent replay: python3 /workspace/reproductions/heawood.py PATH_TO_FROZEN_reconfiguration_certificate.json"
+      ],
+      "rationale": "The cyclic triples give the Fano plane: each nonzero residue occurs once among the ordered nonzero differences of {0,1,3}, so every point pair is on one line and, dually, every two lines meet at one point. Distances for these same-side pairs are 2, and cross-side distances are 1 for incidences and 3 otherwise. Hence the same-side inequalities count the distinguishing members exactly, and all selected landmarks distinguish opposite-side pairs by parity. Independently computed the full metric with Floyd–Warshall and tested every subset of size at most seven against the 91 distance-difference masks, without executing the supplied programs. All sizes below seven had zero solutions; there were 282 at seven with point counts 0:1, 3:140, 4:140, 7:1. Independently compared each noncollinear triple's exact four-element choices with the five claimed patterns, and no choice for collinear triples; the dual classification agreed as well. Grouping the states by common six-subsets constructed precisely the token-jump edges, and bitset distances confirmed 784 edges, components of sizes 1,1,280, degrees 0:2, 4:56, 6:224, and 224 eccentricities 6 and 56 eccentricities 7 inside the large component. The degree-zero states were exactly the two bipartition classes; the eccentricity-seven states were exactly the claimed U0∪U1 cases and duals. Compared every basis mask, edge, large component index and eccentricity with the frozen certificate. The independently read SHA-256 is bdab9a6ad701d378ceb4e18a4bd79f8e1afe78ffac338b3ac75c1b2be94aaf7a.",
+      "residual_risks": [
+        "Radius and diameter are for the connected 280-state component only. Exhaustion concerns this exact graph and token-jump adjacency, not token sliding or arbitrary planes."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Héger–Takáts studies ordinary resolution and includes Fano order 2 separately. Bailey bounds ordinary incidence-graph metric dimension using split- and semi-resolving methods. The Geneson–Tsai preprint proves general bounds in terms of ordinary dimension and Theorem 2.3 describes graphs with fault-tolerant dimension 2 (not the order of redundancy). General token-jumping results inspected concern independent sets, vertex covers and dominating sets."
+        ],
+        "reasoning": "A general projective-plane theorem controlling minimum two-fold resolution at order 2 would be relevant, but an ordinary bound, a general dimension-based fault-tolerance estimate or a token-jump result for a different invariant does not specialize to these minima and graph distances.",
+        "searches": [
+          "arXiv:1207.5469, ordinary resolving and semi-resolving projective planes",
+          "arXiv:1707.02899, symmetric design incidence graphs",
+          "Geneson–Tsai arXiv:2502.02731 / DOI 10.1016/j.dam.2026.01.009, abstract and §2",
+          "arXiv:2411.12582, generalized token jumping"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1207.5469, 1312.4973, 1312.6840, 1707.02899, 2502.02731, 2411.12582",
+        "Anderson, The Fano Incidence Graph, May 2026 version",
+        "Resultary d4a919fbecfd, 04147aebd569, 951f99af2afa and 7208b87db1ec"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known ordinary dimension 5 and monotonic bound dim_2≥dim+1 give 6 as a lower bound, not exclusion of 6. The general upper bound in Geneson–Tsai far exceeds 7 when dim=5; its low-ftdim classification does not sharpen this. The exact enumeration excludes all six-subsets and determines all patterns rather than just verifying one size-seven witness."
+        ],
+        "reasoning": "The exchange distance data also do not follow merely from the number of minimum sets or from using an exchange move: they depend on the actual overlaps of the admissible point and line patterns. Geometric classification plus certified distance calculation supplies this additional structure.",
+        "searches": [
+          "arXiv:1207.5469, Remark 2.6",
+          "arXiv:1312.6840, generator monotonicity and definition",
+          "Geneson–Tsai arXiv:2502.02731, connected-graph bounds and low-ftdim classification",
+          "Resultary same-graph and neighboring two-fold exchange Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Removing any one landmark preserves resolving exactly when every pair has at least two distinguishing landmarks. This is the paper's two-fold vertex-distance condition for size-seven states, not edge-metric or locating-domination.",
+          "Bailey's exact Heawood tables identify the graph as PG(2,2)'s incidence graph and compute ordinary dimension five. The inspected Resultary records on the same graph compute edge-metric or locating-dominating exchanges instead."
+        ],
+        "reasoning": "An exact fault-tolerant vertex-metric table for the incidence graph of PG(2,2) would cover the dimension claim regardless of labels or terminology; duality simply interchanges the two mixed profiles. The arithmetic value five and other same-graph exchange graphs answer different questions.",
+        "searches": [
+          "Resultary and public literature: Heawood / Fano incidence / PG(2,2), fault-tolerant resolving sets, k-metric dimension k=2, exchange or token jumping",
+          "arXiv:1312.6840, k-metric definition and landmark failure",
+          "Geneson–Tsai arXiv:2502.02731, ordinary metric fault tolerance"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Bailey's tables give Heawood graph order 14, diameter 3, ordinary dimension 5. Local charted overlaps include Heawood edge-metric bases (168) and locating-dominating sets (448), and vertex-metric fault-tolerant exchanges on the Shrikhande and rook graphs and on the Frucht graph. None is a table for this graph under this two-fold predicate."
+        ],
+        "reasoning": "The table for vertex distance without fault tolerance does not cover dim_2=7 or 282 configurations; one cannot compare the 784 edges or diameter with tables for different feasible sets. Ranked matches leave unindexed enumerations possible.",
+        "searches": [
+          "Bailey arXiv:1312.4973, Tables 1 and 3",
+          "Resultary: exact Heawood fault-tolerant basis counts, profiles, exchange graph, diameter and periphery",
+          "Public search using Heawood/Fano and fault-tolerant or two-fold metric dimension aliases"
+        ]
+      },
+      "rationale": "Ordinary Heawood dimension, the fault-tolerant invariant, and the token-jump move are established prior work. The supported distinct result is the exact two-fold minimum and geometric basis classification together with complete exchange invariants for the canonical Fano incidence graph. The closest exact-graph tables use different objectives; the closest fault-tolerance sources give bounds or exact results in other regimes. No inspected source or its direct implications supplies the claimed family and exchange distances.",
+      "residual_risks": [
+        "The Geneson–Tsai primary arXiv version was compared; publisher-version differences were not inspected. A table using another naming convention or older exact reconfiguration work could remain undiscovered. The searches do not establish absolute priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact ordinary Heawood dimension, not two-fold case",
+          "evidence": "Gives ordinary lower and upper proof for dimension five in the Fano plane and ordinary and semi-resolving results for larger orders.",
+          "identifier_or_url": "https://arxiv.org/pdf/1207.5469",
+          "material_read": "p. 5 Remark 2.6, offset 15618; p. 1 abstract, offset 1238",
+          "method": "Primary OA PDF passages",
+          "title": "Resolving Sets and Semi-Resolving Sets in Finite Projective Planes",
+          "trigger": "General projective-plane resolution including Fano case"
+        },
+        {
+          "assessment": "Exact table for another invariant",
+          "evidence": "Lists the Heawood graph, PG(2,2), with ordinary metric dimension five.",
+          "identifier_or_url": "https://arxiv.org/pdf/1312.4973",
+          "material_read": "Table 1, p. 6, offset 18319 and Table 3, p. 8, offset 24958",
+          "method": "Primary OA PDF passages",
+          "title": "The metric dimension of small distance-regular and strongly regular graphs",
+          "trigger": "Exact small-graph tables including Heawood"
+        },
+        {
+          "assessment": "Covers definition and monotonicity; no covering theorem in inspected passages",
+          "evidence": "Requires at least k distinguishers and explains landmark-failure interpretation.",
+          "identifier_or_url": "https://arxiv.org/pdf/1312.6840",
+          "material_read": "pp. 1–3, OA offsets 1600 and 8265",
+          "method": "Primary OA PDF passages",
+          "title": "The k-metric dimension of a graph",
+          "trigger": "Foundational formulation and possible exact cases"
+        },
+        {
+          "assessment": "Ordinary semi-resolving and split-resolving bounds",
+          "evidence": "Treats symmetric-design incidence graphs and ordinary bounds, not two-fold exchange geometry.",
+          "identifier_or_url": "https://arxiv.org/pdf/1707.02899",
+          "material_read": "p. 3, offset 8999; Theorem 2.4 and Corollary 2.5, pp. 4–5, offsets 13489 and 17004",
+          "method": "Primary OA PDF passages",
+          "title": "On the metric dimension of incidence graphs",
+          "trigger": "Possible covering incidence-design result"
+        },
+        {
+          "assessment": "Relevant known fault-tolerance mathematics, but inspected bounds and special case do not cover this result",
+          "evidence": "States ftdim(G)≤dim(G)(1+3^(dim(G)-1)) for connected graphs and characterizes ftdim(G)=2. The published landing was inaccessible; literal misses in the preprint are not themselves evidence of no overlap.",
+          "identifier_or_url": "https://arxiv.org/html/2502.02731 ; DOI 10.1016/j.dam.2026.01.009",
+          "material_read": "Lawful same-paper arXiv version, abstract at offset 0 and §2 Theorem 2.3 at offset 24415; locate Heawood, projective plane, exchange",
+          "method": "Exact-title search identified arXiv version; primary HTML passages by offset",
+          "title": "Fault tolerance for metric dimension and its variants",
+          "trigger": "Prior general bounds and potentially exact fault-tolerant dimension for named graphs"
+        },
+        {
+          "assessment": "Move terminology, not the fault-tolerant resolving-set problem",
+          "evidence": "Discusses token moves in independent-set, vertex-cover and dominating-set families.",
+          "identifier_or_url": "https://arxiv.org/pdf/2411.12582",
+          "material_read": "pp. 1–2, offsets 1289 and 5232",
+          "method": "Primary OA PDF passages",
+          "title": "Reconfiguration Using Generalized Token Jumping",
+          "trigger": "Prior generalized exchange graph framework"
+        },
+        {
+          "assessment": "Inspected abstract concerns representations and visualization",
+          "evidence": "No matching metric-basis theorem established by this inspection; literal misses are not an exhaustive source exclusion.",
+          "identifier_or_url": "https://institute-theory-stem.org/wp-content/uploads/2026/05/fano-2-v2-07-05-2026-1.pdf",
+          "material_read": "p. 1 abstract, OA offset 0; literal location searches for fault tolerance and metric dimension",
+          "method": "Primary public PDF passage",
+          "title": "The Fano Incidence Graph, alias Heawood Graph and 6-Cage",
+          "trigger": "Same graph in a recent paper"
+        },
+        {
+          "assessment": "Different graph or defining predicate, not equivalent coverage",
+          "evidence": "The first two use edge distance or locating-domination on Heawood; the latter two use fault-tolerant or k-metric sets on Shrikhande/rook graphs and Frucht graph respectively.",
+          "identifier_or_url": "Resultary d4a919fbecfd; 04147aebd569; 951f99af2afa; 7208b87db1ec",
+          "material_read": "Bounded local catalog statements for the November records",
+          "method": "Configured local Resultary lookup",
+          "title": "Heawood edge-metric and locating-dominating exchanges; fault-tolerant basis exchanges on other graphs",
+          "trigger": "Strongest local graph, predicate and exchange overlaps"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and geometric cases",
+        "Independent enumeration and certificate comparison",
+        "Héger–Takáts Remark 2.6, ordinary Fano baseline"
+      ],
+      "rationale": "The Fano incidence graph is a canonical small projective-plane graph and ordinary resolving bases are a known baseline. Selecting a minimum fault-tolerant installation and asking if it can be updated by single replacements while retaining optimal fault tolerance is a natural next question. The answer exhibits both isolated and mobile optimal installations on the same graph, with an exact and geometrically characterized periphery; it gives an explicit finite test case for distance, redundancy and constrained reconfiguration rather than a bare count on an arbitrary small graph.",
+      "residual_risks": [
+        "This is a complete result for one natural finite graph, not evidence of the frequency of isolation for larger planes or other reconfiguration moves."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

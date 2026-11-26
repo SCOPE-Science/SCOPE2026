@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:33:10.530195Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–56 and 60–131",
+        "VERIFICATION.md lines 19–25",
+        "verify_path_stability.py lines 8–63"
+      ],
+      "rationale": "For n≥3 the first cosine vector has unit norm, zero sum and P_*y=cy, with c>0. For z_j=(c+cos((2j−1)π/n)/c)/n, product-to-sum gives z_j+z_{j+1}=2y_jy_{j+1} and summation gives ∑z_j=c. Row stochasticity and symmetry yield yᵀPy−c=∑P_jj(y_j²−z_j). The summands have coefficients zero at the endpoints and strictly positive in the interior because cos((2j−1)π/n)<c there. Therefore s²−c²−||(P−P_*)y||²=(s²−||Py||²)+2c(yᵀPy−c) is a sum of nonnegative terms. Equality forces all interior holding probabilities to vanish, hence the alternating family. The product with y is the negative discrete derivative of the weighted deviations with u₀=u_n=0. To prove sufficiency, test the perturbation on normalized cosine modes: each edge difference for mode r is proportional to sin(irπ/n), and multiplying by the alternating sign and taking the discrete derivative gives −2t sin(rπ/n)v_(n−r), also at the endpoints because the sine differences at i=0,n vanish. Hence the (r,n−r) block squares to [cos²(rπ/n)+4t²sin²(rπ/n)] times the identity; the unpaired even-size mode has eigenvalue −2t and the constant stays fixed. For |2t|≤1 the first pair has maximal nonconstant modulus, including |2t|=1, proving the equality, sharp coefficient and exact formula. The positive edge differences show uniqueness of P_* from the squared bound; the centered indicator on the first i sites gives the stated prefactor for edge recovery. Taylor expansion at t=0 has strictly positive quadratic coefficient, so the inverse exponent 1/2 is optimal for each fixed n. None of these steps requires an irreducible or aperiodic chain.",
+      "residual_risks": [
+        "The frozen checker was inspected, not replayed. Its 4,899 floating-point trials are finite corroboration; two-vertex trials are supplementary and outside the stated n≥3 theorem."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fill–Kahn published p. 1778 abstract compares total variation, separation and L² distance at each time from suitable common initial laws and identifies the half-edge chain from endpoint 0. The classic path note p. 1 concerns optimal contraction on the same path."
+        ],
+        "reasoning": "Distributional dominance from an initial law is a stronger comparison for that observable but does not identify the SLEM defect versus a cosine-weighted edge perturbation or its nonoptimal equality family. General optimization and path optimality are credited, not repackaged as new.",
+        "searches": [
+          "Boyd–Diaconis–Xiao, DOI:10.1137/S0036144503423264",
+          "Boyd–Diaconis–Sun–Xiao, DOI:10.1080/00029890.2006.11920281",
+          "Fill–Kahn, arXiv:1109.6075v3"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md lines 60–131 and 137–149",
+        "Boyd–Diaconis–Sun–Xiao author manuscript p. 1, Stanford and Duke copies",
+        "Fill–Kahn p. 1778 abstract",
+        "Resultary b937fa7e415e, 5eef16ab8cf4 and aa0c607bcc28"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Any certificate proving yᵀPy≥c for the same normalized y yields the weak squared inequality by expanding ||Py−cy||². Even with the strict zero-holding necessity, one must show that eigenvalues outside the first alternating cosine block do not exceed its modulus to obtain sufficiency and an attaining inverse rate."
+        ],
+        "reasoning": "The norm expansion is already implicit in the Rayleigh bound. The classified equality and exact sharpness require the alternating action of P−P_* on paired modes and comparison with all nonconstant eigenvalues; those are not obtained from the older optimum or endpoint-mixing statements as inspected.",
+        "searches": [
+          "Boyd–Diaconis–Sun–Xiao classical path dual as credited at RESULT.md lines 60–79 and 137–139",
+          "Fill–Kahn arXiv:1109.6075 and Resultary b937fa7e415e"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Boyd–Diaconis–Sun–Xiao author manuscript p. 1 has the same feasible symmetric stochastic tridiagonal matrices and states the known 1/2-per-edge optimum. RESULT.md lines 73–94 show that the relevant structural condition is zero interior holding, equivalently q_(i−1)+q_i=1."
+        ],
+        "reasoning": "Changing from a spectral operator norm to SLEM does not give a new claim. The distinct statement classifies equality for the entire squared-deficit comparison, including suboptimal alternating chains, not just optimizers of SLEM.",
+        "searches": [
+          "fastest mixing path Boyd Diaconis Sun Xiao cosine certificate alternating transition probabilities SLEM uniqueness stability eigenvalue",
+          "Resultary: sharp SLEM path stability, saturated tridiagonal stochastic chains and alternating transition probabilities"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Same-day b937fa7e415e is a natural exact comparator on paths with alternating weights but its indexed objective is Kemeny's hitting-time quantity. 5eef16ab8cf4 and aa0c607bcc28 concern square-root stability on crown and barbell graphs respectively. The identical assigned item is a self-match."
+        ],
+        "reasoning": "An alternating Kemeny-optimal family does not determine equality in a cosine-mode SLEM inequality; Kemeny's quantity aggregates inverse spectral gaps, rather than computing the dominant modulus and its defect. Other-graph stability statements do not produce the claimed alternating blocks. No priority inference is drawn from same-day dates.",
+        "searches": [
+          "Resultary: equality and quantitative rigidity for path fastest mixing; alternating probabilities on finite symmetric stochastic paths"
+        ]
+      },
+      "rationale": "Credit classical path optimality and the cosine certificate. From the Rayleigh inequality for this same test vector the squared norm inequality alone follows mechanically. The supported distinct result is the sharp all-feasible equality classification, its exact contraction factor along the entire equality family, and the resulting quantitative inverse estimate with explicit normalization and an attaining sharp exponent. No equivalent prior classification or sharp path inverse theorem was established by the available comparisons.",
+      "residual_risks": [
+        "The later classical dual passages and the related same-day Kemeny full text were unavailable for passage-level comparison. A separately known exact spectral law for alternating endpoint-reflecting paths could reduce originality further. Limited access is not evidence of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known optimum and its credited cosine certificate are background; no whole-paper noncoverage conclusion from this excerpt",
+          "evidence": [
+            "p. 1 states half-edge optimality and precisely the symmetric stochastic tridiagonal setting."
+          ],
+          "identifier_or_url": "https://stanford.edu/~boyd/papers/pdf/fmmc_path.pdf",
+          "material_read": "Author manuscript p. 1 abstract and model; later decisive dual passages not accessible via targeted retrieval; also RESULT.md lines 60–79 and 137–139 for the credited certificate",
+          "method": "Targeted OA passage request and legal Stanford and Duke manuscript excerpts",
+          "title": "Fastest Mixing Markov Chain on a Path",
+          "trigger": "Directly same feasible family, objective and classical test-vector certificate"
+        },
+        {
+          "assessment": "Related stronger finite-time ordering for a different observable, not shown to imply the mode-weighted SLEM comparison",
+          "evidence": [
+            "Abstract identifies total variation, separation and L² at each time from suitable common initial distributions, with the path result from endpoint 0."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1109.6075",
+          "material_read": "Published p. 1778 abstract, especially its comparison metrics and endpoint path result",
+          "method": "Targeted OA lookup and lawful primary PDF excerpt",
+          "title": "Comparison Inequalities and Fastest-Mixing Markov Chains",
+          "trigger": "Potentially stronger path comparison"
+        },
+        {
+          "assessment": "A real same-setting comparison but the indexed alternating optimization is for a different functional; no date-based priority inference",
+          "evidence": [
+            "Summary states a Kemeny minimization and a squared-deviation identity."
+          ],
+          "identifier_or_url": "Resultary b937fa7e415e",
+          "material_read": "Indexed statement; underlying decisive full-text passage not retrieved",
+          "method": "Local catalogue comparison and attempted mirror lookup",
+          "title": "Parity-optimal Kemeny design on finite symmetric stochastic paths",
+          "trigger": "Same path family and alternating structure"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 19–52 and 94–131",
+        "Boyd–Diaconis–Sun–Xiao p. 1 for the optimal-value baseline"
+      ],
+      "rationale": "The squared-deficit equality classification describes exactly which paths saturate the stability constraint, even away from the known optimum. The matching explicit perturbations and coordinate bounds quantify how far a near-optimal kernel can move on any edge and explain why the excess rate can only recover the kernel at square-root scale. This is additional information not supplied by the optimizer or by the mechanical inequality alone.",
+      "residual_risks": [
+        "The coordinate prefactors are upper bounds and are not asserted optimal. The result is specific to the symmetric uniform path setting."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

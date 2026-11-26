@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:12:55.581300Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The four rates in RESULT.md 24–33 agree with Caruso et al. Eq. (1) and Supplemental Eqs. (S1),(S4), including clipping only the d-to-c factor. The ordered-pair weights sum to 1, so the assumed extraction inequalities give death rate at least e_cc r at every positive stock r. A finite all-deaths path from every state, with a common positive probability of completion in a fixed time, gives almost-sure extinction and an exponential survival tail. The pure-cooperator killed birth–death generator Q_c is irreducible and has a simple Perron eigenvalue -alpha<0. Skip-free stock chains can be coupled independently until meeting and together thereafter; their survival probabilities are ordered in the initial stock. Taking the Perron limit gives v_{i+1}>=v_i for its right eigenvector with v_0=0. A plateau v_{i+1}=v_i>0 makes the left side of the eigenvector equation at i+1 nonnegative, including at the capacity boundary, against -alpha v_{i+1}<0. Thus stock increases v strictly. Testing the other killed blocks on v(r) now gives Q_d v<-alpha v (strictly greater pure-defector deaths) and Q_I v<=-alpha v, strict at c=1 because the strategy loss there exits and kills the mixed-block trajectory. When R_c>1, r=1 permits both strategy directions inside the mixed block, and positive resource transitions connect each strategy layer, including the single layer when N=2. Multiplying by a positive left Perron vector gives strict spectral separation. In the block-triangular full generator the dominant simple eigenvalue has its left measure supported on c=N, with marginal pi_c. From every stated start a positive-probability path reaches that block via r=1 (or starts in it); survival via this finite-time path is bounded below by a positive multiple of exp(-alpha t), so the dominant coefficient cannot vanish. Jordan expansion and normalization give exponential total-variation convergence, with a possibly smaller exponent to absorb polynomial prefactors. If R_c<=1, the increase rate vanishes at every r>=1, so fixation at c=N before extinction is impossible from mixed starts. The threshold concerns initially mixed starts, not all-defectors, and uniqueness of pi_c is within the pure-cooperator class, not uniqueness of a QSD for the reducible full chain. Replay: this Perron comparison and RESULT.md 37–64; VERIFICATION.md and verify.py were read, not run. The finite numerical script checks examples and not the universal spectral comparison.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chazottes–Collet–Méléard supply quasi-stationary analysis for a multitype birth–death population model. McAvoy et al. discuss conditional population distributions and cooperative/defective metastability with large-capacity persistence (Fig. 4 and accompanying discussion)."
+        ],
+        "reasoning": "General convergence and metastability methods are relevant. They do not identify which of several accessible strategy blocks of the frozen killed chain has the largest spectral bound, nor provide this model's positive-first-stock criterion. A large-K persistence result or a mixed QSD is not the finite-K all-cooperator selection stated here.",
+        "searches": [
+          "arXiv:1702.05369 abstract/introduction",
+          "arXiv:1709.03630 Eqs. (2)–(3) and Fig. 4 discussion"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py",
+        "arXiv:2610.41830v1, 1709.03630, 1702.05369",
+        "Resultary 9f67fceed7b6, 1b85fc8baee7, ecc57a204b45"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The microscopic cooperator gain factor vanishes at all positive integer stocks when R_c<=1, so this part follows immediately by inspecting prior rates. The prior paper's inspected results treat noise-induced quasi-cycles and a diffusion approximation, rather than ranking the killed strategy classes at fixed finite lattice size."
+        ],
+        "reasoning": "The positive side requires more than the permitted path at r=1 or an invocation of general QSD convergence. The new step specific to this model is using the strictly increasing pure-cooperator Perron eigenvector to turn pairwise extraction ordering and an interior strategy leak into strict spectral separation. Only after this can one infer the conditional limit and its rate.",
+        "searches": [
+          "arXiv:2610.41830v1 Eq. (1) and Supplemental §S1.1, abstract, linear-noise-approximation discussion",
+          "arXiv:1702.05369 introduction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Caruso et al. have exactly the specified finite transition law; h_c c+h_d d equals the ordered-pair resource death expression and their supplement explicitly clips the upward strategy factor above R_c.",
+          "McAvoy et al. use a discrete-generation Wright–Fisher branching process with Poisson offspring and an optional mutation kernel, with population extinction as the absorbing event."
+        ],
+        "reasoning": "Caruso's scaling between stock/fraction formulations leaves the first positive stock at 1 in units; the clipped gain requires the strict inequality there. McAvoy's variable population count is not this independent integer-stock coordinate, and its relative strategies and offspring transition do not become these four skip-free rates by renaming variables.",
+        "searches": [
+          "Local Resultary semantic comparison: 9f67fceed7b6, 1b85fc8baee7, ecc57a204b45",
+          "arXiv:2610.41830v1 Eq. (1), Supplemental §S1.1",
+          "\"Public goods games in populations with fluctuating size\" McAvoy Fraiman Hauert quasi stationary full text arxiv PMC 10.1016/j.tpb.2018.01.004"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact match 9f67fceed7b6 is this frozen record. Separate record 1b85fc8baee7 gives an attainable terminal-cooperation interval in a deterministic finite-capacity resource model. Same-date ecc57a204b45 studies a noise-corrected mean-field donation model and resource selection."
+        ],
+        "reasoning": "Different finite-capacity and selection results do not supply a finite killed-CTMC conditional law. No separate exact threshold or Yaglom-limit table was located; the date of the distinct mean-field record supplies no priority evidence.",
+        "searches": [
+          "Local Resultary semantic comparisons for stochastic commons conditional survival: 9f67fceed7b6, 1b85fc8baee7, ecc57a204b45"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the paired sharp positive-stock attainability boundary and the strict all-cooperator Yaglom selection theorem in the specific finite commons chain. The microscopic model, the integer gate itself as read from its rates, and general quasi-stationary theory are not new. Mere reachability on the positive side of the gate does not imply it is the class selected among long-lived histories; the model-specific spectral dominance does that.",
+      "residual_risks": [
+        "Comparison is targeted and may miss an unindexed equivalent result for the same microscopic resource law or a direct sharp block comparison formulated in other terms.",
+        "No novelty is inferred from inaccessible publisher versions or nonmatching search hits; the cited McAvoy paper was inspected through the same-paper OA version."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact microscopic law and trivial gate obstruction covered; no positive-side dominance classification in inspected results",
+          "evidence": "Pair-harvest formulas, explicit positive-part gain and unclipped loss; focus on finite-size resonant effects and quasi-cycles.",
+          "identifier_or_url": "https://arxiv.org/html/2610.41830v1",
+          "material_read": "Main Eq. (1) and strategy rates, offsets 6310–9560; Supplemental §S1.1 Eqs. (S1),(S4), offsets 34229–42228; abstract and LNA discussion near 1089 and 18365",
+          "method": "Primary OA HTML passages",
+          "title": "Resonant Amplification of Demographic Noise in Stochastic Common-Pool Resource Dynamics",
+          "trigger": "Same microscopic finite CTMC; possible prior exact lattice-gate or conditional result"
+        },
+        {
+          "assessment": "Substantive QSD precedent, not this model or complete-cooperation criterion",
+          "evidence": "Poisson reproduction, mutation kernel, conditional distributions of both strategies around metastable equilibria with population extinction.",
+          "identifier_or_url": "https://arxiv.org/abs/1709.03630",
+          "material_read": "Eqs. (2)–(3), p. 3 offsets 13905–17145; Fig. 4 and discussion, pp. 7–8 offsets 33900–37160",
+          "method": "Identified same-paper arXiv OA PDF after DOI/publisher access was unavailable",
+          "title": "Public goods games in populations with fluctuating size",
+          "trigger": "Prior conditional evolutionary cooperation and quasi-stationarity"
+        },
+        {
+          "assessment": "General-method precedent in a different process",
+          "evidence": "Existence and conditioned convergence in a multitype birth–death population model, not the block dominance and scarcity gate here.",
+          "identifier_or_url": "https://arxiv.org/abs/1702.05369",
+          "material_read": "Abstract/Introduction near offset 1551",
+          "method": "Primary OA paper passage",
+          "title": "On time scales and quasi-stationary distributions for multitype birth-and-death processes",
+          "trigger": "Broader quasi-stationary comparison methods"
+        },
+        {
+          "assessment": "Different deterministic model and limit notion",
+          "evidence": "Terminal-cooperator interval under variation of depleted-resource payoffs, not finite CTMC conditioned on long survival.",
+          "identifier_or_url": "1b85fc8baee7",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror result passage",
+          "title": "Sharp attainable cooperation interval and payoff-independent resource selection",
+          "trigger": "Similar resource capacity and terminal cooperation classification"
+        },
+        {
+          "assessment": "Different model and conditioning",
+          "evidence": "Noise-corrected mean-field model, not stochastic complete-strategy fixation of a killed finite chain.",
+          "identifier_or_url": "ecc57a204b45",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror result passage",
+          "title": "Global resource selection and critical relaxation in the noisy donation model",
+          "trigger": "Distinct same-date resource-selection result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A finite stock lattice creates a real obstruction absent from a continuum scarcity argument. The conditional theorem explains how crossing that boundary changes not just what is reachable but which strategy survives in the long-lived ensemble, with an explicit resource QSD and exponential convergence while unconditioned extinction remains certain. It distinguishes this fixed-capacity rare-history result from transient oscillations, indefinite sustainability, or a large-population claim.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

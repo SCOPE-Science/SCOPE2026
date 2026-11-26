@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:47:10.363580Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof §§1–6",
+        "Frozen VERIFICATION.md and verify.py (inspected only)"
+      ],
+      "rationale": "On the leaf-sum-zero space the eigenvalue is L=1+b; the hub and leaf-mean block has determinant d−ma² at unit scaling, giving exactly the claimed SPD domain under the assumed positive couplings. To compare arbitrary positive diagonal scalings, normalize a candidate by its minimum eigenvalue μ and set E=μS⁻². Then E≼A≼KE, and averaging the diagonal E over the leaf permutations preserves both inequalities and gives an exchangeable scale with condition no worse. At hub scale √u the two plane eigenvalues have trace u+d and product u(d−ma²). The plane eigenvalue ratio is minimized uniquely at u=d because u/(u+d)² is maximized there. Both plane eigenvalues increase strictly with u: the discriminant is (u−d+2ma²)²+4ma²(d−ma²). The lower plane eigenvalue is less than d<L. If the upper plane eigenvalue at d reaches L, the plane ratio already gives the global minimum. Otherwise the objective decreases strictly up to the crossing (L−u)(L−d)=ma²u and then increases strictly. This gives u=b(1+b)/(b+a²)>d, with lower eigenvalue u−mb. The crossover condition is a²d=mb², with matching branch values and top multiplicity m there. Strict upper-branch feasibility is b<1/(2m−1); the unique normalized exchangeable scale equals the Jacobi scale precisely at a=b. The six-dimensional example follows by trace and determinant. The frozen finite checks are supplementary and were not executed.",
+      "residual_risks": [
+        "The assessment is an analytic proof check, not a formal certificate. The finding only claims uniqueness in the normalized exchangeable subclass."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2a376f6167cd also allows positive and zero leaf correlation and asserts unrestricted uniqueness up to a common scale.",
+          "Lu–Pong give an exact general SDP, not this case's closed-form branch values.",
+          "The cited older full texts for Shapiro and Kolotilina could not be inspected via the lawful copies identified."
+        ],
+        "reasoning": "The decisive coverage is by the explicit broader formula, not by treating the general SDP as a solved parametric instance or making assumptions from inaccessible older texts.",
+        "searches": [
+          "2a376f6167cd Finding and unrestricted-rigidity proof",
+          "Lu–Pong, Theorems 3.1 and 5.2",
+          "Shapiro DOI 10.1137/0722005; Kolotilina DOI 10.1007/s10958-005-0488-1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 2a376f6167cd, 8c423dd752b2 and 65800581cc6b",
+        "Lu–Pong primary PDF",
+        "Shapiro and Kolotilina access attempts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The threshold a²c≥mB² becomes a²≥mb²/d, and Jacobi iff B=0 or a²=B² reduces, with b>0 and a>0, to a=b.",
+          "The windmill and disjoint-pair results use sparse pair interactions, unlike the dense leaf block here."
+        ],
+        "reasoning": "The spectral-block reduction in the stronger equicorrelation theorem gives the same multiplicity and switch by the substitution B=−b. Feasibility of the upper branch follows from intersecting its threshold with the SPD bound. The frozen limiting formulas follow by substituting b=β/m, a=α/√m into the same exact formulas. The distinct sparse-pair comparisons do not supply the coverage.",
+        "searches": [
+          "2a376f6167cd Finding and eigenvalue reduction",
+          "8c423dd752b2 Finding, windmill diagonal scaling",
+          "65800581cc6b indexed paired-leaf result"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The indexed matrix has hub coupling +a and leaf coupling B with c=1+(m−1)B and e=1−B. Set B=−b and conjugate by diag(−1,1,…,1).",
+          "Its strong-branch ratio is (√c+√m a)/(√c−√m a); its weak branch uses x*=B(1−B)/(B−a²) and the ratio of e and x*+mB."
+        ],
+        "reasoning": "The sign conjugation commutes with every positive diagonal scaling and preserves the entire spectrum. It takes c to d, e to 1+b and x*+mB to u*−mb, the lower eigenvalue in the weak branch. All admissible matrices in the assigned family are obtained, not just an example.",
+        "searches": [
+          "Resultary: one-hub equicorrelation, hub-exchangeable Stieltjes, optimal diagonal congruence and mode switching",
+          "2a376f6167cd RESULT.md, Finding, offset 0"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The local catalogue contains the explicit exact closed-form theorem in 2a376f6167cd.",
+          "Lu–Pong's tables concern numerical experiments with random Gaussian-derived matrices, not an exact family of optimal scales."
+        ],
+        "reasoning": "The exact indexed formula covers every tested value and all symbolic dimensions and parameters; no numerical-table inference is involved. The six-dimensional example is a specialization, not an independent uncovered invariant.",
+        "searches": [
+          "Resultary: exact hub/leaf scaling formulas",
+          "Lu–Pong, Tables 1–2, pp. 15–16"
+        ]
+      },
+      "rationale": "A distinct indexed one-hub equicorrelation theorem, 2a376f6167cd, explicitly covers the entire assigned parameter domain with the same optimizer, branch condition, minimum and Jacobi characterization, and additionally proves unrestricted uniqueness up to scalar. This is verified mathematical coverage by an extant record, not evidence that the broader record had chronological priority over the frozen one. The catalogued dates put the broader record later. No separate distinct contribution is established by the frozen example or the direct large-dimension substitution.",
+      "residual_risks": [
+        "The comparison establishes mathematical coverage at review, not priority over the earlier-dated frozen record.",
+        "The older Shapiro and Kolotilina full texts remain uninspected; they are not the basis of the FAIL."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Explicit stronger statement on a broader signed leaf-correlation domain; full mathematical coverage under B=−b and hub sign conjugation.",
+          "evidence": "The finding specifies both optimizer and condition-number branches, the condition a²c≥mB², and restriction-free uniqueness; the proof fixes the plane eigenvalues and the leaf eigenvalue of multiplicity m−1.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-dimension-dependent-diagonal-scaling-of-one-hub-equicorrel--2a376f6167cd/RESULT.md",
+          "material_read": "Finding and assumptions at offset 0; proof including eigenvalue reduction and the unrestricted-rigidity passage near offset 4900",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Sharp dimension-dependent diagonal scaling of one-hub equicorrelation systems",
+          "trigger": "Direct one-hub equicorrelation optimizer and mode-switch match"
+        },
+        {
+          "assessment": "General exact SDP coverage, but no closed symbolic case formula in inspected passages.",
+          "evidence": "The SDP is exact for diagonal preconditioners; the random-matrix tables are computational examples.",
+          "identifier_or_url": "https://zhaosong-lu.github.io/ResearchPapers/cond_opt_rev.pdf",
+          "material_read": "Abstract; Theorems 3.1 and 5.2, pp. 4–5 and 16–17; Tables 1–2, pp. 15–16",
+          "method": "Author-hosted primary OA PDF",
+          "title": "Minimizing Condition Number via Convex Programming",
+          "trigger": "General exact convex diagonal conditioning framework and possible numerical table"
+        },
+        {
+          "assessment": "Different sparse leaves; not this family.",
+          "evidence": "Windmill triangles share the hub; distinct leaf pairs are not fully coupled.",
+          "identifier_or_url": "Resultary 2026/10/26/8c423dd752b2",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror",
+          "title": "A sharp mode-switch law for optimal diagonal scaling on windmill graphs",
+          "trigger": "Nearby hub-and-triangle two-regime law"
+        },
+        {
+          "assessment": "Visible model is different; no broader exclusion inferred from the summary.",
+          "evidence": "Leaf couplings are within disjoint pairs, not dense equicorrelation.",
+          "identifier_or_url": "Resultary 2026/11/2/65800581cc6b",
+          "material_read": "Indexed statement",
+          "method": "Resultary catalogue",
+          "title": "A sparse-pair transition in optimal diagonal conditioning of hub systems",
+          "trigger": "Nearby exact switch for paired leaves"
+        },
+        {
+          "assessment": "Coverage unresolved; not used to decide the axis.",
+          "evidence": "Identified citation only.",
+          "identifier_or_url": "10.1137/0722005",
+          "material_read": "No full-text passage was accessible",
+          "method": "Bounded lawful OA attempt; publisher access returned HTTP 403 and no repository copy was identified",
+          "title": "Optimal Block Diagonal ℓ₂-Scaling of Matrices",
+          "trigger": "Possible older explicit scaling law from general criteria"
+        },
+        {
+          "assessment": "Title addresses dimension three, below the assigned dimension m+1≥4; beyond-title consequences unresolved.",
+          "evidence": "3×3 stated in the title; coverage of the two-leaf model was reported by the frozen text, not independently inferred from a full passage.",
+          "identifier_or_url": "10.1007/s10958-005-0488-1",
+          "material_read": "Citation and title; no full text",
+          "method": "Publisher route checked for lawful full text",
+          "title": "Solution of the Problem of Optimal Diagonal Scaling for Quasireal Hermitian Positive-Definite 3×3 Matrices",
+          "trigger": "Nearby closed-form scaling result for small matrices"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof",
+        "Resultary 2a376f6167cd (exact coverage)",
+        "Lu–Pong Theorem 5.2 (general optimization benchmark)"
+      ],
+      "rationale": "The exact classification is mathematically useful: it solves a continuous optimization over arbitrary positive diagonal scalings of a natural coupled matrix family and identifies when a different eigenspace limits the condition number and when Jacobi loses optimality. Those are useful properties of the theorem itself, not evidence of additional content beyond the covering catalogue result.",
+      "residual_risks": [
+        "Useful as a structured exact benchmark, not an output improving the known broader indexed classification or solving arbitrary SPD conditioning."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

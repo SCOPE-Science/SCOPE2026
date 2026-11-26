@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:24:02.923215Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Writing c=a+bk/v, the centered symbol b(B−(k/v)J) has a Schur factorization with row-factor length sqrt((v−1)/v) and column-factor length |b| sqrt(k(v−k)/v). The tensor-diagonal implementation gives their product as an operator-norm bound; adding the constant symbol contributes |c|. This covers c=0 and b=0 directly. The dual test with the conjugate polar partial isometry and normalized constant vectors gives the rectangular nuclear lower bound. In a complete incidence system, or a nontrivial 2-design, the replication and intersection counts give BB*= (r−λ)I+λJ, with r−λ=nk(v−k)/(v(v−1)). Centering splits the constant and orthogonal directions, so the singular values are sqrt(vn)|c| and |b|sqrt(r−λ) with multiplicity v−1, attaining the uniform bound in a finite width. The complete singleton design covers k=1. Over the reals the factors and witnesses are real when a,b are real. For balanced signs the Frobenius upper bound forces n≥v−1; deleting the constant column of a normalized real Hadamard gives balanced orthogonal columns and attains the minimum when such a matrix exists, not at every even v by assertion. Substitution and expansion give the two specializations and the fixed-k sparse limit. Independently checked 105 constant-vector polar witnesses, including genuinely complex coefficients and zero components (python /workspace/branches/independent_math_checks.py, section 1). These checks are finite, and the supplied verifier was inspected, not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 4.5 gives ||S_T||=Tr|T|/dim(T) for every complex square T with constant diagonals of |T| and |T*|; the lower-bound proof there uses the conjugate polar witness. Holbrook–Johnston–Schoch already states the unrestricted rectangular sign upper bound sqrt(min(v,n))."
+        ],
+        "reasoning": "The flat-polar criterion applies to a much broader class than two-level symbols and yields exact equality on the repeated square pencil. The sign-width obstruction is the previously known rectangular bound specialized to the balanced target; the Hadamard example then uses its orthogonal balanced columns. The idempotent norm gaps don't by themselves imply the pencil result.",
+        "searches": [
+          "arXiv:math/0506073v1 Proposition 4.1 and Theorem 4.5, PDF pp. 16–17",
+          "arXiv:2206.02863v1 Theorem 2 and rectangular discussion",
+          "arXiv:1302.4849v2 abstract on idempotent norms"
+        ]
+      },
+      "checked_sources": [
+        "Davidson–Donsig arXiv:math/0506073v1, especially Mathias Theorem 4.5",
+        "Holbrook–Johnston–Schoch arXiv:2206.02863v1",
+        "Levene arXiv:1302.4849v2 abstract",
+        "Resultary Hamming and design Findings c6312c8abfd9 and 5e33b042fe05"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For T=M⊗J_{Nt,vt}, the nonzero singular values are those of M multiplied by t sqrt(vN), so the Mathias norm is ||M||_*/sqrt(vN), independent of t. Applying the already-known polar-vector test to M itself attains this number: pair S_M(conj Q) with unit constant vectors to get ||M||_*/sqrt(vN). The elementary incidence Gram spectrum then gives exactly the claimed expression.",
+          "For a 2-design, the same flat diagonals hold even without transitive automorphisms: on the row side the constant/orthogonal spectral projections have constant diagonals, and on the column side the projections onto 1 and the centered row span have constant diagonals. The latter projection is F*F/(r−λ), where F=B−(k/v)J; its diagonal is constant by the common column norm. The coefficients of either projection can vanish without invalidating the criterion."
+        ],
+        "reasoning": "Apply the older equality theorem to the scaled-size replicas, then compress any admissible symbol into one of them. The normalized nuclear norm and its equality on a complete incidence support (also on the specified designs) are obtained by direct singular-value substitution. No new extremal upper bound or unknown equality construction is needed; specializations and the sparse expansion are immediate from that value.",
+        "searches": [
+          "arXiv:math/0506073v1 Theorem 4.5 (Mathias), text offsets 38980–42767",
+          "Frozen RESULT.md lines 55–68, incidence spectrum and Hadamard specialization"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For full incidence pencil M with dimensions v×N and t≥1, T=M⊗J_{Nt,vt} is square; independent permutations of repeated copies and the simultaneous underlying S_v actions are transitive on each index set. Thus both |T| and |T*| have constant diagonal, exactly the hypothesis in Mathias's theorem.",
+          "Every finite constant-k symbol with the same v,a,b is a rectangular submatrix of T for sufficiently large t: choose one row for each row type and distinct copies of every requested column, including repeated columns."
+        ],
+        "reasoning": "Compression onto arbitrary specified row and column coordinates cannot increase the Schur multiplier norm, by extending an input matrix by zeros. Therefore the arbitrary-width problem is precisely the replicated complete pencil problem; repetition of columns poses no extra optimization.",
+        "searches": [
+          "arXiv:math/0506073v1, Theorems 4.4–4.5",
+          "Resultary: constant-column-weight Schur norms, two-level affine pencils, block design incidence and Hamming sign patterns"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact same-date Hamming Finding computes the norm for the specific transitive signed Hamming adjacency, with d(q−1) negatives per column, not the universal extremum. The later block-design Finding explicitly records the exact a=0,b=1 design norm ((v−1)sqrt(r−λ)+sqrt(rk))/sqrt(vN), crediting a standard polar argument and treating an optimizer polytope as its contribution."
+        ],
+        "reasoning": "The latter norm is exactly the design incidence subcase, not a table or theorem for the full complex pencil. The Hamming record concerns the value of its individual support. Neither date alone is evidence of mathematical priority, and the negative full-pencil index check does not counter the exact general prior implication.",
+        "searches": [
+          "Resultary: fixed column weight Schur norm and design incidence exact Schur norm",
+          "2026/11/2/SCOPE-poisson-cusps-and-sharp-alphabet-growth-for-signed-hamming-schur--c6312c8abfd9",
+          "2026/11/17/SCOPE-schur-norming-weights-of-block-design-incidence-matrices-form-th--5e33b042fe05"
+        ]
+      },
+      "rationale": "The explicit universal maximum is a direct corollary of the pre-existing Mathias exact Schur norm theorem, not just an application of a generic upper bound. The complete incidence pencil has transitive symmetries on both index sets and every allowed symbol is a submatrix of its sufficiently repeated replication. Squaring by replication lets the square Mathias theorem evaluate the sharp bound without the frozen record's centered inequality. Its polar witness is the same trace lower bound that attains it on the complete pencil. This is verified implication of the central claim, not a title match or a claim that the prior paper prints the same formula.",
+      "residual_risks": [
+        "This independently verifies coverage by the classical exact theorem; it does not determine who first wrote out the fixed-weight expression or the rectangular application."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Theorem 4.5 (Mathias, credited to his 1993 paper) implies the frozen extremum by replication and incidence spectrum",
+          "evidence": "The square theorem evaluates every complex symbol with separately scalar diagonals of the two polar moduli as the normalized trace norm, with the conjugate polar matrix as a witness.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0506073v1",
+          "material_read": "PDF pp. 16–17, Proposition 4.1 and Theorems 4.4–4.5, text offsets 38980–42767; reference [12] on p. 23",
+          "method": "OA primary full-text passages; tested the square-lifting implication",
+          "title": "Norms of Schur Multipliers",
+          "trigger": "Exact classical general result that could decide the all-width extremum after replication"
+        },
+        {
+          "assessment": "Prior unrestricted sign width bound; does not alone imply the constant-weight pencil",
+          "evidence": "The square bound sqrt(n) has Hadamard equality; the rectangular estimate is sqrt(min(n,m)).",
+          "identifier_or_url": "https://arxiv.org/pdf/2206.02863v1",
+          "material_read": "Theorem 2 and following rectangular remark, pp. 3–4, offsets 11260–16248",
+          "method": "OA PDF passage inspection",
+          "title": "Real Schur norms and Hadamard matrices",
+          "trigger": "Width boundary and Hadamard connection"
+        },
+        {
+          "assessment": "Context for idempotent norms, not evidence of a full-pencil statement",
+          "evidence": "The abstract concerns gaps, path masks and random idempotents.",
+          "identifier_or_url": "https://arxiv.org/pdf/1302.4849v2",
+          "material_read": "First-page abstract",
+          "method": "OA PDF passage inspection",
+          "title": "Norms of idempotent Schur multipliers",
+          "trigger": "Related exact 0–1 norm results"
+        },
+        {
+          "assessment": "Different optimization; no priority inference from the date",
+          "evidence": "The symbol is restricted to J−2A_{d,q} and the norm is computed from its transitive graph spectrum.",
+          "identifier_or_url": "2026/11/2/SCOPE-poisson-cusps-and-sharp-alphabet-growth-for-signed-hamming-schur--c6312c8abfd9",
+          "material_read": "RESULT.md Finding, Assumptions, and initial proof, offsets 0–3112",
+          "method": "Local Resultary mirror",
+          "title": "Poisson cusps and sharp alphabet growth for signed Hamming Schur multipliers",
+          "trigger": "Same-date exact Schur norm lead with fixed column weights"
+        },
+        {
+          "assessment": "Exact design subcase and different optimizer question; not the basis for the prior-coverage verdict",
+          "evidence": "The Finding states the same incidence norm and an iff characterization of norming weights as a polytope.",
+          "identifier_or_url": "2026/11/17/SCOPE-schur-norming-weights-of-block-design-incidence-matrices-form-th--5e33b042fe05",
+          "material_read": "RESULT.md Finding, offsets 0–2126",
+          "method": "Local Resultary mirror",
+          "title": "Schur-norming weights of block-design incidence matrices form the trade polytope",
+          "trigger": "Exact overlap for the design mask"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The prespecified weight constraint is natural and the formula is useful, but the underlying exact optimization is already determined by the classical flat-polar norm theorem and the direct complete-incidence compression. The incidence spectrum, sign asymptotic, and width consequence are routine once that reduction is made. The frozen record does not identify an additional new equality classification or fixed-width extremum that would constitute a distinct valuable result.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:36:37.366063Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–40; VERIFICATION.md; inspected enumerate.cpp, groebner.py, orbits.py, recorded outputs and coefficient data.",
+        "Independent exact replay: python3 /workspace/branches/check_quartics.py; exact normalized list comparison with frozen candidate_coefficients.txt, smooth_coefficients.txt and groebner_smooth_coefficients.txt."
+      ],
+      "rationale": "An independently written exact replay counted all subsets of sizes 0–6, finding 234 and none smaller, and obtained the stabilizer of the fixed set by enumerating its ordered projective frames (24 elements). Since the full projective group has order 5616 and preserves incidence, that proves a single orbit of all 234 such sets. Solving the complete evaluation system for each possible normalized nonzero sign pattern off the six-set gives exactly 567 normalized quartic candidates. Geometric smoothness was checked by independently coded ternary bitset row reduction on the degree-seven multiples of the three cubic partials. Euler in characteristic three makes the derivative ideal sufficient; no projective zero makes it a height-three regular sequence with Hilbert series (1+t+t²)^3 and zero degree-seven quotient; conversely a projective zero forces rank failure. The replay gives 222 smooth forms, with exact normalized candidate and smooth lists agreeing with the frozen files. Substitution by the stabilizer gives nine 24-element orbits and one six-element orbit, containing the displayed exceptional form. Hence the total is 51948 with sizes 5616 (nine) and 1404 (one) and stabilizer orders 1 and 4.",
+      "residual_risks": [
+        "Counts are for this fixed field and projective-equation convention, not a census of all blocking quartics or an abstract isomorphism census."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The nonblocking bound for smooth quartics applies to q≥19; the F3 density example assumes degree ≥5; the inspected genus-three quartic computation ranges over prime characteristics 11 to 53. The distinct Weil-polynomial study gives the exact census and then further classifies its arithmetic."
+        ],
+        "reasoning": "The three primary sources do not cover the precise field/degree/condition combination in their displayed theorems and tables, but the stronger indexed arithmetic study covers it expressly.",
+        "searches": [
+          "Asgarli–Ghioca–Yip arXiv:2208.13299, Theorem 1.4 and §3.3; arXiv:2211.08523, Example 7.2; Lercier–Ritzenthaler–Rovetta–Sijsling arXiv:1403.0562, §5.3 and Table 2"
+        ]
+      },
+      "checked_sources": [
+        "Distinct Resultary Weil-polynomial, ternary blocking set, tangent-filling and blocking-cubic records; Asgarli–Ghioca–Yip arXiv:2208.13299 and 2211.08523; Lercier et al. arXiv:1403.0562.",
+        "Coolsaet–Botteldoorn–Fack DOI 10.1002/jcd.21842 was identified, but exact full-text finite-geometric results could not be inspected via the attempted lawful routes."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exchange graph Finding gives minimum 6, count 234 and one orbit for the point sets; Blokhuis's bound specializes to six. The matched arithmetic record's proof supplies the evaluation rank, 567 candidates, 222 smooth and full orbit calculation."
+        ],
+        "reasoning": "Classification of blocking point configurations alone does not give smooth quartic realizations. The matched arithmetic baseline does: multiplying and applying orbit–stabilizer recovers the counts, and the cited substitution matches the exceptional class explicitly.",
+        "searches": [
+          "Local Resultary minimum ternary blocking sets/exchange graph (2026/10/25); matched arithmetic record, Proof and representatives.json; Blokhuis lower bound as cited in arXiv:2208.13299"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ten distinct Weil polynomials for minimal smooth blocking quartics over F3, Finding and Proof: same geometric smoothness, identical fixed field, cardinality six, line incidence, scalar quotient and rational projective action. Its exceptional representative matches by the explicit projective substitution above.",
+          "Same-day tangent-filling quartics have four collinear points; same-day smooth blocking cubics have degree three."
+        ],
+        "reasoning": "The arithmetic study is a true equivalent baseline on the actual parameter space, unlike either same-day hit. A coordinate choice for the representative is not additional content of a projective class census.",
+        "searches": [
+          "Local Resultary: smooth F3 quartics with six-point extremal nontrivial blocking sets, projective orbits, 222 quartics per set, blocking cubics, tangent-filling quartics"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matched record gives exact totals 51948 and 222, global sizes 5616 and 1404, and the ten coefficient representatives in representatives.json. Its arithmetic table shows relative orbit sizes nine times 24 and once 6."
+        ],
+        "reasoning": "The table is restricted to the same blocking locus, not simply a catalogue of genus-three curves or another quartic property; all class-size and stabilizer assertions follow from it.",
+        "searches": [
+          "Local Resultary: 51948, 222, minimal smooth blocking quartics, ten Weil polynomials; quartic projective catalogues"
+        ]
+      },
+      "rationale": "A distinct published study of Weil polynomials for these very same quartics explicitly includes the full baseline projective census and its ten class representatives. The seemingly different exceptional equation in that study is in the same projective class by x↦x, y↦z, z↦y+z in the frozen representative, then scalar normalization. The distinct record's November 8 path follows the assigned October 26 path; exact published coverage is established, historical priority or dependence is not.",
+      "residual_risks": [
+        "The relationship between the two catalogue entries and priority of the computation are unresolved. The decision credits direct equivalent coverage in an available distinct record, not the inaccessible paper or an inference from dates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Full baseline coverage; no inference of earlier priority",
+          "evidence": "Its size-six stabilizer orbit uses vector 001121212100110, obtained from the frozen exceptional representative by substitution and normalization. It gives the same baseline totals; the different Weil polynomials are additional to the frozen finding.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-ten-distinct-weil-polynomials-for-minimal-smooth-blocking-quarti--3dfa7631fc9e",
+          "material_read": "RESULT.md Finding and Proof, mirror offsets 0–4748; representatives.json last orbit, offsets 3980–4465; snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local index and bounded mirror inspection; exact coefficient substitution",
+          "title": "Ten distinct Weil polynomials for minimal smooth blocking quartics over F3",
+          "trigger": "Exact field, degree, blocking condition and class sizes"
+        },
+        {
+          "assessment": "Covers the finite geometry, not the smooth quartic lifts",
+          "evidence": "Six-set minimum, 234 sets, single orbit and frame-line description.",
+          "identifier_or_url": "2026/10/25/SCOPE-the-six-regular-exchange-graph-of-minimum-nontrivial-ternary-pro--2ff15d411d81",
+          "material_read": "Finding, mirror beginning",
+          "method": "Local search and mirror inspection",
+          "title": "The six-regular exchange graph of minimum nontrivial ternary projective blocking sets",
+          "trigger": "Same extremal point sets"
+        },
+        {
+          "assessment": "Different point-set condition",
+          "evidence": "Four collinear points and tangent filling, with three types and 3042 equations.",
+          "identifier_or_url": "2026/10/26/SCOPE-three-projective-types-of-four-point-tangent-filling-quartics-ov--507518098bb6",
+          "material_read": "Finding, mirror beginning",
+          "method": "Local search and mirror inspection",
+          "title": "Three projective types of four-point tangent-filling quartics over F3",
+          "trigger": "Same-day quartic projective census over F3"
+        },
+        {
+          "assessment": "Different degree",
+          "evidence": "One orbit of 936 cubic equations, not a quartic count.",
+          "identifier_or_url": "2026/10/26/SCOPE-unique-projective-class-of-smooth-blocking-plane-cubics-over-mat--76ee7066ac40",
+          "material_read": "Finding, mirror beginning",
+          "method": "Local search and mirror inspection",
+          "title": "Unique projective class of smooth blocking plane cubics over F3",
+          "trigger": "Same-day smooth blocking curves with six rational points"
+        },
+        {
+          "assessment": "Partial context only",
+          "evidence": "Nonblocking for q≥19 and an example over F9; the prime-field blocking bound yields minimum six at p=3.",
+          "identifier_or_url": "https://arxiv.org/abs/2208.13299",
+          "material_read": "Theorem 1.4 (p. 2), prime-field bound discussion (p. 3), §3.3 and Remark 3.8 (p. 11)",
+          "method": "Bounded OA original passages",
+          "title": "Plane curves giving rise to blocking sets over finite fields",
+          "trigger": "Primary smooth quartic blocking results"
+        },
+        {
+          "assessment": "Different degree range and invariant",
+          "evidence": "The ternary example uses degree at least five, not a quartic smooth-orbit census.",
+          "identifier_or_url": "https://arxiv.org/abs/2211.08523",
+          "material_read": "Example 7.2 (p. 19)",
+          "method": "Bounded OA original passage",
+          "title": "Most plane curves over finite fields are not blocking",
+          "trigger": "Exact ternary blocking densities"
+        },
+        {
+          "assessment": "Inspected catalogue excludes characteristic three",
+          "evidence": "The displayed computation treats primes 11–53 and tabulates by automorphisms, not blocking.",
+          "identifier_or_url": "https://arxiv.org/abs/1403.0562",
+          "material_read": "§5.3 and Table 2, pp. 13–14",
+          "method": "Bounded OA original passages",
+          "title": "Parametrizing the moduli space of curves and applications to smooth plane quartics over finite fields",
+          "trigger": "Potential covering smooth quartic catalogue"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof; matched arithmetic study's Finding, Proof and representatives.json."
+      ],
+      "rationale": "The census asks a natural finite-geometric realization question, but the exact baseline and representatives are already available together in the matched arithmetic classification. The frozen record adds no further mathematical distinction for these ten types; a redisplayed representative and an exact independent recomputation of the same census do not supply a surviving distinct finding.",
+      "residual_risks": [
+        "This assesses contribution relative to the available corpus; it does not deny that the shared classification is useful mathematics."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

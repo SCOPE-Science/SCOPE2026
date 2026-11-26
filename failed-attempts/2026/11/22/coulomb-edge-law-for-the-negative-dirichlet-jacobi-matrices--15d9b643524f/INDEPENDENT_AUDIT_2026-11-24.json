@@ -1,0 +1,157 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:06:08.890487Z",
+  "axes": {
+    "correctness": {
+      "rationale": "RESULT.md lines 23–60: the hoppings converge to 1, giving a compact perturbation of the free half-line operator with essential spectrum [−2,2]. Outside that interval the recurrence starting at site zero gives simplicity, and alternating signs give exact reflection. Deleting interblock bonds costs at most two per cut for strict threshold counts. The exact constant-hopping cosine count with rounding error at most one and a 2Δ norm bound apply on each block. Below ε^(−1/3) a dimension bound suffices; the dyadic blocks up to η/ε have O_s(√m+1) counts apiece by comparison to the free block at threshold 2−C_s/m. The terminal tail beyond (s+η)/ε has norm below 2+ε. On the remaining scaled compact interval the uniform expansion 2a_n=2+sε/x+O_{s,η}(εδ+ε²) and the two shifted thresholds give upper and lower Riemann sums, with continuous positive-part square root even at the turning point. The omitted small-x integral is O_s(√η); substituting x=s sin²u gives the normalized integral s/2. Strict monotone count inversion gives the coefficient s²/4 in the j-law; a jump at an equality threshold changes the count by only one because of simplicity. The frozen checker was read, not run; its finite truncations test consistency, not the limit. No claim about the top eigenvalue or parameter uniformity is proved or needed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "b8745f13efaa §4 explicitly states √ε N_{κ,g}(ε)→g/(2√κ) for the form −κΣ|∇u|²+Σ(g/n)|u|² on a half-line tail, with κ,g arbitrary positive. Its §5 bounds the original variable-bond form above and below using relative coefficient errors and finite-rank boundary corrections.",
+          "Zlatoš treats the same asymptotic coefficient class for a Szegő-condition theorem, not the needed count in the inspected statements."
+        ],
+        "reasoning": "On the frozen tail take V_n=a_n+a_{n−1}−2=s/n+O_s(n^(−2)). For each 0<η<1 take the tail far enough that 1−η≤a_n≤1+η and (1−η)s/n≤V_n≤(1+η)s/n. Min–max sandwiches counts between the comparison operators with (κ,g)=(1+η,(1−η)s) and (1−η,(1+η)s), modulo a finite number of boundary dimensions. Taking the threshold limit and then η→0 gives s/2. This is exactly the comparator's transfer with the frozen coefficients, not an additional spectral theorem.",
+        "searches": [
+          "Resultary b8745f13efaa proof §§3–5",
+          "Zlatoš Szegő Condition for Coulomb Jacobi Matrices, Eq. (1.4), Proposition 1.1 and Theorem 1.2",
+          "DLMF §18.35 Coulomb/Pollaczek recurrence and mass points"
+        ]
+      },
+      "checked_sources": [
+        "Resultary b8745f13efaa Finding and §§3–5; 15d9b643524f exact self-match; 0752f3718434 Finding",
+        "DLMF §18.35(i)–(ii)",
+        "Zlatoš pp. 2–3",
+        "arXiv:1606.08615 pp. 9–11",
+        "arXiv:2102.01725 Open Question 1",
+        "arXiv:1301.2125 Prop. 4",
+        "DOI:10.1090/proc/14405 bibliographic record only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The optimal-approximants paper already identifies the frozen Jacobi family and its norm application. The survey's open norm question is not solved. The broader discrete count specializes to s/2, and recurrence simplicity, count inversion and alternating-sign symmetry recover all the remaining frozen conclusions."
+        ],
+        "reasoning": "The differing headline parameters do not distinguish the actual mathematical content. The operative strength g and kinetic κ can be read off from the first-order hopping expansion; there is no leftover edge law beyond the standard inversion and reflection. The failure is verified coverage, not a claim the frozen proof is false.",
+        "searches": [
+          "b8745f13efaa proof §§3–5, local mirror offset 4550",
+          "arXiv:1606.08615 equation (16), Theorem 4.2 and Corollary 4.3",
+          "arXiv:2102.01725 Open Question 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For a_{−1}=0, the form of J_s−2I is −Σa_n|u_{n+1}−u_n|²+Σ(a_n+a_{n−1}−2)|u_n|². Its kinetic coefficient tends to 1 and the potential is s/(n+1)+O_s(n^(−2)).",
+          "In the DLMF recurrence put (λ,a_P,b_P,c)=(1,0,−g/2,0) and double the Jacobi operator: this gives unit hoppings and diagonal g/(n+1). Equation 18.35.6_4 and reflection 18.35.2_5 give exterior levels E_j=√(4+g²/j²), j≥1. Independent check: for E>2 the generating function of the half-line recurrence solves (1−Ez+z²)f'=(E−g−2z)f; at the root r∈(0,1) its exponent is g/√(E²−4)−1, so exactly the stated nonnegative-integer exponents give ℓ² eigenvectors."
+        ],
+        "reasoning": "The frozen operator is not literally Pollaczek and the 2013 confluent-hypergeometric model is not the needed comparison. In quadratic-form coordinates, however, the frozen count is squeezed between constant-kinetic diagonal Coulomb counts. Scaling the diagonal comparator to kinetic κ gives normalized count g/(2√κ), which is stable under the required relative bounds. The strict threshold, inverse j-law, and negative side are equivalent consequences here.",
+        "searches": [
+          "Coulomb Jacobi operator discrete spectral threshold counting off-diagonal 1+α/n and Pollaczek models (focused literature lookup)",
+          "DLMF §18.35 equations 18.35.2_1, 18.35.2_4 and 18.35.6_4",
+          "b8745f13efaa proof §§3–5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The mirrored 15d9b643524f Finding is the identical record. Distinct b8745f13efaa has a different headline Bergman-Toeplitz family and headline edge, yet its proof states the general comparison with both constants free. Distinct 0752f3718434 has a cutoff/existence law in the related Bergman family."
+        ],
+        "reasoning": "No need for an earlier exact table of this sequence: the stronger indexed result covers the count by direct implication, despite not using the same top-level title or coefficient. The finite numerical checks add no new exact array or analytic invariant.",
+        "searches": [
+          "Resultary: negative Dirichlet Jacobi Coulomb spectral edge eigenvalue threshold and high-index count",
+          "Resultary 15d9b643524f Finding and b8745f13efaa Finding/proof"
+        ]
+      },
+      "rationale": "Verified stronger coverage, not a literature-access failure: distinct Resultary record b8745f13efaa proves the general discrete Coulomb comparison formula in proof §4 and the matching kinetic/potential squeeze in §5. The exact frozen count follows by direct substitution of free kinetic coefficient 1 and tail strength s, for every fixed s>0. The hypotheses of the general comparison, unlike those of that record's particular Bergman-Toeplitz application, do not restrict s. A classical explicit Pollaczek comparator independently gives the same squeeze. No priority or order is inferred from the shared date of the two records.",
+      "residual_risks": [
+        "No historical chronology is inferred between distinct same-day catalogue records. The mathematical implication is established independently of chronology.",
+        "The associated-Pollaczek full text was unavailable; this does not qualify the verified coverage, which uses the separate stronger indexed theorem and the exact comparator above."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Broader operative theorem directly covers the assigned count, regardless of different headline application or same-day catalogue date.",
+          "evidence": [
+            "§4 formula g/(2√κ) for κ,g>0; §5 form-comparison transfer from asymptotically constant kinetic and Coulomb potential."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-the-half-power-spectral-transition-and-coulomb-edge-law-for-berg--b8745f13efaa/RESULT.md",
+          "material_read": "Finding; end of form reduction and proof §§4–5",
+          "method": "Configured Resultary search and local mirror, especially offset 4550",
+          "title": "The half-power spectral transition and Coulomb edge law for Bergman Toeplitz operators",
+          "trigger": "Strongest distinct indexed Coulomb edge result; possible broader lemma"
+        },
+        {
+          "assessment": "The a_P=0, λ=1 type-2 diagonal Coulomb comparator is exact and works for each g>0; comparison, rather than equality to the frozen operator, transfers the leading law.",
+          "evidence": [
+            "At λ=1, a_P=c=0 the doubled recurrence has unit hoppings and diagonal −2b_P/(n+1); the mass regime and symmetry give E_j=√(4+g²/j²) for b_P=−g/2."
+          ],
+          "identifier_or_url": "https://dlmf.nist.gov/18.35",
+          "material_read": "§18.35(i) recurrence (18.35.2)–(18.35.2_5) and §18.35(ii) mass formula (18.35.6_4) and reflection condition",
+          "method": "Direct OA HTML offsets 2530 and 13950; parameter substitution and independent recurrence check",
+          "title": "NIST Digital Library of Mathematical Functions: Pollaczek Polynomials",
+          "trigger": "Classical comparator potentially proving the sharp coefficient for all s"
+        },
+        {
+          "assessment": "Hypotheses overlap; inspected conclusions concern the Szegő condition, not the edge constant.",
+          "evidence": [
+            "Set α=s/2 in a_n=1+α/n+O(n^(−2)), b_n=0."
+          ],
+          "identifier_or_url": "https://mathweb.ucsd.edu/~zlatos/Papers/szego.pdf",
+          "material_read": "pp. 2–3, equation (1.4), Proposition 1.1 and Theorem 1.2",
+          "method": "OA primary PDF",
+          "title": "The Szegő Condition for Coulomb Jacobi Matrices",
+          "trigger": "Same Coulomb asymptotic coefficient class"
+        },
+        {
+          "assessment": "Identifies the operator/norm interpretation; not an all-eigenvalue statement in inspected passages.",
+          "evidence": [
+            "Substitute ω_n=(n+1)^(−s) in its weight-ratio Jacobi recurrence."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1606.08615",
+          "material_read": "p. 9 equation (16) and Prop. 4.1; pp. 10–11 Theorem 4.2 and Corollary 4.3",
+          "method": "OA primary PDF passages",
+          "title": "Zeros of optimal polynomial approximants: Jacobi matrices and Jentzsch-type theorems",
+          "trigger": "Exact motivating family"
+        },
+        {
+          "assessment": "Largest-eigenvalue question is different and remains outside the frozen law.",
+          "evidence": [
+            "Open question about the norm with negative Dirichlet exponent, excluding the solved Bergman case."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2102.01725",
+          "material_read": "pp. 17–18, Open Question 1",
+          "method": "OA PDF passage",
+          "title": "A survey of optimal polynomial approximants, applications to digital filter design, and related open problems",
+          "trigger": "Motivation and scope of the previously open extremum"
+        },
+        {
+          "assessment": "The inspected special-function operator is Hilbert–Schmidt, not the noncompact operator or constant-hopping comparison used here.",
+          "evidence": [
+            "Nonzero spectrum described via confluent hypergeometric zeros for a compact regular-Coulomb model."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1301.2125",
+          "material_read": "Abstract, pp. 7–8 equations (23)–(26) and Proposition 4",
+          "method": "OA PDF passages",
+          "title": "Special functions and spectrum of Jacobi matrices",
+          "trigger": "Other solvable Coulomb Jacobi examples"
+        },
+        {
+          "assessment": "No implication or exclusion based on these access attempts; separate DLMF and indexed evidence settle coverage.",
+          "evidence": [
+            "Proc. AMS 147(6), 2583–2597 (2019)."
+          ],
+          "identifier_or_url": "https://doi.org/10.1090/proc/14405",
+          "material_read": "Bibliographic record only",
+          "method": "Bounded lawful DOI/AMS retrieval did not yield full text",
+          "title": "Asymptotics of the associated Pollaczek polynomials",
+          "trigger": "Plausible Pollaczek parameter and asymptotic coverage"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The operator and edge invariant are natural, and the frozen proof is a usable elementary exposition. But as an asserted exact new result, the coefficient is a direct evaluation of an already available general Coulomb formula at κ=1,g=s. The inverse eigenvalue and symmetry statements are routine consequences, and neither the motivating top-eigenvalue problem nor a refined error or uniform law is addressed. The specialization alone supplies no independent mathematical gain warranting acceptance.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

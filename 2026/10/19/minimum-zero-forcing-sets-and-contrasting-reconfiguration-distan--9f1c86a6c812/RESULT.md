@@ -1,55 +1,43 @@
 # Minimum zero forcing sets and contrasting reconfiguration distances in the Pappus graph
 
 ## Finding
-Let \(P\) be the Pappus graph, with nine point vertices \(p_{x,y}\) and nine line vertices \(\ell_{m,b}\), indexed by \(x,y,m,b\in\mathbb F_3\), where \(p_{x,y}\sim\ell_{m,b}\) precisely when \(y=mx+b\). Write \(Z(P)\) for the minimum cardinality of an initial blue set from which the usual zero-forcing color-change rule colors every vertex blue.
 
-**Finite classification theorem.** One has \(Z(P)=7\), and exactly \(6912\) minimum zero-forcing sets. Among these, \(3456\) contain three point vertices and four line vertices; the remaining \(3456\) contain four point vertices and three line vertices.
-
-Let \(J(P)\) have the minimum sets as vertices, with an edge between sets differing by replacement of one vertex by any unselected vertex (token jumping). Let \(T(P)\) restrict the replacement to an edge of \(P\) (token sliding). Both graphs are connected, but their distance geometry is sharply different:
-
-\[
-\begin{aligned}
-|V(J(P))|&=6912,&|E(J(P))|&=97524,&\operatorname{rad}(J(P))&=7,&\operatorname{diam}(J(P))&=7,\\
-|V(T(P))|&=6912,&|E(T(P))|&=10962,&\operatorname{rad}(T(P))&=16,&\operatorname{diam}(T(P))&=18.
-\end{aligned}
-\]
-
-All \(6912\) vertices of \(J(P)\) have eccentricity seven. In \(T(P)\), the numbers of vertices of eccentricities \(16,17,18\) are respectively \(648,4968,1296\). An explicitly checked group of \(216\) automorphisms of \(P\) has \(35\) orbits on the optimal seed sets, and preserves both reconfiguration graphs.
+The **token-jumping graph of the minimum zero-forcing sets of the Pappus graph** has 6,912 vertices and 97,524 edges. It is connected, and every vertex has eccentricity seven. Thus unrestricted one-for-one exchanges make this graph self-centered. For comparison, the token-sliding graph on the same set of configurations is connected with radius sixteen, diameter eighteen, and three eccentricity classes. The minimum-set count and the token-sliding calculation are exact comparison data already given in [2], not distinct contributions here. The result under consideration is the exact jump graph census and the resulting jump-versus-slide distance contrast.
 
 ## Assumptions and scope
-Throughout, graphs are finite, undirected, and simple. Write \(B_0=S\) for an initial set of blue vertices. Given \(B_t\), a blue vertex forces its unique white neighbor, if one exists; let \(B_{t+1}\) contain \(B_t\) and all such vertices forced at this step. A set is zero forcing if some \(B_t\) is the full vertex set. The sequential color-change rule yields the same closure: each legal force can only become redundant when other vertices become blue, and no white vertex is ever reintroduced. A set is minimum if its size equals \(Z(P)\).
 
-Each configuration is an *unordered* seven-vertex set. A jump changes precisely one selected vertex; a slide additionally requires its departing and arriving vertices to be adjacent in the original Pappus graph. No intermediate suboptimal configurations are allowed. Radius, diameter and eccentricity refer to shortest-path distances in these connected undirected reconfiguration graphs.
+Use the biaffine model of the Pappus graph \(P\): point vertices \(p_{x,y}\) and line vertices \(\ell_{m,b}\), for \(x,y,m,b\in\mathbb F_3\), are adjacent precisely when \(y=mx+b\). This is a simple undirected incidence graph with 18 vertices, 27 edges, and degree three. Starting from a set of blue vertices, a blue vertex with exactly one white neighbor can turn that neighbor blue. A set is zero forcing if it can color the whole graph blue. Equivalently one can apply all available forces in rounds: a legal force remains legal or its target has already turned blue.
+
+The configurations are unordered minimum zero-forcing sets. A jump replaces one selected vertex by an arbitrary unselected vertex; a slide additionally requires the departing and arriving vertices to be incident in \(P\). Both endpoints of each step must be minimum forcing sets. Distance is shortest-path distance with the chosen move rule.
 
 ## Proof
-**(1) Exact base graph and forcing census.** The displayed incidence rule gives \(18\) labeled vertices, \(27\) edges, and degree three at each vertex. The bundled programs `verification/verify_pappus_cpp.cpp` and `verification/verify_pappus_python.py` construct this graph independently, with different vertex indexings. Both test *every* subset of sizes \(1\) through \(7\) by repeated, simultaneous application of all currently enabled forcing moves. They find no forcing subset of sizes \(1\) through \(6\), and exactly \(6912\) forcing subsets of size \(7\). Thus no smaller zero-forcing set exists, and all optimal sets have been enumerated. Counting their incidences with the point class produces the two populations of size \(3456\) each, with no other splits.
 
-**(2) Exact exchange graphs.** For each enumerated optimal set \(S\), the programs test every pair \((u,v)\) with \(u\in S\) and \(v\notin S\), admitting the exchange \((S\setminus\{u\})\cup\{v\}\) exactly when the replacement is another enumerated optimum; for sliding they also require \(u\sim v\) in \(P\). Since each exchange has a unique departure and arrival vertex, this construction finds every allowed undirected edge exactly twice. The two independent implementations obtain \(97524\) and \(10962\) undirected edges, respectively. Breadth-first component searches show a single component with all \(6912\) states in both graphs.
+**Complete census of states.** Generate the graph from the displayed incidence equation. Apply the color-change rule to every subset of sizes one through seven (the empty set does not force). There are no forcing sets of sizes below seven, and exactly 6,912 of size seven. They consist of 3,456 sets with three points and four lines and 3,456 with four points and three lines. This reconstructs the entire jump state space, not just example optima. The minimum seven and total 6,912 agree with [2].
 
-**(3) Exact shortest-path and centrality census.** The C++ program independently performs breadth-first search from **every one** of the \(6912\) states of each reconfiguration graph and records the maximum distance in every search. It finds the complete eccentricity distributions \(\{7:6912\}\) for jumping and \(\{16:648,17:4968,18:1296\}\) for sliding; taking minima and maxima yields the stated radii and diameters.
+**Complete census of moves.** For each optimal set \(B\), and each pair \(u\in B\), \(v\notin B\), include the move exactly when \((B\setminus\{u\})\cup\{v\}\) occurs in the complete list. Each undirected jump is then generated twice, once from each endpoint. This gives 97,524 edges. Mark a move as a slide exactly when \(u\sim v\) in \(P\); the 10,962 slides agree with [2].
 
-**(4) Independent group-orbit distance check.** The Python program builds the same graph from a coordinate convention different from C++, constructs \(108\) affine incidence automorphisms, and composes each with a point–line polarity, obtaining \(216\) distinct vertex permutations. Every one is checked against all \(27\) edges, so these are genuine graph automorphisms. They induce reconfiguration-graph automorphisms, because being a minimum forcing set and being an allowed exchange are invariant under graph automorphisms. The \(6912\) optimal sets partition into exactly \(35\) resulting orbits. Python performs breadth-first searches from one representative of every orbit and multiplies eccentricity counts by its orbit size; it reproduces every eccentricity and both radii and diameters from part (3). Independent degree distributions and edge counts agree as well. These exhaustive finite checks complete the claim. \(\square\)
+**Distances.** A breadth-first traversal of the jump graph from each one of its 6,912 roots reaches all 6,912 vertices and has maximum distance seven. On the slide graph, full traversals reach all states and give eccentricities 16, 17 and 18 with multiplicities 648, 4,968 and 1,296, respectively. These latter data are the comparison with [2].
+
+**Orbit check.** An independently indexed calculation constructs a group of 216 incidence automorphisms and checks preservation of all base edges. This action preserves both zero forcing and the move rules. There are 35 orbits on the optimal seed sets. Weighting the eccentricity of a root in each orbit by the orbit size reproduces both full distance distributions. This orbit calculation is a check on the finite enumeration; it is not a claim about the automorphism groups of the reconfiguration graphs themselves.
 
 ## Verification
-Run from the directory containing the bundled `verification/` subdirectory:
 
-```
+The bundled standalone programs use exact combinatorial tests. The C++ program exhausts the state and move lists and performs all-root breadth-first search. The Python program uses another indexing, checks the automorphisms and computes distances from representatives of every orbit. To reproduce from the directory containing `verification/`, run:
+
+```sh
 g++ -O3 -std=c++17 verification/verify_pappus_cpp.cpp -o verify_pappus_cpp
 ./verify_pappus_cpp
 python3 verification/verify_pappus_python.py
 ```
 
-The expected stdout is recorded verbatim in `verification/cpp_output.txt` and `verification/py_output.txt`. The C++ code enumerates complete state spaces and executes all-root breadth-first searches; the Python code independently generates and verifies the automorphism reduction and checks all state exchanges. These are executable *finite* proof certificates for the 18-vertex graph, rather than sampled evidence or an unproved induction.
+The expected outputs are `verification/cpp_output.txt` and `verification/py_output.txt`. The computations prove the stated finite result only, not a theorem for other incidence graphs.
 
-## Relationship to prior work
-Zero forcing was introduced to bound maximum nullity and minimum rank by the AIM Minimum Rank group. Davila and Kenter's arXiv preprint (publicly posted 2014-06-02) proves lower bounds for girth-constrained graphs, not a minimum-set or transformation classification for \(P\). Gentner and Rautenbach prove more refined zero-forcing bounds for regular large-girth graphs, not these counts or distances. Geneson, Haas and Hogben introduce and study the general zero-forcing reconfiguration graph, including a token-jumping definition equivalent to \(J(P)\); their primary manuscript's complete text treats general theorems and selected families, without giving the present Pappus-graph calculation. The minimum forcing-set count, full two-move comparison, and exact eccentricity distributions are not implied by those general statements. The original graph is the biaffine incidence graph over \(\mathbb F_3\).
+## Relationship to other results
 
-## Limitations
-This is an exact result only for the 18-vertex Pappus graph. It does **not** assert a formula for larger biaffine incidence graphs, nor polynomial-time computation for general graphs. This is a same-model finite proof and literature assessment, not an independently validated or externally certified result. Novelty remains subject to independent examination of unindexed literature, supplementary tables, and equivalent formulations. The C++ and Python implementations are structurally distinct but share the same mathematical definitions.
+Geneson, Haas and Hogben [1] use exactly the jump rule above in their general definition of the reconfiguration graph of minimum zero-forcing sets. Their framework does not supply the Pappus jump edge count or distances in the text compared here. The exact indexed Pappus slide and seed results of [2] are not treated as new: [2] gives \(Z(P)=7\), the 6,912 states, 10,962 slide edges, connectedness, radius 16, diameter 18 and the same three slide eccentricity classes. Those statements do not determine the distances after arbitrary replacements are permitted. The added exact information is that every optimum in the jump graph has a farthest state at distance exactly seven. The comparison of scientific content makes no claim about who obtained the shared calculations first. Other unindexed or supplementary calculations may contain the same jump result.
 
 ## References
-1. AIM Minimum Rank – Special Graphs Work Group, “Zero forcing sets and the minimum rank of graphs,” *Linear Algebra and its Applications* **428** (2008), 1628–1648, DOI:10.1016/j.laa.2007.10.009.
-2. R. Davila and F. Kenter, “Bounds for the Zero-Forcing Number of Graphs with Large Girth,” arXiv:1406.0482, version 1 publicly posted 2014-06-02. https://arxiv.org/abs/1406.0482
-3. M. Gentner and D. Rautenbach, “Some Bounds on the Zero Forcing Number of a Graph,” arXiv:1608.00747 (2016). https://arxiv.org/abs/1608.00747
-4. J. Geneson, R. Haas and L. Hogben, “Reconfiguration graphs of zero forcing sets,” arXiv:2009.00220 (2020). https://arxiv.org/html/2009.00220v1
-5. “Pappus graph,” DistanceRegular.org graph record. https://www.math.mun.ca/distanceregular/graphs/pappus.html
+
+1. J. Geneson, R. Haas and L. Hogben, *Reconfiguration graphs of zero forcing sets*, [arXiv:2009.00220](https://arxiv.org/abs/2009.00220).
+2. *Local zero-forcing mobility separates the Pappus and Desargues incidence graphs*, Resultary, [exact finite classification theorem](https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-local-zero-forcing-mobility-separates-the-pappus-and-desargues-i--c9fe15cd9378/RESULT.md).
+3. A. E. Brouwer, [Pappus graph](https://aeb.win.tue.nl/drg/graphs/Pappus.html), for the incidence model and the group order.

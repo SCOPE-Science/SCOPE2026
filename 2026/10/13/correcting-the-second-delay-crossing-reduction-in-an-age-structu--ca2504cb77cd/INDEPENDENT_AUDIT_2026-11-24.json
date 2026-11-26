@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:57:14.394644Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verification/verify.py (read, not executed)",
+        "Corrected /workspace/repairs/2/RESULT.md, Finding and Proof",
+        "Li–Liu–Cai publisher PDF §3.2 pp. 7003–7005 and §4 p. 7007",
+        "Independent replay: python3 /workspace/checks/check_delay.py; rational sign certificates and illustrative phase pairs"
+      ],
+      "rationale": "In the replacement, at each specified ω>0 write z=e^(−iωτ₂), v=e^(−iωτ₁). The root equation is (a+bz)+(c+H₁z)v=0. The modulus equality is sufficient as well as necessary when τ₁ can vary: take the unit ratio v if its denominator is nonzero, and take any phase if both complex terms vanish. The squared-modulus difference has constant |a|²+|b|²−|c|²−H₁²=K₂ and mixed coefficient a·conj(b)−cH₁=−U₂−iV₂, so both printed square-sign errors and the erroneous imaginary coefficient/phase are resolved. If R₂>0, the equation is K₂=2R₂ cos(θ+φ₂) with |K₂|<=2R₂ necessary and sufficient and endpoints allowed. If R₂=0 it is either inconsistent (K₂≠0) or puts no constraint on τ₂ (K₂=0). The numerical coefficients, interval, and printed formulas were verified in the primary PDF. With those exact decimals, 4(U₂²+V₂²)−K₂² is strictly positive while the corresponding printed expression is strictly negative, and both numerators are positive. Independent values 0.873811900596866 and 1.242308499247486 match the finding; assembling the other phase gave two positive delay pairs with tiny root residuals as a diagnostic. This is a projection of the imaginary-root locus, not a transversality or fixed-τ₁ assertion.",
+      "residual_risks": [
+        "The witness concerns source-rounded coefficients. It does not certify a plotted curve, a nonlinear Hopf bifurcation, or the full two-delay stability region."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The formula for cos ψ₂ uses |P₀|²−|P₁|²+|P₂|²−|P₃|² and √(A₂²+B₂²); A₂ and B₂ are the real and imaginary parts of the same pair of conjugate products."
+        ],
+        "reasoning": "Substituting P₀=a, P₁=c, P₂=b, P₃=H₁ recovers the corrected regular-case formulas. That prior coverage is credited; it is not a diagnosis of the later displayed errors or of the incompatible numerical test with the 2026 inputs.",
+        "searches": [
+          "Lin–Wang, Stability analysis of delay differential equations with two discrete delays (2012), Eqs. (14)–(15)"
+        ]
+      },
+      "checked_sources": [
+        "Publisher PDF DOI 10.3934/math.2026287, checked passages",
+        "Lin–Wang author-hosted PDF, Eqs. (14)–(15)",
+        "Local Resultary DOI, formula, and scope searches and checked Findings"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The first Resultary analogue corrects a τ₂=0 first τ₁ threshold in a Beddington–DeAngelis model, from 4.5923 to about 4.87169. The second corrects a one-delay first crossing in a fractional Lotka–Volterra example. Neither uses the present coefficients or two-delay section."
+        ],
+        "reasoning": "An existing theorem implies the generic regular projection and its specialization; the separate implication of interest is that the later article's actual expressions and reported input/output are inconsistent. Neither the general theorem alone nor the inspected other corrections state that source-specific diagnosis and witness.",
+        "searches": [
+          "Lin–Wang p. 524 compared termwise with Li–Liu–Cai (3.11)–(3.13)",
+          "Resultary records 4adf4c8cb2eb and 6affbd05c3f2, RESULT.md Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "These are the two-delay characteristic function and its phase reduction in the source's own variables; a squared-modulus test and the amplitude feasibility test are equivalent at R₂>0. Lin–Wang already uses both components."
+        ],
+        "reasoning": "This is not a novel method or a difference of phase convention: the printed and corrected real inequalities disagree before any argument convention or branch choice can matter.",
+        "searches": [
+          "Local Resultary: DOI/title, coefficient/phase notation, second-delay correction and first-crossing aliases",
+          "Li–Liu–Cai pp. 7003–7005; Lin–Wang p. 524"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The original source remains uncorrected at pp. 7004 and 7007; it lists the coefficients used in the replay and Ω=[1.015,1.838]. The surfaced correction records concern separate examples; no exact matching corrigendum was surfaced."
+        ],
+        "reasoning": "The paper's own displays and crossing-frequency range are the relevant exact tabulated evidence, not an independent contribution. The witness tests that range rather than merely reprinting it; the bounded searches are not evidence that no correction exists anywhere.",
+        "searches": [
+          "Li–Liu–Cai publisher PDF offsets 82300 and 88900 (displays, numerical data and reported interval)",
+          "Local Resultary exact DOI/title and erratum/correction searches; targeted primary DOI/title search"
+        ]
+      },
+      "rationale": "The generic phase construction and regular formulas as its specialization are covered, not claimed as new. The distinct supported finding is the explicit diagnosis of incompatible equations in this 2026 paper and the counterexample to the paper's own printed frequency test using its reported data. The zero-amplitude clarification repairs scope, and is not counted as an independent novelty. No inspected prior correction is equivalent to the supported distinct claim.",
+      "residual_risks": [
+        "An unindexed erratum or informal derivation may exist. No inference is made about which expressions generated Figure 4."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly confirms equation and actual display mismatch, as well as the source's rounded inputs and interval",
+          "evidence": "(3.11) has +D₁²−Q₁², the phase uses arg(U₂+iU₂), (3.12) uses Q₁ω³−(B₁Q₁+A₁L₁)ω−D₁H₁, and §4 reports Ω=[1.015,1.838] with the checked decimals.",
+          "identifier_or_url": "https://www.aimspress.com/aimspress-data/math/2026/3/PDF/math-11-03-287.pdf",
+          "material_read": "§3.2 characteristic equation near offset 76000, pp. 7003–7005 including (3.11)–(3.13) at offset 82300; numerical §4 p. 7007 near offset 88900; reference [28] on p. 7012 approximately offset 101112",
+          "method": "Lawful publisher OA PDF, targeted literal locators and bounded offset passages",
+          "title": "Hopf bifurcation of predator-prey model with age structure",
+          "trigger": "Primary characteristic equation, displayed errors and data used in the exact witness"
+        },
+        {
+          "assessment": "General method covers regular-case specialization; not an earlier correction of 2026 paper",
+          "evidence": "Both A₂ and B₂ appear in the amplitude and angle, with constant |P₀|²−|P₁|²+|P₂|²−|P₃|².",
+          "identifier_or_url": "https://www.math.ualberta.ca/~hwang/TwoDelayCAMQ.pdf",
+          "material_read": "Journal p. 524 Eqs. (14)–(15) and discussion of Ω₁=Ω₂; PDF offset 10125 onward",
+          "method": "Lawful author-hosted OA PDF, bounded passages",
+          "title": "Stability analysis of delay differential equations with two discrete delays",
+          "trigger": "Cited prior method that may imply the claimed formulas"
+        },
+        {
+          "assessment": "Different model; first τ₁ threshold on one-delay slice",
+          "evidence": "τ₂=0, and τ₁,*≈4.87168883 replaces 4.5923 in that source, not errors in the Li–Liu–Cai second-delay formulas.",
+          "identifier_or_url": "2026/10/11/SCOPE-corrected-first-fear-delay-hopf-threshold-in-a-double-delay-bedd--4adf4c8cb2eb",
+          "material_read": "RESULT.md Finding and scope, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Corrected first fear-delay Hopf threshold in a double-delay Beddington–DeAngelis model",
+          "trigger": "Closest indexed two-delay predator–prey correction"
+        },
+        {
+          "assessment": "Different fractional one-delay model",
+          "evidence": "For k=−1/2 its corrected first delay is about 1.14774 instead of 1.0229; the characteristic equation uses s^q and just one delay.",
+          "identifier_or_url": "2026/10/11/SCOPE-exact-phase-reduction-and-corrected-first-crossing-in-a-fraction--6affbd05c3f2",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Exact phase reduction and corrected first crossing in a fractional Lotka–Volterra feedback example",
+          "trigger": "Indexed phase-reduction correction analogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Li–Liu–Cai pp. 7004, 7007; corrected RESULT.md numerical and degeneracy checks"
+      ],
+      "rationale": "The error changes admissibility, not merely notation: one explicit frequency inside the paper's interval is rejected by the equations printed to construct the same boundary. Correct coefficient and branch conditions are necessary to reproduce the analytic crossing locus; the exact rational sign witness makes the discrepancy independently testable. This justifies the narrow correction without claiming the broader established method or a corrected plotted stability region.",
+      "residual_risks": [
+        "Value is for analytic reproducibility of this particular boundary construction, not a new generic theorem or a finding about actual simulations."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

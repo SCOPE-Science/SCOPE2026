@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** A characteristic-two partial-derivative argument fixes the unique geometric singularity. Bézout and the seven-point incidence arrangement establish the reducibility trichotomy, and elementary finite-field normalization and orbit-stabilizer prove the all-extension formulas. A standard-library finite-field checker exhaustively confirms the predicted count and stabilizer profile through \(\mathbf F_{64}\); two direct point counts independently check the claimed cuspidal rational-point formula.
+## correctness
 
-**Originality — PASS (with a priority risk).** Akesseh and Kettinger establish the Fano unexpected cubic context and known cuspidal geometry, neither of which is claimed as new. The inspected 2018 unexpected-curve paper and the relevant inspected sections of the 2025 Fano classification do not contain the extension-wise arithmetic trichotomy with exact point spectra or the 24-versus-168 orbit formula. Specific similarity searches of published mathematical research records did not identify equivalent coverage. The 2017 dissertation PDF was inaccessible, so it remains a named possible overlap risk; a negative search alone does not prove uniqueness.
+PASS
 
-**Value — PASS.** Simultaneous extension-field stratification and moduli under the natural 168-element marked-configuration symmetry are intrinsic invariants of a classic unexpected-cubic net. The exceptional cyclic-seven orbit has a precise field-of-definition threshold and is not explained by the mere existence of cuspidal cubics. The theorem is valid over all binary extension fields, not only a small enumerated case.
+The Fano evaluations have rank seven: the pure coefficients are set by the three coordinate points, each pair of mixed two-variable terms gives a further independent condition at the corresponding coordinate sum, and the all-ones point sets the XYZ coefficient. The gradient equations of the resulting net have the unique solution [√b:√c:√a]: their matrix on coordinate squares has rank two (there is a nonzero 2-by-2 minor using the square of any nonzero coefficient); Euler's identity gives membership in the cubic. A geometric line not defined over F₂ meets at most one base point, so its residual conic contains at least six, including a full Fano line; Bézout forces an F₂-line factor. Restricting to each of the seven Fano lines gives the seven binary parameter lines. They intersect only in the seven binary points with triple incidence, leaving q−2 points unique to each line and (q−2)(q−4) off them. In the one-factor case a split residual would need another binary line to cover the four off-line base points; the smooth residual is tangent at the unique rational singular point. With no line factor the cubic is geometrically integral and has a repeated tangent line: expansion at the singularity has a square quadratic term, which is nonzero since multiplicity three would force geometric splitting. In coordinates with cusp [0:0:1] and tangent y=0 the model is Zy² plus a binary cubic with nonzero x³ term (otherwise y divides it). Projection from the cusp is birational, and only the tangent direction lies over the cusp, proving the bijection of rational points with the normalization P¹. The two reducible point counts follow by their rational intersections. For the orbit step I checked distinctness and stabilizers directly: off the arrangement the singular-point coordinates are an F₂-basis of a 3-dimensional F₂-subspace W of F_q. A projective stabilizer corresponds bijectively to a nonzero scalar λ with λW=W via its action on that basis. The multipliers preserving W, with zero included, form a subfield and their degree over F₂ divides three. If it is three, W is a scaled F₈, and all such ordered bases are a single orbit, with stabilizer seven and size 24; this exists iff 3 divides m. Otherwise the stabilizer is trivial. Uniqueness of the singular point gives equivariance under G, so the count is for the cubic equations. Independent direct point counts for all forms over q=2,4,8,16 and multiplier checks agree.
 
-**Scientific limitations.** The classification is for the seven-point marked net under its 168-element symmetry group, not for abstract cubic-curve isomorphism classes; uninspected earlier full text leaves publication-priority risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge pass for the finite-extension stratification with point counts and the induced orbit census on this cubic cusp locus. The Fano-point net, its generic cuspidality and the underlying Singer eigenpoint geometry are prior, not original parts of this claim.
+
+## value
+
+PASS
+
+The fixed Fano seven-point net is an intrinsic interpolation object and extensions are its natural arithmetic base changes. The result resolves its full finite-field type and point-count distribution, then explains exactly when a nonfree marked-plane symmetry occurs in the cuspidal locus. The simultaneous arithmetic classification is useful even where the underlying line and Singer geometry is standard; it is not a new result about the existence of unexpected cubics alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

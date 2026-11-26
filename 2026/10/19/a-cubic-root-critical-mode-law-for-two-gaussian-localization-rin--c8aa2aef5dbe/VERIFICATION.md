@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification of two-ring asymptotic mode selection
 
-The standalone `verify.py` evaluates the two incomplete-gamma integrals by 16-node Gauss–Legendre quadrature using logarithmically stabilized Poisson masses. It checks critical-mode convergence for area-coordinate centers \(a=2500,10000,40000\), the subcritical bounded shift at two center sizes, and supercritical global selection for two separation values at two center sizes. It also checks the critical algebraic coefficient, for 10 passing checks in total.
+# Independent mathematical audit
 
-Scientific proof checks: the Gaussian radial operator has eigenvalues \(\lambda_n=\sum_{\pm}\int_{a\pm d\sqrt a-w/2}^{a\pm d\sqrt a+w/2}e^{-t}t^n/n!\,dt\); the uniform Stirling polynomial is \(Q(x,u)=u^3/3-xu^2/2+x^3/6-x/2\); the correction at the nonzero Gaussian-mixture stationary point has the sign of \(x(x^2-d^2-3)\), which is negative for the positive branch; at criticality the quartic coefficient and linear correction yield the scaled optimizer \(-2^{1/3}\).
+## correctness
 
-Finite tests cannot prove the asymptotic mode theorem. The rigorous argument is the uniform asymptotic expansion, the Gaussian-tail localization of maximizers, and the unique global maximum of the limiting scaled quartic. Independent mathematical audit: not performed.
+PASS
+
+For R=sqrt(a), all integer maximizers have bounded x=(n-a)/R: for each Poisson integrand the ratio of successive terms is t/(n+1), which forces monotonicity outside the extreme endpoints of the two intervals. The radial Gaussian diagonalization has the given t=pi r^2 normalization. Stirling expansion gives the displayed cubic correction Q and a uniform O(R^-2) remainder after normalization by sqrt(2 pi) R/w; averaging over the symmetric fixed widths leaves the order-R^-1 term unchanged. For d<1 the strict quadratic maximum and the Lipschitz first correction, comparing to the integer nearest a, bound |x| by O(R^-1). For d>1 the two nondegenerate maxima solve x=d tanh(dx); their height difference from the odd correction is positive in favor of the lower index, since H_d(x_d)/F_d(x_d)=x_d(x_d^2-d^2-3)/6<0. Local optimization and lattice rounding affect that comparison only at O(R^-2). For d=1 the quartic loss and linear term bound maximizing |x| by O(R^-1/3), and the rescaled polynomial -y^4/6-4y/3 has unique maximizer -2^(1/3). The rescaled lattice mesh tends to zero. This proves the law for all maximizers, not finite-index uniqueness.
+
+## originality
+
+PASS
+
+Supported distinction: the fixed-area-width law, including its bounded subcritical drift and explicit fixed-width thresholds and peaks. The negative cubic-root coefficient and lower-branch selection as phenomena are already explicitly established in the closely related October 18 record and must not be credited here as new phenomena.
+
+## value
+
+PASS
+
+Fixed area is a natural localization constraint and makes the normalized annuli shrink, with peak eigenvalues on a different scale from the earlier macroscopic-width theorem. Knowing the preferred Hermite degree and resolving its quartic-critical scale and the leading-order tie gives information the leading Gaussian limit cannot supply. The contribution is the fixed-area classification, not discovery of the universal coefficient in all settings.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

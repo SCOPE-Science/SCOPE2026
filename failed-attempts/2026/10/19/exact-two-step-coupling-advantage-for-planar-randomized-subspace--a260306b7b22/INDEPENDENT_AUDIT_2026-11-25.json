@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:24:18.841672Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Conjugating by H^(1/2) reduces exact line minimization to rank-one orthogonal projections. Reflection removes off-diagonal expectations. With t=√κ, W=t²/(t²+X²) for standard Cauchy X satisfies EW=t/(t+1) and E[W(1−W)]=t/[2(t+1)²] by differentiation. In the independent case conditioning on the first direction gives diag(t²+t+2,t(2t²+t+1))/(2(t+1)³). For the paired case I checked the printed partial fraction and both overlap moments symbolically via a two-parameter Cauchy resolvent and differentiation before substituting the reciprocal parameter (/workspace/independent_checks.py). These give precisely the stated scalar multiple of the independent matrix. Its second diagonal entry is largest since the unnormalized difference is 2(t³−1); both bounds are attained on the smaller-eigenvalue mode. At t=1 the paired projections are complementary and the iid result is 1/4; at t=2 the factors are 11/27 and 11/75. The statement about not preserving first-line optimality is generic, not a claim that special realizations such as Hessian-eigenvector lines lose it. No higher dimension or inexact search is verified.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gower et al. treat random-subspace Newton and exact line search; Kozak et al. form one finite-difference estimate from simultaneous orthogonal directions. Neither inspected framework passage establishes the two-step coupled expectation.",
+          "Indexed 433e68df3b50 has an exact iid second-moment recurrence, not an orthogonal pair result. The exact coverage of both laws comes from d73676e44901."
+        ],
+        "reasoning": "Related algorithms are not automatically equivalent two-step experiments. The exact overlapping proof, not general one-step convergence, yields both complete operators.",
+        "searches": [
+          "Targeted literature query for random pursuit and orthogonal sequential rank-one Newton two-step moments",
+          "arXiv:1905.10874 Sec. 2, Algorithm 2",
+          "arXiv:2107.03941 Sec. 2",
+          "433e68df3b50 iid second-moment recurrence"
+        ]
+      },
+      "checked_sources": [
+        "Resultary d73676e44901, 433e68df3b50, 78fb0fd40ae7",
+        "arXiv:1905.10874",
+        "arXiv:2202.04612 Sec. 2.1",
+        "arXiv:2107.03941",
+        "arXiv:1506.03296 Sec. 2",
+        "arXiv:1111.0194"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The indexed D has entries (t²+t+2,t(2t²+t+1))/(2(t+1)³) and C=((t²−1)/(t²+1))²D. Because 2(t³−1)≥0, the corresponding operator norms are the two claimed factors with equality on the same mode.",
+          "Random Pursuit establishes the update primitive, not the overlapping matrices."
+        ],
+        "reasoning": "Taking the largest diagonal entry is mechanical and supplies all sharp constants including κ=4. No distinct claim survives the comparison.",
+        "searches": [
+          "d73676e44901 proof steps 2–3, explicit D, C and κ=1 boundary",
+          "arXiv:1111.0194 random pursuit update"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "d73676e44901 compares the output after two sequential solves, for every deterministic initial point. For the first uniform Haar column, conditional on it the second column lies on the perpendicular line; line-update signs do not matter, so the two laws agree with u,Ju and the independent pair.",
+          "Objective gap equals squared H-energy divided by two, canceling in the comparison."
+        ],
+        "reasoning": "Haar frame versus the deterministic perpendicular representative is a change of representation, not a different coupling of lines. The index record has the same all-error identity and isotropic edge case.",
+        "searches": [
+          "Resultary semantic comparison of orthogonal sequential planar quadratic line minimization, iid random pursuit and two-step quadratic energy",
+          "d73676e44901 Finding, assumptions and proof steps 1–3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact continuum of error matrices is indexed in d73676e44901 as D and C. 78fb0fd40ae7 studies the probability of exact two-step termination under a coupling, rather than these expected energies."
+        ],
+        "reasoning": "No finite table is needed: the indexed matrix identity and entries give the constants at every κ and every initial error.",
+        "searches": [
+          "Resultary comparisons d73676e44901, 433e68df3b50 and 78fb0fd40ae7"
+        ]
+      },
+      "rationale": "Indexed record d73676e44901 is a distinct published record with the same initial-error quantifier, planar SPD quadratic, two sequential exact line solves and coupling law. Its proof gives both full expected error matrices, not just a comparison of scalar bounds, and the same scalar relation. The sharp factors of the frozen record are exactly its larger diagonal entries, so giving them as separate scalars adds no mathematical result. Verified equivalent coverage is decisive here; the indexed record's November path date does not establish chronology of discovery or dependence. The general RSN and random-pursuit literature was relevant background, not the basis of the failure.",
+      "residual_risks": [
+        "Relative priority or dependence of the two exact overlapping records has not been established.",
+        "The targeted external search is not an exhaustive account of classical random pursuit. Failure rests on actual matching indexed mathematics, not the search miss."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage",
+          "evidence": [
+            "D and C as full matrices; C=((t²−1)/(t²+1))²D; both steps are sequential and exact."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-two-query-gain-from-orthogonal-sampling-in-planar-quadrati--d73676e44901/RESULT.md",
+          "material_read": "Finding, assumptions and proof steps 1–3, mirror offsets 0–5456",
+          "method": "Read actual theorem and matrices, compare laws and take top eigenvalues",
+          "title": "Exact two-query gain from orthogonal sampling in planar quadratic line minimization",
+          "trigger": "Same all-error expectation under iid and perpendicular line coupling"
+        },
+        {
+          "assessment": "Related exact subspace and line search methods, not the paired matrix law in these passages",
+          "evidence": [
+            "Sections use randomized subspace Newton updates and a line-search option."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1905.10874",
+          "material_read": "Sec. 2, PDF pp. 3–4 and Algorithm 2, p. 20",
+          "method": "Compared primary update and variant passages",
+          "title": "RSN: Randomized Subspace Newton",
+          "trigger": "General subspace Newton theorem may cover exact randomized two-step contraction"
+        },
+        {
+          "assessment": "Simultaneous gradient estimate, not sequential exact minimizations",
+          "evidence": [
+            "Sec. 2 builds a finite-difference estimate from orthogonal columns."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2107.03941",
+          "material_read": "Abstract and Sec. 2, PDF pp. 1–2",
+          "method": "Compared where orthogonal directions are used within the algorithm",
+          "title": "Zeroth order optimization with orthogonal random directions",
+          "trigger": "Orthogonal direction sampling"
+        },
+        {
+          "assessment": "Primitive is known; inspected passage does not supply this coupling comparison",
+          "evidence": [
+            "Random Pursuit minimizes along a randomly chosen direction."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1111.0194",
+          "material_read": "PDF p. 2, text offsets 8287–13239",
+          "method": "Read update and scope",
+          "title": "Optimization of Convex Functions with Random Pursuit",
+          "trigger": "Exact random line minimizations under another algorithm name"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "A sharp, all-start comparison with equal costs and equal one-direction marginals is independently useful in principle, but the checked index record already delivers it including the full matrices. Restating the same laws as sharp contraction constants is a direct consequence and does not add a scientifically distinct result.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The assumptions include finite positive arm lengths, a real-valued datum, and an intrinsic compact metric star. The critical center-value lemma is forced by an extremal boundary pair: their admissible center intervals meet at a single weighted barycenter. The resulting canonical extension is affine along every arm. The local selector norm is bounded by a direct convex combination of two boundary differences; a finite-piece integration proves the global constant. The explicitly supplied perturbation gives genuine attaining data for every pairwise-distinct triple, not just a formal derivative. The two-arm case is an isometry. The proof covers ties and constant data by continuity. A separately implemented finite linear-program checker reproduced the candidate norms across 3,220 selector comparisons and verified 50 exact attaining pairs plus 3,013 other regression cases. Finite tests are supporting evidence, not the proof.
+PASS
 
-## Originality — PASS, with bounded priority uncertainty
+For a boundary datum of seminorm L the leaf-imposed center intervals intersect pairwise, hence have a common intersection. A slope-maximizing pair makes this intersection a singleton and forces the center to be its length-weighted interpolant. Absolute minimality forces linearity on every subinterval inside an arm. Conversely, the resulting affine-on-arms function is absolutely minimizing: a connected interior test set within an arm has its slope witnessed by its endpoints; in a test set containing the center, the two saturated arms persist up to the boundary of the center component and witness the global slope. For disconnected sets, splice the path between any two interior points at the boundary of their components. The center selector is continuous and switches only at finitely many comparisons along any line segment (permanent ties give the same center). On each piece, the change of arm i's slope is (h_i-C_ab(h))/ell_i. Its norm is one for i in the selected pair and at most 1+2 ell_a ell_b/((ell_a+ell_b)ell_i) otherwise by the two boundary pair constraints and the barycentric weights. These latter constraints can be saturated together by the proposed perturbation; the base datum has a strict maximizing pair, so a positive finite step preserves the selector and realizes equality. The harmonic mean is increasing in each argument, giving the ordered-length formula including ties. Two arms give a single affine interpolant and ratio one. Constant inputs and ties introduce no singular cases.
 
-The first public arXiv version of Peres–Schramm–Sheffield–Wilson (2006-04-28) establishes existence and uniqueness of scalar absolutely minimizing extensions on length spaces and their relationship to infinity-harmonic functions. Its inspected theorem and related sections do not quantify the Lipschitz seminorm of the **difference of two extensions** for arbitrary weighted metric stars. Juutinen's general existence and minimal-extension constructions, Matoušek's metric-tree Banach-target linear extension theorem, and Ambrosio–Puglisi's linear extension constructions address different statements. Searches for weighted tripod/stars, minimax boundary center stability, alternative aliases, and harmonic-mean arm-length formulas did not identify an equivalent published result. These searches cannot establish universal novelty; possible older Lipschitz-extension and nonlinear-selection literature remains a priority risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The full natural class of finite metric stars, with all arm lengths and leaf counts, is classified. The precise two-data conditioning of the *unique, pointwise optimally regular* extension separates preservation of each datum's Lipschitz seminorm from stability under perturbing the datum. Branching creates strict amplification, with exact factor two in the equilateral case and unbounded dependence on arm imbalance. This is a structural sensitivity question for the infinity-harmonic/AMLE operator, not an arbitrary parameter slice or a routine restatement of an existence theorem.
+Classical AMLE and weighted graph extensions supply existence, uniqueness or a center rule. The distinct contribution supported by the comparison is the exact Lipschitz-seminorm amplification between two scalar AMLEs on arbitrary positive-length metric stars, with finite attainment. Neither linear harmonic extension on the same metric object nor finite-p energy minimization on unit stars identifies this invariant.
 
-## Limits
+## value
 
-The proof does not cover stars with infinitely many leaves, graphs with multiple branching junctions, or vector-valued boundary targets. No literature search proves exclusivity. The independent audit remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The Lipschitz seminorm of a difference is a quantitative stability question for the canonical AMLE, not answered by its norm-one action on each datum or by sup-norm stability. The result exposes a precise geometric cause of error amplification, identifies the two longest and one shortest arms as the only required lengths, and gives exact extremizers even for equal arms. This is a useful sharp benchmark for stability on trees with more than one branch point, without claiming such a generalization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

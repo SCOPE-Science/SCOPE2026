@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:56:52.867226Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md Steps 1–4, VERIFICATION.md and verify.py inspected; repaired RESULT.md proof.",
+        "Dyer–Greenhill (2000), p. 2 target, p. 3 Theorem 1.1, §5 p. 29 explicit degree bound; 2004 corrigendum pp. 1–2 of PDF.",
+        "Independent replay: python3 /workspace/checks/frozen_mathematics.py 3. For all 1099 labeled simple bases of orders 1 through 5, compared direct witness results over 1065508 corona subsets with the component formula."
+      ],
+      "rationale": "An omitted leaf needs its core selected, excluding the doubly omitted arm. A selected leaf privately witnesses its omitted core automatically. A selected core witnessing its own omitted leaf cannot be adjacent in the base to an omitted core. These are precisely the adjacency rules of P3 with all loops, with the double selection at the middle. The mapping is invertible and the spin weight is z² at the middle and z at each endpoint. Dyer–Greenhill §5, not merely their generic constant-bound theorem, gives Widom–Rowlinson hardness with maximum degree three via nonsingularity of its adjacency matrix. The two-particle target is the connected reflexive path; the corrigendum's component issue does not remove this case. The map from the known hard problem preserves counts and increases the maximum degree by at most one. A subset and its witness property are verifiable in polynomial time, giving #P-completeness under polynomial-time Turing reductions. The contextual polynomial follows by making each induced endpoint component monochromatic; its cut coefficient read from |U|=n−1 has the stated equality only for connected bases of order at least two.",
+      "residual_risks": [
+        "The finite replay only tests the count equality, not #P-hardness or all input sizes. Only the transfer map is parsimonious, not an asserted parsimonious reduction from every #P problem."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "08492630563f permits arbitrary positive leaf multiplicities and gives D_sp=x^R Σ_U x^{|B_G(U)|} Π_{v∉N_G[U]}(x+r_v). Theorem 18 gives the scalar minimum; the neighborhood corona is a different product."
+        ],
+        "reasoning": "Specializing all r_v=1 covers polynomials for every base of the assigned finding, including all subcubic ones. The cited result is an exponential sum and does not assert the bounded-degree complexity classification.",
+        "searches": [
+          "Resultary 08492630563f, heterogeneous pendant coronas; arXiv:1705.00928 Theorem 18; arXiv:2209.01795 definitions and abstract"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 08492630563f, ec80747a5989, dcd6d20229b7, 304999ba8c77; Dyer–Greenhill article and corrigendum; arXiv:1705.00928, 2209.01795; Kaidash limited access"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The pendant-corona proof already supplies the valid labelled subsets. Dyer–Greenhill on the spin side supply subcubic hardness but not the corona mapping. The cut coefficient follows by fixing a single middle state and counting two constant choices per remaining component."
+        ],
+        "reasoning": "Neither restating the subset rule nor extracting a coefficient is the retained advance. A reduction using the one-leaf construction identifies a different natural counting problem, preserves exact counts and gives the useful degree-four restriction with a proof of membership. The general homomorphism theorem and the polynomial expression in isolation do not state or classify that problem.",
+        "searches": [
+          "Dyer–Greenhill §5 p. 29 and 2004 corrigendum; Resultary 08492630563f and ec80747a5989"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In 08492630563f an omitted pendant can be attached only outside the closed neighborhood of the omitted base cores. With one leaf per core this is exactly the opposite-endpoint exclusion on edge pairs in P3 with all loops. ec80747a5989 explicitly gives the same spin model and weighted component expansion."
+        ],
+        "reasoning": "Calling the same admissible choices spin states does not make the exact corona polynomial novel. It identifies a standard bounded-degree hard counting problem with the corona problem via a count-preserving construction, which is the narrower application retained.",
+        "searches": [
+          "Resultary 08492630563f and ec80747a5989; Dyer–Greenhill pp. 2–3 and §5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The first is exact for the whole corona polynomial, the second gives exactly the minimum set count, the third enumerates all sets for forests, and the fourth gives exact multivariate spin weights for metric 1-types."
+        ],
+        "reasoning": "The exact all-size invariant is covered, not just the minimum. While the metric instance is another transfer of the same known hardness, it does not state or realize the domination count on one-leaf coronas.",
+        "searches": [
+          "Resultary 08492630563f, 304999ba8c77, dcd6d20229b7, ec80747a5989"
+        ]
+      },
+      "rationale": "For the repaired claim: exact enumeration and spin polynomial are existing, and the local admissibility needed for the bijection is prior on the corona side. The retained contribution is applying that structure to the two-species homomorphism problem to obtain exact counting hardness on coronas of subcubic bases. The strongest available earlier statements do not give the complexity classification of this graph problem.",
+      "residual_risks": [
+        "A prior source could make the same complexity transfer under different terminology. The Kaidash chapter full text was not inspected; no historical-priority guarantee follows from the search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisively covers the original polynomial and local rules",
+          "evidence": "All positive r_v allowed; one omitted pendant may be chosen only at v outside N_G[U], yielding the boundary sum.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-super-domination-polynomial-of-arbitrary-heterogeneous-pendant-c--08492630563f/RESULT.md",
+          "material_read": "Finding and proof through admissibility and Enumeration, mirror offsets 0–6624",
+          "method": "Resultary lookup and mirrored primary passages",
+          "title": "Super-domination polynomial of arbitrary heterogeneous pendant coronas",
+          "trigger": "Potential exact all-set prior result in a strictly larger family"
+        },
+        {
+          "assessment": "Degree-three Widom–Rowlinson hypothesis established in compared passages",
+          "evidence": "The Widom–Rowlinson matrix is nonsingular and the nonsingular case has maximum degree three; two species and vacancy form the reflexive path.",
+          "identifier_or_url": "https://algorithms.leeds.ac.uk/wp-content/uploads/sites/117/2017/09/dg00b.pdf",
+          "material_read": "PDF pp. 2–3, §5 p. 29, OA offsets about 3900, 5800 and 83600",
+          "method": "Primary passages through the source comparison; direct Leeds-link recheck returned 403",
+          "title": "The complexity of counting graph homomorphisms",
+          "trigger": "Exact subcubic hardness hypothesis"
+        },
+        {
+          "assessment": "Correction to component handling does not invalidate this connected target case",
+          "evidence": "Correction identifies a gap in the proof of Theorem 4.1 involving the handling of components.",
+          "identifier_or_url": "Dyer–Greenhill, Random Structures & Algorithms 25 (2004), 346–352",
+          "material_read": "First two PDF pages, OA offsets about 580 and 4419",
+          "method": "Primary OA comparison",
+          "title": "Corrigendum: The complexity of counting graph homomorphisms",
+          "trigger": "Possible change to imported degree or target result"
+        },
+        {
+          "assessment": "Same spin weights, different interpretation and counting input",
+          "evidence": "Component form and subcubic transfer for metric one-point extensions.",
+          "identifier_or_url": "Resultary ec80747a5989",
+          "material_read": "Finding, mirror offset 0–3300",
+          "method": "Mirrored result passage",
+          "title": "Widom–Rowlinson partition functions as 1-type polynomials of the generic diameter-3 metric space",
+          "trigger": "Equivalent weighted spin formula and a related hardness transfer"
+        },
+        {
+          "assessment": "Covers the scalar minimum",
+          "evidence": "γ_sp(G⊙N_r)=nr, hence n for r=1.",
+          "identifier_or_url": "arXiv:1705.00928",
+          "material_read": "Theorem 18, PDF p. 9, OA offset about 18950",
+          "method": "Primary OA passage",
+          "title": "On the super domination number of graphs",
+          "trigger": "Ordinary corona minimum"
+        },
+        {
+          "assessment": "Minimum-only or forest-only",
+          "evidence": "Component choices give the one-leaf minimum count; the forest enumerator computes all sizes but only on forests.",
+          "identifier_or_url": "Resultary 304999ba8c77 and dcd6d20229b7",
+          "material_read": "Findings at mirrored offsets 0",
+          "method": "Resultary retrieval and mirror",
+          "title": "Minimum super dominating sets of one-leaf coronas; An explicit eight-state enumerator for all super dominating sets of forests",
+          "trigger": "Closer class-specific counts"
+        },
+        {
+          "assessment": "Unresolved overlap risk, not a basis for the decision",
+          "evidence": "The general framework and some family formulas are indicated; the chapter's specific examples and any complexity comparison were not verified.",
+          "identifier_or_url": "doi:10.1007/978-3-031-73365-9_6",
+          "material_read": "Abstract/preview as documented in the frozen record; no full chapter",
+          "method": "Bibliographic and lawful OA availability check",
+          "title": "Super Domination Polynomial of a Graph",
+          "trigger": "Broad polynomial chapter with plausible related examples"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired RESULT.md, complexity proof and discussion; Dyer–Greenhill §5; prior corona minimum and full polynomial in Resultary 08492630563f and 304999ba8c77"
+      ],
+      "rationale": "The repaired result settles total counting complexity on a natural class with easy minimum size and minimum multiplicity. The spin interpretation provides a parsimonious transfer and a concrete low-degree restriction, not just a new summation of already known values. This identifies where exact all-set enumeration is hard even with a highly constrained graph construction.",
+      "residual_risks": [
+        "No result about approximation, optimal degree threshold, tree-only bases, or different corona attachments."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** Every ordered commuting pair with a fixed nonzero nilpotent product lies in the dual-number centralizer of that product. The two exhaustive coefficient cases give \(2q(q-1)\) solutions; the nilpotent conjugacy orbit has \(q^2-1\) elements. The rank-based zero-product count, total commuting-pair denominator, and factorization of the probability difference follow by independent exact calculations. All characteristic boundaries are explicit, and exhaustive arithmetic checks over \(\mathbb F_2,\mathbb F_3,\mathbb F_4,\mathbb F_5\) confirm the finite instances.
+## correctness
 
-**Originality — PASS (with risks).** Huang's 2021 work gives the mutually annihilating zero product and is credited, not claimed as new. Feit–Fine / Fulman–Guralnick enumerate unconditioned commuting pairs or pairs of nilpotent factors, not uniformly count the nonzero nilpotent-product fibers. Sarma–Subedi study nilpotent-product probabilities but not this joint constraint. The proposed original scope is the complete nonzero nilpotent-product stratum and resulting conditioned measure. The key residual risk is implicit derivability from published centralizer or representation-theoretic results, or an unindexed equivalent small-matrix enumeration; these searches are evidence of nonidentification, not proof of absolute uniqueness.
+PASS
 
-**Value — PASS.** The first nonreduced nodal thickening \(k[u,v]/((uv)^2)\) gives a natural and independently motivated object extending Huang's reduced node. The exact rank-two finite-field fiber profile measures its additional representations and simultaneously provides a sharp conditional probability with strict quantitative amplification for every prime power. No general higher-dimensional claim is made.
+For rank-one A the conditions at C=0 identify B with arbitrary maps k²/im A→ker A, giving q possibilities; A=0 gives q⁴ and invertible A gives one. With (q²−1)²/(q−1) rank-one matrices and (q²−1)(q²−q) invertible matrices this gives q²(3q²−2). At a nonzero nilpotent C, both factors centralize C, whose algebra is the dual numbers. Two nonunits there multiply to zero, whereas two units cannot give a nilpotent product. Choosing which factor is the unit and then the unit itself determines the other factor uniquely, giving 2q(q−1). The orbit of the sole nonzero nilpotent Jordan form has size |GL₂|/[q(q−1)]=q²−1. Summing gives the stated total. The q scalar centralizers have size q⁴, all others q². For independent factors, rank-one A imposes one nonzero linear trace condition, rank-two A gives q² choices and rank-zero A gives q⁴; the unrestricted count is q⁴(2q²−1). Division and subtraction give the positive factored expression and the stated asymptotics for all prime powers, including characteristic two. The separate exhaustive replay uses C²=0 rather than a trace/determinant criterion and enumerates the unrestricted comparison as well as each commuting nilpotent fiber over F₂, F₃ and F₄.
 
-Primary literature: Sarma–Subedi (2026, arXiv:2610.07892); Huang (2021, arXiv:2110.15566); Fulman–Guralnick (2016, arXiv:1611.05499). Relevant published matrix-factorization records concern different restrictions on the factors.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit Huang for the zero fiber, Feit–Fine for the commuting-pair denominator, and the earlier indexed work for the unrestricted benchmark. The supported distinct claim is the nonzero nilpotent-product stratum with arbitrary commuting factors and its exact consequence for conditional enrichment. No inspected competing theorem counts that stratum or mechanically specializes to it; the extra factorization step in the centralizer is necessary.
+
+## value
+
+PASS
+
+The product-fiber profile is a natural refinement of both the standard commuting-pair statistic and nilpotent-product probability. It supplies an independently useful exact dimension-two baseline across all finite fields: conditioning strictly enriches nilpotent products for every q, by a leading factor 5/2, and the nonzero stratum contributes at the same order as the zero one. This is not a new claim about the previously known zero locus or unconditioned probability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The Green kernel solves the shifted cyclic difference equation, the class-supported Rademacher variance identity follows from independent sign pairing, and the strict Jensen lower bound applies to every color class including nonproper and unbalanced partitions. The exact geometric-series class lower bound has strictly positive second derivative in real class size, forcing equal class sizes and then equally spaced vertices. This proves the full quantifier range; the standalone checker corroborates the formulas and uniqueness with 1,358,283 exact partition comparisons, without being substituted for an infinite proof.
+PASS
 
-## Originality — PASS on inspected evidence
+Periodizing the two-sided exponential resolvent gives the stated Green entries including the unit source at displacement zero. The estimator is unbiased and sign-product orthogonality gives four times the sum of squared entries over unordered within-class pairs. The positive second derivative of the squared cyclic kernel makes constant gaps the only equality case of the cyclic successor-distance lower bound for a given class size. Its geometric sum gives the displayed Phi(s), including Phi(1)=0. The perspective of h(x)=(1-exp(-x))^(-1) has second derivative c^2 h''(c/s)/s^3, and the positive quadratic term makes strict balance of k positive sizes necessary. The class and size equalities are jointly attained exactly by the residues modulo k, yielding the stated variance and k! labelings. With r=exp(-alpha) asymptotic to mu^(-1), the Green formula gives weight mu^(-d-1) at distance d below the antipode and twice that at the antipode. There are n closest same-class pairs for m≥3 and n/2 for m=2, giving the two constants; n nearest-neighbor edges with an average of k full probes give 4n/k times mu^(-4). Independent exact-rational enumeration corroborated the result for (n,k,mu)=(6,3,1/3) and (9,3,1/2), with 90 and 3025 unlabeled partitions and variance minima 19683/16900 and 82944/261121 respectively. The finite checks are not the proof. The supplied checker was inspected but not executed.
 
-The focal original source (Stathopoulos–Laeuchli–Orginos, arXiv:1302.4018v1) develops distance-coloring and hierarchical probing, but its inspected sections do not prove global fixed-budget optimality among all partitions for the specified independent stochastic estimator. The closest exact two-color cycle result states a checkerboard theorem only for two colors, whereas the present statement concerns \(k\ge3\) and all equal-size multi-color partitions. Another source on equal spacing maximizes a continuous circle's minimum potential rather than the within-class pair-energy sum. A later paper on displaced lattice probing was available in abstract only. Missing full text of the closely relevant exact two-color record and potentially unindexed equivalent Potts/energy-minimization literature remain priority risks.
+## originality
 
-## Value — PASS
+PASS
 
-The result settles a natural computational-design question: the exact globally optimal partition at any fixed supported-probe budget dividing the cycle size. It establishes uniqueness against unbalanced and improper allocations, produces an evaluable minimum variance, and quantifies its high-screening savings relative to equal-cost full-support Hutchinson probing. Such a universal certification goes beyond a constructive graph-coloring heuristic.
+Credit known color-supported probing and prior equal-spacing ideas, not the particular color construction alone. The contribution is proving strict global optimality against all nonempty class sizes and all improper colorings for k≥3, simultaneously over the positive screening parameter. The closest cycle predecessor uses binary Fourier minimization, while the all-k path result concerns a different resolvent. Possible prior coverage of the within-class spacing step is not coverage of strict balancing or the resulting graph partition theorem.
 
-## Boundaries and evidence
+## value
 
-All claims concern finite positive shifts on unit cycles and independent probes. No result for nondivisible sizes or arbitrary correlated probe mechanisms is asserted. Exact finite tests are supplemental to, not substitutes for, the analytic proof.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For a natural fixed-cost estimator the classification certifies a simple coloring against arbitrary imbalanced and improper alternatives for every finite positive screening. Uniqueness and the exact variance with its antipodal constant quantify what is gained at equal solve budget, beyond exhibiting a distance coloring or an asymptotically favorable candidate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-23.md",
+      "INDEPENDENT_AUDIT_2026-11-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,29 +19,24 @@
 }
 ---
 
-# Reproduction and verification
+# Independent mathematical audit
 
-Execute the standalone Python 3 scripts included with this result, with no nonstandard package dependencies:
+## correctness
 
-```bash
-python3 verify_rim.py 12
-python3 check_twisted.py 12
-```
+PASS
 
-Both commands executed successfully and produced identical optimum sizes, counts, degrees and exchange connectivity for all integers from 4 through 12. The rim verifier constructs the cycle-plus-chords graph and performs an exhaustive maximum independent-set search in its edge-conflict graph. The twisted-column verifier independently builds the rail/chord graph and checks every candidate induced matching of the theorem's optimal cardinality using endpoint adjacency; it does not use the first verifier's conflict graph, enumerator or construction.
+Independent reconstruction: adjacent start columns always conflict, so the start support bounds the cardinality by floor(n/2), attained by alternating rungs. In a locally untwisted three-column window a gap of two allows R→R, R→H, and opposite-rail H→H, but not H→R; a gap of at least three gives no conflict in that direction. For n=4 test the two directions of the same pair, rather than discarding one. An even optimum uses an alternating support; the all-horizontal phase must alternate, and the single seam reversal closes it exactly for an odd number of selected edges. Distinct even supports or rail phases cannot differ by just one edge. Odd supports have one long gap and an R-prefix/H-suffix; one initial rail bit fixes a nonempty H-suffix, giving n choices per support. Changing the first H to a rung stays feasible, and all-rung supports are joined by the shift of two. For degree, deletion of an interior start merges two gaps of two, allowing only reinsertion at that start. Deletion next to the long gap merges gaps two and three, allowing exactly one genuinely new start on that side; the n=5 case has one surviving start and the same two insertions into its cyclic gap of five. Applying the transition rules gives unchanged-support counts 2,3,2,1 and changed-support counts 4,2,2,3 for h=0, h=1, 2≤h<m, h=m. Summing yields precisely the stated polynomial and edge count. The size, connectivity, and degree arguments respect the seam without defining a global untwisted rail.
 
-The expected checked records are:
+## originality
 
-| n | size | number of optima | exchange structure |
-|---:|---:|---:|---|
-| 4 | 2 | 2 | isolated |
-| 5 | 2 | 25 | connected, 10 of degree 4, 10 of degree 5, 5 of degree 6 |
-| 6 | 3 | 6 | isolated |
-| 7 | 3 | 49 | connected, 28/14/7 at degrees 4/5/6 |
-| 8 | 4 | 2 | isolated |
-| 9 | 4 | 81 | connected, 54/18/9 at degrees 4/5/6 |
-| 10 | 5 | 6 | isolated |
-| 11 | 5 | 121 | connected, 88/22/11 at degrees 4/5/6 |
-| 12 | 6 | 2 | isolated |
+PASS
 
-All-order correctness derives from the accompanying combinatorial proof of column separation, the complete gap-two transitions, twisted-seam closure, and the classification of every legal one-edge exchange. Finite checker success does not prove the statements for every \(n\), nor does it exclude unindexed earlier literature. The same-object 1998 enumerative paper was not available in full through the open repository, so its precise coverage remains uncertain. No independent scholarly validation was performed.
+Bounded evidence supports the whole-edge optimum-exchange dichotomy and exact odd degree classification as distinct from known move rules, matching-complex invariants, and ordinary matching enumeration. Priority for the scalar size and enumeration alone is not established.
+
+## value
+
+PASS
+
+On a canonical twisted cubic family the exact optimum move structure changes from complete immobility to connectivity, with the full one-step branching profile. This is information not contained in an optimal size or configuration count and is useful when comparing whole-edge move rules on ladder graphs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

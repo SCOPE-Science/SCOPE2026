@@ -1,15 +1,21 @@
-# Review: optimal retractional constants for a weighted pentagon
+# Independent mathematical audit
 
-## Correctness — PASS
-The claimed invariant quantifies over all basepoint-preserving vertex orders and all commuting prefix point retractions. For the nontrivial metric regime the proof computes the complete distance table and tests all sixteen options for the image of the one omitted vertex in the final nontrivial retraction. Every possible case forces the stated lower bound. A fixed vertex ordering and two explicit compatible families attain the sharp bounds by checking image lengths on graph edges. The proof handles \(t=1\), \(t=2\), and the overlong-edge regime separately; exact rational tests independently check the finite formulas.
+## correctness
 
-## Originality — PASS, subject to bibliographic risks
-Novotný (arXiv:1905.13188) treats a graph with an additional center vertex and derives obstructions for substantially larger circle samples, without this exact five-vertex weighted phase diagram. Hájek–Medina (arXiv:2112.03095) develops general retractional bases rather than this sharp finite invariant. The full published-finding corpus cactus edge-basis finding (`b98930fbc1cd`) has a different quantifier domain: suppressions of a linear spanning-tree edge-molecule basis are not commuting point retractions, and that result does not imply the optimal point-retraction constant. Nearby records about numerical index, Banach–Mazur distortion and ultrametric bases also have different objects or invariants. Relevant full texts and published-finding corpus records were compared by mathematical implication rather than title alone. Residual risk is unindexed historical work specifically calculating retractional constants on finite cycle metrics.
+PASS
 
-## Mathematical value — PASS
-The five-cycle is the first cycle length where a nonexpansive graph retractional system has a genuine obstruction in the unit-edge case, and the result determines a natural sharp invariant under a continuous metric deformation, rather than an isolated table entry. Two sharp transitions distinguish the obstruction threshold from the later disappearance of the metric edge. The formula is a reusable exact benchmark for constructing bases using commuting Lipschitz retractions, with no claim about unrestricted linear-basis optimization.
+Comparing the two arcs gives the distance table for 0<t≤2, including t=2. Every last proper prefix omits one vertex v≠0 and sends it to one of four retained vertices, so the sixteen witness ratios cover every ordering and every such map. For omissions 1,2,3 the witnesses are always 2 or 1+t; for omission 4 they include 1+t, 2, 2/t and (1+t)/t. All these ratios are at least 1+t for t≤1 and at least 2/t for 1≤t≤2. The exhibited maps fix their prefixes, and checking adjacent compositions r_{j-1}r_j=r_{j-1} gives full commutativity by iteration and range nesting. For t≤1 the only enlarged graph edge is 3–4 under r_3, with image length 1+t. For t≥1 the unit-edge images have length at most 1 and the closing edge images have length at most 2, so the bound is max(1,2/t). Edge bounds extend along shortest paths even after the closing edge ceases to be geodesic at t=4. The identity gives the lower bound 1. The linearized retraction has norm equal to its Lipschitz constant by testing canonical molecules and using the free-space universal property; the commuting nested projections induce a basis, not an assertion about all linear bases.
 
-## Limitations
-The theorem addresses a single family of finite real metrics and their retraction-induced bases, not arbitrary bases or longer cycles. Verification examples use rational parameters, but the full real-parameter statement is proved analytically. Originality merits independent literature review.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct claim is the sharp dependence on the weight t and the resulting threshold at 2, not the general retractional-basis framework or the unit-pentagon value 2. That value is shared with a distinct same-day unweighted-cycle result. The strongest same-metric and same-invariant comparisons do not establish the weighted law; priority is not certified.
+
+## value
+
+PASS
+
+The weighted pentagon is a minimal concrete odd cycle testing how commuting retractions respond to an edge perturbation. The exact dependence shows that a nonexpansive chain is possible while the closing edge is still genuinely shorter than the alternate route, separating the retractional cutoff at 2 from metric redundancy at 4. The lower bound is intrinsic to the last deletion, making this a reusable benchmark beyond enumerating one order or reproducing the unit cycle.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

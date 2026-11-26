@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:22:35.006912Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A unit-rate Poisson jump process advances the phase mod m; a call is precisely a wrap, so intercall times are Erlang and the equilibrium phase is uniform. With x=lambda*w and y=lambda*g, suppress the wrap during each window: Z=e^(-x) sum_(j<m) x^j N^j/j!. Inclusion-exclusion gives 1-2*pi*Z*1+pi*Z*exp(y(P-I))*Z*1, with no restriction on gap calls. The one-phase formula follows from independent Poisson increments (the shared endpoint at zero gap has no atom). The two-phase nonstationary eigenmode contributes -x^2 exp(-2x-2y)/4, giving a strictly increasing function and no finite maximizer. The three-cycle has conjugate exponents -3/2 +/- i sqrt(3)/2. Contracting the three shifted phase laws with the two no-call factors yields the stated A and B, and the derivative coefficients are C=-3A/2+omega B=x^3(x+4)/12>0 and D=-omega A-3B/2. The first critical angle is pi/2+arctan(D/C); it is a maximum. At any maximum the excess term before damping is (-AD+BC)/sqrt(C^2+D^2)=omega(A^2+B^2)/sqrt(C^2+D^2)>0. Successive maxima decrease by exp(-2*pi*sqrt(3)) in excess above the limit. At zero gap A<0, so neither the initial boundary, later peaks nor the infinite-gap limit compete with the first maximum. The quotient D/C equals R, with R'=-8 sqrt(3)(x^2+2x+4)/(3x^2(x+4)^2)<0 and limits +infinity and -1/sqrt(3), giving both sharp endpoint limits of the gap. The unit example was independently reproduced by direct positive summation over Poisson counts and uniform initial phase: python3 /workspace/checks/renewal_example.py. It yields gap 2.85747542539998 and probabilities 0.05711456541455, 0.10634765599656, and 0.10598563991666 for zero gap, optimum, and infinite gap respectively. That bounded check is not the proof of the all-window-length result. Results do not cover unequal windows, a constrained horizon, other renewal laws, or higher phase counts.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Nolan's law is broader for computing the objective, not for optimizing window separation. Accessible Balantic–Donovan material optimizes across species and sites with a predictive, adaptive daily allocation. Van Helsdingen et al. study waiting-time dispersion with a Weibull–Hawkes model, not a two-window optimum."
+        ],
+        "reasoning": "The broader count law can be evaluated at several window endpoints; neither this nor general adaptive allocation provides a global optimum or controls the infinite sequence of local extrema under stationary Erlang dynamics.",
+        "searches": [
+          "10.1186/s40488-017-0064-5, closed-form finite-dimensional count-process laws",
+          "10.1002/ece3.5579, adaptive acoustic scheduling objective",
+          "10.1007/s13253-024-00626-w, underdispersed acoustic point processes"
+        ]
+      },
+      "checked_sources": [
+        "10.1186/s40488-017-0064-5",
+        "10.1002/ece3.5579 (partial)",
+        "10.1111/2041-210X.12291 (institutional PDF)",
+        "10.1007/s13253-024-00626-w",
+        "b603874e9a25",
+        "Resultary title and related monitoring/renewal matches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Nolan supplies machinery equivalent to the starting probability formula; the exact three-phase trigonometric form can be recovered from it. Stevenson et al. model acoustic capture–recapture density and recognize dependence of calls; they do not supply a fixed stationary Erlang gap criterion. The two-species edge optimization uses time-dependent intensities and a different objective."
+        ],
+        "reasoning": "No different choice of Nolan's rate convention, acoustic density parameter, or edge budget directly selects the first damped peak, proves all later and limiting alternatives inferior, or proves the sharp stage distinction and strictly decreasing gap response.",
+        "searches": [
+          "10.1186/s40488-017-0064-5, Section 6 p. 13",
+          "10.1111/2041-210X.12291, non-Poisson repeated calls and survey objective",
+          "SCOPE-exact-two-edge-recording-windows-for-detecting-two-oppositely-ti--b603874e9a25, Finding and Assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Nolan Section 6 supplies the joint count law at finitely many times; take positive increments in both windows. Its Erlang(m,lambda*m) notation uses lambda for mean event rate, so lambda*m is the phase rate here.",
+          "Section 3 defines nonadjacent-marker coincidence C4/S4; this is not the probability that each continuous recording window is nonempty."
+        ],
+        "reasoning": "Translating marker/renewal terminology exposes substantial probability-law coverage. The actual invariant is the global maximizer over the gap of joint positive counts, not a count distribution or the sign of one coincidence coefficient.",
+        "searches": [
+          "Resultary: Erlang phase count, two confirmatory recording windows, finite optimal gap",
+          "10.1186/s40488-017-0064-5, Sections 3 and 6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact hit is the assigned finding. The strongest distinct same-date result optimizes a budgeted recording set for two independent, oppositely trending inhomogeneous Poisson species, with windows placed at the deployment edges. The other same-day indexed entries optimize intercepting a single transient event, not repeat calls."
+        ],
+        "reasoning": "A two-edge result does not cover same-caller positive increments in each of two windows with unrestricted gap. This is an all-positive-window-length optimizer, not a lookup of a unit-window number. The checked index does not establish absence of other coverage.",
+        "searches": [
+          "Resultary: Three renewal stages are the sharp onset of a finite optimal gap between two confirmatory acoustic windows",
+          "SCOPE-exact-two-edge-recording-windows-for-detecting-two-oppositely-ti--b603874e9a25",
+          "SCOPE-fixed-duration-transient-episode-monitoring-has-a-sharp-algebrai--a27abbb498d2",
+          "SCOPE-a-universal-mean-duration-boundary-and-integer-staircase-for-ove--d7bd2b2d953a"
+        ]
+      },
+      "rationale": "The global confirmation-gap classification and explicit optimizer survive the compared sources. The phase-chain joint count law and acoustic confirmation motivation are known and are not separate novelty claims.",
+      "residual_risks": [
+        "Equivalent optimization might be in older stationary count-design literature under nonacoustic terminology.",
+        "Balantic–Donovan full text was not accessible; conclusions about it are limited to the inspected material. This originality assessment does not establish historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong probability-law coverage, not the optimized classification",
+          "evidence": [
+            "Finite-dimensional count distributions from matrix products; nonadjacent-marker C4/S4 statistics."
+          ],
+          "identifier_or_url": "https://doi.org/10.1186/s40488-017-0064-5",
+          "material_read": "OA PDF Section 6 p. 13 (offset 52350); Section 3 p. 9 (offset 34700)",
+          "method": "Targeted primary PDF passages and parameter comparison",
+          "title": "Erlang renewal models for genetic recombination",
+          "trigger": "Joint events on disjoint intervals in stationary Erlang phases"
+        },
+        {
+          "assessment": "Accessible evidence describes adaptive multispecies allocation, not the exact stationary gap result; full-paper coverage unconfirmed",
+          "evidence": [
+            "Daily decisions based on weather and prior detections for species present at sites."
+          ],
+          "identifier_or_url": "https://doi.org/10.1002/ece3.5579",
+          "material_read": "Indexed Section 2.1 objective and author page offsets 3048–5226 at https://cbalantic.github.io/temporally-adaptive-published/; full paper not recovered",
+          "method": "Publisher and lawful alternate retrieval attempts; author page read",
+          "title": "Temporally adaptive acoustic sampling to maximize detection across a suite of focal wildlife species",
+          "trigger": "Related acoustic allocation and repeat-confirmation objective"
+        },
+        {
+          "assessment": "Motivation for non-Poisson calling, not the optimizing model",
+          "evidence": [
+            "Capture–recapture density estimation; related locations and possible non-Poisson call counts when individuals call repeatedly."
+          ],
+          "identifier_or_url": "https://research-repository.st-andrews.ac.uk/handle/10023/7786",
+          "material_read": "Institutional PDF p. 2, p. 6 lines 132–137, p. 13 lines 317–320",
+          "method": "OA primary PDF passages",
+          "title": "A general framework for animal density estimation from acoustic detections across a fixed microphone array",
+          "trigger": "Dependent repeated calls in acoustic surveys"
+        },
+        {
+          "assessment": "Different temporal point-process model with no spacing theorem in the inspected passages",
+          "evidence": [
+            "Weibull–Hawkes waiting dispersion and sperm-whale click application."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s13253-024-00626-w",
+          "material_read": "OA PDF p. 1 and conclusion p. 53 (offset 39300)",
+          "method": "Targeted primary PDF passages",
+          "title": "An Inhomogeneous Weibull–Hawkes Process to Model Underdispersed Acoustic Cues",
+          "trigger": "Underdispersed acoustic cues as an alternative model"
+        },
+        {
+          "assessment": "Different event process, constraint, and objective",
+          "evidence": [
+            "Two independent inhomogeneous Poisson species with opposite exponential trends; optimize fixed total recording budget and detect both species."
+          ],
+          "identifier_or_url": "SCOPE-exact-two-edge-recording-windows-for-detecting-two-oppositely-ti--b603874e9a25",
+          "material_read": "Mirrored RESULT.md Finding and Assumptions",
+          "method": "Resultary lookup and targeted mirror read",
+          "title": "Exact two-edge recording windows for detecting two oppositely timed callers",
+          "trigger": "Strongest distinct same-date acoustic window match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "It identifies the sharp threshold for a strict finite optimal gap for a natural two-confirmation criterion. Stage complexity changes the decision from neutral to unbounded separation to a unique finite optimum; the spectral mechanism explains why. The improvement from 0.05711 to 0.10635 over contiguous unit windows is illustrative; the value of the theorem is the exact stage and window-length dependence, not just the improvement over the already close infinite-gap value or a claimed field recommendation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

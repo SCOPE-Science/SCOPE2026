@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:00:46.743208Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For adjacent candidate times t,t+1 strictly after nonempty T, the event A that exactly one exceeds max_{i∈T}X_i is invariant under that transposition τ. For any measurable test, change variables by τ on A and use the identity on its complement to see that the conditional swap preserves the full exchangeable law. The smaller value on A cannot beat the full-prefix maximum; the larger contributes the same record height or none, and the running maximum afterward is unchanged. The multiset is preserved, with multiplicity. The retained last-step indicator is exactly transferred, even at ties with the threshold. This yields all delays by adjacent equalities in law, also with the multiset included. It cannot generally preserve the joint law with record times: for a uniform permutation of three ranks with T={1}, full record times (1,3) force the selected count to be 1 for final time 2 and 2 for final time 3. For iid atomless data take t=k+1 by invariance. The successive ascending insertion ranks U_i are independent uniform on {1,…,i} by the rank-permutation bijection, and the comparison J is 1{U_{k+1}>U_k}. Hence E(I_k J)=1/[k(k+1)], E(I_{k+1}J)=1/(k+1), and all other record indicators are independent of J. Subtracting the marginal terms gives 1/[2k(k+1)]; Var(J)=1/4 and summing independent record-indicator variances gives the claimed correlation, also at n=2. The proof is replayable from RESULT.md lines 24–52. The successful finite output is recorded in the frozen VERIFICATION.md; the uploaded code was inspected, not rerun.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The same-day descent regression theorem gives conditional stochastic ordering of total descents by total records, and computes an aggregate covariance. Li's observation compares to a moving window of preceding values and studies a Poisson approximation."
+        ],
+        "reasoning": "An aggregate count does not retain position-specific comparisons or the height list. A moving recent window does not represent an arbitrary fixed retained prefix followed by a delayed terminal observation.",
+        "searches": [
+          "Resultary: strict stochastic descent regression on the number of permutation records",
+          "Li, arXiv:2208.06791v1, definition of recent-k record"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Falk et al. arXiv:1707.06254 and Li arXiv:2208.06791v1",
+        "Resultary descent regression and local shielding findings"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Local shielding swaps adjacent positions and fixes outside record indicators. The stochastic regression proof instead inserts the smallest letter and updates total counts."
+        ],
+        "reasoning": "Neither operation as stated gives the threshold-restricted swap preserving the entire record-height list and multiset while transferring the selected last-step indicator for all fixed prefixes. The overlap on the adjacent calculation is acknowledged without inferring historical priority.",
+        "searches": [
+          "Resultary strict stochastic descent regression, proof §4",
+          "Resultary local shielding, Finding and opening proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The local-shielding catalogue record gives Cov(K_n,D_k)=−1/[2k(k+1)]. With distinct ranks Q_{{k,k+1}}=2−D_k. The joint-record-events paper conditions on full record events at prescribed positions."
+        ],
+        "reasoning": "The exact adjacent covariance agrees by sign reversal (and the correlation follows from variances). Conditioning full record values on record events is not the conditional law of a selected record count given the full height list, and it does not give the ties/multiset claim.",
+        "searches": [
+          "Resultary: positional descent-indicator covariance with the permutation record count",
+          "Falk–Khorrami Chokami–Padoan, arXiv:1707.06254, §1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The local-shielding Finding tabulates the exact two nonzero diagonals of the record–descent cross-covariance matrix. The same-day strict stochastic regression Finding reports only Cov(D_n,R_n)=−(n−1)/(2n) for total counts."
+        ],
+        "reasoning": "The first gives exact coverage for the adjacent covariance component; the second is its sum, not an equivalent position-specific table. Neither tabulates or gives the exchangeable joint law of the whole ordered height list and selected count.",
+        "searches": [
+          "Resultary: positional record–descent covariance and analytic permutation record-count formulas"
+        ]
+      },
+      "rationale": "Bounded pass for the main exchangeable joint-law result, including strict ties and the extra multiset coordinate. Do not credit the adjacent-position covariance in isolation: another indexed record gives its equivalent signed descent covariance. The arbitrary allowed final-time specialization here uses the joint invariance and is not obtained from the adjacent formula alone.",
+      "residual_risks": [
+        "A different description of the threshold swap or an earlier equivalent exchangeability lemma may exist outside the inspected sources. Catalogue overlap establishes scope of coverage, not historical order."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related conditional record values, different statistic and hypotheses",
+          "evidence": "Assumes iid continuity and considers conditional full record values when designated positions are records.",
+          "identifier_or_url": "https://arxiv.org/abs/1707.06254",
+          "material_read": "§1, PDF p. 2, OA offset 4657",
+          "method": "Lawful OA original preprint",
+          "title": "Some Results on Joint Record Events",
+          "trigger": "Joint laws of record values at prescribed times"
+        },
+        {
+          "assessment": "Different recent-window statistic",
+          "evidence": "Compares an observation with its k immediately preceding values.",
+          "identifier_or_url": "https://arxiv.org/abs/2208.06791v1",
+          "material_read": "PDF p. 2, OA offset 4180",
+          "method": "Lawful OA original preprint",
+          "title": "On the recent-k-record of discrete random variables",
+          "trigger": "Records with ties and a selected part of the sequence"
+        },
+        {
+          "assessment": "Aggregate overlap, different law",
+          "evidence": "The theorem and covariance recurrence use the total numbers of records and descents, not positional counts or heights.",
+          "identifier_or_url": "2026/10/26/SCOPE-strict-stochastic-descent-regression-on-the-number-of-permutatio--487eac650807",
+          "material_read": "RESULT.md Finding, assumptions, proof §1 and covariance proof §4; OA offsets 0 and 4100",
+          "method": "Resultary search and local mirror text",
+          "title": "Strict stochastic descent regression on the number of permutation records",
+          "trigger": "Same-day exact covariance on related permutation counts"
+        },
+        {
+          "assessment": "Equivalent adjacent covariance, not delay invariance",
+          "evidence": "Explicit Cov(K_n,D_j)=−1/[2j(j+1)], with independence of outside record indicators for an adjacent pair.",
+          "identifier_or_url": "2026/11/8/SCOPE-a-local-shielding-law-for-records-and-descents-in-uniform-permut--3a647480e072",
+          "material_read": "RESULT.md Finding, assumptions and opening proof, OA offset 0",
+          "method": "Resultary search and local mirror text",
+          "title": "A local shielding law for records and descents in uniform permutations",
+          "trigger": "Direct position-specific covariance match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a specific conditional non-identifiability theorem for where a last retained observation was taken, even after the full height list and multiset are revealed. The exact scope matters: revealing timestamps can break it, and moving the earlier sampling point can change the law. The exchangeable result with ties supplies the value; the adjacent covariance, while useful for illustrating location sensitivity, is not the basis for the pass.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

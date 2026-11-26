@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The theorem and the complete case analysis are in `RESULT.md`. Run `python3 verify_circular_parikh.py` with Python 3 and only the standard library. It explicitly materializes each circular word, enumerates all `n` rotations, and independently counts three scattered-subsequence statistics before grouping by the complete circular Parikh matrix. It checks all 8436 anchored two-`a` necklaces with `h` from 0 through 35, the full size-one/size-two classification, exact class counts, and the one-`a` boundary up to 35.
+## correctness
 
-Expected exact terminal line:
+PASS
 
-`CIRCULAR_PARIKH_CLASSIFICATION_PASS two_a_c_range=0..35 anchored_necklaces=8436 one_a_boundary_c_range=0..35`
+Anchor the unique b at 0 and put the two a's at t<u. All n=h+3 cuts are distinct rotations. An a at v contributes v cuts to ab, a c at w contributes n-w cuts to bc, and an (a,b,c) triple contributes v-w cuts precisely when w<v. Excluding the earlier a from the c-positions for the second a gives Y=(t(t-1)+u(u-1))/2-(u-t) for the sum of abc entries. At fixed s=t+u (recovered from ab), equality of Y is equality of (u-t-2)^2. Distinct positive gaps must then be 1 and 3; putting both in the allowed range gives the disjoint collisions (j,j+1) versus (j-1,j+2), 2≤j≤h. This exhausts the fibers, including no collisions at h=0,1, and yields the image and singleton counts by subtracting one or two per pair. For one a, its position is recovered directly from ab. The uploaded finite oracle was inspected, not executed; it is not needed to justify the quantified proof.
 
-The unbounded parameter statement is established symbolically by cyclic cut counting and a positive-integer gap equality; verification of finite cases alone does not extend beyond those cases. An independent audit has not been performed.
+## originality
+
+PASS
+
+The averaging map and the sufficiency of the individual caac↔acca collisions are known. The supported distinction is the fixed-composition converse, hence the complete fiber census and image count; no inspected source establishes that converse or a stronger theorem giving it.
+
+## value
+
+PASS
+
+The unique b anchors the first noninjective multiplicity of a, immediately after the injective one-a case. An infinite-family converse identifies exactly which words cannot be recovered and gives the cost of ambiguity in the attainable image; that is useful for studying the ternary equivalence problem beyond generating examples by rewriting.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

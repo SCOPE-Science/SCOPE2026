@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:36:07.094941Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The invariant-measure inverse-branch weights telescope, giving P_N g_m=(N+x)/(m+x) for almost every x and derivative u_N(1−u_N)/N+O(N^−2). With z=N+x, P_N id=N(z Σ_{j≥0}(z+j)^−2−1). Its derivative equals N times the difference of the sum of inverse squares and 2z times the sum of inverse cubes. The two Euler–Maclaurin expansions give −N/(2z²)+O(Nz^−3), uniformly on [0,1]. The branch-index tail (N+x)/(a+x) increases in x, so a common quantile couples the sampled inverse points in reverse order. Thus the difference of their means bounds the Lipschitz action of P_N, giving an O(N^−1) seminorm bound. Each iteration multiplies the affine slope by −1/(2N) with an additional O_k(N^−k−1) Lipschitz error at lag k. Stationarity moves P_N^k to the first indicator; Cov(id,1_[0,v_N]) under μ_N is −v_N(1−v_N)/2+O(N^−1). This gives both the sign and exact coefficient uniformly in the stated interior ratios at fixed k. Terminating points are null; there is no claim for growing k. The first-lag integral and second threshold image also follow by logarithmic integration and digamma partial fractions. The frozen `python3 verify.py` (mpmath) was inspected, not run: its 56 comparisons check kernel/mean identities and sampled lags 1 and 2, not all k.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Earlier work provides transfer contraction, fixed-N Gauss–Kuzmin convergence and explicit bounds on its rate. The eigenvalue asymptotics in arXiv:1210.4083 concern the classical Gauss operator and a spectral-index regime, not high numerator at a fixed lag."
+        ],
+        "reasoning": "A rate bound or a fixed-N eigenvalue asymptotic does not give the required leading matrix element between two N-dependent indicators.",
+        "searches": [
+          "arXiv:1510.02052 Propositions 4.1–4.2",
+          "arXiv:1510.03606 Theorem 1.1 and Eq. (3.14)",
+          "arXiv:1707.08393 Theorem 4.7 and Remark 4.8",
+          "arXiv:1210.4083 p. 1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1510.02052",
+        "arXiv:1510.03606",
+        "arXiv:1707.08393",
+        "arXiv:1210.4083 (abstract)",
+        "Resultary natural-extension search (five returned claims)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Proposition 4.2 already gives monotone variation contraction 1/(N+1), order reversal, and a general Lipschitz bound by an explicit positive sum. The latter even has leading scale 1/(2N) by summation, but is an inequality and does not identify P_N id's signed slope. The kernel gives the one-step tail and hence the first-lag coefficient by direct integration; lag iteration additionally requires identifying the signed affine action and controlling the transmitted remainder."
+        ],
+        "reasoning": "Prior inputs subsume basic sign and order estimates and allow an elementary lag-one calculation. They do not themselves select the coefficient at every lag; the signed leading operator action with its error supplies new information beyond substituting into the published estimates.",
+        "searches": [
+          "arXiv:1510.02052 Eq. (4.2), Prop. 4.2 and Eqs. (4.22)–(4.24)",
+          "arXiv:1707.08393 Thms. 4.6–4.7"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The covariance is the stationary joint lower-tail distribution of (x,T_N^k x) minus the product of marginals, evaluated at (N/m,N/n). The natural-extension work bounds a two-dimensional distribution error by (N+1)^−n; that bound does not identify a signed limiting term for these tail events. The targeted catalogue hits concern other systems."
+        ],
+        "reasoning": "Changing to the digit source process, threshold CDF, or transfer-operator expression does not change the quantity, but known bounds on distribution errors do not specify its scaled limit.",
+        "searches": [
+          "Resultary: Stationary natural extension of N-continued fractions: exact high-numerator leading mixed distribution difference for fixed lag k, alternating rank-one affine term (-1/(2N))^k",
+          "arXiv:1707.08393v1 Corollary 4.5 and Theorem 4.6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Five returned catalogue records describe Jacobsthal denominators, q-golden-ratio Hankel determinants, two Stern residue discrepancy laws, and a binary frequency shift. None in these returned statements concerns N-continued-fraction stationary threshold covariance."
+        ],
+        "reasoning": "The claim is an all-fixed-lag parameter formula, not a finite table entry. This bounded catalogue check did not provide a relevant formula; that does not rule out unindexed results.",
+        "searches": [
+          "Resultary: Stationary natural extension of N-continued fractions: exact high-numerator leading mixed distribution difference for fixed lag k, alternating rank-one affine term (-1/(2N))^k"
+        ]
+      },
+      "rationale": "The operator, reversal of monotonicity, sign alternation and a nonsharp O(N^−k) scale are already available from earlier work. The supported distinct contribution is the signed nonzero fixed-lag coefficient with both moving threshold factors and a uniform one-order-smaller remainder. The closest inspected primary results give the operator and bounds, not that asymptotic on its iterates against these observables. This is a best-of-knowledge comparison, not a claim of historical priority.",
+      "residual_risks": [
+        "An unindexed high-numerator perturbation of the operator or an equivalent joint distribution expansion could already contain the coefficient.",
+        "Catalogue ranking and OA passage comparisons are bounded, not an exhaustive historical search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known framework, sign and rate controls, not the fixed-lag covariance coefficient",
+          "evidence": "Eq. (4.2) gives the transfer; (4.22)–(4.24) give the variation and Lipschitz bounds and Prop. 4.2 gives reversal.",
+          "identifier_or_url": "https://arxiv.org/abs/1510.02052",
+          "material_read": "Props. 4.1 and 4.2, printed pp. 13–17; PDF text near 30,800 and 39,500–43,098",
+          "method": "Primary OA PDF passages",
+          "title": "Metric properties of N-continued fractions",
+          "trigger": "Identical transfer kernel and order/contraction statements"
+        },
+        {
+          "assessment": "Different regime and conclusion",
+          "evidence": "Fixed-N convergence with q^n error and an operator contraction estimate.",
+          "identifier_or_url": "https://arxiv.org/abs/1510.03606",
+          "material_read": "Thm. 1.1, pp. 2–3; Eq. (3.14), p. 17; PDF text near 5,000 and 38,800",
+          "method": "Primary OA PDF passages",
+          "title": "Dependence with complete connections and the Gauss–Kuzmin theorem for N-continued fractions",
+          "trigger": "Same map and dependence question"
+        },
+        {
+          "assessment": "Substantive bounds, not sharp fixed-lag high-numerator coefficients",
+          "evidence": "Variation and distribution errors bounded by (N+1)^−n; rate bracket in Thm. 4.7 and Remark 4.8.",
+          "identifier_or_url": "https://arxiv.org/abs/1707.08393",
+          "material_read": "Cor. 4.5, Thms. 4.6 and 4.7, Remark 4.8, printed pp. 15–17; PDF text around 38,800 and 43,700–46,700",
+          "method": "Primary OA PDF passages",
+          "title": "A two-dimensional Gauss–Kuzmin theorem for N-continued fraction expansions",
+          "trigger": "Closest two-dimensional natural-extension distribution estimates"
+        },
+        {
+          "assessment": "The abstract's eigenvalue asymptotic is for the classical Gauss map; no whole-paper exclusion inferred from the abstract",
+          "evidence": "Two-term spectral eigenvalue asymptotics, not a varying numerator in the map.",
+          "identifier_or_url": "https://arxiv.org/abs/1210.4083",
+          "material_read": "P. 1 abstract",
+          "method": "Primary OA abstract scope comparison",
+          "title": "Transfer operator for the Gauss’ continued fraction map. I. Structure of the eigenvalues and trace formulas",
+          "trigger": "Possible stronger spectral asymptotic"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a quantitative independence law for natural macroscopic digit events. It fixes the leading magnitude as well as the sign, identifies the universal ratio between successive lags, and treats both thresholds as moving parameters. The rank-one mechanism explains why a contraction estimate by itself does not capture the coefficient.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

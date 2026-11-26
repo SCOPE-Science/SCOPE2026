@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:57:10.865070Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof §§1–4; VERIFICATION.md; verify_gaussian_scans.py (inspected)",
+        "/workspace/branches/audit_spotchecks.py gaussian; /workspace/branches/audit_spotchecks.log"
+      ],
+      "rationale": "Square completion gives the 1/sqrt(2) transform factor and the displayed Gaussian and phase factors. After scaling out the strictly positive intensity envelope, distinct pair sums give independent time exponentials. At each sum, the positive differences of its off-diagonal pairs are distinct (sum and difference determine the pair), and the constant if present and cosine/sine pairs are real-linearly independent. Their evaluation rows span the block dimension, so a maximal minor is nonzero for some frequency tuple, and its analytic zero set is null. Intersecting the finitely many generic sets proves the simultaneous rank formula; for every tuple below threshold a deficient block has a kernel. Exponential interpolation at any ordered distinct real times (by Rolle's theorem induction on the number of exponents) and extraction of m^2 independent rows prove the exact finite count. For m>=2 the Sidon criterion follows since any collision has weighted size at least three; the sine determinant is the criterion for the pair of lines jointly, not for individual lines. Second-line interpolation after subtracting the already known projections gives the stated optimal layout. The progression central sum has m ordered pairs; no sum can have more since each first index determines at most one second index. For m=1, one measurement suffices. Independently computed the stated exact 9-by-9 determinant by Vandermonde factorization and confirmed the progression ranks 8 and 9.",
+      "residual_risks": [
+        "At or above threshold full rank requires a suitable frequency tuple; resonant tuples can fail. Exact linear Hermitian lifting only; no uniform stability or nonlinear minimality is proved."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Grohs–Liehr's geometry is (beta/2) Z times R, with continuous frequency. Wellershoff gives nonlinear uniqueness for bandlimited signals from two fixed frequencies and a time lattice. The indexed theorem confines its main result to finite integer frequencies and continuously observed periodic time profiles."
+        ],
+        "reasoning": "Full-frequency reconstruction does not settle the sharp number of fixed-frequency scans. A nonzero finite Gaussian translate mixture is not bandlimited, and injectivity on rank-one vectors modulo phase alone cannot give injectivity on all Hermitian matrices.",
+        "searches": [
+          "arXiv:2109.02494, Theorem 3.6",
+          "arXiv:2206.03946, two-frequency theorem",
+          "Resultary db2f9b22bc18, Finding and Limitations"
+        ]
+      },
+      "checked_sources": [
+        "Resultary db2f9b22bc18, caccdc0a6487, bb32cc8a05b7, f2400580db9d and self-match c8e117689f57",
+        "arXiv:2109.02494, 2206.03946 and 1911.11050"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The closest indexed rank theorem separates ordered frequency differences, with one real Fourier coefficient for difference zero and complex coefficients at positive differences. In the frozen theorem each sum, including different diagonal sums, gives one real coefficient per line. The closest indexed nonlinear example has a nontrivial Hermitian kernel even when phase retrieval succeeds."
+        ],
+        "reasoning": "The prior decomposition technique is relevant but does not supply the new time-block experiment or its one-real-row count at each sum. Neither the broader reconstruction papers nor the finite tone designs imply the generic pair-sum rank, resonance condition, or two-stage optimal layout.",
+        "searches": [
+          "Resultary db2f9b22bc18 (Fourier blocks, generalized Vandermonde proof and Limitations), caccdc0a6487 (Finding)",
+          "arXiv:2109.02494 Theorem 3.6; arXiv:2206.03946 two-frequency theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The indexed difference-multiplicity theorem uses integer tones and periodic time scans; its rank is min(m,K)+2 sum_{d>0} min(K,m_d). The same-title hit c8e117689f57 is the frozen record itself. Gröchenig's signal model has Gaussian integer translates, but the data are phaseless samples in time, not scan intensities."
+        ],
+        "reasoning": "Fourier transforming finite Gaussian translates yields Gaussian-enveloped tones, not periodic pure tones; interchanging the sampling axes also does not preserve the data geometry. In particular a Sidon support of m>2 integers has threshold m in the periodic theorem due to its diagonal block and threshold 2 here. The collision formulas are not equivalent under a relabeling.",
+        "searches": [
+          "Local Resultary: Gaussian Hermitian lifting, pair-sum multiplicity, fixed-frequency scan rank; db2f9b22bc18, caccdc0a6487 and c8e117689f57",
+          "arXiv:1911.11050"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The parametric rank table implicit in db2f9b22bc18 is for difference blocks in the pure-tone model. Other exact indexed cases include a periodic three-tone Hermitian rank-eight design (f2400580db9d), an exact two-tone bin design (bb32cc8a05b7), and a three-tone nonlinear versus Hermitian recovery example (caccdc0a6487)."
+        ],
+        "reasoning": "Even matching small ranks or sample counts in the tone model do not give the exact all-support translate formula. No matching parametric table was found in these inspections.",
+        "searches": [
+          "Local Resultary: sharp Gaussian lifting channel thresholds and small exact ranks; db2f9b22bc18, caccdc0a6487, bb32cc8a05b7 and f2400580db9d"
+        ]
+      },
+      "rationale": "The strongest distinct indexed matches share a Gaussian multiplicity-block mechanism, but their periodic pure-tone measurements separate differences in time rather than sums in time and give a different rank and line count. The inspected Gaussian-shift reconstruction and two-frequency uniqueness theorems also differ in sampling geometry, signal class, or domain of injectivity. No inspected result covers the claimed exact fixed-frequency full-Hermitian rank and finite Sidon layout for arbitrary real translate supports.",
+      "residual_risks": [
+        "An unlocated general lifting theorem about finite Gaussian spectrograms could give an equivalent specialization. Public search did not yield an additional relevant source and is not evidence of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material method overlap, not implication; same-day dates alone establish no priority",
+          "evidence": "The difference-zero diagonal block alone requires m bins. The stated scope is integer frequencies and periodic time profiles.",
+          "identifier_or_url": "Resultary db2f9b22bc18; https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-difference-multiplicity-law-and-sharp-channel-thresholds-for-gau--db2f9b22bc18/RESULT.md",
+          "material_read": "RESULT.md Finding, Fourier blocks and Strict generalized Vandermonde rank (proof offset about 4200 onward), Limitations (offset 9644)",
+          "method": "Local Resultary search and original mirror at snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Difference-multiplicity law and sharp channel thresholds for Gaussian spectral lifting",
+          "trigger": "Strong distinct same-day exact rank formula with additive collision blocks"
+        },
+        {
+          "assessment": "Different signal class and rank claim",
+          "evidence": "Periodic three tones, five time samples on each of two lines: rank-one recovery despite a one-dimensional Hermitian kernel; a third line adds the missing row.",
+          "identifier_or_url": "Resultary caccdc0a6487",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary and mirror",
+          "title": "Exact positive-semidefinite fibers of two-circle quadratic intensities",
+          "trigger": "Two frequency lines and finite lifting versus phase retrieval"
+        },
+        {
+          "assessment": "Finite tone designs, not arbitrary Gaussian translate support",
+          "evidence": "The first optimizes the singular spectrum for two tones; the other gives an eight-sample rank-eight design on a nine-dimensional three-tone lift.",
+          "identifier_or_url": "Resultary bb32cc8a05b7 and f2400580db9d",
+          "material_read": "Both RESULT.md Findings, offset 0",
+          "method": "Local Resultary and mirror",
+          "title": "A sharp two-regime Gaussian frequency bin design; Exact conditioning and optimal stagger of two Gaussian spectral bins",
+          "trigger": "Indexed exact finite Gaussian frequency-bin designs"
+        },
+        {
+          "assessment": "Different scan geometry and no matching K-line rank consequence",
+          "evidence": "Reconstruction on (beta/2) Z × R uses lattice time positions and all frequencies, not fixed-frequency scans for arbitrary real shift sets.",
+          "identifier_or_url": "arXiv:2109.02494",
+          "material_read": "Primary PDF p. 1 and Theorem 3.6, p. 14, text offset about 44700",
+          "method": "OA PDF inspection",
+          "title": "Stable Gabor phase retrieval in Gaussian shift-invariant spaces via biorthogonality",
+          "trigger": "Closely related Gaussian signals, STFT, and line sampling"
+        },
+        {
+          "assessment": "Does not cover linear tomography in the stated Gaussian translate class",
+          "evidence": "Two-bin recovery is up to phase on a bandlimited L^2 class.",
+          "identifier_or_url": "arXiv:2206.03946",
+          "material_read": "Primary PDF p. 2, theorem passage at offset about 4700",
+          "method": "OA PDF inspection",
+          "title": "Sampling at twice the Nyquist rate in two frequency bins guarantees uniqueness in Gabor phase retrieval",
+          "trigger": "Same number and direction of lines as the Sidon case"
+        },
+        {
+          "assessment": "Different measurement map",
+          "evidence": "Phaseless time-domain sampling in a Gaussian integer-shift-invariant class, not fixed-frequency Gabor rank.",
+          "identifier_or_url": "arXiv:1911.11050",
+          "material_read": "Primary PDF p. 1, problem and results summary",
+          "method": "OA PDF inspection",
+          "title": "Phase-retrieval in shift-invariant spaces with Gaussian generator",
+          "trigger": "Related finite and infinite Gaussian shift models"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof §§2–4",
+        "Resultary db2f9b22bc18 for closest different instrument geometry"
+      ],
+      "rationale": "The theorem answers a natural measurement-design question for known shifts and a fixed number of available frequency settings. Pair-sum collisions determine both the exact rank deficit and the optimal scan count; the difference between Sidon supports and progressions grows to m versus two lines. The precise resonance test and finite m^2-sample Sidon layout give information needed to design a successful exact measurement, beyond a qualitative uniqueness theorem.",
+      "residual_risks": [
+        "Does not predict stability in noise or the minimum required by an algorithm restricted to rank-one signals."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

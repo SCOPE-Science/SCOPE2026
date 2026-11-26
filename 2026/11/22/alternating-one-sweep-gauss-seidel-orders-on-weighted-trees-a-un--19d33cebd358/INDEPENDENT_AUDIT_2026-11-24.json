@@ -1,0 +1,159 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:15:30.455175Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In visit coordinates L=εN is the strict lower part of εW. Successive exact coordinate minimizations give (I−L)P=Lᵀ. Since H=(I−L)ᵀ(I−L)−LᵀL, taking the trace against initial second moment I yields the exact doubled objective R=||L||_F²−||LP||_F². This uses only zero mean and identity covariance, not a Gaussian assumption. In the finite triangular expansion LP=ε²NNᵀ+ε³N²Nᵀ+…, the even- and odd-length factors have disjoint bipartition supports, eliminating the order-five cross term. Diagonal squares of NNᵀ count the edge fourth powers and wedges with center last; its off-diagonal squares count wedges with center first, since two distinct rows of N cannot share two predecessors on a tree. Each unmixed wedge contributes twice and each mixed wedge contributes zero. Thus the leading difference in doubled risk is 2ε⁴M_π, with O(ε⁶) remainder (the coefficient for the undoubled objective is M_π). In original labels the oriented edges determine all entries of N, so orders with the same edge orientation have the same risk. Positivity makes M_π=0 exactly when every vertex is a pure source or sink, giving precisely the two orientations of the connected bipartition. There N²=0, so the common quartic risk is exact throughout the SPD range; the finite number of other orders and their positive fourth-order gaps give a common weak-coupling interval of strict separation, not global optimality for arbitrary SPD coupling. On a path the inverse visit-time permutation alternates in either direction, yielding 2E_n. An independent weighted three-vertex check gives the mixed-order gap 2ε⁴u²v²−ε⁶u⁴v² when the sweep follows the two edges of weights u,v in that order. The frozen verification/verify.py and output.txt were inspected, not executed; the 1,590 reported exact-rational checks are supplemental, not proof for all trees.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Varga's ranking is for the spectral-radius convergence factor, and red–black notes explain the two color blocks and parallel schedule, not optimality under the trace loss.",
+          "The weighted odd-ring theorem concerns asymptotic spectral radius, and the exact path averaging theorem concerns isotropic expected squared disagreement for edge-averaging operations, not vertex-coordinate updates."
+        ],
+        "reasoning": "Broader classes of iterates or graphs with different loss and update maps do not yield a covering result. In particular, optimizer information for asymptotic contraction does not determine the energy after one sweep from isotropic data.",
+        "searches": [
+          "Varga §3 Theorem 4, consistently ordered SOR and Gauss–Seidel",
+          "Cornell CS 5220 stationary iterations, red–black scheduling",
+          "Local Resultary 77222bb78c9e and 91c25b1a740a"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1910.04366",
+        "arXiv:1803.08200",
+        "arXiv:1607.08320",
+        "Varga (1959) §3",
+        "Cornell CS 5220 Red-Black Gauss-Seidel",
+        "Resultary 13073edebfeb, e0b097e5f69b, 91c25b1a740a, 77222bb78c9e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known coloring gives admissible source–sink sweeps. The compared contraction results neither give the trace coefficient nor say a mixed wedge has a positive gap. Same-day entries on C4, edge averaging and odd rings were separately compared; their stated rules do not imply the tree trace law."
+        ],
+        "reasoning": "The argument that both same-color supports and unique common predecessors give exactly the stated wedge coefficient is the additional step. Classical ordering in a different norm or a different update map implies neither the weak-coupling minimizer set nor any full-range trace optimality.",
+        "searches": [
+          "Local Resultary 13073edebfeb and e0b097e5f69b, Finding",
+          "Varga §3 Theorem 4",
+          "Cornell CS 5220, Red-Black Gauss-Seidel"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fixed-order exact cyclic coordinate descent for this quadratic is a Gauss–Seidel sweep. The compared classical/order-randomized papers study convergence rates or worst-case complexity, not the finite isotropic trace.",
+          "On a star the arrowhead result 13073edebfeb ranks orders by worst-case one-sweep A-energy and favours balancing leaf couplings around the hub; the present expected risk favours the unbroken leaf block at weak coupling."
+        ],
+        "reasoning": "After matching methods and order terminology, the objectives are different mathematical functions: the trace of PᵀHP for isotropic initialization versus a worst-case induced contraction or a spectral radius. The optimizer for one need not optimize the other.",
+        "searches": [
+          "Local Resultary: Gauss–Seidel single-sweep ordering on trees/arrowheads; isotropic risk and expected energy",
+          "Primary literature: arXiv:1910.04366, arXiv:1803.08200, arXiv:1607.08320",
+          "Varga, Orderings of the Successive Overrelaxation Scheme, §3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The catalogue includes the identical assigned record 19d33cebd358 itself, not independent prior coverage. The nearby exact rankings cover a star with worst-case energy, C4 with worst-case energy, or edge sweeps on a path."
+        ],
+        "reasoning": "These are meaningful comparisons, not tabulations of the same invariant. The claim in question is not a finite table: weights and tree sizes vary, and the leading term is an exact formula for each order.",
+        "searches": [
+          "Local Resultary: exact one-sweep Gauss–Seidel order comparisons; records 13073edebfeb, e0b097e5f69b, 91c25b1a740a"
+        ]
+      },
+      "rationale": "The distinct claim is the sharp weighted mixed-wedge penalty for a single sweep under isotropic initialization, with both source–sink orientation classes and no others optimal at weak coupling. Red–black scheduling and its spectral analysis are not new; the previously compared one-sweep arrowhead and four-cycle rankings use worst-case, not averaged, quadratic energy. No inspected statement subsumes the claimed risk law.",
+      "residual_risks": [
+        "Frozen VERIFICATION.md mentions an inaccessible historical arrowhead study without enough bibliographic detail to identify it. A focused public search for arrowhead/star single-sweep isotropic energy did not identify that study; this is not negative evidence. Unchecked partial coverage of the star case or an equivalent general trace theorem remains possible.",
+        "No posting order is inferred for same-day comparisons, and the examined methods do not settle trace optimality at arbitrary positive-definite coupling."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related orders, different functional",
+          "evidence": "Worst-case convergence complexity, not weighted-tree single-sweep isotropic objective risk.",
+          "identifier_or_url": "https://arxiv.org/abs/1910.04366",
+          "material_read": "Abstract p. 1 and complexity discussion p. 6, PDF offsets 0 and approximately 21724",
+          "method": "OA PDF and compare functional and regime",
+          "title": "Understanding Limitation of Two Symmetrized Orders by Worst-case Complexity",
+          "trigger": "Coordinate-order dependence under cyclic sweeps"
+        },
+        {
+          "assessment": "Comparative convergence rates, not complete individual order classes",
+          "evidence": "The comparison uses permutation/random-sampling methods and fixed cyclic methods on diagonally dominant quadratics.",
+          "identifier_or_url": "https://arxiv.org/abs/1803.08200",
+          "material_read": "Abstract and pp. 2–3, PDF offsets 0 and approximately 8000–10600",
+          "method": "OA PDF and compare quantifiers",
+          "title": "Randomness and Permutations in Coordinate Descent Methods",
+          "trigger": "Fixed versus randomized ordering in quadratic descent"
+        },
+        {
+          "assessment": "Relevant method background, different risk claim",
+          "evidence": "Random-permutation versus cyclic and randomized coordinate descent, not single-sweep tree optimizers.",
+          "identifier_or_url": "https://arxiv.org/abs/1607.08320",
+          "material_read": "p. 1, PDF offset 0",
+          "method": "OA PDF scope comparison",
+          "title": "Random Permutations Fix a Worst Case for Cyclic Coordinate Descent",
+          "trigger": "Performance of cyclic coordinate permutations"
+        },
+        {
+          "assessment": "Spectral convergence factor, not trace",
+          "evidence": "Its ordering theorem concerns spectral radius of the iteration, which does not characterize isotropic expected energy after one iteration.",
+          "identifier_or_url": "https://msp.org/pjm/1959/9-3/pjm-v9-n3-p28-p.pdf",
+          "material_read": "§3, Theorem 4, printed pp. 934–935 (PDF offset about 18000)",
+          "method": "OA PDF decisive theorem passage",
+          "title": "Orderings of the Successive Overrelaxation Scheme",
+          "trigger": "A general classical SOR ordering theorem might subsume optimality"
+        },
+        {
+          "assessment": "Known scheduling, no covering risk theorem",
+          "evidence": "Color classes enable independent/parallel updates within a block.",
+          "identifier_or_url": "https://www.cs.cornell.edu/courses/cs5220/2020fa/lec/2020-10-27-stationary.html",
+          "material_read": "Red-Black Gauss-Seidel section, text offset 2112",
+          "method": "Course note passage",
+          "title": "Stationary Iterations",
+          "trigger": "Red–black order may already be standard"
+        },
+        {
+          "assessment": "Different one-sweep loss",
+          "evidence": "The optimal balancing of leaf couplings around the hub concerns worst-case A-energy.",
+          "identifier_or_url": "Resultary 2026/11/2/13073edebfeb",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror and compare objective for identical star support",
+          "title": "A sharp horizon reversal for Gauss–Seidel ordering on positive-definite arrowheads",
+          "trigger": "Exact star single-sweep ordering"
+        },
+        {
+          "assessment": "Not the same order claim; no posting order inferred",
+          "evidence": "Ranks worst-case one-sweep A-energy on a four-cycle, with interlaced best and red–black worst.",
+          "identifier_or_url": "Resultary 2026/11/22/e0b097e5f69b",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror, compare graph and risk",
+          "title": "Three strict one-sweep energy tiers for all Gauss–Seidel orders",
+          "trigger": "Same-day exact order ranking for a graph-supported Hessian"
+        },
+        {
+          "assessment": "Different updates and loss",
+          "evidence": "Ranks edge-averaging sweeps by expected squared disagreement, not vertex-coordinate sweeps by expected Hessian energy.",
+          "identifier_or_url": "Resultary 2026/11/22/91c25b1a740a",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror; compare sweep maps",
+          "title": "Exact one-sweep ordering law for path Kaczmarz and pairwise averaging",
+          "trigger": "Same-day path sweep and isotropic expectation"
+        },
+        {
+          "assessment": "Odd cycles and asymptotic rate, not finite isotropic energy on trees",
+          "evidence": "The compared quantity is the spectral radius of the iteration.",
+          "identifier_or_url": "Resultary 2026/11/22/77222bb78c9e",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror; compare graph and optimization criterion",
+          "title": "Exact optimal cyclic coordinate orderings on arbitrary weighted odd rings",
+          "trigger": "Same-day weighted cyclic coordinate ordering"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A single exact sweep is a natural finite-work budget, and expected energy from an isotropic start is distinct from familiar worst-case or asymptotic criteria. Relating the first order-dependent term to weighted directed wedges gives a useful structural invariant and a complete weak-coupling optimizer classification uniformly over all orders of a fixed weighted tree. This is not just the observation that bipartite scheduling is feasible, nor a finite-case recomputation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

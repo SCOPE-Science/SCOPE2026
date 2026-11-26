@@ -1,19 +1,21 @@
-# Review of the triangle-free rank-three boundary
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The extension-rank definition is unrolled at each of three levels. An admissible one-point extension over an edge in a triangle-free age has exactly three signatures, whereas a nonedge has four. The proof that every full nonedge pair automatically supplies a full edge partner is checked directly: witnesses \(a,v,b\) realize the three edge signatures, with the missing edges forced by triangle exclusion. Four distinct forced edges and six distinct vertices give the all-order sharp bounds. The six-point templates consist of four mandatory edges and four optional ones; only the two choices with \(ab=ad=bd=1\) are excluded. A standalone exhaustive checker agrees with the direct rank recursion on every one of the 5789 triangle-free labelled six-vertex graphs and returns 2292 qualifying graphs in nine relabelling orbits. This finite check corroborates the proof but is not substituted for the all-order argument.
+PASS
 
-## Originality — PASS within inspected sources
+Expanding rank ≥3 from the empty mark requires an anchor u with both an edge and a nonedge partner of marked rank ≥1. In the triangle-free age a marked edge requires 00,10,01; a marked nonedge requires all four exterior traces. Conversely let a,b,c,d witness u-only, v-only, both and neither at a full nonedge uv. At the edge uc, a,v,b supply the three requisite traces: ac and bc are prohibited by triangles, and b is not adjacent to u. Thus one full nonedge suffices, including in a countable host. The witnesses force six distinct vertices and the four edges of a path on five of them. Equality in the edge bound leaves exactly that path plus isolates. On those six vertices only ab,ad,bd,cd are optional and only the triple ab,ad,bd is forbidden; there are 14 anchored templates. Independent exhaustive enumeration over all 32,768 labelled graphs, using neighborhood set differences/intersections and separately the edge/nonedge rank-one anchor test, gives 5,789 triangle-free graphs, the same 2,292 qualified by both criteria and nine orbits. Orbit sizes, stabilizers, canonical masks and CSV edge lists all agree. Since graphs below order six cannot qualify, the nine equal-order shapes are exactly the minimal induced obstructions within the age. Rank ≥1 is nonemptiness. Rank ≥2 is the existence of a vertex with a neighbor and a distinct nonneighbor, equivalent here to having an edge and a third vertex by triangle-freeness.
 
-The 2026 Fraïssé rank article provides the framework, but explicitly leaves clique-free ages outside its full-extension-property condition. The closest published seven-vertex rank-three graph extremum uses the unrestricted graph age, where four edge-pair signatures are admissible; that theorem does not cover the present triangle-free relative rank. Existing finite-rank results for linear forests are restricted to a proper subclass. The inspected 2025 circular triangle-free classification excludes \(C_6\) and \(C_5\sqcup K_1\), both present among the nine shapes, so it neither implies nor tabulates this rank boundary. published-finding corpus and literature searches for nonedge shattering, equivalent induced patterns and exact six-point rank tables found no directly covering result. Historical priority is not certified globally.
+## originality
 
-## Value — PASS
+PASS
 
-The main content is a complete forbidden induced-subgraph basis for the rank-below-three boundary in a natural hereditary model-theoretic class. It includes a sharp host-order threshold, all-order support minimum with a unique equality case, and exact enumeration of every minimum-order witness up to relabelling. These describe the failure of the unrestricted-graph threshold under constrained admissible extensions. The characterization has a fixed finite witnessing formula, and its exact census supports structural comparison in clique-free Fraïssé ages; it is not just a bare numeric table.
+The supported contribution is the exterior-trace criterion for the full triangle-free age, the sharp extremum on that whole class, and its complete nine-element obstruction basis and census. Closely matched unrestricted-rank results use a different extension class; the linear-forest result does overlap with the extremum and criterion on a strict subclass, and that overlap is credited.
 
-## Scope and residual risks
+## value
 
-The claimed rank is relative to all finite triangle-free graphs. The work does not prove rank-four bounds, ordinal spectra or the Rank Property for this age. The 2024 foundational evolution-rank preprint was read through indexed definition/abstract material rather than full paper, but the directly closest 2026 article and published unrestricted-graph result were inspected for the key implications. Independent mathematical validation is absent and absolute historical priority remains provisional.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact exterior-trace condition turns a recursive rank question into a local test that works even for countable hosts. It gives a small complete forbidden induced basis and explains why the triangle-free age has a strictly smaller onset than unrestricted graph rank. The exact finite census supports this classification rather than posing an arbitrary isolated count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

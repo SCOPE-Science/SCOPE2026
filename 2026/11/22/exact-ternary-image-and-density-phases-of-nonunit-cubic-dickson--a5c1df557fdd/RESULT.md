@@ -13,7 +13,7 @@ W_a=\begin{cases}
 \end{cases}
 \]
 
-All displayed unions are disjoint; the last case is a genuine recurrence, not an assumed description of an unknown set. Iterating reaches a unit parameter whenever \(a\ne0\), or gives a complete infinite decomposition when \(a=0\). In particular,
+All displayed unions are disjoint. For \(a\ne0\), each recurrence step removes two from the valuation: the iteration stops at a unit parameter for even valuation and at a valuation-one parameter for odd valuation. For \(a=0\), the recurrence gives a complete infinite decomposition:
 \[
 V_0=\{0\}\sqcup\bigsqcup_{j\ge0}27^j\bigl((1+9\mathbb Z_3)\sqcup(-1+9\mathbb Z_3)\bigr).
 \]
@@ -59,7 +59,7 @@ This exposes two exceptional first-level density phases, \(19/81\) and \(7/27\),
 \[
 \frac{F_a(r+3t)-r}{9}=r^2t+3rt^2+3t^3-\frac a3r-at.
 \]
-Its derivative with respect to \(t\) is congruent to \(1\pmod3\). Therefore the normalized map takes each residue class of \(t\) bijectively onto a residue class modulo three, and the three classes jointly cover \(\mathbb Z_3\). This is the simple-root form of Hensel's lemma: for every target, solving the corresponding normalized equation has a unique lift in each congruent branch. Hence
+Modulo three the normalized polynomial is the affine bijection \(t\mapsto t-(a/3)r\), and its derivative is congruent to \(1\pmod3\). For every normalized target there is exactly one root modulo three and it lifts uniquely by Hensel's lemma. Hence
 \(F_a(r+3\mathbb Z_3)=r+9\mathbb Z_3\). The two cylinders are disjoint modulo three and contain no values from inputs divisible by three.
 
 **2. The valuation-one bifurcation.** If \(a=3b\), with \(b\) a unit, direct substitution gives \(F_a(3t)=27(t^3-bt)\). For \(b\equiv1\pmod3\), the normalized polynomial \(g(t)=t^3-bt\) reduces to zero on every input modulo three, while \(g'(t)=3t^2-b\) is a unit. Hensel lifting on each input coset shows that \(g(\mathbb Z_3)=3\mathbb Z_3\). For \(b\equiv-1\pmod3\), \(g(t)\equiv2t\pmod3\), again with unit derivative; the three cosets map onto all three residue cylinders, so \(g(\mathbb Z_3)=\mathbb Z_3\). Multiplication by 27 gives respectively \(81\mathbb Z_3\) and \(27\mathbb Z_3\).
@@ -77,7 +77,7 @@ If \(u\equiv1\pmod3\), choose a square root \(s\in\mathbb Z_3^\times\) with \(s^
 \(F_1(1+3t)=-2+27t^2(t+1)\). The factor \(h(t)=t^2(t+1)\) has values modulo three \(0,2,0\) on input classes \(0,1,-1\); its derivative \(h'(t)=3t^2+2t\) is a unit on classes \(1,-1\). These latter two input classes map onto the entire two output classes \(2+3\mathbb Z_3\) and \(3\mathbb Z_3\), and the remaining class contributes no new values. Hence the image of the positive unit-input branch is precisely \((-2+81\mathbb Z_3)\sqcup(52+81\mathbb Z_3)\). By oddness, the negative branch has the two opposite cosets. They are disjoint from the \(9\mathbb Z_3\) zero branch. Counting these 13 residue classes modulo 81 gives \(N_1(1)=N_1(2)=3\), \(N_1(3)=5\), and \(N_1(k)=13\cdot3^{k-4}\) for \(k\ge4\), proving the remaining terminal formula.
 
 **5. Finite levels and measure.** The two outer image cylinders contribute \(B(k)\) residues modulo \(3^k\). The zero branch contributes one residue when \(k\le3\); for \(k\ge4\), it contributes \(3^{k-4}\), \(3^{k-3}\), or \(N_{a/9}(k-3)\) in the cases of Steps 2–3. This proves the exact \(N_a(k)\) formulas. The measures of disjoint cylinders add, so
-\(\delta(3b)=2/9+1/81\) or \(2/9+1/27\), and \(\delta(9c)=2/9+\delta(c)/27\). The unit cases from Step 4 have densities \(13/81\) and \(1/3\). Iterating the affine recurrence gives the displayed closed phase formula. For \(a=0\), its fixed-point equation is \(\delta(0)=2/9+\delta(0)/27\), giving \(3/13\). Compactness of \(\mathbb Z_3\) ensures the finite congruence images are exactly the reductions of these complete ternary images; the measure limits therefore agree with the exact counts.
+\(\delta(3b)=2/9+1/81\) or \(2/9+1/27\), and \(\delta(9c)=2/9+\delta(c)/27\). The unit cases from Step 4 have densities \(13/81\) and \(1/3\). Iterating the affine recurrence gives the displayed closed phase formula. For \(a=0\), its fixed-point equation is \(\delta(0)=2/9+\delta(0)/27\), giving \(3/13\). The finite congruence images are exactly the reductions of \(V_a\). Their inverse images in \(\mathbb Z_3\) are decreasing unions of cylinders of measures \(3^{-k}N_a(k)\), and their intersection is \(V_a\) because that image is compact. Continuity of measure from above proves the stated limit.
 
 ## Verification
 The standalone `verify.py` uses no third-party dependencies. It directly enumerates all distinct outputs of \(F_a\) for 181 integer parameters from \(-90\) to \(90\) at precisions \(1\) through \(8\), checks the image cardinalities against a separate implementation of the formula, and verifies the full image decomposition in every nonunit case. Additional enumeration at precisions \(9\) and \(10\) covers eight representative nonunit parameters. These finite checks supplement rather than prove the all-parameter theorem; the infinite scope follows from Steps 1–5.

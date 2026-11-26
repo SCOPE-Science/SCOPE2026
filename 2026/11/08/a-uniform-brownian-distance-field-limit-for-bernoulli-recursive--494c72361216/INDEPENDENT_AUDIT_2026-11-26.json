@@ -1,0 +1,151 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:08:06.710447Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–113",
+        "Frozen VERIFICATION.md lines 19–23 and check.py lines 21–146 (inspected finite checks, not executed)"
+      ],
+      "rationale": "With X_k=H_k-H_(k-1), parent choice gives X_k=1 or 1-X_(k-1), in particular nonnegative increments. The centered innovation xi_k=X_k-1+q X_(k-1) has conditional mean zero and variance pq X_(k-1). Summing gives (1+q)(H_m-mu m)=sum_(k=2)^m xi_k+Y_1+qY_m, with bounded remainder. Bounded-increment concentration and Borel–Cantelli give the height strong law. It also gives uniform predictable-variation convergence: sup_(m<=n)|H_m-mu m|/n tends to zero, so the scaled variation up to nt converges uniformly to pq mu t. Thus the bounded-jump martingale functional CLT yields the stated variance pq/(1+q)^3 for the interpolated height. For a last success k<=i, both v_k and v_(k+1) descend from v_(k-1), and the same is true by induction at all later times. Consequently the LCA deficit in distance from i to j is no more than twice i-k+1. The union bound n q^r and summability at r=ceil(3 log n/|log q|) yield a uniform O(log n) almost-sure error. Grid bilinear interpolation does not enlarge this error, and the ordered increment field of the linearly interpolated centered heights changes by at most 2/sqrt(n) within a mesh square. This proves convergence in the asserted uniform topology and the interval-overlap covariance. The first-order distortion tends to zero; coupling Lebesgue to uniform masses at grid labels mu i/n within O(1/n) gives the measured limit. Monotone height and the root-to-newest distance sandwich the diameter by H_n and H_n+O(log n). Finally sum(j-i)=n(n+1)(n+2)/6 over unordered pairs; the Riemann-sum Brownian functional is 2 sigma integral_0^1 u(1-u)dB(u), since u(1-u) is the area of ordered pairs crossing u. Its variance is 4 sigma^2/30. The baseline shift mu(n+2)/3 versus mu n/3 is negligible on the square-root scale.",
+      "residual_risks": [
+        "Fixed 0<p<1 and a nested Bernoulli construction for almost-sure assertions. No claim of convergence uniform in p, of endpoint asymptotics, or of a limit proved by the recorded finite simulation."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Uniform-recursive-tree low-level profiles and conditioned Galton–Watson distance profiles have different parent laws/observables; the latter uses square-root rather than linear macroscopic distance scale and is not birth-time indexed.",
+          "The growing-memory catalogue result treats newest-vertex depth in a polynomially growing uniform parent window, not all labels or the exact two-lag Bernoulli law. The recent m-ary distance paper creates multiple new vertices at one randomly selected recruiter instead."
+        ],
+        "reasoning": "No inspected broader theorem has hypotheses and a second-order conclusion encompassing this particular distance field. A scalar depth or profile result cannot be substituted for joint birth-time increments.",
+        "searches": [
+          "websearch: Bernoulli recursive tree last penultimate parent predecessor two pairwise distance birth time Brownian functional limit metric regenerative bounded memory Tang Wang Wu",
+          "arXiv:1801.04606 Theorem 1.1; arXiv:2009.00572 Theorem 1.4; arXiv:1810.02735 introduction; arXiv:2609.33636v2 abstract",
+          "Resultary 375e4120fe33"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 494c72361216, 8c6e93bb272e, 18e3157fa569, 0bd0db360670, 375e4120fe33 and 847064c4dd3c (last one summary only)",
+        "arXiv:2607.02916v1, 1801.04606, 2009.00572, 1810.02735, 2609.33636v2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The transport record proves d(v_i,v_j)-(H_j-H_i) between zero and twice the longest-run proxy, and uniform height concentration at linear scale. For fixed p these already imply uniform first-order distortion and hence the measured interval limit with the grid coupling.",
+          "Tang–Wang–Wu provides the exact model and trunk/branch and run structure. Neither it nor the compared first-order result states a joint height process FCLT or uniform Brownian increment distance field. A scalar CLT and a deterministic coupling error alone leave the necessary process covariance and tightness unproved."
+        ],
+        "reasoning": "The first-order limit is mechanically covered by a distinct same-day result irrespective of priority. The frozen theorem adds the martingale functional convergence and second-order uniform transfer, which yield the interval-overlap covariance and the nontrivial integrated fluctuation not supplied by the compared results.",
+        "searches": [
+          "Resultary 0bd0db360670 primary Proof §§1–3, offsets 0–7977",
+          "arXiv:2607.02916v1 Theorem 1.2 and §3.1",
+          "Frozen RESULT.md proof steps 1–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact model is last-or-penultimate attachment. Resultary 8c6e93bb272e gives eventual diameter = root height + finite random offset and the same diameter CLT; 18e3157fa569 has the same endpoint-height marginal variance.",
+          "On trees the Wiener index W_N and Kemeny constant satisfy kappa_N=2 W_N/(N-1)-N+1/2; the same-day transport result 0bd0db360670 thus gives the fixed-p leading pair-mean limit as well as a metric comparison, but not its square-root centered fluctuation."
+        ],
+        "reasoning": "The weighted/unweighted mean distinction is not sufficient on trees: the exact affine relation must be applied before comparing the scales. The stated macroscopic Kemeny/Wiener laws do not determine the centered mean-distance CLT or a uniform second-order field.",
+        "searches": [
+          "Resultary predecessor-two Bernoulli tree, distance field, diameter-height and transport crossover comparisons: 8c6e93bb272e, 18e3157fa569, 0bd0db360670",
+          "Tang–Wang–Wu arXiv:2607.02916v1 §3.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "494c72361216 is the identical assigned source. The distinct November 2 result's diameter CLT is an exact prior match for that marginal, even though its stronger locking result does not cover the full field.",
+          "The October 26 diameter-height stabilization hit was not accessible in the local mirror; only the ranked summary was available. The November 8 height and transport findings were compared on actual statements, not put in a priority order based on their shared date."
+        ],
+        "reasoning": "Exact scalar overlap is credited; the separately inspected records do not state the full second-order field. The inaccessible diameter record is not used as negative evidence.",
+        "searches": [
+          "Resultary exact hit 494c72361216 and adjacent hits 8c6e93bb272e, 847064c4dd3c, 18e3157fa569, 0bd0db360670"
+        ]
+      },
+      "rationale": "Restricted to the uniform second-order birth-time pair-distance field and its new projections, notably the centered mean-distance fluctuation. Earlier exact-catalogue results cover the diameter CLT, the endpoint-height variance, and a same-model uniform first-order distance comparison that implies the interval metric limit. Those overlapping ingredients, first-order facts and diameter consequences are not credited as independently new. The frozen headline and primary theorem are the uniform Brownian field; the diameter and mean are stated as consequences, not new independent findings.",
+      "residual_risks": [
+        "Bounded checks do not exclude an unlocated regenerative two-lag functional theorem. The October 26 full text was not accessible; this leaves additional diameter-overlap risk, not negative evidence about the field."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Structural antecedent, not the field theorem",
+          "evidence": "Analyzes one-endedness, walk collisions, trunk steps and branch lengths rather than joint finite-tree pair-distance fluctuations.",
+          "identifier_or_url": "https://arxiv.org/abs/2607.02916v1",
+          "material_read": "Abstract p. 1; Theorem 1.2 p. 3 offset 6458; §3.1 pp. 5–7 offsets 11625,14950",
+          "method": "Primary OA PDF passage inspection",
+          "title": "Infinite collisions of simple random walks on random recursive trees generated by Bernoulli sequences",
+          "trigger": "Exact same attachment law and trunk structure"
+        },
+        {
+          "assessment": "Exact prior diameter coverage and stronger eventual offset",
+          "evidence": "Diameter−height eventually constant and variance pq/(1+q)^3 for the centered diameter.",
+          "identifier_or_url": "2026/11/2/SCOPE-eventual-diameter-height-locking-in-bernoulli-two-step-recursive--8c6e93bb272e",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Local Resultary lookup and primary mirror reading",
+          "title": "Eventual diameter-height locking in Bernoulli two-step recursive trees",
+          "trigger": "Same-model diameter comparison"
+        },
+        {
+          "assessment": "Substantive first-order overlap, not fixed-p second-order coverage",
+          "evidence": "Proves the analogous deterministic uniform error, the fixed-p macroscopic Kemeny limit, uniform linear height concentration and the Kemeny–Wiener identity.",
+          "identifier_or_url": "2026/11/8/SCOPE-a-sharp-transport-crossover-in-two-lag-bernoulli-recursive-trees--0bd0db360670",
+          "material_read": "RESULT.md Finding, Assumptions and Proof §§1–3, mirrored offsets 0–7977",
+          "method": "Local Resultary lookup and direct mirror passage reading",
+          "title": "A sharp transport crossover in two-lag Bernoulli recursive trees",
+          "trigger": "Same model and possible mean-distance equivalence"
+        },
+        {
+          "assessment": "Endpoint-height marginal overlap",
+          "evidence": "Joint CLT for height/leaf count, not all birth times or distances.",
+          "identifier_or_url": "2026/11/8/SCOPE-a-golden-ratio-covariance-transition-for-height-and-leaves-in-tw--18e3157fa569",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Local Resultary lookup and primary mirror reading",
+          "title": "A golden-ratio covariance transition for height and leaves",
+          "trigger": "Same-model joint fluctuation comparison"
+        },
+        {
+          "assessment": "Different observable, metric scale and law",
+          "evidence": "An all-pairs profile for conditioned Galton–Watson distance at Brownian-CRT scale; no centered birth-time field.",
+          "identifier_or_url": "https://arxiv.org/abs/2009.00572",
+          "material_read": "Theorem 1.4 pp. 2–3, PDF offset about 6500",
+          "method": "Primary OA PDF passage inspection",
+          "title": "The distance profile of rooted and unrooted simply generated trees",
+          "trigger": "Closest published broad all-pairs observable"
+        },
+        {
+          "assessment": "Different recruitment law",
+          "evidence": "Random recruiter receives m new children at once; not a single-child choice between the last two vertices.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.33636v2",
+          "material_read": "Abstract p. 1 PDF offsets 0–1247",
+          "method": "Targeted OA primary PDF reading",
+          "title": "Distances in m-ary recursive trees",
+          "trigger": "Close title in focused primary literature search"
+        },
+        {
+          "assessment": "Unresolved exact assumptions; not excluded",
+          "evidence": "Summary describes eventual diameter-height stabilization and tail claims, not enough to assess any other content.",
+          "identifier_or_url": "2026/10/26/SCOPE-eventual-diameter-height-stabilization-with-sharp-geometric-tails--847064c4dd3c",
+          "material_read": "Resultary summary only; primary mirror missing",
+          "method": "Local Resultary lookup and attempted mirror inspection",
+          "title": "Eventual diameter-height stabilization with sharp geometric tails",
+          "trigger": "Another prior diameter-overlap candidate"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Proof steps 3–4",
+        "Resultary 0bd0db360670 first-order comparison and 8c6e93bb272e scalar diameter theorem"
+      ],
+      "rationale": "The distinct output tells how distances for overlapping and disjoint birth-time intervals fluctuate together, uniformly across all pairs, rather than giving further individual depth or diameter marginals. It appears at a genuine scale below the deterministic linear geometry. Integration yields an explicit centered mean-distance variance and shows why the scalar result is part of the same field rather than a separate simulation finding.",
+      "residual_risks": [
+        "Scientific value is assigned to the second-order field and genuinely distinct projections, not to reclaiming the known diameter CLT or first-order distance comparison."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

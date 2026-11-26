@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T23:25:34.826027Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–60; VERIFICATION.md; verify.py"
+      ],
+      "rationale": "The claim is restricted to the hull [0,1/m], not the complement in [0,1]. At a point's first escape, its preceding iterate y has a=floor(1/y)≥m and 1/m<T(y)<1 exactly when L_a<y<R_a. Pulling it back through the preceding digits gives the listed gap. Conversely each such interval escapes at the specified step; its endpoints survive since L_a maps to 0 and R_a to 1/m, which itself maps to 0. The first escape and its pre-escape digit identify the gap uniquely. This also gives an open complement in the hull and avoids any assumption of continuity of the Gauss map at rationals. Multiplying the inverse-branch Möbius matrices gives unit absolute determinant and denominator q_k+q_{k−1}t, so the length formula includes the empty prefix. The root lengths strictly decrease with a and every nonempty prefix satisfies |f_w(x)−f_w(y)|≤m^{−2|w|}|x−y|. The maximal normalized distance is thus m(R_m−L_m)/2, with the claimed limit. The nonterminating set is covered at depth j by intervals of total length at most (sum_{a≥m}a^{−2})^j/m, tending to zero since sum_{a≥2}a^{−2}<sum_{a≥2}1/[a(a−1)]=1. The terminating survivors are countable, so the disjoint gaps have total length 1/m.",
+      "residual_risks": [
+        "The source's recorded finite rational checks are corroboration only and were not rerun; the first-escape and continuant arguments verify arbitrary digits, depths and thresholds in scope."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The broader Liu–Liao theorem concerns parameter plateaus and Hausdorff dimension, not x-space gaps.",
+          "The reciprocal-parameter indexed source already gives disjoint branch interiors and uniform derivative bounds for all m≥2.",
+          "The 1999 full paper was not obtained by the lawful routes attempted."
+        ],
+        "reasoning": "The relevant prior strength is the exact IFS coding, not the fact that dimension was studied for more hole sizes. The indexed coding supplies every cylinder and the contraction bounds used in the purported new claim.",
+        "searches": [
+          "Liu–Liao arXiv:2610.14534v1, Theorem 1.1 and Corollary 1.2",
+          "Mauldin–Urbański, DOI 10.1090/S0002-9947-99-02268-0",
+          "Resultary 32814d432a29 proof §1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 32814d432a29, §1",
+        "Liu–Liao arXiv:2610.14534v1",
+        "Frozen RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Applying the indexed branches to the hull gives [1/(a+1/m),1/a]; neighboring hulls leave (1/(a+1),1/(a+1/m)). The full shift and uniform contraction repeat precisely these intervals inside every cylinder.",
+          "The same derivative bound ensures all descendant gaps are strictly smaller than the largest first-level gap."
+        ],
+        "reasoning": "Write down the first-level endpoints, apply the branch compositions which have determinant of absolute value one, observe the root length is decreasing in a, and take half its normalized maximum. At s=1 the bound on sums of branch lengths also gives null measure. No new structural case or estimate is needed once the coding is known.",
+        "searches": [
+          "Resultary 32814d432a29, proof §1 (offsets 1970–2994)",
+          "Frozen RESULT.md, lines 29–57"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 32814d432a29, proof §1, identifies the irrational part of E(1/N) with the full shift on a≥N and gives the exact same branches on I_N=[0,1/N].",
+          "Under N=m the families agree on irrationals and the closure adds the surviving terminating points."
+        ],
+        "reasoning": "There is no restriction of admissible finite words to analyze: each prefix is possible. The endpoints arise either by a zero tail or a 1/m tail and survive; a fixed prefix followed by a digit tending to infinity approximates the zero tail.",
+        "searches": [
+          "Local Resultary search for reciprocal Gauss survivor sets, restricted partial quotients, and gap geometry",
+          "Liu–Liao arXiv:2610.14534v1, Introduction (1.1)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matched indexed record states pressure/dimension bounds and asymptotics; the primary paper's inspected theorems concern dimension plateaus. Neither compared statement prints the all-gap lengths or normalized distance.",
+          "The indexed branch formula does specify all endpoints by composition."
+        ],
+        "reasoning": "This is an infinite formula family rather than a finite table. Failure to locate a printed formula does not imply distinctness when the indexed coding already generates it directly.",
+        "searches": [
+          "Local Resultary same-family search, including 32814d432a29",
+          "Liu–Liao arXiv:2610.14534v1, inspected statements"
+        ]
+      },
+      "rationale": "The exact formulas are correct but the geometric claim is mechanically implied by the already indexed full-shift branch description at the same reciprocal parameters, plus the elementary rational endpoint check and standard Möbius subtraction. This is implication, not a claim that the earlier source printed the distance formula or that dimension determines distance.",
+      "residual_risks": [
+        "Earlier explicit formulas may exist; the inaccessible 1999 text is a remaining source-comparison limitation. The finding of coverage is by implication, not historical priority for the exact written formula."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coding and contraction imply the geometric formulas by elementary operations; does not state them verbatim",
+          "evidence": "§1 gives the minimum-digit full shift on [0,1/N], phi_a(x)=1/(a+x) and |phi'_a(x)|≤a^{-2}.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-a-lambert-w-boundary-layer-and-lattice-correction-for-gauss-surv--32814d432a29/RESULT.md",
+          "material_read": "Proof §1 and pressure comparison, local mirror offsets 1970–4860",
+          "method": "Local Resultary file mirror",
+          "title": "Lambert W boundary layer and lattice correction for Gauss survivors",
+          "trigger": "Same E(1/m) and explicit inverse branches"
+        },
+        {
+          "assessment": "Establishes related dimension and parameter results, not itself the exact Euclidean gap assertion in these passages",
+          "evidence": "The set is defined by T^j(x)≤t for all j; the inspected statements analyze plateaus and one-sided dimension behavior.",
+          "identifier_or_url": "https://arxiv.org/html/2610.14534v1",
+          "material_read": "Abstract, Introduction (1.1), Theorem 1.1 and Corollary 1.2, HTML offsets 0–8999",
+          "method": "Lawful OA primary HTML passage inspection",
+          "title": "Survivor Set of Gauss Map with a Hole at 1",
+          "trigger": "Same Gauss survivor family and hole parameter"
+        },
+        {
+          "assessment": "Unresolved on direct statement overlap; not evidence for either priority or failure",
+          "evidence": "The AMS routes returned 403 and DOI retrieval timed out; the positive implication instead comes from the inspected indexed full-shift statement.",
+          "identifier_or_url": "https://doi.org/10.1090/S0002-9947-99-02268-0",
+          "material_read": "Citation and scope; no primary full-text passage was obtained",
+          "method": "Attempted lawful AMS PDF and landing page, and DOI resolution",
+          "title": "Conformal Iterated Function Systems with Applications to the Geometry of Continued Fractions",
+          "trigger": "Plausible primary antecedent on restricted digits"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and §§1–5 of the proof",
+        "Resultary 32814d432a29, proof §1"
+      ],
+      "rationale": "The exact gap sizes and sharp filling rate are natural observables, but in this full-branch reciprocal case they are immediate from the prior interval endpoints, uniform contraction, and the half-largest-gap identity. The frozen work adds neither a new restriction on the coding nor independent control of an otherwise unresolved geometric invariant. No distinct valuable remainder is established by the record.",
+      "residual_risks": [
+        "This judgment is about the reciprocal full-shift regime only; it does not imply that gap geometry for general holes is routine."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:26:41.947742Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, including the arc-state convention and characteristic factorization",
+        "Frozen VERIFICATION.md, verify.py and symbolic_verify.py (inspected, not executed)",
+        "Independent symmetry decomposition and moment calculation above; independent rational all-arc check at m=3,t=31 and replay of exact Chebyshev arithmetic via python3 /tmp/opencode/butterfly_audit.py"
+      ],
+      "rationale": "The tail bipartition alternates under U=SC, so even overlap vanishes. For m≥1 permutation symmetry leaves the eight grouped arcs invariant. In the vertex-layer swap sector ε=±1, take the four combinations a+εb,c+εe,d+εf,g+εh from the frozen basis. The characteristic polynomial of this sector is (z−εα)(z³+εα)−β²=(z²−1)(z²−εαz+1), using α²+β²=1. Layer swap also interchanges source and target and commutes with the real orthogonal U; hence a(−t)=a(t). For m≥2 this makes the odd-time spectral expression constant plus a cosine, without a sine term. The first and third amplitudes are −1/(m+1) and −(α²+m)/(m+1) by direct arc evolution, determining the two coefficients in the frozen formula. For m=1 the squared walk has eigenvalues ±1, and the first and third amplitudes agree, so every odd overlap is −1/2; for m=0 the walk is −S on the single edge. For m≥2 the rational noninteger 2cos(theta) cannot be the sum of a root of unity and its inverse. Therefore the odd angles are dense and never hit pi exactly; the upper endpoint of the amplitude range is strictly below +1. This proves the pretty-good but not perfect case. The odd-time means of cosine and cosine squared are 0 and 1/2, by the two geometric sums, giving the stated Cesàro average after the even zeros are included. The incoming convention follows from the target's −1 coin eigenvalue. Exact evaluation at m=3,t=31 gives amplitude −4294404829/4294967296 and the frozen fidelity fraction.",
+      "residual_risks": [
+        "The plotted comparison is to the explicit outgoing vectors of the motivating paper's B3 example, not the literal incoming target described in its general equation or uninspected plotting code.",
+        "This is a noiseless coherent arc-state overlap, not vertex detection or target-outgoing occupation probability."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chan–Zhan provide general spectral transfer criteria rather than a butterfly amplitude or regime calculation.",
+          "Xu–Zhan use marked +1 coin eigenspaces for their transferred vertex subspaces; the marked uniform states here lie in the −1 eigenspaces. Their K_{2,m} example is a different graph. The star/complete-graph search settings are also different."
+        ],
+        "reasoning": "General spectral tools can support a derivation but do not determine the needed eigenangles and weights by parameter substitution; the inspected example criteria do not cover this claim as stated.",
+        "searches": [
+          "Chan–Zhan arXiv:2105.03762, §§5.2 and 6",
+          "Xu–Zhan arXiv:2511.06750, §§5 and 9.3",
+          "Štefaňák–Skoupý arXiv:1608.00498, abstract"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2604.11620v1, 2105.03762, 2511.06750 and 1608.00498",
+        "Claim-directed Resultary comparisons and primary search attempt"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "m=0 and m=1 behavior is reported in the prior study; m=2 and m=3 are numerical cases, with the m=3 discussion describing t=31,69,93,… as fidelity equal to one.",
+          "The new matched-state calculation identifies a rational noninteger spectral cosine, giving irrationality, nonattainment, and density for every m≥2, and determines the spectral weights for the average."
+        ],
+        "reasoning": "The numerical observations and existing general criteria do not mechanically supply the all-m spectral calculation or its exact consequences; the known low-m regimes remain context.",
+        "searches": [
+          "Rani et al. §4.1.1–§4.1.4, versus frozen all-m formula and spectral proof",
+          "Chan–Zhan general criteria versus the two swap-sector characteristic factors"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Rani's P2-generated B3 uses the same positive wing and negative body Grover coins; the explicit B3 target vector in eq. (30) is outgoing, though general eq. (6) says incoming.",
+          "The frozen exact identity shifts outgoing t to incoming t+1 with sign reversal; the outgoing t=31 fidelity is 0.9997380980431165…, and the incoming t=31 overlap is zero."
+        ],
+        "reasoning": "The apparent convention change is not novelty: compare the same explicit graph and vectors, or apply the time-shift identity before comparing times. The exact B3 value is properly a correction of the numeric interpretation for the explicit example.",
+        "searches": [
+          "Rani et al. arXiv:2604.11620v1, §4.1 and equations (6), (30)–(32)",
+          "Resultary searches for butterfly Grover walk and marked-body pretty-good transfer"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Rani et al. give finite plots for m=0 through 3 in the same P2 series and a finite 200-step body-to-body mean of 0.1698 for B3, not the exact Cesàro limit 0.17 or a general formula.",
+          "Targeted indexed searches did not return a materially matching exact butterfly theorem; the primary search attempt was unavailable and is not negative evidence."
+        ],
+        "reasoning": "Finite-time numbers cannot decide exact equality, all-time nonattainment, or a long-time mean, and a finite collection of m values does not cover m≥2.",
+        "searches": [
+          "Rani et al., Fig. 6b and Table 2",
+          "Resultary marked butterfly all-wing-count, coined-walk and exact/pretty-good comparisons"
+        ]
+      },
+      "rationale": "Credit the all-m analytic amplitude, the m≥2 distinction between pretty-good and exact transfer for every finite time, and the Cesàro law. Rani et al. already give the same walk construction and the m=0,1 behavior; their m=3 near-unity numerical example is antecedent, not part of the distinct contribution except for its exact correction under their explicitly listed outgoing vectors.",
+      "residual_risks": [
+        "The unavailable search was not used as evidence of novelty. A further known spectral theorem or unindexed exact treatment could supply equivalent coverage.",
+        "The explicit B3 vectors, not unknown simulation code or numerical precision, are the basis of the prior-time comparison."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact protocol precedent for the explicitly listed finite cases, not all-m analytic coverage",
+          "evidence": "B3 eq. (30) lists outward arcs; the text says fidelity equal to 1 at t=31,69,93,… and Table 2 gives a 200-step average. The general receiver in eq. (6) is called incoming.",
+          "identifier_or_url": "https://arxiv.org/abs/2604.11620",
+          "material_read": "v1 eq. (6), §4.1.1–4.1.4, pp. 6–10, B3 eqs. (30)–(32), Fig. 6b and Table 2 (p. 11)",
+          "method": "Lawful OA bounded PDF passage inspection",
+          "title": "Quantum state transfer on a scalable network under unital and non-unital noise",
+          "trigger": "Same P2-generated graphs, exact B3 protocol and claimed plotted time"
+        },
+        {
+          "assessment": "General criteria without exact coverage of this butterfly family",
+          "evidence": "Criteria depend on spectral data not evaluated for these marked butterfly states.",
+          "identifier_or_url": "https://arxiv.org/abs/2105.03762",
+          "material_read": "§§5.2 and 6",
+          "method": "Lawful OA bounded PDF passages",
+          "title": "Pretty good state transfer in discrete-time quantum walks",
+          "trigger": "Potential general spectral implication"
+        },
+        {
+          "assessment": "Different transfer subspaces and example graph",
+          "evidence": "The transferred coin states belong to +1 eigenspaces; the normalized marked-body states here belong to −1 eigenspaces, and K_{2,m} is not the butterfly.",
+          "identifier_or_url": "https://arxiv.org/abs/2511.06750",
+          "material_read": "§§5 and 9.3",
+          "method": "Lawful OA bounded PDF passages",
+          "title": "Subspace State Transfer in Coined Quantum Walks",
+          "trigger": "General marked reflection-coin subspace transfer"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, all-m amplitude, irrational-angle obstruction and Cesàro limits",
+        "Rani et al., explicit butterfly protocol and near-unity examples"
+      ],
+      "rationale": "The result settles an exact-versus-approximate transfer question for a motivated scalable network where finite plots can be misleading. It identifies the entire m≥2 regime with arbitrarily high fidelity but no finite perfect time and gives an exact baseline average for that regime. The m=3 fraction alone or the prior low-m cases would not carry the same value.",
+      "residual_risks": [
+        "No approach-time bound, arbitrary initial-state transfer, or noise robustness is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

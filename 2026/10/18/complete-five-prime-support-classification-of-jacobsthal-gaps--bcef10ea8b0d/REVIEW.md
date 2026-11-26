@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** A Chinese-remainder covering lemma reduces the unbounded set of five-prime integers to eight finite choices of small-prime support. The complete certificate enumerates at most \(105\) residue triples and supplies matching coverage and noncoverage at each exact threshold, including a uniform no-eleven-block obstruction. A separate parity-doubling argument and three odd-four-factor bounds close the even cases. The embedded verifier confirms every certificate row and independently scans one complete reduced-residue period for every one of the eight values. These checks were executed on the delivered source bytes; the infinite result relies on the algebraic reduction rather than extrapolation.
+## correctness
 
-**Originality — PASS, with residual risk.** The nearest full-text source is Hajdu–Saradha (2012), establishing \(H(5)=14\), mandatory factors at maxima, and the standard covering/doubling lemmas. The new complete classification determines seven additional nonmaximal possibilities and the exact membership rules for all five-prime supports. Hagedorn's earlier study treats primorials; its full text was inaccessible, so equivalent implicit coverage remains possible. Costello–Watts (2013) gives general upper bounds, while OEIS provides pointwise and maximal values rather than this all-support theorem. Public-index searches are not uniqueness certificates.
+PASS
 
-**Mathematical value — PASS.** The exact fixed-support spectrum and sharp classification of gaps of reduced residues constitute a natural arithmetic invariant. In particular, no prime greater than seven can alter the value once the number of distinct prime factors is fixed at five. The known extremal value is not passed off as a new theorem; the intermediate strata and rigidity are the contribution.
+The maximal noncoprime run has length J(n)−1, and CRT exactly identifies a run with a cover by one residue class per prime. A prime at least 11 can cover at most one position in a block of length at most 11 and can be assigned to any one uncovered position. I independently scanned the coprimality pattern over each small-support period (rather than enumerating tuples of chosen classes), minimizing the uncovered count over all cyclic starts. For S in order ∅,{3},{5},{7},{3,5},{3,7},{5,7},{3,5,7}, the first failed lengths for an odd five-prime support are 6,8,7,6,9,8,7,11; each immediately preceding length has exactly the required minimum and at length 11 all eight minima exceed the large-prime budget. The same independent check on odd four-prime supports gives 5,6,5,5,7,6,5,7. This also verifies the direct covering argument for even inputs: in the 3-and-5 case a length-six witness uses {1,4} mod 3 and {0,5} mod 5, while a cover at length seven requires an overlap between the maximal classes of these two primes. For odd a, among odd integers 2j+1 coprimality to a is equivalent to coprimality of j+2^{-1} mod a, proving J(2a)=2J(a); prime exponents do not matter. Replay: python3 /workspace/branches/audit-5.py.
 
-**Limitations.** The result says nothing about analogous full classifications when more than five distinct primes are allowed. A finite residue lemma is proved exhaustively, not independently certified; the 2008 complete article was not read. Independent audit and novelty certification remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Verified prior work gives the extremal value 14, requirements on maximizing supports, and the covering and parity-doubling tools. The distinct supported claim is the exact support-resolved rule for all five-prime inputs, especially the nonmaximal strata and invariance under arbitrary replacements beyond 7. The inspected prior statements do not determine their sharp thresholds.
+
+## value
+
+PASS
+
+The exact Jacobsthal gap measures how long a segment can avoid reduced residues. For the natural fixed support size five, the result sharpens a single known worst-case bound to an exact rule even for arbitrarily large prime factors, and identifies the complete spectrum with sharp witnesses and exclusions. This is a structural dependence on small primes, not pointwise tabulation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

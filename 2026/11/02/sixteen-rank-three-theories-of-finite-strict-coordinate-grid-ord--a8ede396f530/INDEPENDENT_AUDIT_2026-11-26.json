@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:58:49.995674Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In a linear-order game with t moves left, gaps either match below 2^t−1 or both meet that threshold. Playing the two coordinate games simultaneously clips each side at seven and preserves selected-pair equality and both strict inequalities, hence their conjunction, including plays with a repeated coordinate or pair. Terminal diagrams with all three variables and the iterated sets of extensions encode exactly three-round equivalence, not counts of responses. The independent replay `python3 audit-evidence/strict_grids.py` checked all 28 clipped unordered grids and matched equality of types iff equality of the claimed keys. Only the clipped (7,7) grid has its type, so any member of that class has both sides at least seven. This proves the sharp 49-point bound; the replay does not itself prove the infinite reduction.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "§6.1 defines tensor relations by conjunction on coordinates, lists grids as tensor products of linear orders and states P2: factor rank-m equivalences imply tensor-product rank-m equivalence. The thesis gives bounded-equivalent-substructure results for grid posets; the Kurilić passages discuss chain products and distributive lattices."
+        ],
+        "reasoning": "The general tensor result already applies to the exact structure and gives suppression of long coordinates, but it is one-way and does not compare products of non-equivalent factors in the reduced signature. The exact coincidences and separations need further work.",
+        "searches": [
+          "Sankaran–Adsul–Chakraborty arXiv:1401.5953, tensor product §6.1",
+          "Sankaran arXiv:1609.06297, Theorem 10.4.11 application to grid posets",
+          "Kurilić arXiv:2610.24683"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, reproduce.sh, verification_output.txt, verify_strict.cpp, verify_strict.py",
+        "SCOPE-20261102-6735f2bcf75a",
+        "arXiv:1401.5953",
+        "arXiv:1609.06297",
+        "arXiv:2610.24683v1",
+        "Mwesigye–Truss DOI 10.1007/s11083-010-9178-9",
+        "Siders DOI 10.1016/j.ic.2009.11.006 (abstract only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Composition and the chain cutoff reduce both coordinates to ≤7; the near-match passage itself distinguishes the relations and does not give an implication for the strict keys."
+        ],
+        "reasoning": "The clipping result gives at most 28 unordered representative candidates of at most 49 points. It entails neither their partition into sixteen classes nor the necessity of a 49-point representative. These are the supported distinct contributions.",
+        "searches": [
+          "arXiv:1401.5953 §6.1 P2 with finite-chain cutoff",
+          "SCOPE-20261102-6735f2bcf75a, Relationship to prior work, offset 6253"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The closest catalogue Finding uses (i,j)≤(k,ℓ) iff i≤k and j≤ℓ, with 21 classes and a sharp bound of 30. It explicitly distinguishes strict simultaneous dominance in its Relationship to prior work."
+        ],
+        "reasoning": "Even removing the diagonal from reflexive product order leaves comparabilities between points sharing a coordinate. For instance a one-row strict grid is an antichain, not an ordinary chain. Rectangular-grid adjacency results also use a different relation.",
+        "searches": [
+          "Resultary: rank-three strict-coordinate grids / strict simultaneous dominance",
+          "SCOPE-20261102-6735f2bcf75a"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The concrete near-match table has 21 classes of reflexive products. The Mwesigye–Truss passages concern finite coloured linear orders and representative bounds, and the Siders abstract concerns linear orders. A strict-coordinate sixteen-key table was not located apart from the finding under review."
+        ],
+        "reasoning": "Neither a one-dimensional classification nor the 21-class reflexive table supplies the strict grid types. The reflexive record mentions a previously reported strict classification but provides no separate locator or table to compare.",
+        "searches": [
+          "Resultary: two-chain products, grid-order rank-three theories; SCOPE-20261102-6735f2bcf75a",
+          "Mwesigye–Truss DOI 10.1007/s11083-010-9178-9",
+          "Siders DOI 10.1016/j.ic.2009.11.006"
+        ]
+      },
+      "rationale": "Credit only the exact rank-three partition in the strict-coordinate signature and the sharp lower bound on representative size; the coordinatewise upper bound and tensor-product method are existing consequences. The closest concrete table is in the reflexive product signature, not this one. Its unsourced reference to a previously reported strict classification is residual overlap risk, not independent evidence of a distinct covering record.",
+      "residual_risks": [
+        "No identified distinct source for the reflexive record's reference to a previously reported strict classification; it may refer to this finding or another record.",
+        "Siders full text was not retrieved, and bounded searches do not exclude unindexed equivalent work."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different signature; unresolved cross-reference",
+          "evidence": "Reflexive coordinate order, 21 classes, bound 30. The text mentions a previously reported strict class without giving a record or citation.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-twenty-one-three-round-theories-of-two-chain-product-lattices--6735f2bcf75a/RESULT.md",
+          "material_read": "Finding, assumptions and Relationship to prior work (offset 6253)",
+          "method": "Local indexed lookup and bounded mirror text",
+          "title": "Twenty-one three-round theories of two-chain product lattices",
+          "trigger": "Closest exact census"
+        },
+        {
+          "assessment": "Covers the reduction, not the exact quotient",
+          "evidence": "Tensor relation is the conjunction of the factor relations; grids are examples; P2 preserves bounded-rank equivalence under tensor products.",
+          "identifier_or_url": "https://arxiv.org/pdf/1401.5953",
+          "material_read": "§6.1, pp. 16–17, offset 51370 onward",
+          "method": "Locate and read bounded OA text",
+          "title": "A Generalization of the Łoś–Tarski Preservation Theorem over Classes of Finite Structures",
+          "trigger": "Directly applicable general composition theorem"
+        },
+        {
+          "assessment": "General bounded-substructure property",
+          "evidence": "FO-EBSP holds for the described grid-poset classes with a computable witness function; no rank-three census appears in those passages.",
+          "identifier_or_url": "https://arxiv.org/pdf/1609.06297",
+          "material_read": "Application of Theorem 10.4.11, grid-poset passages near offsets 336792 and 338339",
+          "method": "Bounded OA passages",
+          "title": "A Generalization of the Łoś–Tarski Preservation Theorem",
+          "trigger": "Broader bounded representatives for grid posets"
+        },
+        {
+          "assessment": "Order-game background",
+          "evidence": "Studies EF types and representative bounds for finite coloured linear orders, not the classification after taking a two-dimensional tensor product.",
+          "identifier_or_url": "DOI 10.1007/s11083-010-9178-9",
+          "material_read": "pp. 387–388",
+          "method": "Bounded institutional OA PDF text",
+          "title": "Classification of Finite Coloured Linear Orderings",
+          "trigger": "Finite-chain game antecedent"
+        },
+        {
+          "assessment": "Different structure and comparison in inspected text",
+          "evidence": "Direct products of chains are treated as distributive lattices in the relevant presentation, not via strict simultaneous increase.",
+          "identifier_or_url": "arXiv:2610.24683v1",
+          "material_read": "pp. 1–2, offsets 0 and 5976",
+          "method": "Bounded OA passages",
+          "title": "Model Theory of Products of Chains",
+          "trigger": "Products of two chains under another canonical relation"
+        },
+        {
+          "assessment": "No exact coverage established; limited access",
+          "evidence": "Abstract concerns linear orders.",
+          "identifier_or_url": "DOI 10.1016/j.ic.2009.11.006",
+          "material_read": "Landing-page abstract only",
+          "method": "Bounded lawful retrieval attempt; full text not obtained",
+          "title": "On quantifier-rank equivalence between linear orders",
+          "trigger": "Potential earlier bounded-rank methods"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The strict dominance order is a natural two-chain tensor product. Exact equivalence and least representatives at rank three resolve which size information is lost when the coordinate orders cannot be named. The table removes twelve of the 28 candidates left by composition and proves that the worst-case 49-point cap cannot be improved; neither is a routine restatement of the preceding bound.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

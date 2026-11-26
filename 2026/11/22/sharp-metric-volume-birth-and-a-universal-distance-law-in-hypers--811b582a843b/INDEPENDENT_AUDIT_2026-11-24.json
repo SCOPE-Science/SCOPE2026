@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T13:51:04.453953Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A copy indexed by I is exactly the part of the sum-k slice with x_i≥lambda on I and x_i≤1−lambda off I. For lambda≤1/2, a k-subset can be selected iff at least k coordinates reach lambda and at most k strictly exceed 1−lambda. Summing coordinates (and using complement symmetry) gives exact coverage at and below 1/(R+1). For k≤n/2 and in the open first phase, the low obstruction requires exactly k−1 coordinates at least lambda: with at most k−2 the sum is strictly less than k−2+(R+2)lambda≤k. For each eligible set H the coordinates are b−z, with b_i=1 on H and lambda off H, z≥0, sum z=t, and z_i>0 off H for uncovered points. Since 0<t<lambda, high entries stay strictly above the low range in the closures. The large-coordinate obstruction cannot occur in the unbalanced low orientation; in the balanced case each low-family closure has k+1 coordinates at most lambda<1−lambda, incompatible with the k+1 coordinates at least 1−lambda needed in any complemented closure. This proves disjointness and the component count. Edge vectors t(e_i−e_j) give volume √n t^(n−1)/(n−1)! and facet area √(n−1)t^(n−2)/(n−2)!; exactly m facets meet the interior as interfaces. Dividing by the Eulerian slice volume gives the missing fraction. At x=b−z any covered point must increase one low coordinate by at least a=min_{i notin H} z_i. In the sum-zero displacement plane that costs at least √(n/(n−1))a. Increasing one minimizing coordinate by a and decreasing each other by a/(n−1) stays feasible: remaining low values are at least lambda−t+(m−1−1/(n−1))a≥0 and high values stay above lambda. The reached copy uses H plus the raised coordinate, so the cost is exact. The maximum requires z_i=t/m off H and 0 on H, giving precisely the fixed face barycenters (and complements in the other orientation). In each simplex the tail event translates the m constrained coordinates and reduces the remaining mass to t(1−u), so its relative volume is (1−u)^(n−1), including u=0 and u=1. The volume extends to endpoints by almost-everywhere convergence away from the finitely many moving threshold hyperplanes, and the metric by continuity of the compact union of homothets in Hausdorff distance. This gives the claimed onset regularity but not a later-phase decomposition. The nested verification/check.py was found and inspected, not executed. Four independent exact deep-hole witnesses replay via python3 /workspace/reviews/evidence/reproduce.py, output 2; they are not a substitute for the general argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Artstein-Avidan, Falah and Slomka give vertex-generation definitions and a covering-number estimate; the checked theorem framework does not give a first-gap Euclidean distance and measure law for these hypersimplices.",
+          "Ferroni §4.3, Hanely et al. p. 2 and Ferroni–Schröter Cor. 2.10 concern relaxation, slice enumeration or sparse-paving faces."
+        ],
+        "reasoning": "General cover existence and combinatorial slice counts do not specify which component facets meet the covered set or whether the single-coordinate displacement lower bound is attainable. These are required to get the intrinsic Euclidean law.",
+        "searches": [
+          "Vertex-generated polytopes and covering parameter: arXiv:2306.15293v1 §3.2, arXiv:2407.20604v1 pp. 2 and 18; hypersimplex slicing and sparse-paving face structure arXiv:2105.04465, arXiv:2201.12442, arXiv:2310.05487"
+        ]
+      },
+      "checked_sources": [
+        "c74758654390",
+        "8d39b121255f",
+        "f28b7ecdc05e",
+        "45c31a2cc23c",
+        "e006f6d6c08a",
+        "arXiv:2306.15293v1",
+        "arXiv:2407.20604v1",
+        "arXiv:2105.04465 §4.3",
+        "arXiv:2201.12442 p. 2",
+        "arXiv:2310.05487 Cor. 2.10"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier rank–corank criterion gives order-statistic inequalities but not the distance to satisfying one within the slice and all copy bounds.",
+          "The same-day crown-root result reports conditional Beta(1,2n−2) for its product-body problem; the two-erasure result reports a fixed gap √(n/[k(n−k)]) and adjacent/nonadjacent cap overlap."
+        ],
+        "reasoning": "The rank–corank result reduces the set-theoretic problem; attaining the Euclidean lower bound additionally needs a feasible displacement in the sum-k plane and the first-phase width restriction. The Beta law is then a translation-and-volume consequence, not a claim of a novel probability distribution. Neither same-day finding implies the metric geometry of this union, and their common date establishes no priority.",
+        "searches": [
+          "Resultary actual Findings and relationship sections of c74758654390, 8d39b121255f, f28b7ecdc05e, 45c31a2cc23c, e006f6d6c08a"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Mirror c74758654390, offsets 0–6357 and 6357–8776: convexification threshold R and full order-statistic criterion; limitations explicitly exclude uncovered volume, Hausdorff deficit and stability.",
+          "Mirror 8d39b121255f, offsets 0–5931 and 5931–8796: projection onto a convex sparse-paving base polytope has maximum √(n/[k(n−k)]) and tail p(1−u)^(n−1) normalized by that maximum."
+        ],
+        "reasoning": "Converting rho to lambda=1/(1+rho) makes the first source's threshold exactly 1/(R+1). Its criterion is a premise for the new calculation, not itself an uncovered component or nearest-point formula. The sparse-paving body is convex and obtained by different cuts, rather than the possibly nonconvex union indexed by all k-subsets. The coincident normalized tail does not transfer the metric or geometrical decomposition.",
+        "searches": [
+          "Resultary: exact hypersimplex rank–corank vertex cover (c74758654390), sparse-paving projection and Beta law (8d39b121255f), first-phase Hausdorff and volume deficits"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Eulerian total slice volume is a known normalization, not the audited missing-volume law. The sparse-paving surface-area record lists ordinary boundary area A_0−ell D, not a covered/uncovered interface.",
+          "The same-day two-vertex erasure and crown-root records give exact invariants for different bodies: convex vertex deletion in one hypersimplex, and a product of two simplices with diagonal vertices removed, respectively."
+        ],
+        "reasoning": "The matching dimension and known volume denominator are background. A table of integer slice volumes or cap coefficients cannot substitute for matching the parameterized union, the membership predicate, and the actual first-phase metric.",
+        "searches": [
+          "Resultary: hypersimplex volume and Hausdorff deficit, sparse-paving surface area (f28b7ecdc05e), cap-overlap volume (45c31a2cc23c), projection tail (e006f6d6c08a)"
+        ]
+      },
+      "rationale": "The threshold and exact pointwise membership test are covered by the rank–corank predecessor after translating its parameter. The same normalized Beta law and a closely related simplex-volume mechanism already occur for sparse-paving projection, not for this target union. Credit the distinct first-phase geometry, distance formula and deep-point identification for the homothetic vertex-copy union, from which the volume, interface and law follow. No independent priority is asserted for the Eulerian normalization or the simplex tail computation in isolation.",
+      "residual_risks": [
+        "A related cover or slicing result could contain an unindexed equivalent first-void calculation; the bounded primary search cannot establish absence.",
+        "The same-day records are compared on their actual claims; no first-circulation order is established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly covers threshold and membership; not the audited metric-volume formulas.",
+          "evidence": "Sharp parameter is max(k,n−k); the stated limitations exclude uncovered volume, Hausdorff deficit, and stability.",
+          "identifier_or_url": "c74758654390",
+          "material_read": "Finding, Proof §§1–4, relationship and limitations",
+          "method": "Resultary mirror, offsets 0–6357 and 6357–8776",
+          "title": "Sharp rank–corank convexification of hypersimplex vertex sets",
+          "trigger": "Same cover and sharp onset"
+        },
+        {
+          "assessment": "Strongest analogue of the probability result, different metric target and depth.",
+          "evidence": "Exact gap √(n/[k(n−k)]) and tail p(1−u)^(n−1) for projection to a convex base polytope.",
+          "identifier_or_url": "8d39b121255f",
+          "material_read": "Finding, Proof §§1–5 and relationship/limitations",
+          "method": "Resultary mirror, offsets 0–5931 and 5931–8796",
+          "title": "Exact Euclidean projection and a universal Beta distance law for sparse-paving matroid polytopes",
+          "trigger": "Same ambient hypersimplex and conditional Beta law"
+        },
+        {
+          "assessment": "Framework and cover estimates, not the first-phase metric-volume theorem.",
+          "evidence": "The earlier definition tests P+V(P)=2P, and the successor considers a general vertex-generation parameter.",
+          "identifier_or_url": "https://arxiv.org/abs/2407.20604",
+          "material_read": "Definition and covering-number estimate, pp. 2 and 18; earlier arXiv:2306.15293v1 §3.2, p. 14",
+          "method": "OA PDF passages",
+          "title": "Vertex generated polytopes",
+          "trigger": "General framework for these homothetic vertex covers"
+        },
+        {
+          "assessment": "Ordinary boundary-area difference for sparse-paving cuts, different from the audited interior interface.",
+          "evidence": "Formula A(P(M))=A_0−ell D accounts for removed corners and inserted cut facets.",
+          "identifier_or_url": "f28b7ecdc05e",
+          "material_read": "Finding, proof §2 and relationship",
+          "method": "Resultary mirror, offsets 0–6716 and 6716–8875",
+          "title": "Euclidean surface area of sparse-paving matroid base polytopes",
+          "trigger": "Close intrinsic facet-area question in the same slice"
+        },
+        {
+          "assessment": "A convex hull after two vertex deletions, not a union of homothetic copies.",
+          "evidence": "Adjacent/nonadjacent cap-overlap formulas and a fixed positive Euclidean gap.",
+          "identifier_or_url": "45c31a2cc23c",
+          "material_read": "Finding and relationship",
+          "method": "Resultary mirror, offsets 0–6477 and 6477–10431",
+          "title": "A unimodular overlap simplex and invariant Euclidean damage under two vertex erasures",
+          "trigger": "Distinct same-day hypersimplex metric-volume calculation"
+        },
+        {
+          "assessment": "Different input and target bodies, and different dimension.",
+          "evidence": "Exact projection on a product-of-simplices variant after diagonal vertex deletion yields conditional Beta(1,2n−2).",
+          "identifier_or_url": "e006f6d6c08a",
+          "material_read": "Finding and proof §1",
+          "method": "Resultary mirror, offsets 0–6309",
+          "title": "Exact projection error laws and two-scale rare-cap geometry of crown-root polytopes",
+          "trigger": "Distinct same-day projection and conditional Beta law"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The first loss of exact coverage is a natural stability regime after the known threshold. The resulting full-dimensional void shape and fixed deep points are a structural answer, and the formulas show a concrete mismatch between nearly full coverage in volume and a linear loss in worst-case distance. The exposed interface and conditional distribution quantify distinct aspects of the exact geometry across every nonsimplicial rank in the phase; the value is not a renewed threshold computation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

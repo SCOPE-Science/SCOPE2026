@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:42:21.492424Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Fixing the first bit on a retained path determines the rest. Two binary preimages have alternating differences +1,-1, so both occur exactly for the all-one reading (empty for a singleton); this gives one doubleton and 2^v-2 singleton readings. Disjoint paths give independent Cartesian factors, proving the spectrum, maximal list, and image-size capacity. For a_v=2^v-1, a_(v+1)^2-a_v a_(v+2)=2^v>0. Strict ratio monotonicity proves that every unbalanced pair can be improved by balancing, and that moving one vertex from a smaller part at least two to a larger part strictly decreases capacity until at most one nonsingleton remains. All compositions are realizable. Marking one erased edge gives n anchored compositions per ordered type and e representations of each mask, yielding the stated generating function. A singleton fiber exists exactly when every gap is at least two. Marked positive gaps after subtracting one from each count these masks; for e=O(sqrt(n)) the log product is -e^2/n+O(e/n+e^3/n^2), while for sqrt(n)<<e<=n/2 the probability is at most 2 exp(-e^2/n), and it is zero beyond n/2. The all-erased mask has empty observation and one fiber of size 2^n. Independent replay: python3 -I -B /workspace/reproduce.py 4 checked 2032 masks and 1396040 source instances by packed observations, including both extremal equality tests and coefficient extraction; it also covered e=1 as a check, not as new scope. The uploaded script was inspected only. The n=100..6400 illustration in RESULT.md is not part of that uploaded script's output; the limit rests on the analytic proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "21136e4ec91c covers all complete cyclic binary sliding sums; 3dd4b884b257 extends full cyclic fibers to q-ary sources, but neither admits erased coordinates.",
+          "9ee0bce770fc allows general widths but exactly one known missing coordinate."
+        ],
+        "reasoning": "Larger alphabet and width do not dominate the mask scope. The same-day q-ary record was compared on its statement, without assuming priority from the date.",
+        "searches": [
+          "Resultary 21136e4ec91c, 9ee0bce770fc, 3dd4b884b257 actual Findings and Assumptions"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.3390/e24030433",
+        "arXiv:2401.15368v1",
+        "Resultary 21136e4ec91c",
+        "Resultary 9ee0bce770fc",
+        "Resultary 3dd4b884b257"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The width-two single-erasure case in 9ee0bce770fc yields the same capacity implied by one path; it has no variable multicomponent gap profile.",
+          "Cycle independent-set counts and the no-adjacency limit are elementary after the exact singleton-fiber criterion. The path result together with component decomposition gives the factorization; optimizing it strictly and counting the fibers jointly over arbitrary masks require further arguments."
+        ],
+        "reasoning": "Neither the known path fact nor the classical no-adjacency probability is treated as a discovery; the substantive remainder is the exact multi-erasure placement and aggregate classification.",
+        "searches": [
+          "Sporring–Darkner §4.3; Resultary 9ee0bce770fc and 3dd4b884b257; arXiv:2401.15368v1 model"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For binary length-two windows the histogram is determined by its number of ones, exactly the integer sum. Sporring–Darkner identify the sole ambiguous all-(1,1) histogram sequence on a linear path.",
+          "Weighted Hamming-window reads encode the same local data when length two and shift one, but their finite linear model does not puncture an indexed circular read vector."
+        ],
+        "reasoning": "Credit the equivalent path ambiguity fully; known removed edges give a new multi-path placement parameter, not a redefinition of a one-path histogram.",
+        "searches": [
+          "Resultary: cyclic weighted reads, indexed integer window-sum fibers and multi-erasure masks",
+          "Sporring–Darkner DOI 10.3390/e24030433, §§4.3–4.4",
+          "arXiv:2401.15368v1, weighted read definition"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The three exact related indexed records give zero- or one-erasure formulas. No distinct compared indexed table gave the stated coefficients with arbitrary erased coordinates or the extremal gap profiles."
+        ],
+        "reasoning": "A full-read table or a one-erasure capacity does not tabulate observations after multiple coordinates are projected away; mask placement begins to vary in this regime.",
+        "searches": [
+          "Resultary: exact cyclic read fiber spectrum, one or multiple erased coordinates, fixed placement and all-mask counts"
+        ]
+      },
+      "rationale": "The single-path ambiguity is known, and the exact one-erasure result covers that boundary. Multiplying the old local factors is straightforward once the surviving components are identified, and the random-mask exponent is a classical no-adjacency phenomenon once translated. The distinct claim is the combined exact arbitrary-mask classification with sharp placement conditions and aggregate list census for known cyclic pair-sum erasures. None of the inspected sources supplies that classification as stated or through a direct parameter substitution.",
+      "residual_risks": [
+        "The broader public search did not complete; exact primary and catalogue passages were inspected. A graph edge-sum or binary tomography formulation outside these sources could contain the same placement or aggregate laws. No global priority conclusion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Verified overlap at path level",
+          "evidence": [
+            "Only the constant histogram sequence (1,1) is metameric for m=2; binary histograms identify with counts of ones."
+          ],
+          "identifier_or_url": "https://mdpi-res.com/d_attachment/entropy/entropy-24-00433/article_deploy/entropy-24-00433.pdf",
+          "material_read": "§4.3, Eq. (26), p. 7; §4.4, Eq. (27), pp. 7–8, PDF offset 37148",
+          "method": "Lawful publisher CDN OA PDF passage",
+          "title": "Reconstructing Binary Signals from Local Histograms",
+          "trigger": "Closest equivalent path building block"
+        },
+        {
+          "assessment": "Different boundary and observation model",
+          "evidence": [
+            "Hamming weights of length-l shifted windows without wraparound; not a known erased mask model."
+          ],
+          "identifier_or_url": "arXiv:2401.15368v1",
+          "material_read": "Abstract and finite read definition, pp. 1–2, PDF offsets 0 and about 4600",
+          "method": "OA PDF passages",
+          "title": "The Capacity of the Weighted Read Channel",
+          "trigger": "Primary finite weighted-window channel"
+        },
+        {
+          "assessment": "Complete readings only",
+          "evidence": [
+            "Fiber and capacity classification assumes the full indexed vector."
+          ],
+          "identifier_or_url": "Resultary 21136e4ec91c",
+          "material_read": "RESULT.md Finding and Assumptions, offset 0",
+          "method": "Local mirror",
+          "title": "Exact fiber and constant-weight capacity laws for cyclic binary weighted reads",
+          "trigger": "Direct cyclic binary channel predecessor"
+        },
+        {
+          "assessment": "Verified boundary coverage",
+          "evidence": [
+            "Exactly one known erased coordinate, including the binary width-two capacity, not e>=2."
+          ],
+          "identifier_or_url": "Resultary 9ee0bce770fc",
+          "material_read": "RESULT.md Finding and Assumptions, offset 0",
+          "method": "Local mirror",
+          "title": "Exact capacity and ambiguity of one-erased cyclic weighted reads",
+          "trigger": "Closest erasure case"
+        },
+        {
+          "assessment": "Same-day comparison; no erased coordinates in theorem",
+          "evidence": [
+            "Full q-ary cyclic integer-sum reads with an exact coefficient formula; full read hypothesis prevents direct application to the deleted masks."
+          ],
+          "identifier_or_url": "Resultary 3dd4b884b257",
+          "material_read": "RESULT.md Finding and Assumptions, offset 0",
+          "method": "Local mirror",
+          "title": "Exact multilevel inverse-fiber spectrum of indexed cyclic window reads",
+          "trigger": "Potentially dominating wider alphabet fiber spectrum"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Mask geometry, not merely the number of reads remaining, changes the entire list spectrum and the optimal zero-error image size. The strict placement classification gives a concrete design and worst-case guarantee, and the generating function quantifies ambiguity across all placements. The random result locates loss of the existence of any uniquely decoded output, not source-average decoding success. These are natural exact invariants of a simple erasure model; the value is in their combination and mask dependence, not in the already known path lemma.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

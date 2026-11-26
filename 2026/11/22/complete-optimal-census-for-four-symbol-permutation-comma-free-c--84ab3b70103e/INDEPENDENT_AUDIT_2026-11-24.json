@@ -1,0 +1,152 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:38:53.106261Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–33",
+        "VERIFICATION.md",
+        "verify_direct.py",
+        "verify_hypergraph.py",
+        "ORBIT_REPRESENTATIVES.tsv",
+        "Independent record1.py and record1.log"
+      ],
+      "rationale": "Each cyclic rotation of a permutation word is distinct and a nontrivial rotation is a crossed factor of ww. Hence at most one representative per rotation class and the optimum size is at most six; all six words starting with 0 attain it. For the census I independently enumerated all binomial(24,6) sets, first factoring each illicit middle word into an incoming suffix and an outgoing prefix to precompute the forbidden masks, including repeated endpoints. This gave 348 distinct forbidden masks and 2872 accepted sets. Relabeling commutes with crossing and reversal interchanges the roles of the two ends and complementary shifts, so the group action preserves these sets. Independent orbit expansion and Burnside fixed-point summation gave 73 orbits with respective size/multiplicity pairs (8,4),(16,2),(24,17),(48,50), Burnside sum 3504, and exact agreement with all TSV rows. The stronger count is 32 both by direct prefix/suffix tests and analytically. The first-letter and last-letter sets must be disjoint. A singleton first or last forces all six words with that specified endpoint, giving eight codes. Otherwise the endpoints partition the alphabet into ordered sets F,L of size two. Four words have pattern FFLL and four FLFL. Length-two matches occur exactly in two complementary pairs among the alternating words, so an optimum takes all four FFLL words and one from each pair. A length-three match would need a prefix and suffix of FFLL words with patterns FFL and FLL respectively, impossible. Thus the six ordered partitions contribute 24 more codes. Replay: python3 -I /workspace/branches/independent-checks/record1.py; record1.log in that directory. Frozen scripts were inspected, not executed.",
+      "residual_risks": [
+        "The classification is only for the all-distinct composition with four distinguishable symbols. It counts sets, not lists, and uses only alphabet relabeling and simultaneous reversal in the orbit count."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The classical cyclic-rotation bound implies six on this layer. Churchill's account and Windsor's companion calculation give the unrestricted maximum 57 and do not enumerate permutation-layer optima in the inspected passages. Blackburn gives a general non-overlap bound."
+        ],
+        "reasoning": "A general bound does cover the cap, but neither a larger-universe optimum nor a bound lists size-six codes after restriction. These sources are genuine background, not evidence of a new coding principle.",
+        "searches": [
+          "Golomb–Gordon–Welch (1958), pp. 202–203, Theorem 1",
+          "Churchill (2009), Appendix A.1",
+          "Windsor (2023) public companion README",
+          "Blackburn (2015), pp. 2 and 4"
+        ]
+      },
+      "checked_sources": [
+        "Golomb–Gordon–Welch DOI 10.4153/CJM-1958-023-9",
+        "Churchill DOI 10.37236/114",
+        "Windsor DOI 10.1007/s10817-023-09662-6 and author companion",
+        "Blackburn (2015)",
+        "Stanovnik–Moškon–Mraz §5",
+        "Resultary 5b35601c030a, 4d6603672a5e, 54463ddb1a46 and the exact target mirror"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At most one word per rotation class implies an upper bound of six, independently of whether six is written in the classical source. The common-first-letter construction reaches the bound. The inspected prior enumerations optimize over substantially larger word universes or impose different composition and symmetry requirements."
+        ],
+        "reasoning": "Credit no novelty to capacity. An unrestricted optimum number or its maximizers cannot simply be restricted to recover all optima in a smaller universe. No inspected result determines the exact labeled or orbit census, or the size-six prefix/suffix refinement.",
+        "searches": [
+          "Golomb–Gordon–Welch rotation theorem specialized to six necklaces",
+          "Churchill Appendix A.1 and Windsor companion unrestricted quaternary n=4 evidence",
+          "Stanovnik–Moškon–Mraz unrestricted four-symbol length-four optimum"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Classical comma-freeness forbids a crossed word in the code even for a repeated endpoint; strong non-overlap forbids any proper prefix–suffix match between codewords. All-distinct four-mers form the permutation layer of the unrestricted domain, and the stated group also has a simultaneous reversal."
+        ],
+        "reasoning": "These classical definitions are the same predicates at the matching level, but restricting the word universe before optimizing and counting is substantive. Crossed-word exclusions are not equivalent to proper prefix–suffix exclusions, as the differing counts illustrate. Self-reflective and reverse-complement-closed code classes impose different constraints from taking an optional simultaneous reversal in an orbit relation.",
+        "searches": [
+          "Resultary: permutation words, all-distinct quaternary four-mers, fixed composition (1,1,1,1), comma-free and prefix–suffix overlap",
+          "Golomb–Gordon–Welch, Theorem 1",
+          "Blackburn, definition of non-overlap"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The only exact full-census catalog hit was the assigned record itself. 5b35601c030a and 4d6603672a5e count 32 reverse-complement-closed non-overlapping size-17 codes in a different domain; 54463ddb1a46 gives 12 size-20 optima with a GC-count constraint. Stanovnik et al. tabulate eight unrestricted maximum non-overlapping codes, at size 27, for alphabet size and length four."
+        ],
+        "reasoning": "The number 32 is not coverage when the optimizers have size 17, not six, and reverse-complement closure is required. Neither the other composition table nor the unrestricted table gives the assigned invariant.",
+        "searches": [
+          "Resultary: exact labeled 2872, 73 relabeling/reversal orbits, and 32 non-overlapping optima",
+          "Resultary 5b35601c030a, 4d6603672a5e and 54463ddb1a46",
+          "Stanovnik–Moškon–Mraz, §5 Theorem 19 and Table 1"
+        ]
+      },
+      "rationale": "The distinct result is the complete optimum census and symmetry partition on the fixed permutation layer, and the 32-code stronger refinement there. The rotation bound and elementary common-first-letter construction are not novel. Neither the inspected unrestricted maxima nor the separate nominally matching count 32 in related composition/closure problems verifies the claimed census.",
+      "residual_risks": [
+        "Windsor's full article and Levenshtein's cited 2004 full text were not retrieved. An older unindexed or otherwise unavailable permutation-layer table cannot be ruled out. No whole-document noncoverage conclusion is drawn from the accessible passages alone."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the bound, not the census",
+          "evidence": "One word per cyclic-rotation class; the p. 206 discussion concerns the unrestricted W_4(4) problem.",
+          "identifier_or_url": "https://doi.org/10.4153/CJM-1958-023-9",
+          "material_read": "Theorem 1, pp. 202–203, and discussion p. 206",
+          "method": "Primary text passage inspection",
+          "title": "Comma-Free Codes",
+          "trigger": "Classical rotation-bound and unrestricted n=4 comparison"
+        },
+        {
+          "assessment": "Unrestricted code maximum and self-reflective construction, not the same restricted census",
+          "evidence": "Cites Levenshtein's 57; discusses a size-30 self-reflective construction.",
+          "identifier_or_url": "https://doi.org/10.37236/114",
+          "material_read": "Appendix A.1, p. 14",
+          "method": "OA PDF passage inspection",
+          "title": "Restrictions and Generalizations on Comma-Free Codes",
+          "trigger": "Same length and alphabet, reversal-related constructions"
+        },
+        {
+          "assessment": "Accessible evidence is for unrestricted maximum 57; unresolved full-text risk",
+          "evidence": "SAT evidence excludes size 58 and supplies size 57 with repetitions allowed in the universe.",
+          "identifier_or_url": "https://doi.org/10.1007/s10817-023-09662-6; https://github.com/aaw/commafree",
+          "material_read": "Companion README at retrieved offsets 632 and 977; article full text not obtained",
+          "method": "Lawful DOI lookup and author-maintained public companion inspection",
+          "title": "Computer-Aided Constructions of Commafree Codes",
+          "trigger": "Same unrestricted alphabet and length with exact computer evidence"
+        },
+        {
+          "assessment": "Classical predicate and general bound, not assigned census",
+          "evidence": "No proper prefix of a codeword equals a proper suffix of a codeword.",
+          "identifier_or_url": "S. R. Blackburn, IEEE Transactions on Information Theory 61 (2015), 2970–2974",
+          "material_read": "PDF p. 2, definition, and p. 4 Theorem 1",
+          "method": "OA PDF passage inspection",
+          "title": "Non-overlapping codes",
+          "trigger": "Equivalent definition of stronger property"
+        },
+        {
+          "assessment": "Unrestricted rather than permutation-layer optima",
+          "evidence": "S(4,4)=27 and N(4,4)=8 in the unrestricted calculation.",
+          "identifier_or_url": "L. Stanovnik, M. Moškon and M. Mraz, §5 Theorem 19 and Table 1",
+          "material_read": "§5, pp. 1318–1320, theorem and table",
+          "method": "Primary text passage inspection",
+          "title": "In search of maximum non-overlapping codes",
+          "trigger": "Exact non-overlap tables with same length and alphabet size"
+        },
+        {
+          "assessment": "Different constraints and optimizer sizes; exact target mirror is self",
+          "evidence": "32 size-17 strand-closed optima in the first two; 12 size-20 GC-balanced optima in the third.",
+          "identifier_or_url": "Resultary 5b35601c030a, 4d6603672a5e and 54463ddb1a46",
+          "material_read": "Mirrored Findings at offsets 508, 548 and 314 respectively",
+          "method": "Local Resultary search and mirror",
+          "title": "Related four-letter non-overlap catalogs",
+          "trigger": "Matching count 32 or closely related fixed composition"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and ORBIT_REPRESENTATIVES.tsv",
+        "Golomb–Gordon–Welch Theorem 1",
+        "Blackburn (2015) definition",
+        "Stanovnik–Moškon–Mraz Table 1"
+      ],
+      "rationale": "The permutation layer is the natural four-symbol fixed composition with every symbol present once. Optimal synchronization dictionaries on that layer are reusable mathematical objects, and the exact group partition plus reconstructible representative list is useful beyond the elementary capacity six. The non-overlap refinement quantifies the difference between two widely used restrictions, on precisely the same optimum family. Value is in the complete equality classification, not a claim of broad asymptotic impact.",
+      "residual_risks": [
+        "Only one fixed composition, length and alphabet size are classified; it is not an unrestricted census or a general construction theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

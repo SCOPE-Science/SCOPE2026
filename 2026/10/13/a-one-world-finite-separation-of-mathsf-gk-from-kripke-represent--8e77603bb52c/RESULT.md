@@ -1,63 +1,33 @@
 # A one-world finite separation of \(\mathsf{GK}\) from Kripke representability
+
 ## Finding
-In Nishimura's closure semantics, the implication from conditions \(\mathsf G\) and \(\mathsf K\) to Kripke representability \(\mathsf{KRep}\) already fails on a finite closure model with exactly one world and an empty generator. Explicitly, there is a singleton closure frame satisfying \(\mathsf G\) and \(\mathsf K\) and a valuation on it whose closure model fails \(\mathsf{KRep}\). Since closure frames are required to have a nonempty world set, one world is the minimum possible world cardinality for such a counterexample. The construction uses a constant, generally non-identity closure, so it does not replace the source's stronger identity-closure counterexample along that separate axis.
+In Nishimura's closure semantics there is a singleton closure frame satisfying \(\mathsf G\) and \(\mathsf K\), with empty generator at its sole world, and a valuation on it whose closure model fails \(\mathsf{KRep}\). The model is finite in the sense defined below. Since closure frames have a nonempty world set, one world is the minimum possible world cardinality. This counterexample uses a non-identity closure and so does not replace the source's identity-closure example.
 
 ## Assumptions and scope
-Work in the closure semantics of Nishimura, where a closure frame is \(\mathcal{F}=(W,G,\operatorname{cl})\), with nonempty \(W\), a generator \(G:W\to\mathcal{P}(\mathbf{MF})\), and an unrestricted map \(\operatorname{cl}:\mathcal{P}(\mathbf{MF})\to\mathcal{P}(\mathbf{MF})\). A closure model adds a propositional valuation. A model is finite when \(W\) and every \(G(w)\) are finite. Condition \(\mathsf G\) requires every formula valid on the underlying closure frame to belong to every generated set; condition \(\mathsf K\) requires each generated set to be closed under modus ponens. Property \(\mathsf{KRep}\) requires, at every world \(w\) and formula \(\varphi\),
+A closure frame is \(\mathcal F=(W,G,\operatorname{cl})\), with \(W\ne\varnothing\), \(G:W\to\mathcal P(\mathbf{MF})\), and an arbitrary map \(\operatorname{cl}:\mathcal P(\mathbf{MF})\to\mathcal P(\mathbf{MF})\). A closure model adds a propositional valuation. It is finite when \(W\) and every raw generator \(G(w)\) are finite; the sets \(\operatorname{cl}(G(w))\) need not be finite. A modal formula \(\Box\chi\) holds at \(w\) precisely when \(\chi\in\operatorname{cl}(G(w))\).
+
+Frame condition \(\mathsf G\) requires every formula valid on the underlying closure frame (true under every valuation at every world) to belong to \(\operatorname{cl}(G(w))\) for every \(w\). Frame condition \(\mathsf K\) requires \(\operatorname{cl}(G(w))\) to be closed under modus ponens for every \(w\). Both conditions concern the closure of the generator, not the raw generator. Property \(\mathsf{KRep}\) requires at every world \(w\) and for every formula \(\varphi\) that
 \[
-\varphi\in\operatorname{cl}(G(w))
-\quad\Longleftrightarrow\quad
-\bigcap_{\psi\in\operatorname{cl}(G(w))}\llbracket\psi\rrbracket
-\subseteq\llbracket\varphi\rrbracket.
+\varphi\in\operatorname{cl}(G(w))\quad\Longleftrightarrow\quad
+\bigcap_{\psi\in\operatorname{cl}(G(w))}\llbracket\psi\rrbracket\subseteq\llbracket\varphi\rrbracket,
 \]
-No claim is made here under the additional restriction that \(\operatorname{cl}\) be the identity.
+where truth sets are taken under the model valuation.
 
 ## Proof
-Define a two-valued map \(b\) on modal formulas recursively. Put \(b(\top)=1\), put \(b(p)=0\) for every propositional variable \(p\), use the ordinary Boolean truth functions for negation and implication, and put
-\[
-b(\Box\varphi)=b(\varphi).
-\]
-Let \(H=\{\varphi:b(\varphi)=1\}\). Take \(W=\{w\}\), \(G(w)=\varnothing\), and define the closure to be the constant map
-\[
-\operatorname{cl}(X)=H
-\]
-for every \(X\subseteq\mathbf{MF}\). This is a finite closure frame in the source's sense because the world set and the sole generator are finite.
+Define a two-valued evaluation \(b\) on formulas by setting \(b(\top)=1\) and \(b(p)=0\) for every propositional variable \(p\), using ordinary Boolean truth functions, and setting \(b(\Box\chi)=b(\chi)\). Let \(H=\{\varphi:b(\varphi)=1\}\). Take \(W=\{w\}\), \(G(w)=\varnothing\), and \(\operatorname{cl}(X)=H\) for every \(X\subseteq\mathbf{MF}\). The frame has one world and the sole raw generator is finite.
 
-First verify \(\mathsf G\). Let \(V_b\) be the valuation on the singleton world satisfying \(w\in V_b(p)\) exactly when \(b(p)=1\); with the present choice of \(b\), all propositional variables are false. A structural induction gives
-\[
-(\mathcal{F},V_b),w\models\varphi
-\quad\Longleftrightarrow\quad b(\varphi)=1.
-\]
-The Boolean cases are immediate. In the modal case,
-\[
-(\mathcal{F},V_b),w\models\Box\chi
-\Longleftrightarrow
-\chi\in H
-\Longleftrightarrow
-b(\chi)=1
-\Longleftrightarrow
-b(\Box\chi)=1.
-\]
-If \(\mathcal{F}\models\varphi\), then in particular \((\mathcal{F},V_b),w\models\varphi\), so \(b(\varphi)=1\) and therefore \(\varphi\in H=\operatorname{cl}(G(w))\). Thus \(\mathsf G\) holds.
+For \(\mathsf G\), let \(V_b\) assign false to every propositional variable at \(w\). A structural induction shows that \((\mathcal F,V_b),w\models\varphi\) if and only if \(b(\varphi)=1\). The Boolean cases follow by truth functionality. In the modal case, \(\Box\chi\) holds if and only if \(\chi\in H\), that is, if and only if \(b(\chi)=1\), the same as \(b(\Box\chi)=1\). In particular a frame-valid formula is true at this valuation, so it belongs to \(H=\operatorname{cl}(G(w))\). For \(\mathsf K\), if \(\varphi,\varphi\to\psi\in H\), Boolean modus ponens gives \(b(\psi)=1\); thus \(\psi\in H\).
 
-Next verify \(\mathsf K\). If \(\varphi\in H\) and \(\varphi\to\psi\in H\), then \(b(\varphi)=b(\varphi\to\psi)=1\). Classical truth functionality forces \(b(\psi)=1\), hence \(\psi\in H\). Thus \(\mathsf K\) holds.
-
-Finally choose one propositional variable \(p\) and a model valuation \(V_*\) with \(V_*(p)=W\). Since \(b(p)=0\), we have \(p\notin H\) and \(\neg p\in H\). But \(\neg p\) is false at the sole world under \(V_*\), so
-\[
-\bigcap_{\psi\in H}\llbracket\psi\rrbracket_{(\mathcal{F},V_*)}=\varnothing.
-\]
-Consequently the right-hand side of \(\mathsf{KRep}\) is true for \(\varphi=p\), because the empty set is contained in \(\llbracket p\rrbracket\), while its left-hand side is false because \(p\notin H\). Hence \((\mathcal{F},V_*)\) is not Kripke-representable.
-
-The source definition requires \(W\neq\varnothing\), so no counterexample can use fewer than one world. The world-cardinality bound is therefore sharp.
+For failure of \(\mathsf{KRep}\), let \(V_*\) instead make one variable \(p\) true at \(w\) (all others may remain false). By construction, \(p\notin H\) but \(\neg p\in H\). Since \(\neg p\) is false at the sole world under \(V_*\), the intersection of the truth sets of all formulas in \(H\) is empty. It is therefore contained in \(\llbracket p\rrbracket\), although \(p\notin\operatorname{cl}(G(w))\). This violates \(\mathsf{KRep}\). The nonempty-world requirement makes the bound of one world sharp.
 
 ## Verification
-The proof was checked directly against the source definitions of closure frame, finite closure model, conditions \(\mathsf G\) and \(\mathsf K\), and \(\mathsf{KRep}\). The only induction is on formula complexity and uses no unproved external lemma. The construction has one world and generator \(G(w)=\varnothing\); the closure itself is allowed to have an infinite image because the source's finiteness definition constrains the world set and generators, not the image of \(\operatorname{cl}\).
+The argument uses the definitions of finiteness, modal truth, frame conditions \(\mathsf G\) and \(\mathsf K\), and \(\mathsf{KRep}\) in [1]. Finiteness concerns \(W\) and \(G(w)\), not the size of the closure value \(H\). No finite search or computational certificate is needed.
 
 ## Relationship to prior work
-Nishimura proves that \(\mathsf{KRep}\) implies \(\mathsf G\) and \(\mathsf K\), and gives a counterexample to the converse on \(W=\mathbb{N}\) with the identity closure and cofinite truth-set generators. The present construction establishes a different sharp boundary: the converse already fails among finite closure models and at the minimum possible number of worlds. It trades away the source example's identity-closure feature by using a constant closure. Searches for the exact finite or singleton strengthening, its separation formulation, and aliases involving Kripke-representable closure models did not locate a published statement of this sharpening.
+Nishimura proves that \(\mathsf{KRep}\) implies \(\mathsf G\) and \(\mathsf K\), and exhibits a counterexample to the converse on \(W=\mathbb N\) with identity closure and cofinite truth-set generators. The singleton counterexample isolates failure within the source's class of finite closure models. It also exhibits the distinction between frame validity and truth in a chosen model: a valuation used to test frame validity may differ from the model valuation tested for representability.
 
 ## Limitations
-This result does not show that a one-world or finite counterexample exists when the closure is required to be the identity, monotone, extensive, or idempotent. In particular, it does not subsume the source's identity-closure example. It is a minimal-world separation result inside the unrestricted closure semantics defined in the source.
+The constant map \(X\mapsto H\) is monotone and idempotent. It is not extensive, since \(p\in\{p\}\) while \(p\notin\operatorname{cl}(\{p\})=H\), and it is not the identity. This construction therefore makes no separation claim with extensivity or the identity imposed.
 
 ## References
-1. Yuki Nishimura, “Closure Semantics for Weak Modal Logics: Completeness and Representations,” arXiv:2610.01433v1, 1 October 2026. See Definition 2.2 for closure models and finiteness, Definition 2.5 for \(\mathsf G\) and \(\mathsf K\), Definition 4.22 for \(\mathsf{KRep}\), Lemma 4.23, and Example 4.24.
+1. Yuki Nishimura, “Closure Semantics for Weak Modal Logics: Completeness and Representations,” arXiv:2610.01433v1, 1 October 2026. Definitions 2.2–2.3, Definition 2.5 and Figure 1, Definition 4.22, Lemma 4.23 and Example 4.24.

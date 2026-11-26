@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:19:10.754537Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–29 and 32–68; supporting VERIFICATION.md and verification/check.py inspected, not executed.",
+        "Independent exact replay for p=31,43: enumerate f(u) and all fibers. For g=3 and χ_j(g)=exp(2πij/m), reduce Σ_{i=0}^{m−1} X^{(pji+mf(g^i)) mod(pm)} modulo Φ_pm over the integers. The zero-remainder indices were {10,20} at 31 and {7,14,28,35} at 43, giving ranks 28 and 38 with t=10 and 7. The fibers over 1 were {6,16,26} and {7,22,37}; all fibers had size three."
+      ],
+      "rationale": "The proof establishes the exact complex rank and right kernel, not just a lower bound on the defect. With m=p−1, take d to be the specified nonzero representative of −k−1 modulo m. The product phase is f(u)=u(1+u^k), so a right character vector maps to the inverse character times its scalar phase sum. Here k is even, k≡1 mod 3, and gcd(k,m)=m/3. The index-three subgroup H=ker(u↦u^k) contains −1 and 2; 3 does not divide |H|. On the three cosets H, ωH, ω²H the multipliers of f are respectively 2, −ω² and −ω. Each is a bijection from its coset onto H, giving exactly {h/2,−ωh,−ω²h} over each h. Factoring these fibers gives the stated bracket and the common period. The period cannot vanish: adjoining ζ_p to Q(ζ_m) gives Q(ζ_pm), of relative degree p−1 by coprimality; its only possible degree-at-most-p−1 polynomial relation is a multiple of Φ_p, but the period polynomial has zero constant term and nonzero coefficients on H. Thus the bracket vanishes exactly for χ(−2)=1 and χ(ω)≠1. Subtracting the annihilator of ⟨−2,ω⟩, of size m/(3t), from that of ⟨−2⟩, of size m/t, proves the count. This also justifies subtracting exactly that many dimensions from m: character inversion permutes a basis.",
+      "residual_risks": [
+        "The independent finite checks certify these two examples only. The analytic argument covers all primes under the two stated arithmetic hypotheses. No extension-field, infinitude or conditioning claim is certified."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The binomial theorems bound parameters of permutation binomials and describe equivalence to binomials over subfields; the phase here is not a permutation. Even a nonpermutation criterion does not give the character sums on its fibers.",
+          "Forey–Fresán–Kowalski's introductory generic and stratified vanishing concerns perverse-sheaf cohomology of twists over finite field extensions, with estimates for exceptional sets. The inspected statement is not an exact character-by-character cancellation theorem for this phase.",
+          "Tao's nonvanishing-minor formulation applies to the one-dimensional prime cyclic Fourier matrix. The matrix in the finding is a restriction in additive dimension two; its entries depend on a binomial of the product and are not the one-dimensional minor setting."
+        ],
+        "reasoning": "None of these broader statements gives the exact exceptional characters by specializing an applicable general formula. The distinction is the weighted fibers, not just whether the binomial is injective.",
+        "searches": [
+          "Ayad–Belghaba–Kihel arXiv:1210.1252 Theorems 4–7 and 9",
+          "Forey–Fresán–Kowalski arXiv:2109.11961v6 introduction Theorem 1",
+          "Tao arXiv:math/0308286 Theorem 1.1 and adjacent discussion"
+        ]
+      },
+      "checked_sources": [
+        "Local published record mirror: 7a8223098ca9, a873211dce1c, dd2fb1d76981, 8ae9fee89748",
+        "Original open passages: arXiv:1210.1252, 2105.15051, math/0308286, and 2109.11961v6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For the nondegenerate inverse hyperbola the known rank is p−2 with a single quadratic-character defect in the nonsquare-product case, and p−1 otherwise. At p=31 and 43 here there are respectively two and four vanishing modes. Neither the inverse-hyperbola criterion nor a fiber-size or sum-distribution statement identifies the intersection χ(−2)=1, χ(ω)≠1."
+        ],
+        "reasoning": "The prior techniques are ingredients; deriving three specific preimages and the exact cancellation factor supplies the comparison-critical new step. The distinct claim is not a reparametrization of the verified prior ranks.",
+        "searches": [
+          "a873211dce1c RESULT.md Finding and Proof §§1–4",
+          "arXiv:1210.1252 Theorems 4–7 and 9; arXiv:2105.15051 Theorem 1.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Passing between M and multiplicative convolution with a column inversion preserves rank. The inverse-hyperbola predecessor still has phase of the form u+c/u after this change, not the present three-to-one u(1+u^k).",
+          "The affine three-tap record instead has nullity p−1 or 0 on an affine Frobenius group depending on a dilation subgroup. The occurrence of −2 does not equate the operators or their character counts.",
+          "Xi treats the limiting distribution of the magnitudes of Kloosterman analogues over nontrivial even characters; his odd-character vanishing is for those sums, not for the present cubic-coset additive phase."
+        ],
+        "reasoning": "Tested Fourier-compression, multiplicative-convolution, character-sum and phase-fiber formulations. Shared vocabulary and a subgroup resonance do not identify the matrices or the vanishing tests.",
+        "searches": [
+          "Resultary reciprocal-power Fourier sampling, phase-fiber and character-kernel comparison; indexed exact reciprocal-hyperbola sampling defect a873211dce1c and affine three-tap convolution dd2fb1d76981",
+          "Xi arXiv:2105.15051, §1.2–§1.3 and Theorem 1.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed match 7a8223098ca9 is the same record; it is not external priority evidence. The older reciprocal-hyperbola and affine convolution matches have different hypotheses and counts; the reciprocal-trace incidence hit concerns a binary incidence/Gram spectrum, not the complex Fourier rank."
+        ],
+        "reasoning": "An indexed formula is relevant to this check: it might already list the exact order-dependent nullity. The bounded index comparison found no separate formula covering it; absence in these searches is not a priority proof.",
+        "searches": [
+          "Resultary searches for the reciprocal-power Fourier rank and kernel, cubic-fiber collapse and −2 resonance; local mirror comparisons with 7a8223098ca9, a873211dce1c, dd2fb1d76981 and 8ae9fee89748"
+        ]
+      },
+      "rationale": "Credit the exact cubic-resonant character kernel and order-dependent count, not character diagonalization, cyclotomic disjointness, or the use of phase fibers. The strongest compared indexed rank theorem has inverse-hyperbola degree d=1 and at most one missing quadratic character in its nondegenerate case; its phase and scope do not give the three-coset result. The compared literature on binomial permutation criteria, distribution of related character sums and prime cyclic Fourier minors does not give this ambient two-dimensional compression's complete character kernel. This is a bounded statement-level priority assessment.",
+      "residual_risks": [
+        "Bounded source comparison; an unindexed exact classification of character-weighted binomial fibers or rank on reciprocal powers is not excluded.",
+        "The broader arithmetic Fourier monograph was read at its introductory result, not exhaustively; absence of an exact statement there is not a paper-wide priority conclusion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related exact classification, not covering the cubic-resonant family",
+          "evidence": "The nondegenerate nonsquare-product case loses one quadratic-character direction; the phase is u+c/u.",
+          "identifier_or_url": "2026/11/2/SCOPE-the-exact-fourier-sampling-defect-on-reciprocal-hyperbolas-over--a873211dce1c",
+          "material_read": "RESULT.md Finding and Proof §§1–4",
+          "method": "Local published record mirror",
+          "title": "The exact Fourier sampling defect on reciprocal hyperbolas over prime fields",
+          "trigger": "Strongest indexed overlap, square Fourier compression of a reciprocal curve"
+        },
+        {
+          "assessment": "Different operator and nullity law",
+          "evidence": "The threshold there is subgroup membership in an affine Frobenius-group convolution, with nullity p−1 or 0.",
+          "identifier_or_url": "2026/11/8/SCOPE-affine-three-tap-convolution-an-exact-subgroup-threshold-for-inv--dd2fb1d76981",
+          "material_read": "RESULT.md Finding",
+          "method": "Local published record mirror",
+          "title": "Affine three-tap convolution: an exact subgroup threshold for invertibility",
+          "trigger": "Exact nullity and the arithmetic element −2"
+        },
+        {
+          "assessment": "Permutation and subfield-equivalence statements do not yield the weighted-fiber nullspace",
+          "evidence": "Theorem 9 assumes a permutation binomial and decides the existence of a d-equivalent binomial with subfield coefficients.",
+          "identifier_or_url": "https://arxiv.org/pdf/1210.1252",
+          "material_read": "Introduction, Theorems 4–7 and Theorem 9 with its preceding equivalence step",
+          "method": "Open original PDF, bounded passages by offset 2900 and 23000",
+          "title": "On Permutation Binomials over Finite Fields",
+          "trigger": "Same binomial class and gcd parameter"
+        },
+        {
+          "assessment": "Related moment/distribution and parity statement for a different sum",
+          "evidence": "Theorem 1.1 is an equidistribution law for |K(χ)| over nontrivial even characters as p grows.",
+          "identifier_or_url": "https://arxiv.org/pdf/2105.15051",
+          "material_read": "Transition to §1.3 and Theorem 1.1",
+          "method": "Open original PDF, bounded passage at offset 5050",
+          "title": "Moments and equidistributions of multiplicative analogues of Kloosterman sums",
+          "trigger": "Vanishing of multiplicatively weighted sums with inverse-type phases"
+        },
+        {
+          "assessment": "Not a determination of the two-dimensional curve compression",
+          "evidence": "The transform in the statement is on Z/pZ; the all-minors observation refers to its p-by-p exponential matrix.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0308286",
+          "material_read": "Theorem 1.1 and prime cyclic minor interpretation",
+          "method": "Open original PDF, bounded passage at offset 5250",
+          "title": "An uncertainty principle for cyclic groups of prime order",
+          "trigger": "Possible stronger nonvanishing theorem for Fourier minors"
+        },
+        {
+          "assessment": "Inspected general estimates are not the exact scalar cancellation criterion; no paper-wide noncoverage claim",
+          "evidence": "Generic vanishing bounds the number of twists with cohomological exceptions; its statement does not specify exactly the vanished sums of the curve matrix.",
+          "identifier_or_url": "https://arxiv.org/pdf/2109.11961",
+          "material_read": "Abstract and introductory Theorem 1, with references to Theorems 2.1 and 2.3",
+          "method": "Open original PDF v6, bounded passages at offsets 0 and 30381",
+          "title": "Arithmetic Fourier transforms over finite fields",
+          "trigger": "Possible broader vanishing classifications on commutative groups"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Proof §§1–4",
+        "a873211dce1c, reciprocal-hyperbola rank and quadratic kernel comparison"
+      ],
+      "rationale": "Square sampling on a single algebraic curve need not permit recovery even at equal numbers of sites and samples. The index-three resonance is motivated by all the phase cosets mapping onto one subgroup, rather than by selecting examples with numerical rank drops. The result quantifies how much information is lost, using an order rather than only the image size, and identifies every unrecoverable character. This is an exact structural invariant for the full stated family; it distinguishes higher-dimensional loss from the inverse-hyperbola obstruction.",
+      "residual_risks": [
+        "Value is localized to this family: the result gives neither a rank classification for arbitrary exponents nor recovery stability for the nonzero modes."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

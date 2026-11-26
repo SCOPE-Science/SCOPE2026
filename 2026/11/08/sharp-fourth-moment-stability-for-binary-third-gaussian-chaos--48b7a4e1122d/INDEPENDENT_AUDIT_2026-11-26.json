@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:37:08.722238Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof",
+        "Frozen VERIFICATION.md and check_binary_cubic.py (inspected, not executed)",
+        "/workspace/audit_checks/3.py"
+      ],
+      "rationale": "The orthogonal spin-3 and spin-1 real bases have squared norms 24 and 8 before normalization; they are four independent OU eigenfunctions at eigenvalue -3 and exhaust the binary third chaos. Independent polar integration gives angular averages (3/8,0,1/4,1/8,3/8) and radial factors (46080,30720,21504,15360,11264), in order of increasing trace multiplicity in the fourth moment. The sole angle-dependent average acquires cos(alpha-3 beta); hence the normalized quartic coefficients are 30,168,66,40 sqrt(3). After subtracting 30(a²+b²)² and taking out b², the smallest possible quadratic form has matrix with diagonal (108,36) and off-diagonal -20 sqrt(3). Its smaller eigenvalue is positive, 72-8 sqrt(39), with positive eigenvector ratio a/b=(2 sqrt(39)-9)/(5 sqrt(3)); when b>0 equality also forces relative phase pi. Thus only b=0 minimizes the fourth moment. The upper deficit at cos(delta)=1 factors as 63(a-b/sqrt(3))²(a²+2ab/sqrt(3)+9b²/7). At its nonzero zeros the phases are aligned; the elementary formula for cos³ identifies these and only these with the rotated H3 direction. The ratio is continuous on the connected unit sphere, so all intermediate values occur. Zero is trivial in the stability estimate and excluded from the ratio. Replay: python3 -B /workspace/audit_checks/3.py (independent exact radial/angular arithmetic; the universal implications and equality checks are analytical).",
+      "residual_risks": [
+        "Only the real, two-coordinate, third-chaos statement was reviewed; it does not imply the same lower bound in larger Gaussian dimension."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Wiener product expansion expresses the fourth moment as a positive sum of squared symmetrized self-contractions.",
+          "The inspected limit and product inequalities concern convergence, cumulants or products of squared integrals."
+        ],
+        "reasoning": "For each self-contraction the Hilbert norm is bounded by the square of the kernel norm, with simultaneous equality for a pure tensor. In order three this gives 93 (and the order-two contraction equality forces rank-one flattening, hence a pure symmetric tensor). These same estimates do not supply the binary lower endpoint or a sharp trace remainder; the inspected limit and product inequalities do not give them either.",
+        "searches": [
+          "Nualart–Peccati arXiv:math/0503598, Theorem 1 and p. 6 product expansion",
+          "Schulte–Thäle arXiv:1410.7964, Abstract and Introduction",
+          "Malicet–Nourdin–Peccati–Poly arXiv:1503.02154, Theorem 1.1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary exact constants and equality searches",
+        "Resultary 784bbc03b536",
+        "arXiv:math/0503598",
+        "arXiv:1410.7964",
+        "arXiv:1503.02154"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The radial conversion determines the moment only at b=0. The classical contraction upper estimate is sharp at rank one. The product-of-squares inequality compares to products of second moments rather than to the harmonic extremum."
+        ],
+        "reasoning": "The remaining claim needs global control over trace mixtures including relative phase and the least eigenvalue sharp at a nonzero trace component. No inspected bound entails that claim.",
+        "searches": [
+          "Spherical-harmonic record 784bbc03b536, Finding/Proof",
+          "arXiv:math/0503598 p. 6",
+          "arXiv:1503.02154 Theorem 1.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "SCOPE-sharp-lower-fourth-moment-and-isotropy-stability-for-real-cubic--784bbc03b536, Finding/Proof: homogeneous harmonic cubics on S², sharp 315/143 and a binary example with ratio 350/143."
+        ],
+        "reasoning": "Multiplying 350/143 by the three-dimensional Gaussian radial quotient 135135/11025 indeed gives 30. Gaussian homogeneous binary harmonics embed in that computation; nonhomogeneous trace Wick cubics do not. Its isotropy remainder on S² is not the Gaussian trace penalty. The distinct same-day record is compared without inferring priority.",
+        "searches": [
+          "Resultary binary third Wiener chaos endpoints and equality types",
+          "Resultary Gaussian trace-stability constant and mixed equality geometry",
+          "Resultary cubic spherical harmonics and 350/143"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact-data checks surfaced the frozen result itself and the distinct spherical-harmonic result with the 350/143 example; they did not identify a distinct matching statement of the trace constant together with equality data."
+        ],
+        "reasoning": "Same-record indexing is not independent prior coverage, and an exact harmonic-only value does not tabulate the Wick trace directions. The search is bounded and not an exhaustive negative certificate.",
+        "searches": [
+          "Resultary 30 and 93 endpoints, cubic fourth moment, 72-8 sqrt(39) stability and mixed equality data"
+        ]
+      },
+      "rationale": "Pass for the full binary-chaos lower extremum with the sharp trace stability and mixed equality geometry. Neither the value 30 on the harmonic sector by itself nor the rank-one upper endpoint is credited as novel. The classical Wiener product formula already yields the upper bound via contraction Cauchy–Schwarz and rank-one attainment.",
+      "residual_risks": [
+        "Earlier equivalent trace optimization in binary tensor invariant literature could be unindexed.",
+        "No independent earlier source for the spherical comparison asserted in the frozen result was established; a further literature lookup did not yield usable evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Partial overlap only",
+          "evidence": "350/143 for x(x²-3y²) and sharp 315/143 in the full spherical problem; no Wick trace modes in that space.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-lower-fourth-moment-and-isotropy-stability-for-real-cubic--784bbc03b536",
+          "material_read": "Mirrored RESULT.md Finding/Proof, opening passages and binary example",
+          "method": "Local Resultary mirror",
+          "title": "Sharp lower fourth moment and isotropy stability for real cubic spherical harmonics",
+          "trigger": "Exact harmonic-subspace comparison"
+        },
+        {
+          "assessment": "Upper endpoint implied; convergence result not the binary lower theorem",
+          "evidence": "Theorem 1 relates convergence of fourth moments to 3 to normal convergence; p. 6 expresses fourth moment in contraction norms.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0503598",
+          "material_read": "Theorem 1; p. 6 product expansion (text offset 13700 onward)",
+          "method": "Primary OA PDF passages",
+          "title": "Central limit theorems for sequences of multiple stochastic integrals",
+          "trigger": "Plausible broader fourth-moment theorem and upper bound implication"
+        },
+        {
+          "assessment": "Different scope in inspected passages",
+          "evidence": "Cumulant estimates and deviation results for fixed chaos, not optimization over binary cubics.",
+          "identifier_or_url": "https://arxiv.org/abs/1410.7964",
+          "material_read": "Abstract and Introduction",
+          "method": "Primary OA text",
+          "title": "Cumulants on Wiener chaos: moderate deviations and the fourth moment theorem",
+          "trigger": "Broader moment estimates"
+        },
+        {
+          "assessment": "Not the sharp binary lower extremum",
+          "evidence": "Product inequality for squares of chaos elements, with independence in equality.",
+          "identifier_or_url": "https://arxiv.org/abs/1503.02154",
+          "material_read": "Theorem 1.1, p. 2",
+          "method": "Primary OA PDF passage",
+          "title": "Squared chaotic random variables: new moment inequalities with applications",
+          "trigger": "Potential stronger fourth-order inequality"
+        },
+        {
+          "assessment": "No comparison from inaccessible text",
+          "evidence": "Not used as negative evidence; priority of spherical comparisons was not resolved.",
+          "identifier_or_url": "Stanton–Weinstein, Math. Proc. Cambridge Philos. Soc. 89 (1981)",
+          "material_read": "No readable full-text theorem retrieved",
+          "method": "Bounded lawful retrieval attempt",
+          "title": "Stanton–Weinstein, On the L4 norm of spherical harmonics",
+          "trigger": "Potential direct older spherical comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, formulas (1) and sharp stability inequality",
+        "Resultary spherical-harmonic Finding (784bbc03b536)"
+      ],
+      "rationale": "The first Gaussian cubic-chaos space with both an angular harmonic and a Wick trace sector is a natural test of how traces affect low kurtosis. The exact positive trace penalty and the phase and amplitude of its nonharmonic saturators give more than an endpoint benchmark: they identify the worst departures from the harmonic minimizers. The classical upper endpoint and a separate harmonic example are not the grounds for value.",
+      "residual_risks": [
+        "No higher-dimensional or higher-order stability is implied."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

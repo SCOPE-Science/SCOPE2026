@@ -1,0 +1,151 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T13:47:00.476567Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Telescoping each shortest translation and summing over all start sites counts each cyclic edge h_n(d) times. Averaging with p proves the bound without reversibility. For a contiguous balanced arc the number of translated sites leaving the arc is exactly h_n(d) for each d, and the indicator residual has one sign inside and the opposite outside. Bistochasticity doubles the outflow and V=2, giving equality. If the kernel charges every nonzero d, cut equality forces all displacement bounds to be equalities. At m=floor(n/2), a cut with 2r boundary edges then satisfies rm<=min(|S|,n-|S|), so r=1 and the arc is balanced. The discrete coarea identity makes every superlevel cut of a real extremizer extremal; if two differ, opposite strict residual signs at a vertex in their difference make the counting-l1 triangle inequality strict. Thus the only nonconstant extremizers are those declared (p_0 may vanish). For heat, positivity at t>0 follows from the nearest-neighbor walk. The second difference of the distance is 2 delta_0 minus 2 delta_m for even n, or minus delta_m and delta_(m+1) for odd n. Its Fourier transform gives the negative nonconstant distance coefficients and the stated parity weights. Finite differentiation yields strict complete monotonicity of C_n', C_n'(0)=2 in the unnormalized convention, and the distance average as t tends to infinity. Independent replay `python3 /workspace/reproduce_frozen.py 1` made 6,504 exact signal/kernel checks (including three-level signals and zero weights) and 192 matrix-exponential derivative comparisons. The supplied checker was inspected, not executed; finite numerical checks are not universal proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general continuous-circle BV convolution lemma in 67dcd0fce75c covers more continuous kernels than the powered Fejér–Jackson case in 5321b930c41b; both give a continuous first-moment identity and semicircle extremizers in their stated settings.",
+          "Dowker gives the finite-cycle Fourier and image heat kernels, not a theorem about sharp BV error."
+        ],
+        "reasoning": "Represent vertex arrays as functions constant on unit cells of a continuous circle of circumference n. Their continuous BV and integrated l1 errors under integer translations equal the discrete quantities. This transfers the continuous moment upper bound (integer atoms can also be approximated in the translation integral). For even n the half-circle witness transfers directly. For odd n it need not be a whole-cell function; the discrete cut argument also covers the discrete atomic support and gives all equality cases.",
+        "searches": [
+          "Resultary 67dcd0fce75c and 5321b930c41b",
+          "Dowker arXiv:1207.2096v2, §3",
+          "Karlsson–Neuhauser author manuscript"
+        ]
+      },
+      "checked_sources": [
+        "Dowker arXiv:1207.2096v2",
+        "Karlsson–Neuhauser author manuscript (unusable extracted passages)",
+        "Resultary 67dcd0fce75c, 5321b930c41b, b61064b7e3c0, 3067d825a457, 486d8f765599 and e4cea2805c7a",
+        "Resultary 100578f5c8f6 (exact entry not retrieved)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The continuous-circle same-day claim transfers the upper bound and even-n witness as explained above; its stated density rigidity does not apply to atomic integer shifts.",
+          "Fourier transformation of the finite-cycle distance is an additional step using its discrete second differences, with distinct patterns at odd and even n.",
+          "The exact cited two-tap Gini record was unavailable; the accessible e4cea2805c7a instead treats uniform three-point averaging and complete-pair Gini dispersion."
+        ],
+        "reasoning": "The discrete odd-n cut sizes, all-n rigidity and finite Bernstein spectrum are not obtained merely by specializing a continuous-circle formula or reading off the heat kernel. This is a limited distinct claim, not separate novelty for the moment identity wherever the embedding proves it or for a generic coarea or Fourier method.",
+        "searches": [
+          "Resultary 67dcd0fce75c, 5321b930c41b, b61064b7e3c0 Findings; arXiv:1207.2096v2 §3; Resultary 100578f5c8f6 lookup"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "3067d825a457 gives a cycle heat Lipschitz operator norm; 486d8f765599 gives a variation contractivity criterion for heat.",
+          "b61064b7e3c0 gives the same type of residual on a finite path with central-edge step extremizers.",
+          "67dcd0fce75c gives the continuous-circle residual norm as a geodesic first moment and half-circle rigidity for strictly positive densities."
+        ],
+        "reasoning": "Lipschitz or TV contraction of H is not the cross-norm of I-H. A path is not a cycle. The continuous and finite residuals are related by restriction to unit-cell step functions, but that is not a bijection of extremizer sets and the odd cycles cannot represent a half-circle by whole cells.",
+        "searches": [
+          "Resultary and bounded literature lookup: sharp cyclic TV-to-counting-l1 norm of I-P, expected geodesic displacement, balanced arcs",
+          "SCOPE 3067d825a457, 486d8f765599, b61064b7e3c0 and 67dcd0fce75c"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Dowker gives exact heat-kernel entries and eigenvalues, so these data are not new. The closest catalogue entries give different norms, a path formula, or continuous-circle spectral formulas.",
+          "67dcd0fce75c gives an infinite odd-frequency series in the continuous drift-diffusion setting, not the finite odd-n parity weights."
+        ],
+        "reasoning": "A table or exact series for the heat kernel can evaluate a distance moment, not identify that moment with a supremum or prove the complete extremizer set. An isolated small-n heat norm or kernel table would not cover the arbitrary probability-vector theorem.",
+        "searches": [
+          "Resultary: exact finite cycle heat approximation coefficient and Bernstein spectral formula",
+          "Dowker arXiv:1207.2096v2, equations (6), (8), (9)"
+        ]
+      },
+      "rationale": "Qualified to the finite-cycle result, in particular the balanced discrete equality classification for arbitrary nonzero-displacement support as specified and the finite parity-dependent heat spectrum. The heat kernel itself is classical. There is strong partial mathematical overlap with a same-day continuous-circle theorem: unit-cell embedding and atomic shifts (or density approximation) transfer its upper bound, and for even n a continuous half-circle is already a step-function extremizer. That transfer alone does not show odd-n attainment within the vertex-step subspace, does not establish rigidity for the discrete atomic kernels, and does not give the discrete parity spectrum. Same-day dates do not settle priority. The distinct supported contribution is not the general moment principle in isolation.",
+      "residual_risks": [
+        "The same-day continuous-circle material is a close analogue and gives partial mathematical coverage; relative publication order is unknown.",
+        "The precise Karlsson–Neuhauser passage and cited two-tap record were not retrievable in usable form. Inaccessibility supports no conclusion of absence.",
+        "An implicit broader discrete sharp norm and rigidity theorem was not exhaustively ruled out."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Close same-day overlap with a transfer for part of the finite-cycle theorem; does not supply the full discrete result",
+          "evidence": "Continuous expected-geodesic-displacement law with half-circle rigidity for strictly positive densities, and an infinite odd-frequency heat series in the drifted case.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-sharp-circular-bv-drift-diffusion-error-and-infinitely-recurrent--67dcd0fce75c/RESULT.md",
+          "material_read": "Mirrored RESULT.md, Finding at offset 0",
+          "method": "Resultary local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Sharp circular BV drift-diffusion error and infinitely recurrent behavior",
+          "trigger": "Same sharp norm principle and rigidity on a related geometry"
+        },
+        {
+          "assessment": "Same-day continuous, kernel-specific comparison",
+          "evidence": "Exact circular first moment and semicircle-only two-level extremizers for specified powered kernels.",
+          "identifier_or_url": "SCOPE-sharp-bv-approximation-and-parity-order-rigidity-for-powered-fej--5321b930c41b",
+          "material_read": "Mirrored RESULT.md, Finding at offset 0",
+          "method": "Resultary local mirror",
+          "title": "Sharp BV approximation and parity-order rigidity for powered Fejér–Jackson kernels",
+          "trigger": "Same norm and extremal geometry in a kernel family"
+        },
+        {
+          "assessment": "Prior heat-kernel and eigenvalue formulas; not a BV residual theorem in the inspected passages",
+          "evidence": "Image/Bessel sum and finite Fourier sum with eigenvalues 4 sin^2(pi k/n).",
+          "identifier_or_url": "https://arxiv.org/abs/1207.2096v2",
+          "material_read": "§3, PDF p. 4, equations (6) and (8)–(9), offsets 7913 and 9112",
+          "method": "Primary OA PDF text",
+          "title": "Heat-kernels on the discrete circle and interval",
+          "trigger": "Identical combinatorial cycle heat convention"
+        },
+        {
+          "assessment": "Precise convention not independently resolved from this copy; Dowker supplies the decisive kernel comparison",
+          "evidence": "No usable decisive passage in the retrieved text; no absence inference.",
+          "identifier_or_url": "https://www.unige.ch/math/folks/karlsson/heatcyclicfinal.pdf",
+          "material_read": "Author manuscript retrieved; text extraction garbled and passage searches not usable",
+          "method": "Primary OA manuscript retrieval and local passage lookup",
+          "title": "Heat Kernels, Theta Identities, and Zeta Functions on Cyclic Groups",
+          "trigger": "Cited antecedent for cycle heat kernels and normalization"
+        },
+        {
+          "assessment": "Different operator and spaces in the norm",
+          "evidence": "H_t from Lipschitz to Lipschitz, not I-H_t from discrete BV to counting-l1.",
+          "identifier_or_url": "SCOPE-exact-graph-heat-lipschitz-norms-on-cycles-and-a-four-class-shor--3067d825a457",
+          "material_read": "Mirrored RESULT.md, Finding at offset 0",
+          "method": "Resultary local mirror",
+          "title": "Exact graph-heat Lipschitz norms on cycles and a four-class short-time law",
+          "trigger": "Same cycle operator, an exact norm"
+        },
+        {
+          "assessment": "Different inequality",
+          "evidence": "Gives cut criteria for V(H_t f)<=V(f), not the optimal integrated approximation error.",
+          "identifier_or_url": "SCOPE-cut-certificates-for-graph-variation-heat-contractivity-and-a-co--486d8f765599",
+          "material_read": "Mirrored RESULT.md, Finding at offset 0",
+          "method": "Resultary local mirror",
+          "title": "Cut certificates for graph-variation heat contractivity and a complete unicyclic classification",
+          "trigger": "Same graph variation and use of cuts"
+        },
+        {
+          "assessment": "Same-day structural analogue on a path, not cyclic coverage",
+          "evidence": "Path boundary and central-edge steps give different kernel and extremizer conditions.",
+          "identifier_or_url": "SCOPE-exact-finite-path-heat-approximation-in-discrete-bounded-variati--b61064b7e3c0",
+          "material_read": "Mirrored RESULT.md, Finding at offset 0",
+          "method": "Resultary local mirror",
+          "title": "Exact finite-path heat approximation in discrete bounded variation",
+          "trigger": "Same type of sharp heat norm on adjacent geometry"
+        },
+        {
+          "assessment": "Exact two-tap citation unverified; nearest inspected source uses a different seminorm",
+          "evidence": "The accessible three-point statement concerns complete-pair Gini dispersion, not the adjacent-TV to counting-l1 residual.",
+          "identifier_or_url": "SCOPE-sharp-cut-deficit-and-gini-contraction-of-cyclic-two-tap-averagi--100578f5c8f6",
+          "material_read": "Exact citation unavailable in mirror; distinct three-point record e4cea2805c7a, Finding at offset 0",
+          "method": "Resultary lookup and local mirror",
+          "title": "Sharp cut-deficit and Gini contraction of cyclic two-tap averaging",
+          "trigger": "Cited nearby averaging norm"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The sharp coefficient and complete worst-case signal family describe integrated distortion for arbitrary stochastic cyclic filters, including asymmetric and sparse-support cases for the norm. The exact finite heat law identifies the time dependence, including all derivative signs and the role of cycle parity. The value lies in the finite discrete classification and exact sharp heat behavior, not in reprinting the classical kernel or upper bound.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:17:22.457107Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–96",
+        "Frozen VERIFICATION.md and inspected CHECK.py"
+      ],
+      "rationale": "The basis realizes an RKHS: local square summability gives bounded point evaluation and locally uniform convergence, and its nonzero diagonal Taylor coefficients give injectivity. On the domain of D, the factorization B=(I+aSD⁻¹)D is valid; the norm of (SD⁻¹)^k is 1/k!, so the inverse series converges for every complex a. The commutator BS−SB=S gives the bounded multiplier S−B⁻¹S, first on finite coefficient sequences and then by continuity of evaluations. Triangular inversion gives the coefficient of f_(n+j) in z^n as (−a)^j n!/(n+j+1)!; at aligned indices the coefficients for z^n are −a/(n+1) times those for z^(n+1), with the stated first-slot-linear convention. Polynomials are in the space and dense since each basis vector is a polynomial. Beta moments on [0,1] squared and summed by Tonelli give the law of the product of the two integration variables, with Jacobian 1/t: its density is rho_a and its moments are m_n. A subnormal extension gives a positive scalar spectral measure at the cyclic vector 1; m_n→0 puts it in the disk with no unit-circle mass. Hausdorff uniqueness fixes its radial pushforward. The pushed-forward complex measure weighted by conjugate z has moments −a m_(n+1)/(n+1), which by Fubini and polynomial density uniquely fix its density to −a∫_q^1 rho_a(t)dt. Its variation must be dominated by √q rho_a(q)dq. The left density in absolute value approaches |a|m_0>0 for a≠0 but the bound is at most I_0(2|a|)√q log(1/q)→0, contradicting almost-everywhere domination on a whole interval. For a=0 the rotational measure with radial squared-modulus density −log q gives the exact diagonal moments and vanishing off-diagonal ones; the monomial isometry realizes normal multiplication as an extension.",
+      "residual_risks": [
+        "The supplied script was inspected, not executed; its finite real-integer truncations do not test general complex parameters or prove the variation contradiction. The proof is analytic, not formal verification."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2022 paper treats arbitrary bounded analytic phi, hence includes constants for boundedness, and states the all-vector complete-monotonicity criterion under its injectivity and norm hypotheses."
+        ],
+        "reasoning": "The norm/boundedness fact is covered. The broader criterion does not evaluate the moment inequality for arbitrary nonzero constants; the proof supplied here derives a new radial-angular incompatibility rather than just substituting a parameter into a classified family.",
+        "searches": [
+          "DOI 10.7153/oam-2022-16-44, pp. 581–582 and Proposition 10 (p. 607)",
+          "Resultary: tridiagonal reproducing kernels subnormality multiplication operator constant parameter"
+        ]
+      },
+      "checked_sources": [
+        "Resultary and published-source mirror",
+        "Adams–Feldman–McGuire 2022 DOI 10.7153/oam-2022-16-44",
+        "Adams–Feldman–McGuire 2013 DOI 10.7900/jot.2011sep12.1942"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Proposition 11 proves non-subnormality for a=1 using a test vector and an inverse-Laplace obstruction; the final discussion gives constant-a formulas in the |a|<1 setting and raises the question there.",
+          "The earlier paper asks about an example and a larger zero-at-infinity class rather than proving an all-constant conclusion."
+        ],
+        "reasoning": "Failure for a single modulus cannot give failure at every other nonzero modulus; cyclic moment representation is prior machinery but requires the verified density/variation argument to deliver the classification.",
+        "searches": [
+          "DOI 10.7153/oam-2022-16-44, Proposition 11 and final discussion",
+          "DOI 10.7900/jot.2011sep12.1942, §4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The nonzero basis zero equals −(n+1)/a and tends to infinity, so the family lies in the broad zero-at-infinity question in §4, which singles out a=1 but does not resolve the question.",
+          "This RKHS has the first angular Gram moments −a m_(n+1)/(n+1), unlike rotational moment models of unilateral weighted shifts."
+        ],
+        "reasoning": "A radial Berger-measure test for a weighted shift is not an equivalent all-constant classification. Existence of the positive radial measure is compatible with failure of the mixed monomial moment test.",
+        "searches": [
+          "Resultary: analytic tridiagonal reproducing kernel subnormal multiplier basis (a_n+b_n z) z^n",
+          "Resultary: Berger measure subnormality Hausdorff moment criterion cyclic weighted shifts",
+          "Adams–Feldman–McGuire 2013 §4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact catalogue hit ending f01f85c88f9f is the assigned record itself.",
+          "The strongest distinct moment-related hit ending b24688f80948 treats signed Berger measures and finite-order hyponormality of weighted shifts; other same-day results concern a Cauchy-dual weighted shift (c875a5a6b9b6) or a geometric weighted-shift family (fd5a8a41754b)."
+        ],
+        "reasoning": "The exact match is not independent prior coverage; the distinct hits address different operator families and moment constraints. Their shared date is not used to infer priority.",
+        "searches": [
+          "Resultary: constant integro-multiplication operator subnormal nonzero parameter",
+          "Resultary: tridiagonal reproducing kernels subnormality multiplication operator constant parameter",
+          "Resultary: Berger measure subnormality Hausdorff moment criterion cyclic weighted shifts"
+        ]
+      },
+      "rationale": "The distinct supported contribution is necessity for all nonzero complex constants in this RKHS. Boundedness in the broader symbol class, the a=1 obstruction, and generic subnormality criteria are prior. The 2022 paper's explicit constant-parameter discussion computes in the context |a|<1; it should not be described as explicitly posing the entire complex-plane classification. This historical scope qualification does not affect the proved theorem.",
+      "residual_risks": [
+        "Bounded statement-level comparisons, not a guarantee against an unindexed subsequent tridiagonal classification or general theorem with an overlooked specialization."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers boundedness and a=1, not the all-constant obstruction",
+          "evidence": [
+            "Bounded analytic phi includes all constants; Proposition 11 takes a=1; the constant-family discussion has the explicit |a|<1 context."
+          ],
+          "identifier_or_url": "https://files.ele-math.com/articles/oam-16-44.pdf",
+          "material_read": "pp. 581–582; Proposition 10, p. 607; Proposition 11 and final discussion, pp. 607–609",
+          "method": "Open publisher full text, bounded passages",
+          "title": "A Class of Integro-Multiplication Operators",
+          "trigger": "Exact larger class and known a=1 result"
+        },
+        {
+          "assessment": "Motivating problem, not a proof of the classification",
+          "evidence": [
+            "It asks about a nontrivial basis zero tending to infinity and singles out (n+1+z)z^n."
+          ],
+          "identifier_or_url": "https://jot.theta.ro/jot/archive/2013-070-002/2013-070-002-007.pdf",
+          "material_read": "§4, p. 491, question and example",
+          "method": "Open journal full text",
+          "title": "Tridiagonal Reproducing Kernels and Subnormality",
+          "trigger": "Older exact a=1 example and larger class"
+        },
+        {
+          "assessment": "Different class and obstruction",
+          "evidence": [
+            "Signed Berger measures and finite-order weighted-shift hyponormality; genuinely negative measure versus the present positive radial measure with incompatible complex angular moments."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-one-hankel-certificate-and-bessel-edge-phase-law-for-separated--b24688f80948",
+          "material_read": "RESULT.md, offset 0, finding",
+          "method": "Local published-source mirror",
+          "title": "A one-Hankel certificate and Bessel edge phase law",
+          "trigger": "Strongest distinct radial-moment result retrieved"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md proof and limitations",
+        "Adams–Feldman–McGuire 2022 Proposition 11 and final discussion"
+      ],
+      "rationale": "The result settles a natural classification motivated by the original integro-multiplication work, and distinguishes a positive determinate radial model from a genuine subnormality model. Its obstruction explains all nonzero cases uniformly rather than reproducing the known numerical special case or a low-order matrix test. The zero case supplies the exact normal model.",
+      "residual_risks": [
+        "Does not settle nonconstant symbols or a uniform finite-degree obstruction; novelty does not attach to boundedness or a=1."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

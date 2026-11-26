@@ -1,19 +1,21 @@
-# Scientific review: perpendicular-hypercylinder volume defect
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The proof's chamber dissection is exact outside the zero-measure set where absolute coordinates tie. On each chamber the strongest defining cylinder constraint omits its minimum-magnitude coordinate, reducing the volume to an integral of the minimum absolute coordinate over the unit ball. Polar integration, a Gaussian radial decomposition and a change of variables establish the normalized all-dimensional integral. A monotone coupling of beta-distributed random variables proves strict decrease, not just numerical decrease. Taylor expansion of the inverse error function, exact beta moments and an exponentially controlled tail give the complete two-term formula with \(O(n^{-6})\) error. The radial estimate follows from an exact formula valid in every unit direction. A standalone independent numerical-algebraic checker verifies low-dimensional benchmark volumes and series coefficients; it is not substituted for the proof.
+PASS
 
-## Originality
+Partition away from null ties by the least absolute coordinate. Fixing the other k=n-1 coordinates y in the unit k-ball gives an interval of length 2 min|y_j|, because the strongest cylinder constraint omits the least coordinate. The homogeneous function m=min|y_j| has ball radial integral 1/n and Gaussian radial integral Γ(n/2)/2. Hence 2n times its ball integral equals 4/Γ(n/2) times its integral with weight exp(-|y|²) on R^k. Product integration and the layer-cake formula give the latter as π^(k/2) times the integral of erfc(t)^k. Dividing by κ_n gives the exact stated factor 2n/√π. With u=erf(t) this is E[f(U_n)] for f=exp((erf^{-1}u)^2) and U_n=1-W^(1/n) for uniform W. This coupling makes U_n strictly decrease and f strictly increases. Also 1<f(u)≤1/(1-u) for 0<u<1 by the shifted Gaussian tail, giving finite expectations and convergence to 1. At n=2 the body is the square and R_2=4/π. Writing x=√π u/2 gives erf^{-1}(u)=x+x³/3+O(x⁵), so f=1+x²+(7/6)x⁴+O(x⁶). The exact beta moments j!/[(n+1)…(n+j)] give both coefficients; restricting first to a fixed small interval gives an O(n^-6) local remainder and the tail bound gives exponentially small error on its complement. Finally min_i v_i²≤1/n, with equality for equal magnitudes, gives the claimed maximal radius and its distinct defect scale.
 
-**PASS under the available evidence, with material priority risk.** Classical three-dimensional tricylinder volume and published four- and five-dimensional intersections were explicitly identified as prior work and are not claimed as new. Published OEIS entries A349579 and A349580 state the exact cases and identify 2012–2013 Illinois reports treating higher-dimensional intersections. The complete reports were not accessible for content comparison, so their coverage of the sharp all-dimension strict normalized-volume monotonicity and the two-term asymptotic remains unknown. A full mathematical result on the polar three-disk *hull* was read: it determines dimension-three hull geometry, not relative n-dimensional cylinder volumes. The other checked two-disk-hull article is likewise mathematically different. Public research-record similarity searches located related volume and orthogonal-disk results, but no result asserting the present combined dimension-to-dimension theorem. Failure to locate one is not proof of global novelty. The incomplete report access is a genuine historical-priority risk that requires independent follow-up.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The ratio of the intersection volume to the ambient unit-ball volume is a canonical affine-free Euclidean quantity for the family of all mutually orthogonal coordinate cylinders. Two questions are naturally left by earlier exact low-dimensional volumes: whether these normalized volumes form an ordered sequence, and how quickly they approach the unit-ball benchmark in large dimension. The theorem resolves both, rigorously and for all dimensions, with a sharp asymptotic constant and a higher-order correction. The separation between the order \(n^{-1}\) radial defect and the order \(n^{-2}\) volumetric defect gives additional quantitative geometric content. The result does not depend on a selective finite dimension or ad hoc invariant.
+Prior coverage includes the coordinate-cylinder family, the exact low-dimensional volumes and a polar description in dimension three. The inspected statements do not give the strict order of the normalized all-dimensional sequence or the two-term defect with the stated remainder. No inspected source gave the integral representations either; full-text priority for those reductions, as well as the conclusions, remains open because the closest reports could not be read. The verdict credits the known cases and assesses the supported comparative and asymptotic result, not discovery of these bodies.
 
-## Closest sources and residual risk
+## value
 
-The strongest known-source comparisons are the two Illinois reports cited through OEIS A349579 and A349580, the exactly inspected three-disk convex-hull result, and Finch's two-disk article. The Illinois report texts remain unreadable. This prevents absolute claims of priority; it does not affect the analytic proof. The scope is fixed to congruent coordinate-axis cylinders and does not address arbitrary cylinder directions or radii.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Normalization by the inscribed unit ball separates the effect of increasing dimension from trivial unit-ball scaling for a natural Steinmetz family. Strict ordering and an exact leading and next contribution to volume quantify a phenomenon not visible from the maximal radius: the radius defect is of order n^-1 but the relative volume defect is of order n^-2. The beta representation explains this distinction and controls the error rather than fitting finite values.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

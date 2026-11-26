@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,19 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility and checks
 
-`python3 checker.py` uses the standard library and constructs degree-two, degree-three, and degree-seven Moore graphs. It verifies every ordered pair's common-neighbor count, every edge's signed norm support geometry, rational exact forms of the positive heat transport, all three signed potential branches with rational multipliers, and the exact Hoffman–Singleton peak. Output on the research artifact:
+# Independent mathematical audit
 
-```
-CHECK_OK exact_combinatorial_and_transport_checks= 3037 Hoffman_Singleton_peak=49/45 Petersen_profile=(5exp(-2t)-2exp(-5t))/3
-SIGNED_OK exact_rational_potential_checks= 7020 degrees=2,3,7 phases=3
-```
+## correctness
 
-`python3 lp_check.py` (optional NumPy/SciPy) independently solves full vertex-Lipschitz linear programs rather than the derived reduced optimization. It checks 316 edge/filter cases, including 84 positive heat-time cases:
+PASS
 
-```
-LP_CROSSCHECK_OK signed_and_heat_edge_cases= 316 heat_subset= 84
-```
+For each edge xy the difference functional uses x,y and their disjoint outside neighbor sets X,Y. Girth and diameter give distance two for all X-to-Y pairs and between either endpoint and the opposite outside neighbors. With f(y)=0 and u=f(x), the maximal difference of the two outside means is min(2,u+2), attained for -1<=u<=0 by means u+1,-1 and for 0<=u<=1 by u+1,u-1. Giving constant values to each support and using Lipschitz extension yields genuine global witnesses, with no transitivity assumption. Evaluating the two affine pieces at -1,0,1 and using overall sign symmetry gives the norm and nonempty facet regions, including beta=0 and d=2. The adjacency identity A²=(d-1)I-A+J yields interpolation on the nonconstant eigenvalues; both occur since a scalar action on the entire mean-zero subspace would make all off-diagonal entries equal. Heat has alpha>=beta>=0, so the positive branch gives the two-exponential coefficient by Kantorovich–Rubinstein duality. In degree seven, writing z=e^(-5t) gives (14z-9z²)/5, with the claimed peak and return to one. The derivative of the logarithmic contraction rate is positive for the stated two-exponential form.
 
-These finite experiments corroborate but do not establish the theorem for all graph orders or real coefficients. The general proof is the exact edge-neighbor distance argument, complete Lipschitz feasible-polytope reduction, signed piecewise-linear maximization, and interpolation in the mean-zero adjacency algebra. Historical originality has not been independently certified.
+## originality
+
+PASS
+
+The claim supported as distinct is the exact full signed norm, including the active opposite-sign branch and the six-facet ball, not the lazy curvature, the C_5 heat subcase, or priority for the positive heat branch. The prior idleness analysis gives a closely related three-line optimization template and, with known curvature, the high-idleness expression. It does not give the exact signed norm over the full plane; the present proof determines the missing signed extremal geometry using these graphs' support distances.
+
+## value
+
+PASS
+
+On a natural two-dimensional adjacency spectral algebra the theorem determines the sharp maximum distortion for every real multiplier, even those not acting as ordinary Markov averages. The exact supporting facets, phase boundaries and extremizers are useful for deciding whether a given signed filter expands or contracts rather than merely bounding it. This is a complete invariant with a geometric mechanism; the familiar heat case illustrates it but is not needed to carry the value claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

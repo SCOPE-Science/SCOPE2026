@@ -1,20 +1,21 @@
-# Review: reactivity-dependent reversal of optimal search speeds
+# Independent mathematical audit
 
-## Correctness — PASS
-The analytic argument checks the original exact dimensionless moments of Jeon--Go--Kim [1] and separately proves uniqueness of the mean speed minimizer for every positive reactivity. Global weak-reactivity lower bounds give compactness after cube-root scaling, allowing uniform second-order perturbations; the stronger-capture limit localizes every minimizer to a logarithmic neighborhood, where strict convexity proves variance-minimizer uniqueness. The coefficients differ at second order under weak capture, and the logarithmic offsets differ under strong capture. The delivered `check.py` uses standard-library decimal arithmetic to run 122 assertions on derivatives, geometric-return moment reconstruction, numerical minimizers, asymptotic coefficients and hyperbolic bounds. Finite checks are not the infinite proof.
+## correctness
 
-## Originality — PASS (publication priority qualified)
-The full accessible original paper [1], including exact moment equations and mean-speed optimal asymptotics, is closely related and receives explicit credit. The assessed contribution is an independently justified two-objective ordering reversal for the same stochastic model. A stochastic-gate paper [2] and publicly indexed sticky-boundary active-escape result [3] concern different target mechanics or optimization variables, and do not directly imply this two-regime ordering. The full text of [3] was not accessible; a broader unpublished or unindexed optimization theorem remains possible.
+PASS
 
-## Mathematical value — PASS
-The previously known exact search-time mean and variance support a practically motivated question: whether speed settings that optimize typical absorption also optimize reliability. The strict reversal, with asymptotic separation constants in two physical regimes, gives a nontrivial transport design boundary. This is not a new closed moment formula, a claim of general single-crossing uniqueness, or merely a numerical table.
+For the specified uniform start and sticky boundaries, the exact input moments agree with Jeon–Go–Kim, Eqs. (28), (113), and with an independent backward-equation derivation. For first passage on [0,1], let D_k=M_k^+−M_k^- and t=1/v: D_k′=−kt(M_{k−1}^++M_{k−1}^-), D_k(1)=kM_{k−1}^+(1) by the exponential sticky hold, and (M_k^-)′=t(D_k+kM_{k−1}^-) with M_k^-(0)=0 for k>0. Averaging the first-hit moments and using the outgoing-origin return moments, a geometric number of failed crossings adds q times the return mean and q times its variance plus Q times its squared mean. This gives the supplied expressions. At fixed a both objectives diverge at the speed endpoints. In inverse speed the mean curvature exceeds 4/3 because z coth(z/2)>2, hence there is a unique global mean optimum. For weak capture, q≥1/z−1/2 and Q≥1/z²−1/12 follow from the displayed hyperbolic inequalities: the latter reduces by differentiation to sinh³x>x³cosh x, using y(2+cosh y)−3sinh y strictly increasing for y>0. The resulting global lower bounds and the trial at v=c a^(1/3) trap all optima in a common compact interval for s=v/a^(1/3). There the stated C² expansions have leading f and 4f with positive curvature; inserting c³=4/3 into the first corrections gives c²/8 and c²/5, so the gap is 3c² a^(2/3)/40+O(a). For strong capture the trial z=log a and the lower bounds force log a−O(log log a)≤z≤O(log a) at every minimum. The leading derivative balances in z give a exp(−z)→3/2 for mean and →1 for variance. On [log a−1,log a+1] the variance curvature is 2 exp(−z)(1+o(1))+O(a⁻²)>0, giving uniqueness there and hence globally for large a; subtraction gives the asserted log(3/2) coefficient. From /workspace, python3 reproductions/run_tumble.py reproduced the exact rational first-hit and return polynomial coefficients and checked stationary speeds at a=10⁻⁹,10⁻⁶,10,10⁹. At a=10⁻⁶ they are 0.01102156774 and 0.01103064384, and at a=10 they are 4.56964452 and 4.24722284 (mean then variance). The frozen script was inspected, not executed. Numeric roots do not prove global uniqueness or intermediate-reactivity behavior. The theorem compares absolute variance, not CV, and gives neither all-a variance uniqueness nor a single-crossover theorem.
 
-## Scientific scope and limits
-The claim holds for uniform initial positions and orientations, the one-dimensional two-state Poisson run-and-tumble particle, sticky walls, and a stationary partially absorbing central target. It compares unstandardized variance to mean. No intermediate-reactivity variance uniqueness, number of reversal crossings, or independent audit is asserted.
+## originality
 
-## Closest literature
-[1] Jeon, Go and Kim, *Searching for a partially absorbing target by a run-and-tumble particle in a confined space*, arXiv:2310.04016v1 (2023-10-06), Eqs. (28), (113).
-[2] Mercado-Vásquez and Boyer, *First hitting times between a run-and-tumble particle and a stochastically-gated target*, arXiv:2102.11787v1 (2021).
-[3] *Sharp mean–variance Pareto frontier and relative-risk optimum in sticky active escape*, publicly indexed 2026-11-02; full text inaccessible during comparison.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Pass the two-objective optimizer reversal with explicit asymptotic gap coefficients and variance-optimum uniqueness in both limiting regimes. The stochastic model, exact moments, weak leading mean scale and strong mean logarithmic denominator are prior work, not separate novel contributions. The bounded comparisons establish substantive distinction from nearby first-passage optimization results without guaranteeing priority.
+
+## value
+
+PASS
+
+Mean absorption time and its absolute variance are distinct, naturally motivated objectives for selecting propulsion in a confined search. The theorem shows that the preference between their optimal speeds reverses as capture reactivity changes, gives the separation on two different scales, and establishes actual unique global variance optima in both regimes. That explains when mean-optimal tuning does or does not also improve repeatability; the result is more than another evaluation of known moments or an intermediate-parameter plot.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

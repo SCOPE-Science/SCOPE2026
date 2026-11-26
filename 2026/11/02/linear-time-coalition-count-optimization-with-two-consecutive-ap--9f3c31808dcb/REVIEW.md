@@ -1,19 +1,21 @@
-# Review: linear-time extrema for adjacent-size approvals
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact necessary-and-sufficient condition is divisibility of each size bucket \(a_s+b_s-t_s+t_{s-1}\) by \(s\), with \(0\le t_s\le b_s\). It gives both directions of a constructive bijective assignment criterion. The dynamic program retains exactly all feasible carries and the optimal number of completed groups for each, and the min/max residue comparison follows by multiplying the transition cost by \(s\). Timestamped sparse residues and \(\sum_s b_s\le n\) prove the linear bound; reconstructed assignments satisfy every interval. The extracted standalone checker passed 7536 exhaustive/sample set-partition comparisons and 1250 separate flexible-split comparisons. The checker is supportive rather than an infinite proof.
+PASS
 
-## Originality — PASS (subject to priority uncertainty)
+A choice of split counts t_s yields N_s=a_s+b_s−t_s+t_{s−1}, which is automatically nonnegative for 0≤t_s≤b_s. Divisibility by s is sufficient as well as necessary because within-size labels can be grouped arbitrarily. The predecessor y must have residue t−a_s−b_s modulo s; on that residue the additive transition cost is the sum of a function of t and y/s. Thus each extremum needs only one optimally scored predecessor on that residue, equivalently optimizing m(y)+floor(y/s) or M(y)+floor(y/s). Since the sum of all state-array lengths is n+∑b_s, scanning even the full arrays at each next stage is linear, as are the timestamp operations and retained parent storage. At s=1 the residue is unique, and at s=n the only allowed output state is zero. Parent traversal and batching distinct labels into groups realizes both bounds, including n=1. Explicit output is linear in the size of its label list. The frozen checker was inspected, not executed; its finite brute-force comparisons are corroboration, not the general proof.
 
-The closest primary source, Constantinescu et al., arXiv:2311.02067v1, gives an \(O(n^5)\) algorithm for the full interval class and a general two-size modular-orientation representation (Theorem 2.5, Appendix B). Those results imply polynomial-time feasibility on this restricted class, not the claimed linear-time **simultaneous minimum and maximum group-count** optimization and explicit witnesses. Darmann et al., DOI 10.1007/s00182-017-0596-4, Theorem 4, proves hardness of general nonconsecutive two-size approvals and does not supply the claimed algorithm. Searches for width-two hiking, consecutive choices, modular orientations on paths, linear-time bounds, and related source identifiers found no direct covering statement in the inspected material. Equivalent folklore or other literature can remain unlocated; nonappearance in searches alone is not a novelty proof.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The restriction models the smallest nontrivial uncertainty in acceptable hiking-group size: each attendee accepts their ideal size and at most one neighbor size. On this motivated boundary, both cardinality extrema and concrete arrangements are determined in optimal input-linear time rather than by a high-degree general interval algorithm. The exact stage-flow invariant explains why width-one interval choices collapse to a one-dimensional state, while arbitrary two-size approvals already have an NP-complete feasibility problem. This is a structural tractability boundary, not a mere numerical example or parameter substitution.
+The general pair-approval orientation equivalence and the interval feasibility algorithm are antecedents, but the inspected statements do not give an algorithm for both extrema and labeled witnesses in time linear in the explicit input, even on the size-label path. The surviving claim is the adjacency-specific, residue-compressed optimization bound, not the orientation model, unrestricted hardness, or the existence of some polynomial-time interval algorithm.
 
-## Limitations and risk
+## value
 
-The theorem does not prove a gap-free spectrum of group counts, and does not extend the algorithmic bound to all intervals. The general two-size graph-orientation reduction is explicitly acknowledged, and an already-known path-orientation optimization theorem could settle priority. No independent external audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Two witnesses may differ materially even when feasibility is easy: they bracket the range of feasible coalition fragmentation and certify the endpoints. Obtaining both extrema at input/output scale exploits a natural adjacency restriction and is materially stronger than constructing one feasible partition in polynomial time.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

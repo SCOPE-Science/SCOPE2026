@@ -1,108 +1,74 @@
 # A nonmonotone critical crossover when two spectral zeros merge in a Gaussian power series
 
 ## Finding
-Let \((G_j)_{j\in\mathbb Z}\) be independent standard circular complex Gaussian variables and put
-\[
-c=\cos\varepsilon,\quad
-\xi_j^{(\varepsilon)}=\frac{G_j-2cG_{j-1}+G_{j-2}}{\sqrt{2+4c^2}},\quad
-X_\varepsilon(z)=\sum_{j=0}^\infty \xi_j^{(\varepsilon)}z^j.
-\]
-For \(0\le\varepsilon<\pi/2\), this is an analytic Gaussian random power series whose stationary coefficient spectral density is proportional to \((\cos t-\cos\varepsilon)^2\). For \(\varepsilon>0\), the spectral density has two distinct double zeros at \(\pm\varepsilon\); at \(\varepsilon=0\), these merge into one quartic zero.
 
-Write \(N_\varepsilon(r)\) for the number of zeros of \(X_\varepsilon\) in \(|z|<r\), counted with multiplicity, and \(D_\varepsilon(r)=r^2/(1-r^2)-\mathbb E N_\varepsilon(r)\). The exact identity
+Let \((G_j)_{j\in\mathbb Z}\) be independent standard circular complex Gaussians, with \(\mathbb E|G_j|^2=1\). For \(0\le\varepsilon<\pi/2\), put \(c=\cos\varepsilon\) and define
 \[
-D_\varepsilon(r)=-1+\operatorname{Re}
-\frac{c+i/(2\delta)}{\sqrt{(c+i\delta)^2-r^2}},
-\qquad \delta=\sqrt{(1-r^2)/2},
+\xi_j^{(\varepsilon)}=\frac{G_j-2cG_{j-1}+G_{j-2}}{\sqrt{2+4c^2}},\qquad X_\varepsilon(z)=\sum_{j=0}^\infty \xi_j^{(\varepsilon)}z^j.
 \]
-holds for \(0<r<1\), where the square root is taken with positive real part.
+The coefficient spectral density is proportional to \((\cos t-c)^2\), with two double zeros at \(\pm\varepsilon\) when \(\varepsilon>0\) and one quartic zero at \(0\) when \(\varepsilon=0\). Let \(N_\varepsilon(r)\) count the zeros in \(|z|<r\), with multiplicity, and write \(D_\varepsilon(r)=r^2/(1-r^2)-\mathbb E N_\varepsilon(r)\). For \(0<r<1\),
+\[
+D_\varepsilon(r)=-1+\operatorname{Re}\frac{c+i/(2\delta)}{\sqrt{(c+i\delta)^2-r^2}},\qquad \delta=\sqrt{(1-r^2)/2},
+\]
+where the square root has positive real part.
 
-**Sharp crossover theorem.** For each finite \(L\ge0\), uniformly over \(\lambda\in[0,L]\), as \(h\downarrow0\),
+For every finite \(L\ge0\), uniformly in \(0\le\lambda\le L\) as \(h\downarrow0\),
 \[
-\boxed{D_{\lambda h^{1/4}}(1-h)
- = h^{-3/4} F(\lambda)+O_L(h^{-1/4}),\qquad
-F(\lambda)=\frac12\operatorname{Re}(\lambda^2+2i)^{-1/2}.}
+D_{\lambda h^{1/4}}(1-h)=h^{-3/4}F(\lambda)+O_L(h^{-1/4}),\qquad F(\lambda)=\tfrac12\operatorname{Re}(\lambda^2+2i)^{-1/2}.
 \]
-The profile is positive for all \(\lambda\ge0\), increases strictly until the unique maximum at
-\[
-\boxed{\lambda_*=\sqrt{2/\sqrt3},\qquad
-F(\lambda_*)=\frac{3^{3/4}}8,}
-\]
-and strictly decreases afterward. In particular \(F(0)=1/4\), and \(F(\lambda)\sim1/(2\lambda)\) as \(\lambda\to\infty\). The strongest deficit in the singular crossover occurs at **nonzero** spectral-zero separation, not at the quartic collision.
+The profile is positive. It increases strictly up to its unique maximizer \(\lambda_*=\sqrt{2/\sqrt3}\), with \(F(\lambda_*)=3^{3/4}/8\), and decreases strictly thereafter. In particular \(F(0)=1/4\) and \(F(\lambda)\sim1/(2\lambda)\) as \(\lambda\to\infty\). The limiting crossover profile therefore has a stronger deficit at a nonzero scaled separation than at exact collision.
 
 ## Assumptions and scope
-The coefficients are a single *stationary proper complex Gaussian* process of moving-average order two, with the displayed independent underlying Gaussian sequence. The summation defining \(X_\varepsilon\) is almost surely analytic in \(|z|<1\). Each model parameter is constant within each random power series. Only in the asymptotic theorem does the model parameter \(\varepsilon\) depend on \(h=1-r\). The expected zero count is over the open disk; almost surely no zero lies on any fixed circle. Uniformity is on each bounded interval of nonnegative \(\lambda\). No assertion of uniformity as \(\lambda\to\infty\) is made.
+
+The coefficients form one stationary proper complex Gaussian process of moving-average order two. The series is almost surely analytic in the open unit disk: for each fixed \(r<1\), \(\sum_j\mathbb E|\xi_j^{(\varepsilon)}|r^j<\infty\), and one can exhaust the disk with countably many such radii. The parameter is held fixed in each series and in radial derivatives; only for the asymptotic theorem is it chosen as a function of \(h\). The estimate is uniform on bounded \(\lambda\)-intervals, not for diverging \(\lambda\) jointly with \(h\).
 
 ## Proof
-**1. Coefficient covariance and diagonal kernel.** The normalization makes \(\mathbb E|\xi_j|^2=1\). Direct multiplication gives lag-one and lag-two covariances \(\gamma_1=-4c/(2+4c^2)\) and \(\gamma_2=1/(2+4c^2)\), with all higher-lag covariances zero. For \(z=re^{it}\), the variance kernel is
+
+**Covariance and radial zero count.** The nonzero lag covariances are \(\gamma_0=1\), \(\gamma_1=-4c/(2+4c^2)\), and \(\gamma_2=1/(2+4c^2)\), with \(\gamma_{-j}=\gamma_j\). The filter \(1-2ce^{-it}+e^{-2it}=2e^{-it}(\cos t-c)\) gives the asserted spectral density. Summing the lag contributions on the disk gives
 \[
-K_\varepsilon(z,z)=\frac{1}{1-r^2}
-\frac{4(r\cos t-c)^2+2(1-r^2)}{2+4c^2}.
+K_\varepsilon(re^{it},re^{it})=\frac{4(r\cos t-c)^2+2(1-r^2)}{(1-r^2)(2+4c^2)}.
 \]
-This quantity is strictly positive for every \(r<1\). Hence the expected zero-count identity for nondegenerate Gaussian analytic functions (the Poincaré–Lelong/Edelman–Kostlan formula) yields
+This is strictly positive. For this proper Gaussian analytic function, the expected zero measure has density \((4\pi)^{-1}\Delta\log K_\varepsilon(z,z)\), by Poincaré–Lelong and the expectation of the logarithm of a complex Gaussian's modulus. In particular every fixed circle has zero expected mass. Integration and Green's formula give
 \[
-\mathbb E N_\varepsilon(r)
- =\frac r2\frac{d}{dr}\left(\frac1{2\pi}
-\int_0^{2\pi}\log K_\varepsilon(re^{it},re^{it})\,dt\right).
+\mathbb E N_\varepsilon(r)=\frac r2\frac{d}{dr}\frac{1}{2\pi}\int_0^{2\pi}\log K_\varepsilon(re^{it},re^{it})\,dt.
 \]
 
-**2. An exact Jensen evaluation.** Set \(\delta=\sqrt{(1-r^2)/2}\), \(v=c+i\delta\), and \(W=\sqrt{v^2-r^2}\) with \(\operatorname{Re}W>0\). The nontrivial angular factor is \(4|v-r\cos t|^2\). The classical cosine Jensen integral, valid since \(\operatorname{Im}v>0\), gives
+**Exact angular integral.** Let \(v=c+i\delta\) and \(W=\sqrt{v^2-r^2}\) on the indicated branch. The radicand has positive imaginary part \(2c\delta\), so \(v\) and \(W\) both have positive real and imaginary parts. The identities \((v+W)(v-W)=r^2\) and \(|v+W|^2-|v-W|^2=4\operatorname{Re}(v\overline W)>0\) imply \(|r/(v+W)|<1\). With \(s=r/(v+W)\), factor
 \[
-\frac1{2\pi}\int_0^{2\pi}
-\log\bigl(4|v-r\cos t|^2\bigr)\,dt
- = 2\operatorname{Re}\log(v+W).
+v-r\cos t=\frac{v+W}{2}(1-se^{it})(1-se^{-it}).
 \]
-As \(v'=-ir/(2\delta)\), differentiation using \(W^2=v^2-r^2\) yields the elementary identity
+Each log-modulus term involving \(s\) has zero angular mean, by its convergent power series. The angular mean of \(\log(4|v-r\cos t|^2)\) is therefore \(2\log|v+W|\). Differentiation using \(W^2=v^2-r^2\) gives
 \[
-\frac{d}{dr}\log(v+W)
- =\frac1r+\frac{v'-v/r}{W}.
+\frac{v'+W'}{v+W}=\frac1r+\frac{v'-v/r}{W},\qquad rv'-v=-c-i/(2\delta).
 \]
-Therefore
-\[
-\mathbb E N_\varepsilon(r)
- =\frac{r^2}{1-r^2}+1+\operatorname{Re}\frac{rv'-v}{W}
- =\frac{r^2}{1-r^2}+1-
-\operatorname{Re}\frac{c+i/(2\delta)}{W}.
-\]
-This proves the exact identity. The branch is unambiguous because \(v^2-r^2\) has strictly positive imaginary part \(2c\delta\) for \(c>0\).
+Together with the derivative of \(-\log(1-r^2)\), these formulas give the stated exact deficit.
 
-**3. Uniform merger scaling.** Fix \(L<\infty\), put \(r=1-h\) and \(\varepsilon=\lambda h^{1/4}\), where \(0\le\lambda\le L\). Uniform Taylor estimates give
+**Uniform expansion.** For \(r=1-h\) and \(\varepsilon=\lambda h^{1/4}\), Taylor estimates uniform on \([0,L]\) give
 \[
-\delta=h^{1/2}(1+O(h)),\quad
-c=1-\tfrac12\lambda^2h^{1/2}+O_L(h),
+\delta=h^{1/2}(1+O(h)),\quad c=1-\tfrac12\lambda^2 h^{1/2}+O_L(h),
 \]
 \[
-(c+i\delta)^2-r^2
- =h^{1/2}(-\lambda^2+2i+O_L(h^{1/2})),
-\qquad
-c+\frac{i}{2\delta}
- =\frac{i}{2h^{1/2}}(1+O_L(h^{1/2})).
+v^2-r^2=h^{1/2}(-\lambda^2+2i+O_L(h^{1/2})),\qquad c+i/(2\delta)=\frac{i}{2h^{1/2}}(1+O_L(h^{1/2})).
 \]
-The compact set \(\{-\lambda^2+2i:0\le\lambda\le L\}\) lies away from the square-root cut and zero. Thus inversion and square rooting preserve uniform \(O_L(h^{1/2})\) relative errors, and
+The limiting radicands form a compact subset of the upper half-plane, so taking their inverse square roots preserves the uniform additive \(O_L(h^{1/2})\) error after factoring out \(h^{1/2}\). This yields \(\tfrac12 h^{-3/4}\operatorname{Re}(i/\sqrt{-\lambda^2+2i})+O_L(h^{-1/4})\) for the deficit. On the principal branch, for \(q\ge0\),
 \[
-D_{\lambda h^{1/4}}(1-h)
- =\frac{h^{-3/4}}2\operatorname{Re}
-\frac{i}{\sqrt{-\lambda^2+2i}}+O_L(h^{-1/4}).
+\sqrt{-q+2i}=i\,\overline{\sqrt{q+2i}},\qquad \frac{i}{\sqrt{-q+2i}}=\overline{(q+2i)^{-1/2}}.
 \]
-The principal-square-root identity \(i/\sqrt{-q+2i}=1/\sqrt{q+2i}\) for \(q\ge0\) gives precisely \(F(\lambda)\). This estimates the error **uniformly** in the stated range; the additive constant \(-1\) in the exact deficit is absorbed in \(O_L(h^{-1/4})\).
+The real parts agree, which gives \(F\) and the uniform theorem. The additive constant \(-1\) is absorbed by the stated error.
 
-**4. Positivity, unique maximum and matching limits.** Put \(q=\lambda^2\) and \(\theta=\arg(q+2i)\in(0,\pi/2]\). Then \(F>0\) and
+**Optimization and limits.** Put \(q=\lambda^2\) and \(\theta=\arg(q+2i)\in(0,\pi/2]\). The real part of the inverse square root is positive. Differentiating with respect to \(q\) gives
 \[
-\frac{d}{dq}\,\frac12\operatorname{Re}(q+2i)^{-1/2}
- =-\frac14|q+2i|^{-3/2}\cos(3\theta/2).
+\frac{d}{dq}\frac12\operatorname{Re}(q+2i)^{-1/2}=-\frac14|q+2i|^{-3/2}\cos(3\theta/2).
 \]
-Since \(\theta\) decreases strictly from \(\pi/2\) to zero as \(q\) increases, the derivative changes sign only where \(\theta=\pi/3\), namely \(q=2/\sqrt3\). Direct substitution gives \(F(\lambda_*)=3^{3/4}/8\), strictly greater than \(F(0)=1/4\), and a large-\(\lambda\) expansion gives \(F(\lambda)\sim1/(2\lambda)\). This last asymptotic matches the small-separation growth of the fixed-separated-double-zero coefficient of Noda–Shirai after taking the appropriate successive limits, but the two fixed regimes do not provide the uniform interpolation or its unique optimum.
+As \(q\) increases, \(\theta\) decreases strictly. The derivative is positive until \(\theta=\pi/3\), or \(q=2/\sqrt3\), and negative afterward. At the maximizer \(|q+2i|=4/\sqrt3\); substitution gives the asserted height. At \(q=0\) the inverse square root is \((1-i)/2\), giving \(F(0)=1/4\). As \(q\to\infty\) it is asymptotic to \(q^{-1/2}\), giving the stated tail.
 
 ## Verification
-Run `python3 check_crossover.py` from a directory containing the accompanying standalone script. It uses only the Python standard library and checks the exact count against independently evaluated angular integrals, the scaled finite-radius deficits against the limiting profile, and the calculated location and height of the unique maximum. The checks are finite numerical corroboration; the preceding steps provide the infinite-domain proof.
 
-## Relationship to prior work
-Noda and Shirai, *Expected Number of Zeros of Random Power Series with Finitely Dependent Gaussian Coefficients* (first public preprint 5 June 2021), study the same two-dependent covariance family and obtain fixed-parameter boundary asymptotics, including the quartic collision \((a,b)=(-2/3,1/6)\) as well as separated double-zero cases. Their Section 3 also contains exact finite-parameter contour representations that are inputs from which further asymptotics can be derived. The exact finite-radius identity here is a convenient specialization/rewriting of such general machinery and is **not** asserted to be historically new. The specific result claimed here is the uniform coupled \(\varepsilon\asymp(1-r)^{1/4}\) crossover, its complete explicit profile, and the uniquely nonzero maximizing separation. Fixed-parameter asymptotics alone are not uniform as the two spectral zeros coalesce. The later article by Shirai, *The density of zeros of random power series with stationary complex Gaussian coefficients* (2025), studies asymptotic radial densities and provides additional related context, but an equivalent coupled parameter-merger profile has not been identified from the material checked.
+The accompanying `check_crossover.py` can be run with the Python 3 standard library. It compares the exact deficit with a radial angular-integral calculation and checks finite-radius convergence toward the profile and its optimum. These numerical checks are diagnostic; uniformity, the branch identity, and the uniqueness of the maximum follow from the analytical proof above.
 
-## Limitations
-This is a precisely specified moving-average family, not a universality theorem for all nonnegative spectral densities with two coalescing double zeros. The result concerns expectations rather than almost-sure zero counts, random fluctuations, or correlations. It makes no claim at large \(\lambda\) jointly with \(h\) beyond bounded \(\lambda\) intervals. The earliest-source and priority assessment is based on inspected relevant accessible literature; an equivalent result under another parameterization remains a possible historical risk. The cited fixed-parameter exact formulas mean that the novelty claim is solely the joint-scaling analysis and sharp profile optimization, not the general covariance-to-zero-count method.
+## Relationship to prior work and limitations
 
-## References
-1. K. Noda and T. Shirai, *Expected Number of Zeros of Random Power Series with Finitely Dependent Gaussian Coefficients*, arXiv:2106.02860v1 (5 June 2021), later *Journal of Theoretical Probability* 36 (2023), 1534–1554; https://arxiv.org/abs/2106.02860 ; DOI 10.1007/s10959-022-01203-y.
-2. T. Shirai, *The density of zeros of random power series with stationary complex Gaussian coefficients*, arXiv:2501.02586v1 (2025); https://arxiv.org/abs/2501.02586.
-3. A. Edelman and E. Kostlan, *How many zeros of a random polynomial are real?*, *Bulletin of the American Mathematical Society* 32 (1995), 1–37 (expected zeros identity, complex analogue).
+Noda and Shirai [1] treat the same two-dependent covariance family and supply exact integral methods as well as the fixed-parameter asymptotics for both separated double zeros and the quartic collision. The exact finite-radius calculation here is a convenient specialization, not an originality claim. The coupled scale balances the vanishing separation in the radicand with the radial regularization; neither of the two fixed-parameter asymptotics is uniform through that balance. The assertion is the explicit uniform merger profile and its optimization. The limiting values agree with the fixed quartic coefficient and the small-separation limit of the separated coefficient, with the limits taken successively. Shirai [2] studies related fixed-spectral-measure radial density asymptotics. The theorem concerns the expected count for the specified moving-average model, not universality, fluctuations, correlations, or an optimization theorem for every finite radius.
+
+1. K. Noda and T. Shirai, *Expected Number of Zeros of Random Power Series with Finitely Dependent Gaussian Coefficients*, arXiv:2106.02860; *Journal of Theoretical Probability* 36 (2023), 1534–1554, DOI 10.1007/s10959-022-01203-y.
+2. T. Shirai, *The density of zeros of random power series with stationary complex Gaussian coefficients*, arXiv:2501.02586.

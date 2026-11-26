@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:20:27.955941Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A failing set lies in a single pair's equalizer, and at maximum cardinality it must be that full equalizer. At pair distance r, the fraction of landmarks in the equalizer is the return probability for r independent increments with law (1/q,(q-2)/q,1/q). In the binary case only even r contribute, and the successive normalized central binomial coefficients strictly decrease, giving r=2 when available and the empty set for d=1. For q>=3 the convolution preserves symmetry and nonincreasing masses away from zero by the differences in lines 58–74; p_(r+1)(0)=p_r(0)-2[p_r(0)-p_r(1)]/q. For q>=4 the positive central gap at r=1 persists. For q=3 central masses tie at r=1,2 only: the j=1 difference p_r(1)-p_r(2) starts positive at r=1 and persists by its positive coefficient in the difference recurrence, giving a positive central gap at every r>=2. In dimension one only r=1 is feasible. Same-sign versus opposite-sign local contributions give the stated two-coordinate parity and ternary permutation conditions. For any designated ternary permutation, take endpoints (alpha,pi(beta)) and (beta,pi(alpha)) with alpha!=beta to realize its graph. One- and two-coordinate projections distinguish the constraint supports; actual projections recover the parameters and certify the counts. A separate direct enumeration of all target pairs and their distance equalizers matched the full families in 11 small graphs (binary d=1–4, ternary d=1–3 and q=4,5 with d=1,2), not a substitute for the proof. Supplied verify.py was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Resultary theorem allows arbitrary coordinate alphabet sizes q_i>=2, gives r(G)=Nh+1, and classifies every maximum set as a bisector of the displayed maximizing supports. Its Assumptions separately gives the single-factor threshold q-1.",
+          "Laird et al. test whether a specified set resolves; the inspected results are not an evaluation of the global maximum."
+        ],
+        "reasoning": "Set all q_i=q in the mixed theorem. For q=2 only pairs differing in two binary coordinates maximize; for q=3 only one or two ternary coordinates do; for q=4 the binary tie row has no binary coordinates, and for q>=5 only singleton maximum-alphabet supports occur. No listed family in the frozen finding lacks coverage.",
+        "searches": [
+          "SCOPE-resolving-thresholds-and-all-largest-nonresolving-landmark-sets--3f2d90a64012, Finding and Assumptions",
+          "arXiv:1907.05974, Theorem 2.2 and Corollary 2.4"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Resultary 3f2d90a64012",
+        "arXiv:1309.0252",
+        "arXiv:1907.05974",
+        "https://www.vesnik.math.rs/vol/mv26408.pdf",
+        "OEIS A002426"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "All frozen d>=2 equality sets come from evaluating the full bisector on the supports stated in the mixed theorem. For K_q the distance off the diagonal is identically 1, so the bisector omits precisely the two pair vertices."
+        ],
+        "reasoning": "The specialization determines the geometry rather than just reproducing the counts: the bisectors have exactly the parity, permutation and exclusion relations reported here. Dimension one is elementary and the K_2 threshold is also explicitly covered in the older resolving-number literature. The distinct mixed theorem's later listing does not establish priority in either direction.",
+        "searches": [
+          "SCOPE-resolving-thresholds-and-all-largest-nonresolving-landmark-sets--3f2d90a64012, maximizing support condition and full-bisector statement",
+          "arXiv:1309.0252, discussion of P_1 and P_2 at p. 4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Garijo et al. give the exact reduction to maximum pair equalizer size. The mixed Hamming theorem gives both that maximum and its maximizing bisector supports.",
+          "Equidistant dimension uses a set hitting equalizers for pairs outside it; its coincident binary numerical value in some dimensions is not an equivalent formula for this problem."
+        ],
+        "reasoning": "Largest nonresolving landmark sets and full maximum distance bisectors are the same objects; a minimum hitting set for bisectors is not that object.",
+        "searches": [
+          "Resultary: resolving thresholds and all largest nonresolving landmark sets in Hamming products",
+          "arXiv:1309.0252, Proposition 2.1",
+          "On the Equidistant Dimension of Hamming Graphs, Definitions 1.1–1.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A002426 tabulates the central coefficients [x^r](1+x+x^2)^r; multiplying by 3^(d-r) yields the q=3 bisector cardinality at distance r, not the maximizing distance or census by itself.",
+          "With all q_i equal, the mixed-alphabet table yields respectively 2 binom(d,2), 3d+6 binom(d,2), 6d for q=4, and d binom(q,2) for q>=5, with exactly the frozen threshold fractions."
+        ],
+        "reasoning": "The combinatorial coefficient is only a known input; the mixed-product table is instead an exact specialization at every uniform parameter.",
+        "searches": [
+          "OEIS A002426, central trinomial coefficients",
+          "SCOPE-resolving-thresholds-and-all-largest-nonresolving-landmark-sets--3f2d90a64012, Finding table"
+        ]
+      },
+      "rationale": "The distinct indexed mixed Hamming graph theorem mathematically covers both the complete threshold and the census for d>=2, not merely the well-known reduction to bisectors. The only remaining domain d=1 is the complete graph K_q: each pair's equalizer is its complement, so the threshold q-1 and all binom(q,2) maximum sets (including the single empty set for K_2) are immediate. This is a coverage verdict for the frozen standalone claim, not a ruling on historical priority: the broad match has a later catalogue date, and its relationship to the earlier-labelled frozen result is not established.",
+      "residual_risks": [
+        "The audit does not establish priority or dependency between the uniform and mixed cases; a later catalogue path does not make the mixed theorem an earlier disclosure.",
+        "A bounded literature search cannot exclude further differently named or unindexed coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact mathematical superset of the nontrivial family; later catalogue date, no historical precedence inferred",
+          "evidence": "Table gives both r(G)=Nh+1 and M(G) for all mixed alphabets; proof identifies every maximum set with a full distance bisector.",
+          "identifier_or_url": "2026/11/8/SCOPE-resolving-thresholds-and-all-largest-nonresolving-landmark-sets--3f2d90a64012",
+          "material_read": "RESULT.md, Finding table, maximizing supports, Assumptions and first proof paragraphs, offsets 0–3382",
+          "method": "Local Resultary mirror, original bounded passage",
+          "title": "Resolving thresholds and all largest nonresolving landmark sets in mixed Hamming graphs",
+          "trigger": "Apparently broader theorem with the same invariant and equality cases"
+        },
+        {
+          "assessment": "General reduction and the K_2 boundary; not the mixed-product evaluation",
+          "evidence": "res(G)=1+maximum pair-equalizer size; P_1 and P_2 are the graphs with resolving number one.",
+          "identifier_or_url": "https://arxiv.org/abs/1309.0252",
+          "material_read": "Proposition 2.1, p. 3, near offset 8521; p. 4 near offset 11308",
+          "method": "Bounded OA primary-text inspection",
+          "title": "The resolving number of a graph",
+          "trigger": "Original general reduction and smallest boundary cases"
+        },
+        {
+          "assessment": "Decision criterion for given resolving sets rather than extremal threshold/census",
+          "evidence": "General criterion and hypercube specialization apply to individual sets.",
+          "identifier_or_url": "https://arxiv.org/abs/1907.05974",
+          "material_read": "Theorem 2.2, p. 4, near offset 15438; Corollary 2.4, p. 6, near offset 23113",
+          "method": "Bounded OA primary-text inspection",
+          "title": "Resolvability of Hamming Graphs",
+          "trigger": "Same family and resolving subsets"
+        },
+        {
+          "assessment": "Different invariant despite numerical overlap",
+          "evidence": "Minimum cardinality to meet the pair-equalizing requirement outside the set, rather than maximum cardinality within a single bisector.",
+          "identifier_or_url": "https://www.vesnik.math.rs/vol/mv26408.pdf",
+          "material_read": "Definitions 1.1–1.3, p. 2; Theorems 2.2 and 2.6, pp. 4–5",
+          "method": "Bounded OA primary-text inspection",
+          "title": "On the equidistant dimension of Hamming graphs",
+          "trigger": "Close terminology and some matching hypercube values"
+        },
+        {
+          "assessment": "Standard constituent count only",
+          "evidence": "Central coefficients of (1+x+x^2)^r.",
+          "identifier_or_url": "https://oeis.org/A002426",
+          "material_read": "Sequence definition near offset 429",
+          "method": "OA database entry",
+          "title": "Central trinomial coefficients",
+          "trigger": "Exact coefficient sequence in the ternary case"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The family-wide extremal question is meaningful: an exact uniform landmark threshold is different from finding a small resolving set, and all largest failing sets explain which geometric obstructions realize it. The ternary transition in possible supports is informative beyond the threshold number. This assesses the scientific content, not its eligibility as a distinct standalone contribution given the exact overlap.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

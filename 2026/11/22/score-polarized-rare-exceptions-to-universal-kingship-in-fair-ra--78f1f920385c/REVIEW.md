@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The fixed-covering-pair conditional law follows by deleting exactly one forbidden two-edge orientation pattern independently at each other vertex, yielding probability \(\frac12(3/4)^{n-2}\) and an exact three-type multinomial. A pairwise-overlap sum for covering events gives relative rare-multiple-pair probability \(O(n(5/6)^n+n^2(3/4)^n)\); comparing the conditional law to its covering-pair size-biased version proves the total-variation claim. Binomial concentration for unmarked vertex scores yields strict degree extrema; the multinomial covariance yields the bivariate Gaussian limit. Exact verification passed 222 rational assertions for all labeled tournaments of orders 3–6. Finite tests do not establish infinite limits.
+PASS
 
-## Originality — PASS, qualified
+The event that y has no outgoing path of length at most two to x is exactly that x covers y. A fixed x covering y requires x→y and independently forbids (0,1) at every remaining label; conditioning therefore leaves iid uniform (1,1),(1,0),(0,0) marks and fair independent edges among the remaining labels. In the second Bonferroni sum, shared-coverer and shared-covered pairs have 5/8 allowed patterns per outside label; chains have 4/8; opposed directions are incompatible; disjoint endpoints have 9/16. Independently enumerated both the outside patterns and the internal orientations (2/8 for either same-role overlap, 1/8 for a chain, 0/2 for opposition, 6/64 for disjoint endpoints). Replay: python3 /workspace/frozen_review_arithmetic.py (requires SymPy; no frozen code executed). Summing O(n^3) or O(n^4) pairs and dividing by mu=E W=n(n-1)(3/4)^(n-2)/2 gives the stated bound, including the negligible chain term. Multiple covers have unconditional probability at most the Bonferroni sum. For the full marked tournament the total-variation identity is exact: on a tournament T with W>0 the chosen mark has mass P(T)/P(F), whereas sampling a uniformly chosen specified cover first gives mass P(T)/mu for each valid mark at T. Their total overlap is P(F)/mu, and projection to the pair and array can only decrease TV. Scores under the reference are (1+A+B,A), giving the stated iid bivariate CLT with covariance (2,1;1,2)/9 and O(1) centering shifts. Other vertices have Bin(n-3,1/2) scores on the outside subgraph plus at most two, so a union of Hoeffding bounds separates all of them from the two marked scores with probability 1-o(1); it does not require independent scores across outside vertices. TV transfers the separation and conditional uniqueness identifies the sole covered vertex. The claim is rank recovery given the rare event, not a test for its existence from the scores of an unconditional tournament. Read the frozen verification note and enumerator; its tests are finite and do not prove these limiting assertions.
 
-Fey (2007) studies the typical size of tournament solution sets, with ordinary Copeland-score comparisons. Saile–Suksompong (2019) and Manurangsi–Suksompong (2022) study probability thresholds for kings and other tournament solutions. The closest inspected published 2026 theorem gives a refined first-/second-order failure probability and double-obstruction clustering; these are credited as prior knowledge. Its full published proof and conclusion do **not** state a complete conditional marking law, joint pair-score Gaussian asymptotics or a score-only recovery rule for exceptional vertices. These are independently formulated and proved. Related unlabeled score studies and older historical work leave a residual priority risk.
+## originality
 
-## Value — PASS
+PASS
 
-When universal kingship fails in a large random tournament, the theorem identifies the exclusion using just the minimum Copeland score and identifies the exceptional coverer using just the maximum score. The entire conditional edge pattern around the exceptional pair is described up to exponentially small total-variation error and the exceptional scores have an explicit nondegenerate joint fluctuation law. This replaces a purely rarity-based statement with structural information about what exceptional instances look like. A score-only diagnostic for a natural random social-choice obstruction, not a restatement of its probability, is the motivation.
+Credit the earlier obstruction theorem for prevalence, multiplicities and, by division, conditional uniqueness and its scale. The marked TV rate is also a direct change-of-measure consequence of the known prevalence deficit plus the specified-cover product law; it does not independently establish priority. The supported distinction is the conditional score profile, especially the joint recovery of both exceptional labels as the global strict degree extremes (and the Gaussian fluctuations of their scores). The earlier verified theorem is about path obstructions and their endpoint coincidences, not order-statistic recovery over all vertices. No checked statement supplies the conditional score recovery result.
 
-## Closest literature and limits
+## value
 
-The 2026 rare-obstruction analysis is especially close and dominates any assertion merely about the probability or number of covering pairs. The present claim deliberately excludes those established conclusions as novel. Independent edge orientations and the asymptotic regime are essential; numerical sharpness of the TV error and historical novelty beyond inspected works are unproved.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The useful output is structural identification, not another small improvement in the probability of universal kingship. Given a failure, one can typically locate both labels of the exceptional covering relation from the strict global score extremes without checking all pairwise length-two paths. The theorem also distinguishes its strongly polarized bivariate conditional score law from the fair, near-half scores of the rest of the tournament. These claims have precise scope and do not assert that an unconditional tournament's extreme scores certify failure.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

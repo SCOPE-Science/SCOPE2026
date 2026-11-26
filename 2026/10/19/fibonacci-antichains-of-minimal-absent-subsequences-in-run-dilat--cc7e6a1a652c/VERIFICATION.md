@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,11 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-The accompanying Python 3 program `verify_mas_fibonacci.py` checks the finite consequences of the theorem using two distinct implementations. The direct construction explicitly builds distinct scattered subsequences and tests every single-letter deletion of each absent candidate; the alternative uses the greedy pair-state transition criterion. Both agreed for every tuple of two- or three-letter runs with 2–6 runs (124 cases), including terminal-letter counts and complementation. The transition implementation also tested 24 further nonuniform cases, with at most 25 runs and individual lengths between 2 and 14. The run-specific mathematical induction in RESULT.md supplies the arbitrary-parameter proof; finite tests do not establish the infinite result or originality.
+## correctness
 
-Execution command: `python3 verify_mas_fibonacci.py`.
-Expected output: `ALL_FIBONACCI_RUN_MAS_CHECKS_PASSED independent_direct_cases 124 nonuniform_large_run_cases 24`.
+PASS
 
-Publication-index comparisons do not eliminate the possibility of an equivalent historical result. No independent scientific audit has been performed.
+Reconstructed the MAS condition for scattered subsequences: deleting the preceding letter forces each proposed next letter to occur in the previous greedy block, since otherwise its greedy position and the eventual failure are unchanged. Conversely, after any single deletion the block witnesses place the remaining suffix one block earlier; deletion of the last letter gives the already embedded prefix. A word has a unique greedy path. At the first position of run j>=3 the only arrivals are from the last position of run j-2 and the first position of run j-1. Both first-position states admit both letters because the intervening run has length at least two, so first-position and within-run totals obey the Fibonacci recurrence with A_1=A_2=1. A final letter of the last-run type fails only after its last position; the other final letter can fail exactly at the end of the penultimate run or at the first position of the last run. The binary complement and two-run cases agree. Independent prefix exploration and individual deletion tests corroborated both counts on 360 run tuples, using lengths 2, 3, 4 and 2–5 runs. The induction, not the finite test, covers unbounded r and lengths.
+
+## originality
+
+PASS
+
+The established greedy criterion and the two-run example are reused. No inspected earlier source gives or subsumes the arbitrary-run-length Fibonacci count together with the terminal-symbol split. The later exact catalogue overlaps are material but cover different subfamilies or statistics and do not establish earlier coverage.
+
+## value
+
+PASS
+
+The cardinality of the minimal obstruction antichain is a natural invariant of the subsequence order. Its independence from arbitrarily large and nonuniform run dilations, and the sharper terminal split, reveal structure beyond enumerating a fixed alternating example or reporting the output of a general algorithm.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

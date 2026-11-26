@@ -37,16 +37,24 @@ The particles are overdamped; the diffusion, harmonic strength and Gaussian rese
 
 ## Proof
 
-**(1) Exact epoch score.** A complete inter-reset interval has duration \(\tau\sim\operatorname{Exp}(r)\). Its initial post-reset vector is \(X\sim N(0,\sigma^2 I_d)\), and its pre-next-reset vector is
+**(1) Path entropy and the redistributed epoch score.** Write \(p\) for the stationary density, \(p_R\) for the reset density, and \(V(x)=\kappa\|x\|^2/2\). For a jump from \(Y_j\) to \(X_j\) at the \(j\)-th observed reset, the jump entropy is \(\log[p_R(X_j)/p_R(Y_j)]\). Along each uninterrupted diffusion segment from \(u\) to \(v\), the contribution is \([V(u)-V(v)]/D\). Together with \(\log[p(x(0))/p(x(t))]\), where \(x(0),x(t)\) denote the two observation endpoints, these give the stationary path ratio [1]. Equivalently, writing \(N\) for the number of observed resets, \(B(x)=\log p(x)+V(x)/D\), and \(c=1/(2\sigma^2)-\kappa/(2D)\), one obtains
+\[
+S_t=B(x(0))-B(x(t))+c\sum_{j=1}^{N}(\|Y_j\|^2-\|X_j\|^2).
+\]
+For \(N\ge1\), the sum multiplied by \(c\) equals
+\[
+\sum_{j=1}^{N-1}c(\|Y_{j+1}\|^2-\|X_j\|^2)+c(\|Y_1\|^2-\|X_N\|^2).
+\]
+Thus the reset density at the *new* mark is not a function of the mark initiating that interval. It may be reassigned to produce independent complete-cycle rewards only after accounting for the displayed boundary term. A complete inter-reset interval has duration \(\tau\sim\operatorname{Exp}(r)\). Its initial post-reset vector is \(X\sim N(0,\sigma^2 I_d)\), and its pre-next-reset vector is
 \[
 Y=e^{-\kappa\tau}X+\sqrt{\frac D\kappa(1-e^{-2\kappa\tau})}\,Z,
 \]
-where \(Z\sim N(0,I_d)\) is independent of \(X,\tau\). During the interval, the harmonic potential \(V(x)=\kappa\|x\|^2/2\) dissipates medium entropy \(-[V(Y)-V(X)]/D\). At the subsequent reset, the jump contribution is \(\log[p_R(X)/p_R(Y)]\), with \(p_R\) the centered Gaussian reset density. The complete-epoch score is therefore
+where \(Z\sim N(0,I_d)\) is independent of \(X,\tau\). The redistributed complete-cycle reward is
 \[
 W=\left(\frac1{2\sigma^2}-\frac\kappa{2D}\right)(\|Y\|^2-\|X\|^2)
 =\sum_{i=1}^d W_i.
 \]
-This is exactly the reset-plus-medium term in the stationary path-ratio decomposition [1]. The process' system-entropy and incomplete-epoch terms are boundary terms whose second moments stay bounded uniformly in observation time, at every fixed finite \(d\): the stationary density is a mixture of centered Gaussians with covariance between \(\min\{\sigma^2,D/\kappa\}I_d\) and \(\max\{\sigma^2,D/\kappa\}I_d\), so its negative logarithm grows at most quadratically, and the exponential-age OU excursions have finite moments of all fixed orders. Thus those terms do not change the limits of the mean or variance *per unit time*; more precisely their covariance with the centered complete-cycle reward is at most order \(\sqrt t\) by Cauchy--Schwarz.
+All terms outside the complete-cycle sum are uniformly bounded in \(L^2\) for fixed finite \(d\). Indeed, the stationary density is a mixture of centered Gaussians with covariance between \(\min\{\sigma^2,D/\kappa\}I_d\) and \(\max\{\sigma^2,D/\kappa\}I_d\), so \(|B(x)|\) grows at most quadratically. The first pre-reset value has uniformly bounded fourth moment conditional on the first reset time, by OU evolution from the stationary initial law. The last post-reset value is a Gaussian mark selected by clock times independently of the marks. On the event \(N=0\) there is just the observation-endpoint term. The same argument applies to the individual stationary path entropies using their scalar marginal stationary density.
 
 **(2) Conditional moments.** Write \(u=e^{-2\kappa\tau}\), \(c=(1-s)/(2\sigma^2)\), and \(a=(s-1)^2/(2s)\). For any coordinate, the above Gaussian law gives
 \[
@@ -57,7 +65,7 @@ This is exactly the reset-plus-medium term in the stationary path-ratio decompos
 \]
 Indeed, the pre-reset variance is \((D/\kappa)(1+(s-1)u)\), the post-reset variance is \(\sigma^2\), and their squared-covariance contribution is \(\sigma^4u\) by the bivariate Gaussian fourth-moment formula. Distinct coordinates are independent *conditional on the common duration*, although their unconditional rewards are correlated.
 
-**(3) Renewal mean and variance.** Let \(m_1=r\,\mathbb E W_i\). Standard square-integrable regenerative-reward theory, or second-order expansion of the renewal moment-generating equation, yields
+**(3) Renewal mean and variance.** Let \(m_1=r\,\mathbb E W_i\). To justify the fixed-time variance identity, consider the independent complete-cycle pairs \((\tau_j,W_j)\) starting from a reset. Put \(m_d=rd\,\mathbb EW_i\) and \(\xi_j=W_j-m_d\tau_j\). At a nonnegative horizon \(h\), include the first cycle ending after \(h\) in the centered sum. The indicator that cycle \(j\) is included depends only on durations before cycle \(j\). Thus the stopped sum has mean zero and second moment \((rh+1)\mathbb E\xi_j^2\) by martingale orthogonality and the expected Poisson count \(rh\). The straddling reward has bounded second moment: conditional on all durations its second moment is bounded uniformly, by the conditional Gaussian law. Its duration is the sum of the elapsed age (stochastically bounded by an \(\operatorname{Exp}(r)\) variable) and the remaining exponential waiting time. Therefore omitting the straddling centered increment and replacing the total completed duration by \(h\) changes the centered sum by a uniformly \(L^2\)-bounded term. For the stationary start, condition on the first reset time \(R\) and apply this calculation at \(h=t-R\) on \(R\le t\); on \(R>t\) take the sum to be zero. The variance prefactor \(\mathbb E[\mathbf 1_{R\le t}(r(t-R)+1)]\) is \(rt+O(1)\), and replacing the horizon centering by \(m_dt\) costs at most \(|m_d|\min(R,t)\), bounded in \(L^2\). Cauchy--Schwarz shows that all these bounded terms, including those in step (1), change the variance by at most \(O(\sqrt t+1)\). This proves
 \[
  m_d=rd\,\mathbb EW_i,
 \qquad v_d=r\,\mathbb E\bigl[(W-m_d\tau)^2\bigr].

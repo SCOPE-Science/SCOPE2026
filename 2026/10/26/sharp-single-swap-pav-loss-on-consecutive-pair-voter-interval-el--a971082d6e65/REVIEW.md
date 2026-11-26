@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The exact score identity \(\operatorname{PAV}(W)=2k-a(W)/2\) follows from two approval incidences per candidate and the harmonic discount of \(1/2\) at exactly the doubly represented voters. Nonimproving swaps force the forbidden adjacency patterns proved in RESULT.md. Counting surplus zeros against singleton one-runs then proves the sharp upper bound \(a(W)\le\lfloor k/3\rfloor\). The explicit binary-word family attains it and is locally optimal by a neighbor-by-neighbor run-count argument. The integer checker exhausts all committees for \(k\le10\); its finite scope is not used as proof for all \(k\).
+PASS
 
-## Originality
+With k selected candidates there are 2k incidences; each adjacent selected pair corresponds to one twice-represented voter and subtracts 1/2 from that incidence total. Thus swaps strictly improve the score precisely when they reduce the selected adjacency count a (equivalently increase the number of one-runs). Removing the middle of a triple removes two adjacencies; if it cannot be swapped profitably, all zeros must have two selected neighbors, which with the specified counts forces alternation. At a nonoptimal local maximum only singleton and double-one runs remain. A zero with no selected neighbors gives an improvement by swapping out one member of a double. The patterns 1100, 0011, and boundary 011 or 110 also give explicit improving moves by moving the one beside the relevant gap into the adjacent zero. It follows that the a extra zeros, after paying one zero per interior gap, are either second zeros between two singleton runs or a boundary zero next to a singleton. A block of t singleton runs can pay for at most t extra zeros, because at least one double-one run exists and the block cannot touch both ends. Therefore a≤s where k=2a+s, yielding a≤floor(k/3). The displayed sharp word has exactly floor(k/3) doubles and only singleton-supported extra zeros. Deleting a singleton loses one run; deleting from a double leaves the run count unchanged but leaves every originally zero position adjacent to some remaining one. No swap can increase the number of runs. Alternation gives the global value and is forced at a=0. The k=3 word is a witness, not a uniqueness statement (its reflection also works). The package's finite checker was inspected rather than run; the all-k proof does not rely on it.
 
-PASS on the inspected literature and research-record comparisons, with historical-priority reservations. The main 2026 voter-interval results concern global exact optimization; the 2026 local PAV efficiency result gives a general tight \(2/3\) bound from a non-path approval construction, not an exact restricted \(11/12\) bound. The 2024 local-search paper concerns trajectory length, and the 2026 Pareto-committee reconfiguration result addresses a different objective. Searches for binary-word and path-graph equivalences did not reveal a dominating result. An earlier result phrased as fixed-cardinality path energy or local graph-edge penalty remains possible.
+## originality
 
-## Value
+PASS
 
-PASS. The bound gives the **exact finite-size quality** of swap-local PAV on a canonical, polynomial-time-solvable VI domain; the sharp \(11/12\) quality ceiling and linear additive gap show that exact tractability does not make simple improving swaps globally sufficient. The theorem is structural and quantified for every committee size rather than a single negative example.
+The inspected work establishes graph-based score encodings, global tractability, or different swap/greedy claims, not the exact worst stable obstruction on the specified path. The leading analogue shares both the score identity and 11/12 but concerns sequential construction on a cycle, rather than arbitrary one-swap local maxima on a path.
 
-## Limitations
+## value
 
-No guarantee is claimed for general VI elections, other scoring sequences, or weighted approval profiles. No independent historical-priority certification has been carried out.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Even the canonical path of two-person supports has suboptimal local maxima, although its global optimum is immediate. The exact floor correction gives the first obstruction and a sharp quantitative guarantee for every size; the singleton-run charging proof identifies why the loss is limited. This separates the performance of fixed-size local exchange from tractability of global optimization on a natural restricted election domain.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

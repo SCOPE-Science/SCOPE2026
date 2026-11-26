@@ -1,15 +1,21 @@
-# Scientific review: weighted complete-bipartite Schur norms
+# Independent mathematical audit
 
-## Correctness — PASS
-The claimed formula applies to all integers \(a,b\ge2\) and all real edge weights \(t\). The positive-semidefinite symbol criterion proves exact contractivity on the interval \(ab|t|^2\le1\). Above this threshold, the explicitly constructed positive-order certificate has two semidefinite residuals and diagonal bound \(1+2(abt^2-1)/(2ab|t|+a+b)\). A separately calculated unit-vector trace-norm witness attains the same bound. The discriminant, determinant, normalized witness and exact trace identity were algebraically rechecked. Finite arithmetic diagnostics passed 909454 assertions; the analytical certificates prove the universal result. The infinite-dimensional formula follows from an explicit diagonal-expectation/unitary-conjugation decomposition and finite-corner lower bounds.
+## correctness
 
-## Originality — PASS relative to inspected evidence
-The closest exact published statement is the \(|t|=1\) looped-complete-bipartite projection formula. Another sharp statement handles the \(a=1\) star for arbitrary real weights. Their union does not imply the weighted \(a,b\ge2\) formula, phase boundary, or double-infinite limit: for example, an exact value at one weight does not establish the threshold or the nonlinear rational branch. Christensen provides the positive-order variational method and Davidson–Donsig discuss transitive factorization, but neither inspected article states this three-parameter closed-form theorem. The motivating tree transference paper concerns intermediate Schatten classes and tree geometry, while complete bipartite graphs with both parts of size at least two contain cycles. Remaining risks are earlier equivalent symmetric-matrix norm calculations and priority not fully decidable by indexed searches.
+PASS
 
-## Value — PASS
-The exact threshold identifies precisely when a natural bipartite covariance-like Schur filter ceases to be completely positive and becomes norm amplifying. The sharp rational branch determines the full amplification for arbitrarily unbalanced finite classes, while the countably infinite double-class limit has a different, simple law. These are motivated structural phase distinctions in a natural symmetric multiplier family, not a restatement of the known idempotent endpoint or a finite table calculation.
+Sign change is postcomposition by the diagonal unitary conjugation. PSD of the Hermitian symbol is equivalent to T√(ab)≤1 on the two normalized part means; the other eigenvalues are one. A PSD symbol gives a unital CP map; the strict supercritical lower bound proves noncontractivity, and positivity itself would require a PSD symbol by testing the all-ones positive matrix. For z=2(abT²−1)/D, D=2abT+a+b, the positive difference is zww* and the plus certificate determinant is 4−4abT²+2Dz=0, with positive diagonal. Their CP norms add to 1+z. The stated α,β satisfy aα+bβ=1. Multiplying the witness discriminant by D² reduces the identity to D²=(a−b)²+4ab(bT+1)(aT+1). The two remaining eigenvalues have opposite signs and sum of magnitudes T. Thus the trace norm is 1+T−α−β=1+z, attained on the sign contraction. For two infinite parts, diagonal expectation plus t/2 times the difference of identity and the part-sign conjugation gives a normal cb upper bound 1+T, and increasing balanced finite corners give the ordinary lower bound tending to 1+T. This includes T=0. The frozen rational code was inspected, not executed; these identities prove all dimensions and real weights.
 
-## Limitations and evidence
-The theorem is restricted to real cross-edge weights and operator/completely bounded endpoints, not general complex phase patterns or \(S_p\)-norms for intermediate \(p\). Mathematical priority beyond the inspected material is not certified. The accompanying `VERIFY.py` is a diagnostic exact-arithmetic checker; it is not a substitute for the universal upper/lower certificate proof in `RESULT.md`.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct finding is the supercritical sharp closed-form evaluation with two unequal finite parts of size at least two and variable real weight. The known T=1 projection, the singleton family, and general Schur norm principles are not original claims. The balanced case and two-infinite-parts corollary also admit immediate symmetry calculations and carry no separate novelty credit.
+
+## value
+
+PASS
+
+For a natural diagonal-preserving bipartite filter with unequal parts, the exact operator-space amplification tells how attenuation above the positivity threshold propagates under arbitrary matrix amplification. The equality between the attainable ordinary witness and cb upper bound across the unequal-size regime is not a fixed endpoint evaluation or a transitive trace formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

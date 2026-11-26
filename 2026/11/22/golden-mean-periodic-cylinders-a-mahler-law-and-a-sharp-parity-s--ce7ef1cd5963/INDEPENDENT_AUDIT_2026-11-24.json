@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:01:29.330342Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Frozen RESULT.md lines 3–88, VERIFICATION.md and checks/verify.py; corrected full result and checker documentation under repairs/2.",
+        "Independent finite check enumerated legal words and generated the candidate infinite repetition prefix of length n+1 for each candidate period 1..n, then compared the exact full-period count with 2t_n. A separate degree-300 evaluation gave p*=0.1556298471279007014…, K₀≈0.1259071911584468 and K₁≈0.2591385329674485."
+      ],
+      "rationale": "An ordinary period p<n supplies a legal infinite repetition because the wrap transition already appears inside the prefix. For p=n the word is unbordered and its endpoints differ, again giving a legal repeat. Conversely an infinite periodic extension induces a word period no smaller than the least word period. Reversal pairs the two orientations of unbordered words. A shortest border is itself unbordered; if its length k exceeded n/2, the induced period n−k would restrict to a proper period of that border. Thus the disjoint shortest-border sandwich has middle count F_(n−2k+1), including one empty middle, and the total oriented count F_(n−1) yields the functional equation. For D(z)=1−z−z²=(1−z/q)(1+qz), the numerator q²−T(q²) is strictly positive since T(y)≤y²/(1−y−y²)<y at y=q². Hence the first pole at q has positive normalized principal coefficient A. Iterating the equation inside the disk gives simple poles at ±s for s=√q, with principal coefficients −A/(2D(±s)) because the root substitution divides the principal coefficient by two. Their even and odd sums, divided by A, are q/(1−q³) and 1/(√q(1−q³)). Subtract also the four simple parts at radius q^(1/4); the residual is analytic in a strictly larger disk, so the omitted coefficient is O(q^(−n/4)). Multiplying by the reciprocal Fibonacci count gives the claimed O(q^(3n/4)) remainder, as the conjugate Binet term has strictly faster exponential decay. Pole preimages cannot cancel: the inhomogeneous term is analytic and D is nonzero on every descendant shell. Dyadic pole accumulation then prohibits meromorphic extension anywhere on the unit circle. I directly tested finite periodic extensions through n=13 by generating each candidate repeating prefix and tested constants using a 300-degree recurrence; the frozen checks were inspected, not executed. The repair also corrects the checker description: there are 219 coefficient assertions in degrees 2 through 220.",
+      "residual_risks": [
+        "The exact atom is for distinct indexed words under uniform finite-language sampling, not primitive orbits, morphic Fibonacci factors, or a Gibbs measure. Finite checks do not certify the infinite pole conclusions."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "491b08dec094 is strictly stronger at the enumerative level and supplies exactly the same p* with O(φ^(−n/2)) error. Holub–Shallit concern unrestricted words. Pannipitiya bounds mixing SFT penetration by n+K−1; 22e18f2d92a1 gives deficit bounds and expectations of qualifying shorter periods, not this exact atom."
+        ],
+        "reasoning": "The weighted law entails the scalar law; the upper bound on the error neither proves sharpness nor gives its residue-class multipliers. Broader closing-time results do not specify this probability even to its leading value. The repaired advance is asymptotic rather than a stronger enumerative statement.",
+        "searches": [
+          "491b08dec094 Eqs. (1)–(6) and proof of limiting density",
+          "Holub–Shallit Theorem 7",
+          "Pannipitiya Proposition 2.27",
+          "Resultary 22e18f2d92a1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 491b08dec094",
+        "Resultary 22e18f2d92a1",
+        "Holub–Shallit STACS 2016 Theorem 7",
+        "Mousavi–Schaeffer–Shallit 2016 Theorem 3.19",
+        "Pannipitiya arXiv:2611.13416 Proposition 2.27"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The weight-refined theorem truncates its Binet convolution with an O(φ^(−n/2)) error, not a coefficient expansion at that scale. The repaired proof proves a genuine pole, transfers its principal part to two singularities, computes their unequal signs and distinguishes them from the fourth-root shell."
+        ],
+        "reasoning": "The exact enumerator determines both subsequences in principle, but no weight specialization or the earlier leading asymptotic by itself evaluates the scaled errors. Identifying the meromorphic continuation and isolating and combining the secondary singularities gives a quantitative leading asymptotic, not just another equivalent coefficient formula. The unit-circle boundary is a direct pole-cascade consequence and is not used to rescue originality.",
+        "searches": [
+          "491b08dec094 finding and scalar/density proof §§3–4",
+          "Frozen and corrected pole expansion at ±√q and next shell"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Distinct record 491b08dec094 counts the very same unbordered language with a weight variable. U(z,1)=2z+2T(z); substituting into its Eq. (1) gives exactly (1−z−z²)T(z)+T(z²)=z². Its unweighted ratio u_n/F_(n+2) is the same full-period atom for n≥2."
+        ],
+        "reasoning": "The weight-one specialization covers the full unweighted enumerator, and the periodic-extension interpretation is an elementary equivalence in this one-step binary language. These are not accepted as independent novelty.",
+        "searches": [
+          "Resultary: unbordered/border-free Fibonacci-admissible words and shortest periodic cylinder",
+          "Primary lookup: golden-mean unbordered counts, Mahler and parity asymptotics"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "491b08dec094 tabulates the same counts and certifies the same p*. The unrestricted binary table lists 0.26778684021788911238, not the constrained limit. The morphic Fibonacci-word theorem has two unbordered factors at Fibonacci lengths and none at other lengths, describing a different language."
+        ],
+        "reasoning": "There is genuine exact database coverage of counts and p*, distinct from both the unrestricted table and morphic problem. No compared record provides the explicit even/odd constants. A same-day publication date does not establish precedence either way.",
+        "searches": [
+          "Resultary: no-adjacent-11, Fibonacci-admissible unbordered words, limiting unbordered proportion",
+          "Holub–Shallit Table of limiting probabilities; Mousavi–Schaeffer–Shallit Theorem 3.19"
+        ]
+      },
+      "rationale": "Pass applies to the narrowed principal claim: explicit positive and different parity amplitudes of the full-period atom and a strictly smaller error. The frozen record did not credit the strongest distinct exact enumeration, Mahler equation and limiting-proportion overlap. Those are now identified as the baseline, and the natural boundary is presented as an accompanying consequence, not an independent novelty claim. The surviving quantitative parity refinement requires additional work beyond specializing the stronger enumerator or rounding its limit.",
+      "residual_risks": [
+        "A more general constrained-word or Mahler asymptotics treatment might already have extracted the second-shell coefficients; the bounded comparison is not an exhaustive priority review. Relative priority between same-day records is not inferred."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact stronger enumerative coverage and exact leading limit; not the resolved parity expansion",
+          "evidence": [
+            "Eq. (1) weighted equation; Eqs. (2), (6) exact unweighted recurrence; Eq. (3) and error O(φ^(−n/2)); proof uses dominated convergence and a tail bound."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-a-weight-refined-border-free-spectrum-for-fibonacci-admissible-b--491b08dec094",
+          "material_read": "Finding and scope, and proof of recurrence and limiting density, RESULT.md offsets 0–7216",
+          "method": "Mirrored primary result, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "A weight-refined border-free spectrum for Fibonacci-admissible binary words",
+          "trigger": "Strongest distinct exact match"
+        },
+        {
+          "assessment": "Unrestricted word model, not the adjacency-avoiding language",
+          "evidence": [
+            "Unrestricted binary constant 0.26778684021788911238, distinct from the constrained limit."
+          ],
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.STACS.2016.44",
+          "material_read": "Theorem 7, PDF pp. 5–6 (text offsets 13900–19084); table p. 8 (offset 24650)",
+          "method": "Open primary PDF",
+          "title": "Periods and Borders of Random Words",
+          "trigger": "Closest unrestricted numerical and recurrence comparison"
+        },
+        {
+          "assessment": "Single morphic word, not the entire SFT language",
+          "evidence": [
+            "Two nonempty unbordered factors at each Fibonacci length and none at other lengths."
+          ],
+          "identifier_or_url": "https://www.numdam.org/item/ITA_2016__50_1_39_0.pdf",
+          "material_read": "Theorem 3.19, p. 54 (PDF text offset 41300)",
+          "method": "Open primary PDF",
+          "title": "Decision Algorithms for Fibonacci-Automatic Words, I: Basic Results",
+          "trigger": "Equivalent-name risk: Fibonacci words"
+        },
+        {
+          "assessment": "General penetration bound does not evaluate the distribution",
+          "evidence": [
+            "Uniform n+K−1 for mixing shifts, giving at most n+1 from the square of the golden-mean adjacency matrix."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2611.13416",
+          "material_read": "Proposition 2.27, p. 21 (PDF offset 63500)",
+          "method": "Open primary PDF",
+          "title": "Local Periodic Orbit Penetration in Dynamical Systems",
+          "trigger": "General SFT closure as possible stronger theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The probability of needing the full admissible word length is a naturally defined extreme atom of periodic penetration in the canonical golden-mean shift. An error bound at order φ^(−n/2) alone allows cancellation, sign change or a faster true rate; the explicit positive and sharply different even/odd limits establish none of those occur. Quantitatively resolving the two limiting amplitudes, with a faster remainder and a mechanism in the singularities, is useful beyond recomputing the already known enumeration or limiting proportion. No novelty or value credit depends on the natural-boundary consequence alone.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

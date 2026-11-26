@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-Run `python3 verify_phase_energy.py` in a standard Python 3 environment; no third-party libraries or data files are required. The executable includes all four cyclotomic polynomial reductions, exact zero-mean tests for each of the \(q^7\) normalized exponent tuples, exact integer / quadratic-field norm calculations, and exact pair comparisons. It prints the qualifying-sequence and optimizer counts and fails with an assertion if any prescribed result differs.
+## correctness
 
-Completed checks: the qualifying normalized counts are respectively 35, 1225, 9135, and 23765 for alphabets of sizes 2, 4, 6, and 8; the four minimum-energy pairs are respectively (16,0), (16,0), (4,0), and (24,-16); optimizer counts are 12, 84, 6, and 6. For eight phases, the program additionally certifies all six listed normalized exponent patterns and the strict next minimum pair (40,-24). An independent floating-point direct DFT and autocorrelation calculation on one optimizer checks the normalization; it is not used in any exhaustive comparison.
+PASS
 
-The finite exhaustive loops are the proof of numerical optimality and completeness *only for the explicitly stated finite alphabets*. The cyclotomic-ring and Parseval identities, plus a global-phase normalization argument, justify the translation of the finite calculation into the theorem. Independent audit of the theorem, code, and historical priority has not been performed. The exact minima do not imply analogous statements for unrestricted phases, nonzero means, or other cyclic lengths.
+Verified the exact reductions in RESULT.md lines 37–71. A common alphabet phase gives exactly one f(1)=1 representative per orbit, so the q^7 remaining tuples exhaust all candidates with no parity restriction. Power-basis residue coordinates in the four cyclotomic rings vanish exactly for zero mean. At the four positive lags the summands are 1 plus the seven cyclic products, and conjugate pairing doubles the sum of their norm squares. The sextic-alphabet norm a²+ab+b² and octary norm a²+b²+c²+d²+[a(b−d)+c(b+d)]√2 follow by taking real parts of products of powers; integer square comparisons are exact by irrationality. An independent exhaustive replay (python3 /workspace/branches/c109caee-1500-4b9e-8902-ee70aba4b617/independent_check.py) reproduced all feasible counts (35,1225,9135,23765), minima (16,16,4,24−16√2), and normalized minimizer counts (12,84,6,6). It reproduced all six explicit octary tuples, the next distinct value 40−24√2, and equality between the optimizer set and the normalized orbit of one seed under dilation and conjugation, giving 48 before normalizing. All minima are positive. Parseval uses the target autocorrelation 9δ_0−1 and yields exactly the stated spectral formula. If one uses the full unnormalized 9-by-9 circulant Gram error, its Frobenius norm squared is 9 times the defect; the equivalence is up to this constant. The frozen verifier and notes are evidence, not the reproduction. This proves only the four finite alphabets and the specified zero and zero-mean constraints.
+
+## originality
+
+PASS
+
+There is real overlap with the unrestricted conference-signal framework and with the exact even quartic slice of a later dated record. The supported distinct result is the all-parity, four-alphabet exact defect and optimizer census, especially the exact six- and eight-phase minima and octary gap and orbit. The closest inspected sources do not settle that result.
+
+## value
+
+PASS
+
+Nine is an already studied small conference-signal order with unrestricted zero-defect examples; common phase alphabets are a natural restriction of that design problem. Exact positive margins distinguish what several phase quantizations can achieve, including no improvement from two to four phases and a strictly smaller octary than sextic margin. The exact next distinct octary level and single optimizer orbit give reproducible separation and classification benchmarks, not just candidate waveforms or a routine check of the continuous examples. The value is finite and specific to this order.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

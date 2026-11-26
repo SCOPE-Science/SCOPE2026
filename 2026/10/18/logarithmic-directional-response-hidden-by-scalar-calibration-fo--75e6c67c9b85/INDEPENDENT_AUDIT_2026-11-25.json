@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:18:00.292060Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 4–66",
+        "VERIFICATION.md and verify.py (inspected, not executed)",
+        "DLMF §§19.12 and 19.31 elliptic-integral identities and asymptotic framework"
+      ],
+      "rationale": "Differentiate the smooth Gaussian convolution via its integrable density derivatives. Writing Q=r^2 U^2+V^2, the score formula gives a=E[U^2/sqrt(Q)], b=E[V^2/sqrt(Q)] with off-diagonals zero by reflection. Swapping U and V, the difference b-a is half the expectation of (V^2-U^2)(Q^(-1/2)-Q_swap^(-1/2)); the two factors have the same sign for r>1 because Q_swap-Q=(r^2-1)(V^2-U^2). In Rayleigh polar coordinates the gains are sqrt(2/pi)/r times the quarter-circle integrals of cos^2 and sin^2 against (1-k^2 sin^2)^(-1/2). The latter integral is (K-E)/k^2; subtracting it from K proves the former and hence both stated exact formulas. At r=1 each gain is sqrt(pi/2)/2. The standard complementary-modulus expansions yield a=sqrt(2/pi)/r times 1+O(r^(-2)log r) and b=sqrt(2/pi)/r times log(4r)-1+O(r^(-2)log r), so division retains the constant -1. For fixed sufficiently large r the response difference in direction (c,1) is epsilon(b-ca)+o(epsilon)>0; there is no uniformity assumption in r. Completing the square in r^2(a-s)^2+(b-s)^2 gives the exact fit. Its minimum is asymptotic to (2/pi)(log r)^2/r^2 and the normalizer tends to 2/pi, giving the stated relative error with coefficient one. The score proof bypasses any need to dominate a family of shifted singular derivatives of P. The frozen numerical assertions are corroborative only and were not rerun.",
+      "residual_risks": [
+        "No assertion of a uniform linearization remainder as r tends to infinity, or of optimizer behavior beyond the one-row local response."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Xie covers arbitrary Gaussian covariance for the score identity and scalar criterion and explicitly warns about weak-noise directions. DLMF gives generalized normal quadratic-form expectations including square-root moments."
+        ],
+        "reasoning": "General formula coverage is credited. Neither the cited Gaussian response and fit formulas nor the qualitative warning establishes the size of the disparity for this normalized row without analyzing its singular anisotropy limit.",
+        "searches": [
+          "Xie arXiv:2609.32861 Theorem 4.1 and Appendix C.3",
+          "DLMF §19.31, eq. 19.31.2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary matches 98e805bb9182, 39df47931288, 7f6754d3f52c",
+        "Xie arXiv:2609.32861",
+        "Herrera-Esposito–Burge arXiv:2506.17461",
+        "DLMF §19.31",
+        "Wang–Gelfand (2013) OA access attempt"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Substituting the diagonal J and covariance into Xie's trace formulas immediately gives s* and the minimum. Differentiating the expectation of sqrt(x U^2+y V^2) in x and y recovers half the score moments; this is an available route to the exact-gain component."
+        ],
+        "reasoning": "The contribution is not a substitution into the fit formula or the isolated gain evaluation. One must establish the asymmetry of this actual response, control the logarithmic and constant terms in the singular limit, and show the same family's mismatch in the weak coordinate is masked by the specified weighted fit. No inspected broader theorem gives that coupled quantitative witness.",
+        "searches": [
+          "Xie Theorem 4.1 eqs. (9)–(11) and Appendix C.3, pp. 24–25",
+          "DLMF §19.31 eq. 19.31.2; projected-normal arXiv:2506.17461 §§2.2.1–2.2.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "98e805bb9182 calibrates deterministic unit-row matrices by spectral norm and measures coherence/descent, not the Gaussian translation Jacobian. 39df47931288 is about finite-difference probe design; 7f6754d3f52c concerns variation of dual Lp John ellipsoids. The projected-normal distribution includes precisely the normalized Gaussian, but the inspected exact-moment subsection concerns isotropic covariance and its general anisotropic formulas are approximations."
+        ],
+        "reasoning": "Re-expressing the map as a projected-normal moment identifies the right literature, but neither isotropic exact moments nor general anisotropic approximations supply the exact local response in this covariance family. Deterministic row calibration and other sign reversals concern different observables.",
+        "searches": [
+          "Resultary polar calibration, Gaussian anisotropy and response searches; matched IDs 98e805bb9182, 39df47931288 and 7f6754d3f52c",
+          "Projected-normal/angular Gaussian comparison arXiv:2506.17461 §§2.2.1–2.2.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "DLMF gives exact elliptic-integral representations in the relevant dimensional setting. The matched indexed results do not give a response function for Z_r=(rU,V) or a relative error asymptotic for its noise-weighted scalar fit."
+        ],
+        "reasoning": "The suitable exact-reference comparison here is an identity handbook and exact-result catalogue, not a table at a finite collection of r values. The DLMF formula does encode the gains by differentiating a two-scale norm expectation; credit that overlap without regarding a special-function evaluation as itself a new finding.",
+        "searches": [
+          "Resultary matched Finding passages 98e805bb9182 and 39df47931288",
+          "DLMF §19.31 exact Gaussian identities"
+        ]
+      },
+      "rationale": "Pass the coupled quantitative planar witness, not the Gaussian score identity, least-squares formula, elliptic reducibility, or qualitative warning about response in low-noise directions. The checked sources give those ingredients, but the strongest matches do not cover the sharp directional-gain asymptotic, strict signal reversal and simultaneously vanishing specific diagnostic as a result about this Gaussian polar family.",
+      "residual_risks": [
+        "Historical directional-statistics and angular-central-Gaussian formulas may contain equivalent component evaluations. The 2013 full text was not inspected; retrieval failure is not evidence of noncoverage.",
+        "No claim of global novelty or of originality for isolated identities and standard elliptic expansions."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage of framework and qualitative warning; no coupled example in these passages",
+          "evidence": "The score, affine projection, optimal trace scalar and minimum trace residual are explicit.",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.32861",
+          "material_read": "Theorem 4.1, p. 5, offset 15500; Appendix C.3, pp. 24–25, offset 88500",
+          "method": "OA primary text",
+          "title": "Muon Under Gradient Noise and the Limits of Orthogonalization Near Optima",
+          "trigger": "Same Gaussian response and scalar criterion"
+        },
+        {
+          "assessment": "Relevant equivalent distribution; not the anisotropic quantitative reversal",
+          "evidence": "Taylor approximations for general parameters, exact-moment subsection restricted to isotropic covariance.",
+          "identifier_or_url": "https://arxiv.org/pdf/2506.17461",
+          "material_read": "§§2.2.1–2.2.3, pp. 3–4, offsets near 14000 and 18570",
+          "method": "OA primary text",
+          "title": "Projected Normal Distribution: Moment Approximations and Generalizations",
+          "trigger": "Normalized Gaussian moments at general mean and covariance"
+        },
+        {
+          "assessment": "Exact moments for the underlying quadratic form are established",
+          "evidence": "Square-root and reciprocal-square-root quadratic moments in two and three dimensions are symmetric elliptic functions; the displayed integral is general.",
+          "identifier_or_url": "https://dlmf.nist.gov/19.31",
+          "material_read": "§19.31 including eq. 19.31.2, offset 0",
+          "method": "OA website text",
+          "title": "DLMF §19.31: Probability Distributions",
+          "trigger": "Exact Gaussian elliptic identities"
+        },
+        {
+          "assessment": "Different deterministic matrix problem",
+          "evidence": "Uses unit-row matrices, row coherence and spectral-norm scaling, not local mean gains or the Gaussian metric at issue.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-dimension-dependent-calibration-of-row-normalized-and-pola--98e805bb9182",
+          "material_read": "Finding",
+          "method": "Local result mirror",
+          "title": "Sharp dimension-dependent calibration of row-normalized and polar updates",
+          "trigger": "Closest indexed polar-calibration comparison"
+        },
+        {
+          "assessment": "Unresolved at passage level",
+          "evidence": "The returned wrapper did not expose the article's mathematical text.",
+          "identifier_or_url": "F. Wang and A. E. Gelfand (2013), Statistical Methodology",
+          "material_read": "Repository wrapper only; no relevant mathematical passage obtained",
+          "method": "Lawful PMC OA retrieval attempt",
+          "title": "The General Projected Normal Distribution of Directions",
+          "trigger": "Earlier projected-normal moments and anisotropy"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 12–28 and 55–75",
+        "Xie arXiv:2609.32861 Appendix C.3"
+      ],
+      "rationale": "This is a motivated boundary example for an existing scalar diagnostic. It quantifies a simultaneous order reversal and unbounded gain discrepancy that is invisible to the very weighted criterion used for fitting. The rates show exactly how a diagnostic tending to zero coexists with arbitrarily poor directional matching, which supplies a concrete benchmark rather than a generic observation about weighted norms.",
+      "residual_risks": [
+        "The result gives no loss floor, stochastic optimization convergence claim or higher-rank extrapolation."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:05:02.670748Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding through Proof",
+        "Frozen VERIFICATION.md and catalan_degree_checker.py (read, not executed)",
+        "Ardila, arXiv:math/0209354, Theorem 2.1",
+        "An–Jung–Kim, arXiv:1701.00362, Theorem 4"
+      ],
+      "rationale": "The vertices are precisely the Dyck up-step incidence vectors, and a neighbor differs by one swapped U and D by the matroid-base edge theorem. A swap with the earlier step D always raises intervening heights; with the earlier step U it is legal iff all affected heights are ≥2. As an independent count, let t_j be the size of top-level component j. Between two components only raising swaps are possible, giving t_j t_l for j<l. Within one component its root's two steps cannot participate in a legal internal swap. Between two different depth-two blocks only raising swaps are legal, giving s_i s_h for i<h; within any one block all s_i² pairs of unlike symbols are legal. Thus the total inside component j is binom(t_j,2)+sum_i binom(s_i,2) over its depth-two blocks, using t_j=1+sum_i s_i. Adding cross-component swaps gives the stated formula. A block of size s contains C_{s−1} choices and has weight z^s q^binom(s,2); a root is z times a sequence of these blocks, and the forest is a sequence of roots. This gives (1−H)/(1−z−H) and the stated recurrence with the s=n term cancelled. Excess zero means each block has size one, i.e. path height ≤2; there is one such forest per composition of n. For n≥3, binom(sum_i s_i,2)≤binom(n−1,2), with equality in the excess iff there is one root with one block of size n−1, giving UUQDD and C_{n−2} choices. The n=1,2 cases tie as stated. The finite checker was read; its checks are corroboration only.",
+      "residual_risks": [
+        "This proof uses the ordinary Catalan matroid and unweighted one-skeleton; it does not establish a degree formula for general lattice-path matroid polytopes or other Dyck graphs."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bidkhori relates an edge count to an area-sum in the wider lattice-path family. Its orientation counts moves of one endpoint order from each path, summing each edge once.",
+          "An–Jung–Kim characterize edges by single basis exchanges or one-block tilings, without evaluating the audited per-vertex aggregate."
+        ],
+        "reasoning": "The broader descriptions allow enumeration, but neither yields the claimed subtree-size expression as a stated special case; per-path orientation counts do not supply both directions.",
+        "searches": [
+          "Bidkhori arXiv:1212.5705 Lemmas 3.6–3.7",
+          "An–Jung–Kim arXiv:1701.00362 Proposition 21"
+        ]
+      },
+      "checked_sources": [
+        "Resultary/SCOPE records ced0738bb7e2 and 3635f93f657f",
+        "Ardila arXiv:math/0209354",
+        "Bidkhori arXiv:1212.5705",
+        "An–Jung–Kim arXiv:1701.00362",
+        "Cohen–Tetali–Yeliussizov arXiv:1505.06710"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Ardila already distinguishes the plus-two and minus-two interval perturbations, supplying the local legality rule.",
+          "The audit groups these exchanges across top-level components and within and between depth-two blocks, which is what cancels other forest data and produces the evaluated statistic. The series further uses decomposition and equality classification rather than only a total or transition rule."
+        ],
+        "reasoning": "Do not credit the legality rule as new. The compact depth-two expression, its distribution and exact extremizers take a separate structural count, not merely a change of parameters or restatement of that rule.",
+        "searches": [
+          "Ardila Theorem 2.1 proof (height criterion); Bidkhori Lemma 3.6; An–Jung–Kim Theorem 4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ordinary polytope adjacency is precisely single-basis exchange; the transposition walk uses that exchange rather than triangulation flips.",
+          "The distinct Dyck two-read deletion graph (3635f93f657f) uses two distinct common deletion descendants, not swaps. For n=4 its unique maximizer UUDUDUDD has height two and is a minimum-degree vertex in the audited graph."
+        ],
+        "reasoning": "Compared the invariant under the matroid-polytope, Dyck-exchange and transposition-walk descriptions; an identical maximum number does not identify the graphs or the extremal families.",
+        "searches": [
+          "Resultary search for Catalan polytope vertex degrees, Dyck-step exchange and degree distributions",
+          "Ardila arXiv:math/0209354 Theorem 2.1; An–Jung–Kim arXiv:1701.00362 Theorem 4; Cohen–Tetali–Yeliussizov arXiv:1505.06710 §§1.1–2.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact catalogue hit ced0738bb7e2 is the assigned record itself. The strongest other hit concerns different vertices linked by deletion descendants.",
+          "Bidkhori's closed edge count gives only half the sum of undirected degrees, not a degree distribution, list by Dyck word, or equality families."
+        ],
+        "reasoning": "Neither self-matching nor an aggregate table establishes prior coverage of this vertexwise invariant.",
+        "searches": [
+          "Resultary targeted degree and Dyck graph search, records ced0738bb7e2 and 3635f93f657f",
+          "Bidkhori Lemma 3.7, published aggregate edge formula"
+        ]
+      },
+      "rationale": "The matroid, adjacency criterion, local legal-swap rule and aggregate edge count are prior. The supported distinct claim is the evaluated depth-two formula for each undirected degree, with its refined series and equality families. The best indexed near match has a different adjacency relation, despite sharing the maximum value.",
+      "residual_risks": [
+        "An unindexed equivalent in work on shifted matroid basis graphs or local edge counts could change priority; the judgement is limited to the inspected statements and catalogue comparisons."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defines the identical bases and explicitly gives the local swap condition, but the inspected proof does not evaluate the undirected degrees.",
+          "evidence": "For k<a a replacement raises intervening heights by 2; for a<k it requires every intervening height to be ≥2.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0209354",
+          "material_read": "Theorem 2.1 and proof, p. 3, OA offsets 5670–8067",
+          "method": "OA primary arXiv PDF as alternate to journal landing page",
+          "title": "The Catalan matroid",
+          "trigger": "Original matroid and potentially equivalent exchange result"
+        },
+        {
+          "assessment": "Counts area-weighted oriented exchanges and gives aggregate edge count, not undirected degree distribution.",
+          "evidence": "Lemma 3.6 uses paths P₁NP₂EP₃ and P₁EP₂NP₃; Lemma 3.7 specializes the sum to the Catalan case.",
+          "identifier_or_url": "https://arxiv.org/pdf/1212.5705",
+          "material_read": "Lemmas 3.6–3.7, pp. 4–5, OA offsets 10328 and 12150",
+          "method": "OA primary PDF passages",
+          "title": "Lattice Path Matroid Polytopes",
+          "trigger": "Same Catalan polytope with broader edge counts"
+        },
+        {
+          "assessment": "Provides adjacency criteria, not a collapsed vertexwise degree formula in the inspected passages.",
+          "evidence": "Adjacent bases differ by one element on each side; edges have one-block tiled bottoms.",
+          "identifier_or_url": "https://arxiv.org/pdf/1701.00362",
+          "material_read": "Theorem 4, pp. 3–4; Proposition 21, pp. 16–17",
+          "method": "OA primary PDF passages",
+          "title": "Facial Structures of Lattice Path Matroid Polytopes",
+          "trigger": "General edge descriptions could already evaluate degree"
+        },
+        {
+          "assessment": "The related exchange walk and mixing statements do not give the degree refinement.",
+          "evidence": "Analyzes Dyck-path transpositions and lattice-path-matroid basis exchange in the context of mixing.",
+          "identifier_or_url": "https://arxiv.org/pdf/1505.06710",
+          "material_read": "§§1.1–2.1, pp. 2–3",
+          "method": "OA primary PDF passages",
+          "title": "Lattice Path Matroids: Negative Correlation and Fast Mixing",
+          "trigger": "Equivalent graph via basis-exchange trajectories"
+        },
+        {
+          "assessment": "Same maximum value, different adjacency and maximizing vertices.",
+          "evidence": "Requires two distinct common one-symbol deletion descendants and has unique maximizer 1(10)^(n−1)0 for n≥3.",
+          "identifier_or_url": "2026/11/8/SCOPE-dyck-restricted-two-read-deletion-graph-a-vertex-marked-bijectio--3635f93f657f",
+          "material_read": "Finding and §4 (local mirror offsets 0 and 4100)",
+          "method": "Configured Resultary search and local mirror",
+          "title": "Dyck-restricted two-read deletion graph",
+          "trigger": "Closest distinct Resultary match, with same maximum degree"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof of distribution and equality cases",
+        "Bidkhori Lemma 3.7",
+        "Cohen–Tetali–Yeliussizov §§1.1–2.1"
+      ],
+      "rationale": "In the natural basis graph of a classical matroid, the subtree reduction gives an exact local connectivity invariant without enumerating exchanges. Its distribution refines known total edge counts and identifies every extremal path. The rigid equality families and the ease of evaluating the degree can inform study of this exchange graph independently of any new mixing bound.",
+      "residual_risks": [
+        "No improved mixing time, other spectral result or generalization to other matroids follows here."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

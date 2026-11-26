@@ -1,19 +1,21 @@
-# Scientific review: sharp three-delegate Bayesian aggregation loss
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The likelihood-ratio derivation reconstructs the Bayesian comparator under an equal prior and conditionally independent symmetric signals. Sorting effort levels leaves only the two opposing-majority signal patterns; the hyperbolic-tangent addition identity gives the exact disagreement threshold. Direct probability expansion gives the claimed positive-chamber loss and its half-loss on the tie surface. Two complementary sharp-bound inequalities cover sums of the two smaller efforts below and above \(1/2\), respectively. A rational one-parameter sequence proves the upper bound sharp without claiming an attained maximum. The exact-rational verifier independently evaluates all eight likelihood patterns on 1,330 three-agent precision triples and checks the two-signal boundary on 576 pairs. The infinite real-variable theorem is proved analytically, not by enumeration.
+PASS
 
-## Originality
+Independent likelihood calculation: among the eight ordered sign vectors only (+,-,-) and its reverse can affect the loss, since a coalition containing the largest weight and any other weight strictly wins under both weightings. Under the positive state the difference of the two exceptional likelihoods is ((1+4yz)x-y-z)/2, and under the negative state the two likelihoods exchange roles. Thus Bayes follows the largest signal iff x>(y+z)/(1+4yz), whereas effort weights do so iff x>y+z (with the specified fair tie at equality). The effort tie loses half the likelihood difference, xyz; a Bayesian tie has zero loss independent of the action chosen. For s=y+z<=1/2 the open gap is less than 2syz<=s^3/2; for s>=1/2 it is less than (1/2-y)(1/2-z)<=(1-s)^2/4. The tie case is below 1/32. At (1/2-1/N,1/4,1/4), N>10, the gap is 1/16-5/(8N). For <=2 signals both weights are strictly increasing in effort and the effort ranking suffices. The proof, not the finite grid, covers all permitted real efforts.
 
-PASS under self-review, subject to priority risk. The central 2026 source contains the exact proportional-effort voting model, a fair tie coin, and results on strategic reward schemes and symmetric equilibrium accuracy, but its inspected main sections and Appendix B.3 do not give the asymmetric three-agent difference from Bayesian log-odds aggregation or optimize that difference. Berend and Kontorovich establish the classical log-odds optimum and general finite-sample bounds; their inspected sections do not provide the sharp continuous three-agent regret frontier. Search terms for equivalent three-voter weighting rules, bounded error, linear-versus-logit weighting and the \(1/16\) constant returned no decisive stronger or equivalent statement. A previously unindexed quantitative comparison is still possible.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. In the three-member case of a recently studied governance model, the institution ties voting power to costly effort, but Bayesian evidence weights effort nonlinearly. The result measures precisely when that endogenous institutional rule conflicts with statistical optimality, and exactly how much ex-ante decision accuracy can be lost. The full continuous phase diagram and the global sharp 6.25-percentage-point frontier are directly usable when evaluating the voting-weight specification; the problem is not an arbitrary finite slice or a restatement of log-odds optimality.
+The effort model and log-odds comparator are known. The distinct supported claim is the exact fixed-effort regret, including its linear-weight tie surface, and the sharp nonattained 1/16 frontier for the first loss-producing committee size. No equivalent or dominating statement was established by the inspected evidence.
 
-## Closest literature and limits
+## value
 
-The closest sources are Beccuti–Schneider, arXiv:2610.07959v1; Birmpas–Lazos–Markakis–Penna, arXiv:2406.10525; and Berend–Kontorovich, JMLR 16 (2015). The 2024 antecedent studies institutional incentives and committee selection rather than this sharp aggregation regret. The latter supplies a standard comparator, not the claimed quantitative regret result. The present claim holds for symmetric binary priors and sincere independent signals of accuracy \(1/2+x_i\). It does not establish a strategic equilibrium, social welfare optimality under payment constraints, or bounds for unequal priors or larger committees.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Effort weighting is motivated by existing governance models, and two voters cannot distinguish the effort and Bayes orderings. At the first committee size where aggregation can be suboptimal, the exact regret and its 6.25-point worst-case frontier distinguish a potentially material statistical loss from strategic incentive effects. The exceptional tie surface and limiting, highly asymmetric profile matter to evaluating the rule, rather than being an arbitrary parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

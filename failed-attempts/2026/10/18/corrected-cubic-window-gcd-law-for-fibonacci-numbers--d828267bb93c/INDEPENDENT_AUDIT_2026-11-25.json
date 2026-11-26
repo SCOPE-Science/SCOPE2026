@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:59:26.950694Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The proof establishes the positive gcd over every starting index for classical Fibonacci numbers and every even k≥2. For k=2m the unimodular Fibonacci matrix reduces the first-power endpoint gcd h to F_m or L_m according to the parity of m. For a prime other than 3 dividing both endpoint cube differences, let r=v/u in the residue field. Cassini gives u²(1+r−r²)=1, and u³=r³=1. If r≠1, then 1+r−r²=−2r² and cubing gives −8=1, forcing characteristic 3. Thus r=u=v=1 in all other characteristics and cubing preserves their common valuations there. Modulo 3, the two endpoints are both 1 exactly when 8 divides k, in which case cubing adds one to both valuations. The recurrence then propagates divisibility by A to every shifted cubic difference, including the two whose gcd is exactly A. The telescoping identity gives A | 2S_0. For 6∤k, A is odd. For 6|k, the endpoints are 1 mod 4; Cassini makes v−u divisible by 2^{e+1} where e=v_2(h)≥2, so v−1 has valuation e and the expansion of 2S_0 is congruent to 3(v−1) mod 2^{e+1}. This gives just one lost factor of 2. The examples k=6 and k=8 follow and contradict the respective printed branches. Inspected the frozen integer checker as finite corroboration; it was not executed or needed for the universal proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2022 question also asks about Lucas numbers and higher powers; these are requests, not prior theorems covering the present claim.",
+          "The inspected same-day five-adic transfer record states an all-length Lucas/Fibonacci gcd ratio, not an absolute Fibonacci value. The later Oct. 26 and Nov. 2 records include equivalent even-length assertions; the Nov. 2 record includes odd lengths too."
+        ],
+        "reasoning": "Separate the same-day ratio from absolute evaluations and later broader catalogue coverage. The distinct Oct. 13 record already covers the full asserted domain, independent of any odd-length or Lucas extension.",
+        "searches": [
+          "Mbirika–Spilker arXiv:2204.12626 §6.1",
+          "Resultary: related absolute and transfer laws for cubic Fibonacci and Lucas gcds"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Resultary a5a229e164e5, fe3115d40daa, 69a597e844e9 and 40f068a5afb4",
+        "arXiv:2204.12626",
+        "arXiv:2104.12262"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Mbirika–Spilker give the opposite 6-divisibility branches as a conjecture, not the corrected theorem.",
+          "Guyer–Mbirika prove the endpoint gcd for first powers and evaluate H(k). The Oct. 13 record establishes the corrected branches and a formula for the cube endpoint gcd."
+        ],
+        "reasoning": "The old primary conjecture does not imply the correction, and the first-power theorem alone does not imply cubic behavior. The distinct Resultary result covers the correction and implies the submitted endpoint form by the calculation above.",
+        "searches": [
+          "arXiv:2204.12626 PDF pp. 13–14, Question 6.1",
+          "arXiv:2104.12262 PDF pp. 4, 9, 15–16",
+          "Resultary Oct. 13 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The inspected Finding of the Oct. 13 record uses m_k=A(k), gives the same A(k)/2 when 6|k and A(k) otherwise, and evaluates A(k) as gcd(F_{k+2}−1, 3(F_{k+1}−1))."
+        ],
+        "reasoning": "Put a=u−1, b=v−1, h=gcd(a,b). The earlier expression divided by h is either 1 or 3; it is 1 unless 8|k because b is nonzero mod 3 otherwise. When 8|k, Cassini implies b=a(v+u+1)/v with v a 3-adic unit and v+u+1 a multiple of 3. Thus v_3(b)>v_3(a) and the quotient is 3. The earlier exact expression is therefore the submitted 3^[8|k]H(k).",
+        "searches": [
+          "Resultary: cubic Fibonacci window gcd for even lengths",
+          "2026/10/13/SCOPE-corrected-cubic-fibonacci-window-gcd-law-for-every-even-length--a5a229e164e5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Table 1 and the relevant theorems give the exact first-power Fibonacci/Lucas factors, not cubic values.",
+          "The Resultary Oct. 13 full Finding is an exact cubic theorem match, not merely matching numerical terms. The frozen record cites OEIS A210209 as first-power only; the original OEIS page is not relied on for the finding of coverage."
+        ],
+        "reasoning": "The first-power table accounts only for H(k). The materially exact database hit is the inspected theorem in the distinct Resultary record.",
+        "searches": [
+          "Guyer–Mbirika arXiv:2104.12262 Table 1 and Theorems 3.1, 4.7–4.8 (arXiv v2)",
+          "Resultary exact cubic-window record comparison"
+        ]
+      },
+      "rationale": "A distinct Resultary record states the same full correction for every even k and gives an equivalent exact evaluation of A(k). This is demonstrable statement-level coverage, not a conclusion about who proved the result first. The archive date and mirror snapshot do not establish priority by themselves. The submitted Fibonacci/Lucas form also follows directly by combining the earlier record's endpoint expression with the credited first-power gcd and Cassini; it is not a distinct surviving result.",
+      "residual_risks": [
+        "Archive path dates do not prove the order of proof or first public availability. Exact overlap is independently established and is the basis for the decision.",
+        "The inspected literature is bounded; no inference about unpublished work or the reason for the printed inversion is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers core statement and endpoint evaluation",
+          "evidence": "Gives m_k=gcd(F_{k+2}−1,3(F_{k+1}−1))=A(k) and the identical corrected pair of branches for C_3(k).",
+          "identifier_or_url": "2026/10/13/SCOPE-corrected-cubic-fibonacci-window-gcd-law-for-every-even-length--a5a229e164e5",
+          "material_read": "RESULT.md Finding, opening passage (offset 0)",
+          "method": "Local Resultary mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Corrected cubic Fibonacci window gcd law for every even length",
+          "trigger": "Strongest exact overlap"
+        },
+        {
+          "assessment": "Opposite conjectural branches, not coverage",
+          "evidence": "The printed assertion is A(k) if 6|k and A(k)/2 otherwise; the question asks for a proof and extensions.",
+          "identifier_or_url": "https://arxiv.org/pdf/2204.12626",
+          "material_read": "Section 6.1, PDF pp. 13–14; Question 6.1 and preceding conjectural formula",
+          "method": "Lawful OA PDF, bounded passages",
+          "title": "GCD of sums of k consecutive squares of generalized Fibonacci numbers",
+          "trigger": "Original question being corrected"
+        },
+        {
+          "assessment": "Covers H(k), not the cubic law",
+          "evidence": "The endpoint formula is for first powers; the even branches are F_{k/2} and L_{k/2}. The journal numbering is different.",
+          "identifier_or_url": "https://arxiv.org/pdf/2104.12262",
+          "material_read": "arXiv v2 Table 1 p. 4, Theorem 3.1 p. 9, Theorems 4.7–4.8 pp. 15–16",
+          "method": "Lawful OA PDF, bounded passages",
+          "title": "GCD of sums of k consecutive Fibonacci, Lucas, and generalized Fibonacci numbers",
+          "trigger": "Source for the first-power factor"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": "States a ratio of Lucas and Fibonacci gcds, not the absolute even Fibonacci formula.",
+          "identifier_or_url": "2026/10/18/SCOPE-a-five-adic-transfer-law-for-cubic-lucas-and-fibonacci-window-gcds--fe3115d40daa",
+          "material_read": "Stated transfer law in RESULT.md",
+          "method": "Local Resultary mirror",
+          "title": "A five-adic transfer law for cubic Lucas and Fibonacci window gcds",
+          "trigger": "Same-day related result"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Viewed as a mathematical theorem, the correction settles a specific published question uniformly at all even lengths, and explains both the exceptional 3-factor and the loss of exactly one factor of 2. This has scientific value irrespective of the separate originality failure; the two counterexamples alone would not supply the full answer.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

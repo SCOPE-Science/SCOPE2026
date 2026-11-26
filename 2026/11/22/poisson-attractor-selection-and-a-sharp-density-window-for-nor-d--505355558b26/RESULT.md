@@ -1,68 +1,46 @@
-# Poisson attractor selection and a sharp density window for NOR dynamics on Boolean cubes
+# Separated sparse two-cycles selected by NOR dynamics on Boolean cubes
 
 ## Finding
 
-Synchronous open-neighborhood NOR on a Boolean cube turns independent random initial activations into a sharply selected population of two-cycle attractors. The number of occupied sites in the first updated phase has an exact variance, a quantitative Poisson approximation, and a critical initial-density window of width \(1/d\). At this window, the eventual two-cycle almost surely has finitely many isolated active sites in one phase and nearly every vertex active in the other. The probability of selecting the universal zero/full oscillation tends to \(\exp(-e^{-2c})\) when the initial activation density is \(p_d=1/2+c/d\).
+Let \(Q_d\) be the Boolean cube of dimension \(d\geq3\), with edges at Hamming distance one, and put \(N=2^d\). For synchronous open-neighborhood NOR, every set \(S\) of minimum pairwise Hamming distance at least five satisfies \(T^2(S)=S\), and its companion phase has exactly \(N-d|S|\) active vertices. For each fixed \(m\geq0\) and all sufficiently large \(d\), the separated \(m\)-sets index distinct primitive two-cycles, of which there are \(\binom Nm(1+O_m(d^4/N))\).
+
+Initialize with independent Bernoulli\((p_d)\) bits, where \(p_d=1/2+c/d\) for fixed real \(c\) and sufficiently large \(d\). With probability tending to one, the first updated set \(U\) is the sparse phase of such a primitive two-cycle, with all its sites pairwise at least five apart and the other phase having \(N-d|U|\) active sites. The sparse phase has tight size, and the limiting basin mass of cycles with sparse phase of size \(m\) is \(e^{-\lambda_c}\lambda_c^m/m!\), where \(\lambda_c=e^{-2c}\). The Poisson law for the first image and the resulting limiting zero/full basin probability \(e^{-\lambda_c}\) are included as supporting consequences of the neighborhood-coverage comparison, not asserted as distinct originality contributions.
 
 ## Assumptions and scope
 
-For each integer \(d\ge3\), write \(Q_d\) for the undirected graph on \(V_d=\{0,1\}^d\), with two vertices adjacent exactly when their Hamming distance is one. Let \(N=2^d\) and \(D=\binom d2\). Identify a Boolean state with its set \(A\subseteq V_d\) of active vertices and define the synchronous, self-excluding NOR map
-\[
-T(A)=\{v\in V_d:N_{Q_d}(v)\cap A=\varnothing\}=V_d\setminus N_{Q_d}(A).
-\]
-There are no self-input loops. Initial activations are independent Bernoulli\((p)\), \(0<p<1\). Put \(r=1-p\), \(q=r^d\), \(\lambda=Nq\), and \(U=T(A)\), \(W=|U|\). The total-variation distance uses \(\sup_E|\Pr(Y\in E)-\Pr(Z\in E)|\). The attraction basin includes transient and already periodic states.
+Identify a state with its active set \(A\). Write \(N(v)\) for the open neighborhood of \(v\), \(N(B)=\bigcup_{v\in B}N(v)\), and \(T(B)=V(Q_d)\setminus N(B)\). There are no self-loops. The sparse phase means the phase of smaller cardinality when the two cardinalities are different. The minimum-distance requirement is vacuous for zero or one site. For finite probability estimates, take \(0<p<1\), put \(r=1-p\), \(q=r^d\), \(D=\binom d2\), \(U=T(A)\), \(W=|U|\), and \(\lambda=Nq\). Total variation is \(d_{\rm TV}(\mu,\nu)=\sup_E|\mu(E)-\nu(E)|\). A basin includes initial states that are already periodic.
 
 ## Proof
 
-**Undirected NOR polarity.** For any undirected graph, \(T\) is order-reversing and \(A\subseteq T^2(A)\): each neighbor of a site in \(A\) is excluded by \(T(A)\). Applying order reversal twice gives both \(T^3(A)\subseteq T(A)\) and \(T(A)\subseteq T^3(A)\), so \(T^3=T\). Thus every trajectory is periodic after at most one update, and the only possible periods are one and two. This general periodicity observation is not asserted as novel.
+**NOR polarity.** On an undirected graph, \(T\) is order-reversing and \(B\subseteq T^2(B)\): no neighbor of a vertex in \(B\) can lie in \(T(B)\). Applying antitonicity to this inclusion gives \(T^3(B)\subseteq T(B)\), while applying the inclusion to \(T(B)\) gives the reverse. Thus \(T^3=T\) and every first image is periodic with period one or two.
 
-**Exact random first-image law.** Let \(I_v=\mathbf1_{\{v\in U\}}\). Its value is one exactly when all \(d\) neighbors of \(v\) were initially zero, so \(\Pr(I_v=1)=r^d=q\). In \(Q_d\), two *distinct* open neighborhoods intersect in exactly two vertices when the centers are at Hamming distance two, and are disjoint at all other distinct distances. Consequently
+**Geometry and orbit count.** Let \(S\) be separated as in the Finding. The neighborhoods of its vertices are disjoint. Thus \(|T(S)|=N-d|S|\). For \(v\notin S\), its neighborhood intersects \(N(u)\) for \(u\in S\) only if \(v\) has distance two from \(u\), in which case the intersection has size two. It cannot be distance two from two members of \(S\), by the triangle inequality. Since \(d\geq3\), at least one neighbor of \(v\) is not covered by \(N(S)\), i.e. belongs to \(T(S)\); consequently \(v\notin T^2(S)\). Together with the polarity inclusion this gives \(T^2(S)=S\). If \(N-dm>m\), then an \(m\)-set of this type is the unique smaller phase, so its two-cycle is primitive and determines \(S\). In particular each singleton yields a different two-cycle for \(d\geq3\). For fixed \(m\), the probability that a uniformly chosen \(m\)-set contains a pair at distance at most four is at most \(\binom m2(\sum_{j=1}^4\binom dj)/(N-1)=O_m(d^4/N)\), with out-of-range binomial coefficients zero. This proves the orbit count.
+
+**First-image moments and Poisson estimates.** The indicator \(I_v=\mathbf1_{\{v\in U\}}\) has mean \(q\). Distinct open neighborhoods intersect in exactly two vertices for centers at distance two and are otherwise disjoint. Thus the joint inclusion probability is \(r^{2d-2}\) for distance two and \(r^{2d}\) otherwise. Counting the \(ND\) ordered center pairs at distance two gives
 \[
-\mathbb E[I_uI_v]=\begin{cases}r^{2d-2},&\operatorname{dist}(u,v)=2,\\r^{2d},&\operatorname{dist}(u,v)\ne2,\end{cases}\quad(u\ne v).
+\mathbb E W=Nr^d,\qquad
+\operatorname{Var} W=Nr^d(1-r^d)+ND(r^{2d-2}-r^{2d}).
 \]
-There are \(ND\) ordered pairs at distance two. Hence
+At \(p=1/2\) the variance is \(1+(3D-1)/N\). The initial bits determining \(I_v\) are disjoint from all bits determining indicators with centers outside \(B(v)=\{v\}\cup\{u:\operatorname{dist}(u,v)=2\}\). In the notation of Arratia–Goldstein–Gordon [1], \(b_1=N(1+D)r^{2d}\), \(b_2=NDr^{2d-2}\), and \(b_3=0\). Their count bound yields \(d_{\rm TV}(\mathcal L(W),\operatorname{Poisson}(\lambda))\le 2(b_1+b_2)\). A conservative form of their process bound (Theorem 3) gives distance at most \(4(b_1+b_2)+2Nq^2\) from the field of independent Bernoulli\((q)\) indicators.
+
+**Selection of separated cycles.** By the joint inclusion probabilities and a union bound, the probability of a pair in \(U\) at distance at most four is at most
 \[
-\mathbb EW=Nr^d,\qquad
-\operatorname{Var}W=Nr^d(1-r^d)+ND(r^{2d-2}-r^{2d}).
+\frac N2\left[D r^{2d-2}+\left(\sum_{j=1}^4\binom dj-D\right)r^{2d}\right].
 \]
-In particular, at \(p=1/2\), \(\mathbb EW=1\) and \(\operatorname{Var}W=1+(3D-1)/N\).
+In the critical window, \(\lambda=(1-2c/d)^d\to\lambda_c\); the count and field error bounds are \(O_c(d^2/N)\), and the separation error is \(O_c(d^4/N)\). Hence \(W\) converges in total variation to \(\operatorname{Poisson}(\lambda_c)\). In addition, \(\Pr((d+1)W\geq N)\leq(d+1)\lambda/N\) by Markov's inequality. Outside these two exceptional events, \(U\) is separated and is strictly the smaller phase, the other phase having \(N-dW\) active sites. This identifies the limiting basin mass for every fixed sparse-phase size and the limiting concentration on these two-cycles. The initial state has size \(N/2+o_{\Pr}(N)\), by independence, whereas the two periodic phase sizes are \(O_{\Pr}(1)\) and \(N-O_{\Pr}(d)\). Therefore the probability of already being periodic initially tends to zero.
 
-**Quantitative Poisson and independent-location estimates.** The indicator \(I_v\) depends only on initial bits on \(N(v)\). It is independent of the entire family of indicators with centers outside \(B(v)=\{v\}\cup\{u:\operatorname{dist}(u,v)=2\}\). The Arratia–Goldstein–Gordon local-dependence quantities are therefore exactly
-\[
-b_1=N(1+D)r^{2d},\qquad b_2=ND r^{2d-2},\qquad b_3=0.
-\]
-Their count theorem gives the conservative bound
-\[
-d_{\mathrm{TV}}\bigl(W,\mathrm{Poisson}(\lambda)\bigr)\le2(b_1+b_2).
-\]
-Their indicator-process theorem also bounds the total-variation distance from the independent Bernoulli\((q)\) field by \(2(b_1+b_2)+Nq^2\). Thus the location field, not merely the number of defects, is asymptotically independent whenever the displayed right-hand side vanishes.
-
-**Geometric separation and genuine two-cycles.** By a union bound over pairs at Hamming distance at most four,
-\[
-\Pr(\exists u\ne v\in U:\operatorname{dist}(u,v)\le4)
-\le\frac{N}{2}\left[D r^{2d-2}+\Bigl(\sum_{j=1}^4\binom dj-D\Bigr)r^{2d}\right],
-\]
-where binomial coefficients with \(j>d\) are zero. If \(U\) has pairwise distances at least five, its vertex neighborhoods are disjoint. Therefore \(T^2(A)=T(U)=V_d\setminus N(U)\) and the two phases contain exactly \(W\) and \(N-dW\) active sites. For any \(v\notin U\), at most two of its neighbors can belong to \(N(u)\) for one \(u\in U\), and pairwise separation prevents additional coverage by any other codeword; hence \(T^2(U)=U\) for \(d\ge3\). In particular each singleton \(\{u\}\) is the sparse phase of a primitive two-cycle \((\{u\},V_d\setminus N(u))\), giving \(N\) distinct orbits. For fixed \(m\) and sufficiently large \(d\), every \(m\)-set of minimum distance at least five likewise forms a distinct primitive two-cycle, since \(N-dm>m\). A random \(m\)-subset violates this separation with probability \(O_m(d^4/N)\), giving \(\binom Nm(1+O_m(d^4/N))\) such orbits.
-
-**Critical window and basin probabilities.** For \(p_d=1/2+c/d\) with fixed real \(c\), \(\lambda=N(1-p_d)^d=(1-2c/d)^d\to\lambda_c=e^{-2c}\), whereas \(b_1+b_2=O_c(d^2/N)\) and the pair-separation failure probability is \(O_c(d^4/N)\). Thus \(W\) converges in total variation to \(\mathrm{Poisson}(\lambda_c)\); each fixed \(m\) has limiting probability \(e^{-\lambda_c}\lambda_c^m/m!\). The complete zero/full orbit is reached exactly if \(U=\varnothing\) or if the initial state is all zero (for then \(U=V_d\)); these events are disjoint. Its basin probability is therefore exactly \(\Pr(W=0)+r^N\), converging to \(e^{-\lambda_c}\). A trajectory with an \(m\)-defect sparse phase but \(|U|\ne m\) must have \(|U|\ge N-dm\), an event of probability at most \(\lambda/(N-dm)\) by Markov's inequality; the other discrepancy is bounded by the separation-failure probability. Hence the same Poisson limit gives the complete asymptotic distribution of the sparse-phase defect count among the selected two-cycles. Since a Bernoulli\((p_d)\) initial state has about \(N/2\) active vertices, while the two phases on the separation event have \(O_{\Pr}(1)\) and \(N-O_{\Pr}(d)\) active vertices, the probability of already being on the orbit at update zero vanishes; the first periodic update is one with high probability.
-
-For fixed \(p>1/2\), \(\lambda\to0\) and \(\Pr(W=0)\to1\). For fixed \(0<p<1/2\), \(\lambda\to\infty\) and the exact variance gives \(\operatorname{Var}(W)/\lambda^2\le1/\lambda+3D/N\to0\); Chebyshev yields \(\Pr(W=0)\to0\), and \(r^N\to0\). The sharp transition is thus centered at density one-half with window \(1/d\).
-
-## Verification
-
-The accompanying standard-library-only program `verify_nor_cube.py` independently enumerates every binary initial configuration for dimensions \(1\le d\le4\) (\(4+16+256+65{,}536=65{,}812\) states). It checks \(T^3=T\), the universal-orbit basin formula and exact moments, and reproduces the entire first-image histogram using a separate neighborhood-union inclusion–exclusion polynomial. It also verifies singleton two-cycles for \(d=3,4\). Run with `python3 verify_nor_cube.py`; the last output line should begin with `PASS`. These finite tests do not establish asymptotic statements, which rest on the analytic argument above and the cited published Poisson approximation theorem.
+**Universal orbit.** The zero/full cycle is reached if and only if \(U=\varnothing\) or \(U=V(Q_d)\). Here \(U=V(Q_d)\) holds if and only if \(A=\varnothing\), because each vertex has neighbors. Thus the exact basin probability is \(\Pr(W=0)+r^N\), tending to \(e^{-\lambda_c}\) in the window. For fixed \(p>1/2\) it tends to one since \(\lambda\to0\). For fixed \(0<p<1/2\), \(\lambda\to\infty\) and the variance formula gives \(\operatorname{Var}(W)/\lambda^2\leq1/\lambda+3D/N\to0\); Chebyshev and \(r^N\to0\) yield a limit of zero.
 
 ## Relationship to prior work
 
-Aledo, Martínez and Valverde's 2015 graph-dynamical systems analysis and contemporaneous survey discuss the established fixed/two-cycle restriction for undirected NOR networks; this general dynamical fact is used here, not claimed as new. Arratia, Goldstein and Gordon's 1990 Poisson approximation theorems supply the general local-dependence method, and Chen and Xia provide a general point-process framework. The present cube-specific contribution is the exact dependent-field covariance calculation, its explicit critical scaling, and the resulting quantitative attractor-selection law and sparse-code orbit census. General statements about Poisson approximation do not state the cube NOR orbit populations or identify their basin transition. No claim is made that the Stein–Chen method or the general period bound is new.
+Aledo, Martínez, and Valverde [2] establish a fixed/period-two restriction for undirected NOR. Arratia, Goldstein, and Gordon [1] give the general local-dependence bounds used above. The open-neighbor OR study [3] obtains a Poisson limit for the number of time-one zeros and the Gumbel limit for one-step consensus in this same window. The time-one zero set for OR is exactly \(T(A)\) for NOR. In particular the limiting universal-orbit probability is already implied by that coverage limit and the elementary basin identity; the change of dynamical interpretation does not make it a separate asymptotic discovery. The distinct content pursued here is the separation of the random sparse phase, its exact dense companion size, and the corresponding family and census of primitive NOR two-cycles. No priority order is asserted between the two same-date records.
 
-## Limitations
+## Reproduction and limitations
 
-The result describes the asymptotic basin distribution for independent Bernoulli initial states, not the complete deterministic attractor census or exact individual basin sizes for each finite cube. The code-based checks are finite only. The uniform density limits exclude the deterministic endpoint \(p=0\), which starts directly on the universal orbit. Priority against inaccessible, unindexed, or non-English historical results remains uncertain; no independent mathematical validation has been performed.
+The accompanying `verify_nor_cube.py` is a standard-library verifier for all initial states in dimensions one through four. It separately compares direct trajectories and a neighborhood-union polynomial and checks the first-image moments, basin identity and small-dimensional singleton cycles. These finite tests are not a proof of the asymptotic selection theorem or a complete deterministic attractor classification. The formula for separated orbits does not claim to count other two-cycles. The fixed-density limits are for interior Bernoulli parameters, not the deterministic all-zero endpoint.
 
 ## References
 
-1. R. Arratia, L. Goldstein and L. Gordon, *Poisson Approximation and the Chen–Stein Method*, Statistical Science 5 (1990), 403–434, doi:10.1214/ss/1177012015. See Section 3, Theorems 1–3. https://dornsife.usc.edu/larry-goldstein/wp-content/uploads/sites/221/2023/06/pacs-1.pdf
-2. L. H. Y. Chen and A. Xia, *Stein's Method, Palm Theory and Poisson Process Approximation*, arXiv:math/0410169, first submitted 2004-10-06. https://arxiv.org/abs/math/0410169
-3. J. A. Aledo, S. Martínez and J. C. Valverde, *Parallel Dynamical Systems over Graphs and Related Topics: A Survey*, Journal of Applied Mathematics (2015), 594294; first published 2015-03-24, doi:10.1155/2015/594294. https://onlinelibrary.wiley.com/doi/10.1155/2015/594294
-4. J. A. Aledo, S. Martínez and J. C. Valverde, *Graph Dynamical Systems with General Boolean States*, Applied Mathematics & Information Sciences 9 (2015), 1803–1808; published online 2015-07-01, doi:10.12785/amis/090417. https://www.naturalspublishing.com/files/published/8t0q772e3y35g7.pdf
+1. R. Arratia, L. Goldstein and L. Gordon, *Poisson Approximation and the Chen–Stein Method*, Statistical Science 5 (1990), 403–434, Theorems 1 and 3. https://doi.org/10.1214/ss/1177012015
+2. J. A. Aledo, S. Martínez and J. C. Valverde, *Graph Dynamical Systems with General Boolean States*, Applied Mathematics & Information Sciences 9 (2015), 1803–1808, Corollary 3.3. https://doi.org/10.12785/amis/090417
+3. *A Gumbel consensus window and exact terminal shells for Boolean-cube OR dynamics*, Resultary record `ce6906b9edb4`, 2026-11-22. https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-a-gumbel-consensus-window-and-exact-terminal-shells-for-boolean--ce6906b9edb4

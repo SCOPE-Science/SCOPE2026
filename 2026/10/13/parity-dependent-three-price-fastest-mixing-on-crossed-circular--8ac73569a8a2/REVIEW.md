@@ -1,23 +1,21 @@
-# Scientific review: parity-dependent three-price fastest mixing on crossed circular ladders
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim maximizes the second-smallest **ordinary** weighted-Laplacian eigenvalue on the explicitly defined \(2n\)-vertex, \(5n\)-edge undirected graph for every integer \(n\ge5\) and all strictly positive conductance prices \(s,t\), subject to unit expenditure and arbitrary independent nonnegative edge rates. The proof does not assume symmetry for the global bound: group averaging preserves costs, and the Rayleigh characterization makes the gap concave in all edge rates. Fourier decomposition for orbit-uniform allocations gives every eigenvalue and the three exact active constraints. Rescaling to unit spectral gap gives a three-dimensional linear program. Its vertices are exhaustively derived from nonnegative-coordinate cases; the positive-coordinate three-constraint candidate is infeasible since \(U>1/2\). Comparing the four or five vertices yields the claimed exact global value and class-symmetric optimizer face, including all equality boundaries. The proof makes no unsupported uniqueness claim about nonuniform global optimizers.
+PASS
 
-The accompanying standalone checker independently reconstructs the feasible vertices, computes full Laplacian eigenspectra, tests irregular allocations and stress-tests all price regions. It passed 45 vertex matches, 850 separate price comparisons, 130 full spectral tests, 430 irregular-feasible comparisons and 640 price-region tests. These numerical tests corroborate, but do not replace, the universal analytic proof.
+The Rayleigh minimum on the orthogonal complement of constants is concave even when the rate support is disconnected, so averaging over price-preserving rotations, reflection and layer swap suffices for the global value without imposing symmetry on feasible inputs. Fourier modes on the cycle and the two layer parities give sigma(a+c) and sigma a+(4−sigma)c+2b. Their minimum after discarding only the constant mode is the stated three-mode gap. Scaling to gap one gives three half-spaces plus nonnegativity. The all-positive three-active point has a=c=U/2 and negative b, and the zero-coordinate faces give exactly A,C,M1,M2 and, when delta>0, D. In particular beta+delta=4 implies U−z−1/4=beta(U−1/2)/(beta−delta)>0, so the two b=0 junctions are in the required order. The objective is strictly positive on nonzero recession rays; the minimizing face is the convex hull of its minimum-cost vertices. The factor n in the total cost follows from 2n rails, n rungs and 2n diagonals. For s>1, M2 dominates C,M1 and (when present) D, leaving A versus M2; for s<1 the candidates A,M2 are dominated, and the difference J_D−J_M1 has the sign of s−delta/beta. Comparing C to the resulting no-rung candidate gives the stated thresholds, including the three-way odd crossover and s=1 segment. Traversing only forward crossed edges reverses layer each step, giving one 2n-cycle for odd n and two n-cycles for even n.
 
-## Originality — PASS, subject to historical uncertainty
+## originality
 
-The closest literature was examined at the level of mathematics and implications rather than title similarity. Sun et al. (2006) provide the broad continuous-time fastest-mixing semidefinite problem with linear edge budgets; this general framework includes the optimization formulation but supplies no specialized four/five-vertex solution or parity-dependent three-price face. Sayama (2015) gives heuristic estimation for strong-product Laplacian spectra rather than exact conductance optimization. Pan and Li (2019), arXiv:1906.04339, study exactly the same unweighted strong-prism topology: their block decomposition and unit-weight spectrum are compatible with the present derivation, but their results optimize neither the independent edge classes nor the spectral gap and instead determine Kirchhoff and spanning-tree invariants. Tavasoli et al. (2024) optimize interlayer weights while taking intralayer Laplacians fixed, so their results do not imply a simultaneous price-optimal design of rails, rungs and diagonals. These differences are mathematical limitations of the prior statements, not simply differing names.
+PASS
 
-The principal residual risk is that the elementary-looking symmetric Fourier/LP reduction could have been carried out in unindexed specialized network-design literature. Search failure alone would not establish novelty, and this review does not purport to certify global historical priority.
+The exact graph and unweighted spectrum are prior, and the conductance-budget gap optimization framework is prior. The distinct result is the exact solution with three independent prices for this graph, including the full symmetric optimal face and odd-only crossed-edge phase; the closest published statements do not give it.
 
-## Value — PASS
+## value
 
-The problem models a natural two-layer circular network with three physically distinct connection mechanisms and a single linear resource budget. The exact classification gives a genuine multi-regime design rule and a graph-topological phenomenon: crossed diagonals alone can form a fastest-mixing connected network at sufficiently favorable prices when the ring size is odd, while they necessarily disconnect the even-sized network. The thresholds include a nontrivial three-way meeting point and complete tie-face descriptions, rather than only a numeric optimum or a routine relabeling of a one-parameter network. These results are meaningful even without a theorem for arbitrary graph products.
+PASS
 
-## Scope, evidence and remaining risks
+For a natural network with three independently priced physical connection types, the exact design rule identifies which connection mechanisms to buy and describes the entire symmetric tie face. The parity effect is structural, not a sample: the cheapest design can use only crosses on an odd ring, whereas such a design disconnects an even ring.
 
-The claim concerns continuous-time symmetric Laplacian mixing, not discrete-time SLEM or general nonlinear/irreversible processes. It determines all globally optimal **values** and all orbit-symmetric optimal assignments; nonsymmetric global optimizer classification remains open. The numerical program checks finite samples and is not an infinite-dimensional or independent verification. The four principal sources are Sun et al. (2006), DOI 10.1137/S0036144504443821; Sayama (2015), arXiv:1507.03030; Pan and Li (2019), arXiv:1906.04339; and Tavasoli et al. (2024), DOI 10.1017/nws.2024.9. The latter sources are close on topology or mathematical objective but do not state the assessed arbitrary-price classification.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The direct Bergman moments of \(P\) and \(P^2\) give an exact quartic objective, including the only potentially destructive phase interference. Maximizing phases is possible for every magnitude triple. A rational one-variable envelope and its factored derivative prove global uniqueness of the positive amplitude ratio, while the boundary coefficient cases are explicitly covered. The exact polynomial elimination and coefficient construction are exercised independently by the packaged checker. Finite quadrature is corroboration and is not used to infer an infinite-domain theorem.
+PASS
 
-## Originality
+Normalized disk monomial moments are 1/(n+1). Taking the squared A² norm of P² gives the fourth moment; its sole phase-sensitive term comes from |b²+2ac|² and demands aligned phases at an interior optimum. When c=0 the quotient is 1+2v−5v²/3 for v=|b|²/(2||P||²_A²), attaining 8/5 at v=3/5. For c≠0 take u=|a|/|c| and q=3|b|²/(2|c|²). The q derivative has affine numerator with positive intercept and strictly negative slope for all u≥0, so it has a unique global maximum in q>0. After substitution the derivative of the remaining rational quotient has sign opposite to 30u³+35u²−5u−4; its unique positive root gives a strict maximum above both u=0 and the c=0 face. Independent exact differentiation and elimination reproduce q*=(3/2)u*(3u*+1) and the constant polynomial (the resultant multiplier is 2618387280). The quotient at u=1/3 is 2791/1042>13/5, and the constant polynomial is strictly increasing above 13/5, isolating the largest root. Magnitude and phase equality give exactly the stated scalar-and-rotation family; |a/c|=u*, whereas a/c=u* only in the aligned real representative. The invariant b²/(ac)=3u*+1>2 differs from 4/3 for every nonconstant K₂; K₂ at the origin is constant, and K₁ with |w|²=3/4 attains the degree-one maximum.
 
-**PASS (best knowledge, not priority certification).** Bayart et al. (arXiv:1701.06897) change the Bergman weight together with the exponent; Kulikov (arXiv:2203.12349) treats full weighted-space kernels, and Gröchenig–Ortega-Cerdà (arXiv:2005.14176) give sampling inequalities. Wang–Zhang (arXiv:2505.12760) provide a general but nonsharp fixed-degree upper bound. The public, fully inspected quadratic Fourier-polynomial L6 result addresses Hardy circle measure and Euclidean input norm, so it does not imply the present disk A2-to-A4 constant or asymmetric extremizer. The searched published records did not yield covering statements. Residual risk: historical Nikolskii literature might hide an equivalent finite-degree identity, and worldwide priority remains unverified.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** This exact finite-dimensional embedding norm is a natural invariant in sharp Bergman polynomial concentration. The theorem determines its nonlinear first case, unique extremizer orbit, and a precise phenomenon not predictable from the full-space kernel picture: degree-one truncated evaluation kernels attain the sharp quotient, but degree-two kernels never do. It is a sharp benchmark rather than a broad embedding theorem; no assertion is made about arbitrary polynomial degree, unrelated weights, or infinite-dimensional \(A^2\)-to-\(A^4\) continuity.
+The supported distinct claim is the exact unweighted quadratic constant, the complete optimizer magnitudes and phases, and failure of truncated evaluation kernels at the first possible degree. Two close weighted records genuinely cover strict three-mode mixing and phase alignment at this weight; these structural statements alone are not distinct. The inspected weighted proofs give large-weight asymptotics rather than the finite-weight algebraic maximum or the kernel obstruction. The primary embedding literature has different measures, spaces or non-sharp bounds.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Area A² normalization makes the fourth-moment quotient a natural exact measure of concentration among finite polynomial profiles, and reproducing kernels are the natural point-concentration candidates. Degree two is the first degree permitting a genuine relative phase in this moment problem. The exact optimizer family resolves whether the degree-one kernel prescription survives that new interaction, and gives a sharp benchmark for finite Bergman concentration rather than a numerical comparison at an arbitrary weight.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

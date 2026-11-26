@@ -1,0 +1,143 @@
+{
+  "correctness": {
+    "rationale": "Proof checks: coefficients normalized; compactness essential spectrum [-2,2]; eigenvalue simplicity from half-line three-term recurrence; finite-rank cutting with at most 2 rank per cut; bounded first m_eps=ceil(eps^-1/3) segment and dyadic C_s sqrt(eta/eps) estimate; no terminal >2+eps spectrum beyond (s+eta)/eps; interior constant-hopping cosine counts converge to (1/pi) integral sqrt((s/x-1)_+) dx=s/2; count inversion gives excess s²/(4j²); alternating conjugation covers negative edge. 23 standalone finite consistency checks passed, not treated as proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "failed",
+  "independent_validation": false,
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://mathweb.ucsd.edu/~zlatos/Papers/szego.pdf: Coulomb perturbations and Szegő conditions, but no family-specific edge coefficient in inspected theorem statements.",
+        "https://doi.org/10.1007/s00220-021-03939-w: connection coefficient spectra, no sharp Coulomb counting constant.",
+        "https://arxiv.org/abs/math-ph/0208035: alternating sign decays and bound states, unlike positive nonoscillatory 1/n offdiagonal tail."
+      ],
+      "reasoning": "Searched generic long-range Jacobi, Szegő, counting, and offdiagonal 1/n variants. Existing papers establish broader frameworks or different hypotheses but inspected results do not force this exact coefficient. Any as-yet-unfound general semiclassical counting theorem is an explicit residual risk.",
+      "searches": [
+        "Jacobi matrices Coulomb tails eigenvalues accumulation spectral edge asymptotic n^-2",
+        "number of eigenvalues outside essential spectrum Jacobi coefficients a_n = 1 + alpha/n asymptotic",
+        "Jacobi matrix a_n = 1 + alpha/n b_n=0 eigenvalues outside [-2,2] eigenvalue counting asymptotic"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2102.01725",
+      "https://arxiv.org/abs/1606.08615",
+      "https://mathweb.ucsd.edu/~zlatos/Papers/szego.pdf",
+      "https://doi.org/10.1007/s00220-021-03939-w",
+      "https://arxiv.org/abs/1301.2125",
+      "https://arxiv.org/abs/math-ph/0208035"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:1606.08615v1: identifies J_s family and top-eigenvalue/minimal zero correspondence; no count of all exterior high-index levels.",
+        "arxiv:2102.01725v1: explicitly asks about norm of J_s, distinct from new tail asymptotic.",
+        "Zlatoš 2002: Szegő criteria permit Coulomb coefficients but do not specify N_s(ε) as ε→0 in inspected results."
+      ],
+      "reasoning": "A compact perturbation alone ensures only discrete exterior spectrum; it does not imply infinite count or the coefficient s/2. Top eigenvalue controls largest λ, but cannot infer the asymptotic distribution of λ_j for j→∞. New finite-rank bracketing and phase-integral calculation supplies that missing quantitative implication.",
+      "searches": [
+        "optimal polynomial approximant zero modulus extremal Jacobi matrix negative Dirichlet weights Coulomb spectral outliers eigenvalue counting law n^-2",
+        "Coulomb Jacobi eigenvalue counting near 2 spectral edge perturbations off-diagonal 1+s/(2n)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Equivalent eigenvalue formulation: λ_j(s)-2∼s²/(4j²) is monotone inversion of N_s(ε)∼s/(2√ε).",
+        "The 2016 original and 2021 survey formulate a spectral norm/zero-radius question, not the high-index eigenvalue count.",
+        "Zlatoš 2002 treats Coulomb Jacobi conditions without this asymptotic in inspected primary text."
+      ],
+      "reasoning": "Eigenvalue-threshold counts, individual high-index levels, and negative-edge levels were explicitly compared as equivalent consequences; no published counterpart with the exact family and edge coefficient was identified. The norm is not equivalent to this tail law.",
+      "searches": [
+        "optimal polynomial approximant zero modulus extremal Jacobi matrix negative Dirichlet weights Coulomb spectral outliers eigenvalue counting law n^-2",
+        "Jacobi off-diagonal ((n+2)/(n+1))^s spectrum eigenvalues outside [-2,2] sharp Coulomb law",
+        "Coulomb Jacobi eigenvalue counting near 2 spectral edge perturbations off-diagonal 1+s/(2n)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus nearest: 2026/10/18/SCOPE-sharp-multi-exponential-radius-asymptotics-and-finite-degree-loc--50c3b16afff3 treats strong-negative-index first extremal Jacobi radius, not eigenvalue tail.",
+        "published-finding corpus nearest: 2026/11/1/SCOPE-the-airy-boundary-layer-for-polynomial-compressions-of-the-weigh--08f37b7169c9 treats finite Bergman shift compression, not infinite Dirichlet Jacobi tail.",
+        "published-finding corpus nearest: 2026/11/8/SCOPE-two-spectral-edges-and-polynomial-anisotropy-of-power-lecture-ha--1fae774ec2a0 treats power lecture-hall Jacobi spectra with different entries."
+      ],
+      "reasoning": "Similarity matches were compared by hypotheses and implications, not title. No retrieved published table enumerated the infinite family or the asymptotic s/2 coefficient. Lack of a search match is not a proof of absence.",
+      "searches": [
+        "optimal polynomial approximant zero modulus extremal Jacobi matrix negative Dirichlet weights Coulomb spectral outliers eigenvalue counting law n^-2",
+        "Jacobi off-diagonal ((n+2)/(n+1))^s spectrum eigenvalues outside [-2,2] sharp Coulomb law",
+        "Coulomb Jacobi eigenvalue counting near 2 spectral edge perturbations off-diagonal 1+s/(2n)"
+      ]
+    },
+    "rationale": "Best-knowledge result: inspected relevant primary texts identify these operators, norm extremal questions, Coulomb Szegő conditions, and computational Jacobi spectra; none states or logically entails the sharp family-specific exterior eigenvalue-count limit. Indexed historical comparators likewise concern different objects. Remaining risk: a broad discrete semiclassical theorem may dominate the statement; priority not certified.",
+    "residual_risks": [
+      "A general 1D semiclassical theorem for slowly decaying Jacobi perturbations might imply the result without the same explicit family being named.",
+      "Historical access/search is necessarily bounded; neither database nonmatches nor topic-level comparisons prove priority.",
+      "The source defining the underlying operators predates the 2021 survey; the survey is the selected motivating source identifying the sharp negative-exponent open direction, not an asserted invention date for the operator."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Has spectral family and open top eigenvalue question; no all-eigenvalue tail counting with sharp coefficient in inspected text",
+        "evidence": [
+          "2021-02-02 arXiv v1, open Jacobi spectral norm question with negative Dirichlet exponents"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2102.01725",
+        "material_read": "Full PDF including spectral Jacobi question and appendices around pages 17–18",
+        "method": "Read rendered PDF text, inspected page screenshots and exact Jacobi norm question",
+        "title": "A survey of optimal polynomial approximants, applications to digital filter design, and related open problems",
+        "trigger": "Closest direct motivating problem, Jacobi operator and negative Dirichlet weights"
+      },
+      {
+        "assessment": "Studies extremal zero modulus and top spectral norm; does not assert a quantitative complete exterior eigenvalue count",
+        "evidence": [
+          "2016-06-28 arXiv v1, Jacobi recurrence and compact perturbation of free operator"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1606.08615",
+        "material_read": "Full PDF relevant Jacobi/operator theorem sections and associated formulas",
+        "method": "Read full-text theorem discussion and page images; compare matrix coefficients and conclusions",
+        "title": "Zeros of optimal polynomial approximants: Jacobi matrices and Jentzsch-type theorems",
+        "trigger": "Original paper defining the precise Jacobi family and correspondence"
+      },
+      {
+        "assessment": "Considers a_n=1+alpha/n and b_n=beta/n with Szegő and related spectral constraints, but inspected statements do not yield the exact counting constant for the specified operator",
+        "evidence": [
+          "Zlatoš 2002, Coulomb Jacobi perturbation framework"
+        ],
+        "identifier_or_url": "https://mathweb.ucsd.edu/~zlatos/Papers/szego.pdf",
+        "material_read": "Full PDF relevant assumptions and Szegő condition/eigenvalue subsections",
+        "method": "Read accessible text plus PDF screenshots, compare offdiagonal asymptotics and theorem conclusions",
+        "title": "The Szegő condition for Coulomb Jacobi matrices",
+        "trigger": "Strong plausible Coulomb Jacobi operator priority source"
+      },
+      {
+        "assessment": "Algorithms and spectral representation for Jacobi perturbations, not the asymptotic threshold-count law",
+        "evidence": [
+          "Webb and Olver 2021, computational spectral theory"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s00220-021-03939-w",
+        "material_read": "Full open-access article HTML, spectral-computability/results sections",
+        "method": "Read primary article sections and compare hypotheses and quantitative conclusions",
+        "title": "Spectra of Jacobi operators via connection coefficient matrices",
+        "trigger": "General Jacobi spectral framework for compact perturbations"
+      },
+      {
+        "assessment": "Describes other special-function Jacobi families, not the bounded offdiagonal a_n=((n+2)/(n+1))^{s/2} family",
+        "evidence": [
+          "Štampach and Šťovíček 2013, solvable Jacobi examples"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1301.2125",
+        "material_read": "Full preprint PDF relevant examples and spectral descriptions",
+        "method": "Read accessible full text and page screenshots, compare Jacobi entry sequences",
+        "title": "Special functions and spectrum of Jacobi matrices",
+        "trigger": "Potential exact special-function treatment of discrete Coulomb spectra"
+      }
+    ],
+    "status": "PASS"
+  },
+  "previously_published_pending_reaudit": false,
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "15d9b643-524f-46dc-81e4-e75730a059a4",
+  "value": {
+    "rationale": "A natural negative-Dirichlet orthogonal-polynomial recurrence has a quantifiably infinite exterior spectrum with complete leading count and eigenvalue-edge law. Sharp constant for every fixed exponent is useful to distinguish the all-level tail from the unresolved leading eigenvalue, and to calibrate truncation/asymptotic spectral computations. The object and precise edge invariant are motivated by the cited original Jacobi question, not selected after arbitrary parameter slicing.",
+    "status": "PASS"
+  }
+}

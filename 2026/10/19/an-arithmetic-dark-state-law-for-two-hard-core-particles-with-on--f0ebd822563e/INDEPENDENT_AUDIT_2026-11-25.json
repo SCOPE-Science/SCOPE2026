@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T16:59:10.992327Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In the ordered hard-core basis no allowed hop crosses the particles, so H is the restriction of H₁⊗I+I⊗H₁ to the antisymmetric product. The sine-mode determinants at the sink have nonzero sine factors and a nonzero difference of cosines. For prime p, writing 2 cos(πk/p)=(-1)^k(ζ^(uk)+ζ^(−uk)), u=(p+1)/2, gives disjoint nonzero residue pairs for 1≤k≤(p−1)/2. A rational relation would be a polynomial of degree at most p−1 with zero constant coefficient divisible by 1+X+···+X^(p−1), hence is zero. Consequently nonzero two-mode sums are simple, and zero has exactly the complementary-mode multiplicity (p−1)/2; the single sink removes one dimension. For the zero-energy projector, sine products vanish on even i+j. On odd i+j use g=j−i and d=i+j; the product with the sink is (cos(gθ)−cos(dθ))(cos θ−cos(3θ))/4 before summing θ=πk/p. Product-to-sum uses even integral frequencies whose half-sums are (p·1_{2p divides frequency}−1)/2. The constants cancel, giving exactly the three indicators in B; the squared-sine sum leaves the extra term only at i+j=p. Subtracting the normalized rank-one projector for Q|1,2⟩ therefore gives the displayed diagonal. The dark subspace reduces the dissipative Hamiltonian; taking imaginary parts in its eigenvector equation excludes any real eigenvalue on the complementary block, so polynomial Jordan prefactors do not prevent decay. This proves rate-independent eventual survival. As a separate finite check, independent_dark_kernel.py constructs the integer hopping matrix from allowed moves, appends the sink constraint, computes a rational nullspace basis U, and compares the diagonal of U(UᵀU)^(-1)Uᵀ exactly at primes 5,7,11,13,17,19 (405 states). This checks the projector evaluation, not simplicity of all other energies; that follows from the prime proof. The frozen verify.py and its recorded numerical evidence were inspected without executing the uploaded code.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Krovi–Brun relate degeneracy to nonhitting subspaces, and Krapivsky–Luck–Mallick analyze single-particle trap survival. The catalogue summary of prime-side corner capture describes a product-grid corner trap and cyclotomic spectral collisions; its full Finding was not accessible."
+        ],
+        "reasoning": "The general method identifies which spectral projections to compute but not their dimensions and entries on this wedge. A product-grid corner on the diagonal has symmetric sink vector; the projector conditioned on it cannot give the antisymmetric boundary-bond sink projection whose nonzero overlap is essential here. An arithmetic ingredient may be shared with the grid study.",
+        "searches": [
+          "arXiv:quant-ph/0606094, dark subspaces for quantum hitting",
+          "arXiv:1311.6298, continuous-time trap survival",
+          "Resultary: prime-side corner capture, open paths and cyclotomic collisions"
+        ]
+      },
+      "checked_sources": [
+        "Resultary a597acab6382",
+        "Resultary 18c65961073f",
+        "Resultary 12cbf9e5a74e (summary only)",
+        "Resultary 615211805d60",
+        "arXiv:quant-ph/0606094",
+        "arXiv:1311.6298",
+        "arXiv:1412.1022",
+        "arXiv:1406.6097",
+        "arXiv:2405.04789"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Full coincidence loss makes an entire exchange sector dark because coincidence vectors are symmetric. A single adjacent-pair sink in the wedge sees generically nonzero amplitudes; the prime family leaves only one constrained zero-energy eigenspace. Distributed pair losses act through multiple jump channels, not the rank-one kernel used here."
+        ],
+        "reasoning": "The closest path theorem does not imply the projector even by restriction: antisymmetry makes coincidence identically invisible, whereas it does not make adjacency invisible. The arithmetic simplicity and four-sine sum are separate exact checks not supplied by the general dark-space criterion.",
+        "searches": [
+          "Resultary a597acab6382 and 18c65961073f Findings and scope",
+          "arXiv:1406.6097, hard-core non-local pair loss and Zeno dynamics",
+          "arXiv:2405.04789, lattice two-body loss"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Large et al. use hard-core path transport but no one-bond absorber. Marché et al. analyze local two-body losses with on-site/coincidence configurations, not a loss row at one adjacent occupied bond in a hard-core path."
+        ],
+        "reasoning": "Under the wedge mapping the loss configuration is the antisymmetric product at sites 1 and 2. Neither a path evolution without a sink nor an on-site loss law becomes this jump under that mapping.",
+        "searches": [
+          "Resultary: exact title and sitewise survival/dimension formula for a prime path with one boundary pair absorber",
+          "arXiv:1412.1022, hard-core path and free-fermion transport",
+          "arXiv:2405.04789, two-particle localized loss"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Record a597acab6382 tabulates dimension n(n−1)/2 and antisymmetric initial weight for all-site coincidence loss on weighted paths. Record 615211805d60 is a later periodic all-bond-loss result with parity-dependent dimensions; record 18c65961073f expressly excludes the two-particle case."
+        ],
+        "reasoning": "The nearby exact tables concern different sinks, sectors, or graphs. No exact prior sitewise table for this projector was identified; semantic ranking is not exhaustive.",
+        "searches": [
+          "Resultary: exact title and formula-focused prime hard-core pair dark-state queries",
+          "Resultary exact collision dark space, adjacent pair loss zero forcing, parity-selective ring dark spaces"
+        ]
+      },
+      "rationale": "General dark subspace and hard-core path methods are credited. The surviving distinct result is the evaluated prime-family projector for a single occupied adjacent bond in the hard-core sector, giving both protected dimension and a closed probability for every localized pair and all positive loss rates.",
+      "residual_risks": [
+        "The prime-grid comparison is summary-level; some cyclotomic ingredients could coincide. An earlier equivalent exact specialization under a configuration-graph or wedge-space formulation may have escaped the searches."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material overlap in setting, different monitored subspace",
+          "evidence": [
+            "All-site on-site coincidence losses; dark space is antisymmetric exchange sector, dimension n(n−1)/2."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-exact-collision-dark-space-for-two-quantum-walkers-on-any-weight--a597acab6382",
+          "material_read": "Finding, local-mirror offsets 0–646",
+          "method": "Read Resultary local mirror",
+          "title": "Exact collision dark space for two quantum walkers on weighted open paths",
+          "trigger": "Closest earlier two-walker open-path dark-space classification"
+        },
+        {
+          "assessment": "Does not cover two particles with a single loss bond on a path",
+          "evidence": [
+            "Cycles with k≥3 and pair loss on every bond; explicit two-particle exclusion."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-adjacent-pair-zero-forcing-excludes-higher-particle-dark-states--18c65961073f",
+          "material_read": "Finding and exclusions at local-mirror offsets 330, 1918 and 8216",
+          "method": "Read Resultary local mirror",
+          "title": "Adjacent-pair zero forcing excludes higher-particle dark states",
+          "trigger": "Earlier exact adjacent-loss result"
+        },
+        {
+          "assessment": "Relevant analogue; no full-text exclusion inferred",
+          "evidence": [
+            "Summary concerns corner capture on a product grid, not adjacent-pair loss in the antisymmetric sector."
+          ],
+          "identifier_or_url": "2026/10/12/SCOPE-prime-side-rigidity-of-corner-capture-on-open-quantum-grids--12cbf9e5a74e",
+          "material_read": "Catalogue summary only; bounded full-Finding retrieval unsuccessful",
+          "method": "Resultary search and local-mirror passage requests",
+          "title": "Prime-side rigidity of corner capture on open quantum grids",
+          "trigger": "Arithmetic path-spectrum overlap"
+        },
+        {
+          "assessment": "Distributed losses and strong-loss dynamics, not the stated single sink",
+          "evidence": [
+            "Distance-selective many-body pair losses and Zeno dynamics."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1406.6097",
+          "material_read": "Primary PDF p. 1, offsets 445 and 4086",
+          "method": "Read OA passages",
+          "title": "Many-body out-of-equilibrium dynamics of hard-core lattice bosons with non-local loss",
+          "trigger": "Hard-core particles with pair loss"
+        },
+        {
+          "assessment": "Different loss configuration and dynamics",
+          "evidence": [
+            "Local two-body loss in continuum and lattice models, not the unique hard-core bond projector."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2405.04789",
+          "material_read": "PDF p. 1 offset 1473 and p. 2 offset 13129",
+          "method": "Read primary OA passages",
+          "title": "Universality and two-body losses: lessons from the effective non-Hermitian dynamics of two particles",
+          "trigger": "Closest external two-particle effective-loss comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a natural canonical trap on the two-particle configuration graph. The exact survival profile supplies information not contained in dark-state existence: it resolves which localized pairs can retain population, the arithmetic dependence on the path size, and explicit boundary and parity effects. It gives an all-size, all-loss-rate reference for localized annihilation; the underlying general projection principle alone does not provide these probabilities.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The proof establishes the stable-set/transversal equivalence exactly, classifies all jointly positive supports, supplies eight explicitly checked realizers for every three-query Boolean labeling, counts labeled paths, and excludes four-query shattering. The online upper bound analyzes every root-positive fiber and every potentially splitting second query. The direct-semantics enumerator independently confirms all cases through eight arguments (`VERIFY_OK 8`). This is a complete mathematical proof for arbitrary finite size, not an extrapolation from finite enumeration. Main boundary conditions: matching may be empty; two-edge pairs are disjoint and symmetric; the small orders require separate counts.
+PASS
 
-## Originality: PASS within inspected evidence
+The original n=4 proof incorrectly says no matching gives exactly two positives on the path ab,bc,cd: matching ad,bc gives 101. The complete replacement proves the right obstruction: the first and last omissions ab and cd are complementary, so their labels always agree on four vertices, and 110 is impossible. It also clarifies that the four positive omissions are a cycle with the matching edges as diagonals, and that three cycle edges identify those diagonals via the path's bipartition. Every unmatched vertex must be included and exactly one endpoint of each matched edge must be omitted, so an all-positive support has a common omission size. This gives the singleton and pair counts (on four vertices only three complementary two-omission pairs fail; for n>=5 a spare vertex allows either individual positive label). Only two-edge hypotheses have three or more positives and three of their four transversal pairs form a P4. All eight trace witnesses with a fifth vertex check directly; any three positives from a full cycle force the fourth. For the online upper bound, a second distinct two-omission query sharing one vertex with the first leaves, in the joint-positive fiber, a fixed edge and a second edge with a single varying endpoint; any further query is constant or true for at most one endpoint. A disjoint second two-omission query leaves at most two hypotheses. Thus no root-positive class can support depth three; zero- and one-omission cases are smaller, and >2 omissions have no positives. For n<=4 no root-positive class can support depth two; the stated small static lower bounds then suffice. Independent bounded check `python3 /tmp/opencode/argument-review.py` used all 2^n queries, endpoint-first matching enumeration and each framework's conflict-free attack-union test, then direct restriction traces and exact bounded splitting for n=1..5. It reproduced the profiles and depths, including exactly 000,010,101,111 for the n=4 path and (1,16,55,60) with depth 3 at n=5. Frozen verify.py was inspected, not executed. The all-order result rests on the repaired argument, not finite tests.
 
-The closest 2026 paper of Malmqvist (https://doi.org/10.1093/logcom/exag049) is the directly motivating inverse learning problem and supplies general and sparse VC bounds rather than the complete two-edge matching shattering polynomial or the adaptive dimension in its accessible abstract. The 2019 full text of Niskanen, Wallner and Järvisalo (https://doi.org/10.1613/jair.1.11758) studies synthesis and stable consistency, not this hypothesis-class invariant. Mathematical-record searches also surfaced results on **fixed** degree-one graphs' maximal-independent-set membership classes, which swap the variable framework with the fixed graph and do not entail the current theorem. A primary full-text comparison of Malmqvist's 2026 paper was blocked by access restrictions, and historical novelty is therefore provisional; no independence or exhaustive historical exclusion is asserted.
+## originality
 
-## Value: PASS
+PASS
 
-The first nontrivial two-conflict model for learning sparse symmetric attack relations permits a complete enumeration of shatterable query sets, not just a VC upper bound. The surprising four-vertex-path characterization and static/adaptive equality quantify precisely how much adaptivity helps in this natural restricted inference model (namely, not at all). The sharp five-argument threshold and all-size polynomial provide reproducible baselines for denser and asymmetric generalizations, without claiming those generalizations are established.
+The distinct contribution is the exact labeled support enumeration and adaptive dimension for the varying symmetric at-most-two-edge framework class. The same-day functional-attack record counts extension multiplicities, not restriction traces as the framework varies. The closest learning paper is credited and remains a specific access risk; the evidence supports a best-of-current-knowledge verdict for the exact claim rather than a blanket statement about stable-semantics learnability. The repair changes only the validity of the n=4 argument and explanation, not the priority comparison.
 
-## Residual scientific limits
+## value
 
-The model varies the attack graph on a fixed labeled argument universe; it does not describe VC dimension of extensions in one fixed graph. Full 2026 motivating article was not obtained lawfully. Other synonymous formulations in prior publications might cover the exact classification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Two disjoint symmetric attacks give the first matching class with interacting omitted-pair queries and static triples. The exact P4 characterization and the four-versus-five-vertex threshold reveal why the size-three traces appear; the positive-fiber obstruction also bounds a genuinely adaptive learner, which static enumeration alone cannot do. This is a useful sharp structural baseline for synthesis or learning with sparse symmetric attacks, not a restatement of the stable-extension definition or a one-instance count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

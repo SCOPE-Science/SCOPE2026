@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:43:44.185139Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The repair makes only the second maximum a contribution, over fixed positive shifts not powers of p for each odd prime, with cyclic indexing and Pearson normalization. Splitting the units digit under addition gives the raw product-sum carry recurrence, and the squared-mean/second-moment ratio [3(p+1)/(2(2p+1))]^L decays to zero. At lag one the recursion contracts, and larger fixed shifts use smaller arguments, so the rational limit is the Pearson limit. Dividing a shift by an exact factor of p preserves the limit. For reduced one-digit shifts, exact integer and square sums give C_2, C_1-C_2>0 and C_2-C_p(a)>0 for 3<=a<p; its comparison polynomial decreases to p-2>0 (empty range for p=3). For a reduced multidigit shift both input lags are positive, so the known first-tier bound gives C<=C_1(U_1+V_1)/B. The gap to C_2 is strictly positive, with numerator 3(p^2+p+6) over the stated positive denominator. All remaining equality cases are exactly 2p^k. Replay python3 /workspace/branches/reproduce_pascal.py (SymPy) independently checked the seven polynomial identities and reconstructed all exact raw and centered cyclic correlations from actual modular Pascal rows for (p,L)=(3,5),(5,3),(7,2); those examples corroborate the proof but do not establish it. No finite-length ranking or growing-shift claim is made. The original checker remains applicable.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The strongest odd-prime comparator bounds every shift by C_1 and classifies equality but does not claim C_2 is the sharp maximum over the complement.",
+          "The binary result gives the first maximum and infimum for p=2, for which 2 is not a distinct digit below p. The cited literature concerns a digit product, marginal residue distributions, and whole-row encodings."
+        ],
+        "reasoning": "The all-shift first-tier theorem supplies bounds for both inputs in the carry step. This does not automatically give the necessary comparison with C_2, and the binary case cannot specialize to the odd-prime runner-up.",
+        "searches": [
+          "fbb674004d64 Finding, Proof, Sharp upper bound and equality",
+          "7be946ab1fa0 Finding",
+          "arXiv:1704.05872, arXiv:2309.12942, arXiv:2201.06636"
+        ]
+      },
+      "checked_sources": [
+        "fbb674004d64",
+        "7be946ab1fa0",
+        "arXiv:1704.05872",
+        "arXiv:2309.12942",
+        "arXiv:2201.06636",
+        "3afe7626d587 (target itself)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "With t>=1 and nonzero units digit, the old proof uses the row-sum deficiency to show C_p(h)<C_1. The repaired theorem separately proves the strongest such row-sum bound times C_1 is strictly below C_p(2), by a new positive gap identity, and orders the remaining one-digit shifts by a separate polynomial comparison."
+        ],
+        "reasoning": "The exact numerical value C_p(2) is directly evaluable from the known kernel and is not a standalone novelty claim. What survives is its being strictly maximal on the complement with exactly the stated equality family; strict comparison only with C_1 would not establish this.",
+        "searches": [
+          "fbb674004d64 material at offsets 0 and 2600",
+          "Comparison of its strict upper bound with the repaired global C_2 gap"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fine's product weight is the product over digits of d+1. The normalized cyclic convolution has the same limit as centered Pearson because the centering term decays; fbb674004d64 identifies both."
+        ],
+        "reasoning": "The other record's rho_p and the present C_p are the same statistic, not distinct raw and centered limits or different boundary conventions. Its coefficient polynomials equal the two carry sums. Credit that equivalence rather than rebranding the kernel.",
+        "searches": [
+          "Local Resultary: Pascal row nondivisibility cyclic Pearson correlation second largest among non-power shifts odd prime 2p^k sharp runner-up",
+          "Primary literature: Pascal triangle nondivisible entries digit product autocorrelation fixed shift cyclic odd prime weighted digits Riesz product second maximum correlation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "3afe7626d587 is the assigned record itself; its appearance is not independent coverage.",
+          "fbb674004d64 gives examples 8/11 and 4/5 for the first maximum, with no identified runner-up table or bound in the read theorem and proof. Other nearby results studying column residues or character covariances have different observables."
+        ],
+        "reasoning": "A recursive exact evaluator or first-maximizer table is not a second-maximizer table. The repaired equality family concerns the complement of powers for all odd primes, not individual computed numbers.",
+        "searches": [
+          "Resultary runner-up query above; read fbb674004d64 Finding and Proof",
+          "Resultary 7be946ab1fa0 and indexed adjacent Pascal-row/column results"
+        ]
+      },
+      "rationale": "The repaired statement credits the previously covered carry kernel and first tier and isolates the sharp runner-up with all its equality cases. No inspected comparator states or gives this all-shift extremum as a special case of a stronger theorem. Knowing the recursive function lets one evaluate C_p(2), but does not by itself establish its rank among infinitely many shifts.",
+      "residual_risks": [
+        "The weighted-digit primary-literature query was low-yield; broader autocorrelation literature could contain an unindexed equivalent runner-up result.",
+        "Priority order between the same-day odd-prime records is not established; the repaired text does not claim newness for the overlapping results."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact material overlap with the original; no second tier in the read theorem and proof",
+          "evidence": "Rational fixed-lag cyclic Pearson limit, carry recurrence, positive lag bound 2(p+1)/(2p+5) with equality exactly at powers of p.",
+          "identifier_or_url": "fbb674004d64",
+          "material_read": "Finding, assumptions, Proof (rational limit and sharp first maximum), remaining discussion",
+          "method": "Resultary local mirror, offsets 0 and 2600 and later text",
+          "title": "Sharp cyclic Pascal-row correlations at every odd prime",
+          "trigger": "Same cyclic statistic, prime range, recurrence and first maximum"
+        },
+        {
+          "assessment": "Different prime and extremal question",
+          "evidence": "Binary maximum 2/3 at powers of two and infimum zero, not the odd-prime distinct digit 2 family.",
+          "identifier_or_url": "7be946ab1fa0",
+          "material_read": "Finding",
+          "method": "Resultary local mirror, offset 0",
+          "title": "Sharp shift correlations for the odd-entry counts in binary Pascal rows",
+          "trigger": "Same cyclic count for p=2"
+        },
+        {
+          "assessment": "Supplies marginal identity",
+          "evidence": "The row count is the product of one plus each base-p digit; the inspected passage is not a shifted correlation claim.",
+          "identifier_or_url": "https://arxiv.org/abs/1704.05872",
+          "material_read": "p. 1, Fine formula",
+          "method": "OA PDF, offset 1460",
+          "title": "A matrix generalization of a theorem of Fine",
+          "trigger": "Same row count and digit characterization"
+        },
+        {
+          "assessment": "Marginal/distribution focus in inspected material",
+          "evidence": "Defines counts in a row and across initial rows, with character-weighted distribution questions.",
+          "identifier_or_url": "https://arxiv.org/abs/2309.12942",
+          "material_read": "p. 1, abstract and definitions",
+          "method": "OA PDF, offset 0",
+          "title": "Asymptotic Distribution of Residues in Pascal's Triangle mod p",
+          "trigger": "Same underlying count and asymptotic setting"
+        },
+        {
+          "assessment": "Different row observable",
+          "evidence": "Encodes each whole row modulo p as a base-p integer, not its count of nonzero entries.",
+          "identifier_or_url": "https://arxiv.org/abs/2201.06636",
+          "material_read": "p. 1, abstract and setup",
+          "method": "OA PDF, offset 0",
+          "title": "On digital sequences associated with Pascal's triangle",
+          "trigger": "Digital reformulation of Pascal row data"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The runner-up quantifies the strict gap from the principal resonance and identifies every shift attaining the next level, using a uniform comparison of all remaining digit patterns. This strengthens a natural dependence question for Pascal rows; simply evaluating the single lag 2 would not supply that information.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

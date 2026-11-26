@@ -1,31 +1,21 @@
-# Scientific review: cyclic integer diffusion periodic-point census
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact claim counts configurations already satisfying the two-step return equation, not states that merely enter an attractor. The edgewise sign-reversal lemma is proved for arbitrary finite graphs by a nonnegative dot-product identity, including ties and graphs with cycle space. On a simple ring, the local signed-gap intervals are both necessary and sufficient. Summing gaps to zero exactly enforces reconstruction of a unique integer configuration modulo translation. This proves the nine-state constant-term identity. The displayed quartic characteristic polynomial was confirmed by a symbolic exact determinant and is independently consistent with integer Newton-power-sum recurrence counts. A primitive Perron component and a strict unit-circle spectral-radius inequality give a unique Gaussian saddle with the stated coefficient, excluding spurious periodic contributions elsewhere on the unit circle. The known general period-at-most-two theorem supplies the last step from two-step-return points to *all* periodic points.
+PASS
 
-Direct exhaustive dynamics reproduced the counts for ring orders \(3\) through \(8\), restricting only to gaps within the **proved** bound of three. Independent transfer/Newton calculations agree for ring orders \(3\) through \(17\). These finite computations are checks, not an extrapolation to all ring sizes. There is no experimental substitute for the analytic asymptotic proof.
+For two-step returns the edge dot-product proof shows reversal: each summand (d+d′)(sgn d+sgn d′) is nonnegative and strictly positive whenever the sign sum is nonzero, even on a cycle. Reversal bounds each signed gap by the given interval, closure imposes sum zero, and total conservation makes periodicity modulo translation actual periodicity. The repaired proof uses this prior census; checked elimination in the eight-state block independently: eliminating six coordinates gives determinant (X−Y)(X+Y)/(λ⁴−1), whose factors cancel λ²+1 and λ²−1 to give the displayed quartics. Trace powers and [z^0](1+z+z⁻¹)^k give the Newton/trinomial formula. Cycles of lengths 2 and 3 in the irreducible block give primitivity, and the polynomial weight z+z²+z³ makes the Perron comparison strict at every nonzero angle. The simple real branch has log curvature −σ² by implicit differentiation, the other contributions are uniformly exponentially bounded, and the Gaussian integral gives the stated constant. Independent check /workspace/branches/54b4f905-8ecc-4681-9c2f-e0a1ad917f00/independent_check.py (logs small_run.txt and full_run.txt there) gives direct counts through n=8, Laurent and Newton checking through n=17, and the exact symbolic determinant. The reproduced values ρ=3.609570902223896, σ²=0.470215736086587, and prefactor 0.581783615600867 are not a proof of asymptotics.
 
-Risk: the symbolic determinant and asymptotic Perron argument remain subject to normal independent human proof scrutiny, which has not been performed.
+## originality
 
-## Originality — PASS, qualified
+PASS
 
-The foundational 2016 preprint [1] defines the rule and proves eventual periodicity on cycles, but does not enumerate the finite, translation-normalized set of configurations already periodic. The 2017 theorem [2] proves that all eventual periods are one or two and develops an edge-sign argument; its implication stops at period restriction, not the quartic enumerator or the asymptotic count. The present work makes no originality claim for the basic diffusion rule, cycle eventual-periodicity assertion, period-at-most-two theorem, or sign-reversal argument. The object-level contribution is the entire ring periodic-point count as an exact central Laurent coefficient, its two-quartic reduction, and its sharp growth constant.
+Best-of-knowledge pass for the repaired quartic factorization, evaluated polynomial-only count and sharp asymptotic. The identical census input is marked prior, not counted as a contribution.
 
-Targeted literature and result-database searches used combinations of cyclic integer diffusion, two-step recurrent states, exact count sequences and spectral transfer. No accessible source giving these same formulas, or a stronger theorem implying them, was identified. The closest internal claim records on complete graphs and double-star trees do not imply the arbitrary-cycle result: one is a complete-graph enumeration (sharing only the triangle case), and the other concerns trees with two hubs. The comparisons are by graph family and invariant, not by titles alone.
+## value
 
-Risks: absence of a search hit is not proof of priority; unindexed earlier transfer enumerations and database entries could exist. The 2017 paper provides an essential established periodicity theorem, not an independent validation of the new count.
+PASS
 
-## Mathematical value — PASS
+The central count for periodic points on a labelled cycle is a natural invariant. The repair determines its actual exponential rate, the single zero-winding penalty n^−1/2, and the leading constant, none supplied by counting orientations or by eventual periodicity. The quartics give a practical exact polynomial-only enumerator and the curvature controlling the asymptotic.
 
-The integer-diffusion model had a notable gap between its qualitative periodicity theorem and exact distributions of already-recurrent states. The ring is the fundamental non-tree one-dimensional family, and translation-normalized periodic-point growth is a natural invariant in dynamical systems. The result replaces an uncounted infinite family by an explicit finite transfer, an unexpected factorization into two quartics, exact primitive-two orbit counts and a universal \(n^{-1/2}\) prefactor. The square-root correction has structural meaning: cyclic gap integration imposes a zero-sum constraint on an otherwise exponentially growing local-sign language. No unrelated parameter slice or artificial finite cutoff is used.
-
-Limitations of scope are stated in `RESULT.md`; the theorem does not enumerate transient basins, and no general-graph extension is claimed.
-
-## Closest literature
-
-[1] Duffy, Lidbetter, Messinger, Nowakowski, *A Variation on Chip-Firing: the diffusion game*, arXiv:1609.05792, first public September 19, 2016, especially Section 2.2 (cycle eventual periodicity).
-
-[2] Long, Narayanan, *Diffusion on graphs is eventually periodic*, arXiv:1704.04295, first public April 13, 2017, Theorem 1.1 and its proof via a decreasing edge-sign potential.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

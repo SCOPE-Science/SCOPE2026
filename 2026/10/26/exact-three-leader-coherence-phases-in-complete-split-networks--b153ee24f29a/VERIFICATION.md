@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-Run `python verify.py` after installing `requirements.txt`.
+## correctness
 
-The checker asserts 24 exact symbolic identities: rational pairwise cost formulas for the low-periphery cases, the two positive-coefficient shifted numerator certificates, and the infinite-range comparison. It evaluates 45,746 integer parameter pairs using Python's exact `Fraction` arithmetic and reconstructs 140 grounded Laplacians independently from graph adjacency before taking exact matrix inverses with SymPy.
+PASS
 
-Recorded result from the included program:
+The clique and peripheral permutation symmetries reduce the problem to the four allocations. Independently eliminating the peripheral block rI_v gives clique Schur eigenvalues r+m (multiplicity u−1) and w=m+a−uv/r>0. Block inversion yields J_a=(u−1)/(r+m)+v/r+(1+uv/r²)/w, including v=0 by direct interpretation. This equals the frozen trace formula. Exact rational reduction from this expression reproduced the comparisons for m=3,4,5,6 and J_2−J_3=(m−1)(r−6)/(3r(3r+2m−2)). For m≥7, J_3−J_0 has the sign of −[(m−3)(r+m−6)−18], strictly negative throughout; clearing positive denominators in J_1−J_2 and shifting by r=4,m=7 gives the nonnegative-coefficient polynomial with positive constant 92 in the record. Thus 0 and 1 cannot minimize in that range. At m=6,r=6, 0,2,3 tie and 1 is strictly worse. The other inequalities give precisely the listed winning allocations and the binomial count follows from symmetry. I inspected the frozen verification material but did not execute it; the unrestricted inference is algebraic, not from the recorded parameter sweep.
 
-`VERIFY_OK symbolic_identities=24 parameter_pairs=45746 independent_laplacian_inverses=140`
+## originality
 
-All results above were executed on this exact standalone script. The finite numerical/algorithmic checks do not certify the infinite theorem; correctness for all allowed integers comes from the algebraic proof in `RESULT.md`. No external proof assistant or independent auditor has verified the theorem. No random trials or approximate eigenvalue cutoffs are used.
+PASS
+
+The strongest earlier exact-three-leader source is for complete bipartite graphs, not graphs with an internal clique; the same-day strongly regular result excludes this nonregular graph. The later balanced-split theorem is a narrower overlapping case, not an exact result for the two independent part sizes. General coherence tools provide the setup but not the complete optimizer and tie classification. This is a bounded comparison, not a certification of priority.
+
+## value
+
+PASS
+
+The complete split graph is a canonical dense inhomogeneous graph and three leaders allow genuinely mixed optimal choices. The classification resolves when two clique leaders beat both pure allocations, and identifies a triple tie and the separate switch thresholds. This permits exact selection and multiplicity across all sizes, including unequal parts, rather than an illustrative finite grid or a restatement of the trace objective.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

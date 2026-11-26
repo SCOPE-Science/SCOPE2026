@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:27:33.096823Z",
+  "axes": {
+    "correctness": {
+      "rationale": "This verdict applies to repairs/5/RESULT.md. The frozen large-|y| expansion at line 141 is false as written: its additive constant counts b=1/(2α) twice. With v+=D/α and δ=1−z_y, the saddle gives δ=c/y²+O(y⁻⁴), c=2bv+²/L. The variance term contributes +b, while the entropy contributes a log z₀+b log(1−z₀)−b log c beyond 2b log|y|, with no second +b. The corrected remainder is O(y⁻²). Independently, the normalized weak/strong variance conditional laws are Beta(aq+1,bq) and Beta(aq,bq+1), each with mass 1/2. The resulting mixture yields the stated positive amplitude and strictly convex phase with unique interior minimum, and Stirling plus Laplace yields the leading prefactor and the posterior normal limit. Compact-y uniformity follows by a uniform saddle gap and integrable endpoint majorant after extracting one phase factor. The derivative in y² is positive, giving increasing z_y and current-state posterior. Expanding the saddle at zero gives the quartic coefficient L²/(8v₀⁴H₀)=(α+β)(β−α)²/(64D²) and the relative-error bounds at smaller/intermediate scales. The fixed-q endpoint power and prefactor use the separate one-sided Laplace integral with exponent bq−1. Replay: python /workspace/checks/reproduce.py 5. It independently confirms the constant discrepancy (frozen error tends to −1/2 at α=D=1, β=3 in the residual-minus-constant convention) and corroborates the rare prefactor, posterior and crossover by separate-state Gauss–Jacobi quadrature. The uploaded code was inspected, not run; it checks remote saddle location, not the additive cost constant. The replay does not prove the asymptotics.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Alston et al., Eqs. (41)–(43), treat fast-rate entropy production rather than the rare-position saddle; §6.2 concerns continuously fluctuating stiffness.",
+          "303656dc367a proves sharp tails for empirical energy at speed N with fixed q. The indexed bbe0ae7a3ed5 summary describes maximum-edge localization using log N, not q.",
+          "No applicable general WKB theorem passage was retrieved; this is not negative coverage evidence."
+        ],
+        "reasoning": "Applying a many-particle energy or maximum theorem at N=1 does not retain its large-N limit. The natural reduction Y=X/√q gives simultaneously small diffusion D/q and fast switching, so general switching-diffusion stationary asymptotics are a real coverage risk, especially for the leading exponent.",
+        "searches": [
+          "arXiv:2202.02630 §4.2.2 and §6.2",
+          "Bressloff Newby stochastic hybrid systems stationary WKB diffusion fast switching principal eigenvector prefactor quasipotential linear noise Ornstein Uhlenbeck",
+          "Resultary: switching harmonic gas rare energy and Gumbel edge selection"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2312.02570 (main and supplemental mixing formulas)",
+        "arXiv:2202.02630",
+        "arXiv:2104.00609v2",
+        "303656dc367a",
+        "bbe0ae7a3ed5 (indexed summary)",
+        "e599bfc07eb3 (identical record)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the known mixture, the log beta density and Gaussian displacement term have comparable q-order exactly when x=√q y; one must analyze the moving saddle to obtain the sharp density and posterior.",
+          "The first loss of relative accuracy needs compact-y control and a fourth-order expansion around y=0, neither of which follows by taking a fixed-position Gaussian limit or a fixed-q tail."
+        ],
+        "reasoning": "The prior exact mixture is the input to the asymptotic analysis. The assessed new content is the explicit positive-stiffness simultaneous-limit result, the first relative-error crossover, and the associated local conditioning, not the mixture, Gaussian limit, or the mere possibility of non-Gaussian tails.",
+        "searches": [
+          "arXiv:2312.02570 main and supplementary mixture equations",
+          "arXiv:2202.02630 §4.2.2",
+          "arXiv:2104.00609v2 p. 10–11"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "At N=1, the exact Biroli et al. variance mixture is the same model and stationary law.",
+          "Santra et al. obtain the fast-switching averaged Gaussian and discuss far tails for a trap switching on and off; the weak-state stiffness is zero.",
+          "The exact Resultary match e599bfc07eb3 is the assigned record itself."
+        ],
+        "reasoning": "The same explicit integral is equivalent at finite q; fixed-position averaging and fixed-rate tails are not equivalent to the two q-dependent displacements or their relative density limits.",
+        "searches": [
+          "arXiv:2312.02570 Eqs. (12)–(13), Supplement (S49)–(S52)",
+          "arXiv:2104.00609v2 Eqs. (30)–(34)",
+          "Resultary: fast switching harmonic trap rare position quartic Gaussian relative error"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact catalogue match was the assigned record; distinct retrieved 303656dc367a and bbe0ae7a3ed5 involve population-size asymptotics.",
+          "The prior finite-rate stationary law is explicit; the inspected formulas are not a table of relative fast-switching density corrections or current-phase limits."
+        ],
+        "reasoning": "There is no distinct exact match in the comparisons made, not a guarantee against differently indexed equivalents.",
+        "searches": [
+          "Resultary: two-scale Gaussian-averaging failure, quartic onset and fast-switching rare-position posterior",
+          "arXiv:2312.02570 supplement, exact variance-law formulas"
+        ]
+      },
+      "rationale": "For the corrected result, credit the exact stationary mixture and usual central Gaussian to prior work. The remaining contribution is its quantified two-scale fast-switching density limit and current-state posterior in the positive-stiffness model. No inspected result states or directly specializes to this full asymptotic claim; the stationary integral is a strong precursor from which the result is derived, not itself a new law. Priority remains bounded.",
+      "residual_risks": [
+        "Biroli et al. cite still earlier single-particle analyses; their references [42], [43], [45], [46], and [48] were not separately inspected in full.",
+        "General stationary small-noise/fast-switching theorems, or more general Gaussian variance-mixture expansions, might imply parts of the claim. No exact matching theorem was verified.",
+        "The Gumbel-edge comparison is limited to its available indexed statement."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers full finite-parameter mixture; inspected passages do not state the two-scale q-asymptotics",
+          "evidence": "The mixture and explicit mixing density retain the rates. The article's population extreme limit is a different parameter limit.",
+          "identifier_or_url": "https://arxiv.org/abs/2312.02570",
+          "material_read": "Introduction, Eqs. (12)–(13), Supplement Eqs. (S49)–(S52), and references [42]–[48] list",
+          "method": "OA PDF passage inspection",
+          "title": "Dynamically emergent correlations between particles in a switching harmonic trap",
+          "trigger": "Exact same stationary single-particle law at N=1"
+        },
+        {
+          "assessment": "Same-process fast-rate comparison for a different statistic",
+          "evidence": "The fast switching formula treats entropy production, and §6.2 instead considers continuous fluctuations of the stiffness.",
+          "identifier_or_url": "https://arxiv.org/abs/2202.02630",
+          "material_read": "§4.2.2 Eqs. (41)–(43) and §6.2 relevant text",
+          "method": "OA PDF passage inspection",
+          "title": "Non-equilibrium thermodynamics of diffusion in fluctuating potentials",
+          "trigger": "Symmetric switching with both stiffnesses positive"
+        },
+        {
+          "assessment": "Covers fast averaging and discusses tails in a boundary model, not the two-positive-stiffness sharp limits",
+          "evidence": "Eq. (31) is the limiting Gaussian with relaxation μ₀/2; the trap switches on/off and the same passage describes exponential tails at finite switching rate.",
+          "identifier_or_url": "https://arxiv.org/abs/2104.00609v2",
+          "material_read": "pp. 10–11, Eqs. (30)–(34), PDF text offset 36650",
+          "method": "OA PDF locate and passage inspection",
+          "title": "Brownian motion under intermittent harmonic potentials",
+          "trigger": "Biroli et al. reference [44], prior fast-switching stationary position and far tails"
+        },
+        {
+          "assessment": "Sharp result for a different limit and observable",
+          "evidence": "Empirical quadratic position energy has an N-speed rate and N⁻¹ᐟ² edges with fixed switching rates.",
+          "identifier_or_url": "2026/11/8/SCOPE-sharp-rare-energy-tails-and-finite-size-edge-smoothing-in-a-swit--303656dc367a",
+          "material_read": "RESULT.md Finding and assumptions at offset 0",
+          "method": "Resultary search and local mirror statement comparison",
+          "title": "Sharp rare-energy tails and finite-size edge smoothing in a switching harmonic gas",
+          "trigger": "Closest inspected published catalogue rare-tail theorem for same variance model"
+        },
+        {
+          "assessment": "Related population-edge result; not a full-text noncoverage determination",
+          "evidence": "The summary uses 1/log N scaling and fixed switching rates.",
+          "identifier_or_url": "bbe0ae7a3ed5",
+          "material_read": "Resultary summary; local full file unavailable in this inspection",
+          "method": "Indexed statement only",
+          "title": "Two-sided Gumbel boundary layers and asymmetric finite-size leakage in a switching harmonic gas",
+          "trigger": "Possible prior hidden-variance selection"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The repaired result quantifies the first breakdown of Gaussian relative accuracy rather than merely observing nonuniform tails, distinguishes a quartic correction from a nonlinear rare-displacement rate, and recovers both stiffnesses from their separate signatures at known diffusivity. The posterior shows what information about the current hidden state survives averaging in a rare observation. These are natural features of the known stationary law, not a new notation for it.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

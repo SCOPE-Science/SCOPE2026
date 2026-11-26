@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** Every affine map is identified with a unique finite binary string, and the selectable \(01\) pairs do not overlap. The proof computes exact parsing multiplicity, a two-state transfer generating series, and a finite-time conditional entropy identity. An ergodic law and Stirling estimate yield the entropy rate; the already-published real-line entropy-dimension theorem supplies the dimension identity. Independent relative-entropy comparison with fair-bit renewal gaps proves strict singularity at all positive weights. Exact finite checks for generator time through \(n=9\) agree with the formulas, but these tests are not infinite proofs.
+## correctness
 
-**Originality — PASS, with residual risk.** Kittle and Kogler (arXiv:2610.10511v1, Theorem 1.1) already prove the general dimension formula, which is acknowledged and not treated as new. Varjú (arXiv:2509.22042v2) defines and motivates the semigroup entropy, with older algebraic-case theorems already sufficient for the generic dimension identity in this example. Crucially, Böcherer et al. (arXiv:0911.1090v2, Section V) already explicitly analyze the identical code \(0,1,01\), demonstrating the misleading source-entropy calculation and then excluding ambiguous sources. That paper does not give the collision-adjusted entropy or the resulting exact all-weight dimensions and generator-length counts. These pre-existing observations are acknowledged rather than presented as discoveries. published-finding corpus comparisons with records on variable-length non-overlapping codes and word avoidance concern different objects or properties. A prior equivalent special case in renewal coding or finite-type self-similar literature remains possible.
+PASS
 
-**Mathematical value — PASS.** The three-token system \(0,1,01\) is a natural redundant-generator model already used in information theory to expose ambiguity. Its complete collision entropy for arbitrary probabilities resolves the old example quantitatively and supplies the explicit dynamical invariant needed by the recent general dimension theorem; the full-support strict singularity holds throughout the positive probability simplex. The exact rational product-count series additionally exhibits structure not captured by the naive count \(3^n\).
+At fixed digit length the translation distinguishes the bit string, and the slope distinguishes digit lengths. Occurrences of 01 are disjoint; choosing which are single tokens gives exactly binomial(M,L−n) parsings at generator time n. The two-state occurrence series is 1/(1−2u+u²(1−v)), and summing the interval L−M through L gives the claimed series, including n=0. Partial fractions give A_n=F_(2n+3)−2^n (F_0=0, F_1=1), hence the stated growth. For fixed output at time n the token counts are fixed, so the conditional parses are equiprobable. The entropy loss is the expected log binomial; the strong law for single tokens and adjacent pairs and the uniform log-binomial estimate give the stated limit. The digit gap law p_0=b, p_k=(ab+c)a^(k−1) has mean block length (1+c)/(1−a) and (1−a)H(p)=h. Its relative entropy from the fair-bit gap law is strictly positive, since equality forces c=0. The established dimension identity applies with contraction exponent −(1+c)log 2; both binary branches have positive weight, giving full support, and the strict dimension drop gives singularity. Equal weights give the stated dimension. The supplied script was inspected as text only; the analytic reconstruction, not its finite output, establishes the scope of the claim.
 
-Independent expert scrutiny is not represented. There is no claim of priority over the general entropy-dimension theorem or of coverage of other variable-length codes.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the published same-token ambiguity, special input probabilities and general entropy–dimension theorems. The supported distinct content is the exact generator-time enumeration and the collision-corrected product entropy for all positive weights, with the explicit dimension as an application. No inspected prior statement covers these calculations in full. This is a best-of-knowledge assessment, not a priority guarantee.
+
+## value
+
+PASS
+
+This is a published ambiguous code and a natural small exact-overlap example, not an arbitrary parameter slice. The exact growth separates generator time from digit length, and the entropy correction quantifies precisely the information lost by merging parses, including the published law whose unmerged entropy exceeds the binary per-digit ceiling. The dimension application illustrates the difference between full support and absolute continuity; it is not a new general dimension theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

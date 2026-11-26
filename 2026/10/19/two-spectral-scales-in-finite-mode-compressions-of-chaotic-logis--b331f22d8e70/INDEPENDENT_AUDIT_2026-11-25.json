@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:08:45.419811Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, equations (1)–(6) and assumptions",
+        "Frozen VERIFICATION.md, analytical checks and scope",
+        "Frozen verify.py, moment, recurrence, and determinant tests"
+      ],
+      "rationale": "Under x=(1-cos(theta))/2, the centered integral is -1/4 times the m-th cosine coefficient of a(theta)=g(x(theta)) sin(theta). Since m is even, the boundary contributions alternate in the stated signs; a'(0)=g(0), a'(pi)=-g(1), a'''(0)=3g'(0)/2-g(0), a'''(pi)=3g'(1)/2+g(1). Integrating 2r times gives the claimed remainder by Riemann–Lebesgue; two more derivatives give the stronger bound. Endpoint evaluation has rank two, split into even and odd rank-one blocks, with exact parity cancellation by logistic reflection. For polynomials vanishing at both endpoints, the theta^5 coefficient of a for their product is p'(0)q'(0)/16, with the reflected coefficient at pi. This yields the 15/8 derivative Gram coefficient. On endpoint complements the leading block is T*T/(4m^2) and the coupling is 3T*RJ/(8m^4), with T invertible and R=diag(-1,1). Eliminating the complement subtracts 9/16 J*J, leaving 21/16. To verify multiset convergence even at a zero limiting eigenvalue, apply Schur inertia to H-m^(-6) z I for each real z outside the limiting spectrum: the complement block stays positive and the rescaled Schur block tends to (21/16)J*J-z I. This yields exactly the claimed small-eigenvalue counts and limits. Writing p=x(1-x)s gives the rank and, at d=2, the ratio of squared derivative norm 2 to squared polynomial norm 1/30, hence 315/4. The asserted signs at the two scales are asymptotic, not signs for every n. All matrix estimates are at fixed cutoff; the bundled rational program is finite corroboration only and was inspected, not executed.",
+      "residual_risks": [
+        "No control for growing d or signs/orders below the secondary tier."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 2 gives exact fixed-index moments for all n and an O_kl(4^-n) estimate.",
+          "The catalogue theorem gives exact spectra and rank-dependent transitions relative to the iterate degree, under a different measure."
+        ],
+        "reasoning": "The moment formulas determine the finite matrices but do not themselves supply a spectral asymptotic theorem. The exact spectra in the other inner product do not cover these Lebesgue compressions.",
+        "searches": [
+          "arXiv:2607.19159v1, §4.2 Theorem 2",
+          "Resultary: 2026/11/1/SCOPE-exact-finite-section-spectral-transitions-for-chebyshev-iterates--55143ffed1ca"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2607.19159v1",
+        "Resultary 2026/11/1, 55143ffed1ca",
+        "Focused primary-literature lookup on logistic compression and spectral scales; no relevant result in that lookup"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A fixed-index O(4^-n) estimate cannot by itself separate spectral scales. Extracting the secondary coefficient from exact entries requires treating the degenerate kernel and its coupling to the leading block; the direct kernel coefficient 15/8 is not the eigenvalue coefficient 21/16."
+        ],
+        "reasoning": "Exact numerical derivability is not a stated stronger spectral theorem or a parameter substitution. The boundary expansion and coupled-block analysis are substantive additional steps.",
+        "searches": [
+          "arXiv:2607.19159v1, Theorem 2 and proof",
+          "Resultary 55143ffed1ca, RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorem 2, Eq. (24): H_kl=x_kl(n;4)-delta_kl/2 in exactly the same normalized shifted-Legendre basis.",
+          "The catalogue comparison uses the arcsine invariant measure and Chebyshev modes."
+        ],
+        "reasoning": "The first equivalence is exact for matrix entries; the other is not a unitary identification of the retained finite subspaces. Chebyshev conjugacy identifies the scalar dynamics but does not change Lebesgue projection into arcsine projection.",
+        "searches": [
+          "arXiv:2607.19159v1",
+          "Resultary: SCOPE-exact-finite-section-spectral-transitions-for-chebyshev-iterates--55143ffed1ca"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Strongest catalogue match 55143ffed1ca provides exact results for arcsine/Chebyshev sections, not the requested constants.",
+          "Theorem 2 is an exact formula for entries, not a table of the Lebesgue spectral limits."
+        ],
+        "reasoning": "No verified catalogue or exact formula located states the Lebesgue endpoint-evaluation or secondary spectrum; the exact known entry law is expressly credited.",
+        "searches": [
+          "Resultary semantic lookup for fixed-cutoff logistic iterate compression spectra",
+          "arXiv:2607.19159v1, Theorem 2, equations (25)–(29)"
+        ]
+      },
+      "rationale": "The exact entries of the same Legendre compression and their O(4^-n) estimate are existing work. The supported distinction is the endpoint-jet expansion and the resulting two-scale spectral law, particularly the cancellation of the would-be m^-4 small-eigenvalue scale and the Schur-corrected m^-6 limit. A separate catalogue result has exact spectra in the arcsine/Chebyshev compression, not the Lebesgue/Legendre compression. Neither inspected statement gives the new spectral assertion as a direct special case.",
+      "residual_risks": [
+        "Search was bounded. An equivalent spectral extraction elsewhere from the known exact moments remains possible; an unrelated search return is not evidence against priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers exact entries and leading entry bound, not the two spectral tiers as stated",
+          "evidence": [
+            "Normalized shifted Legendre convention in Eq. (5); fixed-index matrix definition in Eq. (24); Chebyshev formula and centered O(4^-n) bound in Theorem 2."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2607.19159v1",
+          "material_read": "§2.3 Eq. (5), p. 3; §4.2 Eq. (24), Theorem 2 and Eqs. (25)–(29), pp. 9–10",
+          "method": "Lawful OA full-text passage inspection",
+          "title": "Quantum logistic map considered as discrete-time Heisenberg equation",
+          "trigger": "Same r=4 map, scalar iterates and fixed Legendre matrix moments"
+        },
+        {
+          "assessment": "Different measure, retained basis and cutoff regime",
+          "evidence": [
+            "The setting is arcsine invariant measure and Chebyshev modes; transitions depend on retained rank relative to 2^n."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-exact-finite-section-spectral-transitions-for-chebyshev-iterates--55143ffed1ca",
+          "material_read": "RESULT.md, finding and model at offset 0",
+          "method": "Local Resultary search and mirrored full-text passage inspection",
+          "title": "Exact finite-section spectral transitions for Chebyshev iterates",
+          "trigger": "Strongest related catalogue match: spectra of finite sections of Chebyshev iterates including logistic degree two"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, spectral assertions (2)–(3)",
+        "arXiv:2607.19159v1, Theorem 2"
+      ],
+      "rationale": "For a natural polynomial Galerkin approximation, this identifies how many independent directions see the leading endpoint effect and how coupling changes the first nonzero eigenvalues in the endpoint-null space. An entrywise decay bound cannot answer either question. The explicit loss of an entire scale and the derivative-Gram coefficient are useful fixed-cutoff data, without claims about projected nonlinear dynamics or a growing dimension.",
+      "residual_risks": [
+        "Not a classification of the finer tiers or of large-cutoff spectra."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

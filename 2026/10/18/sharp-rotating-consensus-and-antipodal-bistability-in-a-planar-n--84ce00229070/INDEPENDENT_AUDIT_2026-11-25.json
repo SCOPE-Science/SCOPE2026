@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:21:31.446272Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–78, VERIFICATION.md and verify.py (inspected only)",
+        "/workspace/reviews/evidence/replay.py 1; /workspace/reviews/evidence/1.txt"
+      ],
+      "rationale": "For L>0 and a nonantipodal pair the normalized arguments of L+i(h±t) belong to the same right-half-plane branch. The determinant of the old and new double-angle vectors has sign given by 2t[(L−K)+(1−L)t²], and for t>0 both arguments lie strictly between 0 and pi; hence the determinant gives the actual direction of motion. The separation update is odd and increasing, and all monotone bounded orbits must approach finite fixed points. The determinant lists exactly the finite separators and settles K=L as repelling at zero for 0<L<1. The antipodal pairs are fixed and the identity is exactly the L=1,h=0 boundary. The diagonal multiplier L/K and the antipodal half-angle multiplier L give geometric convergence in the applicable cases. The midpoint defects are even and O(t²) near consensus after subtraction of the rigid increment, and O(t^−2) near antipodality, so they are summable. At L=1,h≠0, expanding the positive-t antipodal distance gives epsilon^+=1/t+(h²−1/3)/t³+O(t^−5), so t^+²=t²−2h²+O(t^−2). Uniform upper/lower bounds on the square decrement above any sufficiently large cutoff, and bounded subsequent residence in any fixed compact positive interval before hitting T, prove the escape constant. The proof's final epsilon_0 t_0 should read epsilon_0 |t_0| for both signs; by oddness the stated squared limit is correct. The midpoint angle is taken modulo 2pi and is defined off exact antipodality, where the full state instead remains fixed. Independent direct complex iteration, without executing the uploaded checker, corroborated the regime directions and the limiting escape scale (for h=±0.8, normalized times 0.78809, 0.78320, 0.78186 at |t_0|=32,64,128, versus 0.78125).",
+      "residual_risks": [
+        "Only the specified two-agent uniform map with the planar complex-scalar value matrix and L>0 is classified; the escape clock uses a fixed positive T."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gao–Yang–Chen pp. 31–33 give invariant-plane reduction and explicitly leave rotating-state stability regions and attraction from initial conditions open.",
+          "Altafini assumes symmetry and a real dominant eigenvalue, also retaining real strict dominance in its nonsymmetric discussion. Tomihari–Karakida treat local Jacobian effects on oscillation."
+        ],
+        "reasoning": "The real-dominant eigenvector theorem cannot be specialized to a genuine complex pair. The exact invariant-plane reduction covers the model but is not a broader theorem classifying its relative-phase basins or escape. A general parabolic map theory still needs this map's fixed-point locus and cubic term.",
+        "searches": [
+          "arXiv:2609.28448v1 §§V.1 and p. 5",
+          "arXiv:2610.13518v1 §§III,V-C",
+          "arXiv:2505.19458v4 §§3,5.1–5.2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.28448v1",
+        "arXiv:2610.13518v1",
+        "arXiv:2505.19458v4",
+        "Resultary 56f902ee9956, 6940b0c7278f, 94d39399d4d9, 105eaf2d4303"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The closely related invariant-plane paper identifies rotating states but leaves the nonlinear transition and basin problem open in the inspected passage.",
+          "Local sign-flip coexistence in the matched indexed results does not determine global basin membership, even before accounting for the different value matrices and attention laws."
+        ],
+        "reasoning": "The claimed threshold h²=L(1−L) for 0<L<1 is the sign change of the exact relative displacement, not the onset of rigid rotation. Neither the antecedent plane reduction nor a local oscillation criterion supplies its two-sided basin partition or the separate L=1 escape constant.",
+        "searches": [
+          "arXiv:2609.28448v1 pp. 31–33",
+          "arXiv:2610.13518v1 §§III,V-C",
+          "Resultary matching FINDING and scope passages"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Writing A=1+eta*c/2 and B=eta*c/2 gives updates norm(Ax_i+Bx_j) with |A|²−|B|²=L>0. After removing the common rotation arg A per step, this is norm((1−gamma)u_i+gamma R_psi u_j), with gamma=|B|/(|A|+|B|)<1/2 and psi=arg B−arg A when B≠0.",
+          "For Gao–Yang–Chen's two-token self-excluding attention the attended vector is the other token, so the planar rotation-block formulation includes the co-rotating map. B=0 is the trivial identity."
+        ],
+        "reasoning": "There is real equivalent model coverage, not merely title similarity. It does not give the finite-separation basin boundary or parabolic escape time: a time-dependent common rotation preserves the relative state, but a dynamical classification of that state is still needed.",
+        "searches": [
+          "Resultary: two-token relative-angle rotating basins, skew value matrices, h²=L(1−L), and parabolic escape",
+          "arXiv:2609.28448v1 p. 5 and Eqs. (198)–(201)",
+          "arXiv:2610.13518v1 Eq. (2) and Assumption 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "56f902ee9956 and 94d39399d4d9 classify local coexistence or thresholds for sign-flip cycles in self-inclusive softmax maps with symmetric mixed-sign values.",
+          "6940b0c7278f concerns a synchronized reflection with a period-two circle and local normal contraction. 105eaf2d4303 concerns local Floquet attraction of antipodal eigenvector cycles with symmetric negative-definite values."
+        ],
+        "reasoning": "The exact indexed thresholds and resonances do not match the rotational uniform map's pointwise fixed antipodal circle, its global basins or its L=1 escape. Same-day records were compared on substance, not excluded by date.",
+        "searches": [
+          "Resultary: sharp two-token bistability thresholds, invariant circles, and 1/(2h²) escape",
+          "Resultary 56f902ee9956, 6940b0c7278f, 94d39399d4d9, 105eaf2d4303"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the complete relative-basin portrait and sharp marginal escape law, not for the model class, planar reduction or the existence of rotating consensus in general. In particular a rotating frame puts the exact two-token update in a subfamily of Gao–Yang–Chen's earlier model. Their inspected results leave stability regions and attraction basins open, and the nearer indexed coexisting cycles concern different matrices and dynamics.",
+      "residual_risks": [
+        "Gao–Yang–Chen's model contains a frame-equivalent subfamily; other statements about such normalized circle maps could cover the portrait under different terminology.",
+        "Bounded index and literature searches do not certify historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent subfamily in a rotating frame; strongest model overlap",
+          "evidence": [
+            "Self is excluded in attention; an invariant rotation plane exists; the p. 32 discussion leaves nonlinear stability regions and attraction from initial conditions open."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2609.28448",
+          "material_read": "p. 5 and pp. 31–33, Eqs. (198)–(201), v1",
+          "method": "Lawful OA primary PDF",
+          "title": "Nonequilibrium Phases of Repulsive Self-Attention",
+          "trigger": "Rotation blocks and model equivalence"
+        },
+        {
+          "assessment": "Same starting formulation, different value eigenstructure in classification",
+          "evidence": [
+            "The convergence hypotheses require a simple positive real dominant eigenvalue; a genuine planar rotation-block value has a nonreal pair."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.13518",
+          "material_read": "pp. 2–3 Eq. (2) and Assumption 1; pp. 14–15 nonsymmetric discussion, v1",
+          "method": "Lawful OA primary PDF",
+          "title": "Asymptotic Analysis of Discrete-Time Self-Attention Dynamics in Transformers",
+          "trigger": "Same uniform residual normalization"
+        },
+        {
+          "assessment": "Local stabilization analysis rather than basin portrait",
+          "evidence": [
+            "The simplified antisymmetric system illustrates Jacobian effects, not the two-token relative displacement or escape limit."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2505.19458",
+          "material_read": "§§3,5.1–5.2, pp. 3,5–7, v4",
+          "method": "Lawful OA primary PDF",
+          "title": "Recurrent Self-Attention Dynamics: An Energy-Agnostic Perspective from Jacobians",
+          "trigger": "Oscillatory effects of normalization"
+        },
+        {
+          "assessment": "Local flip cycles and a distinct map",
+          "evidence": [
+            "Self-inclusive softmax with symmetric diagonal mixed-sign values; local thresholds, no global basin classification."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-a-sharp-attention-temperature-threshold-for-coexisting-attractin--56f902ee9956",
+          "material_read": "Mirrored RESULT.md Finding and Assumptions, offsets 0–5537",
+          "method": "Resultary search and local mirror",
+          "title": "A sharp attention-temperature threshold for coexisting attracting cycles",
+          "trigger": "Closest same-day two-token coexistence claim"
+        },
+        {
+          "assessment": "Symmetric resonance, not rotation and global basin separation",
+          "evidence": [
+            "A diagonal circle is reflected in one step and fixed by the second, with local normal contraction."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-resonant-attracting-period-two-circle-and-exact-normal-spectrum--6940b0c7278f",
+          "material_read": "Mirrored RESULT.md Finding and Assumptions, offsets 0–5144",
+          "method": "Resultary search and local mirror",
+          "title": "Resonant attracting period-two circle and exact normal spectrum",
+          "trigger": "Closest same-day invariant-circle claim"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 21–44",
+        "Gao–Yang–Chen arXiv:2609.28448v1 pp. 31–33 for the broader open stability question"
+      ],
+      "rationale": "The low-dimensional family is motivated by a real limitation of alignment-based results for nonsymmetric normalized dynamics. The exact global bistability region, finite-separation separators and sharp parabolic time law distinguish what happens beyond a local Jacobian test and resolve a natural minimal planar case. No architecture-level performance claim follows.",
+      "residual_risks": [
+        "Uniform attention and exactly two planar agents only."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

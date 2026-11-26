@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:01:48.888308Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In the specified line graph a forcing step is monotone: enlarging a blue set either already colors the forced target or leaves it the only white neighbor of the same source. Iterating all eligible moves gives the maximal closure and dominates every other schedule round by round. I independently enumerated starting sets of sizes 0 through 7 using white Petersen-edge states and counts of white edges at the endpoints of each blue edge (replay: python3 /workspace/branches/replay_5.py). For this simple graph those counts sum to the number of white neighbors in the line graph. The first nonempty success class is size 7 with 2280 sets, and the round histogram is {3:120,4:1440,5:720}. All line-graph triangles come from stars of the triangle-free cubic Petersen graph; their intersections recover the Petersen graph. Independent four-sets of Petersen vertices are four pairwise intersecting two-subsets; without a common symbol there are at most three, so the five four-sets are exactly the symbol stars. Permuting them determines every original vertex, and every such permutation is realized. Thus the full acting group is S5. The independent calculation reproduced all 21 canonical-mask triples from ORBIT_TABLE.csv, with 17 orbits of length 120 and 4 of length 60. I built exchange adjacencies instead from buckets of shared six-element subsets and used exact BFS from each of the 21 representatives. Each BFS reached all vertices; summing distance counts weighted by source-orbit size and dividing by two counts each unordered pair once. This returned 28650,234120,765570,1004640,483480,78540,3060 at distances 1 through 7 respectively. This is an exact exhaustive result on one graph, not extrapolation. The frozen verifier was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3.4 gives Z(L(G))=|E(G)|-|V(G)|+2 for G with a Hamilton path. A path in the two-subset Petersen model is 01,23,04,12,34,02,13,24,03,14, so Z(L(P))=7 is prior coverage.",
+          "Eroh–Kang–Yi give line-graph results on wheels and bouquets; Erzurumluoğlu–Meagher–Pike provide general bounds including Z(G)≤Z(L(G))."
+        ],
+        "reasoning": "The Hamilton-path theorem specializes directly to the scalar optimum, so the absence of a phrase naming the Petersen line graph would not make 7 original. Its scalar formula does not provide the exact collection of attaining sets, their times, or its shortest-path counts.",
+        "searches": [
+          "Fallat–Soltani DOI 10.1007/s10587-016-0290-x, proof of Theorem 3.4, printed p.747",
+          "arXiv:1207.6127 p.2",
+          "arXiv:1609.05854 p.1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 4e6c2c9b2a97",
+        "DOI 10.1007/s10587-016-0290-x",
+        "arXiv:2009.00220",
+        "arXiv:1207.6127",
+        "arXiv:1410.4191",
+        "arXiv:1609.05854"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Geneson et al. give general results including forest connectivity and impose the identical single-replacement rule, but H is not a forest and its exact distribution is not a specialization of that result.",
+          "Knowing the later orbit sizes and uncolored exchange distances does not determine the time labels or their histogram."
+        ],
+        "reasoning": "Neither a min-size theorem nor a general procedure to enumerate forcing sets implies the exact time/metric census by routine substitution. The later catalogue entry does give the same distance data explicitly, without the target's propagation layer.",
+        "searches": [
+          "Geneson–Haas–Hogben arXiv:2009.00220 abstract/introduction and Petersen document query",
+          "Fallat–Soltani Theorem 3.4",
+          "Resultary 4e6c2c9b2a97 Finding and Relationship to prior work, offset 7300"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The one-chosen/one-unchosen replacement is exactly the exchange rule in Geneson–Haas–Hogben's zero forcing graph.",
+          "Hogben et al.'s example Z(P)=5 and pt(P)=1 concerns the ten-vertex base graph, not the 15-vertex line graph.",
+          "Resultary 4e6c2c9b2a97 studies the identical line-graph exchange object."
+        ],
+        "reasoning": "Forcing a vertex of the line graph is forcing a Petersen edge by another incident edge; counting the original Petersen vertex seeds is not equivalent. The general exchange-graph nomenclature is not new. The later exact exchange result is genuinely equivalent on the overlapping invariants.",
+        "searches": [
+          "Local Resultary search for minimum edge-indexed zero-forcing sets of L(Petersen) and their token-jumping reconfiguration",
+          "arXiv:2009.00220 abstract and introduction",
+          "arXiv:1410.4191 Example 3.14"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The distinct catalogue result 'The minimum zero-forcing exchange graph of the Petersen line graph' gives 2280 size-seven sets, 21 S5 orbits of the same sizes, 28650 edges, diameter 7 and the same seven distance coefficients. It adds degree, eccentricity and near-geodesic information; it does not report the frozen parallel-time histogram. Its publication_date is 2026-11-02; the reviewed record is dated October 26."
+        ],
+        "reasoning": "This is exact overlap of the exchange census, not a near title, and must not be overlooked. Its documented publication is later, so it does not establish prior coverage of the October result. The relationship of the underlying derivations is not established. No exact earlier table of the combined data was identified in the checked material.",
+        "searches": [
+          "Resultary local search for the Petersen line graph exact census, 2280 sets and exchange metric",
+          "Resultary 4e6c2c9b2a97, RESULT.md Finding and METADATA.json"
+        ]
+      },
+      "rationale": "The supported distinct contribution of the October 26 result is the complete optimum census with its propagation and exchange data, not the scalar size 7 or the general exchange definition. A strong, distinct November 2 catalogue entry duplicates the exchange polynomial and orbit sizes but is dated later by the publication metadata and does not state the parallel-time distribution. Its overlapping data are explicitly credited below; this pass is not a finding that the two entries are disjoint or that either one was first discovered independently. No inspected earlier result gives the combined exact classification.",
+      "residual_risks": [
+        "An older unindexed small-graph enumeration could cover some of the data. The comparison records public catalogue dates and statement overlap, not when the calculations were first made or whether they were connected."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Later substantial exact overlap; no parallel-time profile",
+          "evidence": [
+            "Same minimum population, orbit sizes and distance coefficients; later entry gives additional exchange-only invariants."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-the-minimum-zero-forcing-exchange-graph-of-the-petersen-line-gra--4e6c2c9b2a97",
+          "material_read": "RESULT.md Finding at offset 0, prior work at offset 7300, METADATA.json publication date and AUDIT.json Theorem 3.4 locator",
+          "method": "Local mirror",
+          "title": "The minimum zero-forcing exchange graph of the Petersen line graph",
+          "trigger": "Strong same-object exact catalogue hit"
+        },
+        {
+          "assessment": "Covers Z(L(P))=7 directly, not the census in the inspected theorem",
+          "evidence": [
+            "The Hamilton-path case gives |E|-|V|+2 by adding edges to a spanning path."
+          ],
+          "identifier_or_url": "https://dml.cz/bitstream/handle/10338.dmlcz/145869/CzechMathJ_66-2016-3_15.pdf",
+          "material_read": "Proof of Theorem 3.4, PDF p.6, printed p.747, offset 11190",
+          "method": "OA primary PDF via the alternate exact repository PDF identified in the catalogue",
+          "title": "Line graphs: their maximum nullities and zero forcing numbers",
+          "trigger": "Earlier stronger general line-graph scalar theorem"
+        },
+        {
+          "assessment": "General definition and classes of results, no exact case in the inspected passages",
+          "evidence": [
+            "Exchanges single vertices between minimum seeds; forest connectivity theorem."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2009.00220",
+          "material_read": "Abstract and introductory passage at offset 0, document queried for Petersen",
+          "method": "OA primary PDF",
+          "title": "Reconfiguration graphs of zero forcing sets",
+          "trigger": "Identical exchange graph definition"
+        },
+        {
+          "assessment": "Different exact families and general bounds",
+          "evidence": [
+            "Wheels and bouquets, not an exact Petersen-line census in the inspected statement."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1207.6127",
+          "material_read": "PDF p.2 abstract around offset 8100",
+          "method": "OA primary PDF",
+          "title": "Metric Dimension and Zero Forcing Number of Two Families of Line Graphs",
+          "trigger": "Exact line-graph zero-forcing literature"
+        },
+        {
+          "assessment": "Different graph from the assigned one",
+          "evidence": [
+            "Z(P)=5 and pt(P)=1 on the base graph."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1410.4191",
+          "material_read": "Example 3.14, p.11 near offset 35840",
+          "method": "OA primary PDF",
+          "title": "Propagation time for zero forcing on a graph",
+          "trigger": "Petersen propagation example"
+        },
+        {
+          "assessment": "Bounds, not exact optimizer statistics in inspected material",
+          "evidence": [
+            "Z(G)≤Z(L(G))."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1609.05854",
+          "material_read": "PDF p.1 abstract near offset 1300",
+          "method": "OA primary PDF",
+          "title": "Brushing Number and Zero-Forcing Number of Graphs and their Line Graphs",
+          "trigger": "General line-graph theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The canonical Petersen graph yields a natural edge-coloring instance of zero forcing. The combined census supplies a benchmark with the entire optimizer space, seed orbit types, three distinct parallel-time classes, and exact exchange distances, answering how many minimum seeds yield a given round count and how far apart optimal placements can lie under legal exchanges. Neither the known scalar minimum nor the general reconfiguration framework answers those questions. This is a motivated finite classification, not a claim about a whole graph family.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

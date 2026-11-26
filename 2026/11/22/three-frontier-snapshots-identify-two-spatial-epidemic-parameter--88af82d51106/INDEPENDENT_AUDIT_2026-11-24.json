@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:24:39.845672Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With C=R+R_infinity Q, the clearance terms cancel exactly, giving dC/dt=gamma I. Dividing by dP/dt, which is strictly negative under the hypotheses, and integrating gives the two recovery increments with the same multiplier gamma*pi/(2*rho) on the arctangent integrals. For the weight 1/arctan(ku), its k log derivative is -eta(ku)/k. The derivative numerator of eta is (1-z^2) arctan(z)-z, negative for z>=1 and also for 0<z<1 since arctan(z)<z. The weighted mean of eta on the lower interval strictly exceeds its mean on the upper; the ratio is therefore strictly increasing. Uniform small- and large-k limits on the positive compact population interval give precisely L and U. The ratio has range (L,U), and a unique k there yields a unique rho by either increment and a unique alpha for known N. The supplied checker was inspected, not executed; quadrature, finite differences and the RK4 illustration are not the proof. The converse and sharpness are for the reduced relation, not feasibility in the full system. For unknown N or gamma, the direct invariants are alpha/N and rho/gamma; the last section's 'only rho/gamma' should not be read as ruling out identification of alpha/N.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bergström–Favero–Britton study under-reporting and immunity with supplementary observations in another SIR model.",
+          "Massonis–Banga–Villaverde survey structural identifiability and observability for many compartmental variants.",
+          "The same-model theorem gives R0=beta/gamma."
+        ],
+        "reasoning": "Those results do not supply a dominating theorem for three finite observations under the specified saturation and cumulative-recovery convention. Structural identifiability from a continuous output, in particular, would not suffice to establish this sharp three-snapshot range.",
+        "searches": [
+          "arXiv:2506.07825",
+          "arXiv:2006.14295",
+          "arXiv:2602.23449 §2.2 Theorem 1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2602.23449 §§2.1–2.2, 3.1",
+        "arXiv:2506.07825 abstract",
+        "arXiv:2006.14295 abstract",
+        "Resultary 88af82d51106 (same record), b54330afda6e, 5b69a5225b26 (catalogue results)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The equations already contain both the cancellation in C and the arctangent; the small- and large-scale kernels give reciprocal-population and constant weights.",
+          "The located results do not compare the weighted elasticities on the two disjoint frontier intervals."
+        ],
+        "reasoning": "Separation and endpoint asymptotics are direct implications of the model and are not new mechanisms. Global injectivity and the exact open image do not follow just from the prior fitting or R0 theorem; they need the strict elasticity comparison.",
+        "searches": [
+          "arXiv:2602.23449 equations (4)–(8) and Theorem 1",
+          "Resultary 5b69a5225b26 and b54330afda6e"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The identical record ending 88af82d51106 is self-overlap, not separate evidence of coverage.",
+          "Resultary findings b54330afda6e and 5b69a5225b26 change a cumulative-confirmation observable for SIHR and compare fixed-window incidence in closed SEIR, respectively.",
+          "Section 3.1 of 2602.23449 fits total-infected trajectories, not the two successive recovery increments against frontier depletion."
+        ],
+        "reasoning": "Changing from clock time to recovery or frontier as the independent variable does not turn incidence/prevalence observations into the required simultaneous (P,C) observations. The checked alternative formulations lack the injective arctangent integral ratio.",
+        "searches": [
+          "Resultary semantic search: arctangent spatial SIR frontier–recovery observations, three snapshots, structural identification",
+          "arXiv:2602.23449 §§2.1, 3.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-model article describes numerical fits; the catalogue supplied the identical finding and different observables/models, not an independent exact relation."
+        ],
+        "reasoning": "An exact parameter table is not a natural surrogate here: P0,P1,P2 vary continuously, and example fits give neither an endpoint theorem nor uniqueness at arbitrary interior ratios.",
+        "searches": [
+          "Resultary semantic comparison as above",
+          "arXiv:2602.23449 §3.1"
+        ]
+      },
+      "rationale": "The model and saturation are prior work. The supported distinct contribution is the exact sharp range and injectivity of this finite-snapshot ratio, not a new model, a full-trajectory inverse or a general structural-identifiability method.",
+      "residual_risks": [
+        "Bounded catalogue and primary-source comparison, not exhaustive priority evidence. General parameter-identification or monotone-kernel literature could contain further overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Model and fitting precede the record; checked results do not give the inverse theorem",
+          "evidence": "Eq. (5) uses the same smooth arctangent; eq. (9) is R0=beta/gamma; fit uses total infected with curve_fit.",
+          "identifier_or_url": "https://arxiv.org/html/2602.23449",
+          "material_read": "§2.1 eqs. (4)–(8), OA text near offset 11800; §2.2 Thm. 1 near 14779; §3.1 fit near 16750",
+          "method": "Decisive passages in OA HTML",
+          "title": "An Aggregated SIR Model for Spatial Epidemic Propagation",
+          "trigger": "Identical model, parameters and saturation"
+        },
+        {
+          "assessment": "Different model and outputs in the inspected result",
+          "evidence": "Reported cases supplemented by prevalence/immunity, not an arctangent district frontier and cumulative recovery.",
+          "identifier_or_url": "https://arxiv.org/pdf/2506.07825",
+          "material_read": "Abstract",
+          "method": "OA PDF excerpt",
+          "title": "Identifiability in Epidemic Models with Prior Immunity and Under-Reporting",
+          "trigger": "Related supplementary-observation identifiability"
+        },
+        {
+          "assessment": "Context, not affirmative coverage of this finite-snapshot result",
+          "evidence": "Surveys 36 model structures and 255 variants; no matching conclusion in the inspected material.",
+          "identifier_or_url": "https://arxiv.org/pdf/2006.14295",
+          "material_read": "Preprint p. 1 abstract",
+          "method": "OA PDF excerpt",
+          "title": "Structural identifiability and observability of compartmental models of the COVID-19 pandemic",
+          "trigger": "Possible broader structural coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The two-interval ratio gives an exact falsification criterion and the minimum number of observations for this reduced inverse relation: one interval leaves a continuum of fits, whereas two identify both dimensionless combinations. It removes clocks and nuisance dynamics from this specific model comparison. The result is mathematically useful without promising stable estimation, epidemic forecast accuracy, or full-model feasibility.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

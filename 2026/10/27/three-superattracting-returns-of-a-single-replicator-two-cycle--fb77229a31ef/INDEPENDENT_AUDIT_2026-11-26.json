@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:51:58.670984Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–95",
+        "Frozen VERIFICATION.md and verify.py, read without executing uploaded code",
+        "Independent rational replay: fifth partial sum for exp(5) = 1097/12, eighth for exp(7) = 4605383/5760; factor bounds 2/25, −7/125, 163/1150 and 807/1150"
+      ],
+      "rationale": "The endpoints are fixed, and summing the log-odds increment over an interior two-cycle forces mean b. The exact centered solution with points b±d is obtained at A_b(d), strictly increasing in d by the positive artanh series, with range (2/[b(1−b)],∞) for b<1/2. The derivative factors in the cycle multiply to (1−A_b q(b−d))(1−A_b q(b+d)). At birth the factors tend to −1 each; at d→b the low-point factor tends to 1 while the other tends to −∞. At b=12/25, independent rational arithmetic confirms log(253/3)∈(4,5) at d=2/5, with factors of opposite sign, and log(2303/3)<7 at d=23/50, with both factors positive. Thus the signs alternate in the four ordered regions. The intermediate value theorem gives three disjoint interior zeros, whose distinct finite intensity values lie above 625/78; a zero derivative of the second iterate gives local superattraction. The strictly signed interior witnesses persist for b near 12/25, and both endpoint limits have the requisite sign throughout that neighborhood.",
+      "residual_risks": [
+        "Only a lower bound on the number of zeros is proved. Root decimals are illustrative, and no maximal equilibrium interval or other stability/attractor classification is certified."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general two-cycle proposition gives its birth and local stability, not the count of interior zeros. The earlier small-asymmetry result proves a unique −1 crossing. The NeurIPS discussion extends over several periods but uses approximate tracking of branches, including S(a,b)≈p."
+        ],
+        "reasoning": "Neither near-birth stability nor a unique crossing of −1 implies three crossings of zero. Approximations spanning multiple periods do not furnish a rigorous fixed-equilibrium lower bound for this one orbit.",
+        "searches": [
+          "arXiv:2412.16379, Proposition 3.2",
+          "arXiv:1906.02486, main Eq. (6) and supplement pp. 24–27",
+          "Resultary fdee730ba349, Finding and multiplier formula"
+        ]
+      },
+      "checked_sources": [
+        "Resultary fdee730ba349",
+        "arXiv:1906.02486 and NeurIPS 2020 supplement",
+        "arXiv:2412.16379"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier asymmetry theorem entails at least one zero in its own unspecified small-asymmetry regime by continuity, not three. The supplement's mean identity reduces at p=2 to the exact paired-point condition, but its plotted condition comes from a leading-order approximation for the left critical branch (and the both-critical discussion is a different condition)."
+        ],
+        "reasoning": "The exact mean equation and criticality equation characterize candidate parameters but leave the ordered sign changes unevaluated. For a prime two-cycle containing both distinct critical points, their sum is 1, which forces b=1/2; this does not give the three separate one-critical events at b=12/25.",
+        "searches": [
+          "Resultary fdee730ba349, RESULT.md",
+          "NeurIPS 2020 supplement, Eqs. (22)–(25) and figure discussion, bounded extraction from offset 49000",
+          "arXiv:2412.16379, Proposition 3.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A zero multiplier is exactly a cycle containing a critical point, as in the NeurIPS comparison. Its supplement discusses intersections of critical-orbit curves and displays numerical Lyapunov diagrams, with no exact fixed-b three-intersection theorem in the inspected discussion.",
+          "Resultary fdee730ba349 studies the same multiplier at level −1, not level zero."
+        ],
+        "reasoning": "Under the critical-point reformulation the new statement is a three-crossing bound for the union of critical period-two curves along a fixed-b line, not their mere existence or intersection in two-parameter space.",
+        "searches": [
+          "Local Resultary comparisons on two-cycle multiplier crossings and singular symmetry breaking",
+          "NeurIPS 2020 supplement to arXiv:1906.02486, Figs. 6 and 8–9, superstable orbits discussion"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest published parameter atlas uses time-averaged numerical Lyapunov exponents and asymptotic level curves, rather than an exact fixed-b intersection table with certified root counts."
+        ],
+        "reasoning": "A numerical approximation to a superstable locus can anticipate the phenomenon but does not certify three isolated finite intersections or their robust persistence at the stated equilibrium. A visual intersection count was not certified.",
+        "searches": [
+          "Nearest Resultary branch analysis fdee730ba349",
+          "NeurIPS 2020 supplement, captions and discussion of Figs. 6, 8 and 9, pp. 24–27"
+        ]
+      },
+      "rationale": "The branch, birth threshold, multiplier formula, and superstable period-two parameter curves are not new. The supported distinct finding is the exact analytic lower bound of three zero-multiplier intensities at one fixed nonsymmetric equilibrium and throughout an open neighborhood. The closest inspected earlier statements concern either a −1 crossing or numerical/large-coupling superstable curves, not a certified fixed-equilibrium triple return.",
+      "residual_risks": [
+        "Possible earlier numerical recognition or an uninspected exact implication of the plotted curves cannot be ruled out. The parameter range of the earlier −1 result cannot be compared pointwise from its unspecified asymmetry bound."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Partial coverage only",
+          "evidence": "Uses the same branch and multiplier, proves a unique −1 crossing for sufficiently small asymmetry, and does not specify whether its neighborhood contains b=12/25.",
+          "identifier_or_url": "Resultary/2026/2026/10/11/SCOPE-singular-symmetry-breaking-threshold-for-the-period-two-orbit-of--fdee730ba349",
+          "material_read": "RESULT.md, Finding, parameterization and multiplier results",
+          "method": "Local published-record mirror",
+          "title": "Singular symmetry-breaking threshold for the period-two orbit of a replicator map",
+          "trigger": "Closest same-map exact multiplier theorem"
+        },
+        {
+          "assessment": "Superstability and numerical curve structure are established; no exact triple-return implication shown",
+          "evidence": "The authors discuss critical points on periodic orbits and intersections of superstable curves; the plotted large-coupling condition is S(a,b)≈p. The Lyapunov diagram is computed with T=2000.",
+          "identifier_or_url": "https://arxiv.org/abs/1906.02486; https://papers.neurips.cc/paper_files/paper/2020/file/0887f1a5b9970ad13f46b8c1485f7900-Supplemental.pdf",
+          "material_read": "Main Eq. (6); supplement pp. 24–27, Eqs. (22)–(25), numerical figures' captions and discussion",
+          "method": "Primary OA PDF text, targeted passages",
+          "title": "The Route to Chaos in Routing Games: When is Price of Anarchy Too Optimistic?",
+          "trigger": "Same-map superstable curve and intersection precedent"
+        },
+        {
+          "assessment": "Known birth threshold and near-birth stability, not three zero crossings",
+          "evidence": "The cycle exists above 2/[b(1−b)]; numerically discussed cascade intersections do not furnish the stated fixed-equilibrium count.",
+          "identifier_or_url": "https://arxiv.org/abs/2412.16379",
+          "material_read": "Proposition 3.2, PDF p. 7 (offset 18600), and surrounding bifurcation discussion",
+          "method": "Primary OA text by passage",
+          "title": "Bifurcations and invariant sets for a family of replicator maps from evolutionary games",
+          "trigger": "Earlier two-cycle theorem for the same map"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Steps 2–6",
+        "NeurIPS 2020 supplement, discussion of superstable curve structure"
+      ],
+      "rationale": "The exact witness disproves monotonicity of the signed multiplier on a unique, continuously followed period-two branch, without switching among coexisting cycles or relying on plots. Its robustness in equilibrium makes the triple critical return a feature of this family rather than an isolated numerical coincidence.",
+      "residual_risks": [
+        "The result counts superattractions, not additional losses of local stability or changes in global dynamics."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

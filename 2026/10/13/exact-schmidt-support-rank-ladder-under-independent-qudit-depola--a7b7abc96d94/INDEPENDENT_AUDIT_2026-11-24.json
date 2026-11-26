@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:03:22.595940Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, in particular Finding line 45 and Proof lines 75–142",
+        "Repaired RESULT.md, Finding through Proof",
+        "Frozen VERIFICATION.md, artifacts/verify.py and artifacts/requirements.txt"
+      ],
+      "rationale": "For the repaired claim in repairs/5/RESULT.md. The literal frozen Finding that every support rank is uniquely optimal on an interval is false: k=1 gives a product state with zero negativity, so either it loses or all ranks tie. The repair preserves that frozen evidence and restricts unique optima to 2,…,d, explicitly treating k=1. Independently expanding the tensor-product channels gives the ideal term, the two one-side mixing terms with the reduced projector P_k/k, and pq I/d². The partial transpose pairs only ij and ji in the support; in each pair its diagonal h is the sum of the mixing terms and its off-diagonal g=(1-p)(1-q)/k. The possible negative eigenvalue contributes [g-h]_+=[Δ-kΠ]_+/(kd²); summing k(k-1)/2 pairs gives the exact formula, also zero when k=1. Other eigenvalues are nonnegative. For Π>0 and Δ>2Π rank two is positive, so maximizing the truncated score is equivalent to maximizing the untruncated score, whose first differences Δ-2kΠ strictly decrease. This proves exactly the adjacent ties, with no positive tie at k=1. Δ≤2Π yields an all-zero tie, and Π=0 reduces to a nonnegative linear score in k-1. With symmetric noise, x=d(1-t)/t and Δ/Π=x²-2x strictly decreases in t in the positive region; solving x²-2x=2k gives correctly ordered, distinct switches and each entangled rank a nonempty interval. The death and full-support endpoints follow from Δ=2Π and Δ=dΠ respectively. For d=3 and p=q=1/2 the exact pair (Δ,Π)=(3/4,1/4) gives (N2,N3)=(1/72,0). The repaired statement, proof and boundary cases were reread. The verification notes and spectral checker remain scientifically compatible (the interval check already loops over k=2 through d), and no uploaded script was run.",
+      "residual_risks": [
+        "The optimum is only among uniform-on-support pure inputs; no global optimality or general equivalence of PPT and separability is claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 7 characterizes PPT-inducing and entanglement-annihilating maps by γ≤α+β+2 for positive maps of its family. For pq>0, rescaling the independent product channel by d²/pq puts its coefficients in that form and gives exactly Δ≤2Π. The theorem includes a rank-two witness to necessity.",
+          "Corollary 8 yields the symmetric endpoint t=d/(d+1+√3) in the frozen convention; the local-qubit robustness source cannot exhibit multiple entangled support ranks."
+        ],
+        "reasoning": "The broader all-input theorem covers vanishing of the best negativity, also for unequal nonzero noise, but gives no magnitude ordering within its positive region.",
+        "searches": [
+          "Lami–Huber, arXiv:1603.02158, Theorem 7 with proof and Corollary 8",
+          "Filippov–Frizen–Kolobova, arXiv:1708.08208, introductory scope"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2606.16695",
+        "arXiv:1603.02158",
+        "arXiv:1708.08208",
+        "Resultary 77535fb01b15",
+        "Repaired RESULT.md, Relationship to prior work and limitations"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The previous rank-two witness implies detection of the boundary, not rank-two dominance below it. The product channel’s full family of pair-block contributions and k(k-1)/2 multiplicities give a quadratic untruncated score; its adjacent differences give the intermediate surfaces Δ=2kΠ for k≥2.",
+          "A single global mixing term replaces both support-dependent one-side terms in the Ali et al. model, so its formula cannot be specialized to yield this general independent-local comparison."
+        ],
+        "reasoning": "The transition locations follow from comparing positive magnitudes across ranks; a broader zero-versus-positive criterion, even with an extremal witness for its threshold, does not imply them. The repaired claim does not rely on counting the known final boundary as new.",
+        "searches": [
+          "Ali et al. Eqs. (43)–(49) and Lami–Huber Theorem 7 proof, Corollary 8, compared to the repaired pair spectrum and discrete finite difference"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Flat-support coherence inputs and the states with k equal nonzero squared Schmidt coefficients are equivalent for the present conversion and local-unitary-covariant noise.",
+          "Ali et al. explicitly use a single composite depolarizing channel; their eigenvalues p/d²±(1-p)|c_i c_j| lack the one-side mixing terms.",
+          "Lami–Huber visibility is 1-t in the symmetric physical region; their boundary is the same final death threshold."
+        ],
+        "reasoning": "The change in noise convention identifies a known endpoint but does not turn global depolarization into the product of two local channels. Relabeling the input pure states does not change the desired magnitude optimum.",
+        "searches": [
+          "Resultary queries for flat-support Schmidt rank and controlled-shift coherence conversion under independent local depolarization",
+          "Ali et al., §V.B, Eqs. (43)–(49)",
+          "Lami–Huber, Theorem 7 and Corollary 8"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest superficially matching distinct same-date hit, Resultary 77535fb01b15, treats a least-negativity point in a fixed qubit–ququart NPT simplex, not the rank optima of depolarized flat-support states."
+        ],
+        "reasoning": "Both claims use negativity, but the state family, optimization direction, noise variables, and objective comparison differ. The examined catalogue returns gave no matching transition table, without implying exhaustive absence.",
+        "searches": [
+          "Local Resultary searches by title and by negativity, flat support, controlled-shift conversion and local depolarization"
+        ]
+      },
+      "rationale": "For the repaired claim only. The checked earlier work covers the channel-level vanishing region (including the symmetric endpoint and a rank-two extremal witness), a distinct global-noise magnitude formula, or the two-qubit setting. The supported distinct result is the flat-support magnitude comparison and its exact intermediate positive-maximum rank ladder for the independent local channels, not a new entanglement-annihilation boundary. Excluding rank one from the unique-optimum intervals leaves this claim and all literature comparisons intact.",
+      "residual_risks": [
+        "The comparison was bounded to focused catalogue searches and the inspected primary sources, not all local-depolarization literature; a separately indexed overlap is possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Explicit magnitude under global depolarization, not the independent product-channel rank ladder",
+          "evidence": [
+            "The paper says the channel is not a product of local single-qunit depolarizing channels and writes its pair eigenvalues for the global channel."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2606.16695",
+          "material_read": "§V.B, p. 4, Eqs. (43)–(49), offsets 26600 and 30000",
+          "method": "Lawful OA primary PDF passages",
+          "title": "High-dimensional coherence to entanglement transduction under canonical noise",
+          "trigger": "Same controlled-shift input family and a depolarizing-negativity calculation"
+        },
+        {
+          "assessment": "Known boundary and rank-two witness, not intermediate optimal flat-support magnitudes",
+          "evidence": [
+            "Theorem 7 uses the equal-weight two-term Schmidt state to force γ≤α+β+2 for PPT-inducing maps. Corollary 8 gives the symmetric visibility bound (1+√3)/(d+1+√3)."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1603.02158",
+          "material_read": "Convention p. 1 at offset 4900; Theorem 7 and necessity proof, p. 12 at offsets 55400–60528; Corollary 8, pp. 14–15 around offset 67900",
+          "method": "Lawful OA primary PDF passages",
+          "title": "Bipartite depolarizing channels",
+          "trigger": "Stronger all-input theorem for the same independent local noise"
+        },
+        {
+          "assessment": "Two-qubit survival/lifetime question; different optimization and dimensional regime",
+          "evidence": [
+            "The compared statements concern local qubit maps and maximally entangled two-qubit states."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1708.08208",
+          "material_read": "pp. 1–2, offsets 0 and 20800",
+          "method": "Lawful OA primary PDF passages",
+          "title": "Ultimate entanglement robustness of two-qubit states against general local noises",
+          "trigger": "Local-noise entanglement robustness and possible prior optimal-input result"
+        },
+        {
+          "assessment": "Different state family and minimization problem; not equivalent or dominating",
+          "evidence": [
+            "The result is a least-negativity point in the specified simplex, not a rank transition under local depolarization."
+          ],
+          "identifier_or_url": "Resultary 2026/10/13, 77535fb01b15",
+          "material_read": "Statement of the fixed NPT simplex minimization",
+          "method": "Local Resultary record comparison",
+          "title": "Exact least negativity in a three-generator qubit–ququart NPT simplex",
+          "trigger": "Superficial same-date catalogue hit on exact negativity optimization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired RESULT.md, optimization and qutrit witness",
+        "Ali et al., §V.B",
+        "Lami–Huber, Theorem 7 and Corollary 8"
+      ],
+      "rationale": "The repaired result answers a concrete resource-allocation question for the standard controlled-shift conversion under physically independent local noise. Maximal initial entanglement need not maximize surviving negativity: the exact transitions identify every regime, and the rational qutrit witness shows full-support negativity already zero while smaller support remains NPT. The familiar all-input death threshold alone cannot answer which entangled support to choose at lesser noise.",
+      "residual_risks": [
+        "These exact optima justify decisions within the flat-support family only; no advantage over all other input classes is inferred."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T23:51:04.138381Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Vandermonde gives the binomial-square form, and coefficientwise Lucas factorization with Frobenius shows a ternary digit 1 forces D_n(1)=0 mod 3. For the remaining even n=2m, the linear coefficient 2m(2m+1) is divisible by 3, so multiples of 3 give 1 mod 9; Legendre reflection gives the class -1. For z=1 mod 3, P_{2m}(1+2z) has no odd powers and coefficients in Z_(3), so only the constant term A_m=(-1)^m 4^(-m) binom(2m,m) survives. In (1+T)^(3a) modulo nine the terms linear in 3T(1+T) have degree 1 or 2 mod 3, proving binom(3a,3b)=binom(a,b) mod 9. Together with the exact adjoining-factor ratio this gives increments q and 1+2q mod 3 in (A_m-1)/3 when adjoining a low digit 0 or 1 to q respectively, exactly the recursion for c. For the count, at a primitive cube root zeta the two-state weight transfer on terminal digit has columns (1,zeta^2) and (1,1). The first-digit vector (1,zeta) is a (1+zeta)-eigenvector, so the complete nontrivial Fourier moment at length r is (1+zeta)^r. The trivial moment is 2^r; averaging these and the conjugate yields exactly the given six-periodic defect, including r=0. An independent replay (python3 /workspace/checks/delannoy.py) uses direct binomial sums for all nine residues through n<3^5 and exact integer cyclotomic arithmetic for word counts through r=12. This is corroboration; the algebra proves both unbounded assertions. The supplied checker was inspected but not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Rowland–Yassawi give a general framework for automatic congruences of rational diagonals.",
+          "Pan's Lucas relation is mod p; Alekseyev et al. give a valuation theorem at the prime argument of a Legendre polynomial."
+        ],
+        "reasoning": "Generic automatic computability does not specify this digit language, its adjacent-digit interaction, or the exact count. Valuations do not distinguish unit values 1, 4 and 7 mod 9 in this range.",
+        "searches": [
+          "arXiv:1310.8635",
+          "arXiv:1508.02046 Eq. (1.6)",
+          "arXiv:2505.08935 Theorem 4"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py",
+        "Resultary b2f35cba40cf and a6b6e5fa5c14",
+        "arXiv:2505.08935, 1412.7724, 1508.02046, 1310.8635 and 2505.05728"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Delannoy-polynomial congruences of Guo and of Wang–Zhong are sums over indices, not individual fixed divisors.",
+          "The earlier universal theorem supplies exactly the digit filter for the first power; neither it nor the cited valuation theorem compares the unit residue to 1 mod 9."
+        ],
+        "reasoning": "Application of the earlier results stops at a filter or an aggregate/valuation. The prime-square classification requires a 3-local pointwise reduction, a calculation of binomial unit parts across adjacent digits, and evaluation of the finite-block count.",
+        "searches": [
+          "arXiv:1412.7724 Theorem 1.4",
+          "arXiv:2505.05728 Theorem 1.1",
+          "b2f35cba40cf all-argument mod-p theorem",
+          "arXiv:2505.08935 Theorem 4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The base-13 fixed-divisor record gives the same universal predicate modulo p and its exact p=3 digits.",
+          "Alekseyev et al. Theorem 4 analyzes valuations of P_n(p), hence of D_n(1) at p=3; the central Delannoy spectrum catalogue gives the value image modulo 3^k."
+        ],
+        "reasoning": "The problem is a fixed divisor of D_n(X)-1, not coefficientwise identity. Among admissible indices the reduction to one argument follows from parity and the 3-local constant term. Knowing which residues occur or the valuation of D_n(1) itself does not specify the indices D_n(1)=1 mod 9, nor the original universal condition.",
+        "searches": [
+          "Resultary Delannoy universal fixed divisor modulo 9, ternary digits and central Delannoy residue spectrum",
+          "central Delannoy modulo nine all-index formulas; Legendre P_n(3) valuations"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The all-argument table has U_3={0,2} and trivial group at p=3, only for modulus 3.",
+          "The value-image record says exactly the residue classes 0 and 1 mod 3 are hit modulo every 3^k, infinitely often."
+        ],
+        "reasoning": "Neither table classifies the n-fiber of 1 modulo nine or counts the universal solutions in each 3^r block.",
+        "searches": [
+          "Resultary b2f35cba40cf (fixed-divisor digit tables)",
+          "Resultary a6b6e5fa5c14 (ternary value spectrum)"
+        ]
+      },
+      "rationale": "The first-power digit restriction is exactly prior and not counted as new. The bounded search found general automaticity, prime-level digit results, and powerful valuations/range results at one argument, but no inspected earlier theorem giving the prime-square residue criterion with its universal-argument reduction or the exact enumeration. Known prime-power binomial computations furnish tools for the constant term; this is not a claim of new binomial scaling or new general automaticity.",
+      "residual_risks": [
+        "A differently phrased explicit central residue automaton, binomial block calculation with a fixed-divisor reduction, or indexed sequence with a proved equivalence may provide additional coverage. The search is bounded, not a proof of absolute priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact overlap only for first power",
+          "evidence": "The p=3 table has U_3={0,2} and H_3 trivial. Its universal quantifier is the same, but its modulus is p, not p^2.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-noncyclic-base-13-fixed-divisor-spectrum-for-delannoy-polynomi--b2f35cba40cf",
+          "material_read": "Local mirror offsets 0–4436 and 4436–7875, statement, general theorem and p=3 table",
+          "method": "Resultary search and local mirror reader",
+          "title": "A noncyclic base-13 fixed-divisor spectrum for Delannoy polynomials",
+          "trigger": "Same predicate and a potentially broader mod-p theorem"
+        },
+        {
+          "assessment": "Value image, not index fibers",
+          "evidence": "For any 3^k every allowed value (0 or 1 mod 3) occurs infinitely often; this does not identify which n attain a specified value.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-complete-ternary-residue-spectrum-of-the-central-delannoy-number--a6b6e5fa5c14",
+          "material_read": "Local mirror offset 0–4365, statement and scope",
+          "method": "Resultary search and local mirror reader",
+          "title": "Complete ternary residue spectrum of the central Delannoy numbers",
+          "trigger": "All ternary prime powers on the central specialization"
+        },
+        {
+          "assessment": "Valuation, not prime-square unit residue",
+          "evidence": "For even n=2m, v_3(P_n(3))=v_3(binomial(2m,m)); this cannot discriminate the admitted residue values 1, 4 and 7.",
+          "identifier_or_url": "https://arxiv.org/abs/2505.08935",
+          "material_read": "Theorem 4, PDF p. 4, text offset 8198",
+          "method": "OA PDF passage",
+          "title": "Alekseyev et al., Legendre polynomial valuation result",
+          "trigger": "Exact all-index arithmetic of the central specialization"
+        },
+        {
+          "assessment": "Different index quantifier",
+          "evidence": "The theorem analyzes weighted sums over k=0,...,p-1.",
+          "identifier_or_url": "https://arxiv.org/abs/1412.7724",
+          "material_read": "Theorem 1.4, PDF p. 3, text offset around 8100",
+          "method": "OA PDF passage",
+          "title": "Some congruences involving powers of Delannoy polynomials",
+          "trigger": "Prime-square Delannoy polynomial congruence overlap"
+        },
+        {
+          "assessment": "First-power analogue, not prime-square index classification",
+          "evidence": "The cited Lucas relation is modulo p.",
+          "identifier_or_url": "https://arxiv.org/abs/1508.02046",
+          "material_read": "Equation (1.6), PDF p. 1",
+          "method": "OA PDF passage",
+          "title": "A Lucas-type congruence for q-Delannoy numbers",
+          "trigger": "Digit congruence precursor"
+        },
+        {
+          "assessment": "General machinery; no explicit covering formula established from inspected material",
+          "evidence": "Constructive automatic congruences are a route to computations, not a statement of this criterion and defect.",
+          "identifier_or_url": "https://arxiv.org/abs/1310.8635",
+          "material_read": "Abstract and formulation on PDF p. 1",
+          "method": "OA PDF passage",
+          "title": "Automatic congruences for diagonals of rational functions",
+          "trigger": "General prime-power automaton framework"
+        },
+        {
+          "assessment": "Different index quantifier",
+          "evidence": "The relevant expressions are sums over the index.",
+          "identifier_or_url": "https://arxiv.org/abs/2505.05728",
+          "material_read": "Abstract and Theorem 1.1, offsets 0 and 10800",
+          "method": "OA PDF passage",
+          "title": "Wang and Zhong, congruences on Delannoy-polynomial sums",
+          "trigger": "Recent prime-power Delannoy-related congruences"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Lifting the known all-argument fixed-divisor problem from three to nine is a natural first prime-square test. The formerly independent digit restrictions become a coupled language, simultaneously controlling all argument classes. The exact six-periodic discrepancy in the block counts is additional structural information, not a pointwise congruence experiment or a restatement of automaticity. No stronger claim about arbitrary primes or 27 is needed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

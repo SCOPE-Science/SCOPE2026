@@ -1,0 +1,98 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:13:00.697327Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The mathematical statement is true for each prime p and nonzero signed integer n=a p^e, with p∤a. For positive valuation m, D_p(b p^m)=b m p^(m−1), and the new valuation is m−1+ν_p(m). At valuation zero the next iterate is zero, and zero is fixed by definition. For valuations strictly between 0 and p or strictly between p and 2p, each step lowers the valuation by one and multiplies the unit by the current valuation. This gives the factorial iterates and exact landing times. At valuation p the multiplier is one, giving precisely the stated nonzero fixed points. The region m≥2p is forward invariant: for m>2p the next valuation is at least m−1, and for m=2p it stays at 2p for odd p or rises to 5 for p=2. Its magnitude therefore at least doubles each step, excluding any additional periodic integer orbit. A separate bounded exact check used primes 2,3,5,11,29,97, both signs, both finite bands and 16 iterates across the divergence boundary; the recorded larger regression was inspected, not rerun. The raw frozen RESULT.md has actual broken TeX escapes (e.g. byte 0x0C in frac and split valuation symbols); the intended mathematics is unambiguous from the remaining proof, verification text and tested formulas. This display defect was not treated as mathematical falsity, and the frozen file was not altered.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 8 describes every integer valuation orbit with initial e≥p by an initial e mod p descents followed by explicit segments. Its proof also displays the actual initial integer iterates as falling products. The later Emmons–Xiao extension proves that eventual infinite valuation holds precisely for initial valuation 0 through p−1 or +∞."
+        ],
+        "reasoning": "The earlier integer result strictly resolves finer valuation dynamics than the proposed bands; the fixed-point band is one specialization of its transient. The local-field extension supplies the extinction cutoff but is not used as a proof of Archimedean growth.",
+        "searches": [
+          "arXiv:2201.12453, Theorem 8 and proof, Theorems 9–10",
+          "arXiv:2307.04912 (DOI 10.7546/nntdm.2024.30.2.357-382), Theorem 1.3(3), Lemma 2.2 and Theorem 2.8",
+          "Resultary: exact initial p-adic valuation thresholds for arithmetic partial derivative D_p integer orbits extinction fixed divergence"
+        ]
+      },
+      "checked_sources": [
+        "Emmons–Xiao arXiv:2201.12453",
+        "Emmons–Xiao arXiv:2307.04912 / DOI 10.7546/nntdm.2024.30.2.357-382",
+        "Local Resultary exact-cutoff, factorial-iterate, trichotomy and quantitative-growth queries; closest mirrors include odd-prime and dyadic period densities and p-adic orbit closures"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The first descending block in Theorem 8 lasts e mod p steps and ends at p floor(e/p), with every integer iterate given by multiplying the corresponding descending factors. For p≤e<2p this block ends at p, giving exactly a(e!/p!)p^p, fixed by the defining identity. For e≥2p the same block never goes below 2p. Every subsequent segment consists of a nonnegative jump h followed by h mod p descents of one, so its minimum is its starting valuation. No later segment can go below 2p. The defining magnitude multiplier m/p is therefore at least 2 at every step. For e<p the unit descent is the same calculation as Lemma 4's explicit factorial endpoint."
+        ],
+        "reasoning": "These are direct specializations and multiplication of explicit prior bounds, not just availability of a general computational method. The full three-band statement, landing formula, and asserted uniform growth are determined without additional structure; the absence of the exact phrasing 2^j in print does not restore novelty.",
+        "searches": [
+          "arXiv:2201.12453, proof of Lemma 4 (PDF p. 4) and proofs of Theorems 8 and 10 (PDF pp. 5–7)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorem 10 states the qualitative integer trichotomy with exactly the same three outcomes. Lemma 4's proof explicitly gives D_p^e(a p^e)=a e! and D_p^(e+1)(a p^e)=0 for e<p. The nearest catalogue records about periods, residue densities and p-adic orbit closures do not duplicate the Archimedean classification, but overlap on valuation regimes."
+        ],
+        "reasoning": "The new phrasing sorts the same outcomes by initial valuation. It is not enough to compare the trichotomy statement alone, because the exact initial transient and succeeding valuation blocks are available in the earlier proof.",
+        "searches": [
+          "Resultary: arithmetic partial derivative integer valuation trichotomy eventual zero fixed point a p^p divergence Emmons Xiao",
+          "Resultary: exact initial p-adic valuation thresholds for arithmetic partial derivative D_p integer orbits extinction fixed divergence",
+          "arXiv:2201.12453, Lemma 4 and Theorem 10"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The compared odd-prime and dyadic Resultary records give exact classifications of eventual valuation periods and densities; their indexed exact invariants are not the factorial landing value or magnitude estimate. Emmons–Xiao's printed first-block product is the exact source for the landing data, not a separate database entry."
+        ],
+        "reasoning": "The closest exact catalogue entries vary the period and prime rather than tabulating this integer landing invariant. This local search does not settle exhaustive priority; the decisive overlap is the exact published iteration formula.",
+        "searches": [
+          "Resultary: factorial formula iterates arithmetic partial derivative D_p(a p^e) exact landing time",
+          "Resultary: arithmetic partial derivative divergent orbit quantitative exponential growth at least doubling |D_p^j(n)|"
+        ]
+      },
+      "rationale": "The central classification is mechanically covered by Emmons–Xiao's more general explicit integer-iteration description and trichotomy, even though the complete phase diagram and uniform inequality are not boxed there. The earlier Lemma 4 proof explicitly gives the last nonzero iterate and the exact extinction step. More decisively, Theorem 8's proof already gives the integer iterates up to the first valuation divisible by p as a falling product, together with all subsequent valuation blocks. Reading those two parts under the proposed initial bands yields the middle-band formula and the high-band growth bound directly, without a new dynamical lemma. The 2024 extension also explicitly states the low-valuation extinction cutoff.",
+      "residual_risks": [
+        "An independent broad bibliographic search did not return inspectable results. That limitation is immaterial to the positive coverage evidence in the already inspected earlier proofs. No priority inference is made from catalogue timestamps."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Explicit low-band result and stronger orbit description mechanically cover the proposed refinement.",
+          "evidence": "Lemma 4 directly writes D_p^e(a p^e)=a e! followed by zero. Theorem 8 computes the initial falling products and describes the rest as blocks of a jump and fewer or equal descents; Theorem 10 identifies the same fixed points and trichotomy.",
+          "identifier_or_url": "https://arxiv.org/abs/2201.12453; Journal of Integer Sequences 25 (2022), Article 22.4.7",
+          "material_read": "Lemma 4 and proof, PDF p. 4 (offset around 10100); Theorem 8 and proof, pp. 5–6 (offset around 14850); Theorems 9–10 and proof, pp. 6–7 (offsets through around 21500).",
+          "method": "Lawful arXiv PDF passages; decisive proofs read directly.",
+          "title": "The Arithmetic Partial Derivative",
+          "trigger": "Same integer map and published trichotomy and valuation evolution."
+        },
+        {
+          "assessment": "Explicitly covers the zero cutoff and local-field valuation dynamics, not the Archimedean growth assertion as such.",
+          "evidence": "Eventual +∞ valuation occurs iff the initial valuation belongs to {0,…,p−1,+∞}. Theorem 2.8 gives eventual periodicity.",
+          "identifier_or_url": "https://arxiv.org/abs/2307.04912; DOI 10.7546/nntdm.2024.30.2.357-382",
+          "material_read": "Theorem 1.3(3), p. 4 (offset around 11150); proof of Lemma 2.2, pp. 7–8 (around 20100); Theorem 2.8, pp. 10–11 (around 27700).",
+          "method": "Lawful OA submitted-version PDF passages.",
+          "title": "A generalization of arithmetic derivative to p-adic fields and number fields",
+          "trigger": "Same authors' generalization may already state an exact threshold."
+        },
+        {
+          "assessment": "Different period and orbit-closure invariants; not used to establish priority.",
+          "evidence": "The period-density result concerns eventual valuation periods for prime-power starts. The orbit-closure result notes the zero cutoff but has p-adic closures and densities as its objective.",
+          "identifier_or_url": "2026/10/26/SCOPE-irrational-period-densities-for-every-odd-prime-arithmetic-parti--a51ff3b0bbb8; 2026/11/2/SCOPE-exact-p-adic-closures-and-residue-densities-of-arithmetic-partia--456b020d09fc",
+          "material_read": "Mirrored RESULT.md findings, each at offset 0.",
+          "method": "Local Resultary and matching source mirror.",
+          "title": "Irrational period densities for every odd-prime arithmetic partial derivative; Exact p-adic closures and residue densities of arithmetic partial derivative orbits",
+          "trigger": "Strongest indexed matches for initial valuation and the same operator."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "As exposition, the three numerical bands and the uniform inequality are convenient. As a distinct finding, the exact middle landing is the e mod p transient already computed in the earlier proof, and the uniform growth estimate is multiplication of the defining magnitude ratios along the earlier nondecreasing block minima. No independently substantive remainder is established by the asserted phase diagram. Correcting attribution and TeX alone would not repair that scientific limitation.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

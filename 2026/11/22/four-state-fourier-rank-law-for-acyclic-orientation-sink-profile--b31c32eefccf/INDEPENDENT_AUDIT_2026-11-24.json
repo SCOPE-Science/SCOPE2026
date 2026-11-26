@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:01:27.791728Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Assumptions, Proof and VERIFICATION.md; inspected verify.py without execution",
+        "Independent FWHT replay: /workspace/branches/20aba659-d9ac-4853-839c-eb1aabf359db/audit_record2.py and replay_2_to_14.txt in the same directory",
+        "Independent symbolic replay: /workspace/branches/audit-replay/path_perron.py"
+      ],
+      "rationale": "The signed sum weights orientations, including repetitions of the same sink set. With rightward edge bit 1, the terminal signs indeed use left bit 0 and right bit 1, and an interior sink has bit pair (1,0). This gives the displayed transfer, including the empty interior product at n=2. A zero interior letter gives J=ee^T, and zero endpoints give e or e^T. Factorization at these zeros and B^4=-4I then give the run restrictions; the full selection instead uses exponent n−2 with both signed terminal vectors and vanishes at n=0 mod 4. Empty selection has sum 2^(n−1). The four projective transitions and terminal survival counts are correct; the live states form a strongly connected graph with a self-loop. Independent symbolic calculation confirmed the characteristic polynomial, generating function and positive root 1.85356027758. Primitivity and the nonnegative nonzero initial and terminal vectors give a positive leading coefficient and exponential decay of the surviving fraction. Independent orientation enumeration and integer FWHT agreed frequency by frequency for n=2 through 14 and reproduced rank 3878 at n=14. The recurrence yields 157406 at n=20.",
+      "residual_risks": [
+        "Depends on multiplicity weighting, path endpoints, and summing all orientations. Finite replay does not itself prove the rank law."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The maximum-degree-two Fourier finding includes paths and proves them singular by a leaf-induced singleton zero. The unique-sink count of Gebhard–Sagan concerns a different statistic."
+        ],
+        "reasoning": "Singularity is a strictly weaker assertion on paths; exact cycle data of the broader work do not supply the path endpoint-dependent support or ranks.",
+        "searches": [
+          "Local Resultary index, Fourier recovery of acyclic-orientation sink profiles 8cfe564cb969",
+          "arXiv:math/9907078 and arXiv:2610.41502"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:math/9907078",
+        "arXiv:1910.10920",
+        "arXiv:2610.41502",
+        "Local Resultary record 8cfe564cb969"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The coefficients give input to finite Walsh transforms; the known leaf obstruction proves zeros in particular frequencies only."
+        ],
+        "reasoning": "The new support theorem accounts for boundary, interior and full runs and counts all survivors via a four-state automaton. It is neither a specialization of aggregate sink counts nor an immediate corollary of leaf cancellation.",
+        "searches": [
+          "arXiv:1910.10920 multivariate definition; arXiv:2610.41502 Proposition 5.1; Resultary 8cfe564cb969"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Hwang et al. p.1 gives a positionwise polynomial. Evaluating it at ±1 gives the Walsh multiplier; Alexandersson–Leite p.4 gives sink-set/weighted-independence formulations."
+        ],
+        "reasoning": "These encode the values being evaluated, not the cancellations at every sign pattern. One must take a nontrivial zero-locus restriction or perform the projective transfer analysis to reach the result.",
+        "searches": [
+          "arXiv:1910.10920, multivariate acyclic orientation polynomial",
+          "arXiv:2610.41502, sink-set weighted independence identities"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The examined path example encodes sink positions and Proposition 5.1 tabulates counts by total sinks. The local Fourier record states path noninvertibility."
+        ],
+        "reasoning": "Even exact counts indexed by total number of sinks cannot substitute for position-by-position Walsh support; neither the inspected positional example nor the Fourier record gives the rank sequence law.",
+        "searches": [
+          "Local Resultary: 8cfe564cb969, inspected finding",
+          "arXiv:1910.10920 p.8 path example; arXiv:2610.41502 Proposition 5.1"
+        ]
+      },
+      "rationale": "The distinct claims are the exact positional support test and resulting all-order rank law. Multivariate orientation polynomials provide substantially the same sink data, and a closely matching Fourier study provides a path singularity obstruction; neither inspected result classifies the full nonzero support on paths.",
+      "residual_risks": [
+        "Priority is only as strong as the bounded statement-level comparison. Equivalent sign-pattern classifications under a different transfer or polynomial formulation may be unindexed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Data-level predecessor, not inspected support theorem",
+          "evidence": "Monomials encode exact sink sets and hence determine the evaluations in principle.",
+          "identifier_or_url": "https://arxiv.org/abs/1910.10920",
+          "material_read": "Definition p.1, path example p.8 (OA offsets 0, 23990)",
+          "method": "OA PDF text",
+          "title": "Acyclic orientation polynomials and the sink theorem for chromatic symmetric functions",
+          "trigger": "Positionwise equivalent data"
+        },
+        {
+          "assessment": "Same general sink statistic; displayed path specialization is aggregate",
+          "evidence": "The path formula records total number of sinks, not surviving positionwise signed evaluations.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.41502",
+          "material_read": "p.4 and Proposition 5.1 pp.21–22 (OA offsets 9800, 59900)",
+          "method": "OA PDF text",
+          "title": "Sink polynomials of line graphs and weighted matching polynomials",
+          "trigger": "Weighted independence identity and exact path specialization"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": "Counts acyclic orientations with a unique sink at a given vertex via the chromatic-polynomial coefficient.",
+          "identifier_or_url": "https://arxiv.org/abs/math/9907078",
+          "material_read": "Abstract and §1 p.1 (OA offset 1800)",
+          "method": "OA PDF text",
+          "title": "Sinks in Acyclic Orientations of Graphs",
+          "trigger": "Classical exact sink counts"
+        },
+        {
+          "assessment": "Material overlap for singularity only, regardless of unresolved same-day ordering",
+          "evidence": "The stated path result gives a leaf-singleton zero; the exact cycle conclusions have different boundary conditions and do not classify the path support.",
+          "identifier_or_url": "2026/11/22/SCOPE-fourier-recovery-of-acyclic-orientation-sink-profiles-on-graphs--8cfe564cb969",
+          "material_read": "RESULT.md finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Fourier recovery of acyclic-orientation sink profiles on graphs",
+          "trigger": "Same convolution in a broader class containing paths"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding; compared path singularity claim in Resultary 8cfe564cb969"
+      ],
+      "rationale": "For a natural inhomogeneous Boolean observation operator, a singularity witness alone leaves both recoverable coordinates and information dimension open. This theorem identifies every recoverable character and quantifies rank and its decay for all path orders. The endpoint and full-run exceptions are needed to apply the criterion, not redundant numerical checks.",
+      "residual_risks": [
+        "Support does not itself give conditioning or accuracy for noisy recovery; no arbitrary trees or weighted orientations are covered."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

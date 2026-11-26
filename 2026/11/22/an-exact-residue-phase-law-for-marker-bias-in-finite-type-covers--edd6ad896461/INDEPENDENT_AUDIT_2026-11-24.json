@@ -1,0 +1,152 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:50:55.599353Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, exact cover definition and Proof §§1–5",
+        "Frozen VERIFICATION.md, check.py and check_output.txt, inspected without executing; diagnostic replay path is python check.py",
+        "García-Ramos–Pavlov arXiv:1808.09486v1, Thm. 3.19"
+      ],
+      "rationale": "Internal consecutive 1 gaps are the only constraints on finite words: use arbitrarily long allowed gaps to accommodate initial and terminal zeros, then extend with allowed gaps. A forbidden distance d first appears as a word of length d+1, so the length-n cover has the exact set D_n=(D∩[1,n−1])∪[n,∞). At the renewal root q_E for either gap set, the distribution q_E^d on allowed distances has finite mean. The suspended iid process attains entropy −log q_E. Conversely, Kac and Abramov reduce an ergodic positive-marker process to its stationary gap process; the single-gap entropy bound and relative entropy against q_E^d force iid gaps of that law at equality. Zero marker frequency gives the all-zero atom. Ergodic decomposition gives uniqueness without a gcd-one assumption. In log coordinates u=−log q, δ=u_n−u, the exact added tail is e^(−nu)H_r(e^(−u)). Its first derivative is O_D(nq^n) and all second derivatives of the total renewal sum are uniformly bounded on a positive-u neighborhood. The root change is O_D(q^n) by the mean-value theorem, yielding δ=q^nH_r(q)/M+O_D(nq^(2n)). Evaluating the length moment at the shifted root adds n q^n H_r(q)+q^(n+1)H'_r(q)−Jδ+O_D(n²q^(2n)), with J=Σ d²q^d: the perturbation derivative is O_D(n²q^n) on the root interval. Inverting M_n proves the stated signed bias and O_D(q^n) remainder. The finitely many H_r(q)>0 give eventual sign, ratio 1/M and exactly the finite cluster set. For the even shift, 1−q²=q and M=√5, so H_even(q)=1/q and H_odd(q)=1, with exactly the two claimed coefficients.",
+      "residual_risks": [
+        "When extending finite words with boundary zeros, the boundary gaps must be chosen long enough; an arbitrary fixed allowed distance suffices only after they are accommodated. Unbounded allowed distances resolve this.",
+        "The checker visits five gap sets for language checks, but the asymptotic loop selects candidates from 64+r, 96+r, 128+r only if congruent to r. It therefore prints no large-n asymptotic check for the period-five example. The analytic uniform estimates, not coverage of all five in the replay, support the theorem.",
+        "The sign is eventual; no asserted error law for general observables or Gibbs potentials."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General sofic Gibbs approximation includes exponential bounds under specification, not sharp signed coefficients. Mixed periodic tails can have gcd greater than one, e.g. even return distances, outside the specification hypothesis.",
+          "Stable Covers Thm. 3.1 treats short-word distributions of high-entropy measures within a mixing SFT when their entropy is near that system's maximum.",
+          "Three indexed gap-cover analogues give exact or asymptotic entropy-phase results for geometric, Thue–Morse and Sturmian return sets."
+        ],
+        "reasoning": "Neither broad convergence nor comparison of measures within a single SFT yields the leading entropy-normalized marker deficit. The nearest entropy phase expansions identify the tail weight, while the marker law additionally needs its first length moment and a bound on evaluating it at the cover root.",
+        "searches": [
+          "arXiv:math/0402144 Thms. 3.1, 3.4–3.5",
+          "arXiv:2602.04097v1 Thm. 3.1 and introduction",
+          "Resultary --1fd88ee11f52, --0567b3a2587f, --adf501aae889"
+        ]
+      },
+      "checked_sources": [
+        "ArXiv 1808.09486v1, math/0402144, 2602.04097v1",
+        "Resultary --1fd88ee11f52, --0567b3a2587f, --adf501aae889",
+        "Frozen RESULT.md, relationship to prior work"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Thue–Morse proof uses F_N(u)−F(u)=q^N A_N with A_N the complement-tail transform, F'_N(u)=−S+O(Nq^N), and δ=q^N A_N/S+O(Nq^(2N)); this same entropy argument transfers to periodic tails.",
+          "The exact individual measure identity determines which derivative to study, but the entropy error statement and its coarse derivative estimate do not identify the leading derivative coefficient.",
+          "Computing the first moment of the added tail and controlling the root shift yields the signed additional factor n, the residue constants and the ratio to entropy."
+        ],
+        "reasoning": "Do not differentiate a pointwise entropy remainder to obtain the sharp cylinder law. The existing exact prerequisites reduce the problem to a renewal perturbation but do not give the marker expansion being audited. Same-day catalogue dates alone do not establish precedence.",
+        "searches": [
+          "Original Resultary --0567b3a2587f, Proof §§1–3 at offsets 0–6035",
+          "arXiv:1808.09486v1, Thm. 3.19; arXiv:math/0402144, main convergence statements"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "García-Ramos–Pavlov give the exact one-cylinder frequency in terms of the entropy via gaps of length k=d−1.",
+          "Chazottes–Ramirez–Ugalde use order m for admissible words of length m+1, the same canonical approximation after reindexing."
+        ],
+        "reasoning": "Reindexing reconciles the systems and the individual density formula, but not a quantitative difference of two such measures. The novelty is not the formula for an isolated marker density.",
+        "searches": [
+          "Resultary searches for canonical cover marker frequency, entropy phase and even-shift covers",
+          "arXiv:1808.09486v1, Thm. 3.19; arXiv:math/0402144, finite-type approximation definition and Thm. 3.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed normalized phase sets are for entropy. The exact density expression of Thm. 3.19 has no finite-cover parity table or signed difference.",
+          "No exact marker-bias or even-shift parity entry was found in those sources."
+        ],
+        "reasoning": "An entropy phase catalogue and a formula for the even-shift limiting Parry marginal do not tabulate the two asymptotic cover marker constants.",
+        "searches": [
+          "Resultary cover-phase and marker searches with Finding inspections for --1fd88ee11f52, --0567b3a2587f, --adf501aae889",
+          "arXiv:1808.09486v1 Thm. 3.19 exact marker formula"
+        ]
+      },
+      "rationale": "The supported distinct claim is the quantitative difference of maximal-entropy marker frequencies: its signed nq^n scale, residue coefficients, comparison to entropy and parity witness. The exact cover/renewal equations and individual marker identity are known. The entropy expansion's mechanism already appears with the same missing-tail coefficient and error order in the inspected Thue–Morse calculation, and the entropy component is not an independent basis for passage. The broad sofic convergence theorem does not control this signed sharp observable or the first moment of the tail evaluated at the shifted renewal root. The inspected phase-law records compute entropy, not that marker term.",
+      "residual_risks": [
+        "A less accessible sharp derivative-of-pressure expansion for canonical renewal covers could overlap. The inspected sources and mirror do not constitute exhaustive priority evidence or within-day ordering."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact prerequisite, not a signed asymptotic for covers.",
+          "evidence": [
+            "μ([1])=(Σ_(k∈S)(k+1)e^(−h(k+1)))^(−1)."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1808.09486v1",
+          "material_read": "Thm. 3.19, printed p. 16, PDF offset about 49814 (renumbered Thm. 3.22 in v2)",
+          "method": "OA original PDF passage",
+          "title": "Extender sets and measures of maximal entropy for subshifts",
+          "trigger": "Exact marker formula in the same gap-shift model"
+        },
+        {
+          "assessment": "Exponential convergence in the specified-sofic setting does not supply the sharp signed coefficient or residue phases.",
+          "evidence": [
+            "Order m is determined by length-(m+1) words.",
+            "Potential zero corresponds to maximal entropy; the general bounds do not isolate this cylinder's leading expansion."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0402144",
+          "material_read": "Cover definition p. 3 (offset about 12861); Thms. 3.1 and 3.4–3.5 pp. 4–5 (offset about 14500)",
+          "method": "OA original PDF passages",
+          "title": "Finite type approximations of Gibbs measures on sofic subshifts",
+          "trigger": "Broader measure/entropy convergence for the same cover operation"
+        },
+        {
+          "assessment": "Does not compare exact cover marker biases with the claimed scale or coefficient.",
+          "evidence": [
+            "Quantitative short-word control for high-entropy measures within a mixing SFT."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2602.04097v1",
+          "material_read": "Introduction pp. 1–2 and Thm. 3.1 p. 5, OA offsets 0 and about 15000",
+          "method": "OA original PDF passages",
+          "title": "Stable covers of subshifts",
+          "trigger": "Canonical covers and quantitative measure comparison"
+        },
+        {
+          "assessment": "Substantial method overlap for entropy; no sharp first-moment marker bias.",
+          "evidence": [
+            "Canonical cover tail replacement and exact Thue–Morse entropy correction q^N A_N/S+O(Nq^(2N)).",
+            "The derivative estimate here is only −S+O(Nq^N)."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-a-cantor-spectrum-of-normalized-entropy-errors-for-thue-morse-ga--0567b3a2587f/RESULT.md",
+          "material_read": "Finding and Proof §§1–3, offsets 0–6035",
+          "method": "Resultary and original local-mirror passage",
+          "title": "A Cantor spectrum of normalized entropy errors for Thue–Morse gap-shift covers",
+          "trigger": "Same-day nearly identical entropy-tail expansion"
+        },
+        {
+          "assessment": "Geometric and Sturmian return sets and entropy phase spectra, not the periodic-tail marker law.",
+          "evidence": [
+            "Geometric result includes the exact canonical cover and an entropy plateau rule.",
+            "Sturmian result concerns the entropy correction and its Cantor spectrum."
+          ],
+          "identifier_or_url": "Resultary --1fd88ee11f52; --adf501aae889",
+          "material_read": "Original RESULT.md Finding passages, offset 0 for each",
+          "method": "Resultary and local-mirror passages",
+          "title": "A countable entropy-phase spectrum in finite-type covers of geometric gap shifts; Exact geometric Cantor gaps in the finite-cover entropy spectrum of Sturmian gap shifts",
+          "trigger": "Earlier and same-day exact cover-phase laws"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and even-shift specialization",
+        "Chazottes–Ramirez–Ugalde arXiv:math/0402144, general Gibbs approximation results"
+      ],
+      "rationale": "The equilibrium one-cylinder marginal is a natural test of approximation by finite memory. The exact signed leading term quantifies a real separation from entropy convergence: the marker deficit is asymptotically n/M times the entropy excess. The all-allowed versus forbidden residue tail combinations change measurable coefficients, already in the classical even shift with two different constants. This supplies a concrete benchmark for quantitative measure approximation, not a claim for all observables.",
+      "residual_risks": [
+        "Quantification is for mixed eventually periodic gap sets and the marker marginal only; it does not establish a sharp whole-measure metric."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

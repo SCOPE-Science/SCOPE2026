@@ -1,0 +1,98 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:34:24.818402Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For S_1 the special first-branch value at zero is N-1; in the other branch the fraction is k+k/(N-1) for 0<=k<=N-2 and floors to k=N-1-z. For S_{N-1}, the ceiling branch has the same expression with 1<=k<=N-1 and gives k after subtracting one; the last state maps to zero. Thus the two branch maps are reversal and cyclic increment, including wraparound. Each swaps parity. Restricting the second iterate to even states z=2j gives j -> -j for C_1 and j -> -j-1 for C_{N-1}, modulo N/2. Both maps are involutions. Because N/2 is even, the first has exactly two fixed points j=0,N/4 and the second has none. Every cycle alternates parity, so each such fixed point gives exactly one primitive two-cycle, and all remaining states are in primitive four-cycles. The two partners at the first endpoint are N-1 and N/2-1, giving the stated pairs. The counts are (N-4)/4 and N/4 for four-cycles, respectively. The order is the lcm of primitive periods; at m=2 the first endpoint is exactly order two and the second remains order four. A d-cycle contributes d fixed points at exponents divisible by d, giving the zeta factor (1-t^d)^(-1) and thus both formulas. Independent replay: python3 /workspace/independent_checks.py 4 recomputed exact rational floors and ceilings and enumerated least return times for 16,376 endpoint/state pairs, at both controls for m=2..12, including the identities of the two-cycles. This is bounded corroboration; the orbit argument proves all m>=2.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorems 2–3 establish bijectivity for all admissible controls and a discrete Lyapunov law (midpoint control exceptional, distinct from the endpoints here).",
+          "The distinct same-day Resultary f51ed9fa478c Finding addresses component-box cycles, masses, entropy and Lyapunov invariants for a cyclic product map on a multi-interval core."
+        ],
+        "reasoning": "General bijectivity permits different permutation orders and says nothing about primitive counts. The discrete Lyapunov assertion concerns a different diagnostic. The cyclic product finding does not have the integer parity switch or specialize to these endpoint permutations.",
+        "searches": [
+          "Choi et al., Theorems 2–3 and concluding discussion",
+          "Resultary skew tent component cycle and entropy classifications"
+        ]
+      },
+      "checked_sources": [
+        "Choi et al., Entropy 28 (2026), 131, DOI 10.3390/e28010131, inspected passages",
+        "Resultary exact self-match and distinct f51ed9fa478c Finding"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 2 supplies a permutation; Theorem 3 does not count lower-period orbits and the conclusion calls for their systematic study.",
+          "At the right endpoint the pure skew tent is a cyclic shift of order N. The parity hybrid's parity-preserving second iterate instead reduces to a reflection with no fixed even representative."
+        ],
+        "reasoning": "Neither the general permutation claim, the separate Lyapunov diagnostic nor the unhybridized endpoint order implies the hybrid's census. The calculation of the return involution on the even indices is the additional step which determines the spectrum and, mechanically from that new census, the zeta function.",
+        "searches": [
+          "DOI 10.3390/e28010131, Definition 1, Theorems 2–3, and p. 11 conclusion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact catalogue hit 15d53f5355f9 is the assigned record, not distinct prior work.",
+          "Choi et al. Eq. (2) gives algebraically equivalent floor/ceiling branches; Definition 1 Eq. (3) chooses S_a on even states and S_{2^m-a} on odd states on the identical integer state space."
+        ],
+        "reasoning": "The matching definition establishes that this is not a new discretization or a relabeling of another known map. A period census could equivalently be given by the complete fixed-point counts of iterates or its zeta series; the inspected Choi passages do not give that endpoint invariant.",
+        "searches": [
+          "Resultary: parity-hybrid discrete skew tent endpoint period four, cycle spectrum and zeta",
+          "Choi et al., DOI 10.3390/e28010131, §2 Eqs. (2)–(3)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact retrieved profile is the same catalogue record; the closest distinct same-day result has a different notion of cycle on component boxes.",
+          "The primary paper describes short observed cycles for some controls and initial states and says a comprehensive account over parameters is still lacking."
+        ],
+        "reasoning": "Observed short runs or a component-box spectrum are not an existing table for the exact least periods of all states at these endpoints and all m. The accessible conclusion supports the distinction, not an exhaustive priority finding.",
+        "searches": [
+          "Resultary: endpoint skew tent primitive cycle counts and nearby exact classifications",
+          "Choi et al., concluding period-length discussion, p. 11"
+        ]
+      },
+      "rationale": "Choi et al. define the identical map and prove bijectivity and a discrete Lyapunov law; their conclusion identifies period classification as unfinished. The exact endpoint primitive spectra and orders are not supplied by those results. The zeta factors are standard consequences of the census, not a separate claim of novelty. This is a bounded judgment on the inspected sources.",
+      "residual_risks": [
+        "Bounded search and passages do not establish exhaustive historical priority; the public search returned irrelevant hits, not evidence of absence.",
+        "The Fan–Ding older digital-chaos period-distribution citation in the frozen record was not independently assessed from full text; no exclusion is based on it.",
+        "No ordering or priority inference is made from the dates of the same-day records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identical map, general bijectivity and distinct exponent result; accessed period discussion does not establish the endpoint spectrum",
+          "evidence": [
+            "Definition 1 branches exactly by input parity between opposite controls.",
+            "Theorem 2 covers 0<a<2^m; the exponent law's midpoint exception is neither endpoint for m>=2.",
+            "The conclusion describes systematic period dependence on controls and initial conditions as still lacking."
+          ],
+          "identifier_or_url": "https://doi.org/10.3390/e28010131",
+          "material_read": "OA PDF pp. 3–4 Eqs. (2)–(3) and Definition 1 (offsets 11200–14141, 19100–21424); p. 5 Theorem 2 location and Theorem 3 (offsets 21530, 22600–24202); p. 11 concluding period discussion (46350–49138)",
+          "method": "Primary-text mathematical statement comparison",
+          "title": "Some New Maximally Chaotic Discrete Maps",
+          "trigger": "Exact finite skew tent and parity hybrid definitions, possible established endpoint census"
+        },
+        {
+          "assessment": "Different cyclic product on an invariant core, not the frozen map",
+          "evidence": [
+            "Finding classifies component-box cycles, their masses, entropy and Lyapunov invariants, rather than periods of integer states for the parity hybrid."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-component-size-spectrum-and-entropy-rigidity-in-cyclic-skew-tent--f51ed9fa478c",
+          "material_read": "Mirrored RESULT.md, offsets 0–2468",
+          "method": "Resultary search and local mirror passage reading",
+          "title": "Component-size spectrum and entropy rigidity in cyclic skew tent dynamics",
+          "trigger": "Distinct indexed same-day skew tent cycle spectrum with similar terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Period dependence is expressly open as a systematic question in the paper introducing the map. The two extreme admissible controls are natural boundary cases. Their all-precision classification shows the sharply different two-cycle counts and the collapse from the unhybridized shift's N-step order to four at the right endpoint. Together with the paper's different Lyapunov diagnostic this illustrates why that diagnostic alone does not determine finite orbit length. The contribution is the exact mathematical boundary census, not an assertion about interior controls, postprocessing, or applied security.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

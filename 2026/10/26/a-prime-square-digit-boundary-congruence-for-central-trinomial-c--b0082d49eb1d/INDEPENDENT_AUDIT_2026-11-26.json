@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:57:53.017689Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For Q=1+x+x^(-1) and p>=5, Q(x) divides Q(x^p) integrally in Laurent polynomials by the action of p on primitive cube roots. Its quotient B has exponents strictly between -p and p, and constant term epsilon_p by extracting x^(p-1) from (1-x)/(1-x^3). Reducing Q^p=Q(x^p) modulo p and cancelling Q in the Laurent domain shows Q^(p-1)=B+pA with integral A of support likewise inside (-p,p). Expanding (Q(x^p)+pQA)^m and cancelling one exact Q, the terms containing at least two p factors remain divisible by p^2. The remaining polynomials give (B+mpA)Q(x^p)^(m-1). Only exponent zero of B and A can pair with an exponent divisible by p, yielding the first formula with p CT(A)=T_(p-1)-epsilon_p. The verified Cao–Sun base-index residue and (1+pu)^m=1+mpu modulo p^2 give the second formula for all positive m, including multiples of p, with no division by a trinomial coefficient. Iteration contributes r signs and total exponent p^r-1. An independent direct binomial summation (`python3 /workspace/reproduce.py`) checked 70 pairs including m=p and 2p, and 9 prime-power instances. The finite checks are not the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Q has Newton interval [-1,1] and zero as its unique interior lattice point, so the general Laurent constant-term theorem applies. Its modulo-p digit product supplies T_(pm-1)=T_(p-1)T_(m-1) modulo p. The higher-power relation has products involving both the original index and the index after deleting a digit."
+        ],
+        "reasoning": "The higher-power theorem gives relations among unknown residues; the mod-p result fixes only the zeroth-order factor. The inspected statements do not supply the first-order explicit multiplier at the boundary.",
+        "searches": [
+          "Mellit–Vlasenko arXiv:1306.5811 Theorem 1, digit-product and higher-power coupled shift relation"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "arXiv:1006.3069, arXiv:1306.5811 and arXiv:2012.05121",
+        "Resultary dd13705ab569"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The published base case determines CT(A) only after the integral quotient B has been constructed and the support separation proved. A coupled recurrence in higher digits does not evaluate the remaining two-digit residues at the prime-square level from that base input alone in the passages examined."
+        ],
+        "reasoning": "The support-derived lift is the key extra fact needed to turn the known base evaluation into the exact factor for all m. The resulting prime-power evaluation then follows by telescoping the exponents; it does not support an additional originality claim.",
+        "searches": [
+          "Cao–Sun Theorem 1.1(i), Eq. (1.4); Mellit–Vlasenko Theorem 1 and coupled shift; Pan–Sun Theorem 1.1 and Corollary 1.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The constant term of Q^n is the coefficient of x^n in (1+x+x^2)^n. Cao–Sun uses the same T_n and epsilon=(p/3); it evaluates T_(p-1) only. Pan–Sun treats T_(pn)-T_n and T_(p^a), not minus-one indices."
+        ],
+        "reasoning": "The audited lift is not a relabeling of an ordinary prime-index congruence, nor is the published m=1 evaluation itself new. Its explicit multiplier is required at all m, even when m or T_(m-1) is zero modulo p.",
+        "searches": [
+          "Central trinomial coefficients modulo prime square, indices pn-1 or p^r-1, digit boundary, constant terms and Dwork congruences",
+          "Cao–Sun arXiv:1006.3069 and Pan–Sun arXiv:2012.05121"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Ranked results did not furnish a matching all-m formula. The inspected record dd13705ab569 gives C_d(p) for central odd-nomial coefficients, reducing at d=1 to T_p=1 modulo p^2."
+        ],
+        "reasoning": "The neighboring result concerns prime indices, not the boundary, and no covering explicit formula or table was found. Ranked non-hits do not prove absence.",
+        "searches": [
+          "Resultary: trinomial prime-square digit boundaries T_(pm-1), T_(p^r-1), normalized constant-term congruences"
+        ]
+      },
+      "rationale": "The inspected literature gives the m=1 base case, a general mod-p digit law, higher-power coupled relations, and stronger results on other indices. The supported distinct claim is the explicit mod-p^2 coefficient on the whole pm-1 family. The prime-power statement is credited as its iteration, not as independent novelty. The bounded comparisons do not establish absolute priority.",
+      "residual_risks": [
+        "An overlooked all-digit or differently normalized supercongruence might subsume the lift. The literature search and inspected indexed results are bounded.",
+        "The proofs of older congruences were not all read in full; the comparison is to the identified theorem statements and relevant displayed relations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Confirms the m=1 input, not the claimed all-m lift.",
+          "evidence": "T_(p-1) = (p/3) 3^(p-1) modulo p^2 for p>3.",
+          "identifier_or_url": "https://arxiv.org/pdf/1006.3069",
+          "material_read": "Theorem 1.1(i), Eq. (1.4), p.2, offset 6400",
+          "method": "Bounded OA PDF passage",
+          "title": "Some congruences involving binomial coefficients",
+          "trigger": "Identical T_n and cited indispensable prime-square base case"
+        },
+        {
+          "assessment": "Direct mod-p overlap; no explicit p^2 first-order digit-boundary coefficient in inspected statements.",
+          "evidence": "Digit product modulo p and a coupled congruence for b_(n+mp^s)b_floor(n/p) versus b_n b_(floor(n/p)+mp^(s-1)).",
+          "identifier_or_url": "https://arxiv.org/pdf/1306.5811",
+          "material_read": "Theorem 1 on p.1 at offset 800 and displayed higher-power product relation on p.2 at offset 3600",
+          "method": "Bounded OA PDF passages",
+          "title": "Dwork's congruences for the constant terms of powers of a Laurent polynomial",
+          "trigger": "General digit congruences apply to the same Laurent constant terms"
+        },
+        {
+          "assessment": "Different index class.",
+          "evidence": "T_(pn)−T_n and the residue of T_(p^a), not individual T_(pm-1).",
+          "identifier_or_url": "https://arxiv.org/pdf/2012.05121",
+          "material_read": "Theorem 1.1 and Corollary 1.1, p.2, offset 5100",
+          "method": "Bounded OA PDF passage",
+          "title": "Supercongruences for central trinomial coefficients",
+          "trigger": "Stronger prime-adic evaluations for identical coefficient sequence"
+        },
+        {
+          "assessment": "Gives a prime-index value, not a digit-boundary family.",
+          "evidence": "C_d(p)=[x^(dp)](1+x+...+x^(2d))^p, with d=1 yielding T_p.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-prime-index-congruence-for-central-odd-nomial-coefficients--dd13705ab569",
+          "material_read": "Finding; substitution d=1",
+          "method": "Resultary search and bounded local-mirror inspection",
+          "title": "Prime-index congruence for central odd-nomial coefficients",
+          "trigger": "Nearby modulus, family and indexing in the catalogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is an exact prime-square lift on a natural full index boundary, well beyond a numerical residue or the published isolated base case. The cyclotomic quotient explains why an entire residue class admits an explicit correction and gives a closed formula for strings of maximal base-p digits without any unit assumption on the smaller trinomial coefficient.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

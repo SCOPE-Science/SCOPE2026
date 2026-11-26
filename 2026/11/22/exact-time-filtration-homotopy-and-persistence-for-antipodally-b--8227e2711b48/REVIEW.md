@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof specifies the directed cycle, binary simultaneous update, all filtration stages, and the exact intersection criterion for every new tetrahedron. The modular test yields an edge/isolated-vertex intersection until the first circle, one loop per intermediate late step, and two loops at the terminal stage. Every late loop is nullhomotopic in the preceding stage by explicit three-triangle coning using earlier facets. Homotopy pushouts yield the integral stage classifications, and split inclusions give the integral persistence barcode. The standalone face, dynamic, cone, and mod-two persistent-boundary checks passed in their stated ranges. No finite enumeration is used as an infinite proof.
+## correctness
 
-**Originality — PASS, with priority risk.** The closest published two-pair avalanche theorem computes the terminal complex's collapse and boundary Euler characteristic; a separate Möbius-ladder closed-neighborhood theorem computes a complex isomorphic to that collapsed boundary, so the terminal homotopy type is explicitly acknowledged as known by combination. Neither determines the original firing-time filtration. The published repeat-pattern persistence theorem does not apply because the four-chip pattern has no nontrivial translational period, and the directed-path two-pair barcode has a different dynamical boundary condition. Riihimäki–Smith's primary full text introduces the filtration and motivates classifying its homotopy dynamics without the present exact barcodes. Additional equivalence, broader-coverage and record searches found no covering theorem; an unindexed or inaccessible equivalent remains possible.
+PASS
 
-**Mathematical value — PASS.** This is a natural sharp temporal boundary case adjacent to the published torus phase. Rather than just reclassifying the known terminal wedge, it provides all integral homotopy stages and inclusion maps for every \(m\ge4\), locates an early circle birth, the regular two-sphere births, and the unusual double final birth, and proves the absence of finite-length bars. Such temporal information is not implied by the terminal homotopy type and supplies exact benchmarks for avalanche persistence.
+Binary synchronous threshold-one firing translates the four-point support each round, with distinct translates over a period by its gap word. Label the local positions A,B,C,D at time t by offsets 0,1,m−1,m. A subset of the new facet is in an earlier facet iff its vertices have a common positive backward lag r≤t. The four possible-lag sets on 1≤r<2m are {1,m−1,m}, {m−2,m−1,2m−1}, {1,m+1,m+2}, {m,m+1,2m−1}. Thus the first lags for AB,AC,AD,BD,CD are m−1,1,m,2m−1,m+1, with BC absent and no triple intersection, for every m≥4. Singleton lags give exactly the extra B vertex at t=m−2. This independently proves the complete attachment table. The homotopy cofibre of an edge or tree inclusion preserves the previous homotopy type; an edge plus isolated point over the contractible stage gives a circle. For t=m+j the loop is coned from m+j−1 in the earlier facets F_{j−1}, F_j and F_{m+j−1}. The last extra loop also cones, from m using F_0, F_{m−1}, F_m. For the connected final graph the two coned loops generate its fundamental group, hence the inclusion is nullhomotopic. Each such cofibre wedges on the suspension of the attaching graph, giving one sphere per intermediate birth and two at the terminal round. Integral Mayer–Vietoris gives split inclusions with free quotients (one H_1 generator at m−2 and the stated H_2 increments); the spaces stay connected and the filtration then stabilizes. Compatible bases give the asserted essential interval modules, integrally, not just over a field.
 
-**Scope and limitations.** Directed cycles and a particular four-binary-chip antipodal configuration only; no classification for arbitrary positions or nonbinary dynamics. Explicit cone identifications give ordinary, not equivariant, homotopy splittings. Field reductions are finite corroboration only; independent mathematical audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The terminal wedge type is already covered by combining the published boundary collapse and sphere-necklace result, as the finding's prior-work section acknowledges. The supported distinct claim is the original firing-time filtration: the intermediate homotopy types, split integral maps, and precise births, including the simultaneous final pair. No inspected prior theorem determines these maps and birth times in this configuration.
+
+## value
+
+PASS
+
+The support is the natural antipodal boundary of the two-pair cycle family, not an arbitrary small sample. The exact time filtration detects facts that the known terminal wedge cannot: the loop first forms at m−2, two-dimensional classes start later, all survive integrally, and two independent births occur in the last round. This provides a scalable worked boundary case for avalanche persistence. The terminal wedge on its own is not credited as new value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

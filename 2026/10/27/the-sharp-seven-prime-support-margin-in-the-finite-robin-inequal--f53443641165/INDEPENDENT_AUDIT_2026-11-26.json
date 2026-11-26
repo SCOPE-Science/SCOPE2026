@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:43:49.728377Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Replacing each ordered prime by the corresponding first-seven prime at fixed exponents weakly increases sigma(n)/n and strictly decreases C_7 if any prime changes. The reduced integer remains above 5040 because the seven-prime primorial is already above it. C_7 is strictly increasing (positive argument and positive derivative of P_7). The Euler-factor bound is 17017/3072; the independent interval evaluation gives C_7(52000000000)>5.7095380290666298, larger than that bound plus 0.1691. I independently enumerated the reduced candidates by starting at the primorial and adjoining prime factors in nondecreasing order; unique factorization gives exactly one visit to each tuple up to the cutoff. An integer fixed-point replay, /workspace/branches/review-4-integer-replay.py, uses rational Euler–Maclaurin bounds at N=4096, logarithms by the atanh series with power-of-two reduction and a geometric tail bound, and a bounded exponential series. It verifies all 2596 tuples: the candidate gap is enclosed between 0.1690334982267305186 and 0.1690334982267306759, the ratio is exactly 62496/12155, and every other reduced tuple has lower interval endpoint above 0.1691 (the smallest such endpoint exceeds 0.18329). Together with the strict support reduction and tail, this proves the global unique minimum. The frozen checker and recorded output were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The paper narrows hypothetical minimal counterexamples and reports excluding the relevant candidate lists up through omega=20; the appendix describes the scope of checkToK20.nb."
+        ],
+        "reasoning": "That is a counterexample-exclusion computation, not a complete minimization of the seven-prime gap: the candidate filtering and tests need not preserve small positive gaps. This review does not rely on how the predecessor propagates its exclusion result.",
+        "searches": [
+          "Mishra–Sarkar section 4.2.1 and Lemma 20, appendix L.5 and Table 1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify_gap.py and gap_certificate.txt",
+        "Mishra–Sarkar arXiv:2609.26787v1 passages specified above",
+        "OEIS sequence pages and b-files",
+        "Local Resultary search and nearest mirrored Finding"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A positive sign check does not compare any two positive gaps. Colossal abundance compares sigma(n)/n^(1+epsilon), not sigma(n)/n minus the truncated logarithmic penalty on the omega=7 layer."
+        ],
+        "reasoning": "The sign statement and database membership do not decide the new nonlinear extremal comparison. Proving the precise value and optimizer needs a global argument such as the monotone tail bound and exhaustive finite gap comparisons verified here.",
+        "searches": [
+          "Mishra–Sarkar section 4.2.1 and appendix L.5 versus the all-tuples gap comparison",
+          "OEIS A004490 colossally abundant definition versus the frozen objective"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Mishra–Sarkar define the same omega-dependent truncated inequality, with omega counting distinct primes. The nearest corroborated local record, 2026/10/13/SCOPE-gaussian-threshold-and-lattice-transition-for-bounded-exponent-r--5d41b2f00a6c, addresses moving Gaussian-scale cutoffs and bounded-exponent prime-power patterns."
+        ],
+        "reasoning": "At omega=7 the predecessor has the same gap function, but its inequality is a sign assertion; the local record treats a different variable truncation and domain. Neither inspected statement gives the infimum and unique attainment.",
+        "searches": [
+          "Local Resultary search for 367567200 and the fixed seven-prime Robin truncation gap",
+          "Mishra–Sarkar arXiv:2609.26787v1 PDF p. 2, offset 4400"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The integer occurs in the colossally abundant b-file at row 14, the superabundant b-file at row 46, the highly abundant b-file at row 521, and the highly composite b-file at row 63. The paper's notebook is identified, but its contents could not be retrieved."
+        ],
+        "reasoning": "Those sequences use different extremal objectives. Their exact integer match neither lists this gap nor proves uniqueness for it. No exact-gap table was verified.",
+        "searches": [
+          "OEIS A004490, A004394, A002093 and A002182 and their b-files for 367567200",
+          "Mishra–Sarkar appendix L.5 and Table 1, checkToK20.nb"
+        ]
+      },
+      "rationale": "The supported distinct result is the sharp uniform additive gap and its unique optimizer at exactly seven distinct prime factors. The parent inequality and the optimizer's appearance under other divisor-extremal criteria are not new. The inspected statements do not supply or mechanically imply the sharp gap for the stated objective.",
+      "residual_risks": [
+        "The original checkToK20 notebook could not be retrieved; an unreported exact-gap table is not excluded. Search and available passages do not establish absolute priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same inequality and related sign computation, no sharp gap in inspected passages.",
+          "evidence": [
+            "The omega truncation and distinct-prime definition; candidate exclusion through N_20; the checkToK20.nb entry."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.26787v1",
+          "material_read": "PDF p. 2 (offset 4400); section 4.2.1 and Lemma 20 pp. 12–13 (offset 56200); L.5 p. 19 (offset 95623); Table 1 p. 20 (offset 97363).",
+          "method": "Bounded OA PDF passages.",
+          "title": "A finite arithmetic form of Robin's inequality and its equivalence to the Riemann hypothesis",
+          "trigger": "Defines the same objective and performs seven-support candidate checks."
+        },
+        {
+          "assessment": "Specific residual risk, not evidence of matching content.",
+          "evidence": [
+            "L.5 describes a Mathematica check for excluding candidate counterexamples at support sizes 7–20."
+          ],
+          "identifier_or_url": "checkToK20.nb, arXiv:2609.26787v1 Table 1",
+          "material_read": "Only the paper's description in L.5 and Table 1; notebook not retrieved.",
+          "method": "Paper locator and lawful source-route attempt.",
+          "title": "Supplementary checkToK20 notebook",
+          "trigger": "Could contain an unpublished-in-paper numerical comparison of relevant candidates."
+        },
+        {
+          "assessment": "Preexisting integer in different extremal problems.",
+          "evidence": [
+            "Colossally abundant, superabundant, highly abundant and highly composite membership."
+          ],
+          "identifier_or_url": "OEIS A004490, A004394, A002093 and A002182",
+          "material_read": "Sequence definitions and cited b-file rows for 367567200.",
+          "method": "OA sequence pages and public b-files.",
+          "title": "OEIS divisor-extremal sequences",
+          "trigger": "Potential exact optimizer or precomputed tables."
+        },
+        {
+          "assessment": "Different regimes and invariant.",
+          "evidence": [
+            "Moving Gaussian-scale cutoff and lattice transition on primorial powers, not a fixed P_7 positive-gap minimum."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-gaussian-threshold-and-lattice-transition-for-bounded-exponent-r--5d41b2f00a6c",
+          "material_read": "Mirrored Finding.",
+          "method": "Local index and mirror.",
+          "title": "Gaussian threshold and lattice transition for bounded-exponent Robin truncations",
+          "trigger": "Closest local literature record on optimizing related truncations."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Seven is the first support size beyond the predecessor's analytic small-support range, so the slice is motivated by the existing argument. The exact worst case gives a certified uniform additive allowance for this truncation in that layer, not just a sign or a numerical estimate at a famous integer. A researcher comparing truncations or improving the finite checks can use both the tolerance and its unique obstruction. No wider Robin or Riemann-hypothesis implication is asserted.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

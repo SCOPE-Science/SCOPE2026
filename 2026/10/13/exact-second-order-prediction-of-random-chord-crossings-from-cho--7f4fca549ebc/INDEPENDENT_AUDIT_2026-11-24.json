@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:29:20.104581Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For each chord the minor-arc start is uniform independent of its minor-arc length, by uniform translation of the two endpoints. Chords therefore have independent uniform rotations given their lengths, using the natural regular conditional version; repeated endpoint and diameter exceptions are null. For short arcs of fractions r,s≤1/2, the intersection of an interval of length r and its translate by s has length (r−s)_+ (no wraparound contributes positive length). Their symmetric difference has length 2min(r,s), exactly the endpoint-alternation event. Distinct crossing indicators on disjoint chord pairs use independent rotations. For pairs sharing a chord, fixing its rotation leaves the two other rotations independent with crossing probabilities constant in the fixed rotation, so the indicators are pairwise independent given the lengths. This suffices to sum the Bernoulli variances, not to assert mutual independence. For a moment replay, set W_i=2r_i, iid Uniform(0,1); g=min(W_i,W_j) has density 2(1−g) and moments 1/3 and 1/6. Its one-chord average is w−w²/2, with mean 1/3 and second moment 2/15, hence variance 1/45. There are three unordered pairs of edges sharing one endpoint per index triple; counting both covariance orders yields Var(M_n)=binom(n,2)/18+6 binom(n,3)/45. The integrated conditional variance is binom(n,2)/6. Their sum gives the quoted total variance, and their ratio gives the explained fraction, also at n=2. The L² projection property gives uniqueness up to almost-sure equality. The analytic argument proves the finite-n formulas. The frozen symbolic code and simulation record were inspected, not rerun; sampling is corroboration only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Bortolotto–Souza paper studies locations of intersections of the sampled lines; Bortolotto–Ramos studies extremal probabilities of pair intersections under endpoint measures.",
+          "The closest Brownian-bridge record uses a one-chord additive projection and discusses its distinction from full length conditioning."
+        ],
+        "reasoning": "Neither a pair intersection-location law nor an extremum over endpoint measures yields the fixed-length joint rotation calculation. The general law of total variance or U-statistic projection machinery requires those conditional input moments.",
+        "searches": [
+          "Bortolotto–Souza arXiv:2504.12866v1",
+          "Bortolotto–Ramos DOI:10.1112/mtk.70024",
+          "Resultary full-length conditioning and geometric intersection searches"
+        ]
+      },
+      "checked_sources": [
+        "INRIA RR-3914",
+        "arXiv:1501.01489v1",
+        "arXiv:2504.12866v1",
+        "DOI:10.1112/mtk.70024",
+        "Resultary b12951dba4f4, 25d00b41e332, 6cd88475e150, 7b9f44348870"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The marginal crossing law depends on the pairing and cyclic order, not any Euclidean spacing variables in its statement.",
+          "The Brownian-bridge record dated 2026/11/2 uses the same W and gives the one-coordinate average; the gap in residual risks is n(n−1)/180. The discrete-span record dated 2026/10/18 treats linear prediction using total rank span, with asymptotic explained fraction 15/16."
+        ],
+        "reasoning": "A marginal law cannot recover its coupling to Euclidean lengths. An additive projection omits the two-coordinate residual in min(W_i,W_j), and the discrete span statistic is on different conditioning data. The full conditional independence argument and pair kernel do not follow as readouts of these related formulas. Dates alone are not used to dismiss overlap.",
+        "searches": [
+          "Flajolet–Noy Theorem 3 and Acan §2",
+          "Resultary Brownian-bridge record b12951dba4f4 and discrete-span record 25d00b41e332"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In doubled minor-arc units W=2arcsin(L/2)/π, the two-length kernel is min(W_i,W_j). Its one-length average W_i−W_i²/2 is not the full kernel.",
+          "Acan's shorter span counts intervening endpoint labels; it is not continuous chord length."
+        ],
+        "reasoning": "Changing length coordinates monotonically preserves the Euclidean length sigma-field. Replacing it by a cyclic rank span, or retaining only one-chord additive effects, changes the conditioning information.",
+        "searches": [
+          "Resultary: Euclidean chord lengths and conditional crossings; conditional projection, minor-arc and explained-variance aliases",
+          "Acan arXiv:1501.01489v1 §2",
+          "Resultary Brownian-bridge length-law record b12951dba4f4, Finding and proof Step 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Theorem 3 gives the exact marginal mean n(n−1)/6 and variance n(n−1)(n+3)/45; no novelty is assigned to these.",
+          "The strongest retrieved length-prediction record has residual 4n(n−1)/45 for an additive projection, versus n(n−1)/12 for the full conditional mean. Same-date catalogue hits 6cd88475e150 and 7b9f44348870 concern marked simple-chord counts and crossing/triangle moments respectively."
+        ],
+        "reasoning": "Different prediction risks are not duplicate exact formulas. No full-vector conditional table or equivalent formula was found in the bounded set of retrieved records; the established exact marginal law overlaps only with the credited part.",
+        "searches": [
+          "Flajolet–Noy, INRIA RR-3914 §2 Theorem 3",
+          "Resultary: exact conditional crossing variance, risk n(n−1)/12 and explained fraction"
+        ]
+      },
+      "rationale": "Marginal crossing-count moments are prior and explicitly excluded from the novelty claim. The supported distinct contribution is the full Euclidean-length-vector conditional mean and variance and the sharp decomposition of prediction risk, not the complete conditional distribution. The closest catalogue comparison uses only the additive one-chord projection, and the primary literature inspected does not supply the full geometric conditioning calculation.",
+      "residual_risks": [
+        "An unindexed pairwise formula for chords with specified opening angles might supply the min kernel; an older geometric or conditional U-statistic calculation could imply a larger part. Search nonappearance establishes no historical priority. The overlap and scope judgments are limited to the checked records and inspected passages."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact marginal overlap, credited; not the conditioning result",
+          "evidence": "The diagram law gives the exact mean and variance of crossings without the random Euclidean lengths.",
+          "identifier_or_url": "https://algo.inria.fr/flajolet/Publications/FlNo00.pdf",
+          "material_read": "§2, Theorem 3, PDF p. 10 (text offset 18973)",
+          "method": "Open primary PDF and compare model and moments",
+          "title": "Analytic Combinatorics of Chord Diagrams",
+          "trigger": "Known exact marginal crossing law for uniform matchings"
+        },
+        {
+          "assessment": "Discrete endpoint-label span, not Euclidean length",
+          "evidence": "Given the shorter block's k labels the marked chord degree formula is k(k−1)/(2(2n−3)).",
+          "identifier_or_url": "arXiv:1501.01489v1",
+          "material_read": "§2 (offsets 10350–15836), definitions and length-conditioned degree",
+          "method": "Open full-text comparison of conditioning variables",
+          "title": "On a uniformly random chord diagram and its intersection graph",
+          "trigger": "Uniform chord diagram and conditional degree by chord length"
+        },
+        {
+          "assessment": "Related geometry and intersection locations, not full-vector conditional moments in inspected passages",
+          "evidence": "The principal result concerns the intersection point of two generated lines, not count prediction from all chord lengths.",
+          "identifier_or_url": "arXiv:2504.12866v1",
+          "material_read": "Model and principal intersection-point statements, including PDF p. 1 and p. 7 sampling comparison (offsets 0, 18261)",
+          "method": "Open PDF passages and distinction among chord measures",
+          "title": "Intersections of random chords of a circle",
+          "trigger": "Same endpoint-uniform geometry, possible two-length kernel"
+        },
+        {
+          "assessment": "Different conditioning question",
+          "evidence": "Probabilities are extremized over endpoint distributions, not conditioned on the Euclidean lengths of all chords.",
+          "identifier_or_url": "DOI:10.1112/mtk.70024",
+          "material_read": "Model and principal theorems on extremal pair probabilities",
+          "method": "Open full-text statement-level comparison",
+          "title": "On extremal problems associated with random chords on a circle",
+          "trigger": "General extremal intersection results could dominate pairwise geometry"
+        },
+        {
+          "assessment": "Material partial overlap, different exact risk; later dated record",
+          "evidence": "Uses W and the same one-length regression, but its additive projection has residual 4n(n−1)/45; it distinguishes the full-vector conditional expectation.",
+          "identifier_or_url": "2026/11/2/SCOPE-a-brownian-bridge-length-law-for-crossings-of-independent-unifor--b12951dba4f4",
+          "material_read": "RESULT.md Finding, assumptions and proof Step 1 (offset 0)",
+          "method": "Local mirror compare both projection targets",
+          "title": "A Brownian-bridge length law for crossings of independent uniform chords",
+          "trigger": "Closest catalogue length/crossings result"
+        },
+        {
+          "assessment": "Later dated, different statistic and asymptotic problem",
+          "evidence": "The linear predictor uses total discrete span rather than all continuous lengths, and its limiting fraction is 15/16.",
+          "identifier_or_url": "2026/10/18/SCOPE-joint-gaussian-fluctuations-of-total-circular-chord-span-and-cro--25d00b41e332",
+          "material_read": "RESULT.md Finding (offset 256)",
+          "method": "Local mirror compare lengths and explained fractions",
+          "title": "Joint Gaussian fluctuations of total circular chord span and crossings",
+          "trigger": "Crossings explained by length-like data"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The natural prediction problem asks how much of a topological count can be recovered from metric observations. The exact full-vector optimal risk separates the O(n²) residual rotation effect from O(n³) total variance, and the conditional variances apply even for fixed inhomogeneous length profiles. The exact residual also distinguishes conditioning on all lengths from the simpler additive one-chord predictor. No significance is claimed for other chord models or for conditional tail laws.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

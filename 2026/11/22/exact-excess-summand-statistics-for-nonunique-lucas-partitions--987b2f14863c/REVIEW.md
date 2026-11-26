@@ -1,19 +1,21 @@
-# Review: exact excess-summand statistics for nonunique Lucas partitions
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The canonical-interval induction proves that each nonnegative integer has exactly one normal-form expansion, and specifies the cutoff range. The independent-tail maximum recurrence establishes injectivity among redundant representations. The unique initial even run yields the exact replacement \(\{0,2,\ldots,2j+2\}\mapsto\{1,2j+3\}\), preserving the integer and changing the number of summands by exactly \(j\). The remaining admissible tail has an exact Fibonacci independent-set count; the empty-tail boundary is addressed separately. The rational bivariate generating function, parity-dependent totals, probability normalization and moment convergence follow algebraically. Direct exhaustive independent-subset tests for all 22 index cutoffs from 3 to 24 agreed with every fiber formula. The finite computations do not substitute for the unrestricted proof.
+PASS
 
-## Originality — PASS on inspected evidence
+Canonical subsets partition into the disjoint intervals below and above L_m and give each integer in [0,L_(m+1)-1] once. Redundant subsets have distinct sums by highest-differing-index dominance on their tails beginning at index 4. A maximal initial even run ending at 2j+2 telescopes to L_1+L_(2j+3); the unchanged tail begins no earlier than 2j+5. This gives excess j, and the cutoff admits the partner exactly when m>=2j+3. At equality the empty tail contributes F_1; thereafter the path-independent-set count gives F_(m-2j-2). Summation gives the stated parity correction and reindexing gives the bivariate generating function. Binet estimates give geometric domination, so the limiting mean and variance follow by moment convergence, not just pointwise convergence of probabilities. Separate bounded enumeration matched the full histograms and representation multiplicity assertions for 3<=m<=12; for m=12 the histogram is (55,21,8,3,1).
 
-Brown's 1969 full text proves uniqueness under the canonical constraint. Chu–Luo–Miller, arXiv:2004.08316, full text Sections 3–5 and appendix, already give the at-most-two fact, redundant-partition table, unweighted Beatty enumeration, and density. These are explicitly credited. Shallit, arXiv:2305.02672, Section 5, Theorem 5.2, proves an automaton recognition equivalence for the unweighted double-representation set, not the difference of the two summand counts. OEIS A342089 similarly indexes the unweighted support. Neither the complete finite-cutoff weighted distribution nor its bivariate generating function or geometric normalization-cost law was found in the inspected primary sources or relevant indexed-results comparisons. The known normal-form statements are ingredients; a hidden equivalent weighted derivation remains a genuine priority risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Two different nonconsecutive Lucas partitions can represent the same number. Their discrepancy in *number of summands* is an intrinsic normalization cost, not captured by the known unweighted existence/density theorems. The result gives the full finite-size law for every allowed excess, proves that arbitrarily large excess is possible, and identifies an exact geometric limiting cost distribution, including a nontrivial moment identity with variance one. This is a motivated structural refinement and complete classification, not an arbitrary finite census or routine reindexing of a single count.
+The supported distinct contribution is the excess in lengths of the two representations at a largest-index cutoff, including its weighted count and limit; canonical existence/uniqueness, at-most-two, and identification of the unweighted duplicated-value set are antecedents.
 
-## Closest sources and limits
+## value
 
-The most relevant previous work is Chu–Luo–Miller (2020/2022), Brown (1969), Shallit (2023), and OEIS A342089. Similar Fibonacci/Zeckendorf digit-count studies and phi-expansion counts concern different objects and do not directly state this paired-Lucas-length law. The comparison cannot exclude unindexed manuscripts or reductions requiring nontrivial unpublished arguments. Independent mathematical validation remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The number of summands is a natural statistic of recurrence representations; among the ambiguous values, the paired difference measures exactly how much canonicalization changes it. The even-run replacement explains the statistic structurally, and the exact cutoff law and limiting moments give reusable information missing from an unweighted list of duplicate values.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

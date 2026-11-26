@@ -1,0 +1,159 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T12:30:03.012651Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–83",
+        "VERIFICATION.md, lines 19–25; checker.py, lines 10–102; CHECKER_OUTPUT.txt, lines 1–7",
+        "Independent scalar root and squared-profile quadrature using the limiting formulas"
+      ],
+      "rationale": "For normalized Haar measure, Parseval gives the frozen objective with Fejér squared contribution (N−1)(2N−1)/(3N) after removal of the mean. The cross term is maximized simultaneously at zero phase; its strictly positive first harmonic forces that phase for N>=2, while N=1 is constant. Adjacent subtraction gives Δ_N=2/3−1/[3N(N+1)]−4 sum_(k=1)^N k exp(−tk²)/[N(N+1)]. The k-weighted average of the heat multipliers decreases with N, so Δ_N increases strictly in N and tends to 2/3 at fixed positive t. It increases strictly in t between opposite endpoint signs, giving exactly one root per N, decreasing to zero, and no ties except consecutive orders at those roots. At N=1 this gives log 4. For u=N²t, the normalized sum is I_1(u)+exp(−u)/(2N)+O(N⁻²) uniformly near the limiting root, with I_1(u)=(1−exp(−u))/(2u). Since I_1'(u_*)=−(u_*−2)/(6u_*), the threshold equation gives u_N=u_*−u_*/N+O(N⁻²); bracketing with the adjacent roots gives N_opt sqrt(t)→sqrt(u_*), including both orders at a tie. The limiting squared error is 2 times the integral on [0,∞) of [exp(−x²)−(1−x/c)_+]². Equivalently on the whole line the triangular profile is (1−|x|/c)_+; the omission of the absolute value in the proof's whole-line description is a local notation slip. The integral is strictly positive from its Gaussian tail. Evaluating it at c=sqrt(u_*) using 1−exp(−u_*)=u_*/3 yields the claimed J_*. Independent bisection and Simpson integration of the squared difference (32768 subintervals on each of [0,c_*] and [c_*,10]) give u_*=2.821439372122079, c_*=1.679714074514493 and J_*=0.010154696409760. Rounding the moment-match order leaves N~1/t; the heat and cross terms are O(t⁻¹/²), so the Fejér squared term is dominant and yields 2/(3t) and the stated ratio.",
+      "residual_risks": [
+        "The 1124 frozen diagnostics were inspected, not rerun. Replay with python3 checker.py in the source directory. The independent numerical check is illustrative and not used for the all-t and all-order proof.",
+        "The exact constants depend on normalized Haar measure, the specified heat generator and the order cutoff |k|<N."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The fractional torus convergence setting includes the ordinary multiplier formulas. The Takenaka–Malmquist result addresses a different operator; the Koopman filter analysis addresses spectral-measure recovery.",
+          "Distinct same-day SCOPE-sharp-mean-square-fej-r-error-of-periodic-bounded-variation-data--c40138cba6b6 concerns Fejér smoothing over BV inputs rather than integer fitting orders to a fixed heat target."
+        ],
+        "reasoning": "Convergence rates or optimal errors for a different input constraint, operator or minimization variable do not imply the crossover equation and strict staircase. No dominant general bandwidth theorem yielding these conclusions was identified in the passages checked.",
+        "searches": [
+          "Fu–Hou–Wu arXiv:2210.14720v1, fractional kernels and heat evolution",
+          "Colbrook–Townsend arXiv:2111.14889 and Abdullayev–Savchuk arXiv:2106.08675v1",
+          "Indexed sharp mean-square Fejér error for periodic bounded-variation data"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and related-work section",
+        "Local Resultary index and the heat-to-Poisson and BV records",
+        "Fu–Hou–Wu 2210.14720v1; Colbrook–Townsend 2111.14889; Abdullayev–Savchuk 2106.08675v1; OEIS A194567",
+        "One targeted primary-literature lookup yielding only general background"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "SCOPE-optimal-heat-to-poisson-calibration-on-the-circle-uniqueness-str--ef5e05ae5838 uses the same target and loss but a continuous Poisson multiplier. Its optimum constant is about 0.06738055658 and its first-moment choice gives t⁻¹+O(t⁻¹/²), hence also a diverging relative penalty.",
+          "The frozen result gives an integer Fejér staircase, a different optimum constant about 0.01015469641 and moment-choice leading error 2/(3t)."
+        ],
+        "reasoning": "The shared issue of bad moment matching overlaps qualitatively. The continuous exponential taper cannot produce the triangular-taper coefficient, the exact ordering via Fejér adjacent differences, or the subleading integer threshold law without separate derivation.",
+        "searches": [
+          "Distinct Resultary heat-to-Poisson calibration on the circle, Finding",
+          "Targeted heat-kernel/Fejér optimization literature lookup"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Fejér multiplier with denominator N+1 at |m|<=N in Fu–Hou–Wu is the same order family after relabeling, and at the ordinary heat exponent the heat multiplier is Gaussian.",
+          "Colbrook–Townsend explicitly identify the triangular Fourier filter as Fejér/Cesàro convolution."
+        ],
+        "reasoning": "Under Parseval this is least-squares fitting of a discrete Gaussian spectrum by triangular weights, not a new type of kernel. Existing occurrences of both spectra do not select their optimal integer comparison or determine all tie times.",
+        "searches": [
+          "Local Resultary lookup for exact integer Fejér bandwidth thresholds and Gaussian-to-triangular circular heat approximation",
+          "Fu–Hou–Wu arXiv:2210.14720v1, equation (2.5) and §6",
+          "Colbrook–Townsend arXiv:2111.14889, §3.2 hat filter"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact hit SCOPE-sharp-fej-r-bandwidth-staircase-for-circular-heat-kernel-approxi--209d84e66748 is the assigned record itself.",
+          "OEIS A194567 tabulates the same positive root of x=3(1−exp(−x)), as a Planck-law brightness coefficient (page offset around 550)."
+        ],
+        "reasoning": "The root is known numerically and through the same equation; its table entry does not imply that it controls t_N at scale N(N+1), the optimal L² error, or any discrete threshold. No separate exact Fejér staircase table surfaced.",
+        "searches": [
+          "Local Resultary lookup for the switch equation, threshold scaling and exact error constants",
+          "OEIS A194567"
+        ]
+      },
+      "rationale": "Pass for the discrete least-squares staircase and its sharp scaling and comparison, not for the Fejér or heat multipliers, the numerical root in isolation, or the general idea of moment matching. The closest same-day analogues are distinct results and were compared, not treated as priority evidence or discarded by date.",
+      "residual_risks": [
+        "Unindexed bandwidth-calibration work or another discrete spectral-fit formulation could have been missed. The same date of distinct indexed analogues does not establish relative priority. No absence claim rests on a failed or unproductive query."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior kernel formulas and evolution, not order optimization in these passages",
+          "evidence": [
+            "Triangular weight 1−|m|/(N+1) and a fractional heat multiplier. The N+1 denominator is just an indexing change."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2210.14720v1",
+          "material_read": "PDF p. 7, equation (2.5), offset ~21400; pp. 23–24, Definition 6.1 and (6.1)–(6.3), offset ~69200",
+          "method": "Primary OA PDF, targeted passages",
+          "title": "Convergence of fractional Fourier series on the torus and applications",
+          "trigger": "Both multiplier families in a broader torus setting"
+        },
+        {
+          "assessment": "The taper is prior, the target and objective differ",
+          "evidence": [
+            "Hat filter 1−|x| identified with classical Cesàro/Fejér convolution in spectral-measure reconstruction."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2111.14889",
+          "material_read": "§3.2, equations (3.4)–(3.7), HTML offset 48327",
+          "method": "Primary OA HTML, targeted passage",
+          "title": "Rigorous data-driven computation of spectral properties of Koopman operators for dynamical systems",
+          "trigger": "Same spectral taper in a bandwidth setting"
+        },
+        {
+          "assessment": "Different basis and question",
+          "evidence": [
+            "Convergence criteria and a Voronovskaya-type result for the Takenaka–Malmquist operator."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2106.08675v1",
+          "material_read": "Abstract, p. 1, offset 164",
+          "method": "Primary OA PDF, stated scope",
+          "title": "Fejér-type positive operator based on Takenaka–Malmquist system on unit circle",
+          "trigger": "Closest cited title using another Fejér-type operator"
+        },
+        {
+          "assessment": "Exact number match, not the approximation theorem",
+          "evidence": [
+            "The root 2.821439372… is recorded for the Planck-law maximum."
+          ],
+          "identifier_or_url": "https://oeis.org/A194567",
+          "material_read": "Entry around offset 550",
+          "method": "Open database page",
+          "title": "Positive solution of x=3(1−exp(−x))",
+          "trigger": "Exact match to u_*"
+        },
+        {
+          "assessment": "Material analogue with a continuous radius and different kernel and constants",
+          "evidence": [
+            "a_t~1.077742 sqrt(t); optimal squared error ~0.06738055658/sqrt(t); moment matching r=exp(−t) gives t⁻¹+O(t⁻¹/²)."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-optimal-heat-to-poisson-calibration-on-the-circle-uniqueness-str--ef5e05ae5838",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirrored primary record",
+          "title": "Optimal heat-to-Poisson calibration on the circle",
+          "trigger": "Same target, loss and moment-matching comparison"
+        },
+        {
+          "assessment": "Different optimization over BV data",
+          "evidence": [
+            "A Fejér smoothing bound with an input class, not approximation of a Gaussian multiplier target by a Fejér kernel."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-sharp-mean-square-fej-r-error-of-periodic-bounded-variation-data--c40138cba6b6",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirrored primary record",
+          "title": "Sharp mean-square Fejér error of periodic bounded-variation data",
+          "trigger": "Same filter and squared loss"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, threshold proof and moment-match comparison",
+        "Distinct heat-to-Poisson calibration for contrast"
+      ],
+      "rationale": "Gaussian and triangular multipliers are standard and their normalized squared-distance comparison has a practical calibration interpretation. The exact integer selection, including all switching ties, is information not supplied by a continuum limit. The sharp asymptotics also show a quantitatively diverging penalty for the natural first-moment heuristic, not just a marginal improvement over it.",
+      "residual_risks": [
+        "The result does not establish optimality outside the translated Fejér family, for other losses, or in a statistical estimation problem with noise."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

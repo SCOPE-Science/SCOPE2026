@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:30:18.017471Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For an admissible input, replacing its bath block B by I in Γ gives a positive block matrix. Congruence by diag(I,ηI), then adding B0−η²I in the bath block, gives output positivity. The same argument on I−Γ yields the upper Pauli bound if I−B0≥η²I. For necessity, a rank-one state on a system vector and a B0 eigenvector with eigenvalue b gives determinants p[b−η²(1−p)] and (1−p)[1−b−η²p]. If either bound fails, choosing p sufficiently close to the appropriate endpoint, but strictly in (0,1), gives a strict obstruction. Thus equality is safe, including singular targets at η=0. The decreasing Fermi occupations give the two edge bounds and the maximum of two affine exponent arguments, with unique minimizer at the midpoint even for a flat band. For an unbounded edge, thermal spectral projections give approximate extremal vectors, enough for the same determinant witnesses. In the stated resonant equations P''=−2g²(P−n), and the zero initial coherence fixes the cosine and its paired imaginary sine. For the matrix K in the proof, det(I±K)=(1±cos θ)²/2 and their diagonals are nonnegative, hence −I≤K≤I; at θ=π, P=2n−p, which together with admissible initial p proves necessity for the full-time window. Read the frozen nested verifier/verify.py and VERIFICATION.md without executing them. They give bounded rational tests and floating-point samples, not the proof or a CPTP claim.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The October paper's Eqs. (5)–(7) define physical thermal attenuators, which modify populations as well as cross-coherences. Eqs. (36)–(38) instead use P≥Σ|x|²/f and 1−P≥Σ|x|²/(1−f) in a model-specific hard replacement and explicitly discuss inadmissible outputs."
+        ],
+        "reasoning": "The attenuator is not a stronger theorem for the same map. Its Gaussian channel guarantee does not transfer to the hard update; the separate hard-update Schur tests do not furnish a uniform sharp spectral criterion in arbitrary finite dimensions.",
+        "searches": [
+          "arXiv:2610.30457 §§II, VI",
+          "arXiv:2604.17152 §II C"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2604.17152",
+        "arXiv:2603.27619",
+        "arXiv:2610.30457v1",
+        "Resultary 3f16ed31cfd1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior Schur inequalities quantify over a stated algebraic covariance; prior resonant equations prescribe evolution, not the extremal spectrum over time."
+        ],
+        "reasoning": "The claimed thresholds require optimizing over the input positive-contraction cone with sharp converse witnesses and over an entire trajectory, respectively. The thermal midpoint is an elementary consequence of the new universal bound, not stand-alone prior-work differentiation.",
+        "searches": [
+          "arXiv:2610.30457 §VI Eqs. (36)–(38)",
+          "arXiv:2603.27619 §IV Eqs. (68)–(75)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:2604.17152 Eqs. (14a)–(15) are the same covariance update, scaling cross blocks and replacing the bath block.",
+          "arXiv:2610.30457 Eqs. (36)–(38) give state-by-state Schur conditions for an algebraic hard-block replacement.",
+          "arXiv:2603.27619 Eqs. (68)–(75) give the evolving-correlation equations."
+        ],
+        "reasoning": "The map itself and the dynamics are prior. Schur conditions at given occupations and coherences are not the extrema over all input blocks; evolving equations are not an all-time spectral window.",
+        "searches": [
+          "arXiv:2604.17152 §§II C, VI–VII",
+          "arXiv:2610.30457 §VI",
+          "arXiv:2603.27619 §IV"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Same-day 3f16ed31cfd1 classifies stationary covariance error order conditions for an IF-SSPRK2 Lyapunov integrator, with a forcing-correlation threshold."
+        ],
+        "reasoning": "An integrator covariance-order threshold is not retention for an admissible fermionic one-particle matrix; no exact matching catalog statement was seen in the bounded comparison.",
+        "searches": [
+          "Local Resultary: hard bath reset, fermionic covariance admissibility and partial coherence",
+          "2026/11/2/...--3f16ed31cfd1"
+        ]
+      },
+      "rationale": "The hard reset, its qualitative physicality obstruction and the continuous equations are existing work. The exact inclusive all-input retention threshold with two sharp universal obstructions, and the all-time resonant window, remain distinct on the checked evidence.",
+      "residual_risks": [
+        "The frozen abstract-only limitation for arXiv:2610.30457 is superseded for the cited sections, not an exhaustive reading or a priority certificate.",
+        "Bounded catalog and literature searches leave open overlooked equivalent uniform block-replacement bounds. No priority ordering is inferred from same-day labels."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same map; not an all-input bound in inspected passage",
+          "evidence": [
+            "Retain system and impose reference bath while scaling cross-coherence"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2604.17152",
+          "material_read": "§II C, p. 3, Eqs. (14a)–(15)",
+          "method": "OA targeted full-text passage",
+          "title": "Thermodynamics of Coherence-Selective Quantum Reset Protocols",
+          "trigger": "exact hard-reset map"
+        },
+        {
+          "assessment": "Supplies equations, not the stated admissibility window",
+          "evidence": [
+            "Frozen bath occupation in evolving-correlation system"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2603.27619",
+          "material_read": "§IV, Eqs. (68)–(75)",
+          "method": "OA targeted full-text passage",
+          "title": "Coherence-Controlled Quantum Zeno Dynamics from Exact Reset Maps",
+          "trigger": "continuous resonant model"
+        },
+        {
+          "assessment": "State-specific overlap, not exact quantified universal frontier",
+          "evidence": [
+            "Schur tests with denominators f and 1−f; physical attenuator jointly changes bath populations and coherences"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.30457",
+          "material_read": "§II p. 3 Eqs. (5)–(7); §VI pp. 7–9 Eqs. (36)–(38)",
+          "method": "OA PDF inspected by relevant passages",
+          "title": "Memory–Transport Competition in Physical Two-Bath Quantum Reset Dynamics",
+          "trigger": "closest obstruction and physical replacement"
+        },
+        {
+          "assessment": "Different object and invariant",
+          "evidence": [
+            "Forcing-correlation covariance-order criterion in a Lyapunov integrator"
+          ],
+          "identifier_or_url": "2026/11/2/...--3f16ed31cfd1",
+          "material_read": "Finding and model",
+          "method": "Local Resultary comparison",
+          "title": "A sharp covariance-order frontier for positivity-preserving IF-SSPRK2",
+          "trigger": "closest same-day covariance frontier"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The inclusive sharp bound answers whether an existing reset rule is universally safe, quantifies exactly how temperature and band edges restrict retention, and distinguishes unsupported universal use from admissible particular continuous trajectories. Sharp witnesses and the reachable criterion are useful without claiming a physical implementation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

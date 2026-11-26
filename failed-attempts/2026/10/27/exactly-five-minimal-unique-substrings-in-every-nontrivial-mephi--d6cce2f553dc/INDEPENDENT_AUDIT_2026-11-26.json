@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:27:40.214995Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 17–46, VERIFICATION.md, checker.py and checker_output.txt",
+        "/workspace/branches/8bdf57d5-d02d-4277-adcc-4faf378eed97/independent_mus_check.py (python3 with arguments 2 3 4 5 6); independent_mus_output.txt in the same directory"
+      ],
+      "rationale": "In W₂=001001110 each binary bigram occurs twice, and the singleton triples start at 1,2,4,5,6. Every length-four interval contains one, excluding longer MUSs. Across 001|001, 001|110, 110|001, 110|110 the crossing triples are respectively (010,100), (011,111), (100,000), (101,011), never image words. A length-five or longer interval must contain a whole aligned block even starting at phase one (two symbols before the next block). Its phase is thus unique, and all nonempty end fragments distinguish the two complementary images. Its occurrences correspond bijectively to those of the covering source factor; a repeated cover always implies a repeated image factor even below length five. Given no unique source factor below r+2, every image length ≤3r+1 covers ≤r+1 letters. At length 3r+2, only phase two can cover r+2 letters; the covers of precisely the five unique source factors lift, at new start 3i+2. If an MUS has length ≥6, each endpoint deletion has length ≥5; retaining either outer image block would leave the same unique cover and contradict the deletion's repetition. Thus it begins on the last symbol of its first block and ends on the first symbol of its last, and its cover is a source MUS since deleting either end removes the corresponding source endpoint. Its length is 3(r+2)−4=3r+2. This also handles the first induction step where length five is the threshold. Exact independent enumeration of all position intervals agreed through m=6 (including length 83, starts 161,242,404,485,566 at m=6). The source checker was inspected, not executed; finite replay is not the reason for the universal conclusion.",
+      "residual_risks": [
+        "No claim for arbitrary factors of the infinite fixed point or alternative seeds; no formal proof checker was used."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The exact indexed record additionally handles iterate one. Kishi et al. identify the morphism as strongly interference-free; their inspected MUS applications address Fibonacci and Thue–Morse. Mieno et al. give general algorithms; Fujimaru et al. prove general Θ(√n) crossing bounds."
+        ],
+        "reasoning": "The indexed record covers all frozen levels directly. General recognition, algorithms or worst-case bounds alone would not determine these exact intervals.",
+        "searches": [
+          "00d0c1e4d8b8 Finding and base cases; Kishi et al. occurrence-preserving morphisms; arXiv:1909.02804 and arXiv:2508.16092v1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 00d0c1e4d8b8 and 987fc163d9ce",
+        "arXiv:2605.18034v1",
+        "arXiv:1909.02804",
+        "arXiv:2508.16092v1",
+        "OEIS A064990; MathWorld Mephisto Waltz Sequence"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact indexed proof uses four-symbol synchronization and boundary lifting, covering the same substantive induction and conclusion. The general occurrence-preserving source highlights strongly interference-free fixed points as a direction and does not give this position list in the inspected results."
+        ],
+        "reasoning": "A sufficient five-symbol phase argument is a correct presentation, but not a new invariant, extension, or sharper certificate relative to the exact indexed proof.",
+        "searches": [
+          "00d0c1e4d8b8 Proof, offsets 3245 onward; arXiv:2605.18034v1 §5 and Conclusion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Corollary 16's a↦aab,b↦bba is exactly 0↦001,1↦110 by letter renaming. For r=3^(m−2), indexed 00d0c1e4d8b8 lists [jr−1,(j+1)r+1) for j=2,3,5,6,7."
+        ],
+        "reasoning": "These half-open intervals have length r+2 and the same five starts as the frozen occurrence claim. Uniqueness plus repeated endpoint deletions is equivalent to repetition of all proper substrings.",
+        "searches": [
+          "Resultary: Mephisto–Waltz, minimal unique substring, binary 001/110 iterates",
+          "arXiv:2605.18034v1 Cor. 16; OEIS A064990; MathWorld Mephisto Waltz Sequence"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A064990 and MathWorld furnish the sequence/substitution, not the MUS census. 00d0c1e4d8b8 gives the exact census symbolically for all levels. 987fc163d9ce concerns Lie complexity and cyclic desubstitution, on factors of a fixed point."
+        ],
+        "reasoning": "Having entries of the binary sequence is not by itself the census; the exact indexed theorem is. Lie complexity is a different statistic.",
+        "searches": [
+          "OEIS A064990 and MathWorld under Mephisto Waltz aliases; Resultary 00d0c1e4d8b8 and 987fc163d9ce"
+        ]
+      },
+      "rationale": "A distinct indexed record, 00d0c1e4d8b8, contains the exact five-interval theorem under identical iterate, seed and occurrence conventions, and proves it by the same general mechanism of phase synchronization and endpoint lifting. The indexed record's displayed path date is later than the frozen path date; this is a coverage decision, not a historical priority, attribution, or provenance finding.",
+      "residual_risks": [
+        "Coverage is established by the indexed mathematical result, not by path dates or inferred historical priority. Ilie–Smyth full text was not inspected; this access limitation is not the reason for failure."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING",
+          "evidence": [
+            "Identical five half-open intervals for all iterates ≥2; same type of phase and boundary proof, with four-symbol synchronization."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-five-minimal-unique-substrings-in-each-nontrivial-mephisto-waltz--00d0c1e4d8b8/RESULT.md",
+          "material_read": "Finding offsets 0–3245; lift/base case 3245–6272; induction and prior-work discussion from 5086",
+          "method": "Resultary search and bounded local mirror full text",
+          "title": "Five minimal unique substrings in each nontrivial Mephisto–Waltz iterate",
+          "trigger": "Exact interval theorem for the same iterates"
+        },
+        {
+          "assessment": "STRUCTURAL_PRECEDENT",
+          "evidence": [
+            "Mephisto–Waltz appears as a strongly interference-free morphism; inspected exact MUS applications are for other words."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2605.18034v1",
+          "material_read": "Introduction 2323–6354, Corollary 16 at 27011, Fibonacci MUS Theorem 33 at 51277, Conclusion at 65120",
+          "method": "Primary OA HTML",
+          "title": "On Occurrence-Preserving Morphisms",
+          "trigger": "Same substitution and MUSs"
+        },
+        {
+          "assessment": "UNINSPECTED_FULL_TEXT",
+          "evidence": [
+            "Abstract concerns general MUS/repeat duality; no conclusion about uninspected sections is used."
+          ],
+          "identifier_or_url": "Ilie and Smyth (2011), Journal of Computational Biology",
+          "material_read": "Abstract only; full text unavailable in attempted lawful routes",
+          "method": "Literature lookup and attempted lawful PDF/DOI recovery",
+          "title": "Minimum Unique Substrings and Maximum Repeats",
+          "trigger": "General MUS/repeat duality"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Proof",
+        "Resultary 00d0c1e4d8b8 Finding and Proof"
+      ],
+      "rationale": "The five-MUS stabilization is a worthwhile exact invariant of this substitution. As a separate finding, however, this version adds no level, interval, sharper synchronization threshold or distinct implication to the exact indexed classification. The alternate presentation does not supply a surviving incremental contribution.",
+      "residual_risks": [
+        "This finding-specific assessment does not diminish the usefulness of the indexed theorem."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

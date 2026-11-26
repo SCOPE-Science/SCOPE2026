@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T12:23:42.876920Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For n>=2a the integer triangular sum packet T of support length L=2a-1 embeds without folding. The sum distribution of the two length-a blocks is T+2*T_s+T_2s (ordered pairs). Parseval contributes the factor 1/n; squares of the three packets give 6||T||^2=4a^3+2a and the cross terms are 8C_n(s)+2C_n(2s). They vanish exactly for disjoint support packets, with successive gaps s,s,n-2s after reflection, giving the threshold and all equality separations. The linear C(h) strictly decreases through h=L: expand each packet as nested centred interval indicators; pairwise overlaps are nonincreasing, and the full-length interval with itself decreases at every step. In the stated window t<=a<L we have n>2L, and 2s>=2a>L, so only C(s) and C(n-2s) contribute. For s>L the second strictly grows from its value at L. Below L-floor(t/2) the second is zero; stepping to that endpoint can cost at most 2 (odd t) but saves at least 8 on the first term. Each relevant tail overlap of length v<=a contributes sum_{j=0}^{v-1}(j+1)(v-j)=B(v). For the objective F(u)=8B(u)+2B(t-2u), the forward difference 4(u+1)(u+2)-2(t-2u)^2 strictly increases on integers through the admissible edges. For t>=2 its smaller root lies in [0,floor(t/2)), by the endpoint signs when extending the polynomial to floor(t/2); the ceiling rule and adjacent tie follow. Integrality is equivalent to the odd square 2(t+3)^2-1. For the negative Pell equation x^2-2y^2=-1, any positive solution with y>=3 is reduced to a smaller positive solution by multiplication by 3-2sqrt(2) (4/3<x/y<3/2 and x>y); y=2 is impossible and y=1 is the base solution. This gives exactly the stated odd powers after restricting t>=2. Expanding the root gives u=(1-1/sqrt(2))*t+O(1); evaluating the cubic terms yields 1-2sqrt(2)/3. Independent replay python3 -B /workspace/reproductions/1.py uses squared difference autocorrelation by cyclic bit rotations, checking 1197 width/period cases, all ties through t=10000 against exact integer forward differences, and full shift tests for the Pell ties through t=1000. The optimizer theorem below threshold remains restricted to t<=a.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Xia–Xu establish continuous inverse recovery and stability of widths/gaps from Fourier data for the relevant real-line interval model.",
+          "Willms supplies a general periodic second-difference/run relation and a reconstruction formula for autocorrelations, with a four-run example before Lemma 10.",
+          "Public query returned a graph-adjacency additive-energy abstract (arXiv:2610.31807), a different configuration space, plus nonmatching general cyclic group and coding results."
+        ],
+        "reasoning": "The wider run theorem applies to a sign coding of these supports and can evaluate each separation (subtracting the constant offset to obtain indicator correlations). Evaluating a profile for any fixed run list does not classify global minimizers when a run length varies or compare adjacent shifts as in the negative Pell equation.",
+        "searches": [
+          "Xia–Xu arXiv:2606.19855 Theorems 1.2–1.3",
+          "Willms arXiv:1206.4572, Theorem 1, periodic Section 5 Theorem 11 and Corollary 13",
+          "Public search: cyclic two disjoint equal intervals additive energy minimum fourth Fourier moment optimal spacing finite cyclic group Pell packing"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and CHECK.py (read only)",
+        "Xia–Xu and Willms arXiv passages",
+        "Exact continuous-intensity stability record in the Resultary mirror",
+        "Phase-only four-tone summary and targeted public literature query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Willms computes cyclic correlations but does not supply a minimization rule in the passages inspected.",
+          "The continuous companion has the triangular autocorrelation structure for a union of two equal intervals, but it studies a distance between datasets, not the energy of a single support."
+        ],
+        "reasoning": "The elementary nonnegative-packet lower bound is not the main contribution. Even with known formulas to compute correlations, passing from wrap-around overlap to a complete short-window reduction and integer optimization, then to an iff arithmetic tie rule, requires additional deductions not supplied by the compared results.",
+        "searches": [
+          "Willms Section 5, Theorem 11 and Corollary 13",
+          "Continuous equal-interval record, Finding and autocorrelation proof",
+          "Xia–Xu Theorems 1.2–1.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "First three local searches surfaced the frozen record itself as the closest match.",
+          "Continuous equal-interval stability record, Finding and autocorrelation proof: exact piecewise-cubic distance between intensity data for two gap values, on the real line.",
+          "Willms, Theorem 11 and Corollary 13: periodic autocorrelation of a sign sequence from its run vector."
+        ],
+        "reasoning": "Counting additive quadruples, squaring the difference histogram and the finite Fourier fourth moment are equivalent. The continuous norm of the difference of two intensity curves has a cross term and has no wrap-around, so its cubic formula is not a cyclic minimum or discrete tie classification.",
+        "searches": [
+          "Resultary searches: cyclic two-block packing threshold; near-threshold binomial objective; Pell ties; continuous two-interval intensity stability",
+          "Public search: cyclic two disjoint equal intervals additive energy minimum fourth Fourier moment optimal spacing finite cyclic group Pell packing"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed match with all three cyclic features is the frozen record itself.",
+          "A catalogue summary for a phase-only four-tone result mentions a fourth-moment range [20,36] and a sixth-moment threshold; exact mirror text unavailable for that hit.",
+          "The continuous record gives a symbolic stability function, not a cyclic optimizer table."
+        ],
+        "reasoning": "A numerical finite list of optimizer pairs, or a standard list of Pell solutions, would not give the full optimization theorem for unbounded widths and moduli. The four-tone summary cannot establish coverage of this theorem; possible narrow overlap is unresolved.",
+        "searches": [
+          "Resultary: cyclic two-block near-threshold optimizers and negative Pell ties",
+          "Resultary: two-block Fourier intensity stability and phase-only Fourier resonances"
+        ]
+      },
+      "rationale": "The ordinary Fourier identities and run-based autocorrelation evaluation are prior. The relevant new result is the exact cyclic optimization including the optimizer window and its arithmetic two-optimum classification, not evaluation of the fourth moment by itself. The strongest inspected matches concern continuous two-interval data or autocorrelation evaluation; neither states or immediately solves the cyclic integer optimizer problem. This is a bounded scientific judgment with an unresolved nearby four-tone hit.",
+      "residual_risks": [
+        "The exact full phase-only source was not available; narrow related overlap is not ruled out.",
+        "Neither the finite catalogue comparison nor the bounded public search excludes unindexed priority under additive energy or signal-design terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different underlying group and inverse question",
+          "evidence": [
+            "Real-line recovery up to equivalence and small-error stability of widths and gap."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2606.19855",
+          "material_read": "PDF Theorems 1.2–1.3, pp. 3–5, offsets 11932 and 13090",
+          "method": "Lawful open-access PDF passages; these were accessible during the review",
+          "title": "Fourier Phase Retrieval for Finite Unions of Intervals",
+          "trigger": "Two-interval Fourier data and separation information"
+        },
+        {
+          "assessment": "Exact autocorrelation evaluation tool, not optimization in the relevant passages",
+          "evidence": [
+            "Periodic second difference of autocorrelation equals minus four times the periodic run vector, and Corollary 13 sums the relation."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1206.4572",
+          "material_read": "Abstract, Theorem 1 p. 5, Section 5 offsets 48400 and 53460 including Theorem 11 and Corollary 13",
+          "method": "Open-access PDF text",
+          "title": "Autocorrelations of Binary Sequences and Run Structure",
+          "trigger": "General method including periodic binary sequences and multi-run examples"
+        },
+        {
+          "assessment": "Material analogy, continuous two-data difference rather than one-support cyclic optimization",
+          "evidence": [
+            "The squared L2 distance of intensities depends on the difference of gap values and saturates; uses translates of a continuous triangular autocorrelation."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-sharp-local-and-global-fourier-intensity-stability-of-two-equal--9eae37fe4ea0",
+          "material_read": "Mirrored RESULT.md offsets 0 and 2400, Finding and autocorrelation proof",
+          "method": "Local Resultary mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Sharp local and global Fourier-intensity stability of two equal intervals",
+          "trigger": "Same two-block shape, triangular packets and cubic formula"
+        },
+        {
+          "assessment": "Unresolved overlap at most evidenced as a neighboring problem, not a verified statement-level match",
+          "evidence": [
+            "Summary concerns four tones at 0,1,m,m+1 with phase variables, including a fourth-moment range and a sixth-moment classification."
+          ],
+          "identifier_or_url": "2026/11/16/SCOPE-the-first-cubic-resonance-threshold-for-phase-only-two-block-fourier-polynomials--6989b70094e0",
+          "material_read": "Local indexed summary only; matching mirror file not obtained",
+          "method": "Local Resultary search and exact-source lookup",
+          "title": "The first cubic-resonance threshold for phase-only two-block Fourier polynomials",
+          "trigger": "Close two-block and Fourier moment terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For equal two-block apertures the Fourier fourth moment changes with their discrete separation. The exact first modulus permitting noninteracting sum packets gives a design cutoff; below it the theorem explains how much penalty is unavoidable and when two inequivalent placements tie instead of one. The infinite negative Pell sequence and complete near-threshold minimizer rule are substantial beyond autocorrelation evaluation or a handful of optimized examples.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

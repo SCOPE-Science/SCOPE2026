@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:54:20.714854Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The first n−1 coordinates identify the intrinsic torus with an (n−1)-torus. Their negative fractional parts are independent uniforms, and the last part forces their total J to be the ceiling of the first n−1 parts' sum. Cube slabs give the exact Eulerian weights, with J=1 deterministically at n=2. Subtracting the translate from each integer point leaves precisely n bounded digits in [0,t−1] summing to tk−J, so the count, coincident count atoms and occupancy interval are all handled. At t=1 the law is Bernoulli with success exactly J=k. For the mean, Haar averaging gives volume in the lattice measure (Euclidean measure divided by the root-lattice covolume √n); projecting Δ to the first n−1 coordinates gives the cube slab with sum in [k−1,k]. The ceiling shifts the sum of uniforms by at most one, so the CLT has center n/2 and asymptotic variance n/12. At either fixed-t threshold the other endpoint is separated linearly from the center; the near endpoint yields the stated Gaussian CDF with the appropriate sign. For t=2 the binomial index deviates from its center by √n(2a−Z/√12) in the limit; uniform Stirling on bounded scaled intervals and tightness give the negative quadratic limit, including −χ²₁/6 at a=0. Off center the first entropy derivative gives the stated Gaussian variance; empty events have probability tending to zero. The supplied checker.py was inspected but not executed, and the finite checks it defines are not needed for the analytic proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Freyer–Hofstätter's general translation-count integral recovers the volume mean in lattice coordinates.",
+          "The parallel-translation theorem gives constancy of a translated Ehrhart enumerator within open toric-arrangement cells and provides general methods for calculating it."
+        ],
+        "reasoning": "These results cover averaging and cellwise constancy, but not the actual count on the Eulerian slices or the asymptotic distribution of the resulting weights and multiplicities. Fixed-dimensional cell enumeration is in principle possible; constancy alone does not settle the dimension-varying limits.",
+        "searches": [
+          "arXiv:2610.26523v2, Abstract and §1",
+          "arXiv:2307.08151, §1 and Theorem 1.1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary hypersimplex and translation-count entries",
+        "b958fe6c065d",
+        "bbdcc875f005",
+        "arXiv:2610.26523v2",
+        "arXiv:2307.08151",
+        "arXiv:1104.5292"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The cited methods provide slice volumes, mean, or general enumeration, but do not identify a bounded-digit index tk−J under Haar translation.",
+          "The occupancy interval and the vanishing entropy derivative at its interior multiplicity center are separate mechanisms, neither quantified by the closest catalogue results."
+        ],
+        "reasoning": "The mean is covered and should not be credited as new. The specialized decomposition and limit laws require the bounded-digit count paired with the particular random index, followed by a CLT and a second-order entropy expansion at the center; they do not follow as stated corollaries of the works inspected.",
+        "searches": [
+          "arXiv:2307.08151, Theorem 1.1",
+          "arXiv:1104.5292, §1",
+          "SCOPE-b958fe6c065d (Finding and Proof Step 3), SCOPE-bbddcc875f005 (Finding (1), (5)–(6))"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The distinct frustum record mixes an independent uniform layer with a cube-sum floor and counts unbounded weak compositions. The present count uses a single cube-sum ceiling and bounded digits; in particular the frustum's critical probability is of order r^−1/2, not a fixed-t edge CDF limit.",
+          "Inside the affine span the sum of a translate remains tk; a generic full ambient translate misses the integer lattice altogether. The two translation conventions cannot be interchanged."
+        ],
+        "reasoning": "The shared Eulerian input is not an equivalence of the polytopes, translation models, counting statistics, or threshold regimes. The same-day record was compared on its mathematics, without inferring priority from date.",
+        "searches": [
+          "Resultary: intrinsic random translation, hypersimplices and Eulerian multiplicity",
+          "SCOPE-eulerian-lattice-count-laws-and-a-gaussian-occupancy-threshold-f--bbdcc875f005"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-object record b958fe6c065d counts lattice-diameter segments of fixed dilates using bounded compositions, with an Eulerian leading coefficient.",
+          "Li records the classical Eulerian normalized volume; this fixes an expectation, not the translated count probabilities. The identical e93dafa92de7 catalogue hit is not independent coverage."
+        ],
+        "reasoning": "Neither the segment table nor the volume is a table of the multiplicity distribution in the intrinsic torus; no separate exact table of it was identified in the bounded catalogue check.",
+        "searches": [
+          "Resultary: exact counts on dilated hypersimplices, bounded compositions and Eulerian numbers",
+          "SCOPE-exact-lattice-diameter-partition-and-segment-laws-for-binary-pol--b958fe6c065d",
+          "arXiv:1104.5292, §1 Theorem 1.1"
+        ]
+      },
+      "rationale": "The mean and Eulerian volume are classical; the distinct contribution is the intrinsic random-translate multiplicity law together with its two rank-edge limits and the t=2 crossover. The nearest same-object and nearest same-statistic records were read and do not imply that combination or its specialized transition laws. This is not a historical-priority certification.",
+      "residual_risks": [
+        "Bounded catalogue and primary full-text comparison; other literature or unpublished explicit specialization of toric-arrangement algorithms was not ruled out."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers mean averaging, not specialized law in the passages inspected",
+          "evidence": [
+            "Translation-count function on the ambient lattice torus and its integral equaling volume; uniqueness and eigenfunction results."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.26523v2",
+          "material_read": "Abstract and §1, offsets 0–6992",
+          "method": "OA full-text passages",
+          "title": "Counting Lattice Points in Translations: Uniqueness and Existence Results",
+          "trigger": "General same-statistic translation counting"
+        },
+        {
+          "assessment": "General computational framework, no matching specialized limits in the inspected material",
+          "evidence": [
+            "The translated enumerator is constant on open arrangement cells; translated-cone algorithms compute quasi-polynomials."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2307.08151",
+          "material_read": "Abstract and §1, offsets 960–3353; §1.1, Theorem 1.1, offsets 10848–14290",
+          "method": "OA full-text passages",
+          "title": "Ehrhart quasi-polynomials and parallel translations",
+          "trigger": "General toric-arrangement computation might cover fixed dimension"
+        },
+        {
+          "assessment": "Classical input, not the audited distribution",
+          "evidence": [
+            "Laplace's volume theorem and h*-vector setting."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1104.5292",
+          "material_read": "§1, Theorem 1.1, offsets 0–3149",
+          "method": "OA full-text passages",
+          "title": "Ehrhart h*-vectors of hypersimplices",
+          "trigger": "Classical Eulerian hypersimplex volume"
+        },
+        {
+          "assessment": "Different exact invariant of dilated hypersimplices",
+          "evidence": [
+            "Counts lattice-diameter segments, with bounded-composition formula and Eulerian leading coefficient."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-exact-lattice-diameter-partition-and-segment-laws-for-binary-pol--b958fe6c065d",
+          "material_read": "Finding and Proof Step 3, offsets 0–6629",
+          "method": "Resultary and local mirror text",
+          "title": "Exact lattice diameter partition and segment laws for binary polytopes",
+          "trigger": "Closest distinct same-object catalogue entry"
+        },
+        {
+          "assessment": "Analogous mechanism in a different model, not equivalent coverage",
+          "evidence": [
+            "The translation is full dimensional and the critical law integrates a Gaussian tail with a vanishing raw occupancy probability."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-eulerian-lattice-count-laws-and-a-gaussian-occupancy-threshold-f--bbdcc875f005",
+          "material_read": "Finding lines 4–46; Assumptions lines 48–49; prior comparison and limitations lines 95–99",
+          "method": "Resultary and frozen record text",
+          "title": "Eulerian lattice-count laws and a Gaussian occupancy threshold for smooth simplex frusta",
+          "trigger": "Distinct related catalogue result with an Eulerian mixture and Gaussian occupancy"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Dilated hypersimplices are standard lattice polytopes, and intrinsic periodic translation is the nontrivial randomization for this affine object. The full law distinguishes typical multiplicity from occupancy and mean. In particular the central non-Gaussian log-multiplicity limit occurs well inside the occupied regime rather than at either occupancy edge, an exact and useful contrast not recoverable from the volume.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T12:09:30.793290Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The domain is the real symmetric Loewner band, with maximum absolute entry on both inputs and outputs. Independently, center each resolvent at m=(r_a+r_b)/2: R=mI+((r_a−r_b)/2)M with M a symmetric spectral contraction. Each row of M has Euclidean norm at most one, hence absolute row sum at most √n. This gives exactly q=r_b+c_n(r_a−r_b). The resolvent identity bounds the two-input difference by the integral of q² times ||A−B||_max. The displayed P is the positive rank-one projector onto the normalized sum of e_1 and the uniform unit vector; the resolvent at aP+b(I−P) is entrywise nonnegative with the required first row sum. The all-ones direction attains its derivative integral in the (1,1) entry. Moving inside the band by ε and taking a perturbation h<ε/n gives admissible distinct pairs and recovers the boundary derivative in the double limit, also for n=1. Integration of q² gives the three claimed terms. At fixed r>1 the leading coefficient is positive by a nonzero square integral; at b/a=1+x/√n the scaled integrand is dominated by a multiple of (1+t)^−2 and tends to [1/(1+t)+x/(2(1+t)^2)]², giving the claimed polynomial integral. These are bounded-critical and fixed-band regimes, not an exhaustive two-rate dichotomy for intervening widths. RESULT.md lines 28–84 prove the claims; checker.py and VERIFICATION.md were read but the 625 reported numerical comparisons were not rerun.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The absolutely-monotone theorem states a sharp all-n coefficient on 0≼X≼dI for every nonnegative-coefficient power series of radius >d, using the same norm on real symmetric inputs and outputs. The transformed log belongs to that class.",
+          "The related Laplace-transform theorem gives an exact constant on a negative half-line cone; it does not give a finite two-ended band constant. Standard Loewner integral representation also does not by itself state a sharp max-entry theorem."
+        ],
+        "reasoning": "The positive-coefficient theorem is decisive broader coverage on the transformed domain; the negative-cone and abstract derivative results are not needed to infer it.",
+        "searches": [
+          "Resultary: positive coefficients and maximum-entry sharp matrix functional calculus",
+          "SCOPE-sharp-maximum-entry-sensitivity-of-absolutely-monotone-matrix-fu--2a72590f2caf",
+          "SCOPE-universal-sharp-entrywise-sensitivity-of-laplace-transform-matri--1a903dcf6eae",
+          "arXiv:1305.2471 Theorem 4.1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary exact log, rank-one, Loewner, and positive-kernel searches",
+        "SCOPE records 2a72590f2caf and 1a903dcf6eae",
+        "arXiv:2008.12926 §4",
+        "arXiv:1305.2471 Theorem 4.1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Expand the general series formula with c=c_n: its coefficient is c²g′(d)+(1−c)²g′(0)+2c(1−c)[g(d)−g(0)]/d. This agrees term by term for k≥2 and has weight one for the linear term.",
+          "For the transformed log, g′(d)=b/a, g′(0)=1 and [g(d)−g(0)]/d=log(b/a)/d, so dividing by b gives the frozen formula identically.",
+          "The fixed-r limit keeps the degree-two part in c. For ε=x/√n, insert (1+ε)^−1=1−ε+ε²+O(ε³) and log(1+ε)/ε=1−ε/2+ε²/3+O(ε³) in the exact formula. The cubic-and-higher remainder is O(nε³)=o(1) and the result is 1+x/2+x²/12. No separate stability optimization is needed for either limit."
+        ],
+        "reasoning": "The whole sharp modulus, extremal projector and finite-pair sharpness are direct consequences in the identical norm. The two asymptotics are elementary coefficient expansions of that exact consequence, not independent findings that escape coverage. A distinct proof does not make the frozen statement original.",
+        "searches": [
+          "Resultary 2a72590f2caf RESULT.md Finding and Sharpness",
+          "arXiv:2008.12926 §4 matrix-log derivative"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "X=I−A/b is an affine bijection from aI≼A≼bI onto 0≼X≼dI, d=1−a/b∈(0,1). log A=(log b)I−g(X), with g(x)=Σ_{k≥1}x^k/k, radius 1>d. The precise two-input log modulus is 1/b times the indexed modulus for g on the transformed band.",
+          "The indexed rank-one projection P and all-ones direction in its sharpness section transform into the frozen low-eigenspace P and admissible perturbations (the sign of the direction can be reversed in the interior)."
+        ],
+        "reasoning": "Affine transformation rescales the input norm by exactly 1/b and does not change the output norm under the additive scalar shift and sign. Spectral reversal is why the positive-coefficient hypotheses apply despite the original scalar logarithm not having them.",
+        "searches": [
+          "Resultary: global maximum-entry log modulus, rank-one sharpness",
+          "Resultary: operator-monotone Loewner derivative and positive-resolvent kernel",
+          "SCOPE-sharp-maximum-entry-sensitivity-of-absolutely-monotone-matrix-fu--2a72590f2caf, Finding and Sharpness"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact literal log hit SCOPE-sharp-entrywise-matrix-logarithm-stability-on-spectral-bands-and--d768844eb47f is the assigned record, not independent coverage.",
+          "The distinct indexed SCOPE record ending 2a72590f2caf supplies an exact general series formula rather than a separately tabulated log row."
+        ],
+        "reasoning": "An equivalent exact result under a direct substitution suffices even when the precise log expression is not independently listed as a table entry.",
+        "searches": [
+          "Resultary: exact spectral-band matrix log formula",
+          "Resultary: rank-one sharp max-entry log and positive-resolvent constants"
+        ]
+      },
+      "rationale": "A distinct indexed theorem gives exactly this finite-band modulus and the same rank-one witnesses after the affine spectral reversal X=I−A/b. Its applicability is missed by asking whether log itself has nonnegative coefficients: the transformed scalar function is g(x)=−log(1−x). The stated limits are direct limiting evaluations of the covering theorem's exact coefficient. This is demonstrable mathematical coverage, not an inference about publication order from two same-day catalogue entries.",
+      "residual_risks": [
+        "The catalogue date does not determine chronological priority between records.",
+        "The Crouzeix–Kressner and Higham–Relton located derivative material was not verified by a full decisive passage read; neither is relied on for the failure finding."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the frozen formula and sharp witness under an affine bijection; the limits are routine expansions. No within-day priority is asserted.",
+          "evidence": [
+            "Exact series formula a_1+Σ_{k≥2}a_k d^{k−1}(2c_n+(k−2)c_n²).",
+            "Sharpness at dP with the same positive projector and interior all-ones perturbations."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-sharp-maximum-entry-sensitivity-of-absolutely-monotone-matrix-fu--2a72590f2caf/RESULT.md",
+          "material_read": "Finding, scope, row and derivative bounds, and Sharpness; offsets 0–4447, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4.",
+          "method": "Indexed lookup and targeted local mirror reading; direct algebraic comparison.",
+          "title": "Sharp maximum-entry sensitivity of absolutely monotone matrix functions on positive spectral intervals",
+          "trigger": "Exact indexed theorem in the identical norm, with a positive-coefficient transform of log."
+        },
+        {
+          "assessment": "Related half-line theory, not the decisive finite-band formula.",
+          "evidence": [
+            "Exact coefficient c_n²∫t e^(−μt)dν(t) for positive Laplace filters on the negative cone."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-universal-sharp-entrywise-sensitivity-of-laplace-transform-matri--1a903dcf6eae/RESULT.md",
+          "material_read": "Finding/assumptions at offset 0 and sharpness at offset 4351 in the local mirror.",
+          "method": "Targeted indexed primary record comparison.",
+          "title": "Universal sharp entrywise sensitivity of Laplace-transform matrix filters",
+          "trigger": "Same norm and common endpoint kernel witness."
+        },
+        {
+          "assessment": "Supplies the kernel, not the sharp optimization in the cited passage.",
+          "evidence": [
+            "Resolves Dlog by the integral of the resolvent sandwich in the matrix-log approximation discussion."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2008.12926",
+          "material_read": "§4, PDF p. 13, near extraction offset 63958.",
+          "method": "Targeted primary paper inspection.",
+          "title": "Computing low-rank approximations of the Fréchet derivative of a matrix function using Krylov subspace methods",
+          "trigger": "Standard log resolvent Fréchet representation."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The stability question and critical scale are natural, but the exact band law and witnesses are a parameter and function substitution into a distinct published indexed theorem. The residual dimension formulas are direct leading-term evaluations, with no surviving independent exact invariant or new mathematical gap resolved in the frozen finding.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

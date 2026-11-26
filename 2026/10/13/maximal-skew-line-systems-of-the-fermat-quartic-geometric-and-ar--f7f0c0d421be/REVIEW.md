@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** The three families of sixteen lines and the at-most-four argument prove an a priori maximum of twelve. The exact cyclotomic four-by-four determinant is an iff test for two projective lines to be disjoint, and all 1,128 unordered pairs are checked with a second modular-rank computation. Every one of the 13,824 triples of four-line permutation sets is exhausted, yielding exactly 128 compatible systems. The Hessian identifies the full 1,536-element monomial projective automorphism group; generators give orbits 32 and 96. Full four-element Galois action gives fixed counts (128,16,128,16), and its subgroup fixed fields give the rational and Gaussian-rational descents. The included code was executed successfully from its actual source path; no numerical or non-exhaustive assumptions enter these assertions.
+## correctness
 
-**Originality: PASS, with literature risk.** The motivating Fermat-surface article proves the 12-line upper bound and supplies the geometry, not the enumerative 128-system census, group orbit sizes, or arithmetic fields for the all-plus rational form. The available Fermat-line Néron–Severi source does not imply a maximum independent-set census. The closest different Hermitian quartic problem in characteristic three has 112 lines rather than 48. Targeted mathematical-record searches and comparison against related previously recorded line-incidence and skew-line claims found no implication-equivalent count. Undetected historical or unindexed treatment remains possible: search absence is not proof of novelty.
+PASS
 
-**Value: PASS.** Enumeration of all complete maximum skew-line systems, and symmetry reduction among them, is a natural refinement of the established maximum-size problem. More significantly, all 128 unordered configurations descend to a quadratic field while each constituent line requires a biquadratic field; sixteen union-configurations even descend to the rationals. These are structural arithmetic invariants of a classical quartic K3 surface, not arbitrarily chosen finite slices.
+Restrict the defining quartic to any projective line, viewing the coordinates as four binary linear forms. After discarding zero forms and grouping proportional forms, the fourth powers of the distinct forms are linearly independent by a Vandermonde minor (choose a chart in which all their first coefficients are nonzero). Each proportionality group must therefore have at least two coordinates for cancellation, and a projective line requires at least two independent forms. This forces the stated pair families, with ratios the four odd powers of ζ₈. Same-family lines sharing a ratio meet, giving at most four per family and at most twelve in total. An independent exact modular-phase consistency test on the union of two matchings, followed by exhaustive graph clique recursion, yielded 128 twelve-line sets. The Hessian determinant defines the four coordinate planes, hence projective automorphisms are monomial with equal fourth powers on the diagonal. The independent census uses a coordinate 4-cycle, one adjacent transposition, and multiplication of one coordinate by i; these generate the group of order 1536, and its two orbit sizes 32 and 96 give stabilizers 48 and 16. The Galois maps k=1,3,5,7 fix 128,16,128,16 systems, respectively; the orbit counts are sixteen singletons and 56 doubletons. A primitive eighth-root ratio forces the field of an individual line to be K. The reduced union descends to the fixed field of its stabilizer by Galois descent of its homogeneous ideal. The involution k=5 fixes exactly Q(i) as a field, so all 128 systems are defined there; sixteen are rational and the other 112 have minimal field Q(i).
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The 48-line description, incidence background, and maximum skew cardinality twelve are prior. The supported distinct claim is the full maximum-system census and projective orbit split, together with the exact field-descent classification on the specified rational form. No stronger inspected source supplied those assertions; the best available same-graph entry reports lower-order graph invariants rather than the extremizer orbits.
+
+## value
+
+PASS
+
+This is the natural maximum-cardinality packing on a classical K3 surface, not an arbitrary subset size. The exact geometric orbit split distinguishes configurations that are not projectively equivalent, while the arithmetic counts answer which unions can be used over Q or Q(i) even though their components cannot individually be used there. A researcher choosing a rational maximum system or a representative of each geometric type needs more than the known maximum size or pair spectrum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

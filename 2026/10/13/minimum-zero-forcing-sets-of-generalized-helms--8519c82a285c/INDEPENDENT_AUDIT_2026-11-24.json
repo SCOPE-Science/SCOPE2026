@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:58:05.422438Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, assumptions and proof, lines 2–44",
+        "Frozen VERIFICATION.md, lines 18–28, and verify.py, lines 5–84 (inspected, not run)",
+        "Independent replay: python3 /workspace/branches/independent_replay.py helm; 16 profiles, 64,322 pattern checks with repetitions"
+      ],
+      "rationale": "For m≥3 and s≥2, two omitted leaves at the same spoke can never be forced, so s−1 leaves per bundle are mandatory. With just those leaves, the process stops after the spokes turn blue. At the next cardinality there is one extra vertex: a spoke still leaves the hub and one leaf at each spoke white, whereas the hub and an extra leaf give exactly the two claimed classes. In the hub class, round 1 colors the spokes and round 2 the omissions. In the saturated class, no spoke is initially blue; round 1 colors all spokes, only the saturated spoke can force in round 2 (it forces the hub), and round 3 colors the remaining leaves. There are s^m and m s^(m−1) sets, respectively, by independent choices of omissions. This also proves the efficient-set statement.",
+      "residual_risks": [
+        "Replay tests the necessary leaf patterns and counts finite saturated families; it is not an exhaustive arbitrary-order computation. The frozen checker considers the minimum layer on ten profiles, and the immediately smaller layer only when its binomial size is at most 100,000."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3.10 covers the very same m,s domain and gives Z and graph pt, but its proof presents the bundle obstruction and one attaining construction.",
+          "The attachment operation is on wheel rim vertices only, not a full corona on the wheel."
+        ],
+        "reasoning": "The most relevant same-domain result is weaker in the output it determines. A result on full coronas would need a genuine reduction to accommodate the uncovered hub.",
+        "searches": [
+          "Generalized helm and corona comparison; arXiv:2310.18513v1, Section 3"
+        ]
+      },
+      "checked_sources": [
+        "Anderton et al., arXiv:2310.18513v1, Theorem 3.10",
+        "Resultary local mirror, even one-leaf helm census",
+        "Frozen RESULT.md, prior-work comparison"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier mandatory-leaf bound reduces the work to one extra vertex. The new case analysis excludes a spoke, establishes success for saturation, and separates rounds 2 and 3."
+        ],
+        "reasoning": "The earlier pointwise obstruction is an ingredient; its statement plus the scalar results do not determine which of the remaining candidates force. The additional dynamics and census are the distinct part.",
+        "searches": [
+          "arXiv:2310.18513v1, Theorem 3.10 and proof",
+          "Frozen RESULT.md, lines 26–44"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The distinct Resultary helm result covers even helms with one leaf per spoke, outside s≥2.",
+          "Anderton et al. minimize propagation time over minimum sets; that optimum is not a census by time."
+        ],
+        "reasoning": "Neither the one-leaf census nor the graph-level propagation-time statement can be relabeled into the claimed two-type classification and time distribution.",
+        "searches": [
+          "Resultary generalized and ordinary helm minimum zero forcing; matched SCOPE-a-binary-defect-census-of-minimum-zero-forcing-sets-on-even-helm--8cac7da6e4b1",
+          "Anderton et al., arXiv:2310.18513v1, Theorem 3.10"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected primary result gives Z and pt rather than the count z(H(m,s);Z) or its splitting by time. The nearby indexed census has s=1."
+        ],
+        "reasoning": "The exact same-domain coefficient and its decomposition did not appear in the checked results; this is a bounded comparison, not a claim about every table.",
+        "searches": [
+          "Resultary helm minimum-set census",
+          "Anderton et al., Theorem 3.10, PDF pp. 14–15"
+        ]
+      },
+      "rationale": "The prior zero forcing number and graph propagation time are explicitly excluded from the distinct contribution. The checked prior proof supplies the bundle obstruction and a hub-containing witness, not the alternatives at minimum size, the coefficient, or the per-set time distribution. No equivalent same-domain classification surfaced in the bounded comparisons.",
+      "residual_risks": [
+        "Additional unindexed equivalent enumerations remain possible. The comparison establishes where the examined theorem stops, not global priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers Z and graph propagation time, not the family census",
+          "evidence": [
+            "For s>1, Z=m(s−1)+1 and pt=2; s−1 leaves per bundle are necessary and a center-containing set attains the bound."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2310.18513v1",
+          "material_read": "Section 3, Theorem 3.10 and proof, PDF pp. 14–15, extracted offsets 58374–62696",
+          "method": "Lawful open primary text; exact theorem and proof comparison",
+          "title": "The zero forcing numbers and propagation times of gear graphs and helm graphs",
+          "trigger": "Exact generalized helm and parameter range; strongest overlap"
+        },
+        {
+          "assessment": "Disjoint pendant multiplicity",
+          "evidence": [
+            "One pendant leaf per spoke, rather than s≥2."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-a-binary-defect-census-of-minimum-zero-forcing-sets-on-even-helm--8cac7da6e4b1",
+          "material_read": "Indexed record RESULT.md, domain and minimum-set statement",
+          "method": "Local Resultary search and matching source text",
+          "title": "A binary defect census of minimum zero forcing sets on even helms",
+          "trigger": "Closest distinct Resultary minimum-set census"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof",
+        "Anderton et al., Theorem 3.10"
+      ],
+      "rationale": "This is the complete ordinary minimum-set layer of a natural graph family. The scalar optimum does not identify/count the optimal sets or show that another minimum family takes an extra parallel round. The two-family description and multiplicities supply the first coefficient of the zero forcing polynomial and the time distribution within that coefficient.",
+      "residual_risks": [
+        "Restricted to minimum ordinary sets with s≥2; not a full zero forcing polynomial or a result about one-leaf helms."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

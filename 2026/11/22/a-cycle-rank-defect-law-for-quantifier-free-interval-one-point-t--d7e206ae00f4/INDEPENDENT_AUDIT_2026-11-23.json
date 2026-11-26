@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T16:47:08.951974Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, verify.py, VERIFICATION.md, REVIEW.md, AUDIT.json, METADATA.json and SLOGAN.txt; supplied code inspected, not executed.",
+        "Independent exact-set quarter-grid census on all 64 proper endpoint words of sizes 1–5: /workspace/branches/334fd9f8-675f-4d82-bc7d-efb98b9e35f2/interval_census.py; accompanying interval_census_findings.md."
+      ],
+      "rationale": "A new interval [u,v] meets precisely the intersection of the suffix r_i≥u and prefix l_i≤v. To realize an interior block [i,j] one needs r_(i−1)<u<v<l_(j+1), along with u≤r_i and v≥l_j. Necessity of the flank bounds follows from hitting i and j and monotonicity; if the flanks are disjoint, take u strictly between r_(i−1) and min(r_i,l_(j+1)), and then v strictly between max(u,l_j) and l_(j+1). This proves sufficiency with a positive-length witness; a free end handles a boundary block, and a distant interval realizes the empty type. The absent blocks are in bijection with edges (a,b) spanning at least two index steps, with exponent b−a−1. An absent consecutive edge partitions the entire graph across that cut, so the consecutive edges form a spanning path in each component and number m−c. The defect is therefore e−m+c, and zero defect means exactly that the consecutive paths are all the edges. This last argument proves the equality case without a claw-free or chordality lemma. The singleton base is covered, and the extension count excludes equalities to named vertices; no re-representation or propriety of the enlarged graph is required.",
+      "residual_risks": [
+        "The independent replay verifies exact labelled sets and grading only on the stated finite range. The bundled grid includes point witnesses; with distinct base endpoints, a point can be thickened toward the interior of the only interval that might have an endpoint there, avoiding all other endpoint changes, so this does not create spurious profiles. The universal quantifiers are supplied by the endpoint proof, not these grids."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bousquet et al. bound closed-neighborhood VC dimension by two for interval graphs, giving the all-block upper bound by Sauer's lemma. Foucaud et al. derive quadratic identifying-code and related bounds from partitions of endpoint positions."
+        ],
+        "reasoning": "Neither result determines which subsets of a fixed proper base are absent, nor the degree of each missing pattern. A sharp maximum over host graphs does not recover dependence on the base's edge set.",
+        "searches": [
+          "arXiv:1407.5833, Lemmas 2.1 and 2.3",
+          "arXiv:1507.08164, Section 2 Theorem 5 and Proposition 6"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1507.08164v2",
+        "arXiv:1407.5833v3",
+        "Resultary open-neighborhood type/trace records (indexed summaries only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 5's proof bounds possible intervals in its i-th group by k−i+1; its construction achieves sharpness for suitable bases. It does not impose a simultaneous lower bound on u from the previous flank and an upper bound on v from the next flank for every prospective block."
+        ],
+        "reasoning": "Adding the actual feasibility constraint u<v yields an edge-specific obstruction, and the identification of e−m+c requires counting all skipped-edge pairs for the given base. The older bound and its extremizer do not themselves provide that calculation.",
+        "searches": [
+          "arXiv:1507.08164, proof of Theorem 5 and Proposition 6; arXiv:1407.5833, Lemma 2.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Foucaud et al. Theorem 5 counts candidate intersections via ordered endpoints, and Proposition 6 gives sharp constructions. Corpus neighbors on open-neighborhood traces include named vertices themselves and give a different extremal count."
+        ],
+        "reasoning": "For a new vertex, open and closed neighborhoods yield identical restrictions to the base, but allowing named witnesses in an open-neighborhood problem may delete the self-coordinate and create nonblock traces. Those extremal counts are not this exact fixed-representation invariant.",
+        "searches": [
+          "Resultary: proper interval graph new interval neighborhoods extension quantifier-free adjacency types consecutive blocks flanking pair graded spectrum cycle rank",
+          "Web: proper interval graph number possible neighborhoods of additional interval traces consecutive blocks non-edge flanking intervals exact cycle rank interval identification"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Resultary self hit is not prior evidence; the inspected indexed summaries concern extremal open-neighborhood trace counts or theories of complete interval models, not the base-specific coefficients. The second web lookup was unavailable and supplies no negative evidence."
+        ],
+        "reasoning": "A table indexed only by the number of parameters or a maximum cannot supply the grade-by-grade dependence on the base. No equivalent exact database entry was identified in the accessible checks.",
+        "searches": [
+          "Resultary query above; web: interval graphs number of distinct neighborhoods intervals partition endpoints proper interval intersection traces nonconsecutive edges"
+        ]
+      },
+      "rationale": "The distinct contribution, under the inspected evidence, is the exact fixed-base obstruction, its degree refinement and cycle-rank defect, not the existence or sharpness of a quadratic bound. No priority certification is made.",
+      "residual_risks": [
+        "An older explicit fixed-representation calculation in interval identification, interval range spaces, or computational geometry may have escaped the available searches. The examined upper bounds and indexed neighbors are not evidence of exclusive priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Clear prior for endpoint grouping and sharpness; the inspected proof counts possibilities, not exact unattainability for a given base",
+          "evidence": "Theorem 5 partitions by left endpoints relative to right endpoints, and sums k−i+1; Proposition 6 exhibits concrete interval constructions.",
+          "identifier_or_url": "https://arxiv.org/abs/1507.08164",
+          "material_read": "arXiv v2 PDF introduction and Section 2 through Theorem 5 and Proposition 6 with proofs",
+          "method": "Open arXiv PDF text",
+          "title": "Identification, location-domination and metric dimension on interval and permutation graphs. I. Bounds",
+          "trigger": "Closest published consecutive-intersection proof and sharp bound"
+        },
+        {
+          "assessment": "The cited statements supply a VC/trace upper bound, not an exact graded spectrum for fixed parameter intervals",
+          "evidence": "Lemma 2.1 is Sauer's bound; Lemma 2.3 gives VC dimension at most two for interval graphs.",
+          "identifier_or_url": "https://arxiv.org/abs/1407.5833",
+          "material_read": "arXiv v3 PDF abstract, introduction and Section 2 through statement of Lemma 2.3",
+          "method": "Open arXiv PDF text",
+          "title": "Identifying codes in hereditary classes of graphs and VC-dimension",
+          "trigger": "Potential stronger trace theorem by classical VC analysis"
+        },
+        {
+          "assessment": "Its stated open-neighborhood extremal count allows a different witness domain and is not an exact fixed-base grading; no whole-record noncoverage asserted",
+          "evidence": "The summary gives maximum 1+binom(m+1,2)+m−2, whereas the current theorem counts only new vertices and at most 1+binom(m+1,2).",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-sharp-open-neighborhood-type-growth-and-path-rigidity-in-interva--9d6b84f296e4",
+          "material_read": "Indexed summary only; full result fetch timed out",
+          "method": "Resultary search and read-only full text attempt",
+          "title": "Sharp open-neighborhood type growth and path rigidity in interval graphs",
+          "trigger": "Closest corpus hit for adjacency types and path equality"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding, Proof and example",
+        "arXiv:1507.08164, Theorem 5 and Proposition 6"
+      ],
+      "rationale": "This refines a motivated trace bound from an extremal number into an exact obstruction for each labelled candidate block. For a fixed base it gives both the realizable types of each cardinality and a graph-intrinsic obstruction to saturation, and resolves all equality cases within the proper-base family. The cycle-space defect captures information the general VC dimension and the extremal count lose.",
+      "residual_risks": [
+        "Value attaches to fixed proper base intervals and unrestricted new witnesses, not to bounded positive quantifier rank or to proper extensions."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

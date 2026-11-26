@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:02:21.034962Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 2–178",
+        "Frozen VERIFICATION.md, verify.py and verify_output.txt (static inspection)"
+      ],
+      "rationale": "The matching a_i b_i forces positive support of size at least n. In an independent zero set of size n, the largest chosen B index t forces all chosen A indices to exceed t; equality forces exactly the two full intervals, including the single-side endpoints. For support of size n, totality excludes the single-side supports and the two zero leaves b_1 and a_n force two 2s, at a_1 and b_n. Each of these interior staircases is feasible: the positive prefix and suffix are completely joined, and the two defenders cover the respective zero sides. At support size n+1 a labeling of weight n+2 has one 2, so all zeros lie on one side. For zeros in A, B is fully positive and its unique positive A-neighbor must be a_1 (to serve b_1); the zero leaf a_n forces b_n to be the defender. The other case follows by reversing indices and exchanging sides. These endpoints are feasible by their universal cross-side neighbors. Larger support gives higher weight whenever any zero remains. With no zero the weight is at least 2n, attaining n+2 only at n=2 with all labels 1. This checks the value and all n+1 staircases, including the three staircases plus all-ones at n=2.",
+      "residual_risks": [
+        "The reported 5,380,830 labelings for 2≤n≤7 and minimum counts 4,4,5,6,7,8 are recorded results, not an independent rerun. The finite check is not needed for any inference at arbitrary n."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Remark 1.1 gives r+2 for the different family K_{r,s}, 3≤r≤s. Theorem 2.4 bounds the weight on any isolate-free graph of order N and maximum degree Δ≥2 between α+(N−α)/(Δ−1) and α+γ_t, where α is vertex-cover number. Its upper-bound construction uses two sets, a minimum cover S and a minimum total dominating set D, with the 2s on S∩D."
+        ],
+        "reasoning": "Here N=2n, α=n, Δ=n, and γ_t=2 via {a_1,b_n}. Integrality of the lower bound and the upper bound give n+2 for every n≥2. The known proof also constructs the staircases if supplied the n+1 minimum covers, but its bounds and construction do not exhaust minimum functions.",
+        "searches": [
+          "DOI 10.1007/s00009-022-02061-y, Remark 1.1 and Theorem 2.4 with proof",
+          "DOI 10.1016/j.dam.2018.12.018, accepted manuscript and half/chain keyword checks"
+        ]
+      },
+      "checked_sources": [
+        "Primary papers DOI 10.1007/s00009-022-02061-y and 10.1016/j.dam.2018.12.018 (passages above)",
+        "Distinct Resultary records listed above",
+        "Frozen RESULT.md, lines 189–211"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Taking D={a_1,b_n} and the threshold covers in the published construction yields F_0,…,F_n. The all-one optimum at n=2 is not among those outputs.",
+          "The published bound does not constrain an arbitrary minimizer to arise from that construction. The frozen proof classifies maximum independent sets, then separates total support of size n from size n+1 and forces the relevant labels via the two leaves."
+        ],
+        "reasoning": "The scalar and these feasible witnesses are covered; necessity, the exceptional support, and thus the complete counts are the supported distinct content.",
+        "searches": [
+          "Supporting construction in Theorem 2.4 of DOI 10.1007/s00009-022-02061-y, pp. 6–7, offset near 15685",
+          "Frozen RESULT.md equality cases, lines 144–178"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The neighborhoods on either side are nested, with sizes 1 through n, so the relevant Ferrers formulation is the staircase shape. The half-graph double Roman result has n+1 minima only for n≥4 and uses a different label set and constraints; the double Italian record gives 4(n−1) minima for n≥4. The chain-graph record concerns quasi-total Roman domination, not the frozen condition."
+        ],
+        "reasoning": "The same graph or an analogous staircase is not an equivalent feasibility problem. The connected chain-graph alias could hide a relevant theorem only if its domination variant also matches.",
+        "searches": [
+          "Resultary queries for half graph, OITR, n+2 and n+1 staircases",
+          "Literature lookup under half graph / chain graph / Ferrers graph",
+          "2026/10/13/SCOPE-minimum-outer-independent-double-roman-functions-of-half-graphs--8289a80c49dd",
+          "2026/10/13/SCOPE-outer-independent-double-italian-domination-of-half-graphs--9764da27b17b",
+          "2026/10/12/SCOPE-minimum-quasi-total-roman-functions-of-connected-chain-graphs--fdc41468ff3b"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact table/census for this parameter on staircase Ferrers graphs was retrieved. The numerical n+1 in the double Roman record belongs to a different admissibility condition and scope; r+2 in the complete bipartite remark is a weight, not a census."
+        ],
+        "reasoning": "A count is comparable only after fixing the graph, parameter, labeling equivalence convention, and boundary. The recorded finite regressions are from the frozen package, not prior database coverage.",
+        "searches": [
+          "Resultary numerical and optimizer-count queries for n+2 and n+1 on the half graph",
+          "Same-day double Roman and double Italian half-graph findings",
+          "2022 paper, Remark 1.1"
+        ]
+      },
+      "rationale": "Pass for the exhaustive optimizer classification and count only. The minimum weight and a construction of the staircases can already be recovered from the 2022 general theorem and its proof. Its construction is sufficient, not a converse: the full classification requires ruling out other supports and other defender choices and finding the n=2 exception. No inspected statement or direct implication established that exhaustive result.",
+      "residual_risks": [
+        "The literature query did not retrieve a matching half/chain/Ferrers source; some alias-specific lookups timed out. Bounded text checks and ranking cannot rule out an unindexed chain-graph classification. No novelty is credited for the scalar value."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Implies scalar and sufficient witnesses, not exhaustive optimizer classification",
+          "evidence": [
+            "Theorem 2.4 applies directly; its proof constructs a feasible labeling from a chosen cover and total dominating set without claiming its converse."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00009-022-02061-y",
+          "material_read": "Remark 1.1 p. 4 (offset 9531); Theorem 2.4 and proof, pp. 6–7 (offsets 15651–19000)",
+          "method": "Bounded primary PDF reading",
+          "title": "Relating the Outer-Independent Total Roman Domination Number with Some Classical Parameters of Graphs",
+          "trigger": "Same parameter with both a related family and graph-general sharp bounds"
+        },
+        {
+          "assessment": "Parameter and general-family context; keyword misses are not evidence of whole-paper absence",
+          "evidence": [
+            "The paper introduces the condition and gives general inequalities and special-family results; its earlier vertex-cover bounds are discussed as Theorem 2.1 in the 2022 paper."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.dam.2018.12.018",
+          "material_read": "Accepted manuscript title, abstract and introduction; literal half graph, chain graph and complete bipartite checks",
+          "method": "Bounded accepted-manuscript reading and keyword location",
+          "title": "Outer-independent total Roman domination in graphs",
+          "trigger": "Introducing paper on the exact parameter"
+        },
+        {
+          "assessment": "Different domination parameters, no established implication for the frozen census",
+          "evidence": [
+            "Different feasibility constraints and optimizer counts or scopes; no identification based on date or the graph alias alone."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-minimum-outer-independent-double-roman-functions-of-half-graphs--8289a80c49dd; 2026/10/13/SCOPE-outer-independent-double-italian-domination-of-half-graphs--9764da27b17b; 2026/10/12/SCOPE-minimum-quasi-total-roman-functions-of-connected-chain-graphs--fdc41468ff3b",
+          "material_read": "Half-graph Findings and definitions at offsets 0–1748 and 0 respectively; chain-graph catalogue description",
+          "method": "Resultary lookup and bounded local-mirror readings for the half-graph records",
+          "title": "Half-graph double Roman and double Italian results; connected chain-graph quasi-total Roman result",
+          "trigger": "High-similarity findings, including same-day staircase results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and equality proof, lines 2–55 and 144–178",
+        "2022 paper, Theorem 2.4 and construction"
+      ],
+      "rationale": "The relevant result is the full equality structure on a standard nested-neighborhood bipartite family, not the already implied scalar n+2. The support changes through n+1 precise thresholds, and positive-support totality and the leaves determine the defenders at each threshold. The classification and its small-order exception give an explicit census for comparisons or later work on chain-graph rigidity, beyond producing one optimum.",
+      "residual_risks": [
+        "This is a family-level equality result, not a classification for general chain graphs or a downstream domination theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

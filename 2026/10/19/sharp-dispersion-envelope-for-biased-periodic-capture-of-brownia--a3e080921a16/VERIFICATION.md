@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-The analytic statement applies to \(D,L,r>0\) and every gate parameter \(\theta\in[0,1]\). The Brownian variance normalization is \(\operatorname{Var}(\sqrt{2D}B_t)=2Dt\); effective diffusivity is \(\lim_{t\to\infty}\operatorname{Var}(X_t)/(2t)\). The weak-limit parameter is \(z=L\sqrt{r/D}\). These conventions fix all factors of two in the formulas.
+## correctness
 
-The proof reduces the model to independent pairs of Brownian capture displacement and exponential cycle time, then computes the required reward-duration correlation. The global strict inequality is proved analytically from a derivative factorization and the inequality \(0<(s\coth s)'<\tanh s\). The included Python 3 program `check_dispersion.py` can be run with NumPy and mpmath and passed 246 assertions using a deterministic random seed. Checks include Laplace/geometric reward moments, an independent numerical derivative, gate extrema, the short- and long-rate expansions, and direct cycle simulation. These tests are finite and are *not* an exhaustive proof over continuous parameters or an independent audit.
+PASS
 
-The proof does not treat finite-time noninstantaneous returns, irregular target placements, non-Brownian motion between captures, or non-Poisson waiting times. The distributional time-to-return correlation is essential: deleting it produces a generally incorrect diffusivity. Large-rate behavior is singular when a basin boundary passes through a lattice site. Priority relative to an unlocated general theorem remains a limitation.
+Exponential-time Brownian motion has characteristic function r/(r+D k^2), giving the printed Laplace law. Index j or higher occurs at displacement at least L(j-1+theta); the mirrored left threshold gives the opposite tail. Summing tails with weights 1 and 2j-1 gives m and b. For Z=LK-vT, E Z=0 at v=rLm. To justify variance convergence rather than just a CLT, stop the sum of the iid centered rewards at the first event after t. This is a stopping index of mean rt+1; the L2 martingale isometry gives second moment (rt+1) E Z^2. Removing the crossing cycle, adding the unfinished Brownian displacement and subtracting the residual drift changes the sum by a uniformly L2-bounded term: age is bounded in law by Exp(r), overshoot is independent Exp(r), and capture rounding changes free displacement by at most L. Thus the limiting centered variance is r E Z^2 per unit time. Differentiating the exponential mixture yields E(TK)=m/r-partial_r m; expansion gives b+z m partial_z m and the factor z^2/2. In a=z/2, w=|theta-1/2|z, the normalized w derivative is C/cosh(w)+w coth(2w)+1/2-h(a), with h(s)=s coth s. Since h'(s)<tanh(s), h(a)-h(w)<=C/cosh(w)-1. The remaining lower bound 1/2-w/sinh(2w) is strictly positive at w>0, including w=a. Endpoint substitution, symmetry and strictness give all equality cases; the small-z expansion is uniform on the compact gate interval and the positive interior gaps give the claimed exponential large-z decay. At directed endpoints m is constant and the large-z limit instead grows as z^2/4. The frozen checker was inspected, not executed; its recorded finite checks do not establish the continuous order.
+
+## originality
+
+PASS
+
+Qualified pass for the strict all-rate sharp order in the gate offset, including the two kinds of endpoints. The exact interior formula and covariance correction demonstrably overlap a later-dated indexed result; neither that overlap nor an already known drift or symmetric endpoint is credited as a separate new contribution in this verdict.
+
+## value
+
+PASS
+
+At fixed material and clock parameters, changing capture bias is a natural design variable that changes drift and spreading. The sharp strict order determines the full range and unique symmetry classes of the endpoints, including a singular distinction at rapid capture between the strictly interior gates and a directed endpoint. That control information does not follow from the known symmetric value, current, or weak-rate coefficient alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

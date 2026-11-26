@@ -10,18 +10,18 @@ I_4(F)\ge 2L_4(F)+1.
 
 Equality holds **exactly** when \(F\in\{3,5,7,9,10,11\}\). The result gives a fixed-multiplicity-four, all-Frobenius-number case of the internal-versus-leaf conjecture, with a stronger strict surplus.
 
-For complete reproducibility, write \(F=4h-r\) with \(r\in\{1,2,3\}\) and \(h\ge1\). Let \(N_4(F)=L_4(F)+I_4(F)\). The exact counts, with empty summands treated as zero, are
+For complete reproducibility, write \(F=4(h-1)+r\) with \(r\in\{1,2,3\}\) and \(h\ge1\). Let \(N_4(F)=L_4(F)+I_4(F)\). The exact counts, with empty summands treated as zero, are
 
 \[
 \begin{array}{c|c|c}
-r& L_4(4h-r)&N_4(4h-r)\\ \hline
+r& L_4(4(h-1)+r)&N_4(4(h-1)+r)\\ \hline
 1&\max\{0,\min(h-2,\lfloor(2h-1)/3\rfloor)\}&\displaystyle\sum_{c=1}^{h-1}\max\bigl\{0,\min(h-1,2c+1)-\max(1,h-1-c)+1\bigr\}\\
 2&\lfloor(h-1)/2\rfloor& (\lfloor h/2\rfloor+1)\lceil h/2\rceil\\
 3&h-\lceil h/3\rceil&\displaystyle\sum_{a=1}^{h}\max\bigl\{0,\min(h,2a)-\max(1,h-a)+1\bigr\}.
 \end{array}
 \]
 
-The nonexistent case \(F=1\), corresponding to \(h=r=1\), is excluded. For \(F\ge3\) with \(4\nmid F\), the table covers every admissible Frobenius number.
+The cases \(F=1,2\) (\(h=1\), \(r=1,2\)) are excluded: a multiplicity-four semigroup omits \(1,2,3\). For \(F\ge3\) with \(4\nmid F\), the table covers every admissible Frobenius number.
 
 ## Assumptions and scope
 
@@ -43,7 +43,7 @@ Conversely every such triple gives a semigroup. Its Frobenius number is \(\max\{
 
 ## Proof
 
-**1. Leaf partition (known structural criterion, reproduced for completeness).** Denote the three positive Apéry elements by \(w_1,w_2,w_3\). An Apéry element is nonminimal exactly when it is the sum of two positive Apéry elements. The only possibilities are \(a=b+c+1\) for \(w_1=w_2+w_3\), \(b=2a\) or \(b=2c+1\) for \(w_2=2w_1\) or \(2w_3\), and \(c=a+b\) for \(w_3=w_1+w_2\). A leaf's maximal Apéry element must be nonminimal: otherwise that element is an effective generator, since it equals \(F+4\). Conversely, if the maximal element is nonminimal, any other Apéry element more than \(F\) must also be nonminimal. Substitution into the Kunz inequalities gives exactly the following pairwise disjoint families of leaves:
+**1. Leaf partition (known structural criterion, reproduced for completeness).** Denote the three positive Apéry elements by \(w_1,w_2,w_3\). A positive Apéry element is nonminimal exactly when it is the sum of two positive Apéry elements: a summand reducible by 4 would make the sum reducible by 4. The possible equalities are \(a=b+c+1\) for \(w_1=w_2+w_3\), \(b=2a\) or \(b=2c+1\) for \(w_2=2w_1\) or \(2w_3\), and \(c=a+b\) for \(w_3=w_1+w_2\). A leaf's maximal Apéry element must be nonminimal: otherwise it is effective, since it equals \(F+4\). When \(w_1=w_2+w_3\) or \(w_3=w_1+w_2\), the two summands are below \(F\) because each positive Apéry element is at least 5. If \(b=2a\) and \(w_2\) is maximal, the inequalities give \(a\le c\le 2a-1\); at \(c=2a-1\), \(w_3>F\) is minimal because \(c<a+b\). Thus a leaf requires \(c\le 2a-2\), which puts \(w_3\le F\). If \(b=2c+1\) and \(w_2\) is maximal, the inequalities give \(c+1\le a\le 2c+1\); at \(a=2c+1\), \(w_1>F\) is minimal because \(a<b+c+1\). Thus a leaf requires \(a\le 2c\), which puts \(w_1\le F\). In the two \(w_2\) cases the doubled summand is already at most \(F\). This gives exactly the following pairwise disjoint families within the Kunz-admissible triples:
 
 \[
 \begin{array}{c|l}
@@ -69,9 +69,9 @@ For family \(\mathcal A\), the new coordinate \(c+1\) still satisfies every Kunz
 
 Each branch is a translation and hence injective. Branches \(\mathcal A\) and \(\mathcal B\) have Frobenius numbers congruent to \(1\) and \(3\) modulo \(4\), respectively. Branches \(\mathcal C\) and \(\mathcal D\) both have Frobenius numbers congruent to \(2\), but their maximal \(w_2=4b+2\) has respectively even and odd Kunz coordinate \(b\), so their Frobenius numbers are distinct. Therefore images from different branches cannot collide. This proves the Frobenius-preserving injection.
 
-**3. Exact counts.** Write \(F=4h-r\). If \(r=1\), then \(a=h\), \(1\le b,c\le h-1\), and the remaining nonautomatic Kunz inequalities are \(b+c\ge h-1\) and \(b\le2c+1\). For fixed \(c\), the possible values of \(b\) lie between \(\max(1,h-1-c)\) and \(\min(h-1,2c+1)\), giving the first total. The only leaves have \(a=b+c+1\), producing the first leaf count (with the small \(h=2\) boundary handled by the maximum with zero). If \(r=2\), then \(b=h\), \(\lceil h/2\rceil\le a\le h\), and \(\lceil(h-1)/2\rceil\le c\le h-1\); the number of pairs is the middle total. The leaves lie in \(\mathcal C\) when \(h\) is even and \(\mathcal D\) when it is odd, yielding \(\lfloor(h-1)/2\rfloor\). If \(r=3\), then \(c=h\), \(1\le a,b\le h\), \(a+b\ge h\), and \(b\le2a\), giving the last sum. The leaves satisfy \(a+b=h\), with \(\lceil h/3\rceil\le a\le h-1\), yielding \(h-\lceil h/3\rceil\).
+**3. Exact counts.** Write \(F=4(h-1)+r\). If \(r=1\), then \(a=h\), \(1\le b,c\le h-1\), and the remaining nonautomatic Kunz inequalities are \(b+c\ge h-1\) and \(b\le2c+1\). For fixed \(c\), the possible values of \(b\) lie between \(\max(1,h-1-c)\) and \(\min(h-1,2c+1)\), giving the first total. The only leaves have \(a=b+c+1\), producing the first leaf count (with the small \(h=2\) boundary handled by the maximum with zero). If \(r=2\), then \(b=h\), \(\lceil h/2\rceil\le a\le h\), and \(\lceil(h-1)/2\rceil\le c\le h-1\); the number of pairs is the middle total. The leaves lie in \(\mathcal C\) when \(h\) is even and \(\mathcal D\) when it is odd, yielding \(\lfloor(h-1)/2\rfloor\). If \(r=3\), then \(c=h\), \(1\le a,b\le h\), \(a+b\ge h\), and \(b\le2a\), giving the last sum. The leaves satisfy \(a+b=h\), with \(\lceil h/3\rceil\le a\le h-1\), yielding \(h-\lceil h/3\rceil\).
 
-**4. The sharp two-to-one surplus.** We prove the stronger equivalent inequality \(N_4(F)\ge 3L_4(F)+1\). If \(r=2\), put \(h=2k\) or \(2k+1\). For even \(h\ge2\), \(N_4-3L_4=k(k+1)-3(k-1)=k^2-2k+3\), which is at least three. For odd \(h\ge3\), \(N_4-3L_4=(k+1)^2-3k=k^2-k+1\), equal to one only at \(k=1\) and greater at every \(k\ge2\).
+**4. The sharp two-to-one surplus.** We prove the equivalent inequality \(N_4(F)\ge 3L_4(F)+1\). If \(r=2\), put \(h=2k\) or \(2k+1\). For even \(h\ge2\), \(N_4-3L_4=k(k+1)-3(k-1)=(k-1)^2+2\), which is at least two. For odd \(h\ge3\), \(N_4-3L_4=(k+1)^2-3k=k^2-k+1\), equal to one only at \(k=1\) and greater at every \(k\ge2\).
 
 For \(r=1\), direct substitution for \(h=2,3,4,5,6,7\) gives \((N_4,L_4)=(1,0),(4,1),(8,2),(12,3),(17,3),(23,4)\), and equality occurs only at \(h=2,3\). For every \(h\ge8\), every pair \(b,c\in[\lceil h/2\rceil,h-1]\) is allowed, and the additional pair \((b,c)=(1,h-2)\) is allowed but lies outside this square. Therefore \(N_4\ge\lfloor h/2\rfloor^2+1\). Since \(L_4\le\lfloor(2h-1)/3\rfloor\), this lower bound exceeds \(3L_4+1\) for all \(h\ge8\): for even \(h=2k\ge8\), the difference \(\lfloor h/2\rfloor^2+1-(2h-1)=k^2-4k+2\ge2\); for odd \(h=2k+1\ge11\) it is \(k^2-4k\ge5\), while at \(h=9\) the exact \(L_4=5\) gives \(17>3\cdot5+1\).
 
@@ -89,12 +89,12 @@ A 2026 genus-preserving result already gives the four-family **leaf partition** 
 
 ## Limitations
 
-Only multiplicity exactly four is covered. No inequality for all multiplicities, and no injection simultaneously preserving both genus and Frobenius number, is claimed. The exact fixed-F counts can be extracted from the previously known Kunz and leaf descriptions by elementary arithmetic; their standalone enumeration is not claimed as conceptually new. The all-F two-to-one internal surplus and the explicit F-preserving injection are the actual contributions. Unindexed prior computations or equivalent formulations could affect historical priority; no independent mathematical audit has been conducted.
+Only multiplicity exactly four is covered. No inequality for all multiplicities, and no injection simultaneously preserving both genus and Frobenius number, is claimed. The exact fixed-F counts can be extracted from the previously known Kunz and leaf descriptions by elementary arithmetic; their standalone enumeration is not claimed as conceptually new. The all-F two-to-one internal surplus and the explicit F-preserving injection are the actual contributions. Unindexed prior computations or equivalent formulations could affect historical priority.
 
 ## References
 
 1. M. Casas, J. A. Madrid and J. C. Rosales, *Internal numerical semigroups*, arXiv:2608.19984v1, first public August 20, 2026. https://arxiv.org/abs/2608.19984
 2. P. A. García-Sánchez, D. Marín-Aragón and A. M. Robles-Pérez, *The tree of numerical semigroups with low multiplicity*, arXiv:1803.06879v1 (2018). https://arxiv.org/html/1803.06879v1
-3. *A genus-preserving leaf-to-internal injection for multiplicity-four numerical semigroups* (2026), https://github.com/published-finding corpus/2026/tree/main/2026/10/26/SCOPE-a-genus-preserving-leaf-to-internal-injection-for-multiplicity-f--786d5662b2ca
-4. *Exact two-child and three-child profiles of multiplicity-four numerical semigroups* (2026), https://github.com/published-finding corpus/2026/tree/main/2026/10/25/SCOPE-exact-two-child-and-three-child-profiles-of-multiplicity-four-nu--0a6ecda60e6d
+3. *A genus-preserving leaf-to-internal injection for multiplicity-four numerical semigroups* (2026-10-26), Resultary, record 786d5662b2ca.
+4. *Exact two-child and three-child profiles of multiplicity-four numerical semigroups* (2026-10-25), Resultary, record 0a6ecda60e6d.
 5. M. Bras-Amorós and V. Torra, *Algorithms and results on multiparameter counting of numerical semigroups*, arXiv:2607.23111 (2026). https://arxiv.org/abs/2607.23111

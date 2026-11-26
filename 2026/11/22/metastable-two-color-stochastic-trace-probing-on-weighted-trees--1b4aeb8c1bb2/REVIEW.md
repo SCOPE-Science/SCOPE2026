@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The quadratic Rademacher variance is derived from independent class-supported probe vectors and is used in exact rational comparisons. The seven-vertex precision matrix is invertible for every positive screening shift. `verify_symbolic.py` reproduces every rational-function gap identity; `verify_exact.py` independently reconstructs the rational inverse and all sixty-four sign assignments with a complete grouped table. The analytic screening interval follows from signed polynomial factors and positive denominators. For arbitrary finite numbers of weakly attached leaves, a positive leading \(\varepsilon^2\) singleton gap, uniform continuity across the finitely many old moves, and a persistent strict global improvement prove the extension. The perturbation result does not rely on extrapolating seven-vertex enumeration to infinite size.
+PASS
 
-## Originality — PASS, with residual risks
+The supported Rademacher quadratic form has centered terms 2G_ij ξ_iξ_j for within-class distinct unordered pairs; those terms are uncorrelated except for identical pairs. This gives the stated factor 4 and flip gap −4∑_{i in S,j outside S} b_i b_j G_ij². Independently built the inverse by eliminating the five leaf coordinates and inverting the resulting 2×2 center block, verified QG=I as a rational-function identity, and reproduced every singleton, bridge and specified competitor gap (RESULT.md lines 53–84). The leaf gaps force x>α, the competitor forces x<β, and the remaining gaps are strictly positive there by the displayed factorizations. The interval is sharp for this conjunction, not a classification of all local traps. At x=1/3 independent enumeration over 63 admissible unlabeled partitions gave variances 384984171/95452900 for the proper coloring and 377990793/95452900 for the optimum, attained exactly by the three stated colorings. All grouped entries, including the harmless inadmissible constant-sign row entry, match. Reproduce this finite certificate with python /workspace/review-4-exact.py (SymPy); the supplied scripts were only inspected. For each fixed number of new leaves, at μ=1/3 the old gaps persist by continuity as ε→0. In the new-leaf row, G_zj=εG_3j/(μ+ε) for j≠z, so the new-new cross entries are O(ε²); the leading new-leaf variance gap is 4(ε/μ)² times H_3, independently verified as 223184259/190905800>0. The leaf-component move equals its singleton up to a global sign, and the competitor remains better. This establishes the arbitrary-order result for sufficiently small positive ε at each order, without requiring a common ε or the full screening window at every order.
 
-The first full-text baseline (Stathopoulos–Laeuchli–Orginos, arXiv:1302.4018) develops inverse-trace hierarchical distance probing. Frommer–Schimmel–Schweitzer (arXiv:2009.01589) studies decay/error bounds for probing with distance-color partitions. Frommer–Rinelli–Schweitzer (arXiv:2308.07722) supplies exact supported-Rademacher variance formulas. These do not imply strict local optimality of a proper bipartition under both vertex and edge-component moves at the same time as a strict global defeat, much less a robust arbitrary-order family. Searches of indexed research findings located complete-bipartite two-color threshold results, cycle/hypercube checkerboard optima, and path optima; their restricted graph families and global classifications do not cover the constructed weighted-tree metastability statement. Search absence does not prove priority, and possible unindexed, unpublished, or differently named equivalent examples remain risks.
+## originality
 
-## Value — PASS
+PASS
 
-A proper two-coloring is natural for bipartite trees and inexpensive to construct. The result proves that optimizing exact stochastic trace variance is a different problem from proper graph coloring: the proper coloring can be a strict local trap even under the stronger one-edge-component move neighborhood. An exact nontrivial screening interval makes the failure robust in a physical regularization parameter, and a positive-conductance infinite family shows it is not solely a tiny-graph curiosity. This gives a mathematically motivated boundary for local partition-refinement heuristics without claiming their overall practical failure rate.
+The exact variance functional is established background, and prior studies optimize it on other graph families. The supported distinct claim is the simultaneous strict local trap for bridge and singleton flips in a positively weighted branched tree, with a specified exact screening interval, global classification at one screening, and extension to each larger order. No inspected theorem gives that conjunction.
 
-## Limits
+## value
 
-The result is existential and supplies no guarantee about typical random weights or alternative search neighborhoods; seven-vertex optimality is exhaustively verified but minimality among smaller trees is not claimed. It is unknown whether historical literature contains an equivalent result outside the inspected evidence.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A proper bipartition is a natural low-cost default for trace probing on a tree; strict stability under both readily interpretable neighborhoods makes it a genuine obstruction to improving that default by either move family, rather than merely a bad coloring. The rigorous window and growth construction rule out an isolated numerical tie or fixed-order anomaly. The claim is existential, not a claim about minimal witness size, typicality, or all refinement heuristics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

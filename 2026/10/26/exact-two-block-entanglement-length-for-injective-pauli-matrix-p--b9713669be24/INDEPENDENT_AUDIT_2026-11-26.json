@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:00:27.446307Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Pauli conjugation gives the stated three nontrivial transfer eigenvalues with modulus strictly less than one, normalized right fixed point I/2, and left fixed point I. For each block length at least one, one nonzero Pauli index padded with zero indices gives representatives of the four matrix units' span, proving full column rank of the boundary-to-physical map. Expanding the canonical trace in auxiliary indices gives the output-first Choi operator of E^L on the middle two legs, tensoring I and I/2 on the outer legs, precisely in the two block groupings of the record. Local congruences and their left inverses preserve separability of the positive cone and PPT in both directions (partial transpose conjugates the map on the C side); the outer factors can be added or traced out locally. For a direct check of the threshold, with t_i=λ_i^L the normalized Choi operator is (I+sum_i t_i σ_i⊗σ_i^T)/4. On Bell eigenvectors the three Pauli terms have sign product +1, whereas after partial transpose they have sign product −1. The minimum across both spectra is (1−sum_i |t_i|)/4, so Choi positivity makes the criterion exactly equivalent to PPT. When the sum is at most one, the Choi operator is a mixture of I/4 and the separable equal/unequal Pauli-eigenbasis correlation states (I+sign(t_i) σ_i⊗σ_i^T)/4. This includes equality. Monotone decaying absolute powers make the threshold finite; 3s^L≤1 gives the ceiling and logarithmic asymptotic. Canonical contractions for each fixed finite region converge to all-zero physical support as the nonidentity tensors vanish, at a noninjective endpoint not covered by the strict-positivity theorem. The frozen numerical checks were inspected, not executed; they do not justify the equality case or the all-block quantifier.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "arXiv:2610.17038 pp. 3–4: exact forward MPS contraction through E^|B| and sufficient uniform length for normal MPS; p. 7 covers AKLT as a worked example",
+          "arXiv:1901.07448 p. 2 and Eq. (9) p. 6: tensor left inverses",
+          "arXiv:1801.05542 Theorem 4.4 p. 8: finite index for unital PPT channels; §6 discusses asymptotic EB"
+        ],
+        "reasoning": "Eventual breaking gives an upper bound on physical separation, not NPT for each pair below that threshold. Eq. (3) has virtual partial traces; a formal inverse of a block tensor alone is not an inverse of those channels on arbitrary inputs. The exact cut-specific factorization and recovery use the uncorrelated outer factors and full block rank even at one site.",
+        "searches": [
+          "Ferydouni–Jackson–Scalet arXiv:2610.17038 Eq. (3), Proposition 2, Theorem 2, Appendix Example 1",
+          "Sauerwein–Molnár–Cirac–Kraus arXiv:1901.07448 injectivity and left inverses",
+          "Rahaman–Jaques–Paulsen arXiv:1801.05542 eventual EB and indices"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.17038",
+        "arXiv:1411.2517v4",
+        "arXiv:quant-ph/0302032",
+        "arXiv:1901.07448",
+        "arXiv:1801.05542",
+        "Resultary 8e247c0a93d2 and 68bc6f4e7b8c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Eq. (3) uses Tr_V acting on (F_A⊗id_C) applied to (E^|B|⊗id_C)F_C(R), and Theorem 2 uses that local channel to preserve separability in the forward direction",
+          "Lami–Giovannetti state n(L,0)=min{n≥1: sum_i |l_i|^n≤1}; this already covers the diagonal Pauli transfer iterate"
+        ],
+        "reasoning": "The earlier pieces give the explicit sufficient condition for the physical family with no new channel analysis. Proving recovery of the inner Choi operator proves the missing converse and PPT equivalence for every fixed positive block length, rather than substituting Pauli eigenvalues into the sufficient MPS theorem. The local product limit with arbitrarily large exact physical lengths uses this necessary direction.",
+        "searches": [
+          "arXiv:2610.17038, p. 3 Eq. (3), p. 4 Theorem 2 proof and p. 7 Example 1",
+          "arXiv:1411.2517v4 §V.A Theorem 3, Eq. (69)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ruskai Theorem 8 p. 12: the unital-qubit EB octahedron; Theorem 1 p. 3: two-qubit Choi equivalences",
+          "Lami–Giovannetti arXiv:1411.2517v4 §V.A Theorem 3 Eq. (69), p. 10: exact index n(L,0) for diagonal Bloch form"
+        ],
+        "reasoning": "Choi separability, the octahedron and the diagonal channel's first EB power are settled at the virtual-channel level. For the physical formulation the equivalence is not automatic under arbitrary local channels; here one proves it by recovering the virtual operator up to separable spectators with local full-rank filters.",
+        "searches": [
+          "Resultary: Pauli matrix product state two-block entanglement and transfer-channel threshold",
+          "Ruskai arXiv:quant-ph/0302032, Theorems 1, 4, 8",
+          "Web lookup: Lami Giovannetti entanglement breaking indices exact unital qubit channels powers depolarizing Pauli sum lambda"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 8e247c0a93d2 and 68bc6f4e7b8c: rotated-dephasing powers and divergence of EB indices",
+          "Theorem 3 Eq. (69) is an exact channel-index formula; AKLT at multipliers −1/3 is a different physical state"
+        ],
+        "reasoning": "There is exact coverage for the channel index, not a located exact physical Pauli-MPS block formula in the same model. The nearby indexed claims are channel-only rotation limits, not reversible local-filter correspondences for physical blocks.",
+        "searches": [
+          "Resultary: exact qubit EB powers, Pauli transfer and MPS entanglement lengths",
+          "Lami–Giovannetti arXiv:1411.2517v4 Theorem 3; Ferydouni–Jackson–Scalet Appendix Example 1"
+        ]
+      },
+      "rationale": "The exact transfer-channel criterion and index are already covered by Ruskai and Lami–Giovannetti, including the isotropic numerical ceiling as a direct substitution. The distinct supported claim is the necessity as well as sufficiency of that channel threshold for each actual pair of nonempty Pauli-MPS blocks. The closest MPS source gives a general forward transfer contraction and sufficient separability length, but does not supply the inverse physical-to-virtual recovery of the Choi entanglement or its PPT status. Known tensor injectivity is an ingredient, not a claim of invention. No matching physical theorem was established in the inspected sources.",
+      "residual_risks": [
+        "An earlier explicit physical mixed-marginal converse for injective MPS or the same Pauli family could cover the result; the bounded search did not establish one. The channel index and octahedron criterion are not new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same forward contraction; sufficient general theorem rather than all-block necessity",
+          "evidence": "Theorem 2 factors through E^|B| and local output channels to transfer separability forward. AKLT uses a specific three-level tensor and one entanglement-breaking transfer step.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.17038",
+          "material_read": "pp. 3–4 Eq. (3), Proposition 2, Theorem 2 (offsets 16050–22121); Appendix Example 1 p. 7 (offset around 41210)",
+          "method": "Targeted OA PDF text",
+          "title": "Entanglement Sudden Death in Gapped Ground States",
+          "trigger": "Closest general MPS result and a worked bond-two example"
+        },
+        {
+          "assessment": "Exact coverage of transfer index, not physical MPS theorem",
+          "evidence": "For diagonal Bloch matrix L the direct index is min{n≥1: sum_i |l_i|^n≤1}.",
+          "identifier_or_url": "https://arxiv.org/pdf/1411.2517v4",
+          "material_read": "§V.A Theorem 3, Eq. (69), p. 10; offsets 65300–68705",
+          "method": "Targeted OA PDF text",
+          "title": "Entanglement-Breaking Indices",
+          "trigger": "Exact diagonal unital-qubit channel index could cover the numerical threshold"
+        },
+        {
+          "assessment": "Direct coverage of virtual criterion",
+          "evidence": "The unital entanglement-breaking region is sum_i |λ_i|≤1.",
+          "identifier_or_url": "https://arxiv.org/abs/quant-ph/0302032",
+          "material_read": "Theorem 1 p. 3 and Theorem 8 p. 12, referring to Theorem 4",
+          "method": "Targeted OA primary text",
+          "title": "Qubit Entanglement Breaking Channels",
+          "trigger": "Exact qubit Choi and unital-channel conditions"
+        },
+        {
+          "assessment": "Known tensor inverse, not the target mixed marginal statement",
+          "evidence": "Injective tensors admit a linear left inverse.",
+          "identifier_or_url": "https://arxiv.org/abs/1901.07448",
+          "material_read": "p. 2 and Eq. (9) p. 6",
+          "method": "Targeted OA primary text",
+          "title": "Matrix Product States: Entanglement, symmetries, and state transformations",
+          "trigger": "Prior injective MPS block inverses"
+        },
+        {
+          "assessment": "General channel methodology and other classes",
+          "evidence": "Theorem 4.4 covers finite index for unital PPT maps; asymptotic breaking alone need not imply finite index.",
+          "identifier_or_url": "https://arxiv.org/abs/1801.05542",
+          "material_read": "p. 2, Theorem 4.4 p. 8, Theorem 6.1 p. 11, Example 6.1 p. 12",
+          "method": "Targeted OA primary text",
+          "title": "Eventually Entanglement Breaking Maps",
+          "trigger": "General iteration index and finite versus asymptotic results"
+        },
+        {
+          "assessment": "Related channel problem, no MPS conclusion",
+          "evidence": "Iterations compose a qubit dephasing map with a fixed rotation; the statement has no physical blocks.",
+          "identifier_or_url": "2026/10/26/SCOPE-sharp-entanglement-breaking-thresholds-for-repeated-rotated-qubi--8e247c0a93d2",
+          "material_read": "RESULT.md Finding",
+          "method": "Local Resultary mirror",
+          "title": "Sharp entanglement-breaking thresholds for repeated rotated qubit channels",
+          "trigger": "Closest same-day exact qubit-power threshold finding"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact necessity on arbitrary nonempty blocks distinguishes a physical entanglement range from a sufficient decay bound. The all-block equivalence supplies explicit NPT below the threshold even where merely seeing a non-EB transfer map would not prove physical entanglement, and the product-state limit shows the exact physical length is not locally bounded near this noninjective boundary. These are statements about actual chain marginals, not just a recatalogue of the channel index or a uniform-gap claim.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:36:24.210653Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Audited the forward three-ballot rule directly: only agreement of the two successors can change the incumbent. Proper words are fixed and thick words shift. For any original maximal run of length at least two, its predecessor and its first length-minus-one sites form a monochromatic block of the original length after the update. Its last site either stays attached or changes to the next long run's color and belongs to that run's updated block. Thus no original long-run site can become a singleton, and a singleton immediately preceding a long run is certainly removed. A mixed word has such a boundary and at most n−2 singleton sites, proving strict descent and recurrence only in the two classes. In the two-zero alternating-tail witness the shrinking tail remains alternating and nonzero and the only advancing block eats exactly one site each time, including the n=3 case. The thick-word pair transfer factors through the diagonal and row-sum coordinates as (u,v)→(v,v+(J−I)u): the symmetric color sector yields z²−z−(q−1), the other sectors z²−z+1. This and the standard proper-coloring trace give the stated formulas, equality of growth rates only at q=3, and the limits. Uniform states belong to the thick class and are fixed; the total fixed count is P+q, not P. Least periods of thick words are spatial; nonconstant primitive repeat blocks must have at least two runs of length at least two, and 00 followed by d−2 ones realizes every d≥4. Divisor inversion uses S(q,1)=S(q,2)=q, consistent with the transfer formula. Fresh replay /workspace/branches/replay_1.py enumerated the full functional graphs for q=3, n=3–8 and q=4, n=3–6 using direct ballot tallies. It checked class counts, entry times, shifts, and period-divisor counts (e.g. q=3,n=8: 258 proper, 255 thick, cutoff 6, and 12/240 thick states of least periods 4/8). This finite replay is corroboration, not the all-size proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Nakar–Ron allow arbitrary radius but restrict to symmetric binary majority, with fixed and 2-periodic configurations. Lemoy et al. describe thermal noise in a centered binary three-ballot model. The multicolor centered record changes the neighborhood rather than generalizing the forward result."
+        ],
+        "reasoning": "Greater radius range, adding noise, or treating multiple colors in a different neighborhood does not contain this theorem's hypotheses and conclusions.",
+        "searches": [
+          "Nakar–Ron arXiv:2205.08972v1, abstract and §§1–2",
+          "Lemoy–Mozeika–Seki arXiv:1311.4388v1 abstract",
+          "Resultary f159f830d6e4 Finding"
+        ]
+      },
+      "checked_sources": [
+        "Resultary direct target ed9b4d3a8cbc (not independent evidence) and distinct comparison f159f830d6e4",
+        "Fukś comp-gas/9703001v1",
+        "Lemoy–Mozeika–Seki 1311.4388v1",
+        "Nakar–Ron 2205.08972v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The same-day result gives a centered parity-dependent fixation bound with two-cycle exceptions. The assigned theorem concerns first entry to any periodic state and includes thick least periods as large as n for n≥4. Its recurrent share is not an initial-state fixation probability."
+        ],
+        "reasoning": "The old fixation statements bound a different event for a different map; no direct implication to the paired proper/thick laws or entropy comparison was found.",
+        "searches": [
+          "Resultary f159f830d6e4, mirrored RESULT.md, opening Finding",
+          "Nakar–Ron arXiv:2205.08972v1, fixed and 2-periodic definitions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The distinct same-day Resultary result f159f830d6e4 is the centered left/own/right tie-retaining rule; its stated recurrent exception is an alternating two-cycle on even rings, not a thick translating class.",
+          "Fukś describes binary majority Rule 232. In the binary case the forward window is a shifted centered window, but with three colors this shift also changes which ballot is retained on an all-distinct tie, so it does not identify the frozen forward rule with the centered incumbent-retaining dynamics."
+        ],
+        "reasoning": "Neither orientation reversal nor a shift of the centered multicolor update preserves the specified incumbent in the forward voting window. The binary model also cannot access three-way ties.",
+        "searches": [
+          "Resultary: one-sided tie-retaining three-site plurality recurrence, proper/thick classes, sharp n−2 and entropy",
+          "Fukś comp-gas/9703001v1 §III; Nakar–Ron arXiv:2205.08972v1 §1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact Resultary match is this assigned record. The nearest distinct multicolor record concerns random-initial freezing thresholds, not the pair of recurrent censuses. The proper count is standard cycle coloring, and no separate source was identified giving the matched dynamic thick class and its equal growth at q=3."
+        ],
+        "reasoning": "Even an independent static count of no-singleton words would cover that ingredient, not establish which configurations are recurrent or that n−2 is sharp.",
+        "searches": [
+          "Resultary: proper/thick closed traces, no-singleton cyclic configurations and q=3 equality"
+        ]
+      },
+      "rationale": "The distinct result is the joint one-sided multicolor recurrent classification, sharp entry clock and proper/thick entropy equality. The proper-cycle chromatic count and transfer-matrix method are standard ingredients, not separately novel.",
+      "residual_risks": [
+        "A bounded general literature query produced no useful exact match and is not evidence of absence. An unindexed directed multicolor/conjugate automaton classification or a cyclic no-singleton enumeration may overlap; absolute priority is not established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "RELATED DISTINCT RULE",
+          "evidence": [
+            "Left, own, right ballots; fixation except alternating two-cycles on even rings, with parity-dependent bounds."
+          ],
+          "identifier_or_url": "Resultary f159f830d6e4",
+          "material_read": "Mirrored RESULT.md opening Finding, offset 0, commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local snapshot passage inspection",
+          "title": "Poisson freezing thresholds for multicolor three-site plurality on cyclic rings",
+          "trigger": "Same day, same alphabet and ring, highly similar plurality recurrence problem"
+        },
+        {
+          "assessment": "DIFFERENT RULE AND PERIODIC CLASSES",
+          "evidence": [
+            "Symmetric radius-r two-state majority; stable or 2-periodic categories."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2205.08972v1",
+          "material_read": "Abstract and symmetric binary rule and periodicity definitions, pp. 1 and 3–5",
+          "method": "Lawful OA PDF passage comparison",
+          "title": "The Structure of Configurations in One-Dimensional Majority Cellular Automata",
+          "trigger": "Cyclic majority recurrence and transients"
+        },
+        {
+          "assessment": "BINARY ANTECEDENT",
+          "evidence": [
+            "Two-state automata; centered Rule 232 designated majority rule."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/comp-gas/9703001",
+          "material_read": "Abstract; §III p. 3, Rule 232 passage",
+          "method": "Lawful OA PDF passage comparison",
+          "title": "Solution of the Density Classification Problem with Two Cellular Automata Rules",
+          "trigger": "Classical majority automaton"
+        },
+        {
+          "assessment": "DIFFERENT RULE AND OBSERVABLE",
+          "evidence": [
+            "Binary left/center/right voting with thermal noise."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1311.4388",
+          "material_read": "Abstract p. 1, majority-3 passage near offset 1498",
+          "method": "Lawful OA PDF passage comparison",
+          "title": "Transfer matrix analysis of one-dimensional majority cellular automata with thermal noise",
+          "trigger": "Majority on rings and transfer-matrix counting precedent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The finite directed voting rule has a genuine three-way tie and a natural all-initial-state transient question. It is resolved by an optimal clock and complete attractor description including arbitrarily long traveling periods. The coexistence of two structurally different recurrent families with exactly equal exponential growth at three colors, but not four or more, is more than a static cycle-coloring exercise. The result concerns recurrence, not the attraction-basin proportions or a stochastic rule.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

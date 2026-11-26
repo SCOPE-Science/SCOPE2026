@@ -1,15 +1,21 @@
-# Scientific review: inverse weak-activity dissipation for a cusp double-well
+# Independent mathematical audit
 
-## Correctness (PASS)
-The claimed response is a coefficient in a two-stage limit, not a finite-propulsion law. The published stationary-current expression is first combined with the linearized two-component Fokker--Planck system. The sign and normalization of the response follow from \(q=-\pi(2r+K)^{-1}f/T\). The equilibrium energy \(\langle x,Kx\rangle_\pi=T\) and force norm \(\|Kx\|_\pi^2=b^2\) give the exact resolvent formula and high-rate tail. The zero-rate tail equals the equilibrium position variance, calculated by direct elementary integration in the actual cusp-well potential. Spectral positivity proves strict rate monotonicity and concavity, and the derivative of the explicit variance proves uniqueness of the well separation after recovery of \(b\). The limiting statements keep the order \(v\to0\) before rate extremes. The reproducible discretization checks supplement, but do not substitute for, the proof.
+## correctness
 
-## Originality (PASS with specified residual risk)
-The exact two-rate-tail inverse theorem and the recovery of the complete equilibrium position autocovariance were compared against the main bistable primary paper (Singh--Aghion 2026, full text, particularly Section 7); the broad entropy-production formalism and harmonic case (Paoluzzi--Puglisi--Angelani 2024, full text); the harmonic field theory (Garcia-Millan--Pruessner 2021, accessible article text); and the different local-temperature/entropy-flux inverse-Clausius construction (Farago 2025, full text). None of those inspected texts states or directly implies this cusp-well identification result. Green--Kubo resolvent theory is acknowledged as a prior ingredient rather than presented as independently new. Frydel (2022) discusses general persistence limits and provides the closest uninspected potential coverage: its abstract was read, but the full paper could not be inspected. The possibility of an unlocated general inverse susceptibility theorem covering the cusp specialization is a live limitation, not treated as disproved by search.
+PASS
 
-## Value (PASS)
-An experimentally meaningful rate scan is turned into a two-parameter geometry reconstruction: the high-rate dissipation deficit identifies the absolute force strength, and the low-rate response slope uniquely identifies the well spacing. The result also determines the entire equilibrium positional time correlation from a nonequilibrium dissipation curve, with sharp sign and curvature restrictions useful for model checking. This is a complete structural inverse classification for the natural symmetric bistable trap, not merely a reparameterized evaluation of the published finite-propulsion entropy-production integral. No finite-noise stability or broad arbitrary-potential inverse claim is implied.
+For |v|<b the uniformly inward tail drift gives an exponential Lyapunov function (choose its exponent below (b−|v|)/T); ellipticity and positive flipping give irreducibility. At v=0 the Gibbs density is comparable to a bilateral exponential, hence the reversible form has a gap on centered functions. In the weighted variables P/π and D/π the drift perturbation is B u=u′+(f/T)u, bounded H¹(π)→L²(π) and of mean zero; invert the diagonal operators on the normalized centered pair at fixed r and use a Neumann series for small v. The stationary law is in this space locally in v: at v=0 the positive-side tail exponents are 0, −b/T and (−b±√(b²+8rT))/(2T), simple for r>0; for small v both integrable exponents stay below −b/(2T), and the left tail is reflected. Thus the derivative D/v=−π(2r+K)⁻¹f/T is justified even with the cusps. Substitution into the specified full-state current gives the stated resolvent. The spectral measure for x has first moment T and second moment b², using Kx=−f weakly and |f|=b a.e. Positivity, strict monotonicity, strict concavity and analyticity follow from the positive spectral kernel; dominated convergence gives the two tails in the prescribed order. Subtracting the negative-half spill from the full shifted bilateral exponential gives the stated Gibbs variance; its derivative in a is positive. The Laplace transform of the continuous time covariance is exactly [V−T²χ(s/2)/s]/s. These calculations establish the full stated inverse claim.
 
-## Important limitations
-The statement assumes positive known thermal diffusion, ideal symmetric cusp wells and independent symmetric flipping. It applies to the stationary weak-propulsion coefficient and exact response data. Inaccessible full text in an earlier general entropy-production paper and standard Kubo-based inverse methods pose residual originality risks; independent scientific validation is not part of this review.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The same model and EPR identity are explicit prior work. A generic weak-force covariance transform is also an equilibrium fluctuation–response consequence: stationarity of σX gives Π=2rv⟨σX⟩/T, and convolution of −C′/T with exp(−2rt) produces the response formula. These are not freestanding novel principles. What survives is the exact use of the rate curve to identify both cusp parameters, via different low- and high-frequency spectral moments and a strictly invertible equilibrium variance, together with its covariance interpretation in this model. The closest inspected exact same-model formulas do not give this inverse identification.
+
+## value
+
+PASS
+
+In the already studied cusp model, the rate scan extracts the confinement slope and then the well separation from different ends of one observable, without reconstructing or fitting the full stationary density or assuming a finite-mode spectrum. The exact covariance interpretation explains the low-rate calibration and identifies the information content of the full curve. This is a concrete motivated inverse result, not novelty of the equilibrium fluctuation–response principle.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

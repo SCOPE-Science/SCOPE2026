@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:36:41.985307Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–46",
+        "Frozen VERIFICATION.md, verify.py and checks.txt (read, not executed)",
+        "Independent replay: python3 /tmp/opencode/audit_cyclic.py avoid010"
+      ],
+      "rationale": "The overlap graph has one edge per linearly allowed n-word. Appending 11 and then the destination state gives strong connectivity. Edge-label sequences of closed walks, with periodic reading, are exactly the legal covering cycles when the walks cover all mandatory edges. For length L=n-1 states the divergence is [starts 10]-[ends 01]; added flow must connect each negative state to a positive one, giving a lower bound by the sum of nearest-positive distances. The exceptional state 0^{L-1}1 needs L shifts: before L-1 there is a leading zero, and at L-1 a leading 10 would require the first appended bit to complete 010. Appending 10^{L-1} attains L legally, including L=2. Otherwise the initial position j of the first 10 is necessary, and writing the state 0^a1^b t with a+b=j, b≥1, gives a legal extension 1^b0^a, attaining j. Each ordinary target is decoded at its last 01; the exceptional target has no 01. Hence the targets are distinct and exhaust the positives, so the shortest paths give an optimal Eulerian augmentation simultaneously. Suffix states empty, 0, 01 give the E_n series. The suffix t consists of an initial and final 1 around positive zero-runs separated by one-runs of length at least two; its series is z^3(1-z)/((1-z)^2-z^3). There are j choices of a,b at cost j, yielding the claimed C_n series with exceptional term sum_{n≥3}(n-1)z^n. Independently solved the unit-cost flow on the allowed graph using residual shortest augmenting paths and checked a nonnegative reduced-cost potential at termination; n=3–12 gave the ten stated minima and excess costs 2,3,5,10,20,38,70,127,228,406. The all-n result follows from the proof, not the finite check.",
+      "residual_risks": [
+        "The proof uses contiguous factors, a legal host and a single closed covering walk; the same minimum does not apply when forbidden host windows are permitted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general Eulerian-extension paper allows additional complete de Bruijn arcs. Moreno–Matamala optimize lexicographically over exactly-once cycles of a periodic-admissibility language. Sawada–Gabrić discuss generation for forbidden 0^z."
+        ],
+        "reasoning": "General graph-balancing methods are known, but solving them for finite parameter values or in a larger set of feasible arcs is not a covering theorem for the exact all-n formula on the allowed graph.",
+        "searches": [
+          "Bernardini et al., DOI 10.4230/LIPIcs.CPM.2022.12, first-page definition",
+          "Moreno–Matamala arXiv:0711.1695",
+          "Sawada–Gabrić arXiv:2510.16545"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, Relationship to prior work",
+        "The local Resultary and primary sources listed above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The unrestricted proof uses the same first-10 shift for ordinary sinks and the same destination bijection, but its exceptional path appends only zeros, starting with an illegal 010 transition. The frozen legal proof supplies the extra lower-bound shift and a legal path of that cost."
+        ],
+        "reasoning": "The unrestricted optimum gives only a lower bound on the legal optimum. Its ordinary path argument can be reused, but neither an unrestricted minimizer nor the unrestricted length formula alone establishes legal optimality; the additional exceptional-state lower bound and construction are needed. The later unrestricted entry is close methodological overlap, not an earlier covering statement.",
+        "searches": [
+          "November 2 010 RESULT.md Finding, Assumptions, and proof §§2–4",
+          "Same-day run-limited RESULT.md Finding and scope",
+          "Moreno–Matamala admissibility definition"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The closest 010 hit explicitly allows forbidden host windows; the same-day run-limited hit concerns a^r. Periodically admissible words in Moreno–Matamala differ from linearly admissible ones, e.g. 001 is linearly 010-free but its periodic repetition is not."
+        ],
+        "reasoning": "The equivalent postman instance permits only arcs corresponding to legal n-words. Removing this restriction changes the shortest-path costs; binary complement gives 101, whereas a single forbidden run is not equivalent under complement or reversal.",
+        "searches": [
+          "Local Resultary: 010-avoiding binary words, shortest cyclic covers and forbidden-run covers",
+          "Primary web literature: exact 010-avoiding cyclic covering and directed postman"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The November 2 entry reproduces the same E_n recurrence and rational series (there called a_n). Its exact length list starts 8,14,25,46 rather than 9,15,26,47."
+        ],
+        "reasoning": "The word-count series is shared and not an originality basis. The closest exact length table is for a different admissible host set and is smaller by one at every order.",
+        "searches": [
+          "Local Resultary: exact 010 cyclic lengths and recurrence/generating-function comparisons"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the all-order legal-host augmentation optimum and its explicit shortest-path bijection, not the routine finite-word avoidance count or the directed-postman framework. The strongest same-pattern match is the November 2 catalogue record: it even has the same ordinary paths and the same finite-word count, but uses one forbidden transition at the exceptional state to lower the optimum by one. Its stated theorem is for unrestricted hosts and its catalogue date is later. No compared earlier result entails the legal-host optimum.",
+      "residual_risks": [
+        "The focused literature search and bounded source inspections do not exclude an older equivalent formula or a different indexing of postman instances for subshifts."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Adjacent theorem, relaxed host constraint and later date",
+          "evidence": "Allows additional arcs of the full binary de Bruijn digraph. The common ordinary costs and matching are explicit; the special sink has cost L-1 instead of L. The two excess generating functions therefore differ by z^3/(1-z).",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-cyclic-cover-lengths-for-binary-words-avoiding-010--c88f5aa31843",
+          "material_read": "RESULT.md Finding, Assumptions and proof; offsets 0–7324",
+          "method": "Local mirror original text",
+          "title": "Exact cyclic-cover lengths for binary words avoiding 010",
+          "trigger": "Same forbidden factor, same linearly allowed windows and exact cyclic-cover objective"
+        },
+        {
+          "assessment": "Different pattern family; priority not inferred from same date",
+          "evidence": "Treats a single forbidden run a^r, not general forbidden factors.",
+          "identifier_or_url": "2026/10/18/SCOPE-exact-shortest-cyclic-covers-of-run-limited-words-over-arbitrary--475811a7997d",
+          "material_read": "RESULT.md Finding and scope, offsets 0 and 8900",
+          "method": "Local mirror original text",
+          "title": "Exact shortest cyclic covers of run-limited words over arbitrary alphabets",
+          "trigger": "Same-day related forbidden-factor balancing theorem"
+        },
+        {
+          "assessment": "Different admissibility and optimization",
+          "evidence": "Defines language membership via the periodic extension and states existence for irreducible forbidden-substring shifts.",
+          "identifier_or_url": "https://arxiv.org/pdf/0711.1695",
+          "material_read": "PDF pp. 2–3, offsets 6500–9286",
+          "method": "Open primary PDF passages",
+          "title": "Minimum de Bruijn Sequence in a Language with Forbidden Substrings",
+          "trigger": "Potential broader forbidden-substring optimization"
+        },
+        {
+          "assessment": "General method, not restricted-graph formula",
+          "evidence": "The extension may use edges of the complete de Bruijn graph.",
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.CPM.2022.12",
+          "material_read": "PDF p. 1, offsets 0–3569",
+          "method": "Open primary PDF passage",
+          "title": "Making de Bruijn Graphs Eulerian",
+          "trigger": "Potential dominating graph-balancing formulation"
+        },
+        {
+          "assessment": "Generation for other pattern families",
+          "evidence": "Discusses forbidden 0^z, not the exact legal-cover excess for 010.",
+          "identifier_or_url": "https://arxiv.org/pdf/2510.16545",
+          "material_read": "PDF p. 1 and p. 13, offsets 0 and 39900–42151",
+          "method": "Open primary PDF passages",
+          "title": "Las Vegas Algorithms to Generate Universal Cycles and de Bruijn Sequences Uniformly at Random",
+          "trigger": "Forbidden-word generation literature"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, all-n proof and construction",
+        "Independent legal-host min-cost computations",
+        "November 2 unrestricted-host comparison"
+      ],
+      "rationale": "A legal host is the natural model when the printed forbidden pattern must never occur, not just when only legal windows are required. Balancing a non-Eulerian restricted graph by simultaneously nearest positive states gives a reusable constructive mechanism and an exact rational excess series for an infinite family. The single forced extra transition relative to an unrestricted host identifies exactly where cyclic legality imposes a cost.",
+      "residual_risks": [
+        "The bijection and exact formula are specific to this pattern; there is no uniqueness or general forbidden-set theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:35:11.694652Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independently expand N_t^2 into its mean, (1+2lambda t) times M_t=N_t-lambda t, and C_t=M_t^2-N_t. These degrees are orthogonal across times, with covariance kernels lambda min(s,t) and 2lambda^2 min(s,t)^2. Conditioning on N_x projects these degrees onto M_x and C_x with respective factors r and r^2, where r=min(t/x,1). Integration gives coefficients D=1-x/2+lambda(1-x^2/3) and A=1-2x/3, recovering the conditional estimator and explained variance lambda*x*D^2+2(lambda*x)^2*A^2. Integrating the two covariance kernels with the degree coefficients gives Var(Q)=lambda/3+7lambda^2/6+8lambda^3/15. Both endpoint count conventions agree with the limit of this expression for explained variance. Independent expansion gives the claimed quartic derivative factor and positive Bernstein coefficients for P1 on [0,2/3]; all terms have negative derivative on the root bracket and the signs exclude extrema beyond it. At a root, differentiating in lambda gives numerator lambda P2-P0/lambda>0, so the root increases. The simple roots of P0 at 2/3 and P2 at sqrt(3/5) give the stated endpoint expansions. The compact-domain leading coefficient of the risk is minimized at sqrt(3/5), giving 0.03759146501878 versus 0.04956561499771 and a 24.1581789704% leading-coefficient reduction. Replay independent symbolic computations with python /workspace/branches/independent-algebra.py (item 1); universal optimality follows from signs, not a root grid.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The inspected SDE preprint passages concern strong global approximation of trajectories (2017) and pointwise randomized-Euler approximations (2021). Those errors optimize a different prediction problem under different observations.",
+          "Beentjes' accessible abstract is about path generation and simulation variance reduction via Poisson bridges; lawful OA attempts did not obtain full text, so it is not excluded on that basis.",
+          "Same-day Resultary 3e49dc741149 covers a broad class of square-integrable Lévy processes and a delivery model; perfect delivery still optimizes a linear integral."
+        ],
+        "reasoning": "A known bridge law makes the moments computable, but neither a simulation variance target nor a trajectory approximation rate implies this integrated nonlinear Bayes-risk optimum.",
+        "searches": [
+          "optimal sampling design integral process stationary independent increments single observation time 2/3 Samaniego Cressie",
+          "Poisson bridge variance reduction conditional count observation bridge construction",
+          "\"Optimising Poisson bridge constructions for variance reduction methods\" full text Poisson bridge variance reduction functional",
+          "arXiv:1701.08311",
+          "arXiv:2108.02394"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.1017/S0004972700007838",
+        "doi:10.1109/TIT.1976.1055551 (antecedent cited by Cressie; unavailable fresh full text)",
+        "doi:10.1515/mcma-2021-2090 (limited)",
+        "arXiv:1701.08311",
+        "arXiv:2108.02394",
+        "Resultary 3e49dc741149, 75177df2e67c, 39109e244f65, d3842c2a4a49, e2ce5e771c40"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Cressie optimizes the linear conditional predictor and does not carry over under X=N^2. Same information in the first-arrival problem yields x=z*/lambda and does not imply the bracket or strict increase of the quadratic-target design. Neither bridge simulation nor known linear-integral results give the new derivative sign analysis."
+        ],
+        "reasoning": "The strict global nonlinear optimum and the asymptotic coefficient require degree-two projection and the intensity-dependent signs, neither supplied by the relevant stronger-looking antecedents.",
+        "searches": [
+          "doi:10.1017/S0004972700007838 pp. 83, 85, 88–89",
+          "Resultary 2026/11/22/SCOPE-the-unique-optimal-single-count-for-reconstructing-a-poisson-fir--75177df2e67c",
+          "doi:10.1515/mcma-2021-2090"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cressie allows a Poisson process as X but predicts the linear integral of X; the one-point minimizer is fixed at 2/3. Taking X=N^2 does not recover the result: N_t^2-N_s^2=2N_s(N_t-N_s)+(N_t-N_s)^2 depends on N_s, violating independent increments.",
+          "The exact Resultary match is eb9a587bbdf1 itself, not distinct prior evidence. Same-day 75177df2e67c measures one count against first-arrival time on a different horizon, while 39109e244f65 and d3842c2a4a49 use encoded observations and the linear target."
+        ],
+        "reasoning": "Neither rewriting the nonlinear target as a linear integral of a dependent-increment process nor switching observation encodings preserves the hypotheses of the closest theorems.",
+        "searches": [
+          "known-rate Poisson process one noiseless count optimal observation time quadratic path energy integral N_t^2",
+          "nonlinear Poisson path functional integral squared counting process conditional expectation optimal sampling",
+          "Cressie doi:10.1017/S0004972700007838 pp. 83–89"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Beyond the assigned exact hit, the most relevant indexed exact quadrature laws use the linear count integral with randomized per-cell evaluation or a linear Lévy integral with delivery loss. The e2ce5e771c40 expression measures coupling-dependent quadrature variance; the 3e49dc741149 exact site formula at perfect delivery gives 2/3 for one site."
+        ],
+        "reasoning": "An exact law with a different estimand and information scheme is not a table of the quartic roots or optimal risk for this nonlinear estimator. No catalogue completeness is inferred.",
+        "searches": [
+          "nonlinear Poisson path functional integral squared counting process conditional expectation optimal sampling",
+          "Resultary 2026/11/8/SCOPE-exact-coupling-dependent-variance-and-error-laws-for-poisson-pat--e2ce5e771c40",
+          "Resultary 2026/11/22/SCOPE-universal-rare-delivery-staircase-for-quadrature-of-square-integ--3e49dc741149"
+        ]
+      },
+      "rationale": "Credit the classical linear one-site optimum, Poisson-bridge conditioning, and the ordinary conditional-mean projection principle. The distinct result is the exact known-rate quadratic-target optimum and its strictly moving, uniformly bracketed root with quantified risk comparison. The closest inspected results optimize other targets or use different information; none entails this classification.",
+      "residual_risks": [
+        "Beentjes and Samaniego were not independently inspected in full; Beentjes is the closest unresolved bridge title. Reading selected SDE passages does not exclude all secondary corollaries.",
+        "The catalogue search and bounded primary inspection do not establish historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known exact linear-integral baseline, not nonlinear quadrant of the model",
+          "evidence": "Hypothesis: stationary independent increments of the process being integrated; target is its ordinary time integral. Some extracted math is typographically garbled; the model and target are clear.",
+          "identifier_or_url": "https://doi.org/10.1017/S0004972700007838",
+          "material_read": "Original p. 83 model and target; p. 85 predictor; pp. 88–89 minimization (OA offsets 0, 7273, 13000)",
+          "method": "Lawful OA original PDF passage reads",
+          "title": "Estimation of the integral of a stochastic process",
+          "trigger": "Closest classical independent-increment exact sampling result"
+        },
+        {
+          "assessment": "Limited evidence on scope, priority risk remains",
+          "evidence": "Abstract describes methods to generate unit-rate Poisson processes, including Poisson bridge constructions; it does not establish coverage or noncoverage of the final design.",
+          "identifier_or_url": "https://doi.org/10.1515/mcma-2021-2090",
+          "material_read": "Accessible abstract; no full text",
+          "method": "Primary literature search and lawful DOI/publisher OA attempts",
+          "title": "Optimising Poisson bridge constructions for variance reduction methods",
+          "trigger": "Potential same bridge computation"
+        },
+        {
+          "assessment": "Different target in the inspected formulation",
+          "evidence": "Strong global approximation of SDE trajectories using finite-information samples is not conditional prediction of the integrated quadratic count.",
+          "identifier_or_url": "https://arxiv.org/abs/1701.08311",
+          "material_read": "Primary opening comparison, OA offset 401",
+          "method": "Primary arXiv passage read",
+          "title": "Optimal sampling design for global approximation of jump diffusion SDEs",
+          "trigger": "Cited broader exact information-design result"
+        },
+        {
+          "assessment": "Different target and method in the inspected formulation",
+          "evidence": "Pointwise randomized-Euler approximation of SDE solutions is not deterministic one-count Bayes design.",
+          "identifier_or_url": "https://arxiv.org/abs/2108.02394",
+          "material_read": "Primary opening comparison, OA offset 871",
+          "method": "Primary arXiv passage read",
+          "title": "Efficient approximation of SDEs driven by countably dimensional Wiener process and Poisson random measure",
+          "trigger": "Candidate broader jump approximation"
+        },
+        {
+          "assessment": "Different estimands and/or information models; no ordering asserted among same-day records",
+          "evidence": "Perfect-delivery linear integral; one-count first arrival; quantized linear integral; saturation bit linear integral; and random-stratum linear integral, respectively.",
+          "identifier_or_url": "Resultary 3e49dc741149, 75177df2e67c, 39109e244f65, d3842c2a4a49, e2ce5e771c40",
+          "material_read": "Each mirrored RESULT.md Finding at offset 0",
+          "method": "Local catalogue searches and statement reads",
+          "title": "Closest distinct Poisson and Lévy quadrature records",
+          "trigger": "Exact sampling laws for very close path information and processes"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An observation budget of one count is natural, and time-integrated squared occupancy penalizes concentrated load in a way the known linear functional does not. The exact optimum quantifies a systematic failure of the standard 2/3 rule for this target and gives a substantial leading-order risk improvement at high intensity. This is not a claim for unknown intensity, noisy or adaptive observations, or other powers.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

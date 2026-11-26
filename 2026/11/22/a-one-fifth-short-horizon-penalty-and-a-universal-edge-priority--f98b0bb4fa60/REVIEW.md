@@ -1,19 +1,21 @@
-# Review: short- versus long-horizon heat-trace design on paths
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For each \(n\ge4\) and \(B>0\), strict convexity of the spectral exponential trace proves uniqueness for every \(t>0\). The uniform small-time expansion reduces the first weight-dependent term to a strictly positive quadratic form; its tridiagonal linear system is solved explicitly, and its entries are positive. For the long-time limit, a centered linear test vector gives a universal spectral-gap bound, while a degree-preserving polynomial argument verifies the full eigenvalue spectrum of the parabolic design. Equality in the Rayleigh bound forces the unique allocation, and the exponential spectral estimate transfers this to the heat-trace limit. The first-neighbor priority reversal and the Riemann-sum limit \(6/5\) follow without relying on finite computation. The standalone checker replays 1157 finite tests. It cannot certify the quantified infinite theorem independently.
+PASS
 
-## Originality — PASS on inspected evidence, qualified
+For t>0 the Hessian of the trace exponential in any nonzero symmetric direction is the sum of squared spectral-basis entries times strictly positive integrated exponential factors. The edge-to-Laplacian map is injective, so compactness gives a unique minimizer and uniqueness gives continuity on (0,∞). At fixed B, tr L=2B and the Taylor remainder is uniformly O(t³) on the simplex. The quadratic coefficient has matrix T=tridiag(1,4,1), and solving Ty=1 with y₀=yₙ=0 gives the stated alternating geometric formula. The two boundary terms in its numerator have magnitude at most 2ρ<1−ρⁿ, proving positivity and feasibility of the normalized stationary point; subtracting the first two recurrence equations gives 3(y₁−y₂)=y₃>0, also for n=4. Uniform convergence and uniqueness yield the short limit. For the long limit the centered linear test vector bounds λ₂ even at disconnected allocations. For the proposed wᵢ=c i(n−i), the path polynomial operator has leading action c k(k+1) on degree k: the backward-minus-forward coefficient is linear with leading term 2i, and the sum has leading term −2i². Evaluation on the n vertices triangularizes it through degree n−1, so the gap is exactly 2c. Equality for any other allocation in the fixed-vector Rayleigh bound forces the same weights by summing the node equations. The minimum heat trace bounds its optimizer's gap below by λ*−log(n−1)/t; compactness gives the long limit. Its first two weights have strict reversed order when n>3, hence there is a finite crossing by continuity. For the curvature ratio, Qshort=B²/(sum y) with sum y=n/6+O(1); summing the long design's squared eigenvalues gives Qlong=12B²(3n²−2)/(5n(n²−1)). Their ratio tends to 6/5, not a ratio of heat traces. Independent Fraction computations for n=4 through 10 corroborate the exact linear systems and spectra, and for n=4 give Qshort=7/4 and Qlong=46/25 for a unit budget. The all-size and all-horizon claims rely on the proof, not the frozen numerical execution count.
 
-A full published reversible-path spectral-gap theorem gives the parabolic long-horizon optimizer under more general prices and masses. That optimizer and its uniqueness are **prior**, not a new result here. The closest published path-cap theorem also contains its uncapped specialization. Neither inspected complete `RESULT.md` states the short-horizon tridiagonal boundary-layer profile, a crossing of optimal edge priorities for heat-trace designs, or the limiting \(6/5\) second-moment penalty. The inspected foundational path mixing, electrical-resistance optimization, and continuous-time synchronizability papers use distinct objectives or constraints. Actual full-record retrievals and targeted primary-text inspections are described in `AUDIT.json`. An unindexed equivalent finite-horizon design theorem cannot be excluded, and older foundational spectral-gap literature is not claimed as new.
+## originality
 
-## Value — PASS
+PASS
 
-A single natural budgeted diffusion network can demand opposite edge-priority decisions depending on the measurement horizon. The theorem classifies both limiting allocations for *every* path order, proves the existence of a genuine intermediate crossing without artificial graph slices, and quantifies a nonvanishing 20-percent penalty in the physically motivated first design-sensitive short-horizon coefficient when a long-horizon-optimal design is reused. The alternating exponential boundary correction also identifies the precise spatial structure behind short-time optimization. No complete finite-time transition diagram or general-network extension is claimed.
+The long allocation is prior, and generic convex optimization of Laplacian spectral objectives is prior. The inspected literature and records do not give the combined finite-time heat-trace endpoint comparison, in particular the exact short profile, all-size ordering reversal, and quantified 6/5 initial-coefficient regret. Priority is limited to inspected evidence.
 
-## Scientific boundaries
+## value
 
-Only undirected unnormalized continuous-time Laplacians on paths with nonnegative edge rates and one total linear budget are covered. The theorem does not prove one crossing only, global monotonicity of weights, or finite-time closed formulas. The penalty is a ratio of second Laplacian moments, not a ratio of the heat traces. Publication novelty remains qualified pending independent literature review.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+On the same graph family and with the same budget, a natural observation objective genuinely switches which boundary edge receives more conductance. This holds for every n≥4, rather than an arbitrary small example, and the explicit short profile gives a mechanism. The asymptotically nonzero 20% excess quantifies the cost of using the familiar gap-optimal design for the first variable short-time coefficient.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

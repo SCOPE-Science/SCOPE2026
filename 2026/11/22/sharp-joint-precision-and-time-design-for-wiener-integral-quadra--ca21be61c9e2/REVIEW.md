@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The Wiener stochastic-integral representation and Itô isometry yield the exact Gaussian linear-estimation risk, while the conditional estimator is linear by joint Gaussianity. Cauchy–Schwarz reduces joint choice of observation precisions to a total-variation-penalized step approximation problem. Clipping and nondecreasing rearrangement preserve or improve the objective. A strictly beneficial insertion of an intermediate step proves all sensors are active. Stationarity yields a single decreasing scalar equation, whose one admissible solution determines every site and every precision; no boundary or repeated-site design can tie. The direct rational \(n=2,P=1\) covariance calculation and standalone symbolic and numerical checks confirm the formulas. Finite tests do not themselves prove global optimality.
+## correctness
 
-## Originality — PASS, qualified
-The closest directly read published Wiener-integral result establishes precisely the *noiseless* grid and risk, which the new result credits as prior work. Karvonen–Kanagawa–Särkkä (arXiv:1812.08509) treats Brownian-kernel quadrature weights; Cai–Lam–Scarlett (arXiv:2202.10615) obtains broad noisy-kernel integration bounds; Pathiraja–Schillings–Wacker (2026) treats sensor-budget filtering rather than this integrated-path target. Accessible database claims and full-text comparisons did not yield a dominating theorem for jointly chosen, heteroscedastic, fixed-total-precision Wiener observations. Unindexed older Wiener-information and free-knot approximation literature remains a genuine priority risk.
+PASS
 
-## Value — PASS
-An exact optimal time-and-precision law for every integer sensor count and finite total precision resolves a natural Bayesian quadrature resource-allocation problem. The optimal nodes converge to a *terminal subinterval*, leaving a strictly positive initial interval unobserved even with infinitely many sensors at fixed total precision; the limit risk is explicit. This sharp boundary behavior is a structural departure from classical noiseless equally spaced sampling, not a merely improved numerical constant.
+Itô isometry and independent Gaussian errors give the frozen quadratic risk; Gaussian conditional expectation makes the joint minimization over linear weights exact. The optimized precision penalty is at least (total jump variation)^2/P by Cauchy–Schwarz, with equality by allocating in proportion to absolute weights. Merging coincident jumps and ignoring the measure-zero endpoint at reversed time x=1 can only lower that variation. Clipping into [0,1] and sorting step levels in increasing order reduce risk, strictly for a genuine inversion, and do not increase the jump budget counting an initial positive jump. For distinct sorted levels from 0 up to a top level q, the best boundaries are their pairwise midpoints. If the positive increments are δ_j, direct integration across those midpoints gives squared error Σδ_j³/12 + (1-q)³/3. For fixed q>0 and k increments, strict Jensen uniquely minimizes the first term at δ_j=q/k, and using n increments strictly improves over k<n. Equivalently the global reduced objective is q³/(12n²)+(1-q)³/3+q²/P on [0,1]; the endpoint derivatives have opposite strict signs and the objective is strictly convex there. Its critical equation is (1-q)²-q²/(4n²)=2q/P. This gives q=nd_{n,P}, the interior distinct sites, weights d_{n,P}, and equality in the noise inequality only at equal precisions. All n distinct jumps are essential, ruling out repetitions, inactive sensors and endpoint observations. At fixed P the cubic term strictly decreases with n at the previous optimum q>0. The displayed limits follow from the scalar root and uniform-grid Riemann sums; the limit equation gives the alternate form of the limiting risk. In particular the no-sensor step q=0 is excluded even though the frozen refinement argument describes a first positive jump only for k>0.
 
-## Sources and limitations
-Inspected relevant primary text: https://arxiv.org/html/1812.08509v2 ; https://arxiv.org/abs/2202.10615 ; https://doi.org/10.1007/s11222-026-10855-3 ; and the closest original noiseless Wiener-kernel result at https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-exact-design-loss-and-gaussian-fluctuations-for-stratified-brown--f119d713d36c . The exact theorem is restricted to Brownian-motion covariance, independent Gaussian point-observation noise, and total precision cost. Independent priority and mathematical review are not performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact finite-n array, risk and equal weights on the homoscedastic slice are materially covered by Resultary ad44ca256f44. The supported distinct claim is that no other precision allocation under the same budget can tie or improve the design. The fixed-budget terminal-window limit follows from the equal-noise formula on that slice, so it is not counted as an independently original formula; the new global allocation result makes that limit optimal over the full allowed design class.
+
+## value
+
+PASS
+
+When accuracy is a freely allocable cost, knowing the best sites for equally noisy sensors does not justify buying equal precision. The result resolves that resource decision globally, with strict exclusion of replicated, inactive, unequal-precision and endpoint competitors. The exact loss and terminal exclusion region are interpretable consequences for a concrete Gaussian model even as sensor count increases.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

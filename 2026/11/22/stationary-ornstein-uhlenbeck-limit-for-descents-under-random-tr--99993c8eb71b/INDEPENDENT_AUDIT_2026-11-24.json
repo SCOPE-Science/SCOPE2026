@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:22:23.036386Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On signed comparisons orient the complete graph with incidence B, so divergence is Bx. Summing swaps gives the operator ρI+2BᵀB/[n(n−1)], ρ=(n−5)/(n−1). The covariance of the centered comparison vector is (I+BᵀB)/12: diagonal variances 1/4, disjoint-edge covariances zero, and signed shared-vertex covariances ±1/12 from the six ranks of three entries. On gradients BᵀB=nI and on circulations it is zero. The cycle has squared edge norm n and no gradient; the ordinary path has divergence (1,0,…,−1), hence gradient squared norm 2/n and circulation squared norm n−1−2/n. Stationarity and powers of the operator give both lag formulas, including n=3,4 with a negative mode and lag zero. The jump is at most 4/√n after normalization. Squared swap increments depend only on ranks at touched endpoints and their neighbors, so a replaced underlying uniform affects at most 3(n−1) swap terms; Efron–Stein gives the stated O(1/n) variance for the conditional squared increment of the count. Its mean is 2n/[3(n−1)] by the eigenrelation. Summing conditional variances at floor(nt) and bounding absolute deviations in expectation via stationarity gives uniform bracket convergence to (2/3)t; subtracting the squared conditional drift has o(1) expectation. The martingale FCLT has deterministic covariance and vanishing jumps. Independence from the limiting initial value can also be obtained by applying it under bounded nonnegative tilts measurable at time zero; the same bracket and Lindeberg conditions persist under normalized tilts with positive limiting mass. The initial CLT is the bounded one-dependent CLT on adjacent uniform ranks, with only one bounded wrap-around term removed. The linear drift recursion yields the OU by the integral equation with drift −4, and the two paths differ uniformly by at most 1/(2√n), giving joint J₁ convergence. Periodicity of the permutation chain does not affect this stationary argument.",
+      "reproduction": "python3 /workspace/reproductions/01_descents.py independently applies integer transposition adjacency on all permutations for n=3–7, obtaining the cyclic eigenrelation and mean squared increment and both covariances at lags 0–4. Frozen checker.py and VERIFICATION.md inspected, not executed. The finite reproduction tests the algebra, not the martingale limit.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Resultary bb9bd3a50a6a reports a complete tableau spectrum for exchangeable-subset shuffles; f6af0a8c3805 reports the uniform comparison-vector covariance/precision in cut and cycle modes.",
+          "Frozen RESULT.md lines 90–104 distinguishes Hultman's identity-start descent expectation and Garet's permutation-growth one-time CLT."
+        ],
+        "reasoning": "If an exchangeable-subset shuffle uniformly permutes a chosen pair, its operator is (I+P)/2, so this spectral input transfers algebraically; that transfer is not a functional CLT. A genuinely broader stationary fluctuation theorem for comparison or locally supported observables could cover the headline, but none was established in the available material.",
+        "searches": [
+          "Resultary: exchangeable-subset shuffle spectrum bb9bd3a50a6a; comparison-vector incidence precision f6af0a8c3805",
+          "Hultman arXiv:1301.0430; Garet arXiv:1906.02980"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and checker.py",
+        "Resultary identical entry and distinct indexed records f6af0a8c3805 and bb9bd3a50a6a",
+        "arXiv:1301.0430 and arXiv:1906.02980 (frozen exclusion comparison; primary retrieval attempted)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The covariance and drift use linear comparison algebra. The FCLT additionally needs concentration of the state-dependent predictable bracket, controlled by the at-most-three-neighbor dependency of each underlying uniform replacement."
+        ],
+        "reasoning": "A stationary covariance tending to an exponential fixes the covariance of a possible Gaussian limit but is not enough for Gaussianity, tightness or independence of the driving noise. That gap is addressed by a nontrivial local-influence estimate and martingale limit.",
+        "searches": [
+          "RESULT.md lines 35–76 versus Hultman arXiv:1301.0430 and Resultary incidence/spectrum summaries"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact Resultary entry 2026/11/22/SCOPE-stationary-ornstein-uhlenbeck-limit-for-descents-under-random-tr--99993c8eb71b has the joint stationary limit and the same parameters; it is the assigned record. No independent equivalent passage was retrieved.",
+          "The targeted external functional-limit query returned no usable mathematical source, not evidence of absence."
+        ],
+        "reasoning": "At scale √n the cyclic and ordinary limits are equivalent because of the bounded wrap-around term. In contrast, a growing-permutation insertion process, or one-time fluctuations of a shuffled deck, is not the same fixed-size stationary time process.",
+        "searches": [
+          "Resultary: stationary random-transposition descent OU functional limit and exact covariance",
+          "random transposition shuffle stationary number of descents functional central limit theorem Ornstein Uhlenbeck permutation antisymmetric U statistics temporal fluctuations"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same two modes are attributed to Hultman in RESULT.md lines 90–92. The known static incidence split and the two eigenvalues, once linked to the descent components, account for the lag-amplitude calculation. The indexed exact OU entry is the frozen finding itself."
+        ],
+        "reasoning": "A transition-ratio table and static covariance matrix may recover the exact projected covariances after matching the components, but neither supplies conditional bracket concentration or a Gaussian path-space law.",
+        "searches": [
+          "Resultary incidence covariance and universal spectrum records f6af0a8c3805, bb9bd3a50a6a",
+          "Hultman arXiv:1301.0430, descent statistic and character-ratio modes"
+        ]
+      },
+      "rationale": "Credit the stationary path-space OU theorem and the process-level argument for this descent observable. Its static covariance, spectral ingredients and the resulting projected covariance calculation are not separate evidence of broad novelty. Known one-time and expectation results do not establish the claim at path level; the available full-text coverage is limited.",
+      "residual_risks": [
+        "OA passage retrieval failed for the papers and two related records. The most material remaining risk is an existing general dynamical fluctuation theorem, for example for a suitable class of permutation U-statistics, which covers this stationary kernel and path topology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Credit the attributed identity-start expectation and two modes; full-paper coverage unresolved.",
+          "evidence": [
+            "Identity-start expectation versus the stationary temporal covariance and path law are distinct statements."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1301.0430",
+          "material_read": "Frozen comparison RESULT.md lines 90–104; primary descent passage not retrieved.",
+          "method": "Attempted OA passage retrieval; local citation inspection",
+          "title": "Permutation statistics of products of random permutations",
+          "trigger": "Same statistic and transposition walk; known spectral modes"
+        },
+        {
+          "assessment": "Growth/insertion regime as attributed, not the claimed fixed-size stationary path law.",
+          "evidence": [
+            "Known input is the one-time result under a growing permutation chain."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1906.02980",
+          "material_read": "Frozen comparison RESULT.md lines 90–101; primary passage not retrieved.",
+          "method": "Attempted OA passage retrieval; local citation inspection",
+          "title": "A central limit theorem for the number of descents and some urn models",
+          "trigger": "Descents Gaussian limit under a permutation process"
+        },
+        {
+          "assessment": "Static ingredient overlaps.",
+          "evidence": [
+            "Cut/cycle covariance and precision for all pairwise comparison indicators of a uniform permutation."
+          ],
+          "identifier_or_url": "2026/10/4/SCOPE-incidence-precision-law-for-all-inversion-indicators-of-a-random--f6af0a8c3805",
+          "material_read": "Resultary indexed summary",
+          "method": "Local Resultary search; full related record unavailable",
+          "title": "Incidence precision law for all inversion indicators of a random permutation",
+          "trigger": "Identical static comparison-vector object"
+        },
+        {
+          "assessment": "Spectral overlap likely, especially via lazy-to-always-swap affine conversion where applicable; not path-limit coverage in the inspected statement.",
+          "evidence": [
+            "Complete Young-tableau spectrum for exchangeable-subset shuffles; exact kernel definitions not confirmed in full text."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-universal-spectrum-and-exact-relaxation-of-exchangeable-partial--bb9bd3a50a6a",
+          "material_read": "Resultary indexed summary",
+          "method": "Local Resultary search; full related record unavailable",
+          "title": "Universal spectrum and exact relaxation of exchangeable partial-permutation shuffles",
+          "trigger": "Broader exchangeable-subset spectral framework"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A fixed-size deck with a non-Markovian descent-count projection nevertheless has a stationary Markov Gaussian limit. The theorem separates the macroscopically visible mode from a smaller endpoint effect and identifies both the time scale and noise. The dynamic bracket proof goes beyond a static Gaussian approximation or a direct eigenvalue lookup.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

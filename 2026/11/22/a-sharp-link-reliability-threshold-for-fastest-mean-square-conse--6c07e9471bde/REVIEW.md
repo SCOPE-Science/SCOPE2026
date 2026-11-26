@@ -1,17 +1,21 @@
-# Scientific review: fastest mean-square averaging on a four-cycle
+# Independent mathematical audit
 
-## Correctness — PASS
-For the stated iid four-edge model and the exact nonnegative-gain domain, the mean-zero covariance operator has a two-dimensional dihedrally invariant subspace. Explicit enumeration and a Bernoulli second-moment identity give the displayed matrix \(K\); its maximal eigenvalue gives the exact asymptotic squared-disagreement exponent by positivity and Perron–Frobenius. The symmetric similar matrix has a positive-definite quadratic gain coefficient, forcing strict convexity and uniqueness. At the nonnegative gain endpoint, the derivative reduces to a sign comparison whose squared difference factors as \(-16(p-1)(3p-2)(11p^2-8p+1)\). The sign restrictions isolate the exact threshold \((4-\sqrt5)/11\). The accompanying exact-arithmetic checker reconstructs these identities. The proof supplies the infinite-round quantifiers; the finite checker alone would not.
+## correctness
 
-## Originality — PASS, with residual risk
-Patterson, Bamieh and El Abbadi (2010) prove a general covariance recursion and characterize the decay factor by an operator spectral radius for iid stochastic link failures; this is the closest and strongest predecessor. Their full inspected theoretical and example sections do not give the sharp four-cycle gain switch or closed Perron-root formula. Battilotti, Cacace and d'Angelo (2023) study distributed filtering under random-subgraph failures with sufficient gain bounds, not the exact optimized asymptotic four-cycle rate. Published work on deterministic two-round cycle mixing optimizes a different process. The general covariance framework *enables* but does not directly state or prove the new parameter-optimization classification. Exhaustive priority, including possible unpublished or less-indexed network-control literature, remains unresolved.
+PASS
 
-## Value — PASS
-A four-cycle is the smallest simple regular cycle with two distinct nonconstant Laplacian eigenspaces, so it is a natural minimal model in which link dropout can couple disagreement modes. The theorem solves the actual infinite-horizon mean-square contraction problem, rather than a one-step upper bound, and gives the exact transition between maximal admissible gain and a unique interior optimum. It yields a direct design rule even when every update must remain nonnegative and stochastic. At delivery probability \(1/2\), choosing the true optimizer \(h\approx0.43575315\) lowers the exact asymptotic squared-error rate from \(0.5\) at maximal gain to \(0.47935743\). Its relevance is restricted to a symmetric four-node communication ring and homogeneous independent link delivery; no general topology or noisy-observation extension is claimed.
+For either Laplacian projector P₂ or P₄ and each edge vector b=e_i−e_j, bᵀP_j b=1: the squared projection onto the alternating unit vector is 1 and the remaining squared norm is 1. Therefore the Bernoulli covariance correction to T(P_j) relative to (I−phL)P_j(I−phL) is exactly p(1−p)h²∑bbᵀ=p(1−p)h²L. This independently yields the stated K and its symmetric Frobenius representation. Independence across rounds gives E||W_k⋯W_1x||²=xᵀT^k(P)x on the mean-zero space; diagonal coefficients are K^k(1,1)ᵀ. For 0<p<1 and h>0 the positive K (positive diagonal from the no-edge event) has a dominant positive Perron vector, so the rate holds for every nonzero mean-zero vector as well as the worst case. At h=0 it is 1; at p=1 it is the maximum of the two deterministic squared modal multipliers. I independently expanded (tr K)²−4 det K, obtained the stated radical, and found det C=16p³(p+3)>0 with C₁₁>0. The smallest eigenvalue of C gives a strictly positive uniform convexity modulus for λ_max(S) in h. The right slope at zero is −4p. For the upper boundary the derivative divided by p is 7p−3+N/√Q; for p≥3/7 it is positive. Below 3/7 the valid squared sign test factors as −16(p−1)(3p−2)(11p²−8p+1), negative below the smaller root and positive above it. This yields the unique optimizing regime at and around the threshold. At p=1 the unique minimizer is the modal crossover h=1/3, with rate 1/9. As a check on the distinction from the one-step objective, at (p,h)=(3/4,2/5) both row sums equal 7/25 but ∂hR=2/5. Only the common-gain family is optimized, with its feasible range [0,1/2]. The frozen checker was inspected, not executed.
 
-## Closest literature and limitations
-- S. Patterson, B. Bamieh and A. El Abbadi, *Convergence Rates of Distributed Average Consensus With Stochastic Link Failures* (2010), https://doi.org/10.1109/TAC.2010.2041998 : general covariance rate operator and examples, not an explicit four-cycle gain phase diagram.
-- S. Battilotti, F. Cacace and M. d'Angelo, *Consensus analysis of random sub-graphs for distributed filtering with link failures* (2023), https://arxiv.org/abs/2305.04555v1 : related reliable-communication and filtering guarantees under random subgraphs, rather than exact four-cycle asymptotic tuning.
-- Exact reliability threshold is proved only for the four-cycle with common gain and iid symmetric Bernoulli link states; other graphs, correlations and heterogeneous gains remain outside scope.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+A general exact covariance-operator characterization for this failure model is established prior work. The supported additional result is its explicit C₄ mode reduction and the constrained common-gain optimizer switching at a precise reliability. Neither the inspected general characterization nor the related case results supplies that optimization. Priority is assessed only against the evidence inspected.
+
+## value
+
+PASS
+
+The natural gain-design question is whether to use the maximum nonnegative update or back off to improve long-run mean-square convergence. On C₄ the full reliability law gives a precise boundary and an easily tested example where optimizing a one-step surrogate does not optimize long-run decay. The threshold and proof of uniqueness throughout the feasible range are substantive beyond listing eigenvalues for one graph or one parameter point.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

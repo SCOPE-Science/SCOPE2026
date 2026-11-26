@@ -1,0 +1,85 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:00:13.770429Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The two Fourier eigenvalues are 1 and s. Minimizing the quadratic mode by mode and discarding the constant mode reduces the objective to F(a)=[C/(a+ell)+w log(a+d)]/2 with a=s² and C=ell B. The positive secant factor log((1+d)/(a+d))/2 multiplies C tau(a)-w in F(a)-F(1). Differentiating tau gives the sign of T from the proof; T(1)=0 and T' has the sign of a+2d-ell for 0<a<1. Accordingly tau can only increase, decrease, or increase then decrease; when tau(0)<tau(1), its minimum is attained only at 0. This gives the exact endpoint tie and excludes all intermediate parameters there and below; increasing w further strictly favors 0 over every a>0. For w strictly between the printed thresholds the quadratic numerator of F' is positive at 0 and negative at 1, so precisely one simple root is in (0,1), producing a strict maximum. The endpoints retain their classifications under the homeomorphism s↦s², even though the s-derivative at 0 is zero. The strict threshold ordering is exactly the stated condition: (1+d)log(1+1/d) decreases strictly from infinity to 1, and equality cannot give an open metastability interval. At ell=B=1, d=1/100, the barrier at w=1/5 independently solves 20a²−60a+19=0 with the smaller root ≈0.3598245749. Replay the analytic checks from RESULT.md, Fourier reduction through sharp auxiliary-scale boundary. VERIFICATION.md documents supplementary finite assertions; the supplied checker was inspected, not executed. The theorem requires the stated positive scales and B>0; it makes no global classification for larger blur families or for d≥d*.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Proposition 4 orders the log-determinant contributions alone; it does not include the opposing data-fit term.",
+          "Proposition 5, Eq. (20), gives a sufficient exclusion of a local minimizer for sufficiently large beta² under simultaneous diagonalization."
+        ],
+        "reasoning": "Even with identity regularizers, neither statement decides the global comparison while identity still is a strict local minimum. The numerical work on a 128×128 image and a Gaussian PSF cannot furnish this all-weight, two-pixel theorem.",
+        "searches": [
+          "arXiv:2611.04846v1 §3.1 Propositions 4–5 and §5.1"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary matching record 2026/11/22/SCOPE-a-sharp-no-blur-to-complete-blur-transition-for-log-determinant--92c700a97ed5 (the target)",
+        "Dworaczyk–Español, arXiv:2611.04846v1 §3.1 and §5.1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior local bound takes a maximum over Fourier modes, including the constant mode in the specialized bound; the actual derivative threshold here depends on the varying contrast mode only.",
+          "Endpoint subtraction yields the tie at B/[(1+ell)log((1+d)/d)], but ruling out all interior minima at the tie requires the secant-ratio argument."
+        ],
+        "reasoning": "Endpoint subtraction and the known local test are not sufficient to exclude an intermediate global minimum. The strict global/local separation and its barrier are additional conclusions.",
+        "searches": [
+          "arXiv:2611.04846v1 Proposition 5, Eq. (20), compared against the frozen secant and derivative argument"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary's matching two-pixel endpoint switch is the frozen record itself, ending 92c700a97ed5.",
+          "In the cited objective, w=beta², ell=lambda², d=gamma, with the varying mode's squared transfer coefficient a=s²."
+        ],
+        "reasoning": "The scalar rational-plus-logarithmic objective is already latent in the cited general objective. Changing variables does not make the model new; the extra result is the all-parameter global comparison in this family.",
+        "searches": [
+          "Resultary: two-pixel log-determinant variable projection, endpoint switch and strict no-blur metastability",
+          "arXiv:2611.04846v1 §3.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact matching index entry is the target record.",
+          "The cited experiment uses an 80×80 parameter grid; it contains no exact table for the reduced two-pixel family."
+        ],
+        "reasoning": "There is no table lookup for a result quantified over continuous ell, d and w. The numerical experiment does not determine the endpoint tie or rule out intermediate minima.",
+        "searches": [
+          "Resultary: exact global identity-to-averaging threshold and unique barrier",
+          "arXiv:2611.04846v1 §5.1"
+        ]
+      },
+      "rationale": "The objective and a sufficient local no-blur exclusion criterion are prior. The supported distinct contribution is the exact global endpoint-only switch and the positive-width window in which no blur is strictly locally minimizing but globally inferior, including the unique barrier. Neither the inspected propositions nor the closest indexed match supplies that classification independently.",
+      "residual_risks": [
+        "Bounded searches and the inspected primary passages do not settle historical priority; an unindexed treatment of the same scalar objective could overlap.",
+        "No novelty is claimed for the penalty, Fourier reduction, endpoint subtraction alone, or a general theory of semiblind-deblurring metastability."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the general objective and a sufficient local test, not the global jump or the open metastability window",
+          "evidence": [
+            "Proposition 4 compares the determinant term alone.",
+            "Proposition 5 bounds local no-blur exclusion by a maximum of modewise quantities.",
+            "§5.1 is an approximate grid experiment for a different blur family."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.04846v1",
+          "material_read": "§3.1 Propositions 4–5 including Eq. (20) (OA HTML offsets 35867–44356) and §5.1 (59231–64219)",
+          "method": "Lawful OA HTML, localized passages",
+          "title": "Marginalization-Based Regularization for Separable Nonlinear Least Squares Problems with Applications to Semi-Blind Deblurring",
+          "trigger": "Same log-determinant variable-projection objective; potentially stronger Fourier threshold theorem or worked example"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This minimal mass-preserving periodic convolution is a motivated failure case for a penalty designed to avoid identity blur. The exact global threshold demonstrates contrast extinction rather than intermediate regularization, and its separation from the local threshold explains why a local test can certify neither the global optimizer nor safe tuning. This is a usable benchmark for the stated objective, not a prediction for general image sizes.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

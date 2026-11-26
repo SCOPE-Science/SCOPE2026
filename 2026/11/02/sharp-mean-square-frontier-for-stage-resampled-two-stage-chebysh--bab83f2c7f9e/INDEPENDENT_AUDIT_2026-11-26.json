@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:27:28.494305Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md stage recurrence and Proof §§1–4",
+        "Frozen VERIFICATION.md and verify.py, inspected, not executed",
+        "Independent bounded replay: python /workspace/review_evidence/replay.py (record 5, rational ordered-stage enumeration and absolute product)",
+        "Stillfjord–Williamson arXiv:2201.12782v1, equations (3.1)–(3.2) and same-batch implementation §4"
+      ],
+      "rationale": "With B_i=1−C_i/4, the first stage is B_1x_n and the macro-step multiplier is M=2B_1B_2−1. Put b=E B=1−μ/4 and d=E B²=b²+v/16. Independence within a macro-step gives E M=2b²−1 and Q−1=4(d²−b²)=4(d−b)(d+b), giving both factors with the denominator 64. Independence across macro-steps gives geometric first and second moments for deterministic initial data. When μ<4 the second factor is positive and the sign changes at v=μ(4−μ); when μ>4 the first is positive and the sign changes at v=(μ−4)(8−μ). At μ=4 both factors equal v, including the v=0 neutral case. These thresholds lie within the feasible range 0≤v<μ(8−μ) imposed by the open support. For shared draws the multiplier is 2B²−1, strictly inside (−1,1) except at C=4. The stated no-atom condition is sufficient (indeed any positive mass away from 4 suffices). The 1,6 example gives ordered multipliers 1/8, −7/4, −7/4, −1/2, hence the displayed first and second moments and shared second moment. Their absolute product is 49/256. Its fourth root is √7/4 and the strong law for the log-magnitudes proves almost-sure decay despite strictly growing second moment. The zero initial condition is identically zero and is not an instability example.",
+      "residual_risks": [
+        "This is an exact scalar, two-stage, undamped, unit-step result for independent stage draws. The log-growth calculation is specific to the two-point law, not a characterization of almost-sure behavior on the whole frontier."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The SRKCD paper treats batch reuse and convergence for its source method. Bochacik et al. randomize stage time in an ODE method and use a scalar stability multiplier. The later-stage reflection and damping records treat shared gradients, shifts and different phenomena."
+        ],
+        "reasoning": "A result for arbitrary number of stages with one shared client does not encompass resampling inside a macro-step. The scalar random-product framework gives the test E M²<1 but not the mean–variance frontier until the different recurrence is analyzed.",
+        "searches": [
+          "arXiv:2201.12782v1 §§3–4; arXiv:2006.12131 equations (16) and (90)",
+          "Resultary 25a05ee65263, 179de4c846a6, 4d9b3fc1bb24"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2201.12782v1 §§3–4; arXiv:2006.12131 §§2 and 5.2",
+        "Resultary 25a05ee65263, 179de4c846a6, 4d9b3fc1bb24",
+        "Focused primary query for independent minibatch or gradient resampling in RKC stages returned the original method but no distinct close source"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The standard scalar tests by expected square and mean log are background. The prior shared-client law can already show decay of typical paths alongside exploding moments, and supplies a close motivation."
+        ],
+        "reasoning": "Substituting the present marginals into the source shared-client problem gives R(C), not M(C_1,C_2), and the earlier results do not supply the required changed sampling law. The fresh-client phase boundary and the quantitative same-marginal comparison provide the distinct content, rather than the generic coexistence of different notions of stability.",
+        "searches": [
+          "Stillfjord–Williamson equation (3.2) and §4 implementation; Bochacik et al. §5.2 equation (90); Resultary 25a05ee65263 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The closest earlier 25a05ee65263 uses a common sampled curvature and obtains all-moment and almost-sure boundaries for a two-point law and general stage count. Stillfjord–Williamson use one ξ_k for all stages."
+        ],
+        "reasoning": "A shared curvature makes B_1B_2=B², whereas independent fresh draws give a product of independent copies; their moment laws are not interchangeable. The broad separation of typical behavior and moment stability is already known in this literature.",
+        "searches": [
+          "Resultary exact Chebyshev mean-square and almost-sure stability, fresh stages versus shared stages: 25a05ee65263, 179de4c846a6, 4d9b3fc1bb24",
+          "Primary query: \"Runge-Kutta-Chebyshev\" stochastic optimization independent stages resample gradient batch at each stage"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The catalogue frontier uses shared clients and a special curvature law. The five-stage reflection record gives different moment/resonance behavior. The same-day record concerns positive damping and stationary-support topology, not the two independent draws or their exact variance boundaries."
+        ],
+        "reasoning": "Neither deterministic stability intervals nor tables of shared-client moment thresholds encode the independent-stage products. The same-day comparison was excluded by mathematical content, not by date.",
+        "searches": [
+          "Resultary sharp moment frontiers for undamped SRKCD on quadratic components, 25a05ee65263 and 179de4c846a6; same-day damping record 4d9b3fc1bb24",
+          "Stillfjord–Williamson §§3–4 deterministic and same-batch recurrence"
+        ]
+      },
+      "rationale": "The published SRKCD method uses one sample for every stage of a macro-step. Its stability and earlier shared-sample results on moment explosion with typical-path decay are not claimed here as new. The closest randomized two-stage ODE work also uses scalar multiplier stability, but its independent random variables perturb stage time rather than draw separate client curvatures in this Chebyshev recurrence. No inspected source supplies the mean–variance boundary for the fresh-client recurrence or the same-versus-fresh contrast for identical marginals. The best-of-knowledge pass is for this explicit change of sampling and its sharp law, not the general expected-square or log-growth criteria.",
+      "residual_risks": [
+        "Earlier stochastic optimization or random-coefficient RK work could discuss fresh-stage sampling under other terminology. A bounded search cannot establish historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes the shared-sample source method, not the variant",
+          "evidence": "The same ξ_k is used in the stages of a macro-step; the implementation describes reuse of the same batch in consecutive substeps.",
+          "identifier_or_url": "https://arxiv.org/html/2201.12782v1",
+          "material_read": "§3 equations (3.1)–(3.2), HTML offset about 40800; §4 implementation and equation (4.1), offset about 58979",
+          "method": "Bounded open primary HTML inspection",
+          "title": "SRKCD: a stabilized Runge–Kutta method for stochastic optimization",
+          "trigger": "Original method, coefficients and batch convention"
+        },
+        {
+          "assessment": "Related stability criteria for another recurrence",
+          "evidence": "The independent uniforms randomize stage time; the analyzed multiplier is for an ODE solver, not two independently chosen component curvatures.",
+          "identifier_or_url": "https://arxiv.org/abs/2006.12131",
+          "material_read": "§2 equation (16), text offset about 16500; §5.2 equation (90), offset about 54000",
+          "method": "Bounded open primary-text inspection",
+          "title": "Randomized Runge–Kutta method — stability and convergence under inexact information",
+          "trigger": "Earlier independently randomized stages and scalar stability analysis"
+        },
+        {
+          "assessment": "Material partial coverage of the stability phenomenon, not the sampling law",
+          "evidence": "One shared curvature per macro-step with low/high support and general stage count, not fresh draws inside each two-stage macro-step.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-sharp-rare-curvature-stability-and-extinction-frontiers-for-stoc--25a05ee65263",
+          "material_read": "RESULT.md Finding, sampling assumptions and stated frontiers",
+          "method": "Indexed lookup and mirrored result inspection",
+          "title": "Sharp rare-curvature stability and extinction frontiers for stochastic Chebyshev methods",
+          "trigger": "Closest earlier exact Chebyshev moment versus almost-sure result"
+        },
+        {
+          "assessment": "Different threshold and sampling",
+          "evidence": "Positive damping and shared samples on shifted quadratics, with stationary-support topology as the observable.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-sharp-damping-threshold-for-stationary-support-topology-in-sto--4d9b3fc1bb24",
+          "material_read": "RESULT.md Finding and method assumptions",
+          "method": "Indexed lookup and mirrored result inspection",
+          "title": "A sharp damping threshold for stationary support topology in stochastic Chebyshev methods",
+          "trigger": "Same-day Chebyshev threshold claim"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding, stability frontier and two-client example",
+        "Stillfjord–Williamson arXiv:2201.12782v1 equation (3.2) and §4",
+        "Resultary shared-client stability/extinction record 25a05ee65263"
+      ],
+      "rationale": "A plausible implementation change leaves all deterministic per-client scalar tests intact but can reverse mean-square behavior, even when the mean and typical paths decay. The exact distribution-free first-two-moments criterion and the explicit same-law comparison isolate sampling across stages as the cause. This is a motivated warning about what can be inferred from deterministic stability or average trajectories, not a failure claim about published shared-batch SRKCD.",
+      "residual_risks": [
+        "No effect size or prevalence is claimed for practical nonlinear neural-network training, other step sizes, damping or larger stage counts."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

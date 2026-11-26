@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:42:03.035726Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–50",
+        "VERIFICATION.md line 21",
+        "VERIFY.py lines 6–56",
+        "VERIFY.txt lines 1–11"
+      ],
+      "rationale": "The count of nonempty disjoint shadows rules out zero markers for n≥2 and forces all shadows to be singletons with one marker. For two adjacent deleted positions, the surviving entries outside those positions keep their positions in both outputs; their ranks differ exactly when their values are strictly between the two deleted values. If no such value exists, the remaining member of the adjacent pair also has the same rank in both outputs. Thus a singleton shadow forces every adjacent pair to differ by 1; a permutation cannot reverse such a walk without repeating a value, so only the two monotone words qualify. This rules out one marker for n≥3. I independently enumerated the displayed codebooks (RESULT.md lines 29–46), not by executing the uploaded checker: for each deletion I replaced each surviving entry by one plus the number of smaller survivors, deduplicated within its parent, and checked cross-parent disjointness, alphabet, and exact coverage by restricting each parent to labels ≤n. For n=1,2,3,4 there were respectively 1,2,6,24 distinct messages and 1,2,16,97 disjoint outputs, agreeing with VERIFY.txt. For n=4 the shadow-size histogram is {1:1,2:1,3:5,4:9,5:5,6:3}. VERIFY.py lines 6–45 is the frozen replay path for the finite certificates; no finite test is needed for the infinite lower bound. No upper bound for n≥5 is certified.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wu et al. give an all-message four-marker construction for all sufficiently large n, not a small-length two-marker optimum.",
+          "Gabrys et al. define the maximum unrestricted code size A(n), without full-systematic coverage.",
+          "Resultary e0a01394b7e2 gives r_PID(n)≥2 for every n≥3."
+        ],
+        "reasoning": "A construction in a larger length regime or an unrestricted code does not provide these finite optima. The published Resultary lower bound already has the full claimed domain.",
+        "searches": [
+          "Resultary: systematic PID deletion correction with inserted largest symbols, all message permutations S_n, marker redundancy lower bound",
+          "Web: \"Order-Optimal Systematic Permutation Codes\" PID rank standardization Ulam distance \"stable deletion\" full systematic marker insertion permutations",
+          "arXiv:2609.37578v1 Corollary 2; DOI 10.1109/ISIT.2014.6875337 p. 2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary e0a01394b7e2",
+        "arXiv:2609.37578v1",
+        "DOI 10.1109/ISIT.2014.6875337",
+        "DOI 10.1109/ISIT.2012.6284106",
+        "RESULT.md Finding and scope"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Zhou–Jiang–Bruck obtain a two-marker full-systematic code with minimum Kendall distance at least 3.",
+          "Resultary e0a01394b7e2 asserts the exact PID profile directly, including the lower bound for every n≥3."
+        ],
+        "reasoning": "Kendall separation does not give PID shadow disjointness. The decisive same-channel result requires no such implication, and adding the immediate n=1 case gives no substantive difference.",
+        "searches": [
+          "Resultary: systematic rank-modulation permutation code inserts two redundant cells and corrects one Kendall tau error",
+          "Resultary e0a01394b7e2 Finding",
+          "DOI 10.1109/ISIT.2012.6284106 Construction 6 and Theorem 7"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary e0a01394b7e2 uses E:S_n→S_{n+r}, order-preserving insertion and rank-standardized deletion.",
+          "Wu et al. distinguish SID/stable deletion (Ulam) from PID; Gabrys et al. explicitly demonstrate decrementing ranks after deletion in the latter model."
+        ],
+        "reasoning": "The Resultary formulation is identical, whereas stable deletion and Kendall distance are different corruption conditions.",
+        "searches": [
+          "Resultary: full-systematic permutation encoder for every n! message, distinct largest markers, one permutation-invariant deletion with rank-standardized shadow, exact minimum markers at n=3 and n=4",
+          "Resultary: Ulam metric and stable deletion permutation codes, distinguish rank-standardized PID from label-preserving deletion",
+          "arXiv:2609.37578v1 §II-A; ISIT 2014 DOI 10.1109/ISIT.2014.6875337 p. 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary e0a01394b7e2 Finding: r_PID(2)=1, r_PID(3)=r_PID(4)=2. It supplies explicit six- and twenty-four-word witnesses for the same model."
+        ],
+        "reasoning": "These are the exact indexed minima. Different witnesses and different numbers of occupied outputs do not change the invariant or establish a new optimum for shadow occupancy.",
+        "searches": [
+          "Resultary: full-systematic permutation encoder for every n! message, distinct largest markers, one permutation-invariant deletion with rank-standardized shadow, exact minimum markers at n=3 and n=4"
+        ]
+      },
+      "rationale": "A distinct published Resultary record has the identical model and covers the entire nontrivial profile and the general lower bound. Its codebooks differ, but certify the same extrema. The omitted n=1 case follows immediately from the sole possible message and is not a meaningful distinct remainder. This is demonstrable claim coverage, not a conclusion about who had the result first.",
+      "residual_risks": [
+        "The two catalog dates alone do not establish ordering, provenance, or historical priority. The decision rests on equivalent published coverage, not any such inference."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent material coverage; distinct record and certificates",
+          "evidence": "Same r_PID(2)=1, r_PID(3)=r_PID(4)=2 and r_PID(n)≥2 for n≥3 in the same order-preserving all-message model; reported witness counts differ.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-two-marker-systematic-permutation-invariant-single-deletio--e0a01394b7e2/RESULT.md",
+          "material_read": "Finding, definition, and finite witnesses",
+          "method": "Bounded local mirror inspection (commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4)",
+          "title": "Sharp two-marker systematic permutation-invariant single-deletion result",
+          "trigger": "Direct indexed hit for the exact full-systematic PID minima"
+        },
+        {
+          "assessment": "Same model; compared result has different length and marker regime",
+          "evidence": "Four markers for single PID for all sufficiently large n; PID standardizes and stable deletion does not.",
+          "identifier_or_url": "https://arxiv.org/html/2609.37578v1",
+          "material_read": "Abstract, §II-A, Corollary 2; text offsets 800, 14380, 129450",
+          "method": "Lawful open-access full-text passages",
+          "title": "Order-Optimal Systematic Permutation Codes for Correcting t Deletions",
+          "trigger": "Same full-systematic PID model"
+        },
+        {
+          "assessment": "Same deletion model in its second formulation; no full-systematic condition in the compared claim",
+          "evidence": "Example deletes 3 and decrements larger labels; A(n) optimizes unrestricted code size over S_n.",
+          "identifier_or_url": "https://yaakobi.net.technion.ac.il/files/2015/04/40_Single_Deletion_Permutations_ISIT14.pdf",
+          "material_read": "pp. 1–2, offsets 2600 and 8200",
+          "method": "Lawful open-access PDF passage inspection",
+          "title": "Single-Deletion-Correcting Codes over Permutations",
+          "trigger": "Earlier standardized deletion and unrestricted cardinality"
+        },
+        {
+          "assessment": "Same systematicity but different error model",
+          "evidence": "k! information sectors with insertion of k+1,…,n; the two-marker construction has Kendall distance ≥3.",
+          "identifier_or_url": "https://people.engr.tamu.edu/ajiang/Publications/Systematic_ISIT2012.pdf",
+          "material_read": "Abstract, pp. 2–3, Construction 6 and Theorem 7",
+          "method": "Lawful open-access PDF passage inspection",
+          "title": "Systematic Error-Correcting Codes for Rank Modulation",
+          "trigger": "Same insertion model and two markers"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 5–11 and 29–58",
+        "Resultary e0a01394b7e2 Finding and finite witnesses"
+      ],
+      "rationale": "The first nontrivial optima in this systematic channel are naturally motivated and useful as benchmarks. Here those precise values and a general lower bound already have explicit coverage, with finite certificates. The different codebooks are corroboration of the same result; no newly optimized secondary invariant, new coverage regime, or structural construction is established. The unit case is immediate.",
+      "residual_risks": [],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

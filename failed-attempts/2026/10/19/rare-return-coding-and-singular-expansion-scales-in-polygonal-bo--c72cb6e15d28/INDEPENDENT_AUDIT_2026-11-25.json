@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:05:09.168151Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–36 and 38–70",
+        "Frozen VERIFICATION.md lines 18–22; verify.py lines 5–33 (inspected, not executed)",
+        "Glendinning–Wong, DOI 10.1088/0951-7715/24/4/001, equations (17), (20), (25)–(30), Theorem 2 and following Markov-partition construction"
+      ],
+      "rationale": "The 2011 source gives the exact transition graph immediately after Theorem 2; its last relation is F(M_{n+3})=F(M_1)=M_2. Deleting vertex 2 leaves a DAG. From 2 the forced chain to n has n−2 edges, and each of the two choices of successor of n has two routes back, of three and four more edges. Schur complementation at vertex 2 gives det(I−zA)=1−2z^(n+1)−2z^(n+2), since the deleted graph contributes determinant one; the trace identity then gives the stated symbolic zeta. The positive Perron root is the unique root above 1 of λ^(n+2)=2(λ+1), and decreases with n. The graph is irreducible (and the return lengths are coprime), so the Parry measure is the unique symbolic measure of maximal entropy. Along a return to vertex 2, the product of the transition probabilities telescopes in the right Perron eigenvector, giving exactly λ^(−ℓ) conditional on starting there. Summing the two short and two long paths yields the stated probabilities and mean. Setting h=log λ gives (m−1/2)h=log 4+log cosh(h/2); h=O(1/m) and the expansion follows. For the parameter root, g_n(1)=−4π²/m²+O(m^−4), g_n′(1)=m+O(m^−1), and g_n′ is positive on [1,∞) for large n. Taylor's remainder on [1,1+C/m³] is O(m²(r−1)²); bracket the root with C>4π², then divide by g_n′(1) to obtain r−1=4π²/m³+O(m^−5). Now D_R=r² and E=(r−1)²+2r(1−cos θ)=4π²/m²+O(m^−4), while r^(2−n)=1+O(m^−2). These give both determinant expansions and the stated ratio. Reducing q via sin(nθ)=−sin(2θ) in the primary parameter equations also gives the stated T_L. No identification with physical zeta or planar entropy is needed.",
+      "residual_risks": [
+        "The geometric family is certified only for sufficiently large indices by the source; n≥6 is a numerical suggestion. The equations and numerical checks alone do not certify the Markov partition at smaller indices.",
+        "The checker asserts polynomial identities at finite sizes and some signs and root residuals; the asymptotic normalizations are printed, not asserted with numerical tolerances. The asymptotics here are verified analytically.",
+        "The exact partition is presented just after Theorem 2, which states the ALEO property; the symbolic statements do not count physical boundary orbits."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Glendinning–Wong construct the entire partition and prove ALEO for the stated parameter family; they also give the exact determinants as functions of the scalar root. Glendinning 2014 treats invariant measures on open parameter sets and refers to the earlier countable family as a case with a finite Markov partition."
+        ],
+        "reasoning": "The 2011 construction is stronger geometric information for the identical canonical sequence and supplies all symbolic input. The 2014 invariant-measure result concerns a different kind of measure and is not evidence of a printed same-family symbolic law.",
+        "searches": [
+          "Glendinning–Wong Theorem 2 and its proof following (29)",
+          "Glendinning 2014, MIMS EPrint 2015.10, abstract and §1"
+        ]
+      },
+      "checked_sources": [
+        "Glendinning–Wong, DOI 10.1088/0951-7715/24/4/001, exact equations and Markov partition",
+        "Glendinning, MIMS EPrint 2015.10 abstract and §1",
+        "Resultary comparisons 6720a7af9fc9 and 60ce64cfba01"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Equation (29) gives the transition matrix with one recurrent branching chain. Removing 2 makes it acyclic, so the determinant reduces to one minus the four listed path weights, and the Parry transition products are λ^(−ℓ). Equations (25)–(27) give θ and the scalar root with g_n(1)=−2(1−cos θ); its derivative at 1 is 2(n+1)cos θ−n. Equations (17) and (30) then give the two determinant scalings directly.",
+          "The entropy expansion is the Taylor expansion of the resulting Perron equation, and the entropy/determinant ratio divides the two leading terms."
+        ],
+        "reasoning": "Even though the coefficients are not asserted verbatim by the prior paper, the reading of the cover table, standard finite-state formulas, and elementary root linearization exhaust the claimed advance. No new partition, geometric orbit theorem or sharper validity regime is established.",
+        "searches": [
+          "Primary paper equations (17), (25)–(30), and irreducible convex Markov partition after Theorem 2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Glendinning–Wong (29) states the exact same Markov covers in polygon notation, including F(M_{n+3})=F(M_1). Equation (30) gives D_L=−r^(2−n)/(1+r²−2r cos θ).",
+          "Resultary 2026/11/1/SCOPE-renewal-entropies-and-incompatible-typical-statistics-in-a-grazi--6720a7af9fc9 concerns another map with return lengths 1,…,m and probabilities β_m^(−r); 2026/11/17/SCOPE-exact-physical-and-topological-entropy-on-a-repelling-focus-bord--60ce64cfba01 concerns lengths 6,5,5."
+        ],
+        "reasoning": "The exact equivalent representation of the graph is the primary source's partition, not one of the thematic analogues. Reading off its two binary branch choices between visits to cell 2 gives the four routes without a new coding argument.",
+        "searches": [
+          "Glendinning–Wong equations (29)–(30), direct comparisons to first-return coding and determinant expressions",
+          "Resultary local search for renewal entropy, maximal-entropy returns and polygonal border-collision families"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The source lists the full transition relation for each cell for general admissible n, and gives the exact branch scalar equations (17), (25)–(28), (30). The indexed alternate graphs have different return-length tables."
+        ],
+        "reasoning": "This is not a new numerical catalogue claim. The relevant exact input table is already given analytically, more than numerical observations of a few cases.",
+        "searches": [
+          "Glendinning–Wong equation (29), exact parametric table of Markov covers",
+          "Resultary indexed returns 6720a7af9fc9 and 60ce64cfba01"
+        ]
+      },
+      "rationale": "The claimed symbolic structure is mechanically specified by the already published transition relations, and its zeta, entropy and return probabilities are standard, direct evaluations of that graph. The two branch expressions are supplied in the same paper, including left divergence and eventual area expansion; their numerical scaling coefficients and the entropy comparison are obtainable directly by a one-step Taylor estimate at the explicit scalar root and substitution. The formulas are not claimed to be printed verbatim in that paper. The failure is mechanical implication on the exact same family, not an inference from missing search results or inaccessible literature.",
+      "residual_risks": [
+        "Exact formulas may appear in follow-on literature not inspected; this would not weaken the constructive demonstration of mechanical coverage. No claim of historical priority for displaying the coefficients is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct prior coverage of the necessary graph and parameter relations; mechanical implication for the claimed symbolic and determinant formulas, not a claim of verbatim match.",
+          "evidence": "F(M_{k−1})=M_k, F(M_n)=M_{n+1}∪M_{n+2}, F(M_{n+1})=F(M_{n+2})=M_{n+3}∪M_0, F(M_{n+3})=F(M_1); g_n in (26), D_R=r² and D_L in (30).",
+          "identifier_or_url": "https://eprints.maths.manchester.ac.uk/1544/1/robust2d.pdf",
+          "material_read": "Eqs. (17), (20), (25)–(30) and Theorem 2; exact covers and determinant in PDF text offsets about 38300–44089",
+          "method": "Lawful primary open-access PDF, relevant passages by offset",
+          "title": "Two dimensional attractors in the border collision normal form",
+          "trigger": "Identical polygonal family, parameters and Markov relations"
+        },
+        {
+          "assessment": "The inspected result on absolutely continuous measures is not a symbolic maximal-entropy return law.",
+          "evidence": "The introduction distinguishes the countable Glendinning–Wong Markov family from later open-set results.",
+          "identifier_or_url": "https://eprints.maths.manchester.ac.uk/2252/1/glendinningijbcv2.pdf",
+          "material_read": "Abstract and §1 introductory comparison, PDF offsets 0–4896",
+          "method": "Lawful primary open-access PDF",
+          "title": "Invariant measures for the n-dimensional border collision normal form",
+          "trigger": "Cited follow-on on the same normal form and invariant measures"
+        },
+        {
+          "assessment": "Method-level resemblance in a different return graph.",
+          "evidence": "Return lengths 1,…,m with weights β_m^(−r), not two each of lengths n+1 and n+2.",
+          "identifier_or_url": "2026/11/1/SCOPE-renewal-entropies-and-incompatible-typical-statistics-in-a-grazi--6720a7af9fc9",
+          "material_read": "Finding on return lengths and maximal-entropy statistics",
+          "method": "Local Resultary mirror",
+          "title": "Renewal entropies and incompatible typical statistics in a grazing-sliding map",
+          "trigger": "Renewal presentation and symbolic maximal-entropy probabilities"
+        },
+        {
+          "assessment": "Not the identical return lengths or the primary comparison.",
+          "evidence": "Return lengths 6,5,5 rather than the four paths of the audited family.",
+          "identifier_or_url": "2026/11/17/SCOPE-exact-physical-and-topological-entropy-on-a-repelling-focus-bord--60ce64cfba01",
+          "material_read": "Indexed return-length statement",
+          "method": "Local Resultary index",
+          "title": "Exact physical and topological entropy on a repelling-focus border-collision map",
+          "trigger": "Indexed border-collision entropy and return coding"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 38–64 and 73–79",
+        "Glendinning–Wong equations (26)–(30)"
+      ],
+      "rationale": "The formulas are useful exposition for the known partition, but all the symbolic outputs follow from reading four routes in the published covers and applying standard finite-state formulas. The asymptotic coefficients use the explicit scalar root and its first derivative at 1; their ratio does not establish a dynamical link between physical entropy and expansion. No independent mathematical question is resolved by a remainder beyond these direct evaluations. Rewording it as a comparison of scales would not change that.",
+      "residual_risks": [
+        "The review does not rule out value in a genuinely new result for the physical dynamics, an independently proved index cutoff, or parameter robustness; those are not established by this record."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

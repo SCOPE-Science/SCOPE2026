@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,21 +19,24 @@
 }
 ---
 
-# Reproducible checks
+# Independent mathematical audit
 
-The two complete source programs `checker_grouped.cpp` and `checker_windows.cpp` each enumerate all ordered triples of the 256 elementary binary rules and compute the exact minimal length of a missing phase-aligned output word. Their independent transition-construction methods yield identical full histograms, with a second constituent-surjectivity classification.
+## correctness
 
-Build separately using an ordinary C++17 compiler:
+PASS
 
-```sh
-g++ -O3 -std=c++17 checker_grouped.cpp -o checker_grouped
-./checker_grouped
-g++ -O3 -std=c++17 checker_windows.cpp -o checker_windows
-./checker_windows
-```
+For an output block at sites 0,1,2 the input window is at -1 through 3; two consecutive blocks share exactly the last two input bits of one window and the first two of the next. Thus labeled paths from the full set of boundary pairs characterize finite phase-aligned realizability. Shifts by multiples of three respect the rule assignment. Extending any finite prescribed output segment to aligned block boundaries gives finite solvability from all-block realizability; compactness of the bilateral binary full shift and closed preimage cylinders give a full preimage. Subset reachability from 15 to 0 therefore decides onto-ness and shortest length, with BFS run to actual closure; a shortest path to 0 cannot repeat a nonempty state. An independently written integer-array census constructs one-site maps and composes them, rather than building five-bit three-site windows as the supplied checkers do. A bounded four-way partition over the first rule covers every one of 16,777,216 triples exactly once. For shortest lengths 0 (onto), 1, 2, 3, 4 the exact counts are 12888, 7476480, 8825488, 453144, 9216; every higher bin is zero. Single-site automata detect precisely 30 homogeneous onto rules and give survivor masks 000 through 111 of 0,0,0,928,0,928,928,10104. Independently the witness (22,22,90) first reaches the empty set at depth four and repeated 010 gives masks 15,7,6,2,0. The triple (23,60,102) reaches closure without zero, with only its first constituent non-onto homogeneously. These confirm the full census, rigidity, and both sharpness claims under the stated block alignment.
 
-Expected counts for shortest forbidden lengths zero (surjective), one, two, three and four: `12888`, `7476480`, `8825488`, `453144`, `9216`. Expected surjective constituent masks in binary order \((f,g,h)\): `000:0`, `001:0`, `010:0`, `011:928`, `100:0`, `101:928`, `110:928`, `111:10104`. The sum of all shortest-length bins is \(16{,}777{,}216\).
+## originality
 
-The output-word witness `010010010010` for rules `(22,22,90)` has the reachable-subset sequence `0xF, 0x7, 0x6, 0x2, 0x0`, giving sharpness. The source codes test the full language and not merely periodic input configurations or a bounded selection of output words. The equivalence between the subset automaton and all bi-infinite target configurations is proved in the result; the programs alone are not treated as an abstract theorem without this reduction.
+PASS
 
-Limits: no formal proof assistant or independent external audit was used; the code requires no third-party libraries or datasets.
+The general surjective-rule language, automata method, and applicability of the recurrent-distribution Garden-of-Eden theorem are existing coverage. The supported distinct contribution is the full quantitative census and the exact phase-aligned horizon and constituent constraint for all ordered spatial period-three elementary assignments. Closest inspected indexed data concern other periods or local input arities; none verified supplies this census or obstruction.
+
+## value
+
+PASS
+
+Mixing elementary rules spatially asks when globally onto behavior survives heterogeneous local dynamics. The first period beyond simple alternation gives a complete finite benchmark, a sharp uniform decision horizon much smaller than the generic subset-state bound, and a precise constraint on how many individually non-onto constituents can be rescued. Both sharp examples clarify the meaning of the census, and the phase scope is natural because period-three rescaling gives a block shift.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

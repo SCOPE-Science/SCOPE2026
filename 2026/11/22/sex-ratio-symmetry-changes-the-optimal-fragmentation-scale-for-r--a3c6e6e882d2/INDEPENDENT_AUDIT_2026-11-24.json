@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:46:04.347416Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 3–55; VERIFICATION.md; verify.py, especially lines 21–50 and 69–104"
+      ],
+      "rationale": "Independent Poisson splitting yields the binomial law. The Markov bound on success tends to zero with site count at fixed pressure, so a positive maximum is attained. At r=1, the event of exactly one founder of each sex assigned to different sites has positive probability for every k>1, giving strict one-site dominance. For r≥2 let m=r−1, t=L/k and h=log(1+e^(−δt)(1−e^(−at))). The j=0 and j=m summands separately bound the failure from below; on the localized scales the successive backward ratios are O_r(q/(kp)), so the last summand gives the asymptotic. In balance the lower bound h≥c min(t,1) rules out k≫√L, while the term mat rules out k≪√L. Uniformly on compact positive ranges of x=k/√L, the normalized log correction tends to m/(2x)+x log 2, whose unique minimum gives both constants. At fixed imbalance, the rounded-down trial k=floor(δL/log L) gives t=log L/δ+O((log L)^2/L) and kh=o(1). Smaller t by a fixed relative factor incurs an exponentially larger kh, and larger t by a fixed factor increases the lower bound m(at+log L−log t)+O_r(1), since at−log t is increasing there. This localizes every optimizer and the same last-term lower bound matches the trial through order log L. The numerical verifier was inspected but is not needed for these asymptotic or strict claims.",
+      "residual_risks": [
+        "The limits hold for fixed r and sex fraction. No rate uniform as the sex fraction approaches one-half, no finite-L uniqueness for r≥2, and no ecological validation are claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dupuis–Nuzman–Whiting establish an LDP for empirical color-count occupancies when balls grow proportionally to urns."
+        ],
+        "reasoning": "Here the optimizer has divergent per-urn load. The target fixes the absolute number of two-color boxes, and the theorem distinguishes subleading failure terms of order √L and log L; the proportional-load LDP does not give these limits or optimize the urn count.",
+        "searches": [
+          "DOI 10.1239/jap/1175267167 pp. 115–116; colored-ball occupancy large deviations"
+        ]
+      },
+      "checked_sources": [
+        "DOIs 10.1007/s12080-015-0254-z and 10.1239/jap/1175267167",
+        "Resultary ed78489e574c and 9ebfe525ba28"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The one-site sex-allocation objective in ed78489e574c gives a polynomial prefactor to e^(−n/2), not a square-root correction to the log from spatial fragmentation. The landmark model's exact zero-encounter calculation concerns r=1."
+        ],
+        "reasoning": "Even an exact finite tail formula needs a uniform localization argument over all integers and a comparison of the subleading penalties. No inspected antecedent supplied that implication for these two regimes.",
+        "searches": [
+          "Direct comparison of 10.1007/s12080-015-0254-z, 10.1239/jap/1175267167 and Resultary ed78489e574c"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Landmarking and strong Allee thresholds uses a two-sex birthday model and calculates the probability of no same-site male–female encounter for fixed sex counts, as well as mated-female counts."
+        ],
+        "reasoning": "Poissonizing fixed totals gives an equivalent two-color occupancy representation for like events. However, one or many encounters can occur in the same box; encounter counts or the probability of any encounter are not the event of at least r distinct co-occupied boxes for r≥2.",
+        "searches": [
+          "Two-color Poisson occupancy; co-occupied boxes; site-count optimization and rare failure",
+          "DOI 10.1007/s12080-015-0254-z pp. 333–336"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Same-day ed78489e574c optimizes sex allocation for a quorum at a single site. Same-day 9ebfe525ba28 optimizes survey effort across two sites to obtain one with two encounters."
+        ],
+        "reasoning": "Neither finding contains the optimized many-site, two-color fixed-redundancy law or its constants. A shared publication date does not settle priority.",
+        "searches": [
+          "Resultary two-sex Poisson quorum, redundant mixed sites and site-count optimization"
+        ]
+      },
+      "rationale": "The distinct result is the optimized rare-failure asymptotic for a fixed target of at least two distinct two-color boxes with a growing number of boxes, including the sharp change under a fixed imbalance. The binomial split, finite same-box collision model and r=1 reasoning are not credited as the main advance.",
+      "residual_risks": [
+        "The bounded search cannot exclude historical equivalent results in extreme-occupancy or spatial mating theory."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Closest finite encounter model, not the audited theorem",
+          "evidence": "Fixed sex counts; finite probability of no encounter and mated-female counts.",
+          "identifier_or_url": "https://doi.org/10.1007/s12080-015-0254-z",
+          "material_read": "pp. 333–336; exact no-encounter calculation on p. 336",
+          "method": "Open primary full text, bounded passages",
+          "title": "Landmarking and strong Allee thresholds",
+          "trigger": "Closest model of both sexes choosing sites"
+        },
+        {
+          "assessment": "Different asymptotic regime and target",
+          "evidence": "Number of balls increases proportionally to urn count; empirical fractions are graded by color counts.",
+          "identifier_or_url": "https://doi.org/10.1239/jap/1175267167",
+          "material_read": "pp. 115–116, abstract and model introduction",
+          "method": "Open primary full text, bounded passage",
+          "title": "Large deviations principle for occupancy problems with colored balls",
+          "trigger": "Plausible general colored-occupancy theorem"
+        },
+        {
+          "assessment": "Optimizes a different quantity",
+          "evidence": "One site; optimize male share subject to the event of one male and at least r females.",
+          "identifier_or_url": "Resultary 2026/11/22/ed78489e574c",
+          "material_read": "RESULT.md Finding and assumptions, starting at offset 0",
+          "method": "Local published-finding mirror",
+          "title": "A Poisson founding-quorum sex-allocation law with a monotone budget response",
+          "trigger": "Poisson sex asymmetry and optimized rare failure"
+        },
+        {
+          "assessment": "Different probability event and fixed site count",
+          "evidence": "Two sites and one site with at least two Poisson encounters.",
+          "identifier_or_url": "Resultary 2026/11/22/9ebfe525ba28",
+          "material_read": "RESULT.md Finding, starting at offset 0",
+          "method": "Local published-finding mirror",
+          "title": "The sharp universal budget for unequal two-site Poisson confirmation",
+          "trigger": "Poisson site allocation and threshold"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 7–26 and 43–55; comparison with the finite encounter objective in Cuddington et al."
+      ],
+      "rationale": "The natural redundancy goal forces a balance between opening more sites and losing local co-occupancy. The exact model exhibits a singular change in the optimal order at symmetry, with sharp optimizer constants and failure-log corrections; it is more informative than the finite binomial formula or the r=1 boundary.",
+      "residual_risks": [
+        "An idealized mathematical benchmark, not a practical recommendation about colonization, reproduction or persistence."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

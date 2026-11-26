@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The birth-conditioned marked state has \(W_j=B_j=1\). The three exact attachment probabilities yield the mixed-moment recurrence and closed covariance formula; the finite-difference sign establishes a single trough. The rational comparison at the two adjacent candidate transition sizes is proved for all \(j\ge2\) by strictly positive-coefficient polynomial certificates, with denominators positive throughout. The Wallis limit justifies the global monotone sign argument. Exact independent dynamic programming and a computer-algebra coefficient check agree. Numerical checks are corroboration, not a substitute for the general algebraic proof.
+## correctness
 
-**Originality — PASS on inspected evidence.** Mahmoud, Smythe and Szymański (1993), in a complete 26-page inspection, cover the PORT growth rule, global leaves, root-degree marginal moments, branches, and global degree counts but not marked-birth outdegree versus total-leaf covariance. Zhang (arXiv:1706.02441, fixed birth-label degrees), Bóna–Pittel (arXiv:2108.04989, ranks of random vertices), and the closest published database results concern non-equivalent statistics/models. Explicit implication comparisons show that their reported marginal distributions or random-vertex asymptotic independence do not determine the new mixed covariance. No full historical novelty guarantee is claimed.
+PASS
 
-**Value — PASS.** This resolves a natural local-versus-global dependence question in a classical preferential-attachment tree. The exact universal crossover \(n=9j-3\) and its deterministic ratio-\(9\) scaling are structurally informative; neither the fixed-label degree marginal nor the global leaf count marginal alone determines their covariance. This is not an arbitrary finite slice or a degree mean restatement.
+Uniform insertion among 2n−1 gaps gives the uniform plane increasing tree because deletion of the newest vertex recovers its unique prior tree and gap. Write W=1+D and B for the marked leaf indicator. The simultaneous attachment-to-marked and attachment-to-leaf event has conditional probability B/(2n−1). The W and L terms in the conditional product cancel, leaving WL+W+(W−B)/(2n−1). The leaf mean equals (2n−1)/3 for n≥2 starting from L_2=1. On subtracting updated means the covariance difference is (a/3−b)/(2n−1), which telescopes from deterministic marked birth to the exact claim, including its birth zero. Since b/a=(j−1)/(n−1), the differences are negative below 3j−2, zero there, and positive above. For q=j−1 and m=n−1 the sign is the sign of (r_m/r_q)(m+3q)/(4m)−1; the two adjacent candidate sizes correspond to m=9q+4,9q+5. Independently recomputing the rational ratio polynomials matches both frozen numerators and yields positive denominator coefficients. Thus the sequences in q approach 1 from below and above respectively, using the Wallis asymptotic, giving both strict signs for every q≥1 and no later zero. Wallis also gives a→√t and b→1/√t at every finite limiting t≥1. `python /workspace/replay_frozen_reviews.py 2` verifies the polynomial coefficients and enumerates actual ordered trees through n=7 as a separate check of the mixed moment; those finite tree counts do not prove the threshold.
 
-**Closest literature and limitations.** The 1993 PORT paper is particularly relevant because it derives the leaf mean, while Zhang derives a fixed-label degree law. The full 1993 text was inspected; the 2017 and 2021 arXiv full texts were read for the degree/rank scope and main results. The exact result is specific to nonroot birth labels, the uniform-gap growth rule, and second moments. A differently phrased historic joint identity remains a residual priority risk. The result has not undergone independent review.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct claim is the sharp all-label finite-size horizon in the uniform plane increasing tree, with its exact plane-model covariance and strict endpoint signs. Exact marginal moments, root-only statistics, and joint leaf indicators do not give this classification. The edge-seeded degree-proportional preferential-attachment record is materially close: it supplies the same conditional covariance method and the identical scaling limit, but its denominator, leaf mean transient and actual finite covariance differ. The macroscopic factor 9 and general covariance-update technique should not be credited as distinct from that comparison. No inspected statement gives or implies the exact plane-model cutoff by substitution; no historical priority certification is made.
+
+## value
+
+PASS
+
+This is a natural fixed-birth-label dependence statistic in a standard attachment model. The exact integer horizon, uniform in every nonroot birth label, identifies precisely how long the negative degree–leaf dependence survives and rules out equality after birth, including the small-label and near-crossover regimes in which a ratio limit is uninformative. Those strict adjacent finite offsets are useful and not a routine restatement of the scaling crossover.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

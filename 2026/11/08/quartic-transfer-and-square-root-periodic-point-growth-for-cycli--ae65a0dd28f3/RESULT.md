@@ -1,123 +1,59 @@
-# Quartic transfer and square-root periodic-point growth for cyclic diffusion
+# Quartic spectral reduction and sharp asymptotic for cycle diffusion
 
-## Finding
+## Setting and finding
 
-Let \(C_n\), \(n\ge3\), be the labelled simple cycle with vertices \(0,\ldots,n-1\). In synchronous integer diffusion, each vertex transfers one unit to each neighbor whose label is smaller, with all transfers made simultaneously. Two integer label vectors are identified exactly when they differ by the same integer constant at every vertex. Let \(R_n\) be the number of equivalence classes that are **already periodic at time zero**, not classes merely destined to become periodic. The following three assertions hold for every \(n\ge3\).
+Consider synchronous integer diffusion on the labelled simple cycle \(C_n\), \(n\ge3\): each vertex simultaneously sends one unit to each neighbor whose value is smaller. Let \(R_n\) count classes of states periodic at time zero modulo common integer translation. There is no quotient by graph automorphisms. Use the known [zero-winding transfer census](https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-zero-winding-transfer-law-for-recurrent-integer-diffusion-on-c--b28ddab7ef35/RESULT.md), \(R_n=[z^0]\operatorname{tr}M(z)^n\). Here \(M\) is indexed by sign pairs in \(\{-1,0,1\}^2\), with its only possibly nonzero entries on \((a,b)\to(b,c)\). The entry is 1 when \(b=0\) and \(a+c=0\); for \(b=\pm1\) it is \(\sum_{q=1}^{1-b(a+c)}z^{bq}\), with an empty sum interpreted as zero. All other entries vanish. The exponent records the signed edge difference; the constant term enforces closure around the labelled cycle.
 
-**Exact finite transfer law.** Put \(\Sigma=\{-1,0,1\}\). For \(a,b,c\in\Sigma\), set \(h=2b-a-c\), and let
-\[
-D(a,b,c)=\begin{cases}
-\{0\},&b=0,\ h=0,\\
-\{1,\ldots,h-1\},&b=1,\\
-\{h+1,\ldots,-1\},&b=-1,\\
-\varnothing,&\text{otherwise}.
-\end{cases}
-\]
-(The displayed cases with a positive or negative middle sign may produce an empty set.) Define a nine-by-nine Laurent-polynomial matrix \(M(z)\) indexed by the ordered pairs in \(\Sigma^2\) by
-\[
-M(z)_{(a,b),(u,c)}=\mathbf1_{\{u=b\}}\sum_{d\in D(a,b,c)}z^d.
-\]
-Then
-\[
-\boxed{R_n=[z^0]\operatorname{tr}(M(z)^n).}
-\]
-All nonconstant periodic states have least period two; hence there are exactly \((R_n-1)/2\) distinct primitive-two temporal orbits modulo translation.
-
-**Quartic spectral reduction.** Write \(s=1+z+z^{-1}\). The characteristic polynomial factors identically as
+Write \(s=1+z+z^{-1}\). The characteristic polynomial has the reduction
 \[
 \det(\lambda I-M(z))=(\lambda-1)
 (\lambda^4-s\lambda^3-2\lambda^2-\lambda+1)
 (\lambda^4+s\lambda^3+2\lambda^2-\lambda+1).
 \]
-Let \(A_n(s)\) and \(B_n(s)\) denote the power sums of the roots, counted with multiplicity, of the first and second displayed quartic respectively. Equivalently, they are the integer polynomials determined by Newton sums. If \(T_k\) is the central trinomial number
+If \(A_n(s),B_n(s)\) are the quartics' root power sums, and \(T_k=[z^0](1+z+z^{-1})^k=\sum_{j=0}^{\lfloor k/2\rfloor}k!/(j!^2(k-2j)!)\), then
 \[
-T_k=\sum_{j=0}^{\lfloor k/2\rfloor}\frac{k!}{j!j!(k-2j)!},
+R_n=1+\sum_{k\ge0}T_k[s^k](A_n+B_n).
 \]
-then a polynomial-only formula is
-\[
-\boxed{R_n=1+\sum_{k\ge0}T_k[s^k]\big(A_n(s)+B_n(s)\big).}
-\]
-In particular, for \(3\le n\le13\), the counts are
-\[
-19,\ 47,\ 171,\ 517,\ 1793,\ 5927,\ 20287,\ 69307,\ 238283,\ 823865,\ 2854021.
-\]
-
-**Sharp asymptotic.** Let \(\rho\) be the largest real root of
-\[\rho^4-3\rho^3-2\rho^2-\rho+1=0,\]
-and define
+Let \(\rho\) be the largest real root of \(\rho^4-3\rho^3-2\rho^2-\rho+1=0\), and put
 \[
 \sigma^2=\frac{2\rho^2}{4\rho^3-9\rho^2-4\rho-1}.
 \]
-Numerically, \(\rho=3.6095709022238956\ldots\) and \(\sigma^2=0.4702157360865868\ldots\). Then
+The sharp periodic-point growth is
 \[
-\boxed{R_n\sim \frac{\rho^n}{\sqrt{2\pi\sigma^2 n}}
-=0.5817836156008666\ldots\,\frac{\rho^n}{\sqrt n}.}
+R_n\sim\frac{\rho^n}{\sqrt{2\pi\sigma^2 n}},
+\qquad \rho=3.6095709022238956\ldots,\quad
+\sigma^2=0.4702157360865868\ldots.
 \]
+The prefactor is \(0.5817836156008666\ldots\). The \(n^{-1/2}\) factor measures the cost of requiring zero total edge difference rather than counting all closed walks of the sign-pair graph.
 
-## Assumptions and scope
+## Proof of the spectral reduction
 
-The underlying graph has no loops or multiple edges, and \(n\ge3\). Labels are arbitrary integers, not restricted to nonnegative values, and the equivalence relation is *only* common integral translation; distinct labelings related by a graph automorphism remain distinct. The periodic-point count excludes the transient basin. The one all-equal state is the only fixed state modulo translation. Statements about primitive-two orbits use the established general period-at-most-two theorem for graph diffusion [2]; the transfer identity itself enumerates the states satisfying two-step return directly and does not require this external theorem.
-
-## Proof
-
-**1. The edge-reversal criterion.** Fix an arbitrary orientation on every edge of a finite graph, let \(B\) be its incidence matrix, and put \(\epsilon=\operatorname{sgn}(B^{\mathsf T}x)\), coordinatewise. The diffusion update is \(F(x)=x-B\epsilon\). At the next step set \(x'=F(x)\) and \(\epsilon'=\operatorname{sgn}(B^{\mathsf T}x')\). If \(F^2(x)=x\), then \(B(\epsilon+\epsilon')=0\). Taking the dot product with \(x+x'\) gives
+The \((0,0)\) state is isolated with a unit loop. Denote the eight remaining states, in order, by
 \[
-0=\sum_e (d_e+d'_e)(\epsilon_e+\epsilon'_e),
-\qquad d_e=(B^{\mathsf T}x)_e,\quad d'_e=(B^{\mathsf T}x')_e.
+(a_1,b_1,c_1,d_1,e_1,f_1,g_1,h_1)
+=((-1,-1),(-1,0),(-1,1),(0,-1),(0,1),(1,-1),(1,0),(1,1)).
 \]
-Each summand is nonnegative and is strictly positive whenever \(\epsilon_e+\epsilon'_e\ne0\), because \(\epsilon_e\) and \(\epsilon'_e\) are the signs of \(d_e,d'_e\). Thus \(\epsilon'=-\epsilon\) on every edge. Conversely this sign reversal implies \(F^2(x)=x\). Consequently a two-step-return point has each nonzero oriented gap change sign and each zero gap remain zero. This establishes the criterion without assuming that the incidence matrix has trivial cycle space.
-
-**2. Cyclic local intervals.** Set \(\delta_i=x_i-x_{i+1}\), \(\epsilon_i=\operatorname{sgn}(\delta_i)\), subscripts modulo \(n\). The update becomes
+Use \(a_1,\ldots,h_1\) also for the corresponding coordinates of a test vector in the equation \(M x=\lambda x\). Let \(P=z+z^2\) and \(Q=z^{-1}+z^{-2}\). The row relations for elimination are
 \[
-F(x)_i=x_i+\epsilon_{i-1}-\epsilon_i,
-\qquad
-\delta'_i=\delta_i-(2\epsilon_i-\epsilon_{i-1}-\epsilon_{i+1}).
+\begin{aligned}
+\lambda a_1&=z^{-1}c_1,&\lambda h_1&=zf_1,\\
+\lambda b_1&=e_1,&\lambda g_1&=d_1,\\
+\lambda d_1&=z^{-1}b_1+Qc_1,&\lambda e_1&=Pf_1+zg_1,\\
+\lambda c_1&=z^2s f_1+Pg_1+zh_1,&\lambda f_1&=z^{-2}s c_1+Qb_1+z^{-1}a_1.
+\end{aligned}
 \]
-The edge-reversal criterion therefore says precisely that \(\delta_i\in D(\epsilon_{i-1},\epsilon_i,\epsilon_{i+1})\). In particular, every two-step-return point has \(|\delta_i|\le3\). Conversely, these local choices guarantee the sign reversal and hence the two-step return. A cyclic sequence of integer gaps integrates to a vertex labelling if and only if \(\sum_i\delta_i=0\), and in that case integration is unique modulo a common additive integer. The trace of the transfer matrix imposes cyclic consistency of the consecutive sign pairs, while extracting \([z^0]\) imposes the single global gap-sum constraint. This proves the first identity.
-
-**3. Quartic reduction and polynomial formula.** Order the transfer states as
+Let \(L=\lambda^4-1\). At generic \(\lambda\), the block on the six eliminated coordinates has determinant \(\lambda^2 L\): the first two coordinates have diagonal \(\lambda\), and \(b_1,e_1,g_1,d_1\) form a 4-cycle of product one. Solving the four middle equations gives \(L b_1=\lambda^2 P f_1+zQ c_1\) and \(L g_1=\lambda^2 Q c_1+z^{-1}P f_1\). As \(P Q=s+1\), \(z^{-1}P^2=z^2(s+1)\), and \(zQ^2=z^{-2}(s+1)\), the Schur complement on \(c_1,f_1\) has diagonal \(X/(\lambda L)\) and off-diagonals \(-z^{\pm2}Y/(\lambda L)\), where
 \[
-(-1,-1),(-1,0),(-1,1),(0,-1),(0,0),(0,1),(1,-1),(1,0),(1,1).
+X=\lambda^2(\lambda^4-1)-\lambda^3(s+1),\qquad Y=s\lambda^5+\lambda^4+\lambda-1.
 \]
-The state \((0,0)\) has one isolated unit-weight loop. On the other eight states, entries follow from the three possible signs and the finite intervals in Step 2. Taking the determinant after deleting this isolated state and simplifying with \(s=1+z+z^{-1}\) yields the displayed two quartics. This is a finite nine-by-nine Laurent-polynomial identity; the standalone `verify_transfer.py` independently constructs its entries and checks the determinant symbolically. The trace of the \(n\)-th matrix power equals the sum of the \(n\)-th powers of all eigenvalues, including repeated roots. Thus it equals \(1+A_n(s)+B_n(s)\). Finally, \([z^0](1+z+z^{-1})^k=T_k\), giving the second exact count formula. Newton's identities, or the recurrence code in the verification artifact, compute the integer polynomials without numerical eigenvalue approximations.
+Thus the eight-state determinant is \((X-Y)(X+Y)/L\). In order, the two factors have \(\lambda^2+1\) and \(\lambda^2-1\) times the displayed quartics. Cancellation proves the identity as a polynomial, including the exceptional \(\lambda\). The trace of a matrix power is the sum of the corresponding powers of the eigenvalues with their algebraic multiplicities, so taking the constant term gives the stated central-trinomial formula.
 
-**4. Dominant saddle and asymptotic.** The eight-state transfer component is irreducible and aperiodic: it admits closed walks of lengths two and three, and all eight states communicate. Its matrix at \(z=1\) is nonnegative and primitive. By Perron–Frobenius its Perron eigenvalue \(\rho>1\) is simple; substituting \(s=3\) into the quartic factorization identifies \(\rho\) as the specified root. For \(z=e^{i\theta}\) with \(0<|\theta|\le\pi\), the modulus of every transfer entry is bounded by the corresponding entry at \(1\), and one edge in the irreducible component has weight \(z+z^2+z^3\), of modulus strictly less than \(3\). The strict Perron comparison therefore gives spectral radius strictly less than \(\rho\) away from \(\theta=0\).
+## Proof of the growth law
 
-Let \(\lambda(\theta)\) be the analytic leading branch near zero. From
-\[
-\lambda^4-(1+2\cos\theta)\lambda^3-2\lambda^2-\lambda+1=0
-\]
-implicit differentiation gives \(\lambda'(0)=0\) and
-\[
--\left.\frac{d^2}{d\theta^2}\log\lambda(\theta)\right|_{\theta=0}
-=\frac{2\rho^2}{4\rho^3-9\rho^2-4\rho-1}=\sigma^2>0.
-\]
-Using the coefficient integral
-\[
-R_n=\frac1{2\pi}\int_{-\pi}^{\pi}\operatorname{tr}(M(e^{i\theta})^n)\,d\theta,
-\]
-the isolated eigenvalue contributes exactly one, the other spectral branches are exponentially smaller, and the nondegenerate Gaussian saddle at zero yields the stated asymptotic, with leading multiplicity one. Standard uniform spectral perturbation on a small arc and compactness on its complement make the error estimate rigorous.
+At \(z=1\) the eight-state part is irreducible: there is a closed walk visiting \(c_1,g_1,d_1,b_1,e_1,f_1,a_1,c_1\), and \(h_1\) lies on the cycle \(c_1,h_1,f_1,c_1\). The latter and \(c_1,f_1,c_1\) have lengths three and two, so the block is primitive. Its Perron root must be \(\rho>3\): the first quartic is negative at 3 and positive at 4, while the second quartic is positive for real \(\lambda\ge3\). The full matrix has no other eigenvalue of modulus \(\rho\). For \(z=e^{i\theta}\), entrywise moduli are bounded by the entries at \(1\); the entry from \(c_1\) to \(f_1\) is \(z+z^2+z^3\), of modulus strictly less than three for \(0<|\theta|\le\pi\). The strict Perron comparison on the irreducible block gives spectral radius less than \(\rho\) there.
 
-**5. Periods and orbit counts.** By the period-one-or-two theorem for diffusion on finite graphs [2, Theorem 1.1], the initially periodic states are exactly those counted by the two-step-return identity. An all-equal configuration is fixed, and any fixed configuration on a connected graph must be all-equal (equivalently, every edge has no transfer, by dotting the fixed-state equation with its label vector). Thus the other \(R_n-1\) states form disjoint pairs, one per primitive-two temporal orbit.
+Let \(\lambda(\theta)\) be the simple eigenvalue near \(\rho\) for small real \(\theta\). Its analytic branch comes from the first quartic with \(s=1+2\cos\theta\). It is positive near zero, since the polynomial is real there and the unique root near \(\rho\) is real. Differentiation gives \(\lambda'(0)=0\) and \(- (\log\lambda)''(0)=\sigma^2\); the denominator in \(\sigma^2\) is positive for \(\rho>3\). Compactness away from zero and the spectral gap at zero bound all other contributions to the constant-term integral by \(O((\rho-\eta)^n)\) for some \(\eta>0\), using the trace identity for eigenvalues even if they collide. On a small symmetric interval around zero, \(\log(\lambda(\theta)/\rho)=-\sigma^2\theta^2/2+o(\theta^2)\), bounded above by \(-\sigma^2\theta^2/4\) on a sufficiently small interval. The substitution \(v=\sqrt{n}\theta\) and dominated convergence in \((2\pi)^{-1}\int_{-\pi}^{\pi}\operatorname{tr}(M(e^{i\theta})^n)\,d\theta\) give the stated constant and asymptotic.
 
-## Verification
+## Verification and relationship to prior work
 
-The executable `verify_direct.py` enumerates **all** cyclic gap sequences with \(|\delta_i|\le3\) and \(\sum_i\delta_i=0\) for \(3\le n\le8\), reconstructs the unique representative with its first vertex set to zero, and checks the diffusion map twice. This is exhaustive for the stated ranges because Step 2 proves the gap bound for every two-step-return configuration. Its output is in `direct_output.txt`.
-
-The independent executable `verify_transfer.py` constructs the nine-state transfer operator, computes Laurent coefficients through \(n=17\), and checks them against the separate quartic-Newton/central-trinomial recurrence. It additionally performs the exact symbolic determinant comparison when SymPy is installed. Its output is in `transfer_output.txt`. These computations verify finite and symbolic steps, but do not by themselves establish the asymptotic claim, which follows from Step 4.
-
-Run from the package directory using `python verify_direct.py` and `python verify_transfer.py`. No external datasets are required. The second script uses SymPy only for the optional exact determinant check; all enumerative tests use the Python standard library.
-
-## Relationship to prior work
-
-Duffy, Lidbetter, Messinger and Nowakowski [1] introduced the diffusion game and proved eventual periodicity for cycles, paths and several other graph families; the cycle result addresses boundedness and eventual recurrence, not a count of states **already** periodic. Long and Narayanan [2] subsequently proved the period-one-or-two theorem for every finite graph and developed an edge-sign potential argument; their result implies no larger least period and provides a known version of the sign-reversal behavior, but supplies no cycle periodic-point enumerator, quartic transfer reduction or periodic-point asymptotic. This result does not claim either prior general periodicity theorem as new.
-
-## Limitations
-
-Labels are identified only under common translation, not rotations or reflections. Counts do not describe sizes of attraction basins or transient durations. The transfer calculation is specific to one-dimensional simple cycles and does not automatically extend to higher-degree graphs. Independent mathematical peer review or external validation has not been performed. Priority remains conditional on the accessible literature, including the possibility of unindexed enumeration results.
-
-## References
-
-[1] C. Duffy, T. F. Lidbetter, M. E. Messinger, R. J. Nowakowski, *A Variation on Chip-Firing: the diffusion game*, first posted September 19, 2016, arXiv:1609.05792; subsequently Discrete Mathematics & Theoretical Computer Science 20(1), 2018, article 4. https://arxiv.org/abs/1609.05792
-
-[2] J. Long, B. Narayanan, *Diffusion on graphs is eventually periodic*, first posted April 13, 2017, arXiv:1704.04295; subsequently Journal of Combinatorics 10(2) (2019), 235–241. https://arxiv.org/abs/1704.04295
+The determinant and the exact coefficient law can be compared by building \(M\) from its signs and taking a symbolic determinant or multiplying Laurent polynomials for small \(n\). For example \(R_3=19, R_4=47, R_5=171, R_6=517\); finite checks are not a proof of the asymptotic. The earlier zero-winding census already gives the transfer, finite counts and temporal-orbit relation; these are inputs rather than new claims. Duffy et al. [arXiv:1609.05792](https://arxiv.org/abs/1609.05792) and Long–Narayanan [arXiv:1704.04295](https://arxiv.org/abs/1704.04295) supply the eventual periodicity context. Mullen–Cox–Nowakowski [arXiv:2010.04750](https://arxiv.org/abs/2010.04750) treat period-two counts on paths up to isomorphism, not the labelled-cycle count with zero total gap. The spectral factorization and evaluated asymptotic concern this particular cycle transfer law; standard Perron and Laplace methods are not contributions. No claim is made about other graphs, unlabeled cycles, or basins of attraction.

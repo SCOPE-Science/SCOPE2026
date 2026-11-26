@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-For every allowed side orientation, four explicit support-line inequalities and a positive linear combination eliminate the rectangle center, giving a sharp bound on the product of its half-edge parameters. The explicit family of rectangles attains it; its fifth-facet slack factors into a nonnegative expression throughout the full closed angle interval. The sine comparison determines the global maximum; positive multipliers, AM–GM equality, and independent normal constraints force uniqueness for each orientation and exactly five global rectangles. All endpoints and scaling are covered. The standalone `verify.py` independently checks the radical identities at high precision over 1,001 orientations and seeded feasible rectangles, but those finite checks are supplementary to the proof.
+## correctness
 
-## Originality — PASS, with limits
-Cabello et al. (arXiv:1405.1223, complete arXiv HTML inspected) prove exact algorithmic solvability for arbitrary convex polygons, not this orientation formula or equality classification. A 2017 Math Stack Exchange discussion already anticipates the right geometric candidate and approximate size: both answers explicitly leave symmetry or contact assumptions unproved. Sroysang's 2015 full paper establishes an inverse *covering* assertion for fixed-perimeter rectangles, not this maximization. The indexed 2026 result on regular **even** polygons cannot cover the pentagon; its full text was not retrievable. The present novelty assessment concerns the unconditional proof, every-orientation envelope, and rigidity, **not** the preexisting candidate or its numeric estimate. Equivalent historical derivations remain possible.
+PASS
 
-## Value — PASS
-The all-angle closed formula solves the natural rotating-rectangle optimization in a fixed regular pentagon; the strict angular variation and the classification of every maximizing position add structure beyond evaluating a known candidate. The nonnegative support combination is a clean transferable proof method rather than a mere computer-generated number. This is a deliberately bounded exact result, not a solution for every odd regular polygon.
+At radius one, write the half-edges as (A,At) and (−Bt,B) with t=tan θ. A rotation by 2π/5 modulo the quarter-turn direction convention generates shifts of π/10. For 0≤t≤r/s the four selected facet projections have the signs used in the frozen proof. The strictly positive weights (1,ρ,ρ,1)/2 eliminate the center and give (p+qt)A+(s−rt)B≤2k. AM–GM fixes both half-edge sizes uniquely at equality, and the tight facet normals span the plane, so equality also fixes the center. An independent symbolic check with z=t/s, S=s²=(5+√5)/8 and K=sB verified the weighted coefficients, four contact identities, and exact omitted-facet slack (5−√5)z(1−Sz/r)/(8(p+qsz)(1−rz)), which is nonnegative over the entire closed interval. Therefore the bound is attained, not just an upper envelope; degenerate projection signs at the endpoints do not remove uniqueness. The product-to-sum denominator is minimized only at the two equivalent endpoints and maximized at π/20, giving the claimed area extremes. The θ=0 rectangle has left endpoints (−p,±q), and the other two corners meet the sides incident to the east vertex. The orbit consists of five distinct rectangles, and all other orientations are strictly suboptimal globally. General radius follows by scaling.
 
-## Closest literature and scientific limitations
-The closest general analysis is Cabello et al. (2014), Theorem 4, and the closest exact-object public discussion is the conditional 2017 pentagon question and answers. The 2015 cover problem and 2026 even-polygon result use related objects but do not entail this exact statement. Priority is not asserted against unlocated literature. There is no independent validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass is for the saturated area-versus-orientation formula, including a feasible optimizer and rigidity at every angle. A later catalogue record has the same analytic bound and the same unrestricted value and equality cases; these are material overlaps and are not separate grounds for this pass. The closest accessible earlier general algorithm establishes computability but not the closed profile or uniqueness. Informal candidate overlap is not a verified unrestricted equality classification.
+
+## value
+
+PASS
+
+The continuous angular dependence measures the loss imposed by an orientation constraint and identifies the least favorable orientation as well as the best ones. The primal and positive dual certificates resolve rigidity rather than assuming a favored symmetry or contact pattern. This is more informative than recomputing the unrestricted extremal area or running a general polygon algorithm.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

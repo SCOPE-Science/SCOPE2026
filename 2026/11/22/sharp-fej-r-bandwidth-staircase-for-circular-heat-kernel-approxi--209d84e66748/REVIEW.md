@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim and proof use normalized Haar measure and the heat multiplier \(e^{-tk^2}\). Parseval and the explicit Fejér triangle yield an exact adjacent-error difference; a strictly decreasing weighted average gives discrete convexity and excludes nonadjacent ties. Time-monotonicity establishes unique switch times; uniform Euler–Maclaurin and Riemann-sum estimates prove the sharp order and error laws. The first-moment comparison uses \(N\sim t^{-1}\) and a positive quadratic-norm term dominating the Gaussian cross term. All limiting assertions are analytic. `checker.py` returned 1124 finite diagnostics, which test formulas but do not certify infinite quantifiers.
+PASS
 
-## Originality — PASS (best-knowledge)
+For normalized Haar measure, Parseval gives the frozen objective with Fejér squared contribution (N−1)(2N−1)/(3N) after removal of the mean. The cross term is maximized simultaneously at zero phase; its strictly positive first harmonic forces that phase for N>=2, while N=1 is constant. Adjacent subtraction gives Δ_N=2/3−1/[3N(N+1)]−4 sum_(k=1)^N k exp(−tk²)/[N(N+1)]. The k-weighted average of the heat multipliers decreases with N, so Δ_N increases strictly in N and tends to 2/3 at fixed positive t. It increases strictly in t between opposite endpoint signs, giving exactly one root per N, decreasing to zero, and no ties except consecutive orders at those roots. At N=1 this gives log 4. For u=N²t, the normalized sum is I_1(u)+exp(−u)/(2N)+O(N⁻²) uniformly near the limiting root, with I_1(u)=(1−exp(−u))/(2u). Since I_1'(u_*)=−(u_*−2)/(6u_*), the threshold equation gives u_N=u_*−u_*/N+O(N⁻²); bracketing with the adjacent roots gives N_opt sqrt(t)→sqrt(u_*), including both orders at a tie. The limiting squared error is 2 times the integral on [0,∞) of [exp(−x²)−(1−x/c)_+]². Equivalently on the whole line the triangular profile is (1−|x|/c)_+; the omission of the absolute value in the proof's whole-line description is a local notation slip. The integral is strictly positive from its Gaussian tail. Evaluating it at c=sqrt(u_*) using 1−exp(−u_*)=u_*/3 yields the claimed J_*. Independent bisection and Simpson integration of the squared difference (32768 subintervals on each of [0,c_*] and [c_*,10]) give u_*=2.821439372122079, c_*=1.679714074514493 and J_*=0.010154696409760. Rounding the moment-match order leaves N~1/t; the heat and cross terms are O(t⁻¹/²), so the Fejér squared term is dominant and yields 2/(3t) and the stated ratio.
 
-The closest literature inspected is Fu–Hou–Wu, arXiv:2210.14720 (2022), giving Fejér multipliers and heat solutions but not their best integer-order \(L^2\) match; Abdullayev–Savchuk, arXiv:2106.08675 (2021), on generalized Fejér positivity and convergence; and Colbrook–Townsend, arXiv:2111.14889 (2021), Section 3.2, on spectral recovery with hat filters. Their statements do not imply the new staircase or optimal heat bandwidth. Related indexed results on optimal positive circular kernels and heat-to-Poisson fits use different objectives and admissible kernels. OEIS A194567 already tabulates the equation's positive root, so that constant alone is not an originality claim. Residual risk: older applied bandwidth-selection literature may contain an equivalent special calculation; no exhaustive historical-priority certification is claimed.
+## originality
 
-## Value — PASS
+PASS
 
-This fully classifies the bandwidth choice for a canonical *positive* Fourier approximation family, not just its convergence as order grows. The infinitely many strictly ordered switch times, sharp \(t^{-1/2}\) bandwidth scale, exact limiting squared error, and divergence of the first-moment-based penalty give practical and structural distinctions between approximating a Gaussian smoothing profile and matching a single mode.
+Pass for the discrete least-squares staircase and its sharp scaling and comparison, not for the Fejér or heat multipliers, the numerical root in isolation, or the general idea of moment matching. The closest same-day analogues are distinct results and were compared, not treated as priority evidence or discarded by date.
 
-## Limitations and closest literature
+## value
 
-No claim is made for other spectral tapers, arbitrary nonnegative trigonometric polynomials, other norms, or noisy data. The source comparison is based on identifiable public full texts and indexed findings; independent audit remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Gaussian and triangular multipliers are standard and their normalized squared-distance comparison has a practical calibration interpretation. The exact integer selection, including all switching ties, is information not supplied by a continuum limit. The sharp asymptotics also show a quantitatively diverging penalty for the natural first-moment heuristic, not just a marginal improvement over it.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,25 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claimed distribution is verified by a bijection from a uniformly sampled row-label string to the independent switch-indicator string and the exact cosine factor of two one-dimensional orthogonal projections. Conditional expectation makes the mean-normalized squared error a unit-mean martingale; the strong law proves decay to zero. At first passage, bounded optional stopping gives the exact expected terminal payoff, not merely a bound. Positive-probability all-up and one-down-then-up paths force a lattice ratio, while the skip-free upward jump proves sufficiency. Strict convexity gives exactly one nonunit algebraic root for every integer parameter. The extracted verifier checks finite special cases and exact algebra, but the proof alone establishes the infinite-horizon result.
+PASS
 
-## Originality — PASS, qualified
+With row 1 as the initial label, the null-line projection on a switch multiplies squared norm by q, and a repeat leaves it unchanged. The switch bits determine each row string uniquely by recursion, so are jointly iid fair and yield the binomial law and exact mean rⁿ. The mean-normalized process is a martingale; its logarithmic drift is log(√q/r)<0, so it tends to zero and any supremum at a threshold above one is attained on this probability-one event. For the first crossing, stopped values are bounded by λ/r, so bounded-time optional stopping and dominated convergence give E[Zτ;τ<∞]=1. Equality requires no overshoot. Write A=log(1/r)>0 and B=log(r/q)>0. The finite all-up prefix through its first crossing forces log λ=mA; the finite one-down-then-up prefix forces B/A integral. Both finite prefixes have positive probability (no infinite all-up event is used). Conversely integral B/A makes +A skip-free on the lattice, so no overshoot at any level mA. Since r>√q, B/A>1; B/A=d−1 is precisely q=r^d for d≥3. Strict convexity, f_d(1/2)>0, f_d(1)=0 and f′_d(1)>0 give one nonunit root in (1/2,1), hence admissible q. Lattice rounding gives the full ceiling formula; d=3 gives the stated golden-ratio value. This argument is infinite-horizon; the frozen verifier was inspected but not executed.
 
-The closest source [1] gives a time-uniform Kaczmarz high-probability inequality and a general repeated-row lower bound; it does not determine the entire exact crossing law for this two-row construction or classify equality angles. The generic zero-overshoot criterion and its martingale proof are established prior theory, especially [2]; these are acknowledged and not claimed as new. The scientifically distinct step is the complete parameterized Kaczmarz realization, its exact binomial path law, and the necessity-and-sufficiency classification of the lattice angles. Relevant published records on deterministic/cyclic two-row overrelaxation concern different iteration laws, not iid row sampling and infinite-horizon concentration. A possible unindexed special-case treatment in earlier projection or gambler's-ruin literature is a residual historical-priority risk.
+## originality
 
-## Value — PASS
+PASS
 
-The motivating time-uniform guarantee raises a concrete sharpness question for stochastic numerical solvers: is the usual reciprocal-confidence loss actually attained by an algebraically elementary, nonsingular randomized linear-system solver? This finding answers that question exactly at the natural conditional-mean contraction rate, and classifies every two-row angle and confidence threshold at which equality is possible. The complete staircase law is a benchmark for interpreting time-uniform error certificates; it also prevents an unsupported universal tightening of the reciprocal-confidence factor in this instance-specific class. This is not a claim of sharpness for the different general operator-norm rate in [1].
+Credit the jointly binomial switch law and complete row-correlation and threshold equality classification for this normalized Kaczmarz family. Standard Ville sharpness and zero overshoot are not new; the skip-free staircase is the expected consequence once the specific walk has been derived and its arithmetic necessity established.
 
-## Closest literature and limitations
+## value
 
-[1] T. Anderson et al., *Beyond Expectation: Concentration Inequalities for Randomized Iterative Methods*, arXiv:2511.20877v1, Sections 2.2–2.3, https://arxiv.org/html/2511.20877.
+PASS
 
-[2] S. R. Howard et al., *Time-uniform Chernoff bounds via nonnegative supermartingales*, arXiv:1808.03204, Section 5.1 and Proposition 3, https://arxiv.org/html/1808.03204v8.
+This supplies a concrete nonsingular randomized solver that exactly attains a time-uniform error bound, with a complete exceptional set rather than just an example. It distinguishes lattice exactness from strictness at the natural mean rate and gives a useful benchmark for adaptive error certificates. It does not assert sharpness for the different generic operator-norm rate.
 
-[3] W. Koolen-Wijkstra et al., *A generalisation of Ville's inequality to monotonic lower bounds and thresholds*, https://doi.org/10.1016/j.spl.2025.110577, Sections 2.1–2.2 were inspected: general floor-hugging martingale sharpness, without a two-row Kaczmarz construction or an angle-equality classification. Its general existence theorem is acknowledged, not attributed as a new result here.
-
-The result is restricted to exact orthogonal projections on a two-equation consistent system, uniform iid sampling, and one initial vector. It is not a statement about a general-dimensional worst-case contraction rate.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

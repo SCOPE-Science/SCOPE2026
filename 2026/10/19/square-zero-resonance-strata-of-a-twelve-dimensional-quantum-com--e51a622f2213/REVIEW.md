@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-The multiplication law in the standard twelve-dimensional monomial basis directly gives three and only three surviving coefficients of a square after the scalar and degree-one coefficients are eliminated. The linear-fiber rank split proves the Grothendieck class formula on every field. Each component description follows from the explicit cases of the two base equations, including the distinct open-component and linear-component descriptions when \(\lambda^2=-1\) in odd characteristic. The complete characteristic-two reduction is independent of divided-by-two arguments. Exhaustive independent basis multiplication corroborates the arithmetic formulas over six field sizes, but is not used as a general proof.
+PASS
 
-## Originality (PASS, with residual risk)
+The grading and ordered monomial basis first force the scalar and both linear coefficients to vanish on the reduced locus. Independent ordered-product collection (python3 /workspace/branches/frozen_math_replay.py 1) gives precisely the three coefficients λb²+(1+λ⁴)ac, (1+λ²)bc, and (1+λ⁴)cd+λ(1+λ)be+(1+λ⁶)af, with the other three coordinates free. Away from the zero of the last coefficient vector one linear constraint cuts out a rank-two bundle, giving L^5([B]+(L−1)[Z]). If u2u4 is nonzero, b=0 and the base is two axes; their rank-zero locus is the origin when u6 is nonzero, or the a-axis otherwise. The generic two punctured-axis closures and the origin fiber are three distinct affine six-spaces; when u6 vanishes the whole a-axis preimage is an affine seven-space containing the origin fiber and leaving one six-space. If u4=0 but u2 is nonzero, u6=1−λ² is nonzero, and b=af=0 gives two seven-spaces meeting in a six-space. For u2=0 in characteristic other than two, c≠0 solves for a,d and gives G_m×A^6; c=0 forces b=0 and gives A^7. Its closure cannot swallow the linear component because λbd−λ(1+λ)ae vanishes on the open, but not at a=e=1 and b=c=0. The open closure is geometrically integral: its coordinate ring embeds into that of the open chart and this injection persists under field extension. In characteristic two, λ=1 leaves just b²=0, and λ≠1 forces u2u4 nonzero with u6=(1+λ³)². These checks give each reported class, all component dimensions and all field cases; point counting specializes the class over finite fields, including extensions. The C source was inspected, not run; its reported finite checks agree with the scope of the calculation and do not prove the geometry.
 
-Full or material primary texts of Bergh–Erdmann (arXiv:0709.3029 and arXiv:0810.3308) and Bergh–Oppermann (arXiv:0710.2606) were examined for statement-level implications. Their results concern bimodule homology, representation dimensions, and module rank/support varieties; none of the examined theorems gives reduced internal square-zero components for the asymmetric truncation or the five-case motivic profile. Search comparisons included synonymous terms and parameters \(\lambda^2=-1\), \(\lambda^4=-1\), and \(\lambda^6=-1\), and found no directly covering published-finding corpus record or full-text statement. Specialized unlocated literature remains a risk; a failed search does not certify uniqueness.
+## originality
 
-## Value (PASS)
+PASS
 
-This small asymmetric truncation with degree-two, degree-three, and degree-five interactions simultaneously visible gives a complete geometric and arithmetic phase diagram, rather than a one-off count. The resonance orders four, eight, twelve, the primitive cubic case in characteristic two, and the commutative characteristic-two collapse each have a distinct structural explanation. Component number, component dimensions, and all finite-field counts are naturally attached to this algebra family and are not determined by the cited homological invariants.
+The verified distinction is the five-case geometry and motivic class of the internal reduced square-zero locus for the asymmetric (3,4) algebra. An algebra family, an invariant of its module or cohomology categories, and a cubic analogue are not equivalent to this result. No inspected source covers the exact classification; unavailable material is identified rather than counted as negative evidence.
 
-## Scientific boundaries
+## value
 
-This is a self-review of one reduced-variety theorem, not a claim about scheme-theoretic reducedness or all exponents. No independent audit and no exhaustive literature certification have been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For a standard family of finite-dimensional algebras, this is a complete exact geometric invariant in an asymmetric truncation in which three different resonance coefficients can matter. It distinguishes both component sizes and the motivic class across all characteristics, including equal motives for two different component geometries and a sharp characteristic-two dimension increase. These data are useful for comparing degeneration and counting behavior, not merely a check of a handful of parameters.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

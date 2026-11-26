@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The append rule is necessary and sufficient for excluding squares of block lengths one and two. The ten-state orbit transfer is derived from the 36 legal suffix triples, and the determinant/adjugate identity is verified by exact polynomial arithmetic. The algebraically bounded numerator degree makes the finite polynomial certificate exhaustive for the all-length identity. For the local asymptotic, a complete connectivity check, two coprime-length periodic walks with a unit-determinant length/weight lattice, a simple dominant pole, and explicit implicit derivatives establish the required finite-state local limit hypotheses. Brute-force word enumeration through length eight independently matches the closed formula. Finite checks do not by themselves prove an infinite theorem; the transfer and analytic arguments do.
+PASS
 
-## Originality — PASS, with residual priority risk
+For the abstract two-color four-letter language, the triple update excludes precisely a new adjacent equal pair or a new period-two square. The independent orbit-graph calculation confirmed all ten weighted states, the determinant D and the numerator N through degree 12; the adjugate bound deg_z(D F)≤12 makes this an all-coefficient certificate. Independent finite enumeration also matched lengths 0 through 8, including 48, 320 and 2192 at the first three even lengths cited. The full 36-state graph is connected, and closed walks based at the same triple have (length,weight)=(3,1),(4,1). Length gcd 1 gives primitivity, and the unimodularity of these two vectors excludes any nonzero lattice phase on the unit circle away from 0, giving span one. The dominant pole is simple, also in D at u=1, and continues analytically; the amplitude at u=1 is √3 at r=(√3−1)/2. For a separate differentiation check set G(x,t)=D(x exp(−t/2),exp(t)); it is even in t and G_tt(x,0)=x³(2x⁴+4x³−x²−8x−2). At x=r, G_tt/(r G_x)=(7√3−6)/72>0, the second derivative of minus the log pole, while symmetry gives exact mean n/2. The finite-state local limit hence yields amplitude √3/(√(2πσ²)), the stated balanced prefactor, only at eligible even n; quasi-powers yields the CLT. These limit conclusions use the analytic argument, not extrapolation from the finite counts. The supplied script was inspected, not run.
 
-The closest primary work is Chee--Chrisnata--Kiah--Nguyen (2020), which explicitly describes the absence of a balanced irreducible-word recurrence and gives the exponential information rate instead. Their 2018 preprint supplies the unweighted theory, and Yu--Schwartz (2024) studies a different duplication-free coding construction. A semantic comparison against related published mathematical findings did not show an evaluated exact weight enumerator, Gaussian variance, or central balanced prefactor for the specified language. Transfer-matrix machinery itself is standard, and an unnoticed equivalent weighted recurrence remains possible. The previously established exponential rate is not presented as new.
+## originality
 
-## Value — PASS
+PASS
 
-The precise fixed-GC multiplicities quantify the input reservoir available for constant-composition tandem-duplication coding constructions, while the \(n^{-1/2}\) coefficient penalty and exact constant sharpen the known rate statement. This directly addresses an explicitly identified quantitative gap rather than an arbitrary fixed-length census. It does not assert an optimal codebook or biochemical performance.
+The closest prior article treats exactly the same balanced irreducible language and establishes its exponential rate. It explicitly does not provide a balanced counting recurrence. The distinct supported claims are the explicit complete bivariate enumerator and the evaluated variance and sharp balanced subexponential factor, not the growth base or the existence of a transfer matrix.
 
-## Closest literature and limits
+## value
 
-Sources: Chee et al. (2018), https://arxiv.org/abs/1801.02310; Chee et al. (2020), https://doi.org/10.1109/TIT.2020.2981069; Yu and Schwartz (2024), https://arxiv.org/abs/2401.04675. The conclusion is conditional on the exact forbidden-factor model; no exhaustive claim about unpublished or unindexed equivalent transfer formulas is made.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The same balanced word-count problem was explicitly posed in prior counting work, with only the exponential scale evaluated there. The exact bivariate function supplies length-and-weight coefficients and the local limit quantifies the polynomial penalty and its constant at exact balance. Those are useful finite and asymptotic invariants of the established constrained language, not arbitrary sample counts or a repeated rate computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

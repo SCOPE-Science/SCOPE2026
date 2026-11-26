@@ -1,19 +1,21 @@
-# Review of exact bounded-run palindromic defect
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof exhaustively classifies palindromic factors by their one-, three-, or five-run form; its two possible five-run centers are distinguished. The inclusion–exclusion terms account exactly for repeated three-run strings. A three-variable minimum/maximum identity then produces the defect formula for all positive integer run lengths. The six-run additive decomposition follows algebraically; the minimal-word characterization follows by deleting the two endpoint letters and using factoriality of rich words. The bivariate run lengths and ordered unequal middle-run lengths yield the stated generating function. The seven-run boundary word's palindrome set is explicitly listed. Independent direct enumeration checks, detailed in VERIFICATION.md, passed, but finite tests are not an infinite proof.
+PASS
 
-## Originality — PASS, with residual risk
+A palindrome in this binary class crosses an even number of transitions and thus meets one, three, or five runs. The unary counts are the per-bit maxima. For three runs the entire middle run is forced, with the radius bounded by neighboring run lengths; the two possible families of each bit overlap exactly when their middle runs have equal lengths. The five-run family for a given outside bit then exists and restores exactly the positive-part deficit for that bit. Pairing max(x,z) with y gives x+y+z-max(x,y,z)-min(x,y)-min(y,z)=(min(x,z)-y)_+, verifying both formulas. With at most four runs the same counts use only max+min. Independently, in the six-run word every palindrome is in one of the two five-run windows, since it cannot touch both extreme runs of different letters. A palindrome in both inventories but not in their common central window would have to start with two different bits, so inclusion-exclusion and central richness also prove additivity. Only a longest palindromic suffix can be new on extending by one letter, so defect is monotone under extension at either end. Removing one letter at either end of a non-rich five-run word gives richness exactly for a=e=c+1 with b!=d; a non-rich six-run word already contains a non-rich five-run factor. Multiplying the geometric sum over c by the ordered unequal (b,d) series and by two for the initial bit yields the generating function. The seven-run witness has eight nonempty palindromic factors and its immediate proper factors are rich, giving sharpness. The uploaded checker's code and recorded evidence were read, not executed. The independent longest-suffix replay /workspace/branches/replay_frozen.py passed 19530 run profiles, obstruction counts for all binary words with at most six runs through length 12, and the explicit seven-run witness; the classification does not rely on finite extrapolation.
 
-Pelantová–Starosta (2017, https://arxiv.org/abs/1708.06911) ask for minimal non-rich word characterization; their exhibited length-eight example is not claimed here as new. Guo–Shallit–Shur's full 2015 manuscript (https://arxiv.org/abs/1503.09112), linked to their 2016 run-length article, establishes sufficient conditions for richness and growth lower bounds, not the numeric six-run defect, exact local additivity, or bounded-run forbidden-word enumerator. The journal abstract suggests additional qualitative characterization; its final text was unavailable for comparison. Currie–Mol–Rampersad (https://arxiv.org/abs/1908.03169) address repetition thresholds of infinite rich words, not these finite-run defect formulas. Searches of relevant indexed literature and mathematical findings identified no precise equivalent; lack of search hits does not certify global novelty. A stronger uninspected final journal version or unindexed independent classification remains possible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This gives a complete exact infinite-parameter quantitative invariant for a natural finite-complexity class, an additive local decomposition with a sharp first failure, and the entire bounded-run family of minimal obstructions with a rational length generating function. These connect directly to the established question of identifying minimal non-rich words, while not purporting to solve it in all lengths or for arbitrary run counts. The quantitative information is not obtained solely by quoting the known existence of rich-word families.
+The exact five-run formula is shared with the distinct indexed five-run spectrum record. PASS is for the surviving six-run numerical decomposition, complete minimal-obstruction enumeration through six runs, and sharp seven-run failure as a package, not for the shared five-run law, short obstruction example, or factoriality of richness. The inspected prior statements do not supply the six-run inventory interaction or the general bounded-run obstruction list and its sharp boundary.
 
-## Scientific limitations
+## value
 
-Only binary words with at most six runs are covered. Seven-run data is a single sharp boundary example, not a census. The distinct-palindrome enumeration is independent of computed tests. Potential related unpublished or unindexed prior work and differences between available preprint and final journal article remain originality risks.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Beyond the shared five-run calculation, this gives a local-to-global numerical test for the first run count where two candidate defects can coexist. It makes a complete bounded-run forbidden-factor classification possible, and the seven-run witness pinpoints why testing overlapping shorter windows is insufficient without the run-count hypothesis. This is a useful structural boundary, not merely a length-eight example or rewording of the five-run formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

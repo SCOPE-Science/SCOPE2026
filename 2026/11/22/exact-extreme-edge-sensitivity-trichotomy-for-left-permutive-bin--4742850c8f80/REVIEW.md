@@ -1,15 +1,21 @@
-# Review: Extreme-edge sensitivity trichotomy
+# Independent mathematical audit
 
-## Correctness (C) — PASS
-Every one-dimensional radius-one left-permutive binary rule can uniquely be written \(g(a,b,c)=a\oplus h(b,c)\). The rightmost initial bit can reach the observed output in exactly \(t\) steps only along a unique fastest path; its derivative is the product of the local right Boolean derivatives along this path. Successive path-side cells are *independent fair bits*, because each uses a fresh, independent leftmost input with XOR coefficient one. The product law gives all three cases. Counting the 16 truth tables gives the \(4/8/4\) split. The embedded full enumerator verifies 96 exact finite comparisons, along with 80 exhaustive boundary-independence and factorization checks at times 1 through 5, with all-time correctness supplied by the proof.
+## correctness
 
-## Originality (O) — PASS within available evidence
-Chan-López and Martín-Ruiz (arXiv:2604.00165, pp. 12–13), on the *same influence observable*, prove exactly the leftmost-edge influence and show right-side influence only numerically. Their result does not imply the extreme right-edge probability \(2^{-t}\), whose derivation requires a separate boundary-independence lemma. The more general standard notion of left-permutivity and its preimage theory do not by themselves state this trichotomy. Direct searches for the precise formula, geometric influence at the far edge, equivalent Boolean-derivative forms, and published-finding corpus nearest claims did not identify prior coverage. Wolfram's qualitative one-sided-additivity discussion does not contain an all-time rightmost fair-coin influence law. Priority remains provisional: broader classical influence theory may contain an equivalent formula, and the 2025 combinatorial cellular-automata survey could not be read in full.
+PASS
 
-## Value (V) — PASS
-The 2026 source measures a pronounced but merely empirical rightward decay in a canonical nonlinear automaton. Here that decay is exactly \(2^{-t}\) *at the natural fastest-propagation boundary*, with a complete 16-rule structural phase classification distinguishing absent, suppressed and deterministic propagation. This separates geometric reachability from probabilistic influence quantitatively, supplies an exact test for finite-time sensitivity simulations, and applies uniformly to all left-permutive elementary binary rules. The restriction to the outermost ray is substantive and stated explicitly, rather than pretending to classify the full sensitivity profile.
+An influence from t at time 0 reaching 0 at time t has exactly one nearest-neighbor path, moving one step left each update. No other input to a path update can depend on the flipped bit. Thus the output indicator is the product of the local right differences δ at the successive unperturbed center bits. Left-edge permutivity of (F^s X)_i follows by induction: the left input to the last update uniquely contains X_(i−s), once and with XOR coefficient one, and the other inputs exclude it. The center at step s therefore has unique fresh pivot X_(t−1−2s), XORed with a function of bits strictly to its right. Conditional on all nonpivot initial bits used by the centers, the center-word map from pivots is triangular and bijective. Hence the centers are jointly fair, turning the product into 0, 2^(−t), or 1 exactly. Each ordered derivative pair leaves two independent table entries, yielding the 4/8/4 census. Rule 30 corresponds to h(b,c)=b OR c, so its right derivative is nonconstant; leftmost influence is always one. An independent direct iteration using Wolfram rule numbers and full finite cone truth tables checked both edges for all 16 rules at t=1..5.
 
-## Closest literature and limitations
-The nearest source is arXiv:2604.00165, Section 8.2, Proposition 4 and Figure 5. A published-finding corpus finding on Rule 45 concerns geometric sensitivity of a *finite-ring inverse*, not the forward fastest-ray derivative here. Qualitative Rule 30 notes and general CA preimage-surjectivity discussions do not imply the exact all-time probability. A broad 2025 survey remains inaccessible in full; earlier priority is not certified. Fair iid input is essential to the \(2^{-t}\) coefficient, and the interior cone and biased cases remain outside the claim.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Same-observable Monte Carlo profiles and the exact left-edge influence are antecedents; the left edge is explicitly not credited. The inspected statements do not cover the exact rightmost product expectation for Rule 30 or the all-rule derivative census. Distinct Resultary analogues have different observables or dynamics. The decision concerns the exact right-edge claim, not historical priority for qualitative right-side decay.
+
+## value
+
+PASS
+
+The extreme edge is a natural, observable boundary of the empirical Rule 30 sensitivity profile. Its exact all-time formula gives an analytic reference, distinguishes qualitative irrelevance from exponential survival and full transmission, and explains the distinction uniformly across the whole naturally defined left-permutive elementary class. The fresh-pivot argument matters: local marginal fairness on its own would not determine survival along the path.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

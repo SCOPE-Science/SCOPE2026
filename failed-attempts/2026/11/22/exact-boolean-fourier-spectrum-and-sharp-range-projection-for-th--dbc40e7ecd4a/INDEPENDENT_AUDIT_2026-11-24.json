@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:56:35.853447Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independently classified triples by the affine displacement determinant mod 3 and directly summed signs for all 512 characters. The signed histogram is exactly (-72:1,-24:9,-8:126,0:240,8:126,24:9,72:1), giving the stated inertia, singular values, and valuation. Direct character summation over the nonzero frequencies verifies the full pointwise kernel, including all geometric conditions, with unnormalized levels (-48:9,-16:54,0:364,16:72,32:12,272:1). Averaging conjugates of any projection by Boolean translations is contractive at each endpoint and leaves a projection fixing the range; the invariant multiplier is uniquely forced to be the nonzero indicator. The endpoint norm is the absolute kernel sum, attained by a delta and a suitable sign function respectively, giving 3104/512=97/16. The independent Python script independent_affine.py reproduces the spectrum and kernel and checks a separate reconstruction from the prior formulas. No claim outside this fixed geometry is verified.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "1a9938b7ebb8 covers the v=9 signed-multiplier identity and the v=1 mod 8 divisibility branch; only its invertibility assertion is restricted to v=5,7 mod 8.",
+          "Merino et al. identify AG(2,3) with the unique S(2,3,9). Goodall supplies finite-Abelian Fourier analysis."
+        ],
+        "reasoning": "The frozen comparison considered only the two invertible residue classes; its description misses direct coverage by equation (1) with v=9. The same-day projective result supplies a separate reduction without settling same-day priority. The 840-plane cubic incidence-sampling theorem concerns a different operator and is not relied on for coverage.",
+        "searches": [
+          "Resultary: Steiner dyadic nonvanishing and ternary projective signed basis transforms",
+          "arXiv:1203.0090 §3.1; arXiv:0806.4848 §§4.1–4.2, 4.4"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 1a9938b7ebb8",
+        "Resultary 1384cdd85f59",
+        "Resultary d0a3a4bcf83f",
+        "Resultary 9b7d5d07cce1",
+        "arXiv:1203.0090",
+        "arXiv:0806.4848"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The older indexed identity gives each affine character value from k and the contained line count. The older projection argument shows the minimum endpoint norm is the l1 norm of the inverse Walsh transform of the nonzero-frequency indicator; the proof after averaging uses only the Boolean translation action, not the derangement kernel.",
+          "An independent reconstruction applying precisely that cutoff and nine Walsh butterfly stages to the specialized older identity gives the entire claimed affine kernel and numerator 3104."
+        ],
+        "reasoning": "These published formulas and the known affine line geometry suffice by direct substitution and a fixed finite Fourier transform, with no appeal to any new bound, geometric kernel lemma, or optimization principle from the frozen record. This is a demonstrated implication, not a conclusion drawn from search scores.",
+        "searches": [
+          "Resultary 1a9938b7ebb8 equation (1) and d0a3a4bcf83f Proof §3, support inversion and minimum over all projections"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "1a9938b7ebb8, Proof equation (1), gives the characterwise signed sum for the non-block triples of every Steiner triple system. In AG(2,3) this base family is exactly the noncollinear triples.",
+          "1384cdd85f59, Proof (1)–(2), gives a complete indexed projective multiplier; deleting the line at infinity corresponds to averaging the signed projective multipliers over the sixteen frequency extensions."
+        ],
+        "reasoning": "The older Steiner identity specializes to 72-48k+24 C(k,2)-8(C(k,3)-ell(S)), k=|S|, identically the stated affine formula, not just a histogram. Projective deletion also gives it: averaging eliminates projective bases containing any deleted point. It is essential to average signed multipliers before taking the nonzero cutoff.",
+        "searches": [
+          "Resultary: AG(2,3) signed basis multipliers, Steiner non-block triples, Walsh projection 97/16",
+          "Resultary: 1a9938b7ebb8 and 1384cdd85f59"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Steiner result explicitly prints rank 272 and 240 zeros for the order-nine system, including the two-point zero example.",
+          "The five-point derangement projection record evaluates 6999/512 for its own distinct range. Its table is not the affine table."
+        ],
+        "reasoning": "The nine-point rank/nullity is already explicit. No checked source prints the affine endpoint number, but the older indexed identity provides all entries needed for a standard exact transform; absence of the printed value does not rescue this finite recomputation.",
+        "searches": [
+          "Resultary 1a9938b7ebb8, order-nine verification example",
+          "Resultary: sharp endpoint projection, exact support kernel; d0a3a4bcf83f"
+        ]
+      },
+      "rationale": "The earlier Steiner-basis record supplies the identical indexed pointwise multiplier by specialization and explicitly gives rank 272 and 240 zeros at order nine. The remaining exact kernel and numerical endpoint norm are the routine Walsh transform of that already determined support and its absolute sum, under the already published translation-averaging projection argument. Replaying that implication from the older formulas (without the frozen record's kernel formula or table) reproduces all 512 coefficients and the absolute numerator 3104. No evidence that 97/16 was printed earlier is asserted or required for this conclusion about mechanical implication.",
+      "residual_risks": [
+        "An earlier printed 97/16 or an earlier pointwise kernel table may exist; none is claimed here. Same-day projective priority is unresolved and not needed for the verdict."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Earlier coverage of the indexed affine spectrum and explicit rank and nullity",
+          "evidence": [
+            "N=v(v-1)(v-3)/6, d_i=(v-1)(v-3)/2, c_ij=v-3; equation (1) gives the signed multiplier at any S; order nine has 240 zeros."
+          ],
+          "identifier_or_url": "1a9938b7ebb8",
+          "material_read": "Finding, assumptions, Proof equation (1), order-nine verification example",
+          "method": "Resultary RESULT.md source passages",
+          "title": "Uniform dyadic nonvanishing for the Walsh transform of Steiner matroid bases",
+          "trigger": "Identical Steiner non-block convolution"
+        },
+        {
+          "assessment": "Same-day mathematical implication for signed affine multipliers; sequence of publication unresolved",
+          "evidence": [
+            "The projective formula is 234-108|S|+36 C(|S|,2)-8 b_P(S). All projective multipliers survive, so restricting its projector instead of restricting its basis convolution gives the wrong operator."
+          ],
+          "identifier_or_url": "1384cdd85f59",
+          "material_read": "RESULT.md Proof (1)–(2)",
+          "method": "Resultary source passages",
+          "title": "Complete Walsh spectrum and sharp recovery for ternary projective bases",
+          "trigger": "Containing plane and deletion"
+        },
+        {
+          "assessment": "Proves an argument independent of the particular kernel; its tabulated numerical case is different",
+          "evidence": [
+            "Average arbitrary projection conjugates, identify the support multiplier, and take the absolute inverse-Walsh kernel sum."
+          ],
+          "identifier_or_url": "d0a3a4bcf83f",
+          "material_read": "RESULT.md Finding and Proof §3, source offset 4100 and following",
+          "method": "Resultary source passages",
+          "title": "The sharp endpoint projection norm onto the five-point derangement range",
+          "trigger": "Support projector and unrestricted endpoint minimum"
+        },
+        {
+          "assessment": "Different operator",
+          "evidence": [
+            "840 labelled planes and 84 triple-indexed observations, rather than functions on 512 Boolean vectors."
+          ],
+          "identifier_or_url": "9b7d5d07cce1",
+          "material_read": "Finding and assumptions",
+          "method": "Resultary source passages",
+          "title": "Cubic Walsh recovery and the exact incidence sampling spectrum of labelled affine planes",
+          "trigger": "Same small affine plane advertised as a sampling problem"
+        },
+        {
+          "assessment": "Establishes the object and Tutte count, not the support projector",
+          "evidence": [
+            "AG(2,3) has the twelve circuit hyperplanes of the unique Steiner system of order nine."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1203.0090",
+          "material_read": "§3.1 p. 22",
+          "method": "Open primary PDF passage",
+          "title": "The Tutte polynomial of some matroids",
+          "trigger": "Catalogue of the identical matroid"
+        },
+        {
+          "assessment": "General Fourier tools rather than an evaluated affine matroid projector",
+          "evidence": [
+            "Finite-Abelian Fourier formulas and graph weight-enumerator applications."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0806.4848",
+          "material_read": "§§4.1–4.2 pp. 6–7, §4.4 p. 10",
+          "method": "Open primary PDF passages",
+          "title": "Graph polynomials and Tutte-Grothendieck invariants",
+          "trigger": "Fourier invariant context"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The recoverable range and its endpoint projection cost are naturally motivated. However, the claimed finite advance over the earlier affine instance is the evaluated support transform of an already determined nine-point signed spectrum, using the standard extremality argument. The geometric labels organize the resulting table but do not supply a separate structural result beyond this fixed exact recomputation. No independently valuable surviving mathematical claim was identified for repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

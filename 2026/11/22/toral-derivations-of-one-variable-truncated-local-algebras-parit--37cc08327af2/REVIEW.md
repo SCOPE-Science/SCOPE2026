@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Every derivation is determined by a polynomial \(f=D(t)\). The Leibniz relation on \(t^N\) and the identity \(D^2=D\) reduce to the exact coefficient conditions in the proof. Outside characteristic two the identity forces \(f^2=0\) and valuation rules out nonzero \(f\); in characteristic two it forces \(f'=1\) for every nonzero solution. The rank and conjugation arguments use explicit independent monomial images and a valid change of uniformizer. Exhaustive original-identity tests support the reasoning for 16 small cases, without substituting for the general proof.
+## correctness
 
-**Originality — PASS relative to inspected sources.** The 2023 free quasi-idempotent differential–Rota–Baxter work uses a weighted differential identity and a characteristic-zero convention, so it does not entail this modular ordinary-derivation classification. General Hasse–Schmidt integration results and restricted Witt-algebra geometry are compared; related exact finite-field counts for square-zero derivations solve the distinct equation \(D^2=0\). A published null-filiform Leibniz toral-derivation census concerns a different multiplication. The exact normal forms, parity-dependent maximal-ideal preservation, and complete labeled finite-field count were not found in the inspected material. Broader historical coverage and general restricted-Witt results remain publication-priority risks.
+PASS
 
-**Value — PASS.** Composition-idempotent derivations are toral elements of restricted derivation Lie algebras. The theorem provides a uniform, natural, complete classification on all one-variable finite jets, an exact parity-stable rank count, and a sharp intrinsic transition: even lengths admit toral derivations not preserving the maximal ideal while odd lengths forbid them. These features are specific structural information about modular local-algebra symmetries, not a small-case numerical exercise.
+Every derivation is determined by f=D(t), with N t^(N−1)f=0. Outside characteristic two, the second Leibniz identity and idempotence force 2f²=0, so any nonzero f has valuation at least 2, in contradiction with ff'=f. In characteristic two, D² is a derivation; the same valuation estimate excludes f of valuation at least 2. A unit f forces f'=1, and for valuation 1 the annihilator is (t^(N−1)), which forces f'=1 because the derivative has degree at most N−2. This yields exactly the stated coefficient affine space in each parity. The same argument over residue fields of primes of the coefficient ring identifies the reduced locus, not only its k-points. The h images of the odd powers are independent by their distinct lowest degrees. With a=f(0) the coordinate s=f−a has linear coefficient 1 and D(s)=s+a; rescaling when a≠0 gives the second normal form. This second class can occur only at even length and is distinguished by failure to preserve the maximal ideal. Counting parameters gives the enumerator and orbit sizes. Independently enumerating all coordinate substitutions over F2 and F4 at N=3,4,5,6 confirmed the nonzero orbit sizes (for example, 16 and 48 over F4 at N=6).
 
-The finding does not address the unreduced solution scheme, and the exact novelty claim is limited to the sources examined.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The inspected sources contain close toral normal forms and related enumerators, but do not establish the arbitrary-length, ordinary composition-idempotent classification with its parity-dependent automorphism orbits. Search evidence does not establish priority.
+
+## value
+
+PASS
+
+The composition-idempotent condition distinguishes the characteristic-two ordinary toral case from all other characteristics. The result classifies these operators as derivations of the algebra rather than just as projections on its underlying vector space. In particular the two even-length nonzero classes have the same rank but differ by how they act on the maximal ideal, a distinction invisible to the rank enumerator alone. This is a complete classification for the natural arbitrary-length family; no value is claimed for coefficient counting by itself.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

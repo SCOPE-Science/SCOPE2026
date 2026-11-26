@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:38:29.077348Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, lines 4–31 and 33–83",
+        "VERIFICATION.md and verify.py, inspected only; the review uses the analytic identities, not the numerical optimization"
+      ],
+      "rationale": "With a=e^(λ(u−1)), the differential of the fitted mean product gives ψ(X)=(X−λu)u^X−ua(X−λ). For H=(X−λu)u^X, the Poisson generating function gives E H=0, E[XH]=λua and E[H²]=λu²(1+λ(1−u)²)e^(λ(u²−1)). Subtracting the projection on X gives the stated strictly positive variance on 0<u<1. For the mean-preserving ZIP mixture the exact residual is λuω[e^(λ(u−1)/(1−ω))−1]; a triangular-array CLT with uniformly bounded moments near ω=0, the fitted-mean differential and Slutsky give the negative Gaussian shift. Contiguity also holds: if r_μ is the Poi(μ)/Poi(λ) likelihood ratio then E_λ[(r_μ−1)²]=expm1((μ−λ)²/λ); the structural-zero ratio has finite squared moment, so the mixture has one-observation χ² distance O(ω²), and the product likelihood ratios have bounded second moments for ω=h/√n. The reverse bound follows from the mixture ratio being bounded below by (1−ω)e^(−(μ−λ)) near zero. The statistic's exceptional zero-denominator event vanishes. For the optimization I checked the sign factor G: it equals λ²t³+O_λ(t⁴) near t=0, and G(1)=(1+λ)e^(−λ)−1<0. The uniform small-mean expansion follows by extending the two analytic quotients (e^x−1)/x and [(1+y)e^y−1]/(2y) at zero, giving first correction t−3t²/4 and optimum 2/3. For large λ, the bounds on [0,1/3] and [1/3,1−δ] are o(e^λ) whereas F(1)∼e^λ, so every maximizing t tends to 1. At an interior stationary point the exact equation gives λt²(1−t)=2t−1+o(1), hence λ(1−t)→1. In F the exponential is e^(λ−λ(1−t)²), and the prefactor is asymptotic to 1 at such t. These steps give both maximal values and do not suppose uniqueness.",
+      "residual_risks": [
+        "The sample-size limit is taken at fixed λ and u; the endpoint optimization does not establish a joint sample-size/intensity limit or uniqueness at finite λ."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Frozen AUDIT.json lines 76–119 report a general alternative-power method and a broader grid covariance construction. Exact independent access attempts did not retrieve these passages. The mathematical reduction from a fitted influence function and ZIP mean differential to the standardized shift can be made directly."
+        ],
+        "reasoning": "General influence-function or grid covariance formulas supply the ingredients for the envelope but do not by themselves locate or scale the maxima as λ varies. Credit the framework and do not use its specialization as the principal originality claim.",
+        "searches": [
+          "Weiß–Puig–Aleksandrov, DOI 10.1002/bimj.202200073, reported Theorem 1 and Sections 2–3",
+          "Weiß–Nik, DOI 10.1080/00949655.2025.2604785"
+        ]
+      },
+      "checked_sources": [
+        "Resultary records 1faa7f7adc80 and 5730903ab8bc",
+        "Frozen RESULT.md and AUDIT.json",
+        "Exact OA attempts for DOIs 10.1002/bimj.202200073, 10.1111/stan.12252, 10.1016/0167-7152(92)90033-2, 10.1080/00949655.2025.2604785"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At small intensity the maximizer is selected by a first-order uniform correction to a constant normalized leading objective; at large intensity it is selected by the stationary equation after exponentially separating the objective from t=1−δ. The two indexed null findings neither optimize weights nor study local ZIP power."
+        ],
+        "reasoning": "The general Gaussian local-power formula mechanically reduces optimization to the squared shift. It does not imply the uniform first-order expansion or the boundary scale without an additional argument. No inspected prior result supplied that optimization or a covering theorem, although an earlier treatment of the same statistic could contain one.",
+        "searches": [
+          "RESULT.md, lines 63–89; AUDIT.json, lines 76–119",
+          "Resultary 1faa7f7adc80 and 5730903ab8bc, RESULT.md findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The fitted difference equals u times the empirical-pgf derivative discrepancy φ_n′(u)−X̄φ_n(u). A fitted Stein ratio minus one differs from the same residual by a denominator converging to a positive constant for fixed λ,u; their standardized fixed-parameter local limits are not different innovations. Resultary's high-intensity reciprocal-Poisson result instead changes λ with sample size under the null."
+        ],
+        "reasoning": "Equivalent fitted ratio/difference or single-pgf-grid statistics do not remove prior overlap in the statistic. An integrated pgf discrepancy does not in itself optimize a single evaluation point; moving-intensity null limits cannot be substituted for the iterated local-power optimization.",
+        "searches": [
+          "Resultary: exponentially weighted Stein–Chen Poisson test, mean-preserving contiguous ZIP and endpoint-optimal weight",
+          "DOI 10.1002/bimj.202200073; DOI 10.1016/0167-7152(92)90033-2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The ranked search surfaced records 1faa7f7adc80 and 5730903ab8bc (null calibrations). The frozen audit gives locators to numerical tuning at finite means in the closest published paper, §§2–3, Tables 2–3 and Example 1, but those tables were not independently retrieved."
+        ],
+        "reasoning": "A finite optimal-weight table under a fixed alternative would not certify optimization over all real means or either limiting scale; no exact two-limit match was recovered. Search ranking and inaccessible tables do not decide priority.",
+        "searches": [
+          "Resultary: local exponential Poisson Stein ZIP optimization, weight limits u→1/3 and λu→1",
+          "Primary literature search for the optimal Stein-type count-data tests paper and exponential-weight ZIP tuning"
+        ]
+      },
+      "rationale": "The supported distinction is the rigorous optimization theorem for the specified local experiment, especially the two endpoint scales and optimal values. The fitted exponential Stein statistic, delta-method machinery and weight tuning are prior; the ZIP noncentrality formula is a model-specific substitution and simplification, not a separate novelty basis. No known matching endpoint theorem was established by the inspected statements. The primary article most likely to contain one could not be independently read in full; the decision is not a whole-paper noncoverage claim.",
+      "residual_risks": [
+        "The closest primary paper and older pgf work were not independently accessible in full. Their absence from available evidence is not evidence that they omit an equivalent endpoint or stronger optimization result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Closest unresolved primary comparison. General method and numerical tuning are credited; no independent whole-document conclusion.",
+          "evidence": [
+            "The frozen audit identifies equations (3), (11), (14), Theorem 1 and Example 1 as the relevant comparisons; not independently confirmed passages."
+          ],
+          "identifier_or_url": "https://onlinelibrary.wiley.com/doi/full/10.1002/bimj.202200073",
+          "material_read": "Literature-search bibliographic listing; frozen AUDIT.json lines 76–86. Sections 2–3 and Tables 2–3 not independently read.",
+          "method": "Primary literature lookup and direct/VPN OA retrieval; both full text requests returned 403; no lawful alternate identified.",
+          "title": "Optimal Stein-type goodness-of-fit tests for count data",
+          "trigger": "Exact exponential statistic, ZIP alternative and numerical weight optimization in the frozen comparisons"
+        },
+        {
+          "assessment": "The frozen description concerns a fixed weight rather than an asymptotic optimization; access limits prevent a broader exclusion.",
+          "evidence": [
+            "Table 3 cited in the frozen evidence for a fixed exp(−x) weight at means 2 and 5."
+          ],
+          "identifier_or_url": "DOI:10.1111/stan.12252",
+          "material_read": "Frozen AUDIT.json lines 88–97; no primary passage independently retrieved.",
+          "method": "OA direct/VPN returned 403; no repository copy identified.",
+          "title": "Goodness-of-fit tests for Poisson count time series based on the Stein–Chen identity",
+          "trigger": "Earlier exponential weight and ZIP local-power comparisons"
+        },
+        {
+          "assessment": "Integrated discrepancy is relevant to the statistic's origins; no independently retrieved one-point optimum.",
+          "evidence": [
+            "Frozen evidence attributes an integrated L² discrepancy, not a single evaluation-point optimizer."
+          ],
+          "identifier_or_url": "DOI:10.1016/0167-7152(92)90033-2",
+          "material_read": "Frozen AUDIT.json lines 99–108; no primary proof passage retrieved.",
+          "method": "OA DOI lookup exposed only a linking page; no repository copy identified.",
+          "title": "A goodness of fit test for the Poisson distribution based on the empirical generating function",
+          "trigger": "Earlier empirical-pgf discrepancy, potentially equivalent after reformulation"
+        },
+        {
+          "assessment": "Grid covariance is relevant prior machinery; no primary access to decide broader coverage.",
+          "evidence": [
+            "Frozen audit describes fixed-grid pgf statistics and null asymptotics."
+          ],
+          "identifier_or_url": "DOI:10.1080/00949655.2025.2604785",
+          "material_read": "Frozen AUDIT.json lines 110–119; primary passage not independently retrieved.",
+          "method": "OA direct/VPN returned 403; no repository copy identified.",
+          "title": "Computationally efficient pgf-based goodness-of-fit tests for Poisson counts and beyond",
+          "trigger": "Grid generalization could cover a single-point null variance"
+        },
+        {
+          "assessment": "A high-intensity triangular-array null theorem, not the claimed local experiment or optimizer.",
+          "evidence": [
+            "Reciprocal-Poisson limit for the ratio-form statistic under the null."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-reciprocal-poisson-breakdown-of-gaussian-calibration-for-an-expo--1faa7f7adc80",
+          "material_read": "RESULT.md, Finding",
+          "method": "Resultary and local mirror",
+          "title": "Reciprocal-Poisson breakdown of Gaussian calibration for an exponential Stein test",
+          "trigger": "Same exponential Stein family at high intensity"
+        },
+        {
+          "assessment": "Null limits with mean and sample size moving together, not the iterated local-power comparison.",
+          "evidence": [
+            "Gaussian calibration and non-Gaussian limits organized by nλ_n²."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-sparse-poisson-rank-one-calibration-for-exponential-stein-chen-g--5730903ab8bc",
+          "material_read": "RESULT.md, Finding",
+          "method": "Resultary and local mirror",
+          "title": "Sparse Poisson rank-one calibration for exponential Stein–Chen goodness-of-fit",
+          "trigger": "Same fitted difference statistic as Poisson mean vanishes"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, Finding and Proof §§3–5"
+      ],
+      "rationale": "Weight tuning for an existing goodness-of-fit test is a natural optimization problem. The two limiting choices—a nonzero constant at very small means and inverse mean at very large means—give mathematically and practically different prescriptions and quantify the maximum achievable local noncentrality within the test family. The first-order tie breaking and large-mean stationary balance are the contribution, not reuse of the statistic.",
+      "residual_risks": [
+        "No inference about finite-sample, unrestricted, or joint-limit power follows."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

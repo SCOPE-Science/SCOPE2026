@@ -1,19 +1,21 @@
-# Scientific review: Sharp Haar endpoint tail for the Minkowski sum of two cubes
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For arbitrary \(R\in SO(3)\), the six-generator zonotope determinant calculation yields exactly \(V=16(1+L)\). The sign/polar argument proves the global maximum \(L=5\), counts \(96\) distinct proper-rotation maximizers, and yields the common quadratic deficit \(24(\omega_1^2+\omega_2^2)+32\omega_3^2\). The normalized Haar local density \(1/(8\pi^2)\) and compactness prove the exact probability prefactor. Tail integration proves the large-real-\(k\) moment prefactor. The packaged exact rational enumeration confirms \(192\) full-rank sign matrices and \(96\) proper maximizers; the 250 floating-point minor checks had maximum absolute volume discrepancy below \(2.85	imes10^{-14}\). These finite tests do not prove either limiting theorem on their own.
+PASS
 
-## Originality — PASS (qualified)
+The 20 zonotope minors split into two determinants of modulus 1 and two copies of the sum of absolute rotation entries (cofactor identity), giving V=16(1+L). Each Haar entry has mean absolute value 1/2, and the row unit norms give L>=3, with equality for signed permutations. For the maximum, repeated sign row lines give nuclear norm <=sqrt(18)<5. Normalize the first entry of each remaining sign row to +1: three distinct corners of the resulting square have one diagonal pair, so the product of the three off-diagonal Gram signs is negative. Their Gram matrix is 4I-tt^T, with singular values of the sign matrix 2,2,1. After multiplying rows by t and making the first row all positive by column signs, the other two rows each have a sole plus in different columns. Thus the column sums are ±1 and the polar formula preserves all signs strictly. Distinct sign patterns give distinct polar maximizers; there are 4*3*2*2^3=192, paired across determinant signs by reflecting one row. As a normalization cross-check, in local unit-quaternion coordinates (sqrt(1-|b|^2),b) relative to any proper maximizer, the trace against its positive polar factor gives the exact local deficit 96-V=96(b1^2+b2^2)+128b3^2. The double cover of normalized SO(3) gives density (1-|b|^2)^(-1/2)/pi^2 here. Summing the 96 local ellipsoid volumes at this density gives 1/(6 sqrt(2) pi); away from the maxima compactness gives a strict endpoint gap. The L-deficit rescales by 16. Tail integration against k t^(k-1), or the localized beta integral, multiplies its coefficient by Gamma(5/2)*5^(3/2), giving 20 sqrt(10/pi) for the stated real-k moment asymptotic.
 
-Banica, Collins and Schlenker, *On orthogonal matrices maximizing the 1-norm* (arXiv:0901.2923v1, full preprint inspected), already proved the three-dimensional extremal norm \(5\) and developed local optimization methods. Those results are explicitly attributed. Lien, *Minkowski Sums of Rotating Convex Polyhedra* (SCG 2008, complete two-page paper inspected), addresses rotating-sum construction algorithms. General zonotope determinant formulas are standard. None of these inspected materials provides the claimed **sharp normalized Haar upper-volume probability prefactor** or its exact large-moment consequence. The closest located published findings concern single-body cube projections/sections or cube–crosspolytope volume products and do not imply this two-body Haar tail. Residual priority risk: an unlocated equivalent asymptotic may exist; the full Gover–Krikorian zonotope paper was not inspected.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The upper endpoint of a random orientation-dependent volume is a geometric extreme-event invariant. Its precise \(arepsilon^{3/2}\) coefficient depends on optimizer multiplicity, curvature and Haar density, rather than the already-known maximum alone. It solves a concrete three-dimensional, large-exponent asymptotic motivated explicitly in Banica and coauthors' 2009 treatment, with no arbitrary finite parameter slicing.
+The supported distinct finding is the sharp normalized-Haar upper-endpoint coefficient and its equivalent high-moment prefactor. The earlier entrywise-norm maximization already gives L_max=5 and hence the endpoint 96; the equality forms may also encode the optimizer count. Priority for that count is not needed or inferred.
 
-## Sources and limitations
+## value
 
-Primary inspected full texts: Banica–Collins–Schlenker, arXiv:0901.2923v1; Lien, DOI `10.1145/1377676.1377716`. Gover–Krikorian (2010) was checked at bibliography/abstract level only. The result does not provide the complete volume distribution, a general-polytope law, or a higher-dimensional asymptotic. Historical priority needs independent verification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The coefficient answers a concrete probability question about two randomly oriented cubes, not merely which orientations maximize the volume. It also answers the equivalent 3x3 case of the high-moment problem explicitly motivated in the primary matrix-norm literature. The exact weights of the maximizing configurations are needed; the known endpoint alone does not locate rare-event probability at leading order.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

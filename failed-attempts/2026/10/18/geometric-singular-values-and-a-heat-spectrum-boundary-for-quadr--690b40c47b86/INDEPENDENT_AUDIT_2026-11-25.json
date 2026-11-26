@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:57:43.522849Z",
+  "axes": {
+    "correctness": {
+      "rationale": "After unitary rotations assume positive real rho and nonnegative beta. The weighted change of variables proves boundedness at beta≤c; testing coherent states on the equality ray in the would-be Gaussian exponent proves unboundedness for c<beta<1, and the constant polynomial is not sent into Fock space for beta≥1. An independent check uses the real Segal–Bargmann transform on A=T*T. Write u=rho², D=1−beta+u, E=1+beta−u, delta=(c−beta)/D, kappa=(1+beta+u)/E. Gaussian integration gives the real kernel (pi D E)^(-1/2) exp[−delta ((s+t)/2)²−kappa(s−t)²/4]. Its Weyl symbol is C exp[−delta x²−xi²/kappa] with C=2/sqrt((1+u)²−beta²). In the strict region, unitary dilation gives symbol C exp[−tau(x²+xi²)] for tau=sqrt(delta/kappa) in (0,1), whose Hermite eigenvalues are C/(1+tau) times ((1−tau)/(1+tau))^n. The ratio is the smaller quadratic root r in the finding and C/(1+tau)=sqrt(r)/rho. At beta=c, delta=0, kappa=1/c, C=1/rho; Fourier transform gives exactly the claimed heat multiplier for A and its square root gives the modulus. The multiplier has two monotone branches, each smooth with nonzero derivative away from zero frequency; every spectral measure is absolutely continuous, and all neighborhoods below the norm endpoint have infinite-dimensional spectral subspaces. This gives the approximation numbers and noncompactness. Since 1−r is asymptotic to sqrt(2c epsilon)/rho, the Schatten coefficient is also correct. Frozen finite checks were inspected, not run, and are unnecessary for the completeness or continuous-spectrum arguments.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Under multiplication by exp(bz²/2), Johnson's criterion becomes nonpositivity or negative definiteness of Re(bz²)−c|z|².",
+          "Barik–Sen–Paul's boundedness and compactness profile is exp(Re(bz²)−c|z|²); their Hilbert–Schmidt criterion has the same strict boundary.",
+          "Dereziński–Karczmarczyk give the exact Weyl quantization of exp(−tau(x²+p²)) for 0<tau<1. Weedbrook et al. give the related normalized thermal sequence."
+        ],
+        "reasoning": "The general weighted Fock results give the cutoff but not the exact spectral sequence. Exact Weyl quantization, with the explicit unnormalized symbol, determines that sequence rather than merely bounding it or predicting its shape.",
+        "searches": [
+          "arXiv:2403.13227v2, Theorems 1–2",
+          "arXiv:2607.17170v1, Theorems 1.1–1.4",
+          "arXiv:1701.07297v2, equations (1.1)–(1.3)",
+          "arXiv:1110.3234, equations (27), (44)–(48)"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1701.07297v2",
+        "arXiv:2403.13227v2",
+        "arXiv:2607.17170v1",
+        "arXiv:1110.3234",
+        "SCOPE-gaussian-spectral-multiplicity-and-a-phase-sensitive-spectral-ra--4bdcee8b110a",
+        "SCOPE-a-compact-non-hilbert-schmidt-weighted-composition-operator-on-t--c96f19618671"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For one mode the Weyl identity is (1−tau²)^(−1/2) exp[−(1/2) log((1+tau)/(1−tau)) H], with H spectrum 2n+1. Here tau²=((1−rho²)²−beta²)/((1+rho²)²−beta²) and C=2/sqrt((1+rho²)²−beta²)."
+        ],
+        "reasoning": "Put U=(1+rho²)²−beta² and V=(1−rho²)²−beta². The eigenvalue ratio (sqrt(U)−sqrt(V))/(sqrt(U)+sqrt(V)) equals (Q−Delta)/(2rho²), by U−V=4rho². The prefactor C/(1+tau) equals sqrt(r)/rho, since (sqrt(U)+sqrt(V))² r=4rho². Taking roots, summing powers, and expanding at V=0 then entail the remaining formulas without a new spectral theorem.",
+        "searches": [
+          "Dereziński–Karczmarczyk, arXiv:1701.07297v2, p. 2, (1.2)",
+          "Johnson arXiv:2403.13227v2, equations (1.7)–(1.12)",
+          "SCOPE-gaussian-spectral-multiplicity-and-a-phase-sensitive-spectral-ra--4bdcee8b110a, proof §2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The distinct indexed finding treats Wf=exp(t z²)f(az), 2|t|=1−|a|², and gives W*W as multiplication by q^(−1/2) exp(−(1−q)x²), q=|a|²; it also gives spectral multiplicity two and the exact essential norm."
+        ],
+        "reasoning": "Substituting t=b/2, q=rho² and taking the positive square root gives exactly the frozen critical heat modulus. Multiplicity two is stronger than needed. Equality of all approximation numbers follows from the exact essential norm and norm.",
+        "searches": [
+          "Resultary: critical absolutely continuous spectrum of quadratic Fock weighted composition; exact geometric singular values for quadratic-weighted dilation (two focused lookups)",
+          "SCOPE-gaussian-spectral-multiplicity-and-a-phase-sensitive-spectral-ra--4bdcee8b110a, Finding and proof §2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed boundary finding covers the exact continuum multiplier, not just numerical norm values. The related same-day compact non-Hilbert–Schmidt example has an additional integral weight g_gamma and does not give the pure compact spectrum."
+        ],
+        "reasoning": "The target is an exact continuum-parameter formula, not a finite tabulation. No separate exact indexed strict-region sequence was verified; the older oscillator identity supplies its broader implication.",
+        "searches": [
+          "Resultary: quadratic Gaussian Fock composition singular spectra and Schatten boundary transitions",
+          "SCOPE-gaussian-spectral-multiplicity-and-a-phase-sensitive-spectral-ra--4bdcee8b110a",
+          "SCOPE-a-compact-non-hilbert-schmidt-weighted-composition-operator-on-t--c96f19618671"
+        ]
+      },
+      "rationale": "The critical modulus and norm endpoint are exactly covered by a distinct indexed result. The compact formula, including its explicit ratio and prefactor, follows by the elementary Weyl-symbol conversion and dilation in the correctness check and the old exact Gaussian quantization formula. The remaining Schatten claims are a geometric sum and its expansion. This is a statement-and-implication comparison; directory dates do not establish priority for the equivalent critical result.",
+      "residual_risks": [
+        "The indexed critical comparison establishes equivalent coverage, not publication priority or provenance.",
+        "No claim is made that the exact compact formula in these Fock parameters was explicitly printed in the oscillator or weighted Fock sources."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact strict-region spectrum by elementary reduction",
+          "evidence": "Equation (1.2) gives the thermal oscillator operator, including its scalar prefactor, for 0<tau<1.",
+          "identifier_or_url": "https://arxiv.org/pdf/1701.07297v2",
+          "material_read": "PDF p. 2, equations (1.1)–(1.3), text offsets 3540–6002",
+          "method": "OA primary PDF passage",
+          "title": "Quantization of Gaussians",
+          "trigger": "Exact spectrum of positive centered Gaussian Weyl operators"
+        },
+        {
+          "assessment": "Exact equivalent critical operator, stronger multiplicity statement",
+          "evidence": "W*W is a Gaussian multiplication operator at 2|t|=1−|a|².",
+          "identifier_or_url": "2026/11/1/SCOPE-gaussian-spectral-multiplicity-and-a-phase-sensitive-spectral-ra--4bdcee8b110a",
+          "material_read": "Local-mirror RESULT.md, Finding and proof §2",
+          "method": "Local mirror passage inspection",
+          "title": "Gaussian spectral multiplicity and a phase-sensitive spectral radius",
+          "trigger": "Exact critical Gaussian weighted dilation"
+        },
+        {
+          "assessment": "Qualitative cutoff and exponential upper bound; exact root not in these statements",
+          "evidence": "The quadratic comparison of the input weight at az with the output weight gives the boundedness and compactness tests.",
+          "identifier_or_url": "https://arxiv.org/html/2403.13227v2",
+          "material_read": "§1, Theorems 1–2, equations (1.7)–(1.12), HTML offsets about 3900–11000",
+          "method": "OA primary text passage",
+          "title": "Pullback operators on Bargmann spaces",
+          "trigger": "Quadratic weight is a gauge change of the pullback"
+        },
+        {
+          "assessment": "Boundedness, compactness and Hilbert–Schmidt cutoff follow; essential norm up to comparability in inspected statement",
+          "evidence": "The profile for psi(z)=exp(bz²/2) and phi(z)=az has exponent Re(bz²)−c|z|².",
+          "identifier_or_url": "https://arxiv.org/pdf/2607.17170v1",
+          "material_read": "Full PDF available; inspected pp. 3–4, Theorems 1.1–1.4, offsets about 12000–14400",
+          "method": "OA primary PDF passage",
+          "title": "Weighted composition operators on weighted Fock spaces",
+          "trigger": "Same general weighted-composition class"
+        },
+        {
+          "assessment": "Normalized Gaussian spectrum; not itself the critical claim",
+          "evidence": "Thermal eigenvalues are (1−r)r^n when the mean occupation is r/(1−r).",
+          "identifier_or_url": "https://arxiv.org/pdf/1110.3234",
+          "material_read": "§II.B.1, eq. (27), and §II.C.1, eqs. (44)–(48), PDF pp. 6–9",
+          "method": "OA primary PDF passages",
+          "title": "Gaussian quantum information",
+          "trigger": "One-mode thermal normal form"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The singular-spectrum transition is a natural problem, but the submission combines a direct Gaussian normal-form specialization with a fully overlapping critical result. Neither the Schatten geometric sum nor its elementary prefactor expansion is a separate unknown exact invariant. No standalone surviving result requiring a repair was established.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

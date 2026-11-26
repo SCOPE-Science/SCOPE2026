@@ -1,0 +1,167 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:29:52.820091Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 32–99, VERIFICATION.md and verify.py (inspected only)",
+        "Independent replay: python3 /workspace/branches/independent_checks.py minimum_absent; output /workspace/branches/parent-minimum_absent.txt"
+      ],
+      "rationale": "With the fixed binary alphabet, the complete arches host any target of length K, one bit per arch. The sequence of arch-final letters followed by a letter missing from the remainder greedily matches the arch ends and then fails, proving that the shortest absent length is K+1, including empty and unary inputs. Conditional on the source, an independent fair target fails at that length with probability s(w)/2^(K+1). The three states track whether an arch is fresh and whether its pending bit equals its first seen bit; the only decrement of matched-prefix surplus K subtracted from J is a return from M to F that completes an arch without matching. Every entrance to or continuation in M first raises the surplus, so no positive increment survives in a zero-surplus terminal path except the immediately cancelled F-to-M-to-F excursion. The four resulting weighted edges yield f=1+zg/2+z²f/4 and g=1+zg/2+zf, and the totals have OGF 2f(2z). The three roots lie in (-1.482,-1.481), (0.311,0.312), (2.170,2.171), certified by rational endpoint signs for the cubic. The dominant residue is -2/(z0 D'(z0)) for z0=1/rho, yielding the stated C and divided-by-2 remainder bound. Independent finite subsequence sets reproduced all totals through n=11; formal expansion reproduced all sixteen listed totals. This is not an assertion that a typical source has exponentially many such targets.",
+      "residual_risks": [
+        "Uniform fair source, fixed two-letter ambient alphabet; the bounded check is supplementary to the proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Per-word arch characterizations and fixed-k missing-factor classes do not supply the source-length weighted sum as stated.",
+          "e77c4e8d9f37 gives unweighted universality-index counts; 1a6556f14d28 maximizes the SAS count. In contrast, 729a1bce797c gives the universality-refined weighted sums and conditional means."
+        ],
+        "reasoning": "Unweighted index distributions are not enough: 0011 and 0111 have the same index but different SAS counts. The stronger weighted formula does cover the frozen statement.",
+        "searches": [
+          "arXiv:2108.13968v1 Theorem 2",
+          "arXiv:2202.07981v1",
+          "arXiv:2306.14192",
+          "Resultary 729a1bce797c, e77c4e8d9f37 and 1a6556f14d28"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 729a1bce797c, e77c4e8d9f37, 1a6556f14d28",
+        "OEIS A087955",
+        "arXiv:2108.13968v1, 2202.07981v1, 2306.14192, 1704.08661"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Setting u=1 forgets the universality index; the resulting rational function automatically fixes the dominant pole, residue and remainder.",
+          "The classical per-word and fixed-k characterizations supply inputs, not this summatory theorem. The 2026/10/26 path and related-work passage do not settle historical priority."
+        ],
+        "reasoning": "The frozen scalar law and its displayed consequences are mechanically implied by the stronger current catalogue record, irrespective of which proof was obtained first.",
+        "searches": [
+          "Resultary 729a1bce797c, Finding and Relationship to prior work",
+          "arXiv:2108.13968v1 and arXiv:2202.07981v1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "729a1bce797c, Finding: H(z,u)=2/(1-z-u z²(3-z)) counts shortest-absent incidences over binary source words of length n, with u marking the universality index.",
+          "1704.08661, p. 1, counts present distinct subsequences across all lengths; its fair-binary expectation 2(3/2)^n-1 is for a different variable."
+        ],
+        "reasoning": "H(z,1) is exactly the bound totals series. Dividing its coefficients by 2^n gives the mean. The present-subsequence mean is not an alternate name for it.",
+        "searches": [
+          "Resultary: exact mean and universality-index distribution of shortest absent subsequences of binary words",
+          "Primary search: shortest absent subsequences expected number random binary words generating function"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A087955 lists 1,2,2,8,12,34,... with OGF (1+z-3z²+z³)/(1-z-3z²+z³); subtract its initial 1 and divide by z to obtain exactly the bound OGF.",
+          "729a1bce797c gives those same coefficients as a total over the same source words and shortest absent patterns."
+        ],
+        "reasoning": "The OEIS match is an exact shift but comes from a nonlinear partial-sum construction and by itself does not establish equivalent combinatorial coverage. The indexed refinement does.",
+        "searches": [
+          "OEIS A087955",
+          "Resultary 729a1bce797c"
+        ]
+      },
+      "rationale": "The exact scientific claim, not merely its coefficient list, is subsumed by a distinct indexed Resultary finding, 729a1bce797c. That finding counts the same shortest absent words with the same fixed ambient alphabet and sums over the same source words, adding the universality index as a marker. Specializing that marker to 1 gives the frozen total and all its mean, recurrence and pole consequences. This is mathematical coverage in the available catalogue. The stronger entry carries a later catalogue path date, so this decision is not a claim that it preceded the frozen work or that either record derived from the other. A087955 supplies the numerical sequence but does not by itself supply the subsequence interpretation.",
+      "residual_risks": [
+        "The literature check is bounded; lack of another literature match is not a novelty guarantee. The later catalogue entry establishes coverage, not first discovery."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct stronger coverage; no provenance inference from date",
+          "evidence": [
+            "H(z,u)=2/(1-z-u z²(3-z)) with the same fixed alphabet and empty/unary convention."
+          ],
+          "identifier_or_url": "Resultary 729a1bce797c",
+          "material_read": "RESULT.md Finding offset 0 and Relationship to prior work offsets 8694–10694 and continuation",
+          "method": "Bounded local-mirror reading and marker specialization",
+          "title": "Exact mean and universality-index distribution of shortest absent subsequences",
+          "trigger": "Strongest weighted-mean candidate"
+        },
+        {
+          "assessment": "Exact numerical coverage, different stated interpretation",
+          "evidence": [
+            "Its shifted OGF is 2/(1-z-3z²+z³)."
+          ],
+          "identifier_or_url": "https://oeis.org/A087955",
+          "material_read": "Definition, terms and FORMULA (web text offsets 0–1247)",
+          "method": "OA web and generating-function identity",
+          "title": "A087955",
+          "trigger": "Exact coefficient match cited by the refined paper"
+        },
+        {
+          "assessment": "Per-word characterization; ambient alphabet convention differs on unary/empty words",
+          "evidence": [
+            "Arch-based description and SAS/MAS distinction; no weighted length-aggregate identity in these statements."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2108.13968v1",
+          "material_read": "Sections 1–3, pp. 3–6, including Theorem 2 (offsets 6900 and 13850)",
+          "method": "OA PDF",
+          "title": "Absent Subsequences in Words",
+          "trigger": "SAS and arch tools"
+        },
+        {
+          "assessment": "Fixed-class characterization, not the requested mean",
+          "evidence": [
+            "Exactly m absent factors at length k describes SAS only in the (k−1)-universal subfamily."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2202.07981v1",
+          "material_read": "pp. 2–3, offsets 6900–8506",
+          "method": "OA PDF",
+          "title": "m-Nearly k-Universal Words — Investigating Simon Congruence",
+          "trigger": "Exact missing counts at a prescribed target length"
+        },
+        {
+          "assessment": "Scope is congruence-class structure and index results",
+          "evidence": [
+            "The contribution described does not give the weighted source-length sum."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2306.14192",
+          "material_read": "Introduction pp. 2–3, offsets 4850–8230",
+          "method": "OA PDF",
+          "title": "Alpha-beta factorization and the binary case of Simon's congruence",
+          "trigger": "Possible binary source-class enumeration"
+        },
+        {
+          "assessment": "Different subsequence statistic",
+          "evidence": [
+            "The counted subsequences occur and are not restricted to a shortest-absence layer."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1704.08661",
+          "material_read": "p. 1, offset 0",
+          "method": "OA PDF",
+          "title": "Expected number of distinct subsequences in randomly generated binary strings",
+          "trigger": "Same random source, apparently similar mean"
+        },
+        {
+          "assessment": "Unweighted index and maximum respectively, not the weighted mean",
+          "evidence": [
+            "The index OGF is (1+z)/(1-z-2u z²); the extremal paper maximizes rather than sums."
+          ],
+          "identifier_or_url": "Resultary e77c4e8d9f37; 1a6556f14d28",
+          "material_read": "Both Findings at offset 0",
+          "method": "Local mirror",
+          "title": "Closed-form law for binary subsequence universality; Fibonacci extremals for shortest absent subsequences of binary words",
+          "trigger": "Adjacent catalogue statistics"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md weighted-surplus proof and Finding",
+        "Resultary 729a1bce797c, bivariate Finding"
+      ],
+      "rationale": "Identifying an exact expected number of shortest missing scattered patterns for a fair binary source is mathematically meaningful, not just an integer-sequence look-up. As a separate finding under the available coverage, however, every stated exact statistic is a direct specialization of the same family's indexed refined count. The two-state proof gives a useful explanation but the frozen record does not establish a distinct transferable theorem or a new invariant beyond that covered specialization. No surviving independent finding is established for repair.",
+      "residual_risks": [
+        "This assessment of incremental mathematical content is not a finding against first-discovery credit."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

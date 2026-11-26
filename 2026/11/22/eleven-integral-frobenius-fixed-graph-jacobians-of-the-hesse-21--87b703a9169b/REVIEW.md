@@ -1,15 +1,21 @@
-# Scientific review: Eleven integral Frobenius-fixed graph Jacobians of the Hesse 21-curve boundary
+# Independent mathematical audit
 
-## Correctness — PASS
-The curve-to-graph identification follows from the four triangular fibers and nine blowup sections in Artebani--Dolgachev. The 21-vertex/48-edge Laplacian is explicitly reconstructed. Its determinant is \(3^{10}7^8\), the matrix \(21B^{-1}\) is integral, and the Smith factors are \(3,3,21^8\). The perfect and automorphism-invariant graph-monodromy pairing converts fixed groups to coinvariant Smith presentations. All 432 affine actions are constructed and partitioned by explicit conjugation into eleven classes; both modular ranks are independently calculated for every action, and eleven integer Smith forms are repeated with a second deleted vertex. The determinant-one subgroup generator presentation has trivial cokernel. The full saved verifier reproduces all checks. The finite enumeration is exhaustive for a proved finite symmetry group, not an extrapolation from examples.
+## correctness
 
-## Originality — PASS (historical priority provisional)
-The 2006 Hesse-pencil primary source proves the classical incidence and Hessian symmetry and the 2017 source discusses the Galois 3-torsion data. Neither provides graph-critical fixed-group factors. Shokrieh proves the general pairing, not the special eleven-row arithmetic classification. The same 21-curve graph's nonequivariant critical group is prior work and explicitly excluded from the novel claim. The separately indexed Hesse rational elliptic surface chamber result counts negative-definite supports rather than Frobenius-fixed graph Jacobians. Targeted published-record searches for the eleven affine fixed groups, order-eight \(C_7\) phenomenon and determinant-one global invariants gave no equivalent statement; absence from those searches does not guarantee historical uniqueness. The accessible prior findings were compared by claims rather than titles.
+PASS
 
-## Mathematical value — PASS
-The divisor is the complete intrinsic 21-curve boundary of the Hesse rational elliptic surface, and its full arithmetic affine symmetry is structurally tied to the three-torsion of the smooth cubic fibers. The eleven-class integral fixed-group calculation is a natural arithmetic refinement of the nonequivariant group, and the two order-eight classes show a complete disappearance of three-primary invariants while retaining seven-primary torsion. The trivial common Hessian fixed subgroup, despite every element individually fixing a nonzero class, is a nontrivial structural boundary of descent. The classification does not rely on an arbitrary subarrangement or a guessed downstream theorem.
+Nine degree-four point vertices and twelve degree-five line vertices give the affine-plane incidence graph with four added triangles (48 edges, cycle rank 28). Degrees distinguish the types, and preserving incidences then forces an affine collineation; all affine collineations preserve parallel-class triangles. Independent reduced-Laplacian Smith calculations give (3,3,21^8). In the degree-zero basis, quotienting by all action differences correctly computes coinvariants; automorphism-invariance and perfection of the monodromy pairing identify their dual with fixed classes, including for the full Hessian subgroup. Independent conjugacy enumeration, rank computations for every action and integer Smith forms with two sinks agree with all eleven rows (eight different groups). The same computation confirms trivial common subgroup invariants; for the two trace-distinct classes of order eight the vertex and edge cycle data agree, as do the fixed groups. Weil pairing gives the stated determinant restriction (inverting q has the same residue mod 3). No claim of realizing every class or identifying this abstract fixed group with a Néron group is required.
 
-## Closest prior sources and limits
-Artebani--Dolgachev (2006), Shokrieh (2009), Anema--Top--Tuijp (2017), the indexed Hesse rational elliptic surface chamber study, and prior calculations of the underlying nonequivariant graph Jacobian were compared by mathematical implication. The theorem makes no claim of universal realization of every affine class over every finite field, and does not construct a regular semistable smoothing. An unindexed calculation of this exact equivariant graph Jacobian remains a residual priority risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact same ordinary graph Jacobian is known in the inspected Resultary material and expressly excluded from the novelty. The eleven affine-equivariant fixed groups and the common-invariant conclusion were not found in the checked statements or implied by them.
+
+## value
+
+PASS
+
+The classical arrangement provides a motivated global finite action, whose critical group and graph cycle counts alone do not decide integral fixed torsion. The exhaustive class table gives a reusable exact invariant, including the modular characteristic-three effects and the difference between individual and simultaneous fixed classes. This does not require conflating graph and Néron groups.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

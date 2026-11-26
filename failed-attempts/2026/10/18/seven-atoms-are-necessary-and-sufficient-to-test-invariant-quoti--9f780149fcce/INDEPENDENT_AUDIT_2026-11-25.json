@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:59:43.486707Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–16; VERIFICATION.md and verify.py inspected, not executed"
+      ],
+      "rationale": "Reflexivity and symmetry transfer on at most 2k atoms. At n≥r+s+1, an r-tuple and its single-entry replacement have a common disjoint s-tuple neighbor, and single-entry replacements connect the injective ordered r-tuples (a spare atom permits a swap). The same proof on the other side connects the disjointness incidence graph; it also works when the two within-tuple equality types agree. One accepted disjoint pair thus forces all pairs between the two types in the finite equivalence restriction. A transitivity triple too large to embed in N_k has at most one lost support atom relative to the sum of the three support sizes, so at least one premise is disjoint. After applying saturation to that premise, carry the other premise into the test set. Given any desired representative of its end type in the test set, permute the second premise to end there; saturation joins any initial representative to the permuted middle, giving the full conclusion by finite transitivity and pair transport. For sharpness, six atoms at k=3 (2k in general) give complement pairs of support classes, plus singleton noninjective tuples. On one more atom two distinct overlapping supports can both be disjoint from the middle support, violating transitivity. Hence the seven-atom claim and both general bounds are true.",
+      "residual_risks": [
+        "The frozen proof gives no equality of the two stated bounds for k≥4. The action must be the full permutation group, on tuples that may include repeats."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The compared record proves the exact threshold for all k≥2, for finite and infinite carriers",
+          "Nominal literature supplies the quotient and support framework; the inspected literature statements are not themselves the numeric detection theorem"
+        ],
+        "reasoning": "Restricting an equivalence on the larger N_k-window to a 2k+1 subwindow invokes the stronger result, including in the infinite case. When k≥4 the bound is strictly better.",
+        "searches": [
+          "Resultary 687b15057b20, small-supported quotient normal form and lifting",
+          "Ciobanu arXiv:2609.31917 §5 and arXiv:2609.15879 §§2,6; Bojańczyk–Klin–Lasota arXiv:1402.0897 §§2,3,9"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 687b15057b20 and 0db05475fa99",
+        "arXiv:2609.31917, arXiv:2609.15879, arXiv:1402.0897"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Its finite quotient components are Inj_t(B)/H with t≤k; each quotient-map branch selects entries of the input tuple modulo H, allowing the kernel to lift",
+          "Its complement-support counterrelation is the same as the frozen lower witness"
+        ],
+        "reasoning": "The lifting proof needs only |B|≥2k+1: small supports intersect by the pointwise-stabilizer generation argument because their complements meet, and checking the lifted kernel against the original needs only pair supports. Thus every inference needed for frozen coverage is justified; a different elementary proof does not distinguish the claimed theorem.",
+        "searches": [
+          "Resultary 687b15057b20, upper-bound and sharpness proofs"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The compared record uses ordered tuples including repeats, the full symmetric action, and restriction to one arbitrary fixed atom set; the conditions coincide",
+          "Invariant equivalence is equivalent to being the kernel of the lifted equivariant quotient in the compared proof"
+        ],
+        "reasoning": "The quotient terminology is not a different problem: the kernel of the explicitly lifted map is exactly the original arbitrary invariant relation once its finite restriction is an equivalence.",
+        "searches": [
+          "Resultary 687b15057b20, Finding and Lifting the finite quotient",
+          "Nominal quotient presentations and finite-window equivalence detection"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "687b15057b20 fixes the exact cutoff at seven by k=3, and proves the identical lower construction",
+          "0db05475fa99 counts valid invariant equivalences on ordered pairs and reports stabilization at five"
+        ],
+        "reasoning": "A stabilization table is not a test on an arbitrary relation, but the exact all-arity detection formula in the other indexed result is direct numerical coverage.",
+        "searches": [
+          "Resultary 687b15057b20, exact threshold by arity",
+          "Resultary 0db05475fa99, five-name stabilization for ordered-pair quotients"
+        ]
+      },
+      "rationale": "A distinct indexed Resultary record 687b15057b20 gives and proves the exact 2k+1 test on any atom set of size at least 2k+1, with the same equal-or-disjoint support obstruction. This covers every frozen theorem component, is strictly stronger for k≥4, and is exact at k=3. The full stated theorem and the decisive proof were inspected. This is demonstrable coverage, not a determination of who proved the result first.",
+      "residual_risks": [
+        "Same-day catalog dating does not establish chronological order, priority, or dependence. Coverage follows from the compared mathematical statements and proof regardless of that unresolved chronology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the entire frozen finding and strengthens its all-arity upper bound",
+          "evidence": "Exact 2k+1 on any finite or infinite carrier of sufficient size, and sharp equal-or-disjoint support relation on injective tuples.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-the-sharp-2k-1-atom-test-for-invariant-tuple-equivalences--687b15057b20/RESULT.md",
+          "material_read": "RESULT.md, offset 0 through Verification, including assumptions, quotient normal form, lifting and sharpness",
+          "method": "Local Resultary mirror, direct statement and proof read",
+          "title": "The sharp 2k+1-atom test for invariant tuple equivalences",
+          "trigger": "Strongest apparently identical cutoff and same all-arity parameters"
+        },
+        {
+          "assessment": "Adjacent count stabilization, not standalone coverage",
+          "evidence": "Counts valid relations in arity two: 1,7,16,15,13 on carrier sizes 1,2,3,4,≥5.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-a-sharp-five-name-stabilization-for-definable-quotients-of-order--0db05475fa99",
+          "material_read": "RESULT.md, classification and counts",
+          "method": "Local Resultary mirror",
+          "title": "Five-name stabilization for definable quotients of ordered pairs",
+          "trigger": "Neighboring arity and shared finite threshold"
+        },
+        {
+          "assessment": "Background rather than numeric cutoff",
+          "evidence": "Constructs quotient action from a context-supported equivalence.",
+          "identifier_or_url": "arXiv:2609.31917",
+          "material_read": "§5, Proposition 5.1, p. 15, text offset 48919",
+          "method": "Open-access passage read",
+          "title": "Finite-Context Semantics in Finitely Supported Structures",
+          "trigger": "Supported quotient construction"
+        },
+        {
+          "assessment": "Structural support background",
+          "evidence": "Support/meet laws and subgroup-orbit criterion for least supports, not detection of equivalence for an arbitrary kernel.",
+          "identifier_or_url": "arXiv:2609.15879",
+          "material_read": "§2, pp. 5–6, and §6, pp. 17–19",
+          "method": "Open-access passage reads",
+          "title": "Finite Dependence and Invariance Hierarchies for Finitely Supported Structures",
+          "trigger": "Finite support intersection, local criterion"
+        },
+        {
+          "assessment": "Relevant background, not an explicit window theorem in the inspected passages",
+          "evidence": "Equivariant relations, quotient action, and finite support/subgroup data for single nominal orbits.",
+          "identifier_or_url": "arXiv:1402.0897",
+          "material_read": "§2 pp. 6–7, §3 p. 10, §9 pp. 32–33",
+          "method": "Open-access passage reads",
+          "title": "Automata Theory in Nominal Sets",
+          "trigger": "General quotient/orbit classification might imply finite testing"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof",
+        "Resultary 687b15057b20, exact cutoff and proof"
+      ],
+      "rationale": "An exact finite equivalence-test cutoff is useful in principle, and the connected-disjointness argument is a readable alternative. But the frozen scientific finding gives the already-covered seven threshold with the same obstruction and gives a weaker general upper bound than the exact indexed one. It does not isolate a distinct algorithmic benefit, transferable new lemma, or other independently useful surviving result.",
+      "residual_risks": [
+        "This is an assessment of the frozen finding; it does not rule out pedagogical uses of its elementary argument."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

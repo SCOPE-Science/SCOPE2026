@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:24:22.747196Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a nonempty pattern the relevant window has L-|v|+1 possible starts when L>=|v|, including overlaps. Complete periods contribute the same count; the residual arc of length r has range at most min(r,p-r,t,p-t) for t occurrence residues. Reaching k=floor(p/2) forces t and r into {k,p-k}; for every even or odd case a maximizing arc must be exactly the starts or a minimizing arc exactly their complement, and a block of either permitted size attains the bound. For k>=2 adjacent starts force a one-letter power, and its start block comes from a single cyclic run, with the second run too short to contribute. Conversely c^(R1-k+1) realizes a start block of size k when the run gap is at least k. The singleton-letter argument covers p=2,3. A two-run word is primitive by its single cyclic 0-to-1 transition. The proof covers all pattern lengths. In line 33 'exceeds' should read 'is at least'; even equal runs are covered by the displayed non-strict criterion, so this wording does not invalidate the theorem. Independent direct overlapping-window counts passed for 1508 primitive binary/ternary periods (replay: python /workspace/branches/independent_replay.py 2); these finite checks are not the proof. The frozen checker and output were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The inspected work treats uniformly factor-balancedness by boundedness criteria, including linearly recurrent settings and Arnoux–Rauzy structure.",
+          "The older substitutive-word paper was not retrieved in full and its relationship was considered through the later paper's account."
+        ],
+        "reasoning": "A finite comparison bound under a recurrence condition is not a sharp least-period bound with a necessary and sufficient run-gap criterion.",
+        "searches": [
+          "arXiv:2602.03746v1, §1",
+          "arXiv:2609.33919, §1 Theorem 1",
+          "Adamczewski (2003), DOI/OA retrieval attempt"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2602.03746v1",
+        "arXiv:2609.33919",
+        "DOI:10.1016/S0304-3975(03)00092-6 (retrieval attempted)",
+        "Resultary 29504196af99",
+        "Resultary 1d32eec00fed"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general uniform factor-balance property already holds for purely periodic words.",
+          "The available cyclic extremal result compares letters inside a single factor and has no arbitrary-pattern comparison across two windows."
+        ],
+        "reasoning": "The new implication requires when arcs can attain the maximum possible oscillation, then consecutive starts and the suppression of all competing runs. Qualitative boundedness and the different fixed-class extremum do not imply it.",
+        "searches": [
+          "arXiv:2602.03746v1 §1",
+          "Resultary 1d32eec00fed, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The established balance definition is exactly the frozen count metric.",
+          "The binary and ternary cyclic discrepancy records instead compare different letters within one interval and restrict to fixed-order de Bruijn cycles."
+        ],
+        "reasoning": "Rephrasing the theorem as fixed-length circular count oscillation over pattern-start indicators preserves both quantifiers; the located cyclic-discrepancy statistics do not preserve them.",
+        "searches": [
+          "Resultary: periodic factor balance, circular discrepancy and run-gap extremizers",
+          "Espinoza–Popoli–Stipulanti arXiv:2602.03746v1 §1",
+          "Resultary records 29504196af99 and 1d32eec00fed"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The binary record tabulates values 5,6,7,8 for order-five de Bruijn cycles; the ternary record gives minimum discrepancy 5 within a different order-five class and statistic."
+        ],
+        "reasoning": "Neither table covers the target statistic even on the particular classes enumerated, much less the infinite all-period extremizer family.",
+        "searches": [
+          "Resultary circular discrepancy candidates 29504196af99 and 1d32eec00fed"
+        ]
+      },
+      "rationale": "Pass for the sharp universal bound and full run-gap classification, not for qualitative periodic boundedness or the definition of factor balance. The closest actual claims concern sufficient boundedness criteria or different cyclic discrepancies. They do not supply the asserted optimal constant or its two-way rigidity statement.",
+      "residual_risks": [
+        "The older Adamczewski full text was unavailable in the bounded retrieval.",
+        "The elementary circular reformulation may have older differently named precedents; searches do not establish priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the metric and general boundedness, not the sharp periodic classification in the inspected material",
+          "evidence": [
+            "Single constant bounds differences in occurrences of each pattern for same-length comparison factors."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2602.03746v1",
+          "material_read": "§1, offsets 7300–11455",
+          "method": "Bounded OA text inspection",
+          "title": "Factor-balancedness, linear recurrence, and factor complexity",
+          "trigger": "Exact metric and strongest relevant generalized balance criteria"
+        },
+        {
+          "assessment": "Different word class and criterion",
+          "evidence": [
+            "Criterion in terms of bounded weak partial quotients."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2609.33919",
+          "material_read": "§1, Theorem 1, offsets 1450–4233",
+          "method": "Bounded OA text inspection",
+          "title": "Uniform Factor-Balancedness in Arnoux–Rauzy Words",
+          "trigger": "Potential stronger factor-balance characterization"
+        },
+        {
+          "assessment": "Full-paper coverage unresolved",
+          "evidence": [
+            "Later paper discusses substitutive results in the history of general balance."
+          ],
+          "identifier_or_url": "Adamczewski, Theoretical Computer Science 307 (2003), 47–75; DOI:10.1016/S0304-3975(03)00092-6",
+          "material_read": "No primary full-text passage retrieved; contextual account in arXiv:2602.03746v1 §1",
+          "method": "Bounded DOI/OA attempt and secondary contextual comparison",
+          "title": "Balances for fixed points of primitive substitutions",
+          "trigger": "Older substitutive predecessor"
+        },
+        {
+          "assessment": "Different statistic, fixed class",
+          "evidence": [
+            "Maximum signed letter excess in a single circular interval; distribution over 2048 cycles."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-complete-circular-discrepancy-distribution-of-binary-order-five--29504196af99",
+          "material_read": "Finding, offsets 384–995",
+          "method": "Local published-record mirror",
+          "title": "Complete circular discrepancy distribution of binary order-five de Bruijn cycles",
+          "trigger": "Ranked Resultary circular discrepancy hit"
+        },
+        {
+          "assessment": "Different statistic, fixed class",
+          "evidence": [
+            "Maximizes pairwise letter-count discrepancies within each circular factor; minimum 5."
+          ],
+          "identifier_or_url": "2026/10/12/SCOPE-exact-minimum-discrepancy-for-ternary-de-bruijn-sequences-of-ord--1d32eec00fed",
+          "material_read": "Finding, offsets 472–990",
+          "method": "Local published-record mirror",
+          "title": "Exact minimum discrepancy for ternary de Bruijn sequences of order five",
+          "trigger": "Earlier cyclic-factor discrepancy hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Uniform factor balance is an established invariant. The theorem makes least period a calibrated sharp benchmark across alphabets and gives a direct cyclic-run test for exactly when no smaller uniform constant works. The classification applies even though the definition ranges over all lengths and patterns; it is stronger than a routine proof that a periodic word is uniformly factor-balanced.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:01:33.219646Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md Proof §§1–5 and VERIFICATION.md",
+        "Bundled checker.py inspected, not executed",
+        "Independent replay: python /workspace/reproductions/decks_necklaces.py"
+      ],
+      "rationale": "Every aa forces two occurrences, hence length at least 2q. At equality, for each pair of letters both orders occur just when their occurrence intervals overlap; the strict common intersection of all intervals separates all first from all second occurrences. Thus successful starts are exactly two permutation blocks P,Q. A shift by t within the first block is successful iff the removed prefix of P and inserted prefix of Q have the same letters, giving exactly the direct-sum boundaries of the relative permutation, with t=0 included and t=q excluded. A shortest balanced word of smaller rotation orbit must be repeated exactly twice, hence is PP, and these have b=q. Thus for b<q the q! a_(q,b) ordered splits count each qualifying orbit 2b times; in the periodic bin each permutation is counted once as a word and q times per orbit. The formal component decomposition yields F=1/(1-C); summing the primitive formula and correcting the doubled bin gives q!/2 times [z^q] log(F/(1-z)). A proper direct-sum prefix of length j occurs in j!(q-j)! permutations; the union bound relative to q! is O(1/q), using the two endpoint summands and binomial(q,2) for the interior. This gives single-cut concentration and the stated counts, and Stirling applied to binomial(2q,q) gives the rarity constant. My direct two-subsequence check for every individual rotation and both b-spectra at q=2,3,4 reproduced the finite results.",
+      "residual_risks": [
+        "The bundled code's direct subsequence predicate is compared against existence of some successful rotation, not against the arch predicate at each individual rotation; the independent q<=4 replay does compare each start. Neither test substitutes for the proof at general q.",
+        "No claims for longer words, other depths, or quotienting by reversal or relabeling are verified."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "640a099a3a6b covers arbitrary q and depth, with the exact phase-intersection counts and primitive periods in the proof.",
+          "The inspected primary passages concern circular indices/repetition or counts for a single linear starting phase."
+        ],
+        "reasoning": "Depth two of the all-depth intersection calculation covers all q, whereas prior framework and linear recognition or single-phase enumeration alone do not cover phase multiplicity.",
+        "searches": [
+          "Local Resultary: minimum-length circular universality at all alphabet sizes and depths",
+          "Barker et al. arXiv:2003.04629v1 §§2,4; Fleischmann–Germann–Nowotka arXiv:2104.09063v1 §§2–3; Adamson arXiv:2304.04583v1 §3"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 640a099a3a6b and 0d45c4f91bd6",
+        "arXiv:2003.04629v1, arXiv:2104.09063v1, arXiv:2304.04583v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "640a099a3a6b supplies S_t and identifies the shorter-period orbits. The primary search was unavailable; cited accessible source passages were inspected separately."
+        ],
+        "reasoning": "Inversion gives the exact distribution, and S_2 controls both the number of multiply witnessed marked words and the difference S_1-L_q. The periodic exception is explicit. The stronger source need not display the derived large-q limit or label its formula using indecomposable permutations.",
+        "searches": [
+          "640a099a3a6b RESULT.md Finding and phase-intersection proof; bounded primary search for the arbitrary-alphabet circular 2-universal necklace spectrum"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "640a099a3a6b computes simultaneous phase-validity counts; at depth two a phase modulo q is exactly one opposite-boundary cut-pair.",
+          "0d45c4f91bd6 gives the same interpretation in the ternary case and has marked bins 54,18,6."
+        ],
+        "reasoning": "The phase and cut-pair statistics count the same events. Using binomial inversion of the joint counts gives exactly the coefficient of C^b/b without needing the direct-sum terminology.",
+        "searches": [
+          "Local Resultary: cut-pairs and successful phases of shortest circular subsequence-universal necklaces; primitive periods and doubled permutations"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "0d45c4f91bd6 Finding and period passage yield (9,3,2) after dividing the two primitive bins by 6 and the doubled bin by 3.",
+          "640a099a3a6b gives exact total necklace and period counts, not just a matching finite table."
+        ],
+        "reasoning": "The ternary match covers the exact q=3 spectrum only, already excluded from the frozen novelty claim. The all-q coverage comes from the separate general calculation.",
+        "searches": [
+          "Local Resultary: exact ternary phase spectrum at minimum circular universal length"
+        ]
+      },
+      "rationale": "A distinct all-depth phase-intersection and period census, Resultary 640a099a3a6b, gives at depth two the complete b-spectrum and asymptotics by elementary extraction. With F=1+sum m! z^m, its total size of t-fold phase intersections is S_t=(q!q/t)[z^q](F-1)^t. This also equals sum_(b>=t) binomial(b,t)L_(q,b). Binomial inversion and binomial(t,b)/t=binomial(t-1,b-1)/b give L_(q,b)=(q!q/b)[z^q]((F-1)/F)^b, exactly the frozen formula. The catalogued period census gives orbit lengths 2q except PP, so all necklace bins and the logarithmic sum follow. Moreover S_1=q(q!)² and S_2/S_1=(1/2)sum 1/binomial(q,j)=O(1/q); the excess of S_1 over the labeled union and the number of multiply witnessed words are both bounded by S_2. With the period correction and Stirling this recovers the frozen large-q bounds. The direct-sum proof is a concise alternate derivation, not a separate new spectrum. This is substantive coverage, not a conclusion about historical priority or who obtained it first.",
+      "residual_risks": [
+        "The relationship and priority of the distinct indexed findings are not established.",
+        "Fleischmann's dissertation (d-nb.info/1231275863/34), a plausible chapter 3 comparison, was unavailable on the attempted lawful routes and was not read. This does not affect the explicit coverage above."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Mechanically implies depth-two labeled and necklace spectrum and large-q estimates; does not establish chronological priority",
+          "evidence": "Gives S_t through positive compositions, and the period census; invert the depth-two S_t to recover all b.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-necklace-and-primitive-period-census-for-shortest-circular--640a099a3a6b",
+          "material_read": "RESULT.md Finding offsets 0–4708, phase intersections and period proof offsets 4650–8150",
+          "method": "Configured local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact necklace and primitive-period census for shortest circular subsequence-universal words",
+          "trigger": "Arbitrary alphabet and depth, potentially dominating phase and period enumeration"
+        },
+        {
+          "assessment": "Covers q=3 only; no inference of precedence from shared date",
+          "evidence": "Marked bins 54,18,6, the last consisting of repetitions of length-three permutations.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-exact-ternary-necklace-counts-at-minimum-circular-subsequence-un--0d45c4f91bd6",
+          "material_read": "RESULT.md Finding offsets 0–4462 and period discussion offsets 4400–7600",
+          "method": "Configured local mirror",
+          "title": "Exact ternary necklace counts at minimum circular subsequence universality",
+          "trigger": "Same-day fixed ternary overlap acknowledged in the frozen record"
+        },
+        {
+          "assessment": "Foundational framework but not an exact phase/necklace spectrum in these passages",
+          "evidence": "Minimum linear length; circular universality and index/repetition relations.",
+          "identifier_or_url": "https://arxiv.org/pdf/2003.04629v1",
+          "material_read": "p. 5 and §§2,4, pp. 13–14",
+          "method": "Lawful author preprint",
+          "title": "Scattered Factor-Universality of Words",
+          "trigger": "Foundational circular universality definition and minimum length"
+        },
+        {
+          "assessment": "Different claims in the inspected passages",
+          "evidence": "Arch and remainder structure and universality of powers rather than counting witness-pair multiplicities.",
+          "identifier_or_url": "https://arxiv.org/pdf/2104.09063v1",
+          "material_read": "Abstract and §§2–3",
+          "method": "Lawful author preprint",
+          "title": "Scattered Factor Universality — The Power of the Remainder",
+          "trigger": "Permutation blocks and repetition in circular universality"
+        },
+        {
+          "assessment": "Linear counting model does not cover all rotated phases",
+          "evidence": "Counts and ranks words universal at the given linear start.",
+          "identifier_or_url": "https://arxiv.org/pdf/2304.04583v1",
+          "material_read": "Abstract and §3, p. 4",
+          "method": "Lawful author preprint",
+          "title": "Ranking and Unranking k-subsequence universal words",
+          "trigger": "Potential general enumeration theorem"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Proof; 640a099a3a6b Finding and phase-intersection proof"
+      ],
+      "rationale": "The shortest word length and the phase multiplicity statistic are naturally motivated. However, the claimed counts, periodic correction and leading asymptotic already follow from the indexed all-depth intersection census by binomial inversion and its second intersection bound. The proof using direct-sum boundaries elucidates the formula but is an elementary rewriting of the same prefix-set phase conditions, not a new independently useful theorem on the submitted scope.",
+      "residual_risks": [
+        "The incremental-value assessment does not deny the usefulness of the census or assert priority."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

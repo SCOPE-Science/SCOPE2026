@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Every insertion vector corresponds bijectively to a retained-position pair, giving the exact embedding multiplicity formula. For two distinct centers, no word containing two outside-alphabet letters can lie in both multiset spheres; therefore the four-letter overlap is affine in the ambient alphabet size with coefficient equal to the one-outsider sum. The 13 canonical equality patterns exhaust distinct center pairs. The complete integer coefficient table is an exact finite computation, independently reproduced by the embedded checker, and shows a unique strict maximum-formula class. The channel threshold follows from the multiset intersection definition. Direct enumerations for alphabets of size 2 through 6 corroborate the proof but do not replace its all-alphabet reduction.
+## correctness
 
-**Originality — PASS, with residual risk.** The extended arXiv manuscript `2607.06181` defines the relevant invariant and gives a binary example with intersection 11 (Example 4), the fully solved single-insertion case, and general multi-insertion bounds (Theorems 27–28). It does not establish the present exact all-alphabet two-symbol, two-insertion maximum and complete optimizer classification. The 2025 workshop predecessor is available through its abstract, contents listing and the later expanded manuscript. The 2026 ISIT abstract describes separate models and an exact result for one of them; its full paper was not obtainable, so possible equivalent prior coverage cannot be completely excluded. Published research-record searches and the directly comparable prior literature did not identify a dominating multiset result. A search failure alone is not a proof of novelty.
+PASS
 
-**Value — PASS.** Source length two and insertion count two form the first case beyond the exactly solved one-letter and one-insertion regimes in the motivating work. This result fixes the exact reconstruction threshold over every alphabet size rather than only reporting a binary example or generic bounds, and classifies *every* pair where ambiguity is maximal. Multiplicity makes this genuinely different from the traditional distinct-output and non-multiset models; the computation is an exact natural boundary problem rather than an arbitrary data slice.
+Choosing the original pair of positions is in bijection with gap-based insertion vectors producing a given output, including repetitions. An output with at least two positions outside the joint center alphabet can have at most two usable positions, which cannot realize both distinct centers, so an alphabet of size q contributes exactly C_p+(q-s)E_p. Of the 15 partitions of four positions, two give identical centers, leaving 13 patterns, independently recomputed. Four patterns have (s,C,E)=(2,11,8) and all other admissible expressions are 8q-6, 4q or 6, strictly smaller than 8q-5. The four patterns are precisely one constant word and one mixed word with one letter in common, in either order, hence 2q(q-1) unordered labeled pairs. Any shared output multiset can be realized with distinct vectors up to each minimum multiplicity, so the maximum plus one is the exact threshold. Independent replay: /workspace/branches/fe1c6237-5bbe-4323-a9b5-63c887d34d3c/record4_coeff_check.py and record4_coeff_check.log, all 13 coefficients, 44 finite pattern/alphabet cases, and full maximizer checks for q=2 through 8. The original verifier was inspected, not executed; the all-q proof is the support argument plus the exhaustive finite table.
 
-**Closest literature and limitations.** Junnila–Laihonen–Lehtilä–Padavu Devaraj (IEEE ITW 2025, DOI `10.1109/ITW62417.2025.11240278`; arXiv:`2607.06181`), with potentially related IEEE ISIT 2026 DOI `10.1109/ISIT62367.2026.11653882`. The latter's full text remains uninspected; unindexed earlier results may exist. The theorem concerns exactly two insertions, two-letter sources, multiplicity-observing receivers, and distinct insertion vectors; it does not characterize other channel models.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The repair expressly credits both binary maximum and consequent threshold to prior work. The remaining claim is the exact all-alphabet size and full equality classification, not the binary scalar or established multiset model.
+
+## value
+
+PASS
+
+The motivating unique-error reconstruction model needs a sharp multiset overlap bound. The all-alphabet formula gives the exact worst-case observation requirement and the equality classification identifies every ambiguous extremal pair. This is a complete base regime for the model's recursive bounds, not merely recomputation of the published binary number.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

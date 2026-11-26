@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:30:58.688979Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the line graph on the stated GP(5,2) edges, not the vertex metric on the Petersen graph. An independent exhaustive calculation of distances and all 105 unordered pairs reproduced 105 distinct five-element bisectors. A set S guarantees |S| minus its maximum bisector intersection, so evaluating all 32768 masks certifies all ten dimension and count rows, with no k above ten feasible. Separately enumerating the perfect matchings on the ten original vertices gives exactly the six complements of optimal six-metric bases. Every 11-subset contains a bisector, so cannot be a 7-generator; every (k+5)-subset has at most five nondistinguishing landmarks. Deletion lowers the guaranteed multiplicity by at most one, so the lower bound at seven propagates to k=8,9,10 and all these claimed minimizers are exact. As a structural check on bisector cardinality, represent a Petersen edge by two disjoint pairs in [5]. The missing symbol groups its line-graph vertex into one of five triples; distance three is exactly the two other vertices of that triple. Within a triple the two disjoint four-neighbor sets leave four equidistant vertices outside plus the third member. Across triples each vertex has one neighbor in the other's triple, and there is exactly one common neighbor (the third edge at a shared endpoint for distance one; the unique bridging edge for distance two). Among the nine vertices outside both triples the two three-neighbor sets then have symmetric difference four, again leaving five equidistant vertices. This reasoning supports sizes; distinctness and the bases census were checked exhaustively.",
+      "replay": "python3 -S /workspace/branches/2c6b51ca-3183-4658-a5f0-06d0bc416cf5/record5_reproduction.py; captured output is record5_reproduction.out in that directory. No frozen executable or verifier was run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "RESULT.md:75,83–86 credits the general parameter and bisector technique, describes Example 5.4 as a calculation for P, and describes Guo et al.'s line graphs as those of necklaces and prisms."
+        ],
+        "reasoning": "The general framework is known; the examples and graph families as identified do not contain this computation. Fault tolerance for one lost landmark corresponds to k=2 and would not give the general k structure.",
+        "searches": [
+          "Yero–Estrada-Moreno–Rodríguez-Velázquez, arXiv:1401.0342",
+          "Beardon–Rodríguez-Velázquez, arXiv:1603.04049",
+          "Guo et al., DOI 10.1155/2020/1436872"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and supporting verification record",
+        "arXiv:1401.0342, arXiv:1603.04049, arXiv:1312.4973, DOI 10.1155/2020/1436872 (cited scope and attempted primary retrieval distinguished)",
+        "Resultary 906654f0461c, 5291df073dcf, 4e6c2c9b2a97 and exact self-hit 13fbab811664"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "5291df073dcf indexes locating-dominating codes; 4e6c2c9b2a97 indexes zero forcing; 906654f0461c uses disjoint two-edge paths for minimum locating-total codes, not complements of perfect matchings.",
+          "RESULT.md:49–59 requires intersections with distance bisectors and the separate obstruction at size eleven."
+        ],
+        "reasoning": "Locating domination tests adjacency signatures subject to domination, and zero forcing tests a dynamical rule. Neither stated classification supplies the bisector transversal census. The universal high-k construction follows from bisector size, but its sharpness and the preceding six-base phase require further information.",
+        "searches": [
+          "Resultary 2026/11/2 records 5291df073dcf and 4e6c2c9b2a97",
+          "Resultary 2026/11/22 record 906654f0461c",
+          "arXiv:1603.04049"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The frozen edge list and line-graph rule (RESULT.md:24–32) give 15 vertices of degree four. The Petersen graph itself has ten vertices of degree three; its Kneser model KG(5,2) does not eliminate the line-graph operation. The 15-vertex GQ(2,2) point graph is KG(6,2) of degree six; its incidence graph has 30 vertices."
+        ],
+        "reasoning": "Neither graph reformulation identifies one of those other metrics with the claimed one. An equivalent combinatorial reformulation is extremal intersection with the 105 five-element bisectors, or at k=6 and size ten hitting every bisector with the complement. The classification needs that particular bisector system.",
+        "searches": [
+          "Resultary: Petersen line graph, k-metric dimension, fault-tolerant resolvability and perfect-matching complements",
+          "arXiv:1603.04049 Example 5.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact indexed hit 13fbab811664 is this same record. Distinct same-day 906654f0461c indexes 110 minimum locating-total codes and their exchange graph. Bailey is a plausible table source for ordinary dimension (RESULT.md:75,85) but no row could be inspected."
+        ],
+        "reasoning": "Even an exact k=1 dimension row would overlap only a constituent entry, not supply the labeled multilevel census or geometry. The same-day 110 count describes a different minimum-set problem.",
+        "searches": [
+          "Resultary: complete k-metric dimension sequence and six minimum 6-metric bases in Petersen line graph",
+          "Bailey, arXiv:1312.4973, small distance-regular graph tables"
+        ]
+      },
+      "rationale": "The supported contribution is the full labeled robustness census and the perfect-matching classification at k=6. Possible earlier knowledge of the ordinary metric dimension or its fault-tolerant variant is not credited as novel. The strongest identified statements on the same graph concern different landmark tests, or just the standard metric-dimension parameter.",
+      "residual_risks": [
+        "Primary and matching local-mirror retrieval did not yield full text. Bailey's precise ordinary dimension row and possible tables or appendices under equivalent bisector terminology remain uninspected.",
+        "No publication priority is established for the generic framework or isolated low-k entries."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Self-hit is not independent priority evidence",
+          "evidence": [
+            "RESULT.md:5–20 and 36–59"
+          ],
+          "identifier_or_url": "frozen RESULT.md and verification package",
+          "material_read": "Finding, explicit edge list, Proof and Relationship to prior work; bound verifier material",
+          "method": "Read frozen evidence and independently enumerate",
+          "title": "Six perfect matchings govern the 6-metric bases of the Petersen line graph",
+          "trigger": "Exact scope and certificate"
+        },
+        {
+          "assessment": "Available description is P itself, not L(P)",
+          "evidence": [
+            "Example 5.4, as identified in the assigned reference"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1603.04049",
+          "material_read": "Description of Example 5.4 in frozen RESULT.md:75,84; primary text unavailable",
+          "method": "OA retrieval attempted",
+          "title": "On the k-metric Dimension of Metric Spaces",
+          "trigger": "Matching metric parameter and named graph"
+        },
+        {
+          "assessment": "Possible constituent k=1 overlap remains; no claim that this graph is absent from the table",
+          "evidence": [
+            "Ordinary metric dimension of small distance-regular graphs"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1312.4973",
+          "material_read": "Cited scope in RESULT.md:75,85, not inspectable table rows",
+          "method": "OA retrieval attempted",
+          "title": "The metric dimension of small distance-regular and strongly regular graphs",
+          "trigger": "Potential exact table for ordinary dimension"
+        },
+        {
+          "assessment": "Reported families differ; uninspected contents not excluded",
+          "evidence": [
+            "Necklace and prism line graphs in cited comparison"
+          ],
+          "identifier_or_url": "https://doi.org/10.1155/2020/1436872",
+          "material_read": "Frozen cited scope only, RESULT.md:75,86",
+          "method": "OA retrieval attempted",
+          "title": "Fault-Tolerant Resolvability in Some Classes of Line Graphs",
+          "trigger": "Line graph and one-loss resolving sets"
+        },
+        {
+          "assessment": "Different landmark condition, no priority inferred from the date",
+          "evidence": [
+            "110 minimum locating-total codes, described by three disjoint two-edge paths"
+          ],
+          "identifier_or_url": "Resultary 2026/11/22 record 906654f0461c",
+          "material_read": "Indexed summary; full local mirror did not return text",
+          "method": "Resultary search and local mirror attempt",
+          "title": "Three two-edge paths classify minimum locating-total codes",
+          "trigger": "Distinct same-day census on L(P)"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The Petersen line graph is a canonical test for robustness under landmark loss. At the boundary k=6 the least-size sets are governed by a different invariant of the underlying graph (perfect matchings), while at k=7 the optimum size jumps by two and every set of that size works. The exact counts and uniform bisectors separate these regimes and give useful benchmark data beyond the ordinary dimension.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

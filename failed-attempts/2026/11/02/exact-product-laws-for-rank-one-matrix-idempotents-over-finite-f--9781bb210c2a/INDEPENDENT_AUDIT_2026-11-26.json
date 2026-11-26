@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:40:14.441378Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For each image line L there are h=q^(n−1) idempotents u_L f with f(u_L)=1. From each nonzero product the next image must avoid its kernel, giving survival a^(k−1). The trace is the cyclic product of k line-to-line evaluations. For equal adjacent lines the evaluation is 1; otherwise it is uniform over the field. The nonzero-evaluation transfer matrix q^(-1)I+(1−q^(-1))J has eigenvalues h and q^(-1) with multiplicities 1,N−1, giving nonzero trace mass C_k. Except when all lines coincide, conditional on nonzero trace the product includes a uniform nonzero scalar; the all-equal event has probability D_k and trace one. This gives the claimed bias, with q=2 vacuous. Since X²=tr(X)X in rank one, nilpotence and its index follow. Conjugacy is transitive within rank-one trace classes of sizes N(h−1) at zero and Nh per nonzero trace, giving the pointwise law. Relative to uniform after conditioning on survival, trace zero and each nonzero trace other than one are deficits (D_k>(N−1)b^k), and the trace-one excess is the claimed TV distance, including k=1 and q=2. Both packaged verifiers and their finite outputs were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The October 12 theorem covers all k with a class-resolved pointwise count. Ferraz et al. give h idempotent generators per minimal left ideal, not the product law. Sarma–Subedi sample two arbitrary ring elements; Holmes–Im sample unrestricted cyclic-quiver linear maps."
+        ],
+        "reasoning": "The unrestricted sampling papers do not supply a theorem for factorwise restriction to rank-one idempotents. It is the earlier exact ordered-word theorem, not wider random-matrix context, that covers this ensemble.",
+        "searches": [
+          "SCOPE dfb5f1d17166, Finding and Proof §§1–5",
+          "Sarma–Subedi arXiv:2610.07892v1",
+          "Holmes–Im arXiv:2608.16636v1 Proposition 3.13",
+          "Ferraz–Polcino Milies–Taufer arXiv:1711.09289v1 Theorem 3.1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–104, VERIFICATION.md, CHECK.py, CHECK_GF4.py and both recorded outputs (read only)",
+        "SCOPE dfb5f1d17166, 612345f53108, c7286e4b73ec",
+        "arXiv:2610.07892v1, 1711.09289v1, 2608.16636v1; DOI 10.1239/jap/1032438378 (access limited)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Put h=q^(n−1), m=Nh, A=h^(2(k−1)), B=(h/q)^(k−1), Z=h^(k−1). The indexed zero fiber is m^k−mA. Its nonzero rank-one fiber is h(A−B)/(q^n−1)+1_{tr≠0}(B−Z)/(q−1)+1_{tr=1}Z.",
+          "Here A/m^(k−1)=a^(k−1), B/m^(k−1)=b^(k−1), Z/m^(k−1)=D_k, and 1−a=(N−1)b. Multiplying each nonzero-trace target probability by m gives class mass (C_k−D_k)/(q−1)+D_k·1_{tr=1}. Subtracting its sum from one gives total nilpotence; subtracting the zero mass then gives nonzero nilpotence.",
+          "After conditioning on survival, only trace one exceeds the uniform rank-one trace mass. The amount of its excess is [(N−1)b^k+(q−2)D_k]/[(q−1)a^(k−1)], the scalar TV formula."
+        ],
+        "reasoning": "The pointwise law, nilpotence and bias are direct normalization and summation. The TV formula is a mechanical consequence of the same class-resolved law and the elementary uniform orbit sizes, even if the earlier result does not display the identical scalar expression.",
+        "searches": [
+          "SCOPE dfb5f1d17166 RESULT.md, Finding and Proof §§1–5, mirror offsets 0–7718"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier sample space is the same set of ordered words of k independently uniform rank-one idempotents. Its count of the fiber at X divided by (Nh)^k, with h=q^(n−1), is the probability at X."
+        ],
+        "reasoning": "Counting words and assigning probability under this uniform ensemble are exactly equivalent for each target, including zero and each trace class. In contrast, unrestricted matrix factors and square-zero rank-one factors define different measures.",
+        "searches": [
+          "Resultary: all-arity product fibers of rank-one idempotents over finite fields; SCOPE dfb5f1d17166"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The October 12 index entry gives the exact zero and nonzero target formulas. The distinct same-day two-retraction entry gives the k=2 slice; its date does not establish priority. The square-zero entry uses different factors even though it supplies analogous exact fibers and TV."
+        ],
+        "reasoning": "The all-length formula is the decisive direct match. The two-factor and square-zero entries are separately compared and do not independently provide the full claim.",
+        "searches": [
+          "Local Resultary: all-arity rank-one idempotent fibers, two rank-one retractions, all-length rank-one square-zero fibers; SCOPE dfb5f1d17166, 612345f53108, c7286e4b73ec"
+        ]
+      },
+      "rationale": "The October 12 indexed all-arity fiber theorem dfb5f1d17166 counts the complete target distribution of the very same ordered words of rank-one idempotents over every finite field. Normalizing its exact counts proves the frozen law; combining its trace strata and comparing conditional class masses gives all the nilpotence, trace-bias and TV conclusions. The different numerical presentation is not a new distribution.",
+      "residual_risks": [
+        "Historical priority outside the indexed sources was not exhausted. Barnes–Cerrito–Levi could not be compared from full text; the decision instead rests on the directly inspected all-arity formula."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct exact all-target coverage; conditional TV follows",
+          "evidence": "The zero and three rank-one trace-stratum fiber counts yield the frozen probabilities after normalization by (Nh)^k.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-exact-all-arity-product-fibers-of-rank-one-idempotents-over-fini--dfb5f1d17166/RESULT.md",
+          "material_read": "Finding and Proof §§1–5, character and conditional mixing passages, mirror offsets 0–7718",
+          "method": "Local Resultary mirror",
+          "title": "Exact all-arity product fibers of rank-one idempotents over finite fields",
+          "trigger": "Same ensemble and exact product law"
+        },
+        {
+          "assessment": "Exact overlap for k=2 only",
+          "evidence": "The two retractions are rank-one idempotents and the target counts distinguish trace zero, one and the other traces.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-product-fibers-of-two-rank-one-matrix-retractions-over-fin--612345f53108/RESULT.md",
+          "material_read": "Finding, mirror offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Exact product fibers of two rank-one matrix retractions over finite fields",
+          "trigger": "Same-day exact count for apparently equivalent factors"
+        },
+        {
+          "assessment": "Different factor ensemble",
+          "evidence": "The sampled factors are rank-one square-zero matrices rather than idempotents.",
+          "identifier_or_url": "SCOPE c7286e4b73ec",
+          "material_read": "Finding and Proof §5",
+          "method": "Local Resultary mirror",
+          "title": "All-length multiplication fibers and exact alternating mixing for rank-one square-zero matrices",
+          "trigger": "Indexed all-length exact TV formula"
+        },
+        {
+          "assessment": "Different law and arity in the inspected statement",
+          "evidence": "Studies two arbitrary random ring elements, not ordered idempotent words.",
+          "identifier_or_url": "https://arxiv.org/html/2610.07892v1",
+          "material_read": "Abstract, OA offset 0",
+          "method": "OA primary text",
+          "title": "Nilpotent Product Probability of Finite Rings",
+          "trigger": "Same probability functional"
+        },
+        {
+          "assessment": "Parameterization count only in the relevant theorem",
+          "evidence": "Counts q^(n−1) idempotent generators per minimal left ideal, not their product fibers.",
+          "identifier_or_url": "https://arxiv.org/html/1711.09289v1",
+          "material_read": "§3, Theorem 3.1, OA HTML offset 7000",
+          "method": "OA primary text",
+          "title": "Left Ideals in Matrix Rings over Finite Fields",
+          "trigger": "Same rank-one idempotents and count per line"
+        },
+        {
+          "assessment": "Different sampling measure",
+          "evidence": "Computes 1−∏_i(1−q^(−β_i)) for unrestricted cyclic-quiver maps.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.16636v1",
+          "material_read": "Proposition 3.13, Eq. (29), PDF p. 13, OA offset 47405",
+          "method": "OA primary text",
+          "title": "Nilpotent Representations over Equioriented Cyclic Quivers",
+          "trigger": "Potentially covering probability law for cyclic products"
+        },
+        {
+          "assessment": "Unassessed from full text",
+          "evidence": "No inference about the theorem is drawn from access failure.",
+          "identifier_or_url": "https://doi.org/10.1239/jap/1032438378",
+          "material_read": "Bibliographic identification only",
+          "method": "Lawful retrieval attempts; no readable OA copy obtained",
+          "title": "Random Walks on Finite Semigroups",
+          "trigger": "Potential historical semigroup random-walk coverage"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "A full random-product law and its exact conditional mixing are naturally motivated finite-field statistics. This frozen result does not furnish an unknown invariant: the existing pointwise fiber formula determines the entire distribution, and the scalar TV and trace conclusions are elementary combinations of its strata. The alternative transfer-matrix calculation is valid but does not extend the covered law.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

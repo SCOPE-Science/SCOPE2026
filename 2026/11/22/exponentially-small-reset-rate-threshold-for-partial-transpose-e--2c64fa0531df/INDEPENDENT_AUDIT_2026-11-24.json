@@ -1,0 +1,163 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:50:56.433565Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 14–70; analytic renewal order, block formulas, uniform bounds, and inversion of the finite-size sign test",
+        "VERIFICATION.md and check.py inspected, not executed",
+        "Bounded independent reproduction: apply single-site depolarization directly to dense matrices, integrate in s=u^α using 256-point Gauss–Legendre quadrature on [0,1], and transpose only the first tensor factor. For n=3,4,5 and α=0.25,0.8,1.6 the maximum entry discrepancy in the primary compression was 1.61×10^(−10). Separately, scalar quadratures of the primary block through n=120 at c=0.3 and 0.8 showed trends toward the predicted limits."
+      ],
+      "rationale": "For r1<r2 the older exponential age has the law of the younger age plus an independent mixture of zero and an exponential of rate r1; the mixture of additional local channels preserves PPT. The strictly PPT mixed-state limit and the NPT pure-W limit, together with continuity, give one positive finite boundary with PPT at equality. For the primary compression, applying the single-site channel gives p q^m on the vacuum, and on the first-qubit-one symmetric singleton it gives p q^(m−2)[2q²+(m−1)(p²+u²)]/n. Both equal 2^(−n) at u=0 and their beta-average corrections are o(2^(−n)): on u≤1/2 their derivatives are bounded by a polynomial times (3/4)^n, and on u≥1/2 the p factor makes their integrals O(n^(−2)). The primary coherence has two factors of u and an endpoint integral asymptotic to 2/n, so its scaled magnitude tends to 2c. The other off-diagonal blocks are subset-incidence matrices between k and k+1. They have constant row and column sums, hence the stated norm, with ratio to the primary block bounded by O(√n) times the k=1 integral ratio O(1/n). After pinching the first-qubit diagonal blocks, the low-u segment u≤n^(−2) alone supplies the lower bound (1−o(1))2^(−n)I by the Pauli expansion and beta mass n^(−2α_n); contributions at higher u are positive semidefinite in the pinching. This yields the matching full-matrix lower bound to the primary-block Rayleigh upper bound. The finite-size interval property and sign tests for fixed c on both sides of 1/2 then give the claimed threshold limit.",
+      "residual_risks": [
+        "The dense replay checks block entries only at the tested rates; the larger-size numerics check only the primary block. Neither substitutes for the uniform complement and pinching bounds. No claim is made about the sign at exactly c=1/2, PPT implying separability, or genuine multipartite entanglement."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kulkarni–Majumdar Eq. (2) gives a renewal template, applied there to unitary evolution and two-spin concurrence. Wald et al. treat discrete-time unitary steps. arXiv:2604.12576 gives GHZ local-depolarization PPT results and more general moments for states with no reset-age mixture in the relevant sections. The Dicke-noise candidate was not retrieved and yields no coverage evidence."
+        ],
+        "reasoning": "The renewal identity itself extends to the local semigroup but expresses an average, not the least eigenvalue of that average. Pointwise noise thresholds and fixed moment calculations do not imply the stated joint reset-rate limit.",
+        "searches": [
+          "Kulkarni–Majumdar arXiv:2307.07485v2 §II; Wald et al. arXiv:2410.11497v3 Introduction",
+          "Locally depolarized multipartite-state partial-transpose results arXiv:2604.12576v1 §§V–VII",
+          "Noise tolerance of Dicke states, quoted title/authors and DOI, lawful alternate lookup"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary comparison and original findings for 8eaaf4adb073 and 4712db8d19ce",
+        "Kulkarni–Majumdar arXiv:2307.07485v2",
+        "Wald et al. arXiv:2410.11497v3",
+        "Nawareg DOI 10.1007/s11128-025-04994-1",
+        "arXiv:2604.12576v1 §§V–VII"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Short-age W coherence integrates over width O(1/n) and starts with Schmidt cross amplitude √(n−1)/n; this produces the n^(−3/2) factor in the negatively contributing coherence per unit dimensionless reset rate. The mostly old-age diagonal baseline is 2^(−n). Neither comparison supplies control of all other excitation sectors after the common-age mixing."
+        ],
+        "reasoning": "The spectral threshold requires matching these competing contributions and excluding a larger negative eigenvalue elsewhere. None of the inspected broader or equivalent-looking results gives that post-mixture estimate by substitution.",
+        "searches": [
+          "Compare reset renewal with the noisy-W PPT criterion and the local-depolarization partial-transpose results; arXiv:2307.07485v2 Eq. (2), Nawareg Eq. (8), arXiv:2604.12576v1 §§V–VI"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The frozen record matches index suffix 2c64fa0531df. The noisy W case of Nawareg's Eq. (8) is y|W⟩⟨W|+(1−y)I/2^n. In the frozen model each weight-j Pauli component is instead multiplied by α/(α+j)."
+        ],
+        "reasoning": "The beta age leads to weight-dependent attenuation, so its state is not the global white-noise admixture or a product depolarization evaluated at one effective age. A white-noise threshold is not the claimed renewal threshold.",
+        "searches": [
+          "Resultary: W-state one-versus-rest PPT threshold under common Poisson resets and local depolarization",
+          "Nawareg DOI 10.1007/s11128-025-04994-1, Eq. (8) and p. 16"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 2c64fa0531df entry is the finding under review. The distinct 8eaaf4adb073 entry has identical dynamics on GHZ states but a genuine-entanglement threshold r/γ=n/√2+O(1). The distinct 4712db8d19ce entry computes PPT windows for the four-qubit two-excitation Dicke state."
+        ],
+        "reasoning": "Both distinct same-day records were compared at the level of their original statements. Neither is the W family, criterion and large-n limit together; the common date is not priority evidence.",
+        "searches": [
+          "Resultary: analytic reset/noise thresholds for W, GHZ and Dicke states"
+        ]
+      },
+      "rationale": "The supported distinct claim is the all-size one-cut threshold and, especially, the quantitative crossover 2^n λ_min→1−2c at r/γ=c n^(3/2)2^(−n) for the common-age mixture of locally depolarized W states. The renewal identity, local channel formula, and partial-transpose machinery are not new. Related reset thresholds at a fixed size or for GHZ states do not cover this asymptotic.",
+      "residual_risks": [
+        "The plausible Dicke-noise comparison was not available in usable full text; neither was the cited Li–Sang–Hsieh DOI 10.1103/PhysRevB.107.014307. Availability is not used as coverage evidence. The bounded comparisons do not certify publication priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The renewal mechanism is prior; the analyzed entanglement problem is not this one.",
+          "evidence": [
+            "Poisson mixture over unitary evolution; application to two coupled spins and concurrence."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2307.07485v2",
+          "material_read": "Abstract offsets 471–1469; §II Eq. (2), offsets 8100–10615",
+          "method": "Lawful OA primary HTML",
+          "title": "Generating Entanglement by Quantum Resetting",
+          "trigger": "Prior Poisson quantum renewal analysis and entanglement"
+        },
+        {
+          "assessment": "Different time and noise model in the checked material.",
+          "evidence": [
+            "Unitary discrete-time dynamics interrupted by resets."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2410.11497v3",
+          "material_read": "Introduction offsets 5900–8018",
+          "method": "Lawful OA primary HTML",
+          "title": "Stochastic resetting in discrete-time quantum dynamics: steady states and correlations in few-qubit systems",
+          "trigger": "Quantum resetting and correlations"
+        },
+        {
+          "assessment": "Different state family, not a common beta-age mixture of local channels.",
+          "evidence": [
+            "Eq. (8) is the pure Dicke state mixed with global white noise; the k=1 analysis includes the W state and discusses PPT and conditional-entropy thresholds."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s11128-025-04994-1",
+          "material_read": "Abstract offsets 992–1493; p. 6 Eq. (8), offset 15350; p. 16, offsets 49700–53427",
+          "method": "Lawful OA primary PDF",
+          "title": "Entropic analysis of non-separability in noisy Dicke states",
+          "trigger": "Noisy W state and asymptotic PPT comparison"
+        },
+        {
+          "assessment": "Related local-noise tools without the W-state Poisson-age crossover in the checked passages.",
+          "evidence": [
+            "GHZ threshold, general moment formulas, and a six-qubit AME example."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2604.12576v1",
+          "material_read": "§V offsets 23600–25384, §VI offsets 43400–45586, §VII offsets 53400–54900",
+          "method": "Lawful OA primary HTML",
+          "title": "Local-depolarization study of partial-transpose moments",
+          "trigger": "General partial-transpose calculations after independent local depolarization"
+        },
+        {
+          "assessment": "Not equivalent, due to both initial state and criterion.",
+          "evidence": [
+            "GHZ reset/noise and genuine-entanglement threshold r/γ=n/√2+O(1)."
+          ],
+          "identifier_or_url": "Resultary 2026/11/22, suffix 8eaaf4adb073",
+          "material_read": "Mirrored RESULT.md, Finding at offset 0",
+          "method": "Lawful local mirror",
+          "title": "A sharp linear reset-rate threshold for genuine GHZ entanglement",
+          "trigger": "Distinct finding with the same noise and reset protocol"
+        },
+        {
+          "assessment": "Different initial state and fixed size, not a large-n W theorem.",
+          "evidence": [
+            "Two-excitation four-qubit state, exact 1-versus-3 and balanced-cut windows."
+          ],
+          "identifier_or_url": "Resultary 2026/11/22, suffix 4712db8d19ce",
+          "material_read": "Mirrored RESULT.md offsets 0–4993",
+          "method": "Lawful local mirror",
+          "title": "Exact bipartition-dependent PPT windows for a reset-noisy four-qubit Dicke state",
+          "trigger": "Distinct finding with the same protocol and a PPT criterion"
+        },
+        {
+          "assessment": "Coverage unassessed; the candidate citation and scope were not confirmed by full text.",
+          "evidence": [
+            "No scientific comparison inferred from the title or the access failure."
+          ],
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevA.101.012308 (candidate citation)",
+          "material_read": "No usable primary full text",
+          "method": "Lawful OA retrieval attempted; exact-title alternate-copy lookup found no usable match",
+          "title": "Noise tolerance of Dicke states",
+          "trigger": "Potentially close k=1 Dicke local-noise result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 4–24 and 47–70",
+        "Comparative reset and noisy-Dicke sources described under originality"
+      ],
+      "rationale": "The threshold and crossover quantify a naturally posed stationary entanglement transition: the critical rate is exponentially small with a precise n^(3/2)/2 prefactor multiplying γ2^(−n), and the scaled eigenvalue describes behavior on both sides. The result is informative precisely because the oldest, nearly mixed part of the ensemble and the rare young coherent part contribute on the same scale here.",
+      "residual_risks": [
+        "The negative eigenvalue is itself exponentially small in the crossover window; this is not evidence of robustness to fixed experimental errors, nor does the model account for the cost of global repreparation."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

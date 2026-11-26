@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:18:12.183184Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, dominant coordinate and three parameter regions",
+        "VERIFICATION.md and checker.py (read only)",
+        "Independent replay: python3 /workspace/checks/review13_exact.py; /workspace/checks/review13_output.txt"
+      ],
+      "rationale": "With q=1-p and a weight w_i>=p, success of coordinate i suffices. If w_i<=1-p, failure of i and success of all other positive-weight coordinates also wins and is disjoint and positive; if w_i>1-p, i is necessary too. Otherwise pad to six coordinates, all <p, forcing p>1/6. Complements show that all sets of size at least four win, that all pairs win for p<=1/5, and that all triples win for p<=1/4. In the intermediate range two disjoint losing pairs are impossible (total mass strictly below 4p<=1); an intersecting edge family on six vertices has at most five edges, so at least ten pairs win. In the last range every perfect matching hits a winning edge (three losing pairs would have mass <3p<=1), yielding k>=5 since 15 matchings meet each edge three times. The complement of each losing triple is a winning-pair triangle since its total is >1-p>=2p and all weights are <p. The independent exact graph check exhausts 32768 graphs and gives t<=2k-8; extra edges above k=5 contribute a nonnegative difference bounded below by (k-5)p^2 q^3(1-3p). Exact Bernstein coefficients certify each of the three reduced probability bounds minus p strictly positive on the full closed subinterval, with minimum coefficients 4505/46656, 196/3125 and 21/4096 respectively. These are polynomial positivity certificates, not sampling. The argument handles endpoints, repeated or zero weights and the non-strict event; p=0 is a separate trivial case, not part of the equality criterion.",
+      "residual_risks": [
+        "The supplied checker uses int.bit_count and therefore needs Python 3.10+, not the advertised 3.8+. This does not affect the proof or independent reproduction. No result for seven or more positive weights or a strict winning threshold is inferred."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The paper states reciprocal-integer cases and an unconditional small-p range through 10^-46 for arbitrary length; it discusses further bounds via MMS. Proposition 7 gives counterexamples for 1/3<p<1 except p=1/2. The 2013 lower bound reported there is p(1-p)/10."
+        ],
+        "reasoning": "The conjecture is not a theorem. The known continuous small-p range, isolated reciprocal parameters (including p=1/3), and weaker universal lower bound do not prove the full at-most-six statement or equality. Outer sharpness of the initial p interval is prior work.",
+        "searches": [
+          "arXiv:2606.30287v1, Conjecture 1, very-small-p and MMS-dependent results pp. 1–2, and Proposition 7 p. 3",
+          "Alon–Emek–Feldman–Tennenholtz, Adversarial leakage in games, as cited and described in that paper"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2606.30287v1",
+        "Resultary ed600339602a, 9051b3e3ae8c and 235cc647b649",
+        "2013 result as reported by Milojević–Sudakov"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The five-weight proof and its strict gap cover the smaller support cases. None of those inspected statements supplies the matching/triangle constraint for six light weights or an arbitrary-length all-p theorem that would imply the six case."
+        ],
+        "reasoning": "The elementary heavy-coordinate branch is shared, but six strictly light weights do occur. Padding extends six to five, not five to six; the independently checked six-vertex argument provides the remaining conclusion.",
+        "searches": [
+          "Milojević–Sudakov Theorem/Conjecture and Proposition 7 passages; Resultary ed600339602a Finding and proof; Resultary 9051b3e3ae8c Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary paper's Conjecture 1 is the same non-strict mean event after scaling weights, with zero weights discarded and any summand count. Resultary 235cc647b649 concerns the equal-stake binomial regime, not arbitrary weights."
+        ],
+        "reasoning": "Normalization by total weight and appending zeros leave the mean event unchanged. Equal stakes do not control unequal stakes; in particular the exact criterion for equality depends on the largest weight.",
+        "searches": [
+          "Resultary queries for weighted Bernoulli mean-crossing lower tails and finite-stake threshold/equality",
+          "Milojević–Sudakov arXiv:2606.30287v1, p. 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 9051b3e3ae8c gives the maximum at four stakes, despite sharing the threshold problem. Resultary ed600339602a gives the desired lower bound and strict light-stake gap for at most five weights, and the heavy-coordinate argument gives the matching equality test there."
+        ],
+        "reasoning": "The graph census proves a lemma, not coverage of the probability theorem. The strongest matching indexed result handles five weights and does not dominate the six-weight target. A maximum envelope cannot replace the minimum.",
+        "searches": [
+          "Resultary exact finite-stake searches: four-stake phase diagram and five-weight sharp mean-crossing gap"
+        ]
+      },
+      "rationale": "Pass for the sharp six-weight subfamily across the full continuous parameter range, including equality. The range is already the conjectured universal range, its endpoint p=1/3 is known for arbitrary length, and the explicit five-weight indexed overlap must be credited. The six-weight regime and its all-small-weight strictness are not covered by those results. A later or same-date index label alone decides neither priority nor overlap.",
+      "residual_risks": [
+        "A separate unindexed small-support result could exist. A bounded search, or the dates attached to nearby records, is not a priority or novelty guarantee."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known sharp outer threshold and partial results, not full six-weight proof or equality classification.",
+          "evidence": [
+            "The full p range is Conjecture 1. Unconditional small-p range and reciprocal cases are stated separately.",
+            "Proposition 7 establishes counterexamples beyond one third apart from the symmetric exception."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2606.30287v1",
+          "material_read": "Conjecture 1 p. 1 (offsets about 3028–4614), proof regimes p. 2 (about 9300), Proposition 7 p. 3 (about 14285), bibliography p. 4",
+          "method": "Targeted lawful arXiv PDF passage inspection",
+          "title": "On the Probability a Weighted Bernoulli Sum Exceeds Its Mean",
+          "trigger": "Identical inequality and full conjectured parameter range"
+        },
+        {
+          "assessment": "Credited for the reported weaker bound and reciprocal endpoint background, not used to rule out other results in that article.",
+          "evidence": [
+            "The later source reports the uniform p(1-p)/10 bound and the known p=1/n sharp-bound cases."
+          ],
+          "identifier_or_url": "Alon, Emek, Feldman and Tennenholtz, SIAM J. Discrete Math. 27 (2013), 363–385",
+          "material_read": "Secondary statement and reference [4] in arXiv:2606.30287v1 pp. 1 and 4; not the independent original full text",
+          "method": "Primary later paper's mathematical comparison and citation",
+          "title": "Adversarial leakage in games",
+          "trigger": "Earlier weighted Bernoulli lower bounds"
+        },
+        {
+          "assessment": "Covers up to five weights only, including strictness on light stakes, and does not imply the six-weight result.",
+          "evidence": [
+            "For at most five weights and p<=1/3 it proves the p lower bound; the strict light-stake gap exceeds 3/256."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-a-sharp-five-weight-gap-for-bernoulli-mean-crossings--ed600339602a",
+          "material_read": "RESULT.md offset 0 and around 6800, finding and proof comparison",
+          "method": "Local index and record mirror",
+          "title": "A sharp five-weight gap for Bernoulli mean crossings",
+          "trigger": "Strongest exact catalogue overlap"
+        },
+        {
+          "assessment": "Maximum over weights, not minimum.",
+          "evidence": [
+            "At the mean threshold, the upper envelope is 1-(1-p)^4 up to 1/4 and 1-(1-p)^3 from above 1/4 to 1/3."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-exact-four-stake-phase-diagram-for-the-bernoulli-averaging-probl--9051b3e3ae8c",
+          "material_read": "RESULT.md offset 0, theorem/finding",
+          "method": "Local index and record mirror",
+          "title": "Exact four-stake phase diagram for the Bernoulli averaging problem",
+          "trigger": "Same-day, same Bernoulli stake event and overlapping parameters"
+        },
+        {
+          "assessment": "Equal-stake binomial probabilities only; no arbitrary-weight lower bound.",
+          "evidence": [
+            "Studies strict monotonicity of P(Bin(3k,p)>=k) in the equal-stake threshold-one-third setting."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-strict-subcritical-chaundy-bullard-monotonicity-at-the-one-third--235cc647b649",
+          "material_read": "RESULT.md offset 0, theorem/finding and scope",
+          "method": "Local index and record mirror",
+          "title": "Strict subcritical Chaundy–Bullard monotonicity at the one-third threshold",
+          "trigger": "Possible equivalent equal-stake threshold result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Milojević–Sudakov arXiv:2606.30287v1, Conjecture 1",
+        "RESULT.md, final region and equality case",
+        "Resultary ed600339602a"
+      ],
+      "rationale": "This settles a natural finite-support subcase of an explicit probability conjecture through the full continuous p interval, not just a grid or the known isolated endpoint. The six-weight matching and triangle argument explains why the light-weight case is strictly above the lower bound and thereby gives a sharp equality locus for the whole subfamily.",
+      "residual_risks": [
+        "Six is an established support cutoff in the proof, not claimed to be the largest possible. The internal lower polynomials need not be optimal."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

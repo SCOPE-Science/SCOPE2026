@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:00:05.194222Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With A=37/25+C/4, the first critical image runs from 321/400 to 371/400. The right branch gives the second image (15−8A)(72A+1)/1024, positive and at most 1.98(1−321/400)<1/2, so the third iterate uses the left branch for the entire range. Independent integer polynomial multiplication gave third-iterate-minus-one-half numerator coefficients (−2096927,93600,5522816,−3594240,331776), ascending in A at denominator 4194304, agreeing with the stated factorization. Only the increasing quadratic factor changes sign in the range. Its admissible root gives the stated C and ℓ<h with ℓ<1/2<h, so the least period is three. The endpoints 0,ℓ,1/2,h,1 map to 0,1/2,h,ℓ,0, proving the four transitions by branch monotonicity. Both branch slopes have magnitude at least A>1; cylinders shrink and the expanding Markov entropy formula gives log ρ(M)=log φ, since the other components have radii at most one. On [ℓ,h] the core transition matrix is primitive, so cylinders inside any open subinterval eventually cover both cells for all sufficiently large iterate times. Points above h enter (0,ℓ); a positive point remaining below ℓ would increase to a positive fixed point there, impossible, and when it crosses ℓ it cannot overshoot 1/2. Only the two endpoints fall to 0 without entering the core. The supplied symbolic checker was read, not run; the proof, not a finite orbit sample, supports expansion, mixing and finite absorption.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The two exact critical-contact entropy anchors in Resultary e82add3c2c15 are for the Lawnik–Berezowski M-map and have different entropy values and trigger orbits; the standard entropy theorem is general conditional on a partition."
+        ],
+        "reasoning": "The general theorem covers conversion of a stated expanding orbit partition into entropy, not which controls in the Paul family admit this orbit or its entry basin.",
+        "searches": [
+          "Resultary: golden-mean Markov entropy and exact critical resonances",
+          "Finite expanding Markov interval formula, Alsedà–Llibre–Misiurewicz"
+        ]
+      },
+      "checked_sources": [
+        "Paul et al. ICECS 2021 open full text, named passages",
+        "Resultary b38ef0f9d169, e82add3c2c15, 92883ace85ae, 88c9efcacec7"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2021 design identifies the polynomial branches and reports numerical dynamical indicators; the standard Markov argument would give golden-mean entropy for the verified orbit order. Other self-parameterized seeds and the M-map supply different postcritical calculations."
+        ],
+        "reasoning": "The Paul design formulas alone do not state admissible branch order and the unique critical control. No novelty is credited to the golden-mean spectral radius of the two-cell matrix as a general fact.",
+        "searches": [
+          "Paul et al. ICECS 2021 §II.A/B and tent parameter discussion",
+          "Paul et al. DOI 10.3390/jlpea13010018",
+          "Resultary e82add3c2c15, 92883ace85ae and 88c9efcacec7"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Substituting gain 0.125 and bias 0.74 in the original tent branches gives exactly (37/25+(x+C)/4) min(x,1−x), with Paul et al.'s external control V_c relabelled C. Their §II.B numerical indicators do not give the exact admissible root."
+        ],
+        "reasoning": "The alias is the same family, not an original formula; the exact critical equation and its unique admissible root are the distinguishing content.",
+        "searches": [
+          "Paul et al. ICECS 2021 §II.A, Eq. (1), Table I and Fig. 3 discussion",
+          "Resultary: Paul self-parameterized tent critical orbit, parameter radical and golden-mean Markov entropy"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact formula, least period, entropy and absorption match the audited Resultary b38ef0f9d169 entry itself. Inspected neighboring records 92883ace85ae and 88c9efcacec7 deal with a logistic period-four window and a skew-tent total-variation transition, respectively."
+        ],
+        "reasoning": "These are neither a distinct listing of this control nor a table of the requested invariant for this family. The same-day date does not establish priority.",
+        "searches": [
+          "Resultary: C* radical, Paul tent family, period-three critical orbit and absorbing mixing core",
+          "Primary exact-radical web lookup"
+        ]
+      },
+      "rationale": "The map is an exact instance of Paul et al.'s published design, and the entropy and mixing mechanism once the critical itinerary is known are standard. The supported distinct contribution is identifying the unique exact control of that family and range with this orbit, and specifying its global interval/core dynamics. The conclusion is bounded by the sources actually read.",
+      "residual_risks": [
+        "The expanded 2023 journal full text could not be checked; it may have additional exact analysis not reflected in the inspected 2021 passages.",
+        "The bounded literature search cannot rule out unindexed computation or a distinct exact statement under another parameter convention."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same family, numerical design/indicator statements in inspected sections",
+          "evidence": "Transform gain .125, bias .74 and slopes ±2V_c yield the frozen formula after renaming; §II.B describes double-precision MATLAB iteration.",
+          "identifier_or_url": "https://confcats-event-sessions.s3.amazonaws.com/icecs21/papers/2160.pdf",
+          "material_read": "§II.A Eq. (1) and Table I p. 2; §II.B and Fig. 3 text p. 3",
+          "method": "Open conference PDF passage inspection",
+          "title": "Self-Parameterized Chaotic Map: A Hardware-efficient Scheme Providing Wide Chaotic Range",
+          "trigger": "Original exact seed family and parameters"
+        },
+        {
+          "assessment": "Priority risk unresolved; not a negative coverage finding",
+          "evidence": "DOI/direct PDF access did not supply readable full text; alternate publisher asset route returned 404.",
+          "identifier_or_url": "https://doi.org/10.3390/jlpea13010018",
+          "material_read": "Landing/abstract only; no full text verified",
+          "method": "Lawful DOI and PDF attempts including alternate publisher asset route",
+          "title": "Self-Parameterized Chaotic Map for Low-Cost Robust Chaos",
+          "trigger": "Direct expanded journal work on same family"
+        },
+        {
+          "assessment": "Different family and exact anchors",
+          "evidence": "Entropy values log(2+√2) and log(1+√3), not the Paul postcritical three-cycle.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-two-exact-entropy-anchors-at-critical-resonances-of-the-lawnik-b--e82add3c2c15",
+          "material_read": "Finding with critical-contact entropy values",
+          "method": "Local Resultary mirror",
+          "title": "Two exact entropy anchors at critical resonances of the Lawnik–Berezowski M-map",
+          "trigger": "Exact entropy from another explicit critical contact"
+        },
+        {
+          "assessment": "Distinct seed and claim",
+          "evidence": "Attracting period-four window for a logistic seed, not a least-period-three tent turning point and mixing Markov core.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-an-explicit-attracting-period-four-window-in-a-self-parameterize--92883ace85ae",
+          "material_read": "Finding and seed map",
+          "method": "Local Resultary mirror",
+          "title": "An explicit attracting period-four window in a self-parameterized logistic map",
+          "trigger": "Same self-parameterization design context"
+        },
+        {
+          "assessment": "Different map and invariant",
+          "evidence": "Golden-ratio threshold for total-variation prefactors, not entropy at a postcritical Paul control.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-golden-ratio-transition-in-exact-total-variation-relaxation-of-a--88c9efcacec7",
+          "material_read": "Finding on total-variation relaxation",
+          "method": "Local Resultary mirror",
+          "title": "Golden-ratio transition in exact total-variation relaxation of a skew tent map",
+          "trigger": "Golden ratio and tent dynamics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An exactly located postcritically finite parameter in a published numerical design supplies a calibration point where entropy and the basin of a mixing core can be distinguished rigorously from measures based on finite observations. The all-control uniqueness and almost-full interval absorption are substantive parts of the result. No digital, cryptographic or global parameter-curve consequence is claimed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

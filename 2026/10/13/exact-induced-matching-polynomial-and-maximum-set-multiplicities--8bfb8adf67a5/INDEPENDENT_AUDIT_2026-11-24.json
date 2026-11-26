@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:19:25.686860Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In each indexed prism column a selected rung, top rail or bottom rail excludes all other edges starting in the same or a neighboring column. At directed separation two a starting rung allows every second type; a starting rail allows only the opposite rail. The wrap-around tests enforce both orientations when n=4, and for n=3 every pair of distinct columns is consecutive. Larger separations in both directions cannot give adjacent endpoints. The seven-state closed walks keep the first column fixed by the vertex labels, so trace counts indexed words, not rotation classes. Independently, the block for the allowed distance-two pairs in order R,T,B has rows (1,1,1),(0,0,1),(0,1,0). Eliminating the transit states gives, with d=zt², the determinant (1+d)[(1−t)(1−d)^2−zt³(3−d)], the claimed factorization. The formal logarithmic derivative gives the traces; the only excluded traces are 1 and 1+2z at lengths one and two. All-rung choices attain floor(n/2). At odd n, the sole gap of length three leaves an open chain of occupied types; there are n choices for the gap and n types of chains (all rungs or a first rail of either kind followed by forced alternation). At even n, each of two supports allows all rungs and allows two additional alternating rail assignments exactly when n/2 is even. Independent exact adjacency checks over 87,360 words for n=3..8 agreed, including 1+24z+148z²+176z³+6z⁴ at n=8. Frozen verify.py was inspected, not executed; it documents a separate finite check through order nine and extremal traces through order 44. The graph bijection, determinant identity, and gap proof, not either finite range, establish the theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general cubic induced-matching bound is at least m/9, not a complete polynomial or an extremal count.",
+          "The nearby exact results treat powers C_n^r or lexicographic clique blowups G[K_m]. They are not Cartesian prisms: for example, edge adjacency lifts to complete bipartite adjacency between different fibers in a clique blowup, but only corresponding rails in a prism."
+        ],
+        "reasoning": "Neither the global bound nor the specialized graph constructions furnish an arbitrary-order prism enumerator. The fact that all are periodic graphs does not establish a specialization.",
+        "searches": [
+          "arXiv:1312.1110 Theorem 1",
+          "Resultary induced and maximal induced matchings of cycle powers (8c7ade1511c3)",
+          "Resultary induced matching enumerators of clique blowups (a59056cf41f6)"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2404.18806, Definition, Eq. (8), Table 2",
+        "arXiv:1312.1110, Theorem 1",
+        "OEIS A102079, definition and rows",
+        "Resultary 862aa31d85c9, 35e50b8c53e9, 8c7ade1511c3 and a59056cf41f6, original Findings",
+        "doi:10.3390/math8081265 (unresolved full text)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The denominator 1−t−2zt²−zt³+z²t⁴ matches the entire second determinant factor, not the extra cyclic factor 1+zt². The open scalar generating function uses different boundary contraction and does not reveal the antisymmetric transfer contribution to the cyclic trace.",
+          "The dissociation transfer imposes maximum degree at most one and supplies a different determinant; the theorem's Lucas law concerns maximum cardinality among vertex sets that may contain isolated vertices."
+        ],
+        "reasoning": "The methods can be adapted to the cyclic induced-matching problem, but the evaluated prior formulas do not imply the asserted OGF by specialization or the odd/even closure counts. Neither a broad lower bound nor a shared transfer mode is exact coverage.",
+        "searches": [
+          "arXiv:2404.18806 Eq. (8) and Table 2",
+          "Resultary 862aa31d85c9, Finding and local transfer proof",
+          "arXiv:1312.1110 Theorem 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Induced matchings are independent sets of the squared line graph of the prism. Equivalently their incident vertices are dissociation sets inducing degree exactly one at every chosen vertex; the inspected dissociation polynomial marks only vertex count.",
+          "Non-bonding dominoes give the same local rule on the open path ladder, not on the closed cyclic ladder GP(n,1). Strong edge-coloring partitions edges into induced matchings rather than counting all individual choices."
+        ],
+        "reasoning": "These reductions and aliases identify plausible comparisons. The open condition and the at-most-one degree constraint do not encode the exactly correct cyclic predicate with all coefficients. The inspected one-variable dissociation formula cannot be specialized to set the number of isolated chosen vertices to zero.",
+        "searches": [
+          "Resultary: cycle prism induced matching generating polynomial exact count C_n square K_2 maximum induced matchings",
+          "arXiv:2404.18806, definition of non-bonding dominoes and Eq. (8)",
+          "doi:10.3390/math8081265, generalized Petersen strong edge coloring"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A102079 lists the triangular prism row 1,9,18,4 and explicitly counts ordinary matchings, whereas the induced polynomial is 1+9z.",
+          "Mathar's four-column open ladder has polynomial 1+10z+9z², versus 1+12z+6z² in the cyclic case. The indexed maximal ordinary matching result counts inclusion-maximal ordinary edges, not all induced matchings."
+        ],
+        "reasoning": "The explicit disagreement of rows and the different selected objects rule out exact table or sequence coverage by these strongest inspected candidates.",
+        "searches": [
+          "OEIS A102079 for prism matching-generating polynomials",
+          "arXiv:2404.18806, Table 2",
+          "Resultary 35e50b8c53e9, complete maximal matching polynomial on cycle prisms"
+        ]
+      },
+      "rationale": "The strongest inspected open-ladder formula gives exactly one determinant factor, but it has different boundary conditions and already different coefficients for four columns. The closest same-host exact indexed result counts vertex dissociation sets, and the univariate size marking does not select those with no isolated vertex. The cyclic trace, its additional factor and the closed maximum-set multiplicities survive those and the matching-table comparisons. This is a bounded assessment, not a priority guarantee.",
+      "residual_risks": [
+        "Earlier equivalence under cylindrical dominoes, a transfer for a squared line graph, or generalized Petersen terminology may not be indexed. The searches and exact comparisons do not settle priority.",
+        "Full text on generalized Petersen strong edge coloring was not recovered; no whole-document conclusion rests on that inaccessible source."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Open width-two ladder; one determinant factor overlaps, not the cyclic result",
+          "evidence": [
+            "The table gives 1,10,9 for width two and length four.",
+            "Eq. (8) gives p_2/q_2 with q_2=1−t−2zt²−zt³+z²t⁴ after renaming variables."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2404.18806",
+          "material_read": "PDF p. 1 definition (offset about 1050); p. 7 Table 2 and Eq. (8) (offsets about 12400 and 13650)",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "Bivariate Generating Functions Enumerating Non-Bonding Dominoes on Rectangular Boards",
+          "trigger": "Closest prior width-two polynomial with the same local exclusions"
+        },
+        {
+          "assessment": "Size lower bound, not family-specific enumeration",
+          "evidence": [
+            "For cubic graphs the induced matching number is at least m/9."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1312.1110",
+          "material_read": "PDF p. 2, Theorem 1, offset about 3000",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "Induced Matchings in Subcubic Graphs",
+          "trigger": "Broader graph-class theorem for the same edge invariant"
+        },
+        {
+          "assessment": "Ordinary matchings; explicit mismatch for n=3",
+          "evidence": [
+            "The row for n=3 has 18 pairs and four triples; the displayed triples are perfect matchings, not induced matchings."
+          ],
+          "identifier_or_url": "https://oeis.org/A102079",
+          "material_read": "Definition, Formula, and Example, public entry offsets 0–3306",
+          "method": "Lawful public page inspection",
+          "title": "OEIS A102079",
+          "trigger": "Exact coefficient database for matchings on prisms"
+        },
+        {
+          "assessment": "No isolate marking, different invariant and exact counts; no date-based exclusion",
+          "evidence": [
+            "J_n is weighted only by |S| with induced maximum degree at most one. Its transfer allows isolated vertices, and its maximum sets have n vertices with Lucas-based multiplicity."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-complete-dissociation-polynomial-and-lucas-maximum-set-law-for-c--862aa31d85c9/RESULT.md",
+          "material_read": "Finding and local transfer, offsets 0–3272",
+          "method": "Resultary search and original local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Complete dissociation polynomial and Lucas maximum-set law for cycle prisms",
+          "trigger": "Same-day, same host, potential vertex-to-edge specialization"
+        },
+        {
+          "assessment": "Inclusion-maximal ordinary matchings, different predicate",
+          "evidence": [
+            "The selected edge sets are inclusion-maximal matchings with no inducedness constraint."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-complete-maximal-matching-polynomial-and-minimum-size-multiplici--35e50b8c53e9",
+          "material_read": "RESULT.md Finding, offset 91 onward",
+          "method": "Resultary search and original local mirror",
+          "title": "Complete maximal matching polynomial and minimum-size multiplicities on cycle prisms",
+          "trigger": "Same prism and matching-polynomial vocabulary"
+        },
+        {
+          "assessment": "Full-text coverage unresolved; not used as negative evidence",
+          "evidence": [
+            "The title concerns strong edge coloring. The landing response and refused PDF do not establish whether an auxiliary theorem counts such matchings."
+          ],
+          "identifier_or_url": "https://doi.org/10.3390/math8081265",
+          "material_read": "Bibliographic identification only in this comparison; no theorem passage recovered",
+          "method": "Lawful DOI and identified PDF access attempts",
+          "title": "Strong Edge Coloring of Generalized Petersen Graphs",
+          "trigger": "GP(n,1) is the prism; relation between coloring classes and induced matchings"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The prism is the natural periodic version of the classical open width-two problem. Closure changes the transfer modes that contribute to the all-size distribution, and changes the extremal structure sharply: quadratically many optima at odd n become only six or two at even n. This supplies exact benchmarks for a canonical cubic family rather than a few computed coefficients.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:41:36.639985Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–64",
+        "Frozen VERIFICATION.md, lines 19–23, and verify_friendship.py, lines 4–59 (read, not executed)"
+      ],
+      "rationale": "In a proper coloring the two neighbors of each peripheral vertex have different colors. The remaining condition is precisely positive odd multiplicity for each used peripheral color, and the hub color is absent there. For a fixed active palette of size k the parity projector applied to m ordered pairs with unequal entries gives H_m(k): the one-pair character sum is (k-2j)^2-k for a sign vector with j negatives. This counts assignments and proves integrality and nonnegativity. Multiplying by the choice of hub and active palette, then summing through 2m, handles unused colors and proves the polynomial assertion. The active size is even; size two works exactly for odd m. For even m, the first two petals can use disjoint pairs and additional petals in pairs preserve parity, giving size four. At k=4 the character values are 12, 0, -4, 0, 12 with multiplicities 1, 4, 6, 4, 1, giving the stated even optimal count. This also covers m=1 and palettes with fewer than three colors.",
+      "residual_risks": [
+        "Finite checks are reported source evidence only; the conclusion rests on the reviewed general argument."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Both earlier windmill families contain the entire friendship family at blade size two. The October 25 finding explicitly states the same minimum and optimal multiplicities in this case. Manattu et al. Theorem 3 treats one-point unions of a different family, C_n joined to two independent vertices."
+        ],
+        "reasoning": "The general windmill results, not the unrelated sparse-graph bounds or wheel-type one-point union, supply the covering claims.",
+        "searches": [
+          "Resultary generalized windmills fb1ea8e5dc0f and clique windmills 37cf422240c4",
+          "arXiv:2401.11653, arXiv:2410.02336, arXiv:2602.03259"
+        ]
+      },
+      "checked_sources": [
+        "Resultary mirror records fb1ea8e5dc0f, 37cf422240c4, 08d96cc0f3bf",
+        "Kwon–Park arXiv:2401.11653 Theorem 1.2 (general degree bound)",
+        "Caro et al. arXiv:2410.02336 introduction and §2",
+        "Manattu–Vinay–Lakshmanan arXiv:2602.03259 Theorem 3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For p fixed colors the October 18 proof gives T_{r,t,p}=2^{-p} sum_A (-1)^|A| (sum_{|S|=r}(-1)^|A∩S|)^t. With r=2 and |A|=j the inner sum is ((p-2j)^2-p)/2."
+        ],
+        "reasoning": "Multiplying by 2^m and choosing the used subset of a named palette is a direct partition of all colorings, with no new enumeration to solve for nonoptimal q. The absence of the exact printed polynomial in the optimal-census findings does not make it distinct.",
+        "searches": [
+          "fb1ea8e5dc0f, Proof steps 1 and 3, mirror offset 2000",
+          "37cf422240c4, Proof enumeration, mirror offset 1900"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The friendship graph is K_1 joined to m copies of K_2. The earlier formulas enumerate ordered tuples of r-subsets on a fixed active nonhub palette; when r=2, each pair has two orders on the labelled peripheral vertices."
+        ],
+        "reasoning": "The prior odd-column parity-incidence system is identical to the frozen odd active-color problem, not just a related graph invariant.",
+        "searches": [
+          "Resultary: friendship, generalized windmill, clique windmill strong odd coloring; records fb1ea8e5dc0f and 37cf422240c4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "October 12 records the full feasible active color-count spectrum for m≥2. October 25 gives the exact named optimal counts including the same two branches; neither title is evidence of an all-q table."
+        ],
+        "reasoning": "There is indexed exact coverage of the spectrum and optimal census. Coverage of the all-q expression is an implication from the earlier fixed-active-palette character sum, not a claimed all-q table match.",
+        "searches": [
+          "Resultary: strong odd color-count spectrum and named coloring census for friendship graphs; 08d96cc0f3bf, 37cf422240c4"
+        ]
+      },
+      "rationale": "Prior clique-windmill results cover the sharp minimum and both optimal counts. More importantly, the October 18 proof already gives the active-palette enumeration for a fixed set of p colors. Set (r,t,p)=(2,m,k): its character sum is the unordered-pair sum, half of (k-2j)^2-k; accounting for the two orders in each petal gives H_m(k)=2^m T_{2,m,k}. This identity in the proof has no minimum-palette requirement. For any offered palette q, choosing the hub and the k used colors gives q times binom(q-1,k); summing disjoint active-size classes yields exactly the frozen polynomial. The earlier records need not print that final sum to imply it mechanically.",
+      "residual_risks": [
+        "Searches are bounded and may not locate the earliest occurrence. No claim about the contents of arXiv:2610.01441 is needed to establish the demonstrated mirror overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers minimum and optimal counts; proof mechanically implies all-palette polynomial",
+          "evidence": [
+            "The definition of T_{r,t,p} counts each active color an odd number of times and the identity is valid for any fixed p; specialize to r=2 before adding palette choices."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-exact-optimal-strong-odd-coloring-counts-for-generalized-windmil--fb1ea8e5dc0f/RESULT.md",
+          "material_read": "Finding; Proof steps 1–3, offset 2000",
+          "method": "Local mirror, statement and proof comparison",
+          "title": "Exact optimal strong odd coloring counts for generalized windmills",
+          "trigger": "Generalization of the same graph and parity census"
+        },
+        {
+          "assessment": "Exact minimum and optimal-count coverage; independently gives the parity expansion for fixed active colors",
+          "evidence": [
+            "At blade size two the proof evaluates the even count as 5(12^m+3·4^m)/8, and the odd formula specializes to 3·2^m."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-exact-strong-odd-colorings-and-optimal-coloring-census-of-clique--37cf422240c4/RESULT.md",
+          "material_read": "Finding; Proof parity matrix and enumeration, offset 1900",
+          "method": "Local mirror, statement and proof comparison",
+          "title": "Exact strong odd colorings and optimal coloring census of clique windmills",
+          "trigger": "Exact chromatic and optimal count overlap"
+        },
+        {
+          "assessment": "Covers feasible active color counts for m≥2; not a named multiplicity census",
+          "evidence": [
+            "Theorem gives {3,5,…,2m+1} for odd m and {5,7,…,2m+1} for even m."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-strong-odd-color-count-spectrum-of-friendship-graphs--08d96cc0f3bf/RESULT.md",
+          "material_read": "Finding, assumptions and initial proof, offset 0",
+          "method": "Local mirror",
+          "title": "Strong-odd color-count spectrum of friendship graphs",
+          "trigger": "Exact result for the same family"
+        },
+        {
+          "assessment": "Different graph family; not a coloring census",
+          "evidence": [
+            "The component graph in the stated one-point union is C_n joined to the complement of K_2."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2602.03259",
+          "material_read": "Section 3, Theorem 3 (PDF p. 6 and HTML offset 15300)",
+          "method": "Targeted open-access comparison",
+          "title": "On a conjecture about the strong odd chromatic number of planar graphs",
+          "trigger": "One-point unions and exact chromatic numbers"
+        },
+        {
+          "assessment": "Not established; not relied upon for verdict",
+          "evidence": [],
+          "identifier_or_url": "https://arxiv.org/html/2610.01441v1",
+          "material_read": "No full text at the attempted HTML location",
+          "method": "Open-access direct and alternate route attempted",
+          "title": "On the Classical and Parameterized Complexity of Strong Odd Coloring",
+          "trigger": "Plausible windmill overlap raised in October 25 comparison"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof",
+        "Resultary fb1ea8e5dc0f, Proof step 3; 37cf422240c4, Finding and enumeration"
+      ],
+      "rationale": "The minimum-palette parity gap and exact optimal counts are useful invariants but already supplied by earlier windmill results. The apparent extension to a complete polynomial is only the routine named-subset aggregation of the previously available fixed-active-palette counts. No further exact quantity or structurally new consequence remains to repair.",
+      "residual_risks": [
+        "The verdict is about the frozen contribution, not about the possible utility of the displayed formula as a convenient restatement."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

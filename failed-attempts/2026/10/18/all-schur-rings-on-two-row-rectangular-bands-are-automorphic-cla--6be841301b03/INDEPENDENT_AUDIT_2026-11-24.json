@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:28:13.973085Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–51, VERIFICATION.md and checker.py (inspected only)",
+        "/tmp/opencode/replay_discrete.py schur"
+      ],
+      "rationale": "The product coefficient is r_X(i)c_Y(j). Summing equal coefficients over either block index gives equality of row and column signatures separately, since the constant marginal totals 2 and n are nonzero in Q. Conversely those equalities suffice for closure. If the two row signatures differ, matching column signatures force identical column partitions on the two rows. Otherwise every block has equal row cardinalities. A block label can occur only with one partner label, because any columns sharing it have the same unordered label multiset. For distinct partners, equal row counts force equal orientation halves; a self-partner gives one monochromatic group. This also makes the column partition and decoration recoverable. A column-group stabilizer acts on separated rows; for balanced rows the within-half permutations and the coupled row/half swap act transitively on each label without merging labels. All automorphisms preserve the row and column equivalences characterized respectively by equality of right- and left-multiplication maps, so the ambient group is S2×Sn. Unordered equal halves account for the factor 1/2 and the two empty formal terms are excluded. Independent enumeration through n=5 recovered the 2,5,13,48,184 totals and checked accepted partitions by multiplying actual cells and testing orbits of the full blockwise stabilizer.",
+      "residual_risks": [
+        "The computation is limited to widths 1 through 5; the proof establishes arbitrary positive width. The counts are for labeled partitions over Q, with no identity constraint."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Marrow–Misseldine give B(a)B(b) direct-product examples and note nonproducts; the identity-adjoined monoid record also admits unequal splits for its different condition."
+        ],
+        "reasoning": "Neither the direct-product lower bound nor the later result about dimensionalities of a different algebraic object, by itself, yields the frozen classification. The exact earlier two-row statement is decisive.",
+        "searches": [
+          "Marrow–Misseldine arXiv:2601.09940v1 §§2.2, 5.4 and 5.6",
+          "Resultary 29638e4c76de identity-adjoined monoids"
+        ]
+      },
+      "checked_sources": [
+        "Resultary b55d2bce611d, 898f75a97d4e and 29638e4c76de",
+        "Marrow–Misseldine arXiv:2601.09940v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier count is B(n)+n![z^n] exp(e^z−1+½∑(z^h/h!)²); the earlier theorem explicitly realizes each block structure by automorphism orbits."
+        ],
+        "reasoning": "The exponential formula converts the earlier coefficient expression into the weight product over column partitions. Adding the Bell EGF and removing the two constant terms gives precisely the frozen positive-width EGF. There is no surviving classification or enumeration difference.",
+        "searches": [
+          "b55d2bce611d RESULT.md enumeration formula and orbit construction versus frozen RESULT.md lines 6–25 and 43–51"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2026/10/13 b55d2bce611d RESULT.md Finding: separated rows with the same induced column partition, or balanced groups decorated by one monochromatic block or an unordered equal split; all are subgroup orbit partitions."
+        ],
+        "reasoning": "The earlier object has the same multiplication, block-sum closure and labels. Exchanging the two rectangular-band dimensions is not a difference in the theorem here, and the two enumerated forms and orbit claim agree statement by statement. The Oct. 26 record is also equivalent on these points but is later.",
+        "searches": [
+          "Resultary local mirror: two-row rectangular band Schur partitions, b55d2bce611d and 898f75a97d4e"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Earlier Resultary record gives 2,5,13,48,184 and an all-width coefficient formula. Primary paper gives 5 Schur rings at 2×2 and 13 at 3×2."
+        ],
+        "reasoning": "Matching small tables alone would not establish coverage, but the earlier all-width coefficient formula matches the weighted-Bell count exactly.",
+        "searches": [
+          "Resultary b55d2bce611d Finding and Verification",
+          "Marrow–Misseldine §§5.4, 5.6"
+        ]
+      },
+      "rationale": "An earlier distinct Resultary record proves the same exhaustive classification of labeled two-row partitions and their automorphicity and gives the same enumeration. The earlier primary semigroup paper's lower bound and small cases alone would not establish coverage, but the earlier Resultary finding does.",
+      "residual_risks": [
+        "The comparison establishes existing equivalent findings, not their provenance or priority relative to every other treatment. An empty general search is not negative evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the full claim",
+          "evidence": "Two forms, orbit realization and identical closed enumeration.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-all-schur-partitions-of-two-row-rectangular-bands-are-automorphi--b55d2bce611d/RESULT.md",
+          "material_read": "Finding and proof, with finite verification and prior-work comparison around offset 6800",
+          "method": "local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "All Schur partitions of two-row rectangular bands are automorphic",
+          "trigger": "Exact earlier classification match"
+        },
+        {
+          "assessment": "Broader framework and small cases, not the decisive all-width coverage",
+          "evidence": "Direct product lower bound, all five 2×2 rings automorphic, and 13 at 3×2.",
+          "identifier_or_url": "https://arxiv.org/pdf/2601.09940",
+          "material_read": "§2.2 p. 8 and §§5.4, 5.6 pp. 31–32",
+          "method": "OA primary text, v1",
+          "title": "On Schur Rings Over Semigroups",
+          "trigger": "Foundational treatment with exact small rectangular bands"
+        },
+        {
+          "assessment": "Matching later record, not relied on for earlier coverage",
+          "evidence": "Equivalent two-row classification plus non-direct-product counts.",
+          "identifier_or_url": "2026/10/26/SCOPE-schur-ring-classification-of-two-row-rectangular-bands--898f75a97d4e",
+          "material_read": "Finding",
+          "method": "local mirror",
+          "title": "Schur ring classification of two-row rectangular bands",
+          "trigger": "Same mathematical objects and enumeration"
+        },
+        {
+          "assessment": "Later and changes the object and closure condition",
+          "evidence": "Identity-adjoined monoid and unequal splits outside its orbit-realizable subfamily.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-dimensionalities-of-two-row-rectangular-band-monoids--29638e4c76de",
+          "material_read": "Finding on dimensionalities and orbit-realizability",
+          "method": "local mirror",
+          "title": "Exact dimensionalities of two-row rectangular-band monoids",
+          "trigger": "Possible analogous stronger classification"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding",
+        "Earlier Resultary b55d2bce611d Finding"
+      ],
+      "rationale": "The structural classification would itself be valuable, but this submission reproduces the already classified family, orbit realization, enumerator and small table without a distinct substantive remainder. The verified computation is corroboration, not a new invariant.",
+      "residual_risks": [
+        "This rejects the incremental contribution, not the usefulness of the classification itself."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

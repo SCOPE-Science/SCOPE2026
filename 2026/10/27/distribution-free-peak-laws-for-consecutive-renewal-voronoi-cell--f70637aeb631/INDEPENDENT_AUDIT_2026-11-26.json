@@ -1,0 +1,166 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:30:11.034106Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 16–64",
+        "Frozen VERIFICATION.md and verify_peak_law.py, inspected without executing the packaged checker",
+        "Independent exact rank-permutation comparison for lags 1–4 and window sizes 1–6"
+      ],
+      "rationale": "Canceling the shared gap in each neighbor comparison gives M_i=1{G_i>G_(i−2)}1{G_(i−1)>G_(i+1)}. The factors concern disjoint gap pairs, giving mean 1/4. Adjacent peaks are impossible, lag two requires independent three-rank chains with probabilities 1/6 each, and lag three requires the single shared gap to rank first from the bottom in a triple independently of two comparisons, giving 1/12. For lag at least four the relevant gap sets are disjoint; in fact whole separated index families are independent. Subtracting (1/4)^2 and substituting in the stationary variance sum gives the stated exact windows and positive long-run variance 5/144. Blocks of length floor(n^(1/3)) separated by three discarded indices are independent. By boundedness and 3-dependence the discarded terms (including a final partial block) have variance O(n^(2/3)+n^(1/3)); the centered block third moments sum to at most the block length times the total block variance, o(n^(3/2)). This verifies the CLT. An independent exact rank replay matched all four joint moments and the first six window variances, 3/16, 1/4, 35/144, 5/18, 5/16, and 25/72: enumerate all permutations of the h+4 gaps at lag h or n+3 gaps in an n-peak window, apply the two comparisons per indicator, and divide first and second moment sums by the factorial. This is corroboration, not the proof of the general n result.",
+      "residual_risks": [
+        "No finite gap moments are needed for the indexed law. A finite mean is needed for the stated Palm interpretation; fixed length spatial windows and tied gaps are outside scope."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Járai-Szabó–Néda give a marginal Poisson–Voronoi cell density, not a local maximum count. Gabrielli–Torquato give joint cell-size statistics for independently perturbed lattice sites whose gaps are dependent.",
+          "4cb8af1bb6f6 gives a cyclic cell-length law, not the peak-count constants."
+        ],
+        "reasoning": "A marginal does not fix joint ranks, and the dependent shuffled-lattice gap ensemble differs from a renewal. A cell-length law gives an input distribution but is not the evaluation of the peak-count moments or a proof of distribution-free transfer.",
+        "searches": [
+          "arXiv:cond-mat/0406116, §2, eqs. (5)–(9)",
+          "arXiv:cond-mat/0405115, §V, eqs. (21)–(25)",
+          "Resultary 4cb8af1bb6f6, Finding"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, lines 30–80",
+        "Ku–Seneta and Bandt–Shiha as limited above",
+        "arXiv:cond-mat/0406116 and cond-mat/0405115",
+        "Resultary 2133366397a2, 4cb8af1bb6f6 and two search-summary comparisons"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For N Gaussian MA(1) readings at coefficient +1 there are N−2 interior peaks. The exact frozen variance would correspond to 5(N+2)/144 when N≥6. No checked passage gives that evaluation or the equivalent individual lag values.",
+          "An m-dependent CLT gives the Gaussian form, not the long-run variance 5/144 unless the covariance profile has already been computed."
+        ],
+        "reasoning": "An explicit Gaussian MA(1) formula at the endpoint would be relevant enough to transfer by exact ranks; a general statement about Gaussian peak counts, without verified formulas and hypotheses, does not establish the frozen exact evaluation.",
+        "searches": [
+          "Ku–Seneta, accessible abstract",
+          "Bandt–Shiha, DOI attempts",
+          "Frozen RESULT.md, comparison reduction and variance identities"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For X_i=Z_i+Z_(i−1) with iid Gaussian Z, the peak indicator is exactly 1{Z_i>Z_(i−2)}1{Z_(i−1)>Z_(i+1)}. Every finite iid atomless sequence has the same joint rank law, so this is equality of the entire indexed peak process, not just a match of the mean.",
+          "The Ku–Seneta abstract names Gaussian ARMA peak variance and asymptotic normality, especially AR(1) and MA(1), but not coefficient +1 or its endpoint formulas."
+        ],
+        "reasoning": "The coefficient +1 is stationary but lies at the boundary of invertibility. If the earlier theorem gives the relevant endpoint formulas, or interior formulas with an evaluable endpoint limit, they may imply some or all constants. The accessible evidence does not establish that implication.",
+        "searches": [
+          "Ku–Seneta, DOI 10.1111/j.1467-9892.1994.tb00201.x; Gaussian moving-average peak counts and the coefficient +1 endpoint",
+          "Bandt–Shiha, DOI 10.1111/j.1467-9892.2007.00528.x"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected circular threshold record 2133366397a2 uses threshold indicators, not strict local maxima. The cyclic length record 4cb8af1bb6f6 is about the underlying cell lengths. The last two hits were inspected only as search summaries, respectively for sliding-maximum update indicators and generalized ordinal patterns."
+        ],
+        "reasoning": "The relevant exact comparison is to an indexed peak-moment formula or an equivalent rank event, not a table of cell-size densities or a similarly signed covariance of a different indicator. No matching exact peak formula was verified in these hits.",
+        "searches": [
+          "Resultary: renewal Voronoi consecutive peak covariance, rank peak counts and sliding maxima; records 2133366397a2, 4cb8af1bb6f6, 14cb4a65704f, 09ebdb81d232"
+        ]
+      },
+      "rationale": "The distinct supported finding is the distribution-free indexed renewal peak law with its exact lag and finite-window constants. The Gaussian MA(1) process with coefficient +1 is exactly equivalent at the peak-indicator level; positivity of renewal gaps does not distinguish these peak laws. The accessible earlier study addresses Gaussian MA(1) peak variances and CLTs, but does not specify in the inspected text the coefficient range or whether its formulas give the stated endpoint moments. No inspected theorem establishes the exact profile or supplies a verified stronger implication. The blocking CLT itself is standard once the profile and dependence range are known.",
+      "residual_risks": [
+        "The unavailable Ku–Seneta and Bandt–Shiha full texts are the principal priority risk, specifically the Gaussian MA(1) coefficient +1 limit. No historical priority claim is made from these access limits or from nonmatching catalog returns."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material possible coverage; coefficient and exact values unverified",
+          "evidence": [
+            "Peak count variance and asymptotic normality for stationary Gaussian ARMA samples; emphasis on AR(1) and MA(1)"
+          ],
+          "identifier_or_url": "https://doi.org/10.1111/j.1467-9892.1994.tb00201.x",
+          "material_read": "RePEc abstract, HTML offset 631; full article unavailable",
+          "method": "Lawful publisher attempt and public RePEc abstract",
+          "title": "The number of peaks in a stationary sample and orthant probabilities",
+          "trigger": "Likely direct Gaussian MA(1) equivalent for peak counts"
+        },
+        {
+          "assessment": "Potential overlap not resolved",
+          "evidence": [
+            "No exact applicable formula or parameter scope verified"
+          ],
+          "identifier_or_url": "https://doi.org/10.1111/j.1467-9892.2007.00528.x",
+          "material_read": "Bibliographic identification; full text not available",
+          "method": "Lawful DOI retrieval, no identified open copy",
+          "title": "Order Patterns in Time Series",
+          "trigger": "Plausible earlier Gaussian ordinal-pattern formulas"
+        },
+        {
+          "assessment": "Marginal cell law only for the inspected comparison",
+          "evidence": [
+            "One-dimensional density 4y exp(−2y)"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/cond-mat/0406116",
+          "material_read": "§2, PDF pp. 5–6, offset 11600, eqs. (5)–(9)",
+          "method": "Primary OA PDF",
+          "title": "On the size-distribution of Poisson Voronoi cells",
+          "trigger": "Same one-dimensional Poisson cell geometry"
+        },
+        {
+          "assessment": "Different gap law and statistic",
+          "evidence": [
+            "Shuffled-lattice lengths a+(u_(j+1)−u_(j−1))/2 and a two-cell density"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/cond-mat/0405115",
+          "material_read": "§V, PDF pp. 10–13, offsets 27800–32850, eqs. (21)–(25)",
+          "method": "Primary OA PDF",
+          "title": "Voronoi and Voids Statistics for Super-homogeneous Point Processes",
+          "trigger": "Exact one-dimensional cell correlations"
+        },
+        {
+          "assessment": "Different indicator",
+          "evidence": [
+            "Threshold comparisons in a finite uniform circle sample"
+          ],
+          "identifier_or_url": "Resultary 2133366397a2",
+          "material_read": "Finding",
+          "method": "Resultary index and local mirror",
+          "title": "Exact neighbor threshold-dependence phase diagram for circular Voronoi cells",
+          "trigger": "Neighbor indicator dependence for cells"
+        },
+        {
+          "assessment": "Length-vector law, no peak-count evaluation in the inspected finding",
+          "evidence": [
+            "Joint cyclic cell lengths rather than local rank count constants"
+          ],
+          "identifier_or_url": "Resultary 4cb8af1bb6f6",
+          "material_read": "Finding",
+          "method": "Resultary index and local mirror",
+          "title": "Parity-rigid inversion and the exact joint law of circular Voronoi cell lengths",
+          "trigger": "Full indexed cyclic cell law"
+        },
+        {
+          "assessment": "No claim about its exact coverage",
+          "evidence": [
+            "No matching statement verified"
+          ],
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevE.86.026103",
+          "material_read": "Citation; primary text not retrievable",
+          "method": "Lawful DOI access attempts; no repository copy identified",
+          "title": "Emergence of patterns in random processes",
+          "trigger": "Cited background on random patterns"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–28 and 44–64"
+      ],
+      "rationale": "Local longest cells are a natural rank summary in one-dimensional renewal geometry. The exact lag profile identifies positive dependence at distance three despite negative shorter lags. The resulting variance is only 5/27 of the independent-indicator approximation per indexed cell, a substantive quantitative difference for peak-count inference. This value is in the exact evaluated constants and their distribution-free scope, not in invoking a standard finite-dependence CLT.",
+      "residual_risks": [
+        "No transfer to fixed spatial windows, dependent gaps, or higher-dimensional tessellations is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

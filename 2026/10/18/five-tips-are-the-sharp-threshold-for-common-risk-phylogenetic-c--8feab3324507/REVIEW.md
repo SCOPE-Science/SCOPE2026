@@ -1,11 +1,21 @@
-# Review of the five-tip phylogenetic-conservation threshold
+# Independent mathematical audit
 
-**Correctness (PASS).** Rooted expected PD gains reduce exactly to the established HED branch sum, with a common multiplicative extinction factor. The universal proof exhausts the binary root partitions up to five tips without an enumeration assumption: a singleton crown has the unique optimal tip; a \(2+2\) split has a constant-sign affine score difference; and a \(2+3\) split has exactly three candidate optimal taxa and a factored affine sign test. It treats strict interior parameters and both boundary length inequalities. The included rational checker separately verifies the fully specified five-tip example from independent survivor-subset enumeration, as well as the critical factorizations. This finite computation is not used to prove all tree lengths.
+## correctness
 
-**Originality (PASS, subject to the stated residual risks).** Steel, Mimoto and Mooers (2007), Theorems 3.1 and 4.1 and their Appendix, already supply the underlying HED score and focal-species preservation formula, so those formulas are not claimed. Their five-tip illustration and primate calculations involve heterogeneous species threats; their checked full text does not give the sharp smallest number of tips or the homogeneous-risk \(b<a<2b\) complete characterization. Mooers, Faith and Maddison (2008), Figure 1 and surrounding discussion, show ranking changes for four taxa under *different* extinction-risk transformations and do not imply uniform-risk switching. Fischer, Francis and Wicke (2021) analyze a Fair Proportion ranking after deletions rather than expected-PD gains from certain single-tip protection. These mechanism and quantifier differences are decisive; nevertheless, an unlocated more general published order-switching result might already imply the simple five-tip corollary. Search failure does not establish novelty or independent priority.
+PASS
 
-**Mathematical value (PASS).** The exact minimum and complete interior threshold criterion give a small, natural structural benchmark: even when every species has identical extinction risk and branch lengths follow a molecular clock, the best one-species intervention need not have a risk-independent identity. The shape-specific sign comparison separates this fact from the familiar heterogeneous-risk sensitivity. The result is a finite exact natural classification rather than a claimed general advance in computing HED.
+With rooted Faith PD (zero on an empty survivor set), the change on an edge of length l subtending m tips on the protected path is l times the probability that all m initially go extinct, l q^m. Divide total gain by the common positive q. A singleton at the root has score H, strictly above a competitor with a positive nonpendant path edge. At n=2 both root children are singleton, so both tie: the uniqueness wording in Proof Step 2 needs this qualification, but the stated fixed-optimum assertion holds. For 2+2 the paired score difference is (b-a)(1-q); for 2+3 the triplet outgroup C strictly dominates D,E by (t-b)(1-q), and C minus either A or B is (1-q)(a-b(1+q)). This gives precisely the open switching region, its tie, and strict constant winners at a=b and a=2b since q=0,1 are excluded. These splits exhaust the binary possibilities through five tips. Independent exact replay /workspace/branches/replay_3.py enumerated actual before-and-after expected PD over all 32 outcomes for the positive ultrametric H=4 witness: at q=1/4,1/2,3/4 the optimizer sets were respectively C, ABC, AB. That replay verifies the witness, not the universal proof. The frozen verifier was inspected, not run.
 
-**Scope and residual risks.** Fully binary rooted ultrametric trees; positive lengths; independent common risk; one guaranteed protection; equal costs. The general source HED theorem makes the derivation accessible, and a specialized previous classification not found in the inspected works could subsume it. Full generalization to nonultrametric trees, heterogeneous threats, multiple taxa or optimized budget allocations is neither proven nor implied. Independent audit remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The novel claim assessed is the global-optimum boundary for a single change under independent identical risks and ultrametricity, not the HED score, the gain identity, or heterogeneous-risk rank sensitivity. The examined related records about unit edges or two switches do not establish this single-switch global classification. This is a best-of-knowledge comparison of inspected material, not a general priority determination.
+
+## value
+
+PASS
+
+This tests a natural expectation that equal risks and a molecular clock might fix the best conservation priority. The first possible switch, full sharp parameter interval and globally optimal tie sets supply a reusable exact benchmark, not just a crossing between two nonoptimal tips or a new name for HED. It gives no policy prescription for taxa with heterogeneous or dependent risks, uncertain phylogeny, or different intervention costs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

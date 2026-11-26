@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-23.md",
+      "INDEPENDENT_AUDIT_2026-11-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The accompanying `verify_affine.py` constructs the affine incidence graphs at orders two, three and four without external dependencies. It computes shortest-path distances by breadth-first search, derives every all-geodesics interval from the distance identity, enumerates every vertex set of each of the two relevant cardinalities, and compares the output with the theorem. In the order-four case it uses the explicit field \(\mathbb F_2[t]/(t^2+t+1)\).
+# Independent mathematical audit
 
-The independent `verify_affine_cpp.cpp` constructs the prime-order graphs by a differently ordered incidence enumeration, uses Floyd–Warshall shortest paths and verifies every relevant vertex subset in orders two and three. It checks the number of selected line-vertices in each geodetic near-minimum set.
+## correctness
 
-Reproduce with Python 3 using `python verify_affine.py`, then with a C++17 compiler using `g++ -std=c++17 -O2 verify_affine_cpp.cpp -o verify_cpp && ./verify_cpp`. The exact observed output is in `verify_output.txt`. These finite computations are consistency tests; the theorem for every existing affine plane follows from the incidence-axiom argument in `RESULT.md` and does not depend on finite testing. The q-plus-one gap is proven only for \(q\ge3\); order two is exceptional. No independent external audit has been performed.
+PASS
+
+The point localization follows by enumerating endpoint types: point–point intervals have no intermediate points; point–line and line–line intermediate points lie on a selected endpoint line. Thus q²≤a+qb. At size q, equality forces q disjoint lines, a parallel class; length-four intervals between two such lines cover their points and each transversal. At size q+1 for q≥3, at least q lines are selected. An incomplete class containing s≥2 selected lines leaves a missing class line with at most q+1−s covered points. With q pairwise intersecting lines, their union plus one point covers at most q²−q+2<q²; with q+1 pairwise intersecting lines, no unselected line is on a shortest path. This proves the extension classification and count without double counting. At q=2 identify line vertices with subdivided edges of K4 on the four points. Intersecting selected lines AB and AC force the selected point to be D, and the resulting intervals miss line BC. A selected line AB with points C,D covers CD by their connecting geodesic and all four cross lines by the point–line geodesics. These give exactly six minimal triples in addition to 24 extensions. Distinct classes are disjoint as vertex sets, so the exchange threshold and graphs follow directly.
+
+## originality
+
+PASS
+
+The supported distinct result is the affine-plane basis classification and sharp near-minimum rigidity including the exceptional order two. The related projective flag bases, geodetic-set definitions, and domination/exchange results do not supply that classification.
+
+## value
+
+PASS
+
+The result identifies the full minimum family and the first possible near-minimum obstruction in a natural family of incidence graphs. The q+1 gap is an actual extension/classification result, not merely the evaluation of one small graph, and the six order-two triples show exactly where that rigidity first fails.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:43:19.972358Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the unit-rate directed cycle the geometric resolvent and the squared resolvent group powers modulo n; summing (j+kn+1)s^(kn) gives the stated c_(n,j). A_n,B_n>0 for h>0, so the displayed integer numerators preserve signs. The Taylor coefficient of Q^k is 2(k+1)/2^k−1; k=3 vanishes and k=4 gives −3/8. The displacement four is distinct from all earlier powers for n≥5. Q annihilates the all-ones vector and E_n(0)=I_n. Independently replayed the exact certificate using integer polynomials and signed rational Sturm division; see evidence/4/replay_exact.py and evidence/4/replay_exact.log. Every numerator for n=2–4 has nonnegative coefficients and is nonzero. The diagonal numerators begin positive and have zero positive roots for n=2–13, and exactly two at n=14, with Sturm variations (19,17). Exact evaluation gives a strictly negative diagonal at h=6 for n=14–16; for n≥17 the verified base inequality 7(n+1)(3/4)^n < (1−(3/4)^n)^2 persists because its left side decreases and its right side increases, proving the strict sign for the infinite tail. For n=14, off-diagonal indices 1–3 are positive; 4–12 have exactly one positive root below 3; and index 13 has exactly one root α∈(3,4). The diagonal roots are β∈(5,6) and γ∈(6,9), with signs +,−,+. The intersection is {0}∪[α,β]∪[γ,∞), including all endpoints; exact rational bisection corroborates the printed decimals. Strict positivity at positive h for small n does not include h=0. The supplied verifier was inspected, not executed; no proof-assistant or n≥15 complete timestep classification is claimed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Aitken–Neville rule and Algorithm 1 specialize to the same endpoint update for p=2; method construction and order are known.",
+          "Unconditional SSP intermediate backward-Euler stages do not imply that the extrapolated endpoint is SSP. The centered-advection positivity theorem classifies θ-methods on a different generator."
+        ],
+        "reasoning": "None of the inspected general or adjacent results gives this endpoint's entrywise sign pattern or finite dimension threshold.",
+        "searches": [
+          "Constantinescu–Sandu TR-08-13 §2 equation (2.3a)",
+          "Quezada de Luna–Ketcheson arXiv:2109.08272v1 §7.1 Algorithm 1",
+          "Hadjimichael–Ketcheson–Lóczi arXiv:2105.07403 Theorem 2"
+        ]
+      },
+      "checked_sources": [
+        "TR-08-13",
+        "arXiv:2109.08272v1",
+        "arXiv:2105.07403",
+        "Efficient Implementation of Stable Richardson Extrapolation Algorithms",
+        "Resultary 328da4f7b295, c9c2b9f6d7e1 and c08f9b38b493"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The scalar sign threshold 2+2√2 supplies the diagonal limit at fixed h as n tends to infinity, not the first finite n with a negative diagonal.",
+          "The exact known cyclic kernel allows an exact analysis, but neither eventual positivity, the four-hop Taylor term, nor the five-cycle recovery root fixes the root counts, ordering, or n≥14 uniform witness."
+        ],
+        "reasoning": "Determination of the onset and the continuum of step sizes requires additional sign certificates and an infinite-tail argument. A scalar stability sign is not an entrywise condition on a finite cycle.",
+        "searches": [
+          "Resultary c9c2b9f6d7e1 scalar Richardson sign theorem",
+          "Resultary c08f9b38b493 pure-birth reentry",
+          "Resultary 328da4f7b295 equations (1)–(3) and limitations"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For the same extrapolated rational map on a cycle, its entry coefficients are periodized shift coefficients, equivalently inverse discrete Fourier samples of its eigenvalues.",
+          "Resultary 328da4f7b295 uses the same generator, same E_n up to orientation, and same rational coefficients. The absorbing pure-birth record uses a nilpotent transient shift instead of wraparound and has a finite upper step barrier."
+        ],
+        "reasoning": "Transpose or Fourier renaming does not change signs. The pure-birth transient diagonal is not the cycle's periodized diagonal, so its sign threshold does not give the finite-cycle cutoff.",
+        "searches": [
+          "Richardson extrapolated backward Euler positivity directed cyclic Markov chain circulant stochasticity diagonal reentrant two level implicit Euler extrapolation nonnegative matrix entries rational function absolute monotonicity",
+          "Resultary 328da4f7b295 and c08f9b38b493 findings"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 2026/11/8/SCOPE-the-five-state-positivity-barrier-and-sharp-recovery-for-richard--328da4f7b295 gives the exact same n≤4 all-positive statement and −3h⁴/8 small-step entry for n≥5, as well as the same generating kernel.",
+          "Its exact full-step result is for n=5 (h_*≈0.297835688) and eventual positivity at every fixed n; its limitations expressly leave general n≥6 recovery thresholds open. The same-size/path Radau hit and eight-cycle Gauss hits use other time updates or generators."
+        ],
+        "reasoning": "Exact overlap in the small-cycle and small-step results is credited. No inspected indexed record covers the first diagonal loss at fourteen states or the two separated positive-step intervals there.",
+        "searches": [
+          "Resultary: directed cyclic Markov generator Richardson extrapolated backward Euler endpoint matrix entrywise positivity fourteen state 14 diagonal negative h=6 reentrant disconnected timesteps",
+          "Resultary: fourteen-state diagonal barrier, roots 3.066370751, 5.565679617, 7.994442146"
+        ]
+      },
+      "rationale": "Pass for the distinct minimum diagonal-failure dimension, the uniform h=6 witness, and the complete fourteen-state nonnegative-step set. The later 2026/11/8 Resultary record independently exhibits exact statement overlap for items 1–2 and the general cyclic kernel; those are not distinct content relative to that entry. Its different n=5 classification does not cover the new diagonal and n=14 sign assertions. The displayed chronology is not used to establish independent discovery or historical priority.",
+      "residual_risks": [
+        "A specialized circulant matrix-function sign calculation under another name could contain the finite cutoff or root classification.",
+        "The audit does not establish priority for overlapping cyclic statements or classify other rates, updates or general chains."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact method construction specialization, not diagonal classification",
+          "evidence": "Two levels with step ratios 2:1 give twice the fine result minus the coarse result.",
+          "identifier_or_url": "https://eprints.cs.vt.edu/archive/00001037/01/ExImex.pdf",
+          "material_read": "§2, p. 4, offset 8400 onward, equation (2.3a)",
+          "method": "OA report PDF text",
+          "title": "Achieving Very High Order for Implicit Explicit Time Stepping: Extrapolation Methods",
+          "trigger": "Original extrapolation construction"
+        },
+        {
+          "assessment": "Same extrapolation stages; differently limited analysis",
+          "evidence": "Conditions concern SSP intermediate stages and nonlinear limiting, not the unmodified directed-cycle endpoint sign set.",
+          "identifier_or_url": "https://arxiv.org/html/2109.08272v1",
+          "material_read": "§7.1, offsets 42600–46107, Algorithm 1",
+          "method": "OA HTML article text",
+          "title": "Maximum principle preserving space and time flux limiting for Diagonally Implicit Runge-Kutta discretizations",
+          "trigger": "Implicit Euler extrapolation and positivity"
+        },
+        {
+          "assessment": "Related technique, different update and space generator",
+          "evidence": "Centered discretization and θ-method; admissible Courant numbers form a single interval when nonempty.",
+          "identifier_or_url": "https://arxiv.org/pdf/2105.07403",
+          "material_read": "Theorem 2 and nearby proof, pp. 17–18, offsets 73777–77117",
+          "method": "OA PDF text",
+          "title": "Positivity preservation of implicit discretizations of the advection equation",
+          "trigger": "Periodic positivity step sets and circulant matrices"
+        },
+        {
+          "assessment": "Scalar spectral stability, not matrix-entry sign conditions",
+          "evidence": "The criterion is modulus of the stability function; it does not resolve the cycle diagonal onset.",
+          "identifier_or_url": "https://faragois.web.elte.hu/papers/stability_richardson_backward_euler_journal_version.pdf",
+          "material_read": "§§3–5, Dahlquist, A/L-stability definitions and active/passive distinction",
+          "method": "OA author-hosted PDF text",
+          "title": "Efficient Implementation of Stable Richardson Extrapolation Algorithms",
+          "trigger": "Closest relevant hit in a primary literature search"
+        },
+        {
+          "assessment": "Items 1–2 overlap exactly; diagonal/reentry distinction remains",
+          "evidence": "Identical small-dimension and Taylor statements and kernel; full recovery classification only at n=5.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-the-five-state-positivity-barrier-and-sharp-recovery-for-richard--328da4f7b295/RESULT.md",
+          "material_read": "Finding and proof equations (1)–(3) at offset 0; limitations at offset 7250",
+          "method": "Local published-record mirror",
+          "title": "The five-state positivity barrier and sharp recovery for Richardson-extrapolated backward Euler on directed cycles",
+          "trigger": "Exact match of method and generator"
+        },
+        {
+          "assessment": "Different operators and exact sets",
+          "evidence": "Scalar decay cutoff 2+2√2 and absorbing chain finite positive window; no periodized fourteen-cycle diagonal.",
+          "identifier_or_url": "Resultary c9c2b9f6d7e1 and c08f9b38b493",
+          "material_read": "Both findings and proof passages at offset 0",
+          "method": "Local published-record mirror",
+          "title": "Richardson acceleration creates a sharp positivity barrier for backward Euler; Re-entrant positivity of Richardson-extrapolated backward Euler on five-state pure-birth chains",
+          "trigger": "Promising scalar and exact reentry aliases"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The first negative diagonal is a meaningful departure from earlier off-diagonal small-step loss, and classification exactly at its onset shows two disjoint nontrivial safe ranges separated by genuine sign failure, despite exact mass conservation. The cycle is a canonical test family for distinguishing Markov positivity from scalar stability. The result is not merely a sign sample or a numerical choice of timestep.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

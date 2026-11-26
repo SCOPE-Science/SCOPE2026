@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (PASS).** The proof establishes that the nilpotent locus is precisely the arrow radical; the four quotient maps lift uniquely into three families after applying the idempotent equation and Peirce compatibility. Squaring the arrow-preserving family gives the exact equations \(L^2=L\) and \(Lu=0\); rank follows from its diagonal quotient. Gaussian-binomial choices of image and complement, followed by a free shear in the kernel, prove the entire counting polynomial. Automorphisms preserve the two asymmetric Peirce corners, so their conjugacy action reduces to the rank of the idempotent \(L\). Exhaustive small-field checks corroborate these deductions. No inference from finite checks to all fields is made.
+## correctness
 
-**Originality (PASS, with bibliographic residual risk).** Iovanov–Sistko give the closely relevant maximal-subalgebra classification, including a two-arrow Kronecker example, but do not give the Hom sets or rank spectra here. Facchini–Heidari Zadeh study rank-one splitting and algebra idempotents in a different setting, so existence of scalar augmentations is not itself claimed novel. Kinser–Oswald study quantum-group actions on path algebras rather than all unital self-maps. Literature searches located a result for this exact algebra on commutator fibers and commuting probability, which is not logically strong enough to derive the present Hom and retraction counts. A possible equivalent triangular-matrix-ring homomorphism census is the residual risk; failure to retrieve it is not proof of absolute novelty.
+PASS
 
-**Value (PASS).** Multi-arrow Kronecker algebras are canonical representation-theoretic path algebras. Their full unital Hom family across all arrow multiplicities, exact number of maps over each finite field, splitting-image classification, and complete retraction-rank and conjugacy spectra together form a natural structural invariant, not a numerical slice or parameter substitution. The formula separates radical-linear choices from quotient orientation and exposes a uniform classification independent of characteristic.
+The nilpotent set is exactly the arrow space, so every map descends to K×K. The four possible images of the first vertex on that quotient lift to e1+u, e2+u, 1, or 0; the target Peirce relation permits an arbitrary arrow map L only in the first case. This gives the three stated families and the finite-field Hom count. The reversed quotient cannot be idempotent; both scalar characters give distinct rank-one retractions. In the orientation-preserving family, F²=F iff L²=L and Lu=0. Choosing im L and a complementary ker L, then u in ker L, gives the claimed Gaussian coefficient and exponent with rank d+2. Conjugating by the shear w changes u by (I−L)w, so it removes u, and basis change leaves just the rank. The two quotient characters are fixed individually by every automorphism. This covers d=0 and d=n and is characteristic independent. Independent replay exhausts the basis images and actual conjugacy relation over F2 for n=2: 70 maps, 24 automorphisms, orbit sizes 1,1,4,12,1 at ranks 1,1,2,3,4.
 
-**Scientific limits.** The result does not address nonunital maps, arbitrary base rings, or module-category endomorphisms. The numerical checker exhausts specified small prime fields only; the theorem is proved symbolically. Literature coverage is not independently certified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct claim is the combined explicit unital map classification and labeled and conjugacy retraction census. Same-algebra results inspected count different objects. General splitting, idempotent-matrix counts and path-algebra structure are ingredients, not independent novelty. No equivalent or dominating census was established in the material inspected.
+
+## value
+
+PASS
+
+The Kronecker path algebra is a natural minimal family with an arbitrarily large arrow ideal. For this family the result distinguishes possible images from the number and equivalence classes of sections realized as idempotent maps: even a single fixed rank and image type can have many labeled realizations, which the rank polynomial measures. That precise information is useful in studying maps and splittings of this standard example and is not furnished by its known subalgebra or commuting-pair counts. The Hom classification is elementary but provides the structural input to the full retraction census rather than a table-only recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

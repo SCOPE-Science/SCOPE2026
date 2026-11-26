@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:47:21.091827Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Use the operator norm and real a,b≠0. The distinct directions imply R is not ±I, so its positive eigenspace is nonzero (a nonscalar Hermitian Pauli is traceless). Both operators preserve the two sectors; on R=−1 the factors cancel and H vanishes. On R=+1 anticommutation gives the exact product cos(2bh)[cos(2ah)I−i sin(2ah)P]−i sin(2bh)Q. Independently, writing d=√(a²+b²), the exact evolution on that sector is cos(2dh)I−i sin(2dh)(aP+bQ)/d. Taylor subtraction yields (4iab/3)(2bP−aQ)h³+O(|h|⁴). The square of the self-adjoint Pauli combination is (a²+4b²)I; the reverse triangle inequality gives the claimed nonzero leading norm. Unitary telescoping gives O(|t|³/r²) for fixed t. In the quadratic product defect every anticommuting pair contributes a nonzero coefficient times its product, up to phase. Among at most three distinct directions two different unordered pairs must share a letter; equality of their products modulo phase would cancel that letter in the Pauli group modulo phases and identify the other two letters. Hence every nonzero contribution has a distinct Hilbert–Schmidt basis direction and there is no cancellation in any order. Replay is the two exact sector formulas above and the shared-letter test; the numerical artifact was inspected, not executed. No assertion about repeated or half-step factors, randomized order, or observable-restricted error is needed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Layden retains a boundary O(t/r) term alongside bulk O(t³/r²). Childs–Su give ordering robustness for asymptotic lattice bounds. The randomization paper cancels the displayed quadratic defect by forward/reverse averaging, not by a fixed sweep."
+        ],
+        "reasoning": "The boundary effect, lattice bound, and mixture result use different hypotheses or observables. None supplies the deterministic one-step norm statement and sharp lower bound as a specialization.",
+        "searches": [
+          "Layden arXiv:2107.08032, first-order bound and scope remark",
+          "Childs–Su arXiv:1901.00564, ordering robustness",
+          "Childs–Ostrander–Su arXiv:1805.08385, deterministic versus randomized expansion"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.03672v1",
+        "arXiv:2107.08032",
+        "arXiv:1901.00564",
+        "arXiv:1805.08385",
+        "Resultary 5c45944459a4",
+        "Resultary 38d8d8425ab3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general order conditions already identify the quadratic obstruction, and Strang theory already gives cubic local order on a symmetric block. The Pauli collision obstruction prevents cancellation with three distinct factors, while the exact two-sector formulation realizes cancellation with four."
+        ],
+        "reasoning": "Credit the known tools and general possibility of cancellation; none of the inspected implications yields this sharp structural boundary for distinct Pauli terms. The low-yield public query is not relied on for noncoverage.",
+        "searches": [
+          "arXiv:2610.03672v1, local error block analysis",
+          "arXiv:2107.08032, one-step versus iterated error",
+          "arXiv:1805.08385 §2, cancellation mechanism"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The proof is a fixed product order with a zero quadratic commutator sum, equivalently a sector-selective exact Strang reduction and identity. The ordering-aware paper sums local nested-commutator error blocks before taking norms to preserve cancellations, but its inspected method does not establish this finite four-factor case or lower bound."
+        ],
+        "reasoning": "Order sensitivity and an error bound sensitive to cancellations are not a statement that a deterministic noncommuting Pauli sweep attains higher order or that four terms are necessary.",
+        "searches": [
+          "Local Resultary: four full-step Pauli factors; ordering-induced second order; deterministic quadratic BCH cancellation and minimality",
+          "Liu et al. arXiv:2610.03672v1, nested commutators and cancellations"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 5c45944459a4 studies Pauli-twirled gate fidelity with quadratic symmetry breaking. Resultary 38d8d8425ab3 concerns random forward/reverse two-generator steps and second-order mean propagation."
+        ],
+        "reasoning": "Neither original statement contains a single deterministic four-term Pauli word or a Pauli minimality theorem. A bounded search does not rule out unindexed equivalents.",
+        "searches": [
+          "Local Resultary: Pauli-specific full-step Trotter order elevation and minimum term count, splitting and BCH variants"
+        ]
+      },
+      "rationale": "General BCH order conditions, sensitivity to ordering, and cancellations in error analysis or averaging are prior inputs. The distinct claim is the sharp four-versus-three threshold for a single deterministic full-step sweep on distinct Pauli terms, with an explicit family and nonzero local cubic norm coefficient. The strongest inspected sources did not supply this Pauli threshold or single-step construction.",
+      "residual_risks": [
+        "Classical special-operator splitting or unindexed ordering literature may contain a closer deterministic commutator-cancellation example; a separate primary comparison in that literature was not secured. General order-condition folklore is not claimed as original."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Ordering-aware commutator bounds; no matched sharp Pauli threshold in inspected analysis",
+          "evidence": "Computes local error blocks as matrices before taking norms, retaining cancellations.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.03672v1",
+          "material_read": "p. 1 abstract and p. 3 local-error analysis, extraction offsets around 1494 and 21500",
+          "method": "OA full-text passage inspection",
+          "title": "Ordering-Aware Theory of Trotter Error",
+          "trigger": "Strongest ordering-sensitive cancellation work"
+        },
+        {
+          "assessment": "Global two-block result with boundary error, not local order elevation",
+          "evidence": "The bound includes a first-order boundary term and a second-order bulk term; the discussion limits the two-block method.",
+          "identifier_or_url": "https://arxiv.org/abs/2107.08032",
+          "material_read": "pp. 1, 3–4, relevant passages at extraction offsets around 0, 20000 and 24200",
+          "method": "OA full-text passage inspection",
+          "title": "First-Order Trotter Error from a Second-Order Perspective",
+          "trigger": "Anomalous second-order scaling of nominal first-order circuits"
+        },
+        {
+          "assessment": "Asymptotic bounds, not the Pauli-specific exact order",
+          "evidence": "Ordering robustness refers to asymptotic first-order error bounds across lattice-term orderings.",
+          "identifier_or_url": "https://arxiv.org/abs/1901.00564",
+          "material_read": "pp. 3–4, extraction offsets around 19386 and 24300",
+          "method": "OA full-text passage inspection",
+          "title": "Nearly Optimal Lattice Simulation by Product Formulas",
+          "trigger": "Ordering robustness and first-order lattice formulas"
+        },
+        {
+          "assessment": "Cancellation under randomization, not under the fixed full-step sweep",
+          "evidence": "A two-term deterministic error begins with its commutator; averaging opposite orders cancels it.",
+          "identifier_or_url": "https://arxiv.org/abs/1805.08385",
+          "material_read": "§2, pp. 3–4, extraction offsets 14800–17785",
+          "method": "OA full-text passage inspection",
+          "title": "Faster Quantum Simulation by Randomization",
+          "trigger": "Actual vanishing of a quadratic ordering term"
+        },
+        {
+          "assessment": "Different scientific claims",
+          "evidence": "The first concerns Pauli-twirled fidelity, the second randomized two-generator statistics and mean propagation.",
+          "identifier_or_url": "Resultary 5c45944459a4 and 38d8d8425ab3",
+          "material_read": "Actual opening Findings and scopes",
+          "method": "Local Resultary search and mirror inspection",
+          "title": "Exact Pauli fidelity symmetry and quadratic breaking for anticommuting terms; A sharp Gaussian trajectory error law for random-order Lie splitting",
+          "trigger": "Nearest Pauli and splitting database matches"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This resolves a natural resource question about using order as the only freedom in a single sweep: four distinct Pauli terms suffice and three cannot. The nonzero cubic coefficient separates actual order elevation from commuting exactness, and the effect requires neither extra stages nor averaging. This is a structural boundary, not a claim of a generic simulation advantage.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

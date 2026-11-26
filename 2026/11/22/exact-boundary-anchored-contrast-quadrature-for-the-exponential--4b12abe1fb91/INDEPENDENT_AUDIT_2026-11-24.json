@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:53:48.425603Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Direct integration gives m(t)=ell(2-exp(-t/ell)-exp(-(1-t)/ell)); scalar Gaussian conditioning gives explained variance (m(v)-m(u))^2/[2(1-exp(-(v-u)/ell))+eta]. For fixed gap the covariance difference is strictly decreasing in the left location and antisymmetric under reflection, so the only maximizers are the boundary pairs. Their covariance magnitude C(d)=ell(1-exp(-d/ell))(1-exp(-(1-d)/ell)) is unchanged by d→1-d whereas contrast variance strictly increases with d. The full-span observation has zero covariance even at eta=0. In r=exp(-d/ell) the derivative of log gain is -2F_eta(r), with F_eta as stated; F_eta is strictly increasing, is negative at sqrt(q), and tends to +infinity at 1. This proves uniqueness, the cubic, and exclusion of the midpoint and the positive-gap limit d→0. The eta derivative of F_eta is positive, hence the gap grows strictly with noise; at zero noise the equation reduces to r^2+qr-2q=0. At large noise the smooth stationary equation 2C'/C=V'/V about d=1/2 and 1/eta=0 gives half-gap displacement C(1/2)/(2eta)+O_ell(eta^-2). For h=1/ell, factor 1-exp(-hd)=hd A_h(d), where A_h(d)=1+O(h) uniformly including d=0 by continuous extension. Then h^-1 times the reduced gain converges uniformly on [0,1/2] to d^2(1-d)^2/(2d+kappa), extended by zero at d=0 even for kappa=0. Its interior maximizer, the positive root of d-3d^2+kappa(1-2d)=0, is unique and simple; the smooth stationary equation near it also gives d*=D(kappa)+O_kappa(h). This verifies the crossover and the stated variance expansion, with coefficient 2/27 when kappa=0. Independent high-precision bisection on the derivative in gap coordinates agrees with the two examples (0.366256978874186 and 0.453518650447919) and sampled scaling limits; replay with Python and mpmath: /workspace/branches/independent_contrast.py. The calculation is supplementary to the continuous proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Longi et al. distinguish point and line-integral observations; Pronzato–Zhigljavsky connect evaluation designs and signed-measure energies; Karvonen et al. study weights for integrand evaluations at nodes."
+        ],
+        "reasoning": "These general methods can form a criterion for given positions, but no inspected theorem of theirs solves the constrained one-contrast gap optimization.",
+        "searches": [
+          "Longi et al. PMLR v124, §§3.1–3.2",
+          "Pronzato–Zhigljavsky arXiv:1808.10722, introduction and §3",
+          "Karvonen–Kanagawa–Särkkä arXiv:1812.08509v2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary b27c43c7986c",
+        "arXiv:1704.00060",
+        "arXiv:1812.08509v2",
+        "PMLR v124 Longi et al.",
+        "arXiv:1808.10722 (10.1137/18M1210332)",
+        "Access checked but no full text read: 10.1080/03610926.2019.1645855 and Resultary 971795799fba"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The same-day indexed finding assumes a pair of independent point noises and derives a midpoint-symmetric design; the frozen contrast model adds a single fixed-variance noise after differencing.",
+          "Linear observation and signed-measure covariance methods yield the initial gain formula, not strict boundary anchoring, the unique sub-half root, or the eta*ell scaling law."
+        ],
+        "reasoning": "Restricting a full-observation optimizer by discarding data changes its objective and optimizer. The strict fixed-gap comparison and the gap root and crossover need additional proof; no inspected implication recovers them.",
+        "searches": [
+          "b27c43c7986c, Finding and Assumptions and scope",
+          "Longi et al., proceedings.mlr.press/v124/longi20a/longi20a.pdf",
+          "Pronzato–Zhigljavsky arXiv:1808.10722"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The strong same-day indexed trisection result b27c43c7986c records two independently noisy values and a symmetric optimal pair.",
+          "Wu–Aoi–Pillow's conclusion treats first and second derivatives available along with function values."
+        ],
+        "reasoning": "Taking a contrast of two full readings discards their sum. Under reflection the sum contains the information about the symmetric integral in a symmetric design, while the contrast is uncorrelated with it. Thus neither symmetric point sampling nor derivative-enhanced evaluation is an equivalent experiment.",
+        "searches": [
+          "Resultary: exponential-kernel integral quadrature from one noisy point difference, boundary and noise crossover",
+          "Wu–Aoi–Pillow arXiv:1704.00060"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The available b27c43c7986c finding evaluates exact trisection at noise variance one for the two-reading problem, not the cubic or the joint scaling for a contrast. The frozen bibliography points to a prior full-value OU optimal-node result, 971795799fba, but its full text was not retrieved."
+        ],
+        "reasoning": "Exact locations for a two-value reading do not tabulate the one-contrast optimum; the unavailable earlier record is a limitation, not an exclusion based on an inaccessible text.",
+        "searches": [
+          "Resultary: exact optimal exponential-covariance two-location quadrature, noisy contrast and OU nodes",
+          "Resultary 971795799fba and b27c43c7986c"
+        ]
+      },
+      "rationale": "The exact constrained location theorem and its two quantitative noise limits survive the inspected comparisons. Gaussian conditional covariance, general kernel discrepancy, and distinct noisy two-point or derivative observation models are prior tools or problems, not new here.",
+      "residual_risks": [
+        "The 2019 design paper and the older indexed OU-node source were not available for decisive full-text comparison; a closer constrained increment-design theorem may exist. The checked passages and search do not certify publication priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material overlap, distinct observations and optimizers; no priority inferred from the date",
+          "evidence": [
+            "Two independently noisy values, midpoint symmetry and exact trisection at noise variance one for all decays."
+          ],
+          "identifier_or_url": "b27c43c7986c",
+          "material_read": "Finding and Assumptions and scope",
+          "method": "Resultary local source copy",
+          "title": "Noise-universal trisection for two-site exponential-kernel quadrature",
+          "trigger": "Same kernel, integral, two sites and noise"
+        },
+        {
+          "assessment": "Different observations in the inspected statement",
+          "evidence": [
+            "First and second derivatives are evaluated along with the function itself."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1704.00060",
+          "material_read": "Conclusion, PDF p. 15",
+          "method": "Open primary PDF passage",
+          "title": "Exploiting gradients and Hessians in Bayesian optimization and Bayesian quadrature",
+          "trigger": "Potential derivative/contrast equivalent"
+        },
+        {
+          "assessment": "Point-value setup",
+          "evidence": [
+            "The integrand is evaluated at chosen design points; discussion concerns quadrature weights."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1812.08509v2",
+          "material_read": "Abstract and introduction, PDF p. 1",
+          "method": "Open primary PDF passage",
+          "title": "On the positivity and magnitudes of Bayesian quadrature weights",
+          "trigger": "General Bayesian quadrature design"
+        },
+        {
+          "assessment": "Integral-sensor general context, distinct measurement geometry",
+          "evidence": [
+            "Sensors measure point values or line integrals, not the forced scalar point difference."
+          ],
+          "identifier_or_url": "https://proceedings.mlr.press/v124/longi20a/longi20a.pdf",
+          "material_read": "PDF p. 4, §§3.1–3.2",
+          "method": "Open primary PDF passage",
+          "title": "Sensor Placement for Spatial Gaussian Processes with Integral Observations",
+          "trigger": "Optimal linear-functional sensor placement"
+        },
+        {
+          "assessment": "Kernel discrepancy and evaluation design; no exact constrained contrast theorem in the inspected passages",
+          "evidence": [
+            "Links integration design, BLUE, and energy minimization for signed measures; the evaluation design setup is not a forced noisy difference."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1808.10722",
+          "material_read": "Open preprint p. 1 and §3 kernel examples",
+          "method": "Lawful open preprint of the publisher paper",
+          "title": "Bayesian quadrature, energy minimization, and space-filling design",
+          "trigger": "Potential general signed-measure design theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The observation model addresses genuine relative sensing, where absolute readings are unavailable. The theorem rules out the endpoint-to-endpoint contrast despite its maximal gap, and gives a usable exact site law for all correlation lengths and noise levels. The explicit transition from one third to one half and the explained-variance scaling distinguish when relative sensing is informative under long correlation. It is limited to the specified prior and one absolute-noise scalar contrast.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

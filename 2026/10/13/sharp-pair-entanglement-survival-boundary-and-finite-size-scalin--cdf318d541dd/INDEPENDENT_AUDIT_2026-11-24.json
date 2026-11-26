@@ -1,0 +1,151 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:04:45.997012Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–83",
+        "Frozen VERIFICATION.md and verify.py",
+        "Xi et al., arXiv:1110.0101v2, eqs. (28)–(32)"
+      ],
+      "rationale": "Trace preservation on the other sites reduces the computation to two Kraus channels on the undamped two-site marginal. Counting matching strings gives diagonal A,B,B,D and coherence B between 01 and 10. Damping changes the coherence to qB and vacuum/double-excitation populations to a(q) and q²D, so the X-state concurrence is exactly 2q[B−√(Da(q))]₊. The squared comparison F=B²−Da(q) has F(1)=E=k(N−k)/[N²(N−1)]>0, and is strictly increasing for k≥2 since D<k/N. Thus for 0<q≤1 survival throughout occurs when B²≥D, including equality; otherwise the smaller root is the unique crossing in (0,1) and is the displayed q_c. For k=1 the concurrence is 2qB, and q=0 gives zero for every k. At fixed N the positive ratio B²/D for k>1 has log derivative −1/[k(k−1)]−2/(N−k). Writing the ratio as [k/(k−1)](1−k/N)²/(1−1/N) gives 1+(1/c−2c)/√N+o(N⁻¹ᐟ²) when k/√N→c>0. Integer sequences above and below c=1/√2 therefore bracket K_N with arbitrary fixed slack. With ε=1−q one has the exact F=E−2εDB−ε²D²; at k/√N→c its N^(3/2) rescaling tends to c−2εc³, while √N(B+√(Da))→2c. At k/N→α and ε=s/N, NF→α(1−α)(1−2sα²) and B+√(Da)→2α(1−α). Rationalization gives both clipped profiles, including the zero boundary. In the macroscopic regime B²/D→(1−α)²<1, so q_c exists eventually and ε_c=E/[D(√(B²+E)+B)] gives Nε_c→1/(2α²). The supplied verifier was inspected without execution; finite samples are not the proof of either limit.",
+      "residual_risks": [
+        "Requires independent zero-temperature damping and pairwise, not multipartite, entanglement. Threshold existence in the loss-layer limit is eventual along the stipulated sequences, not for every N in those sequences."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sohbi et al. treat amplitude-damped Dicke states but test a Hardy-type multipartite Bell statistic. Barnea et al. likewise study Bell nonlocality and distinguish excitation and particle loss.",
+          "Barnea's printed eq. (15) expresses the k=2 excitation-loss state using Dicke projectors; this expression is not the independent-channel output if the one-excitation term is taken as a pure symmetric projector. For N=3,k=2 the true one-survivor block has diagonals 2q(1−q)/3 and off-diagonals q(1−q)/3, hence is not rank one for 0<q<1.",
+          "Resultary 3e7c31477efe treats the same independent channel with the full output spectrum and a late-loss QFI deficit, not the specified two-site observable."
+        ],
+        "reasoning": "A global Bell-nonlocality threshold or collective QFI limit does not give a pair-entanglement threshold. The full output state may be sufficient to calculate any marginal, but neither a global spectrum nor the checked statements evaluate the needed marginal extrema or asymptotic concurrence. Symmetry under permutations is not the assertion that the output is supported on the fully symmetric subspace.",
+        "searches": [
+          "arXiv:1412.5953, p. 2 excitation-loss model and §IV eq. (15)",
+          "arXiv:1411.4489, pp. 3 and 5, eqs. (6) and (15)",
+          "Resultary 3e7c31477efe, exact output spectrum and collective-spin QFI"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, proof and literature comparison",
+        "arXiv:1110.0101v2, arXiv:1412.5953 and arXiv:1411.4489",
+        "Resultary 3e7c31477efe and 99dac79021c6",
+        "DOI:10.1103/PhysRevA.76.062322 (retrieval only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Applying the standard two-qubit rule to the damped marginal mechanically gives the finite concurrence test, treated here as a starting point rather than a new general theorem.",
+          "The index classification requires ordering B²/D across all k and showing its threshold is at a square-root scale; the second scale uses a cancellation B²−AD=E of order 1/N at positive density. The same exact cancellation produces the two different profile limits after normalization.",
+          "No checked matching result gives the concurrence profiles or a stronger evaluated pair criterion already implying them at these scalings."
+        ],
+        "reasoning": "The new comparison lies in evaluating the index frontier and the rates/profiles as N grows, not just using the general positivity criterion as a black box. Neither a pure-state Haar average nor a QFI deficit implies these evaluated limits.",
+        "searches": [
+          "arXiv:1110.0101v2, X-state and undamped Dicke formulas",
+          "arXiv:1412.5953, channel and nonlocality analysis",
+          "Resultary 3e7c31477efe and 99dac79021c6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The partial transpose moves qB into the (00,11) block with determinant q²(Da−B²). For q>0 the strictly negative eigenvalue test coincides with positive concurrence; a pair negativity or PPT threshold here would therefore count as equivalent for the survival predicate.",
+          "Xi et al. give the general X-state concurrence rule and the undamped two-site Dicke marginal, which give exactly the q=1 value. They do not give the checked loss thresholds or scaled profiles in those passages.",
+          "Huang–Zhu is a material general-criterion lead; no full theorem was recovered."
+        ],
+        "reasoning": "Concurrence and negativity magnitudes need not scale identically, but their onset is the same for this two-qubit family. The frozen record is not credited with the entanglement criterion itself. An equivalent PPT or concurrence phase diagram with the stated asymptotics would be prior coverage regardless of its notation.",
+        "searches": [
+          "Xi et al., arXiv:1110.0101v2, pp. 7–8, eqs. (28)–(32)",
+          "Huang and Zhu, DOI:10.1103/PhysRevA.76.062322 (lawful retrieval attempts)",
+          "Resultary Dicke-loss and concurrence comparisons, IDs 3e7c31477efe and 99dac79021c6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest model match 3e7c31477efe is a different spectrum/QFI statement. The same-day 99dac79021c6 proves statewise concurrence and a Haar survival law for pure two-qubit inputs, which includes the undamped Bell input at N=2,k=1 but not generic mixed marginals of larger Dicke states.",
+          "The supplied finite checks do not index all Dicke states or contain an exact table establishing either infinite sequence limit."
+        ],
+        "reasoning": "A continuous q threshold plus two infinite-family limits are not established by matching selected finite values. No equivalent published exact table or claim was found in the bounded comparisons, and the same-day match was evaluated for its mathematical input domain, not excluded by date.",
+        "searches": [
+          "Resultary Dicke damping and pair entanglement comparisons, exact IDs 3e7c31477efe and 99dac79021c6",
+          "Frozen verify.py, sampled N,k,q checks"
+        ]
+      },
+      "rationale": "The elementary X-state damping test and the undamped Dicke reduction are known ingredients, and the finite concurrence formula is a specialization. The supported distinct result is the classification in Dicke index and the two finite-size scaling laws and threshold constants for this input family. The closest actual overlaps use the same damping but different observables or a two-qubit pure-input ensemble rather than mixed two-site reductions.",
+      "residual_risks": [
+        "A Dicke-specific specialization of older concurrence, negativity or sudden-death analysis could already give the index cutoff or scaled limits. Huang–Zhu full text was not obtained. This is a bounded assessment, not a priority certificate."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage of the undamped starting point",
+          "evidence": "X-state concurrence formula and undamped Dicke reduction, giving 2[B−√(AD)]₊.",
+          "identifier_or_url": "https://arxiv.org/pdf/1110.0101",
+          "material_read": "PDF pp. 7–8, eqs. (28)–(32)",
+          "method": "Lawful OA PDF, bounded passages",
+          "title": "Pairwise Quantum Correlations for Superpositions of Dicke States",
+          "trigger": "Same two-site marginal and concurrence"
+        },
+        {
+          "assessment": "Bell observable and distinct particle-loss treatment; printed excitation-loss mixture needs care",
+          "evidence": "Local excitation-loss amplitude damping on p. 2, k=2 Dicke-projector expression in eq. (15), and Bell-inequality optimization in the threshold discussion.",
+          "identifier_or_url": "https://arxiv.org/pdf/1412.5953",
+          "material_read": "p. 2 local loss model, text offsets 9100–11588; §IV around eqs. (15)–(16), offsets 21500–24906",
+          "method": "Lawful OA PDF, bounded passages",
+          "title": "Nonlocality of W and Dicke states subject to losses",
+          "trigger": "Same excitation-loss channel and possible robustness threshold"
+        },
+        {
+          "assessment": "Different predicate",
+          "evidence": "Amplitude-damping Kraus operators and a Hardy-type Bell statistic, not pairwise concurrence.",
+          "identifier_or_url": "https://arxiv.org/pdf/1411.4489",
+          "material_read": "PDF p. 3 eq. (6), p. 5 eq. (15)",
+          "method": "Lawful OA PDF, bounded passages",
+          "title": "Decoherence Effects on the Non-locality of Symmetric States",
+          "trigger": "Local amplitude damping and symmetric Dicke states"
+        },
+        {
+          "assessment": "Material residual risk for finite specialization; no negative inference about coverage",
+          "evidence": "Retrieval returned HTTP 403 and no lawful alternate copy was identified in the bounded check.",
+          "identifier_or_url": "DOI:10.1103/PhysRevA.76.062322",
+          "material_read": "No primary theorem passage obtained",
+          "method": "Lawful DOI and publisher PDF/abstract retrieval; repository recovery attempted",
+          "title": "Necessary and sufficient conditions for the entanglement sudden death under amplitude damping and phase damping",
+          "trigger": "Potential direct general two-qubit threshold predecessor"
+        },
+        {
+          "assessment": "Global spectrum and collective metrology, not pair survival",
+          "evidence": "Full independent-damping output spectrum and late-loss collective-spin QFI deficit for Dicke inputs.",
+          "identifier_or_url": "2026/10/12/SCOPE-exact-loss-spectrum-and-late-damping-metrological-deficit-for-mu--3e7c31477efe",
+          "material_read": "Local mirror RESULT.md, finding and comparison, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Resultary and local mirror",
+          "title": "Exact loss spectrum and late damping metrological deficit",
+          "trigger": "Closest indexed same-model result"
+        },
+        {
+          "assessment": "Pure-input ensemble, not generic larger-Dicke pair reductions",
+          "evidence": "Statewise concurrence and a Haar survival law for pure two-qubit inputs under identical independent damping.",
+          "identifier_or_url": "2026/10/13/SCOPE-an-exact-haar-law-for-two-qubit-entanglement-death-under-amplitu--99dac79021c6",
+          "material_read": "Local mirror RESULT.md, Finding",
+          "method": "Resultary and local mirror",
+          "title": "An exact Haar law for two-qubit entanglement death under amplitude damping",
+          "trigger": "Same-day indexed concurrence, channel, and survival overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and regime proofs",
+        "arXiv:1412.5953, loss model and robustness motivation",
+        "arXiv:1110.0101v2, Dicke pair correlations"
+      ],
+      "rationale": "Independent loss of Dicke excitations is a standard model and two-site concurrence answers a concrete question different from Bell violations. The result tells a researcher how many excitations can be used while preserving pair entanglement at every positive survival probability, and resolves the order and constant of tolerable loss at macroscopic density. The distinct scaled profiles preserve information lost by just noting that undamped concurrence goes to zero with N. This is not merely another finite example of sudden death.",
+      "residual_risks": [
+        "The result cannot be reinterpreted as a limit on collective metrology, Bell nonlocality, or genuine multipartite entanglement."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

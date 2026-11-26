@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The pure-return OU potential \(U\) solves the backward hitting-time equation and has gradient \(-K\). The generator defect \(1+\mathcal L_1U=(k_1-k_2)xK(x)\), combined with the return stopping rule, gives the exact cycle identity. The short-time killed-OU estimates have the explicit coefficients \(2t\) and \(\sqrt t/(S_2\sqrt\pi)\); the second moment of \(W\) supplies the required domination. The moment-ratio coefficient follows without an exponential-clock assumption. Independent quadrature against killed Brownian kernels checks the Poisson renewal identity and the deterministic/two-point asymptotic coefficients. Finite tests do not prove the limit.
+PASS
 
-## Originality — PASS, qualified
+Both phases have generator d²/dx²−k_j x d/dx and the target stays absorbing. For U(x)=∫_x^1 K, direct differentiation gives L₂U=−1 and 1+L₁U=(k₁−k₂)xK(x); the natural left-boundary behavior of U is logarithmic (Gaussian Mills bound). The return solves the scale-function problem on (0,1), and a return from x≤0 cannot reach 1 without first reaching 0. The mean duration of a full cycle is therefore p_r U(0)+(k₁−k₂)A_r by stopped Dynkin, including U(1)=0 on either success path. The independent clock can be revealed at time zero; ties have probability zero even for clock atoms because the search hitting time has no atoms. Each cycle has finite mean and positive success probability. The exact ratio follows by renewal. Locally xK(x)=K(0)x+x²+O(x³); a smooth cutoff, the centered Gaussian OU law and symmetry give g(t)=2t+O(t²). The absorbing-boundary error is exponential in 1/t by the OU time change to Brownian motion and reflection. H(x)~x₊/S₂ gives h(t)~√t/(S₂√π). Boundedness on x<1 gives global bounds |g(t)|≤Ct, h(t)≤C√t, and the reflection estimate gives P(τ≤t)≤Ct². Thus r²A_r→E[W²] and √r p_r→E[√W]/(S₂√π) by dominated convergence. Dividing gives the displayed signed coefficient and both clock examples; equal stiffness is exact. This is pointwise in fixed k₁≥0, k₂>0 and the independent positive finite-second-moment clock law. Independent finite corroboration: /workspace/fast_clock_replay.py uses direct cycle-time/success quadrature at k₁=0,k₂=2, not the defect identity. At r=25600 the deterministic and two-point scaled corrections are −5.1852355 and −6.7104213 against −5.1849654 and −6.7098390. The frozen checker was inspected, not run; no finite test establishes the general limit.
 
-The closest source, Dubey and Pal (arXiv:2610.18814v1), gives a Poisson-clock exact MFPT and its finite high-rate saturation; its complete model section and appendices were compared with the proposed arbitrary-clock high-rate two-moment theorem. Biswas, Kundu and Pal (arXiv:2307.16294) give a general stochastic-return renewal approach for arbitrary clocks, but do not state this specific universal fast-clock coefficient. Biswas et al. (arXiv:2406.08975v1) treat drift diffusion with linear return force. Equivalence, broader parameter coverage, direct formula implication, and table coverage were separately examined. The central novelty is the non-Poisson moment-ratio law, not the pre-existing Poisson renewal model, a generic renewal formula, or a finite-rate MFPT formula. An unindexed general fast-clock theorem is a residual risk.
+## originality
 
-## Value — PASS
+PASS
 
-The sharp \(r^{-3/2}\) approach quantifies a limiting regime already explicitly relevant to finite-time-return experiments. At equal mean clock duration, deterministic, two-point and Poisson renewal protocols have different explicit leading corrections, so clock-shape information survives the fast-clock limit. The two controlling moments and exact equal-stiffness cancellation give a useful universality and boundary classification, rather than a routine single-parameter numerical refinement.
+Pass for the sharp arbitrary-finite-second-moment clock law, not for renewal, the Poisson model or its limiting mean, or the pathwise equal-stiffness observation in isolation. The closest earlier exact formula is Poisson only; the generic arbitrary-clock formula needs a new small-clock numerator cancellation and success expansion to yield the moment ratio. The stronger transform-level SCOPE result is explicitly later and credits the frozen mean law.
 
-## Limitations
+## value
 
-Proof assumes \(W>0\), \(\mathbb E W^2<\infty\), fixed \(k_1\ge0\), fixed \(k_2>0\), and identical diffusion intensity in both phases. Neither uniformity in a vanishing return stiffness nor finite-rate global optimality is proved. All novelty claims remain subject to independent literature review.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The limiting pure-return MFPT was known in the Poisson model, but is insensitive to how often search is interrupted. The leading signed correction distinguishes clocks of the same mean and quantifies which features of their shape survive rapid resetting. The precise exponent, explicit coefficient and stiffness sign are useful for designing and comparing high-rate benchmarks; no finite-rate ordering is inferred.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

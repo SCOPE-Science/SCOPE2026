@@ -1,0 +1,159 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:35:46.952150Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The Gaussian complex moment gives the sine factor sin(9n*omega)=sin(2*pi*n)=0 for all n>=0, including normalization. Since |a|<1 the densities are positive. Integrating the susceptible equation and applying conservation gives pressure dynamics q'=beta F_a(q;r). F_a(0;r)=r>0 and F_a(beta/gamma;r)<0; strict concavity forces a unique positive root and negative slope there. The pressure approaches that root monotonically and the fraction newly infected is (gamma/beta)Q_a-r. Common roots for a and -a occur exactly when H(Q_0(r))=0. The signed measure defining H is nonzero, so Laplace uniqueness and real analyticity give isolated zeros at positive pressure. Q_0'(r)=-L_0/F_0'>0, giving a discrete exceptional set of seeds. All finite moments permit differentiation up to pressure zero from the right; differentiation of the autonomous equation recursively gives identical time derivatives, including the compartments. Analyticity of q at zero would yield an analytic inverse since q'(0)=beta*r>0, contradicting the zero Taylor radius of L_a. The two trajectories cannot coincide on a time interval with positive pressure. For the specific gap witness (not all rates or seeds), I independently evaluated the 18-term lower sum and Mills upper tail with exact rational bounds, not the submitted rounded Decimal check. Replay: record5_rational_bounds.py uses the alternating Machin arctangent series for pi, isqrt enclosures for the Gaussian normalization, reflected alternating sine bounds on [0,pi/2], and alternating Taylor enclosures for exp(-x/64) raised to the 64th power with outward rational rounding. It yields subtotal >99018259/500000000 and tail <431725319/5000000000, in particular >0.1979 and <0.0864 respectively. Thus -H(1/2)>0.1115. The roots straddle the baseline, and F_a'>=-gamma at beta=1 bounds each signed displacement from below after converting pressure to attack fraction. The resulting separation is >1.44*0.1115=0.16056. The approximate roots reported in the source are illustrations, not certificates. The source scripts were inspected, not run. This is a deterministic population-model identifiability result, not a finite-population or clinical prediction.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2008 and 2026 primary SIR papers give general susceptibility-transform equations covering the model used here.",
+          "Muslim's moment equivalence governs a different group-size kernel. Mohammed–Robertson–Gomes contrast only mean/CV matched gamma and lognormal susceptibility in SEIR."
+        ],
+        "reasoning": "The transform relation is the known mechanism, valid beyond this example, but does not itself build indistinguishable full early-time data or give a strict witness bound. The group-size model has different dependence on its distribution and does not imply equality of the susceptibility-Laplace trajectories.",
+        "searches": [
+          "arXiv:2608.22122v1 deterministic susceptibility transform and final attack",
+          "arXiv:0802.2059 Theorem 2 and Eq. (27)",
+          "arXiv:2608.04943v1 and arXiv:2606.08693v1 abstracts"
+        ]
+      },
+      "checked_sources": [
+        "Novozhilov arXiv:0802.2059",
+        "Izyumtseva et al. arXiv:2608.22122v1",
+        "Kleiber arXiv:1301.1277",
+        "Miller 10.1007/s11538-012-9749-6 (access-limited)",
+        "Muslim arXiv:2608.04943v1 abstract",
+        "Mohammed et al. arXiv:2606.08693v1 abstract",
+        "Resultary 365a6e47d6bf and 4a1a9464601d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Novozhilov and Izyumtseva et al. give the transform-dependence input, so combining this with classical moment indeterminacy gives a natural route to a nonidentifiability example.",
+          "The inspected passages do not give equal complete time jets, analytic-zero control of the exceptional fixed-rate seeds, or the quantitative construction."
+        ],
+        "reasoning": "Generic same-rate separation requires the zero-set argument and strict monotonicity of the reference terminal pressure; time-jet equality and nonanalyticity come from differentiating the scalar dynamics and applying inversion with a zero-radius Laplace jet. The quantitative claim further requires a nontrivial integral bound. No novelty is assigned to combining familiar notation or to the final-size equation alone.",
+        "searches": [
+          "arXiv:0802.2059 Sec. 2.1, Theorem 2, Eq. (27) and p. 16 moment-closure discussion",
+          "arXiv:2608.22122v1 pp. 7–10",
+          "Kleiber arXiv:1301.1277 Theorem 4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kleiber defines Stieltjes perturbations orthogonal to every integer power and treats moment-indeterminate lognormal-type laws.",
+          "Novozhilov explicitly warns that ‘one, two, or more first moments’ may be insufficient; the discussion links several moments to short-run information but does not claim identical complete jets in the passages inspected."
+        ],
+        "reasoning": "Nonuniqueness of the law from its moments and sensitivity to any fixed finite moment list are not the joint conclusion that one fixed all-order moment alias has identical initial trajectory derivatives and generically distinct endpoints. The classical distribution construction is excluded from novelty.",
+        "searches": [
+          "Stieltjes moment indeterminacy deterministic heterogeneous susceptibility SIR final size Laplace transform",
+          "Novozhilov \"On the spread of epidemics in a closed heterogeneous population\" moment indeterminate susceptibility final size",
+          "Kleiber arXiv:1301.1277 Stieltjes classes"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The top exact local Resultary hit, 365a6e47d6bf, is the assigned record itself. The strongest distinct same-day hit, 4a1a9464601d, assumes known finite susceptibility support and proves a mixed-moment cutoff and final-size ordering."
+        ],
+        "reasoning": "An analytic seed-discreteness theorem and exact witness are not an empirical attack-rate table. Finite known support is moment determinate and excludes the unbounded Stieltjes pair; the neighboring record is not exact coverage, irrespective of ordering within the date.",
+        "searches": [
+          "all-order susceptibility moment aliases separated epidemic final sizes lognormal",
+          "lognormal susceptibility distributions matched moments epidemic final size nonidentifiability initial derivatives",
+          "Resultary 365a6e47d6bf and 4a1a9464601d"
+        ]
+      },
+      "rationale": "Moment-indeterminate lognormals, the heterogeneous SIR Laplace final-size equation, and warnings against finite-moment closure are established. The distinct supported result combines identical full local time jets with an all-integer-moment alias that separates final sizes at fixed rates outside a discrete seed set, and a rigorous explicit gap for one construction. The main 2026 source was obtained in full for this audit, unlike the access reported in the frozen record.",
+      "residual_risks": [
+        "Earlier synthesis of Stieltjes classes and epidemic Laplace dynamics is plausible; the review is not an exhaustive priority determination.",
+        "Miller's cited passage and the published Novozhilov full-text copy were not independently retrieved; the latter was compared using its accessible arXiv version."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantial prior coverage of distribution dependence and insufficiency of several moments, not the all-order alias or gap in the passages read",
+          "evidence": [
+            "The final susceptible fraction depends on the transform of the initial law; the discussion says ‘one, two, or more first moments … can be insufficient or even misleading.’"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0802.2059",
+          "material_read": "Abstract; Sec. 2.1 pp. 2–3; Theorem 2 pp. 12–13, Eq. (27); p. 14 and p. 16 moment discussion (PDF offsets 45950 onward for the key warning)",
+          "method": "Read corresponding passages of the lawful arXiv PDF; published PMC page route gave only landing/abstract material",
+          "title": "On the spread of epidemics in a closed heterogeneous population",
+          "trigger": "Early primary source on heterogeneous SIR and inadequacy of moment closure"
+        },
+        {
+          "assessment": "Covers the Laplace-transform starting point; not the simultaneous equal-jet and quantified separation in material inspected",
+          "evidence": [
+            "The terminal-size equation is 1-r_0-s_0 G(A_infty)-(gamma/tau)A_infty=0 with G the susceptibility Laplace transform."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2608.22122v1",
+          "material_read": "PDF pp. 3, 7–8 and 10, offsets 9680, 17600, 27400",
+          "method": "Retrieved the original v1 PDF and read the model/terminal-size passages",
+          "title": "From Individual-Based Stochastic Epidemics to Heterogeneous SIR Equations",
+          "trigger": "Same susceptibility-Laplace fluid model and exact endpoint dependence"
+        },
+        {
+          "assessment": "Supplies the classical distributional ingredient, not the epidemic claims",
+          "evidence": [
+            "A Stieltjes-class perturbation satisfies E[X^k p(X)]=0 for every integer k>=0."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1301.1277",
+          "material_read": "p. 1, pp. 8–9 and Theorem 4, offsets 4166 and 21803",
+          "method": "Read primary PDF passages on classical lognormal indeterminacy and Stieltjes classes",
+          "title": "The generalized lognormal distribution and the Stieltjes moment problem",
+          "trigger": "All-moment alias as a standard probability construction"
+        },
+        {
+          "assessment": "Access limitation, no inference of noncoverage from it",
+          "evidence": [
+            "The frozen record cites Sec. 3.2, Eq. (4), as prior transform formulation; the exact passage was not independently verified here."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s11538-012-9749-6",
+          "material_read": "Retrieved landing/abstract-level evidence only; cited Sec. 3.2 not independently obtained",
+          "method": "Tried identified PMC, Europe PMC and publisher routes; used the accessible Novozhilov and Izyumtseva originals for the decisive transform comparison",
+          "title": "A Note on the Derivation of Epidemic Final Sizes",
+          "trigger": "Earlier heterogeneous-susceptibility final-size derivation cited in the frozen record"
+        },
+        {
+          "assessment": "Temporary-group size mechanism, not persistent susceptibility aliasing",
+          "evidence": [
+            "A finite list of moments of the temporary-group size distribution determines its finite-population dynamics under its kernel."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2608.04943v1",
+          "material_read": "Primary abstract",
+          "method": "Read and compare the source's stated object and quantifiers",
+          "title": "Exact moment equivalence and structural nonidentifiability in nonlinear epidemics",
+          "trigger": "Potentially equivalent moment equivalence in a nonlinear epidemic model"
+        },
+        {
+          "assessment": "Finite moment match in an SEIR example; no all-moment or all-jet statement verified",
+          "evidence": [
+            "The gamma and lognormal cases are matched on mean and coefficient of variation, with differences in dynamics and final sizes."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2606.08693v1",
+          "material_read": "Primary abstract (PDF p. 1, offset 1400)",
+          "method": "Read and compare susceptibility families and moments matched",
+          "title": "An exploration into how susceptibility distribution misspecifications impact epidemic forecasting",
+          "trigger": "Different final sizes under matched susceptibility summaries"
+        },
+        {
+          "assessment": "Finite-support result, not a sufficient implication for the indeterminate continuous family",
+          "evidence": [
+            "For known finite support with susceptibility–infectivity dependence, finitely many mixed moments suffice and the first unmatched one gives final-size order."
+          ],
+          "identifier_or_url": "4a1a9464601d",
+          "material_read": "Mirrored RESULT.md offsets 0 and 6500, Finding and assumptions",
+          "method": "Read exact statement and compare support and infectivity coupling",
+          "title": "A sharp mixed-moment cutoff and alternating final-size order",
+          "trigger": "Strongest distinct local Resultary hit on moment matching and final-size identifiability"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact counterexample separates two seemingly strong forms of local information—every susceptibility moment and every initial time derivative—from a terminal observable. The separation is robust to the seed away from a discrete set and quantitatively substantial in one proved example, rather than a consequence of finite sampling or a numerically tiny discrepancy. The limitation to an unbounded moment-indeterminate law and a deterministic model is essential.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

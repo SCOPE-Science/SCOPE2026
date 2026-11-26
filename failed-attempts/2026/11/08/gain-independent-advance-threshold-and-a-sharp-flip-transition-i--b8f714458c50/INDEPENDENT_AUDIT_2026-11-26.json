@@ -1,0 +1,153 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:29:01.912296Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–38 and 48–85",
+        "Frozen VERIFICATION.md and verify.py"
+      ],
+      "rationale": "Writing h=g/a and Q(u)=u+h(1-F)tanh(u), the implicit sample equation is Q(u)=Fx. Q is a strictly increasing bijection, including at theta=0 and theta=1. The sample-coordinate map is Q(u_next)=Eu-h(F-E)tanh(u). The mesh derivative at x corresponding to u is m(q)=[E-h(F-E)q]/[1+h(1-F)q] with q=sech^2(u). It ranges from m(1) to E, with 1+m(1)=(1+E-h*Delta)/(1+h(1-F)); this proves the sharp exponential regimes. Interpolation has a bounded multiplier on each unit interval. At equality |P(x)|<|x| for x nonzero although the uniform derivative bound is one. Expanding Q and its inverse yields P(x)=-x+Kx^3+O(x^5), and differences of |x_k|^{-2} tend to 2K on non-finite-hitting orbits. Above threshold m(1)<-1; the equation P(c)=-c forces u=Cc and has exactly one positive solution since tanh(z)/z strictly decreases. Its derivative satisfies m(sech^2(Cc))>m(h_c/h)=-1, and is less than E; the cycle multiplier is the square of this derivative. Odd interpolation gives anti-periodicity. P(x)<x for x>0, so no nonzero fixed point, and the amplitude expansion follows from tanh(z)/z=1-z^2/3+O(z^4). An independent sample-coordinate numerical check at E=1/2, F=7/8, h_c=6 gave K=1/14 and k*x_k^2/7=0.999364 at k=100000; at h=6.3 it gave c=0.778482 and a two-step multiplier about 0.83864. These are corroboration, not the proof; the frozen script was not run.",
+      "residual_risks": [
+        "Exponential attraction at criticality fails even locally as a uniform estimate and non-finite-hitting orbits have the algebraic rate. Supercritical stability and uniqueness are only for the specified symmetric orbit, not a basin or attractor classification."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The prior Resultary record allows arbitrary mesh length and all monotone globally Lipschitz activations for the exponential bounds, and gives the full flip classification for tanh.",
+          "Torres Naranjo–Castillo Apolonio and Chiu give sufficient network stability criteria, not the scalar tanh classification in the passages inspected.",
+          "The older Chiu–Jeng mixed-type scalar stability article is a plausible linear antecedent but its full text was inaccessible."
+        ],
+        "reasoning": "The general Resultary theorem genuinely covers the present scalar exponential regime and nonlinear tanh specialization; the other sources are not needed to infer the duplication.",
+        "searches": [
+          "Resultary 5e8d4a841f7f, Finding and Proof §§1–2",
+          "arXiv:2610.36560 abstract and Example 5.1",
+          "DOIs 10.3906/mat-1606-138, 10.3846/mma.2026.25296 and 10.1002/mana.201300127"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 5e8d4a841f7f (exact RESULT.md)",
+        "arXiv:2610.36560",
+        "DOIs 10.3906/mat-1606-138, 10.1016/j.neunet.2010.05.006, 10.3846/mma.2026.25296, 10.1002/mana.201300127"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior result has the same exception for eventual zero and excludes uniqueness beyond antisymmetric two-cycles.",
+          "The prior secant-multiplier formula specializes to the same m(q) and is well defined at F=E (right-endpoint sampling)."
+        ],
+        "reasoning": "Right-endpoint sampling is the elementary implicit step u+h(1-E)tanh(u)=Ex with P(x)=u, so |P(x)|<=E|x|. Anti-periodic interpolation follows by oddness, the relative O(g-g_c) term by the next Taylor order of the identical amplitude equation, and no nonzero time-one orbit by the sign of feedback. No substantial noncovered remainder survives.",
+        "searches": [
+          "Frozen Finding versus Resultary 5e8d4a841f7f, Finding and exact secant-multiplier formula"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Prior finding gives alpha=exp(-a*s*h), beta=exp(-a*h), r=b/a, d=2*alpha-1-beta and s_*=(ah)^{-1} log(2/(1+exp(-ah))).",
+          "Prior tanh case gives global exponential stability below r_c, global algebraic relaxation at r_c, and the locally exponentially attracting antisymmetric branch above r_c."
+        ],
+        "reasoning": "Take prior mesh length h=1, s=theta, b=g, alpha=F, beta=E, d=Delta. The two equations are identical on theta<1, and the stability thresholds and quantified regimes coincide.",
+        "searches": [
+          "Resultary lookup for all-gain sampling transition, scalar negative feedback and attracting two-cycles",
+          "Exact local mirror inspection of 5e8d4a841f7f/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier distinct record reports the critical coefficient (1+beta)d^3/[3 alpha(1-beta)^3], and tanh(z)/z=r_c/r with X=(1-beta)z/d."
+        ],
+        "reasoning": "These are exact matches: 1+(g_c/a)(1-F)=F(1-E)/Delta gives equality of cubic coefficients; z=Cc identifies the amplitudes. This is an exact catalogue result with an inspected source, not a numerical resemblance.",
+        "searches": [
+          "Exact Resultary ID 2026/11/1/SCOPE-an-all-gain-sampling-transition-and-attracting-two-cycles-in-a-s--5e8d4a841f7f"
+        ]
+      },
+      "rationale": "A distinct earlier Resultary result states the same phase and gain threshold, critical asymptotic and attracting antisymmetric tanh branch under the same sampling convention and a more general mesh length. The main finding is covered exactly, not merely suggested by network-level sufficient conditions. Including theta=1 and spelling out a Taylor error or no nonzero fixed point adds only immediate deductions.",
+      "residual_risks": [
+        "Some older full texts remain inaccessible; neither coverage nor absence is inferred from that fact. The failure already follows from the exact inspected prior result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive equivalent coverage by an earlier distinct result",
+          "evidence": [
+            "Global exponential attraction above s_* for all finite gains; same tanh threshold, critical power and coefficient; same unique antisymmetric attracting branch and onset."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-an-all-gain-sampling-transition-and-attracting-two-cycles-in-a-s--5e8d4a841f7f",
+          "material_read": "RESULT.md Finding, assumptions, proof and related-work passages; local mirror offsets beginning at 0 and 5000",
+          "method": "Configured Resultary lookup and exact local mirror passage read",
+          "title": "An all-gain sampling transition and attracting two-cycles in a scalar feedback network",
+          "trigger": "Exact overlap in gain-independent phase and supercritical branch"
+        },
+        {
+          "assessment": "Related sufficient conditions, not exact scalar coverage in inspected passages",
+          "evidence": [
+            "Example 5.1 is a forced impulsive two-neuron tanh model with gamma(t)=floor(t)+0.4."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.36560",
+          "material_read": "Open PDF abstract p. 1 and Example 5.1 p. 22",
+          "method": "Lawful OA PDF passage read",
+          "title": "Periodic Solutions and Exponential Attractivity in Hopfield-Type Neural Networks with Generalized Piecewise Constant Arguments",
+          "trigger": "Closest cited sampled neural-network family"
+        },
+        {
+          "assessment": "Related; abstract does not establish exact overlap",
+          "evidence": [
+            "The abstract lists existence, uniqueness, boundedness and exponential stability of periodic solutions."
+          ],
+          "identifier_or_url": "https://doi.org/10.3906/mat-1606-138",
+          "material_read": "Publisher abstract, offset 227",
+          "method": "Publisher page, bounded read",
+          "title": "Exponential stability of periodic solutions of recurrent neural networks with functional dependence on piecewise constant argument",
+          "trigger": "Generalized piecewise-constant argument stability antecedent"
+        },
+        {
+          "assessment": "Unresolved at theorem level",
+          "evidence": [
+            "Bibliographic model match; no theorem used in the decision."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.neunet.2010.05.006",
+          "material_read": "Landing/abstract level only; no full text available in the bounded attempt",
+          "method": "Lawful publisher retrieval attempt",
+          "title": "Stability analysis of recurrent neural networks with piecewise constant argument of generalized type",
+          "trigger": "Earlier neural-network argument model"
+        },
+        {
+          "assessment": "Related sufficient network criteria; not the same scalar bifurcation",
+          "evidence": [
+            "The model contains instantaneous and sampled feedback and external input; the analysis uses coincidence degree and Lyapunov functionals."
+          ],
+          "identifier_or_url": "https://doi.org/10.3846/mma.2026.25296",
+          "material_read": "Open PDF abstract p. 1 and model §2.1 p. 3",
+          "method": "Lawful OA PDF passage read",
+          "title": "New existence and exponential stability results for periodic solutions in recurrent neural networks with generalized piecewise constant delay via coincidence degree theory",
+          "trigger": "Possible broader stability result"
+        },
+        {
+          "assessment": "No claim of coverage or noncoverage for the original article",
+          "evidence": [
+            "The inspected secondary passage flags necessary-and-sufficient scalar zero-stability; it does not establish coverage of the tanh branch."
+          ],
+          "identifier_or_url": "https://doi.org/10.1002/mana.201300127",
+          "material_read": "Earlier Resultary related-work passage; original full text unavailable",
+          "method": "DOI access attempt and lawful repository lookup",
+          "title": "Chiu–Jeng (2015), mixed-type scalar piecewise-argument stability antecedent",
+          "trigger": "Possible necessary-and-sufficient linear predecessor identified by the earlier Resultary record"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding",
+        "Resultary 5e8d4a841f7f Finding and exact mesh reduction"
+      ],
+      "rationale": "The transition is mathematically meaningful, but this version reproduces the earlier useful classification. Restricting mesh length to one and adding the implicit right-endpoint step, a Taylor remainder, or the elementary fixed-point exclusion does not provide a separate scientific result of value.",
+      "residual_risks": [
+        "A new global supercritical basin result would be a different claim and is not shown here."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:12:17.722728Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a closed non-singleton the border occurring twice is its longest proper border: any longer border would put another occurrence of the shorter one before the suffix copy. If a one-letter right extension is closed, its longest border is exactly one longer: stripping the final letter gives an original border, and any border no longer than the original one would have an intermediate copy at the original suffix start. The left analogue follows by reversal. Thus the next-copy, maximal-LCE and predecessor conditions used in the proof characterize precisely the non-singleton MCSs. Within a run the candidates reduce to the whole run. Across runs, a shorter residual first prefix reaches only the first eligible repeated run, whereas a shorter second residual has an intervening copy in the first run. For equal residuals in runs 1 and 3, left maximality forces t=min(a,c); the matched prefix crosses the first transition at the same offset in both copies, ruling out an intermediate copy. Runs 1 and 5 add exactly c<t<=a, because otherwise the central run intervenes. Runs 3 and 5 give the mirror three-run class; equal residuals in runs 2 and 4 always have matching predecessors, leaving only the central class 1<=t<b. The family sizes give the two cases of K. Splitting into a=c+r or c=a+1+r gives the two independent geometric-series products. The length inequality and residue-class witnesses give the stated maximum, with the lone length-five case equal to six. The independent script /workspace/branches/independent-finite-checks.py checked both endpoint sets and the actual rational-series coefficients, plus extrema, on all 168 triples through length 18. This is supplemental to the argument, not a proof of all lengths.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The distinct indexed claim classifies seven types for all positive a,b,c,d,e and explicitly recovers the symmetric maximum floor(2n/3)+4 for n>=6.",
+          "Umezaki et al. give compact MCS enumeration on arbitrary run-length encodings; this is a general structural and algorithmic antecedent, not by itself the decisive exact comparison."
+        ],
+        "reasoning": "Setting d=b, e=a makes the unequal-middle-run bridges disappear. The first and last center families both give 1<=t<=min(a,c-1), the middle center gives 1<=t<b, and combining the long-unary family c<t<=a with the nonunary singleton t=min(a,c) yields precisely the spanning family. Whole runs are common to both.",
+        "searches": [
+          "SCOPE-20261122-fd3768a38473, offsets 0–2644 and 7380–8160",
+          "arXiv:2607.02838v2, Theorem 1.1 and Section 4"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE-20261122-fd3768a38473",
+        "arXiv:2607.02838v2",
+        "arXiv:2610.38114",
+        "SCOPE-20261108-5387a5bb0a25",
+        "SCOPE-20261108-86be57deefbe",
+        "SCOPE-20261025-26670ba71617",
+        "arXiv:2611.11552 (abstract and internal-query discussion)",
+        "arXiv:2209.00271v2 (introduction)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The distinct count is 5+min(a,c)+min(c,e)+min(b,d)-[c<=a]-[c<=e]+[b!=d]+max(0,min(a,e)-c). The distinct source explicitly states the same symmetric maximum.",
+          "No separate explicit symmetric bivariate series was established in the distinct source; its exact count is sufficient."
+        ],
+        "reasoning": "Substitution reduces the count to a+b+c+3 for c<=a and 2a+b+5 for c>a. With a=c+r in the first case and c=a+1+r in the second, the exponents of z and u become affine in three independent nonnegative or positive variables. Summing three geometric series in each case gives exactly the two printed rational fractions, without new combinatorial information.",
+        "searches": [
+          "SCOPE-20261122-fd3768a38473, exact count and symmetric comparison",
+          "SCOPE-20261122-721addc2bb68, Finding and Proof Sections 3–5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The distinct five-run result uses zero-based half-open intervals; the frozen result uses one-based inclusive endpoints.",
+          "Fischer–Köppl's Corollary 1 gives the general next-occurrence/LCE criterion used by the frozen proof."
+        ],
+        "reasoning": "Converting [i,j) to (i+1,j) and putting d=b and e=a matches the endpoint sets, not merely the final count. The separate five-run factor census 26670ba71617 counts different word values and is not an equivalent formulation of maximal positional occurrences.",
+        "searches": [
+          "Local Resultary: maximal closed substring occurrence endpoints in symmetric, palindromic, and arbitrary binary five-run words",
+          "SCOPE-20261122-fd3768a38473, Finding and Assumptions and scope",
+          "arXiv:2610.38114, Corollary 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "5387a5bb0a25 supplies exact binary four-run endpoints and counts; 86be57deefbe supplies a four-run occurrence generating series. Neither is a five-run result.",
+          "The decisive indexed exact table is the seven-family five-run endpoint table in fd3768a38473, not the distinct closed-factor count in 26670ba71617."
+        ],
+        "reasoning": "The relevant exact object is a symbolic occurrence table as the run parameters vary. A four-run table or numerical sequence cannot account for five-run spanning intervals. The seven-family table specializes to all of them.",
+        "searches": [
+          "Local Resultary: exact four-run and five-run maximal closed substring occurrence spectra and generating series",
+          "SCOPE-20261108-5387a5bb0a25",
+          "SCOPE-20261108-86be57deefbe",
+          "SCOPE-20261025-26670ba71617",
+          "SCOPE-20261122-fd3768a38473"
+        ]
+      },
+      "rationale": "A distinct indexed five-run result, SCOPE-20261122-fd3768a38473, covers the complete endpoint and count theorems by the direct specialization d=b, e=a and explicitly gives the same lengthwise maximum. The displayed bivariate series is a mechanical sum of the specialized count, not an independent surviving theorem. This is demonstrated mathematical coverage; the shared publication day does not settle relative priority or provenance.",
+      "residual_risks": [
+        "Relative priority or independence of the two same-day records is not established and is not asserted.",
+        "The review does not require that the exact rational fractions be printed in the distinct source: they follow by the displayed geometric summation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly covers frozen endpoint and count claims and explicitly gives the symmetric extremum",
+          "evidence": "All positive five-run lengths, identical MCS definition, seven exact endpoint families, exact five-parameter count, and explicit substitution a=e,b=d for the symmetric maximum.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-exact-maximal-closed-substring-occurrences-and-a-sharp-asymmetri--fd3768a38473/RESULT.md",
+          "material_read": "Finding and Assumptions and scope, offsets 0–2644; symmetric-extremum paragraph, offsets 7380–8160; Relationship passage near offset 9426",
+          "method": "Configured local mirror, precise statement and comparison pages",
+          "title": "Exact maximal-closed-substring occurrences and a sharp asymmetric extremum in five-run binary words",
+          "trigger": "Distinct exact classification for the same occurrence statistic and stronger parameters"
+        },
+        {
+          "assessment": "General compact representation is closely related; exact specialized coverage is established more directly by fd3768a38473",
+          "evidence": "O(m^2)-size description from an RLE of size m, with five structural MCS types.",
+          "identifier_or_url": "https://arxiv.org/html/2607.02838v2",
+          "material_read": "Theorem 1.1 near offset 5273; Section 4 near offset 14609",
+          "method": "Open-access article text",
+          "title": "Compact Enumeration of Maximal Closed Substrings in Run-Length Encoded Strings",
+          "trigger": "A general parametric representation may subsume endpoint families"
+        },
+        {
+          "assessment": "Covers the general criterion, not the exact five-run count in the inspected passage",
+          "evidence": "Next occurrence and longest common extension characterize MCS endpoints.",
+          "identifier_or_url": "https://arxiv.org/html/2610.38114",
+          "material_read": "Corollary 1 near offset 15044",
+          "method": "Open-access article text",
+          "title": "Output-Sensitive Enumeration of Maximal Closed Substrings in Linear Space",
+          "trigger": "Exact criterion for occurrence endpoints"
+        },
+        {
+          "assessment": "Exact occurrence result for four runs only",
+          "evidence": "Complete endpoint classification and count in the four-run domain.",
+          "identifier_or_url": "SCOPE-20261108-5387a5bb0a25",
+          "material_read": "Finding from offset 0",
+          "method": "Configured local mirror",
+          "title": "Exact maximal closed substring spectrum for binary four-run words",
+          "trigger": "Exact symbolic endpoints for the adjacent run-count class"
+        },
+        {
+          "assessment": "Different run-count class",
+          "evidence": "Occurrence generating series for four runs even over arbitrary alphabets.",
+          "identifier_or_url": "SCOPE-20261108-86be57deefbe",
+          "material_read": "Finding from offset 0",
+          "method": "Configured local mirror",
+          "title": "The exact maximal closed substring spectrum of four-run words over arbitrary alphabets",
+          "trigger": "Closest adjacent occurrence series"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": "Counts distinct closed factor values rather than positional occurrences with nonextendability.",
+          "identifier_or_url": "SCOPE-20261025-26670ba71617",
+          "material_read": "Finding around offset 225",
+          "method": "Configured local mirror",
+          "title": "Closed factor spectrum and sharp density for five-run binary words",
+          "trigger": "Same five-run ambient class and similar terminology"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Exact MCS endpoints and sharp extremal counts are useful invariants for run-length encoded words, but this standalone claim supplies no additional substantive invariant beyond the complete five-parameter classification. The symmetry restriction is a substitution and the bivariate series is a routine geometric sum from the covered count. No distinct valuable remainder was identified for repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

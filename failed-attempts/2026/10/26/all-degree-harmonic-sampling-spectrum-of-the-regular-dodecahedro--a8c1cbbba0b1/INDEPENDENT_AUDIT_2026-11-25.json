@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T23:36:10.115880Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–104",
+        "VERIFICATION.md and verify_dodecahedron.py (inspected, not executed)",
+        "Independent replay: python3 /workspace/audit_checks/platonic.py (geometric identities, exact finite ranks and rational tail inequalities)"
+      ],
+      "rationale": "On orthonormal vectors supported on antipodal pairs the parity-compatible matrix is twice the ten-axis kernel, and the opposite sector is zero. For the unsigned case, the matrix of the larger absolute angle has row sum 3 and obeys A_v^2=2I-A_v+J, so 3, 1 and -2 have multiplicities 1, 5 and 4 by the trace. For the signed case, B_u has eigenvalues 2 and -3 with multiplicities 6 and 4. The symmetric B_v obeys B_v^2=B_u+3I and commutes with B_u; it vanishes on the -3 space and has eigenvalues ±sqrt(5), each threefold by its zero trace, on the 2 space. These yield exactly the stated branch coefficients. Positivity also follows from the addition theorem, with E_l E_l*=(2l+1)G_l/20 for the specified evaluations. Independently reconstructed the exact angle matrices and their identities, and used the Rodrigues coefficient expansion, not the supplied recurrence, to exhaust degrees 0–185 with the stated eight rank deficiencies. The Laplace integral and sin(s)≥2s/pi on the half interval give |P_l(t)|≤sqrt(pi/[2l(1-t²)]); the maximum branch deviation is bounded by sqrt(pi/l)*(9/2+9/sqrt(8)), strictly less than one for l≥186 by the rational upper bound. Rank nine at 14 and rank ten from 15 onward therefore follow exactly.",
+      "residual_risks": [
+        "Only the finite check and rational tail comparisons were run as code; the Laplace estimate and matrix spectral deductions are analytic."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The earlier 38363f24449f Finding gives the same spectrum and in addition the sharp least positive Gram eigenvalue over all degrees, 6188/1594323, attained only at degree 13.",
+          "The frozen source cites Cohan's publisher extract for icosahedral symmetry expansions through 14; the full paper was not retrieved."
+        ],
+        "reasoning": "The earlier 20-site finding is stronger than the frozen spectrum/rank result, and even gives an exact all-degree version of the frozen illustrative degree-13 minimum. Representation decompositions alone would not establish these evaluations; Cohan is not needed as evidence of duplication.",
+        "searches": [
+          "Resultary 38363f24449f, 2026/10/25",
+          "Cohan DOI 10.1017/S0305004100033156"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–49 and 114–127",
+        "Resultary 5142078e64c3 and 38363f24449f exact matched passages; fec69d22daff indexed statement",
+        "Cohan DOI 10.1017/S0305004100033156 (limited as described)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "38363f24449f uses f(x)/sqrt(2l+1) with probability surface measure, so its E_l E_l* is exactly the frozen unweighted Legendre Gram; only the optional separately normalized E_l taken in the frozen record is different.",
+          "The earlier variables a_l and b_l are v_l and u_l respectively. The even coefficient pairs (3,6), (1,-2), (-2,1) in (a,b) order have multiplicities 1, 5, 4, and the odd pairs (±sqrt(5),2), (0,-3) have multiplicities 3, 3, 4; ten other eigenvalues are zero."
+        ],
+        "reasoning": "This is coefficient-by-coefficient identity after renaming and reordering, not just a shared threshold or proof technique. The exact prior 20-site record alone covers the claim; the ten-axis formula is independent matching evidence. No priority finding is drawn from the later Nov. 2 record.",
+        "searches": [
+          "Matched Resultary Findings 5142078e64c3 offsets 76–2111 and 38363f24449f offsets 85–3279",
+          "Compared with frozen RESULT.md lines 5–49"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 5142078e64c3 Finding gives the ten-axis Gram after division by 2l+1 as the representative Legendre kernel. Its p_l is the frozen u_l; q_l is the frozen v_l in even degree and v_l/sqrt(5) in odd degree.",
+          "For any representative selection, the other endpoint of each axis is recovered with sign (-1)^l; the parity-compatible 20-site Gram block is twice the representative Legendre kernel."
+        ],
+        "reasoning": "After doubling the earlier normalized branches and adding ten opposite-parity zero eigenvalues, its 5q_l in the odd formulas becomes sqrt(5)v_l and every coefficient and multiplicity matches. Changing representatives in odd degree is only diagonal sign conjugation.",
+        "searches": [
+          "Resultary lookup for dodecahedral exact-degree sampling, signed Petersen spectra and antipodal-axis interpolation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Oct. 18 Finding gives ranks 1,3,5,7,9,6,10,10,9,10,10,10,10,10,9 for degrees 0–14 and full rank for all l≥15. Every entry matches.",
+          "The Oct. 25 Finding states rank 2l+1 for 0≤l≤4, rank 6 at 5, rank 9 at 8 and 14, and rank 10 at all other l≥6. This is the same table over all degrees.",
+          "The November 2 indexed statement also mentions a complete spectrum and threshold 15 but is later."
+        ],
+        "reasoning": "These are two all-degree exact matches. An independent calculation checks correctness, but cannot make a known table a new invariant.",
+        "searches": [
+          "Resultary 5142078e64c3, 2026/10/18",
+          "Resultary 38363f24449f, 2026/10/25",
+          "Related later entry fec69d22daff, 2026/11/02"
+        ]
+      },
+      "rationale": "Two earlier exact findings cover the frozen claim. The 20-site finding 38363f24449f gives the very same unweighted Legendre Gram matrix, the same six parity branch formulas with the same multiplicities, the same complete ranks and final threshold 15, and an additional sharp all-degree interpolation bound. The earlier ten-axis finding 5142078e64c3 also gives all these branches after the antipodal factor of two and a known normalization change. These are direct statement-level comparisons to both prior findings, not judgments from catalogue similarity.",
+      "residual_risks": [
+        "No claim about first historical priority or identity of proofs. The exact branches, normalization, ranks and threshold are resolved by the earlier matched findings independently of the unavailable Cohan full text."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact spectrum, rank and threshold coverage under the antipodal isomorphism and scaling",
+          "evidence": "Full ten-axis Gram branches in both parities, ranks 1,3,5,7,9,6,10,10,9,10,10,10,10,10,9 then all 10.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-complete-degree-wise-harmonic-interpolation-on-the-ten-dodecahed--5142078e64c3/RESULT.md",
+          "material_read": "Finding, offsets 76–2111, mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local Resultary search and exact mirror reading",
+          "title": "Complete degree-wise harmonic interpolation on the ten dodecahedral axes",
+          "trigger": "Equivalent antipodal formulation with exact all-degree ranks"
+        },
+        {
+          "assessment": "Exact direct coverage of all branches and ranks, plus stronger stability statement",
+          "evidence": "Same unweighted Legendre Gram from the addition theorem, identical six parity eigenvalue formulas and multiplicities, identical all-degree ranks, sharp threshold 15, and sharp Gram lower bound 6188/1594323.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-exact-dodecahedral-harmonic-sampling-signed-petersen-spectra-and--38363f24449f/RESULT.md",
+          "material_read": "Finding, Assumptions and scope, and opening kernel reduction, offsets 85–3279, mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local Resultary search and exact mirror reading",
+          "title": "Exact dodecahedral harmonic sampling: signed-Petersen spectra and sharp stability",
+          "trigger": "Same sample set and all-degree spectral invariant"
+        },
+        {
+          "assessment": "Later related evidence, not prior coverage",
+          "evidence": "Names the complete Gram spectrum and threshold 15.",
+          "identifier_or_url": "Resultary 2026/11/02 fec69d22daff",
+          "material_read": "Indexed statement only",
+          "method": "Local Resultary search",
+          "title": "Exact harmonic sampling spectra and the last interpolation gap",
+          "trigger": "Highly similar rank and spectrum hit"
+        },
+        {
+          "assessment": "Cannot decide exact evaluation coverage from the extract account",
+          "evidence": "Representation expansions through degree 14 reported, not an inspected evaluation spectrum.",
+          "identifier_or_url": "https://doi.org/10.1017/S0305004100033156",
+          "material_read": "Frozen record's account of the publisher extract; fresh full text not obtained",
+          "method": "Reference and attempted OA retrieval",
+          "title": "The spherical harmonics with the symmetry of the icosahedral group",
+          "trigger": "Potential symmetry computation antecedent"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 5–49 and 114–120",
+        "Earlier exact-rank and spectrum statements 5142078e64c3 and 38363f24449f"
+      ],
+      "rationale": "Exact-degree interpolation on a polyhedral vertex set is a worthwhile problem; in particular the last deficiency cannot be predicted just from the dimension. But both the spectra and threshold are already stated exactly for the same mathematical object; the twenty-site result additionally has a sharper scientific conclusion, an optimal uniform interpolation bound. The frozen finding isolates no independently useful new invariant or gain.",
+      "residual_risks": [
+        "Possible differences in presentation or proof details were not assessed as independent mathematical contributions."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

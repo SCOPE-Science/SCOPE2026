@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:00:45.133182Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Properness makes each hub's color list injective and prohibits agreement within a column. Every repeated color therefore has a unique a-side and b-side position in distinct columns. Two repetitions sharing a column must enter and leave it; when their other endpoints agree they give a bichromatic 4-cycle, and with distinct endpoints they give a simple bichromatic four-edge path. Conversely any bichromatic 4-cycle or simple four-edge path has these coincidences, because it alternates and its internal column sits between the two hubs. Thus the repeated classes are precisely directed pairs on disjoint columns. Choosing a k-set of sources, a disjoint k-set of targets and a bijection gives n!/(k!(n-2k)!) partitions, each with 2n-k classes. Assigning injective palette names gives (q)_(2n-k); orientations give weight 2z^3 on labelled pairs and z^2 on singleton columns, hence the stated EGF. The positive-support consecutive ratio (n-2k)(n-2k-1)/(k+1) strictly decreases, proving the log-concavity claim. The formula includes n=1 (one partition with two classes), q below the minimum gives zero, and a palette of the minimum size gives exactly r_*! namings per optimal partition. Inspected the recorded distributions and checker as text; did not execute the supplied script. The evidence for all n is the combinatorial argument, not the finite checks.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The survey restates the exact scalar star chromatic index. Wang–Lu decide existence with at most c colors and can find a coloring under bounded treewidth and maximum degree."
+        ],
+        "reasoning": "Neither the surveyed minimum by itself nor the decision/construction theorem is a partition count. The decisive prior evidence is the obstruction in the original proof, not these broader or secondary statements.",
+        "searches": [
+          "Lei–Shi arXiv:2009.08017v1 Theorem 4.2(a)",
+          "Wang–Lu arXiv:2402.04526v1 Theorem 3.1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verification_output.txt and verify.py as text",
+        "Casselgren–Granholm–Raspaud arXiv:1912.02467v1",
+        "Lei–Shi arXiv:2009.08017v1",
+        "Wang–Lu arXiv:2402.04526v1",
+        "Resultary 9a717f82738c local mirror"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The proof takes colors common to the two incident lists, obtains a vertex in the n-side incident with two such colors by pigeonhole, and says 'this implies that there is a 2-colored P4 or C4 in K2,d'. The last implication only uses those two colors at the column.",
+          "Conversely a bichromatic obstruction has a column incident with its two colors, both of which are common to the hubs. Thus top and bottom locations of the k common colors must be disjoint. Choose the two sets and match: binom(n,k) binom(n-k,k) k! is the asserted count."
+        ],
+        "reasoning": "The pigeonhole premise is only needed for existence of a shared-color collision at the palette lower bound, not for the collision criterion. The coefficients follow immediately from the prior criterion; the EGF, named-palette factor and log-concavity are direct algebra on those coefficients.",
+        "searches": [
+          "Casselgren–Granholm–Raspaud arXiv:1912.02467v1 Proposition 2.1, p. 2, offset 6468 onward, especially the lower-bound proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The line graph is two n-cliques joined by a perfect matching, K_2 Cartesian K_n. In a proper edge-coloring every two-color subgraph has maximum degree two, so a forbidden two-color four-vertex path in its line graph corresponds to an original four-edge path or cycle.",
+          "For the bipartite formulation, the columns incident to a shared color from a and from b are precisely the source and target sets of the repeated color pairs."
+        ],
+        "reasoning": "The line-graph version is equivalent, not an additional novelty claim; the primary edge-coloring proof can be compared directly to the directed-matchings version.",
+        "searches": [
+          "Local Resultary, star edge-colouring K_2,n partitions and star vertex-colouring of K_2 Cartesian K_n",
+          "Casselgren–Granholm–Raspaud arXiv:1912.02467v1, Proposition 2.1 and proof"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest distinct catalogue item gives the star vertex-coloring partition profile and palette polynomial of crown graphs K_n,n minus a perfect matching, not of the prism K_2 Cartesian K_n."
+        ],
+        "reasoning": "The crown-graph statement does not establish any exact K_2,n coefficient by parameter substitution; no exact already printed table was established in this comparison. Same-day indexing establishes no priority.",
+        "searches": [
+          "Local Resultary ranked search for full star-colouring partition enumerators and equivalent line-graph formulation",
+          "Resultary 9a717f82738c, RESULT.md Finding at offset 0"
+        ]
+      },
+      "rationale": "The precise printed polynomial was not located, and the scalar minimum alone would not imply it. But the proof of Casselgren–Granholm–Raspaud Proposition 2.1 explicitly uses the exact obstructing local event: a degree-two column whose two colors are common to the two hubs forces a bichromatic four-edge path or cycle. The implication has no dependence on the number of common colors. The converse is immediate by reading the middle column of such an alternating path or either column of the cycle. The full partition count is then just selecting two disjoint sets of k columns and bijecting them. Thus the proposed central matching classification and coefficient formula are a routine corollary of the known obstruction, rather than new structure inferred merely from the known minimum.",
+      "residual_risks": [
+        "The catalogue search is bounded; no assertion is made that the polynomial has never been printed, nor about catalogue priority. The decision is supported by the actual prior proof, not by the absence of a table."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior scalar minimum and decisive local obstruction; not a printed coefficient table",
+          "evidence": "The lower bound explicitly forces a two-colored P4 or C4 when one column is incident with two common hub colors.",
+          "identifier_or_url": "https://arxiv.org/pdf/1912.02467v1",
+          "material_read": "Proposition 2.1, p. 2, offsets 6468–9231, including lower bound and explicit construction",
+          "method": "Lawful OA full-text passage inspection and comparison of the proof",
+          "title": "On star edge colorings of bipartite and subcubic graphs",
+          "trigger": "Same K_2,n family and prior scalar minimum proof"
+        },
+        {
+          "assessment": "Secondary corroboration of the scalar result",
+          "evidence": "It attributes the exact minimum palette size to Casselgren and coauthors.",
+          "identifier_or_url": "https://arxiv.org/abs/2009.08017v1",
+          "material_read": "Theorem 4.2(a), p. 6 around offset 13763",
+          "method": "Lawful OA passage inspection",
+          "title": "A survey on star edge-coloring of graphs",
+          "trigger": "Possible broader results for complete bipartite graphs"
+        },
+        {
+          "assessment": "Decision and construction, not the stated coefficients",
+          "evidence": "The theorem finds a coloring or determines nonexistence with at most c colors in its parameter regime.",
+          "identifier_or_url": "https://arxiv.org/abs/2402.04526v1",
+          "material_read": "Theorem 3.1, p. 4 around offset 9057",
+          "method": "Lawful OA passage inspection",
+          "title": "A polynomial time algorithm to find star chromatic index on bounded treewidth graphs with given maximum degree",
+          "trigger": "Potential general counting or algorithmic result"
+        },
+        {
+          "assessment": "Different graph and statement",
+          "evidence": "It counts star vertex-coloring partitions of the crown graph and names its palette polynomial.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-the-full-star-colouring-polynomial-of-crown-graphs--9a717f82738c/RESULT.md",
+          "material_read": "Finding at offset 0 in the local mirror",
+          "method": "Resultary catalogue discovery and local-mirror passage inspection",
+          "title": "The full star-colouring polynomial of crown graphs",
+          "trigger": "Related full partition enumerator and proposed reformulation"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The invariant is natural and the polynomial is a convenient way to display it. Here, however, the decisive local obstruction is known and a disjoint source set, target set and bijection exhaust the needed choices immediately. The palette and exponential forms and the consecutive-ratio check add no independently useful non-mechanical remainder.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,17 +1,21 @@
-# Review of joint-rank generating series for commuting idempotent transformations
+# Independent mathematical audit
 
-## Correctness (PASS)
-The simultaneous normal form follows from commuting idempotent equations: product-image roots are exactly common fixed points; U and V points attach uniquely to a root, while each remaining point has its two images in a compatible U/V fiber. The converse constructs valid commuting idempotents and proves bijectivity. This yields the formal EGF and explicit multinomial coefficient formula with exact rank support for every n. The independent direct checker compares all triples for n=1..5, all commuting pairs for n=6, and the rooted recurrence through n=11. Finite checks corroborate but do not replace the all-n bijection.
+## correctness
 
-## Originality (PASS within checked literature)
-Targeted equivalence searches of idempotent commuting maps, two-generator semilattice actions, joint ranks, and related indexed research records found no identical formula. Full-text comparison with the 2011 regular-centralizer paper and 2024 restricted-range centralizer paper shows that their theorems concern idempotent generation, bands and automorphism groups, rather than the explicit trivariate rank spectrum. A generic exponential-formula method does not provide the rooted component enumerator. Existing unindexed equivalent work cannot be excluded.
+PASS
 
-Closest work: André, Araújo & Konieczny (2011), DOI 10.1007/s00233-010-9274-6; Mir & Alali (2024), DOI 10.3390/sym16060769. The former treats regular centralizer generation; the latter treats restricted-range bands and automorphisms, neither the simultaneous three-rank enumeration. A non-indexed equivalent formula remains possible.
+For commuting idempotents the product is idempotent and its image H is the intersection of their fixed-point sets. On a point fixed only by e, the f-image must be a common fixed point, because ef=fe and f fixes its output; the reverse holds for points fixed only by f. A point fixed by neither can choose its two images independently among e's and f's fixed points attached to one common root, including the root itself; equality of roots is exactly commutation at that point. Conversely these choices give the requisite idempotence, ranks and commutation on all four disjoint subsets. A component with one root, a first-only points, b second-only points and c remaining points has (a+1)^c(b+1)^c image choices for those remaining points. Distinct root components form a labeled set, giving the stated formal exponential and F_0=1. Choosing the four subsets globally first and then assigning the single-map fixed points to roots gives the exact multinomial coefficient sum. If n>0 it is positive precisely for 1≤h≤min(r,s) and r+s−h≤n; the empty assignments and c=0 cause no exceptions. Removing the component containing a specified label gives the recurrence and its stated totals. Separate direct composition on idempotents at n=4 and n=6 checked all rank triples (601 and 113989 commuting ordered pairs); exact coefficient recurrence also reproduced the totals for n=0,…,11. Replay: python3 /workspace/branches/8fe4ecb4-9ae7-4437-8bab-2340985b31bf/joint_idempotent_reproduction.py; see reproduction.log alongside it. The frozen verifier was inspected, not run; these finite checks supplement the unrestricted proof.
 
-## Mathematical value (PASS)
-The three image ranks of commuting idempotent endofunctions are natural centralizer and finite semilattice-action invariants. The result classifies all realizable rank triples and enumerates each exactly for every finite size, with a positive component species and a finite integer recurrence. It is a complete nontrivial infinite-family structural enumeration, not an arbitrary single-parameter table or small finite census; no independent or downstream theorem is asserted.
+## originality
 
-## Limitations
-Only ordered pairs of idempotent full transformations are counted. Finite tests do not prove an all-size statement. No exhaustive global novelty or independent mathematical certification is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The supported distinct claim is the simultaneous three-image-rank enumeration on the full labeled transformation monoid, including its explicit coefficients and sharp support. The strongest inspected indexed matches either restrict, change, or explicitly exclude the target pairs. An uncited mention of full-transformation formulas and an inaccessible structural paper leave real historical-priority risk but establish no prior formula, table or rank-preserving implication. The pass is limited to the supported distinction, not a priority claim for the unweighted sequence, labeled exponential formula, or general centralizer structure.
+
+## value
+
+PASS
+
+Two commuting retractions and their common retraction are natural objects in a full transformation monoid. Their three ranks distinguish the two fixed sets from their overlap and give information lost in an unweighted commuting-pair count. The explicit rooted-component weights give a usable all-size census and show why the only support restrictions are nonempty intersection and the union-size bound, without enumerating pairs of maps. This is a useful natural exact invariant rather than an arbitrary rank slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

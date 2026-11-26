@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:52:49.167519Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–35, VERIFICATION.md and g29_incidence_check.py",
+        "arXiv:2611.13108 §§3.1–3.2",
+        "Independent exact reproduction: /workspace/g29_exact_reproduction.py"
+      ],
+      "rationale": "I confirmed the published geometric inputs and independently reconstructed exact block memberships by representing nonzero complex coordinates as exponents modulo 4 and zeros by absence from the support. There are 40 distinct points, 30 distinct four-point blocks, three blocks per point and 180 distinct unordered pairs from the blocks. This independently gives a simple 9-regular point graph and BBᵀ=3I+A. An exact Faddeev–LeVerrier calculation of the entire characteristic polynomial, followed by exact linear-factor division, gave roots and multiplicities (-3,15),(-1,4),(1,15),(5,5),(9,1), with no polynomial factor left. This independently checks the supplied annihilator-and-traces certificate by a different calculation. Multiplicity one of the degree eigenvalue gives connectedness; 5<2√8 gives the Ramanujan bound. A real Gram matrix and its rectangular factor have equal rank, and extending Q to R preserves rank, giving rank 25 and nullities 15 and 5. Replay: `python3 /workspace/g29_exact_reproduction.py`; the supplied script was read, not executed.",
+      "residual_risks": [
+        "The arithmetic is for the specified finite incidence structure over the complex-coordinate geometry, with incidence-matrix rank over Q. It does not determine ranks in finite characteristic."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The older source studies the (60_3,30_6) point–line parent. The later source identifies the selected forty points and four selected points on each of the 30 lines, in its study of Waldschmidt constants."
+        ],
+        "reasoning": "Neither inspected result gives a spectral restriction theorem on the selected points. A parent geometry description and the row and column counts do not determine the restricted Gram eigenvalues.",
+        "searches": [
+          "arXiv:2010.08863v2 §2, parent Klein configuration",
+          "arXiv:2611.13108 §§3.1–3.2, selected forty-point set"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.13108 §§3.1–3.2",
+        "arXiv:2010.08863v2 §2",
+        "Resultary ad035c3907ea and d10e8fd16d9f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Three lines through a point and four points on each line give 9 neighbors by uniqueness of the line through two points. The spectrum then implies rank 25 and the Ramanujan inequality; those are consequences of the spectral result."
+        ],
+        "reasoning": "Do not credit the valencies as new, nor treat the two consequences as independent discoveries. The exact multiplicities of the point Gram matrix are not a consequence of the supplied valencies and were independently established by exact arithmetic.",
+        "searches": [
+          "arXiv:2611.13108 §§3.1–3.2 and arXiv:2010.08863v2 §2: transfer of valencies, spectral or Gram claims"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The assigned item ad035c3907ea recurs in search and is not distinct prior evidence. The point-side Gram spectrum would be equivalent to the displayed spectrum via BBᵀ=A+3I. A generalized quadrangle with line length 4 and point degree 3 would be GQ(3,2) with 28 points and 21 lines, not 40 and 30."
+        ],
+        "reasoning": "The object is a simple 40-vertex point graph, neither a 70-vertex bipartite Levi graph nor the (40_9) point–reflection-plane system. Matching one degree or a configuration name is insufficient to transfer a spectrum.",
+        "searches": [
+          "Resultary searches for the forty-point G29/Klein collinearity graph, adjacency spectrum and point–line incidence rank",
+          "Comparison with generalized-quadrangle and point–reflection-plane interpretations"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The primary coordinate table supplies input geometry, not a spectral table. Resultary d10e8fd16d9f concerns 60 points and 60 planes with a 120-vertex, 900-edge Levi graph and gives information on that different incidence matrix."
+        ],
+        "reasoning": "An exact table of incidences makes recomputation possible but does not report or identify the spectrum. The same-day related record was compared on its actual objects and conclusions, not excluded by date.",
+        "searches": [
+          "Resultary: exact 40-vertex 9-regular graph spectrum, rank 25, Klein incidence aliases",
+          "arXiv:2611.13108 pp. 4–6, point and line data"
+        ]
+      },
+      "rationale": "Credit the points, line system, incidence degrees and hence ordinary regularity and edge count to the existing geometry. The distinct supported claim is the complete integral point-collinearity spectrum, with its rank and Ramanujan consequences. The strongest checked sources supply geometry or spectra of different incidence systems, not this spectrum or an equivalent invariant for this graph.",
+      "residual_risks": [
+        "The comparison does not exclude graph isomorphism to an unindexed or differently named example, or an equivalent eigenvalue table in other configuration literature. No priority inference is made from its absence in checked sources."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the configuration and valencies, not the spectrum or rank in the inspected statements",
+          "evidence": [
+            "Includes the first 24 support-two points and precisely the sixteen normalized product-one points; the six coordinate and 24 diagonal lines each carry four selected points."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2611.13108",
+          "material_read": "§3.1, pp. 4–5 (OA offsets 16900–23304); §3.2, pp. 5–6 (offsets 22790–26713)",
+          "method": "Bounded direct OA PDF reading",
+          "title": "Waldschmidt constants and invariant geometry for exceptional rank-four complex reflection groups",
+          "trigger": "Exact selected point set and Klein line coordinates"
+        },
+        {
+          "assessment": "Parent geometry, not an exact spectrum of the forty-point restriction",
+          "evidence": [
+            "The parent configuration has 60 points, 30 lines, 3 lines through each point and 6 points on each line."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2010.08863v2",
+          "material_read": "§2, pp. 2–3 (OA offsets 8100–11819)",
+          "method": "Bounded direct OA PDF reading",
+          "title": "Unexpected properties of the Klein configuration of 60 points in P³",
+          "trigger": "Parent point-line system; potential spectral transfer"
+        },
+        {
+          "assessment": "Different graph and different incidence matrix",
+          "evidence": [
+            "The 120-vertex Levi graph uses 60 points and 60 planes, not a 40-point restriction using 30 lines."
+          ],
+          "identifier_or_url": "Resultary d10e8fd16d9f",
+          "material_read": "RESULT.md statement for the point–plane configuration",
+          "method": "Resultary search with local mirror comparison",
+          "title": "The integral critical group of Klein’s sixty-point sixty-plane incidence graph",
+          "trigger": "Closely related Klein incidence spectrum and integral invariant"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–39",
+        "arXiv:2611.13108 §§3.1–3.2",
+        "Independent exact reproduction: /workspace/g29_exact_reproduction.py"
+      ],
+      "rationale": "This is a natural point set from a specified reflection subgroup with all of the parent Klein lines retained, not an arbitrary forty-point slice. The full spectrum quantifies the expansion of its nine-regular graph and determines a substantial and exact incidence-nullity defect, neither of which is evident from the geometry’s degree counts. The precise invariant is useful for comparisons of these reflection configurations without requiring an application to Waldschmidt constants. The contribution is a bounded exact invariant, not a new general construction of expanders.",
+      "residual_risks": [
+        "No graph-uniqueness statement, full sixty-point spectral analysis or further algebraic-geometric consequence is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:18:49.844334Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Findings, assumptions and proof",
+        "Frozen VERIFICATION.md and check_capture.py",
+        "Repaired RESULT.md quantitative comparison in Proof §5",
+        "Ohmori–Yamazaki 2024 Equations (1), (5)–(6)"
+      ],
+      "rationale": "The consecutive nonpositive X-coordinates force x_{j+2}=B and y_{j+2}=B; D>1+T+T² gives the displayed four-cycle, with its two negative consecutive X values. At T=0 the parity-coordinate subsequences evolve by the scalar g; the positive branch maps onto the whole interval with slope −D, so survival cylinders have relative lengths D^(−k). Scalar first hits of B from the two independent coordinates are geometric; their nonpositive scalar indices are h−1,h+1,… and k−1,k+1,…. Aligning the even and odd subsequences gives the three stated times (same parity: 2 max; h>k with different parity: 2h−1; k>h: 2k+1). The ±1 corrections cancel by exchangeability and summing max tails yields the exact mean. Scaling the two independent geometric variables and dropping the bounded integer correction gives the claimed critical limit. The frozen continuity proof is correct by strict signs and almost-sure finite boundary reset; the repaired quantitative claim is stronger and was separately checked: normalize B=1, set a=√D and M=max(1,D−1). The orbit errors obey e₀=0, e₁≤T, e_{j+2}≤D e_j+T e_{j+1}+TM. Adding cT with c=M/(D−1) absorbs the forcing; (a+T)²≥D+T(a+T), so e_j≤(1+c)T(a+T)^j. At the boundary each marginal consists of a uniform component of weight D^(−floor(j/2)) and atoms at 1 and 1−D, because the active branch takes the continuing uniform component onto the whole interval. For N=floor(log_a(1/T))−K_D, pick K_D so errors through N are strictly below the smallest absolute endpoint. The signed-threshold disagreement then has probability O_D(T) per iterate: the continuous density attenuation cancels the error growth up to bounded (1+T/a)^N and parity factors. The geometric law bounds the exceptional event R₀>N by O_D(T). Union over N+1 switches and the total-variation coupling prove O_D(T log(1/T)), even on the extended countable state space. The packaged rational checker was inspected, not executed, and does not prove the rate.",
+      "residual_risks": [
+        "Fixed D>1 before T→0, no uniform assertion at D↓1, no convergence of moments in T, and no guarantee of finite reset for every initial condition."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The generalized primary paper gives the deterministic reset and its parameter region. The earlier primary paper gives an attracting/repelling-cycle return map. The matching November 8 law applies only at T=0.",
+          "Pointwise strict-sign robustness at any fixed finite horizon is elementary, but does not provide a growing-horizon estimate on switch disagreements."
+        ],
+        "reasoning": "Known deterministic stability and finite-window continuity are ingredients, not a rate in total variation for an ensemble of reset times.",
+        "searches": [
+          "Ohmori–Yamazaki arXiv:2402.06230v1, generalized oscillator",
+          "Ohmori–Yamazaki arXiv:2305.05908v1, negative-feedback return map",
+          "Configured Resultary reset total-variation perturbation comparison"
+        ]
+      },
+      "checked_sources": [
+        "November 8 Resultary exact capture record",
+        "Ohmori–Yamazaki 2024 generalized max-plus map",
+        "Ohmori–Yamazaki 2023 negative-feedback map",
+        "Repaired proof of quantitative comparison"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The matched renewal depths and bounded phase lag already imply the critical law under the assigned sampling shift; the geometric depth joint law also makes the exact complete-reset distribution a phase bookkeeping calculation.",
+          "For the repaired claim one needs the uniform plus atoms marginal decomposition, deterministic perturbation control to time proportional to log(1/T), and a matching tail bound. No such perturbed statistical estimate appears in the inspected exact-capture and return-map passages."
+        ],
+        "reasoning": "Prior distribution results are used as supporting boundary data and not advertised as independent novelty. The distinct quantitative conclusion controls the whole small-T reset-time law, including possible infinite times.",
+        "searches": [
+          "November 8 capture proof §§2–4",
+          "Ohmori–Yamazaki 2024 reset and cycle-switch sections",
+          "Repaired Proof §5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For the same map at T=0 with m=D, F²=(g,g) sends positive-square uniform starts to full-square uniform starts. Almost surely in the positive square, complete reset occurs between first capture onto the cycle and three steps after it. Thus full-square complete reset differs from that positive-square capture by the two-step shift plus a phase lag of 0–3."
+        ],
+        "reasoning": "Exactly credit the geometric base and the bounded-clock equivalence in critical scaling. At fixed D the phase lag is not a deterministic shift, so the parity-split mass and mean for any-phase capture do not carry over unchanged.",
+        "searches": [
+          "Configured Resultary T=0 max-plus reset law/parity and exact mean searches",
+          "November 8 max-plus capture record Finding and Proof §§1–3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "First any-phase capture on (0,B)² has mean (4D−1)/(D−1) and N=2max(q_X,q_Y)−1_{q_X>q_Y}; complete reset on I_D² has mean 2D(D+2)/(D²−1) and same/different-parity delay. Both rescaled laws tend to twice the maximum of two independent unit exponentials under the (D−1) convention."
+        ],
+        "reasoning": "This is exact partial coverage, not a matching finite-D formula nor a table for positive-T law approximation.",
+        "searches": [
+          "Configured Resultary exact capture/reset mean, parity, critical scaling and total-variation searches",
+          "Strongest hit: exact original-time capture statistics, offsets 0–6724 and subsequent comparison passages"
+        ]
+      },
+      "rationale": "Pass the quantitative small-coupling stability of the complete-reset law at fixed D, with the correct finite-D clock. Credit the shared geometric mechanism and the critical law explicitly, rather than treating a shift of initial square or a bounded change of cycle phase as a new critical scaling result. The exact first-capture distribution for positive-square draws differs from the complete-reset distribution at fixed D; the ingredients of its proof do supply the boundary geometric law by a simple shift and substantial overlap. None of the inspected direct comparisons gives the repaired total-variation rate. It requires quantitative cancellation between branch expansion and attenuation of the uniform part, not just finite orbit continuity or cycle stability.",
+      "residual_risks": [
+        "The search is bounded; no historical priority claim is drawn from date order, and no known comparison establishes optimality of the log factor."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact boundary mechanism and asymptotic overlap; different finite-D stopping event and initial ensemble; no positive-T rate in inspected statements.",
+          "evidence": "Independent scalar geometric waits on positive starts, any-phase capture clock, exact mean and maximum-of-exponentials limiting distribution.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-original-time-capture-statistics-and-critical-scaling-in-a--4b0c6f578196/RESULT.md",
+          "material_read": "Finding and Proof §§1–4, offsets 0–6724; comparison through offset 9761",
+          "method": "Configured Resultary search and lawful local mirror reading",
+          "title": "Exact original-time capture statistics and critical scaling in a max-plus negative-feedback oscillator",
+          "trigger": "Same oscillator, geometric decoupling and critical capture law"
+        },
+        {
+          "assessment": "Establishes deterministic reset and cycle, not the quantitative ensemble comparison in passages inspected.",
+          "evidence": "Two nonpositive X iterates force reset; inequality D>T²+T+1 and the four points.",
+          "identifier_or_url": "https://arxiv.org/html/2402.06230v1",
+          "material_read": "§1 Eq. (1) near offset 0; §3 near offset 7000; §4 Eqs. (5)–(6) near offset 11600",
+          "method": "Lawful OA HTML passages",
+          "title": "A Generalization for Ultradiscrete Limit Cycles in a Certain Type of Max-Plus Dynamical Systems",
+          "trigger": "Same generalized map and 4-cycle reset regime"
+        },
+        {
+          "assessment": "Return-map stability, not ensemble complete-reset times or positive-T total variation.",
+          "evidence": "Poincaré map and attracting/repelling cycles for m>1.",
+          "identifier_or_url": "https://arxiv.org/html/2305.05908v1",
+          "material_read": "§3 Eq. (12) near offset 16300",
+          "method": "Lawful OA HTML passage",
+          "title": "Dynamical properties of discrete negative feedback models",
+          "trigger": "Same boundary oscillator and prior return-map analysis"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired RESULT.md, exact clock and quantitative TV proof",
+        "Exact capture record and generalized map comparison"
+      ],
+      "rationale": "The quantitative complete-reset law answers a natural perturbation question for a coupled map with a moving switch and an expanding active branch. It controls all stopping events, rather than just continuity at fixed observation time or the distribution of reaching any cycle phase for the boundary map. Its explicit rate makes the overlap in the geometric critical calculation supporting material, not the reason for acceptance.",
+      "residual_risks": [
+        "Upper bound only, no sharpness or joint singular limit as D tends to one."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

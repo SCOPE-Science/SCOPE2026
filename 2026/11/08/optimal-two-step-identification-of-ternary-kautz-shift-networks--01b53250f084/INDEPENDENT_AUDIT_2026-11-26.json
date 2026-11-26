@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T13:03:36.324717Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–50; VERIFICATION.md and VERIFY.py (read only)",
+        "Independent replay: python3 /workspace/branches/c877fed5-f437-4c98-b022-73d188f7e1a1/independent_check.py, outputs small_run.txt and extended_run.txt in the same directory. Coincident balls at n=1,2; for all 3≤n≤9 all signatures, decoder outputs, size and sibling conditions passed (up to 768 vertices)."
+      ],
+      "rationale": "The disjoint prefix-sibling pairs give the lower bound because their strict predecessor layers agree. Exactly one completion of each prefix satisfies the orientation rule, and no alternating word does. The one- and two-step layers are disjoint; the only possible center overlap is the period-two case, which is unselected. At odd length the two selected second predecessors give the unique repeated length-(n-2) suffix; the unique sensor with that suffix in its interior positions gives the prefix. At even length suffix-pairs recognize the selected layers. For two pairs a reverse overlap would force the even-length middle word to alternate, with the entering step opposite its final step, contradicting selection; with one pair the missing one-step layer determines the next orientation. Once the prefix is known, the selected completion cannot be a predecessor of the other sibling: one step violates proper adjacency and two steps require a period-two word. Presence of that completion decodes the center. This uses at most five length-n labels and constant scans. For n=2 any source goes directly to the target if its last letter equals the target's first, otherwise in two shifts, and n=1 is complete in one step. Thus both boundary cases have coincident balls.",
+      "residual_risks": [
+        "The finite run corroborates the construction and decoder, not a computer proof for arbitrary n. The complexity is measured in symbol operations on the reporting labels, as stated."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Boutin–Goliber–Pelto arXiv:1412.5842, Theorem 3.6, gives a radius-t optimum for the distinct full directed de Bruijn graph under n≥5, d≥2, t≥2 and n≥2t.",
+          "The line-digraph paper was returned in the initial search. The identified publisher link was not accessible via OA retrieval (403); the targeted alternate-copy search returned no result."
+        ],
+        "reasoning": "The Kautz graph has a forbidden-adjacency vertex constraint. A code optimal in the ambient de Bruijn graph need not remain valid when sensors and paths are restricted. No claim is made about what the unavailable line-digraph text proves.",
+        "searches": [
+          "Websearch: \"Kautz\" \"identifying codes\" directed radius two OR \"radius-2\" OR \"two-step\" ternary; compare Identifying Codes on Directed De Bruijn Graphs and incoming-ball identification for Kautz networks",
+          "Websearch for a lawful same-paper copy: \"Identifying codes in line digraphs\" S0096030320303210 Kautz theorem radius full text PDF author repository"
+        ]
+      },
+      "checked_sources": [
+        "Frozen prior-work discussion; indexed Findings and published passages listed above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At n=3 a one-completion-per-prefix code that chooses 010 rather than 012 has identical radius-two signatures on these siblings: 010 is already in their common strict second-predecessor layer. For example {010,212,102,201,021,120} chooses one per prefix and one per suffix and has no selected two-cycle, so it qualifies for the exact-distance criterion and the radius-one cycle-cover criterion, but fails here."
+        ],
+        "reasoning": "The counterexample rules out a direct transfer of either code criterion. The parity decoder supplies the missing separation reasoning for the specific radius-two model; the standard sibling lower bound alone provides no such sufficiency.",
+        "searches": [
+          "Compare the one-completion-per-prefix result for exact overlap distance and the radius-one cycle-cover result, versus frozen RESULT.md lines 23–46 and Boutin–Goliber–Pelto Theorem 3.6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Reversal exchanges incoming and outgoing signatures without changing radius. The radius-one indexed result gives a half-sized optimum for n≥2 and characterizes its optima via cycle covers. The exact-distance record also gives a half-sized optimum, with a one-completion-per-prefix criterion, but retains exact directed-distance values."
+        ],
+        "reasoning": "Reversing arcs is an equivalence; changing the radius, or replacing an exact-distance vector by a binary threshold, is not. The size and sibling obstruction can coincide while the sufficient conditions differ.",
+        "searches": [
+          "Resultary: ternary Kautz digraph two-step identifying codes incoming radius two orientation decoder",
+          "Resultary: Kautz graph identifying code radius two minimum half",
+          "2026/11/8/SCOPE-exact-counting-and-uniform-generation-of-optimal-kautz-identifyi--728f5ffa301d; 2026/11/22/SCOPE-all-optimal-overlap-distance-identification-probes-on-kautz-shif--3de652964d87"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The latter is the assigned record, not a distinct source. The distinct length-three de Bruijn result has unique optimum {abc:a≠c}; restricting it to proper ternary triples gives the stated orientation code at n=3. Its Finding concerns a different graph and only one length."
+        ],
+        "reasoning": "This is an exact boundary construction coincidence worth recording. It does not give the Kautz lower bound/decoder or cover the general length claim. A shared catalogue date does not establish ordering.",
+        "searches": [
+          "Resultary queries above; 2026/11/8/SCOPE-unique-radius-two-identifying-codes-at-length-three-in-directed--63623628b3fb",
+          "Exact Resultary hit 2026/11/8/SCOPE-optimal-two-step-identification-of-ternary-kautz-shift-networks--01b53250f084"
+        ]
+      },
+      "rationale": "The exact incoming binary radius-two optimum for all ternary Kautz lengths and its orientation decoder are distinct from the inspected radius-one, full de Bruijn, domination and exact-distance results. There is a genuine boundary construction match at n=3 under restriction from full de Bruijn; this does not supply the Kautz all-length theorem. The unresolved line-digraph citation is not counted as either evidence against overlap or a positive prior match.",
+      "residual_risks": [
+        "Priority is conditional on examined material. The line-digraph paper's actual theorem and any treatment of radius two could not be determined, and an unindexed prior solution could exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related lower bound and theorem on a different graph",
+          "evidence": "Full de Bruijn permits repeated adjacent letters; optimal size d^(n-1)(d-1) is for that model in its stated range.",
+          "identifier_or_url": "https://arxiv.org/pdf/1412.5842",
+          "material_read": "Definition pp. 1–2 (offsets 1187, 2293); graph definition pp. 2,6 (4619,13736); Theorem 3.6 p. 9 (18823)",
+          "method": "OA PDF passages",
+          "title": "Identifying Codes on Directed De Bruijn Graphs",
+          "trigger": "Published broad radius-t framework and construction"
+        },
+        {
+          "assessment": "Radius one, not two",
+          "evidence": "Half optimum with a two-cycle-free cycle-cover criterion for radius one.",
+          "identifier_or_url": "2026/11/8/SCOPE-exact-counting-and-uniform-generation-of-optimal-kautz-identifyi--728f5ffa301d",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Exact counting and uniform generation of optimal Kautz identifying codes",
+          "trigger": "Same graphs and size"
+        },
+        {
+          "assessment": "Exact-distance observation model strictly different",
+          "evidence": "A probe set may omit at most one completion per prefix; this condition is insufficient for binary radius-two signatures.",
+          "identifier_or_url": "2026/11/22/SCOPE-all-optimal-overlap-distance-identification-probes-on-kautz-shif--3de652964d87",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror",
+          "title": "All optimal overlap-distance identification probes on Kautz shifts",
+          "trigger": "Same graphs and sibling bound"
+        },
+        {
+          "assessment": "Boundary overlap under restriction, not all-length Kautz coverage",
+          "evidence": "Unique full de Bruijn optimum at length three is {abc:a≠c}.",
+          "identifier_or_url": "2026/11/8/SCOPE-unique-radius-two-identifying-codes-at-length-three-in-directed--63623628b3fb",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Unique radius-two identifying codes at length three in directed de Bruijn graphs",
+          "trigger": "Exact same radius and overlapping small construction"
+        },
+        {
+          "assessment": "Coverage unresolved; no adverse or favorable inference",
+          "evidence": "Publisher route returned 403; targeted search did not identify an alternate lawful copy.",
+          "identifier_or_url": "https://www.sciencedirect.com/science/article/abs/pii/S0096030320303210",
+          "material_read": "Search title/link only; no theorem or fully read text",
+          "method": "Publisher OA attempt, followed by a targeted same-paper alternate search",
+          "title": "Identifying codes in line digraphs",
+          "trigger": "Kautz graphs are iterated line digraphs; a broader result is plausible"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and decoder proof; prior exact-distance and de Bruijn comparisons"
+      ],
+      "rationale": "The result settles an exact optimum and supplies an efficient decoder in a natural shift network and observation model. The decoder proves a real obstruction can be resolved at the lower bound; unlike simply selecting one sibling per pair, it deals with coinciding predecessor signatures, distinguishes parity, and covers all feasible lengths.",
+      "residual_risks": [
+        "The construction is specific to ternary proper words and does not claim a classification of all optimal codes or other radii."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

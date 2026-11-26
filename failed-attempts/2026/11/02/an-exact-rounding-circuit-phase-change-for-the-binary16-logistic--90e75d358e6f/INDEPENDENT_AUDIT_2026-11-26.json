@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:27:50.496531Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independently exhausted all 15,361 encodings for both maps. The bounded reproduction /tmp/opencode/scope-independent-binary16.py decodes with struct, compares exact Fraction values against precomputed binary16 midpoints (including the midpoint above 1), finds the recurrent set as the image of F^16384 by pointer doubling, and reverse-BFS labels every state by cycle and entry depth. The staged overshoot is 509/1048576, below 1/2048; closure and representability of 4x were checked throughout. The independent census reproduced both hashes, every basin and period, maximum depths 83 and 109, and total depths 389795 and 712352. The five-cycle order is 11709,13625,15113,14026,15313 and the only shared recurrent codes are 0 and 14848. Each cycle gets its basin fraction under the uniform-code Cesàro limit, evenly spread over its vertices, so the overlap is (5092+2)/15361 and TV is 10267/15361. This is a finite exact-arithmetic check of the specified model, not of arbitrary compilers. The supplied checker was read, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The indexed three-map package includes both reference maps in its certificate; its additional expanded graph is different and irrelevant to the frozen comparison.",
+          "Klöwer et al. survey low precision and stochastic vs deterministic rounding; Galias gives exhaustive methodology in single and double precision."
+        ],
+        "reasoning": "General finite graph methods or results in different formats are not the exact claim. Coverage rests on the exact reference-map certificates, not simply on the known method.",
+        "searches": [
+          "46d23de07c7c three logistic evaluators",
+          "Klöwer et al. DOI 10.1038/s41598-023-37004-4",
+          "Galias DOI 10.1109/TCSII.2021.3081604"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and binary16_census.py",
+        "Resultary 46d23de07c7c (RESULT.md and verify.py)",
+        "Resultary 35a3ca4a276d (RESULT.md)",
+        "Corless pp. 60–61",
+        "Klöwer et al. pp. 3–4",
+        "Galias pp. 2–3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Each graph output contains the ordered bit codes of every recurrent orbit and the corresponding basin size. On these graphs the sole common recurrent codes are the two fixed points, 0 and 14848.",
+          "The shared atoms have respective lesser masses 5092/15361 and 2/15361 under counting initialization."
+        ],
+        "reasoning": "Intersecting the two returned cycle lists and evaluating 1 minus the sum of the smaller Cesàro weights reproduces the frozen fraction. Distinct periods alone would not imply disjointness; the explicitly returned orbit members do.",
+        "searches": [
+          "46d23de07c7c verify.py, graph and cycle_encoding output, and the reference tuples"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In 46d23de07c7c verify.py, modes factored and once agree with the frozen staged and single maps. Factored explicitly rounds 4x, which is exact here. State domain and nearest-even convention match.",
+          "35a3ca4a276d states the same exact-polynomial-then-round map but compares it to rounded completed-square evaluation, not to the factored map."
+        ],
+        "reasoning": "Evaluation order and initial measure matter; algebraic equality over the reals does not identify the rounded completed-square or expanded map with either frozen graph. The two named reference implementations do match exactly.",
+        "searches": [
+          "Resultary 46d23de07c7c, 35a3ca4a276d and ec3a649c6929: binary16 logistic rounding placement and exact orbit comparisons"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Indexed expected reference tuples are ([1,1,40],[5092,2,10267],83,389795) and ([1,1,5],[15236,8,117],109,712352), with the same complete transition SHA-256 digests as frozen. The certificate also returns explicit cycle_encoding lists.",
+          "Corless independently reports the 40-cycle, size 10,267 basin and maximum entry time 83; the extracted zero-basin figure differs and is not used as evidence of the full table."
+        ],
+        "reasoning": "Both complete reference graphs are matched by their exact evaluation, state space and certificates, not just by period or a single basin number.",
+        "searches": [
+          "46d23de07c7c/verify.py expected reference tuples and cycle_encoding",
+          "35a3ca4a276d/RESULT.md Finding",
+          "Corless, Floats for Philosophers, pp. 60–61"
+        ]
+      },
+      "rationale": "A distinct indexed package publishes the exact two reference graphs in its supporting certificate alongside a third (staged-expanded) graph. The reference code specifies identical successors, has both matching edge digests, and returns the ordered cycle encodings and basin sizes. The frozen comparison and exact Cesàro TV are covered or mechanically implied by those data. This compares available statements and artifacts, not the calendar order of catalog paths.",
+      "residual_risks": [
+        "The linked ec3a649c6929 file is not available in the local mirror, so its exact wording and identity relative to the frozen package remain unconfirmed. The distinct accessible 46d23de07c7c suffices.",
+        "No first-publication chronology is inferred from repository paths."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Full exact graph data for both frozen evaluators are present in a distinct package",
+          "evidence": [
+            "verify.py modes factored and once implement the exact mathematical evaluations and return ordered cycle encodings; both edge hashes, basin splits and transient statistics coincide."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-three-incompatible-complete-cycle-spectra-for-half-precision-log--46d23de07c7c",
+          "material_read": "RESULT.md offsets 1050–4712 and 4700–7477; verify.py offsets 560–3149 and 3450–4403",
+          "method": "Local mirror; read exact formulas, graph outputs and expected tuples, compared to independent census",
+          "title": "Three incompatible complete cycle spectra for half-precision logistic evaluation",
+          "trigger": "Strongest accessible certified matching graphs"
+        },
+        {
+          "assessment": "One exact reference graph matches; other map is not the frozen comparator",
+          "evidence": [
+            "Once-rounded F has basins 15236, 8, 117, periods 1, 1, 5 and maximum depth 109."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-two-exact-binary16-logistic-cycle-spectra-under-algebraically-eq--35a3ca4a276d",
+          "material_read": "RESULT.md Finding and assumptions, offsets 0–2207",
+          "method": "Local mirror",
+          "title": "Two exact binary16 logistic cycle spectra under algebraically equivalent evaluation",
+          "trigger": "Exact table for one-round map"
+        },
+        {
+          "assessment": "Direct contents and relation to the frozen record not established; not required for the coverage decision",
+          "evidence": [
+            "The accessible distinct package itself includes both exact graph certificates."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-rounding-placement-changes-the-complete-binary16-logistic-attrac--ec3a649c6929",
+          "material_read": "Citation and description in 46d23de07c7c; actual file unavailable in the local mirror",
+          "method": "Local mirror lookup",
+          "title": "Rounding placement changes the complete binary16 logistic attractor census",
+          "trigger": "Cited as publishing the matched two graphs"
+        },
+        {
+          "assessment": "Reports staged nontrivial cycle and basin; not evidence of the paired metric",
+          "evidence": [
+            "Length 40, basin 10267, entry within 83 iterations. The extracted zero-basin number does not match 5092."
+          ],
+          "identifier_or_url": "https://rcorless.github.io/FloatsForPhilosophers.pdf",
+          "material_read": "PDF pp. 60–61 around extracted offset 32900",
+          "method": "OA slide passage inspection",
+          "title": "Floats for Philosophers: A Talk in Three Parts",
+          "trigger": "Known binary16 factored-map cycle"
+        },
+        {
+          "assessment": "Methodological and empirical context in inspected passages",
+          "evidence": [
+            "Passages discuss deterministic Float16 attractor collapse but do not give both exact reference graphs."
+          ],
+          "identifier_or_url": "https://doi.org/10.1038/s41598-023-37004-4",
+          "material_read": "PDF pp. 3–4, logistic and deterministic/stochastic rounding discussions",
+          "method": "OA passage inspection",
+          "title": "Periodic orbits in chaotic systems simulated at low precision",
+          "trigger": "Primary low-precision logistic study"
+        },
+        {
+          "assessment": "Different precision formats",
+          "evidence": [
+            "Stated comparison is binary32 and binary64, not the binary16 evaluator pair."
+          ],
+          "identifier_or_url": "https://doi.org/10.1109/TCSII.2021.3081604",
+          "material_read": "PDF pp. 2–3, arithmetic and cycle/basin procedure",
+          "method": "OA passage inspection",
+          "title": "Periodic Orbits of the Logistic Map in Single and Double Precision Implementations",
+          "trigger": "Exhaustive census literature"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "A full exact standardized-format orbit census is a useful diagnostic, but the outputs for both frozen maps are already supplied by matching graph certificates. Converting their basin weights to a Cesàro TV by a two-atom overlap calculation is not a separate substantial mathematical contribution. No other new exact invariant is proved here.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

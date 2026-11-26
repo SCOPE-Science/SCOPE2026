@@ -1,19 +1,21 @@
-# Scientific review: degree-bounded open-adjacency types
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The statement quantifies over every finite simple graph of maximum degree at most \(d\) and every size-\(m\) marked set, not merely bipartite graphs. A degree incidence budget imposes a sharp cardinality-layer upper bound. A uniform-hypergraph exchange lemma balances the partial layer, and a marked matching/path/triangle plus independent witnesses simultaneously realizes the optimal trace family *and* gives an extremal host with exactly one vertex per trace. The proof handles \(d=0\), singletons, partial layer thresholds, and the full Boolean layer. Independent computations from the embedded code cover 2,097,151 graph/marked-set cases with up to six graph vertices, all subset families on four marks, and explicit extremizers across large parameter ranges. These are finite checks; the all-size statement depends on the proof.
+PASS
 
-## Originality — PASS within inspected evidence
+For each marked point a, distinct traces containing a require distinct neighbors of a. Hence the incidence budget is md, and the minimum incidence cost for a fixed number of nonempty traces is attained by buying sets in increasing cardinality. If r<m, maximality of r gives rho < C(m-1,r), so the prescribed residual count does not exceed the available (r+1)-layer. Minimizing the square-sum of degrees in that uniform layer proves the claimed balancing: edges through both points cancel from the degree difference, so a higher-to-lower swap with an absent replacement exists whenever the difference is at least two. The resulting maximum extra incidence is ceil((r+1)e/m) <= rho. Every selected trace size is itself at most d. For a minimum host, the isolated singleton, matching (with at most one isolate), edge, triangle, and path on at least four points cover the stated cases and give distinct marked traces of permitted sizes. Adding just the missing traces as unmarked vertices makes each marked degree exactly its frequency among the traces and each unmarked degree its trace size. This also proves attainability for all saturation cases, and d=0 separately requires only the m isolated marked vertices. At a threshold the cheapest full layers exhaust the budget, and omitting the empty trace or substituting any larger set is impossible in an extremal family. Shattering is therefore possible exactly at d >= 2^(m-1); the large-m linear formula gives density one for fixed d>0. No required computation underlies these conclusions. The supplied check.py and VERIFICATION.md were inspected, not run; their enumerations and construction checks are finite diagnostics, and the listed expected output is not an independent run.
 
-Comparisons used searchable previous claims, multiple semantic searches for degree-bounded neighborhoods and incidence-limited set systems, and mathematical reading of arXiv:2607.16889 and arXiv:2301.04217v2. The 2026 paper proves exact *closed*-neighborhood bounds under treewidth/pathwidth assumptions; the 2023 paper proves *open*-neighborhood bounds using twin-width, not maximum degree. Width-restricted results do not imply the exact formula for all maximum-degree-\(d\) graphs. The closest recorded cyclomatic-budget trace bound has an unrestricted cycle budget and therefore is not a specialization. A relevant 2025 abstract was checked, but not its full text. Historical priority remains provisional because unavailable sources and some older records may exist.
+## originality
 
-## Value — PASS
+PASS
 
-The theorem computes a natural exact invariant for a hereditary sparse class, identifies all binomial degree-budget transitions, gives the exact stable coefficient \((d+1)/2\), characterizes the precise shattering threshold and complete layers, and proves optimal identifying hosts with no redundant vertices. Unlike a qualitative \(O_d(m)\) estimate, each equality and boundary can guide sharp neighborhood-type calculations or identifying-set constructions.
+The checked sources establish adjacent neighborhood-complexity results and the argument uses standard incidence and balancing ideas. No compared result gives the all-m,d open-trace layer optimum together with threshold rigidity and a one-vertex-per-trace extremizer. The matching published entry is the frozen record itself, not a distinct source. This is a bounded best-of-knowledge assessment, not a priority guarantee.
 
-## Scope and risks
+## value
 
-Only finite, undirected, simple, potentially disconnected graphs, **open** neighborhoods, and a maximum-degree upper bound are covered. No uniqueness of extremizing graphs is asserted. The original literature comparison is evidence-based, not absolute historical priority verification; an independent check is still required.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This determines the exact growth function of a natural graph concept class in every degree/marking regime, not only the fixed-degree linear order. The thresholds identify the saturation and rigidity cases, and the symmetric realization on the least possible host resolves a separate issue that the standard incidence representation leaves open.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

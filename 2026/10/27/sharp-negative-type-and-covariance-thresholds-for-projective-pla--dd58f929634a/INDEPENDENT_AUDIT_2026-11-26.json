@@ -1,0 +1,220 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:08:26.344582Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–81 and 85–87",
+        "VERIFICATION.md; inspect-only plane_covariance_check.py",
+        "Independent replay: python -B /workspace/branches/independent_checks.py (plane)"
+      ],
+      "rationale": "Counting incidences gives MM^T=M^T M=qI+J and constant row and column sums q+1; each side has N=q^2+q+1 vertices. The two constant sectors and the paired zero-sum subspaces reduce both kernels to scalar ± blocks, with restricted singular value sqrt(q). For D_p the antisymmetric constant block starts at −1 at p=0 (off-diagonal convention) and is strictly decreasing because (q+1)log 2<q log 3; the lower paired block is strictly negative. The upper paired block changes sign at the unique root of (3/2)^p−(1/2)^p=1/sqrt(q), an increasing function from zero to infinity. At the root precisely N−1 mean-zero eigenvalues vanish; the centered Gram matrix has rank N there and 2N−1 strictly below. The zero diagonal and strictly positive off-diagonal squared distances give distinct points in the Gram realization. For the exponential kernel at t>0, the constant symmetric eigenvalue and upper paired block are positive; the two remaining displayed inequalities are exactly the other eigenvalue tests. Below or at the exponent threshold strict positivity for every t>0 follows from the Fourier representation of the Gaussian on the distinct embedded points. For p=1 and z=exp(−t), the two tested blocks factor as (1−z)(1−qz+q^2 z^2) and (1−z^2)(1−sqrt(q) z). The former is positive, and the latter gives exactly t=(log q)/2 as the positive boundary, with kernel rank N+1 there; t=0 is the separate rank-one case. For supercritical p the small-t derivative is negative on the positive distance block, while the large-t limit is I. Independent symbolic factorization and an exact shortest-path check on a cyclic Fano difference-set model gave boundary rank 8 and reproduced the stated q=2,p=2 example with the antisymmetric inequality failing alone.",
+      "residual_risks": [
+        "The Fano calculation is bounded; scope for arbitrary existing and non-Desarguesian planes follows from the axiomatic proof. The two inequalities describe admissibility but do not enumerate bandwidth components for arbitrary supercritical p."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Voit covers PSD of every radial f(d) on a finite distance-regular graph via positive hypergroup spectral measure; Koohestani et al. give the distance-polynomial recurrence and the Q/Gibbs formulation. These supply spectral tests but do not evaluate or solve the projective-plane inequalities.",
+          "Murugan's determinant and nullspace criterion covers all constant-distance-row metrics; Sánchez computes the exponent for complete bipartite graphs of diameter two. The later symmetric-design finding covers both projective-plane negative-type and dimension phases as a special case, not the powered exponential covariance phase."
+        ],
+        "reasoning": "The association algebra, general PSD mechanism, and negative-type determinant test are prior machinery. The symmetric-design result genuinely covers the negative-type sector, but its PSD subject is the centered powered distance, not the exponential kernel.",
+        "searches": [
+          "Voit, arXiv:2111.02116, Theorem 2.6",
+          "Koohestani–Obata–Tanaka, arXiv:2106.14497, Eq. (2.2), (2.5) and Lemma 2.1",
+          "Murugan, arXiv:1112.5657, Theorem 3.1",
+          "Sánchez, arXiv:1108.0451, Cor. 2.4 and Thm. 3.1",
+          "SCOPE-20261102-399156ee3878"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE-20261101-5381d9b6d286",
+        "SCOPE-20261102-399156ee3878",
+        "SCOPE-20261026-9535d19cf47d",
+        "Obata (2007), Studia Math. 179, 81–97",
+        "arXiv:2208.11002",
+        "arXiv:2111.02116",
+        "arXiv:2106.14497",
+        "arXiv:2305.14636",
+        "arXiv:1112.5657",
+        "arXiv:1108.0451"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A general radial theorem gives positivity from spectral weights. For the plane, writing A for adjacency, A2=A^2−(q+1)I and A3=(A^3−(2q+1)A)/(q+1), and evaluating at ±(q+1) and ±sqrt(q), gives an alternate route to the four blocks. The sign eliminations and the p=1 factorization then determine the two-parameter inequalities and the exact positive cutoff with rank. The calculation is specific to the diameter-three incidence algebra.",
+          "Knowing the exact negative-type region via the November results gives full Gaussian positivity for p≤p_q and failure at sufficiently small t above it, not the placement or nullity of the finite positive t boundary for p=1. The quadrangle theorem cannot be restricted by a parameter choice to these graphs."
+        ],
+        "reasoning": "A method to calculate spectral positivity for any radial function is not an already explicit plane covariance phase. The new part credited is the evaluated parameter-space characterization and endpoint behavior for the natural family, not a new general association-scheme principle or a second claim to the covered negative-type results.",
+        "searches": [
+          "arXiv:2111.02116, Theorem 2.6",
+          "arXiv:2106.14497, Eq. (2.2)",
+          "Obata 2007, §1",
+          "SCOPE-20261101-5381d9b6d286",
+          "SCOPE-20261026-9535d19cf47d"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Q_z=(z^d) is exactly the ordinary-distance covariance with z=exp(−t). Tanaka determines when the entire interval [−1,1] is admissible, not the intermediate endpoint on planes; Obata studies graph gluing preserving Q positivity, in particular by square extensions, not this family with no four-cycles.",
+          "The q-distance matrix in Koolen et al. uses reciprocal geometric sums; at a geometric parameter s it is affinely related to the exponential matrix via K=J+(1/s−1)D_s. Its specific classical-parameter spectral conclusions are not an all-parameter admissibility result on a fixed projective plane.",
+          "Generalized roundness in the November 1 indexed record is equivalent to the frozen negative-type claim: same universal root and equality-space dimension. The snowflake metric d^(p/2) has exactly the same squared distances d^p."
+        ],
+        "reasoning": "These equivalences identify strong prior comparisons rather than dismissing them by terminology. The negative-type equivalence is exact; neither full-interval Q-positivity nor a classification at a classical parameter identifies the positive boundary or rank for all t on the fixed graph.",
+        "searches": [
+          "Q-matrices, Gibbs states, exponential distance kernels, generalized triangles and Heawood graph",
+          "Obata, Positive Q-matrices of graphs (2007)",
+          "arXiv:2208.11002",
+          "arXiv:2106.14497",
+          "arXiv:2305.14636",
+          "SCOPE-20261101-5381d9b6d286"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact later projective-plane record gives sqrt(q)(3^p−1)=2^p, strictness below the boundary, and embedding ranks N and 2N−1. The symmetric-design record also explicitly includes that projective-plane phase.",
+          "The October 26 radial-cone record treats generalized quadrangles of diameter four; its ordinary-distance limit is (log(st))/2 with one-dimensional nullspace, not the plane's (log q)/2 with nullity N−1. No exact projective-plane powered exponential or positive-bandwidth rank entry was found in these checked sources."
+        ],
+        "reasoning": "An exact matching indexed threshold is credited even though the distinction between overlap and publication priority remains. Typical graph or adjacency spectrum tables do not themselves tabulate the bandwidth region or rank.",
+        "searches": [
+          "Resultary: projective-plane metric, negative type, association schemes and Q-matrices",
+          "SCOPE-20261101-5381d9b6d286, Finding",
+          "SCOPE-20261102-399156ee3878, Finding",
+          "SCOPE-20261026-9535d19cf47d, Finding"
+        ]
+      },
+      "rationale": "The exact negative-type root and both Gram embedding ranks have material separately indexed coverage and are not credited here as a distinct contribution. The supported distinct component is the evaluated projective-plane powered-exponential covariance region, including its exact positive ordinary-distance threshold and covariance endpoint rank. The strongest primary sources provide the equivalent Gibbs/Q-matrix problem and general radial positivity machinery, not an evaluated projective-plane cutoff or this powered two-parameter region. The prior generalized-quadrangle classification is for a materially different graph and has a different phase and nullity.",
+      "residual_risks": [
+        "The negative-type threshold and Gram rank are independently matched statements in the archive, without a provenance or priority conclusion. A historical exact projective-plane Q-matrix evaluation could still be hidden under design or association-scheme terminology. General radial PSD machinery is expressly credited; the assessment is only for the evaluated plane covariance claims."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact threshold and rank match, with more equality-space detail; folder date is later, without established provenance",
+          "evidence": [
+            "Same defining root; equality space dimension N−1; minimum embedding dimension N at the root and 2N−1 below"
+          ],
+          "identifier_or_url": "SCOPE-20261101-5381d9b6d286",
+          "material_read": "Finding offsets 0–2979; spectral proof at offset 4440; related work near 8750",
+          "method": "Local archive mirror",
+          "title": "Exact generalized roundness and critical Hilbert dimension of finite projective-plane incidence metrics",
+          "trigger": "Exact same negative-type and embedding question on all projective planes"
+        },
+        {
+          "assessment": "Broader exact negative-type theorem explicitly including the plane phase",
+          "evidence": [
+            "Projective-plane parameters yield the spectral branch and critical dimension N"
+          ],
+          "identifier_or_url": "SCOPE-20261102-399156ee3878",
+          "material_read": "Finding, offsets 0–2398",
+          "method": "Local archive mirror",
+          "title": "Two competing Hilbert-snowflake obstructions for symmetric-design incidence graphs",
+          "trigger": "General symmetric-design incidence graph theorem"
+        },
+        {
+          "assessment": "Different graphs and cutoff; methodological antecedent only",
+          "evidence": [
+            "Diameter four, positive threshold (log(st))/2 and nullity one at the boundary"
+          ],
+          "identifier_or_url": "SCOPE-20261026-9535d19cf47d",
+          "material_read": "Finding and scope, offsets 0–2892",
+          "method": "Local archive mirror",
+          "title": "Exact positivity cone of distance-radial kernels on finite generalized quadrangles",
+          "trigger": "Prior exact positivity region and exponential phase on an incidence graph family"
+        },
+        {
+          "assessment": "Equivalent kernel problem and gluing framework; no inspected statement of this project's plane cutoff",
+          "evidence": [
+            "Eq. (1.1) defines Q_z; Theorem 1.1 treats one-vertex star products; stated main problem is joining squares"
+          ],
+          "identifier_or_url": "https://www.impan.pl/shop/en/publication/transaction/download/product/90145",
+          "material_read": "Introduction pp. 81–83 through the star product and square-extension constructions; beginning of §6 examples located",
+          "method": "Open publisher PDF after alternate index retrieval failed",
+          "title": "Positive Q-matrices of graphs",
+          "trigger": "Exact ordinary-distance kernel under the older Q-matrix name"
+        },
+        {
+          "assessment": "Classifies full admissibility on [−1,1], not exact proper intervals for projective planes",
+          "evidence": [
+            "Full-interval finite distance-regular cases are hypercubes, doubled Odd graphs and even cycles"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2208.11002",
+          "material_read": "Definition in §1 and §3 Theorem 4, pp. 4–5, offsets 33950–35370",
+          "method": "Open-access PDF passages",
+          "title": "Characterizing graphs with fully positive semidefinite Q-matrices",
+          "trigger": "Same distance-exponential Q matrix on distance-regular graphs"
+        },
+        {
+          "assessment": "Stronger general characterization by an unevaluated spectral measure; not explicit plane covariance phase",
+          "evidence": [
+            "For any f on the finite distance set, Q_f is PSD iff f is the transform of a positive measure on the finite dual hypergroup"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2111.02116",
+          "material_read": "Abstract, pp. 1; Theorem 2.6 pp. 7–8, offsets 22999–24901",
+          "method": "Open-access PDF passages",
+          "title": "Positivity of Gibbs states on distance-regular graphs",
+          "trigger": "General exact positivity of distance-radial kernels"
+        },
+        {
+          "assessment": "General algebraic machinery, not a projective-plane bandwidth calculation",
+          "evidence": [
+            "A A_i recurrence, K_z as sum z^i A_i, Gibbs positivity iff K_z is PSD"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2106.14497",
+          "material_read": "§2, Eqs. (2.2), (2.5), (2.7) and Lemma 2.1; offsets 13130–15793",
+          "method": "Open-access PDF passage",
+          "title": "Scaling limits for the Gibbs states on distance-regular graphs with classical parameters",
+          "trigger": "Distance-polynomial evaluation and equivalence of Q PSD to Gibbs positivity"
+        },
+        {
+          "assessment": "Related affine transformation and fixed classical-parameter spectrum, not the complete positivity-region computation here",
+          "evidence": [
+            "D_s uses 1+1/s+…+(1/s)^(d−1); results focus on classical parameters and the number of positive q-distance eigenvalues"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2305.14636",
+          "material_read": "Abstract and §1 reciprocal geometric-sum definition, offsets 3060–5880",
+          "method": "Open-access PDF passages",
+          "title": "Distance-regular graphs with exactly one positive q-distance eigenvalue",
+          "trigger": "Potential equivalent criterion via the q-distance spectrum"
+        },
+        {
+          "assessment": "General determinant formulation; no exponential PSD classification",
+          "evidence": [
+            "First zero of det D_p and endpoint equality characterized by nullspace for row-permutation metrics"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1112.5657",
+          "material_read": "Theorem 3.1 and proof, offsets 6410–9925",
+          "method": "Open-access PDF passages",
+          "title": "Generalized roundness of vertex transitive graphs",
+          "trigger": "General threshold and equality criterion covering constant-distance rows"
+        },
+        {
+          "assessment": "Complete bipartite paths use only distances 0,1,2; different from the Levi metric",
+          "evidence": [
+            "Equation for the sharp exponent of K_(n,m), not powered projective-plane covariance"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1108.0451",
+          "material_read": "§3, p. 7, Theorem 3.1 and its use of Corollary 2.4",
+          "method": "Open-access PDF passage",
+          "title": "On the supremal p-negative type of a finite metric space",
+          "trigger": "General finite metric criterion and explicit bipartite threshold"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 11–23 and 57–87",
+        "SCOPE-20261026-9535d19cf47d Finding",
+        "Voit, arXiv:2111.02116, Theorem 2.6"
+      ],
+      "rationale": "For a natural infinite family of diameter-three finite geometries, the result tells exactly which powered radial exponential matrices can be covariance matrices, including examples where only one of two genuine obstructions fails. The simple ordinary-distance positive threshold and its large boundary nullspace quantify a sharp difference from all-bandwidth negative type and from the known quadrangle phase. The covariance classification and rank are useful even without counting the connected components of the powered parameter region.",
+      "residual_risks": [
+        "This is not a classification of all distance-regular graphs, of the topology of every supercritical bandwidth slice, or of conditioning of nearly singular kernels."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

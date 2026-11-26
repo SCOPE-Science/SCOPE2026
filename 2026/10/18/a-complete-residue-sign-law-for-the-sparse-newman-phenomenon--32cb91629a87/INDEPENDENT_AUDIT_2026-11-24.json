@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:56:38.276408Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The high-digit split subtracts the shifted residual prefix, with shift +1 or -1 according to the bit index. On complete even blocks the two-step operator is 2I-P-P^(-1); even blocks are symmetric under residue negation. On representatives -h through h conjugating by (-1)^|r| gives a nonnegative recurrence on symmetric coefficients: the folded row at 0 has off-diagonal coefficient 2 and the row at h has diagonal 1, including h=1. For partial prefixes, adjacent opposite signs put both halves in the interval from zero to the full-block value. At the odd transition seam -h the full sum cancels but the prefixes stay between zero and the preceding even-block value. On the next step, at h the anomalous prefix has the same sign as the odd endpoint and no larger magnitude; at -h the next ordinary prefix contributes the correctly signed larger bound. This closes the interval induction. The zero entry of an even endpoint is always positive, and its odd analogue is A_0+A_1>0; subtracting any prefix at the neighboring residue cannot destroy strict positivity at zero. Sparse base-b digit words preserve binary order and digit parity and their value is congruent to the alternating digit sum because b=-1 modulo q. A new direct bit-mask enumeration checked 229383 prefixes across seven moduli (python3 /workspace/branches/recompute_frozen.py); it is only corroboration. The frozen checker uses int.bit_count, so the stated Python 3.8 compatibility in its notes is inaccurate (use Python 3.10+).",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Drmota–Stoll report eventual signs for certain residues in ordinary Thue–Morse rarefactions at moduli divisible by three, and study full alphabets in generalized bases.",
+          "Shevelev–Moses formulate a full-alphabet binomial identity for arbitrary odd modulus and report proofs of cases, not arbitrary sparse prefix signs."
+        ],
+        "reasoning": "Results for full alphabets do not automatically survive restriction to one subset of words, and ordinary-index rarefaction at larger moduli uses a different residue map. Somu works on the correct sparse family but has fewer residues and eventual quantifiers.",
+        "searches": [
+          "Resultary sparse Newman and two-digit base-plus-one searches",
+          "Somu Theorem 1.2",
+          "Drmota–Stoll pp. 1–2",
+          "Shevelev–Moses arXiv:1209.5705, equations (15), (74)"
+        ]
+      },
+      "checked_sources": [
+        "Somu arXiv:1511.03236",
+        "Drmota–Stoll, DOI 10.1016/j.disc.2007.03.069",
+        "Shevelev–Moses arXiv:1209.5705",
+        "Resultary b63c3068a659, b36d723bd0ec and d0dd28c1a584"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The projector uses the full digit polynomial sum of (-z)^d for 0<=d<=q-2 and B^2 eigenvalues -(z-1)^2/(z+1)^2 at nontrivial roots.",
+          "For sparse digits the polynomial becomes 1-z and the corresponding even-step multiplier is 2-z-z^(-1). The two-digit recurrence record instead uses plus signs in its digit product and only aggregates whole lengths."
+        ],
+        "reasoning": "The projector identity does not specialize by merely changing the alphabet: that changes its eigenvalues, and the full-block identity would in any event not control truncations across the cyclic seam. Somu's eventual signs and change of base are not an implication for the omitted cutoffs or residues.",
+        "searches": [
+          "Projector record b63c3068a659, Proof §§1–3, equations (3)–(6)",
+          "Two-digit recurrence record b36d723bd0ec, Proof Fourier digit product",
+          "Somu §3 proof of Theorem 1.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For fixed odd q the alternating binary digit statistic is the same as the sparse base-(q-1) congruence, not generally the same as the ordinary binary integer modulo q.",
+          "Somu §3 already transfers sparse base-(q-1) results to other bases congruent to -1."
+        ],
+        "reasoning": "The equivalent sparse-base formulation exposes genuine prior overlap but the universal prefix and complete residue claims are stronger than the available eventual signs. The ordinary-index rarity formulation coincides at q=3, not at general odd q.",
+        "searches": [
+          "Resultary all-prefix signed residue law, distance-to-zero formulation, and sparse Newman queries",
+          "Somu arXiv:1511.03236, Theorem 1.2 and §3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Three exact catalogue comparators were inspected: the full-alphabet projector b63c3068a659, unweighted two-digit recurrences b36d723bd0ec and ordinary index nine-rarefied dyadic identities d0dd28c1a584."
+        ],
+        "reasoning": "None of those identities gives the signed sparse statistic at all cutoffs. Finite tables of prefixes for fixed q cannot establish the two universal quantifiers.",
+        "searches": [
+          "Resultary all-prefix signed residue law",
+          "Resultary distance-to-zero bias and digits {0,1} with modulus dividing base plus one"
+        ]
+      },
+      "rationale": "The distinct result is the uniform all-prefix sign pattern for every residue and every odd modulus, with strict zero-residue positivity. Somu already uses exactly the sparse digit set and the order-preserving change of base, and proves eventual signs at 0 and ±1. Neither the change of base nor the binary modulus-3 case is new. The same-day full-alphabet spectral projector is related but does not yield the sparse prefix sign law.",
+      "residual_risks": [
+        "Direct access to Newman's 1969 PDF timed out; its classical scope was checked through later primary-source accounts, not the original full text.",
+        "The searches do not exhaust differently indexed analytic or combinatorial sign laws for sparse digital sums."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Closest published partial coverage",
+          "evidence": "Theorem 1.2 holds for sufficiently large cutoffs at 0 and ±1; §3 transfers results from base d-1 via the digit-word map.",
+          "identifier_or_url": "https://arxiv.org/abs/1511.03236",
+          "material_read": "pp. 1–2 definitions and Theorem 1.2; §3 p. 10 proof from PDF offset 38600",
+          "method": "OA PDF passages",
+          "title": "On Newman's phenomenon in higher bases",
+          "trigger": "Same sparse digits, same divisor condition"
+        },
+        {
+          "assessment": "Prior ordinary-index and generalized full-alphabet results, not this sparse all-odd-modulus law",
+          "evidence": "The introduction distinguishes the binary modulus-3 phenomenon from eventual signs for the larger ordinary moduli 3κ.",
+          "identifier_or_url": "https://www.dmg.tuwien.ac.at/drmota/newman.pdf",
+          "material_read": "pp. 1–2, PDF offsets 326 and 2850–4909",
+          "method": "Lawful author-hosted PDF passages",
+          "title": "Newman's phenomenon for generalized Thue–Morse sequences",
+          "trigger": "Classical residue signs and possible larger modulus coverage"
+        },
+        {
+          "assessment": "Related full-alphabet identities, not the sparse residue signs",
+          "evidence": "The equations concern ordinary signed digit sums in base n-1; the introduction credits the original modulus-three positivity result.",
+          "identifier_or_url": "https://arxiv.org/abs/1209.5705",
+          "material_read": "p. 1; equations (15) p. 3 and (74) p. 14",
+          "method": "OA PDF passages",
+          "title": "A family of digit functions with large periods",
+          "trigger": "All-residue odd-modulus identities"
+        },
+        {
+          "assessment": "Important overlap in modulus and general transfer method but a different alphabet and conclusion",
+          "evidence": "S(bx)=BS(x) with a_d=(-1)^d for the entire digit range; P_n(B^2)=J_n does not deliver the sparse signed prefix intervals.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-a-universal-spectral-projector-resolves-the-odd-modulus-newman-d--b63c3068a659/RESULT.md",
+          "material_read": "Finding, scope and Proof §§1–4, offsets 0–4246",
+          "method": "Resultary local-mirror text",
+          "title": "A universal spectral projector resolves the odd-modulus Newman digit-sum conjecture",
+          "trigger": "Same-day indexed all-residue, all-cutoff result"
+        },
+        {
+          "assessment": "Unweighted fixed-length counts rather than signed prefixes",
+          "evidence": "The signed translate recurrence is for the discrepancy of the unweighted C_L, not digit-parity weights.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-cyclotomic-cancellation-and-signed-residue-recurrences-for-two-d--b36d723bd0ec/RESULT.md",
+          "material_read": "Finding and Fourier proof at offsets 0–2960",
+          "method": "Resultary local-mirror text",
+          "title": "Cyclotomic cancellation and signed residue recurrences for two-digit radix sets",
+          "trigger": "Odd modulus and two-digit sets"
+        },
+        {
+          "assessment": "Ordinary index residues and dyadic cutoffs, not the present statistic",
+          "evidence": "The summands use binary indices 9i+j, not alternating-digit congruences.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/27/SCOPE-two-scale-exact-dyadic-renormalization-for-nine-rarefied-thue-mo--d0dd28c1a584/RESULT.md",
+          "material_read": "Finding and definitions, offsets 0–3863",
+          "method": "Resultary local-mirror text",
+          "title": "Two-scale exact dyadic renormalization for nine-rarefied Thue–Morse sums",
+          "trigger": "Indexed exact all-residue Thue–Morse identities"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The theorem resolves the initial-cutoff question in the sparse Newman setting, including cutoffs too small for asymptotic dominance, and extends the sign classification to every residue. The odd cyclic seam really can cancel a full block while partial sums remain nonzero, so neither eventual positivity nor a full-block recurrence answers the prefix problem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

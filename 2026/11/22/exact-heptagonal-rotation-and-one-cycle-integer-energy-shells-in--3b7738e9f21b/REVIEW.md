@@ -1,21 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The assertion is a single all-parameter theorem for a fixed two-season piecewise-integral map. The rational invariant is an explicit algebraic identity for the two-step positive Lyness map, checked by symbolic cancellation; its tropical logarithmic limit proves the global invariant. The eight affine terms determine all seven polygon edges for every real level strictly above three, and their primitive lengths give the claimed circumference. Each piece of the update has unimodular linear part and the global map is orientation-preserving, so the induced circle isometry is a rigid rotation; the computed image of the first vertex fixes its exact shift. The integer-shell orbit count follows from a Bézout identity and the separate central seven-state enumeration. No probabilistic computation, sampled trajectory or finite cutoff is substituted for the general proof. The SymPy-backed exact checker and lattice/edge enumerations replay successfully.
+PASS
 
-## Originality — PASS, with historical-priority qualification
+For the positive rational maps, put Z=(a+Y)/X and W=(b+Z)/Y. The three numerator factors of R_(b,a)(Z,W) become (aX+bY+ab)/X, Z(bX+a)/Y and W(aY+b), respectively. Cancellation proves the integral identity before taking the locally uniform logarithmic limit, so H is conserved including switching lines. Expanding the maxima gives the seven nonconstant half-plane bounds and the constant 3. Their consecutive intersections give the seven displayed vertices for h>3; the seven edge directions and positive primitive lengths give perimeter 5h-8, and the shoelace sum gives twice the stated area. Each branch of F is orientation-preserving unimodular and preserves primitive tangent vectors up to transformation to another primitive vector. Subdivision at switches suffices for positive arclength preservation; the inverse and conservation make this a circle isometry. The image of P_0 is P_3, distance 3h-5 counterclockwise; the resulting fractional-linear ratio has derivative 1/(5h-8)^2 and is rational exactly for rational h. Dividing this derivative by the area action derivative proves the twist. On integer exterior shells the primitive coordinate runs through exactly the full set of residues modulo 5k-8; the shift is coprime by the stated Bézout identity. At h=3 the half-planes imply that the integer rows are y=0 with x=-1,0,1 and y=1 with x=-1,0,1,2. Direct substitution verifies the seven-cycle. No real-circle claim is made for that central level.
 
-The closest directly relevant paper is Cima–Gasull–Mañosa (2009; arXiv:0912.5031), which proves invariance and rotation properties for positive *rational* two-periodic Lyness recurrences. Its formulas motivate the tropical limit but do not state the exact two-threshold heptagonal rotation law or the integer-shell transitivity. De Angelis (2004) studies an autonomous one-threshold max recurrence; its full available paper treats the single map throughout. Takahashi–Iwao (2007) develops a different autonomous piecewise-linear map. The published result *Exact action-twist and Pareto rotation spectrum of a max-plus QRT map* uses an octagonal autonomous map and a different normalized rotation law; it is not a covering claim. The published *Global periodicity and exact cycle multiplicities for unit-gap nonlinear lattice rotations* uses a sign-driven affine lattice map with different dynamics and cycle-length spectrum.
+## originality
 
-A direct algebraic relationship between rotation fractions for differently normalized autonomous maps would not, without a map conjugacy respecting the full integer lattice, imply the alternating system's phase portrait or the one-orbit-per-energy theorem. Search failures do not prove priority. The full 1998 Grove–Kent–Ladas nonautonomous max-equation article was not obtained and is an explicit residual risk, as is unindexed equivalent work.
+PASS
 
-## Value — PASS
+The rational positive two-periodic invariant and rotation framework are established, as are autonomous ultradiscrete rotation and periodicity results. The supported distinct claim is the evaluated heptagon, primitive translation and area twist of this alternating map, including the arithmetic one-cycle law and central lattice exception. No inspected result supplies this combination or a theorem implying the stated lattice census without solving the tropical geometry.
 
-Alternating forcing is a natural minimal departure from the well-studied autonomous Lyness max map and the two-periodic rational Lyness equation. The precise questions are whether an exact polygonal circle action survives, what its full rotation law is, and whether integer points split into multiple cycles on a fixed conserved level. The answer gives an all-level strict twist together with a rigid, arithmetic *single-cycle-per-shell* law for the entire integer lattice; it also distinguishes the genuinely flat central real level from the uniform exterior polygonal dynamics. These global structural properties are not merely a recomputation of a known periodic table or an arbitrary finite slice.
+## value
 
-## Verification limits and closest literature
+PASS
 
-The packaged rational sample and integer-shell experiments are controls, not infinite certificates. The proof handles all real outer levels and all integer initial states, but not arbitrary alternating threshold pairs or real interior dynamics at the minimal level. Bibliography and precise implication comparisons appear in `RESULT.md` and `AUDIT.json`.
+The alternating map canonically changes the simplest max-Lyness setting. Its explicit translation is an all-shell classification, with a nontrivial distinction between rational and irrational real levels and, more strongly, transitivity and exact periods throughout the lattice. The perimeter–shift coprimality and central seven-cycle quantify what a generic rotation theorem or finite orbit plotting cannot answer.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

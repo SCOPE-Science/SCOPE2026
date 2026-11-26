@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:55:16.271066Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The fiber formulas are correct. The frozen overcount discussion did not explicitly retain the last scalar whose choices compensate imposing the one product equation. The repaired proof fixes all image-vector representatives, writes the last factor as u_k γb and shows that γ is uniquely determined by the nonzero pairings. Each adjacent pair of distinct image lines gives precisely q^(n−2)(q−1) choices for its row functional; there is no remaining quotient by rescaling, even at k=2. The image lines consequently form walks on the loopless complete graph, with end line in ker b. The projection onto constants and its complement gives the two eigenvalues P−1 and −1, and b(a)=trace Z tests whether the start is an allowed end. Every rank-one prefix has t(P−1) surviving extensions, and averaging over the two trace classes of relative sizes H/P and 1−H/P gives the exact total variation. The repair also shows exact-length positivity by length-two walks between any pair and induction, rather than extending an unspecified walk with a possibly changed endpoint. At length one in the graph there is exactly the stated obstruction. Independent bounded enumeration started from all raw matrices using minors to identify rank one and ordinary matrix squaring to select factors. It matched every fiber and the exact TV for (n,q)=(2,2),(2,3),(3,2), k=2 through 5. The supplied code and transcript, including F4 tests, were inspected, not executed; the all-field proof does not rely on either computation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The semigroup paper's opening account concerns structure of nilpotent subsemigroups. General factorization existence is not an exact fiber count.",
+          "Uniform-kernel corank-one laws concern ranks and absorption, and can agree with the survival marginal at n=2 without supplying prescribed target counts. All-arity rank-one idempotent laws instead have trace-0, trace-1 and other trace strata."
+        ],
+        "reasoning": "A random semigroup framework and the spectrum of the complete graph are not themselves an evaluated formula for this factor distribution. A rank-one idempotent factor has its row nonzero on its own image line, whereas the nilpotent factor annihilates it; the admissible row choices and endpoint walk laws therefore differ.",
+        "searches": [
+          "Kudryavtseva–Mazorchuk, On the semigroup of square matrices, arXiv:math/0510624",
+          "Sourour, Nilpotent factorization of matrices, DOI 10.1080/03081089208818141",
+          "Resultary bd2fa1210066 and dfb5f1d17166"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, check_minimal_nilpotent_words.py, verification_output.txt",
+        "Repaired RESULT.md",
+        "Resultary 1bce20858de2, dfb5f1d17166, 692f990df98a and bd2fa1210066",
+        "arXiv:math/0510624",
+        "Sourour manuscript and DOI access attempts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The length-two formulas specialize to t(H−1) at trace zero and tH otherwise, in exact agreement with the restricted predecessor. The survival marginal is recoverable by summing the finer law, not conversely.",
+          "The fixed-form self-adjoint condition cannot recover arbitrary ordered words in the full orbit by parameter substitution; summing across forms would require a new counting theorem for shared forms and word multiplicities."
+        ],
+        "reasoning": "The earlier length-two census does not give extension transitions for all surviving prefixes, which include rank-one targets outside the nilpotent orbit. The exact weighted walk reduction, trace parity and TV at general length remain distinct.",
+        "searches": [
+          "Resultary 1bce20858de2, dfb5f1d17166, 692f990df98a and bd2fa1210066, statement and domain checks"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The orbit is exactly all nonzero rank-one transvections minus the identity in matrix notation, equivalently rank-one outer products uα with α(u)=0. The product here is of the rank-one operators, not of the corresponding group elements.",
+          "Resultary 1bce20858de2 uses the same orbit under this rank/trace description."
+        ],
+        "reasoning": "The walk reduction preserves exact target matrices, not just projective endpoints, by solving for the final scalar. A projective transition count or a rank-process law alone omits that lifting step.",
+        "searches": [
+          "Resultary: minimal nilpotent orbit multiplication fibers, rank-one square-zero ordered products, conditional mixing",
+          "Kudryavtseva–Mazorchuk arXiv:math/0510624"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "1bce20858de2 gives exact counts at length two and explicitly excludes longer words. The distinct same-day 692f990df98a gives parity/TV laws for minimal self-adjoint nilpotents in characteristic odd and odd dimension at least five."
+        ],
+        "reasoning": "The latter is a strong thematic overlap but fixes a common form and chooses factors from a proper subset, with different endpoint strata. Neither the date nor the shared parity theme establishes equivalent coverage, and the directly matching table stops at length two.",
+        "searches": [
+          "Resultary: all-length nilpotent rank-one prescribed product and two-factor multiplication fibers"
+        ]
+      },
+      "rationale": "The supported new portion is the general all-length prescribed-product law beyond two factors for the full minimal nonzero nilpotent similarity orbit, and the exact alternating trace discrepancy and conditional mixing law. The two-factor census and qualitative rank-one factorability are not credited as discoveries. The repaired normalization and positivity argument do not change those claims.",
+      "residual_risks": [
+        "The historical factorization manuscript could not be directly checked from the retrieved text routes. No global priority conclusion is drawn; a general semigroup convolution result not located in the bounded comparison could capture an equivalent formula."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact length-two coverage only",
+          "evidence": [
+            "Published trace-zero and nonzero-trace counts and zero fiber agree at k=2; scope explicitly excludes longer products."
+          ],
+          "identifier_or_url": "Resultary 1bce20858de2",
+          "material_read": "RESULT.md offsets 0 and 4680, Finding/Proof and Limitations",
+          "method": "Resultary and local mirrored passages",
+          "title": "Complete multiplication fibers of the minimal nonzero nilpotent orbit over finite fields",
+          "trigger": "Exact same factor orbit and target algebra"
+        },
+        {
+          "assessment": "Different factor orbit and trace stratification",
+          "evidence": [
+            "Uses rank-one trace-one idempotents, with three target trace strata."
+          ],
+          "identifier_or_url": "Resultary dfb5f1d17166",
+          "material_read": "RESULT.md offset 0, main statement and factor assumptions",
+          "method": "Resultary and local mirrored passage",
+          "title": "Exact all-arity product fibers of rank-one idempotents over finite fields",
+          "trigger": "Strong closest analogy for all-arity counts and mixing"
+        },
+        {
+          "assessment": "Proper fixed-form self-adjoint factor family, different walk and strata",
+          "evidence": [
+            "Fixed symmetric form, odd characteristic, odd dimension at least five; not the full orbit law."
+          ],
+          "identifier_or_url": "Resultary 692f990df98a",
+          "material_read": "RESULT.md offset 0, finding and assumptions",
+          "method": "Resultary and local mirrored passage",
+          "title": "All-length products of minimal self-adjoint nilpotents: a parity law",
+          "trigger": "Distinct same-day all-length parity and mixing result"
+        },
+        {
+          "assessment": "Coincident survival marginal at n=2, not prescribed fibers",
+          "evidence": [
+            "Uniform kernel lines of corank-one factors; rank path rather than product-matrix endpoint."
+          ],
+          "identifier_or_url": "Resultary bd2fa1210066",
+          "material_read": "RESULT.md offset 0, finding and assumptions",
+          "method": "Resultary and local mirrored passage",
+          "title": "Uniform-kernel universality and exact absorption laws for corank-one products",
+          "trigger": "Broader survival/absorption law for random finite-field products"
+        },
+        {
+          "assessment": "Inspected passage treats structural problems, not this evaluated orbit-restricted convolution",
+          "evidence": [
+            "Opening describes nilpotent subsemigroups of M(n,F)."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0510624",
+          "material_read": "PDF p.1, offset 378, opening statement",
+          "method": "Primary open text",
+          "title": "On the semigroup of square matrices",
+          "trigger": "Plausible semigroup coverage"
+        },
+        {
+          "assessment": "The claimed qualitative overlap is credited, but stronger statements could not be directly checked",
+          "evidence": [
+            "Frozen record credits the 2×2 length-two obstruction and length-three existence; not used to establish priority or correctness of the general formula."
+          ],
+          "identifier_or_url": "https://doi.org/10.1080/03081089208818141",
+          "material_read": "No extractable primary passage from supplied manuscript route; publisher route returned 403",
+          "method": "Lawful repository manuscript and publisher access attempts",
+          "title": "Nilpotent factorization of matrices",
+          "trigger": "Historical nilpotent factorization of singular matrices and 2×2 obstruction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is an all-length count for the minimal nilpotent class over every finite field, not just another existence proof or a numerical census. Beyond the sharp reachability boundary, it quantifies the exact alternating bias between target strata and the full conditional mixing rate. The projective-walk reduction explains both phenomena and makes the formulas directly usable without enumerating matrix words.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

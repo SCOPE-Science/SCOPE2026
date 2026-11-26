@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T14:44:49.455342Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–62 (independent energy-coordinate proof and threshold calculation)",
+        "Frozen VERIFICATION.md, verify_theta.py and verification_output.txt (inspected, not executed)",
+        "Independent exact determinant check at t=7, grounding terminal 0 with paths (0,2,1), (0,3,1), (0,4,5,1); for short retention delete (0,3) and (0,4), for long retention delete (2,1) and (0,3). Compute det(λL_T−L_G)/det(L_T) on the grounded matrices."
+      ],
+      "rationale": "A spanning tree deletes exactly two edges, from distinct paths or the other two paths would form a cycle. Conversely cutting one edge on each of two paths connects both resulting pieces of each via the intact path. In weighted tree edge-voltage coordinates the tree energy is Euclidean, and the two omitted-edge energies are squared signed sums along their replacement paths. Their two coefficient vectors have Gram matrix diag(ℓ_i−1,ℓ_j−1)+(ℓ_r/w_r)vvᵀ with v=(√w_i,±√w_j), since the only shared edges are in arm r. This verifies positive definiteness, both nonunit eigenvalues, the n−3 unit eigenvalues on the quotient, and position independence. The diagonal entries are exactly the two omitted stretches. For (2,2,3) and (6,6,t), the two short-retention objectives increase while the two long-retention objectives decrease. Direct substitution gives equality at 36/5 for the upper eigenvalue increments and at 3(√57−3)/2 for stretch, with 7 strictly in between, so the optimizer sets are disjoint exactly on the claimed interval. At t=7, exact grounded Laplacian determinants independently gave monic polynomials (λ−1)^3(3λ²−28λ+50)/3 and (λ−1)^3(λ−2)(7λ−50)/7 for short and long retention. At n=5 all arms have length two and both objectives increase with (sum of other weights)/w_r, so they share the same maximizing-weight retained arms even at ties.",
+      "residual_risks": [
+        "Minimality is only within the stated theta family with lengths at least two and homogeneous conductance along each arm. It makes no statement about reweighting or arbitrary preconditioners."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general omitted-edge Gram has rank at most cycle rank; diagonal entries sum to off-tree stretch. Spielman–Woo p. 1 concerns eigenvalue-distribution analysis for tree preconditioning. The grid reversal is explicitly credited in the frozen text; its webpage did not yield a readable passage."
+        ],
+        "reasoning": "A trace identity or eigenvalue bound does not identify the minimizing retained arm by itself. A grid reversal does not supply the two crossings in this parameterized family or an exclusion on fewer vertices.",
+        "searches": [
+          "Spielman–Woo arXiv:0903.2816; Feng arXiv:1911.04382; Abraham–Neiman DOI:10.1137/17M1115575",
+          "https://www.numerical-linear-algebra.com/essays/a-preconditioner-that-is-a-tree/"
+        ]
+      },
+      "checked_sources": [
+        "Spielman–Woo arXiv:0903.2816 p. 1",
+        "Resultary exact and distinct theta IDs above",
+        "Frozen RESULT.md proof and prior-work section"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For this graph the overlapping replacement paths determine the Gram off-diagonal, absent from a trace ranking. Comparing that matrix's larger eigenvalue and its trace leads to two different crossing equations."
+        ],
+        "reasoning": "The Gram formula is a straightforward specialization of the general rank update. That prior machinery alone does not give the strict optimizer reversal throughout a nonempty exact parameter interval or the proof excluding smaller admissible examples.",
+        "searches": [
+          "arXiv:0903.2816, p. 1 abstract and §1; arXiv:1911.04382; frozen lines 68–81 and cited grid comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Tree-energy whitening and a fundamental-cycle Gram describe the same nonunit spectrum, with trace equal to total stretch after restoring unit modes. The one exact indexed hit is the assigned record itself."
+        ],
+        "reasoning": "Changing to cycle coordinates is not a contribution; what survives is the position-independent theta specialization and exact opposition and minimality of its optimizer sets. The nearby theta Walsh-spectrum record concerns tree-counting convolution, not these Laplacian operators.",
+        "searches": [
+          "Resultary: weighted theta tree preconditioner, resistance/fundamental-cycle Gram, stretch versus condition number",
+          "Spielman–Woo arXiv:0903.2816"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact index hit reports the same Gram spectrum, position-independence and six-vertex transition, and is the frozen record. The distinct theta hit indexes Walsh gaps for spanning-tree counting, not these eigenvalues."
+        ],
+        "reasoning": "An earlier exact table could preempt the numerical witness, but only a statement governing the complete parameter interval and scoped minimality would cover the main exact classification. The nearby same-day record does not match the invariant regardless of ordering.",
+        "searches": [
+          "Resultary exact theta-graph optimizer and stretch reversal; 2026/11/22/SCOPE-sharp-stretch-versus-condition-number-separation-in-weighted-the--f0c0d82de0fe",
+          "2026/11/22/SCOPE-parity-classification-and-sharp-fourier-gaps-for-spanning-trees--c59a748e9280"
+        ]
+      },
+      "rationale": "The generic cycle-space/Gram reduction and stretch trace are standard and the existence of a stretch-versus-condition-number reversal in general is not counted as new. The distinct supported finding is the explicit deletion-position-independent theta optimization, together with a sharp six-vertex switching interval and minimality in the stated family. No read distinct work supplied or directly implied that specific extremal classification.",
+      "residual_risks": [
+        "Related full-text sections and the grid example were not all accessible. Historical equivalence via support graphs, resistance networks or cycle-basis computations remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Credits framework and related eigenvalue-distribution analysis; no whole-document priority exclusion",
+          "evidence": [
+            "P. 1 describes tree preconditioning, low stretch and generalized eigenvalue distribution in support theory."
+          ],
+          "identifier_or_url": "arXiv:0903.2816",
+          "material_read": "PDF p. 1 abstract and §1 introduction; targeted later passages could not be recovered",
+          "method": "Bounded primary PDF extraction and OA lookup",
+          "title": "A Note on Preconditioning by Low-Stretch Spanning Trees",
+          "trigger": "Standard stretch/trace and tree-relative spectral framework"
+        },
+        {
+          "assessment": "General algorithmic framework credited; no full-text exclusion asserted",
+          "evidence": [
+            "Frozen lines 68–81 distinguish spectral objective and prior stretch theory from the exact theta claim."
+          ],
+          "identifier_or_url": "arXiv:1911.04382; DOI:10.1137/17M1115575",
+          "material_read": "Frozen related-work discussion; metadata for the second paper; no decisive primary passage retrieved",
+          "method": "Targeted lawful PDF and DOI retrieval",
+          "title": "GRASS: Graph Spectral Sparsification Leveraging Scalable Spectral Perturbation Analysis; Using Petal-Decompositions to Build a Low Stretch Spanning Tree",
+          "trigger": "Related tree-based sparsification and low-stretch optimization"
+        },
+        {
+          "assessment": "Reversal in general is disclaimed as new; exact grid comparisons not directly verified",
+          "evidence": [
+            "Frozen text explicitly credits nonmonotone rankings on grid graphs."
+          ],
+          "identifier_or_url": "https://www.numerical-linear-algebra.com/essays/a-preconditioner-that-is-a-tree/",
+          "material_read": "Frozen citation and account at lines 70 and 80; website not retrieved",
+          "method": "Targeted lawful webpage/OA attempts",
+          "title": "A preconditioner that is a tree",
+          "trigger": "Reported reversal of rankings on grids"
+        },
+        {
+          "assessment": "First hit is the assigned record; second treats a different spectral invariant",
+          "evidence": [
+            "The counting-convolution Walsh spectrum has no tree-relative graph Laplacian denominator or weighted stretch objective."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-stretch-versus-condition-number-separation-in-weighted-the--f0c0d82de0fe; 2026/11/22/SCOPE-parity-classification-and-sharp-fourier-gaps-for-spanning-trees--c59a748e9280",
+          "material_read": "Resultary indexed statements; frozen theorem for the identical hit",
+          "method": "Local Resultary and invariant comparison",
+          "title": "Exact indexed theta result and nearby Walsh-spectrum result",
+          "trigger": "Exact and strongly related catalogue hits"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md spectrum, crossing and minimality statements",
+        "Spielman–Woo arXiv:0903.2816 p. 1 for low-stretch preconditioning context"
+      ],
+      "rationale": "This is an exact calibration example for a standard surrogate in preconditioning. In the smallest eligible graph the trace-optimal and condition-optimal tree sets are disjoint on a whole open interval, not merely reversed for two arbitrarily chosen trees. The explicit intervals isolate the role of correlated replacement paths in the spectral objective and allow an algorithmic comparison to be checked without numerical eigensolver uncertainty.",
+      "residual_risks": [
+        "No general separation bound, claim about typical graphs, or implication for actual solver runtime."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

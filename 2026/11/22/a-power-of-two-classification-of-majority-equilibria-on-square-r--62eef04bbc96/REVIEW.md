@@ -1,12 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The open-neighbor degree is exactly \(2n-2\), yielding the exact fixed-cell threshold pair \(r_i+c_j\ge n+1\) at a one and \(r_i+c_j\le n-1\) at a zero. These inequalities force nested row supports, unique sorted Ferrers form and the two corner conditions. The bijection adding a zero row plus one initial occupied column on nonempty rows and the complement-transpose involution split the full stable shape set into two equinumerous classes at each size; the base consists of two shapes. Orbit-stabilizer gives the labelled formula. Independent exhaustive direct simulations for all 66,064 boards of orders two through four and exact shape checks through order eight support—but are not used as substitutes for—the proof. The proof and required code are embedded.
+## correctness
 
-## Originality — PASS, with residual historical-priority risk
-Searches of exact square-rook majority fixed points, Ferrers partitions, equivalent two-color majority C-colorings and published mathematical records found finite comparisons and different classifications but not this statement. The closest available rook/Shrikhande census computes 302 for order four only; a complete \(K_3\square K_n\) time-census holds one factor fixed at three. The equivalent two-color internal coloring is explicitly addressed: the recent Cartesian-product C-coloring paper optimizes the maximum number of colors, whereas the claim counts *all* two-color equilibria modulo a specified group and identifies their Ferrers geometry. General threshold-period theorems imply no such orbit classification. The reviewed scope is the all-order \(2^n\) class formula and its structural proof, not the already known order-four value. Indexed search does not prove uniqueness; older unindexed results could contain the theorem.
+PASS
 
-## Value — PASS
-The square rook graphs are canonical product and line graphs and have strong row/column symmetries. The invariant counts equilibrium orbits under those symmetries; it is not an arbitrary slice chosen only for easy computation. A complete natural classification of all stable two-color boards, the exact \(2^n\) law and the labelled factorial sum explain how global binary majority restrictions reduce an exponentially large configuration space to a structured class family. The self-contained integer-partition recurrence is usable for exact enumeration at larger orders. No claim is made about two-cycles or transient lengths.
+From degree 2n−2 and open-neighbor one-count r_i+c_j−2x_ij, tie retention gives one-cell r_i+c_j≥n+1 and zero-cell r_i+c_j≤n−1. A zero in a higher-degree row cannot share a column with a one in a lower-degree row, so rows nest, equal-degree rows agree, and the sorted row lengths determine the unique Ferrers representative. The rightmost one and first zero of a proper row give the two corner inequalities; a full row forces every column height at least one, and a zero row forces every column height at most n−1, so neither boundary row adds a condition. Increasing all positive widths by one and appending a zero preserves the corner inequalities. Conversely, a zero-bottom fixed shape cannot have a width-one row because that row would need a column of height n, so deletion and decrement are exact inverses. Complement followed by transpose is an involution on the orbit representatives and exchanges the zero-bottom and positive-bottom cases (the new last width counts old zero rows), proving the doubling with base two. A stabilizing row-and-column pair preserves row and column degrees individually; equal-degree supports coincide in Ferrers form. Thus the stabilizer is the product of multiplicity factorials, yielding the labelled count. Inspected the source verification materials, without executing uploads. An independent direct open-neighbor implementation exhausted all 66,064 boards for n=2,3,4 and found 6,32,302 labelled equilibria and 4,8,16 classes. Exhaustion of Ferrers partitions only (not all boards) through n=10 reproduced the recursive sets and every listed labelled total; replay: python3 /workspace/branches/d94764f3-f04d-4aa9-8bd2-75fd830f3797/ordinal5_independent.py. The universal result is proved by induction, not inferred from enumeration. No transpose quotient, two-cycle or basin result is certified.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge pass for the all-order square result, including the labelled orbit formula. A close all-rectangle statement does imply the square Ferrers theorem and 2^n count; its explicit attribution of that special case to the assigned result distinguishes it from independent earlier coverage.
+
+## value
+
+PASS
+
+The symmetry class and labelled counts are natural invariants of a standard product graph under a specified local rule. The nested-support deduction and reversible doubling explain all equilibria, not just the known order-four census; the multiplicity formula then turns geometric shapes into exact labelled populations. The binary restriction, fixed states, and exclusion of transpose in the quotient are substantive and explicit.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

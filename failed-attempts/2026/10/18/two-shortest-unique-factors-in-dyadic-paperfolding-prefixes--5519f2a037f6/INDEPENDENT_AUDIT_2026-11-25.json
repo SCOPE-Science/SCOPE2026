@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T18:41:25.956285Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The theorem is correct. The frozen proof overstates the boundary translation: t'=16 can make a translated interval exceed the finite prefix if its right offset is positive. Restricting to t'=1,...,15 leaves all offsets of absolute value <q valid and the four parity/bit classes have sizes 3,4,4,4, so the claimed lower bound on repetitions follows unchanged. The same restriction handles unaligned length-(q+1) factors. Independently regenerated all 36 length-nine templates and verified their disjoint start residue sets; even-index decimation then proves the all-k alignment induction. In the 15 aligned starts the triple classes give singleton indices 11 and 12 only. Direct exhaustive counting verifies k=2, including the 60 length-five starts, and corroborates n=7..10. Replay: python3 /workspace/replay/finite_checks.py. The scientific rejection below is not a rejection of the statement's truth.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Allouche §4 counts distinct infinite factors and Lemma 2 excludes opposite start parities for length≥7. Kishi et al. Theorem 35 is for Thue–Morse. Banbara et al. treat substring coverage by attractors for other word families."
+        ],
+        "reasoning": "Parity synchronization is a partial antecedent, not a finite multiplicity count; the other inspected invariants or families are different. The exact indexed match is decisive without a stronger published theorem.",
+        "searches": [
+          "Allouche DOI:10.1017/S0004972700011655",
+          "arXiv:2605.18034",
+          "arXiv:2602.16152v1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, checker.py and checker_output.txt",
+        "Resultary 5752f791719e",
+        "DOI:10.1017/S0004972700011655",
+        "arXiv:2605.18034",
+        "arXiv:2602.16152v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact matching record has the same exponent domain, lengths, and multiplicities; minimal uniqueness follows immediately from global shortest uniqueness.",
+          "The infinite-word factor complexity formula on its own gives no finite-prefix singleton positions."
+        ],
+        "reasoning": "The matching theorem implies the full audited finding with no new mathematical restriction or construction. This equivalence is independent of bibliographic priority.",
+        "searches": [
+          "Resultary 2026/11/22 5752f791719e",
+          "DOI:10.1017/S0004972700011655"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Its Finding uses bit 1 when the odd part is 1 mod 4 instead of bit 0, and reports zero-based starts 11·2^(k−4)−1 and 12·2^(k−4)−1 for k≥6."
+        ],
+        "reasoning": "Global symbol complementation commutes with taking a factor and bijects its occurrence starts. Adding one to both offsets matches the frozen start set exactly.",
+        "searches": [
+          "Resultary 2026/11/22 5752f791719e"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The mirrored record states for every k≥6 exactly two unique factors of shortest length 2^(k−4)+1 with the cited starts; it includes overlapping occurrences and the finite dyadic prefix."
+        ],
+        "reasoning": "This is a distinct indexed theorem, not the assigned record and not merely a numerical list of small cases.",
+        "searches": [
+          "Resultary 2026/11/22 5752f791719e"
+        ]
+      },
+      "rationale": "A distinct published Resultary statement gives exact equivalent coverage of the entire finding, including both starting positions, under the complemented word and zero-based indexing. The visible matching record bears a later date: this establishes present statement-level coverage, not that the frozen work was derived from it, nor any priority or independence finding.",
+      "residual_risks": [
+        "The chronology and independence of the two proofs are not established by these dates. Exact equivalence of the published statements does not depend on resolving those questions."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact full claim coverage under complement and index conversion, no priority determination",
+          "evidence": "Every k≥6; length 2^(k−4)+1; precisely the two zero-based starts 11·2^(k−4)−1 and 12·2^(k−4)−1, overlaps counted.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-exact-shortest-unique-factors-of-dyadic-regular-paperfolding-pre--5752f791719e/RESULT.md",
+          "material_read": "Finding and Assumptions at offset 0; induction and finite bases around offset 7017",
+          "method": "Local published-record mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact shortest unique factors of dyadic regular-paperfolding prefixes",
+          "trigger": "Exact catalogue hit with a different convention and indexing"
+        },
+        {
+          "assessment": "Partial synchronization antecedent, different scope from the full finding",
+          "evidence": "Length≥7 equal factors share start parity; infinite-word factor complexity is not finite-prefix multiplicity.",
+          "identifier_or_url": "https://doi.org/10.1017/S0004972700011655",
+          "material_read": "Abstract, §4, and Lemma 2 at printed p. 26",
+          "method": "OA full-text passages",
+          "title": "The Number of Factors in a Paperfolding Sequence",
+          "trigger": "Earlier same-word factor results and position constraints"
+        },
+        {
+          "assessment": "Different word family",
+          "evidence": "Theorem 35 concerns finite Thue–Morse words.",
+          "identifier_or_url": "https://arxiv.org/html/2605.18034",
+          "material_read": "Abstract and Theorem 35 around OA offset 56000",
+          "method": "OA full-text passages",
+          "title": "On Occurrence-Preserving Morphisms",
+          "trigger": "Exact minimal unique substring classifications"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Determining the earliest unique scale in finite paperfolding prefixes is a natural occurrence-multiplicity question, and the proof has useful structural ideas. But the submitted narrow invariant and both start positions are already exactly covered in the inspected catalogue; no additional uncovered invariant is established by the finding.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:34:28.829891Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With u=x(1−x), the numerator of W, up to a positive constant, is a positive-leading quadratic with negative discriminant. The modulation factor is at least 1/100, so P_L is strictly increasing analytic with the two infinite endpoint limits; its analytic inverse yields the continuous interval self-map with b as the only interior fixed point. At b the cosine is exactly 1, and P'_L(b)>a, giving 0<F'_L(b)<1. On the stated J, the rational derivative bound gives W decreasing and (199/100)W>a, while W/100<a. In the rescaled interval mJ there are at least L−2 whole integer-to-integer intervals. Each supplies one crest–trough and one trough–crest sign change of P'_L−a; analyticity separates the sign-changing zeros, and the positive denominator of F'_L preserves their signs. The cosine contribution to P_L is O(1/m) on each interior compact set by integration by parts, giving local uniform convergence of the maps by monotone inversion. The divergent lower derivative bound gives uniform endpoint control, so each fixed iterate converges uniformly as well. A fresh exact rational replay (python3 /workspace/checks/turning_certificate.py) checked the sign bounds and enclosed F_0^2([0.9559,0.956]) in [0.99063318,0.99063510] and F_0^6 of the same interval in [0.72464629,0.72724910]. It uses a series with an explicit geometric tail bound for the logarithm in the closed form of P_0, monotone rational bisection and interval subdivision, not point sampling. The strict ordering persists for all sufficiently large L. The period-three criterion for F_L^2 gives least F_L-period 3 or 6 and thus positive entropy. Summing the potential increments over a finite interior cycle gives the exact centroid b. The endpoints are fixed but not subject to that identity; there is no claimed explicit entropy cutoff, exact critical-point count or estimate of basin measure.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The FTRL source gives coexistence for a single analytic regularizer at these parameters; Chotibut et al. give exact periodic averaging for the earlier learning family. The indexed piecewise-affine tent-composition result 8c42130d5e50 treats positive entropy with a boundary attractor; indexed result 80680d5bef52 treats adaptive entropy with a locally attracting equilibrium in two dimensions."
+        ],
+        "reasoning": "Neither indexed family nor the general coexistence and averaging statements give a bound from below on the number of strict turns for this constrained analytic modulation. This is not an entropy-growth theorem.",
+        "searches": [
+          "arXiv:2102.07974 Proposition 6.4 and supplement",
+          "arXiv:1807.06831 Theorem 3.4 and Corollary 3.5",
+          "Resultary searches for entropy alongside attraction, including same-date interval-map records"
+        ]
+      },
+      "checked_sources": [
+        "frozen RESULT.md and VERIFICATION.md",
+        "arXiv:2102.07974 and its PMLR supplement",
+        "arXiv:1807.06831",
+        "published Resultary records 8ea4870dc653, 8c42130d5e50 and 80680d5bef52"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The primary proof's strict second/sixth iterate obstruction is available to transfer by uniform convergence. Its statement is for the unmodulated potential. The new family converges in C^0 as maps, and the derivatives controlling the turning points are not controlled by C^1 convergence of the potentials. Exact crests at b and alternating derivative signs around it establish the extra assertions."
+        ],
+        "reasoning": "The prior entropy certificate and the telescoping mechanism are reused. Generic robustness of the strict iterate inequality does not show that oscillations stay in the admissible potential class, keep b attracting or produce unbounded strict turns. These are simultaneous new checks, not an implication of the prior single example alone.",
+        "searches": [
+          "arXiv:2102.07974 Proposition 6.4 and PMLR supplement p. 4",
+          "Frozen RESULT.md lines 23–45",
+          "arXiv:1807.06831 Corollary 3.5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The sign reversal P_0=−Ψ+constant identifies the entire unmodulated map with the published f_{a,b}. The indexed sine-map family 8ea4870dc653 has m−1 critical points, entropy log m and almost-sure convergence to attracting endpoints or a two-cycle of endpoints."
+        ],
+        "reasoning": "The sign convention supplies no novelty, and the general conjunction of modality, chaos and attraction is not unique to this record. The sine-map interpretation does not give the FTRL formula, exact period mean or attracting interior point. The nonconstant high-frequency factor, rather than the base dynamics, is the relevant distinction.",
+        "searches": [
+          "arXiv:2102.07974, definition of f_{a,b} and Proposition 6.4; PMLR supplement, proof of that proposition",
+          "Resultary search for analytic interval maps combining unbounded modality, positive entropy and attraction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact a,b,c and base-map certificate are already present in the primary source. No exact match for the oscillatory FTRL family and strict-turn bound was found among the indexed hits inspected; the most similar count is the sine-map critical-point count for a different family."
+        ],
+        "reasoning": "The available exact numerical evidence pertains to the base map or to a different interval family. The all-L turn bound for the fixed-amplitude, fixed-a,b construction is a symbolic consequence of alternating derivative signs, not a new table value or a numerical extrapolation.",
+        "searches": [
+          "Resultary searches for unbounded turning multiplicity, analytic regularizers and the attractor/entropy bundle",
+          "Bielawski et al. PMLR supplement p. 4, parameter and iterate enclosures"
+        ]
+      },
+      "rationale": "The nonoscillatory map, including the particular parameters, the attracting interior fixed point and positive entropy, is in Bielawski et al. Periodic centroids are also prior in this class of learning maps. The supported distinct contribution is unbounded strict turning-point multiplicity within an explicit fixed-parameter analytic FTRL family while preserving an attracting interior equilibrium, a non-power-of-two period for all sufficiently large frequencies and the exact centroid constraint.",
+      "residual_risks": [
+        "The full cited 2023 sinusoidal-map article was unavailable through identified OA routes; its scope beyond the related indexed sine formulation was not determined.",
+        "The bounded literature and catalogue searches do not exclude an unindexed high-frequency perturbation theorem for analytic FTRL. No claim of general priority for coexistence, analytic multimodality or periodic averaging is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the exact base map after changing the sign of the potential and the coexistence it exhibits",
+          "evidence": "With a=3.25 and b=0.61 the single unmodulated map has a locally attracting equilibrium and positive entropy.",
+          "identifier_or_url": "https://arxiv.org/abs/2102.07974",
+          "material_read": "Definition of f_{a,b}, PDF pp. 7–8; Proposition 6.4, p. 13",
+          "method": "Primary OA PDF bounded passages",
+          "title": "Follow-the-Regularized-Leader Routes to Chaos in Routing Games",
+          "trigger": "Same base-map parameters and same coexistence mechanism"
+        },
+        {
+          "assessment": "Covers the two- and six-step enclosures for the unmodulated map only",
+          "evidence": "For I=[0.9559,0.956], the second image is above I and the sixth below I, with strict margins.",
+          "identifier_or_url": "https://proceedings.mlr.press/v139/bielawski21a/bielawski21a-supp.pdf",
+          "material_read": "Proof of Proposition 6.4, p. 4, interval iterations and period obstruction",
+          "method": "Primary OA PDF bounded passage; independent exact rational check of the frozen bounds",
+          "title": "Follow-the-Regularized-Leader Routes to Chaos in Routing Games — supplementary proof",
+          "trigger": "Full-interval entropy certificate, essential to the perturbation argument"
+        },
+        {
+          "assessment": "Prior in the learning-map setting, not the claimed modulation",
+          "evidence": "States average convergence to b and that periodic cycles have center of mass b.",
+          "identifier_or_url": "https://arxiv.org/abs/1807.06831",
+          "material_read": "PDF pp. 5–6, Theorem 3.4 and Corollary 3.5",
+          "method": "Primary OA PDF bounded passages",
+          "title": "Family of Chaotic Maps from Game Theory",
+          "trigger": "Exact periodic centroid identity"
+        },
+        {
+          "assessment": "Substantial overlap in the general dynamical phenomenon; distinct analytic family, attractor and constraints",
+          "evidence": "Odd sine resonance has m−1 critical points and entropy log m with endpoint attractors, rather than the fixed interior equilibrium and period means here.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-arbitrarily-large-topological-entropy-with-almost-sure-superattr--8ea4870dc653",
+          "material_read": "Indexed RESULT.md Finding, mechanism, prior-work discussion and references",
+          "method": "Local published-record mirror",
+          "title": "Arbitrarily large topological entropy with almost-sure superattraction",
+          "trigger": "Closest indexed combination of analytic maps, many critical points, entropy and attraction"
+        },
+        {
+          "assessment": "Compared at statement level irrespective of date; different class and no unbounded analytic turn count",
+          "evidence": "Piecewise-affine tent composition has a boundary attractor and a finite-branch construction.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-sharp-entropy-collapse-and-a-full-measure-attracting-basin-in-a--8c42130d5e50",
+          "material_read": "Indexed RESULT.md Finding",
+          "method": "Local published-record mirror",
+          "title": "Sharp entropy collapse and a full-measure attracting basin",
+          "trigger": "Same-date indexed coexistence result for interval maps"
+        },
+        {
+          "assessment": "No full-text noncoverage conclusion drawn",
+          "evidence": "The indexed claim supplies the comparison above; it does not establish what the unavailable article contains.",
+          "identifier_or_url": "https://doi.org/10.1088/1572-9494/acf307",
+          "material_read": "Bibliographic reference and the indexed analogue's description; full article not inspected",
+          "method": "Lawful OA retrieval unsuccessful for the cited article",
+          "title": "A novel multi-stable sinusoidal chaotic map with spectacular behaviors",
+          "trigger": "Primary sine-map article referenced by the closest indexed analogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The construction shows that the regularizer constraints and the coexistence of an interior attractor with interval chaos impose no uniform finite bound on modality, even at the same game parameters and amplitude. The analytic oscillations are a controlled way to increase turns without losing the strict dynamical obstruction or changing the orbit means. This distinguishes the geometry of the maps from the persistence of their dynamics, without claiming entropy grows with frequency.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

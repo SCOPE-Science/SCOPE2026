@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:20:39.214837Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md Eqs. (1)–(5) and proof; VERIFICATION.md and verify.py inspected, not executed",
+        "Independent bounded replay: node /workspace/branches/bounded-review-checks.js 5; 4,039 direct semigroup histograms with difference and range checks"
+      ],
+      "rationale": "The Apéry representatives ib for 0≤i<a follow by reducing the coefficient of b modulo a, giving (1−x^a)P=sum x^i−sum x^(ib). Coefficients modulo x^m−1 give (1) because both multiplication by t and the walk by s are permutations. The first indicator along the walk is exactly a floor increment, and genus fixes the additive constant in (3). On a cyclic arc of length L the first indicator count A is floor or ceiling of Ls/m; the other count B is between max(0,L+s−m) and min(L,s) by subset size. Maximizing the resulting two linear bounds over L gives |A−B|≤ceil(s(m−s)/m)≤ceil(m/4). For the coprime lift a=s+m, b=s+2m, the second indicator counts min(j,s−1); D_j decreases weakly to j=s−1 then increases weakly, starting at zero and never positive. Its range is ceil((s−1)(m−s)/m). For m=4q or 4q+2 with q≥2, s=2q−1 is a unit and the quantity inside the ceiling lies in (q−1,q]; for m=4q+1 or 4q+3 with q≥1, s=(m−1)/2 is a unit and the respective ceilings are q and q+1. Direct substitution covers 2,3,4,6; (1) is zero at m=2. This proves the witness lower bound, not optimality for m≡1,2 (mod 4).",
+      "residual_risks": [
+        "The exact optimum for the unresolved modulus classes is not established by the record; finite checks are not the proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Shor and Shor–Sim give the constant-histogram criterion. Komatsu–Zhang give weighted formulas, including a higher-dimensional generalization."
+        ],
+        "reasoning": "Zero discrepancy is a smaller assertion; general weighted formulas recover counts but do not furnish the inspected near-sharp generator-independent extremal estimate. Wang–Wang could not be assessed beyond bibliographic and successor evidence.",
+        "searches": [
+          "arXiv:2101.01760 Cor. 5.8",
+          "arXiv:2503.10826 Prop. 1.2",
+          "arXiv:2101.04298 Thm. 1",
+          "Wang–Wang DOI 10.1016/j.camwa.2008.02.031"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 305af2150821",
+        "Shor arXiv:2101.01760",
+        "Shor–Sim arXiv:2503.10826",
+        "Komatsu–Zhang arXiv:2105.08274 and arXiv:2101.04298",
+        "Wang–Wang DOI 10.1016/j.camwa.2008.02.031 (bibliographic and successor evidence only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Apéry reduction modulo x^m−1 or multiplication of the existing Fourier formulas readily recovers the difference law; the bound additionally needs the balanced floor arc counts and subset-size extremization, with a diagonal-residue witness."
+        ],
+        "reasoning": "Exact computability and residue-invariance are not the original advance. No inspected stronger theorem gives the actual quarter-range bound and witness families as a specialization.",
+        "searches": [
+          "Resultary 305af2150821 Proof; Shor arXiv:2101.01760; Komatsu–Zhang arXiv:2105.08274"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The resonant-affine Fourier decomposition yields magnitude-independence of the nonconstant part for unit residues; weighted gap sums give histogram counts by Fourier inversion."
+        ],
+        "reasoning": "The two exact descriptions overlap the recovery part, not the uniform range inequality and near-extremizers.",
+        "searches": [
+          "Resultary: resonant affine laws for two-generator gap residue histograms",
+          "arXiv:2105.08274, weighted Sylvester sums and root-of-unity formulation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The distinct matching record gives generator-step laws and Fourier decomposition, not the quarter-modulus range or witnesses."
+        ],
+        "reasoning": "This is a uniform theorem, not a claim to any finite table of optimized moduli; the applicable exact-index check is whether the indexed formulas explicitly cover the range and witnesses.",
+        "searches": [
+          "Resultary: unit-residue modular discrepancy of two-generator numerical semigroup gaps; 305af2150821"
+        ]
+      },
+      "rationale": "Credit prior Apéry and weighted formulas for exact recoverability, and credit the distinct same-day resonant-affine record for covering the unit-case centered residue dependence, without assigning ordering from the date. The substantive distinct claim is the uniform quarter-modulus range bound and explicit near-sharp witnesses. The strongest inspected quantitative or exact-formula matches do not establish that bound and witnesses.",
+      "residual_risks": [
+        "An equivalent discrepancy result under weighted or floor-sum terminology may exist outside the inspected passages. Wang–Wang full text was inaccessible. Same-day overlapping catalogue work is not chronologically ordered by the date alone."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Demonstrable overlap in the unit-case centered histogram, no date-based priority asserted",
+          "evidence": "At d=e=1, the exact Fourier decomposition depends only on the two unit residues after centering; generator-step increments are constant across residues. No quarter-range theorem or diagonal witness is stated in these passages.",
+          "identifier_or_url": "2026/11/22/SCOPE-resonant-affine-laws-for-residue-class-gaps-of-two-generator-num--305af2150821",
+          "material_read": "RESULT.md Finding, Proof and prior-work text, offsets 0–6300",
+          "method": "Local Resultary mirror",
+          "title": "Resonant affine laws for residue-class gaps of two-generator numerical semigroups",
+          "trigger": "Exact same-class histogram and generator residues"
+        },
+        {
+          "assessment": "Covers the zero-range case, not a nonzero range estimate",
+          "evidence": "Equidistribution iff gcd(ab,m)=1 and a≡1 or b≡1 modulo m.",
+          "identifier_or_url": "https://arxiv.org/abs/2101.01760",
+          "material_read": "Preprint Cor. 5.8, p. 16, offset 61800",
+          "method": "OA PDF primary passage",
+          "title": "Equidistribution of numerical semigroup gaps modulo m",
+          "trigger": "Sharp constant-histogram result for the same semigroup"
+        },
+        {
+          "assessment": "Restates the two-generator equality criterion, not the assessed bound",
+          "evidence": "Identifies prior zero-discrepancy results and treats geometric generators.",
+          "identifier_or_url": "https://arxiv.org/abs/2503.10826",
+          "material_read": "Prop. 1.2, p. 2, offset 4400",
+          "method": "OA PDF primary passage",
+          "title": "Equidistribution Conditions for Gaps of Geometric Numerical Semigroups",
+          "trigger": "Potential broad result and prior-source pointers"
+        },
+        {
+          "assessment": "Existing exact generating information, without the optimized range in the inspected passage",
+          "evidence": "Exponential weights evaluated at roots of unity recover the histogram by Fourier inversion.",
+          "identifier_or_url": "https://arxiv.org/abs/2105.08274",
+          "material_read": "Abstract and Thm. 1, pp. 1 and 3, offsets 0 and 5600",
+          "method": "OA PDF primary passages",
+          "title": "Weighted Sylvester sums on the Frobenius set",
+          "trigger": "Root-of-unity encoding of the same histogram"
+        },
+        {
+          "assessment": "Broader weighted-count methodology, not the quarter-modulus theorem in the inspected passage",
+          "evidence": "Weighted sums over nonrepresentable integers give exact individual Fourier components in the two-generator specialization.",
+          "identifier_or_url": "https://arxiv.org/abs/2101.04298",
+          "material_read": "Abstract and Thm. 1, pp. 1 and 7, offsets 0 and 21100",
+          "method": "OA PDF primary passages",
+          "title": "Weighted Sylvester sums on the Frobenius set in more variables",
+          "trigger": "Broader weighted gap formula"
+        },
+        {
+          "assessment": "Specific unresolved priority risk, not evidence of noncoverage",
+          "evidence": "Successor discussion identifies work related to equidistribution; no quantitative full-text comparison possible.",
+          "identifier_or_url": "https://doi.org/10.1016/j.camwa.2008.02.031",
+          "material_read": "Bibliographic entry and successor citation discussion only; original full text not read",
+          "method": "Identified lawful copy and publisher access attempts returned HTTP 403",
+          "title": "Alternate Sylvester sums on the Frobenius set",
+          "trigger": "Earlier embedding-dimension-two equidistribution antecedent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Eqs. (2), (5); Shor's equidistribution criterion"
+      ],
+      "rationale": "The natural question following equidistribution is how uneven the cyclic gaps can become. A generator-size-independent estimate with the correct coefficient and explicit infinite sharp families in two congruence classes gives usable control even when the genus grows without bound.",
+      "residual_risks": [
+        "An additive-one gap remains in the two unclaimed modulus classes (with m=2 decided separately)."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

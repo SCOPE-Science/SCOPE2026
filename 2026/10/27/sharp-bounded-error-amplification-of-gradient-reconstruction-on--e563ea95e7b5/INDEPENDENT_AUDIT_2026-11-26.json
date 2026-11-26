@@ -1,0 +1,160 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:56:10.019531Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, proof steps 1–4",
+        "VERIFICATION.md, lines 19–23",
+        "checker.py, lines 17–95: inspected incidence/nullspace construction, sorted canonical arm triples and atlas checks; not executed"
+      ],
+      "rationale": "Cycle-space projection on a coherently oriented theta is weighted projection of the three path means onto z1+z2+z3=0 with weights equal to path lengths. This gives the displayed entries of Q=I-P and, after summing the diagonal, within-path and cross-path terms with their signs, the stated row norm R. At fixed m, for length l>=2, use 1/u+1/v>=4/(m-l); the resulting bound (5l+3m-8)/(3l+m) has derivative (24-4m)/(3l+m)^2 and gives B_m=(3m+2)/(m+6). The shortcut row is strictly increasing in uv at fixed u+v, and at the balanced pair the exact odd/even differences from B_m are positive for m>=7. At m=5,6 the legal triples give respectively 3/2 for (1,2,2), 18/11 for (1,2,3), and 5/3 for (2,2,2). For exhaustiveness delete bridges; cyclic components have minimum degree two and ranks summing to two. Each rank-one component is a cycle; one rank-two component has either one degree-four vertex or two degree-three vertices. Suppressing degree-two paths yields, respectively, two loops meeting at a vertex or three parallel paths: the alternative of two loops linked by one path would leave a bridge. Thus the listed cactus and theta cases exhaust the cyclic topology. Bridge rows decouple with norm one. Cacti lose by the longest-cycle bound 2-2/(m-3); a smaller theta loses by strict growth, since increasing a shorter long arm of the balanced shortcut increases its row (with the small-m transitions checked separately). The formulas give M_9=2 and the stated asymptotic. A sign vector realizes a maximizing row: the phrase 'attained exactly on sign-valued edge inputs' is supported as exact attainment by a sign choice, not as a classification excluding other inputs. For example bridge coordinates can be chosen arbitrarily when a cyclic block supplies the maximizing row.",
+      "residual_risks": [
+        "The frozen checker traverses canonical sorted length triples, not every permutation; permutations are equivalent for this comparison. The reported finite count is supplementary frozen evidence."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The broader generalized-theta theorem is exact for prescribed arm lengths, not an optimization over all length lists at fixed total and cycle rank.",
+          "The later parallel-path record gives fixed-network norms and a different asymptotic optimization under a minimum-length constraint.",
+          "Theorem 45 computes an orthogonal cut-projection norm on hypercubes, not the fixed-edge rank-two extremum."
+        ],
+        "reasoning": "The broader theta row result covers a major input. To reach this theorem one still needs a strict comparison of short and long arms, optimizing over integer arm lengths with exceptions, and ruling out every non-theta rank-two topology.",
+        "searches": [
+          "Resultary: fixed number of edges rank two graph maximum infinity norm projector",
+          "2026/10/18/SCOPE-sharp-endpoint-stability-of-hodge-projections-on-generalized-the--2b53229efb3e",
+          "2026/11/1/SCOPE-exact-endpoint-norms-of-electrical-projections-on-parallel-path--4b41a971d62b",
+          "arXiv:2305.12582, Theorem 45"
+        ]
+      },
+      "checked_sources": [
+        "Resultary records 2b53229efb3e, 8778c0efe278, e8116e45ee96, 4b41a971d62b, cceb12dd2a0d",
+        "arXiv:2305.12582, 1312.2946, 0811.1067"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The October 18 record supplies the theta formula verbatim in the three-arm case; the October 26 record already supplies the exact cactus expression max(1,2-2/l_i).",
+          "Least-squares reconstruction and the circulation residual are standard inputs.",
+          "The frozen comparison proves that all l>=2 rows are below the balanced shortcut for m>=7, controls the exception at m=6 and makes bridge/cactus exclusion strict."
+        ],
+        "reasoning": "One can substitute the two known formulas for the local computations, not for the global optimization: neither formula selects the maximizing row type or the maximizing topology at each m. The proof's strict inequalities are needed for uniqueness.",
+        "searches": [
+          "2026/10/18/SCOPE-sharp-endpoint-stability-of-hodge-projections-on-generalized-the--2b53229efb3e, RESULT.md offsets 0 and 2600",
+          "2026/10/26/SCOPE-a-sharp-one-third-amplification-gap-for-graph-edge-gradient-proj--8778c0efe278, RESULT.md offset 0",
+          "arXiv:0811.1067, p. 3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kassel–Wu identify the transfer-current matrix with the gradient projection P=dGd*.",
+          "2b53229efb3e gives the exact same row formula on specialization from r arms to three; the fixed-network calculation is covered.",
+          "cceb12dd2a0d is chain-extension gnarledness, not absolute row sums of this Euclidean projector."
+        ],
+        "reasoning": "The formulation in transfer-current language is genuinely equivalent, and by symmetry the induced 1-norm equals the infinity norm for this projector. Fixed-network formulas in those formulations are not yet the stated all-topology optimizer.",
+        "searches": [
+          "Resultary: three path theta graph gradient projection exact infinity norm",
+          "Resultary: electrical transfer current matrix cut space projector norm extremal",
+          "arXiv:1312.2946, pp. 6–7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The distinct same-day record computes exact norms and maximizing edge orbits in a dense tripartite edge-deletion family, not over rank-two graphs.",
+          "The atlas code enumerates graphs with at most seven vertices and computes norms; it is not a published table of the all-m values or equality cases."
+        ],
+        "reasoning": "The semantic checks supply real nearby exact computations, but neither the examined different-family records nor a bounded atlas supply the claimed global formula. No priority order is inferred from the same date.",
+        "searches": [
+          "Resultary: bicyclic connected graph cut projector row sum extremal theta",
+          "2026/10/27/SCOPE-one-edge-deletion-reverses-endpoint-hodge-norm-monotonicity-on-b--e8116e45ee96",
+          "NetworkX graph-atlas comparisons in frozen checker.py:81–89"
+        ]
+      },
+      "rationale": "The exact norm on any fixed theta and on any cactus is already covered. The supported distinct result is the fixed-m optimization across all connected simple rank-two topologies, with the parity formulas, small-order exception, and unique extremizer; it is not the theta row formula, cactus formula, or the projector identification.",
+      "residual_risks": [
+        "The targeted corpus and primary-source comparisons do not eliminate an uncited older extremal electrical calculation. No broad external keyword search was used for this record.",
+        "Credit the prior theta and cactus formulas explicitly when describing the contribution; their omission from the frozen references must not be construed as novelty of those formulas."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the fixed-theta formula, not the global optimization",
+          "evidence": "For r=3 its stated Euclidean gradient-projection row formula equals the frozen R(l;u,v).",
+          "identifier_or_url": "2026/10/18/SCOPE-sharp-endpoint-stability-of-hodge-projections-on-generalized-the--2b53229efb3e",
+          "material_read": "RESULT.md at offsets 0 and 2600",
+          "method": "Local published-record mirror",
+          "title": "Sharp endpoint stability of Hodge projections on generalized theta networks",
+          "trigger": "Exact same theta projector and norm for more arms"
+        },
+        {
+          "assessment": "Exact cactus input already covered",
+          "evidence": "Gives the norm max(1,2-2/l_i) over cactus cycle lengths.",
+          "identifier_or_url": "2026/10/26/SCOPE-a-sharp-one-third-amplification-gap-for-graph-edge-gradient-proj--8778c0efe278",
+          "material_read": "RESULT.md finding at offset 0",
+          "method": "Local published-record mirror",
+          "title": "A sharp one-third amplification gap for graph edge-gradient projection",
+          "trigger": "Same norm on the principal competing topology"
+        },
+        {
+          "assessment": "Later related fixed-network formula and different asymptotic optimization",
+          "evidence": "Not the exact finite-m optimization over all rank-two topologies.",
+          "identifier_or_url": "2026/11/1/SCOPE-exact-endpoint-norms-of-electrical-projections-on-parallel-path--4b41a971d62b",
+          "material_read": "RESULT.md finding at offset 0",
+          "method": "Local published-record mirror",
+          "title": "Exact endpoint norms of electrical projections on parallel-path networks",
+          "trigger": "General parallel paths and optimization"
+        },
+        {
+          "assessment": "Different family, not equivalent coverage",
+          "evidence": "Computes norms and row orbits on a balanced complete tripartite graph minus one edge.",
+          "identifier_or_url": "2026/10/27/SCOPE-one-edge-deletion-reverses-endpoint-hodge-norm-monotonicity-on-b--e8116e45ee96",
+          "material_read": "RESULT.md finding at offset 0",
+          "method": "Local published-record mirror",
+          "title": "One-edge deletion reverses endpoint Hodge-norm monotonicity on balanced tripartite graphs",
+          "trigger": "Distinct same-day endpoint-projector norm result"
+        },
+        {
+          "assessment": "Known endpoint norm for a different family",
+          "evidence": "The orthogonal cut-space projector on the n-cube has 1-norm (n+1)/2.",
+          "identifier_or_url": "https://arxiv.org/abs/2305.12582",
+          "material_read": "§2.7, Theorem 45, p. 23, offset 74000",
+          "method": "OA PDF passage",
+          "title": "Cycle Spaces: Invariant Projections and Applications to Transportation Cost",
+          "trigger": "Orthogonal cut/cycle projection endpoint norms"
+        },
+        {
+          "assessment": "Projector identification, not norm optimization in inspected passage",
+          "evidence": "The transfer current is the gradient-space orthogonal projection via P=dGd*.",
+          "identifier_or_url": "https://arxiv.org/abs/1312.2946",
+          "material_read": "pp. 6–7 at offset 17500",
+          "method": "OA PDF passage",
+          "title": "Transfer Current and Pattern Fields in Spanning Trees",
+          "trigger": "Equivalent transfer-current formulation"
+        },
+        {
+          "assessment": "Supplies the reconstruction framework, not the extremum",
+          "evidence": "Least-squares edge-gradient fitting and cyclic residual decomposition.",
+          "identifier_or_url": "https://arxiv.org/abs/0811.1067",
+          "material_read": "p. 3 at offset 10800",
+          "method": "OA PDF passage",
+          "title": "Statistical Ranking and Combinatorial Hodge Theory",
+          "trigger": "Gradient reconstruction background"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, optimization and graph-core comparison",
+        "Resultary 2b53229efb3e and 8778c0efe278, exact fixed-topology inputs"
+      ],
+      "rationale": "The norm is the worst amplification of bounded coordinate errors for least-squares edge fitting, and cycle rank two is the first case that compares interacting cycles with disjoint cycles. The exact maximum and unique graph for every edge count add a structural answer beyond the known formulas for prescribed topologies, including a small-size change of extremizer and an exact crossing of two.",
+      "residual_risks": [
+        "This does not show analogous extremizers for higher rank, weighted graphs or optimization over nonorthogonal projections."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:43:49.739259Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–46; independent local geometry, stabilizer and quasi-polarization arguments",
+        "Frozen VERIFICATION.md and verify_w15_characters.py inspected without execution",
+        "Independent replay: from /workspace run python3 audit-evidence/w15_separability.py"
+      ],
+      "rationale": "The seven monomials include τ⁶, α³, β², so the sextic system is basepoint free. In the displayed witness, on τ=1, g−5f=xy−2x³−3 implies x≠0 and y=(2x³+3)/x. Substitution gives 4x⁶+x⁵+12x³+x²+9; it is coprime to its derivative modulo 5 with degrees preserved, certifying six simple transverse intersections. At τ=0 the coefficient determinant 2 precludes intersections; both curves avoid the two orbifold points. Over the smooth base the cover of transverse branches is smooth. In the weight-two chart the residual sign changes both nonzero roots, acts freely on the four local sheets, and identifies them in two pairs; these two smooth points are fixed by ab, not by a or b alone. In the weight-three chart the roots have weight zero modulo 3, leaving four points, locally quotients with tangent weights (1,2). They are freely permuted by G; transporting the two exceptional-curve labels from one point gives two regular permutation modules, with independence of divisor classes from the negative-definite exceptional intersection matrix. Adjunction and crepant resolution give trivial K, and the weighted complete-intersection Koszul sequence and rationality of the singularities give H¹(O)=0. The a and b fixed curves are connected double covers of their respective smooth genus-one anticanonical curves, each branched at the six crossings; hence each has genus four. The residue character is (--), and the six crossings plus the two weight-two points account for all of ab's fixed locus. Euler characteristics minus two give the traces (22,−8,−8,6), with multiplicities (3,4,4,11); the three non-(--) spaces give eleven divisor directions and the exceptional module gives two in (--). For the dimension step, the graded base automorphisms have dimension five after scaling, and already the sample first branch has finite stabilizer: on τ=1, preservation of x³+y²+1 up to scalar under x↦Bx+C, y↦Dy+Ex+F forces E=F=C=0, B³=D²=1. Thus generic ordered pairs modulo base automorphisms have dimension seven. For fixed (S,H), an automorphism preserving H permutes the exceptional curves; if D is their sum, mH−D is ample for large m since −D is relatively ample on the contracted A2 fibers. Hence Aut(S,H) is finite. There are finitely many ordered sign-actions on (S,H), and quotient plus ordered branch data recovers the base pair. This verifies seven-dimensional moduli image, so the Noether–Lefschetz dimension bound gives very-general rank at most 13. Equality and the two claimed rational representations follow from the lower bound and orthogonal decomposition.",
+      "residual_risks": [
+        "Picard equality is very-general only. The representation splitting is rational, not a calculation of saturated integral lattices.",
+        "The script evidence is finite arithmetic. The fixed loci, moduli-fiber argument and Noether–Lefschetz bound are checked geometrically, not inferred from script output."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fletcher lists X_(6,6) in P(1,2,3,3,3) with four A2 singularities.",
+          "Garbagnati–Penegini's general decomposition uses smooth covers of minimal rational surfaces and specified intermediate quotients, with no W15 table for this singular weighted base/model.",
+          "Lee–Scattone–Schaffler identify the product-type symplectic action as part of constructing the ADE tail/quotient."
+        ],
+        "reasoning": "Credit the known singularity type and symplectic setup. Neither the weighted basket classification nor the different smooth-cover Hodge theorem classifies the individual fixed curves or provides the exact W15 Picard representation.",
+        "searches": [
+          "Fletcher, Working with Weighted Complete Intersections, §III.5.7",
+          "Garbagnati–Penegini arXiv:2212.11566 Theorem 1.1",
+          "Lee–Scattone–Schaffler §7 proof of tail classification"
+        ]
+      },
+      "checked_sources": [
+        "Resultary/SCOPE local index and distinct matched mirror 4bf55cf65f5b",
+        "arXiv:2611.17149v1",
+        "Fletcher thesis §III.5.7",
+        "arXiv:2212.11566"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The established symplectic product implies eight isolated points by Nikulin's symplectic involution theorem but does not locate them. Its trace alone also cannot fix both individual involution traces.",
+          "Seven moduli dimensions can give an upper rank bound after verifying the moduli image; a four-A2 basket does not determine the rational character or give the required rank-13 lower bound by itself."
+        ],
+        "reasoning": "The decisive additions are identification of the two genus-four fixed curves and the local product fixed points, the exceptional G-module and their combination with the period dimension. Credit the numerical total eight and the moduli count as prior/standard implications, not as the independent contribution.",
+        "searches": [
+          "Lee–Scattone–Schaffler Lemma 4.6 and §7",
+          "Fletcher §III.5.7 exact basket row",
+          "Resultary/SCOPE 4bf55cf65f5b mirrored Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Lee–Scattone–Schaffler identify the exact W15 double-double cover with the weighted (6,6) K3 tail, use its symplectic involution and give the seven-dimensional branch-pair moduli count.",
+          "The Special Kunev row of Garbagnati–Penegini is a smooth bidouble cover of P², not the W15 degeneration tail."
+        ],
+        "reasoning": "The equivalent weighted complete-intersection and branched-cover models of the target are credited as prior. The similarly named Special Kunev family is not a change of notation for this K3 tail.",
+        "searches": [
+          "Lee–Scattone–Schaffler arXiv:2611.17149v1 §4.4 Lemma 4.6 and §7 Theorem 7.2",
+          "Garbagnati–Penegini arXiv:2212.11566 §4.2 Special Kunev row"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Fletcher's exact weighted row gives the basket, not a Picard rank or character.",
+          "The Kunev row of Garbagnati–Penegini Table 2 has r_X=12; its case c value 13 is a transcendental rank of a different K3, not Picard rank of the W15 tail.",
+          "Distinct Resultary hit 4bf55cf65f5b also has a six-plus-two configuration, but on a different double-sextic K3: six genus-two Weierstrass points and two on a central exceptional component. The identical W15 index hit is the target itself."
+        ],
+        "reasoning": "Matching 13 or eight in a table or record is not enough: the lattice invariant, cover and fixed-point locations must agree. The exact W15 basket does agree and is credited, whereas no distinct full W15 character/Picard entry was found in the bounded comparison.",
+        "searches": [
+          "Local Resultary/SCOPE semantic lookup for W15 Picard, sign action, and eight symplectic fixed points",
+          "Fletcher table §III.5.7",
+          "Garbagnati–Penegini Table 2"
+        ]
+      },
+      "rationale": "The weighted W15 construction, seven-dimensional branch moduli count, four-A2 weighted basket, symplectic product, and its total of eight isolated points (the classical symplectic involution result) are credited. The distinct contribution is the explicit fixed loci for this sign action including the six-plus-two locations, full rational character, and the resulting proof and decomposition of very-general Picard rank. The plausible Kunev bidouble-cover tables treat different surfaces.",
+      "residual_risks": [
+        "No absolute priority claimed against uninspected reports on involutions or specialized K3 subfamilies. The compared Garbagnati–Penegini passages and lattice tables were accessible and did not yield the exact overlap suggested by the frozen note."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact prior model, moduli count and symplectic setup; not the complete character calculation",
+          "evidence": "Two general sextics on P(1,2,3), seven moduli dimensions, weighted (6,6) complete intersection entry #13, and product-type symplectic involution used in the quotient construction.",
+          "identifier_or_url": "https://arxiv.org/html/2611.17149v1",
+          "material_read": "§4.4 offsets 50233–58227 and Lemma 4.6 offsets 58227–63226; §7 Theorem 7.2 and proof, offsets 106069–116465",
+          "method": "Targeted OA HTML passage reading",
+          "title": "K3 tails in the KSBA moduli of Kunev surfaces",
+          "trigger": "Same named W15 model, possible prior fixed-locus and moduli statements"
+        },
+        {
+          "assessment": "Exact prior basket for the weighted type, not a character/lattice table",
+          "evidence": "The two table columns give weighted K3 surfaces and singularities; the matching row has 4 × A2.",
+          "identifier_or_url": "https://wrap.warwick.ac.uk/id/eprint/106535/1/WRAP_Theses_Fletcher_1988.pdf",
+          "material_read": "§III.5.7, PDF p. 72, offsets 144650–147093, row X_(6,6) in P(1,2,3,3,3)",
+          "method": "Targeted OA PDF table reading",
+          "title": "Working with Weighted Complete Intersections",
+          "trigger": "Exact weighted singularity classification and potential invariant table"
+        },
+        {
+          "assessment": "Related Hodge theory and different Kunev family; does not supply the reviewed W15 ranks",
+          "evidence": "Smooth covers of minimal rational bases; Special Kunev row over P²; its T_(Y3) is U² ⊕ E8(−2) and r_X=12, with the nearby 13 referring to a different X's transcendental rank.",
+          "identifier_or_url": "https://arxiv.org/abs/2212.11566",
+          "material_read": "HTML Theorem 1.1 offsets 4850–7826, §4.2 Theorem 4.2 and Table 1 offsets 99995–106488, Table 2 offsets 105577–109876",
+          "method": "Targeted OA full-text section and table comparisons",
+          "title": "Hodge Structures of K3 type of bidouble covers of rational surfaces",
+          "trigger": "Plausible general bidouble-cover decomposition and exact Kunev table"
+        },
+        {
+          "assessment": "Different canonical double-sextic family and fixed loci",
+          "evidence": "Six Weierstrass points of a genus-two curve plus two on the central exceptional of an A_(2n+1) singularity; not six transverse weighted branch crossings and two smooth points above the weight-two base point.",
+          "identifier_or_url": "Resultary/SCOPE 2026/10/13/4bf55cf65f5b",
+          "material_read": "Mirrored RESULT.md Finding",
+          "method": "Local Resultary search and mirror passage reading",
+          "title": "Eight fixed points in the canonical biquadratic double-sextic model",
+          "trigger": "Strongest distinct indexed overlap with a six-plus-two symplectic fixed locus"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md and independent period-dimension check",
+        "Lee–Scattone–Schaffler tail classification and Fletcher singularity row"
+      ],
+      "rationale": "The W15 tail is a distinguished object in a preexisting compactification problem. Locating the fixed sets and determining the algebraic and transcendental characters on its resolution add usable deformation and lattice information beyond its known weighted equations and singularity basket. The exact very-general rank makes the symmetry calculation a classification, not only a lower bound or an example.",
+      "residual_risks": [
+        "No discriminant form, integral splitting or statement for all members is supplied or inferred."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

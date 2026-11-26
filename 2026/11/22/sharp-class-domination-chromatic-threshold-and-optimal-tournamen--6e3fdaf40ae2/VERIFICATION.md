@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducible checks
+# Independent mathematical audit
 
-The theorem is proved symbolically in `RESULT.md`: the class-capacity lemma, explicit small orders, standard optimum-colouring normal form and existence of near-regular tournaments suffice for every integer in scope.
+## correctness
 
-Run `python3 verify_constructions.py`. In the finalized package, the standalone program checks the complete Kneser edge partition, pairwise intersection of all edges of each colour class and the existence of an actual common-neighbor witness, for every integer order from five through one hundred. Expected terminal marker: `CONSTRUCTIONS_OK`.
+PASS
 
-Run `c++ -std=c++17 -O2 -Wall -Wextra count_optimum.cpp -o count_optimum && ./count_optimum`. This independently enumerates every tournament orientation on five or six centres, directly reconstructs all classes and tests properness, coverage and common-neighbor witnesses. Expected results: `n=8 count_per_triangle=24 unlabelled=1344`, `n=9 count_per_triangle=5184 unlabelled=435456`, then `TOURNAMENT_CENSUS_OK`.
+Classes are pairwise-intersecting edge families. A nonstar family must contain a triangle and can contain no other edge; a star of r edges has r+1 ground labels so a common disjoint pair exists iff r≤n−3. The n−2 class capacities at n=5,6,7 are 9,12,20, below the respective totals 10,15,21. The displayed n−1 partitions at n=5,6,7 were independently checked for coverage, properness and common disjoint-pair witnesses. For the optimum normal form, take t triangle classes and n−2−t star classes, designating an arbitrary valid centre for a singleton. There are at least t+2 noncentres, whose mutual edges require triangle classes, so binom(t+2,2)≤3t forces t=1 or 2. The latter would partition all edges of a K4 into two triangles, impossible. Hence t=1 and there are exactly three noncentres and distinct star centres; all triangle-to-centre edges are forced and remaining edges orient uniquely toward assignment to their tail class. This separately verifies the prior structural premise. The cap 3+d⁺(s)≤n−3 is necessary and sufficient, and near-regular tournaments satisfy it for m=n−3≥5 since ceil((m−1)/2)≤m−3. The ordinary chromatic bound is n−2. The independent enumerator /workspace/branches/be07c5a9-b777-4256-97bf-ec74e3df2db7/independent_check_record4.py exhausts 2^10 and 2^15 labelled tournaments and gives 24 and 5184, respectively; multiplying by binom(n,3) gives 1344 and 435456. Each unlabelled partition has (n−2)! distinct name assignments. Replay also at RESULT.md lines 14–29. The frozen Python verification was inspected, not executed; the cited C++ checker was not among the frozen support and the counts do not rely on it.
 
-These finite computations are corroborative, not exhaustive proofs for all orders. The accepted proof requires the previously published classification of optimal proper two-subset Kneser colourings; direct original-full-text comparison is limited as described in the scientific review. No independent audit or proof certification is claimed.
+## originality
+
+PASS
+
+The triangle-plus-stars normal form and unrestricted tournament encoding are prior. The supported distinction is the solution to the class-wise dominated-colouring problem on KG(n,2): the small-order obstruction, exact onset of ordinary-optimal size, and score-cap classification of the resulting optima. The numerical counts support the classification but do not carry the originality judgment.
+
+## value
+
+PASS
+
+The result answers an explicit problem in the literature for a natural infinite family and pinpoints when the extra common-neighbour requirement costs a colour. The characterization classifies every optimum beyond that threshold and links their enumeration to a precise tournament condition. This is useful beyond the two small numerical counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

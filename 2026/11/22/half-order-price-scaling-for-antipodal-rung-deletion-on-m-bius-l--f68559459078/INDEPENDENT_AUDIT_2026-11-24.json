@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:06:56.447116Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On the mean-zero subspace the objective is a spectral trace. For f(x)=x^-p at p>0, or -log(x) at p=0, its Hessian in an eigenbasis is a sum of squared perturbation entries with strictly positive divided differences of f', including f'' for equal eigenvalues. The restriction of the simple-graph Laplacian is injective in conductances: extend by zero on the constants and recover weights from the off-diagonals. The compact budget simplex has connected feasible points and the objective tends to infinity at disconnection, so strict convexity gives a unique global optimum. Rotations force the two conductance classes and a>0 since rungs alone disconnect. The rim eigenvalue factor is 4 sin^2(pi k/(2n)); the antipodal matching contributes 2b exactly on odd modes. With a=(B-ncb)/(2n), increasing b along the affine budget segment has the same derivative sign at zero as increasing r=b/a. For p>0 this sign is that of c S/2 - 2T, for S=sum mu^-p and T=sum over odd modes of mu^-(p+1); the log case is S=2n-1 and the analogous T. Strict convexity gives deletion including equality, and a unique positive stationary allocation if the derivative is negative, because the other endpoint disconnects. Subtracting even modes from the full csc^2 and csc^4 sums gives the two rational endpoints; independently, at n=2 the spectrum factors (2,4,2) give C=4/(2+2^-p), agreeing with both rational cases. By reflecting the spectrum and bounding 2 sin(pi k/(2n)) below by 2k/n for k<=n, dominated convergence gives the odd zeta factor in T and the full zeta factor in S for p>1/2. Below half order an integrable endpoint cutoff and the beta integral give S~2n I_p. At half order, csc u=1/u+O(u) uniformly for 0<u<=pi/2 gives S=(2n/pi)log n+O(n); T~7 zeta(3)n^3/(4 pi^3) yields the claimed critical coefficient. At fixed n both smallest modes are odd, so the large-p ratio tends to 4/mu_1. The proof does not need a switch of fixed-order and fixed-size limits. The frozen checker was inspected, not executed; its finite pseudoinverse and Fourier checks and tolerance-based comparisons do not certify infinite-size asymptotics or unrestricted uniqueness.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general resistance allocation literature gives convex unique optimization and optimality conditions under total conductance constraints.",
+          "The inspected resistance-matrix work gives fixed-graph Laplacian-inverse formulas, not a priced optimization theorem over all spectral orders."
+        ],
+        "reasoning": "An equivalence theorem or derivative criterion is a proof ingredient: the location and scaling of this frontier still require the parity-resolved spectral data and the asymptotics of two differently singular sums. Fixed-resistance results are especially limited to the corresponding orders and cannot yield the half-order transition by themselves.",
+        "searches": [
+          "General effective-resistance allocation, Ghosh–Boyd–Saberi §§4",
+          "Azimi–Farrokhi arXiv:2306.10497v1 §5",
+          "Two-point resistance of the Möbius ladder, DOI 10.1088/0031-8949/90/3/035206"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "The three identified catalogue records",
+        "Bailey–Cameron, Ghosh–Boyd–Saberi and Azimi–Farrokhi passages",
+        "2015 two-point-resistance bibliographic excerpt only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At deletion the denominator includes all cycle modes to inverse order p, while the marginal rung derivative picks out only odd modes to inverse order p+1. The numerator is always endpoint dominated; the denominator changes dominance at p=1/2."
+        ],
+        "reasoning": "Determinant optimality has a different denominator and cannot yield the positive-order growth laws. Neither an allocation-ratio transition on another graph nor a matching-price formula with a different spectrum implies the size and constants of the Möbius frontier. At small sizes graph coincidences do not cover the family asymptotics.",
+        "searches": [
+          "2026/10/18/SCOPE-sharp-rung-deletion-prices-and-critical-scale-d-optimality-on-m--00e372929d94",
+          "2026/11/22/SCOPE-a-half-order-allocation-transition-for-inverse-laplacian-spectra--8a4a15cc3c55",
+          "2026/11/22/SCOPE-spectral-moment-price-hierarchy-on-matching-priced-balanced-bipa--6a54dc4c69eb"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bailey–Cameron connect Kiefer spectral criteria to graph design and compare fixed unweighted Möbius designs.",
+          "The p=1 objective on a connected graph is total effective resistance divided by the vertex count; general optimal-conductance results for that objective are antecedents."
+        ],
+        "reasoning": "Equivalent design and resistance language recovers the optimization framework, not the graph-specific dependence of the support price on n and positive p. A fixed unweighted objective value is not an optimal allocation under unequal class prices.",
+        "searches": [
+          "Kiefer Phi_p design on Möbius ladders, inverse trace, determinant, effective resistance and price",
+          "Bailey–Cameron arXiv:1111.3768v1",
+          "Ghosh–Boyd–Saberi DOI 10.1137/050645452"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The determinant record has exactly n^2/(2n-1) as its unrestricted rung-deletion threshold.",
+          "The same-day cyclic-prism result has a half-order transition, but concerns the optimal allocation ratio at unit prices with both edge classes positive. The same-day matching-priced K_{m,m} result has exact real-order deletion prices but a different spectrum and asymptotic laws."
+        ],
+        "reasoning": "These are material overlaps, not excluded on dating grounds. The first covers the determinant endpoint only; the second shares the critical order, not the observable; the third shares the support-deletion question, not this family or scaling. No inspected record tabulates the same positive-order three-regime frontier.",
+        "searches": [
+          "Resultary: Möbius-ladder rung-deletion prices and inverse spectral moment allocation",
+          "00e372929d94",
+          "8a4a15cc3c55",
+          "6a54dc4c69eb"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the calibrated positive-real-order Möbius-ladder support-price threshold, particularly its explicit three-regime large-size scaling. The determinant threshold is covered exactly by a prior record and is properly credited. Spectral design criteria, the convex optimization framework and the endpoint-sum method are antecedents, not claims of novelty. The strongest related indexed statements differ in graph or observable and do not supply the three-regime priced Möbius frontier.",
+      "residual_risks": [
+        "Full text of the 2015 two-point-resistance result was not accessible; its possible additional content is not excluded.",
+        "An earlier exact specialized price frontier may exist outside the inspected passages and catalogue. The same-day comparisons do not establish publication precedence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact prior coverage of p=0, not positive p",
+          "evidence": "Unrestricted determinant deletion threshold n^2/(2n-1) and determinant-specific asymptotics.",
+          "identifier_or_url": "2026/10/18/SCOPE-sharp-rung-deletion-prices-and-critical-scale-d-optimality-on-m--00e372929d94",
+          "material_read": "RESULT.md, finding at offset 0",
+          "method": "Local catalogue and mirrored source",
+          "title": "Sharp rung-deletion prices and critical-scale D-optimality on Möbius ladders",
+          "trigger": "Same object and budgeted deletion at determinant order"
+        },
+        {
+          "assessment": "Different graph and allocation observable",
+          "evidence": "Unit-priced cyclic prisms, with positive weights in both classes; transition for the optimal ratio, not a deletion price.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-half-order-allocation-transition-for-inverse-laplacian-spectra--8a4a15cc3c55",
+          "material_read": "RESULT.md, finding at offset 0",
+          "method": "Local catalogue and mirrored source",
+          "title": "A half-order allocation transition for inverse Laplacian spectra",
+          "trigger": "Distinct same-day half-order inverse spectral allocation result"
+        },
+        {
+          "assessment": "Same type of criterion on a different graph family, no Möbius scaling",
+          "evidence": "Exact priced-matching threshold on K_{m,m}, with its own fixed- and growing-order laws.",
+          "identifier_or_url": "2026/11/22/SCOPE-spectral-moment-price-hierarchy-on-matching-priced-balanced-bipa--6a54dc4c69eb",
+          "material_read": "RESULT.md, finding at offset 0",
+          "method": "Local catalogue and mirrored source",
+          "title": "Spectral moment price hierarchy on matching-priced balanced bipartite graphs",
+          "trigger": "Distinct same-day real-order support prices for a matching"
+        },
+        {
+          "assessment": "Standard criteria and unweighted designs, not a continuous support frontier",
+          "evidence": "Kiefer criteria with A-, D-, E-optimal cases and a fixed unweighted Möbius M8 comparison.",
+          "identifier_or_url": "https://arxiv.org/abs/1111.3768v1",
+          "material_read": "Sections 3.2–3.3 and 4.1, including OA offsets about 24200–26200",
+          "method": "Targeted OA passages",
+          "title": "Using graphs to find the best block designs",
+          "trigger": "Kiefer criteria and Möbius graph design"
+        },
+        {
+          "assessment": "General p=1 framework, not the heterogeneous Möbius frontier",
+          "evidence": "Convex unique conductance allocation under a fixed total conductance.",
+          "identifier_or_url": "https://doi.org/10.1137/050645452",
+          "material_read": "Section 4, pp. 51–52, PDF offset about 49700",
+          "method": "Targeted OA passages",
+          "title": "Minimizing Effective Resistance of a Graph",
+          "trigger": "General p=1 conductance design"
+        },
+        {
+          "assessment": "Fixed-graph formulas, not a price-dependent allocation",
+          "evidence": "Möbius resistance and Laplacian-inverse quantities, including Kirchhoff-index context.",
+          "identifier_or_url": "https://arxiv.org/abs/2306.10497v1",
+          "material_read": "Abstract and Section 5, Theorem 5.1 around OA offset 43200",
+          "method": "Targeted OA passages",
+          "title": "Explicit formulas for matrices associated to ladder, circular ladder, and Mobius ladder graphs",
+          "trigger": "Same fixed-graph resistance and inverse-Laplacian quantities"
+        },
+        {
+          "assessment": "Not assessed beyond excerpt",
+          "evidence": "The excerpt reports closed-form resistance and Kirchhoff-index results; no inference about entire content.",
+          "identifier_or_url": "https://doi.org/10.1088/0031-8949/90/3/035206",
+          "material_read": "Indexed search excerpt only; full text unavailable on attempted routes",
+          "method": "Search followed by direct and alternate OA attempts",
+          "title": "Two-point resistance of the Möbius ladder",
+          "trigger": "Potentially relevant resistance formulas on the same graph"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Even with standard optimization tools, the explicit frontier decides exactly when a natural edge class is discarded in an unrestricted priced network. The calibrated dependence on inverse spectral order distinguishes bulk from low-frequency control and yields a logarithmically corrected critical law, which is not visible in either determinant or inverse-trace order alone. The value lies in the finite threshold together with these quantitative design regimes, not in rederiving the determinant endpoint or assuming a symmetric optimum.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

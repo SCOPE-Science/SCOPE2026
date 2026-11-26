@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:57:38.361873Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Exact full Newton cancels x, hence positive finite-time energies satisfy F_(n+1)=W_n F_n^p, p=2α. For p<1 the reversed weighted log series converges absolutely in expectation, and a two-sided stationary ergodic realization couples to the forward process with error p^n times its initial error. The marginal has full support because it includes an independent full-support log innovation, so thresholds of either sign are visited unboundedly. For the Mellin domain, direct upper and lower constant multiples of χ²_d bound W, giving the cutoff q>−d/2 without requiring the density assertion from those bounds. Independence and a finite slightly higher absolute moment of the weighted products give uniform integrability and the stated product; for q≤−d/2 the first factor already diverges. At p=1 the ordinary strong and iterated-logarithm laws give the three behaviors, and conditioning yields exactly F₀(tr A/2)^n. At p>1 the rescaled log series converges absolutely and convolution with its first independent innovation gives an atomless full-support limit; both signs occur and determine the outcome. Strict symmetric concavity follows from the negative second directional derivative, with dominated logarithms also at the rank-one limit. In d=2 the angular mean of log|a+b exp(−2iθ)|² is 2 log a by the zero constant coefficient of log(1+(b/a)exp(−2iθ)); the radial log mean is −γ. The common vector gives F₀=2 exactly at trace 4. Independent Laplace-transform quadrature gave 0.1159315157 and −0.3054725200; the rank-one limit was −0.5772156649. Replay: OPENBLAS_NUM_THREADS=1 python /workspace/independent_checks.py (NumPy/SciPy); quadrature is not evidence for a pathwise limit. ‘Rearranging’ means redistributing eigenvalue sizes, not merely permuting them. There is a non-substantive citation numbering error: arXiv:2609.10465v1 uses Theorem 2.1, Lemma 2.5 and Remark 2.4 for the relevant points; the substantive scope comparison holds.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Huynh–Engquist's global theorem is on the torus for α>1, with a weaker local-rate extension discussed for α>1/2; this is not an equality-case spectral classification.",
+          "Habib Zadeh–Hosseini Eq. (13) calculates the exact expected log of a general central Gaussian quadratic form via a one-dimensional Laplace integral. Their Theorem 2 already gives the very same isotropic upper bound after dividing the form by 2, along with a stronger shape-dependent lower estimate."
+        ],
+        "reasoning": "The general expected-log result is substantive coverage of the drift statistic, and the trace bounds are not priority claims in isolation. Those statements neither follow the optimization dynamics nor identify opposite pathwise outcomes at unchanged mean under the Newton rule. The two older Gaussian-form papers were not obtained in full, so their detailed implications are not excluded.",
+        "searches": [
+          "arXiv:2609.10465v1, Theorem 2.1, p. 8 discussion and Lemma 2.5",
+          "Expected Logarithm of Central Quadratic Form DOI 10.3390/e18080278, §2.1 and Theorem 2",
+          "Bakirov DOI 10.1137/1140035; Jones DOI 10.1111/j.1467-842X.1986.tb00604.x"
+        ]
+      },
+      "checked_sources": [
+        "Huynh–Engquist arXiv:2609.10465v1",
+        "Diaconis–Freedman pp. 2–3",
+        "Habib Zadeh–Hosseini (2016) Eqs. (13),(16)",
+        "Bakirov/Jones bibliographic material only",
+        "Resultary 2f7a38830384 and 78fb0fd40ae7"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 2 of Habib Zadeh–Hosseini also implies the rank-one lower envelope as a bound: writing b=(tr A)²/[2tr(A²)]>1/2, its lower estimate for μ is log(tr A/2)+ψ(b)−log b, strictly greater than the rank-one value because ψ'(b)>1/b. Continuity to rank one makes the lower endpoint sharp.",
+          "In the cited Newton theorem periodic wrapping precludes this notion of escape, and the strict noise-exponent inequalities omit criticality.",
+          "The Newton-specific calculation relates the almost-sure exponent to a logarithmic moment and the entire mean trajectory to a linear moment of the same SPD form."
+        ],
+        "reasoning": "Given the new application’s cancellation, standard random-recursion results cover the regime mechanisms; given its Gaussian log statistic, the trace envelope is implicit in prior expectation bounds. The distinct assertion is their use with the exact planar sign boundary to give a fixed-trace family of optimizer outcomes that the mean cannot distinguish. The inspected results do not provide that optimization corollary by specializing a theorem on the same recursion and domain.",
+        "searches": [
+          "Huynh–Engquist arXiv:2609.10465v1 Eq. (2.2), Theorem 2.1",
+          "Habib Zadeh–Hosseini Eq. (16)",
+          "Diaconis–Freedman affine example; Resultary 2f7a38830384 and 78fb0fd40ae7"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Huynh–Engquist already give the objective-scaled Gaussian Newton scheme with periodic wrapping.",
+          "After exact quadratic Newton cancellation the log objective is an affine autoregression; Diaconis–Freedman give its contracting stationary series as a classical example."
+        ],
+        "reasoning": "The affine stationary reduction is equivalent on positive energies and is credited, but the general affine result does not determine the Gaussian-Hessian drift signs under a trace constraint. The torus iteration is not globally equivalent to the unbounded quadratic iteration, notably for energy explosion.",
+        "searches": [
+          "arXiv:2609.10465v1, Eq. (2.2) and §2",
+          "Diaconis–Freedman, Iterated Random Functions, pp. 2–3",
+          "Resultary: objective-scaled Gaussian Newton, log-energy recursion, Hessian trace and critical stability"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Habib Zadeh–Hosseini give a general exact integral and a series method; §2.1 treats the general integral numerically, rather than giving the audited evaluated planar stability threshold.",
+          "Resultary 2f7a38830384 treats additive gradient errors and finite-time expected risk; Resultary 78fb0fd40ae7 treats planar Gaussian subspace Newton termination, not this exponent or law."
+        ],
+        "reasoning": "The exact prior expected-log evaluator can calculate the same Gaussian moment, but no inspected table gives the fixed-trace pathwise versus mean reversal. The elementary planar angular log integral itself is not being assigned priority.",
+        "searches": [
+          "expected logarithm Gaussian quadratic form two eigenvalues square roots expected log weighted chi squares Schur concave fixed trace",
+          "Habib Zadeh–Hosseini DOI 10.3390/e18080278, Eq. (13) and §2.3",
+          "Resultary: critical noisy Newton quadratic spectral stability and mean"
+        ]
+      },
+      "rationale": "The distinct finding is the exact unbounded-quadratic Newton stability classification and the explicit same-trace separation of almost-sure outcomes with the same expected objective trajectory. The algorithm/noise model, affine-recursion machinery, and fixed-trace expected-log bounds are not original ingredients. The combined critical stability criterion is not a parameter specialization of the motivating torus theorem or of a result on Gaussian quadratic forms alone.",
+      "residual_risks": [
+        "Additional older Gaussian expected-log comparisons and a published planar closed form may exist; the audited claim does not require priority for either in isolation.",
+        "The inaccessible Bakirov and Jones full texts and unindexed applications leave residual bibliographic risk. The available comparison evidence does not certify historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct algorithm antecedent but not the unwrapped α=1/2 Hessian criterion",
+          "evidence": [
+            "Eq. (2.2) uses wrapping, Theorem 2.1 states the α>1 result, and Remark 2.4 explains the strict α>1/2 decay condition."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2609.10465v1",
+          "material_read": "§2 pp. 2–3, Theorem 2.1 p. 7 and discussion pp. 8–9, Lemma 2.5 and Remark 2.4",
+          "method": "OA PDF passage inspection; checked the numbering against the cited version",
+          "title": "Convergence of a Randomized Newton Method in Nonconvex Optimization",
+          "trigger": "Same Gaussian objective-dependent full Newton perturbation"
+        },
+        {
+          "assessment": "Prior subcritical stationary and contraction mechanism",
+          "evidence": [
+            "The contracting affine example constructs the corresponding infinite stationary series."
+          ],
+          "identifier_or_url": "https://statistics.berkeley.edu/sites/default/files/tech-reports/511.pdf",
+          "material_read": "Author preprint pp. 2–3, affine example and contraction discussion",
+          "method": "OA author-preprint PDF passage comparison",
+          "title": "Iterated Random Functions",
+          "trigger": "Equivalent affine log recurrence"
+        },
+        {
+          "assessment": "Exact log-moment evaluator and trace bound antecedent, not Newton dynamics or an explicit two-dimensional stability frontier in the read material",
+          "evidence": [
+            "Eq. (13) uses the product of (1+2λᵢσ)^(-1/2). Theorem 2 Eq. (16) bounds E log U by digamma and trace quantities, including the isotropic endpoint."
+          ],
+          "identifier_or_url": "https://doi.org/10.3390/e18080278",
+          "material_read": "OA PDF pp. 1, 3–7, abstract, Theorems 1 and 2, §2.1 Eq. (13) and §§2.2–2.3",
+          "method": "Targeted primary search, then opened the same paper's publisher-hosted OA PDF and read the relevant passages",
+          "title": "Expected Logarithm of Central Quadratic Form and Its Use in KL-Divergence of Some Distributions",
+          "trigger": "Exactly the prior Gaussian expected-log drift statistic"
+        },
+        {
+          "assessment": "Possible additional Gaussian-form overlap; no whole-document inference",
+          "evidence": [
+            "Titles concern CDF comparison and inverse moments, respectively; no passage-level exclusion is asserted."
+          ],
+          "identifier_or_url": "doi:10.1137/1140035; doi:10.1111/j.1467-842X.1986.tb00604.x",
+          "material_read": "Cited bibliographic scope; full text not read",
+          "method": "Lawful direct/VPN DOI retrieval and repository recovery attempts did not yield full text",
+          "title": "Comparison Theorems for Distribution Functions of Quadratic Forms of Gaussian Vectors; Expressions for Inverse Moments of Positive Quadratic Forms in Normal Variables",
+          "trigger": "Potentially stronger earlier comparisons and moment formulas"
+        },
+        {
+          "assessment": "Additive-gradient mean risk and Gaussian sketch termination, not the objective-scaled full-Newton phase classification",
+          "evidence": [
+            "One result orders a prescribed set of steps; the other is two-step planar subspace termination under coupled sketches."
+          ],
+          "identifier_or_url": "Resultary 2f7a38830384; 78fb0fd40ae7",
+          "material_read": "The findings in the local Resultary mirror",
+          "method": "Local semantic lookup and mirror passage comparison",
+          "title": "Descending spectral steps minimize every terminal quadratic noise risk; sharp two-step termination frontier for coupled Gaussian subspace Newton",
+          "trigger": "Closest indexed Gaussian/noisy quadratic optimization comparisons"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "At the exact exponent where local deterministic scaling no longer dominates the multiplicative noise, the theorem provides a checkable Hessian-allocation boundary. Even with the same start and identical expected energy at every step, positive-definite quadratics can exhibit opposite almost-sure stability. This supplies a motivated limit case and counterexample to reliance on mean energy, with a classification across exponents for the ideal method. It does not advertise compact-domain or general nonquadratic behavior.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (C): PASS.** The rule-115 Boolean formula gives an exact spatial boundary shield. Every finite-support return in three or six updates corresponds bijectively to one constrained temporal-column walk. Complete integer enumeration yields three and twenty-seven relevant states; verifying recurrence differences through the matrix dimension, then applying Cayley–Hamilton, proves the generating functions for every window length. An independently implemented direct evolution checks all four-state initial words of length at most seven. The conclusions do not confuse finite verification with a universal proof.
+## correctness
 
-**Originality (O): PASS under examined evidence.** Formenti and Kamilya (2026) prove finite-configuration periodicity and display several period sequences, but do not count every period-six configuration by support-window length. A separately published mathematical result excludes primitive periods nine and eighteen and is not stronger than the present six-period counting statement. Targeted published-finding corpus searches and web queries for aliases, recurrence, sequence, and exact transfer data revealed no covering result. The 2024 precursor's full text and the complete separately published record were unavailable, so historic priority remains a stated risk, not a claim of globally certified novelty.
+PASS
 
-**Mathematical value (V): PASS.** Exact all-length counts for the first genuine non-background period, Fibonacci comparison, and sharp spatial growth exponent answer a natural prevalence question left unresolved by the main source's examples. The value is the structural enumeration and spectral growth, not mere ability to run a graph search.
+The stated Boolean rule has truth table 01110011 in descending neighborhood order. From the initially zero pair the uniform background is 001 repeated. On the right, at time 2 mod 3 the center and its right neighbor are one, giving output zero irrespective of the left neighbor, and at the other times a zero center suffices. On the left the sites through -2 obey the same induction; if the halo value at time 0 mod 3 is s, at time 1 mod 3 it is s (left neighbor zero) and at time 2 mod 3 it is s XOR NOT s = 1. Thus only site -1 needs a free temporal column outside the window. The directed edge enforces the recurrence at the middle column modulo p; starting at (-3,-2), adding one halo with initial bits zero, then n interior columns and two terminal background columns checks all nonautomatic sites, also when n=0. Uniqueness of the temporal evolution gives the bijection. An independently implemented temporal bit-constraint generator reproduced core sizes 3 and 27, starts, and all required initial scalar recurrence residuals. Cayley–Hamilton applies to u M^j P(M) v, so those residuals vanish at every index, not just at tested sizes. Separate direct line evolution with fixed background only at distant endpoints agreed for n=0..6. The recurrence plus initial values gives the two rational functions; divisibility of any period by three follows from the shielded background, so only periods three and six can contribute to Fix(F^6). At z=1/rho, (1-z+z^2)=6/rho^2 and (1-delta z)=sqrt(21)/rho, giving the claimed dominant coefficient; other exponential moduli are |delta| and 1. Fibonacci growth of B_n and 4^n possible initial pairs give the stated relative densities.
 
-**Closest literature and limits.** Formenti–Kamilya, *The Curious Case of Reversible Elementary Second Order Cellular Automaton 115* (2026); Formenti–Kamilya, *On Elementary Second Order Cellular Automata* (2024, abstract only); published result on the absence of finite-support temporal periods 9 and 18 (indexed mathematical statement). The theorem concerns periods 3 and 6 on the bi-infinite line with initially finite support inside a fixed window; it does not classify other periods, ring dynamics, or spatial translation orbits. Historical priority awaits further bibliography checks.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The prior rule-115 results already give the period obstruction, least-period-six examples (including a two-site witness), and even the sizes of the two rooted temporal-column automata. They are not credited as new. The exact all-window path counts, scalar recurrence and explicit spatial growth of the six-period fixed set are distinct on the evidence read.
+
+## value
+
+PASS
+
+The first two admissible temporal-period classes are natural tests of how the unusual finite-support periodicity of rule 115 is distributed over spatial windows. The scalar transfer functions settle their entire labeled-window census, including the least-period-six count and the growth base distinguishing it from the Fibonacci class and from all 4^n pairs. General finite-state rationality or an isolated witness supplies neither the exact frequencies nor that growth base.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

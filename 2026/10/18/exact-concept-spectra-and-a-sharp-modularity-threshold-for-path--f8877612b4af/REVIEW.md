@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The entire claim is proved by exact intersections of clipped radius-\(k\) windows. The endpoint normal form has constructive witnesses in every boundary case. Counting forbidden endpoint pairs proves the two-phase census, and a direct three-extent witness proves the sharp nonmodularity threshold. Completing the square, together with a dense-boundary comparison, proves the optimizing radius. The standalone verifier checks every context through \(n=14\) by direct incidence intersections, and lattice identities through \(n=8\); these finite computations are corroboration, not a substitute for the proof.
+PASS
 
-## Originality — PASS (qualified)
+For nonempty attribute sets, the extreme columns determine the clipped intersection, and admissible intervals are recovered by columns b−k and a+k or a single column at a clipped endpoint. The end columns give bottom exactly when n≥2k+2; their intersection, when n≥k+2, has fewer than k+1 objects and cannot be a single column or top. In the sparse endpoint rectangle, each invalid triangular corner has binom(n−2k,2) pairs. The left endpoints of length-t intervals run from max(1,k+2−t) to min(n−k,n−t+1), giving the stated spectrum. At n=2k+2, the two missing extreme pairs can be replaced by bottom and top, preserving the product order. Beyond this boundary at positive k, the extents {k+1}, {k+3}, and [k+1,k+2] witness failure of modularity: joining the singletons produces [k+1,k+3], while {k+3} meets [k+1,k+2] in bottom. The height-two k=0 case is separate. The sparse census is a concave quadratic centered at (n−1)/3, and comparison with the first dense value and then the residues modulo 3 yields the unique optimizer and exact maximum, with n=2,3 separately checked.
 
-Rawson et al. (arXiv:2307.11681, Theorem 3.1) supply the generic lattice/intersection-closure correspondence. The induced path-power bicliques in Macêdo Filho et al. (arXiv:1203.2543v2, Lemma 3) are a different object from the maximal two-sorted rectangles of the present reflexive incidence context. Koyda–Stumme (arXiv:2104.07159) analyze Boolean substructures of general contexts. None of the inspected statements supplies this endpoint formula, the sharp radius, or the modularity boundary. Search nonmatches alone are not novelty certification; an equivalent result on consecutive-ones matrices remains possible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is a complete natural family classification: the concept count and extent-size spectrum are exact; the lattice changes from a product grid to nonmodular at a sharp threshold; and the radius maximizing representation complexity is uniquely determined, with quadratic scale. A two-column intersection witness makes the full family efficiently enumerable.
+The distinct contribution supported by this comparison is the explicit path-power spectrum, cutoff and radius optimization, not the general formal-concept representation by intersections. The closest overlap in neighborhood incidence counts rough pairs rather than concept extents; closely titled path-power biclique results use induced bicliques in a different graph.
 
-## Limitations and evidence
+## value
 
-The result is restricted to symmetric reflexive path powers. The all-parameter statements are supported by the mathematical proof, not by bounded computation alone. Publication priority remains qualified pending independent investigation; no independent mathematical audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The band context is a natural reflexive neighborhood relation. The count by extent size and the precise change from a product of chains to a nonmodular lattice distinguish its enumeration from its order structure. The critical extra width retains distributivity by replacing the missing corners, and the independent optimization identifies the exact radius of highest concept count rather than just its growth rate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

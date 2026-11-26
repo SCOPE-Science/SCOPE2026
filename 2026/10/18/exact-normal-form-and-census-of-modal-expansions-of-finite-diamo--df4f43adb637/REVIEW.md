@@ -1,19 +1,21 @@
-# Review of the diamond-lattice modal-expansion census
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The claimed carrier is the \(n\)-atom diamond lattice \(M_n\) for every integer \(n\ge3\), with exactly the four kinds of equations in Bezhanishvili–Dmitrieva–de Groot–Moraschini Definition 4.10. The proof derives the meet-map alternatives from their bottom image, reduces the Dunn inequality to diagonal and cross-atom comparisons, and exhausts all pairs of bottom images. The five case contributions are mutually disjoint and sum to the displayed \(N_n\). The proof does not replace an infinite statement by finite evidence. The self-contained checker directly tests all modal equations on \(M_3\) and \(M_4\), giving \(574\) and \(5054\), and computes independent Burnside fixed-point counts yielding \(126\) and \(325\) isomorphism classes. The larger evaluations follow from the proved formula.
+PASS
 
-## Originality: PASS, with residual risks
+For z=Box(0), t=Diamond(0), the Dunn test at x=1 gives Box≤Diamond; together with monotonicity and top preservation, only cross-tests on distinct atoms are left. A meet map with z=1 is constant; with atomic z at most one atom can map to 1 and the rest map to z; with z=0 the nonzero images are an injective partial assignment of atoms, or one image 1 and the rest 0. For (z,t)=(1,1), (atomic,≥z), (0,1), (0,atomic), (0,0), the contributions are respectively 1, n(2n+1+2^n), P_n+n, n[(n+1)2^n+n²(n−1)+n], and (n+2)^n+2n^(n+1)+Q_n+n. In (0,atomic t), at most one exceptional Box image outside {0,t} is possible, and it forces all other Diamond atom-values to t; counting the optional extra image t gives the n²(n−1) term per t. With both bottoms zero, two or more active atomic images preclude top at an active Diamond value; inactive Diamond values may be zero or an unused atom, which gives Q_n. Rank one and the unique top-image cases have the separately stated counts. Thus the cases exhaust all maps without double counting. Re-evaluating the sums gives 574, 5054, 70834 and 1332432. Independent exhaustive Python 3 replay: /workspace/branches/6cdb05a3-2239-47e5-9be2-ac8dcf3d9a75/independent_check.py 3 (or 4). It checks all top-preserving maps against the defining tests and explicitly counts fixed pairs under conjugation. For n=3 the counts by cycle type (1³),(2,1),(3) are 574,52,13; for n=4 the counts for (1⁴),(2,1²),(2²),(3,1),(4) are 5054,316,86,62,16. Burnside gives 126 and 325. The uploaded script was inspected, not run. Only n=3,4 are exhaustively computed and only these have a claimed orbit count; the all-n case argument is necessary for the labelled formula.
 
-The claimed new object is *the exact normal form and its family-wide counting formula*, not the axioms of modal lattices or the duality that motivated them. A full-text comparison with [1] finds the definition, representation, completeness, and Sahlqvist results but no count or equivalent finite-diamond classification. Dmitrieva [2] works with stronger and different diamond axioms, including join- and bottom-preservation, and likewise develops duality rather than this count. Moraschini [3] addresses positive subreducts of Boolean modal algebras, hence distributive lattices, which cannot be the non-distributive family here. Searches for diamond/M-lattice aliases, Dunn normality, exact numbers and lattice expansion counts in published research records found no stronger theorem implying the claimed formula; the nearest records concern chains, Gödel algebras, and modal frames. The accessible earlier findings are distinct in carrier or operators. A potentially unindexed table or an unnoticed different normalization remains possible; search noncoverage is evidence with a limit, not a proof of uniqueness.
+## originality
 
-## Value: PASS
+PASS
 
-The family \(M_n\), beginning at the smallest non-distributive lattice at \(n=3\), is a canonical stress test for modal-lattice semantics beyond distributivity. An explicit five-case classification of all two-operator expansions across every width is mathematically more informative than a computed five-element example: it produces a formula with an unbounded parameter and exact orbit counts for the two smallest non-distributive widths. The formula discriminates the unrestricted top-preserving, merely monotone diamond semantics from the more restrictive join-preserving semantics of earlier work and provides reproducible finite examples of the newly studied class. The exact counts and normal form answer a natural classification question without presuming downstream theorems.
+The distinct contribution is the complete normal form and exact census of the fixed diamond carriers for the specified pair of operations. Existing axiomatics and duality are credited. Related indexed censuses on the same carrier use different operations or impose different axioms, and the closely matching Dunn census uses chains. This is a bounded comparison and not an exhaustive priority conclusion.
 
-## Closest literature and limits
+## value
 
-[1] N. Bezhanishvili, A. Dmitrieva, J. de Groot, and T. Moraschini, *Positive Modal Logic Beyond Distributivity*, arXiv:2204.13401, especially Definition 4.10, §§4.2–4.5. [2] A. Dmitrieva, *Positive Modal Logic Beyond Distributivity: Duality, Preservation and Completeness*, 2021, Definition 5.1.1. [3] T. Moraschini, *Varieties of Positive Modal Algebras and Structural Completeness*, 2019, arXiv:1908.01659. The initial publication date of [1] is 2022-04-28, not its later revision date. Enumeration of isomorphism classes is proved only for the widths explicitly checked, \(n=3,4\); the arbitrary-width result is the labelled count. Hidden alternative presentations and external independent mathematical checking remain residual risks.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The diamonds are a canonical first nondistributive test family for modal lattices. The complete classification explains how interaction constraints depend on the two bottom images, gives exact labelled counts for all widths, and supplies small isomorphism censuses useful for finite-model comparisons or verifier benchmarks. The contribution is not an isolated small instance or a new name for the known duality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

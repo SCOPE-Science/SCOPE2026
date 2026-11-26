@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact conditional variance identity in `RESULT.md` follows by conditioning only on refresh/copy decisions and using orthogonality of centered degree-two products of distinct independent fair signs. On a double-refresh event, the unique ordered time pair labels one character whose nonnegative multiplicity has square at least one. Summing these witnesses and applying total variance gives the finite-time constant \(\varepsilon^2/4\) without stationarity, mixing, or graph-size conditions. The source's explicit variance dichotomy and Theorem 2.7 apply to the same model and time-indexed statistic; the derived variance floor eliminates their logarithmic case and verifies their CLT's stated hypothesis. Independently checked 2,084 exact rational/Walsh instances using the supplied standalone verifier. Finite checks are not a proof of the general theorem.
+PASS
 
-## Originality — PASS, with historical-priority qualification
+Conditional on copy/refresh randomness, the nonconstant part of the count is half a sum of degree-two Rademacher characters with nonnegative multiplicities. Different unordered pairs are orthogonal, while double-refresh witnesses have unique pairs indexed by the smaller time and occur with probability epsilon^2. Total variance gives the claim; no infinite sum or stationarity is involved. At complete refresh the time-edge forest gives independent fair edge products, hence equality and the Bernoulli CLT. For 0<epsilon<1 the cited graph and time-zero initialization agree, and with T=L+d the cited sample mean is R_L/L. The bound excludes the O(log L) alternative and gives (log T)/T^2=o(Var(S_T)), exactly the unthinned theorem's premise. It also supplies the stated limiting variance floor. The corrected RESULT retains this proof; the frozen checker and recorded tests are corroboration only and were inspected, not executed.
 
-The closest primary paper [1] defines precisely this statistic and explicitly asks whether its variance can be sublinear; its Lemma 2.3 leaves an \(O(\log L)\) alternative and Theorem 2.7 assumes sufficient variance for the original statistic. The present quantified lower bound and nondegenerate-variance consequence cannot follow from those claims alone. Broader comparison with [2] and [3] concerns different observables or update frameworks, and no statement implying this lower bound was found in those accessible descriptions. Alternative harmonic-analysis or noisy Boolean dynamics terminology could conceal a precedent; priority is not certified.
+## originality
 
-## Value — PASS
+PASS
 
-This resolves a named uncertainty about the unmodified, local temporal statistic in a published research model. The lower bound is uniform over graph geometry, observation vertex, lag, finite observation length, and infinite locally finite graphs, and it strengthens an existing conditional central limit theorem into an unconditional, nondegenerate one. This is not merely a new estimate for a specially chosen graph or a renaming of the prior thinned-statistic result.
+The repaired claim credits the known qualitative results and claims only the stronger quantitative finite-time bound and its quantitative consequence. The strongest matching result has a factor epsilon^(Delta+4) and a length restriction and weakens as degree or lag grows; it does not imply epsilon^2 L/4 uniformly. The repaired proof conditions on the entire ancestry instead of protecting a sparse set of isolated refreshes.
 
-## Scientific boundaries
+## value
 
-The explicit coefficient need not be best for interior noise parameters; its equality is proved at complete refresh. The normal-limit inference relies on the cited published theorem. No conclusions are established for biased refresh or asynchronous dynamics. Independent mathematical validation and complete historical priority remain open.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+There is a natural need for a variance floor that is not exponentially small in the observation degree and does not deteriorate with lag. The new lower bound remains informative at every length, gives an explicit floor on limiting variance, and is attained at complete refresh. Its significance is quantitative, not priority for the qualitative CLT.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

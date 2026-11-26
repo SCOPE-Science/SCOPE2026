@@ -8,15 +8,15 @@ K_t=\operatorname{conv}\left\{\frac{e_i-e_j}{d_t(i,j)}:i\ne j\right\}\subset H.
 \]
 Write \(r_t\) for the radius of a largest Euclidean ball contained in \(K_t\), and \(\mathcal C_t\) for the set of its centers. Set \(\varphi=(1+\sqrt5)/2\).
 
-**Theorem.** For every \(1<t<2\),
+**Theorem (center locus).** For \(1\le t\le2\), \(\mathcal C_t=\{0\}\) unless \(t=\varphi\). At \(t=\varphi\), \(\mathcal C_t\) is an exact two-dimensional **regular decagon**, centered at zero in the cyclic Fourier-frequency-two plane \(W\subset H\). The radii used in this classification are
 \[
-r_t=\sqrt{\frac{5}{2(2t^2-2t+3)}}.
+r_t=\sqrt{\frac{5}{2(2t^2-2t+3)}}\qquad(1\le t\le2).
 \]
-If \(t\ne\varphi\), then \(\mathcal C_t=\{0\}\). If \(t=\varphi\), then \(r_t=1/\sqrt2\) and \(\mathcal C_t\) is an exact two-dimensional **regular decagon** centered at zero, lying in the cyclic Fourier-frequency-two plane \(W\subset H\). Its inradius within \(W\) is
+At \(t=\varphi\), \(r_t=1/\sqrt2\), and the decagon's inradius within \(W\) is
 \[
 h=\frac{1-\sqrt{(7-\sqrt5)/5}}{\sqrt{(7-3\sqrt5)/5}},
 \]
-and its circumradius is \(h/\cos(\pi/10)\). Its ten supporting lines come from precisely ten distinct projections of a twenty-facet symmetry family. Both boundary metrics have unique maximal-ball center \(0\); at \(t=1\) the maximal radius is \(\sqrt{5/6}\), and at \(t=2\) it is \(\sqrt{5/14}\).
+and its circumradius is \(h/\cos(\pi/10)\). Its ten supporting lines come from precisely ten distinct projections of a twenty-facet symmetry family. The endpoint radii are \(\sqrt{5/6}\) at \(t=1\) and \(\sqrt{5/14}\) at \(t=2\).
 
 For every \(1<t<2\), exactly ten facets touch the ball centered at zero. The dual Lipschitz polytope has seventy vertices forming five orbits of sizes \(10,10,10,20,20\) under cyclic rotations, reflections and negation. The seventy-vertex aggregate count is **not** claimed as new: it agrees with the previously known generic five-point Lipschitz-polytope count.
 
@@ -89,7 +89,11 @@ R<0.106;\quad \delta_A>0.06,\ \sqrt{Q_A}<0.391;\quad
 \]
 Indeed \(0.106\cdot0.391<0.06\), \(0.106\cdot1.024<0.22\), and \(0.106\cdot0.841<0.159\). Every point in the family-\(D\) decagon has norm at most \(R\), so Cauchy–Schwarz gives strict satisfaction of all \(A,C,E\) inequalities; the \(B\) inequalities hold as equalities. This proves that \(\mathcal C_\varphi\) is **exactly** the stated regular decagon, not merely a region containing such a decagon.
 
-**4. Endpoint metrics.** The same complete tree enumeration gives exactly thirty distinct polar vertices for each of \(t=1\) and \(t=2\). At \(t=1\), twenty balanced two-level potentials have squared Euclidean length \(6/5\); they span \(H\), and no vertex has larger length. At \(t=2\), twenty polar vertices have squared norm \(14/5\), again spanning \(H\), while the others are shorter. Averaging proves optimality of the centered ball, and the spanning property forces uniqueness of its center. The radii are the reciprocals of the respective maximal normal lengths.
+**4. Endpoint metrics.** At \(t=1\), the polar constraint is that the range of the potential is at most one. The active-edge graph is connected exactly for nonconstant two-level potentials with gap one. There are thirty such vertices: for \(k\) sites at the upper level, the squared centered norm is \(k(5-k)/5\). Ten vertices have squared norm \(4/5\) and twenty have squared norm \(6/5\).
+
+At \(t=2\), the diagonal constraints follow by summing two neighbor constraints. The polar is therefore linearly identified, by cyclic increments, with \([-1,1]^5\cap\{u:\sum_i u_i=0\}\). At a vertex at least four increments are saturated; all five cannot be saturated since five is odd. The four signs must split two and two, with the fifth increment zero. For any fixed location of that zero, the six sequences of signs are, up to negation, \(++--\), \(+-+-\), and \(+--+\). Their potentials, starting just after the zero increment and starting at value zero, are respectively \((0,1,2,1,0)\), \((0,1,0,1,0)\), and \((0,1,0,-1,0)\). The three squared norms \(14/5,6/5,2\) thus each occur ten times.
+
+At both endpoints the signed cyclic shifts of the family \(B\) representative are among the maximizers: their squared norm is \(q_B(t)\), and the determinant from Step 2 equals one at both endpoints. Thus the contacting normals span \(H\) at both endpoints. Symmetry proves optimality of the centered ball, and the spanning property forces uniqueness of its center. The radii are the reciprocals of the respective maximal normal lengths.
 
 ## Verification
 
@@ -98,6 +102,8 @@ Run \(`python3 pentagon_verify.py`\) from a directory containing the bundled sta
 ## Relationship to prior work
 
 Gordon and Petrov (2016 preprint, 2017 journal) proved a generic \((n+1)\)-site Lipschitz polytope has \(\binom{2n}{n}\) vertices. Their generic five-site total is therefore 70; the count alone is covered, and the present classification is used as a tool toward the different Euclidean-inball problem. D’Alì, Delucchi and Michałek (2019) examine symmetric edge polytopes and their connections to Lipschitz and Kantorovich–Rubinstein duality. Aliaga (2021) studies extreme points of Lipschitz-free balls over compact metric spaces. The specific exceptional parameter, complete locus of optimal Euclidean centers and its regular-decagon structure are not consequences of the cited general counting and extremality statements, and were not identified in the inspected relevant passages. The absence of a detected prior classification does not prove global bibliographic uniqueness.
+
+The November 8, 2026 Resultary record [*Sharp Lipschitz variance and Hilbert rank collapse in cyclic five-point metrics*](https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-sharp-lipschitz-variance-and-hilbert-rank-collapse-in-cyclic-fiv--0c0fc375b1fc/RESULT.md) treats the same metric. Its scalar result is equivalent to the radius and centered contact calculation: if \(S(t)\) is its sharp scalar variance, then \(5S(t)=\max_{v\in K_t^\circ}\|v\|^2=r_t^{-2}\), and its scalar maximizers are the longest polar normals. Its proof also gives the same five interior orbit sizes and squared norms (after rescaling). These are supporting facts here, not a distinct contribution relative to that record. Contact normals determine the subspace containing all optimal centers, but the scalar equality problem does not determine how the shorter normals cut that subspace. The center classification at \(\varphi\) addresses this remaining question; it is not the Hilbert-valued rank transition.
 
 ## Limitations
 

@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. Direct substitution into the source scalar direction cancels the Perry correction, the relaxed projection gives exactly \(x_{k+1}=y_k+\gamma\tau_kd_k\), and the raw MSM quotient reduces exactly to \(\gamma a\) for every nonterminal \(k\ge1\). The special \(k=0\) direction, clipping requirement, line-search assumptions, and stopping-tolerance boundary are all stated. The local capture inequality is analytic and is independently replayed.
+## correctness
 
-## Originality
-PASS. The primary ASPCGP source contains the relevant algorithmic ingredients but does not state the scalar cancellation, the exact state-independent slope lock, the curvature-free post-lock map, or the local two-step capture. The closest 2025 spectral-CG framework, 2023 Perry projection paper, and multiple-step-size antecedent use different update mechanisms and do not imply the claim. Targeted published-result searches found no implication-equivalent result.
+PASS
 
-## Value
-PASS. The result identifies the exact role of the new MSM parameter on a canonical invariant mode: after the Perry direction activates it estimates the scalar slope in one update, removes curvature from subsequent dynamics, and can trigger finite local capture. This separates the Perry and spectral mechanisms in a way not visible from the source's general convergence theorem.
+For the displayed specialization, the scalar orthogonal Perry correction is identically zero when E(y) is nonzero. With E(z) nonzero the projection multiplier times E(z) equals y-z, so zero inertia gives s=gamma*tau*d and p=a*s. The stated raw quotient simplifies to -Gamma*s/(tau*zeta*y)=gamma*a. A nonterminal k=1 update therefore first locks Gamma_2 under the strict retention condition; k=0 is not covered. In the locked map with first trial 1, 1<=zeta<=5/4<gamma; for y nonzero one can divide the sufficient acceptance inequality by the positive a*zeta*y^2*(1-zeta/gamma)/gamma. Since the right-hand minimum is at most nu*|E(z)|, it suffices that |y|<=gamma/(sigma*nu*zeta). The first unit update reduces |y| by at least a factor of four (or already hits zero) and resets zeta to 1, so another accepted unit update hits zero. The state recurrence, not the line search globally, is slope-free: outside the sufficient basin acceptance can still depend on a. My exact rational replay (branches/independent_small_replays.py perry) gives Gamma=28/15, states 1,-1/4,0 and nonzero trial points 3/28,-1/14. This checks the stated equations, not a reconstruction of the complete implementation. The PASS is for the stated mathematical specialization, with defined quotients and stopping caveat; the external primary text could not be independently transcribed, and no additional source guarantees are inferred.
 
-## Closest literature and limitations
-Closest literature is the ASPCGP paper itself, the related 2025 accelerated spectral CG projection method, the 2023 modified optimal Perry method, and the multiple-step-size optimization source. The result remains limited to scalar linear equations, strict clipping interiority, and the stated local unit-step regime.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinction is the exact scalar lock combined with a quantified two-unit-step basin for the specified Perry/MSM/relaxed-projection recurrence. Scalar Perry cancellation in isolation is immediate algebra and is not credited as an independent novelty. The accessible nearest algorithm and indexed neighboring result have materially different directions and no state identity or capture implication matching this claim. Limited by unavailable primary full text.
+
+## value
+
+PASS
+
+The scalar affine mode is a natural diagnostic for a spectral projection method. The lock separates the projected Perry correction from what the spectral loop does, and the explicit basin explains exactly when the unit trial switches the recurrence into finite capture. This gives a parameterized check that is stronger than merely observing descent on sample runs, without claiming a multivariate result or global finite termination.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

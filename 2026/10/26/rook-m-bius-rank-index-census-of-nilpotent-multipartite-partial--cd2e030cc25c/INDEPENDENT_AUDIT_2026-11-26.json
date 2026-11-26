@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:07:44.911890Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–51; VERIFICATION.md and verify.py inspected, not executed",
+        "Independent exhaustive metric-map tables: /workspace/branches/97296970-d316-4b45-b49b-6144486c8ebe/finite-enumeration.md"
+      ],
+      "rationale": "For k >= 3 and all part sizes positive, pairwise distance preservation is exactly preservation of the equivalence of belonging to the same part. This gives a unique partial injection of represented source parts, even for parts represented by one vertex. Nilpotence removes all vertex cycles; the longest chain in vertices is the index, including index 1 for the empty map. For fixed potential part action, the ordered color words enumerate directed labeled chains, isolated vertices included, and rank is the sum of their lengths minus one per chain. The multivariate exponential counts unordered collections of those chains on the fixed labeled parts. For an actual part action theta, the weight of all extensions sums to 1: write each mu as the signed sum over further extensions, then for each final extension the intermediate maps form a Boolean interval whose sum vanishes unless it equals theta. Differences in successive L therefore give the claimed joint polynomial. Under the stated restriction n_i >= 2 a longest chain repeats a part (two rounds over all parts are feasible). A repeat forces a periodic color word starting on its cycle, since a tail into a cycle would violate part-injectivity. If the smallest capacity on that cycle is s, at most s full rounds plus a prefix of larger parts are feasible; ordering all parts of size >= s with the larger ones first attains s c_s + c_(s+1). A spanning chain visits all parts with counts differing by at most one. Ordering the large and small blocks within the first period and then assigning labeled vertices gives exactly h!(k-h)! times the product of the part factorials, with no rotation factor because the chain has a distinguished start. Independent enumeration gave totals 835 and 3,089, maximum indices 6 and 7, and 48 maps of maximum index in each three-part test.",
+      "residual_risks": [
+        "The numerical enumeration is finite corroboration; the extension cancellation and periodic-color argument prove the general claims in their stated ranges."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General inverse-monoid theory supplies induced-subgraph isomorphisms and disjoint paths and cycles; the star-specific source investigates the structure and size of that monoid. The square-zero rank result treats all complete multipartite graphs but only index <= 2."
+        ],
+        "reasoning": "Path decomposition alone leaves the coupled matching constraint on source and target parts. Neither the general statements inspected nor the broader square-zero parameter range gives the higher-index extraction or the sharp unbalanced maximum.",
+        "searches": [
+          "Jajcay et al., arXiv:1809.04422, pp. 1 and 5",
+          "Fernandes–Paulista, arXiv:2203.05504, p. 1",
+          "Resultary: complete multipartite square-zero rank spectrum"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1809.04422",
+        "arXiv:2203.05504",
+        "The bipartite, square-zero, and balanced-clique findings in source_inspections"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Two-part chains can only stay in a part or alternate across parts when driven by a cyclic action, while higher part cycles are available for k >= 3. The spanning criterion only determines whether the longest chain can use every vertex."
+        ],
+        "reasoning": "The bipartite formulas and general chain decomposition do not automatically implement consistency of the shared partial injection between more than two parts. The rook-extension cancellation removes overcounting of potential actions, and the capacity profile specifies chain length even when index N is impossible. The equivalent later spanning theorem cannot supply those conclusions.",
+        "searches": [
+          "arXiv:1809.04422, path/cycle decomposition",
+          "SCOPE-alternating-chain-census-and-a-sharp-nilpotency-index-phase-tran--1f70b53c1c69, Finding and prior-work passage",
+          "SCOPE-balanced-clique-components-characterize-maximal-index-nilpotents--37b8143481db, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "On the complement (disjoint union of cliques), adjacency means same part. Partial graph isomorphisms there are the identical partial bijections, with the same rank and powers. The 2026/11/2 record explicitly transfers its index-N criterion and multiplicity to complete multipartite graphs."
+        ],
+        "reasoning": "This is exact statement overlap for the spanning case rather than a nearby graph class. The catalogue date is later than the assigned finding; it is not earlier coverage of the full census, nor proof of historical exclusivity for either record.",
+        "searches": [
+          "Resultary: multipartite nilpotents, maximal nilpotency index, and joint rank–index counts",
+          "SCOPE-balanced-clique-components-characterize-maximal-index-nilpotents--37b8143481db, Finding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The previous catalogue day gives a complete joint census on K_(a,b) for a,b >= 2. The distinct same-day square-zero record gives precisely the L <= 2 slice for multipartite graphs, not higher indices. No matching general table or polynomial surfaced in the targeted searches."
+        ],
+        "reasoning": "The matching bipartite coefficients are regressions, not new counts. The square-zero records overlap on their shared domain regardless of unknown intra-day order. Neither provides the joint census for the claimed k >= 3 and arbitrary index.",
+        "searches": [
+          "Resultary: full multipartite rank and nilpotency-index census",
+          "SCOPE-alternating-chain-census-and-a-sharp-nilpotency-index-phase-tran--1f70b53c1c69, Finding",
+          "SCOPE-the-complete-square-zero-rank-distribution-of-multipartite-parti--aab2f4eae4e5, Finding"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the all-index joint census for k >= 3 and the sharp maximum formula also in the unbalanced, nonspanning regime. The bipartite census and all-partite index-at-most-two slice are credited separately. The later catalogue result for disjoint unions of cliques explicitly covers the same spanning criterion and multiplicity after complementation; it does not cover the full distribution or the nonspanning maximum. No historical exclusivity is asserted for the spanning subresult.",
+      "residual_risks": [
+        "The primary comparison is bounded to the inspected sources and the catalogue searches. Equivalent counts in other colored partial-permutation terminology may exist; same-day catalogue evidence does not establish order."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Background coverage",
+          "evidence": [
+            "Partial graph automorphisms are induced-subgraph isomorphisms; partial permutations decompose uniquely into disjoint paths and cycles."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1809.04422",
+          "material_read": "p. 1 definition and p. 5 decomposition (offset about 18000)",
+          "method": "Bounded PDF inspection",
+          "title": "Inverse monoids of partial graph automorphisms",
+          "trigger": "General theory might imply the enumeration"
+        },
+        {
+          "assessment": "Different scope and invariants in inspected passages",
+          "evidence": [
+            "Star-specific structure, rank of the monoid, presentations, Green relations and cardinality."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2203.05504",
+          "material_read": "p. 1, offset 581, description and scope",
+          "method": "Bounded PDF inspection",
+          "title": "On the monoid of partial isometries of a finite star graph",
+          "trigger": "Related partial-isometry monoid"
+        },
+        {
+          "assessment": "Full overlap at k = 2 only",
+          "evidence": [
+            "Gives joint rank–index polynomial and extremal formulas for K_(a,b), a,b >= 2."
+          ],
+          "identifier_or_url": "SCOPE-alternating-chain-census-and-a-sharp-nilpotency-index-phase-tran--1f70b53c1c69",
+          "material_read": "Finding, offset 0, and prior-work passage, offset about 8160",
+          "method": "Local mirror inspection",
+          "title": "Alternating-chain census and a sharp nilpotency-index phase transition",
+          "trigger": "Complete joint census for the bipartite boundary"
+        },
+        {
+          "assessment": "Exact L <= 2 overlap; no intra-day priority claim",
+          "evidence": [
+            "Counts by rank the complete multipartite partial isometries satisfying f^2 = 0."
+          ],
+          "identifier_or_url": "SCOPE-the-complete-square-zero-rank-distribution-of-multipartite-parti--aab2f4eae4e5",
+          "material_read": "Finding, offset 0, and prior-work passage, offset about 6300",
+          "method": "Local mirror inspection",
+          "title": "Complete square-zero rank distribution of multipartite partial isometries",
+          "trigger": "Same-day exact rank enumeration on the same objects"
+        },
+        {
+          "assessment": "Exact spanning subresult in a later-dated record, not the full maximum or joint census",
+          "evidence": [
+            "Balanced component sizes characterize when index N is possible; the exact multiplicity is given and transferred to complete multipartite complements."
+          ],
+          "identifier_or_url": "SCOPE-balanced-clique-components-characterize-maximal-index-nilpotents--37b8143481db",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror inspection",
+          "title": "Balanced clique components characterize maximal-index nilpotents",
+          "trigger": "Potentially equivalent extremal theorem on complement graphs"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, joint polynomial and maximum-index proof",
+        "Independent three-part tables and the catalogue comparisons above"
+      ],
+      "rationale": "The joint invariant measures two natural and different aspects of the monoid: the domain size and the iteration time to zero. The part-action formula enumerates it without looping over all vertex partial injections, and the capacity formula gives a sharp answer even when imbalance prevents spanning. These are useful extensions beyond the already known two-part and square-zero boundaries rather than new presentations of those counts.",
+      "residual_risks": [
+        "The coefficient formula still sums over all partial injections of the parts. No uniform computational complexity improvement or result for arbitrary graph monoids is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

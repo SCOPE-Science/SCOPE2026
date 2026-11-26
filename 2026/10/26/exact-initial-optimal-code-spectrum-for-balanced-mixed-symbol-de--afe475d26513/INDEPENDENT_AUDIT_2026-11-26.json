@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:37:02.815688Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A balanced length-(n−2) subsequence of a balanced length-n source deletes exactly one symbol of each value; there is no multiplicity of an output as a constraint. Pairwise disjoint output shadows are therefore exactly the cliques of the compatibility graph. I inspected RESULT.md:30–48, VERIFICATION.md:19–25 and check.py:18–95,119–142, including the proper-color prefix bound and the exhaustive recursive partition by last chosen vertex. I independently built each output's source support by greedy subsequence matching, rather than deletion-position pairs, and ran exact integer-mask search on all five lengths and both channels. At n<=8 I branched on an output support: either use none of its available sources or use a unique one and remove its entire conflict neighborhood. A cover of candidates by fewer supports than the remaining target is a valid prune. At n=10 I used independent pairwise-conflict layers on a run-count-ordered source list and partitioned search nodes by the last selected vertex, rejecting only when remaining layers cannot meet the target. The complete mixed target search and target+1 exclusion at n=10 visited 600388 and 200216 nodes respectively; it replayed 666 distinct optima and no size-11 code. All lengths reproduced A=(1,2,2,6,10), M=(2,1,40,3,666), and orbit-size histograms for sizes 1/2/4 of (0,1,0),(1,0,0),(2,5,7),(1,1,0),(0,15,159). Taking the four reversal/complement images and checking their codebook membership gives the claimed orbit counts; the printed size-ten representative belongs to the independently found set. The arbitrary-deletion targets and one-higher exclusions also replayed exactly (1,1,2,4,8). The frozen replay path is check.py as documented in VERIFICATION.md in the record directory, not executed for this review; its mixed-only assertions do not check the arbitrary-deletion comparison or the specific printed representative. This audit's independent search did check both. No claim extends to n>10 or to an unbalanced source universe.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cullina et al. use common output subsequences and constant-weight induced source subgraphs of the ordinary deletion graph. Their introduction credits exact ordinary two-deletion maxima through length ten to Butenko et al.",
+          "Guruswami–Håstad address asymptotic unrestricted two-deletion constructions, not enumeration of all optimal conditional balanced codebooks."
+        ],
+        "reasoning": "The ordinary graph has at least the conditional conflicts, so even an exact ordinary optimum does not determine a relaxed-channel maximum or its number of optimizers. The opposite-symbol case of a decoder is not a stronger extremal theorem.",
+        "searches": [
+          "arXiv:1211.4056 §§I, II.B and III.A",
+          "arXiv:2007.10592 introduction and §§2, 5.1–5.4",
+          "DOI 10.1145/508791.508893"
+        ]
+      },
+      "checked_sources": [
+        "Resultary ranked results and exact records 1ea9a8cc0c80 and c1dc18cb3082",
+        "arXiv:1211.4056",
+        "Cullina et al. ISIT 2012",
+        "arXiv:2007.10592",
+        "DOI 10.1145/508791.508893 (bibliographic/secondary description only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The reviewed exact optimum already differs from the ordinary balanced two-deletion maximum at length four (2 versus 1) and from single-deletion maxima by length six (2 versus 5).",
+          "Published graph and decoder frameworks provide no matching clique/packing upper bounds and all-optima counts for the specific middle output layer in the inspected statements."
+        ],
+        "reasoning": "A graph model can be specialized mechanically, but evaluating its packing number and enumerating every optimum is further work. Neither adding/removing output layers nor using an asymptotic unrestricted code determines the resulting multiplicities or symmetry action.",
+        "searches": [
+          "arXiv:1211.4056 weight-partition graphs",
+          "arXiv:2007.10592 mixed-deletion decoding passages",
+          "Resultary 1ea9a8cc0c80 and c1dc18cb3082"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Common-subsequence confusability for unrestricted deletion does not restrict the common output to weight m−1; conditional confusability does.",
+          "Guruswami–Håstad explicitly handle opposite-symbol deletion in their decoding analysis, but construct codes for arbitrary strings and arbitrary two-deletion types."
+        ],
+        "reasoning": "The equivalent set-packing formulation uses only length-(2m−2), weight-(m−1) shadows. Ordinary two deletions add two other output layers where present. This is not a renaming of the ordinary balanced-source graph.",
+        "searches": [
+          "Resultary semantic lookup: balanced binary two deletions, one zero and one one, exact maxima/counts/orbits",
+          "arXiv:1211.4056 §§II.B and III.A",
+          "arXiv:2007.10592 §5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The ISIT prose and Table I caption concern ordinary two-deletion code sizes; the table cells were not read and are not offered as negative evidence.",
+          "The verified catalogue record 1ea9a8cc0c80 gives size 5, eight maxima and four size-two orbits for balanced n=6 under one deletion; c1dc18cb3082 gives Catalan maxima for one deletion through n=12."
+        ],
+        "reasoning": "The indexed single-deletion entries use outputs of length 2m−1, and their exact values at n=6 differ from the reviewed size 2 and forty maxima. Neither supplies the exact table at issue.",
+        "searches": [
+          "Resultary exact balanced deletion sizes and symmetry census",
+          "Cullina et al. ISIT 2012 §IV and Table I caption",
+          "Resultary 1ea9a8cc0c80 and c1dc18cb3082 Findings"
+        ]
+      },
+      "rationale": "The distinct result is the complete finite maximum-codebook and symmetry census for the conditional mixed-deletion channel on balanced inputs, together with its evaluated exact maxima. The graph formulation, unrestricted two-deletion studies and the mixed-symbol case analysis as a decoding mechanism are prior. No exact conditional census or dominating exact theorem supplying its values was found in the inspected passages and catalogue matches.",
+      "residual_risks": [
+        "The unavailable Butenko et al. primary and unindexed exact finite searches may contain additional calculations; their scope is not asserted beyond evidence read."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior ordinary-deletion framework, not the conditional census",
+          "evidence": [
+            "The graph uses any common length-(n−s) subsequence; subsequent weight-layer induction restricts sources, not the permitted deletion type."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1211.4056",
+          "material_read": "§I p. 2 (ordinary exact short codes), §II.B p. 3 offset 9600, §III.A p. 5 offsets 23866–24913",
+          "method": "Read OA primary PDF passages and compared source and output quantifiers",
+          "title": "Two Approaches to the Construction of Deletion Correcting Codes: Weight Partitioning and Optimal Colorings",
+          "trigger": "Exact finite work and graph reductions for deletion correction in weight layers"
+        },
+        {
+          "assessment": "Ordinary two-deletion construction comparison, not identified as conditional-layer enumeration",
+          "evidence": [
+            "Compares greedy maximal independent-set searches in ordinary two-deletion graphs with searches in their source-weight layers."
+          ],
+          "identifier_or_url": "https://www.sc.iitb.ac.in/~ankur/docs/isit-weight-final.pdf",
+          "material_read": "§IV p. 5, extracted offset 37183, accompanying prose and Table I caption; cells not exposed",
+          "method": "Read primary PDF extracted text and compare the graph definition and table scope",
+          "title": "A Coloring Approach to Constructing Deletion Correcting Codes from Constant Weight Subgraphs",
+          "trigger": "Potential exact short-length table"
+        },
+        {
+          "assessment": "Known mixed deletion mechanism within a broader construction; no matching exact finite extremal result identified",
+          "evidence": [
+            "The decoder handles deleting one symbol of each value as one of several cases of unrestricted two-deletion correction."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2007.10592",
+          "material_read": "Introduction and §2, PDF pp. 1, 4, offsets 0 and 13999; §§5.1–5.4 printed pp. 10–12, offset 39303 onward",
+          "method": "Read primary OA definitions and case analysis",
+          "title": "Explicit two-deletion codes with redundancy matching the existential bound",
+          "trigger": "Explicit opposite-symbol deletion case"
+        },
+        {
+          "assessment": "Different deletion channel",
+          "evidence": [
+            "Deletes one coordinate; gives size 5 and eight labeled maxima with four orbits of size two at balanced n=6."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-exact-middle-layer-single-deletion-codes-at-n-6--1ea9a8cc0c80/RESULT.md",
+          "material_read": "Finding and assumptions, offsets 0–1497",
+          "method": "Read indexed exact record through local mirror",
+          "title": "Exact middle-layer single-deletion codes at n=6",
+          "trigger": "Closest same-symmetry finite exact census"
+        },
+        {
+          "assessment": "Different channel and invariant values",
+          "evidence": [
+            "Uses length-(2m−1) single-deletion shadows and gives Catalan maxima through m=6."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-balanced-single-deletion-code-sizes-through-length-twelve--c1dc18cb3082/RESULT.md",
+          "material_read": "Finding and exact size table, offsets 0–1402",
+          "method": "Read indexed exact record through local mirror",
+          "title": "Exact balanced single-deletion code sizes through length twelve and the first fractional-packing gap",
+          "trigger": "Similar balance constraint, cutoff and exact-optimum table"
+        },
+        {
+          "assessment": "Unresolved detailed coverage, not evidence of absence",
+          "evidence": [
+            "Cullina et al. describe ordinary exact two-deletion code maxima through n=10."
+          ],
+          "identifier_or_url": "https://doi.org/10.1145/508791.508893",
+          "material_read": "Bibliographic identification and secondary description; primary full text not read",
+          "method": "Lawful primary-text retrieval attempted, without an available repository copy",
+          "title": "Finding Maximum Independent Sets in Graphs Arising from Coding Theory",
+          "trigger": "Exact short ordinary two-deletion computation cited by Cullina et al."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The conditional, balanced binary channel is a natural composition-constrained problem, and the initial range through 252 source words gives a reproducible exact benchmark. The gap from arbitrary deletion is explicit, the complete census records which optima are genuinely distinct up to natural symmetries, and a concrete length-ten optimum is provided. This motivates the precise finite slice without implying an asymptotic construction.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-## Reproduce the exact finite proof
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3.8 or later (no external dependencies). The checker directly constructs every obstruction modulus for \(x=2,\ldots,230\), removes only provably redundant multiples, checks all three-position CRT compatibility triples, and derives the two complete ordinate residue classes. The checker then directly tests the original divisibility definition for both six-point certificates. An additional small-range direct ordinate scan checks the representation on an independent route; that small scan is diagnostic only.
+## correctness
 
-Compile and execute `verify_independent.cpp` using `c++ -O2 -std=c++17 verify_independent.cpp -o verify_independent && ./verify_independent`. The separate implementation reconstructs all input moduli and checks the first-coordinate boundary and the exact two terminal compatibility triples; it also independently tests six-point invisibility.
+PASS
 
-The mathematical reduction in `RESULT.md`, not a program log alone, proves that these exhaustive finite checks cover *all* positive ordinates. The CRT argument and source code are entirely integer exact. Nothing beyond the two-by-three shape and the stated polynomial is certified.
+For each witness t<x the defining divisibility is equivalent to y being a multiple of P(x)/gcd(P(x),P(t)); removing divisible moduli preserves the union. For two abscissae, simultaneous multiples use their least common multiple, and pairwise compatibility of residue differences 1,1,2 is sufficient and necessary by the generalized CRT. Independently, python3 /workspace/reproductions/5.py (NumPy) marked the original t-witness multiples directly for all residues modulo lcm(P(x),P(x+1)), without antichains or CRT triples. It found no three consecutive simultaneously invisible ordinates, including wraparound, at any x=1 through 229. At x=230 the full period 6163080 gave exactly 759044 and 781724 plus 0,1,2,3 times 1540770; hence the smaller-period two-class classification for all positive y follows. The direct witnesses at the first corner and gcd(231,759046)=1 were also checked. This is lexicographic and the shape is two abscissae by three ordinates.
+
+## originality
+
+PASS
+
+Best-of-knowledge pass for the exact first 2-abscissa by 3-ordinate block and two complete boundary classes for the fixed polynomial. The strongest same-polynomial precedent gives a smaller square; the strongest first-occurrence table uses a different visibility relation.
+
+## value
+
+PASS
+
+This is a natural rectangular extension of the motivating same-polynomial square example and of classical first-occurrence studies. It answers a specific larger-block existence problem by giving a sharp, lexicographic boundary and the complete set of starting ordinates there. The all-ordinate exclusion is useful exact data under the genuinely different polynomial predicate; no large-size or density conclusion is needed to make that finite cutoff meaningful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

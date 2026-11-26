@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:46:52.799317Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 3–68",
+        "VERIFICATION.md; artifacts/verify.py lines 3–31 and recorded verification_output.txt, inspected without execution",
+        "DOI 10.4064/am2559-2-2026, bibliographic lookup only"
+      ],
+      "rationale": "For the coefficient and clipping rule stated in the frozen record, the first-step obstruction holds exactly. The first iterate is rx0 with r=1-aα0, and y0=aα0 d0. Hence d0ᵀy0=aα0||d0||²>0. Dividing the two strong-Wolfe conditions by their positive scalar factors gives |r|≤σ and aα0≤2(1-δ). The latter is automatic on the curvature interval because δ<σ<1/3. Conjugacy in one dimension would require d1=0 since y0≠0, giving β=-r. The CD coefficient is r². Using the NVHS* scalar specialization r(r-|r|)/(1-r) in the record, for positive r the target is negative and both endpoints are nonnegative. For r=-s<0, 0<s≤σ<1 and s²<2s²/(1+s)<s; the target is again strictly outside the hull. The affine weight of CD is (β_conj-β_NVHS*)/(β_CD-β_NVHS*) and reduces to -1/r in the understep and -1/s in the overstep. The denominator is nonzero in both cases; clipping selects NVHS*. The exact step r=0 gives a zero gradient and is excluded, so no division at r=0 is needed. The finite rational artifact independently documents what scalar formulas were tested but is not evidence for the universal quantifier or for paper attribution.",
+      "residual_risks": [
+        "The original 2026 equations and wording could not be independently verified in full text. The algebraic PASS uses the NVHS* scalar formula, convex combination and clipping as supplied in the frozen record; it does not certify their transcription from an inaccessible paper.",
+        "No conclusion about later iterations, actual line-search selection among admissible steps, or global convergence."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The accessible 2025 paper chooses a raw NPRP–DY blend from d_(k+1)ᵀy_k=0, explicitly notes it can lie outside [0,1], and clips.",
+          "The 2017 LS–CD reference shares CD but uses LS; lawful attempts did not retrieve readable passages on its endpoint behavior."
+        ],
+        "reasoning": "That a weight can leave the interval is broader conceptual precedent. It does not imply that this particular pair lies on the same side of its target at every admissible nonexact step or that clipping always selects this endpoint. No assertion about the exact LS–CD overstep calculation is based on inaccessible text.",
+        "searches": [
+          "Mehamdia–Bechouat–Chaib (2025), DOI 10.31926/BUT.MIF.2025.5.67.2.14, Eqs. (2.1)–(2.3) and algorithm steps 4–6",
+          "Djordjević (2017), DOI 10.2298/FIL1706813D"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 75–86",
+        "2025 NPRP–DY pp. 183–184",
+        "Resultary e6e6c15a040c and 45a8332d7e12",
+        "2026 NVHS*–CD and 2017 LS–CD, bibliographic checks and access attempts only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Clipping makes an out-of-interval raw weight pick an endpoint, but does not fix the sign of the weight. The strict overstep ordering depends specifically on the value 2s²/(1+s) between s² and s.",
+          "The 2026 bibliographic hit identifies the named NVHS*–CD hybrid; no full-text result or equation was verified there in this audit."
+        ],
+        "reasoning": "Known interpolation and clipping facts do not mechanically supply the strict two-case endpoint ordering and equal weight identity. The result concerns that scalar ordering, not a novelty claim for the clipping principle itself.",
+        "searches": [
+          "2025 NPRP–DY paper pp. 183–184",
+          "Mehamdia et al. (2026), DOI 10.4064/am2559-2-2026, retrieval attempts",
+          "Resultary e6e6c15a040c and 45a8332d7e12"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "By scaling the first step to r=1-aα0, the family depends only on the residual multiplier, not on a or x0. The conjugacy target can equivalently be stated as a zero next direction on a scalar nonterminal step.",
+          "Closest same-day CG catalog match 45a8332d7e12 addresses SRMIL/SMRMIL with exact line search and later directions."
+        ],
+        "reasoning": "A normalized one-dimensional or invariant-line equivalent with the same coefficients and inexact step would count as exact overlap. The inspected exact-line-search example concerns a different step, method and mechanism.",
+        "searches": [
+          "Local Resultary: NVHS*/CD, scalar quadratic, conjugacy and clipping",
+          "\"10.4064/am2559-2-2026\" NVHS CD convex combination conjugacy formula",
+          "\"Another hybrid conjugate gradient method as a convex combination of NVHS\" Mehamdia Chaib Bechouat Raouf full text PDF journal IMPAN accepted manuscript"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "e6e6c15a040c obtains a conjugacy defect when clipping a Rayleigh quotient in a P2GM_CM subspace projection.",
+          "45a8332d7e12 detects a later loss of conjugacy after two conjugate directions for different CG coefficients and exact line searches."
+        ],
+        "reasoning": "These are real precedents for simple conjugacy obstructions, but not exact coverage of the coefficient, regime, step and endpoint identity. The date shared with the second record establishes no priority ordering.",
+        "searches": [
+          "Resultary NVHS*/CD and conjugacy clipping; original findings e6e6c15a040c and 45a8332d7e12 in local mirror"
+        ]
+      },
+      "rationale": "A conjugacy-derived interpolation parameter leaving [0,1], subsequently clipped, is known in related hybrids and is not credited as new. The supported distinct finding is the strict all-nonexact-first-step convex-hull obstruction for the stated NVHS*–CD endpoints in the condition-one quadratic, including both under- and oversteps and the same clipped endpoint in both cases. The inspected close predecessor and catalog cases use different coefficient or clipping mechanisms; none of their actual statements supplies this obstruction by specialization. Access limits on the original 2026 paper and the 2017 LS–CD comparison remain explicit.",
+      "residual_risks": [
+        "The precise equations, wording and any scalar discussion in the 2026 full text remain unverified. An earlier equivalent scalar analysis is not ruled out by the bounded search.",
+        "No credit for inventing either interpolation from a conjugacy equation or its clipping."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material source-transcription risk, not affirmative prior coverage or disproof",
+          "evidence": "The named paper is the NVHS*–CD hybrid; no readable primary equation or algorithm passage obtained.",
+          "identifier_or_url": "https://doi.org/10.4064/am2559-2-2026",
+          "material_read": "Bibliographic/publisher identification only",
+          "method": "Lawful publisher/DOI paper and public-page routes, repository recovery and identified publisher publication route",
+          "title": "Another hybrid conjugate gradient method as a convex combination of NVHS* and CD methods",
+          "trigger": "Motivating method and its original coefficient/algorithm equations"
+        },
+        {
+          "assessment": "Clipping principle is antecedent, distinct endpoints",
+          "evidence": "NPRP–DY weight is derived by conjugacy, explicitly can leave [0,1], and is clipped.",
+          "identifier_or_url": "https://doi.org/10.31926/BUT.MIF.2025.5.67.2.14",
+          "material_read": "pp. 183–184, Eqs. (2.1)–(2.3), subsequent clipping and algorithm steps 4–6",
+          "method": "Open primary PDF passages",
+          "title": "A new hybrid conjugate gradient method as a convex combination methods",
+          "trigger": "Close conjugacy-derived clipped-weight precedent"
+        },
+        {
+          "assessment": "Shares CD but exact scalar comparison unresolved",
+          "evidence": "The title identifies LS as the other endpoint; no negative claim relies on unread equations.",
+          "identifier_or_url": "https://doi.org/10.2298/FIL1706813D",
+          "material_read": "Bibliographic identification only",
+          "method": "Lawful OA/DOI attempts, no readable full text",
+          "title": "New hybrid conjugate gradient method as a convex combination of LS and CD methods",
+          "trigger": "Closest cited CD blend with LS as the other endpoint"
+        },
+        {
+          "assessment": "Related obstruction, different algorithm and quantity clipped",
+          "evidence": "Clipping a Rayleigh quotient in a subspace projection gives an H-conjugacy defect.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-curvature-clipping-destroys-exact-conjugacy-in-p2gm-cm-with-an-e--e6e6c15a040c",
+          "material_read": "Mirrored RESULT.md opening finding",
+          "method": "Local Resultary search and mirror passage",
+          "title": "Curvature clipping destroys exact conjugacy in P2GM_CM",
+          "trigger": "Closest clipping-induced conjugacy failure in catalog"
+        },
+        {
+          "assessment": "Different coefficients, exact search and later update",
+          "evidence": "Earlier directions are conjugate in the stated setup; a subsequent one fails conjugacy.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-exact-third-direction-conjugacy-break-for-srmil-and-smrmil--45a8332d7e12",
+          "material_read": "Mirrored RESULT.md opening finding",
+          "method": "Local Resultary search and mirror passage",
+          "title": "Exact third-direction conjugacy break for SRMIL and SMRMIL",
+          "trigger": "Same-day exact conjugacy counterexample in a quadratic CG method"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 9–30, 41–68 and 80–81"
+      ],
+      "rationale": "A condition-one scalar quadratic is a baseline for a conjugacy-based update, not an ill-conditioned or exotic test. Under the stated blend, adjusting the weight cannot recover exact conjugacy on any nonterminal allowed first step, and clipping nullifies the hybrid on both sides of the line minimum. That universal local obstruction gives a substantive boundary on the method's design objective, without confusing that objective with descent or convergence.",
+      "residual_risks": [
+        "Does not show divergence or predict how often a concrete line-search implementation chooses a nonexact step. The application to the paper depends on the stated source transcription."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,159 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:35:21.736989Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md Finding, scope and proof",
+        "VERIFICATION.md and verify.py (inspected, not executed)",
+        "Independent inverse-branch, preimage interval, and recurrence derivation"
+      ],
+      "rationale": "Solving F(x)=y gives branches u(y)=y−y²/2 and 1−u(y), with absolute inverse derivative 1−y. The densities of the two preimages sum to 2, so the invariant density is 2(1−y), normalized on [0,1], and J has mass 1/4. Independently describe the sets directly in starting coordinates: for n≥1 the first n images miss J exactly when F(x)<u^(n−1)(1/2). On the decreasing right-hand branch this means x>1−u^n(1/2). Integrating the conditional density on this interval gives 4a_n², also valid at n=0. For example the first tail is 9/16; at x=1 the return is infinite, but that singleton has zero mass. The recurrence decreases to zero, and tail subtraction gives 4a_(n−1)^3−a_(n−1)^4. The identity a_n²=2(a_n−a_(n+1)) telescopes the mean to four; the reciprocal increments tend to 1/2, giving n a_n→2 and constants 16 and 32. The point-mass comparison with n^−3 gives the strict s<2 moment range, including the endpoint divergence and the trivial s=0 case.",
+      "residual_risks": [
+        "The recorded rational-grid and finite asymptotic run is only corroboration. The reconstruction is an all-index argument and does not entail mixing, spectral conclusions, or uniqueness of invariant probability."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The motivating expanding square-root family explicitly assumes 1<θ<2.",
+          "Coates–Luzzatto–Muhammad allow one or both fixed endpoints to be indifferent, but (A0) requires both full branches to preserve orientation and both endpoints to be fixed. Their result is an asymptotic for an induced base.",
+          "Oltiboev–Rakhimov–Ruziboev treat random cusp compositions with exponent strictly between −1 and −1/2."
+        ],
+        "reasoning": "A formal θ=0 substitution does not extend an expansion theorem. The present map has a decreasing right branch and sends the right endpoint to the left endpoint; the cited two-increasing-branch theorem does not cover it even in its one-indifferent-fixed-point regime.",
+        "searches": [
+          "arXiv:2610.23180v1 §3, Eqs. (3.1)–(3.2)",
+          "arXiv:2209.12725v2, (A0), (A1), §2 and Corollary 2.8",
+          "arXiv:2608.26969 full-PDF abstract"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.23180v1",
+        "arXiv:2209.12725v2",
+        "arXiv:2608.26969",
+        "Resultary 6361762d8fbd, c3eca75e005b, 5bf0f9ba5df4, fa18f62401f4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At θ=0 the minimum derivative in the formal cusp formula is 1 and expansion is lost.",
+          "The broad asymptotic result is for a separate conjugacy class and base; even a matching exponent would not specify exact n dependence.",
+          "Kac-type mean reasoning cannot specify the individual tails."
+        ],
+        "reasoning": "The exact inverse-threshold event and its conditional mass are the additional inputs. Neither a generic tail estimate nor the mean and the local recurrence scale alone yield this sequence or its normalization.",
+        "searches": [
+          "Oltiboev–Vafoyev §3",
+          "Coates–Luzzatto–Muhammad (A0), (A1), Eq. (19) and Corollary 2.8",
+          "Resultary same-family escape and equilibrium-measure comparisons"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Changing coordinate to z=2x−1 gives T(z)=1−2√|z| on [−1,1], conditional on z≥0 under density (1−z)/2. The relevant tail event corresponds to entry on the left of a threshold defined by an iterate of the quadratic inverse branch.",
+          "Resultary 6361762d8fbd treats the square-root family for 1<θ<2 and the maximal-entropy measure, not the conditional invariant measure at θ=0."
+        ],
+        "reasoning": "An exact equivalent must carry the starting half-interval, normalized measure and integer first-return event under the change of coordinates, not merely the exponent or presence of a singularity. Historical-name and density-oriented lookups did not resolve priority.",
+        "searches": [
+          "Resultary: critical square-root cusp at the parabolic boundary, first-return tails",
+          "Literature lookup: intermittent square-root cusp map/Hemmer/Lorenz aliases",
+          "Tent-like maps with triangular invariant density and quadratic inverse branches"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary c3eca75e005b concerns a small-hole escape law for expanding Bernoulli mixtures; 5bf0f9ba5df4 concerns a modified random interval map with tail exponent 1/2; fa18f62401f4 gives parabolic survival for a toral map with exponent 1.",
+          "Corollary 2.8 states a C_τ t^(−1/β) asymptotic, not an exact discrete law."
+        ],
+        "reasoning": "No natural count-table database is indicated for this deterministic functional law. Indexed exact return/escape formulas were compared as the relevant analogue; neither the maps nor the conditionings agree.",
+        "searches": [
+          "Resultary exact first-return, renewal, parabolic survival and boundary escape lookups",
+          "Coates–Luzzatto–Muhammad Corollary 2.8 and the definition of its inducing base"
+        ]
+      },
+      "rationale": "Credit the source family, standard inducing estimates and recurrence analysis as prior methods. The verified distinct claim is the full measure-specific positive-integer return law at the neutral endpoint, with its exact normalization and tail factors. The strongest inspected family results exclude this endpoint, and the closest broad inducing theorem has structurally incompatible branch hypotheses. No priority claim is made for the normalized cusp map itself, its elementary invariant-density calculation in isolation, or the general phenomenon of polynomial return tails.",
+      "residual_risks": [
+        "Historical literature may use the conjugate map T(z)=1−2√|z| or a different name; the focused external searches supplied no decisive historical match. This is a bounded evidential decision, not a declaration of first discovery."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Formal parameter extrapolation only; the paper's theorem is in expanding regime",
+          "evidence": "1<θ<2; minimum branch derivative 1+θ/2.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.23180v1",
+          "material_read": "§3, Eqs. (3.1)–(3.2), PDF p. 3, text offsets 8300–11809",
+          "method": "Bounded OA primary PDF inspection",
+          "title": "Critical cusp cancellation and analytic response for a Bernoulli random interval map",
+          "trigger": "Same square-root formula"
+        },
+        {
+          "assessment": "Relevant but branch orientation, fixed endpoints and base differ",
+          "evidence": "(A0) requires two orientation-preserving branches and fixed endpoints; (A1) permits one indifferent endpoint; Corollary 2.8 states the induced power-law asymptotic.",
+          "identifier_or_url": "https://arxiv.org/abs/2209.12725v2",
+          "material_read": "PDF p. 2 (A0)–(A1); Eq. (19), PDF p. 10; Proposition 2.6 and Corollary 2.8, PDF pp. 12–13",
+          "method": "Bounded OA primary PDF inspection at assumptions and tail statements",
+          "title": "Doubly Intermittent Full Branch Maps with Critical Points and Singularities",
+          "trigger": "General first-return asymptotics for intermittent cusp maps"
+        },
+        {
+          "assessment": "Scope differs; no whole-document absence inference",
+          "evidence": "Random compositions and −1<β<−1/2 in the abstract; subject is stationary densities and response.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.26969",
+          "material_read": "Retrieved PDF; abstract on p. 1 inspected for the parameter range and target theorem",
+          "method": "Lawful OA acquisition and bounded primary passage check",
+          "title": "Linear response for random systems with a cusp",
+          "trigger": "Related cusp-family paper listed as only abstract-accessible in the frozen record"
+        },
+        {
+          "assessment": "Different parameter regime, measure and observable; date is not priority evidence",
+          "evidence": "Local dimensions of the maximal-entropy measure for 1<θ<2.",
+          "identifier_or_url": "2026/10/26/SCOPE-exact-local-dimension-splitting-and-dense-infinite-slopes-for-a--6361762d8fbd",
+          "material_read": "Original Finding and scope, mirror offset 0",
+          "method": "Local Resultary mirror inspection",
+          "title": "Exact local-dimension splitting and dense infinite slopes",
+          "trigger": "Same-day closest square-root family overlap"
+        },
+        {
+          "assessment": "Small-hole limit of expanding mixtures, not the deterministic first-return sequence",
+          "evidence": "Parameters 1<θ_0<θ_1<2 and escape rate of order ε².",
+          "identifier_or_url": "2026/11/2/SCOPE-quadratic-dual-end-escape-and-an-inverse-square-law-in-critical--c3eca75e005b",
+          "material_read": "Original Finding, mirror offset 0",
+          "method": "Local Resultary mirror inspection",
+          "title": "Quadratic dual-end escape and an inverse-square law",
+          "trigger": "Closest indexed family/escape comparison"
+        },
+        {
+          "assessment": "Different random map and conditioning",
+          "evidence": "Modified Boyarsky–Góra–Islam system with tail 4/(3√π) times n^(−1/2).",
+          "identifier_or_url": "2026/11/8/SCOPE-an-exact-oriented-renewal-kernel-for-the-critical-random-interva--5bf0f9ba5df4",
+          "material_read": "Original Finding, mirror offset 0",
+          "method": "Local Resultary mirror inspection",
+          "title": "An exact oriented renewal kernel for the critical random interval map",
+          "trigger": "Indexed exact return law"
+        },
+        {
+          "assessment": "Different toral dynamics and survival exponent",
+          "evidence": "Neutral-branch survival asymptotic 1/(4n).",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-parabolic-branch-survival-laws-for-the-orthogonal-tents-to--fa18f62401f4",
+          "material_read": "Original Finding, mirror offset 0",
+          "method": "Local Resultary mirror inspection",
+          "title": "Exact parabolic-branch survival laws",
+          "trigger": "Indexed exact parabolic survival comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen return law and definition of J",
+        "Oltiboev–Vafoyev §3",
+        "Coates–Luzzatto–Muhammad inducing comparison"
+      ],
+      "rationale": "This is the neutral continuation of a specified expanding cusp family, and the natural complementary half-interval isolates excursions through the neutral branch. The exact first-return distribution gives finite-time probabilities and a concrete normalized renewal-law input; the critical moment and constants show what changes at the boundary. The interest is not merely substitution of θ=0 or a familiar tail exponent: it is the all-index conditional law with exact measures of the return cylinders.",
+      "residual_risks": [
+        "The result does not determine temporal dependence of successive excursions or imply a new limit theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

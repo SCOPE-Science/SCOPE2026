@@ -1,0 +1,151 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:46:32.527396Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the intrinsic circle of circumference 2pi, even Fourier integration gives F_n=a(1-(-1)^n exp(-pi*a))/(a^2+n^2)>0 and coefficient (F_n-b F'_n)/pi. Separately in each parity class F'_n/F_n strictly increases; the even limit is the unattained global supremum. The difference between the least odd and even values is 2/[a(a^2+1)]-pi/sinh(pi*a)>0 by the cubic lower bound for sinh and pi^2>3. Thus the lower bound is the reciprocal of the negative zero-mode derivative ratio and the upper bound is the reciprocal of the positive even limit. Strict positivity at the lower endpoint follows because an atomic measure with no nonzero Fourier modes would equal a multiple of Haar measure; for distinct sites this forces every weight to vanish. The even coefficients at the upper endpoint have a positive (a^2+n^2)^-2 tail; negativity outside is detected by mode zero or sufficiently large even modes, respectively. Taylor expansion and the difference a-b_+ give the stated limits and deficit. Fresh bounded replay: python3 /workspace/review_replay.py circle; direct 45-digit quadrature at a=.002,.4,1,1.7 and an independent 256-site circulant at a=1 confirmed selected endpoint and exterior signs, not the all-mode statement. At a=1 it reproduced endpoints -1.1653548145454739 and .87573937173774468. This is not a result for chordal distance or a periodized Euclidean Matérn.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Schoenberg/Fourier characterization is classical (circle formulas (13)–(14) as presented by Gneiting). Feragen–Lauze–Hauberg covers the exponential baseline via negative type. No broader inspected theorem calculates the extrema for the affine family."
+        ],
+        "reasoning": "A general Fourier sign test requires evaluating and separating every mode; neither a guarantee at b=0 nor a necessary endpoint derivative sign proves sufficiency across the signed interval.",
+        "searches": [
+          "arXiv:1111.7077 Theorem 1",
+          "arXiv:1411.0296 Theorem 4",
+          "doi:10.2307/1968654",
+          "doi:10.1016/S0167-7152(98)00042-X",
+          "doi:10.1080/01621459.2015.1072541"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and checker.py (read, not executed)",
+        "Resultary signed circle covariance records",
+        "arXiv:1111.7077",
+        "arXiv:1411.0296",
+        "arXiv:2201.12856",
+        "doi:10.2307/1968654",
+        "doi:10.1016/S0167-7152(98)00042-X",
+        "doi:10.1080/01621459.2015.1072541"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Cosine modulation shifts Fourier indices by ±1, whereas multiplication by theta on the half arc equals differentiation of the Laplace baseline with a minus sign. The latter produces a zero-mode obstruction and an unattained high-even-frequency obstruction. Example 2 classifies the uncorrected Matérn profile, not b varied independently."
+        ],
+        "reasoning": "There is no specialization of the inspected harmonic condition that yields the signed affine interval. Knowing positivity coefficient-by-coefficient in principle does not identify which modes control the full interval.",
+        "searches": [
+          "Geodesic circle modulation record 2026/10/25, Finding and comparison",
+          "Gneiting Example 2 eq. (36)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Circular Matérn (Huang–Li) is defined spectrally with weights proportional to [kappa^2+(2pi k)^2]^-alpha, not e^(-a theta)(1+b theta). Gneiting uses shortest-arc distance and already excludes b=a at Matérn smoothness 3/2."
+        ],
+        "reasoning": "A spectral or periodized Matérn is not an equivalent normalization of the intrinsic profile; the known exclusion at b=a does not locate the last admissible b.",
+        "searches": [
+          "Resultary: geodesic circle signed affine Laplace Matérn covariance threshold",
+          "arXiv:1111.7077 Theorem 1 and Example 2",
+          "arXiv:2201.12856 Section 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest readable match gives a cutoff and exact active-mode staircase for cos(theta) modulation. A later indexed cos(2 theta) summary also reports a signed region; exact full text was not obtained. The compared records do not give the affine-distance endpoints."
+        ],
+        "reasoning": "The target is a continuous parametric inequality, so no particular scalar in a table could resolve the family. The exact mathematical-record comparison is relevant and distinguishes the modulating functions. The unavailable item is not negative evidence.",
+        "searches": [
+          "Resultary: sharp circle covariance modulation threshold",
+          "Resultary: geodesic exponential covariance every mode staircase"
+        ]
+      },
+      "rationale": "Best of current evidence: the specific interval with its two different endpoint mechanisms and sharp deficit is distinct. The general Fourier characterization, the uncorrected exponential kernel and the failure of the uncorrected geodesic Matérn-3/2 profile are prior and receive no novelty credit. The closest indexed prior modulation uses cos(theta), not theta; neither its spectral inequalities nor the general positivity theorem supplies the required all-mode extremal derivative comparison.",
+      "residual_risks": [
+        "The older circle-validity and great-circle covariance papers were not available as usable full text in the checked routes. An unindexed general parametric family could imply the exact bounds. The literature and catalogue comparisons are bounded, not a priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related exact classification, different modulation and active constraints",
+          "evidence": "For e^(-a theta)(1+b cos(theta)), gives b>=-B(a), finite active candidates and strictness, not the affine two-sided interval.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-sharp-circle-covariance-modulation-threshold-and-an-unbounded-fo--3df14ed06eed/RESULT.md",
+          "material_read": "Finding offsets 0–3121; comparison/limitations 7900–10573",
+          "method": "Indexed local mirror, bounded reads",
+          "title": "Sharp circle covariance modulation threshold and an unbounded Fourier staircase",
+          "trigger": "Closest earlier exact signed modulation on same circle with same baseline"
+        },
+        {
+          "assessment": "Limited comparison; not used for negative evidence",
+          "evidence": "Summary describes cos(2 theta), not theta.",
+          "identifier_or_url": "2026/11/16/SCOPE-exact-every-mode-staircase-for-even-harmonic-geodesic-exponentia--027cc81ac50f",
+          "material_read": "Index summary; local-mirror passage did not return",
+          "method": "Indexed lookup and local-mirror retrieval attempt",
+          "title": "Exact every-mode staircase for even-harmonic geodesic exponential modulation",
+          "trigger": "Similar signed harmonic family"
+        },
+        {
+          "assessment": "Covers the general criterion and original Matérn failure, not the signed free coefficient classification in those passages",
+          "evidence": "Matérn nu>1/2 is not in Psi_1; circle class has nonnegative cosine coefficients.",
+          "identifier_or_url": "https://arxiv.org/abs/1111.7077",
+          "material_read": "Theorem 1 pp. 7–8, formulas (13)–(14); Example 2 pp. 19–20, formula (36)",
+          "method": "OA primary text",
+          "title": "Strictly and non-strictly positive definite functions on spheres",
+          "trigger": "Circle Fourier criterion and geodesic Matérn exclusion"
+        },
+        {
+          "assessment": "Handles the baseline b=0, not the affine multiplier",
+          "evidence": "Positive definiteness of exp(-lambda d) for every lambda>0 corresponds to conditional negative definiteness of d.",
+          "identifier_or_url": "https://arxiv.org/abs/1411.0296",
+          "material_read": "Theorem 4 p. 4",
+          "method": "OA primary text",
+          "title": "Geodesic Exponential Kernels: When Curvature and Linearity Conflict",
+          "trigger": "Exponential of intrinsic distance"
+        },
+        {
+          "assessment": "Different operator construction and coefficient family",
+          "evidence": "SPDE covariance has positive spectral weights and is explicitly distinguished from the intrinsic geodesic Matérn.",
+          "identifier_or_url": "https://arxiv.org/abs/2201.12856",
+          "material_read": "Section 2 pp. 3–5, especially equation (5)",
+          "method": "OA primary text",
+          "title": "The Circular Matérn Covariance Function and its Link to Markov Random Fields on the Circle",
+          "trigger": "A plausible equivalent circular Matérn formulation"
+        },
+        {
+          "assessment": "Established background criterion, not independent full-text inspection",
+          "evidence": "Gneiting presents the circle Fourier specialization of the characterization.",
+          "identifier_or_url": "https://doi.org/10.2307/1968654",
+          "material_read": "Landing page; theorem summarized in Gneiting Theorem 1",
+          "method": "DOI retrieval and accessible modern statement",
+          "title": "Positive definite functions on spheres",
+          "trigger": "Historical characterization used in the proof"
+        },
+        {
+          "assessment": "Full-text comparison unresolved",
+          "evidence": "Abstract-level scope is necessary and sufficient tests on the circle, not an inspected affine-exponential theorem.",
+          "identifier_or_url": "https://doi.org/10.1016/S0167-7152(98)00042-X",
+          "material_read": "Landing/abstract only",
+          "method": "DOI lookup",
+          "title": "Simple tests for the validity of correlation function models on the circle",
+          "trigger": "General validity tests might include affine-exponential profiles"
+        },
+        {
+          "assessment": "Full-text comparison unresolved",
+          "evidence": "Indexed comparison identifies sphere-based covariance models; no claim from unread passages is used.",
+          "identifier_or_url": "https://doi.org/10.1080/01621459.2015.1072541",
+          "material_read": "Citation/scope only, no usable primary text",
+          "method": "DOI and repository-copy checks",
+          "title": "Spatio-Temporal Covariance and Cross-Covariance Functions of the Great Circle Distance on a Sphere",
+          "trigger": "Related great-circle exponential baselines"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The affine term is a motivated correction to a standard invalid intrinsic covariance; the interval gives an exact design rule for every range parameter. The signed lower boundary and strict finite-site positivity despite losing the mean mode are useful distinctions not provided by the known Matérn exclusion. The exact exponentially small short-range deficit and fourth-order even-mode tail also explain why a finite spectral scan may miss failure.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

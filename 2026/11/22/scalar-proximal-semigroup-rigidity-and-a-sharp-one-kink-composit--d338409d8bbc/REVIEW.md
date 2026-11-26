@@ -1,20 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For each differentiability point \(z\) of the finite convex function with \(p=f'(z)
-e0\), the exact semigroup identity at \(x=z+(s+t)p\) gives \(p\in\partial f(z+sp)\) for all \(s>0\). This forces every positive slope to persist on the whole right ray, and every negative slope on the left ray. Monotonicity of scalar subgradients then yields only a negative affine ray, a possibly degenerate zero-slope interval, and a positive affine ray, or one globally affine slope. Conversely, direct clipped-translation formulas prove the identity for all permitted penalties, including zero coefficients and time zero. An independent branchwise computation of the kink proximal map establishes the signed and absolute defects; the sharp witnesses are \(x=tb\) for strictly positive slopes and \(x=ta\) for strictly negative slopes. All parameter quantifiers and boundary cases are included. The standalone standard-library verifier supplied with the result passed 16,529 exact-rational checks; these finite checks are supplementary.
+PASS
 
-## Originality — PASS, qualified
+For t>0 use x−z∈t∂f(z). At any differentiability point z of nonzero slope p, set x=z+(s+t)p; exact composition and the singleton ∂f(z) force the intermediate point to be z+sp. Inner-step optimality then gives p∈∂f(z+sp) for every s>0. Subgradient inequalities at two points on that ray show f is affine there; derivative monotonicity and local absolute continuity yield only a constant negative ray, a possible flat interval, and a constant positive ray, with missing rays allowed. This also handles nonattainment: the no-flat, one-signed case on the full line is affine. The outward hinge form gives clipped translations with total time s+t; affine functions give translations everywhere. For positive kink slopes the composite minus direct map is −min(sa,x−ta) on [ta,tb] and −min(tb+sa−x,t(b−a)) on [tb,tb+sa], and zero elsewhere. These formulas agree at tb and yield the sharp error there. Reflection handles both negative slopes and x=ta, and the zero-containing subgradient case is a minimizer hinge with zero error. Zero times and equal slopes give zero directly. Inspected the frozen supporting files; the loop count is (325)(16)(2)+(9)(6)(16)(7)+(3)(9)(3)=16,529, matching the reported count, not a new execution. Exact grid tests are only corroboration; the arbitrary finite convex proof is analytic.
 
-Relevant literature comparisons focus on implication, not title. Bungert–Burger–Chambolle–Novaga (arXiv:1901.06979, Section 4.2, Theorem 4.5) provide sufficient one-homogeneous gradient-flow/variational equivalence conditions; the scalar theorem here is a necessary-and-sufficient classification over all finite convex functions without a homogeneity hypothesis. Planiden–Wang (arXiv:1909.05795, Corollary 4.11) describe proximal operators of piecewise cubic scalar functions but do not identify the exact all-time semigroup subclass or an optimized one-kink composition defect in the materially inspected sections. Combettes (arXiv:2209.06200, introduction) concerns a linear-map-based proximal-composition operation, distinct from step-parameter addition. These comparisons support an original formulation and derivation within the examined material. Historical priority is not certified: an equivalent older scalar monotone-resolvent classification might exist under unfamiliar indexing, and limited inspection of some sources cannot exclude every appendix or unstated corollary.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The exact time-additivity issue determines whether sequential quadratic proximal regularization and a single combined regularization have identical trajectories. The full scalar convex classification isolates the only admissible functional geometry, and the sharp nonminimizing-kink defect measures precisely how failure arises even for a basic two-slope nonsmooth convex loss. This is a structural boundary with a measurable obstruction, not a routine perturbation of a previously tabulated coefficient. Its limits are scalar and finite-valued.
+Standard subdifferential resolvents, scalar piecewise proximal formulas, and one-homogeneous settings overlap in ingredients and special cases. The inspected sources do not supply the all-finite-scalar necessity or the explicit sharp two-time kink envelope.
 
-## Verification and limits
+## value
 
-The complete proof and piecewise formulas appear in RESULT.md. `verify_scalar_prox.py` can be run with Python 3 and no dependencies; a successful replay reports 16,529 exact-rational checks. Exhaustive mathematical quantifiers are established in the proof, not by enumeration. The checked source sections and historical-priority risks are identified above and in AUDIT.json.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Gives a complete scalar classification at a natural boundary between an implicit time step and an exact flow, with no smoothness or attainment hypothesis, and a sharp input-uniform obstruction at the first nonminimizing kink. This identifies precisely when a nonlinear time discretization is exact, rather than only testing families of examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

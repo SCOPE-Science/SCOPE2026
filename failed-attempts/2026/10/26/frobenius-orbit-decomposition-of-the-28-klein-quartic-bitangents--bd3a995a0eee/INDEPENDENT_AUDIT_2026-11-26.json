@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:01:16.416389Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 9–52",
+        "Frozen VERIFICATION.md and klein_bitangent_verify.py",
+        "/workspace/branches/review_replay.py (argument 5)"
+      ],
+      "rationale": "The partial derivatives cannot vanish together in characteristic 5; in the all-nonzero case their product would force 28=0. Of the lines through [0:0:1], only X=0 is tangent there and its contact multiplicity is 3, so the chart Z=uX+vY contains every bitangent. For u=0 the nonzero X^3Y coefficient rules out a square. For u≠0, matching the leading three coefficients of a quadratic square gives precisely the two equations in RESULT.md. An independent check sets z=u²v: the equations reduce over F5 to z⁴−z³−3z²+1=0 and u⁷=2(z³−4z−1). The z-polynomial is (z+1)(z³−2z²−z+1), with irreducible cubic and no root at which the right side vanishes. For z=−1 there is one rational seventh root and one orbit of six, since 5 has order six modulo 7. For each of the three z-roots of degree three, the power map is bijective on F125*, giving one u in F125 and six others in F_(5^6) (which contains the seventh roots of unity). The latter have exact degree six: their z has degree three, and they are not in F125. Thus those three z-roots contribute one 3-cycle and three 6-cycles. v=z/u² recovers each line, and u=v=−1 gives the rational line. This proves the orbit lengths, counts over every extension, and minimal common field without relying on the classical 28-count to establish completeness. Independent exact replay: `python3 /workspace/branches/review_replay.py 5` also computed the monic eliminant by a degree-four norm and matched all six displayed factors. The frozen script was inspected, not run.",
+      "residual_risks": [
+        "No formal verification claimed; conclusion concerns the literal plane model over F5 and geometric lines, not the contact-point fields or twists."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "For the literal model and odd p≠7, the p≡3,5 mod 7 row gives 1^1 3^1 6^4 and common field F_(p^6)."
+        ],
+        "reasoning": "p=5 meets the hypotheses exactly. Arithmetic versus geometric Frobenius only inverts the permutation, which does not affect these lengths.",
+        "searches": [
+          "Resultary record 332d2be7d5dd, Finding and Assumptions and scope"
+        ]
+      },
+      "checked_sources": [
+        "Resultary mirror records 79484edb8cd9 and 332d2be7d5dd, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+        "Bethea–Brazelton arXiv:2410.09242 §4.1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Bethea–Brazelton gives complex transitivity on the 28 lines with stabilizer S3, not arithmetic Frobenius. The exact characteristic-five locus does determine Frobenius by the irreducible factor degrees, and the general cyclotomic table directly supplies the orbit partition."
+        ],
+        "reasoning": "Complex symmetry and a known rational line alone do not imply the cycle type, but the exact arithmetic comparisons do; no historical-priority judgment is needed for this coverage decision.",
+        "searches": [
+          "Bethea–Brazelton arXiv:2410.09242 §4.1",
+          "Elkies, The Klein Quartic in Number Theory, Harvard repository, author-site and MSRI copy attempts",
+          "Resultary 79484edb8cd9 and 332d2be7d5dd"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact locus is b=a^26, a^28−a^21+2a^14+2a^7+1=0 in its normalized chart Z=−aX−bY, i.e. (u,v)=(−a,−b)."
+        ],
+        "reasoning": "Changing both signs is F5-defined and preserves Frobenius. The same quartic and same doubled-divisor definition are used; this is not an overlap between different twists.",
+        "searches": [
+          "Resultary: characteristic-5 Klein quartic bitangent Frobenius orbits, Galois/splitting fields and explicit coordinates",
+          "Resultary record 79484edb8cd9, Finding and Proof §§1–2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The first record explicitly lists 1,3,6,6,6,6, the same extension point counts, the unique line X+Y+Z=0 and the minimal common field F_(5^6). The second gives the covering residue-class row."
+        ],
+        "reasoning": "The primary arithmetic invariant and its stated corollaries are already represented verbatim in substance.",
+        "searches": [
+          "Resultary records 79484edb8cd9 and 332d2be7d5dd, factor degrees, fixed-point formula and Frobenius table"
+        ]
+      },
+      "rationale": "The exact finding is covered in the inspected corpus by a distinct exact characteristic-five computation and by an all-prime cyclotomic classification. Both are indexed under a date later than the frozen record's label; this is demonstrated coverage, not an assertion that either was historically first or that the frozen proof was derived from them. The known-overlap decision does not depend on inability to retrieve Elkies's chapter.",
+      "residual_risks": [
+        "Publication priority is not established. The exact scope of older primary accounts such as Elkies is not resolved; neither uncertainty changes the observed exact coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage",
+          "evidence": "Graph parametrization, factor degrees 1,3,6,6,6,6, fixed-point counts, unique line and minimal common field.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-arithmetic-bitangents-of-the-klein-quartic-in-characteristic-fiv--79484edb8cd9/RESULT.md",
+          "material_read": "Finding, assumptions, proof sections 1–2 at character offset 437",
+          "method": "Local mirror passage inspection",
+          "title": "Arithmetic bitangents of the Klein quartic in characteristic five",
+          "trigger": "Exact same model, characteristic and invariant"
+        },
+        {
+          "assessment": "Broader coverage",
+          "evidence": "p≡3,5 mod 7 row, literal model and reduced geometric bitangent locus; includes characteristic five.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-cyclotomic-frobenius-classification-of-the-klein-quartic-bitange--332d2be7d5dd/RESULT.md",
+          "material_read": "Finding and scope at character offset 264",
+          "method": "Local mirror passage inspection",
+          "title": "Cyclotomic Frobenius classification of the Klein quartic bitangents",
+          "trigger": "General arithmetic classification of the same model"
+        },
+        {
+          "assessment": "Geometric comparison, not the arithmetic assertion in the inspected section",
+          "evidence": "Transitive complex projective automorphism action; stabilizer S3.",
+          "identifier_or_url": "https://arxiv.org/pdf/2410.09242",
+          "material_read": "§4.1, pp. 9–10, text offset 32864",
+          "method": "Open primary PDF, targeted section",
+          "title": "Bitangents to symmetric quartics",
+          "trigger": "Klein quartic bitangent action could encode a permutation model"
+        },
+        {
+          "assessment": "Historical implication not evaluated from this source",
+          "evidence": "Repository and author site returned access errors; MSRI copy timed out. No negative inference from these errors.",
+          "identifier_or_url": "https://dash.harvard.edu/entities/publication/73120378-7d3e-6bd4-e053-0100007fdf3b",
+          "material_read": "No verified full-text passage",
+          "method": "Lawful access attempts via Harvard repository, author site and identified MSRI PDF",
+          "title": "The Klein Quartic in Number Theory",
+          "trigger": "Classical coordinates or splitting data might imply the partition"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Limitations",
+        "Resultary records 79484edb8cd9 and 332d2be7d5dd"
+      ],
+      "rationale": "The Frobenius action of a standard arithmetic model is a natural and useful invariant: e.g. it gives the point counts of the bitangent locus over every extension. The frozen contribution, however, is that same already covered invariant. A resultant recomputation for one prime, without a distinct reusable theorem, further invariant or new mathematical boundary, is not a separate contribution on value under the narrow-invariant criterion.",
+      "residual_risks": [
+        "A distinct application or a result for other arithmetic models is not assessed; neither is claimed here."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

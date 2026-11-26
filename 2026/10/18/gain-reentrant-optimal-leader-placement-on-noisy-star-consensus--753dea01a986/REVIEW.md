@@ -1,15 +1,21 @@
-# Review: Gain-reentrant optimal leader placement on noisy star consensus networks
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The finite-gain OU covariance equals \(A_S^{-1}/2\), because the graph-plus-pinning quadratic form is positive definite for every nonempty leader set and the driving covariance is identity. The proof explicitly separates the hub and independent leaves, computes both orbit traces by a Schur complement, and proves that their difference has the stated rational numerator and strictly positive denominator. The symmetry argument covers **every** legal leader set. Maximizing \(\kappa/(1+\kappa)^2\) and solving its level sets gives the two reciprocal gains, the exact tie cases, and the first witness. Exact-rational Gauss–Jordan verification passes 1,455 regression cases, including all three-leader subsets on seven vertices. Finite tests do not prove the universal result; the algebra does.
+PASS
 
-## Originality — PASS, with residual risk
+Connectivity with at least one pin gives positive definiteness and the Lyapunov solution is A⁻¹/2. The hub indicator c determines the entire placement orbit, with r=q−c pinned leaves. Set t=κ/(1+κ) and u=1−(1+κ)⁻². Eliminating the diagonal leaf block gives trace n−1−rt+(n−ru)/(cκ+rt). Subtracting the two cases gives the stated rational gap after dividing by two. Its sign is the sign of 2q−n+q(q−1)κ/(1+κ)². For q=1 the gap is the negative constant (2−n)/2. Otherwise the final gain function is strictly positive, increases to 1/4 at one and decreases thereafter by reciprocal symmetry, proving the strict regimes, the tangent tie, and the two reciprocal roots in the intermediate case. For q=2 the intermediate interval contains no integer n; for q≥4 it requires n≥9. For q=3 the first and only such order is seven, where the gap numerator is −κ²+4κ−1, the roots are 2±√3, and at κ=1 the variances are 31/8 and 23/6. The ‘smallest’ example is scoped to the stated unit-star family.
 
-Lin–Fardad–Jovanović (arXiv:1302.0450) formulated the identical inverse-pinned-Laplacian variance **objective** for general networks; this background is fully acknowledged, and their algorithmic bounds do not state the proposed star classification. Fitch–Leonard (arXiv:1407.1569) explicitly treat one/two noisy leaders or arbitrarily many noise-free leaders, not three or more noisy star leaders. Patterson–Yi–Zhang (arXiv:1708.06873) analyze noisy-leader cycles and noise-free trees in the inspected specializations. Liu et al. (arXiv:1804.10818) provide a star result for the **smallest eigenvalue of a grounded Laplacian**, not a finite-gain trace inverse. Searches for the exact star/variance/gain formulation and close primary-literature comparisons found no dominating specialization. Historical priority cannot be certified; a latent equivalent star calculation remains a residual risk.
+## originality
 
-## Value — PASS
+PASS
 
-The theorem gives a closed-form global choice of leader orbit for **every** star order, finite homogeneous gain, and leader count. The strict reentrance is a substantive design distinction: in the seven-node, three-leader example, raising feedback gain first makes the center *worse* to pin, then makes it optimal again. Reciprocal algebraic switch thresholds and an exact smallest witness identify a natural boundary for finite-gain network control. The result does not purport to solve heterogeneous gains, nonstar graphs, or other objectives.
+The distinct result is the all-budget comparison for a single unweighted star with equal finite gains and the resulting exact reciprocal reentrance threshold. The arbitrary-graph formulation and effective-resistance identity are prior. So are general one- and two-noisy-leader criteria. A related same-day reentrance theorem is acknowledged rather than treated as irrelevant from its date, but its two-hub topology and competing leader classes are different.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The result identifies a natural counterexample to a gain-independent or monotone rule for whether the central hub belongs to an optimal leader set, on the simplest family with a unique hub. It gives all exact ties and the smallest star witness rather than a numerical example or an isolated gain comparison. This supplies a benchmark for finite-feedback placement methods beyond perfect pinning.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

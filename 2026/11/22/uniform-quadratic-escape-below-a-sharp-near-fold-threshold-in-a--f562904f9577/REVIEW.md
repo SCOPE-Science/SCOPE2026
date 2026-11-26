@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The real-plane formula for the continuous map is used without smoothing at the absolute-value corner. Direct symbolic substitution confirms the precise identity for \(W=y+(1+b)x^2/2\), and completion of squares proves a uniform strict one-step drift below the boundary. At equality the zero set of the drift is exactly two points, neither mapping into the zero set, so a continuous coercive two-step drift has positive global minimum. This proves escape of every orbit at a uniform square-root lower rate, not just failure to detect a periodic orbit. Stationarity would contradict dominated convergence on bounded balls. The period-two midpoint and discriminant comparison are established independently in the proof and checked symbolically. The equality argument is needed and included.
+## correctness
 
-## Originality — PASS within inspected evidence
-The primary full 2019 paper reports numerical bifurcations, not a global escape theorem. The 2018 antecedent full article describes related quadratic systems and numerical attractors but no positive-\(a\) all-trajectory escape bound. The closest published same-map research record, *Two disjoint attracting two-cycle bands in a fixed-point-free quadratic map* (2026), derives a period-two census and stability bands on a fixed one-parameter slice. This does not imply absence of all compact nonperiodic or higher-period recurrent dynamics in the current positive four-parameter escape chamber. The source's generic quadratic two-cycle reduction is credited; neither that identity nor the same numerical parameters is claimed as novel. Searches for drift, aliases, stationarity, invariant probability and global recurrence in the original map found no dominating same-map claim. The abstract-only 2022 review and unindexed broader recurrence results remain priority risks.
+PASS
 
-## Mathematical value — PASS
-The original map is promoted as exhibiting hidden periodic and chaotic attractors without equilibria, but the scope of initial states and parameters admitting **any** bounded recurrence is not settled by numerical bifurcation diagrams or a low-period census. This theorem gives an entire open parameter chamber and its nontrivial closed boundary where every initial state is forced to infinity, at a definite polynomial rate. For the original parameter slice the exact gap to the first possible two-cycle is \(1/5210\), so the sufficient region approaches the natural first periodic-orbit boundary closely without claiming sharpness. This is a global recurrence-versus-escape statement, not a routine reparameterization of a published cycle formula.
+Rechecked the complete corrected RESULT.md. In the frozen endpoint proof, exclusion of a two-cycle in the zero set did not exclude a single directed transition between its two points. The repair rules out each arrow independently: x'=x+y rules out either self-arrow, and W is unchanged at a zero of the drift whereas W(P+)-W(P-)=2z>0. Then Q+Q∘F has no zeros, is continuous and coercive, and attains a positive minimum. Direct expansion of the coboundary and completion of the square prove strict-chamber drift; comparison with R+(1+b)R²/2 yields both claimed uniform liminf bounds (not a common transient). Pointwise escape gives no invariant probability by dominated convergence. Subtracting the signed two-cycle residuals gives X=2/(1+b), and their remaining common part gives kz²-az+K=0; both the positive double root and the absence of any earlier positive root are checked. On the cited slice the rational difference is 1/5210. The corrected theorem retains the closed chamber without claiming that escape ceases immediately beyond it.
 
-## Limitations and priority risks
-The narrow region between the escape threshold and the two-cycle fold remains unresolved, and the bound need not be optimal. The threshold at equality requires global two-step coercivity; a one-step positivity claim would be false at two points. Comparisons do not exhaust unindexed literature or the unavailable full 2022 overview. The symbolic checker verifies algebraic claims; no finite test substitutes for the infinite-orbit proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge pass on the closed global escape chamber and quantitative rate only. The same-map numerical literature and the strongest exact overlap establish different statements; the known slice fold is credited as a comparator, not counted as original. The endpoint correction changes the proof, not the originality scope.
+
+## value
+
+PASS
+
+For a model introduced to exhibit recurrence without fixed points, a certified all-orbit nonrecurrence chamber answers a different dynamical question from cycle searches. Inclusion of the degenerate drift endpoint and the exclusion of even unbounded-support invariant probabilities are substantive. The fold comparator gives a parameter-exact measure of the remaining gap without claiming its classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Scientific review: variable-power FGM multivariate obstruction
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem quantifies over all integers \(n\ge3\) and all real scalar parameters \(a\). The argument identifies the full \(n\)-fold mixed derivative as necessarily nonnegative for any smooth copula. A general face differentiation identity is proved by the first-order expansion of the exponential, with explicit justification of why every higher-order term vanishes after at most one derivative per face coordinate. Two faces then give independent scalar expressions. Their parameters \(a(-1)^{n-1}\) and \(a(-1)^{n-2}\) have opposite signs; whichever is positive multiplies an expression tending to \(-\infty\). Hence every \(a\ne0\) produces negative full mixed density at interior points. Conversely \(a=0\) is the independence copula. The checker reproduced 112 symbolic face identities in dimensions 3--6, five auxiliary equalities/limits, and two rational upper bounds for negative face-density witnesses. Those checks corroborate, but do not establish, the unrestricted-dimensional step.
+PASS
 
-## Originality — PASS, with historical-priority qualification
+Set P=∏u_i, Q=∏(1−u_i), and write G=P exp(aQ log P). For a nonempty face set S, let h_i=u_i−1 for i in S, keeping all remaining coordinates positive. The coefficient of ∏_{i∈S}h_i in the analytic expansion is the claimed mixed derivative on the face: the constant exponential term contributes P_{S^c}; the linear term contributes a(−1)^|S| P_{S^c}Q_{S^c}log P_{S^c}; every higher term contains h_i² for each i∈S and cannot contribute. When a(−1)^{n−1}>0, keep one free coordinate z: the derivative correction contains (1−2z)log z+1−z, diverging negatively. In the other sign case keep two free coordinates, one fixed at 1/4: the logarithmic term has coefficient (1−2x)/2, tending to 1/2, with all other terms bounded as x→0. Both face sets exist when n≥3. Choose the free coordinates strictly positive first and transfer the strict sign into the interior by smooth continuation across the upper face. Integration over a small interior box gives negative volume, regardless of what boundary values are assigned. For a=0 the product extends to independence. No assumption on |a| or on lower-face smoothness is required.
 
-The initiating source is Chesneau (2024), DOI 10.22067/smps.2024.45178. Its printed page 33 explicitly leaves the admissible parameter range of this very \(n\)-variable formula as a future challenge; Proposition 1 on printed page 20 treats only \(n=2\). This result answers the exact proposed higher-dimensional problem. The potentially similar multivariate FGM *linear* perturbation is not an implication: it remains admissible at nonzero parameters because its full density is \(1+\theta\prod_i(1-2u_i)\), unlike the variable-exponent expression. The 2024 bivariate open-problem paper and the 2025 compendium cover other bivariate objects in the material accessible. A related ratio-type family has a different rational ansatz. Searches across the exact expression, its product-power and exponentiated-independent aliases, and mathematical finding records found no directly covering theorem. Unindexed results and inaccessible full text of one bivariate publication remain residual historical-priority uncertainties; no independent priority certificate is claimed.
+## originality
 
-## Value — PASS
+PASS
 
-The original author identified this exact \(n\)-variable construction and its parameter range as an explicit challenge, motivated by extending a bivariate negative-dependence model to higher dimensions. The complete no-go theorem distinguishes a **structural impossibility** from merely needing a smaller parameter interval. Every proper marginal would be independent, as in legitimate higher-order-only FGM interactions, so elementary marginal checks miss the failure. The two-face mixed-density argument explains the obstruction and shows why allowing a dimension-dependent but nonzero scalar parameter is insufficient. A fundamentally different multivariate construction is required.
+The checked source explicitly proposes the exact displayed formula and leaves its admissible range open. No distinct independent result resolving this formula for n≥3 surfaced. The pass is limited to the all-parameter exclusion in those dimensions, not to the bivariate range or other multivariate power constructions.
 
-## Limits and closest literature
+## value
 
-The result covers only the exact product-power formula and constant real scalar parameter. It does not address alternative multivariate variable-power designs or the exact bivariate admissibility interval. Historical priority remains qualified because searches and inspected sources cannot rule out all unindexed work. Relevant sources: Chesneau (2024), the 2024 bivariate constructions by Chesneau, the 2025 Nadarajah--Nawa compendium, and the 2024 ratio-type paper by El Ktaibi--Bentoumi--Mesfioui. Their distinct mathematical objects and known scope are described in the main document.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This resolves a specific published proposed extension and rules out both signs for every higher dimension, despite all proper margins looking valid. The interior sign witnesses make the result stronger than a boundary failure, and the two-face method identifies why the natural bivariate extrapolation fails without excluding other models.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

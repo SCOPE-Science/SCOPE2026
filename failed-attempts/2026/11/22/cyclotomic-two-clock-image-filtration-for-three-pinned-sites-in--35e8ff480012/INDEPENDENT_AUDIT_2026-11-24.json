@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:45:53.763546Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the infinite bilateral map the character pullback is multiplication by P^n on Laurent polynomials and is injective. A compact image subgroup is determined by its annihilator; its index is 2 to the dimension of support-S multiples of P^n, and changing pinned bits only translates the coset. At a primitive cube root alpha, a binomial vanishes exactly for equal residues and the trinomial exactly for three distinct residues. Removing the common dyadic power of the differences leaves a simple root in either case: in the normalized trinomial the derivative is either a monomial or two distinct powers of alpha. Thus each eligible sparse sum has the asserted exact survival clock, including n equal to its threshold. In the equal-residue case the binomials span the even-parity plane until the shared minimum clock and only the unique maximum survives thereafter; all other cases have at most one relation. At time zero a pinned cylinder is proper. A surviving triple of clock h has span at least 2h, while an eligible pair of clock h has gap at least 3h. The scaled triple {0,h,2h} has all residues distinct and its trinomial is P^h, proving both sharpness and lack of any pairwise obstruction. An independent check used the invertible endpoint recurrence for the kernel of F^n: any length-2n seed extends uniquely to a bilateral kernel element, and the image codimension is 3 minus the rank of its evaluation on the pins. Python /workspace/rule150_recurrence_reproduction.py verified 296400 triple/time pairs and extrema through span 96; this corroborates but does not replace the proof. The frozen verifier was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "c42823a10929 stipulates d>=3 but uses primitivity, Laurent duality, pair-root simplicity, Frobenius, and two-adic parity; each argument is valid for d=2.",
+          "The 2019 theorem concerns preservation of qualitative strong transitivity by shifts and iteration; 4fda5089f2de concerns two pins and a binomial rule."
+        ],
+        "reasoning": "The Singer-line proof is broader in method and recovers the current law without a new lemma, even though its explicit degree range excludes the quadratic. The other comparisons do not establish finite-time indices for this map.",
+        "searches": [
+          "c42823a10929 RESULT.md Finding, Assumptions and Proof steps 1–4",
+          "DOI 10.4230/LIPIcs.MFCS.2019.68, Theorem 7",
+          "Resultary: 4fda5089f2de"
+        ]
+      },
+      "checked_sources": [
+        "c42823a10929",
+        "89cc648da7e1",
+        "4fda5089f2de",
+        "arXiv:2601.16243",
+        "LIPIcs.MFCS.2019.68",
+        "10.1007/BF01223745 (bibliographic only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Singer proof steps 1–3 give the finite-character quotient and valuation of each of the seven nonzero masks using only odd multiplicative order and Frobenius. The least divisible-trinomial span is 2 for P=1+z+z^2, with unique intermediate exponent 1. Step 4 needs only m(P)<q, here 2<3, and yields its witness {0,h,2h}."
+        ],
+        "reasoning": "Set q=3, m(P)=2 and use the unique three-element Singer line. The all-equal case gives the two clocks, the mixed case the one pair clock, and the all-distinct case the minimum clock. The pair corollary follows from step 2 applied to the only nonmonomial two-pin relation, and the scaled witness has no eligible pair. The proof does not invoke d>=3 at any step, so this accounts for the entire assigned Finding, including the cutoff and the example. Known qualitative results alone would not imply it.",
+        "searches": [
+          "c42823a10929 local mirror RESULT.md offsets 0–3794 and 3589–8370",
+          "arXiv:2601.16243 p. 8 Theorem 3",
+          "LIPIcs.MFCS.2019.68 pp. 6–8"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "c42823a10929 Finding gives the entire 1,2,4 index filtration in terms of residue equality, Singer-line eligibility and dyadic pair distances.",
+          "89cc648da7e1 concerns one-step periodic-ring predecessor necklaces modulo rotation.",
+          "arXiv:2601.16243 Theorem 3 treats decidability of topological transitivity."
+        ],
+        "reasoning": "In the degree-two Singer cycle, being a Singer line is precisely having all three distinct residues, because 1+alpha+alpha^2=0. The two index descriptions then coincide. A cyclic-orbit predecessor count or qualitative transitivity decision is not equivalent.",
+        "searches": [
+          "Resultary: three pinned cylinders primitive binary polynomial Singer line and dyadic depth, c42823a10929",
+          "Resultary: cyclic Rule 150 necklaces, 89cc648da7e1",
+          "arXiv:2601.16243 Theorem 3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Singer-line table gives the same three nonzero cases and the sharp cutoff in m(P); it does not separately tabulate d=2. The necklace record's exact counts are for finite rings and rotation, and the two-site staircase is for 1+z.",
+          "The 1984 article and PDF attempts did not yield text (redirect failure)."
+        ],
+        "reasoning": "The match is via an explicit substitution into the table justified by the unchanged proof, not an exact Rule 150 table in a distinct older source. Failed OA retrieval does not establish absence of a table.",
+        "searches": [
+          "Resultary: c42823a10929, 89cc648da7e1, 4fda5089f2de",
+          "DOI 10.1007/BF01223745"
+        ]
+      },
+      "rationale": "A distinct same-date three-pin Singer-line result has the same image-index filtration, least-trinomial-span law, and scaled witness for primitive binary polynomials. Its written scope starts at degree three, but inspection of its full decisive proof shows that the restriction is not used: degree two needs only the elementary identity among the three nonzero elements of F4 and the obvious span of P itself. The Rule 150 statement is a mechanical specialization of the proof, not a distinct scientific result. This is statement-and-proof coverage, not a priority or in-scope citation claim.",
+      "residual_risks": [
+        "Same-day date does not establish priority; the coverage finding rests on the proof, not chronology.",
+        "The 1984 full text was not retrieved, and an additional literature lookup was unavailable; older alternative presentations are not excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Written hypotheses exclude degree two, but the full proof and formula mechanically extend to it",
+          "evidence": [
+            "Index table, dyadic multiplicity argument, m(P) cutoff and scaled witness"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-singer-line-and-dyadic-depth-classification-of-three-pinned-cyli--c42823a10929/RESULT.md",
+          "material_read": "Finding, Assumptions and Proof steps 1–4, mirror offsets 0–3794 and 3589–8370",
+          "method": "Local Resultary search and primary file via local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Singer-line and dyadic-depth classification of three-pinned cylinders for primitive linear cellular automata",
+          "trigger": "Same exact three-pin index and span problem for primitive local polynomials"
+        },
+        {
+          "assessment": "Decidability of transitivity, not exact image index at fixed time in these passages",
+          "evidence": [
+            "Theorem 3 concerns GCAs over finite elementary abelian p-groups"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2601.16243",
+          "material_read": "PDF pp. 2 and 8, introduction and Theorem 3, offsets 6500 and 26810",
+          "method": "OA full-text passages",
+          "title": "Topological transitivity of group cellular automata is decidable",
+          "trigger": "Related qualitative algebraic full-shift dynamics"
+        },
+        {
+          "assessment": "Qualitative strong-transitivity invariance, not finite-time filtration in these passages",
+          "evidence": [
+            "Union over all times equals X for each nonempty open U; shifts and iteration preserve the property"
+          ],
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.MFCS.2019.68",
+          "material_read": "PDF pp. 6–8, definition and Theorem 7, offsets 21925 and 28677",
+          "method": "OA publisher PDF passages",
+          "title": "Additive Cellular Automata Over Finite Abelian Groups: Topological and Measure Theoretic Properties",
+          "trigger": "Strong transitivity under shifts and powers of additive rules"
+        },
+        {
+          "assessment": "Coverage not assessed from an inaccessible body",
+          "evidence": [
+            "Same cited 1984 paper; no substantive full-text evidence used"
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/BF01223745",
+          "material_read": "Bibliographic reference only; no passage retrieved",
+          "method": "Bounded OA article-page and PDF attempts, blocked by redirects",
+          "title": "Algebraic Properties of Cellular Automata",
+          "trigger": "Historical polynomial approach to additive dynamics"
+        },
+        {
+          "assessment": "One-step finite-necklace predecessor invariant, not infinite image filtration",
+          "evidence": [
+            "Finite periodic configurations taken modulo rotation"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-the-exact-inverse-degree-spectrum-of-cyclic-rule-150-necklaces--89cc648da7e1",
+          "material_read": "Mirror RESULT.md Finding at offset 0",
+          "method": "Local published mirror",
+          "title": "The exact inverse-degree spectrum of cyclic Rule 150 necklaces",
+          "trigger": "Same elementary rule and exact finite counts"
+        },
+        {
+          "assessment": "Two sites for the binomial rule, not the quadratic three-site claim",
+          "evidence": [
+            "Local polynomial 1+z"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-prime-adic-information-staircases-for-two-site-cylinders-of-addi--4fda5089f2de",
+          "material_read": "Mirror RESULT.md Finding at offset 0",
+          "method": "Local published mirror",
+          "title": "Prime-adic information staircases for two-site cylinders of additive cellular automata",
+          "trigger": "Exact image-index staircase for sparse pins"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The exact obstruction index and sharp span bound are natural and mathematically informative as examples of the general sparse-cylinder theory. As a standalone finding this is the degree-two substitution of an available proof, with no new boundary case requiring an argument outside it. The short specialization can serve as an illustrative example but is not a separate unknown invariant.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

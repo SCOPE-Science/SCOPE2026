@@ -1,15 +1,21 @@
-# Scientific review: balanced near-maximal universality enumerator
+# Independent mathematical audit
 
-## Correctness (PASS)
-The claim concerns every integer \(k\ge4\), words with exact multiplicities \((k+1,k+1)\), and ordinary scattered-`01` pair counts. The proof reconstructs the canonical greedy arch characterization, proves that a two-position surplus can produce exactly three mutually exclusive balanced cases, computes the pair-count polynomial of each case, and gives explicit parity-dependent binomial certificates for the strict central coefficient deficit. The all-order proof is symbolic. `verify_arch_and_polynomial.py` exhausts both the arch count and pair-count polynomial through \(k=7\) and checks the central identities through \(k=100\). `verify_direct_subsequences.py` independently tests the defining universality condition against every target through \(k=6\). These finite results corroborate, not replace, the unrestricted proof. A primary proof boundary is the exact balance hypothesis: a single length-four arch or a monochromatic two-letter suffix is excluded only by that hypothesis.
+## correctness
 
-## Originality (PASS, priority qualified)
-Fazekas–Huang–Mercaş, arXiv:2610.06717 (2026-10-05), studies binary Parikh-matrix fibers and universality thresholds and probabilities but does not give the displayed exact balanced two-surplus enumerator or central notch. The published one-surplus refinement for composition \((k+1,k)\) and the saturated-symbol all-excess product both require at least one symbol count to equal \(k\); neither covers \((k+1,k+1)\). The balanced-index law already gives \(F_k(1)\), so that specialization is **not** newly claimed. Exact three-universality fixed-fiber enumeration already covers the case \(k=3\), which is likewise excluded from the novelty assertion. The deletion-resilient classification only covers the \(k+1\)-arch component. Statement-level comparison does not reveal broader coverage of the weighted all-order result for \(k\ge4\). The residual risk is an independently derived but unindexed equivalent formula.
+PASS
 
-## Value (PASS)
-The fixed balance and two surplus letters form the first regime in which **both** letter counts exceed the target subsequence-universality order. The polynomial resolves exact ambiguity inside every associated binary Parikh-matrix class; its strict central nonunimodality is a structural change from the known symmetric unimodal one-surplus family. This is an infinite and natural finite-word classification, not a routine substitution into the saturated-symbol product. No asymptotic algorithmic breakthrough or larger-alphabet extension is claimed.
+The greedy terminal letters followed by a missing suffix letter give the obstruction when the number of arches is too small. Exact balance then forces one surplus of each letter when there are k arches; a length-four arch or a length-two monochromatic rest cannot occur. Thus the disjoint cases are k+1 ordinary arches, one length-three arch plus the opposite surplus letter in the rest, and two length-three arches with opposite repetitions. In the last two cases direct cross-pair accounting gives shifts j−1 and 2k−j+3, or k−d+1 and k+d+2, respectively, over the baseline binomial(k,2); k−d position pairs realize gap d. This yields the three polynomials without multiple counting. Reversal gives reciprocity, and the low, middle and reflected high blocks cover the stated integer support. Taking adjacent coefficient differences reduces the ordinary block to one binomial difference, the flat shifted block to its boundary binomials, and the gap-weighted block to a telescoping boundary term and unweighted binomial sums. Independent symbolic reduction confirms the resulting parity-specific deficits; both are positive on the stated range and reciprocity forces a later rise. Independently authored finite checks compared full arch histograms through k=8, checked direct subsequence universality on all 4,704 balanced words through k=6, and verified each component gap through k=100. These do not replace the unrestricted symbolic argument. Frozen scripts were read as evidence, not run.
 
-## Limitations and comparisons
-The claim does not extend to general compositions, arbitrary alphabet sizes, or higher surplus. Finite verifiers cover the stated finite scopes only. Closest published mathematical treatments are Fazekas–Huang–Mercaş (arXiv:2610.06717), the public one-surplus enumerator, saturated-symbol pair product, balanced index distribution, fixed three-universality fiber classification, and one-deletion resilience classification cited in `RESULT.md`. No conclusion of absolute historical priority follows from indexed searches.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge contribution is the all-order weighted histogram and central nonunimodality at exact balance (k+1,k+1), k≥4. The arch criterion, the coefficient support as an existence statement, the aggregate count and fixed k=3 information are prior or already implied by prior work.
+
+## value
+
+PASS
+
+The first balanced relaxation that allows surplus on both symbols is a natural boundary beyond saturated-letter formulas. Its exact joint count resolves how universal words populate fixed pair-count fibers; the strict central drop at every k≥4 is a structural change from the unimodal one-surplus setting. Neither that shape change nor the exact fiber sizes can be inferred from the previously known support or total.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,151 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:52:09.918858Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–74, VERIFICATION.md lines 19–25, verify.py lines 2–58",
+        "Repaired RESULT.md, complete phase, martingale and raw-moment proof",
+        "Replay: python3 /workspace/repairs/5/verify.py; PASS: mean offset, centered and raw dispersion, printed comparisons, renewal limit",
+        "Kay–Giuggioli arXiv:2406.07142v2 Eq. (26) and Appendix D, including explicit x0=0"
+      ],
+      "rationale": "The repaired claim is about moments of physical position at fixed initial phase, with raw position measured from the center of the initial cell. The positive normalized affine phase density rho(Ly)=(1+eta(1−2y))/L has flux v/L=a rho(L)−b rho(0). A positive Robin killed heat kernel on the compact interval gives a fixed-time minorization for the phase process, hence the required convergence. With regulator normalization dU=sqrt(2D)dW+dK^0−dK^L between jumps, the corresponding jump intensities are b dK^0/D and a dK^L/D. For psi'=Q(b+Delta u/L)/D, Q=2DL/H=L+psi(0)−psi(L), the jumps of LN+psi(U) are ±Q and the local-time drifts cancel at both ends; D psi''=v. The resulting martingale yields E X_t=vt+c(u0)+o(1) with c=x0+(psi−u)(u0)−E_rho(psi−u). The midpoint constant is −L² Delta(6D+LS)/(12H²). Applying Itô to functions with equal endpoint values and independently chosen endpoint derivatives gives E K^i/t→D rho(i); the continuous and jump brackets then give D_var=D int(psi')² rho + Q²[a rho(L)+b rho(0)]/2. Bounded phase error affects the variance by o(t). Exact integration gives the stated D_var, and the coefficient of 2t in the raw second moment is D_var+v c. The primary derivation starts at the cell center x0=0 and computes the raw second moment (Appendix D), so the proper comparison is D_raw^mid−D_printed=−DL² Delta²/(3H²), not the centered difference. At D=L=1, a=3/2, b=1/2, centered and printed values are 15/32 but raw is 43/96. The new exact replay ran successfully; it verifies the algebra, not the infinite-time stochastic argument. The source checker was read but not run. The one-way renewal calculation is an additional centered-limit check only.",
+      "residual_risks": [
+        "Strictly positive rates in the theorem; renewal is a boundary check.",
+        "The raw coefficient is phase- and origin-dependent; the published-expression comparison uses the designated midpoint convention.",
+        "The long-time limits rely on the analytic phase and martingale arguments, not on symbolic or finite-grid data."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary propagator covers finite-time probabilities, and the Fourier–Laplace denominator already contains the frozen scalar equation. Its printed moment analysis does not resolve the subleading mean and presents a different raw second-moment coefficient.",
+          "Moutal–Grebenkov use a self-adjoint barrier geometry with one common permeability per interface; Mallmin et al. develop current tilting for reflective diffusions; Bressloff describes single-barrier renewal methods."
+        ],
+        "reasoning": "The finite-time propagator supplies the input from which moments could be calculated, but its pole location alone does not fix the derivative of the spectral amplitude or c(u0). Recovering the raw coefficient requires that additional computation, or a new corrector calculation, and corrects a conflicting explicit output of the earlier analysis. Broader methods in different boundary settings do not state those coefficients.",
+        "searches": [
+          "arXiv:2406.07142v2 Eq. (24) and Appendix D",
+          "arXiv:1807.06336 Eqs. (4)–(8)",
+          "arXiv:2102.04846 Eqs. (12)–(17)",
+          "arXiv:2209.09176 opening model description"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2406.07142v2; arXiv:1807.06336; arXiv:2102.04846; arXiv:2209.09176",
+        "Resultary 8e32985ba1a4, f8d346c6a6a6 and screened exact-correction query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Appendix D explicitly chooses x0=0, records leading E X_t~vt but not its constant term, and then expands raw E X_t².",
+          "The repair gives the missing constant and produces a nonzero same-quantity raw discrepancy at every asymmetric midpoint case, including LS=2D where the frozen centered-vs-printed difference vanishes."
+        ],
+        "reasoning": "The common denominator makes the old scalar equation directly available by substitution, but it does not yield the missing initial-phase mean offset without computing additional information. Leading drift, centered diffusion, and a raw second-moment coefficient do not imply the new result by relabeling; the corrected raw term in particular differs from what is stated for it.",
+        "searches": [
+          "arXiv:2406.07142v2 Eqs. (D2), (D6), (D21)–(D31); Eq. (26)",
+          "Resultary crossing-count and periodic membrane comparisons"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Rightward a=κ_minus, leftward b=κ_plus from the flux convention and Eq. (23); the models agree.",
+          "With z=e^(i omega)=e^(−theta), Eq. (D6)'s common denominator divided by 2z sqrt(D epsilon)csch(L sqrt(epsilon/D)) is (a+b)cosh(L sqrt(epsilon/D))+sqrt(D epsilon)sinh(L sqrt(epsilon/D))−a e^theta−b e^(−theta).",
+          "The repair instead uses a split-cell corrector to recover c(u0) and both moment coefficients."
+        ],
+        "reasoning": "The cell index and signed net count differ at most by an initial constant, making the equation an alias of the earlier Fourier–Laplace denominator. A raw second moment is not an alias of the centered moment with drift unless the mean constant vanishes, and here the midpoint constant is nonzero for asymmetry.",
+        "searches": [
+          "arXiv:2406.07142v2 §III.A and Appendix D",
+          "Resultary fixed-asymmetry periodic crossing SCGF and raw-versus-centered dispersion searches"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The related catalogue statements concern a single gated half-line interface and a reset ring, not the raw periodic-array coefficient.",
+          "The primary printed coefficient reduces to DLS/H−DL²(10D+LS) Delta²/(6H³), which is neither the newly calculated raw coefficient for asymmetry nor the generic centered coefficient.",
+          "No exact matching corrective formula was identified in the bounded searches; unrelated hits are not negative evidence."
+        ],
+        "reasoning": "The new claim is a symbolic law, not a finite census. An exact transport table or expression for the same position, phase and moment would count as coverage; the actual printed formula has a different coefficient and the adjacent records have different models.",
+        "searches": [
+          "Resultary exact raw versus centered dispersion/mean-offset query; related records 8e32985ba1a4 and f8d346c6a6a6",
+          "arXiv:2406.07142v2 printed transport coefficients",
+          "Primary web query: 'Kay' 'Giuggioli' 'asymmetric' permeable barriers periodic effective diffusion correction dispersion second moment 2406.07142"
+        ]
+      },
+      "rationale": "The repair explicitly credits the earlier propagator, drift and its counting-tilted characteristic denominator, and drops the broad SCGF/LDP claim. The exact phase-dependent mean offset, the corrected raw coefficient at the same center start, and the quantitative separation from the centered coefficient are distinct from the inspected prior Eq. (26) and its derivation. No matching exact correction was identified in the screened primary and catalogue material. This credits the exact same-model prior work and claims no priority for the reflected-process, corrector or martingale methods.",
+      "residual_risks": [
+        "Possible unindexed transport corrections and other versions were not exhaustively ruled out; the correction is explicitly to the cited printed Eq. (26).",
+        "Exact finite-time propagators contain more information than a characteristic pole. No novelty is claimed for information already made explicit by that denominator or for the general stochastic method."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior coverage of model, leading drift and scalar denominator. Printed calculation uses a raw moment, does not give the mean offset, and disagrees with the corrected raw coefficient.",
+          "evidence": "Eq. (D6) provides the same denominator under fugacity transformation. Eqs. (D23)–(D24) give leading mean only and D25–D31 identify the raw second moment. Its Eq. (26) simplifies to DLS/H−DL²(10D+LS) Delta²/(6H³).",
+          "identifier_or_url": "https://arxiv.org/pdf/2406.07142v2",
+          "material_read": "§III.A Eqs. (23)–(26), offsets 32000–39983 (including Eq. (26) at 32300); Appendix D x0=0 and Eqs. (D1)–(D6), offsets 58600–68781; D7–D19 inversion; D21–D31, offsets 79500–85728",
+          "method": "OA primary PDF bounded passage reads; factored printed formulas and compared field/origin/initial condition",
+          "title": "Local time statistics and permeable barrier crossing: from Poisson to Birth-Death Diffusion Equations",
+          "trigger": "Identical interfaces, exact propagator, and disputed dispersion term"
+        },
+        {
+          "assessment": "Same type of interface but different, self-adjoint model",
+          "evidence": "There is a single coefficient multiplying a concentration jump across each interface; no independent biased transmission rates are used in that problem.",
+          "identifier_or_url": "https://arxiv.org/pdf/1807.06336",
+          "material_read": "pp. 3–4 model and Eqs. (2)–(9), offset 11600",
+          "method": "OA primary passage read",
+          "title": "Diffusion across semi-permeable barriers: spectral properties, efficient computation, and applications",
+          "trigger": "Barrier-spectrum method might give exact transport"
+        },
+        {
+          "assessment": "Standard related generating-function method, different observable and model",
+          "evidence": "Uses a Stratonovich current and a tilted differential operator for reflected diffusion, not the claimed phase-dependent raw moment for a biased transmissive periodic interface.",
+          "identifier_or_url": "https://arxiv.org/pdf/2102.04846",
+          "material_read": "Eqs. (9)–(17), offset 11300",
+          "method": "OA primary passage read",
+          "title": "Large deviations of currents in diffusions with reflective boundaries",
+          "trigger": "Existing general transport-current tilting"
+        },
+        {
+          "assessment": "Relevant stochastic construction but no model-specific matching claim in read passage",
+          "evidence": "Describes exponential local-time threshold and renewal for a semipermeable interface with equal restart-direction probabilities; does not state these raw and centered dispersion laws.",
+          "identifier_or_url": "https://arxiv.org/pdf/2209.09176",
+          "material_read": "Opening model description, offset 2100",
+          "method": "OA primary passage read",
+          "title": "A probabilistic model of diffusion through a semi-permeable barrier",
+          "trigger": "Local-time renewal at semipermeable barriers"
+        },
+        {
+          "assessment": "Different system and scaling",
+          "evidence": "Single Markov-gated half-line interface and half-normal sqrt(t)-scaled crossing counts, rather than a biased periodic array.",
+          "identifier_or_url": "Resultary 8e32985ba1a4",
+          "material_read": "Local mirror RESULT.md finding",
+          "method": "Resultary search and local mirror read",
+          "title": "Half-normal crossing counts and exact first-translocation tails",
+          "trigger": "Closest indexed membrane crossing count"
+        },
+        {
+          "assessment": "Different geometry and claim",
+          "evidence": "Brownian ring with resetting and stationary current reversal; no statement of the corrected periodic raw second-moment coefficient.",
+          "identifier_or_url": "Resultary f8d346c6a6a6",
+          "material_read": "Local mirror RESULT.md finding",
+          "method": "Resultary search and local mirror read",
+          "title": "One-sided resetting forces a unique permeability-independent current reversal at a biased membrane",
+          "trigger": "Indexed biased membrane current"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired RESULT.md: c(u0), centered and raw coefficients",
+        "arXiv:2406.07142v2 Eq. (26), D23–D31"
+      ],
+      "rationale": "This distinguishes two experimentally and mathematically different coefficients in the same biased transport model, recovers the initial-condition correction that couples to drift at order t, and gives a true same-convention correction to a printed formula. In particular there is a strictly positive-rate example where the printed and centered values agree but the raw prediction remains wrong; merely comparing the centered coefficient to the printed number misses it. The exact coefficients are useful for fitting raw and centered moments without forcing them to have the same subleading slope, and provide independent transport benchmarks.",
+      "residual_risks": [
+        "Scientific contribution confined to the stated periodic, local-time model and comparison convention, not a claim about general porous media."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

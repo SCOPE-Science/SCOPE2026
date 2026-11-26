@@ -1,0 +1,155 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:07:50.822297Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Only a flip at i changes σᵢ, so applying the physical generator gives exactly −σᵢ+(γᵢ/2)(σᵢ₋₁+σᵢ₊₁). The mean-spin Fourier matrix (the corresponding observable matrix may be transposed) has the same spectrum and Jordan orders. In the three-cell characteristic polynomial the linear term comes from the sum of the three reciprocal-bond products and the constant term from the two directed three-cycles. They give p=−g²(1−2u)/4 and q=g³u cos(k)/4, hence −4p³−27q² is exactly the displayed discriminant. Its minimum over the mesh is at k=0, where the sign factors as (1+u)²(1−8u). At equality k=π is also critical if present, and the 2×2 principal minor at μ=±g/4 is −3g²/16, so each repeated root has geometric multiplicity one. The discriminant sign gives the mixed-regime cutoff and, at u=1/2, all blocks are still nonreal-paired except those with cos(k)=0. At these two momenta Cayley–Hamilton gives B³=0 while (B²)₃₁=−g²/8, proving a size-three Jordan block. They are in the mesh precisely when 4 divides m. A nonzero real combination of conjugate Fourier data can be scaled to admissible spin means to realize the quadratic transient. At k=0 the positive-bath-equal sector, shifted by −1+g/4, squares to g(g−8h)I/16; its exponential gives the stated damped sinusoid, frequency and linear-in-time limit at the first threshold. These are one-spin statements, not the full Markov spectrum. The supplied verify.py was inspected, not executed. It has a hard-coded symbolic count of 10 despite 12 assert evaluations in that function; the numeric list also includes (.6,.075), nominally the first exceptional ratio, despite the verification note describing nonexceptional samples. Neither reporting issue affects the symbolic Jordan argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gonçalves–López de Haro–Tagüeña-Martínez allow arbitrarily many site types per cell via different rates αᵢ but retain a common γ=tanh(2J/k_BT).",
+          "The Springer chapter abstract concerns n different bonds; its full mode analysis was not accessible."
+        ],
+        "reasoning": "The common-γ Fourier problem with positive αᵢ is symmetrizable by a site diagonal scaling (Hermitian in Fourier space), not a framework already giving the mixed-sign γᵢ phase diagram. The inaccessible chapter cannot support a whole-document comparison.",
+        "searches": [
+          "Primary literature lookup: periodic or inhomogeneous Glauber one-spin relaxation modes and exceptional points",
+          "arXiv:cond-mat/0008222v1, periodic Fourier matrix",
+          "10.1007/978-1-4615-0207-4_18, periodic inhomogeneous chain"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:cond-mat/0405375v2, cond-mat/0412576, cond-mat/0212616 and cond-mat/0008222v1",
+        "Resultary 40ac4bb02a8c and 08342e92eda3",
+        "Springer 10.1007/978-1-4615-0207-4_18, abstract only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The old alternating formula depends on γₑγₒ and has no positive competition threshold. The broad common-temperature periodic model varies relaxation times, not bath signs.",
+          "Neither the stationary four-spin defect nor the nonreciprocal stationary memory law asserts a one-spin size-three Jordan block for the assigned generator."
+        ],
+        "reasoning": "The target requires both the cubic discriminant with its nonzero 1/8 onset and the nilpotency-index test at mesh-dependent momenta. Neither follows by restriction of the inspected results; the general mode calculation is a known method, not itself the asserted classification.",
+        "searches": [
+          "arXiv:cond-mat/0405375v2, one-spin magnetization and opposite-sign baths",
+          "arXiv:cond-mat/0008222v1, Fourier mode eigenproblem",
+          "Resultary 40ac4bb02a8c and 08342e92eda3, Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Mobilia–Zia–Schmittmann's even/odd propagator uses α=√(γₑγₒ), so opposite signs suffice to produce oscillatory relaxation.",
+          "The alternating-rate reaction–diffusion treatment maps the same two-sublattice dynamics; 08342e92eda3 gives a distinct pair of thresholds for propagation and stationary on-site temporal correlation in an infinite nonreciprocal chain."
+        ],
+        "reasoning": "The two-bath equations share the closure but their 2×2 blocks cannot give the three-component cubic or its third-order Jordan block. The nonreciprocal-chain threshold alters directed spin coupling and a stationary temporal observable, not the three-bath pattern or its Fourier mesh.",
+        "searches": [
+          "arXiv:cond-mat/0405375v2, Eqs. (4)–(5)",
+          "arXiv:cond-mat/0412576, alternating-rate reaction–diffusion mapping",
+          "Resultary 08342e92eda3, one-spin propagation and stationary oscillation thresholds"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "40ac4bb02a8c treats failure of stationary four-spin factorization with positive site baths.",
+          "08342e92eda3 gives thresholds tanh(2βJ) and sinh(2βJ) associated with different observables in a nonreciprocal infinite chain. Schmittmann–Schmüser's stationarity analysis assumes alternating even/odd baths."
+        ],
+        "reasoning": "The exact nearby statements are about different correlations, parameters or evolution problems and do not list the target finite-mesh phase diagram. Same-day indexing is not treated as priority; absence of a matching entry is not a certificate.",
+        "searches": [
+          "Resultary: period-three Glauber, bath oscillation onset, one-spin Jordan modes; records 40ac4bb02a8c and 08342e92eda3",
+          "arXiv:cond-mat/0212616, steady-state scope"
+        ]
+      },
+      "rationale": "The known exact one-spin closure, Floquet method and existence of opposite-sign oscillations in a two-bath chain are not new. The distinct supported result is the nonzero sharp onset, wavenumber-resolved real/nonreal classification and mesh-dependent size-three Jordan block for this sign-frustrated three-site unit cell. The strongest inspected periodic relaxation framework has a common bath and variable site relaxation times, so its eigenproblem does not give these sign-frustrated eigenvalues. Priority beyond the inspected material is not certified.",
+      "residual_risks": [
+        "The full periodic-inhomogeneous-chain Springer chapter could not be examined; older periodic or non-Hermitian mode treatments may offer closer coverage.",
+        "The claim is historically bounded by the inspected exact models; no conclusion about the full stochastic-generator spectrum is supported."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known closure and two-bath oscillations; the target thresholds and three-component modes are not within the stated bath model",
+          "evidence": [
+            "Even and odd bath alternation; α=√(γₑγₒ) imaginary for opposite signs."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/cond-mat/0405375v2",
+          "material_read": "Model p. 2 (offset near 2500); magnetization Eqs. (4)–(5) pp. 3–4 (near 6800)",
+          "method": "Lawful arXiv PDF, targeted passages",
+          "title": "Complete Solution of the Kinetics in a Far-from-equilibrium Ising Chain",
+          "trigger": "Exact oscillatory relaxation in a Glauber chain with signed baths"
+        },
+        {
+          "assessment": "Related exact dynamics, restricted to two sublattices in the inspected model",
+          "evidence": [
+            "The mapping takes γ₂ᵢ=γₑ and γ₂ᵢ₊₁=γₒ."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/cond-mat/0412576",
+          "material_read": "Introduction and alternating chain model, PDF pp. 1–2 (offset near 7800)",
+          "method": "Lawful arXiv PDF",
+          "title": "Exact dynamics of a reaction-diffusion model with spatially alternating rates",
+          "trigger": "Possibly equivalent reaction–diffusion formulation"
+        },
+        {
+          "assessment": "Different endpoint and bath periodicity",
+          "evidence": [
+            "The steady-state analysis uses even/odd baths."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/cond-mat/0212616",
+          "material_read": "PDF p. 1, abstract and stationary scope",
+          "method": "Lawful arXiv PDF",
+          "title": "Stationary correlations for a far-from-equilibrium spin chain",
+          "trigger": "Earlier two-bath exact spin-chain result"
+        },
+        {
+          "assessment": "Different inhomogeneity; no implication for a sign-changing bath within a cell",
+          "evidence": [
+            "n×n Fourier matrix with distinct relaxation constants αᵢ and a common γ."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/cond-mat/0008222v1",
+          "material_read": "Model p. 2 (offset near 5800); magnetization matrix and modes pp. 2–3 (near 11900)",
+          "method": "Lawful arXiv PDF, targeted passages",
+          "title": "Nagel Scaling and Relaxation in the Kinetic Ising Model on a n-Isotopic Chain",
+          "trigger": "Strongest accessible broader periodic Glauber mode result"
+        },
+        {
+          "assessment": "Unresolved broader priority risk, not evidence of full-document noncoverage",
+          "evidence": [
+            "Abstract describes n distinct bonds and Glauber and restricted dynamics, without establishing mixed-sign bath and Jordan coverage."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/978-1-4615-0207-4_18",
+          "material_read": "Abstract only; full chapter not retrieved",
+          "method": "Literature lookup and lawful OA attempt; redirect failures",
+          "title": "Relaxation in The Kinetic Ising Model on The Periodic Inhomogeneous Chain",
+          "trigger": "Periodic inhomogeneous Glauber relaxation may contain broader coverage"
+        },
+        {
+          "assessment": "Different observable, regime and theorem",
+          "evidence": [
+            "Stationary four-spin factorization obstruction for positive bath coefficients."
+          ],
+          "identifier_or_url": "Resultary 40ac4bb02a8c",
+          "material_read": "Finding and positive-bath stationary scope",
+          "method": "Local Resultary mirror",
+          "title": "A four-spin obstruction to two-point factorization in a periodic three-temperature Glauber chain",
+          "trigger": "Closest indexed period-three bath model"
+        },
+        {
+          "assessment": "Related exact thresholds, not the period-three finite ring or exceptional-order classification",
+          "evidence": [
+            "Propagator threshold g=tanh(2βJ) and correlation-sign threshold g=sinh(2βJ) in an infinite nonreciprocal chain."
+          ],
+          "identifier_or_url": "Resultary 08342e92eda3",
+          "material_read": "Finding, model and threshold statements",
+          "method": "Local Resultary mirror",
+          "title": "A sharp stationary-memory oscillation threshold in a nonreciprocal chain",
+          "trigger": "Distinct same-day one-spin propagation and oscillation analysis"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A negative bath no longer suffices for all or even any oscillatory one-spin modes, in contrast to the elementary two-alternating-bath case. The result provides the exact nonzero onset on every allowed ring, predicts which discrete modes oscillate beyond it, and exhibits a third-order defect with an observable quadratic transient only at specified lengths. This is a sharp, testable spectral boundary in a natural Markov model, not merely diagonalization at one parameter point.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

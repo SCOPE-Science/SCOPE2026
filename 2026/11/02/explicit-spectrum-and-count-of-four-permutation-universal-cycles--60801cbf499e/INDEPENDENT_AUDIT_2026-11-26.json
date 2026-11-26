@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:15:37.792930Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof steps 1–4",
+        "Frozen VERIFICATION.md and verify.py"
+      ],
+      "rationale": "Each admissible four-word is a single arc, and cyclic tours using every arc once give exactly the claimed words modulo rotation. For the spectral calculation A=JD−R; R permutes triples in three-cycles and (xI+R)⁻¹=(x²I−xR+R²)/(x³+1). The determinant lemma gives the stated rank reduction. In the reduced pair space, DJg=r_c−g(c,b), DRJg=c_b−g(c,b), and DR²Jg=(n−2)g(b,c). Thus the row/column-zero part splits under transpose; the symmetric and skew parts have the stated dimensions from the complete graph unsigned and signed incidence ranks n and n−1, respectively. The complementary row-plus-column space splits into constants and two copies of mean-zero vectors (the row/column map on those copies has determinant n(n−2)). The constant block gives (x−d)(x²−x+1). Substituting the two mean-zero coefficient vectors gives the 2×2 matrix in the result, with determinant (x³+1)(x³+x²+dx+d²). Together these give exponent N/3−(n−1)² and account for every dimension; the rational-function calculation gives a polynomial identity including at the exceptional roots. At x=d the remaining factors are positive (d≥2), and relabeling makes every directed tree cofactor equal. The derivative coefficient is their sum. Anchoring the cyclic tour at one fixed arc removes rotational multiplicity; BEST then supplies the per-root tree cofactor times ((n−4)!)^N, without any reflection or relabeling division. Substitution at n=5 agrees with the shorthand value; at n=6 it gives the arborescence factors 2^51·3^43·5^8·7^16, and the factorial factor adds 2^120. The supplied script was inspected, not executed: its finite exact cofactor tests and sample determinant evaluations corroborate, but do not prove, the all-n spectrum.",
+      "residual_risks": [
+        "Seven evaluation points per tested n do not certify a complete characteristic polynomial. The normalization is for literal labeled factors, with rotation as the only equivalence."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The broader k-permutation formula is expressed via unknown Laplacian eigenvalues. The square-free four-word record includes all-distinct words but also repeated-symbol words; its q(q−1)² vertices differ from q(q−1)(q−2). The other records use at most three distinct symbols per four-word."
+        ],
+        "reasoning": "An exact factorization for the larger allowed-word language does not give one for the sublanguage: deleting arcs and vertices in general changes the retained spectral blocks. The concrete shift-and-forbidden-symbol calculation is not supplied by the general count.",
+        "searches": [
+          "Chang–Xue Sections 2–3, general counting lemma and evaluated k=2,3 enumeration",
+          "Resultary four-letter overlap-graph factorizations and cycle counts: 790ba79860bf, 6d6a1bc4c054, 09ee5fdc095e and 000c778d28d0"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2111.13814",
+        "DOI 10.37236/3711",
+        "OEIS A120061",
+        "Resultary 790ba79860bf, 6d6a1bc4c054, 09ee5fdc095e and 000c778d28d0"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Lemma 2.2 expresses tours as the product of the nonzero Laplacian eigenvalues times the local factorials divided by the vertex count. The evaluated Chang–Xue cases are k=2 and k=3. The earlier existence result concerns whether a tour exists."
+        ],
+        "reasoning": "Neither general formula nor existence supplies the factorization of the k=4 adjacency spectrum. Once that factorization is proved, the enumerative product follows by known tools; those tools are not the novelty.",
+        "searches": [
+          "Chang–Xue Lemma 2.2 and Section 3; Jackson, k-permutation universal cycle existence, Discrete Math. 117 (1993)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Chang–Xue define exactly the graph on overlapping (k−1)-permutations, specializing to this ordered-triple graph. Chen–Ghorbani–Wong use undirected one-coordinate adjacency on tuples."
+        ],
+        "reasoning": "Universal cycles can be recast as cyclic Euler tours in the former graph, so the equivalent formulation is not new. Arrangement-graph eigenvalues do not transfer to the directed operator that shifts coordinates and forbids all four letters from repeating.",
+        "searches": [
+          "Chang–Xue, transition digraphs of k-permutations, arXiv:2111.13814",
+          "Chen–Ghorbani–Wong, arrangement graph eigenvalues, DOI 10.37236/3711"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A120061 gives 7,044,820,107,264,000 at n=5 and its n=6 entry is for k=5, not k=4. The closest indexed exact cycle counts examined concern other languages."
+        ],
+        "reasoning": "The n=5 match is a genuine exact overlap, credited as such. The same table cannot establish U_{6,4}; the finding's value is the all-n formula, not the reproduction of a table entry.",
+        "searches": [
+          "OEIS A120061, shorthand permutation universal cycles through n=6",
+          "Resultary exact count and k=4 four-permutation overlap spectrum"
+        ]
+      },
+      "rationale": "The distinct claim is the explicit k=4 characteristic polynomial and the resulting evaluated product for labeled alphabets of arbitrary n≥5. The same underlying digraph, the generic tree/BEST expression, existence, and the shorthand value at n=5 are already known and are not counted as new. No inspected result evaluates this spectrum or implies the product without a new spectral calculation.",
+      "residual_risks": [
+        "The ranked catalogue and available literature are not exhaustive; a general overlap-graph spectral identity under other terminology may exist. An unproductive web lookup is not evidence of novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior equivalent graph and count in terms of spectrum, not the evaluated k=4 factorization.",
+          "evidence": "The general transition graph is on P_{n,k−1}; evaluated formulas are presented for k=2 and k=3.",
+          "identifier_or_url": "https://arxiv.org/abs/2111.13814",
+          "material_read": "PDF pp. 1–3 and Section 3; Lemma 2.2",
+          "method": "Bounded OA PDF passages",
+          "title": "Enumerations of Universal Cycles for k-Permutations",
+          "trigger": "Same word family, overlap graph and general product"
+        },
+        {
+          "assessment": "Different adjacency.",
+          "evidence": "Two tuples are joined if they agree in exactly k−1 coordinates.",
+          "identifier_or_url": "https://doi.org/10.37236/3711",
+          "material_read": "PDF pp. 1–2 defining A(n,k)",
+          "method": "Bounded OA PDF passage",
+          "title": "Cyclic Decomposition of k-Permutations and Eigenvalues of the Arrangement Graphs",
+          "trigger": "Plausible spectral result for the same tuples"
+        },
+        {
+          "assessment": "Exact n=5 overlap, but n=6 refers to a different window length.",
+          "evidence": "This shorthand count uses length n−1; at n=5 it gives 7044820107264000.",
+          "identifier_or_url": "https://oeis.org/A120061",
+          "material_read": "Entry definition and table through n=6",
+          "method": "OA public webpage",
+          "title": "Number of universal cycles for permutations of n objects",
+          "trigger": "Exact boundary value and nearby table term"
+        },
+        {
+          "assessment": "Different graph and distance from the all-distinct restriction.",
+          "evidence": "The language forbids adjacent identical letters and abab, and uses q(q−1)² overlap vertices.",
+          "identifier_or_url": "2026/11/8/SCOPE-exact-enumeration-of-universal-cycles-for-locally-square-free-fo--790ba79860bf",
+          "material_read": "Finding, local mirror offset 0",
+          "method": "Local Resultary full-text mirror",
+          "title": "Exact enumeration of universal cycles for locally square-free four-letter words",
+          "trigger": "Overlap-Laplacian factorization for a larger length-four language"
+        },
+        {
+          "assessment": "Disjoint word language.",
+          "evidence": "Its words are aabc, abbc, abcc for distinct a,b,c.",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-universal-cycle-count-for-adjacent-double-four-letter-word--6d6a1bc4c054",
+          "material_read": "Finding, offset 0",
+          "method": "Local Resultary full-text mirror",
+          "title": "Exact universal-cycle count for adjacent-double four-letter words",
+          "trigger": "Same length and graph-count technique"
+        },
+        {
+          "assessment": "Different language.",
+          "evidence": "All the length-four factors use exactly two symbols.",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-enumeration-of-two-symbol-length-four-universal-cycles--09ee5fdc095e",
+          "material_read": "Finding, offset 0",
+          "method": "Local Resultary full-text mirror",
+          "title": "Exact enumeration of two-symbol length-four universal cycles",
+          "trigger": "Same window length"
+        },
+        {
+          "assessment": "A different finite language.",
+          "evidence": "4,800 cycles for the 36 length-four ternary words with all three letters used.",
+          "identifier_or_url": "2026/11/22/SCOPE-exactly-4-800-ternary-universal-cycles-of-four-letter-words-with--000c778d28d0",
+          "material_read": "Finding, offset 0",
+          "method": "Local Resultary full-text mirror",
+          "title": "Exactly 4,800 ternary universal cycles of four-letter words with three distinct symbols",
+          "trigger": "Exact length-four count"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof",
+        "Chang–Xue, evaluated cases and general counting formula"
+      ],
+      "rationale": "The spectrum is computed for a canonical transition graph in the next window length beyond the known evaluated k=2,3 cases. It replaces graph-size determinants by bounded-degree factors with explicit multiplicities, resolving the natural universal-cycle count and supplying spectral information beyond that count.",
+      "residual_risks": [
+        "The result does not address all window lengths or construct the cycles themselves."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

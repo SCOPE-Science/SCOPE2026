@@ -1,15 +1,21 @@
-# Scientific review of pendant-edge collapse invariance
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim quantifies over all finite simple base graphs containing a degree-one vertex. The six possible neighborhood generators containing one of the three new fiber vertices are explicitly characterized. Each of three triangle pairs has a free edge unique to that generator; after their deletion every new-vertex face lies in one of three cones over old neighborhood simplices. An ordered pivot matching in each cone removes exactly \(2^{d+1}\) elementary pairs, with all competing cofaces already removed. This proves the asserted exact collapse count and terminal equality. A separate standalone checker recomputed and confirmed 22,080 individual legal free-face pairs in 320 examples; finite checks are not used as the all-graph proof.
+## correctness
 
-## Originality — PASS against inspected evidence
-Shukla's first-public 2018 study addresses maximum-degree-at-most-three graphs and four-regular circulants and uses ordinary graph foldings; it does not cover an arbitrary high-degree base or the claimed relative triangular-product leaf collapse. The closest published large-clique Cartesian-product theorem assumes a clique factor of size at least four, where the alleged invariance is false. The existing triangle-cycle calculation identifies the topology of a leafless cycle, not arbitrary pendant-tree modifications. Searches for pendant attachments, triangular-fiber products, core reduction, and exact elementary collapses yielded no statement dominating this leaf-pruning theorem. An unindexed equivalent or overlooked general operation theorem remains possible.
+PASS
 
-## Value — PASS
-This is an all-graph structural invariance theorem for a natural graph operation on a topological graph invariant; it yields an explicit simple-homotopy equivalence and an exact number of elementary moves, not just a Betti-number calculation. It reduces all triangular-fiber neighborhood calculations to the graph's leaf-pruned core, completely determines every tree case, and shows torus topology and cup products survive arbitrarily many pendant-tree attachments to a cyclic base. The boundary is meaningful: the same leaf operation changes the homology already at clique width four.
+Independently classified the relative faces by their common-neighbor witnesses. Old-only faces witnessed at the leaf are empty or old singletons that still have a witness in their color fiber, so the target is induced even if the old neighbor becomes isolated. A pair of distinct leaf colors has a unique witness, the third leaf color, so its edge and triangle form a free pair. After the three such deletions, each remaining new-color face lies in that color's cone x_i*L_i. Pair each such face lacking h_i with its extension by h_i, in reverse inclusion order. All other strict cofaces have then been deleted. This proves the relative collapse and the exact 3+3·2^(d+1) pair count for every finite simple H. Tree pruning terminates at the triangle boundary; cyclic annular strips also independently verify the credited n≥5 torus consequence. See /workspace/evidence/proof_checks.md, section 2; the frozen finite checker was inspected, not executed.
 
-## Limitations and closest literature
-The theorem is specific to the ordinary open neighborhood complex and a triangle factor. It does not determine the types of general leafless cores and does not establish priority against inaccessible or unindexed mathematics. The nearest works are Shukla (arXiv:1802.04526), the published triangular-cycle torus calculation, and the published clique-fiber theorem for width at least four. No external independent review is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The inspected fold, bounded-degree, and clique-product results do not give the relative pendant deletion for arbitrary triangular Cartesian products. The distinct earlier cycle records already give the torus and its cup product before attaching trees; credit is restricted to the general pruning operation and its direct consequences.
+
+## value
+
+PASS
+
+A structural relative-collapse rule on a natural graph operation removes every attached tree from arbitrary base graphs without calculating new topological invariants. It preserves cup products as well as homology and needs neither a degree bound nor a girth bound. The value is in the general deletion operation, not the already known cycle core or the arithmetic count alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

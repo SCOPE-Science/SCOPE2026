@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:55:44.765402Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Every competitor has crossing block W with zero diagonal and holding probabilities fixed by its row and column sums. Write s for the total crossing weight and μ for SLEM on the mean-zero space. The part-sign Rayleigh quotient is 1-2s/n, so s≤n(1+μ)/2. The trace on opposite-sign mean-zero pairs is (n-1)-(n-2)s/n, since ||proj_{1-perp}(e_i+e_j)||²=2-4/n for i≠j. Bounding that trace by (n-1)μ gives s≥n(n-1)(1-μ)/(n-2). Together these give μ≥n/(3n-4), attained by the uniform candidate: its nonconstant eigenvalues on the three indicated spaces are -μ*, (n-4)/(3n-4) and μ*. At equality the positive semidefinite μI-P has zero trace on the opposite-sign mean-zero space U and annihilates it. Vectors (e_j-e_k,-e_j+e_k)/2 force all allowed weights in each row or column to be equal; the edge set linked by row or column is connected for n≥3. Quantitatively the trace defect on U is at most (3n-4)δ/2. The inequality (μI-P)²≤2μ(μI-P) on the mean-zero space gives a residual norm at most sqrt(μ(3n-4)δ) on every unit vector in U. Taking the same coordinate contrasts bounds single row/column steps by twice that quantity. Distinct edges have distance at most three (use a spare index for reciprocal edges); then the spread is at most six times the residual bound. The two inequalities on s bound the average discrepancy by δ/(n-2). These steps include n=3 and allow zero crossing weights and disconnected competitors. `python3 /workspace/branches/independent_math_replay.py 3` independently checked 1,270 direct spectra for n=3..12, including skew, nearly optimal and disconnected examples. These numerical checks supplement the all-size proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The edge-transitive theorem gives an invariant representative and the optimum from Laplacian extremal eigenvalues. The foundational SDP paper explicitly exhibits nonunique optimizers on another graph."
+        ],
+        "reasoning": "Edge-transitivity reduces the value computation after averaging, but the reduction is many-to-one. One must still justify the crown-specific equality restrictions and control the deviation from equality.",
+        "searches": [
+          "Boyd–Diaconis–Parrilo–Xiao Theorem 3.1 and Corollary 2.3",
+          "Boyd–Diaconis–Xiao FMMC pp. 674–675",
+          "Targeted fastest-mixing uniqueness and quantitative stability literature lookup"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:0709.0955",
+        "DOI:10.1137/S0036144503423264",
+        "Resultary/SCOPE 5db86611e174, 45dc9950cb66, 0fb2efaf041d and aa0c607bcc28"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The matching-channel proof averages first and tracks three orbit probabilities; its two minimax expressions are functions of the holding probability of this invariant representative. It does not analyze the zero-trace equality constraints on nonsymmetric crossing blocks or control their pairwise edge contrasts."
+        ],
+        "reasoning": "The known invariant spectra can supply the benchmark or identify the active modes; the additional step is to force those modes on every optimizer and turn the trace deficit into row and column estimates. Substituting a=0 in the known formula does neither.",
+        "searches": [
+          "SCOPE 5db86611e174, RESULT.md Proof §§1–4",
+          "Boyd–Diaconis–Parrilo–Xiao §2.2 Corollary 2.3 and §3.1 Theorem 3.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Setting each designated matching probability a=0 in SCOPE 5db86611e174 gives exactly the crown feasible set and exactly the same μ*, common off-matching weight and holding probability."
+        ],
+        "reasoning": "This reformulation covers the benchmark and a representative, not the uniqueness or stability of arbitrary nonsymmetrized W. Equal averaged objective values do not, by themselves, imply equal matrices.",
+        "searches": [
+          "Resultary: fastest mixing rigidity on crown graphs / complete bipartite minus a perfect matching",
+          "Boyd–Diaconis–Parrilo–Xiao §2.2 and §3.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "5db86611e174 covers exactly the value and invariant witness at a=0. Records 45dc9950cb66 and 0fb2efaf041d classify optimizers on complete split graphs, not crowns. aa0c607bcc28 treats bridge-weight stability on clique barbells."
+        ],
+        "reasoning": "None of those different rigidity/stability targets implies the all-entry bound for the crown. The same-day overlap of scalar benchmarks is exact but does not amount to coverage of the distinct all-competitor result.",
+        "searches": [
+          "Resultary: crown graph all optimal kernels; matching-channel capacity; fastest-mixing rigidity and square-root edge stability"
+        ]
+      },
+      "rationale": "The minimum SLEM and the invariant optimizer are already covered, both by the edge-transitive theorem and by the a=0 boundary of a distinct matching-channel result. The supported advance is the full-feasible-set equality analysis and quantitative entrywise bound. Neither earlier symmetrization guarantees equality in the needed positive-semidefinite residuals for arbitrary competitors without additional analysis.",
+      "residual_risks": [
+        "The same-day matching-channel record establishes numerical implication but not chronological priority. A more general equality or perturbation theorem not retrieved could reduce distinctness; the comparisons do not prove worldwide priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the minimum value and an invariant witness, not an all-optimizer assertion.",
+          "evidence": [
+            "Corollary 2.3 asserts existence of a common-edge optimizer; Theorem 3.1 computes its edge probability and SLEM."
+          ],
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fast_mix_symm.pdf",
+          "material_read": "§2.2 Corollary 2.3, PDF p. 6 (OA offset 18850); §3.1 Theorem 3.1, printed p. 799 (offset 24461).",
+          "method": "Primary PDF statement comparison and specialization to crown Laplacian eigenvalues n-2 and 2n-2.",
+          "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+          "trigger": "Exact same optimization model and edge-transitivity of the crown"
+        },
+        {
+          "assessment": "Exact overlap of benchmark and uniform witness; no all-optimizer rigidity or nonsymmetrized stability comparison in the pertinent proof.",
+          "evidence": [
+            "Step 1 concludes an optimal representative exists after averaging; Steps 2–4 optimize the three orbit probabilities and give the crown formulas at a=0."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-sharp-matching-channel-capacity-law-for-fastest-mixing-on-k-m-m--5db86611e174/RESULT.md",
+          "material_read": "Finding and scope; Proof §§1–4, offset 2635, indexed mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4.",
+          "method": "Read indexed result and symmetry reduction; specialize its fixed-a formulas at a=0.",
+          "title": "Sharp matching-channel capacity law for fastest mixing on K_{m,m}",
+          "trigger": "Setting the matching transition to zero recovers exactly the full crown feasible set"
+        },
+        {
+          "assessment": "General nonuniqueness example does not settle crown uniqueness, but rules out a general uniqueness inference from the SDP formulation.",
+          "evidence": [
+            "An explicit graph admits more than one FMMC optimizer."
+          ],
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fmmc.pdf",
+          "material_read": "Nonunique optimum example, printed p. 675 (OA offset 28620).",
+          "method": "Primary PDF passage comparison.",
+          "title": "Fastest Mixing Markov Chain on a Graph",
+          "trigger": "Foundational exact optimization and possible uniqueness theorems"
+        },
+        {
+          "assessment": "Different graph family and rigidity target.",
+          "evidence": [
+            "Cross-edge weights are rigid there while clique-edge weights have spectral freedom; neither condition applies to the deleted-matching bipartite graph."
+          ],
+          "identifier_or_url": "SCOPE 45dc9950cb66",
+          "material_read": "Indexed RESULT.md main statement and graph assumptions.",
+          "method": "Primary indexed passage comparison.",
+          "title": "Rigidity and spectral freedom of all fastest-mixing chains on complete split graphs",
+          "trigger": "Earlier full-feasible-set rigidity result with comparable objective"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A unique invariant representative does not normally identify all minimizers of a nonsmooth convex spectral objective. The result identifies all allowed and holding weights and quantifies how close full-feasible-set near-minimizers must be. The square-root scale is substantive: adding a sufficiently small skew circulation on three indices of W preserves row and column sums and changes some entries linearly, while the active positive eigenvalue shifts quadratically by coupling opposite-sign and same-sign transverse modes with distinct eigenvalues. No sharp prefactor is claimed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

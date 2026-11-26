@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and verification limits
+# Independent mathematical audit
 
-The analytic proof establishes a fourth-power norm bound and every extremizer for **all** complex six-tuples; it is not derived from finite sampling. In the accompanying `CHECK.py`, run `python3 CHECK.py` from the package directory (requires Python 3 and SymPy). The completed execution reported `PASS`, exact zero residuals for both the Fourier-convolution identity and the global sum-of-squares identity, an exact rational factorization of the one-variable derivative, exact algebraic resultant, rational isolation of the unique positive cubic root, 75 two-dimensional finite-grid moment comparisons, 25 arbitrary complex coefficient checks, and 3 extremizing-phase checks.
+## correctness
 
-Critical algebraic identity: with \(U=A^2+D^2+F^2\), \(V=B^2+C^2+E^2\), \(T=ADB^2+AFC^2+DFE^2\) and the corner/edge quartic deviations \(D_U,D_V\), the nonnegative sum of squares in `RESULT.md` equals \(D_U+D_V+4UV/3-4T\) identically. Coupled with Cauchy–Schwarz and AM–GM, this proves fixed-mass symmetrization globally. The cubic stationarity equation has exactly one positive root and the boundary ratios are smaller. Complex extremizers require three explicit phase equations, reducing precisely to affine coordinate phases.
+PASS
 
-The numerical trials verify specific finite values only. They do not establish the inequality for all coefficients, do not establish bibliographic novelty, and do not provide independent validation. The independent-audit status in front matter remains unperformed.
+Enumerating the 15 pair-sum frequencies reproduces the nonnegative convolution polynomial. In the fixed-mass SOS, expanding the first three squares and the three weighted difference squares gives sum of all six fourth powers −(U+V)²/3+2UV−4T, exactly the required identity. Cauchy–Schwarz on the three vertices and AM–GM on the three midpoints then yield the attainable two-mass bound with simultaneous equality only at internally equal amplitudes when U,V>0. After dividing by 9(x²+y²)², the displayed R has derivative −4t(2t³+3t²−6t−3)/(3(1+t²)³). Descartes and the endpoint signs give a unique positive maximizer, excluding both pure-mass edges. At these nonzero magnitudes the three triangle equalities from the (2,0), (0,2) and (1,1) coefficients determine exactly affine character phases; these also suffice at every other frequency. No alias occurs on the stated grids because each coordinate of a pair sum lies in [0,4]. Independent algebra gives the stated K-cubic via resultant (factor 100), with the three roots respectively in (1.111,1.112), (1.779,1.780), and (2.949,2.950); the maximizing value is the last, and 102/36=17/6 for the equal-modulus witness. The frozen script was inspected, not run; finite checks are corroboration rather than proof.
+
+## originality
+
+PASS
+
+The strongest verified exact-support overlap optimizes only phases at equal coefficient modulus. The strictly higher unrestricted optimum and its forced unequal magnitudes are not implied by that result. Other inspected optimizations use different supports or restrictions. This conclusion is bounded to verified comparisons, not a priority certification.
+
+## value
+
+PASS
+
+This is the complete degree-two simplex, equivalently the natural full three-variable homogeneous quadratic packet, rather than an arbitrary six-point sample. Its exact unrestricted constant and complete equality law exhibit a concrete two-orbit amplitude imbalance not predicted by the phase-only result. The sharp fixed-mass SOS explains the imbalance and is useful for checking other proposed symmetrizations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

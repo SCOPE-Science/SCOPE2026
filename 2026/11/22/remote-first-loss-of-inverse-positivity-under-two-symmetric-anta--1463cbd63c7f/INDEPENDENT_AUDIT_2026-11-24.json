@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:40:37.261924Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Eliminating the fixed tridiagonal interior gives terminal coupling -1/D_m and diagonal b, including the no-interior case b=3,d=1. Reflection yields even/odd block determinants E=2(b-d)-1-(b-d)t and O=2(b+d)-1-(b+d+4)t. The positive leading diagonal and E>0 up to the first odd zero prove the exact definiteness range; O<=0 thereafter. Reconstructing the terminal inverse from the sum and difference of the two block inverses gives all four stated cofactor numerators. In particular N14(0)=d>0 and N14(d/4)<0, while the other three numerators are positive on [0,d/4]. Vieta puts the second root of N14 beyond 4/(d+2)>=4/3, so the endpoint witness remains negative for the rest of the positive-definite range. The two interior attachment columns are strictly positive even at the first zero; the positive interior Green function propagates strict positivity throughout the remaining full inverse. The continuant formula gives the exponent n-2 and both constants as stated. The classification does not extend beyond the SPD interval. Bounded replay of determinants, cofactors and limit: `python /workspace/branches/frozen_replay.py 4` (SymPy and Decimal); the argument, not the replay, covers arbitrary sizes and real strengths.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zelazo–Bürger III.4 concerns positive semidefiniteness with disjoint sets of positive-path edges per negative edge; the two shortcut endpoint paths in the present graph overlap. It has no Green-function entry conclusion.",
+          "The tridiagonal base after incorporating the diagonal decrements is strictly row-dominant for t<1; a general off-band criterion for that class could apply for each t in the SPD interval. The cited 2012 theorem hypotheses could not be checked in full text."
+        ],
+        "reasoning": "Credit the broad perturbation framework and separate possible pointwise decision coverage from the uniform explicit threshold and witness; do not infer noncoverage from inaccessible text.",
+        "searches": [
+          "Zelazo–Bürger arXiv:1408.2187 Theorems III.3–III.4",
+          "Huang–Haynes–Huang DOI 10.1137/100812483"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md §§ Finding, Proof and Relationship to prior work; VERIFICATION.md; check.py",
+        "Local Resultary exact hit 1463cbd63c7f",
+        "arXiv:1408.2187 pp. 4–5",
+        "DOIs 10.1137/100812483 and 10.1016/j.laa.2006.12.006 (access-limited)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A positivity decision at a proposed strength would not by itself order the first zeros across entries or give an expansion uniformly in n. Here those conclusions come from inequalities comparing three different terminal cofactors to the first root and from the continuant asymptotic."
+        ],
+        "reasoning": "No verified prior statement mechanically yields this threshold, first pair and rate from the family data. The definiteness calculation alone does not carry the novelty finding.",
+        "searches": [
+          "Haynes–Trummer–Kennedy DOI 10.1016/j.laa.2006.12.006",
+          "Huang–Haynes–Huang DOI 10.1137/100812483",
+          "arXiv:1408.2187 Theorem III.4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A_n(t) can equivalently be written as a screened tridiagonal base with diagonal decrements, plus off-band positive entries in two symmetric pairs; a single rank-one case is not this simultaneous entrywise sign problem."
+        ],
+        "reasoning": "Searched the equivalent inverse-positive/monotone M-matrix formulation, not only the signed-graph terminology. A definitional equivalence is not an existing solution.",
+        "searches": [
+          "Resultary: two symmetric antichords, opposite-endpoint Green-function sign and exponential threshold",
+          "DOI 10.1016/j.laa.2006.12.006",
+          "DOI 10.1137/100812483"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact hit SCOPE-remote-first-loss-of-inverse-positivity-under-two-symmetric-anta--1463cbd63c7f is the identical assigned finding, not prior independent coverage."
+        ],
+        "reasoning": "No distinct matching entry was established in the focused comparison; this is not a claim of exhaustive coverage.",
+        "searches": [
+          "Resultary: opposite-endpoint inverse positivity with equal symmetric shortcuts"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the specialized closed threshold, isolated unperturbed endpoint pair and exponential separation together, not for Schur reduction, negative-weight definiteness or the general problem of inverse nonnegativity under off-band perturbations. There is positive evidence for a closely related existing decision framework, but not for the claimed analytic classification being supplied by it.",
+      "residual_risks": [
+        "The strongest two tridiagonal M-matrix references could not be read at theorem level; a prior exact specialization or unindexed equivalent remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Verified related definiteness theorem, not the claimed inverse sign classification.",
+          "evidence": "III.4 explicitly assumes P_i intersect P_j is empty and concludes a semidefiniteness inequality; the present shortcut paths share edges.",
+          "identifier_or_url": "https://arxiv.org/pdf/1408.2187",
+          "material_read": "Theorem III.3 context and Theorem III.4 hypotheses and conclusion, pp. 4–5, including offset 25000",
+          "method": "OA PDF literal locator and bounded passage",
+          "title": "On the Definiteness of the Weighted Laplacian and its Connection to Effective Resistance",
+          "trigger": "Signed-Laplacian definiteness for multiple negative edges"
+        },
+        {
+          "assessment": "Access-limited; possible broad decision coverage credited, exact implications not verified.",
+          "evidence": "The frozen comparison identifies recursive criteria for simultaneous nonnegative off-band perturbations; attempts to retrieve the theorem from the author copy and DOI did not yield text.",
+          "identifier_or_url": "10.1137/100812483; https://www.math.mun.ca/rhaynes/haynesjiehuang.pdf",
+          "material_read": "Bibliographic information and frozen description; no primary theorem text recovered",
+          "method": "DOI and author-hosted OA PDF retrieval, including non-www alternate host",
+          "title": "Monotonicity of Perturbed Tridiagonal M-Matrices",
+          "trigger": "Strongest identified general simultaneous off-band comparison"
+        },
+        {
+          "assessment": "Related framework; exact coverage cannot be decided from the landing evidence.",
+          "evidence": "Frozen RESULT.md lines 91–95 distinguish prior perturbation questions from the two simultaneous varying-diagonal shortcuts and remote endpoint crossing.",
+          "identifier_or_url": "10.1016/j.laa.2006.12.006; https://www.math.mun.ca/~rhaynes/inversepos07.pdf",
+          "material_read": "Bibliographic/landing evidence and frozen comparison; no primary theorem text recovered",
+          "method": "DOI and author-hosted OA PDF retrieval, including non-www alternate host",
+          "title": "Persistently positive inverses of perturbed M-matrices",
+          "trigger": "General persistence and single-perturbation formulas"
+        },
+        {
+          "assessment": "Identical record, not distinct prior evidence.",
+          "evidence": "Same endpoint (1,n) and exponential threshold.",
+          "identifier_or_url": "2026/11/22/SCOPE-remote-first-loss-of-inverse-positivity-under-two-symmetric-anta--1463cbd63c7f",
+          "material_read": "Local index match and bound Finding/Proof",
+          "method": "Local Resultary search and frozen-text comparison",
+          "title": "Remote-first loss of inverse positivity under two symmetric antagonistic shortcuts on a path",
+          "trigger": "Exact indexed match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a concrete boundary for using definiteness as a proxy for a nonnegative response in a natural screened path: the first response that changes sign is not an entry supported on either modified edge, and the allowable strength for nonnegative response tends exponentially to zero despite a uniformly positive definiteness threshold. The exact all-size threshold and exclusive witness distinguish two natural stability notions, rather than just giving a numerical small-path example.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

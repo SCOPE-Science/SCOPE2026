@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The cyclic three-gap parameterization is a bijection onto oriented necklaces, all possible one-deletions are partitioned by output weight, and comparison of the three coordinate-decrement outputs gives a complete rotation-collision criterion. The six cases partition every nonnegative triple and their generating series follow by exact compositions and orbit counting. Independently canonicalized finite deletion shadows and rational-series coefficients agree with the proof. The finite tests are not the infinite argument.
+## correctness
 
-**Originality — PASS (qualified).** An unrestricted maximum one-deletion necklace bound and finite necklace-shadow packing computations are published, but neither provides the exact six-bucket all-length fixed-three-one distribution. A published all-distinct three-gap count for the unrelated unbordered-conjugate statistic already equals the six-descendant column; that individual numerical column is not new. The distinctive novelty is the full deletion collision classification and the exceptional near-equal-gap series. Full primary text and these particularly close statements were compared. Earlier independently derived specializations cannot be excluded.
+PASS
 
-**Mathematical value — PASS.** The source is the smallest three-marker circular family with a nontrivial phase-sensitive deletion collision beyond two-marker gap symmetry. Complete shadow-size strata quantify uneven coverage of the unrooted single-deletion channel and supply exact ingredients for constant-composition necklace-code packing; no optimum code size is inferred. The near-equal positive-gap collision is structural rather than a mere numerical table entry.
+Cyclic ordered zero gaps (a,b,c), total N=n-3, parametrize the rotation-only source classes. One-deletions give the unordered gap pair {g,N-g}, so two different gap values coincide only when they sum to N and the other gap is zero. Zero-deletions are positive-coordinate decrements and have a different weight from the one-deletions. To compare two decrements, cycle the positions to the first two: (a-1,b,c) cannot equal (a,b-1,c) directly, and the two nontrivial rotations force either a=b=c or a=b=c+1, respectively. Thus all-equal positive gaps lose two outputs, type (t,t,t-1) loses one (including t=1), and otherwise the positive-gap deletions are distinct. The resulting buckets count N=0, the one-positive/all-equal cases, the single (1,1,0) case, N-1 ordered positive pairs with a uniquely placed zero less that case plus the t>=2 exceptions, positive two-equal triples less those exceptions, and all-positive distinct triples modulo three-cycle rotation. Counting each by total gap sum and multiplying by z^3 gives all six GFs. The last begins with (1,2,3) in two orientations at n=9 and has coefficient n^2/6+O(n); the remaining classes together are O(n). Fresh literal bit-deletion histograms matched for n=3 through 30, with direct checks on 981 small gap orbits and a gap enumeration versus rational coefficients through n=57. Replay procedure and results: /workspace/branches/b6b33260-f8dc-4adb-adf1-05380715e304/independent-check.md.
 
-The scope is exactly one deletion, binary oriented necklaces with three ones, and all circumferences at least three. Only finite corroboration is computer-checked; historical priority remains qualified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct contribution is the deletion-collision classification for three-one oriented necklaces and the resulting complete histogram, especially the collision type (t,t,t-1) and its zero-gap boundary. The prior three-marker gap-class enumeration covers the six-output column numerically after subtracting one from every positive gap, and covers the pre-exception enumeration for five outputs. Credit that overlap: the corresponding rational counting identities are not new by themselves. The earlier counted observable does not determine the collision law.
+
+## value
+
+PASS
+
+Three ones give a natural small-content class in which clockwise order matters and distinct positive-gap decrements can coalesce modulo rotation. The full distribution explains the exact scarcity and mechanism of these collisions, including the isolated three-output case, and distinguishes generic six-output behavior from the lower-degree sources. This is useful for analyzing the cyclic one-deletion graph independently of its maximum degree or its packing optimum, rather than merely renaming a previously counted column.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

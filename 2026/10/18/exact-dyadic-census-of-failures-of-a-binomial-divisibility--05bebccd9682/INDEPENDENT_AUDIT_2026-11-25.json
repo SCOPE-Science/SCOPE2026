@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:08:06.678800Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed RESULT.md lines 33–86. Rotation stabilizers act freely on positions, so their order divides both 5n+1 and 2n, making the tested quotient integral or a half-integer (integral for even n). For odd n with h=v2(3n+1), the trailing h ones of 3n force precisely the first h−1 carry-outs at positions 1 through h−1; failure means all carry-outs from h on are zero. Recomputed the seven transitions and acceptance under the actual infinite zero suffix: G rejects immediately, while the other six enter D (or remain there). The seven polynomial numerator equations check with constant-term identity matrix; padding to L bits therefore gives z(1+z)/Q, with F_0=0. The primitive C,F,D,G block has characteristic polynomial lambda(lambda−1)(lambda²−1)−1; the other blocks have spectral radius at most 1. The unique dominant simple root gives the claimed positive residue constant and all-cutoff density-zero bound. In the pole argument it is the quotient that has a pole, i.e. Q has a zero. Independently computed math.comb(5*n,2*n) % (3*n+1) for 1 <= n < 4096 and got counts 0,1,2,3,4,6,9,14,21,32,48,73,110 for L=0..12 (branches/d9759b80-6deb-4115-82f1-9370b39e5584/direct_exact_L12.txt). This is only a bounded check; the proof supplies the all-level claims. Frozen VERIFICATION.md and verify.py inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sun Theorem 1.4 treats general slopes and yields the gcd divisor; Guo–Krattenthaler Theorem 2.1 treats p dividing one slope but not the other."
+        ],
+        "reasoning": "Both are broader in slopes but weaker in the quantitative information required here; neither supplies all finite-cutoff counts.",
+        "searches": [
+          "arXiv:1005.1054",
+          "arXiv:1301.7651"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1005.1054 Theorem 1.4",
+        "arXiv:1301.7651 Theorem 2.1",
+        "Resultary 0127e93f9dac RESULT.md Finding"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Sun reduces failures to the last factor of two; Kummer identifies the carry weight; the related fibre enumerator forgets the index-dependent target."
+        ],
+        "reasoning": "The accepted language and its terminal conditions, its numerator and hence the leading constant require counting a new event; they are not coefficient extraction from the inspected marginal series or a restatement of infinitude.",
+        "searches": [
+          "Sun Theorem 1.4; Guo–Krattenthaler Theorem 2.1; same-day binom(5n,2n) valuation fibres Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The related marginal table sums by v2(binomial), while the frozen event conditions on the number of initial ones of 3n.",
+          "Theorem 2.1 uses the equivalent nondivisibility predicate, but proves infinitely many exceptions and a bound on the first."
+        ],
+        "reasoning": "Neither enumeration by valuation alone nor an explicit sufficient family exhausts the failures. The tested automaton must split before and after the first zero of 3n.",
+        "searches": [
+          "Resultary: exact binary valuation fibres on the binomial ray binom(5n,2n)",
+          "arXiv:1301.7651, Theorem 2.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Finding tabulates marginals, including the zero layer (1+z³)/Q, rather than failures z(1+z)/Q."
+        ],
+        "reasoning": "The shared Q is real evidence of structural overlap (and of a common dominant root), not an exact match of counted fibres or coefficients. Same-day dating does not resolve priority.",
+        "searches": [
+          "Resultary 2026/10/18/SCOPE-exact-binary-valuation-fibres-on-the-binomial-ray-binom-5n-2n--0127e93f9dac"
+        ]
+      },
+      "rationale": "Pass the explicit joint-event dyadic census and Perron asymptotic, not the known denominator bound, carry interpretation or infinitude. The same-day valuation-fibre result has a genuinely shared denominator and transfer mechanism, but its marginal count does not give the index-dependent joint event.",
+      "residual_risks": [
+        "General primary-literature search was unavailable; unlocated exact automata or tables are possible.",
+        "Same-day priority unresolved, notwithstanding the demonstrated difference in counted statistics."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known reduction, not census",
+          "evidence": "(ln+1)/gcd(k,ln+1) divides binom((k+l)n,kn).",
+          "identifier_or_url": "https://arxiv.org/abs/1005.1054",
+          "material_read": "Theorem 1.4, p. 5, extraction near offset 15422; nearby Conjecture 1.4",
+          "method": "OA primary PDF",
+          "title": "On divisibility concerning binomial coefficients",
+          "trigger": "General gcd divisor covering these slopes"
+        },
+        {
+          "assessment": "Infinitude and first failure bound, not dyadic count",
+          "evidence": "At a=2,b=3,p=2 the theorem yields f(2,3) ≤ 3 and infinitely many failures.",
+          "identifier_or_url": "https://arxiv.org/abs/1301.7651",
+          "material_read": "p. 2, offsets 5000 and 7842, f(a,b) and Theorem 2.1",
+          "method": "OA primary PDF",
+          "title": "Some divisibility properties of binomial and q-binomial coefficients",
+          "trigger": "Same divisibility event and broader slope theorem"
+        },
+        {
+          "assessment": "Same denominator for a different statistic",
+          "evidence": "The zero-valuation and one-valuation series use Q, but neither tracks v2(3n+1).",
+          "identifier_or_url": "2026/10/18/SCOPE-exact-binary-valuation-fibres-on-the-binomial-ray-binom-5n-2n--0127e93f9dac",
+          "material_read": "RESULT.md Finding, offsets 852–1428",
+          "method": "Local Resultary mirror",
+          "title": "Exact binary valuation fibres on the binomial ray binom(5n,2n)",
+          "trigger": "Same-day result on the same binomial ray and cutoffs"
+        },
+        {
+          "assessment": "Historical passage not verified directly; no originality claimed for the theorem",
+          "evidence": "The historical text did not return readable content through attempted routes.",
+          "identifier_or_url": "10.1515/crll.1852.44.93",
+          "material_read": "Bibliographic identity and cited carry statement, not primary full text",
+          "method": "Lawful OA and repository retrieval attempted",
+          "title": "Über die Ergänzungssätze zu den allgemeinen Reciprocitätsgesetzen",
+          "trigger": "Historical attribution of the carry theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exceptions to a previously studied divisibility problem are a natural family. Exact prefix counts quantify how sparse the infinite failures are, including the nontrivial exponent and density zero, neither of which follows from existence or the previously available valuation marginals.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

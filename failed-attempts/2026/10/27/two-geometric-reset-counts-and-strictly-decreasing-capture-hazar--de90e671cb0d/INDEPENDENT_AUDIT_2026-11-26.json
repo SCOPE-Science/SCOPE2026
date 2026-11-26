@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:32:05.379358Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The one-attempt kernel subtracts from the unrestricted gate transition law at the exponential clock the absorption-first event; the gate is open at absorption, and the residual independent clock is exponential, giving K=P-f e_1^T P. The two decaying generator modes and reflecting/absorbing boundary conditions give the displayed f_0,f_1 and 0<f_0<f_1<1. All entries of K are positive (there are surviving trajectories with either gate end state); the row sums are below one. Writing F=bar f, tr K=1+t-(1-t)F-t f_1 and det K=t(1-f_1). Thus det(I-K)=(1-t)F and det((1-F)I-K)=-pt(f_1-f_0)F. The positive determinant and trace and strict negative characteristic value at s=1-F place two distinct roots in (0,1) on either side of s. Strong Markov at position resets and the two initial tail values give exactly the positive two-geometric mixture. The strict identity S_n S_(n+2)-S_(n+1)^2=w_1w_2(lambda_1 lambda_2)^n(lambda_1-lambda_2)^2 proves the hazard ordering, and the dominant root gives the limit. The tail generating function gives m=(s-det K)/det(I-K). Total variance gives excess -2 det(sI-K)/det(I-K)^2, exactly the stated positive expression. The independent algebra check covers these quantities; the supplied verify.py and recorded verification were inspected, not executed. No claim about greater dispersion under an unspecified ordering or arbitrary initial gate laws is needed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The same-model 2021 work uses reset terms preserving gate state and analyzes survival/capture time. The 2020 work resets the gate along with the particle in its renewal formulation. The 2023 reset-budget result has ungated absorption and a finite cap."
+        ],
+        "reasoning": "A general discrete phase-type law alone would not ensure strictly positive mixture weights. The strongest match is the exact persistent-gate calculation, not these different protocols or generic phase-type theory.",
+        "searches": [
+          "Mercado-Vásquez and Boyer arXiv:2107.02148",
+          "Bressloff arXiv:2009.02739 §3",
+          "Bressloff arXiv:2310.20502 §V"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py",
+        "Resultary e8269f686a15 full decisive passage",
+        "arXiv:2107.02148, 2009.02739 and 2310.20502"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The indexed excess 2 w_+ w_- (m_+-m_-)^2 reduces to the frozen scalar by using the same characteristic polynomial and det(I-K). Its PMF gives the frozen mean by summing the tail recurrence. For the older same-model time transform there is also a bridge: independently accept each reset with probability z, so the count PGF under rate r equals the capture-time Laplace transform for rate rz evaluated at r(1-z), for 0<z<=1. This observation distinguishes equivalent transform information from explicitly proving the strict spectral classification."
+        ],
+        "reasoning": "The compact variance and mean substitutions have no scientific remainder beyond the verified catalogue overlap; no priority assertion follows.",
+        "searches": [
+          "Resultary e8269f686a15 Proof §§3–4 and variance box",
+          "arXiv:2107.02148 model and survival-time equations"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Set the indexed record's a=x_r, z=t, A=h, q=p_frozen, p=1-p_frozen, u=e^(-kx_r), v=e^(-khx_r) and B=(beta+alpha h)/(alpha+beta). Its U is P, its h_i is f_i, and its K=U-h U_{1,*} is the same kernel. Its pi=(q,p) is the same equilibrium distribution."
+        ],
+        "reasoning": "Matching the state order, reset protocol, geometric support and stationary initial law under this substitution gives termwise equivalence, not superficial similarity.",
+        "searches": [
+          "Resultary: strict two-geometric reset count law Brownian independently switching gate",
+          "Resultary e8269f686a15, Finding and Proof §§1–4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed source gives the exact weights from s and the same eigenvalues, PMF and log-convex tail. Its determinant -p q u v/(A B^2) equals -p_frozen t (f_1-f_0) bar f using bar f=p_index A u/B, t=A^-2 and f_1-f_0=v/B."
+        ],
+        "reasoning": "It is an exact formula lookup rather than a finite-table match. All strictly positive parameter choices and all integer counts are already included in the distinct indexed statement.",
+        "searches": [
+          "Resultary e8269f686a15, RESULT.md offsets 0–7042"
+        ]
+      },
+      "rationale": "A distinct indexed record has the same model, scope, transition kernel, exact mixture, strict hazard decrease and strict variance excess. Its characteristic identity is algebraically identical; the frozen excess in primitive parameters follows by immediate cancellation and is not a distinct surviving theorem. The 2026/11/8 catalogue path is later than the frozen 2026/10/27 path, but path dates do not establish priority or explain the relationship; this is a verdict on verified duplicate scientific coverage, not attribution or a claim that the other result appeared first. The older primary capture-time literature is not the source of the exact structural overlap.",
+      "residual_risks": [
+        "The relation and chronological priority of the two distinct records are not established. The review does not assert dependence or historical precedence.",
+        "Broader literature checking was bounded; the negative result of a targeted search is not evidence of absence. The verdict rests on positive exact-equivalence evidence, not search failure."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent scientific coverage in a distinct record; priority unresolved",
+          "evidence": "Explicit strictly positive mixture, same stopped kernel, signed determinant, strict log-convexity and exact positive excess variance.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-strict-two-geometric-reset-count-law-for-a-brownian-search-with--e8269f686a15/RESULT.md",
+          "material_read": "Finding, assumptions, Proof §§1–4, local mirror offsets 0–7042",
+          "method": "Configured Resultary search and local mirror bounded full text",
+          "title": "Strict two-geometric reset-count law for a Brownian search with an independently switching gate",
+          "trigger": "Exact same-observable and same-model Resultary match"
+        },
+        {
+          "assessment": "Same reset protocol and time statistics; no express two-geometric reset-count theorem in inspected passages",
+          "evidence": "The term r[Q_i(x_r,t)-Q_i(x,t)] preserves the gate state at reset, and the abstract identifies first-hitting time and relative fluctuations as observables.",
+          "identifier_or_url": "https://arxiv.org/abs/2107.02148",
+          "material_read": "Abstract, introduction and survival equations, PDF pp. 1–3; OA offsets about 4500–13963",
+          "method": "OA PDF and relevant primary passages",
+          "title": "Search of stochastically gated targets with diffusive particles under resetting",
+          "trigger": "Same model previously solved for time-to-capture"
+        },
+        {
+          "assessment": "Different renewal protocol",
+          "evidence": "Explicit assumption that the gate is also reset to state m with probability rho_m when the position resets.",
+          "identifier_or_url": "https://arxiv.org/abs/2009.02739",
+          "material_read": "§3, PDF p. 6, OA offset about 18800",
+          "method": "OA PDF primary passage",
+          "title": "Diffusive search for a stochastically-gated target with resetting",
+          "trigger": "Potential gate-reset renewal equivalent"
+        },
+        {
+          "assessment": "Finite reset-budget theory with ungated absorption, not the persistent two-state gate theorem",
+          "evidence": "The displayed count-resolved terms are truncated at a fixed maximum number of resets.",
+          "identifier_or_url": "https://arxiv.org/abs/2310.20502",
+          "material_read": "Abstract and §V, Eqs. (5.9)–(5.11), PDF pp. 7–8, OA offset about 54800",
+          "method": "OA PDF primary passages",
+          "title": "Truncated stochastically switching processes",
+          "trigger": "Earlier reset-count and capture calculations"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The two-geometric law and its diagnostic hazard are intrinsically useful for modeling persistent gate memory, but they are already present in the exact overlapping result. In this submission the only apparent remainder is a routine evaluation of the same determinant, mean and excess variance in the given parameters. That substitution does not justify a separate exact-invariant claim or a repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

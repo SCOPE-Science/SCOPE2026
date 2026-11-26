@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification notes
+# Independent mathematical audit
 
-The proof derives coefficient-distance control from the cited intrinsic-volume Jacobian lemma, independently proves clusterwise root matching by Rouché, and constructs sharpness witnesses for every maximal multiplicity. Analytic assumptions include full-dimensional ellipsoids, positive squared semiaxes and sufficiently small local neighborhoods of a fixed axis multiset. The exact dimension-three coefficient Jacobian follows by elementary beta integrals, not from a floating-point certificate.
+## correctness
 
-Run `python3 verify.py` with Python 3 standard library. The program tests the integral evaluation against unit-ball intrinsic-volume normalization for dimensions two, three and four; compares finite-difference derivatives against the exact ball Jacobian; and evaluates a four-point sequence of cubic ill-conditioning witnesses. Observed: `PASS: 28 finite checks`; data-distance ratios divided by \(\varepsilon^3\) were approximately \(2.0446553848\), \(2.0194812545\), \(2.0075424688\), and \(2.0027054806\). These are finite crosschecks, not a substitute for the all-dimensional proof.
+PASS
 
-The strict Jacobian lemma is sourced to Myroshnychenko, Tatarko and Yaskin, *Unique determination of ellipsoids by their intrinsic volumes*, arXiv:2611.24923v1 (2026-11-18), Lemmas 3.5, 4.1 and 4.2, and Section 5. The estimate is local and does not identify an ellipsoid's orientation or center. No independent audit has been performed.
+With the stated Steiner normalization, the ellipsoid integral in RESULT.md lines 34–43 is the input. Its expanded numerator shows locally uniform integrable bounds at zero and infinity, also for coefficient derivatives, on the open positive-coefficient domain. For j>=k, differentiate with T_k fixed and integrate by parts the derivative of u^(j-k/2)T_k Q^(-3/2); its endpoint terms vanish and the result is the stated A_k formula. For j<k use R=Q-T_k fixed with numerator R'Q-RQ', giving B_k by the same calculation. The crucial nonsingularity can be checked independently without the unavailable cited convexity proof, as follows. Normalize row k by sqrt(s_k) instead of v_k. For fixed u>0 put a_p=s_p u^p. This is a positive log-concave sequence by Newton's inequalities for the positive squared semiaxes. The new integrands have common positive factor u^(j-1)Q^(-3/2)/4 times A_k/sqrt(a_k) or B_k/sqrt(a_k). Write D=sum_{p<k}a_p, r=sqrt(a_(k+1)/a_k), x=sqrt(a_k/a_(k-1))>=r. Then sqrt(a_k) times the second difference of the A-sequence is x A_(k-1)+A_(k+1)/r-2A_k, bounded below by [(r-1)^2 A_(k-1)-2(r-1)D+a_k]/r, using A_k-A_(k-1)=D and A_(k+1)-A_k=D+a_k. This is strictly positive for r<=1. For r>1, all earlier ratios a_(p+1)/a_p are at least r^2, so D<a_k/(r^2-1); the last two terms already have positive sum. The B-sequence follows by reversal of the a_p. At k=j both choices give the same integrated matrix entry, since A_j-B_j=jQ-uQ' and the difference is proportional to the vanishing boundary term [u^(j/2)/sqrt(Q)] from zero to infinity for 1<=j<n. The zero ghost rows are A_0=B_n=0. Thus every off-diagonal entry of the Dirichlet second-difference matrix with sign reversed times this row-scaled Jacobian is strictly negative, and its column sums are positive boundary row entries; strict column diagonal dominance gives invertibility. The v_n=sqrt(s_n) row then gives full rank. This independently establishes the required lemma's consequence even at repeated axes. The inverse function theorem on the open extension, with a convex small data neighborhood, bounds coefficient differences for any two nearby real spectra. Rouché in separated clusters of multiplicity m_j matches roots within O(delta^(1/m_j)); the disk radius may be picked between the displayed radius and twice it avoiding tangencies, and components are ordered along the real line. For zero coefficient difference the roots coincide; square roots are uniformly bi-Lipschitz on the positive compact neighborhoods. Sharpness follows by adding a fixed small nonzero constant to a real simple-root cluster polynomial, then moving each scaled root into the fixed cluster: the ordered squared-axis displacement is order epsilon, whereas the characteristic coefficient difference is exactly epsilon^m times a fixed nonzero multiple of the remaining-root polynomial. Local bi-Lipschitz coefficient-to-data control transfers both bounds. For the three-ball, the beta integrals give the displayed six coefficient derivatives and determinant 8/315; the triples have common s_1=3 and s_2=3-3 epsilon^2 with s_3 difference 4 epsilon^3. The smooth derivative at a point O(epsilon^2) from the ball gives data leading vector (4/35,24/35,2) epsilon^3 with O(epsilon^5) remainder. Sorting and square-rooting yields d=epsilon+O(epsilon^2). The attached finite diagnostics were inspected, not executed.
+
+## originality
+
+PASS
+
+Credit the combined sharp, pairwise intrinsic-volume modulus at each semiaxis multiplicity stratum and the matching realizable perturbations, not intrinsic-volume injectivity, the coefficient integral or the inverse function theorem. The earlier distance-moment result shares the ball exponent but changes the observable and identified scope; the geodesic result also uses a different observation map. The 18 November preprint is the closest plausible primary precedent and supplies the Jacobian framework according to the frozen reference; its original full text remained inaccessible. The upper bound is a consequence of that framework and root conditioning. The supported increment is the complete sharp intrinsic-volume statement, particularly the two near realizable positive spectra giving the lower order at general centers. This is a qualified statement-level assessment, not a priority certificate or independent claim that the source paper omits the theorem.
+
+## value
+
+PASS
+
+The theorem distinguishes identification from conditioning: two observations corrupted near a fixed nearly symmetric ellipsoid can be close to order m while the geometry differs at first order. The maximal multiplicity, not merely ambient dimension, controls the optimal pairwise noise exponent; distinct axes are Lipschitz and repeated clusters progressively worsen recoverability. The realizable lower bounds make this significant for inverse use of intrinsic-volume data, beyond a generic dimension-only root bound or a single ball example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

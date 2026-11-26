@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-# Reproducible verification of finite patrol classification
+# Independent mathematical audit
 
-Unpack `check_watchman.py` and `check_watchman.cpp` from the same result record, preserving their exact decoded bytes. Execute:
+## correctness
 
-```sh
-python3 check_watchman.py
-c++ -O2 -std=c++17 -Wall -Wextra -pedantic check_watchman.cpp -o check_watchman
-./check_watchman
-```
+PASS
 
-Both programs must print `ALL PASS`; the Python implementation additionally prints all ten spatial orbit representatives. The C++ implementation exhausts every rooted vertex sequence up to the optimum length, checking all earlier even lengths and all support-type subtotals. The Python implementation checks both the exact rooted-walk dynamic recurrence and direct DFS enumeration, then enumerates all graph automorphisms by pairwise distance preservation, acting on canonical cyclic words. The two programs use independent adjacency generators and counting methods.
+I re-enumerated the four specified labeled graphs independently. For length 2k and a fixed root, a closed word corresponds bijectively to an ordered pair of length-k half-walks from the root to the same midpoint, with the second half reversed. Taking the union of their closed neighborhoods, I recovered all the coverage maxima in RESULT.md lines 67–72, and the optimum (length, rooted words, dihedral classes) tuples (10,10920,546), (8,96,6), (12,5400,225), (10,240,12). Connectivity, cubic degree and bipartiteness were checked directly; length zero sees four vertices. I independently generated automorphisms by extending an injective map along neighbor permutations in breadth-first order. Every automorphism gives exactly one such extension, and the terminal maps preserve all edges. This gave group orders 336, 96, 216, 240 and exactly the ten reported orbit sizes and representative words. Leaf stripping and support degrees recover the listed tree and cycle geometries. In the excursion descriptions 'two-edge' refers to distinct off-cycle edges in the traversed support, not a two-step budget for the whole detour.
 
-Expected \((w(G),\text{rooted count},\text{temporal classes})\): Heawood \((10,10920,546)\), Möbius–Kantor \((8,96,6)\), Pappus \((12,5400,225)\), Desargues \((10,240,12)\). Expected spatial orbit counts: \((5,1,3,1)\); the exact orbit sizes and walks are documented in `RESULT.md`.
+## originality
 
-**Scope and limits:** These are exhaustive finite proofs for four fixed, labeled simple graphs only; they are not infinite-family theorems. Checks make no inference from a timeout or sampled enumeration. They do not establish first publication priority. External independent validation is not part of this package.
+PASS
+
+The supported distinct claim is the joint optimum-walk and full-automorphism classification for exactly these four graphs, not the definition of a watchman's walk, the classification of the graphs, or unconditional priority for every individual count. The strongest indexed exact match is the frozen record itself. No available distinct comparison establishes the ten-orbit classification; there is an explicit unresolved multiplicity-literature risk.
+
+## value
+
+PASS
+
+These are the four naturally named exceptions in a cubic-symmetry classification; the walk problem distinguishes their structure in a way neither girth nor graph symmetry alone provides. In particular the complete orbit list distinguishes an optimal tree-supported Heawood walk from its cyclic alternatives, and detects non-cycle optima in Pappus but none in Möbius–Kantor or Desargues. The precise orbit representatives and support data are useful test cases for structural claims about shortest dominating walks allowing repeated edges.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

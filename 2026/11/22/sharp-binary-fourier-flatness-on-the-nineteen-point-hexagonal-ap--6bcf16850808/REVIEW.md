@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The claim is a finite, exhaustively verifiable theorem: the Fourier fourth moment equals the sum of squared integer aperiodic autocorrelations. Up to an irrelevant global sign, all \(2^{18}=262144\) assignments are enumerated, not sampled. Two different algorithms (integer Gray-code update and direct vectorized pair-product summation) verify the exact minimum \(467\), the \(72\) fixed-center minimizers, the next attainable value \(475\), and the full symmetry orbit decomposition \(24+24+24\). Explicit witnesses have squared one-sided sidelobe sum \(53\). Source code and observed outputs are included. The conclusion does not extend to arbitrary array sizes or complex phases.
+PASS
 
-## Originality: PASS (best knowledge)
+Torus orthogonality gives M=sum_d C(d)^2 for the full radius-two axial hexagon. C(0)=19 and the two directions of every nonzero lag contribute equally, so the integrated defect is M-361. A global sign flip changes neither M nor defect, giving exactly 2^18 distinct center-positive assignments. Independently ran python3 /workspace/review_evidence/recompute4.py. Instead of lag updates it summed squared integer coefficients of P^2 by unordered site sums, with terms doubled for two distinct sites. This computes the same fourth moment by Parseval and runs across all 262144 masks. It found moments 467,475,483 first, with counts 72,28,144, respectively; the maximum was 3259. Independent orbit traversal by the four generators (rotation, reflection and the two coordinate sign characters) preserved the minimizing set and yielded least masks 3441,8151,10446, each with 24 elements and exactly the stated negative coordinates. Hence there are 144 minimizers before sign normalization, and the sharp gap is eight. As a cross-check, each squared lag term has fixed residue modulo four from overlap parity and hence M has fixed residue modulo eight; there are nine odd positive-lag overlaps, yielding residue three. For the claimed discrete Fourier transfer, all difference coordinates lie in [-4,4], so grid periods at least nine keep all lags distinct modulo the grid. This proves only the stated full support and real-sign fourth moment.
 
-The 2019 Balister et al. result is a one-variable asymptotic Littlewood existence theorem; the 2015 Ding–Noshad–Tarokh paper explicitly includes **this same 19-site hexagonal geometry** but constructs multiple jointly complementary arrays after removing the central site. The published 7-site continuous-phase exact fourth moment treats a smaller support. Neither result implies the exact single-array binary 19-site optimum and orbit classification. Search comparisons covered fourth moments, autocorrelation sidelobe energy, hexagonal phase arrays, merit factor and equivalent terms. The 2005 Ramakrishna–Mow work treats peak rather than integrated sidelobe optimization, but its complete tabulations were not accessed; historical priority is provisional. The precise evidence and implication comparisons are provided in `AUDIT.json`.
+## originality
 
-## Value: PASS
+PASS
 
-The completed radius-two hexagon is the first natural 19-point step beyond the familiar 7-point seed. The exact spectral-flatness defect \(106\), all equality classes, and the sharp \(8\)-unit next-value separation answer a natural discrete harmonic-analysis and array-autocorrelation design question, not a named single random slice. The result is a finite benchmark, not a general asymptotic theorem or a certified improvement for physical instruments.
+Best of current knowledge: the inspected same-support geometry is not new, but the exact single-array aperiodic energy minimum, attainable next value and complete equality orbits on the unpunctured binary support are not supplied by the related results inspected. The exact matching indexed entry is the frozen result itself.
 
-## Limitations
+## value
 
-The method is exact finite verification, with source and full configuration coverage, not a human closed-form universal inequality. Some historic specialized tables are accessible only as abstracts. No independent mathematical or bibliographic audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The full second-shell hexagon is a standard, previously studied array geometry, and the integrated squared sidelobes are a natural exact single-aperture objective, different from complementarity or peak sidelobes. The optimum, gap and all symmetry classes give a usable exact benchmark for this geometry. They do not follow from the trivial moment lower bound or a first-shell classification and have value even without a larger-shell theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

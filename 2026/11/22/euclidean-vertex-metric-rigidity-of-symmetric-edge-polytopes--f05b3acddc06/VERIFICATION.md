@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,27 +19,24 @@
 }
 ---
 
-# Reproducible mathematical checks
+# Independent mathematical audit
 
-The theorem concerns exact standard-coordinate signed edge-incidence roots. Its proof is given in `RESULT.md`; none of the following finite tests is used as a substitute for Whitney's theorem or for the all-graphs inner-product identity.
+## correctness
 
-Run from the directory containing these embedded files:
+PASS
 
-```sh
-python3 sep_metric_reconstruction_check.py
-```
+Reassessed the narrowed decoder in repairs/2/RESULT.md. The original Finding incorrectly assigns 2 and 3 to the raw squared-distance submatrix ranks. Since the six roots have center zero and norm squared 2, D = 4*11^T - 2G with G1=0. The raw ranks are 3 and 4, while the centered ranks are 2 and 3, also confirmed by independent exact matrix arithmetic. The corrected statement and proof distinguish both. The common sphere exposes every signed root; squared distances 8 pair antipodes uniquely, and cross-shells {2,6} versus {4} reconstruct incidence of distinct edges. Apply Whitney componentwise, resolving its sole connected ambiguity by Gram rank: incidence span has dimension v-1 in a connected component. A single edge presents no ambiguity. The decoder is invariant under point permutation, and nearest-even rounding is exact under the strict bound; it cannot detect isolates.
 
-The script uses Python's standard library only. It computes exact integer squared distances from independently formed coordinate differences, identifies unique antipodes, reconstructs line-graph adjacency from the four shells, and compares directly to source-edge incidence. It exhaustively checks all labeled simple graphs of orders 2--5 (discarding empty edge sets), plus 601 deterministic masks on six vertices. It separately tests triangle/claw ranks 2 and 3, distinguishes a four-vertex path from a three-leaf star, and tests near-boundary errors with absolute value less than one. The checker reports:
+## originality
 
-```
-SEP_METRIC_RECONSTRUCTION_EXACT_PASS
-graphs_tested 1694
-Whitney_exception_dimensions 2 3
-squared_distance_shells (2, 4, 6, 8)
-```
+PASS
 
-An additional graph-atlas comparison of 1245 graphs with edges, up to seven graph vertices, recovered the corresponding line graphs from the same exact metric-shell rules. That calculation was performed separately; the standalone checker is the package-replayable finite test.
+PASS is for the repaired distance-table decoder with exception handling and deterministic rounding guarantee, not for the original framing of the Euclidean classification. Cuchilla et al. Theorem 3.8 directly covers the connected classification. After splitting the intrinsic metric into components, its result also yields the disconnected uniqueness consequence; that consequence is no longer presented as original. The distinct output is a direct reconstruction procedure in the squared-distance table through line-graph inversion and a six-point test, without constructing root coordinates or a lattice.
 
-**Critical infinite step.** For any distinct undirected graph edges, the dot product of their signed incidence roots is zero if and only if they are disjoint, and otherwise has absolute value one. Whitney's connected line-graph isomorphism theorem then leaves only triangle/claw, resolved by the rank of the centered six-point distance matrix. This is the complete mathematical proof, not a computational inference.
+## value
 
-**Limits.** No claim about arbitrary weighted roots, unlabeled distance *histograms*, missing measurements or independently verified priority is made. The metric-noise guarantee is for a complete table whose entrywise squared-distance errors are strictly less than one.
+PASS
+
+The repair gives a usable exact decoder for unlabeled SEP distances, not just a test of isometry or an injectivity theorem. It avoids fitting an ambient realization or enumerating graph candidates: the pairwise shells supply a standard line-graph inversion instance, with a local fixed-size exception test and an immediately usable deterministic input tolerance. This is a natural reconstruction task even when connected uniqueness is already known.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

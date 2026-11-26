@@ -1,0 +1,155 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:04:45.236555Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–37 and 41–81",
+        "Frozen VERIFICATION.md and verify_gap.py (read, not executed)",
+        "/workspace/branches/c4103501-4f92-4aa6-8bfa-f067eaccb0e1/independent_gap_check.py and independent_gap_check.txt; replay with python3 on the independently written script; (p,r)=(2,3),(2,6),(3,4),(5,3),(7,2),(11,2), complete histogram, pair count and length sum"
+      ],
+      "rationale": "Lucas identifies each row's support as a radix digit box. Independently, split a row n=a p^(r-1)+t into a+1 increasing copies of the support at t, shifted by successive multiples of p^(r-1). The within-copy gaps contribute A times the depth-(r-1) pooled histogram after summing over a; the a boundary gaps all equal p^(r-1)-t because each lower support begins at 0 and ends at t. Varying t covers each size 1 through p^(r-1) once and summing a gives B for each. Thus the depth-r histogram is A times the preceding one plus that flat contribution, starting from an empty depth-0 histogram. This verifies the full formula, including p=2, r=1 and the sharp cutoff. Row support sizes sum to A^r, and removing one endpoint per row counts A^r-p^r pairs; their lengths telescope to the row indices, proving the finite mean. The normalized limit is a probability law: it mixes the discrete uniforms on 1,...,p^i with weights (B/A)(p/A)^i, summing to one since A-p=B. The shell of p^i-p^(i-1) points gives the stated tail and a geometric s-moment term of order (p^(s+1)/A)^i, including divergence at equality. The moment claim concerns nonnegative orders. Independent direct binomial-coefficient enumeration agreed on six prime/depth cases; this is finite corroboration only, distinct from the supplied additive Pascal-row checker and its recorded CHECK_OK.",
+      "residual_risks": [
+        "No conclusions for different row weightings, gaps joining different rows, or higher prime-power nondivisibility thresholds."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Rowland's first-page count of nonzero entries modulo p^alpha and Spiegelhofer–Wallner's first-page count of entries of a specified valuation have stronger arithmetic thresholds but do not give ordered spacing."
+        ],
+        "reasoning": "Neither a per-row cardinality nor its valuation refinement specifies the consecutive positions or the distribution of their distances.",
+        "searches": [
+          "Resultary: Pascal fractal interpoint distances lacunarity gap statistics gaps between retained binomial coefficient positions",
+          "arXiv:1001.1783 and arXiv:1604.07089"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary semantic results and the mirrored comparison Findings above",
+        "Rowland arXiv:1001.1783",
+        "Spiegelhofer–Wallner arXiv:1604.07089",
+        "Lucas and Fine as used in frozen RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The run theorem gives maximum length of a contiguous interval of surviving coefficients in a row, not weights of inter-survivor distances across excluded columns.",
+          "Lucas's congruence supplies the support; Fine's count gives the denominator after summing rows."
+        ],
+        "reasoning": "One can generate the answer from the support, but neither the support formula nor the extremal run theorem evaluates this invariant as an existing special case. The additional adjacency boundary count and exact pooling, then tail normalization, are needed.",
+        "searches": [
+          "Resultary: Pascal triangle nonzero binomial coefficients consecutive positions longest run nondivisibility run",
+          "Lucas 1878 and Fine 1947 as applied in frozen RESULT.md lines 41–45",
+          "Published run theorem 2026/11/2, e9c9cfbae1e4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The matching Resultary entry 2026/11/22/SCOPE-exact-all-prime-nearest-neighbor-gap-laws-for-the-nonzero-pascal--8a81957a33af is this record, not an independent equivalent.",
+          "The older Fractal Pascal Triangles and Other Arithmetic Triangles chapter was identified, but only a broad search snippet and failed text retrieval were available."
+        ],
+        "reasoning": "An equivalent formulation must retain adjacency in each row and pool with pair multiplicity; unordered interpoint distances, two-dimensional lacunarity, and row-uniform samples need not have this law. The inaccessible chapter remains a real priority uncertainty, not negative evidence.",
+        "searches": [
+          "Resultary: Pascal triangle modulo prime Lucas nonzero positions adjacent gaps histogram nearest-neighbor spacing pooled rows",
+          "Primary literature: Pascal triangle fractal lacunarity interpoint distances gap distribution nearest-neighbor spacing nonzero binomial coefficients modulo prime"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact dyadic return-gap law (2026/11/22, 45c6934bca41) counts gaps of a Boolean transform of the row index; exact Fibonacci gap spectrum (2026/11/2, 138012f26e30) counts gaps of Baum–Sweet support; neither enumerates gaps of retained columns separately within each Pascal row."
+        ],
+        "reasoning": "A table or formula for a different index sequence or sample space cannot serve as the exact spectrum for this ensemble. No independent table of this ensemble was identified in the checked results.",
+        "searches": [
+          "Resultary: Pascal prime-power self-similar gap tail pooled gap moment threshold spacing distribution",
+          "Resultary: Pascal triangle nonzero binomial coefficients consecutive positions longest run nondivisibility run"
+        ]
+      },
+      "rationale": "Best-of-current-evidence pass for the complete pooled nearest-neighbor spectrum, its specified limit and exact tail, not for Lucas support, its cardinality, or general Pascal self-similarity. The closest Pascal results count entries or optimize contiguous runs, while the nearest exact gap laws apply to other supports. The exact Pascal spacing statement was not established in the inspected comparisons.",
+      "residual_risks": [
+        "The older Pascal-fractal chapter was not readable by the attempted text routes; uninspected horizontal spacing results, binary special cases, or an unindexed equivalent in the fractal literature could change the priority assessment."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different statistic",
+          "evidence": [
+            "Counts surviving entries in a row using partitions/digit subwords; does not give ordered gaps in the inspected statement."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1001.1783",
+          "material_read": "Page 1, text offset 506",
+          "method": "OA primary PDF passage",
+          "title": "The number of nonzero binomial coefficients modulo p^alpha",
+          "trigger": "Broader prime-power Pascal enumeration"
+        },
+        {
+          "assessment": "Different statistic",
+          "evidence": [
+            "Defines a fixed-row count of entries with each valuation, not a gap statistic."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1604.07089",
+          "material_read": "Page 1, text offset 0",
+          "method": "OA primary PDF passage",
+          "title": "An explicit generating function arising in counting binomial coefficients divisible by powers of primes",
+          "trigger": "Possible stronger digit enumeration"
+        },
+        {
+          "assessment": "Related but different invariant",
+          "evidence": [
+            "Maximum contiguous surviving-run length is distinct from a complete pooled spacing histogram."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-sharp-longest-nondivisibility-runs-in-pascal-rows-modulo-prime-p--e9c9cfbae1e4",
+          "material_read": "Mirrored RESULT.md, offset 0, Finding",
+          "method": "Local mirror statement inspection",
+          "title": "Sharp longest nondivisibility runs in Pascal rows modulo prime powers",
+          "trigger": "Same Pascal support and row order"
+        },
+        {
+          "assessment": "Different support and ensemble, irrespective of priority",
+          "evidence": [
+            "Gaps between indices of one Boolean sequence rather than pooled consecutive retained columns in Pascal rows."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-exact-dyadic-return-gap-law-for-a-periodic-binomial-parity-trans--45c6934bca41",
+          "material_read": "Mirrored RESULT.md, offset 0, Finding",
+          "method": "Local mirror statement inspection",
+          "title": "Exact dyadic return-gap law for a periodic binomial parity transform",
+          "trigger": "Same-day exact gap and heavy-tail law near binomial parity"
+        },
+        {
+          "assessment": "Different digital support",
+          "evidence": [
+            "Uses the Baum–Sweet sequence on dyadic prefixes, not Pascal rows."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-exact-fibonacci-gap-spectrum-of-baum-sweet-support--138012f26e30",
+          "material_read": "Mirrored RESULT.md, offset 0, Finding",
+          "method": "Local mirror statement inspection",
+          "title": "Exact Fibonacci gap spectrum of Baum–Sweet support",
+          "trigger": "Exact fractal gap table and power tail"
+        },
+        {
+          "assessment": "Internal coverage unresolved",
+          "evidence": [
+            "Preview does not determine whether the pooled horizontal nearest-neighbor statistic is present."
+          ],
+          "identifier_or_url": "https://www.fq.math.ca/Books/Pascal/chap4.pdf",
+          "material_read": "Search preview only, describing the chapter's broad subject",
+          "method": "OA PDF direct and alternate route attempted; no extractable text reported",
+          "title": "Fractal Pascal Triangles and Other Arithmetic Triangles",
+          "trigger": "Older same-object fractal geometry; possible horizontal distance statistics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, proof and prior-work comparison",
+        "Exact independent histograms and the inspected Pascal/fractal comparisons above"
+      ],
+      "rationale": "Within-row nearest-neighbor gaps distinguish a fractal's spacing from its support size and its longest surviving block. The exact finite spectrum for every prime and depth resolves every gap size under a natural pair-weighted ensemble; the exact normalized tail further explains why the limiting mean diverges even though every finite mean exists. The boundary-counting argument is elementary but the statistic and its heavy-tail cutoff are usable in studies of the Pascal support.",
+      "residual_risks": [
+        "This is a pooled one-gap law, not a description of correlations between consecutive gaps or a claim about a stationary infinite process."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

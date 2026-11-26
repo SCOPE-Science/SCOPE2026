@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof derives the entire dynamics from a rectangular incidence matrix of full row rank, an explicit parity-sensitive three-/four-dimensional calculation for its Gram matrix, and exact rank-to-Jordan and fixed-space calculations. The derived orbit counts and entry shells agree with independent binary adjacency-matrix checks for every order from three through thirty-four and with direct full-state trajectory enumeration for orders three, four, and five. Polynomial and rank arguments work unchanged over all finite characteristic-two extensions; the finite checks are not the universal proof.
+## correctness
 
-**Originality — PASS (qualified).** An exact claim-to-implication comparison finds neither coverage by the known intact subdivided-clique theorem nor by the projective-plane single-incidence-toggle theorem. The intact theorem has three-step extinction for even order and only order-two oscillations for odd order, with no edge deletion. The projective-plane theorem uses a different square incidence structure and gives five-step extinction from deletion, while its fourteen-cycle class arises from insertion. Barrett and collaborators' minimum-rank problem allows variable matrices, so it does not specify temporal powers of this edited graph's adjacency. Moreno and collaborators supply general linear-FDS formalism, not the special graph's Jordan form. The full texts or substantive relevant sections of the closest sources were inspected; unindexed special-case calculations remain a genuine residual priority risk.
+PASS
 
-**Value — PASS.** This is a natural fault-sensitivity problem for the canonical one-subdivision of complete graphs. A single deleted adjacency reverses the former even-order global extinction into a two-dimensional recurrent sector, lengthens the sharp transient from three to seven, and creates a robust odd-order order-fourteen temporal spectrum where only one- and two-cycles formerly existed. Exact all-order, all-field orbit and basin classifications isolate the structural mechanism rather than just sample graphs.
+Summed columns along paths in K_n minus edge 01 span the sum-zero hyperplane, and the singleton adds the missing direction. On im T the map is (x,y)→(Ky,x) with K=DDᵀ, giving the displayed ranks by iterating from rank 2n. For odd n the complementary three-dimensional block has irreducible polynomial z³+z²+1, hence order 7 (its roots lie in the multiplicative group of F_8); the sum-zero tail block is fixed. Fixed dimensions for d=1,2,7,14 are n−3,2(n−3),n,2n by the swap and its seventh power. Subtracting divisor populations gives the stated primitive orbit counts, with positive 7- and 14-counts even at n=3 (where all states are already periodic). For even n put r=sum_{i≥2}e_i. The independent vectors e₂, e₀+e₁+r, e₁, r show the projection and nilpotent chain: more explicitly e₁+r is fixed; subtracting this fixed part from the four-dimensional block leaves a three-chain since K has ranks 3,2,1,1 there and Kr=0. The other n−4 dimensions are killed. The rank drops of T are N−2n,n−3,n−3,1,1,1,1,0, which give exactly the claimed Jordan lengths; stably it swaps two coordinates in characteristic two. The Fitting decomposition yields all entry shells and uniform phase-fiber cardinalities. An original bit-column iteration and GF(2) elimination for n=3,4,5,6,8,9 reproduced the ranks and fixed dimensions, and exhaustive state trajectories at n=3,4 gave the 1/7/56 recurrent populations at n=3 and n=4 entry counts (4,12,16,32,64,128,256,512). Read both frozen scripts and transcripts; they are finite diagnostics only.
 
-**Scope and limitations.** All statements concern one specified incidence failure (equivalent choices by clique automorphism), synchronous unweighted open-neighbor addition in finite characteristic two, and all clique orders at least three. They exclude other graph edits and update rules. Direct programs test finite examples, whereas the proof handles all orders and fields; independent external validation and definitive historical priority remain open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified for the edited clique classification. Both the two-shore method and a six-dimensional order-fourteen recurrent mechanism are prior, but the exact Gram block, extra fixed sector and even-order seven-step periodic remnant are not those theorems.
+
+## value
+
+PASS
+
+The fault changes both long-time behavior and sharp entry depth of a natural graph update; it is not merely a rank calculation for one size. The even oscillatory remnant contrasted with the odd 7/14 census and the exact orbit basins give a reusable structural comparison.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

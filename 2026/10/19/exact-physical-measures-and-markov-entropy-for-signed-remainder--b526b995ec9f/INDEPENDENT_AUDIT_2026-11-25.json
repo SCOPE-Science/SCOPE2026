@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:05:42.014824Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For x>0 the map is mx-floor((2m-1)x/2), with sign preserved; oddness handles x<0. Above 2 the remainder bound contracts the excess by at least a factor 1/2 as long as the orbit stays above 2, and the first branch above 2 maps sufficiently near points below 2. The two strips inside (0,2) outside the core map by expanding the distance from 0 or 2 until core entry. On the closed core, the endpoints of each cell image are between the core endpoints, including the actual value at each even-indexed jump. Even/odd cells have successor intervals starting at r and r+m. Each cell can reach 2m-2 in at most two steps, and this hub can reach 2 by decreasing even indices. From 2 it reaches 1 through m, then the remainder of the left half via smaller even predecessors. The hub reaches its reflected hub via 2m-3, including m=2, and reflection covers the right half. The hub self-loop makes the graph primitive. Because affine inverse branches have constant Jacobian 1/m, uniform within-cell densities give exactly the Markov conditional laws even after specifying a finite past itinerary. Shrinking cylinders make this partition generating. The positive stationary density is equivalent to core Lebesgue; mixing and Birkhoff give uniqueness among ACIPs and physicality, with nonsingular finite entry extending the a.e. statement to the full sign half-line. Entropy is log(m) and the derivative product is m^n off the null set of boundary preimages. The sole incoming edge to cell 1 forces pi_1=pi_2/m. Independent exact interval pushforward and moment integration checked m=2 (variance 1/9); replay: python3 /workspace/branches/independent_checks.py 3. The original verifier was inspected, not executed; neither finite check establishes the universal or a.e. claims.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Haddad–Boyarsky's piecewise-constancy result is for piecewise-linear Markov maps; its scope was available at bibliographic/abstract level."
+        ],
+        "reasoning": "A framework for the density given a Markov map does not establish the all-real finite-entry and all-m graph hypotheses. The stationary-vector and entropy steps after construction of the graph are standard.",
+        "searches": [
+          "Haddad–Boyarsky, DOI 10.1016/0196-8858(81)90008-7",
+          "Resultary signed remainder invariant density and primitive Markov interval models"
+        ]
+      },
+      "checked_sources": [
+        "DOI 10.3390/math10152801 and identified author-posted copy",
+        "DOI 10.1016/0196-8858(81)90008-7",
+        "Resultary 2024fba9948d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The accessible material describes remainder-based chaotification and standard density theory. The frozen source comparison locates the linear-seed examples in §4.1 and reports Lyapunov and bifurcation analyses."
+        ],
+        "reasoning": "Constant derivative already accounts for log(m) as an a.e. Lyapunov exponent; it does not establish the two globally trapping cores, full communication within each core, or strictly positive and unequal stationary cell weights. Priority credit is restricted to that concrete statistical classification.",
+        "searches": [
+          "DOI 10.3390/math10152801; author-posted article 362575830",
+          "DOI 10.1016/0196-8858(81)90008-7"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The reported linear-seed specialization is seed x/2, modulus 1 and multiplier m-1/2; this gives the audited family, rather than a different chaos model.",
+          "Reduction modulo one gives the factor map t -> mt mod 1 since the correction is integer-valued. The factor identifies distinct original states on the core and cannot recover their separate densities or primitive lift graph."
+        ],
+        "reasoning": "An equivalent claim must characterize the lifted dynamics, not only the uniform expanding circle factor or the parent family definition.",
+        "searches": [
+          "Moysis et al., DOI 10.3390/math10152801, equations (4), (22), (23) as located by the frozen comparison",
+          "Resultary signed remainder map and equivalent piecewise-linear Markov core/density"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest retrieved summary: Resultary 2026/11/1/SCOPE-a-sharp-confinement-transition-and-exact-golden-ratio-transport-statistics-for-a-remainder-added-linear-map--2024fba9948d. It describes confinement and golden-ratio transport, but the available statement gives neither the integer-slope matrix nor the exact m=2 four-cell stationary law. Exact record text could not be retrieved locally."
+        ],
+        "reasoning": "This is a potentially related family, not a demonstrated match or a basis for ruling out overlap beyond the summary.",
+        "searches": [
+          "Resultary exact signed-remainder core, stationary vector and Markov entropy",
+          "Resultary remainder-added linear maps and exact transport statistics"
+        ]
+      },
+      "rationale": "Credit the published remainder-addition model and general theory of expanding piecewise-linear Markov maps. The supported distinction is the concrete all-integer finite-entry core and primitive transition classification, with the resulting nonuniform physical measures. It is not novelty for the seed construction, positive Lyapunov exponent, or the abstract Markov density method. No compared evidence establishes coverage of this conjunction. Same-model full-text retrieval and the strongest related indexed record remained limited as described below.",
+      "residual_risks": [
+        "Incomplete first-hand access to the same-model originating article and closest related Resultary record.",
+        "Potential equivalent formulation as a finite extension of an integer multiplication map not ruled out by ranked retrieval."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Definitional antecedent credited; no universal classification verified from accessible material",
+          "evidence": [
+            "The frozen comparison reports the parameter substitution and the use of bifurcation plots and Lyapunov exponents in the linear-seed section."
+          ],
+          "identifier_or_url": "https://doi.org/10.3390/math10152801",
+          "material_read": "Accessible landing/abstract material; frozen comparison of §§2.1, 4.1 and equations (4), (22), (23); equations not independently retrieved",
+          "method": "Lawful OA lookup and identified author-posted article 362575830; complete text unavailable on retrieval",
+          "title": "Chaotification of One-Dimensional Maps Based on Remainder Operator Addition",
+          "trigger": "Same parent map and linear seed"
+        },
+        {
+          "assessment": "Credit general framework conditional on Markov structure",
+          "evidence": [
+            "The piecewise-constancy statement does not specify the given two trapping intervals or their primitive transition graph."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/0196-8858(81)90008-7",
+          "material_read": "Bibliographic and abstract-level material",
+          "method": "OA lookup; full text not obtained",
+          "title": "All invariant densities of piecewise linear Markov maps are piecewise constant",
+          "trigger": "Potentially stronger general invariant-density theorem"
+        },
+        {
+          "assessment": "Potential family overlap; exact claim equivalence not established",
+          "evidence": [
+            "Available summary gives confinement regimes and golden-ratio transport statistics, not the all-integer core and stationary-vector formulas."
+          ],
+          "identifier_or_url": "2026/11/1/SCOPE-a-sharp-confinement-transition-and-exact-golden-ratio-transport-statistics-for-a-remainder-added-linear-map--2024fba9948d",
+          "material_read": "Indexed summary, not full statement",
+          "method": "Resultary lookup and attempted local exact-record retrieval",
+          "title": "A sharp confinement transition and exact golden-ratio transport statistics for a remainder-added linear map",
+          "trigger": "Closest indexed same-family candidate"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The uniform-in-m trapping and communication result resolves whether the linear remainder construction has a single statistical regime and whether its expanding branches yield a uniform physical density. The answer is two sign-separated mixing regimes with strictly nonuniform density and exact rational cell weights. This is useful structure for the published model, not a conclusion about digital randomness, finite precision or security.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

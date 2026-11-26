@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:40:01.423247Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–78; VERIFICATION.md and verify_covariance.py inspected, not executed"
+      ],
+      "rationale": "Tag two ordered draws in (X_i)_2. The 1/p_i factor changes the resulting diagonal-event weight from p_i² to p_i. Subtract the independent-pair expectation to obtain the midpoint Jensen gap for the pair of histograms Z+2e_I and Z+2e_J, with Z accounting for the other N−2 draws. Its expectation is nonnegative and is strictly positive for strictly convex f, since Pr(I≠J)>0. At a uniform edge with q=1/n, labels with signed jumps +1 and −1 produce gap 2 at s=0 and gap 1 at s=±1, weighted by 2q². Zero versus ±1 jumps add 2q(1−2q) only at each corresponding |s|=1. This gives the claimed 4q² and 2q(1−q), with zero gap for |s|≥2. The uniform Pearson affine relation gives the factor N−1 and exchangeability gives the factor W. For n≥3 both relevant walk masses have the same aperiodic local CLT equivalent; for n=2 exactly one site contributes at each parity and its mass is twice the span-one equivalent, compensated by coefficient 1/2. This verifies positivity, the doubled edge at n=2, and both stated limits with their normalizations.",
+      "residual_risks": [
+        "The graph formula uses edges between distinct bins. The exact nonuniform statement is for U_p, not ordinary Pearson; the limits require fixed n. No general association or testing-power claim follows."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The earlier Pearson proof uses collision conditioning followed by the one-cell marginal of the remaining draws. The later Part 4 treats DTV variance and edge–edge covariance."
+        ],
+        "reasoning": "The first two draws are shared machinery, but one-cell reduction does not supply general multivariate Jensen comparison or the signed edge difference. A DTV variance identity is not covariance with Pearson.",
+        "searches": [
+          "9485777d7c83 Finding/Proof; 4e1ebdd17a01 Proof (8)–(13); arXiv:2611.09592v1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 4e1ebdd17a01 and 9485777d7c83",
+        "arXiv:2610.13366v1, 2606.01465, 2611.09592v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Pearson as an affine collision count and conditioning on two tagged labels are explicit in the earlier record; proof then specializes to a sum of cell functions."
+        ],
+        "reasoning": "The uniform Pearson translation and graph-weight factor are routine. The distinct evaluation enumerates the midpoint gap for a two-cell contrast, including the periodic two-bin case. The nonuniform covariance claim depends on the change from p_i² to p_i and the multivariate Jensen coupling, not the prior additive curvature formula.",
+        "searches": [
+          "4e1ebdd17a01 equations (7)–(13); 9485777d7c83 Finding/Proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "9485777d7c83 treats unweighted collision counts and additive discretely convex scores. 4e1ebdd17a01 treats uniform Pearson and additive cell scores."
+        ],
+        "reasoning": "At uniform p the collision statistics are affine equivalents, and the additive convex case overlaps. At nonuniform p the inverse-p_i weighting changes the collision law. For general n, edge absolute differences are pairwise rather than additive cell scores.",
+        "searches": [
+          "Resultary: convex collision association and Pearson discrete curvature; arXiv:2610.13366v1, DTV under the uniform null"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Theorem 3.2 of 2610.13366 gives path DTV expectation; 2606.01465 discusses the marginal null distribution and testing power. The nearest catalogue equality averages additive discrete curvature, not the two walk masses."
+        ],
+        "reasoning": "Known marginal expectations and marginal null distributions do not specify the mixed moment on one histogram. No matching walk-mass table or formula was established in the checked sources.",
+        "searches": [
+          "Resultary: Pearson mixed moments for roughness, total variation and histogram collisions; arXiv:2610.13366v1 §3.3; arXiv:2606.01465"
+        ]
+      },
+      "rationale": "The verified overlap is with additive cell scores and the collision-conditioning method, not the nonseparable graph mixed moment or the weighted all-convex comparison at nonuniform p. The contribution credited is these extensions and the explicit walk-mass evaluation, not the collision representation, exchangeability alone, or the already studied marginal DTV statistic.",
+      "residual_risks": [
+        "The search does not rule out an equivalent mixed-moment evaluation in the multinomial goodness-of-fit literature. The relationship/order of same-day records is not established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Additive-score overlap and shared mechanism",
+          "evidence": "Uses the affine collision representation and first-pair conditioning, then binomial one-cell expectations for the additive score.",
+          "identifier_or_url": "4e1ebdd17a01",
+          "material_read": "RESULT.md Finding and Proof, equations (7)–(13), offset 2834",
+          "method": "Published record via local mirror",
+          "title": "Pearson covariance is exactly a binomial average of discrete curvature",
+          "trigger": "Earlier analogous exact covariance"
+        },
+        {
+          "assessment": "Material partial overlap, not the weighted all-convex result",
+          "evidence": "Pairs unweighted collisions with additive discretely convex occupancies, including general cell probabilities.",
+          "identifier_or_url": "9485777d7c83",
+          "material_read": "RESULT.md Finding and Proof, offsets 0 and 2300",
+          "method": "Published record via local mirror",
+          "title": "Convex collision association and two-threshold frequency dependence",
+          "trigger": "Same-day convex-collision overlap"
+        },
+        {
+          "assessment": "Marginal DTV expectation",
+          "evidence": "Exact path mean; introduction contrasts DTV with Pearson but scope is first moments.",
+          "identifier_or_url": "https://arxiv.org/html/2610.13366v1",
+          "material_read": "Introduction, scope, §3.3 Theorem 3.2",
+          "method": "OA HTML",
+          "title": "Discrete total variation under the multinomial, Part 1: expectation under the uniform null",
+          "trigger": "Closest named paper on the same DTV statistic"
+        },
+        {
+          "assessment": "Marginal-testing context",
+          "evidence": "Null distribution and testing power, not a joint cross-moment in the inspected passage.",
+          "identifier_or_url": "arXiv:2606.01465",
+          "material_read": "PDF page 1, abstract and opening scope",
+          "method": "OA PDF",
+          "title": "Comb Test: Histogram Uniformity Testing Based on Discrete Total Variation",
+          "trigger": "DTV testing literature"
+        },
+        {
+          "assessment": "Later related DTV variance result",
+          "evidence": "Folded-edge terms for variance of roughness itself under general probabilities.",
+          "identifier_or_url": "arXiv:2611.09592v1",
+          "material_read": "PDF page 1, offsets 0 and 1770",
+          "method": "OA PDF",
+          "title": "Discrete total variation under the multinomial, Part 4",
+          "trigger": "Potential broader covariance theory"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Proof; arXiv:2610.13366v1 Introduction and §3.3"
+      ],
+      "rationale": "The exact cross-moment quantifies shared null variation of an order-sensitive roughness statistic and an order-insensitive goodness-of-fit statistic. It gives both a finite normalization for any graph and the precise fixed-bin limit, where simply applying an aperiodic limit to n=2 would give wrong individual masses. The all-convex coupling supplies a structural explanation for the dependence while cleanly distinguishing the weighted collision score from nonuniform Pearson.",
+      "residual_risks": [
+        "No demonstrated improvement in testing power or characterization of the full joint law."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

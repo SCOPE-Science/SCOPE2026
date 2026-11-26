@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:09:14.150293Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, lines 5–76 (theorem, definitions, proof and witness)",
+        "VERIFICATION.md and verify.py (inspected, not executed)",
+        "Independent exact integer ray membership and rational averaging in both configurations"
+      ],
+      "rationale": "On a finite labeled cycle the nested convex hulls are equal. A vertex of this hull can be an updated opinion only if all averaged opinions, including the updating label's old opinion, were at that vertex. Each vertex's occupancy set decreases by inclusion and is periodic, so is constant. With at most three labels, either all are fixed or just one can move inside a segment with one label fixed at each end. As its normalized coordinate increases it can only drop left-end trust and gain right-end trust. Its average increases with its own coordinate and weakly increases under both trust changes. Thus a strict displacement cannot return, even at a discontinuity. I independently recomputed the witness using squared distances and the integer ray equation 5|dy|=-dx for dx<0: the moving neighborhoods are {x,c} and {x,a,b,c}, all three anchors trust only themselves in both states, and the nonidentical configurations return in two steps.",
+      "residual_risks": [
+        "Sharpness is attained in dimension two and embeds in higher dimensions, not asserted in dimension one by the exhibited orbit; the exclusion is dimension independent.",
+        "Homogeneity is a hypothesis of the frozen theorem, not a proved necessary condition: the argument for the lower bound also works for static agent-specific star-shaped confidence sets, because only the possible moving label's set is used. The prose claim that homogeneity is essential should not be read as a mathematical conclusion.",
+        "This is an exclusion of finite periods, not a convergence theorem."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2024 finite-termination theorem uses symmetric confidence and a neighborhood of zero, and its references discuss asymmetric interval models. The heterogeneous discussion gives no three-agent all-star-shaped obstruction."
+        ],
+        "reasoning": "Symmetry and a zero neighborhood do not follow from star-shapedness. Scalar interval results could be used after a reduction to a segment, but the existence of that reduction for arbitrary-dimensional periodic configurations is part of the finding, and no applicable reduction was identified in the earlier sources.",
+        "searches": [
+          "arXiv:2408.01753v1, Theorem 1 and discussion of heterogeneous confidence (p. 6)",
+          "Bernardo–Altafini–Vasca, DOI 10.1016/j.ejcon.2022.100674 (publisher resolution attempted; no usable full text there)"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2408.01753v1",
+        "DOI 10.1016/j.ejcon.2022.100674 (bibliographic context and limited access)",
+        "Resultary entries 0e81d27382bb and 03f12edbe035"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Example 3 establishes the upper bound only. Example 2 shows why the star-shaped hypothesis matters in the three-agent setting, and Theorem 1 does not handle asymmetric sets. The lawful public arXiv copy was inspected; the separate author-repository copy was inaccessible."
+        ],
+        "reasoning": "No inspected prior implication supplies vertex-label persistence plus the remaining single-label monotonicity, or otherwise rules out three agents across the stated class.",
+        "searches": [
+          "Full-text comparison arXiv:2408.01753v1, pp. 2–4 and p. 6",
+          "Published article DOI 10.1109/LCSYS.2024.3479275 and author-repository copy identified by primary literature lookup"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Example 3 has the same ordinary-agent star-shaped witness, including (0,0) and (2,0); Footnote 4 confirms its anchors are not exogenously stubborn. Example 2 uses a non-star-shaped set and Example 4 permits external stubbornness."
+        ],
+        "reasoning": "The witness is prior and only certifies sharpness. The exclusion of all positive finite labeled periods in the three-agent class is distinct from these examples.",
+        "searches": [
+          "Resultary: n≤3 star-shaped confidence exclusion; four-agent period-two witness; Zabarianska–Proskurnikov Example 3 minimality",
+          "arXiv:2408.01753v1, Examples 2–4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-day catalogue result 0e81d27382bb realizes arbitrary periods with two stubborn agents and a union of intervals; 03f12edbe035 also pins two agents and uses several interval components. No matching cutoff was found in those inspected records."
+        ],
+        "reasoning": "Neither statement has the requisite shared star-shaped, no-exogenous-stubbornness hypotheses, so their population counts do not cover or refute this cutoff. The same-day date does not establish an order.",
+        "searches": [
+          "Resultary: oscillation threshold with and without stubborn agents; three-agent finite period; minimality of Example 3"
+        ]
+      },
+      "rationale": "The four-agent witness is already Example 3 of Zabarianska–Proskurnikov (2024) and the record credits it. The supported distinct claim is the dimension-independent lower bound for the homogeneous star-shaped model without pinned agents; the inspected earlier convergence and oscillation results do not provide that lower bound under its hypotheses.",
+      "residual_risks": [
+        "The separate journal/author-repository copy of the 2024 paper was not compared with its open arXiv text; the 2022 publisher endpoint did not yield full text. The review does not settle global priority for the lower bound."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The sharpness construction is known; the inspected results do not give the lower bound under the frozen assumptions",
+          "evidence": [
+            "Same prime two-cycle with three dynamically isolated anchors; separate pinned-agent example is outside scope.",
+            "The general convergence theorem requires symmetry and neighborhood-of-zero hypotheses."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2408.01753; DOI 10.1109/LCSYS.2024.3479275",
+          "material_read": "arXiv v1 pp. 2–4 (model, Examples 2–4, Footnote 4, Theorem 1) and p. 6 (heterogeneity discussion); relevant offsets 10800, 14800–19751, 24200–28989, 42140–45360",
+          "method": "Lawful OA full-text passage inspection; separate repository version attempted",
+          "title": "Opinion Dynamics with Set-Based Confidence: Convergence Criteria and Periodic Solutions",
+          "trigger": "Exact model and published four-agent construction"
+        },
+        {
+          "assessment": "Scalar context is relevant to the reduction, but coverage of the vector-valued obstruction was not established",
+          "evidence": [
+            "No full-text conclusion about this paper beyond available evidence."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.ejcon.2022.100674",
+          "material_read": "Bibliographic and scalar-model context in the frozen comparison and the 2024 paper; DOI resolution supplied no readable article text",
+          "method": "Reference comparison and attempted lawful DOI read",
+          "title": "Finite-time convergence of opinion dynamics in homogeneous asymmetric bounded confidence models",
+          "trigger": "Potential earlier convergence result without symmetry"
+        },
+        {
+          "assessment": "Different hypotheses",
+          "evidence": [
+            "Two agents are pinned, and the confidence set is a union of intervals rather than a star-shaped scalar interval."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-arbitrarily-long-attracting-opinion-cycles-with-only-three-agent--0e81d27382bb",
+          "material_read": "RESULT.md offsets 0–4701",
+          "method": "Local Resultary mirror",
+          "title": "Arbitrarily long attracting opinion cycles with only three agents",
+          "trigger": "Same-day three-agent periodicity claim"
+        },
+        {
+          "assessment": "Different hypotheses",
+          "evidence": [
+            "Two permanently fixed agents; the common set can have several interval components."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-arbitrarily-long-attracting-cycles-with-seven-confidence-interva--03f12edbe035",
+          "material_read": "RESULT.md offsets 0–4202",
+          "method": "Local Resultary mirror",
+          "title": "Arbitrarily long attracting cycles with seven confidence intervals",
+          "trigger": "Nearby low-population periodic orbit construction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, proof of the obstruction and its limitations",
+        "arXiv:2408.01753v1, Examples 2–4"
+      ],
+      "rationale": "The lower bound resolves whether the published four-agent construction needs four ordinary agents at all. The persistent extreme-label argument is structural and works despite discontinuous radial boundaries and arbitrary ambient dimension; it is not only a check of special parameter examples or two-cycles. The result supplies an exact population threshold in the stated setting.",
+      "residual_risks": [
+        "The constructive half is prior and is not counted as a contribution; the threshold does not characterize more general recurrence."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

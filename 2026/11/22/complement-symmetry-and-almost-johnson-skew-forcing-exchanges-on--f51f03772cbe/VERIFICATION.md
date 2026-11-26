@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-Two finite checkers were run using different graph coordinates and different forcing iteration methods. Both recovered all \(65536\) candidate subsets, the full skew-forcing polynomial, \(6490\) minimum sets, their complement closure and nine group orbits, the \(116320\) reconfiguration edges, exact degree counts, radius and diameter eight, the \(9120\) extra-distance pairs, and failure of matroid basis exchange.
+# Independent mathematical audit
 
-The C++17 program `verify_clebsch.cpp` implements an exhaustive bit-mask state transition, explicit \(1920\)-element group action, full optimum-replacement graph and BFS from every group-orbit representative. The independently written Python 3 program `verify_evenfive.py` models vertices as even-weight five-bit strings, independently enumerates all seeds with sequential forcing, and independently builds the symmetry action and reconfiguration metric. No external libraries or data files are required.
+## correctness
 
-This is exhaustive verification of one sixteen-vertex graph, not a general folded-hypercube proof, not an assertion of uniqueness of publication, and not a third-party independent audit.
+PASS
+
+An independent reproduction (branches/reproduce-exchanges.py clebsch; output in branches/reproduce-exchanges.out) used dynamic programming on all 65,536 white sets: the empty set succeeds, and a nonempty white set succeeds iff an open neighborhood hits it in a singleton whose deletion gives a previously successful set. The deleted bit decreases the index, so this evaluates the first-force recurrence exactly with no restriction on the forcing vertex's color. It reproduces every polynomial coefficient, the 6,490 optima, complement closure, and the stated stalled exchanges for the matroid counterexample. For automorphisms an image of 0 and a bijection of its five neighbors prescribe the other ten images via their pairs of shared neighbors; the reconstruction verifies all 1,920 adjacency-preserving permutations and the nine orbits. Pairwise XOR population two constructs precisely the legal jumps. Full unweighted shortest-path searches from all 6,490 sources, without relying on the orbit reduction, return 116,320 edges, the four asserted degree multiplicities, all eccentricities eight, and exactly 9,120 unordered pairs at Johnson distance plus one and none farther. The representative counts and the distance-three example also agree.
+
+## originality
+
+PASS
+
+The result is the census and metric for skew forcing on the five-regular Clebsch graph, not for ordinary forcing, matching flips or the ten-regular graph sometimes called Clebsch. No checked prior result supplies these data or implies the exchange-distance bound and detour count.
+
+## value
+
+PASS
+
+On a canonical strongly regular graph the minimum family is invariant under complementation but not a matroid basis family. Its exchanges are nevertheless connected and uniformly within one step of the ambient Johnson lower bound, with a complete count of genuine detours. This tests specific structural expectations about mobility in skew forcing and supplies a reusable exact benchmark beyond the forcing number alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

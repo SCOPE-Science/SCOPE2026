@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:42:09.632397Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 4–48, especially the face comparison, disk formula and relative cells",
+        "VERIFICATION.md; verify_linear_forest_response.py lines 30–74 and 114–205; verification_output.txt lines 1–6 (inspected, not executed)"
+      ],
+      "rationale": "The pure shores are full simplices at both stages. A mixed face cannot have two vertices on each shore (a 4-cycle) or three on one shore (degree at least three across it). The only lost faces are then the mixed triangles with two A-vertices forming an edge of D and any B-vertex. The complement of L' is connected: three components force a triangle in L', two nonsingleton components force a 4-cycle, and a singleton component forces degree at least a−1≥3. For any missing triangle, cone a simple complement path between its A-vertices to its B-vertex; cap the resulting A-path with the A-simplex fan. The two disks are valid subcomplexes and give an actual null-homotopy, with oriented boundary [v,w]−[u,w]+[u,v], not just a homological filling. Changing those attaching maps to constants in the path-connected base gives the wedge equivalence relative to the unchanged subcomplex. The relative chain complex has just the free group of oriented lost triangles in degree two; with the B-vertex last, its action is exactly the tensor of the B-permutation action and the A-edge orientation action. The boundary map vanishes by the disks, and the integral splitting follows from freeness without asserting equivariant splitting. For the stagewise argument, the undeformed complex has the complete two-skeleton; relative to the union of the pure simplices, there are no cells above degree two. H_2 is free specifically because the pair sequence identifies it with relative H_2, a subgroup of the free relative degree-two chains (one should not assume absolute degree-three chains vanish). The mixed-cell Euler count agrees with R(a,b). The relative splitting from the undeformed complex makes each stage a homotopy retract with free degree-two homology and no other reduced homology; simple connectivity and Hurewicz–Whitehead give the asserted absolute wedge types. As a sign check, for a=4, b=2 and empty L contained in the path 1–2–3–4, the relative rank is six; path reflection fixing B reverses the central oriented edge and exchanges the two outer edges, so its trace is −2 on the relative group.",
+      "residual_risks": [
+        "The 98 graph instances and two finite fields are recorded evidence only; neither integral primitivity nor the homotopy splitting is extrapolated from them.",
+        "The complement argument needs a≥4 and no claim is made for disconnected complements or equivariant splittings."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Carnero Bravo v3 abstract and contents pp. 1–2 identify degree filtrations and §4.2.1 on joins; frozen RESULT.md lines 50–57 credits individual sphere-wedge types",
+          "Resultary 2ee4d6cf4a9a describes partial matching deletion and stagewise induced-forest homotopy types; ced5e17b2f51 concerns one cross-edge in a cocktail-party graph"
+        ],
+        "reasoning": "Join classifications are relevant stronger stagewise coverage, and explain why the ranks should not be credited. None of the compared statements gave the indicated relative oriented edge module or a relative equivalence for every nested pair on the same shore. Full join-proof naturality was not resolved.",
+        "searches": [
+          "Carnero Bravo The Forest Filtration of a Graph, arXiv:2307.13271, join section, Lemma 31 and Theorem 33 leads",
+          "Resultary for induced-forest edges and signed relative modules"
+        ]
+      },
+      "checked_sources": [
+        "Carnero Bravo arXiv:2307.13271v3 front matter",
+        "Resultary 153a8787c0e9, 2ee4d6cf4a9a, 1438c7f49fb3, e5b294bc3a20 and ced5e17b2f51",
+        "Frozen records 4 and 5, actual findings and proof sections"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known absolute sphere-wedge types are credited; simple connectivity would already imply nullity once the concrete relative triangle description is proved",
+          "The audited proof identifies literal relative cells, provides disks for all pairs via the complement and derives the signed action from ordered triples"
+        ],
+        "reasoning": "The ordinary nullity is not a new theorem about attaching maps in simply connected spaces. The credited content is the uniform identification of the graph-induced pair, with explicit relative witnesses and natural signed integral generators. Abstract nonequivariant stage types provide neither those relative identifications nor the action. No inspected primary passage states the full pair-and-module result.",
+        "searches": [
+          "Compare the Carnero Bravo join classification as cited in RESULT.md lines 50–57 to the proof at lines 32–45",
+          "Resultary 153a8787c0e9 versus the side-preserving pair action"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "153a8787c0e9 describes symmetry and inclusion maps in the changing-degree filtration of intact K_{a,b}",
+          "c03b085e3d8d, RESULT.md lines 5–20 and 43–84 studies the degree-one complex under successively deleted cross-edges",
+          "Same-day 1438c7f49fb3 treats a cross-edge fault in a complete multipartite graph with at least three shores"
+        ],
+        "reasoning": "In the audited pairs the degree cap stays two, no cross-edge is changed, both pure simplices survive and the only changes are one set of triangular faces. Neither the degree shift nor deleting a cross-edge yields these relative faces or the same stabilizer action.",
+        "searches": [
+          "Resultary: relative null attaching triangles add edges inside shore A linear forest complement primitive inclusion induced forest degree two signed oriented edge cokernel X_L complete bipartite",
+          "Local comparisons to degree filtration, dissociation persistence and partial matching deletion"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Self-hit 93f54741d82f distinguished from nearby separate records 1438c7f49fb3, e5b294bc3a20 and ced5e17b2f51",
+          "153a8787c0e9 indexes degree-filtration modules"
+        ],
+        "reasoning": "The nearby records compute other exact responses but not the signed rank-b|D| relative lattice for these fixed-degree pairs. Absolute rank tables do not identify signs on the new relative generators.",
+        "searches": [
+          "Resultary exact intrashore linear forest inclusion, null triangular attachments and signed oriented-edge cokernel"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the map and pair on adding edges inside one shore, particularly the explicit relative fillings and the signed equivariant quotient. Do not credit the absolute sphere counts or general CW attaching-map facts as new. Adjacent degree or cross-edge filtration results address different maps.",
+      "residual_risks": [
+        "The precise join theorem proofs were inaccessible despite targeted attempts; a general natural graph-join model that already yields these pair maps is not excluded. No priority or exhaustive absence claim is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Credit the stagewise join setting and classification as cited; not a whole-document verdict about naturality.",
+          "evidence": [
+            "Abstract: forest degree filtrations and individual homotopy calculations",
+            "Contents: §4.2.1 join of graphs, p. 20; RESULT.md lines 50–57 credits Lemma 31 and Theorem 33"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2307.13271",
+          "material_read": "v3 abstract and table of contents; cited Lemma 31 and Theorem 33 not obtained in targeted OA attempts",
+          "method": "ArXiv PDF preview and targeted lawful passage searches",
+          "title": "The Forest Filtration of a Graph",
+          "trigger": "Graph-join formulas and potential comparison maps"
+        },
+        {
+          "assessment": "Changes the degree parameter, not the graph.",
+          "evidence": [
+            "Intact K_{a,b} and degree-stage maps, rather than edge-addition maps at fixed degree two"
+          ],
+          "identifier_or_url": "Resultary 153a8787c0e9",
+          "material_read": "Indexed finding, with scope also reported in frozen RESULT.md line 51",
+          "method": "Local catalogue comparison; full local text not available",
+          "title": "Symmetry layers and surviving classes in complete-bipartite forest filtrations",
+          "trigger": "Same base graph and equivariant integral filtration"
+        },
+        {
+          "assessment": "One cross-edge deletion and at least three nonempty shores, not arbitrary intrashore linear-forest inclusions.",
+          "evidence": [
+            "The indexed result includes first-homology changes and computes maps for the cross-edge fault"
+          ],
+          "identifier_or_url": "Resultary 1438c7f49fb3",
+          "material_read": "Indexed statement",
+          "method": "Local Resultary lookup",
+          "title": "The arbitrary-shore single-edge fault law for multipartite induced-forest complexes",
+          "trigger": "Same-day relative graph perturbation and primitive homology maps"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 6–26 and 32–45"
+      ],
+      "rationale": "Internal graph perturbations define actual inclusion maps on a natural degree-limited forest complex. Uniform filling disks give their relative homotopy behavior; the signed integral cokernel distinguishes edge reversal from ordinary permutation, information invisible even in a complete list of Betti numbers. These data can be used in nested perturbations or under side-preserving symmetries.",
+      "residual_risks": [
+        "The result does not predict responses to other graph defects and does not split the module equivariantly."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

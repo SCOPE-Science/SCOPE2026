@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:17:39.255113Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Ordering the adjacent sides a>b gives a>c>b by the cosine law, and t=(a+c)/b>2 uniquely recovers the reduced m/n. The integer numerators are (m^2-n^2,n(2m-n),m^2-mn+n^2); parity excludes a common 2, and any odd common prime must divide both 2m-n and 3n^2, so can only be 3. When 3 divides m+n, C=(m+n)^2-3mn has 3-adic valuation 1. The perimeter is (m+n)(2m-n)/d, with the two factors sharing at most 3 and summing to 3m. For d=1 a square would make both factors coprime squares summing to 0 mod 3, impossible. For d=3 divide both factors by 3 to get coprime r,s, r<s<2r. Valuations of 3rs force the 3-times-square/square split with the other coordinate prime to 3; conversely this gives 3 not dividing r+s and gcd(r+s,2r-s)=1. The primitive side formulas and injectivity follow, and the equilateral primitive triangle has perimeter 3. Each uv<=Y wedge has area Y log(2)/4 by the ratio substitution; slicing on the unrestricted coordinate replaces length by (2/3)length+O(1) for the restricted coordinate and gives O(sqrt(Y)+1) total discrepancy. In the coprimality Möbius sum, 3-divisible divisors vanish, the remaining main terms have density (2/3) product_{p!=3}(1-p^-2)=3/(4 zeta(2)), and the errors for d up to O(sqrt(Y)) sum to O(sqrt(Y) log(2Y)), with tail O(sqrt(Y)). Both wedges and Y=sqrt(X)/3 then give 3 log(2)/(4 pi^2) and the stated error. My independent reduced-conic scan, r,s scan and direct perimeter-divisor reconstruction agree through 10^7 (branches/independent_small_replays.py triangle): counts 1,1,6,16,54,165 at the six recorded bounds, with distinct triples sharing perimeter 736164. These are finite checks, not the asymptotic proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The available Gordon–Wells abstract concerns perimeter-threshold counts for relatively-prime integral triangles at fixed angles; equations are incompletely extracted and the paper itself was not read. Record 54809e3c25d2 gives log(2)/(k pi^2) X^(1/k) plus O_k(X^(1/(2k)) log(2X)) for primitive right triangles and kth-power perimeters. The fixed-prime-support right-triangle record addresses a different thinner problem."
+        ],
+        "reasoning": "Unrestricted perimeter-cutoff totals do not determine the square subsample. Power-perimeter counting on right triangles has real method overlap, but does not specialize to the 60-degree norm and excluded residue class or the corresponding constant. The printed-source access gaps are not evidence of noncoverage.",
+        "searches": [
+          "Gordon–Wells (2010) On the perimeter of integral triangles, public journal page",
+          "Gordon (2012) DOI 10.4169/math.mag.85.1.12; Gilder (1982) DOI 10.2307/3615511; Burn (2003) DOI 10.1017/S0025557200172377",
+          "Resultary 54809e3c25d2 and 1c78d6da7690, power-perimeter counting"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1904.11782",
+        "arXiv:0803.3778",
+        "OEIS A350038",
+        "Gordon–Wells 2010 public abstract",
+        "Resultary 54809e3c25d2 and 1c78d6da7690",
+        "Bounded access attempts at Gordon 2012, Gilder 1982 and Burn 2003"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Adding Zimhoni's sides gives (2m+n)(m+2n) or 3m(m+n); A350038 generates those same values. In the first case the factors are coprime since 3 cannot divide both under m!=n mod 3, and their sum is 0 mod 3; no square is possible. In the second case set r=m,s=m+n and apply coprime prime valuations to 3rs; this recovers both wedges."
+        ],
+        "reasoning": "The exact families and 9-divisibility are elementary consequences of the known parameterization, but the counting assertion requires counting admissible pairs with uv<=Y, including a coordinate-specific mod-3 restriction and the coprime condition. The inspected classical classification, distinct perimeter table and right-angle counting result do not supply that triangle-count asymptotic by specialization.",
+        "searches": [
+          "Zimhoni Theorem 1.1, PDF p. 3, OA offsets 9155–11549; OEIS A350038 program compared with frozen RESULT.md §§2–3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Zelator's sorted-angle arithmetic progression is equivalent to containing 60 degrees: the other angles sum to 120 and straddle 60. Theorem 1.1 of Zimhoni gives unique primitive Eisensteinian side triples with m>n>0, gcd(m,n)=1, m!=n mod 3, and two side branches."
+        ],
+        "reasoning": "The classical formulations are materially about the same unrestricted triangles, not different domains just because their names or parameters differ. Their classifications must be credited; the target counts side triples with a square perimeter, not all triples.",
+        "searches": [
+          "Resultary: Eisensteinian / integral 60-degree triangles and square or perfect-power perimeter",
+          "Zelator arXiv:0803.3778, pp. 2–3 and §4 opener p. 19",
+          "Zimhoni arXiv:1904.11782, Theorem 1.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A350038 lists distinct possible perimeters starting 3,18,20,35,36; its code generates the factored two perimeter expressions and uses .uniq.sort. Equal-perimeter triangles are real, e.g. the two distinct triples from the audit at perimeter 736164."
+        ],
+        "reasoning": "This is exact related perimeter-set evidence, and its formulas underlie the square filter. Deduplication loses triangle multiplicities; neither its table nor its program as stated gives the asymptotic for E(X).",
+        "searches": [
+          "OEIS A350038, entry, examples and Ruby program",
+          "Resultary: exact square perimeter classification/count for primitive 60-degree triangles"
+        ]
+      },
+      "rationale": "The underlying unrestricted parameterization is known. In particular, the two square-factor families follow by elementary filtering of Zimhoni's exact classification, and should not be credited as a stand-alone new unrestricted classification or a hard consequence. The distinct supported contribution of the composite finding is the square-perimeter triangle count with its arithmetic leading constant and error term. The closest power-perimeter counting result treats a different angle and a different local density. Earlier potentially relevant printed texts remain incompletely checked.",
+      "residual_risks": [
+        "No whole-paper exclusion for Gordon–Wells (2010), Gordon (2012), Gilder (1982), or Burn (2003); the full texts could contain an overlooked related specialization. An analogous right-angle result and a known 60-degree parameterization make the distinction specifically the evaluated sparse counting law, not the basic classification machinery."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Proves unique unrestricted parameterization; elementary square filtering recovers the two families, not the evaluated asymptotic",
+          "evidence": [
+            "Side triples m^2+mn+n^2, m^2+2mn, and either n^2+2mn or m^2-n^2; coprime parameters and exclusion modulo 3"
+          ],
+          "identifier_or_url": "arXiv:1904.11782",
+          "material_read": "Theorem 1.1 PDF p. 3, OA offsets 9155–11549",
+          "method": "Open primary arXiv PDF, targeted theorem passage",
+          "title": "A forest of Eisensteinian triplets",
+          "trigger": "Exact prior classification of the underlying primitive triangles"
+        },
+        {
+          "assessment": "The angle restriction is the same up to permutation; section treats unrestricted integral parameterization",
+          "evidence": [
+            "Angles sorted without loss; arithmetic progression iff B=60; §4 determines all integer-sided triangles with this angle condition"
+          ],
+          "identifier_or_url": "arXiv:0803.3778",
+          "material_read": "PDF pp. 2–3 on ordering and B=60; §4 heading/opening p. 19, offsets about 36114",
+          "method": "Open primary arXiv PDF, targeted passages",
+          "title": "Triangle angles and sides in progression and the diophantine equation x^2+3y^2=z^2",
+          "trigger": "Equivalent 60-degree geometry expressed via angles in arithmetic progression"
+        },
+        {
+          "assessment": "Distinct perimeter set, not triangle multiplicities; parameter expressions support the exact filtering comparison",
+          "evidence": [
+            "The program generates 2m^2+5mn+2n^2 and 3m^2+3mn and applies .uniq.sort"
+          ],
+          "identifier_or_url": "https://oeis.org/A350038",
+          "material_read": "Main entry, examples and program, OA offset 0",
+          "method": "Public entry in website mode",
+          "title": "Numbers that are the perimeter of a primitive 60-degree integer triangle",
+          "trigger": "Exact related perimeter database"
+        },
+        {
+          "assessment": "Available text refers to unrestricted cutoff count; cannot rule out a square specialization elsewhere in the unread text",
+          "evidence": [
+            "Abstract describes relatively-prime integral triangles at fixed angles"
+          ],
+          "identifier_or_url": "IJPAM 64(4) (2010), https://www.ijpam.eu/contents/2010-64-4/5/index.html",
+          "material_read": "Publisher abstract only, OA offset 0; equation symbols incomplete",
+          "method": "Public publisher page and bounded lawful retrieval",
+          "title": "On the perimeter of integral triangles",
+          "trigger": "Cutoff asymptotics for fixed-angle primitive integral triangles"
+        },
+        {
+          "assessment": "Analogous coprime lattice count, but only right triangles; does not imply the 60-degree law",
+          "evidence": [
+            "log(2)/(k pi^2) times X^(1/k), with an O_k(X^(1/(2k)) log(2X)) error"
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-a-universal-perfect-power-perimeter-counting-law-for-primitive-r--54809e3c25d2",
+          "material_read": "RESULT.md Finding",
+          "method": "Local Resultary mirror comparison",
+          "title": "A universal perfect-power perimeter counting law for primitive right triangles",
+          "trigger": "Closest power-perimeter counting law and method"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Perfect squares are a natural sparse restriction on a classical norm-form family. The explicit count with a local coprimality factor and a power-saving discrepancy estimates actual triangles rather than possible perimeter values. This remains mathematically useful after crediting the unrestricted parameterization and the elementary derivation of the square families from it.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

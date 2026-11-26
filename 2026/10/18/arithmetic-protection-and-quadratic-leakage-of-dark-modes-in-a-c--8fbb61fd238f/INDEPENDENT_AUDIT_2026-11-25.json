@@ -1,0 +1,169 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:44:08.434113Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 4–64",
+        "VERIFICATION.md lines 19–21 and frozen verify.py, verify_exact.py (inspected, not executed)",
+        "OPENBLAS_NUM_THREADS=1 python3 /workspace/reviews/reproduce.py 1; /workspace/reviews/reproduction-1.txt"
+      ],
+      "rationale": "For an eigenpair, taking the imaginary part of the Rayleigh quotient gives Im λ=−γ|ψ_c|²/(2‖ψ‖²). Thus a real eigenmode has a node at the center; neither half can vanish because the center equation and the nonzero endpoint coupling would force the other half to vanish by recurrence. Reflect the clean right half to the standard Dirichlet basis. Its energy must be some simple E_k with normalized vector v_k. The rank-one determinant evaluated at E_k on the left equals −ε|v_k(s)|² times the nonzero product of all clean eigenvalue gaps. Thus ε≠0 permits precisely (m+1)|sk and the clean odd vector is unchanged there. The node count is gcd(m+1,s)−1. The nodal real eigenspaces are reducing, since for their vectors the adjoint has the same eigenvalue; no Jordan chain can meet them. In particular the dark E_k are simple at ε=0 (equivalently the even block is invertible at E_k by endpoint projection), so analytic normalized eigenvectors and eigenvalues exist locally. An independent coefficient derivation differentiates the full eigenvector equation. With left/right clean amplitudes v_k/√2 and −v_k/√2, λ'_k(0)=v_k(s)²/2 by the clean left eigenvector. Projection of the derivative equation on the reflected clean right v_k gives 0=J v_k(m)ψ'_c(0)+λ'_k(0)/√2. Substitution in the dissipation identity yields −γ v_k(s)^4/[16J²v_k(m)²] and hence the displayed sine coefficient. The decay rate for a mode's no-jump probability is −2 Im λ. Reflection gives the right-half case without changed normalization.",
+      "residual_risks": [
+        "Fresh floating-point full-chain diagnostics checked 540 nonzero-detuning spectra (both signs) and 855 derivative coefficients, with maximum scaled coefficient error below 1.4×10⁻¹⁵. Tolerances are not exact multiplicity proofs; the determinant and dissipative argument justify strict spectral statements.",
+        "Expansion is local at fixed positive J,γ and fixed finite length; no uniform weak-loss or Zeno claim, many-body result, or Liouvillian gap is established."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dutta–Cooper establish clean odd-mode immunity and first-order robustness of steady states. The central-absorber spider record discusses B≥3 loss-coupled arms without a detuning. The average-mixing record uses a real defect but no absorber. Wang–Zhang compute weak-loss shifts on an SSH path."
+        ],
+        "reasoning": "Neither removing an arm from a no-defect absorber model nor specializing a real-defect Hermitian average-mixing invariant produces the lossy eigenvalue branch. A formula linear in γ to first order in γ is also not a Taylor coefficient in ε at each fixed γ. The spider's same archive date does not determine priority.",
+        "searches": [
+          "arXiv:2004.07981 main text and Supplement I.B; arXiv:2007.08938 node passages; local Resultary 0b8034f94b14, ffcd7daa8532; arXiv:2607.10218 Section V"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2004.07981; arXiv:2007.08938; arXiv:2607.10218; arXiv:2607.29467; targeted websearch",
+        "Local Resultary d42504b3b00c, ffcd7daa8532, 0b8034f94b14, ac4a37ad49df, f5a2406fc87a; snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Clean nodal protection implies persistence of the existing common-node vectors under the real diagonal change, but it does not exclude all other real eigenmodes after the perturbation. First-order robustness says nothing about the exact second derivative of a no-jump eigenvalue."
+        ],
+        "reasoning": "The all-detuning converse uses the clean right-half restriction and the determinant on the perturbed left. The coefficient requires the simple resonance projection or evaluated even-sector resolvent, giving the specific quotient of impurity and endpoint weights at arbitrary fixed γ. Related overlap explains why zeros and a quadratic opening are natural; it does not substitute for this evaluation.",
+        "searches": [
+          "arXiv:2004.07981 Supplement I.B; arXiv:2007.08938 pp. 2,5; arXiv:2607.10218 Eqs. (36)–(48); d42504b3b00c Finding; ac4a37ad49df Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "d42504b3b00c Finding gives an exactly matching static sine subspace when the two monitored sites are m+1 and s; Roy arXiv:2607.29467 §2.2 describes dark modes for a real defect on a ring; ac4a37ad49df Finding gives quadratic leakage in a different SSH model and regime."
+        ],
+        "reasoning": "For the monitored set {m+1,s} on length 2m+1 the gcd is gcd(2m+2,m+1,s)=gcd(m+1,s), and a clean mode vanishes on both sites exactly for the given even full-chain mode indices. This is exact nodal-subspace equivalence, not equivalence of dephasing dynamics to the non-Hermitian rank-one detuning spectrum. The ring and SSH comparisons differ in geometry, perturbation or limits.",
+        "searches": [
+          "Resultary exact title; central-loss real on-site impurity; gcd nodal path protection; quadratic linewidth; d42504b3b00c, ffcd7daa8532, ac4a37ad49df",
+          "Primary literature search for tight-binding path central loss, single real onsite defect, dark eigenvalues and perturbative leakage"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The static gcd and mode types are matched in d42504b3b00c; the SSH records give different dark-subspace counts or coefficients. No exact coefficient for matched parameters was identified in these analytic catalogue entries."
+        ],
+        "reasoning": "The exact comparison is a parameter-family formula, not a numeric sequence; a table of isolated spectra cannot match a fixed-γ second-order coefficient and a statement quantified over all nonzero real detunings.",
+        "searches": [
+          "Resultary exact arithmetic protection, survival dimension and quadratic loss laws: d42504b3b00c, f5a2406fc87a, ac4a37ad49df"
+        ]
+      },
+      "rationale": "Credit the known clean reflection-odd modes, the exact preexisting common-node gcd subspace, and prior rank-one/arithmetic technique on paths. The distinct result is the necessity of those modes for a centrally lossy path with a single arbitrary nonzero real detuning, together with the explicit fixed-γ detuning coefficient for every other clean dark branch. No inspected same-model result gives that coefficient or mechanically supplies it from a clean node count. Generic first-order density-operator robustness or the weak-loss slope of an SSH spectrum is not that eigenvalue-width calculation.",
+      "residual_risks": [
+        "Ranked catalogue and bounded primary text comparison do not rule out an unindexed equivalent fixed-loss formula. Priority is not asserted for static gcd overlaps or from archive chronology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Clean model and first-order density-operator robustness covered; not the explicit detuning width",
+          "evidence": [
+            "Odd fermion modes are nodal at the center; steady states are robust to first order under symmetry-breaking Hamiltonian perturbations."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2004.07981",
+          "material_read": "Main-text PDF p. 5 (offsets 28500–33485); Supplement I.B, PDF p. 10 (57000–66929)",
+          "method": "OA PDF passages",
+          "title": "Long-Range Coherence and Multiple Steady States in a Lossy Qubit Array",
+          "trigger": "Same central loss and robustness under symmetry breaking"
+        },
+        {
+          "assessment": "Related node/drive mechanism, not the stated real-detuning no-jump spectrum",
+          "evidence": [
+            "Nodal states at local drive sites yield free-fermion steady-state degeneracy; spatial node pattern explains steady-state density features."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2007.08938",
+          "material_read": "pp. 2 and 5, offsets 8500 and 38000–40922",
+          "method": "OA PDF passages",
+          "title": "Out-of-equilibrium steady states of a locally driven lossy qubit array",
+          "trigger": "Local-site arithmetic of nodes in a lossy chain"
+        },
+        {
+          "assessment": "Exact common sine-mode overlap; distinct evolution and perturbation",
+          "evidence": [
+            "g−1 mode dimension for g=gcd(N+1,S); the target static subspace is its two-site nodal specialization."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-arithmetic-protected-coherence-under-sparse-dephasing-on-a-finit--d42504b3b00c",
+          "material_read": "Mirrored RESULT.md Finding, offsets 0–2476",
+          "method": "Local mirror of published record",
+          "title": "Arithmetic protected coherence under sparse dephasing on a finite path",
+          "trigger": "Exact earlier static common-node classification"
+        },
+        {
+          "assessment": "Same Hermitian defect term, but different spectral invariant and no center sink",
+          "evidence": [
+            "Studies A_n+τe_ie_iᵀ and the rank of the average mixing matrix, uniform in nonzero τ."
+          ],
+          "identifier_or_url": "ffcd7daa8532",
+          "material_read": "Mirrored RESULT.md Finding, offsets 0–2813",
+          "method": "Local mirror of published record",
+          "title": "Arithmetic rank law for quantum average mixing on paths with a single potential",
+          "trigger": "Path with a nonzero real single-site diagonal potential and gcd rank"
+        },
+        {
+          "assessment": "Different geometry and absence of real onsite defect; no chronology inferred",
+          "evidence": [
+            "Uniformly coupled spiders with at least three arms and central absorber; classifies dark states and sitewise absorption."
+          ],
+          "identifier_or_url": "0b8034f94b14",
+          "material_read": "Mirrored RESULT.md Finding and assumptions, offsets 0–2955",
+          "method": "Local mirror of published record",
+          "title": "Arithmetic dark-state and site-selective absorption laws on unequal-arm spiders",
+          "trigger": "Same-day central absorber and arithmetic dark-state classification"
+        },
+        {
+          "assessment": "SSH and iterated weak-loss/hopping-ratio regimes differ from uniform hopping and fixed-γ real detuning",
+          "evidence": [
+            "Quadratic coefficient near an SSH resonance under different hypotheses."
+          ],
+          "identifier_or_url": "ac4a37ad49df",
+          "material_read": "Mirrored RESULT.md Finding, offsets 0–2624",
+          "method": "Local mirror of published record",
+          "title": "Algebraic dark-mode resonances and quadratic loss reopening in finite SSH chains",
+          "trigger": "Explicit quadratic loss reopening coefficient"
+        },
+        {
+          "assessment": "Perturbs imaginary loss strength, not a real defect at fixed loss",
+          "evidence": [
+            "Weak-loss width proportional to loss strength times the site weight; clean loss-site node is exact."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2607.10218",
+          "material_read": "Section V, p. 7, Eqs. (36)–(48), offset 45000",
+          "method": "OA PDF passage",
+          "title": "From local weight selection to Zeno slowdown in an open Su–Schrieffer–Heeger chain with a single local loss",
+          "trigger": "Explicit decay-rate expansion for a single loss site"
+        },
+        {
+          "assessment": "Periodic ring and no central absorber",
+          "evidence": [
+            "Dark sine states at a real defect in the periodic model, without a lossy eigenvalue-width statement."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2607.29467",
+          "material_read": "Retrieved v2 §2 p. 3 and §2.2 pp. 5–6, offsets 6200–16947, Eqs. (1)–(2),(14)",
+          "method": "OA PDF passages",
+          "title": "A spectral viewpoint on the single defect tight-binding chain",
+          "trigger": "Real point defect, tight-binding spectrum, and exact dark states"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 8–22 and 40–64; Dutta–Cooper comparisons under originality"
+      ],
+      "rationale": "The exact combination distinguishes truly protected single-particle modes from branches that only appear dark at first order and supplies measurable leading lifetimes at arbitrary fixed loss. The arithmetic position dependence and a sine-fourth-power width divided by the endpoint weight are not implied by knowing the symmetry or a generic perturbative order. They are useful for tuning or diagnosing a single-site perturbation of a central-loss chain within the stated regime.",
+      "residual_risks": [
+        "The value claim is confined to one-particle no-jump decay; it does not extend to driven steady states or many-body mixing."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

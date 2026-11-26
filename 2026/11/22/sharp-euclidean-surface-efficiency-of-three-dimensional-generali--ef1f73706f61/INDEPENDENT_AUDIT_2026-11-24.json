@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:41:32.274375Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–47; full replacement repairs/5/RESULT.md",
+        "VERIFICATION.md, verification/verify.py and verification/requirements.txt, inspected without execution",
+        "Hanada–Lentfer–Vindas-Meléndez Thm. 1.1 and Bayer et al. Thm. 2.3(c)"
+      ],
+      "rationale": "The final claim in repairs/5/RESULT.md follows from the exact metric inputs. On a lower plane the square of side t+2 is cut by the pair bound, removing a corner of area 1/2. On an upper coordinate plane the other coordinates are bounded by t+1 and their sum by 2t+1, again removing area 1/2. On a pair plane the parameterized edges have lengths √2 and t: the sum bound gives the free third coordinate in [0,t], and the other pair bounds do not further truncate it. The top plane translates to the slice of the side-two cube at coordinate sum three, a regular hexagon of area 3√3. Thus S is the stated quadratic, including at t=0. Using support heights 0, t+2, (2t+3)/√2 and (3t+3)/√3 gives the stated V by the divergence identity. I independently expanded 3VS'−2SV': the degree-four terms cancel and every listed coefficient of D agrees. Radical bounds give signs +,+,−,−; Descartes plus the endpoint signs proves exactly one positive root and strict decrease then increase. Q(0)>216; expansion of S³/V² gives the correction 3√2/2−3<0 at order 1/t. This proves a unique crossing on the decreasing part and no crossing on the increasing part. An independent bisection of 3VS'−2SV' on [0,4] and Q−216 on [0,1] gives t_*≈2.52596465810684, t_c≈0.629939681219772 and Q(t_*)≈193.056812414404. The integer correspondence preserves Q, and density gives the same infimum.",
+      "residual_risks": [
+        "The sharp optimum is asserted for the continuous family, not as an attained minimum on the integer grid. Numerical bisection is a decimal check, not the proof of uniqueness."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The known facet theorem gives the displayed inequalities and the rank-two exception at t=0. The indexed area decomposition gives S_n(t)=nV_(n−1)(t+1)+∑_(k=1)^n binom(n,k)k^(k−3/2)V_(n−k)(t), with V₀=1 and V₁=t. For n=3 the terms are 3V₂(t+1)+3V₂(t)+3√2t+3√3, exactly the frozen S(t)."
+        ],
+        "reasoning": "The formula is covered even without the expanded polynomial appearing verbatim. The broader result addresses facet-area distributions and high-dimensional asymptotics, not minimization as t varies at fixed n=3.",
+        "searches": [
+          "Resultary: volume polynomial and facet count three-dimensional generalized parking polytope X_3(a,b,b)",
+          "Bayer et al. Theorem 2.3(c)",
+          "Resultary record 11ff2c69295a, Exact boundary decomposition"
+        ]
+      },
+      "checked_sources": [
+        "HLV arXiv:2212.06885v2; Bayer et al. arXiv:2403.07387; Resultary ef1f73706f61 (self), 11ff2c69295a (area coverage), 0614300ec957 and 5558793c309b (different families)",
+        "Repaired RESULT.md, Finding, Geometric inputs and Relationship to prior work"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The decomposition and known volume already determine the rational expression for Q(t) and a stationary equation by differentiation. The decisive extra steps are the radical coefficient signs guaranteeing exactly one positive stationary parameter and the endpoint and large-t signs guaranteeing exactly one cube crossing."
+        ],
+        "reasoning": "The area polynomial and bare stationarity equation are mechanical consequences and are not the novelty. The surviving theorem gives the full monotonicity and unique optimizer and the exact strict cube comparison over the whole real family, none of which follows merely by substituting n=3 into a stated prior optimization or area theorem.",
+        "searches": [
+          "11ff2c69295a, exact decomposition and generating-function passage",
+          "Hanada–Lentfer–Vindas-Meléndez Theorem 1.1; Bayer et al. Theorem 2.3(c)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Normalizing volume makes area minimization equivalent to minimizing S/V^(2/3), or its cube Q. Hanada–Lentfer–Vindas-Meléndez give the same V after rescaling and dividing normalized volume by 3!, but their Ehrhart surface terminology is lattice-normalized, not ordinary Euclidean area. The separate area-decomposition record uses ordinary area and the same family."
+        ],
+        "reasoning": "Both changes of normalizations were checked rather than treating wording as a distinction. The known volume and ordinary boundary area are inputs, not separately validated new results.",
+        "searches": [
+          "Resultary: Euclidean boundary area formula surface area of three-dimensional generalized parking-function polytopes",
+          "Resultary: surface-to-volume isoperimetric quotient optimizer cubic t generalized parking polytope",
+          "Hanada–Lentfer–Vindas-Meléndez, Theorem 1.1 and Ehrhart discussion"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact result ef1f73706f61 gives the same t_*, Q and t_c: it is the frozen record itself. Distinct exact area coverage is 11ff2c69295a. Near matches 0614300ec957 and 5558793c309b concern chainlink polytopes and positive-pair signed-order polytopes, respectively."
+        ],
+        "reasoning": "Self-matching does not establish earlier coverage; the structurally different optimizations do not produce a cubic or cube crossing for this family. The overlapping area formula is expressly credited in the repaired finding.",
+        "searches": [
+          "Resultary: equal-volume cube comparison threshold Euclidean surface area generalized parking-function polytope",
+          "Resultary: surface-to-volume isoperimetric quotient optimizer cubic t generalized parking polytope"
+        ]
+      },
+      "rationale": "Only the repaired comparison passes. The frozen novelty scope included the Euclidean area formula, which is exactly covered as the n=3 specialization of the distinct indexed general area decomposition 11ff2c69295a. The repair removes that claim of novelty and cites the decomposition as an input. The retained claim is a global sign and extremum theorem: the unique normalized shape and sharp value, and the unique boundary between shapes that do and do not beat an equal-volume cube. No compared theorem gives that global classification. The same-day date does not determine ordering.",
+      "residual_risks": [
+        "The shared catalogue date supplies no relative priority. An unindexed proof of the exact optimization or cube crossing remains possible; verified area overlap has been removed from the novelty claim regardless of priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the area polynomial by specialization; provides inputs but no fixed-dimension optimizer or cube crossing in the compared statements",
+          "evidence": [
+            "The family has the same subset inequalities at n=3; the exact upper contribution at rank k is binom(n,k)k^(k−3/2)V_(n−k)(t), and the lower contribution is nV_(n−1)(t+1)."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-an-area-weighted-facet-rank-law-and-logarithmic-boundary-tail-an--11ff2c69295a",
+          "material_read": "Finding, scope and Proof, Exact boundary decomposition and Generating functions, RESULT.md offsets 0 and 1080–5046",
+          "method": "Resultary lookup and local mirror statement and proof passage",
+          "title": "An area-weighted facet-rank law and logarithmic boundary tail",
+          "trigger": "Distinct materially overlapping result with a general Euclidean area theorem"
+        },
+        {
+          "assessment": "Covers V and the family; lattice surface coefficient does not settle Euclidean optimization",
+          "evidence": [
+            "The normalized volume specializes to 6b³V(t). The Ehrhart-context surface term is not the Hausdorff surface area."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2212.06885v2",
+          "material_read": "Theorem 1.1 (OA offset 4500) and Ehrhart boundary discussion (around 106214)",
+          "method": "Read bounded OA PDF passages",
+          "title": "Generalized parking function polytopes",
+          "trigger": "Same family and possible metric coverage"
+        },
+        {
+          "assessment": "Covers the inequalities and exceptional redundancy",
+          "evidence": [
+            "Minimal facet inequalities apply after affine rescaling; rank n−1 upper inequalities are redundant if the first parameter is 1."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2403.07387",
+          "material_read": "Theorem 2.3(c), PDF p. 3, OA offset 13354",
+          "method": "Read bounded OA PDF passage",
+          "title": "Combinatorics of generalized parking-function polytopes",
+          "trigger": "Potential stronger facet structure result"
+        },
+        {
+          "assessment": "Identical frozen finding, not independent coverage",
+          "evidence": [
+            "Same S, t_*, Q(t_*) and t_c."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-euclidean-surface-efficiency-of-three-dimensional-generali--ef1f73706f61",
+          "material_read": "RESULT.md offsets 0–3406 and 3500–6901",
+          "method": "Resultary and local mirror",
+          "title": "Sharp Euclidean surface efficiency of three-dimensional generalized parking-function polytopes",
+          "trigger": "Strongest exact match of all searches"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired RESULT.md, Finding and Proof of the sharp comparison",
+        "Resultary 11ff2c69295a, exact boundary decomposition"
+      ],
+      "rationale": "The exact normalized optimum and cube crossing give fixed-volume shape-selection criteria for the natural one-parameter parking family in its first spatial dimension. In particular, approaching the cube limit alone does not say whether finite-parameter shapes beat the cube, whether the crossing is unique, or how close the best shape gets. The retained result resolves all of these over the entire continuous family and its dense integer realization. Its value is not the tabulation of an area polynomial that already follows from the general decomposition.",
+      "residual_risks": [
+        "No global optimization over other parking-function families or all convex bodies is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

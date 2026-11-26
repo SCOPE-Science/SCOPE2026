@@ -1,0 +1,150 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:32:13.308331Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–59; VERIFICATION.md, lines 19–25; verify.py, lines 9–73 (static inspection)",
+        "Independent P3 readout: equations c1c2=c2c3=0, two free coordinates, component dimensions 3 and 4, q²(q²+q−1) points, hence 20 over F2 and 99 over F3.",
+        "Morey–Villarreal, arXiv:1012.5329v3, §§1–2 for the standard edge-ideal interpretation; Provan–Ball citation in RESULT.md for the standard exact counting hardness antecedent."
+      ],
+      "rationale": "Retaining exactly one oriented two-letter word per edge and killing all words of length three or more makes the stated basis a monomial quotient. Any product of three nonunits is zero, and their span is a nilpotent two-sided ideal with field quotient, hence the Jacobson radical. Squaring in that ideal gives one coefficient c_i c_j per edge, never 2c_i c_j, and leaves all m edge coordinates free. The resulting edge ideal equals the intersection of coordinate primes obtained by setting c_i=0 outside maximal independent sets: a monomial avoids the edge ideal exactly when its support lies in some such set. This proves reducedness over every field and identifies the components and their dimensions. In the whole algebra the scalar equation is lambda²=0, so the radical contains lambda; modulo lambda the ideal is the same reduced edge ideal. The independent-support strata have affine-times-torus class and point counts as stated, while the monomials of exact support S contribute (t/(1−t))^|S|, with an extra free factor (1−t)^(-m). Over F2, the explicit table is polynomial size, and division of the full or radical count by 2^m recovers the independent-set count; the conclusion is Turing hardness, not parsimony. In characteristic two over an algebraically closed field, commutativity makes every square-coordinate equation a square of a linear form, proving the reduced-linearity obstruction. An edge forces two distinct maximal independent sets, so its locus is reducible.",
+      "residual_risks": [
+        "No independent rerun of the full 82-instance verifier; the coordinate-ideal proof is the all-field certificate. Direct access to the cited counting paper failed; the reduction from the standard exact independent-set problem is explicit. The full square-zero scheme is not identified with the radical scheme before reduction."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Morey–Villarreal define edge ideals and identify their independent-set faces. Bell–Pekcagliyan prove a primitive-or-PI statement about prime finitely presented monomial algebras, not this local realization.",
+          "Closest surfaced radical-square-zero algebra literature concerns representation theory of algebras whose radical product already vanishes, not realizing the zero set of a quadratic squaring map within a cube-zero radical."
+        ],
+        "reasoning": "A sufficiently explicit theorem realizing any system of homogeneous quadrics could cover graph cases if its construction specialized to this monomial class, with the required free factor and characteristic scope. No such theorem was retrieved in the compared material. Knowing the broader Stanley–Reisner description or a theorem about prime monomial algebras does not supply this map.",
+        "searches": [
+          "External arbitrary homogeneous quadratic realization query above",
+          "Morey–Villarreal arXiv:1012.5329v3, §§1–2; Bell–Pekcagliyan arXiv:0712.0815v1, Thm. 1.2"
+        ]
+      },
+      "checked_sources": [
+        "Primary passages and closest mirror findings identified above; frozen RESULT.md, lines 27–59 and 67–83"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Classical edge-ideal and counting consequences apply once the squaring map is identified with the edge equations. The primary Rickard answer could not be read; the frozen record describes it as a two-generator example, not a general realization, but that description is not independently confirmed."
+        ],
+        "reasoning": "A two-generator example alone would not prove the all-graphs realization, and the standard formulas do not specify oriented products in a characteristic-uniform local monomial algebra. If the cited answer or an unlocated older source actually gives a general construction specializing in this way, that could change the originality decision.",
+        "searches": [
+          "External: MathOverflow question 171995 Rickard square zero elements small associative algebras 2014",
+          "MathOverflow question 171995 and alternate open retrieval attempts; Morey–Villarreal §§1–2; Provan–Ball DOI 10.1137/0212053"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 6198264ecb2e, RESULT.md Finding, concerns L_x composed with L_x, not the element equation x²=0; its independent-support result assumes no 4-cycle.",
+          "Resultary 3f6b29b03a8b concerns pairwise annihilation of tuples, and e78c20362889 concerns a³=a in characteristic two."
+        ],
+        "reasoning": "An edge ideal is the Stanley–Reisner ideal of the independence complex; the realization problem is unchanged under that vocabulary. For graph evolution algebras, an equation for an operator in a generally nonassociative model does not state the prescribed element equation in a local associative monomial algebra. The annihilating-tuple and tripotent equations are not equivalent to it either.",
+        "searches": [
+          "Resultary: square-zero locus local algebra graph edge ideal",
+          "Resultary: square-zero elements monomial algebra arbitrary graph",
+          "External: associative algebra square-zero element variety realization arbitrary homogeneous quadratic equations radical cube zero graph edge ideal monomial algebra Rickard 171995"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest retrieved indexed comparison gives an independent-support characterization for square-zero multiplication operators, with an extra no-four-cycle hypothesis; the other records give different varieties. The P3 calculation in the frozen record is an illustration, not the contribution."
+        ],
+        "reasoning": "An exact independence-polynomial table or catalogue of graph edge ideals would not determine the associative-algebra realization. An exact entry describing the same radical squaring equations for arbitrary graphs would cover it; none was retrieved in the bounded index search.",
+        "searches": [
+          "Resultary: Every graph is a square-zero locus in a short monomial algebra",
+          "Resultary 6198264ecb2e, 3f6b29b03a8b, e78c20362889 Findings"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the uniform realization of arbitrary graph edge ideals, up to the stated free factor, as square equations in this particularly short associative monomial class. The standard Stanley–Reisner geometry and enumerators are not new in isolation. The closest retrieved graph/square-zero results concern a different operator equation or different varieties. A potentially related two-generator example could not be inspected and remains an explicit risk, not grounds by itself for failure.",
+      "residual_risks": [
+        "The cited Rickard example could not be inspected. General homogeneous-quadratic realization literature or a different formulation of the edge-product construction could overlap; searches were bounded.",
+        "The cited Provan–Ball text was not retrieved, so the specific bipartite antecedent was not reread from that paper."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different equation and algebra class",
+          "evidence": "L_x composed with L_x=0, not x²=0; independent-support statement assumes no four-cycle.",
+          "identifier_or_url": "2026/11/22/SCOPE-square-zero-multiplication-operators-in-graph-evolution-algebras--6198264ecb2e",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror statement comparison",
+          "title": "Square-zero multiplication operators in graph evolution algebras",
+          "trigger": "Closest indexed match on graph, square-zero and independent supports"
+        },
+        {
+          "assessment": "Different tuple condition",
+          "evidence": "Studies pairwise zero-product tuples without the individual square-zero conditions.",
+          "identifier_or_url": "2026/11/2/SCOPE-pairwise-annihilating-tuple-varieties-of-radical-square-zero-qui--3f6b29b03a8b",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror statement comparison",
+          "title": "Pairwise-annihilating tuple varieties of radical-square-zero quiver algebras",
+          "trigger": "Related varieties in short radical algebras"
+        },
+        {
+          "assessment": "Different element equation and characteristic scope",
+          "evidence": "Treats a³=a in characteristic two, not square-zero in the radical over arbitrary fields.",
+          "identifier_or_url": "2026/11/2/SCOPE-characteristic-two-tripotent-components-and-independent-sets-in--e78c20362889",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror statement comparison",
+          "title": "Characteristic-two tripotent components and independent sets",
+          "trigger": "Graph independent supports and nilpotent-coordinate geometry"
+        },
+        {
+          "assessment": "Classical geometry and combinatorics, not an associative square-zero realization in the material read",
+          "evidence": "Defines graph edge ideals and identifies independent sets with the corresponding faces.",
+          "identifier_or_url": "https://arxiv.org/html/1012.5329v3",
+          "material_read": "§1 offset 1950 and §2 offset 5900",
+          "method": "Primary OA passage inspection",
+          "title": "Edge ideals: algebraic and combinatorial properties",
+          "trigger": "Equivalent edge-ideal and Stanley–Reisner formulation"
+        },
+        {
+          "assessment": "Different hypotheses and conclusion",
+          "evidence": "Prime monomial algebra and primitive-or-PI conclusion, not equations in the radical of a local cube-zero algebra.",
+          "identifier_or_url": "https://arxiv.org/html/0712.0815v1",
+          "material_read": "Theorem 1.2, around offset 2900",
+          "method": "Primary OA passage inspection",
+          "title": "Primitivity of finitely presented monomial algebras",
+          "trigger": "Monomial associative algebras as a possible broader class"
+        },
+        {
+          "assessment": "Precise overlap unresolved, not negative evidence",
+          "evidence": "Main page denied access; StackPrinter and public answers endpoint attempts did not give readable article text. No equivalent primary passage located.",
+          "identifier_or_url": "https://mathoverflow.net/questions/171995/",
+          "material_read": "Original answer unavailable; frozen RESULT.md lines 67–71 for the stated relationship only",
+          "method": "Direct and alternate open retrieval attempts and targeted external source lookup",
+          "title": "Rickard's cited MathOverflow answer on square-zero elements",
+          "trigger": "Potential small-case or construction antecedent"
+        },
+        {
+          "assessment": "Access limitation on the particular bipartite source",
+          "evidence": "The frozen proof uses the exact independent-set hardness antecedent; once given, the single-oracle division reduction is fully checkable.",
+          "identifier_or_url": "10.1137/0212053",
+          "material_read": "Cited bibliographic entry and its role in frozen RESULT.md; original full text unavailable",
+          "method": "DOI/open-copy retrieval attempt and scoped citation check",
+          "title": "The Complexity of Counting Cuts and of Computing the Probability that a Graph Is Connected",
+          "trigger": "Complexity antecedent for exact counting, not proposed as the realization source"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–25 and 39–65",
+        "Morey–Villarreal §§1–2 and graph-operator comparison 6198264ecb2e for the distinction between the realization and its standard consequences"
+      ],
+      "rationale": "This is a uniform link between two natural structures, not a recomputation of graph enumerators: even a cube-zero radical in a short monomial algebra can have arbitrary graph independence-complex component patterns in its squaring locus. The characteristic-two contrast explains why order of multiplication matters, and the explicit sparse multiplication rule yields a hardness transfer in a restricted finite-field class. The standard formulas for edge ideals become geometric and computational information about the chosen algebra after the realization.",
+      "residual_risks": [
+        "No classification up to algebra isomorphism, universal statement about commutative algebras outside the stated characteristic, or complexity claim stronger than the exact counting reduction."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

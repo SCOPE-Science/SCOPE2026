@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:08:07.597804Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–64",
+        "Frozen VERIFICATION.md, lines 19–21",
+        "Frozen check.py, lines 1–41"
+      ],
+      "rationale": "The dot and cross products with (x,y) give r'=r^3(-a+b cos 2theta) and theta'=r^2. Thus r^2=C exp(-2a theta+b sin 2theta). Independently integrating the inverse angular speed from minus infinity gives I'(theta)=exp(2a theta-b sin 2theta)>0; I is comparable to exp(2a theta) and is onto (0,infinity). The full forward orbit has I(theta)=C(t+D) with D=I(theta0)/C>0, and (t+D)r^2=I/I'=F evaluated at theta(t). The half-turn shifts log I by 2 pi a, so the angular quotient defines a positive smooth periodic function of log I. Replacing t+D by t perturbs the phase and factor by O(t^-1), by boundedness of the profile and its derivative. F'=1+(2b cos 2theta-2a)F rules out a constant when b is nonzero; b=0 gives 1/(2a). Monotone advance in log t gives every value in the continuous image of a period as an accumulation point, and ordinary periodic Cesaro averaging after u=log t gives the stated occupation law for bounded continuous tests. The polar solution exists globally and r(t)<=r0 exp(|b|), giving stability even for orbits with transient radial growth. The package checker was inspected, not executed; its finite quadratures are not the proof.",
+      "residual_risks": [
+        "No minimal-period assertion is required; only the guaranteed period was audited here."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Resultary 8c1ed6d8b8da covers the same full parameter regime and adds the least period for b≠0, exact return clocks and the sharp scale-ratio lattice.",
+          "Liu–Fitzsimmons Section IV-D covers a>0, real b for the cubic family and stability, with a separate parameter restriction in the homogeneous-polynomial obstruction."
+        ],
+        "reasoning": "There is no parameter or observable distinction from the stronger catalog result. The original Lyapunov theorem alone does not give the normalized physical-time amplitude.",
+        "searches": [
+          "Resultary: homogeneous planar systems exact physical-time asymptotics radial relaxation phase",
+          "Liu–Fitzsimmons arXiv:2607.16171v1, Sections III-A and IV-D"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 8c1ed6d8b8da",
+        "Liu–Fitzsimmons arXiv:2607.16171v1",
+        "Resultary 7c00337eaa41",
+        "Resultary 33495a7a3125"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The published exact amplitude has period 2 pi a and nonconstant profile for nonzero b; it expressly gives the full accumulation interval. The frozen occupation law is not displayed there as a separate finding."
+        ],
+        "reasoning": "Multiplying the exact shifted expression by t/(t+D) and changing its phase by O(t^-1) gives the frozen asymptotic. For any bounded continuous g, the error then tends to zero uniformly on the bounded range of the arguments, and after u=log t the average of g(P(u+constant)) is its one-period mean. Hence the occupation law is also mechanically implied.",
+        "searches": [
+          "Resultary exact-amplitude record 8c1ed6d8b8da, display for shifted time and accumulation values",
+          "arXiv:2607.16171v1, Section IV-D"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary record 8c1ed6d8b8da gives (t+D)r(t)^2=P_ab(log((t+D)/D)+phi) for the algebraically identical cubic family. Its Q_ab equals F, and its phase map has derivative 1/Q_ab=(log I)'."
+        ],
+        "reasoning": "The difference in phase conventions is additive, not a change of profile. With D=I0/C the shifted-time identity is exactly the frozen quadrature in RESULT.md lines 51–55, written for (t+D)r^2 rather than tr^2.",
+        "searches": [
+          "Resultary: homogeneous cubic planar vector field log-periodic physical-time radial relaxation profile",
+          "Resultary: homogeneous focus flow radial decay log periodic oscillation normalized amplitude"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact catalog theorem is 8c1ed6d8b8da, a distinct result with the shifted-time formula; 7c00337eaa41 instead treats an attracting nonzero-radius cycle with a linear term, and 33495a7a3125 gives a constant radial limit for a distinct nonhomogeneous weak focus."
+        ],
+        "reasoning": "Catalog theorem coverage is material even though there is no tabulated number to look up. The exact overlapping record, unlike the two other catalog hits, has the same system and observable.",
+        "searches": [
+          "Resultary: homogeneous cubic planar vector field log-periodic physical-time radial relaxation profile",
+          "Resultary: discrete scale invariance log-periodic relaxation homogeneous differential equations occupation law"
+        ]
+      },
+      "rationale": "A distinct published catalog record already covers the exact shifted-clock amplitude on the identical a>0 family and derives the nondegenerate accumulation interval. Its exact identity also directly implies the bounded-continuous logarithmic occupation law by Cesaro averaging, so that law is not an independent remainder. This is a finding of existing mathematical coverage, not evidence that the other record has historical priority: its catalog date is later than the frozen record's catalog date. Liu–Fitzsimmons are prior for the system, polar reduction and stability, not the inspected quantitative profile.",
+      "residual_risks": [
+        "Earlier homogeneous-focus literature may also contain equivalent calculations; no historical priority determination is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Explicit equivalent coverage of the amplitude; the exact identity implies the occupation law",
+          "evidence": "(t+D)r^2=P_ab(log((t+D)/D)+phi), with Q_ab=F and phase derivative 1/Q_ab. Catalog date 2026-11-17 does not establish historical priority over the frozen record.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-exact-logarithmic-time-amplitude-and-a-sharp-scaling-lattice-in--8c1ed6d8b8da/RESULT.md",
+          "material_read": "Displayed vector field and finding; exact shifted-time, phase-map, least-period and scale-ratio statements",
+          "method": "Bounded RESULT.md inspection in the local catalog mirror (snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4)",
+          "title": "Exact logarithmic-time amplitude and a sharp scaling lattice in a homogeneous cubic flow",
+          "trigger": "Same vector field, physical-time observable, and logarithmic periodic profile"
+        },
+        {
+          "assessment": "Covers family, polar dynamics, stability and Lyapunov obstruction, not the quantitative relaxation in inspected passages",
+          "evidence": "Section IV-D gives the full family and proves stability for a>0; the homogeneous-polynomial obstruction uses |b|≥2(a+1).",
+          "identifier_or_url": "https://arxiv.org/abs/2607.16171v1",
+          "material_read": "Sections III-A and IV-D, equations (27)–(30), Theorem IV.3, pp. 5–6",
+          "method": "Bounded open full-text inspection",
+          "title": "A Globally Asymptotically Stable Planar Homogeneous Polynomial Vector Field With No Polynomial Lyapunov Function",
+          "trigger": "Source of the exact two-parameter family"
+        },
+        {
+          "assessment": "Different nonzero-cycle setting",
+          "evidence": "A linear term and attracting nonzero-radius cycle are assumed.",
+          "identifier_or_url": "2026/10/11/SCOPE-exact-angular-return-and-physical-time-floquet-rigidity-for-cont--7c00337eaa41",
+          "material_read": "Finding and physical-time return comparison",
+          "method": "Bounded local catalog mirror inspection",
+          "title": "Exact angular return and physical-time Floquet rigidity for contracting homogeneous star-node cycles",
+          "trigger": "Closest angular-return method for related cubic systems"
+        },
+        {
+          "assessment": "Different field and constant amplitude",
+          "evidence": "tr^2 tends to 4/3 in the nonhomogeneous Liénard example.",
+          "identifier_or_url": "2026/10/11/SCOPE-global-algebraic-relaxation-and-renormalized-logarithmic-phase-a--33495a7a3125",
+          "material_read": "Finding's normalized radial limit",
+          "method": "Bounded local catalog mirror inspection",
+          "title": "Global algebraic relaxation and renormalized logarithmic phase at a cubic Liénard weak focus",
+          "trigger": "Related radial algebraic decay and logarithmic phase"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–22 and 51–64",
+        "Resultary 8c1ed6d8b8da"
+      ],
+      "rationale": "The phenomenon is mathematically meaningful: global cubic stability and sharp order t^-1/2 do not force a constant radial prefactor. A reproducible exact clock and an initial-state-independent distribution on the surviving amplitudes quantify what the usual decay exponent misses. The value of the result as a description of dynamics does not remedy the documented overlap.",
+      "residual_risks": [
+        "The significance is limited to the exact family and the physical-time Euclidean radial observable considered here."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

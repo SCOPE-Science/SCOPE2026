@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:46:09.109640Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With two regions, the exchange semigroup gives the affine segment x=(m+delta*z,m-delta*z), z=exp(-2*kappa*T). The denominators are positive even for initially dry regions. The uptake sum in z has strictly negative second derivative when delta is nonzero and is constant otherwise. Thus it has at most one interior maximum; the monotone change of variable preserves its type. One region is constant. On the three-region path the eigenvectors (1,1,1), (1,0,-1), and (1,-2,1) give the stated normalized solution with modes 1,q,q^3 and nonnegative water fractions. For the stated positive capacities and half-saturations, independent exact differentiation recovers 108P over the product of the three squared nonvanishing denominators. Independent exact arithmetic reproduces gcd(P,P')=1, Sturm variations 9 and 6 at the nonroot endpoints, and signs +,-,+,- at 1/10,7/10,9/10,19/20. These bracket all three roots; the sign switches are max/min/max, and the smooth bijection q=exp(-kappa*T) reverses order without changing their types. The rates in increasing kappa*T are about 0.0661994572, 0.1881674312 and 0.7494616363. Replay: /workspace/branches/2c7df399-3f8f-41b6-9348-3b1831c18c0b/independent_exact_check.py. The uploaded checker was inspected, not executed. The count applies to finite positive rates for fixed T>0, not endpoint optima or realized daytime transpiration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "SCOPE-0b48c5f4ae13 bounds critical points by n-2 for a scalar stationary response a^T(I+kappa H)^(-1)b on reversible environments, with an attaining one-maximum three-state example.",
+          "Amenu–Kumar uses dynamic soil–root transport and discusses macroscopic uptake of the form S=f(E_t,theta_root,rho_root)."
+        ],
+        "reasoning": "Stationary rational-resolvent bounds concern poles in the rate kappa and linear evaluation; they do not transfer to the transient semigroup followed by heterogeneous fractional saturation. More physically detailed transport alone supplies neither an extremum bound nor its attainability.",
+        "searches": [
+          "Resultary: semigroup exponential response curves number of extrema parameter derivative rational saturating uptake diffusion graph",
+          "SCOPE-0b48c5f4ae13, mirror RESULT.md",
+          "Amenu–Kumar, DOI 10.5194/hess-12-55-2008, Section 2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and checker.py",
+        "Resultary: exact record bca15ba875cb and distinct c9ab5cd5ea31, 0b48c5f4ae13, 04dd8ba067bc; local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+        "Amenu–Kumar 2008 and Vanderborght et al. 2021, cited passages",
+        "Bounded access attempts for Quijano–Kumar DOI 10.1002/2014WR016509 and Guswa DOI 10.2136/vzj2011.0159"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The hydraulic models support the physical redistribution motivation, not the derivative identity or count for this saturating readout.",
+          "The compared three-node variance theorem and stationary concentration bound use different observables and stationary dynamics. Sturm theory certifies the roots of the instantiated polynomial but does not furnish a feasible witness."
+        ],
+        "reasoning": "The affine one-mode obstruction is a concavity deduction; the substantive additional content is positive parameters realizing a three-crossing derivative in a lossless path. The compared prior claims do not imply that witness or the narrow two-versus-three threshold.",
+        "searches": [
+          "Amenu–Kumar, DOI 10.5194/hess-12-55-2008, pp. 55–57",
+          "Vanderborght et al., DOI 10.5194/hess-25-4835-2021, abstract and pp. 2–3",
+          "SCOPE-c9ab5cd5ea31; SCOPE-0b48c5f4ae13"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "SCOPE-c9ab5cd5ea31 proves a three-patch minimum for two strict extrema of stationary total-abundance variance; its path witness has a minimum and a maximum, not two maxima.",
+          "SCOPE-04dd8ba067bc uses equal-volume compartments and symmetric exchange but with throughflow and removal; its steady export example has one strict maximum."
+        ],
+        "reasoning": "Rewriting the model as a graph heat semigroup or using q instead of rate preserves the extrema. Replacing its terminal nonlinear uptake by stationary variance or steady export does not preserve the curve or count.",
+        "searches": [
+          "Resultary: hydraulic redistribution uptake local maxima exchange conductance soil compartments",
+          "Resultary: three-node path diffusion varying common exchange rate two turning points response maxima variance",
+          "SCOPE-c9ab5cd5ea31 and SCOPE-04dd8ba067bc, mirror RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed dawn-uptake finding bca15ba875cb is the assigned record itself.",
+          "The earlier variance example uses return rates (2,1,3) and forcing (8,1,1); the steady export example peaks at mixing rate 2. Neither is an exact table for the frozen uptake law, parameters or degree-14 certificate."
+        ],
+        "reasoning": "Parameter numbers and path size are not enough: a matching table would have to describe the same transient uptake observable and both interior maxima. No distinct matching table was established.",
+        "searches": [
+          "Resultary: three-node path diffusion varying common exchange rate two turning points response maxima variance",
+          "SCOPE-bca15ba875cb, SCOPE-c9ab5cd5ea31, SCOPE-0b48c5f4ae13 and SCOPE-04dd8ba067bc"
+        ]
+      },
+      "rationale": "The standard diffusion modes, concavity and Sturm method are not original. The distinct supported result is the sharp two-region obstruction and three-region example with exactly two interior maxima of saturating dawn uptake in the specified lossless transient model. Related path models inspected do not establish that result. This is a bounded best-of-knowledge comparison, not a priority determination.",
+      "residual_risks": [
+        "The full Quijano–Kumar and Guswa studies could not be inspected, leaving potential conductance-response overlap unverified.",
+        "A broader transient nonlinear semigroup result could express the same problem differently; the compared rational-resolvent results do not establish this.",
+        "Catalogue dates shared by distinct findings do not establish priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related threshold but not equivalent",
+          "evidence": [
+            "One minimum then one maximum of stationary total-abundance variance; stochastic return and forcing parameters."
+          ],
+          "identifier_or_url": "SCOPE-c9ab5cd5ea31",
+          "material_read": "Mirror RESULT.md offsets 0–3949",
+          "method": "Local catalogue and mirror",
+          "title": "Two dispersal turning points first appear on a three-habitat chain",
+          "trigger": "Closest indexed three-node threshold with symmetric dispersal"
+        },
+        {
+          "assessment": "Stationary resolvent class only",
+          "evidence": [
+            "Derivative involves squared inverse rate shifts; its three-regime example has just one maximum."
+          ],
+          "identifier_or_url": "SCOPE-0b48c5f4ae13",
+          "material_read": "Mirror RESULT.md offsets 0–6614",
+          "method": "Local catalogue and mirror",
+          "title": "Environmental-state complexity bounds for extrema of reservoir response",
+          "trigger": "Plausibly broader critical-point bound for reversible systems"
+        },
+        {
+          "assessment": "Different steady throughflow/removal model",
+          "evidence": [
+            "Middle-compartment loading gives an example with a unique steady export maximum at rate 2."
+          ],
+          "identifier_or_url": "SCOPE-04dd8ba067bc",
+          "material_read": "Mirror RESULT.md offsets 0–5745",
+          "method": "Local catalogue and mirror",
+          "title": "A sharp three-box mixing-rate law for reactive downstream export",
+          "trigger": "Compartment geometry and common exchange-rate control"
+        },
+        {
+          "assessment": "Established mechanism and modeling context; distinct from the inspected theorem",
+          "evidence": [
+            "The introduction describes nocturnal root-mediated redistribution; the model section contrasts conventional uptake parameterization with coupled dynamic transport."
+          ],
+          "identifier_or_url": "https://doi.org/10.5194/hess-12-55-2008",
+          "material_read": "Page 55, and Section 2 pp. 56–57; extracted offsets about 700 and 11800–17772",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "A model for hydraulic redistribution incorporating coupled soil-root moisture transport",
+          "trigger": "Cited primary soil–root redistribution model"
+        },
+        {
+          "assessment": "Supports context, not an equivalent peak count in the inspected passages",
+          "evidence": [
+            "Root architecture and uptake are related to redistribution between wetter and drier zones."
+          ],
+          "identifier_or_url": "https://doi.org/10.5194/hess-25-4835-2021",
+          "material_read": "Abstract and pp. 2–3, extracted offsets 0, 5800 and 12100",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "From hydraulic root architecture models to macroscopic representations of root hydraulics in soil water flow and land surface models",
+          "trigger": "Potential general modeling coverage"
+        },
+        {
+          "assessment": "Full-text overlap unverified",
+          "evidence": [
+            "Abstract concerns simulated climate-dependent redistribution; article access returned 403 and no lawful alternate readable copy was identified."
+          ],
+          "identifier_or_url": "https://doi.org/10.1002/2014WR016509",
+          "material_read": "Search-result abstract; full text not retrieved",
+          "method": "Bounded lawful OA retrieval including alternate access attempt",
+          "title": "Numerical simulations of hydraulic redistribution across climates: The role of the root hydraulic conductivities",
+          "trigger": "Conductivity is the varied control"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The instantaneous saturation observable and varying exchange rate have a natural interpretation independently of the numerical example. The result separates one-mode averaging, which makes this response concave in the modal amplitude, from a minimal two-mode system with two strict competing optima despite conservative symmetric exchange and positive response parameters. An exact global count on positive rates is stronger than finding two apparent numerical peaks. No field efficacy or plant-specific calibration is inferred.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

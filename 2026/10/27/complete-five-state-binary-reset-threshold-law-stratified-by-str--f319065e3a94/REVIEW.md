@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The finite universe consists of exactly \(5^{10}\) ordered, labeled transition pairs. The exact subset-image identity and the BFS invariant establish each shortest synchronization length, and the five-state forward/reverse reachability criterion establishes strong connectivity. A second C++17 program separately implements frontier evolution and graph transitive closure. Both traverse every pair and give the identical joint 17-row table, nonsynchronizing split, and moment sums. No infinite assertion depends on a finite sample.
+PASS
 
-## Originality: PASS within examined evidence
+The base-five map encoding is a bijection and the ordered product includes loops, repeated letters and all disconnected cases without normalization. A word resets iff it sends the full subset to a singleton. The queue and frontier programs use exact image masks with shortest-layer semantics; if the full set reaches a singleton, a shortest path is simple and fits the supplied loop bound. Strong connectivity, not merely reachability from one root, is equivalent to full forward and reverse closure from a root. The prose at line 55 imprecisely calls this one-vertex reachability, but both implementations test the correct graph property. For an independent complete replay I used reverse preimages starting from all five singletons; the first reach of the full set certifies the shortest length, and exhaustion certifies infinity. A digraph is strongly connected iff it has no nonempty proper forward-closed subset, checked here via intersection of the closed-subset masks for the individual letters. The 47 conjugacy classes of first maps cover all 3125 maps, and multiplying each first-map representative's full second-map scan by its first-map orbit size is exact: conjugation bijects the second maps and preserves threshold and connectivity. The replay matches every published joint row, returns zeros at all larger bins, totals 7,211,281 and 2,554,344 and finite first moments 18,821,345 and 11,030,640. Division gives the stated reduced means and the maxima are read from the table. As a boundary check, tau=1 is equivalent to a constant letter: 2*5*3125−25=31,225. Strong connectivity then requires the other letter's orbit from the constant target to visit all five states, giving 2*5*4!*5=1,200, with no strongly connected both-constant case.
 
-The directly related Don–Zantema–de Bondt high-tail five-state table (Section 4.4) already counts the isomorphism-class marginals at thresholds \(11\)–\(16\), and this fact is openly acknowledged rather than relabeled as novel. Their table does not imply the complete bivariate strong-connectivity census, its short-threshold entries or exact conditional averages. The inspected 2016 experimental, 2017 attainable-value and 2023 random-automata primary papers address different comparisons. Exact five-state result-record searches for reset histograms, connectivity and means produced no equivalent entry. Risks: unindexed computation, and a partially inaccessible 2026 survey.
+## originality
 
-## Mathematical value: PASS
+PASS
 
-Uniform random automata and strongly connected synchronizing automata are motivated models in current literature. The exact distribution, rather than a handpicked extreme, is a natural full finite classification; the different finite conditional means and sharp absence of non-strongly-connected synchronizing cases above threshold \(10\) help calibrate both stochastic experiments and structural hypotheses. This result does not claim a new general reset bound or an all-state asymptotic.
+The high-threshold marginal class counts and the maximum 16 are prior, and a same-universe indexed census already gives the synchronizing subtotal. The distinct contribution that passes is the full exact threshold-by-strong-connectivity distribution and its conditional and structural consequences in the ordered labelled universe. The strongest prior table and indexed comparisons provide proper fragments or different statistics, not the joint law.
 
-## Closest literature and limitations
+## value
 
-Published 2016 high-tail marginal isomorphism counts and 2026 average-reset questions are the closest references. The full joint table is confined to five labeled states and two letter maps, including nonminimal and disconnected cases; it is based on complete computation with explicit loop invariants. The full 2026 survey text could not be inspected, and no independent audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This exhaustive small-state model directly calibrates sampled averages and randomized two-letter reset experiments with exact denominators. Strong connectivity is a meaningful stratifier: the finite conditional means differ materially, and at this size the positive nonsynchronizing mass and the disappearance of non-strongly-connected finite cases above length 10 are separately measurable, unlike in a single high-tail marginal. The value is the full natural finite benchmark and these comparisons, not re-verification of the already known overall maximum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

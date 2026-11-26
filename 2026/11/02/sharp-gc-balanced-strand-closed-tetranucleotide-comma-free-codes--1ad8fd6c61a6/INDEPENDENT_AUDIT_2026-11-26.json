@@ -1,0 +1,168 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:52:44.050466Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 4–33",
+        "VERIFICATION.md",
+        "verify.py (inspected, not executed)",
+        "optimal_codebooks.json (complete inventory comparison)",
+        "/workspace/branches/recheck_record_1.py, replay with the frozen optimal_codebooks.json as its argument"
+      ],
+      "rationale": "The balanced universe has choose(4,2)·2⁴=96 words; a fixed reverse complement is determined by its first two letters, exactly one of which is from the GC pair, giving eight fixed words and 52 orbits. Closure is exactly taking unions of these orbits. Forbidden orbit supports encode every off-frame substring of two concatenated words, including repeated words/orbits, and every distinct pair below the distance cut. I independently regenerated the constraints from the word definitions and ran an exact binary include/exclude search without a prescribed target size. At inclusion it removes conflict pairs and completions of forbidden triples with a previously selected vertex. Its bound partitions remaining vertices into cliques of pairwise conflict, summing maximal clique weights; it discards only branches strictly below the current best, preserving all ties. It recovered maximum sizes 21,17,7; labeled counts 136,16,72; fixed counts 3,1,1 in every maximizer; and 17,2,9 symmetry classes, each of size eight. Distance-ordered forbidden-support totals were 4668,4732,5174 and independent search visits were 5565,2717,673. Every complete maximizing inventory matches the frozen JSON word for word. Complement-commuting letter permutations exchange/flip the two complementary pairs; exchanging them preserves exact half composition, and the whole action preserves Hamming and comma constraints. In known frames, a single substitution is detectable at distance two and correctable at distance three by disjoint radius-one balls; no corrupted-frame synchronization follows.",
+      "residual_risks": [
+        "Exact finite search at length four only; no unframed error correction, biochemical constraints, or formal verification."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Golomb–Gordon–Welch and Jiggs analyze unconstrained W_k(n). King treats Hamming bounds for constant composition. Record 4130581d3102 reports the distance-three optimum 12 with 16 closed maximizers after dropping comma-freeness."
+        ],
+        "reasoning": "Broader feasible families can supply upper bounds, but the stated unrestricted or weakened exact results do not force any of the three sharp smaller optima or their equality cases.",
+        "searches": [
+          "Golomb–Gordon–Welch and Jiggs on ordinary comma-free dictionaries",
+          "King constant-GC Hamming bounds",
+          "Resultary: GC-two closed Hamming code census"
+        ]
+      },
+      "checked_sources": [
+        "10.4153/CJM-1958-023-9",
+        "10.4153/CJM-1963-021-1",
+        "arXiv:math/0306197",
+        "Resultary records identified in source_inspections"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "All-pairs reverse-complement separation excludes every nonempty closed candidate. The non-overlap census excludes overlaps even when no codeword is formed and is not restricted to GC two. The closed Hamming census does not constrain concatenation substrings."
+        ],
+        "reasoning": "Neither filtering a published optimizer list for a relaxed problem nor importing a stricter-family optimum establishes a lower-size constrained enumeration. The three exact outputs require the combined constraint computation.",
+        "searches": [
+          "Inspect Finding and Assumptions for 1efe3bc8cf7b, 4848b308e1f3, 5b35601c030a, 4130581d3102",
+          "King pp. 1–2 and ordinary comma-free definitions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "King uses all-pairs reverse-complement Hamming separation; closure forces a pair at reverse-complement distance zero.",
+          "4848b308e1f3 uses no proper prefix–suffix matches, not the absence of in-code splice words, and omits fixed GC."
+        ],
+        "reasoning": "Neither the opposite strand constraint nor the stronger no-overlap constraint is an equivalent formulation of the frozen problem.",
+        "searches": [
+          "Resultary: tetranucleotide comma-free GC-two reverse-complement closure",
+          "constant-GC reverse-complement codes",
+          "length-four comma-free codes with GC count two"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Ranked results did not return the exact frozen entry; 1efe3bc8cf7b reports 6/512 under separation, 4848b308e1f3 reports 9/32 under non-overlap and distance two, 5b35601c030a reports 17/32 under non-overlap without a Hamming or GC restriction, and 4130581d3102 reports 12/16 without comma-freeness."
+        ],
+        "reasoning": "The coincident maximum 17 is for a different family and a different census. Same-day distinct records were compared by assumptions rather than presumed ordering. Ranked nonretrieval is not evidence of an exhaustive database absence.",
+        "searches": [
+          "Resultary: exact frozen title",
+          "Resultary: distance-resolved extremizer census of GC-two closed comma-free four-mers"
+        ]
+      },
+      "rationale": "Inspected prior sources establish unrestricted comma-free variants, constant-GC packing with reverse-complement separation, or proper-overlap/closed Hamming variants. None inspected gives or mechanically implies the three-way exact constrained maximum or classification. This is a bounded literature judgment, not a priority certification.",
+      "residual_risks": [
+        "Unindexed literature or an unlocated table could contain equivalent classifications; exact-title and semantic ranked searches are not exhaustive."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same synchronization property, unrestricted family",
+          "evidence": [
+            "Defines comma-free dictionaries on a general alphabet and asks for W_k(n), not a strand-closed GC-two distance census."
+          ],
+          "identifier_or_url": "https://doi.org/10.4153/CJM-1958-023-9",
+          "material_read": "Opening page, §1, OA offset 0",
+          "method": "Primary open PDF",
+          "title": "Comma-Free Codes",
+          "trigger": "Originating ordinary comma-free result"
+        },
+        {
+          "assessment": "Standard dictionary model, not the combined family",
+          "evidence": [
+            "The definition excludes overlaps that are themselves dictionary words and formulates W_k(n) without nucleotide constraints."
+          ],
+          "identifier_or_url": "https://doi.org/10.4153/CJM-1963-021-1",
+          "material_read": "p. 178, §1, offset 0",
+          "method": "Primary open PDF",
+          "title": "Recent Results in Comma-Free Codes",
+          "trigger": "Unrestricted length-four bounds"
+        },
+        {
+          "assessment": "Reverse-complement separation, not closure",
+          "evidence": [
+            "All codeword/reverse-complement pairs are required to be separated if that constraint is imposed."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0306197",
+          "material_read": "Abstract and introduction, pp. 1–2, PDF offset 0",
+          "method": "Primary open PDF",
+          "title": "Bounds for DNA codes with constant GC-content",
+          "trigger": "Constant-GC Hamming and reverse-complement alias"
+        },
+        {
+          "assessment": "Different distance constraint and no comma-freeness",
+          "evidence": [
+            "GC two and both Hamming and all-pairs reverse-complement distance three; maximum six with 512 maximizers."
+          ],
+          "identifier_or_url": "2026/10/12/SCOPE-complete-equality-case-census-for-a-4-gc-rc-4-3-2--1efe3bc8cf7b",
+          "material_read": "RESULT.md Finding and Assumptions, offset 0",
+          "method": "Exact local mirror file",
+          "title": "Complete equality-case census for A₄ GC reverse-complement codes",
+          "trigger": "Top Resultary semantic hit"
+        },
+        {
+          "assessment": "No fixed GC; strictly stronger overlap prohibition",
+          "evidence": [
+            "Distance at least two, maximum nine with 32 maximizers under a ban on all proper prefix–suffix matches."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-the-complete-four-mer-spectrum-of-reverse-complement-closed-non--4848b308e1f3",
+          "material_read": "RESULT.md Finding and Assumptions, offset 0",
+          "method": "Exact local mirror file",
+          "title": "The complete four-mer spectrum of reverse-complement-closed non-overlapping codes",
+          "trigger": "Closest same-day overlap in thresholds and closure"
+        },
+        {
+          "assessment": "Maximum is for another family",
+          "evidence": [
+            "Maximum 17, 32 labeled maxima and four symmetry classes under non-overlap without composition or Hamming restrictions."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-a-sharp-reverse-complement-closure-penalty-for-four-letter-non-o--5b35601c030a",
+          "material_read": "RESULT.md Finding and Assumptions, offset 0",
+          "method": "Exact local mirror file",
+          "title": "A sharp reverse-complement closure penalty for four-letter non-overlapping codes",
+          "trigger": "Same-day coincident maximum 17"
+        },
+        {
+          "assessment": "Broader feasible family, not exact coverage",
+          "evidence": [
+            "Maximum 12 with 16 closed maxima; no off-frame constraint."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-complete-census-of-optimal-gc-balanced-four-base-dna-hamming-cod--4130581d3102",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Exact local mirror file",
+          "title": "Complete census of optimal GC-balanced four-base DNA Hamming codes",
+          "trigger": "Matching GC, closure and distance-three parameters"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding, Assumptions, and Limitations",
+        "optimal_codebooks.json"
+      ],
+      "rationale": "A balanced uncorrupted quaternary frame presents a natural smallest case to ask about both strand closure and compatibility with substitutions. The complete exact frontier quantifies the cardinality cost of known-frame single-error detection and correction under the same synchronization rule. Counting every optimizer and checking the symmetry stabilizers make the result more than a single feasible construction or an arbitrary numerical sample and supply a reusable benchmark for other finite code constructions.",
+      "residual_risks": [
+        "Value is finite combinatorics and framed coding only; no biological implementation, asymptotic rate or synchronization-after-errors guarantee is shown."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,158 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:02:32.893895Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, graph assumptions and Morse proof",
+        "VERIFICATION.md",
+        "verify_desargues_ind2.py and verify_desargues_ind2.output.txt (inspected)",
+        "verify_mod2.py and verify_mod2.output.txt (inspected)",
+        "Independent replay: python3 /workspace/branches/review_1_recheck.py"
+      ],
+      "rationale": "A subset is a face exactly when it avoids the 60 triples consisting of a vertex and two of its neighbors. Independently generating faces by the largest label in each forbidden triple reproduced all 62,048 nonempty faces and f-vector (20,190,1080,3985,9784,15910,16600,10390,3460,564,60,5). Pairing on the specified parity-first vertex order gave 31,003 pairs and the critical multiplicities (dimension 0: 1, dimension 7: 41); sink deletion certified the orientation of all 400,760 nonempty-face covers by deleting every face. The acyclic matching theorem gives a CW model with one 0-cell and 41 7-cells only. Their attaching maps into the 6-skeleton are constant, proving the wedge homotopy type and the integral homology, not just mod-two Betti numbers.",
+      "residual_risks": [
+        "The bounded computation treats the specified labeling and graph only, and proves no analogous formula for an unbounded family."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The known cycle, multipartite, whiskered, perfect-tree, tree and block-graph results have hypotheses excluding this graph. Thm. 4.3 of arXiv:2505.06614 assumes n-2 ≤ r ≤ n-1, not n=20, r=2."
+        ],
+        "reasoning": "The connected cubic graph contains an induced outer decagon, so it is neither a tree nor a block graph nor itself a cycle. It has no leaves and, as a bipartite graph, is not complete multipartite unless complete bipartite, which its degree excludes.",
+        "searches": [
+          "arXiv:2001.05448, abstract and Thm. 4.6",
+          "arXiv:2605.25150, Thm. 1.1",
+          "arXiv:2505.06614, Thms. 4.3 and 4.6"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary catalogue, including 2026/10/4 f3b1cf10aadb, 2026/10/25 e931147dfbfd, 2026/11/1 7ed3402790f6 and 9ca567633a9f",
+        "arXiv:2001.05448",
+        "arXiv:2605.25150",
+        "arXiv:2505.06614"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The matching theorem gives a procedure but not the critical-cell census. The ordinary independence calculation excludes all edges from faces and cannot supply the stated Ind_2 homotopy type."
+        ],
+        "reasoning": "Neither a routine restriction of the family classifications nor application of the general theorem without the graph-specific calculation yields the wedge and multiplicity.",
+        "searches": [
+          "arXiv:2001.05448, Thm. 2.4 and Prop. 2.10; proof comparison",
+          "Resultary 2026/10/4 ordinary Desargues independence entry f3b1cf10aadb"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sawant explicitly identifies the 3-path-free complex with Ind_2, but the stated homotopy-relevant theorem concerns trees.",
+          "The earlier indexed 2026/10/4 Desargues result is for ordinary independence and gives S^4 wedged with five S^5; it concerns different faces."
+        ],
+        "reasoning": "Forbidding induced components larger than two is equivalent to forbidding all (not necessarily induced) 3-vertex paths. The terminological equivalence does not turn the prior results into a calculation for this graph.",
+        "searches": [
+          "Resultary: Desargues / GP(10,3) two-independence, 3-path-free or dissociation complex, wedge of 41 seven-spheres",
+          "arXiv:2605.25150, p. 2",
+          "arXiv:2001.05448, literal searches Desargues and generalized Petersen"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 2026/10/25 record e931147dfbfd gives the exact integral wedge using a different set of critical cells and an integral boundary computation. 2026/11/1 records 7ed3402790f6 and 9ca567633a9f incorporate the exact result in symmetry and comparison classifications."
+        ],
+        "reasoning": "These are demonstrable exact overlaps, not evidence of prior coverage: their indexed dates are later than the reviewed 2026/10/18 record. Their chronological relationship beyond the available record provenance is not inferred.",
+        "searches": [
+          "Resultary local catalogue for Desargues GP(10,3) higher independence and exact wedge count"
+        ]
+      },
+      "rationale": "No prior equivalent classification was established. The closest exact catalogue record and two extensions have later indexed provenance. The earlier matching machinery and graph-family theorems do not determine this graph's homotopy type; the closest earlier Desargues entry computes a different complex.",
+      "residual_risks": [
+        "The attempted primary-literature search was unavailable; evidence is from the local catalogue and directly inspected papers. Further indexed or unindexed prior coverage cannot be excluded.",
+        "No independent priority order beyond the dated catalogue provenance of the exact overlaps was established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact later indexed equivalent",
+          "evidence": [
+            "Same GP(10,3) and integral homotopy type; reports three critical 6-cells and 44 critical 7-cells before analyzing the boundary."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-the-desargues-two-independence-complex-is-a-wedge-of-41-seven-sp--e931147dfbfd",
+          "material_read": "RESULT.md, Finding and proof passages, offsets 0 and 4879",
+          "method": "Local catalogue mirror, bounded text read",
+          "title": "The Desargues two-independence complex is a wedge of 41 seven-spheres",
+          "trigger": "Exact graph, invariant and numerical match"
+        },
+        {
+          "assessment": "Later indexed overlap and extension",
+          "evidence": [
+            "Restates the wedge and adds the action of S5 × C2 on rational homology."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-forty-one-seven-spheres-and-full-symmetry-of-the-desargues-two-i--7ed3402790f6",
+          "material_read": "Indexed mathematical finding",
+          "method": "Local Resultary lookup",
+          "title": "Forty-one seven-spheres and full symmetry of the Desargues two-independence complex",
+          "trigger": "Exact count and symmetry extension"
+        },
+        {
+          "assessment": "Later indexed overlap and comparison",
+          "evidence": [
+            "Contains the identical Desargues graph result with a separate GP(10,2) computation."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-integral-two-independence-homotopy-separates-the-dodecahedral-an--9ca567633a9f",
+          "material_read": "Indexed mathematical finding",
+          "method": "Local Resultary lookup",
+          "title": "Integral two-independence homotopy separates the dodecahedral and Desargues graphs",
+          "trigger": "Exact object as one of two generalized Petersen graphs"
+        },
+        {
+          "assessment": "Provides proof machinery, not the Desargues classification",
+          "evidence": [
+            "Proposition 2.10 concerns sequential element matching; Theorem 4.6 treats cycles rather than cubic generalized Petersen graphs."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2001.05448",
+          "material_read": "PDF pp. 1, 4, 10: family scope, Prop. 2.10, Thm. 4.6",
+          "method": "Read bounded primary text passages and performed literal term searches",
+          "title": "Higher Independence Complexes of Graphs and Their Homotopy Types",
+          "trigger": "Standard higher-independence theorem and possible family coverage"
+        },
+        {
+          "assessment": "Terminology matches, graph family does not",
+          "evidence": [
+            "Theorem 1.1 assumes a tree."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2605.25150",
+          "material_read": "PDF p. 2, Theorem 1.1 and alias discussion",
+          "method": "Read bounded primary text passages",
+          "title": "On the Vertex Decomposability of r-Independence Complexes of Trees",
+          "trigger": "Alias three-path-free complex and broader theorem"
+        },
+        {
+          "assessment": "Specific hypotheses do not apply",
+          "evidence": [
+            "Block-graph result and general bound n-2 ≤ r ≤ n-1 do not cover Ind_2 of the Desargues graph."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2505.06614",
+          "material_read": "Contribution summary, PDF p. 2; Theorems 4.3 and 4.6",
+          "method": "Read bounded primary text passages and searched Desargues",
+          "title": "Ghosh and Selvaraja, higher independence complex shellability",
+          "trigger": "Plausible broader structural classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, exact invariant and limitations",
+        "Earlier ordinary-independence Resultary entry f3b1cf10aadb",
+        "Later comparison and symmetry records 9ca567633a9f and 7ed3402790f6"
+      ],
+      "rationale": "The Desargues graph is a canonical cubic incidence graph, and Ind_2 is the first higher-independence analogue of its previously studied ordinary independence complex. The exact integral homotopy type is stronger than the face numbers, Euler characteristic, or field homology, and the concentration in dimension seven despite dimension eleven is an informative bounded benchmark. It requires the concrete matching data and is useful for subsequent family and symmetry comparisons.",
+      "residual_risks": [
+        "No general classification of generalized Petersen graphs or automorphism-action calculation is claimed here."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

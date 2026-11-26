@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:37:46.547440Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 23–72",
+        "Frozen VERIFICATION.md and disk checker overlap-area formula; checker inspected, not executed"
+      ],
+      "rationale": "The squared normalized coherent-state overlap is exp(−|z−w|²), giving the factor π⁻² in the double area integral. Outside any fixed neighborhoods of the unique facing support points the horizontal gap increases by a fixed positive amount, so the omitted integral is exponentially smaller than exp(−L²)L⁻³. For an independent check of the coefficient, disintegrate into vertical slices at horizontal deficits r,s. The two slice widths are asymptotic to 2√(2r/κ_A) and 2√(2s/κ_B) by inversion of the nondegenerate local boundary quadratics. On those slices the transverse factor tends uniformly to exp(−η²) as r+s tends to zero. Scale r=x/L, s=y/L. The widths contribute L⁻¹ and the two deficit differentials L⁻²; the remaining exponential is bounded by exp(−2x−2y) and the rescaled widths by constants times √x and √y. Dominated convergence gives π⁻² exp(−η²)·8/(√(κ_Aκ_B))·[Γ(3/2)/2^(3/2)]² = exp(−η²)/(4π√(κ_Aκ_B)). For centered disks the curvatures are 1/R and 1/S, η=0 and L=d−R−S. The proof uses positive facing curvatures, not merely strict convexity.",
+      "residual_risks": [
+        "This is a pointwise fixed-window result; neither a zero-curvature limit nor a separation-dependent transverse displacement is justified by the proof. Finite disk examples are only corroboration."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The contact-order theorem proves R^(1−1/p) growth under joint dilation by R, locally uniform for gaps g in a fixed compact subset of [0,∞). It captures a common tangential variable and integrates the relative transverse displacement on its original scale.",
+          "The measure–operator convolution framework concerns general operators and symbols, without the fixed geometry-dependent leading far-displacement coefficient in the inspected passage."
+        ],
+        "reasoning": "Local uniformity in a bounded gap does not allow a far-gap limit of the original fixed-shape quantity. In the fixed-shape limit each support section separately shrinks on scale L⁻¹/², so both curvature factors and the fixed transverse separation matter. The frameworks do not remove this asymptotic evaluation.",
+        "searches": [
+          "Local Resultary contact-order law mirror, RESULT.md offsets 0 and 2550",
+          "Feichtinger–Halvdansson–Luef arXiv:2308.04985 introductory framework",
+          "Cordero–Gröchenig DOI 10.1016/S0022-1236(03)00166-6"
+        ]
+      },
+      "checked_sources": [
+        "Resultary mirror: 2fdb3dafd6a2 and 65ac4e8d5a79",
+        "arXiv:2401.04659 and arXiv:2308.04985"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The dilation-limit profile in 65ac4e8d5a79 is proportional to ∫₀∞ v^(1+1/p) exp(−(g+v)²) dv. For p=2, taking its large-gap asymptotic after dilution has gap prefactor g⁻⁵/² and curvature-sum dependence. The audited law instead has L⁻³ and the product of the two curvatures under the square root."
+        ],
+        "reasoning": "The two orders of limits are not covered by the same theorem. The earlier self-overlap and operator-convolution identities explain the starting integral but not its quantitative fixed-window far-separation tail or transverse factor.",
+        "searches": [
+          "Mirrored contact-order finding and limit proof; Nicola–Riccardi Eq. (3.5) and disk remarks"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact trace is π⁻² times the Gaussian convolution against the cross-covariogram q ↦ |A ∩ (B−q)| evaluated at displacement. In the disk case this is convolution with the radial lens area; the lens has a 3/2 edge exponent. The same quantity is the negative Ginibre count covariance for the disjoint windows.",
+          "Nicola–Riccardi gives the Gaussian self-overlap formula and disk Bessel representation in a different normalization, not an evaluated fixed-window far-separation limit."
+        ],
+        "reasoning": "A pre-existing far-displacement asymptotic for that Gaussian cross-covariogram would cover the claim after normalization. The inspected identity and special-case representation are unevaluated in this limit; extracting the lens edge, or both general support sections, and integrating it remains necessary.",
+        "searches": [
+          "Local Resultary: fixed-shape mixed Bargmann–Fock traces, Gaussian cross-covariogram, disk far separation",
+          "Nicola–Riccardi arXiv:2401.04659, Eq. (3.5) and Remarks 3.6–3.7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact match 2fdb3dafd6a2 is the frozen record itself. The closest distinct finding 65ac4e8d5a79 addresses expanding windows at fixed gap. The inspected disk calculation in arXiv:2401.04659 is for a self-overlap."
+        ],
+        "reasoning": "There is no distinct exact coefficient or disk asymptotic in the inspected corpus for this limit; exact single-window or other-scaling constants are not the same invariant.",
+        "searches": [
+          "Local Resultary: mixed trace, Gaussian Fock localization, far-separation curvature coefficient, disks"
+        ]
+      },
+      "rationale": "The distinct claim is the normalized far-separation asymptotic for fixed convex bodies, not the Gaussian trace identity, the representation by a covariogram, or the Laplace method. In the strongest inspected related finding the shape itself grows first and the gaps remain bounded in the proved limit. The inspected literature gives an integral starting point, but does not give this fixed-shape asymptotic or cover its conditions and coefficient.",
+      "residual_risks": [
+        "The search was bounded; an equivalent theorem under Gaussian smoothed covariograms or heat transfer might use different terminology.",
+        "Cordero–Gröchenig full text was not inspected; this is not a historical priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same record, not a prior comparator",
+          "evidence": "Same fixed shapes, normalization and coefficient.",
+          "identifier_or_url": "2026/11/22/SCOPE-curvature-controlled-far-separation-law-for-gaussian-fock-locali--2fdb3dafd6a2",
+          "material_read": "Frozen and mirrored finding",
+          "method": "Local mirror and assigned source",
+          "title": "Curvature-controlled far-separation law for Gaussian Fock localization cross-traces",
+          "trigger": "Exact Resultary hit"
+        },
+        {
+          "assessment": "Shared exact integral and geometric method; distinct limit",
+          "evidence": "Proved uniformity is local in a finite gap, after expanding both bodies. Limit coefficient depends on a+b; limitations expressly exclude large-gap uniformity.",
+          "identifier_or_url": "2026/11/1/SCOPE-contact-order-universality-for-mixed-bargmann-fock-localization--65ac4e8d5a79",
+          "material_read": "Finding and assumptions at offset 0, proof at 2550, limitations at 6900",
+          "method": "Local mirror",
+          "title": "Contact-order universality for mixed Bargmann–Fock localization traces",
+          "trigger": "Strongest overlapping mixed trace and curvature/contact theorem"
+        },
+        {
+          "assessment": "Self-overlap rather than fixed-pair far separation",
+          "evidence": "Gaussian self-overlap uses exp(−π|z−w|²) in that convention; disk remarks use convolution and Bessel functions.",
+          "identifier_or_url": "https://arxiv.org/abs/2401.04659",
+          "material_read": "Eq. (3.5), p. 9 offset 22000, and Remarks 3.6–3.7, p. 10 offset 25000",
+          "method": "OA PDF",
+          "title": "The quantitative isoperimetric inequality for the Hilbert–Schmidt norm of localization operators",
+          "trigger": "Same Gaussian integral and disk reduction"
+        },
+        {
+          "assessment": "Framework, not the stated evaluated limit in inspected material",
+          "evidence": "General measure–operator convolution and mixed-state multipliers.",
+          "identifier_or_url": "https://arxiv.org/abs/2308.04985",
+          "material_read": "pp. 1–2, offset 3000",
+          "method": "OA PDF",
+          "title": "Measure-operator convolutions and applications to mixed-state Gabor multipliers",
+          "trigger": "General operator and convolution framework"
+        },
+        {
+          "assessment": "Full text not inspected",
+          "evidence": "No negative inference from the landing page.",
+          "identifier_or_url": "https://doi.org/10.1016/S0022-1236(03)00166-6",
+          "material_read": "Landing page only",
+          "method": "Lawful OA lookup",
+          "title": "Time-frequency analysis of localization operators",
+          "trigger": "Earlier localization-product machinery"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md finding and assumptions; earlier contact-order finding and limitations"
+      ],
+      "rationale": "For two Gaussian localization measurements the mixed trace quantifies cross-interaction and, in the disjoint Ginibre interpretation, determines the small count covariance. The theorem identifies the sharp polynomial correction to the Gaussian decay and the precise dependence on two facing curvatures and fixed transverse offset. A rough distance estimate, the exact Gaussian integral alone, or the related dilation theorem gives none of those data. The result uses a classical method to answer a concrete geometric asymptotic question rather than claiming novelty for Laplace's method.",
+      "residual_risks": [
+        "No conclusion about singular values, operator norm, or moving and degenerate geometries."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

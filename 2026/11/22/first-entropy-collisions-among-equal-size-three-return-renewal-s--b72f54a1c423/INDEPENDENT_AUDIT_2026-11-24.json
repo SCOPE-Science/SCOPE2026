@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:49:05.599503Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md:6–35",
+        "Frozen VERIFICATION.md:19–21 and check_renewal.py:13–76 (static inspection)",
+        "Independent independent_exhaustion.py and independent_exhaustion.out"
+      ],
+      "rationale": "Deleting the hub leaves directed paths, so the off-hub block contributes determinant 1 and the Schur complement is one minus the first-return series. The Perron equation has exactly one root greater than one by strict decrease of the sum of inverse powers; a common root there is exactly the condition for equal entropy. The independent exhaustive rational gcd/Sturm check confirms 82 pair comparisons through 9 vertices with loops allowed and 69 through 11 without loops. It finds only the respective boundary pairs (1,4,6)/(2,2,7) and (2,5,6)/(3,3,7). Their gcds are (x+1)(x^3-x^2-1) and x^3-x-1, respectively. Repeated lengths are allowed; repeated self-loops are not. Each of the four triples has gcd one, so the shifts are mixing. The first pair has fixed-point counts 1 and 0; the second has counts 2 and 0 for fixed points of the squared shift. Thus neither pair is conjugate.",
+      "replay": "python3 /workspace/branches/42418439-3972-493c-b7f4-64e8571cf6d0/independent_exhaustion.py",
+      "residual_risks": [
+        "Only the finite equal-order three-petal classifications in the stated loop regimes are established. The uploaded checker was inspected but not executed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Klech's complete-invariant assertion is for fixed vertex order and one excess edge; Wu–Zhang's introduction identifies a forbidden-word and maximal-entropy-measure problem; the zip-shift index hit gives a different class of equal-entropy nonconjugate examples."
+        ],
+        "reasoning": "General equal-entropy nonconjugacy is not new; none of these inspected statements supplies a classification for the specified excess-two bouquet class, with or without self-loops.",
+        "searches": [
+          "arXiv:2609.17334v1",
+          "arXiv:2611.03758v1",
+          "2026/10/25/SCOPE-fixed-point-inverse-degree-classification-of-full-one-block-zip-shifts--34f64bc5c2fa (Resultary summary)"
+        ]
+      },
+      "checked_sources": [
+        "Klech, arXiv:2609.17334v1",
+        "Wu–Zhang, arXiv:2611.03758v1",
+        "Local Resultary and exact assigned mirror; forcing-polynomial and zip-shift index comparisons"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The standard formulas translate equality of entropy into a root condition and give nonconjugacy from unequal fixed-point counts after a pair is identified. Klech's complete-invariant result uses N+1 edges."
+        ],
+        "reasoning": "The root condition alone does not supply either equal-total-length pair, or rule out all competing pairs at the smaller and boundary orders. The two sharp censuses require the additional exact comparisons.",
+        "searches": [
+          "arXiv:2609.17334v1, p. 3 offset 7935 and p. 15 offset 41511",
+          "Lind–Marcus edge-shift entropy, zeta and period facts, cited in the result"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equal entropy here is equivalently a common positive reciprocal return root in (0,1), or a common Perron root of the reciprocal polynomials; equal size fixes the sum of the three exponents. Klech's return parametrization there has two first-return paths, not three."
+        ],
+        "reasoning": "The return-polynomial translation is standard, but the inspected rigidity statement does not give an equal-sum three-term collision test or census.",
+        "searches": [
+          "Resultary: equal-size three-return entropy collision and cycle bouquets",
+          "arXiv:2609.17334v1, pp. 3 and 15"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed exact match is this very finding, 2026/11/22/SCOPE-first-entropy-collisions-among-equal-size-three-return-renewal-s--b72f54a1c423, confirmed against its mirror. The related cycle-bouquet index hit d59372b2f49d concerns connected-forcing polynomials. The primary search produced no usable classification source."
+        ],
+        "reasoning": "The identical mirror is not distinct prior coverage; the related hit tabulates a different invariant. Search limitations leave the possibility of an unindexed census or sparse-polynomial table open.",
+        "searches": [
+          "Resultary: equal-order bouquet Perron polynomial and entropy comparisons",
+          "Primary search: equal-size three-return renewal entropy and sparse polynomial collisions"
+        ]
+      },
+      "rationale": "The standard return-series, entropy and zeta calculations are antecedents. The distinct finding supported by the sources checked is the exact first, unique, equal-order collisions in both three-return families, with explicit nonconjugate witnesses. No historical-priority certification follows.",
+      "residual_risks": [
+        "The primary search yielded no usable additional hit, not evidence of absence.",
+        "The zip-shift mirror was unavailable; assessment of that hit is limited to its index entry.",
+        "An older or unindexed equal-sum sparse-polynomial classification or explicit bouquet census could cover the finding."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related parametrization and rigidity, not the three-return census",
+          "evidence": "The parametrization uses two first-return paths for m vertices and m+1 edges; complete invariant statement for that class on p. 15.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.17334v1",
+          "material_read": "p. 3 at offset 7935 and p. 15 at offset 41511",
+          "method": "OA primary text, targeted passages",
+          "title": "Generating Functions and the Entropy Hierarchy of Strongly Connected Digraphs",
+          "trigger": "Most relevant antecedent: fixed-order entropy rigidity of sparse digraphs"
+        },
+        {
+          "assessment": "Read portion identifies a different question; not a whole-paper exclusion",
+          "evidence": "Generating-forbidden-word entropy and maximal-entropy measures in general subshifts.",
+          "identifier_or_url": "https://arxiv.org/abs/2611.03758v1",
+          "material_read": "p. 1 at offset 100",
+          "method": "OA primary text, introductory passage",
+          "title": "Generating Forbidden Words and Measures of Maximal Entropy for Subshifts",
+          "trigger": "Cited possible entropy antecedent"
+        },
+        {
+          "assessment": "Identical assigned finding, not a distinct source",
+          "evidence": "Both first collision pairs and both vertex cutoffs coincide with the frozen statement.",
+          "identifier_or_url": "2026/11/22/SCOPE-first-entropy-collisions-among-equal-size-three-return-renewal-s--b72f54a1c423",
+          "material_read": "Finding, mirror offset 84",
+          "method": "Local Resultary search and mirror at 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "First entropy collisions among equal-size three-return renewal shifts",
+          "trigger": "Exact indexed match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md:3–35",
+        "Exact independent exhaustion and Klech's narrower rigidity result"
+      ],
+      "rationale": "Three petals are a natural next test of entropy rigidity after two-return sparse digraphs. The classification pins down exactly where entropy loses the return multiset at fixed order, and shows that forbidding self-loops moves the threshold rather than restoring rigidity. The explicit mixing nonconjugate witnesses and the exclusion of all earlier pairs give a useful sharp baseline for extensions beyond three returns.",
+      "residual_risks": [
+        "This is not a rigidity classification of all excess-two digraphs or of all finite shifts of equal entropy."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

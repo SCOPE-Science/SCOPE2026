@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:36:50.019202Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 12–64, VERIFICATION.md, verify.py and verification_output.txt",
+        "/workspace/review-evidence/02-05-small-checks.js (exact finite branch checks)"
+      ],
+      "rationale": "The two placements of 2 exhaust even p²qr with distinct primes, and τ=12. When 2 is squared, 30/7≤H<48/7, so h=5 or 6. Independently writing B=7h and A=48−B gives (Aq−B)(Ar−B)=48B with both factors positive; exact factor-pair enumeration at both h yields only q=5,r=7,h=5. When 2 is unsquared, H=8p²r/((p²+p+1)(r+1)), so 54/13≤H<8 and h=5,6,7. Set D=8p²−h(p²+p+1). We have Dr=h(p²+p+1), so D>0 and D divides 8p². If p≥11, p does not divide h and thus gcd(D,p)=1; this requires D≤8, whereas D≥p²−7p−7≥37. For p=3,5,7 the positive-D candidates have r=65/7,155/45,186/14,285/107,342/50 respectively, never an integer. Finally σ(140)=336 and H=5. This reconstructs an unbounded proof, not a conclusion from the uploaded prime-300 test (inspected, not run).",
+      "residual_risks": [
+        "No claim for odd n or a different exponent pattern."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cohen reports that all harmonic numbers with H≤13 are determined. Goto–Shibata report giving all n with H≤300, all even except 1."
+        ],
+        "reasoning": "Both are bounds on H(n), not on n. The independent bound 4<H<8 in the claimed entire family embeds it in both classified domains.",
+        "searches": [
+          "Cohen DOI 10.1090/S0025-5718-97-00819-3, abstract",
+          "Goto–Shibata DOI 10.1090/S0025-5718-03-01554-0, abstract",
+          "Resultary: Cohen, small harmonic means, Ω, ordinary p²qr"
+        ]
+      },
+      "checked_sources": [
+        "Cohen 1997 and Goto–Shibata 2004 published abstracts",
+        "Cohen–Sorli Harmonic Seeds, Table 1",
+        "OEIS A001599",
+        "Resultary cdf948b46a1e and dec9bad14874 (different divisor notions)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "4qr gives 30/7≤H<48/7; 2p²r gives 54/13≤H<8. Both global papers expressly determine all n in the relevant H range."
+        ],
+        "reasoning": "Retain just H=5,6,7 and factor each entry for evenness and multiset of prime exponents (2,1,1). This is a finite filter on an already determined list, not an extrapolation. The independent proof establishes what this filter yields; it is not represented as a transcription of a prior table.",
+        "searches": [
+          "Cohen and Goto–Shibata abstract scope versus frozen RESULT.md lines 15–37",
+          "Independent size bounds in correctness assessment"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cohen and Goto–Shibata define the class via the integral harmonic mean of all positive divisors. Closest indexed corpus hits concern proper power-harmonic and bi-unitary variants, not this divisor class."
+        ],
+        "reasoning": "The ordinary harmonic-divisor condition is the same as in the two global papers, unlike the variants using powered sums or bi-unitary divisors. A new family label or direct elementary proof does not change this classification claim.",
+        "searches": [
+          "Resultary: ordinary harmonic divisor numbers / Ore numbers, 140, p²qr, three distinct primes",
+          "Literature: Numbers whose positive divisors have small integral harmonic mean Cohen Table 5 6 7 or All numbers whose positive divisors have integral harmonic mean up to 300 Goto Shibata"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A001599 lists 140 and links finite lists by integer magnitude. Harmonic Seeds Table 1 is of seeds below 10^12 and excludes 140 because 28 is a proper unitary harmonic divisor. Global H tables are reported by their authors but their actual rows were not inspected."
+        ],
+        "reasoning": "An initial Ore sequence or seed table cannot prove an unbounded statement. An exhaustive list under the H cutoff can: filtering it by parity and prime multiplicities requires no additional unbounded argument.",
+        "searches": [
+          "OEIS A001599 Links and comments",
+          "Cohen and Sorli, Harmonic Seeds, Table 1",
+          "Cohen/Goto–Shibata global H tables, AMS PDFs and identified alternate copies"
+        ]
+      },
+      "rationale": "The prior literature explicitly reports completed global classifications of all integers with integral harmonic mean bounded by 13 (Cohen) and 300 (Goto–Shibata). Every possible solution in the assigned family has integral harmonic mean 5, 6 or 7 by elementary size bounds. The classification is therefore a mechanical slice of published exhaustive classifications, not an unbounded problem left open by a cutoff on the size of n. No claim is made that the papers state the exponent-pattern slice verbatim. Their table entries were not retrievable in the attempted lawful copies; the fail reason is affirmative coverage by the stated global classifications together with the exact scope reduction, not the access failure.",
+      "residual_risks": [
+        "Could not confirm table-level presentation, specific prior entries, or whether either original paper explicitly singles out the p²qr statement. Scope coverage is based on the authors' explicit exhaustive claims, which are stronger than the assigned classification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong prior coverage at the theorem-scope level",
+          "evidence": "The abstract says all harmonic numbers with H(n)≤13 are determined.",
+          "identifier_or_url": "https://doi.org/10.1090/S0025-5718-97-00819-3",
+          "material_read": "Bibliographic abstract; no table rows retrieved",
+          "method": "Crossref abstract; AMS OA PDF unavailable and identified paperzz copy returned 403",
+          "title": "Numbers Whose Positive Divisors Have Small Integral Harmonic Mean",
+          "trigger": "Exact divisor predicate and stronger low-H classification"
+        },
+        {
+          "assessment": "Independent affirmative evidence of a covering global exhaustive list",
+          "evidence": "The abstract reports all numbers with H≤300 and states all are even except 1.",
+          "identifier_or_url": "https://doi.org/10.1090/S0025-5718-03-01554-0",
+          "material_read": "Bibliographic abstract; no list pages retrieved",
+          "method": "Bibliographic abstract; AMS OA PDF returned 403. A secondary repository PDF candidate did not respond.",
+          "title": "All numbers whose positive divisors have integral harmonic mean up to 300",
+          "trigger": "Explicit global classification extending past the relevant H interval"
+        },
+        {
+          "assessment": "Different predicate and bounded by n",
+          "evidence": "A seed has no proper unitary harmonic divisor; the table lists seeds below 10^12.",
+          "identifier_or_url": "https://fq.math.ca/Scanned/36-5/cohen.pdf",
+          "material_read": "Introduction, p. 386; Table 1, p. 388 (offset 6193)",
+          "method": "Lawful OA PDF passages",
+          "title": "Harmonic Seeds",
+          "trigger": "Possible exact divisor-number table"
+        },
+        {
+          "assessment": "Example and magnitude-bounded data, not the covering unbounded proof",
+          "evidence": "Lists 140 and references a verified list of 937 entries below 10^14 and the Goto–Shibata H≤300 paper.",
+          "identifier_or_url": "https://oeis.org/A001599",
+          "material_read": "Entry, Links and comments around offsets 2376 and 4395–4940",
+          "method": "Public OA webpage",
+          "title": "Harmonic or Ore numbers",
+          "trigger": "Exact known example and numerical tables"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and direct proof",
+        "Published global H-cutoff claims of Cohen and Goto–Shibata"
+      ],
+      "rationale": "This familiar exponent pattern makes a useful exercise in bounding harmonic means, but the resulting classification is already obtainable by elementary filtering of a completed classification. The frozen finding does not establish a more general structural lemma or a genuinely new range. A shorter direct proof supplies explanation, not a distinct classification result.",
+      "residual_risks": [
+        "No claim about pedagogy or a possible wider application of the divisibility observation was assessed as a repaired scientific claim."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

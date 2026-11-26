@@ -1,0 +1,154 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:19:31.699237Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 6–49; VERIFICATION.md; check.py (read only)",
+        "Independent replay: python3 /workspace/review_evidence/reset.py (standard library, exact fractions)"
+      ],
+      "rationale": "For absorption on step T, the probability of no intervening reset is s^(T-1); the common factor s^-1 cancels in the renewal ratio A/(A+B). The tridiagonal inverse entries from site 7 to sites 1 and 15 have the respective unique path products and complementary block determinants R and L, divided by the same full determinant. Including each final boundary step gives B/A=C s^2 L/R. All killed blocks have spectral radius <1 by uniform positive escape probability in finitely many steps; their real determinants start at 1 and cannot vanish on [0,1]. Independently recomputed the two determinants by enumerating disjoint neighboring transpositions, not by the supplied continuant. At t=3/5,3/4,19/20,1 the exact signs of (L+tL')R-tLR' are +,-,+,-. Thus Q' has signs -,+,-,+; its nonzero analytic numerator ensures a strict minimum, maximum, minimum in the respective disjoint interior intervals, even with the last test at the endpoint. No root count beyond these three is needed.",
+      "residual_risks": [
+        "This certifies at least three extrema, not exactly three, minimal chain size for three, or a bound over all chains."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Newton and Vega Coso explicitly ask for a classification of interior extrema as reset intensity varies",
+          "The spectral results concern homogeneous biased walks or reset-neutral distributions",
+          "The 12-state threshold is for two extrema and the 8-vertex threshold for a single interior optimum"
+        ],
+        "reasoning": "The open classification, neutral or homogeneous cases, and smaller sharp thresholds do not provide a general existence theorem implying three strict extrema in the stated heterogeneous single-site model.",
+        "searches": [
+          "arXiv:2611.01756v1 §§7,10.3; arXiv:2603.24803 p. 2; arXiv:2605.00657 p. 1",
+          "Resultary sharp onset records b7682f792857 and 3aea3b6fb9ce"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.01756v1",
+        "arXiv:2603.24803",
+        "arXiv:2605.00657",
+        "Resultary 581750305912, f112d06fb3f2, b7682f792857, 8d6e6fdd6bb2, 3aea3b6fb9ce"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general renewal identity is prior; the exact-time example compares successive exit-time odds, not Q'",
+          "Known exact two-turn witnesses, including the extremum-minimal witness, certify at most two reversals in their specific examples"
+        ],
+        "reasoning": "The novelty being evaluated is the exact attainable count of at least three. Neither the transform representation nor comparison of time-sequence signs supplies the required reset-parameter derivative signs, and a two-extremum witness does not imply the extra reversal.",
+        "searches": [
+          "arXiv:2611.01756v1 Proposition 7.6 and §10.3 item 3",
+          "Resultary f112d06fb3f2, b7682f792857 and 8d6e6fdd6bb2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:2611.01756v1 Proposition 7.6: exact-time exit odds increase, decrease, then increase",
+          "f112d06fb3f2: reset-rate splitting has exactly two strict extrema; 8d6e6fdd6bb2: at least two, with exactly two in the exhibited witness"
+        ],
+        "reasoning": "Using reset rate 1-s or right instead of left absorption preserves the number of strict extrema; the two-turn witnesses still give only two. Time-indexed odds are not the quotient of the discounted exit generating functions as a function of s.",
+        "searches": [
+          "Public literature lookup on geometric-reset splitting extrema in inhomogeneous birth–death chains, leading to arXiv:2611.01756v1",
+          "Resultary match: f112d06fb3f2; 8d6e6fdd6bb2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "581750305912 is the assigned 17-state example itself",
+          "The distinct records enumerate sharp one- or two-extremum behavior or a different two-extremum construction"
+        ],
+        "reasoning": "The indexed copy of this assignment is not independent coverage. None of the compared distinct records gives the same chain/sign certificate or a three-turn example; their common displayed calendar date is not used to infer order.",
+        "searches": [
+          "Resultary's indexed reset-splitting records 581750305912, f112d06fb3f2, b7682f792857, 8d6e6fdd6bb2, 3aea3b6fb9ce; matching RESULT.md files through the repository mirror"
+        ]
+      },
+      "rationale": "The renewal representation and related oscillations are prior. No inspected distinct source states or implies the specified third reset-parameter reversal for a finite no-holding chain. The closest catalog records are two-turn examples under the same reset convention; they do not give this witness or the at-least-three lower bound. This is a best-of-current-knowledge judgment, not a priority claim.",
+      "residual_risks": [
+        "Bounded public literature and Resultary coverage; broader restart-control results and unindexed coincident examples cannot be ruled out.",
+        "No chronology inferred among distinct same-day catalog records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related theory and an open question; does not establish the assigned lower bound",
+          "evidence": "The proposition's odds variable is indexed by exit time; item 3 asks to classify one or several extrema under reset intensity.",
+          "identifier_or_url": "https://arxiv.org/html/2611.01756v1",
+          "material_read": "Proposition 7.6 and §10.3 item 3 (HTML offsets about 52200 and 75107)",
+          "method": "OA HTML passage inspection",
+          "title": "Stochastic Orders of the Exit Pair and the Monotone Response to Resetting",
+          "trigger": "Same reset splitting observable and closest general theory"
+        },
+        {
+          "assessment": "Different hypotheses and conclusion",
+          "evidence": "Homogeneous bias and reset to start; midpoint invariance, not off-center heterogeneous three-turn behavior.",
+          "identifier_or_url": "https://arxiv.org/pdf/2603.24803",
+          "material_read": "p. 2, homogeneous walk setup and midpoint invariance",
+          "method": "OA PDF passage inspection",
+          "title": "Critical Spectral Invariants in Random Walks with Geometric Resetting",
+          "trigger": "Geometric resetting of nearest-neighbor walks and possible monotonicity constraints"
+        },
+        {
+          "assessment": "No implication from the inspected neutrality criterion",
+          "evidence": "The criterion describes constancy under resetting for neutral distributions, including certain symmetric arrangements.",
+          "identifier_or_url": "https://arxiv.org/pdf/2605.00657",
+          "material_read": "p. 1, reset-neutrality setup and main criterion synopsis",
+          "method": "OA PDF passage inspection",
+          "title": "Spectral Duality and Reset-Neutral Distributions in Random Walks with Multi-Site Geometric Resetting",
+          "trigger": "Related spectral conditions on geometric-reset response"
+        },
+        {
+          "assessment": "Distinct two-turn witness",
+          "evidence": "11 edges, z=5, exactly a minimum and a maximum.",
+          "identifier_or_url": "Resultary f112d06fb3f2",
+          "material_read": "RESULT.md, finding, chain and exact count",
+          "method": "Configured Resultary lookup and local mirror passage inspection",
+          "title": "Two strict reset-rate turning points in a finite birth–death splitting curve",
+          "trigger": "Same observable and reset convention"
+        },
+        {
+          "assessment": "Threshold is specifically for two turns",
+          "evidence": "Smallest chain for two and its witness with exactly two do not settle three.",
+          "identifier_or_url": "Resultary b7682f792857",
+          "material_read": "RESULT.md, finding and witness scope",
+          "method": "Configured Resultary lookup and local mirror passage inspection",
+          "title": "Twelve states are the sharp threshold for two geometric-reset splitting extrema",
+          "trigger": "Related sharp state-count theorem might include the third turn"
+        },
+        {
+          "assessment": "Lower count in a restricted family",
+          "evidence": "Two complementary biases suffice for at least two; the specified witness has exactly two.",
+          "identifier_or_url": "Resultary 8d6e6fdd6bb2",
+          "material_read": "RESULT.md, finding and example",
+          "method": "Configured Resultary lookup and local mirror passage inspection",
+          "title": "Two transition biases suffice for a double reset-rate reversal",
+          "trigger": "Different heterogeneous construction under the same model"
+        },
+        {
+          "assessment": "One-extremum threshold",
+          "evidence": "The statement concerns the first possible single strict optimum.",
+          "identifier_or_url": "Resultary 3aea3b6fb9ce",
+          "material_read": "RESULT.md, finding and scope",
+          "method": "Configured Resultary lookup and local mirror passage inspection",
+          "title": "The sharp eight-vertex onset of interior geometric-reset splitting optima",
+          "trigger": "Possible broader extremum threshold"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md",
+        "arXiv:2611.01756v1 §10.3",
+        "Resultary b7682f792857 and f112d06fb3f2"
+      ],
+      "rationale": "An explicit, rational nearest-neighbor witness rules out a general two-turn classification in the inhomogeneous one-site model, advancing the published question about several reset extrema. It is a useful exact benchmark for further state-count or oscillation bounds, not merely a different parameter set displaying the already known two turns.",
+      "residual_risks": [
+        "Counterexample to a uniform two-turn limit, not a general classification or extremum-location theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:20:21.578783Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Both least periods and the displayed histograms are correct. Integer recurrence and A^8=I+3B give six unit-lifting progressions per sequence, twice per residue class modulo 3, and force a least period of 8·3^(k−1) by the mod-3 state cycle and regular-branch injectivity. In each remaining branch the other coordinate divided by 3 runs bijectively modulo 3^(k−1). The norm identity and the sign modulo 3 choose the right square root. For U(z)=sqrt(1+λz²) with λ in 9Z_3, rationalizing U(z)−U(z′) shows it is divisible by 9(z−z′); the denominators 1+U and the sum of the two outer square roots are units. Thus the normalizing map is the identity plus a 9-contraction and permutes each finite quotient. The two critical classes are disjoint. Modulo 3^h an output of valuation 2j has two simple unit roots lifted with 3^j free choices, and zero has 3^floor(h/2) roots; every root gives three branch preimages. The cases k=1 and k=2, the zero square class and the half-Pell–Lucas normalization all agree. Independent norm-algebra enumeration from k=1 to 11 matched both complete histograms, the predicted square counts and least periods (1,417,168 scalar evaluations). Replay: python3 /workspace/branches/reproduce_frozen.py pell; log /workspace/branches/reproduction-pell.txt. This finite check does not prove unrestricted k.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "For q=2 the hypotheses used in Lang–Lang's equation (4.1) hold (q is a unit modulo 3 and not 4 or 5 modulo 9). Their inequivalent-period census gives the sole orbit with invariant ±1 and period 8·3^(k−1), and all its unit scalar multiples.",
+          "Bragman–Rowland instead count limiting Fibonacci image density; their Lucas-zero statistic does not supply the ternary Pell fibers."
+        ],
+        "reasoning": "The Pell period and the underlying stronger coverage are already in the state-orbit census; Propositions 5.1–5.2 state only residue completeness, but their reliance on Lemma 4.2 does not limit what that lemma's proof gives.",
+        "searches": [
+          "Lang–Lang arXiv:1307.7463, §4.2 (OA PDF pp. 4–5, offset 15739) and §5 (p. 5)",
+          "Bragman–Rowland arXiv:2202.00704v2, Theorem 1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1307.7463",
+        "arXiv:2408.14632v2",
+        "arXiv:2202.00704v2",
+        "Resultary records 3e874987f16b and e37859da9078"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Equation (4.1) and the following invariant argument say that all states with invariant ±1 constitute the single Pell orbit. At first coordinate a the fiber is therefore #roots(b−a)²=2a²−1 plus #roots(b−a)²=2a²+1, modulo 3^k; the two conditions are disjoint.",
+          "For a≡0 mod 3 exactly one radicand is a unit square and the other is nonsquare. For a≡±1 the first radicand has exactly two roots and the second lies in 3Z/3^k. On either fixed unit class a↦2a²+1 bijects to 3Z/3^k, since its derivative 4a is a unit. The second root count is zero unless the radicand is a square, and for k≥2 the only such radicands are 9 times squares modulo 3^(k−2); each reduced root has three lifts. Counting even-valuation squares and zero gives precisely the frozen multiplicity list. For k=1 the second radicand is zero and supplies one extra preimage on each unit class."
+        ],
+        "reasoning": "The exact histogram is obtained from the known state orbit by completing the square and elementary finite square counting. No new branch information or orbit theorem is needed, and the equality of histograms follows already from scaling the known orbits.",
+        "searches": [
+          "Lang–Lang arXiv:1307.7463, proof of Lemma 4.2, equation (4.1), p. 5/OA offset 15739 onward"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The seed-state invariant for q=2 is a²+2ab−b²=2a²−(b−a)²; V_n(2,−1)=2Q_n, so normalization by 2 only permutes labels.",
+          "The Pell seed has invariant −1 and the associated Pell seed has invariant 2. Choose a unit s with s²=−2 modulo 3^k (simple roots modulo 3). By the published decomposition, the entire associated Pell state orbit is s times the Pell orbit, hence the histograms coincide by a scalar relabeling."
+        ],
+        "reasoning": "A state-fiber problem is the same science as counting pairs on the two invariant conics. It also exposes an exact equivalence between the two scalar histograms, not just an analogy of their two quadratic branches.",
+        "searches": [
+          "Lang–Lang arXiv:1307.7463, Lemmas 2.6 and 4.2, equation (4.1)",
+          "Fiebig–Mbirika–Spilker arXiv:2408.14632v2, Table 2 and Theorem 3.5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/11/22/SCOPE-exact-seven-adic-pell-residue-fibers-and-a-nested-quadratic-crit--3e874987f16b: Pell at 7 with a different support and critical count.",
+          "2026/11/22/SCOPE-exact-ternary-fibre-frequencies-of-the-narayana-recurrence--e37859da9078: same prime and similar regular/square structure, different third-order recurrence.",
+          "Neither mirror finding is the frozen histogram; the inspected primary sections supply a state census, completeness and/or Lucas parameters, not a printed table of the target multiplicities."
+        ],
+        "reasoning": "No explicit exact histogram table was established by the bounded lookup. This does not undo the explicit stronger state census or its consequence.",
+        "searches": [
+          "Resultary Pell-focused and ternary fiber comparisons; mirrored RESULT.md Finding at snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "Lang–Lang §5; Fiebig–Mbirika–Spilker Table 2"
+        ]
+      },
+      "rationale": "The obstruction is demonstrated prior implication, not an exact table hit or access failure. Lang–Lang's full orbit decomposition for q=2 modulo 3^k determines all Pell and associated Pell state pairs, and directly reduces the histogram to the elementary congruence count in claim_vs_prior_implication. The frozen account cites only the residue-completeness consequences of that paper and overlooks its stronger orbit result.",
+      "residual_risks": [
+        "Earlier authors may have given an explicit printed histogram; this is not needed for the demonstrated prior implication.",
+        "Ranked catalog retrieval is not exhaustive; no priority inference was made from neighboring record dates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Stronger coverage, with exact mechanical implication",
+          "evidence": "Counts and lists all inequivalent periods modulo 3^k; the unique invariant ±1 orbit has length 8·3^(k−1).",
+          "identifier_or_url": "https://arxiv.org/pdf/1307.7463",
+          "material_read": "Lemma 4.2 proof through equation (4.1), pp. 4–5/OA offsets 15739–18263; Propositions 5.1–5.2, p. 5/OA offsets 19380–20764",
+          "method": "Direct OA PDF with passage location and bounded offset read",
+          "title": "Three term recurrence and residue completeness",
+          "trigger": "Same Pell pair, modulus, and recurrence state"
+        },
+        {
+          "assessment": "Normalization and zero spacing, not the exact histogram",
+          "evidence": "V_n(2,−1) is twice the associated Pell term; the U sequence vanishes at multiples of its entry point.",
+          "identifier_or_url": "https://arxiv.org/pdf/2408.14632v2",
+          "material_read": "Table 2, p. 6, OA offset about 18000; Theorem 3.5, p. 13, offset about 39000",
+          "method": "OA PDF passage inspection",
+          "title": "Period patterns, entry points, and orders in the Lucas sequences",
+          "trigger": "Lucas conventions and possible frequency laws"
+        },
+        {
+          "assessment": "Analogous but different object and statistic",
+          "evidence": "The limiting density of the Fibonacci image is expressed via counts involving exceptional Lucas zeros, not exact Pell fibers.",
+          "identifier_or_url": "https://arxiv.org/pdf/2202.00704v2",
+          "material_read": "Theorem 1, p. 2/OA offset about 6000",
+          "method": "OA PDF passage inspection",
+          "title": "Limiting density of the Fibonacci sequence modulo powers of a prime",
+          "trigger": "Prime-power square mechanism and Lucas statistic"
+        },
+        {
+          "assessment": "Neither supplies equivalent coverage",
+          "evidence": "The first uses 7^k for Pell only; the second uses 3^k for a different recurrence.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-seven-adic-pell-residue-fibers-and-a-nested-quadratic-crit--3e874987f16b; 2026/11/22/SCOPE-exact-ternary-fibre-frequencies-of-the-narayana-recurrence--e37859da9078",
+          "material_read": "Mirrored RESULT.md Finding, offset 0 for each",
+          "method": "Configured Resultary search then mirror passage inspection",
+          "title": "Exact seven-adic Pell residue fibers and a nested quadratic critical branch; Exact ternary fibre frequencies of the Narayana recurrence",
+          "trigger": "Strong published matching findings on Pell and on ternary quadratic branches"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Exact multiplicities for this classical pair would be a useful refinement if independent of known coverage, but the frozen invariant is an elementary projection of the published complete state census. The alternative 3-adic derivation gives a correct exposition without a further mathematical gain beyond that corollary.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

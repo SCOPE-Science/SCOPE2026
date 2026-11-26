@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:03:37.162869Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The publisher PDF confirms the balances in model (2.1), the p̃S̃ influx in (2.2), and the non-equilibrium point and negative first row attributed to Section 3.1. At disease absence, summing the S,Q balances gives S+Q=Λ/μ and Q=pS/(λ+μ); substituting the printed zero-Q point into (2.2) gives Q̃′=p̃. The incidence derivative at the true equilibrium is βs* times the I+θA derivative; derivatives of the media and susceptible factors multiply a zero infectious term. In infected coordinates E,I,A the single new-infection row yields the stated spectral radius by triangular inversion. For the threshold signs, write a,b,c for the three positive removal rates and P,Q for βs*σρ, βs*θσ(1−ρ). On Re z≥0 the characteristic equation is z+a=P/(z+b)+Q/(z+c). If R₀<1, the right-hand modulus is at most aR₀<a; if R₀>1, the real equation has a positive root by continuity and monotonicity. Equality gives a zero eigenvalue. The uninfected linear block is stable. Independently recomputed from the now-confirmed Table 2 literals: s*=10251/10351, R₀=0.2281211174466805 and 1.6475414037815814, and βc=0.394527262567158. The frozen verify.py was inspected, not executed. This is a local threshold check, not a validation of downstream nonlinear claims or code.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Van den Driessche–Watmough is the general next-generation framework cited by the original article. The abstract/landing record was available but the DOI route did not yield full text. The inspected same-model adjoint record addresses Hamiltonian costates."
+        ],
+        "reasoning": "The general framework supplies the rule for the threshold, not the source-specific verification of its violated hypotheses, equilibrium or numerical correction. The controlled conditions do not cover the uncontrolled result.",
+        "searches": [
+          "10.1016/S0025-5564(02)00108-6",
+          "Resultary 2026/10/4/SCOPE-correct-pontryagin-adjoints-for-a-variable-population-sqeiar-med--12f14a2b1354"
+        ]
+      },
+      "checked_sources": [
+        "10.3934/math.2021712",
+        "10.1016/S0025-5564(02)00108-6 (landing record)",
+        "Resultary 2026/10/4/SCOPE-correct-pontryagin-adjoints-for-a-variable-population-sqeiar-med--12f14a2b1354"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The primary point violates its own scaled Q equation for p>0; the controlled-system adjoint result explicitly does not change uncontrolled threshold analysis."
+        ],
+        "reasoning": "One must solve the coupled S–Q balance and reconstruct the infected block. Neither the primary threshold statement nor the adjoint correction yields that result.",
+        "searches": [
+          "Shi et al. model (2.1), scaled system (2.2), Section 3.1",
+          "Resultary adjoint record, Finding and Assumptions and scope"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Section 3.1 prints a zero-quarantine point and a four-state new-infection matrix; the earlier catalogue correction treats controlled-system adjoints."
+        ],
+        "reasoning": "A nonzero quarantine DFE, a three-state infected Jacobian, or a corrected local threshold would be equivalent ways to supply the relevant correction; the identified adjoint result is not one of these.",
+        "searches": [
+          "Resultary: Shi Gao Zhou Li SQEIAR source/title, disease-free state and threshold",
+          "10.3934/math.2021712 corrigendum"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Table 2 gives the frozen parameter literals, while the adjoining text reports 0.3438 and 2.4833, not the corrected numbers."
+        ],
+        "reasoning": "The inputs coincide, allowing a direct discrepancy check rather than mistaking a change of parameters for a correction. No inspected exact record supplies the corrected output.",
+        "searches": [
+          "10.3934/math.2021712, publisher PDF Table 2 and numerical discussion",
+          "Resultary: corrected SQEIAR threshold and reported parameter values"
+        ]
+      },
+      "rationale": "The original paper prints a different point and numbers. The general next-generation construction and the prior same-paper adjoint correction do not provide this corrected equilibrium and threshold of the printed uncontrolled model. No equivalent correction was established in the checked material.",
+      "residual_risks": [
+        "Unindexed notes or independent corrections may exist; the search does not certify priority.",
+        "The simulation implementation was not available for comparison."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct discrepancy",
+          "evidence": [
+            "Q influx pS, zero-quarantine point, negative first F row, and Table 2 plus both reported values are confirmed."
+          ],
+          "identifier_or_url": "https://www.aimspress.com/aimspress-data/math/2021/11/PDF/math-06-11-712.pdf",
+          "material_read": "(2.1), printed p. 12300, offset 9280; (2.2), p. 12302, offset 17030; Section 3.1, p. 12303, offsets 21394 and 24109; Table 2 and following values, p. 12309, offset 48367",
+          "method": "Open publisher PDF, targeted passage extraction",
+          "title": "Analysis of an SQEIAR epidemic model with media coverage and asymptomatic infection",
+          "trigger": "Exact model, disputed equilibrium and parameter table"
+        },
+        {
+          "assessment": "Same model, distinct controlled-system claim",
+          "evidence": [
+            "Costate differentiation correction, not a DFE or invasion threshold computation."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-correct-pontryagin-adjoints-for-a-variable-population-sqeiar-med--12f14a2b1354",
+          "material_read": "RESULT.md, offset 0, Finding, Assumptions and scope, Relationship to prior work",
+          "method": "Published record through local mirror",
+          "title": "Correct Pontryagin adjoints for a variable-population SQEIAR media model",
+          "trigger": "Closest indexed same-model correction"
+        },
+        {
+          "assessment": "General method, access limitation retained",
+          "evidence": [
+            "The reference provides the general framework, not evidence of a prior correction of the 2021 model."
+          ],
+          "identifier_or_url": "10.1016/S0025-5564(02)00108-6",
+          "material_read": "Bibliographic/landing record only; full text not obtained via the DOI route",
+          "method": "Lawful OA DOI lookup; local threshold sign independently proved",
+          "title": "Reproduction numbers and sub-threshold endemic equilibria for compartmental models of disease transmission",
+          "trigger": "General next-generation theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The correction replaces a non-equilibrium and an invalid new-infection split with a quantitative local threshold for the actual equations. Both published sample parameters remain on their respective sides of one, but the quantitative values and interpretation around the corrected boundary change. This is a source-specific structural correction, not a new general next-generation theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

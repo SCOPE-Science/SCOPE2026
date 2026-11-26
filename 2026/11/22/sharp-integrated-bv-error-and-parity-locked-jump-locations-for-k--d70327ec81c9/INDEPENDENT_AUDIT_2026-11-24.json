@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:33:40.677848Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For distributional BV modulo constants, integrate unit-step residuals against Df; the upper bound by the best single step is attained at the level of the supremum. Integral preservation follows from the Bernstein basis integrals 1/(n+1), so the error of a jump at s equals twice the integral of its sampled response on (0,s). On cell j with u=(n+1)s−j the response is the Bernstein tail above j plus (1−u)p_{n,j}. Differentiating the basis-integral binomial tail gives (n+1) integral_0^s p_{n,j}=sum_{k>j}p_{n,k}(s)+s p_{n,j}(s). This reduces the error derivative to 2p_{n,j}(s)[j+1−(n+2)s]. As a separate check of the exact peak heights, this derivative is that of 2s(1−s)p_{n,j}(s). These primitives match at cell boundaries because successive Bernstein masses coincide there, and they vanish at 0, so this is the entire cell profile. Thus each cell's strict peak lies at (j+1)/(n+2), and every interior cell boundary is a strict minimum. At its peak the height is proportional to a_j a_(n−j), a_k=(k+1)^(k+1)/k!. The ratio a_(k+1)/a_k strictly decreases because d[(t+1)log(1+1/t)]/dt=log(1+1/t)−1/t<0. This gives the precise central parity maxima and the formulas by substitution, also C_0=1/2. Every norming derivative measure is concentrated on winning jumps; both odd-degree jumps together lead to opposite residual signs on (a,b) for coefficients of the same sign or on (0,a) for coefficients of opposite signs, so only a single nonzero jump can attain equality. Stirling at j=n/2+O(1), s=1/2+O(1/n) gives the claimed 1/sqrt(2 pi) limit. The uploaded verification notes and checker were read, not executed. Their finite tests are not used to certify all degrees or all BV inputs.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Berdysheva–Dyn–Farkhi–Mokhov define K in §5.2 and give pointwise estimates and global L1 bounds in §6.2 with unspecified constants. Kivinukk–Metsmägi Theorem 2 is a bound in the variation of the error for AC data. Grundmann's 1976 exact topic is the Kantorovich operator in L1; the publisher and EuDML routes did not supply primary theorem text."
+        ],
+        "reasoning": "The inspected general estimates do not imply sharp parity laws or equality at a finite degree. Grundmann is potentially more directly covering and remains an unresolved priority lead rather than negative evidence.",
+        "searches": [
+          "arXiv:2212.00439 §§5.2, 6.2",
+          "10.3176/proc.2011.4.01 Theorem 2",
+          "10.1080/01630563.2011.580877",
+          "10.1007/BF01213884 / EuDML 172404"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, REVIEW.md, AUDIT.json and check_kantorovich.py",
+        "Resultary mirrors 238426d643b3, 6c03f534e376, 480d74d44971 and 5c225d99bdea",
+        "arXiv:2212.00439 and DOI 10.3176/proc.2011.4.01 primary passages",
+        "Hoeffding 1971 and Grundmann 1976, bibliographic/secondary comparison only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The fixed-iterate result supplies attainment by some jump, midpoint localization, and the sharp asymptotic. Its proof of the variational formula uses Minkowski and continuity. This argument cannot decide which jump maximizes at a fixed n or rule out all multipoint derivative measures."
+        ],
+        "reasoning": "The finite parity classification also needs the exact polynomial step profile, its derivative, comparisons of neighboring peak heights and the strict equality/sign argument. Merely specializing the fixed-iterate theorem does not provide these. Earlier exact implications from Hoeffding or Grundmann are not settled by the available text.",
+        "searches": [
+          "238426d643b3/RESULT.md, Finding and proof Step 1",
+          "arXiv:2212.00439 §6.2",
+          "10.1016/0021-9045(71)90001-3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same-day fixed-iterate finding with r=p=1 and T=K is the identical seminorm, with the same sharp leading constant and exact maximization over unit steps. The inspected result does not specify the even and odd constants, internal-cell minima or finite-degree maximizing sites and complete equality class.",
+          "Its related-work section credits the one-step L1 case to earlier sharp-error literature citing Hoeffding, but the title, citation and inaccessible text do not identify whether the particular full finite classification is included."
+        ],
+        "reasoning": "The operator and norm match exactly at r=p=1, but a one-step maximization formula without evaluation or maximizer classification does not resolve the finite problem. No distinct claim is made here for those verified shared statements.",
+        "searches": [
+          "Resultary: classical Bernstein–Kantorovich cell-average BV-to-L1 identity-defect norm and parity extrema",
+          "2026/11/22/SCOPE-sharp-fixed-iterate-bernstein-smoothing-of-bounded-variation-gau--238426d643b3/RESULT.md, offsets 0 and 10000",
+          "Wassily Hoeffding 1971 The L1 norm of the approximation error for Bernstein-type polynomials Kantorovich degree exact best constant 347 356 full text"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact Bernstein index result gives point-sample grid-jump extremizers; the Durrmeyer result gives the central binomial constant binom(2n+2,n+1)/4^(n+1) and only a centered jump. The same-K mean-mixing entry 5c225d99bdea optimizes the difference from the mean, not from I."
+        ],
+        "reasoning": "The similar exact indexed constants refer to different response kernels or a different operator defect. Standard binomial probability tables do not identify the global peaks of the full Kantorovich step profile or which signed combinations are norming.",
+        "searches": [
+          "Resultary: exact finite integrated Bernstein family constants and maximizing jumps",
+          "2026/11/22/SCOPE-exact-integrated-bounded-variation-error-norm-for-bernstein-appr--6c03f534e376/RESULT.md",
+          "2026/11/22/SCOPE-exact-integrated-bounded-variation-error-of-bernstein-durrmeyer--480d74d44971/RESULT.md",
+          "Grundmann 1976 Güteabschätzungen für den Kantorovič-Operator in der L1-Norm"
+        ]
+      },
+      "rationale": "The one-step L1 asymptotic, single-step norm reduction and existence of one-jump attainment are not distinct from the inspected fixed-iterate result. The supported contribution is the exact evaluation by parity, the positions and strict cell-wise extrema, and the necessity of a single jump even when two sites are optimal. These finite statements go beyond the verified overlap. Historical exact overlap is a real residual risk, in particular Hoeffding (1971) and Grundmann (1976).",
+      "residual_risks": [
+        "Hoeffding and Grundmann are specific strong historical leads, but full-text theorem comparison was not possible on identified lawful routes. Citation-level coverage does not decide the finite parity and equality theorem.",
+        "Finta and the 2011 Gonska–Heilmann–Raşa publisher texts were not independently inspected in full; there could be unindexed equivalent exact formulas."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantial verified overlap for the sharp leading law and exact variational reduction, no date-based priority inference",
+          "evidence": [
+            "For r=p=1, v_K=1 and I_1=sqrt(2/pi), the constant is 1/sqrt(2 pi). The finite theorem states existence of a unit jump and a maximization over t, not finite locations or evaluated parity constants."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-fixed-iterate-bernstein-smoothing-of-bounded-variation-gau--238426d643b3/RESULT.md",
+          "material_read": "Finding and proof Step 1 at offset 0, related-work paragraph near offset 10360",
+          "method": "Resultary and local mirror",
+          "title": "Sharp fixed-iterate Bernstein smoothing of bounded variation: Gaussian constants and median rigidity",
+          "trigger": "Identical norm at r=p=1, T=K; strongest indexed overlap"
+        },
+        {
+          "assessment": "No finite exact norm or parity classification in these estimates",
+          "evidence": [
+            "Pointwise discontinuity estimates and global L1/Hausdorff inequalities with comparison constants."
+          ],
+          "identifier_or_url": "arXiv:2212.00439",
+          "material_read": "§5.2 PDF p. 14, OA offset 58400; §6.2 PDF p. 17, offset 73000",
+          "method": "OA primary-text passages",
+          "title": "Metric approximation of set-valued functions of bounded variation by integral operators",
+          "trigger": "Broad positive integral operator result explicitly including the classical Kantorovich operator"
+        },
+        {
+          "assessment": "Different error seminorm and regularity assumptions",
+          "evidence": [
+            "Theorem 2 assumes AC data and bounds variation of the error, not its integrated absolute value."
+          ],
+          "identifier_or_url": "10.3176/proc.2011.4.01; https://kirj.ee/public/proceedings_pdf/2011/issue_4/proc-2011-4-201-209.pdf",
+          "material_read": "Abstract, §2 and Theorem 2, PDF p. 8, OA offset 35710",
+          "method": "OA primary-text passages",
+          "title": "Approximation in variation by the Kantorovich operators",
+          "trigger": "Same operator and variation setting"
+        },
+        {
+          "assessment": "Unresolved, high-priority comparison; not evidence of noncoverage",
+          "evidence": [
+            "Hoeffding, J. Approx. Theory 4 (1971), 347–356. The indexed related-work passage says a sharp one-step L1 result is not claimed anew."
+          ],
+          "identifier_or_url": "10.1016/0021-9045(71)90001-3; https://oerior.uniud.it/wp-content/uploads/2018/12/Hoeffding1971.pdf",
+          "material_read": "Bibliographic citation and secondary attribution; no primary theorem text recovered",
+          "method": "DOI landing and identified lawful university PDF routes attempted; alternate returned 503",
+          "title": "The L1 norm of the approximation error for Bernstein-type polynomials",
+          "trigger": "The fixed-iterate source explicitly attributes the sharp one-step problem to prior literature citing this paper"
+        },
+        {
+          "assessment": "Could potentially cover exact finite constants or more; no determination from metadata",
+          "evidence": [
+            "Axel Grundmann, Math. Z. 150 (1976), 45–47 per publisher index."
+          ],
+          "identifier_or_url": "10.1007/BF01213884; https://eudml.org/doc/172404",
+          "material_read": "Publisher volume contents, title/author and pagination; no primary theorem text recovered",
+          "method": "Bibliographic lookup; publisher PDF and EuDML routes attempted, redirects/timeouts",
+          "title": "Güteabschätzungen für den Kantorovič-Operator in der L1-Norm",
+          "trigger": "Especially close historical L1-approximation article for the same operator"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact finite-degree budget for classical average-cell reconstruction distinguishes odd and even degrees even though their first-order constant agrees. The strict extrema on every cell pinpoint a grid effect not observable from a rate, and the no-mixture equality result determines exactly when two equally bad discontinuity locations can or cannot coexist in a worst-case input.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The triangular inverse is exact and its spectral norm follows from an explicit two-by-two Gram eigenvalue calculation. The holomorphic matrix-valued exterior maximum argument reduces the problem to the unit circle; the function tends to the identity at infinity and the verified circle maximum exceeds one. On the circle, the substitution \(x=(1-q)/|z-q|\) maps the full angular domain to a closed interval. Its logarithmic derivative has one sign change at \(x=1/\sqrt6\), establishing global and unique maxima, both branches and the phase transition, including \(q=0\), the equality case, and the limiting behavior. The independent direct numerical checks are supplementary rather than proof.
+PASS
 
-## Originality — PASS, with qualifications
+The exterior-to-circle reduction follows by applying maximum modulus to the scalar matrix coefficients of (z−1)(zI−T_q)^−1; its limit at infinity is I, whereas its norm at −1 exceeds 1 for every q<1. Independently, for 0<q<1 put x=(1−q)/|z−q| on the circle and let b=(sqrt(4+x²)+x)/2 be the triangular singular norm. Since x=b−1/b, q times the squared boundary objective is b²(1−x²)=5/4−(b²−3/2)². As x increases through [(1−q)/(1+q),1], b increases, so the optimal point is the endpoint or x=1/sqrt(6), with the stated transition. The endpoint produces the first branch (also directly valid at q=0); the interior produces sqrt(5)/(2sqrt(q)) and |z−1|²=5(1−q)²/q. At the transition this distance squared is 4 and its derivative in q is −5(q_*^−2−1). Since 4−|e^{iθ}−1|² is asymptotic to (π−θ)², this gives both the exponent and the coefficient of angular splitting. Norm convergence T_q→I and the identity resolvent give the stated jump. The exact replay is the completed-square identity above together with the circle relation in RESULT.md lines 64–71; verify_ritt.py was inspected but not run, and its numerical samples are not the continuum proof.
 
-Borichev–Gomilko–Tomilov formulate and analyze the general Ritt resolvent property, but their examples do not calculate this spectral-norm constant for the two-by-two affine Jordan path. The closely related published affine Jordan pencil determines a minimum of an operator norm and a scaled numerical-range spectral-set threshold, not the exterior Ritt resolvent maximum. A different published nilpotent-shift resolvent result addresses a fixed critical scaling rather than this boundary maximization. Relevant indexed mathematical queries and the accessible historical claims did not reveal an implication-equivalent calculation. The priority check does not rule out an unindexed older two-by-two pseudospectral computation.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The Ritt resolvent constant is a standard quantitative measure of discrete analyticity, not a newly named statistic. A canonical continuous path of nonnormal two-dimensional contractions has a complete nontrivial sharp constant formula, a strictly determined angular bifurcation threshold and a square-root splitting law. The discontinuity of the constant at the identity shows a boundary-layer phenomenon invisible from operator-norm convergence alone. The exact example is independently motivated by resolvent localization rather than an arbitrary finite matrix entry.
+Best of the retrieved evidence: the distinct claim is the optimal Euclidean Ritt constant on this specific path, including the change in boundary maximizers and the limiting jump. The same Jordan pencil and the general Ritt resolvent formalism are prior. The closest statements inspected neither evaluate this optimization nor imply the transition or the jump without a separate extremum calculation.
 
-## Closest literature and limitations
+## value
 
-A. Borichev, A. Gomilko, Yu. Tomilov, *Beurling--Kato theory, Hardy--Sobolev calculus and Ritt operators*, arXiv:2607.10507v1 (2026-07-11), especially Definition 2.1 and Section 6. F. L. Schwenninger, *Functional calculus estimates for Tadmor--Ritt operators* (2016). Related published work on an affine Jordan norm pencil and finite nilpotent-shift resolvents is distinct in its optimization variable and statement. Older elementary matrix-resolvent literature may contain an equivalent formula under another convention. The theorem does not address higher Jordan blocks or arbitrary contractions.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The pencil is the straight norm-convergent path from the two-dimensional nilpotent Jordan contraction to I. Its exact resolvent norm is a meaningful sharpness benchmark, not just a sample value: the computation locates where the worst resolvent direction leaves −1, quantifies its angular motion, and gives an explicit failure of continuity at I within contractions. Useful as a finite-dimensional test for resolvent-constant estimates, without claiming a general higher-dimensional classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

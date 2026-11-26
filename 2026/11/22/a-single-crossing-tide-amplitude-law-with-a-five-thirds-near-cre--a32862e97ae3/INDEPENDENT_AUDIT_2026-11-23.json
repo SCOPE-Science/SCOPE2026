@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:18:01.780926Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Assumptions, Proof, Verification; VERIFICATION.md and check_tidal_exceedance.py inspected without execution",
+        "/workspace/branches/fda47c69-0526-4bd0-9fd9-d39e4cad0464/independent_numeric_check.py and independent_numeric_check.txt: separately implemented split-phase direct integration and bisection, 2048/8192/32768 panels; both benchmark threshold exceedance pairs agree at printed precision"
+      ],
+      "rationale": "With W=|cos Φ| the conditional positive and negative tides are equiprobable. Normalizing H_A by exp(h/σ) gives (exp(h/σ)+exp(-AW/σ))/2 below AW, and cosh(AW/σ) at and above AW. The branches meet, their slopes are bounded on compact threshold ranges, and the law of W has no atoms. The normalized difference thus has derivative exp(h/σ)Pr(A1 W<h<A2 W)/(2σ)>0 throughout (0,A2), including when A1=0; its endpoint values have strictly opposite signs, and it is a positive constant beyond A2. For fixed rho<1 at x=h/σ=ca with rho<c<1 the smaller cutoff is zero and the larger cutoff is a E[(W-c)_+]/2+O(a²), which dominates the O(a²) Bessel increment. Thus x/a tends to one and eventually exceeds rho. At the root the balance is (1-rho²)a²/4+O(a⁴) against the large cutoff. Put d=a-x and u=1-W; over 0<u<d/a the exponential difference is (d-au)(1+O(a)), by the mean-value theorem. Multiplying by the endpoint arcsine density and half the sign weight gives 2sqrt(2)d^(3/2)/(3πsqrt(a))(1+o(1)). Equating gives exactly the stated positive C_rho and a^(5/3) gap. The finite benchmark agrees to reported precision (root 0.533675162945678 for σ=A2=1, A1=0.5).",
+      "residual_risks": [
+        "The asymptotic holds with rho fixed, not jointly as rho tends to one. Neither real coastal applicability nor extreme/surge dependence is certified; the model is instantaneous and not an annual maximum."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Convolution methods give a general representation, and single-sign-change preservation is a plausible qualitative antecedent. The inspected coastal convolution results do not provide an amplitude reversal threshold or its sharp endpoint expansion."
+        ],
+        "reasoning": "Even an at-most-one-crossing theorem for smoothing a symmetric scale family would not entail strictness throughout the stated ranges or the balance of the arcsine endpoint with the second-order exponential moment.",
+        "searches": [
+          "FEMA 2016, §4.3 Eq. 4-1",
+          "doi:10.5194/nhess-20-3387-2020, introduction and independence discussion",
+          "doi:10.5194/nhess-21-239-2021, §2.4.2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary a32862e97ae3 (identical row)",
+        "FEMA 2016 §4.3",
+        "NHESS 20, 3387 and NHESS 21, 239",
+        "10.1002/2014EF000272 and 10.1002/2016GL069522 (bounded access only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior models permit or motivate independent convolution, but the 5/3 expansion needs the continuous crest's u^(-1/2) density and the leading (1-rho²)a²/4 moment difference; neither follows from using the high/low pair or a high-tide event model."
+        ],
+        "reasoning": "The general framework and known arcsine weighting supply inputs, not the strict crossover and computed coefficient; the latter carry the distinctive result.",
+        "searches": [
+          "FEMA 2016 p. 14 on density near extrema and high/low approximation",
+          "NHESS 20, 3387 (2020), tide and skew-surge convolution",
+          "NHESS 21, 239 (2021), §2.4.2 on astronomical high-tide heights"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Exponential convolution of the scaled symmetric arcsine distribution is equivalent to the positive-part cutoff representation; a two-point high/low distribution retains the convolution but changes that cutoff (even the example crossover changes from 0.534 to 0.635 m)."
+        ],
+        "reasoning": "Neither the binary approximation nor a peak-conditioned tide distribution is the instantaneous phase law under another name.",
+        "searches": [
+          "Primary literature query: arcsine sinusoidal tide exponential surge single crossing exceedance threshold amplitude asymptotic",
+          "Resultary targeted checks: random-phase sinusoid plus exponential surge crossover and fixed-ratio near-crest limit",
+          "FEMA 2016 guidance, p. 14"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact catalogue match is the assigned record, not separate evidence. Accessible source calculations address empirical floods, high tides or the general convolution; no distinct exact crossover or coefficient table was identified."
+        ],
+        "reasoning": "A table of observed exceedance curves would not encode the all-amplitude identity or the fixed-ratio asymptotic, and search misses are not priority proofs.",
+        "searches": [
+          "Resultary exact match 2026/11/22/SCOPE-a-single-crossing-tide-amplitude-law-with-a-five-thirds-near-cre--a32862e97ae3",
+          "Primary literature query: arcsine sinusoidal tide exponential surge single crossing exceedance threshold amplitude asymptotic"
+        ]
+      },
+      "rationale": "The convolution and phase weighting are familiar. The supported distinct contribution is the precise all-amplitude strict crossover together with the fixed-amplitude-ratio near-crest scale and its coefficient for the full arcsine phase law. No separate retrieved statement implies that combination. Qualitative sign-change reasoning has broader mathematical analogues and is not claimed as an entirely new stochastic-order principle.",
+      "residual_risks": [
+        "Classical variation-diminishing arguments may cover the qualitative part in a different formalism. Inaccessible or unindexed work could contain an equivalent sharp asymptotic; focused search does not settle historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known convolution, no implication for exact sinusoidal asymptotic",
+          "evidence": [
+            "Notes the sinusoidal density concentration near extrema; describes an equal high/low approximation and states Eq. 4-1 convolution."
+          ],
+          "identifier_or_url": "https://www.fema.gov/sites/default/files/2020-02/Coastal_Flood_Frequency_and_Extreme_Value_Analysis_Guidance_Nov_2016.pdf",
+          "material_read": "Printed p. 14, §4.3; offsets 49880 and 50691",
+          "method": "Lawful OA PDF passage",
+          "title": "Coastal Flood Frequency and Extreme Value Analysis",
+          "trigger": "Sinusoidal weighting and tide–surge method"
+        },
+        {
+          "assessment": "Different modeling and dependence goals",
+          "evidence": [
+            "Classic approach convolves tide and skew-surge distributions, with independence an assumption whose limitations are discussed."
+          ],
+          "identifier_or_url": "https://doi.org/10.5194/nhess-20-3387-2020",
+          "material_read": "Introduction and independence discussion; offsets 2997 and 32669",
+          "method": "Lawful OA passages",
+          "title": "Modeling dependence and coincidence of storm surges and high tides",
+          "trigger": "Classic joint-probability method"
+        },
+        {
+          "assessment": "High-tide (not random phase) comparison",
+          "evidence": [
+            "The bivariate high-level probability integral uses astronomical high-tide heights."
+          ],
+          "identifier_or_url": "https://doi.org/10.5194/nhess-21-239-2021",
+          "material_read": "Section 2.4.2, printed p. 243, offset 32140",
+          "method": "Lawful OA passage",
+          "title": "Trivariate copula to design coastal structures",
+          "trigger": "Potential exceedance identity"
+        },
+        {
+          "assessment": "Access risk, not evidence of noncoverage",
+          "evidence": [
+            "The attempted full-text routes returned HTTP 403."
+          ],
+          "identifier_or_url": "https://doi.org/10.1002/2014EF000272",
+          "material_read": "Citation and scope only; no verified decisive full-text passage",
+          "method": "Bounded DOI and publisher OA retrieval attempts",
+          "title": "From the extreme to the mean: Acceleration and tipping points of coastal inundation from sea level rise",
+          "trigger": "Threshold dependence and tidal range"
+        },
+        {
+          "assessment": "Access risk, not evidence of noncoverage",
+          "evidence": [
+            "The attempted full-text routes returned HTTP 403."
+          ],
+          "identifier_or_url": "https://doi.org/10.1002/2016GL069522",
+          "material_read": "Citation and scope only; no verified decisive full-text passage",
+          "method": "Bounded DOI and publisher OA retrieval attempts",
+          "title": "Tide and skew surge independence: New insights for flood risk",
+          "trigger": "Independence context"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Verification and Limitations",
+        "FEMA 2016 §4.3"
+      ],
+      "rationale": "The calculation gives a controlled benchmark for comparing tide amplitudes at a fixed instantaneous level. The tail ordering can reverse, and a crest boundary layer shows why replacing a waveform by its extrema changes the threshold and misses the leading correction. This is substantively more informative than simply evaluating a convolution at fixed parameters.",
+      "residual_risks": [
+        "Mathematical benchmark only, not a coastal design recommendation, annual risk estimate, or validation of independent exponential surges."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

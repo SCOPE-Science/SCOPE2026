@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claimed domain, parity-sensitive shortfall \(\delta_r(L)\), exact MMS formula, online update and upgrade injections are explicit in RESULT.md. The minimum-discrepancy proof separates parity-minimal cases from the case of insufficient unit goods, and the update proof bounds displacements by one for both allowed ratios. The fixed word consisting of four unit goods and one large good establishes failure for all integer ratios at least four. A standalone independent enumerator checked 458,752 positive-case prefixes and the negative witness through ratio thirty. Finite checks are corroboration, not the reason the universal result holds.
+## correctness
 
-## Originality — PASS, with residual risk
-The closest directly relevant text, Huang–Teh arXiv:2610.16943v1, establishes general item-level approximate MMS and general bundle-level exact MMS, but does not in its sections and appendices on these results state a two-denomination all-prefix exact classification. The more general impossibility construction permits arbitrary value ratios and therefore does not entail the positive result at ratios two and three or the smallest integer obstruction at four. Amanatidis et al. arXiv:2505.22174v1 consider two-valued allocations **without recourse**, which is a distinct requirement. Targeted mathematical research-record, title/alias and machine-covering searches did not reveal the same theorem. The two-valued no-recourse paper's full manuscript was not obtained, and differently formulated scheduling results may remain; independent priority determination is not claimed.
+PASS
 
-## Value — PASS
-The restricted domain of two common denominations is natural for pooled resources with standardized capacities. General itemwise upgrade recourse can lose a constant fraction of MMS even for identical agents; here the exact qualitative barrier is the small and sharp ratio transition from three to four. The positive result includes a fully online constant-time allocation procedure with at most one moved old good per arrival, and the negative result requires only five goods with no adaptive construction. It identifies when a simple practical restriction eliminates the recourse–fairness incompatibility rather than merely optimizing a routine static partition.
+For H even, equal large counts and unit discrepancy L mod 2 attain the total-load parity lower bound. For H odd and L<r−1, any partition has an odd large-count difference and discrepancy at least r−L, attained by putting all L units with the large-poor agent. For H odd and L≥r−1 the parity-compatible compensation is r or r−1, again attaining the parity bound. This proves the prefixwise MMS formula including zero counts. On a unit arrival the even-H case is equalization and the odd-H compensation delta changes by exactly one, with the sign specifying the receiving agent. On a large arrival, the parity switches; the recipient of the new large good transfers q=(delta−(L mod 2))/2 old units. The two agents' unit-count difference changes by 2q in the required direction in either parity case. For r=2,3, q is 0 or 1; whenever it is 1 the recipient has a unit available and its old position is matched to the new large good while all other old items remain in place for that agent. Thus the injections hold from the empty allocation onward. The rule is deterministic with fixed tie-breaking and uses a constant number of counter/list operations per arrival. For r≥4 the fixed five-good word has MMS 2 at prefix four and MMS 4 at prefix five, forcing cardinalities (2,2) then (1,4) up to labels, which fails an injection regardless of foresight. The EFX argument moves one strictly positive good from the envied bundle and obtains two parts strictly above the allegedly envying agent's value, contrary to its MMS guarantee. Identical valuations make every complete allocation Pareto optimal.
 
-## Boundaries
-The result requires exactly two agents, identical additive valuations and integer ratio \(r\ge2\). Neither more agents nor real-valued size ratios are settled. The publicly available motivating manuscript was read in HTML in its relevant sections, and literature searches cannot exclude all equivalent theorems. Verification consists of self-checks and is not independent.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The substantive distinct content is the exact item-level all-prefix rule for ratios 2 and 3 and its combination with the sharp obstruction into a complete feasibility classification. The strongest static two-size result and the exact bundle-level result do not supply the compatibility of successive allocations under item injections. The negative mechanism has an especially close precursor in Huang–Teh B.12 and the EFX consequence is already in C.2; neither is credited as an independent novelty. This is a best-of-current-knowledge statement for the bounded domain.
+
+## value
+
+PASS
+
+The restriction to a common valuation and just two sizes isolates when the smallest form of recourse suffices for optimal prefix fairness. The transition invariant yields an implementable one-displacement guarantee for every arrival word, whereas the forbidden ratios require no adaptive adversary and cannot be saved by advance knowledge. Static optimal partitions alone do not answer that question.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

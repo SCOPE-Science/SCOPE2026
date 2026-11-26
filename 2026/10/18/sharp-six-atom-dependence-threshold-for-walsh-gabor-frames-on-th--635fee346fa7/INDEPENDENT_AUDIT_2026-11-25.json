@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:26:59.764401Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–69; VERIFICATION.md, verify_upper.py and verify_lower.cpp, inspected but not executed",
+        "Independent exact rank enumeration and six-chunk log: /workspace/branches/d12ba4a1-8915-47e5-bcab-af4673df671c/independent_rank_check.py and independent_rank_chunks.log in the same directory"
+      ],
+      "rationale": "The annihilator identities can be checked without expanding minors. A signed shift supported on rows S with shift q and sign mask p has BᵀP_(x,y) supported on entries (t⊕q,t⊕x), with sign (−1)^(t·(p⊕y)). Transposing pairs t with t⊕q⊕x; skewness follows if S is preserved and (q⊕x)·(p⊕y)=1. For B₁,B₃ the masks are q=3,p=5, with S the two halves defined by bit mask 2. For the three x values, q⊕x is 1,5,4, all preserving the two halves; the dot product is one for each of the six specified pairs. For B₂ the masks are q=5,p=6, with all rows allowed; q⊕x is 7,3,2 and again every listed pair has odd dot product. The three B_j g thus bilinearly annihilate the six shifted columns over C, and their displayed first-three-row minor at the all-ones window is 2. Rank at most five holds on the open set where that minor is nonzero and extends to all windows by polynomial vanishing of the maximal minors. For the lower bound, independently produced exact Gauss–Jordan elimination gives rank five for all 595665 normalized sets at p=1000003, checked prime by trial division, with zero defects. Left composition by the inverse of any selected shift adds its label to all others over F₂, up to signs, so enumeration of the sets containing zero covers every five-set. A nonzero residue minor lifts to a nonzero integer minor. The explicit window witnesses the nonempty Zariski-open rank-five conditions for every five-set. On this open set the six-column relation has all six coefficients nonzero, giving two three-atom representations, while subtraction rules out distinct representations each of size at most two.",
+      "residual_risks": [
+        "Replay the independent certificate with python3 on independent_rank_check.py; no arguments covers all normalized sets, or use START LIMIT as in the log for bounded slices. It certifies only finite-field independence at the explicit window; genericity and the upper bound use the algebraic arguments, not extrapolation. No conditioning bound is claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Malikiosis rules out full spark in every noncyclic finite abelian group. Pfander records a four-vector dependence for the order-four Klein group and lists full-spark results for prime cyclic groups."
+        ],
+        "reasoning": "Non-full-spark alone bounds spark by eight here. The order-four result cannot simply be used on the order-eight window: restricting to a Klein subgroup separates two cosets, with potentially different dependence coefficients for their restricted windows.",
+        "searches": [
+          "arXiv:1602.09012 Theorems 1.2, 3.2 and 3.3",
+          "Pfander, Gabor Frames in Finite Dimensions §6 Theorems 10–11"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1602.09012 and arXiv:1211.0215; Pfander chapter §6; attempted DOI:10.1007/s00041-005-5017-6; Resultary record ending 9a7c296b0fef"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 3.2 of Malikiosis obtains one annihilator ḡ in Hermitian notation, equivalent to annihilating by gᵀ bilinearly. The submitted matrices can be recombined into the three full shifts P_(3,5), P_(3,7), and P_(5,6), showing explicitly how the earlier skew idea is reused: their six common columns now share three generically independent annihilators."
+        ],
+        "reasoning": "The known identity can be translated to help construct the new upper bound, but the actual rank-five intersection and, especially, the matching rank lower certificate do not follow by substituting G=F₂³ in the inspected prior theorems.",
+        "searches": [
+          "arXiv:1602.09012 §3, Theorem 3.2 proof and Theorem 3.3",
+          "Pfander §6 Theorems 10–11",
+          "arXiv:1211.0215"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Special-fiducial Weyl–Heisenberg dependencies in the inspected paper concern different groups and unitary eigenspaces. Malikiosis uses a bilinear annihilator for skew time–frequency shifts in any group containing the Klein subgroup, directly overlapping an ingredient of the present proof."
+        ],
+        "reasoning": "A dependence for one special fiducial or for the cyclic orbit does not establish a universal dependence with Walsh labels. The earlier annihilator is real methodological overlap, but the stated single-annihilator obstruction does not yield rank at most five in dimension eight.",
+        "searches": [
+          "Resultary: Boolean-cube Walsh/Gabor spark, universal six-atom time–frequency dependence, and five-column independence",
+          "arXiv:1211.0215 pp. 1 and 10",
+          "arXiv:1602.09012 Theorem 3.2 and proof"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The nearest catalogue summary counts 240 universal four-atom dependencies among 1820 selections and treats the phase alphabet for the order-four group. Its matching local full text was unavailable. The exact order-four upper obstruction is also stated in Pfander. Neither inspected source concerns the five-column table for order eight."
+        ],
+        "reasoning": "A count on the subgroup or a catalogue entry for a different orbit cannot be interpreted as the exact spark in the larger group. The focused search is not evidence that no same-group table exists.",
+        "searches": [
+          "Resultary: noncyclic Gabor exact spark thresholds and exact universal-dependent subset counts; record ending 9a7c296b0fef",
+          "Pfander §6 Theorem 11"
+        ]
+      },
+      "rationale": "The exact spark-six threshold and integer-window certificate on the order-eight elementary abelian group are distinct from prior full-spark obstructions. The skew-symmetry ingredient already occurs in earlier work; the mathematical distinction is the simultaneous three-annihilator construction with six shared columns, and the matching all-five independence certificate.",
+      "residual_risks": [
+        "The order-four catalogue record and the Lawrence–Pfander–Walnut article were not available in full through checked routes. Earlier exact Pauli/Walsh orbit work could use substantially different terminology; priority is not established by the focused searches."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General non-full-spark obstruction; same skew pairing ingredient but no sharp order-eight threshold in the inspected statements",
+          "evidence": "Theorem 3.2 proves orthogonality to one vector for 3N/2 shifts in its Klein-subgroup construction; Theorem 3.3 addresses prime-square groups.",
+          "identifier_or_url": "https://arxiv.org/abs/1602.09012",
+          "material_read": "Theorem 1.2, and §3 Theorems 3.2–3.3; proof span PDF extraction offsets 25250–29523",
+          "method": "OA PDF passage inspection",
+          "title": "Spark Deficient Gabor Frames",
+          "trigger": "Closest broad theorem and same annihilator mechanism"
+        },
+        {
+          "assessment": "Exact small-group analogue, different group",
+          "evidence": "Universal four-vector dependence for the Klein group and full-spark existence for prime cyclic groups.",
+          "identifier_or_url": "https://www.mathematik.uni-marburg.de/~pfander/pubs/FiniteGaborFramesChapter.pdf",
+          "material_read": "§6, pp. 27–30, Theorems 10–11",
+          "method": "OA PDF passage inspection",
+          "title": "Gabor Frames in Finite Dimensions",
+          "trigger": "Possible exact small-group dependence and comparison with prime cyclic results"
+        },
+        {
+          "assessment": "Cyclic comparison supported by accessible theorem; residual full-text access risk",
+          "evidence": "Pfander reports the prime cyclic setting; the original full text was unavailable through the reviewed routes.",
+          "identifier_or_url": "https://doi.org/10.1007/s00041-005-5017-6",
+          "material_read": "The paper itself was not retrieved; Pfander §6 Theorem 10 was inspected for the cyclic result",
+          "method": "Lawful article/PDF and alternate OA retrieval attempts; secondary theorem inspection only",
+          "title": "Linear Independence of Gabor Systems in Finite Dimensional Vector Spaces",
+          "trigger": "Original cited cyclic comparison"
+        },
+        {
+          "assessment": "Different orbit hypotheses and special windows",
+          "evidence": "Dependencies attached to eigenspaces of order-three unitaries and special fiducials; no generic F₂³ threshold in the inspected passages.",
+          "identifier_or_url": "https://arxiv.org/abs/1211.0215",
+          "material_read": "pp. 1 and 10, PDF extraction offsets about 1700 and 28500",
+          "method": "OA PDF passage inspection",
+          "title": "Linear Dependencies in Weyl–Heisenberg Orbits",
+          "trigger": "Possible dependency in dimension eight under an alternate name"
+        },
+        {
+          "assessment": "Relevant exact order-four analogue; limited full-text comparison",
+          "evidence": "The returned statement counts 240 of 1820 four-atom selections for the order-four Klein group.",
+          "identifier_or_url": "2026/11/22/SCOPE-universal-four-atom-dependencies-and-the-sharp-phase-alphabet-fo--9a7c296b0fef",
+          "material_read": "Catalogue summary only; exact local mirror file unavailable",
+          "method": "Configured Resultary search and local mirror check",
+          "title": "Universal four-atom dependencies and the sharp phase alphabet",
+          "trigger": "Closest Resultary exact subset census"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md spark and synthesis statements; Malikiosis's broad obstruction; exact five-column replay"
+      ],
+      "rationale": "For the full time–frequency orbit on the first order-eight Boolean cube, the spark is the precise obstruction to sparse synthesis. The result determines the six-column boundary, gives an all-window mechanism and an exact witness for the lower bound, and distinguishes two- from three-atom synthesis in a way the known non-full-spark theorem does not.",
+      "residual_risks": [
+        "No extension to higher-dimensional Boolean cubes or uniform quantitative stability is asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

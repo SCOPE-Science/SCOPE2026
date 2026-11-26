@@ -1,24 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The result concerns the explicitly defined length-three, two-premise Horn rules and the canonical proper meet-irreducibles of their closure lattices. The central path bijection uses the unique largest missing atom and a maximal independent prefix; the cyclic criterion uses the number of unselected vertices that can be inserted without violating independence. These characterizations cover all boundary cases, including the empty path and all rings with at least three vertices. The two bivariate generating functions follow from weighted maximal-independent-set recurrences and labelled cyclic gap compositions, respectively. The all-length growth laws follow from their rational singularities. The standalone Python checker directly tests the meet-irreducibility definition and the full omitted-atom distributions, but finite tests are not treated as the infinite proof.
+PASS
 
-## Originality — PASS within checked evidence
+For a last missing path atom i, any adjacent pair in its prefix would force i, and filling the suffix cannot force an earlier atom. Maximal omission of i is therefore exactly maximal independence of the prefix with the suffix filled. The independent-domination recurrence with initial polynomials 1,u,2u gives the stated weighted prefix series; substituting u=1/q and summing over the last omission gives the path denominator and numerator. On a ring an adjacent pair forces the full set. A proper independent set has one cover if it is maximal (the full set), or exactly as many covers as one-vertex independent extensions otherwise. In a gap of g zeros the number of extensions is max(g-2,0); the empty set is excluded for n>=3. With f=qt^2+q^2t^3, labelled pointing of ordinary gaps gives t d/dt[-log(1-f)], and pointing by the unique length-four block gives t d/dt[q^3t^4/(1-f)]. Removing 2qt^2 gives the claimed ring series. In particular the first three ring polynomials are 3q^2, 2q^2+4q^3, and 5q^3. At q=1 the dominant pole tau solves tau^2+tau^3=1 and is unique on its modulus by equality in the triangle inequality and gcd(2,3)=1. The simple-pole path constant is tau(1+tau+tau^2)/[(1-tau)(2tau^2+3tau^3)] = 2.945975616525679; the double-pole ring coefficient is tau^4/(2tau^2+3tau^3) = 1/(2rho^2+3rho). Fibonacci closed-set counts follow from independent prefixes and independent cycle sets respectively. The phrase 'zero-adjacent-free prefix' in Step 6 is a slip for 'prefix with no adjacent ones'; the earlier normal form, count and checker all use the latter.
 
-Babin (2026, arXiv:2607.18534) already gives the general maximal-omitter lemma, hardness of general canonical-representation checking, and the definitions. Defrain, Ohana and Vilmin (2025, arXiv:2506.24052) treat bounded-degree acyclic Horn representation translation in general. Earlier enumerations of maximal independent sets of paths and cycles, including their Padovan/Perrin totals and cardinality refinements, are prior work. The claimed distinction is the explicit **Horn canonical-model** normal form for consecutive path and ring bases, the additional cyclic one-undominated-vertex family, both complete omitted-atom series, and the contrasting leading polynomial growth factors. Accessible full-text material did not supply these results or imply them via an exact published parametric theorem. One close published note about cycle maximal-independent-set contexts was identified in a database summary, but its complete public repository text could not be retrieved; this leaves residual historical-priority risk. The absence of a search hit is not a uniqueness proof.
+## originality
 
-## Value — PASS
+PASS
 
-The exact minimal intersection-generating family is a natural invariant in Horn representation conversion, rather than an arbitrarily chosen graph statistic. The theorem computes the entire size spectrum of that canonical family on the elementary local two-premise propagation bases and shows that cyclic closure changes its leading growth by a factor linear in the number of atoms. This quantifies the gap between all models (golden-ratio growth) and characteristic models (plastic-root growth), while furnishing explicit canonical representatives. The result does not claim a general hardness improvement, a broad algorithmic advance, or a new Padovan/Perrin count independently of its closure interpretation.
+Pass for the exact Horn classification and the resulting size-refined path/ring contrast, especially the ring term with one undominated vertex. Neither the generic maximal-omitter lemma nor the already-known weighted maximal-independent-set polynomials is itself a new result.
 
-## Closest sources and limitations
+## value
 
-- Babin, *Completeness of Canonical Closure Representations Is coNP-Complete* (2026), https://arxiv.org/abs/2607.18534 — general theorem and maximal-omitter machinery
-- Defrain, Ohana, Vilmin, *Translating between the representations of an acyclic convex geometry of bounded degree* (2025), https://arxiv.org/abs/2506.24052 — general bounded-degree translation framework
-- Bisdorff and Marichal, *Counting non-isomorphic maximal independent sets of the n-cycle graph* (2008), https://orbilu.uni.lu/handle/10993/387 — Perrin cycle enumeration is known
-- *On the existence and the number of independent (1,2)-dominating sets in the G-join of graphs* (2020), https://doi.org/10.1016/j.amc.2020.125155 — known path/cycle cardinality refinements
+PASS
 
-Historical priority of the precise Horn normal forms remains provisional, and the checker exhausts only finite sizes. No independent scientific or literature audit has occurred.
+Closing a single local rule system into a ring changes its irreducible-model growth by a factor of order n even though the leading exponential rate is unchanged. The classification locates the cause exactly in the unique undominated vertex and gives the size distribution of the canonical representation, not just a growth estimate or a renamed Padovan/Perrin count. This is useful for comparing representation sizes in these two explicit systems; it is not a general Horn tractability result.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:22:28.260296Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding and Proof; VERIFICATION.md; verify.py line 76 by inspection",
+        "repairs/5/RESULT.md, VERIFICATION.md, verify.py; execution of the rewritten script passed"
+      ],
+      "rationale": "The frozen proof's Frobenius certificate fails: G mod 7=(z−3)^2(z²−z−1), and its own discriminant is divisible by 7. The archived test counts factors with multiplicity, so it accepts the repeated linear factor without checking squarefreeness. The replacement proves the same arithmetic result using the good prime 13: G=z(z−5)(z²−4z+2) mod 13, with two different linear factors and quadratic discriminant 8 a nonsquare. The resulting transposition and the four-cycle at 5 force D4 inside the stabilizer of the rational resolvent pairing. Independently rewritten exact code under repairs/5 was run: it confirms the displayed homogeneous iterate/fixed-factor quotient, squarefreeness and point-factor irreducibility, the three cycle-sum remainder identities, the two quadratic discriminants, and the entire quartic resolvent and both good-prime tests. The three irreducible sum polynomials have disjoint roots and the degree ratios are all three; each sum identifies exactly one cycle, so its stabilizer equals the setwise cycle stabilizer. This checks the arithmetic descent for unordered cycles, rather than assuming point fields are cycle fields. The frozen files were not executed or modified.",
+      "residual_risks": [
+        "The exact certificate pertains to the characteristic-zero moduli map, not twists or full point-field normal closures. It is not formal verification."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general complex count gives (27−3)/3=8 for exact period three. The rigid Lattès realization gives the conceptual setting and graph results."
+        ],
+        "reasoning": "The count covers the geometric cardinality, but neither inspected statement supplies the arithmetic action (2,2,4), both quadratic fields or the quartic normal closure. A lift would still need Galois action and quotient-by-iteration analysis.",
+        "searches": [
+          "arXiv:2408.04117 §§3.1–3.2; arXiv:2407.17042 p. 2 and surrounding overview"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary target 6858c1a81a3d; Kettinger §§3.1–3.2; Mula–Pintore–Taufer p. 2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The established count is consistent with many Galois partitions, including rational cycles, and an individual point's field alone need not identify the setwise cycle field."
+        ],
+        "reasoning": "The repaired finite algebraic calculations supply arithmetic information not mechanically specified by geometric counts or the general dynamical lift. The claims surviving are exact arithmetic fields and distinctions, not the period-three point count.",
+        "searches": [
+          "Kettinger exact-period count; Mula–Pintore–Taufer Lattès section and overview; Resultary target comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kettinger §3.1 uses the Hessian map on the j-line, equivalent after scaling j by 1728. Mula–Pintore–Taufer identify its rigid Lattès lift."
+        ],
+        "reasoning": "Changing coordinates or describing the Lattès dynamics does not give the setwise Galois stabilizers. The proof recovers these via the invariant cycle sum, not a rebranding of geometric periodic points.",
+        "searches": [
+          "Hesse derivative, rigid Lattès map, exact-period-three orbits and Galois cycle fields; Resultary Hessian descent search"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact statement returned was the frozen target 6858c1a81a3d itself; the bounded search did not supply a distinct table of these cycle fields."
+        ],
+        "reasoning": "The identical indexed record is not independent antecedent evidence. The source with the known orbit count does not tabulate the cycle fields.",
+        "searches": [
+          "Resultary Hessian arithmetic descent and period-three field queries"
+        ]
+      },
+      "rationale": "The known count of eight complex cycles and the classical Hessian map are excluded from the distinction. The repaired theorem identifies the arithmetic partition, exact cycle fields and quartic normal closure. The changed prime repairs the proof and is not itself asserted as a new scientific finding.",
+      "residual_risks": [
+        "Focused general search yielded no useful comparison. An unindexed CM derivation or exact cycle table could exist; bounded inspection does not settle universal historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct prior coverage of the count, not inspected coverage of the cycle-field classification.",
+          "evidence": "The general count is (1/n) times the sum of μ(d)3^(n/d) over d|n.",
+          "identifier_or_url": "https://arxiv.org/abs/2408.04117",
+          "material_read": "§3.1 pp. 4–5, OA offset 12400; §3.2 pp. 8–9, offset 26700",
+          "method": "OA primary PDF",
+          "title": "The dynamics of the Hesse derivative on the j-invariant",
+          "trigger": "Same rational map and exact orbit count"
+        },
+        {
+          "assessment": "Broader mechanism, not a statement of these characteristic-zero cycle-field calculations.",
+          "evidence": "Identifies the lift and describes graph analysis, including finite fields.",
+          "identifier_or_url": "https://arxiv.org/abs/2407.17042",
+          "material_read": "Projective Hessian map, rigid Lattès lift and overview at p. 2, OA offset 5350",
+          "method": "OA primary PDF",
+          "title": "The Hessian of elliptic curves as a Lattès map",
+          "trigger": "Potential stronger dynamical/CM formulation"
+        },
+        {
+          "assessment": "Identical record, not distinct overlap evidence.",
+          "evidence": "Same cycle sizes and field and closure conclusions.",
+          "identifier_or_url": "2026/11/22/SCOPE-arithmetic-descent-of-the-eight-primitive-hessian-three-cycles--6858c1a81a3d",
+          "material_read": "Indexed finding and actual assigned statement",
+          "method": "Local Resultary comparison",
+          "title": "Arithmetic descent of the eight primitive Hessian three-cycles",
+          "trigger": "Strongest exact match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired RESULT.md; irreducible point/sum degrees and D4 closure; known geometric orbit count"
+      ],
+      "rationale": "Once the classical map and its geometric count are known, descent of its first 24 primitive three-period points is a concrete next arithmetic question. The exact fields decide whether an unordered cycle descends over specified fields, and the D4 closure captures structure not conveyed by a raw polynomial factor count. This is a complete classification at a natural period, including a rational nonexistence conclusion.",
+      "residual_risks": [
+        "The value is an explicit classification on the moduli line; it does not extend by itself to cubic equations or higher periods."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

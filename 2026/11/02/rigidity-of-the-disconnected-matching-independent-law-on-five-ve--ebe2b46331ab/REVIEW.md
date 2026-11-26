@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For disconnected graphs on five vertices the witness counting unordered present disjoint-edge pairs has maximum three, reached only by the fifteen graphs of component types \(4+1\) and \(3+2\). The expectation is the sum of fifteen products of edge marginals. Equality at \(p=1/\sqrt5\) forces every marginal to equal \(p\) and forces support on those fifteen graphs. The pair-presence equations and the four-point additive lemma then determine each labeled mass uniquely. Positive masses sum to one; exact checks verify matching and full induced-subgraph independence. Exhaustive enumeration confirms the finite combinatorial premise and that the linear system has rank fifteen. The argument covers arbitrary nonsymmetric laws and does not rely on a numerical optimization oracle.
+PASS
 
-## Originality — PASS, with priority caveat
+Every disconnected graph on five vertices is a subgraph of a spanning K₄+K₁ or K₃+K₂. Each has exactly three two-edge matchings, and removal of any edge destroys one, proving the equality support. For nonnegative p, the expected number of two-edge matchings is the sum of 15 marginal products, at least 15p² by matching independence; for p<0 the claimed upper bound is trivial. At the boundary every product and then every marginal is tight. Equating perfect matching products on four vertices implies b_uv+b_wx=b_uw+b_vx=b_ux+b_vw. The first three labels define t₁,t₂,t₃ from their three pair values; the identities then determine b_uv=t_u+t_v for all pairs. With S=Σt_v, the mass a_z=1/5−S+t_z and the marginal on uv is 3/5−2(t_u+t_v), so equality of marginals forces constant t. The resulting masses are positive, sum to one over the fifteen states, and have the requisite disjoint-edge probabilities. For full independence only sizes 2+2 and 2+3 are nontrivial. For a triple the triangle has probability b+2a, with joint probability b for the complementary edge; b=p⋆(b+2a). The other three triple outcomes are equiprobable single edges even conditional on that edge's indicator, by the now-proved symmetry. No exchangeability was assumed in deducing the law.
 
-Day–Falgas-Ravry–Hancock (arXiv:1909.13771, Theorem 16) determine connectivity thresholds in the **stronger 1-independent model**; their formula already yields the numerical five-vertex value. Lengler et al. (arXiv:2305.02974, Theorem 7 and Proposition 27) separately define matching independence, establish more general bounds, and provide the known strong-independence boundary construction. Thus neither the numerical value for the stronger class nor the existence of a boundary law is novel. The statement under review is the exact matching-independent upper bound and **uniqueness of the complete labeled law under that weaker assumption**, including its automatic stronger independence. Neither primary paper's stated result appears to imply that nonsymmetric weaker-class rigidity. Related general results and the known disconnected mixture have been compared at the level of implications. Search incompleteness and other undetected equality-case classifications remain genuine residual risks.
+## originality
 
-## Value — PASS
+PASS
 
-This is a natural full boundary classification for the five-vertex case of an explicitly studied hierarchy of dependence constraints. It identifies a first nontrivial order where edge-disjoint independence can be weaker than induced-subgraph independence in general, yet rigidity at the connectivity boundary collapses the difference. Knowing that *every* extremal measure, not only a symmetric construction, must coincide has direct relevance to attempts to distinguish the matching and stronger connectivity thresholds at larger orders. This is an exact structural result, not an arbitrary numerical enumeration or an incremental bound.
+The stronger-class threshold, explicit fifteen-state construction, exact masses, and subgraph independence of that construction are known. The pass is for the matching-independent upper bound on five vertices and the uniqueness argument in that weaker class, which also shows that every disconnected matching-independent boundary law is automatically subgraph independent. The strongest inspected results neither prove the weak-class upper bound at this value nor classify nonsymmetric equality laws.
 
-## Scope and limitations
+## value
 
-No claim is made about larger graphs, connected-law distributions, or historical uniqueness of the theorem. The evidence includes two relevant accessible primary full texts, mathematics-record searches, exact finite checking and an independent human audit remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The five-vertex case sharply separates what must be proved from pairwise disjoint-edge constraints from what is given by stronger independence assumptions. An exact boundary law resolves the gap at this order and gives a concrete rigidity result: the weaker class has no additional disconnected boundary laws. The matching-count witness and the nonsymmetric uniqueness step supply a meaningful finite benchmark, not just another numerical construction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

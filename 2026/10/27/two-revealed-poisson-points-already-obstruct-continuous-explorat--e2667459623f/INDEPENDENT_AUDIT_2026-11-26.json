@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:32:05.380937Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The nontrivial occupancy cylinders are {000,100}, {010,011}, and {101,111}; the other two rows select all cells. Agreement on a selected prefix preserves the occupancy bit and endpoint there, so the table gives a graph-measurable stopping set on all locally finite counting measures. Measurability follows by measurable cell counts and first-point thresholds. For the diffuse PPP each occupied prefix contributes exactly one point almost surely and the row counts are 0,1,1,1,0,2,2,2. On the empty configuration (an atom of probability exp(-3)) the final target has measure 2, hence monotone intensity-continuity gives a finite deterministic t before attainment with U=A_t(0) of measure in (0,1). This also holds if attainment at infinity is allowed as the increasing union. U meets C2 or C3 in positive measure. On a positive-probability no-hit-in-U event the occupancy is 101 if C2 was met or 010 if C3 was met: prescribe the points in the necessary cell complements, each of positive measure. The stopping-set property fixes the observed history through t, so attainment is still ahead and the omitted part of U cannot be removed. Even for a completed observed-history filtration, the event of agreeing histories through t is an observation atom containing the empty configuration, which cannot be changed by a null exception. The same contradiction can avoid the stopping-time property altogether: choose measure(U)<1/4 and require all prescribed points in the final quarters of their cells outside U, making target mass >1, so attainment before t is impossible by mass monotonicity. This is a continuum proof; check_result.py was inspected but not executed, and its finite cases cannot establish nonattainment.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1.3 is for at most one point. Proposition B.1 treats exact equality to an ultimate explored union and requires everywhere strictly positive target intensity; the present endpoint configurations can have zero intensity. Example 3 extends the earlier obstruction to randomized trees, not to a two-point budget. The finite atomic catalogue example at budget two permits an adaptive second query, not failure of realizability."
+        ],
+        "reasoning": "Neither a one-point theorem nor a general obstruction without a revealed-count budget gives sharpness at two. A finite atomic occupied-location result lacks the diffuse prefixes and intensity-continuous exploration of this problem.",
+        "searches": [
+          "Khezeli arXiv:2610.22011v1 Theorem 1.3",
+          "LPY Appendix B Proposition B.1 and Examples 2–3",
+          "Resultary finite atomic fixed-prefix rigidity 083fbf9597cb"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, check_result.py",
+        "Khezeli 2610.22011v1",
+        "Last–Peccati–Yogeshwaran 2101.07180v3 Appendix B",
+        "Resultary 083fbf9597cb"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "LPY's earlier whole-cell example can reveal arbitrarily many points even with two cells selected. Truncating without changing the selection rule leaves the three-point all-occupied row. The new construction preserves no-hit indistinguishability and places a positive-intensity portion outside the attainable target even under equality modulo intensity."
+        ],
+        "reasoning": "The older obstruction motivates the proof but neither supplies the bounded-count construction nor mechanically gives the at-stopping-time, modulo-intensity conclusion for that construction.",
+        "searches": [
+          "LPY Proposition B.1 and Appendix B Examples 2–3",
+          "Khezeli definitions of attainable stopping set and one-point theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In LPY Example 2 substitute X_1=1-b_1, X_2=1-b_2, X_3=b_3. Its three pair-output conditions become precisely the reviewed table, with full-cell selection on 001 and 110. This is an equivalence of the index rule, not of the stopping sets, because LPY reveals complete selected cells, with unbounded counts. Prefix truncation of the unmodified LPY rule alone would still reveal three on 111."
+        ],
+        "reasoning": "The relabeled rule prevents full selection on every-cell occupied input; first-point prefixes then convert a count of occupied selected cells into a count of revealed points while preserving the cylinder condition. Bit complementation is not a spatial relabeling of the actual Poisson configurations.",
+        "searches": [
+          "Last–Peccati–Yogeshwaran arXiv:2101.07180v3 Appendix B Example 2",
+          "Khezeli arXiv:2610.22011v1 Definitions 3.1 and 4.1",
+          "Resultary diffuse Poisson stopping-set nonattainability and one-location rigidity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The previously published three-cell table is equivalent as a Boolean table as noted above. It does not tabulate or bound actual observed Poisson points after first-point truncation and the occupancy complement. No exact bounded-count continuum statement surfaced in the returned Resultary matches."
+        ],
+        "reasoning": "The finite index table is covered as a relabeling; the claim retained in this assessment is a new use of it with a different measurable stopping set and a quantified continuum nonattainment conclusion.",
+        "searches": [
+          "LPY Appendix B Example 2, PDF p. 56",
+          "Resultary: diffuse two-point Poisson CTDT obstruction and fixed-prefix stopping sets"
+        ]
+      },
+      "rationale": "Pass for the at-most-two diffuse threshold example and nonattainment under modulo-intensity stopping, not for the underlying three-cell decision logic or the general existence of nonattainable stopping sets. The closest whole-cell example has precisely the same Boolean rule after complementing two input bits, important structural overlap. The complement and first-point truncation together are needed to retain the obstruction under the stringent actual revealed-point budget. Neither the inspected whole-cell theorem nor the one-point attainability theorem contains the resulting bounded-point counterexample.",
+      "residual_risks": [
+        "The search was bounded to plausible catalogue matches and the main cited texts; an unindexed equivalent bounded-count construction remains possible.",
+        "No originality is assigned to the Boolean table itself, and no claim is made about minimal cell count, other intensity regimes or arbitrary discontinuous algorithms."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "One-point attainability, not the two-point boundary",
+          "evidence": "Diffuse input and at most one observed point; attainability at an observed stopping time includes equality of regions modulo intensity and equality of revealed point measures.",
+          "identifier_or_url": "https://arxiv.org/html/2610.22011v1",
+          "material_read": "Theorem 1.3; Definitions 3.1 and 4.1, HTML offsets about 7328, 22971, 47722",
+          "method": "OA HTML primary passages",
+          "title": "On Stopping Sets and Continuous-Time Decision Trees",
+          "trigger": "Exact one-point theorem and adopted observation definitions"
+        },
+        {
+          "assessment": "Exact complemented Boolean rule, distinct whole-cell stopping set with no two-point limit",
+          "evidence": "Example 2 returns whole cells and all three for equal occupancy bits. Proposition B.1 rules out exact eventual-union attainment under an everywhere-positive-intensity hypothesis; Example 3 treats independent randomization of that example.",
+          "identifier_or_url": "https://arxiv.org/pdf/2101.07180v3",
+          "material_read": "Appendix B Proposition B.1 and Examples 2–3, PDF pp. 55–58, including OA offsets 204700–207042 and about 213447",
+          "method": "OA PDF primary statements and construction",
+          "title": "Phase transitions and noise sensitivity on the Poisson space via stopping sets and decision trees",
+          "trigger": "Strongest prior three-cell nonattainability obstruction"
+        },
+        {
+          "assessment": "Different atomic result; no two-point diffuse nonattainment",
+          "evidence": "The atomic one-location sets are fixed ordered prefixes, with exact atomic CTDT realization. The two-location example illustrates adaptivity of queries rather than nonattainability.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-fixed-prefix-rigidity-of-one-location-stopping-sets-on-finite-at--083fbf9597cb",
+          "material_read": "One-location classification and budget-two parity example",
+          "method": "Configured Resultary semantic search and local mirror",
+          "title": "Fixed-prefix rigidity of one-location stopping sets on finite atomic spaces",
+          "trigger": "Closest Resultary threshold/adaptivity match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A sharp threshold at two revealed points answers the immediate next case of the one-point theorem. Achieving it with a graph-measurable set on a compact diffuse model, and defeating even intensity-equivalent explored regions, are substantive constraints; the earlier examples with unbounded revealed counts could not answer this threshold question.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

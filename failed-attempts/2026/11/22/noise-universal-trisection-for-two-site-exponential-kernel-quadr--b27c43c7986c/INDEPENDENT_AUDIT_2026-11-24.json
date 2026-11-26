@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:39:58.077455Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, Finding and Proof §§1–4",
+        "VERIFICATION.md, verify.py and verification_output.txt (read, not executed)"
+      ],
+      "rationale": "Integrated the kernel to recover m(t) and Q, and diagonalized the observation covariance in the sum/difference directions (a=1+η>1, hence both eigenvalues are positive even for repeated sites). At fixed scaled half-separation s∈(0,L), L=λ/2, write C=cosh(λ(c−1/2)). After factoring C−1, the shifted-minus-centered gain has the sign of −2cosh(s)+e^(−L)(C+1)[cosh²(s)+(a+e^(−2s))/(a−e^(−2s)) sinh²(s)]. The bracket is smaller than cosh(s)e^s; the feasibility bound C≤cosh(L−s) then makes the sign strictly negative. At s=0 direct maximization chooses the midpoint, and at s=L there is only one center. For centered configurations differentiation gives the sign of G(s)=e^L−e^s−ae^(2s)sinh(s), strictly decreasing and of opposite sign at the two ends. Thus the unique maximum is interior and the sites never coincide for finite positive noise. Conditional weights and variance follow from the sum eigenvector. At η=1, s=L/3 by the exponential identity e^s+2e^(2s)sinh(s)=e^(3s); writing u=e^(−λ/3), m=(1−u)(2+u)/λ, so w=(1−u)/λ and the captured variance cancels to the stated residual. Strict noise monotonicity follows directly from the decrease of G in both s and a. The label ‘weak-correlation’ used for λ↓0 is reversed (this is the near-constant-kernel limit); the limit formula itself is correct.",
+      "residual_risks": [
+        "The reported grid and random tests are finite precision; the continuum result is established by the analytic proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The strongest mirrored theorem extends to arbitrary n and joint allocation with nonnegative precisions summing to P, and gives equal precision at the unique optimum",
+          "The earlier exact OU mesh record is noiseless. The related two-sensor record minimizes integrated pointwise path-prediction variance, a different objective. The inspected primary passages on positive weights and error rates do not prove this finite noisy design law."
+        ],
+        "reasoning": "The fixed-variance class is a subset of the larger class that contains its optimizer; joint allocation therefore does not prevent direct coverage. The noiseless and different-criterion results alone would not cover the frozen claim.",
+        "searches": [
+          "Resultary exact OU quadrature and precision-budget comparisons",
+          "Karvonen et al. arXiv:1812.08509",
+          "Cai et al. arXiv:2202.10615",
+          "Mukherjee DOI 10.1081/STA-120022249"
+        ]
+      },
+      "checked_sources": [
+        "Resultary a7be6c7ddb05, 971795799fba, 4293b65a498d and identical self-hit",
+        "arXiv:1812.08509",
+        "arXiv:2202.10615",
+        "DOI 10.1081/STA-120022249 (snippet only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At n=2 the risk expression is V0−2w b(g) with w=(K_T+ηI)^−1 b evaluated at a symmetric two-site optimum; hence the common weight is b(g)/(1+η+e^(−2s)) and the risk is exactly the reviewed one",
+          "P=n becomes η=1, and strict noise movement follows since increasing η strictly increases the right hand side of the same increasing scalar equation at s>0",
+          "The broader record mentions a separate previously established two-noisy-site equal-variance theorem, but supplies no attributable identifier in that text or its references"
+        ],
+        "reasoning": "Uniqueness, exact risk and weights, and the threshold transfer without a new theorem. The same UTC date supplies no order. The statement-level implication is conclusive about coverage, not about priority.",
+        "searches": [
+          "Resultary a7be6c7ddb05, Finding, Proof §5, and Relationship to prior work at offsets 0, 8150 and 11710"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The general scalar equation at n=2,P=2/η is (1−exp(−λg))/(1+η)=tanh(s)/(1+η tanh(s)), where g=1/2−s/λ",
+          "Rearrangement gives e^(λ/2)=e^(2s)(cosh(s)+η sinh(s))=e^s+(1+η)e^(2s)sinh(s), exactly the frozen scalar equation"
+        ],
+        "reasoning": "Precision is inverse variance, and both statements minimize the same unconditional Bayes MSE (equal to the deterministic Gaussian posterior integral variance). Changing to hyperbolic-tangent notation leaves the theorem unchanged at those parameters.",
+        "searches": [
+          "Local Resultary on two equally noisy exponential/Ornstein–Uhlenbeck integral observations and universal trisection",
+          "Globally optimal precision budgets and observation meshes for Ornstein–Uhlenbeck Bayesian quadrature, mirrored RESULT.md offsets 0 and 8150"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned an identical frozen self-hit and the distinct broader record. The latter gives t_i=i/(n+1) exactly when P=n and states exact weights and risk."
+        ],
+        "reasoning": "No independent numerical table is needed for exact coverage: the analytic catalogue entry gives both trisection and the full formula by direct specialization. The self-hit is not counted independently.",
+        "searches": [
+          "Local Resultary trisection, exact design and precision-budget matches",
+          "Mirrored precision-budget theorem, Universal spacing transition"
+        ]
+      },
+      "rationale": "Exact coverage by a distinct indexed theorem was verified, not merely a same-title or same-date hit. The general precision-budget theorem optimizes a larger design space, but its unique maximizer at n=2,P=2/η has both precisions exactly 1/η, so it belongs to the fixed-equal-variance space and remains its unique maximizer. Its equation, weights, risk and universal P=n transition give the frozen finding, including the strict noise shift by immediate monotonicity of the same root equation. No distinct scientific claim beyond this coverage is established in the frozen Finding. This is a failure to establish a distinct claim against documented coverage, not a finding that the general record was published first or that the frozen proof is incorrect. The general record's text refers to an unnamed previously established two-site theorem, consistent with the reverse order, but does not identify the reviewed record or establish the order.",
+      "residual_risks": [
+        "The precise within-day order and the unnamed attribution in the broader record remain unresolved.",
+        "Mukherjee's exact treatment of noisy observations could not be established; this access limitation is not the reason for the originality failure."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly implies the entire finding at n=2,P=2/η; chronology unresolved",
+          "evidence": "Unique equal-precision, equal-weight symmetric mesh, scalar gap equation, exact risk, and P=n universal spacing.",
+          "identifier_or_url": "2026/11/22/SCOPE-globally-optimal-precision-budgets-and-observation-meshes-for-or--a7be6c7ddb05",
+          "material_read": "Mirrored RESULT.md, Finding and assumptions offset 0; §5 offset 8150; prior-work discussion and references offset 11710",
+          "method": "Local Resultary mirror",
+          "title": "Globally optimal precision budgets and observation meshes for Ornstein–Uhlenbeck Bayesian quadrature",
+          "trigger": "Decisive stronger same-model exact theorem"
+        },
+        {
+          "assessment": "Noiseless coverage only",
+          "evidence": "Exact integral-variance-optimal nodes for exact observations, arbitrary site count.",
+          "identifier_or_url": "2026/11/8/SCOPE-exact-optimal-nodes-and-stratification-penalty-for-ornstein-uhle--971795799fba",
+          "material_read": "Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Exact optimal nodes and stratification penalty for Ornstein–Uhlenbeck Bayesian quadrature",
+          "trigger": "Earlier same-object exact optimal design"
+        },
+        {
+          "assessment": "Different criterion",
+          "evidence": "Minimizes integral of pointwise posterior variance, not posterior variance of the integral.",
+          "identifier_or_url": "2026/11/22/SCOPE-strict-interior-two-sensor-design-and-a-high-noise-separation-la--4293b65a498d",
+          "material_read": "Theorem, offset 320",
+          "method": "Local Resultary mirror",
+          "title": "Strict interior two-sensor design and a high-noise separation law",
+          "trigger": "Close noisy two-site setting"
+        },
+        {
+          "assessment": "Related weight results, not exact global noisy design in the passage",
+          "evidence": "Positivity and magnitude conditions on weights, including local designs.",
+          "identifier_or_url": "https://arxiv.org/abs/1812.08509",
+          "material_read": "PDF p. 1, offset 250",
+          "method": "Lawful OA primary passage inspection",
+          "title": "On the positivity and magnitudes of Bayesian quadrature weights",
+          "trigger": "Primary quadrature weight comparison"
+        },
+        {
+          "assessment": "Noise-dependent error bounds rather than finite design in the inspected passages",
+          "evidence": "Average-case rates for kernel quadrature.",
+          "identifier_or_url": "https://arxiv.org/abs/2202.10615",
+          "material_read": "PDF pp. 1–2, offsets 0 and 8380",
+          "method": "Lawful OA primary passage inspection",
+          "title": "On Average-Case Error Bounds for Kernel-Based Bayesian Quadrature",
+          "trigger": "Primary noisy quadrature comparison"
+        },
+        {
+          "assessment": "Exact observation model and criterion unresolved; no noncoverage inference from snippet",
+          "evidence": "Snippet refers to exact weighted-integral designs for product covariance R(s,t)=u(s)v(t); whether it covers independent additive noise is unverified.",
+          "identifier_or_url": "https://doi.org/10.1081/STA-120022249",
+          "material_read": "Search-indexed abstract snippet only; publisher abstract and full-text requests returned HTTP 403",
+          "method": "Lawful DOI and publisher access attempted",
+          "title": "On Sampling Designs for Integral Estimation of a Random Process",
+          "trigger": "Earlier exact integrated design for product covariance potentially including OU"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, Finding and fixed-separation proof",
+        "Resultary precision-budget theorem and noiseless mesh comparison"
+      ],
+      "rationale": "The scientific question is worthwhile: independent observation noise and the unknown integral are standard, and the exact finite-site law exposes an unexpected range-parameter-independent transition and strict noncollision not predicted by error rates. The direct proof of unique reflection centering at every fixed separation is informative, beyond merely numerical gains. This assesses the usefulness of the theorem and proof; documented broader coverage prevents a separate originality pass for the frozen finding.",
+      "residual_risks": [
+        "The frozen record does not establish a separate new result beyond the exact coverage comparison; no repair is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

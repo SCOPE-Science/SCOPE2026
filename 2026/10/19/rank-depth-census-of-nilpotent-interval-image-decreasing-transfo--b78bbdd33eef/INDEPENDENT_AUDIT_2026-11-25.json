@@ -1,0 +1,177 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:07:54.143912Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The order and interval constraints give binary increments starting from f(1)=1. The first increment must be zero, since otherwise 2 is fixed; if it is zero, every i>1 descends. Monotonicity makes the orbit of n determine the least zero-power. Restricting a rank-r map to [r] gives a zero-root map, of rank s and depth h-1; its extensions of the required rank choose r-s increments in n-r positions. For the support, put m=n-r. The descending orbit has positive steps with total n-1, initially m and thereafter nonincreasing and at most m. Conversely, choose a nonincreasing list of h-1 positive summands of r-1 bounded by m. On consecutive orbit anchors the required change in the defect i-f(i) lies between zero and their separation, so interpolation by binary increments is possible; on the final interval up from 1 it is forced to increase by one at each point. The resulting map has precisely this orbit. At depth r all steps after the first are one, forcing all but one of the rank increments; the remaining increment has n-r choices. At depth two the restriction to [r] is constant, giving the binomial count and the displayed formal series by summation, with the n=1 term removed. Rank one and n=2 are included. The finite check was independently reconstructed by enumerating all regressive full maps through n=8, filtering the stated domain conditions, and composing the actual maps; all rank/depth cells agreed. This is corroboration only. The proof is replayable at RESULT.md §§1–5; the frozen checker.py and VERIFICATION.md were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2581ac4ddfd0 gives a recurrence for original rank and stabilization depth of all Catalan transformations, with rank-equals-depth count binomial(n+r-3,2r-2).",
+          "26a48beb2bce is a fixed-power asymptotic proportional image-rank result on unrestricted Catalan maps, not a finite rank and least-zero-power table.",
+          "Ayık–Fernandes–Korkmaz count nilpotent partial maps with interval domain and range and the empty partial map as zero."
+        ],
+        "reasoning": "Inclusion in a larger family is not enough: the broader aggregate recurrences do not select interval image and a unique root. The earlier potency and rank articles were not obtainable in full; their reported marginal scopes do not exclude additional material.",
+        "searches": [
+          "Resultary 2581ac4ddfd0, Finding and Proof §§1–4",
+          "Resultary 26a48beb2bce, Finding and Proof §§1–4 (harmonic power ranks)",
+          "arXiv:2503.19459 p. 1 and Proposition 4",
+          "doi:10.1080/00927872.2012.716115 and doi:10.1007/s00233-004-0101-9 (earlier potency and rank distributions)"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2112.13427",
+        "arXiv:2407.05084",
+        "arXiv:1006.0316",
+        "arXiv:2503.19459",
+        "Resultary 2581ac4ddfd0",
+        "Resultary 26a48beb2bce",
+        "Resultary 4699c0491091",
+        "Resultary 8f08dd8f928c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior binomial rank marginal is determined by the binary encoding, but does not evaluate the orbit-depth statistic.",
+          "Already for n=5 and rank r=3, the unrestricted rank-equals-depth coefficient is 5 whereas the reviewed coefficient is 2. No interval-image/zero-root restriction operation is supplied by that aggregate census.",
+          "The sharp lower bound is determined by realizability of a defect walk with prescribed orbit steps, not just by stabilization under an arbitrary Catalan map."
+        ],
+        "reasoning": "The existing structural description is used background. The restriction-extension count and attainable support for this canonical subset are the distinct conclusions; no priority inference rests on a difference in publication dates.",
+        "searches": [
+          "arXiv:2407.05084 Proposition 3.2",
+          "Resultary 2581ac4ddfd0 Finding and Proof §§1–4",
+          "Resultary 4699c0491091 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Path weak endomorphisms are precisely the nondecreasing interval-image maps; fiber compositions are equivalent to the binary separators. Fernandes counts the regressive submonoid by image rank as binomial(n-1,r-1).",
+          "For the zero-root maps, the first stabilization power equals the least power giving the constant-one map, but not every Catalan transformation has interval image or stabilizes to that constant."
+        ],
+        "reasoning": "The two aliases locate the same ambient objects or depth statistic, but the old rank marginal and the full Catalan stabilization statistic do not isolate the joint counts on the stated subset.",
+        "searches": [
+          "arXiv:2112.13427 Proposition 1.5 and Theorem 1.6 (weak endomorphisms of a directed path, rank and fiber compositions)",
+          "arXiv:2407.05084 Propositions 3.1–3.2 (IO_n^-, initial interval images)",
+          "Resultary 2026/11/22 record 2581ac4ddfd0 (joint image rank and stabilization depth)",
+          "arXiv:1006.0316 p. 2 (total Catalan transformations)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The unrestricted square-zero set has size 2^(n-2), unlike the frozen interval-image depth-at-most-two total F_n.",
+          "The maximal-domain partial-map record gives a Narayana-refined image-rank table for maps missing one domain point, with empty-map zero.",
+          "The Fibonacci scalar and its usual binomial expansion are classical; matching those numbers does not supply the map statistic or the full depth table."
+        ],
+        "reasoning": "No inspected table of the same counted class and statistics supplies the recurrence, sharp support, or joint coefficients.",
+        "searches": [
+          "Resultary 2581ac4ddfd0 rank-equals-depth coefficients",
+          "Resultary 4699c0491091 (square-zero ideal in Catalan transformations)",
+          "Resultary 8f08dd8f928c, Proof §3 (maximal-domain nilpotent partial isotone maps)"
+        ]
+      },
+      "rationale": "The supported distinction is the full zero-root interval-image subset census, including its exact joint support and endpoint multiplicities. The prior rank count, general Catalan-monoid stabilization census, partial-map nilpotent counts, and classical Fibonacci enumeration are not themselves new here. The strongest general Catalan census aggregates together several subclasses, without a restriction variable that selects this subset. The different n-r upper-boundary count and the rank-dependent lower boundary require additional information. No stronger covering result was established in the checked statements.",
+      "residual_risks": [
+        "Sönmez–Ünlü (doi:10.1080/00927872.2012.716115) and Laradji–Umar (doi:10.1007/s00233-004-0101-9) were identified through the related stabilization census; lawful retrieval attempts did not yield their primary full texts.",
+        "Koppitz–Worawiset (doi:10.55730/1300-0098.3341) was not independently read in full. Older equivalent refinements may be unindexed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies the encoding and ambient rank count, not the nilpotent depth refinement",
+          "evidence": [
+            "Rank r count (n-r+1) binomial(n-1,r-1) before requiring regression"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2112.13427",
+          "material_read": "Proposition 1.5 and Theorem 1.6, pp. 3–4",
+          "method": "Open primary text, statement and counting argument",
+          "title": "On the Rank of Monoids of Endomorphisms of a Finite Directed Path",
+          "trigger": "Same interval-image condition under a graph-morphism alias"
+        },
+        {
+          "assessment": "Defines and counts the ambient monoid and its rank strata",
+          "evidence": [
+            "Image is an initial segment; rank r count binomial(n-1,r-1)"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2407.05084",
+          "material_read": "Propositions 3.1–3.2, p. 3",
+          "method": "Open primary text",
+          "title": "On the monoid of order-preserving transformations of a finite chain whose ranges are intervals",
+          "trigger": "Exact regressive interval-image monoid"
+        },
+        {
+          "assessment": "Aggregate coefficients for the full total Catalan monoid; no restriction to interval images with constant-one zero power",
+          "evidence": [
+            "Rank-depth recurrence; rank-equals-depth count binomial(n+r-3,2r-2)"
+          ],
+          "identifier_or_url": "Resultary 2026/11/22 2581ac4ddfd0",
+          "material_read": "Finding and Proof §§1–4",
+          "method": "Published record search and original RESULT.md via the local mirror",
+          "title": "Joint image-rank and stabilization-depth census in Catalan transformations",
+          "trigger": "Strongest statement-level overlap on original rank and stabilization depth"
+        },
+        {
+          "assessment": "Different asymptotic statistic",
+          "evidence": [
+            "Fixed k, rank(f^k)/n tends to 1/(k+1)"
+          ],
+          "identifier_or_url": "Resultary 2026/11/8 26a48beb2bce",
+          "material_read": "Finding and Proof §§1–4",
+          "method": "Original RESULT.md via the local mirror",
+          "title": "A harmonic power-rank law for uniformly random Catalan transformations",
+          "trigger": "Image rank under repeated powers"
+        },
+        {
+          "assessment": "Unrestricted Catalan transformations; cardinality and generating rank do not determine the interval-image subset",
+          "evidence": [
+            "Unrestricted square-zero cardinality 2^(n-2)"
+          ],
+          "identifier_or_url": "Resultary 2026/10/13 4699c0491091",
+          "material_read": "Finding",
+          "method": "Original RESULT.md via the local mirror",
+          "title": "Exact generator rank of the square-zero ideal in Catalan transformations",
+          "trigger": "First nontrivial nilpotency depth cutoff"
+        },
+        {
+          "assessment": "Partial functions and different zero",
+          "evidence": [
+            "Narayana refinement from two Dyck-path sequences"
+          ],
+          "identifier_or_url": "Resultary 2026/10/26 8f08dd8f928c",
+          "material_read": "Proof §3",
+          "method": "Original RESULT.md via the local mirror",
+          "title": "Image-rank distribution of maximal-domain nilpotent partial isotone transformations",
+          "trigger": "Related nilpotent rank table and Catalan encoding"
+        },
+        {
+          "assessment": "Aggregate counts with partial domains and empty-map zero",
+          "evidence": [
+            "Maps may be undefined on part or all of the chain"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2503.19459",
+          "material_read": "Definition on p. 1 and Proposition 4, p. 5",
+          "method": "Open primary text",
+          "title": "On the monoid of partial order-preserving transformations of a finite chain whose domains and ranges are intervals",
+          "trigger": "Nilpotent enumeration with interval images"
+        },
+        {
+          "assessment": "Residual risk, not a noncoverage determination",
+          "evidence": [
+            "Available scope concerns ranking generating sets and presentations"
+          ],
+          "identifier_or_url": "https://doi.org/10.55730/1300-0098.3341",
+          "material_read": "Scope and access limitation in frozen REVIEW.md and AUDIT.json; full article not independently inspected",
+          "method": "Frozen bibliography and qualified access report",
+          "title": "Ranks and presentations for order-preserving transformations with one fixed point",
+          "trigger": "Larger class of full maps with unique fixed point"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The invariant tracks the collapse dynamics of every nilpotent in a natural path-transformation monoid. The complete joint census and the interpolation proof of exactly which rank-depth pairs occur go beyond the known ambient size and generating ranks. The shallow-depth binomial and Fibonacci laws provide a precise comparison with the whole nilpotent class; the value is the map interpretation and rank refinement, not the Fibonacci numbers alone.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

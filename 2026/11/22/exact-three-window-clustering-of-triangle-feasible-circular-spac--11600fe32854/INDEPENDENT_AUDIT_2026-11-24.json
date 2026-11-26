@@ -1,0 +1,150 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:46:05.821924Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, lines 5–38 and 40–93",
+        "VERIFICATION.md and check_triangle.py (inspected, not executed)",
+        "Independent exact rational determinant computation of the four simplex volumes"
+      ],
+      "rationale": "With the cyclic list rooted at a uniformly chosen sampled point (equivalently, at a fixed sample label), the gaps have the Dirichlet(1,…,1) law; homogeneity removes the common exponential normalization. Independently recomputed the four probabilities as exact simplex-volume ratios: eliminate the last gap by sum x_i=1, intersect the simplex with the three linear triangle inequalities from each tested window, enumerate feasible vertices by full-rank active systems, and recursively cone each face boundary from its vertex barycenter. The sums of absolute simplex determinants in dimensions 2, 3, 4, 4 give 1/4, 1/9, 2/27, 232/4725 respectively (the last polytope has ten vertices). Dividing the last result by 1/9 gives 232/525. Disjoint windows depend on disjoint exponentials. For n≥5, exactly two ordered partners per index have each of the two nonzero covariance values 7/144 and 5/432; n=4 has twelve ordered pairs sharing two gaps and n=3 has identical indicators. This gives all variance cases stated. The bounded two-dependent linear sum satisfies Lindeberg using length floor(n^(1/3)) blocks separated by two deleted terms; the deleted variance is o(n), the retained asymptotic variance is 133n/432, and at most two boundary terms change under cyclic closure.",
+      "residual_risks": [
+        "The local indexed probabilities use a sample-point root, not a gap selected by the position of a fixed external angular origin. The count is invariant under cyclic rerooting. No formal proof or exhaustive check outside the stated model is claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mirakhmedov treats sum-functions of successive circular uniform spacings, including the fixed-length bounded triangle motif after the normalization correction vanishes by scale invariance.",
+          "Işlak gives generic m-dependent CLT machinery; the iid exponential triangle-indicator sequence is bounded and two-dependent."
+        ],
+        "reasoning": "Credit the normal-limit mechanism and asymptotic variance template to the broader results. Neither theorem supplies an evaluated three-window joint probability or calculates these two local covariances for the triangle test.",
+        "searches": [
+          "Mirakhmedov, arXiv:2404.09581, Theorem 2.1 and Corollary 2.3",
+          "Işlak, arXiv:1303.2386, Theorems 2.3 and 2.5"
+        ]
+      },
+      "checked_sources": [
+        "Published Resultary/SCOPE index and distinct records above; exact self-hit 11600fe32854",
+        "arXiv:0912.3500, 2404.09581, 1303.2386"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The count variance needs only two pairwise covariances. Already knowing the variance, the marginal, or the general CLT does not fix the higher joint probability. The three-window calculation imposes nine linear inequalities on five shared gaps and evaluates a different volume."
+        ],
+        "reasoning": "The general framework reduces the problem to local expectations but leaves their event-specific evaluation to be done. Credit normality as a specialization; the nonstandard exact calibration, including 232/4725 and 232/525, survives independently of it.",
+        "searches": [
+          "arXiv:2404.09581, variance and CLT statements",
+          "RESULT.md, six ordering cones and cyclic pair accounting"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The equivalent object is a moving triangle indicator of iid exponentials, or the corresponding volume on the uniform simplex. The classical one-window broken-stick probability is 1/4.",
+          "The distinct Resultary size-ranked triangle profile 83539b518778 and Pareto sorted-window count 8428212a7daa do not preserve cyclic order; 6f2f08f38b12 uses all unordered triples."
+        ],
+        "reasoning": "Dirichlet and exponential representations preserve the tested event; sorting by value does not preserve the window event or overlap multiplicities. Single-triangle agreement does not imply agreement for three consecutive successes.",
+        "searches": [
+          "Resultary: cyclic consecutive triangle-feasible spacings and broken-stick triangles",
+          "Primary search for overlapping triangle probabilities in circular spacings and triangle counts",
+          "arXiv:0912.3500"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact catalogue hit 11600fe32854 is this record. Same-date distinct records 83539b518778, 8428212a7daa and 6f2f08f38b12 were compared on their actual events; 8db816b9ed60 counts inscribed point triples under an angle condition. Only the one-window 1/4 is standard in the inspected evidence."
+        ],
+        "reasoning": "The distinct hits are not tabulations of the same simplex region. No separately inspected entry evaluates the five-gap joint event; a search miss is not proof of priority.",
+        "searches": [
+          "Resultary catalogue: cyclic triangle spacings, three windows, broken-stick formation and triangle counts",
+          "Primary search for joint triangle-event tables and circular-spacings window counts"
+        ]
+      },
+      "rationale": "The distinct contribution supported here is the evaluated local overlap law, especially the five-gap triple-success probability and the resulting conditional cluster probability. The broken-stick marginal and generic dependent-spacing CLT and variance framework are not original. No inspected distinct record or primary result gives the same local joint probabilities or an evaluated formula subsuming them.",
+      "residual_risks": [
+        "The focused primary keyword search returned no useful additional match; this supplies no negative evidence. Earlier evaluations indexed under another name or equivalent simplex inequalities remain possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Background only for the gap normalization",
+          "evidence": "Equal-parameter Dirichlet simplex construction; no evaluation of shared triangle windows in the passage.",
+          "identifier_or_url": "https://arxiv.org/abs/0912.3500",
+          "material_read": "p. 2, around text offset 1594",
+          "method": "Lawful OA full-text passage",
+          "title": "A Pearson–Dirichlet random walk",
+          "trigger": "Dirichlet and exponential reformulation"
+        },
+        {
+          "assessment": "Generic variance and CLT coverage, not exact local event calibration",
+          "evidence": "Sums of functions of successive uniform circular spacings; the triangle indicator is a fixed three-gap example. No evaluation of the shared triangle integrals follows from the normal-limit statement.",
+          "identifier_or_url": "https://arxiv.org/abs/2404.09581",
+          "material_read": "Abstract and definitions, p. 1; Theorem 2.1 and Corollary 2.3, pp. 4–6",
+          "method": "Lawful OA full-text passages, offsets approximately 497–1909 and 11500–18408",
+          "title": "The central limit theorem for sum-functions of m-tuples of spacings",
+          "trigger": "Strongest broader result for the same circle and consecutive gaps"
+        },
+        {
+          "assessment": "Normal-limit method, not overlap evaluation",
+          "evidence": "General m-dependent sums; no specific triangle-window geometry needed for its limit theory.",
+          "identifier_or_url": "https://arxiv.org/abs/1303.2386",
+          "material_read": "Theorems 2.3 and 2.5, pp. 2–3",
+          "method": "Lawful OA full-text passages, offsets 7900–11602",
+          "title": "Asymptotic Normality of Random Sums of m-dependent Random Variables",
+          "trigger": "Prior dependence-based CLT"
+        },
+        {
+          "assessment": "Distinct event; date not a priority inference",
+          "evidence": "Success is for successive size ranks, not successive cyclic positions; rank probabilities and a mode, not joint gap-window events.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-two-thirds-rank-for-triangle-formation-among-size-ordere--83539b518778",
+          "material_read": "RESULT.md, Finding and Assumptions, offsets 0–4300",
+          "method": "Local published-record mirror",
+          "title": "A sharp two-thirds rank for triangle formation among size-ordered fragments",
+          "trigger": "Closest distinct exact broken-stick triangle probabilities"
+        },
+        {
+          "assessment": "Different sampling model and asymptotics",
+          "evidence": "Success among sorted iid Pareto lengths in a varying-shape regime, not successive Dirichlet gaps.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-poisson-critical-window-for-triangle-formation-in-pareto-stick--8428212a7daa",
+          "material_read": "RESULT.md, offsets 0–2757",
+          "method": "Local published-record mirror",
+          "title": "A Poisson critical window for triangle formation in Pareto sticks",
+          "trigger": "Triangle-motif count in successive triples"
+        },
+        {
+          "assessment": "Different event",
+          "evidence": "No triangle among all triples of iid lengths, not the local cyclic-window intersection.",
+          "identifier_or_url": "2026/11/22/SCOPE-two-tail-triangle-free-stick-samples-a-sharp-rare-event-exponent--6f2f08f38b12",
+          "material_read": "RESULT.md, offsets 0–2773",
+          "method": "Local published-record mirror",
+          "title": "Two-tail triangle-free stick samples: a sharp rare-event exponent",
+          "trigger": "Closely indexed triangle-absence law"
+        },
+        {
+          "assessment": "Different statistic and limit",
+          "evidence": "Angle filter over all unordered point triples and a non-Gaussian spectral limit, not lengths of neighboring gaps.",
+          "identifier_or_url": "2026/10/25/SCOPE-strongly-obtuse-inscribed-triangle-counts-exact-variance-and-a-t--8db816b9ed60",
+          "material_read": "RESULT.md, offsets 0–4592",
+          "method": "Local published-record mirror",
+          "title": "Strongly obtuse inscribed triangle counts: exact variance and a limit law",
+          "trigger": "Same circle and triangle-count vocabulary"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, Finding and cyclic overlap calculations",
+        "Mirakhmedov, arXiv:2404.09581, general successive-spacing sums"
+      ],
+      "rationale": "The motif uses natural consecutive positions of uniform circular spacings. A researcher calibrating local cluster counts needs a joint probability, not just the marginal or asymptotic variance: the conditional chance of a third success after two is 232/525 rather than 1/4, a concrete higher-order effect. The pairwise probabilities additionally give the exact variance inflation and its small-cycle exceptions. Value rests on these exact local quantities, not on a new CLT or a claim about all triangle statistics.",
+      "residual_risks": [
+        "No exact full count distribution, broad concentration result, or empirical application is established or needed for the stated calibration."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

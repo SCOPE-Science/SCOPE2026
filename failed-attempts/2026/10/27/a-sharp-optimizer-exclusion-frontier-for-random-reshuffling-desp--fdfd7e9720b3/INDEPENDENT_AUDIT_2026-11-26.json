@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:02:18.781429Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For r=1−η in (0,1), an epoch composes to r²x±η², so the RR and IID second moments are geometric sums with the same numerator factor 1−r^(4m), giving η²/(1+r²) for every m≥1. The respective signed affine maps cover their invariant convex hulls exactly at contraction ≥1/2. Below that contraction the strict first-level separation proves the RR gap and the separated cylinders give the stated dimension. The worst cancellation of all but the leading RR sign realizes g+η²q^m/(1−q), so g is the limiting uniform forbidden radius. For q≥1/2 weak convergence and full invariant support rule out any uniform open hole at all finite epoch endpoints. At η=1/2 the finite IID sign histories biject with odd numerators over denominator 2^(2m); RR is IID conditional on opposite signs within each epoch (probability 2^(−m)), so TV is 1−2^(−m). The half-step stationary laws are singular by dimension 1/2 versus uniform Lebesgue density, not merely by lack of a shared neighborhood. At other comparison steps full IID support does not imply absolute continuity. Independent dyadic checks through eight epochs replay with `python /workspace/replay_frozen_reviews.py 5`; they do not establish the infinite-time claims.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "ec57811b8333 covers 0<h<2, with the sharp gap on (1−1/√2,1+1/√2), including both uniform boundary laws. 4354fb22c6bf compares terminal second moments over arbitrary epoch horizons on common-Hessian quadratics. Ying et al. give the quadratic steady-state MSD; Liu treats an averaged iterate and a smaller step range."
+        ],
+        "reasoning": "The wider exact support statement dominates the frozen RR support claim. The averaged-rate and variance papers are not evidence for support by themselves.",
+        "searches": [
+          "Resultary ec57811b8333 stable-step interval",
+          "Resultary 4354fb22c6bf common Hessian terminal-iterate risk",
+          "Ying et al. arXiv:1803.07964v2 §V-A; Liu arXiv:2606.32005v1 Theorem 2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, rr_support_check.py (read only)",
+        "Resultary ec57811b8333, 4354fb22c6bf, 402dad3ef2fc",
+        "arXiv:1803.07964v2, 2606.32005v1, 2311.11841v4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Truncating the known signed series leaves leading term η² and a possible cancelling tail at most η²(q−q^m)/(1−q). IID has the same signed series with contraction 1−η, so the same interval test applies. At the half-step each fixed-length binary path is encoded injectively, and each epoch imposes one independent fair constraint on that path."
+        ],
+        "reasoning": "Subtraction gives the finite gap, two elementary series variances give the all-epoch ratio, and TV of a measure and its conditioning on an event is one minus the event probability. At the half-step uniform IID versus the known dimension-1/2 RR support immediately gives singularity. These consequences do not require a new law, estimate or classification beyond the covered model.",
+        "searches": [
+          "ec57811b8333 Finding and finite affine map",
+          "4354fb22c6bf Finding and quadratic comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier proof uses h=ηa, curvature a=1 and center b=1 for the frozen example; its r=(1−h)² and δ=h²b are the frozen q and η². Starting at epoch k or ending epoch k−1 is the same observation phase."
+        ],
+        "reasoning": "These are identical models and invariant supports under relabeling, not merely nearby step thresholds.",
+        "searches": [
+          "Resultary ec57811b8333, scalar equal-curvature RR stationary support",
+          "Bernoulli-convolution coding of the two quadratic maps"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact gap constant and dimension are spelled out in ec57811b8333. The exact half-step example in 4354fb22c6bf has RR versus IID squared errors 1/16 versus 5/16 after one epoch; 402dad3ef2fc covers the one-epoch risk threshold with two components. No separate earlier exact all-epoch TV statement was identified."
+        ],
+        "reasoning": "There is a direct exact indexed support match and exact risk overlap, but not a demonstrated textual match for the TV formula; the latter is assessed by implication.",
+        "searches": [
+          "Resultary optimizer exclusion and Cantor-to-interval RR transition",
+          "Resultary 4354fb22c6bf; 402dad3ef2fc",
+          "Resultary exact half-step finite total variation"
+        ]
+      },
+      "rationale": "The principal optimizer-exclusion frontier is documented for exactly the same quadratic RR family with a strictly larger domain in Resultary ec57811b8333. The finite no-return, IID support comparison and stationary singularity follow directly from its explicit recursion and the same elementary signed-series facts, while the risk comparison has additional exact prior coverage. No earlier explicit finite TV number was located, but the TV value itself is a mechanical conditioning and injectivity calculation on the already specified path model; this is not a new distributional frontier.",
+      "residual_risks": [
+        "The finite TV number may have other exact presentations; no priority claim is made for it. Failure rests on verified earlier coverage of the main frontier and mechanical consequences, not on an unavailable source."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct, stronger coverage",
+          "evidence": "Exact epoch recursion, Bernoulli convolution, RR support, gap including its endpoints, dimension and two boundary steps for the stable range 0<h<2.",
+          "identifier_or_url": "ec57811b8333",
+          "material_read": "Finding and assumptions (offsets 0–3994), proof and prior-work discussion (3994–9577)",
+          "method": "Resultary local-mirror passages",
+          "title": "Random reshuffling has a Cantor-to-interval stationary-support transition",
+          "trigger": "Exact support frontier and same scalar objective"
+        },
+        {
+          "assessment": "Exact related risk comparison",
+          "evidence": "Terminal risk comparison for common Hessian; the two scalar shifted quadratics at half-step have ratio 1/5 in the one-epoch example.",
+          "identifier_or_url": "4354fb22c6bf",
+          "material_read": "Finding, extraction offset 0 and scalar half-step example",
+          "method": "Resultary local mirror",
+          "title": "A sharp overshoot boundary for terminal random reshuffling on common-Hessian quadratics",
+          "trigger": "Possible same-example RR and IID all-horizon risk comparison"
+        },
+        {
+          "assessment": "One-epoch related coverage only",
+          "evidence": "Exact one-epoch quadratic RR–IID variance difference and cutoff, not a support or law comparison.",
+          "identifier_or_url": "402dad3ef2fc",
+          "material_read": "Finding, extraction offset 0",
+          "method": "Resultary local mirror",
+          "title": "A sharp one-epoch variance reversal threshold for two-component quadratics",
+          "trigger": "Two-component RR and IID comparative moments"
+        },
+        {
+          "assessment": "Mean-square coverage, not stationary support",
+          "evidence": "Exact quadratic steady-state MSD expression.",
+          "identifier_or_url": "https://arxiv.org/html/1803.07964v2",
+          "material_read": "§V-A, Eq. (59), extraction near offset 41000",
+          "method": "Primary OA HTML",
+          "title": "Stochastic Learning under Random Reshuffling with Constant Step-sizes",
+          "trigger": "Original RR quadratic stationary analysis"
+        },
+        {
+          "assessment": "Different statistic and smaller steps",
+          "evidence": "Averaged iterate with η_k≤1/(6 Lhat); no endpoint law or support classification in the theorem.",
+          "identifier_or_url": "https://arxiv.org/html/2606.32005v1",
+          "material_read": "§4.2 Theorem 2, extraction offset 31213",
+          "method": "Primary OA HTML",
+          "title": "Random Reshuffling Dominates Stochastic Gradient Descent",
+          "trigger": "Possible broader RR dominance statement"
+        },
+        {
+          "assessment": "Context only; not a whole-document exclusion",
+          "evidence": "High-probability nonconvex ergodic complexity and stopping, rather than the stationary scalar support in the abstract.",
+          "identifier_or_url": "https://arxiv.org/html/2311.11841v4",
+          "material_read": "Abstract, extraction offset 0",
+          "method": "Primary OA HTML",
+          "title": "High Probability Guarantees for Random Reshuffling",
+          "trigger": "Named higher-probability comparator"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "A strong moment improvement coexisting with a hole at the optimizer is useful, but the exact support phenomenon on this very example is already established. The surviving quantitative TV line is the elementary probability of the sampling constraint under binary injectivity; the frozen claim does not establish an independently useful new TV fact that goes beyond this mechanical recoding. No repair is justified by isolating that line.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Scientific review: Parity-filtered detuning resonances for single-sink cooling of an XX ring
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem treats every finite ring length, initial mixed state and positive sink rate. Site-lowering dissipates total excitation monotonically. The explicit Jordan–Wigner boundary flux \(q=(-1)^{p-1}\) has been independently checked in every particle sector of rings of length 4–8. The exterior-algebra lemma derives *all*-excitation dark-state absence from \(\dim D_q<p\), without presuming nondegenerate many-body energies. The Chebyshev boundary equations yield exactly the stated detunings and prove the at-most-one dark one-body dimension away from zero. The invariant-subspace criterion then proves global asymptotic cooling. The packaged program returned `VERIFY_OK 369`; finite tests are supplements, not an infinite proof.
+## correctness
 
-## Originality — PASS, qualified
-The first motivating public source [1] already proves a general local-cooling attractivity theorem and zero-forcing sufficiency, so neither is claimed as new. The 2011 Kalman/zero-forcing literature and 2010 one-node-control symmetry analysis already recognize the algebraic spectral overlap obstruction. The present claim is the **explicit exact parity-filtered resonant set and all-excitation global Lindblad classification** for a single sink and adjacent defect on every periodic XX ring. The inspected primary text and specific keyword/alias, published-record and implication searches did not reveal an equivalent statement. Priority still risks earlier implicit spectral specializations or unindexed material.
+PASS
 
-## Value — PASS
-One site in a cycle is not graph-theoretically zero forcing, leaving a natural elementary topology on which graph sufficiency cannot decide preparation. This theorem resolves the *entire real detuning axis for every ring length* rather than furnishing a perturbative sufficient condition. The even-index spectral resonances are a substantive physical/auxiliary parity distinction: they survive as one-body twisted modes but cannot populate a many-body dark state. This provides an exact, experimentally interpretable rule for single-site field choice and a nontrivial all-size example of sufficient but nonnecessary zero-forcing geometry.
+For the final claim in /workspace/repairs/2/RESULT.md. The frozen iff set is correct, but the unqualified Finding sentence excluding a physical dark sector at even-index roots is false if the root is zero. For n=6, k=2 gives δ=0, and the antiperiodic orbitals sin(πj/6) and sin(3πj/6) are independent eigenvectors vanishing at site 0 (energies √3 J and 0). Their wedge is a physical p=2 dark eigenvector, since its boundary sign is minus. The replacement limits the exclusion to nonzero roots, exhibits that zero-detuning boundary case, and spells out the invariance argument rather than claiming pointwise strict Lyapunov decrease. Independently, monotonicity of tr(Nρ) implies each limit state's forward orbit is supported in ker σ⁻_0; there the dissipator vanishes, and an excited component of the invariant span of the orbit's supports would give a fixed-number dark H-eigenvector. At fixed p the hop across the cut has the wedge sign (−1)^(p−1), internal hops have sign plus, and site 0 lowering is contraction. A dark eigenvector is annihilated by contractions with the whole h_q-cyclic span of e_0 by covariance of exterior powers, so it lies in the pth wedge of that span's complement even for degenerate many-body energies. The endpoint recurrence gives U_(n−2)=−q and U_(n−1)=η U_(n−2) with η=δ/J and at λ/(2J); Cassini forces U_(n−3)=0 if η≠0. At those roots η=λ/J=2cos(kπ/(n−2)) with q=(−1)^(k+1), and each fixed nonzero η gives at most one dark orbital. Only p=1 and odd k can therefore obstruct cooling away from zero. The periodic sine eigenvector separately obstructs cooling at zero for every n≥4. An independent direct-spin exact check found sector dark dimensions [0,0,0,0,0] for n=5, η=−1 and [1,0,0,0,0] for η=+1 (with an auxiliary antiperiodic orbital at −1). Replay: python3 /workspace/branches/728d4a19-01cd-4cc1-82e5-e69ab682e23e/direct_spin_n5.py. This checks dark subspaces, not the time-dependent Lindblad solution. The frozen verifier was read, not executed.
 
-## Closest literature and limitations
-[1] Beer and Burgarth (2026), arXiv:2609.23960v1; [2] Burgarth et al. (2011), arXiv:1111.1475; [3] Wang, Pemberton-Ross, Schirmer (2010), arXiv:1012.3695. This is a theorem only for uniform XX hopping, one adjacent detuning, one local Markovian loss, finite cycles and unbounded cooling time. No Liouvillian-gap lower bound, interactions, or multi-defect conclusion is asserted. No claim of independent validation or established publication priority is made.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+For the repaired finding, the distinguishable claim is the explicit resonance set for global trace-norm cooling of the physical periodic XX spin model, not the generic dark-state attractivity test, zero forcing, or an abstract one-body controllability criterion. The closest inspected claims have different hypotheses or do not supply the parameter classification. The repaired zero-detuning example qualifies the assertion; it is not a separate novelty claim.
+
+## value
+
+PASS
+
+This gives an exact all-detuning cooling rule on the natural simplest periodic topology missed by singleton zero forcing. It explains why an auxiliary spectral resonance need not prevent physical cooling, with the exact n=5 ±J contrast and a zero-detuning limitation. The few-body argument controls all excitation sectors, a substantive improvement over merely checking one-body overlap or generic detunings.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

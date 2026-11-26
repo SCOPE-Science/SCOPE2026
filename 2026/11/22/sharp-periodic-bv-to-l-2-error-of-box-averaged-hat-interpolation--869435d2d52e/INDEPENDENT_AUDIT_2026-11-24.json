@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T13:56:20.184376Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, §§1–5; VERIFICATION.md and verify.py inspected, not executed",
+        "Independent exact replay: python3 -B /workspace/bounded_review_checks.py interpolation (SymPy), integrated positive overlaps and reconstructed Bernstein certificates"
+      ],
+      "rationale": "The Jordan parts of a nonconstant periodic derivative both have mass V/2. A probability coupling represents f, modulo constants, as V/2 times a mean of oriented arc indicators. Thus the squared operator constant is one quarter of the maximal squared arc residual. After rescaling to cell length one and passing to the shorter arc, the complementary gap is ≥N/2≥3. The two residual layers are within 3/2 of their jumps, so the squared error is h times the line integral Q=∥e_s−e_t∥², without wrapping interference. Independent symbolic integration gives J(u)=(6u³−5u²+1)/6 on the first half-cell and J(1−u)=J(u), with J≤1/6. In a single half-cell the bound d−d²/3≤5/12 follows by integrating the one nonzero nodal average and its hat. In a cell-straddling-midpoint arc the exact formula is d−7d²/12−(d−1/4)(a−b)², where a,b are lengths on the two halves. If d≤1/4 use ∣a−b∣≤d to bound by 17/64; otherwise the unique maximum is at d=6/7 and a=b, giving Q=3/7. For different cells, only overlap between the two jumps can increase Q. Cell separation k≥3 gives no such overlap, while k=2 gives at most 1/24, contributing at most 1/12 to Q. At k=1, the ordered half-cell choices give F(s), the no-overlap bound, K(s,v), or G(v) as in the frozen proof: the overlap integrals and exact Bernstein minima 1/672, 47/1792, 47/1792, 1/672, 1/1344 were independently verified from the step residuals. All separated cases are strictly suboptimal. In the Hilbert-space mean, equality requires the residual to be almost surely a fixed maximal vector (use the variance identity). For the maximizing short arc the essential closed support spans three consecutive cells, with no missing interior interval; distinct cell translates have different supports, while complements reverse sign. Thus only one ordered jump pair can occur in an equality coupling, yielding exactly the prescribed arcs modulo affine changes. Squared error of the maximizing arc is 3h/7 and V=2, giving 3/(28N).",
+      "residual_risks": [
+        "The proof uses centered full-width averages, real BV with full circular variation, and N≥6. It does not decide meshes below six or other widths or norms."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3.9 gives general variation and interpolated L^q estimates without sharp periodic phase information. Costarelli–Vinti study convergence orders and function classes; Sande–Manni–Speleers give Sobolev L²-projection estimates in derivative norms."
+        ],
+        "reasoning": "Rate or nonsharp approximation theorems do not determine the best norm and equality cases. An orthogonal projection has a different residual from the prescribed averaging interpolant.",
+        "searches": [
+          "arXiv:1211.1069v1 Theorem 3.9",
+          "Costarelli–Vinti DOI 10.1007/s00041-022-09943-5, pp. 1–3",
+          "arXiv:1810.13418v5, p. 7"
+        ]
+      },
+      "checked_sources": [
+        "Actual mirror record 82353e3e1dc4 and related Resultary summaries",
+        "Nochetto–Salgado arXiv:1211.1069v1; Costarelli–Vinti DOI 10.1007/s00041-022-09943-5",
+        "Nagler–Cerejeiras–Forster arXiv:1402.2403v1; Sande–Manni–Speleers arXiv:1810.13418v5 abstract and p. 7; Sathish Kumar–Devaraj arXiv:1709.03274 abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The line problem allows an isolated jump of variation one. A periodic derivative must balance positive and negative mass. Its sharp norm reduces instead to a diameter of paired step residuals, depending on their signed overlap.",
+          "Even applying L¹/L∞ interpolation to the line norms gives the coefficient product 9h/32 in the squared estimate, not 3h/28. The cell calculation and separated-cell exclusion supply information absent from those endpoint bounds."
+        ],
+        "reasoning": "The reduction alone does not imply the value: the overlap fixes both the sharp number and the unusual maximizing pair. In particular even the best single-jump L² residual does not locate the worst two-jump arc.",
+        "searches": [
+          "82353e3e1dc4, proof 'Reduction to a single jump'",
+          "arXiv:1211.1069v1 Theorem 3.9 and frozen RESULT.md proof §§1–5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2D periodic centered box Q1 construction in (2.2), (3.1)–(3.4) specializes in one coordinate to the same average followed by hat reconstruction.",
+          "Costarelli–Vinti treat saturation and Favard classes in real-line Lᵖ, and Nagler–Cerejeiras–Forster use Greville point values on an interval; neither inspected formulation gives the exact periodic two-jump L² optimization."
+        ],
+        "reasoning": "Operators with the same or related sampling form must still be compared on the stated domain, norm, and sharp equality assertion. Exact operator equivalence to the Q1 construction is credited without transferring an unrelated norm estimate.",
+        "searches": [
+          "Nochetto–Salgado arXiv:1211.1069v1 §§2–3, centered averaging and Q1",
+          "sampling Kantorovich linear B-spline hat centered cell averages sharp L2 approximation error periodic bounded variation 3/28 two jumps Steklov interpolation",
+          "Resultary: box-averaged hat interpolation of BV functions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "At unit bandwidth ratio, the exact real-line L¹/L∞ frontier has C₁=1/2 and C∞=9/16, attained by single jumps; that record explicitly excludes a periodic assertion.",
+          "Related indexed summaries concern boxcar smoothing, twice-centered Steklov smoothing, two-moment kernels or Bernstein–Kantorovich BV-to-L¹; no corresponding exact 3/(28N) table was verified for this periodic hat kernel."
+        ],
+        "reasoning": "The strongest exact table involves the same local reconstruction but different output functionals and admissible derivative masses. Its endpoints do not identify the periodic L² interaction.",
+        "searches": [
+          "Resultary: exact box-averaged-hat constants and periodic BV-to-L² sharp arcs",
+          "Indexed record 82353e3e1dc4, actual Finding and scope"
+        ]
+      },
+      "rationale": "The periodic centered-box nodal interpolation construction is prior art, and the strongest related indexed result gives exact single-jump real-line L¹/L∞ constants for the same averaging family. Neither that result nor the inspected Q1, sampling-Kantorovich or spline-approximation statements establish the periodic BV-to-L² norm and all its maximizing arcs. The surviving distinct content is the sharp two-jump interaction, constant and phase locations, not the operator construction or a general BV representation principle.",
+      "residual_risks": [
+        "The 2015 journal version DOI 10.1090/mcom/2942 was not fully inspected; the lawful open 2012 preprint was inspected for the decisive comparison.",
+        "The additional indexed boxcar/Steklov and other kernel comparisons are summary-level. No comprehensive historical priority claim is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same local family, different norms and line-domain hypothesis",
+          "evidence": [
+            "C₁, C∞ exact piecewise formulas in bandwidth ratio; step functions attain each sharp bound, and no periodic assertion is made."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-sharp-l-1-l-infty-error-frontier-for-box-averaged-hat-interpolat--82353e3e1dc4/RESULT.md",
+          "material_read": "Finding, assumptions, scope and single-jump reduction; mirror offsets 0–2750",
+          "method": "Local semantic index and actual mirrored result",
+          "title": "Sharp L¹–L∞ error frontier for box-averaged hat interpolation of BV functions",
+          "trigger": "Strongest indexed match: same operator with an exact family of sharp constants"
+        },
+        {
+          "assessment": "Operator equivalence upon 1D specialization; inspected theorem does not give sharp periodic L² constant and equality arcs",
+          "evidence": [
+            "Uses centered box averages at nodes and continuous Q1 reconstructions; approximation theorem has general variation/L^q estimates."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1211.1069v1",
+          "material_read": "(2.2) p. 2, (3.1)–(3.4) p. 3 and Theorem 3.9 p. 5; offsets 7797, 9370, 17650",
+          "method": "Lawful open preprint passages",
+          "title": "A Total Variation Diminishing Interpolation Operator and Applications",
+          "trigger": "Primary prior construction of centered box-averaged Q1 interpolation"
+        },
+        {
+          "assessment": "Different approximation question; inspected text concerns asymptotic convergence and class identification in real-line Lᵖ",
+          "evidence": [
+            "Saturation is defined by big-O/little-o approximation orders as w→∞; bandlimited kernels are used for the Favard-class treatment."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00041-022-09943-5",
+          "material_read": "Open publisher PDF abstract and Introduction pp. 2–3, especially the definition of saturation in (I); offsets 1420–8314",
+          "method": "Focused primary search and lawful OA PDF passages",
+          "title": "Approximation Properties of the Sampling Kantorovich Operators: Regularization, Saturation, Inverse Results and Favard Classes in Lp-Spaces",
+          "trigger": "Likely alias in sampling literature for local-average interpolation"
+        },
+        {
+          "assessment": "Different sampling operator",
+          "evidence": [
+            "Normalized B-spline operator on [0,1] uses Greville point samples, not periodic centered boxes."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1402.2403v1",
+          "material_read": "Abstract p. 1 and operator definition p. 3; offsets 0 and 4900",
+          "method": "Lawful open primary passages",
+          "title": "Lower bounds for the approximation with variation-diminishing splines",
+          "trigger": "Variation-diminishing spline approximation compared by the frozen record"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, jump reduction, continuum maximum and equality classification",
+        "arXiv:1211.1069v1 and record 82353e3e1dc4 for approximation context"
+      ],
+      "rationale": "Centered local averaging and linear-hat reconstruction are natural in TV-diminishing approximation. For the standard full-width choice, the exact circular BV-to-L² norm is a quantitative benchmark. Classifying the equality arcs reveals a specific effect of the interaction of two jumps: the worst case is concentrated in one cell but neither jump is at a knot or midpoint. The result resolves this finite-phase question uniformly across all permitted mesh sizes.",
+      "residual_risks": [
+        "This is a benchmark for one standard operator, not an optimization over bandwidths, alternate reconstructions or boundary treatments."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

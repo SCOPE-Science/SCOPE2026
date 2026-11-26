@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:46:12.629677Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a point at coordinate t on edge xy the distance from vertex v is min(d(v,x)+t,d(v,y)+1−t). Write the radius as s+δ, s integral. When δ<1/2 the farther endpoint cannot contribute via vertices at distance s there, and vertices within s−1 there are within s of the other endpoint. Hence distance-s vertex balls generate. When 1/2≤δ<1 the allowed vertices belong to the union of the two distance-s balls, and the midpoint realizes that whole union. At scale 3 the unions are exactly V minus an off-diagonal cross pair. This is the join of two simplex boundaries with only the interiors of the n diagonal facets omitted: each codimension-one face of an omitted facet is also in an off-diagonal facet. The pair (J,K) has n relative d-cells, d=2n−3≥3; the coherent fundamental cycle maps to the primitive diagonal. The long exact sequence gives free homology only in degree d−1, and relative cellular connectivity, Hurewicz and homological Whitehead give the wedge, not just its Betti numbers. Model the join sphere in the direct sum of two standard (n−1)-dimensional permutation hyperplanes: the diagonal permutation has determinant +1; the factor swap has determinant (−1)^(n−1). This twists the coherent relative facet permutation and descends to the stated integral quotient and traces. The quotient's S_n coinvariants are Z/n rather than zero for the augmentation sublattice (all ordered differences have the same coinvariant class and e_i−e_k=(e_i−e_j)+(e_j−e_k)). At scale 4 the distance-two balls miss only the matched partner, giving the simplicial boundary; at scale 5 a midpoint sees all vertices, giving a simplex. This checks n=3 and the real half-open endpoints. The wedge is nonequivariant. The finite Python tests are not needed for these integral or all-order conclusions.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The graph Čech lemma supplies integer-scale generators for any such graph, not crown topology. The non-cover theorem bounds collapsibility by independent domination, without the claimed classification. The complete multipartite classification yields a contractible scale-three nerve for K_(n,n)."
+        ],
+        "reasoning": "The generator theorem is a method; the scale-three join with deleted facets and its oriented quotient require additional arguments. The deleted matching violates the intact multipartite hypothesis, and its effect is already visible on the facets.",
+        "searches": [
+          "arXiv:2212.05871, Lemma 2.2 and Table 1",
+          "arXiv:1904.10320, Theorem 1.3",
+          "Resultary: intrinsic graph Čech persistence of multipartite graphs, 4c8b867ce9c1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2212.05871",
+        "arXiv:1904.10320",
+        "Resultary f24d531cfed5",
+        "Resultary 4c8b867ce9c1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The closed-neighborhood stage has spheres in dimensions 2 and n−2 and different integral modules. The intact-bipartite stage at scale 3 is contractible; the non-cover theorem provides a bound rather than exact crown-specific topology."
+        ],
+        "reasoning": "Knowing stage two does not determine stage three, and the intact bipartite graph does not meet the crown's distance exclusions. The Čech lemma does make stages four and five short consequences of the crown diameter and distances; the stronger distinct contribution is the stage-three homotopy and parity-twisted integral module, not a claim to novelty for that lemma or for arbitrary graph persistence.",
+        "searches": [
+          "Resultary f24d531cfed5, Finding",
+          "Resultary 4c8b867ce9c1, Finding and Proof",
+          "arXiv:1904.10320, Theorem 1.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Choi–Kim–Park define NC(G)=Ind(G)^* and show that facets of NC(G) are complements of edges. The scale-three facets here are precisely such complements for Q_n."
+        ],
+        "reasoning": "Thus this is exactly an NC(Q_n) classification, not a different complex with the same Betti numbers. Duality could recover homology from the crown independence complex, but the inspected source does not compute its crown specialization or twisted integral lattice, and bare Alexander duality does not give the wedge homotopy.",
+        "searches": [
+          "crown graph non-cover complex homotopy; combinatorial Alexander dual of crown independence complex",
+          "arXiv:1904.10320, pp. 2 and 5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The hypercube table is for hypercubes only. The indexed crown closed-neighborhood result gives scale-two homotopy and different modules; the intact complete multipartite record contains the different K_(n,n) stage. The assigned record is an indexed self-match."
+        ],
+        "reasoning": "The inspected classifications do not contain the exact crown stage-three row or its integral lattice; matching the graph but not the scale is not a hit.",
+        "searches": [
+          "arXiv:2212.05871, Table 1",
+          "Resultary: crown graph intrinsic Čech scale 3 missing matching; closed-neighborhood crown symmetry f24d531cfed5; 4c8b867ce9c1"
+        ]
+      },
+      "rationale": "The known graph Čech generator lemma and established non-cover construction are inputs, not new. The exact specialization at scale three, notably the homotopy and integral module of the crown's non-cover complex, survives the comparisons. The closest same-graph result concerns scale two; the closest full-filtration result assumes intact complete bipartite adjacency and gives a different scale-three complex.",
+      "residual_risks": [
+        "Bounded inspection does not rule out an unindexed calculation of the Alexander dual/non-cover complex of the crown.",
+        "The analysis does not identify equivariant homotopy or scale-two inclusion maps."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides the credited generator lemma, not a crown computation",
+          "evidence": "Integer odd edge unions and even vertex balls, constancy at floor(r), and a table for hypercubes.",
+          "identifier_or_url": "arXiv:2212.05871",
+          "material_read": "Lemma 2.2, PDF p. 4, and Table 1, p. 6",
+          "method": "Open-access PDF offsets 13783 and 24923",
+          "title": "Čech complexes of hypercube graphs",
+          "trigger": "General Čech generator lemma and possible exact graph table"
+        },
+        {
+          "assessment": "Exact equivalent construction; no exact crown classification in those passages",
+          "evidence": "Alexander dual of independence, complements of edges as facets, and a collapsibility bound in terms of independent domination.",
+          "identifier_or_url": "arXiv:1904.10320",
+          "material_read": "Definition p. 2, Theorem 1.3 p. 4 and facet description p. 5",
+          "method": "Open-access PDF offsets 3888, 7968 and 9890",
+          "title": "Collapsibility of non-cover complexes of graphs",
+          "trigger": "Equivalent non-cover complex"
+        },
+        {
+          "assessment": "Different stage",
+          "evidence": "Closed-neighborhood complex is the even scale-two nerve; its dimensions and modules do not identify the next stage.",
+          "identifier_or_url": "Resultary:f24d531cfed5",
+          "material_read": "Finding and prior-work discussion",
+          "method": "Local mirror of RESULT.md, offsets 0 and 8380",
+          "title": "Closed-neighborhood homotopy and symmetry characters of crown graphs",
+          "trigger": "Same graph and homotopy plus integral symmetry"
+        },
+        {
+          "assessment": "Different adjacency hypothesis",
+          "evidence": "For K_(n,n), scale two gives a wedge of (n−1)^2 two-spheres, and scale three is contractible. Q_n deletes the matched edges.",
+          "identifier_or_url": "Resultary:4c8b867ce9c1",
+          "material_read": "Finding and proof for complete multipartite graphs",
+          "method": "Local mirror of RESULT.md, offset 0",
+          "title": "Complete intrinsic graph Čech persistence of multipartite graphs, including their symmetry modules",
+          "trigger": "Nearby graph family and same stage and invariant"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Removing a matching from an intact complete bipartite graph changes a contractible stage into a highly connected sphere wedge with a nontrivial integral permutation quotient. This is a complete and uniform comparison for a natural sparse graph defect, and the integral answer contains information not captured by just the character or wedge multiplicity. The next two stages put the exception in the filtration without claiming a calculation of the earlier inclusion maps.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

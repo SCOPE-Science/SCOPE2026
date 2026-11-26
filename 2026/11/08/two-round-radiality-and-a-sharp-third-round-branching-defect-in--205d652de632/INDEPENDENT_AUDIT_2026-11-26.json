@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T13:19:48.500483Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof; VERIFICATION.md; check.py (inspected, not run)",
+        "Independent replay: python /workspace/reproductions/3.py (SymPy)"
+      ],
+      "rationale": "After one round an edge can only span original distance at most two. On a tree, at distance 2 the same initial witness guarantees both offers; at distance 3 exactly two independent first-round chords can make the pair eligible; at distance 4 exactly the midpoint can serve and both of its first-round chords are required. These cases give weights 1, 2p-p^2, 2p^2-p^3, p^3 and 0 beyond 4. In the two five-vertex trees, presample common pair coins. Unless both ac and bd fail twice, the third-round eligibility for absent ad is already guaranteed in both trees. On the joint failure event, of probability (1-p)^4, path x has no edge to d after round two, while branch x can serve precisely when ax succeeds by round two and the xc first-round and xd second-round coins succeed. The probabilities multiply and a further p is needed for ad. The exact path probability and difference (including 3/512 at p=1/2) were independently reconstructed by counting histories by successful/failed offer counts. Minimality follows since distances 1 and 2 are radial in every round and the only larger distance on at most four tree vertices is 3 on P4. For the sparse limit, the marked, induced original radius-four ball suffices for root degree after two rounds. Around one or two random distinct roots these fixed-radius neighborhoods converge to one or two independent PGW(c) trees, with fresh pair marks; for two roots this follows by truncating explorations to bounded size before taking n large. Truncation gives vanishing variance for the empirical mean of bounded degree observables. Breadth-first domination by four generations of Bin(n,c/n) offspring bounds the second moment of the original ball size uniformly, allowing removal of truncation. The expected depth-d population is c^d, giving the polynomial for 2|E|/n, the mean degree, not the unscaled edge fraction.",
+      "residual_risks": [
+        "The counterexample does not classify all third-round effects. Sparse convergence is for fixed c and p in the stated regime. The all-p verification covers the specified exact finite comparisons, not the random-graph proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Talukdar's fixed composition theorem transfers local convergence in probability. The static closure paper treats exact small-motif quantities for a single fixed-backbone construction."
+        ],
+        "reasoning": "Local convergence gives a distributional mechanism and does not evaluate the root degree expectation or a distance-specific finite-tree probability. One-round motif counts do not establish either later-round claim.",
+        "searches": [
+          "Talukdar, arXiv:2610.39535v1, Corollary 4.1, p. 9",
+          "Cirigliano–Castellano–Baxter–Timár, arXiv:2311.05312v2, pp. 1–2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary local index",
+        "arXiv:2610.39535v1 Cor. 4.1",
+        "arXiv:2311.05312v2 pp. 1–2",
+        "DOI 10.3390/complexities2020013 landing information only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Talukdar supplies local convergence for fixed repetitions, not the weights w_d(p). The sparse polynomial follows from the evaluated kernel and PGW generation means, after a uniform-integrability step."
+        ],
+        "reasoning": "The polynomial is a consequence of the evaluated kernel, not a separate breakthrough in local-limit theory. The kernel and the exact third-round branching event are additional model-specific inputs not supplied by the inspected general transfer or static analysis.",
+        "searches": [
+          "Talukdar Cor. 4.1 against Finding part 3; arXiv:2311.05312v2 against parts 1 and 2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "205d652de632 is the exact self-hit. Distinct same-day hit f6bc9067792d concerns intrinsic distance moments in metric trees, not closure probabilities. The 2023/24 primary paper defines static closure on a fixed backbone."
+        ],
+        "reasoning": "On a tree, one-shot wedge closing agrees with pair closing on first-round eligible pairs, but on later rounds multiple witnesses can refer to the same unordered pair. A fixed-backbone static model is not two successive rounds on updated inputs.",
+        "searches": [
+          "Resultary: iterated stochastic triadic closure, tree distance/radiality, branching defect, sparse mean degree; primary inquiry on the same terms",
+          "arXiv:2311.05312v2, one-shot triadic closure"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The only matched indexed polynomials are from the bound record. The distinct distance-moment entry addresses nine-vertex metric trees and another statistic."
+        ],
+        "reasoning": "There is no applicable retrieved numerical table for the symbolic all-p and all-tree claims; exact finite coefficients were compared to indexed findings, not treated as original merely because verified.",
+        "searches": [
+          "Resultary for the radial kernel, third-round defection and sparse closure density polynomial; bound entry 205d652de632 and nearest distinct f6bc9067792d"
+        ]
+      },
+      "rationale": "The model and local-limit transfer are prior. The retrieved comparisons do not cover the evaluated two-round radial kernel, the minimal exact third-round defect, or the polynomial value of the limiting mean degree. Credit the local-convergence mechanism separately from the new computation.",
+      "residual_risks": [
+        "Full-text overlap with DOI 10.3390/complexities2020013 remains unresolved. Supplementary passages outside the inspected Talukdar corollary and unlocated exact iterated-closure calculations remain a risk. The broad search yielded no useable additional evidence, not evidence of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers repeated local convergence under its hypotheses, not the evaluated statements in the inspected passage",
+          "evidence": [
+            "Fixed composition of T_phi_i preserves local convergence in probability under Theorem 4.1's assumptions"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.39535",
+          "material_read": "Corollary 4.1, PDF p. 9, text offset 29495",
+          "method": "OA PDF passage inspection",
+          "title": "Local Convergence of Triadic Closures of Sparse Random Graphs",
+          "trigger": "Same closure transformations and strongest fixed-round limit source"
+        },
+        {
+          "assessment": "One-shot static closure, not iterated pair eligibility on a modified graph",
+          "evidence": [
+            "The abstract specifies static closure on a fixed backbone; p. 2 discusses the fraction of existing triads closed."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2311.05312",
+          "material_read": "v2 pp. 1–2, offsets 0 and 11965",
+          "method": "OA PDF passage inspection",
+          "title": "Strongly clustered random graphs via triadic closure: An exactly solvable model",
+          "trigger": "Exact expected motif counts on locally tree-like graphs"
+        },
+        {
+          "assessment": "No determination of detailed overlap from the title or landing page",
+          "evidence": [],
+          "identifier_or_url": "https://doi.org/10.3390/complexities2020013",
+          "material_read": "Landing information only; full text not obtained",
+          "method": "Lawful OA and identified full-text retrieval attempts",
+          "title": "Strongly Clustered Random Graphs via Triadic Closure: Degree Correlations and Clustering Spectrum",
+          "trigger": "Potentially overlapping exact mean-degree calculations"
+        },
+        {
+          "assessment": "One self-hit; distinct hit is about distance moments, not stochastic closure",
+          "evidence": [
+            "f6bc9067792d uses a three-point moment to tell apart intrinsic unit-edge metric-tree distance distributions."
+          ],
+          "identifier_or_url": "Resultary/2026: 205d652de632, f6bc9067792d",
+          "material_read": "Indexed findings; frozen exact Finding for self-hit",
+          "method": "Local Resultary query and frozen statement inspection",
+          "title": "Resultary tree/closure findings",
+          "trigger": "Closest indexed matches"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding parts 1–3; Talukdar Cor. 4.1"
+      ],
+      "rationale": "The exact radial law explains when backbone distances alone suffice, while the minimal third-round example identifies exactly when this reduction fails and why branching matters. The evaluated two-round limit supplies a macroscopic benchmark not furnished by distributional local convergence alone.",
+      "residual_risks": [
+        "No all-tree radius-three classification or denser-regime limit is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

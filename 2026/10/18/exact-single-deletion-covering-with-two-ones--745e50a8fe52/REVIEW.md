@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Three insertion sites give three consecutive residue classes for each two-one output. Three candidate supports give all residues for each one-one output (with an explicit length-three boundary case). The all-length lower bound uses a nonnegative rational function on ternary simplex points; interior and boundary inequalities are verified algebraically and its sum is strictly greater than the asserted optimum minus one. The standalone checker independently evaluated exact deletion balls and rational inequalities for 58 block lengths. No finite extrapolation is needed.
+## correctness
 
-**Originality — PASS under examined evidence.** Lenz–Rashtchian–Siegel–Yaakobi, *Covering Codes using Insertions or Deletions*, arXiv:1911.09944, develops general unrestricted covering bounds and the weighted-covering principle, but not this exact fixed-composition theorem. Xie–Sun–Ge, *New bounds for covering codes under insertions or deletions*, arXiv:2606.15379, develops hypergraph bounds, large-alphabet asymptotics and burst covering rather than the present constant-weight-two minimum. Neither general result implies an exact fixed-weight answer merely by restriction. Relevant published numerical covering claims likewise use other alphabets or unrestricted target spaces. The main unresolved priority risk is an equivalent result under a different multiset-shadow or fixed-composition formulation.
+PASS
 
-**Value — PASS.** The restriction to two ones is the first nonconstant binary composition that produces both one-one and two-one deletion outputs. The result determines its natural exact covering invariant for every block length, provides explicit optimum codes, and derives a nontrivial dual bound sharp after integrality rather than a loose sphere-counting estimate. It connects deletion coverage to an oriented triangular lattice of monomial divisibility.
+In the linear zero-indexed model, each weight-two output has exactly the three distinct parents (a,b),(a,b+1),(a+1,b+1), so exactly one has sum 0 modulo 3. For a weight-one output at t, each of the three parents listed at RESULT.md line 27 can yield t (deleting the earlier one shifts the later one by one); the listed parent sums are consecutive including both endpoints. The residue counts are choose(N₀,2)+N₁N₂, where Nᵢ are the class sizes, giving the displayed floor. At n=3, 101 covers all three outputs. For the lower bound, the gaps identify weight-two deletion with decrementing one positive coordinate. At v=−1/2 the asserted q=q₀−r is nonnegative: for zero, one or two vanishing coordinates the respective lower bounds are 1/12, 1/3−1/24, 7/12−5/24; at the origin q=1/3. In an interior input the three q₀ descendant weights sum to 1 by v^(s−1)+2v^s=0. If one input coordinate vanishes, the excess over 1 is [v^(b−1)+v^(c−1)]/12 and each of the two corrections contains the corresponding positive part; for two zero coordinates the sole descendant has weight at most 5/6. To sum q₀, count d−s occurrences of each fixed coordinate s and use ∑(d−s)v^s=d/(1−v)−v(1−v^d)/(1−v)² for s=0,…,d−1. For r, sum the six ordered pairs of distinct face/coordinate labels: each contributes ∑max(v^s,0)/12, including corners with multiplicity. The correction is <2/3 and the q₀ deficit from N/3 is ≤5/18. Thus any cover has integer size strictly greater than N/3−1, hence at least floor(N/3). This verifies the universal certificate in RESULT.md lines 35–71. The supplied rational script and recorded finite output were inspected, not independently executed.
 
-Scientific limits: the theorem does not give unrestricted deletion covering numbers, higher-weight analogues, or multiple-deletion analogues. Historical priority remains conditional on indexed and inspected evidence.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
 
+The supported new result is the exact restricted covering minimum, with a dual certificate valid for every length. The numerical sequence is already tabulated as OEIS A001840 shifted by two, but its inspected interpretations do not give the deletion-covering inequality. A same-day indexed record on the very same weight-two inputs concerns disjoint deletion shadows, not covers. The closest inspected general deletion-covering results concern unrestricted strings rather than the attainable fixed-weight output universe.
+
+## value
+
+PASS
+
+The model is a natural constrained deletion-covering problem: cover every attainable received word using as few weight-two transmitters as possible. The simple residue construction gives an optimum code, but optimality is not explained by a degree count or the already tabulated floor sequence. The explicit boundary-corrected certificate closes the all-length lower bound for a nonuniform incidence problem and gives an exact benchmark distinct from unique-decoding codes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

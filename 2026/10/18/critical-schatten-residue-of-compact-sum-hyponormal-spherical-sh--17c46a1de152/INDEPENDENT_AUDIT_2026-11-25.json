@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T16:38:54.572617Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Proof §§1–4",
+        "Frozen VERIFICATION.md and verify.py, inspected, not executed"
+      ],
+      "rationale": "The shift sends different basis vectors to orthogonal vectors, so the coordinate singular weights are u_k√[(α_j+1)/(k+1)]. The outgoing minus incoming squared sum is ((k+d)/(k+1))u_k²−u_(k−1)², with no incoming term at 0; multiplying by D_k gives exactly b_k−b_(k−1). Positivity and the trace identity follow by telescoping. The mean of the factor (α_j+1)/(k+1) is at least 1/d, so uniformly in degree a positive fraction exceeds 1/(2d), giving the p-summability test for every p>0. A nonzero monotone b_k is eventually bounded below, forcing divergence at and below q_d. If b_k is bounded, the degree cutoff yields O(t^(−q_d)) weights above t. If it diverges, the degrees from K/2 to K contribute order K^d weights of size at least a constant times √b_floor(K/2) K^(-(d−1)/2), violating the weak bound (noncompact coordinates already fail it). For finite positive b, scale the multiindices by L=[b(d−1)!/t²]^(1/(d−1)). Outside a bounded radial simplex there are no weights above t, and a neighborhood h<ε of the origin contributes O(ε^d L^d) lattice points. Away from it the limiting indicator is x_j>h^d with h=Σx_i; its boundary has measure zero. The volume is E[V^(d/(d−1))]/d! with V~Beta(1,d−1). Multiplying by t^q_d L^d recovers the claimed C_(d,b), including the d=2 and d=3 constants. Monotone inversion and harmonic summation give the residue. The zero tuple obeys the equivalence but is excluded from the positive constant law as stipulated.",
+      "residual_risks": [
+        "The estimate on a full block of grades uses monotonicity; without it the arbitrary-profile strong-ideal criterion, not the asserted weak equivalence, is established. Finite rational checks do not prove the Weyl limit."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 2.2 splits a compact sum-hyponormal tuple into normal and completely nonnormal quasinilpotent summands. Theorem 2.4 is an operator-norm bound with additional commutativity hypotheses.",
+          "The spherical commutator results apply to a different singular-value sequence; the Kim–Kim–Yoon theorem text was not retrieved."
+        ],
+        "reasoning": "Neither the decomposition nor the norm bound supplies a rate for coordinate singular values or detects boundedness of b_k from weak membership at q_d.",
+        "searches": [
+          "Chavan–Reza–Sequeira arXiv:2609.19287v1, Theorem 2.2",
+          "Chavan–Yakubovich arXiv:1401.0487, Theorem 4.2 and Corollary 4.5",
+          "Kim–Kim–Yoon DOI 10.1080/03081087.2020.1781040"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 17493782d86c, 7ef05af50a3c, and 0f4f9caba4ce (last catalog only)",
+        "arXiv:2609.19287v1",
+        "arXiv:1401.0487",
+        "DOI 10.1080/03081087.2020.1781040 (bibliographic only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A known positive constant-profile counting formula would extend to finite positive limits by comparison of high-grade weights after scalar rescaling, but the inspected rank-one record gives the tuple and defect, not such a formula.",
+          "The unbounded-profile weak converse uses many singular weights across entire degree blocks, not just a decomposition or a coordinate norm bound."
+        ],
+        "reasoning": "Credit the exact special case and ordinary lattice volume methods, but neither conclusion of the quantitative trace-to-coordinate theorem is an already stated stronger spectral result in the inspected material.",
+        "searches": [
+          "Resultary 17493782d86c, Statement and Exact self-commutator sum",
+          "arXiv:2609.19287v1, Theorems 2.2–2.4",
+          "arXiv:1401.0487, Theorem 4.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Earlier Resultary 17493782d86c has u_k²=d!(k+1)!/(k+d)!, Q=dP_0: it is exactly b_k=d in the present variables.",
+          "Theorem 4.2 and Corollary 4.5 of Chavan–Yakubovich concern [T_i*,T_j], not T_j."
+        ],
+        "reasoning": "The normalization change identifies a genuine known special case, not a new example. Positivity of the summed diagonal is also not coordinate hyponormality or Schatten membership of cross-commutators.",
+        "searches": [
+          "Resultary: radial spherical shifts, compact quasinilpotent rank-one summed defect and coordinate singular values",
+          "Chavan–Yakubovich arXiv:1401.0487, spherical tuples and Schatten thresholds"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "17493782d86c indexes the constant-profile tuple but not its coordinate Weyl law.",
+          "Same-day 7ef05af50a3c gives a lattice Weyl/residue law for a Rhaly matrix; same-day 0f4f9caba4ce is cataloged as a Cesàro/shift commutator law, with full record not available from the mirror."
+        ],
+        "reasoning": "There is no applicable finite table for the infinite arbitrary-profile theorem. The two neighboring residue records concern different operators, while the exact example does not give the claimed invariant.",
+        "searches": [
+          "Resultary: trace defect and critical Schatten for radial spherical shifts",
+          "Resultary: lattice Weyl constant and logarithmic singular-value residue"
+        ]
+      },
+      "rationale": "The distinct claim is the positive-defect trace/weak-coordinate endpoint equivalence for all monotone radial profiles together with the exact trace-dependent coordinate counting law and logarithmic residue. A known rank-one example supplies one profile, and general structure and Schatten estimates for commutators are prior context. Neither yields the all-profile converse or provides the exact coordinate coefficient in the checked statements.",
+      "residual_risks": [
+        "A coordinate Weyl formula for this or a broader weighted monomial model could supply the volume law by specialization; no such equivalent theorem was identified in the checked texts.",
+        "The cited dimension-two positivity paper and same-day Cesàro record were not inspectable at theorem level."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact special case, not endpoint classification",
+          "evidence": "Q=dP_0 and b_k=d after normalization.",
+          "identifier_or_url": "Resultary 17493782d86c",
+          "material_read": "Statement and Exact self-commutator sum, offset 0",
+          "method": "Local mirror",
+          "title": "Compact quasinilpotent sum-hyponormal multishifts with rank-one defect",
+          "trigger": "Same family and summed defect"
+        },
+        {
+          "assessment": "Structural and norm bounds, not an endpoint trace/counting law",
+          "evidence": "2.2 decomposes compact tuples; 2.3 excludes nonzero nilpotent tuples; 2.4 bounds defect norm under extra assumptions.",
+          "identifier_or_url": "https://arxiv.org/html/2609.19287v1",
+          "material_read": "Theorems 2.2–2.4, HTML offsets 13728–18101",
+          "method": "OA HTML",
+          "title": "Sum of self-commutators of commuting operators",
+          "trigger": "Broad theorem for the same positivity notion"
+        },
+        {
+          "assessment": "Schatten results for commutators, not coordinates",
+          "evidence": "Classifies membership of self- and cross-commutators.",
+          "identifier_or_url": "https://arxiv.org/abs/1401.0487",
+          "material_read": "Theorem 4.2, p. 16 (offset 65144), and Corollary 4.5, p. 18 (offset 77148)",
+          "method": "OA PDF text",
+          "title": "Spherical Tuples of Hilbert Space Operators",
+          "trigger": "Same spherical-shift framework and Schatten classification"
+        },
+        {
+          "assessment": "Different operator and no summed spherical defect",
+          "evidence": "A spectral law for power-decaying Rhaly matrices.",
+          "identifier_or_url": "Resultary 7ef05af50a3c",
+          "material_read": "Finding at offset 0",
+          "method": "Local mirror",
+          "title": "A lattice Weyl constant for power-decaying Rhaly matrices",
+          "trigger": "Same-day Weyl/counting and logarithmic residue formulation"
+        },
+        {
+          "assessment": "Catalog scope differs; no theorem-level inference from this hit",
+          "evidence": "The summary concerns a Cesàro/shift commutator.",
+          "identifier_or_url": "Resultary 0f4f9caba4ce",
+          "material_read": "Indexed summary only; source not present in inspected mirror snapshot",
+          "method": "Local Resultary and mirror lookup",
+          "title": "An exact singular value coefficient and noncommutative residue for the Cesàro shift commutator",
+          "trigger": "Same-day endpoint singular-value result"
+        },
+        {
+          "assessment": "No theorem-level claim based on this paper",
+          "evidence": "Title and citation identify a potentially related subclass.",
+          "identifier_or_url": "https://doi.org/10.1080/03081087.2020.1781040",
+          "material_read": "Bibliographic information only; full-text retrieval did not complete",
+          "method": "Lawful OA lookup",
+          "title": "Spherical Aluthge transform, spherical p and log-hyponormality of commuting pairs of operators",
+          "trigger": "Related weight-positivity criterion in dimension two"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and Proof §§3–4",
+        "Resultary 17493782d86c",
+        "arXiv:2609.19287v1, Theorem 2.2"
+      ],
+      "rationale": "This radial model provides a natural test for what sum-hyponormality controls. Its endpoint classifies a coordinate weak ideal by an invariant of the tuple, and sharply separates finite and infinite positive defect trace even when all coordinates are compact. Recovering the entire leading singular-value scale and log residue from the total trace, independent of the defect's grade distribution, is quantitative information beyond the known existence example or strong-ideal obstruction.",
+      "residual_risks": [
+        "No transfer beyond the radial family and no second-order law is credited."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

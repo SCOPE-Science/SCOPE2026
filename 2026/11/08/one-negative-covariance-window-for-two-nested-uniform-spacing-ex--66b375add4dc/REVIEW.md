@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The simplex-translation identity proves the exact covariance after separate same-index and distinct-index contributions. Factoring the sign into \((1-s^x)(1-g(x))\), strict logarithmic concavity follows from \(\sinh y>y\); endpoint limits make the negative window bounded. Four rational certificates determine every integer sign in the explicit example. The standalone script independently checks small-simplex integrals and exact arithmetic; finite tests do not substitute for the proof. The hypotheses include \(n\ge2\), \(0<a\le b<1\), and \(a+b<1\).
+PASS
 
-## Originality — PASS, with residual priority risk
+Root the cyclic gaps at one designated sampled point: conditional on its rotation, the remaining n−1 rotated points are iid uniform, so their order-statistic gaps (including both ends of the unit interval) have the required Dirichlet law. The gap counts are invariant to the root; the Dirichlet claim need not hold for an indexing rooted by a fixed external origin. Translating the simplex gives the joint threshold probabilities; separating equal indices from unequal indices yields the exact covariance. The bracket is (1−s^x)(1−g(x)), where g=x(1−exp(−δx))/(exp(αx)−1), α=−ln s and δ=ln(s/t)>0 (since s−t=ab/(1−b)). The positive term in (log g)'' is α²/[4 sinh²(αx/2)]<1/x², so log g is strictly concave and g tends to zero at both ends. Its level 1 has at most two roots and its strict superlevel set is a single bounded interval or empty. Here real x is an interpolation of the sign expression, not a noninteger-sample covariance. Independent exact rational replay of F_n=1+(n−1)(4/5)^(n−1)−n(17/20)^(n−1) gave F_5=4539/160000, F_6=−38131/1600000, F_13=−100389363459021/4096000000000000, F_14=180270269513333/8192000000000000. Continuity and the two-root bound put a root strictly in each of the two transition brackets and rule out any other zeros. The supplied notes and checker were inspected, not executed.
 
-The full texts of Holst (1980), Bairamov–Berred–Stepanov (2008 online), and Schlemm (2014 preprint) cover broken-stick counts, uniform-spacing joint probabilities, and maximal circular gaps, respectively. The raw mixed covariance follows already from the established joint probability formula. The strictly log-concave sign-window classification across the sample-size parameter and its exact positive/negative/positive example were not identified in those inspected texts. General spacings literature may contain an unstated or explicitly published equivalent; that possibility has not been independently excluded. The statement concerns implications, not merely title or notation matches.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Long-gap counts are natural coverage and spacing statistics, and different thresholds are nested. Their common-gap contribution promotes positive association while simplex exclusion can create negative association. The result establishes a global bound of two sample-size sign reversals and an exact witness attaining that bound, a meaningful dependence phenomenon invisible from a single-threshold marginal or isolated numerical calculation.
+Credit is for the global fixed-threshold sample-size sign classification and a sharp re-entrant witness, not for the Dirichlet probability or the resulting fixed-n covariance formula. The closest distinct compared results vary a threshold rather than n or concern different occupancy observables. The available evidence does not establish equivalent coverage of the credited claim; this is a best-of-knowledge assessment.
 
-## Scope and limitations
+## value
 
-The result concerns exactly uniform independent circle points, two fixed positive thresholds with sum below one, and exact finite-sample covariance. It proves no independence at zero covariance and no general theorem for other Dirichlet distributions. Priority is qualified by inaccessible and potentially implicit older literature. The proof establishes the full sign theorem independent of finite computation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Nested counts in a standard spacing model can be positively associated at both small and large sample sizes but negatively associated at intermediate sizes. The theorem gives the exact allowed geometry of that reversal for every threshold pair in scope, and the rational witness proves the two-reversal bound is sharp. This is more informative than the covariance formula or a finite simulation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,93 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T17:44:27.659570Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For each fixed labeling of the queried prefix there is one set of possible suffix states, with the choices at unqueried coordinates unioned separately for that labeling. Taking both successors at a query preserves the universal quantifier over labels; a lost labeling cannot be recovered. All nondead suffix states accept the empty continuation. This proves the automaton invariant for every length, including the empty support. An independent reconstruction found 26 reachable nonsink families and the stated seven accepting classes plus sink, distinguished by future acceptance. Exact transfer-matrix determinants gave the displayed bivariate numerator and denominator. Multiplication checked A^11=A^6+3 on all 49 entries; scalar shifts commute with max-plus multiplication, so the identity propagates to every later length, seeded by the maxima 1,2,3,3,4,4,5,6,6,7. Independent trace enumeration agreed for all 2,047 supports at lengths 0–10, including both displayed polynomials. Replay: /workspace/branches/b1f763dc-46c0-4dc0-a79f-13d5f1a475c0/recompute_0011.py and recompute_0011.log; the direct trace check is bounded, while the finite identities plus induction prove the full claim.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "For a DFA for any regular hypothesis language, an existential-completion NFA on partial words and complement/projection yield a DFA for the nonshattering indicators, hence one for shattering. This standard argument implies some rational weighted enumerator; it does not identify the minimized machine or its rank law. The all-hypotheses language may be represented as the length-n factors of an appropriately universal word, but Johnson does not give that language's specific dimensions or coefficients."
+        ],
+        "reasoning": "General regularity and determinization are not new. The quotient and its quantitative transfer consequences require the actual transition computation for 0011.",
+        "searches": [
+          "Johnson arXiv:2101.06490 §2",
+          "Itsykson–Okhotin–Oparin DOI:10.4230/LIPIcs.MFCS.2016.51",
+          "Resultary search above for alternate forbidden-factor languages"
+        ]
+      },
+      "checked_sources": [
+        "Johnson arXiv:2101.06490 §2",
+        "Itsykson–Okhotin–Oparin DOI:10.4230/LIPIcs.MFCS.2016.51 abstract",
+        "Resultary records on 001, two monochromatic triples, and two-trigram avoidance (indexed statements)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Containment of 001-avoiding words in 0011-avoiding words supplies only a lower bound on this shattering complex, not equality. A rational series alone does not supply the 3/5 growth rate or exact intercept; the weighted length-6 and length-11 operator identity is specific to this automaton."
+        ],
+        "reasoning": "No examined result directly implies the specific all-length quantitative claims.",
+        "searches": [
+          "Resultary: terminal-double shattering (001), regular shattering complex (000 and 111), five-state shattering automaton (000 and 101)",
+          "Johnson §2 and Itsykson–Okhotin–Oparin problem statement"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The projection onto a support is all binary strings on that support iff every partial assignment with holes off the support has a completion. Reversal and complementation carry the question to contiguous 1100 with a bijection on supports; 0011 is unchanged by their composite. Johnson's §2 compares traces of substrings of one specified word. Itsykson–Okhotin–Oparin ask existence of a bi-infinite word avoiding a supplied list of partial patterns."
+        ],
+        "reasoning": "The partial-word completion formulation preserves all quantifiers; neither nearby primary work solves it. In particular the shift-invariant partial forbidden-pattern problem is not the fixed finite-length universal-labeling problem.",
+        "searches": [
+          "Resultary: binary words avoiding contiguous 0011 shattered support coordinate language VC dimension shattering complex enumerator partial filling wildcards",
+          "Primary search: 0011 binary avoiding shattering VC dimension coordinate support contiguous forbidden word partial assignments shattered sets generating function"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned a complete classification for avoiding 001 (a selected adjacent pair followed by any later selection obstructs shattering), and one for avoiding both 000 and 111 (rank floor(n/2)+1). For n=3 all three positions are shattered here; 001 avoidance already forbids this. The two-trigram five-state record reports a different rank slope 2/5. No independent matching enumerator or coefficient table was located."
+        ],
+        "reasoning": "The exact tables of narrower/different languages are not equivalent under reversal or bit interchange and already differ at finite lengths or in rank growth.",
+        "searches": [
+          "Resultary query above",
+          "Primary search for 0011 coordinate shattering / partial-assignment generating function"
+        ]
+      },
+      "rationale": "The known machinery gives a means of recognition and enumeration, not the specific seven-state reduced description, weighted series, or five-step degree identity for this factor. Bounded comparison found no equivalent classification or broader quantitative theorem supplying it.",
+      "residual_risks": [
+        "An equivalent table could be indexed under projection, masking, or the reversed/complemented factor rather than shattering. Search bounds historical priority; the pass is best of knowledge."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different quantification; general definitions can model a language when it is realized by a universal word, but the paper does not supply this avoidance-language enumeration.",
+          "evidence": [
+            "The families S_w consist of length-w substrings of one S; its sliding-window dimension is a maximum over w."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2101.06490",
+          "material_read": "Introductory definitions and Section 2, including sliding-window dimension and Proposition 3",
+          "method": "Open full-text PDF, read relevant sections",
+          "title": "Binary strings of finite VC dimension",
+          "trigger": "Closest primary work on VC dimension and binary factors"
+        },
+        {
+          "assessment": "The stated PSPACE-completeness theorem does not cover the shattering question.",
+          "evidence": [
+            "Input is a finite list of partial forbidden words; the output is existence of any two-sided infinite avoider."
+          ],
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.MFCS.2016.51",
+          "material_read": "Publisher's authored abstract and exact decision problem statement",
+          "method": "Read publisher record; used its explicitly scoped problem statement",
+          "title": "Computational and Proof Complexity of Partial String Avoidability",
+          "trigger": "Potential equivalent partial-word avoidance formulation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For the entire language defined by one short contiguous forbidden word, the shattering complex is a natural invariant: it tells exactly which labeled coordinate sets admit every labeling. A minimal recognizer exposes nonlocal obstructions, the bivariate series counts every support, and the rate and boundary correction sharpen the naive prohibition on selecting four consecutive positions. These are useful quantitative benchmarks for other constrained languages, not just an instance of the general existence of a DFA.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -6,7 +6,7 @@ PASS. The all-horizons Bellman recursion is justified by the four ordered indepe
 
 ## Originality
 
-PASS, qualified. The primary 2019/2021/2022 choice-walk source establishes linear-order cover bounds for tori and general dynamic programming, not a stochastic-order-optimal policy or cycle-cover fluctuation law. The previously available exact expected cycle cover time is explicitly excluded from the originality claim. A mean minimum is strictly weaker than minimization of all cover-time tails. No equivalent stronger theorem emerged in the checked indexed claims or literature searches. Priority relative to less discoverable treatments of risk-sensitive controlled walks remains a residual risk.
+The distinct claim is stochastic-order optimality for whole-cycle coverage. The primary choice-walk source establishes linear-order cover bounds for tori. The fixed-target result cited as [3] in RESULT.md already supplies the one-stage moment formulas, by taking distance one on a cycle with one more vertex than the visited arc. Its optimality result is for the mean and its fluctuation theorem concerns a different limit (a single target at diverging distance). No originality is claimed for the individual stage moments or the exact cover mean. The total variance and Gaussian limit are consequences that quantify the cover policy; the all-tail minimum is the substantive distinction. The comparisons are bounded and do not establish absolute priority.
 
 ## Value
 
@@ -14,6 +14,6 @@ PASS. Risk-sensitive cover-time control is a natural strengthening of expectatio
 
 ## Closest literature and limitations
 
-The primary comparison is Georgakopoulos et al., *The Power of Two Choices for Random Walks*, arXiv:1911.05170, first public 2019-11-12, and the earlier ITCS version. The relevant primary full text (torus bounds and controlled-chain formulation) was inspected. This proof is for cycles with two independent with-replacement neighbor offers, not general graphs; independent priority verification remains outstanding.
+The primary comparisons are Georgakopoulos et al., *The Power of Two Choices for Random Walks*, arXiv:1911.05170 (first posted 2019-11-12), and the fixed-target result [3] in RESULT.md. The cover-time proof is for cycles with two independent with-replacement neighbor offers, not general graphs.
 
 Self-review: passed. Independent audit: not yet performed.

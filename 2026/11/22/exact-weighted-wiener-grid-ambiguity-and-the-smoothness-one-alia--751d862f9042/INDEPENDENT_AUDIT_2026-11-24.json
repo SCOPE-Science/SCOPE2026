@@ -1,0 +1,150 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:36:54.833338Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–83",
+        "VERIFICATION.md and verify_alias_wiener.py inspected but frozen script not executed",
+        "Moeller, arXiv:2611.12558, pp. 1–2 and Theorem 7.4 p. 20"
+      ],
+      "rationale": "Absolute coefficient summability justifies finite-group Fourier inversion at the sampling nodes. The translate only changes coefficient phases; invisibility is exactly a zero sum in each annihilator class. For a class with total coefficient mass L, zero sum gives each magnitude at most L/2. If u and v are the two lowest weights, at most L/2 mass can benefit from the smallest weight u, so class cost is at least (u+v)L/2 and squared L2 mass is at most L^2/2. Equality in the latter requires exactly two equal nonzero magnitudes, and then the former requires exactly a pair of least total weight, with opposite adjusted phases. Across classes the sum of squared costs is at most the square of total cost, strictly so for multiple active classes. Proper weights ensure an attained minimum; a pair witness of cost one proves sharpness. For a differing coordinate of a rectangular-grid alias pair, |k_j|+|ell_j| >= |k_j-ell_j| >= m_j, so one can choose nonnegative integers a and m_j-a no larger than those magnitudes. Strictly increasing factors force equality only when the pair already straddles zero at separation m_j, and every transverse coordinate vanishes on both frequencies. Concavity, linearity, or convexity of the one-coordinate cost gives exactly the listed endpoints, all integers, or the central integer(s), respectively, with the lists coinciding when m=1. Rescaling differences by two proves the diameter and ± extremizers give the recovery lower bound. The one-dimensional constants follow from F_m directly. Moeller's Theorem 7.4 with d=1, theta=1 and q=2 has r>0 and gives the asserted log-power upper bound for arbitrary optimized locations, hence the fixed-grid loss lower bound of order m^(1/2)/(log m)^(3r+3/2).",
+      "residual_risks": [
+        "The radius is for the fixed zero fiber and yields a recovery lower bound, not a formula for full fixed-grid minimax reconstruction error.",
+        "The formula and extremizers are for complex signals; the optimized comparison is one-dimensional. The cited source for the precise optimized log-power is verified as a public preprint, not as a journal publication."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first two bound optimized nonlinear sampling numbers.",
+          "The sparse-grid paper proves approximation estimates for specified quasi-interpolation operators."
+        ],
+        "reasoning": "Optimized rate bounds cannot be specialized to an exact equality for the nullspace of every fixed lattice; a bound or rate for a specific approximation operator also does not characterize all invisible functions. No covering arbitrary finite-subgroup weighted kernel result was found in the inspected material.",
+        "searches": [
+          "arXiv:2611.12558, Theorem 7.4",
+          "DOI:10.1007/s43036-025-00480-8, Theorem 6.1 and Corollary 6.2",
+          "DOI:10.1007/s00041-023-09994-2, Theorem 5.1"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md lines 38–44 and 83–101",
+        "Primary and indexed passages listed above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 7.4 is applicable to the same one-dimensional coefficient space, but its optimization over points only supplies the comparison input.",
+          "Character aliasing supplies the zero-sum constraints but not the exact norm; evaluating it requires the equal-magnitude pair bound and global minimum over aliases."
+        ],
+        "reasoning": "There is no implication from the inspected optimization estimates to the fixed-grid exact norm or its equality classification. The design-efficiency comparison uses, rather than replaces, prior optimized sampling results.",
+        "searches": [
+          "arXiv:2611.12558, coefficient definitions and Theorem 7.4",
+          "DOI:10.1007/s00041-023-09994-2, Theorem 5.1",
+          "Resultary neighbouring record ecce97a8c4bf"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The top Resultary match, 751d862f9042, is the identical indexed finding.",
+          "The nearby ecce97a8c4bf computes Bargmann–Fock minimum-norm interpolation alias-mode transitions on a polygon.",
+          "The finite-subgroup formulation is exactly a weighted coefficient kernel with independent zero-sum blocks; fitting or selecting sampling nodes is not part of that formulation."
+        ],
+        "reasoning": "The sharp weighted l1-to-l2 zero-sum kernel norm and equality criterion distinguishes this alias question from Fock interpolation and optimized width estimates. The identical indexed finding is not independent antecedent evidence.",
+        "searches": [
+          "Resultary: exact weighted Wiener grid ambiguity and smoothness-one alias transition",
+          "2026/11/16/SCOPE-an-exact-alias-mode-staircase-and-critical-mixing-laws-for-circu--ecce97a8c4bf",
+          "arXiv:2611.12558"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The catalogue exact hit is the record itself; the distinct same-day BV sample-trace result optimizes node placement for real periodic W^{1,1} and has a different parity-dependent equality geometry.",
+          "The Fock result's mode transitions are not the Wiener power-weight r=1 pair transition."
+        ],
+        "reasoning": "The indexed exact results were distinguished by source ball, fixed versus optimal design, target quantity and equality cases, not by date. No inspected indexed statement reproduced the cheapest pair invariant for these weights or the general subgroup equality criterion.",
+        "searches": [
+          "2026/11/22/SCOPE-exact-weighted-wiener-grid-ambiguity-and-the-smoothness-one-alia--751d862f9042",
+          "2026/11/16/SCOPE-an-exact-alias-mode-staircase-and-critical-mixing-laws-for-circu--ecce97a8c4bf",
+          "2026/11/22/SCOPE-sharp-circular-bv-sample-traces-and-a-parity-dependent-family-of--6701b8626c01"
+        ]
+      },
+      "rationale": "On the inspected evidence the fixed-grid sharp nullspace radius and full extremizer and transition description are distinct from optimized sampling-width bounds, sparse-grid approximation estimates and mode transitions in other spaces. Fourier inversion and elementary discrete convexity are credited ingredients, and the faster optimized-sampling bound is prior work, not claimed here.",
+      "residual_risks": [
+        "Equivalent formulations of the sharp weighted zero-sum kernel bound could be unindexed; unsuccessful general web search is not evidence against them.",
+        "Assessments are scoped to the examined results, not whole-document exclusion or historical-priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly supports the optimized upper bound; not an exact fixed-grid norm result.",
+          "evidence": [
+            "In d=1, theta=1, q=2 the theorem applies for r>0 and gives the upper order m^(-(r+1/2))(log m)^(3r+3/2) for nonlinear optimized point sampling."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2611.12558",
+          "material_read": "PDF pp. 1–2 (text offsets 0–4952) and Theorem 7.4 p. 20 (offset 82315)",
+          "method": "Original open PDF passage inspection",
+          "title": "Gelfand and sampling numbers of weighted Wiener spaces",
+          "trigger": "Same class and the quantitative comparison input"
+        },
+        {
+          "assessment": "Prior optimized sampling bound, not the present fixed sampling radius.",
+          "evidence": [
+            "Theorem 6.1 concerns upper bounds for nonlinear sampling; the corollary concerns its log exponent."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s43036-025-00480-8",
+          "material_read": "PDF pp. 23–24, text offset 74307, Theorem 6.1 and Corollary 6.2",
+          "method": "Original open PDF passage inspection",
+          "title": "Best m-term trigonometric approximation in weighted Wiener spaces and applications",
+          "trigger": "Earlier result on nonlinear sampling in the class"
+        },
+        {
+          "assessment": "Operator estimates, not exact zero-fiber radius and rigidity.",
+          "evidence": [
+            "The primary comparison is to sparse-grid quasi-interpolation, including interpolation and sampling operators."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00041-023-09994-2",
+          "material_read": "Abstract p. 1 and Theorem 5.1 p. 22 (offsets 302 and 78437)",
+          "method": "Original open PDF passage inspection",
+          "title": "Sparse Grid Approximation in Weighted Wiener Spaces",
+          "trigger": "Weighted Wiener approximation using grids"
+        },
+        {
+          "assessment": "Different norm, geometry and extremal question.",
+          "evidence": [
+            "Regular polygon interpolation in Bargmann–Fock space and adjacent Fock-mode changes, not weighted Wiener invisibility."
+          ],
+          "identifier_or_url": "2026/11/16/SCOPE-an-exact-alias-mode-staircase-and-critical-mixing-laws-for-circu--ecce97a8c4bf",
+          "material_read": "Local mirror RESULT.md, initial finding at offset 0",
+          "method": "Resultary identification and local mirror source inspection",
+          "title": "An exact alias-mode staircase and critical mixing laws for circular interpolation",
+          "trigger": "Indexed exact alias transition"
+        },
+        {
+          "assessment": "No equivalence of function class or optimized quantity.",
+          "evidence": [
+            "Real periodic W^{1,1} node-design constant with alternating-gap exceptions in even sizes, not fixed-grid complex Fourier l1 radius."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-circular-bv-sample-traces-and-a-parity-dependent-family-of--6701b8626c01",
+          "material_read": "Local mirror RESULT.md, initial finding at offset 0",
+          "method": "Resultary identification and local mirror source inspection",
+          "title": "Sharp circular BV sample traces and a parity-dependent family of optimal designs",
+          "trigger": "Distinct indexed exact sampling result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 14–44 and 69–83",
+        "Moeller, arXiv:2611.12558, Theorem 7.4"
+      ],
+      "rationale": "The zero-fiber radius is a canonical, algorithm-independent limitation of prescribed grids. The exact sharp constant at every size and the rigidity of its two-frequency witnesses identify which information the design loses, including the change from endpoint to centered aliasing and its coordinatewise role in anisotropy. The exact finite subgroup version and quantitative comparison with optimized point sampling give practical meaning to the invariant beyond a routine aliasing computation.",
+      "residual_risks": [
+        "No exact worst-case recovery error, noise robustness or optimal placement result is proved here."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

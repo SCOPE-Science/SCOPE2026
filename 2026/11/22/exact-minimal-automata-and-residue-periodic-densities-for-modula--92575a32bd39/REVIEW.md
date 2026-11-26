@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (C): PASS
-The finite group law follows directly from the ordered-pair concatenation identity. Its generators have order \(m\), while commutators produce every independent pair coordinate; hence all \(m^{q(q+1)/2}\) proposed states are reachable. The accepting condition is exactly zero forward-pair counts plus zero products of each pair of letter counts. The proof checks the **left** stabilizer of the accepting set, as demanded by right continuation languages: multiplication by the last letter and then by the first letter forces every stabilizing coordinate to vanish. The Markov-chain period is exactly \(m\), proving the density limits. The submitted checkers reproduce reachable and minimal state counts on seven parameter choices and directly enumerate short words; no finite sample is treated as an infinite proof.
+## correctness
 
-## Originality (O): PASS against inspected sources
-The closest structural predecessor is Lejeune–Rigo–Rosenfeld, *On the binomial equivalence classes of finite words* (arxiv:2001.11732), which identifies the 2-binomial quotient with a free class-two nilpotent group. That prior fact gives group coordinates but does not calculate the syntactic quotient of the specific modular Boolean language or its residue-periodic acceptance density. Fazekas–Huang–Mercaş, *Subsequence Analysis Problems for Binary Parikh Matrices* (arxiv:2610.06717), treats exact binary Parikh fibers, universality and containment, rather than modular all-directed-pair tests. Relevant published single-pattern modular state-complexity findings were compared and concern non-equivalent patterns and predicates. Targeted database, alias and general-literature searches found no stronger instance; an unindexed equivalent or unexamined broader algebraic result is a remaining priority risk.
+PASS
 
-## Value (V): PASS
-This is a sharp all-parameter state-complexity theorem for a natural second-order information signature. It identifies the full syntactic group and a nontrivial arithmetic oscillation in long-word acceptance frequencies, with a complete prime-modulus formula and an exact finite arithmetic description for composite moduli. Such results measure the memory required to monitor multiple directional pair correlations simultaneously, rather than merely one designated counter.
+The group law follows by counting crossings of a word concatenation and the cocycle is bilinear over Z/mZ. Each letter generator has order m and positive powers give its inverse. The commutator for i<j gives the single central (i,j) coordinate generator, so every possible tuple is reached even for composite m. For a pair of different letters the two counts sum to the product of the corresponding letter counts, so acceptance requires exactly the stated zero pair coordinates and pairwise-zero products. Since every suffix image is available, indistinguishability of g,g′ is equivalent to equality of g^(-1)F and g′^(-1)F, i.e. stabilization of F on the left by h=g′g^(-1). Such an h belongs to F and has zero pair part. Testing h times the last letter forces the first q−1 letter coordinates of h to vanish by the (i,q) pair counts, and testing h times the first letter forces the final coordinate to vanish by the reverse-count product condition. Nothing requires cancellation by arbitrary residues, and the argument includes q=2. The faithful regular action gives the stated transition group (up to the right-action convention). For the uniform-letter random walk, every step increments total residue by one, all states communicate, and the m-fold power of one letter gives a return of length m; the period is therefore exactly m. Each probability block for the m-step walk on a length fiber is finite, irreducible and aperiodic, with uniform stationary law from double stochasticity. It converges exponentially. Every fiber has m^(d−1) elements, with exactly E_s accepting points, and over a prime field these have at most one nonzero letter coordinate, giving the two distinct limits. Frozen finite tests and outputs were inspected, not executed; they are not the basis for the general claims.
 
-## Limits and literature
-The theorem excludes same-letter scattered pairs and does not compare with NFA or nonuniform-source complexity. The two inspected primary references are arxiv:2610.06717 (first public 2026-10-05) and arxiv:2001.11732 (first public 2020-01-31). Earlier work supplies essential group and 2-deck foundations; it is not claimed as novel.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge pass for this exact simultaneous directed modular predicate's minimal DFA and its length-residue density. The class-two mechanism has published structural antecedents and nearby catalog analogues; the full recognition/minimality statement and accepting-fiber counts are distinct.
+
+## value
+
+PASS
+
+The simultaneous two-orientation test is a natural uniform modular subsequence constraint. The result resolves whether the whole finite counting group is needed when only a single Boolean signal is observed, including all composite moduli where zero divisors change the accepting set. It also gives the exact long-word acceptance profile and shows that prime modulus yields genuinely different limiting densities rather than a single frequency. Together these are a structural and quantitative description for the whole parameter family, not a catalog of small automata.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

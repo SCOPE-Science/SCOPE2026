@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T19:28:29.674767Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a fixed interior x, integrate the stable Lévy density over both exit tails to obtain lambda_x=(c_alpha sigma^alpha/alpha)[(L-x)^(-alpha)+(L+x)^(-alpha)], with c_alpha=Gamma(1+alpha)sin(pi alpha/2)/pi by reflection and duplication. The unconditioned exit asymptotic P_x(tau<=t)~lambda_x t is directly stated with this coefficient by Żbik–Palmowski Sec. III.A Eq. (5) and surrounding text; the Figueroa–López–Tankov Theorem 2.1 cited as provenance is instead a conditional Lévy-bridge theorem and is not the direct unconditioned statement. Independently, fix a positive boundary margin delta smaller than both initial distances and split off jumps above h<delta/4 in absolute value. Their process is compound Poisson; two such jumps by t have probability O(t^2). For the bounded-jump symmetric remainder, its exponential martingale has log compensator bounded by const*t*theta^2*exp(theta*h) at time t (finite truncated second moment). With theta=log(1/t)/(2h), Doob's bound makes an excursion of the remainder outside [-delta,delta] by t have probability o(t), using both signs. Squeezing exit by the one-jump events with thresholds shifted by plus or minus delta and letting delta down to zero proves the short-time coefficient, including possible boundary hits. Integrating the exit CDF against r e^(-rt) gives q(r)~lambda_x/r, and the expected duration of one attempt is (1-q)/r with success probability q. The renewable mean is (1-q)/(r q) and converges to 1/lambda_x. Żbik–Dybiec Eq. (2) with Eq. (7)'s sigma^alpha normalization verifies the unreset denominator. Cancellation of scale and the two reciprocal tails yield C_alpha/cosh(alpha artanh v); the denominator runs strictly from 1 to infinity, so one threshold exists and strict inequalities persist for sufficiently large finite r (no sign claimed at equality). For t=pi alpha/2 and h=log(t/sin t), Euler's sine product gives h/t^2 as a convergent sum of strictly increasing positive terms via -log(1-u)/u. Hence h also increases. With z=arcosh(e^h), the derivative of z/sqrt(log cosh z) has the sign of 2 log cosh z-z tanh z, positive since its derivative is tanh z-z sech^2 z>0. The product of increasing positive factors gives strict ordering of the frontier throughout (0,2). Expanding t/sin t=1+t^2/6+O(t^4) gives the small-index value; alpha=1 gives sqrt(1-4/pi^2). With epsilon=2-alpha, arcosh C_alpha=log(4/epsilon)+o(1) and (2/alpha-1)log(4/epsilon)=o(1), so 1-v_c~epsilon/2. Independent quadrature of the two jump tails at nonunit L and sigma, plus endpoint checks, can be replayed with python3 /tmp/opencode/stable-frontier-replay.py; it reproduces 0.7711778429329054 at alpha=1 and the limiting 0.719640870292547089, with the upper-end slope tending to 0.5. The deposited 6,359 checks are finite consistency checks, not an exit-process simulation or a proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Linn–Lawley Theorem 1 and Remark 1 give the frequent-reset law, moments and exact Poisson mean; Prop. 1 covers the p(r) power-law asymptotic from F_tau(t)~A t^b and therefore the leading mean at b=1. It does not compare the unreset mean across starting points and indices.",
+          "The earlier marked-clock result fc90c0f60b27 has the same fixed-interval alpha-stable model, short-time coefficient A and regeneration identity and supplies a joint fluctuation limit, not the free-versus-strong index ordering. The large-interval marked records returned by Resultary chiefly change L at fixed r."
+        ],
+        "reasoning": "The prior laws subsume the renewal/high-rate ingredient, even beyond exponential resets, but neither their limit distribution nor the additional reset-count/overshoot marks give the comparative frontier's dependence on alpha.",
+        "searches": [
+          "Web: Linn Lawley first passage times under frequent stochastic resetting symmetric stable Levy flight short time exit jump hazard stable interval alpha",
+          "Linn–Lawley arXiv:2302.05409 §§2.1, 2.2.3, Theorem 1 and Prop. 1",
+          "Resultary fc90c0f60b27, Finding and Proof §§1–3"
+        ]
+      },
+      "checked_sources": [
+        "Żbik–Palmowski arXiv:2610.20410v1",
+        "Żbik–Dybiec arXiv:2311.16014v2",
+        "Figueroa–López–Tankov arXiv:1203.2355v4 pertinent theorem",
+        "Linn–Lawley arXiv:2302.05409 pertinent sections",
+        "Resultary fc90c0f60b27 full comparison, 59a3c7eb0c4b and e5279064b8fa indexed claims"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "From Eqs. (7)–(8), solving cosh(alpha artanh v)=pi alpha/[2 sin(pi alpha/2)] already yields the pointwise frontier; the example of sufficiently strong improvement is expressly prior.",
+          "The Euler-log-sine order argument uses increasing h(t)/t^2 and increasing arcosh(exp(h))/sqrt(h); this comparison does not follow merely from monotonicity of t/sin t because the inverse hyperbolic cosine is divided by alpha."
+        ],
+        "reasoning": "Accept prior implication of the pointwise comparison and reserve originality for the global strict ordering and associated sharp description. The source does not state the ordering or establish the requisite two-factor inequality; the distinct weak-rate trend cannot imply it.",
+        "searches": [
+          "Żbik–Palmowski arXiv:2610.20410v1 §§II–III.A, Eqs. (3)–(8), Fig. 4 and conclusion",
+          "Żbik–Dybiec arXiv:2311.16014v2 §II Eqs. (2), (7) and Fig. 3",
+          "Resultary fc90c0f60b27 full comparison of claim and high-rate mean"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Żbik–Palmowski arXiv:2610.20410v1 §III.A Eqs. (7)–(8) compare the same mean times explicitly for fixed interval and r tending to infinity. Multiplying the denominator of their ratio by (1-v^2)^(alpha/2) yields two exponentials of plus or minus alpha artanh v.",
+          "Żbik–Dybiec arXiv:2311.16014v2 §II, Fig. 3 uses the CV=1 starting-position boundary for weak resetting, not the strong-rate ratio 1."
+        ],
+        "reasoning": "Converting the ratio of competing means to a dimensionless critical distance or changing the sign of the start is only an equivalent representation. The weak-reset boundary tests a different functional of the free-exit law and is not interchangeable with the strong-reset boundary.",
+        "searches": [
+          "Resultary: symmetric stable Levy flight bounded interval strong resetting limit reset starting position escape frontier alpha monotonic",
+          "Resultary: stable Levy flight infinite Poisson reset rate comparison no resetting dimensionless initial location threshold strictly increasing alpha tanh arcosh Euler sine product",
+          "Web: Lévy stable flights interval resetting high frequency rapid infinite resetting mean exit advantageous boundary initial position Żbik Palmowski sin cosh frontier arXiv 2610.20410"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Żbik–Palmowski Fig. 4 plots mean-time curves at v=0 and v=0.85 and highlights benefit at v=0.85 and alpha=1. It is an explicit prior sign example, not a table or a proof of the strict threshold ordering at all alpha.",
+          "Żbik–Dybiec Fig. 3 plots CV crossovers and notes numerical limitations near alpha=0; these estimates are for the weak-rate criterion."
+        ],
+        "reasoning": "The plotted two-location comparison is already prior evidence of a crossover and the cited formulas apply continuously in v. Neither plot establishes the exact index ordering or endpoint laws for the strong-reset threshold.",
+        "searches": [
+          "Żbik–Palmowski arXiv:2610.20410v1, Fig. 4 and companion discussion",
+          "Żbik–Dybiec arXiv:2311.16014v2, Fig. 3 caption and threshold discussion",
+          "Resultary: stable Levy flight infinite Poisson reset rate comparison no resetting dimensionless initial location threshold strictly increasing alpha tanh arcosh Euler sine product"
+        ]
+      },
+      "rationale": "The earlier stable-flight strong-reset and free means (and even their direct comparison) are not novel. Their equations imply the pointwise ratio, explicit threshold formula and strict finite-high-rate corollary after elementary algebra; the supported increment is the strict all-index order of this threshold, its sharp endpoint laws and distinction from the weak-rate crossover, not the limiting mean or the existence of helpful fast resetting.",
+      "residual_risks": [
+        "The strong-reset ratio and threshold are already implicit in the cited formulas; priority for the monotonicity and sharp singular endpoints is a bounded assessment. A differently indexed inequality for arcosh(t/sin t)/t or a prior complete phase diagram could overlap. The original Getoor source was not separately inspected; the normalized free mean is explicit in both directly relevant modern articles."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers high-rate mean and, directly by comparison, present pointwise frontier; no strict all-index order theorem located",
+          "evidence": [
+            "Eq. (5) gives the short-time exit coefficient (with separate alpha=1 limit); Eqs. (6)–(7) transfer to fixed L and r tending to infinity, then compared explicitly with Eq. (8).",
+            "Fig. 4 fixes L=sigma=1 and v=0 or 0.85 and identifies v=0.85, alpha=1 as an example of strict benefit."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.20410v1",
+          "material_read": "Open PDF abstract, §§II–III.A, Eqs. (3)–(8) and Fig. 4 discussion; conclusion",
+          "method": "Matched normalization, one-excursion probability, complete two-tail high-rate expression, free mean and compared full reported phase discussion",
+          "title": "Asymptotic behaviour for escaping an interval by Lévy flights under stochastic resetting",
+          "trigger": "Exact same stable flight, off-center starting point and rapid reset limit"
+        },
+        {
+          "assessment": "Covers exact unreset mean, not the strong-reset ordering",
+          "evidence": [
+            "Eq. (2) is (L^2-x_0^2)^(alpha/2)/(sigma^alpha Gamma(1+alpha)), attributed to Getoor; Eq. (7) confirms the normalization.",
+            "Fig. 3 estimates x_tr(alpha) from CV(x_tr)=1, and its text describes a rightward shift as alpha decreases on the computed range; not a statement of the present strong-reset trend."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2311.16014v2",
+          "material_read": "Open PDF §II Eqs. (1)–(3), (7) and text surrounding Fig. 3",
+          "method": "Compared stable scaling and the moments used in the restart diagnostic",
+          "title": "Lévy flights and Lévy walks under stochastic resetting",
+          "trigger": "Exact free-exit mean and closest weak-reset threshold"
+        },
+        {
+          "assessment": "Related bridge estimates; not a direct cite for the required unconditioned formula",
+          "evidence": [
+            "Theorem 2.1 and Remark 2.1 condition on the end value of the Lévy bridge. The unconditional coefficient is stated directly in Żbik–Palmowski and is also independently justified in correctness."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1203.2355v4",
+          "material_read": "Theorem 2.1 and Remark 2.1/Eq. (2.9), PDF pp. 7–8",
+          "method": "Checked what is conditioned on and compared that to the required unconditioned law",
+          "title": "Small-time asymptotics of stopped Lévy bridges and simulation schemes with controlled bias",
+          "trigger": "Primary theorem referenced for the short-time exit event"
+        },
+        {
+          "assessment": "Covers the general high-rate mean and more once the exit hazard is supplied, not the comparative index ordering",
+          "evidence": [
+            "For the Poisson case E[T]=(1-p)/(rp); under F_tau(t)~lambda t, p~lambda/r."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2302.05409",
+          "material_read": "§2.1 Theorem 1/Remark 1 and §2.2.3 Proposition 1",
+          "method": "Read the moment conclusion and substitute the linear short-time exit law into its power-law case",
+          "title": "First passage times under frequent stochastic resetting",
+          "trigger": "General frequent-reset theorem could subsume the strong-limit part"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The strict stability-index ordering and sharp singular endpoint constants give an interpretable comparative design rule from two known asymptotic means, clarifying how close to a boundary the start must be for fast resets to help. This is an all-index analytic result, not a replot or isolated numerical example. Its value is limited to sufficiently high Poisson rates at fixed interior starting conditions. It does not determine intermediate-rate optima or either-sided finite-rate behavior at the critical equality.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

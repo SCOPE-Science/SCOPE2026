@@ -6,11 +6,11 @@ Equip every edge of a graph with unit arclength. Let \(P\) be the \(L^2\)-orthog
 \[
 q_d=\frac{1}{d+\sqrt{d^2-d+1}}.
 \]
-Then the projection has a bounded extension to \(L^1\) and \(L^\infty\), and its exact attained endpoint norm is
+Then the projection has a bounded extension to \(L^1\) and \(L^\infty\), and its exact endpoint norms are
 \[
 \boxed{\|P_d\|_{L^1\to L^1}=\|P_d\|_{L^\infty\to L^\infty}=\Lambda_d=\frac{3(1+q_d^2)}{(1+q_d)^2}.}
 \]
-The sequence \(\Lambda_d\) increases strictly with degree and satisfies \(\Lambda_d=3-3/d+O(d^{-2})\); for comparison the degree-two bi-infinite line has norm \(2\).
+The norm is attained in \(L^\infty\), but not by any nonzero \(L^1\) input. The sequence \(\Lambda_d\) increases strictly with degree and satisfies \(\Lambda_d=3-3/d+O(d^{-2})\); for comparison the degree-two bi-infinite line has norm \(2\).
 
 For every finite connected unit-edge metric graph \(G\) with no isolated vertices, the analogous projector satisfies \(\|P_G\|_{L^1\to L^1}=\|P_G\|_{L^\infty\to L^\infty}\leq3\). This bound is globally optimal even when restricted to **finite trees**. More quantitatively, if \(G\) is finite, \(d\)-regular, and has girth greater than \(2K+3\), then, for each integer \(K\geq0\),
 \[
@@ -54,7 +54,9 @@ Hence every vertex functional has norm
 \frac{6I(q_d)}{(2-q_d)(1-(d-1)q_d)}
 =\frac{3(1+q_d^2)}{(1+q_d)^2},
 \]
-using \((2-q_d)(1-(d-1)q_d)=1+q_d\). Taking \(f\) to be the sign of this kernel on each edge attains the functional norm in \(L^\infty\); this sign input need not lie in \(L^2\), but finite truncations approach the sharp value using \(L^2\cap L^\infty\) inputs. The absolute kernel is symmetric, so the same sharp value holds in \(L^1\).
+using \((2-q_d)(1-(d-1)q_d)=1+q_d\). For a point inside an edge, its row is the affine interpolation of the endpoint rows, so its row norm is at most \(\Lambda_d\). Taking \(f\) to be the sign of the row at \(o\) attains the norm in \(L^\infty\): continuity along each incident edge makes the essential supremum at least the value at \(o\). This sign input need not lie in \(L^2\), but finite truncations approach the sharp value using \(L^2\cap L^\infty\) inputs. The symmetric kernel represents the \(L^\infty\) operator as the adjoint of its bounded \(L^1\) extension, so the two norms are equal.
+
+To see why the \(L^1\) norm is not attained, let \(y\) be interior to an edge \(vw\), at coordinate \(s\in(0,1)\) from \(v\). Its column is \(K(\cdot,y)=(1-s)K(\cdot,v)+sK(\cdot,w)\). The two endpoint columns have opposite nonzero signs at \(x=v\), since there they take the values \(6C_d\) and \(-6C_d q_d\), respectively. Both are continuous on the incident edges, so their signs are opposite on a set of positive arclength. The triangle inequality is therefore strict in the integral of the interpolated column: \(\|K(\cdot,y)\|_1<\Lambda_d\) for every interior \(y\). Integrating this strict inequality against \(|f(y)|\) gives \(\|P_df\|_1<\Lambda_d\|f\|_1\) for every nonzero \(f\in L^1\), since vertices have zero arclength.
 
 **4. Degree and finite-locality laws.** The positive root \(q_d\) decreases strictly with \(d\); the displayed norm decreases strictly with \(q\in(0,1)\). As \(q_d=1/(2d)+O(d^{-2})\), \(3-\Lambda_d=6q_d/(1+q_d)^2=3/d+O(d^{-2})\). For an arbitrary graph the order-\(K\) truncated Neumann operator is determined, at a root vertex, by the incident-edge data and vertex degrees within graph radius \(K+1\). Such a neighborhood is identical to the rooted regular tree if the graph has degree \(d\) and girth exceeding \(2K+3\), and also at the center of the finite radius-\(R\) regular-tree ball for \(R\geq K+2\). The two omitted Neumann tails have norms at most \((3/2)2^{-K}\) each, establishing the claimed error bound. Taking first \(R\to\infty\) then \(d\to\infty\) produces finite trees with projector norms tending to \(3\), proving optimality of the universal bound.
 

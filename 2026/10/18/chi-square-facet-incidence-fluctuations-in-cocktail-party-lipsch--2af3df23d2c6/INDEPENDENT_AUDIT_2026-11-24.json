@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:12:23.822432Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Nonedge molecules are midpoints of edge molecules, and each oriented edge is exposed by assigning values 1/2 and −1/2 at its two endpoints and zero elsewhere. Polar vertex rank is equivalent to spanning tight-edge connectivity; its tight tree forces integral values up to constants. Diameter two leaves binary cuts and the ternary case with the unique 0/2 pair. In a binary cut the tight graph is complete bipartite minus a matching. If both classes have size at least two it is connected: a class facing at least three vertices has common neighbors for pairs, and the two smaller-side vertices in the size-two case have a common neighbor on the larger side. Singletons fail because their mates are isolated. Pair multiplicities give m²−(a−b)²−c, with the two constants and 4m singletons removed and 2m ternary facets added. For a uniform binary cut, edge-crossing indicators for distinct edges are pairwise independent even if they share one endpoint; their sum has mean m(m−1) and variance m(m−1)/2. The explicit deletion/addition changes the raw second sum by 16m(m−1)² and not the first. The iid pair difference has variance 1/2 and the split fraction tends to 1/2, yielding the shifted chi-square by CLT/LLN and an O(m/4^m) total-variation modification. Minimizing (a−b)²+c gives the parity maxima; comparison with 4m−4 gives the tie only at m=3. The unordered (a,b) pair labels and a single ternary orbit yield the Burnside count and orbit sizes. Independent enumeration fixing one potential coordinate and using union-find and canonical pair labels reproduced the histograms and orbit counts for m=3,4,5 (python3 /workspace/review-evidence/check_frozen.py, facets). The frozen separate m=3–6 output was inspected as recorded evidence, not independently executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The map from facets to maximal bipartite facet subgraphs is onto but not injective in general. A recent join-graph paper restates total multipartite facet counts."
+        ],
+        "reasoning": "A broader structural correspondence does not count facet multiplicities by subgraph edge number, and the total count only evaluates the target polynomial at one.",
+        "searches": [
+          "arXiv:2107.12315 Theorem 3, maximal bipartite facet subgraphs",
+          "arXiv:2312.11287, p. 2, multipartite facet counts"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1807.07678",
+        "arXiv:1910.05193",
+        "arXiv:2107.12315",
+        "arXiv:2312.11287",
+        "Resultary d90620afbcf3, 32cb6c9025f6, 7158233327b2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A correct facet-potential description and tight-edge incidence criterion make the raw enumeration a direct combinatorial refinement. In the retrieved arXiv case list of Proposition 3.5, a single split pair with two other constant pairs of opposite colors is apparently omitted; its tight graph is directly connected, consistent with the proved count."
+        ],
+        "reasoning": "Credit the known structural starting point and total. The distribution requires enumerating the incidence via the signed imbalance and split count, then computing the fluctuation limit and distinct symmetry/extremal statements. These are not parameter substitutions in a stated formula for those quantities. The frozen self-contained proof supplies valid facets even where the printed case list appears incomplete.",
+        "searches": [
+          "arXiv:1807.07678 Prop. 3.5 and arXiv:1910.05193 Thm. 3.1; compare RESULT.md proof §§3–5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The unit-edge Lipschitz-free ball is the symmetric edge polytope; the latter's facet vertices correspond to oriented tight edges. The complete-multipartite count specializes to 4^m−2m−2."
+        ],
+        "reasoning": "This identifies the object and statistic across both terminologies, and establishes the known normalizer. Neither cited theorem gives the histogram of tight-edge counts, the parity extremal multiplicities, or the orbit histogram.",
+        "searches": [
+          "Symmetric edge polytope of the cocktail-party graph and complete multipartite K_{2,...,2}; arXiv:1807.07678 Prop. 3.5; arXiv:1910.05193 Thm. 3.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The mixed-theta orbit result is on path bundles; the K_{2,q} exact area result has a quadratic-normal limit for Euclidean area; the diameter-two capped-path generating function counts total facets across different metrics. No exact cocktail-party incidence/statistics match in the returned entries."
+        ],
+        "reasoning": "The exact refinements concern different graph families or different observables. K_{2,q} has only two parts (so within the balanced cocktail-party regime it provides no m≥3 case), and area data do not identify vertex incidence.",
+        "searches": [
+          "Resultary: complete cocktail-party facet-incidence distribution; random-facet chi-square; natural facet orbits",
+          "Resultary d90620afbcf3, 32cb6c9025f6 and 7158233327b2"
+        ]
+      },
+      "rationale": "The facet criterion and total facet count are established and get no novelty credit. The supported distinct contribution is the distribution by actual vertex incidence, in particular the uniform-facet fluctuation law and the exact extremal/orbit refinements; no inspected source supplies those statements for this family.",
+      "residual_risks": [
+        "The primary passages and catalogue results establish these specific overlaps, not global priority. A supplementary broad web lookup did not run; an equivalent unindexed statistic remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known facet count and structural baseline; printed case-list qualification",
+          "evidence": "Complete-multipartite count specializes to 4^m−2m−2; cases as retrieved miss the connected single-split example, not a flaw in the frozen direct enumeration.",
+          "identifier_or_url": "https://arxiv.org/pdf/1807.07678",
+          "material_read": "Prop. 3.5, p. 7, around OA text offset 25572",
+          "method": "Lawful OA primary PDF passage",
+          "title": "Arithmetic aspects of symmetric edge polytopes",
+          "trigger": "Same complete multipartite family"
+        },
+        {
+          "assessment": "Structural baseline",
+          "evidence": "Integer Lipschitz potentials with spanning connected tight graph define facets; directed tight edges give their vertices.",
+          "identifier_or_url": "https://arxiv.org/pdf/1910.05193",
+          "material_read": "Thm. 3.1, p. 7, OA text offset around 21900",
+          "method": "Lawful OA primary PDF passage",
+          "title": "Many faces of symmetric edge polytopes",
+          "trigger": "Equivalent facet model and incidence criterion"
+        },
+        {
+          "assessment": "Broader structure, not per-facet incidence enumeration",
+          "evidence": "Surjection onto maximal bipartite subgraphs, not generally one-to-one.",
+          "identifier_or_url": "https://arxiv.org/pdf/2107.12315",
+          "material_read": "Thm. 3, p. 5, OA text offset around 18400",
+          "method": "Lawful OA primary PDF passage",
+          "title": "Facets and facet subgraphs of symmetric edge polytopes",
+          "trigger": "General facet-subgraph structure could cover incidence"
+        },
+        {
+          "assessment": "Total-count overlap only",
+          "evidence": "Restates the complete-multipartite total facet count.",
+          "identifier_or_url": "https://arxiv.org/pdf/2312.11287",
+          "material_read": "p. 2, OA text offset around 7300",
+          "method": "Lawful OA primary PDF passage",
+          "title": "Number of facets of symmetric edge polytopes arising from join graphs",
+          "trigger": "Potential broader join-graph counting formula"
+        },
+        {
+          "assessment": "Different family",
+          "evidence": "Orbits and two vertex-count types for mixed-theta path-bundle metrics.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-polynomially-many-symmetry-classes-among-exponentially-many-face--d90620afbcf3",
+          "material_read": "RESULT.md, Finding and graph specification",
+          "method": "Local Resultary mirror",
+          "title": "Polynomially many symmetry classes among exponentially many facets",
+          "trigger": "Same-day exact orbit and incidence refinement"
+        },
+        {
+          "assessment": "Area on a different family",
+          "evidence": "Facet area on K_{2,q} and a uniform-facet scaled area limit 1−Z²/2.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-exact-facet-area-spectrum-and-a-sharp-squared-surface-dominance--32cb6c9025f6",
+          "material_read": "RESULT.md, Finding and limiting statistic",
+          "method": "Local Resultary mirror",
+          "title": "Exact facet-area spectrum and a sharp squared surface dominance",
+          "trigger": "Related exact distribution with chi-square-type limit"
+        },
+        {
+          "assessment": "Different graph and enumerated statistic",
+          "evidence": "Generates total facet counts across capped-path metrics, not the incidence within a cocktail-party graph.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-an-exact-facet-generating-function-for-diameter-two-truncated-pa--7158233327b2",
+          "material_read": "RESULT.md, Finding defining the counted objects",
+          "method": "Local Resultary mirror",
+          "title": "An exact facet generating function for diameter-two truncated path metrics",
+          "trigger": "Same-day facet generating-function hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The ball and facet vertex count are natural combinatorial objects. Knowing the number of facets alone does not tell how nonsimplicial they are, how many maximize incidence, or what a typical facet looks like. The finite distribution answers those questions and the non-Gaussian limit exposes the quadratic imbalance mechanism, beyond a routine re-evaluation of the known total.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

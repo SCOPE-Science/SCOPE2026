@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof uses the irreducible-projective-polynomial correspondence [1, Lemmas 3.1--3.3 and Theorem 3.4], checking that the associated \(q\)-linearized polynomial preserves the specified constant. Norms of roots become exponents modulo \(q-1\); the order condition becomes coprimality to \((q^d-1)/\ell\). The Chinese remainder theorem yields an exact fiber count, with Frobenius orbits of length \(d\). The support criterion follows by reducing \(1+q+\cdots+q^{d-1}\) modulo \(q-1\). Independently enumerated finite cyclic exponents and Rabin-irreducible polynomials agree in 96 and 14 parameter systems, respectively. Nonstandard correspondence is supported by [1], rather than by finite checks.
+PASS
 
-## Originality — PASS, with residual risk
+For a0≠0 the linearization Δq(A) is separable and its roots form a d-dimensional Fq-space V. Its nonzero roots modulo the scalar subgroup μℓ correspond to the roots of G, via α↦α^ℓ, with the q-Frobenius action preserved. If A has a proper nonconstant factor D, Δq(D) has a proper nonzero root subspace in V (composition of linearizations gives Δq(A)), invariant under Frobenius, so that action cannot be transitive. If A is irreducible, the Frobenius action makes V a one-dimensional module over Fq[T]/(A); transitivity on V×/μℓ means that a root β of A has ord(β^ℓ)=n. For β=Γ^e, the joint conditions are gcd(e,n)=1 and e≡r mod q−1, by the norm formula and the constant's sign (-1)^d. Primes dividing both n and q−1 impose gcd(r,h)=1, while each other prime divisor of n forbids one class among the U possible progression indices; their square-free product divides U, so complete CRT cycles give the stated product. Every qualifying β has degree d since n≥U>q^(d−1), and its norm is constant over its d conjugates. Summing and using U≡d mod q−1 verifies the total and all-constants criterion, including q=2 (r=0 and h=1) and the empty product cases. Zero constant gives a reducible polynomial because n>1. Fresh direct tests of every polynomial in 12 small systems (268 polynomials including three systems over F4) passed, using gcds against X^(q^k)−X for all k≤n/2 rather than the cyclic-exponent formula. Replay: python /workspace/replay_frozen.py 5. These tests are finite corroboration; no formal proof check or expert attestation is claimed.
 
-Kuttner--Wang [1] state the total number summed over constants but not the exact distribution by each fixed \(a_0\). The norm constraint is not determined by aggregate enumeration; the fiber formula gives the precise forbidden constants and a necessary-and-sufficient all-constants phase boundary. General fixed-norm/primitive-polynomial results [2--4] and nearby finite-field counts were checked as possible broader coverage but do not state or directly imply this specialized family without combining the cited correspondence with a new coprimality count. Because this elementary arithmetic could be implicit in a broader theorem, priority remains qualified; absence of search results is not a proof of global novelty.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The motivating polynomial family is defined by a sparse Frobenius exponent pattern and already has an established exact unrestricted count. Prescribing the constant coefficient is a natural coefficient-control problem, not an arbitrary slice. The result gives a **complete** existence-and-multiplicity classification for every finite field, dimension and permitted \(\ell\), with a sharp, characteristic-sensitive all-constants criterion useful when constructing irreducible polynomials with a specified norm. It is a substantive structural refinement, although the final counting step is elementary and no further downstream theorem is claimed.
+Pass is for the positive-divisor family with equal coefficient field and Frobenius base, refined by the exact fixed constant. The order characterization, unrestricted sum, and classical primitive-norm special case are not new. The inspected stronger root characterization leaves the distribution across individual constants to be worked out; the closest other sources treat a different order condition or different counting constraints. No distinct indexed record or inspected primary result supplying the full fixed-constant refinement was established.
 
-## Limitations and closest literature
+## value
 
-The argument treats \(\sigma=q\), and uses [1] for the crucial polynomial--order correspondence; it does not extend to unequal base and coefficient fields. The closest primary source is [1], Theorem 3.4 and Lemma 3.1; its unrestricted count is prior work. Related broader primitive norm/trace studies are [2--4]. Implicit prior norm-fiber coverage remains possible.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The constant is a natural coefficient constraint (equivalently a base-field norm of the ordinary root). The exact distribution determines when a specified constant can be realized in this sparse irreducible family and how many choices result, with a sharp all-constants threshold including nonprimitive quotient regimes. This resolves a substantive existence/counting question not answered by the unrestricted positive count. Value is for the uniform all-parameter refinement, not the CRT technique or isolated examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

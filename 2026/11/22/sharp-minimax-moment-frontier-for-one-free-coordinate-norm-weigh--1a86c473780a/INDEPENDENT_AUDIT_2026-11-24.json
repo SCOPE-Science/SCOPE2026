@@ -1,0 +1,97 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T13:43:46.402079Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A selected projected equation resets the one free coordinate exactly to d_i/s_i, so the law after every positive number of updates is Q_i=s_i^beta/sum_j s_j^beta on those atoms. Thus the moment is sum(s_i^(beta−q)|d_i|^q)/sum(s_i^beta), maximized only by saturation of all |d_i| for fixed s. For beta<q one positive row vanishing with another row fixed at 1 makes the risk unbounded over systems, not on a fixed system. For beta=q the denominator is strictly above 1 and the m-bound is approached by vanishing all except a unit row. For beta>q fix one unit row and the sum of the remaining s_i^beta. Strict concavity of z^(1−q/beta) bounds the numerator by its value with all remaining rows equal. For their common size t the derivative of the risk has the sign of beta−q−beta*t^q−q*(m−1)*t^beta, strictly decreasing from positive to negative. This proves interior attainment and all equality claims, including the unique unit row. The witness Gram matrix is I+(1,epsilon)^T(1,epsilon), so its condition number is at most sqrt(3). Its centered iterate error is zero or epsilon^(-1)−1, giving the claimed tail, inclusive at epsilon=1/(1+R), and moments. The uploaded checker was inspected, not run: its R=1/epsilon check is for the uncentered iterate and does not directly verify the stated clean-target tail. The independent exact centered-threshold checks are reproducible with python3 /workspace/reviews/evidence/reproduce.py, output 3. The result is for fixed m, exact projections and deterministic errors; no uniform bound over m or claim for more free coordinates follows.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lok–Rebrova §3.2, arXiv HTML offset 45531–48492, gives a noisy-SCRK error horizon gamma_0+gamma_1, with gamma_0=0 for exact trusted observations and gamma_1=||r_I1||²/sigma_min^+(A_I1 P)^2 in that case.",
+          "No decisive wider all-order formula was recovered by the bounded literature lookup; the Sun et al. comparison remains limited by access."
+        ],
+        "reasoning": "In the single-free-coordinate case the positive singular value squared equals sum s_i² and the contraction factor is zero. The horizon thus covers the critical squared-norm second-moment bound (and the exact reset verifies equality with gamma_1). This does not supply minimax for beta varying against general real q.",
+        "searches": [
+          "Lok–Rebrova arXiv:2309.04889 §3.2 Theorem 3.4 and Remark 3.5; focused primary literature lookup for exact norm-power moment frontier; Sun et al. arXiv:2605.29304 attempted"
+        ]
+      },
+      "checked_sources": [
+        "Lok–Rebrova arXiv:2309.04889 §3.2",
+        "81db12815a13",
+        "fc509082b05e",
+        "Focused literature lookup for exact deterministic norm-power profile; attempted access to cited Sun et al. and Needell"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 3.4 establishes a quadratic moment bound at fixed squared projected sampling; the Gaussian theorem treats moments on its stochastic coefficient law even for fixed starting data; the residual theorem restricts all coefficient magnitudes to one."
+        ],
+        "reasoning": "Optimizing the established second-moment bound gives m under the audited normalization, with a small-row limiting example verifying sharpness. The supercritical optimizer requires solving a different ratio over unequal magnitudes, and the single-corruption tail requires the centered two-atom law rather than a mean-square estimate. No compared theorem dominates those claims.",
+        "searches": [
+          "arXiv:2309.04889 Theorem 3.4 and §3.2; Resultary 81db12815a13 and fc509082b05e actual Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Mirror 81db12815a13 Finding, offsets 0–1886: fresh Gaussian coefficient rows at every step, fixed RHS, critical q*=min(md,d+beta) and divergence at equality.",
+          "Mirror fc509082b05e Finding and scope, offsets 0–1884: unit rows, iterate-dependent residual weights, worst starting level, two-update mean-square risk optimized over weight ratio."
+        ],
+        "reasoning": "An annealed finiteness threshold with Gaussian coefficients is not a supremum over fixed positive normalized magnitudes. A Markov transition driven by the residual is not the independent-row law; setting its weights constant only gives identical unit magnitudes and misses the sharp weak-row configurations.",
+        "searches": [
+          "Resultary: deterministic projected scalar Kaczmarz fixed-row moment profile, Gaussian norm-weighted moment thresholds (81db12815a13), two-step residual weighting (fc509082b05e)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The retrieved threshold is q*=min(md,d+beta) in the Gaussian result; the retrieved residual result lists an exact R_2(t) for two residual-driven scalar steps."
+        ],
+        "reasoning": "Neither formula gives the normalized deterministic moment supremum or its equality profile. A numerical table is not an apt exact-identity check for the continuous three-parameter profile with a model-dependent supremum.",
+        "searches": [
+          "Resultary exact profile and single-row tail comparisons; published Gaussian threshold 81db12815a13 and same-day residual-weighting record fc509082b05e"
+        ]
+      },
+      "rationale": "Credit projected squared-norm sampling and the rank-one exact second-moment formula to the specialization of existing noisy SCRK analysis. Neither that result, the Gaussian-ensemble theorem nor the same-day residual-weighting result covers the sharp fixed-m frontier over all positive (beta,q), its supercritical equality geometry, or the stated deterministic single-corruption family tail. The pass is for the distinct sharp profile and witness, not the scalar reset or the existence of a second-moment bound.",
+      "residual_risks": [
+        "A stronger deterministic corruption or moment result not located in the bounded search could cover part of the audited frontier or tail.",
+        "The cited additional Kaczmarz works were not independently inspected in full; their scope comparisons in the frozen record do not establish absence of competing results."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage of the rank-one second-moment bound at beta=q=2, not the all-order sharp profile.",
+          "evidence": "With zero error in I0, the horizon reduces to the norm square of the observed RHS perturbation divided by the smallest nonzero projected singular value squared.",
+          "identifier_or_url": "https://arxiv.org/html/2309.04889",
+          "material_read": "§3.2, Theorem 3.4 and start of Remark 3.5",
+          "method": "OA arXiv HTML offset 45531–48492",
+          "title": "A subspace constrained randomized Kaczmarz method for structure or external knowledge exploitation",
+          "trigger": "Same projected norm-squared algorithm and deterministic noisy observations"
+        },
+        {
+          "assessment": "Different coefficient probability space and quantifiers.",
+          "evidence": "The rows are independently Gaussian-resampled at each iteration; finite moment condition is q<min(md,d+beta).",
+          "identifier_or_url": "81db12815a13",
+          "material_read": "Finding, including finite-time, equilibrium and centered Gaussian assertions",
+          "method": "Resultary mirror, offsets 0–1886",
+          "title": "Sharp moment thresholds for Gaussian-noisy, norm-weighted Kaczmarz projections",
+          "trigger": "Same moment-threshold vocabulary and norm-power weighting"
+        },
+        {
+          "assessment": "Different control variable, geometry and objective; no inferred priority from date.",
+          "evidence": "All rows have unit coefficient, and the risk depends on the ratio of selection weights at residuals c and 0 after two updates.",
+          "identifier_or_url": "fc509082b05e",
+          "material_read": "Finding and Assumptions",
+          "method": "Resultary mirror, offsets 0–1884",
+          "title": "Sharp two-step residual weighting for a two-level corrupted Kaczmarz system",
+          "trigger": "Distinct same-day scalar corruption and minimax finding"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The frontier answers a calibration question for the projected sampling exponent, distinguishing a known second-moment safeguard from genuine high-moment robustness and giving a sharp extremizing geometry when the moment is uniformly finite. Its value is not the reset identity alone. The clean-target tail on a uniformly well-conditioned full system shows explicitly why conditioning the original matrix is insufficient to explain robustness after enforcing the trusted subsystem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

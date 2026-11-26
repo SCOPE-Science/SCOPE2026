@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducible finite verification
+# Independent mathematical audit
 
-Run `python3 verify.py` using Python 3.9 or later. No external packages, papers or downloaded data are required. The script recreates the Fano incidence system from the modular line equation and all 24 perfect matchings twice (permutation and recursive enumeration).
+## correctness
 
-It uses a canonical spanning tree to enumerate exactly all 256 normalized signings. At each of these signings, three independent integer evaluations are compared: direct sum over complete matching masks, recursive signed permanent and fraction-free Bareiss determinant. The exact determinant histogram, Parseval check and character multiplicities are then asserted. Direct and fast eight-coordinate Walsh inversions agree for all 256 coefficients of the projection kernel; the kernel is identified in the binary cycle space. The exact norm \(93/16\), full rank and nullity, and least nonzero multiplier magnitude are checked. Successful execution prints a `PASS` summary; any discrepancy raises an exception.
+PASS
 
-The script exhausts the **finite** set of all required signings. Translation averaging and uniqueness of the invariant range projection are proved algebraically in RESULT.md, not inferred from computation. No extension to different graphs or independently validated priority is asserted.
+The Fano incidence rule gives AAᵀ=2I+J, so |det A|=24. There are exactly 24 admissible bijections and all are even in this labeling, giving equality of determinant and matching sum for every signing. Independently enumerating bijections and summing signs on all 256 tree-normalized classes gives (−8:45, 0:168, 8:42, 24:1). Switching at a vertex changes the contribution of every matching by −1. The switch space has dimension 13 and exactly half its elements reverse sign (the all-vertex relation involves 14 even vertices). Normalizing all tree signs uniquely leaves the eight cotree bits, giving the claimed signed full spectrum, rank 720896, nullity 1376256, nonzero condition number 3, and pseudoinverse norm 1/8. The symbol of the range projection is constant on switch classes, so its kernel vanishes off the cycle space; the cotree bits and fundamental-cycle coordinates are dual. The replay finds integer inverse-kernel histogram (−8:77, 0:108, 8:42, 16:28, 88:1), with absolute sum 1488 at denominator 256. Averaging any projection by translation conjugacy leaves range and identity on that range unchanged, and cannot increase the norm. The unique invariant projection is Fourier truncation; the row and column absolute-sum norms are both 93/16. The frozen checker uses int.bit_count (Python ≥3.10), notwithstanding its Python 3.9 instruction; the independent calculation does not rely on running it.
+
+## originality
+
+PASS
+
+The unsigned matching count and determinant coincidence are known, as are the general methods. The checked same-graph Fourier calculation has a different support, and other close computations use different graphs or ground sets. No checked source establishes the signed census and sharp projection constant for this matching support.
+
+## value
+
+PASS
+
+The Heawood graph is the canonical Fano incidence example, and its matching/determinant coincidence motivates comparing its unsigned count to its full signed cancellation profile. The census determines which Walsh magnitudes are available and how large the nullspace is; the sharp endpoint norm additionally quantifies the minimum range-projection cost over all linear projections, which rank or determinant bounds alone do not give. These form an exact benchmark on a natural graph rather than an arbitrary truncation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

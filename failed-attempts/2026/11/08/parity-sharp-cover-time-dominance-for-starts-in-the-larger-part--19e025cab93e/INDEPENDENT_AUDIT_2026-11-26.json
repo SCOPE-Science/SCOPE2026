@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T10:04:41.920083Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the specified non-lazy walk, the two streams of uniform vertex draws are independent; fixing the first label in the starting part leaves the law of its coupon completion count unchanged by label symmetry. The alternating draw counts give all three CDF formulas including t=0. In RESULT.md lines 43–53, the Stirling recurrence differentiates z(1+z)Q_k; Rolle interlacing from Q_1=1 puts all roots of Q_k simply in (-1,0). Newton's inequalities give strict unnormalized coefficient log-concavity on the positive support, so U_n(k+1)/U_n(k)=1+A_{n-1}(k)/A_n(k) increases strictly over 1<=n<=k. The zero-support and first positive time k=a-1 are separate cases. With the same independent coupon counts on both starts, the time difference equals +1, 0, or -1 according to their ordering, giving precisely the stated mean identity and boundaries. For K_{3,2} the first gap is (2/9)(1/2)=1/9 and the mean gap is 1-3E[2^(1-X_3)]=7/10 by summing the geometric series for the 3-coupon distribution. The 'uniquely' wording is about the starting part, not a unique vertex: the minimizer set is exactly A when a>b. The supplied checker and verification notes were inspected, not executed; the analytic proof is unbounded.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general finite graph inclusion–exclusion formula is not itself an all-parameter sign result. The multi-offer proof obtains likelihood-ratio ordering from Geom(1-(1-r/n)^d) summands and log-concave convolution, then proves the strict gap using the smallest support point b-1."
+        ],
+        "reasoning": "Those geometric probabilities vary strictly by n and give full tail support for d=1 just as for d>=2. The min-support witness and cases b=1 and a=b do not require multiple offers.",
+        "searches": [
+          "Zlatanov and Kocarev arXiv:0910.3545 Sec. II.C",
+          "Multi-offer RESULT.md proof steps 3–5, offset 6450"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md; check_cover.py",
+        "Resultary 49171f94e5b9, 45da9f177f4a, 2b607d0cfc50",
+        "arXiv:0910.3545, 1601.04455v1, 2110.13592v1 (abstract), 2210.05122v1 (introductory distribution result)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At d=1 each parameter becomes r/n; the same geometric decomposition gives X_n-1, the same minimal-support witness gives strict positivity exactly for k>=a-1, and subtracting a common 1 from both coupon counts preserves the ordering in the mean formula."
+        ],
+        "reasoning": "The displayed proof implies the entire claimed parity and expectation theorem at one offer without an extra theorem or model-specific inference. The comparison establishes coverage by currently available mathematics and makes no claim about which same-day result was written first.",
+        "searches": [
+          "Multi-offer RESULT.md Finding, Proof 4–5, Relationship to prior work (offsets 0, 6450, 9950)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Multi-offer RESULT.md offset 0: F_n(k) counts additional rounds from one seen label and has the same odd/even factorization; offset 9950: the relationship section expressly excludes d=1 from its novelty claim."
+        ],
+        "reasoning": "At one offer there is no choice and each step is exactly a simple random walk traversal; the coupon variable there is X_n-1, so F_n(k)=U_n(k+1) here. No additional hypothesis is needed.",
+        "searches": [
+          "Resultary: alternating complete bipartite cover time, coupon-collector completion, start side and parity",
+          "Local mirror: 2026/11/8/SCOPE-optimal-multi-offer-cover-walks-exact-bipartite-parity-and-start--49171f94e5b9"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Resultary match gives all three CDF expressions, exact threshold, and ordering-probability formula for the mean. Last-vertex records 45da9f177f4a and 2b607d0cfc50 give a different observable using the same two streams."
+        ],
+        "reasoning": "The absence of the literal numbers 1/9 and 7/10 in the companion theorem is not a scientific remainder: they are direct evaluations in its exact representation at one offer.",
+        "searches": [
+          "Resultary: cover-time parity and start-side comparisons; last-vertex laws on complete bipartite walks",
+          "Multi-offer RESULT.md theorem, example and proof, offsets 0 and 6450"
+        ]
+      },
+      "rationale": "An independent indexed companion result for the d-offer walk explicitly excludes d=1 from its stated novelty, but its proof covers the entire audited claim by immediate substitution, not just a similar inequality. The mechanical implication follows at d=1 from the actual displayed probabilities and likelihood-ratio proof. This is demonstrated overlap, not a historical ordering determination from same-day metadata. The Stirling proof is a different elementary route, not a distinct claimed result or new polynomial inequality.",
+      "residual_risks": [
+        "An earlier printed statement of the one-offer case could exist; no historical priority is inferred for either same-day record. This does not change the direct implication from the matched proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Mechanical coverage despite theorem literally stated for d>=2",
+          "evidence": [
+            "Exact product CDFs and likelihood-ratio proof for geometric summands; d=1 identified and excluded from claimed novelty."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-optimal-multi-offer-cover-walks-exact-bipartite-parity-and-start--49171f94e5b9/RESULT.md",
+          "material_read": "Finding and hypotheses offset 0; proof steps 4–5 offset 6450; prior-work paragraph offset 9950",
+          "method": "Bounded local-mirror text inspection and explicit d=1 specialization",
+          "title": "Optimal multi-offer cover walks: exact bipartite parity and start-side dominance",
+          "trigger": "Strongest matching Resultary record, same graph and parity/mean assertions"
+        },
+        {
+          "assessment": "Last-discovery result uses the same representation but the inspected claims do not supply the full CDF sign",
+          "evidence": [
+            "Comparison of the two collector variables determines which part contains the last new vertex."
+          ],
+          "identifier_or_url": "Resultary 2026/11/2 record 45da9f177f4a; related 2026/10/18 record 2b607d0cfc50",
+          "material_read": "Mirror Finding excerpts, offset 0",
+          "method": "Resultary search with bounded local-mirror comparison",
+          "title": "Last-vertex laws on complete bipartite random walks: exact ties and related asymptotics",
+          "trigger": "Identical one-offer bipartite walk and coupon streams"
+        },
+        {
+          "assessment": "General computation, not by itself the uniform sign comparison",
+          "evidence": [
+            "CDF given by inclusion–exclusion in arbitrary-graph hitting distributions."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0910.3545",
+          "material_read": "Abstract and Sec. II.C Eq. (3), PDF pp. 2–3",
+          "method": "Bounded OA primary-source inspection",
+          "title": "Random walks on networks: cumulative distribution of cover time",
+          "trigger": "General exact cover-time machinery for arbitrary graphs"
+        },
+        {
+          "assessment": "The inspected results concern concentration in a set-valued model, not the alternating start-side theorem",
+          "evidence": [
+            "The basic model consists of independent identically distributed set-valued coupons."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1601.04455v1",
+          "material_read": "Sec. 1, PDF p. 2, offset 6554",
+          "method": "Bounded OA primary-source inspection",
+          "title": "Speed and concentration of the covering time for structured coupon collectors",
+          "trigger": "Candidate general coupon-collector ordering result"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "A sharp start-side order for all deadlines is a useful question, but the entire audited answer is a one-parameter specialization of a comparison already supplied by the multi-offer proof. The specific example and strict test-function consequence are routine evaluations of that coverage; the alternative use of classical ordered-Bell real-rootedness does not establish a new structural fact or a valuable surviving finding.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The argument uses the exact two-scale geometric-series polynomial, von Neumann's polynomial inequality, and a concrete normalized weak-null wandering-orbit sequence. The latter proves the complete essential-norm lower bound independently of numerics, then forces every approximation number to equal the ordinary norm. The trigonometric logarithmic derivative is strictly decreasing on the first lobe and all other lobes are bounded by its right endpoint; this establishes the unique phase root. The implicit expansion gives the exact \(n^{-2}\) term with \(O(n^{-4})\) residual. At \(n=1\) the norm is one, separately treated.
+## correctness
 
-**Originality — PASS, with bounded priority risk.** The primary recent source (Kalmes–Peša, arXiv:2510.12459, 2025) describes qualitative ergodicity of sequence shifts. Chalmoukis et al. (arXiv:2312.08922, 2023) study shift convergence speed and compute the norm of each single average, not the exact norm of a difference at adjacent dyadic scales. Retrieved records about Fejér transforms, other Cesàro operators, and unrelated essential-norm problems were compared by objects and implications. Standard polynomial Toeplitz formulas subsume the reduction to a circle supremum, not the explicit unique maximizing root and its two-term asymptotic. The original Jones et al. (1998) oscillation paper remains a specific access and priority risk: only its abstract could be inspected, not its full text. Failed exact-constant searches do not by themselves prove priority.
+PASS
 
-**Mathematical value — PASS.** This is a sharp quantitative obstruction to operator-norm and compact-approximation convergence in a natural ergodic class, even though the same differences converge strongly to zero. It simultaneously identifies all finite-rank approximation errors, their universal nonzero limit, the precise finite-scale optimizer, and the next asymptotic coefficient; the exact constant is not obtained from the qualitative ergodic theorems.
+For p_n(z)=-(1-z^n)^2/[2n(1-z)], von Neumann's inequality gives the contraction upper bound and multiplication by a maximizing scalar gives equality. A unit vector in ker(V*) produces an orthonormal orbit; normalized phase-modulated blocks on indices L through 2L-1 are weakly null and have (V-zI) residual sqrt(2/L) for |z|=1. Compact operators annihilate these vectors in norm in the limit, giving the full circle-supremum lower bound for distance to compacts and hence for all finite-rank distances (including k=1). On [pi/n,pi] the numerator of the modulus is at most 1 and the denominator is nondecreasing; a negative derivative at pi/n puts the maximum strictly in the first lobe for n>=2. There the logarithmic derivative is strictly decreasing from +infinity to a negative value, by sin(nu)<=n sin(u). This verifies the root equation and uniqueness on the stated interval (the two opposite phases are equivalent on the full circle). Uniform convergence after rescaling and a simple limiting root give x_n-x_*=O(n^-2); stationarity removes its first-order effect on the value. The expansion of x/(2n sin(x/(2n))) gives the displayed positive n^-2 coefficient with O(n^-4) remainder. Strong convergence follows by the mean ergodic theorem, or telescoping on ran(I-V) and density on the orthogonal complement of Fix(V).
 
-**Scope and limitations.** Complex Hilbert isometries must have a nonzero wandering subspace. The scalar upper bound remains valid for contractions, but equality and noncompactness need not. Only one two-scale difference, not the full variation or square-function operator, is classified. Bibliographic priority and independent proof assessment are outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best available evidence supports the explicit finite dyadic norm, first-lobe optimizer and correction as the distinct content, not the standard shift/Toeplitz norm reduction, general ergodic convergence or polynomial contraction inequality. No equivalent statement or dominating exact result was found in the bounded comparisons.
+
+## value
+
+PASS
+
+This canonical difference of consecutive dyadic Cesàro scales tends strongly to zero while retaining a nonzero sharp universal norm. Evaluating that norm, its finite-scale correction and the same obstruction after arbitrary compact perturbations gives a quantitative answer beyond standard qualitative mean ergodicity. The exact scalar reduction is standard, but the evaluated invariant is useful as a sharp bound and benchmark for comparisons of averaging schemes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

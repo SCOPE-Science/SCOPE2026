@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:11:51.943257Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, radial law and critical-dimensional expansion",
+        "Frozen VERIFICATION.md and verify.py, inspected as supplementary finite moment/quadrature checks"
+      ],
+      "rationale": "Rotational invariance gives the same conditional law of the squared radial multiplier given every past, hence independence and the fixed-dimension strong law. The square representation gives positivity and integrability of the log; the exact mean multiplier is 1-2η+(d+2)η². Independently, at c=2/(d+2), dividing E[(F-1)²] by 3c⁴ replaces U by a chi-square with five degrees of freedom (U² size bias), leaving W independent. Their sum then has d+4 degrees of freedom, so its squared deviation about d+2 has expectation 2(d+4)+4. Thus the leading second moment is 96/d³; the step displacement contributes 2a/d³ to the first moment. Centered W moments and fixed U moments give E|F-1|^p=O(d^(-3p/2)) for bounded a. On |F-1|≤1/2 the Taylor remainder is O(d^(-9/2)) in expectation, while the tail has arbitrarily small polynomial probability and its log is controlled by F and η²UW. This gives 2a−48 uniformly for bounded a. For a strict local crossing one can also differentiate under the expectation for large d: |F′/F|≤2η^(-1)(1+U/W)+2η^(-2)/W has L² norm O(d) uniformly for η near c, while F′ has bounded L² norm. On the good event the difference from E F′ is O(d^(-3/2)) and on the tail it is negligible; the derivative tends to 2. The signs for mean-square and pathwise growth follow with time tending to infinity first.",
+      "residual_risks": [
+        "No global uniqueness claim or sign conclusion at the parameter a=24; the calculation uses fresh, unnormalized independent Gaussian directions and an isotropic quadratic."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Song et al., Theorem 1 Eq. (16) and Appendix B, include more general Hessians and multiple probes but address the covariance multiplier. Ye treats norm-normalized, decaying steps; Kozak et al. study random-subspace descent using different probability and expectation guarantees."
+        ],
+        "reasoning": "The broader expectations and guarantees cited do not specialize to the fixed-step logarithmic rate in the stated window.",
+        "searches": [
+          "https://arxiv.org/html/2604.14669v1",
+          "https://arxiv.org/html/2606.20446",
+          "https://arxiv.org/pdf/2003.02684"
+        ]
+      },
+      "checked_sources": [
+        "Song et al., arXiv:2604.14669v1",
+        "Ye, arXiv:2606.20446",
+        "Kozak et al., arXiv:2003.02684",
+        "Resultary scalar probe-averaging record, RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Putting H=I in Song's threshold equation gives 2/(d+2). Strict Jensen at this known endpoint gives pathwise contraction, but does not give its rate or the critical correction."
+        ],
+        "reasoning": "The covariance result gives a first moment of F, not the fluctuation and rare-event control required for the −48 term; the scalar log expansion does not give that information either.",
+        "searches": [
+          "Song et al., §4.2 Theorem 1 and Appendix B",
+          "Scalar probe-averaging Resultary record, RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The closest catalogue result studies the scalar multiplier |1-aY_n| with Y_n~χ²_n/n, and gives a logarithmic threshold with an 8/n gap as scalar probe count n grows."
+        ],
+        "reasoning": "The vector problem has F=(1-ηU)²+η²UW, with U retaining one degree of freedom and W representing the orthogonal displacement. Neither replacing n by d nor squaring the scalar multiplier gives this distribution or its scale of fluctuations.",
+        "searches": [
+          "Resultary (Gaussian zeroth-order descent, pathwise versus mean-square stability)",
+          "Resultary 2026/11/2/SCOPE-probe-averaging-can-reverse-almost-sure-stability-in-gaussian-ze--bd4e7bf676c0"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected numerical threshold analogue is an analytic result, not a finite table: Song et al. supply the exact moment threshold and the scalar-probe catalogue record supplies a different asymptotic coefficient."
+        ],
+        "reasoning": "A finite stability table cannot establish the dimension limit; neither exact analytic comparator supplies the coefficient for this multiplier.",
+        "searches": [
+          "Resultary (Gaussian zeroth-order descent stability thresholds)",
+          "https://arxiv.org/html/2604.14669v1#S4"
+        ]
+      },
+      "rationale": "The mean-square boundary is explicitly prior. The supported distinct claim is the local ambient-dimension log-multiplier asymptotic and its leading pathwise–mean-square separation for one fresh unnormalized vector per step, not the mere existence of a difference between pathwise and moment growth.",
+      "residual_risks": [
+        "Best-knowledge statement based on bounded catalogue retrieval and inspected papers; an unindexed equivalent Lyapunov-exponent calculation remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the mean-square boundary, not the local log-multiplier limit in the passages inspected",
+          "evidence": [
+            "At H=I, dη/[2(1−η)]=1; appendices give covariance recursions."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2604.14669v1",
+          "material_read": "§4.2 Theorem 1 Eq. (16); Appendix B Eqs. (122)–(125) and Appendix B.3 Eqs. (136)–(141)",
+          "method": "Lawful primary arXiv text, targeted passages",
+          "title": "Zeroth-Order Optimization at the Edge of Stability",
+          "trigger": "Same unnormalized Gaussian algorithm and stability boundary"
+        },
+        {
+          "assessment": "Materially related; distinct parameter and multiplier",
+          "evidence": [
+            "Scalar n-probe limit (c−4)/n at 2+c/n; 8/n pathwise–mean-square gap."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-probe-averaging-can-reverse-almost-sure-stability-in-gaussian-ze--bd4e7bf676c0",
+          "material_read": "RESULT.md opening, definitions and sharp threshold, offsets 0–3480",
+          "method": "Resultary catalogue and mirrored primary text",
+          "title": "Probe averaging can reverse almost-sure stability in Gaussian zeroth-order descent",
+          "trigger": "Closest catalogue analogue of the logarithmic stability expansion"
+        },
+        {
+          "assessment": "Different normalization and time schedule",
+          "evidence": [
+            "The step contains both (t+T₀)^(-1) and ||u_t||^(-2)."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2606.20446",
+          "material_read": "Abstract, contributions and Theorem 1",
+          "method": "Lawful primary arXiv text, targeted passages",
+          "title": "High-Probability Last-Iterate Guarantees for Two-Point Gaussian Zeroth-Order Stochastic Gradient Descent",
+          "trigger": "Gaussian two-point pathwise-probability study"
+        },
+        {
+          "assessment": "Inspected guarantees do not establish the fixed-step log expansion",
+          "evidence": [
+            "Expectation and probability bounds for random-subspace descent."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2003.02684",
+          "material_read": "Abstract and introductory results overview",
+          "method": "Lawful primary PDF text, targeted passages",
+          "title": "A stochastic subspace approach to gradient-free optimization in high dimensions",
+          "trigger": "Earlier random-direction high-dimensional guarantees"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, phase interpretation",
+        "Song et al., exact moment stability edge",
+        "Scalar probe-averaging comparator"
+      ],
+      "rationale": "The exact mean-square edge is a natural reference point for users of covariance stability. The dimension-dependent width and sign of the regime in which typical trajectories decay while expected squared norm grows are not quantified by Jensen or an example at a single dimension. Identifying the scale d⁻³ and the coefficient 24 distinguishes the single-vector high-dimensional mechanism from the scalar probe-count mechanism.",
+      "residual_risks": [
+        "No extension to anisotropic or normalized algorithms or to other objectives is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

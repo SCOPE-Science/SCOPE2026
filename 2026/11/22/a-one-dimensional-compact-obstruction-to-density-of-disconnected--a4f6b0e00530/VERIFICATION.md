@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-23.md",
+      "INDEPENDENT_AUDIT_2026-11-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,13 +19,24 @@
 }
 ---
 
-# Verification notes
+# Independent mathematical audit
 
-The argument is a direct proof, not a computer-assisted extrapolation. For independent reproduction:
+## correctness
 
-1. Check that the middle-thirds Cantor set is infinite, compact and zero-dimensional; its connected subsets are singletons. Verify that the cross is a finite one-dimensional graph containing an interval. By the covering-dimension product inequality, their product has dimension exactly one and its connected components are the cross fibers.
-2. Given any perturbation of \(f_0(z,y)=z\) with norm less than \(1/2\), take the image of a horizontal arm in one fiber and a vertical arm in another. Subtract the unperturbed coordinates to get \(a(t)\), \(b(s)\), each bounded by the perturbation norm. The map \(F(t,s)=(\operatorname{Re}(b(s)-a(t)),\operatorname{Im}(a(t)-b(s)))\) is a continuous self-map of the closed square; apply Brouwer and verify the two paths intersect.
-3. Connected images of the cross fibers meet pairwise, so their union is connected. For \(C(X,\mathbb C)\), the spectrum is precisely this image.
-4. The function \(h(z,y)=y\) has the Cantor set as its spectrum, giving infinitely many components. The open ball constructed in step 2 is disjoint from all classes requiring two or more spectral components.
+PASS
 
-Limits: Standard Brouwer and dimension theorems are invoked, not re-proved. No computational checker or numerical experiments are claimed. The reported norm radius is sufficient and not certified optimal. These notes are not an independent mathematical audit.
+Independently reconstructed the proof. A finite graph has covering dimension one; its product with the zero-dimensional compact metrizable Cantor set has dimension at most one, and the closed horizontal interval in a fiber gives the lower bound. Projection onto the totally disconnected factor shows that the fibers are exactly the connected components. For any two fibers and any uniform error δ<1/2, the map (t,s) ↦ (Re(b(s)−a(t)), Im(a(t)−b(s))) is a continuous self-map of [-1,1]^2: both real coordinates are bounded by 2δ. Its fixed-point equation is t−is=b(s)−a(t), so the actual horizontal and vertical images intersect even across different fibers. Pairwise intersection of connected fiber images rules out a separation of the entire range. Pointwise inversion gives spectrum equal to range, and the Cantor-coordinate function realizes continuum many singleton spectral components. Thus all finite classes are nonempty and none with n≥2 is dense. The quoted zero-dimensional guarantee is for infinite compact spaces. No computation or numerical certificate is needed.
+
+## originality
+
+PASS
+
+Non-density itself, including at maximal cardinal spectral depth, is prior work. The checked distinction is a compact metrizable base of covering dimension one with infinite depth and a whole ball of connected images. Here intersection of two perturbed transverse paths replaces the prior disk-surjectivity mechanism. The classical planar crossing principle is not new. No inspected source covers the stated dimensional obstruction; priority is provisional.
+
+## value
+
+PASS
+
+A natural sharp boundary is established for a specified recent density result, not merely a disconnected example: the first higher dimension suffices even on a compact metrizable space with continuum many components. The explicit open ball and the replacement of a two-dimensional common-image argument by stable intersection of curves make the counterexample useful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

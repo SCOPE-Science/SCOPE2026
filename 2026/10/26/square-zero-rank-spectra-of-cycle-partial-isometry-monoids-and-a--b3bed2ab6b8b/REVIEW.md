@@ -1,19 +1,21 @@
-# Scientific review: square-zero partial isometries of finite cycles
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The claimed object is the full rank polynomial for individual partial maps satisfying \(f^2=0\), with all cycle sizes \(n\ge3\). A map squares to zero exactly when its domain and image are disjoint. Every partial isometry extends to a dihedral symmetry, uniquely in rank at least three; singletons and antipodal pairs are corrected for multiplicity. Cycle-orbit independence polynomials prove the exact formula. The Lucas growth bound \(7^{1/4}<\sqrt3\) proves reflection dominance, and the resulting binomial rank factors prove the central limit theorem. The checker directly tests all graph-distance-preserving maps between disjoint subsets through size twelve, totaling 4,447,144 candidates. This finite experiment verifies examples but does not certify the infinite proof.
+PASS
 
-## Originality: PASS within examined coverage
+The frozen formula is mathematically correct, although not original. In particular, for any partial isometry f:A→B the composition has empty domain iff A∩B is empty; on extending f to a dihedral permutation the admissible domains select independent vertices along each orbit. Checking the multiplicities gives the empty correction 2n−1, rank-one correction n(n−1), and even antipodal rank-two correction 2(n/2)(n/2−1). For the repaired statement the dominant polynomial M is the sum over reflections and the even half-turn, with t=n/2 giving (t+1)(1+2z)^t+t(1+2z)^(t−1) in even size and n(1+2z)^((n−1)/2) in odd size. Normalizing these polynomials gives precisely the stated binomial laws and weights. The two-state trace shows that the independent-set count of a d-cycle is λ^d+(−1/λ)^d; odd d are bounded by λ^d, and even d≥4 have d-th root at most 7^(1/4). Summing over at most n rotations and adding O(n²) extra representations bounds the coefficient ℓ¹ discrepancy E. Since |s_n−M(1)|≤E, renormalization has coefficient ℓ¹ discrepancy at most 2E/M(1); polynomial correction terms are exponentially smaller than the stated errors. This proves the quantitative total-variation claim. Evaluating M at one and dividing by the cited monoid size gives both rarity constants, and the means and variances of all the binomials agree with n/3 and n/9 up to O(1), proving the CLT and LLN. The n=3 boundary has the empty map and six rank-one maps; the extensions and the proof still apply.
 
-The nearest primary source is Fernandes and Paulista's paper on cycle partial-isometry monoids (arXiv:2205.02196). Its dihedral restriction lemma, rank/cardinality results and rank-two extension exception are credited. Gomes and Howie's 1987 nilpotent symmetric inverse-semigroup theory supplies a broader structural classification without the cycle-isometry rank counts. Dimitrova et al. (arXiv:2301.01519) count three order/orientation-constrained submonoids, while Cain, Malheiro and Paulista (arXiv:2310.08481) analyze maximal nilpotent subsemigroups. Neither supplies the square-zero rank polynomial or Gaussian law. Direct searches for equivalent wording, numerical tables and alternate nilpotency language did not reveal a dominating result. The full 2022 dissertation *Partial Isometries of Some Simple Connected Graphs* could not be inspected; a possible earlier equivalent result remains an acknowledged priority risk.
+## originality
 
-## Mathematical value: PASS
+PASS
 
-Square-zero behavior and domain rank are intrinsic semigroup invariants. A natural finite-cycle family has a complete rank distribution with a nontrivial antipodal correction. The theorem identifies reflections as asymptotically dominant, exact parity-dependent exponential rarity constants, and Gaussian rank fluctuations centered at one third of the vertices. These features provide a meaningful structural and probabilistic description beyond the known size and Green structure.
+Original finding: FAIL for originality of its advertised exact rank polynomial. The earlier bounded-nilpotency enumerator states a stronger theorem; setting h=2 produces the exact same polynomial for every n≥4, including all correction terms. The trivial n=3 addition does not rescue that assertion. Repaired finding: PASS for the asymptotic rarity and conditional rank law, quantified by an exponentially accurate global approximation with an explicit even-cycle mixture. The repair expressly credits the exact polynomial instead of claiming it. Neither the earlier indexed enumeration nor the inspected foundational monoid theorems states or directly specializes to the quantitative dominance estimate. This narrower result uses uniform spectral bounds on longer rotation orbits and control of duplicate representations; a Gaussian theorem alone would not give the repaired total-variation result.
 
-## Scientific limits
+## value
 
-This result does not count higher-index nilpotents, prove global historical uniqueness, or supply independent expert validation. Every asymptotic assertion is derived from the infinite argument, not from fitting finitely many counts.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The repaired conditional law resolves more than a routine finite specialization or a limit for one moment. It explains the parity effects in the rare-event probability and gives an explicit approximation valid uniformly over rank events with exponential error. Counting the half-turn in the even reference law retains a class of extension pairs of only algebraically smaller relative mass than the reflections, rather than dropping it for a weak Gaussian limit. The useful result is this quantitative conditional law and its interpretation for sampling distinct partial maps.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof checks the precise character normalization and uses the correct marginal \(d_n/(n-1)\) for each allowed edge. The integer inequality \((-1)^t\ge1-2t\) has equality exactly for zero or one selected edges. The potentially nonstandard step—extendibility of two disjoint allowed edges to a full derangement—is proved with a residual Hall matching on at least two rows; it is not assumed for the exceptional three-letter case. A pairwise-intersecting bipartite edge set is necessarily a row/column star. Parity and the odd-order zero stars complete the all-order claims, with the two-letter and three-letter boundaries explicitly separated. The standalone checker independently confirms the signed-permanent and direct-Walsh calculations, including 23,518 checked cases/groups. Finite checks are not used as an infinite proof.
+PASS
 
-## Originality — PASS under bounded comparison
+Reviewed RESULT.md:5–39, VERIFICATION.md and check_derangement_first_zero.py. The unnormalized real/complex convolution multipliers are sums of d_n signs. The simultaneous-label symmetry and exactly n edges per derangement give each allowed edge marginal 1/(n−1); averaging (−1)^t >= 1−2t gives the claimed signed lower bound, with equality exactly when no two selected edges co-occur. For n>=4 two allowed edges in distinct rows and columns extend to a derangement: the residual square board has at least two rows, each missing at most one distinct column, so Hall holds for singletons and for sets of two or more rows. Hence equality is equivalent to being a star, with unique center for k>=2. The count for k>=2 is in the n>=4 star-characterization clause (as in the proof and limitations); it is not valid for n=3, k=2, where there are 9 minimizers, not 6. Repeating the n>=4 qualifier in the count sentence would remove ambiguity. The even-n nonvanishing follows from odd derangement count by the recurrence, including n=2. At odd n, only off-diagonal size >=(n−1)/2 can cancel, and stars exactly reach zero there. Diagonal support cannot occur at minimum full weight. The first layer at n=3 has six singletons. Independent replay: python3 /workspace/branches/replay_frozen_review.py 5 used a sign-product expansion and inclusion–exclusion on residual diagonals. Exhaustive layers: 0..2 at n=3, 0..3 at n=4,6,7, 0..4 at n=5. The odd first-zero layers have 6, 60 and 280 zeros, respectively. These finite checks corroborate the proof, rather than establish the infinite claim.
 
-The inspected full text of Wanless (DOI `10.1080/03081080500093990`) concerns non-hollow signed-one permanents. The inspected full text of Feinsilver–McSorley (DOI `10.1155/2011/539030`) supplies unsigned derangement/generalized permanent formulas but not the sharp sparse sign perturbation and complete all-order equality classification. The complete published order-five signed hollow histogram describes only that finite order, whereas the present result gives a sharp extremal formula for every order. The closest first-cancellation theorem for complete-graph spanning trees is neither this matching family nor an implication of the signed-permanent result. The records of already available findings were compared by claim and operator. Residual priority risk: an unindexed rook-theoretic or signing lemma could imply the result; absence from search is not a uniqueness proof.
+## originality
 
-## Value — PASS
+PASS
 
-Minimal-frequency Fourier cancellation is a natural identifiability and robustness invariant for binary incidence codebooks. This theorem supplies its exact all-order threshold, its complete first-zero extremizers, and the stronger sharp signed sparse-spectrum envelope. The row/column star rigidity is a structural property of derangement matchings, not a numerical table entry. It sharpens knowledge of the low-degree spectral information lost despite higher-degree singularity. It does not claim a general all-weight spectrum or norm of recovery.
+Credit prior unsigned derangement counts, pair extendibility, the fixed order-five absolute spectrum, and close cancellation results for other incidence families. The supported distinct result is the all-order signed weight minimum through row length, its exact equality geometry, and the resulting first-zero layer within the off-diagonal perfect-matching family. No compared source states a stronger result having that conclusion as a specialization.
 
-## Limitations
+## value
 
-No classification of higher-weight zeros or exact full nullity, no nontrivial endpoint inverse norm, and no independent human validation. Historical equivalence outside inspected sources remains possible.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The minimum weight of a Fourier zero measures precisely the first degree at which this natural incidence codebook loses information under convolution. The signed envelope goes beyond detecting singularity: it determines the worst multiplier at each sparse weight up to a full row and exactly identifies all most vulnerable supports. The order-variable equality classification, rather than an isolated spectrum table or the parity check, gives this result its value. Higher-weight nullity and quantitative recovery norms do not follow.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

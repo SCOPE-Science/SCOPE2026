@@ -1,19 +1,21 @@
-# Scientific review: nonbinary two-shell universal-cycle enumeration
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The directed graph and normalization are explicit: labelled symbols and edges, no quotient beyond cyclic rotation. Every allowed window corresponds to an edge, and each cyclic word is an Euler tour. The degree calculation and existence of a root-reaching directed tree prove the Eulerian hypothesis. Degree-two-weight vertices have forced outgoing zero-append arcs. Contracting those arcs gives a colored reduced Laplacian; splitting by color sums yields an upper-triangular difference block and a weighted one-dimensional index graph. The closed-interval obstruction for a high-index reflected step and the increasing-index argument for permitted lower-half reflected steps establish its complete tree count. BEST then gives the exact number. A full-graph Matrix-Tree computation and independently enumerated Euler tour orders agree in every listed test case; the program and output are embedded. Risks: the proof is for Hamming, not arithmetic, weight, and neither experiments alone nor finite checks imply the infinite assertion (which is separately proved).
+PASS
 
-## Originality — PASS within examined evidence
+For m=n−1 and r=q−1 the exact overlap graph is balanced with degrees r, q, and 1 on weights 0,1,2. Zero appends lead to the root from every vertex, hence by balance every nonisolated vertex belongs to one strongly connected component. Each rotation class has a unique Euler edge sequence beginning at the labelled edge 0^m1, so the fixed-first-edge BEST count has no extra division. Each weight-two vertex's outgoing choice is forced and its zero path reaches a one-color vertex. On deleting the root row and column, elimination along these paths preserves the tree count: one-color index i can shift forward with its color unchanged or reflect to m−1−i in any of r colors. The operator on zero-sum colors is a triangular shift with diagonal q in each of q−2 directions; the constant-color block is the reflected index tree operator with weights 1 and r. Any reflected choice at i≥floor(m/2) traps the closed interval [m−1−i,i]; all assignments reflecting only at lower indices strictly progress to the root. Thus the remaining determinant is q^floor(m/2). This includes m=1, where colored self-loops must be subtracted and the index block determinant is 1. Combining the determinant and BEST gives the stated product. The number of distinct windows is n(q−1)+C(n,2)(q−1)² and a shorter period would repeat a window. Fresh depth-first enumeration by unused labelled windows independently matches 12, 432, 5184, 6912 at the four stated pairs; finite checks supplement the proof.
 
-The closest original preprint, Mitchell–Wild (2026, arXiv:2607.22350), establishes existence for nonbinary weight bands without determining the number of cycles. Ruskey–Sawada–Williams (2012) addresses the binary framework. Fredricksen (1993) explicitly gives the binary weight-at-most-two count; the binary specialization is therefore excluded from the new claim. Li–Jiang–Lin (published online 2022) addresses binary weights at most two and a register-joining characterization. Chee et al. (2020) enumerate locally nonrepeating words subject to a different distance parameter, not exact prescribed Hamming-weight window sets. Its accessible abstract explicitly restricts the alphabet to binary and mentions only finite experimental enumerations. The nonbinary formula, particularly its color-difference determinant factor, is not implied by those visible claims. Searches of mathematical research records and overlapping prior claims found no equivalent enumeration. Main-text access to the 2022 paper was incomplete, and unrelated unindexed formulations remain a risk. The strongest originality claim is limited to \(q\ge3\), not the known \(q=2\) case.
+## originality
 
-## Value — PASS
+PASS
 
-This answers the natural enumeration problem left after existence of weight-constrained cut-down de Bruijn cycles on arbitrary alphabets. It supplies a closed form simultaneously for every nonbinary alphabet and span, with exact normalization, nontrivial factorial and exponential dependencies, and a structural explanation through symmetry decomposition. It is not a numerical table, a relabeling, or an arbitrary slice. The result does not purport to count broader weight ranges or extra symmetry orbits.
+On available evidence the distinct claim is the nonbinary all-span count, not existence or the binary specialization. The later, strongly overlapping ≤2 enumeration is explicitly related by the zero-loop factor; this near equivalence is not evidence that it preceded the frozen finding.
 
-## Literature and verification limits
+## value
 
-Primary literature inspected: full text of Mitchell–Wild (2026); substantive full text of Ruskey–Sawada–Williams (2012); introduction and weight-two enumeration of Fredricksen (1993); abstract and accessible appendix of Li–Jiang–Lin (2022/2023), with its subscription main section unavailable. Exact source citations are in RESULT.md and AUDIT.json. All computational evidence is finite. No independent scientific review or external certification has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+After known existence, the enumeration of every cycle in the first genuinely nonbinary low-shell family is a natural additional invariant. The uniform factorial and exponential factors distinguish labelled outgoing orders from the colored tree obstruction over all spans and alphabets; obtaining them requires a graph-specific evaluation, not just applying an existence theorem or a table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

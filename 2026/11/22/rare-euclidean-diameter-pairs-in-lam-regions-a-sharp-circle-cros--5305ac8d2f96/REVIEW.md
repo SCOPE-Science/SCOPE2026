@@ -1,19 +1,21 @@
-# Scientific self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof checks the exact Euclidean diameter and its four ordered tip pairs for every fixed \(0<p<2\), including nonconvex shapes, and proves compact localization before using the rescaling and a beta integral. The constant is reconstructed independently from the Lamé area formula. The circle limit uses a uniform polar radial expansion, exact polar Jacobian, a three-dimensional parabolic integration region, and binary entropy for the angular support transition. The further large-parameter law is obtained from controlled shrinking angular windows. The bundled code uses the exact finite-thickness geometry and passes six quantitative comparisons plus exact benchmark tests; it does not stand in for the asymptotic proofs.
+PASS
 
-## Originality — PASS, with historical-priority limitation
+For each fixed 0<p<2 the Euclidean unit disk contains the Lamé region, with equality on its boundary only at the four axial tips, including for p<1. The distance deficit bounds the sum of the radial deficits, which control the axial deficits near the tips because transverse squares are o(axial deficit). Thus after localizing to each of four ordered opposing tip pairs, axial scales ε and transverse scales ε^(1/p) give a compact scaled domain. Integrating the transverse widths over U+W<1 gives the stated gamma quotient, Dirichlet law and conditional uniform marks. For p=2−λε with fixed λ, the uniform radial expansion is 1−λεH+O(ε²); near-diameter pairs have both radial deficits O(ε) and antipodal offset O(√ε). The polar Jacobian gives ε^(5/2) and the section a+b+z²/4<c has volume (16/15)c^(5/2). This proves both the integral and marked law, including the disk value 32/(15π). Entropy maximizes at the diagonals with H=log(2)/4; at equality only the four exact diagonals have zero density. As λ tends to infinity separately, the monotone axial region has width of order √(2/(λ log λ)); on that scale 2λH tends to s² and its support is uniformly bounded. Integrating (1−s²)^(5/2) and including four axes gives 4√2/(3π). The captured six Sobol ratios lie between 0.9880 and 1.0016; CHECK.py was inspected, not executed, and those finite diagnostics do not prove the asymptotic.
 
-The full spherical-distance source of Tu and Fischbach establishes the circle baseline, not a varying \(\ell_p\) planar region. The full dimension-asymptotic preprint of Alonso-Gutiérrez et al. concerns \(n\to\infty\), not a fixed-plane upper-distance tail. Wong–Chu studies mean distances in \(\ell_p\) disks, and only an abstract was accessible. Compared indexed work on invariant random chords, polygon interior points, and disk-clipped squares uses different sampling or shapes and does not entail this fixed-\(p\) and near-circle combination. Historical absence cannot be certified; inaccessible specialized sources retain a priority risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The canonical Lamé family passes from four isolated diametral tip pairs to a continuum of circle antipodes. Its probability exponent changes from a continuous \(p\)-dependent value to \(5/2\); an explicit critical-window formula resolves the transition and discovers a sharp topology change in the conditional angular support. The exact astroid/diamond constants and conditional marks offer natural, independently usable geometric information rather than an arbitrary parameter computation.
+Passes for the area-uniform fixed-shape and moving-shape pair laws, including their radial/axial marks and constants. The disk value and the entropy penalty, cutoff mechanism and logarithmic angular scale viewed without the area sampling are not distinct novelty. The strongest same-day arclength comparison actually includes both signs of its shape parameter, including this record's below-circle regime.
 
-## Limits
+## value
 
-Only fixed-shape and fixed-critical-parameter limits are proved, with a sequential large-parameter asymptotic; none is uniform in all parameters. Nonconvex \(p<1\) regions are included as planar sets, without implying convexity results. Complete historical priority and independent validation are not claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Uniform area is the natural interior model. The isolated-tip and near-circle limits quantify how loss of a continuum of diameter directions changes both probability and where the successful interior points sit. Exact coefficients and marked laws distinguish the geometry from the corresponding boundary sampling and from quadratic anisotropy; no uniform joint large-λ claim is credited.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:05:13.504276Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On a chamber a row is either e_i or the arithmetic-mean row P_i; these maps carry constants to constants. A step after j has mean μ=(n−j)/n, has response in [0,μ] to the left and [μ,1] to the right, and thus has output TV at most (j−1)μ+1+(n−j−1)(1−μ)=2j(n−j)/n. The unit steps give the ℓ1 basis of adjacent differences. Line integration across the finitely many affine chambers transfers the bound to arbitrary pairs, also on chamber boundaries by continuity. Alternation on each side, with both bridge sites active, makes every edge bound tight. I checked strict feasibility: zero deviations for all active sites and suitably balanced ± exterior deviations when there are at least two saturated sites; with one saturated site take 3τ/2 at that site and −3τ/(2(n−1)) at the others (n≥3); an all-active cell gives factor 1 for n=2. Thus the mathematical claim, including attainment at every fixed τ>0, is true. Single-input TV uses scalar clipping at a common fixed center for each signal. I inspected the rational checker, not rerun it.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The weighted-tree rectification statement includes every unweighted path with unit masses. The anchored graph-variation result addresses a different metric."
+        ],
+        "reasoning": "The prior graph class is broader, and the same local positive-part and clipping masks suffice for the restriction; the anchored result is not needed for the implication.",
+        "searches": [
+          "Resultary weighted trees and mean-centered rectification (a97bb3fa1c7b)",
+          "Resultary anchored scalar-superposition graph variation (c718bc284c19)"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and supporting verification files",
+        "Earlier published Resultary statement a97bb3fa1c7b",
+        "Related entries c718bc284c19, 4e51c3a9a9b2 and 0648b432d882"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Rectification realizes any strict mixed mask by balanced signs. Clipping realizes the identical rows by balanced deviations at a fixed positive cap. The n=2 centered clip is nonexpansive and locally identity."
+        ],
+        "reasoning": "Sharpness as well as the upper bound transfers; there is no residual exact path coefficient or attainment theorem left by this comparison.",
+        "searches": [
+          "a97bb3fa1c7b: published statement on attained checkerboard activation patterns",
+          "Frozen RESULT.md §§2–3: local mask and strict feasibility"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The published rectification result gives the attained weighted bridge-cut maximum. On the quotient the active rows are e_i and the common inactive row is the mean, just as for clipping. Both maps realize all nontrivial masks for n≥3."
+        ],
+        "reasoning": "Equivalence of the attained seminorm gains follows from equivalence of the local mask norms, not a global identity of the nonlinear maps.",
+        "searches": [
+          "Resultary: a97bb3fa1c7b sharp two-input graph variation sensitivity mean centered rectification weighted trees exact bridge cut attained",
+          "Resultary: mean-centered clipping, saturation, rectification and path variation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier bridge-cut formula is (2/n) max_e |U_e||W_e| at unit weights. On a path the products are j(n−j). The exact clipping catalogue self-hit was not counted as another prior."
+        ],
+        "reasoning": "The exact numbers are already consequences of the bridge-cut table/formula even where the scalar map naming differs.",
+        "searches": [
+          "Resultary lookup of 2 floor(n²/4)/n under mean clipping and mean rectification"
+        ]
+      },
+      "rationale": "The earlier mean-centered rectification result supplies the exact gain and attained checkerboard mechanism on a larger graph class. Despite the superficially different scalar maps, they have the same relevant affine-mask norms on the path. For each active subset with 0<|A|<n, rectification realizes the rows e_i on A and P_i off A (up to subtracting a common mean from every output) by taking positive centered deviations on A and negative deviations off A, summing to zero. For n≥3, clipping realizes every such mask at every τ>0: if the inactive count c≥2, take zero on A, 2τ(c−1) at one inactive site and −2τ at all the other inactive sites; if c=1 use the configuration in correctness. The remaining masks for clipping have norms 1 (identity) and 0 (constant output). The local maximum over affine pieces is the exact global gain, and a strictly realizable affine mask attains its norm by a sufficiently small step. Thus the sharp clipping formula and its attainment follow directly from the earlier rectification theorem by identifying the relevant mask families; n=2 is the immediate identity-boundary case. This is an established implication from the inspected prior statement, not a failure based on missing full text or a claim that the two maps are identical.",
+      "residual_risks": [
+        "The precise earlier manuscript proof and the cited external primary passages were not independently retrievable. The mathematical implication uses the explicit published rectification statement, not an inference from title alone.",
+        "The bounded primary literature lookup did not establish historical order beyond the dates of the compared published records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the exact path gain by the local-mask implication independently established above",
+          "evidence": "Mean-centered positive-part rectification has the attained coefficient (2/n) max_e |U_e||W_e| on unit-weight trees, with checkerboard activation.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-sharp-two-input-graph-variation-sensitivity-of-mean-centered-rec--a97bb3fa1c7b",
+          "material_read": "Resultary published mathematical summary with unit-weight formula and attainment; full RESULT unavailable",
+          "method": "Local Resultary exact-ID result, and attempted mirror passage retrieval",
+          "title": "Sharp two-input graph-variation sensitivity of mean-centered rectification on weighted trees",
+          "trigger": "Earlier exact bridge-cut formula and matching local activation rows"
+        },
+        {
+          "assessment": "Distinct normalization; not relied on for rejection",
+          "evidence": "Anchored graph variation of scalar superposition, not the mean-centered quotient seminorm.",
+          "identifier_or_url": "c718bc284c19",
+          "material_read": "Resultary statement summary",
+          "method": "Local Resultary",
+          "title": "Sharp graph-cut formula for the anchored variation Lipschitz modulus",
+          "trigger": "Scalar positive-part and graph-cut overlap"
+        },
+        {
+          "assessment": "Different center row; not prior implication of arithmetic-mean centering",
+          "evidence": "Uses one or two central ranks, with odd/even interpolation coefficients.",
+          "identifier_or_url": "4e51c3a9a9b2",
+          "material_read": "Frozen RESULT.md Finding and §§1–4",
+          "method": "Frozen source",
+          "title": "Sharp path-variation sensitivity and optimal median interpolation for centred clipping",
+          "trigger": "Same clipping band and path seminorm"
+        },
+        {
+          "assessment": "Different from scalar clipping and not relied on",
+          "evidence": "Euclidean group shrinkage rather than independent binary saturation masks.",
+          "identifier_or_url": "0648b432d882",
+          "material_read": "Resultary summary",
+          "method": "Local Resultary",
+          "title": "Sharp path-variation instability of mean-preserving group soft thresholding",
+          "trigger": "Mean-sensitive thresholding and path metric"
+        },
+        {
+          "assessment": "The cited comparison suggests fixed-reference clipping; no whole-paper exclusion",
+          "evidence": "RESULT.md describes a fixed-reference coordinatewise map for inverse declipping.",
+          "identifier_or_url": "https://arxiv.org/abs/1303.1023",
+          "material_read": "Frozen comparison to §3 Eq. (4); no independently retrieved primary passage",
+          "method": "Frozen citation and attempted lawful OA retrieval",
+          "title": "Consistent Iterative Hard Thresholding for Signal Declipping",
+          "trigger": "Frozen lead on scalar hard clipping"
+        },
+        {
+          "assessment": "Not relied on for rejection",
+          "evidence": "The frozen comparison cites group shrinkage for denoising, not a mean-centered scalar mask theorem.",
+          "identifier_or_url": "https://arxiv.org/abs/1304.0035",
+          "material_read": "Frozen comparison only; primary retrieval unsuccessful",
+          "method": "Frozen citation and attempted lawful OA retrieval",
+          "title": "Translation-Invariant Shrinkage/Thresholding of Group Sparse Signals",
+          "trigger": "Frozen lead on translation-invariant shrinkage"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The operation is natural and exact worst-case constants are useful, but here the stated contribution is the same attained bridge-cut norm of an already analyzed family of local matrices, made explicit by a short mask realization. No independently useful additional sharp inequality or classification survives the comparison in this frozen claim. No repair was submitted.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

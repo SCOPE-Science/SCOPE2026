@@ -1,12 +1,21 @@
-# Review of the cyclic wheel-forest fixed-locus theorem
+# Independent mathematical audit
 
-## Correctness
-PASS. For a rotation with displacement \(k\), the edge orbits are indexed by the \(d=\gcd(n,k)\) residue classes of rim and spoke edges. A fixed geometric point has invariant support and constant barycentric coordinates on each orbit, giving a PL complex on orbit-barycenters. A proper selection of rim-orbit edges lifts from disjoint quotient paths; a cycle forms in the lift exactly when a quotient path carries at least two spokes. The full rim and small multigraph boundary cases are handled explicitly. The matroid shellability result and the chromatic derivative give the stated sphere counts. An exhaustive finite checker validates instances independently but is not substituted for the unrestricted proof.
+## correctness
 
-## Originality
-PASS relative to accessible evidence. Kook's 2006/2007 paper establishes ordinary homology and its action via rooted forests, not PL fixed-space homeomorphisms. The 2014/2016 matroid-shellability work and Moci–Pezzoli 2020/2021 representation formulas supply relevant general homological foundations but not this fixed-locus identification. The closest indexed regular-cover fixed-space theorem assumes a graph covering free on graph edges; the wheel rotations fix the hub and do not meet that graph-cover hypothesis. The earlier five-rim wheel result determines geometric **orbit spaces**, not **fixed spaces**. Risk remains from inaccessible published complete texts and unindexed equivalent statements.
+PASS
 
-## Value
-PASS. The theorem gives a complete unbounded topological classification of every cyclic rotational fixed locus in a canonical graphic-matroid family, including distinct loop, parallel-edge, and ordinary wheel boundary cases. It makes a precise structural self-similarity identification, determines the homotopy dimension and integral sphere multiplicity from the rotation's gcd, and provides an exact prime/composite distinction. These fixed-space homeomorphisms are not determined by the already known homology character.
+For d=gcd(n,k), including d=n when k=0, the subgroup is exactly translation by multiples of d. Each of the two types of edge orbits is indexed by a residue class mod d. A point is fixed iff its simplex coordinates are constant on each orbit; summing on each orbit and distributing each orbit-coordinate uniformly are inverse linear maps on each fixed simplex. Thus one must check the forest property for whole orbit unions, not just for edges individually. When all rim edges are selected both graphs contain the rim cycle, including a loop or two-edge cycle in the small wheels. Otherwise the smaller selected rim has path and isolated-vertex components, each with disjoint path lifts indexed by the n/d sheets. An attached hub produces a cycle iff one path has at least two incident selected spokes, and this condition is the same in the projection and in every path lift. This proves the canonical PL correspondence in all cases. For d=2 only the pair of parallel rim edges is forbidden among pairs, with no 3-face, so the connected four-vertex five-edge graph has rank-two H1. For d=1 the sole available vertex is the spoke. In general graphic matroid shellability gives spheres in dimension rank-1=d-1, and the unsigned reduced Euler characteristic is T(0,1) by the independent-set sum. Wheel self-duality interchanges T(0,1) and T(1,0); the cycle chromatic polynomial with one color removed for the hub yields (-1)^d P'(0)=2^d-2. A proper divisor d>1 occurs for a nonidentity rotation iff n is composite, and its wedge has nonzero top homology. The uploaded verify_wheel.py was inspected, not executed; enumerations for 3≤n≤9 and the incidental reflection checks are not needed for this proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The supported distinction is the PL fixed-space identification for rotations fixing a hub, including the literal small multigraphs. The general orbit-coordinate construction, ordinary wheel homology, and matroid homology representation are not new. The closest indexed regular-cover result was compared at summary level only; its stated regular graph covering hypothesis does not apply.
+
+## value
+
+PASS
+
+For every rotation of a standard graphic matroid family the result replaces an orbit-union feasibility problem by a canonical smaller-wheel PL model, even when the hub is fixed and the quotient graph is not a cover there. It identifies a natural arithmetic distinction and actual geometric fixed spaces, not just a trace, and the multigraph boundary cases are essential to the classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

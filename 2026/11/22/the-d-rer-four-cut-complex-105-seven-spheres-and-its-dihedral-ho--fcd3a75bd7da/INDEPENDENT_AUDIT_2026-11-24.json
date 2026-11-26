@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:25:01.208147Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–56",
+        "collapse_pairs.json, verify_durer.py, verification_output.txt, and VERIFICATION.md lines 19–27 (inspected, supplied verifier not run)",
+        "/workspace/branches/cb6f2a19-407a-4cfb-bf80-d7c63150df45/independent_check.py",
+        "/workspace/branches/cb6f2a19-407a-4cfb-bf80-d7c63150df45/independent_check_output.txt"
+      ],
+      "rationale": "The dual contains exactly the subsets with no disconnected induced four-set. A separate verifier rebuilt it, found 429 disconnected quadruples and dual face counts (12,66,220,66,6), and verified all 66 supplied collapse pairs against the live complex. The remaining two-complex has counts (12,66,160) and is simply connected since the original dual has the complete two-skeleton. Its H_2 is free of rank 105 by Euler characteristic and freeness of the top cycle subgroup. Integral Hurewicz and homology Whitehead give the two-sphere wedge. Integral combinatorial Alexander duality on twelve vertices shifts to degree 9-j. The absence of six-element dual faces gives the full five-skeleton of K and hence four-connectivity; H_5=H_6=0 allows two more Hurewicz steps. K has dimension seven, so representatives of an H_7 basis give the other wedge by Whitehead. The two inner triangles determine the inner layer and the outer hexagon and spokes determine the full D_6. Oriented fixed-simplex traces in degree two of the dual reproduced both character rows. For transfer to K the inverse-action convention leaves the traces unchanged and the ambient sign is +1 because the layer actions are copies of the same permutation. Averaging gives 8. This establishes ordinary homotopy types and a homology representation, not an equivariant wedge.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "RESULT.md line 60 describes a complete six-skeleton hypothesis. The six dual five-sets give six missing seven-vertex faces of K, so this hypothesis fails.",
+          "The recorded comparison to the pentagonal-girth result assumes girth at least five; GP(6,2) has two triangles."
+        ],
+        "reasoning": "A full-skeleton theorem or a girth-at-least-five classification cannot simply be specialized to this graph. The general duality and trace principles still need the concrete collapse and invariant simplex data.",
+        "searches": [
+          "Bayer et al. arXiv:2304.13675, Theorem 6.1",
+          "Bayer et al. arXiv:2407.08158",
+          "Frozen comparison to Homotopy classification of four-cut complexes at the pentagonal girth boundary"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary same-graph and same-complex comparisons",
+        "RESULT.md lines 58–74",
+        "Bayer et al. arXiv:2304.13675 (access limited)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The cited Petersen calculation is for GP(5,2), with a different vertex count and group. The exact cut definition and collapse chain used here test all Dürer faces from the specified one-skeleton."
+        ],
+        "reasoning": "Neither knowing the Petersen result nor knowing the Dürer graph's automorphism group determines which Dürer simplices are fixed with which orientation, or guarantees the dual collapses to dimension two.",
+        "searches": [
+          "Local Resultary entries b3bd2f25f3c4 and 15d91aa4b758",
+          "RESULT.md line 62, including the Petersen four-cut record dc53c501c962"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact dual condition is that every induced four-subset of a face be connected. The same-graph higher-independence comparison uses a different vertex-subset condition; the full original passage was not retrieved.",
+          "Alexander duality transfers homology, not a homotopy equivalence between the two complexes."
+        ],
+        "reasoning": "A result on forbidding connected four-subsets, or on total cuts, is not the dual condition here. An equivalent dual calculation could imply the homology and, with connectivity and dimension checks, the K wedge; no such calculation was found in the available comparisons.",
+        "searches": [
+          "Local Resultary search for Dürer GP(6,2) ordinary four-cut and Alexander dual",
+          "RESULT.md lines 18–22, 38–52, 60–62"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-graph catalogue entries b3bd2f25f3c4 and 15d91aa4b758 concern higher independence; the related same-day ordinary cut entries found concern the cuboctahedral and truncated-tetrahedral graphs."
+        ],
+        "reasoning": "An automorphism-group table or data for a different complex or host graph does not provide the rank 105 or the oriented fixed-face traces for this Dürer complex.",
+        "searches": [
+          "Local Resultary search for GP(6,2) cut-complex rank and character",
+          "Primary lookup for Dürer ordinary four-cut and dihedral traces"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the concrete integral homotopy calculation of the ordinary four-cut complex and dual, together with the exact dihedral homology character. The definitions, general tools and the graph's dihedral action are not originality claims. The closest comparisons on available evidence do not give these invariants; unavailable original passages remain a risk, not evidence of absence.",
+      "residual_risks": [
+        "Primary full-text and closest mirrored-record retrieval failed. A separately indexed equivalent or a broader theorem not covered by the available passages may exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Reported theorem hypothesis fails here; primary scope remains only partly checked",
+          "evidence": [
+            "K has six missing seven-vertex faces, independently verified from dual five-sets."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2304.13675",
+          "material_read": "Theorem 6.1 hypothesis and examples as reported in RESULT.md line 60; primary theorem passage not retrieved",
+          "method": "Frozen statement and exact mathematical hypothesis check; OA and arXiv HTML retrieval attempts failed",
+          "title": "Topology of Cut Complexes of Graphs",
+          "trigger": "Same ordinary cut complex and a potentially covering general theorem"
+        },
+        {
+          "assessment": "Reported examples do not supply the Dürer representation",
+          "evidence": [
+            "Disjoint unions, squared paths, grids and selected homology representations are mentioned."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2407.08158",
+          "material_read": "Frozen secondary description of treated graph families, line 60",
+          "method": "Frozen source comparison",
+          "title": "Topology of Cut Complexes II",
+          "trigger": "Ordinary cut complexes and group actions"
+        },
+        {
+          "assessment": "Different faces on material read",
+          "evidence": [
+            "The prior record concerns the first three higher-independence complexes, not the ordinary four-cut complex."
+          ],
+          "identifier_or_url": "2026/11/1/SCOPE-integral-higher-independence-homotopy-of-the-d-rer-graph-through--b3bd2f25f3c4",
+          "material_read": "Local catalogue synopsis and RESULT.md line 62; full mirrored record not retrieved",
+          "method": "Local Resultary search and local mirror attempt",
+          "title": "Integral higher-independence homotopy of the Dürer graph through cutoff three",
+          "trigger": "Same GP(6,2) and integral homotopy"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 5–14 and 24–52",
+        "Independent collapse and oriented trace replay"
+      ],
+      "rationale": "The Dürer graph is a natural cubic benchmark with triangles, outside the cited pentagonal-girth and full-skeleton cases. The collapse gives an integral homotopy result stronger than finite-field ranks, and the character and invariant rank provide data for a symmetry action that the abstract wedge cannot recover.",
+      "residual_risks": [
+        "No claim on fixed spaces, quotient homotopy, or other generalized Petersen graphs."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

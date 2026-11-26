@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-A square-zero reduction has a canonical \((r,s,r)\) decomposition. The lifting equation \(NY+YN=0\) gives precisely five free blocks, and explicit conjugation by \(I+\pi C\) eliminates four without modifying the homology block. The residue centralizer acts on the remaining block by ordinary similarity, proving both necessity and sufficiency. The rational-canonical Euler product counts the resulting classes. The packaged independent finite orbit enumerator agrees in both split and mixed characteristic for four finite rings, with the limits stated.
+## correctness
 
-## Originality — PASS, subject to historical priority risk
-The closest general framework is Prasad–Singla–Spallone's extension-orbit reduction for all matrices over length-two local principal rings, which supplies the conceptual mechanism but stops its explicit general-dimensional classification at size four. Trishin's earlier general classification approach is limited in its explicit normal forms to low dimensions and is stated over an algebraically closed characteristic-zero coefficient field. The closely related zero-square similarity paper of Călugăreanu restricts its canonical results to Bézout domains, unlike the nilpotent local rings at issue. Earlier labeled Smith and Bockstein counts do not determine orbit classes: the rank of a secondary map is strictly coarser than its similarity class. The new claim explicitly classifies the missing all-dimensional constrained orbit problem; no assertion of novelty is made for the general reduction or the Euler product for field matrices. An unlocated prior presentation could coincide; this remains a material historical risk, not a proof of novelty from absent search hits.
+PASS
 
-## Value — PASS
-The classification provides a complete natural moduli invariant, rather than a single small-rank count, for square-zero endomorphisms of free modules across all matrix dimensions and both equal- and mixed-characteristic finite length-two chain rings. It distinguishes matrices with identical reduction rank and Smith type but different residual homology similarity, and gives an explicit generating series for inequivalent differential structures. Both the normal-form computation and its induced all-size count are mathematically motivated by the existence of richer Bockstein structure identified in earlier research.
+Independent splitting proof: for X²=0 choose columns W lifting a reduced complement to ker(A), A=X mod π, and set U=XW. The columns (U,W) are independent mod π and extend to an R-basis. Take a coordinate map λ with λU=I and λW=0. Then P=Uλ+WλX is a projection onto the span of (U,W) and XP=PX=UλX. The complementary summand is free over the local ring and has residual X=0, since im(A) is contained in the reduction of the first summand. Its restriction is therefore π times a uniquely determined residue matrix B. This proves existence without a coefficient field. For uniqueness, on ker(A) a lift changes the divided image by a vector in im(A); a change of representative by Av is lifted by X applied to a lift of v and has zero further image. The divided image is in ker(A) by X²=0 and ann(π)=πR. This gives the k-linear, conjugacy-equivariant homology map, equal to B in the splitting. Conversely any similarity of B lifts to a change of complementary basis. A different generator uπ changes the homology label by the residue of u inverse. For each r, s=n−2r, the partitions indexed by monic irreducibles count B, giving the rational-canonical Euler product by unique factorization. Summing over r multiplies it by (1−z²)^{-1}; expansion through z³ gives q, q²+q+1, and q³+q²+2q. This also handles r=0, s=0 and residue characteristic two. The recorded finite checks are not needed for the proof and were not rerun.
 
-## Scope and limits
-The assertion applies only to finite *commutative chain rings of length exactly two*, and only to square-zero matrices. It does not count orbit sizes or classify higher nilpotency. Exhaustive verification covers small matrix sizes and does not independently validate the universal proof. Full historical priority cannot be guaranteed, and no independent audit has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the length-two extension-orbit reduction, the labeled Bockstein and Smith statistics, and the standard finite-field similarity Euler product. The supported distinction is the actual all-size square-zero conjugacy quotient by residue rank and homology similarity, valid including mixed characteristic, with its resulting class series. The checked statements do not give that quotient without the extra square-zero splitting or an equivalent computation.
+
+## value
+
+PASS
+
+This classifies all free square-zero differentials up to isomorphism over the short local rings in scope. Residue rank and Smith data can coincide while the homology maps are nonsimilar: already X=πI_2 and X=π times a size-two Jordan block at eigenvalue 1 have the same Smith data and different classes. Giving the missing complete invariant and an all-dimension orbit series uniform in ring characteristic is structurally useful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

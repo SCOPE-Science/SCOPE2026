@@ -1,0 +1,156 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:29:03.524073Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–112; VERIFICATION.md lines 19–23; checker.py lines 18–139 (inspected, not executed)",
+        "McKeever–Miller–Nazir arXiv:2605.04681v1 Eq. (4)–(7), (9)–(11), and Qubit noise model"
+      ],
+      "rationale": "Completing the square gives the claimed integral lower bound since g(x)√φ(x)·ẋ integrates to its endpoint primitive for absolutely continuous x. For equality, strict positivity forces ẋ=N√φ(x) a.e. Composing with F(y)=∫_a^y du/√φ(u) yields F(x(t))=Nt; the inverse gives an admissible unique solution with N=F(b). When φ=s² the schedule is uniform in the parameter. For the metric-speed schedule, with L_g=∫√g, the deterministic coefficient is L_g² and the noise coefficient is s²∫g^(3/2)/L_g; optimizing the positive real count gives the stated excess, strict by Cauchy–Schwarz unless g is constant. The Gibbs metric is β times the variance of σ_z/2, hence β sech²(βu/2)/4. Integrating gives the tanh expression; after z=βu/2 the powers of β cancel in the ratio and the sech integrals (π, 2, π/2 for powers 1, 2, 3) give π/(2√2). On the integer grids, compactness for each N and E_s≥(min g)Ns²/2 reduce attainment to finitely many counts for each s. The rounded uniform grid gives sG+O(s²), G=∫g. Every minimizer then has ∑d_i²=O(s) and N=O(s^−1). The identity E_s=s∑g(x_i)d_i+(1/2)∑g(x_i)(d_i−s)² and Lipschitz quadrature error at most ||g′||∞∑d_i²/2 give the matching lower bound and a uniform squared-error penalty of order s². Cauchy–Schwarz yields the stated O(√s) error for Ns. The squared-error estimate is aggregate, not a pointwise d_i/s→1 claim.",
+      "residual_risks": [
+        "The result is exact only for the stated quadratic functional or grid cost, not the omitted microscopic remainder. Constant variance refers to successive control-error increments: iid errors of variance σ_η² give s²=2σ_η², even though adjacent increments are correlated. If realized endpoint errors are instead pinned, endpoint-cell variances require separate treatment. No uniform physical validity at large βh is shown."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The quantum source permits more controls and general covariances, but the count optimum is on the chosen metric schedule. The deterministic discrete paper optimizes step placement for a harmonic trap at fixed count. The later scalar-budget record uses a different constrained kinetic integral without increment noise."
+        ],
+        "reasoning": "A general cost model does not already solve its schedule optimization. A noiseless fixed-count theorem and a budget-only speed problem do not control all optimal counts and grids of E_s.",
+        "searches": [
+          "arXiv:2605.04681v1, geodesic Laplace/metric expansion and count optimization, Eqs. (7), (9)–(11)",
+          "arXiv:1812.08216v1, §6.1",
+          "2026/11/22/SCOPE-equilibrium-crossing-nonattainment-in-housekeeping-budget-thermo--7482704b5abe"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2605.04681v1",
+        "arXiv:1802.02670v2",
+        "arXiv:1812.08216v1",
+        "Resultary 7482704b5abe, 107862105735 and 13ced3d5640d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The parent geodesic condition is √g·ẋ constant; the new equality condition is ẋ/N=√φ. With constant positive noise and nonconstant g these conditions are different, and the jointly optimal cost is strictly lower. The compared co-dated records are indexed as Euler–Heun stochastic controller moments and rank-one block-descent reconstruction, not this thermodynamic objective."
+        ],
+        "reasoning": "Neither the quantum fixed-geodesic solution nor the classical and algorithmic comparators implies the continuous optimum together with the finite-step theorem for the same scalar cost.",
+        "searches": [
+          "arXiv:2605.04681v1 Eqs. (9)–(11)",
+          "arXiv:1802.02670v2 Eq. (14a)",
+          "arXiv:1812.08216v1 §6.1",
+          "Resultary 107862105735 and 13ced3d5640d"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The parent model adds a squared deterministic quench increment and a local noise variance weighted by the metric; passing to a control coordinate u with positive speed writes the new objective as (1/2)∫g(u)[d(u)+φ(u)/d(u)]du with d=ẋ/N.",
+          "The classical work balances a length-over-time term against a time-proportional velocity variance; its uniform-case optimum matches a mean velocity to an RMS fluctuation."
+        ],
+        "reasoning": "The reformulation makes the local matching mechanism explicit. The classical constant-coefficient balance is qualitatively analogous, but it does not establish the arbitrary local quench-noise law, metric-speed penalty, or variable-metric discrete estimate.",
+        "searches": [
+          "arXiv:2605.04681v1, Eqs. (4)–(7), (9)–(11)",
+          "arXiv:1802.02670v2, §III Eqs. (11)–(14)",
+          "Resultary scalar thermodynamic-control/noisy step-count search"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The nearest exact benchmark is the qubit with iid Gaussian control errors, whose successive-error variance is 2σ_η². Numeric similarity between generic noisy step-controller hits and the qubit benchmark is not an exact cost-ratio match."
+        ],
+        "reasoning": "The principal result is optimization of an infinite class of scalar objectives, not a census or tabulated invariant. The one sharp numerical benchmark was compared to the matching physical model and derived from exact sech integrals; numerical samples alone would not establish the limit or the equality case.",
+        "searches": [
+          "arXiv:2605.04681v1, Qubit section offsets 20350–26030",
+          "Resultary noisy step count and thermodynamic schedule comparisons"
+        ]
+      },
+      "rationale": "The closest quantum source derives the quadratic objective and optimizes count along a prescribed geodesic, not simultaneously over scalar speed and count. Classical stochastic control already exhibits a related velocity/noise balance, and deterministic discrete control already gives equal increments in a special fixed-count model. The supported distinction is the full joint scalar optimum, its strict benchmark gap including the qubit limit, and the all-global-minimizers result for a variable metric in the noisy integer objective. The use of square completion or Cauchy–Schwarz is not itself new.",
+      "residual_risks": [
+        "An unlocated general optimization result could subsume the matching law; the bounded inspection does not establish absolute priority. The rank-one block-descent hit remained summary-only and is not relied on as a whole-document exclusion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same leading cost under the specialization, but no verified joint scalar schedule optimization or integer-grid estimate",
+          "evidence": [
+            "Eq. (4) quadratic approximation; Eq. (5) Kubo metric; Eq. (7) large-N passage; Eqs. (9)–(11) prescribed metric schedule and count; Qubit iid-error normalization"
+          ],
+          "identifier_or_url": "arXiv:2605.04681v1",
+          "material_read": "HTML Step-equilibration processes offset 4400 onward; Stochastic driving offsets 6200–12960; quasi-static/geodesic sections offsets 12800–20623; Qubit offsets 20350–26030",
+          "method": "OA v1 HTML passage inspection",
+          "title": "Finite steps optimise dissipation in stochastically controlled quantum systems",
+          "trigger": "Closest parent model, geodesic count optimization and exact qubit normalization"
+        },
+        {
+          "assessment": "Structural classical precedent, different stochastic variables and optimization problem",
+          "evidence": [
+            "For uniform friction and velocity variance, optimum mean velocity matches RMS fluctuation; classical protocol ensemble, not cell-wise quantum quench noise"
+          ],
+          "identifier_or_url": "arXiv:1802.02670v2",
+          "material_read": "§III Eqs. (11)–(14), HTML offsets 14600–18200",
+          "method": "OA full-text passages",
+          "title": "Stochastic control in microscopic nonequilibrium systems",
+          "trigger": "Close earlier stochastic speed/noise balance"
+        },
+        {
+          "assessment": "Deterministic special case at fixed count, not the noisy joint count and grid outcome",
+          "evidence": [
+            "Equal increments minimize the deterministic harmonic-trap discrete work"
+          ],
+          "identifier_or_url": "arXiv:1812.08216v1",
+          "material_read": "§6.1, HTML offsets 30900–33609",
+          "method": "OA full-text passages",
+          "title": "Optimal discrete control: minimizing dissipation in discretely driven nonequilibrium systems",
+          "trigger": "Possible earlier equal-increment finite-grid theorem"
+        },
+        {
+          "assessment": "Different objective and budget constraint",
+          "evidence": [
+            "Kinetic integral at fixed housekeeping budget with a nonattainment statement at a quadratic zero"
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-equilibrium-crossing-nonattainment-in-housekeeping-budget-thermo--7482704b5abe",
+          "material_read": "RESULT.md Finding offset 0",
+          "method": "Local Resultary search and mirror reader",
+          "title": "Equilibrium-crossing nonattainment in housekeeping-budget thermodynamic control",
+          "trigger": "Adjacent scalar thermodynamic optimization"
+        },
+        {
+          "assessment": "Unrelated state, objective and quantity",
+          "evidence": [
+            "Distribution of a stochastic integrator's step multiplier"
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-exact-clipping-and-moment-laws-for-gaussian-euler-heun-pi-step-c--107862105735",
+          "material_read": "RESULT.md Finding offset 0",
+          "method": "Local Resultary search and mirror reader",
+          "title": "Exact clipping and moment laws for Gaussian Euler–Heun PI step control",
+          "trigger": "Co-dated noisy step-allocation hit"
+        },
+        {
+          "assessment": "Indexed topic differs; no whole-document determination",
+          "evidence": [
+            "Rank-one block descent reconstruction schedule in the index"
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-finite-budget-reconstruction-optimal-steps-in-rank-one-randomized-block-descent--13ced3d5640d",
+          "material_read": "Search summary only; mirror text unavailable",
+          "method": "Local Resultary search and mirror availability check",
+          "title": "Finite-budget reconstruction: optimal steps in rank-one randomized block descent",
+          "trigger": "Co-dated optimal-step hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 14–50 and 87–126",
+        "arXiv:2605.04681v1 Eqs. (9)–(11) and Qubit section"
+      ],
+      "rationale": "The theorem changes the recommended control schedule within a previously specified physical response model: even with a rapidly varying metric, a uniform ramp is optimal under constant increment variance, and a metric-speed ramp can have a quantified 11.07% higher leading cost. The integer theorem adds more than rounding a formal duration, by controlling the cost and aggregate mismatch of every global optimizing grid. This is a motivated and useful comparison for the quadratic model rather than a new physical-noise expansion.",
+      "residual_risks": [
+        "No claim about multi-parameter paths, constrained actuator protocols, or the exact microscopic optimum is supported; the wide-interval penalty is a formal quadratic-model ratio."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

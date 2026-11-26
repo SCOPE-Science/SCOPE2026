@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,42 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The verifier constructs \(H_n\) directly from
-\[
-a_i b_j\in E(H_n)\quad\Longleftrightarrow\quad i\le j.
-\]
-For each coloring it checks both conditions independently of the proof:
-1. every edge has differently colored endpoints;
-2. every open neighborhood contains at least one color occurring exactly once.
+# Independent mathematical audit
 
-Every assignment with three or four named colors is exhaustively checked for \(n=3,4,5\), totaling \(1{,}184{,}547\) assignments. The verifier finds no three-color PCF coloring. For \(n=4,5\) it finds exactly \(384\) four-colorings.
+## correctness
 
-After fixing the four forced core colors by
-\[
-\varphi(a_1)=0,\quad \varphi(a_2)=1,\quad \varphi(b_{n-1})=2,\quad \varphi(b_n)=3,
-\]
-the exhaustive optimum set for \(n=4,5\) is compared with the symbolic family and consists of exactly \(16\) colorings.
+PASS
 
-The symbolic family is also constructed and definition-checked for every
-\[
-4\le n\le50.
-\]
+Re-audited repaired RESULT.md: size-two neighborhoods N(b_2) and N(a_(n-1)) separate the respective same-shore pair of colors, and the four cross-edges force all four core colors distinct. It follows for a four-color optimum that the last two B colors are unavailable on the first n-1 A vertices. The allowed binary prefixes start with two different colors, and the third fixes the repeated symbol. Repeating the singleton after that would leave no singleton, so the entire interior A block must repeat the third color. The final A vertex may instead use c_2, which is absent from the first n-1 A vertices. The reverse suffix argument on B excludes c_0 throughout and c_1 except at b_1 and forces the claimed symmetric pattern. Only pendant endpoints can use colors from the other shore, and these choices are proper because each has its single neighbor in a different color. All prefix and suffix singleton conditions hold, including at the full blocks and degrees one and two. For n>=4 both interior blocks are nonempty, so the four binary choices are individually recoverable and no assignments duplicate. Naming the core multiplies 16 by 4!. The n=3 boundary in the repair is verified separately: each pendant endpoint has three permissible choices, and a triple beginning with two distinct colors always has a singleton, giving 9 normalized or 216 named colorings.
 
-Recorded output:
+## originality
 
-```text
-VERIFY_OK
-n=3, k=3: PCF_colorings=0
-n=3, k=4: PCF_colorings=216
-n=4, k=3: PCF_colorings=0
-n=4, k=4: PCF_colorings=384
-n=5, k=3: PCF_colorings=0
-n=5, k=4: PCF_colorings=384
-total_colorings_checked = 1184547
-normalized_construction_range = 4..50
-for n=4,5 exactly 16 normalized optima and 384 named four-colorings
-```
+PASS
 
-The finite tests are corroborative. The arbitrary-order theorem follows from the four forced core colors and the binary prefix/suffix lemma in `RESULT.md`.
+For the frozen version the scalar contribution is covered: a pre-existing chain-graph theorem gives exactly four and its proof already constructs one optimal pattern. That is a concrete prior-coverage fail for any novelty claim on the scalar, not a mathematical defect. The corrected result explicitly attributes the scalar and the construction, and asserts novelty only for the full optimal family and census. Those remain distinct on the inspected evidence. In particular the prior construction uses disjoint colors on the shores and supplies one normalized form, while the repaired theorem gives every normalized form including those with cross-shore endpoint reuse and proves there are exactly sixteen.
+
+## value
+
+PASS
+
+The repaired result determines the complete minimum-coloring space on the canonical nested bipartite family. It explains why the 16 color-permutation classes persist as the graph grows and identifies exactly where cross-shore palette sharing can occur. This is a natural optimizer classification not supplied by the known scalar or by a single chain-graph optimum construction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

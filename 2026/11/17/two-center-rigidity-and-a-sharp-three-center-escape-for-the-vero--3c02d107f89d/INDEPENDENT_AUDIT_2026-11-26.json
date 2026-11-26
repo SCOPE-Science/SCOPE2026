@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T13:20:03.604752Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For nonzero traceless A, find a unit A-isotropic vector by indefiniteness and rotate an eigenbasis of its traceless two-dimensional compression by 45 degrees. This gives an entire A-isotropic orthonormal basis. The B-values on that basis sum to zero. The projective A-null locus is connected: for signature (2,1) or (1,2), taking the lone-sign coordinate to 1 gives an ellipse, while for rank two it is the union of two intersecting projective lines. Thus the B-values give a common zero, also immediate if A=0. At this point the two squared distances are exactly 1/3+||C_j||_F^2 because ||p(u)||_F^2=1/3 and the cross terms vanish. Zero alone covers, proving the first two radii and giving exactly the optimizer pairs containing zero. For the three planar axes spaced by 60 degrees, the perpendicular axes are also spaced by 60 degrees modulo 180, so every nonzero planar projection is within 30 degrees of some perpendicular axis. This gives min_j (u·v_j)^2≤1/4, also for zero projection, with equality on the chosen axes. The projector product is ((u·v)^2−1/3)/2 and the squared distance to −p(v)/8 is 1/3+1/192+((u·v)^2−1/3)/8. Its nearest-center maximum is 21/64, less than 1/3 by 1/192. The translated center corresponds to the trace-one matrix (3I−vvᵀ)/8 with positive eigenvalues 1/4, 3/8, 3/8. Spectral decomposition identifies the convex body as the translated trace-one PSD set, so these centers are interior. This is the exact radius of this configuration only, not of optimal three-coverings. The frozen numerical checks are corroborative and were not used for universal conclusions.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Arman et al. prove that six radius-1/2 balls do not cover the same surface. Brickman's classical two-quadratic-form convexity is the known underlying result for the two-center obstruction."
+        ],
+        "reasoning": "The equal-diameter lower bound concerns a different part of the radius profile. Joint numerical range convexity for two forms does not produce a three-ball strict cover. Neither broader comparison dominates the combination of lower and constructive upper results here.",
+        "searches": [
+          "Resultary: Borsuk covering illumination Veronese surface six equal diameter balls radius half",
+          "arXiv:2611.08198v1, introduction and §2.3",
+          "Brickman DOI 10.1090/S0002-9939-1961-0122827-1; Martínez-Legaz jca12009"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, check.py",
+        "arXiv:2611.08198v1",
+        "Brickman and Martínez-Legaz (standard theorem; full text not retrieved)",
+        "Resultary 3c02d107f89d and dff4ab9b5b57"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The diagonal values of two traceless forms on any orthonormal basis average to (0,0), which is in their joint range by classical convexity. A radius-1/2 six-ball obstruction also rules out three radius-1/2 balls, but only at that smaller scale."
+        ],
+        "reasoning": "The common zero implies the precise quantitative two-center obstruction and zero-center condition, so those consequences are credited to a direct use of classical convexity. The displayed cover and the first strict decrease do not follow from either implication without additional three-center geometry.",
+        "searches": [
+          "Resultary: joint numerical range Brickman two trace zero ternary quadratic forms common isotropic vector Veronese two-center",
+          "Brickman (1961) and Martínez-Legaz (2005), cited convexity theorem",
+          "arXiv:2611.08198v1 §2.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Arman et al., arXiv:2611.08198v1, §2.3 uses the same embedded surface and arbitrary ball centers, but at radius 1/2.",
+          "The related indexed record dff4ab9b5b57 concerns partial reflection hulls and mean width of the Veronese orbitope; 3c02d107f89d is the assigned result."
+        ],
+        "reasoning": "The relevant cover is of the projector surface, not its convex hull or the angular projective metric. Negative scalar projector centers in the explicit construction are off the surface, so a packing or covering table restricted to projective axes is not an equivalent k-center problem. Mean width of a hull is not equivalent to this ball radius profile.",
+        "searches": [
+          "Resultary: Veronese projector surface two-ball covering radius two-center rigidity three-ball improvement r_k(V)",
+          "Resultary: projective plane k-center Euclidean ball covering Veronese surface two centers",
+          "Web: \"real Veronese surface\" Euclidean ball covering k-center projective plane two balls three balls radius"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed hit was the assigned record. The source on this very embedding uses the fixed comparison radius 1/2 and supplies a finite obstruction, not an unrestricted k-center table containing the first strict decrease."
+        ],
+        "reasoning": "No independent table of the unrestricted-center small-k profile was located. Catalogue search coverage does not establish historical priority.",
+        "searches": [
+          "Resultary: projective plane k-center Euclidean ball covering Veronese surface two centers",
+          "Resultary: Veronese projector surface two-ball covering radius two-center rigidity three-ball improvement r_k(V)",
+          "arXiv:2611.08198v1, §2.3"
+        ]
+      },
+      "rationale": "The classical joint-range theorem already supplies the key common-zero lemma and directly implies the two-center conclusions after the distance calculation. Credit that part as an application, not a novel quadratic-form result. The distinct contribution is the exact critical count for strict improvement on this normalized surface, with the explicit, contact-attaining three-ball configuration. The inspected equal-diameter obstruction concerns a lower radius and does not establish this result.",
+      "residual_risks": [
+        "Older projective quantization or k-center work may use other terminology; this bounded search is not a claim of priority.",
+        "Independent full-text retrieval of the two classical convexity references did not resolve. Their known implication is credited explicitly."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same surface and equal-diameter problem; not the small-k critical count",
+          "evidence": "Embedding into trace-zero symmetric 3×3 matrices and impossibility of covering V by six balls of radius 1/2.",
+          "identifier_or_url": "https://arxiv.org/abs/2611.08198",
+          "material_read": "OA PDF abstract and introduction p. 1 offset 0; §2.3 pp. 2–3 offsets 8136 and 8356",
+          "method": "OA PDF locate and bounded passage reading",
+          "title": "A diameter-one set in R^5 that cannot be covered by six diameter-one balls",
+          "trigger": "Exact metric surface and literal Euclidean-ball covering"
+        },
+        {
+          "assessment": "Credits common-zero mechanism and its immediate covering consequence; no inference from unavailable material",
+          "evidence": "Convexity for the joint range of two real quadratic forms over a unit sphere in dimension at least three.",
+          "identifier_or_url": "https://doi.org/10.1090/S0002-9939-1961-0122827-1; https://journalofconvexanalysis.com/articles/jca12009/",
+          "material_read": "Frozen relationship discussion and the standard joint-range theorem as stated there; primary full-text retrieval timed out",
+          "method": "Statement and direct implication checked mathematically; OA attempts",
+          "title": "On the field of values of a matrix; On Brickman's Theorem",
+          "trigger": "Classical joint numerical range sufficient for the obstruction"
+        },
+        {
+          "assessment": "Different object/invariant; later record",
+          "evidence": "Partial reflection hull of the Veronese orbitope and mean-width change, rather than balls covering the surface.",
+          "identifier_or_url": "Resultary dff4ab9b5b57",
+          "material_read": "Indexed summary",
+          "method": "Local catalogue comparison",
+          "title": "Sharp cubic mean-width onset under partial central symmetrization",
+          "trigger": "Same projector geometry under an alternative name"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The embedded projective plane is already a natural extremal equal-ball example. Finding its first improvable ball count identifies a qualitative feature of the radius profile, not merely a small numeric gain. The exact contact value of an explicit interior-center triple, together with the degenerate optimizer locus at two centers, gives a benchmark for the next optimization problem without claiming to solve it.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The argument treats the complete admissible five-block rule space, not extensions to unreachable binary neighborhoods. Its two local graph equivalences are proved: an allowed six-block sees every adjacent output pair, and a labelled path on overlapping admissible five-blocks is equivalent to a valid finite predecessor that extends to a bi-infinite golden-mean input. Consequently exhaustive subset-state reachability detects all possible missing output words, including arbitrarily long ones. The verifier checked the 8192 rules, 229 preservation survivors, eleven onto maps and every shortest omission. An independent finite input-block generator confirmed exactly two missing 21-blocks for the unique extremizer, and explicit periodic collisions establish noninjectivity for all six non-shift onto maps.
+PASS
 
-## Originality — PASS within inspected evidence
+Each admissible input block extends bi-infinitely by zeros, so the 13 local values determine distinct maps and all 21 tests for two adjacent 1 outputs are necessary and sufficient. In the labeled graph on admissible four-blocks, a path corresponds to an overlapping legal input block, and conversely; hence its label appears in the image exactly when the endpoint subset is nonempty. The subset and last bit capture both continuation constraints. Breadth-first closure is exact at all lengths, and equality of finite languages implies equality of the two-sided shifts by compactness and shift invariance. Independent enumeration reproduces the 229 maps, 11 onto codes, 5 shifts, all six periodic collisions, every shortest-omission count and all 229 exact classification.csv rows. The unique mask with shortest omission of length 21 is 4132. Separately generating all 196418 legal length-25 inputs produces 28655 of 28657 legal length-21 words, with precisely the two stated reverse omissions and the complete length-20 prefix language. Radius one gives 7 self-maps and only the three shifts onto; radius zero has only identity onto. Thus both finiteness of the search and the extension to the infinite system are justified.
 
-Schüle–Stoop (arXiv:1107.2080v1) classify full-shift elementary rules with three input bits. Kari–Taati (arXiv:1311.2319v1) describe the golden-mean hard-core shift and general endomorphism properties. Salo (arXiv:2209.13373v1) studies regularity of unrestricted elementary rules and uses a golden-mean section in a different setting. None of their inspected statements implies the precise thirteen-bit constrained-domain classification or the 21-block obstruction. Focused published-record searches, targeted primary-literature searches, and accessible preceding mathematical statements gave no equivalent/dominating claim. This is a best-evidence priority assessment, not proof that no older unindexed catalogue exists. The full primary PDF of Adler–Kitchens–Marcus (1985) was inspected for its central factor-map theorem and searched for a golden-mean specialization. Its equal-entropy/onto/finite-to-one implication does not supply the exact constrained radius-two census or obstruction threshold.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The theorem answers a canonical symbolic-dynamics question: how short a local rule can be while producing irreversible surjective dynamics on the golden-mean hard-core shift. It proves radius two is the first such neighborhood, classifies every self-map there, and shows a strict image can evade every valid-word observation through length twenty. The uniquely extremal reflection-symmetric code and exact obstruction length twenty-one provide a concrete sharp test horizon that is not apparent from the rule radius alone.
+The de Bruijn/predecessor presentation and subset closure are standard methods. The distinct result is the complete constrained-radius census, the first radius with a proper onto map, and the exact shortest-omission maximum with its unique rule and two defects. The nearest indexed claim is materially related but starts at two required zeros between ones; its counts and rigidity statements do not cover the one-required-zero golden-mean shift. None of the inspected general or exact classification results supplies the frozen figures and threshold.
 
-## Scientific limits
+## value
 
-Only binary, bi-infinite golden-mean configurations and centered radii at most two are covered. Larger radius and generic fiber-degree classifications remain unproved. All finite-state checks are reproducible, but no independent scientific validation or exhaustive historical-priority search has occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The golden-mean shift is a canonical constrained binary system. The census resolves the minimum centered radius at which information can be lost by a surjective rule, and gives the exact observation length sufficient to distinguish every strict image by its block language. The unique rule whose language first differs at length 21 is a useful concrete test case for short-neighborhood surjectivity algorithms, not an arbitrary slice of a larger enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

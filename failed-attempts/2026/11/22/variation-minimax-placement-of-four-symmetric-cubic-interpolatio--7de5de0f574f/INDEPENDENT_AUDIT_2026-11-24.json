@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:57:04.226525Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Modulo constants, the adjacent increments give ℓ¹ coordinates; the norm into the integral of the absolute derivative is exactly the maximum of the three single-jump column norms. The reflected terminal steps have derivative proportional to 3x²−2x−a² with two internal roots; the central derivative is proportional to 1+a+a²−3x² with two internal roots. Splitting at the roots gives A and B as stated. A increases, while the log derivative of B+1 has the sign of (a−1)(a+2); the endpoint limits force a unique crossing and minimizer. Independent exact-rational replay: python3 /workspace/independent_checks.py (section 4) proves opposite signs at the stated rational endpoints and bounds the gain using monotonicity of A; it also checks the comparison values. This is about fixed endpoints, symmetric grids and unrestricted real data, not range escape.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "068c5a0bfb03 takes x₁=m−a, x₂=m+a with |m|+a<1; its maximum of B_L, B_C and B_R reduces at m=0 to max(A,B)."
+        ],
+        "reasoning": "The broader theorem resolves all asymmetric as well as symmetric grids and gives the same unique global optimum.",
+        "searches": [
+          "Resultary: four-node endpoint-fixed cubic interpolation exact variation gain and unrestricted node minimization"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE-20261117-068c5a0bfb03",
+        "SCOPE-20261026-7f9a4d5c7ee7",
+        "doi:10.1007/BF01874212"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The unrestricted theorem supplies E=A and F=B explicitly. The monotone range record uses the same steps T_a and U_a but minimizes a pointwise range defect at approximately 0.4458209225."
+        ],
+        "reasoning": "The unrestricted variation theorem implies the present claim by restriction; the separate range bound does not. The Prestin access limit has no bearing on this demonstrated coverage.",
+        "searches": [
+          "068c5a0bfb03; 7f9a4d5c7ee7; Prestin DOI 10.1007/BF01874212 title/DOI lookup"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "SCOPE-unique-globally-variation-optimal-four-node-cubic-interpolation--068c5a0bfb03, Finding: same quotient of integral of |p′| by adjacent data increments; same three one-jump norming vectors."
+        ],
+        "reasoning": "Restriction to symmetric nodes gives the same two analytic branches and equality cases, not merely matching parameters.",
+        "searches": [
+          "Resultary: symmetric four-node cubic Lagrange interpolation, total variation amplification, one-jump data, variation-optimal nodes"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "068c5a0bfb03 gives the exact crossing and gain, a rational root bracket 0.4801369262<a*<0.4801369264, gain 1.423593925054415…, and comparisons at a=1/3 and a=1/2."
+        ],
+        "reasoning": "The exact characterization and numerical benchmarks are already recorded; a narrower bracket is routine arithmetic.",
+        "searches": [
+          "Resultary: variation-optimal four-node cubic interpolation"
+        ]
+      },
+      "rationale": "Shown already covered. A distinct indexed theorem on all endpoint-fixed grids gives identical single-jump gains at m=0 and proves that its unrestricted unique global minimizer is exactly the symmetric crossing. The extra decimal precision in the frozen bracket only refines evaluation of an already specified unique root; it is not a surviving scientific claim.",
+      "residual_risks": [
+        "Bibliographic first priority is not adjudicated; mathematical coverage by the distinct indexed result is decisive.",
+        "Prestin full text was not inspected."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers and strictly generalizes frozen mathematical finding",
+          "evidence": [
+            "Three branches for arbitrary m,a, reduction E,F, same strict crossing, unique unrestricted optimizer and same benchmark grids."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-unique-globally-variation-optimal-four-node-cubic-interpolation--068c5a0bfb03/RESULT.md",
+          "material_read": "Finding within offsets 0–1929; proof inspection through offset 5986",
+          "method": "Resultary local index and local-mirror passages",
+          "title": "Unique globally variation-optimal four-node cubic interpolation with fixed endpoints",
+          "trigger": "Direct result for same data and norm over broader domain"
+        },
+        {
+          "assessment": "Different objective and optimizer",
+          "evidence": [
+            "Range excursion Δ=max(E_range,H), central variation is 1+4H but terminal variation includes both critical excursions."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-optimal-symmetric-four-node-cubic-interpolation-for-monotone-ran--7f9a4d5c7ee7/RESULT.md",
+          "material_read": "Finding and proof passages, offsets 0–5550",
+          "method": "Local mirror",
+          "title": "Optimal symmetric four-node cubic interpolation for monotone range control",
+          "trigger": "Identical symmetric node family and step polynomials"
+        },
+        {
+          "assessment": "No whole-paper noncoverage judgment",
+          "evidence": [
+            "OA did not supply a copy; publisher page redirected unsuccessfully."
+          ],
+          "identifier_or_url": "doi:10.1007/BF01874212",
+          "material_read": "Bibliographic information; full text not retrieved independently",
+          "method": "Lawful OA retrieval and exact title/DOI search",
+          "title": "Lagrange interpolation for functions of bounded variation",
+          "trigger": "Possibly relevant primary BV-interpolation paper"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The variation norm is a meaningful design criterion, but this submission resolves only a restriction already answered by the broader exact theorem. Tightening a decimal bracket for the same already isolated and explicitly characterized crossing does not supply an independently useful new invariant or mathematical gap.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

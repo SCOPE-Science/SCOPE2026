@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,36 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The checker enumerates every connected labeled simple graph on \(2\) through \(6\) vertices. For each edge \(uv\) and each vertex \(w\), it computes shortest-path distances and compares the two predicates:
+# Independent mathematical audit
 
-\[
-d(w,u)\ne d(w,v),
-\]
+## correctness
 
-and
+PASS
 
-\[
-d(w,u)=d(w,v)+1
-\quad\text{or}\quad
-d(w,v)=d(w,u)+1.
-\]
+For the repaired finding, adjacency implies |d(w,u)−d(w,v)|≤1. The integer difference is nonzero precisely when it is ±1, in which case appending the edge to the shorter geodesic gives the required geodesic containing the nearer endpoint. The strong condition implies the same ±1 equality by splitting the geodesic. This identifies each constraint and thus every feasible and optimal function, including for the empty constraint family. For a graph with an edge, a constraint gives the lower bound 1. Bipartition makes distances to adjacent endpoints opposite in parity, so concentration of weight 1 at any vertex attains it. Conversely a weight-one minimizer must have every positive-weight vertex in every resolving neighborhood; the parity of distance from such a vertex is a proper two-coloring. The minimizer exists by compactness and nonemptiness. The K1 zero minimum and C4 value one follow directly. The frozen enumerator excludes order 1 and is not evidence for the removed overclaim; no uploaded code was executed.
 
-For adjacent \(u,v\), the second predicate is exactly the local strong geodesic condition.
+## originality
 
-Recorded output:
+PASS
 
-```text
-VERIFY_OK
-connected_labeled_graphs_checked = 27475
-counts_by_order = {2: 1, 3: 4, 4: 38, 5: 728, 6: 26704}
-edge_neighborhoods_checked = 218494
-vertex_membership_tests = 1306505
-all local resolving neighborhoods equaled local strong resolving neighborhoods
-C4 has both fractional local dimensions equal to 1
-```
+The surviving contribution is an exact identification of a separately introduced adjacent-pair LP, together with a correction of a stated general characterization. The ordinary bipartite characterization is prior, and K1 is a scope repair, not new mathematics. The equality is a short consequence of the published definitions, but the introducing paper explicitly gives only a one-sided comparison and draws an incompatible path-only conclusion. The comparison concerns whether the identification and correction are already established, not whether they are hard to derive.
 
-The checker also verifies explicitly that every local and local-strong resolving neighborhood of \(C_4\) is the whole vertex set, so both fractional local dimensions are \(1\).
+## value
 
-The finite enumeration is corroborative only. The universal theorem follows from triangle inequality and the geodesic equality for adjacent endpoints.
+PASS
+
+Despite the elementary proof, it corrects an explicit published structural characterization by exhibiting a nonpath counterexample and shows why two separately used graph invariants require no separate optimization. The equality transfers every feasible and optimal solution, not just a single value or family. The singleton repair only sets the boundary correctly; it is not the reason the finding is valuable.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

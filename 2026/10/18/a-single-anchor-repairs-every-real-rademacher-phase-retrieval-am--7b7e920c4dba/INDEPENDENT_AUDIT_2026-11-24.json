@@ -1,0 +1,163 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:13:58.377374Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–44 and 46–105",
+        "Frozen VERIFICATION.md and verify_rademacher_anchor.py, inspected without execution. Bundled replay: python3 verify_rademacher_anchor.py from the record directory; exact rank tests and finite floating-point margin tests for d=2,3,4."
+      ],
+      "rationale": "Squaring and subtracting gives the Walsh polynomial (4); its constant and distinct degree-two coefficients give exactly (5), in both directions. For two nonzero half-sums u,v a nonzero coordinate in just one support would give a nonzero off-diagonal coefficient by pairing it with the support of the other vector. On the common support the ratios v_i/u_i are nonzero and pairwise opposite, so there are at most two indices; orthogonality excludes just one. The two ratios being opposite and u·v=0 give equal absolute coordinates in u and then the stated symmetric/antisymmetric form for u and v. For a fixed pair, equality under the anchor is equivalent to annihilating either half-sum, i.e. a_i=±a_j; a tied pair is independently witnessed by e_i,e_j, and unequal absolute coordinates can be chosen for every d. The absolute difference of |p+q| and |p−q| in magnitude is 2 min(|p|,|q|); applied to the anchor it gives the lower bound 1/sqrt(2) times the minimum absolute-coordinate gap (divide by 2 sqrt(2) min(|alpha|,|beta|)). Coordinate vectors attain it, including when the gap vanishes. The separate compactness argument for positive global stability is sound: scaling both half-sums to unit length bounds the squared quotient from below, and a zero on the product of spheres would give a nontrivial collision. 'One additional non-flat measurement' means an appropriately chosen row satisfying (2), not every non-flat row; the precise iff statement already specifies this.",
+      "residual_risks": [
+        "Real full sign frame only; no random subframe, complex uniqueness, or identification of the exact global Lipschitz constant. Finite checker is not the all-dimensional proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general completion theorem indeed implies one generic added row suffices: the smallest maximum of the ranks of complementary sign-row spans is d−1. A parity split attains it, and any subspace of rank r contains at most 2^r cube vertices by projection to r independent coordinates, excluding a cover by two subspaces of rank ≤d−2.",
+          "The inspected independent-variable stability and subgaussian settings do not give a stable all-real-sign-frame theorem with this single arbitrary deterministic row."
+        ],
+        "reasoning": "Credit the generic existence as a corollary even though the earlier theorem does not name this frame. Generic sufficiency leaves open the exact exceptional anchor locus; neither that theorem nor general qualitative stability evaluates the restricted sharp constant.",
+        "searches": [
+          "Cahill–Casazza–Jasper–Woodland arXiv:1508.06687, Theorems 4.1–4.2",
+          "Abdalla et al. arXiv:2607.06693v1, Theorem 1.2 and §3.2",
+          "Krahmer–Stöger DOI 10.1007/s00041-020-09797-9"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:math/0412411, 1508.06687, 2607.06693v1 and 1906.08385",
+        "Resultary 28196b33871c, 3e7434d8ba3d and dae2935843e5",
+        "Frozen primary record"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Minimum generic completion count is covered; the target goes further than open dense completion to an exact iff condition anchored to the two-coordinate fibers.",
+          "The same-day Gabor result imposes a nonzero imaginary product per complex antipodal pair for a geometric-window system. The later Gabor fiber theorem and completing probe also concern complex cyclic Gabor intensities."
+        ],
+        "reasoning": "A similar number of measurements and a pairwise obstruction do not reduce one frame family to the other. The inspected Gabor statements provide no implication yielding the real absolute-coordinate gap constant; same-day date alone determines no priority. A general positive lower Lipschitz bound is also a different claim from the sharp restricted value.",
+        "searches": [
+          "Cahill et al., Theorems 4.1–4.2",
+          "Resultary 28196b33871c (same date) and 3e7434d8ba3d (later)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Krahmer–Stöger exhibit e_1 and e_2 as indistinguishable; Abdalla et al. explicitly note the two-Rademacher obstruction. Their Lemma 3.4 identifies head profiles in an exceptional-coordinate argument, not arbitrary multi-Rademacher collision pairs.",
+          "Complement-property failure is equivalent to existence of a collision, but the theorem does not classify the obstructing subspaces or vectors for the sign frame."
+        ],
+        "reasoning": "On lifting, the kernel of the full sign measurements on symmetric matrices is trace-zero diagonal, and the relevant differences of outer products have rank at most two. This explains why the exact fibers are very structured: the nontrivial rank-two differences have exactly two diagonal entries of opposite sign. Prior isolated collisions or a general injectivity test do not themselves give all the half-sums or the separation quotient.",
+        "searches": [
+          "Real Rademacher magnitude collision, sign cube rank-two/Walsh formulation, and complement property",
+          "Balan–Casazza–Edidin arXiv:math/0412411, Theorem 2.8",
+          "Krahmer–Stöger arXiv:1906.08385, Introduction",
+          "Abdalla et al. arXiv:2607.06693v1, Introduction and §3.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "dae2935843e5 concerns flat sign-line full-spark capacity in dimension five; neither Gabor record treats the full real sign frame. The Mercedes exact-file retrieval did not succeed; the frozen citation describes a planar global stability constant for a specific frame."
+        ],
+        "reasoning": "A capacity or rank classification for a dimension-five family does not supply the exact ambiguity fibers, anchor criterion and sharp restricted ratio in arbitrary dimension. No exact table or equivalent classified entry supplying these invariants was established; the uninspected planar comparison does not count as noncoverage evidence.",
+        "searches": [
+          "Local Resultary completion, sign-frame, exact-fiber and stability matches: dae2935843e5, 28196b33871c and 3e7434d8ba3d",
+          "Frozen comparison to ea5fecd0ccbb (Mercedes frame)"
+        ]
+      },
+      "rationale": "The Rademacher obstruction and existence of generic minimal frame completion are prior. The supported distinct part is a complete description of collision directions for this frame, the criterion for every fixed anchor, and the attained sharp separation on exactly the old collision set. Structural analogues in cyclic Gabor phase retrieval do not establish coverage. No historical priority certification follows from this comparison.",
+      "residual_risks": [
+        "An equivalent Boolean lifting-kernel or explicit completion calculation may be indexed under different terms. Exact Mercedes primary record not available in the attempted local route. Same-day Gabor analogue is not a relative priority determination."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior general injectivity criterion",
+          "evidence": "Real phase retrieval iff every subset or its complement spans; no explicit sign-frame margin there.",
+          "identifier_or_url": "arXiv:math/0412411",
+          "material_read": "Theorem 2.8, pp. 9–10, offset 22575",
+          "method": "Primary arXiv PDF passage inspection",
+          "title": "On signal reconstruction without noisy phase",
+          "trigger": "Complement-property equivalent formulation"
+        },
+        {
+          "assessment": "Covers abstract one-row sufficiency after evaluating complementary ranks, not exact fixed-anchor criterion and margin",
+          "evidence": "Minimum completion size expressed via ranks, and successful minimal completions form an open dense set.",
+          "identifier_or_url": "arXiv:1508.06687",
+          "material_read": "Theorems 4.1–4.2, pp. 14–15, offset 39757",
+          "method": "Primary arXiv PDF passage inspection",
+          "title": "Phase retrieval",
+          "trigger": "Stronger generic completion theorem"
+        },
+        {
+          "assessment": "Prior obstruction and a different stability regime",
+          "evidence": "Two Rademachers fail retrieval. Exceptional-coordinate lemmas use one distinguished variable and nondegenerate quadratic probes on other coordinates, rather than the fully Rademacher sign-frame completion setting.",
+          "identifier_or_url": "arXiv:2607.06693v1",
+          "material_read": "Introduction p. 2, Theorem 1.2 p. 3, and §3.2 pp. 14–15, including Lemmas 3.3–3.4",
+          "method": "Primary arXiv PDF passage inspection, including offsets 7999 and 48600–51770",
+          "title": "Stable Phase Retrieval for Spans of Independent Random Variables",
+          "trigger": "Same Rademacher obstruction and possible exact profile classification"
+        },
+        {
+          "assessment": "Credits explicit old collision",
+          "evidence": "The Rademacher rows do not distinguish the coordinate vectors; this witness does not classify all other equal-magnitude pairs.",
+          "identifier_or_url": "10.1007/s00041-020-09797-9; arXiv:1906.08385",
+          "material_read": "Introduction p. 2, offset 4601",
+          "method": "Primary arXiv PDF passage inspection",
+          "title": "Complex Phase Retrieval from Subgaussian Measurements",
+          "trigger": "Rademacher counterexample and subgaussian recovery"
+        },
+        {
+          "assessment": "Material structural analogue on a different frame family; date does not determine priority",
+          "evidence": "Complex cyclic Gabor intensities from a geometric window; additional row criterion uses Im(conjugate(w_j) w_(j+N/2)) nonzero for each antipodal pair.",
+          "identifier_or_url": "Resultary 28196b33871c",
+          "material_read": "RESULT.md Finding, offset 104",
+          "method": "Local published-record mirror",
+          "title": "One extra intensity sharply repairs every even-dimensional real-window cyclic Gabor system (indexed comparison)",
+          "trigger": "Same-day sharp exact one-measurement extension"
+        },
+        {
+          "assessment": "Later-dated analogue for a different measurement family",
+          "evidence": "Two-class complex antipodal Gabor fibers and an explicit completing probe.",
+          "identifier_or_url": "Resultary 3e7434d8ba3d",
+          "material_read": "RESULT.md Finding, offsets 0–3493",
+          "method": "Local published-record mirror",
+          "title": "Exact phase retrieval fibers and one-probe completion for cyclic Gabor measurements (indexed comparison)",
+          "trigger": "Exact fibers and one extra probe"
+        },
+        {
+          "assessment": "Different invariant, dimension and row restrictions",
+          "evidence": "Full-spark capacity for flat sign-line subfamilies in dimension five.",
+          "identifier_or_url": "Resultary dae2935843e5",
+          "material_read": "Indexed result and claim scope",
+          "method": "Local published-record inspection",
+          "title": "Full-spark capacity of five-dimensional flat sign lines",
+          "trigger": "Same Boolean sign-line framing in dimension five"
+        },
+        {
+          "assessment": "Exact primary comparison unresolved",
+          "evidence": "Frozen source describes a global constant for a particular planar three-vector frame, not the anchor quotient restricted to sign-frame collision fibers.",
+          "identifier_or_url": "Resultary ea5fecd0ccbb",
+          "material_read": "Frozen citation and comparison, RESULT.md lines 110 and 121; matching file not retrieved",
+          "method": "Local mirror retrieval attempt and frozen source inspection",
+          "title": "The Mercedes frame has exact global phase-retrieval stability constant sqrt(2)",
+          "trigger": "Exact stability under a particular real measurement frame"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md equations (1)–(3), proof Steps 2–5",
+        "Cahill et al. Theorems 4.1–4.2",
+        "Krahmer–Stöger Introduction"
+      ],
+      "rationale": "The all-signal obstruction of the natural maximal flat real frame is known, but describing precisely how it fails identifies every offending direction and provides an exact deterministic design condition for the cheapest completion. The restricted margin gives a calibration quantity for just the formerly indistinguishable signals, with attained witnesses, while distinguishing it from full-map conditioning. This is a usable structural and quantitative result beyond a generic existence theorem or an isolated collision.",
+      "residual_risks": [
+        "No exact full-map conditioning, arbitrary noise model or recovery algorithm is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

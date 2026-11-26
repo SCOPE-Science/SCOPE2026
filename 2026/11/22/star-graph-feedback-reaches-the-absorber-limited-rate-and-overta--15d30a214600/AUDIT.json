@@ -1,122 +1,94 @@
 {
   "correctness": {
-    "rationale": "From the exact SWAP-measurement adjoint identity, the star pair generator is the incidence block diag(aI,I) with off-diagonal -C/2. Since CC^T=(m-2)I+11^T, the singular-value sectors give the complete spectrum including \\(m=2\\) and \\(n=2\\) boundaries. Irreducible symmetric M-matrix Perron–Frobenius forces the minimal eigenvalue into the positive, leaf-symmetric constant block; its trace and determinant give the displayed gap for \\(0<\\lambda\\le1\\). Rationalization and the all-ones Rayleigh quotient yield asymptotic absorber-bound saturation. Comparing to the published cycle rate reduces to \\(p_n(z_n)=1-(n+2)(1-\\cos(\\pi/n))+4(1-\\cos(\\pi/n))^2\\): exact signs at \\(n=3,4,5\\),6 and cos bound for \\(n\\ge7\\) prove the sharp crossover. Direct Kraus-operator matrices agree with the pair generator at \\(n=3,4,5\\) and multiple strengths; full spectrum and crossover finite checks passed. Finite tests do not replace the analytic proof. This is a pair-sector claim, not an asserted exact full-Liouvillian gap.",
+    "rationale": "The closed pair decay matrix reduces on the star to an unsigned complete-leaf incidence block. The two positive singular values give the stated two-by-two blocks and the kernel gives the unpaired modes. Perron–Frobenius puts the lowest mode in the constant block. The Rayleigh bound is λ|F|/binom(n,2), so it specializes to 2λ/n for trees with feedback on all edges; rationalization gives asymptotic saturation. A positive sine mode gives the ring rate at unit edge clocks and maximal feedback. The quadratic sign comparison proves the crossover for every n. The full gap identity is attributed to arXiv:2611.13094v2 Eq. (78) for its connected SWAP feedback model. The finite checker concerns the pair sector only.",
     "status": "PASS"
   },
-  "independent": false,
-  "independent_audit_status": "not_performed",
+  "independent_audit_status": "passed",
+  "independent_validation": true,
   "originality": {
     "broader_coverage": {
       "evidence": [
-        "https://arxiv.cnoctave.top/pdf/2611.13094 Eqs. (28),(39),(46),(152): arbitrary-graph matrix, ring spectrum, general absorber limit, all-to-all rate",
-        "https://arxiv.org/pdf/2510.24845 pp. 2–4: nearest-neighbor singlet transport and geometric extensions"
+        "Proposition 1 gives the general mean absorption bound for the symmetric decay generator; Eq. (78) identifies the Liouvillian gap with its lowest eigenvalue under the model hypotheses."
       ],
-      "reasoning": "The strongest directly relevant result is a generic matrix generator for every connected measurement graph. It supplies an algorithmic starting point, not a closed star spectrum or the sharp ring ordering. Its absorber-fraction Rayleigh bound is strictly an upper bound; proving that the star approaches it and gives the seven-site crossover requires the new incidence-block diagonalization and polynomial sign comparison. The earlier article does not state that graph-specific conclusion.",
+      "reasoning": "The framework covers the star, but does not give the closed-form star diagonalization or show its tree-bound saturation. No originality is claimed for the general bound or gap identity.",
       "searches": [
-        "Quantum feedback Dicke state preparation exact singlet pair generator on K1,m star graph; spectral gap (n+2-sqrt((n+2)^2-16))/4; threshold n=6 ring crossover; absorber bound saturation.",
-        "frustration-free control Dicke state preparation pair random walks first passage exact phase-type distribution asymptotic survival",
-        "frustration free control star graph singlet pair projector eigenvalue n qubits feedback quantum state preparation"
+        "arXiv:2611.13094v2 Sec. IV and general gap formula"
       ]
     },
     "checked_sources": [
-      {
-        "identifier": "arxiv:2611.13094",
-        "role": "main framework, general graph and ring comparison",
-        "url": "https://arxiv.org/abs/2611.13094"
-      },
-      {
-        "identifier": "arxiv:2510.24845",
-        "role": "earlier general transport mapping",
-        "url": "https://arxiv.org/abs/2510.24845"
-      },
-      {
-        "identifier": "Phys. Rev. Lett. 136, 120603 (2026)",
-        "role": "journal version of precursor",
-        "url": "https://doi.org/10.1103/zp25-ppgk"
-      }
+      "arXiv:2611.13094v2",
+      "arXiv:2510.24845",
+      "Resultary 17ebfb940d31"
     ],
     "claim_vs_prior_implication": {
       "evidence": [
-        "https://arxiv.cnoctave.top/pdf/2611.13094 Sec. IV B–E: generic K, explicit cycle, and universal bound",
-        "https://arxiv.org/pdf/2510.24845 main text: generic nearest-neighbor and geometry framework",
-        "https://arxiv.cnoctave.top/pdf/2611.13094 Appendix A: local SWAP identities"
+        "The all-graph matrix, bound, ring benchmark and full-gap identity provide inputs and an interpretation, not star eigenvalue expressions or strict size comparisons."
       ],
-      "reasoning": "The prior pair-operator identity logically determines the star spectrum after constructing and diagonalizing the star pair graph, but does not itself supply those eigenvalues, asymptotic tightness at unit bond rates, or the exact ring comparison. The new proof explicitly supplies all intermediate calculations; no prior conclusion with a stronger quantitative star-specific implication was found. The existing operator identity and ring rate are credited rather than relabeled as new.",
+      "reasoning": "The contribution is the comparison obtained by explicitly solving the star problem and proving the sign of the resulting quadratic at the known ring rate. Standard incidence matrix algebra is not itself claimed as new.",
       "searches": [
-        "Dörstel Iadecola Wilson Buchhold star tree pair hydrodynamics quantum",
-        "\"Frustration-free control and absorbing-state transport\" \"star\"",
-        "frustration free control star graph singlet pair projector eigenvalue n qubits feedback quantum state preparation"
+        "arXiv:2611.13094v2 Proposition 1 and Eqs. (27)–(29), (39), (78)"
       ]
     },
     "equivalent_formulations": {
       "evidence": [
-        "https://arxiv.cnoctave.top/pdf/2611.13094 Sec. IV B, Eqs. (27)–(29): pair-projector closure for all monitored graphs",
-        "https://arxiv.org/pdf/2510.24845 main text: generic absorption/transport mapping and long-range geometries"
+        "arXiv:2611.13094v2 Eqs. (27)–(29) identify the two-particle transport-and-killing generator.",
+        "arXiv:2510.24845 gives the earlier singlet transport and feedback mapping."
       ],
-      "reasoning": "The equivalent description is a symmetric killed walk on the incidence graph of the complete leaf graph: each hub-leaf pair corresponds to a leaf vertex, and each leaf-leaf pair to an edge. The general operator closure is prior work and is not claimed as new; the incidence decomposition and its exact physical pair spectrum, rate-bound saturation, and six-to-seven-site ring comparison are separately derived. Searches found no source asserting this package of claims.",
+      "reasoning": "The equivalent formulation as a killed exclusion walk uses the known operator closure; the star-specific spectrum additionally requires prescribing the killing set and finding the incidence blocks.",
       "searches": [
-        "Dicke state preparation frustration free control star graph hub leaf measured singlets exact Liouvillian pair gap eigenvalue star tree versus ring",
-        "star graph singlet projector measurement feedback spectral gap graph structure relaxation FFC preparation",
-        "frustration free control star graph singlet pair projector eigenvalue n qubits feedback quantum state preparation"
+        "Star SWAP measurement-feedback; killed two-particle pair spectrum on a star; arXiv:2611.13094v2 and arXiv:2510.24845"
       ]
     },
     "exact_database_or_table": {
       "evidence": [
-        "https://arxiv.cnoctave.top/pdf/2611.13094 Table I: exact periodic-chain and all-to-all formulas; no star entry",
-        "https://arxiv.cnoctave.top/pdf/2611.13094 Sec. VI A: hypercubic, boundary and finite-region feedback classifications",
-        "https://arxiv.org/pdf/2510.24845 main text: one- and two-dimensional regular lattice and long-range kernels"
+        "Eq. (39) gives the ring benchmark, not the star spectrum.",
+        "Resultary 17ebfb940d31 gives a six-vertex star/cycle threshold for an adjacency-based epidemic ranking, not a measured pair decay rate."
       ],
-      "reasoning": "No inspected exact table reports the measured-star pair spectrum or the six-qubit tie. The elementary unsigned incidence singular values are classical linear algebra; novelty is not asserted for those standalone combinatorial facts. The quantum-feedback specialization and graph-to-ring comparison are the proposed results. Searches cannot exclude all unindexed tables.",
+      "reasoning": "Neither the known ring formula nor the epidemic threshold tabulates the killed star spectrum or compares its decay rate to the ring under the given clocks.",
       "searches": [
-        "Dicke state measurement feedback singlet projectors star graph first passage absorbing pair relaxation",
-        "frustration free control star graph singlet pair projector eigenvalue n qubits feedback quantum state preparation",
-        "singlet feedback preparation Dicke star graph relaxation gap"
+        "arXiv:2611.13094v2 summary table and exact periodic-ring solution",
+        "Resultary star versus ring size crossover"
       ]
     },
-    "rationale": "Two closely related primary full texts were inspected. The November 2026 paper supplies all-graph operator closure, ring spectra, universal absorber throughput, and all-to-all solution, but its listed graph-specific solutions and searchable sections do not give the measured star incidence spectrum or exact topology crossover. The October 2025 precursor gives the general transport mapping and regular geometry scaling. Actual semantic index and literature queries for the star-specific spectrum and aliases found no decisive covering statement. These observations support, but cannot prove, publication priority. The generic closure, standard incidence singular values, and known cycle eigenvalues are explicitly credited.",
+    "rationale": "Known general feedback theory is credited. The closed-form measured star spectrum, saturation on the star, and the equal-edge-clock comparison are distinct from the inspected prior statements.",
     "residual_risks": [
-      "The new spectral calculation is a graph-specific consequence of a previously established general generator; independently published equivalent star specializations might be overlooked or unindexed.",
-      "Classical incidence-matrix eigenvalues are known; no combinatorial originality is claimed for them alone.",
-      "The high-degree hub has growing per-site measurement load; the stated speed gain requires fixed unit per-edge measurement rates and must not be interpreted as a parallel-depth or hardware-clock improvement.",
-      "Full Liouvillian gap need not equal the exact pair-sector decay rate."
+      "An earlier star specialization in another notation may not be indexed. These comparisons do not establish absolute priority."
     ],
     "source_inspections": [
       {
-        "assessment": "Provides the exact general generator and ring rate, not an explicit star incidence spectrum or six-versus-seven site comparison",
-        "evidence": [
-          "Eqs. (27)–(29) generic pair generator",
-          "Eq. (39) ring rate",
-          "Eq. (46) absorber bound",
-          "Table I lists exact ring and all-to-all results"
-        ],
-        "identifier_or_url": "arxiv:2611.13094; https://arxiv.cnoctave.top/pdf/2611.13094",
-        "material_read": "Abstract, introduction, Table I, Sections II, IV B–E and VI A, exact pair operator equations (25)–(29), spectral formula (39), absorber bound (45)–(47), all-to-all result (152), source references, and star/complete-bipartite term scans",
-        "method": "Accessible primary full-text PDF with selected page-image inspection and phrase search",
+        "assessment": "General framework and ring already known",
+        "evidence": "The absorption average and gap identity hold for the stated model; the star-specific spectrum is a separate calculation.",
+        "identifier_or_url": "https://arxiv.org/pdf/2611.13094v2",
+        "material_read": "Summary table and Eqs. (27)–(29), (39), (45)–(46), (78)",
+        "method": "Open primary PDF passages",
         "title": "Frustration-free control for quantum-state preparation: an exact first-passage theory",
-        "trigger": "The motivating recent complete first-passage treatment of singlet-projector feedback and the exact periodic-chain pair eigenvalue"
+        "trigger": "Same measurement-feedback model and exact benchmark"
       },
       {
-        "assessment": "Establishes generic singlet-pair transport and regular-geometry scaling; no stated measured-star all-size spectrum or exact crossover",
-        "evidence": [
-          "Abstract and main model description",
-          "Measurement-feedback Kraus channel and random-walk mapping",
-          "Discussion of arbitrary geometries and regular-lattice studies"
-        ],
-        "identifier_or_url": "arxiv:2510.24845; https://arxiv.org/pdf/2510.24845",
-        "material_read": "Primary PDF abstract and main sections defining singlet feedback, transport and extensions to arbitrary geometry, plus main finite-size scaling analyses and the displayed equations on early pages; star and graph keyword scans",
-        "method": "Open arXiv primary full-text PDF with page-image inspection and keyword search",
+        "assessment": "Model and mapping already known",
+        "evidence": "Projector transport/removal mapping, not a complete star-spectrum and crossover claim.",
+        "identifier_or_url": "https://arxiv.org/pdf/2510.24845",
+        "material_read": "Singlet transport and feedback equations (8), (10), (11)",
+        "method": "Open primary PDF passages",
         "title": "Frustration-Free Control and Absorbing-State Transport in Entangled State Preparation",
-        "trigger": "The predecessor paper for the feedback transport mechanism, cited by the newer primary paper"
+        "trigger": "Precursor feedback dynamics"
+      },
+      {
+        "assessment": "Different operator and statistic",
+        "evidence": "Adjacency spectral epidemic thresholds for K1,5 and C6, not equality of the present killed pair rates at six.",
+        "identifier_or_url": "Resultary 17ebfb940d31",
+        "material_read": "Finding",
+        "method": "Published-record index and statement comparison",
+        "title": "Six vertices are the sharp density–spectral epidemic ranking reversal",
+        "trigger": "Star and ring with a crossover near six vertices"
       }
     ],
     "status": "PASS"
   },
-  "review_type": "same_model_review",
-  "same_model_review_status": "passed",
+  "previously_published_pending_reaudit": false,
   "schema_version": 1,
-  "scope_run_id": "15d30a21-4600-481b-9cca-683c629040b6",
   "value": {
-    "rationale": "The measurement graph is a natural design variable in quantum feedback preparation. The result identifies an edge-minimal connected topology whose pair-relaxation rate attains the universal \\(O(n^{-1})\\) absorber throughput asymptotically, while the standard periodic nearest-neighbor chain remains \\(O(n^{-2})\\). The complete star spectrum and sharp finite crossover at \\(n=6\\) quantify the gain and clarify exactly which measurement-resource normalization enables it. This offers a structural network-design benchmark and a precise caveat for practical per-vertex constraints, not a tiny numerical refinement or arbitrary finite instance.",
+    "rationale": "The exact result quantifies a structural speed change in a fixed measurement-feedback model, identifying when an edge-minimal topology outperforms the ring and when a different physical clock constraint removes that advantage.",
     "status": "PASS"
   }
 }

@@ -1,0 +1,155 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:50:09.137116Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, Finding, assumptions and full proof",
+        "VERIFICATION.md, check.py and requirements.txt (inspected, not executed)",
+        "Independent weighted Sturm–Liouville perturbation and essential-norm argument detailed in this review"
+      ],
+      "rationale": "With u=log x and v=log y the domain isometry multiplies f(e^v) by v(1+epsilon cos(omega log v)). The resulting integral kernel differs from the weighted Copson step kernel by a Hilbert–Schmidt kernel, bounded in square by (1-|epsilon|)^-2 v^-2 exp(-2|u-v|). Absolute convergence also follows directly from Cauchy–Schwarz with the domain weight. The second log unitary identifies the Copson operator with the half-line compression of the bounded full-line exponential tail-convolution followed on its input by multiplication by a. The essential norm equals the full norm: take compactly supported near-norming test vectors and translate by integer periods toward +infinity; they converge weakly to zero, while the discarded full-line output tends to zero in norm. Its full-line Gram kernel is a(s)exp(-|s-r|/2)a(r), with no missing factor. Positive-kernel domination of each Bloch quadratic form by the zero fiber acting on the modulus, and norm continuity of the fibers, give exactly the stated compact kernel and top eigenvalue. Independently, the circle operator is M_a(-d_t^2+1/4)^-1 M_a, so its reciprocal top eigenvalue mu solves the lowest weighted periodic eigenproblem (-d_t^2+1/4)f=mu a^2 f. Testing that variational problem with f=1 gives an essential-norm lower bound 2 sqrt(mean(a^2)), which implies the stated bound by Cauchy–Schwarz and mean(a)=1/sqrt(1-epsilon^2). At epsilon=0, mu=1/4 is simple; normalize mean(f)=1. Its first-order eigenfunction is -cos(omega t)/(2 omega^2) because the first variation satisfies f_1''=(1/2)cos(omega t). Integrating the eigen-equation through second order gives mu=1/4-(3/2+1/(2 omega^2))epsilon^2/4+O_omega(epsilon^4), the odd terms vanishing by half-period unitary equivalence and analyticity. Taking mu^-1/2 gives the frozen coefficient, standard base value 2, and the stated even remainder.",
+      "residual_risks": [
+        "The analytic gap at epsilon=0 depends on omega; the expansion is at fixed positive omega, not uniform as omega tends to zero. No discrete or analytic-space extension is verified."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Norrbo's endpoint proposition is an unmodulated continuous boundedness result; Theorem 3.5 is for an analytic Hilbert matrix endpoint.",
+          "Norrbo's discrete essential-norm theorem assumes convergence of block means with d_n/d_(n-1) tending to one and uses row multipliers on sequence spaces. The multicomponent weighted Hardy/Copson paper's accessible abstract describes boundedness criteria, not an exact periodic spectral formula.",
+          "The oscillatory critical Bergman result requires a'(u) to tend to zero and gives 2/liminf(a), with its own weight notation."
+        ],
+        "reasoning": "Neither the discrete block hypotheses nor the vanishing-derivative hypothesis covers the modulated continuous domain. In particular, the latter liminf formula would respond on the scale |epsilon| rather than at quadratic order, so it is not an equivalent presentation.",
+        "searches": [
+          "arXiv:2610.00252v1 §§2–3",
+          "arXiv:2609.13403 Theorem 2 and the block means condition",
+          "arXiv:2203.00596 abstract",
+          "Resultary 5361aa9c5ddc"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.00252v1",
+        "arXiv:2609.13403",
+        "arXiv:2203.00596 abstract",
+        "Resultary fe4995d122c3, 45336ee10f3a, c5f873897cc1, 5361aa9c5ddc, c7ff87cc352f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The discrete row problem has a different full-line kernel and multipliers; merely replacing its log-frequency with omega does not produce the exponential Copson Gram kernel or the frozen coefficient.",
+          "The domain space is compactly reducible to the continuous Copson operator, but the exact essential norm requires identifying the periodic spectral bottom and then its simple-eigenvalue perturbation. The unmodulated formula gives neither step for nonzero epsilon."
+        ],
+        "reasoning": "Known methods are applicable, but the inspected theorems do not contain the specific continuous weighted problem as a specialization. An exact theorem for the same weighted resolvent class would be a stronger comparator if found.",
+        "searches": [
+          "fe4995d122c3, RESULT.md finding and assumptions",
+          "arXiv:2609.13403 Theorem 2",
+          "5361aa9c5ddc, RESULT.md scope",
+          "arXiv:2610.00252v1 Proposition 3.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The essential norm in question is the full norm of the weighted periodic exponential Copson operator, equivalently the inverse square root of the lowest weighted periodic Sturm–Liouville eigenvalue.",
+          "Resultary 45336ee10f3a uses the Copson comparison at the unmodulated endpoint; the related periodic Green bound c7ff87cc352f concerns width of positive periodic ODE solutions, not this eigenvalue optimization."
+        ],
+        "reasoning": "The appropriate aliases include weighted Hardy/Copson, exponential resolvents and periodic weighted spectral bottoms, not just Hilbert integral. The checked alternate formulations recover prior background, not the modulated sharp law.",
+        "searches": [
+          "Resultary: periodic logarithmic modulation weighted Hilbert integral Copson essential norm",
+          "Resultary: periodic Green kernel weighted Copson circle eigenvalue exact theorem",
+          "periodic coefficients weighted Hardy Copson integral operator periodic weight essential norm general theorem spectrum Floquet"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest same-day log-periodic Jacobi record fe4995d122c3 works on unweighted l^2 with a row factor 1+epsilon cos(omega log k), and gives a different curvature.",
+          "The nearest exact recorded overlap at the unmodulated endpoint is the known value 2, not the all-amplitude formula or the curvature of the continuous log-log domain weight."
+        ],
+        "reasoning": "There is no finite census at issue; the analogue of an exact-index comparison is the parameter-identical constant or spectral identity. The same-day comparison is based on input space, side and scale of modulation, and resulting curvature, not on catalog dates.",
+        "searches": [
+          "Resultary: critical continuous Hilbert integral log-log periodic essential norm compact Gram circle",
+          "Resultary: slowly oscillating generalized Hilbert matrices exact essential norm periodic coefficient comparison",
+          "fe4995d122c3",
+          "45336ee10f3a",
+          "c5f873897cc1",
+          "5361aa9c5ddc"
+        ]
+      },
+      "rationale": "The distinct claim is the exact periodic-cell norm and explicit frequency-dependent curvature for the continuously integrated, log-log-periodic domain weight. The endpoint value 2, Hilbert–Schmidt Copson comparison, periodic Floquet machinery and elementary positive-circle Green kernel are not separately credited. The strongest same-day analogy uses a discrete row multiplier on a different logarithmic scale; the closest analytic-space formula excludes fixed nonconstant periodic profiles by its vanishing-derivative hypothesis.",
+      "residual_risks": [
+        "Older weighted Hardy/Copson and periodic resolvent literature could contain a more general exact theorem. The bounded external lookup and abstract-level comparisons are not evidence of absence or a priority determination."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers unmodulated boundedness, not the new spectral value",
+          "evidence": "Proposition 3.3 treats H_L between unmodulated critical weighted spaces; Theorem 3.5 is the analytic matrix endpoint.",
+          "identifier_or_url": "https://arxiv.org/html/2610.00252v1",
+          "material_read": "§2 definitions, §3 Proposition 3.3 and Theorem 3.5, HTML offsets 3000–19799 in bounded passages",
+          "method": "Primary OA HTML",
+          "title": "The Hilbert matrix operator into the Bergman space",
+          "trigger": "Same critical continuous integral at the base weight"
+        },
+        {
+          "assessment": "Different operator and hypotheses",
+          "evidence": "Discrete row multiplier; limit formula using block means and asymptotically unit block ratios.",
+          "identifier_or_url": "https://arxiv.org/html/2609.13403",
+          "material_read": "§2 Theorem 2, offsets 12000–17568, adjoining §3 proof material",
+          "method": "Primary OA HTML",
+          "title": "Norrbo's essential norm theorem for generalized Hilbert matrices",
+          "trigger": "Potential broader result with oscillating coefficients"
+        },
+        {
+          "assessment": "Strong conceptual analogy, not statement coverage",
+          "evidence": "The log(k) row multiplier on l^2 leads to a compact Jacobi norm and different curvature, not a log-log domain-weighted integral.",
+          "identifier_or_url": "Resultary fe4995d122c3",
+          "material_read": "RESULT.md finding, multiplier, ambient space and curvature",
+          "method": "Configured local mirror",
+          "title": "Log-periodic Hilbert matrices have an exact Jacobi essential norm",
+          "trigger": "Closest same-day exact period-modulated norm"
+        },
+        {
+          "assessment": "Covers endpoint value 2",
+          "evidence": "The unweighted logarithmic-scale Copson norm gives 2 before periodic input multiplication.",
+          "identifier_or_url": "Resultary 45336ee10f3a",
+          "material_read": "RESULT.md unmodulated endpoint finding and Copson reduction",
+          "method": "Configured local mirror",
+          "title": "Hilbert–Schmidt Copson model and Fredholm circle at the logarithmic endpoint",
+          "trigger": "Same Copson limit at epsilon=0"
+        },
+        {
+          "assessment": "Different setting and excludes fixed-frequency modulation",
+          "evidence": "The slow-variation condition is essential to its liminf characterization; a fixed nonconstant periodic profile fails it.",
+          "identifier_or_url": "Resultary 5361aa9c5ddc",
+          "material_read": "RESULT.md finding and a'(u) hypothesis",
+          "method": "Configured local mirror",
+          "title": "Oscillatory critical logarithmic Bergman weights have an exact Hilbert norm formula",
+          "trigger": "Exact formula for an oscillatory critical weight"
+        },
+        {
+          "assessment": "Relevant comparison but unresolved beyond abstract",
+          "evidence": "The stated subject is a four-weight boundedness inequality, not an exact periodic essential norm.",
+          "identifier_or_url": "https://arxiv.org/html/2203.00596",
+          "material_read": "Abstract only",
+          "method": "Primary OA HTML",
+          "title": "Four-weight Hardy–Copson boundedness comparison",
+          "trigger": "Older weighted Hardy/Copson theory"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, spectral identity, strict amplification and small-amplitude curvature",
+        "arXiv:2610.00252v1 §3",
+        "Resultary fe4995d122c3 and 45336ee10f3a"
+      ],
+      "rationale": "The claim quantifies the sensitivity of a natural critical endpoint rather than giving another boundedness bound at the base weight. A fixed-amplitude periodic input weight changes the asymptotic essential norm, with an exact finite-cell spectral description for every permitted amplitude. The divergent coefficient as frequency decreases shows why the norm's response cannot be read off from the average weight alone and why fixed-frequency perturbation must be distinguished from uniform slow modulation. These are useful stability data at the critical continuous endpoint.",
+      "residual_risks": [
+        "Does not solve the joint small-frequency/amplitude limit or a discrete or analytic endpoint problem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T17:56:41.076868Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and source verifier (inspected, not executed)",
+        "Independent exact replay /workspace/reviews/1-cycle-replay.py"
+      ],
+      "rationale": "Averaging commute times over stationary endpoints gives the unordered sum with factor 1/(2M), valid also for irreducible even cycles. For the single exceptional edge the grouped resistance numerator is m(1+t)^2 + 4 sum_{k=1}^{m-1}(m+t-k)k[1+t(m-k)], with m=n-1; symbolic summation reproduces the exact positive factor of (t-1)^2 for arbitrary m≥2. Independently computing the C5 transition characteristic polynomial and using chi''(1)/(2chi'(1)) gives the claimed exact coordinated improvement and 378/95 at epsilon=1/2. Fixed-budget stationarity follows from rotation invariance, and positive and negative second variations come respectively from the normalized scan and the stated perturbation. Even in the nondegenerate interpretation of strict saddle, the symmetric circulant Hessian on the four-dimensional tangent space has two real two-dimensional Fourier blocks, so both signs imply no tangent kernel. For C3 trace zero and strict convexity force both nontrivial eigenvalues to -1/2 on equality, and the diagonal of the resulting stationary-projector formula forces all weights equal. For C4 the bipartite block determinant gives the squared nontrivial eigenvalue; the remaining eigenvalue -1 contributes 1/2 and equality is exactly w0w2=w1w3.",
+      "residual_risks": [
+        "Scans on the fixed-budget simplex mean a one-edge change followed by common normalization; they are not arbitrary two-edge transfers. No full C5 global minimizer is determined."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Durastante–Gnazzo–Meini fix the stationary distribution. Bini–Meini–Poloni §3 reduce one edge while transferring conductance to endpoint self-loops to keep the degree vector fixed."
+        ],
+        "reasoning": "The C5 budget perturbation changes degrees, and has no loops. On an odd cycle with fixed budget and stationary measure, prescribed degree sums w_{i-1}+w_i determine all conductances uniquely, so a fixed-stationarity formulation cannot contain the descending direction.",
+        "searches": [
+          "Literature: Kemeny weighted cycles optimal conductances discrete time reversible fixed graph nonuniform minimum stationary distribution cycle Kirkland exact lower bounds Kemeny",
+          "arXiv:2510.24679 and arXiv:2508.21506"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2211.01495, 2510.24679, 2508.21506",
+        "Resultary weighted-cycle and continuous-time allocation records"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Albright et al. do imply stationarity at uniform weights, and should be credited for that overlap. The five-cycle allocation record minimizes a distinct continuous-time relaxation scale via spectral gap. The rank-one perturbation formula with degree-preserving added loops alters a different matrix family."
+        ],
+        "reasoning": "None supplies the exact scan inequality together with a strictly descending loopless weight perturbation and exclusion of the smaller cycles. A transition to a variable stationary distribution is essential here.",
+        "searches": [
+          "Albright et al. arXiv:2211.01495, Theorems 2.14 and 3.2",
+          "Bini–Meini–Poloni arXiv:2508.21506 §3",
+          "Resultary five-cycle exact active-edge allocation record ending ccfd8e9d0e03"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equivalent objective: trace of the pseudoinverse of the symmetric normalized Laplacian, or degree-product weighted effective resistance scaled by total degree. Neither total unweighted resistance nor the combinatorial Laplacian spectral gap is equivalent.",
+          "Albright et al. Theorem 3.2 already proves vanishing edge derivatives for edge-transitive graphs."
+        ],
+        "reasoning": "First-order stationarity holds for both the improving and worsening paths; it does not determine the sign of the second-order variation, still less the global coordinatewise inequality.",
+        "searches": [
+          "Resultary: Kemeny constant weighted cycle conductance optimization fixed cycle uniform weights five-cycle coordinatewise saddle effective resistance",
+          "Literature: Kemeny constant cycle graph unequal edge weights weighted normalized Laplacian cycle exact minimum weighted cycles conductance nonuniform C5 saddle before 2026"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact record under review matched. Nearby indexed work treats weighted cycle resistance, nonlinear heat, or continuous-time gap. Albright et al. Tables 1–2 consider first derivative extremes and path-to-cycle perturbations rather than a weighted cycle objective table."
+        ],
+        "reasoning": "Unweighted spectral tabulation can give K=(n²-1)/6 but neither the one-parameter sign for all t>0 nor the continuum of equality cases on weighted C4. No covering weighted cycle optimization table was identified.",
+        "searches": [
+          "Resultary weighted-cycle Kemeny query above",
+          "Albright et al. §§3.1–3.2 and tables"
+        ]
+      },
+      "rationale": "The exact all-t coordinate inequality and sharp first-cycle-size saddle are not implied by prior zero first derivatives, fixed-stationarity design, or continuous-time gap optimization. The standard resistance expression and uniform point stationarity are not original contributions.",
+      "residual_risks": [
+        "Earlier second-variation or weighted normalized cycle computations under another name may contain an equivalent result; the search is not a historical priority guarantee."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Overlaps first-order stationarity, not scan inequality or saddle",
+          "evidence": "Theorem 3.2 proves zero derivative for all edges of edge-transitive graphs, with cycles among its examples. Tables treat first variations.",
+          "identifier_or_url": "https://ar5iv.labs.arxiv.org/html/2211.01495",
+          "material_read": "Definitions, edge parametrization, Theorems 2.13–2.14 and §§3.1–3.2 including Theorem 3.2 and scope of the tables",
+          "method": "Open primary preprint full text",
+          "title": "On the Edge Derivative of the Normalized Laplacian with Applications to Kemeny’s Constant",
+          "trigger": "Same objective and edge-weight derivatives on cycles"
+        },
+        {
+          "assessment": "Different feasible set",
+          "evidence": "The problem preserves the initial stationary probability vector as well as sparsity. Fixing it excludes the witness, even on the same cycle.",
+          "identifier_or_url": "https://arxiv.org/pdf/2510.24679",
+          "material_read": "Abstract, introduction, definitions and opening of §2",
+          "method": "Open primary preprint full text",
+          "title": "Kemeny’s constant minimization for reversible Markov chains via structure-preserving perturbations",
+          "trigger": "Potential general optimization result on fixed support"
+        },
+        {
+          "assessment": "Uses a different directional perturbation",
+          "evidence": "§3 changes the edge to (1-t) times its weight and adds loops of the removed weight at both ends.",
+          "identifier_or_url": "https://arxiv.org/pdf/2508.21506",
+          "material_read": "Introduction, §2 formulas (2.2)–(2.4), opening of §3",
+          "method": "Open primary preprint full text",
+          "title": "The derivative of Kemeny’s constant as a centrality measure in undirected graphs",
+          "trigger": "Same weighted random walk and edge sensitivity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Exact C3/C4 classifications and C5 descent",
+        "Prior fixed-stationarity and first-derivative comparisons"
+      ],
+      "rationale": "A natural design objective on the simplest cyclic networks gives an exact counterexample to trusting complete one-edge scans. Sharp minimal size, both lower-size optima and an all-length identity distinguish this from an arbitrary numerically observed improvement.",
+      "residual_risks": [
+        "Does not solve global optimization on general weighted cycles or provide an optimization algorithm."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

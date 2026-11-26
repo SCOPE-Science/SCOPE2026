@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-The included `verify.py` uses only the Python standard library. Reproduce with `python verify.py` in a directory containing that file. Successful execution reports 162 exact rational derivative-transformation identities, exact \(U=1\) and \(U=2\) critical-control examples for \(N_0=4\), seven strictly decreasing sampled critical cost values as \(U\) rises, and consistency of the exact terminal-schedule gap identity for front-loaded versus uniform controls. The quadrature comparison is numerical, not an exact infinite certificate.
+# Independent mathematical audit
 
-The scientific proof rests on the explicit integrating-factor solution of the controlled power equation, the pointwise cumulative-effort inequalities, the exact constant-rate hitting solution, and the separate integral representation of the minimal budget. Finite verification cannot establish unrestricted optimality over measurable controls, positivity beyond the reference domain, or any claims for modified stochastic or congestion models.
+## correctness
+
+PASS
+
+On the calibrated state interval, Y=N^beta satisfies Y'=beta(a-u)Y-beta b. The explicit integrating-factor formula is decreasing under cumulative-effort domination while both solutions are positive. For equal totals the terminal prefactor is common and strict ordering follows from the integral whenever the continuous effort curves differ. For U<=g(N0), the constant-cap trajectory never decreases below N0 and bounds all competitors below. For U>g(N0), the maximal-rate trajectory decreases strictly to Nc. Spending less than its cost gives a front-loaded trajectory that runs out of effort above Nc, then grows; cumulative ordering rules out any competitor reaching Nc. At the minimal cost, terminal strictness forces the same initial maximal-rate pulse up to the first hit. Integration along that pulse gives the displayed budget integral and its strict monotonicity; substitution near U=g(N0) gives the stated logarithmic rate and constant. The deadline and strict-crossing conclusions follow from trajectory comparison and Nc>Nref. The pulse expressions presuppose U>0; at U=0 the only admissible control is identically zero and the ordering is trivial. No positive-state claim beyond calibration was used.
+
+## originality
+
+PASS
+
+The supported distinct claim is the sharp capped threshold-access frontier and its limiting behavior for the specified collaboration law. Scalar cumulative-effort ordering and linear ODE solution methods are background, not independent originality claims. The available comparable statements do not yield the full frontier.
+
+## value
+
+PASS
+
+For a previously motivated deterministic takeoff law the result separates a rate-cap obstruction that no total effort can fix from the minimum sufficient finite budget. It also quantifies the singular cost near the feasibility boundary, identifies the unique measurable optimal schedule, and distinguishes threshold access from crossing. Those are useful exact control predictions beyond solving an affine equation for a prechosen constant intervention.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

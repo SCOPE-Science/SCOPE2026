@@ -1,19 +1,21 @@
-# Review of the quartic rectification finding
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is a finite-state analytical calculation, not an extrapolation. For the four-site two-particle sector, the six transition states split into four adjacent pairs and two opposite pairs; their rates are explicitly tabulated in `RESULT.md`. Stationary elimination gives the rational current, the one-parameter quadratic coefficient, and the complete even-in-bias response at site rates \((2,3,4,11)\). Positivity follows from the explicit even denominator bound \(E\ge44850>|O|\) throughout the claimed open bias interval. The separate three-site exact current proves minimality. The standalone verification program reconstructs the Markov generator and independently checks the symbolic equalities using exact arithmetic. Numerical exploration was used to select a tractable example, not as proof of the infinite assertion over all biases.
+PASS
 
-## Originality — PASS, with limitations
+The six-state four-site generator built independently from allowed hops is irreducible for positive rates and |epsilon|<1. Solving its stationary perturbation equations through order two and applying the signed hop functional divided by four confirms the general factorization symbolically. For (2,3,4,t) the cubic bracket becomes -12(t-2)(t-11), S=9t+26, and S+ac+bd=2(6t+17), giving the three positive zeros stated. The t=3 equality is a reflection; the repeated adjacent rate at t=2 does not give a reflection because the two other rates differ, and all four rates differ at t=11. An independent normalized stationary solve at t=11 verifies the rational current and its even part. The bound E>=44850>688>=|O| and the sign of the even numerator show positivity at all 0<|epsilon|<1, with the stated quartic Taylor coefficient. This is quartic leading response of the even part, not of the full current. Particle conservation makes the bond current constant over the ring at stationarity. A direct three-state computation confirms the odd one-particle and one-vacancy currents for length three; the other two sectors have no jumps. This verifies the minimum length among lengths at least three. The frozen verifier was inspected but not executed.
 
-The closest contemporary work is Sakai–Akimoto, arXiv:2512.03316v1. Its accessible revised full text (Sections II and III.D; Appendix C and E) poses quadratic bias-reversal breaking as the expected response outside bond-ratio uniformity or reflection correspondence. The new general four-rate quadratic coefficient factors into opposite-site differences and a cubic cancellation surface; the four-site family contains two explicit non-reflective cancellation points, with a rigorously positive quartic response at one. The 2006 Juhász–Santen–Iglói treatment of random-site hopping studies scaling and phase separation, not this exact cancellation. Finite-state matrix-tree formulas give an algorithm to compute such currents but do not assert the specific exceptional zeros. Semantic overlap searches of published mathematical findings returned no source implying this statement. Search incompleteness and implicit generic-enumeration coverage remain residual priority risks; the revised motivating source was materially inspected but the original version was only date-verified.
+## originality
 
-## Value — PASS
+PASS
 
-The question is motivated by the contemporary conjecture about whether quadratic rectification is forced by the absence of inversion and local bond-uniformity. The exact smallest-ring counterexample distinguishes cancellation of a response coefficient from a true symmetry, gives a nontrivial open-interval sign result, and supplies a testable finite-size benchmark for perturbative transport approximations. The phase boundaries at \(t=2,3,11\) include nonsymmetry-protected cancellations at two values. This is a structural finite-size boundary, not a renaming exercise or a minute numerical improvement.
+Credit is for the all-positive-rate four-site, two-particle quadratic factorization, its extra zero locus, and the exact nonzero quartic even response on the stated profile. A public dossier already documents the same qualitative phenomenon on another profile; priority for existence is not established. Several indexed theorems cover overlapping slices or the length-three obstruction. None of the inspected sources gives the arbitrary-rate factorization or implies it by specialization.
 
-## Scope and residual risks
+## value
 
-The model uses a site-trap escape-rate parameterization and finite-density exact Markov dynamics. The observation does not characterize large-ring disorder averages. The mathematical proof is self-reviewed; broader priority assessment and independent validation have not occurred. The contextual source is not treated as authority for the new result.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The cubic factor gives a testable, exact cancellation locus beyond opposite-site equalities for arbitrary positive rates in the smallest nontrivial interacting sector. The t=11 solution demonstrates that a zero on that locus need not produce odd current, with a sign-definite even part on the entire open bias interval. This is more than replacing one known witness by another and does not require credit for first finding the phenomenon.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

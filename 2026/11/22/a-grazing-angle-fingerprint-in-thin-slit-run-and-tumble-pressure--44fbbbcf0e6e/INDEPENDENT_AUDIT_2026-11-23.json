@@ -1,0 +1,94 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T19:18:42.855781Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For any fixed width, the clipped exponential-run chain has the uniform lower bound Q(s)>0 on the transition mass at the right wall, giving uniqueness by minorization; reflection gives symmetry. The end-of-run wall atom and interior mass bound give |C_s−1/2|≤H(s), while the dimensionless right-wall reward is u exp[−(s−x)/u] for positive u. Integrating by parts, with the boundary atoms included, yields P=m_+−s/4+∫C_s(x)H(s−x)dx. The residual is bounded by H(s)∫H using H≥0. Since H→0, the right derivative follows with P continuously extended to zero. For the fractional case, split the angular integral near zero and use z=t/u to obtain cΓ(−α)t^α; the remainder exponent 3+2α is strictly larger than 2+α. The constant-density subtraction gives c log(1/t)−cγ+I+o(1), and the triangular kernel gives the additive 3/2; finite inverse moment gives J/4. Independently checked positive log(2) in 2D, zero I in 3D and the exact 1D atom 1/(2+s). The notation p(0) denotes the grazing coefficient c selected by the weighted-integrability hypothesis, not an arbitrary assigned point value of an a.e. density. The result concerns per-swimmer force. Inspected checker.py without executing it; finite-cell solving and special-function quadrature are corroboration only.",
+      "replay": "Proof in frozen RESULT.md; independent algebra in private evidence file thin-slit-check.md.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Frydel formulates jumps for the wall-normal marginal and considers several dimensions; the force section evaluates the splitting functional numerically outside the 1D benchmark.",
+          "The slit optimization preprint concerns long-time transport parallel to the walls, a different observable."
+        ],
+        "reasoning": "The known exact equations determine the result implicitly but do not give the uniform CDF elimination bound or the next force coefficients by merely inserting the published leading pressure term.",
+        "searches": [
+          "arXiv:2410.06393v1, Eq. 48 and discussion around Fig. 4",
+          "arXiv:1507.06379v1, §IV",
+          "arXiv:2404.07680 abstract"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2410.06393v1",
+        "arXiv:1507.06379v1",
+        "arXiv:2404.07680 (abstract-level)",
+        "Resultary slit/force/diffusion query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The new bound controls C_s−1/2 by the thin-slit interior mass. This control times H, rather than just a crude error against Q, permits extraction of the full quadratic constant and fractional power from the known kernel."
+        ],
+        "reasoning": "A new explicit consequence with an error bound is supported; no separate novelty attaches to renewal, splitting or the Laplace kernel.",
+        "searches": [
+          "arXiv:2410.06393v1 Eq. 48",
+          "arXiv:1507.06379v1 Eq. 22"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In Frydel's Eq. 48 the positive-jump first moment is m_+ after normalization and the jump tail in the second integral is Q; it is the same force functional m_+−∫C_s(x)Q(s−x)dx, not merely a related pressure.",
+          "Ezhilan et al. Eq. 22 converts to dimensionless per-swimmer limit 1/4 using N per unit plate area, agreeing with the 3D zeroth-order term."
+        ],
+        "reasoning": "Expressing the force via splitting probability, surface polarization, or a clipped run reward does not distinguish the contribution. Distinguish the grazing-specific higher-order correction from the singularity of the bulk angular density.",
+        "searches": [
+          "run and tumble slit small width confinement force pressure logarithmic small channel width grazing Ezhilan Alonso-Matilla Yariv Lee run tumble parallel plates integral equation wall pressure",
+          "arXiv:2410.06393v1 §§II–III,VIII; arXiv:1507.06379v1 §§II,IV"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The search returned the target record, cross-wall force-noise records and slit diffusion records. The inspected primary force material contains the 1D benchmark, leading 3D strong-confinement limit or numerical force curves, not a list of matching next-order coefficients."
+        ],
+        "reasoning": "Neither a curve nor a 1D exact law tabulates the singular 2D/3D force coefficients; no independent duplicate was identified in the checked comparisons.",
+        "searches": [
+          "Resultary: Run and tumble particle sticky walls narrow slit confinement pressure small wall separation grazing orientations logarithmic expansion",
+          "Frydel Eq. 48 and Fig. 4; Ezhilan et al. Eq. 22"
+        ]
+      },
+      "rationale": "The exact stationary reformulation, pressure functional, isotropic kernels and one-dimensional law are prior. The publishable difference against the inspected comparisons is the distribution-free small-width bound and first nonlinear force response, including a coefficient recovering the grazing-law constant; this is an explicit analysis of a known model, not a new model or exact force identity.",
+      "residual_risks": [
+        "An unindexed explicit calculation from the same stationary equations could anticipate part or all of the asymptotics.",
+        "One further literature query was unavailable; not evidence of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact foundation and 1D special case covered; inspected pressure result does not state the higher-order theorem",
+          "evidence": "Eq. 48 uses the stationary splitting function and jump kernel; Fig. 4 description specifies numerical evaluation and Langevin comparison.",
+          "identifier_or_url": "https://arxiv.org/html/2410.06393v1",
+          "material_read": "Model and clipped jumps in §§II–III; §VIII around Eqs. 43 and 47–48 and Fig. 4",
+          "method": "Read OA text and matched the normalized jump tail and force functional",
+          "title": "Run-and-tumble particles in slit geometry as a splitting probability problem",
+          "trigger": "Same sticky-slit model and exact force"
+        },
+        {
+          "assessment": "Leading per-swimmer 3D force covered; inspected asymptote does not give the subleading coefficient",
+          "evidence": "Eq. 22 gives NζV_0/4; near-grazing singularity refers to the bulk angular distribution near a wall.",
+          "identifier_or_url": "https://arxiv.org/html/1507.06379v1",
+          "material_read": "Model and surface flux in §§II–III; §IV strong-confinement discussion and Eq. 22",
+          "method": "Read OA text and converted per-area to per-swimmer normalization",
+          "title": "On the distribution and swim pressure of run-and-tumble particles in confinement",
+          "trigger": "Same confined isotropic 3D pressure and grazing singularity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "In a natural mechanical observable the first nonlinear correction distinguishes integrable inverse speed, finite grazing coefficient and divergent grazing power. The bound both provides usable approximations without solving a singular stationary density and makes the logarithmic coefficient an explicit inverse signature. This is not a claim of statistical identifiability with noisy data or of a classification of all densities.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

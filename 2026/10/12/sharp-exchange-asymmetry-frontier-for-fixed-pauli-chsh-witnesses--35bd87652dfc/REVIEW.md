@@ -1,11 +1,21 @@
-# Review: sharp exchange-asymmetry frontier for fixed-Pauli CHSH witnesses
+# Independent mathematical audit
 
-**Correctness — PASS.** The two-qubit SWAP decomposition and direct Bell-basis matrix imply \(d=2\|w\|_2\) and \(\langle B_0\rangle=2(a-b)-4\operatorname{Re}c\). Positive-semidefinite Schur constraints, including the negative-sign case, establish the exact envelope for every mixed input; two explicit Bell-pair superpositions attain equality for every \(d\in[0,1]\). Endpoints and the inverse certification follow algebraically. Executed standalone checks report 13,720 exact-witness and random-state cases; finite tests do not prove the theorem.
+## correctness
 
-**Originality — PASS, with residual risk.** Cusumano et al. (arXiv:2504.03351v3, Theorem 2) already establish the qualitative \(d=0\) obstruction for swap-covariant preparation and are explicitly credited. Their Theorem 3 and the Horodecki theorem concern optimized measurement axes, unlike the fixed-Pauli problem. Lyyra et al. (2017) study channel noise-location symmetry of optimized Bell quantities and trace-distance discord, neither of which computes the distance to an exchanged state. Published mathematical-result records and source text searches found no sharp fixed-\(d\) equivalent. Unindexed semidefinite formulations and indirect coverage of the 1995 original remain uncertainties; failed searches do not establish uniqueness.
+PASS
 
-**Value — PASS.** The tight continuum of Bell limits upgrades a binary exchange-symmetry impossibility to a quantitative resource tradeoff across all mixed two-qubit states. The maximum returns to the local bound at maximal asymmetry, yielding a nonmonotone law and a sharp inverse exchange-defect certification interval for experimental fixed-Pauli Bell data. The invariant and its optimization are structurally natural; no noise resilience or implementation claims are made.
+The Pauli terms give B0 Phi+ = 2 Phi+ − 2 Psi−, B0 Psi− = −2 Phi+ − 2 Psi−, and zero on the complementary Bell vectors. In the symmetric/antisymmetric block decomposition the swap difference has eigenvalues ±2||w||, giving d=2||w||. Positivity bounds d²/4<=b(1−b), fixes b in [b_−,b_+], and gives a>=|c|²/b when d>0. The positive expectation uses a<=1−b and |c|<=d/2. For the negative expectation, b−t²/b+2t, t=|c|, increases with b; after b=b_+ it increases on t<=d/2<=b_+, giving b_+−b_−+d. At d=0 the off-diagonal block vanishes and |2(a−b)|<=2. The displayed pure witnesses give both signs for every d, including d=1. To invert, beta/2−d>0 for beta>2 so squaring is reversible and gives the stated interval. RESULT.md lines 46–84 suffice; the script was inspected but not run. Its frozen log records 1,720 rational witness evaluations and 12,000 samples, not a proof for all states.
 
-**Limitations.** Fixed measurement axes only; asymmetry alone is not sufficient for violation. External independent assessment has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact attained curve and inverse interval at positive state exchange distance for this fixed operator are not established by the inspected predecessors. The zero-distance no-violation obstruction is credited to Cusumano et al.
+
+## value
+
+PASS
+
+For the exact witness already used in the swap-covariance obstruction, the result gives both a sharp lower and a sharp upper certification of exchange defect from violation, with no purity assumption. The loss of violation near maximal as well as zero exchange distance and the attained interior Tsirelson point are useful additional structure, not a claim concerning optimized axes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

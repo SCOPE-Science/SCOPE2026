@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:08:41.370718Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md equations (1)–(5) and double-star witness; VERIFICATION.md and verify.py (inspected)",
+        "Independent replay: python /workspace/review_checks/reset_and_tree.py, tree section"
+      ],
+      "rationale": "The degree-three residual gives a quadratic inverse polynomial with positive leading coefficient a_2. Multiplying A² gives the degree-sum edge test a_2 w_ij(μ+3Λ/2−d_i−d_j) on trees, one positive two-step product at distance two and zero at distances at least three. The Chebyshev residual has modulus less than one on the positive spectrum, so the inverse polynomial is positive definite and all diagonal entries are positive. Around an arbitrary edge, its incident double star has s+2=d_i+d_j vertices in the unweighted tree and its padded Laplacian is dominated in positive-semidefinite order by the full one. A quotient on the two hubs and two constant leaf blocks yields the cubic; absent leaf blocks introduce only redundant unit roots. At z=2(s+2)/3 its value is maximized by balancing the leaf counts because the coefficient multiplying kℓ is z>0. The ten exact balanced values for s=0,…,9 are negative, so the largest root exceeds z. This proves the all-shift assertion through order eleven. Factoring the symmetric cubic gives the claimed largest eigenvalue and cutoff, positive exactly for m≥5; the outside edge degree sum is smaller than 3Λ/2, and the explicit m=5, μ=1/4 bridge radical is strictly negative. Thus the failure at twelve is existential and sharp, not a claim that all twelve-vertex trees fail.",
+      "residual_risks": [
+        "The order cut-off applies to unweighted connected trees and the completed exact-endpoint degree-three residual; it does not apply to intermediate stages or claim a weighted order cut-off. Numerical tree enumeration is not needed for the universal claim."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "For A=μI+L, κ≤3 becomes μ≥Λ/2. The earlier theorem does not quantify over 0<μ<Λ/2 for all trees of order at most eleven.",
+          "A plausible sharper tree spectral comparison source (Hong–Zhang) was located, but publisher and identified CORE PDF routes could not yield readable full text."
+        ],
+        "reasoning": "The large-shift result is covered by the general theorem. The small-shift part requires control of edge degree sums by the largest Laplacian eigenvalue, not just a norm or condition-number bound. The inaccessible tree bounds leave a specific residual risk, not negative evidence.",
+        "searches": [
+          "Resultary 6e9af63df14e, unrestricted Stieltjes frontier",
+          "Tree Laplacian largest-eigenvalue bounds: Hong–Zhang DOI 10.1016/j.disc.2005.04.001"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 6e9af63df14e, 1d6db9109bf2, ad15fe4b80b2 source passages",
+        "Wathen–Rees 2008, p. 6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The dimension-three Stieltjes counterexample is not a shifted tree Laplacian; the general safety in dimensions one and two does not establish safety up to order eleven. The checked new cutoff uses both incidence geometry and the balanced quotient cubic."
+        ],
+        "reasoning": "The known polynomials and unrestricted frontiers alone give neither the universal small-tree lower bound on first failure nor a negative bridge in the constrained unweighted family. No inspected broader theorem mechanically supplies both.",
+        "searches": [
+          "6e9af63df14e full result offsets 0–6248; 1d6db9109bf2 and ad15fe4b80b2 exact Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Three completed Chebyshev steps from zero give the degree-two approximate inverse; positivity for all entrywise nonnegative right-hand sides is matrix entrywise nonnegativity. The prior Stieltjes result has the same polynomial.",
+          "Wathen–Rees control a spectral norm rather than the cone of nonnegative vectors."
+        ],
+        "reasoning": "The choice of iterate/inverse language does not distinguish the polynomial, which is credited as known; the order-constrained tree sign theorem is the part not covered by the inspected work.",
+        "searches": [
+          "Resultary: third Chebyshev semi-iterate, entrywise sign of quadratic approximate inverse, Stieltjes positivity",
+          "Wathen–Rees, Chebyshev semi-iteration in Preconditioning, PDF p. 6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Same-day 1d6db9109bf2 treats first-four positivity and a fifth-step frontier on regular bipartite graphs; ad15fe4b80b2 treats third conjugate-gradient iterates on weighted trees with a five-vertex witness."
+        ],
+        "reasoning": "The only connected regular tree with at least two vertices is K_2; the other exact tree sign criterion is for RHS-dependent CG, not fixed Chebyshev. These are real neighboring results but not the classified threshold here.",
+        "searches": [
+          "Resultary: exact Chebyshev positivity frontiers, shifted trees and third-iterate sign criteria"
+        ]
+      },
+      "rationale": "The quadratic polynomial itself is prior. The strongest inspected overlap gives a sufficient condition-number frontier for all Stieltjes matrices and different witnesses; it neither rules out smaller unweighted tree failures at arbitrarily small shifts nor proves the exact double-star onset. The inspected same-day neighbors use different graph hypotheses or different polynomials.",
+      "residual_risks": [
+        "Hong–Zhang 2005 remains unread in full and could contain a stronger tree eigenvalue bound; an attempted Golub–Varga scan had no extractable text. Unindexed equivalent bounds or monotone-iteration literature remain possible.",
+        "No priority is inferred for the shared underlying method or from the dates of neighboring results."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the polynomial and large-shift region only",
+          "evidence": [
+            "κ≤3 is safe for SPD Stieltjes matrices; a dimension-three counterexample near the frontier is not a shifted graph Laplacian."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-condition-three-is-the-sharp-positivity-frontier-for-the-degree--6e9af63df14e",
+          "material_read": "Mirrored RESULT.md, offsets 0–6248",
+          "method": "Local Resultary source mirror",
+          "title": "Condition three is the sharp positivity frontier for the degree-three Chebyshev semi-iterate",
+          "trigger": "Identical polynomial and a strong positivity theorem"
+        },
+        {
+          "assessment": "Related, different domain and frontier",
+          "evidence": [
+            "First four nonnegative all shifts on regular bipartite graphs; fifth-step condition-number frontier."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-a-sharp-five-step-chebyshev-positivity-frontier-on-regular-bipar--1d6db9109bf2",
+          "material_read": "Mirrored RESULT.md, Finding, offset 0",
+          "method": "Local Resultary source mirror",
+          "title": "A sharp five-step Chebyshev positivity frontier on regular bipartite graphs",
+          "trigger": "Same-day positivity result for completed graph Chebyshev iterates"
+        },
+        {
+          "assessment": "Different algorithm and weighted source-specific setup",
+          "evidence": [
+            "Conjugate gradients from a point source, with nonnegative/sign criteria and a five-vertex weighted example."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-a-local-third-iterate-sign-criterion-for-conjugate-gradients-on--ad15fe4b80b2",
+          "material_read": "Mirrored RESULT.md, Finding, offset 0",
+          "method": "Local Resultary source mirror",
+          "title": "A local third-iterate sign criterion for conjugate gradients on weighted trees",
+          "trigger": "Same-day local tree sign criterion at step three"
+        },
+        {
+          "assessment": "Spectral convergence comparison",
+          "evidence": [
+            "The inspected bound is in spectral norm, not entrywise sign."
+          ],
+          "identifier_or_url": "https://www.cs.ox.ac.uk/files/1540/NA-08-14.pdf",
+          "material_read": "PDF p. 6, OA text offset about 14468",
+          "method": "OA original PDF text",
+          "title": "Chebyshev Semi-iteration in Preconditioning",
+          "trigger": "Classical possible entrywise positivity bound"
+        },
+        {
+          "assessment": "Unresolved coverage risk, not a negative match",
+          "evidence": [
+            "Both attempted full-text routes failed with HTTP 403; no theorem-level comparison is inferred."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.disc.2005.04.001",
+          "material_read": "Bibliographic identification only",
+          "method": "Publisher and identified CORE PDF routes attempted; inaccessible",
+          "title": "Sharp upper and lower bounds for largest eigenvalue of the Laplacian matrices of trees",
+          "trigger": "Plausible strong tree eigenvalue bound"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md local edge criterion, universal comparison and exact bridge witness",
+        "Resultary 6e9af63df14e Stieltjes comparison"
+      ],
+      "rationale": "This separates spectral positivity from preservation of the nonnegative coordinate cone at the first possible order in a standard graph family. It identifies a minimal regression example and a local degree/spectral diagnostic, not just a new counterexample at an arbitrary size or a restatement of the condition-number theorem.",
+      "residual_risks": [
+        "No performance or implementation claim about the intermediate stages of semi-iteration."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

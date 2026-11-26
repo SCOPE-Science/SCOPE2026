@@ -1,0 +1,168 @@
+{
+  "correctness": {
+    "rationale": "For all t>0 and all positive independent edge conductances, two explicitly given mass-mean-zero vectors have exactly equal energy s^2(w1+w3)+4w2 and mass norms 4s(s+1), 4s(s-1), where s=sqrt(1+t). Rayleigh--Ritz proves the global lower ratio. At the proposed weights, all four generalized eigenvectors and ordered eigenvalues are checked algebraically. Equality in the lower Rayleigh bound forces w1=w3 and w2=(1+t)w1/2. Included checker validates exact symbolic identities and 155 supplementary numerical cases. Numerical sampling is not relied upon for the theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "failed",
+  "independent_validation": false,
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Balan et al. 2016, Section 3, formulates a general graph conditioning optimization with an ordinary Laplacian but does not assert a heterogeneous-mass four-node formula or equality classification.",
+        "Jafarizadeh et al. 2021, Section VI-H.3, obtains a five-site ordinary-Laplacian path optimum with standard vertex masses; its proof is not a theorem for the generalized positive-mass model.",
+        "published-finding corpus record 2026/10/26/SCOPE-mass-centered-spring-allocation-maximizes-the-lowest-vibration-f--6756fc9e71dd studies largest fundamental frequency under a stiffness budget, which is a distinct one-sided eigenvalue objective.",
+        "Xu and Jabbari (2026), Section 3.4.3 and equation (30), explicitly leave joint node-edge optimization beyond the algorithmic paper and do not specify a fixed-mass four-path closed minimizer; their numerical four-robot graph has different connectivity."
+      ],
+      "reasoning": "General convex/SDP optimization permits numerical solution of instances but does not itself imply the displayed closed value, rigidity, and mass-dependent edge ratio. One-sided spectral-gap or vibration-frequency maximization does not control the simultaneous largest/least-positive eigenvalue ratio.",
+      "searches": [
+        "generalized weighted Laplacian spectral ratio mass matrix vertex weights path exact optimizer",
+        "optimal synchronization four agent path heterogeneous node inertias mass matrix condition number middle conductance",
+        "four-mass free chain optimal springs equal outer central weight half sum middle to endpoint mass",
+        "graph reweighting spectral condition number exact closed form optimizer positive path incidence matrix sine eigenvectors"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1609.02233v1",
+      "arxiv:1505.07279v1",
+      "Boyd-Diaconis-Sun-Xiao-AMM-113-2006-70-74",
+      "doi:10.1109/TNSE.2021.3063240",
+      "doi:10.1016/j.automatica.2019.108711",
+      "doi:10.1002/rnc.70479",
+      "2026/10/26/SCOPE-mass-centered-spring-allocation-maximizes-the-lowest-vibration-f--6756fc9e71dd",
+      "2026/10/13/SCOPE-a-complete-d-optimal-sensor-phase-diagram-for-four-vertex-weight--8e5b80a6bdef"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Boyd et al. 2006, pp. 1-5, proves fastest mixing for symmetric nonnegative stochastic tridiagonal matrices with uniform stationary distribution; it explicitly uses entry nonnegativity in its certificate.",
+        "Kempton et al. 2015, pp. 1-2, targets identical-vertex Laplacian spectra with degree caps.",
+        "Jafarizadeh et al. 2021, Section VI-H.3, analyzes five-site ordinary-Laplacian path eigenratios.",
+        "The closely related 2020 Automatica article was found by abstract and cross-reference but full text remained unavailable; its known formulation concerns nonuniform coupling, without identified heterogeneous vertex mass.",
+        "At mass t=1/3, the optimal generalized-eigenratio relaxation step tau=2/(lambda_2+lambda_4)=1/4 has central diagonal -1/4 in I-tau*M^{-1}*L, so it explicitly falls outside the entrywise-nonnegative stochastic setting of Boyd et al.",
+        "Xu and Jabbari (2026), equation (30), formulate broader node-edge numerical optimization but do not prove the exact fixed-mass path inequality or all-optimal-weight rigidity."
+      ],
+      "reasoning": "The exact conclusion is unique scale-free conductance ratio (1,(1+t)/2,1) and minimum (sqrt(1+t)+1)/(sqrt(1+t)-1) for all t>0. Prior uniform-mass stochastic and ordinary-Laplacian results specialize at t=1, but give no logical implication for t≠1 and arbitrary independently positive conductances. The inaccessible 2020 work is a stated residual priority risk, not represented as inspected.",
+      "searches": [
+        "four node path reversible diffusion generalized laplacian mass diag 1 t t 1 unique optimal conductance ratio (1+t)/2",
+        "generalized weighted Laplacian spectral ratio mass matrix vertex weights path exact optimizer",
+        "\"path graph\" \"eigenratio\" \"cot\" \"weights\"",
+        "\"heterogeneous\" \"four-node path\" \"condition number\" \"mass\" conductance",
+        "\"Optimizing synchronizability in networks of coupled systems\" \"path\" \"uniform\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Balan et al. 2016, Section 3, identifies graph Laplacian mean-zero condition number with frame conditioning, using ordinary incidence Laplacians; the proposed pair has the nontrivial mass metric diag(1,t,t,1).",
+        "Kempton et al. 2015, equations (1)-(4), likewise work with the ordinary graph Laplacian and weighted-degree-constrained edge evolution."
+      ],
+      "reasoning": "Ordinary-Laplacian reweighting and optimal scalar Richardson relaxation are equivalent objectives in their own metric, but a nonidentity node-mass matrix changes the complete nonzero eigenvalue spectrum and the optimal central-to-outer weight ratio. The mass-dependent classification does not follow from the inspected identity-mass formulas.",
+      "searches": [
+        "four node path reversible diffusion generalized laplacian mass diag 1 t t 1 unique optimal conductance ratio (1+t)/2",
+        "heterogeneous vertex masses 4 node path weighted Laplacian eigenratio optimal edge weights symmetric endpoints mass",
+        "weighted path mass matrix generalized Laplacian condition number optimal symmetric four nodes middle to end edge ratio",
+        "generalized weighted Laplacian spectral ratio mass matrix vertex weights path exact optimizer",
+        "\"heterogeneous\" \"four-node path\" \"condition number\" \"mass\" conductance"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matching parameterized heterogeneous four-site mass/edge table was identified in the indexed record queries.",
+        "Indexed records for four-vertex path D-optimal sensing and five-vertex Crank--Nicolson positivity concern distinct spectral observables, not generalized eigenratio minimization."
+      ],
+      "reasoning": "Exact small-graph tables for identity-mass paths and other graph objectives cannot imply the continuum of mass ratios, all independently variable positive edges, and equality rigidity asserted here. Absence in searched indexes is not a proof of priority.",
+      "searches": [
+        "four node path reversible diffusion generalized laplacian mass diag 1 t t 1 unique optimal conductance ratio (1+t)/2",
+        "heterogeneous vertex masses 4 node path weighted Laplacian eigenratio optimal edge weights symmetric endpoints mass",
+        "weighted path mass matrix generalized Laplacian condition number optimal symmetric four nodes middle to end edge ratio",
+        "\"path\" \"eigenratio\" \"edge weights\" \"minimize\"",
+        "\"spectral condition number\" \"path\" \"uniform weights\" Laplacian"
+      ]
+    },
+    "rationale": "No inspected ordinary-Laplacian conditioning, weighted-network synchronizability, nonnegative-stochastic path mixing, or finite identity-mass path result states or logically entails the continuous heterogeneous-mass four-site eigenratio and all-optimizer formula. A plausible older journal article remained unavailable in full text, and priority is therefore qualified; absence from indexes does not establish absolute novelty.",
+    "residual_risks": [
+      "The full 2020 Automatica article on optimizing synchronizability could not be examined; its exact extent is not asserted.",
+      "Other unindexed work on generalized path eigenratio design may exist.",
+      "The ordinary-Laplacian optimization framework is adjacent, but mass-dependent optimizer uniqueness needs distinct proof."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Ordinary vertex-mass identity graph reweighting framework, not the sharp heterogenous mass-diagonal four-site value and optimizer",
+        "evidence": [
+          "Section 3 defines L=BB* and compresses away the constant mode.",
+          "No general positive diagonal node mass M is introduced into the claimed closed design classification."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1609.02233",
+        "material_read": "Abstract, introduction and full available Section 3 on minimizing graph Laplacian condition number; relevant structural definitions and methods",
+        "method": "Open full accessible preprint text and compare equations and optimization variables",
+        "title": "Optimization methods for frame conditioning and application to graph Laplacian scaling",
+        "trigger": "Exactly the Laplacian condition-number optimization objective"
+      },
+      {
+        "assessment": "Homogeneous network with ordinary weighted Laplacian and local weighted-degree caps; does not provide the generalized four-site mass-ratio classification",
+        "evidence": [
+          "Eqs. (1)-(4) use identical agent coupling and L=weighted graph Laplacian; objective lambda_n/lambda_2."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1505.07279",
+        "material_read": "Full abstract and first two pages including equations (1)-(7), graph and optimization definitions; additional content surveyed",
+        "method": "Read indexed PDF text and inspect page images of introductory model and objective",
+        "title": "Self-organization of weighted networks for optimal synchronizability",
+        "trigger": "Direct optimization of graph Laplacian eigenratio"
+      },
+      {
+        "assessment": "Only symmetric nonnegative stochastic transitions with uniform stationary distribution, not arbitrary positive mass generalized Laplacians",
+        "evidence": [
+          "Theorem on p. 4 obtains transition probability 1/2 and SLEM cos(pi/n), using P_ij>=0 in dual bound."
+        ],
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fmmc_path.pdf",
+        "material_read": "Entire five-page paper including two lemmas and main theorem, with page images of pp. 3-4 inspected",
+        "method": "Read full PDF text and page images; compare admissible operators and stationary measure",
+        "title": "Fastest mixing Markov chain on a path",
+        "trigger": "Potential stronger path optimization statement with related trigonometric modes"
+      },
+      {
+        "assessment": "Path instance optimizes ordinary Laplacian, not unequal-mass generalized eigenproblem",
+        "evidence": [
+          "Section VI-H.3 states all five-site path couplings equal 1/2 for its usual Laplacian."
+        ],
+        "identifier_or_url": "https://tklab.feit.uts.edu.au/~darryl/Publications/Synchronizability_accepted.pdf",
+        "material_read": "Problem formulation and detailed path calculation of Section VI-H.3 for five vertices, including equations (26)-(29) and conclusion",
+        "method": "Read full-text indexed PDF sections, direct implication comparison to generalized masses",
+        "title": "Optimal Synchronizability in Networks of Coupled Systems: Topological View",
+        "trigger": "Exact path optimal coupling weights reported for small graphs"
+      },
+      {
+        "assessment": "Potentially relevant priority risk; no full-text statement comparison can be asserted",
+        "evidence": [
+          "Abstract describes nonuniform coupling and convex-concave/SDP approaches, with no exposed generalized positive-mass formula."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.automatica.2019.108711",
+        "material_read": "Published abstract and citations in the accessible follow-up study only; full article not available",
+        "method": "Search for lawful open version; inspect abstract and cited scope; full text retrieval unavailable",
+        "title": "Optimizing synchronizability in networks of coupled systems",
+        "trigger": "Earlier paper cited by exact small-path spectral-design study"
+      },
+      {
+        "assessment": "Optimization algorithm and general numerical formulation do not assert this exact fixed-mass path optimum or rigidity; example graph is not the four-path",
+        "evidence": [
+          "Section 3.4.3 displays a four-robot Laplacian with multiple interior edges, distinct from a three-edge path.",
+          "Equation (30) introduces joint node-edge optimization and explicitly places it beyond the paper’s scope."
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/rnc.70479",
+        "material_read": "Relevant open-access HTML sections 2.2.3, 3.4.3, 4 and Appendix A context; especially the numerical four-robot graph, equation (30) and accompanying statement joint optimization remains beyond scope",
+        "method": "Read open full HTML mathematical formulation and comparisons; identify fixed-node-weights versus independently optimized edges",
+        "title": "Distributed Optimization of Finite Condition Number for Laplacian Matrix in Multi-Agent Systems",
+        "trigger": "Direct finite eigenratio objective with node and edge weights, including a four-node example"
+      }
+    ],
+    "status": "PASS"
+  },
+  "previously_published_pending_reaudit": false,
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "802bd287-ae6b-4a33-b819-a76b5e822e2f",
+  "value": {
+    "rationale": "A four-site reflected chain is the smallest mirror-symmetric path with a distinct central designable edge and independent interior/endpoint mass classes. The exact global minimizer across three free conductances changes from center weaker to center stronger precisely as the mass ratio crosses one; it gives a sharp condition number and an all-weight common-energy certificate. This directly addresses heterogeneous-capacitance diffusion and mass-normalized iterative coupling, rather than an arbitrary tabulation or minor numerical improvement.",
+    "status": "PASS"
+  }
+}

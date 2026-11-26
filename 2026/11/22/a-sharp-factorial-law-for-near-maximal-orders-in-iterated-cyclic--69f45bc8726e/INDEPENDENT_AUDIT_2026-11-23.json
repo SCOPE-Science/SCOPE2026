@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:21:28.110282Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md Finding, assumptions and proof §§1–4, lines 3–57",
+        "VERIFICATION.md lines 19–23",
+        "checker.py lines 7–74, inspected only",
+        "Frozen checker_output.txt lines 1–12"
+      ],
+      "rationale": "Uniform sampling on the permutational wreath product makes the top action and base coordinates independent and uniform. Identity top action takes the maximum of p base order exponents. A nonidentity top action is a single p-cycle (primality is used); its p-th power has conjugate coordinate cycle products, each uniform, so the order exponent is one plus that of a uniform base-group element. This proves the stated CDF and tail recurrences with the boundary T_{h,r}=1 for h≤r and T_{h,0}=α^h. After normalization by α^h, the increment is α^(-1)S_{h-1,r-1} plus O_p(α^{h-2} S_{h-1,r-1}²); for each fixed r the induction bounds this error by a summable exponential times a polynomial. Summing the preceding degree-(r−1) main term gives the coefficient 1/(r!α^r) and an O_{p,r}(h^{r−1}) remainder. Subtracting the next smaller tail preserves the relative O_{p,r}(1/h) estimate, and at r=0 no subtraction is needed. For p=2 and r=1, each normalized increment at h≥2 is 2−2^{1-h}; summation from S_{1,1}=2 gives the stated exact binary formula. The group size follows from |W_h|=p|W_{h-1}|^p, and the construction attains exponent p^h.",
+      "residual_risks": [
+        "Only fixed p and r are covered. Finite permutation-order counts and floating-point ratios are not asymptotic proof; the supplied checker was not executed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Abért–Virág pp. 8–9 constructs the branching random walk for general local action and uses finite-support maximum-speed results",
+          "A complete cycle index encodes finite-depth order counts by taking the least common multiple of the lengths in each cycle type. Renteln full text not inspected; its cited theorem was not attributed an unverified scope."
+        ],
+        "reasoning": "A broader model and an exact finite-depth encoding are both relevant, but neither inspected theorem has a fixed-defect asymptotic or bounds with this prefactor and relative error. The ordinary logarithmic speed statement loses rare-event information.",
+        "searches": [
+          "arXiv:math/0212191v2 Proposition 2.11 and Theorem 2.12",
+          "Pólya wreath-product cycle index; Renteln DOI 10.1016/j.disc.2024.114109"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary records 69f45bc8726e, 566b58b310cf and f7e2cc9a560c",
+        "Abért–Virág arXiv:math/0212191v2",
+        "Schlage-Puchta arXiv:1105.1610v1",
+        "Renteln DOI 10.1016/j.disc.2024.114109, access limitation"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For C_p, the branching representation has p zero-step offspring with probability 1/p or one unit-step offspring with probability α, so it directly yields the tail recurrence and the r=0 law",
+          "The mean number of particles with exactly r defects is binomial(h,r)α^{h−r}; a first moment is not the probability that there is one or more such particle"
+        ],
+        "reasoning": "The recurrence, maximal-order probability and first-moment candidate coefficient are not independent novelty. The rare-tail theorem requires showing the correction for multiple descendants is lower order. The normalized quadratic-remainder induction establishes that loss and the uniform-element exact-order equivalent; neither the typical-speed theorem nor finite cycle counts alone give that conclusion.",
+        "searches": [
+          "Abért–Virág Theorems 1 and 2.12 and occupation law after Proposition 2.11",
+          "Pólya cycle-index finite-depth composition",
+          "Schlage-Puchta Theorems 2–3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Abért–Virág Proposition 2.11 identifies the uniform-element order exponent with the maximum orbit exponent in a branching random walk",
+          "Schlage-Puchta Theorems 2–3 sample conjugacy classes and Theorem 1 quotes a uniform-element typical-order law"
+        ],
+        "reasoning": "The equivalent rare-event formulation is a branching-random-walk maximum within bounded distance of its maximal possible displacement. The prior maximum-speed theorem concerns expectation/concentration at the typical scale, not a sharp probability at that boundary. Counting conjugacy classes with equal weights is not the same distribution as counting all elements.",
+        "searches": [
+          "Local Resultary fixed-defect near-maximal order and iterated cyclic wreath groups",
+          "arXiv:math/0212191v2 §2",
+          "arXiv:1105.1610v1 Theorems 1–3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "69f45bc8726e is the identical frozen theorem",
+          "566b58b310cf Finding concerns power-map fibers/images for F_q^(p^a) ⋊ C_{p^a}",
+          "f7e2cc9a560c Finding counts cyclic subgroups and includes one C_p ≀ C_p example"
+        ],
+        "reasoning": "The identity fibers of the former can encode order counts in its own group. Its family is not the iterated wreath tower of unbounded depth; the latter works with a subgroup-count statistic and only a finite wreath example. Even a finite exact match at h=2 does not give the sharp asymptotic. The same catalogue date for one distinct record does not establish priority.",
+        "searches": [
+          "Local Resultary fixed-defect order exponent; 69f45bc8726e, 566b58b310cf, f7e2cc9a560c",
+          "Schlage-Puchta arXiv:1105.1610v1"
+        ]
+      },
+      "rationale": "The branch/cycle-index method and finite-depth distributions are prior structure. The independently supported contribution is the exact leading coefficient and relative error at every fixed defect in the exponentially small uniform-element tail. The nearest same-group primary theorems treated typical-order scale or a different sampling measure; the published neighbouring records do not cover the all-depth rare-tail regime.",
+      "residual_risks": [
+        "Best-knowledge assessment, not exhaustive priority certification. Renteln's original full text was inaccessible. A sharp boundary estimate could predate this work in cycle-index or branching-random-walk literature; an unproductive search was not used as negative evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the representation and the typical scale; not the boundary asymptotic",
+          "evidence": "The representation gives order by maximum orbit exponent; the subsequent theorem gives the limiting speed through the offspring occupation measure.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0212191",
+          "material_read": "Printed p. 1 Theorem 1; §2 pp. 8–9, PDF text offset 24800 onward, especially Proposition 2.11 and Theorem 2.12",
+          "method": "Read original OA arXiv passages and theorem",
+          "title": "Dimension and randomness in groups acting on rooted trees",
+          "trigger": "Same Sylow groups, same uniform statistic and a broader branching representation"
+        },
+        {
+          "assessment": "Uniform-element typical-order antecedent and separate class-uniform results",
+          "evidence": "The enumerated objects in the two new theorems are conjugacy classes; the recalled element law is a typical-order estimate.",
+          "identifier_or_url": "https://arxiv.org/abs/1105.1610",
+          "material_read": "Printed pp. 1–2, Theorems 1–3 and proof splitting the classes, offsets 0 and about 6000",
+          "method": "Read original OA arXiv passages",
+          "title": "The order of elements in Sylow p-subgroups of the symmetric group",
+          "trigger": "Exact same group family and apparent same invariant"
+        },
+        {
+          "assessment": "No independent claim about whole-paper coverage; standard cycle-index implication evaluated separately",
+          "evidence": "A verified citation and access limitation, not negative evidence on rare-tail priority.",
+          "identifier_or_url": "https://doi.org/10.1016/j.disc.2024.114109",
+          "material_read": "Bibliographic identity and frozen citation to Theorem 7 only; no original full text read",
+          "method": "OA retrieval attempted; publisher access failed",
+          "title": "Counting Sylow double cosets in the symmetric group",
+          "trigger": "Cited cycle-index machinery for finite order counts"
+        },
+        {
+          "assessment": "Different group family and power-fiber/image problem",
+          "evidence": "F_q^(p^a) ⋊ C_{p^a}, prescribed target fibers, and image-density limit, not iterative tree depth and a uniform-element defect tail.",
+          "identifier_or_url": "Resultary 2026/11/22/SCOPE-complete-prime-power-word-fibers-and-power-image-subgroup-thresh--566b58b310cf",
+          "material_read": "Original RESULT.md Finding, offset 0",
+          "method": "Read original from the local mirror",
+          "title": "Complete prime-power word fibers and power-image subgroup thresholds in cyclic regular wreath groups",
+          "trigger": "Distinct indexed result about cyclic wreath groups and power statistics"
+        },
+        {
+          "assessment": "No all-depth order-tail result",
+          "evidence": "Threshold for an extremal count of cyclic subgroups and a single C_p ≀ C_p comparison.",
+          "identifier_or_url": "Resultary 2026/10/4/SCOPE-a-sharp-order-cutoff-for-the-second-cyclic-subgroup-maximum-of-o--f7e2cc9a560c",
+          "material_read": "Original RESULT.md Finding and scope opening, offset 0",
+          "method": "Read original from the local mirror",
+          "title": "A sharp order cutoff for the second cyclic-subgroup maximum of odd prime-power groups",
+          "trigger": "Cyclic-subgroup counts and a wreath-product example"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding and §§2–4",
+        "Abért–Virág Theorem 1",
+        "Abért–Virág §2 pp. 8–9"
+      ],
+      "rationale": "Element orders are intrinsic statistics of this Sylow tower. A distribution concentrated on a typical linear scale leaves open how many elements attain or nearly attain exponent at depth h. The result separates each fixed defect by an additional polynomial factor and computes the factorial constant on the rare exponential scale, addressing a natural boundary regime across all primes. It is more than recovering counts at a few finite depths or reading off a branching speed.",
+      "residual_risks": [
+        "No claim of a typical-order improvement, growing-defect law or further structural application is needed or made."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

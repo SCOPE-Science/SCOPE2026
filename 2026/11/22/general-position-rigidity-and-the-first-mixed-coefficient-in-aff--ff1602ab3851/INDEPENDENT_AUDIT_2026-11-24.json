@@ -1,0 +1,155 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:14:10.206784Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof §§1–3; VERIFICATION.md; verify_affine_gp.cpp and verify_direction_tuples.py inspected as source",
+        "/workspace/branches/94bfd286-afc0-4117-ba1b-fc44579e65f0/independent_gp_enum.py (run with Python 3 and argument 2 or 3)",
+        "/workspace/branches/94bfd286-afc0-4117-ba1b-fc44579e65f0/enum_q2.txt and enum_q3.txt (exact metric outputs)"
+      ],
+      "rationale": "In a connected bipartite graph an edge's endpoints have distances from a third vertex differing by exactly one, so a general-position set of size at least three is independent. In an independent selection here distinct points are distance two, selected point-line pairs distance three, and selected line-line pairs distance two if intersecting and four if parallel. The only possible additive equality is 4=2+2 for parallel end lines; a selected point cannot be distance two from them, while a selected line is distance two from both precisely if it is a common transversal. This proves the selected-line dichotomy. For b≥1 parallel lines the total mixed size is at most q²−b(q−1); with b different directions the union has size ≥bq−binom(b,2). For q≥4 the penalty b(q−1)−binom(b,2), concave on [2,q+1], exceeds q−1 at both endpoints, so only b=1 can attain q²−q+1. For q=3 the only possible extra equality is b=4 with distinct pairwise intersections. Adding the line at infinity would give five projective lines with no triple concurrency. Such a family covers 10 of the 13 points; on every family line each point is already a pairwise intersection. A pencil based at an uncovered point would therefore pair off the five lines, impossible. Thus maximizers are one line with all its off-line points, with q(q+1) choices. The all-line bound q+1 is smaller than q²−q+1 for q≥3, and every point subset is general position; this gives the unique full-point maximum and both coefficient formulas. At q=2, b≤2 gives mixed size at most three. Among eight different-direction triples, four are concurrent (one per point) and the remaining four cover three points each, giving four mixed maxima plus the pure point maximum. Exact independent metric enumeration returned (overall size, overall count, mixed size, mixed count)=(4,5,4,4) at q=2 and (9,1,7,12) at q=3, with coefficient 48 at degree seven for q=3.",
+      "residual_risks": [
+        "Independent enumeration used Floyd–Warshall and exhaustively enumerated feasible subsets by geodesic-triple pruning, only for the two finite-field instances. The axiom-based proof, not enumeration or the supplied scripts, establishes generality."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Anand et al. characterize general position by complete induced components with an in-transitive, distance-constant partition. Their bipartite equality gp(G)=α(G) for diameter two or three does not include the affine incidence graph, which has diameter four. Iršič et al. develop the polynomial; their inspected Theorem 4.2 is for Kneser graphs K(n,2)."
+        ],
+        "reasoning": "Anand's universal criterion does cover the affine structural test by a short metric reduction, but it is not an extremal or enumerative evaluation. The diameter equality and Kneser computation do not yield the exact first mixed coefficient or rigidity of its maximizers.",
+        "searches": [
+          "Anand et al., arXiv:1812.08460 Theorem 3.1 and bipartite diameter result",
+          "Iršič et al., arXiv:2401.05696 abstract and Theorem 4.2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary ff1602ab3851 (self-match), 6f0644ac9deb and e8b6fdc4f4a1",
+        "arXiv:1812.08460",
+        "arXiv:2401.05696",
+        "DOI 10.4153/CJM-1965-069-6",
+        "arXiv:1408.2879"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A bipartite edge component cannot have distance constant to a third vertex by parity. For the remaining singleton components the prior in-transitivity condition fails exactly at 4=2+2, for a parallel pair and a transversal. The once-subdivided theorem accounts for order two. The well-covered-dimension theorem is about weights on maximal independent sets, not general-position subsets."
+        ],
+        "reasoning": "The structural equivalence and order-two example are not credited as new; the surviving exact assertions already in the original finding are for q≥3. The general criterion alone does not optimize the union size of direction-restricted families or handle the odd-order projective obstruction at q=3, which are needed for the coefficient and uniqueness results.",
+        "searches": [
+          "arXiv:1812.08460 Theorem 3.1, PDF p. 4 offset 10560 onward",
+          "Resultary 6f0644ac9deb, original finding and n=4 verification",
+          "Hauschild–Ortiz–Vega arXiv:1408.2879 Theorem 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact indexed affine hit ff1602ab3851 is this record. At q=2 each line is the unique two-point line for an unordered pair, giving precisely the once-subdivision of K4; the earlier record covers that graph. Hoffman–Ray-Chaudhuri p. 687 defines the same affine point–line graph G(Π), but studies the spectrum of its line graph."
+        ],
+        "reasoning": "The subdivision description is exact for order two and must be credited. At q≥3 a line vertex has degree q, so it cannot be that edge-subdivision vertex. Passing to the line graph, or calling the graph a Levi graph, does not identify the spectral invariant with the general-position polynomial.",
+        "searches": [
+          "Resultary: affine/Levi incidence graph general-position polynomials and mixed maximizers",
+          "Resultary 2026/11/8/SCOPE-general-position-polynomials-of-once-subdivided-complete-graphs--6f0644ac9deb",
+          "Hoffman–Ray-Chaudhuri DOI 10.4153/CJM-1965-069-6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "For the once-subdivision of K4, the earlier entry gives Ψ(z)=1+10z+45z²+30z³+5z⁴ and its maximizer classification, including the four triangle-block mixed sets. The distinct same-day affine entry identifies geodetic bases as parallel classes, not general-position maxima."
+        ],
+        "reasoning": "The q=2 exact data are already covered and the independent replay corroborates them rather than extending them. The geodetic entry concerns sets whose geodesic intervals cover the graph; that property differs from having no selected intermediary and provides no corresponding coefficient.",
+        "searches": [
+          "Resultary ff1602ab3851 (self-match)",
+          "Resultary 6f0644ac9deb, Finding and explicit n=4 verification",
+          "Resultary 2026/11/22/SCOPE-affine-plane-geodetic-bases-a-first-minimal-set-gap-and-rigid-ex--e8b6fdc4f4a1"
+        ]
+      },
+      "rationale": "The general distance-partition criterion already covers the structural test by direct specialization, and the earlier once-subdivided complete-graph record explicitly covers the order-two maximum and polynomial. The distinct contribution is the affine-plane extremal argument and exact first mixed coefficient for arbitrary finite affine planes of order q≥3, not a new general-position criterion or the q=2 data.",
+      "residual_risks": [
+        "A differently named or unindexed all-order computation is not ruled out; priority is not certified. The exact earlier order-two overlap and broader structural coverage are explicit exclusions from the originality judgment."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the entire order-two polynomial and maximizer classification",
+          "evidence": [
+            "The n=4 case gives top coefficient 5, including the triangle-block mixed maximizers."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-general-position-polynomials-of-once-subdivided-complete-graphs--6f0644ac9deb",
+          "material_read": "Original RESULT.md finding at offset 0; verification continuation from offset 4535",
+          "method": "Resultary lookup and local mirror inspection",
+          "title": "General-position polynomials of once-subdivided complete graphs",
+          "trigger": "Earlier exact match under the subdivision reduction at q=2"
+        },
+        {
+          "assessment": "Covers the structural criterion by specialization; does not evaluate the affine top mixed coefficient",
+          "evidence": [
+            "Thm. 3.1 is a necessary and sufficient criterion for all connected graphs. The bipartite equality result requires diameter two or three."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1812.08460",
+          "material_read": "Abstract and introduction pp. 1–2 at offsets 0 and 4974; distance-constant/in-transitive definitions and Theorem 3.1 p. 4 from offset 10560",
+          "method": "Lawful OA primary PDF passages",
+          "title": "Characterization of general position sets and its applications to cographs and bipartite graphs",
+          "trigger": "Potential dominating general test and bipartite result"
+        },
+        {
+          "assessment": "Supplies polynomial framework; inspected exact result is on a different graph family",
+          "evidence": [
+            "Theorem 4.2 concerns Kneser graphs K(n,2)."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2401.05696",
+          "material_read": "Abstract p. 1 at offset 0; Theorem 4.2 p. 10 around offset 29221",
+          "method": "Lawful OA primary PDF passages",
+          "title": "General Position Polynomials",
+          "trigger": "Potential polynomial evaluation for incidence graph families"
+        },
+        {
+          "assessment": "Same underlying incidence graph, different graph operation and invariant",
+          "evidence": [
+            "Defines G(Π) and studies spectral characterization for its line graph."
+          ],
+          "identifier_or_url": "https://doi.org/10.4153/CJM-1965-069-6",
+          "material_read": "p. 687, PDF offset 0",
+          "method": "Lawful OA primary PDF passage",
+          "title": "On the line graph of a finite affine plane",
+          "trigger": "Same incidence graph under a graph-theoretic alias"
+        },
+        {
+          "assessment": "A different invariant even when the theorem applies to affine planes",
+          "evidence": [
+            "Theorem 1 computes well-covered dimension for point-degree parameter r>2."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1408.2879",
+          "material_read": "Theorem 1, p. 3 around offset 7966",
+          "method": "Lawful OA primary PDF passage",
+          "title": "On the Levi Graph of Point-Line Configurations",
+          "trigger": "Broader Levi-graph results"
+        },
+        {
+          "assessment": "Different geodesic property; no priority inference from the date",
+          "evidence": [
+            "Its minimum geodetic sets are parallel classes of lines, with the objective of covering vertices by geodesic intervals."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-affine-plane-geodetic-bases-a-first-minimal-set-gap-and-rigid-ex--e8b6fdc4f4a1",
+          "material_read": "Original finding at offset 0",
+          "method": "Resultary lookup and local mirror inspection",
+          "title": "Affine-plane geodetic bases, a first minimal-set gap, and rigid exchanges",
+          "trigger": "Same-day indexed result on the same affine graph with geodesic terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof §§2–3; compared with Anand et al. Thm. 3.1 and the indexed subdivision result 6f0644ac9deb"
+      ],
+      "rationale": "The point–line incidence graph is canonical for any finite affine plane, and the first degree admitting mixed selections measures a natural gap below the rigid maximum. The extremal classification identifies all configurations that close that gap, yielding the exact first mixed coefficient uniformly without field-coordinate assumptions. This is more than a computation at the already covered order-two graph or an application of the generic structural test alone.",
+      "residual_risks": [
+        "No full polynomial for q≥3 or determination of the lower mixed coefficients is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:10:38.379309Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "RESULT.md lines 7–37 and 39–108; VERIFICATION.md lines 19–23; verify_policy.py interpreted but not executed.",
+        "Independent replay: python3 /workspace/branches/independent-checks/analytic_spot_checks.py survey. Uses gamma=1/2 and a different density on [2,5], quadrature for H, numerical differentiation of U, and a quadratic right tail. The normalized tail factors 1.00253468295, 1.00025055171 and 1.00002500573 corroborate the constant; the proof supplies the limit."
+      ],
+      "rationale": "In the stated ideal model, write J(t) for the weighted unsaturated tail. Boundary terms cancel in H', giving H'=gamma t^(gamma-1)J>0 and H''=gamma(gamma-1)t^(gamma-2)J-gamma f(t)/t<0 for 0<t<b, including across a by continuity of the zero-extended density. The numerator of the throughput derivative is (t+u)H'-H and decreases strictly from a positive divergent limit to -1 for u>0; throughput vanishes at zero and decreases for t>=b. Thus every optimum is interior and unique. Its inverse overhead U=H/H'-t has U'=-H H''/(H')^2>0 and ranges from zero to infinity. The first-order equation supplies H'/H=1/(t+U), and endpoint normalization H(b)=1 removes the multiplicative ambiguity. Substituting the resulting H' and H'' into gamma f=-tH''-(1-gamma)H' gives precisely the reported density formula. Below a the power law gives the exact linear segment; at t>a, the newly saturated positive mass raises U above that line, since H/H' is t/gamma plus that saturated mass divided by H'. The conditional tail equivalent gives H' asymptotic to gamma c(b-t)^(beta+1)/(b(beta+1)), yielding the stated inverse constant. This is ideal-data identification, not stability or recovery from finitely many noisy choices.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The stationary ratio identity determines H'/H from the tangent intercept. With Y=T^gamma and an independent uniform W on [0,1], H(t)=Pr(WY<=t^gamma); this is a uniform scale mixture when the response is known.",
+          "Breeden–Litzenberger, DOI 10.1086/296025: landing-page/abstract access only."
+        ],
+        "reasoning": "A generic envelope identity can reconstruct the normalized response if the optimizer sweeps the full response domain. Inversion of an observed uniform-mixture CDF covers the second step after the power change of variable; it does not establish that a throughput-maximizing policy supplies that CDF, the strict interior optimum over all overheads, or its support and endpoint laws. Option-price inversion has a different observed input. No inspected broader theorem supplied the joint policy-to-density statement.",
+        "searches": [
+          "Resultary: tangent-intercept inverse optimization from choices",
+          "Resultary: scale-mixture inversion and threshold density"
+        ]
+      },
+      "checked_sources": [
+        "Resultary: forward survey, bounded-density recovery, tangent-intercept and mixture-inversion searches",
+        "Macquart 2011 and 2014 primary text passages and the distinct same-day Poisson survey Finding"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The fast-transient paper relates specified population properties and survey parameters to detection rates. The slow-transient paper optimizes pointings and exposure in specified survey/population models."
+        ],
+        "reasoning": "These forward calculations motivate the objective but do not show injectivity of the optimal-exposure curve as a function of an arbitrary f. The strict coverage of (0,b) and the endpoint normalization are crucial for turning a stationary condition into an inverse; neither is implied by a forward optimum in a parametric special case.",
+        "searches": [
+          "Macquart, arXiv:1106.5817 pp. 1–3",
+          "Macquart, arXiv:1406.5790 pp. 1 and 5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Same-day two-brightness Poisson survey, 2026/11/22/SCOPE-a-unique-global-dwell-time-switch-in-a-two-brightness-poisson-so--396fbb4aeaba, Finding."
+        ],
+        "reasoning": "That survey varies the mixture weight with fixed unit overhead, and gives a discontinuous switch between exposure optima. This result varies overhead while the distribution remains fixed and recovers it from a strictly monotone continuous exposure policy. The two experiments, forward maps, and quantifiers differ.",
+        "searches": [
+          "Resultary: bounded threshold density recovery from optimal exposure policy",
+          "Resultary: survey dwell optimization with overhead"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact title-level catalogue match resolves to the assigned record; the other checked survey record concerns a two-class switch.",
+          "Macquart 2014 gives forward optimization with specified population laws rather than an exact inverse policy."
+        ],
+        "reasoning": "This is a functional identifiability theorem, not a tabulation; matching numerical dwell times or the linear law for the unsaturated regime cannot cover the claimed density transform for arbitrary interior-positive f.",
+        "searches": [
+          "Resultary: bounded density recovery from the entire optimal dwell curve",
+          "Resultary: survey exposure vs overhead for a bounded threshold distribution"
+        ]
+      },
+      "rationale": "The supported distinction is recovery of the full bounded threshold law from optimal exposure choices alone, with global uniqueness and the two support diagnostics. The ratio first-order condition and mixture differentiation are standard ingredients. No priority is claimed for either ingredient, for the low-overhead linear law in isolation, or for generic density recovery by differentiating value data.",
+      "residual_risks": [
+        "A general inverse-optimization or scale-mixture result could package more of the policy-to-density argument than the inspected sources. One bounded primary search gave no pertinent match; that does not exclude prior work.",
+        "The inaccessible full text of Breeden–Litzenberger was not used to certify a negative historical claim. No ordering of same-day findings is inferred."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Forward count and survey tradeoffs",
+          "evidence": "Specified source and survey properties imply rates and distances; notes different integration-time behavior for one-off fast events.",
+          "identifier_or_url": "https://arxiv.org/pdf/1106.5817",
+          "material_read": "PDF p. 1 around text offset 600 and pp. 2–3 around offset 6000",
+          "method": "OA primary PDF passages",
+          "title": "Detection Rates for Surveys for Fast Transients with Next Generation Radio Arrays",
+          "trigger": "Prior population/sensitivity survey formulation"
+        },
+        {
+          "assessment": "Forward optimization under assumed luminosity/geometry",
+          "evidence": "Optimizes number of pointings and dwell under a specified power-law population; model gives exposure sensitivity and accounts for slew time.",
+          "identifier_or_url": "https://arxiv.org/pdf/1406.5790",
+          "material_read": "PDF p. 1 around offset 1700 and p. 5 around offset 26000",
+          "method": "OA primary PDF passages",
+          "title": "Optimization of Survey Strategies for Detecting Slow Radio Transients",
+          "trigger": "Closest known forward dwell/overhead optimization"
+        },
+        {
+          "assessment": "Different observation law and parameter being varied",
+          "evidence": "Two classes at fixed overhead; one discontinuous switch as the bright-source fraction changes.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-unique-global-dwell-time-switch-in-a-two-brightness-poisson-so--396fbb4aeaba",
+          "material_read": "Finding at offset 0",
+          "method": "Resultary and mirrored RESULT.md",
+          "title": "A unique global dwell-time switch in a two-brightness Poisson survey",
+          "trigger": "Same-day survey setting and unique global dwell question"
+        },
+        {
+          "assessment": "Full text unassessed; no demonstrated joint coverage",
+          "evidence": "The cited approach starts from option-price values rather than survey choices. Retrieval attempts did not give usable full text.",
+          "identifier_or_url": "https://doi.org/10.1086/296025",
+          "material_read": "Landing-page/abstract only; no usable paper passage",
+          "method": "DOI and lawful JSTOR PDF retrieval attempt",
+          "title": "Prices of State-Contingent Claims Implicit in Option Prices",
+          "trigger": "Classical analogy for second-derivative recovery"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The scientific point is that a curve of decisions, with no attained rate measurements, identifies a whole nonparametric threshold law in this model. The exact low-overhead transition and high-overhead tail exponent and constant give interpretable signatures of the support, not just a formal differentiated equation. This is a useful benchmark for the information content of survey policy, not evidence that practical reconstruction from noisy choices is stable.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

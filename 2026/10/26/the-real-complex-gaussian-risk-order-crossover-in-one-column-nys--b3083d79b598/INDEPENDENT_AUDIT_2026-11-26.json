@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:07:36.091629Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independently checked the projection factorization, the rank-one PSD residual, and its trace ab/(b+(a−b)T), with T the squared share of the leading eigencoordinate. A common scale cancels; the real share is arcsine and the circular complex share is uniform. The respective CDFs satisfy F_R(t)>t below 1/2 and F_R(t)<t above. For a symmetric share T, condition on the radius |T−1/2|: the real radius strictly stochastically dominates the complex radius. For convex g, [g(1/2+r)+g(1/2−r)]/2 is nondecreasing in r, strictly for strictly convex g. Apply this to g=phi composed with the residual map, which is convex and is strictly convex when phi is strictly increasing and a>b. This proves the entire risk comparison (both shares have no endpoint mass). Quantile inversion verifies the single interior crossing and common median, so neither error law first-order dominates. For the real first moment the angular integral becomes an integral of 1/(a+b u²) under u=tan(theta); differentiating the corresponding normalization after shifting both eigenvalues derives the real second moment. Direct uniform integration gives the complex moments. With R=a/b the mean ratio is (R−1)/(sqrt(R) log R), and a=b gives a point mass. No verifier execution was needed: the frozen numerical tests are finite diagnostics, not proof of the universal inequality.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Tropp et al. allow both fields but the expected-error bound in Theorem 4.1 assumes 1≤r<k≤n, excluding r=k=1; a bound is not an exact field comparison. Balabanov et al. use real inputs and analyze block-SRHT/OSE sketches and accuracy."
+        ],
+        "reasoning": "Neither inspected theorem covers the parameter regime and the joint comparison in distribution.",
+        "searches": [
+          "Tropp et al. NeurIPS 2017 §§1.1–2 and Thm. 4.1",
+          "Balabanov et al. PMLR 2023 abstract and §3.1",
+          "Targeted literature lookup for real versus complex Gaussian Nyström exact residual distribution and stochastic order"
+        ]
+      },
+      "checked_sources": [
+        "Tropp et al. NeurIPS 2017",
+        "Balabanov et al. PMLR 2023",
+        "Resultary 6a0180b3e23e, 9bb62c848ba0, 23a3fc6123ad, 25fe26ab4cda, 739d1784d937",
+        "Targeted primary literature lookup"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The real two-eigenvalue law is a special case of the real-only spherical result. The convex-order record 23a3fc6123ad compares residual spectra in real two-sided reconstruction with normalized squared Frobenius error. Standard beta and convex-order facts are ingredients once both scalar Nyström laws are identified."
+        ],
+        "reasoning": "The previous Nyström statement specializes mechanically to the real law, and generic risk-order machinery is not novel. None of the inspected broader statements provides both field-specific laws and their ordering and crossover; the latter require the field-dependent reduction and comparison.",
+        "searches": [
+          "Exact spherical residual Finding in 6a0180b3e23e",
+          "Tropp et al. field setup and Theorem 4.1",
+          "Resultary convex-order record 23a3fc6123ad"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Record 6a0180b3e23e at r=n=2 gives the same real spherical residual and mean sqrt(ab). The equal-day angular-crossover record 739d1784d937 compares Gaussian and Rademacher one-column subspace iteration in squared Frobenius error, not the two fields' Nyström PSD residual."
+        ],
+        "reasoning": "The reciprocal quadratic form is an equivalent formulation of the same scalar residual. Anticipation of its real law does not give the complex comparison; the different subspace iteration does not have this residual map.",
+        "searches": [
+          "Resultary: planar one-column Gaussian Nyström residual, reciprocal Rayleigh quotient, angular real versus complex sketch",
+          "Resultary records 6a0180b3e23e and 739d1784d937"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The real sqrt(ab) benchmark is indexed, including the one-column funNyström normalization in 9bb62c848ba0. Record 25fe26ab4cda concerns log-determinant estimation with an independent probe, not this residual. The comparisons did not reveal a two-field exact law or risk ordering. The beta law entries are classical distributions of T, not tables for this matrix comparison."
+        ],
+        "reasoning": "The appropriate exact catalogue check is for the closed-form formulas and comparison, not number matching at a particular spectrum; no separate invariant table is indicated for the continuous two-eigenvalue family.",
+        "searches": [
+          "Resultary: one-column two-eigenvalue Gaussian Nyström exact moments, median and crossover",
+          "Resultary records 6a0180b3e23e, 9bb62c848ba0 and 25fe26ab4cda"
+        ]
+      },
+      "rationale": "The real-side law and mean are covered and are not credited. The supported distinct finding is the one-column field comparison: the complex error law, common-median crossover, and increasing-convex risk ordering together. The closest sources have either only the real side, more sketch columns and error bounds, or a different competing sketch and error.",
+      "residual_risks": [
+        "An equivalent comparison could occur as a reciprocal-Rayleigh-quotient calculation outside the inspected Nyström literature. Bounded searches do not establish priority. The real law is demonstrably not new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Baseline algorithm and expected-error bounds, not the exact two-field comparison",
+          "evidence": "1≤r<k≤n excludes one sketch column when the target rank is one.",
+          "identifier_or_url": "https://proceedings.neurips.cc/paper_files/paper/2017/file/4558dbb6f6f8bb2e16d03b85bde76e2c-Paper.pdf",
+          "material_read": "§§1.1–2 and Thm. 4.1, pp. 2 and 5",
+          "method": "Bounded primary OA PDF passages",
+          "title": "Fixed-Rank Approximation of a Positive-Semidefinite Matrix from Streaming Data",
+          "trigger": "Both fields in Gaussian Nyström"
+        },
+        {
+          "assessment": "Different comparison",
+          "evidence": "Standard Nyström with real inputs; OSE/high-probability guarantee and structured sketches versus Gaussian, not scalar complex risk.",
+          "identifier_or_url": "https://proceedings.mlr.press/v202/balabanov23a/balabanov23a.pdf",
+          "material_read": "Abstract and §3.1, pp. 1 and 3–4",
+          "method": "Bounded primary OA PDF passages",
+          "title": "Block Subsampled Randomized Hadamard Transform for Nyström Approximation on Distributed Architectures",
+          "trigger": "Closest work in frozen source on sketch comparison"
+        },
+        {
+          "assessment": "Covers real-side law and mean only",
+          "evidence": "Its r=n=2 real spherical identity is the real arcsine law used here; no complex counterpart in the statement.",
+          "identifier_or_url": "6a0180b3e23e",
+          "material_read": "RESULT.md Finding and model scope",
+          "method": "Bounded local mirror inspection",
+          "title": "A universal half-moment transition for unoversampled Gaussian Nyström",
+          "trigger": "Exact one-column residual under specialization"
+        },
+        {
+          "assessment": "Different operator, random ensembles, and loss",
+          "evidence": "Subspace iteration with squared Frobenius error and Gaussian versus Rademacher probes.",
+          "identifier_or_url": "739d1784d937",
+          "material_read": "RESULT.md Finding and model scope",
+          "method": "Bounded local mirror inspection",
+          "title": "Sharp angular crossover between Gaussian and Rademacher one-column sketches",
+          "trigger": "Same-day angular crossover in dimension two"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Dimension two with one column is the first nonconstant rank-one PSD residual where the field choice matters. A common median and crossing rule out ordinary stochastic dominance even though all increasing convex penalties prefer the complex law, and the unbounded mean separation shows why the distinction matters. This provides an exact benchmark for field-dependent risk analyses, not a recommendation about equal-cost algorithms or a general higher-rank result.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

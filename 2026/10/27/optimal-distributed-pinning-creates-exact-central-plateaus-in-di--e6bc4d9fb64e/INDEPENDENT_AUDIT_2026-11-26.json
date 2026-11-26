@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:55:46.858048Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For fixed w, positivity of the Dirichlet inverse makes the constant-phase dual vector optimal, giving F=1^T A_w^{-1}1. Differentiation gives gradient -g_j^2 and positive definite Hessian 2 diag(g) A_w^{-1} diag(g), so the simplex optimum is unique and reflected. In the KKT conditions support sites have g=H and the others have g<=H. An unpinned gap between support sites solves Lg=1 with equal boundary values H, so is strictly above H, impossible. On a tail the unique solution is i(m-i)/2+iH/m, and summation of the loaded equation gives (Lambda+2/m)H=d+1-m. The last unpinned site yields H>=m(m-1)/2, which also controls the whole tail since H-g_i=(m-i)(H/m-i/2). With two or more plateau sites nonnegative end weights give H<=m(m+1)/2; a single center instead gives H<=m^2/2 and the zero-budget endpoint. At a shared t_m the (m-1)-st site has g=H and zero weight, so both formulas agree. The zero-budget simplex is a singleton, and d=1,2 give the full flat profile directly. Summing g yields the displayed constant and equality uses a common phase. Independent replay (python3 -B /workspace/branches/independent_replay.py 3) passed 468 exact rational cases across d=1..24, with direct tridiagonal solves, budget and support checks and endpoint samples; finite evidence is corroboration only. The frozen checker clips negative candidates and its line-49 inequality is vacuous with the supplied initial value, so neither is relied on to certify nonnegativity or KKT.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bucur et al. optimize spectral quantities of -Delta+mu and discuss potentials under integral constraints and measures with prescribed torsional rigidity.",
+          "Liu et al. use the smallest grounded-Laplacian eigenvalue; Wang et al. choose a fixed-cardinality grounding set for that criterion."
+        ],
+        "reasoning": "Potential optimization is relevant context, but the inspected prototype does not provide a discrete fixed-budget compliance formula or active support. Neither spectral pinning paper optimizes this inverse quadratic form over the continuous simplex.",
+        "searches": [
+          "Bucur–Buttazzo–Velichkov arXiv:1310.1568v1, p. 1; Liu et al. arXiv:1804.10818, p. 1; Wang et al. arXiv:2110.12576, p. 1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and supporting files",
+        "arXiv:2610.19010v1",
+        "arXiv:1804.10818",
+        "arXiv:2110.12576",
+        "arXiv:1310.1568v1",
+        "Resultary mirror records listed in source_inspections"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Specializing the known sharp constant binom(d+2 alpha,2 alpha+1)/binom(2 alpha,alpha) to alpha=1 gives d(d+1)(d+2)/12, precisely Lambda=0.",
+          "The Resultary record gives positivity and phase shape for an unpinned higher-difference problem."
+        ],
+        "reasoning": "The previously established endpoint and equality structure earn no originality credit; they impose no positive-budget support conditions and do not imply the allocation thresholds. The retained claim identifies and solves the free support for every positive budget.",
+        "searches": [
+          "Hindov–Nitzan–Olsen–Rydhe arXiv:2610.19010v1, Introduction and Theorem 1; Resultary strict polyharmonic Green positivity, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary SCOPE-a-sharp-endpoint-to-interior-loading-transition-for-spectral-con--a2818e5de4a3, Finding",
+          "Resultary SCOPE-reentrant-hub-grounding-in-a-optimal-noisy-star-consensus--bd015dfc5cdd, Finding"
+        ],
+        "reasoning": "The sharp squared constant is an inverse quadratic form with one prescribed load, not the inverse trace or a ratio of extreme eigenvalues. The closest path-and-budget record solves the latter objective for four vertices; the inverse-trace record solves a different objective on a star. Neither gives this optimizer or phase diagram.",
+        "searches": [
+          "Resultary local searches for discrete Dirichlet pinning, all-ones inverse compliance and Green/torsion plateau",
+          "Focused literature search for continuous diagonal allocation on a discrete path minimizing inverse compliance"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The four-vertex loading entry uses spectral condition number; SCOPE-strict-polyharmonic-green-positivity-and-an-exact-phase-shape-so--3240556c60ce is unpinned."
+        ],
+        "reasoning": "A table of unpinned constants or optimizers at sampled budgets could cover isolated values but not the joint all-dimension, continuous-budget active-set formula. No exact catalogue entry was identified in the relevant index.",
+        "searches": [
+          "Local Resultary searches for the path budget optimum and plateau thresholds; compared the identified loading and Sobolev findings"
+        ]
+      },
+      "rationale": "Pass for the complete fixed-total-budget solution on the discrete Dirichlet path, including the exact support transitions and piecewise rational value. The unpinned constant, general inverse derivative, and general potential/spectral optimization are not credited as new. The inspected sources do not establish the specific all-ones compliance solution; this is a bounded best-of-knowledge assessment.",
+      "residual_risks": [
+        "Continuous optimal-compliance, torsional-rigidity and point-interaction literature was not exhaustively inspected; an equivalent discrete formulation may be indexed differently.",
+        "For the broad potential-optimization reference the recovered abstract was read, not all theorem sections. No bibliographic uniqueness or formal certification is inferred."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers unpinned endpoint",
+          "evidence": "Full solution for q=1, p=2, and all integer alpha>=1; alpha=1 gives the zero-budget value.",
+          "identifier_or_url": "https://arxiv.org/html/2610.19010v1",
+          "material_read": "Introduction and Theorem 1, offset 0",
+          "method": "OA text",
+          "title": "A sharp discrete Sobolev inequality and left inverses of higher order differences",
+          "trigger": "Exact source problem and normalization"
+        },
+        {
+          "assessment": "Different objective in the inspected statement",
+          "evidence": "Effectiveness is measured by the smallest eigenvalue; larger is better.",
+          "identifier_or_url": "https://arxiv.org/pdf/1804.10818",
+          "material_read": "Abstract, p. 1, offset 0 (v2)",
+          "method": "OA PDF text",
+          "title": "Optimizing Pinning Control of Complex Dynamical Networks Based on Spectral Properties of Grounded Laplacian Matrices",
+          "trigger": "Graph pinning objective alias"
+        },
+        {
+          "assessment": "Fixed-cardinality node selection, not continuous compliance",
+          "evidence": "Selects a subset S of fixed k to maximize the smallest grounded eigenvalue.",
+          "identifier_or_url": "https://arxiv.org/pdf/2110.12576",
+          "material_read": "Abstract, p. 1, offset 2782",
+          "method": "OA PDF text",
+          "title": "Maximizing the Smallest Eigenvalue of Grounded Laplacian Matrix",
+          "trigger": "Prior grounded-Laplacian allocation"
+        },
+        {
+          "assessment": "Related potential optimization; no discrete path result in inspected material",
+          "evidence": "Prototype is eigenvalue lambda_k(mu); abstract mentions prescribed torsional rigidity and an integral potential constraint.",
+          "identifier_or_url": "https://arxiv.org/pdf/1310.1568",
+          "material_read": "Abstract, p. 1, offset 0 in submitted OA version; publisher copy inaccessible",
+          "method": "OA PDF text",
+          "title": "Spectral optimization problems for potentials and measures",
+          "trigger": "Broader potential, measure and torsion optimization"
+        },
+        {
+          "assessment": "Different objective and dimension regime",
+          "evidence": "Nonnegative loading on a four-vertex path with spectral condition number as objective.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-endpoint-to-interior-loading-transition-for-spectral-con--a2818e5de4a3",
+          "material_read": "Local RESULT.md Finding, offset 0",
+          "method": "Resultary search and local mirror",
+          "title": "A sharp endpoint-to-interior loading transition for spectral conditioning",
+          "trigger": "Same path loading and budget"
+        },
+        {
+          "assessment": "Different graph and weighting of inverse entries",
+          "evidence": "Objective is tr[(L+diag(g))^{-1}] on a star, not the all-ones quadratic form.",
+          "identifier_or_url": "2026/11/22/SCOPE-reentrant-hub-grounding-in-a-optimal-noisy-star-consensus--bd015dfc5cdd",
+          "material_read": "Local RESULT.md Finding, offset 0",
+          "method": "Resultary search and local mirror",
+          "title": "Reentrant hub grounding in optimal noisy star consensus",
+          "trigger": "Inverse-matrix continuous loading objective"
+        },
+        {
+          "assessment": "No pinning-budget problem in finding",
+          "evidence": "Studies positive inverse and equality phase for unpinned differences of general order.",
+          "identifier_or_url": "2026/11/1/SCOPE-strict-polyharmonic-green-positivity-and-an-exact-phase-shape-so--3240556c60ce",
+          "material_read": "Local RESULT.md Finding, offset 0",
+          "method": "Resultary search and local mirror",
+          "title": "Strict polyharmonic Green positivity and an exact phase-shape solution",
+          "trigger": "Same sharp Sobolev type and inverse representation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The design problem asks where to put a fixed amount of damping to improve a sharp, structured norm bound, not just to evaluate an already selected matrix. The answer identifies exactly which sites switch from unpinned to pinned as budget increases, certifies the global optimizer among asymmetric allocations, and gives the corresponding sharp inequality rather than a numerical optimization prescription. The support transition and flat-torsion mechanism are informative independently of bibliographic novelty.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

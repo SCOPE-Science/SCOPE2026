@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:17:52.783776Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The admissible objects are rotation classes, each uniquely rooted at its sole 00000. The two pairings at each of 16 vertices produce permutations of the 32 edges, and precisely the single-orbit permutations represent de Bruijn cycles. Independently, run python3 /workspace/replay/debruijn_review.py: binary extension with no repeated five-window and the four closing-window checks exhausts the same 2048 distinct roots. On doubled words a rolling deletion recurrence and a bit-parallel reversal-LCS implementation agreed on all 65,536 individual cuts; the former recurrence is justified by deleting at least one unequal end, while equal ends can be retained in some optimum by replacing the matching mate of a retained end, or by adding both if both are omitted. The independent run agrees with all CSV rows, both endpoint witnesses, the histogram 76,114,1380,286,192 at levels 25–29, moments 13925/512 and 178215/262144, and the exact reversal/complement subtotals. The frozen verify.py tests equality of maxima, not equality cut by cut, despite the broad trajectory of its documentation; the independent run checked the latter as well. No larger order is tested or inferred.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The joint Resultary record gives the pair (P,A) for the identical population, tabulates its joint counts and records the pair cycle by cycle in cycles.csv. The unrestricted circular-word conjectures in Müllner–Ryzhikov do not produce these frequencies."
+        ],
+        "reasoning": "Projection to P retains the whole frozen numerical census. The extra A variable in the stronger record is precisely what makes the symmetry subtotals recoverable.",
+        "searches": [
+          "2026/10/18/SCOPE-joint-circular-palindrome-and-antipalindrome-deletion-spectrum-o--1b65d6c3c2e3",
+          "arXiv:1901.07502 circular-word results"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, REVIEW.md, verify.py and spectrum.csv",
+        "Resultary --1b65d6c3c2e3",
+        "arXiv:1901.07502",
+        "OEIS:A318916",
+        "arXiv:1110.5296 p. 1 (longest common palindromic subsequence algorithms)",
+        "DOI:10.4230/LIPIcs.ESA.2024.35"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A=32 row by P is (8,2,44,10,0), totaling 64. The stronger record has exactly 32 size-two orbits all with A=32 and 496 size-four orbits. It does not claim its ordinary-palindrome marginal as separately new."
+        ],
+        "reasoning": "The 64 cycles with A=32 are exactly the members of size-two orbits, so halving that row gives (4,1,22,5,0); subtracting the row from the P marginal and dividing by four gives (17,28,334,69,48). Extremes and moments follow from the marginal and representatives from the cyclewise scores. This is full coverage, without deciding chronology.",
+        "searches": [
+          "Joint Resultary record --1b65d6c3c2e3, Finding, proof, Verification and Limitations"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A subsequence of one cut defines the same circular scattered-palindrome invariant as a subsequence of a representative; the minimum deletion count is 32 minus its maximum length. The joint record's ordinary P uses exactly those cuts and that maximization."
+        ],
+        "reasoning": "The histogram of deletions is a relabeling of the P marginal, not a distinct statistic. Generic LCS or LPS algorithms supply optimization machinery, not the population table.",
+        "searches": [
+          "Resultary: circular scattered palindrome, deletion spectrum, reversal and complementation",
+          "Müllner–Ryzhikov arXiv:1901.07502 pp. 1–2",
+          "Brodal–Fagerberg–Rysgaard DOI:10.4230/LIPIcs.ESA.2024.35 pp. 1–2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The joint table columns P=25–29 sum to 76,114,1380,286,192. OEIS A318916 gives 24 at length 32 for the minimum over unrestricted binary circles."
+        ],
+        "reasoning": "Only the joint table has the same de Bruijn population and matches all frozen counts; the OEIS value is an unrestricted extremal benchmark, not a competing census. The primary query's empty return is not negative evidence.",
+        "searches": [
+          "Resultary joint palindrome and antipalindrome deletion spectrum",
+          "OEIS:A318916",
+          "Primary search: de Bruijn, longest palindromic subsequence, cyclic binary scattered subsequence deletion spectrum and reversal/complement"
+        ]
+      },
+      "rationale": "Distinctness of this standalone claim is not established: a different Resultary record contains its entire cyclewise statistic, all five frequencies by marginalization, and numbers that force every stated orbit subtotal. The catalogue dates alone do not establish relative priority; this is demonstrated mathematical coverage, not a claim that one record predated or copied the other. There is no surviving substantive remainder of the frozen finding to repair.",
+      "residual_risks": [
+        "Relative publication order within the shared catalogue date is not established. This decision rests on direct implication and the lack of a distinct remaining claim, not on absence of web hits or proof of previous publication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Complete mathematical coverage; relative priority unresolved",
+          "evidence": "Identical single-circumference scattered P, 19-cell joint table, cyclewise data, and the complete size-two A=32 statement.",
+          "identifier_or_url": "2026/10/18/SCOPE-joint-circular-palindrome-and-antipalindrome-deletion-spectrum-o--1b65d6c3c2e3",
+          "material_read": "RESULT.md Finding/table and scope, proof and Verification offsets 4049–7638, Limitations near offset 8057",
+          "method": "Local catalogue and source mirror",
+          "title": "Joint circular palindrome and antipalindrome deletion spectrum of binary order five",
+          "trigger": "Identical population and overlapping statistic with a joint table"
+        },
+        {
+          "assessment": "Equivalent unrestricted invariant, not an order-five census",
+          "evidence": "Defines rotation classes and subsequences via a representative; general circular lower-bound conjectures checked through length 30 in the stated passage.",
+          "identifier_or_url": "https://arxiv.org/pdf/1901.07502",
+          "material_read": "PDF pp. 1–2, offsets 0 and 5000",
+          "method": "OA PDF",
+          "title": "Palindromic Subsequences in Finite Words",
+          "trigger": "Same circular scattered-subsequence problem in general"
+        },
+        {
+          "assessment": "Different population",
+          "evidence": "Length-32 unrestricted minimum is 24; it does not force a constrained minimum of 25.",
+          "identifier_or_url": "https://oeis.org/A318916",
+          "material_read": "Definition, comments and length-32 data",
+          "method": "OA entry",
+          "title": "Minimum length of longest palindromic subsequence over binary circular words",
+          "trigger": "Exact table with the same circular subsequence definition"
+        },
+        {
+          "assessment": "Algorithmic context, not census coverage",
+          "evidence": "Relates LPS to LCS with reversal; it does not enumerate the constrained population in the inspected passages.",
+          "identifier_or_url": "DOI:10.4230/LIPIcs.ESA.2024.35",
+          "material_read": "PDF pp. 1–2, offsets 0 and 3400",
+          "method": "OA PDF",
+          "title": "On Finding Longest Palindromic Subsequences Using Longest Common Subsequences",
+          "trigger": "LCS/reversal check for the palindrome recurrence"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The constrained circular-palindrome distribution is a motivated finite invariant, and the exact replay is useful corroboration. But as a separate finding all its precise numerical information, including the orbit refinement and cyclewise data, is a mechanical extraction from the checked joint census. No additional mathematical invariant or classification is established here.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

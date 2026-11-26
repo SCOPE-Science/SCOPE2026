@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:52:19.466830Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Any shorter antipalindromic suffix of the longest such suffix is also its prefix, so only the longest can be new and the shortfall cannot decrease on extension. An antipalindrome is encoded by its initial bit and a palindromic odd edge string with center zero. For A and B extended by zero, the new longest alternating suffix either exceeds the previous longest alternating run or occurs at the opposite phase from its only prior possible start. A terminal one after A produces no valid suffix. After B, appending one permits a new suffix only when the full edge string is odd; its center is then zero and the whole word is new. After C or D, an appended zero permits at most a singleton with center zero (the 010 suffix has center one), and that singleton's corresponding ordered pair has already occurred in the long alternating run. An appended one gives no new valid suffix: the final 11 cannot start an earlier matching odd suffix. In P an alternating continuation has a valid suffix of letter length at least n-2, and the four phases are distinct already on length four, so an earlier occurrence cannot start in any of the other at most three starting positions. Breaking the edge alternation rules out a longer suffix by its repeated final edges; either differing pair already occurs. The length-seven base was independently exhausted and matches the ten frozen words. Induction gives 2 words of shortfall zero and 8/10 of shortfall one. C and D are terminal states of the bounded-shortfall extension graph, giving exactly 2+2+4 infinite paths. `python3 /workspace/branches/independent_math_replay.py 4` checked 16,256 words at n=7..13 by direct reverse-complement substring sets, and extensions from n=7..41. The latter is only corroboration. Minor clarification outside the Finding: the prefix bound actually implies the same bound for every nonempty factor, since reversal preserves the statistic and the shortfall is therefore nondecreasing under both left and right extension. RESULT.md's line 57 should not be read as a contrary assertion.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Guo–Shallit–Shur Theorems 5.2–5.3 give the bound and the D=0 case. Pelantová–Starosta give a general G-defect/lacuna framework; the targeted web lookup yielded no relevant additional comparison."
+        ],
+        "reasoning": "The broader defect framework does not enumerate first-defect words or give the parity-dependent counts. Search misses are not evidence of nonexistence.",
+        "searches": [
+          "arXiv:1503.09112v1 §5; arXiv:1108.3042v3 §6",
+          "Targeted web lookup for a binary near-antipalindromic-rich/defect-one classification"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1503.09112v1",
+        "arXiv:1108.3042v3",
+        "Resultary/SCOPE records 9063f8b5c425 and 0d3d74935eb2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The zero-defect classification identifies only A. The lacuna lemma measures missing new suffixes; it does not constrain their positions or determine the transition graph for defect-one words."
+        ],
+        "reasoning": "The parity restriction on two boundary equalities and the survival of the period-four phases require the edge-language analysis. They are not parameter substitutions into the prior statements.",
+        "searches": [
+          "arXiv:1503.09112v1 Theorems 5.2–5.3",
+          "arXiv:1108.3042v3 Lemma 36"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For words with both symbols and G={id, reverse-complement}, the generalized defect is n-1-A(w) after including the empty factor in the G-palindromic count and taking gamma_G=1."
+        ],
+        "reasoning": "The statistic is not new under a change of terminology. Counting exactly one G-lacuna does not by itself identify the finite words with that property.",
+        "searches": [
+          "Resultary: binary antipalindromic shortfall-one rigidity",
+          "arXiv:1108.3042v3 §6 Definitions 34–35 and Lemma 36"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "9063f8b5c425 is the assigned record itself. Record 0d3d74935eb2 classifies reverse-complement factors and densities for two specific infinite pattern-parity words (22 and 46 factors), not the family of finite near-maximizers."
+        ],
+        "reasoning": "The nearest separate database result has a different object and objective. Neither it nor the self-match is independent exact coverage.",
+        "searches": [
+          "Resultary: binary antipalindromic defect one; reverse-complement factor spectra"
+        ]
+      },
+      "rationale": "The maximum and its two alternating extremizers are prior, as is the general defect-increment principle. The distinct claim is the finite defect-one classification and exact counts, with its consequence for infinite prefix paths. No inspected source already supplies those results.",
+      "residual_risks": [
+        "A differently indexed finite reverse-complement defect classification may exist. The bounded comparisons do not establish exhaustive historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers at most n-1 factors and both extremizers, not the next layer.",
+          "evidence": [
+            "Theorem 5.2 bounds the distinct nonempty count; Theorem 5.3 says only the two alternating words attain that bound."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1503.09112v1",
+          "material_read": "§5, Theorems 5.2 and 5.3 (OA HTML offsets 36811 and 37798).",
+          "method": "Primary HTML statement and parameter comparison.",
+          "title": "On the Combinatorics of Palindromes and Antipalindromes",
+          "trigger": "Same binary factor statistic and sharp maximum"
+        },
+        {
+          "assessment": "Covers the general defect and its lacuna framework, not this finite classification.",
+          "evidence": [
+            "For the order-two group the defect reduces to the present shortfall when both letters occur; Lemma 36 counts lacunas in that general framework."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1108.3042v3",
+          "material_read": "§6 Definitions 34–35 and Lemma 36 (OA HTML offset 62562).",
+          "method": "Primary HTML definition and theorem specialization.",
+          "title": "Palindromic richness for languages invariant under more symmetries",
+          "trigger": "Generalized equality-edge statistic under the reverse-complement symmetry"
+        },
+        {
+          "assessment": "No equivalent defect-one classification; the objects are two specified infinite words.",
+          "evidence": [
+            "Its 22 and 46 factors are spectra for the specified infinite words, not the number of all finite words at a prescribed distance from their maximum."
+          ],
+          "identifier_or_url": "SCOPE record 0d3d74935eb2",
+          "material_read": "RESULT.md finding and scope in the local mirror.",
+          "method": "Indexed-record statement comparison.",
+          "title": "Reverse-complement factor spectra and exact densities",
+          "trigger": "Close reverse-complement factor enumeration in Resultary"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is the first stability layer below an established sharp bound on a natural word statistic. It gives a complete finite classification, a parity effect, and exactly eight possible infinite continuations, not merely an additional computed count.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

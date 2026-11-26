@@ -1,23 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For all positive integers \(a,b\), finite Esakia duality gives a kernel characterization. Principal upsets force all upper-layer points into every mixed block; conversely the allowed partitions give bounded quotients. The two kernel cases prove every coefficient in the size polynomial. Rank follows by a valid sequence of two-block mergers. The independent finite verifier enumerates 106 actual embedded subalgebras in nine full cases and checks 2,142 ordered kernel comparisons. These cases are supporting tests, not a general proof.
+PASS
 
-## Originality — PASS (qualified)
+By finite Esakia duality a Heyting subalgebra is the inverse-image upset algebra of a surjective p-morphism. Images of upper points are maximal. At any lower point the image of its upper cone consists of its own image and all images of the upper layer; hence if it shares a block with an upper point, all upper images coincide. Conversely the prescribed quotients on pure blocks or on a unique upper-containing block satisfy the upper-cone lifting condition, including the one-point quotient. Quotient upsets separate distinct blocks and every saturated upset is the inverse image of a quotient upset, establishing the reverse-refinement order in both directions. For one upper-containing block, collapse B to a symbol and partition the resulting a+1 symbols, counting by pure lower blocks. Otherwise both layers partition separately and the two types of upsets have the stated combined cardinality. Any permitted coarsening decomposes into pair mergers by postponing mixed mergers until the upper blocks of the target have been consolidated; this proves gradedness and the maximal counts. The common saturated upsets for the elementary pair mergers are exactly the constants and B for b≥2, and only the constants for b=1. The independent bounded closure enumeration matched admissible partitions for (1,1), (1,2), (2,1), (2,3), and (3,3), giving counts 2,3,5,13,35. Replay: /workspace/branches/849d221d-dff3-4a9c-9459-9a0a72f85693/subalgebra_replay.py and replay-small.log, replay-batch.log in the same directory. These finite tests corroborate but do not prove the general argument. The frozen supporting script was read, not executed.
 
-The full two-level kernel normal form and complete Bell–Stirling subalgebra-size generating polynomial were not stated or logically supplied by the inspected relevant results. General finite Esakia duality is established background; Adams (1986) already gives general maximal proper subalgebra theory, so the maximal/Frattini subclaims are credited, not standalone novelty. No matching all-size spectrum surfaced in the research-record queries. Potential older specialized enumerations remain a publication-priority risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Implication-closed subalgebras encode exact reductions of finite intuitionistic semantics. The theorem classifies the entire embedded subalgebra lattice and gives every possible image size with multiplicity for a standard two-level frame, including a Bell-number one-upper-layer degeneration. The structural normal form—not the finite table alone—supplies the mathematical value.
+The general two-width classification and embedded size spectrum are the supported distinct claim. The entire a=1 slice was previously given under the formulation of a top-extended Boolean lattice, and the maximal-subalgebra conclusions specialize existing general theory. Neither is credited as independently new. The frozen record does not assert that each boundary case is a separate novelty; the two-parameter result was not established by the inspected earlier statements.
 
-## Closest literature and limitations
+## value
 
-- Bezhanishvili, Carai and Morandi (2023), *Heyting frames and Esakia duality*: foundational duality, not a concrete full spectrum in the inspected material.
-- Grilletti and Quadrellaro (2023), *Esakia Duals of Regular Heyting Algebras*: quotient and regularity theory, not this embedded-subalgebra enumeration.
-- Adams (1986), *Maximal subalgebras of Heyting algebras*: already covers the maximal-only corollaries, not the full polynomial in the inspected text.
+PASS
 
-The result applies only to complete two-level orders with both layers nonempty. It does not enumerate isomorphism classes or arbitrary finite-height posets. Literature searches cannot prove absolute priority. Independent verification is outstanding.
+This gives the full hierarchy of labelled embedded Heyting subalgebras and all size multiplicities for a natural two-layer family, not just maximal subalgebras or a count at one parameter. The mixed-block restriction distinguishes a genuine case of the complete two-layer order, and the resulting spectrum and grading are useful classification data beyond the previously enumerated one-root boundary.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:40:38.670534Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Match each letter at its earliest possible position. The first letter uses pair 1, and the next uses the same pair exactly for 01. Thus q copies of a nonempty root cost 1+q d+(q−1)e pairs, with d the internal weak-descent count and e its closing weak-descent indicator. Writing x=z^q and h=z^(q−1), the trace with internal weights T=(x,1;x,x) and closing weights E=(h,1;h,h) is tr((I−yT)^−1 E)=[2h+y(x+h−2xh)]/[1−2xy+y²(x²−x)]. Multiplication by zy counts first appearances, and division by 1−z counts all admissible hosts. At y=1, the two numerator parts over 1−3x+x² give the even Lucas and Fibonacci sequences starting at m=1; cumulative sums give F_(2m+3)−2 at k=qm and 2F_(2m+2)−2 at k=qm+r, r≥1. The m=0 values are zero and singleton roots first enter at k=q. Distinct roots give distinct powers, so embeddings are not overcounted.",
+      "status": "PASS",
+      "verification": "Independent replay: /workspace/branches/495266f6-039b-4c09-9260-634d9574ffb4/reproduce_record1.py; direct subsequence counts for 52 pairs 2≤q≤5, 0≤k≤12, direct thresholds for binary roots of length ≤8, finite length-spectrum and jump checks passed. The frozen VERIFY.py was inspected and not executed. These bounds are corroboration only; the greedy and transfer-matrix proof covers all parameters."
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The square-spectrum record allows all alphabet sizes, and its greedy proof is for arbitrary target words, not just squares. The binary two-run record gives maximum length for exact powers but not enumeration."
+        ],
+        "reasoning": "The square record has fewer exponents in its enumerator but is still sufficient: its arbitrary-target lemma supplies the threshold for q copies, and its binary square counts already determine how many roots occur at each such threshold. The different-statistic two-run record alone would not imply the count.",
+        "searches": [
+          "Resultary 0d48ff0900f8, Finding and Proof §1",
+          "Resultary d0386f1167a3, Finding"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and VERIFY.py",
+        "Resultary 0d48ff0900f8 and d0386f1167a3",
+        "Inoue et al., CPM 2018.15",
+        "Lai et al., CPM 2022.7"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The binary first-appearance GF separates as E(y,z²)+z O(y,z²), where the denominator is a polynomial in z² and the odd numerator part is y²z³."
+        ],
+        "reasoning": "Replace z² by z^q in E and O and leave the leading z of the odd class unchanged. This gives precisely the frozen length-marked first-appearance GF; divide by 1−z. Equivalently A_q(qm)=A_2(2m) and A_q(qm+r)=A_2(2m+1) for 1≤r<q. At y=1 the same two rational series give the Lucas/Fibonacci jumps. Thus the extra exponents add no independent enumerative information.",
+        "searches": [
+          "Resultary 0d48ff0900f8, membership criterion, length GF and greedy cost, offsets 200–3027"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 0d48ff0900f8 gives the same distinct-root predicate and lengths for squares on the binary member of its permutation-host family, with threshold 1+2r+s."
+        ],
+        "reasoning": "For a binary increasing permutation period, r=d and s=e. The exact square threshold, not merely the fact of containment at one fixed k, encodes both quantities. Longest subsequences and repetitions of individual letters are different statistics.",
+        "searches": [
+          "Resultary distinct roots of square subsequences in cyclic permutation powers",
+          "Resultary exact repeated subsequences in powers of binary two-run words",
+          "Inoue et al. DOI 10.4230/LIPIcs.CPM.2018.15"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected entry contains an exact symbolic length-spectrum generating function. With alphabet size 2, its H is 2+x, giving first-appearance numerator yz²(2+y(1+z−2z²)) over 1−2yz²+y²(z⁴−z²)."
+        ],
+        "reasoning": "This is an exact all-length symbolic match at q=2, not a finite table or a match inferred from titles. The shared even/odd coefficient decomposition then transfers the entire table to any q.",
+        "searches": [
+          "Resultary square-subsequence spectra for cyclic permutation powers, 0d48ff0900f8"
+        ]
+      },
+      "rationale": "A distinct indexed record gives the entire binary square first-appearance spectrum, including length, and the arbitrary-target greedy period cost. For a given root let t be its exact square threshold. Then t=2d+1+e; t is even iff e=1, and the q-power threshold is exactly q floor(t/2)+(t mod 2). Hence all claimed q≥2 spectra are determined by reindexing the square spectrum; the Lucas/Fibonacci labels are coefficient identifications in that same rational function. This is demonstrable equivalent coverage in the inspected corpus, not a determination of who established it first or an assertion that a later-dated catalogue entry was publicly available before the frozen record.",
+      "residual_risks": [
+        "The Kosowski 2004 full text, DOI 10.1007/978-3-540-30213-1_13, was unavailable in the bounded OA attempt; no whole-document exclusion is inferred.",
+        "The general literature lookup did not launch successfully. The fail decision rests on positive statement-level mathematical subsumption, not on a claim of exhaustive literature search or historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact q=2 coverage; yields all other q by the threshold reindexing",
+          "evidence": "Gives t=1+2r+s, the length spectrum via H, and period cost for an arbitrary target as one plus weak descents. The inspected relationship section does not settle chronology relative to the frozen record.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-square-subsequence-spectra-of-cyclic-permutation-powers--0d48ff0900f8/RESULT.md",
+          "material_read": "Finding, assumptions and start of Proof §1, offsets 200–3027; Relationship to prior work and limitations, offsets 7344–9396",
+          "method": "Local mirror source text",
+          "title": "Square-subsequence spectra of cyclic permutation powers",
+          "trigger": "Exact spectrum for the same binary hosts at q=2"
+        },
+        {
+          "assessment": "Different statistic",
+          "evidence": "Optimizes length of an exact power subsequence rather than counting distinct roots of each length.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-longest-repeated-subsequences-of-binary-two-run-powers--d0386f1167a3/RESULT.md",
+          "material_read": "Finding, offsets 0–1774",
+          "method": "Local mirror source text",
+          "title": "Exact longest repeated subsequences of binary two-run powers",
+          "trigger": "Same alternating host at run sizes 1,1, including arbitrary exponents"
+        },
+        {
+          "assessment": "Related optimization, not the same claim",
+          "evidence": "Computes longest common square subsequences of two supplied strings.",
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.CPM.2018.15",
+          "material_read": "Abstract, p. 1, PDF offset 392 onward",
+          "method": "OA PDF passage",
+          "title": "Computing Longest Common Square Subsequences",
+          "trigger": "Exact concatenated square subsequences"
+        },
+        {
+          "assessment": "Different repetition rule and objective",
+          "evidence": "Letter-duplicated blocks repeat individual symbols and the statistic is longest length.",
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.CPM.2022.7",
+          "material_read": "Abstract, p. 1, PDF offset 492 onward",
+          "method": "OA PDF passage",
+          "title": "Beyond the Longest Letter-Duplicated Subsequence Problem",
+          "trigger": "Potential ambiguity of repeated subsequences"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The exact root spectrum is a natural invariant, but no distinct scientific gain over the verified square-spectrum comparison survives in the frozen theorem: its extra exponent parameter relabels the same first-appearance events, and the two jumps and Fibonacci–Lucas forms follow by splitting the existing binary rational function. A presentation of the reindexing can be useful exposition, but it does not establish a nonmechanical new counting result.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

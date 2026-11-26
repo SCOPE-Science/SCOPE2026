@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:41:52.813832Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Fixed length and the local common-rotation slice impose the two zero-sum constraints. The reference modes 1 through m−1 vanish. Differentiation gives 2π Dc_k=−U_k+exp(−ikδ)V_k, δ=2πα/m, in unnormalized Fourier coordinates. For a conjugate pair k,m−k the complex two-row Gram matrix has diagonal 2 and off-diagonal modulus 2|cos(πα)|; the real input norm on this block has the Parseval factor 2/m. The even-m unpaired block has real U,V, Gram eigenvalues 1±|cos(πα)| and Parseval factor 1/m. These give exactly m(1±|cos(πα)|)/(4π²), each with real multiplicity m−1 (the values coincide at half duty), including m=2. The lower value is positive for 0<α<1. Taylor expansion on the separated labeled slice gives a uniform-in-direction cubic error for fixed m,α; singular directions attain the two optimal leading constants. The analytic inverse is local on this slice. The exact derivation verifies the theorem; the 45 numerical cases in the bound package were reported there and the script was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The matched Resultary record also proves restriction-Gram rigidity at the minimal component count.",
+          "Courtney Theorem 1 uses moments through order m for global recovery.",
+          "Batenkov et al. Theorem 3.2 treats rectangular clustered-node matrices.",
+          "Jiang Theorems 1.1 and 3.1 concern oscillation and low-frequency projections."
+        ],
+        "reasoning": "The same-corpus rigidity record contains the exact inverse-conditioning theorem in a wider result. The external global uniqueness, rectangular-matrix bounds and oscillation results are relevant context but are not used as substitutes for this exact coverage.",
+        "searches": [
+          "Resultary: exact inverse conditioning for perfectly balanced Fourier bands",
+          "arXiv:1002.0639v2",
+          "arXiv:1809.00658v2",
+          "arXiv:2608.04639v2"
+        ]
+      },
+      "checked_sources": [
+        "Bound RESULT.md, VERIFICATION.md and verify_jacobian.py (inspection)",
+        "Resultary matched record a288ba0aa91c, mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+        "Courtney arXiv:1002.0639v2",
+        "Batenkov et al. arXiv:1809.00658v2",
+        "Jiang arXiv:2608.04639v2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The matched record uses the same real conjugate-frequency block, gives the local inverse and computes the same two extremes of the Gram operator.",
+          "Courtney uses one more positive frequency for a global endpoint reconstruction algorithm."
+        ],
+        "reasoning": "Squaring the first-order expansion at the zero reference moments gives the stated energy constants from the matched spectrum, and extremal directions prove sharpness. No additional independent result is left by the energy wording. Courtney's global theorem alone would not imply this spectrum.",
+        "searches": [
+          "Matched Resultary RESULT.md offsets 3900–7633",
+          "Courtney arXiv:1002.0639v2, Theorem 1 and §4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Mirrored RESULT.md offsets 0–3718 and 3900–7633 state the same area and rotation constraints, modes 1 through k−1, real spectrum and multiplicities, including half-occupancy coalescence."
+        ],
+        "reasoning": "The other record's k and occupancy are precisely this record's m and α. It uses the same two endpoint-sum constraints and norms, so the overlap includes the numerical scaling and is not just a general analogy between Fourier problems.",
+        "searches": [
+          "Resultary: regular-arc low Fourier moments, endpoint Jacobian, inverse conditioning",
+          "36a7204b5741b75430355c38bf9bf0ef7468c2a4:2026/11/2/SCOPE-rigidity-and-exact-inverse-conditioning-for-perfectly-balanced-f--a288ba0aa91c/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The catalogue hit was verified in its mirrored theorem and proof; it contains the exact m- and α-dependent spectrum, not just a title hit or a list of numerical examples."
+        ],
+        "reasoning": "This is a continuum-parameter formula, so no finite table could certify its universal content. The analytic theorem in the indexed record is the exact coverage.",
+        "searches": [
+          "Resultary: regular arcs Fourier Jacobian exact spectrum",
+          "2026/11/2/SCOPE-rigidity-and-exact-inverse-conditioning-for-perfectly-balanced-f--a288ba0aa91c"
+        ]
+      },
+      "rationale": "A distinct published Resultary record contains the full constrained Jacobian theorem with the identical formula, multiplicities, condition number, local inverse and the same conjugate-frequency proof, and more. The energy bounds are an immediate Taylor consequence of that spectrum, not a distinct surviving claim. This is a finding of substantive overlap, not an inference about chronological priority or record lineage from catalogue dates.",
+      "residual_risks": [
+        "The catalogue dates do not establish historical priority or derivation between the two records. The overlap is decisive without resolving that history.",
+        "The external comparisons are at the cited statements, not a claim that no related result exists elsewhere."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EXACT SUBSTANTIVE OVERLAP",
+          "evidence": "Fixed area and rotation slice; first k−1 complex moments; exact real spectrum, multiplicities, condition number, half-duty coincidence and local inverse; additional Gram rigidity.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-rigidity-and-exact-inverse-conditioning-for-perfectly-balanced-f--a288ba0aa91c",
+          "material_read": "Mirrored RESULT.md, offsets 0–3718 and 3900–7633, finding and Fourier-block proof",
+          "method": "Local mirror, bounded statement and proof passages",
+          "title": "Rigidity and exact inverse conditioning for perfectly balanced Fourier bands (indexed record)",
+          "trigger": "Strongest same-object Resultary match"
+        },
+        {
+          "assessment": "Global recovery with different data; not the exact differential theorem in the inspected passages",
+          "evidence": "Uniqueness uses modes 0 through n on unions of at most n arcs; §4 recovers endpoints through a Blaschke-product equation.",
+          "identifier_or_url": "https://arxiv.org/abs/1002.0639v2",
+          "material_read": "Theorem 1 and §4 (HTML offsets 1350–3790 and 21500–24382)",
+          "method": "Open primary text, bounded passages",
+          "title": "Unions of arcs from Fourier partial sums",
+          "trigger": "Prior arc reconstruction on the same class of sets"
+        },
+        {
+          "assessment": "Different matrix and estimates",
+          "evidence": "Cluster separation and bandwidth bounds for partial Fourier/Vandermonde matrices, not the exact constrained real endpoint spectrum.",
+          "identifier_or_url": "https://arxiv.org/abs/1809.00658v2",
+          "material_read": "Abstract and introduction; §3.1, Theorem 3.2 (HTML offsets 650–3250 and 21600–25198)",
+          "method": "Open primary text, bounded passages",
+          "title": "Conditioning of partial nonuniform Fourier matrices with clustered nodes",
+          "trigger": "Potential broader Fourier singular-value theorem"
+        },
+        {
+          "assessment": "Related problem, not direct coverage in the inspected passages",
+          "evidence": "Sign changes, negative Sobolev norms and low-frequency projection bounds; no endpoint Jacobian conclusion in the inspected theorems.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.04639v2",
+          "material_read": "PDF p. 2, Theorem 1.1; p. 11, §3.1 and Theorem 3.1",
+          "method": "Open primary text, bounded theorem passages",
+          "title": "On a family of one-dimensional oscillation inequalities",
+          "trigger": "Same low-mode setting, cited as motivation"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "As a mathematical result, a sharp condition number for the minimal-dimensional local moment system at a natural regular family answers a substantive stability question not answered by qualitative global recovery. It shows independence of the number of arcs, loss of conditioning toward extreme duties, and the unique locally isotropic duty. This is meaningful content even though the independent originality assessment finds it already covered in a distinct record.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

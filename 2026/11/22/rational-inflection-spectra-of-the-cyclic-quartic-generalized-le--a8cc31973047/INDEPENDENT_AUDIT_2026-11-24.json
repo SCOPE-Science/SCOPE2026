@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:06:24.554672Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–75; supporting VERIFICATION.md, verify_symbolic.py and verify_legendre_flex.py (inspected, not executed)",
+        "Independent direct root and lift enumeration: /workspace/branches/95819416-44fb-4cd9-911a-578913cb3acc/record5_finitefield_check.py and record5_evidence.md. It found lambda=3 and 5 give 4 and 12 supports over F_7, respectively; over F_343 it found 86 split quartics and a 295/43 distribution among 338 allowed parameters."
+      ],
+      "rationale": "In characteristic at least seven the binary branch quartic is separable and the plane cover is smooth of genus three. In the finite unramified chart with y^4=g(x), y''=(4gg''-3(g')^2)/(16y^7)=-Q/(16y^7). The Hessian gives the same condition globally, and Q has no root at infinity. The three pair-product expressions are the resolvent roots by the elementary symmetric coefficients; their pairwise differences are, up to signs, 4*lambda*(2-lambda)/3, 4*(2*lambda-1)/3 and 4*(lambda^2-1)/3. Their squared product gives the monic discriminant; multiplying by 3^6 recovers the stated quartic discriminant. Evaluating Q at 0, 1 and lambda gives the nonzero resultant with g. Thus the four roots are simple, their four lifts each have contact exactly three, and each of the four branch points has tangent contact four. The canonical weights are contact order minus two. For the arithmetic, the three pair-sum differences have squares 16*D_i/9 and D1*D2=(lambda-2)^2*D3. Square values of D1,D2 therefore make all three differences rational, and their signed sums together with the total root sum recover the individual roots. The Klein-four transforms preserve Q and act freely on its roots: for A, reduction modulo x^2=lambda gives 4*lambda*(lambda+1)*(lambda+1-2*x), so the asserted resultant excludes fixed roots; the B and C fixed-point tests follow by x->1-x and x->x/lambda, respectively, with the associated parameter change. Thus one rational root implies four, and the g-transform ratios are nonzero squares, yielding either zero or eight rational ordinary supports. For D1,D2,D3 the full-line character sums are -c,-1,-c, while the excluded contributions are c,2c-1,c, with c=chi(-2); the split count is (q-5-6c)/4. The fixed-point-free partner lambda->1-lambda changes g to -g and hence swaps squares and nonsquares. This halves the split count and gives M_q as stated; the odd extension degree yields c=1 for q=3 mod 8 and c=-1 for q=7 mod 8. No flex multiplicities are included in the rational support counts.",
+      "residual_risks": [
+        "The finite checks do not certify the all-field statement; the proof uses separability, character sums and parameter pairing uniformly. No claim for excluded parameters, twists, other fields or isomorphism classes."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Goodson computes periods and arithmetic point data; the finite-field Theorem 5.3 assumes q=1 mod 4",
+          "The same-pencil inert-prime superspecial calculation in Resultary, Proof §§2–4, treats Hasse–Witt, p-rank and Prym data",
+          "Babu–Venkataraman is credited by the frozen source for the geometric inventory; the cited text could not be retrieved"
+        ],
+        "reasoning": "The geometric inventory does not determine the fixed points of Frobenius. Theorems on the curve’s total point count or superspecial strata are not a census of rational points on its marked flex divisor, and the inspected statements do not specialize to one.",
+        "searches": [
+          "Goodson §5.1–5.2 and Theorems 5.1–5.3",
+          "Babu–Venkataraman, Group Action on Genus 3 Curves and their Weierstrass Points",
+          "Resultary: cyclic quartic genus three superspecial divisor inert primes flex"
+        ]
+      },
+      "checked_sources": [
+        "Resultary query results and three local-mirror comparisons",
+        "Goodson arXiv:1705.02404 §5",
+        "Cited Babu–Venkataraman access attempt"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The target’s F_7 pair lambda=3,5 has the same geometric inventory and opposite ordinary-flex rationality. The proof identifies the sign change under lambda->1-lambda on the fourth-power lifting test"
+        ],
+        "reasoning": "Even knowing the geometric orbits, obtaining the marked histogram requires the resolvent splitting test, its quadratic-character census and the parameter-pair sign reversal. The checked invariant and geometry sources do not provide those arithmetic implications.",
+        "searches": [
+          "Goodson Theorem 5.3",
+          "Resultary 2026/11/8/SCOPE-the-reduced-superspecial-divisor-of-the-cyclic-quartic-genus-thr--8c80d021706e, Finding and Proof §§2–4",
+          "Resultary cyclic-six record, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Goodson, arXiv:1705.02404 §5, identifies the same pencil",
+          "Resultary 2026/11/22/SCOPE-frobenius-splitting-of-23-reduced-inflection-supports-in-a-cycli--38e860e91f30, Finding and Proof §§1–4, considers Frobenius on inflection supports of a different cyclic-six family"
+        ],
+        "reasoning": "Counting Frobenius-fixed Weierstrass supports here is equivalent to counting rational supports in the plane model. The cyclic-six calculation is arithmetically analogous, not the same cover or support divisor; the frozen matching hit was the identical finding, not independent coverage.",
+        "searches": [
+          "Resultary: rational flex supports cyclic Legendre quartic marked parameters frequency",
+          "Resultary: generalized Legendre curve rational inflection points flex support"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The F_13 indexed comparison computes zeta numerators and point counts of this family, not rational flex supports; 13 also fails the q=3 mod 4 condition",
+          "No independent table of coefficient-marked rational inflection-support frequencies appeared in the inspected results"
+        ],
+        "reasoning": "Cross-ratio orbit counts or a table of zeta spectra are not the same refined invariant. The target is a count on the fixed model at every admissible q, not a count of isomorphism classes or Weil spectra.",
+        "searches": [
+          "Resultary searches above; compare SCOPE-six-weil-spectra-within-three-cross-ratio-orbits-of-generalized--b312a210df52",
+          "arXiv:1705.02404 §5.2"
+        ]
+      },
+      "rationale": "Credit the existing pencil and the geometric generic flex inventory. The supported distinct contribution is the arithmetic all-or-none rational ordinary flex splitting and the exact count of marked parameters realizing it at q=3 mod 4. The strongest available statements for the identical pencil compute other invariants; the closest indexed flex-splitting comparison treats another family.",
+      "residual_risks": [
+        "The Babu–Venkataraman text was inaccessible; it was not assessed as a whole. This bounded corpus and focused primary-source check cannot rule out unindexed arithmetic splitting calculations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same pencil; periods, Hasse–Witt/Frobenius trace and point counts, not a flex census in the inspected statements",
+          "evidence": "Theorem 5.3 assumes q=1 mod 4 and counts points on the curve.",
+          "identifier_or_url": "https://arxiv.org/abs/1705.02404",
+          "material_read": "PDF pp. 7–10, §5 and Theorems 5.1–5.3, offsets 22100–34010",
+          "method": "OA PDF, bounded passages",
+          "title": "Hypergeometric Properties of Genus 3 Generalized Legendre Curves",
+          "trigger": "Same cyclic quartic and finite-field arithmetic"
+        },
+        {
+          "assessment": "Geometry credited; arithmetic coverage not independently assessed",
+          "evidence": "The frozen discussion identifies §2 as covering the quartic form and geometric weights; that attribution is not a reading of the original paper.",
+          "identifier_or_url": "https://www.academia.edu/4768194/Group_Actions_on_Genus_3_Curves_and_their_Weierstrass_Points",
+          "material_read": "No primary passage retrieved; attribution in frozen RESULT.md line 81",
+          "method": "Bounded OA attempts, HTTP 403",
+          "title": "Group Action on Genus 3 Curves and their Weierstrass Points",
+          "trigger": "Cited same-pencil geometric flex classification and potential arithmetic overlap"
+        },
+        {
+          "assessment": "Same model and inert primes, different invariant",
+          "evidence": "The divisor describes superspecial marked parameters via Hasse–Witt and Prym information.",
+          "identifier_or_url": "2026/11/8/SCOPE-the-reduced-superspecial-divisor-of-the-cyclic-quartic-genus-thr--8c80d021706e",
+          "material_read": "Finding and Proof §§2–4",
+          "method": "Local mirror, commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "The reduced superspecial divisor of the cyclic-quartic genus-three pencil at inert primes",
+          "trigger": "Closest same-pencil, same-prime-range indexed result"
+        },
+        {
+          "assessment": "Different invariant and field range",
+          "evidence": "The finding reports Weil spectra over F_13, not rational flex supports.",
+          "identifier_or_url": "2026/11/22/SCOPE-six-weil-spectra-within-three-cross-ratio-orbits-of-generalized--b312a210df52",
+          "material_read": "Finding at offset 0",
+          "method": "Local mirror, same snapshot",
+          "title": "Six Weil spectra within three cross-ratio orbits",
+          "trigger": "Indexed exact marked arithmetic data for the same equation"
+        },
+        {
+          "assessment": "Different family, no proof of this Legendre census",
+          "evidence": "The cyclic-six models at r=3 and r=4 over F_7 have seven rational supports and different Frobenius partitions.",
+          "identifier_or_url": "2026/11/22/SCOPE-frobenius-splitting-of-23-reduced-inflection-supports-in-a-cycli--38e860e91f30",
+          "material_read": "Finding and Proof §§1–4",
+          "method": "Local mirror, same snapshot",
+          "title": "Frobenius splitting of 23 reduced inflection supports in a cyclic-six quartic family",
+          "trigger": "Closest indexed finite-field flex-splitting problem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–17 and 31–75",
+        "Goodson §5 and the same-pencil Resultary comparisons"
+      ],
+      "rationale": "Rationality of the canonical flex supports is a natural arithmetic refinement of the known geometric stratum of this standard quartic pencil. Rather than a few examples, the result rules out all intermediate numbers, exhibits the fourth-power obstruction even when the x-coordinates split, and gives an all-field marked frequency. The parameter involution explains why splitting and liftability contribute different fractions.",
+      "residual_risks": [
+        "The invariant does not determine a zeta function, count isomorphism classes or classify the twists; value is in the fixed-model arithmetic census."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,11 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The positive semigroup and population comparison bound all solutions. An exact Lyapunov derivative forces global disease-free convergence. Rank-one resolvent analysis proves a simple zero eigenvalue and a uniformly stable complement. Exponential-convolution comparison yields the unique slow direction and the sharp amplitude \(\mu S_*^2d\), with a separate exact proof for the silent initial face. The proof covers every finite stage count and every allowed nonnegative initial condition, not just numerical tests.
+## correctness
 
-**Originality — PASS subject to residual literature risk.** Earn and McCluskey (2025, DOI 10.1073/pnas.2510156122) already establish global disease-free attraction and the reproduction threshold for the same model. Their theorem is not the new claim. In the inspected manuscript's equations, results, discussion and methods, the explicit second-inverse-moment critical amplitudes, logarithmic incidence coefficient and all-initial-state silent-face classification are not supplied. Guo–Li–Shuai (2012, DOI 10.1137/110827028) prove stability of a related multistage model without those exact rates. Targeted database and primary-literature searches have not identified a statement subsuming this combined theorem. The residual risk is an older generic transcritical/renewal normal-form theorem with explicit coefficients or a less easily indexed epidemiological formula; negative searches are not proof of priority.
+PASS
 
-**Mathematical value — PASS.** At a nonhyperbolic threshold, asymptotic stability gives no rate. The coefficient \(d=\beta^{\mathsf T}M^{-2}P\) captures a natural stage-duration moment not present in the threshold \(\beta^{\mathsf T}M^{-1}P\), giving a model-wide quantitative prediction. The total number of future infection events diverges logarithmically despite prevalence vanishing. The exact exceptional silent-face alternative remains meaningful under reducible compartment graphs. The law is independent of population initialization once some transmissible mass is present.
+The strict positive loss in each column makes e^(-Mt) a positive-cone contraction in the 1-norm and bounds total population by scalar comparison. Susceptibles are eventually bounded away from zero by comparing with S'=ν-(μ+λ_max)S, so LaSalle applies even for S(0)=0. The critical Lyapunov derivative is -μ(S-S_*)²/S; on S=S_* invariance forces λ=0, and the stable residual stage system has no nonzero bounded complete orbit. For the infected-block rank-one resolvent, K(t)=β^T e^(-Mt) P≥0 has positive integral and is positive on some interval; a strict triangle inequality rules out imaginary roots other than 0, decay rules out roots with Re z>0, and the simple-factor derivative is S_*d>0 since d=∫tK(t)dt. For w=ℓ^T x>0, λ≤Cw, so |(log w)'|→0. Choose a late starting time with this derivative bounded by ε below both stable decay rates. Ratios w(t-v)/w(t) then converge to 1 for fixed v and are bounded by exp(εv) in the late-time convolutions; initial transients divided by w vanish. Thus x/w→q/d, λ/w→1/(S_*d) and (S-S_*)/w→-1/(μd). The reciprocal derivative tends to 1/(μS_*²d²), yielding all three scaled limits and logarithmic incidence by integral comparison. If w=0 initially, λ≤Cw and a scalar differential inequality keep w=λ=0, giving exact exponential dynamics. This reasoning allows q_j=0 and does not assume irreducibility. The supplied finite check was inspected only; it does not verify the general rate or cumulative incidence.
 
-**Closest literature and limitations.** The original threshold and global-attraction theorem belong to Earn–McCluskey. Broader stage-network GAS results belong to Guo–Li–Shuai and earlier work. The contribution is restricted to the exact critical autonomous bilinear model; higher-order asymptotics, nonlinear incidence, delays and near-critical scaling are not claimed. The analytical proof, not finite simulations, supports universal validity. Bibliographic novelty remains open to independent scrutiny.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the same ODE, reproduction threshold and global threshold attraction to prior work, and the generic simple-center mechanism to standard theory. The distinct contribution is the quantitative coefficient and profile theorem with its global initial-state dichotomy, including stages not reachable from the recruitment state. No examined stronger claim yields this entire result without a fresh model-specific spectral, nonlinear and initial-face analysis.
+
+## value
+
+PASS
+
+The transfer structure affects critical amplitudes through a kernel time moment not specified by the reproduction threshold. Exact global stage-vector scaling, logarithmic cumulative incidence despite vanishing prevalence, and a criterion distinguishing exponential decay in a reducible network are useful quantitative information beyond the fact of convergence. This is not a claim of a new local bifurcation mechanism.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

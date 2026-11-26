@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:03:57.093545Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Every prefix of an overlap-free word is overlap-free. For each one-bit extension, a factor of length 2p+1 has period p exactly when it is axaxa with |x|=p-1; this includes p=1. The supplied recurrence removes the final nonempty square, so correctly computes maximum square count; for this theorem the exact-nine test can also be done independently without relying on the distinction between at least nine and exactly nine. The independent reproduction checked every possible start of a forbidden factor and counted factorizations at each exact depth, with the empty prefix having depth zero and only positive-length even square edges allowed. It found zero exactly-nine words at each length 1–47, then 416 overlap-free words at length 48 of which exactly the displayed complementary pair admit nine squares. Each has exactly one ordered cut, with lengths (6,4,4,4,12,4,4,4,6). Replay: python /workspace/branches/0ba74666-1385-4be6-8d72-124807c92212/independent_census.py; its output is independent_census.log in the same directory. This is a finite exact exhaustion, not a statement about longer words or other alphabets.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "52c025fc067a gives all nine minima and minimizer counts for k=1,...,9, ending in 48 and 2, and proves unique ordered factorization for every minimizer.",
+          "The later record fc9c72e08d71 extends the length census for nine squares to 96 and includes this length-48 pair."
+        ],
+        "reasoning": "The first nine-entry classification strictly subsumes the frozen k=9 case. The other record is related coverage over a longer length interval, not needed to decide the exact same-day overlap.",
+        "searches": [
+          "Resultary 52c025fc067a, Finding",
+          "Resultary fc9c72e08d71, Finding"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2605.28570v1",
+        "Resultary 52c025fc067a and fc9c72e08d71"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 1 says a product of ten or more binary squares contains an overlap, and §3 exhibits a nine-square overlap-free product.",
+          "The stronger Resultary classification proves all minimizers at every k through 9 have unique cuts; the provided k=9 factorization has root lengths 3,2,2,2,6,2,2,2,3."
+        ],
+        "reasoning": "The threshold and existence theorem does not by itself entail shortest length or uniqueness. The catalogue theorem does entail precisely those facts, and complementation carries the supplied cut to the other word with the same lengths.",
+        "searches": [
+          "arXiv:2605.28570v1 Theorem 1 and §3",
+          "Resultary 52c025fc067a, Finding and Assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 52c025fc067a Finding and Assumptions use ordered contiguous factorizations into exactly k nonempty squares of a finite binary word, and axaxa including empty x.",
+          "For k=9 it lists exactly the two literal 48-letter words from the frozen record and explicitly says they are complements."
+        ],
+        "reasoning": "The minimum over literal words, and likewise the resulting single orbit under complementation, are exactly the same classification in both records.",
+        "searches": [
+          "Resultary comparison for overlap-free binary words minimizing length among products of nine squares, including exact factorization and complement symmetry",
+          "Shallit arXiv:2605.28570v1 §§1,3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "52c025fc067a tabulates all minimum lengths and counts, the exact two length-48 words and one cut.",
+          "Shallit's earlier displayed nine-square word is precisely the first word, with the same factor lengths; that example alone is not a table of all minimizers."
+        ],
+        "reasoning": "The Resultary entry establishes the full exact classification and cut uniqueness; the primary witness supplies the upper bound and a cut, but not minimality or uniqueness.",
+        "searches": [
+          "Resultary 52c025fc067a, mirrored RESULT.md offset 0",
+          "arXiv:2605.28570v1 §3 displayed product"
+        ]
+      },
+      "rationale": "A distinct indexed result, 52c025fc067a, gives the entire submitted theorem as the k=9 part of a stronger minimum-length spectrum. It uses the same definitions and states the same pair and unique cuts. The date shared by the catalogue entries does not establish which result was found or made public first; this is demonstrable statement coverage, not a claim of historical priority or derivation. No distinct substantive remainder is established by the frozen claim.",
+      "residual_risks": [
+        "The dates of same-day entries do not resolve relative priority or demonstrate dependence. No global historical-priority claim is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior threshold and upper bound, not the exact lower bound or uniqueness in the passages inspected",
+          "evidence": "No overlap-free product has at least ten squares; the explicit nine-factor product starts with (001)^2 and ends with (011)^2.",
+          "identifier_or_url": "https://arxiv.org/abs/2605.28570v1",
+          "material_read": "§1 Theorem 1, PDF p. 2 (offset 3360), and §3 displayed product, PDF p. 6 (offset 13650)",
+          "method": "Primary OA PDF passages",
+          "title": "Ten Squares Force an Overlap",
+          "trigger": "Exact extremal factor count and matching length-48 witness"
+        },
+        {
+          "assessment": "Direct covering result; relative priority not established",
+          "evidence": "m_9=48, c_9=2, same complementary words, same cut and assertion of unique ordered factorizations for all minimizers.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-sharp-minimum-lengths-for-overlap-free-binary-products-of-up-to--52c025fc067a",
+          "material_read": "RESULT.md at mirror commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4, offsets 0 and 4100; Finding, assumptions and exact minimizer/cut statements",
+          "method": "Catalogue search followed by bounded local-mirror reading",
+          "title": "Sharp minimum lengths for overlap-free binary products of up to nine squares",
+          "trigger": "Stronger matching classification, not the assigned record itself"
+        },
+        {
+          "assessment": "Later related extension, not evidence of earlier priority",
+          "evidence": "Length census through 96 includes the same pair at 48.",
+          "identifier_or_url": "Resultary fc9c72e08d71",
+          "material_read": "Mirrored RESULT.md Finding",
+          "method": "Catalogue search and local-mirror reading",
+          "title": "First doubling-window spectrum for overlap-free nine-square products",
+          "trigger": "Same factor count with larger length bound"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "In mathematical content the minimum over the maximum permitted square count, complete classification of optimizers, and rigidity of their cuts are substantive, naturally posed refinements of the ten-square theorem. This assesses the question's scientific value separately from the exact indexed coverage that defeats distinctness.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Exact standalone verification
+# Independent mathematical audit
 
-Run with Python 3 in this directory:
+## correctness
 
-```sh
-python3 verify.py
-python3 modp_check.py
-```
+PASS
 
-Both programs use only the standard library. `verify.py` exhaustively constructs every permitted vertex subset in the four-by-four rook graph from graph-metric forbidden triples and independently through the equivalent bipartite-star-forest representation. It checks the entire face list, matching size, every Hasse relation, complete directed acyclicity, the critical-cell distribution, and the signed **integer** Morse boundary from the critical four-cell. Boundary signs depend on the ordinal position in the ordered simplex. The exact result is zero, after 191 integer unit substitutions. The critical-cell CW structure is one zero-cell, ninety-eight three-cells and one four-cell; its final attaching map is nullhomotopic.
+Rook distance is Hamming distance, so the only forbidden triples are 144 three-corner L shapes (72 nonadjacent pairs, two middle vertices each). Independently recognized the same rule by requiring every selected square to be alone in at least one of its selected row or column: a violation supplies an L, and conversely. Enumerated the f-vector (16,120,416,632,240,16), so the maximum facet dimension is five. Reconstructed the 670 disjoint pairs on the nonempty face poset and topologically sorted all 5312 oriented covers. The critical cells are one vertex, 98 three-cells and one four-cell; discrete Morse theory gives a homotopy-equivalent CW model, not a claim of elementary simplicial collapse to an abstract wedge. Independently reduced the signed boundary of the critical 4-cell in DAG order using 191 nonzero unit-pivot updates. Each update subtracts the boundary of the matching upper cell, with its orientation determined by the position of the deleted vertex. The zero residual in the full 3-chain group leaves zero Morse boundary; neither torsion nor nullhomotopy is inferred from finite-field Betti numbers. Below the sole 4-cell the CW model is a wedge of 98 three-spheres; Hurewicz identifies π₃ with H₃ there, so zero integral attaching degrees prove nullhomotopy and the claimed wedge.
 
-`modp_check.py` independently computes the complete simplicial boundary ranks and Betti vectors over the fields with 2, 3 and 5 elements; these tests supplement rather than replace the exact integer Morse attachment calculation. The recorded complete outputs of both commands are in `verification_output.txt`.
+## originality
 
-These checks certify only the explicitly finite sixteen-vertex domain of the claim. Independent mathematical audit has not been performed.
+PASS
+
+The star-forest description, all face counts, maximum facet dimension, and even the set of maximal dimensions of the same board are covered by prior enumerators. The integral wedge type, specifically the 98 three-spheres and one four-sphere with null integral attachment, is not explicitly or mechanically obtained from those counts. The closest inspected integral homotopy theorem has three rows, not four. Pass applies to the homotopy classification, not to the classical or enumerative inputs.
+
+## value
+
+PASS
+
+Determines the complete wedge type and the two nonzero reduced integral homology groups of a natural board complex, despite maximal simplices in dimension five. This is genuinely different data from face enumeration: identifying the wedge requires verifying a null attachment. The balanced board is a useful exact reference for the broader problem of topologizing graph general-position sets or bipartite star forests.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

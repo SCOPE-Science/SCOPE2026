@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:31:03.063155Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The repaired Finding isolates the uniform V_3>V_2 obstruction on both one-versus-four shapes. I independently enumerated subset values from the identity D(S)=H+sum of the ages of vertices with a sampled tip in each child; this follows by adding the two child contributions when both are occupied, and by continuing a single path otherwise. Replay: python /workspace/checks/2.py. It reproduces the two exact difference polynomials and, as contextual checks, F, G and the witness. The frozen proof's x_2>0 parametrization omitted equally aged sibling cherries; the repaired proof allows x_2=0 in the balanced case. Its difference then has numerator 2*x_3^2+4*x_3*x_4>0, so that entire boundary within the positive-edge domain is covered. The nested shape has x_2>0 and its numerator has a strictly positive x_3^2 term too. Nonadjacency of strict maxima leaves only depths 2 and 4, hence V_3>V_2 excludes both shapes. This checks all fully binary five-tip shapes under fixed-size, uniform sampling, not other sampling laws.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general rooted rarefaction formula gives the exact covariance using the probability a fixed-size sample misses a descendant-set union. O'Dwyer et al. give metacommunity sampling methods including a binomial scheme, and defer variance details to supplementary material. Chao et al. were not verified in full."
+        ],
+        "reasoning": "A general evaluation formula covers the variance calculation but is not a monotonicity result between depths 2 and 3 on either shape. The repaired claim requires a uniform strict sign for all allowed branch ages.",
+        "searches": [
+          "Nipperess–Matsen arXiv:1208.6552, Rooted phylogenetic diversity section",
+          "O'Dwyer–Kembel–Green DOI 10.1371/journal.pcbi.1002832, expectation and variance section",
+          "Chao–Chiu–Jost DOI 10.1111/2041-210X.12247"
+        ]
+      },
+      "checked_sources": [
+        "Nipperess–Matsen rooted variance derivation",
+        "Resultary 784aa021ee67 and e04d268d2b3a original passages",
+        "O'Dwyer–Kembel–Green primary main text",
+        "Chao et al. bibliographic identification only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The five-tip lower bound is combinatorial and does not distinguish root splits. The exact rarefaction formula allows computing both differences, but one must compare different moments at k=2 and k=3 and prove strict positivity on each admissible age domain."
+        ],
+        "reasoning": "The matched specialized theorem does not bound the other split's signs; the reusable covariance expression does not itself establish those signs by parameter substitution alone. The topology exclusion, including the equal-age case, is the surviving structural classification.",
+        "searches": [
+          "Nipperess–Matsen p. 7 rooted variance",
+          "784aa021ee67 Finding and lower bound",
+          "e04d268d2b3a Finding and sampling assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The phase inequalities in 784aa021ee67 are precisely F/H^2 and G/H^2 after (u,v,w)/H=(gamma-alpha,gamma-beta,beta) in normalized depth variables. Its Finding explicitly confines the phase calculation to ((1,2),(3,(4,5))) and not all five-tip topologies."
+        ],
+        "reasoning": "Rescaling or changing ages to root depths does not create a new phase result. A uniform sign on both one-versus-four shapes is not an equivalent reformulation of a phase classification on the two-versus-three shape.",
+        "searches": [
+          "Resultary search for five-taxon bimodal ultrametric rarefaction variance",
+          "784aa021ee67 mirrored original RESULT.md Finding and proof",
+          "Nipperess–Matsen arXiv:1208.6552 rooted PD"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "784aa021ee67 matches the two-versus-three phase region and onset, so the repair excludes these from its claimed advance. e04d268d2b3a concerns independent extinction risk on ten tips, not a uniform fixed-size sample."
+        ],
+        "reasoning": "Neither match establishes the two strict-difference identities for one-versus-four shapes. The conclusion rests on matched statements, not a date-based priority inference.",
+        "searches": [
+          "Resultary exact Finding for 784aa021ee67",
+          "Resultary two separated peaks, e04d268d2b3a original Finding"
+        ]
+      },
+      "rationale": "For the repaired claim, the root-one-versus-four exclusion is distinct from the exact onset at five and phase criterion on one shape, which have verified indexed overlap and are now identified as context rather than an originality claim. The two exact strict signs on the other shapes are not given by that indexed result or by any compared source as stated conclusions.",
+      "residual_risks": [
+        "O'Dwyer et al. supplementary variance details and Chao et al. full text were not available. The identified phase overlap is exact; no priority inference is made from relative catalogue dates. An unlocated structural classification could still exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "covers evaluation formula, not the uniform topology exclusion in the inspected passages",
+          "evidence": [
+            "Variance sums edge-length products against q_k(D_i union D_j)-q_k(D_i)q_k(D_j); with one mark per tip q_k is the hypergeometric miss probability."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1208.6552",
+          "material_read": "Rooted phylogenetic diversity, PDF p. 7, offsets 15950–18705",
+          "method": "Primary OA PDF bounded passages",
+          "title": "The mean and variance of phylogenetic diversity under rarefaction",
+          "trigger": "the exact sampling model and rooted variance formula"
+        },
+        {
+          "assessment": "exact overlap for onset and phase region, expressly not the other topologies",
+          "evidence": [
+            "The finding names the same rooted two-versus-three shape, gives its two normalized quadratic inequalities, and expressly says it is not a classification of all five-tip topologies."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-sharp-five-taxon-onset-and-a-phase-region-for-bimodal-ultrametri--784aa021ee67",
+          "material_read": "original RESULT.md Finding, assumptions, proof, offsets 0–8183",
+          "method": "Local Resultary query and mirrored original statement inspection",
+          "title": "Sharp five-taxon onset and a phase region for bimodal ultrametric phylogenetic-rarefaction variance",
+          "trigger": "exact five-tip phase-region match"
+        },
+        {
+          "assessment": "different sampling law, size and conclusion",
+          "evidence": [
+            "The construction uses independent extinction and a ten-tip tree."
+          ],
+          "identifier_or_url": "2026/10/12/SCOPE-two-separated-variance-peaks-for-future-rooted-phylogenetic-dive--e04d268d2b3a",
+          "material_read": "original Finding, offsets 0–3073",
+          "method": "Local Resultary query and mirrored original passage",
+          "title": "Two separated variance peaks for future rooted phylogenetic diversity",
+          "trigger": "earlier similarly named indexed bimodality result"
+        },
+        {
+          "assessment": "main text concerns metacommunity sampling; supplementary coverage unresolved",
+          "evidence": [
+            "Main text includes a binomial local sampling scheme and refers variance details to supplementary material."
+          ],
+          "identifier_or_url": "https://doi.org/10.1371/journal.pcbi.1002832",
+          "material_read": "main text pp. 2–3, expectation and variance; variance supplement not obtained",
+          "method": "Publisher OA PDF bounded passages",
+          "title": "Phylogenetic Diversity Theory Sheds Light on the Structure of Microbial Communities",
+          "trigger": "potential broader prior mean-variance formula"
+        },
+        {
+          "assessment": "full-text comparison unresolved",
+          "evidence": [
+            "No source-level claim of noncoverage is made for this paper."
+          ],
+          "identifier_or_url": "https://doi.org/10.1111/2041-210X.12247",
+          "material_read": "bibliographic identification only",
+          "method": "Lawful DOI and publisher access and alternate-copy attempts",
+          "title": "Rarefaction and extrapolation of phylogenetic diversity",
+          "trigger": "possible related rarefaction variance coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "At the first size allowing two strict peaks, the witness alone cannot determine whether root topology is constrained. The uniform V_3>V_2 signs rule out both competing shapes and make the classification exhaustive rather than just exhibiting a feasible region. The result diagnoses a structural feature of the first possible bimodal fixed-size variance profile and includes all admissible positive-edge parameters, not just tested examples.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Scientific assessment of the sharp finite-size Walsh-compression norm
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is about one explicitly normalized symmetric Fourier compression. Its inverse is an anti-bidiagonal matrix with exactly the stated entries; squaring gives a positive tridiagonal Jacobi matrix. A leading-minor recursion therefore determines its full spectrum, and the smallest positive root determines the sharp norm. The positive comparison vector proves the strict spectral-edge lower bound by a ground-state identity; the constant-coefficient interior principal minor provides the complementary upper bound. Positivity of the lowest Jacobi eigenvector fixes the boundary-phase branch, and Taylor expansion gives the exact shifted quadratic deficit with an absolute fourth-order remainder. This is an infinite-index proof; the 55 exact algebraic assertions and nine numerical checks are supplementary only.
+## correctness
 
-## Originality — PASS relative to checked material
-The closest source is Hogan and Lakey, *An Eigenvector Problem Arising in the Study of Convergence of Walsh–Fourier Series* (Mathematics 14 (2026), 829). Their Equation (1), Theorem 1, Remark 2, Section 4 and Conclusions were inspected. They use the identical compressed matrix, give approximate eigenvectors, and explicitly describe the quadratic norm deficit only as a numerical suggestion; they do not state the inverse-square Jacobi matrix, the exact determinant recursion, the explicit leading coefficient, or the boundary shift. Lakey's arXiv:2602.17627v1, especially its matrix equations (10)–(14) and conjectural/numerical norm discussion, does not imply those formulas either. Targeted queries for weighted anti-triangular truncations, Chebyshev/Jacobi inversions, and shifted quadratic rates found no matching indexed claim. General Jacobi-matrix theory supplies proof techniques, not the object-specific spectral asymptotic without the computation. An unindexed exact calculation remains possible; this is not a claim of exhaustive literature coverage.
+PASS
 
-## Mathematical value — PASS
-A 2026 harmonic-analysis paper identifies this matrix as an important compressed dyadic Walsh partial-sum operator and explicitly leaves its numerically observed quadratic convergence unresolved. An exact finite-index spectral method and a proof of the conjectured exponent, including the sharp coefficient and nontrivial effective boundary length \(5+3\sqrt2\), directly address that motivated spectral question. They make quantitative finite-size truncation comparisons possible. The result does not settle the separate conjecture that this is the norm-largest truncation among all dyadic patterns, nor the full Walsh maximal operator.
+The weighted anti-triangular indicator factors as an upper-triangular ones matrix times reversal. Inverting the ones factor gives a first difference; squaring the symmetric inverse yields Jacobi diagonal (2,6,...,6,4) and off-diagonal (-2,-2sqrt(2),...,-2sqrt(2)). The leading-minor recurrence is det(J-tI); positivity follows from the invertible inverse square and simplicity from the nonzero couplings. The positive vector h=(sqrt(2)s,1+s,...,N+s), s=3+2sqrt(2), has zero edge-shifted residual except for a positive residual at N, giving strict positivity above 6-4sqrt(2) by a sum of squares. The constant-coefficient principal submatrix gives theta <= pi/N. Eliminating u_0 gives the effective left ghost ratio a=sqrt(2)/(2-lambda); the right ghost ratio is b=1/sqrt(2). At small theta, both phases lie in (0,pi/2); the positive least eigenvector and the step size theta<pi keep its last phase below pi, so the right boundary forces (N-1)theta+phi+eta=pi, not a higher multiple. The linear phase corrections sum to 1/(1-a(0))+1/(1-b)-1=5+3sqrt(2), with cubic phase error. Consequently theta=pi/(N+c)+O(N^-4); cosine and inverse-square-root expansions give the specified norm deficit and absolute O(N^-4). Independent diagonalizations of the dense compression and Jacobi matrix agreed at six sizes including N=2 and N=250.
 
-## Scope and limitations
-The characteristic polynomial uses a real root prescription, not a general radical expression. The asymptotic error is \(O(N^{-4})\) without an explicit global error constant. The paper-specific normalization and index convention are essential. Unindexed alternative formulations of the same weighted anti-triangular inverse could cover the result; no independent audit has been conducted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported contribution is finite spectral quantification for the already-known compression: the explicit boundary-modified Jacobi recurrence and the sharp deficit coefficient and phase shift. The compression, use of sinusoidal vectors and limiting constant are not credited as new.
+
+## value
+
+PASS
+
+This canonical Walsh compression was already a motivated spectral object, and its prior approximate eigenvector analysis left the quantitative rate open on the available evidence. The exact recurrence allows finite-index evaluation without the full Walsh matrix; the proven edge law distinguishes boundary effects from the limiting constant and settles a specific previously numerical scale. It need not establish optimality among all truncations to be useful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:36:16.477948Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md:3–52; independent integral matrix expansion, descent and finite count",
+        "VERIFICATION.md:19–23 and verify.py:19–65 inspected, not executed; the supplied code aggregates nonzero traces rather than checking each fixed trace separately",
+        "Independent replay: python3 /tmp/opencode/frozen_audit_replay.py 1; symbolic 2×2 commutator calculation and genuine F9 enumeration of trace strata (800 trace zero, 810 for each of eight nonzero traces)."
+      ],
+      "rationale": "In the split traceless 2×2 matrix model, b(x,y)=tr(xy). Substituting N(x)=b(v,x)u and expanding matrix commutators gives T_N(x,y)=tr(v²)tr(u[x,y])u with the stated torsion sign as an integral polynomial identity. This specializes in particular to characteristic 3. Nondegeneracy of b and surjectivity of the bracket span both descend from the split model in characteristic ≠2; the identity descends by injective scalar extension. Thus for u≠0 the torsion is identically zero exactly when b(v,v)=0. The rank-one Segre map with the covector factor identified through b takes the conic product onto the locus, and equality of reduced closed subschemes follows from the torsion equations in the split field and descent. The conic is smooth even when it has no rational point. For v=rE+sH+tF the equation is s²+rt=0, giving q²−1 admissible nonzero v. Each tensor has q−1 presentations and trace b(v,u); a given nonzero v admits q²−1 nonzero u of trace zero and q² for any fixed trace t≠0. This gives the exact overall and trace-stratum counts and N²=(tr N)N. No higher-rank classification is required.",
+      "residual_risks": [
+        "The finite replay checks one extension field; the all-field and nonsplit assertions rest on the polynomial identity and descent.",
+        "The claim is only about reduced projective rank-one geometry, not an unreduced torsion scheme."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Li–Ma Theorem 5.1 classifies all Nijenhuis operators on split complex sl2. The other inspected sources treat the defining identity, regular-semisimple eigenbases, stem two-step algebras, or the associative rather than Lie identity."
+        ],
+        "reasoning": "The complex classification includes the complex rank-one slice, while the regular-semisimple problem does not. The same-day hits with a different class of Lie algebras or associative product do not cover the result. The split identity in the exact odd-characteristic regime is the more decisive indexed statement.",
+        "searches": [
+          "Li–Ma arXiv:2502.18717v4; Liu–Sheng–Zhou–Bai arXiv:1601.02356v1; Zhikhareva arXiv:2410.10536v1",
+          "Resultary b01ff09058b3 and 8f7b082eca4e"
+        ]
+      },
+      "checked_sources": [
+        "Resultary b54c91a5334b, 4c68434b0025, b01ff09058b3 and 8f7b082eca4e",
+        "arXiv:2502.18717v4, 1601.02356v1 and 2410.10536v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The indexed split torsion calculation explicitly excludes only characteristic two; it gives values on a basis of Λ², so it is a full tensor identity. The Segre locus in the frozen claim uses the same conic in the second factor, with unrestricted image line."
+        ],
+        "reasoning": "The tensor identity is intrinsic when expressed via b, and descends immediately from the split extension to each form. The conic criterion, the reduced product and rational existence follow by rank-one factorization and nondegeneracy. This does not say the indexed split sources explicitly state a theorem about all forms, or that their dates prove precedence.",
+        "searches": [
+          "b54c91a5334b, Assumptions and Proof §1; 4c68434b0025, Finding; Li–Ma §5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "b54c91a5334b Proof §1 gives all three split basis-wedge torsion values with Q(f)=4f(E)f(F)+f(H)² and the resulting smooth isotropic conic. Li–Ma gives an all-ranks classification over C."
+        ],
+        "reasoning": "Writing f=b(v,·) identifies Q(f) with 2b(v,v), and the three wedge values are the components of b(v,v)b(u,[x,y])u. The complex classification covers a narrower field regime, and alone would not establish the characteristic-independent identity.",
+        "searches": [
+          "Resultary: rank-one Lie Nijenhuis on sl2, isotropic covector conic, square-zero tuples, rank-one idempotents; b54c91a5334b and 4c68434b0025",
+          "Li–Ma arXiv:2502.18717v4, §5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact q-parametric indexed counts are (q+1)(q²−1) for rank-one square-zero and q²(q+1) for rank-one idempotent Lie-Nijenhuis operators."
+        ],
+        "reasoning": "The first is exactly the trace-zero stratum. Since N²=(tr N)N and torsion is homogeneous of degree two in N, N↦N/t bijects each nonzero trace stratum with the indexed idempotents. Summing the strata also recovers the claimed total.",
+        "searches": [
+          "b54c91a5334b, square-zero tuple census at tuple length 1; 4c68434b0025, rank-one idempotents"
+        ]
+      },
+      "rationale": "Indexed record b54c91a5334b gives the exact split rank-one torsion components, not only the zero condition, and states the smooth conic and the square-zero stratum. Record 4c68434b0025 gives the rank-one idempotent count, which equals every nonzero trace stratum after rescaling. The arbitrary-form version is not stated in those sources, but follows directly by descending the exact tensor identity, and the projective product is the rank-one Segre image of the same conic. There is no genuinely distinct valuable residue. This is equivalent indexed coverage and direct implication, not a priority claim.",
+      "residual_risks": [
+        "Bounded literature search; the journal publication status of Li–Ma was not independently established.",
+        "The indexed records have later catalogue dates; this review does not assign priority or infer derivation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact split torsion calculation and rank-one square-zero stratum covered",
+          "evidence": "Three explicit wedge components with the same covector quadratic, smooth conic, scalar square relation, and matching length-one census.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-commuting-square-zero-rank-one-nijenhuis-operators-on-mathfrak-s--b54c91a5334b",
+          "material_read": "Mirrored RESULT.md Finding, Assumptions and Proof §1, including offsets 2380–3984, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local mirror, exact component and specialization comparison",
+          "title": "Commuting square-zero rank-one Nijenhuis operators on sl2",
+          "trigger": "Same Lie rank-one torsion reduction and square-zero census"
+        },
+        {
+          "assessment": "Fixed nonzero trace count follows",
+          "evidence": "Rank-one idempotent count q²(q+1) in the split odd finite-field regime.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-square-class-orbits-of-idempotent-lie-nijenhuis-operators-on-mat--4c68434b0025",
+          "material_read": "Mirrored RESULT.md Finding, from offset 0",
+          "method": "Local mirror and scalar bijection",
+          "title": "Square-class orbits of idempotent Lie-Nijenhuis operators",
+          "trigger": "Potential census of the nonzero-trace stratum after rescaling"
+        },
+        {
+          "assessment": "Broader ranks but narrower field coverage",
+          "evidence": "Cartan–Weyl matrix classification assumes vector spaces and maps over C.",
+          "identifier_or_url": "https://arxiv.org/abs/2502.18717",
+          "material_read": "v4 p. 3 base field convention and pp. 19–20 §5 Theorem 5.1, offsets near 9000, 56500 and 59911",
+          "method": "OA primary preprint",
+          "title": "Classical Yang-Baxter equations and Nijenhuis operators for Lie algebras",
+          "trigger": "All ranks on the same Lie algebra"
+        },
+        {
+          "assessment": "Gives the defining identity, not the specific conic result",
+          "evidence": "The n=2 identity gives the general scalar rank-one torsion expansion immediately by substitution.",
+          "identifier_or_url": "https://arxiv.org/abs/1601.02356",
+          "material_read": "v1 p. 6 Definition 3.4, offset near 19000",
+          "method": "OA primary preprint",
+          "title": "Nijenhuis operators on n-Lie algebras",
+          "trigger": "General criterion potentially covering rank one"
+        },
+        {
+          "assessment": "Not the rank-one stratum",
+          "evidence": "Regular semisimplicity requires a simple spectrum, while rank one forces zero with multiplicity at least two.",
+          "identifier_or_url": "https://arxiv.org/abs/2410.10536",
+          "material_read": "v1 abstract and Theorem 1, pp. 1–2",
+          "method": "OA primary preprint",
+          "title": "Three-dimensional Lie algebras admitting regular semisimple algebraic Nijenhuis operators",
+          "trigger": "Related three-dimensional classification"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md:3–29 and 44–52",
+        "Resultary b54c91a5334b and 4c68434b0025"
+      ],
+      "rationale": "As a structural result, the conic controls both the geometry of rank-one tensors and the rational existence obstruction on nonsplit forms; trace stratification then distinguishes the square-zero and rescaled idempotent cases. It has mathematical content beyond a short finite census. The descent and count reparameterizations do not by themselves give a distinct valuable remainder after equivalent coverage is credited.",
+      "residual_risks": [
+        "No higher-rank, automorphism-orbit, or unreduced classification is part of this assessment."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

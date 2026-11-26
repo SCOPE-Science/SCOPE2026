@@ -1,26 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Claim
-For integers \(2\le m\le n\) and \(0\le t\le m\), let \(G_{m,n,t}=K_{m,n}-M_t\), where \(M_t\) is a matching of size \(t\). If \(\operatorname{eis}(G)\) denotes the edge independent dom-saturation number, equivalently the maximum over edges \(e\) of the minimum cardinality of a maximal matching containing \(e\), then
-\[
-\operatorname{eis}(G_{m,n,t})=
-\begin{cases}
-m-1,&m=n\text{ and }t\ge3,\\
-m,&\text{otherwise.}
-\end{cases}
-\]
-Thus a balanced biclique requires deletion of at least three independent edges before \(\operatorname{eis}\) drops, whereas any strict shore imbalance prevents a drop under deletion of a matching. In the balanced regime with \(t\ge3\), every present edge lies in a maximal matching of size \(n-1\); for \(t=1\) or \(t=2\), a present edge incident with all deleted pairs forces local value \(n\).
+## correctness
 
-## Correctness
-PASS. A maximal matching is characterized by the absence of an edge between unmatched vertices. Because the deleted nonedges form a matching, any unbalanced instance with an unmatched vertex on the smaller shore leaves at least two unmatched vertices on the larger shore and can still be extended; hence every maximal matching has size \(m\). In the balanced case, the same argument forces every maximal matching to have size at least \(n-1\). For one or two deletions the edge \(a_1b_2\) forces local value \(n\). With at least three deletions, every prescribed edge avoids some deleted index \(i\), and after fixing that edge and leaving \(a_i,b_i\) unmatched, the residual graph is complete bipartite minus a matching and has a perfect matching by Hall's theorem. The finite checker independently confirms all local values for \(2\le m\le n\le6\).
+PASS
 
-## Originality
-PASS. The initiating 2025 paper defines the same invariant and gives only the undeleted complete-bipartite value in the relevant family. Its accessible full text was inspected at Definition 3.1, Observation 3.3(iv), and Theorem 3.6; document-wide searches found no “matching” or “crown” treatment of the new family. Classical edge domination determines only the minimum maximal-matching size, whereas the new theorem determines the maximum over prescribed-edge minimum sizes. Semantic searches using the exact invariant name, matching-deleted biclique notation, crown terminology, and the equivalent prescribed-edge maximal-matching formulation found no covering statement. A prior result on well-edge-domination of the same graph family was compared and is implication-incomparable with the claimed prescribed-edge formula.
+For a maximal matching, no edge can join two unmatched vertices. Since the absent cross-edges form a matching, an unsaturated vertex facing two unmatched opposite vertices would contradict maximality. This forces size m for m<n and size at least n-1 for m=n. With equal shores, any maximal matching of size n-1 must leave a deleted pair unmatched. At t=0 this is impossible; at t=1,2 the present edge a_1 b_2 meets every candidate pair and forces local size n, including the disconnected n=t=2 boundary. At t≥3, an arbitrary present edge a_p b_q meets at most two deleted pairs: reserve one disjoint from it as unmatched. After removing its two vertices and the endpoints of the prescribed edge, the remaining graph is K_{n-2,n-2} with a matching missing. For order at least two on each shore, Hall follows from nonempty singleton neighborhoods and full collective neighborhoods of subsets of size at least two. For n=3=t, the two remaining vertices have swapped distinct indices q,p and their edge is present. Adding the prescribed edge to the residual perfect matching gives the required maximal matching. This proves the local assertions and the global value. The reviewed source checker was not executed. Independent cardinality-organized enumeration, `python3 -I /workspace/checks/5.py`, covered all 65 triples with 2≤m≤n≤6 and 0≤t≤m, 1098 prescribed-edge values and 10722 maximal matchings; see /workspace/checks/5.log. This corroborates the boundary cases, not the general proof.
 
-## Value
-PASS. This identifies a sharp structural resilience threshold for a newly introduced edge invariant: balanced complete bipartite graphs tolerate one or two independent edge deletions without changing \(\operatorname{eis}\), but the third deletion makes every edge fit inside a smaller maximal matching; any shore imbalance suppresses the transition entirely. The result is an exact two-shore, full-deletion-range classification and exposes a regime where the ordinary edge domination number and edge independent dom-saturation diverge.
+## originality
 
-## Closest literature and limitations
-The closest primary source is Muthulakshmi–Subramanian, DOI 10.17654/0974165826003, which introduces \(\operatorname{eis}\) and computes complete bipartite graphs. Yannakakis–Gavril, DOI 10.1137/0138030, supplies the classical minimum-maximal-matching/edge-domination background but not the prescribed-edge maximum. The theorem does not cover arbitrary deleted edge sets.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The distinct content is the sharp third-deletion threshold, including intermediate deletions, contrasted against the no-drop result on unbalanced shores. Existing verified coverage includes t=0 and the crown endpoint by ordinary edge domination plus symmetry; neither determines the intermediate prescribed-edge maxima. This is a bounded best-of-knowledge assessment.
+
+## value
+
+PASS
+
+This natural test family for a new prescribed-edge invariant separates a drop in the smallest maximal matching size from a drop valid through every edge. The strict-imbalance obstruction and the sharp threshold of three deleted pairs distinguish those phenomena uniformly over the full deletion range; the proof explains why the threshold counts pairs touched by the specified edge.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

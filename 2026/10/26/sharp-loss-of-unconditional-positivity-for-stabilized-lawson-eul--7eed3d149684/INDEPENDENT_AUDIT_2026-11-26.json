@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:39:57.701160Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof §§1–6, VERIFICATION.md and checker.py (inspected only)",
+        "Independent replay: /workspace/review_evidence/frozen_review_replay.py, section 3; symbolic characteristic polynomial and balanced eigenvectors, direct high-precision matrix-exponential derivative at rates 2 and 1 gives crossing 0.760345996300946348"
+      ],
+      "rationale": "Conservation follows from Q1=0 and symmetry; off-diagonal signs of S_h are those of the corresponding semigroup derivatives at t=alpha h. In the balanced case the eigenvectors (1,0,-1) and (1,-2,1) give decay rates c and 3c. The center diagonal has decrement (2/alpha)x exp(-3x) with x=alpha c h, attaining its maximum 2/(3e alpha); both endpoint decrements are bounded by this and the off-diagonals are positive. In the unbalanced case, symmetry and the stationary mass 1/3 leave two exponentials. Matching the initial off-diagonal value and derivative gives the printed coefficients. For the heavier edge r>s, (2r-s)^2-d^2=3r(r-s)>0, so its derivative has a negative slow term and a positive fast term. Initially the derivative is r>0; the ratio of the positive term to the magnitude of the negative term strictly decreases to zero, giving the unique claimed crossing. Rationalizing the slow coefficient gives C=r(r-s)/(2d(2r-s+d)), hence C=(r-s)/(4s)+O_s((r-s)^2); the rate difference tends to 2s and the logarithm has the stated constant and o(1) remainder. The modewise stability bound follows from maximizing x exp(-alpha x) and does not change the entry signs.",
+      "residual_risks": [
+        "The crossing is for the heavier-edge entry, not necessarily the first positivity failure of the whole matrix. Finite replay is supplementary and no floating-point sign guarantee near a crossing is claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hu–Shu give positivity under coefficient and forward-Euler CFL restrictions for their exponential RK kinetic update. Jones–Epstein–García-Mochón give a general procedure for spectral formulas for exp(tQ)."
+        ],
+        "reasoning": "The positive subflow construction and the continuous-time transition matrix are not the numerical map I+h P'(alpha h). Spectral formulas provide inputs, not the signs of the derivative and the optimum over all steps.",
+        "searches": [
+          "arXiv:1807.03728, Proposition 2.2",
+          "DOI:10.1177/0272989X17696997, small-state spectral procedure"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and references",
+        "arXiv:2303.15861",
+        "arXiv:1807.03728",
+        "DOI:10.1177/0272989X17696997",
+        "Resultary SCOPE-2f0ca4adbadc and SCOPE-c740afdf92d6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Real-axis scalar stability uses |1+z exp(alpha z)|<=1. In matrix entries, the slow and fast spectral projections can have opposite signs and the balanced center diagonal has its own sharp optimum."
+        ],
+        "reasoning": "Power boundedness and semigroup positivity separately do not imply nonnegativity of the derivative-based step. The path-specific sign, exact-balance rigidity and delayed onset require additional analysis.",
+        "searches": [
+          "Focused literature lookup on stabilized Lawson–Euler entrywise positivity and Markov path derivatives",
+          "arXiv:2303.15861, Theorem 2.3; DOI:10.1177/0272989X17696997, spectral method"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Eq. (4) is exactly I+h exp(alpha h Q)Q after identifying the parameters. The closely matched indexed path results instead use completed Gauss–Legendre and two-sided resolvent-filtered Euler maps."
+        ],
+        "reasoning": "The step identity itself is known; matching graph and positivity terminology cannot identify the other matrix functions with it, as their sharp weight-ratio feasibility regions differ from exact balance here.",
+        "searches": [
+          "Resultary searches for stabilized Lawson–Euler positivity on a weighted three-node path and comparisons SCOPE-2f0ca4adbadc and SCOPE-c740afdf92d6",
+          "arXiv:2303.15861, Eq. (4), Theorem 2.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Both closest path positivity statements allow imbalance up to max(a,b)<=2 min(a,b) for their maps; the method source specifies 1/(2e) for modal stability, not 2/(3e) for balanced path positivity."
+        ],
+        "reasoning": "No separate catalogue of computable invariant values is required for this exact continuum of step and rate parameters. The checked exact boundaries are attached to different methods or quantifiers, not this threshold/crossing formula.",
+        "searches": [
+          "Resultary exact threshold/weighted-path comparison SCOPE-2f0ca4adbadc and SCOPE-c740afdf92d6",
+          "Primary method source arXiv:2303.15861, Theorem 2.3"
+        ]
+      },
+      "rationale": "The same update and the negative-real-axis modal stability threshold are credited to the originating paper. The distinct claim is the stepwise entrywise nonnegativity classification for the symmetric path, and the heavier-edge sign crossing with exact logarithmic delay. The exact path positivity comparisons involve different matrix functions and do not imply this classification.",
+      "residual_risks": [
+        "The ranked corpus results and focused literature lookup do not rule out an uncatalogued monotonicity analysis of these Markov transition entries or an earlier equivalent stabilization analysis."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same exact step; known modal stability, not the new entrywise classification",
+          "evidence": "Unconditional stability for lambda>=1/(2e) with real-axis scalar function 1+z exp(lambda z).",
+          "identifier_or_url": "https://arxiv.org/abs/2303.15861",
+          "material_read": "PDF pp. 5–6, Eq. (4) and Theorem 2.3, offset 18800",
+          "method": "OA PDF passages",
+          "title": "Accelerating exponential integrators to efficiently solve semilinear advection-diffusion-reaction equations",
+          "trigger": "Origin of the exact stabilized update"
+        },
+        {
+          "assessment": "Different scheme and hypotheses",
+          "evidence": "Requires a CFL restriction Delta t<=Delta t_FE/max(b_1,b_2) along with coefficient conditions.",
+          "identifier_or_url": "https://arxiv.org/abs/1807.03728",
+          "material_read": "Eq. (2.6) and Proposition 2.2, p. 4, offset 12000",
+          "method": "OA PDF passages",
+          "title": "A second-order asymptotic-preserving and positivity-preserving exponential Runge-Kutta method for a class of stiff kinetic equations",
+          "trigger": "Positivity result for an exponential RK scheme"
+        },
+        {
+          "assessment": "General spectral construction, not a numerical-step positivity theorem",
+          "evidence": "Five steps give P(t)=U Exp(Dt) U^{-1}; the first illustrative three-state example only has forward transitions.",
+          "identifier_or_url": "https://doi.org/10.1177/0272989X17696997",
+          "material_read": "A Procedure for Deriving the Formulas When n is Small, offset 9600",
+          "method": "OA article passage",
+          "title": "A Procedure for Deriving Formulas to Convert Transition Rates to Probabilities for Multistate Markov Models",
+          "trigger": "General spectral method for a small-state Markov transition function"
+        },
+        {
+          "assessment": "Different step",
+          "evidence": "For the completed fourth-order Gauss–Legendre step the ratio cutoff is max(a,b)<=2 min(a,b).",
+          "identifier_or_url": "Resultary SCOPE-2f0ca4adbadc",
+          "material_read": "RESULT.md, Finding, offset 0",
+          "method": "Local mirror",
+          "title": "A sharp positivity dichotomy for the fourth-order Gauss step on a weighted path",
+          "trigger": "Same graph and all-step property"
+        },
+        {
+          "assessment": "Different filters and different structural criterion",
+          "evidence": "Two-sided resolvent-filtered Euler has an all-step frontier at max(a,b)=2 min(a,b), not exact balance.",
+          "identifier_or_url": "Resultary SCOPE-c740afdf92d6",
+          "material_read": "RESULT.md, Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Sharp positivity frontier of two-sided filtered Euler diffusion",
+          "trigger": "Same graph and all-step property for a filtered Euler update"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md §§3–6",
+        "arXiv:2303.15861, Theorem 2.3"
+      ],
+      "rationale": "The minimal heterogeneous reversible path gives a useful exact obstruction to interpreting a spectrally stable conservative integrator as a nonnegative transport step. The abrupt requirement of exact balance and the logarithmic delay explain why strict modal contraction and even long finite-step test ranges can hide the sign failure. The balanced sharp constant and the unbalanced explicit witness supplement, rather than rephrase, standard stability background.",
+      "residual_risks": [
+        "The proof is not a classification on all graphs, for all Lawson variants, or of all-entry failure thresholds in the unbalanced case."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,158 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T19:30:20.934730Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Re-audited the complete result in /workspace/repairs/1/RESULT.md. The original conclusion survives; the corrected text makes the topological step explicit rather than treating an incidence number of ±1 as sufficient for a regular-CW collapse. It also handles the singleton gluing and restricts the pointed strict-cutoff convention to r>0. A mixed nondegenerate word has a unique first nonbasepoint factor switch; toggling the one available intervening basepoint is an involution since it does not change the nonbasepoint word and the switch endpoints differ. The before/after lengths agree by the directed gluing equality. Two different single deletions of the same tuple cannot produce the same word unless entries between the deletion indices are all equal; neither nonconsecutively repeated vertices nor degenerate facets contribute a second incidence to the matched open face. An alternating directed cycle must use codimension-one descents, because the upward moves are isolated and have step +1 in dimension. Every unmatched such descent from an upper to a matched lower deletes a nonbasepoint (deleting any other basepoint leaves a degenerate face or retains the switch's gate, hence an upper face), strictly decreasing their count. For actual removals choose the pair maximizing (upper dimension, nonbasepoint count). The upper cell has no remaining coface, and another coface of its lower partner would have to be a same-dimensional upper with greater nonbasepoint count; pure cofaces are impossible. The unique free facet is parametrized once, so retract the characteristic simplex to the other facets, fixing them pointwise. The motion descends despite boundary identifications because those identifications occur on the retained facets, and no other cell attaches to the removed open cells. Strictness and finiteness bound the number of cells. The pairs have equal length, so every elementary homotopy either fixes a smaller sublevel entirely or moves only inside its closed simplices. Their concatenation is relative to the wedge and preserves each smaller sublevel of the fixed finite cutoff. Naturality of the inclusion gives persistence, and the wedge restrictions identify the positive-degree cohomology product factorwise. The independent replay (path /workspace/branches/2f9d2f23-3a33-46e5-817b-f642f2fb22ea/point_gluing_replay.py) checked five asymmetric two-factor cutoffs up to 1165 cells and one three-factor case of 258 cells, including repeated vertices; (1,2,1,3) and (1,2,1,0,3) both have length 8 in one case. It checked the unique incidence as well as acyclicity. The supplied code and output were inspected, not executed. Its directed graph checks nondegenerate codimension-one faces; the all-cutoff realization argument is not a numerical or mod-two inference.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Tajima–Yoshinaga prove fixed-length magnitude-homotopy gluing for symmetric gated decompositions, which includes the point overlap. Their retained space before quotienting still includes the shorter paths inside the fixed-length causal poset.",
+          "Ivanov–Xu's §6 cover hypothesis gives a homotopy pushout by showing the entire Rips simplicial set is literally the union of the induced pieces. For the two wedge factors, this fails once an admissible tuple contains a point from each factor. The §10 colimit hypothesis is filtered and not this finite pushout.",
+          "Livernet–Roff–Whitehouse handle pages of the magnitude-path spectral sequence and r-cofibrations of N-metric spaces, not homotopies of total-length sublevels."
+        ],
+        "reasoning": "Broader overlap geometry at a fixed quotient is not broader in the conclusion needed here. Nor does a theorem that requires an actual simplicial cover or a filtered diagram establish the one-point wedge comparison in the presence of admissible mixed words.",
+        "searches": [
+          "Resultary: ordered length-filtered enriched magnitude nerve one-point wedge metric gluing homotopy collapse blurred magnitude ell-one Vietoris Rips",
+          "arXiv:2302.09752 §5.2–5.3 projecting matchings and magnitude homotopy gluing",
+          "arXiv:2411.01857 §6 and §10; arXiv:2606.09747 §§4–7"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2302.09752 (closest projecting matching and fixed-length homotopy)",
+        "arXiv:2411.01857",
+        "arXiv:1712.06224",
+        "arXiv:1505.04125",
+        "Bottinelli–Kaiser HHA 23(2) §4.2",
+        "arXiv:2409.03278",
+        "arXiv:2606.09747",
+        "arXiv:2601.03685",
+        "Resultary query listed above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The projecting matching in a symmetric point gluing already toggles the gate, and can inform the symmetric cutoff proof: downward faces never increase length, so any directed cycle for a length-preserving matching would have to stay at one exact length.",
+          "The topological gluing theorem in Theorem 5.14 concerns M_ℓ, after quotienting a short-path subcomplex in a causal order model; Proposition 4.1 of the later metric-fibrations paper compares fixed-length realizations. Even with this identification, homotopy equivalence of associated cofibers does not generally imply equivalence of the unquotiented filtered spaces.",
+          "At the homology level, finite length-by-length induction from known associated-graded excision already recovers the symmetric finite-space wedge splitting."
+        ],
+        "reasoning": "The matched-gate idea is not independently novel and the proof in the symmetric case is close to the earlier mechanism. To get the retained claim one must work in the unquotiented directed ordered nerve: show actual free-facet quotients give relative deformations despite nonregular closures, and preserve every sublevel during a single deformation. The earlier fixed-length homotopy and chain-level statements do not mechanically supply those conclusions; the repaired result gives a direct construction and limits its novelty accordingly.",
+        "searches": [
+          "Tajima–Yoshinaga Definition 5.8, Proposition 5.9, Theorem 5.14 proof and Corollary 5.16",
+          "Hepworth–Willerton Theorem 28 and Remark 44; Bottinelli–Kaiser §4.2",
+          "Asao–Tajima–Yoshinaga arXiv:2409.03278 Appendix Proposition 4.1 scope"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ivanov–Xu §2.3 explicitly identifies the cutoff nerve with the ordered ℓ1 Vietoris–Rips simplicial set. They also identify fixed-length magnitude homology with reduced homology of the quotient by the strict sublevel.",
+          "Adamaszek et al. §3.2 uses the same symmetric gluing metric on points but the simplices are finite subsets of diameter ≤r, not words with bounded successive total length.",
+          "Hepworth–Willerton Remark 44 describes the length filtration; the pointed exact-length simplicial sets are its filtration quotients."
+        ],
+        "reasoning": "Renaming the object as an ordered ℓ1-VR simplicial set preserves it. Replacing ordered paths by unordered diameter sets does not; repeated vertices and multiple orderings produce different cells. Replacing a cutoff by a quotient identifies all earlier cells to a basepoint and loses their attaching information.",
+        "searches": [
+          "Web: blurred magnitude homotopy wedge excision metric gluing ordered l1 Vietoris Rips wedge cofibration gated decomposition magnitude nerve Roff Ivanov Xu",
+          "Web: magnitude filtered simplicial set wedge at one point length gluing gated magnitude homotopy type Tajima Yoshinaga Mayer Vietoris homotopy equivalence",
+          "Web: length-filtered magnitude homology wedge excision Lawvere simplicial set one-point gluing"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The nearest retrieved related record computes an asymmetric two-point sphere filtration. The queried point-gluing record itself also appears in the index. Neither is independent tabulation of the collapse or its realization homotopies on arbitrary wedges."
+        ],
+        "reasoning": "Known explicit Rips filtrations and single-factor examples cannot determine the gluing map, because they give neither the attaching data of mixed words nor a sublevel-preserving collapse. This check is bounded by the index and retrieved material.",
+        "searches": [
+          "Resultary ordered-length nerve / one-point gluing query above",
+          "Web: blurred magnitude wedge gluing ordered simplicial set homotopy 1-Vietoris-Rips"
+        ]
+      },
+      "rationale": "Pass for the repaired relative realization collapse of the directed length-sublevel filtration. The closest additional prior work is Tajima–Yoshinaga: it already contains the symmetric fixed-length gate-toggle mechanism and a homotopy gluing theorem, not just magnitude homology. The repaired text explicitly credits it and separates the known or mechanically recoverable homological part. The claim retained concerns a finite bounded subfiltration of actual nerves: one relative deformation fixing the wedge and preserving all retained levels, allowing asymmetric distances and repeated vertices. It is not the associated-graded homology theorem nor the fixed-length quotient gluing theorem.",
+      "residual_risks": [
+        "An unindexed simplicial or topological gluing theorem for ordered-length paths, or an earlier lift of the gated matching to directed cutoffs, could cover the narrowed claim. The symmetric mechanism already has close prior art.",
+        "Only the cited decisive portions were used to decide statement-level implication; this is not historical-priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong partial mechanism/symmetric fixed-length coverage, now credited; not the directed cutoff-relative theorem",
+          "evidence": "The matching is on mixed light-like sequences in a causal order complex. The proof first retains ∆′Cau together with pure causal complexes, then quotients by ∆′Cau for M_ℓ.",
+          "identifier_or_url": "https://arxiv.org/pdf/2302.09752",
+          "material_read": "§5.2 insertion/deletion and acyclicity proof passages, §5.3 Theorem 5.14 with equations (76)–(79), Corollary 5.16",
+          "method": "Primary open PDF; decisive theorem and proof passages",
+          "title": "Causal Order Complex and Magnitude Homotopy Type of Metric Spaces",
+          "trigger": "Closest topology and gate-point Morse proof, absent from the original comparison"
+        },
+        {
+          "assessment": "Identifies the object but the inspected pushout statement needs a cover not satisfied here",
+          "evidence": "The cover proof uses VR(U)∪VR(V)=VR(X); mixed paths violate equality for the two factors. Theorem 10.3 concerns filtered colimits.",
+          "identifier_or_url": "https://arxiv.org/pdf/2411.01857",
+          "material_read": "§2.3 nerve and quotient definitions, §6 cover pushout and proof, §10 filtered-colimit statement",
+          "method": "Primary open PDF",
+          "title": "On ℓ_p-Vietoris–Rips complexes",
+          "trigger": "Identical cutoff object at p=1 and possible broader homotopy pushout"
+        },
+        {
+          "assessment": "Analogous theorem for a different functor",
+          "evidence": "The admissible simplices are finite sets σ of diameter ≤r, not ordered tuples governed by length; the article's persistence theorem applies to that complex.",
+          "identifier_or_url": "https://arxiv.org/pdf/1712.06224",
+          "material_read": "Unordered diameter definition, metric wedge setup and §3.2 theorem scope",
+          "method": "Primary open PDF",
+          "title": "Vietoris–Rips and Čech Complexes of Metric Gluings",
+          "trigger": "Direct wedge theorem for same gluing metric"
+        },
+        {
+          "assessment": "Known exact-length chain-level result, not retained realization claim",
+          "evidence": "Theorem 28 states a quasi-isomorphism of magnitude chains for every exact length; the pointed exact-length nerve sends shorter faces to the basepoint.",
+          "identifier_or_url": "https://arxiv.org/pdf/1505.04125",
+          "material_read": "Theorems 28–29, Corollary 32, Definition 40, Remarks 44–46 and excision-proof setup",
+          "method": "Primary open PDF",
+          "title": "Categorifying the magnitude of a graph",
+          "trigger": "Prior projecting-decomposition excision, graph wedge, and length filtration on words"
+        },
+        {
+          "assessment": "Prior fixed-length homological coverage of gated symmetric case",
+          "evidence": "For a gated decomposition the pure magnitude chain inclusion is a quasi-isomorphism; its boundary preserves exact length, not every ordinary face.",
+          "identifier_or_url": "https://intlpress.com/site/pub/files/_fulltext/journals/hha/2021/0023/0002/HHA-2021-0023-0002-a007.pdf",
+          "material_read": "§4.2 definition of gated decomposition, Theorems 4.13–4.14 and proof framework",
+          "method": "Primary open PDF",
+          "title": "Magnitude homology, diagonality, and median spaces",
+          "trigger": "Metric generalization of graph magnitude excision"
+        },
+        {
+          "assessment": "Model comparison is at fixed exact length, not all nested sublevels",
+          "evidence": "The paper identifies the magnitude homotopy type with realization of Hepworth–Willerton's pointed simplicial set at ℓ, which is a quotient, and states the fibration formula for M_ℓ.",
+          "identifier_or_url": "https://arxiv.org/pdf/2409.03278",
+          "material_read": "Introduction and statements on main fixed-length metric fibration theorem and Appendix model comparison",
+          "method": "Primary open PDF",
+          "title": "Magnitude homology and homotopy type of metric fibrations",
+          "trigger": "Could identify a prior causal order theorem with the claimed nerve theorem"
+        },
+        {
+          "assessment": "Not a total-length-sublevel realization statement",
+          "evidence": "General Excision 4.2.3 concerns filtered relative reachability complexes for an outward-closed subspace; Theorem 5.2.1 explicitly concerns a spectral-sequence page.",
+          "identifier_or_url": "https://arxiv.org/pdf/2606.09747",
+          "material_read": "Introductory statements, §§4–5 excision hypotheses and Mayer–Vietoris scope, main theorem and pushout setup",
+          "method": "Primary open PDF",
+          "title": "Homotopy theories via the magnitude-path spectral sequence",
+          "trigger": "Directed spaces, Mayer–Vietoris, pushouts and relative filtered complexes"
+        },
+        {
+          "assessment": "Different variable for persistence; no implication of a levelwise collapse for a fixed space",
+          "evidence": "The morphisms are isometric embeddings of finite metric spaces; the fixed exact length is a grading/weight, not the index of the persistent family of spaces.",
+          "identifier_or_url": "https://arxiv.org/pdf/2601.03685",
+          "material_read": "§2 category, functor theorem and persistent magnitude construction",
+          "method": "Primary open PDF",
+          "title": "Persistent magnitude homology on finite metric spaces",
+          "trigger": "Same persistence terminology and motivating source"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The surviving claim gives a constructive cut-vertex decomposition of actual ordered path-length homotopy types, including asymmetric spaces, with the removal fixing both the wedge and smaller filtration thresholds. It supplies geometric information beyond associated-graded chain homology, e.g. it keeps cup products and lets one reduce full filtered realizations to simpler factor realizations. The shortcut example establishes a natural boundary (failure already on components) and the four-cycle examples have nontrivial positive-degree stages. The constructive statement is worthwhile even though symmetric homological additivity can be recovered from earlier excision.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

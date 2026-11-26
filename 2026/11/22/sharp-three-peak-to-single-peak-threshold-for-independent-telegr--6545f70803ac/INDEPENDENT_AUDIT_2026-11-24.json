@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:23:12.574625Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The known single-coordinate law normalizes each independent response to fα(x)=Cα(1−x²)^(α−1) on (−1,1), so the sum is an even, absolutely continuous convolution with no boundary mass. On (0,2), substituting x=s/2+(1−s/2)u separates the power (1−s/2)^(2α−1) and the positive quadratic B_u(s) in the proof. For α≤1/2 each kernel is strictly log-convex because log B_u is strictly concave and has exponent α−1<0, while the log of the power contributes convexity; pointwise strictness and Hölder yield strictness for the integral. The two endpoint neighborhoods in the convolution contribute the stated s^(2α−1) divergence below threshold and logarithms at equality. At the outer edge the remaining fixed-domain integral has a finite positive limit, so the exponent 2α−1 gives all three boundary regimes. Divergence at both ends of the half-support and strict log-convexity give precisely one subcritical minimum. For 1/2≤α<1 the fixed-domain kernel is strictly decreasing; α=1 is triangular. For α>1, layer-cake overlap lengths are nonincreasing, and for any interior positive separation a positive-measure set of pairs of half-widths has |r−t|<s<r+t, giving strict decrease. For α>1/2, L² translation continuity gives a finite continuous center. The strictly negative critical log derivative at each fixed interior s and continuity in α put the subcritical minimizer to its right for α close to 1/2. Writing ε=2−s and δ=1−2α, the log derivative in ε is −δ/ε+(1−α)/(2−ε/2)+O(ε) uniformly near criticality, since the hypergeometric factor is analytic at an argument of order ε². Its zero gives δ/ε→1/4. The finite checker was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "RESULT.md lines 114–122 attribute the stationary beta law to the one-coordinate literature and identify the unfiltered finite-time sum in Kolesnik.",
+          "The symmetric unimodal convolution setting does not apply to individual beta coordinates with α<1, which are U-shaped.",
+          "The indexed ternary result reports a complete-graph Dirichlet model; no indexed material establishes a theorem on all rate matrices including the lumped line graph."
+        ],
+        "reasoning": "Single-coordinate results, fixed-time unfiltered sums, and unimodal-summand theorems do not classify this bimodal-summand convolution. A broader result covering the specific line graph or all such symmetric beta convolutions would be relevant even if framed differently; the available statements do not show that scope.",
+        "searches": [
+          "Duong–Auffenberg–Steidl arXiv:2611.17625v1, Theorem 3.2",
+          "Ratanov arXiv:2102.13308, §4; DOI 10.1007/s11009-022-09956-z",
+          "Kolesnik arXiv:1402.6866",
+          "Lefèvre–Utev DOI 10.1051/ps/2012012",
+          "Resultary: symmetric ternary stationary-mode transition"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md §§Finding, Assumptions and scope, Proof, Relationship to prior work",
+        "VERIFICATION.md",
+        "checker.py",
+        "Resultary indexed statement 07228a2b2f91"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier indexed ternary result uses strict log-convexity for a different Dirichlet projection.",
+          "RESULT.md derives this kernel's strict log-convexity from the sign of B_u B_u″−(B_u′)², then obtains the valley scale by solving a singular derivative balance as the exponent crosses zero."
+        ],
+        "reasoning": "The known beta stationary law fixes the integral to analyze but does not give its shape when the factors are not unimodal. The shared convexity motif does not transfer the other model's derivative or a valley constant. A line-graph example in the earlier full text could change the overlap assessment and was not ruled out by source snippets.",
+        "searches": [
+          "Resultary 07228a2b2f91 versus RESULT.md equations (1)–(6)",
+          "One-coordinate stationary beta law and monotone-convolution result versus the subcritical derivative equation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "RESULT.md lines 15–35 reduce the two-filter law to the convolution of two independently normalized symmetric Beta(α,α) coordinates.",
+          "Resultary 07228a2b2f91 reports a symmetric ternary switching model with a Dirichlet projection and the same threshold.",
+          "Lumping the independent signs by their sum gives states −2,0,2: the extremes jump to 0 at rate 2a, and 0 jumps to each extreme at rate a. No extreme-to-extreme jumps occur."
+        ],
+        "reasoning": "The lumped line-graph filter is an exact equivalent formulation and is relevant to priority. The earlier complete-graph Dirichlet projection with the same symmetric output levels and parameter α has variance (8/3)/(3α+1), whereas the beta convolution has variance 2/(2α+1); the two are unequal throughout 0<α≤1/2. Thus the complete-graph mode theorem is not a restatement of the subcritical or critical beta-convolution law despite the identical threshold and similar proof structure.",
+        "searches": [
+          "Resultary: iid symmetric beta convolution modality and log-convexity",
+          "Resultary: telegraph-filter sum and threshold",
+          "Literature search: symmetric beta convolution modality and stationary telegraph sum"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The assigned record 6545f70803ac is an exact self-hit.",
+          "07228a2b2f91 is a distinct hit for the same numerical threshold and qualitative transition; its indexed statement involves the ternary Dirichlet model and does not report the valley law."
+        ],
+        "reasoning": "The self-hit is not external coverage. The similar numerical threshold in the distinct hit requires matching the underlying law; that law differs on the available statement. A density table or a hypergeometric expression alone would not determine the classification or its valley movement.",
+        "searches": [
+          "Resultary: beta convolution half-support log-convexity",
+          "Resultary: three-to-one transition at one half with boundary valley law"
+        ]
+      },
+      "rationale": "The one-coordinate beta law and the broad three-to-one phenomenon in a distinct switching model are not claimed as new. The supported distinct claim is the full two-iid-beta convolution shape result, including strict half-support log-convexity up to threshold and the sharp valley law. The closest indexed switching result is materially related, but its complete-graph model is not the line-graph process of the two independent filters. Its full line-graph comparison was not accessible and remains a stated priority risk.",
+      "residual_risks": [
+        "The full ternary source's exact line-graph comparison was inaccessible; an analysis of the independent-sign lumping there could overlap with the current theorem.",
+        "Uninspected single-coordinate sources or earlier beta-convolution literature may contain an implicit stronger result. A search miss does not resolve this risk."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material overlap in shape and method; the complete-graph law differs from the independent two-filter law. Scope of the full discussion of line graphs remains unverified.",
+          "evidence": [
+            "Threshold q/k=1/2 in the indexed ternary model; different transition rates on the lumped graph and unequal subcritical variances as above."
+          ],
+          "identifier_or_url": "Resultary: 2026/11/2/SCOPE-sharp-three-to-one-stationary-mode-transition-for-symmetric-tern--07228a2b2f91",
+          "material_read": "Indexed statement describing the complete-graph environmental model, Dirichlet projection and distinction from line-graph switching.",
+          "method": "Bounded Resultary search and attempted local-mirror retrieval of the decisive source passage; full text not available.",
+          "title": "Sharp three-to-one stationary mode transition for symmetric ternary switching",
+          "trigger": "Identical threshold, three singular peaks and related log-convexity argument"
+        },
+        {
+          "assessment": "Credit the known coordinate law. The supplied comparison does not establish primary-text scope on two independent coordinates.",
+          "evidence": [
+            "RESULT.md lines 21–28 explicitly assumes the established beta marginal and uses independence to pass to a new convolution question."
+          ],
+          "identifier_or_url": "arXiv:2611.17625v1; arXiv:2102.13308; DOI 10.1007/s11009-022-09956-z",
+          "material_read": "Frozen record's account of Theorem 3.2, §4 and publisher access limitations, RESULT.md lines 114–130; no independent primary passage retrieved.",
+          "method": "Literal-query OA attempts for the open versions; publisher version remained unavailable.",
+          "title": "Finite speed Ornstein-Uhlenbeck-Kac processes; First-passage probabilities and invariant distributions of Kac-Ornstein-Uhlenbeck processes; Kac-Ornstein-Uhlenbeck Processes: Stationary Distributions and Exponential Functionals",
+          "trigger": "Stationary beta coordinate law and plausible related stationary sums"
+        },
+        {
+          "assessment": "Unfiltered finite-time positions are different observables; unimodal-input convolution results do not cover the threshold region with U-shaped inputs.",
+          "evidence": [
+            "The beta coordinate derivative is positive on (0,1) for α<1, so it fails the symmetric-decreasing hypothesis there."
+          ],
+          "identifier_or_url": "arXiv:1402.6866; DOI 10.1051/ps/2012012",
+          "material_read": "Attributed statements in RESULT.md lines 114–129; Kolesnik primary access timed out, and no independent full-text coverage claim is made for Lefèvre–Utev.",
+          "method": "Statement-level scope and hypothesis comparison; bounded OA attempt for the telegraph-sum source.",
+          "title": "The explicit probability distribution of the sum of two telegraph processes; Convolution property and exponential bounds for symmetric monotone densities",
+          "trigger": "Same telegraph-sum terminology and general monotone convolution results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result locates an exact modality transition even though both input densities remain U-shaped on either side near the threshold. It distinguishes density divergences from atoms, proves that no additional extrema occur, and quantifies how the two genuine valleys disappear into the support boundaries. The precise law is useful for interpreting the stationary shape near critical switching.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

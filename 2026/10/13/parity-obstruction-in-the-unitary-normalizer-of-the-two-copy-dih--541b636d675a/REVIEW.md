@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The quotient is the image of the conjugation homomorphism from the unitary normalizer, not automatically the whole abstract automorphism group. For a finite group, an automorphism is in that image exactly when twisting the represented action by the automorphism preserves the representation character. The natural dihedral permutation character is determined by fixed vertices: nonidentity rotations fix none; for odd \(n\), each reflection fixes one; for even \(n\), reflections with even exponent fix two and those with odd exponent fix none. This yields the stated parity criterion. The affine basis permutation \(P_{a,c}|i\rangle=|ai+c\rangle\) proves sufficiency whenever \(2c\equiv b\pmod n\). Exact enumeration for small \(n\) was replayed successfully, but the proof is independent of enumeration.
+## correctness
 
-## Originality
-PASS. The anchor article itself states the full-automorphism quotient and a Fourier-basis implementation using \(2^{-1}\), while also treating even and dyadic \(n\). Focused searches for the exact article identifier, even-dihedral reflection-class obstructions, representation-normalizer aliases, and an index-two correction did not find a published correction or an implication-equivalent result. Standard dihedral parity and fixed-point facts are prior mathematics and are not claimed as new. The original contribution is the exact representation-specific normalizer image and its constructive realization.
+PASS
 
-## Value
-PASS. The result changes a central structural classification from the full automorphism group to an index-two subgroup throughout the even family used for dyadic implementations. It also supplies the exact replacement theorem and implementers rather than merely pointing out that a modular inverse is undefined. This matters for identifying which abstract symmetries are physically realizable by unitary conjugation in the proposed code representation.
+The vertex action is faithful. For n≥3 every automorphism takes r to r^a with a a unit, since all elements outside the rotation subgroup have order two and r has order n. The image of f must be outside that subgroup and every resulting pair (a,b) is an automorphism by the presentation. The kernel of conjugation on the represented subgroup is precisely its centralizer, so the quotient is the image of that map, not automatically the full abstract group. In the convention r:i↦i+1, f:i↦−i, the trace on V of r^j f is the number of solutions of 2i=j modulo n and the trace on W is twice that. For even n, odd b sends f from trace 4 to trace 0; at n=4 this already rules out the shift f↦rf. For every eligible b choose 2c=b and directly conjugate r and f by the permutation i↦ai+c on both copies, giving exactly the claimed automorphism. This proves sufficiency, the odd case, and the even order nφ(n)/2. It concerns the full unitary normalizer of the stated two copies of V, not either a literal vertices-plus-edges action or a restricted error group. The frozen artifacts/verify.py was inspected, not executed; the finite check is not needed for the proof.
 
-## Closest literature and limitations
-The closest source is Bradshaw–LaBorde–Montero itself, especially its normalizer discussion around Eqs. (125)–(136). Grech–Kisielewicz records the classical fixed-point distinction between the two reflection types in the natural even-dihedral permutation action, but does not draw the quantum-code normalizer consequence. The claim is representation-specific and does not extend automatically to other faithful representations.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct contribution is a precise correction of Eq. (125) for the explicitly stated two-copy representation, not an originality claim about dihedral characters, affine permutations or the first isomorphism theorem. The closest primary source asserts the full abstract group and attempts to implement it; the available related catalog findings concern different objects. No inspected source states or supplies the parity-restricted full unitary normalizer for this code. This is a bounded conclusion, not a priority certification.
+
+## value
+
+PASS
+
+The parity computation is elementary, but it corrects an explicit full-normalizer assertion in a concrete code, in the even dyadic family that motivates its physical encoding. It gives an obstruction valid against every unitary and constructs every surviving lift, so an implementation can distinguish unavailable reflection swaps from possible normalizer operations without altering or making claims about the separate syndrome and error-group constructions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

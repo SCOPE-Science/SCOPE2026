@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:36:08.607997Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With B having rows indexed by even vertices and columns by odd vertices, distinct columns have disjoint neighborhoods or two shared neighbors in a negative square; the latter contributions cancel. Thus B^T B=5I and, since B is square, BB^T=5I. The odd fields B^T u consequently have total square 80, giving b+3c=8 and a=8+2c. A prescribed field of magnitude five forces its five spins up to one common sign, giving 4096 assignments. A pair of such fields at distance two contradicts square parity; each distance-four pair has disjoint neighborhoods and contributes 256 assignments. There are 40 distance-four pairs and no triangle of them (distinct weight-four differences have xor weight two). Inclusion-exclusion gives 10240,45056,10240 assignments for c=0,1,2, respectively. Multiplying the independent odd-spin factors proves the entire Laurent polynomial. The highest profile score is 32-2c; flipping one unit field lowers it by two, so the first two multiplicities are 10240 and 8*10240+45056=126976. Score 32 means (80-32)/2=24 negative edges, and connectedness makes switching exactly two-to-one. Gauge completeness follows because the square moves interchange distinct consecutive coordinate flips in any closed walk; equal consecutive flips cancel, so squares generate the cycle space. The independent bounded replay python3 /workspace/replay_independent.py 5 used Gray-code field updates and a separate subset-sum calculation for every even assignment, verifying the three profiles, every score coefficient, symmetry and total mass 2^32. The proof, not just the replay, explains these counts.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wang's F_(r^2+1)=(r^2-r+1)2^(r^2-1) specializes to the known minimum 24. Parisi–Potters use a large-dimensional limit and discuss the normalized coupling matrix with eigenvalues ±1. Minamoto covers higher-dimensional minimizers and quotes historical construction and realizability results."
+        ],
+        "reasoning": "The minimum and coupling matrix spectrum do not determine degeneracies of spin energies. Infinite-dimensional results do not give an exact distribution at five.",
+        "searches": [
+          "Wang arXiv:2611.14906v1 Theorem 1.1",
+          "Parisi–Potters arXiv:cond-mat/9503009v2 abstract and hypercube discussion",
+          "Minamoto arXiv:2603.29127v5 abstract, historical discussion and §6.1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.14906v1",
+        "arXiv:2603.29127v5",
+        "arXiv:cond-mat/9503009v2",
+        "Resultary/SCOPE:dd78f3834665,87c223edf761",
+        "DPTV (1979): secondary comparison, primary OA inaccessible"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The historical Q5 optimum fixes the degree, not its coefficient. Knowing one optimal field split likewise does not count how many even spin words have that split. The Q5 result requires the distance-two incompatibility, distance-four pair count and exclusion of triangles; the Q4 result alone does not evaluate those quantities."
+        ],
+        "reasoning": "The distinction survives the reduction to counting fully frustrated edge signings. No inspected source gives the missing Q5 field-profile distribution or an all-dimensional degeneracy theorem implying it.",
+        "searches": [
+          "Wang Theorem 1.1 and switching/orthogonality passages versus exact first coefficients",
+          "Resultary dd78f3834665 exact Q4 Finding",
+          "Minamoto's DPTV and MPR comparisons"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same census can be expressed in E=-S or in the number of negative edges (80-S)/2, where each edge-signing count is half its labeled spin count. Wang and Minamoto use optimization/edge-set formulations; the inspected passages give no corresponding full Q5 census."
+        ],
+        "reasoning": "The affine reindexing and global flip factor are the exact reductions needed to recognize an equivalent table. The signed adjacency eigenvalues alone are not the values of its quadratic form on spin vectors.",
+        "searches": [
+          "Resultary: exact Q5 zero-field partition polynomial and density of states",
+          "Resultary: F5=24 and 5120 optimal switchings",
+          "Wang arXiv:2611.14906v1 switching objective",
+          "Minamoto arXiv:2603.29127v5 odd square edge sets"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact Q5 catalogue hit is the assigned finding. The full Finding of dd78f3834665 is an exact Q4 table with nine energies, 16 ground states and 1920 first excited states. The 1979 original was not readable in the bounded OA attempts; Minamoto's discussion identifies its Table I in connection with d=6 realizability, not as a confirmed Q5 count table."
+        ],
+        "reasoning": "Q4 has a different spin space and bipartition field geometry. Its table does not encode the Q5 table. No claim about unseen figures or tables in the 1979 article is made.",
+        "searches": [
+          "Resultary: 32-spin fully frustrated hypercube spectrum, 10240 ground states, 126976 first excitation",
+          "Resultary: exact finite-temperature spectrum Q4 versus Q5",
+          "Derrida–Pomeau–Toulouse–Vannimenus, 1979, potential finite tables"
+        ]
+      },
+      "rationale": "Pass for the full labeled zero-field Q5 spin-level count and its multiplicity consequences, not for F5=24, the signed adjacency identity, or discovery of a minimizing state. Closest inspected results give the minimum and bounds, an exact census at Q4, or an infinite-dimensional/orthogonal-coupling analysis. None gives or mechanically implies the Q5 polynomial. Historical priority remains provisional, including because the 1979 scan was not independently accessible.",
+      "residual_risks": [
+        "The 1979 scan and its figures/tables could not be inspected independently; another 1995 journal source discussed by Minamoto was also inaccessible. Neither access failure is negative evidence.",
+        "An unindexed historical finite-size census or equivalent switching enumerator could contain the same coefficients. This was not an exhaustive literature census."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Partial coverage: optimum only",
+          "evidence": [
+            "The stated r^2+1 formula gives 24 at r=2; the switching objective minimizes negative edges, not all energy multiplicities."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.14906v1",
+          "material_read": "Abstract, Theorem 1.1 and signed adjacency and switching discussion (HTML text offsets 0, 4219, 5444)",
+          "method": "Read bounded primary HTML passages and evaluate r=2",
+          "title": "The frustration index of fully frustrated hypercubes",
+          "trigger": "Exact same signed Q5 and general optimization theorem"
+        },
+        {
+          "assessment": "Prior ground-state work credited; additional table coverage unresolved",
+          "evidence": [
+            "Minamoto attributes field identities, integer optimization and constructions through dimension seven to DPTV, and discusses the p. 622 limitation about some d=6 profiles."
+          ],
+          "identifier_or_url": "https://www.lps.ens.fr/~derrida/PAPIERS/1979/f-frustr-79.pdf",
+          "material_read": "No retrievable primary page on this review; secondary discussion in Minamoto and the frozen attribution were read",
+          "method": "Bounded direct and alternate OA attempts timed out or returned HTTP 403; compared secondary passage citing pp. 620–622",
+          "title": "Fully frustrated simple cubic lattices and the overblocking effect",
+          "trigger": "Same historical Q5 ground state; figures and tables could be material"
+        },
+        {
+          "assessment": "Optimization/bounds and constructions, not the Q5 spin census in the compared statements",
+          "evidence": [
+            "Discusses different dimensions and realizability of internal-field profiles, not the supplied Q5 count of all labeled states."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2603.29127v5",
+          "material_read": "Abstract, DPTV and MPR passages (offsets 10350 and 110900), §6.1 around 50000",
+          "method": "Read primary HTML excerpts and compared parameters",
+          "title": "C4-Free Subgraphs of the Hypercubes Q6, Q7, and Q8: Odd Squares, Fully Frustrated Models, and Computational Structure",
+          "trigger": "Related exact finite-dimensional fully frustrated signings and historical references"
+        },
+        {
+          "assessment": "Infinite-dimensional mean-field/TAP and coupling-matrix spectrum, not fixed-dimension spin multiplicities",
+          "evidence": [
+            "The normalized hypercube interaction matrix has spectrum {-1,1}; this is not the finite Ising energy table."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/cond-mat/9503009v2",
+          "material_read": "Abstract/introduction and hypercube spectral discussion near offset 11800",
+          "method": "Compared primary HTML passages",
+          "title": "Mean-Field Equations for Spin Models with Orthogonal Interaction Matrices",
+          "trigger": "Same model in physics; possibility of stronger finite-temperature analysis"
+        },
+        {
+          "assessment": "Materially similar but different parameter; no implication or inferred same-day priority",
+          "evidence": [
+            "Q4 has 16 spin sites, nine energy levels, ground multiplicity 16 and first excitation multiplicity 1920."
+          ],
+          "identifier_or_url": "Resultary/SCOPE:dd78f3834665",
+          "material_read": "Mirrored RESULT.md Finding",
+          "method": "Read and compared its dimension and exact level counts",
+          "title": "Exact finite-temperature spectrum of the fully frustrated Q4 Ising model",
+          "trigger": "Closest exact energy table on the same family of graphs"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Zero-field density of states is a natural exact invariant of the classical 32-spin fully frustrated model. The known minimum gives no entropy/degeneracy even at the ground state. This three-profile formula supplies the full thermal count and the first excitation with an exact mechanism, rather than a single arbitrary table entry. The value is for Q5 at zero field, not for higher dimensions or an orbit classification.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

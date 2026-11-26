@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-23.md",
+      "INDEPENDENT_AUDIT_2026-11-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducible scientific checks
+# Independent mathematical audit
 
-Run `python3 verify_cartier.py` with the Python 3 standard library. The script rederives the Cartier operator from the plane-quintic mixed-partial formula over \(\mathbb F_4\), rather than simply entering the matrix from the proof. For every one of the \(256\) monic quartics it checks exact squarefreeness and, on the \(192\) smooth models, the semilinear matrix ranks. The expected distribution is \(180\) smooth coefficient tuples with Cartier ranks \((3,1,0)\) and \(12\) tuples with ranks \((3,0,0)\). The script also verifies that \(v^5=u^4+u\) has \(65\) points over \(\mathbb F_{16}\), using explicit binary-field arithmetic.
+## correctness
 
-The coefficient-independent proof is the six-basis-vector calculation in `RESULT.md`; field enumeration serves as a separate finite consistency check, **not** a proof of all algebraically closed-field cases. The proof derives the genus from a smooth plane quintic, computes Cartier by mixed partials, uses the semilinear square and cube, and classifies the additive-quartic branch locus up to projective equivalence. No assertions about full generic Newton polygons or independent external certification are made.
+PASS
 
-Scientific status: the symbolic argument and finite verifier have received a self-review. Independent audit: not yet performed.
+The homogeneous plane quintic is smooth: at infinity F_Z=1, and at finite points a potential singularity would have y=0 and be a repeated root of f. Adjunction gives the six differentials. Independently, x is separating and the Cartier rule on (A²+xB²)dx returns B dx. Write f=f_e²+xf_o² with f_e=x²+√b x+√d and f_o=√a x+√c; use y=f/y⁴ and factor the square denominators out of Cartier. This reproduces the six images; three are independent as (a,c) is not zero, the second image is spanned by a^(1/4)ω02 and b^(1/4)ω02, and the third is zero. Stable rank and first rank give 2-rank zero and a-number three. On a=b=0, c≠0, take a root β and α³=c, so x=αu+β and y-rescaling yield the Hermitian model. The converse uses invariance of Cartier and uniqueness of the equal-exponent cover (the divisor difference is five-divisible and Pic(P¹) has no 5-torsion). Trace and norm fibers over F16 give 4(1+3·5)+1=65. The finite-field script is corroboration only; it was inspected, not run.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS for the explicit full-family two-stratum characterization, not the known Hermitian member or the general computational machinery.
+
+## value
+
+PASS
+
+This identifies a distinguished branch configuration by an intrinsic invariant that separates it from every other member despite constant a-number and p-rank. The all-parameter rank profile and geometric converse are useful; the known Hermitian point count is not the contribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

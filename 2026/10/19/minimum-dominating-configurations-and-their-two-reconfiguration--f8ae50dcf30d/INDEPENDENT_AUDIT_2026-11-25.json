@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:51:22.613533Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md, certificate.tsv, verify_python.py, verify_cpp.cpp, and the recorded outputs",
+        "Independent replay: python3 /tmp/opencode/frozen_audit_graphs.py 1 (forbidden-center-set complement, pairwise overlaps, generator orbits and all-root distance layers); certificate SHA-256 97ffabe0e4e0ab21199e85ecfea0697de63fb6b375a70e72197515d5aabade5b."
+      ],
+      "rationale": "The exact domination criterion is that each test triple contains a selected pair, equivalently the complementary two-shadow is triangle-free. At three selected triples Mantel equality forces the two-shadow K3 disjoint union K4; one triangle for K3 and at least three for K4 are needed. Independently enumerated exclusions by test triples that meet every proposed center in at most one point; all four-sets not excluded are exactly the distinct 140 Type I and 630 Type II configurations. Adjacent transpositions on the ground set generate the two claimed orbits. Calculated reconfiguration from pairwise overlap, not by replaying the bundled move loops. The exact slide-edge set equals the 35 disjoint thickened K4 constructions, with eccentricities 2:140 and 3:630. The jump graph is connected, all 770 eccentricities are seven, and the degrees are twelve and six in the respective types. All 630 extra edges map to the 70 disjoint-owner pairs with multiplicity nine each. The full D/S/J certificate matches byte-for-byte.",
+      "residual_risks": [
+        "Exact for J(7,3) and the two stipulated fixed-cardinality move rules only; the replay is a proof by finite exhaustion, not a family theorem."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The disjoint-clique construction at n=7 implies Type I. Lee–Oh explicitly leave extremal characterization to future work, while solving the numerical question and identifying tight small cases.",
+          "2b0efc2dac41 classifies J(6,3) minimum total domination, and bb6c3a634e6c treats minimum total domination and reconfiguration in J(n,2)."
+        ],
+        "reasoning": "Total domination requires an open-neighborhood witness even for selected vertices. Neither those results nor the ordinary-domination disjoint-clique construction exhaust the relevant J(7,3) optima or give their transition data.",
+        "searches": [
+          "Cornet–Dravec–Torres 2025 full deposited PDF, pp. 227–229; arXiv:2610.04675",
+          "Lee–Oh arXiv:2606.10326, introduction and concluding remarks",
+          "Resultary Johnson minimum total-domination families"
+        ]
+      },
+      "checked_sources": [
+        "OA primary texts and exact OEIS entry as itemized",
+        "Resultary 2b0efc2dac41, bb6c3a634e6c, f6b4a7e2e817"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For K3 disjoint union K4 the four-triangle covers are exactly the Type I family. The 2025 construction gives this family but no statement selecting the other 630 optima.",
+          "Lee–Oh's equality-case remarks and tightness at n=7 do not provide the two orbit classifications or the overlap graph."
+        ],
+        "reasoning": "Count and a known subfamily do not identify the other labeled centers or their intersections. The unique-owner classification and exact slide and jump structures require the additional case-level information established here.",
+        "searches": [
+          "2025 Johnson-graph paper, Prop. 7 and disjoint-clique construction",
+          "Lee–Oh extremal equality discussion",
+          "Resultary f6b4a7e2e817, 2b0efc2dac41, bb6c3a634e6c Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2025 paper identifies domination with a triangle edge cover of a graph of independence number at most two; this is the complementary triangle-free two-shadow condition.",
+          "The Suzuki et al. reconfiguration graph uses additions and removals under a size cap, not one-for-one jumps or adjacency-constrained slides."
+        ],
+        "reasoning": "The triangle-cover equivalence preserves the family of optima, but the published equivalence alone is not a census of its minimum covers. The size-cap model is not the fixed-cardinality slide graph.",
+        "searches": [
+          "Resultary: Type I/II Johnson minima, thickened K4 slides, diameter-seven jumps and disjoint-triple quotient",
+          "Cornet–Dravec–Torres, DOI 10.1016/j.procs.2025.10.302, Proposition 7",
+          "Suzuki–Mouawad–Nishimura arXiv:1401.5714"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A323494 counts minimum dominating sets in the n-tetrahedral (Johnson) graph, giving 10,770,560,45360,16200 from n=6; thus a(7)=770 exactly.",
+          "The closely ranked f6b4a7e2e817 concerns 840 optimal power-dominating sets in KG(7,3), not this state graph."
+        ],
+        "reasoning": "The table supplies the exact scalar count, so it is excluded from the novelty claim. The graph on indexing triples appearing as a quotient does not make power domination on that graph the same problem.",
+        "searches": [
+          "OEIS A323494, initial terms and offset",
+          "Resultary exact title/source and the four distinctive structure keys"
+        ]
+      },
+      "rationale": "The ordinary minimum and the exact total 770 are known; the recovered 2025 full text also supplies the two-shadow framework and the Type I construction. These must not be credited separately as new. PASS is for the complete two-family classification (including Type II and unique owners) and the exact fixed-cardinality slide and jump geometry; no covering statement or direct implication for those was found in the compared sources.",
+      "residual_risks": [
+        "Bate's thesis and older lotto-design sources were not directly inspected; historical supplements or equivalently formulated equality-case results remain possible.",
+        "These checks establish partial coverage and distinguish the read results; they do not prove publication priority or absence elsewhere."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the triangle criterion and implies Type I; not the full two-family result",
+          "evidence": "The graph with alpha at most two is obtained by a triangle edge cover; choosing disjoint cliques on 3 and 4 points yields exactly the Type I triangle covers.",
+          "identifier_or_url": "DOI 10.1016/j.procs.2025.10.302; https://dk.um.si/Dokument.php?id=205186&dn=",
+          "material_read": "Author-deposited PDF pp. 5–7 (journal pp. 227–229), §3 Proposition 7, clique construction and odd-n discussion",
+          "method": "Lawful alternate primary copy and specialization at n=7",
+          "title": "Domination in Johnson graphs",
+          "trigger": "Strongest earlier structural Johnson result, inaccessible in frozen assessment"
+        },
+        {
+          "assessment": "Known scalar with partial structural overlap; complete characterization not stated in the compared passages",
+          "evidence": "Known disjoint-clique family and tight lower-bound cases include n=7; extremal two-shadow characterization is left to future work.",
+          "identifier_or_url": "https://arxiv.org/html/2606.10326v1",
+          "material_read": "Primary HTML introduction near offset 4600 and concluding remarks near 36500",
+          "method": "Read triangle-cover equivalence and extremal remarks",
+          "title": "Domination in Johnson graphs J(n,3) for odd n",
+          "trigger": "Exact odd-n scalar and possible extremal characterization"
+        },
+        {
+          "assessment": "J(7,3) passage concerns total domination; no matching ordinary exchange claim established",
+          "evidence": "Monotonicity/total-domination statements do not specify optimal ordinary configurations and their moves.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.04675",
+          "material_read": "Primary text including J(7,3) passage near offset 43141",
+          "method": "Compare hypotheses and stated invariant",
+          "title": "Domination and Total Domination in Johnson graphs",
+          "trigger": "Possible exact J(7,3) result under a nearby definition"
+        },
+        {
+          "assessment": "Exact existing scalar coverage",
+          "evidence": "Second listed term is a(7)=770; entry credits Eric W. Weisstein, 2019.",
+          "identifier_or_url": "https://oeis.org/A323494",
+          "material_read": "Web entry at offset 287, definition, first terms, OFFSET 6,1 and authorship",
+          "method": "Read the table context and verify indexing rather than search snippet",
+          "title": "Number of minimum dominating sets in the n-tetrahedral (Johnson) graph",
+          "trigger": "Credited exact scalar count"
+        },
+        {
+          "assessment": "Different add/delete reconfiguration model",
+          "evidence": "Adjacency is one addition/removal rather than a fixed-cardinality direct slide or jump.",
+          "identifier_or_url": "https://arxiv.org/abs/1401.5714",
+          "material_read": "Primary abstract/introduction around offset 944",
+          "method": "Compare move definitions",
+          "title": "Reconfiguration of dominating sets",
+          "trigger": "Same configuration name with potentially equal moves"
+        },
+        {
+          "assessment": "Different hosts and/or dominating families",
+          "evidence": "J(6,3) total-domination orbit count, J(n,2) total-domination moves, and KG(7,3) power-domination sensor relocation are different exact statements.",
+          "identifier_or_url": "Resultary 2b0efc2dac41, bb6c3a634e6c, f6b4a7e2e817",
+          "material_read": "Mirror RESULT.md Findings at offsets 434, 0 and 0 respectively",
+          "method": "Direct comparison of host, feasibility and moves",
+          "title": "Johnson total-domination orbits and mobility; Kneser power-domination relocation",
+          "trigger": "Closest indexed near-matches"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md structural claims and independent all-state reconstruction",
+        "Prior scalar and Type I coverage described above"
+      ],
+      "rationale": "The natural Johnson graph is a baseline for fixed-cardinality domination moves. The statement gives more than a scalar or a search trace: the minimum configurations determine geometric owner labels, the labels obstruct sliding, and disjointness describes the exact quotient after jumps. The thickened complete graphs and nine edges per Kneser quotient edge give usable structural and distance tests on a familiar symmetric host.",
+      "residual_risks": [
+        "The structural interpretation concerns this finite graph only; no structural family claim follows."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

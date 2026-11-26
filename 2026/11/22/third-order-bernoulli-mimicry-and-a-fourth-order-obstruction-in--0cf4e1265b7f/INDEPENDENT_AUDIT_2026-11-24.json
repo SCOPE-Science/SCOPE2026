@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:48:39.445914Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Conditioning on the input, the spin response is u X_i times the indicator of unequal neighbors plus v X_{i-1} times the indicator of equal neighbors. Global spin flip kills odd moments. Pairing the equal Walsh monomials gives uv/2 at separation one and v²/4 at separation two for n≥5 and on Z; other pairs vanish. On the four-ring the distance-two term has two common singletons, hence v²/2. On the three-ring a pair has common cubic and common singletons, giving (u+v)²/4; on one and two sites the neighbors necessarily coincide, and in the two-site case each response uses only the other input. At v=0 and n≥4 all proper nonempty moments of a four-block vanish, as do all moments on any selection of at most three sites. Independently of the written Walsh counting argument, the four-block product is nonzero only when all four pairs (i−1,i+1) are unequal. The inner constraints force X_0 X_2=X_1 X_3=−1, so the block product is +u⁴ on that event. The constraint graph has rank four for n≥5 and on Z (two disjoint paths, glued at one endpoint on n=5), and rank two on n=4 where two pairs are repeated. This gives the stated quartic coefficients and the complete law by Walsh inversion. The pair and four-block obstructions prove necessity for fair stationarity; all sufficiency and small rings follow from the moment calculations. Independently enumerated exact coefficient maps in u and v from local cases for 210 subsets through order four on rings n=1..7 (replay: /workspace/branches/independent-replays/audit_pca_coefficients.py); this tests all parameter coefficients for the sampled sizes, not the arbitrary-size quantifier. Frozen checker read, not executed. The three-wise claim excludes the three-ring away from the fair point, as specified in the record.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The elementary-rule record treats deterministic Bernoulli images, not independent stochastic redraws whose response depends on the input neighborhood.",
+          "The skew-rotation record genuinely has fair three-wise signs and a fourth-order correction but for a Haar dynamical coding.",
+          "The thermal majority response is tanh(β(X_{i−1}+X_i+X_{i+1})); at finite positive β it does not randomize agreeing-neighbor inputs to conditional mean zero."
+        ],
+        "reasoning": "Neither deterministic dependence lengths, the analogous skew-rotation phenomenon, nor the thermal stationary framework gives this stochastic spatial one-step parity law.",
+        "searches": [
+          "Resultary: exact dependence phases of elementary cellular-automaton Bernoulli images; exact fourth-order dependence phases of binary skew rotation",
+          "Lemoy–Mozeika–Seki arXiv:1311.4388, §2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_fair_pca.py",
+        "arXiv:2603.27799",
+        "arXiv:1311.4388",
+        "Resultary reversible-line, elementary Bernoulli-image and skew-rotation findings listed above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The three-site stationary formulas give the uniform line p+r=1 at interior rates; the frozen record explicitly credits this.",
+          "The four-site transition matrix fixes the n=4 exceptional coefficient but identifies neither the n=5 wrap case nor any other sizes or distant three-site selections."
+        ],
+        "reasoning": "Intersecting a reversible stationary family with the fair measure or reading finite tables does not yield the claimed nonstationary three-wise line or its size-uniform sharp first obstruction.",
+        "searches": [
+          "Muñoz–Nuño arXiv:2603.27799, §4.2 Eqs. 15–17 and §4.3",
+          "Resultary reversible-line and deterministic Bernoulli-image antecedents"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The probabilistic interpolation and local rule are exactly the same in the primary paper.",
+          "The same-model reversible-line antecedent imposes p=1/2, whereas the nontrivial one-step moment statement imposes r=1/2 and allows p≠1/2."
+        ],
+        "reasoning": "The one-step law can equivalently be expressed by vanishing proper Walsh coefficients and one nontrivial four-block coefficient; it is not a statement of detailed balance or stationary correlations except at the common fair point.",
+        "searches": [
+          "Muñoz–Nuño arXiv:2603.27799, Table 2 and §§4.2–4.3",
+          "Resultary: one-step noisy majority Bernoulli laws, reversible line, deterministic Bernoulli images"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The original paper's three- and four-ring transition matrices determine all one-step probabilities in those sizes, including the four-ring special case by averaging over fair inputs.",
+          "No table located gives the consecutive law and arbitrary-selection three-wise guarantee across n≥5 and Z."
+        ],
+        "reasoning": "Do not credit novelty for table recomputation at fixed sizes. The certified size-uniform quantifier and compact exact law go beyond those finite matrices.",
+        "searches": [
+          "Muñoz–Nuño arXiv:2603.27799, §§4.2 and 4.3",
+          "Resultary same-model and elementary-CA records"
+        ]
+      },
+      "rationale": "Credit the known update and small-ring computations. The supported distinct claim is the all-size and infinite-lattice one-step vanishing of all spin correlations through order three on the nontrivial line together with the exact fourth-order obstruction and resulting size-uniform classification. Neither the same-model antecedents nor the closest broader comparisons checked establish it.",
+      "residual_risks": [
+        "Other generalized stochastic block-factor moment calculations were not systematically surveyed; priority is best-of-knowledge.",
+        "The small-ring special cases are partly covered by the original paper and are not the basis of this pass."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same model and overlapping small sizes; not the all-size statement.",
+          "evidence": "The §4.2 stationary coordinates are uniform at p+r=1 at interior rates; §4.3 explicitly constructs the transition matrix for L=4.",
+          "identifier_or_url": "https://arxiv.org/html/2603.27799",
+          "material_read": "Table 2 (offset 10040), §4.2 Eq. 15–17 (offset 18305), start of §4.3 and 16-state transition matrix passage (offset 37310)",
+          "method": "Bounded OA primary text",
+          "title": "Probabilistic Cellular Automata: between deterministic Wolfram's rules 23, 77, 178 and 232",
+          "trigger": "Identical source model and possible finite-size coverage"
+        },
+        {
+          "assessment": "Distinct slice and invariant.",
+          "evidence": "Detailed balance and second-neighbor Ising stationary law on p=1/2.",
+          "identifier_or_url": "2026/11/1/SCOPE-a-sharp-reversible-line-and-odd-even-correlation-law-for-a-two-p--1b530a390287",
+          "material_read": "RESULT.md, Finding, offset 0",
+          "method": "Resultary local mirror",
+          "title": "A sharp reversible line and odd–even correlation law for a two-parameter probabilistic cellular automaton",
+          "trigger": "Same family and stationarity"
+        },
+        {
+          "assessment": "Related, not a randomized site-update result.",
+          "evidence": "Classifies one- versus two-dependence of deterministic elementary rules at given biases.",
+          "identifier_or_url": "2026/10/25/SCOPE-exact-dependence-phases-of-elementary-cellular-automaton-bernoul--3b362554036a",
+          "material_read": "RESULT.md, Finding, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Exact dependence phases of elementary cellular-automaton Bernoulli images",
+          "trigger": "Possible general block-map coverage"
+        },
+        {
+          "assessment": "Analogous statistic on a distinct process.",
+          "evidence": "Haar-coded signs have a fourth moment C(α) and vanishing lower nonconstant Walsh coefficients.",
+          "identifier_or_url": "2026/10/26/SCOPE-exact-fourth-order-dependence-phases-of-a-binary-skew-rotation-c--6d6bad371067",
+          "material_read": "RESULT.md, Finding and assumptions, offsets 0 and 1103",
+          "method": "Resultary local mirror",
+          "title": "Exact fourth-order dependence phases of a binary skew-rotation coding",
+          "trigger": "Exact three-wise/fourth-order analogue"
+        },
+        {
+          "assessment": "Different local response, not a dominating parameterization of this line.",
+          "evidence": "Eq. (3) uses tanh of inverse temperature times the local majority field.",
+          "identifier_or_url": "https://arxiv.org/pdf/1311.4388",
+          "material_read": "§2, PDF pp. 2–3, offset 7580, Eqs. (2)–(4)",
+          "method": "Bounded OA primary text",
+          "title": "Transfer matrix analysis of one-dimensional majority cellular automata with thermal noise",
+          "trigger": "Plausible broader majority-noise framework"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "On a naturally defined one-parameter slice of an existing noisy majority model, every marginal test involving at most three sites misses a departure from fair-product stationarity. The explicit parity law supplies the first witness, at any size where the phenomenon occurs, and a complete stationarity obstruction rather than a single small-ring computation. It makes no claim about arbitrary initial measures or asymptotic mixing.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The scalar conjugacy \(f^{\circ n}((1-\cos\theta)/2)=(1-\cos(2^n\theta))/2\) is exact, including endpoints. Integration by parts with an even cosine frequency yields the endpoint expansion (1); the remainder follows from the Riemann–Lebesgue lemma and the stipulated smoothness. The matrix leading term is a sum of two endpoint-evaluation outer products. For the secondary scale, the block expansion (5) is checked using values and first derivatives of products of endpoint-null polynomials. The Schur complement subtracts \(9/16\) from the direct \(15/8\), leaving \(21/16\); the derivative-evaluation rank is \(\min(2,d-1)\). A finite determinant/root analysis gives precisely the stated two eigenvalue scales without supposing positivity of all remaining eigenvalues. The included standalone program performs 115 exact-rational checks using independent integration constructions. Finite checks are supplemental, not a substitute for the analytical proof.
+PASS
 
-## Originality — PASS
+Under x=(1-cos(theta))/2, the centered integral is -1/4 times the m-th cosine coefficient of a(theta)=g(x(theta)) sin(theta). Since m is even, the boundary contributions alternate in the stated signs; a'(0)=g(0), a'(pi)=-g(1), a'''(0)=3g'(0)/2-g(0), a'''(pi)=3g'(1)/2+g(1). Integrating 2r times gives the claimed remainder by Riemann–Lebesgue; two more derivatives give the stronger bound. Endpoint evaluation has rank two, split into even and odd rank-one blocks, with exact parity cancellation by logistic reflection. For polynomials vanishing at both endpoints, the theta^5 coefficient of a for their product is p'(0)q'(0)/16, with the reflected coefficient at pi. This yields the 15/8 derivative Gram coefficient. On endpoint complements the leading block is T*T/(4m^2) and the coupling is 3T*RJ/(8m^4), with T invertible and R=diag(-1,1). Eliminating the complement subtracts 9/16 J*J, leaving 21/16. To verify multiset convergence even at a zero limiting eigenvalue, apply Schur inertia to H-m^(-6) z I for each real z outside the limiting spectrum: the complement block stays positive and the rescaled Schur block tends to (21/16)J*J-z I. This yields exactly the claimed small-eigenvalue counts and limits. Writing p=x(1-x)s gives the rank and, at d=2, the ratio of squared derivative norm 2 to squared polynomial norm 1/30, hence 315/4. The asserted signs at the two scales are asymptotic, not signs for every n. All matrix estimates are at fixed cutoff; the bundled rational program is finite corroboration only and was inspected, not executed.
 
-The closest inspected source is Janowicz and Orłowski, arXiv:2607.19159v1, Section 4.2, Theorem 2. Its exact Chebyshev-moment expression determines each fixed Legendre matrix entry, and its proved estimate is \(O(4^{-n})\) at fixed indices. Those ingredients are acknowledged as already established. The present claim is more specific and structurally distinct: all-smooth-test endpoint asymptotics and a two-tier eigenvalue limit for every fixed finite-dimensional compression. In particular, the secondary eigenvalue scale \(64^{-n}\), its exact multiplicity, the coefficient \(21/16\), and the \(d=2\) coefficient \(315/4\) do not appear in the inspected source. The classical angle-doubling conjugacy is also acknowledged. Exact-entry information permits derivation of these consequences, so the result is a refinement, not an independent dynamical mechanism. An equivalent spectral extraction in unindexed literature remains a priority risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The source's fixed-entry decay estimate does not distinguish eigenvalue scales. The rank-two leading limit might suggest all other modes are merely of smaller, unspecified order; the proved Schur cancellation shows that those modes first appear two full powers of the squared frequency later, and determines their multiplicities and coefficients. This is a structural asymptotic classification of natural finite Galerkin sections of a classical chaotic observable. The derivative-jet formulation also explains how mode cancellation produces spectral scale separation and allows sharp finite-order predictions. This is not a claim of operator-norm convergence or a new logistic-map conjugacy.
+The exact entries of the same Legendre compression and their O(4^-n) estimate are existing work. The supported distinction is the endpoint-jet expansion and the resulting two-scale spectral law, particularly the cancellation of the would-be m^-4 small-eigenvalue scale and the Schur-corrected m^-6 limit. A separate catalogue result has exact spectra in the arcsine/Chebyshev compression, not the Lebesgue/Legendre compression. Neither inspected statement gives the new spectral assertion as a direct special case.
 
-## Closest literature and limitations
+## value
 
-Janowicz–Orłowski's Theorem 2 (arXiv:2607.19159v1) is closest; its entire relevant Section 4.2, theorem, derivation, and stated restrictions were inspected in the publicly accessible manuscript text. MathWorld's account of the logistic map at parameter four supplies the classical conjugacy. Theorems here concern fixed finite cutoffs, not any growing-dimensional regime, not projected nonlinear dynamics, and not operator-norm convergence. Independent priority and scientific validation have not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For a natural polynomial Galerkin approximation, this identifies how many independent directions see the leading endpoint effect and how coupling changes the first nonzero eigenvalues in the endpoint-null space. An entrywise decay bound cannot answer either question. The explicit loss of an entire scale and the derivative-Gram coefficient are useful fixed-cutoff data, without claims about projected nonlinear dynamics or a growing dimension.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

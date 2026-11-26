@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:15:12.800556Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Frozen RESULT.md lines 25–81 and CHECK.py inspected, not executed.",
+        "Independent exact reproductions: /tmp/opencode/frozen-math-independent/r2r3.py (record 2 section) and /tmp/opencode/frozen-math-independent/r2base.py."
+      ],
+      "rationale": "The claimed trace and geometric quotient formula are correct for n >= 2. An invariant extendible face cannot contain a vertical orbit (its edges meet) and each selected horizontal orbit contributes -1 in the cardinality-signed face sum. A deterministic set of possible domino boundary occupancies counts each extendible face once, irrespective of the number or symmetry of completing tilings. I reconstructed the seven states, displayed matrix M and terminal vector from vertical placements and checked M^8 = M^2 and W_2,W_4,W_6,W_8 = 0,-1,1,0 over the integers. The whole-matrix identity propagates the three-residue result indefinitely, except for W_2 handled directly. Independent tiling/face enumeration gave the same fixed-face sums at n=2,3,4; mod-2 augmented boundary ranks at n=2,3 leave a single class in degrees 1,2 respectively, consistent with Euler characteristics -1,+1 and the rational theorem. Theorem 3.5 of arXiv:2611.18058 supplies exactly the degree and Fibonacci rank used at all n >= 2. Empty-face augmentation gives reduced Lefschetz number -W_{2n}, hence trace (-1)^n W_{2n}. After barycentric subdivision simplex stabilizers act pointwise, and rational quotient chains compute the coinvariant homology, with rank (F_{n-1}+trace)/2 in degree n-1. The first positive rank is one at n=4. No integral quotient claim follows.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3.5 gives the nonequivariant wedge for n >= 2, not mirror eigenspaces.",
+          "eda18ed068e3 explicitly gives the same row trace as the row entry of its full V4 character and identifies it as an input. f584e8574246 also treats reduced Lefschetz and acyclicity at n=1."
+        ],
+        "reasoning": "The nonequivariant theorem alone cannot determine the trace; the full-character result contains it on restriction, and the direct row result covers the geometric row quotient exactly.",
+        "searches": [
+          "arXiv:2611.18058 Theorem 3.5",
+          "Local Resultary record eda18ed068e3, full Klein-four character"
+        ]
+      },
+      "checked_sources": [
+        "Resultary f584e8574246",
+        "Resultary eda18ed068e3",
+        "Resultary 521893fb03dc (n=2 only)",
+        "arXiv:2611.18058v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Same ordered seven mask sets, signed matrix and terminal vector, with A^6 b=b giving periodicity; same degree and quotient invariant rank."
+        ],
+        "reasoning": "Replacing periodicity on the terminal vector by M^8=M^2 verifies the same face sums and does not supply a different topological result or a materially different method.",
+        "searches": [
+          "Direct local-mirror comparison of f584e8574246 RESULT.md, offsets 0 and 3172"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "f584e8574246, RESULT.md Finding, gives reduced Lefschetz number 0,+1,-1 for n=1,2,0 mod 3, trace (-1)^{n-1} times this number, and quotient rank (F_{n-1}+trace)/2."
+        ],
+        "reasoning": "Multiplying by the homological parity gives exactly the six residues in the frozen record. Identical extendibility complex, involution and actual geometric quotient; not a comparison to the ordinary matching complex or an abstract orbit complex.",
+        "searches": [
+          "Local Resultary comparison: three-row grid perfect-matching extendibility complex, top–bottom reflection, signed Lefschetz number, rational quotient",
+          "Primary literature lookup for perfect matching complexes of the 3 × 2n grid and row reflections"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "eda18ed068e3 Finding prints +1 for n=0,5, 0 for n=1,4, and -1 for n=2,3 mod 6; f584e8574246 gives the equivalent exact formula for all orders.",
+          "521893fb03dc gives the earlier n=2 trace -1 only."
+        ],
+        "reasoning": "The exact all-order results, not the isolated earlier check, settle overlap.",
+        "searches": [
+          "Local Resultary matches f584e8574246, eda18ed068e3 and 521893fb03dc"
+        ]
+      },
+      "rationale": "Distinct indexed full text f584e8574246 covers the entire mathematical claim, including the same seven-state automaton and the quotient. Its date matches the audited record's calendar date; this establishes overlap, not publication order, attribution history or misconduct. The second exact-character record corroborates coverage. No distinct substantive remainder is identified.",
+      "residual_risks": [
+        "Distinct same-day records establish mathematical overlap but not relative priority or a relationship between the submissions. The negative originality decision does not depend on any inaccessible source."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage of both theorem and method, not the audited record itself",
+          "evidence": [
+            "Formula for reduced Lefschetz number, trace and quotient rank; same M and t; A^6 b=b."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-exact-row-reflection-homology-characters-of-three-row-perfect-ma--f584e8574246/RESULT.md",
+          "material_read": "Finding, assumptions, proof from invariant face signs through automaton and periodicity",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4, offsets 0–5588",
+          "title": "Exact row-reflection homology characters of three-row perfect-matching complexes",
+          "trigger": "Same grid, row reflection and rational quotient"
+        },
+        {
+          "assessment": "Explicit row entry covers the trace; row result noted as an input",
+          "evidence": [
+            "Displayed r_n exactly matches the six-residue trace; half-turn is the distinct claimed novelty."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-the-half-turn-fibonacci-character-and-full-symmetry-quotient-of--eda18ed068e3/RESULT.md",
+          "material_read": "Finding, scope and reduced equivariant face formula",
+          "method": "Local mirror, offset 0–3189",
+          "title": "The half-turn Fibonacci character and full symmetry quotient of three-row perfect-matching complexes",
+          "trigger": "Broader symmetry group on the same complex"
+        },
+        {
+          "assessment": "Validates the nonequivariant input, not the equivariant computation",
+          "evidence": [
+            "Delta_1 contractible; Delta_n wedge of f_{n-1} spheres S^{n-1} for n >= 2; f_1=f_2=1."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2611.18058v1",
+          "material_read": "Theorem 3.5, PDF p. 6, including the n=1 convention and n >= 2 formula",
+          "method": "OA primary paper, text offsets 21763ff, theorem near 21983",
+          "title": "Perfect Matching Complexes of 3 × 2n Grid Graph",
+          "trigger": "Essential all-order homology concentration and rank input"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The mirror character of a natural infinite family and the first surviving quotient class are intrinsically useful, but the audited record delivers no separate mathematical gain over the matching result: it covers the same trace, quotient and first nonzero case via the identical determinized transfer. The alternative matrix-power check is corroboration, not a new invariant or an independent method.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

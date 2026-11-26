@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:23:12.551213Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, critical_cycle.cpp, independent_critical.py, independent_bruteforce.cpp and the recorded outputs, read without executing the submitted code",
+        "Independent replay: python3 /workspace/branches/reproductions/check5.py; stdout in /workspace/branches/reproductions/replay.txt"
+      ],
+      "rationale": "For any fixed set of two-labelled vertices the unique cheapest completion labels an outside vertex one exactly when it has no neighbour in that set. I independently encoded only the two-label membership bits, with 4 column symbols and 256 overlapping four-column states, charging the optimized central-column weight on each of 1024 arcs. Synchronous relaxation stabilized and all arc slacks were checked. Exactly seven of the 244 tight arcs have a tight return path; they are precisely the arcs of the period-seven word in the finding. This proves the bound for every length by telescoping, and forces any minimum of weight 8k to follow that cycle. Each starting phase gives a distinct labelled function and the optimized completion recovers the stated labels. Direct checks give eight discrepancies for each nonzero shift in one period, hence 8k overall. The argument applies at k=1 as well: the spoke and two inner offsets in the local rule are exactly the stated neighbours.",
+      "residual_risks": [
+        "Exact bounded replay plus a closed-walk proof, not a formal proof-assistant certificate; no equality classification at other lengths is certified."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The catalogue result adds a support-exchange graph with exact thresholds 2m and 3m to the same optimum classification.",
+          "Wang et al. give the weight for general n, not an explicit census of all optima at multiples of seven."
+        ],
+        "reasoning": "A result on the optimal weight for more graph orders need not imply rigidity; the catalogue explicitly gives the needed equality-case classification at the same orders.",
+        "searches": [
+          "74c79c34fad1 Finding and proof §1; arXiv:1103.2419v1 Lemma 2.11 and Theorem 2.12; Zhang–Shao–Xu Journal of Combinatorial Mathematics and Combinatorial Computing 89 (2014), 311–320"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 74c79c34fad1 exact Finding and scope",
+        "arXiv:1103.2419v1 Lemmas 2.1 and 2.11 and Theorem 2.12",
+        "Zhang–Shao–Xu 2014, bibliographic only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Comparison of the exact catalogued word with its six nonzero shifts gives [8,8,8,8,8,8] discrepancies on fourteen labels; the word repeats m times.",
+          "The older weight proof provides aggregate inequalities and a witness, not an explicit equality classification in the inspected passages."
+        ],
+        "reasoning": "The all-minimizer word plus direct comparison implies the distance claim without a new classification or additional hypotheses. A weight and one witness alone do not suffice for that implication.",
+        "searches": [
+          "74c79c34fad1 Finding and Assumptions; arXiv:1103.2419v1 Lemmas 2.1, 2.11 and Theorem 2.12"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The catalogue word ((0,2),(0,2),(1,0),(0,0),(2,0),(0,0),(1,0)) is the recorded word beginning at its fourth column. Both count named functions rather than orbits."
+        ],
+        "reasoning": "GP(n,2) and P(n,2) here have the identical stated edge sets. The shift of starting column merely permutes the seven labelled minimizers.",
+        "searches": [
+          "Resultary: exact Roman domination census on P(7m,2), equality cases, critical transfer cycle and Hamming distance",
+          "74c79c34fad1 Finding and Assumptions; Wang–Xu–Yang–Ji arXiv:1103.2419v1 Lemma 2.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed theorem gives exactly seven named minima of weight 8m for every m>=1, not just matching small cases."
+        ],
+        "reasoning": "The material exact match is a quantified theorem on the same domain and with identical labels, not a small-parameter table coincidence.",
+        "searches": [
+          "Resultary exact count and equality-case queries; 74c79c34fad1 mirrored RESULT.md Finding, offset 0–3011"
+        ]
+      },
+      "rationale": "Distinct indexed record 74c79c34fad1 explicitly classifies the same seven minima for the same labelled graphs and gives the identical period word up to rotation. As a direct comparison of the displayed labels shows eight discrepancies for each of the six shifts, the Hamming claim is mechanically implied even though not printed there. The weight formula and exhibited period-seven construction are older still. The matching indexed classification has a later catalogue date than the frozen record, so this is present-day coverage, not a finding about who had priority.",
+      "residual_risks": [
+        "The full Zhang–Shao–Xu text was inaccessible; the inspected earlier discharging proof may have further equality implications not assessed here. No historical priority inference is made from the later-dated exact match."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Distinct indexed record covering the whole frozen claim, including Hamming distance by immediate implication",
+          "evidence": "Exactly seven labelled minima of weight 8m, given by a rotation of the exact template; additional support-exchange classification.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-seven-rigid-optimal-roman-labelings-of-p-7m-2--74c79c34fad1/RESULT.md",
+          "material_read": "Finding, Assumptions and start of proof, offset 0–3011; comparison also used its finite-state proof",
+          "method": "Bounded primary passages from the local mirror",
+          "title": "Seven rigid optimal Roman labelings of P(7m,2)",
+          "trigger": "Same indexed equality-case claim and critical cycle"
+        },
+        {
+          "assessment": "Explicit prior coverage of scalar weight and template, not explicit all-minimizer or Hamming statements in those passages",
+          "evidence": "Period-seven upper construction and aggregate inequalities proving ceil(8n/7).",
+          "identifier_or_url": "https://arxiv.org/html/1103.2419v1",
+          "material_read": "Lemma 2.1 around offset 5700; Lemma 2.11 and Theorem 2.12 around offsets 28150–30616",
+          "method": "Bounded original preprint passages",
+          "title": "Roman domination number of Generalized Petersen Graphs P(n,2)",
+          "trigger": "Exact prior weight and construction; possible implicit equality analysis"
+        },
+        {
+          "assessment": "No full-text comparison justified; the independent catalogue comparison is already decisive",
+          "evidence": "The frozen record attributes the general closed-walk reduction to this paper; that attribution was not verified from the original.",
+          "identifier_or_url": "https://combinatorialpress.com/article/jcmcc/Volume%20089/vol-089-paper%2023.pdf",
+          "material_read": "Bibliographic identification only; no extractable full text returned",
+          "method": "Lawful OA attempts at the cited copy",
+          "title": "On the Roman Domination Numbers of Generalized Petersen Graphs",
+          "trigger": "Transfer method and possible implicit critical graph theorem"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Rigidity at all multiples of seven is a meaningful improvement over knowing only the optimum weight, but the same rigidity is already in the indexed record. The stated separation is an elementary read-off from that result's exact seven-word classification. The frozen result supplies no distinct structural or exact-invariant contribution beyond that coverage.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

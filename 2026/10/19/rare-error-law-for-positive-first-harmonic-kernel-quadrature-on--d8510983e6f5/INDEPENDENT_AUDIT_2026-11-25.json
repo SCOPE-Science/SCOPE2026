@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:02:16.218314Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–67 and 69–121",
+        "Frozen VERIFICATION.md, lines 19–25; verify.py, lines 10–140 (inspected, not executed)"
+      ],
+      "rationale": "The antipodal symmetry cancels the feature mean, and the simplex error is center-to-hull distance. The regular, once-around convex parametrization maps each half-period to one radial half-plane. For x ≥ π the events that a particular sampled point starts a gap longer than x are disjoint; conditional on that labeled angle their probabilities are (1−x/(2π))^(N−1). This checks the tail without a convention about where to start listing the cyclic spacings. The unique long gap's start is uniform and independent of its excess δ by rotations of the parameter. For its endpoints p=g(u), q=−g(u+δ), the open complementary arc and the missing arc lie on opposite sides of the chord, by strict convexity. The antipode −p is on the missing arc for 0<δ<π, hence its midpoint with p, the origin, lies on the side opposite the samples. The foot of the origin varies continuously from the interior midpoint of the antipodal chord, uniformly in u by compactness, so for small δ the hull distance is |det(p,q)|/|p−q|. Expanding gives δ det(g,g′)/(2|g|)+O(δ²) uniformly. For all gaps the midpoint gives E≤||g′||∞δ/2. The scaled beta tail is bounded by exp(−z/(2π)) for N≥2 and gives Nδ⇒πZ; it also bounds the conditional fourth moments and justifies passage to squared moments. The conditional limit is π²J/2 for (NE)^2; multiplying by N2^(1−N)/N² gives exactly the stated prefactor. The ellipse integral follows by tan substitution in each quadrant, and the circular chord formula holds for all gaps and includes N=2.",
+      "residual_risks": [
+        "The spacing proof uses a labeled sampled origin, not a distinguished gap straddling a fixed deterministic angle. The limit and mean-square claim concern a fixed once-around parametrization with iid uniform parameter angles, not arbitrary arclength sampling or curves traced several times.",
+        "Packaged integration and simulation checks are finite corroboration only; the audit uses the analytic derivation."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hayakawa §§1–3: random convex-hull and positive-weight RKHS bounds.",
+          "Hayakawa–Lyons–Oberhauser introduction, eq. (1): centrally symmetric origin inclusion and context for general depth/distance bounds."
+        ],
+        "reasoning": "Inclusion and upper bounds control incidence or size but do not determine the law conditional on the exponentially rare exclusion event, nor identify its sharp shape-dependent mean-square constant.",
+        "searches": [
+          "Hayakawa, arXiv:2605.05705v1",
+          "Hayakawa–Lyons–Oberhauser, arXiv:2101.04250"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2101.04250, introduction eq. (1)",
+        "arXiv:2605.05705v1, §§1–3",
+        "Resultary 2026/10/25/SCOPE-marked-wendel-law-and-convex-order-optimal-sampling-for-random-inscribed-polygons--6fc92189d743 (index only)",
+        "DOI 10.2307/3213515 (bibliographic identification only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Wendel's d=2 complement is N2^(1−N). The angular gap tail is identical for all admissible curves, while the distance coefficient is det(g,g′)/(2|g|) and the squared prefactor varies with g, equaling π²ab for an ellipse."
+        ],
+        "reasoning": "A gap law or dimension-only inclusion theorem cannot alone determine the distance coefficient. The chord-foot geometry and squared-moment argument supply the additional information. The conditional circle case does follow from the classical gap law and elementary chord formula and is not counted as distinct.",
+        "searches": [
+          "Wendel formula as restated in arXiv:2101.04250, introduction eq. (1)",
+          "arXiv:2605.05705v1, §§1–3",
+          "Marked-Wendel Resultary record indexed statement"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 2026/10/25/SCOPE-marked-wendel-law-and-convex-order-optimal-sampling-for-random-inscribed-polygons--6fc92189d743, indexed statement: conditional N-scaled center clearance converges to an explicit exponential scale mixture for smooth centrally symmetric ovals."
+        ],
+        "reasoning": "Center clearance equals the RKHS error here, so a theorem of the same breadth and sampling law would be genuine mathematical overlap, not a title match. The summary does not specify the exact scale, parameter density or moment passage. Full text could not be retrieved via the mirror. The dated comparison does not establish prior coverage.",
+        "searches": [
+          "Resultary search for conditional center clearance of a random polygon on a centrally symmetric oval",
+          "Primary literature search comparing rare conditional convex-hull distance, circular spacings and positive-weight kernel quadrature"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Wendel gives the exact failure probability; the classical spacing law gives the circle tail via its chord geometry. The indexed marked-Wendel summary concerns the general type of limit, not a table of evaluated functionals."
+        ],
+        "reasoning": "An exact gap formula is prior coverage for the one-dimensional spacing input, not a table for a functional of arbitrary fixed curves. There is no separate finite census to match for the general limit.",
+        "searches": [
+          "Resultary marked-Wendel record index",
+          "Hüsler, Random coverage of the circle and asymptotic distributions, DOI 10.2307/3213515"
+        ]
+      },
+      "rationale": "Pass the conditional size law and sharp shape-dependent second moment for the stated smooth feature curves. The classical failure probability, gap law and circle tail are credited inputs or their elementary consequences. The closest indexed center-clearance result has a later record date and substantial object-level overlap; its available summary does not establish earlier coverage or equality of the sampled measures and constants. This finding is not a claim of priority over all clearance literature.",
+      "residual_risks": [
+        "Full marked-Wendel comparison was blocked by mirror unavailability; its summary implies possible equivalent coverage under a change of sampling parametrization and may cite an older source. Neither identity nor priority is asserted from dates alone.",
+        "The older coverage paper and any unlocated sharp clearance laws are residual literature risks; absence of a direct search match carries no independent weight."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the failure probability exactly, not the conditional shape-dependent size in the inspected statement.",
+          "evidence": "Wendel's centrally symmetric inclusion formula gives complement 2^(1−N)(1+N−1) in dimension two.",
+          "identifier_or_url": "https://arxiv.org/abs/2101.04250",
+          "material_read": "Introduction, equation (1), HTML offset about 1850 and surrounding assumptions",
+          "method": "Open-access paper text",
+          "title": "Estimating the probability that a given vector is in the convex hull of a random sample",
+          "trigger": "Exact symmetric hull probability and broader depth/distance framework"
+        },
+        {
+          "assessment": "Overlap in formulation and general bounds; no conditional rare-event size or J(g) in the inspected statements.",
+          "evidence": "Known positive-weight convex-hull error bounds give guarantees, not the distribution of the nonzero distance conditional on exclusion.",
+          "identifier_or_url": "https://arxiv.org/abs/2605.05705",
+          "material_read": "Opening bounds and framework, §§1–3, HTML offsets about 4100 and 8800",
+          "method": "Open-access paper text",
+          "title": "Convex-Geometric Error Bounds for Positive-Weight Kernel Quadrature",
+          "trigger": "Same simplex-weight optimal error and finite-rank feature framework"
+        },
+        {
+          "assessment": "Substantial apparent overlap; exact measure, coefficient, second moment and prior coverage not established by available material.",
+          "evidence": "The summary describes an explicit conditional exponential scale mixture for the N-scaled center clearance of center-missing random polygons on smooth centrally symmetric ovals.",
+          "identifier_or_url": "2026/10/25/SCOPE-marked-wendel-law-and-convex-order-optimal-sampling-for-random-inscribed-polygons--6fc92189d743",
+          "material_read": "Indexed mathematical summary; full RESULT.md unavailable via local mirror",
+          "method": "Resultary index and targeted local-mirror lookup",
+          "title": "Marked Wendel law and convex-order optimal sampling for random inscribed polygons",
+          "trigger": "Closest apparent mathematical equivalent in the indexed corpus"
+        },
+        {
+          "assessment": "No whole-paper exclusion inferred; the exact half-circle spacing input is credited independently of access.",
+          "evidence": "Frozen RESULT.md lines 73–85 derive the needed spacing formula directly; lines 113–121 show its circle-distance consequence.",
+          "identifier_or_url": "https://doi.org/10.2307/3213515",
+          "material_read": "Bibliographic identification only; full text unavailable",
+          "method": "Lawful open-access lookup",
+          "title": "Random coverage of the circle and asymptotic distributions",
+          "trigger": "Classical half-circle spacing and coverage context"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 18–59 and 87–121"
+      ],
+      "rationale": "A user of positive-weight finite-rank quadrature needs the magnitude of failures, not only their incidence. The coefficient is a sampling-parametrization-dependent angular functional, with ab rather than a bound based on the largest semiaxis for ellipse features. The conditional law and integrable control of rare errors identify the precise contribution to unconditional mean-square risk that inclusion and norm inequalities do not give.",
+      "residual_risks": [
+        "The specialized rate is not a guarantee for infinite-rank kernels, unconstrained weights or approximate optimization."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T13:13:28.471291Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independent replay /workspace/branches/replay_1.py, run with python3, directly summed crossing indicators over the 48 unordered edges of each graph on each of 65,536 binary profiles; it imports no source code and uses neither the supplied row-mask nor edge-increment recurrence. It checked all subset-size totals, every coefficient difference (35 nonzero, all others zero), and the degree and common-neighbor conditions. The latter give A²=4I+2J_16 and the shared spectrum 6,2^(6),−2^(9); the unequal counts of K4 subgraphs (8 vs. 0) certify nonisomorphism. After dividing the parenthetical factor by z^4 the sign is that of g(s)=s²−4q⁶s+6q⁸−2 on s≥2. For q≠1, g(2)=2(q²−1)²(3q⁴+2q²+1)>0; for q<1 the vertex lies left of 2, and for q>1 it lies right of 2 with negative value −2(q⁴−1)²(2q⁴+1). This gives exactly the stated strict intervals; q=1 makes the full difference zero. In the Ising normalization the common prefactor is exp(−48βJ+16βh), q=exp(2βJ), z=exp(−2βh); s=2cosh(4βh) sweeps [2,∞) strictly monotonically for h≥0. Rationalizing the smaller root gives s_−∼(3/2)q², while s_+∼4q⁶, proving the two limits J and 3J at fixed J>0. Spin reversal gives the negative-field comparisons. The uploaded finite certificate was inspected, not executed; the independent replay covers only these two labeled finite graphs.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "9f5b5837e544 treats the family K_a □ K_b, at zero temperature and for rook graphs only.",
+          "0784a5def8e3 treats both graphs at zero temperature, with critical fields J,3J,6J for Shrikhande and 2J,6J for rook."
+        ],
+        "reasoning": "More graph sizes for the rook staircase or all fields at zero temperature do not dominate the positive-temperature comparison of both graphs. The low-temperature limits J and 3J coincide with prior Shrikhande thresholds, but the finite-temperature crossing locations and exact strict intervals are additional.",
+        "searches": [
+          "Resultary field-staircase and exact ground-state separation lookups; mirror Findings for 9f5b5837e544 and 0784a5def8e3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py; independent /workspace/branches/replay_1.py",
+        "Resultary records c772e958c177, f9027d05a3f2, 9f5b5837e544 and 0784a5def8e3",
+        "Peters–Regts arXiv:1810.01699 and Chelkak–Cimasoni–Kassel arXiv:1507.08242 (specified passages)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The same-day zero-field identity is exactly obtained by z=1, and is credited as such by the frozen finding. The earlier two-graph ground-state result gives finite lists of extrema/transitions but not partition weights of nonminimal states."
+        ],
+        "reasoning": "Neither the marginal cut distribution nor the energy envelope determines the finite-temperature weighted sum by field. In particular, a zero-field sign and the limiting critical fields cannot exclude extra finite-temperature crossings. The factor determining the count is not mechanically implied by these prior claims.",
+        "searches": [
+          "f9027d05a3f2 Finding; 0784a5def8e3 Finding; 9f5b5837e544 Finding and scope"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Peters–Regts define Z_G(ξ,b)=∑_U ξ^|U| b^|δ(U)|, identical under (ξ,b)=(z,q); the inspected section does not provide the pair difference.",
+          "Zero-field even-subgraph and domain-wall formulas in Chelkak–Cimasoni–Kassel are general Ising representations, not cardinality-resolved coefficient data for this pair."
+        ],
+        "reasoning": "The representation and spin/cut change of variables are standard; the actual coefficient identity and its sign changes are not consequences of renaming the variables.",
+        "searches": [
+          "Resultary and literature lookups for field-dependent rook–Shrikhande cut/Ising polynomial, sign reversals, and equivalent normalizations",
+          "Peters–Regts arXiv:1810.01699 §1.1; Chelkak–Cimasoni–Kassel arXiv:1507.08242 §1.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "c772e958c177 is the exact catalogue self-match. Distinct f9027d05a3f2 gives the exact univariate z=1 polynomial difference 16q¹²(q²−1)⁸(3q⁴+2q²+1), not the joint table.",
+          "The checked graph data and ground-state diagrams furnish spectrum/parameters or extremal information, not the full histogram by (k,cut)."
+        ],
+        "reasoning": "The z=1 specialization sums the separate occupancy rows and cannot determine their coefficient differences. No distinct full histogram was established by these lookups; this is not a census of unindexed graph-polynomial tables.",
+        "searches": [
+          "Resultary exact pair and field/cut-coefficient lookup; bounded primary literature search for the rook–Shrikhande joint polynomial under Ising terminology"
+        ]
+      },
+      "rationale": "The general bivariate cut-polynomial representation, the exact zero-field specialization, and the same pair's zero-temperature field behavior are known. Neither the strongest matching exact records nor the inspected primary formulas give the complete joint difference in cut size and occupancy or its two distinct positive-temperature reversals. The supported distinct claim is that joint identity and finite-temperature sign diagram, not an independent priority claim for zero field or zero temperature.",
+      "residual_risks": [
+        "An unindexed exact multivariate graph-polynomial table or an alternate convention may carry equivalent data. No priority inference is made from the shared November 8 catalogue date.",
+        "Galanis–Štefankovič–Vigoda arXiv:1203.2226 returned a no-external-field locator, but the bounded full-passage retrieval timed out; no paper-wide exclusion is inferred."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact zero-field overlap, not a field-resolved comparison",
+          "evidence": [
+            "16q¹²(q²−1)⁸(3q⁴+2q²+1) for the univariate difference."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-an-all-coupling-ising-partition-function-inequality-for-the-cosp--f9027d05a3f2",
+          "material_read": "Mirrored RESULT.md, Finding (from offset 0)",
+          "method": "Open-access local mirror",
+          "title": "All-coupling zero-field Ising comparison for the cospectral pair",
+          "trigger": "Distinct same-date exact pair record"
+        },
+        {
+          "assessment": "Rook family only and zero temperature",
+          "evidence": [
+            "The statement concerns the ground-state staircase for K_a □ K_b and excludes positive-temperature claims."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-exact-field-staircase-and-parity-dependent-zero-field-magnetizat--9f5b5837e544",
+          "material_read": "Mirrored RESULT.md, Finding and Assumptions and scope",
+          "method": "Open-access local mirror",
+          "title": "Exact field staircase and parity-dependent zero-field magnetization",
+          "trigger": "Distinct same-date rook field result"
+        },
+        {
+          "assessment": "Material overlap with limiting field scales, not the joint finite-temperature difference",
+          "evidence": [
+            "Shrikhande thresholds J,3J,6J; rook thresholds 2J,6J, at zero temperature."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-field-dependent-ising-ground-state-separation-of-the-shrikhande--0784a5def8e3",
+          "material_read": "Mirrored RESULT.md, Finding (from offset 0)",
+          "method": "Open-access local mirror",
+          "title": "Field-dependent Ising ground-state separation",
+          "trigger": "Earlier exact field result for both graphs"
+        },
+        {
+          "assessment": "Identical size/cut formulation; inspected material does not state the pair comparison",
+          "evidence": [
+            "Z_G(ξ,b)=∑_U ξ^|U|b^|δ(U)|."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1810.01699",
+          "material_read": "§1.1, p. 1",
+          "method": "Open-access primary paper",
+          "title": "Location of zeros for the partition function of the Ising model on bounded degree graphs",
+          "trigger": "Known bivariate Ising polynomial and graph-wide formulation"
+        },
+        {
+          "assessment": "General-graph zero-field expansions, not joint field coefficients in the inspected material",
+          "evidence": [
+            "Even subgraph and domain-wall formulas at zero field."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1507.08242",
+          "material_read": "§1.2 p. 4, OA offset 13493",
+          "method": "Open-access primary paper",
+          "title": "Revisiting the combinatorics of the 2D Ising model",
+          "trigger": "Possible equivalent combinatorial expansion"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The rook–Shrikhande pair is a natural fixed spectral indistinguishability test, and the field-resolved Ising partition function is motivated independently of the enumeration. The exact factorization shows that turning on field can reverse, then restore, the strict all-coupling zero-field ordering at every positive temperature. That precise behavior is not a routine corollary of nonisomorphism, graph spectra, or the pair's ground-state thresholds. The crossing is a finite-system comparison, not a claim of a thermodynamic singularity.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

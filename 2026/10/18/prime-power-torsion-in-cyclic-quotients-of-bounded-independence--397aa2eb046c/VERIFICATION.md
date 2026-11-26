@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification and limits
+# Independent mathematical audit
 
-The mathematical proof in `RESULT.md` establishes the statement for all \(d\ge3\) by classifying point-stabilizing rotations and invoking the classical orbit-space fundamental-group theorem. Finite programs only corroborate the proof.
+## correctness
 
-Run `python3 verification.py` for the full orbit-by-orbit exhaustive checks of 9,996 nonidentity rotations with \(3\le d\le100\), comparing every vertex orbit's eligibility with the closed gcd criterion and verifying the generated subgroup order.
+PASS
 
-Run `python3 quotient_chaincheck.py` for an independent mod-prime first-homology calculation of the **geometric barycentric quotient two-skeleton**, with \(d\in\{3,4,5\}\). It constructs quotient vertices, edges and triangles from strict face chains, uses a spanning tree to eliminate boundaries in degree one, and computes ranks of degree-two relations modulo \(2,3,5,7,101\). The results appear in `verification_output.txt` and agree with the predicted cyclic groups \(\mathbb Z/3\), \(\mathbb Z/4\), \(\mathbb Z/5\) in their tested dimensions. Finite fields do not themselves distinguish all possible prime powers or prove the infinite classification; those deductions use the proved orbit-space formula.
+Alternating gaps show the only maximum independent sets are the even and odd classes, so the join of their simplex boundaries is S^{2d-3}, simply connected for d>=3. A fixed point has an invariant barycentric support, and an invariant face contains a vertex orbit which is itself a face. An even rotation r^{2k} has same-parity orbits of size d/gcd(d,k); an odd r^m has equal parity counts d/gcd(d,m) in each orbit. Thus a fixed-point exponent has gcd(d,k)>1 in the even case or gcd(d,m)>1 in the odd case. Armstrong applies to this finite simplicial action, and quotienting by those generators gives index p for odd prime powers, 4 for permitted powers of two, and 1 when two relatively prime fixed-point exponents exist. Abelianization gives integral H_1. 'Maximal' in the proof should mean 'maximum', and 'covering space' in the scope means the acting space, not a claim that a nonfree quotient map is a covering. A separately written bounded orbit-face replay matched all 9,996 nonidentity rotations for d=3 through 100. The archived barycentric-chain output is only a mod-prime test for d=3,4,5; in particular its F_2 rank does not certify the order four, which follows from the proof.
 
-No independent audit was performed. The full homotopy types and higher integral homology of the quotients remain open in this statement.
+## originality
+
+PASS
+
+The supported distinct claim is the exact full-rotation isotropy index and the resulting integral fundamental and first homology groups. The same-family rational result and known join type do not give the required stabilizer subgroup. The closest same-day indexed analogue concerns a different complex; stronger proof-level comparison with that record is unresolved.
+
+## value
+
+PASS
+
+This is a natural integral invariant of the full geometric quotient of a known sphere family. It distinguishes simply connected cases from cases with nontrivial torsion that the rational quotient result cannot register, and detects the different role of the 2-primary stabilizer. The classification is uniform and the calculation of actual point stabilizers avoids treating the quotient as free or reading integral information from a rational orientation character.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

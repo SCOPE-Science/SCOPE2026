@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:35:21.040230Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Assessed the corrected complete RESULT.md in /workspace/repairs/1/. The frozen §3's exact count of active leaves is false: a directed triangle has k=0 and all its divergences zero. The corrected proof uses at most 2r−k, since each extreme-hub triangle contributes one active leaf, and each mixed-hub triangle contributes either two (transitive) or zero (cyclic). Its hub moment bound follows from |b_0|≤2k and k^q≤r^(q−1)k. Averaging over the leaf-symmetry group and applying the concavity of x^(1/q) gives the stated Jensen upper bound. The explicit witness uses hub extremes of common sign with probability 2/3, making each leaf active half the time in that branch, and transitive mixed-hub triangles with probability 1/3, making all leaves active in that branch. This realizes both the upper hub moment and the leaf moments exactly. The statement of the theorem is unchanged. For the general formula the free-lattice weak p constraint reduces to independent coordinate bounds, the nonnegative ℓ_q dual coefficients allow replacing each graph variation by its independently maximizing orientation, and coordinate-wise Hölder followed by grouping the coefficient q-powers gives the simplex formula both ways. At infinity the optimum is a point mass of maximum ℓ₁ divergence; at one the lattice triangle inequality and single-coordinate probes match. Attaining the sum of degrees forces uniform source/sink behavior at each nonisolated vertex in every positive-mass orientation, equivalent to bipartiteness. A maximizing moment is on a proper face in the full-dimensional case by strict coordinate monotonicity, or the hull already has affine dimension at most n−1; Carathéodory gives the at-most-n support. The cycle signs change an even number of times and attain the largest allowed even count; complete-graph partial score sums are bounded by k(n−k), the transitive bound. Vertex transitivity and convexity then establish the two additional formulas at all stated exponents. The packaged finite code already uses the correct inequality (verify.py:77); it was inspected and not executed, and no verification-file correction is needed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first provides a supremum over weakly p-summable tests for general free p-convex lattice elements. It applies to T_G but does not evaluate the supremum for graphs.",
+          "The second gives equivalent generic domination/factorization criteria through p-summing maps and measures on the bidual ball; it does not extract orientation witnesses, graph equalities or friendship values."
+        ],
+        "reasoning": "The general variational formula is a starting input. The orientation reduction specializes and dualizes it; the structural characterization and exact family need graph-specific bounds and attainability, beyond choosing a parameter in a previously evaluated norm.",
+        "searches": [
+          "Jardón-Sánchez et al. arXiv:2101.03510, formula (1.1), §6",
+          "Oikhberg arXiv:2303.05209, Proposition 2.6 and Pietsch discussion"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2101.03510, 2303.05209, 2009.09322",
+        "Resultary 450e6be0516a, 9bddcd86cf8d, 31d50b4df5bc, fae5fd6ae777"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Equation (1) is an explicit dual reformulation of an existing norm representation, and support compression itself is ordinary Carathéodory. The norm's equality conditions require simultaneous extremality of every nonisolated vertex, which characterizes bipartiteness. The non-transitive windmill value needs a sharp simultaneous bound involving the hub and leaf moments and a mixed design that realizes it; it is not an immediate evaluation from a generic domination characterization.",
+          "The complete-graph majorization and cycle bounds turn established score ideas into ancillary norm evaluations. The matching certificate result cannot be substituted: its lattice element vanishes as soon as enough coordinates are zero, whereas a single nonzero vertex coordinate already gives graph variation equal to that vertex's degree."
+        ],
+        "reasoning": "Originality is credited to the supported graph-specific consequences and exact evaluation, not to the general theory or generic convex geometry. No inspected stronger source was found that yields the full norm evaluation and its sharp witnesses without these graph-specific steps.",
+        "searches": [
+          "arXiv:2101.03510 §6 and arXiv:2303.05209 Proposition 2.6 versus frozen (1)–(4)",
+          "arXiv:2009.09322 score sequences and Resultary fae5fd6ae777 exact certificate and graph results"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "If D maps ℓ∞^n to ℓ₁^E by one signed discrete difference per edge, then T_G(x)=||Dx||₁; the weak p sequence norm defining π_p(D) is precisely the constraint in the frozen Eq. (5). Thus the finite-p claim is equivalently about π_p(D), not the norm of a maximum of edge differences.",
+          "The orientation divergences are signed incidence sums (affinely equivalent to usual scores). Their mean zonotope does not determine the mixed coordinate absolute-q moments; applying powers before taking expectations is essential."
+        ],
+        "reasoning": "These identify the precise operator-norm and score aliases. The inspected passages establish general machinery, not the exact graph-specific friendship evaluation or a theorem evaluating this incidence operator on that family.",
+        "searches": [
+          "Graph variation as an absolutely p-summing incidence-gradient norm; Oikhberg arXiv:2303.05209, Proposition 2.6 and p-summing definition",
+          "Orientation divergences as orientation score vectors/graphical zonotope, arXiv:2009.09322"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "450e6be0516a and 9bddcd86cf8d are exact p=2 evaluations of edge-difference maxima over Euclidean bases, not sums over an ℓ₁ base. 31d50b4df5bc has an ℓ₁ base but concerns a maximum of edgewise geometric means.",
+          "fae5fd6ae777 reports at-most-n norming certificate size and exact cycle/complete graph values, for the different join-of-meets lattice element whose norm is fractional hypergraph matching."
+        ],
+        "reasoning": "The same-day records were compared by their actual elements, base spaces and optimization; dates do not establish order. Neither their tables nor the related certificate theorem transfer to the present variation moments.",
+        "searches": [
+          "Resultary exact graph-gradient/two-summing and convex free-lattice norms: 450e6be0516a, 9bddcd86cf8d, 31d50b4df5bc",
+          "Resultary finite norming witnesses and graph examples: fae5fd6ae777"
+        ]
+      },
+      "rationale": "The verified distinction is the graph-specific norm analysis: a divergence-moment formulation for graph variation on the real ℓ₁ base, its equality distinction, and especially the sharp all-exponent friendship-graph evaluation. The free-lattice representation, summing-norm/factorization framework, orientation zonotope, and convexity tools are existing inputs. Correcting the pointwise leaf bound does not change the stated scope or comparisons.",
+      "residual_risks": [
+        "The source search was bounded; an older exact incidence-operator summing norm or windmill value under alternative graph-variation terminology was not excluded. The generic norm formula and support argument are not claimed as independent innovations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers general norm representation, not exact moment evaluation",
+          "evidence": "Weak p-summability bound becomes the independent coordinate constraints on the ℓ₁ base.",
+          "identifier_or_url": "https://arxiv.org/pdf/2101.03510",
+          "material_read": "Formula (1.1), p. 3, offset 8500; §6, pp. 16–17, offsets 59000–65435",
+          "method": "OA PDF bounded passages",
+          "title": "Free Banach lattices under convexity conditions",
+          "trigger": "Published starting norm and possible exact stronger coverage"
+        },
+        {
+          "assessment": "Covers generic norm domination and factorization; no graph-specific exact value in the inspected passage",
+          "evidence": "The proposition identifies lattice norm ≤1 with domination by an operator of p-summing norm ≤1 and a corresponding probability measure on the bidual ball.",
+          "identifier_or_url": "https://arxiv.org/pdf/2303.05209",
+          "material_read": "Pp. 7–8, p-summing definition and Proposition 2.6, offsets 24580–27277",
+          "method": "OA PDF, literal p-summing location then bounded passage",
+          "title": "Geometry of unit balls of free Banach lattices, and its applications",
+          "trigger": "Equivalent absolutely p-summing norm formulation"
+        },
+        {
+          "assessment": "Score combinatorics, not mixed moment optimization",
+          "evidence": "Graph orientation score vectors and zonotope-based description of means.",
+          "identifier_or_url": "https://arxiv.org/pdf/2009.09322",
+          "material_read": "P. 1, offset 250",
+          "method": "OA PDF bounded passage",
+          "title": "The geometry of random tournaments",
+          "trigger": "Orientation score polytope and majorization alias"
+        },
+        {
+          "assessment": "Different lattice polynomial and base",
+          "evidence": "A supremum of edge differences on ℓ₂, not T_G on ℓ₁.",
+          "identifier_or_url": "450e6be0516a",
+          "material_read": "RESULT.md Finding, offset 409",
+          "method": "Resultary and local mirror",
+          "title": "Exact two-summing constants of complete-bipartite discrete gradients",
+          "trigger": "Exact graph-gradient summing norm"
+        },
+        {
+          "assessment": "Different lattice polynomial, exponent range and base",
+          "evidence": "K_{a,a,b} edge-difference maximum in FBL^(2) of a Euclidean space.",
+          "identifier_or_url": "9bddcd86cf8d",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary and local mirror",
+          "title": "Sharp two-summing screening in three-cluster graph-edge free lattices",
+          "trigger": "Exact free-lattice edge norm in a non-vertex-transitive family"
+        },
+        {
+          "assessment": "Different lattice function",
+          "evidence": "Maximum of sqrt(|x_i x_j|) on edges, not variation.",
+          "identifier_or_url": "31d50b4df5bc",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary and local mirror",
+          "title": "Graph-edge geometric-mean envelopes",
+          "trigger": "Same free-lattice base and graph-indexed envelope"
+        },
+        {
+          "assessment": "Material overlap in short certificates, not the same element or norm formula",
+          "evidence": "The join of meets of coordinate moduli is evaluated via fractional matching and has a corresponding at-most-n witness bound.",
+          "identifier_or_url": "fae5fd6ae777",
+          "material_read": "RESULT.md offsets 0–2000",
+          "method": "Resultary and local mirror",
+          "title": "Fractional hypergraph matching and shortest norming certificates",
+          "trigger": "At-most-n norming support and cycle/complete exact values"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The invariant is the norm of the natural graph total-variation element, not an arbitrary parameter instance. The equality result makes the norm detect bipartiteness for every p>1, and the windmill computation gives a sharp size-independent relative deficit for a non-vertex-transitive family and a concrete common norming design. Those are reasonably useful exact tests for any later treatment of graph variation or incidence summing norms. The repaired leaf bound retains that mathematical content.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

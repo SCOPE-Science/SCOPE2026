@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T17:19:16.547647Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At fixed n the four counts are determined by (a,d,δ) with δ=b−c=x_n−x_1. The sentence listing endpoint types in proof step 1 reverses the order of the two unequal-endpoint cases if read as following the order −1,0,1; the identity is correct and the two unequal classes enter separately with identical weights, so the integral and conclusion are unaffected. Parseval on (a,d) indeed uses F_00+F_11 as a single term for δ=0, preserving their cross term. The factor 1/2 in F_st is the initial-bit mass, and T^L accounts for L=n−1 transitions. For a peripheral eigenvalue, the row triangle bounds starting at the maximal eigenvector coordinate force equal moduli and aligned summands in both rows. Hence v=zu, u=wv and λ=z=w; zw=1 yields only the two points (1,1) and (−1,−1) on the torus. Away from them uniform exponential decay follows from the compact spectral gap and the bound on powers of a 2×2 Schur triangular form by a polynomial times the spectral bound. Expanding the simple eigenbranch near (1,1) gives log λ=i(θ+φ)/4−(5θ²−6θφ+5φ²)/32+O(∥(θ,φ)∥³). The covariance eigenvalues are 1/8 and 1/2, so the determinant is 1/16 and a Gaussian bound justifies rescaling and integration. Leading endpoint masses are (1/4,1/2,1/4), giving squared mass 3/8. Conjugation by diag(1,−1) and an overall sign give an identical second torus peak, not four separate corner peaks. Each contributes 3/(8πL). This recovers 3/(4πn), and multiplication by 2^n gives the mean class size. The packaged finite census checks only finite lengths; it is not the limit proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Counting Markov Types considers the number of distinct cyclic balanced transition matrices; Gabrys–Milenkovic study reconstruction codes. The focused literature search yielded no usable stronger collision statement."
+        ],
+        "reasoning": "Unweighted counting of cyclic matrices omits linear endpoint classes and profile probabilities. Neither the inspected cyclic count nor a reconstruction code bound evaluates the free-endpoint squared probability mass.",
+        "searches": [
+          "Jacquet–Knessl–Szpankowski, DOI 10.46298/dmtcs.2768",
+          "binary strings probability equal transition counts Markov types collision probability local limit linear bigram frequency counts second moment"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py (script read)",
+        "Resultary 5122acc1b9bd, 13779c08da71 and 246b4cc4bcec",
+        "arXiv:1301.5104 and 1804.04548; DOI 10.46298/dmtcs.2768",
+        "Whittle DOI 10.1111/j.2517-6161.1955.tb00197.x, access attempted"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known modal mass is ~2/(πn), bounding the second moment above since the masses sum to one. Whittle is cited for exact transition-total distributions; the primary text was not retrieved."
+        ],
+        "reasoning": "The modal upper bound does not yield the limiting coefficient. Even with exact individual mass formulas the shape, endpoint grouping and parity of the occupied lattice must be accounted for to evaluate the global moment; in the frozen proof these are the squared endpoint weights and the two peripheral points.",
+        "searches": [
+          "5122acc1b9bd, proof §5 and prior-work discussion",
+          "Jacquet–Knessl–Szpankowski, cyclic frequency matrices",
+          "Whittle DOI 10.1111/j.2517-6161.1955.tb00197.x (retrieval attempted)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2-Abelian equivalence additionally retains one-letter frequencies; 010 and 101 share an ordered linear bigram profile but not their unigram counts. Gabrys–Milenkovic define the multispectrum used here."
+        ],
+        "reasoning": "A random collision of standard 2-Abelian equivalence classes is a different event. The truly equivalent formulations here are the second moment of normalized linear bigram fibers and the expected size of the fiber of a uniform word divided by 2^n.",
+        "searches": [
+          "Resultary: 2-Abelian equivalence binary bigram counts random words collision",
+          "arXiv:1301.5104 §2",
+          "arXiv:1804.04548 definition of multispectrum"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "13779c08da71 gives exact feasible profile counts, singleton classification and run-based individual class sizes. 5122acc1b9bd gives the same linear profile definition, class formulas and exact maximum fiber, asymptotic to 2^(n+1)/(π(n−1)). The same-day 246b4cc4bcec concerns counting trigram spectra."
+        ],
+        "reasoning": "The two earlier exact descriptions supply the finite sum of squared masses, but the inspected modal asymptotics use Stirling only on maximizing profiles. Neither gives the evaluation of the asymptotic second moment.",
+        "searches": [
+          "Resultary 5122acc1b9bd, 13779c08da71, 246b4cc4bcec; exact linear binary bigram profile and collision searches"
+        ]
+      },
+      "rationale": "The exact profile and run-composition fiber sizes are covered, and the prior maximum-fiber asymptotic already implies an O(1/n) collision bound. The supported distinct result is the exact leading constant of the collision second moment for linear free-endpoint words, not the profile definition, a census, or the largest class. The second moment does not follow from the maximum or number of classes; the known finite fiber counts require a separate asymptotic analysis of their squared sum.",
+      "residual_risks": [
+        "An older local-limit calculation or a direct asymptotic summation of exact class counts could give this constant without the name multispectrum.",
+        "Whittle's complete paper was unavailable; the known exact-distribution connection alone is not a statement of the limiting second moment."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers maximum and individual fibers; not second-moment evaluation",
+          "evidence": "Applies Stirling to the maximizing fibers to obtain the modal mass ~2/(π(n−1)).",
+          "identifier_or_url": "Resultary 5122acc1b9bd",
+          "material_read": "Finding and proof, including proof §5 at offsets 4900–6630 and prior-work discussion",
+          "method": "Bounded published-file inspection",
+          "title": "Exact worst-case ambiguity of binary two-gram profiles",
+          "trigger": "Same profile and asymptotic ambiguity"
+        },
+        {
+          "assessment": "Supplies terms of finite second-moment sum, not its asymptotic",
+          "evidence": "Exact count of profiles and individual class sizes.",
+          "identifier_or_url": "Resultary 13779c08da71",
+          "material_read": "Finding and run-composition formulas, offset 0",
+          "method": "Bounded published-file inspection",
+          "title": "Exact binary two-multispectrum code size and singleton classification",
+          "trigger": "Exact fiber sizes for identical statistic"
+        },
+        {
+          "assessment": "Cyclic counts rather than linear collision mass",
+          "evidence": "Binary balance k_12=k_21 and count n²/4+O(n) for cyclic types.",
+          "identifier_or_url": "https://dmtcs.episciences.org/2768/pdf",
+          "material_read": "PDF p. 2, printed p. 389, offset 5800",
+          "method": "Open primary text",
+          "title": "Counting Markov Types",
+          "trigger": "Transition-frequency matrices"
+        },
+        {
+          "assessment": "Different equivalence relation",
+          "evidence": "Matches all nonempty factors of length at most k.",
+          "identifier_or_url": "arXiv:1301.5104",
+          "material_read": "§2, p. 2, offset 4750",
+          "method": "Open primary text",
+          "title": "On a generalization of Abelian equivalence and complexity of infinite words",
+          "trigger": "Plausible equivalent statistic"
+        },
+        {
+          "assessment": "Definition and reconstruction problem, not the claimed random asymptotic",
+          "evidence": "The L-multispectrum retains all length-L substring occurrences.",
+          "identifier_or_url": "arXiv:1804.04548",
+          "material_read": "p. 2, offset 10180",
+          "method": "Open primary text",
+          "title": "Unique Reconstruction of Coded Strings from Multiset Substring Spectra",
+          "trigger": "Exact multispectrum definition"
+        },
+        {
+          "assessment": "Access limitation; no whole-paper verdict",
+          "evidence": "Reported to give exact transition-total distributions. Full text unavailable via the attempted routes; no lawful repository copy identified.",
+          "identifier_or_url": "10.1111/j.2517-6161.1955.tb00197.x",
+          "material_read": "No primary full text; cited description in Resultary 5122acc1b9bd",
+          "method": "DOI retrieval with lawful open-copy check",
+          "title": "Some Distribution and Moment Formulae for the Markov Chain",
+          "trigger": "Exact transition-count distributions; plausible moment coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The second moment measures typical random ambiguity rather than worst-case reconstruction or the number of possible profiles. The sharp constant and its endpoint and parity factors are useful for distinguishing linear and cyclic data and quantifying the nonuniformity of a natural observation; this is not just a finite re-tabulation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

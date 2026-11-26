@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:58:27.604660Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Downward closure allows a disjoint split. Assigning each edge to the endpoint on which its dependency acts gives an orientation of outdegree at most one. In the converse direction a component with at most as many edges as vertices is a tree or unicyclic: orient edges toward a root or toward its cyclically oriented cycle. A minimal failing edge set must have its non-isolated part connected and no leaves. Removing a nonbridge would preserve failure if e≥v+2, so e=v+1; e≥2ℓ and e≥2r make the two occupied shore sizes differ by at most one. Simplicity and bipartiteness rule out e<6, including all graphs with at most four occupied vertices. One shore of size one permits only forests, and K₂,₂ is itself unicyclic. Three internally disjoint paths of lengths 2,2,2t−2 use t and t+1 vertices and give every permitted even size 2t+2; a cycle of length 2t with a noncycle bipartite chord gives every permitted odd size 2t+1, starting at t=3. Deleting any theta edge leaves a connected unicyclic graph, including the t=2 even boundary. These witnesses meet the balance bounds, and finite downward closure yields the sharp at-most-size result, not an exact-size coherence assertion. A fresh eight-rectangle enumeration used disjoint-set unions to keep component slack v−e, starting each vertex at slack 1, subtracting 1 on an internal edge and merging slacks as s₁+s₂−1 on a joining edge. It tested minimal failures by deleting each occupied bit from the mask and agreed with all claimed spectra; K₄,₄ yielded 48, 288, 432, 816 at sizes 6, 7, 8, 9. The frozen checker was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The indexed record extends the exact spectrum with labelled counts at sizes six and seven. The complete-bipartite matroid paper defines bicycle circuits but its inspected main results enumerate bases. Putnam’s abstract describes consecutive circuit lengths under minimum-degree conditions without specifying these endpoints."
+        ],
+        "reasoning": "A bases enumeration does not state the lengths of all circuits, and a consecutive-length existence result is not enough to recover a spectrum without endpoint control. The exact covering Resultary statement, not unavailable dissertation details, is decisive.",
+        "searches": [
+          "Resultary 2a96c3a15333: spectrum and witness counts",
+          "Complete-bipartite bicircular matroid paper, pp. 165–178",
+          "Putnam 2014 bicycle spectrum dissertation, abstract"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 2a96c3a15333",
+        "DOI 10.4230/LIPIcs.CSL.2026.10",
+        "arXiv:2605.31269",
+        "Ars Combinatoria 66 (2003), 165–178",
+        "Putnam 2014 dissertation abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 25 proves global incoherence using an unbounded odd family; Barlag et al. uses exactly k-element subteams. The indexed match applies to the same finite tagged alphabets and gives their exact spectrum."
+        ],
+        "reasoning": "The odd family and global incoherence alone do not imply either sharp rectangular endpoints or even attainable sizes. The indexed formulation has precisely the hypotheses that do cover those claims and hence also the at-most-size bound.",
+        "searches": [
+          "Fröhlich–Kolaitis–Meier, CSL 2026, Theorem 25",
+          "Barlag et al., arXiv:2605.31269, definition of k-coherence",
+          "Resultary 2a96c3a15333"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Lemma 15 supplies the exact graph equivalence to pseudoforests. Resultary 2a96c3a15333 states the same spectrum for the same split disjunction on p×q rectangles."
+        ],
+        "reasoning": "The finite logical obstructions are circuits of the bicircular matroid of the complete bipartite host. Renaming alphabet sizes (a,b) to (p,q) leaves the host and every minimal-falsification condition unchanged.",
+        "searches": [
+          "Resultary: minimal falsifiers for inverse functional dependencies and bicircular circuit-size spectrum of K_{a,b}",
+          "Fröhlich–Kolaitis–Meier, CSL 2026, Lemma 15"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed spectrum is empty for a singleton shore and for (2,2), and otherwise runs without gaps from 6 to 2min(a,b)+1 in the square case and to 2min(a,b)+2 in the unequal case. The bases-paper tables count different objects."
+        ],
+        "reasoning": "The exact indexed formula supplies all sizes for every rectangle, not only examples or the odd family. The illustrative labelled counts in the frozen record are not its claimed new classification.",
+        "searches": [
+          "Resultary 2a96c3a15333, Finding and finite rectangles",
+          "Complete-bipartite bicircular matroid paper, tables pp. 177–178"
+        ]
+      },
+      "rationale": "The exact two-alphabet obstruction spectrum, including the empty cases and both sharp endpoints, is already covered by the distinct indexed Resultary record 2a96c3a15333. That record additionally counts minimum witnesses and discusses exact-size coherence. This is a coverage decision; the later archive date does not determine priority or provenance.",
+      "residual_risks": [
+        "The inaccessible Putnam full text may also contain or imply the exact specialization. Its absence from the inspected evidence does not count against originality by itself.",
+        "The relationship between the two indexed versions and historical priority are not established by archive dates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct indexed coverage, with additional results; no priority finding",
+          "evidence": "Identical exceptions, all sizes between six and the square/unequal cutoff, size-six and size-seven counts, and exact-size coherence discussion.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-sharp-minimal-falsifier-spectra-for-inverse-functional-dependenc--2a96c3a15333/RESULT.md",
+          "material_read": "Finding and proof, local-mirror text offsets 0–10341",
+          "method": "Resultary lookup and same-file local mirror",
+          "title": "Sharp minimal-falsifier spectra for inverse functional-dependence disjunctions",
+          "trigger": "Exact disjunction, finite rectangles and interval spectrum"
+        },
+        {
+          "assessment": "Covers equivalence and unbounded odd witnesses, not the rectangular interval in the inspected statements",
+          "evidence": "A team satisfies iff each component has at most as many edges as vertices; Theorem 25 constructs size n+1 minimal failures for even n.",
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.CSL.2026.10",
+          "material_read": "Lemma 15, text offset 30800; Appendix Theorem 25, p. 21, offset 80400",
+          "method": "Open-access theorem passages",
+          "title": "Disjunctions of Two Dependence Atoms",
+          "trigger": "Exact pseudoforest equivalence and prior minimal failures"
+        },
+        {
+          "assessment": "Different detection convention",
+          "evidence": "Tests exactly k elements rather than at most k.",
+          "identifier_or_url": "https://arxiv.org/abs/2605.31269",
+          "material_read": "Definition on p. 2, text offset 8475",
+          "method": "Open-access preprint passage",
+          "title": "Aspects of Coherence in Dependence Logic",
+          "trigger": "Coherence formulation and scope"
+        },
+        {
+          "assessment": "Bases and spanning unicyclic subgraphs, not a circuit-size theorem in the inspected results",
+          "evidence": "Defines circuits as bicycles but enumerates unicyclic spanning subgraphs and bases of B(K_{m,n}).",
+          "identifier_or_url": "https://combinatorialpress.com/ars-articles/volume-066-ars-articles/enumeration-of-the-bases-of-the-bicircular-matroid-on-a-complete-bipartite-graph/",
+          "material_read": "Circuit definition p. 166; §§3–5, pp. 169–175; tables pp. 177–178",
+          "method": "Visual inspection of open PDF pages",
+          "title": "Enumeration of the Bases of the Bicircular Matroid on a Complete Bipartite Graph",
+          "trigger": "Same complete bipartite matroid"
+        },
+        {
+          "assessment": "Potential additional overlap unresolved",
+          "evidence": "Abstract discusses minimum-degree conditions and consecutive bicycle lengths without identifying a full K_{a,b} interval or exact endpoints.",
+          "identifier_or_url": "https://egrove.olemiss.edu/etd/681/",
+          "material_read": "Repository abstract only; linked full text not accessible",
+          "method": "Open repository and same-dissertation OA retrieval attempts",
+          "title": "The Characterization of Graphs with Small Bicycle Spectrum",
+          "trigger": "Plausible broader consecutive-length theorem"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The sharp finite-alphabet detection bound and the absence of missing sizes would be valuable as a new exact result. Here the entire interval and both tight endpoints are already covered. The finite verification and the at-most-size restatement do not provide an additional mathematical result beyond that spectrum.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

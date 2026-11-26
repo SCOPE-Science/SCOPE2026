@@ -1,0 +1,150 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:34:22.006448Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 19–69, VERIFICATION.md, and check.py",
+        "Independent exact replay: python /workspace/review_evidence/replay_4.py (SymPy)"
+      ],
+      "rationale": "In normalized Haar measure the exact Toeplitz moments are 2 sin(ka) cos(k beta)/(pi k), with diagonal 2a/pi. At antipodal placement the odd and even character blocks have sizes two and three. The smaller eigenvalue of the symmetric two-dimensional piece of the even block lies strictly below all other eigenvalues, since h=(sqrt(p^2+8)-p)/2>1 and |p|<1. Reconstructed the shifted trial form on 1 and the cosine quadratic, independently dropping the constant term of the latter. Dividing the determinant by the positive common scale and reducing modulo y^2+c(2c^2-1)y-2c^2 gives t^2(A+t^2D), t=cos(beta). The bounding quadratics for h and the strict signs of A,D were checked by exact arithmetic, using the positive-coefficient transform c=x/(1+x) for the signs on 0<c<1. Every nonantipodal placement, including touching arcs at beta=a, has t>0 and a negative determinant, so its least Rayleigh quotient is strictly smaller. The exact Taylor series has leading term 64 a^5/(135 pi).",
+      "residual_risks": [
+        "The proof does not cover unequal widths, arbitrary masks, widths at the empty/full endpoints, or more than five characters."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The all-band result gives 2^(4m+1)/(pi(2m+1) binom(2m,m)^3) at vanishing width and exact placement only for m=1. The unrestricted-width-ratio design gives a larger asymptotic optimum when widths may differ.",
+          "The two paper abstracts address eigenvalue counts in transition windows rather than exact minimization of the bottom eigenvalue over placements."
+        ],
+        "reasoning": "Neither broader result gives globally strict equality conditions at every positive width for five equal-arc modes. Eigenvalue count bounds are not a sharp least-eigenvalue placement statement.",
+        "searches": [
+          "Resultary ...900ee56c5370 and ...a754a0ddf67e",
+          "arXiv:2609.14946v1 and arXiv:2301.11685v3"
+        ]
+      },
+      "checked_sources": [
+        "Resultary result IDs and primary source versions listed in source_inspections",
+        "Frozen Finding and prior-work section"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The all-band formula directly implies 64/(135 pi) at m=2; the asymmetric five-mode result also gives this equal-antipodal coefficient and obtains 1024/(135 pi) over unrestricted relative widths.",
+          "The four-mode all-width theorem treats a smaller character set; the lower-dimensional least eigenvalue is not the five-mode least eigenvalue."
+        ],
+        "reasoning": "Those precedents cover the asymptotic, not the strict finite-width comparison against every other equal-width placement. Optimizing over unequal widths asymptotically is not a proof for this equal-width finite problem.",
+        "searches": [
+          "Resultary ...900ee56c5370 Finding, scope and proof §3",
+          "Resultary ...a754a0ddf67e Finding, proof §§2–4",
+          "Resultary ...27e2188a06d8 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary ...a754a0ddf67e uses the band 0 through 4 and the same captured-energy ratio; multiplication by exp(2i theta) identifies it with -2 through 2. It allows unequal widths, but only optimizes the small-width leading constant.",
+          "Resultary ...1c5e863c7cba proves the analogous exact three-character result."
+        ],
+        "reasoning": "Modulating the band leaves squared magnitude and the ratio unchanged, so the five-mode asymptotic is a genuine overlap. Modulation cannot change the band dimension or convert an asymptotic to an all-width result.",
+        "searches": [
+          "Resultary: five consecutive mode two-arc Fourier observability and least captured energy",
+          "Resultary: antipodal Fourier sampling and finite-width stability"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed exact all-width analogues located concern three or four characters. The closest matching five-character entry explicitly tabulates the equal-width leading coefficient but not the all-width comparison.",
+          "No matching exact finite-width placement record apart from the target emerged in the checked results."
+        ],
+        "reasoning": "A spectrum for one placement or a leading coefficient alone cannot demonstrate the global finite-width optimum or strict uniqueness.",
+        "searches": [
+          "Resultary local index: two-arc Fourier concentration, five consecutive characters, antipodal design"
+        ]
+      },
+      "rationale": "The supported distinct claim is the exact finite-width maximum and strict antipodal uniqueness for two equally wide arcs in the five-mode band. The optimized small-width leading coefficient and leading-order antipodal design are already covered. Close same-day results were compared for statement-level implications, without assuming an order from the publication date.",
+      "residual_risks": [
+        "The cited Nov. 8 three-mode mirror file was unavailable; the overlap with three-mode claims and the five-mode leading coefficient was independently established by accessible records.",
+        "An unlocated theorem under prolate, optimal-design, or Toeplitz formulations may exist. The bounded evidence is not a worldwide priority finding."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the leading coefficient and asymptotic, not five-mode all widths",
+          "evidence": "Formula for each fixed bandwidth, with exact all-width result stated for m=1.",
+          "identifier_or_url": "Resultary: SCOPE-sharp-two-arc-fourier-observability-a-legendre-constant-and-asym--900ee56c5370",
+          "material_read": "Finding and Assumptions at offset 0; Proof §3 at offset 3153",
+          "method": "Local index and mirror",
+          "title": "Sharp two-arc Fourier observability: a Legendre constant and asymptotic antipodal design",
+          "trigger": "Broader bands, exactly the same geometry"
+        },
+        {
+          "assessment": "Three, not five, modes",
+          "evidence": "States unique antipodal placement for three modes for all admissible widths.",
+          "identifier_or_url": "Resultary: SCOPE-antipodal-maximin-sampling-and-a-quarter-circle-tightness-bifurc--1c5e863c7cba",
+          "material_read": "Finding at offset 0",
+          "method": "Local index and mirror",
+          "title": "Antipodal maximin sampling and a quarter-circle tightness bifurcation",
+          "trigger": "Exact lower-dimensional analogue"
+        },
+        {
+          "assessment": "No primary passage read; Nov. 1 and all-band comparisons independently available",
+          "evidence": "No whole-document noncoverage inferred from the missing mirror file.",
+          "identifier_or_url": "Resultary: SCOPE-antipodal-two-arc-observation-uniquely-optimizes-three-mode-four--87a22b9723ef",
+          "material_read": "Index entry only; corresponding file not available in mirror",
+          "method": "Local index and mirror attempt",
+          "title": "Antipodal two-arc observation uniquely optimizes three-mode Fourier stability",
+          "trigger": "Cited exact earlier analogue"
+        },
+        {
+          "assessment": "Same modulation-equivalent band and actual overlap in the leading coefficient, no finite-width maximizer theorem",
+          "evidence": "Sharp small-width optimum for arbitrary relative widths; equal antipodal reference coefficient is 64/(135 pi), and the unrestricted optimum is larger by a factor of 16.",
+          "identifier_or_url": "Resultary: SCOPE-a-sharp-asymmetric-two-arc-observability-law-for-five-consecutiv--a754a0ddf67e",
+          "material_read": "Finding at offset 0; proof §§2–4 at offset 3170",
+          "method": "Local index and mirror",
+          "title": "A sharp asymmetric two-arc observability law for five consecutive modes",
+          "trigger": "Strong same-day overlap and broader allowed geometry"
+        },
+        {
+          "assessment": "Exact all widths, different dimension",
+          "evidence": "Uses four consecutive characters, not five.",
+          "identifier_or_url": "Resultary: SCOPE-antipodal-rigidity-and-a-linear-spectral-cusp-for-four-mode-four--27e2188a06d8",
+          "material_read": "Finding at offset 0",
+          "method": "Local index and mirror",
+          "title": "Antipodal rigidity and a linear spectral cusp for four-mode Fourier observability",
+          "trigger": "Strong same-day structural analogue"
+        },
+        {
+          "assessment": "Different stated spectral objective",
+          "evidence": "Estimates counts in transition windows rather than exact worst Rayleigh quotient as a function of arc placement.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.14946v1",
+          "material_read": "Abstract p. 1, offsets 343 and 650",
+          "method": "OA PDF passage",
+          "title": "Componentwise and Measure-Sensitive Bounds for One-Dimensional Time-Frequency Localization",
+          "trigger": "Potential componentwise two-arc concentration bounds"
+        },
+        {
+          "assessment": "Different stated spectral objective",
+          "evidence": "Counts eigenvalues away from zero and one in terms of domain geometry.",
+          "identifier_or_url": "https://arxiv.org/abs/2301.11685v3",
+          "material_read": "Abstract p. 1, offset 66",
+          "method": "OA PDF passage",
+          "title": "Eigenvalue estimates for Fourier concentration operators on two domains",
+          "trigger": "Potential general concentration theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Fourier observation model and strict trial-form comparison; prior all-band asymptotic and exact lower-band results"
+      ],
+      "rationale": "At fixed observation measure, maximizing the worst captured energy is the sharp conditioning problem for continuous observation on two equal sensor arcs. The first nontrivial extension beyond the previously known three-mode exact case and the known small-arc leading law gives a usable finite-width benchmark: it identifies the placement uniquely and quantifies conditioning at every width, not just at an endpoint. The two-vector comparison proves a structural result that would not follow from diagonalizing only the antipodal case.",
+      "residual_risks": [
+        "Equal widths are essential to the comparison; the broader unequal-width design can perform better and is not resolved at finite widths here."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

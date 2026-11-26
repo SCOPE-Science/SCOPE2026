@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:37:42.839437Z",
+  "axes": {
+    "correctness": {
+      "rationale": "If d<b(b−2), every layer a_j=b^j+d for j≥2 satisfies a_j>2a_{j−1}. A largest-sum cycle edge in such a layer would have both endpoints at most a_{j−1}, since each has another incident cycle edge and a given sum is a matching. That is impossible. On the first two matchings, successive left indices around any alternating cycle would change by the same nonzero amount, so these layers alone cannot contain a cycle. At and above the cutoff, t=d−b(b−2)≥0, δ=b−1; the proposed two sequences consist of b+1 distinct nonnegative labels per side, with b+1 middle-sum edges, b smallest-sum edges and one largest-sum closing edge. This includes b=2 and t=0. Theorem E of arXiv:2609.28059v2 gives the forest equivalence and all-k formula. Its Theorem 7.4 applies since the growing zero gaps put 0^∞ in the orbit closure; substituting r=b+1 gives the claimed lower bound at k=binom(b+2,2). Independent DFS on first-three-layer graphs for bases 2–14 and first-five-layer forests at the last allowed shift for bases 3–7 corroborates, but does not prove, these claims (python3 /workspace/reproductions/frozen_checks.py 5).",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The indexed threshold is already stated for c≥−1, strictly containing the entire frozen d≥0 domain.",
+          "Proposition 7.12 requires every successive support value to exceed twice its predecessor, which for b≥3 reduces to d<b−2 here. It is a weaker sufficient range, not the source of the sharp prior overlap.",
+          "Theorem E supplies the general forest characterization. arXiv:2608.21084v2 treats two-dimensional words, not this threshold."
+        ],
+        "reasoning": "The strongest coverage is the distinct all-shifts classification, not comparison of two families that merely share the general characterization.",
+        "searches": [
+          "3ec886d6644d, assumptions and Finding",
+          "arXiv:2609.28059v2, Theorem E and Proposition 7.12",
+          "arXiv:2608.21084v2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 3ec886d6644d, 71c60228ce20 and fd19a03eea19",
+        "arXiv:2609.28059v2 and v1",
+        "arXiv:2608.21084v2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The mirrored proof constructs the same cycle up to exchanging sides. Theorem 7.4 states that a 2r-cycle and 0^∞ in the orbit closure imply complexity at least r+2 at binom(r+1,2)."
+        ],
+        "reasoning": "The growing geometric gaps give the zero-orbit hypothesis directly. With r=b+1 the assertion is exactly the proposed finite-size gap, so displaying that number does not survive the stronger prior coverage.",
+        "searches": [
+          "3ec886d6644d explicit cycle, mirror offset 3497",
+          "arXiv:2609.28059v2, Theorem 7.4, p. 37, extracted offset 120308"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The October 25 Finding says E_{b,c}={b^j+c:j≥0} is a forest iff c<b(b−2), equivalently the indicator is Abelian pattern Sturmian; at or above cutoff a simple 2(b+1)-cycle uses the first three terms.",
+          "With q=b−1 and t=c−b(b−2), that cycle has left labels iq (0≤i≤b) and right labels t+jq (0≤j≤b). Its edges become the frozen edges by exchanging left and right."
+        ],
+        "reasoning": "Translation c and shift d are the same parameter. The graph-side exchange preserves every edge sum and identifies the obstruction, not just its length.",
+        "searches": [
+          "Resultary: geometric support translation threshold; Abelian pattern Sturmian shifted powers, forest cycle",
+          "3ec886d6644d, Finding and explicit cycles"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The mirrored indexed record 3ec886d6644d supplies the exact formula and also gives the same base-three and base-four lists.",
+          "The separate logarithmic support-envelope record does not give this classification. The November 8 girth result fd19a03eea19 repeats the threshold and adds girth but postdates the October entries; it is not relied on as an antecedent."
+        ],
+        "reasoning": "The exact match is a proved classification, not numerical coincidence in a short table.",
+        "searches": [
+          "Resultary: sharp nonnegative shift cutoff for geometric power supports; exact complexity and forbidden cycles",
+          "3ec886d6644d, Finding; 71c60228ce20; fd19a03eea19"
+        ]
+      },
+      "rationale": "The distinct October 25 Resultary record 3ec886d6644d states the identical sharp threshold and first-three-layer cycle on the larger domain c≥−1. On setting c=d, its graph is exactly the frozen graph; exchanging the two sides gives the same cycle, including the boundary. The explicit complexity gap is a direct substitution in the published cycle-to-gap theorem and uses no new witness. This is demonstrable content coverage, not an inference from chronology alone.",
+      "residual_risks": [
+        "Ranked searches do not determine earliest historical priority; a repository path date is not independently verified public-release timing. The matching content and strict inclusion of domains do not depend on resolving that timing."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage; same cycle after swapping sides",
+          "evidence": "The forest iff c<b(b−2) is boxed for c≥−1; the proof lists both vertex sets and matching edges.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-sharp-translation-threshold-for-geometric-support-abelian-patter--3ec886d6644d/RESULT.md",
+          "material_read": "Finding and assumptions, offset 0; explicit cycle, offsets 3497–5297",
+          "method": "Resultary discovery and bounded local mirror reading",
+          "title": "Sharp translation threshold for geometric-support Abelian pattern Sturmian words",
+          "trigger": "Exact matching cutoff and obstruction on a larger shift domain"
+        },
+        {
+          "assessment": "General forest criterion and quantitative cycle consequence cover the transfer; strict doubling alone does not give the sharp shift cutoff",
+          "evidence": "Theorem 7.4 gives the exact binomial pattern length and strict excess for any 2r-cycle under the all-zero orbit condition.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.28059v2",
+          "material_read": "Theorem E p. 5; Theorem 7.4 p. 37; Proposition 7.12 p. 41; corresponding v1 gap proposition",
+          "method": "Bounded primary PDF readings",
+          "title": "Abelian maximal pattern complexity and extremal words",
+          "trigger": "Published classification and quantitative implication used by the frozen record"
+        },
+        {
+          "assessment": "Different, two-dimensional setting in the inspected passage",
+          "evidence": "The title and abstract specify patterns in two-dimensional words.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.21084v2",
+          "material_read": "p. 1, scope and abstract",
+          "method": "Bounded primary PDF reading",
+          "title": "Abelian maximal pattern complexity of two-dimensional words",
+          "trigger": "Related cited complexity literature"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "A sharp threshold with an explicit forbidden cycle would be valuable in this natural family, but the frozen record repeats the known classification with a narrower domain and the same witness. Its extra displayed complexity lower bound is only a parameter substitution into a published theorem. No additional mathematical contribution of value remains.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

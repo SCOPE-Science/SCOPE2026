@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:55:30.352045Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 4–76 and VERIFICATION.md; frozen verify.py read, not executed",
+        "García-Sánchez–Viola, §2.4, Theorems 9–10, printed pp. 682–83",
+        "Exact bounded independent replay via modular inverses and consecutive-membership recurrence described above"
+      ],
+      "rationale": "Writing A,B,C for the three successive generators gives differences B−A=3n+1, C−B=3n+4, C−A=6n+5. Reducing 2A and 2B modulo the adjacent differences proves both adjacent gcds divide 2; the outer gcd divides 35 because it divides odd 6n+5 and n(3n−1), whose individual common divisors with 6n+5 divide 5 and 7. Therefore the triple has gcd one. For n≥6 one has A<B<C<2A, hence minimality; direct check handles n=3,4 and the redundant C at n=2,5. A symmetric minimally three-generated semigroup must have a two-generated gluing across a pair with gcd d>1. For n≥71, the adjacent-pair candidates 2C=xA+yB and 2A=xB+yC are excluded by comparing x+y with 2 and using 3A>2C and C<2A. For the outer pair the two strict inequalities in the frozen proof hold at 71 and increase thereafter. They force x+y=d in dB=xA+yC, so (2y−d)(6n+5)=−3d while 6n+5>105≥3d. Exact independent modular-inverse enumeration in 3≤n≤70 excluding 5 gave precisely (n,d,x,y)=(3,2,4,1),(40,35,7,27). For normalized coprime (u,v) and target w, take the least j≥0 with vj≡w mod u; this j minimizes vj among all permitted coefficients, so membership is equivalent to vj≤w. A second independent test marked members k by the recurrence k−A or k−B or k−C in S, starting with 0 and stopping after A consecutive marked integers; adding A then proves that no later gaps exist. Through n=70 it yielded symmetric indices 2,3,5,40, with F=43,133,1699,258529. The standard three-generator symmetry/CI equivalence and the two-generator hypersurface presentation give the CI claim over any field.",
+      "residual_risks": [
+        "The enumeration resolves only the finite interval; exclusion of the rest depends on the verified inequalities. The cited general gluing theorem is not certified by the computations."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general gluing theorem supplies the criterion independent of pentagonal arithmetic. Fel classifies symmetric cases for consecutive powers k=2,3,4; his description of Lepilov et al. concerns Frobenius formulas for squares and cubes. Records 9f277eab5c15 and 18e43142e5df concern centered odd-gonal and centered-square generators, respectively."
+        ],
+        "reasoning": "These family comparisons do not themselves specialize to P_n=n(3n−1)/2. The exact coverage instead comes from the earlier ordinary-pentagonal record.",
+        "searches": [
+          "García-Sánchez–Viola Theorems 9–10",
+          "Fel arXiv:1608.08693 abstract and §1; its discussion of Lepilov–O'Rourke–Swanson",
+          "Resultary centered-polygonal comparison"
+        ]
+      },
+      "checked_sources": [
+        "Resultary e2d53bad3bc7, 5449523f59ed, 9f277eab5c15, 18e43142e5df",
+        "OEIS A069757 and b-file",
+        "DOI 10.2140/involve.2015.8.677",
+        "arXiv:1608.08693",
+        "DOI 10.1007/s00233-014-9687-8 (full text unavailable)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Identical all-index exception set and same n=40 triple ⟨2380,2501,2625⟩. At n=3, gcd(12,22)=2 and 35=4·6+11; at n=40, gcd(2380,2625)=35 and 2501=7·68+27·75."
+        ],
+        "reasoning": "The earlier classification already decides every case. The CI language and explicit minimal-generator and gcd certificates are routine consequences once the four exceptions are known; a new exhaustion program does not change that coverage.",
+        "searches": [
+          "e2d53bad3bc7 RESULT.md finding; García-Sánchez–Viola Theorems 9–10"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Earlier record e2d53bad3bc7 uses the same P_n and the domain n≥2, giving the same four symmetry indices. Theorem 9 establishes the CI equivalence in embedding dimension three, and the dimension-two exceptions are already symmetric complete-intersection hypersurfaces."
+        ],
+        "reasoning": "CI is not a separate classification here; it is equivalent on this family, and minimality checks at the four exceptions do not yield a distinct theorem.",
+        "searches": [
+          "Resultary: symmetry, complete intersection and consecutive ordinary pentagonal triples",
+          "García-Sánchez–Viola DOI 10.2140/involve.2015.8.677, §2.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A069757 indexes the same Frobenius sequence from n=2, including 40 258529, but does not display a symmetry criterion. e2d53bad3bc7 explicitly classifies all n≥2 with the same exceptions and Frobenius values. The later 5449523f59ed also states the same classification."
+        ],
+        "reasoning": "The Frobenius sequence alone does not determine symmetry. The earlier distinct Resultary statement matches the symmetry set itself, not just tabulated numbers or one case.",
+        "searches": [
+          "OEIS A069757 main entry, history and b-file",
+          "Resultary exact n=2,3,5,40 ordinary pentagonal symmetry classification"
+        ]
+      },
+      "rationale": "The earlier-dated distinct indexed result e2d53bad3bc7 states the exact same all-n symmetry classification for the same ordinary pentagonal triples, with the same n=40 triple and exceptional Frobenius numbers. The complete-intersection wording follows by the standard equivalence; the two dimension-two cases and the witnesses at 3 and 40 follow by direct integer membership/gluing in the already identified exceptions. This is exact statement-level coverage, not an inference from similar titles or a newer date, and the review makes no attribution of derivation or authorship.",
+      "residual_risks": [
+        "Unindexed related literature and broader contents of the unavailable squares/cubes article are not ruled out. These limits do not weaken the established exact catalogue overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact same all-index classification, in an earlier-dated distinct record",
+          "evidence": "For ordinary pentagonal triples and every n≥2 it gives exactly {2,3,5,40}, with the same last symmetric triple and Frobenius values.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-complete-symmetry-classification-for-consecutive-pentagonal-trip--e2d53bad3bc7/RESULT.md",
+          "material_read": "Local RESULT.md finding and exceptional data",
+          "method": "Local Resultary index and mirror",
+          "title": "Complete symmetry classification for consecutive pentagonal triples",
+          "trigger": "Exact object, quantifier and symmetry claim"
+        },
+        {
+          "assessment": "Exact-object Frobenius data, not a symmetry classification",
+          "evidence": "Offset 2; the n=2 example is 43 and b-file row 40 is 258529. First displayed history revision is May 16, 2003, distinct from the earlier author field date.",
+          "identifier_or_url": "https://oeis.org/A069757",
+          "material_read": "Definition/offset, first example, b-file row 40, history revision #1",
+          "method": "Public entry and linked table",
+          "title": "Frobenius number of the numerical semigroup generated by three consecutive pentagonal numbers",
+          "trigger": "Existing exact-object table"
+        },
+        {
+          "assessment": "Supplies the gluing and CI criterion, not the indexed exception set",
+          "evidence": "Embedding dimension three: symmetry iff CI, with the stated gluing parametrization.",
+          "identifier_or_url": "https://doi.org/10.2140/involve.2015.8.677",
+          "material_read": "§2.4, printed pp. 682–83, Theorems 9–10",
+          "method": "Open primary PDF passages",
+          "title": "When the catenary degree agrees with the tame degree in numerical semigroups of embedding dimension three",
+          "trigger": "General stronger structural criterion and CI equivalence"
+        },
+        {
+          "assessment": "Different generating polynomials",
+          "evidence": "The generators are consecutive integer powers k=2,3,4, not ordinary pentagonal numbers.",
+          "identifier_or_url": "https://arxiv.org/abs/1608.08693",
+          "material_read": "Abstract and §1 (PDF pp. 1–2, including symmetry cases); reference [8]",
+          "method": "Open primary PDF passages",
+          "title": "Numerical semigroups generated by squares, cubes and quartics of three consecutive integers",
+          "trigger": "Potential consecutive-polynomial antecedent"
+        },
+        {
+          "assessment": "Related scope supported but additional contents unresolved",
+          "evidence": "Fel describes Frobenius formulas for squares and cubes, not a classification of ordinary pentagonal semigroups.",
+          "identifier_or_url": "https://doi.org/10.1007/s00233-014-9687-8",
+          "material_read": "Bibliographic reference and description in Fel p. 1 and reference [8]; full article not retrieved",
+          "method": "Lawful OA publisher/PDF attempts then identified accessible source quoting its scope",
+          "title": "Frobenius numbers of numerical semigroups generated by three consecutive squares or cubes",
+          "trigger": "Cited related consecutive triple family"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 4–19 and 69–79",
+        "e2d53bad3bc7 exact classification and exceptional values",
+        "García-Sánchez–Viola Theorems 9–10"
+      ],
+      "rationale": "The isolated gluing at 40 and the complete symmetry set are natural and useful results for a long-tabulated family. The frozen finding, however, covers no new index, adds no unknown invariant, and gives only mechanical corollaries of the already stated exact classification. The separate finite reconstruction does not supply distinct scientific value on the evidence inspected.",
+      "residual_risks": [
+        "No new general polygonal theorem or other independently useful surviving remainder was established; the decision is on the frozen claim only."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

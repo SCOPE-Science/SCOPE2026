@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:46:49.024567Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof; VERIFICATION.md and verify_fibonacci_visibility.py as recorded evidence (not executed)",
+        "Fresh singleton and exhaustive subset BFS check for n=2..6"
+      ],
+      "rationale": "The distance-two condition suffices: on a geodesic minimizing selected internal vertices, replace any selected midpoint by an unselected common neighbor. The resulting walk is still a geodesic, since it has the same minimum length. Fibonacci-cube distances are Hamming distances by removing differing ones before inserting new ones. Thus a pair of neighbors of a given word has a unique midpoint exactly when their flips insert ones at two adjacent positions; a simultaneous deletion or mixed flip cannot introduce adjacent ones. This excludes the all-zero word for n>=2, leading/trailing zero runs of length at least three, and internal runs of at least four. Distance-two pairs with two midpoints give exactly the opposite-corner conflicts, so feasible sets are precisely the independent sets in the claimed graph. The length enumerator follows by multiplying the two end-run choices and summing over internal gaps. In the factorization (1+z)(1-z-z^3) the positive cubic root r is simple; the other cubic roots are a conjugate pair with modulus r^(-1/2)>1, so the next contribution is bounded. Greedy independence and maximum degree at most binom(n,2) preserve the exponential rate. A fresh exhaustive check for n=2 through 6 matched direct all-pairs visibility for every eligible subset and matched eligibility for every singleton, with maxima 2,3,5,5,9. Replay recipe: enumerate no-11 words, connect Hamming-distance-one words, and for each pair remove the selected vertices other than the endpoints and compare restricted and original BFS distances.",
+      "residual_risks": [
+        "The finite check establishes no claims beyond its dimensions. The asymptotic conclusion is an nth-root limit, not a constant-factor equivalent for the optimum."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cicerone et al. give a general bypass-vertex criterion for zero total mutual-visibility number; Bujtás–Klavžar–Tian give the square criterion in Hamming graphs. The accessible preprint conclusion is not assumed to reproduce the journal discussion of Fibonacci cubes."
+        ],
+        "reasoning": "The general criterion locates the type of local obstruction but does not supply the Fibonacci-word enumeration or a large independent set in its actual conflict graph. An isometric induced cube subgraph is not covered by treating it as a full Hamming graph.",
+        "searches": [
+          "arXiv:2308.14443, Sec. 4.1; DOI:10.1016/j.amc.2024.129216",
+          "arXiv:2307.05168, Theorem 6"
+        ]
+      },
+      "checked_sources": [
+        "Resultary local index",
+        "KolKom 2026 same-family abstract",
+        "arXiv:2307.05168",
+        "arXiv:2308.14443"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The official text announces bounds using maximal Fibonacci strings and the daisy-cube representation, plus small exact values; it gives no asymptotic order. The frozen growth proof uses a complete eligibility count and upper and lower bounds differing by only a polynomial factor."
+        ],
+        "reasoning": "Bounds known to differ from the same exponential function by subexponential factors would imply the frozen rate even without stating the root. The available abstract does not give such quantitative bounds. A full Hamming square characterization and a general zero test do not give that implication.",
+        "searches": [
+          "KolKom 2026 official abstract at offset 126000",
+          "arXiv:2307.05168, p. 5; arXiv:2308.14443, pp. 12 and 18"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorem 6 forbids selected distance-two pairs in full Hamming graphs. For a Fibonacci string, the zero-run eligibility rule also says that the vertices still insertable into its path independent set form an independent set. This is equivalent to a unique coordinatewise maximal Fibonacci superword: all insertable positions can be added together exactly in that case."
+        ],
+        "reasoning": "The maximal-string equivalence explains the strong relevance of the daisy-cube approach. The Hamming result alone cannot replace the conflict characterization: a missing square corner can already make a singleton infeasible.",
+        "searches": [
+          "Resultary meaning lookup: Fibonacci-cube total mutual visibility, opposite-square-corner conflicts, and daisy cubes",
+          "arXiv:2307.05168, Theorem 6",
+          "KolKom 2026, Podrug abstract"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Podrug et al. announce exact small-dimensional values and upper/lower bounds in the same family without specifying their values or formulas. The indexed Q_3 square K_n visibility-polynomial record changes the graph; the indexed Fibonacci-cube strong-matching record changes the invariant."
+        ],
+        "reasoning": "Exact finite maxima in the frozen verifier are auxiliary and are not credited as new. Neither nearby indexed result provides an exact eligible-word enumerator or an asymptotic visibility result in this graph. The same-family announcement cannot by itself settle potentially exact overlap.",
+        "searches": [
+          "Resultary meaning lookup: exact Fibonacci-cube visibility bounds, small dimensions and growth rate",
+          "KolKom 2026: Total mutual visibility in Fibonacci cubes"
+        ]
+      },
+      "rationale": "The supported distinct content is the explicit eligible-word and conflict characterization in Fibonacci cubes, its enumerator, and the resulting exact exponential growth rate. Hamming-graph square criteria and general singleton criteria are credited. The closest public same-family abstract announces results and a closely related method, but the exact available wording gives neither bounds nor a rate and supplies no demonstrable implication of the frozen result.",
+      "residual_risks": [
+        "The mathematical details of Podrug–Bujtás–Klavžar–Tan could yield the same characterization or a matching or stronger exponential bound; no lawful full text was located. The journal-only comparison at DOI:10.1016/j.amc.2024.129216 remains limited."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same-family work with related method; exact coverage unresolved",
+          "evidence": "Announces new lower and upper bounds and several small exact values, via maximal Fibonacci strings and daisy cubes, without stating formulas. This is an abstract rather than a full manuscript.",
+          "identifier_or_url": "https://kolkom26.zib.de/",
+          "material_read": "Official conference abstract at extracted offset 126000",
+          "method": "OA website text; decisive abstract read in full",
+          "title": "Total mutual visibility in Fibonacci cubes",
+          "trigger": "Same graph, invariant and bounds; strongest plausible overlap"
+        },
+        {
+          "assessment": "Exact square rule for a different graph class; not a characterization for Fibonacci cubes",
+          "evidence": "Equivalence to forbidding a selected distance-two pair in a Hamming graph.",
+          "identifier_or_url": "arXiv:2307.05168",
+          "material_read": "Theorem 6, p. 5, near extracted offset 10200",
+          "method": "Bounded OA primary preprint passage",
+          "title": "Total mutual-visibility in Hamming graphs",
+          "trigger": "Closest full-square theorem"
+        },
+        {
+          "assessment": "Generic bypass criterion; does not settle coverage in changed journal text",
+          "evidence": "The bypass-vertex criterion addresses singleton eligibility but gives no complete Fibonacci-cube eligible census or rate in the inspected passages.",
+          "identifier_or_url": "arXiv:2308.14443",
+          "material_read": "Sec. 4.1, p. 12; conclusion, p. 18; near extracted offsets 34800 and 50000",
+          "method": "Bounded OA primary preprint passages",
+          "title": "Mutual visibility in hypercube-like graphs",
+          "trigger": "General singleton result and accessible related copy of journal work"
+        },
+        {
+          "assessment": "Journal-specific details remain unverified, not evidence of noncoverage",
+          "evidence": "No full-text journal result relied on.",
+          "identifier_or_url": "DOI:10.1016/j.amc.2024.129216",
+          "material_read": "Publisher article body not retrieved in this review",
+          "method": "Direct and VPN access attempts returned HTTP 403; related preprint inspected separately",
+          "title": "Mutual and total mutual visibility in hypercube-like graphs",
+          "trigger": "Journal version identified as discussing Fibonacci cubes"
+        },
+        {
+          "assessment": "Respectively a different graph and a different invariant",
+          "evidence": "Neither indexed claim concerns total mutual visibility of Gamma_n.",
+          "identifier_or_url": "2026/10/26/SCOPE-total-mutual-visibility-polynomial-and-rigidity-of-q-3-square-k--a5f9c704c2b5; 2026/11/8/SCOPE-the-first-fibonacci-pattern-break-in-strong-matchings-of-fibonac--964346fd9d78",
+          "material_read": "Resultary indexed claims",
+          "method": "Local meaning search and statement comparison",
+          "title": "Total mutual-visibility polynomial and rigidity of Q_3 square K_n; The first Fibonacci pattern break in strong matchings of Fibonacci cubes",
+          "trigger": "Closest indexed graph-invariant and graph-family matches"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Findings and bounds proof",
+        "Bujtás–Klavžar–Tian, Theorem 6, for contrast with full Hamming graphs"
+      ],
+      "rationale": "The result replaces an all-pairs geodesic set optimization by explicit forbidden words and a sparse conflict graph for every dimension. It quantifies exponential separation between the eligible census and the unrestricted size of the Fibonacci cube and identifies the exponential growth of the actual visibility optimum. Those structural and asymptotic conclusions are materially more useful than a list of finite maxima.",
+      "residual_risks": [
+        "No closed finite optimum or precise multiplicative asymptotics are given."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

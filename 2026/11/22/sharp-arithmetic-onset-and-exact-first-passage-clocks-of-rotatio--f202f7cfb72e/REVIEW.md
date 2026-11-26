@@ -1,15 +1,21 @@
-# Review of cyclic Boolean erosion symmetry clocks
+# Independent mathematical audit
 
-## Correctness
-**PASS.** Iterated one-sided AND erosion deletes the terminal site of each maximal one-run each update, preserving run starts until their lengths fall to zero. The exact run-start profile after \(t\) steps is the coordinatewise truncation \((h_i-t)_+\). Equality with a translate is equivalent to the maximum-discrepancy threshold. A vanished original run between surviving periodic runs forces a gap of at least five between successive surviving starts, establishing necessity; the explicit unique-singleton defect construction establishes sufficiency. Exhaustive finite checks support the proof without pretending to prove all \(n\).
+## correctness
 
-## Originality
-**PASS within inspected evidence.** The recent symmetry-enumeration article proves symmetry preservation and enumerates pre-existing symmetric configurations, not time-resolved symmetry birth in a fixed nonlinear rule. Classical binary morphological erosion establishes the run-shortening mechanism but does not itself state the first-passage stabilizer clock or sharp ring-length threshold. Relevant mathematical-research records about additive first-symmetry laws and different erosion automata concern distinct maps and do not imply this theorem. Residual historical priority risk remains because the literature cannot be exhaustively indexed.
+PASS
 
-## Mathematical value
-**PASS.** The result gives all first-entry times into spatial stabilizer strata for every initial configuration of a natural nonlinear cellular automaton, plus a sharp composite-versus-prime/small-ring obstruction for nontrivial pre-extinction symmetry creation. This is a complete structural classification, not a single numerical observation or a restatement of symmetry monotonicity.
+E^t examines the forward window of t+1 bits. A one-run therefore loses t sites at its end, retaining its start exactly when its original length exceeds t; zeros cannot disappear. The truncated profile reconstructs the entire output as a union of indexed runs even at extinction, and the all-one word is separately fixed. Two unequal lengths have equal truncated values exactly once both are zero, proving the maximum-discrepancy clock, including t=0. If the surviving profile has a proper period d and no run disappeared, adding t back on its support gives a d-periodic input. Otherwise consecutive surviving starts straddle a vanished run and are at most d apart. They need t+1 or more sites of the preceding run, at least one vanished one and two separating zeros, so d>=t+4>=5. Conversely, runs 11 starting at phase 0 of each d-block and the single isolated one at index 3 give an asymmetric predecessor; one step leaves exactly the phase-0 sites, of least period d. Composite n with maximum proper divisor <=4 is at most 9 (n/p>=p for its least prime p); n>=10 with a proper divisor >=5 is composite. The proof has no finite horizon restriction.
 
-## Limits
-The theorem concerns one erosion rule and does not enumerate all state counts at each first-entry time. Independent audit is not performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The general persistence of stabilizers and classical binary run erosion are prior inputs. The combination of exact indexed per-shift birth times and the vanished-run obstruction with a sharp proper-divisor witness is distinct in the checked evidence. The known local run update makes the clock elementary, not a claim to originality of the erosion operation.
+
+## value
+
+PASS
+
+The theorem concerns a standard local erosion operation and the natural spatial stabilizer along its orbit. It distinguishes exact entry of each shift, birth of genuine nonuniform symmetry, and symmetry due merely to extinction. The sharp all-length boundary and one-step witnesses can be used to compare dynamics of different rules even on rings of the same size; they are not an arbitrary census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

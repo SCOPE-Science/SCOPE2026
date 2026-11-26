@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:25:29.954065Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On V/K with K=L^perp the evaluations form a full q^2-point character matrix: a nonzero linear functional maps onto F, so composing with any fixed nontrivial additive character gives the requisite orthogonality even over an extension field. Pooling equal quotient rows gives q^2 m(y)/|S_j| for every coset, including zeros. The Gauss sums give the stated shell cardinality and binary level cardinality with the determinant of Q itself, not the unhalved polar form. For an isotropic line a hyperbolic pair gives Q=2tu+kappa r^2; u!=0 gives one solution, while u=0 contributes 1+sigma full fibers and q-1-sigma empty ones. For an anisotropic line the binary orthogonal complement has determinant class delta/s; q-epsilon singleton fibers and the total mass fix the zero/two counts. Counting nonzero vectors of each norm-square class and dividing by q-1 gives the projective class sizes. Subtracting the best anisotropic rank (epsilon=-1) from the isotropic rank gives (q-1)(q-3)/2 for sigma=1 and (q^2-2q-1)/2 for sigma=-1; in particular the claimed tie is the only one. Both anisotropic positive multiplicities are nonzero throughout the domain, and the condition numbers use square roots of Gram ratios. Independent exact quotient enumeration covered both discriminant and nonzero-radius classes and all directions over F3 and F9 (52 and 364 checks). At q=3,sigma=1 it gave four isotropic rank-eight directions with spectrum 0, (3/4) repeated six times, (9/4) twice; three anisotropic directions with 0, (3/4) repeated four times, (3/2) four times. Replay: /workspace/branches/41de8918-c138-4106-8532-c64e93897122/independent_fiber_enum.py and fiber_enum_q3.txt, fiber_enum_q9.txt in the same directory. This replay checks exact fibers, not complex floating-point Gram entries. The frozen CHECK.py was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "For a line U in dimension 3 and f the shell indicator, the subspace Plancherel identity computes a normalized sum of squared coset counts; it is a second moment, not a computed orientation classification.",
+          "Pham–Xue give sharp L^p to L^4 extension inequalities and sufficient sparse-recovery thresholds, not a theorem on the exact spectrum of a complete frequency plane. Iosevich–Koh give the sphere transform as an exact character sum."
+        ],
+        "reasoning": "The Fourier identity/transform provide tools and related data, but the inspected broad statements do not specialize to evaluated multiplicities without doing additional work on the quadric.",
+        "searches": [
+          "arXiv:2503.15072v2, Theorem 4.2 (subspace Plancherel)",
+          "arXiv:2610.29664v2, Theorem 1.2 and sparse-recovery material",
+          "arXiv:0712.1627v2, §3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, CHECK.py",
+        "Resultary 7f8681560a40",
+        "arXiv:2503.15072v2; arXiv:0712.1627v2; arXiv:2610.29664v2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The full kernel determines all finite Gram matrices and is an alternative starting point for computing their spectra. The support-size split of the quadratic equation on the quotient and the number of singleton cosets are not evaluated there.",
+          "Classical projective polarity yields q+1 isotropic directions and the type sizes q(q±1)/2, but the rank equality at q=3 compares the numbers of occupied affine fibers, not the class sizes."
+        ],
+        "reasoning": "Do not credit transforming a known kernel as a new general spectral principle. The assessed contribution resolves the explicit counts for every orientation and extracts the optimizing planes and conditioning, rather than leaving an entrywise formula or norm identity.",
+        "searches": [
+          "Same-day kernel record 7f8681560a40, RESULT.md offsets 0–7432",
+          "Fraser–Rakhmonov Theorem 4.2, p. 9; Iosevich–Koh Lemma 4, pp. 8–9"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact affine projection-fiber histogram along a line is the same information as the Gram spectrum up to normalization, not an independent second theorem.",
+          "The same-day ternary shell record gives F_j(xi) exactly as a root sum for nonzero xi. On the full character plane this is the convolution kernel of the Gram matrix, so it gives every entry, which is strong overlap."
+        ],
+        "reasoning": "The symbolic spectrum is not just rewriting one Fourier coefficient: it requires the transform on each oriented plane and an evaluation of its eigenvalue multiplicities. Standard conic direction counts are not claimed as new.",
+        "searches": [
+          "Resultary record 7f8681560a40 (ternary shell Fourier kernels)",
+          "Fraser–Rakhmonov arXiv:2503.15072v2, Theorem 4.2",
+          "Iosevich–Koh arXiv:0712.1627v2, Lemma 4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest indexed exact kernel provides shell sizes and pointwise Fourier values for the same family, not a table of quotient histograms or symbolic Gram spectra indexed by projective orientation.",
+          "The recovery table lists thresholds of a different type."
+        ],
+        "reasoning": "Known standard projective conic point totals do not amount to the histogram of affine parallel-line intersections. The finite tie check here is evidence for a boundary of the derived all-field formulas, not a standalone table-based claim.",
+        "searches": [
+          "Resultary record 2026/11/8/SCOPE-sharp-wiener-norms-and-sparse-fourier-kernels-of-ternary-finite--7f8681560a40",
+          "arXiv:2610.29664v2, p. 17 table"
+        ]
+      },
+      "rationale": "Quadratic level counts, projective conic classes, and Fourier diagonalization on a subgroup are established ingredients. The supported distinct finding is the full symbolic orientation-by-orientation sampling spectrum and the resulting rank/conditioning classification. Exact pointwise Fourier kernels determine individual Gram entries, but the compared statements do not evaluate their restriction spectra and multiplicities across all directions; that requires the all-coset calculation or an equivalent transform and count. Same-day ordering is unresolved.",
+      "residual_risks": [
+        "The broad literature lookup was deferred; no claim of an exhaustive finite-geometry search.",
+        "An earlier explicit affine-quadric parallel-secant histogram would be equivalent to the core data; conventional projective class totals alone are not that histogram.",
+        "The same-day full kernel is an exact alternative route; no priority ordering is inferred."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong exact entrywise overlap, no evaluated plane spectra in compared statement; same day",
+          "evidence": "Shell size and F_j(xi) given by a dual quadratic root sum. Substituting xi=ell'-ell produces the Gram kernel, not its multiplicity classification.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-wiener-norms-and-sparse-fourier-kernels-of-ternary-finite--7f8681560a40",
+          "material_read": "RESULT.md, offsets 0–7432",
+          "method": "Resultary search and OA local mirror",
+          "title": "Sharp Wiener norms and sparse Fourier kernels of ternary finite-field shells",
+          "trigger": "Exact same shells and Fourier data"
+        },
+        {
+          "assessment": "General identity, not the evaluated direction classification",
+          "evidence": "Specialization to the indicator gives q^-4 times the second moment of the coset sizes.",
+          "identifier_or_url": "https://arxiv.org/abs/2503.15072v2",
+          "material_read": "Theorem 4.2, p. 9, offset 33487",
+          "method": "Primary PDF section inspection",
+          "title": "Exceptional projections in finite fields: Fourier analytic bounds and incidence geometry",
+          "trigger": "Projection and subspace Plancherel on the same quotient"
+        },
+        {
+          "assessment": "Fourier formula, not plane-restriction spectra in this lemma",
+          "evidence": "Sphere character sum provides a route to the entries without a histogram of parallel intersections.",
+          "identifier_or_url": "https://arxiv.org/abs/0712.1627v2",
+          "material_read": "§3 Lemma 4, pp. 8–9, offset 22870",
+          "method": "Primary PDF section inspection",
+          "title": "Extension theorems for spheres in the finite field setting",
+          "trigger": "Earlier exact sphere Fourier formula"
+        },
+        {
+          "assessment": "Different operators and conclusions",
+          "evidence": "Sharp extension norms and sufficient thresholds, not exact restricted Gram eigenvalues by orientation.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.29664v2",
+          "material_read": "Theorem 1.2 p. 5, offset 14688; sparse-recovery table p. 17, offset 56618",
+          "method": "Primary PDF theorem and table inspection",
+          "title": "Sharp spherical L^p to L^4 extension estimates over finite fields in odd dimensions",
+          "trigger": "Same sampling/recovery motivation and quadratic spheres"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For complete plane sampling, the precise rank and positive singular values matter to identifiability and stability. The theorem distinguishes a rank-maximizing orientation class from better conditioned orientations and identifies a sharp small-field exception. It resolves the full discrete design comparison with an explicit spectrum, not just a norm estimate or an isolated standard quadratic count.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

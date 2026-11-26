@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The complete domination criterion follows directly from the degree-two subdivision vertices and the uncovered-original-vertex cases. The inclusion-minimal states are exactly the all-original-vertex set and the sets indexed by omitted subsets of size at least two. Paths that decrease the number of omitted originals have peak size precisely one above the minimal state, while minimal states at budget ceiling are isolated. Distinct optimum states have union size at least \(n+1\). Each step was checked for domination and budget boundaries. The independent finite enumerator confirms every predicted component count for all budgets tested through five leaves, but does not replace the general proof.
+## correctness
 
-**Originality — PASS (historical priority provisional).** The 2025 two-token-star domination theorem already gives the scalar minimum and the canonical optimum constructions. The 2026 token-star preprint treats graph identification and domination/packing parameters; its full-text Sections 3, 4 and concluding discussion do not contain the bounded-budget TAR component theorem. The contemporary two-token domination paper works with other host graphs and scalar optima. A prior exact domination-reliability distribution for the same subdivided graph is acknowledged and is **not** presented as new. Nearest mathematical-record results on connected domination of subdivided cliques, domination reconfiguration of crown graphs, and power-domination reconfiguration concern different feasibility conditions or different graphs. Statement-level comparisons found no exact covering phase formula. Residual risk: unindexed generic reconfiguration results or equivalently expressed connectivity thresholds.
+PASS
 
-**Value — PASS.** This is a complete cardinality-budget phase diagram for an infinite, naturally occurring token-graph family. It establishes arbitrarily many disjoint losses and recoveries of connectivity, gives an exact census of isolated states at each exceptional budget, and distinguishes the \(\Theta(n)\) first-connectivity budget from the \(\Theta(n^2)\) permanent-connectivity budget. The reconfiguration obstruction and remedy are structural rather than a small numerical improvement.
+The token graph is the vertex-edge incidence graph of K_n. With omitted originals R of size at least two, every internal edge-vertex of R must be selected and these vertices suffice to dominate R. With one omitted original, an incident selected edge lets its other endpoint be deleted, so this case never gives a minimal state. With none omitted, the only minimal state is the all-original set U. Each exact internal-edge state D_R is minimal: dropping an edge leaves it undominated; dropping an original leaves an unselected edge from it to R undominated. The sizes start at b_2=n-1 and b_3=n and rise by r-1. At budget n, distinct minima indexed by pairs have union size n-|R∩R'|+2≥n+1, so no common size-n neighbor; every nonminimal size-n state attaches to exactly one minimum. U and any triples at that ceiling are isolated. At k≥n+1 a subceiling D_R with |R|≥3 can add an omitted original and delete its incident selected edge-vertices, reaching D_(R minus that original) with peak b_r+1. Pair minima connect to U with peak n+1. Thus all non-ceiling minima and all nonminimal states lie in one core; ceiling minima are isolated. This also covers n=2,3, empty budgets, and budgets beyond the vertex count. In the prose the n-3 exceptional budgets are the losses after first connectivity, not a count including the two initial nonempty disconnected budgets for n≥4.
 
-**Limits.** Only ordinary domination and TAR reconfiguration are claimed. Finite tests do not certify the infinite theorem, and historical novelty remains open to independent priority review.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct claim is the all-budget ordinary-domination TAR component census and repeated losses after first connectivity. The minimum domination number, incidence-graph identification, static size counts and general reachability methods are not credited as new. No distinct covering claim was found in the inspected evidence.
+
+## value
+
+PASS
+
+The count exposes an unbounded number of distinct connectivity losses caused by new maximal-budget minimal states, despite continued connectivity of the old core. This is a structural obstruction within a natural infinite graph family, not a static enumeration: it gives each exceptional budget, counts its isolated states, and separates first from permanent connectivity at linear versus quadratic scales.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The statement is for all positive real times and all integers \(m,n\ge3\). Every nonzero singular mode in the independently derived token hopping block accounts for both spectral signs, and the constant and standard projections of a localized opposite-shore state give exact coefficients. The balanced-frequency ratio \(2\sqrt{(r-1)/(r-2)}\) is irrational for every integer \(r\ge3\), proving both density-based sharpness and finite-time nonattainment. Classical exclusion rates and time normalization are explicitly matched. A separately constructed full-configuration checker passed six exact characteristic-polynomial cases, 24 time-amplitude cases, and nine classical matrix-exponential cases. Finite tests support rather than replace the proof.
+PASS
 
-## Originality — PASS on inspected evidence, with priority risk
+The corrected RESULT.md states the precise surviving balanced supremum. From the mixed-to-same-shore one-hop block W, the Gram entry counts for two mixed states are m+n−2 at equality, m if only their first-shore coordinate agrees, n if only the second agrees, and 2 otherwise. Resolving the shore constants and their orthogonal complements gives the stated three positive squared frequencies and one zero sector. Their basis-state weights are as claimed. An independent integer check computed five positive diagonal Gram moments by counting common same-shore neighbors directly for (3,3), (3,5), (4,6), and all agreed. The grading J=+1 on mixed states and −1 otherwise anticommutes with H, hence 1−2P(t) is the real return amplitude at time 2t. In the balanced case both positive sine-square coefficients are nonzero; equality requires both terms to be one. The ratio 2√((r−1)/(r−2)) is irrational, since a rational square-root ratio of coprime positive integers requires both to be squares and consecutive positive squares are impossible. Fixing the second phase at π/2 modulo π leaves the first phase following an irrational rotation; the nonnegative orbit is dense. This proves both sharpness and finite-time nonattainment, with t=0 automatically excluded. The short-time illustration and unit-rate exclusion solution remain correct supporting comparisons, not new claims. The frozen script was inspected, not executed.
 
-The 2005 symmetric-square theory supplies the operator framework. The published complete-bipartite token-graph Laplacian classification has closely similar incidence blocks and is the most serious overlap; it does not state the coherent same-shore observable or the all-time unattained supremum, and a Laplacian spectrum alone does not imply adjacency dynamics. A published biclique boson collision-dark projector concerns a different, non-hard-core Hamiltonian, but its cross-shore zero modes also survive the hard-core restriction and directly imply the all-time upper envelope; the bound itself is therefore credited, not claimed as new. A Grover walk result uses a different unitary. Published classical biclique exclusion lumping already supplies the classical component and is specifically credited. The new assessed content is the time-resolved hard-core transport law and sharp irrational-frequency, unattainable quantum ceiling. Equivalent formulas in unindexed literature, or an overlooked direct prior derivation using the known blocks, are residual risks.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The mathematically sharp **unattained supremum**, rather than its previously accessible upper bound alone, solves an exact all-time transport-extremum problem on an infinite family, not just a time-slice computation. The same-size classical comparison isolates macroscopic coherence-based inhibition in a physically natural two-excitation network. The proof identifies zero-energy frozen modes and three positive coherent frequency channels, explaining the obstruction structurally. The result does not claim robustness under nonuniform hopping or any waiting-time estimate.
+PASS applies to the repaired exact balanced extremum only. The frozen spectrum exactly overlaps a distinct same-day result, and the frozen time-resolved law is an immediate parity consequence of its exact return amplitude. Neither is retained as a distinct contribution; the date decides no priority. The compared results do not solve the maximization from a mixed localized pair. There is a genuine additional phase compatibility calculation to prove the envelope is sharp but unattained for every balanced integer size.
 
-## Limits and nearest antecedents
+## value
 
-Closest inspected sources: *Symmetric Squares of Graphs* (2005); *Exact Laplacian spectrum and spanning-tree count of two-token complete-bipartite graphs* (public record `40156451790b`); *Collision-dark boson projector and size-two anomaly on complete bipartite networks* (public record `f8fb928d3537`); *Exact traffic dynamics and path-space entropy for two noncolliding walkers on balanced bicliques* (public record `84ed4797c0f0`). Their distinct propositions and implications are described in `RESULT.md` and `AUDIT.json`. Publication priority is not independently confirmed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For a localized input the answer separates three genuinely different possibilities: an unattainable bound with a positive gap, an attained maximum, and an approachable but unattained bound. The repaired theorem decides this exact all-time question uniformly for every balanced size and for the stated physical measurement, despite perfect transfer being possible for a different collective input. It does not claim a useful convergence time or a solution of the rectangular phase problem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

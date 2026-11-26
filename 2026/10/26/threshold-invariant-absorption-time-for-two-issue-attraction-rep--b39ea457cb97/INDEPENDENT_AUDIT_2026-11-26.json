@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:33:53.148230Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Equal-parity pairs are identical or complements and never change. An unlike-parity pair agrees on one issue and differs on one. Away from weight ties it has exactly one update-causing issue, the differing issue for copying and the agreeing issue for opposition, so it independently converts the focal parity to that of the target with probability 1/2. Thus the entire parity dynamics is a lazy voter step, with probabilities i(N−i)/(2N²) each way and the other attempts retained as holding probability. With distinct agents the denominator is 2N(N−1). Endpoints are exactly the union of consensus and complementary-pair configurations; each interior state has a positive-probability path to an endpoint, implying finite mean absorption for fixed N. The bounded martingale fixes at N with probability a/N. Killing on endpoints gives Q^t 1 for survival. Taking first differences of the Poisson recurrence yields d_{i+1}−d_i=−2N(1/i+1/(N−i)); d_i=2N(H_{N−i}−H_{i−1}) telescopes and sums to zero across the N differences. Summation by parts gives the equivalent mean 2N[N H_N−a H_a−(N−a)H_(N−a)], yielding the claimed entropy limit from H_k=log k+γ+O(1/k) and an O(N²) maximum. The two-agent example has success probability 1/4 each attempted step, with copying giving consensus and opposition giving strict polarization; a similarity tie can instead freeze both parities. Inspected verify.py: exact finite lumping and mean checks, not the universal proof; not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mintz et al. v2 Figure 2, pp. 6–7, studies L=4 with γ_i=1 and no noise; the described nonmonotonic pattern is said not to occur at L=2 or 3. Figure 5 on p. 13 is drawn on the L=2 composition simplex; it discusses quicker convergence near a manifold extending to a polarized state versus longer absorption near an isolated attracting interior equilibrium. No parameter-choice comparison matching the frozen regime is specified in the caption.",
+          "Pickering–Lim p. 5 studies consensus-time moments in iterations; the propagator methods cover the parity chain after its model-specific identification and clock adjustment."
+        ],
+        "reasoning": "A broader model definition and the qualitative lack of a particular pattern at L=2 do not imply equality of attempted-update time laws. In the restricted model, an isolated equilibrium cannot attract different initial parity masses: drift of even mass is identically zero, since opposite-direction cross updates balance. Classical voter methods and the coalescing-walk representation do not by themselves project the four-string attraction–repulsion chain.",
+        "searches": [
+          "arXiv:2603.04939: similarity threshold; L = 2; absorption time; SI Section 8",
+          "arXiv:1408.2130: consensus time",
+          "Cox, Coalescing random walks and voter model consensus times on the torus, coalescing random walks"
+        ]
+      },
+      "checked_sources": [
+        "Mintz et al. arXiv:2603.04939v2 model and L=2/4 passages",
+        "Pickering–Lim arXiv:1408.2130 pp. 2, 5",
+        "Resultary nearby records --8da47c43406a, --5578e33a7426, --48dd953ee500 (summary-level comparisons)",
+        "Cox voter dual source attempted, not read"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Mintz establishes the rule and discusses absorbing complementary states. Under the frozen restrictions, both directions of cross-parity interaction cause conversion with equal probability; Figure 5's general schematic presents no such invariant or exact transition calculation.",
+          "Pickering–Lim's formulas transfer after and only after the four-type projection and explicit clock adjustment. The two-agent example directly separates terminal type from duration; it is not proposed as an independent novelty claim."
+        ],
+        "reasoning": "The prior statements supply antecedents and solve the projected problem. They do not, as stated, establish the needed simultaneous attraction-and-repulsion equality in law for the original microstates.",
+        "searches": [
+          "\"When minor issues matter\" Mintz Simonson Wodarz Fu Komarova arXiv 2603.04939 supplementary two-issue absorption time threshold",
+          "arXiv:2603.04939v2 p. 13 Figure 5 and p. 3 Model",
+          "arXiv:1408.2130 pp. 2, 5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Mintz et al. arXiv:2603.04939v2 p. 3 describes uniformly sampled focal, target and issue with competitive adoption below alpha_e, copied bit above alpha_f, no change in between, and possible issue-specific change rates.",
+          "Pickering–Lim p. 2 gives the neutral birth/death count for distinct sampling with i(N−i)/(N(N−1)) per direction."
+        ],
+        "reasoning": "Parity labels can equally be named complementary families; their projection is a voter step lazified by 1/2, unlike a neutral voter system introduced directly or time measured only over successful changes. The voter-chain result neither identifies the two-bit color map nor checks it for repulsion and every allowed threshold.",
+        "searches": [
+          "two issue attraction repulsion threshold independent parity lumpability absorption time",
+          "two-bit opinion parity voter chain complementary polarization threshold absorption time",
+          "Mintz Simonson Wodarz Fu Komarova two issue attraction repulsion consensus polarization absorption"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Nearby Resultary hits included parity-sharp synchronous majority dynamics on lollipops (--8da47c43406a), a critical media consensus-probability identity for a two-panel process (--5578e33a7426), and opinion changes by a founding dissenter (--48dd953ee500). These are ranked summaries, not full-text exclusions.",
+          "No exact model-specific law appeared in the inspected hits; the actual exact neutral count law is already covered by the classical source."
+        ],
+        "reasoning": "A majority parity threshold, a media probability, and a founding-dissenter change count are different dynamics or observables. The exact law for the neutral count chain is credited, regardless of whether a table also evaluates it in the present clock.",
+        "searches": [
+          "threshold invariant entire attempted-update absorption-time law two-bit parity lumping attraction repulsion",
+          "complete graph voter model exact consensus absorption time birth death chain parity",
+          "threshold independent absorption time two issue friend enemy parity lumpability"
+        ]
+      },
+      "rationale": "The specific projection and resulting attempted-update invariance across strict shared thresholds are the distinct claim. The update model, absorbing categories, and neutral voter-chain calculations are prior. Mintz et al. do give qualitative L=2 absorption-time discussion in the inspected v2, but no equivalent exact law was found. An isolated attracting interior point of the type in their schematic cannot attract different initial parity masses in the frozen regime, whose deterministic drift preserves total parity mass. The caption alone does not specify an actual threshold/rate experiment in that regime.",
+      "residual_risks": [
+        "The cited v1 and SI §8 were not retrieved; a more specific exact overlap in the supplement is not excluded.",
+        "A reparameterized four-type model with the same strong lumping could already exist. No uniqueness or historical priority follows from the queries."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantive model and qualitative absorption overlap, not verified exact parity-time coverage in the shared-threshold regime",
+          "evidence": [
+            "Time unit there is N individual updates; the record keeps each update.",
+            "Figure 5 describes a schematic possible path, not an equal-clock comparison of two specified generic thresholds with the same initial parity count."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2603.04939",
+          "material_read": "v2 model p. 3; Figs. 2 and 5 and accompanying discussion pp. 6–7, 11–13 (including offset 41900ff.); pointers to SI §8; not v1 or SI text",
+          "method": "Targeted open PDF passages; v1 and separate supplement retrieval attempted but unsuccessful",
+          "title": "When minor issues matter: symmetries, pluralism, and polarization in similarity-based opinion dynamics",
+          "trigger": "Original update model and L=2 convergence/absorption observations"
+        },
+        {
+          "assessment": "Prior classical count chain and solution; no attraction–repulsion identification in the compared result",
+          "evidence": [
+            "Neutral count has equal increments and a self-loop; their probability i(N−i)/(N(N−1)) fits a distinct-agent voter step before lazification."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1408.2130",
+          "material_read": "Complete graph p. 2 (offsets 9177–9596 and 15613ff.), time moments p. 5 (offsets 27335–33485)",
+          "method": "Targeted open PDF text",
+          "title": "Solution of the voter model by spectral analysis",
+          "trigger": "Potential dominating exact neutral voter-law result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This motivates a structural invariant in the stochastic two-issue model rather than a new gambler's-ruin computation. Researchers comparing parameter-dependent convergence can know exactly when attraction versus opposition is invisible even to the full attempted-update absorption law, while still changing consensus versus polarization. The finite-N distribution and uniform polynomial mean bound rule out a plausible metastability mechanism in the stated regime.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

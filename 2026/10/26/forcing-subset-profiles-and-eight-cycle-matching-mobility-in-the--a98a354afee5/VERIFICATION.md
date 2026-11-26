@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification details
+# Independent mathematical audit
 
-Run both standalone Python 3 programs in this directory: `python3 check_gp.py` and `python3 check_lcf.py`. Both require only the Python standard library and have been replayed directly from these source files. Compare each printed compact JSON record to `check_gp_output.json` and `check_lcf_output.json`, respectively.
+## correctness
 
-The first program enumerates all perfect matchings from the explicit \(GP(10,2)\) edge list, tests \(36\cdot2^{10}=36864\) candidate matching subsets, evaluates all \(630\) unordered matching pairs for eight-edge symmetric differences, and exhausts all breadth-first distances. The second program independently constructs the same graph by LCF offsets, enumerates exact covers with a different branching heuristic, checks each subset by intersecting all other-match difference families, enumerates legal local replacements on every four-match-edge subset, and independently checks connectivity, eccentricities, degree profiles and subset-polynomial classes.
+PASS
 
-These are complete finite certificates conditional only on the explicitly proved recursive coverage invariants and reproducible Python execution. No verification claims are made about other fullerenes or inaccessible publications. Independent external audit has not been performed.
+Independently enumerated all spoke subsets and completed each exact cover on the remaining outer decagon and two inner pentagons. The spoke choice and three residual cycle choices are exhaustive and determine the matching. This yielded 36 perfect matchings. Tabulating all 36×1024 submasks globally makes a submask forcing precisely when its incidence multiplicity is one. The resulting coefficient vectors in degrees 0–10 were (0,0,0,20,110,202,200,120,45,10,1) six times and (0,0,0,24,122,216,204,120,45,10,1) thirty times. Separately enumerated simple length-eight cycles by starting at their least vertex and choosing a traversal orientation; exchanging alternating edge masks when contained in a matching gives all and only the stipulated flips. The graph has 120 unordered edges and all 36 eccentricities equal three. The joint counts (forcing triples, degree, degree-ten neighbors) are (20,10,0) six times and (24,6,2) thirty times, proving the precise cross-neighbor assertion. The separate four-cycle enumeration is empty, also validating the frozen symmetric-difference shortcut.
+
+## originality
+
+PASS
+
+Pass for both distinct complete all-forcing-subset profiles, the exact eight-cycle perfect-matching flip statistics, and their class correspondence. No originality is assigned to the 36 matchings, the 30+6 structural split, forcing number 3, or the concept of an alternating-cycle move. The closest inspected sources study the same invariant on a different graph, the same graph with a different invariant, or the same graph with different configurations; none of their results implies the exact profiles or flip statistics checked here.
+
+## value
+
+PASS
+
+The dodecahedron is the smallest fullerene and a natural symmetric test case. The ordinary forcing number cannot distinguish any of its matchings, while the all-subsets invariant measures the number of certificates at every observation size. The flip census identifies the same two classes by exact local mobility and gives the higher-degree class's entire cross-type incidence, not just a second list of counts. These are useful exact benchmarks for forcing and reconfiguration on a canonical graph, not a claimed general correlation law.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

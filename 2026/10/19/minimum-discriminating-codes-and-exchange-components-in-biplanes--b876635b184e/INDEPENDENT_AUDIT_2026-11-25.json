@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:52:09.215002Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–35",
+        "Frozen VERIFICATION.md, verify.py and verify_output.txt inspected; supplied script not executed"
+      ],
+      "rationale": "There are only 15 nonempty subsets of four selected points, so at least five are required. For exactly five, counting blocks, selected incidences and selected pairs in blocks gives sums 16,30,20 for the trace-size weights 1,j,binom(j,2). Nonempty distinct traces force r1≤5. Eliminating yields r1=8−r4−3r5 and r3=6−3r4−6r5; r1≤5 and r3≥0 then give r5≥1, and r5≤1 by uniqueness of the full trace. Thus r5=1 and r4=r3=0. Conversely for C=B∖{p}, the second block on each of the 15 pairs in B is distinct because each other block meets B in exactly two points. These pairs give exactly five singleton and ten doubleton traces, and B gives C. Thus each of the 16 blocks supplies six distinct codes, and the same block never shares a 5-subset with another block. Same-block punctures intersect in four points; different-block punctures intersect in at most two. Thus the exchange graph is 16K6 with 240 edges. The proof uses the design axioms uniformly and does not require the classification of realizations or an exhaustive program.",
+      "residual_risks": [
+        "The supplied enumeration is for one realization; the theorem for all realizations follows independently from the proof. Removing the nonempty-trace requirement changes the counting constraints."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bailey's general biplane proposition proves semi-resolving sufficiency for any k−1 collinear points, but states no necessity. Heger–Takáts discuss projective planes; the accessible Charbit abstract addresses general bipartite code bounds and complexity."
+        ],
+        "reasoning": "General construction and bounds cover the existence and elementary optimum, not the complete set of equality cases in the inspected statements. The abstract-only inspection is not a conclusion about the whole Charbit paper.",
+        "searches": [
+          "Bailey arXiv:1312.4971v1, Proposition 14",
+          "Heger–Takáts arXiv:1207.5469",
+          "Charbit et al., Discriminating codes in bipartite graphs, ScienceDirect S1571065306000990"
+        ]
+      },
+      "checked_sources": [
+        "Bailey arXiv:1312.4971v1, Proposition 14",
+        "Resultary 7b3432c6fd0d",
+        "Heger–Takáts arXiv:1207.5469",
+        "Assmus–Salwach abstract and design-catalogue retrieval attempts",
+        "Charbit et al. abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Proposition 14 applied to k=6 gives distinct traces on every punctured block. Each other block meets it in at least one point, so this yields 96 known valid sets and 16 induced K6 components among those sets; the 15-signature bound gives minimum 5.",
+          "Neither that sufficiency proposition nor the closed-neighborhood classification excludes other nonempty discriminating 5-sets. The trace-count inequality in the frozen proof supplies precisely this exclusion."
+        ],
+        "reasoning": "Credit the direct consequences, while passing the distinct equality-case converse and the complete exchange graph that follows from it.",
+        "searches": [
+          "arXiv:1312.4971v1, Proposition 14 and proof, PDF offsets 31850–34290",
+          "Resultary 7b3432c6fd0d, Finding and Assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A null polarity can identify the block traces with open-neighborhood traces of an underlying loopless graph. The indexed match instead specifies N[v], the closed neighborhood, and explicitly has 16C6 for Shrikhande, not 16K6."
+        ],
+        "reasoning": "The common parameters and count of 96 do not establish equivalence: adding the diagonal changes the trace test, and the exchange graphs differ even as unlabeled graphs.",
+        "searches": [
+          "Resultary: minimum discriminating codes, biplane 2-(16,6,2), exchange components",
+          "2026/10/26/SCOPE-optimal-identifying-code-exchange-geometry-of-the-shrikhande-and--7b3432c6fd0d, RESULT.md offset 0",
+          "arXiv:1312.4971v1, §4.3 null polarity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Assmus–Salwach abstract concerns three designs and coding-theoretic links to the extended binary Hamming code, not an explicit incidence-trace code census in the material read. Legible full text could not be retrieved in the bounded attempt. The available closed-neighborhood count of 96 differs in invariant and adjacency structure."
+        ],
+        "reasoning": "A catalogue of underlying design types is not itself a table of optimal codes or of one-point exchanges. Earlier coding or oval classifications remain possible sources of equivalent coverage, not evidence that it exists.",
+        "searches": [
+          "Assmus–Salwach, The (16,6,2) designs, doi:10.1155/S0161171279000247",
+          "Classification of (16,6,2)-designs by ovals, PII 0012365X84900694",
+          "Resultary 7b3432c6fd0d, exact minimum-code count and exchange graph"
+        ]
+      },
+      "rationale": "Bailey's versioned Proposition 14 proves the punctured-block separation construction in any biplane, and nonemptiness follows at once from two-point block intersections. This already implies the minimum size and a known family of 96 candidates at these parameters, using the elementary information bound. The supported distinct claim is the converse for nonempty traces, hence the exhaustive count and exchange decomposition, not the construction. The closest Resultary match also counts 96 size-five codes but uses closed neighborhoods of the Shrikhande graph and has 16 cycles instead of 16 cliques. The available statements do not establish an equivalent classification. Earlier inaccessible design-catalogue literature remains a named bounded risk.",
+      "residual_risks": [
+        "Full texts of the Assmus–Salwach work, the same-parameter oval classification, and the checked Charbit article were not accessible in the bounded attempts. They could contain a related special-case census or implication.",
+        "This is a bounded originality assessment of the converse and full exchange graph, not a priority certificate for the construction, optimum size, or known punctured-block family."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Construction covered; inspected proposition has no converse",
+          "evidence": "Any k−1 collinear points in a (v,k,2) biplane, k≥4, form a semi-resolving set. The proof separates by a point on precisely one of two blocks. The cited proposition is indeed in v1; numbering must be version-qualified.",
+          "identifier_or_url": "https://arxiv.org/pdf/1312.4971v1",
+          "material_read": "Version 1, Proposition 14 and its proof, p. 10, PDF offsets 31850–34290; start of §4.3 on null polarity",
+          "method": "Versioned OA primary PDF",
+          "title": "On the metric dimension of imprimitive distance-regular graphs",
+          "trigger": "Cited near-exact sufficiency result for any biplane"
+        },
+        {
+          "assessment": "Material near-overlap, not an equivalent code model or exchange graph",
+          "evidence": "Closed-neighborhood identifying codes of Shrikhande have size five, count 96 and form 16C6, while rook minimum is six. Snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-optimal-identifying-code-exchange-geometry-of-the-shrikhande-and--7b3432c6fd0d/RESULT.md",
+          "material_read": "Finding, Assumptions and start of proof, offset 0–3445",
+          "method": "Local Resultary mirror",
+          "title": "Optimal identifying-code exchange geometry of the Shrikhande and 4×4 rook graphs",
+          "trigger": "Same parameters, exact 96 count, and related exchange invariant"
+        },
+        {
+          "assessment": "Projective plane scope in passages read",
+          "evidence": "The stated bounds and set constructions concern projective planes, with one shared point per pair of lines rather than two.",
+          "identifier_or_url": "arXiv:1207.5469",
+          "material_read": "p. 1 and §1, PDF offsets 0 and around 6400",
+          "method": "OA primary PDF",
+          "title": "Resolving Sets and Semi-Resolving Sets in Finite Projective Planes",
+          "trigger": "Nearby incidence separation equality and lower bounds"
+        },
+        {
+          "assessment": "Full text unavailable; coverage unresolved",
+          "evidence": "Abstract discusses three designs and an extended binary (16,11) Hamming-code connection. Full-text attempts returned HTTP errors or timed out.",
+          "identifier_or_url": "doi:10.1155/S0161171279000247",
+          "material_read": "Accessible abstract only",
+          "method": "Publisher, indexed PDF, and EUDML retrieval attempts",
+          "title": "The (16,6,2) designs",
+          "trigger": "Same-parameter combinatorial-design catalogue with coding methods"
+        },
+        {
+          "assessment": "Full text unavailable; coverage unresolved",
+          "evidence": "Publisher access returned HTTP 403; title does not state incidence-trace discrimination.",
+          "identifier_or_url": "https://www.sciencedirect.com/science/article/pii/0012365X84900694",
+          "material_read": "Bibliographic identification only",
+          "method": "Indexed item and publisher access attempt",
+          "title": "Classification of (16,6,2)-designs by ovals",
+          "trigger": "Same-parameter classification by distinguished subsets"
+        },
+        {
+          "assessment": "General setting; full coverage of special cases unresolved",
+          "evidence": "The available abstract concerns general bounds, constructions and complexity. No full-text negative claim made.",
+          "identifier_or_url": "https://www.sciencedirect.com/science/article/pii/S1571065306000990",
+          "material_read": "Accessible abstract",
+          "method": "Publisher abstract and bounded full-text attempt",
+          "title": "Discriminating codes in bipartite graphs",
+          "trigger": "General primary reference on the exact code definition"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, size-five classification and exchange proof",
+        "Bailey's construction and compared closed-neighborhood example"
+      ],
+      "rationale": "The parameter set is a natural small biplane family and the minimal code model is independently defined by nonempty distinct incidence signatures. The converse resolves the full equality structure for every realization, ruling out any optimal single-point reconfiguration between block families. That exact structural information is useful beyond a numerical census or the prior construction, even without a theorem for larger biplanes.",
+      "residual_risks": [
+        "No classification is given for larger biplanes, other code sizes, or semi-resolving codes that may have an empty trace."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

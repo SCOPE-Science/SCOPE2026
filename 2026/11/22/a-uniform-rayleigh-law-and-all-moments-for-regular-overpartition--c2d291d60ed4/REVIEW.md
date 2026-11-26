@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact survivor count is a reversible removal of one mandatory nonoverlined part of each admissible size. The product \(\bar P_\ell(q)=f_2f_\ell^2/(f_1^2f_{2\ell})\) has the checked eta asymptotic \(\ell^{-1/2}\exp(\pi^2(1-1/\ell)/(4t))\). The weighted moment-series telescoping identity holds for every real \(s>0\). The scaled summands form a Gaussian Stieltjes Riemann sum with integrable tail, giving the exact \(\Gamma\)-factor. Nonnegativity and monotonicity of every weighted coefficient permit Ingham transfer. Dividing the moment asymptotic by the unweighted coefficient asymptotic yields the claimed rate, mean, variance and first-moment constant. This argument proves the infinite statements; enumerations of 126 test cases and monotonicity to weight 500 are independent corroboration. The \(\ell=2,3\) specialization reproduces the known aggregate means exactly.
+## correctness
 
-## Originality — PASS, qualified
-Bhowmick–Meher's arXiv:2611.18129v1 gives the same combinatorial model, a general first-moment series, and aggregate mean asymptotics only for \(\ell=2,3\). The present full Rayleigh law, all positive-real moments and uniform fixed-\(\ell\) first-moment formula were not found in that complete paper. Wagner's Theorem 3 governs ordinary \(\Lambda\)-partitions, not overpartitions with distinguished optional copies ignored by mex. The two nearest inspected published published-finding corpus articles cover \(\ell\)-regular **ordinary** partitions and **unrestricted** overpartitions respectively. Thus they do not imply the claimed fixed-\(\ell\) model's explicit constants by their stated hypotheses. These checks make novelty plausible but cannot exclude an unindexed equivalent or an unstated reduction to a more general colored-partition theorem.
+PASS
 
-## Mathematical value — PASS
-The source study isolates a natural excludant statistic and leaves all indices at least four without first-moment asymptotics, and every index without a whole distribution or variance. The result determines the complete asymptotic probability law, all positive-real moments and universal arithmetic dependence on the proportion of permitted part sizes \(1-1/\ell\). The new law is a structural refinement rather than an isolated coefficient estimate or a mere change of variables; the \(\ell=2,3\) results are properly treated as known specializations.
+The frozen proof did not establish its coefficient transfers: its cited Bhowmick–Meher Lemma 2.3 omits the complex-sector condition, and real-axis asymptotics with monotone coefficients alone do not imply the displayed coefficient conclusion (Bringmann–Jennings-Shaffer–Mahlburg, Theorem 1.1, Remark 1 and §3.2). This was a proof gap, not a counterexample to the claim. The complete replacement /workspace/repairs/1/RESULT.md applies the eta transformation to each factor for Re z>0. In fixed sectors the transformed products are exponentially close to 1, the linear exponent cancels, and the result is ell^(-1/2) exp(mu/z) times 1+o(1), hence bounded in modulus by a constant times exp(mu/|z|). The exact nonoverlined-removal bijection gives the shifted-count ratio even at empty or impossible weights. Telescoping the s-th powers of consecutive admissible integers gives the weighted generating series; the Gaussian Stieltjes limit for its factor H_s uses bounded gaps, the quadratic weight sum, and an integrable dominating Gaussian in the tails. This works also at 0<s<1 since d(y^s) has finite mass near zero. Positivity yields |H_s(e^-z)|<=H_s(e^-Re z)=O(|z|^(-s/2)) in those sectors, so both genuine Ingham transfers apply. Adding a nonoverlined 1 is injective and nondecreasing in mex, and both series converge in the open unit disk. Dividing the coefficient equivalents yields Gamma(1+s/2)a^(-s/2); the stated mean, positive variance, and aggregate coefficient follow. The Rayleigh comparison follows by expanding the shifted square-root exponent and is no longer an originality claim. The frozen script was inspected, not run; its enumeration of s=1,2 at finite weights cannot replace the asymptotic proof. Fixed ell and s only; no local result or convergence rate.
 
-## Prior overlap and limits
-The principal source provides a general generating function which is an important input. The full texts of that source and two closest published-finding corpus articles, plus Wagner's relevant introductory/generalized theorem pages, were compared materially. Remaining priority risk is an unindexed general theorem for colored multiplicity-restricted partition measures. Fixed-parameter limits are not claimed uniformly for growing indices or moment exponents.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass applies only to the repaired fixed-weight positive-real-moment theorem. The frozen headline gave distinct credit to an exactly covered Rayleigh marginal; Resultary 96650212350f proves it at the same fixed ell and with the same treatment of overlines and already gives the exact survivor on the diagonal. This is verified equivalent coverage, not an inference of temporal priority from the same date. The replacement explicitly credits both statements and keeps only the fixed-weight moment strengthening and its aggregate consequence at ell>=4. The nearest joint result only states weak convergence and gives selected moment estimates in its distinct Boltzmann ensemble; it gives tools from which the new conclusion can be derived with further fixed-weight control, not a theorem on all fixed-weight moments or a specialization with that conclusion.
+
+## value
+
+PASS
+
+The fixed-width regular-overpartition model has slowly growing excludants, and a marginal weak law alone provides no mean or variance control. The all-positive-real asymptotics settle the aggregate first-moment question across the missing moduli and give tail-sensitive moment constants, including variance, for a previously studied statistic. The value of the repair is that fixed-weight unbounded-observable conclusion, not a second naming of the already covered Rayleigh marginal and not a new Tauberian technique.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

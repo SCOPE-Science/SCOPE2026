@@ -1,0 +1,192 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:37:53.927824Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Both component updates have the same companion matrix A with first row (1+b-r,-b). The two gradient shifts occur as opposite signs, so the epoch has matrix A^2 and innovation (A-I)(r,0)^T times an independent sign. The strict quadratic Schur inequalities are 1-b>0, r>0 and 2(1+b)-r>0, as needed. For deterministic starting states the transient mean decays and the covariance is the unique solution of the convergent discrete Lyapunov series. I solved the vectorized four-entry problem over the rational function field independently, recovering the two phase variances, their cross entry and the iid formula (replay: python /workspace/branches/independent-continuous.py reshuffling). The denominator is positive since its last factor is (r-1-b)^2+(1-b)^2. The leading fixed-b coefficients for the epoch and odd variances are respectively b^2/(1-b^4) and 1/(1-b^4); at b=0 the epoch numerator starts one power later. In the joint limit the numerator bracket is 4b^2+r+O((r+b)(b^2+r)) and the denominator is 4+O(r+b), proving the relative error uniformly as both go to zero. This gives precisely b=O(sqrt(r)) for an O(r^3) epoch floor and the stated constants in the limiting regimes. The proof concerns the invariant second moments, not pathwise convergence of constant-step iterates.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Domingo-Enrich randomizes the start of the shuffle explicitly to preserve average iterate variance in time. For n=2 its Eq. (19) uses lag-one noise correlation -1/2 and gives the equal-weight phase average. Equivalently the stationary averaged forcing can be represented in second order as a scaled difference of consecutive iid noises, so the average is V_iid times r/(1+b), or r^2/[(1-b)(2+2b-r)]. The frozen diagonal entries sum to twice this expression.",
+          "Ying et al. cover the zero-momentum completed-epoch quadratic model exactly; the Wang et al. oracle formulation addresses weak approximation rather than conditional RR epoch variances."
+        ],
+        "reasoning": "The literature explicitly covers stronger classes for those component claims, but a single unconditional scalar variance does not disaggregate the two conditional phase variances. Its leading quadratic order persists even at zero momentum and cannot determine the completed-epoch cubic floor or its crossover.",
+        "searches": [
+          "arXiv:2206.00632 §5 Eq. (19) and Proposition 3",
+          "arXiv:1803.07964 §V.A Eq. (59)",
+          "arXiv:2307.15196 §2 Definition 2.3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verification/check.py and observed-output.txt",
+        "arXiv:2206.00632",
+        "arXiv:1803.07964",
+        "arXiv:2404.18452v3",
+        "arXiv:2403.03180",
+        "arXiv:2307.15196",
+        "Resultary ec57811b8333, 0365743eee2e and 402dad3ef2fc",
+        "ScienceDirect S1007570426013018 (excerpt only)",
+        "OpenReview tQwrBw2Lcm (excerpt only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "With-replacement specialization of Proposition 1 gives the displayed iid formula. Ying's exact quadratic model gives the completed-epoch b=0 endpoint. The analytic RR spectrum in Eq. (19) is averaged over the two epoch phases, and the cited Qiu–Ma–Milzarek passages analyze complexity/convergence rather than a stationary variance at a fixed phase. The additional ScienceDirect lead was not accessible in primary full text."
+        ],
+        "reasoning": "Neither a no-momentum endpoint nor a phase mixture entails the r^2 b^2+r^3/4 completed-epoch expansion by specialization. The proof has to retain the same innovation sign over the two updates and condition on epoch parity before taking the joint limit. Classical Lyapunov analysis is a method, not a separate contribution.",
+        "searches": [
+          "arXiv:2206.00632 §3 Proposition 1, §5 Eq. (19)",
+          "arXiv:1803.07964 Eq. (59)",
+          "arXiv:2404.18452v3 Algorithm 1 and §1.1",
+          "Convergence analysis of the heavy-ball random reshuffling, ScienceDirect PII S1007570426013018"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Qiu–Ma–Milzarek Algorithm 1 with lambda=0 is ordinary carry-over RR heavy-ball. Domingo-Enrich's linear noise-gradient representation is exact here because the Hessians are identical. In contrast, Tran–Tran-Dinh–Nguyen hold an epoch anchor fixed inside the epoch and update it using the mean gradient."
+        ],
+        "reasoning": "One must compare carry-over per-component momentum rather than all methods called shuffling momentum. In the exact equal-Hessian overlap, identifying the variance's conditioning on the phase is decisive.",
+        "searches": [
+          "arXiv:2206.00632 §§3, 5, Eqs. (8), (18)–(20)",
+          "arXiv:2404.18452v3 Algorithm 1",
+          "arXiv:2403.03180 §2 Algorithm 1",
+          "random reshuffling heavy ball momentum phase-specific epoch boundary stationary variance covariance quadratic equal Hessian two component within-epoch Domingo Enrich exact momentum square root stepsize"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The first two earlier indexed records recover exactly the no-momentum epoch variance r^4/[1-(1-r)^4] for independent pair orders at unit shift; their statements exclude or do not classify inner phases. The third concerns a one-epoch no-momentum threshold. The exact quadratic formula in Ying et al. Eq. (59) specializes to the same value; Eq. (66) uses phase-dependent forcing without heavy-ball momentum."
+        ],
+        "reasoning": "There is positive coverage of the boundary slice, not just a similar scale; the lookup did not locate a table or finding for the two positive-momentum phase variances or their uniform small-momentum transition.",
+        "searches": [
+          "Resultary ec57811b8333, 0365743eee2e, 402dad3ef2fc",
+          "arXiv:1803.07964 Eq. (59) and Eq. (66)"
+        ]
+      },
+      "rationale": "The with-replacement formula, zero-momentum completed-epoch formula and phase-averaged heavy-ball reshuffling variance have direct prior coverage. The distinct content is the exact phase-specific covariance at positive momentum and the uniform vanishing-momentum crossover in the completed-epoch floor. The strongest published covariance source was read in primary text and does not give separate phase variances in its analytic RR formula; the averaging removes the distinction that drives the crossover.",
+      "residual_risks": [
+        "An older exact phase-resolved calculation in a periodically forced linear-system or optimization setting may be indexed under other terms. The newly located constant-step HBRR paper was not readable in full. The positive verdict concerns phase resolution and the crossover, not novelty of the benchmark, averaged variance, iid result or no-momentum formula."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive partial overlap: iid and phase-averaged RR variance, not the claimed conditional phases",
+          "evidence": [
+            "Randomizing the first reshuffle iteration is introduced to preserve the average variance in time. Eq. (19) gives an analytic RR integral in that phase-randomized model, exact here for the mean of the two phase variances. Proposition 3 is a large-n approximation, not a two-phase result."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2206.00632",
+          "material_read": "§3 pp. 5–6, Eqs. (5)–(8) and Proposition 1, offset 17500; §5 pp. 8–9, Eqs. (18)–(20), offsets 32500 through 39960",
+          "method": "OA primary PDF text",
+          "title": "Computing the Variance of Shuffling Stochastic Gradient Algorithms via Power Spectral Density Analysis",
+          "trigger": "Closest prior stationary ordinary-momentum RR variance result"
+        },
+        {
+          "assessment": "Direct coverage at b=0",
+          "evidence": [
+            "The long-term model is exact for quadratic least squares and its Eq. (59) reduces to r^4/[1-(1-r)^4] at N=2 and equal unit curvature. Eq. (44) is an all-iteration upper bound."
+          ],
+          "identifier_or_url": "arXiv:1803.07964",
+          "material_read": "Eq. (44), p. 6 offset 57000; Eq. (59), §V.A p. 7 offset 67900; Eq. (66), p. 8 offset 71500",
+          "method": "OA primary PDF text",
+          "title": "On the Performance of Random Reshuffling in Stochastic Learning",
+          "trigger": "Exact no-momentum quadratic stationary analysis"
+        },
+        {
+          "assessment": "Same update at lambda=0, but different mathematical objective in inspected statements",
+          "evidence": [
+            "Independent uniform epoch permutations and carried heavy-ball state; complexity and last-iterate statements rather than exact stationary scalar phase covariance."
+          ],
+          "identifier_or_url": "arXiv:2404.18452v3",
+          "material_read": "Algorithm 1, p. 4 offset 15700; abstract and §1.1, offsets 585 and 6400",
+          "method": "OA primary PDF text",
+          "title": "Random Reshuffling with Momentum: Complexity Bounds and Last Iterate Convergence",
+          "trigger": "Direct algorithmic precedent for ordinary RR momentum"
+        },
+        {
+          "assessment": "Different momentum recurrence",
+          "evidence": [
+            "The within-epoch anchor is held fixed and updated from an average gradient at the epoch boundary."
+          ],
+          "identifier_or_url": "arXiv:2403.03180",
+          "material_read": "§2 Algorithm 1, p. 4, offset 11200",
+          "method": "OA primary PDF text",
+          "title": "Shuffling Momentum Gradient Algorithm for Convex Optimization",
+          "trigger": "Potential equivalent shuffling momentum convention"
+        },
+        {
+          "assessment": "Weak approximation for stochastic-gradient oracle, not parity-conditioned reshuffling variance in those passages",
+          "evidence": [
+            "The objective is approximating small-learning-rate SGD and SGDM rather than paired independent random permutations with separate epoch phases."
+          ],
+          "identifier_or_url": "arXiv:2307.15196",
+          "material_read": "p. 2 contribution discussion, offset 7500; §2 Definition 2.3 p. 3, offset 14449",
+          "method": "OA primary PDF text",
+          "title": "The Marginal Value of Momentum for Small Learning Rate SGD",
+          "trigger": "Potential prior joint small stepsize/momentum result"
+        },
+        {
+          "assessment": "Earlier exact overlap at zero momentum",
+          "evidence": [
+            "The epoch-start variance is h^4 s^2/[1-(1-h)^4]; the within-epoch law is not classified."
+          ],
+          "identifier_or_url": "Resultary ec57811b8333",
+          "material_read": "RESULT.md offset 0, finding and phase scope",
+          "method": "Local mirror text",
+          "title": "Random reshuffling has a Cantor-to-interval stationary support transition",
+          "trigger": "Same paired-shift benchmark without momentum"
+        },
+        {
+          "assessment": "Earlier broader coupling comparison at zero momentum",
+          "evidence": [
+            "Specializing to equal curvature and independent order recovers the no-momentum endpoint; within-epoch risks are outside its scope."
+          ],
+          "identifier_or_url": "Resultary 0365743eee2e",
+          "material_read": "RESULT.md offset 0, finding and scope",
+          "method": "Local mirror text",
+          "title": "Sharp stationary risk envelope and order-phase switches for two scalar orderings",
+          "trigger": "Exact epoch-boundary risk under balanced couplings"
+        },
+        {
+          "assessment": "One epoch and no carry-over momentum",
+          "evidence": [
+            "The comparison is one-epoch rather than a phase-specific stationary law."
+          ],
+          "identifier_or_url": "Resultary 402dad3ef2fc",
+          "material_read": "RESULT.md offset 0, finding",
+          "method": "Local mirror text",
+          "title": "A sharp one-epoch variance reversal threshold for two-component reshuffling",
+          "trigger": "Exact RR/iid variance comparison in the indexed benchmark family"
+        },
+        {
+          "assessment": "Plausible residual overlap; no conclusion drawn from access failure",
+          "evidence": [
+            "The excerpt says the method uses a constant-step-size update; it does not establish whether the phase-resolved benchmark is present."
+          ],
+          "identifier_or_url": "https://www.sciencedirect.com/science/article/pii/S1007570426013018",
+          "material_read": "Search excerpt only; primary text not retrieved",
+          "method": "Lawful direct and VPN attempts returned 403; exact-title PII search yielded no alternate preprint",
+          "title": "Convergence analysis of the heavy-ball random reshuffling method",
+          "trigger": "Search surfaced same constant-step heavy-ball RR family"
+        },
+        {
+          "assessment": "Excerpt concerns stability of common-minimizer instances, not the additive noise floor in the present noninterpolating pair; full coverage unresolved",
+          "evidence": [
+            "The visible abstract poses stability under fresh permutations versus fixed orders and specifies a common minimizer."
+          ],
+          "identifier_or_url": "https://openreview.net/forum?id=tQwrBw2Lcm",
+          "material_read": "Indexed abstract excerpt; PDF and browser-challenge page did not provide full text",
+          "method": "Search plus lawful OA attempts",
+          "title": "Stable Stationary Orders, Unstable Fresh Reshuffling",
+          "trigger": "Two scalar positive quadratics and conventional constant-step heavy ball"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "End-of-epoch output is a natural algorithm choice. This smallest noninterpolating equal-Hessian pair separates what a practitioner sees at that output from the mean over all individual iterates. In particular the cubic floor is lost at any fixed positive momentum and preserved exactly for momentum schedules bounded on the square-root stepsize scale. That precise balance, and the contrasting odd phase, explain behavior not visible in the established phase mixture. The result is a benchmark, not a general heavy-ball guarantee.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

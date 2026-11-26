@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T17:01:56.588561Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen Wagner RESULT.md and supporting package",
+        "Corrected RESULT.md and verify_wagner.py",
+        "Agarwal–Basak arXiv:2608.30601v2, Main Theorem 1(a) and Theorem 12"
+      ],
+      "rationale": "Cubicity identifies the forbidden faces with the full incident three-stars. In the repair, the cover of the edge Alexander dual has nerve the vertex-independence Alexander dual, via natural mutually reversing face-poset maps with composites containing their inputs. Both integral Alexander dualities introduce an ambient permutation sign. The rotation and reflection have traces +1 and -1 on independence H_1, and signs (-1,-1) on the graph vertices and (+1,-1) on the graph edges, respectively. The resulting H_5 signs are -1 and -1 and determine the action on the integral rank-one group. The graph group is the full sixteen-element dihedral group by four-cycle incidence, also checked exhaustively. Subdivision and exact rational coinvariants give the quotient criterion, including subgroups contained in the kernel. Nonequivariant simple connectivity follows by filling the loops of missing triangles with cones, so the duality homology calculation also recovers the background sphere.",
+      "replay": {
+        "evidence": "Of all 4096 edge subsets the face vector is (12,66,212,423,516,352,108,7), with 52 dimension-six and seven dimension-seven facets. The 847 nonempty Morse pairs leave critical masks 1 and 2646, and the Hasse sort visits all 1696 nonempty faces. Testing all 8! permutations gives exactly 16 graph automorphisms. Exhaustive signed sums on admissible invariant edge-cycle unions yield alternating chain traces (0,0,0,1,0,0,0,1) for r and (2,4,-8,-7,12,6,-6,-1) for s. The augmentation gives reduced Lefschetz number +1 for each, hence H_5 sign -1 for both; the full sixteen-element character was checked. The packaged replay also ran successfully. The frozen script was inspected, not executed.",
+        "independent_reproduction": "/workspace/branches/2nd_wagner_reproduction.py",
+        "path": "/workspace/repairs/2/verify_wagner.py"
+      },
+      "residual_risks": [
+        "The calculation is specific to the Wagner graph and its graph-automorphism action. It establishes no equivariant sphere model or integral quotient homology. The ordinary quotient conclusion is an algebraic deduction over Q, not part of the enumeration."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The four-ladder family calculation explicitly includes Wagner.",
+          "Agarwal–Basak's independence result for Möbius ladders with n=4 gives Ind(W) homotopy equivalent to S^1.",
+          "Vega gives the same bounded-degree definition and Morse toggles; the inspected clawed-graph, wheel and caterpillar theorems have different hypotheses and supply no Wagner character."
+        ],
+        "reasoning": "The family results either give the sphere directly or provide the input for its reduction; neither is a general theorem identifying the integral rotation and reflection action needed here.",
+        "searches": [
+          "Resultary e40e4a95f116, first four nondegenerate Möbius ladders",
+          "arXiv:2608.30601v2, Main Theorem 1(a) and Theorem 12",
+          "arXiv:1909.10406v2, 2-Matching Complexes"
+        ]
+      },
+      "checked_sources": [
+        "Resultary e40e4a95f116, complete result text",
+        "Agarwal–Basak arXiv:2608.30601v2, relevant primary full text",
+        "Vega arXiv:1909.10406v2, relevant primary full text"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The edge-star dual's nerve is Ind(W)^*. Applying the two combinatorial Alexander dualities shifts the reduced homology of Ind(W) by four degrees; filling missing-triangle boundaries in M_2(W) yields simple connectivity and therefore the sphere from the known S^1 result.",
+          "The nonequivariant S^1 theorem does not give the H_1 traces. Their explicit computation and the two permutation-sign twists are additional inputs. After the character is known, rational quotient homology is determined by averaging."
+        ],
+        "reasoning": "Even without the four-ladder row the sphere is a corollary. The integral character is not a mechanical implication of either antecedent, and the rational subgroup criterion is not treated as an independent originality claim.",
+        "searches": [
+          "arXiv:2608.30601v2, Wagner specialization at n=4",
+          "Resultary e40e4a95f116, Wagner homotopy proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Wagner graph is the four-rung ladder in e40e4a95f116. The degree-two admissible edge subsets are exactly those avoiding the eight forbidden full three-stars, so the ladder record's complex is the very same complex.",
+          "Ordinary graph matching uses degree at most one and vertex independence uses a different ground set; neither is an alternate name for the repaired object."
+        ],
+        "reasoning": "The sphere is covered under equivalent names, but those nonequivariant data do not encode the signed top homology representation. The meaningful comparison for the repair is the integral orientation character, equivalently the two reduced Lefschetz numbers with the homology concentration understood.",
+        "searches": [
+          "Resultary e40e4a95f116, four-rung / eight-vertex Möbius ladder",
+          "arXiv:1909.10406v2, 2-matching / maximum-degree-two edge subsets"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The e40e4a95f116 exact computation lists the Wagner case as S^5 and uses the same forward edge toggles. Its exact outputs concern ordinary homotopy, without a row or calculation of the signed action on H_5."
+        ],
+        "reasoning": "This is positive same-object exact coverage for the frozen sphere, not for the narrowed character. Both records are visible at the same commit, which does not establish which was obtained first.",
+        "searches": [
+          "Resultary e40e4a95f116 full record, exact Wagner/M_8 ladder row"
+        ]
+      },
+      "rationale": "Pass for the narrowed claim only. There is conclusive overlap on the sphere and on its Morse proof method, and independent prior implication of the sphere from the vertex-independence theorem. The inspected sources do not give the signs of the two graph generators acting on integral homology. The sign-twisted transfer and independent Lefschetz calculation supply that datum. The quotient criterion follows from it by known averaging and is not separately claimed as novel.",
+      "residual_risks": [
+        "Best-of-knowledge comparison only; an unindexed or differently framed equivariant calculation may exist.",
+        "The common public snapshot establishes overlap, not priority; no historical priority finding is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Explicitly covers the Wagner sphere and forward Morse computation, but not the integral graph-action character.",
+          "evidence": [
+            "The four-rung Wagner case gives S^5; the exact calculation concerns nonequivariant homotopy, without generator traces."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/e36f0e8ddfc25c4e15c7280f7b72b9078cfbf234/2026/11/22/SCOPE-two-matching-homotopy-of-the-first-four-nondegenerate-m-bius-lad--e40e4a95f116/RESULT.md",
+          "material_read": "Full RESULT.md, including the graph and face definitions, exact ladder cases, and matching computation.",
+          "method": "Compared ladder labels, graph and complex identities, the exact Wagner output, proof toggles, and stated result scope.",
+          "title": "Two-matching homotopy of the first four nondegenerate Möbius ladders",
+          "trigger": "Same bounded-degree-two complex and a graph family containing Wagner."
+        },
+        {
+          "assessment": "Implies the underlying sphere; the inspected theorem gives no integral dihedral signs for this complex.",
+          "evidence": [
+            "The n=4 ordinary independence complex is homotopy equivalent to S^1. The degree-two matching complex and its signed action are not the stated invariants."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2608.30601v2",
+          "material_read": "Primary full-text ladder definitions, Main Theorem 1(a), Theorem 12 and the relevant independence proof.",
+          "method": "Specialized n=4 and identified the edge-star nerve, then applied dualities and simple connectivity to compare consequences.",
+          "title": "The Homotopy Types of the Independence and Perfect Matching Complexes of Möbius and Circular Ladder Graphs",
+          "trigger": "Same ladder family, with a potential implication via the structure of minimal nonfaces."
+        },
+        {
+          "assessment": "Covers the standard definition and repeated toggles; does not give the character in the relevant results.",
+          "evidence": [
+            "Clawed-graph results use subdivided/claw-unit hypotheses absent here; wheel and caterpillar results concern different graph classes."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1909.10406v2",
+          "material_read": "Relevant primary full-text definition and Morse sections and the clawed-graph, wheel and caterpillar results.",
+          "method": "Compared the degree bound, graph hypotheses and Morse procedure with the Wagner calculation.",
+          "title": "2-Matching Complexes",
+          "trigger": "Foundational primary work on this complex and proof method."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Corrected RESULT.md, integral character and ordinary quotient",
+        "Resultary e40e4a95f116, nonequivariant ladder comparison"
+      ],
+      "rationale": "On the natural eight-vertex twisted cubic ladder, the homotopy sphere alone cannot diagnose the effect of symmetries on the integral generator. The sign distinguishes the two reflection classes and completely determines which subgroup quotients retain the rational class. That precise graph-action invariant is a useful input to equivariant comparisons of ladder complexes, unlike a recomputation of the known sphere rank.",
+      "residual_risks": [
+        "The value rests on a motivated exact invariant, not a larger ladder classification or a claim about integral or equivariant types of quotients."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:09:07.118836Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Set C=n/y and exchange a counted divisor d for t=n/d. The interval becomes C/λ ≤ t < C, preserving exactly the two endpoint conventions. For at least r candidates, the smallest u and r-th v give u+r−1 ≤ v < C ≤ λu, hence u≥a and C>b. For b<C≤min(b+1,λa), λ(a−1)≤b−1<C and t<C≤b+1 force the integer candidates to be exactly a through b. Thus precisely r divisors qualify if L divides n and fewer otherwise. Counting multiples in (by,X] gives the clipped floor difference, valid at X=by and Ty. Since λa>b and b+1>b, the first multiple strictly above by is included if y≥L/(T−b); its overshoot is in (0,L], giving the sharp slope. For λ=2 this yields a=r, b=2r−1, T=2r and the three listed LCMs. The exact rational checker and verification notes were inspected, not run; their finite range is not used for the proof. The frozen proof supplies replayable steps in RESULT.md lines 36–45.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ford–Gabdullin–Pratt impose 100≤y≤X/100, large auxiliary scale and a restriction on r for an order-of-magnitude estimate. Ford–Tenenbaum examine multiplicity proportions. Letendre gives pointwise upper bounds for power-scale short intervals."
+        ],
+        "reasoning": "None of those statements provides the exact integer-by-integer initial band; even a numerical overlap at high r between a dyadic band and X≥100y would not turn order bounds into exact support.",
+        "searches": [
+          "arXiv:2611.15534v1, Theorem 1.1",
+          "arXiv:math/0607460v3, Theorem 1",
+          "Letendre, INTEGERS 26 (2026) A115, Theorem 1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md; onset_checker.py",
+        "Resultary matching catalogue entry and local original",
+        "Ford–Gabdullin–Pratt 2611.15534v1",
+        "Ford–Tenenbaum math/0607460v3",
+        "Letendre INTEGERS 26 A115"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier complement map only specifies a reciprocal interval. Deriving u≥a, pinning the consecutive candidates by both endpoints, and applying their LCM gives the exact count. The known density estimates do not encode the residue class or exact multiplicity."
+        ],
+        "reasoning": "The prior change of variables is a method, not an exact-cutoff theorem. The exact progression does not follow by substituting parameters into the earlier estimates.",
+        "searches": [
+          "Ford–Gabdullin–Pratt arXiv:2611.15534v1 Theorem 1.1 versus RESULT.md lines 15–31",
+          "Letendre A115 §1 versus RESULT.md lines 36–45"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Letendre §1 explicitly uses d ↔ n/d to transform intervals, with both endpoints closed in his definition. The frozen result uses an open endpoint and classifies the entire qualifying complementary block and the necessary LCM divisibility near onset."
+        ],
+        "reasoning": "The complement transformation itself is known. Comparing in the complementary coordinates did not identify an earlier equivalent exact progression or its cutoff.",
+        "searches": [
+          "Resultary record 2026/11/22/SCOPE-an-exact-arithmetic-progression-onset-law-for-short-interval-div--475c52c21692",
+          "divisors short interval integers with r divisors first smallest initial support complementary divisors least common multiple Ford Gabdullin Pratt dyadic interval",
+          "Letendre, Divisors of an Integer in a Short Interval, §1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matching catalogue record is the assigned finding itself; its statement gives the exact band and the sufficient condition for the m_r formula. No distinct matching entry appeared in the focused catalogue returns."
+        ],
+        "reasoning": "Elementary LCM tables could supply the listed examples but cannot settle which blocks qualify or the cutoff for continuous y and λ. A catalogue self-hit is not independent coverage.",
+        "searches": [
+          "Resultary: exact divisor multiplicity onset and dyadic/general-λ complementary-divisor progression",
+          "Resultary ID 2026/11/22/SCOPE-an-exact-arithmetic-progression-onset-law-for-short-interval-div--475c52c21692"
+        ]
+      },
+      "rationale": "The supported distinct claim is the exact first-support progression and multiplicity at every point of an explicit band for general λ, not the known divisor-complement involution or an improvement to a far-range density bound. No covering statement was identified in the inspected sources.",
+      "residual_risks": [
+        "The bounded comparison cannot rule out earlier unindexed formulations of this elementary first-support argument.",
+        "The certified band and sufficient y threshold are not claimed maximal or necessary."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different range and level of detail",
+          "evidence": "100≤y≤X/100 and large Y with a bound on r; order of magnitude, not initial support.",
+          "identifier_or_url": "https://arxiv.org/html/2611.15534v1",
+          "material_read": "Theorem 1.1 and surrounding introduction, offset 2339 onward",
+          "method": "OA HTML original, statement inspection",
+          "title": "Integers with many divisors in a dyadic interval",
+          "trigger": "Identical dyadic counting function"
+        },
+        {
+          "assessment": "Related distributional bounds",
+          "evidence": "Asymptotic behavior of the proportion with multiple divisors, not a first-multiple classification.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0607460",
+          "material_read": "Abstract and introduction p.1; Theorem 1 p.2, offset 7114 onward",
+          "method": "OA PDF original, statement inspection",
+          "title": "The distribution of integers with at least two divisors in a short interval",
+          "trigger": "General short-interval multiplicities"
+        },
+        {
+          "assessment": "Complement transformation is prior; no onset formula in these statements",
+          "evidence": "§1 transforms D_n(X,Y) by the divisor involution; Theorem 1 bounds D_n(n^θ,n^η).",
+          "identifier_or_url": "https://math.colgate.edu/~integers/aa115/aa115.pdf",
+          "material_read": "§1 and §2 through Theorem 1, pp. 1–2",
+          "method": "OA publisher PDF",
+          "title": "Divisors of an Integer in a Short Interval",
+          "trigger": "Nearby short-interval result and divisor-complement equivalence"
+        },
+        {
+          "assessment": "Identical finding, not another source of priority",
+          "evidence": "Same a,b,L,T and half-open complementary band.",
+          "identifier_or_url": "2026/11/22/SCOPE-an-exact-arithmetic-progression-onset-law-for-short-interval-div--475c52c21692",
+          "material_read": "RESULT.md Finding, scope and proof",
+          "method": "Catalogue query and local original mirror",
+          "title": "An exact arithmetic-progression onset law for short-interval divisor multiplicities",
+          "trigger": "Exact catalogue match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The first occurrence is a natural boundary of an established divisor counting function. The work gives both its sharp slope and the exact finite overshoot and spacing, with strict-endpoint jumps as λ varies; density estimates alone cannot supply those quantities. The initial band is determined by the first candidate change, not an arbitrary small enumeration.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

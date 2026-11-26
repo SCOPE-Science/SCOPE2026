@@ -1,11 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The freeness, determinant identity, exact greatest common divisor, primitive syzygy module, finite-degree rank and compactness argument prove the unrestricted assertions. An independent Laurent-vector Gaussian-elimination verifier checks 1,309 finite ranks and 119 polynomial gcds. The finite checks are corroboration, not the logical basis of the infinite claim.
+## correctness
 
-**Originality — PASS under inspected evidence.** Wolfram (1983) and Martin–Odlyzko–Wolfram (1984) establish classical additive cellular automaton polynomial methods; Cervelle–Formenti–Guillon (2007) study cellular automaton traces; Rosas et al. (2018) study information synergy in Rule 90 under different observations; Rowland–Yassawi study automatic column sequences. The assessed contribution is a closed all-spacings three-column joint law, sharp gcd observation horizon, and explicit complete trace constraint. A possible earlier coding-theoretic equivalent is a residual risk, and publisher full text of one potentially relevant manuscript could not be checked.
+PASS
 
-**Mathematical value — PASS.** A complete, naturally parameterized dynamical observation invariant distinguishes total three-sensor information from independent two-sensor histories, gives exact finite-window redundancy and an exact temporal subshift. These observations quantify otherwise-hidden three-way dependence in an established cellular automaton.
+With offsets s=b−a and t=c−a, put u=z+z⁻¹. The Laurent ring is free over F₂[u] on (1,z), by the quadratic identity for z and inversion symmetry. The determinant of columns zⁱ,zʲ is P_|j−i|/u, so every two-site system is independent. In the Laurent ring the gcd of z⁻ˢ(z²ˢ+1) and z⁻ᵗ(z²ᵗ+1) is, up to units, z⁻ᵍ(z²ᵍ+1); divisibility by a member of F₂[u] descends by the free basis. Dividing the minors by their gcd gives the primitive vector (P_(t−s),P_t,P_s)/P_g. Bézout forces every polynomial syzygy to be its polynomial multiple. The maximum component degree is h=t−g, so the dependencies for length n are precisely the multiples of degrees 0 through n−1−h, with none if n≤h. Fair iid input is uniform on each linear observation image, giving the pairwise independence and entropy statements. All parity-admissible prefixes lie in their observation images; nested compact preimages realize the entire trace. Since every block of length at most h is allowed, but not every length h+1 block is, memory h is sharp.
 
-**Limits.** Claims cover three integer spatial positions of Rule 90 with fair independent initial bits. The algebraic subshift description holds for all initial configurations, while the Shannon law requires fair product input. No independent review or exhaustive historical-priority certification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The historically supported distinct claim is the all-spacing infinite-lattice rank and exact primitive trace rule. A distinct later Resultary record directly covers the frozen statement as the binary case of a finite-field theorem; the equivalence is established, but the dated catalogue evidence does not show that stronger record was available before the frozen October 27 record. Earlier sources inspected do not establish priority for the exact claim.
+
+## value
+
+PASS
+
+This identifies how placement of three temporal sensors controls the exact first joint dependence even though every pair of whole streams is independent. The gcd delay and complete minimal-memory check give a usable description of all observation words and all finite-block entropies, not merely a small example of synergy.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

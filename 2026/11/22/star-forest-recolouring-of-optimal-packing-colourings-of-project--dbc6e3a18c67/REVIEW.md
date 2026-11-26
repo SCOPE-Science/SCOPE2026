@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The classification follows from a Cauchy–Schwarz incidence bound: every independent set meeting both shores of a projective-plane incidence graph has at most \(v-q\) members. Thus an independent set of size \(v\) or \(v-1\) lies within one shore. The graph diameter is three, so all colours numbered at least three are singletons; the second colour occurs at most twice and its two vertices, if present, must be nonincident on opposite shores. The resulting unique type-I centre / type-II leaf classification establishes the exact named count and the disjoint-star recolouring graph for every existing finite plane of order \(q\ge2\). The counting argument treats all planes, not just coordinatizable ones. Both finite-instance programs were run directly, confirming 50,400 named Fano states and 260 order-three reduced states.
+PASS
 
-## Originality — PASS with residual risk
+Incidence geometry gives distance two within a shore and distances one or three across shores. Hence higher names are singletons and a double occurrence of 2 must be a nonincident point-line pair. For a mixed independent set, the selected t lines avoid a selected point, giving 1<=t<=q^2. The incidence moments are (q+1)t and t(t+q), since every ordered pair of distinct lines meets once. Cauchy–Schwarz gives at least (q+1)^2 t/(t+q) covered points. Subtracting t gives at least q because the remaining numerator is (t-1)(q^2-t). This yields the sharp mixed bound v-q (a single line and all nonincident points attain it) and confines any independent set of size v-1 or v to one shore. Counting capacities first gives k>=v, then excludes k=v since a full color-1 shore would force the two color-2 vertices onto the same other shore. The exhibited type I uses v+1. At this optimum a missing higher name would force the same excluded sizes (v,2), so all higher names are used and the only low-class sizes are (v,1) and (v-1,2). These give types I and II exactly. The high-name vertices cannot move to 1 (each has at least q neighbors of color 1) or 2 (the incumbent 2 on their shore already blocks it). A move to another higher name duplicates a singleton. Type I therefore has just the q^2 choices of a nonincident 1 turning into 2; in type II, only the missing same-shore element can return to 1. The opposite-shore 2 cannot turn to 1 since it has color-1 neighbors. Thus every leaf has a unique parent and the counting factors 2v, (v-1)!, and 1+q^2 are exact. The Fano and order-three counts have the stated values.
 
-Goddard and coauthors introduced broadcast colouring in 2008; Fresán-Figueroa, González-Moreno and Olsen proved the packing chromatic number of incidence graphs of finite projective planes in 2019. Neither the already-known palette threshold nor the fact that entire shores are maximum independent sets is claimed new. The new statement distinguishes and counts every optimal colouring, then proves that the full one-vertex recolouring graph is a disjoint union of stars, including its exact component count. The inspected 2019 full paper's theorem/lemma and the available 2008 primary material do not report this classification. Indexed nearby findings on projective-plane dominated colourings use a different validity predicate and do not imply packing recolourings. An unindexed equivalent theorem could exist; source coverage is necessarily incomplete.
+## originality
 
-## Value — PASS
+PASS
 
-Packing chromatic number alone says nothing about the structure or mobility of its minimizers. The exact optimum classification shows that all higher-colour singleton placements freeze while the single nonincident second-colour move has \(q^2\) choices, producing \(2v(v-1)!\) disconnected star components. This provides a meaningful all-order extremal mobility theorem on every finite projective plane, including non-Desarguesian planes, rather than a routine minimum-value recomputation.
+Pass for the exact classification and enumeration of all optimal packing colourings and their full named optimal single-vertex recolouring graph. The bound v+1 and the maximum independent sets are prior. The incidence estimate used to obtain the near-maximum gap is standard in form; the comparison does not assert priority for incidence mixing or the estimate in an equivalent form.
 
-## Closest literature and limits
+## value
 
-Goddard et al., *Broadcast Chromatic Numbers of Graphs* (2008), source of the archival framework; Fresán-Figueroa et al., *On the packing chromatic number of Moore graphs* (2019), Theorem 3.1 and Lemma 3.1, already establishes the minimum palette. General \(S\)-packing definitions appear in Goddard–Xu (2012). We verified the relevant published theorem statement but cannot rule out older unpublished or unindexed enumerations. Finite scripts verify representative orders two and three, not every order. The proved claim assumes finite planes exist and is restricted to minimum palettes, fixed colour names and a single recoloured vertex per move.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact forest shows how individually movable 1/2-label choices coexist with global freezing of every higher name. It gives reachability, full counts and component diameters for a standard family, including planes without coordinates over a field. This is information not present in the chromatic number, an independence bound, or a census of two small planes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

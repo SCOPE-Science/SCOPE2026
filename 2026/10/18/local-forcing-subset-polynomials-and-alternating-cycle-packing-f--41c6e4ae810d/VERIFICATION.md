@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Verification details
+# Independent mathematical audit
 
-The archive includes the executable standard-library programs `verify_q4_automorphisms.py` and `verify_q4_extension_dp.py` and the independent input certificate `q4_orbit_certificate.json`. Their input is a 16-vertex graph whose edges join vertices differing in exactly one binary digit.
+## correctness
 
-Run:
+PASS
 
-```sh
-python3 verify_q4_automorphisms.py q4_orbit_certificate.json
-python3 verify_q4_extension_dp.py q4_orbit_certificate.json
-```
+Independently enumerated all bijections from the eight even to the eight odd vertices, retaining only cube edges (272 matchings). For each matching, contract its eight matched pairs and direct an arc i→j for the unmatched edge from the even endpoint of i to the odd endpoint of j. Directed simple cycles correspond bijectively to alternating cycle edge sets, with rotation removed by starting at the least pair index. Vertex masks on matched pairs suffice for packing; different cyclic orders on the same mask are kept in the edge-set count. By switching a missed cycle, and conversely decomposing a symmetric difference, a subset is forcing iff it hits every such mask. Tested all 69,632 subsets and used recursive packing on the available pair set. The 384 bit-flip/coordinate permutations exhaust cube automorphisms: once origin and unit neighbors are fixed, every vertex is determined by its distances to these five vertices. Group action gives eight orbits, with all six table entries reproduced on each and the totals (2552,7040,6080,2176,272). The packing spectrum is 4:232, 3:32, 2:8; all forcing numbers are 4. The eight packing-two matchings therefore give the claimed sharp gap of two. The frozen scripts and certificate were inspected, not executed.
 
-Observed successful checks: 272 perfect matchings, 384 automorphisms, eight matching orbits, 69,632 forcing-subset decisions, local subset coefficient totals 2,552, 7,040, 6,080, 2,176 and 272 in degrees four through eight, and 9,955 states of the independent completion recurrence. The direct alternating-cycle search and perfect-matching symmetric-difference cycle search agree on every orbit profile, distinguishing cycles by edge sets and packing them by disjoint vertex sets. The packing spectrum is 232 matchings with packing four, 32 with packing three, and eight with packing two.
+## originality
 
-These are exhaustive finite computations backed by recursion invariants, not an infinite-dimensional proof. The cited hypercube forcing-spectrum papers already imply the common forcing number four. Earlier coverage of the finer census cannot be conclusively excluded. Independent mathematical audit has not been performed.
+PASS
+
+The justified distinct content is the degree-five and degree-six forcing-subset census and the edge-set alternating-cycle/vertex-packing profiles, including the sharp gap and its multiplicity. The total matching count and the uniform forcing number are established. Another indexed record has exactly the eight orbit sizes and all degree-four coefficients, so those alone cannot carry originality; its anti-forcing results are not the packing table. The distinct overlapping entry's later catalog date is not an inference about priority.
+
+## value
+
+PASS
+
+The four-cube is a small test case for the gap between forcing and vertex-disjoint cycle packing outside the planar setting. The exact census shows that the common forcing number hides different numbers of certificates and different packing behavior: 40 matchings have a strict gap, with a sharp gap two in one orbit. Together with the higher-degree subset counts, this gives useful benchmarks for forcing and packing methods, beyond recomputing the uniform forcing number or the known c4 column.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,158 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:43:17.454404Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–52; VERIFICATION.md, rs_unique_check.py and rs_unique_output.txt inspected as source evidence",
+        "Independent replay: python3 /workspace/branches/independent_rudin_shapiro_check.py"
+      ],
+      "rationale": "Appending a binary zero preserves adjacent-11 parity, and appending one toggles it iff the parent index is odd. Applying the resulting pair rule three times yields the four aligned 8-blocks; independent enumeration confirmed 56 distinct 8-windows with disjoint start phases and 104 possible length-14 windows across parity-alternating block triples, each present at least six times in the first 1024 bits. Any shorter factor can be extended to the right in the infinite word, including at a finite prefix boundary, giving enough embedded repetitions. For length k≥15 the child start parity is recognized by the first eight symbols, and its residue mod 8 also gives the first parent index parity needed to decode a partial pair. The touched parent factor has length ceil(k/2) for even starts and floor(k/2)+1 for odd starts, both at least eight. All copies of a parent factor therefore have the same parent start parity, and each yields a matching child occurrence, fitting inside the finite prefix even when an endpoint pair is only partially used. This is a bijection, not just an inequality of multiplicities. An independent suffix-neighbor longest-common-prefix scan gives minimum 18 and starts 175,191,207,223,367,383,399,415 at n=9; n=10–12 give 34,66,130 with the stated starts. Below 2ℓ_n−2 both parent lengths are less than ℓ_n; at equality, only odd starts can come from a parent singleton of length ℓ_n, and each such start lifts by p↦2p+1. The finite certificates plus this induction prove the length and complete eight-start classification for all n≥9.",
+      "residual_risks": [
+        "Both exact scans and phase/saturation certificates concern bounded finite tasks; the occurrence transport and induction establish the unbounded conclusion. No assertion is made for smaller orders, other prefix lengths or all longer minimal unique factors."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kishi et al. apply occurrence preservation to Fibonacci and Thue–Morse minimal unique substrings, not parity-indexed Rudin–Shapiro dyadic prefixes. Nicholson–Rampersad count factors before a first repeat, with inspected examples on other sequences. 5752f791719e gives a structural analogue using a synchronization delimiter and induction, on regular paperfolding."
+        ],
+        "reasoning": "The inspected general method does not give the Rudin–Shapiro phase and finite-boundary transport hypotheses or the finite data needed to derive this length and set of starts. The paperfolding theorem has a different word and a different number of starts.",
+        "searches": [
+          "Resultary: exact shortest unique factors Rudin Shapiro dyadic prefixes",
+          "arXiv:2605.18034, occurrence-preserving morphisms and minimal unique substrings",
+          "arXiv:1507.08206, initial non-repetitive complexity"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2605.04826, 2605.18034, 2610.10950, 1507.08206",
+        "Resultary 71ca47bc8958, 662871a2af92, 2c61a76cacaf, 5752f791719e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The arbitrary-string SUS algorithm can compute a result for each specified input without giving a uniform formula. The occurrence-preserving and first-collision records share techniques, not the finite-prefix occurrence bijection used here. The Thue–Morse article is about attractors and coverage certificates."
+        ],
+        "reasoning": "There is no direct statement-level reduction to the frozen formula in the inspected passages; the nontrivial family-specific ingredients are exact two-way occurrence transport and a finite saturation/initial-state certificate.",
+        "searches": [
+          "arXiv:2605.04826 global SUS definition and algorithm",
+          "arXiv:2605.18034 occurrence-preserving applications",
+          "arXiv:2610.10950 minimal coverage",
+          "Resultary: Rudin Shapiro singleton contiguous factor length starts recurrence"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:2605.04826 defines the same global shortest unique substring (SUS) invariant and computes one on an arbitrary packed string. 71ca47bc8958 classifies the first collision of length-k factors of the infinite Rudin–Shapiro word."
+        ],
+        "reasoning": "Global SUS and shortest singleton are equivalent. A first collision for each k detects the first equality, not the last remaining occurrence of another factor in a specified finite prefix; it neither excludes smaller singletons nor gives the eight starts.",
+        "searches": [
+          "Primary: Rudin-Shapiro finite prefixes shortest unique factors singleton substring positions recurrence exact classification",
+          "Resultary: shortest unique factors finite Rudin Shapiro words",
+          "Resultary: Rudin Shapiro singleton contiguous factor length starts recurrence"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Same-day 662871a2af92 gives finite minimal absent factor spectra for orders 7–16, with an exact SPECTRUM.tsv; same-day 2c61a76cacaf gives exact small dyadic string-attractor sizes. The submitted finite scans are for orders 9–12."
+        ],
+        "reasoning": "An absence length spectrum does not classify multiplicity one. Attractor size measures a minimum number of positions hitting some occurrence of each factor and does not determine singleton multiplicities or starts. A finite check of matching orders would not establish the unfixed-order claim.",
+        "searches": [
+          "Resultary: repetitive threshold Rudin Shapiro unique factors exact table",
+          "Resultary: exact shortest unique factors Rudin Shapiro dyadic prefixes"
+        ]
+      },
+      "rationale": "No inspected work supplies the all-order shortest singleton length and full set of starts for these dyadic Rudin–Shapiro prefixes. The closest same-sequence records solve another occurrence question, bound finite minimal absence, or optimize hitting sets; exact global shortest-unique algorithms and occurrence-preserving methods are not themselves a classification of this family.",
+      "residual_risks": [
+        "The bounded searches and inspected passages do not exclude another exact classification under different indexing, or a stronger result in the automatic-word synchronization literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same invariant, generic algorithm rather than a family classification",
+          "evidence": "Defines a globally shortest substring occurring exactly once and gives a packed-string algorithm to find one.",
+          "identifier_or_url": "arXiv:2605.04826",
+          "material_read": "PDF pp.1–2, offsets 2824 and 7829",
+          "method": "OA PDF locators and bounded passages",
+          "title": "Faster Algorithms for Shortest Unique or Absent Substrings",
+          "trigger": "Same global uniqueness problem"
+        },
+        {
+          "assessment": "Related method and different investigated families",
+          "evidence": "The named applications analyze minimal unique substrings of Fibonacci and Thue–Morse words.",
+          "identifier_or_url": "arXiv:2605.18034",
+          "material_read": "PDF pp.1–2, offsets 2609 and 6860",
+          "method": "OA PDF locators and bounded passages",
+          "title": "On Occurrence-Preserving Morphisms",
+          "trigger": "Possible stronger occurrence-transport theorem"
+        },
+        {
+          "assessment": "Different sequence and invariant",
+          "evidence": "Computes attractor and coverage data for Thue–Morse.",
+          "identifier_or_url": "arXiv:2610.10950",
+          "material_read": "PDF pp.1 and 7; offsets 0, 3785, 25447",
+          "method": "OA PDF bounded passages",
+          "title": "Smallest String Attractors and Minimal Coverage Certificates of Thue–Morse Words",
+          "trigger": "Exact automatic-word coverage structure"
+        },
+        {
+          "assessment": "A first-repeat statistic, not minimum singleton length",
+          "evidence": "Counts successive distinct length-k factors before the first repeat; abstract lists exact results for Thue–Morse, Fibonacci and Tribonacci.",
+          "identifier_or_url": "arXiv:1507.08206",
+          "material_read": "PDF pp.1–2, offsets 317 and 2788",
+          "method": "OA PDF locators and bounded passages",
+          "title": "Initial non-repetitive complexity of infinite words",
+          "trigger": "Possible equivalent repetition-threshold formulation"
+        },
+        {
+          "assessment": "Same sequence, distinct statistic; later-dated",
+          "evidence": "All-length formula for first repetition, using four-letter synchronization, does not track singleton exhaustion in dyadic prefixes.",
+          "identifier_or_url": "Resultary 71ca47bc8958",
+          "material_read": "Finding at local-mirror offset 0",
+          "method": "Resultary search and local mirror",
+          "title": "Exact initial non-repetitive complexity of the Rudin–Shapiro word",
+          "trigger": "Same word, exact occurrence recurrence"
+        },
+        {
+          "assessment": "Finite table for absent factors",
+          "evidence": "Complete minimal absent factor length spectra, orders 7–16.",
+          "identifier_or_url": "Resultary 662871a2af92",
+          "material_read": "Finding at local-mirror offset 276",
+          "method": "Resultary search and local mirror",
+          "title": "Exact finite antidictionary spectra of Rudin–Shapiro dyadic prefixes",
+          "trigger": "Same-day exact Rudin–Shapiro factor table"
+        },
+        {
+          "assessment": "Exact hitting invariant, not singleton counts",
+          "evidence": "Minimum attractor sizes for the stated four dyadic prefix lengths.",
+          "identifier_or_url": "Resultary 2c61a76cacaf",
+          "material_read": "Finding at local-mirror offset 0",
+          "method": "Resultary search and local mirror",
+          "title": "Exact dyadic Rudin–Shapiro string attractor sizes",
+          "trigger": "Same-day exact finite-prefix factor computation"
+        },
+        {
+          "assessment": "Method analogue, not coverage; later-dated",
+          "evidence": "Classifies shortest singleton starts with phase recognition for paperfolding, not Rudin–Shapiro.",
+          "identifier_or_url": "Resultary 5752f791719e",
+          "material_read": "Local-mirror offsets 80, 4831, 6926",
+          "method": "Resultary search and local mirror",
+          "title": "Exact shortest unique factors of dyadic regular paperfolding prefixes",
+          "trigger": "Very close invariant and induction on a related automatic word"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof; arXiv:2605.04826 for the global SUS motivation"
+      ],
+      "rationale": "The first factor length that distinguishes even one position of an explicitly structured finite word is a natural substring invariant. Here the exact scale, bounded number eight, and locations give a complete benchmark for shortest-unique-factor procedures on an infinite family. The synchronization argument explains the stable positional pattern rather than merely listing individual computations.",
+      "residual_risks": [
+        "This does not classify all unique factors or give data for arbitrary prefix lengths."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

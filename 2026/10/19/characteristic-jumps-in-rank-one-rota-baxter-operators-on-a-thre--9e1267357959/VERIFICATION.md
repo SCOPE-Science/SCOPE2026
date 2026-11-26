@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification of the finite-field exterior-algebra count
 
-Run `python3 verify.py` with the Python standard library. The script implements the exterior-product signs on the eight basis masks, computes the ranks of the full left-plus-right multiplication span, and enumerates every normalized image line in the relevant finite fields. The complete checks cover \(\mathbb F_2\), \(\mathbb F_3\), and \(\mathbb F_5\) by prime arithmetic, and \(\mathbb F_4\) via the extension \(\mathbb F_2[z]/(z^2+z+1)\).
+# Independent mathematical audit
 
-For \(q=2\), it separately evaluates the defining weight-zero Rota–Baxter identity on all \(64\) ordered pairs of exterior basis elements for all \(255\times255=65025\) possible nonzero rank-one maps. Exactly \(2689\) pass. The projective image-line counts by ideal rank \((4,2,1)\) are \((112,14,1)\) for \(q=2\), \((351,39,1)\) for \(q=3\), \((5376,84,1)\) for \(q=4\), and \((3875,155,1)\) for \(q=5\). They give operator counts \(2689,58658,1731243,4917844\) respectively. Each asserted integer is obtained by the packaged script.
+## correctness
 
-These finite computations do not establish the formulas for arbitrary finite fields or the dimensions of the corresponding algebraic loci. Those facts follow from the symbolic normal forms and projective bundle dimensions proved in `RESULT.md`. No independent audit has been performed.
+PASS
+
+For R=f(-)u, taking one argument in ker f shows f composed with each of left and right multiplication by u is proportional to f. The identity then gives u²=(α+β)u. A nonzero α+β would give a nonzero idempotent in a local algebra, hence u=(α+β)1; substitution gives α+β=2(α+β), a contradiction in every characteristic. With u²=0 the multiplication maps are square-zero, so α=β=0. These conditions are sufficient and imply R²=0. For u=v+w+z in the radical, u²=2v∧w. With v nonzero in characteristic different from two, w∈v∧V and z∈v∧Λ²V, so u is v times a unit and the left-plus-right span is vE=Ev. In characteristic two any radical element squares to zero and replacing v by u in a basis of generators is an automorphism: it preserves the exterior relations and is invertible on the radical filtration. The degree-two and degree-three leading cases give spans of dimensions two and one, and the degree-one case gives four. Counting projective lines yields q^(3+ε)(q²+q+1), q(q²+q+1), and 1; for each line the nonzero maps into it that vanish on its multiplication span are a punctured (8−r)-dimensional fiber. This proves the count for every prime power. Over an algebraically closed field the strata are affine bundles over projective leading-term lines (and a point for degree three); their base dimensions are (5,3,0) outside characteristic two and (6,3,0) in characteristic two. The annihilator ranks are constant on each stratum; taking the nonzero parts of the corresponding Hom bundles gives dimensions 9 and 10, including characteristic zero in the former case. Independent small prime-field enumeration confirmed the line counts, ideal ranks and totals; the general conclusions use the algebraic argument, not enumeration.
+
+## originality
+
+PASS
+
+Best-of-knowledge pass for the complete rank-exactly-one operator census and the dimension jump. The odd-characteristic degree-one image-line enumeration is already present in equivalent form in the earlier three-generator retraction record and should not be credited as new. Its result does not give the Rota–Baxter functional fibers, the remaining leading degrees, the characteristic-two count or the dimension jump. The two-generator classifications and tables do not cover the full claim.
+
+## value
+
+PASS
+
+This is the full smallest nonzero-rank stratum on the first exterior algebra beyond the plane where v∧w can obstruct square-zero elements. It quantifies the new geometry when 2 vanishes, giving both exact counts for every finite field and the dimensions of the geometric strata. These are useful benchmarks for classification and finite-field computations; the value is in the operator fibers and characteristic comparison, not in re-counting the previously known odd-field image base.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

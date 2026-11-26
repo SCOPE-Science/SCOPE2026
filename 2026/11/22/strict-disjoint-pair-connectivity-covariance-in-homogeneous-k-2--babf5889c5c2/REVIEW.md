@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact claim is for disjoint pairs of four marked leaves in the homogeneous \(K_{2,n}\) Fortuin–Kasteleyn measure, with integer \(n\ge6\), activity \(v>0\), and component weight \(q>0\). Splitting configurations by whether at least one leaf has both hub edges occupied gives disjoint, exhaustive expressions for the partition sum and the one-pair and two-pair connection numerators. Exact algebra produces the displayed rational covariance. Its sign is proved without numerics: \(0<r<1\), \(y>2\), and \(2+(q-1)y>0\); the final inequality in the difficult \(0<q<1\) regime uses \(0<qv/(q+2v+v^2)<q/2\). Exact rational brute-force checks for 60 parameter/size combinations agreed with every moment and covariance factorization. Large-size asymptotics follow from the same rational identity. The checks support, but do not substitute for, the all-size argument.
+## correctness
 
-## Originality — PASS, with residual risks
-The strongest directly relevant source inspected is Çiçeksiz and Ravichandran (2026, arXiv:2610.00549), Section 6, which explicitly presents positive connectivity correlation for \(0<q<1\) on general graphs as Conjecture 6.3 rather than proving it; the article's full-activity theorems concern edge correlations on other graph classes. Grimmett and Winkler (2003, arXiv:math/0302185), Section 4, concern edge negative dependence and random-cluster limits, not this marked four-leaf covariance. Published weighted-cactus results concern graphs without overlapping cycles; \(K_{2,n}\) is not a cactus when \(n\ge3\). A published finite-core result for random-cluster models on \(K_{r,n}\) concerns the sparse \(n^{-1/2}\) regime, whereas the claim here is a uniform all-positive-activity finite-size strict inequality. Finite exhaustive certificates for small bipartite graphs do not imply an all-size theorem for arbitrarily many leaves. No dominating published implication was found after searching connectivity aliases and related formulae, but a relevant finite-core publication was available only as a summary, and unlocated equivalent series-parallel formulations remain possible.
+PASS
 
-## Mathematical value — PASS
-The sign of correlations between distinct connectivity demands is a recognized nontrivial question for cluster weights below one, where ordinary FKG positive association fails. The result supplies an exact positive all-activity proof for an infinite family of noncactus graphs of unbounded cyclomatic number, going beyond finite graph-order checks. The explicit, strictly positive exponential decay factor distinguishes finite positive dependence from asymptotic independence at fixed activity. The homogeneous and four-distinct-leaf restrictions are important and not suppressed.
+In homogeneous K_{2,n}, a leaf with two occupied spokes is exactly a bridge between the hubs. Per-leaf local weights are q,v,v,v², with an additional hub factor q² if no such leaf exists and q otherwise. For j=1,2 disjoint marked pairs the unnormalized event weight is q[(v(2+v))^{2j} B^{n-2j}+(q-2^j)2^j v^{2j} A^{n-2j}]: the first term allows all marked leaves to attach, the correction restores weight to exactly the 2^j same-hub choices in the disconnected sector. At j=0 this gives the partition function. Expanding the covariance numerator uses ((2+v)A/B)²=2y and (q-4)(q-1)-(q-2)²=-q, giving the frozen bracket q(1-r^n)+(y-2)[2+(q-1)y]. All factors are positive: for q<1, u<q/2 and (1-q)(2+q/2)²<4, while q>=1 is immediate. Taking r^n to zero at fixed q,v gives the claimed asymptotic with nonzero coefficient. The proof works from n=4, hence covers the stated lower boundary n=6. Independent exact replay at (q,v)=(1/2,1), via component search over 2^(2n) edge masks with integer weights 2^(n+2-k), gave scaled (Z,H_X,H_Y,H_XY)=(219673,157872,157872,115808) at n=6, with covariance numerator 516322400, and (4177,2928,2928,2144) at n=4. This tests the exact count, not the universal sign. The bundled verifier was inspected, not executed.
 
-## Limitations and priority
-This is not a theorem for heterogeneous edge weights, overlapping marked pairs, all graph families, or the forest limit obtained by simultaneous rescaling. The asymptotic assumes fixed positive \(q,v\). Publicly available related summaries could not all be inspected in full; none of the inspected primary statements gives this all-size fixed-activity covariance sign. Historical-priority verification remains provisional.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The closest indexed same-day result treats exactly the disjoint leaf-pair observable on the same graph, but only for unrooted forests. Its fixed-fugacity n^(-1) decay is not the fixed-positive-random-cluster exponential law. The broader random-cluster connection conjecture below q=1 motivates the tested case, while FKG already covers nonnegativity above q=1. PASS credits the strict homogeneous all-positive-parameter random-cluster formula, its previously uncovered below-one range, and its fixed-parameter equivalent, not the general conjecture or priority for positivity at q>=1.
+
+## value
+
+PASS
+
+This is a strict check of a recognized general conjectural sign in the below-one regime on a natural family with arbitrarily many overlapping cycles, not another cactus instance or finite table. The explicit rate and positive prefactor further distinguish finite positive dependence from asymptotic independence. The result is valuable without extrapolating to general graphs or inhomogeneous edges.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

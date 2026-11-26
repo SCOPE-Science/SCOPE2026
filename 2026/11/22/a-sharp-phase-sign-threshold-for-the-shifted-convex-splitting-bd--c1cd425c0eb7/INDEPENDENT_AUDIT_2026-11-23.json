@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:06:03.050895Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Assumptions and Proof",
+        "Frozen VERIFICATION.md and verify.py",
+        "arXiv:2606.04204v1, (1.10)–(1.12), (3.1c–d), Theorem 3.3"
+      ],
+      "rationale": "Gu–Wang's (1.10)–(1.12) and (3.1c–d) give the stated antiphase recurrence when transport is suppressed and L has eigenvalue λ on (1,−1). The derivative in the unknown successor is 3+2βt+(3t/4)[2A²+(A+B)²]>0 and the cubic is onto. The exact phase-only ODE preserves positivity and its starter is e^(−kt)a₀+O(a₀³), k=β−1>0. The linearized discriminant is 4(1−2kt−4kt²); the three strict Schur inequalities hold on both sides and at the double root. Below or at threshold, (1−kt)(3+2βt)−2(1+t)=1−kt(1+2t)−2(kt)²>0, so the starter slope exceeds the root midpoint. The positive linear sequence is bounded below by a constant times Rⁿ, or (n+1)Rⁿ at the double root. For R<q<R^(1/3), local contraction in an equivalent norm bounds the cubic forcing by O(a₀³q^(3n)); Duhamel with the correct simple or Jordan power bound transfers positivity uniformly in n, not only at each fixed n. Above threshold the update is conjugate to a contracting rotation plus cubic error, so the nonzero trajectory has summable angular errors; local injectivity prevents hitting zero. Irrational rotations, or the evenly spaced rational orbit for 0<θ<π/2, have infinitely many visits bounded away from the boundary of each sign half-plane, unaffected by the vanishing phase error. This proves convergence with infinitely many signs of each kind for all sufficiently small nonzero histories on that side. The two-cell example has λ=2 and β=2, giving τ_c=(√5−1)/8. Scope is phase only, fixed step, near zero, and the positivity branch uses the stated exact starter, not Gu–Wang's unspecified admissible second-order starter. VERIFICATION.md and verify.py were inspected, not executed; the sampled sign patterns are printed diagnostics, not an all-time or machine-certified sign proof.",
+      "residual_risks": [
+        "No claim for arbitrary nonlinear histories, transport, more cells, or a different starter at the repeated root."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gu–Wang proves modified-energy monotonicity and convergence, neither of which entails fixed sign.",
+          "The BDFL3 spectral-sign record is a linear three-step scalar problem and excludes a real-root eigenspace in its oscillatory conclusion.",
+          "The classical linear multistep monotonicity literature was identified; the exact relevant CWI passage could not be read reliably."
+        ],
+        "reasoning": "An energy bound or decay estimate permits sign reversal, and generic linear oscillation criteria do not establish all-index positivity of the exact-start nonlinear branch, especially at the double root.",
+        "searches": [
+          "Gu–Wang Theorem 3.3",
+          "Primary literature lookup on BDF2 monotonicity and phase sign in shifted convex-splitting Cahn–Hilliard",
+          "CWI MAS-R0210 / DOI 10.1137/S0036142902406326",
+          "Resultary 2026/10/26/…--67cbe1d016ca"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2606.04204v1",
+        "CWI MAS-R0210 / DOI 10.1137/S0036142902406326 (limited)",
+        "Resultary …--cf66315c5a14 and …--67cbe1d016ca"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact source equations yield the scalar recurrence by specialization and its discriminant by algebra.",
+          "The nonlinear sign conclusions also require that the exact starter excites the positive dominant/Jordan branch and that nonlinear errors stay smaller than it uniformly, or that a stable complex angle keeps crossing both half-planes."
+        ],
+        "reasoning": "The threshold alone as a linear discriminant is routine. The full sharp sign assertion is not a direct corollary of the inspected source or linear positivity/oscillation theorems.",
+        "searches": [
+          "arXiv:2606.04204v1 scheme/startup and energy theorem",
+          "Resultary …--cf66315c5a14 Finding and Proof",
+          "Resultary …--67cbe1d016ca Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gu–Wang defines the exact original shifted force.",
+          "Resultary 2026/10/4/…--cf66315c5a14 gives a sign boundary and delayed first negative value for ordinary scalar-decay BDF2 with a backward-Euler starter."
+        ],
+        "reasoning": "Removing the cubic in this record does not give ordinary scalar-decay BDF2: the explicit concave extrapolation changes the coefficients of both history terms. The exact ODE starter also differs from backward Euler. The prior delayed-index result does not settle the changed nonlinear recurrence.",
+        "searches": [
+          "Resultary: shifted convex-splitting BDF2 two-cell Cahn–Hilliard, sign loss, positivity and damped oscillation",
+          "Gu–Wang arXiv:2606.04204v1, (1.10)–(1.12) and (3.1c–d)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest substantive indexed threshold is 2026/10/4/…--cf66315c5a14, which gives the standard-decay dimensionless boundary 1/2 under a different initialization.",
+          "The assigned threshold is a β-dependent nonlinear phase theorem rather than a numerical table entry; a polynomial-root table would only yield the linear collision."
+        ],
+        "reasoning": "No inspected exact record or tabulation establishes the nonlinear conclusion for the two-cell force with this starter.",
+        "searches": [
+          "Resultary: exact BDF2 sign threshold, two-cell shifted convex splitting, delayed sign loss"
+        ]
+      },
+      "rationale": "The distinct result is the sharp nonlinear near-equilibrium classification for the actual shifted-force phase recurrence and the stated starter, including the double-root positivity proof and the all-small-history oscillation result above it. Neither the scheme nor the general possibility of a numerical BDF sign reversal is new.",
+      "residual_risks": [
+        "The classical PDF's decisive passage was not readable from extraction. A specialized antecedent for this shifted nonlinear force not located by the bounded search remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact force, not exact starter or this phase-sign theorem",
+          "evidence": "The shifted χ force and explicit extrapolation give this recurrence; modified energy is nonincreasing, and they allow second-order mass-compatible startup under Assumption 4.2.",
+          "identifier_or_url": "https://arxiv.org/pdf/2606.04204v1",
+          "material_read": "PDF pp. 3, 8, 11; (1.10)–(1.12), (3.1a–d) and startup, Theorem 3.3",
+          "method": "Bounded original OA PDF passages",
+          "title": "An Energy-Stable Implicit Convex-Splitting BDF2 Scheme for the Cahn–Hilliard–Navier–Stokes Equations",
+          "trigger": "Exact scheme specialized in the claim"
+        },
+        {
+          "assessment": "Genuine sign-loss overlap, different recurrence, starter and theorem",
+          "evidence": "The theorem treats backward-Euler-started linear scalar BDF2 and computes the delay past its boundary.",
+          "identifier_or_url": "2026/10/4/SCOPE-exact-delayed-sign-loss-just-beyond-bdf2-s-positivity-boundary--cf66315c5a14",
+          "material_read": "RESULT.md, Finding, Proof and prior-work comparison",
+          "method": "Local Resultary mirror",
+          "title": "Exact delayed sign loss just beyond BDF2's positivity boundary",
+          "trigger": "Nearest indexed BDF2 positivity and oscillation comparison"
+        },
+        {
+          "assessment": "Relevant background, not used for a negative statement about its full contents",
+          "evidence": "The BDF2 delayed-sign record credits this literature for the standard monotonicity setting.",
+          "identifier_or_url": "https://ir.cwi.nl/pub/4231/04231D.pdf",
+          "material_read": "Identification and available PDF extraction; no reliable page-level reading of the decisive BDF2 text",
+          "method": "OA CWI PDF attempted; text extraction corrupted, SIAM copy unavailable",
+          "title": "Monotonicity-Preserving Linear Multistep Methods",
+          "trigger": "Classical linear multistep monotonicity and BDF2 antecedent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof",
+        "Gu–Wang Theorem 3.3"
+      ],
+      "rationale": "This is a fully quantified counterexample to inferring sign fidelity from modified-energy stability, in the smallest nontrivial conserved-mean spatial subsystem of a concrete integrator. It gives a usable timestep boundary, including equality, and proves persistent decaying sign reversals even for arbitrarily small, correctly initialized positive data.",
+      "residual_risks": [
+        "The threshold is not a general recommendation for preservation of arbitrary phase patterns or a full PDE maximum principle."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

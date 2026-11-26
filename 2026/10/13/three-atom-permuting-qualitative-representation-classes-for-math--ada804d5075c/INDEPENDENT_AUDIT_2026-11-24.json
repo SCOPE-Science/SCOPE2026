@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:31:45.344519Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The frozen three-class finding is false: seven-point representations extend uniquely, but arbitrary deletions of an eight-point representation need not retain any given triangle witness. The frozen verify.py at lines 278–314 canonicalizes every restricted colouring without testing coverage in any restriction. In the affine representative on F7∪{∞}, colour(x,y)=(x+y)/2 for finite endpoints and colour(∞,x)=x. The non-progression colour triple {2,4,5} occurs only on {0,1,3}, and deletion of 0 destroys it. The complete repaired claim has one class at each size. On eight points the proper colouring is a one-factorization. If two factors give two 4-cycles only their four diagonals close triangles with both colours, so fewer than the required five third colours can appear. Thus qualitative implies perfect. In the explicit affine construction every triple of distinct colours a,b,c occurs on the unique finite triangle with vertices a+b−c,a+c−b,b+c−a. It is therefore qualitative, and uniqueness of the perfect factorization gives the converse and the eight-point class. An extra witness through ∞ exists exactly for a progression triple; that witness is disjoint from the finite one. Each of the seven finite vertices lies on nine progression and six non-progression finite triangles. Hence the finite deletions have exactly 29 of the 35 required triples, while the ∞ deletion has 35. The extension theorem then gives a unique seven-point class. Any automorphism up to colour relabelling fixes ∞ and induces a midpoint-preserving permutation of F7, necessarily one of the 42 affine permutations; these have vertex orbits of sizes 1 and 7. Independent exact replay in /workspace/repairs/5/verify.py checked the full fixed-factor exact-cover census (416 instances, six vertex-relabelled classes), Hamiltonian-pair and full-coverage equivalence in every instance, the group order and orbits, and restriction counts [29,29,29,29,29,29,29,35]. The general seven-to-eight extension is a separate primary-source input. The corrected finding, slogan and scientific verification notes and code are under /workspace/repairs/5/; the frozen self-review is evidence of the original error, not validation of the repair.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 5.3 proves n≤m≤n+1 and describes representations via a commutative idempotent quasigroup; Lemma 5.2 gives x·y=(x+y)/2 for odd n. The sentence illustrating 'The two qualitative representations' explicitly describes the affine construction at the two sizes, not a proof excluding other quasigroups or restrictions. The separate graph-factorization census concerns perfectness, not triangle-colour coverage. The cited census paper was access-limited; the enumeration verifies its K8 numerical inputs independently."
+        ],
+        "reasoning": "The general theorem supplies the search space, existence and the reduction from size seven to eight, but by itself neither counts these classes nor distinguishes the two types of deletion. Classical perfectness uniqueness only applies after establishing the nontrivial coverage-to-perfectness implication.",
+        "searches": [
+          "Al-Juaid et al., arXiv:2201.03098 Lemmas 5.1–5.2 and Theorem 5.3",
+          "Seah–Stinson DOI 10.1090/S0025-5718-1988-0929557-1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2201.03098 §5",
+        "DOI:10.1090/S0025-5718-1988-0929557-1 (attempted)",
+        "OEIS A000474",
+        "Resultary exact, quasigroup, bridge and deletion searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The proof says every n-vertex representation can be obtained by removing one vertex from an (n+1)-vertex representation, not that removing any vertex works. Even for the known affine construction a finite deletion loses six uniquely witnessed triples. Necessity of perfectness, using four closing diagonals versus five required colours, is what allows the graph census to establish qualitative uniqueness at size eight."
+        ],
+        "reasoning": "Once the bridge and witness-loss test are proved the two-size census follows by combining the ingredients. Neither the theorem's extension assertion nor perfectness uniqueness implies the repaired classification without checking those constraints.",
+        "searches": [
+          "Read Theorem 5.3 proof, arXiv:2201.03098 PDF pp. 7–8, versus the deleted-vertex claims",
+          "Compare the perfect K8 factorization uniqueness input and the affine construction with colour-pair coverage and the loss of non-progression triples"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ranked catalogue results for the exact representations, the K8 bridge, the deletion claims and the order-seven quasigroup reformulation did not surface a material match. A nearby Möbius–Kantor edge-colouring record (2026/10/12/…e12726c83181) is described as proper 3-edge-colourings and Kempe reconfiguration on a different graph; its original text was not obtained. Al-Juaid et al. Lemma 5.1 gives a genuine equivalent language, the quasigroup 3-cycle condition, but the cited construction does not rule out other order-seven quasigroups satisfying it."
+        ],
+        "reasoning": "The qualitative order-seven statement is uniqueness of the qualifying quasigroup up to relabelling, not uniqueness of all commutative idempotent quasigroups and not the mere existence of the affine solution. The identified primary passages leave that distinction open.",
+        "searches": [
+          "Resultary: E8^{3}, atom-permuting classes, K8 perfect one-factorizations and seven-point deletion orbits",
+          "Resultary: 7-colour trichromatic chromatic algebra E8 qualitative representations; unique order-seven commutative idempotent quasigroup with 3-cycle condition; perfect K8 unique valid deletion with all 35 triangle colour sets",
+          "arXiv:2201.03098 §5, one-factorization, perfect, automorphism and colour-permutation wording"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A000474 gives 1,1,1,6,… from n=1, hence covers the six K8 factorization classes and credits Seah–Stinson among its sources. It does not tabulate triangle-witness coverage or the representation classes. The local replay found the classical counts and additionally identified which restrictions lose witnesses."
+        ],
+        "reasoning": "The ordinary one-factorization count and perfect class are credited as prior. No exact source was found tabulating the qualitative class count or 29 versus 35 restrictions.",
+        "searches": [
+          "OEIS A000474, number of nonisomorphic one-factorizations of K_{2n}",
+          "Resultary exact K8 factorization/35 trichromatic triples and seven-point-restriction searches"
+        ]
+      },
+      "rationale": "For the corrected result, the affine examples at both sizes, the quasigroup characterization and extension theorem, and the classical perfect factorization and K8 census are prior inputs. The supported distinct claim is the coverage/perfectness bridge at order eight, the associated uniqueness at both base sizes and the precise failure of witness preservation for the seven non-fixed deletions. The bounded checks found no source already giving that restricted classification or its equivalent. This is not an originality pass for the false three-class claim.",
+      "residual_risks": [
+        "A short argument assembled from two established literatures could be recorded as folklore, in an order-seven quasigroup census, or in a differently phrased factorization source. Bounded catalogue searches are not exhaustive.",
+        "The full Seah–Stinson text was not inspected; the actual graph census has independent mathematical verification, not an access-based negative originality inference."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIALLY_COVERING",
+          "evidence": "The n-or-(n+1) and unique-extension statements, quasigroup and affine forms are explicit. The proof recovers a quasigroup from an eight-point colouring but does not assert that an arbitrary single deletion retains full triangle coverage. The descriptive 'two' sentence visualizes the examples on roots of unity; it gives no exclusion proof or size-seven class census.",
+          "identifier_or_url": "https://arxiv.org/pdf/2201.03098",
+          "material_read": "§5, Lemmas 5.1–5.2 and Theorem 5.3, PDF pp. 6–8, extracted offsets 18000–21160 and 22500–28144, followed by Figure 2 text",
+          "method": "Bounded OA primary text and theorem-proof check",
+          "title": "Qualitative representations of chromatic algebras (published as Edge colourings and qualitative representations of chromatic algebras)",
+          "trigger": "Same algebra family, exact 3-cycle condition, affine example and extension lemma"
+        },
+        {
+          "assessment": "ACCESS_LIMITED",
+          "evidence": "Graph-only census is credited; its numerical claims needed here are independently verified by complete enumeration. No broader claim about unseen content is made.",
+          "identifier_or_url": "DOI:10.1090/S0025-5718-1988-0929557-1",
+          "material_read": "Full paper not obtained on this review; the frozen citations attribute its Theorems 1.2–1.3",
+          "method": "Bounded lawful OA retrieval attempts returned 403 and no repository copy",
+          "title": "On the Enumeration of One-Factorizations of Complete Graphs Containing Prescribed Automorphism Groups",
+          "trigger": "Exact classical one-factorization and perfectness inputs"
+        },
+        {
+          "assessment": "PARTIALLY_COVERING",
+          "evidence": "1,1,1,6 from n=1 gives six at K8; it does not give a restriction/coverage classification.",
+          "identifier_or_url": "https://oeis.org/A000474",
+          "material_read": "Definition, offset, initial terms and references",
+          "method": "OA public-page passage",
+          "title": "OEIS A000474: Number of nonisomorphic 1-factorizations of complete graph K_{2n}",
+          "trigger": "Exact graph census separate from the qualitative census"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "At K8, the first order where nonisomorphic one-factorizations branch, the qualitative test singles out the perfect one. The repaired result answers the natural small-case moduli question at both allowed base sizes and determines exactly when the extension construction can be reversed without losing qualitative witnesses. This is stronger than checking a single example or just recomputing the six graph factorizations: one of the two actual deletion orbits is excluded from the algebra's moduli despite being a proper colouring, through a concrete and sharp 29-versus-35 obstruction.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

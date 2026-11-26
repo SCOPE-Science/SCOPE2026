@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** Under the cited known joint stationary Gaussian-mixture law, the center-of-mass reduction has exactly the stated variance. The latent mixing density has a one-minimum U-shape by a strictly monotone logarithmic angle derivative. Gaussian variation diminution limits the number of modes, the Gaussian semigroup prevents reappearance, and a posterior-variance bound proves strict log-concavity for variance at least one. Boundary-layer analysis proves two small-noise peaks and their precise shifts; endpoint integration gives the fourth-root leakage constant. The numeric checks corroborate only selected parameter values. The claimed equality case is intentionally limited to a degenerate critical point, not a full singularity classification.
+## correctness
 
-**Originality — PASS with residual priority risk.** The full primary quantum-reset paper [1] already contains the joint law, latent mixing density, edge singularities and a numerical single-particle mode transition. The general conditionally independent sum-statistics paper [2] covers sample means and their latent-variable limit. Gaussian noncreation of extrema is classical [3]. The tested claim does not rebrand any of these as novel: its added scope is a rigorous all-population mode count and the explicit finite-size peak and leakage profiles with two matching asymmetry estimators. The inspected results did not imply these sharp statements outright. An uncatalogued equivalent derivation cannot be ruled out.
+PASS
 
-**Mathematical value — PASS.** Center-of-mass histograms are a natural collective observable in correlated gases. Exactly determining when a finite population resolves both reset-phase edges, and the sharp probability cost of excursions beyond both latent support boundaries, supplies a quantitatively useful finite-size diagnostic beyond the known infinite-population density and ordinary one-body profile. The special quarter-power exponents follow from physically determined fold singularities, not an arbitrary auxiliary statistic.
+The corrected RESULT.md passes; the frozen Step 4 sentence at line 81 is false as written, since the stated A_+>A_- makes left/right converge to sech(πλ), not cosh(πλ). The opening statement and displayed leakage asymptotics already had the right direction. The repair corrects the sentence, makes the critical-point statement precisely f′=f″=0 without an exact multiplicity, and supplies the approximation, openness and domination details. Independently, conditional averaging divides the position variance by N, and division by (2a)² gives t_N. The angular log derivative is strictly increasing with opposite infinite ends, hence the latent density is U-shaped. Endpoint ramps have derivative signs +,-,+,-, converge in L¹, and give the at-most-three sign changes by Gaussian variation diminution. The semigroup makes the mode count nonincreasing. All critical points lie inside (−1,1); strict posterior log-concavity at t=1 and compactness preserve a unique mode slightly below it. Signs witnessing two strict maxima persist in t; they exist for small t by the two nondegenerate scaled edge peaks, hence there is exactly one separating t_c in (0,1). At t_c a degenerate critical point is required since a finite set of simple critical points in the compact region would persist. The scale change z=1−√t s gives the t^−1/4 density profile; integration by parts on s^(1/2) times the Gaussian gives F″+ξF′+F/2=0. F vanishes at both infinities and every zero of F′ is a strict maximum; F′(0)<0 and differentiable local convergence thus locate both inward peaks and their heights. The mirrored integrations give the two t^1/4 leakages, and Tonelli gives C=2∫₀^∞ uφ₁(u)/√u du=2^(1/4)Γ(3/4)/√π. Both surviving right/left ratios are A_+/A_-=cosh(πλ).
 
-**Closest literature and remaining limits.** [1] gives the physical model and exact mixing measure; [2] gives the general conditional-sample-mean framework; [3] gives general Gaussian scale-space monotonicity. The transition parameter remains implicit, and this does not address other clocks, interacting particles, or independent external verification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+For the repaired claim, credit the exact mixture, unsmoothed edge singularities and their ratio, and the one-particle critical-width phenomenon to prior work. The finite-N law is exactly the same width family, not a distinct collective mechanism. The supported addition is a proof of the all-positive-width mode count for each λ>0 and the sharp smoothed peak and leakage asymptotics in the stated physical scaling.
+
+## value
+
+PASS
+
+After discounting the width substitution, the proof resolves when two latent edges can actually produce separate finite-noise maxima in this standard reset model. It also supplies distinct, quantitative observables: inward peak shifts and fourth-root leakage with precise constants. The paired asymmetry diagnostics are useful because one is local to the maxima while the other is an integrated probability beyond support; their agreement is nontrivial at the observation level even though the latent amplitude ratio is known.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:51:14.409632Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With gap c between c−1 and c, an even gap 2h expands each parent mirror pair into two pairs with the opposite equality status. Thus P(2h)=2A(h) and A(2h)=2P(h) at successive depths, with the factor-of-two caps consistent. At odd gaps P=0; for A the initial pair always passes, pairs two and three pass together exactly when the two parent neighbors agree, and a fourth would then force a length-five palindrome centered on the parent letter. Checking the four offsets in the periodic concatenation of 0110/1001 blocks excludes such odd palindromes, also across seams. Repeated division by two proves the valuation formula; the length-two circular word and the odd gaps of 0110 settle the capped full-axis cases. At the largest permitted odd valuation the parent tests use 0110 for even k (all four neighbor tests unequal) and 01101001 for odd k (four equal out of eight). Lower valuations cannot reach the resulting bounds. Half-circle shift complements every letter, so above twice the off-axis radius the two full gaps yield distinct complementary factors, including length N. Independent even-radius Manacher computation on the trebled word, retaining the central copy with one-circuit caps (python3 /workspace/reproduce_reviews.py 5), matched all 131056 gaps at k=4..16 and checked the seam restriction and complementary factors at both ends of the long range. The proof, not that range, covers all k≥4.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Blondin Massé–Brlek–Labbé Lemma 7 proves no odd palindrome of length at least five and shows that a palindrome of length at least four is cut centrally from the double substitution of a palindromic ancestor; for lengths above four the ancestor is unique.",
+          "Proposition 6 and Peltomäki Theorem 3.7 concern aggregate distinct ordinary palindromic factors of the infinite fixed point."
+        ],
+        "reasoning": "Every factor of the stated finite circle up to one circuit occurs in the infinite word: since 00 occurs, its depth-k substituted image is two copies of t_k. Hence even the circular length-five exclusion follows from the prior lemma. Centered ancestors also constrain allowed gap alignments, but one still needs to evaluate each chain of lifts, its short palindrome/antipalindrome bases and seams under the cap, then compare valuations to locate the sharp off-axis maxima. The general structural lemma is not itself this finite classification.",
+        "searches": [
+          "Literature: \"Combinatorial properties of f-palindromes in the Thue-Morse sequence\" OR \"Palindromic lacunas of the Thue-Morse word\" pdf Blondin Brlek Labbé open author",
+          "Palindromic lacunas of the Thue-Morse word, Lemma 7 and Proposition 6",
+          "Peltomäki arXiv:1306.6768 Theorem 3.7"
+        ]
+      },
+      "checked_sources": [
+        "Blondin Massé–Brlek–Labbé, Palindromic lacunas of the Thue-Morse word (author-hosted OA)",
+        "arXiv:1306.6768",
+        "arXiv:2112.04416",
+        "Resultary 6d42cbf17aad and b756136621a6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A centered double-substitution ancestor restricts candidate radii, but it does not specify equality failure at each indexed finite gap. Longest palindromic suffixes constrain endpoints rather than a fixed center.",
+          "No matching indexed finite result arose. The two cited circular-word papers were not available as full text via the tried routes."
+        ],
+        "reasoning": "One can use the established substitution rules and odd-length exclusion, but the exact finite boundary values, parity/valuation calculation and count of maximizing offsets must still be supplied. The exact complementary-factor count follows from that classification and the half-period complement, not from the infinite-word aggregate recurrence or a universal count bound.",
+        "searches": [
+          "Palindromic lacunas, double-substitution argument in Lemma 7 and longest palindromic suffix passage after Proposition 6",
+          "Peltomäki p. 6",
+          "OA follow-up DOI 10.1016/j.tcs.2010.07.005 and DOI 10.1016/j.tcs.2014.06.050"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The indexed palindrome-pair result 6d42cbf17aad classifies infinite-word factors of length 3·4^k that are concatenations of two palindromes; it does not classify single-palindrome gaps of the 2^k circle.",
+          "arXiv:2112.04416 p. 1 defines a local period via matching unreversed prefixes/suffixes at positions of an infinite word, not a maximum mirror radius."
+        ],
+        "reasoning": "Under rotation gap labels shift and under global complement the radius is unchanged, so either convention would count as equivalent coverage. Neither a two-piece palindrome factorization nor a shortest local period becomes the longest reflection match under these changes.",
+        "searches": [
+          "Resultary: exact circular palindrome centers dyadic Thue-Morse even palindrome radius every gap",
+          "Resultary: Thue-Morse circular even palindrome radius off-axis N/8 3N/16 centers",
+          "Literature: Thue Morse finite circular periodic word even palindromes center radius gap reflection longest palindrome dyadic iterate palindrome lengths"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The infinite-word ordinary table yields P_t(6)=P_t(8)=4; the circular length-16 record gives two at both lengths.",
+          "b756136621a6 gives orbit sizes of infinite-word linear factors at dyadic lengths, not a list of finite circular palindrome gaps or radii."
+        ],
+        "reasoning": "The prior counts and orbit tables concern different domains even at overlapping factor lengths. No exact matching dyadic circular radius table was retrieved in this bounded search.",
+        "searches": [
+          "Resultary: Thue-Morse finite cyclic complementary long palindrome factors exact count two gap centers",
+          "Peltomäki arXiv:1306.6768 p. 6 Theorem 3.7",
+          "Resultary conjugacy spectrum b756136621a6"
+        ]
+      },
+      "rationale": "Credit prior infinite-word odd-palindrome exclusion, centered desubstitution and aggregate palindromic complexity. The supported distinct result is the complete indexed finite circular radius law with parity-dependent sharp off-axis maxima and its long-factor consequence. The checked sources do not give this position-specific finite classification; the strongest desubstitution result provides ingredients, not the evaluated capped radii and their maxima.",
+      "residual_risks": [
+        "The two cited papers on circular words were not readable in full; specialized coverage remains possible.",
+        "The separate 2008 f-palindrome paper was not readable via the surfaced access route; the separate lacunas paper was examined instead.",
+        "The search cannot exclude an unindexed radius classification for periodic powers of the substitution."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material prior overlap for centered substitution and odd lengths, not the capped position-specific finite radius and extremum calculations",
+          "evidence": "Palindromes of length at least four are even with centered palindromic ancestors under the length-four substitution; above length four the ancestor is unique.",
+          "identifier_or_url": "https://www.slabbe.org/Publications/2008-gascom.pdf",
+          "material_read": "PDF pp. 10–12, offsets 25865, 26405–28821 and 31119; Definition 1, Lemma 7 and its proof, Proposition 6 opening and later suffix passage",
+          "method": "Identified author-hosted OA PDF, located and read bounded passages",
+          "title": "Palindromic lacunas of the Thue-Morse word",
+          "trigger": "Strongest located prior centered-desubstitution and palindrome classification"
+        },
+        {
+          "assessment": "Infinite ordinary factor counts, not finite indexed radii",
+          "evidence": "The ordinary recurrence gives 4 palindromes of each of lengths 6 and 8; odd lengths at least five have none.",
+          "identifier_or_url": "https://arxiv.org/abs/1306.6768",
+          "material_read": "PDF p. 4 and p. 6 Theorem 3.7, offsets 17088 and 22584",
+          "method": "OA PDF passage inspection",
+          "title": "Privileged Factors in the Thue–Morse Word – A Comparison of Privileged Words and Palindromes",
+          "trigger": "Exact palindromic complexity and substitution conventions"
+        },
+        {
+          "assessment": "Different position-indexed measure on the infinite word",
+          "evidence": "Local period is a shortest unreversed repetition condition, not a maximal even-palindromic half-length.",
+          "identifier_or_url": "https://arxiv.org/pdf/2112.04416",
+          "material_read": "Abstract and definition p. 1, offsets 1460–2458",
+          "method": "OA PDF passage inspection",
+          "title": "The periodic complexity function of the Thue–Morse word, the Rudin–Shapiro word, and the period-doubling word",
+          "trigger": "Possible positionwise equivalence via periodicity measure"
+        },
+        {
+          "assessment": "Different factor length family and palindrome notion",
+          "evidence": "Two rotation classes of linear factors decomposable into two palindromes, not two centered long palindromes in the prescribed finite circle.",
+          "identifier_or_url": "2026/11/8/SCOPE-exact-thue-morse-palindrome-pair-complexity-at-lengths-3-cdot4-k--6d42cbf17aad",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror passage inspection",
+          "title": "Exact Thue–Morse palindrome-pair complexity at lengths 3·4^k",
+          "trigger": "Close indexed palindrome-and-rotation result"
+        },
+        {
+          "assessment": "Not a palindromic radius result",
+          "evidence": "Conjugacy orbit sizes of linear factors do not determine mirror matches at indexed gaps.",
+          "identifier_or_url": "2026/11/8/SCOPE-conjugacy-class-inflation-and-the-dyadic-orbit-size-spectrum-of--b756136621a6",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror passage inspection",
+          "title": "Conjugacy-class inflation and the dyadic orbit-size spectrum",
+          "trigger": "Related dyadic rotations of Thue–Morse factors"
+        },
+        {
+          "assessment": "Unresolved for specialized finite Thue–Morse implications",
+          "evidence": "Full text could not be inspected; no noncoverage conclusion follows.",
+          "identifier_or_url": "10.1016/j.tcs.2010.07.005; 10.1016/j.tcs.2014.06.050",
+          "material_read": "Landing/abstract information only; no full-text passages verified",
+          "method": "OA DOI and identified alternate repository attempts",
+          "title": "Equations on palindromes and circular words; Palindromes in circular words",
+          "trigger": "Cited circular-word literature with potentially relevant exact applications"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This gives the complete reflection-radius profile of a canonical finite cyclic substitution word, not a test for one block size or an ordinary aggregate count. It separates exact full reflection, the strongest off-axis reflection, and the entire intermediate scale with simple position rules. In particular the parity-dependent extremizers and long-factor cutoff are useful exact information for comparisons of circular palindrome statistics.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

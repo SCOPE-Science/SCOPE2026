@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact value-plus-derivative Gram inverse gives the negative-binomial regression expression. The displayed derivative factorization yields a complete three-root sign diagram for all integers of degree at least two and all admissible Bergman weights. Gamma-ratio asymptotics and a strict inverse-hyperbolic-tangent inequality determine the unique eventually maximizing radius. The standalone checker passed 1010 finite checks. Finite tests do not substitute for the continuum proof.
+PASS
 
-## Originality — PASS, best-knowledge
+For x>0 rotate and scale the value and derivative coefficients to get the span of u_j=sqrt(p_j) and j u_j, where p_j=(1−x)^β(β)_j x^j/j!. Differentiating the binomial generating function gives mean μ=βx/(1−x) and variance σ²=βx/(1−x)². Orthonormalizing with the centered linear polynomial gives the exact diagonal projection p_n(1+(n−μ)²/σ²). At x=0 the span is that of 1,z, orthogonal to e_n for n≥2; the two endpoints of the radial formula have limit zero. Write h=n+β, D=n−hx. Removing the positive derivative prefactor (a_n/β)x^(n−2)(1−x)^(β−1) leaves (D−(1−x))(βx+D²)+x(1−x)(β−2hD) = D[h(h+1)x²−2nhx+n(n−1)]. The discriminant is 4nh(β+1); t²=n(β+1)/h satisfies t<n, t<β+1 and ht>n. Thus the roots have exactly the claimed order, and the signs +,−,+,− give the exhaustive two-peak radial maximum, with all optimizing angular rotations. For fixed β the Gamma-ratio asymptotic and elementary binomial limit give the stated limit profile uniformly on compact c-intervals with x=1−c/n; both critical scales tend to positive c±=β+1±sqrt(β+1). At each, the profile bracket is 2c±/β. With s=sqrt(β+1), the log of the ratio of the larger-c to smaller-c limiting height is s² log((s+1)/(s−1))−2s>0, by the integral or series for artanh. This proves eventual strict smaller-radius superiority without interchanging an uncontrolled supremum and limit. At β=2 the constant reduces to (3+sqrt(3))³ exp(−3−sqrt(3))=0.933350239090664… .
 
-The main source on weighted Bergman multiple interpolation gives jet projections and geometric sampling criteria, not the optimized projection of a single normalized monomial. Existing broad kernel-approximation existence theorems do not calculate sharp radii. A published first-jet Fock optimizer uses Poisson weights and different scaling. Two published Bergman approximation results solve special two-distinct-node questions for a quadratic target, not the all-degree co-located jet. Complete primary scientific claims were inspected where full text was accessible. The 2019 weighted Bergman algorithm article was accessible only as abstract, and older equivalent orthogonal-polynomial literature may exist. Neither absence of search hits nor the research partition is treated as proof of novelty.
+## originality
 
-## Value — PASS
+PASS
 
-Single-location value-plus-first-derivative sampling is a natural finite-multiplicity primitive. The exact two-peak global census at every degree and weight, together with a sharp fixed-weight Gamma constant and strict asymptotic radius selection, supplies a quantitative detectability benchmark absent from mere existence statements. No arbitrary parameter slice or unsupported downstream application is required for this intrinsic result.
+The projection setup and negative-binomial degree-one kernel are standard, and the same-date second-jet record even displays the coefficients from which this pointwise formula is recovered. The supported distinct result is the all-degree radial census and sharp fixed-weight Gamma selection and constant for the two-dimensional same-site span. Related Fock, second-jet and finite-orbit results do not give this optimizer or the strict Gamma peak comparison. This verdict is limited to actual statement coverage checked.
 
-## Limitations
+## value
 
-No claim that the smaller radius dominates for every finite degree, no uniform weight-dependent cutoff, no conclusion about arbitrary multiple nodes or more derivatives, and no independent audit. The inaccessible 2019 full text remains a historical-priority uncertainty.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The value/first-derivative span is a basic two-measurement operation at a repeated sampling node. The exact radial optimization over the disk and the explicit strict high-degree peak selection make this a quantitative benchmark for the minimal jet, not just another standard orthogonal-polynomial normalization. In contrast with the known Fock tie or higher-order transition, the separate two-dimensional Gamma comparison determines where an optimal node sits and what fraction it captures.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

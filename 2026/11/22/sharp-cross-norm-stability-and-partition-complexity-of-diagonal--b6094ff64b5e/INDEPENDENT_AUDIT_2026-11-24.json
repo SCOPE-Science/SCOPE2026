@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:51:59.765605Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the unweighted input ℓ∞ and output ℓ1 norms, the KKT solution is p_i=a_i(z_i−τ)_+ with a unique threshold. On nonempty active sets the affine Jacobian is J_T=diag(a_T)−a_T a_Tᵀ/A_T, padded by zeros. Its quadratic form is the minimum over c of ∑_{i∈T}a_i(v_i−c)². This is positive semidefinite and no larger than the full-support form for any v. For PSD J, maximizing over two sign vectors and applying quadratic-form Cauchy–Schwarz gives the single-sign maximum; hence the full-support norm is A−δ²/A and bounds the global map by continuity and piecewise affinity (segments on chamber boundaries follow by continuity). Finite opposite perturbations about z_i=1/(na_i) have this ratio for a minimizing sign vector and stay strictly in the full-support chamber. An independent variational check obtains the same number as the reciprocal of the sharp ℓ1 strong-convexity modulus: split a zero-sum variation into positive and negative groups with equal ℓ1 masses and use weighted Cauchy–Schwarz on each group. Exact saturation is the classical positive-integer PARTITION decision, with a witnessing subset and the stated pseudo-polynomial subset-sum DP. For fixed total choose two groups of equal mass for the maximum; concentrating mass in one coordinate approaches but cannot reach zero for n≥2 and strictly positive weights. Frozen verification notes and checker were inspected, not executed; the analytic checks do not depend on the reported finite tests.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fenchel–Young theory provides regularized prediction and links strong convexity to smoothness, without evaluating the sharp diagonal ℓ1 modulus. Perez et al. provide projection algorithms, not a sharp mixed-norm sensitivity law.",
+          "Shannon–quadratic Finding assumes τ,κ>0 and a common κ. It gives a state-dependent derivative with d_i=p_i/(τ+κp_i) and a global coefficient not attained by any distinct finite scores."
+        ],
+        "reasoning": "The general theory gives the upper-bound route once the sharp modulus has been computed; it does not solve the weighted cut or certify finite attainment. The same-day Shannon–quadratic theorem explicitly excludes τ=0 and its uniform quadratic coefficient cannot parameterize arbitrary a_i even at that endpoint.",
+        "searches": [
+          "Blondel–Martins–Niculae arXiv:1901.02324 §§2.1–2.2, 2.4",
+          "Perez et al. arXiv:2009.02980 weighted simplex/weighted ℓ1 projection",
+          "Resultary 9f41e7317a3b Shannon–quadratic simplex prediction"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 4ac33efe6eb4, 9f41e7317a3b, c3f08b1304de (summary), d698545b27b9 and self hit b6094ff64b5e",
+        "Martins–Astudillo 2016; arXiv:1901.02324 and 2009.02980; classical PARTITION"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Gibbs comparison and Shannon–quadratic proof share positive-semidefinite covariance/cut structure. Gibbs also uses the same classical PARTITION obstruction in a small positive logit budget. The clique-bouquet paper optimizes graph-Lipschitz variance and includes a different partial-blade regime."
+        ],
+        "reasoning": "Known variance and partition identities alone leave the map-dependent question of global realization. For the quadratic map, one must rule out all proper-active-set Jacobians as worse and exhibit a full-support finite secant; neither follows by substituting parameter values in the Gibbs, Shannon–quadratic or graph-spread theorem. The Gibbs matrix calculation can shorten the local computation but does not replace those steps. No same-day priority is inferred.",
+        "searches": [
+          "Resultary 4ac33efe6eb4 eqs. (1), (4)–(5); 9f41e7317a3b Finding and §§1–2; d698545b27b9 Finding; Karp PARTITION"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Gibbs record 4ac33efe6eb4, proof eqs. (4)–(5), gives ‖DG‖=4β max_S p(S)(1−p(S)). With c_i=a_i, β=A and all scores equal, DG=J_[n] exactly and its derivative norm is A−δ²/A.",
+          "Sparsemax §2.5 gives diag(s)−ssᵀ/|supp| for uniform quadratic curvature. Tsallis record c3f08b1304de's catalogue statement at α=2 evaluates the corresponding equal-curvature subfamily."
+        ],
+        "reasoning": "The sign calculation for one full-support matrix is equivalent and materially covered as a shared identity. The weighted Gibbs map has score-dependent masses and no proper active sets; the quadratic map has constant masses on each affine region and active sets can change. The equality of local matrices does not identify the two global maps.",
+        "searches": [
+          "Resultary: partition-discrepancy bounded-logit Gibbs weighted simplex prediction cross norm exact sharp Shannon quadratic entmax parity",
+          "Martins–Astudillo weighted-diagonal/unweighted sparsemax comparison, §2.5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact arbitrary-diagonal map formula at b6094ff64b5e is the self hit. Gibbs 4ac33efe6eb4 gives a different global formula β sech²((artanh ρ−βR/2)_+) for R>0, with the shared local formula recovered in the shrinking positive-budget limit; at R=0 the restricted Gibbs map is constant."
+        ],
+        "reasoning": "The exact match in the local matrix is credited rather than dismissed due to date. There is no independent exact table of the quadratic global coefficient in the inspected sources.",
+        "searches": [
+          "Resultary: partition-discrepancy bounded-logit Gibbs weighted simplex prediction cross norm exact sharp Shannon quadratic entmax parity"
+        ]
+      },
+      "rationale": "The supported distinct result is the exact global invariant and its finite attainment for the diagonal-quadratic simplex map with arbitrary positive diagonal weights. The cut formula for its full-support matrix is shared with the weighted Gibbs Jacobian, the equal-weight instance is a sparsemax special case, and the PARTITION reduction uses a classical identity; none of those components is independently credited as new.",
+      "residual_risks": [
+        "An earlier sharp weighted ℓ1 strong-convexity or induced-norm formula for diagonal-metric simplex projection would be material. The close Gibbs local formula is proven, not an independent originality point. The unavailable exact Tsallis passage leaves a limited coverage uncertainty. The bounded search does not certify priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact local matrix/norm overlap and related PARTITION reduction; not the quadratic map's global formula or finite attainment",
+          "evidence": [
+            "Logit-diameter domain R>0; DG=β(diag p−ppᵀ); sharp global Gibbs norm varies with R."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-partition-discrepancy-governs-bounded-logit-gibbs-stability--4ac33efe6eb4/RESULT.md",
+          "material_read": "Finding, assumptions and proof eqs. (4)–(9), offset 0 through 5581",
+          "method": "Local Resultary mirror",
+          "title": "Partition discrepancy governs bounded-logit Gibbs stability",
+          "trigger": "Exact overlap in weighted Jacobian, partition discrepancy and hardness"
+        },
+        {
+          "assessment": "Shared PSD sign identity and cut form but different regularizer and nonattainment",
+          "evidence": [
+            "Strictly positive entropy weight, common quadratic coefficient and probability-dependent derivative; excludes τ=0."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-sharp-robustness-and-finite-input-nonattainment-for-shannon-quad--9f41e7317a3b/RESULT.md",
+          "material_read": "Finding, assumptions, proof §§1–2 and start of §3, offset 0 through 3862",
+          "method": "Local Resultary mirror",
+          "title": "Sharp robustness and finite-input nonattainment for Shannon–quadratic simplex prediction",
+          "trigger": "Same-day simplex ℓ∞→ℓ1 robustness and sharpness"
+        },
+        {
+          "assessment": "Supplies unweighted sparsemax derivative, not the general weighted global invariant",
+          "evidence": [
+            "Jacobian diag(s)−ssᵀ/|supp|."
+          ],
+          "identifier_or_url": "https://proceedings.mlr.press/v48/martins16.html",
+          "material_read": "OA PDF §2.5, p. 3, offset 16000",
+          "method": "Primary PDF passage",
+          "title": "From Softmax to Sparsemax",
+          "trigger": "Uniform-curvature special case and Jacobian"
+        },
+        {
+          "assessment": "General framework, without the sharp weighted ℓ1 modulus here",
+          "evidence": [
+            "Prediction is the gradient of the smooth conjugate under strong convexity; sparsemax is quadratic simplex prediction."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1901.02324",
+          "material_read": "OA PDF §§2.1–2.2 and §2.4, offsets 10800, 14000, 18000, 31500",
+          "method": "Primary PDF passages",
+          "title": "Learning with Fenchel–Young Losses",
+          "trigger": "General regularized prediction and sensitivity by strong convexity"
+        },
+        {
+          "assessment": "Algorithmic context, not the measured cross-norm invariant",
+          "evidence": [
+            "Threshold algorithms for weighted projection and relationship between ball and simplex projection."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2009.02980",
+          "material_read": "OA PDF pp. 1–3, offsets 0, 3400, 6500",
+          "method": "Primary PDF passages",
+          "title": "Efficient Projection Algorithms onto the Weighted ℓ1 Ball",
+          "trigger": "Weighted projection and threshold algorithms"
+        },
+        {
+          "assessment": "Summary-level α=2 special-case overlap; not used as a full-text noncoverage finding",
+          "evidence": [
+            "Catalogue statement uses dimension and α, with no arbitrary-diagonal weights in the reported formula."
+          ],
+          "identifier_or_url": "2026/11/22 Resultary c3f08b1304de",
+          "material_read": "Catalogue summary only; exact mirror passage unavailable in the attempted retrieval",
+          "method": "Resultary search and local mirror retrieval attempt",
+          "title": "Sharp two-norm stability and parity rigidity for Tsallis sparse probability maps",
+          "trigger": "Equal-weight overlapping special case and parity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The sharp global sensitivity of a natural sparse probability map is useful for robustness calculations. The active-set result explains why support switching cannot amplify the mixed norm beyond an interior perturbation. The explicit partition dependence separates efficiently computable predictions from weakly NP-hard exact certification of saturation, rather than suggesting prediction itself is hard.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

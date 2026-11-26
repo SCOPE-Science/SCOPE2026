@@ -1,0 +1,157 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:32:13.598817Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Under the stated unnormalized forward Fourier transform on R³, the radial transform is 4π/s times the sine integral of r times the profile. Taking the imaginary part of (a−ik)⁻²+2a(a−ik)⁻³ gives 8a³k/(a²+k²)³ for the envelope's sine integral. Product-to-sum yields the stated shifted odd rational functions with prefactor 16πa³/s. Clearing the two cubic denominators gives 2s times the monic cubic in s²; independently, writing B=a²+s²+ω² and u=2sω gives the numerator 2s(B³+3Bu²)−2ω(3B²u+u³), which expands to the recorded polynomial. At s=0 its constant term is (a²+ω²)²(a²−5ω²); at s=ω the polynomial is a⁶. Above the threshold the nonconstant coefficients are positive; at equality with ω>0 the coefficient of s² is 100ω⁴, confirming an isolated quadratic zero. Below threshold the descending coefficient sequence has exactly one variation whatever the linear coefficient's sign. Descartes and the endpoint values give one simple zero in 0<s<ω, with the asserted signs. The transform is continuous and integrable (tail O(s⁻⁶)); inversion and uniqueness of the Bochner measure give both implications. Strictness on distinct sites follows by restricting the exponential sum to a line with distinct projected points, where the derivatives at zero and a Vandermonde matrix rule out an identically zero sum. Its squared modulus is therefore positive on a neighborhood that intersects the strictly positive density region, also at equality. The one-dimensional even envelope has transform 4a³/(a²+s²)² and the two half-weighted shifts are positive everywhere. This includes ω=0 under a>0. Replay in RESULT.md Steps 1–5 or by the B,u expansion above. VERIFICATION.md and check_spectrum.py were inspected, not executed; the finite quadratures are corroboration only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The all-dimension phase cone uses e^(−ar)(cos(ωr)+β sin(ωr)); the separate all-dimension exponential-polynomial cone uses no oscillatory factor. The inspected Hu et al. and Hristopulos families use different spectral forms."
+        ],
+        "reasoning": "These families or general validity results do not assert the three-dimensional sign classification with both the Matérn linear prefactor and real radial modulation. Setting β=0 in the phase cone does not create the prefactor.",
+        "searches": [
+          "Resultary records 346188edc9c1, 42ccd73628d2, 994ebfee58ce",
+          "arXiv:1307.1384 §3.1",
+          "arXiv:1401.2823 §§III,V",
+          "Gneiting arXiv:1111.7077v1 §§2,4"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, REVIEW.md, VERIFICATION.md and check_spectrum.py",
+        "Resultary 994ebfee58ce, 346188edc9c1, 42ccd73628d2 and 99a263d091a0",
+        "Rasmussen–Williams Ch. 4, Wilson–Adams 2013, arXiv:1111.7077v1, 1307.1384, 1401.2823"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The target profile equals (1−a∂ₐ) applied to the plain damped cosine with ω fixed. The existing phase cone establishes positivity of the undifferentiated transform in a parameter region, not a sign constraint on this derivative combination. In d=3 the pure exponential slice admits ω/a up to tan(π/6)=1/√3, a different bound."
+        ],
+        "reasoning": "A general transform calculation can be differentiated but positivity itself cannot be transported through that operator, and the cubic sign/zero proof is still needed. Restriction from R³ to R² only yields a necessary, looser threshold. Neither spectral mixtures nor quartic oscillatory SPDE spectra supply the result by parameter substitution.",
+        "searches": [
+          "Resultary 346188edc9c1 and 994ebfee58ce, Findings",
+          "Wilson–Adams §3",
+          "Hu et al. §3.1 Eqs. (15)–(16)",
+          "Hristopulos §§III,V"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Eq. (4.17) gives the envelope with a=√3/ℓ. Wilson–Adams Eqs. (11)–(12) use linear coordinate lags with Gaussian envelopes.",
+          "The planar Resultary record 994ebfee58ce has the same radial formula and a different ratio bound."
+        ],
+        "reasoning": "Rescaling length reduces the three-dimensional test to ω/a≤1/√5. One-dimensional shifts or coordinate-lag cosines are not equivalent to the cosine of a Euclidean radius in three dimensions; the identical radial profile in two dimensions is also not equivalent to the three-dimensional restriction.",
+        "searches": [
+          "Resultary: Matérn-3/2 radially modulated covariance, damping ratio and spectral sign",
+          "Rasmussen–Williams Ch. 4 §4.2",
+          "Wilson–Adams 2013 §3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected exact-result entries concern R² with the same kernel, Rᵈ without the prefactor, a nonoscillatory Rᵈ family, and hyperbolic three-space without the prefactor, respectively. No identical R³ statement appeared among the returned hits."
+        ],
+        "reasoning": "None is an interchangeable table entry after normalization. The planar upper bound √(2√3−3) on ω/a is less restrictive than 1/√5, so restriction to a plane cannot give the three-dimensional threshold or determine the three-dimensional root count.",
+        "searches": [
+          "Four claim-oriented Resultary searches on radial Matérn modulation and admissibility",
+          "Closest records 994ebfee58ce, 346188edc9c1, 42ccd73628d2, 99a263d091a0"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the sharp three-dimensional classification for this specific profile and the complete radial sign obstruction, not the standard Matérn envelope or unconstrained oscillatory kernel construction. The closely related planar result is credited explicitly.",
+      "residual_risks": [
+        "Ranked catalogue coverage is bounded. The external query was uninformative, not evidence of absence. A more general oscillatory Matérn or damped-hole-effect source could include the same bound implicitly; the named checked texts and compared families do not settle absolute priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong material overlap in a different dimension",
+          "evidence": "Threshold ω/a≤√(2√3−3) in R², with strictness at equality and only a spectral-origin zero there.",
+          "identifier_or_url": "Resultary 2026/10/26, 994ebfee58ce",
+          "material_read": "RESULT.md Finding and assumptions, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Sharp planar oscillation ceiling for a Matérn-3/2 radial covariance",
+          "trigger": "Same radial kernel"
+        },
+        {
+          "assessment": "Different envelope",
+          "evidence": "e^(−ar)(cos(ωr)+β sin(ωr)); pure-cosine bound tan(π/(2d)).",
+          "identifier_or_url": "Resultary 2026/10/25, 346188edc9c1",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Sharp phase–frequency cone for damped oscillatory radial covariance",
+          "trigger": "Broader Euclidean damped radial oscillations"
+        },
+        {
+          "assessment": "Nonoscillatory family",
+          "evidence": "Classifies e^(−r)(1+ar+br²) across Euclidean dimensions.",
+          "identifier_or_url": "Resultary 2026/10/26, 42ccd73628d2",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "The sharp quadratic exponential radial covariance cone in every dimension",
+          "trigger": "Radial polynomial times exponential"
+        },
+        {
+          "assessment": "Different geometry and envelope",
+          "evidence": "Hyperbolic curvature −1 and plain exponential damping.",
+          "identifier_or_url": "Resultary 2026/10/26, 99a263d091a0",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Sharp oscillation threshold for exponentially damped geodesic cosine",
+          "trigger": "Oscillations in ambient dimension three"
+        },
+        {
+          "assessment": "Envelope precedent",
+          "evidence": "Matérn-3/2 with a=√3/ℓ, without radial oscillation.",
+          "identifier_or_url": "https://gaussianprocess.org/gpml/chapters/RW4.pdf",
+          "material_read": "Ch. 4 §4.2 p. 7 Eq. (4.17), offset 25054",
+          "method": "OA PDF passage",
+          "title": "Gaussian Processes for Machine Learning",
+          "trigger": "Canonical envelope reparameterization"
+        },
+        {
+          "assessment": "Framework, not exact Euclidean claim",
+          "evidence": "Inspected passages concern isotropic positive definiteness on sphere classes.",
+          "identifier_or_url": "arXiv:1111.7077v1",
+          "material_read": "§2 p. 2 and §4 p. 3, offsets 4000 and 7071",
+          "method": "OA PDF passages",
+          "title": "Strictly and non-strictly positive definite functions on spheres",
+          "trigger": "General isotropic validity tests"
+        },
+        {
+          "assessment": "Coordinate-lag spectral mixtures",
+          "evidence": "Gaussian factors and cosine terms on coordinate lags, not cosine of radial distance times this envelope.",
+          "identifier_or_url": "https://proceedings.mlr.press/v28/wilson13.pdf",
+          "material_read": "§3 pp. 3–4 Eqs. (11)–(12), offsets 13700 and 16679",
+          "method": "OA PDF passages",
+          "title": "Gaussian Process Kernels for Pattern Discovery and Extrapolation",
+          "trigger": "Cosine-modulated stationary kernels"
+        },
+        {
+          "assessment": "Different SPDE family",
+          "evidence": "Rational quartic spectrum, not the two shifted cubic denominators for the frozen kernel.",
+          "identifier_or_url": "arXiv:1307.1384",
+          "material_read": "§3.1 p. 8 Eqs. (15)–(16), offset 24420",
+          "method": "OA PDF passage",
+          "title": "Multivariate Gaussian Random Fields with Oscillating Covariance Functions using Systems of Stochastic Partial Differential Equations",
+          "trigger": "Isotropic oscillating rational spectra"
+        },
+        {
+          "assessment": "Distinct Spartan and Bessel–Lommel spectra",
+          "evidence": "Includes a cutoff quartic denominator and a polynomial spectral density, not the frozen sign law.",
+          "identifier_or_url": "arXiv:1401.2823",
+          "material_read": "§III p. 3 Eq. (5a)–(5b), §V p. 4 Eq. (11), offsets 19379 and 28054",
+          "method": "OA PDF passages",
+          "title": "Radial Covariance Functions Motivated by Spatial Random Field Models with Local Interactions",
+          "trigger": "Oscillatory radial covariance candidates"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The smooth Matérn envelope is a canonical useful covariance, and radial rather than coordinatewise modulation is natural when retaining isotropy. The exact threshold tells when negative spatial correlations can occur without losing Gram positivity; strictness at the threshold and the single low-frequency negative band resolve what the sharp obstruction is. The contrast with R shows that validity cannot be inferred from shifted one-dimensional spectra. This is a useful family-specific design boundary, not a claim for other dimensions or smoothness.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

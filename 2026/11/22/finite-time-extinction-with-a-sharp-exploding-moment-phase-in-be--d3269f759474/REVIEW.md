@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** Under independent Bernoulli curvature and the stated exact initialization, an active draw resets the first state coordinate, two adjacent active draws absorb both coordinates, and intervening missed draws multiply the squared predecessor by an explicitly derived factor. A renewal decomposition yields the complete expected squared-error generating function. The positive aperiodic renewal kernel has a unique nearest simple pole, providing an actual exponential asymptotic equivalent. Exact symbolic algebra gives the \((1-p)\beta(1+2\beta)=1\) boundary. The standalone extracted checker confirms 227 rational claims; these checks do not establish the asymptotic theorem on their own.
+## correctness
 
-**Originality — PASS, qualified.** Li–Wang's deterministic strong-convexity theorem does not imply the stochastic moment pathology. Assran–Rabbat's finite-sum stochastic divergence Theorem 3 supplies a closely related failure result but not a finite-time-absorbed scalar Bernoulli process, its critical equality, or its exact renewal rate. Sharma et al.'s exact general second-moment stability result concerns the different outer-buffer momentum algorithm. The closest published random-dropout two-lag threshold concerns a positive averaging recursion, not the signed Nesterov extrapolation. Checked searches did not identify an equivalent result; priority remains conditional on the checked source coverage, especially classical random-coefficient linear recurrences.
+PASS
 
-**Value — PASS.** The theorem provides an exact sampling–momentum safety boundary and an explicit divergence rate for a standard lookahead optimizer using unbiased, interpolating gradients and a conservative step. It sharply distinguishes finite-time pathwise success from failure of mean-square guarantees; at the critical line almost-sure extinction coexists with a nonzero limiting second moment. This exposes a risk not assessed by deterministic convergence rates or trajectory simulations alone.
+For the specified scalar lookahead update, zero/full curvature, 1/L step, equal nonzero starting iterates, and iid draws, the first success produces state (0,a), and g>=1 misses multiply its nonzero predecessor by -c_g, where c_g=beta(1-beta^g)/(1-beta). Thus the first adjacent successes, which occur almost surely, give exactly the first permanently zero state; the two-state waiting-time equations give (1+p)/p^2. The squared renewal kernel at a gap of length g+1 is p q^g c_g^2, and accounting for the first success and its trailing misses gives H=1/[(1-qz)(1-K(z))]. Independently, the moment recursion for (E x_n^2,E x_n x_{n-1},E x_{n-1}^2) has rows (q(1+beta)^2,-2q beta(1+beta),q beta^2), (q(1+beta),-q beta,0), (1,0,0); its resolvent agrees with H. K starts at zero and diverges at 1/q, with strictly positive coefficients at every degree >=2, so its crossing of 1 is simple and unique on the convergence circle of H. The residue yields the stated positive prefactor, and K(1)-1 has the sign of q beta(1+2 beta)-1, also giving the exact critical limit. An independent bounded path/GF comparison obtained 27 exact equalities for horizons 0–8 at beta=3/4 and p=1/2, 7/15, 1/4. The frozen script was not run; this finite replay is not the pole proof.
 
-**Limits.** Only scalar zero/full-curvature Bernoulli sampling, exact arithmetic, and \(\eta=1/L\) are covered. Other momentum rules and noisy/multidimensional objectives are excluded. No independent validation was performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge pass for this exact Nesterov extinction and second-moment law, not for pathwise extinction with moment growth as a general phenomenon. The closest indexed theorem has the same nilpotent success map and a closely analogous gap calculation, but requires a unipotent miss map and gives two-sided norm bounds, not this coordinate generating function and simple-pole equivalent. Existing stochastic-Nesterov and lifted moment results do not establish the complete bound claim.
+
+## value
+
+PASS
+
+This is a concrete counterexample to inferring mean-square convergence from exact almost-sure termination for an interpolating stochastic lookahead optimizer. The transition curve, critical positive limit and exact rate answer quantitative questions for a natural scalar quadratic test case; they are not just another example of moment growth. It does not imply a general optimizer theorem or assume that both individual component objectives are strongly convex.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

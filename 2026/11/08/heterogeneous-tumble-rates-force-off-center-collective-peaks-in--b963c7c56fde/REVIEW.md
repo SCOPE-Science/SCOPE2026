@@ -1,15 +1,21 @@
-# Review of the heterogeneous-tumbling collective-density theorem
+# Independent mathematical audit
 
-## Correctness — PASS
-The interaction force cancels from the center equation. Independent stationary telegraph filters have normalized symmetric beta densities. The exact convolution is even, vanishes at the support endpoints when the sum of normalized rates exceeds three, and has the stated central beta-integral curvature. In the unequal slow/fast sector the curvature is strictly positive. In the all-fast sector strict log-concavity, plus a direct uniform-kernel boundary argument, gives strictly decreasing density on the positive half interval. The proof's claims are restricted to the regularity domain in which these deductions hold. Sixteen independent finite diagnostics passed from the standalone checker; they are not a substitute for the proof.
+## correctness
 
-## Originality — PASS, with priority risk
-The 2023 active-Dyson source identifies center-of-mass decoupling but uses equal tumble rates and does not classify the heterogeneous center law. The full 2019 three-state trap treatment is an exact match **only at equal rates**, since unequal binary flip rates do not yield a lumpable three-state Markov orientation. The 2021 interacting-pair work studies the relative coordinate with a different interaction geometry, and the 2022 two-dimensional study uses equal-rate telegraph components. Full source-text sections were compared, along with database searches and existing claims. Unindexed general convolution-modality results might provide stronger coverage and remain a genuine residual risk; no exhaustive uniqueness claim is made.
+PASS
 
-## Mathematical value — PASS
-Tumbling-rate heterogeneity reverses the central local shape of an interaction-robust collective observable even under arbitrarily high total orientation switching. The theorem gives a sharp parameter boundary across the natural twice-differentiable regime, an exact curvature certificate, and a guaranteed pair of off-center peaks. This is not an arbitrary fixed-parameter computation: it distinguishes an effective non-Markovian forcing mechanism from the equal-rate three-state case.
+Assessed the corrected /workspace/repairs/3/RESULT.md. The frozen line 48 infers that f_a*f_b is C² merely from an integrable second weak derivative of f_b; when f_a is only L¹ that does not establish continuity or pointwise evaluation at overlapping singular endpoints. The replacement supplies the missing estimates: for 0<a<1 and b>2, choose conjugate finite P,Q with 1/P>1−a and 1/Q>max(0,3−b), possible exactly under the sufficient total-rate condition a+b>3 in the singular b<3 subcase. Hölder and continuity of translations in L^Q give continuous derivatives through order two. For both rates above one, the second derivative is f_a' * f_b' and the analogous endpoint exponents max(0,2−a), max(0,2−b) sum to less than one. At a=1, b>2 makes f_b continuously differentiable through its support endpoints and gives p''(0)=0. The stationary center calculation cancels the interaction exactly; the single filter's two stationary orientation fluxes vanish at the endpoints, giving the normalized beta law with no boundary atoms. The half-sum has density 2(f_a*f_b)(2z), so its curvature is 8 times the centered differentiated convolution. Pairing the two terms and using B(3/2,s−3)=B(1/2,s−2)/(2(s−3)) gives the claimed positive coefficient for the mixed sector. Positivity, the strict central minimum and zero edge values force an interior maximum on each side by compactness. For a,b>1 the odd-derivative pairing yields a strictly negative integral at every positive interior argument; the uniform case has an explicit strictly negative derivative. Substitution x=1−2εt on the convolution interval gives factors 4εt and 4ε(1−t) at leading order and an integrable beta weight, proving the endpoint coefficient independently for every positive a,b. This also settles the equal-rate comparison directly: a=b=2 gives coefficient 6 and exponent 3. Only RESULT.md is corrected; the independent argument establishes the continuum theorem, not the frozen finite output.
 
-## Scope and limitations
-The result does not classify lower total rates or prove uniqueness of the off-center maxima. It requires symmetric independent telegraph reversals and noiseless overdamped confinement. Primary-source and searchable-record comparison reduces, but does not eliminate, publication-priority risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Reassessed the repaired statement. Force cancellation, beta filter marginals, the immediate convolution representation and its routine endpoint scaling are not the basis of the pass. The distinct claim is the exact mixed-rate curvature and the resulting sharp central minimum versus unique maximum dichotomy for a+b>3. No inspected stronger result implies that threshold by merely reparameterizing. The proof repair justifies the relevant derivative without changing the mixed-rate prediction.
+
+## value
+
+PASS
+
+The repaired proof yields a quantitative phase boundary for an interaction-independent collective observable. An arbitrarily large total switching rate does not prevent loss of a central peak when one rate is sufficiently slow. The exact positive curvature certifies that change throughout a natural open parameter sector, rather than presenting a single numerical example or just the standard filtered-heading convolution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

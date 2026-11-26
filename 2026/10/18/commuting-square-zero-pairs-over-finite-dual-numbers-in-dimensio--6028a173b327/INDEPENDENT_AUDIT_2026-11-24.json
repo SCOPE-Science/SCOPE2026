@@ -1,0 +1,154 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:00:40.200711Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–79",
+        "Frozen VERIFICATION.md, lines 19–25",
+        "Frozen verify.py",
+        "Independent reproduction /workspace/reproductions/1/independent_fiber_check.py"
+      ],
+      "rationale": "Every nonzero square-zero 3×3 reduction has rank one. Choosing its image line, kernel plane containing that line, and a nonzero map from the quotient to the line counts S=(q²−1)(q²+q+1). For fixed A=E12, a commuting square-zero B has the form bE12+cE13+dE32 with cd=0. There are q−1 nonzero proportional and 2q(q−1) independent B; an independent pair has a common image or, after transposing, a common image, and a basis dual to its two independent covectors puts it in the form (E12,E13). Writing the lifts as (A+εP,B+εQ) gives the homogeneous equations AP+PA=BQ+QB=[A,Q]+[P,B]=0. They are vacuous at (0,0). With one nonzero reduction the two free spaces have dimension 5 each. For B=tA≠0, P has 5 freedoms and Q−tP both commutes and anticommutes with A, a 4-dimensional intersection in odd characteristic. For the independent form, the first two equations leave 5 entries in each matrix and the two independent mixed constraints are Q22−Q11−P32=0 and Q23+P11−P33=0. This yields dimensions 18,10,9,8 and the weighted sum q^18+(5q−3)Sq^9. An independent Python check enumerated all reductions over F3 and recovered populations (1,208,208,1248), those dimensions, and total 411984873; representative ranks agree at 3,5,7. Replay: python3 /workspace/reproductions/1/independent_fiber_check.py. The supplied checker was inspected, not executed. The bounded reproduction neither exhausts all fields nor addresses scheme reducedness; the symbolic calculation applies over every field of characteristic different from two.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Oct. 12 Resultary record counts annihilating pairs by ranks and common-kernel dimension in general n, covering the residue-field total here. The double-flag record also refines over common image span.",
+          "The Oct. 26 scheme record imposes each ordered product XiXj=0. Schröer and Huang address mutually annihilating pairs over fields; the inspected similarity results concern orbits or classes, not this labeled count."
+        ],
+        "reasoning": "Counting a broader base family, classifying local-ring individual matrices, or studying the related annihilating scheme does not directly give the lift ranks for the weaker commutation equation. Changing the infinitesimal mixed equations matters even with the same reductions.",
+        "searches": [
+          "Resultary mutually annihilating rank/common-kernel and double-flag enumeration records",
+          "Resultary square-zero representation scheme record 2026/10/26/SCOPE-nilpotent-trace-directions-and-the-complete-nonreduced-locus-of--6818c55b4e3e",
+          "Schröer arXiv:math/0211293; Huang arXiv:2110.15566; local-ring similarity and finite-field commuting orbit comparisons"
+        ]
+      },
+      "checked_sources": [
+        "Resultary same-day bidirectional product-rank, Oct. 12 rank/common-kernel, Nov. 2 double-flag, Oct. 26 annihilating-scheme and Nov. 8 exterior positive-product Findings",
+        "Schröer arXiv:math/0211293 and Huang arXiv:2110.15566, opening PDF passages",
+        "Avni–Onn–Prasad–Vaserstein arXiv:0708.1608 and Prasad–Singla–Spallone arXiv:1212.6157, p. 1 (individual matrix classes); Britnell–Wildon arXiv:1001.0811 and Sharma arXiv:1409.2698, p. 1 (commuting class incidence or pair orbits)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At (A,B)=(E12,E13), take P=diag(1,−1,1), Q=0. These satisfy the commuting lift equations, but the two products of the lifts both equal εE13 rather than zero.",
+          "At B=tA≠0, the commuting lift forces Q−tP to lie in the commuting/anticommuting intersection; the anti-commuting variant has no such extra condition."
+        ],
+        "reasoning": "The first example prevents substituting a count of all-products-zero lifts. The second prevents transfer from the exterior relation by a sign change. The novel information required for this total is the nullity stratification for the actual commuting equations, not re-enumeration of the known residue-field locus.",
+        "searches": [
+          "Mirrored Finding passages for the Oct. 12 annihilating-pair and Oct. 26 annihilating-scheme results",
+          "Frozen RESULT.md, lines 39–62 and 81–85, compared with the indexed exterior positive-product record"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same-day product-rank count includes the zero-product rank-one/rank-one slice, which combines the proportional and independent reductions. It does not require mixed equations over dual numbers.",
+          "At a proportional reduction B=tA, the exterior anticommutator lift equation is redundant given that P and Q each anticommute with A. It gives dimension 10 there, not 9 in odd characteristic."
+        ],
+        "reasoning": "The sets of commuting and mutually annihilating pairs agree over residue fields in dimension three, but equality of those sets does not identify the first-order schemes. Transposition identifies the two independent commuting branches; it does not turn the mixed odd-characteristic commutator into the anticommutator.",
+        "searches": [
+          "Resultary searches for ordered commuting square-zero pairs over finite dual numbers, variants using first-order fibers and the exact polynomial",
+          "Same-day bidirectional product-rank fibers, 2026/10/18/SCOPE-bidirectional-product-rank-fibers-of-square-zero-matrix-pairs--442e4aaba275",
+          "Resultary exterior-algebra representation and product-rank comparisons"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest inspected finite example gives 105 rank-one/rank-one zero-product residue pairs at n=3, q=2, agreeing with the aggregate S(q)(q−1)(2q+1) there. It is not a lift table and that characteristic is outside the finding.",
+          "The targeted searches did not reveal the exact odd-q polynomial or the four lift dimensions in an indexed result."
+        ],
+        "reasoning": "The existing aggregate and finite match corroborate the underlying base slice, not the dual-number count, which weights the proportional and independent reductions differently. A targeted negative search is not exhaustive evidence of novelty.",
+        "searches": [
+          "Resultary exact-polynomial and lift-stratum searches for C(q)=q^18+(5q−3)(q²−1)(q²+q+1)q^9",
+          "Same-day bidirectional square-zero product-rank RESULT.md, Finding and finite example"
+        ]
+      },
+      "rationale": "The residue-field zero-product counting problem is substantially covered, but the verified distinct claim is the odd-characteristic commuting dual-number lift stratification and its weighted total. Neither prior base counts nor the schemes imposing all products zero give the commuting lift fibers, and the exterior-algebra relation differs in the proportional stratum. No inspected result gives the full lift formula.",
+      "residual_risks": [
+        "The specific three-dimensional exterior-algebra record alluded to in the frozen comparison was not resolved to an exact ID. The difference in the proportional linear equations was checked directly, not inferred from an unread source.",
+        "The bounded comparisons do not exclude a differently phrased commuting jet-scheme count. Deferred general web lookups were not treated as negative evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers part of the residue-field enumeration, not the lifts",
+          "evidence": "No mixed relation in the ambient pair family; it counts by ranks of A, B, AB, BA, combining the two nonzero strata in the zero-product slice.",
+          "identifier_or_url": "2026/10/18/SCOPE-bidirectional-product-rank-fibers-of-square-zero-matrix-pairs--442e4aaba275",
+          "material_read": "Mirrored RESULT.md, Finding and assumptions near offset 0; n=3, q=2 example",
+          "method": "Resultary and mirrored record text",
+          "title": "Bidirectional product-rank fibers of square-zero matrix pairs",
+          "trigger": "Distinct same-day square-zero pair enumeration with a matching zero-product slice"
+        },
+        {
+          "assessment": "Contains the residue-field total, not the first-order count",
+          "evidence": "Counts ordered pairs with both mixed products zero, by individual ranks and common-kernel dimension.",
+          "identifier_or_url": "2026/10/12/SCOPE-joint-rank-and-common-kernel-distribution-of-mutually-annihilati--2db661bafe6d",
+          "material_read": "Mirrored RESULT.md, Finding at offset 0",
+          "method": "Resultary and mirrored record text",
+          "title": "Joint rank and common-kernel distribution of mutually annihilating square-zero matrix pairs",
+          "trigger": "Broader general-dimension base count"
+        },
+        {
+          "assessment": "Residue-field refinement, different from commuting lifts",
+          "evidence": "Uses ranks, common image span and common kernel for pairwise-annihilating tuples.",
+          "identifier_or_url": "2026/11/2/SCOPE-double-flag-enumeration-of-pairwise-annihilating-square-zero-mat--7465760ed8a5",
+          "material_read": "Mirrored RESULT.md, Finding at offset 0",
+          "method": "Resultary and mirrored record text",
+          "title": "Double-flag enumeration of pairwise-annihilating square-zero matrix tuples",
+          "trigger": "Stronger base-space incidence description"
+        },
+        {
+          "assessment": "Related scheme but stricter mixed equations",
+          "evidence": "For r≥2 it imposes XiXj=0 for all i,j and describes reduced components and finite-field counts.",
+          "identifier_or_url": "2026/10/26/SCOPE-nilpotent-trace-directions-and-the-complete-nonreduced-locus-of--6818c55b4e3e",
+          "material_read": "Mirrored RESULT.md, Finding at offset 0",
+          "method": "Resultary and mirrored record text",
+          "title": "Nilpotent trace directions and the complete nonreduced locus of three-dimensional square-zero representation schemes",
+          "trigger": "Same dimension and closely related infinitesimal geometry"
+        },
+        {
+          "assessment": "Positive-product census, not the queried lift theorem or the exact exterior record named generically in the frozen evidence",
+          "evidence": "The finding explicitly excludes the annihilating-pair census; the mixed relation is anticommutation.",
+          "identifier_or_url": "2026/11/8/SCOPE-exact-product-rank-census-for-two-generator-exterior-algebra-mod--4583522559e0",
+          "material_read": "Mirrored RESULT.md, Finding and assumptions at offset 0",
+          "method": "Resultary and mirrored record text",
+          "title": "Exact product-rank census for two-generator exterior-algebra modules",
+          "trigger": "Exterior-algebra sign variant"
+        },
+        {
+          "assessment": "Scope overlap on mutually annihilating field matrices",
+          "evidence": "Classifies components with AB=BA=0 and nilpotency constraints; the inspected portion does not establish a commuting dual-number lift formula.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0211293",
+          "material_read": "Opening of primary PDF, p. 1 at offset 0",
+          "method": "Primary OA PDF passage",
+          "title": "Varieties of pairs of nilpotent matrices annihilating each other",
+          "trigger": "Potential broader geometry of the base variety"
+        },
+        {
+          "assessment": "Overlaps the type of residue-field enumeration, no commuting lift statement in inspected passage",
+          "evidence": "Provides a generating function for finite-field mutually annihilating pairs.",
+          "identifier_or_url": "https://arxiv.org/abs/2110.15566",
+          "material_read": "Opening of primary PDF, p. 1 at offset 0",
+          "method": "Primary OA PDF passage",
+          "title": "Counting mutually annihilating matrices over a finite field",
+          "trigger": "Potential broader exact finite-field enumeration"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof steps 2–4",
+        "Resultary Oct. 12 mutually annihilating residue-field result and Oct. 26 related scheme result"
+      ],
+      "rationale": "This is an exact first-order point count for a natural representation problem with two square-zero generators. The strata show why residue-field enumeration does not suffice: dependence versus independence changes the number of infinitesimal deformations, and commutation versus anticommutation differs despite sharing residue-field strata. The exact counts are reusable for comparing these small representation schemes; the value is in the lift computation, not the familiar rank-one base count.",
+      "residual_risks": [
+        "The result is specific to length two and dimension three and asserts neither orbit counts nor a general scheme-theoretic classification."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

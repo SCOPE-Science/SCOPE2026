@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The originating equation and its unique singularity are independently confirmed by the partial derivatives, with the tangent cone \(z^2\). The affine inseparability polynomial has nonzero derivative, proving integrality. In the general projective matrix fixing the singularity and its tangent, four separate monomial coefficients force the off-diagonal entries to zero; the remaining coefficients give exactly \(\lambda^{q+1}=1\) and the displayed diagonal action. The derivation of the embedded Lie algebra solves the complete first-order equation modulo scalar matrices, yielding dimension three. A closed connected subgroup scheme with explicit finite free coordinate algebra of length \(q^3\) is verified by substitution. Finite-type/zero-dimensionality gives finiteness of the entire stabilizer. A standalone checker corroborates both the point-count and infinitesimal assertions in three small cases without substituting finite tests for universal proof.
+PASS
 
-## Originality — PASS, with residual risk
+The affine right-hand side X^(q+2)+X has derivative 1, so is not a square in k(X) and gives an irreducible purely inseparable polynomial in Y. The partial derivatives and tangent cone give the unique geometric singular point [0:1:0] and tangent Z=0. For geometric points one may therefore use the flag-preserving form in the proof: the X^2 Z^q, X^q Z^2 and Z^(q+2) coefficients successively kill the three off-diagonal entries, with the first two monomials distinct because q>=4. The remaining diagonal is (1,lambda^2,lambda), lambda^(q+1)=1. The dual-number coefficient map is Z^q(Z delta X+X delta Z); proportionality to F forces zero coefficient of proportionality, then delta X and delta Z are common scalar multiples of X and Z. Modulo scalars the entire middle row remains, giving dimension three. Over arbitrary k-algebras the middle-row changes preserve F by Frobenius with a^q=b^q=0 and c^q=1. Multiplication is (a,b,c)(a',b',c')=(a+c a',b+c b',cc'); conjugation by the reduced diagonal scales a,b by lambda^2,lambda and fixes c. The product embeds by the explicit projective representative with X-coordinate coefficient 1 and Z-coordinate multiplier lambda: these coordinates recover both factors, and the finite image is closed. The connected coordinate algebra has q^3 basis monomials using a,b,c-1, so the semidirect product has length q^3(q+1). G_q is finite by finite type and its finite geometric point set. The embedded subgroup exhausts points and tangent directions only, not necessarily the scheme. The independent check `python3 /workspace/audit_recompute.py 5` reproduced the F4 coefficient census 1,3,1 and Lie-map rank 5 for q=4,8,16. These finite checks do not certify higher-order subgroup structure; the arbitrary-base symbolic identity does.
 
-A previously accessible finding, *Non-smooth projective stabilizers of Kollár's characteristic-two cusp curves*, establishes the geometric group \(\mu_{q+1}\) and Lie dimension three for this **same** family. These results are explicitly credited and removed from the new claim. The new conclusion is a specific closed subgroup scheme \(K_q\), a semidirect product with a height-\(n\) connected factor of length \(q^3\), and a resulting explicit scheme of length \(q^3(q+1)\) mapping onto all geometric points and tangent directions. A Lie-algebra dimension or geometric-point classification alone does not imply this higher-order integrated group scheme: infinitesimal automorphisms may fail to extend to arbitrary nilpotent thickness. The earlier result does not state, classify, or bound this higher-order subgroup or its length. Kollár's original article supplies the curve but no such group scheme. Other examined literature treats large finite linear actions on different curves or abstract finite-group-scheme theory. Indexed searches did not identify an equivalent stronger statement; an unindexed group-scheme calculation remains a risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The explicit semidirect subgroup of length \(q^3(q+1)\) proves that all three previously known first-order directions are simultaneously integrable to a **height-\(n\)** finite subgroup in an unbounded-degree family. Lie dimension alone cannot give such a bound on the scheme length; indeed higher-order liftability is a genuinely additional structural condition. The natural construction collects the full reduced symmetry group and a full-tangent connected subgroup, relevant to higher infinitesimal stabilizers in moduli. This is a motivated scheme-theoretic strengthening, not merely another presentation of the cyclic group or a restatement of non-smoothness. The theorem does not establish the exact full stabilizer order or deformation properties.
+Pass only the explicit higher-order length-q^3(q+1) semidirect subgroup and ensuing lower bound. The family, cusp, reduced group and Lie dimension are prior facts and not credited as new. No checked stronger or equivalent result constructs this subgroup or gives a covering calculation of the full scheme for this family.
 
-## Closest literature and limits
+## value
 
-Kollár supplies the object; Borges–Korchmáros–Speziali cover different large finite linear actions; Brion supplies general group-scheme context. The earlier same-family geometric-point and Lie computation is expressly not counted as new. The exact connected component of the **full** stabilizer, its total length, abstract curve automorphisms, and deformation applications are not computed. Publication overlap cannot be ruled out absolutely from searches. Independent audit has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The subgroup simultaneously extends every prior tangent direction through Frobenius height n and includes the full reduced part. Its explicit multiplication and quantitative bound give usable scheme data for an embedded family of unbounded degree, where points and tangent dimension otherwise conceal the extent of nonreducedness. This is a concrete invariant and lower bound, not a claim to have computed the full stabilizer.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

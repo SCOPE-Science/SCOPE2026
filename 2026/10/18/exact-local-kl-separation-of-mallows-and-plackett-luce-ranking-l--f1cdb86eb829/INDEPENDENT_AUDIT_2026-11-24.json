@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:29:13.033686Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–74",
+        "Frozen VERIFICATION.md and verify.py (inspected, not executed)",
+        "Independent exact enumeration: /workspace/branches/c963228c-876b-45e4-9c37-e81b2e7d0712/local_check.py and local_check.out"
+      ],
+      "rationale": "For the sign convention exp(+εI), the uniform centered Mallows score is Z=I−E[I]; the PL score is S_i=1−H_n+H_{n−R_i}. The first-choice term is strictly convex on centered log-weights, all later terms are convex, and positive target mass on rankings beginning with a minimum-weight item gives a cross-entropy lower bound proportional to the log-weight range. Hence the minimizer exists and is unique on the centered subspace; the positive Hessian and implicit function theorem give its local expansion. The quadratic KL term is E[(εZ−θ·S)^2]/2 by a Taylor expansion of normalized smooth families (PL need not be treated as a joint exponential family). Uniform selection-stage martingale increments give G_ii=(n−H_n)/n, and the centered eigenvalue is (n−H_n)/(n−1). Conditioning Z on a label's rank and summing against S_i gives b_i=(i−(n+1)/2)/2; the inversion variance then yields the stated coefficient and derivative. At n=2 the families coincide. At n≥3, swapping the same two labels at two different adjacent ranks changes the inversion score by one but a linear combination of PL scores by a label difference divided by two different stage sizes, proving the residual is positive. The harmonic asymptotic gives n³/288 for the coefficient, not a uniform ε expansion.",
+      "residual_risks": [
+        "Bounded replay covers all permutations for 2≤n≤6, checking score centering, full score covariance, cross-covariance, inversion variance and projection; it gives C_3=5/168. It is not an asymptotic proof. Separate optimizer experiments mentioned in the frozen record were not relied upon; no Lean or expert attestation claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Turvey excludes Mallows q≠1 at n≥4 from the larger class obtained by ranking independent continuous variables, which contains PL. The 2018 study discusses both model families and empirical KL in noisy-sorting experiments."
+        ],
+        "reasoning": "Non-representability for the larger class is stronger as an exclusion, but does not quantify even the order of vanishing of the distance to the PL model, evaluate the derivative of the PL minimizer, or treat the n=3 case at issue. Empirical model fit is not an analytic KL projection formula.",
+        "searches": [
+          "Turvey arXiv:2610.11895v1, Theorem 1.2 and proof; El Mesaoudi-Paul et al. ICML 2018 model definitions and experiments"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 23–70 and 76–87",
+        "Resultary semantic index",
+        "Turvey arXiv:2610.11895v1",
+        "El Mesaoudi-Paul et al., PMLR 80"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Turvey obtains a covariance proportional to (q−1)^2 for disjoint comparison events, giving a distinct obstruction. The general local projection yields half the squared score residual, but leaves G and E[ZS] unevaluated."
+        ],
+        "reasoning": "The event obstruction is compatible with multiple curvatures and does not determine the fitted score. The exact centered Fisher eigenvalue, rank-score cross-term and positive residual take a model-specific calculation; the previously known inversion variance and projection principle alone do not supply them.",
+        "searches": [
+          "Turvey arXiv:2610.11895v1, proof of Theorem 1.2, pp. 12–13; classical local Fisher projection compared with frozen RESULT.md lines 34–70"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Searches surfaced no directly matching coefficient. Nearby Resultary 29a000aa659c and 54d919a68dd2 address fixed points rather than the KL fit; Turvey compares exact realizability by independent continuous variables."
+        ],
+        "reasoning": "Changing variables from Mallows q to ε=log q or calling the curvature a Fisher residual gives the same local problem only if the rank-score projection onto the actual PL family is evaluated. A pairwise rank statistic or an arbitrary independent-variable representation is not that projection.",
+        "searches": [
+          "Resultary searches (three queries) on Mallows-to-Plackett–Luce relative entropy, local information projection curvature and optimal log-weight derivative",
+          "Literature search for local Mallows versus Plackett–Luce KL/Fisher projection"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact symbolic or numeric coefficient match was found in the inspected results; closest indexed results concern Mallows and Luce fixed-point statistics."
+        ],
+        "reasoning": "A small-n equality, or a table of inversion variances, would not recover all-n projection coefficients without subtracting the PL score component. The symbolic harmonic formula is the relevant lookup target.",
+        "searches": [
+          "Resultary index for the harmonic-number curvature and the projected centered log-weights, including equivalent KL/projection phrasing"
+        ]
+      },
+      "rationale": "The supported contribution is the all-size directed local KL coefficient and the associated first-order PL fit, not the families themselves, the standard Fisher projection method, or qualitative non-representability. The inspected comparisons do not give those quantities or mechanically imply them.",
+      "residual_risks": [
+        "The cited closest preprint was accessible on this review; unlocated analyses of ranking-model projections remain possible. Ranked search misses do not establish priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Stronger qualitative exclusion at n≥4, not a quantitative PL fit",
+          "evidence": [
+            "The theorem excludes Mallows q>0, q≠1 for n≥4 via the nonzero Mallows covariance of two events that would be independent under independent-variable rankings.",
+            "Ordering independent exponential clocks gives PL, so this qualitative exclusion applies to it but does not state a KL projection."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.11895",
+          "material_read": "Theorem 1.2 p. 3, near offset 8900; proof pp. 12–13, offsets about 36000–38000",
+          "method": "Primary PDF passage retrieval",
+          "title": "Permutations from ranking independent random variables",
+          "trigger": "Closest cited comparison of Mallows with a broader class containing PL"
+        },
+        {
+          "assessment": "Different target and empirical comparisons",
+          "evidence": [
+            "Gives model forms and uses KL goodness-of-fit for noisy-sorting variants, not local directed Mallows-to-PL optimization."
+          ],
+          "identifier_or_url": "https://proceedings.mlr.press/v80/mesaoudi-paul18a/mesaoudi-paul18a.pdf",
+          "material_read": "Model passages pp. 1–2, offsets 0 and about 6500; experiment p. 8, offset about 54400",
+          "method": "Primary PDF passages",
+          "title": "Ranking Distributions based on Noisy Sorting",
+          "trigger": "Published KL comparison referring to both ranking families"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–30 and 66–70",
+        "Turvey arXiv:2610.11895v1, Theorem 1.2"
+      ],
+      "rationale": "The result quantifies the error and gives the optimal first-order calibration when replacing a Mallows law with the computationally convenient item-weight family near uniformity. In particular it detects positive quadratic loss already at three items, below the range of the cited broader non-representability theorem, and gives a usable scale as n grows. It does more than establish that the families differ or report finite fit experiments.",
+      "residual_risks": [
+        "Fixed-n local expansion, one direction of KL only; no accuracy asserted for a joint growth limit or for parameters away from uniformity."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

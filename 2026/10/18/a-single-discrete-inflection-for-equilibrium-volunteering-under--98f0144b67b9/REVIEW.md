@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The payoff-indifference equation produces the unique interior symmetric mixed-equilibrium strategy. The exact discrete second difference factors into a one-peak polynomial with exactly one interior root; a signed triangular-kernel comparison proves strict ordering of the roots; the continuum second derivative gives the limiting bounds. A direct Taylor expansion at the proposed scaling proves the cubic-order threshold correction. The attached checker successfully verifies the numerical consequences, rational examples, and symbolic expansion. The unrestricted statements follow from the analytical arguments rather than the finite checker.
+## correctness
 
-## Originality
-PASS, with residual literature risk. The equilibrium strategy itself is classical. Archetti (2009, DOI 10.1111/j.1420-9101.2009.01835.x), inspected through its substantive full HTML sections, concerns public-good provision and group-size effects rather than the second difference of total volunteering effort. Peña (2011/2012, DOI 10.1111/j.1558-5646.2011.01504.x), inspected through its full accessible HTML discussion and appendices, studies group-size variation through evolutionary payoff-selection functions, not separately re-equilibrated Nash volunteer counts. Hillenbrand and Winter (2017/2018), DOI 10.1016/j.geb.2017.12.009, were checked in the author-posted full PDF, including Proposition 1 and its proof: they study a common ex-ante volunteer probability when realized group size is unobserved. Their Jensen comparative static is not a statement about conditional size-specific equilibria or expected total volunteers per group. An accessible previous result addresses the first-difference group-size maxima of the same count sequence, but does not imply a single second-difference inflection or its threshold ladder. The relevant 2009 Archetti *Journal of Theoretical Biology* article was available in abstract only after attempted open routes; an overlooked covering result remains possible. An unsuccessful novelty search does not prove uniqueness.
+PASS
 
-## Value
-PASS. Conditional re-equilibration across variable group sizes is a natural alternative to ex-ante evolutionary mixing. Determining whether a mean-preserving spread in group size raises or lowers the equilibrium expected number of contributors per group requires precisely the discrete-curvature sign. The theorem gives both universal ranges and a single intervening transition with an exact critical ladder and asymptotic; the rational examples show opposite effects at unchanged mean size. This is a precise structural policy-model fact, not merely a restatement of equilibrium participation probabilities. It does not predict real-world voluntary behavior or address changes in group number under a fixed population constraint.
+Indifference with the other n−1 players gives the claimed interior probability and V_n. In RESULT.md lines 40–54, factoring D_n leaves R_n(z), whose derivative has exactly one interior sign change from positive to negative; the strict maximum exceeds R_n(1)=0, giving exactly one interior root and the asserted signs in lambda. The tent-kernel representation compares adjacent sizes strictly: at the root, the negative-to-positive change of f'' lies inside the tent support (giving both strict brackets); if it lies within the overlap, subtract the two tents scaled to agree at that point. Their difference and f'' have the same sign on both sides, and their product has strictly positive integral. If the point is left of the overlap the later tent already integrates a positive f''. Independently checked the most cancellation-sensitive coefficient using the integral: with h=1/n, x=n−1+t, lambda=2−2h+uh^3, the square bracket in f'' is 2ht−uh^2−uh^3t and the prefactor is 2h^4[1+(1−4t)h+O(h^2)] uniformly for |t|≤1 and bounded u. The tent moments of 1,t,t^2 are 1,0,1/6, giving h^6(−2u−8/3)+O(h^7). Bracket with u=−2 and 0 and substitute the root to recover the stated expansion, including the absence of an n^−2 term. Linear interpolation gives the two convex-order directions; V_n is bounded for fixed lambda. The exact change for the example is −2s²+3s³−s^6 with s=e^(−lambda/6), giving the stated fractions at 5/6 and 4/5. This unrestricted analytic check does not rely on executing the supplied finite checker.
 
-## Closest literature and remaining limitations
-See the four primary papers and their precise comparison in RESULT.md. No claim is made about evolutionary equilibria, unequal player types, multiple volunteers needed, group formation costs, or provision probability. The accessible literature does not exclude an undiscovered equivalent formulation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The standard equilibrium formula is prior work. The supported distinct claim is the strictly ordered second-difference threshold ladder with its sharp coefficient and implied per-group convex-order regimes. The closest indexed record proves a different ladder for first differences; the closest inspected spread result uses a different information structure and outcome. No covering result was established in inspected material; this is not a priority determination.
+
+## value
+
+PASS
+
+There is a meaningful quantitative distinction between where mean volunteer counts peak and where size diversification raises or lowers mean volunteer counts. The ordered thresholds and one-inflection result answer the latter uniformly in group size and explain why local spreads can have opposite effects. The asymptotic identifies the approach to the fixed-lambda phase boundary; basic equilibrium indifference and generic Jensen reasoning are not the contribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

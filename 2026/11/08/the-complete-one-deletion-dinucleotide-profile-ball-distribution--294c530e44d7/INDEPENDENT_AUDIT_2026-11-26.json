@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:13:47.936686Z",
+  "axes": {
+    "correctness": {
+      "rationale": "An endpoint removes one pair; an internal deletion of the middle of abc changes the profile by −e_ab−e_bc+e_ac. Enumerating the eight triples and four endpoint pairs gives six distinct changes. Translating by the original profile preserves distinctness. The pair-path formula imposes both endpoints, even when n=2 and they coincide (the sole pair disappears, giving N_1(2)=4). For a word with realized set S, summing t^|T|(1−t)^(6−|T|) over T containing S gives t^|S|, so the allowed-feature transfer enumerates exactly the desired statistic. Independently constructed all 64 matrices from the change vectors and computed their transfer fractions as bordered determinants: with U=I−zM_T, multiply det([[U,v_T],[−v_T^T,0]]) by z² and divide by det(U). After multiplication by J, each of the 64 fractions divided exactly as a polynomial; summing with binomial weights gives zero for each cross-product difference against the six frozen P_j/Q_j. This checks the identities for all lengths. A separate literal enumeration through n=14 also agreed. The first sixth-class term is 12z^9, with no lower term. Both cross-pair changes require opposite boundary pairs (probability 1/8 for n≥4); conditioned on them, disjoint triples entirely within the interior miss one of 000,111,010,101 with probability at most 4(7/8)^floor((n−4)/3). Thus the asymptotic limit is 1/8. The frozen scripts were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The coding paper describes substring multiplicities and global enumeration of profiles, with its Theorem 3.5 attributed to Markov-type work. The later two-deletion result concerns deletion radius two rather than radius one; only catalogue and definition-level comparison was available."
+        ],
+        "reasoning": "A global count of realizable profiles ignores how the profiles are grouped into deletion shadows of individual words. Results for exactly two deletions do not restrict to the law for one deletion by parameter substitution.",
+        "searches": [
+          "arXiv:1502.00517 pp. 2 and 8",
+          "Jacquet–Knessl–Szpankowski DOI 10.1109/TIT.2012.2191476 and IEEE access",
+          "Local Resultary --6e89ee6f0498, two-deletion profile balls"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify_all.py and independent_brute.py",
+        "Distinct Resultary records --7545727346c0, --13779c08da71 and --737fed325e91",
+        "Definition/catalogue material for --6e89ee6f0498",
+        "arXiv:1502.00517",
+        "Bibliographic material for DOI 10.1109/TIT.2012.2191476"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The insertion result records that −e_01 and −e_10 can only come from the two boundary pairs of opposing orientations, and that −e_00 and −e_11 require corresponding equal pairs somewhere in the source. Its comparison proves necessity and an implication to insertion saturation; its displayed examples and enumerator are for insertion. The deletion graph result concerns literal descendants before projection."
+        ],
+        "reasoning": "The implication loses the occurrences of the specific triples needed to realize the two positive-coordinate changes and does not count each exact set of realized deletion features. The full six-class series needs the joint deletion feature distribution, not just knowing six possible changes or which words satisfy the weaker insertion condition.",
+        "searches": [
+          "Resultary --7545727346c0, deletion implication, local mirror 5400–7923",
+          "Resultary --737fed325e91, finding and comparison on deletion intersections"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Adjacent-pair counts are the length-two profile or two-multispectrum under the linear convention. The insertion record explicitly lists the same six deletion-change vectors, and gives necessary deletion-saturation conditions and its implication for insertion. It does not give the deletion law."
+        ],
+        "reasoning": "Renaming the profile vector produces the same statistic, but changing deletion to insertion changes both the boundary and interior triggers. Inversion of individual edit relations does not turn the out-degree distribution of insertion profiles into that for deletion, because the source is a word while the target is its projected histogram.",
+        "searches": [
+          "Local Resultary: one deletion, binary adjacent-pair count histograms / two-multispectra / dinucleotide profiles, profile-ball cardinality distribution",
+          "Kiah–Puleo–Milenkovic arXiv:1502.00517, profile definition",
+          "Resultary --7545727346c0, deletion comparison"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The binary two-multispectrum record counts all globally realizable linear pair vectors and the singleton word classes. The insertion record gives four insertion classes, first saturation at n=5 and asymptotic saturation 1/2. The deletion graph record counts pairs of sources with exactly two common word descendants."
+        ],
+        "reasoning": "These exact results count different objects, and contain no exact table for the one-deletion profile-ball size law. In particular the insertion cutoff, count and limit are not the deletion quantities.",
+        "searches": [
+          "Resultary --13779c08da71, exact binary two-multispectrum table/formula",
+          "Resultary --7545727346c0, insertion count formulas and verification samples",
+          "Resultary --737fed325e91, exact deletion-reconstruction graph edge counts"
+        ]
+      },
+      "rationale": "The six local deletion changes and the implication from deletion saturation to insertion saturation receive distinct same-day coverage. The surviving claim is the exact six-way one-deletion law, including its attainable cutoff, multiplicity and asymptotic frequency. No inspected distinct statement supplies this law. The insertion classification imposes different local events and its numerical answers do not carry across to deletion. There is residual risk from older histogram-channel terminology and one inaccessible Markov-type paper.",
+      "residual_risks": [
+        "The Markov-type primary text could not be compared in full. The search does not rule out equivalent older histogram-channel treatments. The insertion comparator's same-day date does not establish chronological order."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the six-vector support and part of the deletion structure, not the deletion distribution",
+          "evidence": "Lists the six deletion changes, states their boundary restrictions and derives deletion saturation implying insertion saturation; exact class counts are for insertion.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-single-insertion-dinucleotide-profile-ambiguity-in-binary--7545727346c0/RESULT.md",
+          "material_read": "Finding and deletion implication/verification, local mirror offset 5400–7923",
+          "method": "Bounded local-mirror passage reading",
+          "title": "Exact single-insertion dinucleotide-profile ambiguity in binary words",
+          "trigger": "Same statistic for the inverse edit and an explicit comparison to deletion"
+        },
+        {
+          "assessment": "Global profile enumeration, not local edit-shadow enumeration",
+          "evidence": "Counts globally realizable linear profiles and characterizes singleton word classes, irrespective of which words delete to those profiles.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-binary-two-multispectrum-code-size-and-singleton-classific--13779c08da71/RESULT.md",
+          "material_read": "Finding at offset 0 and Markov-type comparison around 4500",
+          "method": "Local-mirror passage reading",
+          "title": "Exact binary two-multispectrum code size and singleton classification",
+          "trigger": "Exact enumeration using identical multiplicity vectors"
+        },
+        {
+          "assessment": "Different statistic and objects",
+          "evidence": "Graph edges correspond to two common literal deletion descendants, not the number of different pair-count profiles from a given source.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-edge-count-of-the-finite-alphabet-two-read-single-deletion--737fed325e91/RESULT.md",
+          "material_read": "Finding at offset 0 and comparison around 4400",
+          "method": "Local-mirror passage reading",
+          "title": "Exact edge count of the finite-alphabet two-read single-deletion reconstruction graph",
+          "trigger": "Exact counting of single-deletion ball statistics"
+        },
+        {
+          "assessment": "Relevant definition and global counts, no one-deletion law in inspected passages",
+          "evidence": "The profile vector records substring multiplicities; cited Markov-type enumerators count globally realizable types.",
+          "identifier_or_url": "arXiv:1502.00517",
+          "material_read": "p. 2 near offset 11301 and p. 8 Theorem 3.5 near 42346",
+          "method": "Open primary PDF passages",
+          "title": "Codes for DNA Sequence Profiles",
+          "trigger": "Profile-count definition and exact enumeration literature"
+        },
+        {
+          "assessment": "The attributed result is a global type count; original full-text coverage is unresolved",
+          "evidence": "The quoted enumeration concerns attainable types without deletion from a fixed ancestor.",
+          "identifier_or_url": "DOI:10.1109/TIT.2012.2191476",
+          "material_read": "Bibliographic access material and Kiah et al.'s attributed Theorem 3.5, not the original full text",
+          "method": "DOI/IEEE access attempt and comparison with the attributed result in open text",
+          "title": "Counting Markov Types, Balanced Matrices, and Eulerian Graphs",
+          "trigger": "Adjacent-pair counts as first-order Markov types"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The projected deletion ball is a natural combinatorial observable: identical pair multiplicities can merge distinct edited words. Exact all-length class frequencies answer what is lost under this projection. The exact onset and nonzero limiting frequency of saturation give useful boundary data beyond the six-vector upper bound or a sample table.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

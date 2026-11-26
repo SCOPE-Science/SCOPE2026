@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The manuscript specifies signed, mass-one Euclidean distance energy; strict negative type ensures a unique rim and augmented gauging. Equality of the two block potentials derives the center weight. Convex-hull barycentric coefficients prove strict \(c>R\), including a separately controlled antipodal-support boundary case. The uniform-sphere signed-energy comparison gives strict \(c<C_dR\), with the gamma integral independently evaluated. Nearly coincident antipodal pairs and dense antipodal empirical measures establish both sharp endpoints. A standalone checker independently solves 52 finite gauging systems. No finite computation is used to infer an infinite assertion.
+## correctness
 
-## Originality — PASS (provisional priority)
-Roff–Willerton (2026) already prove generic microscopic weighting and its energy-maximization characterization. Alexander–Stolarsky (1974) already derive related sphere energy bounds. Hayden and collaborators (1996) treat a squared-distance matrix, unlike the unsquared chord metric here. These antecedents give critical lemmas, but their inspected material does not state or imply without additional arguments the all-configuration strict negative center sign or its two-sided sharp dimension-dependent mass bound. Published-record and own-claim comparisons did not reveal an overlapping exact statement; this does not establish global priority. The sphere-energy literature and unindexed prior work remain historical risks.
+PASS
 
-## Mathematical value — PASS
-The center sign is forced by the geometric convex-hull relation with no group symmetry, dimension restrictions beyond \(d\ge2\), positivity of rim weights, or full-dimensionality. The tight range quantifies how negative a canonical metric weighting can be at an interior site and exposes a dimension law, with both endpoints approached by geometrically different families. The two-sided sharp theorem is more informative than a one-step evaluation on a special regular polygon and supplies a structural boundary for a newly defined invariant.
+In the finite distinct Euclidean setting strict conditional negative definiteness gives a coercive strictly concave quadratic on the affine mass-one hyperplane, so the unique maximizer satisfies Dp=c1. With total rim mass b and center mass a=1−b the trial weighting (a,bp) has constant rim potential Ra+bc and center potential Rb. Solving and using the bound c<2R below verifies existence and the block formula; uniqueness on the augmented space identifies it with the microscopic weighting. A convex barycenter q for the origin has nonnegative entries, so applying t≥t²/(2R) pairwise gives E(q)≥R. Equality in this estimate forces a single antipodal pair of weights 1/2 each, and moving a positive infinitesimal mass to a third rim point strictly increases energy by strict triangle inequality. This also covers the origin on the hull boundary. For the upper bound, subtract uniform spherical measure; the cross term vanishes by rotationally constant potential and the difference is a nonzero compactly supported signed mass-zero measure. The Fourier integral for its energy converges, since its transform is O(|ξ|) at zero and bounded at infinity; strict negativity follows from Fourier uniqueness. The beta law of (1−⟨U,V⟩)/2 with both parameters (d−1)/2 gives C_d by the beta moment and gamma duplication. Jensen and the strict chord-versus-squared-chord inequality give 1<C_d<√2, making the denominator positive and the center weight strictly decreasing in c. The four-point two-antipodal-pair example is transitive and has the stated mean distance, tending to R as the pairs approach coincidence. Distinct antipodally paired equidistributed samples retain the hull condition, and continuity of chord energy plus the upper bound makes their signed optimum tend to C_dR. The interval endpoints are therefore sharp but not attained; the limit C_d→√2 follows from E⟨U,V⟩²=1/d and bounded convergence in probability. For n=2 antipodal sites one gets c=R and center mass zero, as excluded.
 
-## Closest literature and limitations
-The new theorem combines known strict-negative-type energy theory with an independently derived spherical-center block identity and sharp lower-energy argument. The finite case \(n=2\) is excluded and sharp endpoints are not attained. Research priority has not undergone independent examination.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The general gauging formalism and the signed uniform-sphere energy bound are prior. The equidistant-center formula is an elementary block computation and precisely matches the known transitive special case. The retained contribution is the strictly negative sign with only the Euclidean hull condition, including the equality obstruction when the hull witness is an antipodal pair, and the sharp nonattained center-mass endpoints for all finite nonsymmetric rims in each ambient dimension.
+
+## value
+
+PASS
+
+The center is a canonical insertion into a spherical metric space; its microscopic weight can be negative even though it lies in the ordinary convex hull. The theorem quantifies both the forced sign and the optimal magnitude by ambient dimension without symmetry or assumptions about the rim weights. Strict but unattained endpoints distinguish near-antipodal degenerations from dense-sphere approximations and give sharp constraints for future signed weighting calculations. The value is in this constrained sharp theorem, not the two-by-two linear system or the classical mean chord formula alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

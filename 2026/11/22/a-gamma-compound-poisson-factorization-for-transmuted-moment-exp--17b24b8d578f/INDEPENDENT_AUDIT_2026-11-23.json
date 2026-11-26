@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T18:00:03.013864Z",
+  "axes": {
+    "correctness": {
+      "rationale": "After x=βt, the bracket interpolates between 1+α and 1−α as t ranges from zero to infinity: exactly the claimed closed parameter range is nonnegative. Integrals of t exp(−bt) and t² exp(−bt) give the normalized rational transform. Recomputed the cubic discriminant, root brackets and Vieta relation A+2B=6. For 0<α<1, A>2 and B>1 directly dominate each subtracted exponential after bounding the cosine by 1. For −1<α<0, A>1 and B>2 yield Eα(t)≥exp(−t)−exp(−2t)>0. The logarithmic Frullani integral uses the root rates A/β and (B±iC)/β, all with positive real part; conjugate pairing gives the stated real kernel. Gamma subtraction removes exactly 2exp(−2x/β)/x. At interior parameters and at 0,1 the residual numerator vanishes at zero with a finite derivative and decays exponentially at infinity. Its mass follows from the atom at zero as s→∞, with residual transform limit (1+α)/4. At α=−1 the numerator of the transform is 6y+8 and the residual kernel is positive with xρ(x)→2, so it satisfies the Lévy integrability condition but has infinite activity. Also the fixed gamma residual is unique in law by division of Laplace transforms and cannot be finite-activity at this endpoint. Substituting s=1−z in the residual Lévy exponent and expanding exp(zx) gives the integer jump intensities for all α, including −1; the sum is ∫(1−exp(−x))ρ(x)dx<∞ by Lévy integrability. This establishes the endpoint count decomposition even though the proof's direct finite Poisson marking argument is restricted to α>−1. Independent symbolic reproduction by assembling the two elementary gamma integrals, taking the discriminant, and expanding G'(z)/G(z) at z=0 gave 432α²(α−1)(α+1), the three degenerate factorizations, G(0)=64/243, and the first three ν values 31/32, 1453/6144, 69263/884736 at α=1/9,β=1, hence μ_1=29/96. The frozen verification was inspected, not executed; numerical root samples do not establish the uniform kernel bound.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General Lévy–Khintchine theory gives the transform test and Poissonization once a positive kernel is known. The broader continuous GTME family includes this density, while its checked structural properties concern statistical summaries, not such a kernel.",
+          "Related indexed signed Erlang and Poisson-transmuted geometric records involve different component laws."
+        ],
+        "reasoning": "The present signed parameter range is not just convex gamma mixing, and even positive mixture weights do not guarantee that an extracted gamma factor leaves a positive compound-Poisson residual. Root placement and the different domination inequalities on the two signs supply that extra property.",
+        "searches": [
+          "Web: infinite divisibility rational Laplace transforms rational gamma mixtures nonnegative Lévy exponent pole zero positivity mixture Erlang shapes theorem",
+          "Hassan–Abdul-Moniem–Gad, Table 1 and §3",
+          "Resultary: transmuted moment exponential gamma compound Poisson infinite divisibility signed transmutation"
+        ]
+      },
+      "checked_sources": [
+        "Alrumayh–Khogeer doi:10.3390/sym15061289",
+        "Hassan–Abdul-Moniem–Gad doi:10.32861/ajams.65.41.52",
+        "Bhati–Kumawat–Gómez-Déniz arXiv:1504.01097",
+        "Targeted general literature and Resultary searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier Poisson-transmuted exponential law mixes ordinary exponentials at two rates, with simple poles; the moment-exponential density here has shape-two and shape-three Gamma terms and generically poles of orders two and three."
+        ],
+        "reasoning": "The prior transmuted exponential result cannot be specialized by changing a scale or a shape sign to give this different rational transform. A generic positive measure representation for a law, even if already known, would also not imply positivity after subtracting the fixed gamma Lévy mass. This audit did not find an earlier stronger theorem supplying that implication.",
+        "searches": [
+          "Bhati–Kumawat–Gómez-Déniz arXiv:1504.01097, Section 2",
+          "Alrumayh–Khogeer doi:10.3390/sym15061289 §2",
+          "Web: infinite divisibility rational Laplace transforms rational gamma mixtures nonnegative Lévy exponent pole zero positivity mixture Erlang shapes theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Alrumayh–Khogeer equation (1) has the same continuous density, and its Section 2 Poisson mixture has 0<α<1. The rational expression in §2 is related to L by the mixed-Poisson PGF substitution.",
+          "Hassan–Abdul-Moniem–Gad Table 1 gives the ordinary transmuted moment-exponential submodel."
+        ],
+        "reasoning": "This can be sought as a concrete independent gamma convolution, positivity of the inverse Laplace transform of a residual logarithmic derivative, or positive residual logarithmic PGF coefficients. A published rational transform fixes the coefficients algebraically but does not certify their positivity, much less the continuous gamma factor's positive Lévy measure.",
+        "searches": [
+          "Web: transmuted moment exponential infinitely divisible gamma compound Poisson Levy Alrumayh Khogeer rational Laplace transform mixtures gamma",
+          "Resultary: transmuted moment exponential gamma compound Poisson infinite divisibility signed transmutation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest primary formulas are the PMF, CDF and the rational count generating expression; the checked material gives raw moments and dispersion, not the activity λ or residual jump coefficients.",
+          "The closest non-self indexed thinning result is for a transmuted geometric count family; its coefficients do not match this moment-exponential mixture."
+        ],
+        "reasoning": "There is real overlap for the density and rational generating expression, not for a listed positive jump law or the negative unit boundary. Exact example coefficients illustrate the new representation rather than define its scope.",
+        "searches": [
+          "Alrumayh–Khogeer §2 equations (1)–(4) and moment formulas",
+          "Resultary: transmuted moment exponential gamma compound Poisson infinite divisibility signed transmutation"
+        ]
+      },
+      "rationale": "Qualified pass for the positive gamma-extracted Lévy kernel, exact activity transition, and count factorization; not for the underlying model, rational transform, or general Poissonization principle.",
+      "residual_risks": [
+        "Equivalent sufficient root-order criteria or prior classifications under a different distribution name may overlap. The rational generating expression and the base family are prior; the new claim is not that of introducing the distribution."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct prior for the model, parameters and count generating expression; the inspected derivation does not factor the law using a nonnegative Lévy kernel",
+          "evidence": [
+            "Equation (1) gives the same density; Section 2 explicitly restricts 0<α<1. Equations (2)–(4) give the PMF, CDF and rational generating expression."
+          ],
+          "identifier_or_url": "https://doi.org/10.3390/sym15061289",
+          "material_read": "Publisher open PDF via the article file host: abstract, Sections 1–2 through density, Poisson mixture, generating expression and moment formulas",
+          "method": "Read primary displayed formulas and compared coefficients and parameters",
+          "title": "A New Two-Parameter Discrete Distribution for Overdispersed and Asymmetric Data: Its Properties, Estimation, Regression Model, and Applications",
+          "trigger": "Same mixing density and count family"
+        },
+        {
+          "assessment": "The input density is already in the family; the relevant inspected material is not a classification of Lévy factors",
+          "evidence": [
+            "Table 1 identifies TME as a submodel. The structural-property program concerns quantiles, moments and lifetime features."
+          ],
+          "identifier_or_url": "https://doi.org/10.32861/ajams.65.41.52",
+          "material_read": "Open article PDF introduction, Section 2 and Table 1; adjacent Section 3 structural-property scope",
+          "method": "Primary PDF text and submodel comparison",
+          "title": "A Generalized Transmuted Moment Exponential Distribution: Properties and Application",
+          "trigger": "Earlier broader continuous density family"
+        },
+        {
+          "assessment": "Different mixing density and rational transform",
+          "evidence": [
+            "The transmuted exponential uses terms proportional to exp(−λx) and exp(−2λx), rather than x exp(−λx) and x(1+λx)exp(−2λx)."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1504.01097",
+          "material_read": "Open manuscript introduction and Section 2 mixing definition and early distribution formulas",
+          "method": "Compared densities and pole orders after Poisson mixing",
+          "title": "A New Count Model Generated from Mixed Poisson Transmuted Exponential Family with an application to Health Care Data",
+          "trigger": "Prior transmuted count mixture with related infinite divisibility question"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact independent decomposition of a preexisting count model separates its negative-binomial baseline from positive compound-Poisson jumps. It also distinguishes the sharp loss of finite continuous residual activity from the persistence of a finite integer jump rate. Both conclusions concern the specific fixed gamma factor and full valid parameter interval, not a numerical grid or an identity merely renaming the original mixture.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

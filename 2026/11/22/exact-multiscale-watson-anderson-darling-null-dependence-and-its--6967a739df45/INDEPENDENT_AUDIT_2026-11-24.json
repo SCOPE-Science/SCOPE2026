@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:26:05.057361Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The probability integral transform gives iid uniforms under the fully specified continuous null, and Hwang–Kuriki Theorem 3.3 confirms the 1/n Watson sample-kernel normalization. Splitting the Anderson–Darling kernel integral at the two order statistics gives a(x,y)=-1-log(max(x,y)(1-min(x,y))). Both kernels have zero one-argument averages. The Watson diagonal is constant and all mixed terms except matches of the same off-diagonal unordered pair vanish by conditioning, giving 2(n-1)/n times the mixed kernel inner product. Integrating over a triangular half-square at fixed separation z gives the weight 2(1-z)+4z log z. Monomial integration proves rationality. For the alternate identity one can integrate twice with B_(2m+2)(z)-B_(2m+2)(0); the endpoint terms vanish, the weight's second derivative is 4/z, and Bernoulli reflection symmetrizes it to 2/[z(1-z)]. For the AD moments, the integral of log y times log(1-y) is 2-zeta(2); this gives diagonal variance 4-pi^2/3 and off-diagonal second moment pi^2/3-3 by integration on x<y. Watson's variance follows from orthogonality and its deterministic diagonal. The squared Fourier coefficient of the centered indicator is 2(1-cos(2 pi k t))/(2 pi k)^2, giving the strictly positive mixed series. The normalized covariance in order is proportional to P(s)/sqrt(Q(s)); the P-weights relative to Q-weights have strictly increasing ratio I_k k^(2s-2) for s>=1, so the log-k expectation is strictly larger and the correlation drops. The ratio (n-1)/(2a(n-1)+b) is strictly increasing in n, and first-harmonic dominance yields the explicit positive order limit. A separate exact-fraction/high-precision replay gave kappa_1=1/36 and kappa_2, kappa_3, kappa_4 equal to 7/10800, 41/2540160, 19/46656000. Its sequential order/sample limit was 0.64876433810494, and the large-n order-two correlation 0.66201059607981. Replay: /workspace/branches/a5f3ce4a-737a-47ba-a65d-dfb9fced1699/independent_check.py. The supplied checker was inspected, not executed; these finite checks support the analytic proof and do not extend its null hypotheses.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lemma 3.2 supplies the generalized Watson limiting marginal law, and Theorem 3.3 supplies the parameterized sample kernel. The examined Stephens passages concern component decompositions and power comparisons."
+        ],
+        "reasoning": "A marginal law, marginal moments, and separate Fourier and Legendre decompositions do not determine the joint mixed inner product on one sample. The broader Watson construction supplies inputs, not a higher-order cross-covariance theorem.",
+        "searches": [
+          "arXiv:2404.06040, Lemma 3.2 and Section 3.3",
+          "Stephens (1974), Components of goodness-of-fit statistics, pp. 37–41"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2404.06040",
+        "Resultary --6e915b815835",
+        "Stephens (1974), AIHPB_1974__10_1_37_0",
+        "Henze–Nikitin (2002), attempted; primary text unavailable",
+        "Durbin–Knott (1972), attempted; primary text unavailable"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 3.3 supplies h_m, but the finite cross moment requires integration against the AD kernel on pairs from the same sample. The earlier formula tests just one choice of frequency weights. The Hwang–Kuriki passage adjoining their Theorem 3.3 references Henze–Nikitin in connection with a within-Watson process covariance, not the finite mixed statistic."
+        ],
+        "reasoning": "The known kernel leads to the computation but does not on its own establish the mixed weight, its positive spectral representation, the monotone likelihood ratio across integration orders, or its nonzero limiting correlation. These are not a substitution into the classical scalar answer.",
+        "searches": [
+          "arXiv:2404.06040, Theorems 3.1 and 3.3 plus the integrated-Watson process discussion near p. 40",
+          "Stephens (1974), pp. 37–41",
+          "Resultary --6e915b815835, Finding and scope"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Hwang–Kuriki's periodic cosine weights and normalized Bernoulli kernel match precisely; Eq. (75) describes a modified statistic, not the one in the finding.",
+          "The Resultary classical covariance agrees with kappa_1=1/36; that order is not claimed as new."
+        ],
+        "reasoning": "The Bernoulli and Fourier versions are equivalent, so using a different kernel representation cannot constitute novelty. The comparison is for the covariance with ordinary Anderson–Darling on the same sample, not for Watson's process covariance or a statistic with low Fourier modes removed.",
+        "searches": [
+          "Resultary lookup for exact finite-sample generalized Watson versus Anderson–Darling null covariance and correlation",
+          "arXiv:2404.06040, Section 3.1 Theorem 3.1 Eq. (64), Section 3.3 Theorem 3.3 Eq. (74)",
+          "Web: Henze Nikitin \"Watson-type goodness-of-fit tests based on the integrated empirical process\" 2002 pdf preprint"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier RESULT.md gives (n-1)/(36n) under the same null for classical Watson, m=1; it does not give kappa_m for m>=2 or the correlation sequence and limit."
+        ],
+        "reasoning": "The indexed exact classical formula is a control value rather than an exact table or series of higher-order covariances. It does not cover the claimed order dependence.",
+        "searches": [
+          "Resultary lookup for Watson–Anderson–Darling covariance; inspected 2026/10/13/SCOPE-exact-finite-sample-covariance-of-watson-and-anderson-darling-go--6e915b815835"
+        ]
+      },
+      "rationale": "The order-one covariance is already in an earlier Resultary record and is expressly excluded from the novel scope. The checked generalized Watson source fixes the exact kernel and limiting marginal law; the checked components paper provides separate decompositions. Neither checked result gives the higher-order mixed finite-sample covariance or the strict order comparison and positive correlation limit. This distinction is limited to the stated simple null and the inspected sources; plausible older works with inaccessible text remain a priority risk.",
+      "residual_risks": [
+        "Older integrated-empirical or component papers, including the named access-limited sources, may contain an equivalent mixed-frequency identity or cover a special order. The bounded comparison does not establish absolute priority; the explicit higher-order covariance, strict order law and floor are distinct from the actual checked claims."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the normalization, Fourier basis, and limiting marginal law; inspected results do not supply the mixed finite-sample covariance",
+          "evidence": "Eq. (74) gives N^{-1} times the double sum of (-1)^{m-1} b_(2m)(|Xi-Xj|); Eq. (64) has weights 2/(2 pi k)^(2m); Lemma 3.2 is weak convergence of the single statistic.",
+          "identifier_or_url": "https://arxiv.org/abs/2404.06040",
+          "material_read": "Section 3.1 Theorem 3.1 Eq. (64), p. 38 near offset 126200; Lemma 3.2 p. 37 near offset 123500; Section 3.3 Theorem 3.3 Eq. (74) and surrounding process discussion pp. 40–41, offsets 137500–139550",
+          "method": "OA original arXiv PDF passages",
+          "title": "Integrated empirical measures and generalizations of classical goodness-of-fit statistics",
+          "trigger": "Primary source defining the generalized Watson statistic and its possible mixed-moment predecessors"
+        },
+        {
+          "assessment": "Exact overlap at m=1, expressly credited; not higher-order coverage",
+          "evidence": "States the covariance (n-1)/(36n) for ordinary Watson and ordinary Anderson–Darling under a fully specified continuous null.",
+          "identifier_or_url": "Resultary 2026/10/13/SCOPE-exact-finite-sample-covariance-of-watson-and-anderson-darling-go--6e915b815835",
+          "material_read": "RESULT.md, Finding and scope from offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Exact finite-sample covariance of Watson and Anderson–Darling goodness-of-fit statistics",
+          "trigger": "Exact predecessor under the same null and same-sample design"
+        },
+        {
+          "assessment": "The inspected passages give separate decompositions and power comparisons, not the higher-order mixed covariance",
+          "evidence": "The decompositions identify components of individual statistics; no mixed finite-sample identity was found in the inspected material.",
+          "identifier_or_url": "https://www.numdam.org/article/AIHPB_1974__10_1_37_0.pdf",
+          "material_read": "pp. 37–41, OA offsets 0–8399; Durbin–Knott citation near offset 35698",
+          "method": "OA original Numdam PDF passages",
+          "title": "Components of goodness-of-fit statistics",
+          "trigger": "Older joint context for classical Watson and Anderson–Darling decompositions"
+        },
+        {
+          "assessment": "Access-limited, not a finding of noncoverage",
+          "evidence": "Both full-text routes returned 403; the inspected Hwang–Kuriki citation is attached to an interior process covariance, and does not establish what else the earlier paper contains.",
+          "identifier_or_url": "https://www.researchgate.net/publication/268315464_Watson-type_goodness-of-fit_tests_based_on_the_integrated_empirical_process",
+          "material_read": "No primary full text; Hwang–Kuriki's related citation p. 40 was read; KIT bibliography lookup yielded no accessible paper passage",
+          "method": "OA direct and VPN routes on the cited copy and the identified Academia alternate, plus KIT institutional lookup",
+          "title": "Watson-type goodness-of-fit tests based on the integrated empirical process",
+          "trigger": "Henze–Nikitin (2002) are cited for integrated Watson-type tests, plausible earlier special-case overlap"
+        },
+        {
+          "assessment": "Access-limited, not a finding of noncoverage",
+          "evidence": "Publisher access returned 403. Neither a citation nor that access failure is evidence about the paper's full mathematical coverage.",
+          "identifier_or_url": "Durbin and Knott, Journal of the Royal Statistical Society B 34 (1972), as cited by Stephens",
+          "material_read": "Bibliographic citation in Stephens; primary paper not read",
+          "method": "OA publisher direct and VPN access attempts; Stephens bibliography",
+          "title": "Components of Cramér–von Mises Statistics I",
+          "trigger": "Earlier component literature might give a mixed-frequency implication"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "These statistics are often computed from the same null sample; marginal calibrations alone cannot quantify their redundancy. The exact covariance and order monotonicity show how integration changes that dependence, and the first mode gives a positive floor even for arbitrarily high order. This is meaningful beyond the classical normalization check and does not claim a joint law or a calibrated combined test.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

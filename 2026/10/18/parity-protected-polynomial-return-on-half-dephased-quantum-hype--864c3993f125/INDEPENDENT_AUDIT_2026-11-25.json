@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:26:37.337514Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The real Hilbert–Schmidt dissipation identity forces peripheral eigenoperators to commute with each positively weighted rank-one projector. They are block diagonal with diagonal even block C. The commutator with the hopping Hamiltonian is off-diagonal, excluding nonzero imaginary eigenvalues. At zero, the two hopping block equations give [C,TT†]=0; off-diagonal entries of TT† at distance two connect the even words, forcing C scalar (automatic for d=1). The odd block differs from the same scalar by an arbitrary operator supported on ker T on both sides. Norm contraction excludes a Jordan block at zero. The adjoint generator reverses the Hamiltonian sign and has the same kernel, so the limiting spectral projection is indeed Hilbert–Schmidt orthogonal, giving the stated all-state formula including dark coherences. Complementary Walsh zero modes pair to give one odd-supported mode per pair in even d, and none in odd d. Even translations make the odd-site dark weight constant, so its square yields the 2/(πd) term by Stirling; the bright term is exponentially small. A direct d=2 check gives T all ones, rank(D)=1, odd-site return 1/3. The uploaded numerical checker was inspected, not run; the exact limit and asymptotic are proved analytically and do not establish a relaxation rate uniform in d.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 2 provides a general semigroup asymptotic decomposition, not the cube's commutant or the dimensions and localized overlaps. Record 0b79f725d099 assumes a nonempty sink and treats survival in trace-decreasing dynamics."
+        ],
+        "reasoning": "The all-state formula needs the specific fixed algebra: neither framework computes the scalar bright block via distance-two connectivity nor the resulting return plateau in this trace-preserving model.",
+        "searches": [
+          "Baumgartner–Narnhofer arXiv:0806.3164, Theorem 2",
+          "Resultary: localized dephasing as an asymptotic absorber"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py",
+        "arXiv:quant-ph/0501169, arXiv:0808.3403, arXiv:0806.3164",
+        "Resultary records 788a85720e2b, 519ce4796df0, 0b79f725d099 and 5e7f1f10213d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Specializing the affine detector to all-bits parity determines the common dark projection weight p_d; squaring it gives the dark contribution, but cannot determine the bright term (1−p_d)^2/(2^d−k_d). All-site dephasing gives a different stationary algebra."
+        ],
+        "reasoning": "To know that the bright term has exactly this value, and to rule out oscillation for every initial state and arbitrary positive site rates, requires the additional block-commutant and peripheral-spectrum arguments. The supported claim is the full stationary-channel/return result, not novelty of the central-binomial rank or Stirling coefficient in isolation.",
+        "searches": [
+          "Resultary 788a85720e2b, Finding and Limitations",
+          "Baumgartner–Narnhofer, Theorem 2; Strauch, equations (2), (6)–(10)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Alagić–Russell use coordinate projectors. Strauch distinguishes coordinate-subspace and vertex projectors in equations (6)–(10), but his vertex model dephases every site.",
+          "The affine absorber's one-operator no-jump Hamiltonian and the target's sum of individual trace-preserving site dissipators are inequivalent."
+        ],
+        "reasoning": "The common cube Hamiltonian and, in the absorber case, common monitored set are insufficient for dynamical equivalence. In particular the absorber loses bright mass, whereas here bright mass remains and is redistributed.",
+        "searches": [
+          "Resultary: affine parity-hyperplane hypercube traps and localized dephasing",
+          "Alagić–Russell arXiv:quant-ph/0501169, §II",
+          "Strauch arXiv:0808.3403, §II"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "At detector support w=d the affine-absorber record 788a85720e2b gives exactly k_d and p_d as its dark dimension and survival probability. Record 519ce4796df0 treats fixed-weight spheres; 5e7f1f10213d treats a single sink and an antipodal shortcut."
+        ],
+        "reasoning": "Credit exact overlap of the geometric dark data. The relevant exact object is a dimension-dependent limit channel and return law, not a table of cube spectra, and none of these catalogue passages supplies that channel for site dephasing.",
+        "searches": [
+          "Resultary: support-parity phase law for affine halfcube detectors",
+          "Resultary: parity-sharp coherent absorption by Hamming spheres",
+          "Resultary: arithmetic dark-state resonances on hypercubes"
+        ]
+      },
+      "rationale": "The supported contribution is the explicit trace-preserving stationary algebra, convergence and return law for individually monitored even vertices. General Lindblad structure, the Walsh spectrum and the overlapping dark multiplicity and localized dark weight are not independent originality claims. The strongest inspected halfcube result is for absorption, not trace-preserving dephasing; the bright block and fixed-point calculation are material differences. This is a best-of-knowledge assessment, not a priority certificate.",
+      "residual_risks": [
+        "A focused web lookup returned irrelevant results; the bounded search is not exhaustive for specialized partial-monitoring cube models.",
+        "The overlap in dark-space data does not resolve chronology or provenance."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact overlap for dark rank and weight only",
+          "evidence": [
+            "For w=d the stated rank and surviving norm match k_d and p_d, but the model is absorbing and excludes dephasing."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-support-parity-phase-law-and-optimal-trapping-time-for-affine-ha--788a85720e2b",
+          "material_read": "RESULT.md Finding offsets 0–4180 and Limitations offsets 9300–11076",
+          "method": "Local Resultary mirror",
+          "title": "Support-parity phase law and optimal trapping time for affine halfcube detectors",
+          "trigger": "Exact halfcube and parity-dependent dark subspace"
+        },
+        {
+          "assessment": "Different dephasing observables",
+          "evidence": [
+            "Coordinate observables act on tensor factors, rather than individually monitored even sites."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/quant-ph/0501169",
+          "material_read": "§II, PDF pp. 3–4",
+          "method": "OA primary PDF passage inspection",
+          "title": "Decoherence in quantum walks on the hypercube",
+          "trigger": "Same Hamiltonian and a hypercube dephasing model"
+        },
+        {
+          "assessment": "All-site monitoring rather than half of the sites",
+          "evidence": [
+            "The common hopping is the sum of coordinate flips, but the site-dephasing sum in the inspected model runs over the full vertex set."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0808.3403",
+          "material_read": "§II, PDF pp. 2–3, equations (2), (6)–(10)",
+          "method": "OA primary PDF passage inspection",
+          "title": "Reexamination of decoherence on the hypercube",
+          "trigger": "Vertex dephasing on the same cube"
+        },
+        {
+          "assessment": "General structure, not target commutant or observable",
+          "evidence": [
+            "The decomposition describes decay and asymptotic blocks without identifying those particular to the monitored hypercube."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0806.3164",
+          "material_read": "Theorem 2, PDF pp. 3–4",
+          "method": "OA primary PDF passage inspection",
+          "title": "Analysis of quantum semigroups with GKS–Lindblad generators II. General",
+          "trigger": "General theorem potentially implying the all-state limit"
+        },
+        {
+          "assessment": "Sink hypothesis does not hold here",
+          "evidence": [
+            "The result uses nonempty sink support and deals with surviving trace."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-localized-dephasing-is-an-asymptotic-absorber-a-spectral-equival--0b79f725d099",
+          "material_read": "RESULT.md Finding, offsets 0–3641",
+          "method": "Local Resultary mirror",
+          "title": "Localized dephasing is an asymptotic absorber",
+          "trigger": "Potential dephasing/absorption equivalence"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The explicit full limit distinguishes dark coherence retention from ordinary mixing, and predicts an order-1/d return where an exponentially small return might be expected on 2^d vertices. It also settles all initial states and arbitrary positive site strengths in the specified model without relying on uniform rates. This is informative without any claim about relaxation time.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

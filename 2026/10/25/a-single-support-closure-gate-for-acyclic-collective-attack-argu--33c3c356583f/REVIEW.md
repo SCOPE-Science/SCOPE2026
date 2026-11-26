@@ -1,11 +1,21 @@
-# Scientific review of the acyclic-attack BSAF criterion
+# Independent mathematical audit
 
-**Correctness — PASS.** All attack hyperedge tails precede their heads in a topological order. The candidate is conflict-free and attacks every rejected node. For a complete extension, induction forces each accepted candidate node by its defense against every closed attacker: each nonfiring attack has a rejected predecessor already attacked by the extension. Stable-extension uniqueness follows directly from conflict-freeness and the requirement to attack outsiders. When the candidate is support-closed, attacking a rejected node provides a closed counter-attacker inside it, proving that no rejected node is defended; conversely every accepted node is defended because each of its attack tails has a rejected predecessor. This establishes the exact necessary-and-sufficient criterion without relying on the finite checker. Direct-semantics enumeration agrees in 34,455 counted diagnostics (see `checker.py`).
+## correctness
 
-**Originality — PASS within inspected evidence.** Berthold–Rapberger–Ulbricht (KR 2024), including Lemma 3.12 and the nonexistence examples, supplies the prior semantic definitions and local defense reduction, but not a complete/stable/grounded attack-acyclic characterization. The extended arXiv full text of Berthold–Blümel–Buraglio–Rapberger (2026), including the splitting theorems and supplementary proofs, deals with general decompositions rather than this closed-form single-candidate gate. The 2025 strong/weak-admissibility paper treats other semantics; Buraglio–Dvořák–Woltran (2026) treats ABA/SETAF splitting rather than arbitrary BSAF supports. Classical acyclic AF uniqueness assumes no supports. Targeted comparisons with relevant published mathematical records did not surface a result whose statement implies the support-closure equivalence; failure to locate a match is not proof of absolute novelty.
+PASS
 
-**Value — PASS.** Standard acyclic attack reasoning ordinarily guarantees a unique complete/stable extension; BSAF support obligations can eliminate it altogether. This result gives an exact existence boundary and a linear-time algorithm for a natural expressive subclass, covering arbitrary support cycles and collective support premises. It establishes a qualitative dichotomy for three central semantics while explaining why the same collapse does not hold for preferred semantics. It therefore sharpens the general BSAF nonexistence phenomenon instead of merely restating a known tractability claim.
+In attack-topological order each head sees only decided predecessors, so the recursion has an order-independent solution K and its attack targets are exactly A minus K. For a complete E, inductively a head rejected by K is attacked by E through the same accepted tail; each tail of an accepted head contains a rejected predecessor, already attacked by E, so E attacks any closed attacker of this head. Completeness forces acceptance. Stability forces the same membership recursion directly. When K is closed, it defends each member by attacking an outsider in each attacking tail; for a rejected head a firing tail T has closed attacker cl_S(T) contained in K, which conflict-freeness prevents K from attacking. This proves all three families are {K} or empty, even with empty or cyclic supports and also for A empty. The algorithm needs only an attack incidence-list topological sort, a head-indexed attack-rule scan, and a scan of the original support rules; no support closure search is needed. A violated rule supplies the claimed witness in the stated linear bound. Independent diagnostics: `python -B /workspace/branches/replay_records_1_3_4_5.py`, section 4, checked direct closed-attacker semantics against the unique attack-only kernel in 131215 bounded cases (empty support family counted in both regimes); the proof is not inferred from this computation.
 
-**Closest literature and residual limitations.** The strongest directly relevant prior tool is the 2024 closed-attacker Lemma 3.12; additional coverage might exist in non-flat assumption-based argumentation or program semantics under differing terminology. The result does not apply to cyclic attack dependency or succinctly encoded hyperrules, and it does not classify preferred extensions. The finite diagnostics do not constitute an independent audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The semantics, closure characterization of defense, support-free kernel, and possibility of nonexistence are established background. No compared source covers the single support-closure criterion for all three classical semantics when only attack dependencies are acyclic and support rules can be arbitrary. The proof depends on a stronger induction (also propagating defeated predecessors), not on restricting all dependencies or switching to a modified defense semantics.
+
+## value
+
+PASS
+
+A natural tractable fragment of collective argumentation is characterized by a condition on attacks alone; supports may still be cyclic. The single linear-time existence test and explicit failure witness replace general closed-attacker/extension searches and isolate the obstruction to complete and grounded existence. The preferred counterexample prevents an overgeneralization to all semantics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

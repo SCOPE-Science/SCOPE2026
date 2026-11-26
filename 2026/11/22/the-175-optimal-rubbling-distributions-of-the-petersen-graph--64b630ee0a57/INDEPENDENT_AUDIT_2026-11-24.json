@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:01:49.802410Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–49",
+        "Frozen check_rubbling.py, check_rubbling.cpp, orbits.csv and VERIFICATION.md",
+        "Independent backwards-target replay: python3 /workspace/branches/review_reproduction.py 4"
+      ],
+      "rationale": "The first-move recurrence is exact for target-by-target reachability: the starting support accounts for the empty sequence, all neighbor pairs with repetition give precisely the legal moves once multiplicities are checked, and each successor has one fewer pebble. To independently test the computation, I propagated target demands backwards, starting at a single pebble on each given target. A weight-w demand is obtained from a successful weight-(w-1) demand either by padding a pebble anywhere or by replacing one demanded occurrence of the destination by its two input pebbles. This is sound by executing the first move and then the successful suffix, and complete by taking the actual successor of a successful first move. In pebbling mode only equal input vertices are allowed. Exhausting all multisets of weight zero through four found no successful state of weight below four and respectively 10,0,45,30,90 rubbling successes by occupancy type at four. Only the ten stacks work by ordinary pebbling. The 30 double-plus-single successes are exactly the Kneser labels ab,ac,bc with the doubled edge ab; all 210 four-singleton supports agree with the six induced-forest counts and classifications. Ground-label permutations produce 17 orbits, eight successful, and all 17 rows of the frozen CSV match the independent sizes, reachability counts and shape labels. The search is exhaustive at the stated finite weights, not a generalization to other graphs.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Katona–Papp determine optimal numbers of ladders, prisms and Möbius ladders, not configurations on KG(5,2).",
+          "The accessible abstract of the strict-optimal-rubbling paper concerns a strict-only move rule. Its full text could not be read."
+        ],
+        "reasoning": "An optimum for these other families does not include the Petersen result. Strict-only moves are a subset of the allowed moves here, so access to a strict number or strict optimizer would not by itself classify all optima allowing both moves. The full article is not declared non-covering.",
+        "searches": [
+          "arXiv:1411.0923 abstract and scope, Optimal Rubbling Number of Ladders, Prisms and Möbius-ladders",
+          "Strict optimal rubbling of graphs, DOI 10.1016/j.dam.2023.04.018"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary identification of the exact assigned record",
+        "Belford–Sieben Proposition 9.2(d)",
+        "Belford thesis abstract and Theorem 2.22",
+        "Katona–Papp abstract",
+        "Strict optimal rubbling of graphs abstract and access attempt"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The proof says every vertex is reachable by stacking four pebbles on any vertex and that three are insufficient; it does not rule out other distributions of weight four.",
+          "For the ordinary game those stacks also work because the Petersen graph has diameter two. Since ordinary moves are included in rubbling, the rubbling lower bound implies the same ordinary optimum."
+        ],
+        "reasoning": "Credit both thresholds and ten stacked examples. The known argument does not decide whether any additional stacks of smaller multiplicities, mixed supports or singleton forests work at total weight four, nor their multiplicities and symmetries.",
+        "searches": [
+          "Belford–Sieben, arXiv:0707.4256, §9 Proposition 9.2(d), ar5iv offset 31600 and following"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The directly matching Resultary hit is the assigned record itself.",
+          "Belford–Sieben prove the optimal rubbling minimum is four; Belford's thesis gives the universal rubbling number five."
+        ],
+        "reasoning": "A labelled configuration is a multiplicity vector on the disjointness graph of two-subsets, not an orbit representative or a requirement to cover all vertices simultaneously. The universal all-distributions threshold and the least weight admitting some solution are different questions; neither is an equivalent optimizer census.",
+        "searches": [
+          "Local Resultary match: SCOPE-the-175-optimal-rubbling-distributions-of-the-petersen-graph--64b630ee0a57",
+          "Belford and Sieben arXiv:0707.4256 §9, Proposition 9.2(d)",
+          "Belford 2006 thesis, abstract and Theorem 2.22"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No distinct directly overlapping table was identified by the bounded catalogue check; the exact 175/10 hit has the frozen record's same ID.",
+          "The inspected thesis passage is a proof of rho(P)=5, not a weight-four table."
+        ],
+        "reasoning": "To cover this claim a table must specify all individually solvable weight-four distributions, or equivalent orbit data sufficient to reconstruct the counts and geometries, under the combined standard and strict moves. A table of minima or universal rubbling numbers has no such information.",
+        "searches": [
+          "Local Resultary catalogue statement for the Petersen optimal rubbling census, 175 labelled distributions and 10 ordinary pebbling",
+          "Belford thesis Petersen section, Theorem 2.22"
+        ]
+      },
+      "rationale": "The equal minimum of four is antecedent, not a new result, and the known stacked construction already supplies ten successes. The supported distinct result is the complete labelled optimizer census and geometry, with exact ordinary-pebbling exclusivity and natural orbits. None of the compared statement-level evidence gives this classification.",
+      "residual_risks": [
+        "The strict-only article's full text and unindexed catalogues portend possible Petersen-specific overlap not established by current evidence. The pass is scoped to the distinct optimizer classification, not to the known four-pebble threshold."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers optimal threshold and stacks, not census",
+          "evidence": [
+            "The proof states the four-stacked construction and excludes only three pebbles."
+          ],
+          "identifier_or_url": "https://ar5iv.labs.arxiv.org/html/0707.4256",
+          "material_read": "§9, Proposition 9.2(d) and proof, HTML extraction offset 31600 onward",
+          "method": "Open rendering of the primary preprint; direct passage inspection",
+          "title": "Rubbling and Optimal Rubbling of Graphs",
+          "trigger": "Exact Petersen optimum and exhibit in the antecedent"
+        },
+        {
+          "assessment": "Different universal parameter",
+          "evidence": [
+            "Abstract distinguishes any versus some; theorem proves universal rho(P)=5."
+          ],
+          "identifier_or_url": "https://in.nau.edu/department-mathematics-statistics/wp-content/uploads/sites/377/2018/08/belford-ek.pdf",
+          "material_read": "Abstract, offsets 0 and 1650; Theorem 2.22, printed p. 14/PDF p. 20, offset 38500",
+          "method": "University-hosted OA PDF, bounded passages",
+          "title": "Graph Rubbling: An Extension of Graph Pebbling",
+          "trigger": "Earlier same-object primary thesis"
+        },
+        {
+          "assessment": "Abstract's stated families and theorem objective do not cover this census",
+          "evidence": [
+            "The stated results concern optimal numbers of the three named families; a keyword miss is not an exhaustive absence check."
+          ],
+          "identifier_or_url": "https://ar5iv.labs.arxiv.org/html/1411.0923",
+          "material_read": "Title and abstract, offset 0; a Petersen locate returned no match",
+          "method": "Open primary text scope check",
+          "title": "The Optimal Rubbling Number of Ladders, Prisms and Möbius-ladders",
+          "trigger": "Possible family-level coverage"
+        },
+        {
+          "assessment": "Unresolved risk for specific finite results in the body",
+          "evidence": [
+            "The abstract describes an optimum using strict moves only."
+          ],
+          "identifier_or_url": "https://www.sciencedirect.com/science/article/pii/S0166218X23001476",
+          "material_read": "Bibliographic information and accessible publisher abstract, not body or appendix",
+          "method": "Publisher abstract; lawful OA and web retrieval attempts returned 403",
+          "title": "Strict optimal rubbling of graphs",
+          "trigger": "Closest additional topical prior candidate"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen occupancy and induced-support tables, RESULT.md lines 6–28",
+        "Belford–Sieben Proposition 9.2(d)",
+        "Independent replay of all configurations"
+      ],
+      "rationale": "The Petersen graph is a canonical benchmark and both games already share the same minimum. Counting which placements work, not just the minimum resource budget, isolates exactly the change caused by strict moves: 165 previously infeasible distributions become feasible, 90 with every pebble separate. The support-geometry rule makes the exact census useful for comparing placement flexibility and testing move models; it is not merely a restatement of the optimum.",
+      "residual_risks": [
+        "The comparison is a finite result for KG(5,2) only, not a claimed trend in other graphs."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

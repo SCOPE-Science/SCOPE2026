@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T13:09:06.916585Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–61 and 69–95; VERIFICATION.md lines 19–27",
+        "Fresh computation /workspace/branches/54f639a9-cd45-40c6-901e-d684e7b9409b/fresh_enum.py and fresh_enum.out in the same directory. Literal sets of scattered-subsequence tuples, not greedy arches, agreed with the series on all words for q=2, n≤8 (17 words); q=3, n≤9 (1,534); q=4, n≤8 (13,121). Shortest counts for q=3 were 6, 24, 96 and for q=4 were 24, 432."
+      ],
+      "rationale": "The last first-appearance letter of each greedy arch, followed by a letter missing from the residual suffix, constructs a missing subsequence of length one more than the arch count: each selected occurrence is forced at least as late as the corresponding arch boundary. Conversely every requested subsequence of length equal to the arch count embeds. In a nonempty prefix the admissible extension counts depend only on the seen-set cardinality s (s−1 repeat choices, q−s discovery choices, with separate reset state). Eliminating the continuation equations gives R1=Hq+uCqR0, R0=1+(q−1)zR1 and Fq=1+qzR1, yielding the stated numerator and denominator. Equality at length qk forces k permutations; each but the first has (q−1)(q−1)! possible orders. For q≥3 extra letters can alternate between already seen letters before the final discovery, or occur in a two-letter suffix if k=0. For q=2 all words alternate. Conditional discovery hazards depend only on s, so the geometric stages and whole arch lengths are independent, with the first arch having the same law as later arches. Renewal inversion gives the stated a.s. density and CLT coefficient; at q=3 the moments are 4 and 2, giving 1/32.",
+      "residual_risks": [
+        "The replay tests finite counts, not the infinite-domain identity or the limit laws. The proof is for fixed q, labeled letters, and the full alphabet."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Adamson et al. provide generic counting/ranking algorithms for k-universal accepted words. The same-day window-injective theorem assumes q>d≥2. The composition-refined same-day record handles unrestricted words."
+        ],
+        "reasoning": "A DFA can impose adjacency-distinctness in the generic algorithm, but the inspected statements do not evaluate the all-q bivariate series, support or fluctuation constant. Unrestricted composition does not encode adjacent pair inequalities; the window-injective formulas require extending the stated scope, not merely instantiating allowed parameters.",
+        "searches": [
+          "arXiv:2311.10658v1 regular-language counting and ranking; Resultary fadaaa7a3670 and c0ddaebe8d2f"
+        ]
+      },
+      "checked_sources": [
+        "Resultary fadaaa7a3670 and c0ddaebe8d2f",
+        "arXiv:2003.04629v1, 2304.04583v1, 2311.10658v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Greedy arches and unrestricted counting were known; one-arch length is a loopless complete-graph cover time. The radius-d renewal formulas have μ=d+r H_r and variance r²H_r^(2)−rH_r, algebraically matching the frozen moments at d=1."
+        ],
+        "reasoning": "The SLLN and CLT themselves are standard once the iid arch law is shown; the model-specific renewal identification and exact evaluated joint census carry the contribution. An ordinary cover-time expectation or a general counting algorithm does not by itself give the full exact index census and its sharp support.",
+        "searches": [
+          "Primary-literature search on loopless-complete-graph coupon collection and renewal arch counts; arXiv:2003.04629v1, 2304.04583v1, 2311.10658v1; Resultary fadaaa7a3670 proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Barker et al., Proposition 10, identifies the universality index with greedy arch count; Resultary fadaaa7a3670 Finding gives the general-radius formula on d≥2."
+        ],
+        "reasoning": "Radius one is exactly adjacency-distinct. At d=1 and r=q−1, B_r=C_q, H_r=H_q (change t=j−1), and P_{r,1}=1. Bringing the result over a common denominator yields the exact frozen GF. The same-date comparison is mathematically exact as a specialization of the displayed expression, but the actual theorem's domain and priority differ from an earlier covering theorem.",
+        "searches": [
+          "Resultary: subsequence universality in adjacency-distinct / window-injective words; arXiv:2003.04629v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The window result gives q!(r^d r!)^(k−1) and exact enumerators in its domain; the composition record supplies counts for a different sample space. No separate exact earlier coefficient table for this labeled adjacency-constrained index distribution was identified in the inspected results."
+        ],
+        "reasoning": "The all-size symbolic distribution is the invariant checked here, not just the ternary/quaternary shortest values or an unlabeled word count. The formal d=1 match is recorded without inferring same-date order.",
+        "searches": [
+          "Resultary fadaaa7a3670 and c0ddaebe8d2f, exact GF and shortest counts"
+        ]
+      },
+      "rationale": "Credit the specific evaluated length–index census for the adjacency-distinct language and its support and renewal consequences, not greedy arches, generic regular-language counting, or the single-arch cover-time moment. The strongest algebraic match is same-date Resultary fadaaa7a3670: its formulas and arguments extend to radius one, but the theorem explicitly excludes radius one and the discussion distinguishes its separate enumeration. This is material mathematical overlap, not evidence of earlier publication or of an earlier theorem covering the frozen domain. No earlier statement or mechanically covering earlier stronger result was established in the inspected material.",
+      "residual_risks": [
+        "No primary passage specific to the repeated cover-time renewal CLT for the no-repeat walk was located. The literature search was bounded and included irrelevant returns; this is not evidence of absence.",
+        "Priority within the same date is unresolved, and generic counting papers were not exhaustively inspected."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact algebraic match when extended to d=1; explicit d≥2 scope; same-day ordering unknown",
+          "evidence": [
+            "The prior-work section says radius one has separately been enumerated and restricts its own claims to radius at least two. Setting d=1 in the expressions gives the frozen result, including the r=1 deterministic boundary."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-uniform-renewal-enumeration-of-window-injective-subsequence-univ--fadaaa7a3670/RESULT.md",
+          "material_read": "Finding/scope at offset 0; proof Steps 4–5 at 6400; prior-work qualification at 9180 ff.",
+          "method": "Resultary search and local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Uniform renewal enumeration of window-injective subsequence-universal words",
+          "trigger": "Strongest potential exact generating-function and renewal coverage"
+        },
+        {
+          "assessment": "Related objects, not adjacency-distinct coverage",
+          "evidence": [
+            "The count conditions on composition, not allowed neighboring letters."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-composition-refined-enumeration-and-type-laws-for-subsequence-un--c0ddaebe8d2f",
+          "material_read": "Finding on composition-refined counts and fixed-composition law",
+          "method": "Local mirror",
+          "title": "Composition-refined enumeration and type laws for subsequence universality",
+          "trigger": "Same-date exact index enumeration and limits"
+        },
+        {
+          "assessment": "Exact arch characterization, not the constrained distribution",
+          "evidence": [
+            "Universality index equals the greedy arch count."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2003.04629v1",
+          "material_read": "Proposition 10, p. 9, offset 27600",
+          "method": "OA PDF passage",
+          "title": "Scattered Factor-Universality of Words",
+          "trigger": "Base characterization of the statistic"
+        },
+        {
+          "assessment": "Inspected material gives unrestricted counting, ranking and unranking",
+          "evidence": [
+            "No adjacency constraint in the stated counting problem."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2304.04583v1",
+          "material_read": "Abstract, offset 0",
+          "method": "OA PDF abstract inspection",
+          "title": "Ranking and Unranking k-subsequence universal words",
+          "trigger": "Potential exact universality counts"
+        },
+        {
+          "assessment": "Generic algorithmic coverage in inspected statement, not an evaluated symbolic formula or a whole-text exclusion",
+          "evidence": [
+            "The counting/ranking problems apply to accepted k-universal words of a regular language, a class encompassing adjacency-distinct words."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2311.10658v1",
+          "material_read": "Abstract, offset 0; attempt to inspect theorem passages timed out",
+          "method": "OA PDF inspection and bounded follow-up attempt",
+          "title": "k-Universality of Regular Languages",
+          "trigger": "Broader method potentially covering the constrained counting problem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md equations (1)–(4) and proof Steps 2–5",
+        "Resultary fadaaa7a3670 scope comparison, arXiv:2311.10658v1 abstract"
+      ],
+      "rationale": "The exact bivariate census answers how many labeled proper words of each length realize a given universality level, rather than just giving an algorithm or a first moment. The proof exposes a small symmetric state space and yields a genuine change from rigid support at q=2 to full support for q≥3, together with explicit random fluctuations. These are natural enumerative and probabilistic invariants of a standard word class.",
+      "residual_risks": [
+        "The stochastic limit machinery and individual cover-time moments are not new; scientific credit rests on the constrained distribution and its structure."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

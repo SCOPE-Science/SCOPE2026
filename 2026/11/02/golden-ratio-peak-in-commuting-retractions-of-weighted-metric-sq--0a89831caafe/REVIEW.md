@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS (self-review).** Every penultimate retraction fixes three vertices and sends the fourth to one of three fixed points. The nine possibilities, grouped by which vertex is omitted, give only \(b/a\), \(1+a/b\), or \(1+b/a\), proving the universal lower bound for all orders and all possible commuting maps. The explicit filtration \(O,X,Y,Z\) attains the minimum using two compatible choices for the third retraction. The phase peak follows by comparing the two monotone functions of \(b/a\). Exact-rational enumeration on the actual standalone checker corroborates all admissible maps at 212 parameter pairs; it is not a substitute for the proof over arbitrary real weights.
+PASS
 
-## Originality
+The penultimate map collapses exactly one vertex. Translate that vertex to (0,0) by flipping coordinates. Collapsing it to its diagonal opposite gives worst ratio b/a (the two incident edges give b/a and a/b); collapsing it across the short edge gives 1+a/b (the incident long edge maps to a diagonal); collapsing across the long edge gives 1+b/a. The other pairs are fixed or give smaller ratios. Thus no ordering can beat min{b/a,1+a/b}. Order O,X,Y,Z as in the record: the second map fixes O and X and sends Y,Z to O. It is nonexpansive on all four cycle edges and hence on their shortest-path metric. The penultimate map can send Z to O or Y at the two desired costs, and both images are in the same second-map fiber as Z, proving commutativity. Constant and identity maps cause no restrictions. The branch switch at b/a=phi and the nonexpansive condition b=a follow exactly. This symbolic argument, not sampled weights, proves the real-parameter result.
 
-**PASS (provisional self-review).** Full text of Hájek–Medina (arXiv:2112.03095) was examined for its commuting retraction framework and net construction. Publicly readable full text of Novotný (arXiv:1905.13188), particularly the graph-circle definition and large-radius lower-bound theorem, was examined. Neither provides an exact formula for the four-vertex alternating-weight square. Semantic searches of the indexed mathematical-findings catalogue were run for weighted four-cycles, commuting prefix maps, and the proposed formula. Indexed closest records concerned interpolation into free \(p\)-spaces, numerical indices of weighted cycles, or coordinate projection norms of transportation spaces; these are different invariants. Some linked record full texts were not accessible, and obscure earlier equivalent formulas are a residual bibliographic risk.
+## originality
 
-## Value
+PASS
 
-**PASS (self-review).** The four-vertex square is the smallest cyclic coordinate product and the isotropic limit of unit-edge Hamming-square filtrations. The result gives a complete sharp anisotropic profile, shows that any nonzero imbalance destroys commuting nonexpansiveness, and locates a unique nonmonotone peak at the golden ratio. These distinct geometric regimes motivate the exact invariant beyond isolated finite enumeration; no implication for arbitrary Schauder bases is claimed.
+Credit the common definition, linearization and exact unweighted value to the matched material. The distinct mathematical content is the optimal constant at unequal weights, including the switch between two minimizing collapses. Neither the unweighted exact results nor the available broader existence bounds determine it. This is a best-of-knowledge judgment, not priority certification.
 
-## Closest sources and limitations
+## value
 
-Theorem 5 in Novotný applies to substantially larger unweighted centered circles. Hájek–Medina establish retractional structures and quantitative estimates for nets rather than exact small weighted cycles. Unavailable full texts of potentially related indexed records and unindexed literature leave originality short of independent validation. The claim is restricted to four vertices, alternating edge weights, and commuting point retractions.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is the basic two-coordinate test for sharp constants of commuting point retractions on weighted products. Unlike the unit-weight binary case, every positive unequal weighting forbids a nonexpansive filtration, even though the optimum tends back to 1 as the anisotropy grows. The exact bottleneck and the change of optimal collapse give a usable sharp obstruction for this class of metrics, not a claim about arbitrary Schauder bases. The golden-ratio value is a consequence of the invariant, not the reason for its value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

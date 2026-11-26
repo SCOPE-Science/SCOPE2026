@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:40:04.452245Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The PMF telescopes to one and is the unit-bin floor law, with a_0=0. For alpha<=1 the positive parent density strictly decreases, giving strict mass decrease. For alpha>=1 both the log-sech-squared term and the nonnegative multiple of log-tanh give a strictly concave log density. In RESULT.md:57–65, the two interior arguments are strictly inside the same outer interval and their sum equals the sum of the extremes; strict concavity therefore survives integration over both offsets and gives strict discrete log-concavity. The increasing likelihood ratio f_beta/f_alpha integrated over neighboring bins makes each successive mass ratio strictly increasing in alpha, from below 1 at alpha=1 to infinity. Log-concavity then orders the crossings strictly. Independently, for k>=1 divide the crossing by a_{k+2}^alpha: the equation is 1-2r+r^v=0 with r=(a_{k+1}/a_{k+2})^alpha and v=(log a_{k+2}-log a_k)/(log a_{k+2}-log a_{k+1}). The expansion log a_j=-2q^j+O(q^{3j}) gives v=1+1/q+O_theta(q^{2k}) and q^{-k}log(a_{k+2}/a_{k+1})=2q(1-q)+O_theta(q^{2k}). The nontrivial root of the limiting strictly convex function is simple since the function is negative just below 1 and positive at 0. Smooth dependence near that root yields the stated C_q and error. Divergence of the ordered thresholds now gives the complete global mode and tie classification. The supplied checker was read, not run; separate bounded floating-point evaluations reproduced the four theta=1 displayed numbers. Neither the numerics nor the proof assert rate-uniformity.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The available summary of 2026/11/22/SCOPE-likelihood-ratio-ordering-and-sharp-discretization-bias-for-two--85698de6e3a0 describes likelihood-ratio ordering and comparisons of two discretizations, with no explicit limiting modal threshold in the summary.",
+          "Continuous-family results concern a parent density; classical log-concavity and likelihood-ratio monotonicity supply the qualitative tools."
+        ],
+        "reasoning": "Those tools are not credited as new. Even the continuous mode arcosh(alpha)/theta only localizes the discrete mode within a bounded number of bins; it does not identify the exact crossing constant of fixed-width bin masses or its scaled error.",
+        "searches": [
+          "DOI:10.1080/00949655.2015.1031233",
+          "Resultary: likelihood-ratio ordering and sharp discretization bias for two half-logistic count laws"
+        ]
+      },
+      "checked_sources": [
+        "Resultary catalogue summaries and exact self-match",
+        "Barbiero–Hitaj DOI landing metadata and cited descriptions",
+        "Frozen RESULT.md, VERIFICATION.md and checker.py (read-only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior model and example as described in frozen RESULT.md:99–111 overlap the PMF and an initial crossing; the catalogue distinguishes discretization comparison and density-mimicking crossover."
+        ],
+        "reasoning": "Having the CDF makes it possible to write the tie equation, but does not establish sole positive crossings, their strict order and divergence, or the simple-root tail estimate. The available statements do not imply that package; the full related records were not accessible.",
+        "searches": [
+          "DOI:10.1007/s10479-023-05807-3 Sections 3–4",
+          "DOI:10.1007/s41096-024-00185-w Section 5",
+          "Resultary exact model and related discretizations"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The unit-bin survival-preserving law is the integer part of the generalized continuous variable, and for integer alpha it is the binned maximum of alpha half-logistic draws.",
+          "Closest different catalogue claim: 2026/11/22/SCOPE-a-sharp-likelihood-ratio-crossover-in-density-mimicking-generali--faa9d0caf98a concerns density-mimicking masses, not the adjacent increments of the powered CDF."
+        ],
+        "reasoning": "The powered-CDF and integer-part formulations lead to the same tie equation. Density sampled at integer sites and renormalized is a different PMF; its modal cutoffs need not satisfy the increment equation.",
+        "searches": [
+          "Resultary: type-I generalized discrete half-logistic, modal staircase, alpha crossings and C_q",
+          "DOI:10.1007/s10479-023-05807-3",
+          "DOI:10.1007/s41096-024-00185-w"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The frozen comparison records a theta=1 first-bin tie near alpha=1.3874 in the originating article. The matching exact all-index catalogue hit is the assigned record, not an independent table. Other decimals in the frozen RESULT are illustrative."
+        ],
+        "reasoning": "The reported first tie is covered and not presented as a priority claim. It cannot determine a sequence of strictly ordered thresholds for all rates or its quantified limit.",
+        "searches": [
+          "Resultary: exact half-logistic modal thresholds and high-index tail constant",
+          "DOI:10.1007/s10479-023-05807-3 Section 4 and figures as cited"
+        ]
+      },
+      "rationale": "Credit the PMF, its one-parameter shape and the known first-tie example to Barbiero–Hitaj, and the general ordering tools to standard theory. The supported distinct claim is the complete strict all-index classification for this bin law together with the explicit and quantified tail crossing. No covering statement was found in available material; historical priority is not certified.",
+      "residual_risks": [
+        "Decisive primary and related mirrored full-text passages were not accessible after bounded attempts; this leaves unverified finer overlap.",
+        "Older continuous-family and generic binning results may cover ingredients; no exhaustive priority certification is asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Reported overlap on law and first example; no whole-document exclusion",
+          "evidence": [
+            "Frozen RESULT.md:101, citing §3 and §4; first threshold follows directly from (a_2/a_1)^alpha=2."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s10479-023-05807-3",
+          "material_read": "Landing metadata and frozen RESULT.md:97–109 comparison; primary Sections 3–4 not retrieved",
+          "method": "Compare the stated bin law, alpha=1 shape, and theta=1 first tie to all-index and tail assertions",
+          "title": "Discrete half-logistic distributions with applications in reliability and risk analysis",
+          "trigger": "Exact model and first crossing"
+        },
+        {
+          "assessment": "Different PMF in the available evidence",
+          "evidence": [
+            "Frozen citation to §5 contrasts normalized sampled density with CDF bin increments."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s41096-024-00185-w",
+          "material_read": "Landing metadata and description at frozen RESULT.md:101,110; full text not retrieved",
+          "method": "Compare the reported normalization from sampled density to the floor law",
+          "title": "A Discrete Version of the Half-Logistic Distribution Based on the Mimicking of the Probability Density Function",
+          "trigger": "Same authors and plausible alternative formulation"
+        },
+        {
+          "assessment": "Ingredient overlap and modal cutoff on a different PMF; fine overlap not verified",
+          "evidence": [
+            "Summaries distinguish discretization-bias ordering from the density-mimicking modal result."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-likelihood-ratio-ordering-and-sharp-discretization-bias-for-two--85698de6e3a0; 2026/11/22/SCOPE-a-sharp-likelihood-ratio-crossover-in-density-mimicking-generali--faa9d0caf98a",
+          "material_read": "Resultary summaries; exact mirrored passages not retrieved",
+          "method": "Distinguish same-family ordering from the exact shape transitions of the unit-bin law",
+          "title": "Related half-logistic ordering and density-mimicking crossover results",
+          "trigger": "Possible same-day broader treatment of the same count laws"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Which count value is most probable is a natural shape question for this named PMF. A complete no-skip and adjacent-tie rule determines it for all parameters, while the fixed-rate limit locates the large-index boundaries on the exponential scale more precisely than a continuous mode approximation. This goes materially beyond the known isolated tie and does not claim estimation, hazard, or uniform-rate consequences.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

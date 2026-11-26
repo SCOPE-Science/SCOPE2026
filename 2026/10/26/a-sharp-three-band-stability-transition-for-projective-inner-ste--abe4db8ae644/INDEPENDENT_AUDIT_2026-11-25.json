@@ -1,0 +1,81 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:52:35.070585Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The published tableau gives, in the signed inner Euler coordinate z=1−λx, R=z[1+c(z²−1)] with c=(1−λ)/(2λ)>0. For z<−1 it gives R<−1. On [−1,1] the two inequalities reduce to 1+c z(z−1)≥0 and 1+c z(z+1)≥0. Their minima are 1−c/4, attained at z=±1/2. At c>4 their negative intervals lie in different halves, giving the claimed disjoint gaps and endpoints; at c=4 the amplifier is 4z³−3z and has the two interior neutral modes; at c<4 every interior mode contracts strictly. Mapping back and expanding the discriminant gives the claimed widths and asymptotics. The independent exact-rational stage replay is `python3 /workspace/independent_checks.py 4`; the proof, not that grid, handles the continuum. The frozen checker uses floating-point band cutoffs for some predictions, though the amplification values are rational. The opening reference to damping must be read as weak stability at the threshold and at the two outer endpoints, as stated precisely in the theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Eq. (118) gives the general RK stability-function construction and |g|≤1 criterion. The same section discusses the separate slow/fast cluster objective and telescopic methods for connected regions; it does not give a theorem on this cubic family."
+        ],
+        "reasoning": "A universal way to compute an amplification polynomial is prior methodological coverage. It does not give the connectivity threshold for the entire one-parameter PISV family or exclude stable points beyond 2/λ.",
+        "searches": [
+          "arXiv:2210.08302, §6.2, Eq. (118) and discussion on pp. 26–28",
+          "Resultary: projective RK and exact negative-real-axis stability bands"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2210.08302, §§4.3 and 6.2",
+        "DOI:10.1016/j.cam.2024.116147 (index identity with the originating method paper)",
+        "Resultary exact/alias lookups"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Substitution into Eq. (118) would give exactly the underlying cubic. The original plots and prose describe stabilizing the fast cluster without computing the two quadratic minima controlling the real-axis change."
+        ],
+        "reasoning": "The amplification function is mechanically determined by the paper; the distinct claim is its global sharp stability phase diagram. Establishing it requires analyzing both sign constraints with their endpoints, not just transcribing a published region or substituting parameters into a broader solved one.",
+        "searches": [
+          "arXiv:2210.08302, Eqs. (96), (118), and Fig. 9(c)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The strongest match is the same originating paper, also indexed as DOI:10.1016/j.cam.2024.116147. Eq. (96) gives exactly the frozen stages. The bounded catalogue lookups returned no distinct materially matching finding."
+        ],
+        "reasoning": "Using x, the Dahlquist argument −x, or the inner Euler factor 1−λx describes the same object. The paper's scalar test and the frozen solved region must not be confused; the latter adds the full closed-form parameter classification.",
+        "searches": [
+          "Resultary: PISV/projective inner-step-size variation; negative-real three-band stability, λ=1/9 and neutral modes",
+          "Literature: PISV exact real-axis stability",
+          "arXiv:2210.08302, Eq. (96), §6.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Fig. 9(c) plots PISV stability and marks the modal clusters; the discussion compares POSV and PISV. Eq. (96) is a coefficient tableau, not a table of exact real-axis cutoffs. No tabulated parametric classification was identified."
+        ],
+        "reasoning": "A stability plot at illustrated parameters is not a formula for all endpoints, both gaps or the critical neutral points.",
+        "searches": [
+          "Resultary: exact three-band bounds and transition ratio",
+          "arXiv:2210.08302, §6.2 and Fig. 9(c), pp. 27–29"
+        ]
+      },
+      "rationale": "Only the complete quantitative real-axis classification passes, not the method, scalar stability criterion, or qualitative existence of separated stable regions. The closest prior work determines the polynomial implicitly by its tableau and RK formula, but does not solve the two parameter-dependent inequalities. The sign analysis that produces the exact topology, endpoint and neutrality classification is a short further calculation, not a specialization of a prior classification theorem found in the checked texts.",
+      "residual_risks": [
+        "A separate exact treatment under another integrator name or additions to the journal edition could overlap. The search is bounded and does not establish priority. The cubic itself and qualitative fast-mode stability are prior work."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the method, the general stability construction and qualitative region, not an explicit or stronger solved band theorem in the checked sections.",
+          "evidence": [
+            "Corrected tableau (96) weights λ, 0, 1−λ and inner nodes 0, λ, 1.5λ; Eq. (95) extrapolates over Δt−2δt; Eq. (118) gives general g; Fig. 9(c) marks fast/slow clusters and no exact ratio is given by its discussion."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2210.08302",
+          "material_read": "§4.3 and Eqs. (94)–(96), pp. 20–21; §6.2 including Eq. (118) and the Fig. 9(c) discussion and caption, pp. 26–29 (text offsets 70900, 89500, 91600, 96034).",
+          "method": "Read bounded primary PDF passages and compared stages, observable and stated conclusions; compared the journal index identifier without presuming identical final typesetting.",
+          "title": "Projective Integration Methods in the Runge-Kutta Framework and the Extension to Adaptivity in Time",
+          "trigger": "Originating PISV scheme and direct study of its stability region."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a complete classification for a naturally motivated published stiff integrator, not an isolated cubic evaluation. It tells when any spectrum inside the inner Euler interval is weakly stable, when interior modes actually decay, and which spectral gaps are required otherwise. The critical neutral exceptions and diverging small-ratio gap widths are concrete benchmarks. The value is restricted to the real scalar spectrum, not general complex, nonlinear or nonnormal stability.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

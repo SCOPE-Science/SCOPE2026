@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:26:12.220104Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Assumptions, Proof and cited Theorem 1",
+        "Frozen check_bfs.cpp, check_floyd.py, check_orbits.py, verify_independent.py, accompanying TSVs, orbit_output.txt, verify_py.out and VERIFICATION.md (source and recorded results inspected; frozen scripts not executed)",
+        "/workspace/checks/01.py and /workspace/checks/01.log (independent replay: python /workspace/checks/01.py)",
+        "Iqbal et al. DOI 10.1155/2022/6490698, restricted theorem as reported in the frozen RESULT.md and AUDIT.json; independent retrieval limits below"
+      ],
+      "rationale": "In the defined four-layer graph every vertex has one same-index neighbour and neighbours at the two adjacent indices, staying in its outer layer or swapping the two inner layers. For n≥3 this gives 4n vertices, distinct unordered edges, degree three and 6n edges. The graphs in the finite claim are connected. In an independent reproduction I formed shortest-distance layers, built a bitset for each landmark of the unordered edge pairs it fails to distinguish, and intersected the sets for every unordered pair, triple and four-set of landmarks. Empty intersections give exactly zero resolving pairs, triples only at n=10 (160), and four-set counts 141, 224, 590, 1644, 2380, 7536, 5202, 21600, 11308 and 42768. All stated witnesses resolve. Monotonicity excludes sizes below two and makes these minima 3 at ten and 4 at each other tested index. Checking all 40 shift/reflection/layer-swap permutations against the actual edge set and applying them to the six displayed triples gives disjoint sets of sizes 20,20,40,20,40,20 in representative order, exactly exhausting the resolving triples. The all-index corollary is the disjoint union with Iqbal et al., Theorem 1 on n≥13 as cited; the independent finite replay does not prove that tail. That primary theorem's full passage and exact graph definition were not independently recovered, so tail scope is taken from the specific citation and excerpts in the frozen evidence, not represented as an independently verified proof.",
+      "residual_risks": [
+        "The cited infinite tail is not independently reproved; the finite data do not extrapolate to higher n.",
+        "Only the generated size-40 subgroup is used for the orbit count. At n=10 the four-sets counted are resolving sets, not minimum bases."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The frozen source inspection identifies §4 Theorem 1 with n≥13 and the 2 mod 4 upper bound as Lemma 4 with n≥14; accessible primary metadata/snippets did not expose those full passages.",
+          "A related 2023 article is on Wiener polarity and Wiener index; frozen evidence identifies its Theorems 2.1–2.3 as distance-index formulas."
+        ],
+        "reasoning": "The earlier theorem covers the entire tail asserted as old. An upper bound for residues above a size restriction cannot settle the excluded initial orders. Summing distances or counting pairs at given graph distances does not establish simultaneous injectivity of edge signatures.",
+        "searches": [
+          "Resultary: edge resolving sets DGP(n,1) all indices Iqbal theorem 1",
+          "Primary literature: 6490698 n≥13; also the later same-family Wiener-index paper DOI 10.1016/j.jksus.2023.102680"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 41c380ebfefc (same record) and b7d281814c53",
+        "Iqbal et al. DOI 10.1155/2022/6490698 metadata/snippets plus frozen Theorem 1 and Lemma 4 scope inspection",
+        "DOI 10.1016/j.jksus.2023.102680 metadata and recorded comparison"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "On the cited theorem's n≥13 domain the claimed rule is prior work and is expressly credited.",
+          "In the frozen graph at n=6 neither any pair nor any triple resolves and 1644 four-sets resolve. Thus the abstract-style parity extrapolation to every n≡2 mod 4 would be false here."
+        ],
+        "reasoning": "The finite completion is not a mechanical restriction of a more general valid rule. Even if one guessed dimension three at ten from the abstract, that would neither validate it at all excluded orders nor imply the exact generator counts and symmetry classes.",
+        "searches": [
+          "Compare Iqbal et al. Theorem 1 and Lemma 4 as cited, the less-qualified abstract residue rule, and the finite computed obstruction at n=6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The known problem uses distance from a landmark to the nearer endpoint; a resolver can equivalently be described as a vertex set hitting every distinguishability set of an unordered edge pair.",
+          "The published record 41c380ebfefc returned by the search is the assigned record itself. b7d281814c53 instead concerns ordinary generalized Petersen P(n,3) and also reports 160 optimal sets at ten."
+        ],
+        "reasoning": "Renaming edge resolving sets as edge-metric generators or using the pair-cover formulation does not make a new invariant. The numerical match for P(10,3) cannot furnish the target count: the ordinary graphs have 2n vertices, whereas the frozen double graphs have 4n.",
+        "searches": [
+          "Resultary: On the Edge Resolvability of Double Generalized Petersen Graphs; DGP(n,1) edge metric dimension n=10 160 resolving triples six orbits",
+          "Iqbal, Rafiq, Azhar, Salman and Khalid, DOI 10.1155/2022/6490698"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact target table is retrieved only in the matching self record. b7d281814c53 summary counts bases in the ordinary P(n,3) graphs, not double graphs.",
+          "Frozen AUDIT.json lines 76–89 characterize the 2022 paper's relevant tables as part of its upper-bound proofs, not an initial-order generator census; not independently inspected in this review."
+        ],
+        "reasoning": "A theorem stating the minimum gives neither its multiplicity nor the selected-group orbit decomposition. A table in a different graph family does not cover the exact landmark census, even if one entry coincides.",
+        "searches": [
+          "Resultary: double generalized Petersen graph resolving triples four-set counts n=3 to 12; exact 160 triples and six orbits",
+          "Compare Iqbal Article 6490698 §§3–4, tables as described by the frozen inspection, and Resultary b7d281814c53"
+        ]
+      },
+      "rationale": "Credit the published parity-tail law rather than calling it new. The supported distinct work is the resolved initial range, in particular the tested failure at six and the first onset at ten, plus the exact small-set counts and six specified-subgroup orbits. The corresponding primary paper is highly relevant and excerpts in the frozen evidence identify its restricted theorem; lawful attempts did not recover its full text independently. The scope evidence and actual finite counts do not warrant treating the unqualified abstract parity pattern as a theorem for all orders. No accessible independent exact initial census was found; this is not a blanket priority claim.",
+      "residual_risks": [
+        "The complete 2022 article remained inaccessible in independent retrieval, preventing independent inspection for an earlier separate finite table. The frozen theorem scope is specific evidence, not a statement about every section of that paper.",
+        "An unindexed thesis, computational database or exact census using an alternate graph name remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Attributed tail coverage; information on finite coverage independently limited by access",
+          "evidence": "The recorded full-text scope is Theorem 1 n≥13 and Lemma 4 n≥14 for n≡2 mod 4. Available snippets do not independently resolve the exact theorem text or initial table contents.",
+          "identifier_or_url": "https://doi.org/10.1155/2022/6490698",
+          "material_read": "Independent metadata/indexed excerpts on 3-regular graphs and edge distance; frozen RESULT.md and AUDIT.json excerpts on the primary theorem's scope; primary §3, tables and §4 full passages not obtained independently",
+          "method": "Bibliographic lookup, indexed snippet comparison and attempts at Wiley, legacy Hindawi/OA copies",
+          "title": "On the Edge Resolvability of Double Generalized Petersen Graphs",
+          "trigger": "Exact graph name and invariant, possible coverage by an unrestricted parity theorem"
+        },
+        {
+          "assessment": "Distance indices rather than a known resolving-set theorem",
+          "evidence": "The named outputs are Wiener polarity and Wiener index, not counts of separating sets. Graph-definition consistency there is not used in the correctness argument.",
+          "identifier_or_url": "https://doi.org/10.1016/j.jksus.2023.102680",
+          "material_read": "Bibliographic metadata; precise attribution of Theorems 2.1–2.3 from frozen source inspection",
+          "method": "DOI and publisher retrieval attempt; frozen excerpt comparison",
+          "title": "Wiener polarity and Wiener index of double generalized Petersen graph",
+          "trigger": "Related literature using the same graph family name"
+        },
+        {
+          "assessment": "No implication across different graph families",
+          "evidence": "It gives dimension three at n=9,10 for P(n,3), with counts 18,160 respectively, not DGP(n,1).",
+          "identifier_or_url": "Resultary b7d281814c53",
+          "material_read": "Published-record summary",
+          "method": "Local Resultary query",
+          "title": "The four small-order edge-metric boundaries of the generalized Petersen graphs",
+          "trigger": "Same invariant, overlapping orders and 160 minimum triples at ten"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, parity boundary, witnesses and subgroup classification",
+        "Independent distance and full subset/orbit census"
+      ],
+      "rationale": "The finite range is forced by the break in the published tail, not chosen arbitrarily. The missing cases decide the true first occurrence of three landmarks and invalidate parity extrapolation at six. Counting all small resolving configurations and separating the exceptional optimal triples into complete subgroup orbits adds usable information about sensor choices unavailable from the dimension alone.",
+      "residual_risks": [
+        "The four-set counts are finite and not a higher-index formula; the subgroup classification does not describe the full automorphism action."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

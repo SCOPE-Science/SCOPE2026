@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof explicitly distinguishes strict new records after time one from the eventual *set* of record values. The latter has independent exponential-race indicators with probabilities \(p_i/(p_i+\cdots+p_d)\). Coupling at the first top-category appearance gives the claimed total-variation inequality. Negative quadratic and cubic discriminants are verified by independent exact word enumeration and an exact dynamic recursion; simple-root stability proves eventual Poisson–binomial representability whenever the limiting Bernoulli parameters differ. A finite checker supplements but does not replace those proofs.
+## correctness
 
-**Originality — PASS on the inspected evidence, not a priority certificate.** Lafuente et al. establish eventual record-value indicator independence, Li studies recent-window records, and Tang–Tang provide real-rootedness characterization. The distinguishing contribution here is fixed-horizon failure under iid discrete sampling, explicit open-set rational witnesses, and eventual recovery within the same laws. A separate 2018 record-breaking study concerns iid record events and is not evidence that discrete ties preserve finite-horizon Poisson–binomial structure. The closest published results and accessible mathematical database claims did not directly state or imply the finite-horizon obstruction. The full original PDF of some comparator material was inaccessible; unindexed equivalent examples remain a risk.
+PASS
 
-**Value — PASS.** The exact contrast between finite-horizon non-factorability and infinite-horizon Bernoulli factorability answers a natural finite-observation question in discrete record theory. The first possible sample length for failure is realized (three draws); another obstruction already occurs with four alphabet values at four draws. Negative discriminants establish robust open sets, not an arbitrary near-zero numerical effect, and the coupling and real-root continuity mechanism explains why failure can disappear at sufficiently long horizons.
+In the independent exponential realization of first arrivals, the minimum arrival time of a suffix is independent of its entire rank order: the minimum is independent of the winner, and the residual race conditional on the winner is independent of the minimum time. Thus the event that clock i beats the minimum over j>i is independent of the later suffix record-value events. This proves the Bernoulli-sum law with the stated hazards; the certain top letter contributes one, exactly canceling removal of the initial record. The coupling agrees once letter d appears, giving the TV bound. Independent exact weighted-word enumeration gives (1182,494,52)/12^3 and (2596,1309,186,5)/8^4, with discriminants −455/746496 and −61127/274877906944. These are not Poisson–binomial; the signs persist in open subsets of the positive simplex. Horizons at most two have at most one new record. The distinct hazards in both examples give simple negative limiting PGF roots. Coefficient convergence implies sign changes at the ends of disjoint negative intervals around all d−1 roots for every sufficiently large n; the degree bound and normalization at one then give the Bernoulli factors. This argument does not cover repeated limiting roots. The uploaded verifier was inspected, not run.
 
-**Limitations.** This does not determine minimal alphabet sizes or provide an explicit uniform recovery cutoff. The eventual Bernoulli law is established prior theory, not independently novel. External checks do not rule out every differently named publication.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the infinite-record law and PGF criterion to known work and treat generic recovery as a short consequence of known independence plus the top-letter coupling and root stability. The supported distinct finding is the earliest-horizon strict record-count obstruction, its four-draw counterpart, and the precise contrast with eventual recovery for the same laws. The closest indexed three-draw result concerns occupancy, not records.
+
+## value
+
+PASS
+
+The two small witnesses answer a natural finite analogue of independent eventual record-value indicators. Failure already at the first horizon where it can occur, stability of the counterexamples in the probability simplex, and exact eventual recovery of the same laws explain why a limiting independence claim cannot be read as a fixed-time one. The contribution does not require a time bound or a classification at repeated hazards.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

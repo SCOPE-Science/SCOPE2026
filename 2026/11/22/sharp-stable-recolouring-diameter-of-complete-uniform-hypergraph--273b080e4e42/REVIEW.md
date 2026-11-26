@@ -1,19 +1,21 @@
-# Scientific review: sharp uniform-hypergraph recolouring diameter
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Proper weak hypergraph colourings of the complete \(r\)-uniform graph coincide with colour occupancies at most \(q=r-1\). A no-direct-move sink strongly connected component in the unsettled transfer multigraph cannot be a singleton: all incoming target classes would violate capacity. Summing the occupancy inequalities proves the nontrivial component is isolated and balanced. An Eulerian rotation uses one temporary unused colour, settles every associated token, and permanently completes at least two saturated classes. Disjoint charging yields at most \(\lfloor n/(2q)\rfloor\) temporary moves. The two-full-colour-block construction supplies that many forced non-target moves in every path. Small exhaustive breadth-first searches and independent constructive route testing agree with the formula. The unrestricted conclusion rests on the proof rather than the tests.
+PASS
 
-## Originality — PASS, qualified priority
+For named colours on the complete r-uniform hypergraph, weak properness is exactly the capacity q=r−1 condition, including the vacuous constraint when r>n. In RESULT.md lines 22–46, make all available direct moves to target. At a stall every colour with an incoming arc of the unsettled-current-to-target digraph is full. A singleton sink cannot occur: it would be full of settled vertices yet have an unmet target occupant. In a nontrivial sink SCC each colour is full, so target capacity bounds indegree by outdegree after subtracting settled occupants. Summing the inequalities leaves no entering arcs and forces degree balance. Buffer the first labelled vertex of an Euler tour in an unused colour (available since k≥n+1), process the remaining arcs backwards into the vacancy, and finish the buffered vertex. This costs one non-target move and permanently settles at least 2q vertices, so there are at most floor(n/(2q)) such episodes. For the lower bound (lines 48–50), swap two full private classes in each disjoint 2q block. Before the first move of a block, no vertex can move directly to its still-full target class; hence each block forces its own extra move even on paths using arbitrary other colours. Private singleton colours or a cyclic renaming handle the remainder so every vertex differs between endpoints. This proves the bound, attainability and connectedness, covers q=1 and n=1, and does not infer that n+1 is the least stability threshold. The supplied verification code was inspected, not executed; its finite BFS and routing claims are reported evidence only and do not prove the all-parameter result.
 
-The primary hypergraph result in arXiv:2611.17022v1, Section 7, Lemma 15, provides only bounds \(n\le\operatorname{diam}\le2n-1\), and its Question 18 explicitly asks for stable diameters and stability thresholds. The full manuscript was inspected at the hypergraph section and question. The full arXiv:2412.19695v1 was inspected at the optimal-renaming lemma; it bounds recolouring with fixed colour-class partition and does not assert the all-pairs formula for complete \(r\)-uniform hypergraphs when \(r\ge3\). Related published-claim searches and accessible earlier claims did not identify a dominating theorem. The complete-graph case \(r=2\) and prior renaming technique are acknowledged. Priority risk persists for unindexed occupancy-reconfiguration formulations, so novelty is a best-knowledge claim and independent historical review remains open.
+## originality
 
-## Value — PASS
+PASS
 
-The exact stable diameter is a natural invariant explicitly singled out in the 2026 hypergraph reconfiguration problem. It classifies a uniform hypergraph family for every size and rank, establishes a sharp capacity-controlled transition in the number of compulsory buffer moves, and improves a general coarse interval to equality. It leaves the least stability threshold as a distinct future problem.
+The exact all-pairs upper bound and matching capacity-dependent lower construction for r≥3 are distinct from the known complete-graph value and not supplied by the general hypergraph diameter bounds or common-partition renaming as characterized in the accessible evidence. No evidence of an exact matching capacity theorem was found apart from the identical indexed record. This is not a priority certification.
 
-## Scientific limitations
+## value
 
-The theorem requires at least \(n+1\) named colours and weak properness; no formula is asserted for smaller palettes. Finite checks cannot certify its all-parameter proof. Historical uniqueness and independent audit have not been established.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This determines the exact stable diameter asked for in hypergraph recolouring on a natural family. It identifies and quantifies the sole extra cost needed by the routing proof: one buffer move per isolated stalled group, each consuming at least two saturated classes' worth of vertices. The swap construction shows the cost remains necessary even with arbitrarily many spare colours. This explains the capacity dependence and the transition to diameter n, not just a numerical improvement of the general bounds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

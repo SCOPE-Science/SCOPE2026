@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:27:09.945960Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–68; bound VERIFICATION.md and verify.py inspected as evidence, not executed.",
+        "Independent finite reproduction: /workspace/branches/8bd8f93c-6fb5-46ad-a79f-b692553fba65/record2_graph_check.py and record2_graph_check.txt. Direct flip-graph eigendecomposition for m=1–4, r=2,3 corroborates nullity, zero spectral weight and sampled returns; for (m,r)=(4,2) it gives nullity 18 and R(t_m) about 0.00481 versus bound 0.265625."
+      ],
+      "rationale": "With r>=2 and m>=1 the hub-free flip graph is the Cartesian product of m stars K_{1,r}; the hub state couples only to the vacuum v. Each star has eigenvalues ±sqrt(r) and r-1 zero eigenvalues, and its vacuum sees only the two nonzero eigenvectors with equal weights. Tensoring gives the Laurent-coefficient nullity and the binomial vacuum measure. In the bordered kernel equations Ax+av=0 and <v,x>=0, projection to ker A forces a=0 exactly in the even case, when one peripheral zero direction is removed. In the odd case v is orthogonal to ker A and <v,A^+v>=0 by symmetry of the vacuum measure, so the orthogonal added kernel direction is h-A^+v and its normalization gives the stated hub weight. The proof's 'unique normalized zero vector' is understood as the unique bright direction orthogonal to the dark zero space; arbitrary mixtures with dark vectors can also overlap the hub. For odd m the residual spectral weight is <1/2, giving the all-time lower bound. For even m, with a=sqrt(p_m), z=P_0v/a and D=A^+v, the trajectory cos(at)(h-D)-i sin(at)z has initial error ||D|| and integrated residual ||D|| at pi/(2a); its hub component vanishes there. This proves the stated upper bound, not an exact minimum. The binomial local limit with a uniform central-mass bound allows dominated convergence against k^-2; the two reciprocal-square sums over odd and nonzero even k are pi^2/4 and pi^2/12. Stirling gives the claimed m^(1/4) time scale. The proof covers m=1 and fixed r in the asymptotic statements.",
+      "residual_risks": [
+        "The finite spectrum and return tests use floating point and do not replace the exact proof. No robustness claim for detuning or noise is certified."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Zhao et al. p. 1 passage describes constrained independent-set diffusion in a PXP model; Buijsman p. 1 concerns zero-mode lower bounds on open and periodic chains."
+        ],
+        "reasoning": "The general walk correspondence supplies the starting representation, not its kernel rank or local weight; the chain bounds neither subsume the windmill geometry nor compute its survival.",
+        "searches": [
+          "Zhao et al., arXiv:2310.14546v5",
+          "Buijsman, arXiv:2203.09264v3",
+          "Resultary: clique-windmill flip graph"
+        ]
+      },
+      "checked_sources": [
+        "Resultary cf25330ffafd (self), 98054346bc89, 4482b9215eb1",
+        "arXiv:2112.06885v3, 2310.14546v5, 2203.09264v3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The former yields local spectral information for a cube amalgamation; the latter yields PXP deformation and scar-related revivals for different graphs. Neither establishes the binomial vacuum measure of the star product plus how its central atom enters the bordered kernel or even-time transfer estimate."
+        ],
+        "reasoning": "The available overlaps do not imply the two subsequential hub-return conclusions by parameter specialization. The fixed-operator nullity itself follows from standard tools once the product-plus-pendant structure is identified, but prior comparison does not cover the quantitative local dynamics.",
+        "searches": [
+          "Weighted-multipartite record 98054346bc89, Finding and proof continuation",
+          "Desaules et al., arXiv:2112.06885v3 pp. 1, 12"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Desaules et al., arXiv:2112.06885v3 pp. 1, 12, analyze two hypercubes joined at a vertex.",
+          "The distinct weighted-multipartite record 98054346bc89 uses a root-amalgamation of cubes."
+        ],
+        "reasoning": "Neither graph is the Cartesian product of stars with one pendant state at the vacuum. The two-cube revivals and the multipartite vacuum overlap do not identify the target hub return amplitude.",
+        "searches": [
+          "Resultary: pendant star products, hypergrid/hypercube walks, pendant/arrowhead Hamiltonians",
+          "Literature: pendant hub Cartesian product of stars quantum walk exact zero modes"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Distinct windmill match 4482b9215eb1 has the same physical graph but computes Walsh convolution by its independent-set indicator; its parity concerns r, not m."
+        ],
+        "reasoning": "The catalogue supplies no inspected distinct matching entry for this exact kernel and return invariant; even an exact spectrum of the physical windmill adjacency would not be a spectrum of this configuration-space Hamiltonian.",
+        "searches": [
+          "Resultary searches for clique-windmill flip graphs and pendant star-product/arrowhead spectra; exact target cf25330ffafd inspected as a self-match"
+        ]
+      },
+      "rationale": "The published general independent-set walk description and related hypergrid models do not supply the specific bordered-star spectral and hub-return results. Two closely matching distinct catalogue records concern different operators or a different configuration graph. The passing scope is the exact family-specific nullity and hub spectral/dynamical parity contrast, not the general PXP mapping, chiral symmetry, or the use of a Schur complement or Duhamel estimate.",
+      "residual_risks": [
+        "The bounded search does not establish priority. Equivalent arrowhead or pendant-product formulas under other terminology remain possible; an unrelated search return is not negative evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Distinct topology and initial state",
+          "evidence": "Peripheral weighted Boolean cubes meet at a root; the target instead borders a Cartesian star product at its vacuum with a new hub.",
+          "identifier_or_url": "Resultary 98054346bc89",
+          "material_read": "RESULT.md Finding and Assumptions, offset 0; proof continuation at 4732",
+          "method": "Local mirror, bounded passage inspection",
+          "title": "An arithmetic zero-mode switch in weighted multipartite blockade",
+          "trigger": "Closest catalogue match for exact blockade zero-mode weights"
+        },
+        {
+          "assessment": "Same underlying graph, different operator",
+          "evidence": "Walsh convolution with the independent-set indicator and parity of clique size do not specify the flip Hamiltonian or the petal-count parity phenomenon.",
+          "identifier_or_url": "Resultary 4482b9215eb1",
+          "material_read": "RESULT.md Finding and proof opening, offset 0",
+          "method": "Local mirror, bounded passage inspection",
+          "title": "Parity-controlled Fourier invertibility and sharp endpoint projections",
+          "trigger": "Same clique-windmill graph"
+        },
+        {
+          "assessment": "Related rather than covering",
+          "evidence": "The PXP deformation is described by two hypercubes joined at a single vertex, not the target pendant star-product walk.",
+          "identifier_or_url": "https://arxiv.org/abs/2112.06885v3",
+          "material_read": "pp. 1, 12, offsets 1284 and 88489",
+          "method": "Open-access primary text passage reading",
+          "title": "Hypergrid subgraphs and the origin of scarred quantum walks in many-body Hilbert space",
+          "trigger": "Closest inspected primary hypergrid-walk model"
+        },
+        {
+          "assessment": "Background for the walk mapping",
+          "evidence": "Independent sets diffuse under an emergent PXP model; this passage does not calculate the target kernel or local spectral measure.",
+          "identifier_or_url": "https://arxiv.org/abs/2310.14546v5",
+          "material_read": "p. 1, offset 2795",
+          "method": "Open-access primary text passage reading",
+          "title": "Quantum Hamiltonian Algorithms for Maximum Independent Sets",
+          "trigger": "Candidate general blockade/independent-set mapping"
+        },
+        {
+          "assessment": "Different graph and kind of result",
+          "evidence": "The setting is open/periodic chains and the stated results are lower bounds, not exact windmill counts and hub weights.",
+          "identifier_or_url": "https://arxiv.org/abs/2203.09264v3",
+          "material_read": "p. 1, offset 0",
+          "method": "Open-access primary text passage reading",
+          "title": "Number of zero-energy eigenstates in the PXP model",
+          "trigger": "Primary PXP zero-mode comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 13–40 and 52–68"
+      ],
+      "rationale": "The model gives a concrete natural blockade geometry in which large global nullity does not determine local trapping. The exact hub projection and near-escape estimate separate an all-times survival guarantee from asymptotically vanishing survival at a specified mesoscopic time. This is a useful dynamical distinction unavailable from zero-mode counting alone.",
+      "residual_risks": [
+        "No generic scarring, equilibration or noisy-experiment claim follows from the single-configuration observable."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

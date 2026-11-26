@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:00:09.233233Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For finite nonempty E-invariant K, E restricts to a permutation, so each ordered output has exactly one required inverse. A selector with j jumps has j petals: the closed lifts of its continuity intervals are disjoint, since the only possible shared outputs under E would be interval endpoints, and the two lifts at any jump differ. A jump-free selector is impossible by degree. If K is contained only in the closure, each required inverse at a prescribed point is still a lateral limit; moving a jump at that point slightly onto the side carrying the other sheet preserves the number of jumps and includes the required inverse in the interior. In each ordinary gap the two bits force one jump iff they differ, and in the wraparound gap the covering interchanges sheets, so it forces one iff the bits agree. Independent lifts on the gaps attain these lower bounds, including when 0 is prescribed and for the singleton. Their sum is odd. On the grid of denominator D=2^n−1, if the inverse has numerator a and the output numerator j, then 2a=j+bD, so b is the parity of j and the wrap term contributes one. On a primitive nonconstant cycle the predecessor bits are the last column of the sorted rotations. The least rotation has a preceding 1 (otherwise shifting backward lengthens its initial zero run), and the greatest has a preceding 0, so the seam adds zero and the cost is the linear run count minus one. The finite supplied verifier was inspected, not executed; its discrete minimization and rational instances do not substitute for the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 2.7 is a symbolic-complexity upper bound C_Y(n)≤pn+k when Y is already supported in a p-flower.",
+          "Theorem 1.2 relates flowers with 2^m−1 petals to deck-shuffler interval exchanges and requires the flower to avoid 0."
+        ],
+        "reasoning": "A complexity bound assuming a flower does not give the least petal count or a sharp matching construction for a prescribed set. The deck-shuffler relation neither asserts minimality nor covers a flower containing the full fixed-point grid, which includes 0.",
+        "searches": [
+          "arXiv:2605.06962v1, Theorems 1.2 and 2.7"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Assumptions and Proof; VERIFICATION.md; verify.py",
+        "arXiv:0711.0802 §2.2",
+        "arXiv:2605.06962v1 Theorems 1.2 and 2.7",
+        "arXiv:2606.01267v1 Proposition 3.2 and §8",
+        "Resultary record 0c35eb394ad7, Finding"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The jump/petal identity removes only the conversion from minimizing jumps to minimizing petals. A lower bound must still allow predecessor values contributed only by closure, and needs the seam parity and an attaining selector.",
+          "A word-level BWT theorem specifies the potential input bit list, not the effect of the circle's inverse-sheet interchange."
+        ],
+        "reasoning": "No inspected theorem gives the minimum as a consequence without a separate prescribed-lift optimization. Once the optimization is proved, the grid parity and the primitive BWT equality are direct applications, not independent claims of new results in word combinatorics.",
+        "searches": [
+          "arXiv:0711.0802, Definition 2.2",
+          "arXiv:2605.06962v1, Theorem 1.2",
+          "arXiv:2606.01267v1, Proposition 3.2 and §8"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Harriss–Jenkinson Definition 2.2 identifies the jump count and petal count, but does not optimize over selectors with prescribed predecessors.",
+          "Kumallagov and the indexed dyadic period-doubling record count runs without a geometric minimum."
+        ],
+        "reasoning": "Changing from petals to discontinuities is already known; the constrained minimum with a sheet interchange at the coordinate seam is the new assertion. Merely recording run counts for particular necklaces is not equivalent to that minimum.",
+        "searches": [
+          "arXiv:0711.0802, §2.2",
+          "arXiv:2606.01267v1, Proposition 3.2 and §8",
+          "Resultary: 2026/10/18/SCOPE-exact-cyclic-burrows-wheeler-transform-of-dyadic-period-doubling--0c35eb394ad7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest indexed record's Finding gives r_m=2m−2 for particular substitution words W_m, not a minimum number of petals.",
+          "The BWT extremal results classify word-level phenomena, not petal minima for invariant grids or unions."
+        ],
+        "reasoning": "Neither an indexed BWT run formula for one family nor an extremal word classification supplies an exact geometry table for the claimed objects.",
+        "searches": [
+          "Resultary: finite invariant doubling sets and minimal flower petals; closest inspected match 0c35eb394ad7",
+          "arXiv:2606.01267v1, Proposition 3.2 and §8"
+        ]
+      },
+      "rationale": "The supported distinct claim is the finite-set optimum with both the exact fixed-point-grid extremum and the equality to the BWT run count on a primitive cycle. Neither the established jump/component relation nor the established BWT run classifications are credited as new.",
+      "residual_risks": [
+        "There may be an equivalent finite-support optimization under covering-space or symbolic terminology outside the passages and indexed findings inspected.",
+        "Independent minima for particular periodic families could predate this general statement. No absolute publication priority is asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the jump-component correspondence, not the minimum for prescribed K",
+          "evidence": "A selector with p jump discontinuities gives a p-flower with p connected components, the petals.",
+          "identifier_or_url": "https://arxiv.org/abs/0711.0802",
+          "material_read": "§2.2, Definition 2.2, PDF p. 5",
+          "method": "Open primary PDF passage",
+          "title": "Flattening Functions on Flowers",
+          "trigger": "Original flower and selector definitions; possible exact equivalence"
+        },
+        {
+          "assessment": "Related embedding and complexity theorems; no matching minimization in the inspected results",
+          "evidence": "Theorem 1.2 assumes 0∉F, while Theorem 2.7 bounds complexity conditional on support in a p-flower.",
+          "identifier_or_url": "https://arxiv.org/html/2605.06962v1",
+          "material_read": "Theorem 1.2 (offset 5200), definitions (10500–15500), Theorem 2.7 (offset 21116)",
+          "method": "Open primary HTML passages",
+          "title": "Expanding Maps on Flowers, Interval Exchange Transformations, and Ergodic Optimization",
+          "trigger": "Same doubling flowers and possible prior 2^m−1 result"
+        },
+        {
+          "assessment": "Covers BWT phenomena but not their equality to a flower-cover minimum",
+          "evidence": "Inspected statements concern primitive necklaces and completely unclustered BWT images.",
+          "identifier_or_url": "https://arxiv.org/html/2606.01267v1",
+          "material_read": "Proposition 3.2 and §8, offsets about 7776 and 24400",
+          "method": "Open primary HTML passages",
+          "title": "An extremal problem for completely unclustered Burrows–Wheeler images",
+          "trigger": "Run statistics of primitive binary BWT images"
+        },
+        {
+          "assessment": "Specific substitution family, with no flower optimum claimed",
+          "evidence": "The cited run count r_m=2m−2 for m≥2 is a word statistic, not a petal count.",
+          "identifier_or_url": "2026/10/18/SCOPE-exact-cyclic-burrows-wheeler-transform-of-dyadic-period-doubling--0c35eb394ad7",
+          "material_read": "Finding, offset 0",
+          "method": "Configured Resultary search and local mirror passage",
+          "title": "Exact cyclic Burrows–Wheeler transform of dyadic period-doubling words",
+          "trigger": "Closest indexed overlap in predecessor order and run count"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For the natural covering problem on finite invariant unions, the result replaces a search over continuous jump locations by a sharp, constructive count from predecessor order. It supplies an exact exponentially growing obstruction for full fixed-point sets and lets a researcher obtain the sharp geometric cost of one cycle from an ordinary BWT run count. It makes no claim about arbitrary infinite supports, higher degrees, or the full invariant set inside an optimizing flower.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

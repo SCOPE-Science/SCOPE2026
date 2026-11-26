@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:57:30.366870Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 10–38, 46–47",
+        "Frozen VERIFICATION.md and sqp_circle_checker.py (static inspection)",
+        "Independent algebra above; O’Neill arXiv:2408.16656 §2, eqs. (5), (9)–(10), Algorithm 1, Assumption 3"
+      ],
+      "rationale": "The normal subproblem enforces z·v=−(s−1)/2 with v parallel to z, and the tangential minimizer is −g. Conditional mean zero and squared norm σ² hold for the two noise signs. Orthogonality removes the sign samplewise, giving Fη(s)=(s−3)²/(4s)+η and a positive lower bound η for every new iterate. The fixed-point quadratic has exactly one positive root since its root product is negative; the root increases with η, and Fη′=1/4−9/(4s²) crosses −1 there precisely at s=3/√5, giving ηc. A distinct pair r,t must satisfy rt=9/5 and r+t=6−4η; conversely these two relations give Fη(r)=t and Fη(t)=r by substitution. Their positivity and distinctness are equivalent to 0<η<ηc. The product of derivatives is 9/4−(25/9)(3/2−η)², increasing from −4 to 1; its −1 crossing gives η−. F_{3/5}(3)=3/5, F_{3/5}(3/5)=3 and F′_{3/5}(3)=0. This is one unordered primitive radial orbit, not an angular orbit. The open thresholds classify strict multiplier stability, not nonlinear behavior at the endpoints. The formal fixed-step example is not an instance of the cited complexity guarantee.",
+      "residual_risks": [
+        "No supplied checker execution taken as independent evidence. Boundary multipliers −1 by themselves settle neither nonlinear attraction nor repulsion."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "O’Neill supplies the normal/tangent update and permitted unbiased bounded-variance oracle, not this choice and radial reduction.",
+          "Milnor gives μ2=2σ1+σ2 and describes collision with the fixed point of multiplier −1."
+        ],
+        "reasoning": "The broader rational-map theorem does cover the multiplier calculation and qualitative collision, but supplies neither the SQP construction nor the parameter-to-noise identification. The broader SQP convergence theorem does not cover this deliberately large fixed outer step.",
+        "searches": [
+          "O’Neill arXiv:2408.16656 eqs. (5), (9)–(10), Algorithm 1 and Assumption 3",
+          "Milnor arXiv:math/9209221, Lemma 3.6, p. 6"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2408.16656",
+        "arXiv:math/9209221",
+        "Resultary 71916f1b4c2a, 741941f8eb7b and c01774b3f14a",
+        "DOI 10.1007/s40435-025-01673-y (snippet only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The two finite fixed roots of the normalized map have sum 4c/3 and product −1/3; their multipliers have sum −1−4c² and product 1/4−c². With the infinity multiplier 4, Milnor’s 2σ1+σ2 gives 9/4−25c², exactly the frozen multiplier."
+        ],
+        "reasoning": "This explicitly resolves rather than dismisses the broader implication: once the scalar map is known, its multiplier formula is already covered. Neither inspected prior statement provides the sign-canceling stochastic SQP example or the interpretation as positive constraint-violating radii; pass only that applied claim.",
+        "searches": [
+          "Milnor arXiv:math/9209221, p. 6 offset 20200",
+          "O’Neill arXiv:2408.16656 §2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Putting s=3x gives x↦(x+x^{-1})/4+c, c=η/3−1/2, with multiplier 4 at infinity.",
+          "Resultary 71916f1b4c2a instead uses x↦ax+b/x^p, p>1, without an additive parameter; its theorem does not cover this family as stated."
+        ],
+        "reasoning": "The normalized map is an established type of quadratic rational map, not a new type. The prior inverse-power theorem compared is not an equivalent statement about the positive radial interval or the SQP parameter realization.",
+        "searches": [
+          "Configured Resultary search: exact threshold, radial recurrence, normalized reciprocal map and SQP terminology",
+          "Milnor arXiv:math/9209221 §3, Lemma 3.6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed inverse-power cycle uses p>1; the indexed critical rational flip relaxation uses f(x)=(2x²+x+8)/(8x²+3) for a different family.",
+          "No matching indexed SQP realization was located in these checks."
+        ],
+        "reasoning": "Nearby exact cycles/thresholds are not the same claim. Tables of periodic multipliers in rational-map coordinates would not independently account for an SQP realization.",
+        "searches": [
+          "Configured Resultary search on 3(5−√13)/10, (s−3)²/(4s)+η, positive inverse-power cycles and radial stochastic SQP",
+          "Resultary records 71916f1b4c2a and 741941f8eb7b"
+        ]
+      },
+      "rationale": "Credit prior coverage of the generic SQP scheme and the general period-two multiplier and collision for degree-two rational maps. The exact radial multiplier is a specialization, not an independently novel dynamical theorem. The supported distinct contribution is the formal SQP circle realization with conditionally unbiased tangent noise, its samplewise noise-controlled radial reduction, and the resulting positive radial stability and infeasibility witness for a concrete stochastic iteration.",
+      "residual_risks": [
+        "The DOI candidate was inaccessible beyond the snippet; bounded searches cannot exclude another equivalent SQP example. Do not attribute novelty to the general rational-map dynamical signature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Base scheme covered; formal model-specific realization distinct",
+          "evidence": "d=v+βu, x^+=x+αd, unbiased bounded-variance oracle.",
+          "identifier_or_url": "https://arxiv.org/abs/2408.16656",
+          "material_read": "§2 pp. 6–7, eqs. (5), (9)–(10), Algorithm 1; §2.2 p. 11 Assumption 3",
+          "method": "Original OA PDF passages",
+          "title": "A Two Stepsize SQP Method for Nonlinear Equality Constrained Stochastic Optimization",
+          "trigger": "Exact update and oracle assumptions"
+        },
+        {
+          "assessment": "Covers the scalar cycle multiplier and degeneration as a general specialization",
+          "evidence": "The period-two multiplier is 2σ1+σ2, with degeneration at the −1 fixed-multiplier locus.",
+          "identifier_or_url": "https://arxiv.org/abs/math/9209221",
+          "material_read": "§3, p. 6, Lemma 3.6 and proof, offset 20200",
+          "method": "Original OA PDF passage",
+          "title": "Geometry and Dynamics of Quadratic Rational Maps",
+          "trigger": "Normalized positive scalar map is quadratic rational"
+        },
+        {
+          "assessment": "Different stated family",
+          "evidence": "ax+b/x^p with p>1, 0<a<(p−1)/(p+1), and a p=2 threshold.",
+          "identifier_or_url": "Resultary 71916f1b4c2a",
+          "material_read": "Finding (family, range, multiplier case)",
+          "method": "Configured Resultary search and mirror passage",
+          "title": "A unique inverse-power two-cycle and its sharp stability boundary",
+          "trigger": "Close exact positive two-cycle theorem"
+        },
+        {
+          "assessment": "Unresolved possible overlap, not evidence of noncoverage",
+          "evidence": "Snippet mentions stable and saddle two-cycles, without equations to test equivalence.",
+          "identifier_or_url": "https://doi.org/10.1007/s40435-025-01673-y",
+          "material_read": "Search snippet only, without a map equation; original not read",
+          "method": "Publisher DOI/PDF routes failed; repository copy not located",
+          "title": "Stable and saddle two-cycle comparison (DOI candidate)",
+          "trigger": "Search description mentions explicit two-cycles for a symmetric map"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding, Proof and Limitations",
+        "O’Neill arXiv:2408.16656 generic update and oracle assumption",
+        "Milnor Lemma 3.6 for comparison"
+      ],
+      "rationale": "The example separates the deterministic SQP drift from its radial dynamics under a genuinely unbiased tangent oracle: zero conditional mean does not remove the samplewise effect of the squared tangential step. The same circle constraint and step can support repulsion, stable radius oscillation and stabilization by adjusting noise alone, and the exact superattracting orbit stays infeasible. The thresholds specify exactly where this local noise effect occurs in the model, not a paper-sized contribution on rational dynamics or a refutation of an in-regime convergence theorem.",
+      "residual_risks": [
+        "Value is for a local, formal fixed-step SQP witness. No global or angular convergence, endpoint dynamics, or practical regime claim."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

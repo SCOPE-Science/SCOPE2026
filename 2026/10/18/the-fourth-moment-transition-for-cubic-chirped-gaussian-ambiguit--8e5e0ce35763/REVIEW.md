@@ -1,23 +1,21 @@
-# Scientific review: cubic-chirped Gaussian ambiguity moments
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The complex Gaussian integral is legitimate for every real delay and chirp because the quadratic coefficient has positive real part. Multiplication of the two shifted Gaussian signals gives the cubic finite-difference identity, and completion of the square gives the exact nonvanishing ambiguity formula. Direct Doppler integration yields the stated positive moment integral. The Tricomi integral representation, the hyperbolic substitution for the modified Bessel function, and the two dominated-convergence cases give the exact all-exponent moment classification. The critical \(p=4\) result uses a bona fide \(K_0\) logarithmic asymptotic, not an extrapolation of the adjacent power laws.
+PASS
 
-The packaged checker independently integrates the original complex ambiguity definition at four sample points, compares 21 moment quadratures to the Tricomi expression, and verifies normalization and the critical Bessel identity. Checks passed. Limitations: these finite checks are corroborative only, and fixed \(p\) is essential in the asymptotic quantifier.
+The symmetric cubic difference is 3τt²+τ³/4. With kernel exp(−2πiνt), the quadratic coefficient is 2π(1−i(3λ/(2π))τ), whose real part is positive. The complex Gaussian formula gives a nowhere-zero amplitude with modulus exp(−πτ²/2)(1+c²τ²)^(−1/4)exp(−πν²/[2(1+c²τ²)]). Doppler integration at fixed τ gives the correctly normalized moment integral; its Gaussian tail controls every finite c and p>0. The sign of (2−p)/4 proves strict monotonicity off p=2 and M₂=1. Setting s=c²τ² on the two half-lines gives the stated Tricomi parameters and Γ(1/2) prefactor. For p<4 the divided integrand is dominated by a Gaussian times (1+τ²)^((2−p)/4) when p≤2, or by the Gaussian times |τ|^(1−p/2) when 2<p<4. Its integral gives K_p. For p>4 the rescaled cτ integrand has integrable limiting power 1−p/2 and its beta integral gives D_p. At p=4 set cτ=sinh(v); the doubled half-line integral with cosh(2v) yields e^(π/c²) K₀(π/c²)/(√2 c). Expansion of K₀ with the exponential prefactor gives the displayed constant and O(log(c)/c³). Independent 40-decimal quadrature in the v-coordinate at c=30,300,3000 gave 0.136561316293361361, 0.0244638413705885238, 0.00353174899797265098 respectively, with deviations from the two-term expression approximately 4.76×10⁻⁴, 8.54×10⁻⁷, 1.23×10⁻⁹. The asymptotic proof is analytic and fixed-p, not an inference from these samples.
 
-## Originality — PASS, with bounded publication-priority risk
+## originality
 
-The complete all-\(p\) moment law for this normalized Gaussian-envelope cubic chirp, and particularly the \(p=4\) transition with its explicit constants, is the compared claim. Known Gaussian-integral algebra, Moyal normalization and Lieb's universal Gaussian extremal inequality are prior contributions, not originality claims. Jung's full 2006 treatment of ambiguity \(p\)-norm inequalities does not specify a cubic-phase Gaussian moment law. Jaming's full 2006 ambiguity-zero study gives bounds for zero-free neighborhoods, not this globally zero-free family or its moment asymptotics. Wang, Wang and Li's full 2013 cubic-chirp model addresses radar parameter estimation rather than Gaussian-envelope ambiguity moments. Recorded searches found no direct equivalent result. The 1990 Lieb paper was located but its full text could not be obtained; only its abstract and Jung's faithful full-text quotation of the relevant inequality could be compared. An older optics or radar source may remain unindexed; priority has not been independently certified.
+PASS
 
-Other related mathematical results concern Haar-pulse ambiguity folds, two-Hermite Wigner nodal geometry, Gaussian-cat Wigner-negative volume, and B-spline Cauchy-transform zeros. Their objects and conclusions do not imply these cubic-chirp ambiguity moment asymptotics. Scientific comparisons and residual publication-priority risks are detailed in `AUDIT.json`.
+The supported distinction is the full fixed-exponent moment law of the continuous Gaussian-envelope cubic chirp together with the three-regime strong-chirp behavior and critical constant. Gaussian integration, Moyal normalization, Lieb's endpoint and the special-function identities are standard. Comparisons with previously treated zero sets, cubic-chirp parameter analysis and discrete moment formulas do not establish the same continuum law. This is a bounded evidence judgment, not a claim of absolute priority for zero-free examples or the pointwise Gaussian integral.
 
-## Mathematical value — PASS
+## value
 
-The result determines an entire continuum of natural ambiguity-function moment invariants instead of a selected numerical sample. The change from \(c^{1-p/2}\) to the critical \((\log c)/c\) law and then to \(c^{-1}\) is an exact structural transition governed by the integrability boundary of a limiting delay profile, and yields explicit rates missing from a universal norm bound. It also distinguishes global zero-freeness from time-frequency moment concentration: every ambiguity point remains nonzero while all moments of order above two vanish in the large-chirp limit and the Moyal moment stays fixed. These effects are meaningful for ambiguity localization and Rényi-type concentration measures, without claiming an external application theorem.
+PASS
 
-## Remaining limitations
+The L^p moment is motivated by sharp ambiguity bounds, and a normalized Gaussian with cubic phase gives a natural one-parameter deformation. The complete fixed-order law captures a nontrivial integrability threshold and exact rates (including a critical logarithm) invisible to the universal bound, even though pointwise zero-freeness and the Moyal normalization persist. This is more than a sample quadrature or a re-expression of the endpoint inequality.
 
-The scope excludes time-limited signals, general amplitude envelopes, higher-degree phases, arbitrary cross-ambiguities and double limits in which the exponent varies with the chirp. No independent literature-priority determination or mathematical audit is represented by this review.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

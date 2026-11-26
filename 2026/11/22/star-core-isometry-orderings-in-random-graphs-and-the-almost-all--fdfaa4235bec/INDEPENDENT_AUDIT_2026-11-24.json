@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:46:07.784517Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–79, especially the certificate, fixed-pair probabilities and Burnside transfer",
+        "VERIFICATION.md lines 19–25 and inspected check_exhaustive.cpp, check_random.py"
+      ],
+      "rationale": "For prefixes within N[v], nonadjacent vertices see each other at distance two via v; for later prefixes the whole N[v] is available, and the certificate supplies a retained common neighbor for each nonedge. This works for every ordering within the two blocks. For a fixed nonedge involving v the n-2 candidate witnesses each use a distinct pair of edges. For a fixed nonedge avoiding v, the witness v uses two edges and the n-3 other candidates use disjoint triples of edges, also disjoint from the nonedge being tested. This gives the two exact witness-failure probabilities, not exact ordering-success probabilities. Union bounds over pairs and then centers give the stated B_n(p) and n B_n(p). Since p^2>=p^3, the exponential bounds give the two stated logarithmic conditions, and fixed p in (0,1) gives exponential convergence. In the labelled-to-unlabelled transfer, a permutation moving m vertices can fix only pairs of unmoved vertices and at most m/2 transposed pairs. At least m(n-2)/2 edge positions move, so the nonidentity contributions to normalized Burnside counts are bounded by sum_{m>=2}(n 2^{-(n-2)/4})^m=o(1). The labelled disconnection estimate also tends to zero, by bounding the k-th term by (n 2^{-n/2})^k for k<=n/2. This gives the proportion for uniform unlabelled connected classes, not general p-weighted classes. The nesting is stronger than existence of one isometric induced subgraph of every size.",
+      "residual_risks": [
+        "The supplementary scripts check selected internal orders, not all orders; they were inspected, not replayed. The proof supplies universality. The sufficient density conditions are not claimed to be sharp, and the finite bound can be vacuous."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The frozen comparison credits the star-prefix first phase of the Nussbaum–Esfahanian minimum-degree proof. It describes Khalifeh–Zahedi as a DP theorem requiring minimum degree above (1/2+epsilon)n in sufficiently large graphs, and Smith–Zahedi's sequential theorem for four-chordal graphs. The additional web result was a graph-class diagram link, not a random-ordering theorem."
+        ],
+        "reasoning": "The degree condition does not hold with high probability at fixed p<=1/2, let alone in the asserted sparse range. DP alone would also not supply arbitrary block orders. The four-chordal theorem would require establishing that hypothesis, which fails in fixed-density random graphs, where an induced 5-cycle occurs with high probability even among disjoint blocks of five.",
+        "searches": [
+          "Nussbaum–Esfahanian 2013 pp. 141–149, author-hosted paper; Khalifeh–Zahedi DOI 10.1002/jgt.22521",
+          "Literature query on sequentially distance-preserving random graphs, common neighbors and existential closure"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 74 and 81–95",
+        "Local Resultary topic queries and exact self-match fdfaa4235bec; bounded literature and OA attempts at the cited primary works"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A generic guarantee of a common neighbor for every triple is sufficient for the witness condition; the actual witness condition treats pairs containing v separately and allows v itself as a pair witness. The frozen comparison describes the later Smith–Zahedi article as still stating an almost-all DP question, but the decisive external passage was not recovered."
+        ],
+        "reasoning": "The generic triple-neighbor event can support the asymptotic estimate after proving the star-order implication, which is the graph-specific step here. That event alone does not state the nested-graph conclusion or the record's finite nonedge-specific bound. The degree and chordal results do not imply the theorem in the given probability regime.",
+        "searches": [
+          "Common-neighbor and three-vertex extension formulation in the sequentially distance-preserving random graph query",
+          "Smith–Zahedi DOI 10.26493/2590-9770.1813.5ce (2025)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "As distinguished in frozen RESULT.md lines 74 and 81–84, DP chooses an isometric subgraph at each order independently; SDP requires a single nested chain. The cited weakly four-simplicial elimination-order formulation addresses SDP, whereas the present certificate guarantees an entire family of possible orders at a center."
+        ],
+        "reasoning": "Reversing the growing prefixes gives nested vertex deletions but the freedom within both star-first blocks and the probability lower bounds do not follow from the existence of some elimination ordering. The claimed resolution uses the weaker DP statement as a consequence, not as a synonym.",
+        "searches": [
+          "Local Resultary queries for random-graph isometry orderings and almost-all DP/SDP",
+          "Zahedi arXiv:1507.03615 Q. 5.7; Smith–Zahedi arXiv:1701.06404 Prop. 3.4 and Thm. 3.5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed hit fdfaa4235bec is the assigned self-match. The cited earlier finite DP census through order eleven (frozen RESULT.md line 82) is separate from a uniform probability inequality."
+        ],
+        "reasoning": "The claim is not a finite table entry. A census at fixed small n cannot give the universal finite-p bound, let alone the asymptotic nested or unlabelled properties.",
+        "searches": [
+          "Resultary topic searches on star-core random isometry and ordered isometric prefixes",
+          "Congressus Numerantium 211, pp. 141–149; local frozen historical comparison"
+        ]
+      },
+      "rationale": "The supported distinction is the common star core for all pairs at a fixed center, the arbitrary-within-block ordering guarantee with explicit sparse-to-dense finite probability bounds, and the application to uniform unlabelled connected classes. The older distance-preserving property and conjecture, the star-prefix idea, and general random common-neighbor and orbit-counting methods are not first claims here.",
+      "residual_risks": [
+        "Exact prior-paper passages including the 2025 conjecture wording were not retrieved. An independent earlier use of random extension properties for distance preservation or a more direct prior proof may be unavailable or unindexed; search misses do not prove priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The credited idea is background; the comparison of claims remains limited to the material actually available",
+          "evidence": "The frozen comparison expressly credits the first star-prefix phase and points to Zahedi Q. 5.7 for the almost-all question.",
+          "identifier_or_url": "https://cse.msu.edu/~esfahani/Publications/2013/Preliminary_Results_on_distance-Preserving_graphs.pdf ; https://arxiv.org/abs/1507.03615",
+          "material_read": "Frozen attribution and locators, RESULT.md lines 81–93; no independently accessible decisive passage",
+          "method": "Bounded external and OA lookup plus exact frozen reading",
+          "title": "Preliminary Results on Distance-Preserving Graphs; Distance Preserving Graphs",
+          "trigger": "Original conjecture and possible use of a star-prefix construction"
+        },
+        {
+          "assessment": "The indicated chordality and minimum-degree hypotheses do not cover the random regimes; later conjecture wording not independently verified",
+          "evidence": "RESULT.md line 84 identifies the minimum-degree criterion for DP rather than SDP and the cutoff above (1/2+epsilon)n.",
+          "identifier_or_url": "https://arxiv.org/abs/1701.06404 ; https://doi.org/10.26493/2590-9770.1813.5ce ; https://doi.org/10.1002/jgt.22521",
+          "material_read": "Frozen summaries and Prop. 3.4/Thm. 3.5 locators (lines 82–95), plus accessible bibliographic metadata; no decisive external full-text passage retrieved",
+          "method": "OA attempts and bibliographic/literature lookup",
+          "title": "On Distance Preserving and Sequentially Distance Preserving Graphs; On a conjecture about the existence of isometric subgraphs",
+          "trigger": "Strongest plausible broader structural or probabilistic implication"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–21 and 26–74"
+      ],
+      "rationale": "The certificate makes nested isometry explicit with substantial ordering freedom, and the probability estimates apply down to densities vanishing with n. The same argument yields a concrete stronger conclusion for a natural almost-all graph-class question, with a quantified and independently checked transfer between labelled and unlabelled counting. These claims go beyond a census or proving generic two-step distances alone.",
+      "residual_risks": [
+        "Neither a threshold theorem nor a classification of other useful orderings follows."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

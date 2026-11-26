@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof uses an explicitly normalized positive Fejér density. For single arcs it computes the outgoing convolution mass exactly by translation overlap; coarea and connected-component splitting give a global BV inequality and exclude all other equality cases because the kernel is positive almost everywhere. Fourier integration gives the finite odd-harmonic constant, Taylor expansion at the antipode gives the odd/even quadratic-versus-quartic distinction, and Euler–Maclaurin expansions give the parity-dependent cubic term. The independent numerical checker passed 96 integral/Fourier comparisons, 36 local-rigidity checks, 6 asymptotic checks and 240 sampled multijump checks. Numerical checks are not used for universal quantifiers.
+## correctness
 
-## Originality — PASS (best-knowledge, with residual risk)
-The 2007 López-Bonilla–Vidal Beltrán–Yalja Montiel kernel paper was inspected through its full four-page text. It establishes classical kernel identities, not a sharp BV approximation-error norm. The complete relevant results of Nochetto–Salgado (arXiv:1211.1069), Gaubert–Qu (arXiv:1302.5226), and Kravitz–Steinerberger (arXiv:2007.13700) concern respectively TV-diminishing finite-element interpolation, Hopf-oscillation contraction, and discrete quadratic smoothing. The full RESULT.md statements of two nearby published findings were examined: the Poisson two-jump leakage work has a different kernel (positive at the antipode), and the Fejér Lipschitz-contraction theorem measures a different seminorm. Neither includes the fixed-kernel BV-to-\(L^1\) norm together with half-circle equality classification and the even-order fourth-order rigidity/parity asymptotics. Older harmonic-analysis books or unindexed sharp-constant tables may contain an equivalent exact finite sum: searches are not an exhaustive priority certificate.
+PASS
 
-## Value — PASS
-Periodic Fejér averaging is a canonical positive Fourier approximation process, and BV is the natural discontinuity-tolerant input class. The exact coefficient is a directly usable worst-case error budget; the rigidity theorem identifies all worst inputs; and the quadratic/quartic parity transition shows that near-worst jump placement is much less identifiable at even degrees. The asymptotic parity correction refines the familiar logarithmic approximation rate by two powers of degree, giving a structural rather than a numerical-only observation.
+The frozen mathematics is correct. With unnormalized arc length, an indicator's error equals twice its outgoing kernel flux. For a single arc the flux at shift t contributes min(|t|,d), d the smaller of the arc and complementary lengths. This yields C_n(d)=2 integral_0^pi K_n(t) min(t,d) dt, strictly increasing up to pi. Splitting any finite union of arcs counts extra strictly positive flux between components when there is more than one component; coarea and nested superlevels then force all nontrivial levels of an extremizer to coincide with one semicircle. The deficit equals 2 integral_0^delta (delta−u)K_n(pi−u) du, giving the stated quadratic/quartic coefficients by antipodal Taylor expansion. The repair narrows the contribution to the parity-resolved cubic asymptotic. Its self-contained moment evaluation uses the sharp BV translation bound and equality for a semicircle indicator (all translated residuals share a sign); this gives exactly 2 integral_0^pi tK_n(t) dt. Fourier integration and the odd reciprocal-square sum pi²/8 reduce this to 4(R_m+S_m/n)/pi. Independently, the Euler–Maclaurin expansions of H_M and the reciprocal-square tail give S_m=log(4m)/2+gamma/2+1/(48m²)+O(m^−4) and R_m=1/(4m)−1/(48m³)+O(m^−5). In terms of b=2m, pi*n*C_n/2 is log(2b)+gamma+n/b+1/(6b²)−n/(3b³)+O(n^−4). For b=n the n^−2 coefficient is −1/6. For b=n−1 the Taylor expansion has vanishing n^−1 and n^−3 coefficients and n^−2 coefficient +1/3. Rescaling proves the claimed opposite-sign cubic corrections with the O(n^−5) remainder. The large-degree expansions do not require m>0 at n=1; the exact first moment there is pi/2. Verification.md and the Python checker were read, not executed; none of their numerical tests is used as proof.
 
-## Closest work and limitations
-The two nearest published findings are *Exact optimal two-jump Poisson leakage and its logarithmic boundary law* (2026-11-01) and *The sharp Lipschitz contraction deficit of Fejér means* (2026-10-26), both distinguished above by operator and norm. The result is restricted to ordinary Fejér kernels on the real one-dimensional periodic BV class with full cyclic variation and unnormalized Lebesgue \(L^1\) error; it does not treat signed Dirichlet kernels or higher-dimensional and nonperiodic transforms. Priority has not been independently verified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS for the narrowed contribution in repairs/4/RESULT.md, not for the original originality scope. The universal same-day convolution lemma directly covers the exact moment and implies the harmonic evaluation with the standard Fejér multipliers. Its rigidity argument uses only positivity almost everywhere, so its conclusion also covers Fejér's finitely many zeros. The powered Fejér theorem excludes q=1 in its statement but the parity calculation extends mechanically by specializing the displayed formula and proof. These are overlaps of substance, not a priority ordering by date. The ordinary kernel's signed cubic asymptotic with O(n^−5) remainder survives the overlap check and is the finding stated in the repair.
+
+## value
+
+PASS
+
+The surviving claim describes the first signed finite-degree bias of the sharp integrated Fejér BV budget, distinguishing two parities even though the logarithmic leading law is the same. It shows that the logarithmic formula overestimates at sufficiently large even indices and underestimates at odd indices, with no n^−2 or n^−4 term masking the effect. This precise parity correction for a canonical positive Fourier kernel is a motivated exact invariant, not a numerical recalculation of the known moment.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:39:53.017682Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–66; VERIFICATION.md; verify_defect_census.py (inspected, not executed); verification_output.txt.",
+        "Poonen–Rubinstein Theorem 3 and Table 1.",
+        "Independent calculation: python3 /workspace/checks/review_4.py."
+      ],
+      "rationale": "For distinct roots a left-null row polynomial supported on 0,1,3,4 must be proportional to the monic quartic with these roots, so singularity means its z² coefficient e₂ vanishes and nullity is one. The six terms of e₂ decompose by the prior minimal vanishing-sum classification into opposite pairs, cube-root triples, or a primitive weight-six relation. Opposite edge products sharing a vertex force two roots to be antipodes; if all paired edges are disjoint the equations force a squared ratio of one, again yielding antipodes by distinctness. Substitution requires the remaining pair product u². A three-edge star or triangle forces a complete ternary coset; two complementary paths instead force all four distinct roots into one ternary coset, impossible. For the primitive relation S={5,25,6,12,18,24}, zero is the only residue hit by three pair sums, giving the unique opposite-edge matching. There are at most 48 label placements and exactly 24 relabelings in each projective class since all six product terms are distinct; root ratios are uniquely read from ratios of products sharing a vertex. The two displayed configurations realize the two distinct classes, with circular gaps (12,1,6,11) and (6,1,12,11), hence free translation orbits. The primitive product ratios include exact order 30. Counting unordered inverse partners after removing ±u yields (N−2)/2 choices per designated antipodal pair. Double counting within that family is exactly the fourth-root cosets, and overlap with ternary cosets is exactly a ternary coset plus the negative of one member. This gives the two subtractions and the 2N exceptional contribution. Independent anchored-set cyclotomic arithmetic verified totals at N=5,7,18,28,30,31,54,60,90, including 510,2055,4680 at 30,60,90 and exactly two normalized primitive classes there.",
+      "residual_risks": [
+        "The finite anchored census checks representative moduli and uses exact cyclotomic remainders. Exhaustion at all orders uses the structural proof; the method does not assess conditioning or other row choices."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Poonen–Rubinstein classify minimal root relations at these weights, including the primitive weight-six relation. Matter et al. treat partitions 2+2+2, 3+3, and 6 of the same e₂ expression.",
+          "The October 4 indexed result proves D(N)=0 iff gcd(N,6)=1 by the weight theorem and explicit witnesses."
+        ],
+        "reasoning": "These cover all vanishing-sum ingredients and basic shapes. Neither the weight theorem nor agreement at the level of allowable configurations assigns the exact unsigned number of distinct four-column sets including overlaps at each modulus.",
+        "searches": [
+          "Poonen–Rubinstein arXiv:math/9508209 Theorem 3 and Table 1",
+          "Matter et al. arXiv:2110.10756 Example V.1",
+          "Resultary de39e0486913 exact full-spark criterion"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2110.10756; arXiv:math/9508209; arXiv:1110.3548; Resultary de39e0486913, bb8a5601ae6d, be518195ffd5, and 04538f9363bb (last index summary only)."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Matter et al. give the two angle descriptions for partition 2+2+2 and the ternary-angle description for partition 3+3, and tabulate the eight normalized exceptional cases. The full-spark proof tests coprimality and constructs only witnesses for divisibility by 2 or 3.",
+          "The frozen count additionally identifies the loci of two antipodal pairs and of simultaneous ternary and antipodal descriptions, with cardinalities N/4 and N under their respective divisibility conditions."
+        ],
+        "reasoning": "Restricting the published families to roots of unity implies structural coverage, and the exceptional part can be extracted from the prior table by translation. The full census has a separate counting step, including a within-family and between-family identification not enumerated in the angle list. The originality credited is that all-modulus invariant, not the reduction to known families.",
+        "searches": [
+          "Matter et al. Example V.1 continuous families and Table II; Resultary de39e0486913 Proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Matter et al. Example V.1 and Table II explicitly give e₂, the pair and triple angle families, and eight primitive-six normalized configurations. In mod-30 units the first two are (0,1,7,18) and (0,1,13,24), translates of the two frozen seeds.",
+          "Alexeev–Cahill–Mixon give the order-10 witness with rows (0,1,3,4) and columns (0,1,2,6)."
+        ],
+        "reasoning": "With roots z_j=e^{iφ_j}, an ambiguity for these four sensors is exactly the same determinant-zero form, but the prior angle parameterization does not count distinct cyclic-grid subsets. The two primitive representatives are not original.",
+        "searches": [
+          "Resultary: {0,1,3,4} Fourier all-order singular-minor count and rank defect",
+          "Primary literature: four-sensor (0,1,3,4) linear array Schur ambiguity singular minors root of unity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Table II gives eight anchored exceptional configurations, not the all-N count. The exact indexed all-N census for {0,1,2,4} is for another pattern. The indexed order-14 result includes a zero-minor witness for these rows, not a count. The distinct same-day indexed odd-semiprime result has row set {0,1,2,5} in its index summary."
+        ],
+        "reasoning": "Exact table overlap is credited for the exceptional sets. The indexed comparison does not reveal a table or formula for the positive census on these rows; the same-day record is distinguished by the row pattern, not by an assumed publication order.",
+        "searches": [
+          "Matter et al. Table II for partition 6=6",
+          "Resultary: exact singular minors for near-consecutive four-row frame bb8a5601ae6d; full-spark de39e0486913; order-14 row-subset classification be518195ffd5; odd-semiprime four-row theorem 04538f9363bb"
+        ]
+      },
+      "rationale": "The Schur determinant, shape of both infinite ambiguity families, and both exceptional orbit representatives are covered by Matter et al. for the same row pattern, and the earlier exact full-spark result already says when the census is zero. The supported distinct contribution is the all-modulus arithmetic multiplicity of distinct unordered singular minors: it counts admissible partners on each cyclic grid, proves when a grid set is counted more than once, and accounts for the exceptional translation orbits. The total with the fourth-root and ternary/antipodal overlap corrections does not follow by merely substituting N into a prior formula. No earlier enumeration of this count was located in the bounded comparison.",
+      "residual_risks": [
+        "An earlier cyclic-grid count extracted from the highly relevant continuous angle descriptions could have been missed. The exact same-day different-row mirror file was not available in the comparison, so only its index statement was used."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers ambiguity shapes and both exceptional sets; no all-modulus distinct-subset count in decisive passage.",
+          "evidence": "Printed angles −π(1,14/15,8/15,−3/15) and −π(1,14/15,2/15,−9/15) give the two exceptional classes after rotation. The two continuous pair-angle descriptions and ternary class are explicit.",
+          "identifier_or_url": "https://arxiv.org/pdf/2110.10756",
+          "material_read": "Example V.1, Schur polynomial, Table II and ensuing partition descriptions, PDF p. 11 (OA offsets 67900–77074)",
+          "method": "OA PDF inspection and angle-to-root conversion",
+          "title": "Ambiguities in Direction-of-Arrival Estimation with Linear Arrays",
+          "trigger": "Same row pattern and highly plausible exact coverage"
+        },
+        {
+          "assessment": "Supplies the minimal vanishing-sum theorem, not the structured four-column count.",
+          "evidence": "Table 1 includes the primitive weight-six type obtained from R₅; Theorem 3 exhausts the minimal types through this weight.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/9508209",
+          "material_read": "Eq. (5), Theorem 3 and Table 1, PDF pp. 6–7, offsets 14500 and 18746",
+          "method": "OA PDF comparison",
+          "title": "The Number of Intersection Points Made by the Diagonals of a Regular Polygon",
+          "trigger": "Prior weight-six exhaustion needed for all orders"
+        },
+        {
+          "assessment": "Prior example and criteria, not the count.",
+          "evidence": "The order-10 example uses columns {0,1,2,6}.",
+          "identifier_or_url": "https://arxiv.org/pdf/1110.3548",
+          "material_read": "Composite-order example following Theorem 9, PDF p. 16, offset 59827",
+          "method": "OA PDF passage comparison",
+          "title": "Full Spark Frames",
+          "trigger": "Exact same-row composite-modulus witness"
+        },
+        {
+          "assessment": "Covers the zero criterion, not positive multiplicities.",
+          "evidence": "It gives independent singular witnesses for 2|N and 3|N and rules out weight six for gcd(N,6)=1.",
+          "identifier_or_url": "2026/10/4/SCOPE-exact-full-spark-criterion-for-the-four-row-fourier-pattern-0-1--de39e0486913",
+          "material_read": "Finding and Proof, mirror offsets 100 and 1350–5524",
+          "method": "Resultary plus local-mirror RESULT.md inspection",
+          "title": "Exact full-spark criterion for the four-row Fourier pattern {0,1,3,4}",
+          "trigger": "Exact rows and all moduli"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and inclusion–exclusion proof; independent anchored arithmetic; exact same-row prior full-spark criterion and Matter et al. Example V.1."
+      ],
+      "rationale": "For the established four-sensor row pattern, the number of rank-deficient four-column selections is a natural measure of how frequent reconstruction ambiguities are beyond merely knowing that a bad selection exists. The closed formula captures the actual multiplicity at each modulus, including a distinct anti-overcounting correction at multiples of 4, interaction at multiples of 6, and exceptional jumps at multiples of 30. These are useful in answering an exact census question without scanning the binomial number of possible selections.",
+      "residual_risks": [
+        "This is a discrete rank census, not a noise sensitivity result or a new discovery of the exceptional continuous configurations."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

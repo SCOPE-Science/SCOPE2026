@@ -1,11 +1,21 @@
-# Review of the rank-two tense-type theorem
+# Independent mathematical audit
 
-**Correctness — PASS.** The complete-domain proof gives the precise semantics of converse modalities, the one-step characteristic types, the two necessary edge-incidence conditions, a finite construction meeting every other colour requirement without changing root neighbours, and a bijection from realizable profiles to depth-two logical types. The counting uses independently selectable predecessor/successor signature subsets. Actual standalone checks construct and re-evaluate models and exhaust the variable-free single-relation cases up to four worlds. The checker does not certify the infinite-parameter assertion independently.
+## correctness
 
-**Originality — PASS within searched and inspected evidence.** Sano (2026), Proposition 3.6 and Appendix A, establishes finiteness/canonical formulas but does not give the depth-two converse compatibility criterion, closed type count, or precise gap from independent modalities in the inspected sections. Moss (2007), read in Sections 1–2, treats the classical one-way normal form; Fine (1975) is an older normal-form reference whose complete text was not retrieved. Relevant semantic published-finding corpus searches and recoverable internal claims did not locate an equivalent all-parameter two-step converse count. General canonical formulas could imply these counts **after new specialization and compatibility analysis**, which is distinguished from prior explicit determination. Risk: an older finite-type/automata result under a different name might already subsume the count, and some full texts were not inspected.
+PASS
 
-**Mathematical value — PASS.** Sano Section 8 identifies tense cover normal forms as a further research direction; this work treats the bounded depth-two case, not the general open problem. Depth two is the first modal depth where paired converse directions interact: depth-one type counts agree with independent modalities, while depth two already exhibits a huge, exactly quantified deficit. The precise finite invariant measures how much the converse axioms prune possible depth-two bisimulation types, a natural bounded-fragment resource in uniform interpolation and finite-state modal reasoning. The theorem includes an all-parameter exact realization test, a constructive small-witness bound, and the quantifiable contrast with an otherwise identical free independent-modal signature. It is not asserted to settle arbitrary-depth interpolation or complexity.
+On an unrestricted frame, at depth one a root and fresh directional neighbours realize arbitrary prescribed colour sets and characteristic formulas separate them. At depth two every edge contributes the root's colour in the reverse direction at the neighbour, so the stated condition is necessary. For sufficiency, use a distinct neighbour for each (relation, direction, listed type), attach it to the root by that one edge only, and use a single shared auxiliary world of each colour to supply missing colours for each neighbour in each direction. No auxiliary edge touches the root or another designated neighbour, so sharing cannot add an undesired colour at a constrained world. This proves the size bound even for empty sets and p=0 (with standard Boolean truth constants). Each direction independently permits exactly t_1/2 types at a fixed root colour, giving t_2=m2^(r t_1). Diamonds and boxes distinguish every profile and induction on formulas shows each depth-two formula is constant on each profile. Thus the Boolean algebra is the power set of all t_2 profiles. In the independent-modal comparison every one-step type can be supplied by a fresh neighbour without any required reverse colour; this gives m2^(2r t_1), including the stated 16 versus 256 example. With one proposition and one pair, t_1=32 and t_2=2^33. The source checker was inspected but not executed; the general consistency and count use the finite-model construction.
 
-Independent validation is not claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Tense canonical forms and their finite-rank tabularity, including indexed converse semantics, are established machinery. What survives comparison is the necessary-and-sufficient rank-two realizability criterion and the resulting satisfiable-profile census with a shared-auxiliary witness bound. The closest readable prior results do not provide that exact realizability analysis.
+
+## value
+
+PASS
+
+Depth two is precisely where treating inverse modalities as independent first changes the semantic types. The result identifies the full obstruction at that boundary, gives a directly usable small satisfiability witness, and quantifies the loss of formal profiles exactly, which mere local tabularity cannot do. The exact census and witness are useful here independent of any extension to larger depths.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

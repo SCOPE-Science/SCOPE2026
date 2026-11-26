@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:02:02.508673Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–142; VERIFICATION.md and checker.py inspected, not executed",
+        "Independent replay: /workspace/branches/3bcfefe2-97e6-4590-bfcb-3e359d3a55d5/independent_check.py; output independent_check_results.txt in the same directory. At δ=0.5 and β=1.005β_c, m=4,8,16,32,40 pass the spectral, block-sum, and positive fixed-point checks. For m=4 and m=40 the Perron ratios are 14.158775727 and 1037.294417274, and the computed equilibrium ratios 14.031253586 and 1024.268797016. Maximum residual across samples was 1.1e−15."
+      ],
+      "rationale": "The claim is for the deterministic product map, fixed finite m ≥ 4 and 0 < δ < 1. The isolated clique radius m−1 exceeds the path radius 2 cos(π/(m+1)); the two-cell Rayleigh test for B–C gives Λ ≥ ((m−1)+sqrt((m−1)²+4m²))/2 > m and d=Λ−m+1 ≥ (m+1)/2. The maximal degree gives d ≤ m. For βΛ>δ, a small positive Perron multiple is a subsolution; monotone iteration gives existence. Along any positive capped ray, the product-map output is concave (its nonnegative one-sided slope decreases at caps), strictly so up to the unit scale because retention and at least one neighbor have positive coefficients. This yields strict subhomogeneity and uniqueness by the maximal coordinate-ratio comparison. At criticality the strict union bound tested against the left Perron vector excludes nonzero fixed points; compactness and the linear expansion with quadratic remainder then give convergence to zero and convergence of the normalized direction to the positive Perron vector. The exact block sums give dV_A=v_b1 and dV_C=mV_B. The b1 equation implies (Λ−1/d)v_b1 ≤ (1+m/d)V_B, so V_B/V_A ≥ d(Λd−1)/(d+m) > (m+1)(m(m+1)−2)/(8m) > m²/8. Since Λ strictly exceeds all isolated radii, the required common isolated subcritical interval exists. The bound is on burdens, not the threshold ratio.",
+      "residual_risks": [
+        "Finite computations illustrate rather than prove the limit; one solver reported stagnation but its positive solution had a directly checked residual of 1.1e−15. No uniform-in-m onset window or claim about the exact finite stochastic SIS chain is established."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Continuous-time NIMFA has a near-threshold Perron expansion. Equitable SIS partitions have an exact quotient spectral description. The Resultary record gives a two-equitable-cell ranking theorem and finite six- and eighteen-vertex examples, including the quotient [[4,1,0],[1,2,1],[0,1,5]]."
+        ],
+        "reasoning": "The continuous-time expansion is for a different update and does not quantify the reversal; the clique/path/clique partition with a single bridge is not equitable. The finite examples do not subsume the equal-block family.",
+        "searches": [
+          "DOI:10.1007/s00285-020-01542-6, Theorem 1 and Section 5.1",
+          "arXiv:1412.6157, Sections 3.2–3.3",
+          "Resultary: 2026/11/8/SCOPE-total-degree-ranking-of-endemic-infection-on-two-equitable-commu--949ad0e7afb0"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2607.14048",
+        "DOI:10.1007/s00285-020-01542-6",
+        "arXiv:1412.6157",
+        "Resultary: 2026/11/8/SCOPE-total-degree-ranking-of-endemic-infection-on-two-equitable-commu--949ad0e7afb0"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 1 of Dung–Phuc orders each isolated threshold against the network threshold, not one block's burden against another. Perron direction alone leaves the relevant restricted-mass ratio undetermined."
+        ],
+        "reasoning": "The new implication comes from the bridge-specific Perron block-sum bounds and a separate proof of the discrete product-map limit, not from substituting parameters in any inspected precedent.",
+        "searches": [
+          "arXiv:2607.14048, Theorem 1",
+          "DOI:10.1007/s00285-020-01542-6, Theorem 1",
+          "arXiv:1412.6157, Proposition 3.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The prior paper uses the same deterministic independent-state product update and sums infection probabilities over each community. The later Resultary same-map example reverses the ranking in a fixed six-vertex graph. For the assigned equal-size blocks, means and sums give exactly the same ratio."
+        ],
+        "reasoning": "Recasting the result as a block-average reversal or a comparison of restricted Perron vector masses does not remove its quantitative and all-m content; the fixed reversal does not supply that content.",
+        "searches": [
+          "Resultary search for isolated epidemic threshold ordering, endemic burden, and near-onset Perron mass ranking",
+          "arXiv:2607.14048, pp. 2–5 and 8–9"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The close catalogue entry contains fixed-size examples, not an all-m bound; Section 4 contains simulated sums, not an extremal catalogue or an unbounded reversal theorem."
+        ],
+        "reasoning": "The target is an all-size inequality, not a tabulated number or a finite catalogue classification; the nearest actual catalogue and simulation results lack its scaling guarantee.",
+        "searches": [
+          "Resultary local search and mirror read of 2026/11/8/SCOPE-total-degree-ranking-of-endemic-infection-on-two-equitable-commu--949ad0e7afb0",
+          "arXiv:2607.14048, Section 4"
+        ]
+      },
+      "rationale": "The inspected evidence covers the local threshold definition, global versus isolated threshold comparison, Perron-mode behavior, and even finite ranking reversals. It does not establish the distinct quantitative theorem: an unbounded quadratic lower bound for the reversed near-onset burden ranking in three equal-size connected induced blocks, for the specified discrete-time product update.",
+      "residual_risks": [
+        "One broad literature query returned irrelevant results and is not evidence of absence. Bounded primary-text and catalogue inspection do not establish universal priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the model and spectral thresholds, not the quantified reversal in the inspected passages.",
+          "evidence": "Theorem 1 gives τ_g ≥ τ; Section 4 sums infections within each community for simulations.",
+          "identifier_or_url": "arXiv:2607.14048",
+          "material_read": "PDF pp. 2–3 (recurrence), Section 3.1 p. 4, Theorem 1 p. 5, Section 4 pp. 8–9",
+          "method": "OA PDF passage inspection",
+          "title": "An Epidemic Threshold Set for Networks",
+          "trigger": "Same update, definitions, and block burden"
+        },
+        {
+          "assessment": "Established Perron expansion for a different, continuous-time model.",
+          "evidence": "Theorem 1 expresses the endemic state as a principal-eigenvector term plus a second-order error; Section 5.1 displays the continuous-time linearization.",
+          "identifier_or_url": "DOI:10.1007/s00285-020-01542-6",
+          "material_read": "Sections 4–5.1, Theorem 1",
+          "method": "OA publisher PDF passage inspection",
+          "title": "Time-dependent solution of the NIMFA equations around the epidemic threshold",
+          "trigger": "Near-threshold Perron direction"
+        },
+        {
+          "assessment": "Relevant spectral theory; not a bound for the non-equitable family.",
+          "evidence": "Under equitable partition hypotheses the adjacency and quotient Perron roots coincide.",
+          "identifier_or_url": "arXiv:1412.6157",
+          "material_read": "Sections 3.2–3.3, Proposition 3.3",
+          "method": "OA PDF passage inspection",
+          "title": "Epidemic Outbreaks in Networks with Equitable or Almost-Equitable Partitions",
+          "trigger": "Community spectral quotient and prevalence"
+        },
+        {
+          "assessment": "Substantive conceptual overlap; the catalogue path is later and the actual claims do not include the quadratic equal-block construction.",
+          "evidence": "The six-vertex C4 join K2 reverses an isolated-threshold ranking. The three equal cells in the eighteen-vertex example give a finite near-onset burden ranking outside the two-cell theorem.",
+          "identifier_or_url": "2026/11/8/SCOPE-total-degree-ranking-of-endemic-infection-on-two-equitable-commu--949ad0e7afb0",
+          "material_read": "Statement and the two- and three-cell examples",
+          "method": "Resultary local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Total-degree ranking of endemic infection on two equitable communities",
+          "trigger": "Closest distinct same-map ranking result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–32 and 112–142",
+        "Dung–Phuc, arXiv:2607.14048, Sections 3–4"
+      ],
+      "rationale": "A qualitative reversal could be a finite anomaly; the unbounded quantitative construction proves that isolated-threshold ordering alone provides no size-independent factor controlling near-onset burden, even when comparing equal-size connected blocks and all isolated blocks are subcritical. This is a useful boundary for interpreting that model's community threshold statistic.",
+      "residual_risks": [
+        "Strong cross-block connectivity makes this a deliberately extremal construction; no empirical prevalence, weak-coupling generalization, or globally optimal bound is inferred."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

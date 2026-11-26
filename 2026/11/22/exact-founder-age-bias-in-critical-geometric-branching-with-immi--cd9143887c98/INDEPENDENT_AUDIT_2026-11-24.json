@@ -1,0 +1,168 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:39:51.960431Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Start empty and add one immature family after reproduction each step, so at n≥1 there is one independent cohort of each age 0..n−1, including the newest singleton. The one-founder iterate satisfies 1/(1-f_a(s))=a+1/(1-s), and the product telescopes to the positive geometric total Y_n of mean n. For an alternative to coefficient differentiation, split Y_n=B+O into the ages ≤m and the independent older ages. The recent total B has the positive geometric law of Y_{m+1} with continuation probability beta=m/(m+1). Given B≥b, the shifted variable B−b+1 still has the law of B for each positive-probability conditioning event. Thus for 1≤b≤k, P(B≥b,Y_n=k)=beta^{b-1}P(Y_n=k−b+1), also when beta=0 by direct inspection of B=1. Dividing by the geometric law of Y_n gives conditional tail q^{b−1}, with q=beta/alpha and alpha=(n−1)/n. Summing tails and dividing by k proves the claimed within-realization sampling law. For 0≤q<1 every next term is strictly below the running average (the q=0 sequence is 1,0,0,..., not literally strictly decreasing as described in the proof, but its averages are exactly 1/k, strictly decreasing). Averaging over Y_n gives the difference of the two logarithmic series and the displayed unconditional CDF. At m=n−1 there is no older block and the probability is one; at n=1 the age is zero. Under a Y_n-size-biased population the denominator Y_n cancels, and every founder has expected family size one, giving uniform age. In the limit q=1−(1−r)/(rn)+o(1/n) at m=floor(nr), so the conditional geometric average with k/n→x>0 converges uniformly on compact x-intervals to the stated conditional kernel. The kernel is a CDF in r since it equals ∫_0^1 exp(−ux(1−r)/r)du and has limits zero and one. Trimming x near zero and infinity using the positive geometric to exponential convergence justifies joint convergence. The exponential density times the kernel gives the stated subdensity; the logarithmic integral gives the marginal, differentiation gives the density, and integrating the CDF expansion gives E[T]=1−∑_{j≥1}(j+1)^{-2}=2−pi²/6. Independently checked 4200 exact conditional cases by the unmarked split-cohort convolution for n=2..16, m=0..n−2, k=1..35; replay python3 /workspace/independent_checks.py 5. The frozen script was read, not executed; the limits are analytical.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The local population-count theorem and geometric approximation treat the unmarked count. Cardona-Tobón–Palau study sample genealogies in a single linear-fractional family. Smadi–Vatutin condition on the sole surviving clan in a random environment."
+        ],
+        "reasoning": "The verified results are neither a joint immigration-age partition with the total nor a sample-age theorem containing the exact law as a parameter choice. Mere knowledge of a total population marginal does not specify the partition; the independent age-block split and normalization are needed to extract the founder mark for this model.",
+        "searches": [
+          "arXiv:2611.19363 Theorem 1 and §3",
+          "arXiv:2506.17470 fixed-generation sample genealogy",
+          "arXiv:2109.13315 Theorem 1 and clan definition",
+          "primary literature lookup for uniform-in-realization founder-age sampling and split-cohort immigration laws"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.19363, 2205.13875, 2506.17470 and 2109.13315",
+        "Resultary 710036798089 and 660e6bc3aeb5",
+        "doi:10.1239/jap/1037816021 and doi:10.2307/3212563 (bibliographic / access attempts only)",
+        "Frozen RESULT.md, VERIFICATION.md and check.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "710036798089 has the same geometric offspring but selects the largest clan under polynomially growing influx with alpha>0; it does not specialize to an ordinary realized-population uniform individual even by changing the immigration rate. 660e6bc3aeb5 conditions on extreme excursion particles in a different model, not an individual's rank within a sampled geometric forest.",
+          "The local-limit result is for the total alone. Smadi–Vatutin's all-extant-descend-from-i event is not the event that a uniformly drawn member has founder i; the latter weights all surviving cohorts proportionally to their sizes within each realization. The audited conditional law decreases with total k even though size-biased population sampling gives exactly uniform age."
+        ],
+        "reasoning": "Neither an extremal tag nor a unique-survivor conditioning implies the sampling law when multiple cohorts coexist, and an unmarked marginal gives neither the finite age dependence nor the joint limit. The same-day related excursion note is scientifically distinct; no priority ordering within the day is assumed.",
+        "searches": [
+          "Resultary 710036798089 RESULT.md Finding, 660e6bc3aeb5 RESULT.md Finding",
+          "arXiv:2109.13315 clan event and Theorem 1",
+          "arXiv:2611.19363 Theorem 1, §3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact relevant equivalent is the normalized conditional expectation E[B_{n,m}|Y_n=k]/k for an immigration-age cutoff; a recent-block conditional tail as in the correctness check is sufficient.",
+          "Cheek–Johnston sample uniformly at a fixed time, but Theorems 2.1–2.2 give reproduction-event sizes and times along the ancestral lineage in their branching model, not a conditional founder label in an immigrant forest.",
+          "The relevant Klebaner–Sagitov title was identified, but neither the DOI nor the identified author-copy route supplied readable full text in this audit. The frozen description of a backward hitting-time age was not used as independently verified noncoverage."
+        ],
+        "reasoning": "A size-biased population followed by uniform sampling, a sample lineage in one family, and an immigration-age mark conditional on a realized total are different experiments. An unread paper could pose a related equivalent formulation; only the verified comparisons support the verdict.",
+        "searches": [
+          "Resultary sampled founder age, critical geometric immigration, founder-time clan labels",
+          "arXiv:2205.13875 Theorems 2.1–2.2",
+          "doi:10.1239/jap/1037816021; identified author copy ResearchGate publication 38350532"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Available exact results include unmarked population probabilities, a Gamma founder time for the largest clan in 710036798089, and exponential founding marks of extreme excursion particles in 660e6bc3aeb5. None is the finite conditional age table for a uniformly sampled extant individual. The target's matching Resultary entry is the identical record, not another source."
+        ],
+        "reasoning": "The exact table would be indexed by age threshold and realized total with unit immigration and no population tilt. An extremal-clan founder mark or unmarked count table does not retain those indices and sampling weights. The checked catalog and literature are not exhaustive.",
+        "searches": [
+          "Resultary exact conditional sampled founder age and geometric immigration",
+          "Resultary 710036798089 and 660e6bc3aeb5 Findings",
+          "arXiv:2611.19363 local probabilities P(Y_n=k)"
+        ]
+      },
+      "rationale": "The supported distinct statement is the joint law of realized population and sampled founder age under population-first uniform sampling, in the exact geometric unit-immigration model, including the conditional population-size ordering and its scaled coupling. Not claimed as new: geometric iterates, marginal population limits, general uniform sampling bias, or the cancellation under size-biasing. Inspected related originals concern unmarked counts, a single family or different sampling/conditioning, rather than the exact age-indexed recent block conditional on realized total. This is bounded scientific evidence, not an absolute priority verdict.",
+      "residual_risks": [
+        "Unaccessed Klebaner–Sagitov and Durham originals could contain relevant ancestral-age or age-structure results; neither access problem is negative evidence.",
+        "An older exact immigration-family partition or ancestral representation giving this count-conditioned uniform-sample law may be unlocated. No historical priority is asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Unmarked population-count comparison; not an age-partition statement.",
+          "evidence": [
+            "Theorem 1 concerns P(Y_n=k); §3 concerns approximation by a process with geometric offspring."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2611.19363",
+          "material_read": "PDF p. 1 abstract, p. 3 Theorem 1, p. 14 §3, offsets 142, 9343 and 54546",
+          "method": "Lawful OA PDF bounded theorem and model passages",
+          "title": "Local limit theorem for critical branching processes with immigration",
+          "trigger": "Guiding immigration population-count theorem and geometric approximation"
+        },
+        {
+          "assessment": "Ancestral reproduction-event bias and point-process mixture; no immigrant-founder mark in the compared theorems.",
+          "evidence": [
+            "Uniformly sampled cell at time T; laws of sizes and times of ancestral reproduction events."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2205.13875",
+          "material_read": "PDF p. 1 abstract and pp. 4–5 Theorems 2.1–2.2, offset 15626",
+          "method": "Lawful OA PDF bounded passages",
+          "title": "Ancestral Reproductive Bias in Branching Processes",
+          "trigger": "General uniform-at-observation-time ancestral bias"
+        },
+        {
+          "assessment": "Sample genealogy of a single family, not the target forest partition; no whole-document inference from an abstract alone.",
+          "evidence": [
+            "Genealogical trees from Bernoulli and fixed-size uniform samples of a linear-fractional BGW population."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2506.17470",
+          "material_read": "PDF p. 1 abstract and stated sampling setup",
+          "method": "Lawful OA PDF bounded passage",
+          "title": "The coalescent of a sample from a linear-fractional branching process",
+          "trigger": "Geometric or linear-fractional family plus uniform sampling"
+        },
+        {
+          "assessment": "Different event and random-environment hypothesis; not the law of a uniformly chosen individual in the presence of multiple families.",
+          "evidence": [
+            "Event A_i(n): all individuals alive descend from immigrant i; theorem gives limits under only-survivor conditioning."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2109.13315",
+          "material_read": "PDF pp. 1–4, abstract, clan definition near offset 2927 and Theorem 1 near 8440",
+          "method": "Lawful OA PDF bounded introductory and theorem passages",
+          "title": "Critical branching processes in random environment with immigration: the size of the only surviving family",
+          "trigger": "Closest primary comparison with immigration-time-tagged clans"
+        },
+        {
+          "assessment": "Overlaps offspring and founder-time idea; growing immigration and extremal-clan selection do not imply target.",
+          "evidence": [
+            "Floor(c k^alpha) immigrants with alpha>0; founder time of largest clan and a Gamma limit."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-gumbel-extremes-and-gamma-founder-time-localization-for-polynomi--710036798089",
+          "material_read": "Local mirror RESULT.md Finding, offset 0",
+          "method": "Resultary lookup and bounded original statement",
+          "title": "Gumbel extremes and Gamma founder-time localization for polynomially immigrating critical branching clans",
+          "trigger": "Same critical geometric offspring and a founder-time distribution"
+        },
+        {
+          "assessment": "Birth-time marking for extreme particles in a singular excursion model; different process and sampling.",
+          "evidence": [
+            "Conditional birth-time law for extreme particles, not a uniform individual in a deterministic-unit-immigration geometric forest."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-exponential-founding-time-marks-for-gumbel-extremes-in-a-singula--660e6bc3aeb5",
+          "material_read": "Local mirror RESULT.md Finding, offset 0",
+          "method": "Resultary lookup and bounded original statement",
+          "title": "Exponential founding-time marks for Gumbel extremes in a singular birth–death excursion model",
+          "trigger": "Distinct same-day result with an explicit conditional founding-time law"
+        },
+        {
+          "assessment": "Unresolved full-text comparison, not evidence of noncoverage.",
+          "evidence": [
+            "The frozen description distinguishes a backward population age from a sampled forward founder age; not independently confirmed from the inaccessible text."
+          ],
+          "identifier_or_url": "https://doi.org/10.1239/jap/1037816021",
+          "material_read": "Title and frozen bibliographic description; readable full text not obtained",
+          "method": "Lawful DOI retrieval and identified alternate author copy at ResearchGate publication 38350532; alternate HTTP 403",
+          "title": "The age of a Galton–Watson population with a geometric offspring distribution",
+          "trigger": "Exact matching geometric and population-age terminology"
+        },
+        {
+          "assessment": "Residual historical risk; no full-text verdict inferred.",
+          "evidence": [
+            "The original claimed age-structure connection remains unconfirmed at statement level in this audit."
+          ],
+          "identifier_or_url": "https://doi.org/10.2307/3212563",
+          "material_read": "Bibliographic identification and frozen report of an age-structure abstract; original mathematical statements not accessed",
+          "method": "Lawful DOI and JSTOR access attempts; no readable open copy and a JavaScript challenge",
+          "title": "Limiting distributions for the general branching process with immigration",
+          "trigger": "Historical age-structure coverage flagged by the original"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The age of the immigrant ancestor of an individual selected from a realized population is a natural genealogical observable missed by counts alone. The exact law resolves both a finite population-size monotonicity and a nonindependent joint age–abundance limit; it quantifies how choosing a typical population instead of tilting by size changes the observed age law. The explicit dependence, not the familiar geometric marginal or the size-bias cancellation in isolation, is the useful content.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

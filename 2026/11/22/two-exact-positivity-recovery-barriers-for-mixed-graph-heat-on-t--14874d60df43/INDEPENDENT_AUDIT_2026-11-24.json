@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:09:05.209894Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The four distinct eigenvalues and Lagrange spectral projectors reproduce all four off-diagonal formulas in RESULT.md; the diagonal weights are nonnegative and include 1/4 from the constant vector. For t>0, 0<C<B<A<1 makes both adjacent classes strictly positive. Direct matrix powers give (L^2)02=1, (L^3)03=-1 and (L^4)03=-6. Thus G and F have respectively simple and double zeros at zero and are negative immediately to its right. With x=exp(-t), the ordered-power Descartes bound gives two and three real t-zeros counting multiplicities. For that bound, divide out the lowest power and induct by differentiating. If the first two signs agree, the derivative starts with the same sign as the function's constant limit at x=0; before the first function zero it must already have a zero by the mean-value theorem. This is the extra derivative zero in the same-sign case. The positive limits at infinity then force precisely one simple positive root each. This proves the inclusive maximum cutoff with t=0 separately and strict positivity beyond it. At t=eta*u the leading scaled polynomials are 2u(u-2) and (2/3)u^2(u-6), uniformly on compact u-sets. At s=eta*t, the squared-L rates have the same Descartes patterns and first nonzero small-s coefficients -4s and -12s^2. At s=1 use g<3/4, exp(-4)<1/16 for G>0, and 6-4sqrt(2)<0.35, g>0.7, exp(-a)>1-a for F<0. The roots converge by bracketing on both sides of simple crossings; this also gives continuity at finite eta, hence attainment of a positive maximum since the horizon goes to zero at both ends. Independent replay: python3 -B /workspace/branches/independent_replay.py 1 (SymPy and mpmath), with exact projector and joint Taylor checks and numerical strong-limit roots 0.2328189247758518 and 1.5526760566350351. The uploaded checker was read, not run; no sampled times were used for exhaustiveness.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "SCOPE-20261122-67946e00248d assumes diameter exactly two for its full-matrix small-mixing recovery theorem; P4 has diameter three.",
+          "SCOPE-20261122-93b1348c8e6a covers complete multipartite graphs; SCOPE-20261122-9cfe1fe8d12f covers stars. P4 belongs to neither.",
+          "Gregorio–Mugnolo Proposition 2.3 characterizes all-time positivity for the pure square, not its finite recovery horizon for the mixed generator."
+        ],
+        "reasoning": "Neither the exact results on other graph classes nor general eventual-positivity criteria imply the two zero counts, their rates, or the full time set in this graph.",
+        "searches": [
+          "Resultary: mixed heat exact cutoff and weak-mixing nonedge crossings; complete-multipartite squared-Laplacian cutoffs",
+          "arXiv:1511.05294; arXiv:1712.07370"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE-20261122-4ec9967002dc",
+        "SCOPE-20261122-67946e00248d",
+        "SCOPE-20261122-93b1348c8e6a",
+        "SCOPE-20261122-9cfe1fe8d12f",
+        "SCOPE-20261018-e4f9c89a420f",
+        "SCOPE-20261108-73910250a06c",
+        "arXiv:1511.05294",
+        "arXiv:1712.07370"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Pure-alpha endpoint uniqueness at alpha=2 supplies the corresponding limiting root, but not the finite-mixed semigroup or distance-two root. General eventual positivity supplies finiteness from the spectral gap and constant projection, not the exact earliest time or absence of recrossings."
+        ],
+        "reasoning": "The surviving mathematical increment is the two-channel sign and zero classification on the mixed family, with distinct weak-mixing rates. The qualitative fact of eventual positivity is prior.",
+        "searches": [
+          "P4 fractional endpoint Finding 4ec9967002dc; weak mixed diameter-two Finding 67946e00248d; arXiv:1511.05294 introductory matrix-semigroup discussion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "SCOPE-20261122-4ec9967002dc, Finding: the pure-power P4 endpoint crossing has exactly the same scalar equation at order two as the definition of sigma3.",
+          "SCOPE-20261108-73910250a06c concerns a Gauss–Legendre rational time map on weighted paths, not this exponential. The web results were irrelevant and support no negative inference."
+        ],
+        "reasoning": "Normalize the time and compare all three rates. For 0<eta<infinity, the rates of L+eta L^2 are not an overall multiple of those of L^alpha: log(lambda+eta*lambda^2) is strictly convex as a function of log(lambda), whereas the pure power is affine. At eta=infinity the endpoint does match; the finite-mixing spectrum and extra distance-two condition do not.",
+        "searches": [
+          "Resultary: exact mixed P4 heat cutoff, mixed Laplacian/bi-Laplacian path crossings, tau2/tau3 asymptotics, P4 bi-Laplacian endpoint",
+          "Web: \"P4\" \"L+ηL²\" positivity graph heat OR \"mixed graph heat\" exact positivity cutoff path Laplacian"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The identical frozen result 14874d60df43 was retrieved and is excluded as self-match. Distinct record 4ec9967002dc gives an exact matching squared-operator endpoint entry and crossing condition. The complete-multipartite table e4f9c89a420f does not include P4."
+        ],
+        "reasoning": "Credit the matching endpoint rather than treating it as new because of a different notation or date. No reviewed exact table contains the finite-eta full-matrix result.",
+        "searches": [
+          "Resultary: P4 exact positivity cutoffs, tau2/tau3 asymptotics, squared P4 endpoint; compare returned published Finding sections"
+        ]
+      },
+      "rationale": "Pass the distinct result for the full P4 semigroup with finite positive mixing, including the weak-mixing crossing laws. The squared-L endpoint equation and its unique recovery at the order-two endpoint are shared with a distinct same-day record and should not be credited as a separate novel endpoint calculation. No inspected source covers the finite-mixing two-barrier theorem. This is not a priority ruling between same-day records.",
+      "residual_risks": [
+        "Same-day priority for the common order-two endpoint is unresolved.",
+        "The web search was uninformative, and an unindexed finite-matrix equivalent may exist. The review is bounded to the retrieved statements and cited primary passages."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material partial coverage; not the finite-mixing claim",
+          "evidence": [
+            "Endpoint entry of exp(-t L^alpha), one crossing at alpha=2; same F-infinity equation."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-two-order-transitions-in-endpoint-positivity-for-four-site-fract--4ec9967002dc",
+          "material_read": "RESULT.md, Finding and scope, offset 0",
+          "method": "Published statement via local mirror",
+          "title": "Two order transitions in endpoint positivity for four-site fractional graph heat",
+          "trigger": "Same graph and exactly matching pure-square endpoint"
+        },
+        {
+          "assessment": "Geometric hypothesis excludes P4 full-matrix comparison",
+          "evidence": [
+            "Diameter exactly two, unlike P4."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-universal-two-term-positivity-recovery-for-weak-mixed-graph-heat--67946e00248d",
+          "material_read": "RESULT.md, Finding and scope, offset 0",
+          "method": "Published statement via local mirror",
+          "title": "Universal two-term positivity recovery for weak mixed graph heat",
+          "trigger": "Same generator and a leading coefficient of two"
+        },
+        {
+          "assessment": "The inspected theory does not determine either mixed P4 crossing",
+          "evidence": [
+            "Spectral and resolvent descriptions of eventual positivity; examples of higher-order generators."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1511.05294",
+          "material_read": "Primary PDF abstract and introduction pp. 1–2, offsets 1180 and 4518",
+          "method": "Lawful PDF text examination",
+          "title": "Eventually and asymptotically positive semigroups on Banach lattices",
+          "trigger": "Qualitative broader eventual-positivity theory"
+        },
+        {
+          "assessment": "All-time positivity in the pure-square case is not the mixed time-set result",
+          "evidence": [
+            "P3 counterexample and Proposition 2.3: pure bi-Laplacian semigroup positive for all times iff the graph is complete."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1712.07370",
+          "material_read": "Primary PDF pp. 7–8, offsets 25301 and 26333",
+          "method": "Lawful PDF text examination",
+          "title": "Bi-Laplacians on graphs and networks",
+          "trigger": "Pure-square generator underlying strong mixing"
+        },
+        {
+          "assessment": "Different graph classes",
+          "evidence": [
+            "Neither complete multipartite graphs nor stars contain P4."
+          ],
+          "identifier_or_url": "SCOPE-20261122-93b1348c8e6a; SCOPE-20261122-9cfe1fe8d12f",
+          "material_read": "Both RESULT.md Findings, offset 0",
+          "method": "Published statements via local mirror",
+          "title": "Exact mixed-heat delays for complete multipartite graphs and for stars",
+          "trigger": "Same mixed generator and exact cutoffs"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "P4 is the smallest path on which both distance-two and distance-three channels can obstruct all-entry positivity. The exact time set and the distinct onset scales answer when a mixed generator whose semigroup is not all-time positive nevertheless becomes positive; the two scales cannot be obtained from a generic eventual-positivity theorem. Finite-mixing root ordering, uniqueness of the worst strength, and extensions to longer or weighted paths are not established.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

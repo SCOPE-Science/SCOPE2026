@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T23:50:22.628420Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Square-zero expansion over the stated dual ring is valid in every characteristic and reduces powers at m>=k to the kernel of T_m. Conjugating A reduces to independent ordered rectangular blocks. For sizes a,b, identify matrix units with u^{a-i}v^{j-1} in K[u,v]/(u^a,v^b). The operator multiplies by h_{m-1}; for d>=m-1 both u h_d and v h_d equal h_{d+1}, since u^{d+1}=v^{d+1}=0. Its image has exactly one nonzero generator in each grade m-1 through a+b-2 (each a sum of distinct monomials with coefficient one), and no others. This yields max(0,a+b-m) in every field. Rank-nullity gives the cumulative formula, differences give the point law, and reduction precludes indices below k. At 2k all terms vanish; at 2k-1 precisely the s^2 ordered pairs of largest blocks contribute. This includes k=1, where only B=0 gives index one. Independent bounded replay: python3 /workspace/reproduction.py 3 exhausts six dual-ring lift cases over F_2, F_3 and F_4 (including (2,2) over F_2, with bins 256,3840,61440), and computes ranks by literal dual powers on matrix units for (3,2) and (4,2,1) over F_2 (respectively 8,4,1,0 and 10,5,2,1,0). Bounded tests corroborate the proof and do not address higher-order coefficient rings.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prasad–Singla–Spallone treat similarity over local rings of length two, and compute the rectangular L_N(Y_ij)=sum_{a+b=N-1}Y_{i+a,j-b} for every N>=1, with zero-outside conventions.",
+          "Şentürk–Özbay Theorem 2.5 gives nilpotence iff the residue is nilpotent and the upper bound 2k, not the count.",
+          "Brawley journal table of contents was accessible; publisher and OA retrieval did not obtain primary theorem text."
+        ],
+        "reasoning": "The arbitrary rectangular matrix-unit formula is more detailed than the rank and subsumes it in the target regime, as the explicit image comparison below shows. The bound 2k alone would not imply the distribution, and no finer conditional statement is attributed to Brawley without the paper.",
+        "searches": [
+          "arXiv:1212.6157v2 §6.2 pp. 20–21",
+          "arXiv:2609.29468v1 Theorem 2.5",
+          "Brawley DOI:10.1137/0603003"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and supporting files",
+        "arXiv:1212.6157v2 §6.2",
+        "arXiv:2609.29468v1 Theorem 2.5",
+        "Resultary/local mirror a669645ca0b7, 7ce421f6170b, 5c39e77ec446, 7dbdc75b2ccc",
+        "DOI:10.1137/0603003 (bibliographic listing; primary full text not obtained)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "After equation (6.5) the authors decompose L_m into ordered Jordan block pairs. For a p-by-q matrix unit Y_ij in their lower-Jordan convention, p. 21 gives L_m(Y_ij)e_1=e_{m+i-j} if 1<=m+i-j<=p and zero otherwise.",
+          "At m>=max(p,q), telescoping the very same sum gives J_p L_m(Y)-L_m(Y) J_q=J_p^mY-YJ_q^m=0. Since e_h=J_q^{h-1} e_1, column h of every output is J_p^{h-1} times its first column."
+        ],
+        "reasoning": "Thus first-column projection is injective on the output image. From the published coordinate formula its image is exactly spanned by e_{m+1-q},...,e_p (empty when m+1-q>p): no smaller subscript occurs, and taking i=1 lets j realize every listed subscript. The rank is max(0,p+q-m). Summing the printed block decomposition and applying rank-nullity therefore gives the entire frozen conditional count, not just its endpoint. Switching to upper Jordan blocks by reversing the basis does not change rank. The alternative truncated-polynomial proof is concise but does not change the mathematical invariant or produce an additional noncovered law.",
+        "searches": [
+          "Prasad–Singla–Spallone arXiv:1212.6157v2, §6.2, PDF pp. 20–21, OA text offset 49800–57724"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For a fixed reduction A with A^m=0, lifts solving X^m=0 are precisely the finite-field points in the tangent space of the scheme defined by the entries of X^m at A (not in general the tangent space of its reduction).",
+          "Resultary 5c39e77ec446 gives the identical all-block rank and fixed-A fiber in that formulation; 7dbdc75b2ccc includes this same count in a differential Jordan-type result. Both records postdate the frozen result."
+        ],
+        "reasoning": "The condition is the kernel of the same matrix-power differential, whether described as a zero-power lift or as a tangent vector. Its point count over F_q is q to the kernel dimension; successive differences are exact-index counts. The later equivalents document overlap but do not establish earlier priority.",
+        "searches": [
+          "Resultary: arbitrary Jordan types, conditional dual-number power-zero fibers and tangent ranks",
+          "Prasad–Singla–Spallone arXiv:1212.6157v2, §6.2, equations (6.3), (6.5) and matrix-unit evaluation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary a669645ca0b7 (Oct 4) states the complete index law for one block. Resultary 7ce421f6170b (Oct 13) explicitly gives ind=2k iff A^{k-1}BA^{k-1} is nonzero and probability 1-q^{-s^2} for arbitrary reductions.",
+          "Resultary 5c39e77ec446 (Nov 2) states the full rank/count in the zero-power scheme; 7dbdc75b2ccc (Nov 8) also states the lift count."
+        ],
+        "reasoning": "The first two records are exact but cover a special case and an endpoint, respectively; their combination alone does not give intermediate mixed-block strata. The other two have exact full overlap in the cumulative count but are later, so the finding's prior coverage is based on the older primary-source implication instead.",
+        "searches": [
+          "Resultary: one-block exact nilpotency-index distribution; maximal doubling; power-zero matrix schemes fixed residue"
+        ]
+      },
+      "rationale": "The arbitrary-partition count is mathematically correct, but it is mechanically implied by the explicit rectangular operator evaluation in Prasad–Singla–Spallone, arXiv:1212.6157v2, §6.2, pp. 20–21. This is stronger evidence than prior knowledge of the linearized-power operator itself: the authors give its action on matrix units and the resulting coordinate vector on the first column for arbitrary rectangular sizes and exponent. In the claimed range, the first column determines the whole output. The closed count need not have been printed in that source to be covered. Earlier Resultary records also state the one-block distribution and the arbitrary-block top mass explicitly. The originality failure does not rest on inaccessible literature or on later overlapping records.",
+      "residual_risks": [
+        "Whether Brawley explicitly stated related conditional counts remains unresolved, but the documented prior implication is independent of that issue.",
+        "The review establishes implication from a specific earlier source, not the first appearance of the explicit probability notation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The printed coordinate action and one-line intertwining identity imply the full fixed-residue rank/count in the frozen range.",
+          "evidence": [
+            "Equation (6.5) defines L_N as a sum of powers with one insertion.",
+            "p. 21 evaluates L_N(Y_ij) and explicitly gives L_N(Y_ij)e_1, before specializing to extension data."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1212.6157v2",
+          "material_read": "§6.2 and preceding (6.3), PDF pp. 20–21 (OA offset 49800 through the matrix-unit passage), beginning of Table 2 p. 22",
+          "method": "Lawful OA PDF passage; read the actual block and coordinate identities",
+          "title": "Similarity of matrices over local rings of length two",
+          "trigger": "Same operators on rectangular block pairs and a plausible strictly stronger prior computation"
+        },
+        {
+          "assessment": "Prior upper bound and detection of nilpotence by reduction; not the fixed-fiber law in the theorem inspected.",
+          "evidence": [
+            "The 2k-th power vanishes once the residue is nilpotent of index k."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.29468v1",
+          "material_read": "Theorem 2.5, PDF p. 3, around OA offset 13380",
+          "method": "OA PDF passage",
+          "title": "On the Regularity and Clean Properties of Matrices over Dual Numbers",
+          "trigger": "Same ring and nilpotency-index ceiling"
+        },
+        {
+          "assessment": "No detailed implication or exclusion established for this paper. Not relied on for FAIL.",
+          "evidence": [
+            "The retrieved bibliographic listing confirms title and pages, not its conditional-fiber scope."
+          ],
+          "identifier_or_url": "https://doi.org/10.1137/0603003",
+          "material_read": "Journal table of contents only (citation and pp. 30–34)",
+          "method": "Lawful publisher routes and OA alternate lookup; no full text accessible",
+          "title": "Counting Matrices by Drazin Index",
+          "trigger": "Possible prior counts over finite rings"
+        },
+        {
+          "assessment": "Prior one-block and top-mass subclaims; later exact full overlaps do not establish earlier coverage.",
+          "evidence": [
+            "7ce421f6170b covers arbitrary largest-block multiplicity at the endpoint; 5c39e77ec446 gives the exact ordered-pair rank formula."
+          ],
+          "identifier_or_url": "Resultary a669645ca0b7, 7ce421f6170b, 5c39e77ec446, 7dbdc75b2ccc",
+          "material_read": "Local-mirror RESULT.md Findings and relevant proof passages",
+          "method": "Resultary search followed by local-mirror statement inspection",
+          "title": "Published dual-number and power-zero comparators",
+          "trigger": "Exact same ring, distributions or differential ranks"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The fixed-residue distribution is a natural invariant, and the formula is convenient. But its exact value is already obtained by reading off the first-column image from the prior all-rectangular matrix-unit computation, followed by rank-nullity. The top probability is explicitly covered by an earlier record, and the alternative proof is a reformulation of the same computation with no independent further finding. No distinct valuable remainder of the stated theorem survives that coverage, so no repair is submitted.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

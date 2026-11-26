@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:21:23.330988Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 15–48; VERIFICATION.md and verify.py (witness, modular rank and finite forcing tests)",
+        "/workspace/spider_power_check.py"
+      ],
+      "rationale": "For each of the first m−1 arms the outermost r black vertices force inward: the forcer at t+r is not adjacent off its arm and sees only depth t white. The hub can then be forced from depth r, depths 1 through r−1 of the last arm follow from the depth-sum rule, the hub forces depth r, and propagation continues outward. In the witness the length-(r+1) windows cover exactly the same-arm pairs at separation at most r (including the case of just one window); the threshold block and hub vector give exactly the other edges. P has rank ℓ−r by its triangular minor. Independent choices of m−1 vectors in ker(Pᵀ), followed by their negative sum on the last arm, give (m−1)r independent null vectors: the window terms vanish armwise and all threshold and hub terms vanish by zero sum. For any exact-support matrix, restriction of the kernel to the initially black set is injective, because each forcing row propagates a zero. These bounds yield equality, and subtracting nullity from 1+mℓ gives the stated rank. Independent replay with python3 /workspace/spider_power_check.py used BFS graph powers, exact rational elimination and forcing closure on (m,ℓ,r)=(3,5,4),(4,7,5),(3,10,9); all size-seven initial sets were excluded for the first case. Uploaded scripts were read, not run.",
+      "residual_risks": [
+        "The finite replay is corroboration; the proof, not sampling, establishes all admissible parameters. No formal verification was performed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "8e9d1cb373f9 allows m≥2 and r≥1 with ℓ≥r+1. 5580508bfee7 allows any arm lengths satisfying those lower bounds separately."
+        ],
+        "reasoning": "Either indexed theorem implies the frozen result for m≥3 and r≥4. The cited older tree-square/path work alone does not.",
+        "searches": [
+          "Resultary 5580508bfee7 Finding and Assumptions; 8e9d1cb373f9 Finding",
+          "Chang–Lin tree squares; DeAlba et al. ordinary path powers and strict tree powers"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 8e9d1cb373f9, 5580508bfee7 and 9b56bd0ac1b9",
+        "arXiv:2610.03892v1",
+        "Chang–Lin §4 Thm. 4.1",
+        "DeAlba et al., ELA 23 (2012), §3.1 Thm. 3.2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The arXiv v1 gives only the uniform upper bound and conjectures Z equality in the range m≥2, r≥1, ℓ≥r+1. The Oct. 13 proof already uses the shared window Gram block, depth-threshold couplings and identical arm-difference kernel. The Nov. 8 record instead gives a signed adjacency-polynomial witness with more restrictive arm lengths."
+        ],
+        "reasoning": "Both invariant values and the proposed certificate are covered; the later spectral certificate is materially different and not needed to conclude coverage.",
+        "searches": [
+          "arXiv:2610.03892v1 §3 Proposition 9, Conjecture 10; 8e9d1cb373f9 Proof; 5580508bfee7 Proof",
+          "Resultary 9b56bd0ac1b9 Finding and Relationship to prior work"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "8e9d1cb373f9 uses the same ordinary power, uniform arm-length convention and real symmetric exact-support matrix class; it states the same Z and M values."
+        ],
+        "reasoning": "Replacing k by r and specializing to the frozen bounds leaves the same graph and assertions. Minimum rank is exactly |V|−M_R.",
+        "searches": [
+          "Resultary: uniform/equal-leg spider graph powers, zero forcing and real maximum nullity",
+          "8e9d1cb373f9 Finding and Proof"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The index contains the universal Z=M_R=(m−1)r determination. Substituting every ℓ_i=ℓ in the exact rank formula of 5580508bfee7 gives m(ℓ−r)+r+1."
+        ],
+        "reasoning": "Exact coverage is by all-parameter proofs, not by matching a table of numerical examples.",
+        "searches": [
+          "Resultary records 8e9d1cb373f9 and 5580508bfee7, exact formula comparison to primary findings"
+        ]
+      },
+      "rationale": "The exact uniform result and its Gram-block and arm-difference witness already appear in indexed record 8e9d1cb373f9. The independently indexed theorem 5580508bfee7 also covers the entire range, even allowing unequal arms. Proposition 9 and Conjecture 10 correctly locate the motivating question, but do not establish that the frozen proof fills an otherwise uncovered gap.",
+      "residual_risks": [
+        "Coverage is based on verified mirror contents, not authentication of timestamp metadata or an exhaustive historical-priority claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING",
+          "evidence": [
+            "Z=M_R=(m−1)r for m≥2,r≥1,ℓ≥r+1; same Gram-plus-threshold construction and kernel."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-exact-zero-forcing-and-maximum-nullity-of-powers-of-equal-leg-sp--8e9d1cb373f9/RESULT.md",
+          "material_read": "Finding and Proof, local-mirror text from offset 0",
+          "method": "Resultary search and bounded local mirror full text",
+          "title": "Exact zero forcing and maximum nullity of powers of equal-leg spiders",
+          "trigger": "Exact uniform theorem and construction"
+        },
+        {
+          "assessment": "COVERING",
+          "evidence": [
+            "General arm lengths ℓ_i≥r+1, same exact support, Z, M_R and rank; equal-arm case gives a direct specialization."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-sharp-zero-forcing-and-minimum-real-rank-of-spider-powers-with-u--5580508bfee7/RESULT.md",
+          "material_read": "Finding, Assumptions, Proof §§1–2, offsets 0–5584",
+          "method": "Bounded local mirror full text",
+          "title": "Sharp zero forcing and minimum real rank of spider powers with unequal arms",
+          "trigger": "Stronger ordinary spider-power theorem"
+        },
+        {
+          "assessment": "UPPER_BOUND_AND_CONJECTURE",
+          "evidence": [
+            "Conjecture 10 addresses Z, not maximum nullity. Theorem 20 is a conditional adjacency-polynomial criterion, not the spider formula."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.03892v1",
+          "material_read": "§3 Proposition 9 and Conjecture 10, offsets 22128–27102; §4 Theorem 20",
+          "method": "Primary OA HTML",
+          "title": "The Zero Forcing Number of Graph Powers",
+          "trigger": "Claim to settle open conjecture range"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Proof",
+        "Resultary 8e9d1cb373f9 Finding and Proof; 5580508bfee7 Finding"
+      ],
+      "rationale": "The uniform higher-power equality answers a worthwhile conjecture question, but the frozen narrower result adds no independent instance, invariant, or witness to the indexed proof. A restatement of the exact covered range with the same matrix certificate is not a distinct scientific contribution.",
+      "residual_risks": [
+        "The value of the mathematical problem and its covering solution is distinct from the value of this frozen submission."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

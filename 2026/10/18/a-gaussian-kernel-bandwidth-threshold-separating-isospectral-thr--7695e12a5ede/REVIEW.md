@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Both kernels are explicitly stochastic, symmetric and strictly positive; their common eigenvalues and total-variation contraction factors follow by direct matrix multiplication. Gaussian strict positive definiteness follows from the Fourier integral representation. The MMD maximum is an exactly attainable generalized Rayleigh quotient; its rational expression, strictly positive factored derivative, unique polynomial root and singular asymptotic are proved analytically in `RESULT.md`. The bundled checker reproduces 999 exact-rational Gram calculations and independent finite matrix examples. The use of actual probability laws, rather than unrestricted signed measures, is justified by small perturbations of the interior invariant law.
+## correctness
 
-**Originality — PASS subject to remaining indexing risk.** The closest source, Kachaiev et al. (arXiv:2610.13916v1), explains kernel relaxation and one-step contraction, including an expanding-map example, but has no explicit three-point Gaussian bandwidth bifurcation or isospectral reversible pair. Demmel (1983) supplies classical similarity-conditioning inequalities, but does not give the kernel-parametric phase function, sixth-degree threshold or two isospectral Markov constructions. General entropy contraction applies to different divergences. Searches for Gaussian-MMD transient amplification, Markov spectral counterexamples, kernel bandwidth thresholds, equivalents and matrix similarity bounds did not find the same theorem. Some broader matrix inequality may offer alternative routes; priority is not certified.
+PASS
 
-**Mathematical value — PASS.** This is an exact, natural finite-state boundary for the distinction between spectral mixing and a kernel-derived convergence metric, including a unique crossover, an attained sharp gain, a nontrivial inverse-square-root singularity and a reflection-compatible control chain. It shows that even complete agreement of invariant law, spectrum, positivity and total-variation coefficient cannot determine a practically used kernel convergence diagnostic. The phenomenon first becomes possible at three states. It does not claim general higher-dimensional significance or a new concentration theorem.
+Both kernels are Π plus half an orthogonal rank-one projection onto a unit zero-sum mode (adjacent difference u or endpoint difference w); positivity, uniform stationarity, spectrum, gap and half the maximum row ℓ¹ distance follow. The Gaussian Gram kernel is strictly positive definite (its Fourier density is everywhere positive and the trigonometric polynomial of a nonzero coefficient vector is not identically zero). Every zero-mass direction is realized by a sufficiently small probability perturbation of π, so the computed gain is sharp over probability laws. Independently, the zero-mass reflection basis w,(1,−2,1)/√6 yields diagonal metric entries λ₁=1−t⁴, λ₂=(1−t)²(t²+2t+3)/3. The endpoint projection is metric-orthogonal. The adjacent mode has squared basis coordinates 1/4 and 3/4; by Cauchy–Schwarz in the metric, its gain squared is ((λ₁+3λ₂)/4)((1/λ₁+3/λ₂)/4)/4, which simplifies to the claimed 1/[4(1−R)]. For A=t+t²+t³, R=A²/(3+2A), strictly increasing from 0 to 1. R=3/4 gives the polynomial and unique transition with the stated direction. From λ₁∼4h and λ₂∼2h² the sharp adjacent gain squared is asymptotic to 3/(32h). On two states the zero-mass subspace is one-dimensional, so kernel choice cannot change the ratio at fixed eigenvalue. h=0 is excluded and no indefinite trajectory growth is implied.
 
-**Scientific limits.** The objects are specific, the kernel becomes non-characteristic only at the excluded limit \(h=0\), and no general stochastic-process extension is established. Primary-literature overlap can remain hidden by unindexed formulations. Reproducible finite tests do not establish asymptotics; the proof does.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Bounded pass for the explicit isospectral three-state Gaussian-kernel comparison with its sharp bandwidth threshold and broad-kernel coefficient. Failure of contraction despite a spectral gap and the conjugated-operator-norm principle are known, not credited as original here.
+
+## value
+
+PASS
+
+A minimal-state sharp witness clarifies a practical distinction between TV and MMD one-step behavior: keep the eigenvalues, reversibility, positivity and TV behavior fixed while switching the active site difference relative to the kernel geometry. The exact threshold decides whether any probability law is amplified, and the singular constant quantifies the maximal effect rather than merely showing noncontractivity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

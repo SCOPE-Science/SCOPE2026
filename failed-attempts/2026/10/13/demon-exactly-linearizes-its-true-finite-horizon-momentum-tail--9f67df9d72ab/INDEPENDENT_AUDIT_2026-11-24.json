@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:46:15.674640Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, assumptions and proof",
+        "Frozen VERIFICATION.md and verify.py, inspected not run",
+        "Chen et al., arXiv:1910.04952v4, Algorithm 1"
+      ],
+      "rationale": "For the defined dimensionless velocity-state multiplier, splitting off its first factor gives E_t=β_t(1+E_{t+1}) and E_T=0. With C=T(1−b)+b, substituting the proposed next tail gives 1+E_{t+1}=(T−bt)/C; cancellation proves the formula down to t=0, including T=1. The proxy satisfies P_t=b(T−t)/[T(1−b)], so the constant ratio and the discrepancy normalized by P_t are correct for t<T; the ratio of two zero tails is not taken at t=T. In the source Algorithm 1, t runs through T inclusive and β_T=0, so omitting that zero-term product is correct. A gradient at t first enters v_{t+1}; its future dimensionless momentum multiplier is E_{t+1}, not E_t. In the source velocity convention its actual signed coefficient in accumulated future parameter increments is −ηE_{t+1} (the immediate gradient contributes −η); the coefficient in the finding is interpreted in its stated normalized-memory sense.",
+      "residual_risks": [
+        "A learning rate applied to velocity at each later step, rather than absorbed into the source velocity, would define a different weighted sum. The statement concerns a fixed impulse holding other gradient inputs fixed, not the gradient's indirect feedback into later gradients through the objective."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chu–Vandermonde gives F(−x,B;C;1)=(C−B)_x/(C)_x for terminating degree x. Take B=1 and C=−x−h. The ratio telescopes to (x+h+1)/(h+1).",
+          "If h is a positive integer, all denominators up to j=x are nonzero; the same conclusion follows by continuity of the finite sums from nonintegral h."
+        ],
+        "reasoning": "The prior identity has the claimed range as a restriction and evaluates exactly the varying-coefficient product sum. The DEMON source need not itself have carried out this specialization for the mathematical sum to be covered.",
+        "searches": [
+          "NIST DLMF §15.4 equation 15.4.24",
+          "Chen et al., arXiv:1910.04952v1 and v4, DEMON derivation"
+        ]
+      },
+      "checked_sources": [
+        "Published Resultary matches for AdaX and LaProp",
+        "Chen et al., arXiv:1910.04952v1 and v4",
+        "NIST DLMF equation 15.4.24"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Subtracting the empty product from the prior evaluation gives x/(h+1)=b(T−t)/[T(1−b)+b]. The source proxy is x/h. Their ratio is h/(h+1) and the proxy-normalized discrepancy is 1/(h+1). Substituting x−1 is exactly the source's next-state indexing for a newly computed gradient.",
+          "The source motivation explicitly uses a frozen-coefficient approximation, but that wording does not prevent a direct exact implication from its published schedule and the standard summation formula."
+        ],
+        "reasoning": "The old identity after substitution and the old schedule establish the full exact scalar finding. This is stronger coverage evidence than the absence of a DEMON-labelled match is evidence of originality.",
+        "searches": [
+          "arXiv:1910.04952v4, Algorithm 1 and §3",
+          "https://dlmf.nist.gov/15.4.E24"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Put x=T−t and h=T(1−b)/b>0. The source coefficient at time t+i is (x−i)/(x+h−i). A length-j product is exactly (−x)_j/(−x−h)_j, using rising factorials.",
+          "Since (1)_j=j!, adding the empty product gives 1+E_t=∑_{j=0}^x (−x)_j(1)_j/[(−x−h)_j j!], the terminating Gauss hypergeometric polynomial at 1 with second parameter 1."
+        ],
+        "reasoning": "The terminating sum agrees term by term, not merely asymptotically or at special horizons. An existing-state multiplier and a newly injected gradient's tail are the same sum at adjacent indices, not equivalent at the same index.",
+        "searches": [
+          "arXiv:1910.04952v4, Algorithm 1 and §3",
+          "NIST DLMF §15.4(ii), Chu–Vandermonde identity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest inspected Resultary records compute impulse gains for AdaX Algorithm 2 and LaProp, not DEMON.",
+          "DLMF tabulates the exact terminating sum as a symbolic identity rather than under optimizer terminology."
+        ],
+        "reasoning": "The direct optimizer-name search does not show an equivalent statement, but the symbolic reference supplies it after the termwise rewrite.",
+        "searches": [
+          "Resultary: DEMON schedule exact impulse gain, finite-horizon momentum tail",
+          "NIST DLMF equation 15.4.24"
+        ]
+      },
+      "rationale": "No exact DEMON-labelled expression was found in the inspected optimizer texts, and the application is a useful reading of the source motivation. But the exact mathematical assertion is directly covered by Chu–Vandermonde on inserting the already-published DEMON coefficients. The remaining proxy and indexing claims are direct algebra of that same sum and the published recurrence.",
+      "residual_risks": [
+        "The audit does not assert that a prior optimizer paper explicitly printed this DEMON formula. The failure is based on a demonstrated implication of existing results, not on unavailable or speculative literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies the schedule and proxy but the located text uses a frozen-coefficient approximation rather than an explicit exact summation.",
+          "evidence": "The algorithm loops t=0 through T and updates θ by −ηg_t+β_t v_t and v by the same increment expression; the motivation calls the varying-product replacement a close approximation.",
+          "identifier_or_url": "https://arxiv.org/abs/1910.04952",
+          "material_read": "v4 Algorithm 1, p. 2 near offset 8700; v4 §3 motivation, p. 3 near offset 18800; v1 preliminaries and §3 near offsets 9000 and 11500",
+          "method": "Open-access primary PDFs, targeted passages",
+          "title": "Demon: Improved Neural Network Training with Momentum Decay",
+          "trigger": "Exact source schedule, recursion, and approximation"
+        },
+        {
+          "assessment": "Stronger summation directly implies the proposed closed form for every admissible parameter.",
+          "evidence": "F(−n,b;c;1)=(c−b)_n/(c)_n for nonnegative integer n. The DEMON substitution is n=T−t, b=1, c=−(T−t)−T(1−β_init)/β_init.",
+          "identifier_or_url": "https://dlmf.nist.gov/15.4.E24",
+          "material_read": "§15.4(ii), equation 15.4.24 and accompanying symbol definitions, website near offset 13779",
+          "method": "Open reference text, located and read exact equation",
+          "title": "NIST Digital Library of Mathematical Functions: Chu–Vandermonde Identity",
+          "trigger": "Exact pre-existing evaluation of the terminating product sum"
+        },
+        {
+          "assessment": "Analogous interpretation but different recursions; neither is relied on for the originality failure.",
+          "evidence": "AdaX concerns its source-form Algorithm 2; LaProp uses a fixed-momentum recurrence.",
+          "identifier_or_url": "2026/10/4/...92e0ee44969d; 2026/10/4/...f434b20d54a8",
+          "material_read": "Both published findings, offset 0 in each original",
+          "method": "Resultary searches and local-mirror reading",
+          "title": "Exact sparse impulse gain law for AdaX long-term memory; Exact single-impulse gain law for LaProp decoupled momentum",
+          "trigger": "Nearby exact momentum-memory results"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, finding and limitations",
+        "Chen et al., arXiv:1910.04952v4, §3",
+        "NIST DLMF equation 15.4.24"
+      ],
+      "rationale": "Knowing that the true momentum-only tail preserves the intended shape can clarify the original heuristic. As a narrow research finding, however, the shape and scale are mechanically implied by the exact prior summation with the source schedule. No further nonroutine conclusion about the optimizer, a distinct weighting, or another motivated invariant survives; the explanation is useful as an expository observation, not a distinct research result under this standard.",
+      "residual_risks": [
+        "This verdict does not dispute the algebra or claim that the source's approximation is numerically close for all b and T."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

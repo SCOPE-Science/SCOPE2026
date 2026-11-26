@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-For \(a\ne0\), \(a^2\ne1\), all maps preserve the socle line by nondegeneracy and the original averaging equations; their action on it must be \(0\) or \(1\). The first branch is exactly the isotropic-image retraction classification. In the second branch, equality of the three original bilinear expressions forces a self-adjoint idempotent for the nonsymmetric pairing, whose off-diagonal blocks vanish and whose diagonal blocks are dual idempotents. Counting complementary kernels and functionals gives the asserted polynomial. Full proof includes all quantifiers, arbitrary finite fields with admissible parameters, and exact rank support. Independent arithmetic checks from the two supplied programs verify finite cases but are not substituted for proof.
+## correctness
 
-## Originality — PASS relative to inspected evidence
-The existing complete retraction classification for the identical associative algebra directly covers the entire first summand and is expressly credited; it does not cover non-endomorphism averaging maps. Guo–Pei already establish the general averaging projection image/kernel criterion, also credited. The closest full text on averaging projections of quadratic Gorenstein algebras is for a unital commutative algebra and does not settle the new nonsymmetric, nonunital case. The new part is exactly the central-preserving, nonendomorphic branch and resulting rank gap. The novelty judgment remains provisional against unidentified more general linear-algebra operator classifications.
+PASS
 
-## Mathematical value — PASS
-The result completes a natural operator census rather than a selected finite case: for an unbounded family, it quantifies the discrepancy between averaging projections and algebra retracts and proves an exact forbidden-rank pattern. The new branch has \(\sum_{j=0}^{n-1}{n\brack j}_q q^{j(n-j)+2(n-j)}\) non-endomorphism operators, including \(750\) rank-three examples for \(n=2,q=5\). It uses an intrinsic socle dichotomy and self-adjointness, not an arbitrary numerical slice.
+For the specified finite field, n>=2, a nonzero and a^2!=1, the identity with first input z gives B(h,v)P(z)=0 for every v, where h is the V-component of P(z). Nondegeneracy gives h=0, and idempotence leaves P(z)=0 or z. In the first branch the image of the induced idempotent Q on V is totally isotropic. The two orders of B imply orthogonality of its coordinate images X,Y by the invertible 2-by-2 system with determinant 1-a^2. With dim X=s, dim Y=t, a subdirect r-space is specified by two d-dimensional quotients (d=s+t-r) and an isomorphism between them, giving the displayed Goursat sum. Independent choices of a complementary kernel and a functional on the image contribute q^{r(2n-r)+r}. In the fixing branch the averaging equations reduce to Q^T M=M Q by Q^2=Q. In blocks [A C; D E], they give D=a D^T, C^T=a C and E=A^T; hence C=D=0, including in characteristic two. An image and complement specify each rank-j idempotent A, and fQ=0 gives q^{2(n-j)} lifts, so the rank is 2j+1 with exactly the stated count. If this branch also preserves products, nondegeneracy gives Q=I and f=0. Every r<=n occurs in the killing branch by choosing a subspace of the first summand. Independent hand check at q=5,n=2: the isotropic line count is 6+6+6*4=36, and the isotropic plane count is 2+6=8; the fixing branch gives 625 rank-one maps, 750 rank-three maps and the identity. This gives exactly the asserted example and rank support. Read RESULT.md lines 40–69, VERIFICATION.md, verify_counts.py and exhaust.cpp; the supplied finite checks did not need to be executed and do not prove the all-field theorem.
 
-## Sources and limitations
-Primary source: Braiek–Chtioui–Mabrouk (2024), arXiv:2409.17184. Foundational prior criterion: Guo–Pei (2014), arXiv:1401.7386. Closest directly overlapping public source: *Complete retraction-rank spectra of split bilinear-product algebras over finite fields* (2026); it covers the whole retract branch. Closest distinct averaging classification: *Idempotent averaging projections on quadratic Gorenstein local algebras* (2026). The stated conclusions exclude the symmetric and alternating parameters and general (non-idempotent) averaging maps; independent publication priority is not certified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The retraction census for this exact algebra is already known and explicitly credited; it gives the entire socle-killing summand and the identity. The pass concerns the additional non-endomorphic socle-fixing projections and the resulting complete labeled averaging census. The inspected same-rank-support Heisenberg analogue has a different pairing and a different count, and the general averaging criterion does not state or count these projections.
+
+## value
+
+PASS
+
+This is a complete count of a natural relaxation of retractions on the same noncommutative algebra, not just a reformulation. It identifies exactly which additional maps and ranks occur and why many odd ranks above n become possible but no new even rank above n occurs. The formula for labeled maps is useful beyond the illustrated example; the previously known retraction count alone would not resolve the averaging classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

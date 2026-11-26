@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The rank-\(r\) factor count, fiber size of \(B\mapsto AB\), classification of all square-zero blocks by their image/kernel flag, and the exact rank-\(s\) block count combine without independence assumptions beyond uniform sampling. The completed-square identity is an exact symbolic expansion. Uniform Gaussian-product bounds and translated lattice theta sums prove matching exponents and the conditional concentration statement for all finite fields. Direct exhaustive multiplication and an independently evaluated closed-form census agree at four parameter pairs; the largest checks \(262{,}144\) pairs. A historical factorization result might imply parts of the finite census, but not correctness concerns.
+## correctness
 
-## Originality
-**PASS, with material residual priority risk.** The October 2026 motivating paper treats probability of nilpotency without nilpotency-index stratification. The closest published full-text results count unrestricted nilpotent products and the opposite extreme of regular nilpotent products. Their statements do not determine the size-two index locus or its conditioned two-rank concentration. The sharp \(3/7\) exponent and two-rank concentration require optimizing the new joint rank-resolved fiber counts; the marginal probability alone is not claimed as a new general product distribution. Dolžan (2025) Theorem 3.2 already gives prescribed-product fibers and thereby subsumes the marginal square-zero probability after summing over targets, but it does not state the joint \(\operatorname{rank}A,\operatorname{rank}(ABA)\) census or conditional rank fluctuations. The latter are the originality focus. Full texts of Kovács 1987/1988 were inaccessible and remain a historical-priority risk. Search non-detection is not a uniqueness proof.
+PASS
 
-## Mathematical value
-**PASS.** Nilpotency of a matrix product is a naturally motivated 2026 ring-theoretic probability statistic, and the boundary between nilpotency index two and regular nilpotency is mathematically structural. A sharp \(3/7\) quadratic large-deviation exponent, order-one conditioned rank localization, and comparison against ordinary square-zero matrices provide quantitative phenomena not supplied by the aggregate nilpotent event. These are infinite families, not unmotivated finite parameter slices.
+Choose image dimension r, kernel dimension n-r, and a quotient-to-image isomorphism to obtain [n r]_q^2 |GL_r| choices of A. Fix this A: B maps onto all maps V to im A via B↦AB, with q^(n(n-r)) preimages per map. In a splitting V=im A ⊕ W, the blocks (C,D) of AB into im A satisfy (AB)^2=0 exactly when C^2=0 and im D⊆ker C. Surjectivity of A onto its image proves rank ABA=rank C, not generally rank AB. Square-zero C of rank s is specified by its s-dimensional image, an (r-s)-dimensional kernel containing that image, and a quotient isomorphism; these give the two Gaussian coefficients and |GL_s| in the formula. The allowed D contribute q^((r-s)(n-r)); this gives all strata including r=0, s=0 and r=n, with neither factor restricted to be nilpotent. The lower and upper normalized Gaussian and general-linear factors are uniformly bounded by powers of the positive product ∏_(j≥1)(1-q^(-j)), independently of n,r,s. The resulting exponent is -n^2+2nr-ns-2r^2+3rs-2s^2. With x=r-5n/7, y=s-2n/7 this is -3n^2/7-(x^2+y^2)/2-3(x-y)^2/2. The optimum is interior by linear margins; feasible rounding gives a bounded-penalty term (the finitely many small n are absorbed into the constant), and translated lattice sums are bounded uniformly in the shift. Reserving a quarter of the squared Euclidean penalty for the tail and summing the other quarter gives the stated conditional estimate. Single-matrix rank weights have exponent -n^2/2-2(s-n/2)^2 with s≤floor(n/2), giving matching constant bounds and hence the ratio. The stated rarity even within nilpotent products follows already from taking A invertible and AB regular nilpotent, a subevent of probability at least a q-dependent constant times q^(-n), by the size of the regular-nilpotent conjugacy class. The frozen direct four-case rank check and its output were read, not rerun; universal correctness is from the count and estimates, not the reported pass marker.
 
-## Limitations
-The exact asymptotic constant and fine phase effects are not determined. The fixed-\(q\) bounds are not uniform as \(q\) varies. Exhaustive verification is confined to small prime fields; the proof covers all prime powers. Older unexamined literature could cover even the joint rank refinement or its concentration; the broader marginal product law is already credited to Dolžan (2025).
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass for the exact internal (rank A, rank ABA) census under the square-zero product condition and its two-dimensional conditioned localization. Prescribed-target factorization covers the marginal event; the 3/7 exponent can be extracted by optimizing the corresponding target-rank sum and does not depend on access to the new internal rank statistic. Credit those overlaps, and the standard single-matrix formula, rather than treating the unconditional census or ratio as standalone originality.
+
+## value
+
+PASS
+
+Within the natural index-at-most-two event for an unrestricted random product, the exact joint law distinguishes the rank of the first factor from the rank of the product restricted to its image. It reveals an order-one rank localization at two distinct linear scales, not determined by a target-rank distribution. This is a structural, reusable refinement of the existing product law, rather than a table of small cases or the marginal comparison alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

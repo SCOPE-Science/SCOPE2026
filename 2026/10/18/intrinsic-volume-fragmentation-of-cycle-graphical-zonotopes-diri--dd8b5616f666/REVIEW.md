@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact identity follows from the established zonotope subdeterminant expansion, the matrix-tree determinant of each forest component and an exact marked-edge count. The Dirichlet constant is an explicit simplex beta integral. The positive-density formula follows from an exact conditioned-product coefficient identity and a span-one triangular-array local central limit theorem; the largest-gap conclusion is proved through uniform one-/two-coordinate conditioning estimates and the second moment method. The standalone checker independently verifies all 42 finite instances through order nine, together with asymptotic diagnostics. A discrete-to-continuous scaling normalization was reconstructed and matches the checked boundary cases \(k=1,n\).
+## correctness
 
-**Originality — PASS, with residual literature risk.** Joós–Lángi establish the general intrinsic-volume expansion, Brazitikos–McIntyre its related wedge-volume framework, and Pešović–Stojadinović the graph-polytope setting. They do not state the evaluated cycle coefficient or the two fragmentation regimes. Closest published mathematical records concerning the cycle zonotope one-skeleton concern Laplacian/spanning-tree data, whereas previous random-tree intrinsic-volume work concerns different random graph ensembles and weighted compositions. Direct implication checks found no broader theorem in the inspected primary material that already states the cycle-specific Dirichlet/tilted/logarithmic component conclusions. Equivalently encoded results in the large analytic-combinatorics literature cannot be ruled out completely.
+PASS
 
-**Mathematical value — PASS.** The exact formula resolves the entire Euclidean intrinsic-volume profile of a basic family of generalized permutohedra. The weighted component-size law is motivated by the same forest Gram factors that determine those volumes, and its fixed-cut-to-positive-density shift gives a geometric fragmentation phenomenon not recoverable from unweighted cycle-cut counts. The constants and positive-density saddle point can be used to quantify all high-codimension volumes rather than a single isolated parameter choice. This is not presented as a new universal zonotope formula.
+The forest incidence Gram determinant is the product of component sizes; in the Steiner normalization the summands are its square roots. Marking counts each deletion set k times and each positive composition n times. As a bounded hand check at n=4,k=2 the edge-pair sum is 4√3+4, agreeing with the coefficient. Rechecking the repaired fixed-k theorem, the Riemann mesh gives n^(k−1) points per unit volume and the wedge weights give n^(k/2), followed by n/k. Testing against any bounded continuous function and taking the ratio of the integrals proves the Dirichlet law. The k=1 and empty-forest conventions agree with the exact identity. In the comparison regime, subtracting one from each size makes Φ=F/z and m/k=n/k−1. Janson’s varying-tilt results apply at span one with a compact interior tilt, including for arbitrary convergent density; the tail thresholds then give the stated maximum scale.
 
-**Limits.** The graphs are standard unweighted cycles. The intermediate regime of an unbounded sublinear cut count is not addressed. The bibliography and self-review are not an independent audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The repaired finding is the fixed-cut determinant-weighted geometric Dirichlet limit with its matching Euclidean volume constant. The original positive-density probability claims are specializations of prior allocation theorems, and the exact coefficient occurs in other indexed records. The repair credits both overlaps and relegates these results to derivation and comparison rather than asserting separate priority. The retained fixed-box macroscopic law is not among the prior allocation theorems with the number of boxes tending to infinity.
+
+## value
+
+PASS
+
+The surviving theorem links a natural Euclidean geometric measure to the shape of the macroscopic forest, pinning down the exact change of Dirichlet parameter relative to uniform cutting and the normalization constant needed for the intrinsic-volume asymptotic. It is a fixed-cut fragmentation statement, not the repackaging of the known proportional-load limit theorem or merely a finite coefficient computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

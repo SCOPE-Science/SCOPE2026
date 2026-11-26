@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T13:25:55.629274Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md: 3–53",
+        "VERIFICATION.md: 19–23",
+        "verification.py: 4–45",
+        "Independent centered vector field, stability and energy check"
+      ],
+      "rationale": "In the given normalization the centered sum and difference factor the equilibrium equations as stated. The three diagonal equilibria always exist. The s=0,d≠0 branch gives d²=1/4−2m; the s,d≠0 branch gives s²=(1−12m)/16 and d²=(1+4m)/16. The latter's independent sign choices lie strictly in the square since √(1−12m)+√(1+4m)≤2√(1−4m)<2. At the two critical rates the apparent duplicate coordinates are counted once. On the first asymmetric branch the eigenvalues are 6m−1/2 and 4m−1/2; on the second the determinant is −32s²d². At m=1/12 the center drift is repelling: writing d=d₀−3s²/(2d₀)+O(s⁴) gives s′=8s³+O(s⁵). Independently, the nearby curve d²=1/12−3s² has d′=0 and s′=8s³, so E decreases from the equilibrium value along that curve and nearby lower-energy states cannot converge to the equilibrium. At m=1/8 the midpoint still has eigenvalue 1/4. The negative-gradient identity, forward invariant compact square and finite equilibrium set imply singleton omega limits. Thus the stated counts and convergence are correct. The uploaded script was read, not executed; a separate expansion and energy-direction check is replayable in review_checks.py, allee().",
+      "residual_risks": [
+        "This correctness finding is for the deterministic balanced model only, with a local growth prefactor of one."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The periodic coupled-double-well paper includes N=2 explicitly in §4.1 and Fig. 3; it is not just a broad theorem on similar landscapes. Equation (4.8) supplies the gradient potential. Xia et al. p. 1 abstract discusses nonlinear dispersal and ODE/PDE or linear cases, but does not give the balanced constants in that passage."
+        ],
+        "reasoning": "The larger bistable-chain treatment specifically proves the two-site specialization. Restriction to the invariant density square loses no equilibrium branch at positive m: the explicitly enumerated points all lie in it. Standard gradient convergence on that square follows from the published potential and finite classification.",
+        "searches": [
+          "arXiv:math/0611647 'The Case N = 2' and Proposition 4.2",
+          "arXiv:2310.10558, two-patch Allee dispersal"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md: 16–66",
+        "arXiv:math/0611647 pp. 9 and 22, Figure 3 and Proposition 4.2",
+        "Resultary 0225a125c296",
+        "arXiv:1003.0121 and arXiv:2310.10558 abstracts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The proof lists the origin and two y₀=±1 states; two antisymmetric states with y₁²=λ₁ when λ₁>0; and four mixed-sign states with 8y₀²=3λ₁−1, 8y₁²=3−λ₁ when λ₁>1/3. Its p. 9 text explicitly says A is a 1-saddle for 1/3<γ<1/2 and describes its mergers; Fig. 3 classifies the branches.",
+          "After y₀=2s, y₁=−2d, γ=4m, the square-root expressions are exactly RESULT.md equations (2) and (3). At each equality the vanishing coordinate makes the branches merge, not add new distinct equilibria."
+        ],
+        "reasoning": "The thresholds, equilibrium counts and stability change are covered even without ecological vocabulary. At the nonhyperbolic point the quartic potential along the null-gradient-in-y₁ curve decreases in the y₀ direction, a direct local consequence of Eq. (4.8); the endpoint refinement does not leave a separate research result. Convergence is the routine application of gradient compactness and finite equilibria.",
+        "searches": [
+          "Berglund–Fernandez–Gentz Proposition 4.2 proof and Eq. (4.8), offset 74980",
+          "Berglund–Fernandez–Gentz p. 9 Fig. 3 and subsequent Case N=2 text, offsets 28660 and 30600"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Berglund–Fernandez–Gentz §4.1 Eq. (4.7), p. 22: ẏ₀=y₀[1−(y₀²+3y₁²)], ẏ₁=y₁[λ₁−(3y₀²+y₁²)], λ₁=1−2γ. Their y₀=2s, y₁=−2d and γ=4m give the exact same dynamics, not merely the same qualitative pattern.",
+          "Kang–Lanchier p. 1 abstract describes two or four attractors and loss of two with dispersal; the bound record identifies its general-threshold cubic model at RESULT.md:55–56."
+        ],
+        "reasoning": "Positive time rescaling and the affine density transformation preserve equilibrium branches and stability. The exact quartic two-site comparison, not the more qualitative Allee literature, decides coverage.",
+        "searches": [
+          "Balanced two-patch cubic Allee system under z_i=2x_i−1 and τ=t/4",
+          "arXiv:math/0611647 PDF literal 'The case N = 2', offset 74980",
+          "arXiv:1003.0121, two-patch Allee attractors"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 0225a125c296's indexed statement already gives the two balanced constants μ/r=1/12 and 1/8. It is later-dated than the present item, so this hit does not establish historical priority. Its full record was not retrieved.",
+          "The 2006 preprint's p. 9 Fig. 3 and following 'Case N=2' paragraph give bifurcations at γ=1/3 and γ=1/2 and explicitly identify the two antisymmetric saddles between them."
+        ],
+        "reasoning": "The Resultary hit is a material duplicate at the threshold-statement level regardless of order in the index. Independently, the preprint supplies a directly inspected antecedent with exact dynamics, classified branches and thresholds.",
+        "searches": [
+          "Resultary: stable asymmetric states at 1/12 and last asymmetric equilibrium at 1/8",
+          "Resultary 0225a125c296",
+          "arXiv:math/0611647 'Figure 3.', offsets 28660 and 30600"
+        ]
+      },
+      "rationale": "Directly verified prior coverage. Berglund, Fernandez and Gentz, arXiv:math/0611647, explicitly classify the dynamically identical N=2 quartic gradient system, including both pitchforks, branches and stability. Set z₁=2x−1, z₂=2y−1 and τ=t/4; the new system is dz_i/dτ=z_i−z_i³+4m(z_j−z_i). Their y₀=(z₁+z₂)/2=2s and y₁=(z₂−z₁)/2=−2d, with λ₁=1−2γ and γ=4m, turn their Eq. (4.7) exactly into the frozen equations. Their two critical values γ=1/3,1/2 therefore are m=1/12,1/8. Their explicitly enumerated coordinates give the same counts, including mergers, inside the rescaled square. The convergence statement is a standard finite-critical-point consequence of the equivalent published potential. The balanced ecological interpretation does not change the mathematical objects, and the threshold-endpoint check is routine for the already classified bifurcations.",
+      "residual_risks": [
+        "Some cited ecology sources and the overlapping Resultary full record were not accessible at the required depth; the exact older two-site comparison resolves the originality decision without them."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive prior coverage. Same frozen vector field and phase diagram under γ=4m, with the same algebraic branches and the published potential",
+          "evidence": [
+            "p. 9 specifies pitchforks at γ=1/3 and γ=1/2, and identifies the A branch as 1-saddles between them.",
+            "p. 22 enumerates each family, subject to the exact positivity thresholds λ₁>0 or λ₁>1/3, and gives the corresponding potential."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/0611647",
+          "material_read": "Primary PDF p. 9 Fig. 3 caption and Case N=2 text, offsets 28660 and 30600; p. 22 §4.1 Eqs. (4.7)–(4.9), Proposition 4.2 and proof, offset 74980",
+          "method": "Lawful OA PDF literal search and bounded offset reads",
+          "title": "Metastability in Interacting Nonlinear Stochastic Differential Equations I: From Weak Coupling to Synchronisation",
+          "trigger": "Exact equivalence to a two-site quartic gradient system after affine density and time rescaling"
+        },
+        {
+          "assessment": "Substantively overlaps the two thresholds, but priority and endpoint detail are not decided from this hit",
+          "evidence": [
+            "Summary: stable asymmetric source–sink states disappear at μ/r=1/12 and equilibrium count changes at μ/r=1/8 for θ=1/2."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-sharp-global-source-sink-transition-in-the-symmetric-two-patch-a--0225a125c296",
+          "material_read": "Indexed Resultary scientific summary; underlying record not retrieved",
+          "method": "Local Resultary search and targeted retrieval attempt",
+          "title": "Sharp global source–sink transition in the symmetric two-patch Allee model",
+          "trigger": "Same model family, balanced threshold and both numerical constants"
+        },
+        {
+          "assessment": "Qualitative prior overlap; not relied on for the exact thresholds",
+          "evidence": [
+            "Abstract reports two or four attractors and loss of two when dispersal exceeds a threshold."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1003.0121",
+          "material_read": "Primary first-page abstract; bound characterization at RESULT.md:55–56, not independent theorem-level inspection",
+          "method": "Targeted lawful abstract and full-text retrieval attempt",
+          "title": "Expansion or extinction: deterministic and stochastic two-patch models with Allee effects",
+          "trigger": "Same ecological model family and dispersal-induced loss of mixed attractors"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md: 3–14, 24–61",
+        "arXiv:math/0611647 Fig. 3, §4.1 and Proposition 4.2"
+      ],
+      "rationale": "It is useful to distinguish loss of a mixed sink from loss of the last asymmetric equilibrium, but the research claim adds only an affine and time rescaling of an already explicitly solved two-site phase diagram. The surviving endpoint verifications and gradient convergence are elementary consequences, not a new ecological mechanism, a new boundary, or an additional substantive classification. The balanced Allee presentation has pedagogical value but does not supply a distinct scientific result to repair.",
+      "residual_risks": [],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

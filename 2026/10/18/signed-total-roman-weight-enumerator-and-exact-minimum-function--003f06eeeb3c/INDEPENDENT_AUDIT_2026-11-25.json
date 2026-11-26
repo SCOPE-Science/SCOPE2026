@@ -1,0 +1,154 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:07:17.360704Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On the labelled crown graph the open-neighborhood sum at b_i is A-f(a_i), and similarly on the other side. The threshold is therefore exactly the two side-sum inequalities. A negative vertex sees all opposing 2's except a possibly matched one; cases of zero, one, and at least two opposing 2's give exactly the stated cell restrictions. The nine cells partition the n named pairs; their multinomial correctly counts labelings, without dividing by graph automorphisms. With a 2 on both sides each side has weight at least 3; if one side has no 2, it has weight at least 2 and the other side has only positive labels. For n>=5 this gives weight at least 7; for n=3 the no-2 side has odd weight and the only weight-six arrangement of this kind is all ones; for n=4, weight at most six would force the other side to be all ones, leaving no defending 2 on either side and hence all ones. Odd n>=3 attain six with two 2's per side and the indicated 1/-1 counts; even n>=4 attain it with one 2 per side in the same deleted matching pair. G_2 is a matching and its unique minimum is all ones. For n>=4, weight-three side profiles satisfy 3t+2u=n+3. Odd n forces a positive even t, so all pairs of side profiles are compatible. Even n permits a unique 2; each direction of a bad match has U_n D_n possibilities by symmetry and their intersection forces two distinct 2 positions and the binomial product J_n. Inclusion-exclusion proves the claimed minimum count. G_3 separately has nine pairings of two-2 side profiles plus all ones. A separate row-mask enumeration checked every full coefficient for n=2 through 7 against a sorted-multiset enumerator and recovered minima counts 1,10,84,900,3280,44100 (checks/frozen_checks.py argument 1; output checks/1.txt). Those finite checks corroborate rather than establish the universal formula.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The mirrored multipartite Finding and formula at offsets 66 and 800 count STRD labels on connected complete multipartite graphs using per-part counts.",
+          "Koster–Volkmann–Wehrmann Theorem 1 addresses cubic minimum values; Proposition D lists undeleted complete bipartite minima."
+        ],
+        "reasoning": "For n>=3 nonadjacency fails to be an equivalence relation after ignoring equality: a_i and a_j are nonadjacent, a_j and b_j are nonadjacent, but a_i b_j is an edge for i!=j. Thus the multipartite formula does not apply, and G_2 is disconnected. The cited cubic equality is not an all-regular-graph enumerator.",
+        "searches": [
+          "2026/10/13/SCOPE-weight-enumerator-of-signed-total-roman-dominating-functions-on--4abf4c82d791",
+          "arXiv:2606.27175v1, Proposition D and Theorem 1"
+        ]
+      },
+      "checked_sources": [
+        "Five specified Resultary findings",
+        "arXiv:2606.27175v1 pp. 3–4",
+        "DOI:10.13447/j.1674-5647.2017.04.04 (access attempt)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Proposition D attributes to Zhao–Miao gamma_stR(K_n,n)=2 for n>=4 and 4 for n=3.",
+          "Theorem 1 gives gamma_stR(G)=|V(G)|-rho_o(G) for cubic graphs. Two antipodal vertices in Q_3 form an open packing, and incidence counting gives rho_o<=2, so the known minimum on G_4 is 6."
+        ],
+        "reasoning": "The old cubic theorem really implies one minimum, but does not determine any full weight distribution or minimum multiplicity. Neither a minimum on the undeleted graph nor a disconnected small instance entails these formulas on the crown family.",
+        "searches": [
+          "arXiv:2606.27175v1 pp. 3–4, Proposition D and Theorem 1",
+          "DOI:10.13447/j.1674-5647.2017.04.04"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The mirrored ordinary total Roman Findings at offset 0 use the same deleted matching but labels {0,1,2} and different constraints; the October 18 one counts 31 minima at n=3, rather than 10.",
+          "The mirrored signed-total-domination crown finding uses only {-1,1}, with no Roman defender."
+        ],
+        "reasoning": "Neither replacing negative labels with zeros nor dropping label 2 preserves open-neighborhood sums, defense conditions and weight. These are different enumerators, including the distinct same-day candidate.",
+        "searches": [
+          "Resultary: exact weighted STRD enumerator for crown graphs/matching-deleted balanced bicliques",
+          "2026/10/18/SCOPE-the-total-roman-domination-polynomial-of-crown-graphs--d48e4d60806e",
+          "2026/10/12/SCOPE-total-roman-weight-enumerator-of-crown-graphs--ec56691004a8"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The mirrored signed-total Finding supplies parity-dependent results for a different alphabet; the mirrored perfect-Roman Finding gives n minima with a different defender rule and alphabet.",
+          "No exact same-invariant minimum-count census surfaced in the bounded searches; the primary complete-bipartite table gives minima of the different undeleted graph only."
+        ],
+        "reasoning": "A count for a different labeling class cannot substitute for the parity formulas for H_n. The absence of a matching entry in bounded searches is not a uniqueness finding.",
+        "searches": [
+          "Resultary: minimum function counts and parity for signed total Roman crown graphs",
+          "2026/10/13/SCOPE-signed-total-domination-weight-enumerator-of-crown-graphs--ae2144f796bb",
+          "2026/10/4/SCOPE-perfect-roman-domination-of-crown-graphs--e57b781e4a71"
+        ]
+      },
+      "rationale": "The full labelled signed-total-Roman polynomial and uniform minimum multiplicities are the supported distinct claim. The closest inspected results either count different Roman labelings on the same graph or count the same signed-total-Roman invariant on other graphs. Known special-case minimum values are not credited as new.",
+      "residual_risks": [
+        "Older full text and a direct older primary passage for the previously credited C_6 minimum were not secured; the C_6 value is independently derived here and not claimed as new.",
+        "Equivalent unindexed treatments of matching-deleted bicliques or bipartite double covers could exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers comparison to the undeleted family and the cube minimum, not enumerators.",
+          "evidence": [
+            "gamma_stR(K_n,n)=2 for n>=4; gamma_stR+rho_o=|V| for cubic graphs."
+          ],
+          "identifier_or_url": "arXiv:2606.27175v1",
+          "material_read": "p. 3 Proposition D and p. 4 Theorem 1, PDF offsets 10980 and 12020",
+          "method": "Open primary PDF passages",
+          "title": "Signed Total Roman Domination and Domatic Numbers: Degree Three and Complete Multipartite Graphs",
+          "trigger": "Same invariant on complete bipartite and cubic graphs"
+        },
+        {
+          "assessment": "Independent technical full-text coverage unresolved.",
+          "evidence": [
+            "The citing primary paper explicitly credits the complete-bipartite values to Zhao–Miao."
+          ],
+          "identifier_or_url": "DOI:10.13447/j.1674-5647.2017.04.04",
+          "material_read": "Landing and bibliographic identification only; attribution verified in Koster et al. Proposition D",
+          "method": "DOI retrieval and open citing paper",
+          "title": "Signed Roman (Total) Domination Numbers of Complete Bipartite Graphs and Wheels",
+          "trigger": "Cited origin of the complete-bipartite minima"
+        },
+        {
+          "assessment": "Different ordinary total Roman invariant.",
+          "evidence": [
+            "Alphabet {0,1,2}; minimum counts 1,31 at n=2,3 and n^2(n-1) for n>=4."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-the-total-roman-domination-polynomial-of-crown-graphs--d48e4d60806e",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Resultary and local mirror",
+          "title": "The total Roman domination polynomial of crown graphs",
+          "trigger": "Same-day same graph and full-weight polynomial"
+        },
+        {
+          "assessment": "Also ordinary Roman alphabet, not signed-total Roman.",
+          "evidence": [
+            "Uses {0,1,2}."
+          ],
+          "identifier_or_url": "2026/10/12/SCOPE-total-roman-weight-enumerator-of-crown-graphs--ec56691004a8",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Resultary and local mirror",
+          "title": "Total Roman weight enumerator of crown graphs",
+          "trigger": "Earlier same-graph enumerator"
+        },
+        {
+          "assessment": "Hypotheses exclude crowns.",
+          "evidence": [
+            "Requires connected complete multipartite graph; imposes admissibility by part profiles."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-weight-enumerator-of-signed-total-roman-dominating-functions-on--4abf4c82d791",
+          "material_read": "Mirrored RESULT.md Finding and formula, offsets 66 and 800",
+          "method": "Resultary and local mirror",
+          "title": "Weight enumerator of signed total Roman dominating functions on complete multipartite graphs",
+          "trigger": "Same invariant, potentially broader exact formula"
+        },
+        {
+          "assessment": "Different signed invariant without Roman defense.",
+          "evidence": [
+            "Uses only -1 and 1."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-signed-total-domination-weight-enumerator-of-crown-graphs--ae2144f796bb",
+          "material_read": "Mirrored Finding, offset 0",
+          "method": "Resultary and local mirror",
+          "title": "Signed total domination weight enumerator of crown graphs",
+          "trigger": "Same graph and parity-dependent enumeration"
+        },
+        {
+          "assessment": "Different defender rule and alphabet.",
+          "evidence": [
+            "Gives n minimum perfect-Roman functions."
+          ],
+          "identifier_or_url": "2026/10/4/SCOPE-perfect-roman-domination-of-crown-graphs--e57b781e4a71",
+          "material_read": "Mirrored Finding, offset 0",
+          "method": "Resultary and local mirror",
+          "title": "Perfect Roman domination of crown graphs",
+          "trigger": "Exact counts of Roman minima on the same graph"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The crown is a natural perturbation of the complete bipartite graph in this signed total-domination problem. The matching-pair compression replaces exponential enumeration in n with at most binom(n+8,8) cell profiles, and the parity law gives explicit degeneracies of the optimal labelings. These are useful extension data beyond the numerical invariant and comparison examples.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

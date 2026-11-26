@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:01:02.326523Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In KG(5,2), distinct intersecting root pairs have distance two because their union leaves a common disjoint pair. For a Petersen edge ab its distance-two set is exactly the four cross-pairs between a and b. These are 15 distinct root four-cycles with one isolated ground label; the two missing diagonals recover ab. Domination fails precisely on subsets of these blocks, so is automatic from size five. Independently reproduced the full finite census in a bounded JavaScript calculation: construct GP(5,2) in outer/inner coordinates, take all-pairs Floyd–Warshall distances, and take minima to endpoints for each edge column. For each of the 105 pairs of edge columns mark every submask of their agreement mask as nonresolving; likewise mark all submasks of the 15 far masks as nondominating. There are 40 distinct agreement masks, with maximum size six. Tallying all 1024 masks gives resolving counts (0,0,0,0,15,162,195,120,45,10,1), dominating (0,0,0,60,195,252,210,120,45,10,1), and joint (0,0,0,0,0,162,195,120,45,10,1). The two failed-predicate flags at size four are complementary for every mask, not merely in aggregate. To reconstruct the orbits, assign Kneser labels 01,23,04,12,34 to the outer cycle, and 24,14,13,03,02 to the respective spokes' other endpoints. Permuting the five labels on each supplied representative gives pairwise disjoint complete orbits of sizes 5,10,15,60,60,60 and 60,60,60,30,30,12 in table order, and exactly the stated yes rows and root types. S5 is also the full automorphism group: the five maximum independent sets are the root stars (an intersecting family without a common label has size at most three), and their pairwise intersections determine every vertex. Both provided scripts and both saved outputs were inspected but not executed; the agreement-mask reconstruction independently tests the exact claim.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Example 1 states ordinary edim(P)=4; Table 5 displays one GP(5,2) basis, not all bases.",
+          "Iqbal et al. Theorem 1 is an ordinary dimension theorem for GP(2l+1,l) with l≥11, not the l=2 census. Their tables give edge codes for specified W rather than enumerating landmark bases.",
+          "Tavakoli et al. require an actual vertex cover (distance zero to every edge)."
+        ],
+        "reasoning": "The stricter vertex-cover feasibility or an ordinary edge-resolving basis cannot settle the distance-one joint optimum and counts. The additional generalized-Petersen theorem is outside the decisive size range and does not include the domination predicate.",
+        "searches": [
+          "arXiv:1807.00580 Example 1, Table 5",
+          "DOI:10.3390/sym15091633 Theorem 1 and edge-code tables",
+          "DOI:10.5614/ejgta.2023.11.1.16 p. 198"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2211.09327",
+        "arXiv:1807.00580",
+        "DOI:10.3390/sym15091633",
+        "DOI:10.5614/ejgta.2023.11.1.16",
+        "Resultary 7e626c0f635e and 50568df667cb"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The displayed four-vertex basis maps to 01,23,12,03 in the checked GP-to-Kneser labeling, the cross-pairs for the disjoint roots 02 and 13. It actually misses that edge under the joint predicate."
+        ],
+        "reasoning": "One known basis that misses an edge does not imply every minimum basis misses one, which is the sharp new incompatibility. The 162 qualifying five-sets and four orbits require the full census, not another naming or direct corollary of a known minimum.",
+        "searches": [
+          "Compare arXiv:1807.00580 Petersen basis with arXiv:2211.09327 joint predicate; compare Resultary 50568df667cb"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ikhlaq–Hayat–Siddiqui define exact distance-one vertex–edge domination and its conjunction with edge resolution; Petersen occurrence located in the references, not the relevant graph-family calculations.",
+          "The same census can be stated as a classification of 4- and 5-edge supports on five labels, not as an edge-resolving partition problem."
+        ],
+        "reasoning": "The predicates match the prior joint invariant, but the definition and its studied graph families do not give the exceptional C4 sets or the Petersen census.",
+        "searches": [
+          "Resultary: Petersen KG(5,2) edge resolving, distance-one vertex–edge dominating, four and five landmark root orbits",
+          "arXiv:2211.09327 definitions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 2026/11/22/SCOPE-a-sharp-four-landmark-dichotomy-and-162-joint-edge-identificatio--7e626c0f635e is the self-match.",
+          "Distinct same-day 2026/11/22/SCOPE-forty-edge-resolving-partitions-of-the-petersen-graph-and-their--50568df667cb enumerates 40 edge-resolving vertex partitions and a partition polynomial, not joint landmark subsets.",
+          "Published ordinary basis table lists a single set {u0,u1,u3,v3} for n=5."
+        ],
+        "reasoning": "A vertex partition resolves by distances to cells; marking a subset of singleton landmark coordinates with an extra distance-one predicate is a different object. The scalar and example in the older basis table do not precompute any of the claimed all-size counts.",
+        "searches": [
+          "Resultary: Petersen edge-metric bases, four-landmark dichotomy, 162 joint optima, exact polynomials",
+          "arXiv:1807.00580 Table 5 and Iqbal et al. Symmetry 15, 1633 code tables"
+        ]
+      },
+      "rationale": "Current evidence supports the structural four-set incompatibility and complete joint census as distinct from the known scalar edge-metric dimension and the prior definition of the joint invariant.",
+      "residual_risks": [
+        "An older unindexed exact subset census may overlap; current searches do not establish historical priority.",
+        "No temporal ordering is inferred for the distinct same-day record."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact predicate is prior; no matching Petersen theorem in inspected relevant matter",
+          "evidence": [
+            "Offsets 16850 and 19292, edge endpoint or adjacency criterion."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2211.09327",
+          "material_read": "Abstract, definitions PDF pp. 5–6, Petersen reference hit on p. 27",
+          "method": "Open arXiv PDF bounded passage inspection and literal location",
+          "title": "Unique identification and domination of edges in a graph: The vertex-edge dominant edge metric dimension",
+          "trigger": "Exact joint-invariant definition"
+        },
+        {
+          "assessment": "Confirms known ordinary minimum and displays one basis; no joint census there",
+          "evidence": [
+            "PDF pp. 2 and 14; offsets 5487 and 34903."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1807.00580",
+          "material_read": "Example 1 and Table 5",
+          "method": "Open arXiv PDF passage inspection",
+          "title": "Edge metric dimension of some generalized Petersen graphs",
+          "trigger": "Known Petersen edge metric dimension and basis table"
+        },
+        {
+          "assessment": "Theorem 1 assumes l≥11; inspected tables are edge-code tables, not joint Petersen subsets",
+          "evidence": [
+            "Symmetry 15 (2023), 1633, pp. 4, 7–9."
+          ],
+          "identifier_or_url": "https://doi.org/10.3390/sym15091633",
+          "material_read": "Publisher PDF Theorem 1 and adjacent passage, and code table headings/entries",
+          "method": "Publisher OA static PDF, offsets 40500–41862 and bounded Table 1/10–12 locations",
+          "title": "Edge Resolvability in Generalized Petersen Graphs",
+          "trigger": "Plausible broader GP(2l+1,l) theorem and exact tables"
+        },
+        {
+          "assessment": "Vertex cover is mandatory, not distance-one vertex–edge domination",
+          "evidence": [
+            "Definition says S is a vertex cover and gives pairwise distinct edge representations."
+          ],
+          "identifier_or_url": "https://doi.org/10.5614/ejgta.2023.11.1.16",
+          "material_read": "Definition of dominant edge metric generator, printed p. 198",
+          "method": "Original journal OA PDF, offset 4760–5680",
+          "title": "The dominant edge metric dimension of graphs",
+          "trigger": "Potentially equivalent name with different coverage predicate"
+        },
+        {
+          "assessment": "Vertex partitions and a partition polynomial, not landmark subsets",
+          "evidence": [
+            "Counts 40 partitions of its specified size, not 162 jointly feasible vertex subsets."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-forty-edge-resolving-partitions-of-the-petersen-graph-and-their--50568df667cb",
+          "material_read": "Finding and invariant",
+          "method": "Resultary and matched mirrored record comparison",
+          "title": "Forty edge-resolving partitions of the Petersen graph and their counting polynomial",
+          "trigger": "Distinct same-day numerical census"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Petersen is a natural small symmetry-rich test for a pre-existing joint edge identification and coverage invariant. Its entire set of ordinary optimal sensors is precisely the set failing coverage, a stronger structural result than a one-unit numerical gap between optima. The four types at the true joint minimum describe the possible optimal layouts and the polynomials quantify redundancy over all sizes. This is useful as an exact benchmark without implying a general theorem for all generalized Petersen graphs.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

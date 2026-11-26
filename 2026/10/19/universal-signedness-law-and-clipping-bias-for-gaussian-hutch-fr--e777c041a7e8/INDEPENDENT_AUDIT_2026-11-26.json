@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:21:26.446664Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reassessed repairs/3/RESULT.md. In the singular-value basis the squared-norm terms each converge to 1 in L² with variance 2/(rR_j). The vectorized Gaussian cross term has covariance I_(r²); its fourth norm moment sum is E(||X||⁴||Y||⁴)/R_j, so multivariate Lyapunov applies at fixed r even with changing dimensions. This yields 2-chi²_(r²)/r² and gives sign convergence at the continuity point zero. From H-F=-tr(L A M A^T) for the independent centered Wisharts, conditioning and the diagonal/off-diagonal variances give exactly 2(F²+tr((A^TA)²))/r². This yields the uniform integrability needed for clipping, followed by x f_k=k f_(k+2). The repaired tail proof after rescaling u=2+t/k is dominated by exp(-t/4)/2, yielding (pi k)^(-1/2)exp(-k I(2)), k=r². The removed stand-alone rank-one result was not false: in the original proof the saddle is at u=2 with J''(2)=3/4 and prefactor 1/(4pi); the complementary integral is exponentially smaller by the gamma Chernoff bound and coercivity. It remains a credited comparison only. The uploaded script was inspected, not run; its finite Monte Carlo tests cannot certify either asymptotic regime.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Hutch# theorem and proof give unbiasedness, exact variance of order 1/r², and Chebyshev error control; not a signed limit or positive-part bias in the inspected passages.",
+          "Hallman studies an ordinary scalar Gaussian trace estimator and a trace-to-operator-norm effective rank, not this two-sketch cross term or the squared trace divided by sum of squared eigenvalues.",
+          "Götze–Zaitsev supplies general normalized-sum quadratic-form approximation, not a result identifying the Hutch# limit and clipping contribution."
+        ],
+        "reasoning": "Gaussian and chi-square limit tools are known. They apply after verifying the vector cross-term covariance and Lyapunov condition and controlling the two other terms, so these comparisons do not confer estimator-level coverage.",
+        "searches": [
+          "arXiv:2609.28472, Theorem 1.1 and its section 2 proof",
+          "arXiv:2411.15454v1 on Gaussian trace-estimator tails",
+          "arXiv:1104.0519v2 on quadratic forms of normalized sums"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py (read-only)",
+        "repairs/3/RESULT.md",
+        "Resultary a93f4801fdb5",
+        "arXiv:2609.28472",
+        "arXiv:2411.15454v1",
+        "arXiv:1104.0519v2",
+        "JSTOR 2237877 (search description only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The first two moments in Theorem 1.1 comport with the repaired limit but cannot determine its right/left asymmetry or the mean after clipping.",
+          "The weighted record gives qualitative positivity of the negative-event probability for all nonzero matrices, and sharp quantitative tails for rank one; it expressly does not quantify the probability for general full-rank matrices or the effects of clipping."
+        ],
+        "reasoning": "Universal positive probability is not a nonvanishing limiting fraction nor a clipping-bias formula. The new conclusion uses an effective-rank universality argument specific to the two-sided sketch, whereas the exact alpha=1 implication for rank one is acknowledged and not claimed independently.",
+        "searches": [
+          "arXiv:2609.28472, Theorem 1.1 with proof at text offset 16406",
+          "Resultary a93f4801fdb5, Finding and Limitations at offsets 0 and 7390"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equation (4) identifies unweighted Hutch# with weight alpha=1. In a93f4801fdb5, c=(1+alpha)/(2alpha) becomes 1; its inequality XY>c(X+Y) becomes (X-1)(Y-1)>1, and its tail becomes exp[-r(1-log 2)]/sqrt(6pi r), exactly as in the frozen rank-one claim.",
+          "The closest exact catalogue match explicitly does not quantify general full-rank negative probability or clipping; it does not yield the arbitrary effective-rank limit."
+        ],
+        "reasoning": "The estimator alias and weight specialization establish exact overlap for the removed component, independently of relative priority. The nonoverlapping result is a limit for matrices with growing R_j, not a reformulation of a rank-one rare event.",
+        "searches": [
+          "Resultary searches for Hutch# sign laws, clipping bias, chi-square limits, and weighted negative tails",
+          "arXiv:2609.28472, equation (4)",
+          "Resultary a93f4801fdb5, Finding and rank-one proof"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The rank-one integral and asymptotic already occur as exact fixed-weight specializations, not merely numerical approximations. Values at r=1 for the repaired finding are evaluations of standard chi-square tails."
+        ],
+        "reasoning": "A finite numerical table cannot establish the sequence-universal estimator limit. The tail densities and individual constants are standard, and no novelty is assigned to those tabulations.",
+        "searches": [
+          "Resultary a93f4801fdb5, fixed-weight exact integral and asymptotic",
+          "Hutch# chi-square tail and clipping catalogue comparisons; chi-square density shift identity"
+        ]
+      },
+      "rationale": "Narrowed the originality claim in repairs/3/RESULT.md to the high-effective-rank signed law and clipping bias, with the q_r tail as a chi-square consequence. The original stand-alone rank-one law and sharp tail have exact coverage in the weighted Resultary result at alpha=1; its catalogue date does not settle historical priority. The corrected file treats this only as credited context. The compared estimator and probability papers do not supply the high-effective-rank Hutch# signed/clipped limit.",
+      "residual_risks": [
+        "The bounded searches cannot establish absolute priority or exclude an earlier estimator-specific equivalent in an unindexed source.",
+        "JSTOR 2237877 was a products-of-chi-square lead, not inspected in full and not evidence of coverage. Any such overlap would bear mainly on the removed rank-one component."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Estimator, unbiasedness and exact variance covered; limits not in the inspected statements",
+          "evidence": [
+            "The variance proof multiplies the conditional Gaussian variance factor 2/r by the sketch residual's squared Frobenius expectation of order 1/r; both exact moment terms have denominator r². Equation (4) gives the exact weight alias."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2609.28472",
+          "material_read": "P. 3 Theorem 1.1 and equation (4), text offset 8050; p. 5 proof from offset 16406",
+          "method": "Bounded primary PDF passages, cross-checked against proof to interpret the variance denominator",
+          "title": "Hutch#: Optimal non-adaptive Frobenius norm estimation",
+          "trigger": "Same estimator and moment theorem"
+        },
+        {
+          "assessment": "Exact rank-one overlap at alpha=1; does not cover repaired result; priority not inferred from date",
+          "evidence": [
+            "For c=1 its integral and exponent/prefactor agree exactly. Limitations exclude quantitative general full-rank negative probabilities and clipping."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-sharp-sign-safety-and-negative-tail-law-for-weighted-hutch-frobe--a93f4801fdb5",
+          "material_read": "RESULT.md Finding, Assumptions, proof of the rank-one law and sharp saddle, and Limitations, text offsets 0 and 7390",
+          "method": "Local catalogue mirror, commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Sharp sign-safety and negative-tail law for weighted Hutch# Frobenius estimation",
+          "trigger": "Exact encompassing estimator and rank-one sign asymptotic"
+        },
+        {
+          "assessment": "Related concentration problem with a different estimator and rank parameter",
+          "evidence": [
+            "The bounds use ordinary Gaussian trace probes and a sample-count/effective-rank product for PSD trace estimation."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2411.15454",
+          "material_read": "P. 1 estimator definition and p. 12 conclusion, around text offset 30600",
+          "method": "Bounded primary PDF passages",
+          "title": "Extremal bounds for Gaussian trace estimation",
+          "trigger": "Gaussian trace tails and effective rank"
+        },
+        {
+          "assessment": "General probability tool, not an estimator-specific law",
+          "evidence": [
+            "The object is a quadratic form of a normalized sum under dimension and moment conditions, without identification of the two-sided Hutch# estimator limit."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1104.0519",
+          "material_read": "P. 1, around text offset 1000",
+          "method": "Bounded primary PDF passage",
+          "title": "Explicit rates of approximation in the CLT for quadratic forms",
+          "trigger": "General framework that might subsume the Gaussian cross-term limit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The repaired theorem identifies a non-Gaussian signed limit for a natural unbiased estimator of a nonnegative target, uniformly in the sense of arbitrary sequences satisfying the effective-rank condition. It gives the exact upward penalty of the practical clipping operation and shows this cost persists even as spectral concentration vanishes at fixed budget. Neither the variance alone nor qualitative sign failure gives this information; the claim is worthwhile without relying on the overlapping rank-one result.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

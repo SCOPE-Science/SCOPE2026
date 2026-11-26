@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-For every finite strip, Euler's planar identity reduces the occupied component count to occupied vertices, edges, and bounded faces. In a three-row graph, bounded faces are precisely occupied unit squares and height-two vacancy corridors, yielding the claimed exact face intensities and mean. A convergent geometric sum establishes the density; the maximum follows from a direct derivative factorization and an elementary positive derivative bound for its ninth-degree numerator. A bounded-differences variance estimate gives the stated \(L^2\) limit, and a Bernoulli score identity gives the covariance asymptotic. All \(37{,}448\) induced site configurations through five columns were exhaustively tested independently of the formulas, with \(37{,}631\) exact assertions in total. No numerical test is treated as proof of an infinite claim.
+PASS
 
-## Originality: PASS, with residual historical risk
+Reconstructed the face classification in the dual of the full grid: absent primal edges identify neighboring cells (including the exterior), and the cells incident to each vacant site form one such class. A vacancy on the outer boundary can only contribute to the exterior. In a bounded nonsingleton class the generating vacancies must therefore be interior middle-row sites; their stars share a cell exactly for consecutive columns. A maximal run bounded at both ends, with its top and bottom and both middle-row endpoints occupied, produces exactly one two-row rectangle of span d. The remaining bounded cells are occupied unit squares. Euler's formula and independence give the stated finite mean even for n=1,2. The corridor series is geometric with ratio at most 4/27; its derivative series is uniformly summable by bounding the terms and their derivatives using that ratio. The variance is O(n) by the component change bound of 3 per vertex, giving L² convergence. The Bernoulli score identity gives the normalized covariance limit. Independently differentiated the rational density, verified the polynomial's strictly positive derivative using the split at 8/25, and confirmed the root 0.3286185980908836... and cubic coefficient 11. A bounded dual-cell check matched actual face cell sets for all 37,448 masks through n=5; the same reviewer-written program checks the derivative symbolically. The uploaded checker was read, not run; its indicated derivative test at lines 107–110 is algebraically tautological, and is not relied on.
 
-Newman–Ziff (2000) treats general site/bond percolation via algorithms and measures wrapping on large square lattices; it does not give the exact all-parameter three-row expected component count. Monetti–Albano (1993) measures *width-spanning* clusters near criticality in rectangular site lattices, a different observable. Chang–Shrock (2004) supplies exact finite-width cluster-density formulas for *bond* percolation, not the induced vertex-site model. A targeted comparison of equivalent three-row strip and vacancy-corridor formulations did not identify a prior theorem with the present face-spectrum or its unique cluster-density optimizer. General transfer-matrix theory makes the computation conceivable but does not itself present the specific formula or implications. A broader or unlocated site-strip result could nevertheless subsume it.
+## originality
 
-## Value: PASS
+PASS
 
-Three rows are the first square-grid strip width that supports nonunit bounded faces enclosing an interrupted middle row. Their complete geometric length spectrum supplies a nonlocal correction to counting only squares, permitting an exact finite-volume fragmentation law, a rational thermodynamic component density, an algebraically characterized optimum and the high-occupancy \(11(1-p)^3\) regime. These are natural full-parameter site-percolation observables, not arbitrarily selected numerical instances; they clarify how topological holes contribute to cluster counts on the first nontrivial strip width.
+Best of current knowledge, the span-resolved bounded-face law and the resulting exact finite mean and unique limiting-density peak are distinct. Closest published comparisons change the occupation model, the observable, or the graph family. Euler's identity, concentration, and the product-measure score identity are standard ingredients, not originality claims.
 
-## Limits
+## value
 
-Results are restricted to independent site occupancy with open boundaries and fixed strip height three. The unique maximizer is not an infinite-plane critical threshold; covariance signs concern the limiting normalized covariance, not necessarily finite samples. Historical literature coverage is necessarily incomplete. The finite checker certifies tested instances only.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Three rows are the first open width with a separate interior row capable of supporting nonunit vacancy corridors. The exact face spectrum explains the infinite geometric correction, yields component expectation for every strip length, and locates the occupation level separating the two signs of the limiting occupancy–component response. These are usable benchmarks beyond an isolated numerical optimum; no planar critical-threshold or wider-strip claim is inferred.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

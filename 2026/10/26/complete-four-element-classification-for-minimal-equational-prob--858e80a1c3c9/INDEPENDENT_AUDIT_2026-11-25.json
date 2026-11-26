@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T23:34:27.292657Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–48; VERIFICATION.md; verify.py",
+        "/workspace/audit-checks/check_4.py (replay: python3 /workspace/audit-checks/check_4.py)"
+      ],
+      "rationale": "Row cancellation has 16 forced solutions among 64 and can satisfy the spectrum restriction only if no row has an extra collision or all rows are constant; the column version is symmetric. Crossing these conditions leaves Latin squares, constants, or one-coordinate permutations. The fixed-point equation for a one-coordinate permutation permits only identity or one fixed point and a 3-cycle. Every term in these permutation tables is an iterate applied to one of its variables, giving the claimed probabilities. In an independent Latin census I filled the interior of each normalized square cell by cell and undid normalization by 24 output permutations and six row permutations fixing the first row. This exhausts 4×24×6=576 tables in 35 isomorphism classes. The four exact necessary tests leave precisely the disjoint union of the five GF(4) model orbits, with sizes 4,8,8,8,2 in the stated order. Each model gives homogeneous GF(4)-linear term forms at all depths, so every equation is either identically true or cuts out the kernel of a nonzero functional. Both probabilities occur, with x=y and x=x as witnesses. The five other orbits of sizes 4,1,1,8,8 give 52 total tables and ten classes.",
+      "residual_risks": [
+        "Correctness is for one binary operation without constants or division symbols. The finite census is a necessity test, not a bounded-depth substitute for the all-equations argument."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cardó's reduction allows quasigroups but does not characterize which ones qualify. V2 classifies semigroups and derives implications from weak associativity hypotheses.",
+          "The indexed theorem treats finite Latin Alexander quandles in all dimensions and fields of prime order as base fields."
+        ],
+        "reasoning": "An Alexander quandle must be idempotent, requiring a+b=1 in the GF(4) list. Only (ω,ω²) meets this; semigroup or weak-associativity results likewise do not classify arbitrary nonassociative quasigroups.",
+        "searches": [
+          "Cardó arXiv:2603.19487v1, Theorem 3.8",
+          "Cardó arXiv:2603.19487v2, Abstract and §§4–5",
+          "Resultary 5e4215ffc0b3, Finding and Assumptions"
+        ]
+      },
+      "checked_sources": [
+        "Cardó arXiv:2603.19487v1 and v2",
+        "Cardó arXiv:2604.08446",
+        "Local Resultary 5e4215ffc0b3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the indexed theorem, multiplication by ω has irreducible minimal polynomial t²+t+1; the theorem implies the minimal spectrum for the idempotent representative.",
+          "Cardó v2 explicitly leaves the general classification of quasigroups with minimal spectrum open and notes its variable-identification lemma does not apply to mediality."
+        ],
+        "reasoning": "A spectrum formula for given models is sufficiency, not exclusion of other order-four Latin tables. Completing the list, including non-idempotent and nonassociative cases, requires the additional necessity census and matching of orbits; it is not substitution into either prior result.",
+        "searches": [
+          "Cardó v1 §6 and v2 §5 conclusion",
+          "Resultary 5e4215ffc0b3, irreducibility equivalence"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The groupoid signature and equation probabilities of Cardó v1 agree with this question.",
+          "In the local quandle result, T=ω gives I−T=1+ω=ω², hence the same (ω,ω²) operation."
+        ],
+        "reasoning": "Groupoid and magma refer to the same single binary signature here; the orbits are ordinary simultaneous isomorphisms, not Latin isotopies or classes modulo transposition. The idempotent affine result matches one exact member, not all five affine classes.",
+        "searches": [
+          "Local Resultary search for four-element minimal probabilistic/equational spectra, Latin groupoids and affine quasigroups",
+          "Cardó arXiv:2603.19487v1, Theorem 3.8 and §6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The v1 order-four list contains the five nonquasigroup examples and the Klein-four addition, and says no others were found at that point.",
+          "The companion paper's located groupoid table is explicitly order two and groups by isomorphism and anti-isomorphism.",
+          "The local indexed match is a spectrum formula for an algebraic subclass rather than the complete labeled table census."
+        ],
+        "reasoning": "The all-Latin-square count and the existing partial list do not give the spectrum-filtered ordinary isomorphism orbits or the 52 labels.",
+        "searches": [
+          "Local Resultary exact 10-isotype/52-table census comparisons",
+          "Cardó v1, §6 after Theorem 6.17",
+          "Cardó arXiv:2604.08446, Table 1"
+        ]
+      },
+      "rationale": "The entire ten-class classification and 52-table count are distinct on the inspected evidence. Cardó v1 already gives six classes, and a distinct same-date indexed theorem also covers the idempotent GF(4) quandle. The latter is demonstrable partial overlap, not evidence of which result came first. No separate originality credit is assigned to those shared examples, the cancellation reduction, or affine linear sufficiency in isolation.",
+      "residual_risks": [
+        "Bounded search and inspected passages do not settle historical priority for the full result or the same-date partial overlap.",
+        "An independently indexed census of medial or small quasigroups could include additional qualifying examples; this would not imply the complete census without an exclusion result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers reduction and six examples; explicitly incomplete at order four",
+          "evidence": "The order-four list ends with (Z_2)^2 and the sentence 'However, we have not found any others so far.'",
+          "identifier_or_url": "https://arxiv.org/pdf/2603.19487v1",
+          "material_read": "Theorem 3.8, p. 8 near offset 18350; §6, p. 19 near offset 42384, including after Theorem 6.17",
+          "method": "Lawful OA primary PDF, pinned v1",
+          "title": "Minimal probabilistic spectrum grupoids",
+          "trigger": "Identical minimal-spectrum question and order-four list"
+        },
+        {
+          "assessment": "Semigroup classification and structural constraints, not the all-order-four census in the inspected statements",
+          "evidence": "The abstract states complete classification for semigroups; §5 says its lemma does not apply to the medial identity and notes the general quasigroup classification is open.",
+          "identifier_or_url": "https://arxiv.org/pdf/2603.19487v2",
+          "material_read": "Title and Abstract, offsets 0–2200; §§4–5 located passages and conclusion, offsets 37400–40094",
+          "method": "Lawful OA primary PDF, pinned v2 and compared with unversioned PDF",
+          "title": "On semigroups and groupoids with minimal probabilistic spectrum",
+          "trigger": "Later version of the closest primary work"
+        },
+        {
+          "assessment": "Direct implication for one idempotent class; not a census of general groupoids. Same-date order is not inferred.",
+          "evidence": "For T and I−T invertible, minimal spectrum is equivalent to irreducibility of the minimal polynomial of T.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-equational-probability-spectra-of-finite-latin-affine-quandles--5e4215ffc0b3/RESULT.md",
+          "material_read": "Finding and one-operation scope, offsets 0–2300",
+          "method": "Local Resultary file mirror",
+          "title": "Equational probability spectra of finite Latin affine quandles",
+          "trigger": "Plausibly stronger affine spectrum result"
+        },
+        {
+          "assessment": "The located exact table is not an order-four ordinary-isomorphism census",
+          "evidence": "Table 1 is explicitly 'Spectrum of all groupoids of order two, grouped by isomorphism and anti-isomorphism.'",
+          "identifier_or_url": "https://arxiv.org/pdf/2604.08446",
+          "material_read": "Definition and isomorphism/anti-isomorphism discussion near offset 15036; Table 1 caption near offset 31790, p. 11",
+          "method": "Lawful OA primary PDF passage inspection",
+          "title": "Probabilistic equational spectrum, primality and approximation in finite algebras",
+          "trigger": "Companion equational-spectrum work with groupoid tables"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof",
+        "Cardó arXiv:2603.19487v1, §6"
+      ],
+      "rationale": "Order four is the next case after the small orders completed in Cardó v1 and is the first case in that discussion with an explicitly incomplete list. The census identifies nonassociative affine models besides the group example and proves that no other tables qualify even when arbitrarily deep terms are allowed. The exact orbits make this a structural completion rather than a broad but inconclusive finite test.",
+      "residual_risks": [
+        "This is a finite natural cutoff, not a classification of minimal-spectrum quasigroups in higher orders."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

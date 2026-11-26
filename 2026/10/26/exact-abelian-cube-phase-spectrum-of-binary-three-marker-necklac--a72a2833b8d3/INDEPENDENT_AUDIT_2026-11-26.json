@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:46:18.769253Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–68",
+        "Frozen VERIFICATION.md and checker.py (inspected, not executed)",
+        "Independent bounded enumeration using marker block indices and rotated supports"
+      ],
+      "rationale": "Fix which marker enters the first block. The three allowable cut intervals have p integer positions each and left endpoints differing by the shifts 0,d₁−p,p−d₃. Their common size is max(0,p−maxᵢ|dᵢ−p|). The three choices of first marker are disjoint even if the necklace is periodic, since cuts are indexed. For K=R/3≥k≥1 put q=p−k and shift the three gaps by k. The resulting ordered triples sum to 3q and have upper bound 2q on each coordinate. Inclusion–exclusion excludes three single-coordinate sets of size binomial(q+1,2), with no double exclusions. Burnside accounts for the equal-gap triple and gives (p−k)(p−k+1)+1 directed necklaces at or above k. Differences and subtraction from the total give the full spectrum, including R=3 as the sole value when p=1. The atom, density and mean follow by the given Riemann sums. An independent direct block-index test of 7,875 labeled supports through p=9 and canonicalization under word rotations verified the gap rule and all histogram entries on 369 necklaces.",
+      "residual_risks": [
+        "The recorded p≤120 histogram check evaluates the theoretical phase rule on gap orbits, not raw cuts; neither it nor the independent finite check is used as the infinite proof.",
+        "The result does not quotient cuts by stabilizers or identify necklaces by reversal."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first two sources address repetitions and powers in Sturmian or Fibonacci words. The third describes procedures for periods of words and their prefixes."
+        ],
+        "reasoning": "These contexts are different families or detection problems, rather than a broader closed enumeration covering cyclic balanced starts across all weight-three necklaces. A procedure for deciding a phase does not by itself imply its histogram.",
+        "searches": [
+          "arXiv:1209.6013, opening material",
+          "arXiv:1506.02797, p. 3",
+          "arXiv:1211.5389, abstract"
+        ]
+      },
+      "checked_sources": [
+        "Frozen prior-work discussion and references",
+        "Resultary indexed overlaps listed above",
+        "Three arXiv primary passages listed above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior indexed Finding restricts its setting to linear factors. The generic period test supplies no population-level count. In the frozen result K≥k is equivalent to all three cyclic gaps belonging to [k,2p−k]."
+        ],
+        "reasoning": "Classical stars-and-bars and Burnside counting apply after translating the phase statistic into the gap interval; the located statements do not give that translation. For example, equally spaced markers give R=3p with just p different rotated strings, so even counting all distinct successful rotations would not supply this statistic.",
+        "searches": [
+          "Resultary SCOPE-abelian-cube-diversity-at-the-first-nontrivial-binary-weight--d752afa4ea52, Finding",
+          "arXiv:1211.5389, abstract",
+          "Frozen RESULT.md lines 25–61"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In a whole-circle cube of weight three each block of length p has one marker. This is the equal-Parikh decomposition test, with physical starting indices retained.",
+          "Indexed SCOPE Abelian cube diversity at the first nontrivial binary weight counts distinct literal factors in linear weight-three words and expressly excludes cyclic factors."
+        ],
+        "reasoning": "Counting string types in a linear factor set is not counting starts modulo 3p at which the entire necklace partitions; periodic necklaces already distinguish these counting conventions.",
+        "searches": [
+          "Resultary comparison for weight-three Abelian cubes and cyclic phase counts",
+          "arXiv:1506.02797, definition of Abelian power"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest inspected catalog entry counts linear distinct factors. A three-marker border-correlation hit advertises 0, 2 or 3 unbordered rotations, a different observable. The cited OEIS entry concerns ternary cube-free linear words, not this binary necklace histogram."
+        ],
+        "reasoning": "No matching all-p count table was located. Neither word avoidance, unbordered rotations, nor total necklace counts encode the phase spectrum.",
+        "searches": [
+          "Resultary indexed comparisons on Abelian-cube diversity and three-marker gap laws",
+          "OEIS A096168 (different statistic identified in frozen reference list)"
+        ]
+      },
+      "rationale": "The closest inspected indexed Abelian-cube statement counts distinct strings among linear factors, expressly not cyclic factors. The closely related work on Abelian periods and powers does not give the indexed-cut census. The supported distinct claim is the gap-to-cut multiplicity theorem and its exact all-size distribution over directed weight-three necklaces, not the definition or detection of Abelian cubes or the classical total necklace count.",
+      "residual_risks": [
+        "Full text of the three-marker border-correlation record was not retrieved; the summary concerns a different statistic and does not exclude an unadvertised connection.",
+        "Search coverage is bounded; an unlocated statement about three equally populated cyclic blocks or an equivalent gap statistic may exist. No assertion of priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Linear distinct-factor census, not indexed cyclic-cut multiplicity",
+          "evidence": [
+            "Counts distinct literal cube factors and explicitly makes no claim for cyclic factors."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-abelian-cube-diversity-at-the-first-nontrivial-binary-weight--d752afa4ea52",
+          "material_read": "RESULT.md, Finding and scope, local mirror offset 0",
+          "method": "Local mirror statement comparison",
+          "title": "Abelian cube diversity at the first nontrivial binary weight",
+          "trigger": "Same marker weight and cube condition"
+        },
+        {
+          "assessment": "The advertised unbordered-rotation statistic differs; no whole-text exclusion",
+          "evidence": [
+            "Summary describes a law involving unequal neighboring zero gaps and unbordered-rotation counts in {0,2,3}."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-three-marker-border-correlation-a-local-gap-law-and-its-exact-di--8c6645349a80",
+          "material_read": "Indexed scientific summary; full text not retrieved",
+          "method": "Resultary statement summary; local mirror retrieval attempted",
+          "title": "Three-marker border correlation: a local gap law and its exact distribution",
+          "trigger": "Same geometric family and gap-based distribution"
+        },
+        {
+          "assessment": "Sturmian/Fibonacci repetition results, not this necklace distribution",
+          "evidence": [
+            "The opening identifies repetitions in Sturmian words as the object of study."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1209.6013",
+          "material_read": "PDF p. 1, text offset 1541",
+          "method": "Bounded OA primary-text inspection",
+          "title": "Abelian Repetitions in Sturmian Words",
+          "trigger": "Abelian repetitions in a binary family"
+        },
+        {
+          "assessment": "Equivalent local predicate, different global question",
+          "evidence": [
+            "Defines Abelian powers via a decomposition into equal-Parikh blocks and frames the results for Sturmian words."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1506.02797",
+          "material_read": "PDF p. 3, text offset 10333",
+          "method": "Bounded OA primary-text inspection",
+          "title": "Abelian Powers and Repetitions in Sturmian Words",
+          "trigger": "Same equal-Parikh-power predicate"
+        },
+        {
+          "assessment": "Algorithmic period detection rather than phase enumeration across necklaces",
+          "evidence": [
+            "Algorithms concern Abelian periods of words and their prefixes."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1211.5389",
+          "material_read": "PDF p. 1, abstract, text offset 0",
+          "method": "Bounded OA primary-text inspection",
+          "title": "Algorithms for Computing Abelian Periods of Words",
+          "trigger": "Potential general result for successful partitions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof of the gap rule and superlevel counts",
+        "Resultary linear-factor comparator"
+      ],
+      "rationale": "The phase multiplicity answers more than existence: it measures how robust a full-circle Abelian cube is to a change of starting point. Three ones is the first positive feasible weight for three balanced blocks and makes this a natural exact test class. The min/max gap rule gives the multiplicity directly, while the finite law quantifies both failure and nonzero phase abundance and yields a mixed limit. The rotated-string distinction matters even at maximal symmetry.",
+      "residual_risks": [
+        "No implication is asserted for larger marker counts; the ordinary total necklace count and Burnside's lemma are not themselves contributions."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

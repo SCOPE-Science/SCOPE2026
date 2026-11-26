@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:46:05.371179Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Verified against the primary publisher PDF: Table 2 bounds the newborn proportion by 0<=u1<1 and allows the adult rate u2>=0; §3.5 supplies dimensional Eq. (3.7) and explicitly uses epsilon=0.07 (the table's epsilon-row label alone is ambiguous); §3.6 sets u2=u3=u4=0 for the quoted threshold calculation and then discusses both first-dose variables. It really reports 1.02 and says choosing greater u1 would make the reproduction number subunit. The Finding extends that newborn-only calculation to the first-dose-only plane. Setting u3=u4=0 in Eq. (3.7), the resulting numerator factor is epsilon(u2+mu)+(1-epsilon)mu(1-u1). For finite admissible controls and epsilon<1 the second contribution stays positive, but tends to zero as u1 approaches one or u2 tends to infinity, proving the sharp infimum and the strict crossing criterion, including the equality case. Separate rational arithmetic using the §3.5 decimals yields K=20.0314888219, K epsilon=1.4022042175, and u1,c=1.0215898907, consistent with the printed rounded equation but outside the admissible domain. The frozen checker was inspected, not executed. This is a reproduction-number result at the stated parameter point, not an eradication forecast for actual populations or for strategies including additional controls.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The homogeneous leaky model already has critical coverage (1-1/R_b)/VE and a full-coverage floor R_b(1-VE). Benahmadi et al. discuss earlier critical-coverage results with imperfect vaccination; their references identify a separate delayed measles model."
+        ],
+        "reasoning": "This standard framework, with R_b=K and VE=1-epsilon, covers the structural crossing test after the coverage reduction. It does not itself diagnose the inadmissible inference in §3.6 or establish which effective coverages are attainable in that paper's distinct controls. The uninspected full texts are not used as negative evidence.",
+        "searches": [
+          "Benahmadi et al., Axioms 11 (2022), 124, introduction p. 2 and references p. 19",
+          "Al-Darabsah 2021 delayed SVEIR model with generalized nonmonotone incidence and application to measles",
+          "Fine, Eames and Heymann, DOI 10.1093/cid/cir007"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py (inspected, not run)",
+        "Rahmayani et al. publisher PDF, Table 2 and §§3.5–3.6",
+        "Resultary 47a58e967305 and c1fd4f94e9d4",
+        "Benahmadi et al. Axioms 11 (2022), 124",
+        "Al-Darabsah (2021), bibliographic comparison; Fine et al., access attempt only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The original simultaneous-control discussion says increasing both controls can reduce R; it does not say that the first-dose-only range at the numerical point stays wholly above one. The explicitly quoted newborn-only prescription requires a proportion greater than one.",
+          "Applying the known imperfect-vaccine floor after checking the attainable coverage range gives the audited source-specific counterpoint: even both first-dose choices cannot attain the threshold, with infimum about 1.4022."
+        ],
+        "reasoning": "The parametric algebra and threshold mechanism follow from standard theory and the source formula. The credited contribution is the concrete correction to a verified published intervention interpretation, for the exact experiment, with a quantitative infeasibility margin even when the second first-dose variable is freed. It is not a claim that the generic equivalence, formal newborn threshold, or model formula was first discovered here.",
+        "searches": [
+          "Publisher PDF of 10.3934/math.2021721, Eq. (3.7), Table 2, §3.5 and §3.6, including surrounding discussion",
+          "Resultary 47a58e967305 and c1fd4f94e9d4, model assumptions and threshold statements"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Write c=(u2+mu u1)/(u2+mu). The entire first-dose plane has R_F=K[1-(1-epsilon)c], not just the slice u2=0. The attainable c range is exactly [0,1), already attained with u2=0, so u2 provides no larger range of effective coverage.",
+          "The strongest related Resultary breakthrough-floor record 47a58e967305 analyzes a different COVID-19 model and gives R_0(v)=(mu R_S+vR_V)/(mu+v)."
+        ],
+        "reasoning": "This reduces the structural threshold to the familiar effective-coverage condition. The COVID-19 weighted endpoint has analogous mathematics (even the same algebraic form in adult rate at fixed u1), but its objects, numerical inputs and published claim being evaluated are different. No novelty is credited to an endpoint principle or to changing variables.",
+        "searches": [
+          "Resultary: Rahmayani Aldila Handari cost-effectiveness measles 1.02; first-dose u1 u2 epsilon threshold floor",
+          "Rahmayani et al. dimensional Eq. (3.7), Table 2, §3.6; literal 18.63 and 1.02 queries in publisher PDF"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The primary source already lists inputs and 1.02, the rounded newborn-only root. Those are not new numbers. The strongest other indexed measles threshold inspection concerns Din's different double-dose model and a missing rate factor.",
+          "No separate general numerical table applies to this two-control model-specific audit; targeted ranked Resultary lookups did not identify a comparison giving the joint-control floor for the same experiment."
+        ],
+        "reasoning": "The old table controls admissibility and the old printed root corroborates the arithmetic, but neither is an answer to whether any admissible pair reaches the threshold. Numerical matching on a different model or thresholds under second-dose intervention cannot resolve that question.",
+        "searches": [
+          "Rahmayani et al., Table 2, §3.5 numerical sensitivity point and §3.6 threshold",
+          "Resultary exact numerical threshold and same model searches, including c1fd4f94e9d4"
+        ]
+      },
+      "rationale": "The established leaky-vaccine threshold and residual-risk floor are not original. The supported distinct finding is the feasibility correction for the verified Rahmayani–Aldila–Handari experiment, including that varying the adult first-dose control within the two-control plane cannot salvage the reported crossing at the stated values. The inspected original text gives the ingredients and the formal newborn root but not the infeasibility conclusion; it instead describes a subunit threshold beyond the domain. The checked conceptual and measles-specific comparators do not evaluate or correct this experiment.",
+      "residual_risks": [
+        "Ranked Resultary searches were capped; an independently published critique of the same experiment may not have been located.",
+        "The bounded retrieval did not establish whether the Al-Darabsah paper addresses a closer measles-specific analogy. No priority is claimed for the general critical-coverage result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Confirms the formal threshold and exact source formula, as well as the conflict between the purported subunit control and the admissible newborn domain",
+          "evidence": "Table 2 gives u1 in [0,1) and adult u2 in [0,infinity). §3.5 explicitly substitutes epsilon=0.07. §3.6 gives -18.63u1*+20.03=1 after setting u2=u3=u4=0 and says eradication if u1 is chosen larger than 1.02. It next notes reductions with varying first-dose controls, not a joint feasibility floor.",
+          "identifier_or_url": "https://www.aimspress.com/aimspress-data/math/2021/11/PDF/math-06-11-721.pdf (DOI 10.3934/math.2021721)",
+          "material_read": "Table 2, PDF p. 6 (offset 17400); §3.5 Eq. (3.7) and sensitivity point, p. 11 (37920); §3.6 threshold, surrounding prose and Figure 5 discussion, p. 13 (44800)",
+          "method": "Direct lawful publisher PDF, literal passage location followed by bounded offset reads; article landing-page access alone had not returned the body",
+          "title": "Cost-effectiveness analysis on measles transmission with vaccination and treatment intervention",
+          "trigger": "The exact model, parameter domain and potentially erroneous published feasibility interpretation"
+        },
+        {
+          "assessment": "Structural analogy, not the same feasibility correction",
+          "evidence": "R_0(v)=(mu R_S+vR_V)/(mu+v) in an eight-class COVID-19 model, with no subunit crossing when the infinite-vaccination endpoint R_V>=1.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-an-irreducible-breakthrough-floor-invalidates-a-reported-vaccina--47a58e967305",
+          "material_read": "RESULT.md model and floor statement",
+          "method": "Configured local Resultary lookup and mirror comparison",
+          "title": "An irreducible breakthrough floor invalidates a reported vaccination threshold",
+          "trigger": "Close endpoint-floor structure and correction of a vaccination conclusion"
+        },
+        {
+          "assessment": "Different source and controls; does not cover the assigned experiment",
+          "evidence": "Treats Din's six-compartment model, a missing rate factor and recovered-mass normalization rather than the first-dose-only plane of Eq. (3.7).",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-exact-correction-of-the-double-dose-measles-threshold-and-its-missing-rate-factor--c1fd4f94e9d4",
+          "material_read": "RESULT.md threshold statement and model assumptions",
+          "method": "Local Resultary mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact correction of the double-dose measles threshold and its missing rate factor",
+          "trigger": "Closest indexed measles threshold correction"
+        },
+        {
+          "assessment": "Documents prior critical-coverage work; not evidence of coverage or noncoverage of the exact numerical correction in other complete papers",
+          "evidence": "Cites a critical proportion for imperfect vaccination and Al-Darabsah's delayed SVEIR application to measles.",
+          "identifier_or_url": "https://doi.org/10.3390/axioms11030124",
+          "material_read": "p. 2 literature discussion and p. 19 reference [8]",
+          "method": "Bounded OA article inspection",
+          "title": "Benahmadi et al., Axioms 11 (2022), article 124",
+          "trigger": "Prior imperfect-vaccine critical coverage, with a related measles citation"
+        },
+        {
+          "assessment": "Closer analogue not excluded",
+          "evidence": "Identified as a delayed SVEIR model with nonmonotone incidence.",
+          "identifier_or_url": "Al-Darabsah (2021), reference [8] in Benahmadi et al., Axioms 11 (2022), 124",
+          "material_read": "Bibliographic identification in the cited reference, not the article body",
+          "method": "Bounded lawful OA retrieval did not return full text",
+          "title": "Al-Darabsah's delayed SVEIR model with a generalized nonmonotone incidence and application to measles",
+          "trigger": "Related imperfect-vaccination threshold result for measles"
+        },
+        {
+          "assessment": "No whole-document inference",
+          "evidence": "Not relied on for any quoted formula or absence of coverage.",
+          "identifier_or_url": "10.1093/cid/cir007",
+          "material_read": "Full text not obtained",
+          "method": "Lawful direct and alternate configured DOI attempts returned HTTP 403; no lawful repository copy located by configured recovery",
+          "title": "Herd Immunity: A Rough Guide",
+          "trigger": "Established vaccination coverage and threshold context"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "There is a substantive motivation for this otherwise elementary calculation: it corrects an impossible numerical intervention condition that a published analysis presents as a path to subunit reproduction. The positive floor margin rules out using the other first-dose control as a workaround in that exact sensitivity model, rather than merely noticing a percentage-format error. The value is narrow and does not extend to policy inference, incidence reduction, or the combined-dose-and-treatment system.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:46:53.363473Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With both measures probability-normalized the Laurent basis diagonalizes restriction and yields squared multipliers r^(2j)/m_j. Strict log-convexity of the radial moments places the minimum at an endpoint; its two candidate curves have opposite strict monotonicities and cross in (a,b), since the moment ratio is a weighted mean of t^(4N). On either side, in the ratio to the minimal endpoint all nontrivial terms are strictly monotone towards the crossing, proving the condition optimum as well, including N=1. Writing L=log(b/a) and c=sqrt(ab), the spectrum at c is proportional to ((j+1)L)/sinh((j+1)L), with the removable center at j=-1. The optimal log-radius tends to log c, and the exponential tail still bounds every growing index uniformly; the isolated maximum at -1 therefore persists eventually. The product of endpoint moments gives the reciprocal squared minimum asymptotic ab(b/a)^N/[(b²-a²)N], and the limiting spectral maximum is (b²-a²)/(2ab L), giving the stated prefactor. Independent bounded replay: `cd /workspace && python audit_checks/check_frozen.py 4` uses independent log-radius quadrature and a Fourier-grid Gram spectrum on two bands, plus three fixed annuli at N=320 (peak -1 and condition/asymptotic ratios 0.999804, 0.998602, 0.996887). The general proof is not inferred from the numerical checks. Neither expert nor Lean verification is asserted.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The weighted-disk catalogue result allows arbitrary positive angular sampling and has endpoint balancing, but its domain contains only nonnegative disk degrees. Trefethen's annular bounds use bounded analytic functions and Hadamard three circles."
+        ],
+        "reasoning": "A stronger theorem in angular measures on the disk does not include a two-sided annular Laurent band: multiplication by z^N converts it into polynomials only with a cutoff-dependent radial weight on an annulus, not the stated disk measure. The sup-norm continuation result does not yield these optimized Hilbert singular values.",
+        "searches": [
+          "Resultary c051d241328b: universal single-circle conditioning obstruction",
+          "Trefethen, Quantifying the ill-conditioning of analytic continuation, abstract"
+        ]
+      },
+      "checked_sources": [
+        "Resultary records e5356e299a36 and c051d241328b",
+        "arXiv:0902.1794",
+        "Błocki, Tambara lecture PDF",
+        "Trefethen, Oxford repository article"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The analogous disk balance and classical Laurent orthogonality do not determine the annular spectral maximum, which comes from j=-1 after controlling the whole moving band."
+        ],
+        "reasoning": "The abstract optimization device is shared. The reviewed exact joint minimizer and sharp two-sided growth with its prefactor are not stated or mechanically supplied by the inspected results.",
+        "searches": [
+          "Douglas–Kim PDF p. 1",
+          "Błocki PDF p. 2",
+          "Resultary c051d241328b RESULT.md Finding",
+          "Trefethen PDF p. 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The inverse on its finite range divides the Fourier coefficients by r^j; the largest and smallest squared multipliers are governed by differences from the log-moment chord. Błocki's orthogonal Laurent expansion computes a reproducing kernel, not this extremum. Douglas–Kim use bilateral weighted shifts for reducing subspaces."
+        ],
+        "reasoning": "Alternative mode, inverse and chord formulations were compared; familiar spectral ingredients are not an equivalent statement of the joint optimum and its asymptotic.",
+        "searches": [
+          "Resultary: annular Laurent restriction, circle sampling, endpoint balancing, mode optimization",
+          "arXiv:0902.1794v1",
+          "Błocki, Bergman Kernel in the Annulus, PDF p. 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The first catalogue result gives a disk trace mode staircase r_m²=m/(m+α+1); the second gives a sharp disk conditioning law. Neither gives the annular condition prefactor or eventual pole-mode value."
+        ],
+        "reasoning": "The direct lookup found close exact spectral formulae, not an annular table or closed form reproducing the reviewed optimum. This is not exhaustive.",
+        "searches": [
+          "Resultary: exact frequency staircase and conditioning for Bergman circle traces; records e5356e299a36 and c051d241328b"
+        ]
+      },
+      "rationale": "Best-knowledge pass for the common unique optimum on a symmetric annular Laurent band and the sharp fixed-annulus asymptotic, not for the underlying diagonalization, moment convexity or generic endpoint-balancing method. The strongest indexed conditioning analogue found is a one-sided disk theorem, whose assumptions and sharp law differ.",
+      "residual_risks": [
+        "An unidentified general radial Hilbert sampling or Laurent restriction theorem could cover more; the targeted passages and bounded searches are not a priority census."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Background rather than a restriction-radius theorem in the inspected material.",
+          "evidence": [
+            "The objects optimized or classified there are reducing subspaces of multiplication operators."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0902.1794",
+          "material_read": "PDF p. 1, abstract and introduction",
+          "method": "OA PDF passage",
+          "title": "Reducing Subspaces on the Annulus",
+          "trigger": "Annular Bergman Laurent/weighted-shift setup"
+        },
+        {
+          "assessment": "Supports the classical starting point only.",
+          "evidence": [
+            "The annular Bergman kernel is expanded using the orthogonal z^j."
+          ],
+          "identifier_or_url": "https://gamma.im.uj.edu.pl/~blocki/events/tambara-lect.pdf",
+          "material_read": "PDF p. 2, offset 328, orthogonality and kernel formula",
+          "method": "OA PDF passage",
+          "title": "Bergman Kernel in the Annulus",
+          "trigger": "Same orthogonal Laurent modes"
+        },
+        {
+          "assessment": "Different norm, function class and stability question.",
+          "evidence": [
+            "The annular characterization invokes Hadamard's three-circles theorem for bounded analytic continuation."
+          ],
+          "identifier_or_url": "https://ora.ox.ac.uk/objects/uuid:0e4de186-e63c-4ec3-bc1c-4b6af4fe012b",
+          "material_read": "PDF p. 1, abstract at offset 528",
+          "method": "OA PDF passage",
+          "title": "Quantifying the ill-conditioning of analytic continuation",
+          "trigger": "Analytic continuation stability in an annulus"
+        },
+        {
+          "assessment": "Fixed-radius upper trace norm on a weighted disk, not joint annular inverse optimization.",
+          "evidence": [
+            "Its beta-function mode maximizer switches at r_m²=m/(m+α+1)."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-frequency-staircase-for-weighted-harmonic-bergman-circle-t--e5356e299a36",
+          "material_read": "RESULT.md Finding, offset 417",
+          "method": "Resultary local mirror",
+          "title": "Exact frequency staircase for weighted harmonic Bergman circle traces",
+          "trigger": "Explicit circle spectra and dominant modes"
+        },
+        {
+          "assessment": "Endpoint balance overlaps, but the one-sided disk setting and asymptotic differ; catalogue dates alone do not establish priority.",
+          "evidence": [
+            "Optimization is over circle radii and positive angular sampling measures for weighted disk polynomials."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-universal-single-circle-conditioning-obstruction-for-weighted-be--c051d241328b",
+          "material_read": "RESULT.md Finding, offset 50",
+          "method": "Resultary local mirror",
+          "title": "Universal single-circle conditioning obstruction for weighted Bergman polynomials",
+          "trigger": "Strong structural analogue with universal angular-measure bound and optimal radius"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The radius solves two a priori different stability design criteria. Explicit exponential growth alone would not locate the best circle or give its true condition at finite cutoff; the prefactor and the isolated pole mode specify the leading stability loss. The fixed-annulus and complete angular data restrictions are essential; no assertion is made for collapsing annuli or arbitrary angular sampling.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

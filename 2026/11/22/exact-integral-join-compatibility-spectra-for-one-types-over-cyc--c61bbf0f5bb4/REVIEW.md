@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The type identification uses the Henson extension property and quantifier elimination. Join-compatibility discards the input types' negative literals and is exactly the independent-union condition; it is expressly not the adjacent-pair feasibility matrix. The finite-face incidence zeta matrix is integer-unimodular, and the Boolean-interval inversion identity gives the exact congruence. Every nonempty independent face has a path-link weight in \(\{-1,0,1\}\); the empty face has weight \(2\cos(n\pi/3)\). The root-selection count of permitted cyclic gaps establishes the full all-size rank recurrence. Direct exact Smith reductions and independent link counts in `verify.py` support the algebraic proof, without replacing it.
+PASS
 
-## Originality
+The triangle-free extension property realizes exactly independent positive neighborhoods among the individually named vertices; the join test concerns the union of positives, not the original negatives. Each Boolean interval of faces has alternating sum zero except at equal endpoints, so incidence inversion gives M=Z diag(w) Z^T with integer-unitriangular Z and w(F)=I(C_n minus N[F],-1). For nonempty F, complementary runs have lengths max(d_i-3,0) for cyclic gaps d_i, including d_1=n for a singleton. The path values 1,0,-1,-1,0,1 repeat, giving weights 0 or ±1 and excluding exactly gaps 1 mod 3. The empty-face cycle weight is 2cos(n pi/3) by the two-state transfer trace, so this is the sole source of a possible 2, precisely when 3 divides n. Rooted gap sequences with A(z)=(z^2+z^3)/(1-z^3) count each k-point set k times; n[z^n]log((1-z^3)/(1-z^2-2z^3)) plus one yields the stated integer rank recurrence. Integer congruence gives the complete Smith form and the single rank loss in characteristic two when 3 divides n. Directly constructed small matrices had rank/order 3/7, 11/11, 12/18, 15/29 through C7, with precisely the single factor 2 at C6 (`/workspace/branches/8da3627e-03a2-4c76-96cf-c27a7f91cb1e/independent_check.py`). The all-n conclusion uses the proof, not small cases or the frozen script's recorded results.
 
-**PASS, with historical-priority risk.** Conant's account of the homogeneous forbidden-clique graph and Kozlov's cycle-independence homotopy classification supply the type-theoretic and topological ingredients. Neither inspected source states the integral join-compatibility matrix classification or its all-size rank formula. Knill's published counting/connection kernels concern intersections, rather than the consistent union of positive literals. Targeted published-record searches found no statement that implies the precise combined claim. The general zeta calculation is elementary and is not independently claimed as a new lemma. A differently named face-union matrix result remains a genuine bibliographic risk.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** Consistent joins of positive literal sets give a natural, explicit compatibility relation on logically complete types, and its matrix rank and modular obstruction are exact invariants of the type space. The formula detects a single characteristic-two obstruction precisely at cycle lengths divisible by three and gives a nontrivial all-size cubic rank recurrence. The result connects logical extension consistency to local Euler evaluations of independence-complex links; it is not merely a table of small matrices or a statement about the already known homotopy type of a cycle independence complex.
+The distinct claim is the exact integral Smith form, including the full rank formula for the positive-union compatibility matrix of a cycle. The model-theoretic type criterion, incidence inversion, and link Euler characteristics have antecedents; they are not treated as independently new. The strongest related indexed statements have different matrices.
 
-## Scope and remaining limitations
+## value
 
-The claim is exclusively about positive-literal join compatibility over induced named cycles in the triangle-free Henson graph. It is not the pairwise adjacency-feasibility matrix. Exact earlier historical priority cannot be guaranteed from the searched resources, and independent audit has not been conducted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Cycles are natural finite induced bases, and the integer Smith form isolates a characteristic-two obstruction invisible in the rational rank. The result gives the complete integral invariant at every cycle length, not a rephrasing of the background type criterion, empty-link Euler sum, or sample determinants.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,106 +1,39 @@
-# The square-zero derivation cone of finite Heisenberg Lie algebras
+# The geometry of the square-zero derivation cone of a Heisenberg Lie algebra
 
 ## Finding
 
-Let \(k\) be an arbitrary field, let \(r\geq 1\), and let \(\mathfrak h_{2r+1}(k)=V\oplus kz\) be the Heisenberg Lie algebra of a split symplectic space \((V,\omega)\), where \(\dim V=2r\) and \([v,w]=\omega(v,w)z\). Define the reduced affine variety
-\[
-\mathcal Z_r(k)=\{D\in\operatorname{Der}_k(\mathfrak h_{2r+1}):D^2=0\}_{\mathrm{red}}.
-\]
-For every field, \(\mathcal Z_r\) is geometrically irreducible and rational, of dimension \(r(r+2)\). Its open locus of derivations whose induced map on \(V\) has rank \(r\) is a bundle of invertible symmetric bilinear forms and \(r\)-dimensional central-functionals over the Lagrangian Grassmannian.
+Let \(k\) be any field, \((V,\omega)\) a split symplectic space of dimension \(2r\) with \(r\ge 1\), and \(\mathfrak h=V\oplus kz\) the Heisenberg Lie algebra with \([v,w]=\omega(v,w)z\). Let \(X\) be the reduced affine locus of ordinary derivations \(D\) with \(D^2=0\). Then \(X\) is geometrically irreducible, is rational over \(k\), and has dimension \(r(r+2)\). The open set where the induced endomorphism of \(V=\mathfrak h/kz\) has rank \(r\) is isomorphic to a bundle over the Lagrangian Grassmannian whose fiber over \(L\) consists of nonsingular symmetric bilinear forms on \(L^*\) and functionals on \(V/L\).
 
-For each prime power \(q\) (including even powers), put
-\[
-I_{r,j}(q)=\prod_{i=0}^{j-1}\frac{q^{2r-2i}-1}{q^{j-i}-1},\qquad
-S_j(q)=q^{j(j+1)/2}\prod_{i=1}^{\lceil j/2\rceil}(1-q^{-(2i-1)}),
-\]
-with empty products equal to \(1\). The exact number of square-zero ordinary derivations whose **full** linear rank is \(s\), for every integer \(0\leq s\leq r\), is
-\[
-\boxed{T_{r,s}(q)=\sum_{j=0}^{r}I_{r,j}(q)S_j(q)\left(q^j\mathbf 1_{s=j}+(q^{2r-j}-q^j)\mathbf 1_{s=j+1}\right).}
-\]
-In particular, the total number of such derivations is
-\[
-\boxed{\sum_{j=0}^{r}I_{r,j}(q)S_j(q)q^{2r-j}.}
-\]
-No square-zero derivation has rank greater than \(r\). These statements concern ordinary Lie derivations, not derivations compatible with a chosen restricted \(p\)-map.
-
-At \(r=1\), the projectivization of the nonzero square-zero derivation cone is the smooth cubic rational normal scroll \(S(1,2)\subset\mathbb P^4\), in every characteristic. Consequently the affine cone is singular only at its vertex, and its finite-field point count is \(1+(q-1)(q+1)^2\).
+When \(r=1\), the projective variety of nonzero square-zero derivations up to scaling is the smooth cubic rational normal scroll \(S(1,2)\subset \mathbb P^4_k\). The affine cone is smooth off its vertex and singular there. These statements hold also in characteristic two.
 
 ## Assumptions and scope
 
-All vector spaces and derivations are defined over the indicated field. The Lie bracket is alternating, including in characteristic \(2\); the chosen symplectic form is nondegenerate. Square-zero means \(D\circ D=0\) as a linear map. The formulas enumerate labelled derivations, not their automorphism-conjugacy classes. The variety assertion is about the underlying reduced locus after base change to an algebraic closure, and not about the possibly nonreduced subscheme cut out by the coordinate equations.
+The symplectic form is alternating and nondegenerate in every characteristic. These are ordinary Lie derivations; there is no required compatibility with a restricted power operation. The assertion concerns the reduced locus, including its underlying reduced geometry over an algebraic closure; it does not assert that the original defining system of equations is a reduced scheme. No singular-locus classification in higher dimensions is claimed.
 
 ## Proof
 
-**1. Derivation normalization.** The center and derived algebra of \(\mathfrak h\) equal \(kz\), so every derivation has a unique form
+The center and the derived algebra of \(\mathfrak h\) both equal \(kz\). Thus a derivation has the form \(D(v)=Av+f(v)z\), \(D(z)=\lambda z\), where \(f\in V^*\) and the Leibniz rule reads \(\omega(Av,w)+\omega(v,Aw)=\lambda\omega(v,w)\). Since \(D^2(z)=\lambda^2z\), the reduced square-zero locus is given by
 \[
-D(v)=Av+f(v)z,\qquad D(z)=\lambda z,
+ A\in\mathfrak{sp}(V,\omega),\qquad A^2=0,\qquad fA=0.
 \]
-with \(A\in\operatorname{End}(V)\), \(f\in V^*\), and \(\lambda\in k\). The Leibniz identity on \(v,w\in V\) is equivalent to
+These conditions are also sufficient. For such an \(A\), \(U=\operatorname{im}A\) is isotropic by \(\omega(Au,Av)=-\omega(u,A^2v)=0\), and \(\ker A=U^\perp\) by skew-adjointness and dimension. In particular \(\dim U\le r\).
+
+Over the Lagrangian Grassmannian \(\operatorname{LG}(V)\), consider the incidence variety of triples \((L,B,f)\) with \(L\) Lagrangian, \(B:V/L\to L\) symmetric under \(V/L\simeq L^*\) by the symplectic pairing, and \(f|_L=0\). Locally on the Grassmannian the \(B\) coordinates are those of an arbitrary symmetric matrix on \(L^*\); these include the diagonal entries also in characteristic two. The triples form a vector bundle of rank \(r(r+1)/2+r\). There is a map to \(X\) taking \(A\) to the composite \(V\to V/L\xrightarrow{B}L\hookrightarrow V\) and retaining \(f\).
+
+For surjectivity on geometric points, write \(f(v)=\omega(w,v)\). Since \(fA=0\), the vector \(w\) is in \(U^\perp\), so \(U+kw\) is isotropic: in particular \(\omega(w,w)=0\). Extend this space to a Lagrangian \(L\). Now \(U\subseteq L\subseteq U^\perp=\ker A\), and \(f|_L=0\). Hence \(A\) factors through \(V/L\) to \(L\), and its skew-adjointness is exactly the symmetry of \(B\) under the indicated pairing. This argument works over each field of definition of a point. The total space of the incidence bundle is geometrically irreducible because the Lagrangian Grassmannian is; thus the map and the geometric point coverage show geometric irreducibility of the target.
+
+Over the open set \(\operatorname{rank} A=r\), one necessarily has \(L=\operatorname{im}A\) and \(B\) nonsingular. Taking the image of a constant-rank matrix is a morphism to the Grassmannian, as seen on charts by choosing a nonvanishing maximal minor. Taking \(L=\operatorname{im}A\), the induced \(B\), and the given \(f\) defines the inverse morphism there. In particular, the open rank-\(r\) locus is a nonempty open in the indicated bundle with the nonsingularity condition. A chart of the Lagrangian Grassmannian is the set of graphs of symmetric matrices over a fixed Lagrangian complementary to another one, an affine space of dimension \(r(r+1)/2\); the incidence bundle is trivial over this chart. This proves rationality over \(k\) and gives the dimension \(r(r+1)/2+r(r+1)/2+r=r(r+2)\).
+
+For \(r=1\), use a symplectic basis and put \(A=\left(\begin{smallmatrix}a&b\\ c&-a\end{smallmatrix}\right)\), \(f=(u,v)\). Then \(a^2+bc=au+cv=bu-av=0\). These are the minors of the matrix
 \[
-\omega(Av,w)+\omega(v,Aw)=\lambda\omega(v,w).
+\begin{pmatrix} b&-a&v\\-a&-c&-u\end{pmatrix}
 \]
-Now \(D^2(z)=\lambda^2z\), hence \(D^2=0\) forces \(\lambda=0\) over any field. The remaining necessary and sufficient equations are
+up to signs. If the point is nonzero, the columns span a unique line \(L=k(s,t)\). Equivalently it is \(\operatorname{im}A\) if \(A\ne0\), and \(\ker f\) otherwise. For this \(L\) the projective coordinates have the form
 \[
-A\in\mathfrak{sp}(V,\omega),\qquad A^2=0,\qquad f\circ A=0.
+[a:b:c:u:v]=[-\alpha st:\alpha s^2:-\alpha t^2:-\beta t:\beta s].
 \]
-There are no additional conditions because the bracket has image in the center.
+The two fiber coordinates in the incidence bundle over \(\mathbb P^1\) have bundles \(\mathcal O(-2)\) and \(\mathcal O(-1)\): the first comes from the symmetric map \(L^*\to L\), and the second from the identification of the annihilator of \(L\) with \(L\) via \(\omega\). The displayed map is the complete scroll embedding of the bundle of lines in \(\mathcal O(-2)\oplus\mathcal O(-1)\), given by the three quadratic and two linear monomials. The column-span construction gives its inverse over the nonvanishing-column charts, including characteristic two. The projective variety is therefore the smooth degree-three scroll. The affine punctured cone is the complement of the zero section in the tautological line bundle over the scroll, hence smooth. The cone spans all five affine coordinate directions (there is no linear relation among the embedding coordinates), so its vertex has tangent dimension five while the cone has dimension three.
 
-**2. Isotropic images and symmetric forms.** For such a symplectic \(A\), skew-adjointness gives
-\[
-\omega(Au,Av)=-\omega(u,A^2v)=0.
-\]
-Thus \(U=\operatorname{im}A\) is isotropic, \(0\leq j=\dim U\leq r\), and
-\[
-\ker A=U^\perp.
-\]
-The latter equality follows from skew-adjointness and dimension. The perfect symplectic pairing identifies \(V/U^\perp\) with \(U^*\), and \(A\) induces an isomorphism \(U^*\to U\). The skew-adjoint condition is precisely symmetry of the associated nondegenerate bilinear form on \(U^*\). Conversely, an isotropic \(j\)-plane and a nondegenerate symmetric bilinear form produce one and only one such \(A\) of rank \(j\). This argument works unchanged in characteristic \(2\); symmetry does **not** mean alternation.
+## Relationship to prior work and verification
 
-**3. Finite symplectic and symmetric counts.** The number of isotropic \(j\)-planes in dimension \(2r\) is \(I_{r,j}(q)\). Indeed, count ordered independent orthogonal \(j\)-tuples by successively choosing vectors from \(U_i^\perp\setminus U_i\), obtaining factors \(q^{2r-i}-q^i\); divide by the usual number \(\prod_{i=0}^{j-1}(q^j-q^i)\) of ordered bases.
-
-Write \(S_j(q)\) for the number of nonsingular symmetric \(j\times j\) matrices. For a symmetric block matrix with top-left entry \(a\), the case \(a\ne0\) contributes \((q-1)q^{j-1}S_{j-1}\) via the Schur complement. In the case \(a=0\), the adjoining vector must be nonzero. After a change of basis it becomes the first coordinate vector, and nonsingularity is equivalent to that of an independent \((j-2)\)-square symmetric block. This contributes \((q^{j-1}-1)q^{j-1}S_{j-2}\). Hence for \(j\ge2\),
-\[
-S_j=(q-1)q^{j-1}S_{j-1}+(q^{j-1}-1)q^{j-1}S_{j-2},
-\quad S_0=1,\quad S_1=q-1.
-\]
-Induction gives the displayed product expression, valid in all characteristics.
-
-**4. Functional fibers and full ranks.** For a fixed \(A\) with image \(U\) of dimension \(j\), the equation \(fA=0\) says precisely \(f|_U=0\). There are \(q^{2r-j}\) such functionals. Since \(\ker A\) has dimension \(2r-j\), exactly \(q^j\) of these functionals also vanish on \(\ker A\). For these, the map \(D:V\to V\oplus kz\) has image dimension \(j\); for each other functional it has image dimension \(j+1\). Its value on \(z\) is zero. Multiplication by \(I_{r,j}S_j\) and summation proves the rank and total formulas. When \(j=r\), the second contribution vanishes, as required for a square-zero map on the odd-dimensional space \(\mathfrak h\).
-
-**5. Geometric irreducibility and rationality.** Over an algebraic closure, consider incidence triples \((L,B,f)\), where \(L\subset V\) is Lagrangian, \(B:V/L\to L\) is a symmetric linear map under the symplectic identification \(V/L\cong L^*\), and \(f|_L=0\). They form the total space of a vector bundle of rank \(r(r+1)/2+r\) over the irreducible, rational Lagrangian Grassmannian of dimension \(r(r+1)/2\). The map \((L,B,f)\mapsto(A,f)\), with \(A\) the composition \(V\to V/L\to L\hookrightarrow V\), lands in \(\mathcal Z_r\) and is one-to-one on the open set where \(B\) is invertible, because then \(L=\operatorname{im}A\).
-
-It is also surjective on the underlying geometric points, as follows. Given \((A,f)\), set \(U=\operatorname{im}A\), with \(f|_U=0\). Represent \(f\) by a vector \(w\) under the symplectic pairing. Since \(w\in U^\perp\), the span \(U+kw\) is isotropic and extends to a Lagrangian \(L\). It satisfies \(U\subseteq L\subseteq U^\perp=\ker A\), \(f|_L=0\), and therefore \(A\) factors as a symmetric map \(V/L\to L\). Replacing \(B\) by \(B+tB'\), with \(B'\) suitably chosen to be generically invertible, deforms the given point within the incidence image to points in the full-rank open stratum while keeping \(L\) and \(f\) fixed. Thus the reduced target is the closure of the image of an irreducible open subset; it is geometrically irreducible. On that open set the incidence map is an isomorphism, establishing rationality and
-\[
-\dim\mathcal Z_r=\frac{r(r+1)}2+\frac{r(r+1)}2+r=r(r+2).
-\]
-This proof does not assert that the original defining scheme is reduced.
-
-**6. The first projective cone.** For \(r=1\), take coordinates \((a,b,c,u,v)\) with
-\[
-A=\begin{pmatrix}a&b\\c&-a\end{pmatrix},\qquad f=(u,v).
-\]
-The conditions are \(a^2+bc=0\), \(au+cv=0\), and \(bu-av=0\). Each nonzero solution has a unique isotropic line \(L\): it is \(\operatorname{im}A\) if \(A\ne0\), or \(\ker f\) otherwise. Its projective coordinates are therefore parametrized by
-\[
-[a:b:c:u:v]=[-\alpha st:\alpha s^2:-\alpha t^2:-\beta t:\beta s],
-\qquad [s:t]\in\mathbb P^1.
-\]
-With \(\alpha\) and \(\beta\) having respectively degree-two and degree-one coefficient weights, this is the complete scroll embedding of \(\mathbb P(\mathcal O_{\mathbb P^1}(2)\oplus\mathcal O_{\mathbb P^1}(1))\) in \(\mathbb P^4\). Thus the projectivized cone is the smooth rational normal cubic scroll \(S(1,2)\). The affine cone over this smooth non-linear projective variety is smooth away from the vertex and singular at the vertex (its tangent space there is the whole five-dimensional linear span, whereas the cone dimension is three). Finally, \(\#S(1,2)(\mathbb F_q)=(q+1)^2\), giving \(1+(q-1)(q+1)^2\) affine points.
-
-## Verification
-
-The accompanying standalone `verify.py` uses only Python's standard library. It checks all possible linear maps on the three-dimensional Heisenberg Lie algebra over \(\mathbb F_2\), \(\mathbb F_3\), and \(\mathbb F_4\) against the original Leibniz identity and the composition-square equations. It also enumerates every quotient-map matrix and compatible central term for \(\mathfrak h_5(\mathbb F_2)\), directly checks the Leibniz identity, and compares the resulting full rank distribution with the formula. It separately enumerates nonsingular symmetric matrices of sizes one through three over each of these fields. Its actual output is recorded in `VERIFICATION.md`.
-
-The checked rank spectra are \((1,9)\), \((1,32)\), and \((1,75)\) for the three-dimensional cases, and \((1,45,330)\) for the five-dimensional binary case. Such finite checks corroborate but do not prove the arbitrary-field geometric result or the all-prime-power formula.
-
-## Relationship to prior work
-
-Feldvoss, Siciliano, and Weigel (2011) investigate the existence of **outer restricted** square-zero derivations and identify a characteristic-two Heisenberg exception; this is a different property from the enumeration and geometry of **all ordinary** square-zero derivations. Barnea and Melnikov (2015) study Borel orbits within the square-zero locus of the **symplectic nilradical** over the complex field. That theory supplies context for the symplectic quadratic condition but does not classify the square-zero derivation cone of Heisenberg algebras with its central-functional fibers. La Rosa and Mancini (2023) describe derivation Lie algebras for two-step nilpotent Leibniz algebras, and cite earlier descriptions for Heisenberg Lie derivations; the formulas here count a nonlinear square-zero subset and describe its geometry over all characteristics. The classifications of isotropic spaces and nonsingular symmetric forms used in the proof are standard inputs and are not separately claimed as discoveries.
-
-## Limitations
-
-This is a statement about ordinary derivations and their linear ranks, not outer-derivation cosets, restricted derivations, conjugacy orbits, or derivations of all two-step nilpotent Lie algebras. The geometric theorem is about reduced varieties; it does not describe the nonreduced scheme structure. No general singular-locus description in dimensions above three is asserted. Related symplectic counts and classical scroll geometry already occur independently in the literature; the claimed combination is specific to Heisenberg derivation cones and is not an assertion of exhaustive publication priority. Independent mathematical audit has not occurred.
-
-## References
-
-1. J. Feldvoss, S. Siciliano, and T. Weigel, *Outer restricted derivations of nilpotent restricted Lie algebras*, arXiv:1102.2629 (first publicly submitted 2011-02-13), https://arxiv.org/abs/1102.2629.
-2. N. Barnea and A. Melnikov, *B-orbits of square zero in nilradical of the symplectic algebra*, arXiv:1509.06008 (2015-09-20), https://arxiv.org/abs/1509.06008.
-3. G. La Rosa and M. Mancini, *Derivations of two-step nilpotent algebras*, arXiv:2301.11058 (2023-01-26), https://arxiv.org/html/2301.11058v3.
+The exact finite-field rank spectrum of ordinary square-zero Heisenberg derivations is already given in [*Exact rank spectra of square-zero derivations of finite Heisenberg Lie algebras*](https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-exact-rank-spectra-of-square-zero-derivations-of-finite-heisenbe--21c4a89e2fcd/RESULT.md). The isotropic-image parametrization is shared with that work; its finite-field counts are not a new claim here. The geometric step is to extend \(U\) to a Lagrangian while also requiring the central functional to vanish on it, thereby controlling the whole reduced locus by a single incidence bundle. Barnea and Melnikov ([arXiv:1509.06008](https://arxiv.org/abs/1509.06008)) study square-zero elements in the complex symplectic nilradical, without the functional in this incidence problem. La Rosa and Mancini ([arXiv:2301.11058](https://arxiv.org/abs/2301.11058)) describe derivation algebras; Feldvoss, Siciliano, and Weigel ([arXiv:1102.2629](https://arxiv.org/abs/1102.2629)) study outer restricted square-zero derivations. Neither the classical theory of scrolls nor the derivation normalization is asserted as new. The geometric conclusions are proved above, not inferred from finite examples.

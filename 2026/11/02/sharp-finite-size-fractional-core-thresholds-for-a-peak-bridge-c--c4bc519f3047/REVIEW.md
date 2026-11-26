@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is a sharp maximum over **all nonempty coalitions** and capped fractional candidate weights, not merely a lower-bound witness. The proof gives explicit full-coalition allocations attaining the odd/even expressions; normalized nonnegative dual voter weights certify the cost of serving any consecutive coalition block. Since nonadjacent blocks do not share useful candidates, summing their certificate-implied spending establishes the global upper bound. The strict inequality in the fractional blocking axiom is handled at equality. Uniqueness of the integral JR committee follows from singleton demands and a run-counting argument. Rational checks (80 instances), plus independent numerical coalition LPs (2,505 instances), agree, without replacing the infinite proof.
+## correctness
 
-## Originality — PASS, with residual priority risk
-The motivating 20 October 2026 paper is inspected at its definitions, Theorem 10, and Appendix E. It proves the asymptotic factor-two impossibility using an interior-coalition feasible deviation and does not present this exact finite-size all-coalition maximum. The present result bounds all coalitions, characterizes a sharp threshold for each population/bridge value, and exposes parity. Jin--Liu--Tao's 3 August 2026 approval-based incompatibility has a different domain and does not imply the exact real-valued formulas. Searches for aliases such as path/chain voting, peak--bridge, grand-coalition deviation and finite-size fractional-core ratio did not locate equivalent coverage. Unindexed work or a later source version could have an equivalent statement; independent priority verification remains open.
+PASS
 
-## Mathematical value — PASS
-The motivating impossibility proof leaves a concrete finite-parameter quantitative gap: it exhibits a viable fractional blocking factor but does not quantify the strongest coalition or exact threshold for a fixed number of seats. Closing the maximum simultaneously over all coalitions and fractional deviations makes this standard counterexample a calibrated benchmark for best-of-both-worlds representation. The parity corrections and an explicit family of optimal primal and dual certificates are structural, not a numerical slice or a trivial reparameterization. The scope is this family, not a general improvement on the established universal factor-two theorem.
+Utility-based JR tested on each voter's peak requires utility at least 1. Endpoint peaks are mandatory; a run of r omitted interior peaks forces r+1 different bridges, disjoint across runs, exceeding the seat budget. The all-peak committee satisfies JR because every demanded single-candidate utility is at most 1. For odd size the uniform bridge weights rho/(2v) and endpoint peaks rho/2 give budget k and every utility rho. For even size the alternating 1,z bridges (z=h/(h-1+2v)) and endpoint peaks vz do the same, including k=2. All weights satisfy the caps. For a coalition block of size s, alternating normalized voter weights give a bound aB in odd size and a[B+2v-1] in even size, B the incident mass; the one excess even edge has weight at most 1. In either case attaining more than rho_s requires B>s. The incident candidate sets of disconnected blocks are disjoint, so the sum of their B cannot exceed |S|. Both parity expressions equal 2v minus v(2v-1) divided by a denominator that increases strictly with size (also from s=1), hence a utility strictly above rho_k violates the budget. This proves sharpness over all coalitions and the inclusive threshold under strict blocking. The rational and LP checks in the source are finite corroboration, not used as proof or rerun.
 
-## Limits
-The candidate-value interval is \(1/2<v<1\); the core has \(\beta=1\) and strict coalition-wide utility improvement. The proof is fully analytical, with finite tests used for corroboration. Publication priority is not independently certified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The profile, uniqueness of JR and asymptotic obstruction are prior work. The distinct finding is the exact finite-size parity-dependent maximin over all eligible coalitions, attained by the grand coalition, and therefore the exact strict-core boundary for this profile.
+
+## value
+
+PASS
+
+The exact obstruction measures the best possible deviation in an already motivated impossibility profile. The upper bound controls disconnected coalitions as well as intervals, and the parity corrections and strict boundary are information not supplied by a large-k lower witness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

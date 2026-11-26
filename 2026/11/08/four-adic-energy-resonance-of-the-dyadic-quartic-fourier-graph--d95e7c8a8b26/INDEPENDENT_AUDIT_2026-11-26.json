@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T10:01:34.933422Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the all-k proof by conditioning on the linear sum s. The odd-square map modulo 2^j for j>=3 has kernel size four and image precisely the residues 1 mod 8, giving j*2^j square collisions after adding the even lift contribution 4*S_(j-2). For odd s, each even product x(s-x) has one preimage in each parity class by the odd derivative, and the quartic sum becomes 2(2z-s^2)^2-s^4; the factor 16 comes from two preimages per product and two lifts per odd residue after reducing the modulus by one, for each of the two inputs. This gives 8*N^2. For even s the input parities cannot collide. On odd inputs the centered factor z+z'+6(s/2)^2 has exact valuation one, using z,z'=1 mod 8 or 0 mod 4 as appropriate; the two even-s classes together give (k-2)*N^2. The all-even three-variable branch rescales by 16 and has 8^3 lifts, giving 512*E_(k-4). The k=1 case is the identity graph; for 2<=k<=4 the powers detect parity, giving 3*N^3/4. Dividing the recurrence by 4^k and adding k+14 yields a four-step doubling with the four listed bases. Orthogonality averaged over the two frequencies imposes both congruences with no extra factor. An independent direct x,d,e congruence enumeration through k=8 agreed, including both sides of the recurrence threshold. Replay: python3 /workspace/review_evidence/dyadic.py.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "35db6c8e1cdf, Finding and scope: all k for p>=5; division by two and a nonsingular quadratic form are essential.",
+          "Cowan–Katz–White, Thm. 2.1, treats quadratic local-zeta problems with restricted dyadic Q+L cases.",
+          "Hickman ch. 4 studies restriction inequalities over prime-power rings for full moment curves."
+        ],
+        "reasoning": "The scope of the prime-power theorem blocks specialization to 2. The quartic collision polynomial is not in the stated quadratic local-zeta class merely because it has a quadratic factor. The norm-inequality setting does not supply the exact count.",
+        "searches": [
+          "Resultary local search for the quartic graph over prime-power rings",
+          "arXiv:1506.07869",
+          "Hickman thesis ch. 4, Edinburgh repository 29ea5d40-6678-4834-8ac0-2f2278ae7ffd"
+        ]
+      },
+      "checked_sources": [
+        "35db6c8e1cdf",
+        "4a65caa0042e",
+        "235f10989b3f",
+        "arXiv:math/0204234",
+        "arXiv:1506.07869",
+        "Hickman thesis ch. 4",
+        "arXiv:0805.0814 abstract (paraboloid setting)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The odd-prime comparison changes variables via d=a-b, then differences and sums of d's, relying on division by 2 and 8. The common recurrence step arises from quartic homogeneity, but its primitive contributions depend on the prime.",
+          "The known dyadic representation law is unconditional in s."
+        ],
+        "reasoning": "Neither assertion gives by substitution the valuation-one factor and separate parity branches that yield (k+6)*4^k here. The same-day date does not establish priority or make distinct p-domains equivalent.",
+        "searches": [
+          "35db6c8e1cdf Finding, scope and first proof step",
+          "4a65caa0042e Finding",
+          "arXiv:1506.07869 Theorem 2.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The equivalent moment is the sum over all frequencies at constant input, with weight N^-2. The equivalent congruence count eliminates the fourth input using equality of the linear sums.",
+          "Mockenhaupt–Tao §5 uses a full moment curve and characteristic greater than its dimension for that argument, not this lacunary curve over a nonfield."
+        ],
+        "reasoning": "A norm bound for variable weights, even if valid at this modulus, is not the exact constant-input energy. An exact Poincaré series for the actual three-variable congruence would cover the result; no such prior specific calculation surfaced.",
+        "searches": [
+          "\"x^4\" additive energy modulo 2^k quartic congruence counting local zeta function dyadic",
+          "Resultary local queries for x^4 ordered collisions and its dyadic unweighted Fourier fourth moment",
+          "arXiv:math/0204234"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "235f10989b3f, Finding, covers the same graph polynomial over fields of characteristic other than two and three.",
+          "4a65caa0042e, Finding, gives exact fibers of (x,y) -> x^k+y^k in dyadic rings for even k>=4, including fourth powers, and the unconditioned output law."
+        ],
+        "reasoning": "Those tabulations neither include the dyadic quartic graph nor determine the square-sum of the joint fiber counts indexed by both s and the fourth-power output. Summing over s loses the data needed to form that square-sum.",
+        "searches": [
+          "SCOPE-exact-additive-energy-of-the-finite-field-quartic-graph--235f10989b3f",
+          "SCOPE-full-2-adic-representation-laws-for-sums-of-two-even-powers--4a65caa0042e",
+          "Resultary local search for exact dyadic energy and four leading constants"
+        ]
+      },
+      "rationale": "The supported distinct result is the all-exponent dyadic quartic energy and its four exact leading constants. The Fourier identity is standard. The closest same-day prime-power result shares the homogeneity-driven four-step form but expressly excludes 2, and its transformations need 2 invertible. The exact dyadic sums-of-even-powers table lacks the joint linear-sum condition. No examined source supplies the required characteristic-two residual count or its consequences.",
+      "residual_risks": [
+        "A differently indexed 2-adic local-density computation for the specific collision polynomial may exist; the bounded negative search does not rule it out.",
+        "No priority order is inferred among same-day catalogue entries."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Close same-day result, disjoint prime range",
+          "evidence": "Requires p>=5; uses invertible divisions by 2 and 8; gives p^9 E_p(k-4) and a Legendre-symbol-dependent primitive contribution.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-additive-energy-of-the-quartic-graph-over-prime-power-ring--35db6c8e1cdf/RESULT.md",
+          "material_read": "Finding, scope and first proof step, offsets 0–2181",
+          "method": "Local mirror statement inspection",
+          "title": "Exact additive energy of the quartic graph over prime-power rings",
+          "trigger": "Exact same collision object and four-step recurrence"
+        },
+        {
+          "assessment": "Unconditional one-output fibers, not joint energy",
+          "evidence": "R_{k,r}(a) counts x^k+y^k=a without constraining x+y.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-full-2-adic-representation-laws-for-sums-of-two-even-powers--4a65caa0042e/RESULT.md",
+          "material_read": "Finding, offsets 0–2115",
+          "method": "Local mirror statement inspection",
+          "title": "Full 2-adic representation laws for sums of two even powers",
+          "trigger": "Exact dyadic congruence fibers for fourth powers"
+        },
+        {
+          "assessment": "Field analogue, not the dyadic rings",
+          "evidence": "Explicitly excludes characteristic two and three.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-additive-energy-of-the-finite-field-quartic-graph--235f10989b3f/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror statement inspection",
+          "title": "Exact additive energy of the finite-field quartic graph",
+          "trigger": "Identical graph polynomial and invariant"
+        },
+        {
+          "assessment": "General moment framework, not the result",
+          "evidence": "Uses (t,t^2,...,t^n) under characteristic > n for its moment-curve collision analysis.",
+          "identifier_or_url": "arXiv:math/0204234",
+          "material_read": "Setting p. 1 and §5 pp. 8–9, offsets 1315 and 24900",
+          "method": "OA full-text passage comparison",
+          "title": "Restriction and Kakeya phenomena for finite fields",
+          "trigger": "Fourier moments and moment-curve comparison"
+        },
+        {
+          "assessment": "Quadratic statements do not determine this quartic product congruence",
+          "evidence": "The restricted 2-adic Q+L treatment is not a theorem for the graph's quartic collision polynomial.",
+          "identifier_or_url": "arXiv:1506.07869",
+          "material_read": "Abstract and Thm. 2.1, pp. 1,5",
+          "method": "OA full-text passage comparison",
+          "title": "A New Generating Function for Calculating the Igusa Local Zeta Function",
+          "trigger": "Congruence-counting via local zeta functions"
+        },
+        {
+          "assessment": "Restriction inequalities for another curve and invariant",
+          "evidence": "Full moment curves over prime-power rings.",
+          "identifier_or_url": "https://era.ed.ac.uk/items/29ea5d40-6678-4834-8ac0-2f2278ae7ffd",
+          "material_read": "Chapter 4, especially p. 72",
+          "method": "OA full-text passage comparison",
+          "title": "Topics in affine and discrete harmonic analysis",
+          "trigger": "Prime-power restriction literature"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This gives the exact unweighted fourth moment for a natural quartic graph in the small-prime regime excluded by the invertible-coordinate calculation. In particular, it quantifies the leading residue-class variation, not just a growth exponent or a small table of checks. Such exact dyadic constants distinguish behavior invisible to an order-of-magnitude restriction bound; the result makes no claim about the weighted norm.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T17:20:42.024714Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The frozen full probability formula is false at s=1, not merely unverified. In RESULT.md line 58, a single tangency point on a side is wrongly taken to imply a null event for segments on that side. If both independently uniform endpoints are on a side, they straddle its midpoint with probability 1/2; the segment then contains that tangency point. With σ=Σp_i² the frozen formula misses σ/2 at full scale (1/6 even in the equilateral case), and its advertised full-scale range fails. The frozen checker explicitly masks out all same-side pairs, so it cannot detect the defect. Complete corrected files are in /workspace/repairs/3. The repaired probability is (1−σ)Q(s)+(σ/2)1_{s=1}; the conditional Q remains continuous and has the originally calculated cusp. I checked the affine conic support and equivalence of the line and segment tests for different sides, and verified the incidence polynomial and its integration: u=tv, v=z gives Jacobian z, and the signed roots where z_− or z_+ crosses 1 exhaust the three regimes. Differentiating F gives (1+t)√(t²−t+1)/t². At s=1 the distinct-side polynomial factors and excludes an area ∫₀^(1/2)(1−2u)/(2−3u)du, giving Q*=2/3+2 log(2)/9. As s tends to 0 the symmetric interval has nonradical integral O(s³) and radical leading term −4sF(1/2)/9. As δ=1−s tends to 0, a~2δ/3; the would-be singular term is −δ²/(9a)=O(δ), and the surviving log a coefficient is δ/3+O(δ²), giving the cusp relative to the left limit. Zero-area polynomial level sets give continuity of Q; on the diagonal u=v=w the required scale is |3w−2|, so every interval of levels counts an open set and Q strictly increases. The new coefficient of σ at 1 is 1/2−Q*<0, preserving strict Schur concavity and giving the sharp corrected range (7/12+log(2)/9, 11/18+4log(2)/27]. The rewritten checker (python3 /workspace/repairs/3/checker.py) passed symbolic identities, 10 direct quadratures with first endpoint fixed, 20 physical-segment trials including same-side pairs, and 4 explicit midpoint-contact tests. The proof, not these samples, establishes the repaired continuum and shape claims.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Steinerberger uses line angle and offset with kinematic measure, not even normalized to a probability there. The section-distribution paper uses isotropic-uniform hitting planes and a section-volume CDF. Yin–Chen full text was unavailable."
+        ],
+        "reasoning": "A broader distribution theorem would need to encode this particular endpoint law and incidence target. The passages examined do not; unavailability is not used as evidence of absence.",
+        "searches": [
+          "Steinerberger arXiv:2211.03259 kinematic-line setup; van der Jagt–Jongbloed–Vittorietti arXiv:2305.02864 Definitions 1–2",
+          "Yin–Chen DOI 10.15983/j.cnki.jsnu.2023110 bounded retrieval"
+        ]
+      },
+      "checked_sources": [
+        "MathWorld Steiner Inellipse",
+        "arXiv:2211.03259",
+        "arXiv:2305.02864",
+        "Resultary bbcd7f035f12 and 77369877d156"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The classical tangencies mechanically give the σ/2 jump for the closed event. The elliptic support test gives a different polynomial from triangular-target interception and determines its own endpoint-area integral and residual logarithmic term."
+        ],
+        "reasoning": "The jump is not claimed as a standalone discovery. The prior relations do not fix the nontrivial distinct-side CDF or cusp; those and the combined exact full law are the scope of the pass.",
+        "searches": [
+          "Compare classical side-midpoint tangencies and Resultary triangular-core Findings with the repaired incidence integral"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Steiner and side-midpoint-tangent maximal-area inellipse formulations specify the same ellipse. The inspected line-chord literature selects a line/plane by invariant measure, not two independent perimeter positions."
+        ],
+        "reasoning": "Normalizing the pair of selected sides affinely preserves the conditional ellipse incidence model, but exchanging perimeter endpoint selection for line-section sampling changes the measure and does not give Q.",
+        "searches": [
+          "Resultary independent boundary endpoint, Steiner/maximal-area inellipse, centroid homothety and chord incidence comparisons",
+          "MathWorld Steiner Inellipse; arXiv:2305.02864 Definitions 1–2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Records dated Oct 25 and Nov 8 give universal laws for centroidal homothetic triangles under endpoint selection. Oct 25 also explicitly exhibits the atom at full scale. The target family in both inspected Findings is triangular."
+        ],
+        "reasoning": "The analogous factorization and atom mechanism are shared; the exact ellipse conditional function, cusp and endpoint constant are not triangular-core data. The catalogue dates are noted, not used alone as evidence of priority.",
+        "searches": [
+          "Resultary exact Steiner ellipse and centroid-core chord interception comparisons; bbcd7f035f12 and 77369877d156"
+        ]
+      },
+      "rationale": "For the repaired finding the credited classical midpoint tangencies and their elementary same-side mass alone are not novelty. The distinct claim is the exact conditional law for centroidally scaled Steiner ellipses under independent perimeter-endpoint sampling, its logarithmic cusp, and the resulting sharp full shape law with the boundary atom correctly accounted for. Neither verified kinematic-line comparators nor the later triangular-core results supply those ellipse-specific conclusions.",
+      "residual_risks": [
+        "No decisive Yin–Chen (DOI 10.15983/j.cnki.jsnu.2023110) full-text passage was available. This limits the comparison without establishing overlap or absence.",
+        "An older unindexed computation of the specific ellipse-conditional CDF could exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Classical tangencies, not a probability law",
+          "evidence": "The centroid-centered maximal-area inellipse touches all three sides at their midpoints.",
+          "identifier_or_url": "https://mathworld.wolfram.com/SteinerInellipse.html",
+          "material_read": "HTML opening statement, offset 0",
+          "method": "OA public page passage",
+          "title": "Steiner Inellipse",
+          "trigger": "Equivalent ellipse and decisive tangency hypothesis"
+        },
+        {
+          "assessment": "Different measure on lines",
+          "evidence": "Random lines parameterized by angles and displacements; the kinematic measure is not itself a probability measure there.",
+          "identifier_or_url": "arXiv:2211.03259",
+          "material_read": "PDF pp.3–4, §2 at offset 9183 and normalization discussion",
+          "method": "OA primary PDF passages",
+          "title": "Quadratic Crofton and sets that see themselves as little as possible",
+          "trigger": "Kinematic chord-incidence prior model"
+        },
+        {
+          "assessment": "Different law and random variable",
+          "evidence": "Isotropic-uniform hitting planes and their section-volume CDF, not independent boundary-endpoint ellipse incidence.",
+          "identifier_or_url": "arXiv:2305.02864",
+          "material_read": "PDF pp.3–4; Definition 1 at offset 9589 and Definition 2 at offset 13458",
+          "method": "OA primary PDF passages",
+          "title": "Existence and approximation of densities of chord length- and cross section area distributions",
+          "trigger": "General random-chord CDF potentially covering the result"
+        },
+        {
+          "assessment": "Full-text scope not resolved",
+          "evidence": "The frozen characterization is not treated as independently verified coverage.",
+          "identifier_or_url": "DOI 10.15983/j.cnki.jsnu.2023110",
+          "material_read": "No independently retrieved decisive passage",
+          "method": "Bounded direct and VPN OA attempts",
+          "title": "The radial mean bodies of triangles in the plane",
+          "trigger": "Cited triangle/John ellipsoid relation"
+        },
+        {
+          "assessment": "Related conditional law and atom for a different target",
+          "evidence": "Computes penetration for centroidal homothetic inner triangles.",
+          "identifier_or_url": "Resultary bbcd7f035f12, 2026/10/25",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary local mirror",
+          "title": "A universal penetration law and sharp shape order for boundary chords",
+          "trigger": "Same endpoint law with full-scale atom"
+        },
+        {
+          "assessment": "Target is a homothetic triangle, not the Steiner ellipse",
+          "evidence": "The target is G+r(T−G); this does not supply the reviewed ellipse law.",
+          "identifier_or_url": "Resultary 77369877d156, 2026/11/8",
+          "material_read": "RESULT.md Finding, offsets 0–3391",
+          "method": "Resultary local mirror",
+          "title": "Universal chord interception law for centroidal cores of triangles",
+          "trigger": "Apparent generalization or matching triangle-level probability"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For canonical affine targets and Euclidean endpoint sampling, the repaired result separates shape weights, a universal continuous incidence distribution, and a positive discrete mass that is invisible if one substitutes random lines or discards same-side chords. The exact cusp and distinct sharp full-scale bounds make it a useful benchmark throughout the triangle family, not just a single probability or a routine observation about midpoint tangency. It does not claim optimization over other ellipses.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

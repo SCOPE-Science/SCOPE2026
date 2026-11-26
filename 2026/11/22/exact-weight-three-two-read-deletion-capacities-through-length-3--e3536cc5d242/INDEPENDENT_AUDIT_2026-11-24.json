@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:26:45.107773Z",
+  "axes": {
+    "correctness": {
+      "certificate_sha256": "daa4e7a5f7d8ee8dfaa9173c4980bda6751181372577f53dd35752b2dcc3df18",
+      "rationale": "A pair of distinct reads identifies at most one source precisely when no two codewords share an unordered pair of distinct deletion outputs. I independently reconstructed every length-n word in lexicographic triple order, formed deduplicated decks by literal string slicing at all positions, and checked the frozen JSON data without running either supplied program. All 30 lengths passed: 40,920 candidate words, 18,686 code entries, 310,340 unordered read-pair entries with no duplicate within a code, and 25,972 vertex pairs checked within nonempty, disjoint cliques exhaustively covering each vertex set. Each clique pair shared at least two reads. Thus each code gives the lower bound and its equal-size clique partition the matching upper bound. The table and both polynomials were checked at every stated integer using exact rational arithmetic, including the singleton n=3; nothing is proved for n>32.",
+      "replay": "/workspace/branches/replay_weight_three.py",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 7 gives unrestricted binary reconstruction redundancy log₂ log₂ n + Θ(1) for two single-deletion reads.",
+          "The indexed length-three/four result concerns whole alphabets and full word spaces, not composition-specific optima."
+        ],
+        "reasoning": "An unrestricted optimum or asymptotic redundancy does not give the optimum on a specified composition layer. The elementary singleton at n=3 is not a novelty claim on its own.",
+        "searches": [
+          "arXiv:2004.06032, Section II.B–C and Theorem 7",
+          "Resultary record 5edcab4b1c30"
+        ]
+      },
+      "checked_sources": [
+        "Resultary local mirror: 1e0b06ffdce5, abb547d65c0a, e753c7b5bfd6, f45a481280b1, 7d25cc21af64, 5edcab4b1c30, 31b98d1c763d, c991d35fcef9",
+        "arXiv:2004.06032 (pp. 1–2)",
+        "arXiv:1604.03000 (pp. 1–2)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Fixed-composition coloring gives χ=ω=1+min(k,n−k); related records give degree, edge and triangle counts."
+        ],
+        "reasoning": "A proper coloring gives independent classes but not a sharp upper bound on independence; the maximum size of one clique is not a minimum clique-partition count. The aggregate graph counts do not supply matching independence/clique-partition witnesses or the asserted sequence.",
+        "searches": [
+          "Resultary records 1e0b06ffdce5, abb547d65c0a, e753c7b5bfd6 and f45a481280b1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fixed-composition coloring record 1e0b06ffdce5, Finding and Assumptions: same graph defined by overlap of at least two distinct deletion descendants.",
+          "Chrisnata–Kiah–Yaakobi, p. 1: reconstruction with ν+1 distinct reads for maximum pair overlap ν."
+        ],
+        "reasoning": "Maximum code size is exactly the independence number in the weight-three induced graph. Prior definitions are equivalent, but no equivalent determination of that independence number was found.",
+        "searches": [
+          "Resultary: fixed-composition / weight-three independence numbers and two-read deletion reconstruction",
+          "arXiv:2004.06032"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Weight-two/two-read record gives ⌊n²/4⌋ on the adjacent layer.",
+          "Weight-three/one-read records give 32 and 37 at lengths 14 and 15, rather than 157 and 206 under the two-read rule."
+        ],
+        "reasoning": "Neither fixed-weight table matches both weight three and the two-distinct-read criterion. The search did not establish a table for the exact target.",
+        "searches": [
+          "Resultary: exact weight-two and weight-three deletion capacities; records 7d25cc21af64, 31b98d1c763d, c991d35fcef9"
+        ]
+      },
+      "rationale": "The closest indexed result concerns the identical fixed-composition graph, but computes different invariants. Exact results on adjacent word layers or for one read do not imply the stated optima. No equivalent sequence or covering theorem was established by the statement-level comparisons below; this is not a proof of priority.",
+      "residual_risks": [
+        "Levenshtein's original full texts were not obtained; the formal reconstruction condition was checked in Chrisnata et al. Earlier equivalent finite computations could be unindexed. A non-probative general literature lookup is not evidence of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same object, different invariant; no priority inferred from same-day date",
+          "evidence": [
+            "Position-sum coloring with χ=ω=1+min(k,n−k)."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-fixed-composition-coloring-of-the-two-read-deletion-graph--1e0b06ffdce5",
+          "material_read": "RESULT.md Finding and Assumptions, offset 0",
+          "method": "Local mirror",
+          "title": "Sharp fixed-composition coloring of the two-read deletion graph",
+          "trigger": "Same graph and fixed composition"
+        },
+        {
+          "assessment": "Different weight",
+          "evidence": [
+            "Capacity ⌊n²/4⌋ for weight two, attained by odd-gap supports."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-exact-two-read-single-deletion-capacity-in-the-binary-weight-two--7d25cc21af64",
+          "material_read": "RESULT.md Finding and Assumptions, offset 0",
+          "method": "Local mirror",
+          "title": "Exact two-read single-deletion capacity in the binary weight-two layer",
+          "trigger": "Exact capacities with the same read rule"
+        },
+        {
+          "assessment": "Different reconstruction rule",
+          "evidence": [
+            "Exact values 32 and 37 require disjoint decks, not merely overlap at most one."
+          ],
+          "identifier_or_url": "2026/10/12/SCOPE-two-sharp-constant-weight-single-deletion-code-sizes-at-lengths--31b98d1c763d",
+          "material_read": "RESULT.md Finding and Assumptions, offset 0",
+          "method": "Local mirror",
+          "title": "Two sharp constant-weight single-deletion code sizes",
+          "trigger": "Same weight and two overlapping lengths"
+        },
+        {
+          "assessment": "Unrestricted asymptotic results do not determine fixed-weight finite capacities",
+          "evidence": [
+            "The maximum intersection cardinality sets the read count; Theorem 7 classifies unrestricted redundancy by read count."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2004.06032",
+          "material_read": "pp. 1–2, read coverage, Sections II.B–C and Theorem 7",
+          "method": "OA full-text PDF passages",
+          "title": "Optimal Reconstruction Codes for Deletion Channels",
+          "trigger": "Primary source for two-read single-deletion reconstruction"
+        },
+        {
+          "assessment": "Different error channel and target",
+          "evidence": [
+            "Bounds concern common supersequences, not the finite independence numbers at issue."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1604.03000",
+          "material_read": "pp. 1–2, insertion traces and common supersequences",
+          "method": "OA full-text PDF passages",
+          "title": "Exact Reconstruction from Insertions in Synchronization Codes",
+          "trigger": "Multi-read reconstruction background cited by the record"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This settles the natural next fixed-weight layer after the weight-two classification, where a read conflict can arise from moving an alternating block with up to three ones. Certified equal optima and clique-partition bounds over a consecutive range, reaching 4,960 candidates at n=32, provide exact benchmarks for constructions and upper bounds. The finite polynomial agreement is useful as a target for an all-length theorem, not itself such a theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

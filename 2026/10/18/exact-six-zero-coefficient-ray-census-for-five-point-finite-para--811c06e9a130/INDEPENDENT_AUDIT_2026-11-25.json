@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:47:33.430026Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–42; VERIFICATION.md lines 18–30; inspected verify_p11.cpp",
+        "Independent replay: python3 /workspace/branches/independent_p11.py 0 1 2 3 4 5; output /workspace/branches/independent_p11.out"
+      ],
+      "rationale": "The frequency modulation action is free because a quadratic minus a constant cannot vanish on five distinct field points unless identically zero. Its orbit of 121 rays contains exactly six origin-normalized rays for a six-zero ray. Affine changes of support transport zero sets by an invertible frequency change and a nonzero phase. For completeness, normalize one zero at the origin. If at least four zero rows had collective rank below four, the verified rank-drop property forces all zero frequencies onto one line. On that line the prime Fourier minor theorem makes four distinct samples have rank min(4, number of distinct quadratic fiber values). Rank drop therefore forces exactly three fiber values, of sizes 2,2,1, and vanishing at all four samples forces all fiber sums to vanish, contradicting the singleton's nonzero coefficient. Thus every relevant ray is seeded by four independent rows. Its full zero set determines that ray, so set deduplication is valid. An independent enumeration checked every triple for every affine representative, using reduction at the order-11 root 26 modulo 65539 as a one-sided filter and exact signed 4-by-4 cyclotomic minors for every surviving case. Every rank drop survives that filter; none is off-line. Exact origin-normalized six-zero counts are 60,30,150,0,30,0 in table order. There are full-support five-zero sets in each orbit, and no seven-or-more-zero sets, so all six maxima follow even without importing the reported external sharp bound. The orbit sizes and 121/6 conversion give the stated 532400 total.",
+      "residual_risks": [
+        "This is an exact computer-assisted census at p=11 with support exactly five, not a theorem for other fields or support sizes. The independent replay uses the prime Fourier minor theorem for the collinear case."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The v1 odd-support theorem and five-point theorem give at most six at p=11. Proposition 4.11 gives a sharp example on {0,1,2,3,4}. The quoted v2 general estimate p+2 floor(k/2)-2 is 13 here, not the source of the sharp bound."
+        ],
+        "reasoning": "The broader v1 result covers the maximum over all supports and one orbit's attainability. It gives neither the complete list of attaining orbits nor the counts in them.",
+        "searches": [
+          "arXiv:2609.16030v1 Theorem 1.1(3), Theorem 4.10 and Proposition 4.11",
+          "arXiv:2609.16030v2 Theorem 1.2"
+        ]
+      },
+      "checked_sources": [
+        "Li arXiv:2609.16030v1 and v2",
+        "Three published Resultary records identified in source_inspections"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Li gives six as a universal ceiling and exhibits one ray on a single affine support class. That is compatible with any number of six-zero rays in other classes and does not identify even the remaining positive-count classes."
+        ],
+        "reasoning": "Neither the bound, the witness, the unrelated MUB equality classification, nor transferring the F7 method determines the p=11 table without further rank and enumeration work.",
+        "searches": [
+          "Li v1 Theorem 4.10 versus Proposition 4.11",
+          "Published F7 census and rational rigidity statements"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Li's complete-MUB equality concerns a different optimization (total support). The catalogue's rational zero-line record classifies zero-set shapes for rational-valued data, not unrestricted complex projective equality rays."
+        ],
+        "reasoning": "The fixed five-column Fourier evaluation problem is related to the complete-MUB and rational rigidity formulations but is not equivalent to those equality statements. Neither fixes the number of unrestricted complex projective kernels at the six-zero threshold.",
+        "searches": [
+          "Li arXiv:2609.16030v1, Theorem 1.2 and its complete-MUB discussion",
+          "Resultary: finite-parabola five-point equality rays; related zero-line rigidity and witness records"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published Resultary records inspected include the five-point F7 census (c8e97af8983f), the nine-zero seven-point F11 witness (2b8dd5838a06) and the rational finite-parabola zero-line rigidity result (4cb26bdeb951)."
+        ],
+        "reasoning": "The exact F7 table changes the field, the F11 witness changes support size, and the rational record changes both coefficient regime and target. None supplies the p=11 five-point equality table; no matching table was located in the bounded results.",
+        "searches": [
+          "Resultary: p=11, 532400 projective six-zero rays",
+          "Resultary: five-point finite-parabola uncertainty; seven-point prime-eleven witness"
+        ]
+      },
+      "rationale": "The sharp six-zero ceiling and at least one sharp example are already in Li v1 and are not credited as new. The supported contribution is the full projective equality census, including the sharp-support classification and exact per-orbit counts. The inspected primary and published-catalogue claims do not supply it.",
+      "residual_risks": [
+        "No separate journal version of the bound was verified; catalogue and alternate-formulation searches are bounded and cannot establish absolute priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior sharp ceiling and an F11 example, not a projective census",
+          "evidence": "For odd support 2r+1 the upper bound is min(p+2r-2,r(r+1)); the sharp example has support {0,1,2,3,4}.",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.16030v1",
+          "material_read": "Theorems 1.1(3), 1.2, PDF pp. 2–4; Theorem 4.10 and Proposition 4.11, around PDF p. 26",
+          "method": "Open-access primary PDF passages",
+          "title": "Parity-Sensitive Fourier Uncertainty and Zero-Set Rigidity on the Finite Parabola",
+          "trigger": "Same field, support size and complex zero-set extremum"
+        },
+        {
+          "assessment": "Its inspected general bound is weaker in the target case; use v1 for the precise prior ceiling",
+          "evidence": "The stated bound p+2 floor(k/2)-2 gives 13 for p=11,k=5.",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.16030v2",
+          "material_read": "Theorem 1.2, PDF p. 3",
+          "method": "Open-access primary PDF passage",
+          "title": "Parity-Sensitive Fourier Uncertainty and Zero-Set Rigidity on the Finite Parabola",
+          "trigger": "Revised version of closest primary source"
+        },
+        {
+          "assessment": "Methodological precedent in F7, not the F11 count",
+          "evidence": "Five zeros, 3234 maximizing rays per support, and 66 character orbits in F7.",
+          "identifier_or_url": "2026/10/11/SCOPE-exact-five-point-finite-parabola-uncertainty-over-the-field-of-s--c8e97af8983f",
+          "material_read": "Published result statement and counts",
+          "method": "Local published-record mirror",
+          "title": "Exact five-point finite-parabola uncertainty over the field of seven elements",
+          "trigger": "Exact maximizing-ray census at support size five"
+        },
+        {
+          "assessment": "Seven-point witness, not an equality census",
+          "evidence": "One seven-point Fourier sum with nine zeros; not a sharp classification.",
+          "identifier_or_url": "2026/10/11/SCOPE-an-exact-nine-zero-seven-point-fourier-witness-on-the-parabola-o--2b8dd5838a06",
+          "material_read": "Published witness and its scope",
+          "method": "Local published-record mirror",
+          "title": "An exact nine-zero seven-point Fourier witness on the parabola over the eleven-element field",
+          "trigger": "Exact witness in the same field"
+        },
+        {
+          "assessment": "Not equivalent, independent of same-day ordering",
+          "evidence": "Rational-valued coefficients and zero-line/sign-sequence classification, not arbitrary nonzero complex equality rays.",
+          "identifier_or_url": "2026/10/18/SCOPE-cyclotomic-zero-line-rigidity-for-rational-finite-parabola-fouri--4cb26bdeb951",
+          "material_read": "Published zero-set and coefficient-scope statement",
+          "method": "Local published-record mirror",
+          "title": "Cyclotomic zero-line rigidity for rational finite-parabola Fourier sums",
+          "trigger": "Closest same-day zero-set structure claim"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 8–24 and 35–45",
+        "Li v1 Theorem 4.10 and Proposition 4.11; published F7 comparison"
+      ],
+      "rationale": "At the first field size in this five-point equality question beyond the analogous F7 census, the known sharp bound leaves a substantive structural question: do all shapes attain it, and with what equality multiplicities? The answer separates four attaining affine shapes from two nonattaining ones, with materially different counts among the attaining shapes. This is exact equality data for a motivated Fourier uncertainty problem, not a new computation of the already known ceiling or an isolated arbitrary witness.",
+      "residual_risks": [
+        "Does not characterize equality in other primes or establish a general formula for counts."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

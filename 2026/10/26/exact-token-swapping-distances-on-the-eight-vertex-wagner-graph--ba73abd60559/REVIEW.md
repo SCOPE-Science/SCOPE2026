@@ -1,15 +1,21 @@
-# Self-review: Wagner token-swapping distances
+# Independent mathematical audit
 
-## Correctness
-PASS. The precise twelve-edge Wagner graph is defined without ambiguity; relabeling tokens makes the token-swap graph vertex-transitive. A complete breadth-first search of all \(8!=40320\) permutation states proves the exact distances. The supplied verifier executes two BFS algorithms with distinct representations and asserts pointwise equality of their complete distance arrays. The last layer has \(138\) states at distance ten. Independent shortest-path computation on the eight base vertices verifies the transport lower bound and all gap counts. The claim is finite and all arithmetic is exact.
+## correctness
 
-## Originality
-PASS, subject to documented search limits. The relevant 2014 foundational labeled-token-swapping study addresses general bounds and graph classes, not the Wagner graph's sharp metric. Explicit numerical comparison discovered the **cube** profile already in Zheng's 2009 reversible-circuit table; this known result is distinguished from the Wagner profile and is not claimed as new. Published research-record and targeted literature searches for Wagner, Möbius ladder, transposition Cayley word metrics, and the numerical signature found no implication covering the Wagner-specific census. Known same-graph matching and Morse complexes involve different states and moves. A previously unindexed complete word metric remains a risk; full texts of some peripheral papers were not inspected.
+PASS
 
-## Value
-PASS. The Wagner graph is a canonical nonbipartite eight-vertex cubic graph, a natural comparator of the equally sized degree-three hypercube. The exact token-swap diameter, full shells, and sharp transport-heuristic slack measure how graph wiring changes sequential permutation routing: Wagner diameter ten and \(138\) hardest permutations versus the already published cube diameter twelve and single hardest permutation. The classification supplies a finite calibration instance for shortest-swap algorithms; neither correct enumeration alone nor a broader unseen theorem is invoked to manufacture significance.
+Token relabeling acts transitively, so the complete identity-based metric determines the diameter and common shell counts. I reproduced the full enumeration with `python3 /workspace/branches/wagner_reproduction.py`, new code using residue-based adjacency, composition on the labels, and set differences between exact frontiers. Left and right products from the identity give the same length sets by reversing each word, and expanding the current exact layer and deleting seen states proves minimality inductively. The enumeration reached exactly 40320 distinct assignments with twelve generators and returned shells [1,12,90,500,2059,5960,11124,11986,6748,1702,138], gaps [16350,18574,5322,74] and last-shell transport counts {15:48,16:90}. The underlying W distances are 0 at equality, 1 for differences ±1 or 4, and 2 for all other residues; swapping moves exactly two tokens one edge each, so the ceiling-half bound is valid. The frozen script was inspected, not run. Its docstring names verify_cube.py, a command typo; the actual file and reproducibility record correctly name verify_wagner.py.
 
-## Scientific limits
-The result is not an infinite-family formula and does not settle the complexity of general token swapping. All novelty judgments are evidence-based and may be revised by newly found sources. Reproducibility requires ordinary Python 3 and the included source.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The strongest located exact lookup is the reversible-circuit table for the cube. Its generator set has the same size but gives a different word metric, already differing at shell 3 (476 instead of 500). No Wagner match was established in the bounded comparison; the finite census is not claimed as a new enumeration method.
+
+## value
+
+PASS
+
+The Wagner graph is a canonical small cubic graph with short base-graph distances but nontrivial sequential routing. The exact metric and complete transport-slack distribution quantify how poorly the natural lower bound can predict swap cost, and give a graph-specific benchmark directly comparable to the known three-cube metric. Exhaustion of all states supplies a usable baseline; the claim is not an arbitrary partial sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

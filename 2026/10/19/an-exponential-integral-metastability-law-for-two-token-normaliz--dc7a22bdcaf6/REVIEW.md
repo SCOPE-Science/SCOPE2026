@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The symmetric two-token update has equal normalization denominators, which makes its initial bisector direction invariant and its half-angle ratio exactly multiplicative. The derived correlation increment is an algebraic identity. Positivity establishes global consensus away from the antipodal equilibrium. The integral comparison uses an explicitly bounded one-step relative error and controls the endpoint singularity through cancellation by the factor \(1-c^2\). Ordinary endpoint Laplace asymptotics and a dominated-convergence argument give the two distinct sharp limits. A supplementary checker tests independent vector and scalar implementations, but the limiting theorem is established analytically.
+## correctness
 
-## Originality
-PASS, with nonzero bibliographic risk. The closest discrete-time source is Altafini's general normalized-attention equilibrium and stability treatment (arXiv:2610.13518v1). Its inspected model, Section IV and theorem setting do not establish the present two-token exact first-passage quadrature or exponential-integral boundary layer. Geshkovski et al. (arXiv:2410.06833) and Menon–Murray establish continuous-time metastability or linearization, rather than this exact normalized discrete-step crossover. Alcalde et al. (arXiv:2508.09628) study different deterministic and stochastic updates. A previously undiscovered exact two-agent escape formula in the large attention literature remains possible.
+PASS
 
-## Value
-PASS. The inverse-temperature limit is a natural singular perturbation of attention: hard attention strands distinct tokens, while positive-temperature coupling ultimately synchronizes them. The theorem quantifies the precise time scale and gives a nonconstant crossover that interpolates along a physically meaningful near-antipodal boundary layer. It is not merely a finite numerical calculation or a replacement of a known bound by a constant.
+The orthogonal half-sum and half-difference give equal normalization factors and an exact ratio multiplier 1−αp with 0<1−αp<1. The sum direction is preserved and the half-angle ratio tends to zero (p is bounded below at fixed β). To check the discrete approximation uniformly even near antipodality, use h=atanh c, the negative log of the half-angle ratio. One step is Δh=−log(1−αp)=αp(1+O(p)), with p≤p(c*) before crossing. Along the whole step |d log p/dh|=β(1−p)(1−c²)≤β, so the relative variation is O(βp(c*))=o(1), including on a final overshoot. Thus each full step contributes 1+o(1) to ∫dh/(αp) and the truncated step O(1). The number of steps diverges since the h displacement is bounded below in both regimes and the step upper bound decays exponentially. Changing back to c gives the stated clock integral. Its fixed lower endpoint gives the first limit by Laplace scaling. In the antipodal layer s=β(1+c), the exponential piece is dominated by e^(−s)/[s(1−c*)]; the nonexponential piece after normalization is O(e^(−2β) log β). The limit is E₁(z)/(2α), at fixed z>0, and π−arccos(c₀) is asymptotic to √(2z/β).
 
-## Scope of review
-The proof, computations, and novelty comparison are restricted to the exact model and parameter ranges stated in the result. Independent expert verification has not been carried out.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The discrete map is a known specialization and the clock integral with its E₁ limit is already directly derivable from the published continuous two-token equation, up to time normalization. The supported distinction is the sharp discrete update count, with its exact residual-weight constant and a relative comparison valid over exponentially many updates while the initial point approaches antipodality. Neither a known continuous-flow clock nor the closest discrete equilibrium result establishes that statement.
+
+## value
+
+PASS
+
+The simplest nontrivial symmetric normalized attention model is a natural benchmark for the number of layers needed to leave an almost antipodal state. An exponential order alone misses both the weight-dependent prefactor and the change from a fixed-correlation endpoint to the E₁ angular layer. A quantitative comparison in actual update counts, justified despite the growing time horizon, is useful beyond the equilibrium description.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

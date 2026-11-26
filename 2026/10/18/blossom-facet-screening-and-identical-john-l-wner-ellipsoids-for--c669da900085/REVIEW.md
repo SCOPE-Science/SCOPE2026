@@ -1,15 +1,21 @@
-# Scientific review: blossom-facet screening for perfect matchings
+# Independent mathematical audit
 
-## Correctness — PASS
-The objects are explicit and the quantifier covers every even \(N\ge6\) in the intrinsic Euclidean affine hull \(Bx=\mathbf1\). The established Edmonds/Lindzey inequality description supplies all possible facets of the integral polytope; the projection formula verifies the exact coordinate distance and the squared distance of every odd-cut hyperplane. The latter exceeds the coordinate distance by a factor of at least \(8/3\) in squared distance, so the claimed John ball is actually contained in the integral polytope. An explicit family of coordinate contacts satisfies both positive John moment identities on the full tangent space, proving globally maximal volume and uniqueness. An outer-ball inequality valid for the entire fractional relaxation has equality only at integral matchings; exact matching first and second moments give the positive global Löwner certificate. Two half-integral triangles witness strict inclusion. The exact-rational verifier passed for three sizes and is not substituted for the analytic quantifiers.
+## correctness
 
-## Originality — PASS, with stated residual risks
-The inspected metric-polytope ellipsoid treatment of Gartsman–Linial, the full Lindzey matching-polytope facet and dimension section, and Behrend's fractional perfect-matching combinatorics do not state common John/Löwner ellipsoids for *distinct* integral and fractional one-factor bodies, nor strict blossom-facet screening. A computation of ellipsoids of a Kneser eigenpolytope and its polar fractional matching relaxation gives a particularly close partial implication: the fractional ellipsoid information can be inferred by polarity, and the outer ball can be transferred using integral matching contacts. They **cannot transfer the inner John ellipsoid through the added odd-cut inequalities** without the newly proved strict-distance calculation. The new claim is therefore not accepted merely because a title or parameter is unmatched. Search coverage is necessarily incomplete, and an earlier equivalent optimal-design or matching-polytope computation remains a real priority risk.
+PASS
 
-## Value — PASS
-The complete-graph perfect-matching polytope is a fundamental graph polytope with exponentially many odd-cut inequalities. Showing that removing all those inequalities strictly enlarges the polytope yet leaves *both* unique canonical ellipsoids unchanged is a structural boundary phenomenon, rather than a routine radius computation. The explicit positive contact decompositions, full facet-contact classification, and sharp intrinsic radius ratio provide exact geometric content that can serve as a benchmark for ellipsoid relaxations of integer hulls.
+For even N>=6, the unsigned incidence matrix has BB^T=(N-2)I+J, hence rank N. The uniform c satisfies all genuine inequalities strictly, so both bodies are full dimensional in H_N. With P the tangent projector, P_ee=(N-3)/(N-1), and the coordinate-plane distance is r. For an odd cut of t=s(N-s) edges, B a has sum 2t and squared norm Nt; subtracting its normal component using (BB^T)^(-1) gives ||P a||²=2t(t-N+1)/((N-1)(N-2)). The slack is (t-N+1)/(N-1), so the squared distance divided by r² is (N-2)(N-3)(1-(N-1)/t)/2, at least (N-2)(N-4)/3>1. All coordinate feet are positive in every other coordinate and satisfy all odd cuts strictly. The normalized negative projected coordinate vectors with weights P_ee have zero mean and second moment I on ker B, certifying John optimality for both bodies. For F_N, every coordinate is in [0,1] and their sum is N/2; equality in the bound sum x_e²<=N/2 occurs exactly at perfect matchings. Matching inclusion probabilities for one edge, two incident edges, and two disjoint edges give centered covariance (N-2)P/((N-1)(N-3))=(R²/d)P, yielding the global Löwner certificate for both. Two disjoint half-weight triangles and a matching on the rest give an explicit fractional point violating an odd cut even at N=6. The ratio, dimension-asymptotic and intrinsic volume formulas follow. Replay is the projection and contact computation in RESULT.md §§1–6; the companion verify.py was inspected, not run, and only tests N=6,8,10.
 
-## Sources and limitations
-Primary motivating work: Gartsman–Linial, arXiv:2305.02113v1 (2023-04-19), on the different metric polytope. Supporting descriptions: Lindzey, arXiv:1409.2057v1, Section 6; Behrend, arXiv:1301.7356v1, fractional matching polytope. The result does not generalize here to arbitrary graph structure or weighted metrics. The analytical proof establishes an infinite family; the bundled finite verifier is corroboration only. The significance is geometric relaxation invariance, not a claim that the Edmonds facets or general ellipsoid conditions are new.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The fractional ellipsoids, and the exact circumradius and perfect-matching contact pattern in the even complete-graph setting, have material prior coverage. The supported distinct result is that the integral perfect-matching polytope retains the fractional John ball with strictly positive clearance to every nontrivial odd cut, yielding joint John–Löwner equality for a proper relaxation. This is not a claim of priority for either fractional radius or the outer contact pattern alone.
+
+## value
+
+PASS
+
+Nontrivial odd cuts are essential to integrality and yet all miss the fractional inball by a quantitative uniform margin. Together with the exact enclosing contacts this shows that both canonical ellipsoids miss the strict integrality difference for a natural infinite family. This structural comparison is useful beyond recomputing the old fractional radii or merely recognizing a symmetric ball.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

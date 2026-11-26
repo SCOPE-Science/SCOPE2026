@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The definition agrees with the even-power degree-one generalized Floater–Hormann blend. Each monotone sample vector is a positive combination of step vectors and a constant. For steps, the only potentially negative local term is isolated and dominated by two positive blending weights. A derivative test shows this two-weight bound decreases when the step moves farther from the evaluation interval; reflection handles upper overshoot. The three-node example attains the bound; strict extra denominator weights preclude attainment for longer grids. Symbolic and finite-grid exact-arithmetic checks from `verify.py` supplement, but do not replace, the all-grid analytic proof.
+## correctness
 
-**Originality — PASS, provisional historical priority.** The 2023 and 2024 Themistoclakis–Van Barel papers establish generalized interpolation, uniform norm bounds, and approximation estimates, but not the sharp all-grid monotone range envelope. A previously recorded three-node result (opaque identifier `885bf8a5-c599-4303-a98b-79ba8a3536a4`) already establishes the same extremal constant and its three-node formula: the formula alone would be covered. The new result proves it controls *every* finite uniform grid and is unattainable by any larger fixed grid. Other relevant interpolation results concern the original exponent-one or Berrut operators. Closely related published results can still exist under shape-preservation or positive-data stability terminology; historical priority is not independent.
+PASS
 
-**Value — PASS.** The result converts a local three-node shape defect into a sharp, grid-size-independent guarantee for a widely motivated stable rational interpolation family. It distinguishes uniform boundedness of a Lebesgue norm from exact monotone range control, gives a constructive worst case, and supplies a direct positivity criterion for positive monotone data. The all-grid reduction is structural, not a routine re-evaluation of the three-point constant.
+For the repaired RESULT.md, bounds normalize to [0,1] when m<M. The step decomposition is convex after adding masses y₀ on the constant one and 1−yₙ on the constant zero. At a nonnodal point j+t only the jump line to the right can contribute negatively; upper overshoot follows by reflected complement. Dividing by the two local weights gives the stated H(s), s≥1−t. In H′ the positive term subtracted from 1 is increasing in s and already exceeds 1 at s=1−t, so the adjacent jump gives the largest possible two-weight bound. On ≥4 nodes an extra strictly positive denominator weight makes the negative estimate strict; continuity and finitely many steps give a strict uniform bound on each fixed grid. Three-node step data realize the exact maximand. The change of variable r=t/(2−t) gives the stationary equation by logarithmic differentiation, and monotonicity of its two sides proves uniqueness. Independent high-precision evaluation agrees with the quoted gamma=2 value. The original unqualified endpoint wording did not distinguish equality on m=M or strict positivity from nonnegativity: (m,m,M) reaches exactly zero at M/m=1+1/δ. The complete replacement separates those cases and proves both sharp ratio guarantees; it retains the all-grid range theorem without alteration for m<M.
 
-Scientific limitations: Uniform grids, nondecreasing inputs, even powers, blending degree one. Strict monotonicity of the resulting function is not asserted. The exact maximal defect on each individual larger grid is not calculated.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct contribution is the sharp all-grid bound and strict larger-grid inequality at nonzero scale, with the corresponding global contrast guarantees; the formula and attained three-node optimum themselves are credited to the separate three-site result.
+
+## value
+
+PASS
+
+The repaired claim turns an exact short-grid example into an optimal envelope independent of grid length, with strict rigidity and a sharp positivity/nonnegativity contrast that matters when interpolating positive monotone data. Uniform Lebesgue stability alone cannot furnish such a guarantee.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

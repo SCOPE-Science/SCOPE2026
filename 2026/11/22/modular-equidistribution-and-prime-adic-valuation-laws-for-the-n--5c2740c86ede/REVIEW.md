@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The normalization is integral by the six parity-dependent recurrences, all six associated integer matrices have determinant one, and the orbit proof combines elementary transvections over odd prime powers with an explicit reachability construction modulo powers of two. Transitivity, doubly stochastic digit transitions, and an aperiodic seed self-loop establish exact uniform limiting orbit measures. CRT marginalization gives every modulus and the valuation independence; a four-state matrix proves exact finite-block parity counts. A separate direct-algebraic-integer checker confirms 19,683 indices, modular orbits 2 through 48, and the parity formula through level nine. The tests do not substitute for the infinite proof.
+PASS
 
-## Originality
+The two parity-dependent digit matrix rows follow from the normalized Z[√2] recurrence; determinant one preserves primitivity. At even parity, digit 0 and digit 2 provide lower-by-2 and upper-by-1 transvections. At 2^k an upper, then lower, then upper word produces (t+s(2t+1),2t+1) from (0,1), giving every admissible pair since the second coordinate is a unit. At each odd prime power the transvections give the primitive orbit by elimination. Choose exponents by CRT to isolate any one local factor; negative powers are realizable by positive powers on the finite state space. Digit 1 carries the full even layer bijectively onto the odd layer. The three digit permutations give uniform stationarity, the orbit gives irreducibility, and the digit-0 loop at the seed gives aperiodicity. Aligned ternary suffix blocks give the power saving on ordinary prefixes (take an exponential contraction factor greater than 1/3 when summing the geometric errors). CRT and counting second coordinates yield the stated marginals, and differences of divisibility tails give the valuation laws and independence at finitely many primes. The mod-2 return probabilities follow from diagonal projections of weights 1/4,1/4,1/2 at eigenvalues 3,−1,1 of the digit-count matrix. Fresh independent checks matched 2187 digit states and all orbits at 2≤m≤12; exact parity counts through L=5 were 1,1,3,7,21,61.
 
-**PASS on inspected evidence.** Northshield (2015) defines and studies the algebraic-integer recurrence and enumerates positive rationals. Spiegelhofer (2017, primary motivating source) establishes digit reversal, not modular orbit frequencies. Ponton (2018) studies different ternary/quinary trees and enumeration. General finite-state equidistribution and ordinary Stern residue theorems do not imply the derived orbit for this distinct parity-dependent system without the new orbit calculation. Focused searches and database comparisons found no direct matching all-modulus formula. Unindexed equivalences remain possible; the closest related archive results on ordinary Stern/twisted Stern were identified from summaries, not certified through full-text noncoverage.
+## originality
 
-## Value
+PASS
 
-**PASS.** The result completely quantifies prime-power and arbitrary composite-modulus behavior of a canonical rational-enumerating algebraic-integer sequence. The index distribution exhibits a nonuniform three-to-one parity effect, contrasting with simple uniform residue heuristics, and nevertheless factors independently over different primes. An exact all-level ternary-block parity count supplies a useful finite-scale refinement. The object, invariant, and complete range of moduli are natural, not a selected numerical slice.
+Credit the normalization's defining recurrence to Northshield, the reversal symmetry to Spiegelhofer, and the primitive-pair Markov-chain method and odd-prime-power marginal analogue to the literature on classical Stern. The supported new contribution is the normalized Northshield all-modulus state support and its law, notably the distinct 2-adic factor and exact complete-block parity count. The valuation formulas are consequences of the new joint law, not separate priority claims.
 
-## Limitations and bibliographic risk
+## value
 
-Modulus-dependent mixing rates are not optimized. The result uses established group and Markov-chain methods. Further unindexed literature might contain an equivalent characterization; the inspected cited papers do not state one.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is a complete, fixed-modulus distribution on a natural ternary rational-enumeration sequence. It identifies a systematic 2-adic bias that differs from the familiar binary model and recovers exact parity counts before taking limits. The orbit support and the bias, rather than the standard convergence argument, give the scientific value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

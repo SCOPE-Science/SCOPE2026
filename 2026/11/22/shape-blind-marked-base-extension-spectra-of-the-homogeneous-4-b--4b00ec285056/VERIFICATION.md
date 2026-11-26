@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3 and no external dependencies. It enumerates every labelled reduced tree with 3 through 7 leaves using all admissible graft sites. Canonical complete nontrivial split families independently identify the labelled tree topology; all unlabeled classes through six leaves are determined by canonical internal adjacency/leaf-degree signatures. For every six-leaf shape the test explicitly generates all ordered pairs of new leaves and checks the refined 4-valent statistics against the recurrence. It also directly confirms the recurrence has no negative counts for \(3\le n\le11\) and short arities through five. The actual captured output is embedded in `verification_output.txt`. Its success marker is `ALL_SHAPE_AND_EXTENSION_CHECKS_OK`.
+## correctness
 
-The finite computations are cross-checks; the proof for every arity is the inverse-leaf-deletion bijection and induction in RESULT.md. No full-scale historical mathematical priority guarantee is claimed.
+PASS
+
+In the stated homogeneous tree presentation, finite labelled hulls give exactly the complete ordered tuple types: their incidence structures over the named parameters agree exactly when the map on the marked leaves is a finite partial isomorphism, which extends by homogeneity. The finite extension property supplies realization. Deleting the last leaf either suppresses its trivalent neighbor, identifying the subdivided edge, or lowers its quadrivalent neighbor to a trivalent vertex, identifying the attachment site. With m leaves and Q quadrivalent vertices there are 2m-Q-3 edges and m-2-2Q trivalent vertices. Evaluating these counts in the two predecessor states gives the claimed recurrence, including infeasible states; summing yields the differential form. In arity one the value 3n-3q-5 distinguishes q at fixed n. At n=6 the internal skeletons are a path or star on four trivalent vertices, a path on three internal vertices with the quadrivalent one at its center or end, and an edge between two quadrivalent vertices. At three through five leaves each q determines the skeleton. An independent skeleton enumeration and arity-three series calculation reproduced every entry of the displayed table, without using the frozen verifier.
+
+## originality
+
+PASS
+
+Credit the known tree/orbit representation and the one-point extension mechanism, particularly the general construction of Estrada–Goodrick. The distinct result supported here is the refined all-arity numerical profile for a fixed marked base, with its exact equivalence criterion and the sharp minimally colliding fibers. The strongest catalogue and primary comparisons cover different invariants or the underlying construction, not that classification.
+
+## value
+
+PASS
+
+For a canonical homogeneous structure, the result identifies exactly what all numerical injective stabilizer-orbit counts can recover at a given base size. The sharp first failure of recovering the base shape, with both minimal collision pairs, gives concrete benchmarks rather than only a one-point insertion count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

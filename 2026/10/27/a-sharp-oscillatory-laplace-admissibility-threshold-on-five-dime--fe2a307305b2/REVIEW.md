@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The result is quantified for every \(a>4\), every \(\omega\ge0\), and every finite configuration in the curvature-\(-1\) model of \(\mathbb H^5\). It uses the normalized dimension-raising spherical-function identity, a convergent radial transform for \(a>4\), an exact three-factor rational expression, and a polynomial sign certificate for all \(\lambda\ge0\). The two negative witnesses cover all parameter values above the stated threshold. The attached reproducible checker verifies the critical algebraic identities and independently compares twelve radial integrations. The finite tests are supplemental, not a replacement for the universal argument.
+PASS
 
-## Originality
+For curvature −1 the radial measure is |S⁴|sinh⁴(r)dr. With a>4 the convolution kernel is integrable, and spherical Plancherel diagonalizes it with continuous radial multiplier supported on the full principal spectrum. Positivity of the operator and finite-point PSD agree by integration and approximate point masses; a negative value at λ=0 also produces negative values at positive λ by continuity. Dimension raising of sin(λr)/(λ sinh r), integration by parts (with vanishing endpoints), and the Laplace-sine identity give 24z divided by the three quadratic factors before multiplying by |S⁴|. As an algebra cross-check, the conjugate denominator is (v²+X)³+8(X−v²)(v²+X)+16(v²+X), v=conj(z), and Re(zv^(2j))=(a²+W)Re(v^(2j−1)) for j≥1. This reproduces the sign polynomial with a positive squared denominator. Its constant-factor quadratic C changes sign before both a²/3 and a²−4 and is negative from the lower root to a²−4. Up to that lower root the coefficient of X is 3(a²+W)(a²−3W)+16>0, as are the higher coefficients, so equality has only the zero at X=0. Beyond the root, X=0 is a witness below a²−4, and X=W−a²+4 gives −8a(a²−4)(W+2)(W+4)<0 otherwise. At a=6 the lower root is 16/5. The proof establishes the global statement; the symbolic and quadrature checks in check_h5.py and VERIFICATION.md are recorded supporting diagnostics, not a fresh numerical run or a formal certificate.
 
-**PASS under bounded literature comparison.** Feragen--Lauze--Hauberg establish the positive-definite geodesic Laplacian kernel and related manifold criteria; the case \(\omega=0\) is therefore covered, but their hypotheses and conclusions do not classify the modulated kernel. Hall--Mitchell provide the hyperbolic shift/spherical calculus but do not analyze this modulation threshold. The closest accessible research-index hits concerned unrelated hyperbolic estimates or generic spherical Fourier criteria, not the five-dimensional frequency boundary. The dimension-three necessary restriction cannot establish five-dimensional sufficiency. Searches for equivalent formulations and the exact radical cutoff did not locate dominating coverage. Such absence does not establish absolute priority; unindexed equivalent calculations remain possible.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The exact positive-definiteness region of a natural geodesic covariance family is directly relevant to harmonic analysis and hyperbolic covariance design. The first higher odd-dimensional case has a new three-factor spectral denominator and two genuinely different failure mechanisms: at \(\lambda=0\) near the boundary and at an explicit nonzero \(\lambda\) for large modulation. The result is not merely a known unmodulated Schoenberg kernel and does not follow from a lower-dimensional criterion.
+The strongest catalogue entry gives a complete threshold for the identical family on H³, not H⁵. Neither restriction nor the prior analytic machinery supplies the five-dimensional sign result. The distinct content supported here is the fast-decay five-dimensional if-and-only-if condition, boundary spectrum and explicit obstructions, not the transform criterion or dimension shift themselves. This is a bounded, best-of-knowledge assessment.
 
-## Scope and limitations
+## value
 
-The theorem is restricted to the integrable domain \(a>4\) and to real hyperbolic dimension five. It does not classify lower decay exponents, other dimensions, strict positive definiteness of finite Gram matrices, or nonradial variants. The priority search is bounded and independent mathematical validation remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A practitioner choosing a geodesic oscillatory covariance gets an exact allowed region and, when inadmissible, an explicit spectral obstruction. H⁵ is the next odd dimension after the close H³ precedent but the cubic and the returning sign at λ=0 require a distinct necessity argument. The endpoint is a multiplier zero, not a claim about singularity of finite Gram matrices. The decay restriction is essential to the reviewed scope.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The source rRKN formula reduces exactly to an independent random-affine recurrence for the harmonic position under full momentum refresh. Its second coefficient moment factors as \(1-zD(z)\), with \(D\) strictly decreasing, providing a necessary and sufficient finite-variance stability interval by contraction and stationary moment identities. Algebra identifies exactly two target-variance calibrations. Strict convexity of the Gaussian characteristic function shows the stationary law is not Gaussian. The exact fourth-coefficient moment, reduced modulo the calibration polynomial, shows fourth-moment finiteness at the lower root and divergence at the higher root. The supplied checker passed 245 checks, but neither finite testing nor simulated convergence substitutes for the proof.
+PASS
 
-## Originality: PASS, qualified
+Using the rRKN position formula with the second force at q+Vhξ+(Vh)²F(q)/2 gives Q'=AQ+Bξ with A=1−z/2+Vz²/12 and B=h(1−z/6). Independent exact integration against 2v gives 1−E[A²]=zD(z); D strictly decreases since 3z²−32z+104 is everywhere positive. Synchronous coupling gives W₂ contraction precisely while E[A²]<1, an invariant law there, and zero stationary mean. For z≥ρ, the stationary identity for the raw second moment rules out finite second moments since E[A²]≥1 and B≠0. Within the interval the scaled variance is (1−z/6)²/D; the difference from 1 factors as z(z²−8z+8)/(288D), giving both roots and the bias signs. At both roots E[A²]=(z+1)/9<1; B=0 only at z=6, giving δ₀. At all other stable steps a hypothetical stationary Gaussian yields a nonconstant mixture of centered Gaussian variances because A² is not constant. Strict Jensen for its characteristic function rules out that Gaussian. At the two calibration roots the exact remainder of E[A⁴]−1 is (318z−1516)/1215, negative at the smaller and positive at the larger. W₄ contraction gives a finite fourth moment at the smaller root; at the larger a finite fourth moment would violate the fourth-moment identity, whose forcing is strictly positive. No limiting simulation is needed for these statements.
 
-Bou-Rabee–Kleppe's 2023 full arXiv article provides the rRKN 2.5 force rule and single-step uHMC structure, and illustrates Gaussian-target bias numerically; its Gaussian invariant calculation in Remark 1 concerns the Verlet comparator. It does not state the exact two-rRKN calibration roots or the finite-variance/infinite-fourth-moment separation. Bou-Rabee–Marsden 2022 uses a different lower-order randomized integrator. Available mathematical-record searches matched other Langevin harmonic covariance studies but none for the same rRKN coefficient recurrence and the two moment-class boundaries. Mathematical publication priority remains uncertain because a specialized exact harmonic computation may exist elsewhere.
+## originality
 
-## Value: PASS
+PASS
 
-Exact temperature calibration is a natural diagnostic in unadjusted Gaussian-target Monte Carlo. Showing that a chain can match this target variance at two distinct steps while its invariant distribution is non-Gaussian, and at one step even lacks a fourth moment, demonstrates sharply why a second-moment convergence metric alone can conceal severe sampling bias. The larger step is a diagnostic counterexample, not a practical accuracy recommendation. This is a motivated, explicit stability/moment separation for a published time integrator, not an arbitrary polynomial root computation.
+Neither the integrator nor the conditionally Gaussian random-affine mechanism is new. The decisive distinct claim is the exact calculation for one rRKN 2.5 substep with triangular stage randomization, including both target-variance roots and their opposite fourth-moment behavior. The defining paper and the closest indexed moment-splitting precedent do not supply these rRKN-specific quantities.
 
-## Limitations
+## value
 
-Only one harmonic dimension, fully refreshed momenta, independent triangular stage randomization and a single constant integrator step are covered. The maximum finite-variance step does not imply accurate Hamiltonian integration. No independent external validation or universal priority proof is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Stationary variance is an especially natural accuracy diagnostic on the harmonic Gaussian test problem. For a published unadjusted sampler the exact cancellation of variance bias at two step sizes, one with infinite fourth moment, demonstrates concretely why a second-moment check can fail even in the simplest target. The closed-form stability range and roots make the diagnostic reproducible and interpretable without relying on a finite simulation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

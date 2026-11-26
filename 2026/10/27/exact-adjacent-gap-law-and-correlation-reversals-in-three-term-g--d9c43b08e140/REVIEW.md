@@ -1,11 +1,21 @@
-# Review of the adjacent-gap theorem
+# Independent mathematical audit
 
-**Correctness:** PASS. The legal-block description follows from the exact PLRS digit rule; the ordinary and marked rational generating functions have a unique dominant pole. The two contributions to adjacent ordered gap pairs exhaust all interior cases. Algebra reduces the covariance to the stated factored form, and the three sign claims have exact rational root brackets. The standalone checker validates the underlying combinatorics without substituting experiments for the proof.
+## correctness
 
-**Originality:** PASS, with material residual overlap risk. The closest 2026 paper treats marginal gap probabilities and states that its small-gap transfer-matrix method does not cover \(p\ge q+2\). The comprehensive 2016 Markov framework covers arbitrary PLRS marginal gaps and implicitly makes joint statistics computable, but its inspected Theorems 4.1–4.2 do not state a closed consecutive-gap law or a sign reversal. This evaluation claims a new explicit natural two-gap invariant rather than a new general Markov process theorem. A direct unindexed higher-dimensional formula or a judgement that generic Markov computability fully subsumes this computation would overturn the originality assessment.
+PASS
 
-**Mathematical value:** PASS. The exact joint distribution is a natural refinement of the central marginal-gap statistic for a published recurrence, directly quantifies dependence between successive gaps, works across the currently excluded small-gap parameter range, and detects three distinct correlation regimes. These are structural population statements, not arbitrary finite parameter-table entries.
+This is the final assessment of /workspace/repairs/3/RESULT.md. The frozen Finding did not specify the direction of an ordered pair, and normalization was asserted for every n even when there are no pairs. These are corrected explicitly: scan decreasing summand indices for the displayed PGF, transpose it for increasing indices, and pool only when the total is positive (certainly for n≥p+q+2, witnessed by B_{n−p−q−2} followed by 1). Order matters: at (p,q)=(1,2), [uv²] is zero in the decreasing-index PGF, whereas [u²v] is ab(1−z)/(1+b)>0. Rechecked the full repaired argument: the first dropped unit and the next nonzero digit determine each full block uniquely; the terminal suffix is a proper coefficient prefix. C(z)=1 has a simple root and no same-modulus competitor because the block lengths contain consecutive integers. For one marked block or two marked consecutive blocks the generating function is T·W/(1−C)^2, with W the block weight or consecutive product. The total word count is Θ(z^−n) and the full block count Θ(n z^−n), so boundary errors vanish in the ratio, and marked-count ratios tend to W(z). A bulk block contributes one external-to-next-first pair, plus one internal-to-external pair for type B; evaluating at u=v=1 gives the normalization 1+b. The two marginals coincide, and after subtracting p from both gaps the mean is (h_0−bd)/(1+b) and the product moment is (h_0−bd)(1−b)h_0/(1+b), giving exactly the factored covariance. The golden-root identity and independently checked residual signs at the two rational brackets establish the three witnesses; covariance is invariant under transposition.
 
-**Limitations:** Fixed \(p,q\), pooled normalization, no uniform error bounds, no claim that zero covariance implies independence, no exhaustive parameter sign classification. Closest full-text sources: Chen et al., arXiv:2610.23991v1, and Ben-Ari–Miller, arXiv:1405.2379v2.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+For the repaired claim, reversal of index order is just a convention, not an originality claim. The supported distinct content remains the explicit ordered two-gap PGF for the three-term coefficient family over the full spacing range, and the signed lag-one covariance witnesses. The prior work covers single gaps and provides relevant general techniques, not the evaluated two-gap law or those witnesses.
+
+## value
+
+PASS
+
+Successive-gap statistics measure a natural local dependence that single-gap laws leave open. The explicit two-variable expression is uniform across fixed p,q, including the less tractable spacing range of the single-gap transfer-matrix predecessor, and gives exact zero, positive and negative lag-one examples in the same q=1 family. The repaired order convention is justified by orientation-dependent joint probabilities; it leaves the scientific content unchanged.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

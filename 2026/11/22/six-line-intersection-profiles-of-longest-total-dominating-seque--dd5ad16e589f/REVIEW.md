@@ -1,15 +1,21 @@
-# Review: six projective line-intersection profiles of maximum legal coverings
+# Independent mathematical audit
 
-## Correctness
-PASS. The point–line model uses the explicitly presented field \(\mathbb F_4\). Both independent implementations check 21 normalized points, 21 lines, degree five, and unique intersections between every two lines, then exhaust every one of the \(2^{21}\) candidate point subsets. The reverse deletion recurrence and forward addition recurrence count legal orders, excluding eleven-vertex supports and agreeing on exactly 140,448 ten-point supports, 36,288,000,000 orders and all six signature populations. A ten-step coordinate witness independently checks the attained bound; shore independence and binomial shuffles establish the graph-level figures. No larger-order generalization is inferred from finite checking.
+## correctness
 
-## Originality
-PASS, subject to residual priority uncertainty. Brešar et al. (2014) introduced legal covering sequences. Brešar–Henning–Rall (2016, arXiv:1601.07525), Theorem 8.4, establish the incidence-graph conversion, not the exact quaternary-plane covering number or counts. Gologranc–Jakovac–Kos–Marc (2019, arXiv:1906.12235) treat a different graph constructed using projective-plane incidence complements. The closest indexed Grundy-total-domination findings concern book graphs and rook graphs, whereas an indexed quaternary-plane cap-complex finding addresses a different invariant. Source statements and implications, not title coincidence, were compared. The searchable literature and accessible prior claims showed no subsuming exact enumeration, but unindexed prior computations cannot be ruled out.
+PASS
 
-## Value
-PASS. The quaternary projective plane is the first Desarguesian projective plane over a proper extension of the prime field. Its 21-point/21-line configuration is a natural design benchmark for greedy-versus-minimum covering length; the length-ten maximum contrasts with the minimum five-point cover. The six exact intersection types and separation into 56,448 whole-line versus 84,000 proper blocking configurations expose geometric structure rather than an arbitrarily chosen parameter value. The product/shuffle identities give a complete 42-vertex graph-level extremal census.
+Reconstructed the last-point recurrence: a predecessor contributes exactly when its covered-line mask strictly increases with the last point, and the last point partitions the legal orders. An independently written forward recurrence over every mask, with incidence constructed over F4, reproduced 738840 reachable masks, maximum length 10, 140448 maximum supports, 36288000000 orders, coverage of all lines, and all six profile multiplicities. Any incomplete legal sequence admits a point on an uncovered line as an extension, so a maximum is complete. For a separate upper bound, the incidence entry over F4 is 1+(a dot p)^3; the cubic factors as (a dot p)(a dot p)^2, giving nine rank-one terms plus the constant and hence rank at most ten. Fresh-line witnesses form a unit triangular submatrix, bounding legal length by that rank. Dot-product duality and disjoint target shores justify squaring the support count and multiplying squared order counts by C(20,10). Four vertices cannot cover 21 opposite-side vertices; five points on a line and, dually, five lines through a point attain the ordinary minimum on their shores. These are exact results for the specified plane, not for every order.
 
-## Scientific limits
-This work does not classify automorphism orbits or quantify other projective-plane orders; no full exhaustive historical publication guarantee is possible. The 2016 and 2014 foundations are credited explicitly. Verification is reproducible with standard Python 3 and C++17, and no independent scholarly audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The finite census of legal maximum supports, orders and intersection types is the distinct content on available evidence. Neither ordinary total domination nor the general incidence-graph conversion is credited as new. Even a rank bound and an exact maximum would not determine the census.
+
+## value
+
+PASS
+
+The canonical order-four plane is a natural small test case where the gap between domination and legal sequential domination and the structure of extremizers can both be resolved exactly. The profile census distinguishes maximum supports containing a line from genuinely nontrivial blocking sets and supplies exact support and order benchmarks for future covering and configuration work. These quantities are not obtained from the rank bound or the domination identity alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

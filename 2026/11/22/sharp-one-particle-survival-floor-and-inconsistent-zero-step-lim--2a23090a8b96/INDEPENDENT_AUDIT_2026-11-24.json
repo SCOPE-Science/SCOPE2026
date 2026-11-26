@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T13:45:28.760137Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the final result in /workspace/repairs/1/RESULT.md, I checked Definitions 2–3 against the extra explicit all-integer clipping assumption. The zero-predictor branch contributes e^(-t); Poisson thinning in the positive-predictor branch contributes e^(-theta p0 t)−e^(-theta t), with p0=(1−1/(2 theta))/theta in [0,1]. No return to state one is possible, so products are exact and the derivative at zero gives the stated fixed-time limit. The coefficient range [1/2,2−sqrt(2)] follows from AM–GM and endpoint convexity. At the midpoint the perfect square in e^(-t/2) gives the unique minimizer and recovery; without thinning only the zero-predictor branch can survive. The repair corrects the verification description: frozen verify.py lines 16–63 are Poisson-sum and sampled survival checks, not a transition-matrix construction. The script was inspected, not executed; the analytic derivation accounts for all parameters.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary update defines the degenerate-branch binomial and the ordinary Poisson branch; its inspected local weak-error bounds include favorable high-count conditions. They are not the fixed clipped-state exact survival calculation.",
+          "The distinct three-regime law is broader in sequences and local observables but its stated conclusions are small-h expansions."
+        ],
+        "reasoning": "The general sampler is credited. An algorithm and local error theorem do not in themselves establish the sharp global survival floor or baseline comparison; these require summing the full predictor tail.",
+        "searches": [
+          "Scott–McCallum–Foster arXiv:2611.16975v1 Definitions 2–3, Theorems 2–3 and Appendix A",
+          "Hu–Li–Min doi:10.1063/1.3609119",
+          "Cao–Gillespie–Petzold eScholarship item 04x399h1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary exact and adjacent indexed findings",
+        "Original Scott–McCallum–Foster algorithm and local analysis",
+        "Distinct three-regime local weak-order RESULT.md",
+        "Hu–Li–Min and Cao–Gillespie–Petzold (retrieval attempted)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact first-order coefficient in the local weak-order law implies the same fixed-time survival limit by taking powers in this absorbing case. Its proof truncates predictor counts at order h², and its limitations expressly claim no finite-step accuracy result.",
+          "Neither that local theorem nor the inspected original algorithm statements supply the sum over all positive predictors, the midpoint optimum and its return toward one, or the exact finite-step baseline survival comparison."
+        ],
+        "reasoning": "The repaired claim credits the covered limit. Solving the absorbing one-particle kernel for arbitrary t is the extra finite-step calculation needed for the sharp obstruction.",
+        "searches": [
+          "Local weak-order law Finding, Assumptions, Proof and Limitations",
+          "Scott–McCallum–Foster Definitions 2–3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In accumulated-death coordinate j=1−x, the clipped model is the prior pure-birth chain with a0=lambda and aj=0 for j≥1; survival is the bounded test f=1_{j=0}.",
+          "The prior first-regime coefficient at r1=0 is +lambda(1−2 theta+2 theta²)/(2 theta) for this test. This is exactly lambda times the difference between the true and numerical exponential rates."
+        ],
+        "reasoning": "The different stoichiometric sign is only a coordinate change here; the local defect and ensuing limit are covered. A local expansion nevertheless does not specify the finite-step law or its large-step extrema.",
+        "searches": [
+          "\"binomial-adjusted\" \"theta-trapezoidal\" tau-leaping one molecule survival probability low-count",
+          "SCOPE-a-sharp-three-regime-local-weak-order-law-for-binomial-adjusted--8a00c845f4a5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed finite-step formula/floor hit is the assigned record itself; the materially overlapping distinct hit was read and concerns three local weak-error regimes."
+        ],
+        "reasoning": "No independent exact finite-step table or floor was evidenced. The closest distinct indexed theorem is credited for its actual overlapping implication, not treated as a duplicate of the entire finding.",
+        "searches": [
+          "Resultary: exact one-particle survival and binomial-adjusted theta-trapezoidal tau-leap",
+          "SCOPE-sharp-one-particle-survival-floor-and-inconsistent-zero-step-lim--2a23090a8b96",
+          "SCOPE-a-sharp-three-regime-local-weak-order-law-for-binomial-adjusted--8a00c845f4a5"
+        ]
+      },
+      "rationale": "Pass only the repaired distinct exact finite-step claim: survival law, sharp midpoint floor and recovery, and exact contrast to the baseline. A distinct Resultary theorem covers the first-order inconsistency coefficient and implies the refined-time limit under absorption. The repaired finding retains the limit as a credited consequence, not a separate novelty claim. No priority order follows from the index date.",
+      "residual_risks": [
+        "Earlier tau-leaping full texts above did not load; an uninspected exact one-particle calculation elsewhere remains possible.",
+        "Same-day indexing does not establish independent priority, even though overlap in the local implication is demonstrated."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies algorithms and local bounds, not the additional finite-step law in the inspected matter",
+          "evidence": [
+            "Defines alpha1, alpha2, the Poisson predictor, and the conditional Poisson/thinned-binomial branches.",
+            "Propensities specified on nonnegative states; this result supplies its own explicit clipping extension."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2611.16975",
+          "material_read": "Definitions 2–3 pp. 2–3; Theorems 2–3 pp. 3–4; Appendix A entry on p. 6",
+          "method": "Bounded OA primary PDF reading",
+          "title": "A binomial-adjusted θ-trapezoidal tau-leaping method for chemical kinetic systems",
+          "trigger": "Original adjusted and unadjusted methods"
+        },
+        {
+          "assessment": "Covers the derivative and implies the fixed-T limit; not the finite-step formula, midpoint minimum or baseline law",
+          "evidence": [
+            "Allows a0>0 and a nonincreasing bounded sequence with zeros. First regime gives a0(r1−c_theta)[f(1)−f(0)]/(2 theta), where c_theta=1−2 theta+2 theta².",
+            "Limitations explicitly exclude finite-step accuracy conclusions."
+          ],
+          "identifier_or_url": "SCOPE-a-sharp-three-regime-local-weak-order-law-for-binomial-adjusted--8a00c845f4a5",
+          "material_read": "Finding, Assumptions, Proof, Limitations; offsets 0–5687 and 5800–7952",
+          "method": "Local index and primary Resultary mirror file",
+          "title": "A sharp three-regime local weak-order law for binomial-adjusted tau leaping",
+          "trigger": "Materially overlapping local first-order inconsistency"
+        },
+        {
+          "assessment": "Unverified beyond the cited context",
+          "evidence": [
+            "Full-text access denied."
+          ],
+          "identifier_or_url": "https://doi.org/10.1063/1.3609119",
+          "material_read": "No full text retrieved",
+          "method": "Lawful OA access attempt",
+          "title": "A weak second order tau-leaping method for chemical kinetic systems",
+          "trigger": "Baseline tau-leaping analysis"
+        },
+        {
+          "assessment": "No definitive statement comparison from unavailable text",
+          "evidence": [
+            "Repository response denied access and PDF attempt timed out."
+          ],
+          "identifier_or_url": "https://escholarship.org/uc/item/04x399h1",
+          "material_read": "No full text retrieved",
+          "method": "Lawful article and PDF access attempts",
+          "title": "Avoiding negative populations in explicit Poisson tau-leaping",
+          "trigger": "Alternative low-count correction mechanism"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An exact, all-step-size survival obstruction at the smallest occupied state shows a concrete failure mode of a correction designed for degenerate propensities. The midpoint retains at least three quarters of initial particles in probability even when true survival is nearly zero, while the unadjusted scheme has exact survival under the same clipping. This is more informative for a low-count diagnostic than reporting only a local error term. No inference about all observables, network behavior or nonnegativity is made.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

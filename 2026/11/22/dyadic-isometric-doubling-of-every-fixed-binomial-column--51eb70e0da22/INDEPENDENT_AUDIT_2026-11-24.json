@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:02:48.995281Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–26 and 29–87; VERIFICATION.md and verify.py inspected, not executed.",
+        "Hand check at m=5: branch depths for r=0,...,7 are 3,1,2,1,3,1,2,1; the two depth-two branches have centers 0 and 2 mod 4, and the depth-one branches split two per parity. This gives Haar density 1/2+(1/2)1_{2|y}+2·1_{8|y}, yielding the stated count for m=10."
+      ],
+      "rationale": "Fix a=floor(log2 m), L=a+1 and representatives 0<=r<2^L. The roots cover all residues mod 2^a and are distinct mod 2^L, so the closest j_* is unique: if two roots agree with r mod 2^a exactly one agrees mod 2^L. Write e=v2(r-j_*) and S_r for the sum of the other root valuations. On the branch all the other valuations stay fixed and are below min(e,L). In the telescoped divided difference the term omitting j_* is the unique one of valuation S_r. Thus differences on the branch have valuation d_r+v2(t-s), d_r=L+S_r-v2(m!), with d_r>=0 by integrality. The normalized branch is an isometry onto Z_2 because each finite reduction is bijective and the reductions are compatible. In the doubled branch the same-parity roots add m-1 to S_r, opposite-parity roots contribute zero, and v2((2m)!) adds m to the denominator valuation, so the scale is unchanged. Centers are all zero for r<m; for r>=m the common center valuation is d_r+e-L>=d_r-1. At the only potentially smaller valuation d_r-1 all centers have the same odd unit modulo two, hence are congruent modulo 2^d_r. This also covers d_r=0 and m=1. Inverting one branch on the common output ball constructs the desired bijective branch isometry. Because different branches retain their residues, the assembled isometry is global and Haar preserving; each finite branch permutation gives precisely the asserted local multiset equality. Iteration gives odd-part invariance, not an assertion that different odd parts always yield different laws.",
+      "residual_risks": [
+        "The frozen report of 30,890 assertions is finite corroboration, not a replay in this review or the basis of the all-index proof. The theorem does not assert identical outputs under unreparametrized inputs or an odd-prime analogue."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sun–Zhang give fixed-column image results; Barat–Grabner study triangular sums over pairs of row and column indices; the inspected Prunescu abstract concerns triangular symmetries of valuation/sign-reduction arrays."
+        ],
+        "reasoning": "Aggregate distribution over triangular pairs and symmetries of valuations do not determine fixed-column unit residues, much less equality conditional on every input residue. No covering theorem was identified in these passages.",
+        "searches": [
+          "Targeted primary search on p-adic binomial coefficients, distribution and isometry",
+          "arXiv:0812.3089",
+          "DOI:10.1112/S0024610701002630",
+          "Prunescu, Sign-reductions, p-adic valuations, binomial coefficients modulo p^k and triangular symmetries"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:0812.3089",
+        "DOI:10.1112/S0024610701002630",
+        "Prunescu PDF p. 1",
+        "Resultary 58e5ebb9e3f2, 68ab08bc975b and self-hit 51eb70e0da22"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Kummer yields equal pointwise valuations under paired doubling of the indices, and the fifth-column result supplies the undoubled law. Sun–Zhang cover residue attainability."
+        ],
+        "reasoning": "The equality of valuations is consistent with different units modulo 4 and higher. What promotes the center information to a common ball is the exact branch scale and the at-most-one-bit gap below that scale. That step and the isometry for every branch are not provided by the credited inputs.",
+        "searches": [
+          "Sun–Zhang Theorem 1.1",
+          "Resultary 68ab08bc975b",
+          "Classical Lucas and Kummer congruence/valuation inputs identified in frozen RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorem 1.1 attains every output residue from an input progression mod 2^a, a=floor(log2 m), and implies finite bijectivity on the coarser special class using the period bound. The distinct fixed-column Resultary results give marginal fibers."
+        ],
+        "reasoning": "Neither a bijectivity statement on that special progression nor unconditioned marginal counts gives equality of all paired output balls at input depth a+1. The assigned identical hit adds no evidence of priority.",
+        "searches": [
+          "Local Resultary fixed-column dyadic doubling and residue-fiber comparison; 51eb70e0da22, 58e5ebb9e3f2, 68ab08bc975b",
+          "arXiv:0812.3089 Theorem 1.1 and Corollary 1.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The sixth-column law is 2+8·1_{4|y} over its least period 2^(k+2), k>=2; the fifth-column law is 2+2·1_{2|y}+8·1_{8|y} in the displayed normalization, k>=3."
+        ],
+        "reasoning": "These are material overlaps for individual columns. Neither supplies the all-m relation, including the B_3 to B_6 classwise identity or the B_5 to B_10 reparametrization. Same-day dating of the sixth-column record does not determine priority.",
+        "searches": [
+          "Resultary 58e5ebb9e3f2 and 68ab08bc975b; exact Finding sections"
+        ]
+      },
+      "rationale": "The meaningful distinct claim is the all-column, class-preserving isometric reparametrization in each parity branch, with localized complete residue laws. Existing dyadic support and individual-column laws receive full credit. The closest exact comparisons do not cover the cross-column theorem.",
+      "residual_risks": [
+        "The bounded comparison does not rule out an earlier implicit fixed-column conjugacy in general p-adic polynomial-image theory. It does not establish chronological priority over related same-day work."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantial support and special input progression overlap, no doubled-column identification in located statements",
+          "evidence": "All residues modulo a dyadic power are attained on the stated progression mod 2^a; dyadic density follows.",
+          "identifier_or_url": "https://arxiv.org/pdf/0812.3089",
+          "material_read": "Theorem 1.1, pp. 3–4, OA offset 8495; Corollary 1.2",
+          "method": "Bounded OA PDF reading",
+          "title": "Binomial Coefficients and the Ring of p-Adic Integers",
+          "trigger": "Strongest fixed-column dyadic image theorem"
+        },
+        {
+          "assessment": "The inspected statements treat triangular rather than fixed-column populations",
+          "evidence": "The asymptotic population runs over pairs 0<=k<=n<N.",
+          "identifier_or_url": "https://www.math.tugraz.at/~grabner/Publications/Binomial.pdf",
+          "material_read": "pp. 1–2, OA offset 0",
+          "method": "Bounded OA PDF reading",
+          "title": "Distribution of binomial coefficients and digital functions",
+          "trigger": "Potentially broader binomial distribution theorem"
+        },
+        {
+          "assessment": "Related in the abstract; no whole-paper exclusion inferred",
+          "evidence": "The abstract treats triangular symmetries of sign-reduced and valuation patterns.",
+          "identifier_or_url": "https://home.mathematik.uni-freiburg.de/prunescu/binomsym.pdf",
+          "material_read": "p. 1 abstract, OA offset 0",
+          "method": "Bounded OA PDF reading",
+          "title": "Sign-reductions, p-adic valuations, binomial coefficients modulo p^k and triangular symmetries",
+          "trigger": "Prime-power binomial symmetries"
+        },
+        {
+          "assessment": "Exact one-column overlap, not cross-column isometry",
+          "evidence": "N_k(y)=2+8·1_{4|y} for k>=2; least period 2^(k+2).",
+          "identifier_or_url": "2026/11/22/SCOPE-two-exact-dyadic-fiber-levels-for-the-sixth-binomial-column--58e5ebb9e3f2",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Local catalogue and OA mirror",
+          "title": "Two exact dyadic fiber levels for the sixth binomial column",
+          "trigger": "Closest distinct same-day exact dyadic column law"
+        },
+        {
+          "assessment": "Credits the fifth-column law, not its universal doubling transport",
+          "evidence": "Exact counts 2+2·1_{2|y}+8·1_{8|y}, k>=3.",
+          "identifier_or_url": "2026/11/8/SCOPE-exact-three-level-2-adic-fibers-of-the-fifth-binomial-column--68ab08bc975b",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Local catalogue and OA mirror",
+          "title": "Exact three-level 2-adic fibers of the fifth binomial column",
+          "trigger": "Source of the worked transfer example"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–23, 35–87",
+        "Sun–Zhang Theorem 1.1 for the contrasting support question"
+      ],
+      "rationale": "The theorem replaces infinitely many full fixed-column residue-law problems by the odd-index cases. It transports both global and conditional counts at arbitrary depths by explicit local inverse maps; that is materially stronger than transferring a few valuations, proving surjectivity, or reproducing the fifth- and sixth-column tables.",
+      "residual_risks": [
+        "There is no general closed density formula for the remaining odd indices or classification of collisions among different odd parts."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

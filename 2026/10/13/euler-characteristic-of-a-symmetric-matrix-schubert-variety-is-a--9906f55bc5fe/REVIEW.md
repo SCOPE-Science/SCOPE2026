@@ -1,26 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The archival rank convention was reconstructed from the published definition of \(R_w\) and \(J_{\mathrm{sym}}(w)\). A generic diagonal congruence action preserves all north-east rank conditions and has isolated symmetric-coordinate projective fixed points.
+## correctness
 
-For an off-diagonal coordinate \(S_{ab}\), the north-east submatrix rank can jump first to \(1\) and then to \(2\). Monotonicity reduces all conditions exactly to
-\[
-R_w(a,b)\ge1,
-\qquad
-R_w(b,a)\ge2.
-\]
-These become a prefix-minimum and prefix-second-minimum test. Diagonal points always survive by pigeonhole. Euler localization then proves the global formula.
+PASS
 
-The extremal cases are proved symbolically. The bundled checker independently replays every north-east rank condition for all permutations through \(n=7\).
+The north-east convention agrees with the rank of the specified permutation matrix in Fink–Rajchgot–Sullivant. Congruence by the diagonal cocharacter of exponents 3^a preserves each rank condition and separates the coordinate lines by base-three uniqueness. For a<b, the smallest rank-one and rank-two corners for E_ab+E_ba are (a,b) and (b,a); rank monotonicity gives the asserted two inequalities. Among the b entries of the prefix, at most a−1 can exceed n+1−a, so in fact R_w(b,a)≥b−a+1≥2 automatically. The same argument with b=a gives R_w(a,a)≥1 for every diagonal point. Therefore the formula is correct and can be simplified to n+Σ_a(n+1−a−m_a); no second order statistic is actually needed. Euler localization counts these points even in the singular case. Every summand is nonnegative, and their simultaneous vanishing requires the reverse permutation by induction on a. The ambient maximum requires the (1,n) point to survive when n≥2, hence w(1)=1, which conversely suffices; for n=1 the sole point attains both bounds. The all-size argument is symbolic; the finite checker described in VERIFICATION.md was not rerun.
 
-## Originality
-PASS. The primary archival paper studies the same symmetric Schubert determinantal varieties through primeness, Gröbner bases, Bruhat geometry, parametrizations, and statistics applications, with no located Euler or Poincaré statement. A later type-\(C\) Kazhdan--Lusztig treatment gives torus multigradings, multidegrees, Hilbert series, and subword complexes but no located Euler formula.
+## originality
 
-The closest Euler-named literature concerns local Euler obstruction, which is a different invariant. Targeted semantic searches did not locate the global coordinate count, its two-order-statistic reformulation, or the extremal theorem.
+PASS
 
-Residual risk remains because the localization argument is short.
+The strongest inspected overlap counts the same types of ambient fixed points but under an overall rank cutoff. Prior symmetric Schubert results establish the convention, ideals and patch geometry; no inspected statement gives the global projective fixed-point census for these permutation-indexed north-east conditions or its sharp equality cases. The supported distinction is the permutation-dependent count, not the localization method, and the second statistic adds no independent information.
 
-## Value
-PASS. Off-diagonal symmetry changes fixed-point membership from a single rank-one test to coupled rank-one and rank-two tests. The resulting second-prefix-order-statistic dependence is a new structural phenomenon, and the exact extremal classification applies uniformly to every permutation-indexed symmetric matrix Schubert variety.
+## value
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The result gives a readily usable exact topological invariant and both extremal classifications for an established permutation-indexed family. It identifies the rank-zero corner pattern, equivalently the prefix minima, as sufficient despite the higher minors defining these varieties. That simplification, not novelty of the localization technique or a purported independent role for two statistics, gives the formula value when comparing different permutations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

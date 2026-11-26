@@ -1,15 +1,21 @@
-# Review: strict isotropic response of regular polygon roundings
+# Independent mathematical audit
 
-## Correctness (PASS)
-The area and solid polar moment come from a disjoint polygon–strip–vertex-sector decomposition, independently reconstructed with Green boundary integrals. The full derivative factors into three negative terms on positive radii, and their strictly positive signs are proved for all \(0<\pi/n\le\pi/3\) via derivatives of elementary trigonometric expressions. A second positive identity gives a strict disk lower bound and the sharp inverse-square rate. No extrapolation from finite experiments is used.
+## correctness
 
-## Originality (PASS, provisional priority)
-The Richter–Saorín Gómez source proves monotonicity of perimeter/area-based quermassintegral quotients, not the covariance determinant. A published cube-rounding result covers local second-order planar square behavior, not all radii or arbitrary regular polygon orders. A published circular-rounding result concerns polar-area Mahler products, which do not fix the uniform-interior covariance. Exact published statements were inspected, together with related search results and accessible earlier claims. Older unindexed inertia literature remains the main priority risk; the claim has not undergone an independent literature audit.
+PASS
 
-## Mathematical value (PASS)
-The centered solid polar moment is the natural scalar covariance of rotationally symmetric convex bodies. The theorem strictly orders every positive-radius deformation of *every* regular polygon in this affine invariant, distinguishes it from isoperimetric and Mahler monotonicity, and determines the exact sharp approach rate. It is a family-wide metric classification, not a single numerical instance.
+Reconstructed area and polar second moment from disjoint polygon, strips and vertex sectors. A strip has coordinates (c+u,v), 0≤u≤t, |v|≤s, and a sector has |x|²=1+2ρ cos θ+ρ² for |θ|≤α about the radial vertex direction and 0≤ρ≤t. Summing proves the stated A,J polynomials including the mixed terms. Rotation by 2π/n centers the body and makes covariance J I/(2A), so L⁴=J²/(4A⁴). Independently expanding with s²=1−c² and k=α/s gives the coefficients of j'a−2ja' in t as 0, (4/3)s²(ck−1), −2[k(1+2c²)−3c], −2(ck+k²−2), and no higher terms. The three nonzero coefficients are strictly negative because u=sin α−α cos α has derivative α sin α, f'=4 sin α·u, and g'=f, with all three zero at α=0. This gives strict decrease including comparisons with t=0, despite a zero derivative there. Expanding 2πJ−A² gives n²[cs(f/3)+4s(f/3)t+2g t²], with f,g>0; A∼πt² then gives L⁴−1/(16π²)=n²g/(4π⁴t²)+O_n(t⁻³). The polygon endpoint follows from J(0), and dilation by R replaces t by t/R without changing L. The proof covers each n≥3 and t≥0, not an n-uniform expansion. The two coefficient lists were independently expanded algebraically; the uploaded checker was inspected but not run. Its finite Green-integral checks do not establish the analytic sign for all parameters.
 
-## Scope and limitations
-Only Euclidean outer roundings of regular planar polygons are covered. The proof establishes no general result for irregular polygons or arbitrary gauges. The large-radius expansion fixes the number of sides. Finite checker outputs corroborate, but do not replace, the analytic proof or independent audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the isoperimetric and Mahler monotonicities on the same path, the disk's classical moment minimum, the local square behavior, and the same-day catalogue overlap on all-radius rounded-square monotonicity via rectangles. The supported distinct claim is the all-radius strict covariance ordering across the full regular n-gon family and the exact fixed-n large-radius correction. The available comparisons do not supply a theorem implying that full result.
+
+## value
+
+PASS
+
+This compares a natural affine invariant along a canonical family of offsets of the basic planar polygons, distinct from the better studied perimeter and polar-area quotients. The all-radius strict ordering and explicit positive leading disk-limit gap are more informative than the disk moment bound or a numerical plot. The formula and sign certificate are reusable for this family; no broader monotonicity for arbitrary convex bodies is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

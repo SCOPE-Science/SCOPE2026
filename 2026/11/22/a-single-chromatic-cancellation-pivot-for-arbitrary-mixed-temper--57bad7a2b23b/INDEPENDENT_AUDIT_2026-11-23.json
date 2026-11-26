@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:41:40.640589Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For x=hc/(λk_B), the positive wavelength prefactor cancels. Differentiation in T gives K=x csch²(x/(2T))/(4T²); its log mixed derivative is (coth y−y csch²y)/T²>0 because sinh y cosh y>y. Integrating that strict mixed derivative gives strict ordering of the K ratios across hot versus cool derivative temperatures. The FTC and Tonelli represent both branch contributions by positive derivative mixtures on opposite sides of T0. Integrating the strict determinant over both measures then makes H/C strictly increasing; an atom at T0 contributes zero. Compact positive support justifies the uniform Rayleigh–Jeans expansion and continuity. The long-wavelength limit is M+/M−; the finite-wavelength inequality is strict even at equality of the area mean. A positive hot submass separated from T0 makes H/C tend to infinity in the Wien limit since C≤b(T0,x). The inverse-wavelength orientation gives the stated blue/red signs and uniqueness. Strict Jensen for T⁴ gives the bolometric consequence under exact fourth-moment neutrality; the transit-depth sign follows from the positive ratio under the stated model. Own scalar replay: python3 /workspace/branches/review_checks.py reproduced the three-temperature pivot as 0.5302843394245897 micrometres using the example constants. The supplied verifier was inspected, not executed; the example is not a proof for arbitrary measures. No inference is made for non-Planck spectra or noisy data.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Désert gives the derivative basis for Planck functions in logarithmic temperature and expands about a reference using moments; Chluba–Sunyaev likewise neglect higher moments in their reference comparison.",
+          "Rackham et al. use heterogeneous stellar contamination spectra and the chord-to-disk ratio; this setup allows non-Planck spectra."
+        ],
+        "reasoning": "The derivative basis is a known input; the new application is strict ordering under two separated positive derivative mixtures, followed by both endpoint limits. Neither use of the mixture identity nor a finite-order expansion supplies this exact all-temperature, all-wavelength implication.",
+        "searches": [
+          "Désert DOI 10.1051/0004-6361/202142617, lawful alternate arXiv:2111.05046 §§2.1–2.2",
+          "Chluba–Sunyaev arXiv:astro-ph/0404067 §§3–4",
+          "Rackham–Apai–Giampapa arXiv:1711.05691 and 1812.06184"
+        ]
+      },
+      "checked_sources": [
+        "Bound RESULT.md, VERIFICATION.md and verify.py",
+        "Rackham et al. arXiv:1711.05691 and 1812.06184; Thompson et al. arXiv:2302.04574 (modeling/retrieval context)",
+        "Chluba–Sunyaev arXiv:astro-ph/0404067",
+        "Désert arXiv:2111.05046",
+        "Local Resultary matching and nearby entry; snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Rackham relation supplies only the multiplier for observed depth; mixed-component spectra are instrumental-model examples.",
+          "The CMB relative spectrum formula explicitly neglects higher-order moments; Désert's mixture and Taylor expansion do not constrain the exact positive ratio of hot/cold contrasts."
+        ],
+        "reasoning": "A generic total-positivity variation principle requires verifying the order for the specific derivative kernel and does not on its own establish endpoint signs or the strict equality-of-mean case. The bolometric conclusion is a corollary of the crossing theorem and classical strict Jensen, not a standalone priority claim.",
+        "searches": [
+          "Rackham et al. 2017 original, contamination relation p. 6",
+          "Chluba–Sunyaev original Eq. (28), PDF p. 7, offset 53800",
+          "Désert original §§2.1–2.2 Eq. (11) and moments Eq. (12)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The sign comparison is equivalent to comparing the mixture's inverse-Planck brightness temperature to T0, so the collection of all reference tests describes strict increase of brightness temperature with inverse wavelength from the area mean toward the essential maximum temperature.",
+          "Chluba–Sunyaev compare a superposition with a reference blackbody in Eq. (28), retaining first and second moments under small distortion."
+        ],
+        "reasoning": "The change between frequency and wavelength multiplies the spectra by the same positive Jacobian and reverses ordering of the independent variable, so it cannot hide a truly equivalent result. A small-temperature-distortion formula is not an exact monotonicity/one-pivot theorem at all wavelengths.",
+        "searches": [
+          "Local Resultary: Planck blackbody mixture crossover and mixed-temperature transit contamination",
+          "Public literature on superposition of blackbodies, frequency-dependent brightness temperature and exact crossing; Chluba–Sunyaev arXiv:astro-ph/0404067"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/11/22/SCOPE-three-channel-planck-inversion-of-cool-starspot-transit-contamin--f4f7c1429594 gives exact inversion at λ, 2λ, 4λ for a two-temperature cool-spot model.",
+          "The other exact-target catalogue match is the bound record itself."
+        ],
+        "reasoning": "Exact finite-channel Planck entries are a natural database comparison. A cool-only mixture against its quiet chord lacks the required hot support, and channel inversion does not give a classification over arbitrary measures and all wavelengths. Same-day listing does not settle priority.",
+        "searches": [
+          "Local Resultary: Planck transit contamination, mixed-temperature pivots and three-channel inversion"
+        ]
+      },
+      "rationale": "The known transit contamination factor, Planck derivatives, and perturbative blackbody mixing are not new. The supported contribution is the exact, nonperturbative one-pivot criterion for arbitrary compactly supported mixtures via separated derivative supports. Relevant stellar, dust and CMB statements were checked against it; they do not state or give this global classification in the inspected material. This is a bounded historical comparison, not priority certification.",
+      "residual_risks": [
+        "An earlier application of quasi-arithmetic mean ordering or total positivity to Planck spectra could give an equivalent theorem; the checked literature does not exhaust that broader history.",
+        "Same-day indexed Planck inversion is adjacent work, not a priority comparison."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Model and formula prior; no exact pivot implication from examined formula",
+          "evidence": "The formula uses spot and facula coverages and wavelength-dependent component spectra; the abstract describes model spectra over a finite band.",
+          "identifier_or_url": "https://arxiv.org/pdf/1711.05691",
+          "material_read": "p. 1 offset 2066 and p. 6 offset 31650, spectral contamination equation",
+          "method": "OA original PDF",
+          "title": "The Transit Light Source Effect: False Spectral Features and Incorrect Densities for M-dwarf Transiting Planets",
+          "trigger": "Same transit contamination factor and warm/cool components"
+        },
+        {
+          "assessment": "Substantive perturbative overlap; different quantifier and observable",
+          "evidence": "Reference comparison uses the Rayleigh–Jeans mean and second moments, explicitly neglecting higher terms. Reported monotonicity there concerns inferred y versus chosen reference temperature, not exact spectral pivot count versus wavelength.",
+          "identifier_or_url": "https://arxiv.org/pdf/astro-ph/0404067",
+          "material_read": "Abstract; p. 7 Eq. (28) near offsets 53800–56100; p. 9 comparison near offsets 72900–76200",
+          "method": "OA original PDF",
+          "title": "Superposition of blackbodies and the dipole anisotropy (Chluba and Sunyaev, 2004)",
+          "trigger": "Closest spectral comparison of Planck mixtures to a reference outside transit literature"
+        },
+        {
+          "assessment": "Exact mixing identity and known derivative inputs; perturbative use, not the exact crossing classification",
+          "evidence": "Equation (11) integrates Planck radiance against temperature weights; Eq. (12) applies a reference-temperature Taylor expansion, preceded by a small logarithmic spread assumption.",
+          "identifier_or_url": "https://arxiv.org/pdf/2111.05046 (publisher DOI 10.1051/0004-6361/202142617)",
+          "material_read": "§§2.1–2.2, pp. 2–3, offsets near 10400–15000 including Eqs. (3)–(12)",
+          "method": "OA author preprint alternate; publisher routes returned 403",
+          "title": "The interstellar dust emission spectrum: Going beyond the single-temperature grey body (Désert, 2022)",
+          "trigger": "Same Planck mixture, derivatives, and reference temperature"
+        },
+        {
+          "assessment": "Different temperature support and inverse problem",
+          "evidence": "Three depths at λ, 2λ, 4λ recover a cool-spot temperature, fraction and depth, not an arbitrary mixture crossover.",
+          "identifier_or_url": "2026/11/22/SCOPE-three-channel-planck-inversion-of-cool-starspot-transit-contamin--f4f7c1429594",
+          "material_read": "Finding, mirrored RESULT.md offset 0",
+          "method": "Local Resultary and mirrored original",
+          "title": "Three-channel Planck inversion of cool-starspot transit contamination",
+          "trigger": "Closest exact Resultary Planck/transit record"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The theorem decides from a single physically meaningful moment whether there is any cancellation wavelength and determines the full sign pattern, uniformly over all nonparametric temperature mixtures in scope. Exact bolometric balance supplies a practical analytic case, and uniqueness identifies what an ideal contamination pivot can and cannot diagnose. This is more useful than a three-temperature numerical example or a perturbative estimate, while expressly not covering line spectra or limb darkening.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

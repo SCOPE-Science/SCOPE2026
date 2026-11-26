@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The result is finite and every stated candidate space is exhausted in two separate coordinate models. The bitmask threshold predicate is identical to the definition, the loop terminates by monotone growth, and the reduction excluding all smaller sizes by superset monotonicity is valid. Both complete independent enumerations agree on counts by point-shore occupancy and on synchronous round distributions. The exact limit is the four listed prime-power orders, not all affine planes.
+## correctness
 
-**Originality — PASS, with historical priority risk.** The original graph contagion paper by Freund–Poloczek–Reichman does not consider these incidence graphs. The closest geometric percolation work by Gerbner and collaborators uses a distinct rule, which activates whole lines of points rather than only line-vertices. Previously studied projective-incidence infection and colour-refinement results do not imply the affine incidence census, because deleting the line at infinity and its point-vertices changes shortest activation chains and admissible seeds. Exact-equivalence, broader-coverage and indexed-table searches identified no available dominating census. An unindexed earlier computation could still exist.
+PASS
 
-**Value — PASS.** The smallest four Desarguesian affine orders show a nonmonotone optimum \((4,5,5,4)\). This is a natural minimal finite progression—prime, prime, proper extension, then next prime—with a sharp return to four seeds and an exact \(70000\)-configuration classification including an empty balanced-shore stratum and the complete synchronous finishing-time spectrum. The data supplies a reproducible benchmark for a geometrically motivated graph process, rather than a disconnected arbitrary numerical slice.
+Independently generated the affine lines as cosets of the one-dimensional direction spaces and exhausted the eight candidate spaces using synchronous frontier neighbor-count waves, not the submitted bitmask routines. At the beginning of a wave the active frontier is already fixed; only after accounting for its edges can newly qualified vertices form the next frontier. This preserves exact completion times, unlike immediate in-wave activation. The zero counts immediately below the claimed minima exclude every smaller set by monotonicity under seed extension. The minima are (4,5,5,4) and their counts are (8,4572,142176,70000). The point-seed vectors at those minima are (3,4,0,0,1), (396,1224,1404,1080,396,72), (8448,32640,46080,36480,15840,2688), and (9000,32000,0,24000,5000). The q=5 round counts at 7 through 11 are (5000,23000,18000,12000,12000), with no other completion times. These are counts of unordered sets of actual vertices. The two supplied programs were inspected, not executed. Independent replay: python3 /tmp/opencode/affine_contagion_independent.py (captured output /tmp/opencode/affine_contagion_independent.out).
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The finite result concerns two-neighbor vertex closure in a graph with two independently seedable shores and no line or points at infinity. Neither ordinary-graph density results, line percolation, nor the inspected exact projective-plane classification covers the affine minima and census. This is a finding within the inspected record, not a priority certification.
+
+## value
+
+PASS
+
+The four orders are the first consecutive admissible orders, not a selected sample engineered around unrelated graphs. The minimum drops from five to four despite an increase in order; the q=5 exact counts show that this is compatible with four nonempty seed-composition strata but not the balanced stratum, and delimit the exact time spectrum of a canonical small geometric graph. This supplies a benchmark for affine join–meet generation with no access to directions at infinity, without implying a formula for larger fields.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

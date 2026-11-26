@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:44:11.354230Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–40 and 44–73: independent determinant, rank, parameter-dependence and parity checks",
+        "VERIFICATION.md lines 3–13 and its notes; numerical tests are supporting evidence, not the theorem proof"
+      ],
+      "rationale": "For fixed odd n≥5 and a fixed first angle, the n−1 independent area differences have derivative given by c_n times the step-two cyclic difference, followed by subtraction of the last component. In its kernel the cyclic differences are constant and hence sum to zero; step two generates the odd cycle and u_0=0 then forces every correction to vanish. The determinant constraints are jointly C¹ in the angles/mark and the C² radial parameter. The shared circular derivative and compactness of the marked-angle circle give uniform local uniqueness and existence radii (equivalently use the common inverse and a uniform contraction on a small correction ball). Small C² distance gives positive radial curvature and preserves the ordering and positivity of the signed doubled areas. Normalizing a fixed ellipse to the circle gives a nearby radial graph via the angular projection; a reflecting affine map requires reversing cyclic order if a positive sign is wanted, without changing the marked point or area equality. Differentiating the three radial products gives the stated G_j, and the common derivative is its average. For even n≥6 the alternating functional kills the angular derivative and evaluates to −2n sin(2Δ) on the stated mode, so excludes differentiable continuation through these prescribed regular angles only.",
+      "residual_risks": [
+        "The radii are existential and depend on fixed n; no assertion concerning global uniqueness or even-order existence was checked or made."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The approximation algorithm explicitly may produce neither inscribed nor circumscribed polygons; the authors predict, rather than prove, exact marked inscription for odd order.",
+          "The extremal-polygons hit concerns area/perimeter optimization on convex polygons, not equal successive-vertex-triangle areas."
+        ],
+        "reasoning": "A global exact prescribed-point theorem would dominate the local existence claim, but neither inspected construction covers it; the checked works also do not provide the marked local derivative or uniqueness.",
+        "searches": [
+          "arXiv:1103.2722 §3.3 and approximation algorithm",
+          "arXiv:2101.03061 (terminological hit from the inscription literature lookup)"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1103.2722",
+        "Harel–Rabin (2003), primary manuscript",
+        "arXiv:2101.03061 (different inscription objective)",
+        "Resultary ca54edf09453 and ca240653373b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Existence of affinely regular polygons on exact ellipses controls only the base case.",
+          "The prior moduli coordinates parametrize admissible polygons but do not establish invertibility of the equal-area equations restricted to independently movable vertices on the specified nearby curve."
+        ],
+        "reasoning": "The marked step-two inverse supplies the missing transversality and uniform persistence; exact ellipse solutions and general affine invariance alone do not imply either.",
+        "searches": [
+          "arXiv:1103.2722 §3.3",
+          "Harel–Rabin affine parametrization",
+          "Resultary heptagon moduli RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Craizer–Teixeira–da Silva define the same successive-triangle condition and ask the precise prescribed-first-vertex question.",
+          "Harel–Rabin's marking belongs to abstract cyclic polygons modulo affine maps, not to the boundary of a fixed oval."
+        ],
+        "reasoning": "One must simultaneously meet the triangle-area equations and lie on the specified curve. Neither abstract affine classification nor area/perimeter optimization supplies that intersection condition.",
+        "searches": [
+          "arXiv:1103.2722 §3.3",
+          "Harel–Rabin, Polygons Whose Vertex Triangles Have Equal Area",
+          "Focused literature lookup for marked inscribed equal-area odd polygons and dual formulations"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Local-mirror comparison identifies the exact matching entry as this same finding.",
+          "The distinct heptagon entry gives the affine moduli domain x,y>0 and xy>1 for marked strictly convex equal-area heptagons."
+        ],
+        "reasoning": "The heptagon invariant does not fix an ambient oval, solve its inscription constraints, or cover general fixed odd order; there is no finite table whose entries exhaust the ambient Banach neighborhood.",
+        "searches": [
+          "Resultary semantic lookup for prescribed-point inscribed equal-area polygons near ellipses",
+          "2026/11/22/SCOPE-marked-inscribed-equal-area-polygons-persist-near-ellipses-at-ev--ca54edf09453",
+          "2026/10/11/SCOPE-contractible-affine-moduli-of-convex-equal-area-heptagons--ca240653373b"
+        ]
+      },
+      "rationale": "Credit the published conjectural question, its approximate construction and the known classification of abstract equal-area polygons. The supported distinct contribution is exact arbitrary-mark local inscription on prescribed nearby ovals, with local uniqueness and radial response. The checked passages do not provide that result or a stronger result implying it.",
+      "residual_risks": [
+        "Bounded literature comparison does not rule out an unlocated later global or perturbative inscription theorem. No historical priority is certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Explicit open question and related construction, not a covering theorem in the passages inspected",
+          "evidence": "Their approximation need not be inscribed or circumscribed; they ask for exact inscription with a prescribed P_1 and predict a yes answer for odd n.",
+          "identifier_or_url": "https://arxiv.org/pdf/1103.2722",
+          "material_read": "Approximation passage on PDF p. 6 (offset 14807); §3.3 on PDF p. 7 (offset 18907)",
+          "method": "Open-access primary PDF, located and paged",
+          "title": "Affine Properties of Convex Equal-Area Polygons",
+          "trigger": "Same condition, odd order and prescribed first vertex"
+        },
+        {
+          "assessment": "Abstract affine classification, not prescribed-oval inscription in the passages inspected",
+          "evidence": "Counts N−1 conditions and parametrizes equal-area polygons with marked vertices modulo affine equivalence.",
+          "identifier_or_url": "https://mathweb.ucsd.edu/~jrabin/publications/Polygons.pdf",
+          "material_read": "PDF p. 1 (offset 1876) and p. 4 (offset 12525)",
+          "method": "Lawful primary manuscript, located and paged",
+          "title": "Polygons Whose Vertex Triangles Have Equal Area",
+          "trigger": "Same polygon equations and marked-vertex terminology"
+        },
+        {
+          "assessment": "Related noncovering classification",
+          "evidence": "Cyclically marked heptagons modulo affine maps have a two-dimensional positive-coordinate domain with xy>1; no prescribed ambient curve.",
+          "identifier_or_url": "2026/10/11/SCOPE-contractible-affine-moduli-of-convex-equal-area-heptagons--ca240653373b",
+          "material_read": "RESULT.md opening finding, offset 0",
+          "method": "Local Resultary search and mirror read",
+          "title": "Contractible affine moduli of convex equal-area heptagons",
+          "trigger": "Strongest distinct matching published finding"
+        },
+        {
+          "assessment": "Identical assigned finding, not distinct prior coverage",
+          "evidence": "Same scope, mark, near-ellipse conclusion and first variation.",
+          "identifier_or_url": "2026/11/22/SCOPE-marked-inscribed-equal-area-polygons-persist-near-ellipses-at-ev--ca54edf09453",
+          "material_read": "RESULT.md opening finding, offset 0",
+          "method": "Local Resultary search and mirror read",
+          "title": "Marked inscribed equal-area polygons persist near ellipses at every odd order",
+          "trigger": "Exact matching indexed result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Craizer–Teixeira–da Silva §3.3",
+        "RESULT.md first-variation and parity statements"
+      ],
+      "rationale": "This resolves a local, all-marked-points version of a published exact inscription question on genuinely nonconic ovals. Uniqueness and the inverse deformation equation distinguish persistence from approximation or classification, and the even-order mode gives a concrete limit of differentiable continuation rather than a claim of global nonexistence.",
+      "residual_risks": [
+        "Not a global solution for general convex curves or a quantitative neighborhood bound."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

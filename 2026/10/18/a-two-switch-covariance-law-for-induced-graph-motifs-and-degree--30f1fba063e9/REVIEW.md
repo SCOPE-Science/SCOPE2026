@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** Conditioning on a fixed induced motif separates internal forced edges from external binomial degrees and gives the exact covariance (1). Strict log-convexity follows from a positive weighted log-sum-exp Hessian, with endpoint divergence guaranteed by the presence of both an edge and a nonedge. The regular-motif phase criterion is the maximum of a beta-shaped monomial, and the square-root critical window follows from uniform fixed-order falling-factorial expansions. In the four-cycle specialization, the two roots exist precisely when \(n\ge6\). Exhaustive rational checks cover all labeled graphs through six vertices. The finite checks corroborate but do not prove the asymptotics or convexity theorem.
+## correctness
 
-## Originality
-**PASS with residual risk.** The closest inspected primary full text is Bhattacharya–Chatterjee–Janson, arXiv:2104.07259: its focus is noninduced motif-count fluctuations in graphon models, and Remark 2.12 explicitly notes induced counts as a separate direction; its four-cycle section treats nondegeneracy rather than correlations with degree classes. Fürer–Kasiviswanathan, arXiv:0806.2287, develops approximation algorithms for noninduced embedding counts, not covariance phase laws. Janson (1990), Bollobás (1982), and Fretter–Müller-Hannemann–Hütt (2012) establish nearby subgraph-count and degree-statistics subjects, but their full texts were not all accessible. Those inaccessible materials remain an originality risk, and general overlap-count formulas may imply the finite moment identity even when not phrased this way. The asserted contribution is the joint universal log-convex two-switch classification, the square-root degree window, and its sharp induced-square realization—not the mere binomial degree law.
+PASS
 
-## Value
-**PASS.** Joint motif and degree statistics are used together to assess structure in random networks; marginal motif and degree moments do not determine their covariance sign. The theorem imposes a universal restriction on density-driven dependence (no more than two crossings), gives a computationally explicit criterion for any admissible regular motif, and quantifies a nontrivial finite-population suppression band of degree classes. The four-cycle calculation identifies the exact minimum network size for double reversal and its sparse-density crossover. These are natural model features, rather than an arbitrary numerical slice.
+Reassessed the corrected RESULT.md in repairs/1. Summing over an induced h-set and degree indicators, outside vertices contribute no covariance by edge independence; the h internal vertices contribute the degree-role sum of Bin(n-h,p) masses at k-d_v, less h times the unconditional mass. There is no need for joint independence among those internal degrees. Dividing by the positive unconditional mass yields (1) including zero-binomial roles. The second derivative of log R is the positive weighted mean of d_v/p^2+e_v/(1-p)^2 plus the variance of the log-term derivatives. Endpoint divergence and positive second derivative give exactly the stated crossing and tangency alternatives. Criterion (2) is now explicitly limited to compatible k; at incompatible regular k, A=0 and the covariance is strictly negative, not a two-switch case. At the eventual compatible interior scaling the 1/N correction to log A is r/(2N); the log monomial has second derivative -r^3/(de) at its maximum d/r. The assumed 1/sqrt(N) perturbation gives (3), with no assertion at equality. Three cycle labelings per four-set and degree-two probability (1-p)^(n-4) give (4); the cubic maximum 4/27 yields the exact six-vertex onset and p=c/n gives (5). Independent replay `python3 /workspace/audit_recompute.py 1` used a degree-sequence test for C4 and P4 inside four-sets and exact rational moment sums: 90 comparisons at n=4,5,6 across all degree classes and three densities, including incompatible degrees and the C4 specialization. The replay does not prove the convexity or infinite limits.
 
-## Residual limitations
-The sign classification requires nonempty/noncomplete motifs and every motif vertex role to be compatible with the degree target. The boundary of the regular-motif critical window is unresolved by its first-order expansion. Available literature searches and document inspection cannot prove absolute novelty, especially without full access to the 1990 and 2012 publisher versions. Independent validation has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass for the repaired contribution only. Equation (1) as a distinct claim of originality is not supportable: the earlier arbitrary-motif non-induced result directly determines it by signed supergraph inclusion–exclusion and covariance linearity. The original did not identify that specific prior implication or the close same-day induced two-switch example. The repaired finding expressly treats the exact identity and its direct substitutions as supporting material and reclaims only the compatible-role sign classification, the regular sqrt(N) window, and the sharp transition for the named induced C4 and N2 pair. These quantitative sign conclusions are not present in, or direct specializations of, the matched sign laws; summing non-induced covariances of either sign does not preserve their one-switch structure.
+
+## value
+
+PASS
+
+The surviving statement is not a recomputation of an already computable covariance. It gives a structural bound on the number and direction of density-driven sign changes, separates tangency from crossings, and quantifies a sharp regular-motif window where both roots disappear. The induced C4 example locates the exact first feasible size for that specified pair and gives a sparse parameter boundary. Those address natural joint observables and complement rather than repeat the earlier one-switch non-induced law.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:14:17.219407Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed RESULT.md lines 20–81. Unit-edge increments identify the anchored Lipschitz ball with the cube intersected by |Σx_i|≤t; the closing edge is essential since t<m. Duality preserves the real Hilbert distance. Averaging the two homogeneous norm-square inequalities over coordinate permutations preserves the distortion bounds, so optimizing the quadratic with eigenvalues 1 on the zero-sum subspace and r>0 on the constant direction is unrestricted. Odd m and 1<t≤2 leave exactly two feasible exterior vertex shells: cube sign vectors with sum ±1, or strip-edge vertices with fixed sign sum ±2 and free coordinate ±(t−2). This includes t=2. Evaluating q_r gives the two stated affine outer terms. The inverse quadratic gives the two exact facet-support squares (m−1+1/r)/m and m/(t²r); multiplying their maximum by the outer maximum gives the squared distortion. The exterior switch r_F exceeds r_G (the support-square switch), and r_F≥1+m/3≥√(m+1). In fact the first outer term alone times the support maximum is a global lower bound, strictly decreasing to r_G and then minimized at max(r_G,√(m+1)); at this minimizer the first outer term is still active. This proves the claimed global optimum without a symmetry restriction or any assumption about later contacts. The crossing r_G=√(m+1) occurs exactly at T_m, giving both formulas, which agree there. Differentiation shows strict decrease in the first region before T_m; the limit of the square as t↓1 is m. T_m>1 follows from √(m+1)<m+1. Since m²−4>0, squaring the T_m≤2 criterion gives the stated cubic; it is negative at each odd m=5 through 15 and positive for m≥17 (then m²(m−16)+8m+16>0). Thus equality T_m=2 does not occur in scope and every asserted plateau is nontrivial. The frozen checker was inspected, not executed here; the listed PASS lines are expected and the finite tests are not used in the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The prior all-order theorem covers exceptional edge 0<λ≤1, while the prior all-edge-length comparison is for C_4 only. The latter exactly reproduces the m=3 specialization, with T_3=3/√5 and squared plateau 25/9."
+        ],
+        "reasoning": "The first theorem is broader in cycle orders but does not include t>1; the second is broader in exceptional length but does not include m≥5. Scaling a long-edge cycle to make its exceptional edge unit would shorten every other edge, not yield the one-short-edge class.",
+        "searches": [
+          "Resultary: 2026/10/11/SCOPE-opposite-parity-laws-for-exact-hilbert-distortion-of-one-edge-we--38cb69cb8edd",
+          "Resultary: 2026/10/11/SCOPE-exact-euclidean-distortion-of-a-one-defect-four-cycle-transporta--1b1292e047f1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_long_even_cycles.py",
+        "The three primary arXiv works and three Resultary records identified above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known quotient maps and unit-edge limit apply; the known m=3 plateau is a genuine antecedent. For t>1 the cube vertices of sum ±1 survive and create an outer shell distinct from the strip-edge shell."
+        ],
+        "reasoning": "The prior ranges and quotient do not imply the active-shell inequality or the crossover between r_G and √(m+1). The cutoff depends on exactly that general-dimensional crossover, not a change of parameters in the C_4 or short-edge result.",
+        "searches": [
+          "arXiv:1910.03625, Theorem 3.1 and weighted graph setup",
+          "Resultary m=3 long-edge and all-order short-edge exact formulas"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary quotient results identify transportation spaces with edge ℓ¹ modulo cycle flows. For a single cycle its dual is the cube clipped by a single symmetric strip; self-duality of the Hilbert target makes the ellipsoid computation equivalent.",
+          "The near research match arXiv:2007.07949 studies cycle-space projections and a Banach–Mazur comparison to ℓ¹ on Laakso graphs, not the Hilbert distortion of the weighted cycle."
+        ],
+        "reasoning": "The representations give the normed body, not the optimal ratio between inner and outer homothetic ellipsoids for that body. An ℓ¹ comparison or a projection constant is not the same invariant.",
+        "searches": [
+          "arXiv:1910.03625, Theorem 3.1",
+          "arXiv:1911.10642, Theorem 4.1",
+          "Primary lookup: one edge weighted cycle, transportation cost, exact Euclidean Banach–Mazur distance, clipped cube"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact equilateral result gives D²=m at the excluded endpoint t=1. The four-cycle result gives its complete nonconstant and plateau pieces, not an m≥5 table. The frozen script checks parameter samples, not prior exact values."
+        ],
+        "reasoning": "The closest exact tabulations and formulas concern an endpoint or a different dimension. Sampled (m,t) values could not by themselves give an analytic threshold in a continuum of t and all odd m.",
+        "searches": [
+          "Resultary: 2026/10/11/SCOPE-scalar-field-parity-in-euclidean-distortion-of-cycle-transportat--13d7bdc76366",
+          "Resultary: exact one-defect four-cycle distortion and opposite parity laws, Findings",
+          "Frozen VERIFICATION.md and verify_long_even_cycles.py"
+        ]
+      },
+      "rationale": "The quotient and dual clipped-cube model are known, as are the unrestricted formulas for the four-cycle and for an exceptional edge no longer than one. The inspected statements do not cover the exact long-edge Hilbert optimum for odd m≥5, its two branches, or the order-sixteen plateau cutoff. This is a best-of-knowledge statement about the new parameter regime, not priority for the graph model or the general ellipsoid method.",
+      "residual_risks": [
+        "An equivalent theorem could be indexed as a cube slab-section or one-dimensional quotient of weighted ℓ¹ rather than as a cycle transportation space. The bounded comparisons do not certify historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Structural quotient covered, not the ellipsoid optimum",
+          "evidence": "Weighted finite-graph transportation quotient description and finite-metric quotient theorem.",
+          "identifier_or_url": "https://arxiv.org/abs/1910.03625",
+          "material_read": "PDF abstract p. 1 at OA offset about 1300 and Theorem 3.1 p. 13 at about 37400",
+          "method": "OA PDF passages",
+          "title": "On relations between transportation cost spaces and ℓ¹",
+          "trigger": "Weighted-graph cycle quotient and possible prior exact equivalent model"
+        },
+        {
+          "assessment": "Edge quotient, not Hilbert optimization",
+          "evidence": "Identifies the free space as edge ℓ¹ divided by the kernel of the boundary map.",
+          "identifier_or_url": "https://arxiv.org/abs/1911.10642",
+          "material_read": "Theorem 4.1, PDF p. 11, OA offset around 53050",
+          "method": "OA PDF passage",
+          "title": "Geometry and volume product of finite dimensional Lipschitz-free spaces",
+          "trigger": "Potential prior computation from finite free space ball geometry"
+        },
+        {
+          "assessment": "Abstract's quantitative result concerns another comparison",
+          "evidence": "Lower bound to ℓ¹ for Laakso graph transportation cost and exact projection constants for certain diamond graphs, not an exact Euclidean distance claim.",
+          "identifier_or_url": "https://arxiv.org/pdf/2007.07949",
+          "material_read": "Abstract, p. 1, OA offset 0",
+          "method": "OA PDF passage",
+          "title": "Analysis on Laakso graphs with application to the structure of transportation cost spaces",
+          "trigger": "Primary lookup match on cycle spaces and Banach–Mazur distance"
+        },
+        {
+          "assessment": "Exact m=3 match, outside the claimed range",
+          "evidence": "For C_4, D²=3(5t²+3)/(t²(9−t²)) up to 3/√5, then 25/9 up to 2, agreeing exactly with m=3 here.",
+          "identifier_or_url": "2026/10/11/SCOPE-exact-euclidean-distortion-of-a-one-defect-four-cycle-transporta--1b1292e047f1",
+          "material_read": "RESULT.md Finding, local-mirror offset 0",
+          "method": "Resultary search and local mirror passage",
+          "title": "Exact Euclidean distortion of a one-defect four-cycle transportation space",
+          "trigger": "Same long-edge problem in nearest smaller dimension"
+        },
+        {
+          "assessment": "Exact all-order short-edge result only",
+          "evidence": "Exceptional edge 0<λ≤1, with D²=m at λ=1 for cycle order m+1.",
+          "identifier_or_url": "2026/10/11/SCOPE-opposite-parity-laws-for-exact-hilbert-distortion-of-one-edge-we--38cb69cb8edd",
+          "material_read": "RESULT.md Finding offset 0 and Relationship to prior work around offset 7260",
+          "method": "Resultary search and local mirror passages",
+          "title": "Opposite parity laws for exact Hilbert distortion of one-edge weighted cycles",
+          "trigger": "Same family and invariant with potentially broader coverage"
+        },
+        {
+          "assessment": "Updates no long-edge value",
+          "evidence": "Real unweighted even cycle of order n has squared distance n−1.",
+          "identifier_or_url": "2026/10/11/SCOPE-scalar-field-parity-in-euclidean-distortion-of-cycle-transportat--13d7bdc76366",
+          "material_read": "RESULT.md Finding, local-mirror offset 0",
+          "method": "Resultary search and local mirror passage",
+          "title": "Scalar-field parity in Euclidean distortion of cycle transportation spaces",
+          "trigger": "Exact unweighted boundary comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The optimum concerns unrestricted real linear maps on a natural weighted cycle space, not just a proposed ellipsoid or near-optimal bound. It gives a sharp change from strictly improving distortion to constant distortion, and pinpoints the last even cycle order where the plateau occurs. That all-dimensional cutoff distinguishes the effect from the already known four-cycle plateau and is useful for understanding which active facets govern Euclidean conditioning as the exceptional length varies.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

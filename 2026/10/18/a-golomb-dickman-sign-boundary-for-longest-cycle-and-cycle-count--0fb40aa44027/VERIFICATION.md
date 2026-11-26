@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification and limits
+# Independent mathematical audit
 
-Run `python3 check.py` from the directory containing this file. The program uses only the Python standard library. It computes exact rational longest-cycle cumulative probabilities using the recurrence in RESULT.md, checks the marked-cycle covariance formula and sharp sign assertions for every \(n\) from \(2\) to \(35\), and separately enumerates every permutation through \(n=8\) to compute covariances without using the marked-cycle identity. It was run successfully with the output `PASS: exact recurrence n<=35; exhaustive permutation enumeration n<=8.`.
+## correctness
 
-These computations verify a finite portion of an infinite family. The all-parameter correctness argument is the separate combinatorial proof in RESULT.md: cycle marking, uniform insertion growth, fixed-label cycle distribution, and an elementary truncation inequality. The Golomb–Dickman limit is taken from the cited classical literature, not inferred from finite data. Independent audit and external validation have not been performed.
+PASS
+
+Marking one r-cycle weights a permutation by its exact count C_{n,r}; the n!/r labeled choices leave a uniform permutation on n−r labels. The mixed first moment and E[C_{n,r}]=1/r follow, including r=n with M_0=0. Uniform insertion into a specified longest cycle has conditional probability M_k/(k+1), and the longest length cannot decrease in the other cases. The uniform length of the cycle of label 1 gives a_k≥(k+1)/2 and thus a_n−a_m≥r/2 for m=n−r≥1. For r≤m, on all 1≤x≤m, (r−x)_+≤r(1−x/m); hence the capped-mean uplift is at most r(m−1)/(2m)<r/2, including n=2,r=1. For r>n/2 the cap fixes the maximum at r, giving the exact sign and any zero case without needing nonintegrality of a_n. The Golomb–Dickman limits follow by division by n and by r respectively, with the stated exclusions.
+
+## originality
+
+PASS
+
+Passes for the finite uniform sign theorem and its exact boundary, not for cycle marking or the classical longest-cycle mean limit. The exact mixed-moment formula follows routinely from the known cycle-type law; the cited results do not provide the strict short-cycle estimate or the combined sign law.
+
+## value
+
+PASS
+
+The sign of dependence between a maximum and an exact-size frequency is a natural finite question not answered just by the classical limiting constant. The short-cycle comparison across the entire finite range and the exact single cutoff give useful information even on the integer boundary, without evaluating a joint distribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

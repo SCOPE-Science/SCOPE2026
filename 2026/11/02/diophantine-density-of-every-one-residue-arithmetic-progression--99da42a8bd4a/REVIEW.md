@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof obtains density one for multiples by a pigeonhole approximation on a contained subprogression, density one for odd integers by choosing the odd representative of an inverse modulo every denominator, and density zero in every other residue class by explicit coprime rational sequences with error bounded below by the reciprocal modulus. The cutoff is handled by a bounded odd multiplier or contained multiples. The accompanying finite verifier rechecks sample cases but is not relied upon for infinite coverage.
+## correctness
 
-**Originality — PASS, with reservations.** Sanford's arXiv:2610.27497v1 gives the definition, the multiples case, and a subfamily of zero-density translates; his earlier arXiv:2606.02620v1 contains no arithmetic-progression classification. The full arguments of those primary sources were examined. The additional statement is the exhaustive two-valued classification for every single residue class, including the unusual density-one odd class. A prior covering-set construction already entails non-subadditivity and is not subsumed or re-claimed here. The residual risk is an unindexed earlier residue-class result.
+PASS
 
-**Value — PASS.** A newly defined density is extremely non-translation-invariant. The complete classification determines how that failure behaves on the natural family of all eventual arithmetic progressions, and displays a maximally non-subadditive witness using just two fixed periodic classes, rather than ad hoc sparse constructions. It does not purport to resolve the broader structure of arbitrary periodic unions.
+The claim uses all sufficiently large denominators q, every numerator prime to q, v strictly below q, and fixed cutoff L. If r=0, restrict to positive multiples of M=m ceil(L/m) and apply pigeonhole to floor((q-1)/M)+1 circle points to get error at most M/q. For odd v an inverse or its negative has an odd representative; if it is below L, an odd multiplier bounded by L+2 reaches L without reaching q for sufficiently large q. These give exponent 1, which is maximal since every nonzero modular distance is at least 1/q. For m>=3, take p=t, q=mt-1 for r=1 and q=mt+1 for r>=2. The fractional part for every admissible v lies respectively in (1/m,2/m) or ((r-1)/m,r/m), both contained in [1/m,1-1/m]. The pairs are reduced and unbounded in q, ruling out every positive exponent; zero is admissible once the progression is nonempty below q. The two mod-4 classes partition the odd class, as claimed.
 
-**Closest literature and boundaries.** See Sanford's two cited papers and the separately documented existing covering-set construction. The periodic classification is not a consequence of a statement asserting only the existence of covering sets with given densities. The latter, however, already covers the qualitative failure of subadditivity.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported addition is the complete one-class classification and the explicitly periodic maximal subadditivity counterexample, not the density definition, the previously covered progressions or failure of subadditivity as such.
+
+## value
+
+PASS
+
+A single residue class is a natural first test of the uniform approximation density; the exact classification resolves all moduli, including noncoprime residues and fixed cutoffs. The odd exception and the mod-4 partition expose behavior hidden by the separate aperiodic non-subadditivity construction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

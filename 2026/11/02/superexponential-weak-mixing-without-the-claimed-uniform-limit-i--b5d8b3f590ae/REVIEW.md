@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The construction meets each displayed condition (C1)–(C3) of the cited definition with \(f_j(x)=x_j/4\), \(\varphi(y)=\frac12\sum_j y_j\), and \(g(t)=3t/4\). Direct induction gives the precise row matrices, the finite rightmost-factor convex-hull obstruction, and summable matrix perturbations. Dobrushin submultiplicativity plus nested coordinate extrema proves convergence to a rank-one limit different from the specified \(P\); the two-state example proves limits for different starting times cannot agree. The accompanying exact-rational checker verifies 152 finite instances but is not used as a substitute for infinite proofs.
+## correctness
 
-## Originality — PASS within inspected evidence
-The decisive comparison is to Souissi–Mukhamedov (2024), Theorem 3.5, and its preceding reversed product definition: the source predicts uniform convergence to \(P\), while the present family satisfies all hypotheses yet every limit has positive tail mass. Theorem 3.6's weak ergodicity is consistent with the new example. The related Mukhamedov–Al-Rawashdeh theorem (arXiv:2001.07703, Theorem 6.6) assumes commutation \(T_nP=PT_n\); this condition is missing from the later citation and fails for our \(P_n\). Jamilov–Mukhamedov–Mukhamedova–Souissi (2024) treats associated Markov measures and does not provide this uniform-product counterexample. Searches of relevant published mathematical records and the accessible claim ledger found no equivalent correction. The known general distinction between weak and uniform ergodicity is acknowledged and not claimed as new.
+PASS
 
-## Value — PASS
-The counterexample is germane to a central uniform-ergodicity theorem used as an input to later entangled quantum Markov chain arguments. It works for every simplex dimension and for every strictly positive collection of initial rows, despite strong summable contraction and superexponential row consensus. It isolates the precise product-order/commutation issue and gives actual rank-one limits and quantitative persistence bounds; this is not a merely cosmetic normalization discrepancy.
+The main counterexample is correct as frozen. With tail sum s, C1 holds by linear nonnegative coordinates, C2 is s/4≤s/2, C3 is s/8≤3s/16, and the geometric g iterates sum to 3t. For a=1/4, P_n=P+a^n(E−P), so there is norm summability, P_nP=P, but PP_n≠P under the interior hypothesis. Every row of P_n⋯P_(k+1) is in the convex hull of the rows of the rightmost P_(k+1), giving the positive lower and stated upper tail bounds independently of n. The Dobrushin coefficients of the factors are a^n δ(E); submultiplicativity gives the exact exponent in the bound. The column extrema form nested intervals with widths tending to zero, so the limits are rank-one, never P for a fixed k, and approach P as k→∞. They cannot all be the same; pairwise distinctness for every pair of indices is not required or asserted. In two states the scalar row difference multiplies at each step by a^n/2 for the stated witness. This disproves the published fixed-k convergence to the common P, not weak ergodicity. The frozen checker at line 24 tests (3/4)^(k+1) instead of the claimed (3/4)·4^(−k−1) upper bound, and its loop has sum_(k=0)^7 (19−k)=124 pairs, not the hard-coded 152 reported in the notes. The corrected complete check.py, RESULT.md, and VERIFICATION.md in /workspace/repairs/2/ fix both scientific reproducibility issues without altering the theorem proof or the frozen evidence. I inspected the uploaded checker rather than running it. An independent scalar recursion for the two second-column entries verifies both intended bounds and the exact width for all 124 pairs; replay python3 /tmp/opencode/nov02-independent-checks.py 2. This finite check corroborates the two-state example; the general proof is analytic.
 
-## Closest literature and limitations
-The most relevant sources are Souissi–Mukhamedov (2024), Definition 3.1 and Theorems 3.4–3.6; Mukhamedov–Al-Rawashdeh (2020/2022), Theorem 6.6; and Jamilov et al. (2024), Section 4. The conclusion is confined to the published product convention and its prescribed uniform projection. It does not disprove the independently stated weak-ergodicity theorem or any unrelated quantum mixing conclusion directly. An unindexed correction notice and older related finite-state Markov-chain examples remain priority risks. Independently verified publication priority and independent mathematical audit are not claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported contribution is the specific all-interior, all-simplex-dimension counterexample to Theorem 3.5 in the 2024 paper's explicit reverse order, with rank-one start-dependent limits and a quantitative separation from weak mixing. The general distinction between different ergodicities and earlier projection-commuting perturbation theory are not claimed as new. No compared primary or indexed claim gave this correction.
+
+## value
+
+PASS
+
+A strictly interior, rational and simplex-linear construction refutes a named theorem under all its listed assumptions, not by a boundary pathology. It locates the missing two-sided condition and explains precisely how summably convergent generators and superexponential row mixing coexist with persistent memory of the rightmost factor. This is a meaningful correction for downstream uses of the theorem; it asserts no automatic refutation of a separate quantum-chain claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

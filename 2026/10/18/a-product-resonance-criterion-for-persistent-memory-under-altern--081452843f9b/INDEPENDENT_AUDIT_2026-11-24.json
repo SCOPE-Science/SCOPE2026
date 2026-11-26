@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:48:48.457692Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Assumptions and Proof",
+        "VERIFICATION.md and artifacts/check.py inspected, not executed",
+        "Independent replay: python /workspace/branches/independent_replay.py 4"
+      ],
+      "rationale": "The site projectors are Hermitian, so Re⟨X,LX⟩=−γΣ||[P_j,X]||²/2 and every imaginary-axis eigenoperator is block diagonal with a diagonal E block. The Hamiltonian commutator of such a block operator is off diagonal, excluding nonzero imaginary eigenvalues. The same identity makes the semigroup Hilbert–Schmidt contractive, excluding Jordan blocks at zero and proving finite-dimensional convergence. Stationarity gives TY=CT and YTᵀ=TᵀC, hence [C,TTᵀ]=0. Its adjacent entries a_j b_(j+1)>0 connect every E index (including n=3), so C is scalar. After subtracting that scalar identity, W has both range and adjoint range in ker T. The cyclic recurrence gives nullity one exactly at n even and ∏a_j=∏b_j; here n is the number of sites on each sublattice, and the physical cycle then has length divisible by four. Conservation of Tr ρ and Tr Dρ determines the full stated limit for every initial density operator. For the localized example the recurrence, including the wrap-around at zero, gives amplitudes (−1)^j q^min(j,2m−j), and the squared norm gives the positive limiting site return in the stated order of limits. Changing any one bond nontrivially makes T nonsingular. An independent exact commutator calculation on the projector commutant found fixed-space dimensions 1,2,1,2 on four test cases, including a product-balanced odd cell count, a nonuniform balanced even case and an exactly detuned one; it confirmed the localized rational return with q=2/3 at n=6. This is a bounded check, not the convergence proof.",
+      "residual_risks": [
+        "No bound uniform in size, detuning or γ is claimed. The size limit is taken after the time limit; the calculation is not a robustness statement at large finite time."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The all-position dephasing model uses projectors on every site; the fermionic model uses number dephasing on every site. Liu–Balu's generator uses graph-based edge/directed transition data rather than the selective site projections.",
+          "The standard fixed-operator commutant argument still requires determining the joint commutant and excluding peripheral oscillations in this model."
+        ],
+        "reasoning": "Tracing the actual jump operators distinguishes a stronger theorem on the same model from one on a different generator. In particular the unmonitored block remains unrestricted by the dissipator here, unlike under all-site dephasing.",
+        "searches": [
+          "Rebentrost et al. arXiv:0807.0929v2 Eqs. (3)–(5)",
+          "Medvedyeva–Essler–Prosen arXiv:1606.09122 Eq. (2)",
+          "Bressanini–Benedetti–Paris doi:10.1007/s11128-022-03647-x §2.1 Eq. (4)",
+          "Liu–Balu arXiv:1604.05652v2 §II"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2305.00031, 2607.10218v1, 0807.0929v2, 1606.09122, 1604.05652v2",
+        "doi:10.1007/s11128-022-03647-x",
+        "Resultary d42504b3b00c, 57cfd6ce1f07, 5e7f1f10213d, 0b8034f94b14"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The sparse-dephasing open path result is the closest generator-level analogue. Its arithmetic condition concerns wavelengths and integer monitor positions on a uniform path, not cyclic hopping products.",
+          "The distinct same-day hypercube and unequal-arm spider results concern coherent absorbers. They quantify dark-state capture and survival in different graphs, not trace-preserving mixing and dephasing on alternate cycle sites."
+        ],
+        "reasoning": "None of these conditions specializes to necessary and sufficient cyclic balance with arbitrary positive weights; general existence of dark vectors alone also cannot imply that all other operators mix to the complementary scalar state.",
+        "searches": [
+          "Resultary Oct. 12 d42504b3b00c; Oct. 13 57cfd6ce1f07; Oct. 18 5e7f1f10213d and 0b8034f94b14, Findings and model assumptions",
+          "arXiv:2305.00031 p. 2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The periodic zero-mode test is equivalent to (−1)^n∏(b_j/a_j)=1. Under positivity this is equality of products plus even cell count.",
+          "Yang–Molignini–Bergholtz give a geometric mode on one sublattice of an open odd SSH chain, protected from loss on the other. Wang–Zhang give extra zero rapidities from a zero-overlap mode for an open SSH chain with one lossy site."
+        ],
+        "reasoning": "Chiral zero modes and geometric amplitudes are not new in themselves. An open-chain recurrence has no cyclic closure condition, and the one-sublattice loss construction does not identify the full fixed algebra of this trace-preserving projector-dephased system.",
+        "searches": [
+          "Resultary selective dephasing, dark mode resonance, periodic bipartite/SSH product condition",
+          "arXiv:2305.00031 p. 2 Eq. (4); arXiv:2607.10218v1 pp. 1–2 and appendix p. 18"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "d42504b3b00c gives explicit fixed and occupation data for an open uniform path, classified by a gcd. 57cfd6ce1f07 gives dark projections for rank-one complete bipartite networks with an absorber. 5e7f1f10213d gives exact jumps and near-resonance lifetimes for coherent absorption in linked hypercubes."
+        ],
+        "reasoning": "A finite table listing instances cannot exhaust arbitrary positive real bonds; exact formula databases and exact model classifiers are the relevant comparison. The inspected exact records have no such parameter space or return formula for this walk.",
+        "searches": [
+          "Resultary searches for half-monitored cyclic stationary maps and localized dark-site probabilities; exact classifications d42504b3b00c, 57cfd6ce1f07, 5e7f1f10213d"
+        ]
+      },
+      "rationale": "The dark-state recurrence and general dephasing framework are established tools. The supported distinct claim is the necessity of this product resonance for nontrivial stationary memory in the specified periodic, one-sublattice projector-dephased model, the resulting full asymptotic state, and its explicit localized-return/detuning consequence. The closest inspected frameworks and exact classifications differ in the coupling geometry, noise operators, or both.",
+      "residual_risks": [
+        "A specialized periodic SSH selective-dephasing calculation could give equivalent coverage. No exhaustive literature or priority claim is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong analogy, not a dominating regime",
+          "evidence": "Open uniform path, selected dephasers, gcd characterization of protected coherence and asymptotic occupation.",
+          "identifier_or_url": "2026/10/12/SCOPE-arithmetic-protected-coherence-under-sparse-dephasing-on-a-finit--d42504b3b00c",
+          "material_read": "RESULT.md Finding and Assumptions, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Arithmetic protected coherence under sparse dephasing on a finite quantum path",
+          "trigger": "Closest exact selective-dephasing limit law"
+        },
+        {
+          "assessment": "Different graph, rank regime and absorption",
+          "evidence": "Complete bipartite rank-one Hamiltonian with a sink and dephasers, not a periodic trace-preserving ring.",
+          "identifier_or_url": "2026/10/13/SCOPE-exact-noise-coverage-threshold-and-dark-state-projection-for-ran--57cfd6ce1f07",
+          "material_read": "RESULT.md Finding and Assumptions, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Exact noise-coverage threshold and dark-state projection for rank-one bipartite quantum networks",
+          "trigger": "Explicit bipartite dark-state projection"
+        },
+        {
+          "assessment": "Different model and observable",
+          "evidence": "The jump is in absorption at a coherent sink, with a near-resonance lifetime law, not a dephased closed walk's limiting channel.",
+          "identifier_or_url": "2026/10/18/SCOPE-arithmetic-dark-state-resonances-and-sharp-near-resonance-lifeti--5e7f1f10213d",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Arithmetic dark-state resonances and sharp near-resonance lifetimes in antipodally linked hypercubes",
+          "trigger": "Strongest distinct same-day resonance/detuning comparison"
+        },
+        {
+          "assessment": "Known open-chain dark-mode mechanism",
+          "evidence": "Geometric boundary-mode amplitude on one sublattice, with loss on the other and no periodic closure.",
+          "identifier_or_url": "https://arxiv.org/abs/2305.00031",
+          "material_read": "PDF p. 2 Eq. (4), offset 8400",
+          "method": "OA PDF",
+          "title": "Dissipative boundary-state preparation in an SSH chain (Yang–Molignini–Bergholtz)",
+          "trigger": "Closest geometric sublattice-supported SSH mode"
+        },
+        {
+          "assessment": "Different monitoring support",
+          "evidence": "Uses the full set of site projectors; that treatment does not determine the block on an unmonitored sublattice.",
+          "identifier_or_url": "https://doi.org/10.1007/s11128-022-03647-x",
+          "material_read": "§2.1 Eq. (4), p. 4",
+          "method": "OA article",
+          "title": "Decoherence and classicalization of continuous-time quantum walks on graphs",
+          "trigger": "All-site dephasing and cycles"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding and Proof 2–4; exact path and rank-one-network comparisons"
+      ],
+      "rationale": "The entire graph remains connected with positive bonds and every site of one sublattice is dephased, yet the theorem distinguishes complete mixing from one persistent observable. Quantifying a positive local return after increasing the ring size, and its exact disappearance under one-bond detuning, goes beyond detecting a finite-dimensional kernel.",
+      "residual_risks": [
+        "No finite-time noise robustness or transport claim follows from the ordered limits."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

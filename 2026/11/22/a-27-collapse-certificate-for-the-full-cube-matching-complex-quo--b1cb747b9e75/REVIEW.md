@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The claim concerns the *actual geometric* full automorphism quotient of the ordinary cube matching complex. Rebuilding all 107 nonempty matchings, 1,385 strict flags and 48 automorphisms yields 55 distinct flag-orbit cells, with dimension counts \((9,21,19,6)\). The standalone verifier independently checks every incidence (including multiplicities) and each of the 27 elementary collapses, with a unique maximal coface and a closed surviving cell complex. Exactly one vertex remains. Barycentric subdivision is equivariantly homeomorphic to the original realization. No mod-prime observation or acyclicity assumption stands in for the free-face argument.
+## correctness
 
-**Originality — PASS relative to checked sources.** Full published results about the same cube matching complex provide the rational homology representation and prove only that the full quotient is rationally acyclic. They do not conclude integral contractibility or exclude fundamental-group and torsion obstructions. The earlier nonequivariant wedge of four two-spheres, the pentagonal-prism sphere quotient, and the cube two-point configuration-space collapse do not imply this result. Actual equivalent-formulation and broader-coverage searches found no logically stronger covered case. The 2016 small-grid matching-complex preprint was inspected in accessible HTML; a relevant 2007 book was available only in preview.
+PASS
 
-**Value — PASS.** Determining the full geometric automorphism quotient of a canonical graph complex is a natural structural question. An explicit collapse from 55 orbit cells settles a genuine integral homotopy gap that rational representation calculations cannot resolve; the quotient is contractible despite the labeled complex's four independent second-homology spheres. The result neither claims a general graph-family theorem nor inflates a routine homology restatement.
+The independent reconstruction exhaustively tested all 8! cube-vertex permutations and obtained 48 automorphisms, 107 nonempty matchings, 1385 strict flags and 55 quotient cells of dimensions (9,21,19,6). Matching size is preserved by the group and distinct at each vertex of a flag. Consequently any two points of a closed flag simplex in the same orbit have the same coordinates at each size and are equal. This gives the regular simplex cell structure on the actual orbit space, retaining different flag orbits even with identical endpoint-orbit labels. Replaying all 27 frozen free-face pairs checked unique incidences with multiplicity, maximal top cells and remaining face closure, leaving vertex 8. An independent greedy collapse found a different 27-pair sequence leaving vertex 0. Each pair is a strong deformation retraction, and the equivariant barycentric homeomorphism transfers the claim to |M(Q₃)|/Aut(Q₃). This proves contractibility and the stated integral and homotopy conclusions, not merely acyclicity over a field.
 
-**Closest literature and limits.** Public mathematical records `0d9335a47f2a` and `b431e4a26870` determine the cube's rational symmetry module, while `79d70fe8b67e` determines its nonequivariant wedge. `5d7c581e07d3` determines a different prism quotient. The finite combinatorial certificate is exhaustive for this precise cube and group. Residual risks include equivalent unindexed work and unavailable full book chapters; no independent mathematical audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best of knowledge: the substantive addition is collapsibility of the genuine 55-cell quotient, stronger than the same quotient's previously reported rational acyclicity. No inspected statement gives this collapse or entails it; access to some pertinent full texts was limited.
+
+## value
+
+PASS
+
+The question is motivated by the rationally acyclic full orbit space of a standard highly symmetric graph whose labeled matching complex has nonzero second homology. An actual collapse resolves both the integral and homotopy ambiguity and supplies a reproducible model where collapsing just matching-orbit vertex labels would not be justified.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** A concrete chart on the integral blow-up model gives the exact equality ideal and explicit inverses for both denominators. The stable-tree boundary argument excludes every other geometric fixed support in every characteristic. The two monic relations prove finite flat degree four over the integers, not merely a point count. Exact local algebra and quadratic-order expansion establish the noncurvilinear wild collision and non-linearizability. The separately executed symbolic checks corroborate all critical polynomial relations, nilpotence and differential calculations. Risk: application of the standard integral moduli blow-up description and the stable-boundary classification is explicitly required; these are standard properties of \(\overline M_{0,5}\), and the proof supplies the needed strata reasoning.
+## correctness
 
-**Originality — PASS, qualified.** The primary full-text automorphism classifications determine group actions and geometric models, but not the four-point integral fixed equalizer or its characteristic-three Artin local algebra. The earlier order-five calculation on the same surface concerns a distinct conjugacy class and a curvilinear characteristic-five length-two collision: neither implies the new order-three equations and noncurvilinear tangent-to-identity behavior. Relevant mathematical records on cyclotomic collisions in other varieties do not cover the same variety/action/special fiber. Residual risk: an unindexed older equivariant-moduli or wild fixed-point calculation may contain an equivalent local scheme.
+PASS
 
-**Value — PASS.** The fixed locus of a natural automorphism on the compactified moduli surface is geometrically intrinsic. Tracking exactly how two interior and two stable-boundary fixed points meet in bad characteristic produces a noncurvilinear local complete intersection and a wild action invisible to the linear tangent representation. This is a structural boundary phenomenon, not a renamed cyclotomic fixed-point count; its explicit algebra can serve as local input for studying wild quotients and degeneration in stable-pointed-curve moduli. No quotient singularity classification is asserted.
+Renormalizing the cyclic shift of (1,x,y) by division by x gives (y/x,1/x). In x=1+u, y=1+uv this gives u'=u(v−1)/(1+u) and v'=1/(1−v). The fixed equations, multiplied by the units, are v²−v+1 and u(u+2−v). In the quotient v(1−v)=(1+u)(1+vu)=1, so no supports or nilpotents are introduced at their vanishing sets. Geometrically, stable trees have at most three components, and a three-vertex path admits no nontrivial order-three permutation of its edges. Each edge's partition is therefore individually fixed at any fixed boundary point. There is only one invariant partition, with side {4,5}; this excludes every deeper boundary stratum. On its exceptional P¹ the Möbius map takes infinity to zero, with every fixed point in the stated chart. In the interior x³=1, x≠1 and y=x², so v=x+1, u=x−1; these points are in the same chart. Support inclusion puts the entire equalizer in the open chart, including nonreduced structure. The two successive monic quotients make rank four over Z. Away from 3 the v-roots are simple and u=0 and u=v−2 differ, including in characteristic 2. In characteristic 3 put w=v+1; the relations are w²=0, u²=uw, with uw≠0 and maximal ideal cube zero. In the ambient characteristic-three local coordinates the differences are exactly u(w−u)/(1+u) and −w²/(1+w); they vanish to second order but are not the zero power series, proving tangent identity and obstruction to formal linearization. The supporting script was inspected, not executed; its expansions and finite-field samples are not needed for global support exhaustion or the wild formal conclusion.
 
-Closest primary references: Boitrel (arXiv:2304.05328), Dolgachev--Martin (doi:10.1112/jlms.12905), and Bergvall--Gounelas (doi:10.1002/mana.202100311). The first two directly concern automorphisms of degree-five del Pezzo surfaces; the last supplies adjacent moduli context, not the claimed fixed-scheme computation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The existence and geometric realization of a three-cycle are prior, and the tame point count alone is not the contribution. The actual finding is the integral equalizer for the specified split marking action and its noncurvilinear tangent-to-identity wild specialization. The accessible same-action literature was materially compared; the nearby same-surface equalizer calculation is for a five-cycle, not this action. Priority remains qualified by access and indexing limits.
+
+## value
+
+PASS
+
+The full equalizer on a natural compactified moduli space unifies two interior and two boundary tame points and gives their precise bad-prime collision. The isolated wild point has the full ambient tangent space as its fixed tangent space but nontrivial quadratic action. This distinction is not visible stably in a fixed-point count or tangent representation alone and supplies local data for future wild-quotient or equivariant compactification calculations, without asserting their classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

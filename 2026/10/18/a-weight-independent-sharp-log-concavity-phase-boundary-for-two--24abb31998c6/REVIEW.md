@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For all \(0<\alpha<\beta\), positive common rates, and positive interior weights, the density is a positive exponential times a power times the sum of two positive monomials. The derived log-curvature identity and its completed-square form are exact. The boundary cases \(\alpha<1\), \(0<\beta-\alpha\le1\), and \(\beta-\alpha>1\) are all handled. The quadratic roots prove there is precisely one strict positive-curvature interval on the failing side, not merely an isolated violating point. The exact algebraic checker passed 1013 rational cases; finite cases alone would not be a proof.
+PASS
 
-## Originality — PASS, with residual priority risk
+Independent curvature check: for d=β−α>0 and w in (0,1), let p=Bx^d/(A+Bx^d) be the density contribution fraction of the higher-shape component. Its derivative is dp/dx=d p(1−p)/x. The mixture score is −λ+(α−1+dp)/x (here dp means d times p), so the scaled curvature is −(α−1)−d p+d²p(1−p). Since p spans (0,1) for every permitted rate and weight, α<1 fails as p→0, and for α≥1 and 0<d≤1 the curvature is strictly negative. For d>1, the quadratic has its unique maximum at p=(d−1)/(2d), where Bx^d/A=(d−1)/(d+1) and the maximum equals (d−1)^2/4−(α−1). When it is positive and α≥1, its nonpositive endpoint limits and strict downward quadratic shape give exactly one positivity interval (left endpoint x=0 if α=1) and negative curvature elsewhere outside its closure; solving the equivalent t=B x^d/A quadratic gives the stated endpoints. At the d>1 equality threshold only the maximizer has zero curvature; (α,d)=(1,1) instead has strictly negative curvature on x>0. Shapes (2,5) and (2,6) give maxima 0 and 5/4, respectively, confirming the sharp examples. At excluded endpoint weights the density is a single Gamma, and the violating point for shapes (2,6) can escape to a support boundary as one weight vanishes. The frozen rational checker was inspected, not run; the analytic replay applies to all real shapes, unlike the finite instances.
 
-The 2022 work of Li, Lee, and Kottas builds common-scale Erlang-mixture survival models and derives an adaptive hazard representation; no if-and-only-if curvature criterion appears in the inspected mathematical sections. Mu's Beta-mixture preservation theorem and Yu's fixed-shape Gamma scale-mixture stochastic comparisons concern different mixing and conclusion structures. Semantic searches of published records and primary papers yielded no exact shape-gap classification. Potential unindexed algebraic or actuarial treatments remain a priority risk, and no independent originality check has occurred.
+## originality
 
-## Value — PASS
+PASS
 
-The density family's shape is a genuine practical modeling issue: global log-concavity supports standard reliability and shape-constrained estimation arguments. The exact stage-gap cutoff, its independence of the mixture probability, and its sole explicit failure interval supply a natural complete classification with a nontrivial robustness boundary. This is not a claim about three-or-more component models, unequal rates, or posterior rates.
+Bounded comparison supports the sharp common-rate, distinct-shape phase boundary and its attained normalized-curvature refinement. The general mixture differentiation identity is standard; the assessed claim is the exact weight-independent classification for this family, not the differentiation rule. The strongest inspected records have different variable parameters or a different distribution family.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+This is a complete exact test for global log-concavity in a natural, common-rate model, not a finite algebraic example. In particular, two individually log-concave components can fail the density shape constraint for every interior weight; adjusting a weight only moves the failure region. The sharp square-root gap gives a usable Erlang model-design rule, with an explicit curvature witness and tangency at equality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

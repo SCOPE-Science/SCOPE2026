@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification evidence and limits
+# Independent mathematical audit
 
-Run `python verify.py` in this directory. The program uses two separate routes: direct powerset enumeration of all Dung semantic definitions, and prediction via the proved recurrence. Every chord subset is tested for each order from four through twelve (1022 distinct frameworks). Closed-form enumerators are checked for orders four through twenty-four. The observed output was:
+## correctness
 
-`VERIFY_OK 1022 complete/preferred/stable cases; enumerator census through n=24`
+PASS
 
-This is a finite regression check only. The proof of the universally quantified theorem appears in `RESULT.md`. The scientific interpretation and literature-risk limitations are recorded in `REVIEW.md`; no independent review has been conducted.
+Use the complete three-valued labeling: IN iff all attackers are OUT, OUT iff an attacker is IN, and UNDEC otherwise. This is equivalent to a conflict-free defense fixed point with OUT exactly the attacked vertices. Propagate along 1,…,n−1 after assigning vertex 0. If 0 is UNDEC, the compulsory predecessor and any chord attacker are UNDEC at every step, so all are UNDEC. If 0 is OUT, each optional attack from 0 is neutral in the propagation; the bits alternate with the odds IN and closure at 0 requires n even. If 0 is IN, all targets in {1}∪K are OUT and the others alternate; along the suffix after h, n−1 is OUT iff n−1−h is even, exactly the closure condition at 0. Both nonempty cases are two-valued and stable. Preferred extensions are complete by maximal admissibility, so these nonempty cases give exactly the preferred extensions unless all-UNDEC is alone; empty is always grounded. For max K=k there are 2^(k−2) lower-target subsets and empty K contributes h=1. Summation over the required parity gives both stated formulas, including n=4,5 and K=∅; division by 2^(n−3) gives the two limits 1/3. Independent direct powerset enumeration confirmed 1,022 frameworks for n=4…12 and exact chord census through n=24. Replay: /workspace/branches/ef9810e0-36f7-4e77-88be-f9ce5b9a5dbc/independent_check.py with check_n12.log and census_n24.log. The supplied script was inspected, not run. Enumeration is finite corroboration, not the all-n proof.
+
+## originality
+
+PASS
+
+The classical chordless boundary and generic kernel characterization overlap, but neither specifies which arbitrary sets of one-source chords admit the additional extension or the census over those sets. Reviewed related results do not imply the full three-valued classification.
+
+## value
+
+PASS
+
+For an exponentially large perturbation family of the classical stable-existence obstruction, a single rightmost shortcut decides the additional stable alternative; the other shortcuts determine its vertices but not its existence. The rule also excludes any partially undecided nonempty complete extension. This yields an exact, finite-n labeled census and a sharp frequency, rather than recomputation of the classical chordless case or an application of a cycle-existence condition.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

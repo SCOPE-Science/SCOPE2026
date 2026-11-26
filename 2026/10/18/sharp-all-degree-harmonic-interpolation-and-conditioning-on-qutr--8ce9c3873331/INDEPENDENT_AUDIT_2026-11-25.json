@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:20:23.725559Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–112; VERIFICATION.md; check.py (read, not executed); exact_table.json (read and compared).",
+        "Independent replay: python3 /workspace/review_replay.py 5; exact Jacobi finite-spectrum results and strict tail endpoint comparisons passed."
+      ],
+      "rationale": "With invariant probability measure, the diagonal of the harmonic projector is its trace, the bidegree dimension (q+1)^3. The radial variable t=|<z,v>|² has density 2(1−t) on [0,1]; radial orthogonality to lower degrees gives P_q^(1,0)(2t−1), and dividing by q+1 normalizes its diagonal to one. Thus the only normalized entry values are 1,a_q,b_q. The Gram matrix acts as 1−a_q on the eight within-basis contrasts, 1+2a_q−3b_q on the three balanced basis constants and 1+2a_q+9b_q on the global constant. The exact low-degree spectra give the claimed attainable data subspaces. I independently checked every sector for q=3..16 against the frozen table via the direct Jacobi binomial formula, not the source's Legendre recurrence. The lower endpoint is attained only on the constant sector at q=5, where the spectrum is (7/6,70/81,2/27); the upper endpoint likewise occurs only in the constant sector at q=4. For the infinite tail the Christoffel identity and |P_q|≤1 give |b_q|≤3/[2(q+1)], so the spectrum stays in [1−31/(2(q+1)),1+31/(2(q+1))]. Even at q=17 the bounds 5/36,67/36 are strictly inside the two stated endpoints and the ratio is at most 67/5<63/4. This establishes full rank, all equalities and the sharp condition numbers. At q=0,1 all positive eigenvalues coincide; at q=2 their ratio is 10/3, so including only nonzero singular values at the deficient degrees does not change the worst evaluation condition number. For attainable y, E_q*G_q^+y solves the data and lies orthogonal to ker E_q, proving the reconstruction and squared norm formula.",
+      "residual_risks": [
+        "The analytic tail, not the finite checker, proves that no later degrees compete. Counts and normalization are for a single exact bidegree and the prescribed unweighted data norm."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The indexed November 2 theorem has ranks 1,m(d−1),md−1_{m=d+1},md through degree 3, exactly the four initial ranks when (d,m)=(3,4). Its exact cubic spectrum specializes to 5/4,5/18,7/6.",
+          "The projective 2-design theorem treats complete MUBs in general d, and Roy–Scott treats the tomography application of designs from bases."
+        ],
+        "reasoning": "Broader dimension or family-size coverage at low degree does not dominate the all-degree qutrit theorem. The projective design and tomography results do not themselves bound all individual exact degrees.",
+        "searches": [
+          "Resultary: MUB quadratic interpolation and cubic stability for general dimension and number of bases",
+          "Klappenecker–Rötteler arXiv:quant-ph/0502031; Roy–Scott arXiv:quant-ph/0703025"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 117–128; indexed published Findings and primary-source passages itemized above."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The MUB overlaps and projective Jacobi theorem directly give the Gram entries; the standard block algebra gives the sector formula. Degree-two design vanishing gives the constant-vector constraints in low degrees, but not positivity of every other sector in higher degrees."
+        ],
+        "reasoning": "The associated finite spectral comparisons plus the analytic tail are necessary to decide which degree is worst and to prove sharp all-degree bounds; these facts are not supplied by the general kernel or design statement alone.",
+        "searches": [
+          "Klappenecker–Rötteler Theorem 3; Roy–Suda addition theorem; Resultary general MUB and qutrit SIC Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The I,T,J decomposition is the three-sector adjacency algebra of four disjoint basis blocks. Roy–Suda supplies the general radial Jacobi kernel and links it to projective Jacobi polynomials.",
+          "The same-day qutrit SIC study uses nine lines with squared overlap 1/4 rather than twelve lines with two off-diagonal squared overlaps 0 and 1/3."
+        ],
+        "reasoning": "Writing the same Gram matrix in association-scheme notation does not make the spectrum a new method, but SIC data do not yield the MUB spectrum or the all-degree sharp extrema.",
+        "searches": [
+          "Resultary: qutrit MUB exact (q,q) spectra; four complete MUBs in C^3 and Jacobi interpolation",
+          "Roy–Suda arXiv:1104.4692; Delsarte–Goethals–Seidel projective Jacobi comparison"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The November 2 finding gives qutrit cubic condition number 9/2 by specialization. The same-day SIC finding gives a different all-degree sharp value 56/25 in degree 3. Neither table compares the MUB degrees 4 and 5 to all later degrees."
+        ],
+        "reasoning": "The exact q=3 overlap is credited; data for a different family and a finite low-degree MUB table do not establish the uniform MUB spectrum bounds 2/27 and 28/15 or condition maximum 63/4.",
+        "searches": [
+          "Resultary: all-degree qutrit projective-harmonic spectra and conditioning; exact cubic MUB spectrum"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the joint all-degree interpolation and sharp stability result, particularly the uniform lower and upper spectral constants and the global worst condition number with equality degrees. The addition kernel, MUB overlap design, three-sector decomposition once the Gram entries are known, and minimum-norm reconstruction use standard machinery and do not get independent novelty credit. The indexed November 2 MUB result actually covers the qutrit ranks at q=0,1,2,3 and the exact cubic spectrum, not just a related topic; its later date is not evidence against the October 18 result's priority. Its scope stops short of the all-degree bound and the distinguishing q=4,5 extrema. No inspected earlier statement covered those extrema; priority is not certified.",
+      "residual_risks": [
+        "Delsarte–Goethals–Seidel full text was unavailable, so a more specific earlier association-scheme treatment is not ruled out. Ranked searches are not exhaustive.",
+        "Same-day archive dates do not imply an ordering. Low-degree overlap with the broader indexed MUB theorem is not treated as a distinct new claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact overlapping conclusions for q=0..3; later archive date, no coverage of the all-degree bounds",
+          "evidence": "Specialize d=3,m=4 to ranks 1,8,11,12 and the cubic spectral triple with multiplicities 8,3,1.",
+          "identifier_or_url": "2026/11/2/SCOPE-a-quadratic-interpolation-cliff-and-cubic-stability-rescue-for-m--843ed49d1a66",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror passage",
+          "title": "A quadratic interpolation cliff and cubic stability rescue for MUBs",
+          "trigger": "Same evaluation problem, general d and m"
+        },
+        {
+          "assessment": "Same-day methodological analogue, different configuration",
+          "evidence": "Nine equiangular SIC lines, with overlap squared 1/4 and worst Gram ratio 56/25 at degree 3.",
+          "identifier_or_url": "2026/10/18/SCOPE-a-universal-sharp-conditioning-law-for-projective-harmonic-inter--5bad04191df6",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror passage",
+          "title": "A universal sharp conditioning law for projective harmonic interpolation",
+          "trigger": "All-degree sharp conditioning in the same qutrit harmonic spaces"
+        },
+        {
+          "assessment": "Classical inputs, not exact harmonic conditioning",
+          "evidence": "Defines mutual unbiasedness and gives the size bound and prime-power construction context.",
+          "identifier_or_url": "arXiv:quant-ph/0309120",
+          "material_read": "Page 1, offsets 1105 and 2985",
+          "method": "OA paper",
+          "title": "Constructions of Mutually Unbiased Bases",
+          "trigger": "Underlying existence and geometry"
+        },
+        {
+          "assessment": "Supplies squared overlaps and low-degree design vanishing",
+          "evidence": "d+1 MUBs give a projective 2-design of d(d+1) lines and angle set {0,1/d}.",
+          "identifier_or_url": "arXiv:quant-ph/0502031",
+          "material_read": "Page 4, Theorem 3, offset 24960",
+          "method": "OA paper",
+          "title": "Mutually Unbiased Bases are Complex Projective 2-Designs",
+          "trigger": "Potential broader low-degree implication"
+        },
+        {
+          "assessment": "Weighted designs and optimal state determination; not exact-degree linear harmonic interpolation",
+          "evidence": "The accessed passages link complete MUBs to tight informationally complete measurements.",
+          "identifier_or_url": "arXiv:quant-ph/0703025",
+          "material_read": "Pages 2 and 7, offsets 6222 and 25922",
+          "method": "OA paper",
+          "title": "Weighted complex projective 2-designs from bases",
+          "trigger": "Prior conditioning and reconstruction from bases"
+        },
+        {
+          "assessment": "Directly applicable addition theorem, not the degree-uniform optimization",
+          "evidence": "Uses Jacobi zonal kernels for the harmonic spaces and identifies the projective Jacobi polynomials with earlier projective work.",
+          "identifier_or_url": "arXiv:1104.4692",
+          "material_read": "Page 5, offset 12762",
+          "method": "OA paper",
+          "title": "Complex spherical designs and codes",
+          "trigger": "Potential general harmonic-spectrum method"
+        },
+        {
+          "assessment": "Full-text comparison unresolved",
+          "evidence": "Roy–Suda links the paper to the general Jacobi machinery, but that link does not establish a qutrit MUB stability result.",
+          "identifier_or_url": "https://research.tue.nl/en/publications/bounds-for-systems-of-lines-and-jacobi-polynomials/",
+          "material_read": "Bibliographic listing and indirect Jacobi citation in Roy–Suda; no original theorem passage recovered",
+          "method": "Bounded lawful direct/VPN OA attempts and inspected Roy–Suda passage",
+          "title": "Bounds for systems of lines, and Jacobi polynomials",
+          "trigger": "Potential earlier equivalent association-scheme calculation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 10–37 and 65–112; exact_table.json; comparisons with MUB and SIC Findings above."
+      ],
+      "rationale": "This is an exact comparison of harmonic interpolation and its conditioning on a canonical projective design, not just an evaluation of the addition kernel. It specifies which data are forbidden in the low degrees, proves that the obstruction disappears for every later degree, and identifies a nontrivial deterioration at degree five despite a better-conditioned degree three and convergence of the normalized spectrum to one. The constants and equality modes quantify the worst minimum-norm reconstruction cost and distinguish invertibility from useful conditioning.",
+      "residual_risks": [
+        "No extension to weighted, incomplete or higher-dimensional MUB families or to nonlinear tomography is asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

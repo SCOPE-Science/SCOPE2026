@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:01:14.433004Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–58 and static support VERIFICATION.md and verify.py"
+      ],
+      "rationale": "The stability factor obtained from the two-stage Radau IIA tableau at z=−x is (6−2x)/(x²+4x+6). With x*=3+3√3 and m=(5−3√3)/2, subtracting m gives exactly −m(x−x*)²/(x²+4x+6); its unique minimum is at x*. In the reversible row convention, the diagonal coefficient is the spectral average for the unit vector eᵢ/√πᵢ in ℓ²(π). The zero-mode mass is πᵢ and the remaining positive masses sum to 1−πᵢ, proving the bound. Equality at h>0 is equivalent to eᵢ−πᵢ1 having eigenvalue −x*/h. Its off-i coordinates prescribe qⱼᵢ=(x*/h)πᵢ, which detailed balance converts to the claimed outgoing rates; the diagonal coordinate then follows by the row sums. The reset generator realizes this for all states and the bound is strict at h=0 for n≥2. Solving the sign of the affine envelope gives the claimed stationary-mass threshold, including sharp zero at the boundary. For all unweighted connected graphs the stationary mass is 1/n, giving strict diagonal positivity through eleven. At a universal vertex the centered indicator is a Laplacian eigenvector of eigenvalue n, including with arbitrary edges between other vertices. Substitution at h=3/4 gives (56−5n)/(3n²+16n+32), which is negative for n≥12 and equals −1/164 at 12. The positive roots of the general hub numerator give the asserted open interval of negativity. No conclusion is implied for full entrywise or internal-stage positivity.",
+      "replay": "python3 /workspace/review_checks/independent_checks.py 1 (SymPy): exact scalar minimum identity, threshold, cone rational function and 12-state value; a nonuniform three-state rational generator with only localized equality was checked via its completed rational matrix step. The infinite and equality claims follow from the spectral proof, not the examples.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Blanes–Iserles–Macnamara considers positivity-preserving methods for graph-Laplacian ODEs. The closest multipartite theorem proves positivity at every entry through eleven for h>0, but assumes complete multipartite graphs and uses their explicit projectors."
+        ],
+        "reasoning": "Full-entry positivity over a smaller graph family is stronger in a different direction; for the statewise inequality it is not a dominating theorem over arbitrary topology or nonuniform reversible laws. The positivity step threshold paper was not available in full, so no exclusion is claimed based on it.",
+        "searches": [
+          "Primary literature query for reversible Radau IIA diagonal positivity and the eleven/twelve boundary",
+          "Blanes–Iserles–Macnamara, 10.1051/m2an/2022042",
+          "Horváth, 10.1016/j.apnum.2004.08.026",
+          "Resultary 657de75ce7c2, §§2–4"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 68517f1e3738, 657de75ce7c2, 8c0d50ef8119 and 17146a0a41df",
+        "10.1051/m2an/2022042",
+        "10.1016/j.apnum.2004.08.026 (abstract only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The multipartite proof writes the diagonal as 1/N plus two terms with nonnegative weights totaling 1−1/N, then applies the same scalar minimum. The two-state chain has exactly one nonstationary mode. The star proof applies to its fixed adjacency family."
+        ],
+        "reasoning": "The shared scalar estimate is prior. Passing to arbitrary stationary weighted spectral measures requires identifying their atom at zero, the equality-support condition, and the exact incident-rate interpretation. This yields a sharp classification and extends all-step diagonal positivity to every connected graph of the stated size, not merely to tested families. The universal-vertex witness uses the centered indicator eigenvector to show why arbitrary changes among the other vertices leave it unchanged.",
+        "searches": [
+          "657de75ce7c2 RESULT.md Proof §§2–4",
+          "68517f1e3738 RESULT.md, Finding and assumptions",
+          "17146a0a41df RESULT.md, star hub classification"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The two-state generator with rates a,b>0 has boundary min(a,b)/(a+b)=(2−√3)/3; the less probable state's diagonal can be negative in its bounded window, while off-diagonals stay positive."
+        ],
+        "reasoning": "This exactly covers the two-state specialization and the numerical boundary there; varying a,b does not provide a lower bound for many distinct decay modes or characterize equality with arbitrary transitions outside a state. The same date cannot resolve priority.",
+        "searches": [
+          "Resultary: two-stage third-order Radau IIA, diagonal return/Markov positivity, stationary mass and sharp rate imbalance",
+          "Resultary 68517f1e3738 (same day), RESULT.md Finding and Assumptions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "657de75ce7c2 gives the exact eleven/twelve transition for complete multipartite graphs. 8c0d50ef8119 is restricted to balanced complete multipartite graphs. 17146a0a41df already gives the (1/2,1) hub-negative interval for the 12-vertex star."
+        ],
+        "reasoning": "The cutoff constant and star example are not by themselves distinct. The exact graph classifications observed do not cover graphs outside these families, and an order-indexed table cannot supply the optimized state-dependent bound for arbitrary positive real reversible rates.",
+        "searches": [
+          "Resultary Radau IIA exact positivity order and diagonal windows: 8c0d50ef8119, 657de75ce7c2, 17146a0a41df",
+          "Resultary 68517f1e3738 exact rate imbalance threshold"
+        ]
+      },
+      "rationale": "There is verified material overlap in the scalar minimum, the two-state mass boundary, multipartite order cutoff and star witness. The supported distinct claim is the optimal statewise envelope over all finite reversible generators with an arbitrary prescribed stationary law, its local outgoing-rate characterization, and the resulting universal graph statement. The strongest matched original statements use a single nonzero mode in two states or a family-specific multipartite spectral decomposition. Neither covers the full quantifier scope and equality condition.",
+      "residual_risks": [
+        "No priority inference from shared or later record dates. The scalar method and subcases are already present in inspected statements.",
+        "The search was targeted, not exhaustive, and the inaccessible Runge–Kutta full text leaves some risk of a stronger published spectral envelope."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material overlap in two states only",
+          "evidence": "The finding gives (2−√3)/3 and equality at s=3+3√3 at the boundary, for the row generator with rates a,b.",
+          "identifier_or_url": "Resultary 68517f1e3738",
+          "material_read": "RESULT.md Finding and Assumptions, offset 0–2372",
+          "method": "Targeted local mirror reading",
+          "title": "Reentrant Markov positivity and the sharp rate-imbalance threshold for two-stage Radau IIA",
+          "trigger": "Exact stationary-mass threshold match"
+        },
+        {
+          "assessment": "Restricted-family overlap with additional off-diagonal results within that family",
+          "evidence": "The diagonal expression d_p(h) uses the two decay arguments (N−p)h and Nh, hence the identical bound at uniform mass. For N≥12 the record gives a negative witness in each part at h=8/(N−p).",
+          "identifier_or_url": "Resultary 657de75ce7c2",
+          "material_read": "RESULT.md Proof §§2–4, offset 2500–5005, and family scope",
+          "method": "Targeted local mirror reading",
+          "title": "Twelve vertices are the exact Radau IIA positivity barrier for complete multipartite graphs",
+          "trigger": "Same scalar strategy and exact graph-order boundary"
+        },
+        {
+          "assessment": "Overlapping family cases rather than universal result",
+          "evidence": "Balanced multipartite all-step positivity; star hub negativity on (1/2,1) at order 12.",
+          "identifier_or_url": "Resultary 8c0d50ef8119 and 17146a0a41df",
+          "material_read": "Both RESULT.md findings and family scopes",
+          "method": "Local mirror targeted statement reading",
+          "title": "Sharp Radau IIA positivity and reentry on balanced multipartite graphs; Three disjoint positivity windows for two-stage Radau IIA on stars",
+          "trigger": "Same-day positivity and explicit star witness"
+        },
+        {
+          "assessment": "Related motivation; the read passages concern different positivity-preserving constructions, not verified coverage of the sharp diagonal theorem",
+          "evidence": "Graph-Laplacian ODE and structural positivity setting includes nonlinear and nonsymmetric cases. The keyword miss alone was not treated as evidence of absence.",
+          "identifier_or_url": "https://doi.org/10.1051/m2an/2022042",
+          "material_read": "OA PDF abstract p. 1, §1.1 p. 2 (~6000)",
+          "method": "Targeted OA PDF passages with literal Radau query",
+          "title": "Positivity-preserving methods for ordinary differential equations",
+          "trigger": "Graph Laplacian positivity-preserving integrators in primary literature"
+        },
+        {
+          "assessment": "Unresolved specialist access risk, not a negative comparison",
+          "evidence": "The available bibliographic scope concerns positivity step-size thresholds; no theorem-level comparison is made from the abstract alone.",
+          "identifier_or_url": "https://doi.org/10.1016/j.apnum.2004.08.026",
+          "material_read": "Landing page/abstract only",
+          "method": "Bounded lawful OA search; no repository full text obtained",
+          "title": "On the positivity step size threshold of Runge–Kutta methods",
+          "trigger": "Plausible broader primary Runge–Kutta positivity study"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Universal return positivity is a distinct, motivated numerical question even when a method is contractive or loses positivity elsewhere. The result isolates exactly which stationary masses guarantee it under arbitrary reversible rates, and gives a test for saturation involving only rates incident to the state. For unweighted graphs it converts family-specific phenomena into a sharp topology-independent size guarantee and a robust obstruction from one universal vertex. This is not an assertion about the full transition matrix.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

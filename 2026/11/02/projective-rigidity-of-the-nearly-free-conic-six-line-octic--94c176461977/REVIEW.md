@@ -1,15 +1,21 @@
-# Scientific review: projective rigidity of the nearly free conic–six-line octic
+# Independent mathematical audit
 
-## Correctness — PASS
-The component-count hypothesis fixes degree eight. Gałecka's lower bound and the near-free exponent constraint force \(\operatorname{mdr}=4\); the Tjurina and Bézout identities force \(t+n_3=9\) and \(n_2=9-n_3\), and the published orbifold inequality forces \(n_3\ge6\). Splitting triple points into three-line and conic–two-line types gives \(N_{CL}=2A-6\). The cases of four and three pure line triple points are exhaustively classified by a complete-quadrangle argument and a uniquely cyclic line-incidence graph. This forces \((n_2,t,n_3)=(3,3,6)\), tangency to three connector lines, and passage through the three leaf-line intersections. Projective normalization gives the exact equation \(r^2-18r+1=0\), with its reciprocal roots identified by exchanging coordinates. All algebraic identities and finite combinatorial assertions have been replayed from the supplied standalone verifier. Existence and Jacobian near freeness of the representative are credited to the previously published exact construction. No arbitrary-field classification or new syzygy certificate is asserted.
+## correctness
 
-## Originality — PASS
-Gałecka leaves degree-eight existence open and supplies numerical restrictions. Dimca–Pokora treat freeness (and exclude a free six-line case), not classification of nearly free octics. The closest published mathematical record, *A degree-eight nearly free conic-line arrangement over a quadratic field* (4 October 2026, identifier ending `2edf9ed667f2`), supplies a representative, its basket, and its exact minimal Jacobian relation degree; its explicit limitation says that it does not classify all degree-eight arrangements. The present all-arrangements rigidity proof requires the new reduction to a sole pure-line triple-point hypergraph, the forced three-leaf cycle, and a necessity argument for the quadratic parameter relation. Searches for projective rigidity, exact basket, aliases, and moduli uniqueness found no stronger earlier coverage. This is a priority assessment, not a proof that no unindexed result exists.
+PASS
 
-## Value — PASS
-A natural unresolved part of the degree-eight conic–line nearly-free classification is completely resolved *up to projective isomorphism* for the one-conic/six-line component type. It goes beyond an existing example: the basket is shown to be forced, and the entire complex moduli space is shown to have exactly one projective orbit. The golden-ratio parameter is a rigidity constraint, not an arbitrary coordinate choice. The conclusion is structural and mathematically motivated by Gałecka's explicit open degree-eight classification problem.
+Gałecka's syzygy lower bound and near-free upper bound force mdr=4, giving Tjurina number 36. Pairwise Bézout and the orbifold inequality give t+n_3=9, n_2=9-n_3, and 9n_3>=46. If A counts pure line triples, conic–line Bézout gives N_CL=2A-6, hence A>=3. Each line sees at most two pure triples and A=5 is excluded by the odd five pair partners of any line. If A=4, the lines are the edges of a complete quadrangle and the residual double pairs use disjoint lines. At least two of these pairs lie on the conic; all their constituent lines are transverse there and each must contribute a separate conic–line node, contradicting N_CL=2. For A=3, the nine incidences on six lines force three connectors joining the three pairs and one leaf through each triple. The residual double-point graph is the leaf triangle with three pendant edges. Now N_CL=0, so the conic triple edges must form a nonempty 2-regular subgraph, which is exactly that triangle. This forces the stated basket. In connector coordinates the three tangencies force the principal 2x2 minors to vanish; smoothness excludes zero diagonal entries and fixes the sign product of the off-diagonals. Substitution at the three leaf intersections gives the two stated linear differences (the exceptional 3r+1=0 is inconsistent) and compatibility (r-1)^2(r^2-18r+1)=0 with r=1 forbidden. Modulo the quadratic, u(1/r)=v(r) and v(1/r)=u(r), so swapping x,y identifies the two unmarked forms. I checked the smoothness determinant, tangency squares and nonincidence: the six unwanted points evaluate to u^2,v^2,1 and the three squares (v-1)^2,(u-1)^2,(ru-v)^2, all nonzero at the roots. Each secant meets the conic at two distinct designated intersections, so the triples are transverse. Existence and near freeness use the attributed exact mdr computation in the October record. The frozen verifier was inspected and not executed; the incidence exclusions and normal form are proved directly, not inferred from its enumeration markers. The prior mdr computation was not rerun.
 
-## Closest literature and limitations
-The closest result is the 4 October 2026 explicit existence construction; the proof uses its exact Jacobian rank only for existence. The classification does not cover other component splits in degree eight, degree nine, labeled-line orbit distinctions, or arithmetic forms over smaller fields. A possible earlier unindexed uniqueness statement remains the principal originality risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct result is the exclusion of all other baskets and hence the complete projective classification under near freeness for one conic plus six lines. Exact existence/near freeness of the representative is already covered by the October catalogue record. The distinct November 8 catalogue record gives equivalent rigidity of the fixed (3,3,6) basket in different coordinates, not exclusion of other baskets; that subclaim is not counted as a separate unique contribution here. Its date and the snapshot do not by themselves settle priority.
+
+## value
+
+PASS
+
+A known quadratic-field example does not tell whether it is isolated even within this component type. The complete classification turns a necessary numerical range into a single realizable near-free orbit; the incidence analysis explains why the apparent alternatives cannot occur and why the two conjugate normal forms do not produce distinct unmarked arrangements.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

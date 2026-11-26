@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:19:27.109931Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 14–74 and 82–164; VERIFICATION.md and verify.py inspected, not executed",
+        "Independent successive-integration check: /workspace/branches/independent_ou_check.py reproduces the passive slope √5 L³/(15D²) and long-persistence shift 4L²/(125D)."
+      ],
+      "rationale": "The increment between coupled unreflected drivers is nonnegative and nondecreasing within each excursion; the increase of the running-supremum regulator is at most the current increment. This gives position order up to the first hit and, with simultaneous resets, time order. For strictness choose a short no-reset interval and Brownian tubes around deterministic paths such that neither upper wall is reached, the lower trajectory crosses zero, and the upper one stays positive. For the response, the killed generator acting on f_s+εvg_s minus s times this function has residual ε²v²g_s′ with unchanged terminal/reflection conditions, so stopped discounted Itô gives the derivative. At fixed τ and bounded initial v the weak-activity moment expansion can likewise be justified without formally differentiating a PDE: U=m_1+εva and W=m_2+εvb satisfy L_εU=−1+ε²v²a′ and L_εW=−2U+ε²v²b′. Stopping U and W+2tU+t² gives remainders bounded by ε² times killed integrals of (1+t)V_t². The passive killed survival decays exponentially; conditional Gaussian drift change and Cauchy–Schwarz give a uniform exponential bound for sufficiently small |ε|, because the OU covariance operator on [0,t] has bounded norm and trace O(t), so E exp(c ε²∫V²) grows only as exp(O(ε² t)) for compact initial states. Interior elliptic W^{2,p} estimates on compact position–velocity rectangles bound the spatial derivative of each moment remainder by O(ε²); this supplies the local unique zero and its shift. Renewal gives the displayed mean and transform formulas, and the two decaying exponents in g_s/f_s differ by q−k with k(q−k)→1/(2Dτ), giving −x/(2D). The short-persistence limit is the interior approximate-identity property R_τ/τ→I (the 2R_τa term is O(τ²)); the long-persistence integrals reproduce the positive coefficient.",
+      "residual_risks": [
+        "Only local critical position and sequential limits; no uniqueness of the crossover, no global finite-activity boundary, and no assertion for velocity not reset."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Georgiou–Bressloff–Bertrand treat the same geometry; Gaussian-reset perturbation and deterministic-velocity simulations do not state the full fixed-velocity response or pathwise comparison.",
+          "Constant drift on a half-line, AOUP displacement without this killing boundary, and a sticky-wall run-and-tumble process are not superclasses implying the three-part theorem."
+        ],
+        "reasoning": "Model and quantifiers matter: mean-time trends for selected parameters do not prove sample-path order; constant drift at infinite persistence is only a limit, not the finite-τ shift.",
+        "searches": [
+          "arXiv:2609.21124v1 §§2.1–2.2, 3.1–3.4",
+          "arXiv:1811.08239v4",
+          "arXiv:2509.18515",
+          "arXiv:2602.02446"
+        ]
+      },
+      "checked_sources": [
+        "Resultary Oct. 26 threshold record and Nov. 2 velocity-memory record identified above",
+        "arXiv:2609.21124v1, arXiv:1811.08239v4, arXiv:2509.18515, arXiv:2602.02446"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "γ→∞ maps to τ↓0 and γ↓0 maps to τ→∞ after the weak-activity limit; neither record asserts a unique crossover.",
+          "Fixed-velocity scans of mean gain concern a different comparison than ordered absolute passage times."
+        ],
+        "reasoning": "The earlier local threshold theorem implies the frozen threshold theorem, including signs and existence of a crossing; neither it nor the finite simulations imply the full nonperturbative ordering. A high-reset mean asymptotic alone does not justify exchanging ∂ε and r→∞.",
+        "searches": [
+          "SCOPE-persistence-controlled-reversal-of-the-weak-resetting-threshold--845ad3bf89f1, Finding and assumptions",
+          "SCOPE-high-reset-velocity-memory-factor-and-sharp-convex-order-design--80daf37210f7, Finding",
+          "arXiv:2609.21124v1 §3.4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Oct. 26 Finding gives x_*=1−1/√5+εη S(γ)+O_γ(ε²), S(0+)=4/125 and S(γ)=−1/γ+O(γ⁻²).",
+          "Both define onset by the derivative at reset rate zero with complete resets to fixed velocity."
+        ],
+        "reasoning": "Restoring units maps precisely to the frozen δ and the two limits. This is the same OU first velocity mode and not a different persistence effect.",
+        "searches": [
+          "Resultary: SCOPE-persistence-controlled-reversal-of-the-weak-resetting-threshold--845ad3bf89f1",
+          "arXiv:2609.21124v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The October record contains the exact 4/125 and −1/γ in its Finding, not just a data point or numerical crossover.",
+          "The same-date velocity-memory Finding gives a leading exp(vx/(2D)) factor for a deterministic actual drift velocity."
+        ],
+        "reasoning": "The indexed threshold result exhausts the claimed pair of constants up to units. The high-reset comparison is related endpoint coverage, not alone proof of the derivative in the opposite order of limits.",
+        "searches": [
+          "Resultary: SCOPE-persistence-controlled-reversal-of-the-weak-resetting-threshold--845ad3bf89f1",
+          "Resultary: SCOPE-high-reset-velocity-memory-factor-and-sharp-convex-order-design--80daf37210f7"
+        ]
+      },
+      "rationale": "Part (3), a principal stated finding, is covered by the October 26 Resultary result, not merely analogous. Under space x/L, time Dt/L² and velocity V L/D, γ=L²/(Dτ) and δ(τ)=(L²/D) S(γ). The two limits, mixed Green-resolvent shift, complete resets and local onset criterion coincide. The dimensionless unit stationary OU variance is immaterial to the linear term (alternatively rescale velocity and the activity amplitude inversely). A same-date result also has a closely related high-reset factor. The all-activity ordering and full fixed-velocity all-rate derivative were not found in the strongest sources read; those do not make the frozen boundary claim distinct. No narrowed claim was submitted as a repair.",
+      "residual_risks": [
+        "Literature comparison was targeted, not a comprehensive priority search for the ordering or all-rate susceptibility. This does not affect the demonstrated threshold overlap.",
+        "No order between the two Nov. 2 records is inferred from calendar date."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers frozen part (3)",
+          "evidence": "Same deterministic complete resets, passive location, local shift and opposite limits 4/125 and −1/γ.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-persistence-controlled-reversal-of-the-weak-resetting-threshold--845ad3bf89f1/RESULT.md",
+          "material_read": "Finding and scope offset 0; prior-work/limitations excerpt at 7868",
+          "method": "Primary local-mirror text and dimensionless change of variables",
+          "title": "Persistence-controlled reversal of the weak-resetting threshold under fixed-velocity active propulsion",
+          "trigger": "Exact indexed threshold candidate"
+        },
+        {
+          "assessment": "Related endpoint; no inferred within-date priority or interchange of limits",
+          "evidence": "M_r∼exp(x√(r/D))/(r E exp(−x V/(2D))); for deterministic incoming drift the log of the factor is linear.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-high-reset-velocity-memory-factor-and-sharp-convex-order-design--80daf37210f7/RESULT.md",
+          "material_read": "Finding and scope, offset 0",
+          "method": "Primary local-mirror text",
+          "title": "High-reset velocity-memory factor and sharp convex-order design for an active Ornstein–Uhlenbeck searcher",
+          "trigger": "Possible overlap in high-reset endpoint"
+        },
+        {
+          "assessment": "Relevant background; these statements do not cover the all-activity order or full deterministic-velocity derivative",
+          "evidence": "Gaussian velocity analytic perturbation; fixed ±1 protocol in numerical phase diagrams; passive onset already present.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.21124",
+          "material_read": "PDF pp. 1, 3–6 and 10, 13–14; §§2.1–2.2, 3.1–3.4",
+          "method": "Lawful OA primary text and statement comparison",
+          "title": "Persistence, resetting, and first-passage times of an active Ornstein–Uhlenbeck particle",
+          "trigger": "Same active model and restart phase diagram"
+        },
+        {
+          "assessment": "Distinct geometry and propulsion law",
+          "evidence": "Constant drift toward a target on a half-line, not a finite absorbing–reflecting OU interval.",
+          "identifier_or_url": "https://arxiv.org/abs/1811.08239",
+          "material_read": "PDF pp. 1–2, abstract and model",
+          "method": "Lawful OA primary text",
+          "title": "Péclet number governs transition to acceleratory restart in drift-diffusion",
+          "trigger": "Persistent velocity limit"
+        },
+        {
+          "assessment": "The identified displacement result differs; no whole-document exclusion inferred from abstract",
+          "evidence": "Displacement distributions and moments, not the claimed local killed-interval threshold.",
+          "identifier_or_url": "https://arxiv.org/abs/2509.18515",
+          "material_read": "PDF abstract p. 1",
+          "method": "Lawful OA primary text",
+          "title": "Active Ornstein-Uhlenbeck particle under stochastic resetting",
+          "trigger": "Related OU resetting analysis"
+        },
+        {
+          "assessment": "The identified model differs; no whole-document exclusion inferred from abstract",
+          "evidence": "Run-and-tumble and sticky reflection, not OU and instantaneous normal reflection.",
+          "identifier_or_url": "https://arxiv.org/abs/2602.02446",
+          "material_read": "PDF abstract p. 1",
+          "method": "Lawful OA primary text",
+          "title": "Renewal theory for a run-and-tumble particle with stochastic resetting and a sticky boundary",
+          "trigger": "Related internal-state reset problem"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md parts (1)–(3)",
+        "arXiv:2609.21124 §§3.2, 3.4"
+      ],
+      "rationale": "Absolute stochastic order, response for all positive reset rates, and the sign of the derivative of restart benefit are different objects. Comparing them in one natural killed process clarifies why a uniform velocity order does not constrain the direction of shift of the local onset. The exact susceptibility is useful beyond one numerical phase diagram. This scientific usefulness does not make the covered threshold new.",
+      "residual_risks": [
+        "No conclusion about global restart optimization or nonlinear activity response."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

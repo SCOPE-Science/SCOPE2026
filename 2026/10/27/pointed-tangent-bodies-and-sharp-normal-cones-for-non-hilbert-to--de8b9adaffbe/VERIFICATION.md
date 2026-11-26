@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,6 @@
 }
 ---
 
-The self-contained `verification.py` uses only the Python standard library. Run `python verification.py` to reproduce 203 finite numerical checks: source ellipse reparameterization, critical supporting-normal cones over nine exponents, numerical approximation of limiting support, convergence from both sides of the Hilbert exponent, and the critical vertical-half-width root.
+Run `python3 verification.py` for bounded checks using only the Python standard library. The direct ellipse calculation divides the imaginary semiaxis by \(2|1-2/p|\) and compares the resulting coordinates with the hyperbolic axes at representative exponents and their conjugates. Additional checks test selected cone threshold normals, limiting support maximizers, the vertical half-width, and the second-order vertical excess at the limiting height maximizer.
 
-All universal, infinite-dimensional, and asymptotic conclusions follow from the explicit analytical proof in `RESULT.md` and the prior essential-range identity cited there. Numerical sampling cannot establish uniqueness for all parameters or the quadratic Hausdorff bound. No independent scientific audit or external verification has been performed.
+All universal, infinite-dimensional, and asymptotic conclusions follow from the explicit analytical proof in `RESULT.md` and the prior essential-range identity cited there. Numerical sampling cannot establish uniqueness for all parameters or the quadratic Hausdorff bound.

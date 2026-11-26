@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:54:08.894100Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–97; frozen point_counts.txt, VERIFICATION.md, verify_points.cpp and verify_frobenius.py (inspected, not executed)",
+        "Independent point count: python3 /workspace/audit_evidence/k3_x0.py 1 2 3 4 5 6 7 8 9 10 11 12 13; output /workspace/audit_evidence/k3_x0.out",
+        "Independent integer reconstruction, mod-13 polynomial test and lower hull; Kim–Madapusi Pera, Theorem 2 and §4; Bourgeois-Conti et al., §9"
+      ],
+      "rationale": "The characteristic-two companion expression expands to the given equation, and the q=2, b=1 specialization satisfies Lemma 9.2's smoothness hypothesis. An independent point count used X0=1 rather than X3=1: fixing X2=c separates an X1-polynomial b³+(1+c²)b²+c³b from an X3-polynomial (1+c)d³+c²d²+d; the remaining normalized charts were counted separately. The computation used independently constructed irreducible binary moduli and reproduced all 13 recorded counts. Independent integer Newton identities gave midpoint -43008, which forces the plus sign of the weight-two duality relation, and the degree-22 factorization agrees with the finding and the two redundant counts. The reciprocal degree-12 polynomial is irreducible modulo 13. Thus the irreducible normalized factor cannot have a cyclotomic root, as its constant term is 1 but its quadratic coefficient is 1/2. The other normalized roots are six copies of 1 and two copies each of i and -i. The Tate theorem over the indicated extensions gives exactly the claimed ranks. The lower valuation hull in descending reciprocal-polynomial order has vertices (0,0),(2,1),(10,9),(12,12); adding the ten algebraic slopes gives the asserted multiset. The non-unit slopes rule out infinite height, and the slope-1/2 sector gives height two.",
+      "residual_risks": [
+        "Ranks use Tate for K3 surfaces in characteristic 2 and refer to divisorial classes up to rank, not the integral intersection lattice. Mathematical correctness of the finding does not support its prior-work assertion."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Computation 4 states that the 528,257 PGL4(F2) classes of smooth projective quartics and the 52,755 associated zeta functions were computed. Section 3 explicitly says 'We computed the zeta function of every K3 surface over F2 that arises as a smooth quartic surface X in P3'."
+        ],
+        "reasoning": "No special space-filling exception to this enumeration: the audited equation meets the smooth quartic hypothesis. This is stronger prior coverage than a method that could be run later on the same input.",
+        "searches": [
+          "arXiv:1511.06945, Computation 4 and §3",
+          "Resultary exact title and same-quartic geometry lookup"
+        ]
+      },
+      "checked_sources": [
+        "Kedlaya–Sutherland 2016 census and exact companion data row",
+        "Resultary self-hit, same-model five rational lines and polarized rigidity findings",
+        "Bourgeois-Conti et al. §9; Kim–Madapusi Pera Theorem 2 and §4; frozen references and comparison section"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The census separates normalized algebraic and transcendental factors using roots of unity. A cyclotomic algebraic factor supplies the eigenvalue orders for all extension ranks, and the coefficient valuation hull supplies the Newton slopes and height.",
+          "The same-day lines record supplies a rank-six Picard sublattice and does not claim saturation; the separate rigidity finding concerns polarized automorphisms. Neither is needed for the exact earlier zeta comparison."
+        ],
+        "reasoning": "The numerical Picard and height claims mechanically follow from the previously evaluated exact polynomial and established interpretation theorems. No separate new lattice invariant, geometric mechanism, or nontrivial consequence is established by this finding.",
+        "searches": [
+          "Kedlaya–Sutherland, arXiv:1511.06945, Computation 4, beginning of §4; associated table and compute-heights.sage listing",
+          "Kim–Madapusi Pera, arXiv:1512.02540, Theorem 2 and §4",
+          "Resultary same-model rational-lines and polarized-rigidity records"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Exhaustion of all 20,160 invertible binary variable changes in the census's quartic encoding gives minimal integer 2282005286. The minimum is attained by substituting (w,y,x+y,z) for (X0,X1,X2,X3) with the binary rows (1,4,6,8) in w,x,y,z order.",
+          "The companion-polynomial description agrees term-by-term with the frozen quartic when q=2, b=1."
+        ],
+        "reasoning": "Projective linear equivalence over F2 preserves all extension counts. The recovered orbit representative identifies the model, rather than only matching a numerical invariant. Replay: python3 /workspace/audit_evidence/k3_census_id.py.",
+        "searches": [
+          "Kedlaya Sutherland A census of zeta functions of quartic K3 surfaces over F2 data downloadable quartic equations K3 zeta functions database",
+          "arXiv:1511.06945, §3.1 orbit encoding",
+          "Bourgeois-Conti et al., arXiv:2611.15768v1, §9"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact retrieved row is [-2*x^21 + 8*x^20 - 15*x^19 + 18*x^18 - 13*x^17 + x^16 + 10*x^15 - 12*x^14 + 3*x^13 + 11*x^12 - 21*x^11 + 21*x^10 - 11*x^9 - 3*x^8 + 12*x^7 - 10*x^6 - x^5 + 13*x^4 - 18*x^3 + 15*x^2 - 8*x + 2, [2282005286]].",
+          "It equals 2(1-x)^5(1+x²)^2 Q(x/2); the census normalization is P2(T)=(1-2T)L(2T)/2."
+        ],
+        "reasoning": "The row lists the exact model identifier and reduced polynomial, establishing the frozen full denominator after normalizing, without requiring any assumption about priority among records with the same date.",
+        "searches": [
+          "kedlaya/root-unitary/k3-quartic-f2 README and produce-final.sage",
+          "k3final.txt exact orbit ID 2282005286",
+          "Resultary assigned-record self-hit and same-model lines/rigidity findings"
+        ]
+      },
+      "rationale": "Verified preexisting exact coverage: the 2016 Kedlaya–Sutherland census computed the zeta function of every smooth binary quartic up to projective equivalence, and its companion data give the exact zeta for this very equation. It is not merely another surface with coincidentally equal counts. The Picard ranks and height/slopes are standard deductions from that exact encoded datum. The same-day records on this model are not the basis of the failure.",
+      "residual_risks": [
+        "The introductory reference for the later named construction is independent of the earlier census's unnamed representative. Literature may contain still earlier coverage; that does not affect the verified existing coverage. No priority inference is made among same-day findings."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Every smooth quartic, including the assigned model, is covered",
+          "evidence": [
+            "528,257 smooth orbits and 52,755 zeta functions; point counts sufficient to recover the zeta for each smooth orbit; quartic exponents ordered lexicographically and encoded as a binary integer."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1511.06945",
+          "material_read": "PDF p. 2 Computation 4 and normalization passage at offsets 5982–9170; pp. 6–7 §3 and §3.1, offsets 22700–25685",
+          "method": "OA PDF passages",
+          "title": "A census of zeta functions of quartic K3 surfaces over F2",
+          "trigger": "Exhaustive prior calculation on the same field and degree"
+        },
+        {
+          "assessment": "Verified same encoded surface and same normalized polynomial",
+          "evidence": [
+            "The reconstruction script builds normalized polynomials together with lists of quartic integer identifiers. The exact retrieved row and conversion are recorded above."
+          ],
+          "identifier_or_url": "https://github.com/kedlaya/root-unitary/tree/master/k3-quartic-f2",
+          "material_read": "README file descriptions, produce-final.sage at HTML offsets 1112 and 1500–3192, and k3final.txt entry whose integer list is [2282005286]",
+          "method": "OA HTML passages and exact bounded lookup in public raw data via https://api.github.com/repos/kedlaya/root-unitary/contents/k3-quartic-f2/k3final.txt",
+          "title": "Quartic K3 census companion code and data",
+          "trigger": "Model-level equality, not just broad coverage"
+        },
+        {
+          "assessment": "Same companion family and model, no zeta in the inspected argument",
+          "evidence": [
+            "The parameter excludes t^5+t^3; over F2 this excludes only 0. Lemma 9.2 supplies smoothness."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.15768v1",
+          "material_read": "§9, offsets 45500–47554, especially Lemma 9.2",
+          "method": "OA HTML passages",
+          "title": "Space-Filling Hypersurfaces",
+          "trigger": "Model identity and smoothness"
+        },
+        {
+          "assessment": "Provides the general Tate result; not an independent computation of this model",
+          "evidence": [
+            "Tate holds for K3 surfaces over finitely generated fields, including characteristic 2."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1512.02540",
+          "material_read": "Theorem 2 p. 1 and §4 p. 15, offsets 2645 and 54511",
+          "method": "OA PDF passages",
+          "title": "2-adic integral canonical models and the Tate conjecture in characteristic 2",
+          "trigger": "Standard interpretation of the known normalized eigenvalues"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and prior-work section; exact census row 2282005286 and normalization; standard Picard and slope deductions"
+      ],
+      "rationale": "A space-filling K3 is a motivated model and the point-count replay is a valid consistency check. But the submitted invariant is an exact lookup for the same prior census orbit, followed by standard Frobenius and Newton-polygon deductions. This is known-data recomputation and does not supply a new arithmetic or geometric invariant of the model. No further distinct valuable claim survives to repair.",
+      "residual_risks": [
+        "An explicit integral lattice or a nontrivial theorem explaining arithmetic across the companion family could have value, but neither is established in this finding."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:06:44.600987Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Parseval for the sum of the Poisson kernels gives 2 sum_{m>=1} u^m |S_m|² with u=r². Root-of-unity filtering gives the exact reference value. The angular second-order coefficient has the positive squared Fourier perturbations and a subtraction n m²||epsilon||² in the zero residue class only; pairing real conjugate modes yields kappa=n(A_k+A_{n-k}-2A_0), including the even Nyquist normalization, with Hessian 2 kappa. All angular derivatives converge for u<1, and rotation invariance reduces the remainder to the centered perturbation. Independently checked the hyperbolic residue identity: with x=-log(u), t=nx/2 and a=k/n, the generating function for the residue difference is -2 sinh(at)sinh((1-a)t)/sinh(t); differentiating twice gives kappa=-(n³/2)G_a''(t). For the parallel sum vw/(v+w), its negative-semidefinite Hessian is a negative rank-one form and both partials are positive, so the strict second-derivative signs of tanh(at) and tanh((1-a)t) imply G_a''<0. The first nonzero residue term gives the small-u hierarchy; the cubic term -a²(1-a)²t³/3 gives k²(n-k)²(1-u)/2 at the other end. At fixed n the finite set of curves has distinct minimizing frequency types in the two limits, so a switch occurs, with no uniqueness established. Bounded independent replay: python /workspace/branches/replay_frozen.py 5 checks a symbolic Taylor coefficient and compares exact differentiated pair-kernel curvatures to direct residue sums at five sizes and four radii, including endpoint order tests; it is not used for general positivity. The mathematical formulas are unchanged by the repair. The repaired slogan correctly distinguishes the highest distinct frequency at odd n from the even Nyquist frequency.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "arXiv:math/0607446, §1, Theorem 1.2 identified by the author's public Harmonic optima summary: energy minimization for completely monotone functions of squared distance at sharp configurations",
+          "Resultary f37fec836ddf: same variance but inward displacement allowed under a maximum modulus bound, changing the global minimizing configuration for small radii"
+        ],
+        "reasoning": "There are m=floor(n/2) distinct distances in the regular polygon. Its root-of-unity quadrature is exact for circular polynomials through degree n−1, so it is a (2m−1)-design and sharp. The diagonal energy is fixed, so the universal-optimality theorem covers the qualitative minimum. It neither gives the radius-dependent modal values nor compares the two limiting soft frequencies. The distinct radial-motion problem does not refute fixed-radius angular stability.",
+        "searches": [
+          "Cohn Kumar Universally optimal distribution of points on spheres Theorem 1.2 sharp configurations regular polygons circle completely monotonic",
+          "Resultary: radial relaxation and angular stiffness of Blaschke zero polygons"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, check_hessian.py, REVIEW.md, AUDIT.json, and repaired RESULT.md and SLOGAN.txt",
+        "Cohn–Kumar arXiv:math/0607446, primary front matter and theorem-summary evidence",
+        "Kovalev–Yang arXiv:2007.09760; Gluchoff–Hartmann DOI 10.1007/978-1-4614-5341-3_9 (chapter not retrieved)",
+        "Resultary a712e5339c70, f37fec836ddf, 9aca32c3cb4f, efc85019d6aa"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Kovalev–Yang abstract and §1 scope: maximum/minimum derivative and extremizers for their difference",
+          "Resultary 9aca32c3cb4f and efc85019d6aa: boundary-pole Bergman moments, not the Poisson weights u^m",
+          "RESULT.md lines 64–94: strict concavity of a hyperbolic residue difference and two opposing limiting hierarchies"
+        ],
+        "reasoning": "Derivative extrema are not the variance Hessian, and changing the Fourier kernel changes the stiffness residues. General minimality implies nonnegativity of the quadratic form but yields no explicit modal spectrum or its reversal on its own. Neither the fixed-degree square crossing nor the Bergman norm comparison mechanically implies the surviving piece.",
+        "searches": [
+          "Kovalev–Yang arXiv:2007.09760, boundary derivative extrema",
+          "Gluchoff–Hartmann DOI 10.1007/978-1-4614-5341-3_9",
+          "Resultary 9aca32c3cb4f; efc85019d6aa"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Repaired RESULT.md Relationship to prior work: V=sum_{i,j} f_u(|e^{i theta_i}-e^{i theta_j}|²)-n², f_u(s)=(1-u²)/((1-u)²+us)",
+          "Resultary a712e5339c70: exact same variance and fixed-radius angular setting for the regular square"
+        ],
+        "reasoning": "The Poisson energy is exactly the same objective up to constants, not just an analogy. Each derivative of f_u alternates sign strictly, so known potential theory applies directly to minimality. The degree-four spectrum treats the same phenomenon, but neither it nor the reduction states the all-degree local frequency order.",
+        "searches": [
+          "Resultary: equiradial finite Blaschke angular Hessian, Poisson autocorrelation pair energy, Fourier stiffness crossover",
+          "Cohn–Kumar arXiv:math/0607446 squared-distance spherical energy on S^1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary a712e5339c70: two positive transverse stiffness bands and a unique crossing u*=0.1520115267… for n=4",
+          "RESULT.md lines 24–34, 84–94: endpoint hierarchies for n>=5 and existence without a unique crossing radius"
+        ],
+        "reasoning": "The exact square formula and algebraic crossover value are prior comparison evidence for the special degree, not an all-degree lookup or implication. The repaired finding excludes the square, does not claim a numerical crossover value for n>=5, and does not infer precedence from same-date indexing.",
+        "searches": [
+          "Resultary: exact stiffness spectrum, mode switch and regular-polygon Blaschke derivative variance by degree"
+        ]
+      },
+      "rationale": "Pass specifically for the exact angular quadratic spectrum and forced reversal of the minimizing frequency for every n>=5, not for the minimizing configuration. The original prior-work discussion missed a dominating qualitative result: the exact pair potential is strictly completely monotone in squared chord distance, so Cohn–Kumar universal optimality already gives regular-polygon minimality globally within equiradial angular placement. The corrected RESULT.md explicitly adds this reduction and credits the prior theorem; the corrected slogan describes the surviving spectral contribution. The degree-four exact theory is a close genuine overlap at an excluded degree, not assumed earlier based on the catalogue date. Available sources do not establish an equivalent spectrum or reversal for the claimed degrees; residual risks remain.",
+      "residual_risks": [
+        "The exact Cohn–Kumar theorem passage and the Gluchoff–Hartmann chapter were not independently retrieved. The universal optimality implication for qualitative minimality is credited rather than dismissed.",
+        "Unindexed circular pair-potential literature may contain a related exact stiffness formula or endpoint order. Available passages do not prove absolute priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct broader qualitative coverage for the angular minimizer. No claim to have ruled out spectral remarks in the full primary text; the sharp-configuration theorem itself does not give the quantitative conclusion.",
+          "evidence": [
+            "Theorem 1.2, §1, applies to sharp spherical configurations for completely monotonic squared-distance potentials; the regular polygon meets the design and distance criteria exactly.",
+            "A potential f_u(s)=const/((1-u)²+us) has (-1)^q f_u^(q)(s)>0 for every q, 0<u<1."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0607446; https://doi.org/10.1090/S0894-0347-06-00546-7",
+          "material_read": "Primary PDF p. 1 bibliographic header and contents; primary search extract on definition of universal optimality; Theorem 1.2 statement as summarized on the author's Harmonic optima page in the search extract. The primary theorem passage was not returned by bounded alternate retrieval.",
+          "method": "Primary arXiv and AMS OA retrieval, followed by a targeted actual theorem lookup and independent verification of its hypotheses for the Poisson potential.",
+          "title": "Universally optimal distribution of points on spheres",
+          "trigger": "Exact Poisson-kernel energy reduction supplies a plausible stronger minimization theorem"
+        },
+        {
+          "assessment": "Studies extrema of the pointwise speed, not the Fourier Hessian in angle space of the variance.",
+          "evidence": [
+            "Abstract identifies maximum/minimum boundary derivatives and extremizers for their difference."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2007.09760",
+          "material_read": "Primary abstract and §1 scope, not a full-text exclusion.",
+          "method": "Public preprint passage comparison.",
+          "title": "Extreme values of the derivative of Blaschke products and hypergeometric polynomials",
+          "trigger": "Same boundary-speed object and extremal questions"
+        },
+        {
+          "assessment": "Frozen source description indicates a different mean and low degrees; full primary overlap cannot be excluded from the retrieved metadata.",
+          "evidence": [
+            "Frozen RESULT.md line 100 distinguishes the interior means of 1−|B|² for degrees 2–3 from the angular variance in question."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/978-1-4614-5341-3_9",
+          "material_read": "Bibliographic data; frozen RESULT.md lines 99–100 describes a Section 4 transcription, but chapter text was not independently retrieved.",
+          "method": "Targeted open-text lookup by DOI and frozen evidence comparison.",
+          "title": "Hardy Means of a Finite Blaschke Product and Its Derivative",
+          "trigger": "Possible boundary L²-mean or angular positioning overlap"
+        },
+        {
+          "assessment": "Same variance at degree 4 or in a broader radial-motion problem; other two results use a different potential. No spectrum equivalence in range was established.",
+          "evidence": [
+            "a712e5339c70 gives a unique square crossing; f37fec836ddf permits inward motion; the two Bergman records concern boundary poles."
+          ],
+          "identifier_or_url": "Resultary a712e5339c70; f37fec836ddf; 9aca32c3cb4f; efc85019d6aa",
+          "material_read": "Catalogue statements and relevant source claim comparisons; no whole-document exclusion.",
+          "method": "Local Resultary lookup; comparison by exact functional, perturbation type and degree.",
+          "title": "Square stiffness crossover, radial relaxation, and Bergman Fourier Hessians",
+          "trigger": "Strongest degree-specific and mode-specific analogues"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Beyond prior knowledge of the minimizer, exact eigenvalues give sharp local conditioning and diagnose which angular deformation costs least. Their opposite frequency hierarchies at small and large radius establish a genuine qualitative change in spectral response that global optimality alone misses. This supplies an explicit benchmark in phase distortion and circular kernel energy without claiming transition uniqueness, uniformity across growing degree, or radial stability.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

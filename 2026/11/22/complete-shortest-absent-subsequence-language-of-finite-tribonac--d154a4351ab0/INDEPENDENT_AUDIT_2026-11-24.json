@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:08:23.540313Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT §§Finding–Proof; VERIFICATION.md; verify.py and verify_output.txt (inspected, not run)",
+        "branches/check_tribonacci.py and check_tribonacci.log"
+      ],
+      "rationale": "Checked the all-rank proof directly. With P=0102, the three images under sigma cubed are P followed by D_0=010, D_1=01, D_2=empty. In sigma cubed applied to T_(k-3), the initial P and each successive D_a P are exactly the complete greedy arches, so their number and the number of 2s are both r. T_m ends in 01, 02, 10 for m=1,2,3; the recurrence T_m=T_(m-1)T_(m-2)T_(m-3) repeats these two-letter suffixes for m>=4. Consequently the penultimate symbol is 0 or 1, giving a final complete arch whose binary prefix embeds 11; the last symbol yields the stated tail. Every length-r word embeds one symbol per arch. For length r+1, group any binary-to-2 adjacent pair in one arch; otherwise the word is 2^t followed by a binary block. If that block has length at least two, group a non-11 adjacent pair in its assigned arch, or, for an all-1 block, its last pair in the last arch. A block of length zero overuses 2, and one of length one must use the final tail. This exhausts the words and proves both the minimum length and exact list. Independent direct subsequence enumeration at k=4,5,6, covering all residue classes, agreed (branches/check_tribonacci.py and .log); the replay is not the all-rank argument.",
+      "residual_risks": [
+        "No claim for shifted prefixes or outside the specified ranks and full alphabet."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The multinacci theorem includes ternary arch types and the exact count r; the general SAS theorem supplies a position-based characterization, not an evaluated list for those arch types."
+        ],
+        "reasoning": "Already-covered structural inputs and a general test are credited. Evaluating the characterization still requires the specific local embedding and tail argument; the language is not just a parameter substitution.",
+        "searches": [
+          "Resultary multinacci fixed-point arch factorization ID 06c42dc2835a",
+          "arXiv:2108.13968, Theorem 3.4 and Lemma 4.4/Theorem 4.5",
+          "arXiv:2304.11932, arch factorization and subword universality"
+        ]
+      },
+      "checked_sources": [
+        "Resultary IDs 06c42dc2835a and 4002f7f2f013",
+        "arXiv:2108.13968, 2304.11932, 2605.18034 and 2610.04298"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "From the prior arch count alone one obtains r+1; the new classification distinguishes which adjacent pairs fit inside the available arches, the final 11 capacity and the tail symbols."
+        ],
+        "reasoning": "Length and general arch methods are prior, but they do not themselves give the one-or-three classification. A separate structural argument, here audited for all ranks, evaluates the language.",
+        "searches": [
+          "Resultary multinacci result Finding and Step 2",
+          "Kosche et al., arXiv:2108.13968, Theorem 3.4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The rich-word H_m three-word language contains only two distinct symbols across its words, versus three in the Tribonacci three-word case. This persists under bijective relabeling and reversal. Its morphic corollary is for a different substitution changing the last image to 0bb, and covers just three specified ranks."
+        ],
+        "reasoning": "Same subject, same cardinality in one phase, and an arch-based method do not give a relabeling, reversal, or specialization giving this family.",
+        "searches": [
+          "Resultary: shortest absent subsequences of morphic words; exact multinacci arch factorization; rich-word three-word SAS",
+          "arXiv:2108.13968, Definition 2.2–2.4 and Theorem 3.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest matched records give the multinacci arch sequence or a different complete morphic SAS language; the two arXiv sources study contiguous factor counts or net occurrences, including an epistandard setting, not a Tribonacci SAS table."
+        ],
+        "reasoning": "No distinct explicit formula/catalogue of these finite iterates’ complete SAS was found among the checked records; contiguous-factor statistics are not that invariant.",
+        "searches": [
+          "Resultary exact multinacci arch and three shortest absent morphic subsequences results",
+          "arXiv:2605.18034 and arXiv:2610.04298"
+        ]
+      },
+      "rationale": "The strongest prior arch result already gives the full arch coding and shortest absent length. The supported distinct contribution is the closed-form language, which requires controlling binary pairs within the arches and whether the final tail can host a letter. Neither a new arch count nor absolute priority is asserted.",
+      "residual_risks": [
+        "Unindexed equivalent evaluations of the general SAS criterion may exist.",
+        "Justin–Vuillon, Return words in Sturmian and episturmian words, was not retrieved in full by DOI; possible antecedents for arch coding are not ruled out. The older arch coding is already credited.",
+        "The frozen link for the multinacci arch result is malformed; the matching mirror ID resolves the comparison."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers arch coding and count, not complete SAS evaluation",
+          "evidence": "Ternary case gives 0102, 0100102, 010102 and U_m(L_n)=L_(n-m).",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-a-self-similar-arch-factorization-for-all-multinacci-words--06c42dc2835a/RESULT.md",
+          "material_read": "Finding and Step 2, leading RESULT passage",
+          "method": "Resultary local mirror, statement-level comparison",
+          "title": "A self-similar arch factorization for all multinacci words",
+          "trigger": "Exact same arch structure and iterates"
+        },
+        {
+          "assessment": "General length, characterization and algorithmic precedent",
+          "evidence": "The arch index plus one gives SAS length; the complete language requires evaluating the characterization.",
+          "identifier_or_url": "https://arxiv.org/pdf/2108.13968",
+          "material_read": "Definitions 2.2–2.4, Theorem 3.4, Lemma 4.4 and Theorem 4.5, pp. 202, 204–205, 216",
+          "method": "OA PDF passages",
+          "title": "Absent Subsequences in Words",
+          "trigger": "General possible implication for SAS"
+        },
+        {
+          "assessment": "Different hypotheses and language; not equivalent under reversal or relabeling",
+          "evidence": "H_m=(RRb)^m Z gives {a^(2m+1),ba^(2m),b^2a^(2m-1)}. Its first two complete arches end in b and later ones in a.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-three-shortest-absent-subsequences-in-a-rich-word-morphic-family--4002f7f2f013/RESULT.md",
+          "material_read": "Finding, assumptions and arch proof, offset 0–6223",
+          "method": "Resultary local mirror",
+          "title": "Three shortest absent subsequences in a rich-word morphic family",
+          "trigger": "Closest same-day exact SAS theorem"
+        },
+        {
+          "assessment": "Nearby invariants, not direct evidence of SAS coverage",
+          "evidence": "Statements on factor-occurrence counts, substrings and net occurrences are for contiguous factors.",
+          "identifier_or_url": "arXiv:2605.18034 and arXiv:2610.04298",
+          "material_read": "p. 1 of each",
+          "method": "OA PDF passages",
+          "title": "On Occurrence-Preserving Morphisms; Exact Net-Occurrence Counts in Purely Morphic Regular Epistandard Words",
+          "trigger": "Overlapping morphic/epistandard vocabulary and objects"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT Proof §§1–4",
+        "Multinacci arch record 06c42dc2835a"
+      ],
+      "rationale": "For a standard morphic word, the exact missing language at the universality boundary is more useful than the already-known boundary length: the proof gives a single structural description at every rank, shows why the count changes with rank modulo 3, and identifies the only obstructions among exponentially many candidate words. The pair-packing argument is independently useful for other arch families meeting the same local conditions.",
+      "residual_risks": [
+        "No extension to all epistandard or multinacci words is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

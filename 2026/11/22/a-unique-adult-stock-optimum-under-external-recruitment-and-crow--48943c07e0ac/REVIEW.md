@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The stationary exponential profile, its scalar closure, and the monotone bijection between total stock and external recruitment are reconstructed in RESULT.md. The exact mature fraction has logarithmic loss rate \(H_\beta(t)\), and the strict monotonicity of \(s/\sinh(s)\) supplies the decisive inequality \(H_\beta'(t)>0\) for all positive parameters. This yields a unique nondegenerate adult-stock maximum at any cutoff strictly between entry and terminal size. The limiting high-recruitment asymptotic and Lambert midpoint case follow algebraically. CHECK.py confirms stationary closure and examples in 380 numerical parameter cases; finite checks are not used as infinite proofs.
+PASS
 
-## Originality — PASS, literature-bounded
+The stationary transport profile is (p/gamma)exp[-(mu_0+alpha N)ell/gamma]; its scalar closure makes p(N) a strictly increasing bijection on the positive half-line because t/(1-exp(-t)) is increasing, including continuity at zero. The adult fraction is F_beta(t)=exp(-beta t)(1-exp(-(1-beta)t))/(1-exp(-t)), so the adult-count logarithmic derivative has sign 1-(t-t_0)H_beta(t), with H_beta=-F'_beta/F_beta. Independently differentiating yields H'_beta>0 by strict decrease of s/sinh(s), H_beta(0+)=beta/2>0, and H_beta(infinity)=beta. Consequently the root is unique for every 0<beta<1 and t_0>=0; the log curvature is strictly negative there. At large p, p~alpha N^2 and log A_h=log N-beta t+o(1), giving log A_h/sqrt(p) -> -h sqrt(alpha)/gamma. At beta=1/2 and mu_0=0, writing z=t/2 gives (z-1)exp(z)=1 and A_h(p_*)=2 gamma W_0(exp(-1))/(alpha L). The proofs and boundary regimes were independently reconstructed; frozen CHECK.py was inspected, not executed, and its finite diagnostics are not needed for the theorem. This is about stationary, unharvested, count-dependent linear mortality with constant growth and external flux, not dynamical stability, yielding harvest or validating a field prescription.
 
-Yu–Wang–Liang [1, §3, Proposition 3.1] gives the positive stationary profile and closure for each fixed recruitment flux. The all-maturation unique optimum of adult count **as recruitment varies** and its closed midpoint calibration are not contained in the inspected source. Past work on dome-shaped stock–recruitment relationships (Harris 1975), stocking survival (Lorenzen 2000), and size-structured density-dependent growth (2023 Fish and Fisheries paper) is credited. A matching theorem was not found in the inspected indexed comparisons or indexed relevant records. The older complete articles were not all accessible; this is historical-priority risk and search absence is not novelty proof.
+## originality
 
-## Value — PASS
+PASS
 
-An externally stocked population can show increasing total numbers while producing progressively fewer mature fish. The sharp theorem identifies the unique influx optimum for *every* maturation cutoff under an interpretable crowding-dependent mortality mechanism, and quantifies large-input collapse. This resolves a biologically motivated output-variable distinction rather than a convenient arbitrary numerical slice.
+The model, stationary exponential profile in this subfamily and scalar closure come from established size-structure theory. The supported extension is the strict, all-interior-cutoff classification for the mature equilibrium count as a function of the external input, with high-input decay and the midpoint calibration. The closest prior primary text and inspected catalogue records address different response or optimization variables, not this conclusion.
 
-## Limits
+## value
 
-Only stationary states of the constant-growth, externally forced, uniform size-independent death submodel are addressed. Dynamic stability, catch yield, variable-weight biomass, and real-fishery calibration are not proved. Earlier overlapping literature remains possible. No independent scientific review has occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Standing mature count is a meaningfully different objective from total census or yield. The model gives a sharp counterexample to monotone mature-stock response despite strictly increasing total count; it supplies an all-cutoff uniqueness criterion and a quantitative high-input decline. This is useful for interpreting and checking this model class, not presented as a universal biological claim or stocking advice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:23:31.996499Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md proof steps 1–5; VERIFICATION.md and CHECKER.py inspected, not executed",
+        "Liu–Xin–Ye–Yin arXiv:2306.10738 Lemma 3.3",
+        "Independent bounded replay: node /workspace/branches/bounded-review-checks.js 3; 12 parameter pairs, 1,256 maximal blocks from direct membership"
+      ],
+      "rationale": "The cited Apéry formula applies with d=1, k=n−1 and a=R_n because R_(n+j)=b^j a+R_j and a≥n−2. The key minimization can also be seen directly: b^j=(b−1)R_j+1, so a combination with coin face value r' and coin count c contributes b^n r'+ac. In a fixed residue r, r'>r cannot beat a representation of r with at most r<a≤b^n coins. For fixed face value choose a minimum-coin representation lexicographically maximal from the largest coin down. For any nontop index j, (b+1)R_j=R_(j+1)+bR_(j−1) for j≥2, while (b+1)R_1=R_2. Also bR_j+R_i=R_(j+1)+(R_i−1) for i<j, with R_i−1=bR_(i−1) for i≥2 and zero for i=1. Exchanging never increases the count and improves the lexicographic choice. Thus nontop digits are ≤b, and a digit b has no positive lower digit. Each lower tail then has value at most R_(j+1)−1 through level j, so this representation is greedy. In the residue array 0≤r<R_n, the b regular copies of the smaller staircase have vertically shifted heights tb^(n−1); endpoint differences between copies and at the final residue vanish. All upward jumps are b by induction, starting with q_2(r)=br. A jump at r starts a missing suffix of length R_n−r in precisely b distinct rows, separated by multiples of R_n; monotonicity precludes other maximal blocks. Jump indices have distinct greedy digits with bottom coordinate 1 through b, and complementing digits via (b−1)R_j=R_(j+1)−R_j−1 yields offset n−1, the product, and both extrema. There are exactly b^n blocks; no uniqueness of a longest block is asserted.",
+      "residual_risks": [
+        "Bounded membership checks do not imply the all-parameter statement. The proof uses all n generators of the ordinary repunit family."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Both accessible generalized-family papers specialize directly to the Apéry data; the Liu et al. Corollary 4.2 ties the d=1 family to the original repunit Frobenius/genus results."
+        ],
+        "reasoning": "The broader results are antecedents for Apéry computation and classical invariants. Their inspected statements do not provide the jump-size distribution or translate it into maximal-gap lengths. Original Rosales–Branco–Torrão full text remains unavailable.",
+        "searches": [
+          "arXiv:2306.10738 Lemmas 3.1, 3.3 and Section 4",
+          "DOI 10.1007/s00009-022-02233-w Thm. 15",
+          "DOI 10.1007/s11139-015-9719-3"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 3c7cf6d7bb81 (self-match), edac8df7ef94, ce99c1d39cb5, 292fed6d38fa and 67ceccfd122a",
+        "Liu–Xin–Ye–Yin arXiv:2306.10738",
+        "Branco–Colaço–Ojeda DOI 10.1007/s00009-022-02233-w",
+        "Rosales–Branco–Torrão DOI 10.1007/s11139-015-9719-3 (limited evidence)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Explicit representatives decide membership residue by residue. The multiplicity requires concluding that heights form ordered copies of a single staircase, that joins have zero jump, and that every positive jump has the same height and indexes exactly b unmergeable suffixes."
+        ],
+        "reasoning": "Knowing the representatives is not the same statement as the universal structural multiplicity or factorization; deriving the latter needs the staircase and maximal-block argument, not only changing the semigroup parameters or summing the Apéry set for genus.",
+        "searches": [
+          "Liu–Xin–Ye–Yin Lemma 3.3, §4; Branco–Colaço–Ojeda Thm. 15"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The closest same-day record edac8df7ef94 is for odd a and the affine triple <a,2a+2,4a+6>, with longer lengths and multiplicities governed by mod three; even for b=2 these are not the ordinary generators <a,2a+1,4a+3>.",
+          "ce99c1d39cb5 is a quotient of a consecutive-generator pair. 292fed6d38fa and 67ceccfd122a count isolated gaps in different shifted or doubled families."
+        ],
+        "reasoning": "None of these run/census formulations is an alias for all lengths in the assigned ordinary family. Date alone gives no priority ordering among same-day records.",
+        "searches": [
+          "Resultary: gap-block length spectra / gap runs / isolated gaps of repunit and affine repunit numerical semigroups"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact 3c7cf6d7bb81 match is the bound record itself. Distinct indexed spectra and isolated-gap records use different generators or invariants."
+        ],
+        "reasoning": "The exact claim is a uniform polynomial, not individual tabulated examples; the applicable index comparison does not establish distinct prior coverage.",
+        "searches": [
+          "Resultary ordinary consecutive-repunit complete maximal-gap histogram and b-fold length multiplicity"
+        ]
+      },
+      "rationale": "Prior papers supply the explicit Apéry set and classical numerical-semigroup invariants, not credited as novel. The supported distinct result is the b-fold histogram and factorized maximal-gap length spectrum. No equivalent spectrum or otherwise directly dominating result was established in the inspected statements.",
+      "residual_risks": [
+        "Original Rosales–Branco–Torrão journal full text was inaccessible. Previously unlocated run statistics, or a more explicit prior staircase theorem, could cover this deduction. No search proves publication priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct Apéry coverage and prior Frobenius/genus formulas; the checked results do not state the gap-block histogram",
+          "evidence": "N_r^d=(sum b^i x_i)a+rd becomes the ordinary Apéry formula at d=1, a=R_n; §4 gives its classical invariant consequences.",
+          "identifier_or_url": "https://arxiv.org/abs/2306.10738",
+          "material_read": "Lemma 3.3 p. 5, offset 19520; Section 4 Theorem 4.1/Corollary 4.2 pp. 7–8, offset 27800",
+          "method": "OA primary PDF passages",
+          "title": "A Note on Generalized Repunit Numerical Semigroups",
+          "trigger": "Greedy Apéry representatives in a family containing the exact ordinary repunits"
+        },
+        {
+          "assessment": "Specializes to the same Apéry set, not to a stated gap-block spectrum",
+          "evidence": "Canonical digit vectors; choosing shift b^n gives R_n+b^n R_j=R_(n+j).",
+          "identifier_or_url": "https://doi.org/10.1007/s00009-022-02233-w",
+          "material_read": "Theorem 15, p. 8, offset 19800",
+          "method": "OA primary PDF passage",
+          "title": "The Frobenius Problem for Generalized Repunit Numerical Semigroups",
+          "trigger": "Broader explicit Apéry set"
+        },
+        {
+          "assessment": "Known ordinary family and classical invariants; additional coverage cannot be ruled out",
+          "evidence": "The successor explicitly identifies the d=1 family and cites the original Frobenius and genus results.",
+          "identifier_or_url": "https://doi.org/10.1007/s11139-015-9719-3",
+          "material_read": "Bibliographic and abstract evidence; identification and citations in Liu et al. Corollary 4.2; not original full text",
+          "method": "DOI, publisher PDF/article, and repository-copy attempts did not provide readable full text",
+          "title": "The Frobenius Problem for Repunit Numerical Semigroups",
+          "trigger": "Original paper on exactly the same ordinary repunit objects"
+        },
+        {
+          "assessment": "Different generators and spectrum",
+          "evidence": "Longer runs for <a,2a+2,4a+6> have multiplicity two or zero by a mod-three rule; a separate singleton count is given.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-gap-run-spectrum-of-an-odd-parameter-affine-repunit-triple--edac8df7ef94",
+          "material_read": "RESULT.md, Finding",
+          "method": "Local Resultary mirror",
+          "title": "Exact gap-run spectrum of an odd-parameter affine repunit triple",
+          "trigger": "Closest distinct complete repunit-like spectrum"
+        },
+        {
+          "assessment": "Different quotient family, no general repunit implication",
+          "evidence": "Uses a quotient of <pk+1,pk+2> and a spectrum with one distinguished term plus equal multiplicities on a consecutive interval.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-uniform-gap-run-spectrum-for-quotients-of-consecutive-generato--ce99c1d39cb5",
+          "material_read": "RESULT.md, Finding",
+          "method": "Local Resultary mirror",
+          "title": "A uniform gap-run spectrum for quotients of consecutive-generator numerical semigroups",
+          "trigger": "Alternative gap-run terminology and exact enumerator"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding and proof steps 2–5; Liu et al. Section 4 for classical invariants"
+      ],
+      "rationale": "The gap lengths refine the known Frobenius number and genus for a natural, well-studied family. The exact multiplicity law and digit factorization reveal a uniform regularity not captured by those statistics; the result is more informative than an endpoint or an isolated finite computation.",
+      "residual_risks": [
+        "The staircase uses the exact ordinary repunit identities and need not hold for arbitrary shifted variants."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

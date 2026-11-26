@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:16:37.550771Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–60, VERIFICATION.md, and checker.py (inspected, not executed)",
+        "Abreu–Speckbacher Prop. 7, Eq. (4.3)",
+        "Maximenko–Tellería-Romero Prop. 6.3, Eq. (43)"
+      ],
+      "rationale": "With the 2π STFT convention the usual Weyl displacement has |α|²=π(x²+ξ²)=t. In the Bargmann monomial basis, expanding e^(αz)(z−conj(α))²/√2 and multiplying by the displacement Gaussian gives the h_k coefficient e^(−t/2) α^(k−2) Q_k(t)/√(2k!) up to irrelevant phase or conjugation. This is valid at t>0 for k=0,1 too, taking absent lower monomials as zero. The angular frequency k−2 gives disk diagonalization; normalized planar polar measure becomes dt after angular integration. Independently differentiating the proposed difference produces e^(−a)a^(k−2)[a Q_(k+1)²−(k+1)Q_k²]/(2(k+1)!), by substituting x=a−k, Q_k=x²−k, Q_(k+1)=Q_k−2x. This is the difference of the two densities; both sides vanish at zero, including k=0 after cancellation. For the triple condition, Q_k and Q_(k+2) cannot share a root: subtraction forces a−k=1/2 and k=1/4. The common middle root is a=n+s√n, n=k+1, excluding a=0. There Q_(n−1)=2(1+s√n), Q_(n+1)=−2s√n and Q'_n=2s√n, giving a negative slope for the incoming difference and a positive one for the outgoing difference, hence peak to trough. Adjacent Q's cannot share a positive root since Q_(n+1)−Q_n=−2(a−n). For two distinct middle indices n<m both branches are increasing, so √n+√m=m−n. Isolating and squaring gives rational √n and then integer square roots u,v, with u(u+1)=v(v−1) iff v=u+1. This gives precisely the two stated starts, without asserting that the two triples occupy the same eigenvalue level or that either attains the norm.",
+      "residual_risks": [
+        "The frozen bounded checker only compares arithmetic coincidences among square indices; the proof, not that check, excludes nonsquare pairs.",
+        "The recorded quadratures were not independently rerun and are not needed by the proof.",
+        "This does not classify arbitrary nonconsecutive spectral collisions."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prop. 6.3 gives diagonal eigenvalue integrals for general radial symbols on true-polyanalytic Fock spaces; Prop. 7 gives disk orthogonality and Laguerre integrals.",
+          "The later a2df20aeb429 also gives a norm maximum over three explicit candidates and a bound of three local-maximum plateaux."
+        ],
+        "reasoning": "Specialization of the general result gives the integral in the frozen proof, not the evaluated product or its arithmetic root classification. The later exact result covers substantially more spectral information.",
+        "searches": [
+          "Maximenko–Tellería-Romero arXiv:1905.00978 Prop. 6.3",
+          "Abreu–Speckbacher arXiv:1808.02258 Prop. 7",
+          "Resultary a2df20aeb429 norm and local maxima"
+        ]
+      },
+      "checked_sources": [
+        "Resultary a2df20aeb429 and targeted area-two catalogue query",
+        "arXiv:1905.00978",
+        "arXiv:1808.02258",
+        "arXiv:1012.4283",
+        "doi:10.1109/18.9761"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Gaussian incomplete-gamma eigenvalues are strictly ordered and use a different window. General h2 integrals require an additional boundary-factor calculation. In the later record the shared product and exact root classification give the old statement; the signs at its simple roots also determine the peak-to-trough behavior."
+        ],
+        "reasoning": "The old radial integrals are not equivalent to the evaluated boundary product. The distinct indexed result supplies that product and the full root classification; differentiating a simple factor gives the only not-explicitly-stated conclusion.",
+        "searches": [
+          "Daubechies 1988 Gaussian disk eigenvalues",
+          "Maximenko–Tellería-Romero Eq. (43)",
+          "Abreu–Speckbacher Eq. (4.3)",
+          "Resultary a2df20aeb429 Finding and difference proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In Resultary a2df20aeb429, F_n(x)=x²−2nx+n(n−1) is exactly Q_n(x) in the disk radial variable x. Center n corresponds to starting mode n−1.",
+          "Abreu–Gröchenig's transform identifies Hermite-window analysis with true-polyanalytic Fock analysis."
+        ],
+        "reasoning": "A radial Toeplitz formulation or a change between disk radius and area is not a new crossing theorem. The later record really covers the equations and resonance statement, and the signs follow from its product. The older transform alone gives no such spectral classification.",
+        "searches": [
+          "Resultary: second Hermite disk localization, triangular resonances, h2 area-two triple",
+          "Hermite-window disk concentration, true-polyanalytic radial Toeplitz eigenvalues, adjacent spectral crossings"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary a2df20aeb429 explicitly gives the same infinite triangular parameter list and both middle indices. The inspected older papers give integrals rather than a table or closed catalogue of crossings. The precise citation for the previously known isolated area-two case was not recovered."
+        ],
+        "reasoning": "A closed list for all positive parameters would dominate a finite spectral table. Conversely, the area-two special case, already excluded from the novelty assertion, does not determine the all-index list.",
+        "searches": [
+          "Resultary catalogue for a complete all-index disk resonance locus and the area-two h2 triple",
+          "Hermite-window disk primary formulas in arXiv:1905.00978 and arXiv:1808.02258"
+        ]
+      },
+      "rationale": "A distinct, stronger indexed result, a2df20aeb429, states the same boundary product, complete consecutive triple and no-quadruple classification, and exact paired-triple sequence and indices. Its product also determines the peak-to-trough direction by the signs of the two neighboring factors at a simple root. Thus no mathematically distinct part of the finding survives the coverage comparison. The older generic integrals do not themselves supply the classification. The stronger catalogue record is later-dated; this is a finding of coverage, not a determination of priority or dependence.",
+      "residual_risks": [
+        "An older all-index adjacent Laguerre boundary identity or an unindexed classification could affect priority.",
+        "Relationship between the two dated records and provenance of the earlier isolated area-two example are not established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantively overlapping and stronger, later-dated than the assigned record",
+          "evidence": "Same adjacent difference and all consecutive triples, no quadruple, and paired triples at x=u(u+1), plus norm and local-maximum results.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-three-mode-disk-localization-and-triangular-spectral-resonances--a2df20aeb429/RESULT.md",
+          "material_read": "Finding and corresponding proof passages around offsets 0 and 5990",
+          "method": "Bounded local mirror inspection",
+          "title": "Three-mode disk localization and triangular spectral resonances in the second-excited Hermite sector",
+          "trigger": "Same window and exact triangular resonance list"
+        },
+        {
+          "assessment": "Prior general eigenvalue representation",
+          "evidence": "Diagonalization and Laguerre-function integrals; no evaluated adjacent product or arithmetic classification in the proposition.",
+          "identifier_or_url": "https://arxiv.org/abs/1905.00978",
+          "material_read": "Prop. 6.3, p. 21, Eq. (43)",
+          "method": "Primary OA PDF passage",
+          "title": "Radial operators on polyanalytic Bargmann–Segal–Fock spaces",
+          "trigger": "Strongest general radial-symbol spectrum comparison"
+        },
+        {
+          "assessment": "Prior disk orthogonality and radial integral",
+          "evidence": "Angular orthogonality and generalized Laguerre integrals, without the consecutive crossing locus in the inspected proposition.",
+          "identifier_or_url": "https://arxiv.org/abs/1808.02258",
+          "material_read": "Prop. 7, p. 11, Eq. (4.3)",
+          "method": "Primary OA PDF passage",
+          "title": "Abreu–Speckbacher, Hermite-window disk analysis",
+          "trigger": "Same Hermite disk and explicit integrals"
+        },
+        {
+          "assessment": "Different window",
+          "evidence": "Gaussian incomplete-gamma eigenvalues do not cover the second Hermite window.",
+          "identifier_or_url": "doi:10.1109/18.9761",
+          "material_read": "Canonical Gaussian disk eigenvalue passage, PDF p. 6",
+          "method": "Primary OA PDF passage",
+          "title": "Time-frequency localization operators: A geometric phase space approach",
+          "trigger": "Foundational disk eigenvalues"
+        },
+        {
+          "assessment": "Framework, not a crossing result",
+          "evidence": "Explains the representation connecting the two formulations, not an exact spectral coincidence locus.",
+          "identifier_or_url": "https://arxiv.org/abs/1012.4283",
+          "material_read": "Abstract on the transform and true-polyanalytic spaces",
+          "method": "Primary OA PDF passage",
+          "title": "Banach Gabor frames with Hermite functions: polyanalytic spaces from the Heisenberg group",
+          "trigger": "Equivalent representation under the polyanalytic Bargmann transform"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and proof",
+        "Maximenko–Tellería-Romero Prop. 6.3",
+        "Resultary a2df20aeb429"
+      ],
+      "rationale": "The boundary product and arithmetic collision locus are well motivated, but they are both already specified by a stronger indexed result that also treats the norm. The one differently worded consequence, the peak-to-trough transition, is a direct sign check on the same simple-root formula; no separate spectral phenomenon or exact invariant not determined by that result remains. The reconstruction has expository value, not a distinct finding on the required standard.",
+      "residual_risks": [
+        "No concentration extremizer or general-window result is certified here."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T16:52:39.894149Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The frozen blanket no-optimal-finite-positive-rate statement is false: M=1 for the left bridge, so all rates minimize it. The local nonbridge improvement is a supremum, not attained. The complete replacement RESULT.md and companion REVIEW.md correct these claims; the four formulas and their signs are unchanged. Independent check via the reset-inclusive backward equations: write A for the mean at the start lump and b,c,d for the other three means minus A. For a local nonbridge target b=A−1, c=(m+1+r)b, (n+r)c−b−(n−1)d=1 and (1+r)d−c=1, giving D(r)b=n+r. For a right nonbridge target b=−1, c=−(m+1+r), A=(n+r)(m+1+r)+(n−2)d and (r+2)d=−A−(m+r). Thus A=(m+1+r)(r+2)−(n−2)(m+r)/(n+r), identical to the stated formula, including n=2 when the extra right lump is absent. The left bridge has constant unit hazard; the right bridge backward equations give A=1+m+r. D is positive and the local derivative numerator has strictly negative constant term and all other coefficients negative. In the far derivative the subtracted fraction is either nonpositive or strictly less than one. These arguments include r=0. The corrected minimizer statements now follow exactly. Frozen verify.py was read, not executed; its 600 comparisons are recorded consistency evidence, not the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lin et al. derive an unreset global average; Riascos et al. derive a general network resetting formula under their transition convention.",
+          "The Resultary clique-path trichotomy uses the same edge-clock and Poisson conventions but a different graph and gateway source."
+        ],
+        "reasoning": "An unreset global average is not an all-rate target-specific mean. Even an applicable generic renewal identity leaves the sign to be established from the particular generator; the clique-path theorem cannot be substituted for the second clique and source specified here.",
+        "searches": [
+          "arXiv:1209.6165v1, graph trapping and Laplacian formula",
+          "arXiv:1910.13568v2 §§II,V, resetting spectral formulas",
+          "Resultary: clique and gateway resetting monotonicity"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1910.13568v2",
+        "arXiv:2104.09731v3",
+        "doi:10.3390/e25020293",
+        "arXiv:1209.6165v1",
+        "Resultary d393640e729d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The first barbell numerical example connects its two cliques through a 10-node chain and examines global mean search time; the second uses five bridge nodes and centrality-selected reset sites. The catalogue example is a gateway-to-path-end problem."
+        ],
+        "reasoning": "None implies the four corrected minimizer classifications or the sharp unattained near-target gain; these require the target-exit equations and all-rate derivative bounds for this model.",
+        "searches": [
+          "arXiv:1910.13568v2 §§II,V",
+          "doi:10.3390/e25020293 pp. 3,12",
+          "Resultary d393640e729d Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Riascos et al. use discrete neighbor-normalized transitions and a reset probability. Huang–Chen reset on visits to observable nodes. Zelenkovski et al. use centrality-selected reset nodes and discrete-time degree-normalized moves."
+        ],
+        "reasoning": "A constant conversion of time cannot turn normalization at every vertex into unit rates along every edge on this irregular graph; likewise first-passage-triggered resets cannot be substituted for independent Poisson resets.",
+        "searches": [
+          "Resultary: barbell/resetting rate convention and displayed mean-time formula",
+          "arXiv:1910.13568v2 §§II,V",
+          "arXiv:2104.09731v3 §§II,VI.3",
+          "doi:10.3390/e25020293 §2.1 and barbell example"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest inspected catalogue result is dated 2026-11-08 and classifies a clique with a hanging path by path length, with source at the gateway and the target at the path endpoint. The primary barbell sources examined give aggregate statistics or different models, not the four functions."
+        ],
+        "reasoning": "No exact table or equivalent entry was identified in the checked material; this is not an exhaustive negative result.",
+        "searches": [
+          "Resultary: bridge-barbell, per-edge continuous time, target-specific Poisson restart and displayed rational formula",
+          "Resultary record d393640e729d"
+        ]
+      },
+      "rationale": "Credit is limited to the single-edge barbell's exact target-wise classification for unit edge clocks and resetting to a nonbridge source. Existing general restart and hitting-time identities do not settle the direction of change for all four classes. The corrected optimum statements add no priority claim.",
+      "residual_risks": [
+        "An exact further specialization under another restart or bottleneck-search formulation may have escaped the bounded search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General background, not the same dynamics or observable",
+          "evidence": [
+            "Neighbor hop via A_ij/k_i or reset per discrete step; example is two 45-node cliques joined by a 10-node chain and plots a global mean."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1910.13568v2",
+          "material_read": "§II Eqs. (1)–(3) and §V, full-text offsets 4300–10081 and 33700–40633",
+          "method": "Read primary OA passages",
+          "title": "Random walks on networks with stochastic resetting",
+          "trigger": "Closest independent-reset spectral framework and named barbell example"
+        },
+        {
+          "assessment": "Not equivalent",
+          "evidence": [
+            "Reset is triggered by observable-node visits; barbell reset site is an intervening bridge node."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2104.09731v3",
+          "material_read": "§II and §VI.3, offsets 5100–10591 and 30300–34300",
+          "method": "Read primary OA passages",
+          "title": "Random walks on complex networks with first-passage resetting",
+          "trigger": "Named barbell with resetting"
+        },
+        {
+          "assessment": "Different discrete-time dynamics and aggregate observable",
+          "evidence": [
+            "p_ij=A_ij/k_i, fixed reset probability per step; two K25 cliques connected by five bridge nodes."
+          ],
+          "identifier_or_url": "https://doi.org/10.3390/e25020293",
+          "material_read": "OA PDF pp. 3 and 12, §2.1 and barbell example",
+          "method": "Read primary OA PDF passages",
+          "title": "Random Walks on Networks with Centrality-Based Stochastic Resetting",
+          "trigger": "Barbell results and reset-site selection"
+        },
+        {
+          "assessment": "No-reset background",
+          "evidence": [
+            "GMFPT averages starting sites for a fixed trap; barbell extremum has an intervening path."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1209.6165v1",
+          "material_read": "Primary pp. 1 and 4, including barbell discussion",
+          "method": "Read primary OA PDF passages",
+          "title": "Mean first-passage time for random walks in general graphs with a deep trap",
+          "trigger": "Barbell extremality for graph hitting times"
+        },
+        {
+          "assessment": "Different graph/source/target and later dated",
+          "evidence": [
+            "Single clique with a pendant path, start at gateway, target its endpoint; monotonicity by path length."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-sharp-reset-distance-trichotomy-for-first-passage-on-clique-pa--d393640e729d/RESULT.md",
+          "material_read": "Finding and model assumptions",
+          "method": "Read Resultary local mirror",
+          "title": "A sharp reset-distance trichotomy for first passage on clique paths",
+          "trigger": "Closest Resultary match using the same edge clocks and Poisson protocol"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The corrected result gives a complete target-response classification for two directly connected communities. It quantifies how resetting circumvents arbitrarily large excursions when the target is local, but imposes increasing cost for accessing the other community. The exact unattained fractional gain n/(m+n), flat local bridge and distinct linear/quadratic remote delay provide interpretable benchmarks beyond a generic formula or a numerical global average.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Scientific review: Catalan-matroid one-skeleton degree spectrum
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The statement is quantified for every positive semilength, and the adjacency notion is the ordinary matroid base-polytope one-skeleton. The proof separately counts root–descendant node pairs, pairs internal to one depth-two subtree, ordinary disjoint pairs, and swaps of the matching \(UD\) pair itself. The two exceptional counts cancel, leaving precisely \(\binom n2+\sum_i\binom{s_i}{2}\). The formal series follows from the ordered-sequence decomposition of the Dyck forest. Disjointness of depth-two subtrees and strict convexity of binomial coefficients establish all extrema and their complete equality cases. Independent exhaustive swaps and a separately constructed recurrence agree for every word of semilength at most nine. The theorem does not extrapolate from enumeration.
+PASS
 
-## Originality — PASS (historical priority provisional)
+The vertices are precisely the Dyck up-step incidence vectors, and a neighbor differs by one swapped U and D by the matroid-base edge theorem. A swap with the earlier step D always raises intervening heights; with the earlier step U it is legal iff all affected heights are ≥2. As an independent count, let t_j be the size of top-level component j. Between two components only raising swaps are possible, giving t_j t_l for j<l. Within one component its root's two steps cannot participate in a legal internal swap. Between two different depth-two blocks only raising swaps are legal, giving s_i s_h for i<h; within any one block all s_i² pairs of unlike symbols are legal. Thus the total inside component j is binom(t_j,2)+sum_i binom(s_i,2) over its depth-two blocks, using t_j=1+sum_i s_i. Adding cross-component swaps gives the stated formula. A block of size s contains C_{s−1} choices and has weight z^s q^binom(s,2); a root is z times a sequence of these blocks, and the forest is a sequence of roots. This gives (1−H)/(1−z−H) and the stated recurrence with the s=n term cancelled. Excess zero means each block has size one, i.e. path height ≤2; there is one such forest per composition of n. For n≥3, binom(sum_i s_i,2)≤binom(n−1,2), with equality in the excess iff there is one root with one block of size n−1, giving UUQDD and C_{n−2} choices. The n=1,2 cases tie as stated. The finite checker was read; its checks are corroboration only.
 
-The original Catalan matroid presentation and the general matroid-base adjacency criterion are established prior work. Published treatments give lattice-path-polytope edge counts (Bidkhori; An–Jung–Kim) and the Dyck-word random-transposition walk with negative correlation and mixing results (Cohen–Tetali–Yeliussizov). These are the closest objects: the former have aggregated one-skeleton counts; the latter uses exactly the same moves. Neither inspected primary text evaluates the degree at each vertex, the full depth-two block degree polynomial or the minimizing/maximizing forest configurations. Indexed results on a Dyck deletion ambiguity graph concern a different move relation. Unknown unindexed equivalent statements remain a residual risk; comparison is by mathematical implication, not just titles.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The complete degree enumerator refines the known total-edge count into all local exchange possibilities, with an explicit two-variable Catalan generating series and rigid extremal configurations. The result is a natural structural graph invariant useful for studying inhomogeneity of basis-exchange networks, and it reveals the unusual contrast between the \(2^{n-1}\) minimum-degree vertices and the \(C_{n-2}\) maximum-degree vertices for \(n\ge3\). It is not a finite-sample recomputation or a renaming of existing graph-edge totals.
+The matroid, adjacency criterion, local legal-swap rule and aggregate edge count are prior. The supported distinct claim is the evaluated depth-two formula for each undirected degree, with its refined series and equality families. The best indexed near match has a different adjacency relation, despite sharing the maximum value.
 
-## Limits and closest literature
+## value
 
-Published general edge enumerations and mixing results are not being claimed as new. Full-text comparisons cover arXiv:1701.00362, arXiv:1212.5705 and arXiv:1505.06710. The standalone exact enumeration reaches \(n=9\); the proof treats all \(n\ge1\). Unindexed equivalent results remain possible, and no independent mathematical audit has occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+In the natural basis graph of a classical matroid, the subtree reduction gives an exact local connectivity invariant without enumerating exchanges. Its distribution refines known total edge counts and identifies every extremal path. The rigid equality families and the ease of evaluating the degree can inform study of this exchange graph independently of any new mixing bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

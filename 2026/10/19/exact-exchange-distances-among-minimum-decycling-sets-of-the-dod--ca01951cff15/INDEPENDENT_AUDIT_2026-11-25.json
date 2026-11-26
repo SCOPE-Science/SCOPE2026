@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:17:31.238574Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–42; VERIFICATION.md; decycling_checker.py lines 14–125 and recorded decycling_checker.stdout (inspected, not executed)",
+        "Independent replay executed: python3 /workspace/reviews/evidence/decycling_replay.py"
+      ],
+      "rationale": "For k≤5 the cubic edge count gives at least 30-3k edges on 20-k vertices, strictly above the forest bound 19-k. I independently enumerated every six-set using leaf stripping of its complement (empty 2-core iff forest), then grouped accepted sets by five-subsets (two distinct six-sets are adjacent iff they share a five-subset). All-source shortest-path layer expansion reproduced 2520 sets with induced-edge split (660,1860), 23940 exchange edges, eccentricity 6 at every vertex, and exact unordered distance counts (23940,162870,572230,1088390,993990,332520), totaling 3173940. Intersection sizes give excess counts (3124960,48800,180), and all sources reached all vertices. For example, in the encoding u_i=i, v_i=i+10, sets {0,1,3,5,16,17} and {0,1,5,7,13,14} have distance 5 versus Johnson distance 3. At least |S\\T| moves are needed since each move removes at most one member of S not in T. The independent replay does not use the frozen checker’s union-find/DFS or enumerate swaps, and exactly confirms the frozen transcript. A documentation erratum: bit_count in the original script requires Python 3.10+, not all versions starting at 3.8.",
+      "residual_risks": [
+        "Exhaustion applies only to the specified labeled GP(10,2) and one-out/one-in exchange rule."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bousquet et al. use symmetric-difference-two moves and prove connectivity for subcubic K_(3,3)-minor-free graphs with path length at most 7k; this yields at most 42 here.",
+          "Kelly–Liu note that the dodecahedron attains the planar subcubic girth-five size bound. Nedela et al. give general cubic minimum-set structure and existence facts."
+        ],
+        "reasoning": "The prior theorem covers connectivity directly, but a length-42 bound and static structure do not give the radius and diameter 6, uniform eccentricity, or exact distribution of positive excess over Johnson distance.",
+        "searches": [
+          "Bousquet et al. DOI 10.1016/j.tcs.2023.114188 accepted manuscript pp. 2–3 and Sec. 3.4 p. 14; Nedela et al. arXiv:2309.11606 abstract and Thm. 1.2; Kelly–Liu arXiv:1603.04559 Cor. 1.4"
+        ]
+      },
+      "checked_sources": [
+        "Resultary induced-forest, token-slide and bipartization records above",
+        "Bousquet et al. accepted manuscript",
+        "Nedela et al. arXiv:2309.11606",
+        "Kelly–Liu arXiv:1603.04559 and 1603.03855"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The linkage between forest components and induced edges in its complement is exact: a forest complementary to a six-set has 12+e(S) edges on 14 vertices, hence 2-e(S) components. This recovers the 660/1860 split mechanically from the earlier result.",
+          "Existing connectivity gives no isometry or eccentricity statement; even an orbit count does not give the full shortest-path layer sizes or classify detours. The later slide comparison neither implies nor lists the frozen unrestricted distance and excess vectors."
+        ],
+        "reasoning": "The prior size, static enumerations and reachability are covered components. The surviving quantitative claim needs actual enumeration of legal exchanges and their distances; it is not a specialization of the known reachability bound.",
+        "searches": [
+          "Compare early Resultary induced-forest Finding, Bousquet et al. Thm. 2 and Sec. 3.4, and later token-slide Finding/proof with the frozen metrics"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Complementation bijects the maximum fourteen-vertex induced forests and the minimum six-vertex feedback sets, and preserves unrestricted one-vertex exchanges. Kelly–Liu state the induced-forest/feedback-set complement identity.",
+          "The later Resultary token-slide theorem imposes adjacency in the base dodecahedron; slide distances are not the unrestricted token-jump distances."
+        ],
+        "reasoning": "Induced-forest exchange is an equivalent metric object; an induced-forest count alone does not compute that metric. The slide graph has fewer edges and different radius and diameter.",
+        "searches": [
+          "Local Resultary: dodecahedral induced forests, minimum feedback/decycling sets, token jumping and sliding, exchange distance and Johnson detours",
+          "Kelly–Liu arXiv:1603.03855 p. 5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Earlier Resultary 2026/10/12 SCOPE-dodecahedral-induced-forest-polynomial-and-25-optimal-symmetry-c--3dcfec6d6cb5 reports exactly 2520 maximum induced forests on fourteen vertices, 1860 trees and 660 two-component forests. This is the same static split.",
+          "Later Resultary 2026/11/2 SCOPE-adjacent-token-connectivity-and-sharp-distance-in-dodecahedral-m--af58442749cc gives 23940 and uniform 6 in its comparison to unrestricted moves, but not the full unrestricted histograms. Resultary 2026/10/26 SCOPE-one-detour-exchange-metric-of-optimal-vertex-bipartizations-of-t--6689e33109ba counts detours for minimum odd-cycle transversals, not feedback sets."
+        ],
+        "reasoning": "Only the earlier static count is demonstrated prior exact coverage from the catalogue. The later coarse-profile overlap is real, but distinct from an earlier statement of the entire metric census.",
+        "searches": [
+          "Local Resultary search and Finding inspection for dodecahedral induced-forest count, minimum feedback set exchange geometry, sharp distance census and detour tables"
+        ]
+      },
+      "rationale": "The supported distinct claim is the quantitative unrestricted exchange geometry, especially the sharp radius, diameter, uniform eccentricity and exact pairwise detour census. The static set count and split already occur in equivalent induced-forest form in an earlier catalogue record, the minimum size is known, and connectivity is covered by a general reconfiguration theorem. None of those is credited as new. The closest later token-slide comparison echoes the coarse unrestricted profile, but does not supply its complete metric histograms.",
+      "residual_risks": [
+        "The source of the later record’s cited prior unrestricted coarse profile was not established. The bounded search does not rule out an earlier unindexed identical census."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisively covers connectivity, not the sharp geometry",
+          "evidence": [
+            "Symmetric difference two; K_(3,3)-minor-free subcubic theorem and a 7k path bound."
+          ],
+          "identifier_or_url": "https://repository.kulib.kyoto-u.ac.jp/server/api/core/bitstreams/985663f0-c8e3-44a0-ad18-7202d29fbbe7/content (DOI 10.1016/j.tcs.2023.114188)",
+          "material_read": "Accepted manuscript pp. 2–3, Thm. 2; Sec. 3.4 p. 14",
+          "method": "Targeted lawful OA institutional copy of the same paper",
+          "title": "Feedback vertex set reconfiguration in planar graphs",
+          "trigger": "Same adjacency and a theorem covering the assigned graph"
+        },
+        {
+          "assessment": "Static structural and existence comparison",
+          "evidence": [
+            "Independent and near-independent minimum decycling sets are discussed; the inspected theorem is not a distance census."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2309.11606",
+          "material_read": "Abstract p. 1 offset 1650; Thm. 1.2 p. 3 offset 7900",
+          "method": "Targeted lawful OA PDF passages",
+          "title": "Decycling cubic graphs",
+          "trigger": "Cubic minimum decycling-set structure"
+        },
+        {
+          "assessment": "Covers the minimum size and the equivalence, not metric counts",
+          "evidence": [
+            "The dodecahedron attains the girth-five planar-subcubic size bound; feedback size plus maximum induced forest size is the order."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1603.04559 and https://arxiv.org/pdf/1603.03855",
+          "material_read": "First paper p. 2 Cor. 1.4 offset 4000; companion p. 5 offset 14300",
+          "method": "Targeted lawful OA PDF passages",
+          "title": "Kelly–Liu planar-subcubic decycling results",
+          "trigger": "Dodecahedral minimum size and complementary forest representation"
+        },
+        {
+          "assessment": "Demonstrable earlier equivalent coverage of all static counts",
+          "evidence": [
+            "2520 maximum induced forests, split into 1860 trees and 660 two-component forests; 25 automorphism orbits."
+          ],
+          "identifier_or_url": "Resultary 2026/10/12 SCOPE-dodecahedral-induced-forest-polynomial-and-25-optimal-symmetry-c--3dcfec6d6cb5",
+          "material_read": "RESULT.md Finding near offset 515",
+          "method": "Local mirror passage inspection",
+          "title": "Dodecahedral induced forest polynomial and 25 optimal symmetry classes",
+          "trigger": "Exact coordinate-free static count for the same configurations"
+        },
+        {
+          "assessment": "Later coarse unrestricted overlap; slide metric differs",
+          "evidence": [
+            "8880 slide edges, radius 8 and diameter 10; comparison lists 23940 unrestricted edges and uniform eccentricity 6."
+          ],
+          "identifier_or_url": "Resultary 2026/11/2 SCOPE-adjacent-token-connectivity-and-sharp-distance-in-dodecahedral-m--af58442749cc",
+          "material_read": "RESULT.md Finding and offsets 4950–5994",
+          "method": "Local mirror passage inspection",
+          "title": "Adjacent-token connectivity and sharp distance in dodecahedral minimum-set reconfiguration",
+          "trigger": "Same vertices; alternate move rule and comparison with unrestricted metric"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Bousquet et al. Thm. 2 and Sec. 3.4; frozen Finding; independent replay"
+      ],
+      "rationale": "A natural question after general reachability is whether the trivial exchange lower bound is sharp for shortest routes. For this symmetric planar cubic benchmark the exact census says no, quantifies how rare detours are, and gives a sharp uniform diameter despite some detours of length two above the ambient bound. These are useful precise benchmarks for proposed reconfiguration bounds and algorithms, independent of the already known counts and connectivity. The independent distance-five witness with Johnson distance three illustrates the structural obstruction captured by the table.",
+      "residual_risks": [
+        "This is an exact benchmark for one natural graph, not a theorem for all cubic planar graphs."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

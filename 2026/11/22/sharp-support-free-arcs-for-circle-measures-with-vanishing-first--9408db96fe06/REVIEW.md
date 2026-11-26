@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The polynomial certificate and all contact-root signs are exact. The integral proof applies to arbitrary positive Borel measures, not just finitely supported examples. Equality fixes the cosine pushforward weights; opposite signs of the two Chebyshev sine ratios force symmetric splitting, so there are no nonsymmetric omitted optimizers. The included standalone SymPy checker verifies critical finite algebra and not the infinite quantifier.
+PASS
 
-## Originality — PASS (best knowledge)
+Reconstructed RESULT.md §§1–4. Expand the factorization using 24y²−8y−1=0. The bounds 5/12<y<4/9 give b>s>0, b+s>1 (equivalently 4s²>y), and c²<b²<1/2. Thus the witness has exactly the claimed contacts on [c,1]. Rotate the complement of a gap into a centered closed interval and integrate the witness against the arbitrary positive measure: any longer gap retains only the positive contact, contradicting the first moment. At equality the first cosine moment fixes positive fiber totals and the witness fixes the fourth cosine moment. The two sine ratios U₃(c)>0>U₃(b) force equal splits. The reflected pairs are not generally antipodal; this wording slip does not affect the stated angles or proof. Independent 60-digit evaluation of 2π−2 arccos(c) gives 2.569356100631680534…, consistent with the display. The symbolic companion checks algebraic identities, not the universal positivity-measure inference; its recorded run was not treated as a fresh verification.
 
-The published \(\{1,2,6\}\)-notch circle gap and its six-atom optimizer were compared at full-statement/proof level and do not imply the \(\{1,4\}\)-notch claim, because the vanishing-moment hypotheses are mutually nonnested. Peherstorfer's characterization assumes contiguous Fourier exactness, while di Dio and Kummer's sparse-moment theorem bounds numbers of atoms rather than missing arc length. Searches for the exact radical, alias formulations, dominated parameters and numerical constant found no direct predecessor. Broadly relevant older extremal-cosine publications were inaccessible in full and remain a residual priority risk. No global novelty or independence certification is asserted.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The statement gives a sharp geometric sparsity limit under a natural pair of nonconsecutive Fourier vanishing conditions, together with the exact positive four-node measure and complete rotation/scaling rigidity. The distinction from the regular three-node rule demonstrates that the maximum gap is not read off from a naive equal-spacing construction. This can serve as a benchmark for sparse spectral quadrature and support-hole problems without requiring a general theorem for every sparse frequency set.
+The exact full k=4 overlap with the distinct all-even record is verified, not dismissed by date. Its own text expressly excludes k=4 from its novelty claim, and its frozen AUDIT explicitly credits the present result ID for that case. Thus the demonstrated coverage is a credited recovery, not evidence of an antecedent theorem displacing this record. The shared publication date establishes no within-day public priority. No inspected antecedent supports the same sharp sparse theorem; older inaccessible work remains a risk, not negative evidence.
 
-## Verification limits
+## value
 
-`python CHECK.py` checks the exact algebra, ordering, weights and sine-system signs. The analytical proof establishes all measures and all rotations. An inaccessible older dual-polynomial source alone is not asserted to cover or not cover this exact specialization.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The first and fourth complex zeros already admit a regular three-node rule, but it is not gap-optimal. The sharp invariant for this natural sparse quadrature class is strictly larger and forces a nonsymmetric-a-priori measure to be the specified reflected four-node rule. The exact endpoints and weights are usable for comparison and quadrature design, beyond finite root evaluation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

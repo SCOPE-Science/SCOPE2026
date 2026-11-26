@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:37:16.438699Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, spectrum and proof steps 1–4",
+        "Frozen VERIFICATION.md and check.py",
+        "/workspace/checks/structural_reconstructions.md, record 5"
+      ],
+      "rationale": "Independently embedded both grids in the common mesh of width h/2. For a coarse-cell phase z and b=1+z, their paired fine-node interpolation vectors are (1,b/2) and (conj(b)/2,1). The fine mass block h/12 times [[4,conj(b)],[b,4]] gives auto-Gram h(4+2|b|²)/12 and cross-Gram h conj(b)(5+|b|²/4)/12, hence exactly the stated squared principal cosines for all N≥3. Writing x=|cos(ω/2)| gives 1−γ=(1−x)²(2−x)/(2(1+2x²)), γ increasing in x. This confirms the Nyquist zero, constant eigenspace, sharp first-mode gap and coefficient 1/192 in the angular fourth-order expansion of 1−γ². For centered k, the same identity gives 1−μ≥2|k|⁴/(3N⁴), yielding a uniform summable tail when the rescaled time is bounded below. Fixed normalized interpolants and hence their rank-one projectors converge to the Fourier projectors (in trace norm for each projector). The finite-mode/tail decomposition proves the critical and supercritical trace-norm limits; the vanishing-time strong limit follows by fixed-mode convergence and density. No uploaded script was run.",
+      "residual_risks": [
+        "For very small τ and the finitely many N with floor(τN⁴)=0, the zeroth power is the identity, not finite rank. The trace-norm assertion refers to the eventual sequence of positive powers, so this wording does not affect the limit.",
+        "At τ=0 the infinite-dimensional identity is not trace class; only strong convergence is established there."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Antonopoulos–Dougalis give a general cyclic positive auto-Gram symbol for one periodic spline space, with mesh-independent spectral bounds.",
+          "The accessible Ueda–Saito abstract describes time approximation for X-valued functions and L∞ stability/error estimates for spline degrees 1–4.",
+          "9499aea3bfb2 computes a single-grid L∞ operator norm."
+        ],
+        "reasoning": "Auto-Gram information alone lacks the phase-weighted cross-Gram; general fixed-space projection convergence or single-grid stability does not give the mesh-dependent quartic spectrum and uniform trace tail. Opaque full-text content of Ueda–Saito was not used for a negative finding.",
+        "searches": [
+          "arXiv:2106.09060, §2 item 5",
+          "doi:10.1016/j.cam.2019.03.026, public abstract and lawful full-text attempts",
+          "Resultary: 9499aea3bfb2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2106.09060",
+        "doi:10.1016/j.cam.2019.03.026 (abstract only)",
+        "Resultary: 27cb19bb4a60, 836fb97c8467, 491d3bae8ceb, 9499aea3bfb2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The single-grid Gram weights and generic squared-principal-cosine reduction are prior ingredients, not the shifted overlap ratio. The off-grid pairing produces the factor (1−x)².",
+          "The proof requires uniform control of the entire spectrum and convergence of the fixed-mode eigenprojectors, not just a low-frequency consistency limit."
+        ],
+        "reasoning": "The inspected priors do not imply the result by specializing a parameter: one must calculate the cross-grid symbol and prove the quartic tail. Even knowing a nonperiodic or discrete heat-like step for a different projector cannot supply the claimed trace-norm convergence.",
+        "searches": [
+          "arXiv:2106.09060, §2 item 5",
+          "Resultary: 491d3bae8ceb, 27cb19bb4a60, 836fb97c8467",
+          "Ueda–Saito doi:10.1016/j.cam.2019.03.026"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "491d3bae8ceb gives translated histogram principal cosines sqrt(1−4t(1−t)sin²(πk/n)); the corresponding half-shift squared cosines have a quadratic low-frequency gap.",
+          "27cb19bb4a60 gives an exact discrete Laplacian step for staggered block averages on ℓ²(Z); 836fb97c8467 gives derivative-to-mass Bloch bands on alternating cell lengths."
+        ],
+        "reasoning": "Neither the block averages nor the derivative/mass pencil is the switched continuous degree-one spline projection product. In particular, the quadratic normalized block-projector gap is incompatible with the quartic scale of the claim.",
+        "searches": [
+          "Resultary: half-shift spline principal angles, alternating shifted L² projections, quartic gap and biharmonic heat limit",
+          "Resultary: 491d3bae8ceb, 27cb19bb4a60, 836fb97c8467"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed comparisons concern different objects: block-averaging powers, spline derivative-to-mass spectrum, and histogram principal angles.",
+          "The requested spectrum is an all-mesh analytic symbol and the trace is a scaling limit, not a fixed tuple of eigenvalues."
+        ],
+        "reasoning": "An indexed symbol or operator theorem would be more relevant than numerical tabulation. In inspected matching spectral records no same-operator symbol or exact heat trace was identified.",
+        "searches": [
+          "Resultary: shifted linear-spline projection spectra, periodic spectral gap, heat trace; closest same-day IDs 27cb19bb4a60 and 836fb97c8467"
+        ]
+      },
+      "rationale": "Single-grid mass symbols, Fourier diagonalization and fixed-space alternating projection principles are prior techniques. The exact cross-grid normalized symbol, quartic cancellation with its coefficient, and trace-class critical limit for periodic degree-one splines are not covered by the closest inspected statements. Same-day staggered-block and alternating-mesh spline results were compared by operator, not date.",
+      "residual_risks": [
+        "The Ueda–Saito full text was unavailable in attempted lawful routes; a more general projection-product result there or elsewhere cannot be excluded.",
+        "No historical priority ordering between distinct same-date results is inferred."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the auto-Gram and its bounds, not the shifted projection product in the inspected passage",
+          "evidence": "One space has normalized Gram eigenvalues g(2πl/N) from a sum of squared spline Fourier transforms. This has no cross-grid phase factors or product-power conclusions.",
+          "identifier_or_url": "https://arxiv.org/pdf/2106.09060",
+          "material_read": "Open manuscript p. 3, §2 item 5, offset 11750–14036",
+          "method": "Locate Gram statement and compare bounded full-text passage",
+          "title": "On the stability of the L² projection and the quasiinterpolant in the space of smooth periodic splines",
+          "trigger": "Same uniform periodic spline setting and cyclic Gram techniques"
+        },
+        {
+          "assessment": "Abstract describes a different problem; no whole-paper noncoverage assertion",
+          "evidence": "The stated aim is L∞(0,T;X) stability and error estimates for Banach-valued time approximation at degrees 1–4, not a shifted periodic mesh product or trace-class semigroup.",
+          "identifier_or_url": "https://doi.org/10.1016/j.cam.2019.03.026",
+          "material_read": "Accessible publisher abstract/search excerpt only; no full text obtained",
+          "method": "DOI and lawful publisher/alternate-copy attempts, with inaccessible full text",
+          "title": "Stability and error estimates for the successive-projection technique with B-splines in time",
+          "trigger": "Closest title involving successive projections and B-splines"
+        },
+        {
+          "assessment": "Different ranges, domain and generator",
+          "evidence": "On ℓ²(Z) the equal-width staggered block averaging compression yields a discrete second-order heat step with impulse decay laws.",
+          "identifier_or_url": "Resultary: 27cb19bb4a60",
+          "material_read": "Mirrored RESULT.md offsets 0–3961",
+          "method": "Indexed comparison and original statement via mirror",
+          "title": "Sharp commutator phase and moment-decay hierarchy for staggered block projections",
+          "trigger": "Same-date staggered projection iteration"
+        },
+        {
+          "assessment": "Different spectral pencil, not powers of two shifted projections",
+          "evidence": "Alternating cells of lengths a,b give two derivative-to-mass Bloch bands and a sharp inverse inequality.",
+          "identifier_or_url": "Resultary: 836fb97c8467",
+          "material_read": "Mirrored RESULT.md offsets 0–2980",
+          "method": "Indexed comparison and original statement via mirror",
+          "title": "Exact inverse inequality and Bloch spectral contrast for alternating periodic linear splines",
+          "trigger": "Same-date spectral work for periodic linear splines"
+        },
+        {
+          "assessment": "Histogram ranges are degree zero and give a different scaling",
+          "evidence": "Half-shift principal cosine |cos(πk/n)| yields a quadratic compressed gap.",
+          "identifier_or_url": "Resultary: 491d3bae8ceb",
+          "material_read": "Mirrored RESULT.md offsets 2700–5666",
+          "method": "Inspect original translated histogram angle formula",
+          "title": "Sharp endpoint commutator instability for translated histogram projections",
+          "trigger": "Very close geometry and exact angle calculation"
+        },
+        {
+          "assessment": "A single projector's L∞ norm, not two shifted ranges",
+          "evidence": "The statistic and operator in the result are a one-grid endpoint norm.",
+          "identifier_or_url": "Resultary: 9499aea3bfb2",
+          "material_read": "Mirrored RESULT.md offsets 0–2738",
+          "method": "Inspect original statement",
+          "title": "Exact endpoint norms of uniform periodic linear-spline orthoprojectors",
+          "trigger": "Same spline spaces and projections"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, exact gap and three-regime operator convergence",
+        "Resultary: 491d3bae8ceb and 27cb19bb4a60, second-order comparators"
+      ],
+      "rationale": "Uniform piecewise-linear finite elements and a midpoint shift are natural projector discretizations. The exact coefficient, time scale and trace-class mode control show an emergent fourth-order rather than second-order smoothing law from two nearby ranges. The norm gap is useful for estimating alternating-projection convergence, while trace-norm convergence and the heat trace determine collective behavior not captured by the gap alone.",
+      "residual_risks": [
+        "No generalization to other offsets, degrees or nonuniform grids, or positivity of a fourth-order heat kernel, is asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

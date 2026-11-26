@@ -1,0 +1,164 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:29:55.687618Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md (especially lines 15 and 19–45), VERIFICATION.md, verify.py read but not executed, smith_ops.json independently parsed and replayed",
+        "Corrected /workspace/repairs/5/RESULT.md",
+        "Independent exact replay: /tmp/opencode/frozen_audit_exact.py 5",
+        "Elsenhans–Jahnel §§2.5–2.6"
+      ],
+      "rationale": "This passes the corrected RESULT.md, not the unqualified equivalence at frozen line 15. Homogeneous parity and mod-three tests annihilate 6 times every vector, but 6[T] is not in the lattice for any tritangent T; the frozen shorthand omitted a mod-four obstruction. The corrected conditions in Smith coordinates are exactly 20 independent mod-two tests and one mod-twelve test, the latter splitting as mod four and mod three. Independently generated the 45 planes from ordered exceptional-conic labels and perfect matchings, grouped disjoint triples by their nine-line supports and tested orthogonality of the two partitions (each cross intersection has one line). This recovers 120 distinct columns. Independently verified all Gram entries and its characteristic polynomial, which bound the prime support by 2 and 3, and used exact local elimination to compute 1^24, 2^20, 12. Adjoining each basis vector in turn lowered the index to 2^20, a factor of 12 each time. Also replayed the complete 2,710-operation data certificate with a separately written checked interpreter, verifying unimodularity and the rectangular diagonal. Thus the full-rank lattice, membership and individual-order claims of the corrected file hold.",
+      "residual_risks": [
+        "Applies to geometric plane labels and the unsigned map on smooth cubics under the stated hypotheses, not descent, arbitrary singular cubics or torsion in a divisor-class group."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The geometry of 120 pairs and their support is already available, but these passages do not compute the integer span on the 45 plane labels.",
+          "The E6 plane-to-line, double-six-to-line and half-overlap maps have different source and target constraints and do not state a general theorem computing this unsigned matrix."
+        ],
+        "reasoning": "Complete geometric identification of the columns is necessary input, not a stronger integral-Smith theorem. These available lattice statements do not dominate the repaired claim.",
+        "searches": [
+          "Elsenhans–Jahnel §§2.5–2.6; Betten's Steiner Trihedral Pairs",
+          "Resultary: related incidence maps and cubic-surface configurations; records d458bb2de263, 0aac314408f8, cc641ca71c9c"
+        ]
+      },
+      "checked_sources": [
+        "Elsenhans–Jahnel arXiv:1006.1474, §§2.5–2.6",
+        "Betten's Steiner Trihedral Pairs",
+        "Published records 511e3e06b7dc, d458bb2de263, 0aac314408f8, cc641ca71c9c and 8a178617dee9",
+        "Corrected RESULT.md, sections on prior work and membership"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Writing N for the nine-line-support matrix and C for the plane-to-line map, the support geometry gives CM=2N, since each of the nine lines occurs twice. C has rank 21, hence this calculation forgets 24 independent rational directions on the plane lattice.",
+          "The signed exchanges belong to the kernel of C rather than giving the columns M. Even keeping the Gram spectrum proves full rank but not the integer image or the exact individual orders."
+        ],
+        "reasoning": "The known line-support computation gives lower-dimensional information about the image but does not recover index, mod-four obstruction or individual plane classes. A separate integer calculation supplies those assertions.",
+        "searches": [
+          "9-line support record 8a178617dee9 and plane-to-line record d458bb2de263; signed-trade record 511e3e06b7dc"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The classical source gives 240 trihedra paired by conjugacy, with shared nine-line supports. In the tritangent sharing graph, the six-plane supports are induced K3,3's from two mutually conjugate disjoint triples; that is the same column problem, not an analytic change of invariant.",
+          "The indexed 120 signed trihedral trades (511e3e06b7dc) put opposite signs on the triples, so their support count alone is the same, not their matrix.",
+          "The local quadrangle/triad formulation lookup yielded no corresponding exact incidence Smith statement in the returned records."
+        ],
+        "reasoning": "Conjugate triads, trihedral pairs and the unsigned six-sets give equivalent columns up to ordering. Signed exchanges or nine-line supports do not.",
+        "searches": [
+          "Elsenhans–Jahnel arXiv:1006.1474 §§2.5–2.6, Betten's Steiner Trihedral Pairs",
+          "Resultary: unsigned tritangent and Steiner-pair incidence; GQ(4,2) 45 points, 120 pairs of tricentric triads, K3,3 unsigned incidence and Smith form"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "8a178617dee9 gives Smith factors 1^20, 3, 0^6 for the 27-by-120 nine-line-support matrix, not 1^24, 2^20, 12 for the 45-by-120 plane matrix.",
+          "The inspected classical counts and other tables of incidence statements concern enumeration or different target maps."
+        ],
+        "reasoning": "The shared pair labels and date are a genuine overlap, neither exact coverage of plane Smith data nor a priority comparison. The bounded lookup is not an exhaustive table search.",
+        "searches": [
+          "Local Resultary: unsigned 45-by-120 Steiner trihedral pair map, Smith form and reconstruction multiplier",
+          "Closest same-day record 8a178617dee9 and adjacent 36-by-45 record cc641ca71c9c; classical enumeration sources"
+        ]
+      },
+      "rationale": "The supported distinct claim is the complete integer plane reconstruction and order-twelve obstruction. The pairing and its nine-line footprint are classical or previously computed in another target; the closest indexed same-day result computes only the rank-21 line-support image. No known full plane lattice was established by the bounded comparisons. No priority is inferred from the dates.",
+      "residual_risks": [
+        "The cited 2017 paper did not yield readable full text in the bounded access attempt.",
+        "An overlooked finite-geometry integral-incidence computation under another description of the six-sets remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Classical geometry and count; no integral plane result in these passages",
+          "evidence": "240 trihedra occur in conjugate pairs, characterized by common line support.",
+          "identifier_or_url": "https://arxiv.org/abs/1006.1474",
+          "material_read": "§§2.5–2.6, PDF p. 3, around text offset 7100",
+          "method": "Read located lawful full text",
+          "title": "Cubic surfaces with a Galois invariant pair of Steiner trihedra",
+          "trigger": "Primary treatment of precisely the geometric column set"
+        },
+        {
+          "assessment": "Confirms geometry, not the integer lattice",
+          "evidence": "120 pairs, with nine-line supports.",
+          "identifier_or_url": "https://www.math.colostate.edu/~betten/cubic_surfaces8.html",
+          "material_read": "Pair count and support discussion at offset 1136",
+          "method": "Read public author page",
+          "title": "Steiner Trihedral Pairs",
+          "trigger": "Alternate primary exposition of the exact pair geometry"
+        },
+        {
+          "assessment": "Access limitation, not a verdict on contents",
+          "evidence": "The public Betten exposition gave geometry only; the cited article itself was not read in full.",
+          "identifier_or_url": "https://doi.org/10.1007/s40879-017-0182-0",
+          "material_read": "Bibliographic identification; no readable full-text passage via attempted DOI route",
+          "method": "Lawful DOI access attempt",
+          "title": "Classification of cubic surfaces with twenty-seven lines over the finite field of order thirteen",
+          "trigger": "Cited pair types; potential integral incidence data"
+        },
+        {
+          "assessment": "Related signed relations, different map",
+          "evidence": "120 indispensable cubic binomial differences of conjugate trihedra, not their unsigned sums.",
+          "identifier_or_url": "511e3e06b7dc",
+          "material_read": "RESULT.md at offset 438",
+          "method": "Local published-record mirror",
+          "title": "The 540 indispensable quartic trades of the cubic-surface tritangent configuration",
+          "trigger": "Identical numbers of plane labels and trihedral exchanges"
+        },
+        {
+          "assessment": "Composition factor, not plane reconstruction",
+          "evidence": "45 tritangents map to the 27 lines with rank 21 and Smith list 1^21, 0^6.",
+          "identifier_or_url": "d458bb2de263",
+          "material_read": "Finding at offset 385",
+          "method": "Local published-record mirror",
+          "title": "Integral tritangent presentation of the E6 weight lattice",
+          "trigger": "Exact plane-to-line integral presentation"
+        },
+        {
+          "assessment": "Different column and basis families",
+          "evidence": "27 line labels and 36 double-six columns.",
+          "identifier_or_url": "0aac314408f8",
+          "material_read": "Finding at offset 0",
+          "method": "Local published-record mirror",
+          "title": "The order-four integral reconstruction obstruction for Schläfli double-sixes",
+          "trigger": "Analogous reconstruction integer order on cubic geometry"
+        },
+        {
+          "assessment": "Different incidence relation",
+          "evidence": "36-by-45 half-overlap map, not the 120-pair matrix.",
+          "identifier_or_url": "cc641ca71c9c",
+          "material_read": "Finding at offset 86",
+          "method": "Local published-record mirror",
+          "title": "The integral double-six–tritangent incidence lattices of a smooth cubic surface",
+          "trigger": "Same-date integral lattice involving the 45 tritangents"
+        },
+        {
+          "assessment": "Substantial overlap but distinct integral target",
+          "evidence": "Unsigned nine-line supports in Z^27, Smith factors 1^20, 3, 0^6; equals half the plane-to-line composition, not the full plane image.",
+          "identifier_or_url": "8a178617dee9",
+          "material_read": "RESULT.md at offset 227",
+          "method": "Local published-record mirror",
+          "title": "The index-three Steiner trihedral support lattice on a smooth cubic surface",
+          "trigger": "Strongest matching claim, identical 120 input pairs"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Corrected RESULT.md and independent certificate and local computations",
+        "Line-support comparison 8a178617dee9 and signed-trade comparison 511e3e06b7dc"
+      ],
+      "rationale": "The complete conjugate-pair family is an intrinsic part of the 27-line geometry, not an arbitrary sample. The unsigned integral span decides which formal tritangent combinations can be recovered, and the mod-four component and the sharp per-plane multiplier of twelve matter when rational or parity reconstruction is insufficient. Neither the geometry, Gram matrix, signed trades nor the rank-21 line support answers that reconstruction problem.",
+      "residual_risks": [
+        "The utility is for the natural formal-label reconstruction problem; no impact on Picard torsion or arithmetic descent is asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

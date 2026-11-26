@@ -1,0 +1,167 @@
+{
+  "correctness": {
+    "rationale": "For each fixed count t, sums of pk+1, pk+2, pk+3 fill [t(pk+1),t(pk+3)] exactly, so the quotient membership intervals have integer endpoints kt+ceil(t/p) and kt+floor(3t/p). The first is t0=ceil(p/3). The gaps between successive nonempty intervals have exact positive length max(0,k-2q-floor(3r/p)), with t=pq+r; these lengths are nonincreasing in t and exhaust maximal blocks. Residue counts j=0,1,2 and the q=0 boundary give c_p for odd k-ell and p-c_p for even k-ell, plus the initial length kt0. Summing frequencies proves both corollaries. The standalone checker recomputed 219 cases, 6,989 gap blocks, 40,685 missing integers across 2,708,025 independently constructed membership positions. Finite tests are corroboration, not the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "failed",
+  "independent_validation": false,
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The published 2026 record f97e4a87e254 gives exact Frobenius number for all large a and arbitrary p, with proof enumerating source-semigroup gap intervals.",
+        "The published 2026 record 972b2eeba586 gives exact genus for all a>=3,p>=2 and sharp 2p quasiperiod; its proof counts multiples in original-semigroup intervals, but does not display a quotient gap-block-length histogram.",
+        "A published half-quotient theorem 028b7bb60928 gives complete gapset for quotient modulus two, explicitly excluded from the final theorem."
+      ],
+      "reasoning": "Broader prior parameter ranges do cover the simpler Frobenius/genus statistics, so they are cited as known rather than presented as new. Their stated exact results do not count the lengths and multiplicities of maximal quotient gap blocks. The one prior full gapset classification applies only to p=2, whereas the new domain is p>=3. The known source-semigroup interval decomposition is a strong overlap in proof technique, assessed as a residual priority risk rather than ignored.",
+      "searches": [
+        "Frobenius and genus gap intervals for quotient by p of triple consecutive arithmetic progression where p does not divide smallest generator",
+        "numerical semigroup quotient interval consecutive three generators gap blocks quotient p p k 1 2 3",
+        "quotient <pk+1 pk+2 pk+3> p maximal gaps length spectrum"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2312.10889 (2023-12-18; primary MSC 11D07)",
+      "arXiv:2312.06096 (2023-12-11; primary 20M14)",
+      "arXiv:2206.13052 (2022-06-27; primary 11D07)",
+      "arXiv:2404.06358 (2024-04-09; primary 20M14)",
+      "published 2026 Frobenius record f97e4a87e254",
+      "published 2026 genus record 972b2eeba586",
+      "published 2026 half-quotient record 028b7bb60928",
+      "two-denomination quotient gap-block classification ce99c1d3"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The new closed length spectrum determines the genus by a weighted sum and the number of blocks by an unweighted sum; the reverse implication from genus and Frobenius alone does not hold.",
+        "The known full original-semigroup gap interval formula gives a starting point for quotient membership but not direct grouping of maximal quotient gaps across the p residue classes.",
+        "The modulus-two specialization is not included, because an earlier complete half-quotient gapset result covers it."
+      ],
+      "reasoning": "The theorem is neither a parameter substitution in the 2026 Frobenius/genus statements nor the two-denomination block result. Its new content is the uniform alternating multiplicity law for every short length, and the missing-length phase transition at p=4. Nonetheless its proof is elementary after the known interval realization, so independent priority review should check whether the law has been implicitly recorded elsewhere.",
+      "searches": [
+        "exact least genus quasiperiod for quotients of three consecutive generators",
+        "sharp quotient Frobenius quasiperiod three consecutive generators",
+        "complete pseudo-Frobenius spectra half quotients interval numerical semigroups"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2023 general quotient-generating-function theorem gives a rational representation enumerator and generators, but no closed alternating maximal quotient-gap block-length formula in the inspected text (arXiv:2312.10889, Sections 1-3).",
+        "The 2026 Frobenius proof obtains original-semigroup gap intervals; its theorem concerns only the maximal quotient gap, not the quotient maximal-block length histogram (published record f97e4a87e254)."
+      ],
+      "reasoning": "An explicit quotient generating function contains membership information in principle, and the prior source-semigroup interval lemma is a legitimate shared ingredient. Neither inspected result explicitly identifies the alternating frequencies c_p versus p-c_p of all quotient maximal-gap lengths over two free parameters. The new residue-band count and treatment of merged/empty quotient blocks are essential to the claimed closed histogram.",
+      "searches": [
+        "complete maximal gap-run length distribution quotient of three consecutive integers numerical semigroup pk+1 pk+2 pk+3 divided by p",
+        "exact missing interval length generating polynomial of semigroup quotient generated by three consecutive numbers",
+        "alternating multiplicity law for maximal missing block lengths quotient of <pk+1,pk+2,pk+3> divided by p; each length 1..k-1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The 2023 Liu Table 1 (arXiv:2312.10889) lists generators for certain p=2,3 quotient families, not the joint two-parameter maximal gap-block histogram.",
+        "The inspected published-finding corpus-index matches with closest titles concern quotient Frobenius, genus quasiperiod, half-quotient pseudo-Frobenius, or two-denomination gap statistics rather than this full p>=3 alternating histogram.",
+        "The previously published finding ce99c1d3 counts blocks for the different two-denomination quotient <pk+1,pk+2>/p; its multiplicities differ and adding the third coin is not implied by its result."
+      ],
+      "reasoning": "No indexed exact table containing these full block-length frequencies was encountered. This is not proof of global absence: relevant general generator and source-gap formulas could lead to a table after additional algebra, and public indexing is incomplete.",
+      "searches": [
+        "complete missing-block spectrum of quotient three consecutive coin generators by arbitrary p",
+        "gap lengths quotients numerical semigroups consecutive triple",
+        "Generating functions for the quotients of numerical semigroups Table 1 p=2 p=3"
+      ]
+    },
+    "rationale": "Accessible primary full texts and published result records were compared by implication. Prior general quotient generators, complete source-semigroup gap intervals, and sharp Frobenius/genus quasiperiods are acknowledged, and the p=2 full gapset classification is excluded. The final p>=3 claim is a distinct complete maximal quotient-gap length histogram with alternating p-dependent multiplicities and a sharp support transition. No inspected result explicitly supplies this theorem; priority risks of unstated derivations remain.",
+    "residual_risks": [
+      "The source-semigroup interval lemma already appears in broader published work; the specialized alternating quotient histogram could be an unstated short consequence in unindexed literature.",
+      "General quotient representation-generating functions encode all membership values, but their application to this exact length histogram is not recorded in the inspected results.",
+      "No independently conducted mathematical or priority audit."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General rational representation enumerators and generator descriptions, not an explicit block-length distribution for the present p,k family",
+        "evidence": [
+          "arXiv:2312.10889, Section 1 Theorem 1.1, Section 2.2, Section 3"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2312.10889",
+        "material_read": "Full accessible HTML text, Introduction, Theorem 1.1, Sections 2 and 3, explicit p=2,3 generator examples",
+        "method": "Accessible primary HTML full-text examination",
+        "title": "Generating functions for the quotients of numerical semigroups",
+        "trigger": "Direct 2023 paper on quotient representation enumeration, primary MSC 11D07"
+      },
+      {
+        "assessment": "Key results assume quotient modulus divides initial generator; p does not divide pk+1 in present family",
+        "evidence": [
+          "arXiv:2312.06096, Theorems 1.2-1.6 and Introduction"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2312.06096",
+        "material_read": "Accessible full-text Introduction and Theorems 1.2-1.6, reduction approach and divisor conditions",
+        "method": "Accessible primary HTML text examination",
+        "title": "On quotients of numerical semigroups for almost arithmetic progressions",
+        "trigger": "Potential broad quotient Frobenius/genus coverage"
+      },
+      {
+        "assessment": "Counts representation thresholds of original triple, not divisibility quotients or block-length spectra",
+        "evidence": [
+          "arXiv:2206.13052v3, Theorem 1 and Section 2"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2206.13052",
+        "material_read": "Accessible full arXiv HTML Introduction and Theorem 1, supporting Section 2 definitions",
+        "method": "Accessible primary HTML examination",
+        "title": "The p-numerical semigroup of the triple of arithmetic progressions",
+        "trigger": "Published number-theory treatment of three consecutive coin denumerants"
+      },
+      {
+        "assessment": "Already proves exact Frobenius quasi-period and source-semigroup interval lemma. Does not state the alternating histogram, but its interval lemma is a relevant reusable input.",
+        "evidence": [
+          "Its Finding and Proof sections, exact source-gap intervals and quotient Frobenius formula"
+        ],
+        "identifier_or_url": "f97e4a87e254",
+        "material_read": "Full published RESULT.md including proof, verification, relationship to prior work and references",
+        "method": "Published full-text research record",
+        "title": "Sharp quotient-Frobenius quasiperiod for three consecutive generators",
+        "trigger": "Closest indexed general result on the same quotient family"
+      },
+      {
+        "assessment": "Covers genus for all a,p, so present genus sum is only a corollary; does not state exact maximal-block length multiplicities",
+        "evidence": [
+          "Its Finding and Proof sections, genus floor-sum formula and sharp least period"
+        ],
+        "identifier_or_url": "972b2eeba586",
+        "material_read": "Full published RESULT.md including exact floor sums and proof",
+        "method": "Published full-text research record",
+        "title": "Exact least genus quasiperiod for quotients of three consecutive generators",
+        "trigger": "Closest indexed genus result for arbitrary quotient modulus"
+      },
+      {
+        "assessment": "Its quotient modulus is exactly two; theorem deliberately restricts to p>=3",
+        "evidence": [
+          "Its Finding and Proof sections, p=2 gapset formula"
+        ],
+        "identifier_or_url": "028b7bb60928",
+        "material_read": "Full published RESULT.md, including disjoint gap blocks and pseudo-Frobenius proof",
+        "method": "Published full-text research record",
+        "title": "Complete pseudo-Frobenius spectra for half-quotients of interval numerical semigroups",
+        "trigger": "Potential full gapset coverage of quotient-of-interval examples"
+      },
+      {
+        "assessment": "Studies factorization lengths in the original semigroup, not quotient block spectrum",
+        "evidence": [
+          "arXiv:2404.06358, Introduction and section outline"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2404.06358",
+        "material_read": "Accessible HTML Abstract, Introduction and stated principal partitions; primary MSC 20M14",
+        "method": "Primary arXiv HTML examination",
+        "title": "Elements with unique length factorization of a numerical semigroup generated by three consecutive numbers",
+        "trigger": "Plausible original triple classification"
+      }
+    ],
+    "status": "PASS"
+  },
+  "previously_published_pending_reaudit": false,
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "fe048f87-c2b8-4828-b735-9faac99b53c5",
+  "value": {
+    "rationale": "The result closes a natural two-parameter three-denomination quotient interval problem with the complete distribution of maximal missing block lengths. Unlike genus and Frobenius, it distinguishes the density of every short length; its parity alternation and sharp p=4 missing-length transition are meaningful structural information. The p=2 previously covered case is expressly excluded, and the p>=3 theorem is not a routine fixed-parameter table.",
+    "status": "PASS"
+  }
+}

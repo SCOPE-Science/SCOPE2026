@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:06:08.043750Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–74 and 82–83",
+        "Frozen VERIFICATION.md and checker.py (inspected, not executed)"
+      ],
+      "rationale": "The mixed triangle conditions give exactly the stated metric inequalities. In the scalar problem boundedness forces constant preservation, and simultaneous pair-permutation averaging reduces arbitrary extensions to the parameter θ. A zero-sum coefficient vector has sharp scalar oscillation norm half its ℓ¹ norm. Clipping to [−1/(n−1),1] decreases the maximum: below it the negative mass at the n−2 nondistinguished indices already exceeds the endpoint mismatch cost, and above it the positive mass at the mismatched source exceeds its value at 1. On that interval the matched cost decreases and the unmatched cost increases. Equalizing them, or clipping the intersection at the lower endpoint, gives the stated two formulas. The target–target cost is |θ|/s and is already controlled by s≥|a−b| on the intersection branch and s≥a−b≥b/(n−2) on the plateau. The identity on X enforces the floor 1. Nonnegative coefficients summing to one give the same upper bound for any real Banach target by transport at unit equilateral cost; norm-one scalarization along a unit vector of any nonzero target gives the unrestricted lower bound. The sample plateau is feasible and equals 40/39. The support statement is about the displayed optimal kernel, not a general uniqueness theorem, particularly on the norm-one region.",
+      "residual_risks": [
+        "The numerical finite LPs are corroboration only and were not replayed. No classification of all optimal operators is inferred."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The order-statistic theorem permits arbitrary single-row radii and signed interpolation coefficients, with positive-part feasibility before including the original-layer cost.",
+          "The two-centre indexed result concerns hubs of a double-star tree. The primary general finite-extension and doubling bounds and the equivariant Hilbert extension theorem do not supply the exact linear matched norm."
+        ],
+        "reasoning": "The stronger row theorem gives precisely the parameters needed to assemble all rows here; the rationale is the two-coordinate difference, not a claim that arbitrary multiple target points can always be assembled optimally.",
+        "searches": [
+          "Resultary 1f12e8fcb2f1; 20fdc745d13b",
+          "Focused literature on equilateral Lipschitz extensions to finitely many added points; arXiv:1707.06593, arXiv:1801.07533, arXiv:2305.04678"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 1f12e8fcb2f1, 6e15c63e9614 and 20fdc745d13b",
+        "Primary passages from arXiv:1801.07533, arXiv:2305.04678 and arXiv:1707.06593"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Choose the common raw c>0 solving (1−ca)_++(n−1)(1−cb)_+=1. The prior theorem certifies the lower bound max(1,c) already on X∪{y_i}. The coefficient at x_j in row i is (1−c d(y_i,x_j))_+. These rows have exactly the displayed coefficients by the two elementary cases ca≤1 and ca≥1.",
+          "Between rows i,k all other coefficients cancel, leaving the difference of (1−ca)_+ and (1−cb)_+ times f(x_i)−f(x_k). Its absolute scalar coefficient is at most c|a−b|≤cs by positive-part Lipschitzness and the triangle inequality."
+        ],
+        "reasoning": "This proves the full joint upper bound, the exact s-independence and the same support-loss kernel using the prior proof formula with no new joint minimax. The estimate holds even when c<1 and the norm floor is active. Scalarization carries the matching row lower bound to every nonzero real Banach target.",
+        "searches": [
+          "Mirrored Resultary 1f12e8fcb2f1, RESULT.md, offsets 0 and 4075, Step 3",
+          "Frozen RESULT.md, lines 26–31 and 64–72"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 1f12e8fcb2f1, Proof §§2–3, spells out both the sharp signed-row bound and the nonnegative probability feasibility condition F(c)=Σ_i(1−cr_i)_+≤1.",
+          "Resultary 6e15c63e9614 gives a simultaneous cyclic triple with sharp norm max(1,2L/(r_0+r_1+r_2))."
+        ],
+        "reasoning": "The paired rows have precisely the same one-point profile (a,b,…,b) in different coordinate orders. Setting L=1 and radii (a,b,b) in the cyclic record is the identical six-point problem; where a≥2b, feasibility makes both norms 1.",
+        "searches": [
+          "Resultary: paired equilateral layers; universal one-point equilateral extension; cyclic triples"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The cyclic record explicitly contains n=3, s-independence and the threshold at a=2b in this specialization.",
+          "The row profile source gives exact symbolic formulas, not a finite sample. Its raw optimum is c=(n−1)/D while ca≤1, and c=(n−2)/((n−1)b) when ca≥1 on the saturated branch, as follows from its F(c)=1."
+        ],
+        "reasoning": "There is exact statement-level overlap for n=3 and exact formula coverage of the row optima for general n; a same-day date alone is not used to infer priority.",
+        "searches": [
+          "Resultary 2026/10/26, 6e15c63e9614, Finding and optimizer cases",
+          "Resultary 2026/10/25, 1f12e8fcb2f1, Finding and Proof §3"
+        ]
+      },
+      "rationale": "The earlier indexed equilateral one-point theorem gives the exact row cost and the positive-part coefficients before applying the floor 1. In this paired metric the rows differ only by swapping the matched and unmatched entries, so the positive-part formula and the triangle inequality immediately give all inter-target constraints. This is a direct corollary for every n, not merely an analogy to one-point extension. A distinct cyclic-triples record also explicitly covers the whole n=3 subfamily.",
+      "residual_risks": [
+        "No exhaustive priority assertion is made. The negative verdict is based on an explicit mathematical implication from inspected exact row results, not the absence of an n≥4 title match."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Mechanically implies the joint paired-layer formula via the two-coordinate row difference",
+          "evidence": "Step 3 proves the exact feasibility inequality and identifies the positive-part probability row when the raw bound is attained. The positive-part kernel's joint paired-layer costs are controlled by the metric.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-order-statistic-law-for-universal-one-point-lipschitz-extensions--1f12e8fcb2f1/RESULT.md",
+          "material_read": "Mirrored RESULT.md, offsets 0 and 4075, Finding and Proof §§1–3",
+          "method": "Local mirror statement and proof inspection with direct row assembly",
+          "title": "Order-statistic law for universal one-point Lipschitz extensions of equilateral metrics",
+          "trigger": "Earlier arbitrary-radii exact equilateral row theorem"
+        },
+        {
+          "assessment": "Explicitly contains the n=3 simultaneous result, not n≥4",
+          "evidence": "Cross radii (r_0,r_1,r_2) specialize to (a,b,b); both formulas and optimizer branches coincide.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-no-simultaneous-extension-penalty-for-cyclic-triples-over-an-equ--6e15c63e9614/RESULT.md",
+          "material_read": "Mirrored RESULT.md, Finding offset 0 and optimizer cases offsets 3900–7327",
+          "method": "Local mirror bounded statement comparison",
+          "title": "No simultaneous-extension penalty for cyclic triples over an equilateral source",
+          "trigger": "Same simultaneous matched geometry in size three"
+        },
+        {
+          "assessment": "Related but different metric and number of added points",
+          "evidence": "Its two targets are hubs in a tree rather than the paired equilateral layer.",
+          "identifier_or_url": "Resultary 2026/10/25, 20fdc745d13b",
+          "material_read": "Mirrored RESULT.md, Finding offset 0",
+          "method": "Local mirror statement comparison",
+          "title": "A sharp two-centre Lipschitz extension threshold on symmetric double stars",
+          "trigger": "Related simultaneous extension with support loss"
+        },
+        {
+          "assessment": "General existence and estimate, not the exact profile",
+          "evidence": "The bound depends logarithmically on the doubling parameter.",
+          "identifier_or_url": "https://arxiv.org/abs/1801.07533",
+          "material_read": "PDF p. 12, Theorem 4.1",
+          "method": "Bounded primary full-text comparison",
+          "title": "Linear Lipschitz and C¹ extension operators through random projection",
+          "trigger": "General Banach-valued linear extension estimates"
+        },
+        {
+          "assessment": "Different type of extension",
+          "evidence": "The G-invariant Lipschitz extension is for Hilbert maps and does not furnish the sharp real-linear operator norm.",
+          "identifier_or_url": "https://arxiv.org/abs/2305.04678",
+          "material_read": "PDF p. 12, Theorem 2.13",
+          "method": "Bounded primary full-text comparison",
+          "title": "Extension of monotone operators and Lipschitz maps invariant for a group of isometries",
+          "trigger": "Potential coverage from equivariant extension"
+        },
+        {
+          "assessment": "The inspected statement is a general-bound result, not evidence of exact coverage",
+          "evidence": "The abstract states general extension-factor bounds in terms of the number of added points.",
+          "identifier_or_url": "https://arxiv.org/abs/1707.06593",
+          "material_read": "PDF p. 1 abstract",
+          "method": "Bounded primary text comparison",
+          "title": "Lipschitz Extensions to Finitely Many Points",
+          "trigger": "Focused search match regarding multiple added points"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof",
+        "Resultary 1f12e8fcb2f1, Finding and Proof §3"
+      ],
+      "rationale": "Simultaneous extension at sharp norm is naturally motivated, but in this slice the known positive-part row profile and automatic two-coordinate estimate leave no independent bottleneck. The nonunit support plateau for n≥4 was already present in the general row profile and survives matching by a one-line metric inequality. The submitted scope gives no new phenomenon beyond that corollary and no genuine distinct remainder to repair.",
+      "residual_risks": [
+        "The result may be useful as an application of the row theorem; that does not make the submitted claim an independent scientific contribution."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The stationary distribution is the known Gaussian convolution of the beta law with exponent \(\ell-1\). The critical root exists uniquely because \(F(0)=-1\), \(F(t)\sim(1-\ell)/t>0\) and \(F\) has strictly positive derivative at every root. The tilted-beta recurrence explicitly supplies its second and third moments. Gaussian Hermite differentiation gives \(P^{(4)}(0)/P(0)=2(\ell-1)/\nu_c^2<0\) and \(P^{(6)}(0)/P(0)=2(\ell-1)[1+(2\ell-9)\nu_c]/\nu_c^4\). The heat equation and analytic implicit-function theorem then give the asserted second-order mode law. The smooth Gaussian kernel's variation-diminishing property bounds the number of stationary modes; independent quadrature checks reproduce both signs of the next-order coefficient. The proof does not depend on numerical evidence.
+## correctness
 
-## Originality — PASS, with residual risk
-The beta stationary density, exact convolution, qualitative transition, critical curvature equation, and its endpoint behavior are prior results, especially Guéneau–Majumdar–Schehr (arXiv:2602.08436, Sec. V.1.1, Eqs. 96–98). The universal leading square-root coefficient is a generic heat-equation consequence and not claimed novel. The assessed claim is the explicit, *model-specific next coefficient* \(K(\ell)\) together with its qualitative sign reversal as the persistence ratio changes. The inspected full section of the closest source and the telegraphically driven-trap paper's shape-transition treatment do not state this second-order expansion; targeted research-record searches found no equal or dominating published claim. Residual risks include an implicit treatment in another source, the inaccessible full text of Sevilla–Meléndez Mora (arXiv:2608.21781), and a general heat-flow expansion that could render the calculation an application of prior higher-order theory.
+PASS
 
-## Value — PASS
-Near the established morphology transition, the leading peak separation is universal, so it cannot distinguish different directional switching rates once the threshold is known. The calculated first correction is the lowest-order coefficient that detects persistence, and its sign changes between rare and frequent tumbling. This supplies a natural quantitative boundary for fitting stationary spatial peaks and interpreting activity, not an arbitrary parameter slice. Its value does not require a new general theorem for all noise-smoothed distributions; no claim of statistical robustness under noise is made.
+In units of R=v/κ the independent thermal OU term has variance ν=Dκ/v². For U=y² and t=1/(2ν), integration of the derivative of u^(j+1/2)(1−u)^ℓ exp(−tu) gives the stated tilted moment recurrence, with both boundary terms zero. The central curvature has the sign of F=2t E_t[U]−1. At a zero the recurrence gives E_t[U²]=(2ℓ+1)ν², so F'=(1−ℓ)/t. F(0)=−1 and the small-u Laplace expansion gives F(t)=(1−ℓ)/t+O(t^−2) at large t. Every zero crosses upward, so there is exactly one. Gaussian differentiation and the next moment give P⁽⁴⁾/P=2(ℓ−1)/ν_c² and P⁽⁶⁾/P=2(ℓ−1)[1+(2ℓ−9)ν_c]/ν_c⁴. In the even analytic equation P'/z=0, put B=P⁽⁴⁾/6 and C=P⁽⁶⁾/120 at criticality. The heat equation gives coefficients −3Bδ+15Cδ² in the constant term and B−10Cδ in the term linear in z². The implicit solution is z²=3δ+(6C/B)δ²+O_ℓ(δ³); 6C/B is exactly the claimed K. These stationary points are maxima since B<0. For the global mode count, cap the beta density at a finite height on [−1,1]. Its distributional derivative has, in order, positive edge jump, negative slope, positive slope, negative edge jump. Gaussian variation diminution bounds the number of sign changes by three; L¹ convergence of the capped densities gives uniform convergence of the convolved derivatives and preserves that bound. Oddness, the sign near zero (controlled at criticality by P⁽⁴⁾<0), and negative derivative for z>1 give exactly two peaks below and one at or above threshold. Finally, weak convergence to the two endpoint atoms gives F→2t−1 at fixed t and brackets ν_c→1; convergence to the uniform density gives limiting curvature G_ν'(1)<0 at each fixed ν>0 and hence ν_c→0. The limits of K are −12/5 and +∞. The strict curvature crossing yields continuous ν_c and K, giving existence, not uniqueness, of an intermediate zero. Multiplying by R² and using δ=κ(D_c−D)/v² gives the stated dimensional factors.
 
-## Scope and caveats
-The result is a local stationary asymptotic for every fixed \(0<\ell<1\); it is not uniform at either endpoint. The zero of the correction is only proved to exist. No independent mathematical audit has been carried out. The strongest relevant published formulas remain prior work, and full coverage of all possible related literature is not certified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact stationary profile, its convolution structure and curvature-based phase boundary are prior; the leading square-root split is generic. The supported distinct statement is the explicit beta-model coefficient of the second power of the variance deficit in the squared mode location and its sign reversal. In the closest inspected primary source, parameter matching gives the same curvature equation and limiting regimes, not this coefficient. The related indexed findings cover the leading split, phase-boundary corrections, or peak-height contrast, not this second-order location coefficient. This is a bounded comparison rather than historical-priority certification.
+
+## value
+
+PASS
+
+The universal leading term deliberately erases persistence dependence. The explicit next coefficient quantifies the first distinguishable dependence in this mode-location observable and shows that the direction of the correction can reverse. That gives a useful fixed-parameter approximation and a model-specific comparison beyond identifying the critical point or fitting a square-root law.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

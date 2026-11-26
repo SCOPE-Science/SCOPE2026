@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The forest characterization is proved in both directions using an oriented-cycle obstruction and a linear extension of an oriented forest. Ordered-Bell counts give exact small upper bounds; the root strict-positive class size \(31\) rules out depth six on four labels. Complete explicit depth-three and depth-five adaptive trees provide finite lower-bound certificates, independently checked by full ordered-partition enumeration. Concatenating their blockwise queries establishes the infinite lower bound without extrapolating finite experiments.
+## correctness
 
-**Originality — PASS, subject to publication-priority risk.** The inspected 2023 work on online multilabel ranking has permutation-valued predictions and top-rank feedback restrictions, not binary relation queries on tie-allowing weak orders. The set-valued-feedback ranking dimension likewise differs from ordinary binary Littlestone dimension on ordered-pair membership. The query-learning/compression article supplies general learning machinery but not this weak-order computation. Related finite-order compatibility set systems have order-level coordinates, not the query domain used here. Research-index and previous-claim comparisons found no implication establishing the three-/four-label online ranks or the amplified strict-comparison gap. Full historical priority cannot be certified by negative searches.
+PASS
 
-**Mathematical value — PASS.** A canonical relational concept class gains a complete structural static-shattering criterion, the first exact adaptive departure on three labels, a two-round advantage on four labels, and an infinite connected-domain gap construction. The distinction between one negative binary outcome (which may include ties) and a true three-outcome comparison is mathematically relevant to learning rankings with indifference. The precise small certificate is used as a reusable independent-block obstruction, not offered as an arbitrary isolated census.
+Both orientations on a pair forbid the all-positive label; on a cycle choose a cyclic traversal with at least one positive edge, giving inconsistent cyclic weak inequalities with one strict inequality. On a forest the imposed orientations are acyclic and even distinct ranks suffice, proving precisely the stated support criterion and n−1, including the empty domain at n=1. A depth-d tree needs 2^d distinct concepts. The four-label positive root branch has (75−13)/2=31 concepts by collapsing tied labels and swapping the two labels on strict orders, so depth six fails. An independent scan of consecutive-surjective rank tuples and exact depth feasibility returned the four dimensions 0,1,3,5 with 1,3,13,75 distinct concepts; it separately checked all 8 and 32 leaf paths against the supplied certificate. Concatenation allows independently chosen within-block weak orders and fixes all between-block comparisons, proving 5s and the gap s+1 without any extrapolation from the computation.
 
-**Closest literature and risk.** Raman–Subedi–Tewari (arXiv:2304.03337, arXiv:2306.06247), Chase–Freitag–Reyzin (arXiv:2310.04812), and Duan–Ouyang–Wang (arXiv:2412.06402) address neighboring but nonidentical concepts or feedback. Sources possibly using an equivalent formulation of binary weak-order comparison still pose residual priority risk. Exact Littlestone dimensions for larger label sets are outside the claim.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass for the model-specific tie-sensitive adaptive profile and its consequences, not for the general idea of block amplification or for the static combinatorics by itself. Forest shattering is the same as for strict permutations; the adaptive ranks differ when opposite comparisons can both receive zero. The closest larger and smaller order classes do not imply the exact profile or when the first weak-order gap occurs. Bounded evidence does not establish historical priority.
+
+## value
+
+PASS
+
+The first gap is an exact boundary for a natural binary comparison model where ties are unobserved on a single negative answer. The three- and four-item thresholds distinguish it from strict permutation comparison and the four-item threshold also distinguishes it from unconstrained strict-poset comparison. The finite result supplies a concrete product witness; the broad existence of adaptive/static gaps is not itself the scientific gain.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

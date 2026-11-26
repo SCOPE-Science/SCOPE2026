@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:45:53.848601Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–89 and frozen VERIFICATION.md, verify_direct.py and verify_gaussian.py (inspected, not executed)",
+        "Independent bounded gap-composition recomputation of all factorial-moment coefficients for 1<=A<=5 and 0<=B<=5; independent greedy subsequence checks of the gap threshold on 917 words"
+      ],
+      "rationale": "In the unique gap representation, each b in gap i contributes i scattered ab pairs. An anchored alternating subsequence selects b's from distinct nonempty interior gaps; choosing any increasing list of such gaps conversely gives an embedding. For the r-th binomial moment, mark r of those gaps, delete one b per mark, and distribute the remaining B-r letters freely. The marked subset weight is q^{r(r+1)/2}[A-1 choose r]_q and the remaining gap weight is [A+B-r choose A]_q. This yields the stated joint polynomial and fixed-fibre probabilities under uniform sampling. For 0<=C<=AB write C=A d+s (0<=s<A): put d b's in the final gap, one more in gap s if s>0, and the others in gap 0, proving the denominator is positive. Stars and bars gives the marginal, and for fixed k its h=k-1 term is asymptotic to m^(2k-1)/((k-1)!k!); division by the central binomial coefficient gives the stated equivalent. Empty and insufficient-gap cases agree with the formulas.",
+      "residual_risks": [
+        "The finite checks do not prove the polynomial identities at unbounded parameters or the fixed-k asymptotic. The asymptotic is not an estimate within any prescribed C fibre."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fazekas–Huang–Mercaş treats the same A,B,C fibres, exact existential and universal questions, and additive approximation of conditional probabilities; its Gaussian-binomial passage counts the whole fibre.",
+          "Record b40371a80999 counts the total interior b occupancy and covers k=1. Record e75590ea1e11 covers the six balanced four-letter patterns, not this odd alternating family."
+        ],
+        "reasoning": "These broader or neighboring analyses alone do not give the full occupied-gap law for all k; the exact anchored-alternation product is the decisive stronger source.",
+        "searches": [
+          "Fazekas–Huang–Mercaş, arXiv:2610.06717v1; Resultary: interior-gap sandwich and four-letter inversion-refined avoidance"
+        ]
+      },
+      "checked_sources": [
+        "Four Resultary search themes above, the inspected local mirror passages, and arXiv:2610.06717v1 bounded HTML passages"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Rewrite the prior interior factor as (1+(v-1)u z^i)/(1-u z^i). In its product, coefficient (v-1)^r selects r of the A-1 numerator factors, giving u^r z^{r(r+1)/2}[A-1 choose r]_z. Then coefficient u^{B-r} of the unchanged denominator gives [A+B-r choose A]_z. Alternatively the moment is the binomial transform of the exact N.",
+          "Prior eq. (2) yields the unrefined sum; the fixed-k dominant degree and central-binomial Stirling equivalent need no new structural input."
+        ],
+        "reasoning": "The factored expression is a convenient form of a coefficient of exactly the same product, not an independent uncovered mathematical result. No priority conclusion beyond the verified coverage is necessary for this assessment.",
+        "searches": [
+          "Exact anchored-alternation spectrum, eqs. (1)–(2), Steps 2–4; frozen eqs. (1)–(6)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Record e6e8cc491f9d defines J as the largest j for a(ba)^j and proves J equals the number of occupied interior gaps. Since a(ba)^j=(ab)^j a, J=H exactly.",
+          "Adjacent ab has count H+1_{g_A>0}, adjacent ba has count H+1_{g_0>0}; neither is the scattered-pair exponent C."
+        ],
+        "reasoning": "Ordinary unconditioned ascent/run counts are not directly interchangeable with the submitted statistic, but the anchored formulation uses exactly the submitted gap statistic and same q-weight.",
+        "searches": [
+          "Resultary: occupied-gap Gaussian moments; alternating-pattern fibre avoidance; adjacent q-runs/descents"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The source gives the full N_{A,B,C,j} for all A>=1 and all B,C,j, not merely a table or finite numerical census. Its generating function has the same two exterior factors and the same interior factor 1+v u z^i/(1-u z^i), with u marking B, z marking C and v marking j.",
+          "It explicitly states the same composition marginal and avoidance count as a sum over j<k."
+        ],
+        "reasoning": "Renaming its variables to t,q,u and taking [t^B] recovers the first expression for G, including endpoint conventions. Same date does not support an ordering inference; these are two distinct records with equivalent central claims.",
+        "searches": [
+          "Resultary: exact anchored/alternating pattern distribution in binary Parikh-matrix classes",
+          "Local published-record mirror of e6e8cc491f9d, Finding eqs. (1)–(2)"
+        ]
+      },
+      "rationale": "A distinct indexed anchored-alternation finding gives the identical all-parameter joint distribution, threshold and avoidance counts. This is demonstrable equivalent coverage, regardless of unresolved same-date priority. The factorial-moment product is immediate by translating the marking variable of that exact product and applying the standard Gaussian subset and multiset identities; the balanced-content equivalent is likewise standard Stirling extraction from its exact marginal. No distinct nonroutine original claim remains in the submitted scope.",
+      "residual_risks": [
+        "The full primary-paper priority history is not established. The decisive evidence is verified scope overlap, not a search miss or the ordering of same-date entries."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent complete joint law and avoidance counts; factorial moment product mechanically implied; priority order not inferred",
+          "evidence": [
+            "Eq. (1) gives exact full trivariate distribution and Eq. (2) the same marginal. Step 2 proves J=|S(w)| for the same occupied interior gaps."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-exact-anchored-alternation-spectrum-inside-binary-parikh-matrix--e6e8cc491f9d/RESULT.md",
+          "material_read": "Finding eqs. (1)–(5), assumptions, proof Steps 1–4, offsets 0–4888",
+          "method": "Local published-record mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact anchored-alternation spectrum inside binary Parikh-matrix classes",
+          "trigger": "Distinct exact catalogue overlap with arbitrary anchored alternating patterns"
+        },
+        {
+          "assessment": "Same fibres and general analysis; targeted passages do not determine whether another special case is present",
+          "evidence": [
+            "Exact existence/universality and approximation for arbitrary fixed patterns; Gaussian polynomial counts the entire fibre."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.06717v1",
+          "material_read": "Relevant text offsets 4500–9387 and Gaussian-binomial/partition passage near 39700",
+          "method": "Bounded OA arXiv HTML passages",
+          "title": "Subsequence Analysis Problems for Binary Parikh Matrices",
+          "trigger": "Same binary conditional-probability problem"
+        },
+        {
+          "assessment": "Covers aba, not general occupied-gap counts",
+          "evidence": [
+            "Counts total interior b's, which distinguishes neither two b's in one gap from one in each of two gaps, nor their anchored alternation lengths."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-exact-sandwich-subsequence-profiles-within-binary-parikh-matrix--b40371a80999",
+          "material_read": "Finding, offset 0",
+          "method": "Local published-record mirror",
+          "title": "Exact sandwich-subsequence profiles within binary Parikh-matrix classes",
+          "trigger": "Potential interior-gap coverage"
+        },
+        {
+          "assessment": "Other pattern family",
+          "evidence": [
+            "Exact inversion-refined spectra for six balanced four-letter patterns, not arbitrary odd alternating patterns."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-inversion-refined-avoidance-spectra-for-all-balanced-four-letter--e75590ea1e11",
+          "material_read": "Finding, offset 0",
+          "method": "Local published-record mirror",
+          "title": "Inversion-refined avoidance spectra for all balanced four-letter scattered patterns",
+          "trigger": "Exact avoidance in same fibres"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen equations (1)–(6) and exact anchored-alternation record equations (1)–(2)"
+      ],
+      "rationale": "The natural exact counting problem is worthwhile, but that complete joint spectrum is already covered. The remaining presentation in the Gaussian binomial-moment basis is a direct coefficient extraction from the covered product, and the marginal asymptotic is routine from an already-stated count. The record offers no new structural consequence, conditional asymptotic or justified computational improvement that would make the residual contribution scientifically distinct.",
+      "residual_risks": [
+        "A nonroutine consequence of the factored basis might be valuable, but none is established here."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

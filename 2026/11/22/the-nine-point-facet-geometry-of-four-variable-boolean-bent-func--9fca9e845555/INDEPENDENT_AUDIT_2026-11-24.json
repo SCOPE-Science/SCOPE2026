@@ -1,0 +1,151 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:04:59.168509Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof steps 1–6; VERIFICATION.md; verify_quadratic.py; verify_walsh.cpp; nine_trace_witnesses.json",
+        "Independent replay: python /workspace/branches/independent-correctness/record2.py"
+      ],
+      "rationale": "The direct exact Walsh test is wt(f+u·x) ∈ {6,10} for each u, since W=16−2wt. An independent enumeration obtains 896 functions, 448 of each support size, and confirms by binary Möbius inversion and polar-radical tests that each is a nonsingular affine quadratic. For every support, the exact trace set is {S ∩ supp(f)}; its cardinality reaches 2^|S| precisely on the proper ten-block subfaces. Independent checks validate all 512 witness entries, the entire f-vector, the seven-/eight-point exclusions, and the affine orbits of sizes 4480 for the nine-faces and 30, 840, 1920 for the unshattered eights. Both dimensions equal nine: the nine-face supplies a fixed-order tree, and any depth-ten complete tree needs 1024 distinct concepts, one per leaf.",
+      "residual_risks": [
+        "Exact finite result on 16 points; no higher-dimensional extension."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Design isomorphism, automorphism 2-transitivity and general rate bounds concern different invariants; the counting upper bound gives depth at most nine but no witness that all 512 labels are attained on a nine-set."
+        ],
+        "reasoning": "The design automorphism and incidence results do not classify the surjectivity of all mixed traces on seven-, eight- and nine-point subsets.",
+        "searches": [
+          "arXiv:2003.12308; arXiv:2012.06866; arXiv:1703.01586"
+        ]
+      },
+      "checked_sources": [
+        "Resultary self-hit 2026/11/22/SCOPE-the-nine-point-facet-geometry-of-four-variable-boolean-bent-func--9fca9e845555",
+        "Distinct Results and primary works listed in source_inspections",
+        "arXiv:1909.13145 p. 1: Hadamard submatrices via primitive sets; arXiv:2212.05513 p. 1: tiling and spectral-set relations"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The October spectral finding classifies eight-sets by T(A)={t≠0:A+t=Aᶜ}. It does not give all labels on those sets by bent concepts or give the 512 labels on any nine-set. The same-day frame result is about four-erasure Gram spectra, and the affine-plane result uses unions of two lines as concepts."
+        ],
+        "reasoning": "Even if the known T(A) partition supplies the candidate geometric condition, the equality with shattering still needs a separate proof. Neither same-day result implies that equality or the pure nine-point facet structure.",
+        "searches": [
+          "2026/10/11/SCOPE-exact-walsh-spectrum-multiplicities-for-eight-point-subsets-of-t--b981e436a3b1; 2026/11/22/SCOPE-four-erasure-trichotomy-for-quadratic-bent-harmonic-frames--af4724f35fc3; 2026/11/22/SCOPE-parallelism-sensitive-vc-shattering-in-the-affine-plane-of-order--7a0852e571c8"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The claim is equivalently surjectivity of the 896-word nonlinear code projected to chosen coordinates, or equality of the shattered-support complex with proper faces of the ten-point blocks. The Fourier-submatrix result uses character orthogonality and the binary-code result treats rate bounds, not this projected-code surjectivity."
+        ],
+        "reasoning": "The orthogonal character basis on an eight-set is not the realization of all binary Boolean labels by bent functions on that set. The indexed copy of the assigned record is the same theorem and is not a distinct source.",
+        "searches": [
+          "Resultary: four-variable Boolean bent shattering and Walsh spectra; arXiv:1703.01586; arXiv:1909.13145"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/9/8/SCOPE051 already tabulates 896 bent functions. 2026/10/11/SCOPE-exact-walsh-spectrum-multiplicities-for-eight-point-subsets-of-t--b981e436a3b1 already identifies the complementary-translation strata and their four sizes 10080, 1920, 840, 30. Neither inspected Finding gives the bent-trace f-vector."
+        ],
+        "reasoning": "Credit both overlaps, including the exact eight-point orbit counts; the finite shattering table across all support sizes is a different invariant.",
+        "searches": [
+          "Resultary: four-variable bent shattering; Walsh census; eight-point Boolean four-cube spectral multiplicities"
+        ]
+      },
+      "rationale": "The supported distinction is the classification of surjective coordinate projections of the full bent-function class, not the 896-concept census or the eight-point geometric orbit partition in isolation. The prior spectral classification shares the geometry and counts, but no inspected source establishes that the partition classifies traces of bent functions or supplies the nine-facet complex and its complete shattering counts.",
+      "residual_risks": [
+        "The Huckle–Kravvaritis full text was not accessible; it may give an antecedent to the eight-point spectral enumeration. Inspected primary excerpts are not a whole-literature priority determination."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material partial overlap",
+          "evidence": "T(A) determines the spectral-partner strata with sizes 10080, 1920, 840, 30; spectral orthogonality is a different test from bent traces.",
+          "identifier_or_url": "2026/10/11/SCOPE-exact-walsh-spectrum-multiplicities-for-eight-point-subsets-of-t--b981e436a3b1",
+          "material_read": "RESULT.md Finding, offsets 0–3131",
+          "method": "Resultary local mirror",
+          "title": "Exact Walsh-spectrum multiplicities for eight-point subsets of the Boolean four-cube",
+          "trigger": "Exact same eight-point geometry and counts"
+        },
+        {
+          "assessment": "Concept count covered",
+          "evidence": "Exact Walsh census includes 896 bent tables, not the shattering of restrictions of those tables.",
+          "identifier_or_url": "2026/9/8/SCOPE051",
+          "material_read": "RESULT.md Finding, offsets 0–2979",
+          "method": "Resultary local mirror",
+          "title": "Replayable Walsh census of all 2^16 Boolean functions in n=4 and the 256 rotation-symmetric functions in n=5",
+          "trigger": "Potential exact census overlap"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": "Gram spectra and reconstruction bounds after four erasures, not a Boolean concept class trace result.",
+          "identifier_or_url": "2026/11/22/SCOPE-four-erasure-trichotomy-for-quadratic-bent-harmonic-frames--af4724f35fc3",
+          "material_read": "RESULT.md Finding, offsets 0–3171",
+          "method": "Resultary local mirror",
+          "title": "Four-erasure trichotomy for quadratic-bent harmonic frames",
+          "trigger": "Distinct same-day result using quadratic bent objects"
+        },
+        {
+          "assessment": "Different concept class",
+          "evidence": "Concepts are unions of two lines in AG(2,4), not all bent supports.",
+          "identifier_or_url": "2026/11/22/SCOPE-parallelism-sensitive-vc-shattering-in-the-affine-plane-of-order--7a0852e571c8",
+          "material_read": "RESULT.md Finding, offsets 0–2220",
+          "method": "Resultary local mirror",
+          "title": "Parallelism-sensitive VC shattering in the affine plane of order four",
+          "trigger": "Distinct same-day affine 16-point shattering result"
+        },
+        {
+          "assessment": "Design-theoretic background in inspected passage",
+          "evidence": "Translation/addition designs and design isomorphism versus extended-affine equivalence.",
+          "identifier_or_url": "https://arxiv.org/abs/2003.12308",
+          "material_read": "p. 1, offsets 0–2984",
+          "method": "OA PDF text",
+          "title": "On design-theoretic aspects of Boolean and vectorial bent functions",
+          "trigger": "Design theory for bent supports"
+        },
+        {
+          "assessment": "Related results in inspected passage",
+          "evidence": "2-design constructions and the 2-transitive automorphism characterization of quadratic bent functions.",
+          "identifier_or_url": "https://arxiv.org/abs/2012.06866",
+          "material_read": "p. 1, offsets 0–2816",
+          "method": "OA PDF text",
+          "title": "Linear codes and incidence structures of bent functions and their generalizations",
+          "trigger": "Potential broader theorem on quadratic bent incidence"
+        },
+        {
+          "assessment": "General rate and dimension bounds in inspected material",
+          "evidence": "Bounds rates under constraints on distance and VC dimension; no exact bent-code support test in the inspected material.",
+          "identifier_or_url": "https://arxiv.org/abs/1703.01586",
+          "material_read": "p. 1, offsets 0–2845 and 3850–6296",
+          "method": "OA PDF text",
+          "title": "On the VC-Dimension of Binary Codes",
+          "trigger": "Equivalent code-projection formulation"
+        },
+        {
+          "assessment": "Unresolved access risk, not negative evidence",
+          "evidence": "Referenced by the October Resultary spectral record; precise coverage of spectral counts is not established here.",
+          "identifier_or_url": "https://doi.org/10.1080/03081087.2016.1250863",
+          "material_read": "Bibliographic identification; no full text read",
+          "method": "Bounded OA retrieval; two routes denied access, no OA repository copy identified",
+          "title": "Properties of submatrices of Sylvester Hadamard matrices",
+          "trigger": "Plausible antecedent for eight-point spectral classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding; reviewed independent face and orbit tests; eight-point spectral comparison above"
+      ],
+      "rationale": "Four variables are a natural small setting for full-rank quadratic bent functions. The classification replaces all Boolean trace tests by an affine-block containment criterion, distinguishes two different small obstruction mechanisms, and explains why all maximal supports have one orbit even though many seven- and eight-supports fail. That is independently useful for studying projections of this canonical nonlinear code, beyond publishing a known concept count or a dimension bound.",
+      "residual_risks": [
+        "The value is the exact structural finite classification, not a general theory or a new eight-point spectral partition."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

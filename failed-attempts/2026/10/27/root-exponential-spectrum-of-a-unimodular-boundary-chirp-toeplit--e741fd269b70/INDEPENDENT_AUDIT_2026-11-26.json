@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:25:44.168298Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Coordinate rotations diagonalize a radial compression in the monomials; the eigenvalue on degree k is the stated beta quotient with N=k+d-1 and block dimension binom(k+d-1,d-1). With A=N+1 and a=-ic, the change of variable y=t/(1-t) gives exactly exp(ic) Gamma(A+alpha+1) U(A,-alpha,a)/Gamma(alpha+1) by the defining Laplace integral, first for Re(a)>0 and then by an Abel limit dominated by y^N(1+y)^(-N-alpha-2). Equations 13.8.11 and 10.40.2 of DLMF give a leading factor sqrt(pi) exp(a/2) a^((2alpha+1)/4) A^(-(2alpha+3)/4) exp(-2 sqrt(aA))/Gamma(A) for U. The complex arguments meet the sector hypotheses; A to N costs only a relative 1+o(1). The gamma normalization and exp(ic+a/2)=exp(ic/2) recover the claimed formula, including the phase and polynomial exponent. The frozen gamma-average derivation is consistent: on S in [N/2,2N], the normalized large-s integrand is bounded by a constant times exp(C|S-N|/sqrt(N)); the exact mgf gives uniform integrability. Off this interval, the bound |H_a(s)|<=Gamma(alpha+1) s^(-alpha-1) and gamma tails with shape shifted by alpha+1 give exponentially small unnormalized error, so they remain negligible after root-exponential normalization. The complex Gaussian correction is exp(a/2). Taking moduli gives -log|lambda_k|~sqrt(2|c| k), so eventual nonvanishing, all S_p, and the counting constant follow by summing degree-block dimensions between quadratic log thresholds; no monotonicity or distinctness of eigenvalues is required. The comparison with T_|phi|=I is exact. Independent finite replay: rotated-contour quadrature in /workspace/review_checks.py (chirp), at N=512,2048,8192 for three parameter pairs including both signs of c, gave final complex relative errors 0.00692, 0.01141 and 0.02047 or smaller; it supplements, not establishes, the asymptotic. Supplied script inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "DLMF 13.8.11 gives the K_(b-1)(2 sqrt(Az)) expansion for large A in a sector and fixed b,z; 13.8.15–16 give p_0=1. K has the standard large-argument equivalent sqrt(pi/(2w)) exp(-w) in a sector containing arg w=±pi/4.",
+          "Abstract-level Bergman comparisons concern compactness, essential positivity, or radial Schatten classes; Rozenblum §5 treats oscillatory decaying symbols on Bargmann-type spaces."
+        ],
+        "reasoning": "The decisive general coverage is the explicit special-function expansion, valid at b=-alpha and z=-ic for every frozen parameter. Unrelated qualitative compactness theorems do not by themselves establish the prefactor.",
+        "searches": [
+          "DLMF 13.8.11, 13.8.15–16 and 10.40.2",
+          "Cao–He–Zhang arXiv:2609.24614",
+          "Looi arXiv:2603.10879",
+          "Rozenblum DOI 10.4171/JST/13 §5",
+          "Bendaoud et al. DOI 10.15407/mag16.01.003"
+        ]
+      },
+      "checked_sources": [
+        "DLMF 13.8.11, 13.8.15–16 and 10.40.2",
+        "Resultary 4b9793ab6160, e6b835417cd5, a65b3df4d0e1",
+        "Rozenblum DOI 10.4171/JST/13 §5",
+        "Cao–He–Zhang arXiv:2609.24614 abstract; Looi arXiv:2603.10879 abstract; Bendaoud et al. DOI 10.15407/mag16.01.003 landing and abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The leading expansion at those parameters gives the complex asymptotic in the correctness reconstruction, with every claimed power, phase and nonzero coefficient. There are binom(k+d-1,d-1) monomials at degree k and binom(K+d,d) through degree K."
+        ],
+        "reasoning": "Applying the expansion and the gamma ratio gives the eigenvalue equivalence; taking absolute values and summing the degree cutoffs gives the entire log-count law. Eventual nonzero eigenvalues give infinite rank; each positive power is summable by root-exponential decay. These are deterministic consequences of the earlier expansion, not independent unresolved spectral assertions.",
+        "searches": [
+          "DLMF 13.8.E11 with b=-alpha, z=-ic; DLMF 10.40.E2",
+          "Resultary 4b9793ab6160, proof offsets 2897–6987"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The radial integral is exactly Gamma(A) exp(ic) U(A,-alpha,-ic) before beta normalization, with A=k+d. Resultary 4b9793ab6160 proof derives the same normalization and complex disk asymptotic for the moments underlying its distinct signed cosine law."
+        ],
+        "reasoning": "The operator label does not introduce a different analytic invariant; each degree eigenvalue is exactly the same scalar integral, and changing dimension shifts the integer A and the multiplicities.",
+        "searches": [
+          "Resultary: complex inverse-boundary chirp moment, Bergman Schatten spectral law",
+          "DLMF §13.4(i) integral representations and §13.8(iii) large first parameter"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The DLMF expansion entry contains exp(z/2)/Gamma(A), (z/A)^((1-b)/2), and the precise K argument. The same-day Resultary hit e6b835417cd5 is a quadratic analytic-symbol problem on a harmonic Bergman space, not this table or phase."
+        ],
+        "reasoning": "The standard formula entry gives stronger data than individual eigenvalue values; specializing it gives the full claimed equivalent. The later indexed disk proof corroborates the reduction, not earlier priority.",
+        "searches": [
+          "DLMF exact expansion entry 13.8.11 and coefficient entries 13.8.15–16",
+          "Resultary: exact root-exponential boundary chirp and sharp spectral counting"
+        ]
+      },
+      "rationale": "Verified broader prior coverage, not a false result or merely a title match. The entire fixed-phase spectral law is a direct specialization of the standard large-first-parameter Tricomi expansion after the elementary radial beta-moment substitution. Multiplicity and singular-value counting require only the standard monomial dimensions. The later signed Resultary record contains the exact disk moment calculation but is not the basis of the priority decision.",
+      "residual_risks": [
+        "Bendaoud et al. full text was not inspected; earlier Toeplitz-specific qualitative or quantitative coverage may be broader.",
+        "The single external search wave was nonresponsive; ranked local matches are not exhaustive. Neither caveat affects verified DLMF implication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct stronger coverage of complex prefactor and rate",
+          "evidence": "For fixed b,z and positive A→∞, p_0=1; leading U term is 2(z/A)^((1-b)/2) exp(z/2) K_(b-1)(2 sqrt(Az))/Gamma(A). Section references Temme (2015) for derivations and related expansions.",
+          "identifier_or_url": "https://dlmf.nist.gov/13.8.iii",
+          "material_read": "§13.8(iii), equations 13.8.11 and 13.8.15–16 (offsets 9140–11440 and 12490–14500)",
+          "method": "Lawful OA equation and surrounding parameter conditions",
+          "title": "NIST DLMF, Confluent Hypergeometric Functions: Asymptotic Approximations and Expansions",
+          "trigger": "Exact Tricomi moment has large first parameter and fixed complex argument"
+        },
+        {
+          "assessment": "Supplies exact leading K prefactor and exponent",
+          "evidence": "K_nu(w)~sqrt(pi/(2w)) exp(-w) in a sector containing w=2 sqrt(-icA).",
+          "identifier_or_url": "https://dlmf.nist.gov/10.40.E2",
+          "material_read": "§10.40(i), equation 10.40.2, offset around 2628",
+          "method": "Lawful OA formula inspection",
+          "title": "NIST DLMF, Modified Bessel Functions: Hankel's Expansions",
+          "trigger": "Leading K term at complex root argument"
+        },
+        {
+          "assessment": "Later indexed mathematical overlap for the complex disk moment, distinct signed result",
+          "evidence": "Proves the U(n+1,-alpha,-ic) reduction for the complex moment underlying its signed cosine counting result.",
+          "identifier_or_url": "Resultary 2026/11/1 4b9793ab6160",
+          "material_read": "Original finding and proof around offsets 2897–6987",
+          "method": "Resultary local mirror",
+          "title": "Balanced signed logarithmic Weyl law for boundary-chirp Bergman Toeplitz operators",
+          "trigger": "Same weighted disk chirp and spectral scale"
+        },
+        {
+          "assessment": "Different symbol and harmonic space",
+          "evidence": "Isolated spectral point and eigenfunction norms for quadratic analytic symbols, not radial chirp decay.",
+          "identifier_or_url": "Resultary 2026/10/27 e6b835417cd5",
+          "material_read": "Original finding",
+          "method": "Resultary local mirror",
+          "title": "Sharp separation and asymmetric boundary layers of quadratic harmonic Bergman operators",
+          "trigger": "Same-day Bergman spectrum hit"
+        },
+        {
+          "assessment": "Different setting in inspected section",
+          "evidence": "Sign-changing e^(-r^(2p)) sin(r^(2q)) symbols on Bargmann-type spaces.",
+          "identifier_or_url": "10.4171/JST/13",
+          "material_read": "§5, equation (5.1) and Theorem 5.1, p. 23 of PDF",
+          "method": "Lawful OA PDF inspection",
+          "title": "On lower eigenvalue bounds for Toeplitz operators with radial symbols in Bergman spaces",
+          "trigger": "Oscillatory radial spectral examples"
+        },
+        {
+          "assessment": "Qualitative overlap; theorem-level coverage unresolved",
+          "evidence": "Abstract discusses (quasi)radial symbols, spectra, and Schatten membership using Legendre approximation.",
+          "identifier_or_url": "10.15407/mag16.01.003",
+          "material_read": "Journal abstract and landing page, not the linked PDF",
+          "method": "Lawful article landing-page inspection",
+          "title": "Toeplitz Operators with Radial Symbols on Bergman Space and Schatten-von Neumann Classes",
+          "trigger": "Plausible broader radial Schatten coverage"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The unimodular example is illustrative, but the only candidate advance beyond the standard radial reduction is the fixed-parameter exact asymptotic and its consequences. The existing Tricomi expansion already supplies that entire asymptotic under an exact change of variable; block counting and Schatten membership are routine consequences. There is no surviving independent estimate, classification, or new boundary in the frozen claim.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

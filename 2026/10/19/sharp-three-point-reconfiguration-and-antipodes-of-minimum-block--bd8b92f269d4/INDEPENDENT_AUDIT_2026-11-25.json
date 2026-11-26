@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T23:30:58.483080Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, both verifier sources and both recorded JSON outputs (inspected, not executed)",
+        "Independent replay: python /tmp/opencode/frozen_review_pg24.py (GF(4) projective group orbit, exact set equality, one-source distance layers by transitivity)"
+      ],
+      "rationale": "For any ambient line L pick x∈L outside a nontrivial blocker B. The four other lines through x require four distinct points off L, so |L∩B|≤|B|−4. Four points cannot cover the 21 lines; for k=5 or 6, intersections have size at most 2, so counting incidences and pairs would require 5k−21=binom(k,2), which fails. At k=7 let n_j be the 1-, 2-, 3-secant counts. Then n₂+2n₃=14 and n₂+3n₃=21, so n₂=0 and the seven triples form the Fano plane: each pair determines a triple and each triple meets all six others via its three points. Conversely, a Fano subplane meets seven ambient lines in triples and fourteen in single points (two tangents per point), so blocks all 21 and contains no line. Every embedded Fano plane is a projective image of the standard one: choose a quadrangle as frame; the three diagonal points complete it uniquely. An independent orbit replay on the 21 projective points used all elementary transvections and one coordinate scaling, then a single-source layer expansion on the 360-element transitive orbit. The distinct intersection maximum is 4, and the successive distance layers by intersection size are {4:56}, {1:42,2:168,3:77}, {0:16}. This establishes the exchange threshold, distance formula, radius and diameter 3, edge count 10080 and antipodal pair count 2880. It does not rely on identifying exact sets by hash alone.",
+      "residual_risks": [
+        "Specific to the Desarguesian order-four plane, minimum nontrivial blockers, and simultaneous set exchanges, not serial valid intermediate states."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The classical exposition studies the same subplanes and parity classes. The neighboring Resultary entries treat 168 hyperovals in PG(2,4) or 234 blockers in PG(2,3), respectively."
+        ],
+        "reasoning": "Neither neighboring family gives a larger exchange theorem containing the same configuration graph. The accessible classical subplane results cover intersection counts, not the distance law in that relation.",
+        "searches": [
+          "Brouwer–Haemers §6.2, Proposition 6.2.10 and proof, pp. 158–160",
+          "Resultary SCOPE-sharp-three-point-exchange-connectivity-and-geodesic-multiplicit--3d506c83b9c0; SCOPE-the-six-regular-exchange-graph-of-minimum-nontrivial-ternary-pro--2ff15d411d81, Findings"
+        ]
+      },
+      "checked_sources": [
+        "Brouwer–Haemers §6.2",
+        "Local Resultary findings on PG(2,4) hyperovals and PG(2,3) blockers",
+        "Gottschalk DOI/access routes"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known counts prove the degree, no exchanges below size three, and the number of disjoint pairs. Two disjoint subplanes cannot have a common neighbor by 4+4>7. No converse reachability or all-pair orbital-product certificate was identified in the inspected material."
+        ],
+        "reasoning": "The nonexistence of two-step paths for disjoint pairs is elementary, but the old marginal counts give neither the two-step paths for every intersecting nonneighbor nor the three-step paths for every disjoint pair. The proved graph-distance identification is the supported increment.",
+        "searches": [
+          "Spectra of Graphs, Proposition 6.2.10 and proof",
+          "Gottschalk DOI 10.1006/eujc.1999.0391 and OA availability check"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A three-point exchange of distinct seven-point sets is exactly the intersection-four relation. The relevant classical table uses actual Baer subplanes and therefore describes the same vertex set and adjacency relation. The frozen record describes Gottschalk's graph as using only one PSL orbit and intersection one; direct full-text confirmation was unavailable."
+        ],
+        "reasoning": "The change from intersection language to exchange language is not original. The decisive additional claim is which pairs are joined by shortest paths of lengths 2 and 3 on the all-subplane relation.",
+        "searches": [
+          "Brouwer–Haemers, Spectra of Graphs, §6.2, Baer subplanes",
+          "Gottschalk DOI 10.1006/eujc.1999.0391",
+          "Local Resultary: Baer-subplane intersection-four graph, minimum blocker exchange and diameter"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Counts at intersections 7,6,5,4,3,2,1,0 are 1,0,0,56,77,168,42,16 for each vertex. The table supplies every marginal bin of the review's finite census, but no common-neighbor or distance table for the graph."
+        ],
+        "reasoning": "Regrouping the known bins gives the claimed layer cardinalities only after proving that nonadjacent pairs of every positive intersection size are reachable in two moves and that all disjoint pairs are reachable in three.",
+        "searches": [
+          "Spectra of Graphs, printed pp. 158–160, OA offsets 531800, 533000, 536500",
+          "Local Resultary comparison of finite blocker and hyperoval reconfiguration records"
+        ]
+      },
+      "rationale": "Credit only the complete three-exchange metric on this configuration space, particularly the characterization of all disjoint pairs as antipodes. The object classification, intersection census, exchange adjacency, and its valency follow from prior geometric data and are not independently novel.",
+      "residual_risks": [
+        "Gottschalk full text not lawfully available in this review; finer orbital intersection products or an unindexed exact distance table could still affect originality."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage of the intersection table; not a shortest-path certificate",
+          "evidence": "360 planes in three parity classes and counts 1,0,0,56,77,168,42,16 for intersections 7 down to 0.",
+          "identifier_or_url": "https://homepages.cwi.nl/~aeb/math/srg/rk3/srgw.pdf",
+          "material_read": "§6.2, Baer subplanes, Proposition 6.2.10 and proof, printed pp. 158–160",
+          "method": "Lawful OA, decisive passages at offsets 531800, 533000, 536500",
+          "title": "Spectra of Graphs",
+          "trigger": "Exact subplane configuration and intersection relation"
+        },
+        {
+          "assessment": "Unresolved source-specific access risk, no negative coverage inference",
+          "evidence": "The frozen record describes an intersection-one graph on one PSL orbit; additional results in the article were not verifiable.",
+          "identifier_or_url": "https://doi.org/10.1006/eujc.1999.0391",
+          "material_read": "Frozen bibliographic description only; paper full text was not obtained",
+          "method": "Lawful OA and identified publisher routes; no repository copy located and publisher access unsuccessful",
+          "title": "On the Geometry of Baer Subplanes in PG(2,4)",
+          "trigger": "Plausible existing graph theory on the same subplanes"
+        },
+        {
+          "assessment": "Different configuration spaces",
+          "evidence": "Hyperovals of the order-four plane with diameter 2; order-three blockers with single-point exchanges.",
+          "identifier_or_url": "SCOPE-sharp-three-point-exchange-connectivity-and-geodesic-multiplicit--3d506c83b9c0; SCOPE-the-six-regular-exchange-graph-of-minimum-nontrivial-ternary-pro--2ff15d411d81",
+          "material_read": "Both RESULT.md Findings, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Sharp three-point exchange connectivity and geodesic multiplicity; The six-regular exchange graph of minimum nontrivial ternary projective blockers",
+          "trigger": "Closest indexed exchange graphs"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and joint overlap/distance certificate",
+        "Spectra of Graphs §6.2 intersection census"
+      ],
+      "rationale": "The graph is the first legal simultaneous-move graph on classical minimum blockers, not an arbitrarily chosen size slice. Its distance formula tells whether a pair can be connected in the minimum number of valid moves from the overlap alone and identifies all worst-case pairs as exactly the geometrically disjoint ones. This is useful exact information beyond the known census; value is not assigned to recomputing that census.",
+      "residual_risks": [
+        "Finite result only; does not claim a general reconfiguration theorem for other orders."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

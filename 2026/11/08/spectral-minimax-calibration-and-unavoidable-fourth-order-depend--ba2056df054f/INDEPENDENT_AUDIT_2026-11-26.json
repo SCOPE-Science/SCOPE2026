@@ -1,0 +1,159 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:38:38.078030Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–43 and 47–88",
+        "VERIFICATION.md lines 19–25, verify.py and checks.txt, inspected; reported 20450 tests not rerun"
+      ],
+      "rationale": "The deterministic state transition T has spectral norm less than one; its past-innovation series is L² convergent, stationary, and unique by contraction of a synchronously coupled pair. In an orthogonal eigenbasis, conditional on the shared order sequence the stationary coordinates are independent centered Gaussians. Writing a_i=exp(-2h lambda_i), their variances obey the stationary recursion V_i(new)=a_i V_i(old)+2h[a_i+(1-a_i)B] with the same fresh B in all modes. Taking means gives exactly 2h[p+a_i/(1-a_i)], and subtracting 1/lambda_i gives 2h(p-f(h lambda_i)). Strict decrease of f follows from f'(t)=(sinh(t)^(-2)-t^(-2))/2<0; expansions at zero and infinity give its range (0,1/2). The endpoint modes give the maximal absolute error, so equalizing them yields the unique admissible midpoint minimizer, including the isotropic case. For conditional variances the stationary covariance recursion multiplies the old covariance by a_i a_j and adds (2h)^2 (1-a_i)(1-a_j)p(1-p). For distinct orthogonal modes this is also the source of the unconditional square covariance; for a single mode the fourth cumulant is three times the variance of its conditional variance, with (1-a_i)/(1+a_i)=tanh(h lambda_i). Positivity for every interior p precludes a Gaussian stationary law. At p=0,1 the stationary law is Gaussian but f is strictly between those values, so covariance is wrong. The cross-mode result includes repeated eigenvalues with distinct orthogonal coordinates, and is vacuous in dimension one. The small-h expansions and displayed example are consistent with the exact formulas.",
+      "residual_risks": [
+        "Exact rational moment checks and a numerical grid are finite diagnostics. The proof uses contraction and all-parameter identities, not finite sampling or an assumption of independent Bernoulli order across coordinates."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The fair-coin method has a uniform-in-time Wasserstein-1 estimate in the inspected main result. GLE-BAOAB has an exact quadratic-target position marginal under a different symmetric underdamped splitting. The deterministic Lie–Trotter work concerns general invariant-measure order conditions."
+        ],
+        "reasoning": "A law-distance upper bound at the one fixed probability does not determine the exact bias spectrum and cannot select the optimal biased probability. Exact Gaussian position-marginal sampling by a different multi-subflow scheme does not conflict with this finite-stepsize obstruction. Bernoulli moment algebra is standard but does not supply the target-dependent calibration response.",
+        "searches": [
+          "Li–Wang–Wang arXiv:2510.07676v1 main bound and Algorithm 1",
+          "Leimkuhler–Sachs arXiv:2012.04245v1 Theorem 8",
+          "Abdulle–Vilmart–Zygalakis, deterministic Lie–Trotter invariant-measure accuracy",
+          "Varjú arXiv:1608.04210"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md",
+        "arXiv:2510.07676v1",
+        "arXiv:2012.04245v1",
+        "arXiv:1608.04210",
+        "Resultary 543ac65eaf32, c4601fc2c4d4 and 6005ebefd345"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Conditional Gaussian mixture gives a general identity linking the marginal fourth cumulant to three times the variance of the mixing variance. The specific shared-order update yields the mixed recursion with factors (1-a_i)(1-a_j)/(1-a_i a_j).",
+          "The minimax bias depends only on the endpoint eigenvalues because the exact scalar calibration function is strictly decreasing."
+        ],
+        "reasoning": "The standard identities are tools rather than distinct claims. To obtain the sharp error, one must identify the calibration response of this update to the exact Gaussian target, and rule out target invariance separately by its conditional-variance fluctuations and the two endpoint biases. No inspected stronger prior theorem provides these combined conclusions for this scheme.",
+        "searches": [
+          "Frozen RESULT.md variance recursion versus arXiv:2510.07676v1 Algorithm 1 and main result",
+          "Resultary c4601fc2c4d4 and 543ac65eaf32",
+          "Varjú §1 Bernoulli-convolution definition"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Li–Wang–Wang's fair ordering gives exactly the present step when p=1/2 and the drift is quadratic. The step for arbitrary p is a constant-coefficient Gaussian AR(1) with Bernoulli-switched innovation variance, not randomly switched autoregression coefficients.",
+          "The mixing variance, not the state X_i, is a translated scaled biased Bernoulli convolution with contraction a_i. At fair weights it is affinely equivalent to the fair ±1 digit definition in Varjú.",
+          "A shared digit sequence is necessary for the stated positive cross-mode effect."
+        ],
+        "reasoning": "This identifies comparable models and standard series methods without conflating a variance mixing measure with its Gaussian mixture. The fair-order algorithm fixes p; it does not choose p to minimize spectral error. Stationary mean calibration of a scalar Bernoulli convolution or independent order choices in each mode do not give the common-coin result.",
+        "searches": [
+          "Resultary searches for random-order harmonic splitting covariance minimax, non-Gaussian invariant law and shared-order fourth moments",
+          "arXiv:2510.07676v1 §2.1",
+          "arXiv:1608.04210 §1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The two-state generator record gives a uniquely mean-calibrating probability and a biased Bernoulli-convolution stationary law. The random-coordinate Langevin Gaussian benchmark gives positive marginal excess with negative square-coordinate covariance. The telegraph-volatility record studies a common stochastic environment rather than numerical ordering."
+        ],
+        "reasoning": "These exact scientific statements match aspects of the method but not the common-order OU operator-norm minimax law and positive mixed-square formula. Sign and mechanism distinguish the coordinate scheme; the same-day dates supply no priority order.",
+        "searches": [
+          "Resultary exact OU random-order covariance/cumulant queries",
+          "Resultary 543ac65eaf32, c4601fc2c4d4 and 6005ebefd345"
+        ]
+      },
+      "rationale": "The fair-coin random-order Langevin method and general Gaussian-mixture moment identities are not new. The supported distinct contribution is an exact harmonic benchmark for the biased, common-order version: operator-norm spectral calibration and its sharp error, impossibility of exact invariant-law calibration, and explicit marginal and mixed fourth-order effects. Neither the verified fair-order error bound nor the inspected switched-environment analogues state or cover this package.",
+      "residual_risks": [
+        "The fair-coin comparison is to its inspected method and main results, not a claim of whole-document absence. An unlocated exact calculation in the switched-variance or harmonic splitting literature remains possible.",
+        "Same-day catalogue comparisons distinguish the statements without inferring priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior fair-order scheme and law error bound; not the exact biased harmonic calibration in the inspected results",
+          "evidence": [
+            "A fresh 1/2 coin selects the order; the main bound is a uniform-in-time Wasserstein-1 error of order tau²."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2510.07676",
+          "material_read": "Main result, OA offset 9150; §2.1 Algorithm 1, offset 10723",
+          "method": "OA primary passages",
+          "title": "Ergodicity and error estimate of laws for a random splitting Langevin Monte Carlo",
+          "trigger": "Same random-order Langevin step at fair ordering"
+        },
+        {
+          "assessment": "Different fixed symmetric underdamped splitting",
+          "evidence": [
+            "GLE-BAOAB gives an exact position marginal for quadratic potentials; other components of the extended Gaussian depend on step size."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2012.04245v1",
+          "material_read": "§3.2.1 Theorem 8, OA offset 55796",
+          "method": "OA primary passage",
+          "title": "Efficient Numerical Algorithms for the Generalized Langevin Equation",
+          "trigger": "Quadratic target exact Gaussian sampling by splitting"
+        },
+        {
+          "assessment": "Canonical fair-digit series, not a harmonic splitting calibration theorem",
+          "evidence": [
+            "The distribution is that of a geometric sum with independent fair ±1 digits."
+          ],
+          "identifier_or_url": "https://ar5iv.labs.arxiv.org/html/1608.04210",
+          "material_read": "Varjú, §1 definition at OA offset 260",
+          "method": "OA survey passage",
+          "title": "Bernoulli convolutions",
+          "trigger": "Equivalent distribution of the stationary mixing variance"
+        },
+        {
+          "assessment": "Different generator and statistic",
+          "evidence": [
+            "Importance-scaled split of a two-state Markov generator with a uniquely mean-calibrating coin and a biased convolution."
+          ],
+          "identifier_or_url": "Resultary:2026/11/8/SCOPE-unique-mean-exact-calibration-and-a-cantor-stationary-law-for-ra--543ac65eaf32",
+          "material_read": "RESULT.md scientific statement",
+          "method": "Resultary and source statement comparison",
+          "title": "Unique mean-exact calibration and a Cantor stationary law for random splitting (indexed record)",
+          "trigger": "Random splitting and exact Bernoulli-convolution stationary law"
+        },
+        {
+          "assessment": "Different random-coordinate scheme and opposite mixed-square sign",
+          "evidence": [
+            "Isotropic target, calibrated covariance, positive kurtosis and negative cross-coordinate square covariance."
+          ],
+          "identifier_or_url": "Resultary:2026/11/8/SCOPE-exact-fourth-order-dependence-and-a-sharp-exponential-moment-cut--c4601fc2c4d4",
+          "material_read": "RESULT.md scientific statement",
+          "method": "Resultary and source statement comparison",
+          "title": "Exact fourth-order dependence and a sharp exponential-moment cutoff (indexed record)",
+          "trigger": "Closest Gaussian-target covariance-calibrated fourth-order analogue"
+        },
+        {
+          "assessment": "Analogous mixing mechanism, not a splitting analysis",
+          "evidence": [
+            "Conditional Gaussian modes share a telegraph-volatility environment."
+          ],
+          "identifier_or_url": "Resultary:2026/10/26/SCOPE-exact-fourth-cumulant-and-unconditional-dependence-in-a-critical--6005ebefd345",
+          "material_read": "Available indexed scientific statement",
+          "method": "Local Resultary",
+          "title": "Exact fourth cumulant and unconditional dependence in a critical regime (indexed record)",
+          "trigger": "Conditional Gaussian common-environment analogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 5–43, 58–82 and 98"
+      ],
+      "rationale": "For a standard quadratic test problem this result identifies exactly what a single tunable splitting probability can achieve: the best possible error across all modes and the conditions for zero covariance error. More importantly it gives a sharp obstruction to equating covariance calibration with fidelity of the invariant law, and explains how a common order induces nonlinear dependence despite zero linear cross-covariances. This is useful exact information for evaluating a natural sampler, not a claim that covariance minimization optimizes other metrics.",
+      "residual_risks": [
+        "No inference for nonquadratic targets, other splittings, independent-coordinate choices, or optimization in Wasserstein or total variation."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

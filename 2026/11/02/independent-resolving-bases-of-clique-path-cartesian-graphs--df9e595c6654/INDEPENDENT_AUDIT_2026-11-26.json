@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:54:03.643198Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–39",
+        "Frozen VERIFICATION.md and verify_independent_clique_path.py (inspected, not executed)",
+        "/workspace/review_evidence/check_4.py"
+      ],
+      "rationale": "An independent set uses at most one vertex per position, and two omitted colors would be indistinguishable in each clique. For vertices at i,j, distance equality at a landmark (t,a) fixes |i−t|−|j−t| to 0 or ±1 as dictated by its color; the left side has constant parity and is monotone in t. For q>=4 an injection of q−1 colors has both a matching and a neutral landmark for every pair of different colors and hence resolves by parity. Equal colors are resolved by two distinct landmark positions. For q=3 the two-landmark candidate with different colors a,b at s<t fails on (s+1,a) and (s,b). Three distinct colors resolve as before. An alternating triple a,b,a rules out a collision of a and b by monotonicity; pairs involving the omitted color have a matching and neutral landmark. Nonalternating two-color triples have a cut at s, the last position of the earlier color a, and the same collision (s+1,a),(s,b) works on both entire sides. With q=2, a single landmark has two neighbors, different-color pairs fail by the cut collision, and same-color pairs not covering both endpoints fail on the site just beyond an extreme versus the other color at that extreme. At the endpoints the path difference has opposite signs, so same-color endpoint pairs resolve and are independent exactly for L>=3. These characterize the labeled bases and give the claimed counts, including the short-path impossibilities from the projection cap. My independent finite check compared actual basis sets, not just their counts, on 11 graphs; replay `python3 /workspace/review_evidence/check_4.py`. The proof, not the finite range, establishes the universal result.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The projection lemma applies to ordinary resolving sets, and gives the q−1 color lower bound; the section on complete graph–path products states the ordinary q−1 dimension for q>=3.",
+          "The founding article's abstract discusses ir=1,n−1,n−2 and realization results for general graphs."
+        ],
+        "reasoning": "Projection alone only checks pairs in a common clique, not cross-position collisions or the q=3 penalty. The two independent-resolving articles were not ruled out on the basis of excerpts.",
+        "searches": [
+          "Cáceres et al., arXiv:math/0507527, Lemma 3.1 and §7 (9)",
+          "Chartrand–Saenpholphat–Zhang, DOI:10.21136/MB.2003.134003",
+          "Suganya–Arumugam, Cartesian-product section"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 296d302883eb and e7ee45c39166",
+        "Cáceres et al., arXiv:math/0507527",
+        "Chartrand–Saenpholphat–Zhang DOI:10.21136/MB.2003.134003 (abstract)",
+        "Suganya–Arumugam DOI:10.1080/09728600.2021.1963643 (section lead-in)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Independence caps the number of landmarks at L, so projection already implies a portion of the short-path boundary. The inspected theorem gives only the ordinary dimension, and the indexed independent-resolving excerpt supplies no usable complete classification."
+        ],
+        "reasoning": "That lower bound does not imply the endpoint restriction at q=2, the extra landmark and alternating-color bases at q=3, or sufficiency of all minimum injections at q>=4. Those depend on the parity and cut-collision analysis.",
+        "searches": [
+          "Cáceres et al. projection lemma and exact complete-graph/path dimension",
+          "Suganya–Arumugam Cartesian-product indexed excerpt"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Closest Resultary match 296d302883eb concerns independent mutual visibility of P_L □ K_m, testing clear geodesics between selected vertices, not uniqueness of distance vectors for all vertices.",
+          "The Suganya–Arumugam excerpt explicitly concerns independent resolving sets in Cartesian products, but does not expose its Cartesian-product theorems."
+        ],
+        "reasoning": "Swapping the two Cartesian factors or using the alias independent resolving number does not make independent visibility equivalent to resolving. The closer independent-resolving article is a genuine access risk, not statement-level evidence of duplicate coverage.",
+        "searches": [
+          "Resultary: clique–path Cartesian products, independent metric dimension, independent resolving number, labeled bases",
+          "Independent resolving sets in graphs, DOI:10.1080/09728600.2021.1963643"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The two same-family indexed censuses count independent mutual visibility extremizers or general-position sets; neither counts independent metric bases. The ordinary dimension table/equation has no basis count and gives 2 rather than the independent 3 when q=3 and L>=3."
+        ],
+        "reasoning": "These are not the same invariants; the bounded indexed search is not an exhaustion of differently formulated or unindexed results.",
+        "searches": [
+          "Resultary: P_L □ K_q independent resolving basis counts",
+          "Resultary 296d302883eb and e7ee45c39166",
+          "Cáceres et al. §7 (9)"
+        ]
+      },
+      "rationale": "The independence feasibility and full labeled minimum-basis classification are supported as distinct from the inspected clique–path results. Independently resolving sets in Cartesian products are an existing topic; the scope of one relevant paper remains incompletely checked, and this is not a priority certification.",
+      "residual_risks": [
+        "The full Cartesian-product results of Suganya–Arumugam could not be checked; an equivalent earlier classification remains possible.",
+        "Same-day indexed results were compared by invariant and not ordered by date."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different invariant",
+          "evidence": "Independent mutual-visibility number min{L,2m}−1_{L=2m}; selected vertices need geodesics avoiding other selected vertices, rather than resolving every pair.",
+          "identifier_or_url": "Resultary 2026/11/2/SCOPE-independent-mutual-visibility-threshold-and-saturation-census-fo--296d302883eb",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Independent mutual visibility threshold and saturation census",
+          "trigger": "Closest independent extremal census on the same Cartesian product"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": "Maximal general-position sizes {2,n,n+1}; no independent metric-basis claim in the inspected finding.",
+          "identifier_or_url": "Resultary 2026/11/2/SCOPE-general-position-and-maximal-set-polynomials-of-complete-clique--e7ee45c39166",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "General position and maximal set polynomials of complete clique–path products",
+          "trigger": "Same family, classified sets and polynomial enumeration"
+        },
+        {
+          "assessment": "Ordinary metric-dimension precedence and projection lemma",
+          "evidence": "β(K_n □ P_m)=n−1 for n>=3, with no independence constraint.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0507527",
+          "material_read": "p. 3 Lemma 3.1; p. 12 §7 Eq. (9)",
+          "method": "Primary OA PDF",
+          "title": "On the Metric Dimension of Cartesian Products of Graphs",
+          "trigger": "Exact classic result for this graph family"
+        },
+        {
+          "assessment": "General precedent; full-text comparison unresolved",
+          "evidence": "Abstract highlights existence, ir=1,n−1,n−2 and realization; article and identified alternate text not retrieved.",
+          "identifier_or_url": "https://doi.org/10.21136/MB.2003.134003",
+          "material_read": "Indexed abstract excerpt only",
+          "method": "Primary DOI and DML-CZ alternate access attempts",
+          "title": "The independent resolving number of a graph",
+          "trigger": "Foundational paper for the exact invariant"
+        },
+        {
+          "assessment": "Material access risk, not a whole-document exclusion",
+          "evidence": "Excerpt announces existence questions for Cartesian products. Publisher text returned 403 and no same-paper repository copy was identified.",
+          "identifier_or_url": "https://doi.org/10.1080/09728600.2021.1963643",
+          "material_read": "Indexed opening of the Cartesian-product section only",
+          "method": "Publisher article and PDF direct/VPN attempts and DOI repository recovery",
+          "title": "Independent resolving sets in graphs",
+          "trigger": "Most plausible primary-literature overlap, same invariant for Cartesian products"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Proof",
+        "Cáceres et al. §7 Eq. (9)"
+      ],
+      "rationale": "For the standard clique–path Cartesian family, the classification explains when imposing independence destroys resolvability and identifies the exceptional three-color penalty despite a uniform ordinary dimension formula. It gives all optimal labeled configurations, including both geometrically distinct kinds at q=3, rather than merely exhibiting a construction or obtaining a few exact instances.",
+      "residual_risks": [
+        "Only minimum independent resolving sets in the complete-fiber path product are classified."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

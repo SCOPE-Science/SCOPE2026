@@ -1,0 +1,159 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:25:10.345221Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Symmetric PBH says the lost space is the sum of eigenspace intersections with x_0=0. The zero eigenvalue has only constants. For λ=2−2cos θ away from 0 and 4, the two arc solutions are multiples of sin(jθ). If q=x_d is nonzero, neither endpoint sine vanishes; subtracting the endpoint equations gives sin(dθ)+sin(mθ)−sin(nθ)=4sin(nθ/2)sin(dθ/2)sin(mθ/2)=0. The endpoint nonvanishing forces θ=2πk/n even for complex θ, so the two cosecants cancel in the leader equation and force w=0, excluded. With q=0 the leader equation makes the arc amplitudes opposite and the far-end equation makes the two endpoint cosine parities equal. Hence the modes are exactly the cycle sines with 1≤k<n/2 and n dividing 2kd, one per admissible k; their count is the number of positive integers s<g/2, namely floor((g−1)/2). At the repeated root λ=4 the zero-start arc solutions are alternating and linear in distance. For q≠0 the far endpoint requires w=1/d+1/m, and the leader requires w=(−1)^d/d+(−1)^m/m; agreement is exactly the stated even-even parity. For q=0 the repeated-root solutions are zero; otherwise q fixes the entire vector, so the extra dimension is exactly one. The series-arc parallel-resistance calculation gives R=dm/(d+m); w*=1 occurs only at d=m=2. Independent exact ranks over Q matched 469 distinct configurations for n=4–24, all allowable d, using 1, 1/2, 3/2 and, for even-even arcs, w* and w*±1/1000. All 36 resonance vectors and 72 near-resonance ranks were checked. Replay: for each rational w, clear denominators in L, form the n Krylov columns by repeated integer matrix-vector products starting at e_0, and row-reduce over Q. These finite checks support but do not extend the analytic proof to arbitrary real weights by themselves.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Deng et al. use the exact endpoint rank-one update and derive secular/interlacing facts and algebraic connectivity characterizations; the displayed secular equation applies off resolvent poles.",
+          "Liu–Lu's Theorem 1.2 concerns determination of theta graphs by their Laplacian spectra, not a labeled input's cyclic subspace."
+        ],
+        "reasoning": "Neither a graph spectrum nor gap optimization gives the e_0 projection onto each updated eigenspace. In particular, the resonance lies at an old cycle eigenvalue, where careful endpoint and eigenspace analysis is needed, not just the generic off-pole secular equation.",
+        "searches": [
+          "Deng et al., arXiv:2605.24479v1 §4, Lemmas 4.1–4.2 and Theorem 4.3",
+          "Liu–Lu arXiv:1407.5255v1, Theorem 1.2",
+          "Liu–Ji DOI 10.1002/rnc.3870",
+          "Aguilar–Gharesifard DOI 10.1109/TAC.2014.2381435"
+        ]
+      },
+      "checked_sources": [
+        "Resultary b4e879bf1e17, 1ddd581661b4, 2c7e24dd6265 and 0089bd05941e",
+        "arXiv:1109.3556v1",
+        "arXiv:1407.5255v1",
+        "arXiv:2605.24479v1",
+        "DOIs 10.1002/rnc.3870 and 10.1109/TAC.2014.2381435 (metadata or abstract only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The closest catalogue proof splits odd cycles at the triangle-midpoint reflection and analyzes the Jacobi split for its unit chord; its assumptions explicitly omit even sizes, other chord lengths and variable weights.",
+          "The resonance is demonstrable even in a generically controllable case: n=6,d=2 has rank 6 off w*=3/4 and rank 5 at w*."
+        ],
+        "reasoning": "The reflection idea and generic rank-one tools can start an independent derivation, but the missing mathematical step is exactly the all-weight endpoint compatibility evaluation, including exclusion at all other eigenvalues and resolving the repeated root at 4. Neither the odd-cycle special theorem nor the old cycle input theorem yields that evaluation by specialization.",
+        "searches": [
+          "b4e879bf1e17 Finding, scope and proof §§1–3",
+          "Deng et al. arXiv:2605.24479v1 §4.1",
+          "Parlangeli–Notarstefano arXiv:1109.3556v1 Theorem 4.10"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorem 4.10 has a gcd-based reachability/observability statement for unmodified cycles.",
+          "For the stipulated symmetric graph matrix, leader controllability, same-vertex observability and cyclicity of e_0 are equivalent; the equivalent invisible eigenvector formulation must still use the added chord."
+        ],
+        "reasoning": "The ordinary-cycle sine conditions account for modes vanishing at both chord endpoints, but at the resonance the new invisible mode has x_d nonzero and cannot be inferred by asking for unmodified-cycle modes invisible from both endpoints.",
+        "searches": [
+          "Local Resultary: chorded-cycle leader or actuator placement; exact Kalman defect/rank",
+          "Parlangeli–Notarstefano arXiv:1109.3556v1, Theorem 4.10",
+          "Guitar graph and chorded ring controllability literature lookup"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "b4e879bf1e17: odd n≥5, unit chord {0,2}; all singleton leaders except vertex 1 control.",
+          "1ddd581661b4 and 2c7e24dd6265 reweight an existing edge instead of adding a chord. 0089bd05941e uses cyclic combs and terminal-leaf inputs, including a gcd(n,2d) condition for two inputs."
+        ],
+        "reasoning": "The first covers a genuine frozen subcase d=2, w=1, n odd, leader 0 (where gcd(n,4)=1), while obtaining more on other leaders only for that subfamily. The latter hits change the graph or input and do not give any transferable table of the frozen ranks.",
+        "searches": [
+          "Local Resultary: added-chord cycle and one-leader exact controllability; weighted cycle rank and resonance"
+        ]
+      },
+      "rationale": "The supported distinct result is the all-parameter weighted added-chord PBH defect, especially the parity-selective isolated conductance resonance and exclusion of any others. Existing sources cover the unmodified cycle, related rank-one spectra, or narrower graph/weight/leader cases, but the strongest inspected overlaps do not give or mechanically imply this classification. The pass is limited to inspected evidence and is not a claim of historical priority for every subcase.",
+      "residual_risks": [
+        "Liu–Ji and Aguilar–Gharesifard were not available for theorem-level comparison; no negative coverage claim is made about either.",
+        "An unindexed rank-one controllability or theta-graph treatment could contain an equivalent endpoint calculation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact overlap for the odd n, unit {0,2} subcase only; date tag does not determine priority for the comparison",
+          "evidence": [
+            "Controllability iff j≠1 for that family",
+            "Proof uses the chord's odd reflection sector; the assumptions exclude even n and arbitrary weights or chord lengths"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-one-chord-odd-cycles-every-singleton-controls-except-the-triangl--b4e879bf1e17/RESULT.md",
+          "material_read": "Finding, assumptions and proof §§1–3, offset 0 onward",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "One-chord odd cycles: every singleton controls except the triangle midpoint",
+          "trigger": "Closest exact instance of the same augmented graph and leader property"
+        },
+        {
+          "assessment": "Relevant ordinary-cycle input theory, no added weighted chord in the inspected theorem",
+          "evidence": [
+            "Arithmetic restrictions on leader sets and invisible modes for the unmodified cycle"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1109.3556v1",
+          "material_read": "Theorem 4.10, printed pp. 22–23, offset 67000",
+          "method": "Open primary manuscript",
+          "title": "On the reachability and observability of path and cycle graphs",
+          "trigger": "Gcd classification and invisible cycle modes"
+        },
+        {
+          "assessment": "Graph spectral determination is a different question from labeled controllability",
+          "evidence": [
+            "Every theta graph is determined by its L-spectrum"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1407.5255v1",
+          "material_read": "Theorem 1.2, p. 2, offset 6800",
+          "method": "Open primary manuscript",
+          "title": "Laplacian spectral characterization of dumbbell graphs and theta graphs",
+          "trigger": "Chorded cycle as a theta graph"
+        },
+        {
+          "assessment": "Same perturbation and general spectral tools, different objectives; no defect formula in the inspected statements",
+          "evidence": [
+            "L_{p,q}(w)=L+w(e_p−e_q)(e_p−e_q)^T; (4.1)–(4.2) secular equations and interlacing",
+            "Minimization for λ_1(w) and derivative of the simple Fiedler eigenvalue"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2605.24479v1",
+          "material_read": "§4, pp. 7–8, Lemmas 4.1–4.2 and Theorem 4.3, offsets 26600–31019",
+          "method": "Open primary manuscript",
+          "title": "Single-Chord Augmentation of Weighted Cycles for Algebraic Connectivity and Network Coherence",
+          "trigger": "Closest graph model in accessible primary literature"
+        },
+        {
+          "assessment": "Theorem-level scope was not established; this is the principal unresolved literature risk",
+          "evidence": [
+            "Available abstract describes necessary and sufficient leader-location conditions for paths or cycles; it does not establish which weighted chorded graphs, if any, are covered"
+          ],
+          "identifier_or_url": "https://doi.org/10.1002/rnc.3870",
+          "material_read": "Publisher abstract/metadata only",
+          "method": "Publisher and identified ResearchGate full text denied; no lawful repository copy recovered",
+          "title": "Controllability of multiagent systems based on path and cycle graphs",
+          "trigger": "Plausibly broader path/cycle constructions and leader placement"
+        },
+        {
+          "assessment": "No independent whole-paper scope claim; possible related coverage remains a risk",
+          "evidence": [
+            "Cited as general Laplacian leader–follower classification in the frozen source; no decisive passage retrieved"
+          ],
+          "identifier_or_url": "https://doi.org/10.1109/TAC.2014.2381435",
+          "material_read": "Bibliographic information only",
+          "method": "OA retrieval did not supply readable full text",
+          "title": "Graph Controllability Classes for the Laplacian Leader-Follower Dynamics",
+          "trigger": "General graph controllability-class criteria"
+        },
+        {
+          "assessment": "Different graph changes or input vectors",
+          "evidence": [
+            "Reweighting an existing closing edge is not adding a nonadjacent chord; comb terminal-leaf leaders do not specialize to the present chord-endpoint input"
+          ],
+          "identifier_or_url": "Resultary 1ddd581661b4; 2c7e24dd6265; 0089bd05941e",
+          "material_read": "Findings, offset 0 onward",
+          "method": "Local mirror comparison",
+          "title": "Adjacent weighted-cycle and cyclic-comb catalogue findings",
+          "trigger": "Exact rank, arithmetic placement and resonance in similar graphs"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "One added link and one input at its endpoint are natural minimal changes to a cycle. A full rank law rather than a generic controllability assertion distinguishes persistent arithmetic loss from an isolated tunable loss. It identifies the exact positive weight to avoid, relates it to a network invariant (inverse pre-chord resistance), and proves there is no hidden second resonance. For instance, on the six-cycle with chord 0–2 the controllability verdict itself changes only at w=3/4. This is useful structural information for fixed-weight leader placement without asserting an energy or robustness bound.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

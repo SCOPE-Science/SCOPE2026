@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T23:31:50.349734Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independent bounded reproduction: run python3 /workspace/branches/reproduce-4.py. Enumerate all 2^10 spoke subsets; after their endpoints are removed, the remaining graph consists of unbroken cycles or paths cut from the outer decagon and two inner pentagons. An odd path or odd cycle has no perfect matching, an even path has one, and an even unbroken cycle has two. This exhausts and separates the 36 full matchings. For every deletion subset of each size 0–5, the bitwise union of edge incidence masks marks exactly the matchings destroyed; a one-bit complement gives the unique survivor. Examined respectively 1, 30, 435, 4060, 27405, 142506 subsets, with unique-survivor counts 0, 0, 0, 0, 240, 7272. The first size and its multiplicity, stratified by complement cycle lengths, are ((20),4,8):30 and ((5,5,10),5,22):6. Each minimum set is assigned to only one matching by uniqueness, so the class totals are 240 and 132. An adjacency-preserving permutation enumeration also gives 120 automorphisms and exactly those classes as the two orbits. The frozen scripts and their recorded outputs were inspected as separate evidence, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Yang–Zhang–Lin prove a graph-level lower bound of four for fullerenes and sharpness at F20. Lei–Yeh–Zhang use a single dodecahedron matching with anti-forcing number at least four and packing size at most three. Resultary 1922f6e21101 instead resolves both ordinary and edge-disjoint counts by orbit."
+        ],
+        "reasoning": "The general fullerene bound and example alone do not determine the distribution. The prior orbit-resolved table directly covers the ordinary distribution while also giving a more restrictive invariant.",
+        "searches": [
+          "arXiv:1503.01900v1 fullerene anti-forcing",
+          "arXiv:1406.3796v1 dodecahedron alternating cycle packing",
+          "Resultary 1922f6e21101 ordinary and edge-disjoint deletion"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, both supplied scripts and .out files",
+        "Resultary 1922f6e21101 Finding, Assumptions and orbit/minimum proof",
+        "arXiv:1406.3796v1, arXiv:1503.01900v1, arXiv:2109.13727v2",
+        "Independent /workspace/branches/reproduce-4.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier orbit rows imply 30·8=240 and 6·22=132 directly. Uniqueness makes these counts of distinct subsets. Complement cycle lengths are constant on each automorphism orbit; the independent reproduction confirms (20) for the 30-class and (5,5,10) for the six-class."
+        ],
+        "reasoning": "The added complement labels can be obtained by checking one representative per known orbit and do not change any entries. The all-deletion count 7272 at size five is a reproducibility detail in the frozen proof, not a replacement for the overlapped Finding.",
+        "searches": [
+          "Resultary 1922f6e21101 proof of the two automorphism orbits, offsets 3377–5398",
+          "arXiv:1503.01900v1 F20 sharpness"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 1922f6e21101 Finding and Assumptions define the same GP(10,2), E(D)\\M deletions and one surviving M, counting distinct edge subsets. Zhao §1 defines the same polynomial as a sum over matchings."
+        ],
+        "reasoning": "The ordinary columns of the earlier table count exactly the same objects with exactly the same deletion objective; the edge-disjoint columns are additional constraints, not a different interpretation of the ordinary columns.",
+        "searches": [
+          "Resultary dodecahedral matching anti-forcing census, witness profiles, 1922f6e21101",
+          "arXiv:1406.3796v1 definition of matching anti-forcing",
+          "arXiv:2109.13727v2 anti-forcing polynomial"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 1922f6e21101 Finding has explicit ordinary rows (30,4,8) and (6,5,22), and displays 30t^4+6t^5. The inspected proof describes orbit representatives and independent exhaustive testing. The DOI attempt supplied only landing material."
+        ],
+        "reasoning": "This is an exact earlier table on the same graph; any uncertainty about external publication of {4,5} is immaterial to this overlap.",
+        "searches": [
+          "Resultary 1922f6e21101 exact integer witness table and orbit sizes",
+          "DOI 10.12677/aam.2023.123119 for cited external dodecahedral spectrum"
+        ]
+      },
+      "rationale": "Earlier distinct Resultary record 1922f6e21101 explicitly gives the same ordinary polynomial and the same 30/6 matching-orbit counts and 8/22 ordinary minimum-witness multiplicities on the same labelled graph. Its extra edge-disjoint results do not remove this ordinary overlap. The complementary-cycle labels are a descriptive refinement of the two already-known orbits, not a new polynomial or new witness counts. No equivalent historical-priority claim is made for any external paper not inspected.",
+      "residual_risks": [
+        "The exact first external source of the dodecahedral spectrum was not independently established. This does not affect the direct prior Resultary overlap. The prior passages read do not expressly print the two complement profiles."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct prior coverage of ordinary polynomial and witness multiplicities",
+          "evidence": "Explicit orbit rows 30/4/8 and 6/5/22 for ordinary witnesses, same uniqueness objective and 30t^4+6t^5 polynomial. The complement-profile names are not stated in the inspected passages.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-exact-anti-forcing-witness-profiles-and-the-edge-disjoint-deleti--1922f6e21101/RESULT.md",
+          "material_read": "Finding and Assumptions offsets 0–2569; proof offsets 3377–5398",
+          "method": "Local Resultary mirror",
+          "title": "Exact anti-forcing witness profiles and the edge-disjoint deletion penalty of the dodecahedral graph",
+          "trigger": "Exact same graph, anti-forcing and witness counts"
+        },
+        {
+          "assessment": "Prior definition and example, not the full census in the passages read",
+          "evidence": "The dodecahedron witnesses failure of packing equality with at most three compatible alternating cycles and anti-forcing number at least four for the drawn matching.",
+          "identifier_or_url": "arXiv:1406.3796v1",
+          "material_read": "PDF pp. 3 and 6, definition and Lemma 2.5/Theorem 2.6 discussion around offsets 5928 and 11905",
+          "method": "OA PDF excerpts",
+          "title": "Anti-forcing numbers of perfect matchings of graphs",
+          "trigger": "Cited primary treatment of a dodecahedron matching"
+        },
+        {
+          "assessment": "Answers the graph-level minimum, not matching-wise multiplicities in the material read",
+          "evidence": "Every fullerene has anti-forcing number at least four, and a four-edge deletion leaves a unique matching on F20 and F24.",
+          "identifier_or_url": "arXiv:1503.01900v1",
+          "material_read": "PDF Theorem 3.2 and F20/F24 sharpness passage, around offsets 5951 and 11945",
+          "method": "OA PDF excerpts",
+          "title": "On the anti-forcing number of fullerene graphs",
+          "trigger": "Cited prior graph-level minimum and sharper potential conclusions"
+        },
+        {
+          "assessment": "Same invariant, different graph class in the available statement",
+          "evidence": "The sum over matching-specific exponents is the same definition, with no dodecahedral evaluation in that passage.",
+          "identifier_or_url": "arXiv:2109.13727v2",
+          "material_read": "PDF p. 2, §1 around offset 3027",
+          "method": "OA PDF excerpt",
+          "title": "Matching anti-forcing polynomials of catacondensed hexagonal systems",
+          "trigger": "Potential general invariant coverage"
+        },
+        {
+          "assessment": "Full primary statement not established",
+          "evidence": "The attribution appears in Resultary 1922f6e21101; the fetched material does not independently verify it.",
+          "identifier_or_url": "10.12677/aam.2023.123119",
+          "material_read": "Landing page/abstract only",
+          "method": "OA DOI lookup",
+          "title": "Han, Zhou and Wang (2023), cited for dodecahedral anti-forcing spectrum",
+          "trigger": "Earlier indexed attribution of the spectrum {4,5}"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "This is a natural graph and invariant, but the main exact census is already available. The genuinely additional complement labels translate the two known orbit classes by an elementary invariant, checkable on representatives. The record does not use the labels to derive the witness counts structurally or solve a different open problem. The independent reproduction is useful confirmation, not a surviving new valuable mathematical finding; no repair is warranted.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

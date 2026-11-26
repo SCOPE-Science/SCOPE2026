@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:56:39.419830Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Subtracting the two ODEs gives v=Delta-K sin(phi); the assumptions specify one shared rate-r Poisson clock independent of the dynamics. The exponential-age pushforward constructs the stationary law, and common-clock coupling gives uniqueness with total-variation error bounded by exp(-rt). Phase preimages are a singleton on the locked and critical open arcs, and a countable sequence A(phi)+jT in rotation, so there are no atoms, including at reset or at a locking equilibrium. The inverse-flow Jacobian and geometric sum give the normalized densities. Shifting the full-period integral to the cosine form and using the tangent half-angle substitution gives T=2pi/sqrt(Delta^2-K^2); the equal drift at both sides of reset gives the e^(rT) density ratio. On each open occupied arc the logarithmic derivative is (K cos(phi)-r)/v. It determines the two rotating interior extrema iff 0<r<K, and strict decrease for r>=K. In the locked regime K cos(phi) decreases from K to gamma. For r<=gamma the density is strictly increasing and has its one-sided supremum at the locking edge; for gamma<r<K it peaks in the interior; for r>=K it decreases from reset. Thus the Finding's reset-point/interior contrast concerns the switch at K, not the edge-dominated r<=gamma regimes explicitly specified below it. At equality r=K the derivative vanishes at reset, not on the open arc. The simple-root expansion v=gamma*delta+O(delta^2) makes A+log(delta)/gamma converge to a finite real B and yields the positive prefactor (r/gamma)exp(-rB), with finite nonzero density limit at r=gamma. At Delta=K, differentiating tan(phi)+sec(phi) gives (1-sin(phi))^(-1); its edge value cot(delta/2)=2/delta+O(delta) and v~K*delta^2/2 give the prefactor 2r exp(r/K)/K and essential factor exp(-2r/(K*delta)). The density decays faster than every algebraic power. All endpoint density language is about one-sided limits, not assigning mass at points. Replay: RESULT.md lines 9–63; verification notes and verify.py inspected, uploaded diagnostic not executed. The analytic proof, not finite quadrature, covers both equality boundaries.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sarkar–Gupta p. 6 describe the N→infinity Lorentzian Ott–Antonsen setting. Majumder–Chattopadhyay–Gupta p. 1 reset only a constituent subset in a many-body model. Grange p. 2 states a general renewal relation. The inspected routes for Olsen were inaccessible."
+        ],
+        "reasoning": "The mean-field order parameter does not reduce by a parameter choice in those statements to the exact detuned two-oscillator phase law. General renewal covers the stationary-law construction and is credited; it leaves the Adler onset, wraparound extrema and double-root asymptotic to compute.",
+        "searches": [
+          "arXiv:2203.00339v2",
+          "arXiv:2402.14921v2",
+          "arXiv:2111.15241v4, renewal relation",
+          "10.1103/PhysRevE.108.044120"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py",
+        "Exact self-hit and three distinct Resultary records identified above",
+        "arXiv:2203.00339v2, arXiv:2402.14921v2, arXiv:2111.15241v4; attempted 10.1103/PhysRevE.108.044120"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Generic renewal integrates the no-reset propagator against the reset-age law. The double-well result is an unstable-point response for a quartic flow. The temporal-memory cusp is a two-time covariance of an infinite Kuramoto population."
+        ],
+        "reasoning": "Applying renewal is routine and not claimed. The inspected results do not establish the all-regime score sign diagram for a starting phase of zero, the strict separation gamma<K and equality limits, or the Adler saddle-node edge coefficient; these follow from the specific trigonometric flow and its age map. A stationary density mode is also not the dynamical phase-locking threshold.",
+        "searches": [
+          "arXiv:2111.15241v4, p. 2 generic renewal",
+          "2026/11/22/SCOPE-a-reset-rate-threshold-for-singular-static-response-at-an-unstab--54e826c3abd6, Finding and Assumptions",
+          "2026/10/26/SCOPE-a-critical-three-halves-temporal-memory-cusp-in-globally-reset-k--5353c27bb6f5, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Adler flow can equally be written as deterministic tilted-sine drift on a circle; changing origin or terminology preserves the problem only if the reset phase relative to the drift is fixed consistently.",
+          "Grange arXiv:2111.15241v4 uses Brownian ring motion and shortest-path return, not this deterministic tilted drift. The focused alias lookup supplied no closer exact-model primary text."
+        ],
+        "reasoning": "Ring geometry, a winding sum, or occurrence of the classical Adler drift alone does not identify the deterministic common-reset model. Brownian ring return has a different no-reset propagator and cannot be read as the fixed-start pushforward here. The search miss is not negative historical evidence.",
+        "searches": [
+          "Resultary: deterministic Poisson resetting of two-oscillator Adler drift, relative phase, running and locked density edges",
+          "Primary literature: stochastic resetting, Adler equation, Josephson junction, stationary phase slips and saddle-node density"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact match dated November 22 with suffix 9e6197984f9a is the identical frozen record. The distinct same-day double-well record computes a threshold r=a at an unstable reset equilibrium for a weak-field mean response. The November 8 record treats a power-tailed renewal clock and a Lorentzian mean-field amplitude."
+        ],
+        "reasoning": "Neither a static-response singularity nor an amplitude edge with a power-tailed age law tabulates the r=gamma and r=K transitions of this finite deterministic angle. No order of priority is inferred from a shared date.",
+        "searches": [
+          "Resultary: Poisson-reset Adler stationary relative-phase density, density-mode transitions and locked-edge asymptotics",
+          "2026/11/22/SCOPE-a-reset-rate-threshold-for-singular-static-response-at-an-unstab--54e826c3abd6",
+          "2026/11/8/SCOPE-power-tailed-renewal-clocks-change-the-synchronization-edge-of-t--5cdffddea659"
+        ]
+      },
+      "rationale": "Credit is limited to the full stationary phase-density morphology for the deterministic, positively detuned Adler drift with simultaneous resetting to a common phase. Neither the drift nor the generic reset-age pushforward nor the generic simple-equilibrium edge exponent is treated as new. The actual available statements of the closest reset Kuramoto and deterministic-flow sources do not give the same density diagram, for which wrapped ages, two distinct thresholds, and the critical edge must be analyzed together.",
+      "residual_risks": [
+        "A bounded alias search and the inspected texts cannot rule out an unindexed analysis of the same deterministic tilted-sine process. The cited Olsen text was inaccessible on the attempted routes; no novelty or noncoverage conclusion rests on that absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same global-reset idea; different degrees of freedom and observable",
+          "evidence": "Distributed-frequency many-oscillator model and Lorentzian Ott–Antonsen analysis as N tends to infinity.",
+          "identifier_or_url": "https://arxiv.org/pdf/2203.00339",
+          "material_read": "v2 p. 1 offset 0 and p. 6 around offset 36823",
+          "method": "Lawful OA original PDF",
+          "title": "Synchronization in the Kuramoto model in presence of stochastic resetting",
+          "trigger": "Closest cited simultaneous reset Kuramoto result"
+        },
+        {
+          "assessment": "Different resetting protocol and setting in the inspected text",
+          "evidence": "A chosen subset resets to synchronization while the other constituents continue bare dynamics.",
+          "identifier_or_url": "https://arxiv.org/pdf/2402.14921",
+          "material_read": "v2 p. 1 offset 0",
+          "method": "Lawful OA original PDF",
+          "title": "Kuramoto model subject to subsystem resetting",
+          "trigger": "Potential broader resetting model"
+        },
+        {
+          "assessment": "Covers generic renewal, not this deterministic phase-density result",
+          "evidence": "The model is a Brownian walker with shortest-path returns; the introduction states a Poisson-reset renewal relation.",
+          "identifier_or_url": "https://arxiv.org/pdf/2111.15241",
+          "material_read": "v4 p. 1 offset 0 and p. 2 Introduction from offset 3540",
+          "method": "Lawful OA original PDF",
+          "title": "Winding number of a Brownian particle on a ring under stochastic resetting",
+          "trigger": "Circle geometry, winding and renewal"
+        },
+        {
+          "assessment": "Inaccessible on these routes; no coverage inference",
+          "evidence": "HTTP 403; generic renewal is independently supported by the Grange passage.",
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevE.108.044120",
+          "material_read": "No primary passage available from the attempted routes",
+          "method": "Lawful DOI and APS PDF/abstract access attempts",
+          "title": "Steady-state moments under resetting to a distribution",
+          "trigger": "Cited generic resetting methodology"
+        },
+        {
+          "assessment": "Distinct drift, threshold mechanism and observable",
+          "evidence": "Noise-free quartic double-well flow reset at its unstable equilibrium; threshold r=a in the weak-field stationary mean.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-reset-rate-threshold-for-singular-static-response-at-an-unstab--54e826c3abd6",
+          "material_read": "RESULT.md Finding and Assumptions",
+          "method": "Published Resultary local mirror",
+          "title": "A reset-rate threshold for singular static response at an unstable equilibrium",
+          "trigger": "Closest exact deterministic reset threshold"
+        },
+        {
+          "assessment": "Different population regime and quantity",
+          "evidence": "Infinite-population Lorentzian model and a cusp in two-time coherence covariance.",
+          "identifier_or_url": "2026/10/26/SCOPE-a-critical-three-halves-temporal-memory-cusp-in-globally-reset-k--5353c27bb6f5",
+          "material_read": "RESULT.md Finding",
+          "method": "Published Resultary local mirror",
+          "title": "A critical three-halves temporal-memory cusp in globally reset Kuramoto dynamics",
+          "trigger": "Shared reset setting and critical asymptotics"
+        },
+        {
+          "assessment": "Different clock, drift and observable",
+          "evidence": "The edge law is for Lorentzian mean-field synchronization amplitude with power-tailed renewal intervals and a common Ott–Antonsen reset state.",
+          "identifier_or_url": "2026/11/8/SCOPE-power-tailed-renewal-clocks-change-the-synchronization-edge-of-t--5cdffddea659",
+          "material_read": "RESULT.md Finding",
+          "method": "Published Resultary local mirror",
+          "title": "Power-tailed renewal clocks change the synchronization edge",
+          "trigger": "Stationary reset-induced density edge"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "In this minimal synchronization model the reset-rate transition in the preferred phase is not the same as loss of the locking-edge density, nor as the dynamical locked-to-rotating transition. The two exact thresholds distinguish those effects, the formula resolves both equality regimes and the winding-sector discontinuity, and the saddle-node prefactor specifies where the usual algebraic edge law fails. The complete regime diagram is useful for interpreting or checking reset phase histograms even without a downstream general theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

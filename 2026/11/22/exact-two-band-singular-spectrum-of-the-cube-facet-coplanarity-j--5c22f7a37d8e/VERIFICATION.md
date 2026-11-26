@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility and limits
 
-**Statement checked.** The exact all-dimensional two-band singular spectrum of the complete positive-coordinate-facet coplanarity-minor Jacobian at the cube, on even radial vertex labels, under unnormalized counting-measure norms.
+# Independent mathematical audit
 
-**Analytic proof.** The cofactor derivative isolates the radial-label column because the facet's fixed coordinate column duplicates the homogeneous column. Cauchy–Binet and Schur complementation transform the complete squared-minor sum into a facetwise affine-regression residual. Distinct even Fourier–Walsh characters restrict orthogonally to each positive facet. Degree two survives on exactly \(n-2\) facets and higher even degrees on all \(n\), yielding the stated exact energies and eigenvalues for every \(n\ge3\).
+## correctness
 
-**Actual computational reproduction.** The attached `verify.py` uses only standard-library Python and exact integer Bareiss determinants. Executing `python3 verify.py` produced the attached `verification_output.txt`: 15 passing exact assertions: 12 squared-norm checks over complete positive-facet minors in dimensions three, four and five, and three cross-term checks in dimension four. These are finite sanity checks rather than infinite-dimensional proof.
+PASS
 
-**Boundary and provenance.** The result depends essentially on including every positive-facet minor with unit weight, and on the antipodal even-label space. The general nonlinear defect and the Mahler-product variation are not evaluated by this spectrum. The previously established Walsh diagonalization and qualitative kernel in arXiv:2606.14709v4 are acknowledged. No independent mathematical audit has occurred.
+On a positive facet only the derivative of the fixed-coordinate column survives, since otherwise it duplicates the homogeneous column. The vector of complete derivative minors is, up to row signs, the exterior product of the affine columns with the restricted radial label. The n affine columns are orthogonal of squared norm N=2^(n-1); removing the affine component of the last column therefore gives squared norm N^n times the squared residual. On the even domain restriction to a positive facet chooses one representative of each antipodal pair, so its Gram normalization is 1/2 on counting measure. Distinct even characters restrict to distinct orthogonal characters; the constant is always removed, a quadratic character survives on n-2 facets, and a higher even character survives on n facets. Thus the Gram levels are (n-2)N^n/2 and nN^n/2 with precisely the stated multiplicities and equality space. For n=3 only the lower band exists, with Gram eigenvalue 32 and character output energy 256. Square roots give the claimed condition numbers.
+
+## originality
+
+PASS
+
+The identical operator and even-Walsh diagonalization were already published, as was the n=3 coefficient. The general all-dimensional squared singular levels, hence the exact band degeneracy and conditioning beyond dimension three, are the supported distinct contribution. The closest primary source explicitly does not evaluate those general coefficients.
+
+## value
+
+PASS
+
+This evaluates a natural stability constant for a previously defined geometric measurement whose general coefficients were left unspecified. It identifies the least detectable nonconstant radial modes and proves near-equal nonzero singular values in high dimension. This is useful for the specified linearized Euclidean map without claiming a nonlinear Mahler estimate or invariance under different row weights.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

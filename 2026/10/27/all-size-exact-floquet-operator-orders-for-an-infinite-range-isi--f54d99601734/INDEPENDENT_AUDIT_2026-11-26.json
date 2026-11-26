@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:40:33.053497Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Checked the phases and minimality in RESULT.md:29–84 using the stated ZX=iY convention. For N=2m, the pair sum on a weight-k state is 2(m-k)^2-m, so the diagonal two-phase form follows from k parity. Its square and the square of its B conjugate multiply to (-1)^m P_zP_x=P_y; B^4=I. The projective period divides 8 but does not divide 4. For N=2m+1, each pair gate is e^(-i pi/4) S_j S_k CZ_jk; collecting site powers gives the stated e^(i pi m/4)D including the constant sign in q. The radical is the all-ones line, on which q is translation invariant. The zero-frequency Gauss sum is the real part of sqrt(2)e^(-i pi/4)(1+i(-1)^m)^(2m+1) times (-1)^(m(m+1)/2), which equals +2^(m+1) for both parities of m. For t even, shifting by t gives the Walsh phase q(t)+q(0); for t odd, complement pairing gives zero. In (DF)^3 the remaining sum over z with p(z)=p(x) has exponent (w+x)·z+p(x), and hence is supported at w=x and w=x+1, with the respective coefficients (-1)^p(x)/sqrt(2) and +1/sqrt(2). With K=P_xP_z, this gives (DF)^6=I and U^6=i^(3m)K^3=i^(m+1)P_y. The phase-free Pauli map has order 2 on the all-ones sector and 3 on the nonzero even-parity sector, so odd sizes have no scalar power below 12; the sign of U^12 then distinguishes ordinary orders 12 and 24. All identities are on the full Hilbert space and N=2,3 are included. The integer Walsh checker check.py and the finite dense-matrix claims in VERIFICATION.md:21–25 were inspected as corroboration only; no uploaded code was run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Generic Clifford recurrence up to scalar is stated in arXiv:2610.17137; its all-N explicit formula uses nearest-neighbor open-chain coupling, not the complete graph.",
+          "arXiv:2405.15797 extends analytic calculations in a different J=1/2 family."
+        ],
+        "reasoning": "Clifford finiteness gives existence but no phase, scalar power or intervening Pauli. The other interaction geometries and couplings do not yield this classification by substitution.",
+        "searches": [
+          "arXiv:2610.17137, Clifford discussion and Appendix H",
+          "arXiv:2405.15797 abstract"
+        ]
+      },
+      "checked_sources": [
+        "Resultary complete-graph/operator-order queries",
+        "arXiv:2307.14122",
+        "arXiv:2411.16670 (full-text HTML excerpts)",
+        "arXiv:2405.15797",
+        "arXiv:2610.17137"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The follow-up abstract separates N<=12 analytic work from larger-N numerical evidence; §II explicitly uses the N+1 symmetric basis. The all-N open-chain identity has different gates. None gives the same-drive phase and minimal-power determination in the inspected material."
+        ],
+        "reasoning": "Generic phase-free Clifford methods are applicable, but a concrete computation of the parity-dependent symplectic action, its Pauli lift, and the scalar phase is required; the inspected results do not mechanically supply it.",
+        "searches": [
+          "arXiv:2411.16670 HTML §III offset 92102",
+          "arXiv:2610.17137 Clifford discussion p. 3 and Appendix H",
+          "websearch: arXiv:2411.16670 unitary operator J=1 Floquet all sizes exact period Clifford complete-graph Ising"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The closest primary parameter match is strictly the same J=1, tau=pi/4 drive (arXiv:2307.14122 Eq. (3)).",
+          "The follow-up arXiv:2411.16670 §III discusses periodic behavior at any N but in the context of symmetric-state dynamics and analytic/numerical finite-size analysis.",
+          "Resultary near-hit SCOPE-four-wall-cyclic-ising-shells-an-exact-fourier-frame-and-two-sha--b4ed6570eeb9 concerns cyclic spin configurations, not unitary powers."
+        ],
+        "reasoning": "Matching the drive does not match the conclusion; periodic diagnostics or even recurrence on the symmetric subspace do not by themselves specify a halfway Pauli power and minimal scalar/non-scalar orders on the whole space.",
+        "searches": [
+          "Resultary: U_N^4=P_y and U_{2m+1}^6=i^{m+1}P_y exact Floquet all-size Ising",
+          "Resultary: all-size exact Floquet operator orders for an infinite-range Ising drive",
+          "Resultary: Clifford rank reduction complete graph Ising Floquet full 2^N Hilbert exact order",
+          "arXiv:2307.14122 Eq. (3); arXiv:2411.16670 §II–III"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The first two give finite-size same-drive symmetric-sector calculations (through N=11 and 12 respectively); the latter gives a different open-chain period table."
+        ],
+        "reasoning": "The same-drive finite-size values are relevant checkpoints, not an exhaustive formula on the domain N>=2 or a table of full-space halfway operators.",
+        "searches": [
+          "arXiv:2307.14122 supplement (S1)–(S2)",
+          "arXiv:2411.16670 abstract and §II",
+          "arXiv:2610.17137 p. 7 period table"
+        ]
+      },
+      "rationale": "The supported distinction is the all-N full-Hilbert-space Pauli power identity with exact scalar and minimal ordinary/projective orders for this drive. Same-drive periodicity and finite-size symmetric-sector results are prior. The inspected follow-up uses broad periodicity language but describes analytic eigensystems only through N=12 and treats the larger cases numerically; its reduction and conclusions inspected do not provide the exact full-space statement.",
+      "residual_risks": [
+        "Finite semantic and bibliographic searches cannot rule out an unlocated exact Clifford evaluation. The same-drive follow-up's broad periodicity wording is credited, not treated as a proof of the precise full-space identities."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same parameter regime, but inspected analytical results concern finite sizes and use symmetry reduction",
+          "evidence": "Abstract specifies N=5–11 analytical and N>11 numerical evidence; five-qubit supplement specifies dimension 6 of the symmetric subspace, not 32.",
+          "identifier_or_url": "https://arxiv.org/pdf/2307.14122",
+          "material_read": "Abstract, Eq. (3) on p. 2 (offset 12500), supplement Eqs. (S1)–(S2) (offset 73053)",
+          "method": "OA PDF bounded passage reading",
+          "title": "Exactly solvable dynamics and signatures of integrability in an infinite-range many-body Floquet spin system",
+          "trigger": "Exact same drive"
+        },
+        {
+          "assessment": "Relevant overlap in periodic dynamics, not an established full-space exact identity or order in the inspected passages",
+          "evidence": "The abstract bounds the analytic size range by 12 and §II uses the permutation-symmetric N+1-dimensional basis; §III any-size periodicity discussion does not supply the claimed powers.",
+          "identifier_or_url": "https://arxiv.org/html/2411.16670",
+          "material_read": "Abstract; §II offsets 15719–18363; §III offset 92102",
+          "method": "Lawful alternate OA HTML passage reading",
+          "title": "Exact solvability of entanglement for arbitrary initial state in an infinite-range Floquet system",
+          "trigger": "Very close follow-up with broad periodicity wording; frozen source reports no full-text access"
+        },
+        {
+          "assessment": "New analytic examples are for J=1/2, not a larger exact J=1 theorem",
+          "evidence": "The abstract credits earlier J=1 cases and describes J=1/2 cases N=6,8,10,12.",
+          "identifier_or_url": "https://arxiv.org/pdf/2405.15797",
+          "material_read": "Abstract, p. 1",
+          "method": "OA PDF passage reading",
+          "title": "Signatures of quantum integrability and exactly solvable dynamics in an infinite-range many-body Floquet spin system",
+          "trigger": "Related drive and possibly enlarged analytic size range"
+        },
+        {
+          "assessment": "Generic projective finiteness and exact recurrence in a different family",
+          "evidence": "All-N formula U_F^(2s)=(-1)^(Ns+N-1) I is for the nearest-neighbor open-chain parameter family.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.17137",
+          "material_read": "p. 3 Clifford discussion; pp. 7–8 table and all-N family; Appendix H",
+          "method": "OA PDF bounded passage reading",
+          "title": "Cyclotomic structure and exact recurrences in Floquet many-body quantum dynamics",
+          "trigger": "Potential stronger Clifford/phase recurrence coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a motivated exact recurrence problem for a published drive. An all-size bound with the shortest true and projective orders and the intervening Pauli operation is useful for recurrence of arbitrary states and operators without symmetric-sector diagonalization. The distinction between scalar and ordinary orders has real mathematical content; the result does not infer quantum integrability or diagnostic-specific periods.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

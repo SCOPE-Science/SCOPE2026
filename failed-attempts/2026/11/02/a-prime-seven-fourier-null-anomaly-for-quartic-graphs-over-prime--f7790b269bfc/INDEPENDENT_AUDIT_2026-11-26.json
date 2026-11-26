@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:29:09.204915Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–43, VERIFICATION.md and checks/verify.py (frozen script inspected, not executed)",
+        "Masuda–Zieve arXiv:0707.1108v1 Theorem 1.3",
+        "/workspace/branches/b24a7551-e306-4711-b23d-9f679ea49d85/quartic_census.py and its independent outputs census_p5.txt, census_p7_p11.txt, permutation_p13.txt"
+      ],
+      "rationale": "For a primitive frequency, f(x)=ax+bx^4 has derivative not identically zero modulo p. Expanding f(x0+pz) modulo p² and summing the z digit gives p times the root-of-unity sum over the derivative's roots. There are at most three terms. A nonempty sum of fewer than p such p²-th roots cannot vanish: its integer exponent polynomial, if divisible by the monic Phi_{p²}, would have value at 1 divisible by Phi_{p²}(1)=p, contradicting its term count. For b nonzero modulo p the derivative condition is a cube-image criterion, with 1+(p-1)/gcd(3,p-1) admissible reduced a values, each with p² joint lifts. The imprimitive sum is p times a prime-field sum of p roots, whose exact zero criterion is equal output multiplicities, i.e. a permutation. B=0 and A nonzero is linear; A=0 and B nonzero fails because x and -x agree. The verified Masuda–Zieve bound rules out p>=17 for the remaining binomial, and the independent census gives only c=3,4 at p=7 among all candidates at 5,7,11,13. The extra 12 at p=7 follow from six B choices per ratio. Finite character diagonalization counts all surviving coefficients; the rank expression and limits follow, with origin nonzero and p=2,3 excluded. Independent exact full-frequency checks for 5,7,11 found ranks 521,913,13421. Neither this finite corroboration nor the source script is used to extrapolate across primes.",
+      "residual_risks": [
+        "The full-table reproduction concerns only p=5,7,11; the all-prime claim rests on the analytic reduction and the exact permutation classification. It does not classify nonzero Fourier magnitudes or higher powers of p."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "In Cochrane–Zheng §4 the local sum S_alpha equals p^(t+1) times the sum over y in the first digit range with p^(t+1) dividing f'(y). With m=2 and t=0 that range consists of one representative for each alpha; the contribution is zero or p e_{p²}(f(alpha)), with no simplicity restriction.",
+          "Resultary 9443b5b33a8e instead concerns x^p+p h(x mod p); it is not the general theorem for quartic graphs."
+        ],
+        "reasoning": "The established general local formula applies to every primitive linear-quartic phase in this problem; t=0 because the derivative is not the zero polynomial modulo p. A standard cyclotomic count decides whether the surviving contributions cancel, even at the nonsimple root of the derivative. The distinct Frobenius result is not needed for the conclusion.",
+        "searches": [
+          "Cochrane Zheng pure exponential sums prime square p^2 stationary phase f derivative roots formula S(f,p^2) prime power critical points",
+          "Cochrane–Zheng §4 proof of Theorem 2.1 and Proposition 4.1",
+          "Resultary general polynomial prime-square exact Fourier-zero search, match 9443b5b33a8e"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 1f76e4a64221, a783058468ac and 9443b5b33a8e",
+        "Cochrane–Zheng §4",
+        "Masuda–Zieve Theorem 1.3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The previous local-sum formula at m=2,t=0 supplies the derivative-root sum for f(x)=ax+bx^4 without modification.",
+          "The previously classified origin-translation coefficient supplies exactly the full imprimitive support and null multiplicity.",
+          "The pooled primitive count is determined simply by the image size of the cube map of F_p^× and the unrestricted p² lifts."
+        ],
+        "reasoning": "When the primitive root list is nonempty it contains at most three terms; evaluating the minimal-polynomial divisibility at X=1 rules out cancellation. Counting the cube image and adding the rescaled prime-field block are then routine; diagonalization gives rank as the support count. Neither source alone literally states the quartic convolution rank, but the present theorem is this direct combination, not an unresolved case beyond those results.",
+        "searches": [
+          "Cochrane–Zheng §4, Proposition 4.1 and preceding derivation",
+          "Resultary 1f76e4a64221 §4 and a783058468ac Step 1",
+          "Frozen RESULT.md lines 22–40"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact origin-translation coefficient in 1f76e4a64221 is p^(-1) sum_t e_p(-mt-nt^4). With (m,n)=(-A,-B), multiplying it by p² gives the frozen F_p(pA,pB), so they have identical zeros.",
+          "The cubic graph record has the analogous imprimitive permutation and primitive stationary-point mechanism, but a different derivative degree and different permutation data."
+        ],
+        "reasoning": "The low-conductor equivalence is exact after reindexing and nonzero scaling. The whole cubic theorem is not an equivalence; it is precedent for the method, not a claim that cubic and quartic counts coincide.",
+        "searches": [
+          "Resultary quartic-graph Fourier support and rank over prime-square rings",
+          "Resultary 1f76e4a64221 §4 Complete-translation Fourier zeros",
+          "Resultary a783058468ac proof Step 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "1f76e4a64221 explicitly gives the all-prime field binomial census: x^4+c x permutes only for p=7 and c=3,4 among p>=5; its origin-translation zeros number (p-1)(1+2 1_{p=7}).",
+          "The Masuda–Zieve theorem gives a necessary gcd bound, not the table itself."
+        ],
+        "reasoning": "The exact relevant database match is the complete finite-field zero stratum, not merely plots or sample ranks. It accounts for the eponymous anomaly and its exact multiplicity. A different larger operator in that source does not change this block identity.",
+        "searches": [
+          "Resultary 1f76e4a64221 §4, offsets 4770–6285",
+          "Masuda–Zieve arXiv:0707.1108v1, Theorem 1.3"
+        ]
+      },
+      "rationale": "The exact prime-seven exception, including both ratios and the entire imprimitive null count, is already the explicitly classified origin-translation block in Resultary 1f76e4a64221, after multiplying by p² and reversing frequency signs. The distinct prime-square primitive sector is an immediate specialization of Cochrane–Zheng §4's local sum formula, followed by the standard cyclotomic noncancellation for fewer than p terms and the cube-image count. Consequently the full stated support and rank, though presented for a different operator and not literally listed in the earlier sources, follow directly with no new classification step. This is a demonstrated implication, not a failure based on inaccessible literature or a claim that the earlier Gabor operator is itself the convolution operator.",
+      "residual_risks": [
+        "The evidence does not show that a previous source printed the full quartic convolution rank verbatim; the finding is direct mathematical coverage by the cited formula and exact prior stratum. No broader exhaustive priority claim is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact equivalent of the entire imprimitive zero locus; different ambient operator overall",
+          "evidence": [
+            "§4 gives the actual origin-translation sum, the permutation equivalence, the exhaustive all-prime classification and final zero count."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-exact-rank-and-weyl-kernel-classification-for-quartic-graph-gabo--1f76e4a64221",
+          "material_read": "RESULT.md Finding and proof §4; decisive local-mirror offsets 4770–6285",
+          "method": "Resultary search and bounded original local-mirror reads",
+          "title": "Exact rank and Weyl kernel classification for quartic-graph Gabor tomography",
+          "trigger": "Same quartic-linear permutation condition and prime-seven correction"
+        },
+        {
+          "assessment": "General local sum formula directly covers the primitive prime-square stationary-phase step",
+          "evidence": [
+            "§4 writes x=p^(m-1-t)z+y and makes the sum over z vanish unless p^(t+1) divides f'(y). With m=2,t=0 one gets exactly the one-digit local contributions required here, including multiple derivative roots."
+          ],
+          "identifier_or_url": "https://matwbn.icm.edu.pl/ksiazki/aa/aa91/aa9136.pdf",
+          "material_read": "§2 and Theorem 2.1, printed pp. 254–256 (OA offsets 13500–18837); §4 derivation and Proposition 4.1, printed pp. 259–260 (OA offsets 26540–32225)",
+          "method": "Primary publisher-archive OA PDF; locate theorem proof and inspect bounded pages",
+          "title": "Pure and mixed exponential sums",
+          "trigger": "Potential stronger stationary-phase formula, including degenerate critical roots"
+        },
+        {
+          "assessment": "Verifies the bound used for correctness, but does not alone give the exact residual small-field census",
+          "evidence": [
+            "For x^m+a x^n with m>n>0 and nonzero a, prime-field permutation requires gcd(m-n,p-1)>sqrt(p)-1; here the gcd is at most three."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0707.1108v1",
+          "material_read": "Theorem 1.3 (HTML offset 3836; PDF p. 2)",
+          "method": "Primary OA theorem inspection",
+          "title": "Permutation binomials over finite fields",
+          "trigger": "Infinite-prime exclusion used in the frozen proof"
+        },
+        {
+          "assessment": "Matching method but different phase and invariant (orthogonal spectra)",
+          "evidence": [
+            "Step 1 gives a primitive derivative-root criterion and imprimitive permutation criterion for ax+bx^3, not the quartic permutation data."
+          ],
+          "identifier_or_url": "2026/10/11/SCOPE-all-exponential-spectra-of-the-cubic-graph-over-prime-square-cyc--a783058468ac",
+          "material_read": "RESULT.md Finding and proof Step 1 (OA offsets 0–5916)",
+          "method": "Resultary lookup and bounded local-mirror read",
+          "title": "All exponential spectra of the cubic graph over prime-square cyclic rings",
+          "trigger": "Same prime-square graph Fourier-zero methodology"
+        },
+        {
+          "assessment": "Different phases, not the basis for the coverage finding",
+          "evidence": [
+            "Graph is x^p+p h(x mod p) rather than x^4."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-residue-rigid-fourier-zeros-and-complete-spectra-of-prime-square--9443b5b33a8e",
+          "material_read": "Finding, exact graph family and rank",
+          "method": "Resultary lookup and bounded local-mirror comparison",
+          "title": "Residue-rigid Fourier zeros and complete spectra of prime-square Frobenius graphs",
+          "trigger": "Same-day prime-square graph convolution rank and Fourier-zero classification"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 10–17 and 22–40",
+        "Resultary 1f76e4a64221 §4",
+        "Cochrane–Zheng §4"
+      ],
+      "rationale": "Quartic graph Fourier support is a natural operator invariant, but the prominent arithmetic anomaly is already an identical prime-field block and the remaining contribution is the routine cube-image and lift count after the established prime-square formula. The finite rank table corroborates correctness but adds no new structural arithmetic or independently useful unknown exact fact beyond that direct implication.",
+      "residual_risks": [
+        "No assessment is made of the value of other invariants or nonzero eigenvalue magnitude classifications outside the frozen claim."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:55:09.665351Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–121",
+        "verify.py lines 20–123",
+        "VERIFICATION.md",
+        "arXiv:2610.10993v1 §4 Lemmas 4.2–4.3"
+      ],
+      "rationale": "The scalar derivative is cos(s)(1+3c sin²s); maximizing u(1+3c−3cu²) gives the exact q and minimizers stated. Signed diagonal dominance and nonsingularity give SPD K. Symmetric similarity, a positive lower derivative bound and degree one prove global invertibility. Taylor descent excludes other fixed/periodic/nonwandering points: near any noncritical point, one step decreases the potential by more than its variation on a sufficiently small neighborhood. It also makes g(F^nz)→0; vanishing steps and separation of the finite critical set imply convergence. The fixed-point inertia determines the index. For transversality, a nonzero annihilator of the two tangents propagates by the adjoint, contracting toward each end on the dual normals to the appropriate stable/unstable manifolds. At its global coordinate maximum some attaining row has strictly positive signed K action: equality in all attaining rows would separate those rows from the smaller coordinates and annihilate a nonzero vector in an SPD principal submatrix. One backward adjoint equation then places that coordinate in the negative-derivative slab, whose forward invariance follows from scalar monotonicity and diagonal dominance at the endpoints. Equality in the forward maximum bound forces the same signed maximum at every later time, contradicting decay. Positive-step descent remains strict at the first singular step off the corners, so the eight critical configurations really are nonfixed on the torus. For every hλq≥1 the required derivative value occurs between π/2 and a minimizing phase, yielding a singular diagonal configuration. At the star ceiling, the two nonnegative quadratic forms force the kernel vector along the all-ones vector and all the scalar derivatives to equal −q; this gives exactly rank two at each listed point. At c=1/6 the scalar contact coefficient is 3/8 at order four; away from the transition the minima are nondegenerate. At c>1/6 the sink multipliers at the ceiling lie strictly in (0,1).",
+      "residual_risks": [
+        "Finite checker inspected, not replayed; it does not verify transversality or exhaust the torus. The statement is for h>0 and does not classify above-ceiling dynamics."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3.2 and Remark 3.3 give the sufficient gradient descent and diffeomorphism estimates in the graph realization with a common law; Theorem 4.1 gives the exact Morse–Smale interval for pure sine and uses Lemmas 4.2–4.3.",
+          "Corollaries 5.8–5.9 include small law perturbations of individual systems and a weak-link class."
+        ],
+        "reasoning": "The general-law estimate does not prove transversality. Local structural stability has no uniform conclusion as c varies or as h approaches the singular step. The sine theorem exactly covers c=0 but not c>0.",
+        "searches": [
+          "arXiv:2610.10993v1 Theorems 3.2, 4.1 and Remark 3.3",
+          "Resultary: two-harmonic sine-plus-cubed law Morse-Smale exact step threshold q(c) star eight critical Jacobians"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.10993v1",
+        "Resultary 2b21d21838bf",
+        "Resultary a9b6ba912b20",
+        "Resultary 8b2e707e76b5",
+        "Resultary 88b2989c3a50"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The established adjoint criterion still needs a global invariant slab, here shown using the sign of g'_c, the extrema of g_c at the slab endpoints, and the sharp h ceiling. The full star splitting uses the equality constraint whose scalar minimizing set changes at c=1/6."
+        ],
+        "reasoning": "An equality calculation at c=0 and an extension of known proof architecture are not separate priority claims. The all-c transversality proof and exact rank-two splitting are not direct specializations of the inspected theorem statements.",
+        "searches": [
+          "arXiv:2610.10993v1 Theorem 4.1, Lemmas 4.2–4.3, Corollaries 5.5 and 5.8",
+          "Resultary 88b2989c3a50"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The law equals (1+3c/4)(sin s+κ sin 3s), κ=−c/(4+3c); c=1/6 maps to κ=−1/27.",
+          "88b2989c3a50 studies a local flip/period-doubling law at the same ratio, not the global subcritical interval or location of the first singular Jacobians."
+        ],
+        "reasoning": "Same Fourier parameter and quartic degeneracy do not identify the local cycle bifurcation with the global invertibility/transversality boundary or its locus.",
+        "searches": [
+          "Resultary: sin(s)+c sin^3(s) Morse-Smale star first singularity threshold q(c)",
+          "Resultary 88b2989c3a50 Finding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Corollary 5.5 gives the very same star at c=0, with spectrum {1,1,4}, h<1/4 and eight fixed configurations. The path result 2b21d21838bf and pure-sine cycle result 8b2e707e76b5 describe threshold singularities on different graphs.",
+          "a9b6ba912b20 gives pure-sine reversibility and triple fibres for positive definite matrices, not the two-harmonic critical loci."
+        ],
+        "reasoning": "The eight known fixed configurations in the pure-sine result are not the eight nonfixed points of first singularity. The checked boundary classifications do not give the listed star locus at c>1/6.",
+        "searches": [
+          "Resultary: sharp cubic loss of invertibility in sinusoidal path networks first singular step Jacobian",
+          "Resultary: Huygens networks sharp global diffeomorphism threshold first singular locus star sine coupling",
+          "arXiv:2610.10993v1 Corollary 5.5"
+        ]
+      },
+      "rationale": "The pure-sine sharp interval and maximum-adjoint method are prior, as are the graph-based general-law descent and sufficient invertibility estimates. The distinct contribution is the proved extension of transversality throughout the exact shape-dependent interval for every c≥0 and the full star critical locus with its one-to-eight switch while the sink is still hyperbolic. The relevant published structural stability result does include small interaction-law perturbations, but only near an individual sine map, not uniformly to the exact boundary. No checked matching theorem dominates the combined new conclusions.",
+      "residual_risks": [
+        "A wider result for arbitrary coupled odd unimodal laws using invariant slabs could cover the extension. The bounded source check is not a historical priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material partial antecedent, not all-c transversality or singular locus",
+          "evidence": [
+            "General 1/Λ sufficient invertibility; sharp pure-sine theorem; star h<1/4; local structural stability includes small changes in law."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.10993v1",
+          "material_read": "§3 Theorem 3.2 and Remark 3.3 near 17971; §4 Theorem 4.1 and Lemmas 4.2–4.3 at 27960–39051; §5 Corollaries 5.5 and 5.8–5.9 near offsets 52500, 56172–62567",
+          "method": "OA full-text primary passages",
+          "title": "Morse–Smale dynamics in discrete Huygens networks",
+          "trigger": "Same sine matrix theorem, general-law estimates and star"
+        },
+        {
+          "assessment": "Pure sine on unit paths",
+          "evidence": [
+            "At the threshold only the sink is singular; three sink preimages just above."
+          ],
+          "identifier_or_url": "Resultary 2b21d21838bf",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local-mirror primary statement comparison",
+          "title": "Sharp cubic loss of invertibility in sinusoidal path networks",
+          "trigger": "First critical step and same sine method"
+        },
+        {
+          "assessment": "No two-harmonic locus or transversality",
+          "evidence": [
+            "Pure sine with positive diagonal amplitudes, critical homeomorphism and regular triple fibres above threshold."
+          ],
+          "identifier_or_url": "Resultary a9b6ba912b20",
+          "material_read": "RESULT.md Finding and scope, offset 0",
+          "method": "Local-mirror primary statement comparison",
+          "title": "Sharp topological reversibility and persistent triple fibres",
+          "trigger": "Positive definite matrices and sharp invertibility"
+        },
+        {
+          "assessment": "Different topology and interaction law",
+          "evidence": [
+            "Parity-sensitive critical configurations on pure-sine cycles."
+          ],
+          "identifier_or_url": "Resultary 8b2e707e76b5",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local-mirror primary statement comparison",
+          "title": "Parity-dependent cubic onset of noninjectivity in discrete Huygens networks",
+          "trigger": "Singular-locus and nullity classification"
+        },
+        {
+          "assessment": "Same ratio, distinct local phenomenon",
+          "evidence": [
+            "Fourth-root branch of local flip cycles, not first singular-Jacobian locus."
+          ],
+          "identifier_or_url": "Resultary 88b2989c3a50",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local-mirror primary statement comparison",
+          "title": "A harmonic-sign trichotomy and fourth-root flip at bipartite Huygens networks",
+          "trigger": "Equivalent harmonic parameter and same degeneracy ratio"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 18–40 and 81–121",
+        "arXiv:2610.10993v1 §4 and Corollary 5.8"
+      ],
+      "rationale": "The result separates loss of the diffeomorphism regime from loss of sink hyperbolicity. Its exact first-failure locus changes from one equilibrium to eight off-equilibrium configurations, while the global transversality result holds right up to the shape-dependent boundary. This provides a natural sharp boundary beyond a local perturbation statement.",
+      "residual_risks": [
+        "The eight-point phenomenon is proved for the specified star, not for every signed diagonally dominant matrix or arbitrary nonlinear oscillator law."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

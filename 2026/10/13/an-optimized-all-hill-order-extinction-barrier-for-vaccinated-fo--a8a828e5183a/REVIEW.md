@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (PASS).** The positive-cone and population bounds ensure global solutions. The susceptible-vaccinated subsystem is bounded above by a decaying linear Metzler comparison; the Hill response has its exact optimal global linear majorant. Below the derived threshold, a positive test vector certifies the infected comparison matrix is Hurwitz. At equality, its explicit positive left nullvector yields an almost-decreasing incidence functional; the omega-limit argument rules out every non-disease-free limit set, and the locally stable disease-free Jacobian yields eventual exponential decay. The exact-rational witness and matrix certificates were checked using the included standalone script. The limit at equality is proved, not inferred from the script.
+## correctness
 
-**Originality (PASS, with residual risk).** The full accessible model statement and Theorem 1 of Penitente–Foryś–Gürbüz treat global extinction only for Hill order \(n=1\), while their Sect. 5 expressly leaves the \(n\ge2\) extinction regime incomplete. Gökçe–Gürbüz–Rendall prove backward bifurcation and endemic-state multiplicity for \(n=2\), not this global sufficient condition. The precise critical-boundary comparison and vaccination-weighted all-order threshold are not implied by the inspected stated results. The underlying Metzler and monotone comparison principles are known. An unindexed abstract criterion might recover the result and remains a meaningful originality risk.
+PASS
 
-**Mathematical value (PASS).** The source identifies a substantive missing global result for higher-order environmental exposure, where local invasion thresholds can fail to settle extinction. This theorem gives a nonempty rigorous extinction region for every order, an optimal scalar Hill envelope, and a nonhyperbolic comparison-boundary closure. Its exact witness is certified by the new threshold even though the corresponding coarse total-population estimate is greater than one. No claim of the fully sharp nonlinear threshold is made.
+For the stated deterministic ODE, nonnegativity and boundedness follow from the inward coordinate faces, the human-population balance N'=Lambda-mu*N-d*I, and the stable environmental equation. The uninfected S,V subsystem is Metzler and Hurwitz; variation of constants with its nonnegative infection losses gives the exponentially accurate componentwise upper ceiling at S0,V0, including for arbitrary finite initial data above those values. Differentiating g_n(C)/C gives the claimed unique positive maximizer and the optimal scalar envelope, with the inequality also holding at zero. Strict threshold makes the eventual perturbed infection comparison Hurwitz via the positive-vector test. At equality the positive left nullvector gives the exact identity for Z; its possible positive drift is bounded by an integrable exponential times bounded Z. Adding the tail integral of this bound gives monotonicity and convergence of Z. On the omega-limit set S<=S0 and V<=V0, and constant Z with I>0 or C>0 forces S=S0,V=V0, where S'<0. Positivity of I or C persists briefly, contradicting constancy of Z. If E>0 with I=C=0 then I' is positive, also impossible there. Thus E,I,C decay to zero, and S,V,R converge by stable equations. At equality the local direct-transmission number is strictly below one, and g'_n(0)=0; the disease-free Jacobian is block triangular with Hurwitz blocks and yields trajectory-wise eventual exponential convergence. The rational witnesses check by substitution (thresholds 43/204 and 1). This is a sufficient condition, not an optimal epidemic threshold or an applied eradication guarantee. The frozen verify.py was inspected and not executed; it is a finite check, not proof for all n.
 
-**Closest sources and limits.** The main 2026 global-dynamics paper, arXiv:2603.28285v1, and predecessor arXiv:2307.12707v1 were inspected in their primary texts, including their model equations, theorems, discussion, and appendices. The n=1 prior finding is covered and deliberately excluded. This result is restricted to the given deterministic ODE and strictly positive parameters, and has not been independently audited.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The checked source establishes a different, n=1 global criterion and discusses n>=2 separately. The strongest catalogue comparisons use a related neutral-threshold proof for different equations and thresholds. The distinct supported content is the sharp scalar Hill envelope coupled to the disease-free susceptible/vaccinated composition and an inclusive sufficient global extinction threshold for the stated n>=2 system, with eventual exponential convergence.
+
+## value
+
+PASS
+
+The result addresses the model paper's distinction between local and global extinction for higher-order response. The composition-based sufficient bound can certify a case the coarser total-population envelope does not. In particular the equality case and its exponential convergence are useful distinctions because the bounding matrix is neutral, not strictly stable, at that boundary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

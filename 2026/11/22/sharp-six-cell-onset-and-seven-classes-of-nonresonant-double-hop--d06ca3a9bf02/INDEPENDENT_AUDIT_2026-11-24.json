@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:02:36.098214Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Every row sums to two, so the eigenvalue 2 excludes orders below five by degree. At five, division by the monic integer factor z-2 leaves an integer even quartic z^4+Sz^2+P with S,P>0; S>=2 follows from P>=1. Thus tr(A^2)=4-2S<=0, inconsistent with tr(A^2)>=sum of squared diagonal entries>=tr(A)=2. At six the extra real eigenvalue r=tr(A)-2 is an integer in [-2,2]. Division again gives integer S,P, and distinct squared frequencies imply S^2>4P and S>=3. For r=-1,0,1,2, the upper bound 4+r^2-6 on tr(A^2) is strictly below 2+r; r=-2 is forced. The trace gives zero loops, and nonnegative tr(A^2) forces S<=4. These restrictions precede the census and do not presuppose strong connectivity or a bipartition. Independent replay: python3 /workspace/branches/c0dfdede-93b8-4be8-9137-996d62a6a60b/independent_census.py (NumPy; full output in full_census.txt). It tests all 15^6 loop-free input multisets using exact integer trace identities; checks strong connectivity, directed period, and all 720 vertex relabelings of the accepted matrices. Only (S,P)=(3,1),(3,2),(4,2) occur, with labeled counts 720,3600,720 and class counts 1,5,1. All accepted matrices are strongly connected of period two (thus bipartite), and each simultaneous-relabelling orbit has size 720. Solving for the two positive squared frequencies gives the three displayed irrational ratios. In the displayed witness the upper and lower off-diagonal blocks have product with characteristic polynomial (z-4)(z+1)(z+2), verifying the witness quartic despite the row-separator typesetting issue. The admissible Jacobian is mu I+bA at the zero equilibrium, so both imaginary pairs cross at mu=0 while the other two eigenvalues are ±2b there. This verifies only a linear spectral coincidence, not nonlinear double-Hopf dynamics.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The frozen comparison at RESULT.md:45–46 identifies a four-cell zero-Hopf classification in Aguiar–Dias–Mokhtari; the literature lookup returned the paper identifier, but retrieval of its full text timed out. The cited Rink–Sanders work gives general coupled-cell algebra/normal-form context, not evidence of a matching census."
+        ],
+        "reasoning": "A classification of one zero plus one imaginary pair at order four does not dominate this class of order-six spectra; general admissible linearization or bifurcation theory does not constrain the integer trace and determinant strata to these counts. Full-paper exclusions are not inferred from titles or the frozen synopsis.",
+        "searches": [
+          "Primary literature search on homogeneous valency-two Hopf–Hopf spectra and enumerations",
+          "Aguiar–Dias–Mokhtari, arXiv:2611.15221v1",
+          "Rink–Sanders, arXiv:1209.3209 (cited comparator)"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md:3–46 and verification artifacts",
+        "Local Resultary summaries 32f261a3f323 and 95cf641f37cc",
+        "Aguiar–Dias–Mokhtari arXiv:2611.15221v1 (search metadata and frozen synopsis)",
+        "Rink–Sanders, arXiv:1209.3209 (cited context only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The close finite classifications only require one nonzero imaginary pair and have a zero eigenvalue. Perron–Frobenius theory provides the peripheral-period interpretation after the spectral and connectivity constraints are known."
+        ],
+        "reasoning": "The use of admissible Jacobians and periodicity is not itself new. Those results do not imply the five-cell obstruction, the exclusion of all but three six-cell polynomials, or the exact seven simultaneous-relabeling classes; those require the integer trace argument and exhaustive enumeration.",
+        "searches": [
+          "Resultary zero-Hopf entries 32f261a3f323 and 95cf641f37cc",
+          "Zero-Hopf Networks, arXiv:2611.15221v1",
+          "Rink–Sanders arXiv:1209.3209"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact-subject hit is this record. The strongest distinct Resultary summary counts 191 connected five-cell valency-two zero-Hopf classes in seven strata, 56 strongly connected; it includes cases with one imaginary frequency and the additional eigenvalue -2."
+        ],
+        "reasoning": "The shared number of groups and valency do not make these equivalent: in the five-cell classification there is a zero eigenvalue together with one imaginary pair, whereas the six-cell matrices here are nonsingular with two distinct imaginary pairs. Adding an isolated scalar cell to a five-cell example would retain the zero eigenvalue and cannot produce the required spectrum.",
+        "searches": [
+          "Resultary: valency two, six-cell Hopf–Hopf, two distinct imaginary pairs, row-sum-two adjacency spectra",
+          "2026/11/22/SCOPE-seven-spectral-strata-in-five-cell-valency-two-zero-hopf-network--32f261a3f323"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest table indexed is the five-cell zero-Hopf census; the companion 95cf641f37cc summary reports synchrony profiles on that five-cell set. The primary literature comparator concerns a four-cell class in the available comparison."
+        ],
+        "reasoning": "Neither indexed list supplies the relevant six-by-six matrices, their characteristic polynomials, or simultaneous-permutation orbit counts. No identified prior table is shown to contain these exact strata; an uninspected general adjacency catalogue remains possible.",
+        "searches": [
+          "Resultary searches for valency-two small-network spectral tables including 32f261a3f323 and 95cf641f37cc",
+          "Aguiar–Dias–Mokhtari arXiv:2611.15221v1"
+        ]
+      },
+      "rationale": "The exact onset and exhaustive seven-class census for the distinct nonresonant double-imaginary condition are the supported contribution. Available comparisons identify closely related zero-Hopf classifications and general coupled-cell spectral tools, but not an implication establishing this onset and census. No priority within the same-day records is inferred.",
+      "residual_risks": [
+        "Strongest exact local and primary passages could not be retrieved, so the conclusion is limited to available statement-level evidence.",
+        "An uninspected six-cell adjacency catalogue or broader spectral classification could narrow historical credit. No same-day priority was assumed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Closest indexed analogue; statement concerns a different spectral predicate",
+          "evidence": "Five-cell zero-Hopf classes, including strata with an additional -2 eigenvalue, not nonsingular six-cell double-imaginary spectra.",
+          "identifier_or_url": "2026/11/22/SCOPE-seven-spectral-strata-in-five-cell-valency-two-zero-hopf-network--32f261a3f323",
+          "material_read": "Local Resultary summary; exact mirror RESULT.md timed out",
+          "method": "Local semantic lookup and targeted mirror request",
+          "title": "Seven spectral strata in five-cell valency-two zero-Hopf networks",
+          "trigger": "Same indegree and nearby complete spectral census"
+        },
+        {
+          "assessment": "Companion zero-Hopf class analysis",
+          "evidence": "Summary describes synchrony on a five-cell zero-Hopf family.",
+          "identifier_or_url": "2026/11/22/SCOPE-the-five-cell-onset-and-complete-synchrony-profile-census-for-tw--95cf641f37cc",
+          "material_read": "Local Resultary summary",
+          "method": "Local semantic lookup",
+          "title": "The five-cell onset and complete synchrony-profile census",
+          "trigger": "Possible census with additional classification information"
+        },
+        {
+          "assessment": "Distinct stated classification, full-text coverage unresolved",
+          "evidence": "The frozen locator identifies a four-cell census with one imaginary pair and one zero eigenvalue.",
+          "identifier_or_url": "https://arxiv.org/abs/2611.15221v1",
+          "material_read": "Search title/identifier and frozen comparison at RESULT.md:45–46; exact primary passage timed out",
+          "method": "Literature search and OA passage retrieval attempt",
+          "title": "Zero-Hopf Networks",
+          "trigger": "Primary source for the closest coupled-cell census framework"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The first size of a simultaneous nonresonant crossing is a natural question in the homogeneous valency-two family, and dimension counting alone gives only five as a lower bound. Integral positivity rules out that apparent boundary. The precise smallest-network classification supplies a finite, small family for further coupled-cell analysis and shows that all minimal examples force an additional structural pattern (strong connectivity and period two). Neither arbitrary spectral coincidences nor a nonlinear bifurcation claim is needed for this value.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

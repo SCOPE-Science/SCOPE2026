@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility and verification limits
+# Independent mathematical audit
 
-The companion `verify.py` implements explicit ring multiplication with a symmetric bilinear form, computes annihilators by scanning all ring elements, and checks every unordered pair of nonzero zero-divisors against the theorem's adjacency criterion. It independently computes radical dimension, projective-class multiplicities and vertex degrees. The tests include nine split examples over prime fields and two mixed-characteristic examples.
+## correctness
 
-Run from the directory containing `verify.py` with `python3 verify.py`. Expected terminal marker: `ALL_TESTS_PASS: 11 exact ring configurations`.
+PASS
 
-A separate mathematical argument establishes the general theorem for all residue prime powers, all allowed dimensions, and rings without a coefficient field. Finite tests do not certify infinitely many rings, prove ring nonisomorphism, or establish novelty. The two example rings are distinguished in the proof by the existence of a nonsocle square-zero element.
+In a finite local ring every nonzero nonunit is a vertex. The pairing descends over the residue field because multiplying by an element of m changes neither product in m² nor its scalar action. The inverse image of the radical is the socle, with q^(r+1) elements; its nonzero members have annihilator m. All other annihilators are preimages of hyperplanes in V and thus of equal cardinality q^d. Equality of those hyperplanes is equivalent to proportional nonzero images in V/U by nondegeneracy. Counting lifts gives c=q^(r+1)−1, b=(q−1)q^(r+1) and N=(q^t−1)/(q−1). At rank one there is one block; otherwise the c universal vertices and N components of order b are intrinsic. Then q=1+b/(c+1), followed by unique r,t from the two powers. The automorphism group and coloring follow from those intrinsic blocks. A diagonal form of rank t realizes each triple, since all triple products in the maximal ideal vanish. The two ternary forms have the same rank but only the hyperbolic ring has a nonsocle element squaring to zero. No splitting assumption was used in the graph proof.
 
-Independent mathematical audit: not performed.
+## originality
+
+PASS
+
+The supported addition is the full noncomplete graph structure and its exact abstract-graph parameter recovery and non-rigidity. Credit the definition and general chain criterion to Safari–Shaveisi–Nikandish; completeness is not a separate novelty claim. The closest compared reconstruction and clique-join statements concern different adjacencies or domains.
+
+## value
+
+PASS
+
+The block structure answers the suggested clique and chromatic questions on a natural family and gives more than those invariants: it separates which residue and rank parameters can be read from the graph from which multiplication data are lost. The mixed-characteristic scope and exact example of lost form data make that distinction useful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

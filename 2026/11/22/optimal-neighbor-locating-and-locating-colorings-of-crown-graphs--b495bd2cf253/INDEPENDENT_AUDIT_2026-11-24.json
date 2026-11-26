@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:10:37.926861Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Every mixed independent class is a unique matched L_i,R_i pair. The remaining index set U gives pure-shore classes, and if U is empty the matched pairs cannot be distinguished. In a common pure left class, two vertices at indices i,j differ in either code exactly when one of their matched right endpoints is a singleton: all other pure left classes are at distance two from both, mixed classes at one, and a nonsingleton pure right class at one. A matched right singleton has distances three and one, respectively, contributing precisely the missing neighbor color. The argument is symmetric on the other shore. Same-colored matched vertices with U nonempty are distinguished by any pure left class (distances two and one and adjacency only on one side). This proves equivalence for every proper coloring. If there are p mixed classes and m=n-p residual indices, and r singleton and t nonsingleton right classes, each left class contains at most one of the m-r indices in nonsingleton right classes. Thus for t>=1 there are at least p+(m-r)+r+t>=n+1 classes; if t=0, the m right singletons and at least one pure left class give the same lower bound. The single pure left class and all right singletons show attainability. At equality with t>=1, t=1 and every left class has one index of the right block B. Symmetry permits at most one of those left classes to be nonsingleton, so all of U minus B join that class if the set is nonempty. This gives exactly the one-shore or two-block forms, with the one-index case counted only once. For fixed m this counts m*2^(m-1)-2m+2 partitions without names; binomial summation gives n*3^(n-1)-(n-2)*2^n-2. An independent proper-partition enumeration for n=3–6 found 41, 354, 4,125, 61,375 proper partitions and 17, 74, 307, 1,200 optima, respectively, with no discrepancies between the two coloring tests. That enumeration corroborates only the finite orders; the supplied programs were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "For twin-free graphs the Alcón et al. upper bound is |V|-alpha+1. In the crown alpha=n because any mixed independent set has size at most two and each shore has size n.",
+          "Chakraborty et al. discuss both parameters and equality in other bipartite examples, including a star. Behtoei's inspected results are for joins and complete multipartite graphs."
+        ],
+        "reasoning": "The twin-free theorem indeed gives n+1 as an upper bound; neither it nor those inspected relationships establishes a matching lower bound, a per-partition equivalence, or rigidity. The star result concerns a different bipartite graph.",
+        "searches": [
+          "arXiv:1806.11465, Proposition 6",
+          "arXiv:2301.13557, abstract and p. 5",
+          "arXiv:1112.2357, locating chromatic numbers of joins"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify_constructive.py and verify_exhaustive.cpp (inspection only)",
+        "arXiv:1806.11465, arXiv:2301.13557, arXiv:1112.2357, DOI 10.61091/jcmcc122-06",
+        "Resultary b495bd2cf253, 611f26de2ae5, 625010bcb3e9; OEIS six-term query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general inequality and the known upper bound tell only one side of the optimum. The new counting identity depends on every optimum having at most one nonsingleton pure block per shore and a single common index if both are present."
+        ],
+        "reasoning": "Even an equality of the two minima would not imply that the sets of proper partitions satisfying the two conditions coincide. The prior upper bound and different enumerator conditions do not supply that set equivalence or the classification at equality.",
+        "searches": [
+          "arXiv:1806.11465 p. 8, Proposition 6",
+          "arXiv:2301.13557 p. 5",
+          "Resultary 611f26de2ae5 and 625010bcb3e9"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The crown is the direct (categorical) product K_n times K_2, not any of the products listed in the 2024 product paper's abstract. Missing cross edges are a perfect matching; for n>=3 the graph is not a complete multipartite join.",
+          "Resultary 611f26de2ae5 uses matching-deleted bicliques but requires proper conflict-free coloring; 625010bcb3e9 uses crowns but requires that proper colorings break automorphisms."
+        ],
+        "reasoning": "Same graph, or even a count of proper partitions of it, is not an equivalent coloring problem unless the additional constraint is the same. Conflict-free and symmetry-breaking constraints are different from separation of same-color vertices by color-neighborhood or metric codes.",
+        "searches": [
+          "Resultary: crown graph locating and neighbor-locating coloring; complete bipartite minus a perfect matching",
+          "arXiv:1112.2357 and DOI 10.61091/jcmcc122-06"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact six-term OEIS query reported no match. The exact catalogue hit b495bd2cf253 is the assigned item; the adjacent enumerator records impose different coloring properties."
+        ],
+        "reasoning": "The OEIS result is limited to the tested terms and indexing. An exact match should count unlabeled color classes on fixed labeled vertices, without quotienting by graph automorphisms. No distinct retrieved table did that for the locating constraint.",
+        "searches": [
+          "https://oeis.org/search?q=17%2C74%2C307%2C1200%2C4461%2C15958",
+          "Resultary: exact optimal crown graph coloring enumeration"
+        ]
+      },
+      "rationale": "The supported additions are the sharp all-order equality, equivalence at the level of each proper partition, and exact rigidity and enumeration. The twin-free upper bound is already implied and is not credited as novel. The only exact catalogue match is the assigned item.",
+      "residual_risks": [
+        "Further categorical-product or crown-specific locating-coloring literature was not exhaustively checked. A further search wave was deferred and does not count as negative evidence.",
+        "The bounded exact-term database check cannot rule out an equivalent enumeration under a formula or different indexing."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Verified partial coverage: upper bound",
+          "evidence": "The twin-free bound is chi_NL <= |V|-alpha+1, giving n+1 here.",
+          "identifier_or_url": "https://arxiv.org/abs/1806.11465",
+          "material_read": "p. 8, Proposition 6, PDF offset 24879",
+          "method": "OA PDF passage",
+          "title": "Neighbor-Locating Colorings in Graphs",
+          "trigger": "General theorem potentially settling the crown optimum"
+        },
+        {
+          "assessment": "Related definitions and comparisons; no crown classification in inspected material",
+          "evidence": "The two minima coincide for the given star example.",
+          "identifier_or_url": "https://arxiv.org/abs/2301.13557",
+          "material_read": "Abstract and p. 5 star example (PDF offset 18917)",
+          "method": "OA PDF passages",
+          "title": "On locating and neighbor-locating colorings of sparse graphs",
+          "trigger": "Possible broader equivalence or bipartite theorem"
+        },
+        {
+          "assessment": "Inspected join/multipartite cases do not apply",
+          "evidence": "The crown is not complete multipartite; nonadjacency is not transitive across nonadjacent vertices.",
+          "identifier_or_url": "https://arxiv.org/abs/1112.2357",
+          "material_read": "Abstract and p. 2, PDF offset 4772",
+          "method": "OA PDF passages",
+          "title": "The Locating Chromatic Number of the Join of Graphs",
+          "trigger": "Potential coverage by dense bipartite or multipartite graph results"
+        },
+        {
+          "assessment": "Different product types in inspected abstract",
+          "evidence": "Cartesian, lexicographic and corona products are listed; the crown uses the categorical product.",
+          "identifier_or_url": "https://doi.org/10.61091/jcmcc122-06",
+          "material_read": "Abstract, PDF offset 0",
+          "method": "OA PDF passage",
+          "title": "Neighbor Locating Coloring on Graphs: Three Products",
+          "trigger": "Crown as a product of complete graphs"
+        },
+        {
+          "assessment": "Identical assigned record, not independent overlap",
+          "evidence": "The same equivalence, optimum, three forms and enumeration appear there.",
+          "identifier_or_url": "Resultary 2026/11/22/b495bd2cf253",
+          "material_read": "Mirror RESULT.md, offset 0, Finding",
+          "method": "Catalogue and local mirror passage",
+          "title": "Optimal neighbor-locating and locating colorings of crown graphs",
+          "trigger": "Exact title and parameter hit"
+        },
+        {
+          "assessment": "No hit for the exact query, not absence proof",
+          "evidence": "The six terms were not matched in the returned search result.",
+          "identifier_or_url": "https://oeis.org/search?q=17%2C74%2C307%2C1200%2C4461%2C15958",
+          "material_read": "Results page at offset 0",
+          "method": "OA page passage",
+          "title": "OEIS exact-term search",
+          "trigger": "Potential previously tabulated optimum-partition count"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "These two separation notions can differ on general graphs. On a natural dense bipartite family, the theorem identifies which geometric obstructions make the notions agree, characterizes every optimum rather than giving a single construction, and counts the optima as partitions of the given vertex set. The exact classification and labeled-vertex count add information not present in the standard upper bound.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

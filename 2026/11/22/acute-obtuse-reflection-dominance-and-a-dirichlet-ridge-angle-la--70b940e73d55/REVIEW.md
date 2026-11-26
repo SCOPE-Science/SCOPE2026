@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim has fixed intrinsic Euclidean normalization in the affine hyperplane of an explicit Minkowski sum. Formula (1) follows from projecting facet indicator normals to the zero-sum hyperplane; it gives both angle expressions with the correct inward-versus-outward convention. Every ridge corresponds to a pair of compatible tubes, proved in the established graph-associahedron face theory. Counting cyclic interval positions and positive gap compositions proves the exact angle multiset, including equal-length division by two. A length-complement map proves strict reflected multiplicity dominance, and two uniform four-part composition models yield the same limiting Dirichlet cosine distribution. Finite exact-coordinate checks independently verify facet/ridge ranks through six vertices and rational angle/count identities through twelve vertices, with reflection checks through dimension twenty-five. These checks support but do not replace the all-order proof.
+## correctness
 
-## Originality — PASS, provisional priority
-The closest structural prior works are Jevtić–Jelić–Živaljević (2018), *Cyclohedron and Kantorovich–Rubinstein Polytopes*, DOI 10.1007/s40598-018-0083-4; Cardinal–Pournin–Valencia-Pabon (2021), *Diameter estimates for graph associahedra*, arXiv:2106.16130; and Pilaud–Santos–Ziegler (2023), *Celebrating Loday's Associahedron*, arXiv:2305.08471. Their inspected cyclohedron/tubing and simplex-sum sections provide the required incidence and normals, but not the exact angular census, strict angle-reflection multiplicity comparison or Dirichlet mixture theorem. A previously derived metric-angle census for a path associahedron addresses a different nested complex and has different angular frequencies and limit. The clock-quasi-metric Lipschitz realization of the cyclohedron is not the Euclidean simplex-sum realization. Remaining risks: an unindexed angular enumeration, or an unstated corollary in broader generalized-permutohedron literature. Search absence alone is not treated as proof of priority.
+PASS
 
-## Mathematical value — PASS
-The complete Euclidean ridge-angle multiset is a natural invariant of the canonical cycle-graph nestohedron, not a random parameter slice. It reveals a sharp finite multiplicity-dominance property, exactly characterizes the absence of right angles, and connects the entire high-dimensional angular law to a symmetric Dirichlet spacing magnitude with an asymmetric sign mixture. This differs qualitatively from the path-associahedron limiting law and from the cycle graphical-zonotope angular law. The explicit formulas apply in every dimension and enable further curvature/angle-statistic calculations.
+The ambient hyperplane has tangent space 1⊥ and affine dimension n−1 (the full coordinate simplex is a summand). The known simplex-sum tubing face theorem makes proper intervals facets and distinct compatible pairs ridges. The minimum coordinate sum on a tube S on each summand is one if the summand's tube is a subset of S and zero otherwise, so its outward intrinsic normal is −(1_S−|S|1/n). Its normalized dot product with another such normal gives the stated signed cosine, positive for nested and negative for disjoint nonadjacent tubes, and strictly between −1 and 1. The interior angle is the supplement of the normal angle. For nested lengths a<b the longer tube has n positions and the shorter one b−a+1 starts. For disjoint lengths, the two positive gaps sum to n−a−b and rooting at a prescribed tube counts once if a<b and twice if a=b. Summing nested counts and counting n times all positive four-part compositions divided by 2 for disjoint pairs yields O_n,A_n,R_n and the acute probability; n=3 gives six obtuse ridges and no acute ones. For an acute pair (a,b), the complementary nested types are (a,n−b) and (b,n−a), coinciding only for a=b. Given a nested type (c,d) in this image, the disjoint unordered lengths {c,n−d} are uniquely recovered, so summing even when angles collide cannot double-count the reflected contribution. For each contributing type the ratio is 2(r+1)/(r−1)>2. The disjoint four-block sample is a uniform composition after rooting uniformly at one tube; nested block sizes are also uniform apart from O(n²) boundary descriptions in Θ(n³) possibilities. The normalized point meshes converge by simplex Riemann sums to Dirichlet(1,1,1,1); the angle maps are continuous almost surely under this law. Exchangeability gives the same conditional cosine magnitude (two designated coordinates) in either class. Combining conditional convergence with the exact acute weight gives the independent-branch limit. The positive-weight extension is within the same intrinsic normal-fan realization only.
 
-## Limitations
-The result does not claim invariance under arbitrary affine realization, an error rate in the weak limit, or independent external verification. Primary structural results are credited. Historical priority remains provisional.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The tube face structure and projected normal-ray mechanism are prior, and the unrefined total ridge count is combinatorial face data. The strongest same-day analogue for Loday's path associahedron shares the functional cosines and composition-to-Dirichlet method; it does not give the cycle multiplicities, strict reflected factor greater than two, or the four-coordinate 1:2 limit. The pass is on this cycle-specific metric synthesis and refinements, not on the general angle calculation for projected characteristic normals or the Dirichlet method.
+
+## value
+
+PASS
+
+The cycle simplex-sum is a canonical realization, and its Euclidean angles are not determined as numbers by the abstract face lattice. A refined complete ridge multiset gives useful geometric reference data. More decisively, the angle-by-angle reflected multiplicity inequality survives collisions, and both conditional cosine laws have a common Dirichlet limit despite the finite and asymptotic count imbalance. The combination resolves natural questions about angular geometry beyond recovering the type-B f-vector or reusing the generic dot-product formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

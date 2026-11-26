@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:17:00.878624Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–30, 32–68",
+        "VERIFICATION.md and VERIFY_OUTPUT.txt; verify_three_line_kaczmarz.py inspected, not executed"
+      ],
+      "rationale": "The squared two-step map for pair (i,j) is (a_i^T a_j)^2 P_i because the complementary projections are rank one in the plane. Pay at least q_i per conditional successor (q_0=u, q_±=q=min(u,(2u−1)^2)); taking the two coordinate diagonals gives a lower bound max{q(1−u)(1−t), u t+qu(1−t)}, t=Pr(I=0), for every joint law. Balanced leaves and minimizing successors attain it. For u<1/2 the unique crossing gives the stated t and an isotropic optimal matrix; imbalance already raises the maximum eigenvalue of the cheaper matrix, while at balance any nonzero positive-semidefinite excess strictly increases it. For u>1/2 the vertical quadratic form forces t=0 and minimum successors, and any nonzero off-diagonal entry makes the optimum impossible. At u=1/2 the only zero-overlap pairs are the two opposite-leaf pairs, with arbitrary mixture. The identity (2u−1)^2−u=(4u−1)(u−1) gives the tie at 1/4. The exact benchmarks 3/80 vs 1/16 and 3/16 vs 11/18 follow from the same matrix. An independent diagonal density-matrix dual attains the bound: for u<1/2 its first diagonal is u(1−q)/(u+q(1−2u)), otherwise use the vertical unit projector. That dual and all nine supported/forbidden pair costs were checked at 102 exact rational parameters in /workspace/branches/independent_replay.py (kaczmarz); the grid is corroboration only.",
+      "residual_risks": [
+        "Only a fixed law for a single batch of two unrelaxed projections in the stated symmetric real planar family; not residual-adaptive, IID-constrained, or an asymptotic rate."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The planar coincidence summary optimizes independent-row one-step/asymptotic metrics. Frozen RESULT.md lines 70–76 report the 2014 abstract as addressing independent sampling; primary full text not obtained via the Harvard record or DOI."
+        ],
+        "reasoning": "Exact MSE for a fixed standard sampling vector or a one-step optimum does not optimize over arbitrary two-step joint laws. The 2014 comparison is limited by access; it is not a finding about the whole article.",
+        "searches": [
+          "doi:10.1109/GlobalSIP.2014.7032145",
+          "Harvard DASH 73120379-2750-6bd4-e053-0100007fdf3b",
+          "Resultary: 2026/10/13/SCOPE-planar-coincidence-theorem-for-optimal-randomized-kaczmarz-sampl--54597ea58934"
+        ]
+      },
+      "checked_sources": [
+        "Resultary ad4d5ccaddd9, 98f608901237, 3dc9a9e651a4, 54597ea58934, efae258a460c",
+        "Agaskar–Wang–Lu, GlobalSIP 2014, DOI 10.1109/GlobalSIP.2014.7032145 (access attempted)",
+        "Frozen RESULT.md §§Proof, Relationship to prior work, Limitations"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The present optimization compares squared overlaps u and (2u−1)^2 in the second-row conditional design, then balances two first-row diagonal modes; at u=3/8 its center-first probability is 1/25 and the center is never selected second."
+        ],
+        "reasoning": "The indexed comparators' exact statements as summarized do not furnish this finite-horizon unrestricted minimum or its complete ties. Classical projection/MSE identities are tools, not an implication of the constrained and then unconstrained optimal design.",
+        "searches": [
+          "Resultary 98f608901237, 3dc9a9e651a4, 54597ea58934, efae258a460c",
+          "doi:10.1109/GlobalSIP.2014.7032145"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier repeat/alternate record's summary is for two rows, uniform marginals and relaxation; the distinct three-round record's summary has uniform marginals and a three-step horizon."
+        ],
+        "reasoning": "Removing relaxation does not remove the two-row or prescribed-marginal hypotheses. In the present middle phase the optimal first center probability is positive while the second center probability is zero, so a uniform/equal-marginal result cannot reproduce even the optimizer there. The three-round record is compared on its mathematics, not excluded by its same date.",
+        "searches": [
+          "Resultary: 2026/11/8/SCOPE-a-sharp-repeat-alternate-transition-for-two-step-relaxed-kaczmar--98f608901237",
+          "Resultary: 2026/11/22/SCOPE-unrestricted-three-round-kaczmarz-coupling-is-optimized-by-reshu--3dc9a9e651a4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed match is the frozen target itself. The closest other symmetric-three-row result optimizes Kaczmarz–Motzkin residual sample size per evaluated residual."
+        ],
+        "reasoning": "A data-dependent greedy selector is not equivalent to probabilities fixed before the direction; the exact self-match is not independent coverage.",
+        "searches": [
+          "Resultary: 2026/11/22/SCOPE-sharp-two-transition-sampling-law-for-two-step-kaczmarz-on-three--ad4d5ccaddd9",
+          "Resultary: 2026/10/12/SCOPE-exact-residual-budget-optimal-sampling-sizes-for-symmetric-three--efae258a460c"
+        ]
+      },
+      "rationale": "The supported result is the exact unrestricted joint-law optimum and all equality cases for this symmetric three-row family. The matched variants change horizon, coupling/marginal constraints, relaxations, or the optimized selection rule. No covering statement was found in the actual material inspected; access gaps limit historical priority, not the mathematical decision.",
+      "residual_risks": [
+        "Counterpart Resultary full texts and the 2014 conference paper could not be inspected; assessments about those sources are limited to the stated material.",
+        "Earlier special-case calculations framed as semidefinite experimental design or projection coupling could have been missed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identical target, not a separate prior",
+          "evidence": "Both fix the symmetric planar family and optimize all ordered pairs with switches at 1/4 and 1/2.",
+          "identifier_or_url": "Resultary ad4d5ccaddd9",
+          "material_read": "Indexed summary and frozen Finding/Proof",
+          "method": "Local semantic index and frozen text",
+          "title": "Sharp two-transition sampling law for two-step Kaczmarz on three planar rows",
+          "trigger": "Exact indexed match"
+        },
+        {
+          "assessment": "Related; the available statement does not cover",
+          "evidence": "Two rows with uniform marginals and relaxation versus three rows and unrestricted ordered pairs.",
+          "identifier_or_url": "Resultary 98f608901237",
+          "material_read": "Indexed summary; mirror full-text attempt timed out",
+          "method": "Local index and mirror attempt",
+          "title": "A sharp repeat–alternate transition for two-step relaxed Kaczmarz",
+          "trigger": "Closest earlier two-step coupling"
+        },
+        {
+          "assessment": "Available statement materially differs; no date-based priority inference",
+          "evidence": "Three updates and uniform marginals on a symmetric Gram path.",
+          "identifier_or_url": "Resultary 3dc9a9e651a4",
+          "material_read": "Indexed summary; no full text obtained",
+          "method": "Local semantic index",
+          "title": "Unrestricted three-round Kaczmarz coupling is optimized by reshuffling",
+          "trigger": "Distinct related same-day dependent-schedule record"
+        },
+        {
+          "assessment": "Different sampling law and performance criterion",
+          "evidence": "Independent draws and one-step/asymptotic objectives.",
+          "identifier_or_url": "Resultary 54597ea58934",
+          "material_read": "Indexed summary",
+          "method": "Local semantic index",
+          "title": "Planar coincidence theorem for optimal randomized Kaczmarz sampling",
+          "trigger": "Same planar optimization vocabulary"
+        },
+        {
+          "assessment": "Different decision variable",
+          "evidence": "Residual-greedy subset-size optimization rather than fixed ordered-pair probabilities.",
+          "identifier_or_url": "Resultary efae258a460c",
+          "material_read": "Indexed summary",
+          "method": "Local semantic index",
+          "title": "Exact residual-budget-optimal sampling sizes for symmetric three-row systems",
+          "trigger": "Same small symmetric geometry"
+        },
+        {
+          "assessment": "Accessible comparison does not establish coverage; full-text risk remains",
+          "evidence": "The frozen abstract description treats independent row sampling, a smaller design domain.",
+          "identifier_or_url": "https://doi.org/10.1109/GlobalSIP.2014.7032145",
+          "material_read": "Bibliographic identity and frozen lines 70–76; no independent primary passage obtained",
+          "method": "Lawful Harvard DASH and DOI access attempts",
+          "title": "Randomized Kaczmarz algorithms: Exact MSE analysis and optimal sampling probabilities",
+          "trigger": "Primary exact MSE and optimized sampling"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 12–30, 44–63"
+      ],
+      "rationale": "A complete shortest-horizon benchmark on a natural symmetric overdetermined geometry separates local successor preference from global balancing of error directions. The exact 3/8 example shows that deliberately including a less favorable pair can improve minimax retention over every deterministic schedule. The two distinct changes in support and the classification of all ties make the result useful for comparisons with independent and coupled designs, without an extrapolation to runtime or long-run rates.",
+      "residual_risks": [
+        "The usefulness is as an exact two-update benchmark, not a performance claim for arbitrary matrices."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:01:21.612355Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Average conjugates over simultaneous permutations of matched pairs and part interchange. This preserves feasibility and the uniform projector, and convexity ensures the centered norm cannot increase. In the averaged chain c=1−a−(m−1)b is the holding probability, and the cross block is (a−b)I+b11ᵀ. The centered nontrivial modes (part difference and the two paired zero-sum modes) have eigenvalues 2c−1, c+a−b and c−a+b, so the norm is max{|2c−1|,c+|a−b|}. Substituting b=(1−a−c)/(m−1), the latter linear modes are [(m−2)c+1−ma]/(m−1) and [mc+ma−1]/(m−1). Convex-combine 1−2c with each of these, choosing weights to cancel c. This gives unconditional lower bounds m(1−2a)/(3m−4) and (m−2+2ma)/(3m−2), including m=2 when the first mode's slope is zero. At their sole crossing a*=2/(3m) they equal 1/3. On the first branch the proposed b,c are nonnegative, c+a+(m−1)b=1, b≥a and c≤1/2; on the second the same checks hold with b≤a. The selected linear mode equals 1−2c on each branch, attaining the lower envelope of feasible objectives. The endpoints m=2,a=0 and a=1 retain the extra unit-modulus eigenvalues in the centered norm. For common bounds, the matched-edge average lies in [ℓ,u], and the strictly decreasing then increasing fixed-a response is minimized by clipping a*. This neither asserts uniqueness nor optimizes a finite-time distance. The frozen exact-rational checker was inspected, not run; these calculations prove the all-parameter result.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The symmetry theorem supplies orbit averaging and block reduction. The edge-transitive optimum theorem evaluates a single free edge coefficient, and the unrestricted complete-bipartite specialization also uses one.",
+          "The K-partite paper's abstract and introduction describe four specific symmetric network families; the inspected material does not give the common-interval or fixed distinguished-partner formula."
+        ],
+        "reasoning": "General convex or symmetry reduction enables but does not evaluate this two-orbit function. One must identify which centered modes interact with the prescribed matching probability and prove the two exact optima.",
+        "searches": [
+          "Boyd–Diaconis–Parrilo–Xiao §§2.2–2.3, Theorem 3.1, §5.4.2",
+          "K-partite symmetric FMMC, Jafarizadeh arXiv:1008.2588"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.1137/S0036144503423264",
+        "arXiv:0709.0955",
+        "arXiv:1008.2588",
+        "Resultary records 5db86611e174 and 5eef16ab8cf4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The unrestricted case gives a*=2/(3m) and ρ=1/3. The crown's Laplacian gap and top eigenvalue are m−2 and 2(m−1), so the edge-transitive theorem gives b=2/(3m−4) and ρ=m/(3m−4) for m≥3. Its connected theorem does not address m=2,a=0.",
+          "Neither endpoint determines the two active-mode branches under an intermediate prescribed probability or the exact common-interval response."
+        ],
+        "reasoning": "Credit the two established special values and generic method. The supported increment is the full response with its asymmetric one-sided slopes, feasibility, and capacity clipping.",
+        "searches": [
+          "Boyd–Diaconis–Xiao §7.1 (balanced specialization)",
+          "Boyd–Diaconis–Parrilo–Xiao Theorem 3.1 (crown specialization) and §5.4.2",
+          "Same-day Resultary crown rigidity finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The full centered SLEM is the ordinary reversible uniform-target FMMC objective; the equivalent two-orbit optimization uses one coefficient for each of matched and unmatched cross edges.",
+          "The ordinary complete-bipartite example has one cross-edge orbit; the crown graph has the unmatched orbit only. The same-day crown rigidity entry explicitly treats that latter graph and adds uniqueness and quantitative near-optimality at a=0."
+        ],
+        "reasoning": "Those optimizations are equivalent to genuine special cases, not to the full family at fixed intermediate a. In the interval version the bounds are common; arbitrary edge-specific bounds are not covered by this claim.",
+        "searches": [
+          "Prescribed matching-edge probability in fastest mixing K_m,m",
+          "Weighted crown SLEM with distinguished cross-part partner links",
+          "Resultary: fastest mixing crown graph, matching capacity and rigidity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "SCOPE-sharp-matching-channel-capacity-law-for-fastest-mixing-on-k-m-m--5db86611e174 is the identical assigned result.",
+          "SCOPE-rigidity-and-quantitative-near-optimality-for-fastest-mixing-on--5eef16ab8cf4 covers the same a=0 optimum and explicitly attributes it to the established edge-transitive result."
+        ],
+        "reasoning": "The actual indexed endpoint is credited; no other matching all-a table was established in the bounded search. The same date does not establish an order between the two results.",
+        "searches": [
+          "Resultary: exact matching-channel capacity, crown SLEM and near-optimality",
+          "Literature: crown endpoint m/(3m−4) and unrestricted balanced bipartite 1/3"
+        ]
+      },
+      "rationale": "Bounded best-of-knowledge pass for the full fixed-probability tradeoff and its common-interval extension, not for the unconstrained balanced optimum, crown endpoint, or symmetry method. The strongest plausible published and indexed overlaps fix those individual cases or give a general reduction; none of the compared results evaluates the two-orbit constrained frontier at intermediate a.",
+      "residual_risks": [
+        "A more specialized weighted bipartite or capacitated-consensus calculation could contain an equivalent frontier outside the inspected evidence.",
+        "Inspection of arXiv:1008.2588 was limited to the specified passages; indexed or search absence is not a priority proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly covers the unconstrained balanced point, not the frontier",
+          "evidence": [
+            "Specializing m=n gives common edge probability 2/(3m) and centered SLEM 1/3."
+          ],
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fmmc.pdf",
+          "material_read": "§7.1, pp. 685–686, offset 59718",
+          "method": "Compared the displayed K_m,n optimizer with the balanced matched-edge-constrained family",
+          "title": "Fastest Mixing Markov Chain on a Graph",
+          "trigger": "Direct closed form on complete bipartite graphs"
+        },
+        {
+          "assessment": "Supplies method, known a=0 endpoint for m≥3, and unrestricted complete-bipartite optimum",
+          "evidence": [
+            "Theorem 2.1 and Corollary 2.3 establish orbit-invariant optimal design; Theorem 3.1 gives the edge-transitive chain in terms of extremal nonzero Laplacian eigenvalues."
+          ],
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fast_mix_symm.pdf",
+          "material_read": "§§2.2–2.3, pp. 797–798; §3.1 Theorem 3.1, pp. 799–800; §5.4.2, pp. 813–814; offsets 15000, 19995, 24980, 78706",
+          "method": "Read averaging and exact spectral optimizer statements; evaluated the one-orbit crown specialization",
+          "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+          "trigger": "Potential general orbit theorem and edge-transitive crown coverage"
+        },
+        {
+          "assessment": "No fixed matching capacity is identified in these passages; not an exhaustive negative claim about this paper",
+          "evidence": [
+            "It describes analytic FMMC solutions for four particular K-partite network families."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1008.2588",
+          "material_read": "Abstract and introduction, pp. 1–2, offsets 0 and 4168",
+          "method": "Compared described graph families and optimized parameters",
+          "title": "Fastest Mixing Markov Chain on Symmetric K-Partite Network",
+          "trigger": "Possible exact larger multipartite network result"
+        },
+        {
+          "assessment": "Covers a=0 only and adds results of its own; no inference of same-day precedence",
+          "evidence": [
+            "On K_m,m minus its matching the optimum is m/(3m−4) with probability 2/(3m−4) on every present edge."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-rigidity-and-quantitative-near-optimality-for-fastest-mixing-on--5eef16ab8cf4/RESULT.md",
+          "material_read": "RESULT.md finding and prior-work comparison",
+          "method": "Compared the equality/near-optimality spectrum and the constrained parameter domain",
+          "title": "Rigidity and quantitative near-optimality for fastest mixing on the crown graph",
+          "trigger": "Closest distinct indexed overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Fixing a distinguished partner link is a natural constraint in a two-class reversible network. The exact frontier quantifies how both inadequate and excessive use of such links harms mixing, identifies the switch between two spectral bottlenecks and tells when a permitted range incurs no cost. This is a useful all-size, all-capacity design law beyond the generic SDP and already-known endpoints.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

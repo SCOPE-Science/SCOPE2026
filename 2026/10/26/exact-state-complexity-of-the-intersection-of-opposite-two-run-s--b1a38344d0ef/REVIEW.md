@@ -1,17 +1,21 @@
-# Mathematical review: opposite two-run subsequence ideals
+# Independent mathematical audit
 
-## Correctness — PASS
-The greedy matching product recognizes precisely simultaneous scattered-subsequence containment. A four-region reachability classification includes explicit witnesses and excludes all other pairs. For any distinct reachable states, one of two regular-form suffix tests distinguishes regions; within each region, explicit monotone suffix thresholds recover both coordinates. The region count gives the claimed formula. A separate finite checker verified reachability, minimization, and independently computed membership for 100 parameter pairs and 73,719 words; this is corroborative only.
+## correctness
 
-## Originality — PASS, with residual risk
-Full relevant source inspections and semantic research-index queries identify generic matching bounds, right-ideal intersection extremals, and piecewise-testable Boolean theory, but no statement from which the exact opposite-two-run family count follows. Direct comparison considers the broader upper bounds and different witness languages rather than title similarity. Literature incompleteness and unindexed derivations remain explicit risks.
+PASS
 
-The closest primary text is Brzozowski–Davies–Madan, *State Complexity of Pattern Matching in Regular Languages*, arXiv:1806.04645 (2018), Section 7.4. Its generic pattern-matching bound does not provide the four-region formula for this constrained pair. The right-ideal Boolean-operation extremes in arXiv:1511.00157 and piecewise-testable Boolean-combination theory in Masopust–Thomazo (2017) likewise address broader or different claims. The relevant sections of these sources were examined rather than relying solely on snippets. Unknown equivalent literature remains possible.
+Each coordinate of the greedy product represents the longest matched prefix and leaves exactly the corresponding pattern tail. In the region with i<r and j=s+t, the t post-threshold zeros are among the i zeros read, so t<=i; the other one-threshold region is its mirror. The first threshold crossing before the other forces the earlier finisher to progress when the later threshold is crossed, excluding (r,s). The supplied witnesses cover all other listed states. Testing whether continuations intersect 0*1* and 1*0* distinguishes the four regions. For example in the second region a continuation 0^a1^s0^b is accepted exactly when a>=r-i and a+b>=r-t; since r-i<=r-t, these are separately attained minima and recover both coordinates. The mirror test, two single-threshold tests in the first region, and independent remaining letter counts in the fourth cover all pairs. The four cardinalities sum to (r+s)(r+s+3)/2+rs. The acceptor is complete, with the terminal pair accepting and absorbing, and the count also gives 3t(t+1) when r=s=t.
 
-## Mathematical value — PASS
-Two-run subsequence ideals are canonical examples of upward-closed regular languages; asking for both opposite temporal orders is a natural simultaneous-pattern constraint. The exact two-parameter formula quantifies a strict loss against the naive product DFA, including an explicit balanced family with size \(3t(t+1)\), and the four-region quotient structure explains which prefix-progress combinations can coexist. This is a motivated complete infinite-family state-complexity classification, not an arbitrary table or routine restatement of a worst-case bound.
+## originality
 
-## Limits and integrity
-The result only concerns the binary two-pattern family with positive multiplicities. All-length correctness rests on the written proof, not finite tests. Literature search cannot establish absolute novelty. External independent review has not occurred. No general state-complexity bound beyond this family is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The inspected older literature provides subsequence-ideal and piecewise-testable frameworks and general bounds, not the exact restricted quotient count. A distinct later catalogued finding explicitly states the same intersection result alongside a union theorem; that is equivalent coverage, but does not show earlier coverage of the frozen finding. This is a bounded pass, not an absolute priority determination.
+
+## value
+
+PASS
+
+This family tests simultaneous satisfaction of two opposite-order subsequence constraints, a natural composition of simple pattern monitors. The result gives the exact achievable memory in states for every threshold pair and identifies the full quotient structure, rather than only bounding the product or reporting a minimum accepted length. The two threshold regions and their separately observable continuation minima explain the state count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

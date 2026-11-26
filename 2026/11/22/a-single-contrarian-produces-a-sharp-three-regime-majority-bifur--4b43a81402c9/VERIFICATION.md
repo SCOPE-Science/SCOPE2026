@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-23.md",
+      "INDEPENDENT_AUDIT_2026-11-23.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -18,7 +21,7 @@
 
 # Verification of the biclique majority–minority attraction census
 
-The proof is the exact three-coordinate reduction in `RESULT.md`. Each checker independently implements one aspect of the finite dynamics using only the Python standard library (Python 3.9 or newer). From a directory containing the four `check_*.py` files, run:
+The proof is the exact three-coordinate reduction in `RESULT.md`. Each checker independently implements one aspect of the finite dynamics using only the Python standard library. To run all four together, use Python 3.10 or newer (`int.bit_count` is used by the direct and invariance checkers). From a directory containing the four `check_*.py` files, run:
 
 ```sh
 python check_direct.py

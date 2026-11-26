@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and limits
+# Independent mathematical audit
 
-The derivation uses normalized barycentric coordinates and exact Euclidean orthogonal projection. The decisive infinite-dimensional-range argument is a common strictly contracting return itinerary: for every integer dimension at least three, the linear tangential parts of the projections onto all different facets have operator norm strictly less than one when multiplied, since equality would require a nonzero vector tangent to all facet hyperplanes. This is a mathematical argument and does not rely on finite enumeration.
+## correctness
 
-The included `verify.py` runs with `python3 verify.py` and requires no third-party dependencies. Exact rational checks enumerate all periodic phases for dimensions three through six (respectively 24, 120, 720 and 5040 labeled phases), test rank cycles and selected off-orbit points and tie-to-fixed cases, and reconstruct the tetrahedral four-step return matrix with exact trace and determinant. The program prints `CHECK_OK` upon success.
+PASS
 
-An invariant-probability classification additionally invokes the standard Poincaré recurrence theorem for invariant Borel probabilities; no unproved classification or simulation replaces this theorem. Nothing here certifies priority against literature that was not inspected or provides an independent scientific audit.
+The vertex projection onto the opposite affine facet is its centroid. Affine linearity then gives distance hλⱼ and sends λⱼ to zero while adding λⱼ/d to every other coordinate. All projected coordinates are nonnegative, so these distances and projections really are to bounded facets. With distinct coordinates the strict order rotates as stated, with no subsequent tie. A tied block persists until maximal: each unique maximum above it moves below it, and cannot overtake the block while the latter remains unselected. Thus every weak order reaches the tied fixed set (or starts there). The arithmetic coordinate progression sums to one and rotates exactly, giving d! disjoint cycles with all phases distinct. Every complete strict-order itinerary uses each facet, and the product of their linear orthogonal projections is strictly contractive: equality would force a nonzero vector simultaneously tangent to all facets. There can be no other strict-order periodic orbit, and convergence is exponential phase by phase. Poincaré recurrence for the Borel map excludes all other points from an invariant probability, and invariance makes cycle weights uniform within each cycle. Ties have zero facet-area measure and label symmetry gives basin weights 1/d!. Independently propagating the two tetrahedral tangent vectors through j=3,2,1,0, scaling by 3 at each step, gives (0,−7,8,−1) and (0,−4,−7,11); the restricted matrix is therefore the stated matrix divided by 81, with determinant 1/81 and the claimed multipliers.
+
+## originality
+
+PASS
+
+The supported distinct result is a full-boundary regular-simplex classification in d≥3, including the invariant-probability statement, relative to the established planar projection and other simplex dynamics checked. A very close separately indexed November 8 record reproduces the factorial count, arithmetic coordinates and strict/weak-order behavior on facet interiors; that portion is demonstrably overlapping and is not credited as unique. The inspected evidence does not establish preceding coverage by that record or coverage of the full-boundary statement with the invariant-probability decomposition. This is a best-of-knowledge scientific assessment, not a priority ruling.
+
+## value
+
+PASS
+
+This resolves a natural, dimension-uniform regular-polytope case of Everett's higher-dimensional question, not an arbitrary parameter slice. The rank rule gives a complete division between exponential attraction and finite stopping, with an exact cycle census and a description of all stationary probabilities, including those invisible to uniform surface-area initialization. It does not claim a general result for irregular polytopes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

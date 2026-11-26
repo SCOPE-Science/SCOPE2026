@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:22:42.895798Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On r≤d values, every forward orbit of a unary truth function enters a cycle within r−1 steps, and every cycle length divides d!. Thus the two stated powers agree pointwise for any finite deterministic candidate of size at most d. Equal arguments yield equal results for any deterministic binary truth function regardless of designated set. In the source dynamic matrix, p=1 and q=k give both argument pairs (1,k), since both exponents are even. Distinct disjunction formulas can receive respectively 1 and k, and this subformula-closed assignment extends by nonemptiness of allowed outputs. The one-premise one-conclusion sequent then refutes the proposed family with d the largest carrier. The empty family cannot characterize the relation either by the same invalid sequent. Replay checks all endofunctions on carriers ≤d at d=1–4 using the smaller universal period lcm(1,…,d), which divides d!; the all-size proof is separate.",
+      "replay": "python3 /workspace/branches/independent_replay.py 5",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 24 excludes finite ordinary finite-matrix families for a properly nondeterministic two-valued dynamic Nmatrix. On B, the pair (1,k) permits both a designated and an undesignated result. The same survey's Theorem 25 is about static consequence instead."
+        ],
+        "reasoning": "The first clause of Theorem 24 applies to the reduct B, without a requirement of classical implication. The two older paywalled papers were not needed for this positive implication.",
+        "searches": [
+          "Avron–Zamansky, Non-deterministic Semantics for Logical Systems, Theorems 24–25",
+          "Avron–Lev DOI:10.1093/logcom/exi001; Avron–Konikowska DOI:10.1093/jigpal/jzi030"
+        ]
+      },
+      "checked_sources": [
+        "Resultary symmetric-choice query and two neighboring findings",
+        "arXiv:2607.20178",
+        "Avron–Zamansky survey",
+        "DOI:10.1093/logcom/exi001 and DOI:10.1093/jigpal/jzi030 (access attempts)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "If a finite family characterized the full logic, forgetting negation in each family member would characterize the full logic restricted to choice-only sequents: each valuation in a reduct extends to the full signature. That relation equals B's dynamic logic, contradicting Theorem 24. AGMV Theorem 8 only gives projection of deterministic valuations to legal dynamic ones, and is not itself the separation."
+        ],
+        "reasoning": "This yields the exact no-finite-family theorem, not just an analogy. The explicitly displayed sequent uses negation and is not literally obtained from Theorem 24, but it applies ordinary finite unary orbit periodicity to the same split output and supplies no optimality or new expressive separation.",
+        "searches": [
+          "Avron–Zamansky Theorem 24 and Definition 30/Theorem 31",
+          "arXiv:2607.20178 Theorem 8"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Delete negation and let B be the closed submatrix on {1,k} with designated set {1}. Inclusion preserves choices. The map 0↦k, 1↦1, k↦k takes every allowed output to an allowed output and preserves designatedness. For the mixed row involving 0, its deterministic outputs 0,1,k map to k,1,k, respectively permitted on (k,k),(k,1),(k,k); symmetry covers the column."
+        ],
+        "reasoning": "Inclusion and collapse preserve countervaluations in opposite directions, so the full choice-only dynamic logic is exactly the two-valued one. Negation is not part of this collapse; every choice-only valuation can nevertheless be extended to the full formula language by bottom-up choices.",
+        "searches": [
+          "Aldini–Graziani–Mezzina–Vergottini arXiv:2607.20178, p. 7",
+          "Avron–Zamansky survey Definition 30, Theorem 31 and Remark 32"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected exact choice table supports the collapse above. Indexed nearest results concern dynamic trace bracketing and a seven-state associative completion, not a characteristic-family obstruction."
+        ],
+        "reasoning": "No exact indexed obstruction was located by the bounded query. The source table is enough to identify the equivalent two-valued logic; no census of candidate deterministic matrices is needed.",
+        "searches": [
+          "Resultary: dynamic symmetric nondeterministic choice finite deterministic characteristic family",
+          "arXiv:2607.20178 table and Theorem 8"
+        ]
+      },
+      "rationale": "The headline separation is a direct implication of Avron–Zamansky Theorem 24 after restricting the signature to choice alone and reducing 0 to k. The frozen claim correctly notes that the full matrix has three values, but this does not block applying the prior two-valued theorem to the exact choice-only consequence relation. The specific negation sequent is not stated in that theorem; it is a routine explicit witness, not a distinct obstruction.",
+      "residual_risks": [
+        "The full original Avron–Lev and Avron–Konikowska papers were not inspected. The positive prior implication already follows from the accessible survey and the exact source table.",
+        "No claim is made that this syntactically particular factorial-depth witness was previously printed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact operation table; deterministic refinement is one-way",
+          "evidence": "(1,k) and (k,1) output {1,k}; 0 is the choice identity. The five-valued projection produces legal dynamic valuations.",
+          "identifier_or_url": "https://arxiv.org/pdf/2607.20178",
+          "material_read": "Dynamic sequent semantics pp. 4–5; table and designatedness p. 7; Theorem 8 pp. 14–15",
+          "method": "OA PDF passage reading",
+          "title": "A Logical 3-valued Semantics for Nondeterministic Choice",
+          "trigger": "Exact semantics and possible equivalence with deterministic refinement"
+        },
+        {
+          "assessment": "Covers the headline claim by the two-valued signature reduction",
+          "evidence": "Theorem 24 excludes finite ordinary families in the dynamic two-valued setting; reductions preserve the admissible operations and designatedness and give inclusion of consequences.",
+          "identifier_or_url": "https://www.cs.tau.ac.il/~aa/articles/nmatrices-survey.pdf",
+          "material_read": "Definitions 15/18 pp. 13–14; Theorems 24–25 p. 15; Definition 30, Theorem 31 and Remark 32 p. 16",
+          "method": "OA PDF passage reading",
+          "title": "Non-deterministic Semantics for Logical Systems",
+          "trigger": "Prior finite-family separation and semantics-preserving reductions"
+        },
+        {
+          "assessment": "Historical extent unresolved; independent of the positive coverage finding",
+          "evidence": "The survey explicitly cites its Theorem 3.4 as the proof precedent.",
+          "identifier_or_url": "https://doi.org/10.1093/logcom/exi001",
+          "material_read": "Bibliographic identification and survey attribution; original full text not inspected",
+          "method": "OA lookup and publisher access attempt",
+          "title": "Non-deterministic Multiple-valued Structures",
+          "trigger": "Theorem 3.4 cited as basis of the survey's theorem"
+        },
+        {
+          "assessment": "Historical extent unresolved, not basis of failure",
+          "evidence": "The description concerns nondeterministic semantics including an asymmetric evaluation setting.",
+          "identifier_or_url": "https://doi.org/10.1093/jigpal/jzi030",
+          "material_read": "Bibliographic identification and description in AGMV; full text not inspected",
+          "method": "OA lookup and publisher access attempt",
+          "title": "Multi-valued Calculi for Logics Based on Non-determinism",
+          "trigger": "Prior dynamic/static matrix framework"
+        },
+        {
+          "assessment": "Different invariants, no exact separation in these records",
+          "evidence": "One counts weighted evaluation traces; the other minimizes an associative extension of a specified deterministic algebra.",
+          "identifier_or_url": "Resultary 2026/11/8/SCOPE-sharp-bracketing-invariance-criterion-for-weighted-dynamic-trace--903050012496; 2026/11/2/SCOPE-a-sharp-seven-state-associative-completion-of-symmetric-choice-e--695ad3070b8e",
+          "material_read": "Finding passages in both RESULT.md records",
+          "method": "Local repository mirror",
+          "title": "Sharp bracketing-invariance criterion for weighted dynamic traces; A sharp seven-state associative completion of symmetric choice",
+          "trigger": "Closest indexed findings on the same choice semantics"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "A size-uniform witness is useful in explaining the known obstruction, but the frozen witness is an unoptimized unary periodicity calculation with two legal outputs. It adds no new limit on determinization or optimal complexity, and the obstruction already occurs in the choice-only reduct. Even the same style of one-premise witness can use iterations of the diagonal term x choice x, which acts as the identity in the Nmatrix, in place of negation.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

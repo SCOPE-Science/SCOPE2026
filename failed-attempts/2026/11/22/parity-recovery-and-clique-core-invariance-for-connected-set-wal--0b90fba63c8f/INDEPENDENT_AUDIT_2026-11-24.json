@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:23:56.740937Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The connected sets either meet the clique or are independent-side singletons. Their unnormalized Walsh multiplier is m−2|v|+2^m 1_{v=0}(2^s 1_{u=0}−1). At v=0 both possible values are nonzero for m≥2. For v≠0 the stated zero set and sharp gaps follow, including m=2 (take |v|=2 for gap 2). Translational averaging of any real or complex projection preserves its range and its identity action on that range; the unique resulting Fourier projection is I⊗(I−P_r). Counting-measure ℓ¹ and ℓ∞ norms are its absolute kernel sum. With M=binom(2r,r), Krawtchouk duality gives sum_x |K_r(|x|)|=M times the coefficient absolute sum of (1−z²)^r, i.e. M2^r. The correction at the origin is 1−2M/4^r, so both sharp norms equal 1+M(2^(−r)−2/4^r). Stirling gives both stated asymptotics. Independent direct enumeration for s=1,2 and 2≤m≤6 checked the zero counts and even-case norms 1, 7/4, 23/8. The frozen verification script was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "In the multipartite multiplier insert N=s+m, t=s+1 and |ξ|=|u|+|v|. Unmarked singleton parts subtract 2(s−|u|), so the multiplier reduces identically to m−2|v|+2^(s+m)1_{(u,v)=0}−2^m1_{v=0}.",
+          "Defant et al. give the minimum projection constant as the expected absolute value of the Fourier-support character sum, without an equivariance restriction."
+        ],
+        "reasoning": "The spectral classification and gaps are directly covered by the general theorem. The endpoint optimization principle is also prior, though the general projection theorem does not by itself supply a graph's Fourier support.",
+        "searches": [
+          "9d3a9242b352, complete multiplier, invertibility, minimum positive singular value and nullity",
+          "d7e6a3c493c0, multipartite multiplier and nullity",
+          "arXiv:2302.00233v2, Section 3, Theorem 3.1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify_split_connected.py",
+        "Resultary records 9d3a9242b352, d7e6a3c493c0, df58cee7aa73 and 6d24f15eba8d",
+        "arXiv:2302.00233v2 and arXiv:1309.3014"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The mirror proof obtains 1−2 binom(d,h)/2^d + (binom(d,h)/2^d) Σ_j |[z^j](1−z)^h(1+z)^(d−h)|, before using the odd-dimension values d=2r+1,h=r+1. Substituting d=2r,h=r makes the polynomial (1−z²)^r, whose coefficient absolute sum is 2^r. The graph's full range is the identity on the clique factor tensored with this known complement.",
+          "Polyanskiy §2.3 identifies Fourier degree layers with Krawtchouk kernels; its cited norm is not the endpoint minimum here."
+        ],
+        "reasoning": "The graph-dependent step is wholly covered by the multipartite theorem. The endpoint claim after identifying the support is the direct one-layer norm calculation already in the mirror, simplified by dropping the factor 1−z. Clique-size independence and the norm/nullity contrast then follow without another estimate besides Stirling.",
+        "searches": [
+          "df58cee7aa73, 'Sharpness over every projection' and 'An exact absolute-sum identity', local mirror offsets 3000–6530",
+          "arXiv:1309.3014, §2.3 equations (66)–(67)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "K_s∨overline(K_m)=K_{m,1,…,1} with s singleton parts for every s≥1. Same connected nonempty subsets, counting convolution, and Walsh normalization as in both multipartite records."
+        ],
+        "reasoning": "The graph is a specialization for every clique size, not only s=1 or 2. The assigned record's own index hit was not treated as prior evidence.",
+        "searches": [
+          "Resultary: connected-set Walsh recovery on complete split and multipartite graphs; Hamming-layer endpoint projection",
+          "Local mirror: ...--9d3a9242b352 and ...--d7e6a3c493c0, Findings"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The first is an exact endpoint formula for removal of a middle layer in odd dimension under a radius-three spectral hypothesis. The second concerns Hamming Lipschitz-free norm, not these endpoints. No relevant numeric lookup table was relied upon; the comparison is with symbolic entries."
+        ],
+        "reasoning": "These are not literal tabulations of this even-dimensional split-graph norm. The first entry is decisive for implication because its proof gives the general one-layer formula.",
+        "searches": [
+          "Resultary and local mirror: radius-three Boolean Hamming-ball endpoint instability ...--df58cee7aa73",
+          "Resultary and local mirror: Hamming coordinate-shadow Walsh norms ...--6d24f15eba8d"
+        ]
+      },
+      "rationale": "The entire spectral component, not merely the star and tripartite examples, is covered by the distinct indexed complete-multipartite multiplier theorem. The remaining numerical norm is not literally stated by the inspected references for this family, but it is a direct specialization of the already published complement-of-one-layer calculation, with no new projection or Krawtchouk identity. The separate 22 November records establish equivalent coverage of the spectral claim, not which record came first that day.",
+      "residual_risks": [
+        "The broad primary-literature search produced no usable comparison; it is not negative evidence.",
+        "The date of the two multipartite records does not establish intra-day priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage of spectrum, parity, nullity and minimum gaps",
+          "evidence": [
+            "Statement allows all positive part sizes and t≥2; see the multiplier with the sum of 2^{n_i} over zero frequency blocks and sharp positive singular values 1 and 2."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-parity-rigid-walsh-recovery-from-connected-vertex-sets-of-comple--9d3a9242b352/RESULT.md",
+          "material_read": "Finding, assumptions, beginning of proof; mirror offsets 0–2987",
+          "method": "Resultary plus local GitHub mirror",
+          "title": "Parity-rigid Walsh recovery from connected vertex sets of complete multipartite graphs",
+          "trigger": "Same indicator and convolution on a broader family"
+        },
+        {
+          "assessment": "Second direct specialization for the split spectrum and nullity",
+          "evidence": [
+            "No lower bound greater than one on individual part sizes; both zero and nonzero frequencies covered."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-a-parity-dichotomy-and-complete-walsh-nullity-formula-for-connec--d7e6a3c493c0/RESULT.md",
+          "material_read": "Finding, assumptions, proof of multiplier; mirror offsets 0–3137",
+          "method": "Resultary plus local GitHub mirror",
+          "title": "A parity dichotomy and complete Walsh nullity formula for connected sets of complete multipartite graphs",
+          "trigger": "Distinct same-day general spectrum"
+        },
+        {
+          "assessment": "Different convolution; existing argument mechanically gives assigned even-dimensional norm",
+          "evidence": [
+            "General identity for complement kernel norm and Krawtchouk duality appears before odd-dimension specialization."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/16/SCOPE-exact-endpoint-instability-for-radius-three-boolean-hamming-ball--df58cee7aa73/RESULT.md",
+          "material_read": "Finding and exact norm proof, particularly offsets 3000–6530",
+          "method": "Resultary plus local GitHub mirror",
+          "title": "Exact endpoint instability for radius-three Boolean Hamming-ball convolution",
+          "trigger": "Same projection problem with one central excluded Walsh layer"
+        },
+        {
+          "assessment": "Covers optimization principle, not graph-specific kernel",
+          "evidence": [
+            "Projection constant equals the expectation of the absolute character sum over the defining support."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2302.00233v2",
+          "material_read": "Section 3, theorem 3.1 and its compact abelian group antecedent, text offsets about 29400–34879",
+          "method": "Primary OA text",
+          "title": "Asymptotic insights for Projection, Gordon–Lewis and Sidon Constants in Boolean Cube Function Spaces",
+          "trigger": "General optimality of canonical Fourier projection"
+        },
+        {
+          "assessment": "Known homogeneous projector kernels; different norm estimate",
+          "evidence": [
+            "The text uses the Krawtchouk kernel for the layer and treats its L¹→L² norm."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1309.3014",
+          "material_read": "Section 2.3, equations (66)–(67)",
+          "method": "Primary OA text",
+          "title": "Hypercontractivity of spherical averages in Hamming space",
+          "trigger": "Krawtchouk norm antecedent"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The small-nullity/large-projection-cost distinction is meaningful, but the spectral component is already a complete-multipartite special case, and the putative additional invariant is a routine substitution in the known one-layer complement formula. The exact norm and its asymptotics do not supply an independently useful unknown case beyond that implication. Adding explanation would not fix the issue.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

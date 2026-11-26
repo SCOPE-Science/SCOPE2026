@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:17:30.279282Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Expand the finite tail squares: S_N=sum_i i e_i^2+2 sum_{i<j} i e_i e_j, where e_i is epsilon_i. For a nonincreasing nonnegative sequence the cross term is at least sum_j j(j-1)e_j^2, giving W_N<=S_N. Conversely, telescoping with T_{N+1}=0 gives S_N=sum_j j e_j(T_j+T_{j+1})<=2 sqrt(W_N S_N). For e_n=n^(-3/2), the lower integral bound on each tail gives S_N>=4 H_N-16 (H_N the harmonic sum), so S_N/W_N tends to 4 even within the required monotone class. S_N is nondecreasing in N, so boundedness means finite limit and unboundedness means divergence. The two log thresholds follow from the integral tests with exponents 2p and 2q; equality falls on the divergent side. The coexistence conclusion has the primary theorem's low-temperature scope and the uniqueness conclusion has its all-temperature scope. Eventual formulas allow a finite monotone positive prefix, which does not affect convergence. The frozen verify.py was inspected but not run: its finite tests are not needed for the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hardy's estimate holds for arbitrary square-summable inputs, without the model's monotonicity restriction. Theorems 1 and 2 encompass every admissible sequence meeting, respectively, finiteness or divergence of the tail-square criterion, not just pure powers."
+        ],
+        "reasoning": "The norm estimate supplies the uniform comparison immediately. The model theorems already supply both sides of the phase conclusion with the same temperature restrictions; there is no new model step.",
+        "searches": [
+          "Classical discrete Hardy inequality, p=2 and adjoint form",
+          "Bissacot–Endo–van Enter arXiv:1611.00424, Theorems 1 and 2",
+          "Resultary: sharp discrete Hardy tail bounds and Cayley-tree critical-field phase criteria"
+        ]
+      },
+      "checked_sources": [
+        "Bissacot–Endo–van Enter, arXiv:1611.00424, DOI 10.1016/j.spa.2017.03.023",
+        "Classical discrete Hardy inequality at exponent 2, compared by direct finite-matrix identification",
+        "Resultary Cayley-tree comparison 7813cee58732"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Combining the sharp standard upper bound with Proposition 1 gives equivalence of the two criteria. With the weighted criterion, an integral test gives 2p>1 and, at equality, 2q>1. Applying the source theorems then gives exactly the stated coexistence and uniqueness conclusions."
+        ],
+        "reasoning": "This is a direct classical-inequality application and substitution in the already available model theorem, even if the precise corollary was not previously spelled out.",
+        "searches": [
+          "Bissacot–Endo–van Enter Proposition 1, Theorems 1 and 2",
+          "Classical Hardy ℓ² estimate for finite compressions and their adjoints"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "With a_i=i epsilon_i, the finite tail map is the adjoint of the finite Cesàro averaging map: H_{ij}=1/i for j<=i, and zero otherwise. Thus ||H* a||_2^2=S_N and ||a||_2^2=W_N. Proposition 1 already gives the lower bound."
+        ],
+        "reasoning": "The finite-matrix upper bound is exactly the classical Hardy norm bound under adjoint and a diagonal change of variables. The textbook harmonic endpoint sequence a_i=i^(-1/2) yields the sharp ratio and corresponds to a decreasing admissible epsilon, so the monotonicity restriction does not produce a different sharp Hardy claim.",
+        "searches": [
+          "Resultary: weighted-square criterion, radial perturbations and logarithmic boundary for the critical-field Cayley-tree Ising model",
+          "arXiv:1611.00424, Proposition 1",
+          "Dual of the classical discrete Hardy averaging inequality at exponent 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The paper gives the exact 3/2 pure-power boundary, including uniqueness at equality. No directly comparable indexed p,q table was surfaced. The same-day Cayley-tree hit 7813cee58732 concerns a different noninteracting partition-function case."
+        ],
+        "reasoning": "An exact perturbation database is not needed for these continuous families: the asserted log exponents reduce immediately to the standard convergence tests for 1/[n (log n)^r] and its iterated-log counterpart. Absence of indexed wording is not evidence of originality.",
+        "searches": [
+          "Resultary: power 3/2 and log or iterated-log boundary for critical Cayley-tree Ising perturbations",
+          "External lookup for the model, weighted Hardy criterion and logarithmic perturbations",
+          "arXiv:1611.00424, PDF p. 12 pure-power example"
+        ]
+      },
+      "rationale": "The mathematical claim is correct, but the entire stated extension is directly implied by the classical sharp discrete Hardy inequality together with the cited source's lower bound and phase criterion. This is a prior-implication decision, not a claim that the exact logarithmic wording was located and not a decision based on the inaccessible dissertation.",
+      "residual_risks": [
+        "The dissertation was not accessible for full-text comparison. An indexed or unindexed source might state the log criteria verbatim; the decision rests on the verified prior implication, not on the scope of the negative search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Contains lower inequality, both phases and pure-power boundary; classical dual Hardy implies the reformulation",
+          "evidence": [
+            "Text offsets 26240, 29379, 34150 and 42954: respectively W_N lower bound, finite-limit phase transition in the low-temperature setting, divergent-limit uniqueness at any temperature, and pure-power critical exponent 3/2."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1611.00424",
+          "material_read": "Proposition 1, p. 8; Theorem 1, pp. 8–9; Theorem 2, p. 10; pure-power example, p. 12",
+          "method": "Bounded lawful OA PDF passages",
+          "title": "Stability of the Phase Transition of Critical-Field Ising Model on Cayley Trees under Inhomogeneous External Fields",
+          "trigger": "Exact model criterion and most plausible direct prior"
+        },
+        {
+          "assessment": "Different model and statement",
+          "evidence": [
+            "The finding concerns an order-two model's partition/free-energy formula at J=J_p=h=0, not radial critical-field phase stability."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-the-self-similarity-partition-formula-fails-at-the-noninteractin--7813cee58732",
+          "material_read": "RESULT.md finding and scope",
+          "method": "Local mirror",
+          "title": "The self-similarity partition formula fails at the noninteracting point",
+          "trigger": "Closest same-day indexed Cayley-tree Ising result"
+        },
+        {
+          "assessment": "Not adjudicated; not used as negative evidence",
+          "evidence": [
+            "The frozen record describes a pure-power discussion. The dissertation's actual logarithmic coverage remains unverified."
+          ],
+          "identifier_or_url": "University of São Paulo (2019), §4.4, cited as reference 2",
+          "material_read": "No full-text passage independently inspected",
+          "method": "Identified university copy through literature search; OA retrieval unsuccessful",
+          "title": "Endo doctoral dissertation, §4.4",
+          "trigger": "Plausible later treatment of the same model and boundary"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The weighted test is a useful expository simplification, but as a research finding it is a direct dual Hardy reformulation, and both proposed boundaries are then textbook integral-test substitutions into an already general dichotomy. No separately motivated phenomenon beyond that routine deduction survives.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

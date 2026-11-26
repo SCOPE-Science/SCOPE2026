@@ -1,27 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The signed coefficient of any fully covering non-singleton facet is invariant under boundaries because that facet admits no coface. Explicit cross-polytope cycles have integral unit coordinates on their unique associated facets. Gottstein's verified nonequivariant shelling and basis theorems [1, Theorems 5.2–5.3] establish that the number of these classes equals the integral Betti rank, so the coordinate map is an integral isomorphism. The induced stabilizer action must be the sign of permutations of whole blocks with the same size; permutations internal to a block fix its vertex. Transfer over the rationals and Frobenius reciprocity imply the quotient series. A standalone exhaustive finite chain/Lefschetz checker passed for \(2\le n\le7\) as a cross-check, not as a proof for arbitrary \(n\).
+PASS
 
-## Originality — PASS against inspected sources, residual risk noted
+Re-audited the complete corrected RESULT.md under repairs/2/. The main theorem survives unchanged, but the frozen example's identification with the standard integral S4-lattice did not: at n=4 the signed partition lattice has coinvariants Z/2, because there is one orbit with a block-swapping stabilizer. The standard integral root lattice has zero coinvariants, since all e_i−e_j are conjugate and the relation (e_1−e_2)+(e_2−e_3)=e_1−e_3 kills their common class. The repair makes the standard-representation identification only after rationalization, and does not infer integral quotient homology from coinvariants. For the theorem, a full no-singleton partition is a maximal simplex so its oriented coefficient kills boundaries. The signed cross-polytope cycle obtained by replacing each block alternatively with a singleton has unit coefficient on its designated facet and none on the others. With Gottstein's exact integral rank and freeness, the coefficient map is an isomorphism. Independently, filter the augmented chains by the number of nonsingleton blocks: for fixed such blocks the associated graded is the augmented simplex on the unused labels up to shift and signs, hence acyclic unless all labels are used. On the latter summands the facet coefficient map induces the identity, proving that it is a quasi-isomorphism. Stabilizers permute repeated-size blocks with sign and act trivially within blocks. Subdivided orbit chains over Q are coinvariants; averaging is exact, and signed stabilizer lines contribute one invariant exactly for pairwise distinct sizes. Their least possible sum is j(j+3)/2; increasing just the largest realizes every greater sum. This verifies the stated series and first degree-two class at n=9.
 
-The 2023 full-text primary reference [1] computes nonequivariant Betti numbers, a cross-polytope basis and the abstract automorphism group, but does not give the complete signed integral induced-module action or the strict-partition rational quotient series. The latter calculations require tracking orientations and distinguishing fixed points from orbits. The 2024 paper [2] uses refinement-order decomposition posets instead; the closest published partial-partition fixed-space record [3] concerns subgroup fixed loci, not the quotient. Equivalence under relabeling and application of transfer were expressly compared. Since the new statement is a natural refinement of [1], an unstated corollary, later revision or independent treatment is the main residual bibliographic risk.
+## originality
 
-## Value — PASS
+PASS
 
-A complete all-degree integral automorphism representation has more information than ordinary Betti numbers and is directly motivated by the source's separate classification of the automorphism group. The quotient has an unexpectedly sparse homology pattern controlled by strict rather than ordinary partitions: degree \(j-1\) appears at exactly \(n=j(j+3)/2\). This supplies a sharp natural homological cutoff and corrects the tempting but false unsigned-permutation orbit count.
+For the repaired claim, Gottstein's same-complex nonequivariant homology and automorphism theorems are substantial known inputs, fully credited. They allow the refinement to be derived but do not themselves identify the homology action or the orbit-space ranks. The supported distinct contribution is the canonical oriented-facet description over Z, which avoids choosing an equivariant set of block representatives, and the full strict-partition rational orbit-space formula. The repaired example distinguishes rational representation from integral lattice rather than claiming a new rational character computation independently of the theorem.
 
-## Closest literature and limitations
+## value
 
-The main nonequivariant homology basis is due to [1] and is not claimed as original. The result does not assert integral torsion of the quotient, ring structure, homotopy equivalence, geometric embeddings or independent expert validation. The unavailable full text of [3] and any later revision of [1] are a bounded residual overlap risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The full label action on a natural partial-partition complex is a meaningful invariant not specified by ordinary Betti numbers. The result gives integral stabilizer signs and thus identifies actual surviving rational orbit classes and the exact sharp dimension threshold, rather than just counting permutations of homology generators. The repaired example illustrates why rational character data cannot be used to identify an integral lattice.
 
-## References
-
-[1] M. J. Gottstein, *Homology of Partial Partitions Ordered by Inclusion*, arXiv:2311.11190 (2023), https://arxiv.org/abs/2311.11190.
-
-[2] K. I. Piterman and V. Welker, *Posets arising from decompositions of objects in a monoidal category*, arXiv:2401.09280, https://arxiv.org/abs/2401.09280.
-
-[3] *Fixed spaces of partial-partition complexes under transitive and Young symmetries*, published record, https://github.com/published-finding corpus/2026/tree/main/2026/10/25/SCOPE-fixed-spaces-of-partial-partition-complexes-under-transitive-and--cedead413a18.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

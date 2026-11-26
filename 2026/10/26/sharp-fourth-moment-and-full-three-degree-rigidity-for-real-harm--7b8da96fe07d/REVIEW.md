@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact disk monomial moment formula independently reconstructs the squared norm and the entire fourth-power polynomial; the only orientation term is a positive multiple of the cosine of the relative quadratic phase. The scalar maximization in the linear energy has a unique interior maximum because its derivative has a strictly positive intercept and negative slope. The resulting rational objective has derivative of the asserted sign. Its quartic factor has exactly one positive root by Descartes' rule and continuity, and the omitted constant-free boundary has the explicitly smaller maximum \(297/86\). Every equality case follows from strictness at each reduction. All three pair-degree maxima are derived exactly. The accompanying symbolic-and-quadrature checker executed successfully; its sampling is corroborative, not an infinite proof.
+PASS
 
-## Originality — PASS with residual priority risk
+Independently integrated the polynomial powers using ∫z^i conjugate(z)^j dμ=δ_ij/(i+1). After sign choice and rotation the moments are as given; the phase dependence is exactly ab²C cos(ψ), forcing alignment when all degrees occur. At fixed q=C/a and nonzero a, the normalized linear-degree energy fraction makes the phase-aligned quotient quadratic with strictly positive initial and strictly negative final slopes. Its sole maximizer reproduces the claimed s(q) and rational envelope. The derivative factors as stated and changes sign once by Descartes' rule and the endpoint signs. Direct optimization on each coordinate face gives 7/3, 63/23 and 297/86, all below the unique interior optimum. In the (1,2) formula at lines 75–81 the printed fraction t is actually the degree-one fraction, contrary to the preceding 'second' convention; replacing t by 1−t puts the maximizing degree-two fraction at 25/43 rather than 18/43. This notational swap does not change the bound or any equality case in the Finding. All claimed constants and the strict gap are reproduced.
 
-The closest inspected primary texts are arXiv:1905.00323 (asymptotic, lacunary spherical Nikolskii inequalities), arXiv:1911.06429 (harmonic Hardy diameter trace inequality), arXiv:2211.03655 (analytic Bergman dilation hypercontractivity), and arXiv:2207.13140 (higher-dimensional hyperbolic harmonic Bergman projection). None supplies the precise real-disk quadratic \(L^4/L^2\) optimization, the unique phase-aligned three-degree extremizer, or the exact two-degree gap. Related published degree-two *homogeneous* spherical results omit the crucial degree-one and constant interaction. Mathematical-record searches on the equivalent disk, Zernike, spherical-marginal and quartic-root formulations likewise identified no direct coverage. Historical priority remains provisional because these searches cannot rule out differently phrased treatments.
+## originality
 
-## Value — PASS
+PASS
 
-This is a natural sharp finite-band inequality for the complete real harmonic polynomial space of degree at most two, not an arbitrarily selected coefficient slice. The exact optimizer gives a concrete reconstruction of the full norm, while the sharp \(297/86\) two-degree barrier proves that all three homogeneous degrees are structurally indispensable. It provides a small-degree calibration benchmark for harmonic Bergman and spherical-polynomial norm comparisons, with a nontrivial strict gap that ordinary quadratic energy orthogonality does not reveal.
+The inspected spherical, Poisson-band and Bergman results differ in the allowed input space or norm pair. The exact optimum with all equality cases for the real degree-at-most-two disk-area problem, and its exact two-degree benchmark, were not found covered. This is a best-of-knowledge comparison, not priority certification.
 
-## Limits
+## value
 
-The polynomial must be real-valued, harmonic, and of degree at most two; disk measure is probability-normalized Euclidean area. The result is not presented as a complex-harmonic, higher-degree, or weighted-disk theorem. Targeted prior-work comparisons do not constitute independent priority certification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For a natural first real harmonic band with a genuine phase interaction, this gives the exact disk-area embedding norm and resolves whether two degrees can already be extremal. The independent constrained optimum quantifies the improvement from mixing all three degrees, and the unique aligned amplitudes give a usable comparison benchmark for other harmonic norm problems.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

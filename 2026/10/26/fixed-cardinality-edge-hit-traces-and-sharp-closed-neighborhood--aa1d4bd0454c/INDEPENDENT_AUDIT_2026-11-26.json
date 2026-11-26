@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:37:13.647572Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For any singleton trace, the endpoint used to hit its only edge must have degree one, so each edge has a leaf endpoint. In a connected edge component two nonleaves would force an edge with both endpoints nonleaves along their shortest path; hence every component is a star. On a star of s edges, the empty trace costs zero, the full trace one, and a nonempty proper trace of t edges requires and is realized by t leaves because the hub is forbidden. Disjointness makes costs additive, and maximizing independently yields sum max(1,s-1). The empty trace requires r outside vertices, which also suffice to pad any minimal-cost trace. For k>0 edges and m star components the support is k+m; with a singleton stars the cost is k-m+a. The minimum a is max(0,2m-k), attained by using twos and distributing surplus or using a mixture of ones and twos. Thus m>=max(1,k-r), m<=min(k,r), and k+m<=n-r; the minimum feasible m gives exactly k<=2r and n>=max(r+k+1,2k). This also handles r=n and the empty edge set. At r=2 the budget gives precisely the six nonempty types and their support sizes plus two outside vertices. On prescribed supports the count factors are 1,3,3,4,30,90, with automorphism orders 4 for the star-plus-edge and 8 for the pair of two-edge stars. The independent complementary-trace replay /workspace/branches/replay_4.py checked every F for n=2..6 and all r, every F of size at most four at n=7,8 for all r, and that size range at n=9 for r=2. It returned e.g. [1,21,210,770,0] at n=7 and [1,28,378,1960,2520] at n=8. General exhaustion follows from the analytic criterion, not truncation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Adler et al. bound closed Johnson-neighborhood VC dimensions but give the optimal four result for the open family. Coudert et al. define the closed family and give algorithms for computing its dimension on arbitrary graphs. Byrne et al. §4 uses open neighborhoods.",
+          "The unrestricted witness condition is just star-shaped components; fixed cardinality imposes both outside padding and a worst-trace budget."
+        ],
+        "reasoning": "An algorithm for finite graphs, an open-neighborhood theorem, or a star obstruction for arbitrary witness sizes does not supply the exact fixed-size criterion or the joint cutoff.",
+        "searches": [
+          "arXiv:2007.16042 closed bound; arXiv:2405.07588 closed graph VC algorithms; arXiv:2609.10330 §4; unrestricted induced-edge star obstruction"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py (read only)",
+        "arXiv:2007.16042",
+        "arXiv:2405.07588",
+        "arXiv:2609.10330",
+        "Resultary 08634914be96, 43076c96fc46, 24e035fdbd99, 7dfb3448d6f9"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At n=7 the adaptive Kneser bound is four but the closed Johnson (equivalently open Kneser) VC dimension is three. In the all-r proof a proper star trace costs t while its full trace costs only one."
+        ],
+        "reasoning": "Neither a generic upper bound nor a star-forest test evaluates the maximum local witness cost under fixed r. The exact formula and all-r criterion require that distinction; the r=2 polynomial is a specialization, not a separate all-r result of the later overlap.",
+        "searches": [
+          "Exact closed vs open and adaptive implications in Resultary 08634914be96, 43076c96fc46, 24e035fdbd99 and 7dfb3448d6f9; Adler et al. Theorem 3.7"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Complementing R(U) gives all edges induced by [n]\\U and maps each trace to its complement. For r=2 it is exactly the open neighborhood in KG(n,2), so the same supports are shattered.",
+          "Theorem 3.7 is for open Johnson neighborhoods, with dimension four already at n=7 for J(n,2)."
+        ],
+        "reasoning": "Open Kneser is an equivalent range regime at r=2; open Johnson is not, because the closed range includes its center edge. At other r the complement still consists of fixed-size induced-edge ranges, not rank-two Kneser neighborhoods.",
+        "searches": [
+          "Resultary edge-hit, complementary induced-edge traces, closed triangular shattering and open rank-two Kneser neighborhoods",
+          "Adler–Benediktsson–Macpherson arXiv:2007.16042 Theorem 3.7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Nov. 8 states the exact same closed triangular star types, two spare vertices, polynomial and n=8 threshold. Nov. 2 gives the same VC sequence via the open Kneser dual, plus an adaptive gap. Oct. 18 counts open Johnson traces instead. The same-day Kneser record states a Littlestone dimension formula min(4,n-3), not the VC census."
+        ],
+        "reasoning": "The exact later triangular match is material overlapping content, not evidence of earlier priority and not full fixed-r coverage. The open Johnson counts mangle the target comparison if identified with closed counts. Adaptive dimension can bound VC dimension but is not the same invariant.",
+        "searches": [
+          "Resultary 2026/11/8 SCOPE-complete-closed-neighborhood-shattering-polynomial-of-triangular--08634914be96",
+          "2026/10/18 SCOPE-exact-open-neighborhood-shattering-profiles-of-triangular-graphs--43076c96fc46",
+          "2026/11/2 rank-two Kneser 24e035fdbd99; 2026/10/26 rank-two Kneser 7dfb3448d6f9"
+        ]
+      },
+      "rationale": "The distinct claim supported by the comparison is the exact constant-cardinality structural budget, and the resulting dimension over all r. The closed triangular specialization also overlaps exactly with a later indexed statement, and its dimension is equivalent to rank-two open Kneser VC dimension. The earlier open Johnson theorem does not give these closed traces. No checked broader prior supplies both the unused-vertex and maximal trace costs across fixed r.",
+      "residual_risks": [
+        "Fixed-cardinality induced-edge witnesses could appear under incidence, partial vertex-cover, or Boolean trace terminology. Passage-level finite comparisons do not establish absolute priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Optimal open dimension-four theorem; closed-family boundedness is weaker.",
+          "evidence": [
+            "For J(n,2) the open threshold is n=7; the closed threshold here is n=8."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2007.16042",
+          "material_read": "Abstract p. 1 and Theorem 3.7 p. 18, OA offsets 46100–50257",
+          "method": "Lawful OA PDF, matching theorem and scope",
+          "title": "Vapnik–Chervonenkis Dimension and Density on Johnson and Hamming Graphs",
+          "trigger": "Closest primary Johnson VC threshold"
+        },
+        {
+          "assessment": "Provides algorithmic computation, not the inspected fixed-size structural formula.",
+          "evidence": [
+            "The range definition includes the center; the approach computes on general graphs."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2405.07588",
+          "material_read": "Abstract p. 1 and closed-neighborhood definition p. 4",
+          "method": "Lawful OA PDF, relevant passages",
+          "title": "Practical Computation of Graph VC-Dimension",
+          "trigger": "Exact closed neighborhood VC algorithms"
+        },
+        {
+          "assessment": "Reported triangular dimension uses open ranges.",
+          "evidence": [
+            "Section 4 restricts to open neighborhoods."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2609.10330",
+          "material_read": "Introduction p. 2 and §4 p. 12",
+          "method": "Lawful OA PDF, relevant passages",
+          "title": "The VC-dimension of strongly regular graphs",
+          "trigger": "Includes triangular graphs"
+        },
+        {
+          "assessment": "Exact overlap of the r=2 specialization only; its catalogue date is later.",
+          "evidence": [
+            "At least two unused vertices and the identical permissible star-component sizes give the same polynomial and n=8 cutoff."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-complete-closed-neighborhood-shattering-polynomial-of-triangular--08634914be96/RESULT.md",
+          "material_read": "Finding and proof offsets 3500–6407 (plus opening)",
+          "method": "Configured local mirror",
+          "title": "Complete closed-neighborhood shattering polynomial of triangular graphs",
+          "trigger": "Exact same closed triangular objects and census"
+        },
+        {
+          "assessment": "Adaptive classification, not a matched VC threshold proof or census.",
+          "evidence": [
+            "Ldim=min(4,n-3) permits four at n=7, unlike the VC value three."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-exact-littlestone-dimension-of-rank-two-kneser-graph-neighborhoo--7dfb3448d6f9/RESULT.md",
+          "material_read": "Opening Finding",
+          "method": "Configured local mirror",
+          "title": "Exact Littlestone dimension of rank-two Kneser graph neighborhoods",
+          "trigger": "Same-day record, equivalent range family at r=2"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a complete local-to-global characterization of a natural exact-size incidence range system, distinguishing empty-trace space from the worst requested trace cost. It yields genuine finite-order thresholds and all support types, including the informative open/closed difference at order seven, rather than only numerical dimension checks.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:37:57.491783Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–117",
+        "Frozen VERIFICATION.md and checker.py"
+      ],
+      "rationale": "Independent coordinate reflections force zero mean and off-diagonal covariance. Each orthant contributes the same volume; the unsigned conditional cross-section factors into the two polynomial tail volumes, yielding the exact rational ratio without a missing power of two. The kernel 1{x+y≤1} is symmetric and square-integrable. Direct integration gives the signed eigenvalues (−1)^k 2/((2k+1)π) on the complete mixed-boundary cosine basis, and the constant function has coefficient ratios (−1)^k/(2k+1). In the normalized numerator the two residual norms are bounded by C3^(−r) and C3^(−s); the denominator is 1 plus their inner product with r+s=n−1. This uniformly controls the bulk and justifies taking one tail to infinity. Product-to-sum gives the indicated off-leading inner products and thus the sign (−1)^{k(j+1)} in the boundary series. Odd j gives a positive strictly decreasing subsequence. For even j the alternating-series lower bound on the j=2 deficit uses a_1/9−a_2/25=7/90, exceeding the upper bound a_1/81=1/108 at all even j≥4. The k=1 coefficient has the asserted normalization and the remaining coefficient sum is O(5^(−j)). Integrating the first two marginals, proportional to cos(πx/2) and (1−x)cos(πx/2), gives the stated positive v_1,v_2. Reflection and subsequences either at a fixed depth or escaping from both ends then give the claimed extreme variance limits and ratio. The finite checker was inspected but is not used as proof.",
+      "residual_risks": [
+        "The condition number is in the displayed Euclidean embedding for interior Lebesgue measure, not affine invariant or calculated for the positive-orthant covariance matrix."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "91f5f40b269c provides full truncated endpoint volume polynomials and a uniform trigonometric leading term, but its extremal objects are facet areas, not moments.",
+          "47e0fbbf6b45 gives the tilted volume and principal spectrum for a sum of peak clearances on a fence, not extremal coordinate moments."
+        ],
+        "reasoning": "The former gives the requisite unweighted slicing/asymptotic machinery and the latter a different aggregate. The weighted integral and optimization over all endpoint depths are not comparisons of the prior facet-area limits or the aggregate clearance law.",
+        "searches": [
+          "Resultary 91f5f40b269c, proof §§2–4",
+          "Resultary 47e0fbbf6b45, proof §§1–2",
+          "Shonkwiler–Theis arXiv:2501.04885v2, Corollary 6 and Theorem 29"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 7461bb03158e (assigned record itself), 91f5f40b269c and 47e0fbbf6b45",
+        "Shonkwiler–Theis arXiv:2501.04885v2 §§3–4, 6",
+        "Marchal pp. 3, 5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Writing the earlier endpoint CDF volume as A_r(t) gives p_r(x)=A_r(1−x). The prior uniform leading term for A_r and a_r=A_r(1) directly gives fixed-depth and bulk marginal densities by slicing with both tails.",
+          "The prior statement neither supplies the x²-weighted signed error coefficients nor an all-index extremal comparison of those moments."
+        ],
+        "reasoning": "For instance the prior formula directly reduces v_j to the x² integral against λ^(−j)A_{j−1}(1−x) cos(πx/2), and provides enough uniform convergence for the bulk-versus-fixed-depth reduction. Finding which depths actually win still requires a separate argument: the frozen spectral inner products yield an alternating signed series and a quantitative inequality separating every other even depth from depth 2. No existing exact classification inspected supplies that optimization or the conditioning invariant.",
+        "searches": [
+          "91f5f40b269c RESULT.md, §§2–4 including the uniform singularity estimate",
+          "arXiv:2501.04885v2 §§3–4 and 6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Complementing alternating coordinates identifies the orthant polytope with the zigzag order polytope; for Shonkwiler–Theis chord coordinates y=1−d.",
+          "Marchal's proposal-chain invariant density is 1−cos(πy) in the complemented convention.",
+          "The sign symmetrization of the orthant body makes its raw second moments the covariance eigenvalues of K_n."
+        ],
+        "reasoning": "Upper and lower fence ranks and their reflections refer to the same sliced orthant geometry, but covariance of the whole unsigned order polytope is not diagonal by reflection and is not the invariant claimed here. The known bulk density yields the bulk constant after complementing the relevant coordinate.",
+        "searches": [
+          "Resultary: path stable-set, Fibonacci stable-set, fence/zigzag order polytope boundary moments",
+          "Shonkwiler–Theis arXiv:2501.04885v2, §§3–4, 6",
+          "Marchal, Generating Random Alternating Permutations in Time n log n, pp. 3, 5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact covariance-title hit is the assigned record itself.",
+          "The earlier Fibonacci-polytope source provides exact Euler zigzag volume and endpoint polynomial data, while the confined-polygon paper gives first moments rather than second-moment extrema."
+        ],
+        "reasoning": "An exact slice polynomial table implies the finite rational covariance calculations by a one-dimensional integral, and a first-moment formula is a different statistic. Neither provides the sharp limiting ratio as a tabulated value or exact optimization rule.",
+        "searches": [
+          "Resultary 7461bb03158e (exact indexed hit), 91f5f40b269c (slice polynomials and zigzag volumes)",
+          "Shonkwiler–Theis §6, exact coordinate first moments under the same body"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the sharp signed-polytope boundary variance comparison and resulting exact conditioning limit: it evaluates the signed spectral corrections, shows strict global extremizers of the limiting profile at depths 1 and 2, and controls the moving interior positions. The bulk second moment, slicing functions, and the ability to compute rational finite moments are covered ingredients, not independent grounds for novelty. The strongest inspected same-polytope result has explicit slice functions and even a uniform leading asymptotic; it implies the unevaluated boundary moment expression but does not already compare second-moment extrema. The extra signed coefficient calculation and uniform all-depth extremal comparison are needed.",
+      "residual_risks": [
+        "An unindexed refinement of zigzag rank distributions or equivalent weighted endpoint estimates could cover the extremal comparison. The review does not claim historical uniqueness or originality of the finite marginal recursion or bulk density."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong overlap in slice polynomials and their limits, not second-moment extremization",
+          "evidence": "A_r is the endpoint-restricted volume; its full generating function and uniform leading asymptotic are provided. The target statistics there are Hausdorff facet areas.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-euclidean-facet-area-boundary-layers-of-fibonacci-stable-set-pol--91f5f40b269c/RESULT.md",
+          "material_read": "Finding; slicing recurrence, generating function and uniform singularity estimate, offsets 2550–5810",
+          "method": "Resultary and mirrored full text",
+          "title": "Euclidean facet-area boundary layers of Fibonacci stable-set polytopes",
+          "trigger": "Same positive-orthant path polytope and boundary-to-bulk transition"
+        },
+        {
+          "assessment": "Known bulk density and first moments, not the claimed sharp covariance limit",
+          "evidence": "Bulk density 1−cos(πd), triangulation by alternating permutations and exact first moments; complement to get the displayed bulk covariance integrand.",
+          "identifier_or_url": "https://arxiv.org/abs/2501.04885v2",
+          "material_read": "§3 p. 5, §4 Cor. 6 p. 11, §6 Thm. 29 and Prop. 30 p. 21; offsets 18800, 38300, 70950",
+          "method": "OA PDF passages",
+          "title": "Direct Sampling of Confined Polygons in Linear Time",
+          "trigger": "Same orthant/fence via reflected chord coordinates"
+        },
+        {
+          "assessment": "Prior proposal kernel and bulk eigenfunction",
+          "evidence": "Sampling/rejection construction and invariant density 2 sin²(πy/2) in reflected coordinates.",
+          "identifier_or_url": "https://www.math.univ-paris13.fr/~marchal/altperm1.pdf",
+          "material_read": "pp. 3, 5; OA offsets 6100 and 9300",
+          "method": "OA PDF passages",
+          "title": "Generating Random Alternating Permutations in Time n log n",
+          "trigger": "Equivalent alternating-permutation Markov kernel"
+        },
+        {
+          "assessment": "Different observable",
+          "evidence": "Tilted volume operator for the total peak clearance, with bulk fluctuations, not a coordinate extrema comparison.",
+          "identifier_or_url": "47e0fbbf6b45",
+          "material_read": "Finding and proof §§1–2, mirror offsets 700–4123",
+          "method": "Resultary and mirrored full text",
+          "title": "Exact tilted spectrum and Gaussian peak-clearance fluctuations in zigzag order polytopes",
+          "trigger": "Same fence geometry and transfer-operator moments"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and proof §§3–5",
+        "Resultary 91f5f40b269c for the distinction between interior moments and facet area"
+      ],
+      "rationale": "For a canonical signed path polytope, local bulk isotropy does not resolve the narrowest and widest principal directions. The exact separation of the extremal boundary depths from all other coordinates and the resulting nonunit asymptotic covariance ratio quantify persistent anisotropy, with a reusable sharp constant rather than merely a numerical observation or a recasting of the known bulk law.",
+      "residual_risks": [
+        "No arbitrary-embedding or arbitrary-graph conditioning guarantee is inferred."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

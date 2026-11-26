@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem fixes a labelled \(2p\)-letter alphabet and a fixed-point-free involution. The greedy-arch theorem identifies subsequence universality with disjoint complete-alphabet blocks. Greedy extremality from both ends gives exactly \(2t\) or \(2t+1\) arches for the reverse-complement closure of a half-word with \(t\) complete arches; the extra one occurs precisely when its incomplete residual set hits each complementary pair. A two-block central gain is impossible because both incomplete halves force any alphabet-complete central block to cross the same junction. Stirling-number counts classify individual greedy arches and proper-alphabet residuals. Unique factorization gives the bivariate rational formula, and shortest-length counting imposes exact symbol counts. A standalone program checked \(35{,}856\) half-words against the universality definition and compared two independent counting methods through four nontrivial degree bounds. Risks: finite computations do not prove arbitrary lengths; the proof supplies the infinite quantifiers. No checked boundary case requires an alphabet with a fixed point.
+## correctness
 
-## Originality — PASS, subject to a documented literature risk
-The nearest result is Barker et al. (arXiv:2003.04629), especially Proposition 15 (ordinary palindrome universality) and Proposition 18 (morphic-permutation concatenations). Their statements do not enumerate words fixed by *reversal followed by a fixed-point-free permutation* at each universality index. The constrained bivariate distribution and shortest-length multiplicities are not an implication of either statement. Adamson (arXiv:2304.04583) and the published binary unrestricted formula count all universal words, not fixed points of reverse complement. Adamson et al. (arXiv:2311.10658) count words in *regular* input languages, whereas reverse-complement palindromes are nonregular; its intersection with \(a^*\bar a^*\) is \(\{a^n\bar a^n:n\ge0\}\). Fleischmann et al. (arXiv:2104.09063) treat repetitions and circular universality. Search by alternate names, parameters, equivalent fixed-point constraints, and published-finding corpus semantic queries did not reveal equivalent published coverage. The basic arch-count and central-set idea may be close to general earlier methods, and differently worded equivalent enumeration remains a nonzero risk.
+PASS
 
-## Mathematical value — PASS
-This completes a natural all-length and all-even-alphabet symmetry-constrained invariant, with a closed bivariate rational function and exact count of the shortest feasible universal strings. The sharp odd-index construction distinguishes fixed-point-free reverse-complement symmetry from ordinary even palindromes, which cannot have odd index under Barker et al.'s Proposition 15. The enumeration pertains to reversal-complement symmetry familiar in complement-paired sequence design; it is not a numerical increment, arbitrary finite slice, or unmotivated statistic. It does not solve unrelated circular or embedding-multiplicity problems.
+For the fixed labelled alphabet and fixed-point-free involution, the t leftmost complete greedy arches of the half-word and the t rightmost mirrored arches leave exactly R followed by its complemented reversal. Every family of at least 2t+1 complete disjoint blocks can have its outside t blocks on each side replaced by those greedy arches, since the left endpoints of the remaining region can only move left and its right endpoints can only move right. A complete block in the centre exists exactly when the residual support meets every involution pair; two such disjoint blocks are impossible because each must cross the central cut. The greedy characterization follows, for example, by using the arch-terminal letters in order followed by a letter absent from the remainder to witness non-universality at the next length. The geometric series uses q! S(n−1,q−1) arches of length n, and for support size s uses s! S(n,s) words per support; the orbit-covering proper supports number binom(p,s−p)·2^(2p−s). This verifies the GF, including the empty word and the binary specialization. Every h-universal word has at least h occurrences of each symbol, so equality at physical length qh forces minimum-size permutation arches, and for odd h a final p-letter remainder with one letter per pair. Index at equality cannot exceed h.
 
-## Closest literature and limitations
-See Barker et al. (2020), Adamson (2023), Fleischmann et al. (2021), and Adamson et al. (2023), with exact URLs and scope comparisons in RESULT.md. No source inspected explicitly states the theorem, but negative search alone is not proof of global novelty. The proof assumes a fixed-point-free involution, uses indexed words, and is not a statement about all generalized palindromes.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass is for the full symmetry-constrained length/exact-index distribution and its equality-case multiplicities, not the general greedy arch theorem, palindrome doubling or Stirling identities. The inspected sources give close arch/remainder arguments but not the fixed-point-free folded-word count or a stronger counting theorem covering it. Conditional on the new orbit-covering refinement, the extremal formula is a consequence, not an unrelated second novelty claim.
+
+## value
+
+PASS
+
+Fixed points of reverse-plus-relabel symmetry form a natural constrained word class. The formula gives the entire exact-index distribution uniformly, distinguishing even and odd exact indices by pair coverage, and supplies exact minimum-length witness counts. Those are useful counts for the constrained class, not just the general minimum-length bound or a small table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,155 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:17:58.462441Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–42 and VERIFICATION.md, recorded output and source certificate checker (inspected, not run)",
+        "Independent implementation /workspace/branches/ba5247ad-69e0-4ab5-aaf2-64f64a1f747a/replay_bipyramid.py with replay_output.txt",
+        "Prior octahedral boundary finding fcf4280bedfe"
+      ],
+      "rationale": "The two apices must match to different rim vertices a,b. The two remaining paths have even orders exactly when a,b have opposite parity; then the matchings of the paths are forced. This proves the facet count 2m² and agrees with the independent uncovered-vertex recursion (18,32,50). The verified complexes are the downward closures of those perfect matchings, not all ordinary matchings. In the independent reduction, each pair was a live codimension-one face with unique immediate coface, hence a free face in the current simplicial complex. The different valid reduction orders in source and replay need not give the same core. The replay's six-rim core is a connected graph with (11,14) vertices and edges and cycle rank 4. The eight-rim (15,50,39) and ten-rim (17,69,91,39) cores each admit a spanning tree and triangle closure on all other edges (36 and 53 respectively); the two known edges in each chosen triangle express the unknown generator, and induction makes all surviving generators trivial. The eight-rim simply connected 2-complex has H_2 free of rank 3 by χ=4 and is a wedge by Hurewicz and Whitehead. In the ten-rim replay ∂_3 has rank 37 with all nonzero Smith factors 1; the source's different core uses a unit rank-eight minor and two independent kernel vectors. Either computation proves primitivity, giving integral H_2=Z and H_3=Z². For homotopy recognition, the 2-skeleton of either simply connected 3-core is simply connected and equivalent to a wedge of 2-spheres, as follows by Hurewicz and Whitehead. The 3-cell attaching maps are classified by their degrees on that wedge. Their image is primitive in H_2 of the 2-skeleton, since it is primitive even in C_2. The integral degree matrix can be brought to a block of ones and zeros by changes of bases of target and source wedges, realized by homotopy equivalences (again by Hurewicz and Whitehead). The homotopy cofiber then retains one S² and two S³. The known B_4 octahedral perfect-matching complex is a wedge of five circles, so the decagonal case is indeed the first mix within the stated consecutive sizes.",
+      "residual_risks": [
+        "Proof is finite for m=3,4,5; no extrapolation. Independent replay used 79,258,832 alternate free-face pairs and did not duplicate the frozen order."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Their inspected scopes are respectively open three-row grids, cubic Möbius/circular ladders, linearly joined polygons (with an even-polygon contractibility theorem), and honeycomb families."
+        ],
+        "reasoning": "These graph families do not instantiate a 2m-cycle whose entire rim sees two nonadjacent apices. In particular the apices have degree 2m, excluding cubic ladders and honeycomb graphs, and the even-polygon line-tiling result requires a different construction.",
+        "searches": [
+          "Primary perfect-matching complex literature for open grids, ladders, honeycombs, and polygonal line tilings, including arXiv:2611.18058, arXiv:2608.30601, arXiv:2407.05809v2 and EJC 30(2) #P2.45"
+        ]
+      },
+      "checked_sources": [
+        "Frozen Finding, assumptions and prior-work comparisons",
+        "Resultary original and adjacent matches above; primary literature and decisive OA passages listed above",
+        "Xu source access attempts, limitation recorded without inferring noncoverage"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior ordinary octagonal result has more low-dimensional faces despite 32 top facets of the same size; the octahedral nerve result assumes K_{2,2,2}. The inspected grid and tiling theorems establish types only for their stated graph families."
+        ],
+        "reasoning": "The type of a larger complex does not give the type of a proper simplicial subcomplex without a retraction or equivalent relative theorem; the two octagonal types in fact differ. The octahedral identification does not produce extendibility collapses at larger sizes. Even the perfect-matching facet count alone does not give the signed boundary, simple connectivity, or mixed-degree attaching conclusion.",
+        "searches": [
+          "Compared the actual ordinary B_8 proof scope and octahedral perfect-matching nerve with the frozen facet-generation rule and attached-collapse claims"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "faa514e194ba treats the ordinary matching complex of B_8, with f-vector (24,172,416,306,32); the frozen extendibility complex has (24,148,256,160,32). fcf4280bedfe treats the equivalent octahedral presentation B_4 ≅ K_{2,2,2}."
+        ],
+        "reasoning": "Sharing the same perfect matchings does not make all partial matchings extendible. The ordinary octagonal theorem is not equivalent; the octahedral result is equivalent only at the boundary size, already excluded from novelty.",
+        "searches": [
+          "Resultary: even bipyramid, suspension of an even cycle, perfect-matching complex and extendibility, octagonal and decagonal matching complexes"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact hit for these three rows was the bound record itself. The distinct same-graph finding states S² ∨ S² ∨ ∨⁹S³ for ordinary B_8, and the separate exact octahedral comparison states a five-circle wedge for B_4."
+        ],
+        "reasoning": "No distinct table or statement for the same objects and invariant at 6,8,10 was found in the checked sources; the graph-specific near hit uses the wrong face definition, and the exact four-rim row is prior.",
+        "searches": [
+          "Resultary exact search on B_6, B_8, B_10 and perfect-matching-generated homotopy; local full-text comparison of faa514e194ba and fcf4280bedfe"
+        ]
+      },
+      "rationale": "The nearest inspected same-graph topology result uses the ordinary matching complex and has different faces and homotopy. The exact octahedral perfect-matching result is correctly not claimed as new. The inspected integral classifications of perfect-matching complexes for other graph families do not cover these bipyramids. No distinct statement matched all of the claimed even-bipyramid extendibility cases; the accessible evidence supports the new rows at 6,8,10, with the stated access limitation.",
+      "residual_risks": [
+        "Bounded search, with the named Xu manuscript not inspected. Neither a failed download nor the reported pentagonal example proves the complete scope of that work.",
+        "No claim of absolute priority or ordering among same-date records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material graph overlap, but the complex is different",
+          "evidence": "Ordinary matching complex with f-vector (24,172,416,306,32) and wedge S² ∨ S² ∨ ∨⁹S³.",
+          "identifier_or_url": "faa514e194ba",
+          "material_read": "RESULT.md Finding and assumptions, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Mixed-dimensional integral homotopy of the octagonal bipyramid matching complex",
+          "trigger": "Same graph B_8 and integral topology"
+        },
+        {
+          "assessment": "Exact previous coverage for the credited octahedral case only",
+          "evidence": "P(K_{2,2,2}) ≃ Q_3 ≃ ∨⁵S¹.",
+          "identifier_or_url": "fcf4280bedfe",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary local mirror",
+          "title": "The cubical perfect-matching nerve of the octahedron and its integral topology",
+          "trigger": "Exact natural B_4 boundary comparison"
+        },
+        {
+          "assessment": "Different graph family",
+          "evidence": "Focuses on open 3×2n grid graphs.",
+          "identifier_or_url": "https://arxiv.org/abs/2611.18058",
+          "material_read": "p. 1 Abstract and Introduction at offset 0",
+          "method": "OA primary PDF",
+          "title": "Perfect Matching Complexes of 3×2n Grid Graph",
+          "trigger": "Recent perfect-matching complex homotopy result"
+        },
+        {
+          "assessment": "Different graph family",
+          "evidence": "Möbius and circular ladders are cubic and do not have the universal-to-rim apices.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.30601",
+          "material_read": "p. 1 Abstract at offset 0",
+          "method": "OA primary PDF",
+          "title": "The Homotopy Types of the Independence and Perfect Matching Complexes of Möbius and Circular Ladder Graphs",
+          "trigger": "Cycle-based graph family and same topology invariant"
+        },
+        {
+          "assessment": "Different inputs",
+          "evidence": "Honeycomb graph families, not bipyramids.",
+          "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v30i2p45/pdf",
+          "material_read": "EJC 30(2) p. 1 Abstract, offset 0",
+          "method": "OA primary PDF",
+          "title": "Perfect Matching Complexes of Honeycomb Graphs",
+          "trigger": "Cited same-invariant literature"
+        },
+        {
+          "assessment": "Does not cover bipyramids by its graph hypothesis",
+          "evidence": "Contractibility theorem for line-tiling graphs E_{n,k} built from even polygons joined in a line.",
+          "identifier_or_url": "https://arxiv.org/abs/2407.05809v2",
+          "material_read": "p. 1 Abstract and p. 9 §§4.1–4.2 around offset 28687",
+          "method": "OA primary PDF",
+          "title": "Perfect Matching Complexes of Polygonal Line Tilings",
+          "trigger": "Potential broader theorem for even polygons"
+        },
+        {
+          "assessment": "Different complex and graph family",
+          "evidence": "Ordinary matching complexes of strings of cycles with specified extensions.",
+          "identifier_or_url": "https://arxiv.org/abs/2211.12559v2",
+          "material_read": "p. 1 Abstract and p. 5 §3, Definition 12 around offset 10308",
+          "method": "OA primary PDF",
+          "title": "General polygonal line tilings and their matching complexes",
+          "trigger": "Nearby polygonal matching-complex theorem"
+        },
+        {
+          "assessment": "Unresolved full-text scope; no direct evidence of coverage of this perfect-matching claim",
+          "evidence": "Secondary description specifies odd rim and ordinary matching complex, not even-rim extendibility complexes.",
+          "identifier_or_url": "https://zenodo.org/records/23437631",
+          "material_read": "No primary full text retrieved; the prior octagonal record describes a pentagonal ordinary matching complex",
+          "method": "Attempted lawful OA retrieval (direct timeout and VPN 403); secondary prior-work description inspected",
+          "title": "A Planar Counterexample to the Sphere-Wedge Conjecture for Matching Complexes",
+          "trigger": "Cited nearby bipyramid matching-complex result, full scope uncertain"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding, proof and limitations",
+        "Independent finite topology data for B_6, B_8 and B_10",
+        "Prior B_4 and ordinary B_8 findings fcf4280bedfe and faa514e194ba"
+      ],
+      "rationale": "The first small even bipyramids are a natural sequence beginning at the octahedron, and the decagonal row is a concrete first mixed-dimensional boundary within it. The extendibility restriction changes the topology significantly from the already studied ordinary octagonal complex. The exact integral types and location of the first mixed case within the stated consecutive range are useful comparison data, not a generic extrapolation or an isolated collapse count. The cap at ten is justified by reaching that boundary.",
+      "residual_risks": [
+        "No claim beyond the ten-rim case or for graphs with an apex-to-apex edge."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

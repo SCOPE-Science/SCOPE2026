@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T13:19:29.419950Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md:4–69, 77–78",
+        "VERIFICATION.md:19–25",
+        "CHECKER.py:10–58 (inspected, not executed)",
+        "Kourbane-Houssene et al., arXiv:1801.08952 v1 Eqs. (5)–(6) for PDE normalization"
+      ],
+      "rationale": "Differentiation gives f'=2ρ+log(1−ρ) and (1−ρ)f''=1−2ρ, so H DF is symmetric and q=m(1−ρ)f' satisfies ∇q=(DF)^T∇h. The diffusion chain rule and m source yield exactly −f''|ρ_x|²−|m_x|²−2m² after periodic integration, with no activity coefficient. Conservation of the density mean and α_R≤f''≤1 bound the relative entropy above by half the sum of the two squared L² distances. Poincaré for the density fluctuation and the polarization reaction give the claimed minimum rate. For a steady or translated profile confined to ρ≤1/2, the entropy integral is constant; then m=0 and ρ_x=0 where ρ<1/2. At ρ=1/2 differentiability at a global maximum gives ρ_x=0 as well. At an unpolarized physical state the off-diagonal symmetry equation is (1−ρ_*)H_11=(1−2ρ_*)H_22, impossible for a positive-definite Hessian when 1/2≤ρ_*<1. This also verifies the obstruction at the degenerate threshold without relying on the rate bound there.",
+      "residual_risks": [
+        "The decay cap is pointwise and trajectory-wide; it is not known invariant here, and λ is a bound, not asserted optimal. The obstruction is about a pointwise positive-definite Hessian, not strict convexity alone, which does not generally imply that hypothesis.",
+        "VERIFICATION.md:21 overstates the profile coverage: CHECKER.py uses six profiles at four activities, so 24 profile/activity pairs, not 24 profiles at each of four activities. The reported 83 groups are consistent with 11+3·24. The checker tests the proposed symmetrizer, not uniqueness by itself; the uniqueness in the separable quadratic class follows from the off-diagonal equation."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kourbane-Houssene et al. label Eq. (7) a large-wavelength instability of a homogeneous state. On p. 3 the stationary calculation is framed as a simplified case of flat interfaces and fully phase-separated profiles; Eqs. (8)–(11) derive a stationary chemical-potential condition and binodals.",
+          "Frozen RESULT.md:74–75 describes arXiv:2104.14650 as Gaussian-order fluctuation theory, not an exact deterministic balance."
+        ],
+        "reasoning": "The general symmetrizable-system method supplies the entropy strategy. An explicit entropy pair yielding nonnegative dissipation up to a degenerate edge, and its application to all periodic traveling and stationary profiles under a pointwise cap, require the system-specific calculation. Neither the inspected linear analysis nor the specified flat interface problem gives that scope.",
+        "searches": [
+          "arXiv:1801.08952 v1 pp. 2–3 Eqs. (5)–(11)",
+          "arXiv:2104.14650",
+          "Primary lookup for deterministic entropy and periodic half-filling exclusion"
+        ]
+      },
+      "checked_sources": [
+        "Kourbane-Houssene et al. arXiv:1801.08952 v1 pp. 2–3 Eqs. (5)–(11)",
+        "Resultary 85d5b0aa7168, feb965488439 and 5cc462100e4c (summaries)",
+        "RESULT.md:74–83 and identified arXiv:2104.14650, 2209.03000"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The factor (1−ρ_0)(2ρ_0−1) in the known spinodal is already incompatible with linear instability at or below half filling, but stability of homogeneous states cannot exclude finite-amplitude profiles, especially waves. The flat-interface formulas concern one stationary setting.",
+          "The new implication uses nonnegative exact nonlinear dissipation of every pointwise-capped smooth profile, including the ρ=1/2 contact points where the density curvature vanishes."
+        ],
+        "reasoning": "Credit the prior linear threshold, interface and nonmodal phenomena. They do not imply the all-profile result. The positivity-Hessian obstruction is elementary from the known PDE, while the exact functional and zero-dissipation barrier are the distinct accepted content.",
+        "searches": [
+          "arXiv:1801.08952 v1 p. 3 Eq. (7) and Eqs. (8)–(11)",
+          "Resultary 85d5b0aa7168 and feb965488439"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Linear spatial Fourier evolution has generator −k²I−diag(0,2)−ik Pe A_*. In the unweighted Euclidean inner product its Hermiticity for nonzero k and activity would require A_*^T=−A_*, which here gives ρ_*=2/3, matching the nonmodal catalogue density. A positive local entropy Hessian instead requires HA_*=A_*^T H, making the transport matrix symmetric in the weighted inner product (and its contribution skew-adjoint in spatial evolution).",
+          "The frozen source distinguishes the stochastic/informatic entropy production of Agranov–Cates–Jack from the deterministic h used here."
+        ],
+        "reasoning": "Fourier-generator self-adjointness, advective entropy symmetrization, and stochastic entropy production are mathematically different assertions. The nonmodal catalogue statement does not claim the nonlinear balance.",
+        "searches": [
+          "Resultary: deterministic entropy and positive-Hessian flux symmetrization in active exclusion; record 85d5b0aa7168",
+          "arXiv:1801.08952 v1 Eqs. (5)–(7)",
+          "arXiv:2209.03000"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact finite-ring hit gives a linear homogeneous spinodal and a five-site barrier, not a nonlinear density cap. The six-polarity hit concerns a half-filling reversal in directional linear-growth corrections for a different model. The exact same assigned hit is not independent evidence."
+        ],
+        "reasoning": "Numerical or catalogue thresholds at one-half do not constitute a match without the same PDE, quantifiers and nonlinear property. A finite table or finite-grid dissipation diagnostic does not settle the claimed arbitrary-period classical solutions.",
+        "searches": [
+          "Resultary records 85d5b0aa7168, feb965488439 and 5cc462100e4c",
+          "Resultary exact half-filling barrier and stationary/traveling-profile searches"
+        ]
+      },
+      "rationale": "The PDE and linear spinodal are known, and the Hessian obstruction is a direct flux-Jacobian calculation, not credited in isolation. The supported contribution is the exact nonlinear periodic entropy balance with an explicit h and the resulting exclusion of all smooth stationary and traveling profiles confined pointwise to half filling or below, with a conditional quantitative decay estimate. The strongest inspected primary antecedent concerns a linear instability threshold and a particular stationary-interface construction, not this claim.",
+      "residual_risks": [
+        "The nonmodal catalogue record and the two stochastic/entropy papers were not available for full-passage comparison. Older entropy-symmetrizer or active-matter literature might contain an implicit or explicit analogue; the bounded primary search was inconclusive, not negative evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Primary PDE, linear criterion and stationary-interface construction; inspected passages do not establish the claimed nonlinear profile theorem",
+          "evidence": [
+            "Equation (7) gives Pe²(1−ρ_0)(2ρ_0−1)>2 for a homogeneous-state large-wavelength instability.",
+            "Page 3 specifies flat, fully phase-separated profiles before deriving the stationary g and binodals."
+          ],
+          "identifier_or_url": "https://export.arxiv.org/pdf/1801.08952",
+          "material_read": "Accessible v1 pp. 2–3: Eqs. (5)–(6), (7), and the flat-interface discussion Eqs. (8)–(11)",
+          "method": "Bounded read of alternate lawful arXiv PDF after the passage tool timed out",
+          "title": "Exact Hydrodynamic Description of Active Lattice Gases",
+          "trigger": "Identical model and physical half-filling threshold; strongest possible linear or stationary antecedent"
+        },
+        {
+          "assessment": "Relevant linear comparison, not an identified nonlinear entropy or no-profile antecedent",
+          "evidence": [
+            "Catalogue describes self-adjointness at ρ=2/3 and transient gain at half filling. Unweighted Fourier self-adjointness is not flux symmetry under a positive Hessian."
+          ],
+          "identifier_or_url": "Resultary 85d5b0aa7168",
+          "material_read": "Indexed claim only; targeted original passage not accessible",
+          "method": "Resultary lookup and bounded mirror attempt, with mathematical comparison of the operators",
+          "title": "Sharp nonmodal amplification in an interacting active lattice gas",
+          "trigger": "Same system; half filling and self-adjointness may resemble the entropy obstruction"
+        },
+        {
+          "assessment": "Available descriptions concern stochastic fluctuations or informatic entropy production; stronger deterministic coverage not excluded from uninspected passages",
+          "evidence": [
+            "Frozen comparison identifies a Gaussian-order quasi-potential and entropy-production large deviations respectively, distinct from an activity-independent exact deterministic dissipation balance."
+          ],
+          "identifier_or_url": "arXiv:2104.14650; arXiv:2209.03000",
+          "material_read": "Frozen RESULT.md:74–83 characterization; independent full-text attempts did not yield passages",
+          "method": "Bounded lawful OA attempts and comparison with the source's reviewed description",
+          "title": "Exact fluctuating hydrodynamics of active lattice gases – Typical fluctuations; Entropy production and its large deviations in an active lattice gas",
+          "trigger": "Same model with quasi-potential or entropy terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md:14–69",
+        "arXiv:1801.08952 v1 p. 3 (linear and stationary-interface context)"
+      ],
+      "rationale": "The exact entropy turns a linear homogeneous threshold into a genuinely nonlinear statement for smooth finite-amplitude periodic profiles, at any activity. The endpoint argument at half filling handles loss of coercivity rather than treating it as a uniform decay estimate. It separates low pointwise density from low mean and gives a quantitative diagnostic when the stricter cap is known. These conclusions, not the familiar entropy framework or eigenvalue test in isolation, justify the result.",
+      "residual_risks": [
+        "No implication for cap preservation, high-density wave existence, microscopic dynamics or binodal location."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

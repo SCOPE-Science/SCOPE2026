@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:19:04.514885Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 24–74; VERIFICATION.md and verify_finite.py, read-only",
+        "Independent cycle checks at q=3 and q=5: 12 of 72 and 160 of 1200 maps permuted, and every permutation had the stated parity and square restriction. Replay: /workspace/branches/ab556844-1248-4ecc-8a27-64ef9f4574f2/independent_finite_check.py"
+      ],
+      "rationale": "With H=F_q^*, the identity f(xu)=f(x)u^r for u in H forces gcd(r,q-1)=1 and hence odd r. The lift of the block permutation to the elements has sign sgn(sigma)^(q-1)=1, and the even number q+1 of blocks cancels the signs of the identical within-block power maps. In a cyclic group of even order, translation by c has sign equal to its quadratic character, as seen by writing c as a power of the generator (translation by the generator is one even-length cycle). The product of the within-block multipliers is omega^[q(r-1)/2]*(b-epsilon)^2, where omega generates H, b=a^((q+1)/2) and epsilon=(-1)^((q+1)/2). This follows from the product of the coset representatives and the two-to-one map on the group of (q+1)-st roots of unity. Since the product lies in H, (b-epsilon)^2 lies in F_q^*. A nonsquare nonzero a would give b^q=-b; invariance of (b-epsilon)^2 would then force 4*b*epsilon=0, impossible. For square a and for a=0, b is in F_q, so the second factor is a nonzero square in H. The first factor contributes (-1)^((r-1)/2); zero is fixed. This proof handles odd prime powers and the monomial case without assuming any sufficient criterion for permutation.",
+      "residual_risks": [
+        "Finite checks cover only q=3,5; the unrestricted claim uses the coset and Frobenius proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Tang–Fan Theorem 1.2 classifies the d=2 case, and Corollary 1.4 describes transfer to the general gcd-two family; the square restriction in the core case is Lemma 2.2. Bors–Wang supplies a more general group-action framework. The matching exact sign law is already available in fecac967fe37."
+        ],
+        "reasoning": "A classification of admissible coefficients does not itself report the induced permutation's sign, and a general wreath-product model does not determine the coefficient product. These are antecedents, not needed to infer parity from the classification once the exact matching theorem is located.",
+        "searches": [
+          "Tang–Fan arXiv:2611.14162, Theorem 1.2, Corollary 1.4 and Lemma 2.2; Bors–Wang arXiv:2103.00664, imprimitive wreath products; Resultary fecac967fe37"
+        ]
+      },
+      "checked_sources": [
+        "Resultary fecac967fe37, 758682ca98a9 and 2c4a64ac82f2",
+        "Tang–Fan arXiv:2611.14162; Bors–Wang arXiv:2103.00664"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Exact sign law on all admissible a from fecac967fe37; nonzero slice and square-condition discussion from 758682ca98a9; known square restriction in Tang–Fan's core case."
+        ],
+        "reasoning": "No deriving signs from a coefficient classification is needed: the competing full-domain statement already gives this invariant. The necessary coprimality follows at once by restricting to one F_q^* coset, and the nonzero-coefficient square conclusion leaves no independent surviving claim.",
+        "searches": [
+          "Local RESULT.md Findings fecac967fe37 and 758682ca98a9, both at offset 0; Tang–Fan Corollary 1.4 and Lemma 2.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "fecac967fe37 Finding gives sign (-1)^((r-1)/2) for all admissible coefficients including zero in the gcd(d,q+1)=2 family. 758682ca98a9 Finding gives it for the nonzero-coefficient slice and discusses the square restriction."
+        ],
+        "reasoning": "Parity on the field and sign on the nonzero elements agree because zero is fixed. Index two here is the two-to-one exponent map on the (q+1)-st roots of unity, equivalently the same gcd condition, not the neighboring gcd-one family. The full domains of the main sign laws coincide.",
+        "searches": [
+          "Local Resultary searches on coefficient-independent parity/sign of quadratic-extension permutation binomials and two-to-one/index-two exponents; fecac967fe37, 758682ca98a9, 2c4a64ac82f2",
+          "Bounded literature search on the sign of quadratic-extension permutation binomials"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The first two records give exact symbolic parity laws rather than finite coefficient tables. The third treats X^r(X^(q-1)+a)."
+        ],
+        "reasoning": "A finite cycle census is not a table for all odd prime powers; the relevant indexed all-parameter statements were compared directly. The index-one law is a different object, but the index-two entries cover the assigned sign formula.",
+        "searches": [
+          "Local Resultary catalogue exact sign laws fecac967fe37, 758682ca98a9 and neighboring-family 2c4a64ac82f2"
+        ]
+      },
+      "rationale": "A distinct indexed record with the same date gives the identical coefficient-independent sign theorem on the identical index-two family, including the monomial case. A second distinct indexed record covers the nonzero-coefficient case and square restriction. Tang–Fan is relevant for the classification and square restriction, but the exact catalogue match, not an inferred parity from that classification, is decisive. Equivalent coverage is demonstrated; date alone determines neither priority nor provenance.",
+      "residual_risks": [
+        "The dates alone do not resolve priority. No exhaustive claim about other literature is made; positive overlap follows from the indicated exact statements."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent coverage, including a=0",
+          "evidence": [
+            "Same conditional family and sign (-1)^((r-1)/2); same-day catalogue date does not determine ordering."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-coefficient-independent-parity-of-quadratic-extension-permutatio--fecac967fe37/RESULT.md",
+          "material_read": "Finding at offset 0",
+          "method": "Local mirror statement inspection",
+          "title": "Coefficient-independent parity of quadratic-extension permutation binomials",
+          "trigger": "Same gcd-two family and parity invariant"
+        },
+        {
+          "assessment": "Exact nonzero-coefficient overlap",
+          "evidence": [
+            "Same sign law for nonzero admissible coefficients, with square condition discussed."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-coefficient-independent-parity-of-quadratic-extension-index-two--758682ca98a9/RESULT.md",
+          "material_read": "Finding at offset 0",
+          "method": "Local mirror statement inspection",
+          "title": "Coefficient-independent parity of quadratic-extension index-two permutation binomials",
+          "trigger": "Same index-two sign and square condition"
+        },
+        {
+          "assessment": "Neighboring index-one family",
+          "evidence": [
+            "X^r(X^(q-1)+a), not the gcd-two exponent family."
+          ],
+          "identifier_or_url": "2026/10/12/SCOPE-a-universal-sign-bias-for-classified-finite-field-permutation-bi--2c4a64ac82f2",
+          "material_read": "Finding",
+          "method": "Local mirror statement inspection",
+          "title": "A universal sign bias for classified finite-field permutation binomials",
+          "trigger": "Nearby coefficient-independent sign law"
+        },
+        {
+          "assessment": "Classification and square-class antecedent; no sign formula in the inspected main statements",
+          "evidence": [
+            "Classification at d=2 and transfer to gcd-two exponents; Lemma 2.2 proves the square restriction in the core case."
+          ],
+          "identifier_or_url": "arXiv:2611.14162",
+          "material_read": "Theorem 1.2; Corollary 1.4; Lemma 2.2, PDF p. 4, OA offset about 16400",
+          "method": "OA PDF statement inspection",
+          "title": "A complete classification of permutation binomials of the form X^r(X^{2(q-1)}+a) over finite fields",
+          "trigger": "Same binomial family and square restriction"
+        },
+        {
+          "assessment": "General action framework, not the exact coefficient-independent parity law in the inspected passage",
+          "evidence": [
+            "Block action and within-block action via an imprimitive wreath product."
+          ],
+          "identifier_or_url": "arXiv:2103.00664",
+          "material_read": "PDF p. 2, offset about 6300",
+          "method": "OA PDF passage inspection",
+          "title": "Bors–Wang, cyclotomic mappings and imprimitive wreath products",
+          "trigger": "Could subsume the block-permutation step"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding; Resultary fecac967fe37 and 758682ca98a9; Tang–Fan Lemma 2.2"
+      ],
+      "rationale": "The sign is a natural invariant, but the full predicted parity is already available for the same conditional family. The additional square-class restriction is covered and coprimality is the standard coset test. The frozen statement therefore adds no independent useful exact fact.",
+      "residual_risks": [],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

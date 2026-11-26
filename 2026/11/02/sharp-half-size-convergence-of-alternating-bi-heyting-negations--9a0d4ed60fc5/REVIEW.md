@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** For an upset \(U\), the defining algebraic equations give \(F(U)=\uparrow\downarrow U\), equal to one step in the common-lower-bound graph. On a shortest path of length \(k\) from \(U\), the initial \(k\) vertices are nonminimal and the \(k\) edges have pairwise distinct minimal common lower bounds. This proves \(2k\leq n\). The height-two fences attain equality and adjoining one isolated point handles odd sizes. The analytic argument covers every finite nonempty poset, beyond the explicitly checked cases.
+## correctness
 
-**Originality — PASS within the inspected evidence.** Tasiou (2025, Definition 2.1) had already defined the least updownset/zigzag closure; it is credited, not claimed here. Badia–Kowalski–Olkhovikov (2026) treat broader expressivity and semantics; Stell–Worboys (1997) discuss the operations. Inspected relevant text and targeted searches did not uncover the sharp \(\lfloor n/2\rfloor\) convergence bound or the extremal height-two family. The remaining risk is an equivalent theorem phrased as a finite relation-powers or closure-iteration bound, which cannot be categorically ruled out.
+PASS
 
-**Mathematical value — PASS.** The sharp universal convergence index is a natural quantitative invariant of the canonical bi-Heyting saturation operation. It distinguishes poset height from formula-iteration depth: height-two frames realize unbounded indices. The minimum/nonminimum packing lemma yields a nontrivial factor-of-two improvement over generic monotone iteration bounds and has a concrete extremal classification witness; no stronger claim about all formulas is made.
+On upsets, composing the ordinary Heyting pseudocomplement with the co-Heyting supplement gives F(U)=up(down(U)). A point belongs after one step exactly if it shares a lower bound with some point in U. Thus reflexive common-lower-bound graph expansion gives F^j, and its components agree with the comparability graph (each graph edge is a comparability walk of length at most two; comparables are adjacent). Closure fills exactly the reached components, and the fixed sets are precisely the upsets with upset complements. If k>0 is the last strict growth index in the sense of k steps, a shortest length-k path from U has k distinct nonminimal vertices before its last vertex: starting at a minimal vertex would make the next vertex also belong to U, and an internal minimal vertex would supply a shortcut. Choose a minimal lower bound for each edge; finiteness makes such a choice possible and minimality among common lower bounds implies minimality in the poset. Repetition of a chosen bound would again shortcut the path. These k new distinct vertices prove n>=2k. As an independent graph check, any shortest comparability path from U must first descend (an ascending step stays in U) and alternate directions (two successive steps in one direction shortcut by transitivity). Grouping descending-ascending pairs, with a solo last descending edge if needed, shows that distance from U in the common-lower-bound graph is the ceiling of half the comparability distance: the reverse inequality is immediate by expanding each common-lower-bound edge into at most two comparability edges. In the height-two fence the comparability graph is a path of 2k vertices from b_0 to a_(k-1), hence that endpoint takes k steps. An added isolated vertex does not alter the reached component; n=1 and U empty are fixed from the start.
 
-**Verification and limits.** Separately implemented finite checks enumerate all naturally ordered transitively closed posets up to six elements and all their upsets, compare the algebraic and graph operations, and check 100 explicit fences. These are corroboration only. The historical-priority assessment is not independent and is limited to the inspected literature.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct claim is the sharp number of iterations for this particular composite on finite posets, with start-dependent graph distances and a matching fence at each size. The bi-Heyting operations, their up/down-set expression, comparability components and the eventual least updownset are established ingredients, not the basis of the pass.
+
+## value
+
+PASS
+
+The existing component description says where closure ends but not how many mixed-negation layers are needed to get there. The theorem gives that cost from the start set and a sharp worst case using only carrier size, with no saving from restricting to height two. In particular a fence misses its terminal minimum before the predicted step, giving an explicit minimal-size obstruction to faster uniform convergence. This is a bound on the specified iteration, not a claim about the expressive depth of all possible formulas.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

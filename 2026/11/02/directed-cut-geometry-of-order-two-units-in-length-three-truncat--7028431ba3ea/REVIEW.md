@@ -1,19 +1,21 @@
-# Scientific review: directed-cut geometry of order-two units
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-All quantifiers and normalizations are explicit: finite directed multiquivers, characteristic two, the normalized algebra group \(1+J\) for \(kQ/J^3\), and finite fields only for the arithmetic count. Projection modulo the arrow radical forces every field-valued unit satisfying \(g^2=1\) into \(1+J\). Distinct paths of length two are a basis, so each coefficient of \(u_1^2\) is one independent quadratic monomial; this is not a cancellation heuristic. The radical-square-zero condition imposes exactly the conflict-graph edge ideal and zero loop coefficients at geometric points. The minimal primes, dimensions, finite-field counts, exponent formula, and MaxDiCut reduction follow from explicit arguments. The proof expressly distinguishes the normalized nonreduced scheme from the full unit group's scheme. Twenty-seven exhaustive small algebra-multiplication checks in three field sizes and twelve graph-dimension checks support the symbolic argument.
+PASS
 
-## Originality — PASS with stated risk
+The arrow ideal is the radical: it is nilpotent and the quotient is a product of copies of the field. A full unit squaring to 1 has semisimple coordinates 1 on every field extension, but this argument does not eliminate possible infinitesimal diagonal coordinates in the full scheme. In 1+J write u=u1+u2 by path length. Then (1+u)^2=1+u1^2; each length-two path (a,b) is a distinct basis vector with coefficient c_a c_b, including when ab and ba exist or when a=b is a loop. The defining ideal therefore consists of these monomials, leaving p2 path coordinates free. Adding the loop variables to the ideal kills the genuine loop nilpotents (no linear monomial lies in the original quadratic ideal), and the remaining edge ideal is the intersection of the primes killing the complement of each maximal independent support. This proves the scheme and component statements over any characteristic-two field. A compatible set of nonloop arrows has disjoint source and target sets, hence lies in a directed cut; every cut is compatible. Doubling undirected edges gives the undirected cut size, with p2=sum deg(v)^2, so the dimension computes MaxCut. Assigning nonzero values on a support and arbitrary path coordinates gives the exact finite-field census. The fourth power is trivial and a composable pair supplies a nonzero square because path coordinates are separate, giving the exponent criterion. For an oriented cycle, trace of the two-state matrix [[1,q-1],[1,0]] counts compatible cyclic words, with initial traces 2 and 1 and the stated recurrence; the directed triangle gives 32 and 640.
 
-Closest inspected papers: Dugas–Huisgen-Zimmermann–Learned (arXiv:1407.2672v1) treats syzygies, projective dimensions and module varieties of truncated path algebras; Bleher–Chinburg–Huisgen-Zimmermann (arXiv:1407.3045v1) treats irreducible components of module representation varieties for radical-square-zero algebras; André–Freitas–Neto (arXiv:1502.01512v1) treats odd-characteristic supercharacters of algebra groups with anti-involutions. Their stated theorems have different objects and do not supply the simultaneous characteristic-two \(g^2=1\) census, component arrangement, and directed-cut identity. Multiple mathematical-record searches did not return equivalent statements; the nearest records involve Coxeter periodicity of radical-cube-zero Nakayama algebras, monomializability of short local algebras, and unrelated group character enumerations. An earlier characteristic-two tripotent component classification for radical-square-zero quiver algebras treats \(a^3=a\) for \(J^2=0\), which neither implies nor subsumes involutions in \(1+J\) when \(J^3=0\). Classical monomial-ideal and MaxCut ingredients are acknowledged. Exact historical priority is uncertain because not all literature can be exhaustively inspected.
+## originality
 
-## Value — PASS
+PASS
 
-The involution statistics of finite algebra groups are a natural group-theoretic invariant, and truncated path algebras form a broad family beyond a fixed quiver or finite computation. The theorem fully determines the order-two and order-four element counts, reduced components and their dimensions across every characteristic-two field and finite quiver. Its top dimension becomes the directed maximum-cut invariant; even determining that geometric dimension is NP-hard, by an explicit reduction from simple MaxCut. The loop/nonloop distinction also gives a sharp reducedness criterion for the normalized defining scheme. These linked exact, geometric and complexity conclusions go beyond a renamed elementary example, although the proof deliberately uses standard algebraic-combinatorial tools.
+The independent-support census has genuine coverage in the broader graphical square-map model after loops are eliminated and the trivial central factor is adjusted. The distinct supported result identifies the normalized quiver involution scheme including loop nonreducedness, and interprets its component dimension as MaxDiCut of the original multiquiver. No matched source was found giving that combined identification for general truncated path algebras. No priority is inferred from same-day catalogue dates.
 
-## Scope and limitations
+## value
 
-The finite computations verify bounded cases rather than the infinite theorem; the proof carries the general claim. No conjugacy-orbit census, alternative nilpotency length, arbitrary characteristic, or full-unit-group infinitesimal scheme is asserted. Independent validation and exhaustive publication-priority certification remain outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The normalized involution scheme is a natural unit-group invariant, and passing to finite-field counts alone hides loop nilpotents. The all-multiquiver scheme classification distinguishes these features and relates its largest component to a natural optimization problem on the original quiver, not just to a computation on sample graphs. The cut complexity and general reducedness criterion supply value beyond the overlapping support census and cycle specialization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

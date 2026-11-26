@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:39:39.216624Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–103 and VERIFICATION.md / verify.py",
+        "Kabluchko arXiv:2611.00381, Eqs. (42), (46), (49)",
+        "Independent coefficient and curvature derivation above; finite Taylor check through degree 7"
+      ],
+      "rationale": "Kabluchko's τ_d(r) is the first point absorption of re₁ for standard variance-t Brownian motion, so r=1 matches, and Eq. (46) supplies positive and negative Mellin moments near zero. This justifies log integrability and differentiation; on any fixed circle |w|=ρ<1, the analytic right side of Eq. (49) gives each coefficient in a neighborhood of s=0. Differentiation gives M_d+log 2+ψ(d/2) on the left and F(w)=w[−2γ−2ψ((1−w)/2)]/(1−w²) on the right. In the digamma series the j-th difference is (1+w)/[(j+1)(2j+1−w)], so F is 2w/(1−w) times the resulting sum. Separate j=0, split the j>=1 factors into poles at 1 and 2j+1 and use ∑_{j>=1}1/[j(j+1)]=1. Coefficients then give 2d−1−S_d as claimed; convergence is absolute locally. For the second difference of M_d the digamma contribution is 2∫₀¹u^(d−1)(1−u)/(1+u) du, at least 4/[d(d+1)(d+2)]; the series correction is at most (2/9)3^(1−d)+(1/2)5^(1−d). At d=3 this upper bound is strictly below the lower bound and decreases by a factor at most 1/3 per step, while the lower bound retains at least half. The low cases follow independently by expanding F: the w, w² and w³ coefficients are 4log 2, π²/2, and 4log 2+(7/2)ζ(3). Subtracting the digamma terms gives the stated C₁ and C₂, both positive by the rational margins in the proof. Δ₁=2log 2>0, and Δ_d increases strictly to 2 since both the digamma increment and the series correction tend to zero. Thus no increment reaches 2. The standard digamma asymptotic and bounding j>=2 by half of 5^(1−d) give both error terms. An independent Taylor and truncated-series diagnostic through small dimensions was consistent with these analytic identities; the supplied verify.py was inspected, not executed.",
+      "residual_risks": [
+        "The finite mean is E[log τ_d], not E[τ_d]. Projection onto the first coordinate gives τ_d>=τ_1 on a standard coupling, and the one-dimensional level hitting time has infinite raw expectation.",
+        "The result uses unit target distance and standard Brownian variance; a global time-rescaling shifts only the absolute log mean."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1.8 gives the full dimension-generating Mellin transform of the very same absorption time",
+          "Panzo–Socher analyze size functionals of Brownian hulls and the inverse times of those functionals"
+        ],
+        "reasoning": "Kabluchko covers the transform and a logarithmic high-dimensional law, and these are credited prior coverage. The inverse geometric-size processes are not prescribed point absorption. Neither the inspected limit theorem nor bounds on size functionals yield the exact all-dimensional sign.",
+        "searches": [
+          "Kabluchko arXiv:2611.00381 Eqs. (42), (46), (49), and high-dimensional log-time limit",
+          "Panzo–Socher arXiv:2407.08712, pp. 1–2, inverse-process scope"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.00381 and 2407.08712",
+        "Resultary f420f6b25934 and 64ad7986939a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Eq. (49) at s near zero yields M_d+log 2+ψ(d/2) after one coefficientwise derivative; the explicit series is a resummation of that derivative",
+          "The all-d second difference contains a positive integral minus a positive series, and its sign requires dominance plus d=1,2 checks"
+        ],
+        "reasoning": "The exact transform implies the identity, an overlap even without its identical displayed form. It does not give the finite-dimensional sign by differentiation or a limiting law alone; the verified global comparison is the distinct claim.",
+        "searches": [
+          "Kabluchko arXiv:2611.00381, Theorem 1.8 Eq. (49), moment range Eq. (46) and Remark 3.6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "f420f6b25934 is the assigned result itself, not a separate prior",
+          "The distinct same-day 64ad7986939a concerns Gaussian squared-radius fluctuations under annealed expected-volume measures for Brownian-motion and Brownian-bridge hulls"
+        ],
+        "reasoning": "An expected volume measure on a unit-time random hull is not the pointwise absorption-time law. Similar Gaussian scaling does not imply a centered second-difference inequality for its logarithmic mean. Same-day dating alone does not establish priority.",
+        "searches": [
+          "Resultary: fixed-point logarithmic absorption, Mellin/digamma convexity, strict convexity of log absorption time, and increments tending to 2",
+          "Resultary f420f6b25934 and 64ad7986939a"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The known Mellin formula determines moments coefficientwise; Remark 3.6 records finite gamma/polygamma representations. No distinct exact tabulation found in the catalogue checks supplies the sign comparison."
+        ],
+        "reasoning": "Exact Mellin representations or individual means can produce low-dimensional checks, but cannot settle all d by checking any finite initial segment. The uniform integral-versus-series estimate addresses the non-tabular part.",
+        "searches": [
+          "Resultary logarithmic absorption mean and digamma formula searches",
+          "Kabluchko arXiv:2611.00381, Remark 3.6, p. 26, text offset 119330"
+        ]
+      },
+      "rationale": "The log-mean identity is an explicit coefficient extraction from Kabluchko's prior Mellin transform; neither the transform nor the formal determination of the moments is independently new. The credited result is the all-integer strict convexity and exact monotone finite-dimensional increment bounds, established by a sign comparison and low-dimensional evaluations, not supplied by the inspected transform statement, exact representations, or high-dimensional limit.",
+      "residual_risks": [
+        "Related papers accessible and decisive passages checked, but the comparison does not rule out less visible equivalent strict-convexity results or certify historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive prior transform and moment range; implies log-mean extraction, but inspected results do not state the strict finite-dimension curvature or increment bounds",
+          "evidence": "Eq. (49) for 0<Re s<1/2, |w|<1−2 Re s; Eq. (46) gives real Mellin moments throughout s<1/2; Remark 3.6 gives finite gamma/polygamma representations.",
+          "identifier_or_url": "https://arxiv.org/abs/2611.00381",
+          "material_read": "Eq. (42) p. 8 (text offset 34900), Eq. (46) p. 9, Theorem 1.8 Eq. (49) pp. 9–10 (offset 41400), Remark 3.6 p. 26 (offset 119330)",
+          "method": "Open primary PDF passages",
+          "title": "Absorption Probabilities for Brownian Convex Hulls in Arbitrary Dimension",
+          "trigger": "Same stochastic object, full generating transform, and potential implicit log-mean coverage"
+        },
+        {
+          "assessment": "Different inverse-time observable",
+          "evidence": "Inverse size-functionals of convex hulls, not entry of a fixed target point.",
+          "identifier_or_url": "https://arxiv.org/abs/2407.08712",
+          "material_read": "PDF pp. 1–2, text offsets 3631 and 4478",
+          "method": "Open primary PDF passages",
+          "title": "Bounds on some geometric functionals of high dimensional Brownian convex hulls and their inverse processes",
+          "trigger": "Related inverse-time problem for Brownian hulls"
+        },
+        {
+          "assessment": "Different law, observable and quantifier",
+          "evidence": "Squared-radius fluctuations under annealed expected-volume measures for unit-time Brownian-motion and bridge hulls.",
+          "identifier_or_url": "64ad7986939a",
+          "material_read": "RESULT.md, Finding",
+          "method": "Local indexed mirror",
+          "title": "Gaussian radial fluctuations of the expected-volume measures of Brownian hulls",
+          "trigger": "Distinct same-day Brownian hull Gaussian limit comparison"
+        },
+        {
+          "assessment": "The same record, not separate originality evidence",
+          "evidence": "Matching τ_d definition, formula and strict finite-dimensional increment bounds.",
+          "identifier_or_url": "f420f6b25934",
+          "material_read": "RESULT.md, Finding and scope",
+          "method": "Local indexed mirror matched to frozen source",
+          "title": "Strict dimensional convexity of logarithmic Brownian-hull absorption time",
+          "trigger": "Exact indexed hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–34 and 65–103",
+        "Kabluchko arXiv:2611.00381, Theorem 1.8 and high-dimensional comparison"
+      ],
+      "rationale": "The logarithmic scale is natural because raw mean absorption time is infinite. The theorem determines the direction and strict increase of the marginal cost of adding a dimension, gives a sharp strict upper bound on that cost at every finite d, and identifies its limit. Those nonasymptotic conclusions have content beyond a moment formula or a high-dimensional Gaussian limit.",
+      "residual_risks": [
+        "No stochastic or pathwise assertion about dimensional increments of hitting times is derived from the log-mean inequalities."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

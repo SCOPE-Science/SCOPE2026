@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:19:26.147704Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Antipodal invariance gives a fair direction sign conditional on the entire unoriented vector (line and radius); independence makes the conditional joint sign law a product, including after the almost surely strict projective sort. In a generic half-turn sweep, each point changes membership once, giving counts C_j=(n+s)/2-S_j, with the other half-turn giving n-C_j. A boundary with one point places each of the open/closed counts among the two adjacent generic counts, and cannot lower the minimum below the generic one. Thus the event at threshold r is exactly |s-2S_j|≤n-2r for all j. For |s|≤n-2r of the correct parity, the confinement becomes a killed walk on sites 1,…,h-1 with endpoints a=(h-s)/2, b=(h+s)/2 and h=n-2r+2. Odd image extension at 0 and h satisfies the walk recurrence with zero boundary and the correct initial delta, so the images b+2kh and -b+2kh give binomial indices (n+s)/2+kh and r-1+kh (up to reindexing). The allowed endpoints' first indices span all but the r-1 residue class, while each of the h-1 second image sums subtracts that same class. Dividing the resulting 2^n minus h times the residue sum by 2^n proves the claim. Generic antipodal counts sum to n, giving zero past floor(n/2); r≤0 is certain. At r=1 the remaining binomials are the two extremes, and at r=2, n≥5, they have indices 1 and n-1. No assumption of identical or uniform underlying laws, or of independent order statistics, is used. For planar rows in general position, any two active rows span, so testing the generic active sets suffices for the stated zero-bias application.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The planar Wendel miss probability n/2^(n-1) is exactly the r=1 complement. The Resultary Finding 6fc92189d743 explicitly states it.",
+          "Yuan's k=N-1 covers wider arc lengths for r=2 but uses uniform points. The k=3 threshold at semicircle width is r=N-2, impossible for N≥5. The accessible indices for Siegel–Holst describe onefold coverage at random arc lengths, not the minimum covering multiplicity."
+        ],
+        "reasoning": "Generality in arc length for onefold or twofold coverage does not dominate generality in threshold and in heterogeneous, antipodally symmetric directions. Nothing here assigns novelty to the known threshold-one or uniform threshold-two conclusions.",
+        "searches": [
+          "Yuan arXiv:2604.25360v1 thresholds N-1 and 3",
+          "Wendel 1962 original journal PDF https://www.mscand.dk/article/view/10695/8726",
+          "Web: equal/random-length circle coverage, including Siegel–Holst and related random arcs results"
+        ]
+      },
+      "checked_sources": [
+        "Yuan arXiv:2604.25360v1",
+        "Wendel journal scan attempt; marked Wendel Resultary Finding",
+        "Puthawala et al. JMLR Theorem 2",
+        "Random-arc indexed sources and Stanford technical report landing page",
+        "Resultary catalogue near-hits listed above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known killed-walk kernel concerns fixed barriers and fixed endpoints. Here a and b change with s, with a+b=h; summing over all allowed terminal displacements creates the omitted residue class.",
+          "The ReLU theorem identifies the directed spanning set test for deterministic injectivity, not the probability under heterogeneous sampling."
+        ],
+        "reasoning": "The law is not the range law of one return bridge. Using a standard reflection kernel requires the additional geometric sign/sweep reduction, the anti-diagonal endpoint relation and the endpoint sum; the known deterministic ReLU criterion has no implication for the sign-process distribution. An unlocated classical formula for the corresponding sum or uniform semicircle coverage remains possible.",
+        "searches": [
+          "Resultary: two-barrier walk bridges and range distributions",
+          "Puthawala et al. JMLR Theorem 2",
+          "Frozen RESULT.md reflection and endpoint sum, lines 37–49"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Yuan §1 equates the circular scan complement 1-P_c(k;N,w) with at least N+1-k-fold coverage by arcs of length 1-w. At w=1/2 this is the depth problem under uniform directions with r=N+1-k.",
+          "The same-day catalogue 9c78a268e37b concerns measure depth of symmetric slices, 53ce2ae4db4a counts spacing gaps, and 3105844e04eb treats walk-minimum occupation counts; their inspected statements do not give this depth family."
+        ],
+        "reasoning": "All-semicircle depth and uniform half-circle multiple coverage must be compared as aliases, not separate discoveries. The inspected scan formulas cover particular k; the catalogue near-hits have different statistics. No all-k equivalent was identified in the bounded comparison.",
+        "searches": [
+          "Resultary: all-depth planar halfspace depth, semicircle cover multiplicity and bridge ranges",
+          "Web: random semicircles exact probability circle covered at least k times Siegel Holst semicircle multiple coverage formula all multiplicities binomial",
+          "Yuan arXiv:2604.25360v1, §§1 and 6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The specialization of Yuan Eq. (6.4) gives the exact r=2 formula 1-2N(N-2)/2^N at uniform directions for N≥5.",
+          "The later marked Wendel result states the exact r=1 complement and then treats a conditional clearance law; the parity crossover catalogue record also overlaps center containment rather than all depths."
+        ],
+        "reasoning": "These closed-form lookup matches cover slices (and one contains a different conditional observable); they are not a tabulation/formula for every depth on the frozen domain.",
+        "searches": [
+          "Resultary: exact semicircle depth and multiple-covering probabilities",
+          "Yuan §6 Eq. (6.4) at w=1/2",
+          "Resultary 6fc92189d743 and 0611bf599610"
+        ]
+      },
+      "rationale": "The Wendel first-depth law and Yuan's twofold uniform semicircle law are exact overlaps and are not credited as new. A standard two-barrier reflection kernel is also a proof ingredient, not a new kernel. The checked evidence does not supply the endpoint-summed all-depth identity or its heterogeneous distribution-free consequence; the pass is for that distinct family, not for all associated coverage/ReLU ingredients.",
+      "residual_risks": [
+        "Some classical arc-coverage full texts were not obtained or were not extractable, and a differently indexed multiple-covering or bridge-kernel identity remains possible.",
+        "The Gaussian ReLU preprint mentioned in the record was not compared in full text; no novelty is assigned to the deterministic criterion or to a low-depth uniform specialization.",
+        "Ranked searches and inspected passages are not exhaustive historical-priority evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact uniform r=2 overlap, no all-depth statement in inspected formulae",
+          "evidence": [
+            "1-P_c is at least N+1-k-fold coverage; Eq. (6.4) gives the same twofold probability at w=1/2."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2604.25360v1",
+          "material_read": "Abstract, §1 offsets 1490 and 3163, §6 Eqs. (6.4)–(6.6) near offset 25700",
+          "method": "Lawful OA HTML full-text passages",
+          "title": "Exact Closed-Form Formulae for Linear and Circular Continuous Scan Statistics",
+          "trigger": "Exact candidate prior under the equivalent coverage interpretation"
+        },
+        {
+          "assessment": "Wendel specialization credited; original extract not read",
+          "evidence": [
+            "Frozen RESULT.md and Resultary 6fc92189d743 both identify the exact scalar overlap n/2^(n-1) for the miss event."
+          ],
+          "identifier_or_url": "https://www.mscand.dk/article/view/10695/8726",
+          "material_read": "Cited original journal scan, text extraction unsuccessful; first-depth value checked against the catalogue Finding and exact derivation",
+          "method": "Lawful OA attempt at the journal PDF; no page quotation inferred",
+          "title": "A Problem in Geometric Probability",
+          "trigger": "Exact r=1 special case"
+        },
+        {
+          "assessment": "Deterministic equivalence only at inspected theorem",
+          "evidence": [
+            "Injection holds iff every input has a directed spanning set."
+          ],
+          "identifier_or_url": "https://jmlr.org/papers/volume23/21-0282/21-0282.pdf",
+          "material_read": "Theorem 2 p. 6, offset 18041",
+          "method": "Lawful OA primary PDF text",
+          "title": "Globally Injective ReLU Networks",
+          "trigger": "Dependency and potential probabilistic implication"
+        },
+        {
+          "assessment": "Onefold coverage described by the Siegel–Holst abstract; no claim of whole-text noncoverage",
+          "evidence": [
+            "The indexed exact formula description proceeds by uncovered gaps, and the repository identifies the associated Siegel–Holst technical report."
+          ],
+          "identifier_or_url": "https://purl.stanford.edu/nf403yx1076; https://doi.org/10.2307/3213488; Cambridge PDF identifier 01E1E05850918D5D383333CFBFACB563",
+          "material_read": "Siegel–Holst indexed abstract and Stanford repository metadata; related Cambridge indexed snippet, no readable linked OA full text obtained",
+          "method": "Targeted literature lookup and lawful repository/PDF retrieval attempts",
+          "title": "Covering the Circle with Random Arcs of Random Sizes; Some Results Concerning Random Arcs on the Circle",
+          "trigger": "Plausible earlier coverage formulation of the circular special case"
+        },
+        {
+          "assessment": "Exact r=1 scalar overlap and otherwise different objects/observables",
+          "evidence": [
+            "Center miss probability, conditional clearance, measure-depth of slices, spacing-gap covariance and occupation at the minimum do not state the all-depth family."
+          ],
+          "identifier_or_url": "Resultary 6fc92189d743, 0611bf599610, 9c78a268e37b, 53ce2ae4db4a, 3105844e04eb",
+          "material_read": "Findings and assumptions/scope",
+          "method": "Local catalogue mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Marked Wendel law and same-day depth, circular spacing and random-walk comparisons",
+          "trigger": "Overlaps and plausible same-day aliases"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Halfspace depth is a natural random geometric invariant and all threshold probabilities describe the robustness of center containment rather than one event. The conditional sign sweep and endpoint sum obtain a single binomial-residue formula at every threshold, even under heterogeneous direction laws; this goes beyond using a textbook onefold coverage formula.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

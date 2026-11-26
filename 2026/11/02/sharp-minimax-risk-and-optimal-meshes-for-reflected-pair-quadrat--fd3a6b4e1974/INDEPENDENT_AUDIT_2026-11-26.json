@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:50:30.097988Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof §§1–5; VERIFICATION.md; verify.py inspected, not executed"
+      ],
+      "rationale": "For a cell centered at c, the unordered abscissas are c±T with T uniform on [0,h/2]. If ℓ and u are the endpoint interior slope bounds, φ(T)=(f(c+T)+f(c−T))/2 is nondecreasing and (u−ℓ)/2-Lipschitz. The independent-copy identity Var φ(T)=E[(φ(T)−φ(T′))²]/2 gives h² Var φ(T)≤h⁴(u−ℓ)²/192. The nonnegative cell slope increments sum to at most 2L, even for singular curvature; summing independent variances proves the claimed bound. Equality forces all 2L of the slope increment into one longest cell. Within it, equality in the independent-copy bound makes φ affine with slope L; almost-everywhere differentiation then forces slopes −L and L on the two halves. Convexity extends those slopes to the whole interval, giving exactly the stated midpoint V's, which attain the bound. For the auxiliary hinge kernel, integration over Z in [0,u] gives E[(u−Z)₊(v−Z)₊]=u²v−u³/3 for density 2 on [0,1/2]; subtraction gives (5). Each cell pair is unbiased by uniform marginals. Independent query noise adds precisely ν²∑h_i²/2, with no effect on extremizers; the maximum width alone already forces uniqueness of the equal mesh, which also minimizes the noise term.",
+      "residual_risks": [
+        "The theorem is specific to fixed deterministic meshes and independent cell uniforms. The noise extension assumes fresh independent equal-variance noise for each call."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wu bounds L^p quadrature error by C_p |T|^{(p−2)/(2p)} h^{1/2+σ} times a Sobolev norm on an equally spaced mesh."
+        ],
+        "reasoning": "Even at p=2, σ=1, this generic h^{3/2} norm bound neither supplies the n^{-2} sharp RMS law and equality cases nor optimizes over other meshes.",
+        "searches": [
+          "arXiv:2011.15086v2, §3.2 Theorem 3.2 and Eq. (13)"
+        ]
+      },
+      "checked_sources": [
+        "Wu arXiv:2011.15086v2",
+        "Resultary cc73f18777b4, 32b65899a709 and 2306aa685e20, mirrored findings"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Wu's bound has no equality condition and is stated for one mesh family; the later single cusp evaluates a feasible case, not a class-wide upper bound."
+        ],
+        "reasoning": "Neither a candidate extremizer nor the generic norm bound yields the sharp all-convex upper bound. Once that bound is proved, mesh uniqueness and the independent variance addition are elementary consequences, not separate novelty claims.",
+        "searches": [
+          "arXiv:2011.15086v2, Eq. (4), Theorem 3.2",
+          "Resultary cusp record 32b65899a709, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Wu Eq. (4) is exactly the complementary-uniform design on equal meshes.",
+          "The same-day Resultary Finding uses independent half-cell reflections on an endpoint-interpolation residual, with sharp asymptotic constant 1/11520 times the smooth curvature energy; its assumptions specify smooth inputs and sampling variance."
+        ],
+        "reasoning": "The published estimator has the same sampling mechanism, but a different result. The other reflected estimator changes the residual, integrand class and statistic, and its same-day date is not used to infer priority.",
+        "searches": [
+          "arXiv:2011.15086v2",
+          "Resultary: SCOPE-sharp-two-sample-variance-law-for-local-reflections-in-interpola--cc73f18777b4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The later cusp record gives n² times the error exactly uniform on [−1/4,1/4] for f=|x−1/2| on odd uniform grids, reproducing 1/(48n⁴) in that extremizing instance; even grids align that cusp to a knot.",
+          "The later singularity record gives exact fixed-power variances on equal grids; the same-day reflection record treats a different rule."
+        ],
+        "reasoning": "Credit the exact one-function overlap, not a supremum or uniqueness theorem. No matching full law surfaced in the ranked searches; a search miss is not evidence of absence.",
+        "searches": [
+          "Resultary: SCOPE-a-cusp-phase-limit-law-transition-for-antithetic-randomised-trap--32b65899a709",
+          "Resultary: SCOPE-sharp-singularity-thresholds-and-constants-for-antithetic-strati--2306aa685e20",
+          "Resultary: SCOPE-sharp-two-sample-variance-law-for-local-reflections-in-interpola--cc73f18777b4"
+        ]
+      },
+      "rationale": "The reflected estimator and unbiasedness are established prior art. The supported distinct claim is the exact worst-case law on arbitrary meshes with the complete extremizer classification; mesh and independent-noise conclusions follow from it. This is a bounded best-of-knowledge comparison, not a priority guarantee.",
+      "residual_risks": [
+        "OA retrieval attempts for Owen arXiv:0811.0528, Goldstein–Rinott–Scarsini arXiv:1005.5414 and Goda–Kazashi–Suzuki arXiv:2212.11476 timed out; their detailed statements were not assessed.",
+        "An unlocated exact convex-antithetic variance inequality could change this assessment. Ranked Resultary coverage is not exhaustive."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same reflected design; bound differs in strength, norm, mesh range and equality scope",
+          "evidence": [
+            "Complementary samples use one independent uniform per cell; smoothness bound uses unspecified C_p and h^{1/2+σ}."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2011.15086",
+          "material_read": "v2 §1 Eq. (4); §3.2 Theorem 3.2, Eq. (13), p. 6",
+          "method": "OA full-text passages",
+          "title": "A randomised trapezoidal quadrature",
+          "trigger": "Same estimator and closest cited error theorem"
+        },
+        {
+          "assessment": "Related but different estimator and class",
+          "evidence": [
+            "Half-cell reflection of interpolation residual, C² curvature energy, leading asymptotic constant."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-sharp-two-sample-variance-law-for-local-reflections-in-interpola--cc73f18777b4",
+          "material_read": "RESULT.md Finding and Assumptions, offset 0",
+          "method": "Local Resultary and mirror",
+          "title": "Sharp two-sample variance law for local reflections in interpolation",
+          "trigger": "Closest same-day indexed reflection variance result"
+        },
+        {
+          "assessment": "Later exact uniform-mesh single-function overlap",
+          "evidence": [
+            "For |x−1/2| and odd n, n²E is exactly uniform on [−1/4,1/4]."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-a-cusp-phase-limit-law-transition-for-antithetic-randomised-trap--32b65899a709",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary and mirror",
+          "title": "A cusp-phase limit-law transition for antithetic randomised trapezoidal quadrature",
+          "trigger": "Exact midpoint V law"
+        },
+        {
+          "assessment": "Later fixed-power laws, not a class supremum",
+          "evidence": [
+            "Exact variances and asymptotics for t^β on equal meshes."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-sharp-singularity-thresholds-and-constants-for-antithetic-strati--2306aa685e20",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary and mirror",
+          "title": "Sharp singularity thresholds and constants for antithetic stratification",
+          "trigger": "Exact error constants for antithetic stratification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md (1)–(2) and equality claims; Wu Theorem 3.2"
+      ],
+      "rationale": "The result gives a tight, shift-invariant error budget and a complete failure-mode classification for a standard implementable rule on a natural nonsmooth shape class. In particular arbitrary meshes depend on the longest cell rather than the sum of fourth powers; this changes mesh design and explains why a single cusp is worst. The noise extension makes the exact risk directly usable without claiming optimality over all quadrature algorithms.",
+      "residual_risks": [
+        "Not an information-based complexity bound over adaptive or alternative sampling designs."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Review: Exact joint squareful local densities and sharp multiplicity thresholds
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The root-line argument has two distinct unit projective roots for each nonzero square slope, each contributing \(p-1\) nonzero vectors modulo \(p\). There are \(p^2\) primitive lifts per vector, with \(p\) common allowed lifts for a coherent square slope and zero if two lifts disagree modulo \(p^2\). Thus the exact density formula follows by division by \(p^4-p^2\). The fixed-form-count lower bound on coherent classes and the strict monotonicity of the objective prove the sharp minimum and complete equality classification. The direct modular verifier corroborates 553 configurations. Its finite tests are not an infinite proof.
+PASS
 
-## Originality
+Reduce modulo p²: the conditional sample consists of p⁴−p² equally likely primitive pairs. When y is zero modulo p, x is a unit and every form is a unit. Otherwise, writing z=x/y, a form can be divisible by p only at its two simple unit roots if its slope is a nonzero square modulo p. Each represented square slope thus occupies two separate projective directions of mass 1/(p+1) each. In either direction a matching form allows exactly one of the p residual lifts of z, by the nonzero derivative 2z modulo p. Two such lifts coincide exactly when the slopes agree modulo p², since the congruence is z²=t_i. A coherent fiber keeps 1/p of the mass in its two directions; an incoherent one keeps none. This gives the stated conditional density including s=0, where there are no exclusions. Every incoherent fiber needs a second form, so h≥max(0,2s−k); the bound is realizable for all allowable s≥1 with two distinct unit lifts on the required fibers and repetitions for any excess forms. The objective s−max(0,2s−k)/p is strictly increasing, with slopes 1 and 1−2/p>0, giving s=m and the exact equality criterion, including saturation k≥p−1. Independently enumerated the forbidden residue pairs and all 12031 unordered families of unit slopes modulo p² across (p,k)=(3,1…5),(5,1…4),(7,1…2), including nonsquare slopes and repeated forms. The exact minima, all minimizers and joint counts agreed.
 
-**PASS, subject to the stated risk.** Pohl (arXiv:2610.20316v1, §§1,5,7.2.4) and Shute (arXiv:2104.14946v2, §6) provide one-form squareful local factors rather than a simultaneous condition on shared input vectors. The general multi-form density, its dependence on root collisions modulo \(p^2\), and its sharp fixed-\(k\) spectrum were not found in searches of related mathematical records or inspected primary passages. Blomer's 2005 simultaneous-representation paper studies a different predicate; its full text was not checked. General p-adic sieve literature might implicitly contain the exact formula, which is a residual originality risk.
+## originality
 
-## Value
+PASS
 
-**PASS.** This is a complete, natural family of local Euler-factor inputs for intersections of squarefulness conditions: it quantifies precisely the effect of overlapping quadratic zero divisors. The strict two-stage transition as forms outnumber square slopes gives a sharp universal bound and equality configurations. It supplies a concrete invariant even without proving an asymptotic global census.
+The supported distinction is the all-k shared-input local density and especially its sharp optimization and full equality conditions. The literature covers the single-form valuation constraint and Campana factors; a distinct indexed root-collision result covers the two-form mechanism. Neither inspected statement furnishes the arbitrary-family optimization or its saturation threshold and equality conditions.
 
-## Limitations
+## value
 
-Odd primes and unit-coefficient diagonal binary forms only. No claim is made for all binary forms, the prime two, a global counting theorem, or independent certification. Primary local-factor comparisons address nearby but not identical problems; older implicit equivalent formulations remain possible.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A simultaneous local test on a common primitive input cannot in general use a product of single-form factors, or even reconstruct the answer from the slopes modulo p alone. The exact formula identifies the second residue digit that matters and gives a sharp nonzero floor, the exact family size needed to reach it, and all extremizers. This is useful for bounding local obstructions uniformly with many constraints; the parameter range and the extremal gap are natural, not just selected finite instances. No downstream global conclusion is needed or asserted.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

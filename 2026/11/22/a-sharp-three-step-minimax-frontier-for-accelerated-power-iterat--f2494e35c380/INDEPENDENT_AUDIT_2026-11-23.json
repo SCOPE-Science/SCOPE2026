@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:59:28.533863Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Applied to the complete corrected RESULT.md: p₁=t, p₂=t[t−β(1−t)], and p₃=t²[(1+c)t−c], c=β(β+2), by the stated warm start. The leading coefficient is 1; a diagonal two-level matrix attains the operator norm on the orthogonal component, hence the exact tangent amplification. Up to c₀=q/(1−q), p₃ has its negative minimum at t=2c/[3(1+c)], and the positive endpoint extremum at q. The negative magnitude increases and the endpoint decreases, so the crossing is unique. Beyond the crossing the fixed pre-crossing minimizing spectral point already has strictly larger error. Capping at q(q+2) yields the unique tune; the branch sign F(q) is strictly increasing, negative at the golden-ratio bound and positive at one. The minimax error strictly improves on the value at c=0. For p₃(q)=0, c=c₀; feasibility reduces exactly to q²+q≤1. Its worst error is the negative lobe at 2q/3 and exceeds the equioscillating error. I checked the repaired endpoint/interior distinction exactly: p₁(q)>0 and p₂(q)≥q³, while p₂(β/(1+β))=0 for β>0 with β≤q. At q=β=1/2 the interior and endpoint values are respectively 0 and 1/8. No change is needed to the frozen verify.py or VERIFICATION.md, whose tests can be replayed as documented; I inspected them without executing uploaded code. The scalar calculus proof, not the finite tests, justifies the real-parameter result.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 9/Lemma 10 optimize an asymptotic augmented-matrix spectral rate. Sun et al. consider quasi-optimal parameter choice in a normalized two-sweep method. Classical unrestricted polynomial minimax addresses a larger filter class."
+        ],
+        "reasoning": "Neither a per-step asymptotic root bound nor a different one-parameter formula yields the exactly initialized p₃ error for the chosen closed cap. A general alternation principle can justify balancing opposing lobes, but not the spectral polynomial, the two feasible-q thresholds, or the distinction between minimax and annihilation without the specific calculation.",
+        "searches": [
+          "Tappenden arXiv:2611.13283v1 §3.1.1, Theorem 9 and Lemma 10, Eqs. (36), (39)–(40)",
+          "Sun et al. arXiv:2610.41627v1 §2 Eq. (3)",
+          "Resultary nearby finite-step spectral-projector and minimax kernel records"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and supports; corrected RESULT.md",
+        "Resultary mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4 including f2494e35c380, and searches returning 5ec9ec2f0bb3 and fb273cabcba0",
+        "Tappenden, Xu et al., Sun et al. passages specified above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The power-method source gives the recurrence and uses a range tied to the actual λ₂. The finite-step bound q may be loose. At the finite-step optimum the interval error balances the endpoint and a negative interior lobe (until cap activation), whereas an exact endpoint notch gives zero endpoint error and a strictly larger interior error."
+        ],
+        "reasoning": "Knowing an asymptotic spectral radius and its optimizer neither implies finite-mode cancellation nor determines which interior or endpoint eigenvalue maximizes the initialized third-step error. The claimed capped transition is not a direct specialization of that theorem.",
+        "searches": [
+          "Tappenden Definition 1, Algorithms 1–2, and Theorem 9/Lemma 10"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Tappenden has the same warm-started recurrence; Xu et al. use AW_t−βW_(t−1), not A[(1+β)v_t−βv_(t−1)]. Sun et al. use a different normalized two-sweep recurrence."
+        ],
+        "reasoning": "The already-known recurrence is explicitly credited. A momentum term outside A cannot match the t-dependent coefficient on history across [0,q] by a constant parameter change. The optimization objective and cap are not invariant under replacing the filter with the two-sweep update.",
+        "searches": [
+          "Resultary search for warm-started inside-A constant momentum, finite-horizon interval minimax and spectral notch",
+          "Tappenden arXiv:2611.13283v1, Definition 1, Eq. (14)",
+          "Xu et al. arXiv:1707.02670v1, Appendix B.1 scheme A′"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matching Resultary row f2494e35c380 is the frozen record itself. Distinct same-day results 5ec9ec2f0bb3 and fb273cabcba0 concern exact sparse-node interpolation/projector norms and constrained seven-tap smoothing, respectively."
+        ],
+        "reasoning": "The same identity is not separate prior coverage. Neither distinct record gives this recurrence, filter, or cap/notch thresholds. Their same-day dates are not used to infer priority.",
+        "searches": [
+          "Resultary exact three-step minimax frontier, q-dependent cap and endpoint notch"
+        ]
+      },
+      "rationale": "For the repaired claim, the recurrence itself is prior, but the source comparisons support distinct finite-step interval tuning, its cap threshold, and the contrasting endpoint notch. The corrected endpoint scope stays within the checked spectral interval and tuning objective. The step-two calculation is a scope correction, not a separately claimed novel finding.",
+      "residual_risks": [
+        "No distinct exact prior was established by the bounded comparisons. An unindexed finite-horizon derivation or a weighted minimax result with the same explicit tuning might still exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Recurrence covered; asymptotic optimum does not cover repaired finding",
+          "evidence": "Warm start, common scaling and inside-A momentum; the later optimum concerns asymptotic rate.",
+          "identifier_or_url": "https://arxiv.org/html/2611.13283v1",
+          "material_read": "§2 Definition 1, Eq. (14), §2.2 Algorithms 1–2 (offsets about 7000–15000), §3.1.1 Theorem 9 and Lemma 10, Eqs. (36), (39)–(40) (about 41000)",
+          "method": "Lawful OA full-text passages",
+          "title": "An Accelerated Power Method",
+          "trigger": "Same recurrence and candidate stronger spectral optimization"
+        },
+        {
+          "assessment": "Different momentum placement",
+          "evidence": "The matrix product AW_t is followed by subtraction of βW_(t−1).",
+          "identifier_or_url": "https://arxiv.org/html/1707.02670v1",
+          "material_read": "Appendix B.1 scheme A′, offset about 61500",
+          "method": "Lawful OA full-text passage",
+          "title": "Accelerated Stochastic Power Iteration",
+          "trigger": "Related momentum power recurrence and polynomial theory"
+        },
+        {
+          "assessment": "Different normalization and objective",
+          "evidence": "y_(k+1)=β_(k−1)x_(k−1)+Ax_k, with quasi-optimal GPR parameter selection.",
+          "identifier_or_url": "https://arxiv.org/html/2610.41627v1",
+          "material_read": "§2 Eq. (3), offset about 3500",
+          "method": "Lawful OA full-text passage",
+          "title": "A Gaussian Process Regression-Enhanced Two-Sweep Parameterized Power Method for Computing Extreme Eigenpairs",
+          "trigger": "Related finite-stage parameter selection"
+        },
+        {
+          "assessment": "Same frozen identity, not independent prior coverage",
+          "evidence": "Matches the cubic, cap, exact transition and notch finding of the record being reviewed.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-three-step-minimax-frontier-for-accelerated-power-iterat--f2494e35c380",
+          "material_read": "RESULT.md offsets 0 and 3400; frozen Finding, assumptions and proof",
+          "method": "Frozen package and Resultary mirror",
+          "title": "A sharp three-step minimax frontier for accelerated power iteration",
+          "trigger": "Exact indexed match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For the repaired claim, exact finite-budget tuning under a known spectral bound is a different problem from tuning the asymptotic method. The result identifies when the closed momentum cap actually binds and shows that removing the endpoint exactly can be feasible yet strictly worse in the robust interval objective. The distinguished horizon is the first at which endpoint annihilation can occur under the cap, not an arbitrary iteration chosen after a computation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

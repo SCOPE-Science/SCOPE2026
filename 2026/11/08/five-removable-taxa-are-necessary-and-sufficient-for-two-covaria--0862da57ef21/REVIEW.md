@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim concerns two strict covariance-sign changes with fixed-cardinality random surviving sets, a well-defined probability law. The lower bound rests on the exhaustive enumeration of all 168 increasing Boolean functions on four variables (including constants), hence 28,224 ordered pairs; the 32 Boolean-cube cover inequalities certify that no increasing truth table is omitted. The witness is a separately specified rooted acyclic graph. Graph reachability and an explicit pair of Boolean formulas agree on all 32 survivor sets, and integer joint counts give exact covariances \(-1/25,+1/20,-1/100\). The bundled checker was executed successfully and its 168 functions were independently reconstructed from all antichains of input subsets. The finite calculation is exhaustive for four variables; no inference from a sampled larger domain is used.
+PASS
 
-## Originality — PASS within available evidence
+Root reachability is increasing in the survivor set. The endpoint slices are deterministic, so n≤3 cannot have three nonzero signs. At n=4 only k=1,2,3 matter. An independent enumeration (/workspace/checks/3.py) fixes the true singletons and true triples; it requires all pairs containing a true singleton, forbids any pair contained in a false triple, and ranges freely over the remaining pairs. These are all the interior monotonicity constraints, and the extreme levels can be extended monotonically. This gives 166 distinct interior profiles (the constants duplicate two profiles) and 27,556 profile pairs, with no alternating triple of exact covariance numerators. Independently traversing the witness DAG on every survivor subset yields marginal counts (0,1,5,9,5,1) for each focal taxon and joint counts (0,0,3,8,5,1). Dividing each N_k j_k−a_k b_k by N_k² gives (0,−1/25,1/20,−1/100,0,0). Thus the witness attains the threshold, counting five removable taxa, not the external root or the two focal taxa. The finite proof covers the stated cutoff, not all possible sign patterns at larger n.
 
-The closest full-text biological models are Allesina–Bodini (2004), centered on single-node dominators, and Allesina–Pascual (2009), centered on removal rankings and total extinction area. Neither inspected article states a five-vulnerable-taxon threshold for two changes of joint-survival covariance, nor a consequence that implies the all-pairs finite Boolean cutoff. Earlier direct bipartite partner-survival results concern OR-of-singleton resource requirements and are not strong enough to cover the conjunctions of intermediary taxa here. Searches for fixed-cardinality covariance, Boolean slice dependence, coextinction, and food-web path reachability found no directly dominating claim. Relevant but not fully inspected sources include the 2009 “Functional links and robustness in food webs” article and broader reliability theory. No claim of definitive worldwide novelty is made.
+## originality
 
-## Value — PASS
+PASS
 
-Randomly removing a fixed number of species is a natural controlled food-web robustness experiment, and joint survival—not merely mean extinction area—measures dependence between protected consumers. The result identifies a sharp and tiny structural boundary: two dependence-sign reversals are impossible with four vulnerable species even for arbitrary increasing survival rules, yet occur in a compact ecological reachability graph with five. It shows precisely why a direct-partner one-switch intuition need not survive indirect nutrient pathways. The value is the structural boundary and explicit controlled counterexample, not an assertion of ecological realism.
+The strongest indexed comparisons have the same conditional covariance but restrict each focal persistence function to the OR of its direct partners and establish a one-switch law. The multi-step witness and the sharp obstruction for pairs of arbitrary increasing functions on the small slices are not covered by those results or by the inspected primary literature.
 
-## Limits and closest literature
+## value
 
-The model is topological; real predator–prey dynamics and reconfiguration are excluded. The statement concerns a fixed-size uniform survivor set and two focal consumers excluded from primary removals. The four-variable obstruction is a full finite certificate, not an infinite theorem. References and publicly accessible texts are listed in `RESULT.md`. Historical priority remains provisional pending additional reliability-literature inspection.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+It marks the first size at which a second reversal is possible and exhibits the failure of the direct-partner one-switch intuition in a small reachability model. The proof rules out two reversals below that size even without the graph restriction. This is a useful exact boundary for fixed-size conditioning, not evidence for ecological frequencies or population dynamics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

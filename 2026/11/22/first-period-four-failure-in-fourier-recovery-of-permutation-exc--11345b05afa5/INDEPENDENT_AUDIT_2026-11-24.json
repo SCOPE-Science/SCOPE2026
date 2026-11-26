@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:57:13.853423Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, ZEROS_N19.txt, and verify.cpp (read, not executed)",
+        "Ehrenborg–Steingrímsson Prop. 2.1 and Lemmas 2.2–2.3"
+      ],
+      "rationale": "The real Walsh basis diagonalizes unnormalized XOR convolution with signs (−1)^|S∩E|. Expanding one factor 1−2·1_{π(i)>i} per selected row groups constraints by a nonattacking partial assignment, with (n−j)! completions for j assigned rows. On processing selected rows in descending order, each previously used column is also allowed in the new row, leaving exactly n−i−(j−1) choices when inserting its j-th rook. This proves the integer algorithm. The frozen second method uses the classical excedance-word recurrence and boundary deletions (checked against the cited original), then an unnormalized Walsh transform. An independent exact replay of the rook formula exhausts all 524287 order/mask pairs and matches direct permutation enumeration at n≤8. It reproduces the full nullity table, including zero nullity at 3,7,11,15. Every one of the 24 zero masks at 19 matches the certificate; bit reversal gives 12 two-element orbits. The inertia is (131048,131072,24) and the smallest nonzero magnitude is 3403284480. By the triangle bound, attained at the empty mask, the largest magnitude is 19!, so the quotient is exactly 41247931725/1154. The dimension used in the calculation is 2^(n−1); the uploaded program's printed dimension label uses n−1, the bit length, but its loop bounds, rank expression and the stated theorem use the correct dimension.",
+      "replay_paths": [
+        "/workspace/branches/d9134c70-fb50-4822-b3ea-c698cf4621c9/independent_rook_check.py",
+        "/workspace/branches/d9134c70-fb50-4822-b3ea-c698cf4621c9/independent_rook_check.out"
+      ],
+      "residual_risks": [
+        "No all-later-orders conclusion follows. The sharp inverse condition number is for the recoverable subspace, not a full inverse."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2000 paper gives exact word counts, boundary recursions, duality, and all-word inclusion–exclusion; this is broader coverage of the input counts. It also treats special extremal and alternating words.",
+          "The extremal-word papers give generating or asymptotic results for specified words, not vanishing across all signed frequencies."
+        ],
+        "reasoning": "These sources provide ingredients or exact inputs, not stronger rank or signed-spectrum theorems imposing the claimed cutoff.",
+        "searches": [
+          "Ehrenborg–Steingrímsson Prop. 2.1, Lemmas 2.2–2.3, §§6–7",
+          "arXiv:1403.0691 Theorems 1.2–1.3; Clark–Ehrenborg DOI 10.1016/j.ejc.2008.11.014"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1006/aama.1999.0671",
+        "DOI:10.1016/j.ejc.2008.11.014 (abstract and indirect theorem comparison)",
+        "arXiv:1403.0691",
+        "SCOPE-20261122-241a4544ed1f",
+        "SCOPE-20261122-91622a387bdc",
+        "SCOPE-20261108-69d359ed8a05"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "One can apply a signed Walsh transform to the known individual word counts, but the sources supply no all-frequency cancellation census. Complement reversal gives no automatic odd-weight fixed mask at these odd orders (the position count is even). The descent Fibonacci rank law applies on a different pattern distribution."
+        ],
+        "reasoning": "The finite first failure is not a change of variables in a known rank theorem, nor one direct substitution in an exact known signed-frequency table. Establishing completeness requires the exhaustive signed computation and its proof.",
+        "searches": [
+          "Ehrenborg–Steingrímsson §6 and Lemma 2.2; local descent-rank and peak-position Fourier records"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Word distributions encode exact excedances up to the terminal inactive coordinate. Complement-reversal duality yields Λ(S)=(−1)^|S|Λ(rev S), not the cutoff.",
+          "The nearest distinct Fourier rank records use adjacent descents (SCOPE-20261122-241a4544ed1f) or interior peak positions (SCOPE-20261122-91622a387bdc)."
+        ],
+        "reasoning": "The same sign convention or group convolution does not identify the pattern functions. Subset-signed counts and convolution rank are equivalent reformulations of this task; neither is established by a different statistic's rank.",
+        "searches": [
+          "Resultary: Walsh spectra and weighted Fourier/XOR recovery of permutation patterns",
+          "Ehrenborg–Steingrímsson DOI 10.1006/aama.1999.0671 §§2, 6–7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact catalogue match SCOPE-20261122-11345b05afa5 is the frozen record itself. SCOPE-20261108-69d359ed8a05 concerns permutation matrices in 25 binary coordinates, not 18 excedance positions. SCOPE-20261122-241a4544ed1f gives an exact Fibonacci rank law for descent patterns, not a matching spectrum."
+        ],
+        "reasoning": "Checked the actual spectrum domains and distinguishing statistics. No inspected exact result has the same pattern function and cutoff/zero set. Same-day records were compared on their mathematics, not excluded by date.",
+        "searches": [
+          "Resultary: exact binary permutation Fourier spectra, excedance, descent and peak position nullities",
+          "Ehrenborg–Steingrímsson §6 all-word enumeration and special evaluations"
+        ]
+      },
+      "rationale": "The supported distinct claim is the first failed order in the specified residue class, with complete blind-space and conditioning data at that order. The underlying excedance counts, recurrences, complement-reversal duality and classical rook/inclusion–exclusion enumeration are not originality claims.",
+      "residual_risks": [
+        "The full 2010 paper could not be checked. Unindexed signed-enumerator tables or specializations may exist; bounded searches do not establish absolute priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantial enumeration overlap, not the cutoff or all-frequency vanishing theorem",
+          "evidence": "Word recurrence, complement reversal, inclusion–exclusion per word, Stirling specialization for [b^k a^m], and alternating-word Genocchi connection",
+          "identifier_or_url": "https://www.ms.uky.edu/~jrge/papers/Excedance.pdf",
+          "material_read": "Prop. 2.1 (OA offset 6299); Lemmas 2.2–2.3 (7900–8532); §6 pp. 295–297 (28100, 32900); §7 context",
+          "method": "Author-hosted OA primary PDF",
+          "title": "The Excedance Set of a Permutation",
+          "trigger": "Same statistic, exact enumeration and potential signed specializations"
+        },
+        {
+          "assessment": "Evidence of an extremal enumeration overlap; additional specializations unassessed",
+          "evidence": "Citing passage gives a bivariate generating function for extremal words",
+          "identifier_or_url": "https://doi.org/10.1016/j.ejc.2008.11.014",
+          "material_read": "Landing abstract only; Theorem 3.1 described in arXiv:1403.0691 at OA offset 25514",
+          "method": "OA DOI lookup and primary citing paper; full 2010 text not available",
+          "title": "Explicit Expressions for the Extremal Excedance Set Statistics",
+          "trigger": "Potential exact extremal-word/rook specializations"
+        },
+        {
+          "assessment": "Different asymptotic question",
+          "evidence": "Results are for [b^r a^s], not all signed multipliers",
+          "identifier_or_url": "https://arxiv.org/abs/1403.0691",
+          "material_read": "Abstract/introduction and Theorems 1.2–1.3 (OA offsets 0, 6615, 9020)",
+          "method": "Primary OA full-text passages",
+          "title": "Asymptotics of the Extremal Excedance Set Statistic",
+          "trigger": "Same excedance statistic and known exact word machinery"
+        },
+        {
+          "assessment": "Same type of convolution, distinct statistic and theorem",
+          "evidence": "Adjacent descent bits π_i>π_(i+1), with a Fibonacci rank law, rather than position-wise comparison with i",
+          "identifier_or_url": "SCOPE-20261122-241a4544ed1f",
+          "material_read": "Local-mirror Finding, offset 0",
+          "method": "Resultary search and mirrored RESULT.md",
+          "title": "Fibonacci Fourier rank of permutation descent patterns",
+          "trigger": "Strongest close analogue for convolution and Fourier rank"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and exact census",
+        "Ehrenborg–Steingrímsson complement-reversal relation"
+      ],
+      "rationale": "An invertible multiplicity-weighted pattern convolution permits recovery of every input on the cube. Odd orders avoid the elementary forced reversal-fixed odd-frequency zero present at even orders, and the initial successful residue-class orders are not enough to guarantee subsequent recovery. The first exact failure at 19 and its complete blind modes tell precisely which signals are unrecoverable there, and the nonzero gap quantifies worst-case stability on the remaining modes. This is a motivated cutoff, not a single arbitrary order or frequency.",
+      "residual_risks": [
+        "No infinite singularity pattern or conditioning estimates for later orders are claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

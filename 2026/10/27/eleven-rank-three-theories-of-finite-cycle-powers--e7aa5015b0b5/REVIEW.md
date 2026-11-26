@@ -1,19 +1,21 @@
-# Scientific review: eleven rank-three theories of finite cycle powers
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The three-round Ehrenfeucht–Fraïssé type reduction is exact: for a vertex-transitive graph, compare the sets of two-point rank-one types anchored at any vertex, including equality configurations. The overlap of closed circular \(k\)-balls has the explicit integer formula \(t(d)=\max(0,2k+1-d)+\max(0,d-(n-2k-1))\). Subtraction of chosen endpoints gives the four possible adjacency extension patterns. Exact sign inequalities split \(k=1\) into five regimes and \(k\ge2\) into the six remaining regimes, with eleven distinct type signatures. A standalone direct atomic-diagram oracle checks all 55 pairs of canonical representatives and 13 additional instances, and numerical formulas are checked across 34,268 parameter choices. The proof, rather than the sampled computations, covers every admissible parameter pair. There is no claim about higher ranks or arbitrary circulants.
+PASS
 
-## Originality — PASS, residual literature risk
+Quantifier-rank recursion uses the SET of atomic third-vertex extensions of each ordered pair, then the set of these pair types at a chosen first vertex, then the realized first-vertex types. Vertex transitivity makes the last set a singleton. Equality cases are forced by the pair's atomic data, and the reflection interchanging the endpoints makes the two mixed extensions occur together. With L=2k+1, s=n−L, d≤floor(n/2), the two arcs give t=(L−d)_++(d−s)_+. For d<L this is L−min(d,s): the mixed count is min(d,s) for adjacent pairs and min(d,s)−1 otherwise; the neither count is s−min(d,s), and the common count is t−2 on adjacent pairs and t otherwise. For k≥2 adjacent pairs always have a common neighbor. Nonadjacent pairs with d<L have a common neighbor, and their mixed and neither counts change at s=1 and d=s respectively. When d≥L the bound d≤n/2 forces s≥d, giving t=0, mixed count L−1, and neither count s−L. These give all boundaries: s=0,1,2…k,k+1,k+2…2k,L,≥L+1, and direct substitution at k=1 gives the five ordinary-cycle rows. The resulting signatures are all distinct and minimizing n in each exact regime gives the listed representatives, with 11 first attained in class K. Independent bounded replay `python3 /workspace/audit-work/finite_checks.py` constructs pattern sets directly for 3≤n≤39 and gives the eleven expected minima. The infinite result relies on the symbolic inequalities, not the replay.
 
-Brown and Hoshino (2007), examined in the full original paper, settle the \(k=1\) ordinary-cycle subfamily; this is credited as prior art, not a novel component. Lin and collaborators (online 2010) prove structural/recognition properties of powers of cycles, but their theorem does not involve Ehrenfeucht–Fraïssé equivalence. The present result genuinely classifies \(k\ge2\) powers, detects collisions among different exponents, and identifies a sharp eleven-vertex representative. Semantic searches for cycle powers, bounded-rank logic, and equivalent three-move game forms disclosed no dominating claim. Existing work on individualized counting colour refinement examines a different pointed counting procedure and does not logically imply the unpointed pure first-order classification. Equivalent material might exist in unindexed work, and negative index searches alone would not establish novelty.
+## originality
 
-## Value — PASS
+PASS
 
-A complete exact invariant for a natural infinite, two-parameter graph family is useful in finite model theory: it identifies precisely which geometric cycle and adjacency-range parameters can be detected in three moves. The eleven mutually distinct regimes, cross-exponent equivalences and sharp family-internal cutoff of eleven vertices supply a finite test set for every rank-three sentence on cycle powers. This is not a renamed or one-off finite calculation; it is a theorem with uniform scope over both unbounded parameters.
+The already covered ordinary-cycle portion and the standard type recursion are not credited as new. The complete unrooted two-parameter classification for cycle powers and the sharp representative order are supported as distinct from the strongest inspected results, to the best of current evidence.
 
-## Primary comparisons and limitations
+## value
 
-J. I. Brown and R. Hoshino, “The Ehrenfeucht–Fraïssé Game for Paths and Cycles,” *Ars Combinatoria* 83 (2007), 193–212. Theorem 4.9 handles ordinary cycles, not their higher powers. M. C. Lin, D. Rautenbach, F. J. Soulignac and J. L. Szwarcfiter, “Powers of cycles, powers of paths, and distance graphs,” *Discrete Applied Mathematics* 159 (2011), 621–627 (online April 2010). Their characterization covers graph structure and recognition rather than rank-three logical equivalence. The full extent of inaccessible or unindexed historical literature is a residual risk; no independent audit is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This computes a natural logical invariant uniformly over two unbounded parameters, isolates the boundary and mixed-extension effects that cause class changes, and proves sharp representative order within the family. The complete exact classification can be used in place of separate three-round comparisons and is not just a bounded table of trial graphs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

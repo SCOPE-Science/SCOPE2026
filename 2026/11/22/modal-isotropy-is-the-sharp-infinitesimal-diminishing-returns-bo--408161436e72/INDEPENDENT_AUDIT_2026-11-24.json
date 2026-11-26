@@ -1,0 +1,97 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:20:19.166309Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Let H(X)=ΛX+XΛ, M=t uu^T+s vv^T and P0=(2Λ)^(-1). The Riccati equation becomes P=P0-H^(-1)(PMP), with invertible differential at zero; the real analytic branch is positive definite and stabilizing by continuity. For the full nonnegative quadrant strict stability of the open loop gives stabilizability, and Q=I gives detectability. With Z=H^(-1)(P0MP0), expansion gives P=P0-Z+H^(-1)(ZMP0+P0MZ)+O((|t|+|s|)^3). Taking the mixed trace gives sum_{ij} (u_i v_i)(u_j v_j)/(4 λ_i^3 λ_j(λ_i+λ_j)); symmetrizing gives K. Analyticity and axis cancellation supply the sharper O(ts(t+s)) remainder with positive mixed-trace sign in Δ. All w are products u_i v_i. Equal rates give rank-one PSD K; for unequal a,b the principal determinant numerator on denominator 64a^6 b^6(a+b)^2 is ab(a+b)^2-(a²+b²)^2=-(a-b)^2(a²+ab+b²). The 1,2 example has K11=1/8, K12=5/192, K22=1/256; w=(1,-4) gives -1/48. Strict complementarity follows for small t=s>0; n=1 and zero directions are included. Inspected checker.py and its recorded 2,043 exact assertions, not executed; the all-parameter conclusion follows from the expansion and determinant, not the rational grid. This is a zero-strength result, not global submodularity.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Azmi–Wachsmuth give exact support comparisons plus first-order expansion and topological derivative; Watanabe full text was not retrieved."
+        ],
+        "reasoning": "The general support calculus may lead to intermediate sensitivity identities but the located statements do not resolve the zero-strength mixed sign for all two-channel directions.",
+        "searches": [
+          "arXiv:2611.12553 §§3.3–3.5 and §4.1",
+          "DOI:10.3390/act15050234"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.12553",
+        "arXiv:1404.7665 (related paper, not represented as the inaccessible original conference PDF)",
+        "DOI:10.3390/act15050234 (landing/abstract only)",
+        "Resultary assigned-record match 408161436e72"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The support comparison follows one reference trajectory, and its cited derivative is first-order; Gramian submodularity concerns a different metric."
+        ],
+        "reasoning": "Neither inspected statement supplies the two unequal rates' negative principal minor or the converse all-equal rank-one criterion by a stated specialization.",
+        "searches": [
+          "Azmi–Wachsmuth Prop. 3.4 and §§3.4–3.5",
+          "Summers–Cortesi–Lygeros arXiv:1404.7665 §§II–III locator"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gramian is linear in BB^T and defined by an open-loop integral; here P solves a nonlinear algebraic Riccati equation with state and input charges."
+        ],
+        "reasoning": "The word energy and actuator setting do not identify the two objectives or their modularity criteria.",
+        "searches": [
+          "Resultary: stable diagonal Riccati mixed actuator Hessian / weak actuator complementarity",
+          "arXiv:1404.7665 §II B"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact hit 408161436e72 is the assigned record; nearby catalogue hits concern discrete-time or controllability-Gramian criteria."
+        ],
+        "reasoning": "No distinct exact catalogue match for the kernel and its iff was identified; the self-hit is not antecedent evidence.",
+        "searches": [
+          "Resultary focused Riccati kernel, modal isotropy, and two-mode exact counterexample searches"
+        ]
+      },
+      "rationale": "Known first-order Riccati support sensitivity and Gramian set-function results do not supply the sharp mixed-sign classification in the sources inspected. Novelty is the all-direction iff and strict two-mode obstruction, not existence of Riccati derivatives.",
+      "residual_risks": [
+        "Watanabe full article and the exact cited early conference PDF were not read. An unlocated second-variation or operator-monotonicity statement may cover part of the classification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Close broader framework; scoped statements do not establish iff",
+          "evidence": "Exact value comparison, first-order expansion, and topological derivative.",
+          "identifier_or_url": "https://arxiv.org/pdf/2611.12553",
+          "material_read": "§3.3 Prop. 3.4 pp. 10–12; §§3.4–3.5 pp. 13–15; §4.1 pp. 17–18",
+          "method": "Bounded primary PDF passages at OA offsets 37800, 47000, 60000",
+          "title": "Optimal Actuator Support Design for Infinite-Horizon Linear-Quadratic Parabolic Control Problems",
+          "trigger": "Riccati sensitivity under changed actuator support"
+        },
+        {
+          "assessment": "Related distinct metric, not evidence about LQR Hessians",
+          "evidence": "Equation (2) defines the open-loop controllability Gramian; stated submodularity scope is scalar functions of that Gramian.",
+          "identifier_or_url": "https://arxiv.org/pdf/1404.7665",
+          "material_read": "Page 3, §II B at extraction offset 11800 and page 2 scope",
+          "method": "Read bounded OA paper passages",
+          "title": "On Submodularity and Controllability in Complex Dynamical Networks",
+          "trigger": "Lawful primary paper by the same author group covering energy-related Gramian submodularity, after the cited 2014 PDF redirected"
+        },
+        {
+          "assessment": "Full-text comparison unresolved, not negative evidence",
+          "evidence": "Abstract/landing material alone does not decide whether broader results apply.",
+          "identifier_or_url": "https://doi.org/10.3390/act15050234",
+          "material_read": "Landing/abstract only; PDF and full article not obtained",
+          "method": "Lawful OA attempts via article and PDF",
+          "title": "Actuator Selection Based on a Reduced-Order Model Using Balanced Proper Orthogonal Decomposition with Input-Output Projection",
+          "trigger": "Riccati actuator selection, possible stronger finite-strength statement"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result identifies exactly when every pair of weak channels has nonnegative leading defect and supplies an exact, minimal two-state complementarity witness despite open-loop stability. This distinguishes a genuine design boundary from a single counterexample, without implying a guarantee for finite-strength greedy selection.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

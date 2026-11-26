@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:08:06.317033Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 4–79",
+        "VERIFICATION.md and verify.py (inspected, not executed)",
+        "Independent replay: python3 /workspace/branches/rank_and_word_replay.py (record 1 output)"
+      ],
+      "rationale": "Here N=g−I has N³=0 and its square has only block XY. Conjugation moves only Z, by the image of the map (X′,Y′) ↦ XY′−X′Y up to an immaterial sign. The two summand images have dimensions cr and as and intersect in the rs-dimensional maps from the c-space modulo ker Y into im X. Thus t=cr+as−rs. To count a rank-s image U of Y for fixed X, choose U∩ker X of dimension s−k and its k-dimensional projection modulo ker X; after choosing a splitting the possible lifts are the graphs into ker X/(U∩ker X). This gives exactly the stated Gaussian factors, bounds and power of q. Each image has S_q(c,s) surjective lifts, and Z is free. Both invariants are conjugacy invariant, validating division by q^t. In the limit t≤ac since ac−t=(a−r)(c−s), and conditional on full row rank of X, t=ac and XY is exactly uniform. The complement's probability bounds total variation. In characteristic two the square determines whether the order is four because N³=0. Independent enumeration of actual distinct conjugation displacements, not ranks of commutator matrices, agreed with every joint cell in three small prime-field cases; in the stated q=2 example the t=4 cells were 192, 1728 and 576.",
+      "residual_risks": [
+        "The independent small census is over prime fields only. The proof uses finite-field vector spaces and has no prime-field restriction."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hennecart–Perry construct a zero product of concatenated maps equivalent to commutation and count all commuting pairs.",
+          "Goodwin–Röhrle count total classes polynomially for flags of length ≤5. Diaconis–Malliaris give the center and noncentral cosets in the one-dimensional-end Heisenberg case. Mozgovoy relates unipotent class counts to commuting pairs via Burnside."
+        ],
+        "reasoning": "Neither the broader class-number result nor the joint sampling of commuting pairs gives an individual square rank conditional on class exponent. A product rank marginal by itself would also lack the conditional dependence on both adjacent ranks.",
+        "searches": [
+          "Hennecart–Perry arXiv:2208.07738v1 Prop. 4.1; Goodwin–Röhrle arXiv:0901.0667 Thm. 1.2; Diaconis–Malliaris arXiv:2107.02923v2 §1; Mozgovoy arXiv:1901.00690v2 §1",
+          "Literature lookup for finite-field rectangular product rank and three-block conjugacy"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 07228f5d7751, 4e8675529e36, d1f94ed041a2",
+        "Hennecart–Perry Prop. 4.1, Goodwin–Röhrle Thm. 1.2, Diaconis–Malliaris §1, Mozgovoy §1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The zero-square proof chooses an s-subspace wholly inside the (b−r)-dimensional kernel. For k>0 one instead counts both the projected k-space and the lift of its graph; neither is a choice in the prior containment count.",
+          "A joint limit for a uniform element at fixed end sizes is not a limit for a uniformly chosen commuting pair with varying end sizes."
+        ],
+        "reasoning": "The extension uses standard subspace methods but adds an incidence count across the missing domain before grouping by t. No inspected statement with both the necessary individual-rank conditioning and this joint class statistic was shown to dominate it. The rank law on the full-row-rank event is an elementary consequence, not a separate priority claim.",
+        "searches": [
+          "Compare Resultary 07228f5d7751 proof §§2–3 and Hennecart–Perry Prop. 4.1 to the joint incidence formula"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 07228f5d7751 gives class-size frequencies at g²=1 in even characteristic with the same class exponent d(r,s)=as+cr−rs.",
+          "Resultary d1f94ed041a2 counts square-zero N by rank N, not by class size and rank of N²; 4e8675529e36 studies commuting-pair statistics on (2m,m,2m), not a uniform individual element with fixed ends."
+        ],
+        "reasoning": "In characteristic two g²=1 is exactly XY=0, so the first overlap is actual equivalent coverage of that slice. Neither this slice nor the square-zero rank census includes positive product rank. The commuting-pair model changes both the sampling and the growth regime.",
+        "searches": [
+          "Resultary exact title, square rank by conjugacy-class size, class exponent and rank XY, three-block commuting pairs and finite-field product rank"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "07228f5d7751 tabulates the exact zero-product slice by ranks using Y with im Y⊆ker X. 4e8675529e36 instead gives a commuting-pair theta law, not a finite multivariable table for this population."
+        ],
+        "reasoning": "The located exact slice and distinct populations cannot be summed or reindexed to obtain the missing nonzero-square-rank cells. The same-date theta record was compared on hypotheses, not discarded by date.",
+        "searches": [
+          "Resultary joint class and square-rank formula lookup; inspect 07228f5d7751, d1f94ed041a2 and 4e8675529e36"
+        ]
+      },
+      "rationale": "Credit the positive-square-rank refinement of the one-element class-size census for general blocks and the corresponding fixed-end joint law, not the already covered even-characteristic zero-square slice, the class exponent on that slice, or total class counts. The closest prior zero-product incidence imposes containment in the kernel and hence does not account for noncontained images, which are needed in each positive-k bin. The bounded primary-source comparison did not establish an exact dominating all-rank joint census.",
+      "residual_risks": [
+        "The literature on exact ranks of products of independent rectangular finite-field matrices may contain further equivalent conditional incidence formulas. The comparison does not certify exhaustive priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact k=0 coverage in even characteristic, not the whole joint census",
+          "evidence": "Uses d(r,s)=as+cr−rs and counts Y into ker X.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-square-one-conjugacy-class-spectra-in-three-block-unipotent-radi--07228f5d7751/RESULT.md",
+          "material_read": "Finding and proof §§1–3, including exact rank-pair multiplicities near offset 3600",
+          "method": "Local mirror statement and proof comparison",
+          "title": "Square-one conjugacy-class spectra in three-block unipotent radicals over even fields",
+          "trigger": "Closest prior exact coefficient formula"
+        },
+        {
+          "assessment": "Different sampling and growth regime",
+          "evidence": "Uniform commuting pairs on (2m,m,2m), not uniform elements at fixed a,c.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-a-theta-law-and-its-first-correction-for-three-block-unipotent-c--4e8675529e36/RESULT.md",
+          "material_read": "Finding and assumptions at offset 0",
+          "method": "Local mirror comparison",
+          "title": "A theta law and its first correction for three-block unipotent commutativity",
+          "trigger": "Same group family and a rank limit"
+        },
+        {
+          "assessment": "Different statistic on zero-square domain",
+          "evidence": "Counts rank N given N²=0.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-rank-spectra-of-square-zero-elements-in-three-block-parabolic-ra--d1f94ed041a2/RESULT.md",
+          "material_read": "Finding and proof §§1–2",
+          "method": "Local mirror comparison",
+          "title": "Rank spectra of square-zero elements in three-block parabolic radicals",
+          "trigger": "Potential alternative rank formulation"
+        },
+        {
+          "assessment": "Prior total commutation count, not the joint individual count",
+          "evidence": "AC′−A′C=0 becomes a zero-product condition on concatenated maps; central blocks contribute q^(2ℓm).",
+          "identifier_or_url": "https://arxiv.org/pdf/2208.07738v1",
+          "material_read": "Prop. 4.1, pp. 14–15, offsets 60000–64991",
+          "method": "OA primary passage comparison",
+          "title": "A Quiver Analogue of Higman's Conjecture",
+          "trigger": "Prior exact count in three-level radicals"
+        },
+        {
+          "assessment": "Total class polynomiality only for the compared theorem",
+          "evidence": "Counts k(U) for flag length ≤5 without the two invariant weights.",
+          "identifier_or_url": "https://arxiv.org/pdf/0901.0667",
+          "material_read": "Thm. 1.2, p. 1, offset 2588",
+          "method": "OA primary passage comparison",
+          "title": "Counting conjugacy classes in the unipotent radical of parabolic subgroups of GL_n(q)",
+          "trigger": "Potential broader conjugacy count"
+        },
+        {
+          "assessment": "Established special case structure",
+          "evidence": "Commutes iff xy′−yx′=0, with classes central singletons and noncentral central cosets.",
+          "identifier_or_url": "https://arxiv.org/pdf/2107.02923v2",
+          "material_read": "§1 p. 2, offsets 4685 and 5645",
+          "method": "OA primary passage comparison",
+          "title": "Complexity and randomness in the Heisenberg groups (and beyond)",
+          "trigger": "Prior Heisenberg case"
+        },
+        {
+          "assessment": "Unrefined framework",
+          "evidence": "Relates unipotent total class counts to commuting-pair counts.",
+          "identifier_or_url": "https://arxiv.org/pdf/1901.00690v2",
+          "material_read": "§1 pp. 1–2, offsets 0–5921",
+          "method": "OA primary passage comparison",
+          "title": "Commuting matrices and volumes of linear stacks",
+          "trigger": "Possible general counting implication"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 10–40, 66–76",
+        "Resultary 07228f5d7751 zero-square census"
+      ],
+      "rationale": "The class size controls orbit counting, and the square rank is a natural nilpotent invariant that distinguishes order at most two from order four in even characteristic. The exact refinement for arbitrary block sizes captures new positive-rank information within a single class-size stratum, rather than merely reprinting a total or the known zero-square slice. It gives both element and class counts for these invariants and quantifies the persistence of distinct square ranks as the class size concentrates.",
+      "residual_risks": [
+        "This is not a classification of individual classes or an assertion about parabolic conjugacy or longer flags."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

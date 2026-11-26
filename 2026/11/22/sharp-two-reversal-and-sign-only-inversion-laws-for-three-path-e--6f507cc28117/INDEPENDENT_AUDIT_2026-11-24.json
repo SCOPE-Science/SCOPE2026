@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:47:42.712858Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the corrected final claim in repairs/3/RESULT.md and SLOGAN.txt. The frozen assertion that the position-only inverse becomes ill-conditioned merely because D goes to zero is false for calibrated gaps and position perturbations; the unstructured matrix norm statement in the frozen proof is true, but concerns different perturbations. Set m=(Q₊+Q₋)/2 and d=(Q₊−Q₋)/2. Cramer's two numerators are 2e^(−qm)sinh(qd) and 2e^(pm)sinh(pd), while D=2e^((p−q)m)sinh((p+q)d); cancellation yields positive even analytic ratios with bounded derivatives at each finite coalescence point. Gap sensitivity is O(d) and the limiting ratios satisfy the normalized value and derivative conditions at m. In contrast, for the forward perturbation b−B*=ε the sensitivities of the two switch positions to b diverge like 1/√(2pqB*ε). Strict convexity of H, H'(0)=ap−cq, and the positive limiting growth give the exact two-root window, tangency/no-reversal at b=B*, and the single positive reversal alongside the excluded Q=0 zero at b=a+c in the descending-start case. All other counts follow from the two monotone intervals or a wholly increasing profile. Strict positivity of K preserves signs but need not preserve differentiability: simple zeros are asserted for H−b. Invertibility and positivity of the two coefficients give all-pairs realizability and no absolute scale; any positive gaps can realize the same two thresholds, so calibration matters. At the minimum pL=qJ gives H''=pqB* and H'''=pq(p−q)B*; inversion of the signed square root of the Taylor expansion gives the stated cubic-order remainder and the same second-order displacement on both branches. Equal gaps give exact cosh symmetry. Independent replay: python3 /workspace/branches/independent_checks.py 3 verifies the numerical values of the exact example, stable formulas for six gaps down to 10⁻¹², and six asymmetric-fold roots. This does not prove the analytic extension or test a noise model. Frozen check.py inspected, not executed; its random counts share the phase formulas and are not evidence about structured conditioning.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Biemond et al. abstract describes a more detailed network model with one river and two seaward channels, examining changes in discharge and other forcing. The frozen primary comparison locates the sign proxy in §3.2/(15) and the distinct salinity determinants in Appendix A; these sections were not independently accessible here.",
+          "Generalized Descartes zero counting covers the upper bound on reversals. Classical interpolation explains the inverse mechanism but additional domain, positivity, fold and perturbation interpretation are required here."
+        ],
+        "reasoning": "Broader zero counting and interpolation are credited, not novelty claims. A network model examining salt transport versus discharge is not thereby a theorem on the independent-pathway class or identification from sign-switch positions.",
+        "searches": [
+          "primary search: Mechanisms of Salt Overspill at Estuarine Network Junctions Biemond de Swart Dijkstra repository pdf salinity equation 15",
+          "DOI:10.1029/2023JC019630 and institutional copy handle 1874/428615",
+          "DOI:10.1017/S0025557200179628 and DOI:10.1080/15326349608807383"
+        ]
+      },
+      "checked_sources": [
+        "Biemond et al. DOI:10.1029/2023JC019630 abstract excerpts",
+        "Resultary 72e475413bf6, 587ce1e3a41c, b38dab808a65 and e419b9fd10fc indexed statements",
+        "Chauveau et al. DOI:10.1080/15326349608807383 and Jameson DOI:10.1017/S0025557200179628 (scope as recorded in frozen evidence, not independently read in full)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The first-flush indexed model has delayed source activation and a cumulative runoff observable, not a fixed sum of independent salinities. The tidal-gradient result uses a different forcing and different observable. The recorded description of Chauveau considers complete-function or noisy value inputs rather than exact switch positions."
+        ],
+        "reasoning": "Existing short-sum rules and interpolation directly give standard substeps; the salinity-specific positive feasibility window, exact fold expansion and regularity of inferred amplitudes under coalescent position data together are the supported benchmark. Neither a generic bound on zeros nor a method given arbitrary magnitude data establishes this joint premise and conclusion. No priority inference from same-day records or inaccessible text.",
+        "searches": [
+          "Resultary threshold-position and confluent-position searches",
+          "Biemond et al. DOI:10.1029/2023JC019630; Chauveau et al. DOI:10.1080/15326349608807383",
+          "primary search: exponential polynomial interpolation two nodes coalescing zeros fixed exponents positive amplitudes divided differences confluent interpolation roots conditioning hyperbolic sine"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Normalize by K e^(−βQ) to obtain H−b, or set x=e^Q to obtain the real-power trinomial a x^p+c x^(−q)−b on x≥1. Recovery at fixed gaps is a two-node fixed-basis interpolation solve with constant data (1,1). Dividing the row difference by the gap yields the usual confluent value-and-derivative system, not a new general interpolation theorem.",
+          "Primary search returned zero-location work on three-term exponential sums and general interpolation descriptions, not a retrieved statement of the complete specialized phase/recovery result."
+        ],
+        "reasoning": "The abstract equivalents are tested at the level of hypotheses; zero counting alone gives no sharp positive-domain parameter window or data interpretation. The repaired restriction to coefficient response to node motion distinguishes it from unstructured equation-level noise. Chauveau et al. remains a plausible inaccessible comparison for interpolation-equivalent results.",
+        "searches": [
+          "primary search: fixed-exponent coefficient recovery from prescribed zeros of a short exponential sum",
+          "primary search: exponential polynomial interpolation two nodes coalescing zeros fixed exponents positive amplitudes divided differences confluent interpolation roots conditioning hyperbolic sine",
+          "Resultary: sign only two fixed exponent roots amplitude recovery analytic at coincident zeros midpoint half gap exponential interpolation structured conditioning fixed right hand side estuarine salinity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact hit 6f507cc28117 is the frozen record itself. Same-day 72e475413bf6 is a delayed-source first-flush mixture with positive–negative–positive cumulative surplus; 587ce1e3a41c is about averaged gradients of a tidal mixing layer. Another search returned b38dab808a65 (serial-stream double reversal from saturating reaches) and e419b9fd10fc (fixed Boole quadrature nodes and sign changes)."
+        ],
+        "reasoning": "None of those distinct indexed statements specifies this threshold-to-amplitude map or the combined classifications. A numerical estuary or a table of crossings from a different model would not cover the repaired conditional analytic result.",
+        "searches": [
+          "Resultary: threshold positions alone",
+          "Resultary: sign only two fixed exponent roots amplitude recovery analytic at coincident zeros midpoint half gap exponential interpolation structured conditioning fixed right hand side estuarine salinity"
+        ]
+      },
+      "rationale": "For the repaired modeling claim: a complete positive-discharge amplitude window with a minimal calibrated switch-position recovery and a precise account of which sensitivities are singular. The constituent tools (strict convexity, standard fixed-basis interpolation, divided differences and the simple fold normal form) and the motivating salinity-difference proxy are not claimed as new. No available source establishes the complete specialized benchmark with its structured position-error interpretation.",
+      "residual_risks": [
+        "Earlier fixed-exponent interpolation work could specialize to this model, particularly upon confluent normalization. The most relevant signed-mixture inverse paper, full motivating physical source and full close indexed records were not independently accessible. The pass is bounded to the repaired claim, not historical priority for its standard mathematical tools."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly read text motivates a differing estuary model, not the abstract theorem being repaired; unseen passages remain a risk.",
+          "evidence": [
+            "Abstract identifies overspill as net salt transport across channels and a one-river/two-sea-channel network with sensitivity to river discharge."
+          ],
+          "identifier_or_url": "https://doi.org/10.1029/2023JC019630",
+          "material_read": "Publisher and institutional abstract excerpts; §3.2/(15), §5 and Appendix A claim scope taken from frozen comparison, not independently read in full.",
+          "method": "Primary search, OA publisher request and identified Utrecht repository alternative (handle 1874/428615); decisive full passages not retrieved.",
+          "title": "Mechanisms of Salt Overspill at Estuarine Network Junctions Explained With an Idealized Model",
+          "trigger": "Direct motivating observable and possible discharge-driven reversal precedent"
+        },
+        {
+          "assessment": "Possible earlier equivalent; the recorded synopsis alone does not establish zero-position inversion or structured coalescence sensitivity.",
+          "evidence": [
+            "Frozen RESULT.md line 91 and ref. 5 describe full functions or finite noisy data and mark the full article uninspected."
+          ],
+          "identifier_or_url": "https://doi.org/10.1080/15326349608807383",
+          "material_read": "Citation and abstract synopsis recorded in frozen RESULT.md and AUDIT.json only; no independently retrieved primary statement.",
+          "method": "OA retrieval timeout and publisher access failure; no full-text comparison claimed.",
+          "title": "Discrete signed mixtures of exponentials",
+          "trigger": "Potential general result on inverse recovery from fixed exponentials"
+        },
+        {
+          "assessment": "Structural overlap in sign sequence and a sharp mixture window; different observable and mechanism, no stated inverse from two supplied locations.",
+          "evidence": [
+            "Indexed statement: two decreasing runoff-pollutant source terms, one starting late, give signs +,−,+ for a cumulative mass–volume surplus."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-two-sharp-first-flush-crossings-from-delayed-exponential-source--72e475413bf6",
+          "material_read": "Indexed statement; full mirror passage not retrieved.",
+          "method": "Local Resultary search and attempted OA mirror read.",
+          "title": "Two sharp first-flush crossings from delayed exponential sources",
+          "trigger": "Strongest distinct indexed exponential double-crossing result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The hypothetical weak-overspill benchmark gives a useful low-information identifiability test: it separates when two reversals can exist from what supplied switching locations can identify. The corrected near-fold result prevents a mistaken inference of unbounded sensitivity of amplitudes to position errors from the raw determinant, while keeping the distinct difficulty of resolving switches and the forward fold. The result is conditional on known rates and a specified three-path model, not validation of the model or a guarantee for field measurements.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

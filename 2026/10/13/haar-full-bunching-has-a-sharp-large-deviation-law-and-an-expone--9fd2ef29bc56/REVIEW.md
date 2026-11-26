@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof identifies the projected internal tensor as a symmetrization, giving the permanent-of-Gram multiplier with the correct \(N!\) normalization and strict positivity. A normalized Haar row has the full complex Dirichlet law, yielding the exact Mellin transform for all real \(t>-1\). The Gamma-ratio Stirling calculation is uniform along every sequence \(m_N/N\to\alpha\in[1,\infty]\), and the limiting cumulant function is smooth, steep at its finite effective-domain boundary and exponentially tight. Gärtner–Ellis therefore yields a full good large-deviation principle. The joint exponential/log-exponential central-limit calculation yields the stated variance; the strong law and explicit Haar mean give the positive mean–typical exponent. Exact rational moment checks, internal-state symmetrization tests and finite sampled checks are supplementary, not infinite-dimensional proofs.
+## correctness
 
-## Originality — PASS, with priority limitations
-Spagnolo et al. (arXiv:1305.3188, Eq. (5)–(7)) supply the full-bunching factorization for identical photons, and Tichy (arXiv:1410.7687, Sec. IV.3, Eq. (57)) supplies its internal-distinguishability extension. These are part of the *premises* and are not claimed as new. Their material, including the random-chip histograms, does not specify the explicit one-parameter large-deviation rate or the exponential Haar-mean/typical discrepancy. Liu et al. (arXiv:1607.03584, Secs. II–III) analyze Haar-random boson-sampler certification but not this one-output-port log-event limit. Geller–Knill (arXiv:2509.04550, Appendix I) obtain a general Haar-mean formula; mean coverage does not imply the full probability rate and typical/mean gap without additional asymptotic analysis. The classical logarithmic-spacing CLT is antecedent (arXiv:0804.4123); no new underlying CLT is claimed. Targeted mathematical and physics searches did not reveal an equivalent complete statement, though an overlooked treatment of Dirichlet-product large deviations remains a residual risk. This is a self-review, not independent proof of priority.
+PASS
 
-## Value — PASS
-The event being characterized is a canonical boson-sampling interference diagnostic. An averaged bunching probability can be misleading for a randomly chosen device when the number of injected photons grows: a *strict* positive exponent quantifies the discrepancy for every limiting mode-to-photon ratio. The rate function describes both rarer high-probability and low-probability devices, not just the first two moments, and the distinguishability factorization separates source quality from Haar-device variability. This is a motivated family-level distributional law, not a single arbitrary finite invariant. It does not claim experimental ease or a general boson-sampler certification theorem.
+For one preselected port and distinct inputs, all permutations carry the same product of spatial amplitudes. Squaring the internal tensor symmetrization, normalized by 1/√(N!), leaves the Gram permanent. It is positive by testing against a tensor power of a vector having nonzero overlap with each internal input. Squared moduli of a complex Haar row are independent unit exponentials divided by their sum, so Dirichlet integration gives the Mellin formula and its first two logarithmic derivatives. For fixed t>−1 the gamma-ratio term in the scaled cumulant is ∫₀ᵗ[log m−ψ(m+Nu)]du. Using ψ(x)=log x+O(1/x) uniformly here gives −∫₀ᵗ log(1+u/α)du, zero at α=∞. At t=−1 the limiting cumulant diverges, and its right derivative tends to −∞ even for α=1. The effective domain has a neighborhood of zero, and the limiting cumulant is lower semicontinuous and essentially smooth, so Gärtner–Ellis gives a full good LDP. Strict positivity of F″ follows from ψ₁(1+t)>1/(1+t); its derivative at zero is −γ. Stirling gives Fα(t)=t log α−(α−1/2) log t+O(1) for finite α, proving infinite rate at and above the upper endpoint. Independently, expanding the exact log-Mellin transform at t=s/√N after subtracting the exact log mean yields (s²/2)[ψ₁(1)−Nψ₁(m)]+O_s(N⁻¹ᐟ²): the third derivative is O(N) there using ψ₂(x)=O(x⁻²) at large x and m≥N. This proves the asserted CLT including α=1 and ∞. Finally Z_N→F′α(0), and the arithmetic normalization contributes Fα(1). The stated gap is Fα(1)−F′α(0)>0 by strict convexity and Fα(0)=0. The internal-state factor cancels exactly. The uploader's finite Python check was inspected, not executed; it cannot establish the asymptotic claims.
 
-## Residual scientific limitations
-The Haar-unitary assumption, singleton fixed-output event, pure product internal states and distinct occupied inputs cannot be relaxed using this proof. The equivalent classical probability structure may admit another literature presentation. The limiting result does not furnish uniform finite-size error constants, and an independent priority or experimental assessment remains unperformed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct supported contribution is the explicit ratio-dependent law for a selected subset of a Haar row, in particular 1<α<∞, and the corresponding quantitative separation of the fixed-port optical probability from its own Haar average. The factorization and mean, the m=N large-deviation law in classical guise, and the dilute Cramér endpoint are not independent novelty. The strongest retrieved classical theorem concerns a geometric-to-arithmetic mean with the denominator taken over the same coordinates; it does not already include the fluctuating selected mass from the full row.
+
+## value
+
+PASS
+
+Fixed-port full bunching is a naturally measured optical event. The exact exponent distinguishes what a typical Haar interferometer does from what the familiar Haar expectation suggests, uniformly from dense to dilute scaling, and identifies when a geometric-mean approximation that drops the selected mass would give the wrong tail. The explicit finite-ratio rate and strict exponent, invariant under product-state distinguishability after normalization, are useful quantitative information beyond fitting a simulation, restating the mean or quoting the same-coordinate CLT.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

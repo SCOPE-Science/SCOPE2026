@@ -1,0 +1,164 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:45:18.108502Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–87 and 89–96",
+        "Frozen VERIFICATION.md lines 19–23",
+        "Frozen verify.py lines 13–91, inspected only; independent finite check instead used adjacency-list cycle detection for the masks, with marked edges (a,1), (b,1), (a,2), (b,2)"
+      ],
+      "rationale": "The measure is uniform on labeled acyclic edge subsets, not on spanning trees or rooted forests. A right-side vertex of degree at most one cannot be in a cycle and has four unmarked choices. Of the higher-degree vertices, the only possibilities are one double or triple, or two doubles with different hub pairs; repetitions or a triple with another high vertex give a four-cycle, and three distinct doubles give a six-cycle. This gives the stated normalization. For a single marked edge, the marked vertex can have degree one, one of two compatible double neighborhoods, or the triple. For same-right-endpoint pairs it has the forced double or the triple. For different right endpoints, two forced doubles have two distinct compatible choices when the hubs coincide and three when they differ. Counting with those multipliers gives all three joint probabilities in RESULT.md 70–75. Subtracting the squared marginal yields the three polynomial differences in lines 76–86, and their signs and leading terms give strictness and the stated limits for n≥3. As a bounded independent check, exhaustive depth-first cycle detection on all 2^(3n) masks for n=3,4 gave (total, single, three joint counts) of (328,134,48,48,52) and (1856,712,224,246,262).",
+      "residual_risks": [
+        "Finite checks do not prove the all-size claim; the combinatorial decomposition does. The result concerns neither full negative association nor arbitrary external fields."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The exact same-day record includes n=2 as well. A later 2026/11/08 indexed result treats common positive fugacity for n≥5.",
+          "Erickson Theorem 1.2 is for series-parallel graphs; Huang Theorems 2.1–2.2 have fugacity, adjacency or host-graph restrictions. Grimmett–Winkler Theorem 1.5 covers n≤6 here but not the all-size exact result."
+        ],
+        "reasoning": "The same-day result subsumes the entire domain. The later weighted result and the older partial comparisons have different scope.",
+        "searches": [
+          "Local Resultary: equal-fugacity arboreal gas on K_{3,n}",
+          "arXiv:1008.3660",
+          "arXiv:2311.00965v1",
+          "arXiv:math/0302185v3"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary exact and weighted records identified above",
+        "Grimmett–Winkler",
+        "Erickson",
+        "Huang",
+        "Stark landing page/abstract; Speyer retrieval attempt"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Restricting the same-day exact theorem from n≥2 to n≥3 reproduces the finding. Setting the later weighted theorem's common fugacity to one recovers the formulas for n≥5.",
+          "A total count alone lacks the marked incidence information; K_{3,n} for n≥3 has a K_4 minor and so is outside Erickson's series-parallel theorem."
+        ],
+        "reasoning": "The narrower finding needs no new inference from the same-day theorem. Neither the total count nor the other older restricted results establish all three formulas by themselves.",
+        "searches": [
+          "Mirrored exact and weighted indexed proofs",
+          "Grimmett–Winkler Theorem 1.5",
+          "Erickson Theorem 1.2",
+          "Huang Theorems 2.1–2.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2026/10/26/SCOPE-exact-strict-edge-anticorrelation-for-uniform-forests-of-k-3-n--5e0f6e40d62f defines the same unrooted, potentially disconnected edge-set model and matches all three pair types.",
+          "Grimmett–Winkler Conjecture 1.1 is the general uniform-forest negative-association question."
+        ],
+        "reasoning": "The indexed overlap is the same mathematical claim, not a spanning-tree, rooted-forest, or fixed-size variant.",
+        "searches": [
+          "Local Resultary: uniform forests K_{3,n}, exact strict edge anticorrelation and three pair types",
+          "Grimmett–Winkler arXiv:math/0302185v3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Indexed exact overlap: 2026/10/26/SCOPE-exact-strict-edge-anticorrelation-for-uniform-forests-of-k-3-n--5e0f6e40d62f, RESULT.md Finding and Proof (offsets 0–4971), including the marked incidence counts as well as the covariance formulas.",
+          "The frozen record credits the old total count 4^(n−2)V_n separately; the historical primary passages for that count were not obtained."
+        ],
+        "reasoning": "Coverage is by exact all-size formulas, not merely a table of small cases or the unmarked normalization.",
+        "searches": [
+          "Local Resultary: exact strict edge anticorrelation K_{3,n}",
+          "Speyer MSE answer 3248773",
+          "Stark DOI 10.1016/j.disc.2012.10.026"
+        ]
+      },
+      "rationale": "A distinct indexed finding on the same UTC date already displays the same U_n,V_n and all three exact covariance formulas in the identical unweighted forest model, on the larger domain n≥2. There is no distinct mathematical remainder in the frozen claim. This is verified overlap, not a finding about which record was first or about copying; relative priority is not established.",
+      "residual_risks": [
+        "No relative priority established between distinct same-day records.",
+        "Uninspected primary historical enumeration passages and the inaccessible Semple–Welsh report could add prior context; they are not the basis of the verdict."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact broader coverage; relative priority unresolved",
+          "evidence": [
+            "Same normalization polynomials, same three covariance numerators and asymptotic types, valid for n≥2."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-exact-strict-edge-anticorrelation-for-uniform-forests-of-k-3-n--5e0f6e40d62f",
+          "material_read": "RESULT.md Finding, Assumptions and Proof; offsets 0–4971",
+          "method": "Local mirror statement and formula comparison",
+          "title": "Exact strict edge anticorrelation for uniform forests of K_{3,n}",
+          "trigger": "Strongest local indexed overlap"
+        },
+        {
+          "assessment": "Later overlap for n≥5; not evidence of earlier priority",
+          "evidence": [
+            "Weighted incidence formulas for each pair type recover the unweighted expressions at fugacity one."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-strict-negative-edge-correlations-for-equal-fugacity-arboreal-ga--0cd0e1e4f228",
+          "material_read": "RESULT.md Finding and proof, offsets 0–4479",
+          "method": "Local mirror and specialization at fugacity one",
+          "title": "Strict negative edge correlations for equal-fugacity arboreal gas",
+          "trigger": "Plausibly stronger weighted theorem"
+        },
+        {
+          "assessment": "Finite overlapping scope, no exact all-size coverage in inspected statements",
+          "evidence": [
+            "Uniform-forest negativity conjectured; computational verification through 8 vertices, or 9 vertices with at most 18 edges."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0302185",
+          "material_read": "PDF pp. 2–3, Conjecture 1.1 and Theorem 1.5",
+          "method": "Primary PDF passages",
+          "title": "Negative association in uniform forests and connected graphs",
+          "trigger": "General uniform-forest theory"
+        },
+        {
+          "assessment": "Different graph class",
+          "evidence": [
+            "Criterion for all positive edge weights and series-parallel SOS theorem; K_{3,n} for n≥3 is not series-parallel."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1008.3660",
+          "material_read": "§1, offsets 0–5160, including Theorem 1.2",
+          "method": "Primary OA HTML",
+          "title": "Sums of squares and negative correlation for spanning forests of series parallel graphs",
+          "trigger": "Stronger positive-weight criterion"
+        },
+        {
+          "assessment": "Large-fugacity adjacent-edge and complete-graph results do not furnish target coverage",
+          "evidence": [
+            "Fugacity one is uniform; the stated theorems are restricted by host, parameter or pair type."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2311.00965v1",
+          "material_read": "§1 around offset 2850; §2 around offset 7400, Theorems 2.1–2.2",
+          "method": "Primary OA HTML",
+          "title": "On Negative Correlation of Arboreal Gas on Some Graphs",
+          "trigger": "Fugacity and uniform model comparison"
+        },
+        {
+          "assessment": "No full-text finding from these attempts",
+          "evidence": [
+            "The frozen proof expressly excludes the normalization from its originality claim."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.disc.2012.10.026 ; https://math.stackexchange.com/a/3248773",
+          "material_read": "Stark landing page/abstract only; Speyer primary page not obtained",
+          "method": "Lawful retrieval attempts and comparison with frozen citation",
+          "title": "The asymptotic number of spanning forests of complete bipartite labelled graphs; Speyer's bipartite forest enumeration",
+          "trigger": "Earlier bipartite counts"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Proof",
+        "Grimmett–Winkler Conjecture 1.1",
+        "Exact indexed overlap above"
+      ],
+      "rationale": "As a mathematical result, an exact all-size classification for three natural pair orbits outside the series-parallel class is informative for the uniform-forest correlation question. In particular it distinguishes a nonvanishing negative dependence from two different inverse-square effects. This assessment of the theorem's substance does not award originality or incremental value to a duplicate.",
+      "residual_risks": [
+        "Does not settle weighted negative correlation or the general conjecture."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:29:19.137722Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, Assumptions and Proof; VERIFY.py; VERIFICATION.md"
+      ],
+      "rationale": "The binary word has a unique triple (a,b,c) of zero-run lengths before, between and after its two ones, and the ordinary scattered 01 count is x=2a+b. The least rotation starts at a longest of the two circular zero runs b,N−b, including ties and the empty-run case, so its 01 count is y=N+max(b,N−b). Thus at most two b values are possible, and each fixes a,c. When N is odd the candidates differ in parity, and exactly one can have x−b even in a nonempty fiber. For N=2h, distinct gaps must be t and 2h−t with t<h. Taking the longer middle gap and exterior lengths j,t−j fixes x=2j+2h−t; the shorter middle gap then forces exterior lengths j+h−t,h−j, both nonnegative for 0≤j≤t. The long-gap word uniquely recovers t,j. The doubletons therefore number Σ_{t=0}^{h−1}(t+1)=h(h+1)/2; subtracting twice this from binom(2h+2,2) gives (h+1)² singleton fibers and adding both fiber counts gives (h+1)(3h+2)/2 observations. This also handles N=0, and one representative per fiber is necessary and sufficient for a maximum zero-error code. The uniquely recoverable proportion counts singleton words relative to all inputs. No finite computation is needed for exhaustiveness. The frozen direct-rotation checker and its recorded N=0..60 run were inspected, not executed.",
+      "residual_risks": [
+        "The two ones are occurrences in a binary word, not distinguishable alphabet symbols; the observations use scattered 01 and a least rotation of that same word."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Definition 7 distinguishes L-unique words from an L-distinguishable ordinary Parikh matrix. For an ordinary class of size greater than one, the latter holds when different L-matrices occur somewhere in the class. Theorem 2 characterizes ordinary classes not distinguishable this way across binary compositions.",
+          "Propositions 6–7 concern an ordinary class contained in one conjugacy class. Propositions 8–9 provide criteria concerning whole ordinary classes consisting of Lyndon representatives. The conclusion explicitly separates characterizing uniquely described words and quantifying reduction as further questions."
+        ],
+        "reasoning": "Broader binary domain is not broader coverage of the conclusion: a nonconstant rotation observation may still leave multiple words in a fiber. At N=6, x=6 the possible middle gaps are 0,2,4,6; they separate into two indistinguishable pairs with y=12 and y=10. Theorem 2 would detect a split but does not give either doubleton.",
+        "searches": [
+          "Dick et al. LATA 2020, Def. 7, Cor. 2, Props. 6–9, Theorem 2, pp.405–410",
+          "DOI 10.1016/j.tcs.2021.01.025; Loughborough article 13640924"
+        ]
+      },
+      "checked_sources": [
+        "Dick et al. LATA 2020 full-text passages",
+        "Dick et al. TCS 2021 abstract and lawful-access attempts",
+        "CIAA 2022 toolkit access attempt",
+        "Resultary 68116579b62c and 097158f6d402"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Proposition 5 compares rotated matrices of already amiable words under equal cut lengths; it does not determine the location of the canonical rotation or all possible intersections here. Theorem 2 classifies wholly unsplit classes, which can coexist with arbitrarily many distinct ordinary classes that split without achieving unique recovery."
+        ],
+        "reasoning": "Obtaining the spectrum needs the two-gap reduction, the parity and feasibility analysis of both candidate middle gaps, and the enumeration across all ordinary matrices. The zero-error maximum and recovery fraction are deductions from that enumeration, not separately credited theorems. The inaccessible versions do not count as negative evidence.",
+        "searches": [
+          "LATA 2020, Prop. 5 (pp.404–405), Props. 6–9 and Theorem 2 (pp.406–409)",
+          "Web: Reducing the ambiguity of Parikh matrices 2021 full text author manuscript theorem Lyndon conjugate non-distinguishable words two markers",
+          "CIAA 2022 DOI 10.1007/978-3-031-07469-1_9"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Dick et al.'s L-Parikh matrix uses the same least-rotation convention, distinct from the Lyndon image of an ordinary equivalence class. Example 8's aababa and abaaab are exactly the pair h=2,t=1,j=1 under a=0,b=1.",
+          "On the two-one slice the L-Parikh statistic determines the unordered pair of circular gaps, hence the rotation class itself; the observation is also equivalently the ordinary scattered-pair count and that conjugacy class."
+        ],
+        "reasoning": "The problem is a specialization of established joint ambiguity reduction, or of counting equal scattered-pair totals within circular two-gap types. Neither a single collision nor the equivalence of observations classifies all those intersections. Ordinary matrix unambiguity without observing the rotation is a different problem.",
+        "searches": [
+          "Dick et al. DOI 10.1007/978-3-030-40608-0_28, introduction, Def. 7, Prop. 5, Example 8",
+          "Resultary: 68116579b62c and 097158f6d402"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "68116579b62c bounds counts of ordinary M-unambiguous words. 097158f6d402 counts ordinary matrices of ternary words with fixed outer-letter multiplicities, not two-one binary joint fibers. The existing exact LATA example is for a particular word-pair, and the finite list in Theorem 2 refers to ordinary classes that do not split."
+        ],
+        "reasoning": "These are not a table or parametric enumeration of the joint fibers in question. The exact existing example is credited without extrapolating it to all N. The frozen finite verifier provides no prior-coverage evidence.",
+        "searches": [
+          "Resultary: 68116579b62c and 097158f6d402, RESULTS",
+          "LATA 2020, Example 8 and Theorem 2"
+        ]
+      },
+      "rationale": "The credited result is the full joint-fiber spectrum and collision parametrization in the all-N two-one family, not the joint observation or the existence of an unresolved collision. Dick et al. (LATA 2020) Example 8 contains one exact doubleton from the theorem and their full text classifies whether an entire ordinary class can be split by its L-Parikh observation. That yes/no classification does not enumerate the surviving fibers inside classes it can split. In particular at N=6 and x=6 the ordinary class is split into two distinct doubletons, not resolved into singleton words. The indexed alternatives inspected concern other matrices or objectives. The 2021 journal version and 2022 toolkit remain explicit access risks, not grounds to infer absence or reject a verified distinct result.",
+      "residual_risks": [
+        "The same-title 2021 journal full text was unavailable, so additional joint-ambiguity results there cannot be ruled out. The 2022 toolkit full text was also unavailable.",
+        "Off-index descriptions of rotation classes or two-gap words may exist. This is a best-of-knowledge comparison, not a priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact overlap in observation and particular collisions; broader-domain statement about unsplit ordinary classes does not determine the full joint-fiber spectrum",
+          "evidence": "Example 8 gives aababa and abaaab with common least rotation aaabab; Theorem 2 describes non-L-distinguishability of ordinary matrices, not every non-singleton refined fiber.",
+          "identifier_or_url": "https://doi.org/10.1007/978-3-030-40608-0_28",
+          "material_read": "LATA 2020, introduction p.398; Prop. 5 pp.404–405; Def. 7, Cor. 2, Example 8, Props. 6–9 and Theorem 2 pp.405–409; conclusion p.410",
+          "method": "Lawful Springer OA PDF, targeted reading and comparison",
+          "title": "Reducing the Ambiguity of Parikh Matrices",
+          "trigger": "Introduces the same joint observation and contains exact two-one examples and general binary statements"
+        },
+        {
+          "assessment": "Cannot assess possible added results from metadata alone",
+          "evidence": "The journal work is on the same framework; repository attempts returned 403/202 rather than the paper, and no other lawful copy was recovered in the bounded lookup.",
+          "identifier_or_url": "https://doi.org/10.1016/j.tcs.2021.01.025",
+          "material_read": "Public abstract and repository metadata; no full text retrieved",
+          "method": "Lawful publisher/DOI lookup and identified Loughborough repository item 13640924; full-text routes tried did not return the text",
+          "title": "Reducing the ambiguity of Parikh matrices",
+          "trigger": "Journal extension on the same ambiguity-reduction framework"
+        },
+        {
+          "assessment": "Unresolved secondary access risk, not evidence of coverage or absence",
+          "evidence": "Redirects did not yield chapter full text.",
+          "identifier_or_url": "https://doi.org/10.1007/978-3-031-07469-1_9",
+          "material_read": "Reference and attempted Springer chapter/PDF; full text not inspected",
+          "method": "Lawful DOI and publisher full-text retrieval attempt",
+          "title": "A Toolkit for Parikh Matrices",
+          "trigger": "Same authors' toolkit for related matrix variants"
+        },
+        {
+          "assessment": "Different observation and conclusion",
+          "evidence": "Polynomial bound on ordinary Parikh-matrix singletons, not a consecutive two-observation fiber count.",
+          "identifier_or_url": "2026/10/4/SCOPE-unconditional-polynomial-sparsity-of-m-unambiguous-words--68116579b62c",
+          "material_read": "RESULT.md, offsets 0–4145, finding and mathematical comparison",
+          "method": "Local mirror, statement inspection",
+          "title": "Unconditional polynomial sparsity of M-unambiguous words",
+          "trigger": "Strongest thematic Resultary ambiguity match"
+        },
+        {
+          "assessment": "Different alphabet, composition and observable",
+          "evidence": "Ternary ordinary-matrix image with two copies of each outer letter; no joint rotation matrix.",
+          "identifier_or_url": "2026/10/25/SCOPE-exact-fixed-content-parikh-matrix-image-and-its-parity-boundary--097158f6d402",
+          "material_read": "RESULT.md, theorem on attainable matrices",
+          "method": "Local mirror, statement inspection",
+          "title": "Exact fixed-content Parikh-matrix image and its parity boundary",
+          "trigger": "Resultary match for exact fixed-content parity enumerations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The established joint observation motivates the least nontrivial two-marker slice; even there, detecting a split of an ordinary class does not determine actual recovery. The theorem gives a decoder with at most two candidates, resolves all residual collisions, and quantifies the odd/even difference for unique recovery and optimal zero-error code size. This exact all-content spectrum answers a natural ambiguity question left open by class-level distinguishability and is not a re-enumeration of the known example.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

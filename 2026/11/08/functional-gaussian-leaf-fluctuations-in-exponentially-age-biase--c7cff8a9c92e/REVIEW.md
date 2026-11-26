@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (C): PASS
+## correctness
 
-The iid geometric lag representation exactly matches the label-weighted attachment probability after conditional truncation, and bad lags are summably rare. The stationary count differs uniformly from the actual count by at most the maximum number of edges crossing a time cut, a logarithmic almost-sure quantity. The stationary one- and two-point leaf laws are independent product formulas with absolutely summable negative covariance. The explicit lower bound on the variance comes from exposing disjoint two-choice lag variables. An exponentially strongly mixing bounded process then satisfies the standard functional invariance principle. Geometric summation verifies the weak-preference variance limit. The `verify.py` replay passed 838 finite checks; this supplements but does not replace the proof.
+PASS
 
-## Originality (O): PASS, best-knowledge only
+The corrected RESULT.md preserves the claim and repairs its variance proof. In the frozen conditioning at multiples of three only B_t is exposed; if B_t=0 a longer lag can still hit t-1 from a future selected time, so the frozen measurability assertion does not follow. The corrected proof additionally exposes H_t when B_t=0. The remaining choices are independent Bernoulli switches on disjoint pairs; future switches cannot hit t-1, so the event E_t is now measurable. When H_{t-1}=1 and no future edge hits t-1, one pair contributes conditional variance r/(1+r)^2. Independence across times gives P(E_t)=(1-r^2)(1-r)*mu_r/r and density 1/3 of switch sites gives exactly the claimed lower bound. Independently, the one- and two-point products follow by avoiding respectively one and two possible parents at each independent arrival; the product defect is bounded by r^{-2} sum_h p_h p_{h+d}, summably in d. Deleting long crossings from future times gives exponential strong mixing and the bounded strongly mixing invariance principle applies. The exact finite-tree coupling changes only a summable number of parents and has a uniform exponential-moment bound on the number of future edges across each cut; it gives O(log(n+2)) almost-sure maximal error and bounded single-time L^2 error. These transfer the functional law, almost-sure density, bounded mean error and normalized variance. For r approaching one, the aggregate denominator and product-linearization errors are O(1-r), using sum_{h,d>=1}p_hp_{h+d}=r/(1+r) and max_d sum_h p_hp_{h+d}=O(1-r). Uniform attachment has the usual one-leaf Bernoulli recursion giving density 1/2 and normalized variance 1/12; at fixed finite n its moments are continuous up to r=1. For r approaching zero, 0< v_r<=mu_r(1-mu_r) and mu_r<=r. Independent finite-product diagnostics, not the frozen checker, give at r=1/2 mu about 0.2887881, R_1 about 0.6270959 and v about 0.0892541, above the lower bound about 0.0160438. This is corroboration rather than an asymptotic proof.
 
-The 2026 leaf-statistics paper by Hartle and Krapivsky has a different, degree-proportional attachment mechanism (plus uniform and redirection comparisons). The 2025 article by Aguech et al. and the earlier March 2024 ALEA Days disclosure establish the *exponentially label-weighted model and single-vertex outdegrees*, not the total-leaf functional law or its inter-vertex covariance; none of those older contributions is claimed new. The closest published-finding corpus results address uniform recursive root-degree/leaf covariance and other tree observables. Fixed-vertex degree marginals cannot determine the total covariance or establish the singular limit; the exact joint indicator product is essential. Broader general invariance principles remain background. Priority risk persists because an equivalent result in unindexed age-biased growth literature is possible and the 2024 slides were not accessible for complete visual inspection.
+## originality
 
-## Value (V): PASS
+PASS
 
-The size of the leaf boundary and its variability are natural global observables in recursive networks. The explicit spatial anticorrelations, positive long-run variance and noncommuting near-uniform limits identify structural properties absent from the source individual-degree asymptotics. This informs comparison of young-age-biased trees to genuinely uniform recursive trees.
+The correction changes the proof, not the claim. The exponential birth-label model and general mixing tools are prior work; the distinct result is their use to identify the full leaf-count trajectory limit with a signed, explicit nondegenerate variance and noncommuting ordered boundary. The closest inspected primary statements and distinct catalogue records do not imply that combination for these weights.
 
-## Limitations
+## value
 
-Fixed \(a>1\) only, no joint near-critical parameter/size regime, no full degree-profile process or concentration rate. Finite enumeration is diagnostic, and historical priority requires independent review.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For a natural weighted recursive tree, the result gives a usable functional variance, a rigorous positive lower bound despite strictly negative spatial correlations, and a concrete discontinuity between weak label preference and exact uniform attachment. This explains a fluctuation feature invisible to single-vertex degrees. The repair retains these conclusions and supplies the conditioning needed to establish the variance lower bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

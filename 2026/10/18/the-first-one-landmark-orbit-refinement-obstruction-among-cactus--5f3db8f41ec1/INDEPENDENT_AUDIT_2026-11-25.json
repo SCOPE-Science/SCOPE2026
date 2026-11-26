@@ -1,0 +1,165 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:42:31.703182Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 9–41",
+        "VERIFICATION.md and the two frozen verification methods and their recorded results",
+        "/workspace/branches/c57eaac5-d9d1-461d-a5b5-fa7baf8c774a/independent_census.py (python3, bound 9) and full_census.log"
+      ],
+      "rationale": "Deleting a leaf block except for its attachment gives a smaller connected cactus (retain any one vertex if the whole graph is one block), proving exhaustive leaf-block generation. Alternatively, deleting just one non-articulation vertex from a leaf block preserves the connected cactus property, proving exhaustive vertex augmentation. The independent check used the latter generation with a fresh exact filter: enumerate each simple cycle once by fixing its least vertex and orientation, and reject two cycles sharing an edge. Isomorphism-invariant fingerprints are only buckets before exact adjacency-preserving bijections; every vertex is tested as root, and testing one representative against all vertices of its stable cell suffices by orbit equivalence. The dependency-free census reproduced 1,1,2,4,9,23,63,188,596 unrooted types, all 2,153 rootings passing through eight and exactly one of 5,364 failing at nine, with exact rooted isomorphism to the stated witness. Directly, the root, its two neighbors, and the other six vertices form an equitable partition after one round: each vertex of the six-cell sees one in that cell and one in the two-cell. The pentagon is invariant, so its two further vertices cannot map into either triangle. Reflection and the two triangle swaps provide exactly the claimed four rooted orbits. Having a single failing representative/root choice also establishes uniqueness up to rooted isomorphism.",
+      "residual_risks": [
+        "The exhaustive comparison stops at order nine and uses the specific single-root initialization. No formal mechanization assessed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1.1 identifies connected rooted outerplanar graphs among themselves, but Figure 3 has two stable classes each comprising two orbits.",
+          "The all-orders one-marked-vertex result for block graphs uses clique blocks and does not cover a pentagon block. The universal-cover work inspected includes unicyclic graphs, not this multicycle boundary."
+        ],
+        "reasoning": "A broader graph class does not give broader coverage if the predicate changes; the classwise identifiability result is compatible with the rooted cactus obstruction. A positive theorem limited to clique blocks cannot exclude it.",
+        "searches": [
+          "Coste–Csikós–Viennot arXiv:2611.18391 Theorem 1.1 and Figure 3",
+          "STACS 2025.75 §§2.2–2.3",
+          "Resultary …--35e6c1bd9e37"
+        ]
+      },
+      "checked_sources": [
+        "Primary and indexed statement passages listed in source_inspections",
+        "OEIS A000083",
+        "Focused rooted-cactus literature query quoted above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The outerplanar paper itself separates reconstruction from vertex-orbit recovery. Its exhibited graph has two merged stable cells, while here only the six-cell is merged.",
+          "The block-graph result can apply to clique-block cases, but neither it nor the distance-hereditary result supplies all small cacti and the first failing rooted class."
+        ],
+        "reasoning": "Identification from the quotient reconstructs a graph up to isomorphism, not necessarily a transitive action within each quotient cell. The prior examples and positive subcase do not imply the lower bound or uniqueness.",
+        "searches": [
+          "arXiv:2611.18391 Theorem 1.1 p.4 and Figure 3 caption plus discussion p.5",
+          "Resultary …--35e6c1bd9e37 and …--fc0f181544f4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The property is refinability of a rooted (one initially individualized vertex) colored graph against root-preserving automorphisms.",
+          "The same-initialization distance-hereditary record concerns a different graph class and first failures at eight."
+        ],
+        "reasoning": "Rooted graphs and one-point colored graphs use the same stabilizer. Neither uniform-start refinement nor distinguishing two separately rooted graphs is an alias for this within-graph equality.",
+        "searches": [
+          "Resultary: one-landmark / one-point counting refinement, rooted cacti, stabilizer orbits",
+          "Web: graph cactus single individualized vertex counting color refinement stable partition stabilizer orbits rooted universal covers orbit recovery rooted cactus graph WL refinability",
+          "arXiv:1502.01255, p.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A000083 gives unrooted cactus counts, not pointed orbit data.",
+          "The unmarked outerplanar catalogue has four order-eight obstructions including cacti, and the unmarked interval-graph and marked distance-hereditary entries also have different domains and minima."
+        ],
+        "reasoning": "Matching graph counts or a cactus appearing in an unmarked failure table does not give any of the rooted orbit decisions. The bounded search did not surface a catalogue census for the exact rooted predicate.",
+        "searches": [
+          "Resultary rooted cactus minimal nine-vertex orbit obstruction",
+          "OEIS A000083",
+          "Resultary …--2cb3631de27b, …--fc0f181544f4 and …--7eaadf182278"
+        ]
+      },
+      "rationale": "The closest literature result identifies connected rooted outerplanar graphs across inputs and explicitly allows an orbit-recovery failure with a different stable-cell profile. The closest indexed results change the graph class, the initial coloring, or the property. The inspected claims do not cover the sharp rooted cactus cutoff and unique witness.",
+      "residual_risks": [
+        "An unlocated specialized source remains possible. The comparison does not infer priority from same-day dates or from the later outerplanar preprint's date."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related classwise identification theorem and a different witness; not the exact cutoff",
+          "evidence": "Guarantee is between-graph identification; p.5 says two classes f and g each contain two distinct orbits. The reviewed witness has only one such class.",
+          "identifier_or_url": "https://arxiv.org/pdf/2611.18391",
+          "material_read": "v1 abstract; p.4 Theorem 1.1 around offset 14048; p.5 Figure 3 caption and inversion/orbit discussion at offsets 16700–20004",
+          "method": "OA bounded PDF passages",
+          "title": "Color Refinement Distinguishes Connected Rooted Outerplanar Graphs",
+          "trigger": "Same initialization on a broader graph class, with an explicit orbit discrepancy"
+        },
+        {
+          "assessment": "General framework, no rooted cactus threshold in the passage",
+          "evidence": "Defines equality with orbit classes as refinability.",
+          "identifier_or_url": "arXiv:1502.01255",
+          "material_read": "p.3 around offset 10400",
+          "method": "OA bounded PDF passage",
+          "title": "Graph Isomorphism, Color Refinement, and Compactness",
+          "trigger": "Primary definition and hierarchy for orbit recovery"
+        },
+        {
+          "assessment": "Related but not the rooted multicycle cutoff",
+          "evidence": "Treats identification and universal covers, including unicyclic graphs.",
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.STACS.2025.75",
+          "material_read": "§§2.2–2.3 at offsets 20750 and 28280",
+          "method": "OA bounded PDF passages",
+          "title": "Canonical Labeling of Sparse Random Graphs",
+          "trigger": "Universal covers and refinement on cycle-based graphs"
+        },
+        {
+          "assessment": "Independent count, no orbit census",
+          "evidence": "The entries count polygonal cacti with bridges, unrooted.",
+          "identifier_or_url": "https://oeis.org/A000083",
+          "material_read": "Statement and sequence at OA offsets 360 and 0–4",
+          "method": "OA entry inspection",
+          "title": "A000083, Number of mixed Husimi trees with n nodes",
+          "trigger": "Exact cactus census with initial counts matching the verification"
+        },
+        {
+          "assessment": "Different initial partition",
+          "evidence": "Four uniform-start outerplanar failures at eight, including two cacti, without a marked root.",
+          "identifier_or_url": "Resultary 2026/10/18 …--2cb3631de27b",
+          "material_read": "Mirrored Finding at offset 0, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local mirror",
+          "title": "The first biconnected outerplanar counting-refinement obstructions",
+          "trigger": "Explicit orbit failure among cacti within a broader class"
+        },
+        {
+          "assessment": "Different graph class and exception layer",
+          "evidence": "All through seven and two bad order-eight graphs in the distance-hereditary class; it does not state the cactus classification.",
+          "identifier_or_url": "Resultary 2026/10/18 …--fc0f181544f4",
+          "material_read": "Mirrored Finding at offset 0",
+          "method": "Local mirror",
+          "title": "The first one-point counting-refinement obstructions in distance-hereditary graphs",
+          "trigger": "Exact one-point orbit threshold under the same initialization"
+        },
+        {
+          "assessment": "Different class and initialization",
+          "evidence": "Unmarked interval graphs with one order-eight exception.",
+          "identifier_or_url": "Resultary 2026/10/18 …--7eaadf182278",
+          "material_read": "Mirrored Finding at offset 0",
+          "method": "Local mirror",
+          "title": "The unique first orbit-refinement failure among connected interval graphs",
+          "trigger": "Exact uniqueness of a first failure in a related family"
+        },
+        {
+          "assessment": "Different block hypotheses",
+          "evidence": "Positive all-orders statement for clique blocks; does not include the pentagon block of the reviewed witness.",
+          "identifier_or_url": "Resultary 2026/10/18 …--35e6c1bd9e37",
+          "material_read": "Mirrored Finding at offset 0",
+          "method": "Local mirror",
+          "title": "One marked vertex makes colour refinement orbit-exact on all connected block graphs",
+          "trigger": "Same one-root property with block structure"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding and explicit equitable partition",
+        "Independent cactus census and orbit comparison",
+        "Rooted outerplanar identification versus orbit recovery and positive block-graph comparison above"
+      ],
+      "rationale": "One root often makes refinement effective on block-structured graphs, so the first point where it still merges structurally different vertices is a natural boundary. The unique minimal example exposes the mechanism: vertices on a long cycle and in attached triangles can see identical class multiplicities even though the blocks cannot be exchanged. The lower bound and uniqueness make this more informative than an isolated obstruction or an unrooted graph count.",
+      "residual_risks": [
+        "The result gives no classification at larger orders and does not imply a lower or upper bound for arbitrary outerplanar or multiply individualized graphs."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

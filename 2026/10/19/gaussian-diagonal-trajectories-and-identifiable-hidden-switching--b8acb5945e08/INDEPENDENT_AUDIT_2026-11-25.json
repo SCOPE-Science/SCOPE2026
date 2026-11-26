@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:41:01.857737Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The stationary stochastic convolutions converge with bounded diffusivities and positive κ; differences under the same drivers decay at κ. Conditional on the whole telegraph path the coordinates are independent centered Gaussian processes. For t≥s their conditional autocovariances are e^(−κ(t−s))(D̄±δQ_s)/κ with Q the stationary exponential filter of S at rate 2κ. Averaging gives the stated isotropic covariance. The variance of Pθ given S is D̄/κ+(δ/κ)cos(2θ)Q_t. On the diagonals the conditional covariance at every pair of times is deterministic, proving the entire scalar OU law; off them the fourth cumulant is strictly positive. Independently of the density boundary argument, with m_h=E[Q^h] the stationary generator of (Q,S) gives m₁=0 and E[SQ^(h−1)]=m_h=(h−1)m_(h−2)/(h−1+γ/κ) for h≥2, by applying it to Q^h and S Q^(h−1). These compactly supported moments uniquely determine the symmetric beta density with shape ν=γ/(2κ) after mapping Q to (1+Q)/2. In particular m₂=κ/(κ+γ), m₄=3κ²/[(κ+γ)(3κ+γ)]. The Gaussian mixture gives the displayed characteristic function by the even moment series; the fourth, sixth and eighth cumulants are 3 times the variance, 15 times the third cumulant, and 105 times the fourth cumulant of the conditional variance. Thus they have exactly the stated values and signs. Wick's formula gives the positive diagonal square lag from the conditional cross-covariance (δ/κ)e^(−κ|t−s|)Q_min(t,s), while the conditional variances there are constant. This positive covariance of squares at zero linear cross-covariance precludes a joint Gaussian law. Conditional independence of the axis paths gives A(t)=−(δ/κ)^2G(t), G=E[Q_tQ₀]. E[S_tQ₀]=m₂e^(−2γt), and G'=2κ(E[S_tQ₀]−G), G(0)=m₂. Integrating gives the stated two exponentials or the repeated-root linear-times-exponential form; the lag is strictly positive before inserting the minus sign, by convolution with the positive sign correlation. At zero G'=0 and G''=−4κγG, yielding the inverse exactly, including κ=γ. The ordinary covariance fixes κ and D̄; δ² follows from A(0)<0, and relabeling ±S rules out identification of the sign. These are exact population identities, not finite-sample estimates or a formal certification.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Huang et al. Proposition 6.1 gives the conditional means, variances and zero conditional cross-covariance for independent Brownian coordinates driven by a common Markov environment.",
+          "Chechkin et al. discuss Gaussian mixtures of diffusivities; Alexandre et al. relate fourth cumulants to diffusivity fluctuations in a spatially different model."
+        ],
+        "reasoning": "Setting both drifts to κ, both mean forcings to zero, and state noise coefficients to √(2(D̄±δS)) embeds the exact SDE in Huang et al. Their representation supplies conditional covariance after substitution; the diagonal cancellation is a simple deduction and is not by itself a new general theorem. The inspected general results do not evaluate and contrast the two distinct square lags or solve the inverse problem for this observable.",
+        "searches": [
+          "Resultary: multidimensional Markov modulated Ornstein Uhlenbeck common switching environment moment transform",
+          "arXiv:1412.7952, §§6.1–6.2 and Proposition 6.1",
+          "arXiv:1611.06202, §II",
+          "arXiv:2207.01880, general theory"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1412.7952",
+        "arXiv:1811.03808v1",
+        "arXiv:1710.02222",
+        "arXiv:1611.06202 §II, p. 2",
+        "arXiv:2207.01880 general theory, p. 2",
+        "Resultary 4f3243fa2ced, 56d3d976847e and 94471ec2b67c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General conditional covariance and the stationary filter density are directly available from prior results; the projected one-time cumulants follow by mixture algebra.",
+          "The shared-stiffness result recovers a hidden rate from fourth-order lag derivatives in a different drift-modulated model."
+        ],
+        "reasoning": "Known machinery supplies the representation, but the signed lag contrast uses two different cancellations specific to complementary noise: conditional diagonal variance is fixed, leaving the Wick term, whereas the axis paths are conditionally independent, leaving the negative latent-filter covariance. The static filter law alone does not give the observed two-time statistic or show that its curvature, together with second-order data, separates γ from κ. This evaluated inverse/cancellation comparison, rather than a parameter renaming of the beta density, is the supported distinct result.",
+        "searches": [
+          "arXiv:1412.7952, Proposition 6.1 and §6.2",
+          "arXiv:1811.03808v1, Eqs. (21)–(22)",
+          "Resultary 4f3243fa2ced, RESULT.md Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Dhar et al. provide exactly the filter density after setting spring rate μ=2κ, run speed v₀=2κ and flip rate γ.",
+          "Ślęzak et al., arXiv:1710.02222 §3, distinguish Gaussian marginals from Gaussian process laws for compound OU models.",
+          "No inspected source gives the same pair of individually Gaussian projection processes and signed axis/diagonal square lags for this complementary switching model."
+        ],
+        "reasoning": "The latent filter and the normalized run-and-tumble coordinate are genuinely the same process, so the filter density is not new. Gaussian one-time marginals in a different mixture are not the same statement as a necessary and sufficient criterion for Gaussian finite-dimensional distributions of all linear projections.",
+        "searches": [
+          "Resultary: complementary diffusivity telegraph switched Ornstein Uhlenbeck two Gaussian directions projection non-Gaussian joint law",
+          "web: complementary switching diffusivities planar Ornstein Uhlenbeck two Gaussian diagonal projections non-Gaussian joint law squared cross covariance telegraph",
+          "arXiv:1811.03808v1, Eqs. (21)–(22)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 4f3243fa2ced, Finding: short-lag switching-rate recovery from a shared switching-stiffness cross-particle square statistic.",
+          "Resultary 56d3d976847e, Finding: same filtered-telegraph beta law for a single switched-diffusivity coordinate; inference via stationary moments 2,4,8.",
+          "Resultary 94471ec2b67c, Finding: signed stationary fourth cumulant for oppositely switching stiffnesses."
+        ],
+        "reasoning": "There is no finite parameter table required for this continuum claim; the corresponding exact-match check was against indexed closed-form classifications. The nearest cross-particle inverse and signed-correlation entries switch the drift, not the diffusivity, and lack this projection cancellation. The one-axis diffusivity result shares the latent mix but has a different information requirement for inversion and no complementary observation geometry.",
+        "searches": [
+          "Resultary: fourth order cross covariance squares complementary switching OU identify switching rate lag formula",
+          "Resultary: complementary diffusivity telegraph switched Ornstein Uhlenbeck two Gaussian directions projection non-Gaussian joint law"
+        ]
+      },
+      "rationale": "Supported narrowly for the linked complementary-diffusivity result: exact Gaussian-process projection classification, positive dependence of the squared diagonal processes despite all-lag linear uncorrelatedness, and identification from a different observed cross-square lag on the axes. The exact model class and conditional-normal machinery are prior, and the stationary beta law of the latent filter is already covered exactly by the normalized harmonically confined run-and-tumble model. Novelty is not assigned to those ingredients or to Gaussian marginals hiding higher-order dependence in general.",
+      "residual_risks": [
+        "General Markov-modulated OU theory contains the model and permits calculation of the asserted moments; an unlocated equivalent evaluated specialization may exist.",
+        "The latent beta law and broad mechanism are definitely covered; only the specific observed projection/dependence/inversion result is supported as distinct by the bounded comparison."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The process family and normal conditioning are covered; the evaluated complementary square-lag inverse comparison is not stated in these passages.",
+          "evidence": [
+            "The stochastic-integral representation is conditional multivariate normal with zero off-diagonal covariance given the modulator; the variance integrates squared state-dependent noise against an OU kernel."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1412.7952",
+          "material_read": "§§6.1–6.2, Proposition 6.1, p. 19 and following (text offsets 67200–72830, with conditional formula at 67500–71093).",
+          "method": "Targeted open-access PDF inspection.",
+          "title": "Markov-modulated Ornstein–Uhlenbeck processes",
+          "trigger": "Contains the precise SDE as a specialization."
+        },
+        {
+          "assessment": "Exactly covers the latent beta density after rescaling; does not itself give a classification of complementary Brownian-noise projections.",
+          "evidence": [
+            "Harmonic drift f(x)=−μx, support [−v₀/μ,v₀/μ] and stationary density proportional to (1−(μx/v₀)^2)^(γ/μ−1)."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1811.03808v1",
+          "material_read": "Harmonic case on PDF p. 4, Eqs. (21)–(22), text offset 975560; surrounding model description.",
+          "method": "Targeted open PDF literal lookup and passage inspection.",
+          "title": "Run-and-tumble particle in one-dimensional confining potentials: Steady-state, relaxation, and first-passage properties",
+          "trigger": "Potential exact precedent for the filtered telegraph mixing law."
+        },
+        {
+          "assessment": "Qualitative precedent in compound OU dynamics, not the observed complementary two-axis inverse result.",
+          "evidence": [
+            "Distinguishes Gaussian marginals from Gaussian process laws and discusses non-Gaussian temporal dependence."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1710.02222",
+          "material_read": "§3, p. 9, text offset 27426.",
+          "method": "Targeted open PDF passage.",
+          "title": "Superstatistical generalised Langevin equation: non-Gaussian viscoelastic anomalous diffusion",
+          "trigger": "Gaussian observed laws concealing non-Gaussian dependence."
+        },
+        {
+          "assessment": "Material precedent for the lag-derivative strategy but a different state-dependent part of the generator and no two-line Gaussianity criterion.",
+          "evidence": [
+            "Shared particle stiffness switches and a cross-particle squared-position lag is used to recover the hidden rate."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-a-sharp-temporal-mode-exchange-in-fourth-order-correlations-of-a--4f3243fa2ced/RESULT.md",
+          "material_read": "RESULT.md, Finding and model specification at offset 0.",
+          "method": "Local Resultary retrieval and mirror reading.",
+          "title": "A sharp temporal mode exchange in fourth-order correlations of a switching trap",
+          "trigger": "Closest earlier indexed nonlinear lag inverse in a shared switching environment."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The recoverability of switching from low-order observations is the motivating question: all two-time covariances and both complete diagonal laws are indistinguishable from ordinary OU, and even the positive diagonal-square lag only carries the switching rate in an amplitude that also depends on the unknown contrast. The normalized curvature of the negative axis-square lag identifies the rate independently of that unknown amplitude and establishes a sharp failure at zero contrast. This is an exact information separation for natural observables, not a new general mixture theorem, a thermodynamic claim, or a guarantee about derivative estimation from finite data.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

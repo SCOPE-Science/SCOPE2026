@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-For \(p\ge7\), the Vandermonde rank argument excludes every potentially singular two-coordinate-value solution via the identity \(5s_2-s_1^2=m(5-m)(a-b)^2\). In characteristics two and three the Frobenius identities make a defining equation redundant, and direct gradients prove the surviving surfaces smooth. In characteristic five an invertible coordinate change yields an independent free cone coordinate and a transverse \((2,3)\) intersection of six reduced rational directions. Exact homogeneous local-algebra and normalization calculations show \(\delta=9\), and the complete all-extension point count follows from six rational components sharing one rational vertex. The attached verifier reproduces finite arithmetic checks. The infinite-prime and all-extension claims rest on written proofs, not sampled computations.
+## correctness
 
-## Originality — PASS, with risk
-The 2021/2024 Korchmáros–Lia–Timpanella paper treats the smooth model only for characteristic zero or \(p\ge7\), and its §11.1 examines a distinct degree-through-\(p-3\) system. Their cone discussion and earlier rational-tuple classification provide context for the six permutation directions, but do not imply their scheme-theoretic complete intersection, delta, and zeta classification in characteristic five or the complete \(p=2,3\) dimension jumps. The Braden–Disney-Hogg 2023 source states its positive-characteristic coverage is out of scope. No equivalent result was located in checked mathematical-record searches. General methods might make the computation implicit; unindexed earlier modular work remains a residual bibliographic risk. No independent priority certification is claimed.
+PASS
 
-## Value — PASS
-This classifies *every* positive-characteristic fiber of the standard canonical Bring model, identifies the only dimension-jump characteristics, and describes the remaining reduced six-line degeneration scheme-theoretically and arithmetically. The exact local delta and zeta function explain how the genus-four complete-intersection Hilbert polynomial survives an extreme singular degeneration. These are natural structural and arithmetic invariants of a canonical published model, not an arbitrary parameter slice.
+The scheme is the coefficient reduction of the fixed power-sum ideal. For p≥7 a Jacobian rank drop would force at most two coordinate values; for multiplicities m and 5−m the identity 5s2−s1²=m(5−m)(a−b)² rules this out at a projective solution, including the all-equal case by s1=0. The smooth connected complete intersection has degree 6 and genus 4 by Bézout and adjunction. At p=2 and p=3 the indicated Frobenius relations give the exact redundancy; Jacobian rank two follows since rank loss forces all coordinates equal and then zero. At p=5 translation by the fifth coordinate makes the equations independent of that coordinate. Eliminating the linear form leaves a smooth conic and the product of three lines in the direction plane, each cutting the conic at two distinct F5-points away from the other factor lines. The quadratic and cubic form a regular sequence, so the homogeneous affine cone ring is Cohen–Macaulay and generically reduced with no embedded vertex prime; the projective fiber is indeed reduced, not just set-theoretically six lines. Distinct-coordinate directions are the permutation directions up to scaling and translation; the line stabilizer is the affine permutation group of order 20. The graded normalization quotient has length (6−1)+(6−3)+(6−5)=9 at the only singular point, giving p_a=4. Counting six F5-lines with the single common point gives 6·5^r+1 in every extension and the stated zeta function. VERIFICATION.md and verify.py were inspected but no uploaded code run; the symbolic arguments, not finite samples, prove the geometric statements.
 
-## Limits and closest literature
-The result is specific to the fixed integral power-sum model, and is not a claim about semistable or stable reduction of the abstract Bring curve. Closest text: Korchmáros–Lia–Timpanella, arXiv:2112.10886, Introduction, §11.1; Braden–Disney-Hogg, DOI 10.1007/s40879-023-00706-0, Introduction and Definition 2.1. The novelty assessment cannot exclude inaccessible or unindexed historical treatments.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass the frozen cross-characteristic classification of the literal power-sum model, whose substantial step is the exact characteristic-five scheme and its invariants. Credit the established good-characteristic theorem and the antecedent rational-tuple result (hence the F5-point count). The three distinct catalogue entries with paths dated October 25 and November 2 have real and extensive characteristic-five overlap, in one case including the point counts over every extension. They are not evidence of an antecedent to the October 12 frozen statement: no earlier provenance was established for those entries, and none claims the full literal power-sum classification at 2, 3 and 5. The finding is not a claim of present-day exclusivity or absolute bibliographic priority.
+
+## value
+
+PASS
+
+The literal integral equations are a motivated canonical presentation, and the distinction between surface fibers and bad curve fibers matters for their use in reduction. The main contribution is the precise reduced characteristic-five degeneration, its singularity defect and arithmetic, not just the quick Frobenius checks. It answers questions about this concrete model without conflating it with stable reduction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

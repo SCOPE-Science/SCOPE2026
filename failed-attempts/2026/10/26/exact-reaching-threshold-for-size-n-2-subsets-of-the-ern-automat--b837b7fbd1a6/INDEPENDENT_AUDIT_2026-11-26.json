@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:43:41.723209Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 19–44; VERIFICATION.md and verification.py inspected but not executed",
+        "Independent literal subset-image BFS retaining ranks n, n−1 and n−2, for every 3<=n<=45; all targets and the unique extremum agreed"
+      ],
+      "rationale": "The conclusion is true, but the frozen universal proof is invalid. Line 37 assumes the oriented gap between two persistently labeled holes increases at every effective b. It instead decreases if b moves the second labeled hole. For n=6, the second rank decrease can output {5,1}, with labeled gap 5 to 1 equal to 2. Rotate five steps to {4,0} and apply b to reach {4,5}. The gap from the original first hole is now 1, and five more rotations reach H_*={3,4}. Here h=1 and E=1, contradicting the claimed E>=n-h-2=3 on an actual reaching word. The upper construction is correct. A separate valid lower-bound argument anchors at n-1 after each effective b and uses h for the other hole. Before the second rank decrease, at least h+1 rotations are needed from the last visit of the singleton hole to n-1. Between consecutive effective b's after that, the rotation cost is at least 1 if the anchor is the moved hole, giving h'=h+1, or n-h if h is moved, giving h'=n-h-1. Either cost is at least h'-h. At the last effective b, adjacency forces h_last=n-2; telescoping gives at least n-1 rotations before that b, and the final shift takes at least n-1 more. Together with the two rank decreases this proves 2n. This validates the conclusion independently but does not justify passing the submitted proof or issuing a repair for a mechanically covered claim.",
+      "residual_risks": [
+        "The BFS is finite corroboration. The alternative telescoping argument is for this specific pair of transformations and target H_*."
+      ],
+      "status": "FAIL"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Don's circular 1-deficient theorem applies with coprime displacement 1 and gives n(n-|S|). Ferens–Szykuła state sharpness in Černý at all subset sizes, giving maximum 2n here.",
+          "The two-defect result explicitly constructs b a^k b a^j for every pair unless the excluded-to-duplicated displacement is antipodal, which it is not here. The general harmonic bound alone would only give 5n/2."
+        ],
+        "reasoning": "The previous upper bound and sharpness settle the maximum. The earlier explicit witnesses also separate the one possible extremizer from all other targets.",
+        "searches": [
+          "Don, The Černý Conjecture and 1-Contracting Automata, Proposition 15",
+          "arXiv:2208.05956v5 Example 2.4 and Theorem 5.7",
+          "Resultary 3d0ad329ab1e"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 3d0ad329ab1e, 139e56d5f521 and 93146644bbb8",
+        "Don Proposition 15 and Ferens–Szykuła Example 2.4, Theorem 5.7"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In 3d0ad329ab1e put e=n−1, d=0, rho=1; n>=3 makes the antipodal exception impossible. Every target has a two-b witness of length 2+k+j with k and j at most n−1.",
+          "Equality for any such witness forces k=j=n−1, whose image has holes {n−3,n−2}. Ferens–Szykuła's stated equality with Don's bound ensures at least one target has reaching length 2n."
+        ],
+        "reasoning": "Every other target has some witness of length at most 2n−1. The only possible maximizer must therefore be the claimed pair. The result follows without assuming shortest words generally use two b's.",
+        "searches": [
+          "Resultary 3d0ad329ab1e Proof, offsets 0–4954",
+          "arXiv:2208.05956v5 Example 2.4, p. 4 near OA offset 19495"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "139e56d5f521 swaps the merge and rotation letters but uses the same state labeling, left-to-right exact images, and all n>=3. It gives the same unique extremum as a corollary of an exact four-case distance formula.",
+          "The eight-state same-day obstruction is a different automaton, with distance 17 for a target omitting an antipodal pair, not the Černý automaton and pair in question."
+        ],
+        "reasoning": "Word lengths and target images are invariant under renaming the two letters, so the November result is a demonstrably equivalent or stronger statement. It is catalogued later and is not used to infer prior coverage.",
+        "searches": [
+          "Resultary 139e56d5f521 exact codimension-two reaching distance",
+          "Resultary 93146644bbb8 Don-bound obstruction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Ferens–Szykuła's four-state example reports maximum 8 for a size-two target; the general bound table gives 5n/2, not an exact arbitrary-n Černý census.",
+          "The later 139e56d5f521 gives an exact graded distance series, with coefficient one on the 2n term, and explicitly names the pair."
+        ],
+        "reasoning": "A four-state numerical example does not prove the universal extremum; later exact data are distinguished from the earlier statement-level implication.",
+        "searches": [
+          "arXiv:2208.05956v5 p. 4 and table p. 23",
+          "Resultary 139e56d5f521 Finding at offset 0",
+          "Resultary 93146644bbb8 Finding"
+        ]
+      },
+      "rationale": "Ferens–Szykuła's Example 2.4 already states that Černý meets Don's bound for every subset size. The earlier Resultary two-defect result gives explicit witnesses b a^k b a^j with 0<=k,j<n for every size-(n−2) target of the standard Černý automaton. Only the single word with k=j=n−1 can have length 2n, and its holes are {n−3,n−2}. The two prior statements force the claimed unique extremizer without any new lower bound.",
+      "residual_risks": [
+        "No absolute historical priority for the named pair is assigned. The conclusion follows by combining earlier available sharpness and witness results even if the pair is not named in those passages."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Touches all frozen targets and supplies the needed uniqueness implication combined with known sharpness",
+          "evidence": "Reduced exponents 0<=k,j<n and output missing pair {e+j,b(e+k)+j}; explicitly states Černý attains 2n for some pair.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-two-defect-reachability-in-cyclic-defect-one-automata--3d0ad329ab1e/RESULT.md",
+          "material_read": "Finding, Assumptions, and Proof, offsets 0–4954",
+          "method": "Read Resultary local mirror; specialized explicit witnesses",
+          "title": "Two-defect reachability in cyclic defect-one automata",
+          "trigger": "Earlier exact two-defect witness construction and sharpness"
+        },
+        {
+          "assessment": "Example 2.4 already states maximum sharpness for all target sizes",
+          "evidence": "Černý automata meet Don's upper bound for all |S|; n=4 size-two maximum is 8.",
+          "identifier_or_url": "https://arxiv.org/pdf/2208.05956v5",
+          "material_read": "Example 2.4 p. 4, Theorem 5.7 p. 21 and table p. 23",
+          "method": "Open full-text PDF passages; rechecked Example 2.4 from offset 19200",
+          "title": "Completely reachable automata: a quadratic decision algorithm and a quadratic upper bound on the reaching threshold",
+          "trigger": "Černý-specific sharpness of Don's bound"
+        },
+        {
+          "assessment": "Upper bound covers the standard automaton but does not by itself give sharpness or the named pair",
+          "evidence": "Coprime displacement yields n(n-k) for all k-subsets.",
+          "identifier_or_url": "H. Don, Electronic Journal of Combinatorics 23(3), 2016, Proposition 15",
+          "material_read": "Proposition 15 p. 7, OA offset 17136",
+          "method": "Open full-text passage",
+          "title": "The Černý Conjecture and 1-Contracting Automata",
+          "trigger": "Prior exact-form reaching upper bound for circular 1-deficient class"
+        },
+        {
+          "assessment": "Contains the frozen finding and more, not relied on for earlier coverage",
+          "evidence": "Four-case formula for all pairs and unique 2n target Q minus {n−3,n−2}.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-complete-codimension-two-reaching-distance-spectrum-for-the-er--139e56d5f521/RESULT.md",
+          "material_read": "Finding, assumptions and witness construction, offsets 0–3636",
+          "method": "Read Resultary local mirror; compared generators, scope, and exact distance formula",
+          "title": "A complete codimension-two reaching-distance spectrum for the Černý automata",
+          "trigger": "Exact later catalogue match"
+        },
+        {
+          "assessment": "Different eight-state automaton",
+          "evidence": "Exceptional antipodal missing pair and reaching length 17.",
+          "identifier_or_url": "Resultary 93146644bbb8",
+          "material_read": "Finding",
+          "method": "Read Resultary local mirror",
+          "title": "The unique Don-bound obstruction and shortest reaching word spectrum",
+          "trigger": "Same-day near match for two omissions"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and scope",
+        "Resultary 3d0ad329ab1e and Ferens–Szykuła Example 2.4"
+      ],
+      "rationale": "An extremizing target in this benchmark is a meaningful invariant in principle. Here its identity follows from a unique longest word form in an earlier explicit upper construction combined with already-stated sharpness. The record does not give the full profile or establish a structural result beyond this short consequence. Fixing the lower-bound argument would not recover a distinct valuable claim.",
+      "residual_risks": [
+        "No assessment is made of a new theorem on other automata or genuinely uncovered length profiles."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:51:39.866340Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–38, verify.py and verification_output.txt (source read, not executed)",
+        "Corrected /workspace/repairs/2/RESULT.md",
+        "Independent replay: python3 /workspace/branches/reproduce_02_03.py (02 output)"
+      ],
+      "rationale": "The frozen Finding is correct, but its proof line 23 incorrectly prints binomial(a+1,2)+binomial(b+1,2): at a=b=1 that line would give 9 instead of 7. The corrected complete RESULT.md at /workspace/repairs/2/RESULT.md uses binomial(a,2)+binomial(b,2). Both bounds nonempty force both onto one chain of length m, with 1≤p≤q≤m−1; the one-sided types number 2(a+1)(b+1)−1. For the pair count, homogeneity means each consistent finite induced diagram gives exactly one complete type. Downsets, upsets and lower-to-upper comparisons characterize the single-point diagrams. For x<y, lower sets must nest forward and upper sets backward; these inclusions already close paths through x<y. For incomparable x,y, the two lower/successor intersections must be empty, preventing any newly forced x–y comparison via the base. With either relation all other paths close using those conditions and the unary ones. Independently compressed each chain's four cuts to endpoint flags and k used interior ranks, each contributing binomial(m−1,k). Combined the two chains by excluding opposite nonempty lower/upper flags between them for each variable. The resulting two Newton-basis coefficient arrays agree exactly with the Finding's polynomials; checked each single-chain axis and the empty base separately (62 equalities in all; symmetry gives the second axis). This certifies the identity for all lengths, not just samples. Finally H−N is strictly positive and O((a+b+1)^3), whereas N² grows quartically, giving the claimed fraction and uniform limit. The corrected unary line changes neither the Finding nor the pair proof or certificate inputs.",
+      "residual_risks": [
+        "This counts ordered injective extensions over individually named parameters, not unlabeled pairs or random pairs in the infinite structure."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Indexed all-fixed-arity spectra over an antichain and pair spectra over complete two levels concern different bases. The inspected big-Ramsey theorem is about coding trees and Ramsey degrees, not this finite named-base enumeration."
+        ],
+        "reasoning": "Generality in arity, or a theorem on Ramsey degrees, does not cover simultaneous variation of two incomparable chains of arbitrary lengths.",
+        "searches": [
+          "Generic poset pair-orbit and finite extension enumeration primary search",
+          "Resultary 3d742ffe8f7d, 8b01eae861b0; arXiv:2303.10088v3 Thm 1.1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary c129c67e8cca, 67a71af3c8ab, 00a0cbd4584a, 8b01eae861b0, 3d742ffe8f7d, 0e3750d26245",
+        "arXiv:2303.10088v3 and frozen literature references"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The unary formula follows directly from the known equality t(P)=binomial(a+b+2,2)+ab. Neither the unary equality nor the single-chain formula constrains the mixed terms, and a count restricted to length-two components does not imply a limit with two independent growing lengths."
+        ],
+        "reasoning": "The mixed-channel count and I=N(2N+1)/3 require a new mixed calculation. An implication for the axes and a qualitative analogue are expressly credited.",
+        "searches": [
+          "Resultary 00a0cbd4584a Finding",
+          "Resultary c129c67e8cca and 67a71af3c8ab Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "67a71af3c8ab gives extension endpoint order polynomials for all fixed tuple arities over a single chain, hence exactly the b=0 specialization. c129c67e8cca varies the number of length-two chains, not their individual lengths."
+        ],
+        "reasoning": "The common endpoint formalism and the common cases do not give the mixed-length formula or the bivariate identity.",
+        "searches": [
+          "Resultary: ordered pair types or orbits over two disjoint named chains, interval cuts and incomparable-pair polynomial",
+          "Resultary 67a71af3c8ab Finding/Proof and c129c67e8cca Finding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "c129c67e8cca supplies exact comparable and incomparable counts for m length-two components; its overlap here is (0,0), (2,0) up to swap, and (2,2). The structures in 0e3750d26245 have a distinguished linear extension and a different limiting fraction."
+        ],
+        "reasoning": "The exact indexed tables cover special cases or a different expanded language, not the requested whole class.",
+        "searches": [
+          "Resultary exact pair counts over disjoint chains, c129c67e8cca; same-day 0e3750d26245"
+        ]
+      },
+      "rationale": "Best of the inspected evidence: only the independent two-length pair spectrum and its incomparable-count factorization and uniform-in-balance comparison survive as the contribution. Unary counts, single-chain counts, generic extension machinery and the qualitative comparable-fraction phenomenon on a different parameter family are not new. The repaired prose now explicitly identifies the strongest same-date comparison.",
+      "residual_risks": [
+        "An unindexed four-cut or interval-count formula could cover the mixed class; targeted comparisons do not establish historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Partial exact overlap only; no ordering inferred from date",
+          "evidence": [
+            "m independent chains of length two; exact C_m, I_m, T_m and comparable fraction >1/2 tending to 1/2."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-ordered-pair-spectra-over-disjoint-two-chains-in-the-homogeneous--c129c67e8cca/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror statement comparison",
+          "title": "Ordered-pair spectra over disjoint two-chains in the homogeneous partial order",
+          "trigger": "Closest same-date exact pair spectrum and limiting proportion"
+        },
+        {
+          "assessment": "Covers both axes and anticipates the cut method",
+          "evidence": [
+            "All fixed arities over one named chain, including comparable and incomparable pair channels."
+          ],
+          "identifier_or_url": "Resultary 67a71af3c8ab",
+          "material_read": "Finding and Proof, offset 0",
+          "method": "Local mirror, scope and order-diagram comparison",
+          "title": "Order-polynomial spectra of tuple types over chains in the generic partial order",
+          "trigger": "Same extension problem on one chain"
+        },
+        {
+          "assessment": "Exact unary overlap but no pair formula",
+          "evidence": [
+            "Equality for disjoint unions of at most two chains specializes with j(P)=ab."
+          ],
+          "identifier_or_url": "Resultary 00a0cbd4584a",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror statement comparison",
+          "title": "An incomparability-sensitive lower bound for one-point types of the generic poset",
+          "trigger": "Exact unary count and extremal base class"
+        },
+        {
+          "assessment": "The inspected claim concerns different invariants",
+          "evidence": [
+            "Big Ramsey degrees and their coding-tree representation, not the finite named-base pair counts."
+          ],
+          "identifier_or_url": "arXiv:2303.10088v3",
+          "material_read": "HTML around Thm 1.1, offset 7286; PDF request timed out",
+          "method": "Lawful OA alternate and statement inspection",
+          "title": "Characterisation of the big Ramsey degrees of the generic partial order",
+          "trigger": "Primary search for finite generic-poset extension enumerations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Corrected RESULT.md Finding/Proof; Resultary 00a0cbd4584a and c129c67e8cca"
+      ],
+      "rationale": "The marked disjoint-two-chain class is distinguished by a pre-existing extremal unary equality. The new structural fact is that the incomparable pair channel over this entire class reduces to its unary count, although full pair counts require more information. It also supplies an exact comparable comparison and a limit without balance assumptions. These are useful checks for type-spectrum and order-diagram work, not arbitrary small poset counts. Correcting the unary derivation preserves that contribution.",
+      "residual_risks": [
+        "No extension to arbitrary width-two bases or higher arity is inferred."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

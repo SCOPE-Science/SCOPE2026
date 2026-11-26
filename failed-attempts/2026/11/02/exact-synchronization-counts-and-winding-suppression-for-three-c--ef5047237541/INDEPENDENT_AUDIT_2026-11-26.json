@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:19:06.418962Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md Finding, scope and §§1–3 of Proof",
+        "VERIFICATION.md and VERIFICATION_OUTPUT.txt",
+        "verify_transfer_dynamics.py, verify_cycle_basis.py, verify_open.py, verify_spectral.py",
+        "Gravner–Lyu–Sivakoff Theorem 3",
+        "/workspace/branches/reproduce_frozen_math.py, prism()"
+      ],
+      "rationale": "The stated CCA counts and asymptotics hold. A synchronization coloring uniquely determines a 1-Lipschitz integer height after rooting one vertex, with three choices of its root color. The rung difference d and upper increment a determine the lower increment a+e-d, which must also be in {-1,0,1}. Cyclic trace matches the initial rung difference, and constant-term extraction enforces exact closure of the upper height, hence also of the lower height; column 1 is labelled and there is no quotient by rotations. This includes the two triangles at n=3. Open paths have neither closure condition. I recomputed the Laurent characteristic polynomial symbolically and the first four counts by independent spanning-tree integration (261,1485,8409,49215), with open counts 363,2313,14739,93921 for the same lengths. On the Fourier circle the larger quadratic root is increasing in s=2cos(theta), with the unique maximum at 2; neither the other root nor s has comparable modulus. Its log has quadratic coefficient -sigma²/2 and an even analytic expansion, giving the relative O(1/n) Gaussian estimate. The open Perron vector (1,t,1) gives the stated B. Exact symbolic and finite replay: python3 /workspace/branches/reproduce_frozen_math.py 5.",
+      "residual_risks": [
+        "No conclusion about nonsynchronizing trajectories. The success sets for the two precisely defined three-state rules actually coincide, although their trajectories and one-forms differ; the frozen statement excluding Greenberg–Hastings is valid as a description of the scope proved there, not as a denial that the same basin count holds."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gravner–Lyu–Sivakoff provide the general cycle criterion, not the family-specific numbers. The prism winding census gives N_n(k) for individual permitted windings and identifies N_n(0) with synchronization. The older prism extinction finding gives exactly the whole zero-winding sequence and its sharp asymptotic. The separate open-ladder hit c343292238f3 counts primitive periodic states, not this basin."
+        ],
+        "reasoning": "Zero winding is a case of the broader prism enumeration. The web query returned an unrelated height-function setting and does not establish no other ladder literature.",
+        "searches": [
+          "arXiv:1610.07320 Theorems 3 and 5",
+          "21af972dbcc9 exact square-flat winding census and local limit",
+          "Resultary open-ladder basin and transfer searches",
+          "Focused web literature query on ladder height functions / winding transfers"
+        ]
+      },
+      "checked_sources": [
+        "Resultary cae3512f5687",
+        "Resultary 21af972dbcc9",
+        "Resultary c343292238f3 (search summary)",
+        "arXiv:1610.07320 Theorem 3",
+        "Frozen RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the later source's nine-state CCA transfer, express a column by its top color and rung difference. Fourier decomposition on top color splits it into blocks T(omega^j z), j=0,1,2, where omega is a primitive cube root. Taking constant terms makes their traces equal, giving exactly 3[z^0]tr(T(z)^n).",
+          "For an open ladder the same step graph requires only its square constraints, so one replaces periodic trace by the sum of all path endpoints. At z=1 the all-ones vectors lie entirely in the invariant block. This yields 3·1^T T(1)^(n-1)1; the source already specifies the entire matrix. The frozen B and the ratio follow by the elementary Perron projection of this matrix and the covered closed asymptotic. The displayed relative error order follows from the even local expansion already used by the older Gaussian argument."
+        ],
+        "reasoning": "The explicit open comparison is a useful interpretation, but it does not change the principal covered count. Its exact algebraic coefficient requires no independent constraint analysis or new asymptotic input beyond the known transfer and Gaussian limit. No substantive surviving result is supported for repair.",
+        "searches": [
+          "Compare frozen closed and open transfers with cae3512f5687 exact constant term and 21af972dbcc9 shift-invariant block"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For colors 0,1,2 let g be the antisymmetric GH 0→1 edge weight and f=(0,-2,-1). Direct checking of color pairs gives delta_CCA(a,b)=3g(a,b)+f(b)-f(a). Cycle integrals therefore differ by exactly a factor of three. The zero-circulation criteria identify the same subsets of labelled colorings, despite different time updates.",
+          "The later source's matrix B(z) is exactly T(z) simultaneously reindexed from (-1,0,1) to (0,1,-1). This was checked entry by entry."
+        ],
+        "reasoning": "These are equality of sets and an explicit equivalence of transfer blocks, not an inference from four equal small numbers. A catalogue record on integer diffusion or about primitive temporal waves has a different counted object.",
+        "searches": [
+          "Resultary: prism/circular-ladder CCA, zero winding, excitation extinction and three-state heights",
+          "cae3512f5687 and 21af972dbcc9, exact statements and proof"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "cae3512f5687 gives precisely those four exact integers and an exact 9-state constant-term formula for all n. Both sources yield Lambda=(7+sqrt(33))/2 and the identical prefactor: the old GH variance is exactly one ninth of the CCA variance, as verified by symbolic simplification.",
+          "21af972dbcc9 gives the same CCA variance and leading factor 3 through three Fourier maxima in the nine-state representation."
+        ],
+        "reasoning": "The equality of the two zero-winding conditions validates the match for all n and fixes the lattice-span normalization; identical sample integers alone would not do so.",
+        "searches": [
+          "Resultary: 261,1485,8409,49215; matching algebraic rate and Gaussian winding penalty",
+          "cae3512f5687 Finding",
+          "21af972dbcc9 Proof §§2–4"
+        ]
+      },
+      "rationale": "The principal all-length cyclic count, exponential rate and Gaussian prefactor already occur for an exactly equivalent basin in Resultary cae3512f5687. The later distinct indexed record 21af972dbcc9 explicitly identifies the basins, counts all winding sectors, and even contains the same reduced three-state Laurent block up to a permutation. Dates are not used to infer authorship or order between derivations. The open denominator is the sum of paths in that already-specified step graph; its three-state Perron amplitude and the displayed ratio are direct endpoint specialization and division, not a separate uncovered invariant of sufficient substance for repair.",
+      "residual_risks": [
+        "The focused literature lookup did not resolve other integer-height enumerations. No historical-priority finding is made from catalogue dates. No inspected prior statement explicitly presents the open-to-closed coefficient in the same notation; its direct implication is shown above."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent all-size cyclic basin cardinality and sharp leading asymptotic",
+          "evidence": [
+            "The labelled prism is identical; z^0 trace counts all extinct GH states. The winding weight is g, and its zero sets agree with CCA by the pairwise identity."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-exact-extinction-law-and-a-gaussian-winding-penalty-for-excitati--cae3512f5687/RESULT.md",
+          "material_read": "Finding and scope, offset 0, and Fourier proof passages near offsets 4638 and 5482",
+          "method": "Bounded local mirror inspection and exact variance comparison",
+          "title": "Exact extinction law and a Gaussian winding penalty for excitation on circular prisms",
+          "trigger": "Same graph/parameters, matching counts and Gaussian rate"
+        },
+        {
+          "assessment": "Broader exact winding coverage, same principal block up to permutation",
+          "evidence": [
+            "Gives the one-form identity; the square-flat nine-state trace counts windings. Its shift-invariant Laurent block B agrees with the frozen T, and its winding-zero local limit has the same constant."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-hidden-winding-waves-in-square-flat-three-color-prism-dynamics--21af972dbcc9/RESULT.md",
+          "material_read": "Proof §1 at beginning of text and transfer/spectral/local-limit passages at offsets 4270 and 5170–7354",
+          "method": "Bounded local mirror inspection and block comparison",
+          "title": "Hidden winding waves in square-flat three-color prism dynamics",
+          "trigger": "Exact same CCA family and zero-winding mode"
+        },
+        {
+          "assessment": "General criterion, not itself a ladder census",
+          "evidence": [
+            "For the corresponding discrete one-forms, vanishing cycle circulations imply synchronization/extinction on finite graphs."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1610.07320",
+          "material_read": "Theorem 3, p. 4, offset 14600",
+          "method": "Bounded primary paper inspection",
+          "title": "Limiting behavior of 3-color excitable media on arbitrary graphs",
+          "trigger": "General CCA and GH dynamical criterion"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Proof §§2–3",
+        "cae3512f5687 Finding",
+        "21af972dbcc9 transfer and winding sections"
+      ],
+      "rationale": "The dynamical invariant and the cyclic seam effect are well motivated, but the exact closed basin and the Gaussian winding penalty are already covered. The remaining comparison uses the same step graph with free endpoints and an elementary Perron projection. It is a helpful reformulation and interpretation of current coverage, not a distinct unknown exact result or independently substantial new boundary theorem in this record.",
+      "residual_risks": [
+        "The assessment concerns incremental value of this frozen claim, not the importance of winding constraints or possible genuinely new boundary-condition results."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

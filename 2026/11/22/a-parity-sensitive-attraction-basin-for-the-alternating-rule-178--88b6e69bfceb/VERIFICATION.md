@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-23.md",
+      "INDEPENDENT_AUDIT_2026-11-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python3 verify_rule178_basin.py` from the directory containing the checker. The program independently constructs the full functional graph for every path length from three through eighteen, identifies which states flow into the fully alternating two-cycle, and compares those basins with the claimed explicit run criterion for every one of 524,280 finite labelled states. The program separately uses an integer recurrence for the rational generating function and checks its Lucas/Fibonacci parity formulas through length 100. The supplied `verification_output.txt` records the outputs from the actual execution and concludes `ALL_RUN_BASIN_CHECKS_PASSED`.
+## correctness
 
-The unrestricted-length correctness rests on the written wall-persistence, run-erosion and symbolic enumeration proof; exhaustive checks do not establish infinitely many cases. The primary literature establishes the total primitive-attractor count and the worst transient, but no full historical-priority or independent audit is asserted. The proof does not address basins of the other two-cycles or boundaries other than zero.
+PASS
+
+Rule 178 flips a site iff it has a different neighbor, including the fixed exterior zero at each endpoint. Both ends of an interior wall therefore flip and the wall persists. Inside a run with two interior walls, the end cells flip while the interior cells stay, reducing the central run length by two per step. The odd run ends without an equal pair; an even run leaves a pair whose cells flip together forever between persistent walls. At a path endpoint the behavior is different: a zero run erodes one cell at a time from its interior wall, while a one run initially erodes from both ends. Boundary one runs of length one leave no equal pair and length two transiently becomes boundary zeros; lengths at least three leave a two-wall core of length r−2, bad precisely for even r. The uniform zero word is fixed; the uniform one word erodes from both exterior zeros and enters iff n is odd. Full interior wall occupancy is exactly the two alternating words and each maps to the other. More generally a nonzero word eventually oscillates: every nonuniform word has a permanent wall, the finite wall vector stabilizes, and once stable the word must complement each step; uniform ones for n≥3 becomes nonuniform. To count the target basin, opposite boundary colours contribute 2AR times the even geometric series in O; same colours contribute (A²+R²)O times that series; add O for uniform odd ones. Independently expanding gives the displayed rational function. An equivalent series is 2(2−z)/(1−z−z²)−2/(1−z)+z⁷(1−z²)/(1−3z²+z⁴)−2+z−2z²+z³+z⁵, which directly checks the small exceptions and the odd-index Fibonacci shift n−6. Binet's formulas give the displayed parity constants for B_n/φ^n and division by 2^n gives the basin probability.
+
+## originality
+
+PASS
+
+Qualified for the explicit selected-basin enumeration and its parity law. The local erosion mechanism and the existence, number and periods of attractors are not claimed as new. The closest same-boundary historical paper is an access-limited priority risk; the independent comparison does not certify noncoverage of that paper's uninspected Section 3.35.
+
+## value
+
+PASS
+
+The fully alternating cycle is selected by a natural extremal property—every interior edge is a wall—and its basin population is an independently meaningful statistic even without a full basin census. The model has almost all words ending in period two, yet this particular oscillator has exponentially small selection probability with different parity constants. The boundary exception and the parity correction cannot be inferred from the stated prior attractor counts or bulk erosion alone. No claim is made that this is the largest basin or that these formulas extend to a different update or boundary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

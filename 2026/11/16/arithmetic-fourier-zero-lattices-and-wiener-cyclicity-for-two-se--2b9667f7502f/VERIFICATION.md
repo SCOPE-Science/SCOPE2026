@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,8 @@
 }
 ---
 
-# Reproduction and limits
+# Reproduction and scope
 
-Run `python check.py` using Python 3's standard library. The observed output was:
+Run `python verify_multiplicity.py` with SymPy installed. On 2,592 rational parameter-frequency cases it evaluates the endpoint polynomial and its first two frequency derivatives by exact reduction modulo a cyclotomic polynomial. It checks zero membership, leading derivative formulas on every applicable branch, and the quadratic Taylor term at double zeros. The counts by order are 2,166 nonzeros, 402 simple zeros, and 24 double zeros. The finite grid also encounters cases exclusive to each of the three families. This is a finite exact check, not a substitute for the analytic argument for all real parameters.
 
-```
-CHECK_OK finite_rational_frequency_tests= 9000  plus exact overlap checks
-```
-
-The script compares exact rational membership in the three proposed Fourier-zero families with the direct complex endpoint-exponential expression on a 9,000-point rational test grid. It also checks explicit simultaneous-root and distinct resonance instances. It is a finite check only; it does not test every real parameter or replace the following analytical argument.
-
-Exact integration gives a bracket formed from two sine amplitudes and one unit complex phase. If both amplitudes vanish, the common lattice follows. Otherwise the equality of absolute sine values forces an integral sum or difference of the phases; the required sign leads respectively to the gap/integer or midpoint/odd-parity lattice. Conversely, substitution shows that each lattice is contained in the exact zero set. At non-common zeros the derivative has a nonzero imaginary term; at common zeros it is nonzero for unequal lengths. Equal lengths factor into a sine times cosine, and overlapping simple factor zeros yield exactly double roots. Rational arithmetic characterizes the nonemptiness of each lattice. Wiener's classical \(L^1\) and \(L^2\) translation theorems supply the stated cyclicity consequences.
-
-Scientific limits: strict positivity of interval widths and their separating gap; continuous real frequencies; no assertion about complex zeros, discrete translates, multi-interval unions or uniform Fourier lower bounds. The closest motivating manuscript was accessible only through its abstract and indexed scientific description, not complete full text. An older equivalent arithmetical classification cannot be ruled out by the available search evidence. No independent mathematical audit or validation has been performed.
+Łaba's Lemma 3.1 gives the previously known zero locations. The local law follows by differentiating the endpoint expression at a zero and substituting the phase constraints in each family. At equal-length double overlaps the second derivative of the numerator is nonzero, which determines the leading quadratic amplitude and quartic intensity. The normalized slope bound is at exact real zeros for unequal-length intervals; it is not a uniform nonzero amplitude estimate away from zeros. The Wiener cyclicity statements are consequences of the known zero locations and the classical Tauberian criteria.

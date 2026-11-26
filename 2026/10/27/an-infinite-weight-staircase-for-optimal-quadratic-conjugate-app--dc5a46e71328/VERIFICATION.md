@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification record
 
-The claim is the sharp best-approximation inequality for \(\overline z^{\,2}f\) in power-weighted Bergman Hilbert spaces, including all weight thresholds and equality spaces. The precise definitions and proof appear in `RESULT.md`.
+# Independent mathematical audit
 
-`python verify.py` completed successfully using SymPy. The recorded output in `verify_output.txt` reports 1650 counted assertion groups. The script verifies the moment-ratio rational identity, the exact difference polynomial and its threshold roots, positivity of the mode variances, several direct polynomial projection calculations, and comparisons across sample weights. The proof in `RESULT.md` establishes the infinite-dimensional and continuum-of-weights assertions independently of those samples.
+## correctness
 
-Critical checks: the mode-zero exception is handled explicitly; all denominator factors in the difference are positive for \(\alpha>-1\); the sign polynomial has one admissible root for each positive integer degree; each root lies strictly between its even and odd integer barriers; the residual modes are pairwise orthogonal, and equality requires support only in the maximizer eigenspace.
+PASS
 
-Limitations: finite test ranges do not certify unseen indices or parameters; the full text of a materially relevant 1988 source was unavailable for priority comparison; no independent scientific audit has been performed. This document contains only the actual performed checks and their limitations.
+With probability-normalized measure the Beta integral gives m_j=Γ(j+1)Γ(α+2)/Γ(j+α+2). Projection of the normalized j-th input monomial onto holomorphic modes is zero for j<2 and has squared norm m_j/m_(j−2) otherwise. Distinct residuals have distinct angular frequencies, hence the squared norm on every f is the weighted sum of the squared diagonal values; this extends from the dense polynomials by boundedness. With p=α+1 and w_j=(j+1)(j+2)/[(j+p+1)(j+p+2)], v_0=w_0, v_1=w_1 and v_j=w_j−w_(j−2) for j≥2. The adjacent difference for w is 2p(j+2)/[(j+p+1)(j+p+2)(j+p+3)], valid also at j=−1 with w_(−1)=0. Taking the difference of those differences yields the stated positive-factor multiple of Q_n(α)=α²+(1−n)α−2n²−5n, while v_1−v_0 is positive. The denominators are positive, Q_n(−1)<0, Q_n(2n)=−3n and Q_n(2n+1)=2. Thus the sole root above −1 lies strictly between the indicated integer endpoints and those intervals order the roots without ambiguity. The mode sequence increases then decreases except for the one adjacent tie; equality requires the coefficient support to lie precisely in the maximizing eigenspace. The bounds on the thresholds yield n_α/α→1/2 for either maximizer at a tie. Substitution into the exact V_n yields αV_n→4t/(1+t)^3 at t=1/2, or 16/27. The supplied script and its recorded output were inspected, not executed; its finite checks include floating-point projection and asymptotic samples, so they are not proofs of the unbounded claims.
+
+## originality
+
+PASS
+
+The distinct claim is the finite-weight mode classification, exact transitions, and complete equality spaces for the quadratic conjugate symbol. The radial monomial diagonal and the leading high-weight consequences are not credited as separate advances. The closest earlier general-power result gives the exact diagonal, and its high-weight argument extends at once to m=2, but it does not order all finite-weight modes. The 1988 source remains an explicit access risk, not evidence for or against coverage.
+
+## value
+
+PASS
+
+A sharp best-approximation norm and its complete equality space are natural operator invariants. Here knowing an exact moment diagonal or asymptotic scale does not tell which input mode to use for a given weight. The global sign test supplies exact transition weights, all two-mode ties, and shows that no fixed finite collection of modes supplies an extremizer for all weights. This is a complete and usable classification of the motivated quadratic case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

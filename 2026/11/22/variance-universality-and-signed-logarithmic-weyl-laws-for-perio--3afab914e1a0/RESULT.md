@@ -29,7 +29,7 @@ let \(D_de_n=d_ne_n\) and \(K_d=i(D_dH-HD_d)\). Then:
 \end{cases}
 \]
 For every \(N\) and every \(t>0\), the two counts are actually equal (without normalization).
-4. For the exactly periodic sequence, the residue-class form of \(K_p\) is a rank-two matrix Hilbert operator plus a trace-class remainder. In the special case \(q=2\), the remainder vanishes identically: \(K_p\) is unitarily equivalent to \(\sigma H\oplus(-\sigma H)\), hence has purely absolutely continuous spectrum \([-\pi\sigma,\pi\sigma]\), no eigenvalues, and norm \(\pi\sigma\).
+4. For the exactly periodic sequence, the residue-class form of \(K_p\) is \(B\otimes H\) plus a trace-class remainder, with \(B\) of rank two if \(\sigma>0\) and rank zero if \(\sigma=0\). When \(q=2\) the remainder vanishes identically and \(K_p\) is unitarily equivalent to \(\sigma H\oplus(-\sigma H)\). In this two-class case, if \(\sigma>0\) the spectrum is purely absolutely continuous, equals \([-\pi\sigma,\pi\sigma]\), and there are no eigenvalues. If \(\sigma=0\) then \(K_p=0\) and its spectrum consists of the eigenvalue zero with infinite multiplicity. In both cases the norm is \(\pi\sigma\).
 
 In particular, the essential band, absolutely continuous spectral type and leading signed finite-section counting functions depend on the periodic pattern only through its standard deviation; all finite-order arrangements with equal variance share these invariants.
 
@@ -85,14 +85,14 @@ converges in nuclear norm, because
 The essential and absolutely continuous assertions persist under this selfadjoint trace-class perturbation.
 
 **Signed logarithmic finite-section law.** At cutoff \(N=qM\), the residue unitary takes \(P_NK_pP_N\) exactly to
-\(B\otimes H_M+P_{qM}RP_{qM}\), where \(H_M\) is the first \(M\)-by-\(M\) Hilbert section. The perturbation has uniformly bounded trace norm. The same holds for \(K_d\), by the previous estimate. For general \(N\), the difference from the preceding multiple of \(q\) amounts to fewer than \(q\) added rows and columns, changing the number of eigenvalues above any fixed threshold by at most \(2q\). The eigenvalues of \(B\otimes H_M\) consist of one copy of \(+\sigma\lambda_j(H_M)\), one copy of \(-\sigma\lambda_j(H_M)\), and zeros. Widom's Hilbert-section result, with normalization made explicit in Fedele (2019, equations (1.8)–(1.10)), gives
+\(B\otimes H_M+E_MRE_M\) on \(\operatorname{ran}E_M\), where \(E_M=I_{\mathbb C^q}\otimes P_M\) and \(H_M\) is the first \(M\)-by-\(M\) Hilbert section. The perturbation has uniformly bounded trace norm. The same holds for \(K_d\), by the previous estimate. For general \(N\), the difference from the preceding multiple of \(q\) amounts to fewer than \(q\) added rows and columns, changing the number of eigenvalues above any fixed threshold by at most \(q-1\) by interlacing. If \(\sigma=0\) the model vanishes and the count above \(t\) is bounded by \(\|K_d\|_1/t\). If \(\sigma>0\), the eigenvalues of \(B\otimes H_M\) consist of one copy of \(+\sigma\lambda_j(H_M)\), one copy of \(-\sigma\lambda_j(H_M)\), and \((q-2)M\) zeros. Widom's Hilbert-section result, with normalization made explicit in Fedele (2019, equations (1.8)–(1.10)), gives
 \[
 \lim_{M\to\infty}\frac{\#\{j:\lambda_j(H_M)>u\}}{\log M}
 =\pi^{-2}\operatorname{arcosh}(\pi/u),\quad0<u<\pi,
 \]
 with limit zero for \(u\ge\pi\). To transfer the density under a uniformly trace-class perturbation \(Q_M\), use the eigenvalue-count inequalities at thresholds \(t\pm\delta\): at most \(\|Q_M\|_1/\delta\) eigenvalues can be displaced across a fixed gap \(\delta>0\) without charge to the unperturbed count. Divide by \(\log M\), pass to the limit and then let \(\delta\downarrow0\). The Hilbert density is continuous at positive thresholds, including \(\pi\). Since \(\log\lfloor N/q\rfloor/\log N\to1\), the asserted formula follows. Finally, the matrix of every finite section of \(K_d\) is purely imaginary Hermitian. Complex conjugation sends it to its negative, so eigenvalues occur in exact positive–negative pairs and the signed counts agree for every \(N\).
 
-**Special two-class case.** For \(q=2\), the only nonzero blocks have \((r,s)=(0,1)\) or \((1,0)\), and \((r+s+1)/q=1\), so \(R=0\). The Hilbert matrix has purely absolutely continuous spectrum \([0,\pi]\) and no point spectrum; the exact two-sided statement follows.
+**Special two-class case.** For \(q=2\), the only potentially nonzero blocks have \((r,s)=(0,1)\) or \((1,0)\), and \((r+s+1)/q=1\), so \(R=0\). If \(p_0\ne p_1\), the two nonzero scalar multiples of the Hilbert matrix have purely absolutely continuous spectrum and no point spectrum. If \(p_0=p_1\), \(D_p=p_0I\) and \(K_p=0\) on all of \(\ell^2\), so zero is an eigenvalue of infinite multiplicity.
 
 ## Verification
 

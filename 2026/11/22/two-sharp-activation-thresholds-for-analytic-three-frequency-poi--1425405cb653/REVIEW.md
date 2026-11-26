@@ -1,15 +1,21 @@
-# Scientific review: sharp three-character Poisson fourth moments
+# Independent mathematical audit
 
-## Correctness — PASS
-The fourth norm is the squared Fourier-convolution norm, and its only three-character pair-sum collision is the arithmetic-progression relation \(n=2m\). In its absence, the objective is an explicit quadratic on the energy simplex. The proof checks the pure-mode threshold, all pair-face candidates, negative definiteness of the full tangent Hessian across the remaining parameter interval, and the explicit interior stationary point. The two transition equations are continuous and uniquely ordered. At resonance an exact positive sum-of-squares identity proves the endpoint equality case; a positive linear third-mode perturbation proves strict mixing beyond it. Compactness, a negative-definite Hessian and the implicit-function theorem justify the sharp onset expansion. Replaying `checker.py` passed 2,141 exact algebraic, Fourier-convolution and numerical assertions; finite tests are subordinate to these proofs.
+## correctness
 
-## Originality — PASS (best-knowledge, with explicit priority risks)
-The nearest primary sources are the linear-polynomial ultraspherical hypercontractivity paper of Ivanisvili et al. (arXiv:2004.05567v1, introduction and Section 3 read) and the sphere Poisson-semigroup global contractivity theorem of Frank and Ivanisvili (arXiv:2101.06209v1, theorem and proof inspected). Their conclusions do not give the exact supercritical norm for arbitrary analytic three-character subspaces, the second activation radius, or the resonant high-mode onset. Two publicly available research results were inspected at the actual statement-and-proof level: an unweighted three-character \(\Lambda(4)\) classification covers the equal-multiplier endpoint but not weighted parameter variation, while a real, mean-zero, two-frequency Poisson theorem has a distinct \(1{:}3\) resonance and cannot imply the present analytic \(1{:}2\) result. Semantic published-finding corpus queries on frequency aliases, weighted trinomials, analytic polynomial hypercontractivity and sharp norm transitions found no matching all-radius implication. An older unindexed weighted-trinomial theorem and inaccessible complete historical circle-hypercontractivity work remain residual priority risks; no claim of exhaustive historical uniqueness is made.
+PASS
 
-## Mathematical value — PASS
-The sharp all-radius expression reveals two distinct spectral sensor/mode-selection thresholds determined by \(m,n\). The higher mode is exactly absent in a nonempty interval even after the lower nonconstant mode becomes active, whereas an arithmetic-progression collision makes it activate immediately. The second threshold is explicit, the optimizer energies are classified, and the resonant excess gains a sharp factor \(3/2\). This is a structural boundary between Fourier combinatorics and nonlinear semigroup norm optimization, not just a restatement of classical hypercontractivity or an arbitrary numerical example.
+Re-audited the complete corrected RESULT.md, which retains the resonant theorem and uses the collision-free case only as a credited comparator. Orthogonality of the Fourier square leaves precisely the midpoint collision 0+2m=m+m, with cross term 4 Re(u_0 u_2 conj(u_1)^2). Positive real amplitudes attain its upper bound. The gap at a=1/2 expands into the displayed nonnegative squares and vanishes only for a constant, which extends to smaller a by coefficient monotonicity. For a>1/2 the 0,m pair has a mixed optimum greater than 1 and dominates either other pair; adding a positive upper-mode amplitude improves it at first order, even at a=1 where the pair payoffs can tie. Every global optimizer is thus interior and has the aligned phase. In coordinates (t,z)=(|c_m|²,|c_{2m}|), the Taylor terms are 4δt−3t²/4+tz−z² and the Hessian has determinant 2 with negative first diagonal. Compactness at the unique critical constant puts all optimizers in the analytic chart. The unique local stationary branch has (t,z)=(4δ,2δ)+O(δ²), giving the norm coefficient 8 and upper-mode energy 4δ²+O(δ³). The credited collision-free first branch yields coefficient 16/3 by maximizing the two-mode quadratic, proving the 3/2 ratio. The original nonresonant formulas are consistent with the broader theorem; removal addresses coverage rather than a mathematical error.
 
-## Scope and residual limitations
-The complex analytic constant-containing space must not be conflated with full real sine/cosine pairs. The resonant theorem establishes immediate all-mode participation and a local unique profile near onset, not an all-radius closed form or global resonant uniqueness. Independent external validation and historical priority certification have not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+For the original Finding, the indexed B₂ staircase directly subsumes the entire nonresonant result, without implying any chronology from the same date. The repair removes that as a claimed contribution and credits it. For the surviving weighted midpoint-resonant theorem, strongest inspected sources give either unweighted endpoint information, another domain or moment, or assume no collision. The immediate activation throughout the supercritical weighted range and the sharp onset profile/excess remain distinct on the checked evidence.
+
+## value
+
+PASS
+
+The repaired claim isolates a natural obstruction to the collision-free activation staircase: one midpoint convolution term forces a higher harmonic into every optimizer immediately above the sharp contraction threshold. The precise quadratic energy onset of this harmonic and its 3/2 enhancement of the leading excess quantify an effect not supplied by unweighted endpoint constants or qualitative mode persistence. This is value of the resonance theorem, not of republishing the covered nonresonant specialization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

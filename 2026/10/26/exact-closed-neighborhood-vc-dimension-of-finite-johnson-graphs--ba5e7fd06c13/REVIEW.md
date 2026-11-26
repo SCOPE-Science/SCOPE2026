@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem concerns closed Johnson graph neighborhoods with centers inside the same vertex set. The proof is complete conditional on an explicit, executable finite certificate: every five-element shattered set lies in the ball of a center witnessing its full trace; swaps form a row-column grid; all other balls cut this grid as the full set, an empty set, a row-column cross or a two-row-by-two-column rectangle. Two spare coordinate names capture every possible abstract trace. The enumerator covers all row/column partition pairs for five off-center cells (1,153 cases) and four plus center (113 cases), finding fewer than 32 traces in each case. Independent small-model enumeration establishes both sides of the exact exceptional cases. Complementation and common-element padding preserve all witness traces, proving the remaining infinite ranges. Distinguishing closed from open neighborhoods and checking the exceptional balanced case are crucial.
+PASS
 
-## Originality — PASS, qualified
+A full trace puts the sample in N[C]. Encode its other vertices as unique swaps (removed row, added column). Relative to C, a center at distance 0 gives the full trace; one swap gives the union of its row and column and includes C; two swaps give the product of the selected row and column pairs and omit C; greater distance gives an empty trace by the triangle inequality. Verified the bound with an independent exhaustive enumeration over all samples of five cells in a 5x5 grid and four cells in a 4x4 grid with C included. Every pattern can be relabeled into these grids; the code permits arbitrary unoccupied coordinates in determining traces and thus can only enlarge the real trace family. It yielded maxima 24 over 53,130 samples and 25 over 1,820 samples, both below 32. Independently enumerating traces by symmetric difference in the seven base graphs returned 1,2,3,3,4,3,4 for J(4,2), J(5,2), J(6,2), J(7,2), J(8,2), J(6,3), J(7,3), and exact open dimension 4 in both J(7,2) and J(6,3). A parameter increase can preserve all witnesses by adjoining common elements to every vertex and leaving other new elements unused, so both equality and Johnson distance are preserved. This transfers the two size-four lower witnesses to all larger required parameters, up to complementation. Rank one is complete, and the optional k=0,n cases have one vertex; identical closed neighborhoods give dimension zero.
 
-Adler, Benediktsson and Macpherson (arXiv:2007.16042, Section 3) establish the related open-neighborhood VC-dimension theorem, including four-point open-neighborhood witnesses in the two cases whose closed-neighborhood dimension is three. Their paper remarks that the closed-neighborhood dimension is bounded but does not state the complete sharp formula. Coudert, Csikós, Ducoffe and Viennot (arXiv:2405.07588) give a general algorithm for closed-neighborhood graph VC dimension, not this parametric Johnson formula. An earlier result covers the rank-two triangular-graph subcase; that subcase is included for completeness, not claimed original. The full rank-at-least-three classification and sharp universal bound are the distinct claim. Alternative fixed-weight-code terminology remains a priority risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The exact dimension is a natural invariant of the Johnson association scheme's radius-one range family, tied to learning-theoretic complexity of a well-studied homogeneous graph. The explicit infinite-parameter cutoff, exceptional balanced graph, and precise separation between open and closed neighborhoods supply genuine structure, rather than a small isolated computation. The finite-pattern reduction provides a reusable way to control shattering in homogeneous graphs with rook-grid first spheres.
+The supported distinct content is the sharp closed-neighborhood upper bound uniformly in both Johnson parameters and its use in the complete dimension table. An exact open-neighborhood theorem and boundedness of the closed variant are prior. The k=2 branch is expressly not claimed new, and later catalogue records give exact, in parts stronger, coverage of the k=2 and k=3 branches. No inspected source gives an all-rank closed upper bound of four or a result implying it; the fixed slices do not control larger min(k,n-k).
 
-## Limits and closest sources
+## value
 
-The upper-bound proof uses an exhaustive finite certificate whose implementation has been executed and reviewed but not independently certified. The literature comparison is not proof of priority; equal statements under other vocabulary could exist. No formal proof assistant or independent external review is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The uniform sharp dimension bound and complete finite classification are natural invariants of a standard graph family. They quantify exactly when taking closed instead of open neighborhoods changes shattering, and the finite trace kernel removes any dependence of the proof on the ambient Johnson parameters. Neither a low-rank regression nor a mildly improved algorithm on a few graphs would establish this structural result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

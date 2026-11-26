@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** For each explicitly defined 16-vertex graph, the least-unmatched-vertex recurrence enumerates all perfect matchings and the two-pairing test enumerates all alternating-four-cycle switches. Exhaustive BFS from every configuration produces component sizes and exact eccentricities. A separately implemented C++ partner-array enumerator agrees on the counts, switch graph, component size histogram and extremal eccentricities; a certificate verifier checks every state, transition and BFS result. The 72 frozen rook states also have a non-computational counting proof via four-cycles in a four-column incidence graph.
+PASS
 
-## Originality
+A fresh enumeration from the two stated host graphs grouped the eight-edge perfect matchings by their six-edge subsets. Distinct matchings sharing six edges differ in exactly two different pairings of the same four vertices, hence in precisely one alternating four-cycle. All-source BFS on this alternative construction verified R: 2016 states, 6048 switches, component sizes 1368, 288 twice, and 72 isolated; S: 1920 states, 5280 switches, component size 1908 and 12 isolated. The radii/diameters (7,8), (14,14), (10,13), and all 576 degree-three vertices in the two 288 components were reproduced. The direct rook isolation proof also checks: exactly one horizontal edge per row and one vertical per column are necessary, horizontal pairs form an assigned C4 on the columns, and complementary incident-row pairs give distinct vertical pairs. Mixed pairs cannot switch: if the horizontal row meets the vertical edge, the needed same-column horizontal vertex would coincide with its endpoint; otherwise both horizontal vertices would need the vertical column.
 
-**PASS subject to residual literature risk.** The closest general mathematical antecedents are Dyer–Jerrum–Müller on bipartite switch chains (arXiv:1501.07725), Dyer–Müller on general-graph switch-chain ergodicity (arXiv:1705.05790) and Bonamy et al. on complexity of perfect-matching reconfiguration (arXiv:1904.06184). Their inspected definitions and main results do not give this exact finite classification. Searches for the names of the two graphs, matching-switch synonyms, component sizes and frozen one-factors found no equivalent published classification. Nearby mathematical records on matching complexes and on topological invariants of this strongly regular pair concern different objects and imply none of the component counts. An unindexed prior computation could still exist; priority has not been independently certified.
+## originality
 
-## Value
+PASS
 
-**PASS.** Whether an elementary perfect-matching switch chain is irreducible is a natural question for reconfiguration and sampling. The rook/Shrikhande pair provides a controlled test with identical strongly regular parameters but dramatically different component decomposition and frozen-state counts. Exact radii and diameters and the direct 72-state rook structure reveal bottlenecks that minimum matching cardinality or standard regularity parameters cannot explain. This is a finite exact classification, not a theorem about a whole family.
+The move and graph pair are standard. No earlier theorem or exact catalogue entry checked determines the complete numerical component and distance profile for this switch operation on these two hosts. In particular the closely related records either change the states, the move, or the host.
 
-## Limits
+## value
 
-Only perfect matchings and four-cycle alternating switches are addressed. In particular, no longer-cycle reachability or mixing-time estimate is asserted. The literature search may miss unindexed results and there has been no independent external audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Rook and Shrikhande are the canonical same-parameter nonisomorphic pair. Their complete switch profiles give a concrete witness that those parameters do not control the frozen states or the exact distances in this natural reconfiguration process. The two cubic diameter-14 rook components and the single large Shrikhande component are more informative than simply observing that both switch chains are disconnected.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

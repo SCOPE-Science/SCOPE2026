@@ -2,14 +2,12 @@
 
 ## Finding
 
-Let \(Y\subset(\{0,1\}^2)^{\mathbb Z}\) consist of binary configurations on the infinite two-row ladder in which every **finite** connected component of occupied cells has odd cardinality; connectivity uses vertical rung edges and horizontal edges in each row. Let \(\sigma\) shift one column to the left. Then the exact horizontal topological entropy and Artin–Mazur zeta function are
+Let \(Y\subset(\{0,1\}^2)^{\mathbb Z}\) consist of binary configurations on the infinite two-row ladder in which every **finite** connected component of occupied cells has odd cardinality; connectivity uses vertical rung edges and horizontal edges in each row. Let \(\sigma\) shift one column to the left. The exact Artin–Mazur zeta function is
 
 \[
-h_{\mathrm{top}}(Y,\sigma)=\log\lambda,
-\qquad
 \zeta_Y(z)=\frac{(1+z)(1+z^2)}{(1+z-z^2)(1-4z+3z^2-5z^3+2z^4+z^5)},
 \]
-where \(\lambda\approx3.49756499717934\) is the Perron root of
+The accompanying horizontal entropy \(h_{\mathrm{top}}(Y,\sigma)=\log\lambda\) and the seven-state parity matrix also occur in the companion two-rail enumeration [4]; they are included for context, not claimed as new. Here \(\lambda\approx3.49756499717934\) is the Perron root of
 \[
 \lambda^5-4\lambda^4+3\lambda^3-5\lambda^2+2\lambda+1=0.
 \]
@@ -100,7 +98,7 @@ The script is a finite consistency check; it does not replace the infinite-langu
 
 Callard, *Soficity of multidimensional subshifts* (2025), Section 7.1, identifies the planar odd shift as the system whose finite occupied connected components have odd cardinality and describes its known soficity. Motivated by this concrete example, the present calculation concerns the first strip width permitting vertical connections, and determines its horizontal entropy and all-period dynamical zeta function, neither of which is calculated in the inspected thesis discussion. Hochman's problem note records the original planar odd-versus-even component question, but does not give strip counts.
 
-Finite-state transfer and determinant formulas for sofic dynamics are standard methods. The specific seven-state frontier presentation, its algebraic entropy, and the parity correction separating periodic symbols from periodic labelled states are the quantitative results here; no novelty is claimed for the general transfer-matrix or zeta identities. In particular, replacing a sofic shift's periodic points by the raw trace of an arbitrary right-resolving cover is generally invalid, and this example exhibits the exact correction.
+The two-rail enumeration [4] gives the identical seven-state adjacency matrix (with different shape symbols), the same entropy, and the generating function of closed finite-ladder words with no wraparound. Those finite counts are not the periodic-point counts: for example there are three admissible closed one-column words but four period-one points. No precedence between the two computations of the entropy is asserted. The distinct result here is the all-period fixed-point and zeta formula. The additional step identifies precisely the periodic labels with zero or two lifts and sums their signed contributions. No novelty is claimed for general transfer-matrix or sofic zeta techniques.
 
 ## Limitations
 
@@ -111,3 +109,4 @@ The result is specific to an infinite **two-row** ladder with nearest-neighbor a
 1. A. Callard, *Soficity of multidimensional subshifts* (PhD thesis, defended publicly 2025-06-24), Section 7.1, p. 54. https://www.acallard.net/publications/thesis.pdf
 2. M. Hochman, *Is the multidimensional odd shift sofic?* (problem note). https://math.huji.ac.il/~mhochman/problems/multidimensional-odd-shift.pdf
 3. R. Pavlov, *Approximating the Hard Square Entropy Constant with Probabilistic Methods*, arXiv:1011.1983 (strip entropy as a related, different setting). https://arxiv.org/abs/1011.1983
+4. *Exact two-rail entropy and closed-island counts for the odd-component shift*, Finding, Proof §1 and Limitations, https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-exact-two-rail-entropy-and-closed-island-counts-for-the-odd-comp--a2dd499263a3/RESULT.md

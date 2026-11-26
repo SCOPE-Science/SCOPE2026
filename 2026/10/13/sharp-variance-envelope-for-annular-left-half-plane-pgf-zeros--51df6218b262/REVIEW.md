@@ -1,14 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The variance is obtained by twice differentiating \(\log f_X(e^t)\) at \(t=0\). For each conjugate root pair the real per-root contribution is the explicit function \(q(r,c)\). Its inversion symmetry reduces the annulus to \(1\le r\le R\); the radial derivative is nonpositive on \(-1\le c\le0\), and the angular derivative has at most one interior zero, necessarily a maximum. Therefore the global per-root minimum is one of the two stated boundary values. The two displayed PGFs certify sharpness.
+## correctness
 
-## Originality
-PASS. The closest primary source proves a general sector bound with exponent \(2\pi/\delta\) and explicitly leaves an exponent gap, but it does not state the exact half-plane envelope. A later paper explicitly studies Hurwitz probability-generating polynomials and limit theorems without deriving this annular variance minimization. Targeted searches for left-half-plane, Hurwitz-stable, root-contribution, and exact-annulus formulations found no covering statement. The main residual risk is an equivalent coefficient-moment inequality in older Hurwitz or total-positivity literature under different terminology.
+PASS
 
-## Value
-PASS. The closed left half-plane is a standard and independently studied zero geometry. In this regime the result replaces an order \(R^{-4}n\) general lower bound by the exact sharp envelope, whose large-\(R\) order is \(R^{-2}n\), and it identifies a nontrivial transition between two extremal zero configurations. This directly addresses the source's sharpness-gap direction in a natural complete regime rather than an arbitrary finite slice.
+Independent replay of RESULT.md lines 36–98 and VERIFICATION.md: applying (z d/dz)² to the logarithm of the normalized root product at z=1 gives the variance contribution −ζ/(1−ζ)². For conjugate roots, with u=r+1/r and c=cos(arg ζ), its per-root real part is q=(2−uc)/(u−2c)². The annulus gives 2≤u≤R+1/R. The derivative in u has numerator uc+2c²−4<0 for −1≤c≤0; the derivative in c has numerator 8−u²−2uc over (u−2c)³. This numerator is strictly decreasing in c, so any interior stationary point is a maximum. This proves the endpoint minimum. The endpoint values 1/(u+2) and 2/u² tie at u=1+√5, and the displayed normalized linear and quadratic products have the required nonnegative coefficients and endpoint masses. At R=1 the minimum is 1/4; the large-R branch has order 2/R². This is sharp uniformly in degree; the imaginary-pair optimizer requires even degree, as stated. Exact spot checks at R=1,2,3,4 agreed; the analytic optimization, not the finite checks, establishes the bound.
 
-Closest literature: Michelen--Sahasrabudhe's zero-free anti-concentration theorem and Heerten--Sambale--Thäle's Hurwitz-polynomial limit theory. Limitation: the argument relies essentially on \(\operatorname{Re}\zeta\le0\) and does not resolve general sector angles below \(\pi/2\).
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The strongest inspected annular zero-free result uses the same annulus and an angular exclusion but only yields order R⁻⁴ at δ=π/2. The inspected Hurwitz-polynomial analysis gives example-specific moments and limit laws, not this extremal minimum. The inspected indexed results use different notions of variance or different optimization problems. The exact closed-half-plane minimum and the competition between real and imaginary extremizers are supported as a bounded originality conclusion.
+
+## value
+
+PASS
+
+A natural geometric strengthening of an established zero-free variance problem: it improves the half-plane large-radius exponent from the available general guarantee of 4 to the exact exponent 2, determines the constant at every radius, and locates the switch in extremal zero geometry. The uniform-over-degree scope and the even-degree sharpness of the large-radius branch are explicit.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T23:22:13.342943Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–55",
+        "Frozen ring and golden-ratio verifier source and recorded outputs",
+        "/workspace/review-checks/icosahedron.py"
+      ],
+      "rationale": "Independently enumerated all deletion sets of sizes 0 through 6 in the specified ring graph using disjoint-set cycle detection, not the supplied traversal. Exactly sixty are optimal. Both sides of each have an acyclic induced graph with degree sequence (1,1,2,2,2,2), which forces one path on six vertices. Formed every unordered single-exchange edge by set difference, verified that the exchanged host vertices are adjacent and all sixty exchange degrees are four, and used Floyd–Warshall to reproduce all 3,600 ordered overlap–distance entries, complement distance six, eccentricity six throughout, the distance-parity bipartition and 840 ordered detours. The argument and computation are exhaustive for this finite graph. Replay: python3 /workspace/review-checks/icosahedron.py. The frozen DFS/BFS implementations and recorded outputs were inspected, not executed.",
+      "residual_risks": [
+        "Finite certificate only for the specified host graph and single-exchange rule."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The frozen citation and source inspection attribute the scalar equality and one witness to Theorem 12 and a scalar graph-cover bound to Theorem 13. The fresh full-text attempt was unavailable; the bibliographic record alone does not establish the paper's scope.",
+          "The October 18 record computes the forest filtration and counts 984 faces including the empty face."
+        ],
+        "reasoning": "A scalar optimum and an aggregate forest-filtration census do not identify complementary path structure or distances in the solution graph.",
+        "searches": [
+          "Ma–Ma–Ren DOI 10.7151/dmgt.2455 Theorems 12–13, bibliographic lookup and lawful full-text attempt",
+          "2026/10/18 SCOPE 32d255a801a9, integral forest filtration"
+        ]
+      },
+      "checked_sources": [
+        "Ma, Ma and Ren, doi:10.7151/dmgt.2455 (bibliographic record and frozen inspection account)",
+        "Resultary/SCOPE c48e67f704dd, 32d255a801a9 and 2c1db03a1a91"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier top-face count and scalar minimum give neither the isomorphism types on the selected and unselected halves nor distances on the exchange graph. Knowing there are twenty, sixty or any given number of vertices in an exchange graph also cannot resolve whether each swap is a slide in the host graph.",
+          "The nearby indexed zero-forcing census concerns a different feasibility predicate and 200 six-sets."
+        ],
+        "reasoning": "Exact complementary P6 rigidity, equality of slide and jump, and the metric law require structural inspection and complete adjacency/distance analysis beyond the earlier aggregate results.",
+        "searches": [
+          "2026/10/25 record c48e67f704dd versus frozen Finding",
+          "Primary literature lookup for icosahedral decycling/feedback vertex sets and reconfiguration; Ma–Ma–Ren DOI 10.7151/dmgt.2455"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A minimum deletion six-set corresponds by complementation to a maximum induced-forest face; complement preserves swap adjacency and intersection size for equal halves. Sixty selected sides give thirty unlabeled partitions, not sixty partitions.",
+          "The later record has the same sixty configurations and connected four-regular bipartite 120-edge graph. Its unordered table in (h,d), h=6−r, gives the frozen table by doubling every off-diagonal count and adding sixty diagonal pairs. Its 420 unordered one-detours are the same 840 ordered detours."
+        ],
+        "reasoning": "Explicit equivalence and relative record dating, not a difference in wording or counting convention, distinguish matching later coverage from earlier priority.",
+        "searches": [
+          "Local Resultary: icosahedral induced-forest complexes and complementary induced six-path exchange",
+          "2026/11/22 SCOPE 2c1db03a1a91, RESULT.md Finding/table and metric proof"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The October 25 face vector ends in 60 six-faces. Complementation gives exactly sixty minimum deletion sets, so their count is previously covered.",
+          "The later complete metric table agrees numerically under the explicit ordered/unordered conversion."
+        ],
+        "reasoning": "The earlier count receives no novelty credit and does not encode the shapes, move constraints or shortest paths. The exact table match identified is later.",
+        "searches": [
+          "Local Resultary 2026/10/25 record c48e67f704dd, RESULT.md Proof §1",
+          "Local Resultary 2026/11/22 record 2c1db03a1a91, RESULT.md offset 0"
+        ]
+      },
+      "rationale": "Pass is for the complementary induced-path structure and optimum exchange geometry, not the known scalar decycling number or the already tabulated count of sixty. A distinct later record reproduces the core claim in an equivalent convention and is substantive matching coverage, but not evidence that this claim was already covered at the frozen record's date. No earlier inspected source or stronger theorem established the complementary-path and exchange assertions.",
+      "residual_risks": [
+        "The Ma–Ma–Ren full text was not independently reopened.",
+        "Earlier unindexed finite censuses could contain equivalent structural or reconfiguration data; results do not certify historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the optimal-set count, not the inspected path/exchange claims",
+          "evidence": "Sixty size-six faces as final entry of (12,66,200,345,300,60).",
+          "identifier_or_url": "Resultary/SCOPE 2026/10/25 c48e67f704dd",
+          "material_read": "RESULT.md Finding and Proof §1",
+          "method": "Bounded local-mirror statement inspection",
+          "title": "Induced forest topology and full icosahedral symmetry",
+          "trigger": "Exact same induced-forest complex"
+        },
+        {
+          "assessment": "Related exact forest-complex data",
+          "evidence": "984 faces including the empty face.",
+          "identifier_or_url": "Resultary/SCOPE 2026/10/18 32d255a801a9",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Bounded local-mirror inspection",
+          "title": "The complete integral forest filtration of the icosahedral graph",
+          "trigger": "Earlier census of the same forest complex"
+        },
+        {
+          "assessment": "Direct material match in a later record, not earlier coverage",
+          "evidence": "Same complementary paths, 120 exchanges and full distance census in unordered convention.",
+          "identifier_or_url": "Resultary/SCOPE 2026/11/22 2c1db03a1a91",
+          "material_read": "RESULT.md Finding/table and metric proof, offsets 0 and 4805",
+          "method": "Bounded local-mirror inspection",
+          "title": "Antipodal one-detour exchange geometry of induced icosahedral paths",
+          "trigger": "Strong matching exchange result"
+        },
+        {
+          "assessment": "Credit scalar result as attributed; no independent inference about the entire paper from the landing page",
+          "evidence": "Frozen audit locates Theorem 12 in the readable author copy and reports a lower bound plus a witness; fresh author-copy and DOI routes did not produce the text.",
+          "identifier_or_url": "doi:10.7151/dmgt.2455; https://dblp.org/rec/journals/dmgt/MaMR24",
+          "material_read": "Bibliographic record and frozen source's recorded Theorem 12–13 account, not fresh full text",
+          "method": "Primary query, DOI and identified author-copy retrieval attempts; inspection of frozen AUDIT.json lines 83–88",
+          "title": "The decycling number of a planar graph covered by K4-subgraphs",
+          "trigger": "Same-object scalar theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Findings and exchange proof",
+        "Independent exhaustive table reproduction"
+      ],
+      "rationale": "For a canonical small graph, the complete optimal solution space exposes a rigidity not conveyed by the previously known count: two induced paths on every optimum cut and no jump that is not a host-edge slide. The distance census quantifies exactly when the natural overlap lower bound is attained and when an intermediate detour is necessary, giving reproducible benchmark data for optimal feedback-set reconfiguration.",
+      "residual_risks": [
+        "Not a characterization of optimal feedback-set reconfiguration on general triangulations."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

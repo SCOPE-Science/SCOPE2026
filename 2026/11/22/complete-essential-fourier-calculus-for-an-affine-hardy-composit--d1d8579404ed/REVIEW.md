@@ -1,11 +1,21 @@
-# Review of the complete essential Fourier calculus
+# Independent mathematical audit
 
-**Correctness: PASS.** The Cayley, Paley--Wiener and logarithmic unitary changes of variables give an exact model \((\Sigma_s h)(u)=e^{-(1-e^{-s})e^u}h(u-s)\), including the needed \(e^{-s/2}\) normalization. The unitary-dilation theorem gives the operator-norm upper bound for matrix-valued finite measures. Unit wave packets escaping to negative infinity provide simultaneous approximate eigenvectors for all bounded parameter intervals, and total-variation tails extend the argument to arbitrary finite measures. Weak convergence of those packets gives the essential lower bound. Numerical radius, faithfulness, matrix amplification and the exact three-term example follow without unverified numerical assumptions.
+## correctness
 
-**Originality: PASS under the inspected literature; historical-priority risk remains.** Chalendar--Partington (arXiv:2201.09249) gives general semigroup background, and Gallardo-Gutiérrez--Partington (arXiv:2206.11882) gives the critical translation model and individual norm. Both are acknowledged, and neither inspected paper states the all-measures, all-matrix-level essential Fourier-norm identity. The additional simultaneous weakly null frequency tests and common unitary dilation establish what their original results alone do not assert. Wang--Pang's 2016 Bergman lower bound and the 2025 local-spectrum analysis are distinct in domain or invariant. Search results from the mathematical findings index revealed no exact duplicate but cannot certify historical novelty; Cowen's 1984 full paper remained inaccessible and is the principal priority risk.
+PASS
 
-**Mathematical value: PASS.** This settles a natural entire convolution functional calculus, not just a single test norm: arbitrary complex cancellations, singular or noncompactly supported measures, and matrix-valued combinations all acquire exact norms and distance-to-compacts. It also characterizes the absence of compact averages and gives computable sharp nontrivial cancellation constants such as \(\sqrt5<3\). The result is motivated by current literature on composition semigroups and subordinate operators; it is not an arbitrary parameter slice or simple recomputation of an individual composition-operator norm.
+Recomputed the Cayley factor 1/t for t=e^(−s); the inverse Laplace change of variable cancels that factor, and the normalized logarithmic action is e^(−(e^u−e^(u−s)))h(u−s). The dilation and spectral theorem bound all matrix entries using a common Hilbert-space dilation. An independent direct check embeds h(u) as h(u)k_{e^u}(r) in unweighted L²(du dr), where k_a(r)=√2 e^(−(r−a))1_{r≥a}; their inner products are e^(−|a−b|). Compression of translations in u is precisely the weighted model, and Fourier transformation bounds the block integral by the matrix Fourier supremum. Strong continuity and variation domination give the integrals for unbounded support. For every ξ the frozen weakly null packets have squared interval-translation error at most 2S/n and damping error at most e^(−n+S) on 0≤s≤S, with measure tail contributions ≤2|μ|((S,∞)). Independently, the normalized Hardy vectors (1−z)^(−1/2+ε+iξ) are simultaneous eigenvectors with eigenvalues e^(−s(ε+iξ)), and are weakly null as ε↓0: their norms diverge and each fixed Taylor coefficient stays bounded before normalization. Compact operators vanish on these sequences, also with a fixed unit vector in the matrix coordinate. This gives the matrix essential lower bound, and the scalar numerical-radius bound follows by pairing with the same unit vectors. Fubini and uniqueness of Fourier transforms give the algebra conclusions, distance to compacts bounds every approximation number from below, and the example has squared Fourier maximum max(3−2cos(2ξh))=5. No finite frequency scan is used. See checks/analytic-notes.md.
 
-**Scope and limitations.** No claim is made for general composition semigroups or \(H^p\) outside the Hilbert setting. The standard continuous unitary-dilation theorem and uniqueness of the Fourier transform of finite measures are invoked; other proof steps are written explicitly. Self-review cannot substitute for independent audit or exhaustive historical literature access.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The known weighted-space model, single-operator norm, Phillips integrals and common dilation bound are not counted as distinct. The supported addition is a matching essential lower bound and thus a complete exact norm identity for every finite measure matrix. No inspected matching theorem supplies this joint statement or an equivalence to ordinary unweighted translations that would make the result a direct substitution.
+
+## value
+
+PASS
+
+It evaluates a natural exact quotient norm on the full algebra of measure averages, not just each single atom. Arbitrary complex cancellations, singular measures and all finite matrix amplifications are included; it identifies a faithful complete Fourier-norm realization in the Calkin algebra and decides compactness and approximation numbers for the whole family. These are substantive operator invariants beyond the single weighted-shift norm.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

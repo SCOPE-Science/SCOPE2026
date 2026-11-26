@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem is reconstructed independently from the backward two-piece permeable-interface boundary-value problem. Matching the interface flux and the backward jump condition gives the no-reset transform, which is checked against Kay–Giuggioli (2022), Eq. (11). Global Poisson reset creates an iid-attempt renewal law. A dimensionless exact mean follows by algebra. The entire parameter domain is covered analytically: strict convexity follows from the displayed integral and sum-of-squares formulas for the second derivative; coercivity forces a unique positive optimum; implicit differentiation proves the strict increase–decrease split and unique midpoint maximum. The envelope theorem proves strict decrease of the minimized mean with membrane position. The packaged standard-library numerical checker passed 1,461 deterministic tests, but those are corroboration, not infinite-parameter proof. Parameter boundaries and the screened-reset exception are explicitly excluded.
+PASS
 
-## Originality — PASS, with stated residual risks
+Reconstructed the transform in interface-centered coordinates. For k=sqrt(s/D), boundedness on the right gives u'(b+)=-k u(b+), and continuity of flux and the backward jump law give u'(b-)=-k u(b+) and u(b-)=(1+Dk/kappa)u(b+). Propagating the left solution back to 0 gives 1=u(b+)[(1+Dk/kappa)cosh(kb)+sinh(kb)]. Propagating right to L and simplifying gives exactly the stated Laplace transform. Under global resets, each independent trial has success probability phi(r)>0 and mean duration (1-phi(r))/r, yielding the normalized F after renewal. For convexity, write the transparent term as integral_0^1 e^(u z)/z du; the second derivative of each e^(a z)/z is e^(a z)[(a z-1)^2+1]/z^3, positive for all real a. This also applies to the two resistance terms. Both endpoint limits are infinity, so the stationary root is unique and interior. Differentiation gives F_B=-2 eta exp((1-2B)z) and F_zB=(1-2B)F_B; implicit differentiation and the positive curvature give the exact signed slope, while the envelope derivative gives strict decrease of the minimized mean. The monotone rate conversion preserves the unique maximum exactly at B=1/2. The proof requires finite positive permeability and resets from both sides as claimed. The recorded finite sweep was not rerun and is not used to establish the universal quantifier.
 
-Kay and Giuggioli (2022) derive the membrane first-passage transform without any resetting; their transform is used as a known premise, not claimed. Bressloff's 2022–2023 screened-target resetting article (Secs. 2–5) explicitly prohibits resets inside the interface and reports that its optimal rate shifts toward larger rates as the barrier moves outward; this does not imply the global-reset midpoint maximum. His 2022–2023 membrane-renewal paper (Sec. 3) also explicitly forbids cross-membrane resetting, focusing on nonequilibrium stationary densities and relaxation rather than absorption optimization. The classical scalar renewal formula alone lacks the nontrivial location derivative; it must be combined with the precise transform and strict convexity. Search of directly relevant published literature and mathematical research records did not uncover an equivalent result or a more general theorem supplying this universal location law. There remains a genuine risk of unrecognized coverage by a general stochastic-restart comparison theorem, and a 2025 moving-barrier paper was not fully inspected. Absence of a match is not proof of exhaustive novelty.
+## originality
 
-## Value — PASS
+PASS
 
-This is a physically interpretable design rule, not merely an alternative formula for an already-known mean. For every finite membrane resistance, the reset frequency optimal for absorption is highest at an exact parameter-independent spatial midpoint, even though changing the membrane position improves the search time monotonically. The disagreement between optimization of the control and improvement of the objective is non-obvious and can inform protocols that combine environmental permeability with external relocation. The full location-dependent phase diagram follows for all positive parameter values, not for a narrowly tuned example. No claim is made of a downstream experimental demonstration.
+The unreset transform and Poisson renewal identity are prior ingredients. The distinct supported claim is the geometry of the globally reset MFPT optimizer: unique interior rate for each position, increasing then decreasing with its unique position maximum at the midpoint, notwithstanding a strictly decreasing optimized mean. The closest inspected first-passage optimization screens out target-side resets and therefore uses a different renewal problem; the closest inspected global reset catalogue results use stationary observables on a ring.
 
-## Closest sources and limitations
+## value
 
-Kay–Giuggioli, *Phys. Rev. Research* **4** L032039 (2022), Eq. 11; Bressloff, arXiv:2211.12468, Secs. 2–5; Bressloff, arXiv:2209.09176, Sec. 3. The single-interface, perfectly absorbing, spatially uniform diffusion and globally allowed reset assumptions are essential. Universal midpoint location is not asserted for screened, non-Poisson, or partial resetting.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact midpoint is an invariant of a physically motivated optimization with a tunable geometric obstruction. The optimal rate's nonmonotonicity, despite strictly decreasing mean times at fixed and optimized rates, gives a concrete distinction a researcher comparing screenable and externally imposed resets can use. This is a structural prediction beyond merely computing a known transform or locating a numerical optimum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

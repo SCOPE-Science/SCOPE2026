@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:03:37.807227Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–62, VERIFICATION.md and verify.py (inspected, not executed)",
+        "Independent replay: python3 /tmp/opencode/check_review3.py (symbolic component expansion and 9-by-9 determinant)"
+      ],
+      "rationale": "Use the ordinary tensor equation directly, so there is no division by 3! in small characteristic. Write M for the skew coefficient matrix of r. In the coordinate ([x_i,x_j],x_i,x_j) interpreted in the signed basis, only [r12,r13] can contribute, since the other two terms place the bracket in a V slot. Of the bracket summands, only the (x_i,x_j) pair and its reverse can give that central direction; one term uses diagonal entries and is zero, the other gives a_ij^2 with the appropriate sign. Thus all three a_ij vanish over a field. With A=0, each surviving bracket uses two x slots and leaves two central slots; the resulting tensor is the alternating image of the sum of [x_i,x_j] wedge w_i wedge w_j over cyclic pairs (1,2),(2,3),(3,1). Its z1 tensor z2 tensor z3 coefficient is Q, and C is absent. Independent symbolic tensor expansion gave signed squares a12^2, -a13^2, a23^2, followed after setting A=0 by exactly six signed copies of Q, and determinant 2 for the chosen nine-coordinate coboundary map. Hence all differences of B that give the same map vanish in odd characteristic. The polar form is the direct sum of three nonsingular hyperbolic planes and the diagonal-entry block of determinant 2. Rank 9 rules out factorization over the algebraic closure and the polar gradient vanishes only at B=0. The odd-rank finite-field quadratic character sum gives q^8 zeros: in the additive-character counting average the nonzero scalars contribute proportional to their quadratic character, which sums to zero. The q^3 unrestricted C choices give q^11 tensors but do not affect the q^8 maps.",
+      "residual_risks": [
+        "Only the reduced alternating locus is identified; no assertion about the full equation scheme, characteristic 2, nonalternating r, or isomorphism classes of cobrackets. The binary experiment in the frozen notes is out of scope."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Example 3.2 parameterizes the nearly-coboundary family with delta(V) in the central exterior square and compares its dimension with that of V wedge Z. Example 3.6 identifies the K3 graph algebra with f3 and lists compatible structures under diagonalizability restrictions."
+        ],
+        "reasoning": "The former compares parameter spaces rather than deriving the triangular B equation. The latter's narrower diagonalizability hypotheses and co-Jacobi tests do not give all alternating r satisfying the ordinary tensor CYBE.",
+        "searches": [
+          "Farinati–Jancsa arXiv:1607.00300, Section 3, Examples 3.2 and 3.6"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary search (nearest dbd8e1046b59 and ef1ce1c79117)",
+        "arXiv:1607.00300",
+        "arXiv:1302.0408"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A middle-block coboundary has values in the central exterior square and kills the center. Its Schouten square is central, which suffices for coboundary compatibility, but need not vanish."
+        ],
+        "reasoning": "For instance B=diag(1,1,0) has Q=1 although the induced cobracket is compatible. Counting compatible maps would include this example and cannot imply the claimed triangular counts. A calculation of the three-form and injectivity is required; the variable C likewise cannot be recovered from cobracket data.",
+        "searches": [
+          "Farinati–Jancsa Examples 3.2 and 3.6, arXiv:1607.00300",
+          "Bai–Guo–Ni arXiv:1302.0408, Section 2.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Section 2.1 gives the skew-tensor O-operator correspondence (including the coadjoint representation); Theorem 2.4 gives a semidirect-product construction."
+        ],
+        "reasoning": "An operator restatement retains the concrete equations to solve for this algebra; the passages do not identify all its solutions, let alone the finite field count, and the larger semidirect product is not the specified six-dimensional Lie algebra.",
+        "searches": [
+          "Primary search for rank-three free two-step CYBE, f3 and O-operator formulations",
+          "Bai–Guo–Ni arXiv:1302.0408, Section 2.1 and Theorem 2.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "dbd8e1046b59 concerns rank-one Nijenhuis operators on free two-step Lie algebras; ef1ce1c79117 concerns a four-dimensional mock-Lie Yang–Baxter locus."
+        ],
+        "reasoning": "Neither identification preserves both the algebra and equation. No exact match for the quadric or the specified counts was established in the bounded searches.",
+        "searches": [
+          "Local Resultary search for alternating CYBE on the free class-two algebra, trace(adj B), and the triangular tensor and map counts",
+          "Closest indexed matches dbd8e1046b59 and ef1ce1c79117"
+        ]
+      },
+      "rationale": "The strongest algebra-specific passages cover nearly-coboundary structures and a restricted Lie-bialgebra classification, not the zero locus of the ordinary alternating tensor equation. The general operator formulation does not perform the free-rank-three calculation. The direct indexed comparisons also concern different equations or different algebras. The supported distinction is the exact triangular locus and the resulting tensor and map counts, not the coboundary parameter space itself.",
+      "residual_risks": [
+        "Bounded comparison, not publication priority or exhaustive bibliographic coverage. Earlier equivalent calculations under operator terminology or another basis could be unindexed. Example 3.2 should be credited specifically for the nearly-coboundary parameterization and comparison, not for displaying the triangular matrix equation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Cobracket/coboundary overlap, not the full alternating triangular locus in the inspected sections",
+          "evidence": [
+            "Dimension comparison for nearly-coboundary parameters and representatives in V wedge Z; diagonalizability restriction for K3"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1607.00300",
+          "material_read": "Section 3, Example 3.2 p. 13 (offset about 42266) and Example 3.6 p. 14 (about 47861)",
+          "method": "OA PDF passages",
+          "title": "Lie bialgebra structures on 2-step nilpotent graph algebras",
+          "trigger": "Closest algebra-specific prior coverage"
+        },
+        {
+          "assessment": "General reformulation/semidirect construction, not a rank-three census",
+          "evidence": [
+            "Skew CYBE tensor and O-operator correspondence; skew solution construction in larger algebra"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1302.0408",
+          "material_read": "Section 2.1 pp. 3–4 (about 6456) and Theorem 2.4 p. 5 (about 13916)",
+          "method": "OA PDF passages",
+          "title": "Generalizations of the Classical Yang–Baxter Equation and O-Operators",
+          "trigger": "Potential equivalent formulation or dominating general theorem"
+        },
+        {
+          "assessment": "Different operator equation",
+          "evidence": [
+            "Rank-one Nijenhuis spectra, not alternating CYBE"
+          ],
+          "identifier_or_url": "dbd8e1046b59",
+          "material_read": "Indexed topic and claim summary",
+          "method": "Local Resultary search",
+          "title": "Rank-one Nijenhuis spectra of free two-step nilpotent Lie algebras",
+          "trigger": "Nearest local match on algebra"
+        },
+        {
+          "assessment": "Different algebra and scope",
+          "evidence": [
+            "Four-dimensional mock-Lie algebra in characteristic three"
+          ],
+          "identifier_or_url": "ef1ce1c79117",
+          "material_read": "Indexed topic and claim summary",
+          "method": "Local Resultary search",
+          "title": "A characteristic-three component jump in a four-dimensional mock-Lie Yang–Baxter locus",
+          "trigger": "Nearest local match on equation name"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof",
+        "Farinati–Jancsa Examples 3.2 and 3.6 for the compatibility comparison"
+      ],
+      "rationale": "Free rank three is the first two-step free case whose center admits a nonzero alternating three-form: it is where the central compatibility condition can differ from the vanishing tensor equation. The result gives a usable complete triangular parameter space there, with a singularity description and a check on how tensor representatives differ from actual distinct cobracket maps. The finite counts add a precise benchmark but are consequences, not the sole contribution.",
+      "residual_risks": [
+        "A specific small free algebra; the result does not classify triangular structures up to automorphisms, make a higher-rank claim, or give a scheme-theoretic classification."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

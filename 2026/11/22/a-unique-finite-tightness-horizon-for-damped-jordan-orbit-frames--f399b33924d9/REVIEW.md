@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-For any nonzero generator \(v=(x,y)\), the orbit is \(e^{-at}(x+bty,y)\). Its frame matrix equals a centered second-moment matrix; with \(y\ne0\), it is a scalar multiple of \(\left(\begin{smallmatrix}|z|^2+\rho_T&z\\\bar z&1\end{smallmatrix}\right)\), whose determinant is exactly \(\rho_T\) independent of \(z\). Consequently the condition-number optimizer is uniquely \(z=0\). Direct exponential integration yields \(\rho_T=(b/(2a))^2[1-(aT/\sinh(aT))^2]\). Strict monotonicity of \(s/\sinh s\) yields every horizon classification, including the unique finite tight horizon iff \(b>2a\). The proof handles all positive parameters and all complex directions, plus singular \(y=0\). `verify.py` passes 862 numerical tests, supplementary to the exact proof; the independent symbolic moment calculation gives zero discrepancy.
+PASS
 
-## Originality: PASS on inspected evidence
+For v=(x,y), J²=0 gives S(t)v=e^(−at)(x+bty,y), in the fixed complex Euclidean metric. If y=0 the integral has rank one. If y≠0, divide the frame operator by M₀|y|², where M₀=∫₀ᵀe^(−2at)dt. With z=x/y+bμ_T the resulting matrix has diagonal (|z|²+b²σ_T²,1) and off-diagonal z and its conjugate. As an independent moment check, the first negative and the second ordinary log derivatives of Z(u)=(1−e^(−uT))/u give μ_T and σ_T² at u=2a: μ_T=1/u−T/(e^(uT)−1) and σ_T²=1/u²−T²e^(uT)/(e^(uT)−1)². This variance is positive and gives exactly ρ_T=b²σ_T². The normalized matrix has fixed determinant ρ_T while the trace strictly increases with |z|². For positive eigenvalues the trace divided by the square root of the determinant is √κ+1/√κ, strictly ordered for κ≥1. Thus z=0 uniquely minimizes the ratio over all complex directions, and the diagonal at zero gives the claimed ratio and, multiplying back with |y|²=1/(1+b²μ_T²), both sharp unit-vector bounds. Since (s cosh(s)−sinh(s))′=s sinh(s)>0, s/sinh(s) is strictly decreasing from 1 to 0. This gives the finite crossing exactly for b>2a, the boundary case b=2a without a finite crossing, and the two monotonicity regimes, with small-time variance T²/12+O(T⁴). For each fixed v the operator still increases in PSD order with T; that does not order the two eigenvalues' ratio. The frozen numerical checker was inspected without execution; the argument is exact and uses Lebesgue time measure, not reweighted observations or a gain-constrained lower-bound objective.
 
-The motivating full preprint arXiv:2611.13867v1 supplies half-line semigroup frame existence and general tightness but does not optimize the finite Jordan orbit or its horizon. arXiv:1801.10103 concerns normal operators, and arXiv:1902.04548 discusses the general connection between Gramian conditioning and tightness, not the present exact parameter threshold. Closest complete related results inspected are the published pinned-three-measurement damped-Jordan determinant design, diagonal discrete infinite-horizon two-mode condition design, and damped cyclic permutation actuator majorization; none dominates this exact finite continuous frame claim. The variance and basic Gramian identities are classical and not presented as new. Historical two-regressor experimental-design literature may contain an equivalent result, so priority remains provisional.
+## originality
 
-## Value: PASS
+PASS
 
-The finding resolves a natural attainable-tightness and condition-minimizing-vector question for the smallest nonnormal continuous orbit, giving a complete three-regime classification and a concrete counterintuitive boundary: collecting longer than the unique critical horizon strictly degrades the smallest achievable frame condition number. The exact threshold \(b>2a\), unique center-shifted generator, and sharp frame bounds are useful design facts that do not follow from mere frame existence. The scope is intentionally finite and specific; extensions to other generators, time weights, or higher Jordan blocks are unproved.
+Credit only the finite-window optimization and attainable-tightness classification. The closest same-day Jordan paper gives the exact half-line limit and uses the same centered trace–determinant argument. Weighted centering and two-by-two optimization are not distinct methodological contributions. The additional interval-length dependence, threshold b>2a and reversal beyond a finite T_* are not conclusions of the half-line result or the general frame/Gramian theory. The shared date does not prove publication order.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The weighted-centering calculation is elementary and is not by itself the value. The finite-window signature is complete: exactly when a tight design is possible, the required horizon and generating direction, and where additional time makes even the best attainable ratio worse despite PSD growth of each fixed frame operator. It supplies exact conditioning and gain-normalized sharp bounds for the simplest defective continuous semigroup, where infinite-horizon design misses a tight solution whenever b>2a. No lower-bound maximization or general high-dimensional design claim is credited.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

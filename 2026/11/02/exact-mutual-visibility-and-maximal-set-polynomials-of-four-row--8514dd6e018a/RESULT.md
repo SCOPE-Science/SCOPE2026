@@ -29,7 +29,7 @@ Every coefficient displayed here is strictly positive, so the inclusion-maximal 
 \Pr(|S|=n+6)=1-\frac{64}{n^2}+O(n^{-3})\qquad (n\to\infty).
 \]
 
-The previously established minimum maximal-set size \(n+3\) is **not** claimed as new. The contributions here are the two complete enumerators, the four-stratum multiplicities, and their distributional consequence.
+Neither the minimum maximal-set size \(n+3\) nor its multiplicity is claimed as new. The contributions here are the complete all-set enumerator, the complete maximal-set polynomial (in particular the three larger cardinality strata), and the uniform-maximal-set asymptotic.
 
 ## Assumptions and scope
 
@@ -52,7 +52,7 @@ For a size-three column \(T\), write \(d\) for the omitted row. The only eligibl
 12(n)_2 z^{n+3},\quad 12(n)_3 2^{n-3}z^{n+4},\quad4(n)_4 4^{n-4}z^{n+5}.
 \]
 
-Finally suppose all nonsingleton columns have size two. Form the simple graph \(F\subseteq K_4\) of row-pairs consumed by those columns. For the size-two columns to be unextendible, every edge \(uv\in E(F)\) must satisfy: every other row \(w\) is adjacent in \(F\) to at least one of \(u,v\). This condition forces \(F\) to be connected and have at least three edges (otherwise some edge has a nonneighbor outside its endpoints). A connected three-edge graph on four vertices is either a star or a path, but an end edge of the path fails the condition. A connected four-edge graph is either \(C_4\) or a triangle with a pendant edge, but the latter fails at the edge opposite the pendant attachment. Both five-edge \(K_4-e\) and six-edge \(K_4\) satisfy the condition. Thus the only possibilities are \(K_{1,3},C_4,K_4-e,K_4\).
+Finally suppose all nonsingleton columns have size two. Form the simple graph \(F\subseteq K_4\) of row-pairs consumed by those columns. It is nonempty, since an all-singleton configuration can always be extended. For the size-two columns to be unextendible, every edge \(uv\) must have every other row \(w\) adjacent in \(F\) to at least one of its endpoints. Equivalently the complement of \(F\) has no induced three-vertex path: two successive nonedges of \(F\) must force the third. The complement is therefore a disjoint union of cliques, whose vertex counts form a partition of four. The possibilities for nonempty \(F\) are exactly \(K_{1,3},C_4,K_4-e,K_4\).
 
 Because \(n\ge6\), any \(F\) with at most five edges leaves at least one singleton column, which must use a degree-three vertex of \(F\). The four-cycle has none and so cannot occur. A star has exactly one such vertex; there are four choices of center, and its three distinct edges can be assigned to an ordered triple of columns in \((n)_3\) ways, contributing \(4(n)_3z^{n+3}\). A \(K_4-e\) has two degree-three vertices; there are six choices for its missing edge, and its five distinct edges can be assigned to columns in \((n)_5\) ways, contributing \(6(n)_5 2^{n-5}z^{n+5}\). The complete \(K_4\) has four degree-three vertices and six distinct edges, contributing \((n)_6 4^{n-6}z^{n+6}\). Adding these contributions to the size-three/four cases proves the second polynomial.
 
@@ -69,6 +69,8 @@ To reproduce: run `python3 verify.py` in the directory containing the extracted 
 ## Relationship to prior work
 
 Cicerone, Di Stefano, and Klavžar [1] established the Cartesian product mutual-visibility connection to the Zarankiewicz/rectangle-free problem; the present proof takes that structural correspondence as known and computes an explicit four-row cardinality distribution. Brešar and Yero [2] showed that the lower mutual-visibility number for products of complete graphs is the sum of the factor orders minus one; thus the minimum maximal-set size \(n+3\) is an existing consequence, not a novel scalar. Bujtás, Klavžar, and Tian [3] introduced visibility polynomials and supplied general identities involving maximal visible sets; those identities do not themselves provide the explicit four-row maximal-set census proved here. The row-pair injectivity formulation is equivalent to counting \(K_{2,2}\)-free subgraphs of \(K_{4,n}\); the new coefficients remain subject to possible priority from specialized bipartite graph enumeration literature.
+
+The companion rook-graph census [Enumeration and symmetry classes of minimum maximal mutual-visibility sets in rook graphs](https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-enumeration-and-symmetry-classes-of-minimum-maximal-mutual-visib--e5b6a87ad3b1) (Resultary e5b6a87ad3b1) counts minimum maximal sets on \(K_m\square K_n\) as \(mn^{m-1}+nm^{n-1}-mn\). At \(m=4\) this is \(n4^{n-1}+4n^3-4n=n4^{n-1}+12(n)_2+4(n)_3\), exactly the coefficient of \(z^{n+3}\) above. It is included for completeness. The shared catalogue date does not establish priority.
 
 ## Limitations
 

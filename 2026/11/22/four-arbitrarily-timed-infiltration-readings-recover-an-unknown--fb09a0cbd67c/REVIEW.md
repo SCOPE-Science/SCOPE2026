@@ -1,19 +1,21 @@
-# Review of four-reading shifted Philip inverse
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact second-divided-difference identity for a translated square root is reconstructed in RESULT.md, and the strict log-derivative makes the shape ratio a bijection from the allowed onset interval to its sharp open range. Recovery of sorptivity, the linear term, and additive zero is triangular; its sufficiency for all four observations follows from invertibility of the ordinate-to-divided-difference coordinates. A continuous alternative-onset family proves three-reading nonidentifiability. The companion standalone script passed 11,203 assertions on the actual included code, including symbolic simplifications and nonuniform-time recovery cases. The proof, not finite testing, covers every real parameter in the domain.
+PASS
 
-## Originality — PASS, provisional against uninspected historical theory
+A root secant is 1/(r_i+r_j); subtracting two adjacent secants and dividing by t_k-t_i=(r_k-r_i)(r_k+r_i) gives the negative reciprocal of the three pair sums. In the ratio the r_2+r_3 factor cancels. The derivative of the logarithm of a pair sum is -1/(2r_i r_j), so log H has derivative (1/r_1-1/r_4)(1/r_2+1/r_3)/2>0. Both limits follow by taking r_1 to zero at the finite boundary and rescaling all roots by sqrt(-tau) at the other; neither endpoint is allowed. For admissible ratio, prescribed D_123 recovers S>0 and simultaneously matches D_234. The first secant fixes K and the first observation fixes B. Those two observables plus the two curvature coordinates determine the entire data tuple by successive substitution, proving sufficiency including exactly K>0 (or the additional B constraint if imposed). With three observations one can instead vary tau and solve for the other three coefficients continuously, staying in the strict positive region near any interior point. A subset of those observations cannot remove the ambiguity. Independently, the difference between two fits with distinct clocks has second derivative equal to a difference of two inverse powers 3/2 with distinct shifts; their ratio is strictly monotone, so at most one second-derivative zero is possible, contradicting two required by Rolle from four distinct intersections. Finally expanding log pair sums to first order cancels t_2 and t_3 and gives (t_4-t_1)/(2(-tau)); this is structural ill-conditioning, not a noisy-estimation claim. The included script is supplementary; the proof check covers arbitrary real spacings and boundary exclusions.
 
-The 1957 Philip law and known-origin coefficient fitting are baseline prior art. The inspected 2005 falling-head study concerns a different implicit model, the 2022 Philip inversion addresses hydraulic coefficients and model validity from a calibrated time series, and the inspected 2024 work discusses model mismatch and validity. An especially close publicly available result reconstructs both offsets for a Green–Ampt implicit infiltration law from four equally spaced *depth* crossings, rather than four arbitrarily timed *Philip* ordinates; its theorem does not imply the square-root ratio identity or the sharp Philip feasibility interval. Search also covered shifted-power, divided-difference, calibration-origin, and minimal observation aliases. A stronger generic parametric Chebyshev-identifiability theorem or inaccessible early source may subsume portions of the result; no unconditional claim of historical firstness is made.
+## originality
 
-## Value — PASS
+PASS
 
-Unknown clock and gauge origins are natural calibration uncertainties in transient infiltration experiments, and they confound the two physical coefficients unless enough information is observed. The theorem does more than count four free parameters: it gives an explicit, instrument-checkable open admissibility interval, a unique one-dimensional reconstruction for arbitrary observation times, and an exact explanation of poor conditioning for remote onset. This is a motivated observation-design and model-consistency result, even without a downstream field-scale theorem. It does not guarantee accuracy with noise or identify independent physical mechanisms outside the two-term approximation.
+Pass for the sharp admissibility range, exact positive-coefficient inverse and minimality package for the double-offset Philip model at arbitrary known times. Not a claim to novelty of the Philip law, four-parameter fitting, the divided-difference method or general identifiability theory. Strong methodological overlap with a different Green–Ampt observation operator is explicitly credited.
 
-## Closest sources and risks
+## value
 
-Primary sources: Philip (1957) DOI 10.1097/00010694-195709000-00010; Zeleke and Si (2005) DOI 10.1029/2004WR003407; Jaiswal et al. (2022) DOI 10.1002/vzj2.20166; Vrugt et al. (2024) DOI 10.1002/vzj2.20309. The closely related public Green–Ampt four-reading result was read in full and compared at the level of forward laws, inverse observables, and sharp inequalities. Residual risks: historical shifted-power inverses and unread original Philip full text; structural model adequacy and noisy stability.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Clock and baseline calibration are real ambiguities for cumulative readings. Four arbitrary-time observations and a computable exact infeasibility test are more informative than parameter counting or a generic rank test; the positivity check avoids admitting mathematically shaped but physically out-of-scope fits. The remote-onset degeneracy flags an identifiability versus precision distinction. No extrapolation to noisy field data or higher-order infiltration laws is justified.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

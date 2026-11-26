@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:58:25.161140Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 9–63, reconstructed directly; VERIFICATION.md and verify.py inspected, not executed",
+        "Sato, arXiv:2608.29708, Definitions 3.1, 3.2 and 3.4"
+      ],
+      "rationale": "In the displayed model, the diamond operation sends every set to an upset because the only strict comparison is a<b and R[a] is contained in R[b]. The box operation preserves the three sets empty, {b,c}, W, which also form a Heyting subalgebra: in particular the negation of {b,c} is empty. Thus the fragments are persistent at all depths. Direct evaluation gives {b}, {a,b}, and {a,c} for Diamond p, p→Diamond p, and Box(p→Diamond p), respectively; the last is not an upset. At two worlds the discrete case is automatic. In the chain and equivalent-points cases, the complementary upsets Box bottom and Diamond top force uniform successor-row emptiness. The modals then preserve the constant truth sets. On the chain the only other upset is {b}; if any letter denotes it, its two unimodal images are persistent by hypothesis, and otherwise the constant sets suffice for induction. Independently, any modal-headed subformula at depth one has a propositional argument, so both fragment hypotheses and closure under the intuitionistic connectives prove the depth bound.",
+      "residual_risks": [
+        "The minimality statements concern world count and modal depth, not the minimum number of relation edges or variables. They concern extrinsic semantics in one fixed model, not persistence uniformly over a frame's valuations."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sato's positive frame statement is quantified over all valuations and uses frame confluence conditions, not merely the two fragment hypotheses at one valuation"
+        ],
+        "reasoning": "Its stronger hypotheses do not settle the local implication; the checked countermodel has no obligation to satisfy frame confluence.",
+        "searches": [
+          "Sato, Propositions 3.7–3.8 and Corollary 3.9",
+          "Resultary: Sato Problem 3.10 and local persistence"
+        ]
+      },
+      "checked_sources": [
+        "Sato arXiv:2608.29708",
+        "Resultary 1aa9fd833546 and c53088b3c02d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Problem 3.10 asks exactly for the fixed-model implication",
+          "c53088b3c02d concerns commutation of relation completions and does not assert mixed formula preservation"
+        ],
+        "reasoning": "Neither confluence for the all-valuations theorem nor commutation of relation completions builds the required model or supplies the world/depth minimum.",
+        "searches": [
+          "Sato, §§3.1–3.2, in particular Problem 3.10 and the frame persistence results",
+          "Resultary c53088b3c02d, Finding and scope"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sato, Problem 3.10, states the same fixed-model question in satisfaction-relation notation",
+          "Resultary 1aa9fd833546 compares pairs of frames and four operator tables"
+        ],
+        "reasoning": "The f-model terminology includes the valuation. Agreement or separation of operators across frames is not equivalent to failure of mixed persistence for a fixed valuation.",
+        "searches": [
+          "Resultary: extrinsic fixed-model mixed-modal counterexamples; exact-formula shape Box(p→Diamond p)",
+          "Primary literature query on the Sato question, fixed-model unimodal persistence and three-world countermodels"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest same-cardinality indexed result, 1aa9fd833546, compares three-world chains differing by an edge; agreement on three operators is tested on every upset"
+        ],
+        "reasoning": "That operator-table result cannot be read as a census of fixed valuations with both generated fragments persistent, and does not give these sharp bounds.",
+        "searches": [
+          "Resultary: three-world fixed-preorder unimodal persistence",
+          "Resultary: exact-formula shape Box(p→Diamond p)"
+        ]
+      },
+      "rationale": "The exact published question concerns one fixed f-model, and the checked version poses it without the answer given here. The closest indexed three-world result separates operators across frames rather than proving any mixed failure inside one model. Neither it nor the checked relation-condensation result establishes this countermodel or its two minima. This is a bounded comparison, not a priority certification.",
+      "residual_risks": [
+        "Equivalent examples in older constructive-modal or fusion-model literature under other terminology remain possible; the searches are bounded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact formulation of the question, not coverage of the counterexample",
+          "evidence": "Problem 3.10 explicitly fixes M=(W,≤,⊏,V) and asks whether Box- and Diamond-persistence of its extrinsic satisfaction imply persistence.",
+          "identifier_or_url": "https://arxiv.org/pdf/2608.29708",
+          "material_read": "PDF pp. 9–12: Definitions 3.1–3.4, frame result and Problem 3.10; definitions at text offsets 21900–25800, question at 28468",
+          "method": "Open-access PDF, targeted statement reads",
+          "title": "Intuitionistic and Constructive Modal Logics for Classical Modal Logicians",
+          "trigger": "Motivating open question and closest semantic theorem"
+        },
+        {
+          "assessment": "Different theorem",
+          "evidence": "Two frames on a common chain agree on three operator tables and differ on the fourth; fixed-model syntactic fragment closure is not the invariant.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-sharp-three-world-independence-for-four-intuitionistic-modal-ope--1aa9fd833546",
+          "material_read": "RESULT.md, Finding and Assumptions",
+          "method": "Local Resultary mirror",
+          "title": "Sharp three-world independence for four intuitionistic modal operators",
+          "trigger": "Same size and closely related operator separation"
+        },
+        {
+          "assessment": "Related constructions, not coverage",
+          "evidence": "The statement is about commuting completions of relations, not failure or preservation of persistence for mixed formulas in one fixed model.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-finite-criterion-for-commuting-box-and-diamond-condensations--c53088b3c02d",
+          "material_read": "RESULT.md, Finding and scope",
+          "method": "Local Resultary mirror",
+          "title": "Finite criterion for commuting box and diamond condensations",
+          "trigger": "Possible reformulation through relation completions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Sato, Problem 3.10 and Proposition 3.8",
+        "Frozen RESULT.md, lines 24–63"
+      ],
+      "rationale": "The example answers an explicit fixed-model problem and gives exact bounds on two natural complexity measures. It pinpoints why verifying whole single-operator fragments separately is insufficient: a mixed operator can receive an upset never produced by its own fragment. The separation is useful independently of a larger classification of fusion models.",
+      "residual_risks": [
+        "No conclusion is warranted for intrinsic semantics or for additional confluence hypotheses on the relation."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

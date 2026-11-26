@@ -1,23 +1,21 @@
-# Scientific review: sharp three-cell flow/projection lag
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact trajectories are reconstructed from the tangent-cone projection of a constant linear gradient and from the capped-simplex projection KKT system, respectively. The first stage has velocity \((H/2,0,-H/2)\). After the third component reaches zero, continuous descent releases the second component with velocity \((a/2,-a/2,0)\), while the global one-shot projection remains pinned until \(b/a\). Their scalar ramp representation makes the displayed max-norm discrepancy and its family-optimal \(1/3\) envelope exact. The two-cell feasible set is an interval, proving equality in lower dimensions. The standalone exact-rational checker passed 7,307 comparisons, including separate two-cell cases. The numerical tests corroborate but do not replace the analytic proof. Boundary assumptions are strict; the one-third envelope is a supremum, not a maximum.
+PASS
 
-## Originality — PASS, with residual priority risk
+The flow segments satisfy the inclusion and minimal tangent projection: for velocity (H/2,0,−H/2) the residual −c−v is −(H/2)1+(H/2−a)e_2, an outward normal on the upper second-coordinate face. At time 2b/H the third coordinate hits zero while the first remains below one. For the next velocity (a/2,−a/2,0) the residual is −(a/2)1−(H−a/2)e_3 and is normal on the third-coordinate lower face. Both velocities are tangent and orthogonal to their residuals. At (1,p+b,0), −c itself is normal. Monotonicity gives uniqueness across the concatenated phases. For the one-shot path a clipping level is successively −Ht/2, −b, −(at+b)/2, and 1−at−p−b, with transitions 2b/H, b/a and b/a+L. Substitution verifies each cap and the mass in its region, including the last phase. After the common first phase the difference is a pair of opposite signs times the difference of the two clipped ramps: its height is bounded by both ramp height and slope times release delay, with equality at min(b/a,2b/H+L). Each bound is strictly improved by p>0 and H finite relative to a, so the gap is less than min(b/2,1−b)<=1/3, with a sequence attaining the limit at b=2/3, a=1, p→0, H→∞. The release time ratio is H/(2a); the delay itself is b/a−2b/H. In two cells the feasible segment has metric factor two in its first coordinate, giving the identical scalar clipping of a constant-speed drift for both paths. Degenerate one- and two-cell feasible sets are singletons and cannot give a discrepancy.
 
-The recent primary work, Langlois–Onwunta–Darbon, arXiv:2610.30300v1, sections 2.2–2.4, 4.3, 6.1, and conclusion, constructs exact piecewise minimal-selection trajectories and applies them to mass-conserving limiters. Its general algorithm computes trajectories for linear objectives, but does not state the quantified comparison with a single projection of the accumulated drift, three-cell sharp onset, \(1/3\) family envelope, or unbounded release ratio. Wang–Lu, arXiv:1503.01002, sections 1–3, supplies capped-simplex projection KKT conditions but no projected-flow time path. A 2024 overview of projected gradient flows defines the infinitesimal projected iteration and tangent cone, not this one-shot path comparison. Mathematical-record searches for the equivalent formulations and active-set latency returned different simplex projection sensitivity and optimization dynamics questions, not this claim. An older sweeping-process or projection-semigroup theorem might still dominate the finding; this risk is explicitly retained.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result is a natural structural benchmark for using a one-shot bounded, mass-conserving Euclidean projection as a surrogate for a continuous projected linear optimization path. It identifies the smallest cell count where this surrogate fails, the exact worst family error, and an arbitrarily large delay in releasing a saturated cell. It distinguishes one-shot cumulative projection from the small-step projected iteration and can inform interpretation of active-set timing in conservative box-constraint algorithms. It does not assert failure of an actual PDE integrator, the source's limiter, or any general polyhedral upper bound.
+Minimal selection, projected gradient flow, and the capped-simplex projector are known. The distinct supported result is the minimum cell count and quantified, sharp three-cell separation between the two specific trajectories, including the release-time ratio and the family envelope. No inspected general theorem supplies this exact comparison; the closest actual indexed statement concerns sensitivity of a single projector, not a comparison of evolutions.
 
-## Closest literature and limitations
+## value
 
-- Langlois, Onwunta and Darbon, *Continuous-time analysis and algorithms for linear and convex quadratic programs via exactly solvable differential inclusions*, arXiv:2610.30300v1, https://arxiv.org/html/2610.30300v1 (full relevant sections inspected).
-- Wang and Lu, *Projection onto the capped simplex*, arXiv:1503.01002, https://arxiv.org/abs/1503.01002 (projection and KKT text inspected).
-- *Optimization algorithms as robust feedback controllers* (2024), DOI:10.1016/j.arcontrol.2024.100941 (projected-gradient-flow discussion inspected).
+PASS
 
-The optimum of \(1/3\) is specific to the exhibited family. General coverage by older projection-semigroup theory is not excluded. Independent mathematical verification is still outstanding.
+A single accumulated projection is a simple candidate shortcut for a projected flow under constant forcing. The minimal-size counterexample pinpoints why it fails: the secondary cap releases under flow but remains active under accumulated drift. The exact max-norm gap and unbounded release-time ratio quantify the effect in the natural first-saturation family, while two-cell equivalence shows it cannot be seen in a smaller feasible system.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T12:30:24.561620Z",
+  "axes": {
+    "correctness": {
+      "rationale": "By consistency the residual lies in range(A), where B=AA^T has two positive levels. Normalize them to kappa and 1, leaving alpha B unchanged, and let e_k be the high-to-low spectral energy ratio. The first Rayleigh step inverts e_0. Substituting the residual difference into the RD quotient gives (1+kappa² e_(k−1))/(1+kappa³ e_(k−1)) in normalized units. For mixed data both filters remain nonzero. With z_k=log(kappa²e_k), their squared ratio gives z_(k+1)=z_k−2z_(k−1) and z_0+z_1=4 log(kappa)>0. The roots are sqrt(2) times unit rotations by ±theta, with π/3<theta<π/2. Four successive phase samples have all circular gaps below π, so compactness supplies a uniform positive and negative cosine excursion, bounded away from zero, in each such block. The high- and low-mode negative log multipliers are respectively [z_(k−1)]_+ and [−z_(k−1)]_+ up to bounded errors. Summing the last four excursions bounds each negative log mode norm from below by a positive constant times 2^(k/2) and summing the geometric majorant bounds it above at that scale; O(k) errors are negligible. The fixed first-step log corrections can depend on the start, so the bound on the remainder can be written O_kappa(k)+O_kappa,e0(1). Orthogonality transfers the result, with start-dependent constants, to the residual norm. A zero residual is already solved, and either pure mode is annihilated in the first step. This is not a consecutive-step Q-rate.",
+      "replay": "python3 /workspace/review-evidence/replay.py 3: 108 exact direct rational steps, including scaled-ratio-balanced starts, plus shared scaled-log diagnostics. Frozen verify.py was inspected, not executed. Infinite conclusions follow from the argument, not the finite tests.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Xu §3.2 analyzes delayed long DR; §4 uses RSHK initialization and tests RD, not the audited exact rate.",
+          "Dai Eq. (2.5) is the same ratio recurrence for delayed long BB1.",
+          "Yang–Yuan Prop. 3.2 and Thm. 3.4/Cor. 3.5 give spectral conjugacy and R-linear bounds for BB2 and weighted delayed rules."
+        ],
+        "reasoning": "Setting w=Br exactly conjugates delayed RD to a delayed Rayleigh scheme on w. But the first step on w is not the corresponding matched Rayleigh step, and conjugacy plus an R-linear upper bound does not give the exact double-log law. In contrast, frozen record 4 is strictly stronger for the very same initialization.",
+        "searches": [
+          "Web: Two-point residual step size gradient methods for linear systems residual-difference two singular values RD BB2",
+          "OA: Yang–Yuan arXiv:2609.12100 BB2; conjugacy",
+          "OA: Dai 2013 two-dimensional"
+        ]
+      },
+      "checked_sources": [
+        "Frozen records 3 and 4 and their support",
+        "Resultary e4d106d38983, df4e091a200b, 80f835ec743a, 0e04302e58f6, and 1806d3485327",
+        "Xu arXiv:2611.02743v1 §§3–4",
+        "Dai 2013 Eq. (2.5)",
+        "Yang–Yuan arXiv:2609.12100 §§3.2–3.3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Record 4 proves −q^(−n) log(||r_n||/||r_0||)=C H(n theta−delta)+O(n q^(−n)), with C>=2log(kappa)>0, H continuous with min H>0, and q=sqrt(2), for precisely these mixed starts.",
+          "Matched BB1 has a balanced exception and alternating BB1/BB2 has different delayed formulas."
+        ],
+        "reasoning": "Take the positive minimum and finite maximum of H, absorb the vanishing error and exponentiate; this gives exactly record 3's two bounds, then the limit. Record 4's warm-start and multiplier proof also handles the same nontermination and pure-mode behavior. Equal publication dates establish no temporal order; the conclusion is containment, not a first-publication decision.",
+        "searches": [
+          "Frozen record 4 RESULT.md Finding and Proof, lines 3–29 and 31–77; compare frozen record 3 lines 3–24 and 26–60",
+          "Resultary 80f835ec743a and 0e04302e58f6 RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Record 3 and record 4 both use alpha_0=||r_0||²/(r_0^T B r_0); the later denominators ||A^T d||² and d^T B d are identical.",
+          "Their scaled ratios are identical after relabelling kappa=a/b, and both are initialized with e_1=1/e_0."
+        ],
+        "reasoning": "The variable labels and log base expressions differ but not the algorithm, domain or asserted exponent: log(sqrt(2))=(log 2)/2. Both cover arbitrary positive-level multiplicities and the same ordinary pure-mode boundary case.",
+        "searches": [
+          "Resultary: residual-difference RD BB2 pure short step two spectral modes exact double-log rate mixed starts amplitude profile",
+          "Xu arXiv:2611.02743v1 §3.1 Eq. (14) and §4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed results e4d106d38983 and df4e091a200b were checked in their local-mirror RESULT.md files. The former is the target itself; the latter is a separate, stronger math statement.",
+          "Resultary 1806d3485327 concerns the same initialized scheme but only a sharp two-update amplification law; 0e04302e58f6 uses an alternating algorithm."
+        ],
+        "reasoning": "No numerical table is relevant to this infinite-iteration law. The indexed exact formula and its scope in the distinct record 4 do cover the target; the first-two-step result and same-number alternating-rate result do not.",
+        "searches": [
+          "Resultary: residual-difference RD BB2 pure short step two spectral modes exact double-log rate mixed starts amplitude profile"
+        ]
+      },
+      "rationale": "The exact claim, including the two-sided rate scale and absence of exceptions, is mathematically covered by distinct assigned record 4 with the identical residual step, same first step, same spectral levels, and same quantifiers. Its strictly positive continuous phase profile yields the two-sided norm estimate and its nonzero multipliers the never-terminate assertion. This is demonstrable coverage in the frozen set, not an inference about which same-day record preceded the other or a finding that Xu previously stated the exact law.",
+      "residual_risks": [
+        "No within-day priority can be assigned from these dates. The stronger frozen theorem is sufficient to show duplicate coverage regardless.",
+        "The original 1988 BB full text returned 403 and the Raydan thesis PDF timed out in the bounded check; earlier exact or implicit coverage remains possible. Those access limits do not determine the FAIL."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Fully covers the target's claims, without resolving chronology",
+          "evidence": [
+            "Same Rayleigh start and RD quotient; nonzero mixed filters; exact q=sqrt(2) bounded positive phase profile; pure mode solved immediately."
+          ],
+          "identifier_or_url": "Resultary df4e091a200b and frozen assignment record 4",
+          "material_read": "Frozen RESULT.md Finding, Assumptions and Proof lines 3–77; matching local-mirror Finding",
+          "method": "Exact same-object assumptions and implication comparison",
+          "title": "Sharp all-start doubly-exponential decay for residual-difference gradient iteration on two spectral levels",
+          "trigger": "Separate exact same-day claim appears to imply the target"
+        },
+        {
+          "assessment": "Covers update and warm start, but the inspected two-level theorem is for DR",
+          "evidence": [
+            "Eq. (14) defines RD as the short BB counterpart; §3.2 derives the DR recurrence and a contraction window."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2611.02743v1",
+          "material_read": "PDF §3.1 Eq. (14), p. 5 offset 15453; §3.2 Eq. (25); §4 p. 7 offset 25778",
+          "method": "OA targeted primary PDF passages",
+          "title": "Two-point residual step size gradient methods for linear systems",
+          "trigger": "Original RD/DR algorithm and warm start"
+        },
+        {
+          "assessment": "Recurrence-level overlap for BB1, not this same warm-started RD statement",
+          "evidence": [
+            "Ratio q_(k+1)=q_k/q_(k−1)^2 for BB1 with both components of two successive gradients nonzero."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s40305-013-0007-x",
+          "material_read": "Springer PDF §2 Eq. (2.5), p. 190 offset 8376",
+          "method": "OA PDF search and bounded read",
+          "title": "A New Analysis on the Barzilai–Borwein Gradient Method",
+          "trigger": "Earlier exact two-eigenvalue ratio calculation"
+        },
+        {
+          "assessment": "Provides conjugacy and uniform R-linear envelopes, not the stated exact exponent",
+          "evidence": [
+            "T_W=S_W^(−1) T_I S_W for fixed positive spectral weights; R-linear guarantee allows arbitrary positive first steps."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.12100",
+          "material_read": "PDF §3.2 Prop. 3.2, Eqs. (3.8)–(3.10), p. 5 offset 15450, and §3.3 Thm. 3.4 and Cor. 3.5, Eqs. (3.11)–(3.14), p. 6 offset 19370",
+          "method": "OA PDF located by literals and bounded primary text",
+          "title": "R-Linear Convergence of Barzilai-Borwein Methods on Strictly Convex Quadratics via Closed-Cone Homogeneous Dynamics",
+          "trigger": "Dominating weighted BB2 convergence theory"
+        },
+        {
+          "assessment": "The matched profile, alternating rate, and finite amplification are not independent exact duplicates of the target",
+          "evidence": [
+            "Matched BB1 permits a geometric orbit; the alternating law changes the algorithm; two-step residual amplification does not state a long-run rate."
+          ],
+          "identifier_or_url": "Resultary 80f835ec743a, 0e04302e58f6, and 1806d3485327",
+          "material_read": "Local-mirror RESULT.md decisive claim passages",
+          "method": "Indexed retrieval followed by comparison of matching local passages",
+          "title": "Two-mode matched-BB1 profile, alternating long–short steps, and two-step residual amplification",
+          "trigger": "Related exact rates or same residual iteration"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The exact-arithmetic rate for pure RD under a natural warm start is a meaningful mathematical question. As a separate frozen finding, however, this is exactly a short consequence of the stronger record 4 for the same starts, with no extra invariant, regime, or estimate needed by a future user. Its elementary four-phase excursion argument is useful as alternative exposition, not a distinct new scientific result under the value standard.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

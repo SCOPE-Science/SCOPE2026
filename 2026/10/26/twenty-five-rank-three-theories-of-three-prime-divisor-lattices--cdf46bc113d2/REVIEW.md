@@ -1,11 +1,21 @@
-# Scientific review: three-prime divisor lattices
+# Independent mathematical audit
 
-**Correctness — PASS.** Three-round equivalence of finite chains under the length-seven cutoff and the coordinatewise EF strategy establish a valid infinite reduction to 56 three-factor posets. The exact rank-three Hintikka invariant records every one-point, two-point and three-point atomic response and its existential/universal back-and-forth profiles. Exhaustive evaluation of all 56 cases yields 25 signatures, and all 36 six-versus-seven side replacements are explicitly checked. The 35-classified six-capped cases have exactly 25 classes; the greatest least representative cardinality is 150. Independent direct vertex enumeration reproduces twelve nontrivial signatures. The proof does not infer infinite behavior from finite samples.
+## correctness
 
-**Originality — PASS, with qualified residual risk.** The inspected 2010 and 2018 works of Mwesigye–Truss address coloured linear orders and their rank-bounded representatives, not three-factor divisor lattices or the exact 25-class table. Searches under the formulations three-prime divisor posets, three-dimensional products of chains and rank-three EF grids did not uncover a covering published theorem. One- and two-factor classifications provide useful comparison but do not imply the full three-factor mergers, improved cutoff or sharp 150-element bound. The literature search is not exhaustive and unindexed equivalent results remain possible.
+PASS
 
-**Value — PASS.** Divisor lattices of three-prime integers are natural arithmetic distributive lattices with three independent valuation directions. The exact bounded-depth theory exposes a sharp collapse in expressible exponent information that is absent from single chains, including equivalences between distinct six-capped exponent patterns. The complete classification and sharp 150-divisor bound are reusable invariants for low-depth definitions on divisor posets; no downstream theorem is asserted.
+Prime-exponent coordinates identify the pure divisibility structures exactly with products of three finite chains of lengths at least two; permuting factors is an isomorphism. In the three-round chain game, corresponding gaps with r moves left can be kept equal or both of size at least 2^r−1: copy small subgaps and leave both sides large when neither subgap is small. Running this strategy in each coordinate preserves all product equality and order tests, yielding the cap seven. For a selected ordered pair, the four-valued comparisons to a third point, together with the ordered pair's own comparison, determine the entire triple diagram including repeats. Taking sets of extensions twice more is the exact rank-three criterion. Local four-bit supports combine by intersection since the third point's coordinates are independent. A separate full-vertex bitset checker reproduced all 56 case rows and memberships in classification.json, the printed 35-triple table, and all 36 ordered choices of the two other sides for replacing six by seven. That test, combined with cap seven, justifies successive coordinate replacements at any sizes. Capping never increases volume. Comparing all capped class minima establishes the sharp maximum 150 at T25, attained by (5,5,6).
 
-The first source was publicly available on 7 September 2010. Limits: pure divisibility signature, exactly three distinct primes, rank three; later literature might alter the novelty assessment. The included classifier is independently replayable but has not been externally audited.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact 25-class pure-order quotient for three nontrivial chain factors, the improved cutoff six and the sharp 150-point minimum bound are supported as distinct on the evidence checked. The nearest catalogue hits concern disjoint sums or only two factors; the inspected chain theorem supplies the starting cutoff seven, not the improved cutoff or the table.
+
+## value
+
+PASS
+
+Finite divisor lattices with exactly three prime factors form a natural dimensional family, and the pure-order reduct is the structure of interest. The exact table decides low-rank definability across all exponent triples, including cross-size collapses not predicted by the coordinate strategy. The stricter saturation at six and the sharp volume 150 quantify that loss of information. This is a reusable finite census with a symbolic reduction, not a sample or a renaming of the chain theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The governing equation, sign conventions, continuity at the interface, strict rate order and input regularity are explicit. On a constant-rate reach \((e^{rt}D')'=e^{rt}f'<0\), so there can be only one interior local maximum. Nondecreasing fractional decay hazard makes \(U/f\) strictly increasing, yielding one boundary cutoff. Positive-solution comparison makes the downstream peak strictly decrease as the interface moves, while its endpoint limits put it on opposite sides of the unchanged upstream maximum. The exact exponential example and its six-decimal crossover bracket were independently replayed using `verify.py` with rational remainder bounds. General claims are proved analytically, not extrapolated from tests.
+PASS
 
-## Originality — PASS on inspected evidence
+The Finding is unchanged; the repaired proof corrects the direction of approach in frozen Step 4. At a finite endpoint, t2(d) approaches d_end from below, not from above. For t>=d the weighted slope is G(d,t)=exp(cd)[f(d)-cU(d)]+integral_d^t exp(cs)f'(s)ds. It decreases strictly in t, and at fixed t its d derivative is c(b-c)exp(cd)U(d)>0. Thus G(d,d_end)<0<G(d,d) in the two-peak regime with finite endpoint and d<t2(d)<d_end; the limiting height is f(d_end)/c=U(d_end)<U(t0). On constant-rate reaches the weighted derivative crosses zero at most once and f, U and the downstream solution vanish at infinity. The lag integral for U/f has a positive expanding domain and nondecreasing integrand by nondecreasing hazard, giving strict monotonicity, all right-derivative regimes, and no extra extremum at either boundary. Moving the interface later strictly lowers the profile after the later interface, hence strictly lowers the downstream peak. At t0 the peak is higher than the reference; at an infinite endpoint the upper bound U(d)+f(d)/c tends to zero. Continuity then proves the unique tie and full global-maximizer comparison. The explicit example and exact bracket were independently checked with rational Simpson error bounds for log(3) and range-reduced alternating bounds for exp(-2d); the residual is negative at 1.091575 and positive at 1.091576, and strictly increasing there. Replay: python3 /workspace/branches/b4bc7ca9-790d-426b-8018-e800fe183a83/independent_bracket.py. Frozen verification code was inspected but not executed; its sampled checks are not the theorem's proof.
 
-The closest material is the 2021 numerical hydrodynamic and reaeration paper by Wu and Yu, the 2022 reach-based water-quality model by Pathak et al., and the 2025 variable-parameter analysis by D'Agostino and Eberl. Their inspected text does not state the strict log-concave-input phase diagram and unique worst-sag site switch for a single outfall and step decrease of reaeration. Two published mathematical comparisons have different mechanisms: the two-outfall sag paper adds a pollutant source and the aerator-placement paper resets the oxygen-deficit state. No same-claim or stronger covering theorem emerged from the recorded queries. This is a best-knowledge comparison, **not proof of historical uniqueness**. Older reach-by-reach engineering analyses and the inaccessible full text of Arora and Keshari (2022) remain residual risks.
+## originality
 
-## Value — PASS
+PASS
 
-The exact classification resolves a natural monitoring issue: the number of observed oxygen minima need not equal the number of pollution sources, and even when two minima persist, the globally worst location can switch back upstream as a low-reaeration reach begins farther downstream. This is not merely recomputation of the classic one-peak formula: it covers a class of nonexponential inputs under a stated hazard condition, proves a sharp double-sag window and identifies the unique global-worst-site crossover. These facts are useful as a structural benchmark for interpreting reach-resolved monitoring, though the idealized model does not replace field calibration.
+The supported claim is the joint hazard-general one-interface phase diagram and unique worst-site switch, not the Streeter–Phelps equation, multi-reach modeling, or the existence of double sags by other mechanisms. The repaired finite-endpoint proof does not change this comparison. No inspected distinct result gives equivalent coverage; priority remains qualified.
 
-## Limitations and closest comparisons
+## value
 
-Only a single monotone oxygen-demand input and one sharp reaeration-rate drop are covered, not arbitrary catchments, smooth heterogeneous hydraulics or oxygen-limited biochemistry. Comparison sources include DOI:10.1155/2021/6663696, DOI:10.1002/lno.12079, DOI:10.1137/23M1616406 and the two separately identified published oxygen-sag/aerator mathematical results in `RESULT.md`. Other engineering analyses could contain an equivalent special case; independent audit has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Separates the existence of a second oxygen minimum from its becoming the global worst location in a natural continuous one-outfall model. The result identifies both thresholds and distinguishes finite from persistent two-sag regimes; the exponential example shows the latter can still have a unique global switch. This is an exact idealized model result, not a prediction for a field river.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

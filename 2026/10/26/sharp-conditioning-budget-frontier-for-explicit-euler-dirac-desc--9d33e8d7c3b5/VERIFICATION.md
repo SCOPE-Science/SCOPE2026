@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-Run `python verify.py` with Python 3 and NumPy installed. The checker constructs the full seven-dimensional filled-triangle Dirac Euler matrix, verifies the chain relation, evaluates actual induced singular-value norms in five coupling/complex scenarios, compares them against the proved formulas across multiple weight budgets and time steps, and checks the exact stationary optimization formulas and their one-sided inequalities. All included assertions passed when executed on the packaged source.
+## correctness
 
-The exact constants in the triangle example were independently simplified symbolically: \(K_{\mathrm{crit}}=256/9\), \(h_*=209/817\), and the minimal norm \(456\sqrt3/817\). Symbolic stationarity and optimal-norm identities were checked by substitution into their defining polynomial relations. Finite floating-point checks are diagnostics, not a proof for all chain complexes, all stepsizes, or the strict equality boundary; those statements are proved in `RESULT.md`.
+PASS
 
-No claims are made about non-isotropic or nonlinear functions, general SPD degree weights, floating-point robustness of an implementation, statistical optimization, or independent audit.
+Reconstructed all formulas. B1B2=0 makes im(B1ᵀ) and im(B2) orthogonal; after similarity by P_r^{1/2}, the nonzero singular modes give two-by-two blocks with a=1−νh on the diagonal and off-diagonal magnitudes b=hσγ0√r, c=hσγ1/√r. Trace and determinant give the larger singular value (b+c)/2+sqrt(a²+(b−c)²/4). It increases with σ and dominates the kernel norm, so σ=s yields (1). Its right derivative at h=0 is C_r−ν; convexity precludes contraction when this is nonnegative. Otherwise squaring the contraction inequality yields (2), with the proposed endpoint below 1/C_r by (ν−C_r)²+D_r²>0. With Q=ν²+D_r², set x=Qh−ν; stationarity gives x=−C_rD_r/sqrt(Q−C_r²), on the correct branch, and substitution gives (3). The symmetric case D_r=0 has the unique kink minimizer 1/ν. For every h>0 the norm is strictly increasing with C_r at fixed p, so minimizing the scalar function γ0√r+γ1/√r on the exact condition-budget interval gives the unique clip rule. Solving the quadratic in K^{1/4} gives the strict root threshold before symmetrization, including equality at the Euclidean boundary. The eigenvalue endpoints 1−h(ν±p) establish Schur stability independently, and similarity yields the √K transient bound. The triangle calculations give the stated threshold 256/9 and optimum constants at budget 81.
+
+## originality
+
+PASS
+
+The fully symmetrizing metric and continuous-time geometric- versus arithmetic-mean criteria are prior. The compared related condition-budget theorems concern different continuous-time operators. The distinct supported statement is the exact finite-step contraction and optimization frontier within the specified degree family, including budgets below complete symmetrization.
+
+## value
+
+PASS
+
+The frontier quantifies the practically and mathematically distinct regimes of spectral stability, Euclidean one-step contraction, and contraction achieved by a limited metric distortion. It supplies an exact budget and step rule instead of merely exhibiting a fully symmetrizing metric; the triangle has a genuine nonempty gap between the budget for any contraction and that for full symmetrization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

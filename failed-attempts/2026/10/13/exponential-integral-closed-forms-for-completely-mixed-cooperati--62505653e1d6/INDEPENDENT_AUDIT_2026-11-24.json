@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:20:13.223193Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The final mathematical claim is correct. Pires–Broom §4.2, equations (23)–(24), gives the stated signs, harmonic subtraction and scaling. Write n_M/M→Q with n_M integer (for example n_M=floor(MQ)); fixing Q and insisting on exactly integral MQ only works for rational Q, and the frozen result explicitly allows the rounded endpoint. For r_M=M log(1−1/M), use (e^{a x}−1)/x=∫_0^a e^{u x}du including x=0. This proves uniform convergence of the two integrands on any compact interval, since their signed exponent parameters tend to −1 and 1. The mesh-1/M sums with cutoff n_M−1 then give the claimed integrals. From the entire exponential integral these are Ein(Q) and −Ein(−Q), with the stated real-axis E₁/Ei formulas, zero limits, derivatives and large-Q asymptotics. They are auxiliary functions in the published weak-selection conditions, not the complete thresholds. The bundled series check was inspected, not executed. Its alternating double-precision Q=20 calculation is affected by cancellation: independent stable quadrature gives L₁(20)≈3.57294793855388, about 2.23×10⁻¹⁰ from the hard-coded value, exceeding its nominal ~7.15×10⁻¹¹ test tolerance. The reported rounded checks remain consistent, but the checker is not evidence for that nominal precision; the analytic proof does not depend on it.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pires–Broom p. 17 explicitly identifies overlapping geometric-harmonic sums in Haq et al. at one individual per node (Q=1).",
+          "Haq et al.'s inspected equations have related harmonic terms and f(h) but no two-function arbitrary-density evaluation."
+        ],
+        "reasoning": "A model-specific Q=1 relation does not establish the arbitrary-density pair. The prior large-population cooperation conditions are already known; the record does not rederive or extend them.",
+        "searches": [
+          "Pires–Broom §4.2 and Haq–Schimit–Broom DOI 10.1007/s00285-024-02148-y Eqs. (38)–(40), (52)–(58)"
+        ]
+      },
+      "checked_sources": [
+        "Pires–Broom §4.2",
+        "Haq–Schimit–Broom cited passages",
+        "NIST DLMF §6.2",
+        "Resultary a4788e63b6ef"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Source gives sublinear and supralinear growth plus monotonic behavior of e^(−Q)(L₂+1), without the exact growth equivalents or closed forms in that section.",
+          "The known Ein identities yield all downstream special-function conclusions once uniform Riemann convergence identifies the limiting integrals."
+        ],
+        "reasoning": "The finite-to-integral translation is not an already stated theorem about this pair in the inspected evidence, but it is a routine reduction; scientific value is assessed separately.",
+        "searches": [
+          "Pires–Broom Sec. 4.2 Eqs. (23)–(24) and text through Table 5",
+          "DLMF 6.2.3–6.2.4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The population limits are harmonic-minus-geometric-harmonic and its opposite-sign reciprocal analogue.",
+          "DLMF 6.2.3 defines Ein(z) by the integral with numerator 1−e^(−t), and 6.2.4 relates it to E₁; the pair is Ein(Q), −Ein(−Q)."
+        ],
+        "reasoning": "Both integrals are standard aliases/corollaries within special-function theory. The differing geometric-harmonic sums require the density-limit identification, which is not a DLMF population claim.",
+        "searches": [
+          "Pires–Broom DOI 10.1007/s00285-026-02464-5 §4.2 Eqs. (23)–(24)",
+          "NIST DLMF §6.2: Ein and exponential integral relations"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The source quotes numerical values at Q=1, 2, 3 and 20; these are not new.",
+          "The closest inspected same-date index match has an E₁ formula for a different UMg mean-residual-life series, not these sums."
+        ],
+        "reasoning": "The special functions and example numbers have exact reference or prior numerical coverage respectively. Neither source supplies the contextual mapping from both population limits to the indexed functions.",
+        "searches": [
+          "NIST DLMF §6.2",
+          "Resultary geometric-harmonic and exponential integral limit lookup, a4788e63b6ef",
+          "Pires–Broom p. 17 numerical examples"
+        ]
+      },
+      "rationale": "Limited to explicit identification of the two named population limits with the complementary exponential integral. The integrals, conversions, derivatives and large-argument asymptotics are classical once the limits are written as integrals; no novelty is credited to those identities in isolation. The inspected source passages define the original limits and give examples and qualitative growth, not the identification itself.",
+      "residual_risks": [
+        "The source's supplementary derivation of its cooperation conditions was not independently inspected. Equivalent contextual evaluations may appear in an unindexed model appendix or under the Ein notation; negative ranked searches do not establish priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior definitions, qualitative behavior and numerical values; no explicit E₁/Ei mapping in inspected passage",
+          "evidence": "Signed reciprocal powers and harmonic differences as claimed; the functions enter some conditions in the wN→0 limit.",
+          "identifier_or_url": "https://doi.org/10.1007/s00285-026-02464-5",
+          "material_read": "§4.2, pp. 16–17, equations (23)–(24) and following discussion, and start of Table 5",
+          "method": "Open primary PDF",
+          "title": "Multiplayer social dilemmas in completely mixed populations and networks of mixing communities",
+          "trigger": "Exact same two quantities and model"
+        },
+        {
+          "assessment": "Narrow geometric-harmonic overlap at Q=1, not the two all-density evaluations",
+          "evidence": "Related harmonic terms and Hawk–Dove expressions, with the density interpretation noted by Pires–Broom p. 17.",
+          "identifier_or_url": "https://doi.org/10.1007/s00285-024-02148-y",
+          "material_read": "p. 18 Eqs. (38)–(40) and p. 33 Eqs. (52)–(58)",
+          "method": "Open primary text",
+          "title": "The effects of herding and dispersal behaviour on the evolution of cooperation on complete networks",
+          "trigger": "Directly cited exact-density prior overlap"
+        },
+        {
+          "assessment": "Covers classical integrals and conversions, not the population limit identification",
+          "evidence": "Ein is entire and E₁(z)=Ein(z)−ln z−γ.",
+          "identifier_or_url": "https://dlmf.nist.gov/6.2",
+          "material_read": "§6.2(i), especially Eqs. 6.2.3–6.2.4",
+          "method": "Open reference page",
+          "title": "DLMF Chapter 6, Definitions and Interrelations",
+          "trigger": "Exact conventional special-function coverage"
+        },
+        {
+          "assessment": "Distinct series and claim",
+          "evidence": "E₁ arises for UMg mean residual life, not the signed population density pair.",
+          "identifier_or_url": "2026/10/13/SCOPE-the-umg-mean-residual-life-series-diverges-for-every-parameter--a4788e63b6ef/RESULT.md",
+          "material_read": "Finding",
+          "method": "Resultary local mirror",
+          "title": "The UMg mean-residual-life series diverges for every parameter",
+          "trigger": "Closest returned indexed exponential-integral finding"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The auxiliary quantities are motivated, and the conversion is convenient, but the claimed gain is exhausted by reading a fixed-endpoint Riemann sum as the defining integral of Ein. The derivatives and precise large-Q rates then follow directly from the classical definition and standard asymptotics. The source already describes the opposite growth behaviors and reports representative values. The frozen record does not use the conversion to establish a distinct quantitative property of a threshold, a new density range or error estimate, or another independently useful fact beyond that routine evaluation. This fails the value requirement for the actual contribution, not the correctness of the formulas.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

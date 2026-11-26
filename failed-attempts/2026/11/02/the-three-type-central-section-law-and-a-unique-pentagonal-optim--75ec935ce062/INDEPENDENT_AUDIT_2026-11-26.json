@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:56:51.764676Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 35–111",
+        "Frozen VERIFICATION.md, lines 19–23; verify_prism.py, lines 11–69",
+        "Fresh calculation: bisect RESULT.md line 27 on [0,1] for 100 iterations and apply composite Simpson quadrature to lines 87–88"
+      ],
+      "rationale": "For a central plane missing the vertices, an edge is crossed exactly when the endpoint signs differ. The intersection point is exposed in the section by a functional exposing that edge in the prism; no point in the relative interior of a face of dimension at least two is a section vertex. This is the justification for the edge count, rather than the source's imprecise appeal to strict convexity. The three base projections in a symmetry sector are c,-a,-b with 0<a<b<c. As h cot(theta) runs through the four intervals cut by a,b,c, the nine-edge count is 4,5,4,3. The independent uniform height coordinate z=|cos(theta)| makes the threshold CDF x/sqrt(h^2+x^2). Integrating on 0<phi<pi/6 gives the stated inverse-sine law. The derivative of the pentagon probability has the sign of 1-q(h) for the stated q, with q'(h)>0 and q going from 0 to sqrt(3)-1/2>1, proving a unique global maximum. Taylor expansions at zero and infinity give the stated coefficients. Fresh bisection on [0,1] gave 0.5314695510636116; Simpson quadrature on the azimuthal pentagon integral with 1024, 2048 and 4096 subintervals gave 0.38515580567415336, 0.38515580567417518 and 0.38515580567417662. These check the numerics only. The frozen script was inspected, not run.",
+      "residual_risks": [
+        "No extension to offset planes, other base shapes or other normal measures is certified."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "42f762a979c3 treats arbitrary circumradius and gives aspect-ratio inversion in addition to the same distribution and maximum.",
+          "fcf730a5cfb8 centers its analysis on motion-invariant affine planes with offsets and width-dependent normal sampling; this is not a stronger version of the fixed-center Haar theorem.",
+          "No readable full text was available in the attempted Voss and Ohser–Mücklich routes; the frozen synopsis is not independent coverage evidence."
+        ],
+        "reasoning": "The arbitrary-radius parametrization includes the frozen model; the affine-plane results do not follow by equating the two sampling rules. Historical stereology coverage is not needed to establish the duplicate.",
+        "searches": [
+          "Resultary 42f762a979c3, RESULT.md offset 0",
+          "Resultary fcf730a5cfb8, RESULT.md offset 850",
+          "Voss DOI 10.1111/j.1365-2818.1982.tb00443.x; Ohser–Mücklich DOI 10.2307/1427832 (lawful DOI/publisher/repository retrieval)"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4: 804f9ecfda5f, 42f762a979c3, dd79b797ad66, fcf730a5cfb8",
+        "Voss and Ohser–Mücklich DOI retrieval attempts; indexed prism/stereology lookup returned no usable primary passages"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The positive unique root condition and maximum are directly stated. The frozen endpoint expansions follow using arcsin(x)=x+O(x^3) at zero and C=pi/2-arctan(h) plus ordinary Taylor expansions at the thin end."
+        ],
+        "reasoning": "Neither rescaling the unique optimizer nor Taylor expansion at the ends furnishes a distinct scientific remainder.",
+        "searches": [
+          "804f9ecfda5f and 42f762a979c3 formulas and optimizer statements at RESULT.md offset 0; frozen RESULT.md lines 25–48"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For 804f9ecfda5f the angles S_h,O_h,V_h equal 2B, pi-2A, pi-2C, respectively, on their principal branches for h>0. Substitution yields all three frozen probabilities and the identical optimizer equation.",
+          "For 42f762a979c3 take t=h/R and R=1. Its P3 is exactly the frozen P3. G=2B and arctan(h)=pi/2-C, so its P5=E[N]-4+P3 agrees too, hence so does P4."
+        ],
+        "reasoning": "Using oriented normals instead of unoriented normals does not change the plane law, and scale normalization does not change a side count. The mathematical overlap is exact.",
+        "searches": [
+          "Resultary 804f9ecfda5f, Finding and Assumptions, RESULT.md offset 0",
+          "Resultary 42f762a979c3, Finding and Assumptions, RESULT.md offset 0"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "804f9ecfda5f gives the same exact root condition and reports h*=0.5314695510636... and maximum 0.3851558056742....",
+          "dd79b797ad66 also gives the exact centered three-type law in its inspected Finding."
+        ],
+        "reasoning": "This is a match of exact functions and the defining optimizer equation, not merely a table match of approximate numbers.",
+        "searches": [
+          "Local Resultary prism side-count and pentagon-optimum matches 804f9ecfda5f, 42f762a979c3, dd79b797ad66"
+        ]
+      },
+      "rationale": "Two distinct published Resultary records give both the same complete law under the same centered Haar model and the same unique global optimizer. The angular formulas and the inverse-sine formulas are exactly equivalent. The thin/long limits follow by Taylor expansion of those already covered exact functions, and the height/edge ratio is a change of scale. This is an equivalent-coverage decision, not an attribution of provenance or an inference from dates alone.",
+      "residual_risks": [
+        "Historical priority relative to Voss and Ohser–Mücklich remains unresolved.",
+        "Record path dates alone do not establish authorial priority or dependence; the failure relies on exact statements in distinct published records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent coverage",
+          "evidence": "Same vertices and central normal, arccos law and identical unique-root equation.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-exact-haar-section-law-and-unique-pentagon-optimal-aspect-ratio--804f9ecfda5f/RESULT.md",
+          "material_read": "Finding and assumptions at offset 0",
+          "method": "Local mirrored full-file excerpt",
+          "title": "Exact Haar section law and unique pentagon-optimal aspect ratio for regular triangular prisms",
+          "trigger": "Strongest exact law/optimizer match"
+        },
+        {
+          "assessment": "Equivalent coverage and additional recovery result",
+          "evidence": "Exact P3, moment identity recovering P4 and P5, and same unique optimizer.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-exact-central-section-type-law-and-aspect-ratio-recovery-for-equ--42f762a979c3/RESULT.md",
+          "material_read": "Finding, assumptions and start of proof at offset 0",
+          "method": "Local mirrored full-file excerpt",
+          "title": "Exact central-section type law and aspect-ratio recovery for equilateral triangular prisms",
+          "trigger": "Second exact mathematical match"
+        },
+        {
+          "assessment": "Coverage of the law; no claim about its optimizer from the inspected passage",
+          "evidence": "Complete centered 3–4–5 law.",
+          "identifier_or_url": "2026/11/2/SCOPE-complete-random-central-section-polygon-law-for-regular-triangul--dd79b797ad66",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Complete random central-section polygon law for regular triangular prisms",
+          "trigger": "Same centered side-count law"
+        },
+        {
+          "assessment": "Different sample space and measure",
+          "evidence": "Motion-invariant affine planes are sampled with offsets and width-weighted directions.",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-affine-plane-section-law-and-unique-pentagon-optimum-for-r--fcf730a5cfb8",
+          "material_read": "Sampling assumptions, RESULT.md offset 850",
+          "method": "Local mirror",
+          "title": "Exact affine-plane section law and unique pentagon optimum for regular triangular prisms",
+          "trigger": "Same prism and pentagon objective"
+        },
+        {
+          "assessment": "Unresolved",
+          "evidence": "No independently readable article passage located; title cannot distinguish centered and translated models.",
+          "identifier_or_url": "https://doi.org/10.1111/j.1365-2818.1982.tb00443.x",
+          "material_read": "Citation and frozen synopsis only",
+          "method": "DOI and Wiley retrieval unsuccessful, no lawful repository text recovered",
+          "title": "Frequencies of n-polygons in planar sections of polyhedrons",
+          "trigger": "Potential historical treatment of exact polygon frequencies"
+        },
+        {
+          "assessment": "Unresolved from primary text",
+          "evidence": "Frozen synopsis describes primarily offset sampling; it is not an independently established distinction from the paper.",
+          "identifier_or_url": "https://doi.org/10.2307/1427832",
+          "material_read": "Citation and frozen synopsis only",
+          "method": "DOI, alternate repository and JSTOR retrieval did not yield readable full text",
+          "title": "Stereology for some classes of polyhedrons",
+          "trigger": "Regular-prism stereology cited as related work"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and scope; exact comparisons above"
+      ],
+      "rationale": "A complete centered section law for a natural one-parameter family and a unique aspect ratio maximizing pentagons are meaningful geometric results; in particular the optimum is separated from the equal-edge prism. The duplication is an originality failure, and the residual Taylor expansions do not warrant a standalone repaired finding.",
+      "residual_risks": [
+        "No claim of a maximum over general prisms or affine-plane sampling."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

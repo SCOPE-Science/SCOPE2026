@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:07:01.862228Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The rate-one embedding makes the per-type refresh clocks independent, with rates w_i, and sends the step PGF at z=1/(1+s) to the hitting-time Laplace transform. The strong-Markov resolvent identity divides the empty-to-full resolvent by the full-to-full one, giving the stated positive-integral ratio and its subset expansion, also at p=0. A uniformly positive chance of drawing and successfully refreshing every coupon within the next m steps ensures finite mean; the coefficient of s in the ratio gives the stated mean. Under any nontrivial balancing, x+y with x=exp(-at), y=exp(-bt) strictly decreases for t>0 while xy is fixed. Thus the numerator rises strictly and the denominator never rises, so T-transforms prove strict PGF order, without giving ordinary stochastic order. Subtraction in the mean integral gives the pairwise gap; for m=2 its integral is (1+r)(1/a+1/b-4)=(a-b)^2/((1-p)ab). Along the direction e_i-e_j at uniform weights, that same integrand expands as epsilon^2 t^2 exp(-t/m) times the stated bracket; permutation symmetry gives the tangent Hessian coefficient for every tangent direction. The uniform value follows by substituting x=exp(-t/m) in the mean integral and telescoping in the exponent: the increase in the integral divided by m from exponent k-1 to k is (1+r)^k/k. Replay: frozen RESULT.md lines 67–128. The frozen checker was inspected but not executed; the above proofs do not depend on finite tests.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Attrill–Garoni gives the uniform-model PGF and mean. Anceaume et al. give uniform optimality in strong stochastic order for standard collection, covering the p=0 uniform comparison. Long permits unequal sampling in the global reset-button model, but its local-loss section uses uniform sampling. The full fragile-collector article was not available on the inspected route."
+        ],
+        "reasoning": "The uniform and standard models alone would not settle strict transform order with positive loss and unequal rates. The direct catalogue result does settle it by implication.",
+        "searches": [
+          "arXiv:2605.14206v1, Theorems 3.7 and 3.11",
+          "arXiv:1504.03878, Theorems 1–2",
+          "arXiv:2605.14511v1, §§3.1, 3.6 and 4.1",
+          "DOI:10.3390/math14203729"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Resultary d79ee5d7e4b4",
+        "arXiv:2605.14206v1",
+        "arXiv:1504.03878",
+        "arXiv:2605.14511v1",
+        "DOI:10.3390/math14203729 (access-limited)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior §§2–3 identify the products as the resolvent integrands. Prior §5 proves product(1-exp(-w_i t)) strictly Schur-concave and product(1+r exp(-w_i t)) Schur-convex for every t>0, with the latter constant at r=0. Prior §4 gives the mean as the integral of their difference."
+        ],
+        "reasoning": "The separate pointwise signs imply the strict ratio comparison at every s>0 with no additional estimate. At fixed a+b, factoring the known two products gives the penalty immediately from x+y-2 exp(-(a+b)t/2); replacing a,b by 1/m+epsilon,1/m-epsilon gives the displayed Hessian directly. Rephrasing these implications cannot sustain a substantive repair.",
+        "searches": [
+          "d79ee5d7e4b4 Proof §§2–5, especially Strict majorization (characters 3150–6715)",
+          "Frozen RESULT.md lines 25–58, 92–128"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier finding uses iid type selection, a common independent overwrite success probability q=1-p, all coupons initially absent and the first all-present hit. Its r=p/q and s=(1-z)/z match exactly."
+        ],
+        "reasoning": "This is the same random variable and full parameter domain, not a monotone collector, a global-reset chain or a stationary-entry time.",
+        "searches": [
+          "Resultary: weighted clumsy coupons, nonuniform local overwrite, exact first-passage transform and strict balancing law",
+          "d79ee5d7e4b4 Finding and Assumptions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 2026/10/18 finding d79ee5d7e4b4 displays the identical PGF subset ratio and both equivalent expectation formulas. It states strict Schur convexity of the mean with equality exactly up to permutations."
+        ],
+        "reasoning": "The exact closed forms and mean optimality are already covered, independent of the prior uniform coupon results.",
+        "searches": [
+          "Resultary: weighted reversible coupon collector, exact delay transform and strict majorization",
+          "d79ee5d7e4b4 exact subset and integrated product formulas"
+        ]
+      },
+      "rationale": "An earlier Resultary record in the identical local-refresh model gives the exact weighted PGF, exact subset and product-integral mean, and strict mean majorization. Its proof gives exactly the separate pointwise strict Schur concavity of the PGF numerator product and Schur convexity of the denominator product. Multiplying by exp(-st), integrating and dividing positive quantities mechanically gives the headline strict PGF majorization, even though that earlier record does not spell it out. The pairwise penalty and local curvature are respectively a direct two-factor subtraction and second differentiation of its already-known mean integral. The record is not rejected for an inaccessible article or for relying on a classical method, but for demonstrable coverage of the purported contribution.",
+      "residual_risks": [
+        "A broader product-chain theorem or the inaccessible fragile-coupon text may add other comparisons; neither is needed for the specific demonstrated coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct formula coverage and decisive implication of strict PGF order",
+          "evidence": "Proof §5 establishes the two separate pointwise Schur comparisons, not just the sign of the integrated difference.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-exact-first-passage-transform-and-strict-balancing-law-for-nonun--d79ee5d7e4b4/RESULT.md",
+          "material_read": "Finding and Assumptions (characters 0–2408); Proof §§2–5 (characters 3150–6715)",
+          "method": "Local Resultary mirror, bounded passage reading",
+          "title": "Exact first-passage transform and strict balancing law for nonuniform clumsy coupon collection",
+          "trigger": "Earlier exact result with the identical model, transform and majorization"
+        },
+        {
+          "assessment": "Uniform specialization, not the decisive weighted result",
+          "evidence": "It uses 1/m selection and gives the uniform transform and expectation.",
+          "identifier_or_url": "https://arxiv.org/html/2605.14206v1",
+          "material_read": "§3, Theorems 3.7 and 3.11 (text around characters 25000 and 36763)",
+          "method": "Direct OA HTML passage reading",
+          "title": "The clumsy coupon collector's problem",
+          "trigger": "Primary reference for the same process with uniform sampling"
+        },
+        {
+          "assessment": "Covers no-loss uniform optimality in a stronger stochastic order, not reversible positive loss",
+          "evidence": "The target is ordinary c-coupon collection including c=n.",
+          "identifier_or_url": "https://arxiv.org/pdf/1504.03878",
+          "material_read": "§2.1, Theorems 1–2, p. 5 for Theorem 2",
+          "method": "Direct OA PDF passage reading",
+          "title": "Optimization results for a generalized coupon collector problem",
+          "trigger": "Unequal-weight comparison for the no-loss boundary"
+        },
+        {
+          "assessment": "The weighted reset and uniform local overwrite claims are distinct models",
+          "evidence": "The reset clears the entire subset; the local-refresh section assumes uniform sampling.",
+          "identifier_or_url": "https://arxiv.org/html/2605.14511v1",
+          "material_read": "§§3.1, 3.6 (including Corollary 3.14), and 4.1",
+          "method": "Direct OA HTML passage reading",
+          "title": "Clumsy and Careless: Stationary-Entry Flux in Non-monotone Coupon Collectors",
+          "trigger": "Unequal probabilities and nonmonotone collection"
+        },
+        {
+          "assessment": "Unresolved as a full-text comparison; not needed to establish the direct coverage above",
+          "evidence": "The frozen record describes loss before first acquisition, not loss via overwriting present coupons; this distinction was not independently confirmed from full text.",
+          "identifier_or_url": "https://doi.org/10.3390/math14203729",
+          "material_read": "Landing page only; no complete text recovered",
+          "method": "Lawful DOI/publisher and alternate-copy attempts",
+          "title": "The Fragile Coupon Collector: Random Deadlines, Critical Fragility, and Optimal Sampling",
+          "trigger": "Coupon-loss sampling optimization candidate"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Optimizing this hitting time is a natural question, but the earlier result already supplies both pointwise product inequalities and the complete exact weighted mean. The remaining displayed penalties only expand or differentiate that mean on a pair of coordinates; they do not give a distinct stability bound, classification, or another substantive mathematical conclusion. No independently useful, nonmechanical remainder was established for repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

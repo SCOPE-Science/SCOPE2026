@@ -1,15 +1,21 @@
-# Scientific assessment: fault-tolerant distance-landmark mobility
+# Independent mathematical audit
 
-## Correctness — PASS
-The graphs, graph distances, complete two-witness fault-tolerance condition and exchange rule are explicitly defined. For each graph there are only 16 vertices, 120 unordered pairs to distinguish, 4,368 five-subsets and 8,008 six-subsets. Independent exact programs enumerate these complete domains in two different representations of the property: one uses distinguishing-vertex bitmasks; the other retests resolution following each landmark deletion. No five-set passes, six-set counts are 448 and 1,600, and the separate exchange-construction algorithms agree on all counts, components and all-source distances. Monotonicity excludes smaller landmark sets. The orbit computations additionally test concrete automorphism actions. Neither sampling nor a timeout is used to assert a negative.
+## correctness
 
-## Originality — PASS, qualified by historical priority risk
-The closest primary sources are Hernando et al.'s fault-tolerant definition and general/tree results, Estrada-Moreno et al.'s general two-witness theory, and Bailey's ordinary metric-dimension table for exactly these graphs. Bailey's value four for one-witness bases does not imply either two-witness basis census, and the general theory contains no exact exchange-graph analysis for these objects. Existing published classifications of identifying codes, global location-domination, maximum independent sets and induced matchings on this pair involve different feasibility predicates, so neither their counts nor their exchange connectivity logically implies this result. The two-witness, same-size replacement rule was searched under multiple aliases. This assessment is based on inspected literature and indexed records, not on an assertion that a database search proves uniqueness. Complete historical priority remains a risk.
+PASS
 
-## Value — PASS
-These are the two classical nonisomorphic graphs sharing strongly regular parameters \((16,6,2,2)\). Fault-tolerant distance landmarks constitute a natural minimum-redundancy positioning problem. An exact sharp change from complete single-exchange rigidity to one-exchange connectivity, despite equality of the optimal sensor counts and conventional graph parameters, is a substantive and interpretable boundary. The exact two-replacement threshold on the rigid graph and complete finite distance profiles make the comparison useful for understanding robust metric-base reconfiguration.
+Two distinct distance witnesses for every distinct pair are necessary and sufficient for one landmark erasure. Monotonicity excludes all smaller nonempty sets once each of the 4,368 five-sets fails. A fresh enumeration tested all 8,008 six-sets in each graph and got 448 and 1,600. It reproduced the exact exchange edges, singleton and connected component counts, all eccentricities and entire unordered-distance histograms by exhaustive shortest paths, as well as the orbit lists. Pair counts total 100,128 and 1,279,200 in the connected cases. The verified natural group orders are also full: in Shrikhande the stabilizer of 0 acts faithfully on its neighbor cycle C6, since the nine nonneighbors have distinct pairs of neighbors on that cycle. Thus its order is at most 12, and translations give the 192 bound. In rook the local graph is two disjoint triangles, whose automorphism group has order 72; an off-row/off-column vertex is uniquely determined by one neighbor in each triangle. This gives the 1,152 bound, attained by coordinate permutations and interchange. The exact two-replacement assertion is for Shrikhande; it contains all allowed positive moves of budget two there because one-exchange has no edges.
 
-## Sources and limitations
-The dated archival anchor is Bailey's December 17, 2013 preprint; Hernando et al.'s earlier paper establishes the resilience notion. The original definitions and relevant theorems of these papers were read, including the ordinary-distance table and the fault-tolerance general results, with the two-witness arXiv article inspected for definitions and scope. Published neighboring results were compared by mathematical implication, not title alone. The result is finite, relies on executable exhaustive certificates and has not received independent scholarly validation. Historical material not indexed or accessible to this review might alter the priority assessment.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Two-witness resolution is known as the k=2 metric generator problem, and exchange geometry on this specific canonical pair has been studied for identifying codes. The prior admissible families and distances are demonstrably different; their enumerations do not imply this minimum two-witness census or its exact exchange threshold and metric distinction.
+
+## value
+
+PASS
+
+These are the canonical contrasting strongly regular graphs with identical (16,6,2,2) parameters and, here, the same optimum landmark count. The sharp contrast between total one-move arrest and full one-move mobility, followed by restoration of connectivity at budget two, shows that these shared parameters do not fix optimum-landmark reconfiguration. The complete distances and orbit data characterize this concrete benchmark without arbitrary graph or move cutoffs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

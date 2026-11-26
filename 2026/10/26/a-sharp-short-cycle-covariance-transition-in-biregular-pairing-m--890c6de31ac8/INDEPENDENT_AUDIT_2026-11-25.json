@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:58:13.134084Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Proof and Verification; frozen VERIFICATION.md; static inspection of verify_cycles.py",
+        "/workspace/branches/c0e3c378-cce1-4191-a250-84bce34168b5/independent_enum.py and independent_enum.txt"
+      ],
+      "rationale": "A labeled square specifies four pairs and leaves a uniform bijection on L-4 stubs per side. The expected number of parallel pairs using a specified edge is 4(d-2)(e-2)/(L-4); using only residual edges it is A_d A_e/[2(L-4)(L-5)] with A_d=L(d-1)-8d+12 and similarly for e. Any occurrence has the same conditional moment, so multiply the shift from the unconditioned mean by B=E[Y]. With a=d-2 and b=e-2, clearing denominator 2(L-4)(L-5)(L-1) gives coefficients 4(L-4), -4(L-4)(L-2) on each linear term, and 12(L-2) on ab, i.e. -4P. When only one excess degree is positive, P=(L-4)[(a+b)(L-2)-1]>0. When both are positive, L-4>=2max(a,b) gives (a+b)(L-4)-3ab>=ab and P>=2. Both zero give P=4-L. At L=4 there are 16 simple-square bijections and 8 doubled-diagonal bijections, giving -4/9; a degree-one side forces both statistics to vanish. The fixed-degree limit of B is (d-1)^2(e-1)^2/4, giving both asserted asymptotics. Independent exact enumeration of all nine degree-at-least-two models with L<=8 agreed, including +4/25 for (3,3,2,2), -36/25 for (2,3,3,2), and -288/49 for (2,2,4,4), in (n,m,d,e) order.",
+      "residual_risks": [
+        "Enumeration verifies finite cases only. Uniform unlabelled and uniform simple-graph laws and growing-degree limits are not covered."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Angel et al. use the same bipartite pairing law and same parallel-pair statistic and give its marginal expectation and Poisson approximation. Dumitriu–Zhu give joint short-cycle Poisson approximation in the simple biregular model with d_1>=3; that model has no parallel pairs."
+        ],
+        "reasoning": "Neither inspected result gives the finite mixed moment for a square and a parallel pair in the two-degree pairing model.",
+        "searches": [
+          "Angel–van der Hofstad–Holmgren arXiv:1603.07172 §1.4 Theorem 1.10, eqs. (1.40)–(1.45)",
+          "Dumitriu–Zhu arXiv:2008.11760 §2 Theorem 2.10"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 3cf215ef6662, 8bb0aaf4e210, 532dff18b65d",
+        "Angel–van der Hofstad–Holmgren Theorem 1.10",
+        "Dumitriu–Zhu Theorem 2.10"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At d=2, B=m(m-1)binom(e,2)^2/[(L-1)(L-3)] and P=(L-4)[(e-2)(L-2)-1]. On substitution the exact formula is the indexed one-part regular formula. For both degrees at least three the mixed moment instead includes nonzero shared-edge square/parallel-pair configurations in four cells."
+        ],
+        "reasoning": "Neither the contracted proof nor the published marginal/simple-graph limits mechanically yield the interior covariance with its explicit finite coefficient and higher-degree decay. That exact extension is the supported distinct content.",
+        "searches": [
+          "3cf215ef6662 regular formula versus frozen polynomial at d=2",
+          "Angel et al. Theorem 1.10; Dumitriu–Zhu Theorem 2.10"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Both records count loops and unordered parallel pairs between distinct vertices in uniform one-part stub pairings and give their exact covariance. If d=2, replace each degree-two left vertex by an edge joining its two matched right stubs. Each right-stub pairing has exactly n!2^n preimages, so the result is a uniform e-regular pairing on m vertices. Under this mapping X is exactly the loop count and Y exactly the parallel-pair count, including multiplicities; transpose for e=2."
+        ],
+        "reasoning": "This is exact equivalence, not a qualitative analogy. The earlier formula with v=m, regular degree e and total L reproduces the full d=2 restriction, not just its signs or asymptotic order. Contracting when both degrees are at least three does not give this paired-stub model.",
+        "searches": [
+          "Resultary 3cf215ef6662 and 8bb0aaf4e210, mirrored RESULT.md, Finding and assumptions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "3cf215ef6662 and 8bb0aaf4e210 cover the degree-two-side subfamily as shown above. 532dff18b65d indexes an exact one-part loop versus simple-vertex r-cycle covariance for r>=3. No matching formula for both bipartite degrees at least three was located in the ranked results."
+        ],
+        "reasoning": "The loop–cycle result uses one-part stubs and r>=3; it is not the contracted parallel-pair formula and does not compute the interior bipartite case. The bounded index search does not establish absence.",
+        "searches": [
+          "Local Resultary semantic searches for labelled bipartite pairing short-cycle covariance, mixed factorial moments, and degree-two sign transition"
+        ]
+      },
+      "rationale": "Credit the all-biregular exact covariance, specifically the extension to both degrees at least three. The entire degree-two-side subfamily, including the positive coefficient, exceptional -4/9, and the negative higher-degree cases within that subfamily, is already covered by a one-part pairing identity after contraction. The pass does not credit that boundary family, the existence of a degree-two sign/rate reversal in pairing models, or the marginal parallel-pair expectation as new.",
+      "residual_risks": [
+        "An equivalent explicit mixed moment for both degrees at least three in specialized or unindexed work could be missed; no historical priority claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact prior coverage of the degree-two-side subfamily",
+          "evidence": "Regular one-part formula and exact multiplicity convention; degree-two-side contraction proves equality of the joint laws.",
+          "identifier_or_url": "2026/10/18/SCOPE-a-sharp-degree-two-covariance-reversal-for-loop-and-parallel-pai--3cf215ef6662",
+          "material_read": "Finding and Assumptions and scope",
+          "method": "Local Resultary search and mirrored full statement",
+          "title": "A sharp degree-two covariance reversal for loop and parallel-pair defects in random configurations",
+          "trigger": "Same sign, exceptional case, and two asymptotic orders"
+        },
+        {
+          "assessment": "Same boundary-family coverage; same-day date does not assign priority",
+          "evidence": "Exact loop–parallel-pair covariance with the same regular specialization as 3cf215ef6662.",
+          "identifier_or_url": "2026/10/26/SCOPE-a-finite-size-sign-reversal-between-loops-and-parallel-edge-pair--8bb0aaf4e210",
+          "material_read": "Finding, assumptions and opening probability identity",
+          "method": "Local mirror passage",
+          "title": "A finite-size sign reversal between loops and parallel-edge pairs in random configurations",
+          "trigger": "Exact indexed one-part formula with same transition"
+        },
+        {
+          "assessment": "Related but different pair of statistics",
+          "evidence": "Loops versus simple-vertex cycles of length r>=3 in one-part pairings.",
+          "identifier_or_url": "2026/10/26/SCOPE-an-exact-loop-cycle-covariance-spectrum-in-the-configuration-mod--532dff18b65d",
+          "material_read": "Finding and cycle convention",
+          "method": "Local Resultary mirror",
+          "title": "An exact loop–cycle covariance spectrum in the configuration model",
+          "trigger": "Mixed short-cycle covariance in configuration models"
+        },
+        {
+          "assessment": "Marginal prior art",
+          "evidence": "Bipartite stub pairing, parallel-pair mean and Poisson approximation, not square mixed moment.",
+          "identifier_or_url": "https://arxiv.org/pdf/1603.07172",
+          "material_read": "§1.4, Theorem 1.10, PDF pp. 6–7, (1.40)–(1.45)",
+          "method": "OA full-text passages",
+          "title": "Limit laws for self-loops and multiple edges in the configuration model",
+          "trigger": "Identical bipartite model and parallel-pair statistic"
+        },
+        {
+          "assessment": "Different law and result type",
+          "evidence": "Joint approximation of C_2 through C_r (C_2 is the square) for simple graphs, with no parallel-pair statistic.",
+          "identifier_or_url": "https://arxiv.org/pdf/2008.11760",
+          "material_read": "§2, Theorem 2.10, PDF p. 12",
+          "method": "OA full-text passages",
+          "title": "Global eigenvalue fluctuations of random biregular bipartite graphs",
+          "trigger": "Biregular short-cycle counts"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md",
+        "Angel et al. §1.4",
+        "Indexed one-part loop–parallel-pair covariance and contraction comparison"
+      ],
+      "rationale": "The exact covariance is a finite correction to independent short-cycle heuristics for a standard pairing ensemble. It quantifies the dependence of the simplest defect and the first distinct-vertex cycle even when both sides have multiple available stubs per square vertex. The sign and explicit coefficient in that interior regime remain useful beyond the known contracted boundary; a marginal Poisson approximation gives neither.",
+      "residual_risks": [
+        "This does not by itself identify conditioned simple-graph covariances or give error bounds for higher joint moments."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

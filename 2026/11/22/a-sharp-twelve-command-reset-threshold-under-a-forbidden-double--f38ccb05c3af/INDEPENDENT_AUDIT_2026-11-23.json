@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:26:37.821794Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Each ordered pair of total maps on the four labeled states occurs once. The reachable image subset is propagated exactly by the next input; the preceding symbol suffices to enforce no 00 and the initial sentinel imposes no initial restriction. Thus BFS computes the minimum admissible word length or excludes any admissible reset, terminating on at most 31 nonempty-subset/symbol and start states. The frozen exact-length recurrence was also inspected: repeating the entire ordered pair of reachable families before any singleton guarantees no future singleton. A separately written exact integer enumerator was run on all 65,536 pairs; its bins for 1 through 12 and infinity are (2032, 17088, 15456, 4992, 3696, 1056, 984, 312, 288, 72, 96, 24, 19440), agreeing in every bin. Ordinary synchronization occurs in 51,520 pairs, against 46,096 constrained; containment follows since admissible words are unrestricted words. The length-12 set was compared as a set with all 24 simultaneous state conjugates, keeping letters fixed. The representative has unrestricted minimum 6, constrained minimum 12, and its stated witness ends with singleton mask 4. Replay the separate calculation with python3 /workspace/branches/cf582467-178e-4c4f-a23a-967873f529bf/reproduce_no00.py (no limit); the same directory contains reproduction_full.json. The frozen verify.py was inspected without execution; it offers two exact procedures for this classification. This verifies the specified four-state domain, not any larger automata or arbitrary forbidden patterns.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Volkov §§2.2–2.3 separates regular constraints and ordinary reset thresholds. Hoffmann's abstract treats commutative transition automata and binary automata with simple idempotents, with polynomial-time results for specified constraint representations.",
+          "Kisielewicz–Kowalski–Szykuła describe ordinary shortest reset-word search via the power automaton, also using bidirectional BFS."
+        ],
+        "reasoning": "The general method supplies a finite decision and optimization procedure, but an upper bound or complexity result does not give the full distribution or the unique extremal class. Hoffmann's structural restrictions do not describe all pairs of transformations considered here.",
+        "searches": [
+          "https://www.mathnet.ru/eng/rm10005",
+          "arXiv:2109.02743",
+          "arXiv:1203.2822",
+          "10.1007/s10878-013-9682-0"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1203.2822",
+        "10.1007/s10878-013-9682-0",
+        "https://www.mathnet.ru/eng/rm10005",
+        "arXiv:2109.02743",
+        "2026/10/4/SCOPE-four-extremal-five-state-binary-avoiding-threshold-classes--add2e90918b8",
+        "10.4230/LIPIcs.MFCS.2021.46"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The ordinary power automaton can be combined with one-symbol language memory, giving a transparent search; its 31-state size bound permits up to 30 steps, not the claimed sharp 12. The five-state 1-avoidance lower bound demands omission of one state from the image, not image collapse under syntactically permitted input."
+        ],
+        "reasoning": "There is no implication from these checked results to the exact finite 12, the 24 simultaneous conjugates, or any of the counts. They are outputs of the specified full classification, not restatements of the algorithm.",
+        "searches": [
+          "arXiv:1203.2822",
+          "10.1007/s10878-013-9682-0",
+          "https://www.mathnet.ru/eng/rm10005",
+          "10.4230/LIPIcs.MFCS.2021.46"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Volkov §2.2 formalizes synchronization constrained to a regular language; the forbidden input factor 00 corresponds exactly to the language (1|01)*(ε|0).",
+          "The distinct indexed avoiding-threshold result constrains the image of the input word, not the syntax of that word."
+        ],
+        "reasoning": "Tokenize each nonfinal zero with its following one to obtain 01 blocks; the regular expression and forbidden-factor problem are identical. Avoiding a state is not equivalent: it tests whether the image excludes a given state, whereas this language depends only on the input string and the success image must be a singleton.",
+        "searches": [
+          "https://www.mathnet.ru/eng/rm10005",
+          "arXiv:2109.02743",
+          "2026/10/4/SCOPE-four-extremal-five-state-binary-avoiding-threshold-classes--add2e90918b8"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The identical Resultary hit is the frozen record itself. The strongest distinct record gives a maximum 1-avoiding threshold of 8 among synchronizing binary automata on five states and 960 labeled extremizers in four classes modulo states and letter exchange. Ferens–Szykuła–Vorel already give a five-state threshold-8 example.",
+          "The independently reproduced table is for all ordered labeled four-state pairs with the input language restriction and a single orbit modulo states only."
+        ],
+        "reasoning": "These exact tables and examples enumerate different predicates, different state sizes and different allowed symmetries. The overlapping word 'avoiding' does not encode a reduction or coverage of this table.",
+        "searches": [
+          "2026/11/22/SCOPE-a-sharp-twelve-command-reset-threshold-under-a-forbidden-double--f38ccb05c3af",
+          "2026/10/4/SCOPE-four-extremal-five-state-binary-avoiding-threshold-classes--add2e90918b8",
+          "10.4230/LIPIcs.MFCS.2021.46"
+        ]
+      },
+      "rationale": "Bounded statement-level comparisons support the exact 4-state, ordered-letter, forbidden-double-zero distribution and extremal orbit as distinct. Ordinary power-automaton BFS and the study of synchronization constrained by a regular language are established. The strongest distinct Resultary overlap is a five-state extremal classification for a different, state-avoidance predicate, not an equivalently encoded census of input-factor avoidance.",
+      "residual_risks": [
+        "Bounded literature and Resultary searches and relevant section comparisons do not exclude an unindexed equivalent tabulation. Exact reproduction substantiates correctness, not priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same methodological lineage; unrestricted search",
+          "evidence": "Power-automaton paths from the full set to a singleton and breadth-first methods, not the language-restricted census.",
+          "identifier_or_url": "https://arxiv.org/pdf/1203.2822 and https://doi.org/10.1007/s10878-013-9682-0",
+          "material_read": "Preprint p. 2 around offset 6151; journal PDF p. 2 around offset 4813",
+          "method": "Bounded primary PDF passages",
+          "title": "A Fast Algorithm Finding the Shortest Reset Words; Computing the shortest reset words of synchronizing automata",
+          "trigger": "Classical reset-word search and potential ordinary tables"
+        },
+        {
+          "assessment": "Regular-language constraints already studied; no exact census in the compared passages",
+          "evidence": "Constrained synchronization and examples of complexity; ordinary threshold analysis is treated separately.",
+          "identifier_or_url": "https://www.mathnet.ru/eng/rm10005",
+          "material_read": "§2.2 around offset 73428 and §2.3 around offset 77000",
+          "method": "Bounded accessible primary passages",
+          "title": "Synchronization of finite automata",
+          "trigger": "Closest survey of constraint translation and reset thresholds"
+        },
+        {
+          "assessment": "Restricted structural/complexity result; no whole-paper exclusion inferred",
+          "evidence": "States polynomial results for commutative automata and binary automata with simple idempotents under given constraint representations.",
+          "identifier_or_url": "https://arxiv.org/pdf/2109.02743",
+          "material_read": "Abstract p. 1, offset 0",
+          "method": "Primary PDF passage",
+          "title": "Constrained Synchronization for Commutative Automata and Automata with Simple Idempotents",
+          "trigger": "Plausible broader regular-constraint result"
+        },
+        {
+          "assessment": "Analogous exact extremal census with a different avoiding invariant",
+          "evidence": "Five-state 1-avoidance maximum 8; 960 labeled extremizers in four classes under state relabeling and letter exchange.",
+          "identifier_or_url": "2026/10/4/SCOPE-four-extremal-five-state-binary-avoiding-threshold-classes--add2e90918b8",
+          "material_read": "Local mirror RESULT.md finding and prior comparison",
+          "method": "Semantic local search and bounded passage comparison",
+          "title": "Four extremal five-state binary avoiding-threshold classes",
+          "trigger": "Strongest distinct Resultary overlap"
+        },
+        {
+          "assessment": "State-subset avoidance rather than forbidden input factors",
+          "evidence": "Defines avoiding a subset of states and states that A_5 has 1-avoiding threshold 8.",
+          "identifier_or_url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol202-mfcs2021/LIPIcs.MFCS.2021.46/LIPIcs.MFCS.2021.46.pdf",
+          "material_read": "Abstract p. 1 at offset 0; A_5 result p. 6 around offset 20700",
+          "method": "Bounded open PDF passages",
+          "title": "Lower Bounds on Avoiding Thresholds",
+          "trigger": "Primary reference of strongest indexed analogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Synchronization with a repeated command prohibited is a simple natural regular constraint whose finite effects are not captured by ordinary reset thresholds. This exhaustive benchmark identifies both qualitative loss of synchronization (5,424 ordinarily synchronizing pairs) and a sharp finite slowdown (an extremal representative from 6 to 12), and classifies every extremizer without imposing artificial reachability assumptions. The exact distribution can be used to test language-constrained reset searches; no arbitrary-state generalization is needed for that use.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

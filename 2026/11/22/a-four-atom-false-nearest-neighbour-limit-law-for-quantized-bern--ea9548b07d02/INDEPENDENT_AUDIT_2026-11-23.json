@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T17:53:27.319023Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For almost every sequence both symbols eventually have at least two occurrences within the n candidate indices (the last observation X_n is used only as a successor). Deleting the first occurrence of each symbol from the anchor comparison affects the fraction by at most 2/n. At all remaining indices the early anchor has zero current distance; the explicitly specified quotient conventions make the flag exactly the successor mismatch, including the amplitude test (nonzero numerator already passes the first test; zero numerator passes neither). Frequencies of each of the four adjacent pairs converge almost surely to their product probabilities, e.g. by applying the iid SLLN separately to even and odd disjoint pairs; the convergence holds simultaneously so random anchor choices require no conditional SLLN. To compute their law, condition on X₀=b. The anchor successor for b is X₁, Bernoulli(p); the first (1−b) occurs at a finite stopping time τ≥1, whose successor is fresh Bernoulli(p) independent of the stopped history, which contains X₁ even if τ=1. This gives independent Bernoulli(p) anchor successors under either conditioning and hence unconditionally. Substituting into L=p+(q−p)(qA₀+pA₁) gives the four stated masses and E L=2pq, Var L=pq(p−q)²(p²+q²). If p≠q the two inner atom values are strict convex combinations of p,q, distinct by (p−q)²; at p=q they all coincide. Boundedness also makes the mean and variance of the statistic converge to the limiting moments. The packaged code is supporting finite evidence, not needed for these claims. This applies only to the explicit one-delay, exact binary, earliest-index, zero-distance-retaining protocol.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Śpiewak uses prevalent observables on smooth dynamics (and a broader prevalent-Lipschitz formulation for the lower-dimensional bound); a fixed locally constant binary observation lacks the required prevalence and creates exact observation collisions on positive-mass sets.",
+          "The TISEAN implementation allows a minimum time separation and describes omitting points at very small nearest-neighbor distance, unlike this protocol. First-hit regeneration and empirical pair convergence are classical inputs, not claims of novelty."
+        ],
+        "reasoning": "More general mathematical convergence theorems with different hypotheses, and generic Markov or strong-law inputs, do not determine the effect of this statistic's stable early anchors.",
+        "searches": [
+          "Śpiewak arXiv:2611.18087v1, Theorems 1.2–1.3 and Remark 1.5",
+          "TISEAN FNN documentation and false_nearest implementation description",
+          "Primary literature: first occurrence successors independent Bernoulli outgoing transitions first exit array Markov chain stack representation Diaconis Freedman stacks random walk successors first departure"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2611.18087v1",
+        "https://www.pks.mpg.de/tisean/Tisean_3.0.1/docs/chaospaper/node9.html and linked program documentation",
+        "https://doi.org/10.1103/PhysRevLett.91.084102 (abstract/metadata only)",
+        "Resultary indexed symbolic pair-collision comparison"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The same distance-ratio rule in Śpiewak gives immediate classification once a zero-distance neighbor is chosen, but it does not specify the persistent table of chosen successors or its law. The theorem does not cover this nonprevalent observation.",
+          "Kennel–Buhl optimize a generating-partition diagnostic in symbolic state reconstruction; the accessible abstract does not identify an earliest-tie scalar-delay limit calculation."
+        ],
+        "reasoning": "The substantive new calculation is the selected-anchor effect on a long sample and its bias-sensitive exact law. Neither broader FNN bounds for prevalent observables nor the partition-optimization diagnostic gives it as a direct corollary.",
+        "searches": [
+          "Śpiewak Definition 1.1, footnote 2, Theorems 1.2–1.3 and Remark 1.5",
+          "Kennel–Buhl DOI:10.1103/PhysRevLett.91.084102 (metadata and indexed abstract)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Under blocking by observed symbol, the statistic is the empirical mismatch rate against a two-entry prediction table learned from the first departure from each symbol. The closest indexed fixed-cylinder pair-collision finding instead compares all matching pairs of symbolic words; its normalization and quadratic fluctuation object are different.",
+          "Śpiewak's footnote 2 uses the exact zero-distance quotient conventions; the present work adds selection of one early anchor per symbol and the law over those anchors. In this discrete example an existential tied-neighbor flag would eventually be always true, and an all-ties flag always false, since each binary pair recurs. Neither alternative gives the reported law."
+        ],
+        "reasoning": "Quantized FNN, first-visit prediction and symbolic recurrence expose the closest formulations. Changing from all ties/every pair to a single earliest match is substantively different, and no exact duplicate was identified.",
+        "searches": [
+          "Resultary: false nearest neighbour quantized Bernoulli doubling map four atom shift overlapping word collisions",
+          "Primary literature: false nearest neighbors scalar quantized time series Bernoulli shift exact ties earliest neighbor symbolic zero distances Kennel Fraser four atom",
+          "Śpiewak arXiv:2611.18087v1, Definition 1.1 and Remark 1.5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest indexed fixed-symbolic-resolution result is a weighted chi-square law for pair collisions, not a table of the limiting law of an earliest-neighbor FNN statistic. TISEAN documents numerical FNN curves for Lorenz/Hénon and noisy Hénon, not the Bernoulli law. No other exact four-atom tabulation was identified in the reviewed material."
+        ],
+        "reasoning": "The database comparison tests the law rather than title or methodology; neither all-pairs collision fluctuations nor documentation plots determine it. Unsuccessful search alone is not priority evidence.",
+        "searches": [
+          "Resultary: false nearest neighbour quantized Bernoulli doubling map four atom shift overlapping word collisions",
+          "Primary literature: false nearest neighbors scalar quantized time series Bernoulli shift exact ties earliest neighbor symbolic zero distances Kennel Fraser four atom"
+        ]
+      },
+      "rationale": "Best of knowledge, the distribution is new for the specified exact protocol, not a new definition of FNN, a general result about all ties, or a new first-hit independence theorem. The closest rigorous source explicitly treats zero distances and tie quantifiers, but its smooth/prevalent hypotheses and conclusions do not compute this anchor-dependent statistic. The source on symbolic FNN addresses partition construction rather than this scalar observable calculation.",
+      "residual_risks": [
+        "The Kennel–Buhl lawful repository full text was unavailable in the inspection; the comparison is limited to the accessible abstract and metadata.",
+        "An additional stochastic FNN literature lookup was unavailable and yields no negative evidence. Earlier results on quantization, first-match rules or different names remain a priority risk."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The zero-denominator convention is prior art; the theorems do not evaluate the earliest-index statistic on the fixed quantized sensor",
+          "evidence": [
+            "Footnote 2 explicitly gives 0/0=0 and x/0=+∞ for x>0.",
+            "Remark 1.5 allows strongest existential/universal tied-neighbor tests in the respective prevalent-observable bounds."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2611.18087v1",
+          "material_read": "OA abstract, Sections 1.4–1.6, Definition 1.1 and Theorems 1.2–1.3, including footnote 2 and Remark 1.5",
+          "method": "Read the PDF text and compared exact hypotheses and tie conventions",
+          "title": "On the convergence of the False Nearest Neighbours algorithm",
+          "trigger": "Same FNN test; potential treatment of ties or degenerate observations"
+        },
+        {
+          "assessment": "Caveats and different software rules; not a competing law",
+          "evidence": [
+            "Documentation reports Lorenz, Hénon, and noisy Hénon examples, and notes optional temporal separation.",
+            "The program note describes omitting distances below an SD-scaled bound; it is not the zero-distance-retaining protocol audited here."
+          ],
+          "identifier_or_url": "https://www.pks.mpg.de/tisean/Tisean_3.0.1/docs/chaospaper/node9.html",
+          "material_read": "Full FNN method page and associated program documentation",
+          "method": "Read public documentation, not execution or source-code inspection",
+          "title": "False nearest neighbors; Description of the program false_nearest",
+          "trigger": "Practical algorithm and alternate conventions for tied or coinciding measurements"
+        },
+        {
+          "assessment": "Abstract identifies a partition-optimization diagnostic; full-document noncoverage is not asserted",
+          "evidence": [
+            "Abstract describes refining empirical partitions for symbolic state reconstruction and approximating a generating partition."
+          ],
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevLett.91.084102",
+          "material_read": "Bibliographic record and indexed abstract; repository PDF not accessible",
+          "method": "Compared accessible abstract to the frozen setting and attempted the linked OA PDF",
+          "title": "Estimating Good Discrete Partitions from Observed Data: Symbolic False Nearest Neighbors",
+          "trigger": "Closest terminology for discrete symbolic FNN"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact binary observation is a natural limiting case of quantized time-series data. The earliest-index rule is deterministic and reproducible yet preserves sample-start randomness even for a mixing iid source. The full law, not just a nonzero mean mismatch, identifies when a long-series fraction is reproducible and gives its variance for arbitrary bias; it can calibrate interpretation of this specific tie rule. It neither critiques all FNN implementations nor implies a general delay-embedding failure theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

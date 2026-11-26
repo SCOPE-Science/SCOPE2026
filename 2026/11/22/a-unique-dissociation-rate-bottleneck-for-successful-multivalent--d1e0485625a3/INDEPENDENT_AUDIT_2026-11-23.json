@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T23:47:39.274105Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof §§1–3",
+        "Frozen VERIFICATION.md and check.py",
+        "Independent replay: /workspace/branches/760b1764-411c-4d17-8042-a593046f4c75/independent_check.py and independent_check.out"
+      ],
+      "rationale": "The upper absorber has incoming rate lambda from state n=m-1. The defective transform at state 1 is lambda^n/det(s I-Q) by the tridiagonal resolvent cofactor; its normalized logarithmic derivative gives the conditional mean. The determinant and its s derivative at zero give respectively the geometric sum B_n and the numerator A_n after scaling. At rho=0 this also gives n/lambda, as required for pure birth. For the derivative numerator the coefficient at degree j is the sum of (2i-j-1)(i+1)(n-i) over max(0,j+1-n) <= i <= min(n-1,j+1); expanding the power sums gives the two stated factors. Thus n=1 and n=2 are decreasing (zero endpoint slope for n=2), and for n>=3 the coefficient sequence has exactly one sign change, with opposite signs at zero and infinity. Reciprocity forces f'_m(1)=-f_m(1)/2<0 for f_m=lambda E[T|S], so the unique critical point lies below 1. Independently, in log-rate coordinates the normalized A_n weights have mean (m-2)/2 and variance (m^2-4)/20, while the B_n weights have mean (m-1)/2 and variance (m^2-1)/12. These give f_m(1)=(m^2-1)/6 and f''_m(1)=-(m^2-1)(m^2-19)/180. On the O(m^-2) left window the positive eigenvalues are bounded below by a constant times j^2/m^2, their first derivatives are O(j^2/m^2) and higher derivatives through order 3 are bounded; summing the differentiated inverses gives the required O(m^4) Taylor bound. The derivative then brackets the optimum at 1-(15+o(1))/m^2 and the peak gain is 15/12-225/360=5/8 in units of 1/lambda. Independent polynomial bisection reproduces rho_4=0.2828147640150715, f_4=3.155153445116 and success probability 0.721802949254. The uploaded checker was inspected but not run.",
+      "residual_risks": [
+        "Only starting state 1 and homogeneous rates with fixed lambda are covered; fixing the total jump rate is a different optimization. The mean concerns successful trials, not all attempts."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ashcroft et al. give spectral methods for fixation-time distributions in general one-step two-absorber processes.",
+          "The 1984 paper is directly relevant to conditional passage-time structure, but readable full text was not retrieved."
+        ],
+        "reasoning": "A general distributional or backward-system formula covers how to obtain the mean, but a formula for each rho is not itself a theorem classifying critical points across rho. No stronger inspected optimization statement dominates the frozen scope.",
+        "searches": [
+          "Resultary semantic searches on fixation-time extrema and birth–death passage laws",
+          "Ashcroft–Traulsen–Galla, arXiv:1504.04249",
+          "On conditional passage time structure of birth-death processes, DOI 10.2307/3213660"
+        ]
+      },
+      "checked_sources": [
+        "Wu arXiv:2611.01293v1",
+        "Ashcroft–Traulsen–Galla arXiv:1504.04249",
+        "DOI 10.2307/3213660 bibliographic record",
+        "Resultary searches and distinct hits 581750305912 and c8d79723b6ba"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior backward equations or spectral decomposition can supply the rational mean; nonmonotonicity for some thresholds is already illustrated.",
+          "To infer the frozen claim still requires the derivative coefficient signs for all m and the uniform inverse-eigenvalue Taylor bound near rho=1."
+        ],
+        "reasoning": "Credit the mean construction and nonmonotone examples. The exact boundary m=4, unique optimum for every m>=4, and the optimizer and excess limits are not supplied by the available results without the new parameter analysis.",
+        "searches": [
+          "Wu §V, Proposition V.2 and Figure 3",
+          "Ashcroft–Traulsen–Galla, spectral fixation-time construction in abstract and opening sections"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Conditioning the killed birth–death walk on upper exit is successful attachment or fixation from one copy, with physical holding-time factor 1/[lambda(1+rho)] per jump.",
+          "Wu plots the conditional stabilization time against rho for selected thresholds and describes its maximum near balanced rates."
+        ],
+        "reasoning": "Optimizing the number of jumps or optimizing at fixed total jump rate would not preserve the objective. A fixed-association continuous-time theorem at the same thresholds would be equivalent, but the inspected examples do not settle onset, uniqueness or the large-m constants.",
+        "searches": [
+          "Resultary semantic searches for homogeneous two-absorber conditional fixation/first-passage optimization at fixed forward rate",
+          "Wu arXiv:2611.01293v1, Proposition V.2 and Figure 3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "d1e0485625a3 is the record under review, not independent coverage.",
+          "581750305912 treats absorption probabilities under geometric resetting; c8d79723b6ba treats fixation probability under varying environmental switching rate."
+        ],
+        "reasoning": "Neither distinct hit calculates a conditional-time extremum of this chain. Matching optimization vocabulary, or sharing the frozen record's date, is not a statement-level match.",
+        "searches": [
+          "Local Resultary checks for m=4 onset, the exact optimizer, and the constants 15 and 5/8",
+          "Resultary records d1e0485625a3, 581750305912 and c8d79723b6ba"
+        ]
+      },
+      "rationale": "Bounded pass for the all-threshold maximizer classification and the two large-m constants. The conditional passage-time problem, spectral machinery, and examples of a nonmonotone time curve are not new. The examined prior results do not provide the all-m derivative sign result or the shrinking-window optimizer and peak limits.",
+      "residual_risks": [
+        "The 1984 source remains uninspected beyond its bibliographic record. Earlier continuous-time gamblers' ruin literature could contain a stronger optimizer analysis outside the checked results."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Conditional first-passage equation and evidence of nonmonotonicity, not the global classification.",
+          "evidence": [
+            "Proposition V.2 gives conditional time via the defective moment and success probability.",
+            "Figure 3 discusses selected thresholds and a maximum near rho=1."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.01293v1",
+          "material_read": "§V, Proposition V.2 and Figure 3; HTML offsets about 31453 and 33235",
+          "method": "Original OA HTML and located passages",
+          "title": "From First Bond to Stable Adhesion: Multivalent Bond Stabilization in Receptor-Mediated Endocytosis",
+          "trigger": "Direct model motivation and prior rate-ratio plot"
+        },
+        {
+          "assessment": "General law construction credited as prior; cited passages do not give a fixed-forward-rate maximizer.",
+          "evidence": [
+            "Spectral first-passage construction for one-step chains with two absorbing states and general initial conditions."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1504.04249",
+          "material_read": "Abstract and introduction, including PDF offsets about 1545 and 5100",
+          "method": "Original OA PDF passages",
+          "title": "When the mean is not enough: Calculating fixation time distributions in birth-death processes",
+          "trigger": "General spectral result that could cover the chain as a special case"
+        },
+        {
+          "assessment": "Unresolved possible formula or optimization overlap; no negative inference from the access limit.",
+          "evidence": [
+            "J. Appl. Probab. 21, pp. 10–21; the original theorem text was not compared."
+          ],
+          "identifier_or_url": "https://doi.org/10.2307/3213660",
+          "material_read": "Cambridge bibliographic record; no readable full text",
+          "method": "OA retrieval through direct and fallback access paths",
+          "title": "On conditional passage time structure of birth-death processes",
+          "trigger": "Classical conditional passage-time theory in the same model family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen optimizer, asymptotics and success-probability formula",
+        "Wu, Proposition V.2 and Figure 3"
+      ],
+      "rationale": "This separates a conditional dwell-time bottleneck from the monotonically decreasing probability of success. The onset threshold and global uniqueness generalize an observed numerical effect, and the two asymptotics identify both the rate scale at which it occurs and the absolute size of the excess rather than suggesting a sizable relative increase. This is useful for interpreting conditioned passage times in the reference chain, without implying that stronger dissociation improves attachment yield.",
+      "residual_risks": [
+        "No quantitative claim for specific receptors, state-dependent rates, or experiments; the relative excess tends to zero."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

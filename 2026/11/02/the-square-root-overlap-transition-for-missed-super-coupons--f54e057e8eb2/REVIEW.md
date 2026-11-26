@@ -1,19 +1,21 @@
-# Scientific review: overlap-dependent super-coupon noncoverage
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The one-round pair-inclusion count is determined by the union size; independent rounds give the exact joint noncoverage probability. Comparing it with the product of marginals gives an exact sign test. Strict increase of the hypergeometric inclusion probability with intersection proves the unique ordered sign transition. The dense-draw case is independently recovered by omitting one uniform point. A uniform falling-factorial logarithm expansion proves the square-root-scale pair ratio, and an integral mean-value identity yields the covariance scaling. All relevant parameter boundaries (feasible intersections, \(r<n\), positive round counts and noncritical asymptotic signs) are specified. The bundled checker passed 2,870 assertions but is corroborative, not a proof for all parameters.
+PASS
 
-## Originality
+One-round inclusion–exclusion, independence across rounds, and strict monotonicity of positive integer powers on nonnegative bases give the exact identity and sign. At the minimum feasible overlap the union is either infeasible or, for disjoint targets, the inclusion probability of the second target strictly decreases after conditioning on inclusion of the first. The final overlap j=s has b_s=a>a². After the initial zero plateau for b_j the b_j increase strictly, so equality with a² is possible at most once. The omitted-element representation proves the r=n−1 boundary including equality. Expanding log((r)_t/(n)_t) uniformly for t=O(√n) has remainder O(t³/n²); subtracting twice the s expansion from the 2s−j expansion yields the frozen log ratio. For the power difference the base is 1−2a_n+O(a_n²) uniformly along the segment between the two bases, giving e^(−2λ), with the correct prefactor λ(R_j−1). No sign is inferred at critical equality. Hypergeometric factorial moments give the Poisson overlap limit. For nonintegral τ, its two bracketing integers eventually have strict opposite signs, and monotonicity then gives the entire asymptotic sign census, including the claimed conditional fraction.
 
-PASS, subject to priority risk. Athreya–Mukherjee–Mukherjee (arXiv:2304.01145, Lemma 3.1) supplies the underlying pair-inclusion count and establishes fixed-size coupon-cover limits; these are not newly claimed. The analyzed contribution is a uniform finite covariance-sign classification and a different growing-target, proportional-block square-root transition with its normalized covariance constant. Godbole–Janson (1996) concerns random covering-design thresholds and Poisson approximation, not this explicit signed two-target scaling in its accessible summary. Searches for equivalent overlap-covariance laws and comparisons with neighboring research records did not reveal equivalent coverage. It remains possible that sampling-association literature contains an equivalent, or that the result is derivable from a more general theorem not accessed here.
+## originality
 
-## Value
+PASS
 
-PASS. Pairwise dependence is an essential ingredient in second-moment and Poisson analyses of random covering designs. The classification identifies precisely when the intuitive claim that overlapping target sets have positive association fails, and explains why the crossover appears at the natural scale \(s\asymp\sqrt n\): this is where random target intersections have order-one size. The time-scaled limit quantifies the covariance relevant to observing a fixed proportion of targets. The Poisson intersection census further quantifies the global share of negatively correlated target pairs, including a majority among overlapping pairs in a natural proportional-block example. This is a structural dependency phase, rather than an arbitrary finite calculation; no unsupported downstream theorem is claimed.
+Prior work is credited for the model and exact pair-union probability; the finite identity consequently has little independent originality. The supported distinct result is the proportional-block, square-root target crossover, with its time-scaled covariance and global sign fraction. No equivalent result or stronger result giving these conclusions was found in the bounded statement comparisons.
 
-## Closest literature and limits
+## value
 
-The 2023 preprint, corresponding 2025 open-access article, and 1996 random-covering-design paper are the closest identified sources. The first source already contains the exact union inclusion probability, so novelty is not attributed to that elementary count. The older paper's full text was not available during comparison, and general sampling-theory priority is not settled. The result concerns independent rounds, two targets, and noncritical signs away from the equality curve.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The natural depletion scale s≈√n separates two competing mechanisms: fixed overlap favors co-collection, while fixed-cardinality sampling suppresses it. The threshold and census quantify a genuine failure of the intuition that overlap implies positive association, including a regime where most overlapping pairs have negative covariance. This is useful information beyond the known one-round formula or isolated negative examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

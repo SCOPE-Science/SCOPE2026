@@ -1,0 +1,162 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:40:01.505289Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof §§1–4; frozen VERIFICATION.md, requirements.txt and verify.py (read only)",
+        "Corrected full /workspace/repairs/1/RESULT.md, especially proof §§1 and 3",
+        "Independent exact moment replay: python3 /tmp/opencode/frozen_math_replay.py, resetting(). In units kappa=1 it returns m_1=q(s-1)^2/[s(q+2)], A=2q(s-1)^2(qs+2s^2+2)/[s^2(q+2)(q+4)], and C=8q(s-1)^4/[s^2(q+2)^3(q+4)]."
+      ],
+      "rationale": "The frozen proof misidentifies the mark in the jump entropy at the end of a cycle: the density ratio uses the newly drawn mark, not the mark starting that cycle. Using the actual jump terms without redistribution would not give independent rewards. The complete repaired RESULT.md groups the true path log ratio by resets and gives the exact telescoping identity that reassigns the Gaussian marks, leaving first-pre-reset, last-post-reset and stationary endpoint terms uniformly bounded in L^2. The stopped centered-cycle sum through the first reset after the horizon has predictable inclusion and a martingale second-moment identity; omitting the straddling cycle and treating the stationary start adds only bounded L^2 terms. With m_1=rE W_i the rate is therefore rE[(sum_i W_i-d m_1 tau)^2]=dA+d^2C, where A is the averaged conditional variance and C the duration-compensated conditional-mean variance. I independently evaluated their closed forms using E(exp(-2j*kappa*tau))=q/(q+2j) and E(kappa*tau*exp(-2*kappa*tau))=q/(q+2)^2. This recovers all displayed rates. The scalar stationary endpoints also have bounded L^2, so the distinct-coordinate covariance is C. The strict signs, monotonicity, and fixed-parameter t-then-d limit follow from the rational factors. Independent clocks give additive variance, and at s=1 the path is reversible and the ratio is undefined. The theorem is unchanged by the proof repair.",
+      "residual_risks": [
+        "The proof uses a complete fresh Gaussian redraw and one Poisson clock. The boundary bounds are at fixed finite dimension, not uniform in d. The theorem is not a finite-time entropy distribution or a result for physical reset-actuator cost."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Global density equations show persistent correlations for density observables; the generalized Itô paper derives jump equations and averaged entropy rates, including a random-position reset calculation at Eqs. (2.52)–(2.55).",
+          "The renewal large-deviation example for resetting OU evaluates an integrated state observable. The uncertainty relation is a bound involving entropy and flux, not an evaluated second cumulant."
+        ],
+        "reasoning": "These works cover mechanisms or methods, but their evaluated formulas do not give the harmonic path-score covariance by choosing parameters. One still has to identify the redistributed, time-centered cycle score and integrate its conditional moments.",
+        "searches": [
+          "Bressloff arXiv:2401.03501, §IV",
+          "Bressloff DOI 10.1088/1751-8121/ad8495, §§1–2",
+          "Meylahn et al. arXiv:1510.02431, Eqs. (4), (25)–(26)",
+          "Pal et al. arXiv:2008.06953, abstract"
+        ]
+      },
+      "checked_sources": [
+        "Mori et al. 2211.15372; Bressloff 2401.03501 and DOI 10.1088/1751-8121/ad8495; Meylahn et al. 1510.02431; Pal et al. 2008.06953",
+        "Resultary 2ba8a9b03b55, 5448ec682adf and f0dd59fc40a6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The new evaluated term is the variance of the conditional mean after subtracting m_1 times the cycle duration; in the audited setting it is 8*kappa*q*(s-1)^4/[s^2*(q+2)^3*(q+4)]. Shared-clock state correlations and the arbitrary-potential mean do not give this term."
+        ],
+        "reasoning": "Knowing a renewal principle and the possibility of persistent correlations does not determine the time-duration covariance for the entropy observable. The latter determines the d^2 coefficient and requires the separate Gaussian harmonic cycle evaluation.",
+        "searches": [
+          "Mori et al., trajectory ratio and unconfined distribution; Bressloff global density §IV; Bressloff generalized Itô §2; Resultary 5448ec682adf and f0dd59fc40a6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Mori et al. use the same forward/reversed path ratio convention for a single particle, and evaluate the explicit fluctuation example in the unconfined case.",
+          "The indexed Gaussian harmonic reset-cycle result compares per-time symmetrized endpoint KL divergences; it neither identifies their fluctuation with the trajectory-entropy variance nor evaluates one."
+        ],
+        "reasoning": "A symmetrized endpoint KL is not a time variance of the full path score; the free particle lacks the harmonic relaxation parameter. Neither alias gives the target rational variance or synchronous covariance.",
+        "searches": [
+          "Resultary semantic search for stationary Gaussian reset harmonic entropy variance / Poisson common-clock entropy covariance / reset-cycle KL",
+          "Mori–Olsen–Krishnamurthy arXiv:2211.15372, §II and Gaussian free case",
+          "Resultary 2ba8a9b03b55, Finding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed matches are a harmonic endpoint-KL result, a squared-position covariance for common multiplicative shocks, and a mean path-entropy law for one free Brownian coordinate. Mori et al. give the free Gaussian rates 1 and 6 in their units."
+        ],
+        "reasoning": "Comparison is against symbolic formula records rather than an integer-sequence table: continuous positive q and s and arbitrary d are essential. The free Gaussian benchmark is reproduced only as a consistency limit, not a table of the confined law.",
+        "searches": [
+          "Resultary exact evaluated entropy-production variance/Fano and common-clock covariance, strongest matches 2ba8a9b03b55, 5448ec682adf, f0dd59fc40a6",
+          "Mori et al., Eqs. (65)–(66)"
+        ]
+      },
+      "rationale": "The prior work supplies the trajectory entropy convention, general renewal and jump-diffusion methods, unconfined Gaussian fluctuations, and shared-clock correlations for other observables. The evaluated confined entropy variance and cross-coordinate entropy covariance are distinct in the inspected sources. The proof repair changes neither the comparison domain nor the claimed coefficients.",
+      "residual_risks": [
+        "Searches and primary-text comparisons are bounded, not exhaustive priority evidence; the targeted external query produced no useful result and is not relied on as negative evidence.",
+        "General jump-process techniques could provide an alternate derivation; no exact dominating evaluation was established in the inspected passages."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Entropy convention and free Gaussian benchmark, not the confined synchronized variance",
+          "evidence": "The paper treats the mean for general potential; its explicit free Gaussian rates are 1 and 6.",
+          "identifier_or_url": "https://arxiv.org/abs/2211.15372",
+          "material_read": "Abstract; §II, Eqs. (1), (7)–(10), offsets 10000 and 15500; Gaussian free Eqs. (65)–(66), offset 55700",
+          "method": "Open-access primary PDF passages",
+          "title": "Entropy production of resetting processes",
+          "trigger": "Same trajectory entropy and Gaussian resetting"
+        },
+        {
+          "assessment": "General shared-clock mechanism for density fields",
+          "evidence": "Two-point density moments differ from products even without interactions.",
+          "identifier_or_url": "https://arxiv.org/abs/2401.03501",
+          "material_read": "§IV, Eqs. (4.1)–(4.11), offset 60880",
+          "method": "Open-access primary PDF passages",
+          "title": "Global density equations for interacting particle systems with stochastic resetting",
+          "trigger": "Common-clock particle correlations"
+        },
+        {
+          "assessment": "Stochastic calculus and averaged rates; no evaluated confined synchronous second cumulant in the relevant calculations",
+          "evidence": "The jump evolution is presented for one-dimensional diffusion, and the random-position stationary entropy calculation uses averaged log-density terms and KL divergences.",
+          "identifier_or_url": "https://doi.org/10.1088/1751-8121/ad8495",
+          "material_read": "Introduction summary, offsets 8950–14556; random-position stationary calculation, offsets 50270–54335, Eqs. (2.52)–(2.55)",
+          "method": "Retrieved original open-access journal PDF; inspected bounded passages",
+          "title": "Generalized Itô’s lemma and the stochastic thermodynamics of diffusion with resetting",
+          "trigger": "Plausible broader jump-entropy result, previously unclear access"
+        },
+        {
+          "assessment": "Evaluates a time-integrated state observable, not the reset-inclusive path-entropy cumulants",
+          "evidence": "The reset OU example integrates position.",
+          "identifier_or_url": "https://arxiv.org/abs/1510.02431",
+          "material_read": "Eqs. (4), (25)–(26), §IV offset 30700",
+          "method": "Open-access arXiv copy of the same paper",
+          "title": "Large deviations for Markov processes with resetting",
+          "trigger": "General renewal framework and OU application"
+        },
+        {
+          "assessment": "Abstract supports bound/framework comparison only",
+          "evidence": "The stated relation combines entropy and unidirectional flux, with a reset random-walk example.",
+          "identifier_or_url": "https://arxiv.org/abs/2008.06953",
+          "material_read": "Abstract, offset 0",
+          "method": "Open-access arXiv copy of the same paper",
+          "title": "Thermodynamic uncertainty relation for systems with unidirectional transitions",
+          "trigger": "Resetting entropy and uncertainty relation"
+        },
+        {
+          "assessment": "Different observable in closely related 1D process",
+          "evidence": "Per-time symmetrized endpoint KL for periodic versus Poisson reset cycles.",
+          "identifier_or_url": "2ba8a9b03b55",
+          "material_read": "Local RESULT.md Finding and assumptions, offset 0",
+          "method": "Local published-record mirror",
+          "title": "A unique finite-width reset-cycle KL peak and its square-root profile",
+          "trigger": "Strongest indexed harmonic Gaussian reset match"
+        },
+        {
+          "assessment": "Different reset mechanism and observable",
+          "evidence": "The clock contracts positions multiplicatively; the covariance is of squared positions.",
+          "identifier_or_url": "5448ec682adf",
+          "material_read": "Local RESULT.md Finding and assumptions, offset 0",
+          "method": "Local published-record mirror",
+          "title": "A fourth-order time arrow and exact shock inversion in synchronized resetting",
+          "trigger": "Common-clock covariance comparison"
+        },
+        {
+          "assessment": "Free 1D mean, not confined variance",
+          "evidence": "Its Gaussian mean case is D/sigma^2; there is no synchronous covariance in the Finding.",
+          "identifier_or_url": "f0dd59fc40a6",
+          "material_read": "Local RESULT.md Finding and assumptions, offset 0",
+          "method": "Local published-record mirror",
+          "title": "Reset-tail universality and the rare-reset dissipation paradox",
+          "trigger": "Indexed exact path entropy rate"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Corrected RESULT.md, Finding, assumptions, and proof §§3–4",
+        "Bressloff arXiv:2401.03501, §IV shared-clock density correlations",
+        "Mori et al. arXiv:2211.15372, trajectory definition and free benchmark"
+      ],
+      "rationale": "A shared clock and independent clocks have the same one-coordinate laws and mean dissipation but differ in the scaling of full-path irreversibility fluctuations. The exact positive common-clock covariance yields a nonzero relative-variance limit with dimension and isolates a time-randomness contribution that would be missed by using a fixed number of cycles. It is a quantitative diagnostic, not just a statement that dependence exists.",
+      "residual_risks": [
+        "The physical interpretation is limited to ideal Gaussian redraws and the dimensionless path log ratio; it gives neither finite-time thermodynamic actuator cost nor a dimension-uniform theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

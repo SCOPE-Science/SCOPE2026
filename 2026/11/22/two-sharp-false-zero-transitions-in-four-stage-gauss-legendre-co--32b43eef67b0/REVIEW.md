@@ -1,23 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The claimed normalized collocation polynomial is reconstructed from its initial value and an exact shifted-Legendre residual. Its endpoint numerator is an explicit sum of positive squares and a positive constant. A degree-six discriminant factor and exact Sturm variation counts certify two and only two positive interior-root collision parameters. Exact root counts at three rational parameter values and the exclusion of triple zeros give the full sign diagram by continuity; algebraic evaluations at the collocation nodes identify the two collision locations. The same standalone verifier checks each critical identity from its packaged source. Computations supplement rather than replace the quantified analytic argument.
+PASS
 
-## Originality
+Constructed P independently as ∑_{j=0}^4 (−1)^j x^(4−j)L4^(j)(t) from the collocation residual. P(x,0)>0, and Gaussian quadrature applied to the difference V of two candidate polynomials gives V(1)^2/2+x∑ b_i V(c_i)^2=0, proving uniqueness (at x=0 use V′≡0). The endpoint numerator has the stated strictly positive sum-of-squares identity. For x>0, the derivative of e^(xt)Y_x is a positive multiplier of L4, so only node sign changes can change the interval root count. Any zero at a node is exactly double, since the derivative of L4 is nonzero there. The resultant of L4 and P−x⁴L4 in t, made monic in x, was independently computed as F(x²); exact Sturm variations at 0,26,27,104,105,+∞ are 4,4,3,3,2,2, and the roots are simple. The resultant as a product of node values excludes simultaneous contacts. Rational interval evaluation in the isolated Gauss nodes gives sign patterns ++++, +++−, +−+− at x=1,6,12. Thus between the two parameter contacts the fourth node alone is negative, and after the second the second node is negative too. Strict monotonicity on each nodal span and positive endpoints give all claimed zero counts, the c4 then c2 contacts, and nonnegativity precisely on [0,x1] (strict positivity only for x<x1). Replay `python3 /workspace/branches/independent_certificates.py 2`; the exact certificates and argument, not sample-based extrapolation, cover the continuum.
 
-**PASS, subject to historical-priority uncertainty.** The closest primary source is Falini–Mazzia–Sestini (2023 online/2024 journal), which describes collocation dense output and develops different spline quasi-interpolants; its Gauss Section 5.2 treats two and three stages and does not derive the four-stage scalar-decay positivity or false-event root-count diagram. Ketcheson–Lóczi–Jangabylova–Kusmanov (2016) treats strong-stability-preserving dense output under broader invariant-domain requirements rather than this fixed implicit Gauss polynomial. Published scalar cubic-Hermite event-root and two-stage Gauss Markov internal-stage positivity claims concern different polynomials and imply neither of the two certified four-stage thresholds. The Padé endpoint formula alone does not determine intermediate signs. Accessible public summaries of some related published records did not permit a complete full-text exclusion, and an equivalent derivation outside the inspected corpus cannot be ruled out.
+## originality
 
-## Value
+PASS
 
-**PASS.** Event detection and continuous visualization use values *inside* accepted numerical time steps, rather than solely at the endpoints. Two exact spurious-event bifurcations in a standard fourth-order collocation polynomial—one pair appearing, then a second—identify a concrete qualitative failure of endpoint positivity under stiffness. The all-positive-node criterion derived from the integrating-factor residual is a convenient and structural check for scalar decay collocation at any stage count. The result is not framed as a general nonlinear positivity theorem or an incremental rounded constant.
+The supported distinct finding is the full-step scalar sign and root classification for the raw four-stage Gauss collocation polynomial. Endpoint Padé positivity, generic SSP barriers and event bifurcations in other interpolants or Markov stage maps are known but not equivalent. The most plausible inaccessible spline dense-output source remains an explicit priority risk.
 
-## Closest literature and limitations
+## value
 
-- Falini, Mazzia, Sestini (2023 online), DOI: https://doi.org/10.1016/j.apnum.2023.07.023 — Section 5.2 inspected in full public text; different quasi-interpolants and stages.
-- Ketcheson, Lóczi, Jangabylova, Kusmanov (2016), https://arxiv.org/abs/1605.02429 — full HTML article inspected; its SSP restrictions do not subsume scalar Gauss collocation.
-- Nüßlein, Ranocha, Ketcheson (2020), https://arxiv.org/abs/2005.06268 — abstract/overview inspected; adaptive RK weights and not the natural fixed-polynomial thresholds.
+PASS
 
-The proof only covers scalar decay, one collocation step and exact polynomial arithmetic. Related full texts restricted to search summaries and incomplete source access leave a finite historical-priority risk.
+A classical stiff scalar test exposes a meaningful failure of numerical event detection: a method whose end value never becomes negative can introduce two false event pairs inside a single raw step. The exact thresholds, nodal locations and distinction between nonnegativity and strict positivity make this a usable diagnostic for the natural unmodified method, not a mere recomputation of Padé endpoint positivity.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

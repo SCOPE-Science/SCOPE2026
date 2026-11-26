@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:33:13.690549Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–38 and 40–126",
+        "Frozen verify.py, lines 6–54",
+        "Frozen VERIFICATION.md, lines 20–24"
+      ],
+      "rationale": "The positive-coordinate upper and lower bounds follow from the convex combination minus the square, with 1-ε-x>0 and its counterpart. Direct expansion gives u'=u-u²-d², d'=(λ-2u)d. Here |d|<u, including d=0 after a finite hit; the strict lower inequality for |d| in the proof's first paragraph need not be used. The mean decreases to zero, and the reciprocal increment for w=1/u is (1+t²)/(1-(1+t²)/w), t=d/u, hence w grows between two linear bounds. At positive coupling the transverse multiplier is uniformly bounded in magnitude by a fixed number <1, so t_n² decays exponentially times at most a quadratic factor. Then Δw=1+1/w+O(w^-2+t²) gives w=n+O(log n); subtracting the increments of n+log n yields a summable error with tail O(log n/n), proving the existence and required precision of C. The interior case has a vanishing difference precisely when its factor first vanishes, and otherwise positive eventual factors with log correction -2u/λ and summable O(u²); this yields the nonzero λ^n n^(-2/λ) amplitude. At maximal coupling the product is exactly |d_0|2^n times ∏u_j; the nonzero factors have negative sign before taking magnitude. Separating u_0 and extracting 1/j for j≥1 gives 1/Γ(n), with log(ju_j)=-(log j+C)/j plus an absolutely summable remainder. The discrete sums minus the integrals converge since their interval errors are summable, giving both -(log n)^2/2 and -C log n and a strictly positive residual amplitude. At zero coupling the reciprocal differences are multiplied by factors in (0,1) whose deficits are O(n^-2), proving a nonzero limit and the n^-2 coordinate gap. This verifies the fixed-parameter claims, including extinction and nu_n→1 in all regimes.",
+      "residual_risks": [
+        "No endpoint-uniform crossover is established. Frozen symbolic and numerical checks were inspected, not rerun; the asymptotic equivalences rest on the summable-remainder proof, not on long trajectories."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Vivas constructs Fatou coordinates and conjugacies in a holomorphic skew-product setting with identity derivative. Potential exact-model papers and the dissertation could not be compared at primary full-text level; the last search lead produced a mismatched DOI alternate, discarded."
+        ],
+        "reasoning": "The accessible parabolic background does not cover this real two-way mean/error recurrence and its zero transverse multiplier as a special case. Attraction or local synchronization alone would not establish product remainders to relative asymptotic precision. No negative conclusion about inaccessible full texts is used.",
+        "searches": [
+          "Vivas, NSF-hosted PDF 10471591, pp. 1–2 and Theorems 5.1–5.2",
+          "Schult et al. DOI 10.1103/PhysRevA.35.3115",
+          "Hoffman handle 10210/6845",
+          "The dynamics of coupled logistic maps, search lead DOI 10.3934/nhm.2023004"
+        ]
+      },
+      "checked_sources": [
+        "NSF 10471591, Vivas Theorems 5.1–5.2",
+        "Hoffman handle 10210/6845 and DOI leads 10.1103/PhysRevA.35.3115, 10.1155/2020/4103606, 10.3934/nhm.2023004 (access limits as stated)",
+        "Resultary 3ecc92a730da and fbde7aa617eb"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "From u_n∼1/n one obtains the rough factorial scale at zero transverse linear multiplier, but not asymptotic equivalence with the log-square correction; that uses the n+log n+C reciprocal expansion with summable log-product remainder. The old scalar uncoupled parabolic law alone concerns orbits on the diagonal or independent coordinates."
+        ],
+        "reasoning": "Neither local linear multipliers nor the known scalar order 1/n yields the full normalization. One needs the summable effect of d² on the reciprocal mean and then the second-order contribution in the entire transverse product. No inspected prior theorem supplies that chain on the stated off-diagonal orbits.",
+        "searches": [
+          "Vivas NSF PDF 10471591, §§1, 5",
+          "Mareno–English DOI 10.1155/2020/4103606, output-coupling lead",
+          "Frozen proof of reciprocal and transverse product limits"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The original map in mean/difference form has transverse factor λ-2u; at maximal coupling both nontrivial reciprocal mean motion and transverse supercontraction remain. A hypothetical output-mixing rule that averages the two logistic outputs at ε=1/2 instead makes the orbit diagonal in one step.",
+          "Vivas studies tangent-to-identity holomorphic skew-products, not this combination of longitudinal multiplier 1 and transverse multiplier 0.",
+          "Hoffman is named for the state-diffusive model in the frozen record, but no primary passage was independently accessible."
+        ],
+        "reasoning": "An equivalent result could use an inverse-mean coordinate, transverse product, or alternate indexing shifting prefactors. Matching a logistic map title, an attracting diagonal, or a vanishing transverse linear multiplier is insufficient. State diffusion is not output diffusion; the stated maximal-coupling laws cannot coincide for those two displayed rules. The comparison to Mareno–English as a specific source remains unverified.",
+        "searches": [
+          "Resultary: factorial synchronization, parabolic product, logarithmic-square correction, and explicit state-diffusive logistic recurrence",
+          "Vivas, Local dynamics of parabolic skew-products, NSF 10471591",
+          "Hoffman dissertation, handle 10210/6845"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Result 3ecc92a730da gives a sharp q=4 synchronization envelope for a continuous-time sigmoid threshold network. Result fbde7aa617eb gives critical relaxation and species synchronization for an asymmetric Ricker competition map. The compared passages are their Findings, not just titles."
+        ],
+        "reasoning": "Neither uses the frozen recurrence or reproduces the three asymptotics. A logarithmic correction in a scalar relaxation coordinate is not the factorial-error law with a log-square modulation. Ranked local results do not rule out an unindexed exact match.",
+        "searches": [
+          "Ranked Resultary lookups for log-square synchronization, factorial error, and explicit state-diffusive coupled logistic maps"
+        ]
+      },
+      "rationale": "The recurrence, scalar parabolic iteration, and generic contraction/product ideas are not claimed as new. The material result is the explicitly normalized fixed-coupling trichotomy on the displayed invariant square, in particular the nonzero factorial endpoint with its logarithmic-square factor and orbit-dependent exponent. The inspected alternative models and analytic background do not cover that theorem. Possible exact-map precedents remain an access risk; this is a best-of-knowledge judgment.",
+      "residual_risks": [
+        "Hoffman, Schult et al. and the other closely titled coupled-logistic papers were not available at decisive full-text level; they could contain an equivalent model or asymptotic result. No priority claim rests on snippets or an unavailable source.",
+        "There could be a weighted parabolic-orbit product result in a different formalism that explicitly gives the same coefficient and hypotheses."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Analytic background, not exact trichotomy or dominating theorem on these hypotheses",
+          "evidence": "Identity derivative and construction of Fatou coordinates/conjugacies rather than a supercontracting transverse error product for this map.",
+          "identifier_or_url": "https://par.nsf.gov/servlets/purl/10471591",
+          "material_read": "pp. 1–2 and Theorems 5.1–5.2 (pp. 15–16; OA offsets 0–5185, 32270 and 33200)",
+          "method": "Primary public PDF passages",
+          "title": "Local dynamics of parabolic skew-products",
+          "trigger": "Possible normal-form or parabolic product coverage"
+        },
+        {
+          "assessment": "Exact-model prior coverage unresolved",
+          "evidence": "Frozen related-work discussion attributes use of the modeled recurrence, not the stated quantitative trichotomy; independent full-text confirmation unavailable.",
+          "identifier_or_url": "https://hdl.handle.net/10210/6845",
+          "material_read": "Archive landing route only; no thesis passage reached",
+          "method": "Lawful handle and archive lookup",
+          "title": "The Control of Chaotic Maps",
+          "trigger": "Frozen record identifies a dissertation on the state-diffusive model"
+        },
+        {
+          "assessment": "Scope of exact asymptotic treatment unresolved",
+          "evidence": "No full-text evidence used to exclude overlap.",
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevA.35.3115",
+          "material_read": "Bibliographic lead only; DOI access unavailable and no same-paper OA copy reached",
+          "method": "Lawful DOI/OA lookup",
+          "title": "Symmetric and nonsymmetric coupled logistic maps",
+          "trigger": "Broad early coupled-logistic study"
+        },
+        {
+          "assessment": "Conditional mathematical distinction verified; specific source attribution not independently confirmed",
+          "evidence": "For a coupling specified as a convex combination of logistic outputs, equal weights give exact one-step coalescence by symmetry, unlike the frozen state-difference multiplier -2u at ε=1/2.",
+          "identifier_or_url": "https://doi.org/10.1155/2020/4103606",
+          "material_read": "Citation and frozen equation comparison; DOI and identified historical publisher copy not accessible",
+          "method": "Lawful DOI/OA and original publisher URL",
+          "title": "Flip and Neimark–Sacker Bifurcations in a Coupled Logistic Map System",
+          "trigger": "Possible different interpretation of coupling in a closely named model"
+        },
+        {
+          "assessment": "Different continuous-time or discrete competition models",
+          "evidence": "The first is a sigmoid-flow envelope; the second gives Ricker reciprocal-square relaxation and exponential/supergeometric synchronization, not this precise product law.",
+          "identifier_or_url": "Resultary 3ecc92a730da; fbde7aa617eb",
+          "material_read": "Both actual Findings, offset 0",
+          "method": "Configured local search and catalog passages",
+          "title": "Sharp nonlinear synchronization envelope for logistic threshold networks; Asymmetric critical synchronization and logarithmic relaxation",
+          "trigger": "Closest local equation and critical-asymptotic analogues"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 10–35 and 61–126",
+        "Vivas, pp. 1–2 and Theorems 5.1–5.2 for parabolic context"
+      ],
+      "rationale": "At the extinction threshold the diagonal itself relaxes only parabolically, whereas changing the transverse multiplier generates qualitatively different synchronization rates. The endpoint calculation distinguishes zero derivative and a rough factorial scale from a sharp law: a small longitudinal log correction accumulates in the product into a universal log-square term, so a pure factorial fit fails even up to a power. The interior finite-hit exception, preserved rather than hidden in a zero amplitude, matters to a classification for every distinct positive pair in the specified square.",
+      "residual_risks": [
+        "Value is for the fixed model and parameter regimes, not a general classification of coupled map lattices or all parabolic skew products."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

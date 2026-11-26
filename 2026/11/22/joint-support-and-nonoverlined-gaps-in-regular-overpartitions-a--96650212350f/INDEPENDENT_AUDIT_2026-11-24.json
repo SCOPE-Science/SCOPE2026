@@ -1,0 +1,170 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:41:14.704757Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–89; original conditioning issue at lines 57–62",
+        "repairs/5/RESULT.md, corrected Step 3 and relationship to prior work",
+        "Frozen verify.py lines 9–104 (inspected, not executed)",
+        "Frozen VERIFICATION.md lines 19–23 (recorded finite checks only)"
+      ],
+      "rationale": "The final claim and constants are unchanged. Frozen Step 3 invoked consecutive admissible integers and span one to justify a quantitative minor-arc bound; in particular all admissible sizes are odd when ell=2, and span one alone is not a uniform estimate. The corrected RESULT.md gives a uniform bound using the untouched block j=1 mod ell, 1/t<=j<=2/t: a quadratic bound near zero, geometric-sum cancellation away from 2pi k/ell, and strictly positive Riemann-sum integrals in the remaining small arcs. At the saddle, deletion and the deterministic shift perturb the standardized variance by O(t) and the mean by O(sqrt(t) log(1/t)); the odd imaginary linear and cubic terms cancel to first order, and the uniform integrated relative error is O(t log^2(1/t))=o(sqrt(t)). I also checked the shift-only truncation and the joint-tail restrictions, the latter from the exact factor 2q^j/(1+q^j). Geometric/Bernoulli factorization gives both exact coefficient identities, including n=0 and a>=b. The Boltzmann survival is the displayed limit after t_n~pi sqrt(rho)/(2sqrt(n)); the diagonal component has half the mass and the interior derivative gives the stated density. Conditional on the first nonoverlined gap j, the Bernoulli marker makes coincidence probability 1/(1+exp(-tj)); tail summation gives E X=sqrt(pi/(2rho t))+O(1), E X^3=O(t^-3/2). Expansion and the repaired conditioning bound give the stated fixed-weight coefficient pi/(8 rho^(1/4)).",
+      "residual_risks": [
+        "Analytic proof, not a machine certificate; finite enumeration does not verify the asymptotic error.",
+        "Constants and cutoff are for fixed ell; no uniform result when ell grows."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Record e1bdf9b70b4a §Finding is a broader threshold array on nonoverlined multiplicities but in unrestricted overpartitions.",
+          "Records a7d5664f9d36 and 11f1f81a8477 §Finding and assumptions cover regular unmarked partitions; 11f1f81a8477 includes positive n^(-1/4) corrections.",
+          "Record 4e2f726ecdf2 §Finding and assumptions instead compares disjoint odd and even nonoverlined sites."
+        ],
+        "reasoning": "The threshold array is broad in r but lacks the independent Bernoulli marker needed here. The unmarked theorem's mark is a multiplicity class in a different measure, and the odd/even law has non-nested events. None specializes to the claimed pair and coefficient.",
+        "searches": [
+          "Resultary: joint least-gap survival in overpartitions and regular partitions",
+          "Resultary: finite-size multiplicity mark bias at a least gap"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, lines 94–111",
+        "arXiv:2611.18129v1, 2507.04402v1 and 2309.04398",
+        "Resultary records e1bdf9b70b4a, a7d5664f9d36, 4e2f726ecdf2, 11f1f81a8477",
+        "repairs/5/RESULT.md, updated comparison and links"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The unrestricted nonoverlined threshold result gives a limit of r/s for threshold coincidences, and the unmarked regular result gives its own first correction.",
+          "The present proof uses the conditional mark probability 1/(1+exp(-tj)), and requires transfer to fixed weight with o(sqrt(t)) accuracy."
+        ],
+        "reasoning": "The coincidence limit 1/2 by itself is not credited as distinctive merely because it agrees with the 1-versus-2 threshold limit. Neither that limit, the known marginals, nor weak convergence to a law with diagonal mass yields the integer coincidence bias. Re-derivation requires the different mark law and a precision estimate under different conditioning.",
+        "searches": [
+          "Aricheta–Donato arXiv:2309.04398 §3",
+          "Resultary e1bdf9b70b4a and 11f1f81a8477, §Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bhowmick–Meher first defines the same regular nonoverlined gap X and treats aggregate sums; Donato's Definition 2 in ordinary overpartitions defines the full-support mex underlying Y.",
+          "Aricheta–Donato §3 Definition 2 gives least r-gaps on nonoverlined multiplicity, including r=1."
+        ],
+        "reasoning": "These are real marginal antecedents. No second cutoff on nonoverlined multiplicity alone expresses full-support absence: at G_j=0 the presence or absence of one overlined part changes Y but not the nonoverlined threshold event.",
+        "searches": [
+          "Bhowmick–Meher arXiv:2611.18129v1",
+          "Donato arXiv:2507.04402v1",
+          "Aricheta–Donato arXiv:2309.04398"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest sharp correction found was Resultary 11f1f81a8477 §Finding. Its r=1,s=2 coefficient is pi/(2*24^(1/4)*2^(3/2)*rho^(1/4)) for ordinary regular partitions, not the present coefficient."
+        ],
+        "reasoning": "There is no claimed table; the exact-law repository comparison matters instead. The same-day sharp analogue was assessed by its statement, not ruled out from its date. It does not contain the same statistic or measure.",
+        "searches": [
+          "Local Resultary/mirror: regular overpartition full-support and nonoverlined joint gap exact coincidence correction"
+        ]
+      },
+      "rationale": "The two marginal definitions and the general running-minimum and marked-event mechanisms are not new. The checked contribution is the coupling between nonoverlined absence and full-support absence in regular overpartitions, including the distinct sharp fixed-weight coincidence coefficient. The repair makes the closest known unmarked correction analogy explicit.",
+      "residual_risks": [
+        "This comparison uses identified open primary references and targeted Resultary/mirror queries; not an exhaustive primary literature search.",
+        "An unindexed common marked-gap generalization could affect priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same X; one-gap aggregate theory.",
+          "evidence": [
+            "Defines absence as a nonoverlined part and studies sums and associated generating functions."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.18129v1",
+          "material_read": "Abstract, HTML offsets 7400–9200",
+          "method": "Open-access arXiv HTML",
+          "title": "The minimal excludant of ell-regular overpartitions",
+          "trigger": "Exact regular nonoverlined gap definition"
+        },
+        {
+          "assessment": "Full-support Y analogue, not the regular joint statistic.",
+          "evidence": [
+            "The ordinary-overpartition mex forbids both occurrences; the passage treats individual statistics."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2507.04402v1",
+          "material_read": "Abstract and Definition 2, HTML offsets 7744–9945",
+          "method": "Open-access arXiv HTML",
+          "title": "On Minimal Excludant over Overpartitions",
+          "trigger": "Exact full-support gap convention"
+        },
+        {
+          "assessment": "Nonoverlined threshold definition and sums; not a paired overline-marker event.",
+          "evidence": [
+            "Least r-gap in nonoverlined multiplicity specializes to the nonoverlined gap at r=1."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2309.04398",
+          "material_read": "§3 Definition 2 p. 5",
+          "method": "Open-access arXiv PDF",
+          "title": "Minimal Excludant over Overpartitions",
+          "trigger": "General nonoverlined gap thresholds"
+        },
+        {
+          "assessment": "Threshold-only comparison, not full-support absence.",
+          "evidence": [
+            "Unrestricted overpartitions, nonoverlined multiplicity thresholds, coincidence limits r/s."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-joint-rayleigh-running-minimum-law-and-universal-coincidence-pro--e1bdf9b70b4a",
+          "material_read": "Mirrored RESULT.md §Finding",
+          "method": "Local Resultary mirror",
+          "title": "Joint Rayleigh running-minimum law and universal coincidence probabilities for overpartition least gaps",
+          "trigger": "Closest prior coupled overpartition gaps"
+        },
+        {
+          "assessment": "Regular unmarked partitions, no overline bits.",
+          "evidence": [
+            "Joint least-multiplicity-gap laws for ordinary regular partitions."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-joint-least-multiplicity-gap-laws-for-regular-partitions--a7d5664f9d36",
+          "material_read": "Mirrored RESULT.md §Finding",
+          "method": "Local Resultary mirror",
+          "title": "Joint least-multiplicity-gap laws for regular partitions",
+          "trigger": "Potential regular-model generalization"
+        },
+        {
+          "assessment": "Disjoint parity sets; no nested support events.",
+          "evidence": [
+            "Odd and even nonoverlined gaps are contrasted."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-sharp-residual-dependence-of-odd-and-even-nonoverlined-gaps-in-o--4e2f726ecdf2",
+          "material_read": "Mirrored RESULT.md §Finding and Assumptions",
+          "method": "Local Resultary mirror",
+          "title": "Sharp residual dependence of odd and even nonoverlined gaps in overpartitions",
+          "trigger": "Possible nested-gap overlap"
+        },
+        {
+          "assessment": "Strong method analogue but demonstrably different theorem, without inferring priority from date.",
+          "evidence": [
+            "Explicit positive n^(-1/4) probability correction for unmarked multiplicity deficiencies; even the r=1,s=2 coefficient differs."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-the-first-finite-size-multiplicity-mark-bias-at-a-least-gap-of-r--11f1f81a8477",
+          "material_read": "Mirrored RESULT.md §Finding and Assumptions",
+          "method": "Local Resultary search and mirror",
+          "title": "The first finite-size multiplicity-mark bias at a least gap of regular partitions",
+          "trigger": "Closest exact-order coincidence correction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "repairs/5/RESULT.md, Finding and Steps 3–5",
+        "Resultary e1bdf9b70b4a and 11f1f81a8477"
+      ],
+      "rationale": "These are two natural mex conventions on the same random overpartition. Their coupling has both a singular and a continuous component, and the actual lattice coincidence probability has a positive first correction that cannot be obtained from the marginal Rayleigh laws or from joint weak convergence. The explicit correction quantifies a marking effect for a fixed-weight ensemble. This remains worthwhile after crediting the existing threshold and unmarked correction analogues.",
+      "residual_risks": [
+        "Does not establish higher-order corrections or a general theorem for all overpartition markings."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

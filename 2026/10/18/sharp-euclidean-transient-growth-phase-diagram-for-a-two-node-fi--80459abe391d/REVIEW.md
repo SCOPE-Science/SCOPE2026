@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The finite-element mass and stiffness matrices are assembled from the three element lengths. Both are strictly positive definite. An explicit inversion gives the claimed symmetric-part matrix and determinant. Positive diagonal entries reduce the Euclidean contractivity question to the exact sign of \(\Delta\). Descartes' sign rule together with rational sign brackets proves the root count and the full one-parameter phase diagram; the limiting two-by-two matrix proves the divergent numerical abscissa. All numerical coefficients in explicit positive-data examples were checked with exact arithmetic. The included checker is auxiliary evidence, not a substitute for the proof.
+## correctness
 
-## Originality
-PASS on currently accessible literature and published-claim comparison, with residual bibliographic uncertainty. The recent primary paper gives the mass similarity and numerical-range control of finite-element exponential problems but does not give this two-interior-node pure-heat Euclidean mesh classification. Published planar-triangular contractivity work gives a different matrix family whose conclusions do not transfer through non-isometric similarity. A published uniform heat-lattice positivity result concerns rational time stepping, not exact coefficient semigroup norms. No matching earlier statement was identified after comparisons involving equivalent field-of-values/logarithmic-norm terminology, broader semigroup bounds and the exact quartic. An equivalent unindexed specialized derivation remains possible; unsuccessful searches alone are not novelty proof.
+PASS
 
-## Value
-PASS. The result completely classifies a canonical and mathematically minimal discretized heat model with a physically important distinction: finite-element energy dissipation does not imply coefficient-space Euclidean contractivity. The exact two-sided grading thresholds, strictly positive witnesses and unbounded infinitesimal growth despite bounded mass condition number (but with all-time amplification bounded by \(1.67\)) directly inform the choice of mass-transformed norms for exponential integrator error control. This is more than a generic norm-equivalence observation, since the full mesh boundary and its extremal asymptotics are explicit.
+Independently assembled the consistent mass and stiffness blocks and formed H=−(A+Aᵀ)/2 using MHM=(KM+MK)/2. Both matrices M and K are positive definite by their element quadratic forms and the zero boundary data; physical dissipation follows from d(cᵀMc)/dt=−2cᵀKc. H has positive diagonals and determinant equal to the stated positive factor times Δ, so Δ=0 is included in contractivity. Differentiating the squared Euclidean norm gives necessity and sufficiency over all times. When det H<0, −H has one positive eigenvalue and a positive off-diagonal, so a maximizing unit eigenvector has strictly positive coordinates. The symbolic replay gave Δ(1,r)=−P(r) and the four exact endpoint signs (+,−,−,+). Descartes' two sign changes and the two distinct brackets prove that both positive roots are simple and exhaust the positive roots; P(1)<0 determines the interior sign. The limiting scaled H and the mass eigenvalues reproduce the claimed coefficient and conditioning bound. The radical-to-trace ratio decreases for 0<r≤1, giving the stated supremum via r→0, not an attained maximum. The bound by √κ₂(M) distinguishes divergence of the initial rate from any divergence of finite-time amplification. With one degree of freedom A is a negative scalar. The two exact positive witnesses were also verified.
 
-## Limits and closest literature
-The result concerns consistent-mass linear finite elements, exactly two interior nodes, pure diffusion and exact semigroup evolution. It does not assert a defective energy estimate or a performance guarantee for any exponential algorithm. Closest accessible primary work: Tatsuoka–Miyatake–Sogabe, arXiv:2603.11871v1. Closest distinct published overlap topics: planar triangular semigroup contractivity and time-stepping positivity on uniform heat lattices. Residual risk is an equivalent previously published three-element calculation under another numerical-range or energy-norm terminology.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinction is the exact mesh-dependent polynomial region in pure heat flow, its sharp cutoffs and the explicit divergent rate despite bounded mass conditioning. Mass-energy decay, the logarithmic norm criterion, and the possibility of a rightward coefficient numerical range for an FEM operator are not new.
+
+## value
+
+PASS
+
+A concrete smallest-dimension example is useful because stability in the physical energy and good mass conditioning do not certify monotonic nodal Euclidean decay. The full two-parameter criterion and the simple grading family with failure at both ends give exact benchmarks, and the thin-element calculation distinguishes arbitrarily steep initial growth from bounded amplification. These features are not supplied by just quoting dissipativity or exhibiting an arbitrary stable matrix.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Review: a sharp seven-position quadratic non-coprimality run bound
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-For two hits separated by \(d\) in an eight-position window, an odd prime larger than seven must divide \(d^2+4\). The resulting two-hit supports outside primes \(2\) and \(5\) have separations only \(3,5,7\). The separate cases according to \(2\mid N\) prove no full eight-position cover with three distinct prime factors. A seven-position CRT construction proves sharpness. The standalone checker verifies the complete finite reduction, while the written argument proves the universal quantifier.
+PASS
 
-## Originality: PASS
+Only prime support matters. An odd prime with a root of −1 is 1 mod 4, so except for 5 it exceeds 7. For two hits at displacement d=1,…,7, subtraction gives 2(a+i)≡−d, hence p divides d²+4; factoring 5,8,13,20,29,40,53 leaves only separations 3,5,7 for p≠2,5. Such a prime hits at most one slot of a fixed parity and at most two slots in the whole block (p>7, and at most two roots). With 2 present, it covers four slots, and 5 covers at most two of the opposite parity while the third prime covers at most one. With 2 absent, eight hits require 5 covering exactly four and two disjoint admissible pairs. I enumerated a mod 5 independently: the five masks are {2,3,7}, {1,2,6,7}, {0,1,5,6}, {0,4,5}, {3,4}. In the complements of the two size-four masks the only admissible edges share vertex 0 or vertex 7, respectively; no matching. For sharpness, a≡7 mod 10 covers offsets 0,2,4,6 by 2 and 1,5 by 5; CRT with a+3 congruent to a root of −1 mod r covers the final offset for every specified r, with a nonnegative representative. The a=7 example has the missing value 101. The proof covers all prime powers and is not mediated by a finite prime cutoff. VERIFICATION.md and verify.py were read, not executed.
 
-A full mathematical HTML reading of Kalmynin and Konyagin's 2023 preprint/2024 publication confirms that their polynomial Jacobsthal variable shifts the *output* \(x+f(i)\); the present claim shifts the *argument* \(f(a+i)\). The 2022 Dietmann et al. quadratic-form gap result and 2017 Ziller–Morack paired-progressions work have different reported quantifiers and objects. Exact claim and alias searches of the published research index and the accessible own-claim ledger found no implication match. Missing older/unindexed results and abstract-only inspection of two less-proximate papers remain limitations, not guarantees of priority.
+## originality
 
-## Value: PASS
+PASS
 
-The three-prime bound is an exact natural covering cutoff: it holds for arbitrarily large prime powers, excludes length eight via a structural local-difference obstruction, and is achieved by infinitely many prime supports. It is not simply a finite small-modulus computation and is specific to the root geometry of \(X^2+1\).
+The supported distinct claim is the exact maximum seven for the translated argument of X²+1 with three distinct fixed modulus primes, with an infinite extremal family. The closest accessible polynomial and run results compare different modular conditions or scopes, not stronger results implying this sharp bound.
 
-## Closest literature and limitations
+## value
 
-Kalmynin–Konyagin, arXiv:2302.00459v1, is conceptually adjacent but uses a different translation action. Dietmann et al. (DOI 10.1093/imrn/rnac130) and Ziller–Morack (arXiv:1706.03668) have distinct stated objects. No classification of all sharp three-prime moduli or extension to four prime factors is claimed. The full text of the latter two sources was not inspected; priority is not independently established.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is the first kind of nontrivial covering obstruction one needs when studying a fixed quadratic with a small prime support: parity and possible pair distances rule out simultaneous coverage even though counting individual hit capacities can allow eight. The exact upper bound settles the entire three-prime class, including arbitrarily large primes and prime powers, with an infinite supply of extremizers. It is not a numerical check on one modulus.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

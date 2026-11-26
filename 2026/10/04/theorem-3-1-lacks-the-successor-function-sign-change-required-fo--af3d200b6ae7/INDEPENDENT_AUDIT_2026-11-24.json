@@ -1,0 +1,85 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:01:11.500222Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The source's system (2.2) resets B=(h1,yB) to ((1+p1)h1,yB−tau1); the successor map must therefore use f(A)=yB−tau1−yA. Theorem 3.1 instead prints yB(1−p1)−yA. In the strict case the model gives f(A)>0. The printed argument asks for f(A1)<0, chooses an impact height yB1>yB, and prints f(A1)=yB1−yB>0 before applying the intermediate value theorem. The same-sign printed values do not imply a zero. Even the corrected f(A1)=yB1−tau1−yA1 has no negative sign established by yB1>yB alone. In the equality case the admissible first return closes at A. This is a diagnosis of the printed argument, not a counterexample to the theorem or to its numerical example. The supplied checker was inspected as an algebraic witness only; the conclusion follows directly from the source reset and proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The exact source contains the same-sign step. Its neighboring theorems do not identify it as a gap; Theorem 3.3 corroborates the additive reset in a different argument.",
+          "The focused literature search returned the original paper and listings, not a distinct repair."
+        ],
+        "reasoning": "A general fixed-point criterion or a proof for different hypotheses is not a diagnosis or repair of the strict case in this proof.",
+        "searches": [
+          "Publisher PDF, §3, Theorems 3.1–3.3",
+          "Public literature: exact Xu–Shen–Cao article, Theorem 3.1 and correction/erratum"
+        ]
+      },
+      "checked_sources": [
+        "DOI 10.3934/math.2026726, publisher PDF",
+        "Resultary exact assigned record and related indexed hits",
+        "Focused public literature results for the article and possible errata"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "System (2.2) has Δy=−tau1; Theorem 3.1 explicitly calls for a negative value and then displays a positive value."
+        ],
+        "reasoning": "The source supplies the evidence for a local proof audit, not an existing theorem that the disputed step is valid or a publication identifying it as invalid. Correcting the first displayed reset alone still does not make the strict-case proof work.",
+        "searches": [
+          "DOI 10.3934/math.2026726, system (2.2) and strict case of Theorem 3.1",
+          "Resultary: reset expression yB(1−p1) in the successor proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "These searches returned the same assigned Resultary record, not a distinct treatment.",
+          "The source defines its successor as returned phase height minus starting phase height."
+        ],
+        "reasoning": "Recasting the assertion as a first-return fixed point does not supply the missing opposite sign. The indexed copy of the assigned record is not independent prior coverage.",
+        "searches": [
+          "Resultary: Theorem 3.1 successor-function sign change",
+          "Resultary: Theorem 3.1 requests negative f(A1) but computes positive"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact indexed identifier: 2026/10/4/SCOPE-theorem-3-1-lacks-the-successor-function-sign-change-required-fo--af3d200b6ae7. The summary describes the same reset mismatch and signs."
+        ],
+        "reasoning": "This is the assigned record itself. No distinct matching indexed correction was identified, and no priority is inferred from the listing date.",
+        "searches": [
+          "Resultary: Xu–Shen–Cao article title and Theorem 3.1",
+          "Resultary: correction/erratum for the successor-function step"
+        ]
+      },
+      "rationale": "The source contains the faulty inference, not its diagnosis. No distinct record or prior correction establishing this particular proof gap was found in the bounded checks. The generic successor-function method and intermediate value theorem are not claimed as new.",
+      "residual_risks": [
+        "A separately circulated correction or an unindexed treatment could exist. The publisher PDF was readable; attempts at the DOI resolver and landing page did not add evidence.",
+        "The stated hypotheses may still imply an order-1 periodic orbit via a different argument."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct evidence for the proof-gap diagnosis; not an earlier diagnosis",
+          "evidence": [
+            "Δx=p1 x and Δy=−tau1 at x=h1.",
+            "Case (3) substitutes (yB1+tau1)−(yB+tau1)=yB1−yB>0 and immediately invokes continuity and the intermediate value theorem."
+          ],
+          "identifier_or_url": "https://www.aimspress.com/aimspress-data/math/2026/6/PDF/math-11-06-726.pdf",
+          "material_read": "System (2.2), PDF p. 4; Theorem 3.1, pp. 5–6 including strict case at extracted offset 24000; Theorem 3.3 reset on p. 7",
+          "method": "Lawful publisher PDF, pinpointed passages",
+          "title": "Dynamics of a modified Leslie–Gower model with dual Allee effects under unilateral and bilateral control",
+          "trigger": "Exact article and theorem named in the claim"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is not merely a mismatched sign character: the published existence proof for the strict case ends without its needed lower endpoint (and uses a different reset in the same argument). Identifying that missing obligation tells users of the theorem what must be established before relying on it, while separating the valid direct equality case and not mislabeling the theorem itself as false.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

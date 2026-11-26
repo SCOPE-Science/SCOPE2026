@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:03:06.252073Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, assumptions and proof, lines 12–81",
+        "Frozen VERIFICATION.md and verify_rare_jump.py (inspected, not executed)",
+        "/workspace/branches/1da5ed37-b140-4bda-b325-fb12ce0cdfa4/record3_independent.py and record3_full.txt (independent bounded replay and output)"
+      ],
+      "rationale": "For fixed true variance V, put M=2K/(Vt²), with K the centered log-MGF. Rearranging the defining inequality below 1/c gives c≥(1−1/M)/t; at and above 1/c this comparison holds automatically by (1−1/M)/t<1/t. The compound-Poisson log-MGF gives the stated Beta(1,2) mixture and cumulants λ(1−q+qb^m), so the convergence holds exactly for the asserted integer orders 2≤m<κ. Put w=κ−2. For t≤(w−ε)log(b)/b, L(z)−1≤ze^z/3 bounds the profile uniformly by O(1+b^(1−ε))=o(b/log b); above that window use 1/t. At t=(w+ε)log(b)/b, the large-jump contribution to M grows like a positive constant times b^ε/(log b)². This gives both sharp asymptotic constants as ε tends to zero. Taylor expansion gives derivative (3AC−4B²)/(36A²), uniformly tending to −1/36 on the full q interval since κ>4. A superior positive peak exists by the asymptotic and the 1/t tail bound. Between the origin and that peak a minimum is attained in the interior, so there are at least two distinct positive stationary points. For onset, the coefficient comparison with (1−t/3)^−1 gives strict global dominance of the origin at q=0, including t≥3 via the tail bound. The jointly analytic extension near zero and uniform derivative sign for each large fixed b give a q-uniform excluded neighborhood for competing maximizers. The tail beyond 4 is below every origin value. Continuity of the resulting compact maximum and a subsequential maximizer limit at first strict superiority prove coexistence at an interior q_c, without monotonicity or uniqueness.",
+      "residual_risks": [
+        "The bounded replay uses κ=5 and four b values from 10^5 through 10^16; it verifies exact cumulants and slope signs and numerical interior witnesses, not the scale supremum or the critical-q theorem. The witness tends to 2/7 in the normalized units, not the optimal coefficient 1/3. The infinite claims are analytic. No formal verification or expert attestation is claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chen provides the canonical remainder and variational supremum for general spectrally positive infinitely divisible laws and studies fixed jumps 1 and 5.",
+          "The frontier study varies the variance proxy for a fixed law, including the 1,5 example."
+        ],
+        "reasoning": "The formula is a broader result covering one premise. It does not evaluate the supremum in the moving-support regime or establish a uniform negative slope with remote coexistence; these require new bounds and a threshold argument.",
+        "searches": [
+          "arXiv:2610.00032, Theorems 2.1 and 3.1, §7.2",
+          "arXiv:2609.23069, §7 Example 7.8"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.00032",
+        "arXiv:2609.02590",
+        "arXiv:2609.23069",
+        "Resultary 48dc597af751",
+        "Resultary 33a2f59ff992",
+        "Resultary e55370fed242"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier fixed-support transition has no positive optimizer at its threshold. The later fixed-support coexistence result does have one while the local derivative is negative, but is a fixed 1,5 model.",
+          "Chen's fixed example proves that an interior optimizer occurs, not the moving-b asymptotic or its coexistence property."
+        ],
+        "reasoning": "The related coexistence phenomenon should not be marketed as unique to this law. Neither a fixed-support witness nor the fixed signed-support theorem implies the frozen asymptotic, the coexistence across sufficiently large b, or their combination with cumulant convergence.",
+        "searches": [
+          "Resultary, local-to-interior transition 33a2f59ff992 and local/remote coexistence e55370fed242",
+          "arXiv:2610.00032 §7.2; arXiv:2609.02590 §7"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same-day phase-surface record has fixed opposite-signed jumps and a boundary whose limiting argument is zero.",
+          "The signed Skellam theorem gives c_+(p)∼1/log(1/p) for rare positive unit jumps against negative unit jumps."
+        ],
+        "reasoning": "A positive rescaling preserves jump signs and cannot turn a fixed signed ratio into the diverging ratio of the two positive jumps. Inverse-log scaling alone is overlap, not equivalence; the same-day date does not determine priority.",
+        "searches": [
+          "Resultary signed/unit-jump phase surface 48dc597af751",
+          "arXiv:2609.02590, §7 Theorem 7.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed transition and coexistence records evaluate fixed jumps 1 and 5, and Table 2 reports the fixed law's variance-proxy frontier.",
+          "The indexed inverse-log asymptotic treats the signed model."
+        ],
+        "reasoning": "None of these concrete matched entries gives the asserted moving-b coefficient together with the onset result; fixed support bounds and frontier table entries are not that invariant.",
+        "searches": [
+          "Resultary comparison 33a2f59ff992, 48dc597af751, e55370fed242",
+          "arXiv:2609.23069, Table 2"
+        ]
+      },
+      "rationale": "The distinct claim is the growing-positive-jump rare-contamination asymptotic at fixed true variance, jointly with low-cumulant convergence and coexistence while the local slope stays negative. The canonical profile and fixed-law interior examples are prior; the closest transition and inverse-log examples have materially different regimes or conclusions.",
+      "residual_risks": [
+        "The initial broad literature search was noisy; failure to identify another match is not evidence of absence. Historical priority against unindexed work or any same-day work is not settled by dates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the premise and one fixed-law example, not the frozen result",
+          "evidence": "Beta remainder, variational supremum, and 1,5 law at weights 39/40 and 1/40.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.00032",
+          "material_read": "§2.2 Theorem 2.1, §3.1 Theorem 3.1, §7.2; pp. 4, 6, 14",
+          "method": "Primary OA text at offsets 9659, 14633, 35625",
+          "title": "Optimal Sub-Gamma Scales for Spectrally Positive Infinitely Divisible Laws",
+          "trigger": "Exact variational premise and positive two-point compound Poisson precedent"
+        },
+        {
+          "assessment": "Related rare-jump asymptotic, different support and scale behavior",
+          "evidence": "Rare positive unit jumps against negative unit jumps yield c_+(p)∼1/log(1/p).",
+          "identifier_or_url": "https://arxiv.org/abs/2609.02590",
+          "material_read": "Model on p. 4 and §7 Theorem 7.1, pp. 19–21",
+          "method": "Primary OA text at offsets 7954 and 38989",
+          "title": "Directional Optimal Sub-Gamma Scales for Infinitely Divisible Laws",
+          "trigger": "Closest primary inverse-log rare-jump asymptotic"
+        },
+        {
+          "assessment": "Fixed law and variable variance proxy, not this result",
+          "evidence": "The true-variance scale and frontier entries concern fixed jumps 1,5.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.23069",
+          "material_read": "§7 Example 7.8 and Table 2, pp. 18–19",
+          "method": "Primary OA text at offset 65260",
+          "title": "Feasible Frontiers for Sub-Gamma Envelopes",
+          "trigger": "Numerical and exact optimization for the related two-jump law"
+        },
+        {
+          "assessment": "Shared inverse-log phenomenon but no equivalent coverage",
+          "evidence": "Signed fixed-support model; its phase boundary has only the zero-argument limit.",
+          "identifier_or_url": "Resultary 48dc597af751",
+          "material_read": "Finding",
+          "method": "Resultary search and local mirror",
+          "title": "A sharp unequal-jump sub-gamma phase surface and quadratic crossover",
+          "trigger": "Strongest same-day rare-asymptotic comparison"
+        },
+        {
+          "assessment": "Different threshold structure and fixed support",
+          "evidence": "Jumps 1,5, with a strictly decreasing profile at and above the stated threshold.",
+          "identifier_or_url": "Resultary 33a2f59ff992",
+          "material_read": "Finding",
+          "method": "Resultary search and local mirror",
+          "title": "A sharp local-to-interior transition for two-point compound Poisson laws",
+          "trigger": "Earlier positive-jump transition finding"
+        },
+        {
+          "assessment": "Matches coexistence phenomenon for one support, not joint asymptotic; later catalogue date",
+          "evidence": "At some p in (0,10^−4) the origin and a positive global optimizer coexist for jumps 1,5.",
+          "identifier_or_url": "Resultary e55370fed242",
+          "material_read": "Finding",
+          "method": "Resultary search and local mirror",
+          "title": "Coexistence of local and remote optimal sub-gamma scales for two-point compound Poisson laws",
+          "trigger": "Closest fixed-support coexistence comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof parts 2–4",
+        "Chen §7.2 and Resultary 33a2f59ff992, 48dc597af751, e55370fed242"
+      ],
+      "rationale": "This quantifies a failure of finite-cumulant and local-profile diagnostics for true-variance sub-gamma optimization: an unbounded optimal scale with a sharp coefficient despite convergent low cumulants, and a positive global optimizer that enters without a local instability. The rare/support regime and coexistence provide structural information beyond an isolated interior witness.",
+      "residual_risks": [
+        "No claim about larger variance proxies, the exact onset rate, or uniqueness is needed for the value assessment."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

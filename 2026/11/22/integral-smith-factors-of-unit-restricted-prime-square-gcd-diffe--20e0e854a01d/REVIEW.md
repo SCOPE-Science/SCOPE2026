@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The kernel has exactly three entry levels, leading to an integer block expression. The claimed change of bases uses primitive integer vectors, hence unimodular maps; the reduced two-by-two and four-by-four matrices have calculated determinantal divisors. The Smith list is in divisibility order and has exactly \(p(p-1)\) entries. Exact computations independently confirm the original full matrix at primes \(2,3,5\), the block identity at further primes, and the four-by-four minors through odd primes below \(102\). These finite calculations are not substituted for the general proof.
+## correctness
 
-## Originality — PASS, with risks
-The nearest public mathematical literature concerns full-residue GCD graph energies (Sander--Sander, arXiv:1205.4603), full-ring unitary Cayley graph spectral theory (Liu--Zhou, arXiv:1205.5932), and classical index-GCD Smith matrices (Ilmonen--Haukkanen, DOI:10.1080/03081081003709819). The relevant inspected theorems do not imply the integer Smith form of the unit-restricted GCD-difference kernel. Closely related Ramanujan and unrestricted GCD matrices have different entries and index sets. The complete text of the classical index-GCD work was not accessible, and an implicit earlier integer-block-matrix classification remains a bibliographic risk. Search noncoverage alone is not considered a proof of novelty.
+PASS
 
-## Mathematical value — PASS
-At the first nonsquarefree modulus, restricting a natural arithmetic difference kernel to primitive residues produces a highly nontrivial integral cokernel. The theorem determines its full torsion decomposition for every prime, not just rank or determinant, and reveals a distinguished order-three obstruction even when the entries use only prime factors disjoint from three. It has an explicit proof and a natural role in arithmetic linear algebra.
+The three possible gcd values give ps I + s(I_s ⊗ J_p) + J. In a class-reference/difference basis the difference block is scalar ps and its repeated coupling is concentrated on the primitive vector of all ones, splitting off ps I of size s(p−2). In the remaining two copies of the class module, the integral basis consisting of the constant vector, one coordinate vector and s−2 differences splits off the stated T blocks: J kills the differences, sends the coordinate vector to the constant vector, and multiplies the latter by s. This gives precisely the displayed K. The two minors −ps and 2s² give the gcd s (all two-minors are multiples of s); every three-minor is divisible by p²s² and one is exactly p²s². Together with the unit entry and determinant 6p⁴s⁴ this proves the factors of K and hence the ordered global chain. At p=2 the two-by-two gcd of entries and determinant are 2 and 12. The multiplicity count and the exceptional 3-primary consequence hold, including the empty block at p=3.
 
-## Evidence and limitations
-The exact all-prime proof is in `RESULT.md`; `verify.py` tests three complete integer Smith forms and sparse determinantal divisors across further primes. The claim is restricted to prime-square moduli and makes no claim about all prime powers. Independent validation is not asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The strongest located theorem with the same kernel uses every residue. Its away-from-p proof averages over p classes; that step is unavailable at primes dividing p−1 for the unit restriction, and its final coprimalities also change. Neither taking a principal submatrix of a Smith diagonal nor specializing its power parameter gives the claimed factors. The ordinary index-GCD theorem and spectral graph results are also different. This is a statement-level judgment, not a priority certificate.
+
+## value
+
+PASS
+
+Units are the canonical primitive positions at modulus p², not an ad hoc selection. The full integral chain for this natural restriction supplies information a spectrum or the full-circulant Smith factors do not give. In particular it isolates exactly one order-3 factor when p≡2 mod 3 even though that prime is absent from p(p−1) and, for odd such p, from the unrestricted matrix. The integral reduction across the p−1 classes explains the torsion created by restricting rather than just recording an example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

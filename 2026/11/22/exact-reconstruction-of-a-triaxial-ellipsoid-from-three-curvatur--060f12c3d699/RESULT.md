@@ -2,7 +2,7 @@
 
 ## Finding
 
-Let \(E\subset\mathbb R^3\) be the smooth ellipsoid with unknown, strictly ordered semiaxes \(a>b>c>0\). Choose \(X\) uniformly in **Euclidean surface area** on \(\partial E\), and observe its positive Gaussian curvature \(K=K(X)\). The probability law of \(K\) has a complete one-dimensional quadrature density, exactly two finite nonzero endpoint-density limits, and exactly one logarithmic interior singularity. Most importantly, the two support endpoints and the ratio of these two limiting densities uniquely recover **all three semiaxes**, without supplying the total surface area or the interior singularity's location.
+Let \(E\subset\mathbb R^3\) be the smooth ellipsoid with unknown, strictly ordered semiaxes \(a>b>c>0\). Choose \(X\) uniformly in **Euclidean surface area** on \(\partial E\), and observe its positive Gaussian curvature \(K=K(X)\). The probability law of \(K\) has a complete one-dimensional quadrature density, exactly two finite nonzero endpoint-density limits, and exactly one logarithmic interior singularity. The two support endpoints and the ratio of these two limiting densities uniquely recover **all three semiaxes**, without supplying the total surface area or the interior singularity's location.
 
 Write
 \[
@@ -14,9 +14,9 @@ C=\lambda_1\lambda_2\lambda_3,
 Let \(\ell(\phi)=\lambda_1\cos^2\phi+\lambda_2\sin^2\phi\), where \(d\sigma\) denotes ordinary unnormalized area measure on the unit sphere. The exact curvature-density formula is
 \[
 \begin{split}
-f_K(k)&=\frac{q(k)^{3/2}}{2kZ}\int_0^{2\pi}
-\frac{\mathbf1_{\{\ell(\phi)<q(k)\}}}
-{\sqrt{(\lambda_3-\ell(\phi))(q(k)-\ell(\phi))}}\,d\phi,\\
+f_K(k)&=\frac{q(k)^{3/2}}{2kZ}\int_{\{\phi\in[0,2\pi):\ell(\phi)<q(k)\}}
+\frac{d\phi}
+{\sqrt{(\lambda_3-\ell(\phi))(q(k)-\ell(\phi))}},\\
 q(k)&=\sqrt{C/k},\qquad k_-<k<k_+,
 \end{split}
 \]
@@ -52,7 +52,7 @@ Then the semiaxes are recovered *uniquely* by
 \lambda_3=rm\frac{1+T}{1+rT},\qquad
 (a,b,c)=(\lambda_1^{-1/2},\lambda_2^{-1/2},\lambda_3^{-1/2}).}
 \]
-In particular the density-ratio observable is essential to distinguish the middle semiaxis when only the support endpoints are known.
+The support endpoints alone determine the middle semiaxis \(b=m^{-1/2}\) and the ratio \(a/c=\sqrt r\). They leave one free parameter: any \(\lambda_1\in(m/r,m)\), with \(\lambda_3=r\lambda_1\), gives the same endpoints. The density ratio resolves that freedom and determines the largest and smallest semiaxes individually.
 
 ## Assumptions and scope
 
@@ -69,7 +69,7 @@ K(Au)={\det\operatorname{diag}(\lambda_1,\lambda_2,\lambda_3)
 \]
 This also follows from the classical ellipsoid curvature formula in [1].
 
-**Step 2 — exact density.** Use coordinates \(u=(\sqrt{1-z^2}\cos\phi,\sqrt{1-z^2}\sin\phi,z)\), with \(-1<z<1\), \(0<\phi<2\pi\), and spherical area element \(d\sigma=dzd\phi\). Then \(Q=\ell(\phi)+(\lambda_3-\ell(\phi))z^2\). For a fixed \(\phi\), transforming the two roots \(z=\pm\sqrt{(q-\ell)/(\lambda_3-\ell)}\) gives the unnormalized density \(1/\sqrt{(\lambda_3-\ell)(q-\ell)}\) for \(Q\). Multiplication by the surface-area weight \(\sqrt q/Z\), and the monotone change \(k=C/q^2\) whose derivative has magnitude \(q/(2k)\), proves the stated formula. Strict inequalities \(\lambda_1<\lambda_2<\lambda_3\) imply the support and exclude point atoms.
+**Step 2 — exact density.** Use coordinates \(u=(\sqrt{1-z^2}\cos\phi,\sqrt{1-z^2}\sin\phi,z)\), with \(-1<z<1\), \(0<\phi<2\pi\), and spherical area element \(d\sigma=dzd\phi\). Then \(Q=\ell(\phi)+(\lambda_3-\ell(\phi))z^2\). For a fixed \(\phi\), transforming the two roots \(z=\pm\sqrt{(q-\ell)/(\lambda_3-\ell)}\) gives the unnormalized density \(1/\sqrt{(\lambda_3-\ell)(q-\ell)}\) for \(Q\) on \(\ell<q<\lambda_3\). Multiplication by the surface-area weight \(\sqrt q/Z\), and the monotone change \(k=C/q^2\) whose derivative has magnitude \(q/(2k)\), proves the stated formula. Strict inequalities \(\lambda_1<\lambda_2<\lambda_3\) imply the support and exclude point atoms.
 
 **Step 3 — endpoint limits.** Near each of the two sphere poles \(u=\pm e_1\), the exact quadratic expression in tangent coordinates is \(Q=\lambda_1+(\lambda_2-\lambda_1)s^2+(\lambda_3-\lambda_1)t^2\), with smooth positive area density \(\sqrt{\lambda_1}/Z+O(s^2+t^2)\). The planar quadratic-sublevel-area derivative at zero equals \(\pi/\sqrt{(\lambda_2-\lambda_1)(\lambda_3-\lambda_1)}\) **per pole**. Taking both poles, then applying \(|dq/dk|=q/(2k)\), yields \(d_+\). The two poles \(\pm e_3\) give \(d_-\) analogously. In both cases higher local Taylor terms vanish in the density limit.
 
@@ -77,7 +77,7 @@ This also follows from the classical ellipsoid curvature formula in [1].
 \[
 Q-\lambda_2=-(\lambda_2-\lambda_1)s^2+(\lambda_3-\lambda_2)t^2.
 \]
-For \(A_0,B_0>0\), the local pushforward of smooth positive area by \(-A_0s^2+B_0t^2\) has density \((A_0B_0)^{-1/2}\log(1/|q-\lambda_2|)+O(1)\) **per saddle**, as follows by integrating the two quadratic roots and using \(\int ds/\sqrt{s^2+\eta}\). Multiplying by the weight \(\sqrt{\lambda_2}/Z\), by the two poles, and by \(\lambda_2/(2k_s)\) gives the displayed logarithmic coefficient. Higher smooth errors contribute a bounded term, by a local Morse-coordinate expansion; away from the three critical values the analytic coarea integral over compact regular level curves is analytic. There are no other critical values, establishing uniqueness of the singularity.
+For \(A_0,B_0>0\), the local pushforward of area under \(-A_0s^2+B_0t^2\), with unit density at the origin, has density \((A_0B_0)^{-1/2}\log(1/|q-\lambda_2|)+O(1)\) **per saddle**. Indeed the scaled coordinates \(\xi=\sqrt{B_0}t+\sqrt{A_0}s\) and \(\eta=\sqrt{B_0}t-\sqrt{A_0}s\) give \(Q-\lambda_2=\xi\eta\) and Jacobian \(ds\,dt=d\xi\,d\eta/(2\sqrt{A_0B_0})\). Integrating over \(|\xi|,|\eta|<\delta\) gives \(2\log(\delta^2/|q-\lambda_2|)\) before this Jacobian factor. Smooth weight errors are bounded after integration, since after substitution \(\eta=(q-\lambda_2)/\xi\) the error is \(O(|\xi|+|q-\lambda_2|/|\xi|)\) times the coarea factor \(1/|\xi|\). Multiplying by the weight \(\sqrt{\lambda_2}/Z\), by the two poles, and by \(\lambda_2/(2k_s)\) gives the displayed logarithmic coefficient. Away from critical values the quadrature is analytic: for \(q>\lambda_2\) the angular range is fixed and both denominator factors are bounded from zero locally in \(q\); for \(q<\lambda_2\), use symmetry to restrict to one quadrant and put \(\sin\phi=\sqrt{(q-\lambda_1)/(\lambda_2-\lambda_1)}\sin\theta\). This fixes the range at \([0,\pi/2]\), cancels the square root that vanishes at the moving endpoint, and leaves only denominators bounded away from zero locally in \(q\). There are no other interior singularities.
 
 **Step 5 — inverse uniqueness.** From the endpoint locations,
 \[
@@ -92,17 +92,17 @@ Hence \(T=(\lambda_2-\lambda_1)/(\lambda_3-\lambda_2)\); solve the linear equati
 
 ## Verification
 
-The standalone file `check_curvature.py` implements the one-dimensional exact density, independent finite-difference tangent-area calculations, Sobol spherical integration, normalization/CDF comparisons, Gauss–Bonnet mean-curvature identity, endpoint-density limits, saddle diagnostics and algebraic inversion. Four strictly triaxial test cases passed 124 deterministic assertions. These computations test the constants and normalization only; the infinite-domain statements are established by Steps 1–5 rather than by sampling. Reproduce by running `python check_curvature.py` with NumPy and SciPy installed.
+The standalone file `check_curvature.py` implements the one-dimensional exact density, numerical checks using tangent-vector cross products, Sobol spherical integration, normalization/CDF comparisons, the Gauss–Bonnet identity for the mean of the Gaussian curvature, endpoint-density limits, saddle diagnostics and algebraic inversion. The accompanying verification record reports 124 deterministic assertions over four strictly triaxial test cases. These computations test the constants and normalization only; the infinite-domain statements are established by Steps 1–5 rather than by sampling. Reproduce by running `python check_curvature.py` with NumPy and SciPy installed.
 
 As a concrete case, for \((a,b,c)=(3,2,1)\), the support endpoints are \(1/36\) and \(9/4\), the interior singularity is at \(4/9\), and the inversion returns exactly \((3,2,1)\) from the endpoint and density data.
 
 ## Relationship to prior work
 
-Poelaert, Schniewind and Janssens [1] derive the ellipsoid's Gaussian curvature and its surface-area element. Hillier [2] studies the density of a **uniform-sphere quadratic form** and its nonanalyticity at matrix eigenvalues (building on earlier work). Combining those ingredients explains why the present area-uniform curvature density is a reweighted quadratic-form pushforward; **the unweighted quadratic-form density and curvature formula themselves are not asserted to be new**. The present finding is the explicit three-statistic inverse from the curvature histogram's two support endpoints and ratio of endpoint densities, together with its exact surface-area-weighted density and geometric saddle coefficient. Other ellipsoid reconstruction methods based on random sections or chord distances have different observables and do not give this specific inverse. See REVIEW.md for comparative limitations.
+Poelaert, Schniewind and Janssens [1] derive the ellipsoid's Gaussian curvature and its surface-area element. Hillier [2] studies the density of a **uniform-sphere quadratic form** and its nonanalyticity at matrix eigenvalues (building on earlier work). Combining those ingredients explains why the present area-uniform curvature density is a reweighted quadratic-form pushforward; **the unweighted quadratic-form density and curvature formula themselves are not asserted to be new**. The finding is the explicit three-statistic inverse from the curvature histogram's two support endpoints and ratio of endpoint densities, together with its exact surface-area-weighted density and geometric saddle coefficient. Ellipsoid reconstruction results using section half-diameters or projected aspect ratios use different forward observables and do not supply this specific inverse. See REVIEW.md for comparative limitations.
 
 ## Limitations
 
-The proof excludes repeated semiaxes; their coalescing-eigenvalue limits require separate analysis. Exact recovery from three statistics does not imply statistical stability under finite noisy sampling. The one-dimensional density follows from standard quadratic-form transformations, and historical literature may contain implicit equivalent endpoint identities not located in the sources inspected. The numeric tests do not constitute an independent mathematical audit.
+The proof excludes repeated semiaxes; their coalescing-eigenvalue limits require separate analysis. Exact recovery from three statistics does not imply statistical stability under finite noisy sampling. The one-dimensional density follows from standard quadratic-form transformations, and the literature may contain equivalent endpoint identities. The numerical tests do not substitute for the proof.
 
 ## References
 

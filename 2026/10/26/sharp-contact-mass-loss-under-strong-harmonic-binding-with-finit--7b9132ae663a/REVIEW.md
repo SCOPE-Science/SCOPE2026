@@ -1,11 +1,21 @@
-# Research assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The six-state generator and its rational invariant vector are reconstructed from the finite-tumble transition model. The proof couples the bounded reflected harmonic flow, identifies a sign-memory contact indicator, and uses an exact crossing-flux reward identity. A first-jump bound controls the rare missed-contact episodes, including prolonged zero-velocity contact delays; exponential contraction and dominated convergence then yield the sharp \(\mu^{-2}\) coefficient. The verifier passed 502 separate exact/numerical assertions. Independent proof checking remains outstanding.
+## correctness
 
-**Originality — PASS under accessible-source comparison.** Hahn (arXiv:2501.11379v1) analyzes jamming and attraction and explicitly leaves the finite-tumble harmonic invariant distribution unresolved. The 2021 harmonic bound-state analysis lacks the six-state finite-tumble jamming mechanism, while the 2017 finite-tumble lattice solution lacks harmonic continuum attraction. Historical recoverable statements and published research-record searches did not yield this exact coefficient or six-state contact-mass expansion. The leading source remains potentially relevant through its generator; an unpublished solution or a broader finite-state PDMP asymptotic may subsume the result. This is a residual originality risk, not an assertion of absolute novelty.
+PASS
 
-**Value — PASS.** The exact contact atom is a natural observable of jamming and clustering. The result identifies a singular difference between nearly coincident particles and truly jammed particles; it gives the sharp rate of approach to half-contact and resolves a quantitative part of a specifically identified analytically challenging finite-tumble harmonic regime. The dilogarithmic coefficient records two-switch events plus their subsequent zero-state memory; obtaining only the weak collapsed limit would miss this distinction.
+For fixed positive rates, clipping and the drift comparison give the invariant interval [0,v/μ]; the stationary law exists there and negative runs long enough to hit zero give coupling. The ideal sign indicator keeps its last nonzero sign through either zero state, is negative half the time by symmetry, and dominates true contact. The mismatch reward starts only at +1→0_j→−1 and stops at contact or the next positive sign. To check the key uniform estimate, from either negative state the reward is O(τ_μ(x)): the uninterrupted contact time is at most τ_μ(x), the probability of an earlier jump is O(τ_μ(x)), and the expected remaining time until a positive state is uniformly bounded by finite-state irreducibility. A first jump to −2 thus contributes O(τ_μ(x)^2). A jump to a zero state of rate ρ contributes its full mean holding time 1/ρ, since x>0 stays positive there; any further negative recovery has conditional mean O(τ_μ(x)ρ/(ρ+2μ)) by exponential distance contraction and log(1+z) comparable to z uniformly on [0,2]. Integrating first-jump times gives the stated Bτ_μ(x)+O(τ_μ(x)/μ), since τ_μ≤log(3)/(2μ). Stationary flux multiplies the ensuing reward by π_+1 q_(+1,0_j) q_(0_j,−1) exp(−ρ_j s) ds. The scaled departure distance relaxes in L1 to 1 during the independent +1 holding period. Changing to u=2μs and dominating by 2exp(−u) gives the factor π²/48. Detailed balance and the jump-rate product sum 3αβ/2 give the claimed positive K, with v canceled by scaling. Independently checked the logarithmic integral by the alternating inverse-square sum and K(1,1)=7π²/512≈0.13493599767; inspected the checker without executing it. Weak convergence from the support bound is not convergence of the atom to mass one.
 
-Scope: fixed positive rates and propulsion, a specific six-state finite-tumble chain, no translational thermal diffusion, harmonic attraction tending to infinity. No full stationary density is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact six-state process and harmonic jamming model are prior; the supported distinct result is the exact-contact strong-attraction expansion for this combination. The closest primary source explicitly leaves the finite-tumble harmonic stationary computation outside its solutions. Indexed variants do not provide this coefficient or this rare-switch mechanism for the same chain and force law.
+
+## value
+
+PASS
+
+Exact contact is a physically distinguished stationary event not determined by a coarse weak limit. The finite-tumble harmonic model is established and its stationary law difficult; the result nevertheless identifies a precise nontrivial atom, its loss rate and the contribution of aborted contacts in the zero states. A future analysis of the jamming fraction or of strong-binding reductions can use this constant rather than assume all rescaled-zero configurations have jammed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

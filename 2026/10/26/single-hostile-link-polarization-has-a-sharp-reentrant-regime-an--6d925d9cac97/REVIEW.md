@@ -1,19 +1,21 @@
-# Scientific review: single-hostile-link polarization
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The claim is for one signed-edge insertion into an undirected connected positive network, unit anchoring, nonnegative nonzero innate opinions, and mean squared expressed opinion. The positive inverse of the base anchored Laplacian makes all four scalar coefficients in the rank-one response positive. Differentiating the exact Sherman–Morrison expression yields a derivative whose sign is determined by a linear function of the new edge magnitude. Hence there is either strict decrease or exactly one strict minimum. For the weighted three-path, symbolic inversion gives the exact criterion. The unit-weight three-path coefficient excludes reentrance there, and two rational witnesses establish three-vertex weighted occurrence and sharp four-vertex unit-weight occurrence. The bundled exact-arithmetic script was executed successfully, but the infinite-strength results depend on the displayed algebra, not sampling.
+PASS
 
-## Originality
+For the signed Laplacian convention at issue a hostile edge contributes t(e_i+e_j)(e_i+e_j)^T. Write G=H^{-1}, v=Gu and z_0=Gs. The positive connected base gives G>0 entrywise: factor H as D−A with D equal to one plus friendly weighted degree, then sum the Neumann series for D^{-1}A, whose row sums are below one and whose positive paths reach all vertices. Thus c=u^Tz_0, d=v^Tz_0, r=u^Tv and e=v^Tv are positive for the nonzero nonnegative s. Sherman–Morrison gives z=z_0−tcv/(1+tr). Differentiating the neutral-zero squared norm divided by n gives 2c[t(ce−rd)−d]/[n(1+tr)^3]. Its affine numerator starts negative and crosses once exactly when ce−rd>0; equality of ce and rd still gives strict decrease at every finite strength. Independent exact symbolic elimination reproduced the determinant 3ab+2a+2b+1 and the weighted three-path coefficients (−Δ,−2B,Δ) divided by its square, with Δ=(a−b)(2ab−1) and B=a²b+ab²+4ab+a+b. At a=b=1 this is −s_1/4. A connected simple graph on two vertices has no eligible link, and the only eligible three-vertex shape is a path. Independently solving the concrete matrices gives z_3=(3−5t,4−2t,11+5t)/[2(9+13t)] and z_4=(24+11t,8−t,4−11t,4−4t)/(40+51t). Their squared norms reproduce both derivatives, turning strengths 23 and 944/13, minima 7/264 and 173/6952, zero-strength values 73/486 and 21/200, and limits 9/338 and 259/10404. The four-vertex example has four unit friendly links and one variable-strength hostile link, not five unit links at the minimizing strength. Scaling s extends the sign result beyond the explicit [0,1] normalization to nonzero s≥0. The bundled checker and recorded output were inspected; the submitted checker was not executed.
 
-**PASS with residual risk.** Zhou et al. (arXiv:2407.10680, Section IV) give the equilibrium and mean squared polarization measure but do not state the single negative-edge strength response classification or the weighted-path and unweighted-size boundaries. Bhalla, Lechowicz, and Musco (arXiv:2111.14020, Section 3.2 and Appendix A) use Sherman–Morrison for positive unsigned edge updates and the polarization-plus-disagreement sum; those results do not entail the hostile sum-incidence edge criterion or its sharp examples. An accessible earlier single-antagonistic-bridge result with constant positive-one innate opinions instead addresses opinion reversal across two positive components, not the original-edge-bypassing chord considered here. Searches of the indexed research corpus for hostile-link weight sensitivity, reentrant squared-norm polarization, and Friedkin–Johnsen negative-edge rank-one updates returned no statement implying this claim; non-indexed work could nevertheless overlap.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The elementary inverse identity becomes a complete, sharp sign-phase classification for a natural social-network intervention. The three-path inequality identifies how asymmetry, edge weights, and innate-opinion location control the qualitative response; the unit-weight four-node example establishes a genuinely sharp structural threshold. This distinguishes strength optimization of hostile ties from a blanket monotonicity assertion and from centered-variance and positive-link results.
+Best of current knowledge: the distinctive result is the one-hostile-nonedge strength classification with the explicit weighted three-path regime and sharp boundary of four vertices for unit friendly weights. The FJ model, neutral-zero polarization convention and rank-one inverse technique are prior ingredients.
 
-## Limitations and closest literature
+## value
 
-The result concerns exactly one hostile edge over a positive undirected base, not arbitrary signed networks or multiple interventions. Mean squared opinion about zero differs from centered variance. The unweighted order result is minimality, not a census of all four-node extremizers. More specialized literature may contain an equivalent sign criterion; independent external comparison is still warranted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For a standard signed equilibrium measure, knowing the initial slope is insufficient to predict the large-strength response. The exact weighted path criterion, explicit witnesses and sharp friendly-unit order distinguish the effect of unequal weights from the minimal graph size in the unit base. The finding is useful as a boundary and counterexample to universal monotonicity, without attributing novelty to the standard rank-one calculation or claiming an equilibrium bifurcation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

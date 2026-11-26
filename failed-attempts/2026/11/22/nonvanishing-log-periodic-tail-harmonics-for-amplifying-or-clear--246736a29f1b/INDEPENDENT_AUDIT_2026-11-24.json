@@ -1,0 +1,164 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:36:49.161071Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the process defined in the Finding, independent Bernoulli marks on the Poisson epochs give positive-rate clearing times. Coupling at the first clear proves uniqueness; in the stationary past the backward gaps are iid exponential and the number of consecutive amplifications is independent geometric with P(N=n)=(1-p)p^n. This gives the stated finite-sum perpetuity at a stationary time, not the post-jump law. Conditional reversal gives Z distributed as 2^N times the corresponding truncated q-weighted exponential sum with q=1/2. Under the natural growing-sum coupling the limiting Y has a continuous law (it includes an independent exponential summand) and small positive exponential moments. Uniform convergence of the survival functions to this continuous limit, combined with a geometric bound on the nonnegative window indices and the exponential-in-2^(-k) bound on the negative indices, gives the locally uniform dyadic-window limit. The hypoexponential coefficients and termwise Mellin transform are correct: after integration each exponential supplies q^(js), so Euler's product has argument q^(s+1). Fourier periodization uses s=kappa-2 pi i ell/log 2 and gives the stated positive product times Gamma(s). Vertical-line gamma decay justifies the series and gamma has no zeros. The largest weighted exponential term bounds positive moments below, and 2^N times Y bounds them above, proving convergence exactly for p 2^s<1, with divergence at equality. Independently, the survival is the normalized pantograph solution described below, giving the same coefficients. VERIFY.py was inspected, not run; its p=0.4 calculations are only diagnostics. The literal Assumptions sentence that epochs are independent of the holding times is imprecise: the latter are the differences of the epochs, not independent of them. The proof checks the unambiguous marked-Poisson construction in the Finding, with iid holding times and marks independent of the epoch process.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zhang treats all 0<q<1, with a complex parameter mu outside the stated exceptional lattice, and gives the connection to infinity including its harmonics. Positive mu=-log_2 p satisfies the hypotheses.",
+          "Behme–Lindner–Reker's killed exponential functional is the unique invariant law of the corresponding jump SDE; applying it to the rate-p multipliers and rate-(1-p) clears accounts for the stationary representation.",
+          "Kevei's arithmetic renewal setting covers qualitative periodic tails here. Palmowski–Vlasiou's inspected two-point reset formula assumes a strictly contractive nonzero multiplier, so that particular example does not cover 2."
+        ],
+        "reasoning": "The broad general theorem that settles the exact spectrum is Zhang's, not the contraction example or a qualitative arithmetic renewal result.",
+        "searches": [
+          "Zhang, HAL-04401418, Theorems 1.1 and 1.2, equations (1.5) and (1.7)",
+          "Behme–Lindner–Reker arXiv:2003.02073, Proposition 3.1",
+          "Kevei arXiv:1609.07339v1, theorem and example",
+          "Palmowski–Vlasiou arXiv:2611.14692v1, section 2.9"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and VERIFY.py",
+        "Local catalogue amplifying-reset and geometric scale-mixture comparisons",
+        "Zhang, HAL-04401418 (principal exact theorem and representation)",
+        "Bertoin–Biane–Yor primary PDF",
+        "Behme–Lindner–Reker arXiv:2003.02073",
+        "Kevei arXiv:1609.07339v1",
+        "Palmowski–Vlasiou arXiv:2611.14692v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In Zhang's equation (1.7), taking the leading n=0 term and writing h=-log q yields the gamma harmonics with the exact prefactor (p;q)_infinity/[h(q;q)_infinity]; index reversal matches the Fourier sign. The same conclusion follows directly from his Proposition 2.1: shift indices about log_(1/q) x in the positive exponential mixture, take the limit on one phase interval using (q;q)_j>=(q;q)_infinity, and periodize e^(mu t) exp(-e^t). This produces the exact same gamma integral and the same nonvanishing.",
+          "Bertoin–Biane–Yor already give the exact auxiliary Mellin transform E Y^s=Gamma(1+s)(q^(1+s);q)_infinity/(q;q)_infinity and the corresponding density of Y. That series alone is auxiliary; the direct pantograph identification supplies the complete matching spectrum for Z.",
+          "The exact positive exponential mixture in Zhang has weights proportional to p^j/(q;q)_j and scales q^(-j), also immediately giving the stated moment cutoff."
+        ],
+        "reasoning": "After identifying the survival equation, the principal result and moment threshold follow mechanically by specialization and, for the harmonics, at most the index change and the elementary identity (p;q)_infinity=(1-p)(pq;q)_infinity. This is not merely a prior hint that log-periodicity can occur.",
+        "searches": [
+          "HAL-04401418, pp. 5–7, Theorems 1.1–1.2 and Proposition 2.1",
+          "Bertoin–Biane–Yor, Poissonian exponential functionals, Theorem 1.1(i), equations (1.7)–(1.8)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Conditioning on W=CZ' and integrating the unit-rate exponential increment gives the survival differential equation with initial value 1; the coefficient is p (not p/2, which would occur in the equation for the density).",
+          "Zhang normalizes the same equation to y'=alpha y(qx)-y and obtains its unique normalized solution F for alpha=q^mu. Setting alpha=p, q=1/2 gives equality of the entire survival function on x>=0.",
+          "The reset process is also a killed exponential functional with deterministic integrator dt, xi=-(log 2) times a rate-p Poisson process, and independent killing of rate 1-p."
+        ],
+        "reasoning": "Different terminology conceals an exact normalized equation and exact stationary law, not just a similar pattern or a match of tail exponents.",
+        "searches": [
+          "exponential functional killed Poisson process negative log jumps geometric sum exponentials q-binomial q gamma perpetuity amplification reset arithmetic tail periodic Fourier coefficients Bertoin Biane Yor exact distribution",
+          "pantograph equation y'=-y+a y(qx) exact asymptotic periodic gamma Fourier coefficients q-Pochhammer Kato McLeod Dirichlet series density",
+          "Analytical study of the pantograph equation using Jacobi theta functions, HAL-04401418, equation (0.2), Proposition 1.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact catalogue match 246736a29f1b is the assigned record. The Matern record has gamma oscillations for a different scale mixture, not this law.",
+          "No finite table is needed for this continuous-parameter analytic claim: Zhang gives an exact Dirichlet series for the entire normalized function and a stronger complete asymptotic expansion whose leading Fourier coefficients coincide."
+        ],
+        "reasoning": "An exact analytic representation with specialization is stronger than a matching finite numerical table. The frozen diagnostics do not supply independent scientific novelty.",
+        "searches": [
+          "Resultary: amplifying or clearing Poisson reset, log-periodic stationary tail, all gamma harmonics",
+          "Exact log-periodic bias in geometric divergence-free Matern scale mixtures, 2026/11/2 record b8bd60e73388",
+          "Zhang, HAL-04401418, Proposition 2.1 and Theorem 1.2"
+        ]
+      },
+      "rationale": "The principal asserted advance, the closed Fourier spectrum including nonvanishing of every harmonic, is a direct specialization of Changgui Zhang's 2023 pantograph connection formula, not merely a related qualitative tail theorem. For q=1/2 the stationary survival S satisfies S'(x)=p S(qx)-S(x), S(0)=1. To see this, write Z=E+W with E exponential rate one independent of W=CZ'. The density at x>0 is the integral of exp(-(x-w)) over w<=x against the law of W, which is S(x)-P(W>x)=S(x)-p S(qx). Thus S(x)=F(mu;q,x) in Zhang's notation with q^mu=p and mu equal to the record's kappa. Zhang's Theorems 1.1–1.2 give the exact positive-axis expansion at infinity, with leading coefficients (p;q)_infinity Gamma(mu-2 pi i ell/h)/[h(q;q)_infinity] after indexing by ell and h=log 2. Since (p;q)_infinity=(1-p)(p/2;1/2)_infinity, these are exactly the frozen coefficients. They are all nonzero by the same gamma fact. This is demonstrated coverage, not a verdict based on an inaccessible plausible source. The normalization and the moment threshold do not leave a distinct finding.",
+      "residual_risks": [
+        "How early the same explicit spectrum appeared in the classical pantograph literature is unresolved; the decisive verified 2023 formula predates the frozen record regardless.",
+        "The bounded search does not establish priority for the link to the reset-model interpretation, but that link follows immediately from the stationary survival equation and does not supply a distinct exact invariant."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct stronger coverage of the frozen exact law, leading coefficients and nonzero harmonics",
+          "evidence": [
+            "Equation (1.5) expresses F via Gamma(mu_k) x^(-mu_k) G(mu_k;q,1/x); equation (1.7) reorganizes this as an exact q-periodic coefficient series at infinity; equation (2.1) is the exact Dirichlet series.",
+            "q=1/2 and q^mu=p recover the frozen coefficient, since the q-Pochhammer normalization differs only by its first factor 1-p."
+          ],
+          "identifier_or_url": "https://hal.science/hal-04401418/document (DOI 10.1016/j.jat.2023.105974)",
+          "material_read": "Normalized equation (0.2) and solution (0.3), PDF offsets 5200–9357; Proposition 1.2, Theorems 1.1–1.2 and Proposition 2.1, offsets 15600–21569",
+          "method": "OA primary PDF, bounded theorem passages",
+          "title": "Analytical study of the pantograph equation using Jacobi theta functions",
+          "trigger": "Exact survival equation and general explicit connection/Fourier formula"
+        },
+        {
+          "assessment": "Exact prior auxiliary law and Mellin transform, not by itself the reset survival asymptotic",
+          "evidence": [
+            "I^(q)=sum q^j E_j, with exactly the same Mellin product and the termwise derivative of the frozen survival series."
+          ],
+          "identifier_or_url": "https://monge.univ-eiffel.fr/~biane/q_poisson.pdf",
+          "material_read": "Introduction and Theorem 1.1(i), equations (1.3), (1.7), (1.8), pp. 2–3",
+          "method": "OA author-hosted primary PDF",
+          "title": "Poissonian exponential functionals, q-series, q-integrals, and the moment problem for log-normal distributions",
+          "trigger": "Possible exact Mellin coverage for the q-weighted exponential sum"
+        },
+        {
+          "assessment": "Broader invariant law machinery; its inspected jump examples are different",
+          "evidence": [
+            "Independent killing inserts jumps of relative size -1 and yields a unique invariant law. The jump examples use Brownian integrators, not the frozen unit deterministic drift and upward multiplier combination."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2003.02073",
+          "material_read": "Abstract; Proposition 3.1, equations (3.1)–(3.2); Examples 7.4–7.5",
+          "method": "OA primary PDF, bounded passages",
+          "title": "On the law of killed exponential functionals",
+          "trigger": "Equivalent stationary process via Poisson killing"
+        },
+        {
+          "assessment": "Covers qualitative periodic-tail form here, not the exact same coefficients in the inspected passages",
+          "evidence": [
+            "For the frozen recursion E C^kappa=1 and the tilted log increment is supported at log 2, the arithmetic span."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1609.07339v1",
+          "material_read": "Section 2.1 arithmetic theorem, offsets 6300–9295; example passage from offset 12150",
+          "method": "OA primary-text passages",
+          "title": "Implicit renewal theory in the arithmetic case",
+          "trigger": "General arithmetic tail results"
+        },
+        {
+          "assessment": "Exact reset example restricted to a contractive multiplier",
+          "evidence": [
+            "The example with C in {0,c} assumes 0<=c<1; it is not the c=2 specialization."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.14692v1",
+          "material_read": "Section 2.9, from offset 16800",
+          "method": "OA primary-text passage",
+          "title": "Steady-state of Lévy process with general resetting: unreflected and reflected cases",
+          "trigger": "Two-point affine reset and perpetuity"
+        },
+        {
+          "assessment": "Feature and method overlap; different object",
+          "evidence": [
+            "Periodized trace increments of a geometric Matérn covariance mixture, not the amplifying reset process."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-exact-log-periodic-bias-in-geometric-divergence-free-mat-rn-scal--b8bd60e73388",
+          "material_read": "Original RESULT.md Finding, offset 0",
+          "method": "Local catalogue mirror, bounded original passage",
+          "title": "Exact log-periodic bias in geometric divergence-free Matérn scale mixtures",
+          "trigger": "Related all-nonzero gamma harmonics in catalogue"
+        },
+        {
+          "assessment": "Earlier history unresolved; not a premise of the exact coverage verdict",
+          "evidence": [
+            "The verified Zhang theorem suffices for the exact comparison without ascribing uninspected coefficient claims to Kato and McLeod."
+          ],
+          "identifier_or_url": "https://doi.org/10.1090/S0002-9904-1971-12805-7",
+          "material_read": "No readable primary passage on attempted OA copies; no theorem from this item relied on",
+          "method": "Lawful OA retrieval attempts via journal and identified mirror",
+          "title": "The functional-differential equation y'(x)=ay(lambda x)+by(x)",
+          "trigger": "Classical pantograph asymptotics cited by Zhang"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The reset model is natural and the coefficients can be useful, but the asserted exact invariant and all-harmonic conclusion are already obtained by specializing a stronger pantograph theorem. The stationary model identification is a one-step exponential convolution identity; the moment cutoff follows immediately from the exact mixture. No separate new mathematical theorem remains after crediting that coverage. The standalone probabilistic rederivation can be explanatory, but it is not a distinct valuable finding under the review standard.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

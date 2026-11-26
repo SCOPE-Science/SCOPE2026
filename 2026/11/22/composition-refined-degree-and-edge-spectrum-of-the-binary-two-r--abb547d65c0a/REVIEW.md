@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The key published Type-A statement is checked against the primary text of Cai–Kiah–Nguyen–Yaakobi, Definition 8 and Proposition 9 (arXiv:2001.01376). An even alternating differing interval preserves the binary composition, whereas an odd one changes it by one. Unique maximal alternating-block decomposition then yields the exact formal transfer matrix. First-to-last mismatch uniqueness proves both finite edge sums; opposite-symbol endpoint pairs prove the sharp maximum. The fixed-density mean follows by a uniform geometric bound on the binomial ratio. The full proof specifies the edge and degree meanings, index ranges, boundary conventions, and the restriction on the asymptotic regime. Direct deletion-set enumeration through length 10 and independent transfer-series enumeration through length 24 passed. The computations are corroboration rather than infinite proof.
+## correctness
 
-## Originality — PASS (qualified)
-The foundational Type-A theorem is prior work and is explicitly credited. The closest known unrestricted edge count and unrestricted degree-spectrum results were read in full; their statistics do not specify a degree distribution conditional on both source Hamming weight and preservation of Hamming weight. The existing weight-two reconstruction-code optimum is a different independence-number invariant. Targeted mathematical-record searches did not expose this full joint degree/edge law, and comparison was made at the level of statements and implications. Because the present formulas are an explicit refinement of established alternating-interval machinery, an unindexed equivalent enumeration or a separately implied refinement remains a genuine priority risk, not a demonstrated absence.
+PASS
 
-## Value — PASS
-The natural input constraint of fixed symbol composition is standard in constrained sequence coding. The result determines every local confusability degree and cross-layer ambiguity count, and shows a sharp difference between typical linear local ambiguity and attainable quadratic local ambiguity. The exact distribution is suitable as input for weight-sensitive graph bounds or finite codebook design even though the optimal codebook cardinalities are not determined. It is more than a finite table or a parameter substitution: the trivariate all-length distribution and sharp extremum require an additional composition-preserving interval analysis.
+Cai et al., Proposition 9, and its Type-A definition supply the exact distinct-read criterion; distance one has only one read in common. The alternating disagreement interval is uniquely the span of the mismatches, and even length is equivalent to weight preservation. Cutting where consecutive letters are equal gives disjoint maximal alternating blocks; each block contributes precisely its number of opposite-symbol endpoint pairs. The matrix entries give the correct length, Hamming weight and product of zero/one counts for the two endpoints, and equal touching symbols identify exactly the permitted joins. Its zero constant term ensures the formal inverse, with the empty word accounted for separately. Counting placements and outside bits gives both edge formulas without double-counting, and no edges skipping a weight layer. With block minority/majority counts a_i,b_i, the degree is at most both rs and ∑a_i(a_i+1)≤r(r+1); alternating all minority bits in one block and padding by majority bits attains the bound, also when r=0 or s=r. Handshaking and the binomial ratio's supported factors (k−j)(n−k−j)/[(n−2j)(n−2j−1)]≤1/2 give the claimed limit by dominated convergence. Direct enumeration of distinct deletion-output sets, compared with a separately expanded transfer series, confirmed joint histograms, both edge strata and layer maxima through n=8, including constant words and n=1. This PASS covers the mathematical Finding; there is an inaccurate descriptive clause about prior spectra in line 73, addressed under originality.
 
-## Literature and limits
-Primary inspected texts: Sloane, *On Single-Deletion-Correcting Codes* (2002); Cai et al., *Coding for Sequence Reconstruction for Single Edits* (2020); Chrisnata et al., *Optimal Reconstruction Codes for Deletion Channels* (2020). Closest complete public mathematical records: exact full-alphabet edge count (2026), unrestricted degree spectrum (2026), and weight-two capacity (2026). The claim does not cover optimal code capacities, larger deletion radii, or independent validation. Unindexed work remains a priority risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the joint weight and even-interval degree enumeration, exact edge stratification and layer-specific maximum and mean, not adjacency or the unrestricted degree-spectrum method. RESULT.md line 73 incorrectly calls the prior full-graph spectrum the marginal ∑_k P_{n,k,d}. That marginal instead counts within-layer degrees across all words. For n=3, 010 has full degree 3 and within-layer degree 2, and the same-layer maximum anywhere is 2, so the histograms differ. This error in the comparison does not alter the Finding or its proof; it is the distinction between the observables that establishes the gap.
+
+## value
+
+PASS
+
+Fixed composition is a natural source constraint for deletion-reconstruction problems. The layer graph is the relevant local ambiguity object for such codes, so the full histogram, sharp maximum versus typical-scale mean, and distinction between preserved-weight and cross-weight edges give usable quantitative information not provided by the unconditioned graph. These results solve an exact motivated enumeration problem without claiming an optimal code size or downstream coding theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

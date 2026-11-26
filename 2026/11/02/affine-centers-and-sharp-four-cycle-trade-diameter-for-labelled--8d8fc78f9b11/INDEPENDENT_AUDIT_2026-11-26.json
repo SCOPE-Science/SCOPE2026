@@ -1,0 +1,93 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:57:42.400591Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§1–4 and VERIFICATION.md",
+        "Inspected both frozen verifier implementations without executing them",
+        "Independent replay: /workspace/branches/k8_replay.py, run with Python 3"
+      ],
+      "rationale": "I independently enumerated the factors in order of their distinct partner of vertex 0, assigning a disjoint matching on the remaining six vertices at each step. This visits every unordered factorization exactly once. I generated neighbors by enumerating all three four-cycles on every four-element vertex subset, looking up the owners of opposite edge pairs, exchanging alternating edge ownership, and reanchoring; duplicate outcomes were collapsed. The resulting simple graph has 6240 vertices, 17640 edges and degree/count pairs (0,960), (3,1680), (7,2520), (9,420), (13,630), (21,30). Orbit traversal using adjacent transpositions reached the whole respective degree class from each of six representatives. The five positive-degree representative BFSs each reached 5280 states, with eccentricities 11,10,10,10,9 in that order. The affine representative was used for degree 21. Analytically, two factors have union 4+4 exactly when the matching involutions commute (their product has order 2 rather than 4); commuting factors generate a faithful transitive elementary abelian group and thus a regular group of order 8. The converse and normalizer count give the 30-state affine orbit. An isolated factorization has no 4+4 union and hence every pair is Hamiltonian. This verifies the original componentwise census, not a graph with persistent factor colors or longer switches.",
+      "residual_risks": [
+        "The metric verification is exact finite computation, not proof-assistant formalization; no larger K_n is covered."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The paper treats multiple switching rules and graph orders, with the K8 intercalate metric on isomorphism classes."
+        ],
+        "reasoning": "Broader graph orders and move types do not cover the fixed-label lift for this move.",
+        "searches": [
+          "Kaski et al., DOI 10.37236/3606, §§3,6,8"
+        ]
+      },
+      "checked_sources": [
+        "Kaski, de Souza Medeiros, Östergård and Wanless, EJC 21(2), P2.49 (2014)",
+        "Focused Resultary and literature lookup on labelled one-factorization four-cycle switching"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The five mobile classes form one quotient component, and the quotient eccentricities can be read from Fig. 1."
+        ],
+        "reasoning": "A path on orbits can reach some relabelling of a target, not a prescribed labelled target. Neither full connectivity nor the sharp diameter, radius and center follow from these reported quotient data.",
+        "searches": [
+          "Kaski et al., DOI 10.37236/3606, §§6,8"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The published four-cycle switch uses the same local trade but its graph takes one-factorization isomorphism classes as vertices."
+        ],
+        "reasoning": "Color names are immaterial in both formulations; identifying vertex labels, however, removes data needed for the distances in the finding.",
+        "searches": [
+          "Resultary: labelled K8 one-factorization four-cycle/intercalate switch graph",
+          "Kaski et al., DOI 10.37236/3606, §3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Table 1 lists six quotient vertices, five non-loop edges, two components and one isolated quotient vertex. No exact indexed fixed-label distance or center table was identified."
+        ],
+        "reasoning": "This is neither the labelled distance table nor a database of its BFS data.",
+        "searches": [
+          "Resultary and literature lookup on labelled K8 switch graph metrics",
+          "Kaski et al., Table 1 and Fig. 1"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the metric and connectivity census for fixed labels, including the complete affine center, not the classical number of states, the definition of the move, or the isomorphism-class switch graph. Focused indexed and literature lookups did not identify a competing fixed-label metric result.",
+      "residual_risks": [
+        "Unindexed catalogues, code or supplements could contain labelled metrics; the bounded comparison is not a priority guarantee."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the isomorphism-class graph, not the claimed labelled lift",
+          "evidence": [
+            "Definition of vertices in §3; Table 1 reports |V|=6; §8 refers to the eccentricities in Fig. 1."
+          ],
+          "identifier_or_url": "https://doi.org/10.37236/3606",
+          "material_read": "OA PDF §3 p.6, Table 1 p.11, §6 p.12 and §8 p.21",
+          "method": "Targeted full-text passage inspection",
+          "title": "Switching in One-Factorisations of Complete Graphs",
+          "trigger": "Identical K8 intercalate move and prior connectivity and eccentricities"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and §§2–4",
+        "Independent labelled census and Kaski et al. quotient comparison"
+      ],
+      "rationale": "K8 is a natural finite case of the established intercalate switch problem. The fixed-label metric supplies a sharp move bound for any two mobile factorizations and identifies a canonical isomorphism orbit of best starting states. This answers a genuinely different reconfiguration question than orbit-quotient connectivity or a count of labelled designs.",
+      "residual_risks": [
+        "No general growth claim about larger complete graphs or other moves."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

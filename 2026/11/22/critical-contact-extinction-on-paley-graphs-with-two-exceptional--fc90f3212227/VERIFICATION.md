@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,6 @@
 }
 ---
 
-# Reproduction and bounds of verification
+# Reproduction of the finite census
 
-The portable programs `verify_forward.py` and `verify_independent.py` require only Python 3's standard library. Invoke both as scripts in a directory containing their files. Each completes full finite-state enumeration for Paley orders five and nine, using different state encodings, update loops and orbit-detection algorithms. The accompanying `forward.out` and `independent.out` are captured actual outputs and can be regenerated. Both programs assert that the complete recurrent orbit populations, individual basin sizes, first-periodic-entry counts and sharp small-order depths match the result. The second independently enumerates the twelve order-three Latin-square states.
-
-The infinite prime-power assertion is established mathematically in `RESULT.md`, not extrapolated from runs. The critical nonstandard steps are the per-edge contact saturation proof for recurrent orbits, its exact adjacency-time identity, the temporal Fourier eigenvalue obstruction and the algebraic-integrality exclusion for both square and nonsquare Paley orders. Their hypotheses and exceptional cases are explicit. The finite programs do not enumerate all configurations for unbounded order and no uniform large-order transient bound is asserted.
-
-Verification state: self-reviewed; independent audit not performed.
+From the directory containing the supporting files, run `python3 verify_forward.py` and `python3 verify_independent.py`. They use only the Python 3 standard library. They cover all labelled ternary configurations, respectively by classifying an integer-encoded successor table and by following directly updated tuple trajectories. Compare the period-resolved output lines and individual basin sizes with the table in `RESULT.md`; the captured outputs are `forward.out` and `independent.out`. The second implementation also constructs the twelve Latin-square states and checks their equality with the nonzero recurrent configurations on the grid. The enumerations verify only the finite claims for orders five and nine. The all-order comparison is background supplied by a general theorem, not by computational extrapolation.

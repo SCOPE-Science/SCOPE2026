@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:15:38.254075Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–78; VERIFICATION.md and supplied Python verifier inspected",
+        "/workspace/branches/replay_ladder.py"
+      ],
+      "rationale": "A connected nonempty subset must occupy consecutive columns; a column is internally connected and the only adjacent occupied states without a rail connection are opposite singletons. For a fixed interval, the unsigned ending-state count p_m,p_m,q_m starts at (1,1,1) and q_{m+1}=2p_m+q_m stays odd. Thus the parity of the total C_n is the parity of the triangular number n(n+1)/2. All unnormalized Walsh multipliers have that same parity, proving nonvanishing in residues 1 and 2. For signed extension the new singleton sums are alpha(1+t+d), beta(1+b+d) and the new double sum is alpha beta(1+t+b+d); the constant terms start a new interval and their signed totals update z. Starting from zero, the three seed pairs give (1,-1,-1,-1), (1,-1,0,-1), (2,0,-1,0). On the repeated block the next states are (2,0,-2,0), (1,1,-1,1), (-1,1,-2,-1), (2,0,-1,0), closing the cycle. This exhibits zeros in residues 3 and 0 and absolute magnitude 1 in residues 1 and 2, including n=1,2 from the seed. Zero frequency attains C_n, the triangle-inequality upper bound. The Walsh basis is orthogonal, so the condition number in invertible cases is the ratio C_n/1. An independent bit-frontier connectivity enumeration and integer transform for all characters through n=8 reproduces C_n and the zero counts 0,0,9,66,0,0,870,7462, the attained minimum in invertible orders, and each stated certificate value.",
+      "residual_risks": [
+        "Replay is finite and is not used for the all-size conclusion. The magnitude-one claim concerns the invertible orders only; no full singular-spectrum classification is made."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Vince 2017 p. 284 supplies the rung-word/Pell count; Vince 2021 PDF pp. 3–4 describes size-generating functions. The closest retrieved generalized-ladder article had accessible aggregate-count/average-order description but no accessible proof text."
+        ],
+        "reasoning": "The signed ladder claim would be covered by a verified broader theorem implying exactly the cancellation and attained gap. The verified unsigned enumeration gives the odd-total nonvanishing direction, not the remaining signed construction. Accessible generalized-ladder description cannot exclude hidden overlap.",
+        "searches": [
+          "Vince Example 3 and Journal of Graph Theory size/average-order treatment; primary lookup on generalized ladders"
+        ]
+      },
+      "checked_sources": [
+        "Vince 2017 Example 3 and 2021 PDF passages",
+        "Local exact hit and three distinct Resultary summaries; primary search and publisher access for the generalized-ladder comparator"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Vince's unsigned count yields C_n modulo 2 and therefore odd-order-class nonvanishing and a lower bound of 1. The frozen proof gives one explicitly iterated signed character with values 0 and ±1 as appropriate."
+        ],
+        "reasoning": "Even cardinality alone does not force any vanishing Fourier multiplier at an arbitrary Boolean indicator; the magnitude-one lower bound in the odd case need not be attained merely by parity. The signed witness adds both missing results on this graph family.",
+        "searches": [
+          "Statement-level comparison of Vince 2017 Example 3 with RESULT.md lines 35–78 and the related indexed criteria"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Vince uses L_{2r} with r rungs, corresponding to n=r here. His Example 3 counts the same connected vertex subsets. The spanning-tree entry uses edge incidence rather than vertex indicator vectors."
+        ],
+        "reasoning": "The notational ladder alias preserves the unsigned object. A spanning-tree edge-incidence measure and a vertex-subset indicator measure live on different Boolean spaces and have different multipliers. Size evaluation alone records only aggregate cardinalities, not the labeled signs.",
+        "searches": [
+          "Local Resultary connected-subset Walsh/Fourier recovery, open ladders and ladder spanning trees",
+          "Primary literature on open-ladder connected induced subsets and their size-generating polynomials"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact resultary ID ends in 2e52e4d50451, the assigned record itself. Distinct comparable IDs d2e707786118, 9d3a9242b352, and 0b90fba63c8f refer to spanning trees, complete multipartite graphs, and complete split graphs respectively (indexed summaries)."
+        ],
+        "reasoning": "The exact self-hit is not independent coverage. On open ladders the spanning-tree invariant is different, and the latter two adjacent signed results cover other graph classes, not the all-size ladder family. Shared dates do not decide equivalence or priority.",
+        "searches": [
+          "Local Resultary on the period-four criterion, ladder signed zero witness, and connected-set convolution"
+        ]
+      },
+      "rationale": "The unsigned ladder count and rung-word description are existing work; the odd-parity implication follows from that count. The independently supported distinct content is the periodic signed certificate proving the converse in every even-total order and attaining the lower bound in every odd-total order, thus giving the full criterion and sharp conditioning.",
+      "residual_risks": [
+        "Full text of the generalized-ladder comparator and the bodies of the three adjacent indexed records were not available. Less visible vertex-multivariate work could bear on the signed statement."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Verified existing unsigned count and rung-word construction",
+          "evidence": [
+            "Rung words have three digits with the opposite consecutive singleton pair forbidden; Pell enumeration counts ladder connected sets."
+          ],
+          "identifier_or_url": "https://ajc.maths.uq.edu.au/pdf/67/ajc_v67_p281.pdf",
+          "material_read": "Example 3, journal p. 284 / PDF p. 4, extracted offset 8263",
+          "method": "Open primary PDF passage",
+          "title": "Counting connected sets and connected partitions of a graph",
+          "trigger": "Same open ladder and same connected-set support"
+        },
+        {
+          "assessment": "Inspected invariant records counts by size, not vertex-sign products",
+          "evidence": [
+            "Generating polynomial counts connected sets by cardinality; associated ladder density/average size is aggregate."
+          ],
+          "identifier_or_url": "https://people.clas.ufl.edu/avince/files/JGTfinal2.pdf",
+          "material_read": "PDF pp. 3–4, extracted offset 7294",
+          "method": "Open primary PDF passage",
+          "title": "The average size of a connected vertex set of a graph—Explicit formulas and open problems",
+          "trigger": "Potential multivariate or general ladder result"
+        },
+        {
+          "assessment": "Accessible portion describes aggregate quantities; further comparison unresolved",
+          "evidence": [
+            "Description concerns counts and average connected-set order; no accessible certified signed statement."
+          ],
+          "identifier_or_url": "https://www.sciencedirect.com/science/article/pii/S0166218X25004330",
+          "material_read": "Search description, not paper full text",
+          "method": "Primary search plus lawful publisher retrieval attempts",
+          "title": "Generalized-ladder connected-set counts and average order (PII S0166218X25004330)",
+          "trigger": "Possibly stronger ladder enumeration"
+        },
+        {
+          "assessment": "Different indicator and criterion",
+          "evidence": [
+            "Frequencies are on spanning-tree edge-incidence vectors, not connected induced vertex sets."
+          ],
+          "identifier_or_url": "2026/11/16/SCOPE-parity-complete-fourier-invertibility-and-sharp-spectral-gap-for-ladder-spanning-trees--d2e707786118",
+          "material_read": "Indexed summary; mirror body unavailable",
+          "method": "Local Resultary and mirror lookup",
+          "title": "Parity-complete Fourier invertibility and sharp spectral gap for ladder spanning trees",
+          "trigger": "Same ladder and signed spectral questions"
+        },
+        {
+          "assessment": "Same operation, different graph family",
+          "evidence": [
+            "Complete multipartite hypothesis does not include open ladders of arbitrary length."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-parity-rigid-walsh-recovery-from-connected-vertex-sets-of-complete-multipartite-graphs--9d3a9242b352",
+          "material_read": "Indexed summary; mirror body unavailable",
+          "method": "Local Resultary and mirror lookup",
+          "title": "Parity-rigid Walsh recovery from connected vertex sets of complete multipartite graphs",
+          "trigger": "Distinct same-date connected-set Walsh result"
+        },
+        {
+          "assessment": "Complete split graphs are a different class",
+          "evidence": [
+            "Ladders with two or more columns contain an induced square, so are not split graphs."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-parity-recovery-and-clique-core-invariance-for-connected-set-walsh-convolution-on-complete-split-graphs--0b90fba63c8f",
+          "material_read": "Indexed summary; mirror body unavailable",
+          "method": "Local Resultary and mirror lookup",
+          "title": "Parity recovery and clique-core invariance for connected-set Walsh convolution on complete split graphs",
+          "trigger": "Distinct same-date connected-set convolution result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–21 and 35–78; Vince 2017 Example 3 for the baseline aggregate count"
+      ],
+      "rationale": "The connected-vertex-set family is classical, but its signed indicator convolution has a meaningful information-loss and conditioning question absent from ordinary counts. An explicit lost character at every singular size and a character attaining the sharp norm of inversion at every invertible size are substantive exact results, not just the parity observation.",
+      "residual_risks": [
+        "Value is for all open two-rail ladder sizes, not a general-width or circular ladder theorem, and does not extend to conditioning on the singular range."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

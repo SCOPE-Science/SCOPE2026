@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The endpoint four-set is verified directly and maximal because all its other vertices are at distance at least two from the center with its full neighborhood already selected. The pair-extension argument covers cardinalities zero through two. For triples, the only genuinely unbounded parameter is spacing between up to three occupied columns; selected-interior-free geodesic feasibility depends on whether each gap has length one or at least two, not its exact larger value. The exact seven-type census checks every normalized triple: 133 feasible, 132 internally extendible, and one vertical triangle extendible into an adjacent column. A separate full-geodesic implementation confirms all finite cylinders of lengths 2 through 12. The all-order proof is the reduction plus the exhaustive normalized finite check, not merely the latter finite-cylinder experiments.
+## correctness
 
-**Originality — PASS, provisional.** Brešar–Yero's 2023 primary article introduces this lower invariant and explicitly poses Cartesian cylinders as an open direction; its Neighborhood Lemma accounts for the upper, but not the needed lower, bound. The closest previous triangle-fiber result is for the periodic torus rather than a path product and reports a different value. A separate four-cycle-fiber cylinder result is outside this three-row graph family. Independent mutual visibility, total mutual visibility, and ordinary maximum visibility are distinct quantified invariants, none logically proving the minimum maximal ordinary result. Targeted literature and public research-record comparisons did not find this statement. Unindexed publications could change priority.
+PASS
 
-**Mathematical value — PASS.** This resolves a natural infinite-width-three subfamily of an explicitly formulated lower-mutual-visibility problem, providing a structural local-extension argument that works at every length. The contrast with cyclic three-row tori (five), as opposed to path-ended cylinders (four), is mathematically informative, and the exact finite normalization makes the bound reusable for related clique-strip visibility questions.
+In the strip a shortest path is a horizontal segment if rows agree, and otherwise switches once at a column between the endpoints, inclusive. A boundary closed neighborhood of size four is visible (for the two nonadjacent pairs switch rows in column 1), and is maximal because all paths out of its center start with a selected vertex. Every pair extends by completing its column when co-columnar, or by adding a vertex at one endpoint's column in a row not used by the pair and putting any necessary switches at the other endpoint's column. For triples there is also a direct all-length argument independent of computation. A 2+1 distribution extends by filling the double column: from the singleton switch at its column, then travel in the target row. A full column extends into any existing neighbor. For one vertex in each of three occupied columns, add a fourth vertex in the middle column. For any outer-to-middle pair, switch if needed at the outer column; the other selected middle vertex cannot block the path. If outer rows are equal, visibility forces the existing middle vertex to be in a different row, and the added vertex uses the remaining row. If outer rows differ, choose a middle double that omits an outer row (pick an outer row different from the current middle row to omit); the outer-to-outer geodesic uses that omitted row between the outer columns and switches at the opposite outer endpoint. This proves the strengthened assertion and lower bound even for consecutive occupied columns. The original normalized certificate is valid as well: each empty gap of positive interior length supplies one equivalent switch option, while every occupied switch location stays distinct; same-row paths only test the order of selected columns. The independently replayed seven types yield 133 visible triples, 132 in-column extensions, and one full-column exception with all three neighboring-row additions working.
 
-**Residual scientific limits.** No result is claimed for other row widths, toroidal paths, total visibility, or an enumeration of all facets. Priority is provisional and independent audit is absent.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinction is the all-n lower bound and extension property for triangular path cylinders. The upper bound is an application of the prior Neighborhood Lemma. The same-graph maximum results, four-row lower results and triangular tori give different mathematical statements.
+
+## value
+
+PASS
+
+The triangular strip is the first nondegenerate cycle fiber in the published cylinder problem. An exact invariant at every length, and a local extension for all visible triples, are useful boundary results for that problem. The extension shows why extreme gap size between occupied columns cannot generate a small maximal obstruction in this family; it is not a maximum-value table entry or merely the prior neighborhood bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

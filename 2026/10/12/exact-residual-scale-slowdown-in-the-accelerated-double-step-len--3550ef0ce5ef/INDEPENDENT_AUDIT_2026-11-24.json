@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:07:36.607895Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–178; source DOI 10.30538/oms2026.0315 (14), (20)–(22), Algorithms 1 and 2; complete replacement /workspace/repairs/4/RESULT.md. Read frozen VERIFICATION.md, artifacts/verify_adsm_scalar_scale.py and artifacts/verification_output.txt. The reported VERIFY_OK is recorded output, not a fresh run. Frozen bounded replay from the source package: python3 artifacts/verify_adsm_scalar_scale.py."
+      ],
+      "rationale": "This pass is for repairs/4/RESULT.md. The frozen proof inferred a fixed-target count as a→0 from eventual grid stabilization at each fixed a, without controlling when stabilization occurs; also, the source's tolerance must qualify the phrase 'any fixed reduction'. The repair proves the full target count uniformly from the first step and explicitly restricts targets to those above the source tolerance. From δ_0=1 and the positive accepted length, v_k=a u_k with u_k=(α_k+α_k/η)q_k≠0 whenever the algorithm executes a step. Its update (20) is v_k²/(v_k u_k)=a. Test (21) divided by a²s_k² is exactly A(a)α²−Bα−χ_k/2≤0; the single positive root gives the first accepted r^m. The threshold tends from above to B/A without any monotonicity requirement. The next larger grid point is eventually rejected, whereas the limiting accepted point always passes, even in the grid-equality case. If reached, the stabilized step has 0<Bα<2 and hence modulus below one; for small a, rB/A<α≤B/A=Θ(a²), giving the stated factor and log index. Uniformly before stabilization, rB/A≤α_k≤B/A+√(χ_k/(2A))=O(a²+a√χ_k). For fixed summable sequence of sum S and small a this gives Bα_k≤1/2 at every calibrated step. Using x≤−log(1−x)≤2x and Cauchy–Schwarz, the total log drop after N calibrated steps is bounded below by c a²N and above by C(a+a²N+a√(NS)); the initial step drops only O(a) on the log scale. These bounds give both constants in Θ(a^(−2)) for every fixed target strictly above 10^(−5) and below 1, and the stopping rule cannot prevent reaching that target. No finite run is assumed to have visited a stabilized index.",
+      "residual_risks": [
+        "The supplied numerical script uses floating point and checks a bounded sample, not grid-boundary equality or finite-target uniformity; the replacement proves those analytically. The asymptotic statement fixes the parameters, summable relaxation sequence, and target independently of a, and assumes exact arithmetic and no additional iteration cap."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The source supplies a convergence theorem and specifies the exact iteration, not a residual-scale rate law in the checked passages. The older 2020 update already calibrates a scalar secant; MIDSL's norm inequality yields an analogous uniform upper bound on normalized scalar step sizes under calibration, not the lower bound on the actual accepted step supplied here by the verified single grid."
+        ],
+        "reasoning": "Convergence of a general nonlinear method does not give the sharp accepted-step count as the residual scale varies. The cited lower-bound mechanism is not enough to infer a matching iteration count or an exact limiting grid index.",
+        "searches": [
+          "ADSM primary convergence analysis and Algorithms 1–2; 2020 inexact method as reproduced by MIDSL equations (10)–(12); MIDSL prelimit inequality (36); constrained monotone method DOI 10.3934/math.2026448"
+        ]
+      },
+      "checked_sources": [
+        "Primary ADSM Algorithms 1–2; MIDSL equations (10)–(12), (16), (19)–(20), (36) and Remark 2.2; two indexed scalar-grid results; repaired RESULT.md relationship to prior work"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "ADSM visibly starts backtracking at m=0 on every iteration, has α/η as the coupled second length, and uses the first grid pass without a stated inner cap. Keeping the exact positive relaxation term controls the pre-stabilization length sum via summability, not merely the limiting local factor. The MIDSL text extraction exposed the direction and penalty bound but not its graphic Algorithm 1 and (21) in enough detail to verify exact accepted-grid equivalence."
+        ],
+        "reasoning": "On the inspected evidence the source definitions alone do not provide the fixed-target lower and upper log-drop bounds. The verification and proof credit the earlier mechanism and restrict the accepted claim to the actual ADSM dynamics, rather than claiming a new scale problem for double-step methods generally.",
+        "searches": [
+          "ADSM (20)–(22), Algorithms 1–2; MIDSL Remark 2.2 and Lemma 3.7 (36); compared Resultary grid findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "MIDSL writes the step as (α+β)d, with d a scalar-residual direction and separate length parameters. Its Lemma 3.7 derives inequality (36) containing both squared displacement and squared residual-direction terms. If the calibrated scalar direction is d=−D s with fixed D>0, use normalized displacement λ=D(α+β). Dividing (36) by a²s² gives the necessary inequality (1+ω_1/D²+ω_2/a²)λ²−2λ−χ_k≤0. Thus the same continuous scale penalty already occurs under a change of variables."
+        ],
+        "reasoning": "Neither the change of variables nor the known scalar secant principle identifies the earlier accepted grid in λ with ADSM's B r^m. Scale restriction should not be counted as distinct by renaming, but the exact accepted indices and matching bounds for the audited algorithm require its grid and a separate uniform analysis.",
+        "searches": [
+          "Resultary semantic searches for ADSM / scalar residual-scale slowdown; Halilu et al. 2026 (14), (20)–(22); Scientific Reports MIDSL DOI 10.1038/s41598-025-24537-z (16), (19), (20), (36)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The ACGD record has an absorbing one-backtrack band in a different scalar quadratic method. The Wolfe record concerns absence of an admissible trial below a scale cutoff, not increasingly small accepted ADSM steps. The frozen sample and source numerical experiments are bounded and are not exact ADSM grid/rate tables for all a."
+        ],
+        "reasoning": "No matching indexed exact expression or table was found in these comparisons. Neither a related scalar-grid phenomenon nor benchmark iteration counts cover the symbolic small-a asymptotic and uniform target result.",
+        "searches": [
+          "Resultary exact scalar grid and residual-scale queries; same-date adjustable-ACGD band; 2026/10/4 one-sided Wolfe grid scale frontier; primary paper and frozen verification sample"
+        ]
+      },
+      "rationale": "The distinct supported finding is the ADSM-specific combination of exact geometric-grid acceptance and eventual rate with matching uniform fixed-target work despite potentially late stabilization. Scalar secant recovery and the residual-versus-state quadratic penalty mechanism are not novel in themselves, and the repair explicitly credits both. No compared primary or indexed statement establishes or entails the full matched bound for that precise grid, update and stop rule. The comparison is best of current knowledge and does not assert that similar scalar slowdowns cannot occur in older methods.",
+      "residual_risks": [
+        "Precise older MIDSL search-grid coverage remains unresolved because the rendered algorithm body was not exposed in the inspected text. Potential detailed coverage in the inaccessible 2020 and constrained-monotone articles remains open. The pass does not credit the shared scale mechanism or claim global priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Specifies algorithm and hypotheses; no matched scalar complexity statement in the inspected material",
+          "evidence": "Algorithm 1 initializes m=0 and increments until (21) passes; Algorithm 2 initializes δ_0=1, performs (20) after the update, and stops at residual ≤10^(−5).",
+          "identifier_or_url": "10.30538/oms2026.0315",
+          "material_read": "Section 2 eqs. (14), (20), Algorithms 1 and 2, (21)–(22); pp. 5–6, extracted offsets about 16927–23776; start of Section 3",
+          "method": "OA publisher PDF primary passages",
+          "title": "An accelerated double-step-length iterative method for nonlinear systems of equations with applications to motion control",
+          "trigger": "Exact source algorithm, merit function and stopping regime"
+        },
+        {
+          "assessment": "Mechanism overlaps materially; exact accepted-grid equivalence and complete complexity coverage not established",
+          "evidence": "The direction is −ρ_k δ_k^(-1)F(s_k) and the displacement uses α+β; (36) directly compares both quadratic penalties to a relaxed residual decrease. The experiment cap does not establish an algorithmic cap.",
+          "identifier_or_url": "https://www.nature.com/articles/s41598-025-24537-z.pdf",
+          "material_read": "pp. 4–6, eqs. (10)–(12), (16), (19)–(20), Remark 2.2 and (36); pp. 8 experiment stopping context. Decisive extracted PDF ranges 20500–25146 and 30630–33893. The body of Algorithm 1 and exact grid were not resolved by text extraction.",
+          "method": "OA publisher PDF passages; identified PMC and Europe PMC routes tried for missing algorithm detail",
+          "title": "Modified iterative double step length model for solving nonlinear systems with application to motion control",
+          "trigger": "Potential same residual-scale mechanism in a prior two-penalty double-step algorithm"
+        },
+        {
+          "assessment": "Scalar calibration covered; exact scalar grid and rate in this 2020 source not independently resolved",
+          "evidence": "The displayed squared-secant over displacement inner-product update gives the exact slope when the displacement is nonzero.",
+          "identifier_or_url": "10.19139/soic-2310-5070-532",
+          "material_read": "Relevant update as reproduced in MIDSL p. 4, eqs. (10)–(12); direct full text not retrieved",
+          "method": "Lawful OA and repository recovery attempted; secondary reproduction of equations inspected",
+          "title": "Inexact Double Step Length Method For Solving Systems Of Nonlinear Equations",
+          "trigger": "Ancestor of scalar secant update and inexact search"
+        },
+        {
+          "assessment": "Detailed coverage unresolved; not used as negative novelty evidence",
+          "evidence": "The DOI identifies the constrained monotone algorithm; no exact scalar formula passage was available in inspected material.",
+          "identifier_or_url": "10.3934/math.2026448",
+          "material_read": "Bibliographic identification; no primary full-text passage obtained",
+          "method": "Bounded publisher, DOI and lawful repository-copy attempts",
+          "title": "Accelerated double step-length method for solving monotone nonlinear equations with convex-constraint and application",
+          "trigger": "Close constrained two-step algorithm with similar terminology"
+        },
+        {
+          "assessment": "Different algorithm and rate law",
+          "evidence": "Addresses adjustable ACGD's one-backtrack band and scalar tradeoff, not ADSM residual scaling.",
+          "identifier_or_url": "2026/10/12/SCOPE-an-absorbing-one-backtrack-band-in-adjustable-acgd-and-a-sharp-s--fb3a10426f65",
+          "material_read": "Finding",
+          "method": "OA local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "An absorbing one-backtrack band in adjustable ACGD and a sharp scalar rate tradeoff",
+          "trigger": "Same-date exact scalar backtracking finding"
+        },
+        {
+          "assessment": "Different search and conclusion",
+          "evidence": "Its scalar Wolfe grid can have no output below a cutoff; ADSM always has a positive accepted trial and the question is its small magnitude and iteration count.",
+          "identifier_or_url": "2026/10/4/SCOPE-exact-scale-frontier-for-the-one-sided-wolfe-grid-in-robust-stee--7a86ea802018",
+          "material_read": "Finding",
+          "method": "OA local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact scale frontier for the one-sided Wolfe grid in robust steepest descent",
+          "trigger": "Indexed one-sided grid and scale threshold"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired Finding, Proof and Scope; ADSM test (21) and Algorithms 1–2; MIDSL (36) for the scope of shared prior mechanisms"
+      ],
+      "rationale": "The scalar family is a motivated scale diagnostic: all starts have the same nonzero residual and every Jacobian has condition number one. After a single executed step the update has already found the true slope, yet the published search rules enforce a polynomial increase in work to a physically identical residual target. The precise order is useful for interpreting or testing scale robustness of the actual algorithm; it is stronger than an eventual multiplier alone, which could be irrelevant before stopping. The repair retains that finite-work conclusion without crediting a mechanism already shared by another method.",
+      "residual_risks": [
+        "This is a scalar exact-arithmetic obstruction, not a general problem complexity theorem, a claim of divergence, or a recommendation to remove a convergence penalty."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

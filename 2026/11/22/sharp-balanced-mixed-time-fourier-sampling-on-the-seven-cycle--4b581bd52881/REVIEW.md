@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The domain, equal weighting, unitary normalization, and all \(\binom73\binom74=1225\) quantifiers are fixed. The two-projector canonical-angle identity reduces the condition objective to the least eigenvalue of an unmeasured-frequency three-by-three Gram block. All 1225 cases are exactly partitioned into seven explicitly generated affine orbits. Exact cyclotomic computations of \(\det(5G-7I_3)\), rational bounds \(6/5<u<5/4\), and Sylvester positivity for the one winning representative separate all winners from all losers at the strict \(1/5\) threshold. The winning characteristic cubic and 147 optimizer description are derived from that same orbit. The included standalone `check.py` was executed successfully; it uses no floating-point spectral comparison to establish an exhaustive result. Risk: a human could find a coding bug in the finite certificate or a flaw in the standard two-projection argument; no independent replay is asserted.
+## correctness
 
-## Originality — PASS relative to inspected evidence
-Kayaalp–Szehr (arXiv:2603.16242) motivates the combined time/Fourier operator but does not provide the exact seven-dimensional simultaneous 1225-pattern optimization. Perlstadt (1981) is the closest older foundational comparison: it analyzes sensitivity through the Fourier submatrix for fixed missing frequency indices, and develops criteria for conditioning, not this exact joint pattern classification and stacked-operator E-optimum. The full general Fourier full-spark principle does not imply an E-optimal constant. A closely related indexed two-time-site/all-but-two-Fourier-bin classification uses a different dimension of compression, and a four-consecutive-row determinant optimization uses a different goal. Residual risk is older unpublished/specialized exact seven-cycle calculations, including thesis material or unindexed tables; a failed search cannot prove universal novelty.
+PASS
 
-## Mathematical value — PASS
-Mixed time/Fourier sampling at a fixed exactly critical seven-sample budget is an explicit contemporary design problem. The first nontrivial three-by-three compressed Fourier minor admits five distinct spectral strata; the strict algebraic separation, complete optimal geometry and exact sharp noise condition are useful information absent from generic nonsingularity or determinant bounds. This is a natural complete finite cutoff, not an arbitrary numerical slice or a purported general theorem.
+In the measurement row Gram matrix the two diagonal blocks are identities and the cross block is the measured Fourier submatrix or its adjoint. A block SVD gives the spectrum 1 and 1±s_j, with s_j²=1−h_j by unitarity and h_j the eigenvalues of the omitted 3×3 Fourier Gram matrix. Both objectives therefore depend monotonically on its least eigenvalue. Independently evaluated every pair of labelled triples using Cauchy–Binet sums of squared 2×2 minors and a squared 3×3 determinant via integer autocorrelations of permutation exponents modulo 7. Positive determinant certifies invertibility for every design. Sign enclosures using 6/5<u<5/4 separate all 1078 losing pairs by negative shifted determinant and all 147 winners by positive leading minors of 5G−7I. Reconstructed seven disjoint affine orbits and checked that the only winning orbit is exactly the pairs of AP triples with step product ±2, using the omitted triple, not the measured four-set. The winning invariants tr G=9, e₂(G)=22+3u and det G=14+7u give the stated cubic and constants after normalizing G=7H. The apparent 'six or seven' wording in the scope paragraph is immaterial to the expressly fixed 3+4 experiment.
 
-## Limits
-Equal noise weights, complex linear samples, seven-cycle only. No claim about optimal designs for other lengths, intensity-only samples, or independent review.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Prime-order invertibility, block spectral reduction, and the time/Fourier sampling framework are not new in isolation. The supported distinct claim is the exact equal-weight stacked-operator 3+4 design optimum, its orbit classification and strict gap. The nearest inspected records change the budget or the measurement operator; best-of-knowledge only, with old finite-table risk stated explicitly.
+
+## value
+
+PASS
+
+The equal-normalization stack controls worst-direction amplification of measurement error in a natural balanced sampling budget. Seven is the first prime with both progression and non-progression triples; the exact 3+4 optimum, complete design rule and strict separation distinguish genuinely different geometries and answer a quantitative question not answered by full spark. The result matters at this design size without promising general optimal designs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

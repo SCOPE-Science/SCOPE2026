@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:58:33.681123Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A quotient right inverse lifts uniquely to an extension agreeing at every vertex by choosing the output representative that agrees at one fixed vertex. Each lifted evaluation has mass 1 and may have signed coefficients. On the equilateral vertices a zero-mass difference has norm equal to its positive mass: the vertex data 1 on positive coordinates, 0 on the rest attain it. For the unit-edge simplex, embed vertices as e_i/√2 up to isometry and translation; barycentric differences therefore have squared distance (k+l−2t)/(2kl). Averaging preserves the right inverse and cannot increase norms, and forces the full-centroid measure to be uniform. The vertex-to-full-centroid pair gives C_n=√(2(n−1)/n). At a seven-face the inside coefficient a is common; the two indicator tests give 1−a≤||E||√(3/7) and 7a−7/n≤||E||√((n−7)/(14n)), regardless of signs. Adding after dividing the second by 7 yields B_n. With y=√(1−7/n), B_n/C_n=√(6+y²)/(√6+y/7), greater than 1 exactly when y²>49/96, or n>672/47. This proves strict failure for all integers n≥15, without asserting the exact value there. For 3≤n≤14 I independently replayed the exact finite upper certificate with /workspace/branches/replay_simplex.py, taking the path to the frozen verify_barycentric.py as its argument. It parses only the literal weight data, does not execute the supplied checker, and constructs actual barycentric vectors and evaluation vectors on all stabilizer representatives, choosing the second subset by its counts inside and outside the first. The exact squared inequalities passed in all 1,489 unordered pair orbits, with exactly the 12 vertex–full-centroid equalities and strictly positive other slack (minimum 200006288271/1225000000000000). The intermediate-rank weights are strictly positive and normalized; the singleton weights are the required point masses. This proves the full-set upper bound, not just separate bounds at different ranks.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Basso Theorem 1.4 takes a supremum over ambient metric super-spaces, not an evaluation for the one barycentric point set. Bruè–Di Marino–Stra Theorem 4.1 gives an O(log doubling constant) bound. Basso's 2019 thesis, Theorem 1.11 and p. 50 Lemma 2.23 proof in the PDF extraction, treats the absolute-constant supremum and an unrelated standard simplex parametrizing convex combinations of ℓ¹ shifts."
+        ],
+        "reasoning": "The general constructions and projection reductions do not supply the sharp mixed-rank norm inequalities, or the 14/15 transition. The thesis's use of ‘barycentric’ is about metric spaces supporting barycenter structures, not an evaluation for regular-simplex barycentric subdivision.",
+        "searches": [
+          "Basso arXiv:2104.14238 Theorem 1.4 and Lemma 3.1",
+          "Bruè–Di Marino–Stra arXiv:1801.07533 Theorems 3.2 and 4.1",
+          "Basso thesis DOI 10.3929/ethz-b-000398970: simplex and relative projection constant"
+        ]
+      },
+      "checked_sources": [
+        "Resultary dd3547847288 and 062ae3b7e374 findings",
+        "Basso arXiv:2104.14238 and 2019 ETH thesis",
+        "Bruè–Di Marino–Stra arXiv:1801.07533",
+        "Frozen RESULT.md, VERIFICATION.md and verify_barycentric.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The fixed-k source installs just one rank alongside the vertices; the frozen obstruction needs a seven-face AND the full centroid. Its positive proof checks tensions between every pair of ranks of one operator."
+        ],
+        "reasoning": "Separate extensions to single ranks do not glue with the same norm: they leave entirely untested the comparison between a seven-face evaluation and the full-centroid average. Even a bound on the supremum of separate fixed-rank norms is not a bound on the norm on their union. A general projection/LP formulation alone also does not evaluate the needed finite constants.",
+        "searches": [
+          "Resultary dd3547847288 Finding and Limitations (local offsets 0 and about 8000)",
+          "Resultary 062ae3b7e374 Finding",
+          "Basso finite-pair projection identity"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Basso Lemma 3.1 equates the finite-pair linear Lipschitz extension modulus and relative projection constant on Lipschitz-free spaces. Bruè–Di Marino–Stra §3 relates probability-valued Lipschitz random projections to extension by integration."
+        ],
+        "reasoning": "The unrestricted optimization has a relative-projection formulation; the positive certificate also gives a probability-kernel interpolation with Kantorovich norm. Neither equivalence gives the exact constant of this inclusion. Positivity is proved for the exhibited upper witnesses, not assumed when proving the lower bound.",
+        "searches": [
+          "exact linear Lipschitz extension projection constant equilateral regular simplex vertices all nonempty face centroids barycentric subdivision seven vertex faces 14 15 sharp Lipschitz free spaces",
+          "Basso arXiv:2104.14238 Lemma 3.1; Bruè–Di Marino–Stra arXiv:1801.07533 §3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary dd3547847288 gives the exact fixed-rank norm for each 3≤k≤n−1 and explicitly excludes mixing ranks. Resultary 062ae3b7e374 gives a sharp rank-2 midpoint formula. The published search surfaced Basso's general projection work and thesis rather than the cutoff."
+        ],
+        "reasoning": "These are neighboring exact results, not an all-ranks table. No inspected entry gives the all-union certificate or cutoff. The same-day date of dd3547847288 says nothing about priority.",
+        "searches": [
+          "Resultary: full barycentric subdivision simplex centroid extension; fixed-face-rank and edge-midpoint variants",
+          "Resultary dd3547847288 and 062ae3b7e374, local RESULT.md findings",
+          "Web search: exact simplex all face centroids extension constant cutoff 14 15"
+        ]
+      },
+      "rationale": "The supported contribution is the sharp all-face cutoff for a single common linear extension, not the older relative projection framework, edge-midpoint or fixed-k formulas, or the full-centroid bound in isolation. The strongest indexed overlap has exact fixed-k simultaneous interpolation, but that quantifier is over all faces of one rank; the mixed-rank inequalities are absent and explicitly excluded. No inspected more general theorem entails the frozen cutoff.",
+      "residual_risks": [
+        "The search was limited; independently derived or less-indexed exact finite-metric/finite-element calculations cannot be excluded.",
+        "Do not claim historical priority for the general projection framework or separately optimized fixed-rank problems."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact fixed-rank result, explicitly excluding mixed cardinalities",
+          "evidence": [
+            "For each fixed 3≤k≤n−1, one operator covers the vertices and all k-face centroids; optimization across n,k remains across separate problems"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/27/SCOPE-sharp-simultaneous-lipschitz-interpolation-on-all-regular-simple--dd3547847288/RESULT.md",
+          "material_read": "Local-mirror Finding and Limitations (offsets 0 and about 8000)",
+          "method": "Compared point sets and quantification over ranks",
+          "title": "Sharp simultaneous Lipschitz interpolation on all regular simplex faces of a fixed rank",
+          "trigger": "Strongest exact simplex-face overlap"
+        },
+        {
+          "assessment": "Covers rank 2 only",
+          "evidence": [
+            "Domain includes vertices and edge midpoints, not the full barycentric point set"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-sharp-linear-lipschitz-extension-to-the-edge-midpoints-of-a-regu--062ae3b7e374/RESULT.md",
+          "material_read": "Local-mirror Finding, offset 0",
+          "method": "Compared the claimed point set and norm",
+          "title": "Sharp linear Lipschitz extension to edge midpoints of a regular simplex",
+          "trigger": "Earlier exact extension with one additional rank"
+        },
+        {
+          "assessment": "General framework, not a covering constant for the prescribed inclusion",
+          "evidence": [
+            "Finite-pair extension/projection equality; supremum characterization of the absolute constant"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2104.14238",
+          "material_read": "Lemma 3.1 (PDF p. 11, extraction offset about 32500); Theorem 1.4 (p. 4, about 12350)",
+          "method": "Read the identities and compared the ambient-space quantifiers",
+          "title": "Absolute Lipschitz extendability and linear projection constants",
+          "trigger": "Relative Lipschitz-free projection formulation"
+        },
+        {
+          "assessment": "Existence and a doubling-based bound, no exact all-face cutoff",
+          "evidence": [
+            "A Lipschitz random projection yields an operator by integration; Theorem 4.1 bounds the norm by O(log doubling constant)"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1801.07533",
+          "material_read": "Theorem 3.2 and Remark 3.3 (p. 9, offset about 26800); Theorem 4.1 (pp. 11–12, about 35800)",
+          "method": "Read the construction hypotheses and bound",
+          "title": "Linear Lipschitz and C¹ extension operators through random projection",
+          "trigger": "General positive kernel construction and extension bounds"
+        },
+        {
+          "assessment": "Barycentric metric spaces and absolute extension/projection theory, not the specified simplex-centroid finite metric",
+          "evidence": [
+            "Theorem 1.11 takes the supremum over finite super-spaces; the simplex in Lemma 2.23 only parametrizes convex combinations of shifts"
+          ],
+          "identifier_or_url": "https://doi.org/10.3929/ethz-b-000398970",
+          "material_read": "ETH open-copy PDF title and abstract, projection-constant passage around offset 34169 / Theorem 1.11, and simplex passage around 110090 / Lemma 2.23",
+          "method": "Read bounded PDF passages after locating the relevant terms and compared both objects",
+          "title": "Fixed point and Lipschitz extension theorems for barycentric metric spaces",
+          "trigger": "Potential covering thesis with barycentric and exact projection results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The geometry and benchmark are canonical: compare a global interpolation on the full barycentric subdivision with the exactly forced cost for the full centroid alone. The first incompatibility is not visible from individual face ranks. The finite positive result certifies simultaneous compatibility through fourteen vertices, and the two explicit witnesses exclude it for every larger size, locating a mathematically meaningful first failure without an all-dimensional numerical sweep.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

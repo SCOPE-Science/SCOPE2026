@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The domain is the bilateral binary full shift, the image is one-step, and periodicity is spatial with periods permitted to divide the declared period. The path-relation lemma is proved both ways in `RESULT.md`. Every possible relation word belongs to the finite closure of two four-state Boolean matrices, so classifying all reached relation girths proves the infinite-word assertion. Two independent exact representations recover identical monoids for all 256 rules; every reached relation's shortest cycle is crosschecked by a separate simple-cycle traversal. The complete 256-row table, orbit decomposition, shortest witnesses, and bounded cyclic-ring comparisons have been replayed with `verify.py`. No probabilistic sampling or computational timeout is used in the decisive argument.
+## correctness
 
-## Originality — PASS under inspected evidence
-Primary comparisons were statement-based. Salo–Törmä (arXiv:1309.2456) gives periodic-point conditions for block-map sections, not the index spectrum. Castillo-Ramírez–Gadouleau (arXiv:1701.02692) addresses regularity and specific constant-output obstructions, while Salo (arXiv:2209.13373, §6.1 and Proposition 19) addresses regularity and whether same-period preimages always exist; Salo specifically already supplies the Rule 41 period-three obstruction. The present global claim is not that example, but the exact four-way census over 256 rules, its fourfold extremizers, and the sharp universal witness cutoff. Meunier (arXiv:1406.5306) classifies elementary rules via communication complexity, not this periodic lifting invariant. Published research-record searches for period lifting, periodic image antecedents, and the exact numerical spectrum returned no logically covering claim; such searches cannot establish uniqueness. Historical implicit computations and priority remain residual risks.
+PASS
 
-## Mathematical value — PASS
-For non-surjective dynamical maps, the arithmetic cost of lifting a periodic output to a periodic antecedent is a natural obstruction used when studying sections and regularity. Rather than a single arbitrary rule or one witness, the theorem evaluates that invariant on the entire canonical family of elementary cellular automata, identifies the two maximizers, and proves a uniform sharp finite witness cutoff independent of output period. The distinction among equal-period, double, triple, and quadruple lifts supplies an exact structural classification that prior binary same-period tests alone do not supply.
+A bi-infinite predecessor segmented at word boundaries gives a walk in the word relation and hence a directed cycle. A closed walk of length k concatenates to a legal periodic predecessor with period dividing k|w|; conversely such a predecessor gives a closed walk of length k. The shortest closed walk is a simple cycle, so the least multiplier is at most four whenever one exists. This also works for words whose least period divides their length. Closing the two generators on the right from the identity captures all words; the identity, of girth one, cannot inflate any rule's index. An independent edge-set implementation propagated distances to find first returns at each of the four vertices and traversed every reachable relation in breadth-first order. It matched all 256 CSV rows, counts (156,82,16,2), maximum closure size 2375, both exception classes and their orbit partitions, and precisely the ten rules with first witness length three. Direct periodic evaluation gives outputs 001001, 1111 and 0000 for the three stated examples. Replay: python3 /workspace/branches/replay_eca.py <frozen record directory>/classification.csv. This did not execute the supplied verifier or reproduce its auxiliary n≤7 ring sweep. Symmetry follows from commuting reflection and bit flip with all period constraints (output flip complements the target). The proof is a spatial one-step result on the bilateral shift, not a statement about temporal cycles or continuous right inverses.
 
-## Limits and literature
-The proof relies on exhaustiveness of a finite monoid computed for the fixed 256 elementary rules; the included algorithm and 256-row table are sufficient to reproduce the certificate. Larger radii and alphabets are not classified. Full historical priority, including unindexed catalogues, remains open. Relevant inspected works are Salo and Törmä (2013), Meunier (2014), Castillo-Ramírez and Gadouleau (2017 preprint), and Salo (2022 preprint / 2023 publication). A separate independent scientific audit has not yet occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct claim is the complete target-dependent lifting-index census with exact short-witness cutoff. The closure-graph method, the weak same-period condition, and individual obstructions are established work, not credited as new. Closely overlapping catalogue claims were compared on their actual multipliers and quantifiers.
+
+## value
+
+PASS
+
+Among periodic points already known to be attainable, the index measures the least extra ring length one must permit when a lift is unavailable at the target period. The exact spectrum separates cases not distinguished by the common-multiplier table, and the sharp length-three cutoff gives useful minimal obstruction tests despite the all-period quantifier. This is a motivated finite classification with a verified cutoff, not merely an enumeration of rule codes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

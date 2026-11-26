@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T12:28:22.384098Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–55",
+        "Frozen VERIFICATION.md and checker.py, read-only; algebraic checks at checker.py lines 13–23 and diagnostics at lines 25–39"
+      ],
+      "rationale": "Ignore isolated zeros when listing the negative sign intervals. If their total length is less than 1−g, terminal-only negative regions exclude both Gauss nodes, which cannot both be even-multiplicity zeros of a nonzero cubic. The all-negative pattern already has excessive length. For a single interior interval, the affine factor in (x−a)(x−b)(alpha+gamma x) is nonnegative on the support, so nonpositive mean forces 1+3ab≤|a+b|, whence the half-width squared is at least (|midpoint|−1/3)^2+2/9. For the mixed pattern, write the terminal root as −t and the width of the interior negative interval as v. Under the putative shorter length, g<t≤1 and 0<v<t−g. Completing the square bounds the necessary nonnegative quantity a+b+c+3abc by −t+1/(3t)+3tv²/4<(3t²−1)(t²/4−1/3)/t<0. Reflection covers the opposite pattern. The exact zero-mean witness (x+g)^2(g−x) saturates the support bound and forces failure on the event all nodes are below g, modulo a null event. The distinct nodes form a full-dimensional simplicial hull by the Vandermonde determinant. An outside target violates a facet inequality; for each triple and orientation the remaining nodes are iid conditionally, so the support bound gives the stated union bound. Boundary membership has probability zero because the triple-root cubic mean is a nonidentically-zero polynomial of three continuous roots. For an interior target, mixing in a sufficiently small positive multiple of the sample centroid leaves another point of the hull, hence gives a representation with all weights positive. These facts imply both the stated finite bounds and the root limit.",
+      "residual_risks": [
+        "The checker was not executed; the independent exact witness and sign-pattern argument establish the required claim without Monte Carlo. The bounds are not a finite-N equality or a sharp prefactor."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hayakawa et al. Eq. (7), Lemma 12 and Proposition 13 establish bounds for arbitrary random vectors in terms of depth, including singular laws such as moment-curve distributions.",
+          "Neumayer et al. Theorem 1.1 provides a sufficient sample size under a leverage-density bound and weight control; Theorem 4.2 is a sampling-and-compression construction. Neither provides the model's extremal halfspace mass."
+        ],
+        "reasoning": "General positive cubature and random-hull theory substantially cover the reduction and confidence bounds, but do not evaluate the sharp law-specific constant.",
+        "searches": [
+          "Hayakawa Lyons Oberhauser estimating probability given vector convex hull random sample Tukey depth arxiv exact exponential rate",
+          "arXiv:2610.32699v1, Theorems 1.1 and 4.2",
+          "Resultary: random positive quadrature and halfspace depth"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–13 and 60–70",
+        "Resultary records b7a650b3a43c, 03159ea86990, c46807d7872b, 710c8d9d9533 and 9c78a268e37b",
+        "arXiv:2101.04250v2 and arXiv:2610.32699v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Uncapping Eq. (7) and iterating from n=d in Lemma 12 gives P(failure)≤binom(n,d)(1−depth)^(n−d). Substituting the newly checked depth with d=3 even removes the record's factor of two. The exact witness supplies the matching lower rate.",
+          "Projection onto the first two moments gives a necessary feasibility test, not a cubic sufficiency criterion; its known quadratic rate 2/3 is below the cubic rate."
+        ],
+        "reasoning": "The general result implies the probabilistic statement conditional on a depth evaluation, but it does not imply the numerical exponent from uniformity or the cubic moment conditions alone. The substantive surviving contribution is the exact evaluation via sign geometry.",
+        "searches": [
+          "Hayakawa et al., Eq. (7), Lemma 12; Neumayer et al., Theorem 1.1; Resultary 03159ea86990 and c46807d7872b Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A centered linear functional of (X,X²,X³) is exactly a cubic of mean zero, allowing degrees below three; the record computes the smallest closed halfspace mass through the centroid as (1−1/√3)/2. Nonzero polynomials have a null zero set under the given law.",
+          "The inspected general depth theorem uses this mass as input; the targeted external exact-depth lookup returned no result. The distinct three-convex-slices depth record deals with a different law."
+        ],
+        "reasoning": "The relevant alias is the Tukey depth of the mean of the uniform cubic moment curve. The stronger framework does not by itself evaluate that input. An empty lookup is not evidence of priority.",
+        "searches": [
+          "Resultary: cubic uniform random-node feasibility, cubic sign support, (1+1/sqrt(3))/2",
+          "Web: ‘moment curve’ ‘Tukey depth’ uniform mean cubic quadrature OR ‘halfspace depth’ cubic polynomial uniform Legendre 1/sqrt(3) sign measure",
+          "Hayakawa–Lyons–Oberhauser arXiv:2101.04250v2, depth definition and Eq. (7)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact cubic hit b7a650b3a43c is the assigned record itself. Distinct quadratic records 03159ea86990 and c46807d7872b compute the uniform quadratic rate 2/3, the latter giving an all-sample law; 710c8d9d9533 is a quadratic arcsine-sampling result."
+        ],
+        "reasoning": "The degree-two and changed-sampling exact results do not give the degree-three uniform moment-curve depth. No separate exact cubic result was located in the inspected catalog evidence.",
+        "searches": [
+          "Resultary: exact cubic random-node failure exponent and sharp cubic sign-support bound; uniform and arcsine random quadratic laws"
+        ]
+      },
+      "rationale": "Pass for the sharp depth calculation for the uniform three-coordinate moment curve and its numerical cubic-quadrature consequence. Hayakawa–Lyons–Oberhauser already provide the general depth-to-convex-hull failure bound, even for singular laws; once the depth is known it gives the same rate and a stronger finite upper bound than this record. The distinct mathematical work is the sharp cubic sign-support calculation, not the general random-hull or depth mechanism. No inspected source supplies that depth for this law or otherwise implies the cubic numerical constant without an additional extremal argument.",
+      "residual_risks": [
+        "Earlier unindexed exact moment-curve depth calculations remain possible. Donoho–Gasko full text and the referenced Stable high-order randomized cubature formulae in arbitrary dimension were not available in bounded retrieval (landing page only and timeout respectively); no negative inference was drawn from those failures."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General quantitative implication established; cubic uniform depth remains a separate input",
+          "evidence": "Lemma 12 applies to an arbitrary d-dimensional random vector, including at epsilon=0. The recursion multiplies by n(1−alpha)/(n−d), capped at one.",
+          "identifier_or_url": "https://arxiv.org/html/2101.04250v2",
+          "material_read": "Eq. (7), Lemma 12 and proof, Proposition 13 and beginning of proof, HTML offsets 48830–54162; depth setup also inspected in v1, §1",
+          "method": "Direct OA HTML (arXiv), bounded passage reading",
+          "title": "Estimating the probability that a given vector is in the convex hull of a random sample",
+          "trigger": "Potentially stronger general theorem subsuming the failure rate"
+        },
+        {
+          "assessment": "General existence with controlled weights; does not evaluate the exact cubic sign mass",
+          "evidence": "Theorem 1.1: sufficient m≥134 gamma n log(4n/delta), under the stated sampling-density comparison; Theorem 4.2: compressed bounded-weight rule with 2n nodes.",
+          "identifier_or_url": "https://arxiv.org/html/2610.32699v1",
+          "material_read": "Theorem 1.1 around HTML offset 5098; Theorem 4.2 around 109218",
+          "method": "Bounded OA HTML inspection",
+          "title": "Random nodes with positive weights: Richter–Tchakaloff rules and optimal positive quadrature",
+          "trigger": "Primary general positive random-node quadrature coverage"
+        },
+        {
+          "assessment": "Adjacent degree only",
+          "evidence": "Degree-two rate max{(1+q)/2,1−sqrt(q)} gives 2/3 at q=1/3.",
+          "identifier_or_url": "2026/11/1/SCOPE-exact-random-node-feasibility-and-a-two-mechanism-phase-transiti--03159ea86990",
+          "material_read": "RESULT.md Finding, offset 0 passage",
+          "method": "Local Resultary mirror",
+          "title": "Exact random-node feasibility and a two-mechanism phase transition for positive quadratic quadrature",
+          "trigger": "Closest exact rate in a lower degree"
+        },
+        {
+          "assessment": "Exact degree-two law, not degree three",
+          "evidence": "Degree-two failure asymptotic 3(2/3)^m.",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-all-sample-positivity-probabilities-for-random-quadratic-q--c46807d7872b",
+          "material_read": "RESULT.md Finding, offset 0 passage",
+          "method": "Local Resultary mirror",
+          "title": "Exact all-sample positivity probabilities for random quadratic quadrature",
+          "trigger": "Exact probability law in matching sampling model"
+        },
+        {
+          "assessment": "Different feature-space law",
+          "evidence": "Three centrally symmetric convex slices with an equal-volume depth bound; no cubic moment-curve evaluation in the inspected statement.",
+          "identifier_or_url": "2026/10/18/SCOPE-exact-halfspace-depth-law-for-three-symmetric-convex-slices-and--9c78a268e37b",
+          "material_read": "RESULT.md Finding, offset 0 passage",
+          "method": "Local Resultary mirror",
+          "title": "Exact halfspace depth law for three symmetric convex slices",
+          "trigger": "Equivalent depth formulation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–19 and 49–55",
+        "Quadratic uniform-node comparison 03159ea86990; Hayakawa et al., Lemma 12"
+      ],
+      "rationale": "The exact depth distinguishes quadratic from cubic exactness for the same random-node law and sets a sharp exponential confidence scale for cubic positive quadrature. The extremal polynomial and sign analysis identify the precise obstruction in a natural fixed moment problem; this is useful independently of the standard convex-hull reduction.",
+      "residual_risks": [
+        "No subexponential asymptotic, weight conditioning, or algorithmic guarantee is inferred."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

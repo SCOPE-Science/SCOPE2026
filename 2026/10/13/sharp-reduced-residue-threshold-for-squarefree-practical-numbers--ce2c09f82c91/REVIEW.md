@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The statement quantifies separately over every fixed modulus coprime to \(6\) with at most three distinct prime divisors, then every unit residue. The Stewart–Sierpiński criterion is applied only to squarefree products with increasing primes. The initial inequalities use the first four and five primes beyond \(3\); subsequent extensions use four iterations of Bertrand and the strict bound \(A_j\ge30q_j\). The prime number theorem for fixed moduli provides a new prime above every factor of the backbone and in the requested residue, preserving both practicality and squarefreeness. The obstruction at \(5005\) is exhaustive because every nontrivial squarefree practical integer starts with \(2,3\). The precise number \(5005\) is the minimum product of four primes exceeding \(3\). The script supports finite cases but is not treated as proof.
+PASS
 
-## Originality — PASS relative to inspected literature
+For fixed m coprime to 6 with at most three prime divisors, start the allowed-prime product with 6. The next two allowed primes are at most 13 and 17, respectively, within their Stewart–Sierpiński bounds. Thereafter among the next four primes above q_j at least one is allowed; four Bertrand bounds put it below 16q_j, while the current product A_j is at least 30q_j. This proves each squarefree, m-coprime backbone is practical. With X_j=1+σ(A_j), the fixed-modulus PNT in progressions, uniformly over the finitely many unit classes, supplies a prime in (X_j/2,X_j] in class b/A_j for all sufficiently large j. This prime exceeds q_j and can be appended by the same criterion. The resulting products are unbounded. For m=1 this is ordinary PNT. Conversely any squarefree practical N>6 starts with 2,3 followed by one of 5,7,11,13, so cannot be coprime to 5005. Each of 1,2,6 is practical and coprime to 5005, and no smaller m coprime to 6 can contain four distinct prime factors.
 
-Somu–Li–Kukla's primary source proves a progression theorem for unrestricted practical integers but does not restrict to squarefree ones. Weingartner's distribution theorem likewise covers prime-factor-constrained sets including ordinary practical numbers but not the exact squarefree threshold. OEIS A265501 gives values and global asymptotic comments, not the boundary for every reduced class. Mathematical-record searches and comparisons to prior local claims found no statement that implies both infinite squarefree representatives for all smaller coprime moduli and the exhaustive \(5005\) obstruction. Equivalent, unindexed older work remains a residual risk.
+## originality
 
-## Value — PASS
+PASS
 
-Requiring squarefreeness fundamentally changes the reduced-class infinitude problem for practical integers: the known unrestricted theorem ensures infinitely many ordinary practical values even where the new squarefree class has just three members. The first obstruction and its exact value are determined from the prime-extension structure, not chosen as an arbitrary numerical example. The proof includes a uniform three-forbidden-prime result and a sharp four-prime boundary.
+No inspected statement covers both squarefreeness and practicality in the claimed unit classes. The obstruction pinpoints why the ordinary practical-number progression theorem cannot be inherited by its squarefree subset. Credit applies to the simultaneous fixed-modulus existence and sharp first failure, not the Stewart–Sierpiński criterion or arbitrary results for squarefree integers.
 
-## Limits
+## value
 
-The theorem does not classify all moduli above \(5005\) or give counting asymptotics. Independent auditing has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The smallest failing modulus is a natural extremal invariant for the distribution of squarefree practical numbers. The result gives both a constructive positive regime for all unit classes and a complete obstruction at its first failure, where the unrestricted practical-number AP result behaves differently. It is not a finite tabulation or a claim to classify every larger modulus.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

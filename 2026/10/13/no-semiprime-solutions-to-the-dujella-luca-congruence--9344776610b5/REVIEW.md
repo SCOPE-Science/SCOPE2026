@@ -1,12 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The condition \(\Omega(n)\le2\) leaves exactly primes, prime squares, and squarefree semiprimes. Primes satisfy the congruence identically. For \(p^2\), the identity \(p^3\equiv1\pmod{p^2+p+1}\) reduces the congruence to \(p^2+p+1\mid p-3\), forcing \(p=3\). For an even squarefree semiprime \(2q\), reduction modulo \(q+1\) gives the impossible divisibility \(q+1\mid2\). For odd \(pq\), the two factor congruences force \(p\equiv q\equiv1\pmod4\); then the target difference has \(2\)-adic valuation \(1\) while \(\sigma(pq)\) has valuation \(2\), a contradiction. The proof covers all sizes and all boundary cases.
+## correctness
 
-## Originality
-PASS. Dujella–Luca give the prime-power classification, a fixed-prime-set finiteness theorem, and an exact solution for support \(\{2,3\}\); they explicitly say a general effective treatment of fixed two-prime supports was not worked out. Bujačić later handles only the fixed support \(\{2,5\}\). The present statement instead allows both primes to vary and rules out every squarefree semiprime. Exact-form, alias, and implication searches did not locate that uniform semiprime exclusion or a stronger theorem implying it. The residual risk is an unindexed elementary observation.
+PASS
 
-## Value
-PASS. The source studies an unresolved arithmetic-function congruence and highlights two-prime support as the next natural effective regime. Prime-factor multiplicity is a natural global complexity measure independent of a fixed support. The theorem completely resolves the first composite multiplicity layer, showing that the known prime-square value \(9\) is the only composite there and that all variable-prime semiprimes are impossible. This is an unbounded structural classification, not a bounded census.
+Modulo 1 is vacuous; at a prime p the difference is (p+1)(p−2). For p², p³≡1 modulo D=p²+p+1, so the condition is D|p−3; the strict bound |p−3|<D gives p=3, and 9 satisfies the congruence. For 2q with q odd, reduction modulo q+1 gives a difference congruent to 2 and hence an impossibility. For two distinct odd primes there is even a direct check: 4 divides both nφ(n) and σ(n), since each p−1, q−1, p+1, q+1 is even. Thus nφ(n)−2 cannot be divisible by σ(n). The frozen proof's more detailed valuations are also correct. This exhausts Ω≤2 including the unit, without relying on the attached finite checker, which was inspected but not run. Mixed powers at higher Ω are outside the claim.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Primes and the prime-square part are prior art. The supported distinct part is exclusion of every squarefree semiprime with both primes variable. The closest primary texts establish fixed-prime-support results, and the closest indexed multiplicity classifications concern a different divisor or remainder; no inspected result gives the global residue-two semiprime exclusion.
+
+## value
+
+PASS
+
+The multiplicity cutoff is the first full layer containing composites and answers the uniform two-distinct-prime case for a studied congruence, rather than testing isolated primes or a numerical range. The elementary parity obstruction removes a whole natural family that fixed-support lists cannot settle. The scope does not include arbitrary products of higher prime powers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

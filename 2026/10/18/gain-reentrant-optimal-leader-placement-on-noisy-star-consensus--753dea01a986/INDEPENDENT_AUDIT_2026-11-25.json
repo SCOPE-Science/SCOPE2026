@@ -1,0 +1,153 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:04:55.191305Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, Assumptions and Proof; VERIFICATION.md; verify.py (inspected, not executed)",
+        "Independent algebraic elimination and direct n=7,q=3,κ=1 substitution"
+      ],
+      "rationale": "Connectivity with at least one pin gives positive definiteness and the Lyapunov solution is A⁻¹/2. The hub indicator c determines the entire placement orbit, with r=q−c pinned leaves. Set t=κ/(1+κ) and u=1−(1+κ)⁻². Eliminating the diagonal leaf block gives trace n−1−rt+(n−ru)/(cκ+rt). Subtracting the two cases gives the stated rational gap after dividing by two. Its sign is the sign of 2q−n+q(q−1)κ/(1+κ)². For q=1 the gap is the negative constant (2−n)/2. Otherwise the final gain function is strictly positive, increases to 1/4 at one and decreases thereafter by reciprocal symmetry, proving the strict regimes, the tangent tie, and the two reciprocal roots in the intermediate case. For q=2 the intermediate interval contains no integer n; for q≥4 it requires n≥9. For q=3 the first and only such order is seven, where the gap numerator is −κ²+4κ−1, the roots are 2±√3, and at κ=1 the variances are 31/8 and 23/6. The ‘smallest’ example is scoped to the stated unit-star family.",
+      "residual_risks": [
+        "The supplied rational checker verifies finite traces (twice the variances) at selected gains, not the radical endpoints or all parameters; the symbolic sign proof covers those. No unequal gains, heterogeneous weights, or different noise normalizations are inferred."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The arbitrary-graph resistance identity applies at finite gain and arbitrary budget but does not evaluate, compare, or optimize the two star orbits.",
+          "Fitch–Leonard's arbitrary-number noise-free theorem has the wrong gain regime; their finite noisy two-leader result has the wrong budget for the reentrant witness."
+        ],
+        "reasoning": "These are broad frameworks for objective evaluation or different pinning limits, not an available stronger optimizer classification with the target parameter quantifiers.",
+        "searches": [
+          "arXiv:1407.1569, Theorems 1 and 2",
+          "arXiv:1708.06873, §III.B, Theorem 3",
+          "arXiv:1302.0450, (LS1)–(LS2)"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1302.0450, 1407.1569, 1708.06873 and 1804.10818",
+        "Resultary 2f9df522cdce; indexed summary only for bd015dfc5cdd"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The hard-pinning threshold is the gain-independent limit n=2q; it does not imply the middle-gain reversal at n=7,q=3, where both extreme gain regimes favor the hub.",
+          "The general finite-gain identity requires an actual star orbit calculation; the double-star reentrance cannot yield this three-leader witness by its stated two-leader comparison."
+        ],
+        "reasoning": "The gain-dependent gap, root and equality pattern are not substitutions into a previously stated optimizer law. The remaining overlap is methodological and phenomenological.",
+        "searches": [
+          "arXiv:1407.1569 and arXiv:1708.06873, noisy versus noise-free leader results",
+          "Resultary 2f9df522cdce, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The noisy consensus objective is equivalently half the sum of node-to-ground effective resistances when ground links of conductance κ are added at the leaders. The same optimization objective also appears written as the inverse trace without the factor 1/2.",
+          "Algebraic connectivity or the smallest grounded-Laplacian eigenvalue is not equivalent to the inverse trace; the singly pinned star result using that criterion does not classify this optimization."
+        ],
+        "reasoning": "The standard equivalent objective representations do not themselves identify the center-versus-leaves phase boundary. The similar-looking pinning criterion addresses a different spectral functional.",
+        "searches": [
+          "arXiv:1302.0450, Eqs. (1)–(2), (LS1)–(LS2)",
+          "arXiv:1708.06873, §III.B, Theorem 3",
+          "arXiv:1804.10818, §III-C"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected same-day record 2f9df522cdce proves reentrant two-leader placement on a weighted double star, including a six-vertex example; it compares hub–hub and opposite-side hub–leaf placements. The frozen claim instead compares a single hub plus leaves against leaves only and its smallest reentrant example has three leaders.",
+          "Later record bd015dfc5cdd is indexed as reentrant hub grounding under a variable total diagonal-gain budget. The local mirror did not provide its full text, so this is a stated residual comparison, not a whole-document conclusion."
+        ],
+        "reasoning": "The phenomenon is not unique to the frozen graph, but the inspected same-day theorem is not an exact earlier coverage result. No priority inference comes from the shared date.",
+        "searches": [
+          "Local Resultary searches for finite-gain star leader placement and hub/leaf reentrance"
+        ]
+      },
+      "rationale": "The distinct result is the all-budget comparison for a single unweighted star with equal finite gains and the resulting exact reciprocal reentrance threshold. The arbitrary-graph formulation and effective-resistance identity are prior. So are general one- and two-noisy-leader criteria. A related same-day reentrance theorem is acknowledged rather than treated as irrelevant from its date, but its two-hub topology and competing leader classes are different.",
+      "residual_risks": [
+        "The one wider web lookup provided no useful statement-level evidence. The later gain-budget record and unindexed or more general equivalent finite-gain classifications remain residual risks, not evidence of prior coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior formulation, no star comparison in the inspected result",
+          "evidence": [
+            "Models all-node disturbances and finite diagonal leader feedback; optimization uses the inverse trace up to normalization."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1302.0450",
+          "material_read": "pp. 5–6, Eqs. (1)–(2), (LS1)–(LS2)",
+          "method": "Bounded open PDF text",
+          "title": "Algorithms for Leader Selection in Stochastically Forced Consensus Networks",
+          "trigger": "Identical finite-gain objective"
+        },
+        {
+          "assessment": "Arbitrary noise-free sets or two noisy leaders, not the q≥3 finite-gain classification",
+          "evidence": [
+            "The paper distinguishes finite feedback and the limit of perfectly grounded leaders; Theorem 2 is for exactly two noisy leaders."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1407.1569",
+          "material_read": "p. 4 Eqs. (3)–(4), pp. 7–8 Theorem 1, p. 12 Theorem 2",
+          "method": "Bounded open PDF text",
+          "title": "Joint Centrality Distinguishes Optimal Leaders in Noisy Networks",
+          "trigger": "Potentially broader noisy-leader criteria"
+        },
+        {
+          "assessment": "General representation, not the optimized star phase diagram",
+          "evidence": [
+            "Coherence for a noisy leader set is half the sum of the augmented network's resistances to ground."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1708.06873",
+          "material_read": "§III.B, Theorem 3, p. 4",
+          "method": "Bounded open PDF text",
+          "title": "A Resistance Distance-Based Approach for Optimal Leader Selection in Noisy Consensus Networks",
+          "trigger": "Direct equivalent objective and potentially stronger general result"
+        },
+        {
+          "assessment": "Different spectral optimization",
+          "evidence": [
+            "The criterion in the star comparison is the smallest grounded-Laplacian eigenvalue, not total noisy variance."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1804.10818",
+          "material_read": "p. 1; §III-C, Proposition 1",
+          "method": "Bounded open PDF text",
+          "title": "Optimizing Pinning Control of Complex Dynamical Networks Based on Spectral Properties of Grounded Laplacian Matrices",
+          "trigger": "Pinning comparison on stars"
+        },
+        {
+          "assessment": "Real overlap in phenomenon, different theorem",
+          "evidence": [
+            "The six-vertex example compares hub–hub and opposite-side hub–leaf placements with two leaders on a weighted double star."
+          ],
+          "identifier_or_url": "Resultary 2f9df522cdce",
+          "material_read": "Mirrored RESULT.md, Finding",
+          "method": "Local catalogue search and mirrored passage",
+          "title": "Reentrant two-leader placement on weighted double-star consensus",
+          "trigger": "Distinct same-day reentrance result"
+        },
+        {
+          "assessment": "Unresolved full-text comparison; not evidence of noncoverage",
+          "evidence": [
+            "The index describes variable total diagonal gain, in contrast to a fixed number of equal-gain pins."
+          ],
+          "identifier_or_url": "Resultary bd015dfc5cdd",
+          "material_read": "Indexed summary only; local mirrored full text unavailable",
+          "method": "Local catalogue and attempted mirror retrieval",
+          "title": "Reentrant hub grounding in optimal noisy star consensus",
+          "trigger": "Potential equivalent star reentrance with a different budget convention"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, phase classification and seven-vertex witness; comparison with hard pinning and weighted double stars"
+      ],
+      "rationale": "The result identifies a natural counterexample to a gain-independent or monotone rule for whether the central hub belongs to an optimal leader set, on the simplest family with a unique hub. It gives all exact ties and the smallest star witness rather than a numerical example or an isolated gain comparison. This supplies a benchmark for finite-feedback placement methods beyond perfect pinning.",
+      "residual_risks": [
+        "The minimality and gain classification apply within unweighted single stars only, not to consensus graphs in general."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

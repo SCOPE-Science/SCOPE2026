@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem is a finite full-tree classification, not a general extrapolation. Each complete binary prefix code with \(k\) words is represented by a unique full ordered tree with \(k\) leaves. Independent Catalan-recursive tree generation and iterative leaf splitting list respectively the same 1, 2, 5, 14, 42, 132, 429, and 1430 trees. Synchronizability is decided separately by reachable-subset breadth-first search and backwards pair coalescence. All eight census rows and the four exceptional codeword sets agree. A direct checker separately verified that each stated nonmerging pair certificate is closed under both letters. This proves that all smaller codes fail one of the required conditions and that all four nine-leaf exceptions genuinely cannot synchronize.
+PASS
 
-## Originality — PASS, with bibliographic risk
+All root-return words are concatenations of codewords. A common length divisor d>1 would require a root-reset word w to have d dividing |w| and, by starting one level down, d dividing |w|+1. Completeness makes each literal transition defined. Synchronizing to one state is equivalent to synchronizing to the root, since following zeros from any fixed state reaches its first leaf and resets. A DFA synchronizes iff every distinct pair can merge: repeatedly merge a pair in the current image until it is a singleton. For independent enumeration I used preorder branch/leaf words, with k−1 internal symbols and k leaves, starting with one pending slot, adding one for each branch and subtracting one for each leaf. The slot count must stay positive before the end and finish at zero; these words decode bijectively into ordered full trees. For each pair I searched its forward orbit for a diagonal. The exact totals for k=2,…,9 were (1,2,5,14,42,132,429,1430), nonsynchronizing totals (0,0,1,0,0,4,1,4), and coprime nonsynchronizing totals (0,0,0,0,0,0,0,4). The resulting four sorted word lists match C1–C4 exactly. Their closed distinct-pair orbits have sizes 6,12,12,6, respectively, and each has length multiplicities 1,4,4 at lengths 2,3,4. Direct complementation gives C1↔C4 and C2↔C3. The frozen scripts and JSON were inspected, not executed.
 
-The specific statement is the first size with coprime lengths but no synchronizing word **and complete enumeration of all labeled codes at that size**. The 2003 Freiling–Jungreis–Théberge–Zeger paper proves an asymptotic synchronization statement and exhibits parity-obstructed nonsynchronizing cases, not the finite coprime-threshold census. Ryzhikov–Szykuła (2018) addresses algorithms and lengths of reset words, not exhaustive nine-leaf labeled optimizers. The 2019 Gusev–Pribavkina two-distinct-length criterion cannot imply the three-distinct-length counterexamples or their count. Equivalently formulated and broader search terms did not locate this exact optimizer classification in the checked bibliographic sources. The Gusev–Pribavkina full text could not be consulted, and an unindexed prior enumeration is not ruled out; these are documented risks rather than assertions of definitive worldwide novelty.
+## originality
 
-## Value — PASS
+PASS
 
-Length-coprimality is necessary for a reset decoder but fails to be sufficient even in a small natural class of complete prefix codes. The first-failure cardinality and the exhaustive four-code classification identify a sharp structural boundary of the two-length synchronizability theorem and quantify exceptions relevant to finite decoding-tree design. These are motivated finite invariants, not an arbitrary slice or a simple relabeling of an existing formula. The work does not assert greater coding performance or an extension beyond nine leaves.
+The distinct claim is the least leaf count across all finite full binary trees satisfying the gcd-one obstruction, together with exactly four labeled examples at that least size. Prior small-cardinality results and general reset-word theory give partial coverage, and a distinct later indexed record covers a substantially overlapping height-restricted universe. None of the inspected earlier statements supplies the exact first-size list and cutoff.
 
-## Independent validation and limitations
+## value
 
-The review is limited to reconstructing the explicit finite combinatorial proof and its executable enumerations. The reported exact counts are not experimental extrapolations. The comparison with 2019 literature relied on the accessible abstract only; no claim of full-text exclusion is made. The review is not an independent audit or external certification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The natural gcd condition separates synchronization from the simpler periodic obstruction; the first counterexamples show how early that condition fails to suffice and the exact count determines every labeled first witness. This is a useful benchmark for structural length criteria or decoder synchronization tests, with finite pair-orbit certificates that exhibit the obstruction directly.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

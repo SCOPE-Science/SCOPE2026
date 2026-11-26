@@ -1,19 +1,21 @@
-# Scientific assessment: three-particle four-cube top homology
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The reduced Świątkowski comparison theorem identifies the stated integral weight-three complex with singular homology. The explicit top basis has 15,120 vectors; exhaustive signed chain construction and rank 14,991 modulo three bound top rational homology above by 129. All 1,112 pairwise-disjoint simple-cycle product tori (classified by the four possible cycle-length triples) are integral cycles. Exact rational column reduction yields their combined rank 128. A supplied 1,475-term integer cycle has zero full signed boundary and a nonzero *rational* reduction against that torus span. Thus at least 129 independent rational cycles exist. The rank sandwich proves the free top group is exactly \(\mathbb Z^{129}\); top homology is torsion-free as a subgroup of the free top chain module. `verify.py` reconstructs the model and all checks from the embedded witness. The claim does not confuse modular independence with rational non-membership.
+PASS
 
-## Originality — PASS, subject to publication-priority risk
+The natural integral comparison and reduction of the Świątkowski complex apply to the one-dimensional Q4 graph with no isolated vertices. At weight three and degree three exactly three distinct vertices supply half-edge differences (three choices each); the 15,120-column Koszul map has no incoming degree-four boundary. The torus identification uses the tensor product for the disjoint union of the three embedded cycles, then the natural map of the inclusion into Q4. On an oriented cycle the weight-one generator is the sum of outgoing minus incoming half-edges, with boundaries telescoping; their tensor product represents the torus fundamental class, up to overall sign. Bipartiteness and girth four force the four stated length patterns since at most sixteen vertices are available. Independent exact reconstruction gave 24, 128, 696 cycles of lengths 4, 6, 8, and 152, 576, 240, 144 tori by type. Every product's signed integer boundary was zero. Rank of the differential modulo three was 14,991, giving an upper bound of 129 for the rational kernel. Exact rational reduction gave rank 128 over all 1,112 products, already obtained from square triples. The 1,475-term witness has integral zero boundary, coefficient magnitudes at most two and nonzero rational remainder at coordinate 13,278. This supplies the 129th direction and proves equality; the top integral homology is free as a subgroup of a free group. The mod-three witness check corroborates independence but is not used in place of exact rational rank for the torus span. No claim about quotient torsion or primitivity follows. Uploaded code was inspected, not executed.
 
-Targeted semantic searches of mathematical records used aliases for the Q4/four-cube/hypercube graph, three-strand graph braid space, degree-three homology, non-toric cycles, and product three-tori. Closest inspected published records classify the Q4 *two-particle* torus lattice, the Q3 *three-particle* homology, and the truncated-tetrahedron *three-particle* top torus basis, respectively. Their conclusions concern different spaces and do not imply the 129-versus-128 statement. Primary results of An–Drummond-Cole–Knudsen supply a general computational model but no such finite evaluation; Maciążek–Sawicki explain product/non-product phenomena in different graph examples. No covering theorem was located. The remaining material risk is an equivalent unindexed computation or a stronger general theorem not found in the inspected sources; failure to locate one is not logical proof of uniqueness.
+## originality
 
-## Value — PASS
+PASS
 
-The gap is structurally motivated: product tori built from disjoint graph cycles are a canonical mechanism for third-dimensional graph-configuration classes, and Q4 is a natural symmetric nonplanar graph with many such cycles. The complete count of all 1,112 geometric tori rules out a false-negative caused by considering only square cycles, while a concrete non-toric integral cycle demonstrates a genuinely new homological mechanism. The exact rank-one rational obstruction distinguishes the three-particle configuration topology from its large family of geometric toric cycles. The result neither requires a uniform higher-cube formula nor claims a complete quotient-lattice Smith classification.
+The comparison complex, product construction and phenomenon of non-product homology all predate the finding. The new claim is graph- and particle-specific: exact rank defect one in Q4 even after every disjoint-cycle torus is included, with a witness. The inspected results for neighboring configurations and other graphs do not imply these ranks or this obstruction.
 
-## Closest literature and limitations
+## value
 
-An, Drummond-Cole and Knudsen, *Subdivisional Spaces and Graph Braid Groups*, arXiv:1708.02351, Definition 4.7 and Proposition 4.9; Barnett and Farber, *Topology of Configuration Space of Two Particles on a Graph, I*, arXiv:0903.2180; Maciążek and Sawicki, *Non-Abelian Quantum Statistics on Graphs*, doi:10.1007/s00220-019-03583-5; and the three relevant published finite graph-configuration records cited in RESULT.md. The free rank, but not possible torsion, of the non-toric quotient is established. Exact finite computations and a standard established chain model are used; no independent validation or complete higher homology presentation is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The four-cube is a canonical highly symmetric graph with plentiful disjoint cycle products, and the known two-particle result has full generation. The three-particle calculation shows that the analogous natural generating family misses a rational direction even after every possible cycle length is included. The exact rank and explicit witness distinguish a structural obstruction from an integral-index artifact or an incomplete census of square tori.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

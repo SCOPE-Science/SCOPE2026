@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:25:26.566761Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The second-moment map is T(V)=CVC^T+tau*x*P V P with C=(1-x)I+sqrt(s)xJ. Testing every deterministic vector is equivalent to decay for all PSD starts by their finite rank-one decompositions. If q=(1-x)^2+s*x^2>=1, the noiseless second moment already fails to decay and positivity gives necessity. Otherwise put R=(I-T0)^(-1). If tau*x*(R(P))_11>=1, the nonzero PSD matrix R(P) satisfies T(R(P))>=R(P), including equality at the threshold. If the gain is <1, the positive rank-one resolvent gives V=(I-T)^(-1)I>=I, with T(V)=V-I<=rV for some r<1, proving decay by domination. I independently formed the symmetric-basis update and recovered F_s from the determinant ratio, including exact checks of both cleared derivative identities (`python /workspace/branches/review_recomputation.py`). In the transformed step coordinate t in (0,1), F_x is strictly positive, also at s=0, with the stated limits; thus strict inequalities give the entire stable interval. At fixed x, the numerator of F_s's frequency derivative is twice G_x, whose positive-degree coefficients are strictly positive and constant nonpositive. It yields at most one stationary point and makes any interior stationary point the strict profile minimum. For 2<tau<4 the continuous step ceiling vanishes at both s0 and infinity and attains a positive interior maximum. At its step, the fixed-step frequency profile is uniquely minimized; no larger step can be stable anywhere, by step monotonicity and the deterministic domain shrinking with step. This also establishes uniqueness of the stationary pair. The independent tau=3 sample gives x=0.0422474914026233618188663, s=5.00825714726004962531281 and sqrt(s)=2.23791357010498723713038. The frozen code and recorded output were read, not run; the numerical example is not the basis for uniqueness.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Song–Geng–Liu give a sufficient step bound and small-step stability equivalence. Senosiain–Tocino discuss continuous-time stability regions. Buckwar–Sickenberger inspect scalar linear tests with multiple noises."
+        ],
+        "reasoning": "Small-step and continuous-time criteria do not give the sharp allowed discrete step, and a scalar test does not describe rotating drift with projected multiplicative noise. No stronger frequency optimization theorem encompassing this one was verified.",
+        "searches": [
+          "arXiv:2001.05203, Theorems 6.2 and 7.1",
+          "DOI 10.1007/s11075-022-01478-6",
+          "arXiv:0912.1968"
+        ]
+      },
+      "checked_sources": [
+        "Resultary self-match 931e09a8c893",
+        "Resultary 0065d16d3909 and 9db6d1b3bb89",
+        "arXiv:1702.07700",
+        "arXiv:2001.05203",
+        "arXiv:0912.1968",
+        "DOI 10.1007/s11075-022-01478-6 (abstract)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general covariance criterion characterizes decay as a function of an operator at a fixed method and parameter choice. It does not assert the derivative sign change needed to identify a unique optimizer over all admissible rotation frequencies."
+        ],
+        "reasoning": "The proof's strictly increasing cleared frequency-derivative polynomial and vanishing endpoints supply the missing optimization. The originality pass does not depend on claiming general no-reentry or the covariance criterion as new.",
+        "searches": [
+          "arXiv:1702.07700, Corollary 2.6 and Proposition 3.2; arXiv:2001.05203, Theorem 7.1; Resultary 0065d16d3909 Finding and scope"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Lang–Petersson–Thalhammer give spectral-radius stability of a second-moment operator, including for numerical SDE methods. The rational gain is this covariance test evaluated for the frozen normal planar drift and rank-one noise."
+        ],
+        "reasoning": "Specializing the covariance matrix or using a return-gain resolvent yields the equivalent inequality; the framework alone does not classify its fixed-step frequency profile.",
+        "searches": [
+          "Resultary searches for rank-one noise feedback, planar damped rotation and mean-square Euler stability",
+          "arXiv:1702.07700, Corollary 2.6 and Proposition 3.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact Resultary hit 931e09a8c893 is the frozen record. Closest same-day hit 0065d16d3909 is an exact one-interval law for a nonnormal Jordan chain with rank-one noise; hit 9db6d1b3bb89 optimizes a scalar terminal covariance over two steps."
+        ],
+        "reasoning": "The Jordan-chain law has different drift and noise geometry; its interval law is not this optimal rotation theorem. The scalar record's re-entry concerns mesh optimality, not a stable-step set. Their dates do not settle chronology.",
+        "searches": [
+          "Resultary for Euler stability without re-entry and the rational frequency optimizer"
+        ]
+      },
+      "rationale": "The covariance criterion and rank-one feedback technique are not new. The inspected prior results give a route to the stability inequality by model-specific specialization but do not supply the unique quantitative rotation optimum and its global two-equation characterization for this planar scheme.",
+      "residual_risks": [
+        "Bounded literature comparison, not a priority guarantee; other explicit planar normal-drift calculations may exist.",
+        "The general spectral criterion already covers the model at operator level; the distinct claim is the quantitative classification and unique rotation optimum."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General spectral criterion applies; optimizer not stated in checked passages",
+          "evidence": "Decay iff the second-moment map has spectral radius below one. Numbering in inspected arXiv version differs from that cited in the frozen discussion.",
+          "identifier_or_url": "https://arxiv.org/abs/1702.07700",
+          "material_read": "PDF pp. 6 and 9, Corollary 2.6 and Proposition 3.2",
+          "method": "OA paper passages",
+          "title": "Mean-square stability analysis of approximations of stochastic differential equations in infinite dimensions",
+          "trigger": "Potential general coverage by covariance criterion"
+        },
+        {
+          "assessment": "Small-step and sufficient-bound results",
+          "evidence": "Neither theorem gives the rational sharp step ceiling or its optimizer.",
+          "identifier_or_url": "https://arxiv.org/abs/2001.05203",
+          "material_read": "Abstract and Theorems 6.2 and 7.1, pp. 17–18",
+          "method": "OA paper passages",
+          "title": "Stability equivalence among stochastic differential equations and stochastic differential equations with piecewise continuous arguments and corresponding Euler-Maruyama methods",
+          "trigger": "Potential complete Euler-step stability implication"
+        },
+        {
+          "assessment": "Adjacent continuous-time subject; limited inspection",
+          "evidence": "The abstract treats stability regions for linear SDEs; it supplies no Euler optimization.",
+          "identifier_or_url": "https://doi.org/10.1007/s11075-022-01478-6",
+          "material_read": "Abstract, p. 1",
+          "method": "OA paper passage",
+          "title": "A survey of mean-square destabilization of multidimensional linear stochastic differential systems with non-normal drift",
+          "trigger": "Drift/noise stabilization by linear dynamics"
+        },
+        {
+          "assessment": "Different test problem",
+          "evidence": "Scalar tests with multiple noise terms, including real coefficients and equal noise intensities.",
+          "identifier_or_url": "https://arxiv.org/abs/0912.1968",
+          "material_read": "Abstract and p. 9 comparison",
+          "method": "OA paper passages",
+          "title": "A comparative linear mean-square stability analysis of Maruyama- and Milstein-type methods",
+          "trigger": "Explicit stability thresholds for multiplicative noise"
+        },
+        {
+          "assessment": "Distinct drift/noise structure",
+          "evidence": "Nonnormal Jordan chain; no planar rotation optimization.",
+          "identifier_or_url": "Resultary: 0065d16d3909",
+          "material_read": "RESULT.md at offsets 0 and 4300",
+          "method": "Local mirror",
+          "title": "A sharp all-dimension mean-square Euler stability law for a nonnormal Jordan chain",
+          "trigger": "Closest distinct rank-one noise and interval theorem"
+        },
+        {
+          "assessment": "Distinct objective",
+          "evidence": "Terminal covariance over two steps rather than asymptotic stability over a constant-step mesh.",
+          "identifier_or_url": "Resultary: 9db6d1b3bb89",
+          "material_read": "Opening Finding",
+          "method": "Local mirror",
+          "title": "Reentrant uniform-mesh optimality for two-step Euler covariance",
+          "trigger": "Apparent re-entry overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The natural contrast between normal rotational damping and anisotropic noise yields a usable stability trade-off: for 2<tau<4 no unrotated step works, while enough rotation restores stability, yet faster rotation eventually drives the sharp step to zero. The exact ceiling, its unique intermediate optimum and characterization resolve this trade-off beyond a generic spectral test or eventual small-step existence.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

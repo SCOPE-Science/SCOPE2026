@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:29:09.999662Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 23–62 and checker.py",
+        "/workspace/replay_spline.py: symbolic elimination/derivatives, SciPy spline design matrix for n=4..60, 100-digit bracketed splitting recheck at n=12,30,100,250"
+      ],
+      "rationale": "The exact Greville block is oscillatory: total nonnegativity, strict diagonal dominance and positive adjacent entries give simple positive eigenvalues. Its substochastic irreducible block loses mass at the endpoints, so the two identity endpoint rows contribute exactly the two eigenvalues at 1. Eliminating the collar and reflecting the interior solution r^k plus or minus r^(n-2-k), r=-s, gives the two stated equations, with no division by a vanishing boundary pivot in the subband. The positive-p/q equation has a single crossing by strict monotonicity. On (s*,1), the ordinary ratio (-p/q)/s^(n-1) starts at zero and ends at one (its logarithm does not); the sign of its derivative is the sign of K-(n-1), where K strictly decreases to 7. This gives no interior crossing for n<=8 and one for n>=9. At the repeated root -1, the alternating affine envelope over positions 2 through n has slope -A/3, and the reflected condition requires its final value to be -A; hence n-2=6. For splitting, bracket each root between s* and s* plus or minus M s*^(n-1), with fixed M>q(s*)/(-p'(s*)); Taylor expansion at that scale supplies the stated remainder and positive constant. The reflected exponential envelopes decay from the boundary collars. No material mathematical correction needed.",
+      "residual_risks": [
+        "Finite numerical checks corroborate the proof, not replace it. The wording 'logarithmic ratio begins at zero, ends at one' refers to the ratio before taking its logarithm."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "1402.2403 p.11 explicitly notes unknown individual eigenvalues and asks about the second largest",
+          "1403.4522 pp.1–2 gives disk inclusion and the peripheral eigenvalue, not individual low eigenvalues",
+          "1312.5546 p.1 describes approximation and iteration bounds"
+        ],
+        "reasoning": "Disk/iteration estimates do not give a bottom-of-band root count or tunneling scale.",
+        "searches": [
+          "arXiv:1402.2403v1",
+          "arXiv:1403.4522v1",
+          "arXiv:1312.5546v1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary records f4ef6a89f29b (self), 984e83e290bd and f178bad0bccb",
+        "arXiv:1402.2403v1, arXiv:1403.4522v1, arXiv:1312.5546v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The identical collar formula can be reused outside the cited Perron regime, but the top cosine argument imposes positivity and only one reflection parity",
+          "The all-n threshold requires the monotonicity and endpoint value of the lower-edge elasticity; the prefactor requires a separate double-root-limit comparison between the parity equations"
+        ],
+        "reasoning": "Neither reformulating the existing Perron theorem nor evaluating its formula at a special n gives the claimed threshold and sharp separation. No same-day ordering is inferred.",
+        "searches": [
+          "984e83e290bd mirror §§2–3",
+          "1402.2403 p.11"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 2026/11/22/SCOPE-exact-perron-quantization-and-a-boundary-correction-for-cubic-sc--984e83e290bd, Proof §§2–3: identical recurrence and rational collar relation, positive cosine solution over the top part of the band",
+          "Resultary quadratic uniform spectrum f178bad0bccb, Finding and Proof §§1–2: sine modes with a different degree and boundary block"
+        ],
+        "reasoning": "The low edge corresponds to real negative multipliers and both reflection parities; the same cubic collar reduction is overlap but the positive cosine root only singles out the top mode.",
+        "searches": [
+          "Resultary: cubic Schoenberg–Greville low eigenvalues",
+          "Primary: \"cubic Schoenberg\" eigenvalues Greville matrix boundary modes Toeplitz outliers"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matching f4ef6a89f29b record is this very record; the distinct 984e83e290bd record quantizes the top eigenvalue (n>=6), not the bottom or the n=8 edge equality"
+        ],
+        "reasoning": "No independent table was identified with these exact lower-edge data; a finite table would in any case not establish the all-n counts or splitting limit.",
+        "searches": [
+          "Resultary cubic Greville matrix spectral threshold search",
+          "Primary Toeplitz/outlier query above"
+        ]
+      },
+      "rationale": "Credit the standard spectral framework, known collocation matrix and shared boundary reduction. The distinct supported claim is the exact lower-edge transition, accumulation point and normalized two-mode splitting. No inspected earlier or same-day distinct result states or mechanically implies that package.",
+      "residual_risks": [
+        "Exact priority is not certified. Two superficially relevant collocation hits (B-splines collocation eigenanalysis of 2D acoustic problems; Quasi-collocation based on CCC-Schoenberg operators and collocation methods) returned OA HTTP 403 at the located copies; no whole-paper noncoverage is asserted. A thesis retrieval timed out.",
+        "An inaccessible or unindexed identical lower-boundary block analysis remains possible; the distinct cubic upper-edge record is same-day and its priority is not inferred."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same matrix and collar; upper rather than lower edge",
+          "evidence": [
+            "v3/v2 = 2(27λ²-31λ+8)/(9λ-5)",
+            "θ in (0,π/(n-2)); positive cosine eigenvector identifies spectral radius"
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-exact-perron-quantization-and-a-boundary-correction-for-cubic-sc--984e83e290bd",
+          "material_read": "Finding and Proof §§1–3, especially local-mirror text offsets 2700–4200",
+          "method": "Decisive bounded passages from the Resultary mirror",
+          "title": "Exact Perron quantization and a boundary correction for cubic Schoenberg averaging",
+          "trigger": "Identical cubic operator and boundary recurrence"
+        },
+        {
+          "assessment": "Credits general theory and discusses open spectral questions, not the lower-edge result",
+          "evidence": [
+            "Individual eigenvalues/eigenfunctions described as unknown; conjecture concerns the second-largest eigenvalue"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1402.2403",
+          "material_read": "pp.1 and 11, spectral discussion at text offset 28616",
+          "method": "OA source passages",
+          "title": "Lower bounds for the approximation with variation-diminishing splines",
+          "trigger": "Early same-operator spectral results"
+        },
+        {
+          "assessment": "Peripheral spectral control does not resolve the cubic lower band edge",
+          "evidence": [
+            "Disk inclusion and uniqueness of peripheral eigenvalue 1"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1403.4522",
+          "material_read": "pp.1–2",
+          "method": "OA source passages",
+          "title": "On the spectrum of positive finite-rank operators with a partition of unity property",
+          "trigger": "Broader spectral theorem"
+        },
+        {
+          "assessment": "Different degree; not a cubic specialization",
+          "evidence": [
+            "Quadratic Toeplitz block and sine/ghost conditions"
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-exact-cosine-spectrum-and-sharp-iteration-rate-of-quadratic-unif--f178bad0bccb",
+          "material_read": "Finding and Proof §§1–2",
+          "method": "Resultary mirror",
+          "title": "Exact cosine spectrum and sharp iteration rate of the quadratic uniform operator",
+          "trigger": "Nearby explicit spectral formula"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and Proof §§2–4",
+        "Distinct cubic Perron quantization record 984e83e290bd"
+      ],
+      "rationale": "The cubic cardinal lower band edge is a natural benchmark. The exact finite boundary for an extra localized mode, the limit strictly outside the band, and a nonzero sharp separation prefactor distinguish clamped from translation-invariant behavior and are useful for spectral stability diagnostics. This is not a finite list of eigenvalues or a restatement of the upper iteration-gap result.",
+      "residual_risks": [
+        "No extension to other degrees, knot spacings, or sampling rules is validated."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:56:35.891403Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For an admissible set, choosing one private vertex per occupied petal bounds the support by three. The at-most-two-support subcomplex is a hub cone: a new independent set containing the hub uses only private middle vertices, so has size at most three. With three occupied petals, the private set in each is a clique of the path P3. For each triple, the join of the three clique complexes of P3 is a 5-ball (join of three subdivided intervals), and its boundary consists exactly of faces missing some middle vertex. These are precisely the faces of that join in the hub star. All non-star faces belong to one such ball and distinct balls meet only in the star. Collapsing the contractible hub star, a simplicial subcomplex, gives a wedge of these 5-balls modulo boundary, including the contractible m<3 cases. Independently, exact reconstruction of the submitted three-petal certificate gave 537 faces including empty, 268 valid pairs, all 2,130 oriented incidences acyclic, and sole unmatched mask 876. On excluding the empty face the hub also becomes critical. Thus the finite Forman step and the frozen all-m low-support quotient argument both work.",
+      "replay_path": "/workspace/replay/simplicial.py",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "746320ce0145 treats every m≥1 and k≥4.",
+          "Filakovský's square-sequence intersections are paths of length one or two; a one-vertex shared hub is neither, so calling it a corner attachment in that terminology is misleading.",
+          "Kim–Lew's chordal hypothesis excludes induced C4 and their degree-based collapsibility result does not furnish the multiplicity."
+        ],
+        "reasoning": "The specific prior bouquet theorem, not an edge/corner attachment theorem or a collapsibility bound, gives the decisive coverage.",
+        "searches": [
+          "Resultary 746320ce0145",
+          "arXiv:2602.11365 Theorem 2, Corollary 3, Conjecture 5 and Definition 8",
+          "arXiv:1912.12605 Theorems 1.5–1.6"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 746320ce0145, 8d06720b1a2b, eb26c76015bf, 6c8fc6e8dd2e",
+        "arXiv:2602.11365",
+        "arXiv:1912.12605"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier ordinary homotopy equivalence is a wedge of binom(m,k−1) copies of S^(2k−3), with zero summands contractible.",
+          "It expressly specializes to k=4 and begins the same hub cofiber analysis."
+        ],
+        "reasoning": "Substituting k=4 gives the full frozen homotopy theorem at every m, including small m and the integral homology corollary. A different finite verification is not a new claim.",
+        "searches": [
+          "746320ce0145 RESULT.md Finding and Assumptions, offset 0; Proof, Step 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "746320ce0145 defines Cliq_k by induced independence number at most k−1 and has the same graph after renaming the hub and the three private vertices.",
+          "Kim–Lew study the bounded-independence simplicial complex under different hypotheses and for collapsibility."
+        ],
+        "reasoning": "R_4 is exactly Cliq_4, and a one-hub union is the same family in the two records.",
+        "searches": [
+          "Resultary robust clique, bouquet of four-cycles, quadrilateral bouquet, bounded independence number",
+          "arXiv:1912.12605"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "746320ce0145 explicitly gives binom(m,3) and the values 1, 4 and 10 at m=3,4,5.",
+          "8d06720b1a2b is at threshold three. eb26c76015bf and 6c8fc6e8dd2e contain later overlapping/broader results, not earlier priority evidence."
+        ],
+        "reasoning": "The indexed match is an exact entire-family formula rather than a finite numerical coincidence.",
+        "searches": [
+          "Resultary 746320ce0145 Finding",
+          "Resultary 8d06720b1a2b, eb26c76015bf and 6c8fc6e8dd2e"
+        ]
+      },
+      "rationale": "The earlier Resultary record 746320ce0145 already proves and explicitly states the identical all-m five-sphere wedge including its binomial multiplicity, under the same independence-number convention. It proves the stronger all-k≥4 formula for exactly the same bouquet family.",
+      "residual_risks": [
+        "External literature priority beyond these sources is not established; the disposition rests on explicit earlier Resultary coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct exact prior coverage",
+          "evidence": "The k=4 specialization and empty-wedge convention are explicit.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-binomial-sphere-wedges-for-robust-clique-complexes-of-bouquets-o--746320ce0145/RESULT.md",
+          "material_read": "Finding, Assumptions, beginning of Proof (offset 0)",
+          "method": "Local Resultary search and exact mirror text",
+          "title": "Binomial sphere wedges for robust clique complexes of bouquets of four-cycles",
+          "trigger": "Exact bouquet and broader threshold theorem"
+        },
+        {
+          "assessment": "Relevant, but intersection hypothesis does not include these bouquets",
+          "evidence": "The new square must meet the previous graph in a path of length 1 or 2.",
+          "identifier_or_url": "https://arxiv.org/abs/2602.11365",
+          "material_read": "Theorem 2, Corollary 3, Conjecture 5, Definition 8 (PDF pp. 2–3, 6)",
+          "method": "OA primary text",
+          "title": "The Topology of k-Robust Clique Complexes in Grid-like Graphs",
+          "trigger": "Direct foundational citation and potentially stronger square gluing"
+        },
+        {
+          "assessment": "Collapsibility, not exact homotopy for this family",
+          "evidence": "Its chordal theorem does not apply to the induced C4 in a bouquet.",
+          "identifier_or_url": "https://arxiv.org/abs/1912.12605",
+          "material_read": "Abstract, Theorems 1.5–1.6 (PDF pp. 1, 3)",
+          "method": "OA primary text",
+          "title": "Complexes of graphs with bounded independence number",
+          "trigger": "Equivalent complex definition"
+        },
+        {
+          "assessment": "Later generalization",
+          "evidence": "Taking all rooted K_(2,t_i) blocks with t_i=2 specializes its multiplicity to the square case.",
+          "identifier_or_url": "Resultary 6c8fc6e8dd2e",
+          "material_read": "Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Integral homotopy and block symmetries of rooted biclique bouquets",
+          "trigger": "Broader family with square blocks as a special case"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "An unknown integral wedge theorem for one-hub graph bouquets would be useful, but this exact infinite-family classification was already available in a broader result. The finite matching and specialized gluing proof do not furnish a new invariant, stronger range, or additional structure.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

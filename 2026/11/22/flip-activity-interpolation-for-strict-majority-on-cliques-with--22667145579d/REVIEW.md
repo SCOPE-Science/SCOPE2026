@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The transition is determined directly by the neighbor counts \(w-x_v\) and \(w-s\). For \(w\ne m\) every vertex joins the unanimous majority on the first step, including the degree-even deleted endpoints at tie. In the balanced layer mixed deleted pairs freeze and all other bits flip; their equal numbers of ones and zeros preserve the layer, proving an exact involution. Pair-type selection yields the activity polynomial, whose coefficients partition the whole balanced layer. Exchangeable hypergeometric indicators give exact mean, covariance and variance, and a uniform \(O(m)\) variance proves the concentration limit. Both verification programs check the exact local rule and finite multiplicities, not an unsupported extrapolation. The identity is valid for all \(m\ge2,0\le k\le m\), including endpoints.
+PASS
 
-## Originality — PASS, with priority caveat
+Reassessed the complete repaired text. For weight w the neighbor one-counts are w−x for unmatched vertices and w−s for a deleted pair of sum s. With w=m a mixed pair ties and exactly the other 2(m−J) bits complement; their balance and the identity of mixed pairs are preserved, so a second update returns the state. Off that layer both threshold cases give unanimity: a boundary tie at w=m−1 (respectively m+1) can only occur on a 00 (respectively 11) pair. Hence nonunanimous unbalanced states enter a fixed point exactly at step one. Zero balanced activity is possible only at k=m and J=m, with 2^m orientations, and each primitive two-orbit has two states. The stratification chooses and orients j pairs, chooses r other pairs to be 11, and fills the remaining m−j−2r ones on the 2m−2k unmatched labels. This covers k=0 and the forced parity when k=m. For a uniform m-subset, the probabilities of specified one and two mixed pairs are 2 binom(2m−2,m−1)/binom(2m,m) and 4 binom(2m−4,m−2)/binom(2m,m); subtracting p² gives covariance m/[(2m−1)²(2m−3)], including m=2. The stated variance and uniform O(m) bound for k≤m yield concentration of J/m, with mean tending to α/2; the changing fraction is 1−J/m. The moment proof treats the balance condition exactly and says nothing about unconditioned uniform states. The supplied checkers and verification notes were inspected, not executed; the captured output files mentioned in the text were not attached, and the finite checks do not constitute the proof.
 
-The explicit complete-matching endpoint is acknowledged as existing work. Complete full-text comparisons found that the full-matching study and the equal-part Turán activity classification do not handle \(0<k<m\). The general period-two threshold theorem and majority voting-time analysis do not entail exact partial-matching activity coefficients. Actual published-finding corpus source, statement, matching-parameter and equivalent graph-family queries did not reveal an existing complete mixed-singleton-and-pair census. Unindexed earlier exact results remain a historical priority risk, not proof of novelty from silence.
+## originality
 
-## Value — PASS
+PASS
 
-The family interpolates naturally from a clique to a cocktail-party graph while removing just a matching: at every intermediate \(k\) the total initially two-periodic population remains constant, yet the number of locally flipping vertices changes continuously at scale \(m\). The exact coefficient array and conditional limit distinguish attractor abundance from attractor activity, and the final matching edge has a sharp, exponentially sized fixation effect. These are motivated structural dynamics on an infinite parameter family, rather than arbitrary finite slices.
+Pass only for the repaired quantitative activity refinement. The original originality claim for the final-edge threshold is contradicted by demonstrable previous coverage, and the repair explicitly credits the earlier all-k transition and period results and the implied flip rule. The surviving multiplicity distribution, exact dependent moments and balanced activity limit are not stated in the inspected exact prior results and are not parameter substitutions in their aggregate counts.
 
-## Limits and closest comparisons
+## value
 
-The result does not count distinct two-cycle basins or cover asynchronous/other-neighbor rules. The strongest prior comparisons are the complete-matching majority census and the equal-part Turán activity theorem; both are special parameter subfamilies, neither implies this mixed-part interpolation. Historical completeness of bibliographic coverage is not guaranteed. Computation is finite verification, not an infinite proof.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Same-size graphs with different numbers of deleted pairs have identical primitive period counts before the last deletion, so those counts cannot measure how much of a periodic configuration moves. The repaired claim resolves that motivated observable over the full natural defect-density interpolation, with finite coefficients, the dependence correction for balanced sampling, and a conditional macroscopic law. It is useful as an exact calibration of activity versus recurrence; no independent scientific value is attributed to a new proof of the already known threshold or to the k=0 endpoint alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

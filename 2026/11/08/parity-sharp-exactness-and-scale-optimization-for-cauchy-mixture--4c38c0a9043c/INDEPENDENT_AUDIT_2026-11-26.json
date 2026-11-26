@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T10:05:53.159818Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The cotangent substitution with the absolute Jacobian gives the stated continuous value at the zero-phase node. The Poisson kernel with r=(a-L)/(a+L) has an absolutely convergent Fourier series, and roots-of-unity averaging leaves exactly the n-fold aliases. The odd mixture is strictly decreasing with the stated endpoint limits and opposite signs about 1 at the extreme component scales, including n=1. For even n, each excess is nonnegative and not all can vanish. Differentiating in log L gives the factorization in RESULT.md lines 101–113: the bracket is bounded below by 1 and the only possible zero of a component's second derivative is its own scale, for n>2. Strict increase of the derivative and its endpoint signs give a unique interior minimizer. The n=2 formula follows by minimizing (A/L+BL)/2. For large counts, away from the geometric midpoint the largest endpoint ratio dominates (odd) or loses to the midpoint comparison (even). In a fixed small midpoint neighborhood the intermediate ratios are bounded by eta*rho for eta<1, whereas the larger endpoint ratio is at least rho. Dividing the root or derivative equation by the larger endpoint power first bounds the ratio of endpoint powers above and below; this gives x=log(L/L0)=O(1/n). The derivative of log(u/v) at x=0 is (1-rho^2)/rho=4L0/(a_+-a_-); the remaining smooth factors in the even derivative produce at most O(1/n) in the log balance. This yields the claimed O(n^-2) remainder and the two equal leading endpoint contributions to the even bias. In the balanced odd case, u>v at the root and adding two nodes decreases the positive term relative to the negative term strictly. The exact root equation n log(u/v)=log(1+u^n)-log(1-v^n), with x=O(n^-2), gives the stated exponentially small displacement. Balanced even symmetry gives the exact minimizer and bias. The support script and verification report were inspected but not executed; the all-count proof, not the reported finite tests, is decisive.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first source treats the Möbius trapezoid for Schwartz weights. Definition 2.1 in the second source describes a single positive-polynomial-power weight q^(-nu/(2m)); Proposition 4.1 gives matched-scale exactness for certain polynomial test functions with the basic polynomial-decay weight, including standard Cauchy normalization at nu=2."
+        ],
+        "reasoning": "The mixture is not covered as a single basic Cauchy law. Writing it as a weight times a rational test function does not meet Proposition 4.1's polynomial-input hypothesis; the general framework is not a parity-specific optimizer theorem.",
+        "searches": [
+          "arXiv:2407.13650v1 Abstract and Sec. 1",
+          "arXiv:2604.27758v1 Definition 2.1 and Proposition 4.1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py",
+        "Resultary 4c38c0a9043c and bb2d4a4e5b0 (latter index only)",
+        "arXiv:2407.13650v1 and arXiv:2604.27758v1, sections listed above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The proposition's cotangent argument makes the matched integrand a trigonometric polynomial. At a single transform scale and distinct component scales the Poisson kernels instead have infinite geometric Fourier tails. Exact odd cancellation and even optimization must be analyzed across those tails."
+        ],
+        "reasoning": "Linearity and aliasing give the starting objective but not the uniform convexity certificate, the endpoint-weight dependent shift and bias constant, or the monotonic odd-root sequence. None of these was found mechanically implied by the named prior results.",
+        "searches": [
+          "Compare arXiv:2604.27758v1 Proposition 4.1 proof (HTML offset 49024) with RESULT.md Proof 2–5",
+          "General periodic Fourier aliasing as credited to Trefethen–Weideman"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 4c38c0a9043c is the identical finding, confirmed against its mirrored RESULT.md; it is not separate coverage. Nearby item bb2d4a4e5b0 is indexed as minimax cyclic Fourier-aliasing variance with location and scale uncertainty, rather than zero-phase normalization at one optimized transform scale."
+        ],
+        "reasoning": "Poisson kernel Fourier aliasing is an equivalent representation of the error, but neither the generic alias identity nor the indexed robust variance problem evaluates this scale-dependent deterministic bias or its stationary points. The nearby item's material beyond its index was unavailable.",
+        "searches": [
+          "Resultary semantic comparison for Cauchy/Poisson kernel mixtures, zero-phase Möbius quadrature, log-scale bias and odd roots",
+          "Focused primary-literature search for Cauchy mixture Möbius trapezoidal optimization"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact catalogue match is the audited record itself. The inspected nearby record summary concerns a different statistic. Proposition 4.1 is an exact formula for matched single weights, not a table of odd roots, even optimal bias, or mixture asymptotics."
+        ],
+        "reasoning": "The exact comparison is indexed by mixture weights, extreme scales and parity; the checked standard component formula does not give such an invariant without mixture-specific optimization. No separate exact table was located within these bounded checks.",
+        "searches": [
+          "Resultary record 4c38c0a9043c and nearby aliasing record bb2d4a4e5b0",
+          "arXiv:2604.27758v1 Sec. 4 exactness formulas"
+        ]
+      },
+      "rationale": "On the inspected evidence, the distinct result is the global parity-dependent scale-selection law for a nontrivial positive finite centered mixture: all-count optimization, its sharp extremal-mass asymptotics, and balanced two-scale monotonicity. The change of variables, aliasing identity, and matched single-component exactness are not credited as new.",
+      "residual_risks": [
+        "The nearest robust aliasing record could only be compared by its indexed scope; conformal or rational-quadrature literature may contain equivalent scale optima. The search and judgment do not certify historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior method, not the finite Cauchy mixture classification",
+          "evidence": [
+            "Combines Möbius variable change with a periodic trapezoidal rule for positive monotonic Schwartz weights."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2407.13650v1",
+          "material_read": "Abstract and Sec. 1, HTML offset 0",
+          "method": "Bounded lawful OA primary text",
+          "title": "Möbius-Transformed Trapezoidal Rule",
+          "trigger": "Original quadrature construction"
+        },
+        {
+          "assessment": "Matched single-component normalization is covered, not optimization over distinct-scale mixtures",
+          "evidence": [
+            "The proposition requires gamma=1, even nu at most 2n, and monomial degree at most nu-2; nu=2 gives standard Cauchy normalization."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2604.27758v1",
+          "material_read": "Sec. 1 offset 0, Definition 2.1 offset 5822, Proposition 4.1 and proof offset 49024",
+          "method": "Bounded lawful OA primary text with statement-level hypothesis comparison",
+          "title": "Möbius-transformed trapezoidal rule for polynomial weights",
+          "trigger": "Direct Cauchy example and exact matched-weight rule"
+        },
+        {
+          "assessment": "Identical source, not independent coverage",
+          "evidence": [
+            "Same odd root, even optimum, extremal-mass and balanced two-scale statements."
+          ],
+          "identifier_or_url": "Resultary 4c38c0a9043c",
+          "material_read": "Local mirror Finding and scope",
+          "method": "Resultary search and local primary record comparison",
+          "title": "Parity-sharp exactness and scale optimization for Cauchy-mixture Möbius trapezoids",
+          "trigger": "Exact semantic match"
+        },
+        {
+          "assessment": "Summary's minimax variance objective differs; full comparison not available",
+          "evidence": [
+            "Location/scale uncertainty and cyclic aliasing variance rather than zero-phase normalization bias."
+          ],
+          "identifier_or_url": "Resultary bb2d4a4e5b0",
+          "material_read": "Catalogue summary only; local mirror unavailable",
+          "method": "Resultary search and attempted local-mirror retrieval",
+          "title": "A sharp phase boundary for robust Poisson–Fourier aliasing",
+          "trigger": "Nearby Cauchy-mixture/aliasing result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The scale is a natural free parameter of the transformed quadrature. Knowing a globally unique normalization-exact choice for odd counts, a globally unique positive-bias minimum for even counts, and how its true error depends on extremal component scales and masses gives actionable information not supplied by exponential convergence at a prescribed scale. The monotone balanced odd limit quantifies a different, much smaller displacement; these are complete structural statements about the stated objective, not about quadrature for general test functions.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

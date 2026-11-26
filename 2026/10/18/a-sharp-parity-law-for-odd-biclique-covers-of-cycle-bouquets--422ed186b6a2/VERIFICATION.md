@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Mathematical verification
+# Independent mathematical audit
 
-The exact theorem is proved by three independently inspectable steps: an alternating adjacency-matrix congruence giving binary rank \(2s\), an even-core obstruction ruling out perfect covers when \(o\) is odd, and a family of explicit bicliques achieving \(s+(o\bmod2)\) for all petal lengths. No empirical output is used to infer the infinite result.
+## correctness
 
-Run the attached Python 3 program with `python verify_bouquets.py`. It generates 1,484 valid cycle bouquets (up to four petals; lengths three through eight; vertex order at most 24) and confirms both the claimed rank and complete symmetric-difference edge recovery. Its exhaustive small-graph check enumerates every biclique on the labeled vertex set and checks the exact optimum for ten small petals/combinations: `(3,)`, `(4,)`, `(5,)`, `(6,)`, `(7,)`, `(3,3)`, `(3,4)`, `(3,5)`, `(4,4)`, `(3,3,3)`. When the exact optimum is four, all smaller possibilities are excluded by its complete enumeration and four is supplied by the explicit construction.
+PASS
 
-Expected last output line: `all checks passed`.
+Independently counted the binary adjacency kernel using each petal's internal equations z_{j+1}=z_{j−1}, with z₀=z_ℓ equal to the common hub coordinate. Even positions have the hub value and odd positions have one free candidate value per petal. Closing an odd petal forces its candidate to equal the hub; closing an even petal leaves it free. The two terms in the hub equation from each petal agree and cancel. Nullity is therefore 1 plus the number of even petals, which gives rank 2s. For a size-s cover, A=MJMᵀ and rank forces the side-incidence matrix M to be injective; Eulerian parity gives A1=0 and thus Mᵀ1=0. Every side is even and hence so is the XOR edge count; odd o is impossible at rank equality. For the upper bound checked the paired triangles explicitly: the two K₂,₂s share only the extra cross-edge bc; the other six edges are exactly the two triangles at the hub. A square costs one biclique and an unmatched triangle costs two. A rim-edge replacement uv→uxyv toggles only uv, ux, xy, yv by one K₂,₂ on disjoint sides {u,y} and {x,v}. This preserves all other edges regardless of previously used cancelling edges, and generates every length with one biclique per two added vertices. The total is s+(o mod 2), including t=1 and o=0. The uploaded checker was inspected, not run; its finite tests and exact-small-instance search are corroboration only.
 
-Finite tests are not exhaustive over unbounded petal lengths. This documentation records a self-review; an independent audit has not been performed.
+## originality
+
+PASS
+
+Credit prior single-cycle values, the rank and even-core lower bounds, and the butterfly example. The supported distinct result is the uniform rank and matching upper/lower formula for one-vertex unions, where the gap depends on parity of the number of odd petals. The comparison is limited to inspected sources; it does not claim priority for the known ingredients.
+
+## value
+
+PASS
+
+Cycle bouquets are a natural first articulation family after disjoint cycles. Their exact gap above half the binary rank changes from a presence-of-odd-cycles criterion to an odd-number criterion. This isolates what hub identification permits—pairing odd petals by cancelling a cross-edge—and yields an optimal constructive answer for all petal lengths rather than a small example or enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

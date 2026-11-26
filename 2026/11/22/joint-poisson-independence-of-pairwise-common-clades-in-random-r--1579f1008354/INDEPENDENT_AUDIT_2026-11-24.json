@@ -1,0 +1,172 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:36:36.664757Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 24–64",
+        "Frozen verify_phylo33.py, lines 15–26 and 46–93 (inspected, not executed)",
+        "Frozen VERIFICATION.md, lines 19–21 (recorded finite checks only)"
+      ],
+      "rationale": "Contraction gives the claimed joint cherry probability for specified disjoint pairs. In the mixed factorial moment let g be the number of distinct leaf pair labels, v the number of distinct leaves, and e the number of incidences (distinct leaf pair, tree required to contain it). A feasible pattern contributes O(n^(v-e)); v<=2g and e>=2g. A repeated label across different overlap coordinates makes e>=2g+1, and a leaf shared by distinct labels makes v<=2g-1. The remaining distinct disjoint configurations give 8^(-R). The contraction formula for each clade size has increasing successive ratios; sizes 3 through n-2 are bounded by the equal endpoint probabilities, and size n-1 contributes n/(2n-3)^2. The resulting O(1/n) error transfers the array for fixed q; the joint zero event is a continuity set when tested using a box with half-integer bounds. In the exact covariance calculation, conditional independence given the shared tree reduces the covariance to its cherry-count variance times (2n-3)^(-2). The variance follows from the first two factorial moments, E C=binom(n,2)/(2n-3), E(C)_2=6 binom(n,4)/[(2n-3)(2n-5)], and simplifies to the stated positive expression for n>=4. Disjoint index pairs involve independent inputs.",
+      "residual_risks": [
+        "Fixed q only; finite covariance is for cherries, not all proper clades. The proof, not the recorded finite checker, establishes the limits."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bóna et al., abstract and §2, count common labelled edges in two Cayley trees.",
+          "Resultary 2026/11/2/SCOPE-exact-cycle-cumulants-and-joint-poisson-overlap-laws-for-indepen--705bc2214115, RESULT.md opening, treats a full fixed-q array, but on Cayley common edges."
+        ],
+        "reasoning": "Equality of array structure does not identify the objects: PDA cherry compatibility forbids adjacent requested leaf pairs in the same tree, unlike Cayley edge compatibility. No checked general version supplies the PDA array.",
+        "searches": [
+          "Bóna, Burghart and Wagner arXiv:2501.18570v4",
+          "Resultary: fixed-q pairwise Poisson tree intersection"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–26, 32–64, 70–83",
+        "Bryant and Steel arXiv:0810.0868",
+        "Steel DOI 10.1137/0401050 (cited scope only)",
+        "Zhu et al. arXiv:1407.3880",
+        "McKenzie and Steel PMID 10704639 (cited scope only)",
+        "Bóna et al. arXiv:2501.18570",
+        "Resultary records 1579f1008354 (self), 705bc2214115 and 13b401fa01c8"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known one-tree clade and cherry probabilities are the inputs. Given one tree, the common-cherry count with an independent tree has conditional mean C/(2n-3)."
+        ],
+        "reasoning": "The finite covariance is a short consequence of the one-tree variance, not a new general variance technique. It also illustrates why finite shared-index overlaps are not independent. Pairwise Poisson approximations and a one-tree cherry distribution do not compute mixed moments for all intersecting tree-index requirements; that is the distinct part supported by this record.",
+        "searches": [
+          "Zhu, Than and Wu arXiv:1407.3880v1, abstract and PDA model",
+          "McKenzie and Steel, PMID 10704639",
+          "Bryant and Steel arXiv:0810.0868 §3 Theorem 4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Adding one designated root leaf converts rooted PDA trees to uniform unrooted binary trees and rooted clades to the nontrivial splits oriented away from that leaf.",
+          "Bryant–Steel gives a fixed-reference Poisson approximation; the cited Steel result is for two trees."
+        ],
+        "reasoning": "The relabeling identifies the two-tree antecedent, but neither a fixed-reference nor an unrooted two-tree result gives all pairs jointly. In particular, the fixed-reference argument alone does not give the correlations among edges around cycles of the sample-index graph.",
+        "searches": [
+          "Primary literature: joint pairwise Poisson common clades random rooted phylogenetic trees independent trees fixed number",
+          "Bryant and Steel arXiv:0810.0868 §3 Theorem 4",
+          "Steel DOI 10.1137/0401050"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned the assigned record itself (suffix 1579f1008354), not independent coverage.",
+          "Distinct same-day Resultary 2026/11/22/SCOPE-a-second-order-rare-shared-clade-law-for-independent-yule-phylog--13b401fa01c8, RESULT.md opening, concerns two Yule–Harding–Kingman trees and omits cherries."
+        ],
+        "reasoning": "There is no table asserted here; checking the repository for the exact a priori statement and covariance found these distinct scopes rather than another matching source.",
+        "searches": [
+          "Resultary: joint PDA clade Poisson array and exact shared-tree cherry covariance"
+        ]
+      },
+      "rationale": "The supported incremental claim is the complete fixed-q array in the rooted PDA model with an explicit finite-size shared-tree dependence contrast. The one-pair Poisson law, its rooted/unrooted relabeling, and the one-tree cherry variance are not credited as new. The closest all-pairs analogue has a different tree distribution and a different event (edge intersection).",
+      "residual_risks": [
+        "Primary web search did not return a decisive new comparator; this does not prove priority.",
+        "Full texts of Steel (1988) and McKenzie–Steel (2000) were not available to inspect.",
+        "An unindexed all-pairs extension or a general theorem not identified in the scoped search could limit priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "One-reference antecedent; does not establish the all-pairs law.",
+          "evidence": [
+            "Poisson approximation with mean c_T/(2n) and O(n^-1) variational error for fixed T and one random tree."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0810.0868",
+          "material_read": "§3, Theorem 4, pp. 6–7 (offset 17324)",
+          "method": "Open-access paper",
+          "title": "Computing the Distribution of a Tree Metric",
+          "trigger": "Potentially stronger Poisson approximation for RF distance"
+        },
+        {
+          "assessment": "Credit two-tree result; scope beyond cited description remains a priority risk.",
+          "evidence": [
+            "Frozen RESULT.md, lines 72 and 80; full-text access returned HTTP 403."
+          ],
+          "identifier_or_url": "https://doi.org/10.1137/0401050",
+          "material_read": "Frozen citation and its description; no full text retrieved",
+          "method": "Lawful direct and alternate-route retrieval attempts",
+          "title": "Distribution of the Symmetric Difference Metric on Phylogenetic Trees",
+          "trigger": "Closest original scalar limit"
+        },
+        {
+          "assessment": "One-tree structure and model inputs rather than the coupled array.",
+          "evidence": [
+            "PDA comparison and clade probabilities; discusses pre-existing cherry distributions."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1407.3880",
+          "material_read": "Abstract p. 1; cherry-count context p. 2; PDA definition p. 4",
+          "method": "Open-access paper",
+          "title": "Clades and clans: a comparison study of two evolutionary models",
+          "trigger": "Known PDA clade probabilities"
+        },
+        {
+          "assessment": "Known one-tree cherry distribution is credited; not a whole-document exclusion.",
+          "evidence": [
+            "Lawful inspection route did not return text (HTTP 203)."
+          ],
+          "identifier_or_url": "https://pubmed.ncbi.nlm.nih.gov/10704639/",
+          "material_read": "Description in Zhu et al. p. 2 and frozen citation; no full text retrieved",
+          "method": "Open-access retrieval attempt and citation comparison",
+          "title": "Distributions of cherries for two models of trees",
+          "trigger": "Potential source of covariance antecedent"
+        },
+        {
+          "assessment": "Scalar Poisson law for distinct Cayley-edge object.",
+          "evidence": [
+            "Two independent uniform Cayley spanning trees, common-edge count tending to Poisson(2)."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2501.18570",
+          "material_read": "v4 abstract p. 1 and §2 p. 3 (offset 7692)",
+          "method": "Open-access paper",
+          "title": "On the Intersection of Pairs of Trees",
+          "trigger": "Closest primary-literature intersection analogue"
+        },
+        {
+          "assessment": "Fixed-q joint analogue, not PDA clades.",
+          "evidence": [
+            "Pairwise common Cayley edges plus finite cycle cumulants."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-exact-cycle-cumulants-and-joint-poisson-overlap-laws-for-indepen--705bc2214115",
+          "material_read": "Mirrored RESULT.md opening",
+          "method": "Local Resultary search and mirror",
+          "title": "Exact cycle cumulants and joint Poisson overlap laws for independent trees",
+          "trigger": "Closest indexed joint analogue"
+        },
+        {
+          "assessment": "Different model, sample count and size restriction, regardless of publication order.",
+          "evidence": [
+            "Two YHK trees, shared clades of size at least three."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-second-order-rare-shared-clade-law-for-independent-yule-phylog--13b401fa01c8",
+          "material_read": "Mirrored RESULT.md opening",
+          "method": "Local Resultary search and mirror",
+          "title": "A second-order rare shared-clade law for independent Yule phylogenies",
+          "trigger": "Same-day indexed natural-language match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–20, 32–55 and 57–64",
+        "Bryant and Steel arXiv:0810.0868 §3 Theorem 4"
+      ],
+      "rationale": "The relevant statistical object for more than two trees is the distance matrix, not a single entry. The full law answers a simultaneous extreme-distance event that scalar limits do not determine, and separates finite shared-tree dependence from limiting independence. This is a modest, meaningful extension in the standard uniform topology model; the scalar law and conditional variance algebra alone would not justify acceptance.",
+      "residual_risks": [
+        "No growing-q result, nonuniform tree model extension, or multivariate error rate is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

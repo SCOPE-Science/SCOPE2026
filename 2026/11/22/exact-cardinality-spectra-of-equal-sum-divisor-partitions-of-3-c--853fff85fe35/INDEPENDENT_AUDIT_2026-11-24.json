@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:09:54.390763Z",
+  "axes": {
+    "correctness": {
+      "limitations": "Only n=3·2^(m−1); replay corroborates the symbolic result but does not prove it beyond the tested lengths by itself.",
+      "rationale": "Each subset uniquely gives binary words u and v with u+3v=2(2^m-1). The low target bit is zero, the next m bits are one, and the terminal carry/shift test requires exactly one of the two state bits. Reconstructing the carry transition gives the published matrix (the incoming shifted digit plus carry and both new input digits never force a carry above one). In the suffix series (A,B,B,D) solving (I-tT)^{-1}e, A=tz(A+B), D=tz(B+D), B=1+t(A+z^2 D); hence A=D and t(A+z^2D) is the claimed generating function. A length contribution with j two-step factors has exponent m-1-j+2h; equality to m requires j=2r+1 and h=r+1. Complementation is fixed-point-free. Separately, meet-in-the-middle counting on the actual integer divisor sums and subset sizes reproduced all twelve full spectra and the listed central counts, including m=1 and the first occurrence at m=4.",
+      "replay": "python3 /workspace/replay.py 1",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The larger family 2^a p is handled for unweighted counts in the Resultary result. Somu–Kukla–Tran describe the two-prime-factor existence classification and k-layered equal sums."
+        ],
+        "reasoning": "Broader parameter coverage of the unweighted or existence question does not yield the size distribution, even though its z=1 specialization is already known.",
+        "searches": [
+          "Resultary 8a0ca297bd59 Theorem 1",
+          "arXiv:2310.14149 introductory results",
+          "doi:10.1016/j.jnt.2020.05.003"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 8a0ca297bd59",
+        "OEIS A347063",
+        "arXiv:0912.0052",
+        "arXiv:2310.14149",
+        "doi:10.1016/j.jnt.2020.05.003 (abstract only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Specializing the prior result gives floor((2^m+2)/6) unordered equal-sum partitions. The positive-odd-r parametrization would give a varying-length sum of popcount monomials and their complementary weights."
+        ],
+        "reasoning": "The prior parametrization permits a finite histogram at any fixed m but does not evaluate the joint size/length generating function. Summing the nonlinear popcounts over all m needs the carry-state computation or an equivalent new evaluation; the balanced binomial sum is not a parameter substitution into the prior formula.",
+        "searches": [
+          "Resultary 8a0ca297bd59 proof and verification",
+          "Weighted carry recurrence and double Zumkeller spectrum primary lookup"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorem 1 of Resultary 8a0ca297bd59 parametrizes partitions by positive odd r with pr≤2^(a+1)−1. At p=3 the cardinality of one side is s₂((M−3r)/2)+s₂((M+r)/2), with M=2^m−1."
+        ],
+        "reasoning": "Signed-binary and subset-popcount encodings are equivalent for the underlying objects. The source explicitly counts partitions without size weights; an equivalent object description is not yet an evaluated weighted series.",
+        "searches": [
+          "Resultary: cardinality-weighted equal-sum divisor partitions; two-prime Zumkeller partitions",
+          "arXiv:0912.0052 p. 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A347063 records double Zumkeller membership, with an explicit equal-cardinality partition of 24. 8a0ca297bd59 records three unweighted partitions of 24."
+        ],
+        "reasoning": "Credit the first example; membership does not say how many balanced partitions there are, and unweighted multiplicity does not determine central coefficients.",
+        "searches": [
+          "OEIS A347063",
+          "Resultary 8a0ca297bd59 verification",
+          "Primary lookup for weighted spectrum or exact balanced multiplicities"
+        ]
+      },
+      "rationale": "Credit the known unweighted exact count, full signed-binary parametrization, and double-Zumkeller terminology and first example. The supported distinction is the explicit rational series in cardinality and length and the resulting closed multiplicity formula, not a new parametrization or existence example.",
+      "residual_risks": [
+        "Mahanta et al. full result sections were unavailable; an unindexed size-refined table or an earlier evaluation of the popcount sum is not ruled out."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers unweighted counts and partition parametrization, not explicit cardinality evaluation",
+          "evidence": "Allowed positive odd r satisfying pr≤2^(a+1)−1; Z(24)=3.",
+          "identifier_or_url": "2026/9/21/SCOPE-zumkeller-two-prime-partition-count--8a0ca297bd59",
+          "material_read": "RESULT.md Theorem 1 and proof at offset 0; verification and prior-work discussion at offset 4988",
+          "method": "Resultary local mirror",
+          "title": "Exact Zumkeller partition counts for the family 2^a p",
+          "trigger": "Same family with stronger prime parameter coverage and complete parametrization"
+        },
+        {
+          "assessment": "Existence only",
+          "evidence": "Equal-sum, equal-size divisor partitions; explicit example 24.",
+          "identifier_or_url": "https://oeis.org/A347063",
+          "material_read": "Entry text at offset 0, including definition and example",
+          "method": "Public entry",
+          "title": "Double Zumkeller numbers",
+          "trigger": "Exact balanced object and first example"
+        },
+        {
+          "assessment": "Existence classification and related additive focus in inspected passages",
+          "evidence": "Discusses Mahanta et al. and k-layered equal sums; no cardinality-weighted evaluation in those passages.",
+          "identifier_or_url": "https://arxiv.org/pdf/2310.14149",
+          "material_read": "pp. 1–2, offsets 3600 and 5000",
+          "method": "OA PDF passages",
+          "title": "Some Results on Zumkeller Numbers",
+          "trigger": "Two-prime family and layered terminology"
+        },
+        {
+          "assessment": "Not ruled out beyond the evidenced existence result",
+          "evidence": "Accessible introduction of arXiv:2310.14149 specifically describes the classification as an existence result.",
+          "identifier_or_url": "https://doi.org/10.1016/j.jnt.2020.05.003",
+          "material_read": "Publisher landing page/abstract; full result sections not read",
+          "method": "DOI attempt and identified alternate listing; full text unavailable",
+          "title": "Some properties of Zumkeller numbers and k-layered numbers",
+          "trigger": "Plausibly relevant classification by two prime factors"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Balance in cardinality is an established strengthening, and the number of ways to meet it is not captured by existence or total multiplicity. The two-generator divisor family is a standard natural test family. The rational formula determines the complete distribution of sizes, with a fixed-cost recurrence in length and an explicit diagonal count; it is more informative than a list of examples or the previous unweighted count.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

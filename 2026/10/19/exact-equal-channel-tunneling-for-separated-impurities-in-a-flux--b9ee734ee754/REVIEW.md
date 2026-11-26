@@ -1,19 +1,21 @@
-# Scientific review: exact equal-channel impurity splitting
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim concerns the spectrum of the orthogonal compression of a bounded, rank-four positive onsite operator to a spectrally isolated flat band. The compact states form a Riesz basis because their Toeplitz Gram symbol is strictly positive at all allowed fluxes; the inverse Gram kernel is obtained by a directly normalized second-order recurrence. The physical projection and the four-coordinate reduction preserve all nonzero eigenvalues. The resulting Hermitian four-dimensional characteristic polynomial factors into two quadratics, giving the exact four eigenvalues and their two equal splittings. A gapped perturbation reduction then establishes only the first-order full-chain assertion, with its fixed-parameter \(O(\varepsilon^2)\) remainder. Independent symbolic algebra and finite-section diagnostics reproduce the polynomial, flux scaling and coupling ratio. Residual risk: transcription errors in translating the flux gauge or isolating the four eigenvalue branches; these were addressed with independent reconstruction of the Hamiltonian and multiple fluxes and separations.
+PASS
 
-## Originality — PASS
+The prescribed compact vector solves the hub cancellation on each of its three incident hubs. Its translates have Gram symbol 1+cos(phi/2) cos(k)>0 and span the one-dimensional flat fiber. The decaying root of the Gram recurrence is -r and the n=0 equation fixes the inverse normalization (1+r²)/(1-r²). For d≥2 the four touched translates are distinct; the restricted onsite Gram is two copies of a block with eigenvalues (1±r)²/[2(1+r²)]>0. Thus the Hermitian reduction is positive definite and rank four. In the symmetric/antisymmetric basis its same-cell blocks are diag((1+r)/2,(1-r)/2); the intercell Gram kernel before the change of basis is proportional to [[-r,r²],[1,-r]], yielding the stated rank-one off-block with entries of magnitude h_d after whitening. In a shifted spectral variable y=x-1/2, the rank-one Schur determinant multiplies (y²-r²/4)² by 1-h_d²[2y/(y²-r²/4)]². Hence the four roots are positive and distinct and the two ordered doublets split by precisely 2h_d. For the full operator, ker(H0)∩ker(W_d) remains a reducing zero subspace and its orthogonal complement has a four-dimensional isolated zero eigenspace separated from the dispersive spectrum by the fixed positive gap. Ordinary isolated-cluster perturbation on that complement gives slopes equal to the four compression eigenvalues, hence the claimed O(epsilon²) expansions at fixed J, phi, d. At phi=pi/2, r=sqrt(2)-1 and the ratio is r². No finite-strength equality or uniform estimate in closing gap or increasing d is certified.
 
-The closest 2024 primary study by Viedma, Marques, Dias and Ahufinger investigates *two separated* onsite-impurity pairs in Appendix A, extracting a half-gap numerically and reporting exponential separation dependence and approximately equal high/low couplings. Its full Sec. II and Appendix A were read and compared: the exact four-root polynomial, two-channel equality theorem, prefactor and exact ratio are not stated there. The preceding 2024 paper by Marques and collaborators derives a two-eigenvalue problem for *one* impurity pair and supplies the projection framework, not the joint four-mode spectrum. The result does not claim to discover the impurity bands, their qualitative exponential decay, or effective SSH chains. Equivalence and stronger-coverage searches revealed no closer theorem, but an indexed 2024 thesis with a related topic could not be inspected in full; independent priority review remains necessary.
+## originality
 
-## Value — PASS
+PASS
 
-The paper explicitly identifies the high-/low-branch near-equality as surprising and reports a numerical coupling ratio near \(0.17\). The new theorem explains the equality as a four-mode Gram-matrix identity, supplies its sharp flux-dependent exponential prefactor, and turns the ratio into \(3-2\sqrt2\). These quantities determine matching between the two effective impurity-channel hopping scales in designed photonic SSH arrays. The result is a motivated exact structural statement, not a parameter substitution or merely a higher-precision numerical fit.
+The closest primary work treats the same two-pair coupling problem numerically and observes approximate channel equality. The exact compressed determinant, its all-separation splitting, and the resulting first-order prefactor are the supported distinct contribution. No priority is claimed for the projection framework, single-pair energies, or qualitative exponential falloff.
 
-## Limitations
+## value
 
-The result concerns a one-particle infinite lattice, two impurity *pairs*, nonzero flux bounded away from endpoint regimes when taking small onsite strength, and first-order physical spectral splitting. It is not a many-impurity SSH spectrum or an exact finite-strength equality. Finite numerical checks are reproducibility aids. An independent literature and proof audit remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact invariant answers a comparison already singled out in a physical model: whether two channels merely appear close, and what sets the distance dependence of their effective tunneling. It gives a usable normalization and a sharp separation law for the weak-impurity regime, while distinguishing a true projection identity from the full-Hamiltonian approximation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -2,102 +2,61 @@
 
 ## Finding
 
-For every odd prime \(p\), positive integer \(c\) divisible by \(p\), and integer \(s\ge1\), set
+Let \(p\) be an odd prime, let \(c\) be a positive integer divisible by \(p\), and let \(s\ge1\) be an integer. Put \(Q_c(n)=n(n+1)+c\), and let \(X_i(n)=\nu_p(Q_c(n+i p^s))\) for \(i=0,1,2\). In the limiting law for uniformly sampled \(0\le n<N\), or equivalently for Haar input in \(\mathbb Z_p\), the three variables have common mean \(\mu=2/(p-1)\). Their connected third cumulant is
 \[
-Q_c(n)=n(n+1)+c,\qquad
-X_i(n)=\nu_p\bigl(Q_c(n+i p^s)\bigr)\quad(i=0,1,2).
+\kappa_{p,s}=\mathbb E[(X_0-\mu)(X_1-\mu)(X_2-\mu)]
+=\frac2{(p-1)^3}\left[p^2-2p+3-\frac{3s(p^2-1)+p^2-2p-5}{p^s}\right].
 \]
-All three valuations are finite for every integer \(n\). As \(n\) ranges uniformly over nonnegative integers, the exact limiting **trivariate** distribution of \((X_0,X_1,X_2)\) is as follows. Every triple not listed has probability zero:
-\[
-\begin{aligned}
-\Pr[(X_0,X_1,X_2)=(0,0,0)]&=\frac{p-2}{p},\\
-\Pr[(X_0,X_1,X_2)=(j,j,j)]&=\frac{2(p-1)}{p^{j+1}}\quad(1\le j<s),\\
-\Pr[(X_0,X_1,X_2)=(s,s,s)]&=\frac{2(p-3)}{p^{s+1}},\\
-\Pr[(X_0,X_1,X_2)=(j,s,s)]&=\Pr[(s,j,s)]=\Pr[(s,s,j)]
-=\frac{2(p-1)}{p^{j+1}}\quad(j>s).
-\end{aligned}
-\]
-In particular, for \(p=3\) the central triple \((s,s,s)\) is impossible, because the three shifted roots occupy all three children of a shared depth-\(s\) residue ball. Clipping every coordinate at any \(k\ge1\) gives the exact three-coordinate census among \(0\le n<p^k\): simply push forward the displayed probabilities under \((i,j,\ell)\mapsto(\min(i,k),\min(j,k),\min(\ell,k))\) and multiply by \(p^k\). Explicit integer formulas appear in `verify_triple.py`.
+It is **negative exactly at \((p,s)=(3,1)\)**, when it equals \(-1/3\); it is strictly positive otherwise. It increases strictly with \(s\) for each fixed \(p\) and tends to \(2(p^2-2p+3)/(p-1)^3\). The mixed moments and cumulant of the finite uniform integer samples converge to these values.
 
-The **connected three-point cumulant** is
+In contrast, the two-polynomial root-collision formula [1] gives the same strictly positive covariance for each of the three distinct pairs:
 \[
-\begin{aligned}
-\kappa_{p,s}&=\mathbb E\bigl[(X_0-\mu)(X_1-\mu)(X_2-\mu)\bigr],\qquad \mu=\frac2{p-1},\\
-&=\boxed{\frac{2}{(p-1)^3}\left[p^2-2p+3-\frac{3s(p^2-1)+p^2-2p-5}{p^s}\right]}.
-\end{aligned}
+\operatorname{Cov}(X_i,X_j)=\frac{2(p+1)(1-p^{-s})-4}{(p-1)^2}.
 \]
-Its sign has exactly **one negative exception**:
-\[
-\boxed{\kappa_{p,s}<0\iff (p,s)=(3,1),\qquad\kappa_{p,s}>0\ \text{otherwise}.}
-\]
-There are no zero cases. In contrast, **every pairwise covariance is strictly positive**:
-\[
-\operatorname{Cov}(X_i,X_j)
-=\frac{2(p+1)(1-p^{-s})-4}{(p-1)^2}>0
-\qquad(0\le i<j\le2).
-\]
-Thus the least ternary scale exhibits *negative connected three-way dependence despite positive dependence in every pair*. The cumulant increases strictly with \(s\) and tends to \(2(p^2-2p+3)/(p-1)^3>0\) as \(s\to\infty\). These expectations equal the limits of empirical integer averages; they are not merely formal local moments.
+The third cumulant thus detects a sign reversal at the first ternary scale that is not visible in the signs of the pairwise covariances. The exact valuation law is used below as a consequence of the pairwise collision laws in this particular setting, not as a separate originality claim.
 
 ## Assumptions and scope
 
-The prime \(p\) is any odd prime, \(c>0\) is an integer multiple of \(p\), \(s\ge1\) is an integer, and the equally spaced lags are exactly \(0,p^s,2p^s\). The symbol \(\nu_p(m)\) denotes the usual prime-adic valuation of a nonzero integer. Because \(Q_c(n)>0\) for all \(n\in\mathbb Z\), these valuations are finite. The probabilities are natural densities of index sets and also Haar probabilities over \(\mathbb Z_p\). The exact finite-block assertion applies to every depth \(k\ge1\), including \(k\le s\). No claim is made about arbitrary triples of shifts, the binary prime, or constants not divisible by \(p\).
+The shifts are exactly \(0,p^s,2p^s\). For each integer input, \(Q_c(n)>0\) because \(n(n+1)\ge0\); hence all the valuations are finite. When using Haar points, disregard the finite set where an argument vanishes. No claim is made for arbitrary shift triples, for \(p=2\), or for constants outside the stated class.
 
 ## Proof
 
-**1. Two simple roots, three translates.** Since \(p\mid c\), the reduction of \(Q_c(x)\) is \(x(x+1)\) modulo \(p\), with simple roots \(0,-1\) for every odd \(p\). Hensel lifting gives distinct \(\alpha,\beta\in\mathbb Z_p\), one over each residue, such that \(Q_c(x)=(x-\alpha)(x-\beta)\). At a point \(x\) in either root residue class, \(\nu_p(Q_c(x))\) is its distance exponent from the corresponding root, since the other factor is a unit. It is zero outside these two residue classes.
+**Pairwise input and the common clipped variable.** The reduction of \(Q_c\) is \(x(x+1)\), with simple roots at \(0,-1\). A root lifts uniquely to a \(p\)-adic root \(a\), and the valuation on its residue class is \(\nu_p(x-a)\), since the other factor is a unit. Each corresponding root pair for two shifted polynomials is separated at depth exactly \(s\): the difference is \(\pm p^s\) or \(\pm2p^s\). Other root pairs have different residues. With two matches of depth \(s\), the two-polynomial collision law [1] yields the marginal tail \(\Pr(X_i\ge j)=2p^{-j}\) for \(j\ge1\), and, for each pair, equality when clipped at \(s\) and disjointness of the events \(X_i>s\) and \(X_j>s\). These support facts also follow directly from equality of the depth-\(s\) balls and disjointness of the corresponding depth-\((s+1)\) balls.
 
-The three translates have root sets \(\{\alpha-i p^s,\beta-i p^s\}\) for \(i=0,1,2\). Each original root contributes one triple of points with mutual distance valuation exactly \(s\): differences are \(p^s\) or \(2p^s\), and \(2\) is a \(p\)-adic unit. The two original residue classes are disjoint, so their contributions add without overlap.
+Thus \(Y=\min(X_i,s)\) is the same for all three coordinates. Set \(U_i=(X_i-s)_+\). Then \(U_iU_j=0\) for \(i\ne j\) and \(YU_i=sU_i\). In particular, the pairwise support and single-coordinate tails **determine** the trivariate law here: the diagonal at \(0\) has mass \((p-2)/p\); at \(1\le j<s\) it has mass \(2(p-1)/p^{j+1}\); each permutation of \((j,s,s)\), \(j>s\), has mass \(2(p-1)/p^{j+1}\); and the remaining mass at \((s,s,s)\) is \(2p^{-s}-3(2p^{-(s+1)})=2(p-3)/p^{s+1}\). There are no other cells. At \(p=3\), the last diagonal cell vanishes. These are cylinder probabilities and therefore natural densities. After clipping at any \(k\ge1\), each cell depends only on \(n\bmod p^k\), so multiplying its clipped probability by \(p^k\) gives the exact residue census.
 
-**2. Exact three-way cylinder partition.** In a fixed original root class, write the three shifted roots as \(a_0,a_1,a_2\). For \(1\le j<s\), the event \(\nu_p(x-a_0)=j\) forces all three distance exponents to equal \(j\), and occupies fraction \((p-1)/p^{j+1}\) of \(\mathbb Z_p\). At depth \(s\), the three roots are in the same parent ball but in three different child balls, because their scaled residues differ by \(0,1,2\pmod p\). In the other \(p-3\) child balls all three valuations equal \(s\), with probability \((p-3)/p^{s+1}\). Inside each of the three distinguished child balls, precisely the corresponding coordinate can exceed \(s\); its exact value \(j>s\) occurs with probability \((p-1)/p^{j+1}\), while the other two coordinates equal \(s\). The same partition occurs in each of the two distinct original root classes, explaining the factor two in the stated probabilities. Outside those root classes, all three valuations vanish, with probability \((p-2)/p\). This list exhausts the full space and its masses add to one.
-
-For every finite \(k\), each clipped triple depends only on \(n\bmod p^k\). The Haar measure of each clipped event therefore equals exactly its count modulo \(p^k\) divided by \(p^k\). This proves the full integer census at every depth, not only an asymptotic result.
-
-**3. Mixed moments and cumulant.** By the two simple root classes, for each \(i\) and every \(j\ge1\), \(\Pr[X_i\ge j]=2p^{-j}\), giving \(\mathbb E[X_i]=\mu=2/(p-1)\). A fixed root class contributes to \(\mathbb E[X_iX_j]\) for \(i\ne j\) precisely when the two level balls intersect, yielding
-\[
-\mathbb E[X_iX_j]=\frac{2(p+1)}{(p-1)^2}(1-p^{-s}).
-\]
-For three root points with mutual distances at depth \(s\), the three level balls of depths \(a,b,d\ge1\) have nonempty intersection exactly when the **second-largest** of \(a,b,d\) is at most \(s\); the intersection, when nonempty, has measure \(p^{-\max(a,b,d)}\). Indeed, beyond depth \(s\), at most one of the three root-centered balls can contain a point. When the maximum level is \(m\le s\), there are \(m^3-(m-1)^3=3m^2-3m+1\) triples of positive levels; for \(m>s\), there are exactly \(3s^2\) permissible triples. Consequently
+**Cumulant calculation.** The tail sums give \(\mu=2/(p-1)\) and \(e=\mathbb E U_i=2/(p^s(p-1))\). From the disjoint excess terms,
 \[
 \begin{aligned}
-\mathbb E[X_0X_1X_2]
-&=2\left[\sum_{m=1}^{s}\frac{3m^2-3m+1}{p^m}
-+\frac{3s^2}{(p-1)p^s}\right]\\
-&=\frac{2}{(p-1)^3}\left[p^2+4p+1-
-\frac{3s(p^2-1)+p^2+4p+1}{p^s}\right].
+\mathbb E[X_iX_j]&=\mathbb E[Y^2]+2se,\\
+\mathbb E[X_0X_1X_2]&=\mathbb E[Y^3]+3s^2e,\\
+\mathbb E[Y^d]&=2\sum_{m=1}^s\frac{m^d-(m-1)^d}{p^m}.
 \end{aligned}
 \]
-Expand the centered product to obtain
+For the second raw mixed moment the resulting sum is \(2(p+1)(1-p^{-s})/(p-1)^2\). For the third, the infinite sum of \((3m^2-3m+1)p^{-m}\) is \((p^2+4p+1)/(p-1)^3\). In subtracting the tail after \(s\), translate \(m=s+j\); the summand polynomial becomes \((3j^2-3j+1)+3s(2j-1)+3s^2\). The last term is canceled by \(3s^2e\) after restoring the factor of two. The third raw mixed moment is therefore
 \[
-\kappa_{p,s}=\mathbb E[X_0X_1X_2]-3\mu\,\mathbb E[X_0X_1]+2\mu^3.
+\frac{2}{(p-1)^3}\left[p^2+4p+1-\frac{3s(p^2-1)+p^2+4p+1}{p^s}\right].
 \]
-Substitution yields the boxed formula. Notice that this third mixed moment is not determined by any *pairwise* joint law in general; here the three-way common cylinder and its three-way split are needed.
+Subtract three times \(\mu\) times the raw pair moment and add \(2\mu^3\) to obtain \(\kappa_{p,s}\). Subtracting \(\mu^2\) from the raw pair moment gives the stated covariance; its numerator is at least \(2(p+1)(1-1/p)-4>0\) for \(p\ge3\).
 
-**4. Sharp sign.** For \(s=1\), direct simplification gives
+**Sign and dependence on scale.** At \(s=1\) the cumulant is \(2[p(p-1)(p-5)+8]/[p(p-1)^3]\), negative at \(p=3\) and positive at every prime \(p\ge5\). Its successive difference is
 \[
-\kappa_{p,1}=\frac{2\{p(p-1)(p-5)+8\}}{p(p-1)^3}.
+\kappa_{p,s+1}-\kappa_{p,s}=\frac{2[3s(p^2-1)+p^2-5p-8]}{p^{s+1}(p-1)^2}.
 \]
-This is \(-1/3\) at \(p=3\), and positive for all odd primes \(p\ge5\). The successive difference is
-\[
-\kappa_{p,s+1}-\kappa_{p,s}
-=\frac{2[3s(p^2-1)+p^2-5p-8]}{p^{s+1}(p-1)^2}>0
-\]
-for every \(p\ge3,s\ge1\). At \(p=3\), the next value is \(\kappa_{3,2}=2/9>0\). Hence the unique negative case is \((p,s)=(3,1)\), and no zero occurs. The pair covariance above is positive because \(p^{-s}\le p^{-1}\) and the numerator is then at least \(2(p+1)(1-1/p)-4>0\).
+The bracket is at least \(4p^2-5p-11\), which is positive for \(p\ge3\). Since \(\kappa_{3,2}=2/9\), there are no other negative cases or zero cases. The limit follows because \(sp^{-s}\to0\).
 
-**5. Convergence of empirical higher moments.** Every valuation \(X_i(n)\) among \(0\le n<N\) is at most \(O_{p,c,s}(\log(N+2))\), since its polynomial argument is positive of quadratic growth. At most two residue classes modulo \(p^j\) have valuation at least \(j\), giving the bound \(\#\{n<N:X_i(n)\ge j\}\le2(N/p^j+1)\). The tail-sum formula for nonnegative integer powers therefore shows uniform integrability of the third moments: the contribution from levels above \(J\) is at most \(O_p(J^3p^{-J})+O_{p,c,s}((\log(N+2))^3/N)\). The mixed product is bounded by the average of the third powers through AM–GM, and its large-level part by the corresponding individual tails. Thus the empirical third mixed moment and all lower joint moments converge to the calculated Haar moments, proving the natural-density interpretation of the connected cumulant.
+**Integer averages.** For \(0\le n<N\) the valuations are bounded by \(L=O_{p,c,s}(\log(N+2))\), and the empirical proportion with \(X_i\ge j\) is at most \(2p^{-j}+2/N\), by the two root classes modulo \(p^j\). Summing the third-power differences over levels bounds \(\mathbb E_N[X_i^3\mathbf 1_{X_i>J}]\) by \(O_p((J+1)^3p^{-J})+O_{p,c,s}((L+1)^3/N)\). This bound accounts for the endpoint term \(J^3\Pr_N(X_i>J)\) as well. The same geometric tail bound without the error applies to Haar measure. On the region where the maximum coordinate exceeds \(J\), any degree-three or lower nonconstant coordinate monomial is at most the cube of that maximum, itself bounded there by \(\sum_i X_i^3\mathbf 1_{X_i>J}\). For fixed clipping depth, empirical moment convergence follows from periodic residues. Taking first \(N\to\infty\) and then \(J\to\infty\) proves convergence of all mixed moments used in the cumulant, including the means.
 
 ## Verification
 
-Run `python3 verify_triple.py`. The checker independently calculates every predicted clipped triple-cell multiplicity and compares it to direct integer evaluations of \(Q_c(n)\), \(Q_c(n+p^s)\), and \(Q_c(n+2p^s)\), for \(0\le n<p^k\). It verified **400 complete histograms comprising 1,396,368 index triples** for \(p\in\{3,5,7,11,13\}\), four positive values of \(c\) divisible by \(p\), \(s\in\{1,2,3,4\}\), and all checked depths \(k=1,\dots,6\) with \(p^k\le65000\). The infinite classification and sign proof are mathematical, not based on finite exhaustive computation.
+`verify_triple.py` uses only Python 3 and checks the exact clipped law, including both regimes \(k\le s\) and \(k>s\), against direct integer polynomial evaluations. The recorded check covers 400 parameter-and-depth histograms and 1,396,368 index triples. This verifies finite instances of the input law, not the infinite cumulant formula or its sign proof, which follow from the calculations above.
 
-## Relationship to prior work
+## Relationship to other work and limitations
 
-Snyder, *Products of \(p\)-Adic Valuation Trees* (arXiv:2308.11718v1, first posted August 22, 2023), develops polynomial valuation trees and factor-product identities, with primary MSC2020 11B83. Boultinghouse et al., *The \(p\)-Adic Valuation Trees for Quadratic Polynomials for Odd Primes* (arXiv:2309.16637v1, posted September 28, 2023), classify one-coordinate quadratic valuation trees. Previous bivariate simple-root valuation theorems yield the pair covariances, but not the trivariate cylinder splitting, exact three-way census or third cumulant. The present conclusion isolates a ternary negative third-order dependence that coexists with positive pairwise covariances. Full-text comparisons of these primary sources and targeted searches did not locate a statement of the same trivariate classification. An earlier equivalent treatment in multivariate local-zeta or higher-order correlation literature remains possible.
-
-## Limitations
-
-Only three equally spaced prime-power shifts \(0,p^s,2p^s\), odd primes, and positive constants divisible by the prime are covered; the analogous general triple-shift problem, singular-root polynomials and the binary prime remain outside scope. The assertion concerns exact trivariate valuation frequencies and one third connected cumulant, not statistical independence or high-dimensional normal limits. Priority was assessed using inspected primary literature and searchable scientific records, not an exhaustive historical database.
+The bivariate collision theorem [1] yields the pairwise covariance and, because the common clipped value and disjoint excesses follow from the pairwise supports, also entails the auxiliary trivariate valuation law here. This special implication does not hold for arbitrary joint distributions. The two Resultary records share a date, which does not establish temporal order. The distinct conclusion considered here is the evaluation of the connected third cumulant with its unique ternary negative case and monotonicity in the lag scale. One-coordinate valuation trees for odd-prime quadratics [2] and factor-product valuation trees [3] provide related context. The comparison does not certify historical priority or exclude unindexed computations or relevant multivariate-local-zeta results.
 
 ## References
 
-1. D. Snyder, *Products of \(p\)-Adic Valuation Trees*, arXiv:2308.11718v1, first posted 2023-08-22, https://arxiv.org/abs/2308.11718; *The PUMP Journal of Undergraduate Research* 7 (2024), 299–322, https://doi.org/10.46787/pump.v7i0.3877.
-2. W. Boultinghouse, E. Hammett, S. Hu, O. Kozhushkina, R. Snyder, J. Trulen, *The \(p\)-Adic Valuation Trees for Quadratic Polynomials for Odd Primes*, arXiv:2309.16637v1, first posted 2023-09-28, https://arxiv.org/abs/2309.16637.
+1. *A root-collision law for joint polynomial valuations and a quadratic covariance trichotomy*, Resultary, 2026-11-22, Finding and Proof §2, [record](https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-a-root-collision-law-for-joint-polynomial-valuations-and-a-quadr--f6b288710442).
+2. W. Boultinghouse, E. Hammett, S. Hu, O. Kozhushkina, R. Snyder, J. Trulen, *The \(p\)-Adic Valuation Trees for Quadratic Polynomials for Odd Primes*, [arXiv:2309.16637](https://arxiv.org/abs/2309.16637), Theorem 1.1.
+3. D. Snyder, *Products of \(p\)-Adic Valuation Trees*, [arXiv:2308.11718](https://arxiv.org/abs/2308.11718), §6; *The PUMP Journal of Undergraduate Research* 7 (2024), 299–322.

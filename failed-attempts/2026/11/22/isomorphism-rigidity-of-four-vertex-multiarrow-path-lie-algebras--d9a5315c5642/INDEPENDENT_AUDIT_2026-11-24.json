@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:30:24.729239Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The path grading gives the derived ideal L₂=U⊗V ⊕ V⊗W ⊕ U⊗V⊗W and L₃=U⊗V⊗W because all basis paths of lengths two and three occur as single brackets. The derived ideal is abelian, and bracketing x=u+v+w+z with U⊗V and with V⊗W independently tests w and u, respectively, against a fixed nonzero simple tensor. Each test is injective in that endpoint variable over every field. The resulting centralizer is V⊕L₂. Once s is fixed by its quotient dimension, the first and third layer dimensions give the integer sum and product of the outer multiplicities. Path reversal is an anti-isomorphism and its negative is a Lie isomorphism, including in characteristic two. The two families both give graded dimensions (14h,48h²,72h³) and have centralizer quotient dimensions 6h and 8h. The frozen checker and its stated bounded scope were inspected, not executed; the reconstruction proves the uniform statement.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mizoguchi's classification table has the dimension-at-most-ten restriction and does not itself contain the full target. Mizoguchi–Tamaru supply the broader positive-path construction, not this classification.",
+          "The earlier same-family proof gives all three commutator equations for arbitrary arrow and path coordinates without a dimension restriction."
+        ],
+        "reasoning": "The bounded classification does not subsume the finding; the exact unrestricted equations of the same-family calculation are the decisive stronger input.",
+        "searches": [
+          "arXiv:2610.25903, §4 Theorem 4.9",
+          "arXiv:2405.11184, Definition 3.5 and Proposition 3.7",
+          "Resultary 0edf4af1aaa4, Formula and Proof"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check_line_quiver.py",
+        "Local Resultary records 0edf4af1aaa4 and d9a5315c5642",
+        "arXiv:2610.25903",
+        "arXiv:2405.11184"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior third commutator equation is a⊗v′−a′⊗v+u⊗c′−u′⊗c=0. For Y in [L,L], a′=b′=c′=0, so it becomes a⊗v′−u′⊗c=0 for arbitrary u′ and v′. Testing each separately forces a=c=0, and the two other equations are automatic. These path equations, and the identification of [L,L] with the paths of lengths at least two, hold without a finite-field assumption. This gives the exact centralizer, quotient dimension and isomorphism criterion with reversal.",
+          "There is also a numerical implication of the actual polynomial, not merely of the existence of a commuting-pair invariant. Write X=r+t. The common graded dimensions determine {s,X} from s+X and sX, and determine W=2rst and D=2sX. The only possible ambiguity switches s and X, with both at least two. Put M=max(s,X) and m=min(s,X) in that case. After removing q^{W+D}, the prior sum's zero-middle-rank part has highest exponent strictly below 2X: each product N_r(i)N_t(j) has degree ≤2X and each nonzero rank pair has a positive E(i,j). Its rank-one-middle part has degree at most s+X, since the outer-rank contributions in braces have exponents strictly below X after removal of q^D. Its rank-two-middle term has degree 2s. Consequently only the candidate with larger middle parameter M has degree 2M. The leading terms of nonzero rank summands have positive coefficients. This distinguishes the proposed collisions for all h, and every case of this ambiguity, as polynomials."
+        ],
+        "reasoning": "An isomorphism over a finite field would give equal counts over all extensions of that field, so these different polynomials rule it out. The same obstruction extends to any field by putting the entries of a hypothetical isomorphism and its inverse determinant in a finitely generated ring over Z and specializing at a maximal ideal with finite residue field; the path structure constants are integral. More directly, the prior commutator equations make the centralizer formula an immediate calculation over the original field. Thus even the all-field scope does not separate the centralizer-based rigidity from what the earlier explicit result yields.",
+        "searches": [
+          "Resultary 0edf4af1aaa4, arbitrary commutator conditions and exact polynomial",
+          "arXiv:2610.25903, Lemma 4.8"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In record 0edf4af1aaa4 the radical of the path algebra is the identical direct sum on the same parameters; the endomorphism-ring formulation is its opposite, which preserves commuting pairs. The commutator equations have integer coefficients 0, ±1.",
+          "Lemma 4.8 in arXiv:2610.25903 supplies quiver reversal symmetry, credited in the frozen record."
+        ],
+        "reasoning": "The prior radical calculation is not a count for a different graph or arrow convention. Over any field the exact zero-commutator equations agree under reversal of signs if the opposite convention is used.",
+        "searches": [
+          "Local Resultary: multiarrow four-vertex positive path Lie algebra, derived-ideal centralizer and commuting-pair polynomial",
+          "arXiv:2405.11184",
+          "arXiv:2610.25903, Lemma 4.8"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The catalogue's d9a5315c5642 is the identical assigned record, not another result. The earlier 0edf4af1aaa4 contains an exact commuting-pair formula for every positive triple, not just a small table.",
+          "At h=1 the collision has total dimension 134, outside the dimension-ten classification."
+        ],
+        "reasoning": "The exact collision was not located as a table row. The earlier formula covers the parameter pairs and distinguishes them even though it does not list them as a graded collision.",
+        "searches": [
+          "Local Resultary: four-vertex multiarrow line classification, centralizer and lower-central layer collisions",
+          "arXiv:2610.25903, §4 table"
+        ]
+      },
+      "rationale": "The earlier same-family commuting-pair result gives explicit equations for the full commutator. Restricting its primed variable to the derived ideal gives the centralizer by direct substitution and tensor injectivity, with no new lemma about the family required. Separately, the published polynomial formula together with the three graded dimensions already distinguishes all candidate triples up to outer reversal, not just the h=1 example. The exact collision tuples are not claimed to have appeared previously; their dimension comparison and distinction are substitutions into the same prior data. This is established prior implication, not an access problem or a claim the mathematics is false.",
+      "residual_risks": [
+        "The comparison is not exhaustive and does not establish who first wrote the classification or collision examples explicitly. The negative novelty decision rests on the exact prior equations and polynomial, not on search failure."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Mechanically implies the centralizer and together with graded dimensions identifies all admissible triples up to reversal. Does not itself state that classification or exhibit the specific collision tuples.",
+          "evidence": [
+            "The proof gives a⊗b′−a′⊗b=0, b⊗c′−b′⊗c=0, and a⊗v′−a′⊗v+u⊗c′−u′⊗c=0 as necessary and sufficient. The polynomial uses E(i,j)=s(it+rj−ij) and has rank-two-middle contribution (q^s−1)(q^s−q)q^{W+D}."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-commuting-pair-polynomial-for-the-three-step-multiarrow-line-qui--0edf4af1aaa4/RESULT.md",
+          "material_read": "Finding, polynomial and assumptions (offsets 180–2455); commutator conditions, rank stratification and proof (2350–6046); Limitations",
+          "method": "Local mirror, direct substitution and degree comparison of exact formula",
+          "title": "Commuting-pair polynomial for the three-step multiarrow line quiver",
+          "trigger": "Identical positive-path Lie family and prior unrestricted commutator equations"
+        },
+        {
+          "assessment": "Covers reversal, but the tabulated classification is dimension-bounded.",
+          "evidence": [
+            "Lemma 4.8 proves quiver reversal isomorphism; the table addresses total dimension at most ten."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.25903",
+          "material_read": "Abstract p. 1; §4 pp. 17–20, Lemma 4.8, Theorem 4.9 and table (offsets about 35628–45185)",
+          "method": "OA primary text",
+          "title": "On nilpotent Lie algebras arising from parabolic subalgebras and quivers — three-step cases",
+          "trigger": "Likely prior classification and reversal theorem"
+        },
+        {
+          "assessment": "Broader construction, not this direct classification.",
+          "evidence": [
+            "The associative positive-path multiplication induces the Lie bracket; the results concern nilpotency and geometry."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2405.11184",
+          "material_read": "Definition 3.5 and Proposition 3.7, pp. 5–7 (offsets about 18000–22906)",
+          "method": "OA primary text",
+          "title": "Nilpotent Lie algebras obtained by quivers and Ricci solitons",
+          "trigger": "Foundational path Lie construction for finite acyclic quivers with multiple arrows"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The classification is natural and the centralizer gives a clean short explanation, but the exact invariant is a direct restriction of the earlier full commutator computation. The selected collision illustrates the distinction by integer substitution without supplying an independent obstruction or a classification of graded-dimension collisions. This is an expository consequence of the prior calculation rather than a distinct valuable finding suitable for repair from the frozen content.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

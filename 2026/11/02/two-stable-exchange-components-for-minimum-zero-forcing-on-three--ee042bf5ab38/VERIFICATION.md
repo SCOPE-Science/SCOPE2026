@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Run from the package root:
+## correctness
 
-```
-python3 verify/infinite_fort_dfa.py
-python3 verify/direct_grid.py
-```
+PASS
 
-The first program compares the exact fort-recognizing automaton to a pattern-language NFA over all input lengths, by closure of its reachable finite product graph. It proves the 26-template formula for every width-three rectangular grid of length at least five and proves the lower bound of three initial vertices for all lengths at least three. The finite closures contain respectively 926 and 245 reachable states; both counts are assertions in the verifier.
+Ordinary zero forcing is equivalent to meeting every nonempty fort: a stopped white set is a fort, and no first force can enter an initially all-white fort. The two adjacent masks and nonempty flag suffice to certify each candidate fort column once its right mask is known; zero exterior masks impose the exact open boundary conditions. The frozen product closure keeps the blue population exact, rejecting overflow, and saturates length at five, so no accepted extension is lost. An independent implementation with a different parser and an overflow population class closed 811,208 reachable states under all eight column masks; in 2,948 states at population three and length at least five, it found no disagreement with the template language, and in 615 states at smaller population and length at least three none forced. This checks arbitrary lengths and is not a run through finitely many widths. The frozen verifier's reported state totals apply to its smaller representation, not to the replay. The independent direct enumeration found exactly 20,44 (states,edges) at n=3 and 26,56 at n=4, both connected; it also matched the templates at n=5..10. At n>=5 opposite ends overlap in at most one column, which carries at most one marked vertex in each template. Thus a left/right pair can neither coincide nor meet in two marks as required for a token jump. The separately enumerated exchange graph on the thirteen templates is connected, with 24 edges, degrees 2,3,4,6 of respective multiplicities 2,2,8,1 and eccentricities 3,4,5 of multiplicities 5,6,2. Reflection yields the other isomorphic component.
 
-The second program builds actual undirected grid adjacency, applies ordinary zero forcing to every three-set for lengths three through ten, constructs the token-jump exchange graphs and all-pairs distances, and checks the 13-vertex reference component from the explicit templates. It independently verifies the two exceptional small-grid counts, the fixed 26 configurations from length five onward, and the component-degree and eccentricity distributions.
+## originality
 
-Both scripts were executed on the packaged versions and their assertions passed. No third-party software, private data, external paper, random initialization, or precomputed result file is needed. These are self-review; no independent audit has been performed.
+PASS
+
+The supported claim is the exhaustive end-template classification of minimum triples and the sharp transition to a specified two-component token-jump geometry. The general parameter Z and the exchange graph are prior definitions; the inspected forest theorem and alternate host-graph results do not cover these path Cartesian products. In particular the same counts of configurations and components in a path-power example do not give the asserted exchange graph.
+
+## value
+
+PASS
+
+This is a natural fixed-width family for minimum zero forcing reconfiguration. Proving that all minimizers localize at the ends explains permanent failure of single-token connectivity even as the grid grows, and identifies n=5 as the exact transition from the two shorter grids. The explicit component, its distances and templates provide reachable-state information beyond the known minimum size or a generic example of disconnection.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

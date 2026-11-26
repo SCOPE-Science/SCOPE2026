@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:32:11.444892Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The forward image of a partial order is extensive, idempotent and additive; equality of the two compositions on singletons is sufficient by union preservation. In /workspace/reproductions/modal.py I independently enumerated the three orientations (including absent edge) of each unordered pair, imposed transitivity, and used sets and repeated simultaneous closure to enumerate orbits. Every seed in every commuting ordered pair is included; 2^n−1 rounds suffice because each nonstable round adds at least one subset. Counts of full triples at n=1,2,3,4 are 2,16,180,960. At n=4: 219 posets, 22735 commuting pairs, orbit histogram at sizes 2,4,…,16 is (48124,102252,107568,59376,29280,12144,4056,960), successful seed size counts are (168,624,168) at sizes 1,2,3, there are zero comparable successes, and the least total strict edge count is 4. The same reproduction evaluated all sixteen displayed words right-to-left for the given witness. No ≤3-world carrier can reach 15 subsets. An automorphism preserving the two named relations and seed commutes with all three unary maps, so in a full orbit it fixes every subset, in particular every singleton. Thus the labelled action is free and gives 960/24=40 classes without quotienting by an operation swap.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Banakh et al. Example 3.1 has countably infinite carrier with two incomparable metrizable topologies and an infinite seed orbit; their comparable-case bounds concern monoids. Agnew treats local finiteness for modal K4 algebras. e805649f7cfd counts commuting closure families on diamond lattices."
+        ],
+        "reasoning": "An infinite witness need not restrict to an invariant four-point carrier, and operator-monoid bounds do not classify fixed-seed full orbits. Arbitrary lattice closures need not be additive closures on finite powersets.",
+        "searches": [
+          "arXiv:1508.07703: incomparable; §3 Example 3.1 and comparable-topology bounds",
+          "arXiv:2606.02941v2, p. 1",
+          "Resultary: commuting closures with complement"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT §§Finding, Proof, Verification; VERIFICATION.md; checker.py",
+        "arXiv:1109.1227",
+        "arXiv:1508.07703",
+        "arXiv:2606.02941v2",
+        "Resultary e805649f7cfd and 4e7e70486d61"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The single closure bound explains the choice to exceed fourteen; the infinite example and comparable-topology theory do not imply full generation on powersets of four worlds from one seed, much less the labelled and unlabelled counts."
+        ],
+        "reasoning": "The powerset-size lower bound is routine; the finite admissible witness, full census and ancillary sharp edge threshold are the distinct evidence.",
+        "searches": [
+          "Shallit and Willard arXiv:1109.1227 pp. 1,5",
+          "Banakh et al. arXiv:1508.07703 pp. 1,4–5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The posets are precisely finite T0 Alexandrov closure relations in the stipulated image orientation; reversing both relations also translates the usual predecessor modality. Shallit–Willard considers abstract commuting closures, including an infinite-carrier example."
+        ],
+        "reasoning": "The known two-closure setting is genuinely related but neither the infinite witness nor the one-closure 14 bound specifies this finite T0 construction or the counts.",
+        "searches": [
+          "Resultary: four-world T0 posets; commuting closures with complement",
+          "Web: Kuratowski two commuting closures complement finite Alexandrov T0 partial orders four points sixteen sets orbit census 960 Shallit Willard"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No material census match returned; 4e7e70486d61 tabulates commuting equivalence relations by class and composite-image ranks, not these orbit sizes."
+        ],
+        "reasoning": "Enumeration of posets or equivalence relations alone lacks the joint constraints and the seed orbit; equivalence relations satisfy antisymmetry only in the discrete case.",
+        "searches": [
+          "Resultary: exact 960/40 census; four-world commuting modal orbit-size histogram"
+        ]
+      },
+      "rationale": "The checked catalogue and primary sources cover the general closure-complement setting and related commuting-operator counts, but not the sharp finite T0 realization and census of ordered, commuting closure pairs with a fixed generating subset.",
+      "residual_risks": [
+        "The bounded literature and catalogue checks do not exclude an older finite bitopological classification under different nomenclature. The 1922 original was not read directly; the classical single-operator bound was checked in the cited modern work."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General setting, different realization",
+          "evidence": "Infinite orbit on an infinite carrier for abstract closures; no four-world labelled census in the applicable passages.",
+          "identifier_or_url": "arXiv:1109.1227",
+          "material_read": "p. 1 introduction; p. 5 example around offset 10877",
+          "method": "OA PDF text",
+          "title": "Kuratowski’s Theorem for Two Closure Operators",
+          "trigger": "Direct precedent on two commuting closures and complement"
+        },
+        {
+          "assessment": "Related bounds/examples do not give census",
+          "evidence": "Example 3.1 is countably infinite and incomparable; the comparable-topology monoid theorem does not enumerate finite T0 commuting pairs or their seed orbits.",
+          "identifier_or_url": "arXiv:1508.07703",
+          "material_read": "pp. 1,4–5; Example 3.1 and comparable-topology bound",
+          "method": "OA PDF text",
+          "title": "Kuratowski monoids of n-topological spaces",
+          "trigger": "Multiple topological closures and incomparable topologies"
+        },
+        {
+          "assessment": "Different algebra and claim",
+          "evidence": "One modality on transitive frames, questions of local finiteness rather than the two commuting unary orbit census.",
+          "identifier_or_url": "arXiv:2606.02941v2",
+          "material_read": "p. 1 abstract/introduction",
+          "method": "OA PDF text",
+          "title": "On Local Finiteness of Modal K4 Algebras",
+          "trigger": "Finite modal generation context"
+        },
+        {
+          "assessment": "Different carrier and invariant",
+          "evidence": "Extensive isotone idempotent maps on diamond lattices, not powerset additive closures with complements.",
+          "identifier_or_url": "2026/10/18/SCOPE-maximal-commuting-families-of-closure-modalities-on-finite-diamo--e805649f7cfd",
+          "material_read": "RESULT Finding",
+          "method": "Local mirror",
+          "title": "Maximal commuting families of closure modalities on finite diamond lattices",
+          "trigger": "Nearby catalogue classification"
+        },
+        {
+          "assessment": "Different relations and statistics",
+          "evidence": "Classification by class and composite-image ranks, not generated complement-closure orbits.",
+          "identifier_or_url": "2026/10/13/SCOPE-joint-modal-saturation-rank-census-for-commuting-finite-equivale--4e7e70486d61",
+          "material_read": "RESULT Finding",
+          "method": "Local mirror",
+          "title": "Joint modal saturation rank census for commuting finite equivalence relations",
+          "trigger": "Nearby catalogue commuting pairs census"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The 14-set single-closure comparison motivates this finite threshold; the commuting and T0 constraints make an admissible full witness nontrivial. The exact whole four-world census, rigidity and least-edge condition are reusable benchmarks for unary generation in finite closure spaces; they are not a selected sample or just a relabeling of the classical bound.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

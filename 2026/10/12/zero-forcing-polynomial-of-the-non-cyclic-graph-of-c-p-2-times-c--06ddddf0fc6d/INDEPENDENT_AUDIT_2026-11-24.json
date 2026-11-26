@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:43:02.118127Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Each element of order p² generates one of p subgroups H_i, distinguished by slope modulo p; every H_i has the same order-p line. Torsion elements have order p and lie on one of p+1 lines. A generator of order p² fails to generate a cyclic subgroup with an element on any of the other lines; an order-p element fails with a point on a different line. Thus only the identity is in the cyclicizer. This gives the claimed independent twin classes P,A_i,B_j of sizes s=p−1, a=ps, s, with P joined only to the B side and all distinct A/B parts mutually joined. At most one white per class is possible. For odd p a blue mate remains in any white class. Write (e,r,t) for white P, A and B class counts. If r≥3, no A or B source can force as long as those three A classes are white, and P cannot remove an A even if it forces a lone B. If t≥2 and e+r+t≥3 every blue source has at least two white neighbors. Two white B classes alone peel via their blue mates. For t≤1,r≤2, P removes a lone B; then blue A vertices peel the at most two A whites, and a B vertex removes P if necessary. Hence the stated exact criterion. All pairs of distinct classes are admissible; their total weight is (N²−[(p+1)s²+pa²])/2. The three-class weight is s(pa)(ps)+binom(p,2)a²(ps+s), and the four-class weight is s binom(p,2)a²(ps). These simplify to the displayed coefficients and match the asserted minimum profiles. For p=2 I constructed each two-generator subgroup by modular sums, then exhausted all 128 white sets via containment of a nonempty fort; the census is 20,18,7,1 in degrees 4 through 7 with precisely the stated seven minimum omission profiles (weights 4,4,4,2,2,2,2). Replay: python3 /workspace/branches/independent_exact_checks.py, check_noncyl_p2(). The packaged tests were read; the odd-prime proof does not rely on them.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The non-cyclic graph paper defines adjacency by noncyclic generation and gives the cyclicizer criterion for finite p-groups.",
+          "Boyer et al. give generic top coefficient formulas based on graph order, nonisolates and non-twin pairs."
+        ],
+        "reasoning": "Those results set up the graph and account, after the twin classes are known, for the coefficients through N−2 for odd p. They do not determine which three- and four-class profiles force. Generic quotient simulation is a method, not a closed evaluation of those profiles and weights for every prime.",
+        "searches": [
+          "Abdollahi and Mohammadi Hassanabadi, arXiv:0708.2327, Abstract and Proposition 2.2",
+          "Boyer et al., arXiv:1801.08910, Definition 1 and §3 Theorem 1; complete multipartite discussion"
+        ]
+      },
+      "checked_sources": [
+        "Resultary group-graph and zero-forcing searches",
+        "Abdollahi and Mohammadi Hassanabadi, arXiv:0708.2327 / DOI 10.1080/00927870701302081",
+        "Boyer et al., arXiv:1801.08910",
+        "Distinct indexed records 76b3b36dbf52, 626485d88ba7 and c17570d8f5d7"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Cyc(G) is trivial for the abelian noncyclic p-groups studied here, by Proposition 2.2.",
+          "The quaternion polynomial counts ordinary forcing, but for adjacency by cyclic generation on all elements of Q_(4n)."
+        ],
+        "reasoning": "Knowing the vertex set or an enumerator on the full cyclic graph of another family does not imply the exact mixed-exponent non-cyclic quotient and which white profiles can peel. The new implication uses the common order-p line to provide a P source for a lone white B, plus a distinct A/A removal, which singles out (1,2,1) as the only four-white profile.",
+        "searches": [
+          "Abdollahi and Mohammadi Hassanabadi, arXiv:0708.2327, Proposition 2.2 and C_2 × C_4 example",
+          "Local mirror: generalized quaternion cyclic-graph polynomial 76b3b36dbf52, Finding and scope"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "76b3b36dbf52 computes the full cyclic-graph polynomial for generalized quaternion Q_(4n).",
+          "626485d88ba7 treats the same mixed abelian group, but its balanced double star has nontrivial proper subgroups as vertices.",
+          "c17570d8f5d7 studies reconstruction from the non-cyclic graph of non-power-of-two dicyclic groups."
+        ],
+        "reasoning": "The target has nonidentity group elements as vertices and the noncyclic adjacency. Complementing a full cyclic graph and removing cyclicizer vertices would only give the target for the same group; it would not transfer the forcing polynomial of a different graph. Inclusion graphs use an altogether different vertex set. The target can also be written as a join of a complete multipartite graph with the disjoint union of another complete multipartite graph and an independent block, but is not itself complete multipartite. The ranked join search did not identify a matching exact ordinary forcing law.",
+        "searches": [
+          "Resultary and literature: non-cyclic graph of C_(p²) × C_p; zero forcing on group graphs",
+          "Resultary: graph joins, complete multipartite factors, cographs and recursive zero forcing polynomial"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact frozen self-hit is the assigned record, not independent coverage.",
+          "The foundational paper supplies an element cyclicizer in the p=2 group; it does not give an exact forcing census in that example."
+        ],
+        "reasoning": "The boundary example is known as a group and graph source, but its list of cyclic partners for one element is not a table of forcing sets. No independent matching exact enumerator surfaced in the inspected search results.",
+        "searches": [
+          "Resultary and primary literature: C_2 × C_4 non-cyclic graph zero forcing polynomial and minimum sets",
+          "arXiv:0708.2327, p. 2 C_2 × C_4 example"
+        ]
+      },
+      "rationale": "The graph definition and cyclicizer facts are established, and generic polynomial coefficients and twin obstructions are not new here. The supported distinct claim is the exact family enumerator with the maximum white-set classification for this mixed-exponent group, including the singleton-class boundary. The sources compared do not provide a dominating formula or the profile classification for this graph.",
+      "residual_risks": [
+        "An equivalent graph may have been treated under a different join or cograph presentation, or a census may sit in unindexed data.",
+        "The publisher copy of the foundational paper was inaccessible; the reported text comparison is to the authors' arXiv copy. The inaccessible cyclic-graph background paper for the quaternion comparison is not used to exclude coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact prior graph definition, cyclicizer theorem and boundary example, not an enumerator in the compared passages.",
+          "evidence": [
+            "Proposition 2.2: a finite p-group has nontrivial cyclicizer iff cyclic or generalized quaternion.",
+            "The Z₂⊕Z₄ example computes the element cyclicizer of (0,2), to show that it is not a subgroup."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0708.2327",
+          "material_read": "Abstract, offset 0; example p. 2 offset 4220; Proposition 2.2 offsets 8100–9489",
+          "method": "Identified lawful arXiv author copy after DOI and publisher full-text access failed; located and opened the primary passages",
+          "title": "Non-cyclic graph of a group",
+          "trigger": "Defining primary source with exact p=2 group example and finite-p-group theorem"
+        },
+        {
+          "assessment": "Defines exact cardinality enumerator and establishes generic upper terms; compared results do not cover the profile classification on this join with a disjoint factor.",
+          "evidence": [
+            "The coefficient at N−2 is determined by non-twin pairs; the multipartite discussion distinguishes equality of polynomials from recognition."
+          ],
+          "identifier_or_url": "arXiv:1801.08910",
+          "material_read": "Definition 1 p. 2, §3 Theorem 1, and complete multipartite recognizability discussion p. 14",
+          "method": "Bounded primary PDF comparison",
+          "title": "The zero forcing polynomial of a graph",
+          "trigger": "Potential general implication via graph operations and complete multipartite graphs"
+        },
+        {
+          "assessment": "Meaningful methodological parallel, not coverage of this non-cyclic graph.",
+          "evidence": [
+            "Full cyclic graph of Q_(4n), all group elements included and edges for cyclic generation."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-zero-forcing-polynomial-and-minimum-rank-of-generalized-quaterni--76b3b36dbf52",
+          "material_read": "Finding offset 0; relationship to prior work and limitations offset 4320",
+          "method": "Ranked Resultary search and bounded original local-mirror Markdown reading",
+          "title": "Zero-forcing polynomial and minimum rank of generalized quaternion cyclic graphs",
+          "trigger": "Closest indexed group-graph polynomial and minimum-set result"
+        },
+        {
+          "assessment": "Different graph and invariant even for the same group.",
+          "evidence": [
+            "The subgroup inclusion graph is a balanced double star and the results concern automorphism image and kernel."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-symmetry-loss-in-inclusion-graphs-of-the-two-rank-two-groups-of--626485d88ba7",
+          "material_read": "Finding, offset 0",
+          "method": "Bounded original local-mirror Markdown reading",
+          "title": "Symmetry loss in inclusion graphs of the two rank-two groups",
+          "trigger": "Exact mixed-exponent group under a graph alias"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This mixed-exponent abelian group is a natural case where order-p elements and order-p² generators visibly differ in the graph. The exact forcing classification describes all smallest seeds in terms of that subgroup geometry, and explains why the allowable number of white vertices stays bounded as the graph grows and why it changes when three classes become singletons at p=2. It supplies both a family benchmark for forcing polynomials on group graphs and explicit seed choices; those are useful independently of graph reconstruction.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

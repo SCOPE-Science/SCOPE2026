@@ -1,0 +1,155 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:08:03.128393Z",
+  "axes": {
+    "correctness": {
+      "rationale": "I reconstructed the line set independently by enumerating the 7462 reduced row echelon two-spaces over F_9 and testing the Hermitian pairing on the two basis rows. Completeness over the algebraic closure follows both from the published 112-line theorem and directly: vanishing of the four Hermitian coefficients on a line with vector space W gives W=(W^[3])^perp for the ordinary dot product; cubing gives W^[3]=(W^[9])^perp, so W=W^[9] and its unique row echelon matrix is over F_9. A two-by-two residual determinant tests geometric meeting of distinct lines. The independent calculation recovered 48 and 64, quotient ((14,16),(12,18)), characteristic polynomial (T−18)(T−2)^43(T+2)^6(T+6)^12(T+10)^2, and every one of the 48 augmented Gram ranks 22 modulo 101. Replay: python /workspace/branches/independent_fermat.py (SymPy); output /workspace/branches/independent_fermat.log. The modular ranks give rational lower bounds, which attain the Picard rank 22. By adjunction a line has square −2; in a smooth surface the distinct tangent directions of intersecting lines give local intersection one. For D the excess sum, D·H=64 and D²=64(18−2)=1024, so the H-orthogonal class D−16H has square zero. Hodge index forces it to be numerically trivial; a numerically trivial line bundle on a K3 is trivial by Riemann–Roch and duality, since neither sign of a nontrivial numerically trivial bundle has a nonzero effective divisor. Thus D=16H in NS, and the 21-dimensional Gram rank is the span dimension since the span contains H and the form restricts nondegenerately. No integral index or nondeformability assertion follows.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The full line graph is the point graph of the dual generalized quadrangle of order (3,9): degree 30, two common neighbors for adjacent vertices, and ten for nonadjacent vertices. Its adjacency eigenvalues on the complement of the all-ones vector are 2 and −10, of multiplicities 90 and 21. The full line Gram rank and Picard rank are 22.",
+          "The full-graph critical-group record 1932fa3c1293 does not itself select the classical lines. The arithmetic Picard record 4c8353f211cf supplies the classical span dimension 20 and total dimension 22, not the excess-block spectrum."
+        ],
+        "reasoning": "The full rank alone does not determine a subspace rank. The two-eigenvalue identity of the full graph is stronger: after removing block constants of the equitable partition, the shifted negative Gram is a scalar times an orthogonal projection, so the two complementary compressions determine each other's nontrivial spectrum.",
+        "searches": [
+          "Degtyarev arXiv:1604.05836 Theorem 1.2 and generalized-quadrangle sections",
+          "Rams–Schütt arXiv:1409.7485 pp.1–2",
+          "Veniani arXiv:1608.04209 p.2; Resultary 1932fa3c1293 and 4c8353f211cf"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:0812.2377, 1409.7485, 1604.05836, 1608.04209",
+        "Resultary 1bcbf2e1a563, 68d0b4284551, 76e63f54b379, 1932fa3c1293, 4c8353f211cf"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Full degree 30 and classical degree 14 give 16 cross neighbors per classical line. The orbit makes the other cross degree constant, so double counting gives 48·16/64=12 and hence excess degree 18.",
+          "On the subspace W perpendicular to both block constants, P=(2I−A)/12 is a rank-21 orthogonal projection, since A has only eigenvalues 2 and −10 there (the quotient has eigenvalues 30 and 2). Write P=QQ^t with orthonormal columns and split Q by the two blocks. Then Q_C^tQ_C+Q_E^tQ_E=I_21. The classical table gives Q_C^tQ_C eigenvalues 1/3 with multiplicity 12, 2/3 with 6, 1 with 1, and 0 with 2, using equality of the nonzero spectra of Q_CQ_C^t and Q_C^tQ_C. Thus the excess compression has 2/3 with 12, 1/3 with 6, 1 with 2, and 0 with 43 in the 63-dimensional excess zero-sum space. Undoing the affine shift and adjoining the constant eigenvalue 18 gives exactly the submitted polynomial, hence its Gram rank and inertia.",
+          "Once degree 18 is known, Hodge index gives the stated divisor identity from D·H and D². Since the excess span has rank 21 and all lines together span rank 22, some classical line completes it; coordinate permutations and fourth-root scalings act transitively on classical lines while preserving the excess span, so any classical line completes it."
+        ],
+        "reasoning": "These standard consequences use verified existing graph and orbit input, not the submitted finite search or an assumption that an unlabeled full graph singles out the subset. They recover the distinctions in the entire submitted conclusion.",
+        "searches": [
+          "Classical spectrum and congruences in Resultary 1bcbf2e1a563; transitive complement in 68d0b4284551; full quadrangle in Degtyarev arXiv:1604.05836"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "68d0b4284551 identifies exactly the same 48 coordinate-pair lines and exactly the same 64 others as the diagonal fourth-root orbit of [s:t:s+t:s−t]. The fact that these are doubled in its relative Dwork Fano scheme does not change the set of lines on the individual Fermat fiber.",
+          "The classical-block meeting congruences in 1bcbf2e1a563 are obtained by comparing products of eighth roots of unity (or equal single ratios). Reduction to characteristic 3 preserves these comparisons because 8 is prime to 3 and all eighth roots remain distinct in F_9."
+        ],
+        "reasoning": "The orbit description marks the very same subset and gives transitivity. The complex classical graph is therefore exactly the special-fiber graph induced by the classical block, not just a graph with the same number of vertices.",
+        "searches": [
+          "Resultary comparisons for the characteristic-three Hermitian Fermat quartic, 48 liftable and 64 complementary lines",
+          "Resultary 68d0b4284551 offsets 760–2692 and 4300–6228; 1bcbf2e1a563 Finding and incidence formulas"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "1bcbf2e1a563 prints degree 14 and the full classical spectrum 14^1,2^28,(−2)^12,(−6)^6,(−10)^1, together with exact incidence congruences.",
+          "Degtyarev's Q_64 is a different generalized quadrangle of rank 19 and is not realized by a line configuration. The Segre–Schur graph in 76e63f54b379 has spectrum 18^1,2^44,(−4)^8,(−6)^9,(−10)^2 on a different quartic."
+        ],
+        "reasoning": "Neither named other 64-vertex table applies. The exact already-tabulated 48-vertex spectrum does apply, by the specialization isomorphism; the full graph identity gives the complementary spectrum without a new line enumeration or a missing 64×64 table.",
+        "searches": [
+          "Resultary 1bcbf2e1a563, integral spectrum and transversal profile of the 48 Fermat-quartic lines",
+          "Resultary 76e63f54b379, Segre–Schur spectrum; Degtyarev §7.6.2 Q_64"
+        ]
+      },
+      "rationale": "The published full generalized quadrangle, the indexed exact classical-block spectrum and incidence rules, and the distinct indexed excess-orbit description determine all the submitted numerical and geometric conclusions by complementary compression of an orthogonal projection and elementary intersection theory. The excess polynomial need not be printed in earlier work to be a direct consequence. This is established implication, not a priority inference from the same-day dates, and not merely a suspicion about an unseen table.",
+      "residual_risks": [
+        "The shared catalogue date of the orbit description and the submitted record does not establish discovery or release order. The verdict rests on demonstrated implication from accessible exact statements, not a claim about who first made the deduction."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the classical construction",
+          "evidence": "The 3m² lines of standard coordinate-pair type give 48 for the quartic.",
+          "identifier_or_url": "https://arxiv.org/abs/0812.2377",
+          "material_read": "p.5, offset 13200, classical line formulas",
+          "method": "Primary OA PDF passage",
+          "title": "Lines on Fermat surfaces",
+          "trigger": "Explicit coordinate-pair formulas"
+        },
+        {
+          "assessment": "Full line count and F_9 descent already known",
+          "evidence": "Upper bound 112, attained by the characteristic-three Fermat quartic with all lines defined over F_9.",
+          "identifier_or_url": "https://arxiv.org/abs/1409.7485",
+          "material_read": "pp.1–2, offsets 2840 and 5900",
+          "method": "Primary OA PDF passages",
+          "title": "112 lines on smooth quartic surfaces (characteristic 3)",
+          "trigger": "Total geometric count and field of definition"
+        },
+        {
+          "assessment": "Full graph and rank covered, and Q_64 is not the excess subset",
+          "evidence": "Q_112 is the full generalized-quadrangle line lattice of rank 22; the separate GQ(3,5) has rank 19 and is not realized by a line configuration.",
+          "identifier_or_url": "https://arxiv.org/abs/1604.05836",
+          "material_read": "Theorem 1.2 p.2; pp.3 and 9, offsets 8548 and 28250–31214; §7.6.2 p.32, offset 104300",
+          "method": "Primary OA PDF passages",
+          "title": "Lines in supersingular quartics",
+          "trigger": "Full quadrangle and lattice; possible alternative Q_64"
+        },
+        {
+          "assessment": "Total counts and rank, not partition spectrum in the material read",
+          "evidence": "48 complex Fermat lines, 112 in the characteristic-three reduction and Picard rank 22.",
+          "identifier_or_url": "https://arxiv.org/abs/1608.04209",
+          "material_read": "p.2, offset 5700",
+          "method": "Primary OA PDF passage",
+          "title": "Lines on K3 quartic surfaces in characteristic 3",
+          "trigger": "Classical versus reduced total counts and rank"
+        },
+        {
+          "assessment": "Covers exactly the classical principal block after reduction",
+          "evidence": "Degree 14; spectrum 14, 2^28, (−2)^12, (−6)^6, −10 and the cross-family congruences modulo four.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-integral-spectrum-and-transversal-profile-of-the-48-fermat-quart--1bcbf2e1a563",
+          "material_read": "Mirrored RESULT.md, offset 0, Finding, assumptions and incidence proof, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Catalogue lookup and decisive local-mirror text",
+          "title": "Integral spectrum and transversal profile of the 48 Fermat-quartic lines",
+          "trigger": "Exact classical block needed for complementary spectral calculation"
+        },
+        {
+          "assessment": "Same 48/64 split and excess orbit, not a separate incidence theorem",
+          "evidence": "The 64 non-coordinate-pair lines are the diagonal fourth-root orbit of L_0, explicitly charted by (a,ra,−d/r,d) with (a,d,r) in μ_4³.",
+          "identifier_or_url": "Resultary 68d0b4284551",
+          "material_read": "Mirrored RESULT.md offsets 760 and 4300, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Catalogue lookup and decisive local-mirror text",
+          "title": "The length-176 relative Fano scheme of the characteristic-three Dwork pencil",
+          "trigger": "Exact chart and symmetry of the same chosen excess set"
+        },
+        {
+          "assessment": "Different surface and graph",
+          "evidence": "Its spectrum features a −4 eigenvalue and different multiplicities, so it is not the excess graph.",
+          "identifier_or_url": "Resultary 76e63f54b379",
+          "material_read": "Mirrored RESULT.md Finding",
+          "method": "Catalogue lookup and local-mirror text",
+          "title": "Spectrum and common-transversal profile of the 64 Schur lines",
+          "trigger": "Alternative 64-line graph comparison"
+        },
+        {
+          "assessment": "Full graph but different invariant",
+          "evidence": "Studies the 112-vertex regular graph with Frobenius, without the marked classical/excess blocks.",
+          "identifier_or_url": "Resultary 1932fa3c1293",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Catalogue lookup and local-mirror text",
+          "title": "Frobenius descent of the critical group of the 112-line Hermitian graph",
+          "trigger": "Same complete line graph"
+        },
+        {
+          "assessment": "Related dimension comparison, not the excess rank by itself",
+          "evidence": "Dimensions 20 and 22 for the classical and full geometric spaces, respectively.",
+          "identifier_or_url": "Resultary 4c8353f211cf",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Catalogue lookup and local-mirror text",
+          "title": "The mod-eight arithmetic Picard diagram of the Fermat quartic",
+          "trigger": "Classical versus total Picard spans"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The subset and its Picard span are intrinsically natural, but the exact narrow invariant submitted is a mechanical complementary compression of the tabulated classical block in the known full graph using the verified orbit description. The remaining divisor sum and one-line completion are elementary consequences of that calculation and full rank. No further independent useful invariant, such as integral saturation, is established by this record.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

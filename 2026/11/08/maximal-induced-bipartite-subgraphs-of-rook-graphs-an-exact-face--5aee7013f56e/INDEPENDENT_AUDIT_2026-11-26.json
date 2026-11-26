@@ -1,0 +1,178 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:35:54.983463Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Proof Steps 1–4",
+        "Frozen verification files inspected without executing",
+        "/workspace/branches/7fcef8a4-ccd1-4efa-917b-80eb27acf8c5/independent_rook_check.py",
+        "/workspace/branches/7fcef8a4-ccd1-4efa-917b-80eb27acf8c5/independent-small.txt, independent-main.txt and independent-k35.txt"
+      ],
+      "rationale": "Cells correspond to simple bipartite edges. A base degree at least three makes a triangle in the induced line graph; with maximum base degree two the base components are paths, even cycles and isolates, so the induced line graph is bipartite. The product of the two unsaturated sets must consist wholly of selected edges for maximality. When both are nonempty, each vertex there has degree at most one, so they are singletons joined by an isolated edge. Both degree sums are then one less than twice their shore sizes, forcing a square. Otherwise a shore is saturated; edge capacity makes it the smaller shore on rectangles and both shores on squares. These criteria are sufficient too. In the saturated classes only isolated larger-shore vertices, alternating paths with one extra larger-shore vertex and even cycles occur. Dividing alternating list counts by orientation and, for cycles, label starting position gives k!(k+1)!/2 and (k!)²/(2k). The resulting labeled EGF is g(xy)exp(y h(xy)); exactly n−m factors carrying an extra y gives the stated coefficient. The other square class amounts to choosing the two isolated-edge endpoints and a two-factor on the remaining labels. A two-factor on one row and one column is impossible, while spanning even cycles realize both sizes for n≥3; a single alternating path on all rows and m+1 columns realizes the rectangular size. Independent direct two-coloring and single-cell extension tests agree with all five checked polynomials.",
+      "residual_risks": [
+        "Independent exhaustive checks cover 2×2, 3×3, 3×4, 3×5 and 4×4. The unrestricted result relies on the structural proof and exact coefficient extraction, not those data."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Reiner–Roberts treat rational homology for capacity-bounded complexes. Multiple chessboard complexes are defined with both capacities, while the inspected symmetric-family treatment then specializes to column capacity one.",
+          "Singh's balanced capacity n−1 homotopy-sphere theorem has capacity two only at n=3. The Jojić et al. 2020 abstract describes a connectivity result for multiplicity chessboard complexes, without an all-board facet formula in the material read."
+        ],
+        "reasoning": "A homotopy or homology computation does not determine how many inclusion-maximal faces occur at each size. The cited balanced capacity theorem does not include strict rectangles or the fixed-capacity-two regime at larger n, and one-column-capacity cases are not the same family.",
+        "searches": [
+          "Reiner–Roberts DOI:10.1023/A:1008728115910 pp. 139,147",
+          "arXiv:1412.0386 §2; arXiv:1502.05290 §2.1",
+          "Singh arXiv:2006.13632v2 Theorem 1.2",
+          "Jojić et al. DOI:10.22405/2226-8383-2018-21-2-207-227, abstract"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 8ffed337f09d, cb67b6c453ce, ea5e14157f12, 915eed6b65e5, cdea2134f1ba and 63c5479b7a8c",
+        "DOI:10.1023/A:1008728115910; arXiv:2006.13632v2, 1909.10406v2, 1412.0386 and 1502.05290",
+        "DOI:10.22405/2226-8383-2018-21-2-207-227 (abstract only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Removing the three-star terms from the earlier all-set generating function gives the degree-two all-face generating function. Its top rectangular size coefficient already supplies the number of faces of size 2m, and its square two-factor coefficient is explicitly given.",
+          "The prior maximal-forest purity result concerns linear forests (no cycles); Hamilton paths on square boards can be closed to even cycles, so maximal forests there need not be maximal bipartite sets."
+        ],
+        "reasoning": "The rectangular top coefficient becomes the full facet census only after proving that no smaller maximal faces exist. On squares, a face of size 2n−1 could be an extendible spanning path or an isolated edge plus cycles. The prior two-factor enumeration makes the smaller facet count immediate once the isolated-edge classification is known, but it does not identify the maximal subcollection. The new content is the general unsaturated-pair criterion applied to facets, with its full polynomial and purity consequences, not a claim to invent the component EGF.",
+        "searches": [
+          "Resultary 8ffed337f09d, Finding and Proof §§1–2",
+          "Resultary 63c5479b7a8c, Finding",
+          "arXiv:2006.13632v2 Theorem 1.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Known bounded-degree or multiple chessboard complexes constrain row and column occupancy, so the capacity-(2,2) case is the same admissible-set complex. Singh defines exactly the degree-at-most-r edge complex.",
+          "The earlier indexed three-independence result allows the additional connected base component K_{1,3}; the corresponding line graph triangle makes it inadmissible here."
+        ],
+        "reasoning": "For the line graph of a bipartite base, being induced triangle-free, bipartite, or represented by a degree-two matching all specify the same feasible sets. These are aliases, not separate contributions. Induced rook maximum-degree two is a distinct property and its extra components may affect maximality.",
+        "searches": [
+          "Resultary: Inclusion-maximal triangle-free induced sets in rectangular rook graphs, maximal 2-matchings in complete bipartite graphs, degree two chessboard complex facets purity equal shores one isolated selected edge and cycles",
+          "Reiner–Roberts DOI:10.1023/A:1008728115910 pp. 139,147",
+          "arXiv:1412.0386 §2 and arXiv:2006.13632v2 pp. 1–2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "8ffed337f09d gives the exact B_n=(n!)²[t^n]g(t) count of spanning two-factors for every square, hence the larger square coefficient is known.",
+          "The K₃,₄ and K₄,₅ records explicitly give 114 and 2490 facets, all of the top size; the K₃,₅ and K₄,₄ records chart 690 and 90 top faces. These are real exact overlaps, not new examples.",
+          "The targeted alias lookup found the frozen record itself and related records with different selection predicates, not another exact all-board maximal polynomial."
+        ],
+        "reasoning": "Inclusion-maximal (not merely maximum) is crucial: neither the indexed all-square top coefficient nor the finite face counts give a general census of smaller facets. A face census on finitely many boards cannot imply the sharp all-parameter transition.",
+        "searches": [
+          "Resultary 8ffed337f09d, RESULT.md Finding and cycle proof",
+          "Resultary cb67b6c453ce, ea5e14157f12, 915eed6b65e5 and cdea2134f1ba",
+          "Resultary alias search for maximal triangle-free rook sets / maximal 2-matchings"
+        ]
+      },
+      "rationale": "The supported distinct finding is the complete inclusion-maximal facet classification and enumerator, in particular the rectangular purity versus square nonpurity transition and exact contribution of smaller square facets. The larger square coefficient B_n and finite-board entries are demonstrably prior, not separate new results. The prior path-and-cycle generating functions also supply ingredients for the rectangular top coefficient. Neither those ingredients nor the strongest inspected homology and enumeration results give the inclusion-maximal classification at all parameters.",
+      "residual_risks": [
+        "The comparison does not establish absolute publication priority. An unindexed thesis, another bounded-degree matching treatment, or a passage not assessed in the general chessboard literature might contain the facet classification. The 2020 discrete-Morse paper was not assessed in full. Neither limited access nor a search miss establishes absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact square top coefficient and prior ingredients for the rectangular count, but not the full facet result",
+          "evidence": "The condition is base edge degree sum ≤4, permitting an extra three-star component. The square maximum consists of two-factors and is counted by precisely the same B_n.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-three-independent-rook-graph-polynomials-and-bipartite-two-facto--8ffed337f09d/RESULT.md",
+          "material_read": "Finding, Assumptions and proof §§1–2 (offset 0); cycle EGF passage at offset 5000",
+          "method": "Local mirror; compared component constraints and formal coefficients",
+          "title": "Three-independent rook-graph polynomials and bipartite two-factor extremizers",
+          "trigger": "Same all-square two-factor count and path/cycle machinery"
+        },
+        {
+          "assessment": "Exact finite facet overlap",
+          "evidence": "States the finite homotopy result and verifies all 114 facets, the frozen F_{3,4}.",
+          "identifier_or_url": "Resultary cb67b6c453ce",
+          "material_read": "RESULT.md Finding and verification passages (offsets 59 and 2300)",
+          "method": "Local mirror",
+          "title": "The two-matching complex of K_{3,4} is a 5-sphere",
+          "trigger": "Exact same-object finite rectangular case"
+        },
+        {
+          "assessment": "Exact finite facet overlap, not an all-board statement",
+          "evidence": "Reports 2490 maximal faces, each of size eight. A wedge of spheres of different dimensions does not imply different facet dimensions.",
+          "identifier_or_url": "Resultary cdea2134f1ba",
+          "material_read": "RESULT.md census passage (offset 1200)",
+          "method": "Local mirror",
+          "title": "A mixed-dimensional sphere wedge for the two-matching complex of K_{4,5}",
+          "trigger": "Exact same-object finite rectangular case and potential nonpurity confusion"
+        },
+        {
+          "assessment": "Prior homological framework and capacity definitions",
+          "evidence": "Rational homology and the row/column multiplicity constraints are explicit; those passages do not give the exact maximal-facet census.",
+          "identifier_or_url": "https://doi.org/10.1023/A:1008728115910",
+          "material_read": "Journal pp. 139 and 147 (offsets 10536 and 33000)",
+          "method": "Lawful public PDF passages",
+          "title": "Minimal Resolutions and the Homology of Matching and Chessboard Complexes",
+          "trigger": "Known chessboard capacity complexes might cover the same board family"
+        },
+        {
+          "assessment": "Same family under varying capacities; balanced topology theorem, not distribution",
+          "evidence": "The theorem is for M_{n−1}(K_{n,n}), a homotopy sphere; only n=3 has capacity two.",
+          "identifier_or_url": "https://arxiv.org/abs/2006.13632",
+          "material_read": "v2 pp. 1–2 (offsets 450 and 6100), definition and Theorem 1.2",
+          "method": "Lawful public PDF passages",
+          "title": "Higher matching complexes of complete graphs and complete bipartite graphs",
+          "trigger": "Same degree-bounded complex and potential balanced overlap"
+        },
+        {
+          "assessment": "Other graph families in the inspected statement",
+          "evidence": "The announced results describe discrete-Morse homotopy for graphs with leaves, wheels and perfect caterpillars, not the full bipartite-board facet census.",
+          "identifier_or_url": "https://arxiv.org/abs/1909.10406",
+          "material_read": "v2 p. 1, abstract",
+          "method": "Lawful public PDF passage",
+          "title": "2-Matching Complexes",
+          "trigger": "Exact degree-two matching terminology"
+        },
+        {
+          "assessment": "Explicit equivalent complex but not a facet-size theorem in those passages",
+          "evidence": "Equation (14) allows at most p cells in one row and q in one column, covering the feasible-set complex here at p=q=2; the paper definition alone does not establish its purity.",
+          "identifier_or_url": "https://arxiv.org/abs/1412.0386",
+          "material_read": "§2, equation (14), Remarks 2.1–2.2 and Definition 2.3 (offset 21500)",
+          "method": "Lawful PDF keyword location followed by bounded passage reading",
+          "title": "Multiple chessboard complexes and the colored Tverberg problem",
+          "trigger": "Both-shore capacity formulation recovered by primary-literature search under alias"
+        },
+        {
+          "assessment": "Related symmetric constructions with a different capacity restriction in the inspected material",
+          "evidence": "The general parameters permit any row and column bounds, but the G-symmetrization there is of complexes with every column capacity one.",
+          "identifier_or_url": "https://arxiv.org/abs/1502.05290",
+          "material_read": "§2.1, definition (3) and Definition 2.1 (offset 12900)",
+          "method": "Lawful PDF keyword location and passage reading",
+          "title": "Symmetric multiple chessboard complexes and a new theorem of Tverberg type",
+          "trigger": "Possible shellability/purity result on capacity complexes"
+        },
+        {
+          "assessment": "Unresolved full-text comparison; no negative inference from access",
+          "evidence": "The abstract announces a connectivity result for chessboard complexes with multiplicities, not a size-resolved facet statement in the available material.",
+          "identifier_or_url": "https://doi.org/10.22405/2226-8383-2018-21-2-207-227",
+          "material_read": "Math-Net journal abstract; full text not assessed",
+          "method": "Public journal abstract; alternate landing-page retrieval did not yield further readable material",
+          "title": "Generalized chessboard complexes and discrete Morse theory",
+          "trigger": "Potential broader multiplicity chessboard result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and Proof Steps 2–4",
+        "Resultary 8ffed337f09d and exact finite-board comparisons",
+        "Singh arXiv:2006.13632v2"
+      ],
+      "rationale": "The classification locates exactly when all inclusion-maximal bipartite choices on the natural rook graph are optimal and when a second facet dimension occurs. The nonmaximum square class gives genuinely useful facet data that an ordinary face enumerator or top-coefficient census does not isolate. Having the combined size distribution and its sharp shape criterion for the degree-two chessboard complex is a meaningful exact result; the individual already-known top counts are not its contribution.",
+      "residual_risks": [
+        "Facet purity and counts do not establish shellability, Cohen–Macaulayness, or any specific homotopy type."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

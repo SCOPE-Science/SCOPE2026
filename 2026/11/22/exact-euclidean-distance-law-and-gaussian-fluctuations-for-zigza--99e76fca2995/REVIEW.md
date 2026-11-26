@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness (PASS)
-The path/vertex correspondence is justified by acyclic flow decomposition and distinct zero–one supports. A four-state edge metric enumerator accounts exactly for each ordered path pair and produces the rational generating function. Analytic Perron-root derivatives produce the stated squared-distance and ordinary-distance Gaussian laws with strictly positive variances. The embedded exact-arithmetic code checks the entire ordered-pair census for \(n=1,\ldots,12\) and the rational recurrence through \(n=40\). Such finite checks do not replace the transfer and asymptotic proofs.
+## correctness
 
-## Originality (PASS, provisional historical priority)
-Brunner–Hanusa (arXiv:2406.20048, full text) concern zigzag-graph flow-polytope triangulations, groves, and lattice statistics; González D'León–Hanusa–Morales–Yip (arXiv:2107.07326, full text) provide spinal graphs and Fibonacci vertex counts. Klavžar–Mollard (2012, author-hosted full text) and OEIS A246173 give Fibonacci-cube *Hamming graph* distances, not the canonical flow-edge squared Euclidean distances. For the smallest nontrivial zigzag graph the two flow paths are separated by squared Euclidean distance three, although their domino labels have binary distance one. Nearby results about random widths of zigzag-poset polytopes or Euclidean vertex separations in complete-DAG flow polytopes do not imply the restricted-graph pairwise metric. Search nonexhaustiveness is a residual priority risk; no independent literature-priority audit has been performed.
+PASS
 
-## Mathematical value (PASS)
-The exact distribution is a natural Euclidean statistic of all vertex pairs of a canonical flow polytope, invisible to lattice-equivalence arguments. Its explicit Gaussian fluctuations at both squared and ordinary-distance scales give information beyond vertex counts, face statistics, and known Fibonacci-cube metric laws. All dimensions are covered, and the ambient coordinate metric is fixed without ambiguity.
+Every nonnegative unit flow on the DAG splits into 0-to-n paths, and each zero–one path incidence vector is extreme by its coordinates. The squared metric counts the arcs in exactly one path. For an independent generating-function derivation, split each ordered pair at the successive shared visited vertices. A primitive block is a shared edge of length 1 or 2, or a divergent/rejoining span k>=2: the initial short/long choice has two orders, intermediate single visits must alternate until rejoining, and the paths use k+1 differing edges. Thus the primitive series is t+t^2+2z^3t^2/(1-zt). Taking sequences of blocks and removing the empty one gives the stated rational series. In the record's transfer the state 11 reaches every state and has a loop, and all states return to it for positive z. The starting vector is nonnegative, not strictly positive as described, but its scalar product with a strictly positive Perron vector is positive, as is the terminal pairing. Primitivity and local analytic continuation justify the separated exponential term; implicit differentiation gives the specified log derivatives, and the Taylor limit and square-root delta method give both positive variances. The endpoint case n=1 contributes the single diagonal pair. Independently verified full distributions for n=1..12 using long-edge subsets and short-edge coverage, and the cubic log derivatives by symbolic arithmetic; replay record3() in /workspace/branches/frozen_metric_replay.py. No supplied script was executed. Finite enumeration only corroborates the all-n proof.
 
-## Scope and limits
-The statements apply only to the uncontracted edge-coordinate unit-flow polytope with independent uniform vertex sampling. They do not apply verbatim to other Euclidean realizations or uniform interior sampling. Finite enumerations are corroboration, not infinite certificates. Originality remains best-knowledge rather than independently certified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The uncontracted zigzag graph, path correspondence and Fibonacci counts are known. Exact Fibonacci-cube distances and the same-date path Hansen polynomials do not count short-edge disagreement or the ordering of adjacent long-edge disagreements and do not yield the claimed generating function and CLT constants. Bounded priority assessment only.
+
+## value
+
+PASS
+
+The elementary path labels hide a different intrinsic edge-coordinate metric. The renewal/transfer law gives the complete finite distribution in a canonical infinite family and quantifies nondegenerate fluctuations both in squared distance and in ordinary Euclidean distance. Neither the Fibonacci vertex census nor its binary graph metric supplies this information.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The second eigenvalue of each Hermitian pencil is explicitly sorted from \(\{\pm r,u\pm s\}\); the Li–Sze theorem converts its half-plane bounds to an exact rank-two numerical range. In the separated regime, four critical directions give an upper singleton bound and a concrete two-column isometry supplies equality. Disk geometry and the normal-limit segment then follow without approximation. The independent finite diagnostic verifies many instances but is not treated as proof.
+## correctness
 
-## Originality — PASS, with bibliographic risk
-Li–Sze's half-plane characterization is a strictly broader *implicit determination procedure*, not this explicit weighted two-active-block phase diagram or normal-limit selection law. Argerami–Mustafa (arXiv:1908.05692) treat one Jordan block plus a scalar block; Mustafa's thesis, section 3.2, treats illustrative multi-Jordan examples, including \(J_4(1)\oplus J_4(0)\), not a complete arbitrary-weight pair of \(2\times2\) nonnormal blocks. The closely related ordinary numerical-range constant-width theorem (arXiv:2611.13461) does not cover rank-two compression values. Exact-formula, synonym, and stronger-coverage searches of the cited sources and indexed mathematical records did not identify this combined classification. Priority may be affected by older unpublished or differently named work.
+PASS
 
-## Value — PASS
-This is a natural complete classification for the smallest direct sum with two independently active nilpotent blocks. The threshold separating a lens from a singleton *after two disks become disjoint* gives a subtle geometric behavior absent from scalar-block models. The nonnormal-to-normal limit selects arbitrary points of an otherwise larger rank-two numerical-range segment. This is structural compression information rather than a single numerical instance or a trivial scalar substitution.
+Normalize the centers to 0,D; this preserves the positive weight magnitudes. For a scalar rank-two compression, the min–max principle already gives Re(e^{-iθ}z) ≤ λ₂(Hθ). With u=D cos θ, the four eigenvalues are ±r and u±s. For |u|≤r+s the second is min(r,u+s), so if D≤r+s the inequalities give precisely the disk intersection as an upper bound. Every point of that intersection is achieved by a pair of unit vectors, one in each block, with the prescribed scalar expectation (the numerical range of a 2×2 Jordan block is the disk). At D>r+s the directions cos θ=±(r+s)/D, each with both sine signs, force Im z=0 and Re z=Dr/(r+s). An isometry with block components √(s/(r+s)) I and √(r/(r+s)) diag(1,−1) attains it by exact off-diagonal cancellation. This establishes the formula even without sufficiency of the general half-plane characterization. Coincident centers, containment/tangency and external tangency follow directly; the normal limit is the whole segment since weighted block copies of the identity realize every point and ordinary expectations bound the range by the segment. Eventually the separated formula applies along every stated vanishing-weight path; all ratios, including both endpoints, can occur in the limit.
 
-## Restrictions and closest literature
-The paper by Argerami–Mustafa supplies a neighboring complete family, and Mustafa's thesis supplies larger two-Jordan examples; neither states the weighted formula. The theorem is not asserted for larger blocks. No independent review or external certification has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the known higher-rank half-plane characterization and normal segment. The supported distinct claim is the explicit weighted two-active-block phase law, including the persistent singleton outside both disks' intersection and the selection of arbitrary points of the limiting segment by weight ratios. The available statement-level comparisons do not cover this classification. The overlap phase alone is not the basis for the pass.
+
+## value
+
+PASS
+
+The smallest pair of independently nonnormal Jordan blocks gives an explicit minimal-dimensional test family for scalar compression. The persistent unique compression beyond disk overlap, its radius-weighted location, and the ability to select every point of a much larger limiting range isolate a meaningful instability; this is more than a finite numerical check or a restatement of convexity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Exact reproducibility
+# Independent mathematical audit
 
-Use Python 3 and SymPy; run `python3 code/verify.py`. The program prints `VERIFY_OK` after constructing all 80 planar labelled binary words and all 160 degree-four relations from the original two defining cubic identities. Its checks include: (i) 79 independent generic relations via a symbolic 79-square determinant \(-2^{41}\delta^9(\delta+1)^3\) and one explicit polynomial nullvector; (ii) 76 independent exceptional relations via a \(-2^{38}\) determinant and four independent integral nullvectors; (iii) rank-two multigrading dimensions \((0,0,1,0,0)\) at \(\delta=2\) and \((0,1,2,1,0)\) at \(\delta=-1\). Nonzero minors plus nullvectors prove the rank identities over all characteristic-zero fields in the specified parameter range, not merely the two sample values. The matrices use a fully specified basis and no external data files.
+## correctness
 
-Independent audit was not performed. This calculation does not establish any fifth or higher-degree dimension, nor any assertion in positive characteristic.
+PASS
+
+In a nonunital free algebra the degree-four ideal can only contain one extra leaf beyond a defining cubic relation. The five compatible contexts are multiplication on either side by a leaf and inserting one binary product in any of the three arguments. Bilinearity spans all instances using x,y, including repeated letters, so the 160 relations in the given 80 words are exhaustive. An independently written postfix construction recreated both exact pivot minors, −2^41 δ^9(δ+1)^3 and −2^38, and independently obtained the listed normalized annihilator vectors from reduced rows. They annihilate the symbolic or exceptional matrix with identity restriction to the proposed free columns. Thus the named words are independent for every specialization in their stated regime, and the minor bounds make them bases. The words are homogeneous in leaf counts, giving precisely the stated profiles. Degree three first quotients by antisymmetry in the last two slots for left-associated products; the other identity then solves for the symmetric part in the first two slots of the right-associated words. Each residual space has dimension two. On one generator, (xx)x and x(xx) vanish by the two identities, and the remaining balanced quartic (xx)(xx)=−(x(xx))x by the second identity also vanishes. This proves the claimed rank minimality, with no assumption about higher degrees.
+
+## originality
+
+PASS
+
+The arity-four parameter jump was already known, and the generic rank-two bidegree dimensions are an implication of the earlier indexed Acaa character plus Ruan–Normatov's constant generic rank. The actual added result is the exceptional two-generator refinement, which locates the increase in specific repeated-variable bidegrees and provides exceptional normal-form words, together with uniform explicit basis certificates. Neither the scalar arity-four dimension 20 nor the inspected generic character and different three-symbol calculation determine this exceptional quotient.
+
+## value
+
+PASS
+
+Two generators are a natural minimal test, because all one-generator quartics vanish. The new part measures how a known multilinear parameter exception is expressed in the first free algebra capable of observing it: the exceptional quotient changes the supported weights, not just the total count, and has explicit minimal-generator representatives. The precision is useful for calculations with two generators, and it cannot be read off from the known scalar arity table. The generic part alone would not justify separate value against the indexed character.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

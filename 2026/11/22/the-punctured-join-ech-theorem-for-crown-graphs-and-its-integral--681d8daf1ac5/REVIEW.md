@@ -1,15 +1,21 @@
-# Scientific review: punctured-join Čech classification
+# Independent mathematical audit
 
-## Correctness — PASS
-The graph-metric Čech edge-neighborhood lemma yields the exact off-diagonal missing-pair facets. A direct codimension-one check shows that all boundaries of the \(n\) omitted top simplices remain in the subcomplex of \(\partial\Delta(A)*\partial\Delta(B)\). The relative chain complex consists of \(n\) top-degree generators; the ambient fundamental class maps to their primitive diagonal. The resulting long exact sequence, CW connectivity, Hurewicz theorem and homological Whitehead theorem prove the unrestricted integral sphere-wedge classification. A coherent orientation comparison of the two join factors gives the precise integral \(S_n\times C_2\)-module, and distance-two neighborhoods prove the later stages. The standalone finite checks agree on \(n=3,4,5,6\); they are corroborative, not the infinite proof.
+## correctness
 
-## Originality — PASS against inspected evidence
-The closest exact-equivalence risk is the non-cover complex: the scale-three crown Čech nerve is literally the non-cover complex of the crown graph. Choi–Kim–Park [2] provide general collapsibility bounds, not the crown homotopy or integral module. Adams–Shukla–Singh [1] give the graph Čech generator lemma and different graph families. The previously published closed-neighborhood crown theorem [3] covers scale two, not three; its full result and proof were compared. The previously published complete-multipartite Čech classification [4] covers the intact bipartite graph, not the deleted-matching crown graph; its full result and proof were compared. The indexed search and accessible prior-claim scan found no statement implying the full present theorem. Residual risks are unindexed equivalent results, unpublished calculations and possible stronger Alexander-duality-derived results not found in the inspected literature; absence from a database is not proof of novelty.
+PASS
 
-## Value — PASS
-For an entire natural infinite family, the result identifies a previously unaccounted high-dimensional Čech stage after deleting a perfect matching, contrasting the contractible scale-three nerve of the intact complete bipartite graph. It gives exact homotopy, a sensitive integral permutation-quotient module with a parity-dependent shore-exchange twist, and the next two transitions. Those invariants record geometric filtration behavior, not a chosen arbitrary finite graph or an unmotivated statistic. Its precise \(n\)-dependent outcome can serve as a model for sparse edge-defect stability questions.
+For a point at coordinate t on edge xy the distance from vertex v is min(d(v,x)+t,d(v,y)+1−t). Write the radius as s+δ, s integral. When δ<1/2 the farther endpoint cannot contribute via vertices at distance s there, and vertices within s−1 there are within s of the other endpoint. Hence distance-s vertex balls generate. When 1/2≤δ<1 the allowed vertices belong to the union of the two distance-s balls, and the midpoint realizes that whole union. At scale 3 the unions are exactly V minus an off-diagonal cross pair. This is the join of two simplex boundaries with only the interiors of the n diagonal facets omitted: each codimension-one face of an omitted facet is also in an off-diagonal facet. The pair (J,K) has n relative d-cells, d=2n−3≥3; the coherent fundamental cycle maps to the primitive diagonal. The long exact sequence gives free homology only in degree d−1, and relative cellular connectivity, Hurewicz and homological Whitehead give the wedge, not just its Betti numbers. Model the join sphere in the direct sum of two standard (n−1)-dimensional permutation hyperplanes: the diagonal permutation has determinant +1; the factor swap has determinant (−1)^(n−1). This twists the coherent relative facet permutation and descends to the stated integral quotient and traces. The quotient's S_n coinvariants are Z/n rather than zero for the augmentation sublattice (all ordered differences have the same coinvariant class and e_i−e_k=(e_i−e_j)+(e_j−e_k)). At scale 4 the distance-two balls miss only the matched partner, giving the simplicial boundary; at scale 5 a midpoint sees all vertices, giving a simplex. This checks n=3 and the real half-open endpoints. The wedge is nonequivariant. The finite Python tests are not needed for these integral or all-order conclusions.
 
-## Scope and limitations
-Nonequivariant wedge equivalence only; the integral module is an action on homology. No assertion about scale-two-to-three connecting maps, Euclidean Čech nerves, or absolute bibliographic completeness. The all-order proof, source inspections and finite tests are reported in the accompanying result and verification files.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The known graph Čech generator lemma and established non-cover construction are inputs, not new. The exact specialization at scale three, notably the homotopy and integral module of the crown's non-cover complex, survives the comparisons. The closest same-graph result concerns scale two; the closest full-filtration result assumes intact complete bipartite adjacency and gives a different scale-three complex.
+
+## value
+
+PASS
+
+Removing a matching from an intact complete bipartite graph changes a contractible stage into a highly connected sphere wedge with a nontrivial integral permutation quotient. This is a complete and uniform comparison for a natural sparse graph defect, and the integral answer contains information not captured by just the character or wedge multiplicity. The next two stages put the exception in the filtration without claiming a calculation of the earlier inclusion maps.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

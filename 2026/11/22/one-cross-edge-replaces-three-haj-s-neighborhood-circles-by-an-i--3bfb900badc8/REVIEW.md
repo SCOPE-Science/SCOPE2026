@@ -1,15 +1,21 @@
-# Review of the cross-edge neighborhood-homology finding
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof gives an explicit five-piece cover of the pre-addition complex, exactly two new simplex attachments, their full intersections, and four attaching loops with a saturated rank-three integral boundary matrix. The long exact sequence establishes the stated integral homology and split inclusion maps, without assuming a wedge-of-spheres result for the new space. The standard-library verifier directly reconstructs all nine small sample cases from graph neighborhoods, checks relative attachment identities, and independently computes mod-two boundary ranks. Limitation: finite tests alone do not establish the all-order statement; the uniform combinatorial identities do.
+PASS
 
-## Originality — PASS with residual bibliographic risk
+For a,b≥5 the two shore complexes are simply connected spheres up to homotopy: each is a contractible join glued to a simplex along that simplex's boundary. Their union meets at w. The other three old neighborhood simplices attach along two contractible components apiece and supply the free U,P,Q connectors. The only changed neighborhoods are those of α and β, and their enlarged simplices share only w, an old vertex. Each old intersection consists of two simplices glued along a nonempty simplex, together with two extra edges, giving a connected wedge of two circles. Relative chains split across the two attachments, hence the sole relative group is Z^4 in degree two. Orient the three connectors from the A-shore to the B-shore. For p∈A−{α}, q∈B−{β}, the loops (w,p,β), (y,p,β), (w,α,q), (z,α,q) map, after joining their basepoints within the shores, to U, UQ⁻¹, U, P⁻¹U. The first, second and fourth images contain a unit minor after abelianization and normally generate the free connector group before abelianization. Van Kampen gives simple connectivity; the integral exact sequence gives the split primitive inclusion and exactly one new degree-two generator, also when one or both old sphere degrees are two. Fresh check: from reconstructed graph neighborhoods and all old triangles, independently computed signed loop coordinates and the integral unit minor in four cases, including (5,5). Replay: cd /workspace && python3 review-evidence/reproduce.py 3; output review-evidence/3.txt. Frozen finite mod-two checks and their hard-coded matrix minor do not establish the integral map or π₁; the attaching argument does. Frozen scripts were inspected, not executed.
 
-Braun–Vega, arXiv:1812.07991v1 (Theorem 3.3 and its proof) treats a Hajós merge but not insertion of the additional edge or its induced integral homology map. The publicly indexed result on partially matched clique pairs assumes two *disjoint* cliques joined by matching bridges, not a Hajós identification, and therefore does not imply the new attaching matrix. An indexed block-graph theorem has inapplicable clique-block hypotheses. Queries included the exact graph construction, aliases (Hajós join/sum), one-cross-edge perturbations, neighborhood homology, and stronger possible edge-restoration classifications. The full source text for the closest disjoint-clique record could not be accessed, and any unindexed equivalent work remains a risk.
+## originality
 
-## Value — PASS
+PASS
 
-The result sharpens a topology–graph-coloring construction question: one local graph-edge addition can simultaneously annihilate three independent integral first-homology classes and create a new primitive two-class. It gives an exact all-size and all-choice formula plus the maps induced by the change, rather than an isolated facet count. This is a natural minimal cross-link perturbation of the two-clique Hajós construction; no larger general theorem is suggested without evidence.
+The distinct supported claim is the integral and fundamental-group response of the open-neighborhood complex to one ordinary cross-edge after the complete-graph Hajós merge, not the existence of a circle in the unedited merge or of two-classes in a disjoint-clique edge filtration.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+A natural one-edge perturbation of the standard Hajós construction changes three independent loops simultaneously, creates exactly one extra primitive two-class and preserves the old higher classes. The relative and induced integral maps make this a useful exact edge-sensitivity benchmark; the contribution is not a small graph count or simple connectivity in isolation. No general classification of arbitrary edge insertions is warranted.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

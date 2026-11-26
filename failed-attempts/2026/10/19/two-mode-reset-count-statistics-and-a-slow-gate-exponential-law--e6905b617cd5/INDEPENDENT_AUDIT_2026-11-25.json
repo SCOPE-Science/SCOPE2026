@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:14:29.992429Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Folding at the origin gives the reflecting condition for the inactive component and the absorbing value for the active component; the reset destination remains x0 in the folded process. The gate-stationary average and state difference solve decoupled constant-coefficient equations with masses r and r+alpha+beta. Matching the two conditions reproduces both numerators and L, with L(1)=h(alpha+beta). Eventual detection follows from a positive per-cycle chance from either gate state. The discriminant decomposes into the stated square plus 4*T²*eta*q³*h*k. Positive sum and product, mean below one and L(1)>0 put both distinct modes in (0,1). For noncancellation, normalize L and the numerators by T and put u=1-q²z: L/T minus the active numerator is (1-z)u[1-h+eta*q*(1-k)], and the active numerator vanishes at neither possible common root. At a zero of the inactive numerator, d=h-q*k yields the stated resultant test R=(1-q²-d)+eta*q*(1-q²-q*d)>0, since d≤1-q by differentiation in x0. A constant inactive numerator is nonzero. At z=exp(-s*beta/r) the leading inactive numerator and denominator are h(1+eta)beta and h(1+eta)(1+s)beta, respectively. For fixed z<1 the slow-active and fast-gate specializations reduce to h/[1-(1-h)z] as stated. These are conditional particle-only reset counts. The finite-difference verifier was inspected, not executed; none of these quantitative checks requires it.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mercado-Vásquez–Boyer and Żbik et al. retain gate memory across particle resets. In the latter, the conditional transforms (22) and (23) hold for arbitrary nonnegative Laplace argument and positive reset intensity, which includes the full tilted curve for z>0.",
+          "Bressloff 2601.01588 concerns boundary/desorption-induced restarting rather than this bulk reset clock."
+        ],
+        "reasoning": "The relevant stronger input is the full two-parameter transform in the very same model. It subsumes the exact count transform along a one-parameter curve, unlike either a different restart mechanism or a theorem for a permanently active target.",
+        "searches": [
+          "External: Brownian stochastic resetting with blinking target reset-count generating function",
+          "Resultary: gated first-passage resetting",
+          "arXiv:2107.02148; arXiv:2512.09739; arXiv:2601.01588"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "arXiv:2512.09739, 2107.02148, 2310.20502, 2601.01588",
+        "Resultary --e8269f686a15"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Substituting r'=rz and s'=r(1-z) preserves r'+s'=r in both prior conditional formulae. Thus the two no-reset time transforms are constant along the substitution and the rest is a ratio of affine/quadratic polynomials in z.",
+          "At z=exp(-s*beta/r), r'=r+O(beta) and s'=s*beta+o(beta). The unreset active transform at r tends to h, while the inactive transform is at most E[exp(-r W)]=beta/(r+beta) for the first activation W. In (23) the leading inactive numerator is r*h*beta and the leading denominator is r*h*(1+s)*beta; the Laplace limit is Exp(1)."
+        ],
+        "reasoning": "Both the exact PGF and slow-inactive limit are immediate transform consequences. The distinct noncancelling poles for each state need an extra algebraic argument; a general two-state kernel need not have that property. Once the known model gives distinct row sums and the explicit positive kernel determinant, standard two-by-two Perron theory also yields noncancellation for both states: the larger eigenvalue lies strictly between the two row sums, so neither coordinate can be purely the larger mode; positivity of the Perron coefficient precludes persistence of only the smaller mode.",
+        "searches": [
+          "arXiv:2512.09739 Sec. III A 2 equations (21)–(23); unreset transforms equations (17)–(18)",
+          "Resultary: slow-switching count limit; November 8 --e8269f686a15"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The stopped Poisson rate-change identity maps the frozen PGF exactly to the prior time transform evaluated at reset rate rz and Laplace argument r(1-z). Both conditional transforms are explicit in equations (22)–(23).",
+          "Folding the full line gives the reflected/absorbed half-line with the same reset counts; the November 8 record uses this formulation, swaps the gate-rate names, and starts in the stationary gate distribution."
+        ],
+        "reasoning": "A time transform at the original rate alone is not a count PGF. The family with the reset rate available as a parameter is sufficient, with no independent unknown functional required. The stationary count law is the stationary weighted average of the two frozen laws, not a proof of each conditional irreducibility assertion.",
+        "searches": [
+          "Resultary: exact gated reset-count PGF; reset-counter distribution",
+          "arXiv:2512.09739 Sec. III A 2, equations (21)–(23)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The November 8 Finding gives the exact two-geometric probability mass function for the same model started in the stationary gate law, including both distinct decay modes. Its proof gives the conditional absorption-before-reset probabilities and the surviving reset kernel K. The exact generating vector then has the standard form (I-zK)^(-1)h. No ranked match was found for the explicit slow-inactive count scaling.",
+          "Bressloff 2310.20502 equations (5.12)–(5.13) give the reset-count law for a permanently absorbing target, not the two-state system."
+        ],
+        "reasoning": "This is an exact indexed subcase, not merely a similar topic: the reset survival kernel and both geometric poles are the same after folding and interchanging gate-rate names. Its listed date is later than the frozen path date, which does not establish priority or provenance.",
+        "searches": [
+          "Resultary: exact gated reset-count PGF; slow-switching count limit; reset-counter distribution",
+          "Resultary 2026/11/8 --e8269f686a15",
+          "arXiv:2310.20502 Sec. V A"
+        ]
+      },
+      "rationale": "The frozen finding credits first-passage time transforms as a different observable, but the exact conditional PGFs and the slow-inactive scaling are mechanically covered by the earlier same-model transforms, not just derivable from a previously known model. On a path stopped at absorption time H, changing the Poisson reset rate from r to rz multiplies the path density by z^K exp(r(1-z)H). Thus F_j(z;r)=E_{rz,j}[exp(-r(1-z)H)]; the already explicit conditional transforms in Żbik et al. give these exact PGFs by substitution (extend to z=0 by continuity). The slow count limit follows by the same substitution into their inactive transform and a first-order limit. The explicit no-pole-cancellation check for both initial states is additional exposition relative to those inspected equations, not a basis to pass the frozen novelty claim for the count laws and scaling. The later-dated stationary count theorem provides material exact overlap on its subcase, but is not evidence of earlier priority. No replacement is submitted: after removing the transform and scaling coverage, the isolated denominator check is routine two-state spectral algebra rather than a separately motivated surviving claim.",
+      "residual_risks": [
+        "The bounded literature search might miss independently printed conditional formulas or decay-mode observations. The originality failure relies on verified implication from an explicit prior transform, not on such a possibility.",
+        "The later-dated Resultary overlap does not itself establish publication priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Explicit family covers the conditional count transforms and slow-inactive scaling by immediate specialization",
+          "evidence": "Equations (22) and (23) give both conditional Laplace transforms at arbitrary rate and argument, with their unreset inputs evaluated at rate plus argument and a common explicit denominator.",
+          "identifier_or_url": "https://arxiv.org/pdf/2512.09739",
+          "material_read": "Abstract p. 1 (offset 2800); Sec. III A 2, pp. 5–6, equations (21)–(26), offsets 33000–40633, including equations (17)–(18) nearby",
+          "method": "OA PDF; direct comparison along the Poisson rate-change curve",
+          "title": "Hitting the blinking target under stochastic resetting",
+          "trigger": "Same persistent-gate model and strongest covering prior"
+        },
+        {
+          "assessment": "Same model, time statistics",
+          "evidence": "Particle reset leaves gate state intact; Appendix B distinguishes a model that reinitializes the gate.",
+          "identifier_or_url": "https://arxiv.org/pdf/2107.02148",
+          "material_read": "Abstract p. 1, model and boundaries pp. 3–4 (offset 12180); Appendix B p. 13 (offset 69500)",
+          "method": "OA PDF",
+          "title": "Search of stochastically gated targets with diffusive particles under resetting",
+          "trigger": "Equivalent folded model"
+        },
+        {
+          "assessment": "Same stationary subcase and conditional renewal kernel, later-dated",
+          "evidence": "It states a strictly positive two-geometric mixture for a stationary initial gate and specifies the conditional kernel. It does not state the frozen conditional noncancellation assertions or slow-inactive limit.",
+          "identifier_or_url": "2026/11/8/SCOPE-strict-two-geometric-reset-count-law-for-a-brownian-search-with--e8269f686a15",
+          "material_read": "Finding, assumptions and proof at offsets 0–5173 and 4800–9940",
+          "method": "Resultary local mirror",
+          "title": "Strict two-geometric reset-count law for a Brownian search with a gated target",
+          "trigger": "Strongest exact indexed overlap"
+        },
+        {
+          "assessment": "Ungated comparator only",
+          "evidence": "The count law is geometric for the absorbing target.",
+          "identifier_or_url": "https://arxiv.org/pdf/2310.20502",
+          "material_read": "Sec. V A, equations (5.12)–(5.13), p. 8 (offsets 54500–61732)",
+          "method": "OA PDF",
+          "title": "Search and capture under stochastic resetting",
+          "trigger": "Explicit reset-count statistics"
+        },
+        {
+          "assessment": "Different restart mechanism in inspected passages",
+          "evidence": "Restarts occur after desorption and are distinguished from spontaneous bulk resetting.",
+          "identifier_or_url": "https://arxiv.org/pdf/2601.01588",
+          "material_read": "Relevant passages pp. 1 and 3, offsets 2800 and 10614",
+          "method": "OA PDF",
+          "title": "Renewal theory for Brownian motion with stochastically gated targets",
+          "trigger": "Possible broader renewal treatment"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Reset counts are a natural cost observable for search protocols, distinct in interpretation from elapsed time. The exact two-mode description and singular scaling make the retained gate memory interpretable, unlike a mere table of counts. This value of the scientific question does not establish novelty for its solution, and a fresh proof of just the two-state algebra without the covered laws would not justify replacement.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

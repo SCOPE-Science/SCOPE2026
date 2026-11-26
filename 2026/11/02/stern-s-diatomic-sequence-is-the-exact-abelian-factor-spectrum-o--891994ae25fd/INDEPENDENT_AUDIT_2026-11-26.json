@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:23:18.848016Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independently, write a factor as the interval of positions L+1,…,L+ℓ (positions start at one), and let R=2^n−1−ℓ−L. Letter a_(j+1) marks positions of 2-adic valuation j. The Parikh vector is equivalent by cumulative sums to the numbers T_j of multiples of 2^j in the interval. Since L+ℓ=2^n−1−R, T_j=2^(n−j)−1−floor(L/2^j)−floor(R/2^j) for 0≤j≤n. In particular the vector of floor sums D_j is determined, and D_j−2D_(j+1) is the sum of the j-th binary digits of L and R. Conversely these digit sums determine all the floor sums, starting from D_n=0. Thus distinct Parikh vectors are in bijection with hyperbinary representations of 2^n−1−ℓ: every digit 0, 1 or 2 in a representation splits into two binary digits, giving a valid L,R. This includes ℓ=0 and ℓ=2^n−1. Hyperbinary counts h satisfy h(0)=1; odd indices force a units digit 1, while positive even indices have units digit 0 or 2, giving h(2m+1)=h(m) and h(2m)=h(m)+h(m−1); hence h(k)=s(k+1). The nonempty total follows from the Stern even/odd recurrence summed over a dyadic row, giving A_n=3A_(n−1)−1 if the empty count is included. Row insertion of adjacent sums yields successive maxima and maximum adjacent sums (F_(m+1),F_(m+2)): a maximizing pair containing a maximum produces a maximizing adjacent pair containing the next row maximum. The Jacobsthal recurrence gives the Fibonacci update for (s(J_m),s(J_m+(−1)^m)), with base (1,1) at m=2; the n=1 length is direct. Since 2^n−J_n=J_(n+1), this supplies an attaining length. Inspected the supplied checker without running it. An independent finite JS count using differences of floor quotients checked 2046 lengths at ranks 1–10; replay: node /workspace/branches/review5-arithmetic-check.js. This checks those counts only; the bijection and recurrences prove the infinite-rank assertions.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The synchronization work uses a bounded-complexity and synchronized-prefix-Parikh setting, illustrating Tribonacci. The survey mentions Zimin in ordinary pattern avoidability. De Luca–De Luca give the Christoffel-length and central-period interpretations of Stern values."
+        ],
+        "reasoning": "These frameworks have different hypotheses, word classes or statistics and do not establish the all-rank finite spectrum for a growing literal alphabet.",
+        "searches": [
+          "Shallit arXiv:2011.00453v3 on synchronized prefix Parikh vectors",
+          "Fici–Puzynina survey arXiv:2207.09937v2, Zimin passage",
+          "De Luca–De Luca arXiv:1410.4085, Stern combinatorial models"
+        ]
+      },
+      "checked_sources": [
+        "Resultary local index and listed full Finding passages",
+        "arXiv:1409.3080",
+        "Rowland slides",
+        "arXiv:2011.00453v3",
+        "arXiv:2207.09937v2",
+        "arXiv:1410.4085",
+        "OEIS A002487",
+        "DOI:10.37236/5342",
+        "arXiv:2004.00278"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact count needed after the hyperbinary reduction is classical. The closest bitwise statement in A002487 starts with summands and analyzes nim-products; it does not say which factor Parikh profiles determine those digits."
+        ],
+        "reasoning": "The extra mathematical identification is that cumulative letter counts are equivalent to floor sums of the two complementary omitted lengths, and that every allowed digit vector lifts to an actual factor. Once that bridge is made, the Stern count and dyadic extremum are prior arithmetic; the recovered word invariant is not produced by simply substituting parameters into that arithmetic.",
+        "searches": [
+          "Defant EJC #P4.8 pp. 2–3; combine OEIS A002487 hyperbinary count with the 2-adic positions of Cooper–Rorabaugh",
+          "Compare De Luca–De Luca abstract and Stern word-statistic setting"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Cooper–Rorabaugh paper identifies positions by 2-adic order. Rowland's slide on the ruler sequence states the 2-adic definition and parity recurrence and then turns to binomial coefficients; the passage does not assert the finite-factor Parikh identity.",
+          "A focused query using the hyperbinary equivalent did not retrieve a credible matching theorem; it is not evidence of historical absence."
+        ],
+        "reasoning": "The identical literal word under ruler notation is classical. The comparison tests Parikh classes of contiguous factors in full finite ranks, not ordinary factors, an infinite finite-alphabet coding, or a different word with an unrelated Stern statistic.",
+        "searches": [
+          "Resultary: finite Zimin/ruler factor spectra, Parikh counts and Stern identification",
+          "finite ruler Zimin word Parikh vector contiguous factors hyperbinary representations Stern sequence complement digits",
+          "Cooper–Rorabaugh arXiv:1409.3080 p. 2; Rowland abelian-equivalence slides p. 11"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The nearest finite-Zimin records 6a29e54c5e07, b2ad7a1e59b9 and a2893b080372 classify absent factors, Lyndon factors or automata respectively. OEIS A002487 states the exact hyperbinary count and notes a two-summand bitwise construction for a nim-product interpretation; arXiv:2004.00278 defines the classical Stern table."
+        ],
+        "reasoning": "The numerical table and digit count are exactly prior. The tested novelty is that these numbers count the finite Zimin factor classes; the inspected table passages do not make that identification.",
+        "searches": [
+          "Resultary: exact Zimin spectrum, ruler word Stern sequence and factor Parikh counts",
+          "OEIS A002487, comments on hyperbinary representations and x XOR y / x AND y",
+          "arXiv:2004.00278 p. 3, Stern table"
+        ]
+      },
+      "rationale": "Best of current knowledge, the distinct part is the exact identification of the full finite Zimin Parikh spectrum with the reversed Stern prefix. Neither the Zimin word description nor the Stern arithmetic, hyperbinary model, table or Fibonacci extremum is asserted to be new. The total and attaining length are consequences for factors once the identification is made, not independent novelty claims.",
+      "residual_risks": [
+        "Bounded searches may miss an equivalent finite-prefix theorem under another name; no decisive source for the possible Takayama terminology was identified.",
+        "Stern values and the digit-count machinery are established. No claim of priority is made for them or from the shared dates of neighboring records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage of the object, not the invariant",
+          "evidence": [
+            "Z_1=a, Z_2=aba, Z_3=abacaba; letter position specified by 2-adic order."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1409.3080",
+          "material_read": "p. 2, offsets 4713–4933 and surrounding statement",
+          "method": "OA primary PDF",
+          "title": "Bounds on Zimin Word Avoidance",
+          "trigger": "Identical finite word and equivalent ruler description"
+        },
+        {
+          "assessment": "Plausible close comparison; located ruler passage provides example/parity law, not this formula",
+          "evidence": [
+            "Defines ν_2(n+1); the next slide treats a binomial coefficient enumeration."
+          ],
+          "identifier_or_url": "https://ericrowland.github.io/talks/Counting_factors_of_automatic_sequences_up_to_abelian_equivalence.pdf",
+          "material_read": "Slides 11–12, offsets 4770–6915",
+          "method": "OA author slides, bounded passages",
+          "title": "Counting factors of automatic sequences up to abelian equivalence",
+          "trigger": "Ruler sequence in an abelian-complexity discussion"
+        },
+        {
+          "assessment": "Adjacent context, not this result under the read hypotheses",
+          "evidence": [
+            "Synchronization method for bounded complexity; survey Zimin passage on pattern avoidability."
+          ],
+          "identifier_or_url": "arXiv:2011.00453v3; arXiv:2207.09937v2",
+          "material_read": "Synchronization opening p. 1 offset 721; survey p. 16 offset 59250",
+          "method": "OA primary text and survey passages",
+          "title": "Abelian Complexity and Synchronization; Abelian Combinatorics on Words",
+          "trigger": "Potential general covering theorem or Zimin discussion"
+        },
+        {
+          "assessment": "Different combinatorial interpretations",
+          "evidence": [
+            "Odd terms as Christoffel-word lengths and even terms as minimal periods of central words."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1410.4085",
+          "material_read": "Abstract/introduction, p. 1 offset 731",
+          "method": "OA primary PDF",
+          "title": "Sturmian words and the Stern sequence",
+          "trigger": "Exact Stern values in word combinatorics"
+        },
+        {
+          "assessment": "Exact arithmetic ingredient and neighboring bitwise model, no word identification in inspected passages",
+          "evidence": [
+            "A002487 and Defant count hyperbinary representations; A002487 records the bitwise equivalence for nim-products; the other paper gives the Stern table."
+          ],
+          "identifier_or_url": "https://oeis.org/A002487; DOI:10.37236/5342; arXiv:2004.00278",
+          "material_read": "A002487 comments offsets 2490 and 5370; Defant pp. 2–3 offsets 3367 and 7511; Stern table p. 3 offset 7050",
+          "method": "Public database page and lawful OA PDFs, bounded passages",
+          "title": "Stern's diatomic series; Upper Bounds for Stern's Diatomic Sequence and Related Sequences; A function from Stern's diatomic sequence, and its properties",
+          "trigger": "Exact sequence, hyperbinary equivalent and extremal values"
+        },
+        {
+          "assessment": "Different finite word invariants",
+          "evidence": [
+            "Minimal absent factors; Lyndon factors and occurrences; sizes and transitions of automata."
+          ],
+          "identifier_or_url": "Resultary 6a29e54c5e07; b2ad7a1e59b9; a2893b080372",
+          "material_read": "All three Findings, mirror offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Finite Zimin anti-dictionary, Lyndon-factor spectrum, and minimal factor/suffix automata records",
+          "trigger": "Closest indexed matches on the same finite words"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The word is a standard recursively nested test object and the Parikh spectrum is a natural measure of the diversity of its contiguous factors. The exact profile across every relative length, including its extremum and a concrete attaining length, replaces direct substring enumeration and shows a precise structural link to binary arithmetic. This is not a recomputation of Stern's table: it supplies the missing identification of what those entries count for these finite words.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

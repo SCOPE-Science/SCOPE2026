@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:54:54.704663Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, lines 3–26 and 28–74",
+        "VERIFICATION.md, lines 18–23; check.py, numerical_check.py and NUMERICAL.txt, inspected only",
+        "/workspace/review-evidence/3-harmonic-replay.md",
+        "/workspace/branches/8c58db10-f426-48ee-9c8b-4c5b908a7c6f/selkov_independent_check.py"
+      ],
+      "rationale": "An independent scalar harmonic calculation uses u=x+y/alpha−1−1/alpha and u'=1−y. Order-two harmonics and order-three solvability give a stable nondegenerate branch on alpha>alpha_H. If e is the u harmonic amplitude and q=gamma−1, then alpha−alpha_H=(gamma/(8q))e²+o(e²) and r²=gamma e²+o(e²). The order-three cosine forcing after subtracting the actual linear frequency gives C=(2q+1+2/q)/48. The square identity proves positivity and the unique minimum 5/48 at gamma=2. A differentiated tensor replay also reproduces the complex cubic coefficient; neither argument relies on finite-offset integration.",
+      "residual_risks": [
+        "The optional recorded numerical table names DOP853, whereas the supplied solve_ivp call does not select it. Those numbers are illustrative, not a verification requirement. The result is local at fixed gamma, not uniform in gamma or a finite-amplitude bound."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Brechmann–Rendall analyze the identical equations for integer exponents and establish supercritical Hopf from a real Lyapunov number.",
+          "The frozen comparison attributes a zero-order Hopf frequency to Sel'kov and a polynomial-family frequency calculation to Roy et al.; their full texts were not independently obtained."
+        ],
+        "reasoning": "A real radial Lyapunov number does not specify the imaginary cubic coefficient in physical time, and a fixed-exponent polynomial frequency cannot establish the full real-exponent minimization.",
+        "searches": [
+          "Brechmann–Rendall, arXiv:1803.10579, Section 2, PDF p. 3",
+          "Sel'kov, doi:10.1111/j.1432-1033.1968.tb00175.x; Roy–Bhattacharjee–Mallik, doi:10.1140/epje/i2011-11019-6"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md, lines 79–89",
+        "Brechmann–Rendall, arXiv:1803.10579",
+        "Resultary 2026/10/11 fixed-determinant Selkov period record"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A complete complex physical-time Hopf coefficient with normalized eigenvector would imply C=−Im G_21/(8 omega_H), so this was the decisive prior object to check; the same-system antecedent computes the first Lyapunov number instead.",
+          "The algebraic minimum is elementary once the full formula is known, but cannot follow from the single coefficient at gamma=2."
+        ],
+        "reasoning": "The inspected sources cover Hopf type or a normalized endpoint specialization, not the full phase correction. A merely different period or time convention is not claimed as novelty.",
+        "searches": [
+          "arXiv:1803.10579, Section 2, offsets 7600–11028",
+          "Earlier Resultary fixed-determinant Selkov calculation, RESULT.md offsets 3614 and 4547"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "At gamma=2 the exact substitution X=y/sqrt(alpha), Y=sqrt(alpha)x, s=alpha t gives X_s=−X+X²Y, Y_s=alpha^(−1/2)−X²Y, the a=0 edge of the polynomial formulation.",
+          "Extending the explicit regular coefficients to K=1 gives mu_2=1/4 and nu_2=−5/24. On this edge K=1/alpha is varying; using the actual linear frequency cancels its first-order effect on the period ratio. The respective amplitudes have e²=r²/2+o(r²)."
+        ],
+        "reasoning": "The polynomial family is not equivalent for arbitrary real gamma, but its normalized boundary calculation does imply the special-case 5/48 and the leading amplitude law there.",
+        "searches": [
+          "Brechmann–Rendall, arXiv:1803.10579, Section 2",
+          "Resultary: 2026/10/11/SCOPE-two-sign-reversals-in-the-near-hopf-period-of-a-constant-determi--aabe4353694d"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Its exact symbolic coefficients are indexed by K; their nonsingular endpoint recovers the gamma=2 coefficients after normalization, not values at other feedback exponents."
+        ],
+        "reasoning": "No inspected exact table/formula specifies the real-gamma coefficient in the original substrate harmonic normalization. The endpoint overlap is actual implication, not just numerical agreement.",
+        "searches": [
+          "Resultary local mirror, two sign reversals in the near-Hopf period, RESULT.md offsets 1500–3207 and 3394–4900"
+        ]
+      },
+      "rationale": "The same-system Hopf type is established in the literature, and an earlier fixed-determinant Selkov calculation algebraically recovers the gamma=2 coefficients at its boundary after an exact scale change. The frozen exposition overstates the separation from the polynomial variant at that exponent. Neither source computes the off-Hopf frequency correction on the real-exponent family or determines its sharp minimum over the family. The pass is for that full-exponent result, with the special case credited.",
+      "residual_risks": [
+        "The founding paper and Roy et al. were not independently inspected in full. An older phase calculation in an equivalent time/observable convention remains possible; no historical priority certificate is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Hopf threshold and supercriticality covered; inspected real coefficient does not give the phase coefficient",
+          "evidence": "Equations (1)–(2), eigenvalue crossing, negative first Lyapunov number for integer gamma.",
+          "identifier_or_url": "https://arxiv.org/abs/1803.10579",
+          "material_read": "Section 2, PDF p. 3, offsets 7600–11028",
+          "method": "Lawful OA full text",
+          "title": "Dynamics of the Selkov oscillator",
+          "trigger": "Same system, Hopf calculation can potentially imply phase shift"
+        },
+        {
+          "assessment": "Material gamma=2 boundary overlap outside its stated open parameter range; not full real gamma",
+          "evidence": "The exact change of variables places gamma=2 at a=0; the coefficients extend to K=1 and give 5/48 after matching clock and harmonic.",
+          "identifier_or_url": "2026/10/11/SCOPE-two-sign-reversals-in-the-near-hopf-period-of-a-constant-determi--aabe4353694d",
+          "material_read": "RESULT.md, Finding and scalar reduction, offsets 1500–3207, and solvability coefficients near offsets 3394–4900",
+          "method": "Resultary local mirror",
+          "title": "Two sign reversals in the near-Hopf period of a constant-determinant Selkov family",
+          "trigger": "Exact period comparison in a related Selkov family"
+        },
+        {
+          "assessment": "Priority risk unclosed; no negative inference",
+          "evidence": "403 and no identified repository full text. Frozen record attributes the zero-order frequency to formula (14).",
+          "identifier_or_url": "doi:10.1111/j.1432-1033.1968.tb00175.x",
+          "material_read": "No independent primary passage recovered; frozen comparison, RESULT.md lines 79–86",
+          "method": "Lawful DOI and repository retrieval attempts",
+          "title": "Self-Oscillations in Glycolysis 1. A Simple Kinetic Model",
+          "trigger": "Founding model and frequency calculation"
+        },
+        {
+          "assessment": "Full comparison unresolved",
+          "evidence": "Publisher request timed out; the exact polynomial boundary equivalence is documented independently above.",
+          "identifier_or_url": "doi:10.1140/epje/i2011-11019-6",
+          "material_read": "No primary frequency passage recovered; frozen comparison, RESULT.md lines 79–88",
+          "method": "Lawful publisher-access attempt",
+          "title": "Periodic orbits in glycolytic oscillators: From elliptic orbits to relaxation oscillations",
+          "trigger": "Poincaré–Lindstedt frequency in the polynomial variant"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, lines 3–26 and 56–74",
+        "/workspace/review-evidence/3-harmonic-replay.md"
+      ],
+      "rationale": "A radial Hopf computation does not tell whether nonlinear oscillations run slower than the equilibrium's linear oscillatory mode at the same parameter. The substrate harmonic and physical time make this comparison operational. An exact positive correction over all real exponents and a unique minimizing exponent distinguish the nonlinear dynamical effect from the linear frequency drift, not just from another amplitude convention.",
+      "residual_risks": [
+        "Sensitivity is relative to the chosen clock and substrate observable; the theorem neither endorses parameter fitting from large-amplitude data nor claims an invariant of every normal form."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

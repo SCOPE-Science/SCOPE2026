@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:16:53.720106Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Tafazolian's (4.12) supplies 2Δ relative eigenvalues of modulus √q and power sums −(d−1)q³ for i=1,…,5; Corollary 4.4 and (4.11) supply the ceiling for d>1. Normalize eigenvalues by √q. For P=|Q|² with deg Q≤5, write B_i=Σ_r c_(r+i) conj(c_r) and S=Σ|c_r|². The constant, positive-frequency and negative-frequency terms give 0≤2ΔS−2(d−1)q³Σ_i q^(−i/2) Re B_i. Dividing by 2(d−1)q²S gives c*Tc/S with exactly the stated half off-diagonals. Fejér–Riesz exhausts even complex-coefficient tests, and a top eigenvector realizes the optimal raw bound. Independently, the exact ceiling at q0=9 is 921685/59049>15. Replace √3 by its rational upper bound 97/56 in the nonnegative entries of T to get a majorant B, and use v=(8,14,17,17,14,8). The row sums of diag(v)^−1 B diag(v) are, up to reversal, 86857265/5878656, 5547481/381024 and 764741/51408, all below 15. Thus the infinity norm for the diagonally similar T is below 15 as well, proving λmax(T)<U without the uploaded determinant code. Independent all-rational replay: python3 -B /workspace/audit-evidence/3_positive_vector.py; output in /workspace/audit-evidence/3_replay.txt. The result bounds this family of positivity inequalities; it is not a realization claim for Frobenius spectra or a result about q0=3.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1.1 treats q0≥27. Proposition 3.3 applies at q0=9, but the final comparison in Remark 4.7 there is inconclusive.",
+          "Tafazolian–Torres characterize for q0≥9 with both q²+q0q and q²+2q0q required to be Weierstrass non-gaps. Their positive trigonometric test in Proposition 3.1 concerns the base curve's Frobenius polynomial, not the relative-trace obstruction."
+        ],
+        "reasoning": "A characterization under stronger assumptions and a method for the base spectrum do not show a limit on the cover-based positivity inequalities.",
+        "searches": [
+          "arXiv:2610.00189v1, Theorem 1.1 and Remarks 4.6–4.7",
+          "doi:10.1016/j.jpaa.2018.12.006, Proposition 3.1, Theorem 4.6, Remark 4.8"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.00189v1",
+        "doi:10.1016/j.jpaa.2018.12.006 (institutional preprint)",
+        "arXiv:0903.3639",
+        "Targeted Resultary search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source supplies the trace data and the genus ceiling. Its point-count identity fails at the sixth power and its printed test fails to contradict the ceiling.",
+          "A nonnegative matrix majorant independently shows λmax(T)<15<U, the additional sharp-method comparison missing from the premise data and the printed test."
+        ],
+        "reasoning": "The source's existing bound is on Δ from one test, in the wrong direction to upper-bound the optimized test. General Fejér–Riesz supplies the reduction but not the case-specific comparison.",
+        "searches": [
+          "arXiv:2610.00189v1, (4.11)–(4.12) and Remark 4.7",
+          "arXiv:0903.3639, scalar factorization"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source bounds the genus with one squared polynomial; the new quantifier ranges over every nonnegative trigonometric polynomial of degree ≤5, equivalently the largest Rayleigh quotient for the relative trace Toeplitz matrix.",
+          "Dritschel–Rovnyak state the degree-preserving factorization but give neither this matrix nor a comparison to the Ree ramification ceiling."
+        ],
+        "reasoning": "The equivalent spectral formulation is standard once derived; the case-specific strict comparison and resulting all-test obstruction are not covered by the checked factorization or by failure of a single test.",
+        "searches": [
+          "arXiv:2610.00189v1, Proposition 4.5 and Remark 4.7",
+          "arXiv:0903.3639, scalar Fejér–Riesz theorem",
+          "Resultary: Ree q0=9 and five relative Frobenius traces"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Remark 4.7 gives 14.72268… versus 15.60882… for the displayed test, not an optimized degree-five value or a bound for all tests.",
+          "The targeted catalogue search supplied no specific exact matching record for comparison."
+        ],
+        "reasoning": "The source's numerical comparison is the closest exact-value entry; the lower number is for a feasible test, not an upper bound on the extremum.",
+        "searches": [
+          "arXiv:2610.00189v1, Remark 4.7",
+          "Resultary: Ree boundary and trace positivity"
+        ]
+      },
+      "rationale": "The closest paper compares one chosen degree-five test with the ceiling at q0=9. Neither that calculation, the earlier conditional characterization, nor the classical factorization gives the bound for the whole cone of degree-at-most-five tests. No materially overlapping Resultary record was identified in the targeted search.",
+      "residual_risks": [
+        "An unpublished or poorly indexed explicit-formula note could contain the same optimized boundary comparison. No catalogue candidate was found for full-text comparison; noisy hits are not negative evidence.",
+        "This does not establish an obstruction to all explicit-formula, geometric, or arithmetic approaches."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same premises and one test, no optimization over all tests",
+          "evidence": "(4.12) gives the common negative power sums; Remark 4.7 gives the q0=9 failure of the chosen lower bound and explains why the sixth trace is unavailable via the same equality.",
+          "identifier_or_url": "https://arxiv.org/html/2610.00189v1",
+          "material_read": "Theorem 1.1; Proposition 3.1, (3.5)–(3.6); §4.3, (4.3), (4.12); Corollary 4.4 and (4.11); Proposition 4.5 and Remarks 4.6–4.7",
+          "method": "Lawful OA HTML, bounded theorem and equation passages",
+          "title": "A characterization of the Ree curve",
+          "trigger": "Initiating proof, exact trace and ramification premises, and boundary comparison"
+        },
+        {
+          "assessment": "Related geometric result with extra hypotheses; different trace problem",
+          "evidence": "Theorem 4.6 assumes two explicit non-gaps for q0≥9; Proposition 3.1 studies the zeta data of the base Ree curve.",
+          "identifier_or_url": "https://doi.org/10.1016/j.jpaa.2018.12.006",
+          "material_read": "Institutional preprint, Proposition 3.1 (p. 6), Theorem 4.6 and Remark 4.8 (pp. 12–13)",
+          "method": "Lawful institutional PDF, statement-level comparison",
+          "title": "On the Ree curve",
+          "trigger": "Older characterization and prior use of positive trigonometric tests"
+        },
+        {
+          "assessment": "Standard factorization, not Ree-specific coverage",
+          "evidence": "Nonnegative trigonometric polynomials factor as squared moduli with the same degree bound; the Ree trace matrix and its comparison are absent from this statement.",
+          "identifier_or_url": "https://arxiv.org/abs/0903.3639",
+          "material_read": "p. 2, scalar degree-preserving factorization",
+          "method": "Lawful OA PDF passage",
+          "title": "The Operator Fejér–Riesz Theorem",
+          "trigger": "Could general trigonometric extremal theory already contain the comparison?"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact field size is picked out by the initiating proof: its geometry reaches q0=9, but its final test does not. Ruling out the entire coefficient optimization of that test, not merely exhibiting another failed polynomial, removes a concrete line of attack on the genus-and-point-count characterization. The conclusion is useful precisely as a method boundary, not as a proof or disproof of the characterization.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

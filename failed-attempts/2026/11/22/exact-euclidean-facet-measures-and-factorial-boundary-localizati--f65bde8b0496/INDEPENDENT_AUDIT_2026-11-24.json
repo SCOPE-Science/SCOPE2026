@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:52:22.587940Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For every n>=2, slice membership at height t is given by nonnegativity and sum_i(x_i-(1-t))_+<=t. Maximizing subset sums gives the complete halfspaces. At interior heights the coordinate faces have dimension n-1 and each size-k subset face is the product of the translated t-scaled coordinate (k-1)-simplex with the (1-t)-scaled (n-k)-cube; varying height gives facets, and both end layers are n-dimensional. Eliminating one x_i in a subset facet gives the induced Gram matrix I+uu^T with squared norm of u equal to (k-1)+(k-1)^2, hence metric factor sqrt(k^2-k+1). In the remaining n coordinates the volume integrates t^(k-1)(1-t)^(n-k)/(k-1)!, giving the exact area. Partition by excess coordinates and integrate the beta factors to verify V_n and the coordinate-facet areas. Summation verifies the increment and the first omitted increment dominates the residual factorial tail. The rank tail, fixed-K area concentration and binomial count-rank comparison then follow as stated. The independent Gram and numerical-series checks use record4() in /workspace/branches/frozen_metric_replay.py; they do not replace the analytic proof. The frozen hull diagnostic was read, not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The earlier block result gives K_t=(1-t)Q_k+tΔ_k as the first-block slice, its irredundant inequalities, and the supporting slice as a coordinate simplex with mass t and an orthogonal free cube of side 1-t.",
+          "2e533cdc3108 gives the size-j facet area sqrt(j)u^(j-1)/(j-1)! for Q_n+uΔ_n at every u>0, and the coordinate-facet area as the corresponding smaller-dimensional volume.",
+          "Hibi–Ohsugi–Tsuchiya Corollary 4.2 specializes to normalized (n+1)-volume n!E_n, or ordinary volume E_n/(n+1)."
+        ],
+        "reasoning": "Rescale the augmented-cube result by (1-t) and choose u=t/(1-t). This gives all fixed-height areas, not just the mixed volume. The earlier block proof independently supplies the same face product directly.",
+        "searches": [
+          "Resultary: 3341b2242385, full facet presentation and slice factors",
+          "Resultary: 2e533cdc3108, augmented cube subset-facet areas",
+          "arXiv:1807.05989, Corollary 4.2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary:3341b2242385",
+        "Resultary:2e533cdc3108",
+        "arXiv:1807.05989",
+        "Resultary:f65bde8b0496 (self-hit only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For each j, the earlier slice product has area sqrt(j)t^(j-1)(1-t)^(n-j)/(j-1)!, using the elementary coordinate simplex area. The earlier facet equation fixes the coarea multiplier sqrt((j^2-j+1)/j). Integrating gives sqrt(j^2-j+1)(n-j)!/n! exactly.",
+          "Multiplying by binomial(n,j) leaves sqrt(j^2-j+1)/j!. The entire rank law and its dimension-independent factorial tail then follow by dividing by the sum including the end-layer and coordinate contributions."
+        ],
+        "reasoning": "The normal conversion is essential for correctness, but does not present a new geometric obstacle once the preceding exact halfspaces and simplex-times-cube slices are known. The localization statement is the direct factorial-series consequence. Same-date priority is undetermined, not inferred; the earlier block proof already gives the necessary structural inputs.",
+        "searches": [
+          "Resultary: 3341b2242385, Found facet normals and product slices",
+          "Resultary: 2e533cdc3108, Euclidean area formulas"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In 3341b2242385 choose k equal to the spatial dimension of the assigned cube and one block per group, and impose zero on all coordinates of the second block. Nonnegativity makes this a coordinate face; both second-block layer factors contain 0, so the induced Euclidean body in (x,t) is exactly C_k.",
+          "The cube and simplex are also the order polytope of an antichain and stable-set polytope of a complete graph, respectively. Hibi–Ohsugi–Tsuchiya place the layers in the reverse order, rectified by t↦1-t."
+        ],
+        "reasoning": "The earlier block formula restricts to the identical coordinate and subset halfspaces. Its fixed-height subset-face decomposition is already that of the assigned facet computation. This is an isometric coordinate face, not a resemblance between differently embedded Cayley bodies.",
+        "searches": [
+          "Resultary: cube–simplex Cayley facet areas and equivalent realizations",
+          "Resultary: 3341b2242385, Finding and Proof §1",
+          "arXiv:1807.05989, §§1 and 4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed Cayley area-law hit f65bde8b0496 is the assigned record itself. A distinct exact formula hit, 2e533cdc3108, gives the complete rankwise slice table, not an independently tabulated Cayley boundary law."
+        ],
+        "reasoning": "No separate table of integrated Cayley areas surfaced in this search. This negative table observation does not undo positive corollary coverage from the exact slice entries and the earlier geometry.",
+        "searches": [
+          "Resultary: factorial area localization, exact cube–simplex Cayley facet areas and mixed volumes"
+        ]
+      },
+      "rationale": "Direct corollary coverage, not an allegation about priority between same-date records. The earlier block Cayley theorem already supplies this exact one-block halfspace geometry and its fixed-height faces, by a coordinate face. The same-date augmented-cube result supplies the full Euclidean slice-area kernel explicitly. Applying the elementary hyperplane coarea factor and beta integral to this existing geometry gives the recorded metric rank spectrum, from which the boundary-law assertions are immediate. The known scalar volume is correctly credited but is not the only coverage.",
+      "residual_risks": [
+        "The search was bounded to the relevant primary text and indexed comparisons. Exact historical order of the two same-date records was not established. The implication finding does not depend on absent search hits or that order."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The target is an isometric coordinate face and the published slice proof gives the requisite exact product; the integrated areas are not separately stated",
+          "evidence": [
+            "Layer products Q_k^m×Δ_k^m and Δ_k^m×Q_k^m; subset normal (1_S,|S|-1) in the first block; maximizing subset slice described explicitly in §1."
+          ],
+          "identifier_or_url": "Resultary:3341b2242385",
+          "material_read": "RESULT.md offset 0, Finding and Proof §1",
+          "method": "Published local-mirror full-text passages",
+          "title": "Linear facet complexity and cube-scale inballs in low-expansion Boolean Cayley polytopes",
+          "trigger": "Possible stronger facet geometry and exact one-block reduction"
+        },
+        {
+          "assessment": "Directly supplies the Euclidean area kernel after homothety; not the same body or evidence of priority by date",
+          "evidence": [
+            "Facet-class sizes, the areas sqrt(j)u^(j-1)/(j-1)!, and explicit fixed-u facet products for Q_n+uΔ_n."
+          ],
+          "identifier_or_url": "Resultary:2e533cdc3108",
+          "material_read": "RESULT.md offset 0, Finding and Proof §§1–2",
+          "method": "Published local-mirror full-text passages",
+          "title": "Sharp Euclidean surface optimization of a rank-one augmented cube",
+          "trigger": "Distinct same-date exact rankwise area theorem with all slice parameters"
+        },
+        {
+          "assessment": "Covers the credited volume by antichain-plus-chain specialization, not the oblique Euclidean areas by itself",
+          "evidence": [
+            "Corollary 4.2 sums linear-extension counts; these are j! for the antichain of j elements followed by the chain."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1807.05989",
+          "material_read": "PDF pp. 2–4 and 7 definitions and equivalence; p. 9 Corollary 4.2",
+          "method": "Lawful OA PDF passages",
+          "title": "Integer decomposition property for Cayley sums of order and stable set polytopes",
+          "trigger": "Exact older equivalent Cayley realization and volume"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "As geometric information, the area-weighted versus count-weighted ranks and the polynomial-size boundary approximation are meaningful quantitative descriptors of this natural exponential-facet family. They make the result useful to readers even though the quantitative claim is covered by a direct implication and is not accepted as original.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

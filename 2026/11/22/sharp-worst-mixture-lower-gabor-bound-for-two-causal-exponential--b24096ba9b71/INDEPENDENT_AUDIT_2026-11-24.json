@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:43:37.209226Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–118",
+        "Frozen VERIFICATION.md and check_uniform_two_decay.py; inspected, not executed"
+      ],
+      "rationale": "Splitting the translations into q integer residue classes, unitarity and torus Parseval give the sum of q squared Zak windows, with each class contributing once and no normalization factor. Zak quasi-periodicity converts the resulting x−j/q shifts to the displayed x+j/q multiset in modulus. The causal geometric sums on the open strip give vectors u(ρ^j) and v(σ^j), where u=e^(−ax)/(1−e^(−a)z) and v=c e^(−bx)/(1−e^(−b)z). The fiber is V|v−(W/V)u|²+Δ|u|²; Δ=U−W²/V is positive because the sample vectors have distinct ratios between their first two coordinates. Since a>0 and |z|=1, the factor |u|² has its unique minimum on the one-sided closed strip at x=1/q,z=−1. Solving v=(W/V)u there gives exactly the stated c*, positive and real. The rational/geometric strip expression extends continuously to this boundary from inside, so interior sets of positive measure realize values arbitrarily near its boundary value. For each fixed c, compactness of that extension shows any attainment forces those same equalities; the Bessel upper bound is finite since both denominators are separated from zero. At q=1 one scalar can be canceled at a limiting fiber. Project the Taylor expansion t_j(1−(a−b)j/q+O((a−b)^2)) perpendicular to (t_j), t_j=e^(−bj/q), to obtain the weighted variance coefficient after squaring; both the strict positivity and the remainder follow in finite dimension. The three Riemann sums give the claimed high-q limit, positive by strict continuous Cauchy–Schwarz. The q=2 residual reduces to (ρ−σ)²/(1+σ²), independently reproducing the numerical example.",
+      "residual_risks": [
+        "The minimum uses a one-sided strip extension, not a continuity claim across the window discontinuity. The result neither computes the optimal lower bound in closed form for every c nor gives a uniform upper bound over c."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Frozen RESULT.md lines 120–124 describes the general two-pole result as qualitative above density two and the classical exponential comparisons as single-rate one-sided or two-sided. Indexed 76de6cc216c1 and 400c3e36998f concern asymmetric two-sided windows, including higher integer q and q=2 respectively."
+        ],
+        "reasoning": "Existence for broader rational windows at some of these densities does not specify the sharp all-amplitude lower bound or a unique minimizer. The two-sided asymmetric window uses two half-lines, unlike the overlapping same-half-line terms optimized here.",
+        "searches": [
+          "Belov–Kulikov–Lyubarskii arXiv:2103.08959 Theorem 1.7 and §1.7.2; DOI 10.1007/s00222-022-01151-8",
+          "Faulhuber–Shafkulovska arXiv:2204.02917",
+          "Resultary asymmetric double-exponential Gabor bounds"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md",
+        "Configured Resultary records 1d27ec3a4907, 76de6cc216c1, 400c3e36998f, 9d196021a641 (index)",
+        "arXiv:2103.08959 and publisher alternate (retrieval attempted); arXiv:2204.02917 (frozen citation and comparison)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Standard Zak multipliers and exact single-channel bounds are acknowledged ingredients. The compound factor Δ and equality condition in frozen RESULT.md lines 80–101 depend on the overlap W of the two full sampled vectors; the asymptotic variance is in lines 105–112."
+        ],
+        "reasoning": "Isolated-channel bounds do not give the interference term, and qualitative positive bounds even for each fixed coefficient do not identify the optimal uniform constant. The frequency and boundary where the residual is minimized must be compatible with the amplitude canceling the projection; the proof gives this joint equality and the two quantitative laws. No available prior statement supplies it as a direct corollary.",
+        "searches": [
+          "arXiv:2103.08959 Theorem 1.7",
+          "arXiv:2204.02917",
+          "Resultary:1d27ec3a4907, 76de6cc216c1, 9d196021a641"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fourier transform identifies a one-sided exponential with the kernel 1/(a+2πiξ) and interchanges time-frequency lattice directions; a common dilation brings the dual lattice to the alternative rectangular normalization. Indexed record 1d27ec3a4907 is a signed two-Cauchy critical-density gap, not a coefficient-uniform statement at redundancy q≥2."
+        ],
+        "reasoning": "The present constants could appear under Cauchy-kernel rather than exponential terminology. Critical-density bounds on a protected real interval of coefficients do not provide an all-complex lower envelope and minimizer for higher integer density. Even in the present family the unconditional critical-density infimum is zero.",
+        "searches": [
+          "Resultary: two causal exponential mixture exact lower Gabor frame bound, all complex amplitudes, integer redundancy",
+          "Resultary: signed two-Cauchy protected lower bound and Zak minima",
+          "arXiv:2103.08959 Theorem 1.7 and §1.7.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest distinct indexed records include restricted critical-density two-pole gap 1d27ec3a4907, q=2 and q≥3 asymmetric two-sided records 400c3e36998f and 76de6cc216c1, and same-day three-pole critical-density phase diagram 9d196021a641. Nothing returned as a distinct exact matching statement in the available catalogue evidence."
+        ],
+        "reasoning": "A spectral-fiber optimizer for a fixed two-sided window is not an optimizer over mixture coefficients, and a critical-density three-pole diagram does not dominate the higher-density two-pole case. The unavailable original tables or formulas are not ruled out by the summaries.",
+        "searches": [
+          "Resultary: exact two-rate Gabor bound and quadratic pole coalescence",
+          "Resultary: critical Gabor phase diagram, signed Cauchy, and exact oversampled asymmetric bounds"
+        ]
+      },
+      "rationale": "Credited prior qualitative rational-window existence and standard Zak diagonalization; the distinction is the exact optimal loss uniform over every complex second amplitude, its uniquely realizing amplitude and its sharp degeneration. Available competing statements differ in the window, density or optimization. This pass is bounded to the inspected evidence; neither OA failure nor same-day ordering is used as negative evidence.",
+      "residual_risks": [
+        "Full papers and mirror passages were not obtained for the closest sources; an uninspected sharp formula in Fourier-dual language could change the historical assessment.",
+        "Published qualitative frame existence does overlap, and no novelty is claimed for it, the one-rate case, or the underlying Zak criterion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Reported qualitative overlap; exact full theorem and possible sharper consequences not inspected directly",
+          "evidence": [
+            "Frozen RESULT.md lines 120–124 and 132; Theorem 1.7 and §1.7.2 are the stated locators."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2103.08959; doi:10.1007/s00222-022-01151-8",
+          "material_read": "Frozen comparison and theorem locator; primary arXiv and publisher requests timed out",
+          "method": "Targeted OA passage requests to paper and identified publisher version",
+          "title": "Gabor frames for rational functions",
+          "trigger": "Fourier-dual two-pole family and density theorem"
+        },
+        {
+          "assessment": "Classical sharp single-window bounds, not the mixed coefficient envelope as described",
+          "evidence": [
+            "Frozen RESULT.md lines 124 and 134."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2204.02917",
+          "material_read": "Frozen relationship discussion and citation",
+          "method": "Comparison with stated available scope",
+          "title": "Gabor frame bound optimizations",
+          "trigger": "Exact one- and two-sided exponential estimates"
+        },
+        {
+          "assessment": "Material overlap in the critical-density restricted-residue problem, not demonstrated coverage at q≥2 for arbitrary complex ratios",
+          "evidence": [
+            "Index describes two quadratic branches and a residue optimizer on a protected interval; frozen RESULT.md line 124 distinguishes density and coefficient domain."
+          ],
+          "identifier_or_url": "Resultary:1d27ec3a4907",
+          "material_read": "Indexed claim summary and frozen comparison; exact mirror retrieval timed out",
+          "method": "Configured Resultary search and targeted mirror attempt",
+          "title": "Exact protected-gap lower frame bound for signed two-Cauchy Gabor windows",
+          "trigger": "Sharp lower bounds and coefficient optimizer for Fourier-dual windows"
+        },
+        {
+          "assessment": "Different two-sided window; a minimizing fiber is not a worst mixing coefficient",
+          "evidence": [
+            "Higher integer summary reports q≥3 and a unique minimizing spectral fiber; related record concerns q=2."
+          ],
+          "identifier_or_url": "Resultary:76de6cc216c1 and related 400c3e36998f",
+          "material_read": "Indexed summaries and frozen relationship paragraph; mirror retrieval timed out for the higher-integer record",
+          "method": "Configured Resultary and targeted mirror request",
+          "title": "Sharp asymmetric double-exponential Gabor frame bounds at every higher integer redundancy",
+          "trigger": "Exact higher-integer and redundancy-two exponential bounds"
+        },
+        {
+          "assessment": "Three poles, critical density, different question; no date-based priority inference",
+          "evidence": [
+            "Summary describes a three-signed-pole critical-density phase diagram."
+          ],
+          "identifier_or_url": "Resultary:9d196021a641",
+          "material_read": "Indexed claim summary",
+          "method": "Configured Resultary search",
+          "title": "Two-band critical Gabor phase diagram and an interior Zak fold",
+          "trigger": "Same-day signed Cauchy-window study"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–58 and 88–128"
+      ],
+      "rationale": "Arbitrary destructive complex mixing is a natural robustness question for a fixed-leading-amplitude two-decay signal model. The worst lower bound is the exact stable-analysis guarantee, not a sufficient estimate; it also selects the unique destructive mixture and quantifies the precision lost near rate collision and the gain per unit of oversampling. These are meaningful even if qualitative frame existence is already known.",
+      "residual_risks": [
+        "Restricted to the specified lattice, two positive distinct rates, and a fixed leading amplitude; no general multi-channel or application-level guarantee is asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

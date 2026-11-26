@@ -1,15 +1,21 @@
-# Review of the half-order optimal-allocation transition
+# Independent mathematical audit
 
-## Correctness — PASS
-The precise domain is all simple cyclic prisms with at least three rungs, equal edge prices, total conductance one, and any fixed real spectral order \(p>0\). The strict trace-of-negative-power convexity argument proves uniqueness with independent edge variables; Fourier modes reduce the optimizer to a strictly monotone scalar equation. The cycle singularity has the proved uniform Riemann approximation in the regime \(m\sqrt t\to\infty\); the zero-frequency term supplies the needed lower bound for the actual root. Integral estimates and discrete cycle zeta asymptotics prove all three regimes, endpoint amplitudes and asymptotic coefficients. The standalone verifier performs 1,401 supplementary finite checks, not a universal proof.
+## correctness
 
-## Originality — PASS on inspected evidence, with a priority risk
-The earliest literature on dimension-dependent coherence and spectral moments analyzes fixed network weights rather than a continuous spectral-order conductance-design theorem. The published 2008 minimum-effective-resistance framework supplies convexity and first-inverse-moment optimization but not the half-order allocation threshold. Closest complete public results on prisms address the inverse-first-moment case or the determinant objective; their conclusions give isolated endpoints rather than the spectral-order-dependent finite-budget minimizer and its subcritical/critical/supercritical trichotomy. Specifically, the previously available first- and second-order prism results imply neither a critical order of \(1/2\) nor the logarithmic critical constant. Searches using prism, Laplacian zeta, fractional spectral order, continuous order, rung allocation and coherence terminology found no equivalent theorem. Unindexed work remains a residual risk; negative search is not a uniqueness proof.
+PASS
 
-## Value — PASS
-The result explains how the infrared spectral dimension governs where budget-optimal network coupling is spent, with an exact critical spectral order, a logarithmic boundary regime and a smoothly varying supercritical power law. This unifies the determinant-like and physically motivated first- and second-order losses while supplying new behavior at all orders, not merely recomputing fixed examples. It is a natural complete all-size classification of a standard two-layer network design problem.
+On the mean-zero subspace the divided differences of the derivative of x^(-p) are strictly positive, making the trace strictly convex. Off-diagonal Laplacian entries distinguish conductance vectors; blowup near disconnection and compactness give a unique minimizer without assuming orbit-constant input. Symmetry then forces constant rail and rung rates, both positive. Fourier diagonalization gives the two stated spectral blocks and differentiation gives S_p=R_{m,p}(t), with coefficients 4-mu_k nonnegative and the zero mode's coefficient positive, so the scalar root is unique. For p below 1/2, integrability and fixed-point bracketing give convergence to the unique positive integral root. At and above 1/2, S_p/m diverges, forcing t to zero, and the k=0 term implies t >= (4/S_p)^(1/(p+1))/2, hence m sqrt(t) tends to infinity. This makes the monotone Riemann-sum error O(t^(-p-1)/m) relatively negligible versus D_p t^(-p-1/2). The two-end cycle sum gives (m/pi) log m at 1/2 and C_p m^(2p) above it, yielding the claimed coefficient 2 at criticality and (D_p/C_p)^(1/(p+1/2)) beyond. The beta-integral singularity and uniform local rescaling give t_p ~ 2(1-2p) from below; at p=0 the integral root is 2/3 by direct integration. Bounded independent replay at /workspace/branches/379e4427-3307-496b-a917-5b9b9a0b47ae/inverse-laplacian-check.md reproduces the exact m=3,p=1 polynomial 8t^4+24t^3-36t-27 and the m=4,t=1 all-order root, as well as coefficients 18^(1/3) and 540^(2/5)/2 at p=1,2. Finite-sum ratios are corroboration, not proof or a finite-size bound. The uploaded checker was inspected, not executed. Limits in m are for fixed p, not a joint critical crossover.
 
-## Relevant antecedents and limitations
-Bamieh–Jovanović–Mitra–Patterson, arXiv:1112.4011v1 (2011), and Patterson–Bamieh, arXiv:1310.2592v1 (2013), give Fourier-mode network coherence context. Ghosh–Boyd–Saberi, SIAM Review 2008, proves general effective-resistance design methodology. The closest previously published prism allocations are the November 2, 2026 public records *Mesoscopic rung allocation in resistance-optimal prism networks* and *D-optimal cyclic ladders with a linear-price crossover* (full relevant RESULT.md texts inspected). The two fixed-order prism claims in the accessible historical record were checked for implication overlap, not re-reviewed. Noninteger losses need not represent a standard physical stochastic model; simultaneous \(p,m\) limits are not proved.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The contribution is the real-order trichotomy for the unrestricted cyclic-prism allocation, including the logarithmic critical coefficient and subcritical boundary behavior. Neither the optimization method nor the known p=1,2 examples are novel. The inspected comparisons do not cover the critical-order or full allocation law.
+
+## value
+
+PASS
+
+The theorem identifies precisely when optimal rungs retain positive budget share, when the share decays logarithmically, and when it follows a variable power. This gives a complete asymptotic allocation classification for a natural family of losses and a concrete benchmark for design. The significance rests on the sharp change of allocation across a continuum of orders, not on recomputing the two coherence endpoints or claiming a physical interpretation for every fractional p.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

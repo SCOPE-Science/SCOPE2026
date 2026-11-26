@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For the exact stated forward-ballot rule, the reduction to the copy-right-neighbor condition is a complete three-ballot case analysis. Maximal runs of length at least two preserve at least their length under the update; mixed words lose at least one singleton at each step, giving the sharp \(n-2\) clock. Proper words are frozen, thick words shift, and strict singleton loss excludes any other recurrent configurations. The two independent counting arguments use the well-known proper-cycle coloring spectrum and a fully specified pair-state matrix; the displayed matrix factorization follows from a \(2q\)-dimensional compression, not a guessed recurrence. Computations corroborate \(277633\) complete input trajectories and \(131924\) independent local-rule evaluations. This is a proof on all ring lengths, rather than finite inference.
+PASS
 
-## Originality — PASS (bounded comparison)
+Audited the forward three-ballot rule directly: only agreement of the two successors can change the incumbent. Proper words are fixed and thick words shift. For any original maximal run of length at least two, its predecessor and its first length-minus-one sites form a monochromatic block of the original length after the update. Its last site either stays attached or changes to the next long run's color and belongs to that run's updated block. Thus no original long-run site can become a singleton, and a singleton immediately preceding a long run is certainly removed. A mixed word has such a boundary and at most n−2 singleton sites, proving strict descent and recurrence only in the two classes. In the two-zero alternating-tail witness the shrinking tail remains alternating and nonzero and the only advancing block eats exactly one site each time, including the n=3 case. The thick-word pair transfer factors through the diagonal and row-sum coordinates as (u,v)→(v,v+(J−I)u): the symmetric color sector yields z²−z−(q−1), the other sectors z²−z+1. This and the standard proper-coloring trace give the stated formulas, equality of growth rates only at q=3, and the limits. Uniform states belong to the thick class and are fixed; the total fixed count is P+q, not P. Least periods of thick words are spatial; nonconstant primitive repeat blocks must have at least two runs of length at least two, and 00 followed by d−2 ones realizes every d≥4. Divisor inversion uses S(q,1)=S(q,2)=q, consistent with the transfer formula. Fresh replay /workspace/branches/replay_1.py enumerated the full functional graphs for q=3, n=3–8 and q=4, n=3–6 using direct ballot tallies. It checked class counts, entry times, shifts, and period-divisor counts (e.g. q=3,n=8: 258 proper, 255 thick, cutoff 6, and 12/240 thick states of least periods 4/8). This finite replay is corroboration, not the all-size proof.
 
-The closest full-text literature treats **binary symmetric centered** majority: Fukś (1997), Lemoy–Mozeika–Seki (2013), and Nakar–Ron (2022). Their site neighborhood is symmetric and lacks the three-distinct-symbol tie; its periodic states and transfer calculations do not imply this one-sided multi-color classification. Specific searches for one-sided multi-color majority, tie-retaining plurality, run-length rotating waves, complete cyclic attractors and entropy crossings found no covering published statement. Remaining risk: an obscure generalized one-sided automaton classification or unpublished equivalent could cover part of the theorem. Similarity searches and title searches cannot establish historical priority absolutely.
+## originality
 
-## Value — PASS
+PASS
 
-The object is a natural directed local-voting cellular automaton in which a three-way tie has genuine dynamical content. The theorem provides a sharp global stabilization bound, complete all-size recurrent-state classification, exact orbit and entropy counts, and an unexpected critical alphabet size at which frozen and traveling families have equal exponential growth. These are structural, not arbitrary numerical slice, statements and clarify why centered binary majority intuition does not transfer to three or more states.
+The distinct result is the joint one-sided multicolor recurrent classification, sharp entry clock and proper/thick entropy equality. The proper-cycle chromatic count and transfer-matrix method are standard ingredients, not separately novel.
 
-## Verification limitations
+## value
 
-Finite enumerations checked the proof-derived formulas but were not used to infer universal validity. The closest-source comparison is bounded; independent scientific audit and definitive historical priority are not established.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The finite directed voting rule has a genuine three-way tie and a natural all-initial-state transient question. It is resolved by an optimal clock and complete attractor description including arbitrarily long traveling periods. The coexistence of two structurally different recurrent families with exactly equal exponential growth at three colors, but not four or more, is more than a static cycle-coloring exercise. The result concerns recurrence, not the attraction-basin proportions or a stochastic rule.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

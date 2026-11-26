@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-The main proof is the exhaustive geometric classification of one-point extensions of an ordered pair, followed by a cap argument for an arbitrary first node. The proof works for all heights and all branching values in the stated domain; numerical tests are supporting evidence, not extrapolation.
+# Independent mathematical audit
 
-Reproduction from this directory: `sh reproduce.sh`. Requires Python 3 and a C++17 compiler. The symbolic and word-orbit implementations checked 7,098 pair configurations; the direct program checks actual ordered vertex triples without orbit reduction. The reproduction output is in `verification_output.txt`.
+## correctness
 
-The 32 capped pointed types are the combinations of two capped depth variables with the binary-versus-at-least-ternary branching parameter. Some pointed types across the two branching classes can coincide; only the root-type classification is asserted to be pairwise distinct, and the rank-three branching sentence supplies the separation.
+PASS
 
-Limits: finite stress through height 44 does not by itself prove stabilization; Steps 1–3 of `RESULT.md` do. No independent human or external audit is claimed.
+The three-round type is the set of pointed two-round types. For comparable picks, the third point can witness a nonempty gap, room above or below, or a side branch; ancestor and descendant gaps give all Boolean patterns once each depth is clipped at three. For incomparable picks, with least common prefix depth l and divergences u,v, the third point can be incomparable with both unless the picks are the two root children in a binary tree. The other tests are u≥2, v≥2, and whether the two residual heights are positive. At fixed first point, 1≤u≤d and 1≤v≤u+t; the possible tests on v stabilize at u+t=3 and u≥3 can be replaced by u=3. This verifies the uniform cap on (d,t) including repeated picks. The capped list along a tree's depths first stabilizes at height six. A rank-two pointed formula can witness three ancestors by finding a middle ancestor with one below and one above it on the chain to the chosen node; its dual works downward. Combining those threshold predicates under one existential separates all heights below six. The rank-three sentence for an incomparable pair covering the tree by comparability separates binary from higher branching at every positive height. Height zero is the common singleton. Independent direct enumeration over actual words (binary heights 0–7, ternary 0–6, quaternary 0–3) gave all 13 classes and agrees on tested equalities and distinctions. Replay: `python3 /workspace/branches/ef_replay.py trees 7`, output `/workspace/branches/ef_trees.txt`. The finite check corroborates rather than replaces the cap argument. Frozen verification_output.txt lines 1–19 was inspected as recorded evidence, not a fresh run of those scripts.
+
+## originality
+
+PASS
+
+The strongest identified catalogue matches share either the trees and rank or the ancestry signature and a broader family, but not the game parameters needed for the exact partition. The primary works inspected do not imply the sharp two-parameter partition. This is a bounded statement-level finding, not a historical priority claim.
+
+## value
+
+PASS
+
+A sharp expressibility boundary for a natural family in the ancestry language. It gives explicit criteria for when height information stops being visible, while showing that binary branching stays detectable at every positive height. These are useful distinctions for checking what bounded-depth formulas can test on trees; the result is not merely a sample census or the parent-only table under renamed parameters.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

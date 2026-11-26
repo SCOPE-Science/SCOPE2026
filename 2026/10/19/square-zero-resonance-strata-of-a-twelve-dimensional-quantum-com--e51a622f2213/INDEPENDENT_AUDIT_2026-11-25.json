@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:57:45.068942Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The grading and ordered monomial basis first force the scalar and both linear coefficients to vanish on the reduced locus. Independent ordered-product collection (python3 /workspace/branches/frozen_math_replay.py 1) gives precisely the three coefficients λb²+(1+λ⁴)ac, (1+λ²)bc, and (1+λ⁴)cd+λ(1+λ)be+(1+λ⁶)af, with the other three coordinates free. Away from the zero of the last coefficient vector one linear constraint cuts out a rank-two bundle, giving L^5([B]+(L−1)[Z]). If u2u4 is nonzero, b=0 and the base is two axes; their rank-zero locus is the origin when u6 is nonzero, or the a-axis otherwise. The generic two punctured-axis closures and the origin fiber are three distinct affine six-spaces; when u6 vanishes the whole a-axis preimage is an affine seven-space containing the origin fiber and leaving one six-space. If u4=0 but u2 is nonzero, u6=1−λ² is nonzero, and b=af=0 gives two seven-spaces meeting in a six-space. For u2=0 in characteristic other than two, c≠0 solves for a,d and gives G_m×A^6; c=0 forces b=0 and gives A^7. Its closure cannot swallow the linear component because λbd−λ(1+λ)ae vanishes on the open, but not at a=e=1 and b=c=0. The open closure is geometrically integral: its coordinate ring embeds into that of the open chart and this injection persists under field extension. In characteristic two, λ=1 leaves just b²=0, and λ≠1 forces u2u4 nonzero with u6=(1+λ³)². These checks give each reported class, all component dimensions and all field cases; point counting specializes the class over finite fields, including extensions. The C source was inspected, not run; its reported finite checks agree with the scope of the calculation and do not prove the geometry.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bergh–Oppermann cover the QCI family but bound representation dimension and module-category dimensions.",
+          "Avrunin–Scott uses projectivity of modules restricted to subalgebras to define rank varieties; the inspected setup also uses a common truncation exponent."
+        ],
+        "reasoning": "These are family-wide results about different objects; their conclusions do not dominate an internal reduced element-locus classification.",
+        "searches": [
+          "arXiv:0710.2606, §3 and Theorems 3.1–3.2",
+          "arXiv:0810.3308, §2 and Corollary 3.7",
+          "Literature query for square-zero element loci in q-commuting truncated polynomial algebras"
+        ]
+      },
+      "checked_sources": [
+        "Published Resultary catalogue, 4d3e846fe756 and 7f6201de1b8d (latter indexed summary only)",
+        "arXiv:0709.3029",
+        "arXiv:0710.2606",
+        "arXiv:0810.3308"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The standard monomial multiplication supplies input, not the rank jumps of cd, be, af or the closures of the fibers. The degree-one cohomology classes that square to zero are not elements of the algebra. A bound with y³=0 does not retain the y³ term and does not imply the λ⁶ resonance of the asymmetric locus."
+        ],
+        "reasoning": "The prior algebra definitions and individual techniques leave a separate exact classification to prove; in particular they do not predict the component over the rank-drop locus or the motivic agreement of the fourth- and eighth-root rows.",
+        "searches": [
+          "Bergh–Erdmann arXiv:0709.3029 §2, Theorems 3.1, 3.3, p. 15",
+          "Bergh–Erdmann arXiv:0810.3308 §2 and Corollary 3.7",
+          "Related cubic Resultary hit 7f6201de1b8d"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bergh–Erdmann's XY−qYX convention identifies the algebra with q=λ^−1, but their computed root-of-unity transitions are for Hochschild cohomology.",
+          "Resultary 4d3e846fe756 studies T²=0 in M_2(k[u,v]/(u²,v²)), not elements of the asymmetric truncated skew algebra."
+        ],
+        "reasoning": "The conventional parameter inversion does not change the input algebra, but it cannot identify the two invariants. The other square-zero space is a matrix variety over a different coefficient algebra.",
+        "searches": [
+          "Resultary: reduced internal square-zero loci of asymmetric quantum complete intersections and square-zero strata",
+          "arXiv:0709.3029, §2 and Theorems 3.1 and 3.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest cubic census 7f6201de1b8d is indexed for x³=y³=0, dimension nine, and describes an irreducible five-dimensional locus; the underlying file was not accessible. The inspected 4d3e846fe756 concerns the different matrix variety and dimensions nine and ten."
+        ],
+        "reasoning": "The available formulas are for different domains and neither lists the five rows for (3,4). The unavailable cubic file is not treated as proof of noncoverage.",
+        "searches": [
+          "Published Resultary comparison of 3,4 QCI square-zero loci, motive, component dimensions, and nilpotency strata",
+          "Exact mirror paths for 7f6201de1b8d and 4d3e846fe756"
+        ]
+      },
+      "rationale": "The verified distinction is the five-case geometry and motivic class of the internal reduced square-zero locus for the asymmetric (3,4) algebra. An algebra family, an invariant of its module or cohomology categories, and a cubic analogue are not equivalent to this result. No inspected source covers the exact classification; unavailable material is identified rather than counted as negative evidence.",
+      "residual_risks": [
+        "The full cubic census was unavailable; a broader theorem in its text remains unchecked.",
+        "An unlocated treatment of q-commuting zero-square elements or small nilpotent loci could cover the (3,4) geometry; the searches do not establish priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Algebra family match, invariant mismatch",
+          "evidence": "The algebra definition includes truncations a,b; the cited transitions and square-zero classes concern Hochschild (co)homology.",
+          "identifier_or_url": "https://arxiv.org/pdf/0709.3029",
+          "material_read": "§2 p. 2; Theorems 3.1 p. 8 and 3.3 p. 14; adjacent observation p. 15",
+          "method": "Original OA PDF, relevant definitions and theorem passages",
+          "title": "(Co)homology of quantum complete intersections",
+          "trigger": "Same algebra family and root-of-unity transitions"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": "The theorems bound dimensions associated with modules and representation dimension.",
+          "identifier_or_url": "https://arxiv.org/pdf/0710.2606",
+          "material_read": "§3 pp. 3–4 and Theorems 3.1–3.2",
+          "method": "Original OA PDF",
+          "title": "The representation dimension of quantum complete intersections",
+          "trigger": "General family may subsume the two-generator example"
+        },
+        {
+          "assessment": "Different variety and truncation setup",
+          "evidence": "Rank is defined via projectivity of a module over selected subalgebras; the corollary relates that rank variety to support.",
+          "identifier_or_url": "https://arxiv.org/pdf/0810.3308",
+          "material_read": "§2 p. 3 (offset 10303) and Corollary 3.7 p. 9 (offset 32508)",
+          "method": "Original OA PDF",
+          "title": "The Avrunin–Scott theorem for quantum complete intersections",
+          "trigger": "Possible reformulation as rank or support variety"
+        },
+        {
+          "assessment": "Related (3,3) result; full-text coverage unresolved",
+          "evidence": "The indexed claim is for dimension nine with both cubic truncations and an irreducible five-dimensional square-zero locus.",
+          "identifier_or_url": "7f6201de1b8d",
+          "material_read": "Indexed summary only",
+          "method": "Resultary search and unsuccessful exact local-mirror retrieval",
+          "title": "A six-stratum Jordan census and principal right ideal count for the cubic quantum complete intersection",
+          "trigger": "Direct catalogue hit for a reduced QCI square-zero locus"
+        },
+        {
+          "assessment": "Different ambient algebra and dimension claims",
+          "evidence": "The claim is about 2-by-2 matrices over k[u,v]/(u²,v²) and reports dimensions nine and ten by characteristic.",
+          "identifier_or_url": "4d3e846fe756",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Published Resultary search and exact local-mirror read",
+          "title": "Square-zero matrices over a two-generator length-three local commutative algebra",
+          "trigger": "Possible equivalent square-zero geometry"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a standard family of finite-dimensional algebras, this is a complete exact geometric invariant in an asymmetric truncation in which three different resonance coefficients can matter. It distinguishes both component sizes and the motivic class across all characteristics, including equal motives for two different component geometries and a sharp characteristic-two dimension increase. These data are useful for comparing degeneration and counting behavior, not merely a check of a handful of parameters.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

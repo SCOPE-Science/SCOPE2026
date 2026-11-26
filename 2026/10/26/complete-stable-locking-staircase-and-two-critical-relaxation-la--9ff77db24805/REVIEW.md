@@ -1,12 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-All statements concern strictly linearly asymptotically stable equilibria modulo common rotation, for \(m\ge3\), \(a>0\), \(K>0\). The repeating parity sine flow, signed cycle resistance exclusion of nonpositive conductances, unique acute inverse-sine winding solution, 2-cell Bloch eigenvalues and two endpoint asymptotic expansions establish the theorem. The accompanying standalone verifier passed independently assembled field/Jacobian comparisons and finite critical limits. A finite test is not used to certify the all-size claim.
+## correctness
 
-## Originality — PASS with explicit overlap limits
-The closest primary literature is Tilles–Cerdeira–Ferreira (arXiv:1108.3271), Section IV, which already addresses exactly alternating detuning, contains the winding branch parameterization and sample ten-oscillator exchange values, and warns that reduced stability does not characterize stability in the full phase space. This prior partial coverage is credited. The complete all-size full-space stability exclusion, exact resulting census and two sharp relaxation-gap exponents are not present in the inspected full text. Ochab–Góra (arXiv:0909.0043) and Roy–Lahiri (arXiv:1103.4966) give generic background, but no corresponding all-size theorem. Targeted searches of published mathematical results identified no stronger theorem implying the submitted complete full-space result. arXiv:1102.3890 was inaccessible in full and is a residual priority risk; this review is not an independence or historical-certification claim.
+PASS
 
-## Value — PASS
-An exact all-size stable-locking census and a rigorous strict-instability mechanism for every complementary parity branch answer a motivated physical stability question. The separate square-root central-mode and linear noncentral-mode critical relaxation laws quantify a substantive change in critical slowing rather than merely restating existence thresholds. Reproducibility includes a self-contained verifier; no generality beyond alternating rings or nonlinear stability at threshold is asserted.
+With coupling K per neighbor, equilibrium forces constant sine on each parity and their odd-minus-even difference is a/K. The signed cycle form is evaluated on exactly the zero-sum space of edge differences. Two negatives, or a negative and a zero, are excluded by equal opposite edge differences. Against a single conductance −c, the other m−1 edges of that parity have +c; taking differences 1 on the negative edge and −1/(m−1) on those gives −c+c/(m−1)<0. Vanishing conductances alone delete an entire parity and create extra zero modes. Thus strict stability requires acute increments. The winding condition and monotone sine difference for d∈(0,π−|2πq/m|) give precisely one labelled phase class per q with 2|q|<m and K>K_q, excluding threshold equality. The Fourier blocks give both spectral bands; all minus modes lie at or below −(u+v), and r=1,m−1 in the plus band gives the slowest nonzero rate. At q=0 both conductances equal sqrt(K²−a²/4); at nonzero q the weak conductance is aε/sin(2π|q|/m)+O(ε²) while the other stays positive. Expanding the exact full gap yields the stated coefficients, powers and remainder orders, with fixed m,q,a. Winding signs interchange the two conductances.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Pass is for the repaired paired sharp full-space spectral relaxation laws and the winding-resolved coefficients. General signed-cycle stability and previously known alternating branch relations cover the underlying stability exclusion and threshold method; those and the standard period-two Fourier formula are not claimed independently. The same-family primary source treats reduced stability exchanges and discusses the need for a full-space classification, but the inspected passages do not give the least transverse eigenvalue's paired sharp laws over all windings.
+
+## value
+
+PASS
+
+Two different critical slowing-down rates occur on stable branches of the same homogeneous cycle with the same detuning pattern. The exact winding and size dependence of the slowest transverse time scale distinguishes all-link collapse from weak links between surviving dimers, even in the presence of multiple vanishing modes at a threshold. The full-space coefficient is useful for estimating the slow approach of perturbations and is not given by a reduced stability exchange. Standard Fourier band formulas or the already-covered branch count alone are not the basis of this value judgment.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

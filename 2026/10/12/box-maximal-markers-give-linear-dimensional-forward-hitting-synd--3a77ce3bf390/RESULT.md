@@ -1,69 +1,43 @@
 # Box-maximal markers give linear-dimensional forward-hitting syndeticity
+
 ## Finding
-Let \(n,r\ge 1\). Suppose \(f_1,\ldots,f_n:X\to X\) are commuting bounded-to-one Borel maps on a standard Borel space, and let \(F(X)\) be the free part of the induced \(\mathbb N^n\)-action. Then there is a Borel set \(H\subseteq F(X)\) which is \(r\)-forward-independent and has syndeticity \(2nr\). Explicitly, for every \(x\in F(X)\) there is \(\gamma=(\gamma_1,\ldots,\gamma_n)\in\mathbb N^n\) such that
-\[
-\sum_{i=1}^n\gamma_i\le 2nr
-\]
-and
-\[
-f_1^{\gamma_1}\cdots f_n^{\gamma_n}(x)\in H.
-\]
-This improves the \(2n^2r\) syndeticity bound in Gao--Hu--Zou, Theorem 3.1, with the same hypotheses.
+
+Let \(n,r\) be positive integers and let \(f_1,\ldots,f_n:X\to X\) be commuting bounded-to-one Borel maps on a standard Borel space. Write \(f^\alpha=f_1^{\alpha_1}\cdots f_n^{\alpha_n}\) for \(\alpha\in\mathbb N^n\), with \(\mathbb N\) including zero. On the free part \(F(X)\) there is a Borel set \(H\) which is \(r\)-forward-independent and which every \(x\in F(X)\) hits at some \(f^\gamma x\) with \(\gamma\in\{0,\ldots,2r\}^n\) and \(\sum_i\gamma_i\le 2nr\). This improves the forward-hitting bound \(2n^2r\) of Gao–Hu–Zou, Theorem 3.1, under the same hypotheses. The bounds agree when \(n=1\).
 
 ## Assumptions and scope
-A set \(H\subseteq F(X)\) is \(r\)-forward-independent when distinct \(x,y\in H\) cannot satisfy
-\[
-f_1^{\alpha_1}\cdots f_n^{\alpha_n}(x)
-=
-f_1^{\beta_1}\cdots f_n^{\beta_n}(y)
-\]
-for vectors \(\alpha,\beta\in\{0,\ldots,r}\^n\) satisfying \(\alpha_i\beta_i=0\) for every \(i\). The theorem concerns only the free part; no assertion is made on points with nontrivial monoid stabilizer. The maps are assumed bounded-to-one exactly as in the transfer theorem used by Gao--Hu--Zou.
+
+Here \(x\in F(X)\) if \(f^\alpha x=f^\beta x\) implies \(\alpha=\beta\) for all \(\alpha,\beta\in\mathbb N^n\). The set \(F(X)\) is Borel by countability and is forward invariant by cancellation of addition in \(\mathbb N^n\), so restriction to it gives a free bounded-to-one Borel action. Put \(S=\{0,\ldots,r\}^n\). Forward independence means that if \(x,y\in H\) are distinct, then \(f^\alpha x\ne f^\beta y\) whenever \(\alpha,\beta\in S\) and \(\alpha_i\beta_i=0\) for all \(i\). The maps need not be injective, and freeness does not assert that points with a common future have a common predecessor.
 
 ## Proof
-First consider a free continuous action of \(\mathbb Z^n\) on a zero-dimensional Polish space. Define the finite-range box graph \(B_r\) by joining distinct points \(x,y\) exactly when
-\[
-y=\delta\cdot x
-\quad\text{for some}\quad
-\delta\in([-r,r]\cap\mathbb Z)^n.
-\]
-This graph has bounded degree. The same Linial maximal-independent-set argument used for graph powers in Gao--Hu--Zou, Lemma 3.5, applies to this finite-range graph: a maximal independent set for \(B_r\) is an \(O(\log^* N)\) local problem on the grid, hence every free continuous \(\mathbb Z^n\)-action admits a clopen maximal \(B_r\)-independent set \(H\).
 
-The set \(H\) is \(r\)-forward-independent. Indeed, if distinct \(x,y\in H\) satisfied a forbidden collision with vectors \(\alpha,\beta\in\{0,\ldots,r}\^n\) and \(\alpha_i\beta_i=0\), freeness of the group action would give
-\[
-y=(\alpha-\beta)\cdot x
-\]
-up to the harmless choice of sign convention. Every coordinate of \(\alpha-\beta\) lies in \([-r,r]\), so \(x\) and \(y\) would be adjacent in \(B_r\), contradicting independence.
+**A clopen box net.** First let the group \(\mathbb Z^n\) act freely and continuously on a zero-dimensional Polish space \(Z\). Join \(z\) and \(\delta\cdot z\) for each nonzero \(\delta\in[-r,r]^n\cap\mathbb Z^n\). This graph admits a clopen maximal independent set \(H_Z\). To see this, each \(z\) has a clopen neighborhood disjoint from every specified nonzero translate of itself: for each of the finitely many displacements, choose disjoint clopen neighborhoods of \(z\) and \(\delta\cdot z\), and intersect the former with the inverse images of the latter. Extract a countable cover by such clopen independent neighborhoods. In cover order, add the points of each neighborhood that are neither already chosen nor adjacent to anything already chosen. Each stage adds a clopen set, since only finitely many earlier clopen sets and finitely many translates are involved. The union \(H_Z\) is open and independent, and every unchosen point is adjacent to a chosen point. Thus \(Z\setminus H_Z\) is the union of the translates \(\delta\cdot H_Z\) by the specified nonzero displacements, and is open. This proves the clopen assertion.
 
-Now fix \(z\). Put
-\[
-u=(r,\ldots,r)\cdot z.
-\]
-Maximality of \(H\) in \(B_r\) gives \(h\in H\) and \(\delta\in([-r,r]\cap\mathbb Z)^n\) with \(h=\delta\cdot u\), allowing \(\delta=0\) when \(u\in H\). Hence
-\[
-h=(r+\delta_1,\ldots,r+\delta_n)\cdot z.
-\]
-Every coordinate \(r+\delta_i\) lies in \([0,2r]\), and therefore
-\[
-\sum_{i=1}^n(r+\delta_i)\le 2nr.
-\]
-Thus the clopen set is a hitting set with syndeticity \(2nr\).
+Maximality applied at \((r,\ldots,r)\cdot z\) gives a point of \(H_Z\) at displacement \(\delta\) from that center with \(\delta_i\in[-r,r]\), allowing \(\delta=0\) if the center is a marker. Hence each \(z\) hits \(H_Z\) at a group displacement in \(W=\{0,\ldots,2r\}^n\), with total forward length at most \(2nr\). Also, for each \(z\) there is at most one \(\alpha\in S\) with \((-\alpha)\cdot z\in H_Z\): two distinct offsets give distinct points by freeness, and their difference is a nonzero box displacement.
 
-Finally encode these two requirements as the same kind of finite-window locally checkable labeling problem used in Gao--Hu--Zou, but with forward window \(\{0,\ldots,2r}\^n\) and hitting budget \(2nr\). The preceding construction supplies a continuous labeling for every free continuous \(\mathbb Z^n\)-action. The LOCAL equivalence quoted as Gao--Hu--Zou, Theorem 3.2, transfers this to an \(O(\log^* N)\) algorithm on \(\mathbb N^n\), and their Theorem 3.3 transfers that algorithm to every free bounded-to-one Borel \(\mathbb N^n\)-action. The marker set of that labeling is the required Borel \(H\).
+**Finite labels carrying offsets.** On any \(\mathbb N^n\)-action use the alphabet \(\Sigma=S\cup\{\ast\}\), where \(\ast\) is a new symbol. For a labeling \(\ell\), the allowed pattern in the forward window \(W\) at a base \(x\) is specified by two rules:
+
+1. There is \(\gamma\in W\) with \(\sum_i\gamma_i\le 2nr\) and \(\ell(f^\gamma x)=0\), where \(0\) denotes the zero vector.
+2. If \(\ell(x)=0\), then \(\ell(f^\alpha x)=\alpha\) for every \(\alpha\in S\).
+
+These are a single locally checkable labeling problem on \(M=\mathbb N^n\): they are a predicate on the finitely many labels at positions in \(W\) of the monoid. In each free group model above, label \(z\) by the unique offset \(\alpha\in S\) for which \((-\alpha)\cdot z\in H_Z\), and by \(\ast\) if there is none. Each offset label has clopen preimage \(\alpha\cdot H_Z\); the unmatched preimage is also clopen. The zero-labeled set is \(H_Z\), so Rule 1 holds by centering. Rule 2 holds because the translate \(\alpha\cdot x\) of a marker has that marker as its unique marked predecessor at an offset in \(S\).
+
+**Transfer and global independence.** Apply Shinko–Weilacher–Yu, Theorem 1.7 (also Theorem 3.24), and Proposition 3.22. The ambient group is \(\Gamma=\mathbb Z^n\), generated by the finitely generated submonoid \(M=\mathbb N^n\); in particular it is abelian. The continuous solutions on every free continuous \(\Gamma\)-action on a zero-dimensional Polish space give a \(\mathrm{LOCAL}_M\) solution for this fixed finite-window problem, and Proposition 3.22 yields a Borel labeling \(\ell\) of the free bounded-to-one action on \(F(X)\).
+
+Take \(H=\ell^{-1}(0)\). Rule 1 gives the hitting bound. If \(x,y\in H\) are distinct and have a collision \(z=f^\alpha x=f^\beta y\) with the offsets in the definition of forward independence, then Rule 2 applied at the two bases forces the single label \(\ell(z)\) to equal both \(\alpha\) and \(\beta\). Thus \(\alpha=\beta\); coordinatewise disjointness then forces both to be zero, contrary to distinctness. This checks pairs with a common future even when no forward window contains both bases.
 
 ## Verification
-The load-bearing change is geometric: forward-independence forbids coordinate displacement in the box \([-r,r]^n\), whereas the published proof enforces the stronger graph-distance condition \(\rho\le nr\). Centering a maximal box-independent net at \((r,\ldots,r)\) makes every coordinate of the resulting forward displacement lie in \([0,2r]\), giving the stated \(\ell^1\) budget \(2nr\).
 
-The proof uses no finite experiment or numerical approximation. The two external transfer inputs are the LOCAL equivalence and Borel transfer stated as Theorems 3.2 and 3.3 in the motivating paper.
+The argument is symbolic. The decisive transfer point is that the forward rules label the *common future point* with an offset; they do not require two approaching markers to occur in the forward window of the same base. See `VERIFICATION.md` for a failure example for the common-base binary rule and the precise transfer hypotheses.
 
 ## Relationship to prior work
-Gao, Hu and Zou prove the same existence theorem with syndeticity \(2n^2r\). Their proof chooses a maximal \(nr\)-independent set in the ordinary Schreier graph, shifts by \((nr,\ldots,nr)\), and bounds each resulting coordinate by \(2nr\). The present proof instead matches the forbidden collision geometry coordinatewise and uses a maximal independent set in the box graph, reducing the shift to \((r,\ldots,r)\).
 
-Shinko, Weilacher and Yu provide the LOCAL-to-Borel framework used in the transfer step and prove hyperfiniteness for bounded-to-one commutative monoid actions. No claim is made here to strengthen their hyperfiniteness theorem.
+Gao–Hu–Zou, Theorem 3.1 and Proposition 3.4, give the budget \(2n^2r\), using graph-distance separation at scale \(nr\) and centering by \((nr,\ldots,nr)\) in the group model. The box conflict graph permits centering by \((r,\ldots,r)\). The transfer framework of Shinko–Weilacher–Yu is unchanged; what must be verified is the choice of finite labels and their interpretation on noninvertible actions. In particular, the group-action formulation of Theorem 1.7 is the one used here.
 
 ## Limitations
-The constant \(2nr\) is an upper bound; optimality is not claimed. The theorem is only for the free part and retains bounded-to-one hypotheses. The full text of the Shinko--Weilacher--Yu preprint was not independently inspected in this verification; its relevant transfer statements were checked as reproduced verbatim in Gao--Hu--Zou. A targeted search found no published \(2nr\) bound, but that does not constitute an exhaustive novelty proof.
+
+The bound is an upper bound, not an optimality claim. The theorem concerns the free part only and retains the bounded-to-one hypothesis. The checked sources establish the comparison with the stated \(2n^2r\) guarantee, not historical publication priority or absence from all literature.
 
 ## References
-1. Su Gao, Xiangxi Hu, Jie Zou, *Borel graphs generated by commuting functions*, arXiv:2608.15422 (first public 2026-08-15), especially Theorem 3.1, Theorems 3.2--3.3 as quoted there, Lemma 3.5, and Proposition 3.4.
-2. Forte Shinko, Felix Weilacher, Jing Yu, *Hyperfiniteness of bounded-to-one actions of commutative monoids*, arXiv:2608.18439 (first public 2026-08-19).
-3. Nathan Linial, *Locality in distributed graph algorithms*, SIAM Journal on Scientific Computing 21 (1992), 193--201.
+
+1. Su Gao, Xiangxi Hu, Jie Zou, *Borel graphs generated by commuting functions*, arXiv:2608.15422, Definition 2.6, Theorem 3.1, Proposition 3.4.
+2. Forte Shinko, Felix Weilacher, Jing Yu, *Hyperfiniteness of bounded-to-one actions of commutative monoids*, arXiv:2608.18439, Theorem 1.7, Definitions 3.5–3.6, Proposition 3.22 and Theorem 3.24.

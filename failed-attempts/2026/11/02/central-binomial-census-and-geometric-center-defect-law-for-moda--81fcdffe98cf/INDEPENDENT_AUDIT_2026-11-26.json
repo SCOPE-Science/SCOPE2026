@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:47:39.661719Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 41–89",
+        "Frozen VERIFICATION.md, lines 19–39; checker.py, lines 11–86"
+      ],
+      "rationale": "On the fixed odd chain, (MK) is monotonicity and (Pos) reduces to Box(0) ≥ 0. In (Con), b = Box(max(x,−|z|)) ≥ Box(x); a positive b forces equality, and z = 0 then gives the plateau. Conversely the plateau, or Box(0) = 0, suffices for (Con). Centered maps are two independent weak sequences, with C_m choices per side and C_m/2 on the positive side if top is fixed. At a positive height c the unrestricted and top-fixed counts are binom(2m−c,m) and binom(2m−c−1,m−1); summing gives the four counts and the exact defect fractions. Both conditional mass sequences have consecutive ratio at most 1/2 on their support and tend pointwise to 2^(−c), giving total-variation convergence. Stirling gives both rare-defect asymptotics. These arguments cover m = 1 as well. The submitted checker was inspected, not executed: its recorded finite comparisons (all unary maps for m = 1,2, monotone maps through m = 4, binomial identity checks through m = 60) corroborate but do not establish the universal or limiting statements.",
+      "residual_risks": [
+        "The frozen finite execution was not independently rerun; correctness is based on the reconstructed proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Oct. 13 result covers even and odd sizes with the same axioms, optional top preservation, and a proof enumerating the odd branches.",
+          "The Oct. 18 catalogue also describes a two-regime classification of finite involutive chains, but its argument was not available in the local mirror."
+        ],
+        "reasoning": "The verified earlier theorem includes exactly our odd family without any additional constraint on the operator. The unavailable second proof is not needed for this comparison.",
+        "searches": [
+          "Resultary: SCOPE-a-parity-sensitive-binomial-census-of-modal-kleene-operators-on--8660881b40c5",
+          "Resultary: SCOPE-two-regime-normal-form-and-exact-enumeration-of-finite-chain-modal--82f94da52ef8"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 2026-10-13 parity-sensitive census (mirrored text)",
+        "Resultary 2026-10-18 two-regime census (catalogue only)",
+        "Resultary 2026-11-02 Boolean–Kleene product census (mirrored text)",
+        "Celani–Menchón–Miguelez, arXiv:2608.10937, Definition 3.5 and Proposition 3.19"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier low branch uses two weakly increasing blocks with C_m choices each; fixing the final upper entry leaves C_m/2 there.",
+          "Its high branch fixes the first m+1 outputs at a value b>m and the remaining m are a weak sequence in [b,2m]; setting c=b−m gives binom(2m−c,m), or binom(2m−c−1,m−1) with top fixed."
+        ],
+        "reasoning": "Dividing by the earlier branch totals gives both exact conditional laws and the noncentered proportions without a further algebraic argument. The unstated geometric limit follows immediately from consecutive ratios and geometric domination; Stirling gives the unstated rarity asymptotic. Neither is an independently substantial advance on that enumerative proof.",
+        "searches": [
+          "Resultary mirrored 2026-10-13 census, odd-case block enumeration (RESULT.md offsets 0 and 4355)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Translate x on K_m to x+m on the earlier size-(2m+1) chain. The same involution turns into reflection about m and the earlier low and high branches translate to center fixing and a positive lower-half plateau.",
+          "Proposition 3.19 already states Box(x∨c)=Box(x)∨c for a center c under the given axioms."
+        ],
+        "reasoning": "Choice of labels or center coordinate changes neither the operation class nor the split into cases. The qualitative modal normal form is correctly credited and cannot supply new content here.",
+        "searches": [
+          "Resultary: SCOPE-a-parity-sensitive-binomial-census-of-modal-kleene-operators-on--8660881b40c5",
+          "Web: modal Kleene odd finite De Morgan chain enumeration modal operators central binomial center-preserving geometric distribution center defect",
+          "arXiv:2608.10937, Proposition 3.19"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Oct. 13 formula E_{2m+1}=binom(2m,m)^2+binom(2m,m+1) is A_m verbatim after reindexing; its N_{2m+1} uses the two binomials equal to C_m/2, and hence equals N_m.",
+          "The distinct Boolean–Kleene product record includes count 5 for the single three-element chain, not an all-odd-chain table. It is dated the same day as the frozen record; no priority is inferred from that comparison."
+        ],
+        "reasoning": "The match to the prior catalogue is exact for the central enumerators, not a coincidence among small values.",
+        "searches": [
+          "Resultary mirrored 2026-10-13 census, RESULT.md",
+          "Resultary: SCOPE-exact-modal-expansion-counts-on-finite-boolean-kleene-products--3d6a6578b729"
+        ]
+      },
+      "rationale": "The 2026-10-13 parity-sensitive census is a distinct earlier result for the same axioms on arbitrary finite involutive chains. Its odd case already gives the unrestricted and normal counts; its proof enumerates the two branches and directly yields each of the remaining counts and both exact per-height laws. The explicit geometric limit was not found in that text, but it is a routine ratio limit of the already determined branch weights, not a distinct underlying census or structural theorem. This failure rests on positive statement-level prior coverage, not on unavailable material.",
+      "residual_risks": [
+        "The October 18 proof was not retrievable in the available mirror.",
+        "The geometric limit may also have been stated elsewhere; the verdict does not assume historical exhaustiveness or explicit prior publication of that limit."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the core odd-chain census, with both exact defect-height laws immediate from its proof.",
+          "evidence": [
+            "E_{2m+1}=C_m²+binom(2m,m+1); its normal formula gives (C_m²+C_m)/2.",
+            "The upper block above a specified plateau is a weak sequence in [b,2m], including its final-entry-fixed variant."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-a-parity-sensitive-binomial-census-of-modal-kleene-operators-on--8660881b40c5",
+          "material_read": "Mirrored RESULT.md, offsets 0 and 4355: assumptions, odd-case formulas and proof of the two branches.",
+          "method": "Local Resultary search and bounded mirrored-text inspection (snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4).",
+          "title": "A parity-sensitive binomial census of modal Kleene operators on finite chains",
+          "trigger": "Same objects, axioms and odd-chain binomial formulas in a broader earlier result."
+        },
+        {
+          "assessment": "Likely material overlap; exact scope of height refinements unresolved, with no dependence on this hit for the verdict.",
+          "evidence": [
+            "Summary advertises a two-regime classification and exact and top-preserving counts for finite involutive chains."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-two-regime-normal-form-and-exact-enumeration-of-finite-chain-modal--82f94da52ef8",
+          "material_read": "Catalogue summary; RESULT.md path unavailable in the retrieved mirror snapshot.",
+          "method": "Local Resultary search and attempted mirror retrieval.",
+          "title": "Two-regime normal form and exact enumeration of finite-chain modal Kleene operators",
+          "trigger": "Matching operator axioms, two regimes and counts."
+        },
+        {
+          "assessment": "Small common boundary case, not the all-size chain theorem; same-day dating is not priority evidence.",
+          "evidence": [
+            "h=0, k=1 gives count 5."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-modal-expansion-counts-on-finite-boolean-kleene-products--3d6a6578b729",
+          "material_read": "Mirrored statement and product formula at the single three-element factor.",
+          "method": "Bounded local mirror inspection.",
+          "title": "Exact modal-expansion counts on finite Boolean–Kleene products",
+          "trigger": "Cited comparison for m=1."
+        },
+        {
+          "assessment": "Establishes the axioms and the qualitative identity yielding the plateau, not the enumerative theorem in those passages.",
+          "evidence": [
+            "(MK), (Pos), (Con); Box(x∨c)=Box(x)∨c; center preservation is Box(c)=c."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2608.10937",
+          "material_read": "Definition 3.5 (PDF p. 7, text offset 18020), Proposition 3.19 and Definition 3.20 (p. 14, offset 33657).",
+          "method": "Lawful OA full-text passage inspection.",
+          "title": "A Modal Expansion of Kleene Algebras via Twist Structures",
+          "trigger": "Motivating primary source for the operators and centered identity."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 7–39",
+        "Earlier parity-sensitive census, odd-chain block enumeration"
+      ],
+      "rationale": "The natural enumeration problem is worthwhile, but the frozen record repeats a broader answer. Once the older branch counts are given, normalizing them and passing to their geometric ratio limit adds no independently motivated invariant or mathematical gap at this scope. No valuable distinct remainder warrants a repair.",
+      "residual_risks": [],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

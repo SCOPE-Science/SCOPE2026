@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The formula is derived from the exact pair-averaging orthogonal projection and the three invariant mean-zero subspaces of the complete bipartite graph. The source-dependent scalar forcing is nonincreasing, which makes the coupled last-refresh argument a genuine all-horizon ordering proof, not a finite numerical observation. Perron–Frobenius plus a positive rank-one secular equation fixes the sharp exponential factor. Matrix perturbation handles both the fixed positive aspect ratio and the fixed-small-shore regime. The standalone checker independently recomputes finite-dimensional covariance maps with exact fractions and passed 17,019 assertions; it is supporting evidence rather than a proof for infinitely many graph sizes.
+PASS
 
-## Originality
+Conditioning the first edge gives B_(k+1)=E[Q B_k Q] on the mean-zero space. Shore permutations force B_k to be scalar on each of the three sectors; projected edge-vector squared lengths are w_i and E[zz^T] has eigenvalues d_i there. Expansion of Q=I−zz^T/2 gives row i of M. Projection contraction gives B_(k+1) <= B_k and hence nonincreasing forcing s_k/4 <= 1/2. The common-uniform last-reset coupling orders the responses in reverse order of d. Strictness holds on the event of no reset at the smaller d in any step and a final reset only at the larger d; this event has positive probability and compares the unchanged 1 with at most 1/2. Thus k>0 gives precisely the stated worst sectors, including their direct sum at equal shores, while k=0 is tied on all sectors. All M entries are positive, and row sums are at most ν with the third strictly smaller; positivity makes all entries of M²1 strictly below ν² and implies the higher-power bound and Perron rate <ν. The Perron eigenvector puts the root above max_i(1−d_i); the secular sum then decreases from infinity to 1/2 at 1. In proportional growth, the upper 2x2 limiting block of q(I−M) has the stated smaller eigenvalue and the third eigenvalue is 1+1/r. M is diagonally similar to a real symmetric diagonal-plus-rank-one matrix (rank-one entries sqrt(d_i w_i d_j w_j)/4), so the Perron mode tracks the smallest of the scaled losses. The smaller branch satisfies (3−2rR)(3−2R)=1, with negative derivative and endpoints 1 and 4/3. For fixed p, at ε=1/q=0 the two modes off the simple unit mode have eigenvalues 1−1/p and 1−3/(4p). Pairing the middle-row derivative with the left and right unit modes e_B and (1/3,1,1/3) gives −2/3, proving the separate fixed-p limit. An independent exact rational check for (p,q)=(2,3) compared the full 5x5 projection recursion to the three-mode reconstruction entrywise at horizons 0–4; e.g. at k=2 the three coefficients were (53/96,97/144,113/288).
 
-**PASS on inspected evidence, with residual risk.** Boyd et al. (2004, 2006) give the classical randomized gossip model and an expected one-step spectral bound. Agaskar, Wang and Lu (2014) give a broader exact tensor-power expression that includes this process on the mean-zero space; that general expression itself is not new here. The inspected full texts do not state the uniform-complete-bipartite three-sector reduction, strict larger-shore extremizer for *every* horizon, or the monotone limiting aspect-ratio speedup law. Searches for those equations and aliases found no explicit prior family-specific statement. The sharp star boundary case is separate from the two-nontrivial-shore theorem. Unindexed equivalent specializations remain a genuine priority risk, and the general exact formula makes this a specialized structural result rather than a new generic MSE method.
+## originality
 
-## Value
+PASS
 
-**PASS.** The identity of the slowest finite-horizon input, for every horizon, and the strict difference between a standard product bound and the true annealed rate give concrete sharp performance information for an important asymmetric-network benchmark. The continuously varying factor between one and four thirds quantifies how graph imbalance changes the looseness of a widely used estimate. This is a two-parameter family theorem, not an arbitrary single numerical instance; no unsupported speedup, finite-time consensus, or pathwise claim is made.
+The general lifted second-moment method and the one-step bound are not new. The supported specific result combines the sharp all-horizon shore extremizers for two nontrivial shores with the continuous aspect-ratio gain and a separate fixed-p asymptotic. The strongest distinct Resultary comparator already has the analogous star extremizer and 4/3 limit but its one-dimensional shore eliminates a sector and does not imply this theorem.
 
-## Closest literature and limitations
+## value
 
-The 2004 conference and expanded 2006 randomized-gossip works supply the baseline; the 2014 randomized-Kaczmarz full text gives the broad operator-power formalism. Their general identities can be specialized numerically and limit the scope of what is novel, but identifying every finite-horizon maximizer and proving the closed asymptotic shape requires the additional arguments here. The residual risk is undiscovered prior explicit bipartite calculations. External independent audit remains unperformed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is a natural graph family for comparing one-step spectral contraction with worst-case expected squared error. The exact optimizer across all positive horizons and the strict comparison show when a standard power estimate overstates disagreement. The limiting ratio quantifies the effect of imbalance (up to a factor 4/3 in logarithmic mean-square decay rate) rather than merely giving a tractable recurrence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

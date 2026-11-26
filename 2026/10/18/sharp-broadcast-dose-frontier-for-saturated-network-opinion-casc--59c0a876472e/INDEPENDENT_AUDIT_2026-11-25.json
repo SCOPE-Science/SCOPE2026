@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:56:25.737894Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 21–75",
+        "Frozen VERIFICATION.md and verify.py, inspected only",
+        "/workspace/branches/c535b0c7-56b8-4d24-bc31-ab6f891868d5/independent_rectangle_check.py and independent_rectangle_check.txt"
+      ],
+      "rationale": "Row stochasticity and uniqueness reduce the exact zero-initial-state problem to a scalar saturated ODE; q separates the two unforced basins. On [0,q], the two saturation regimes give nonnegative gaps between u and (1+g(s)/(1-s))s'. Integration to the first hit, and uniqueness at q with zero input almost everywhere, give the strict dose lower bound. The saturated state path attains the threshold with the calibrating input, and a unit input extension realizes every strictly larger dose. For rectangles the fold blocks passage at and below b_*, and separation of variables gives T_b above the fold. The cost integrand is convex in b and strictly convex on a common interval of small positive states for any compact amplitude range below 1. The cost diverges at the fold, decreases up to the switching range if there is a wholly unsaturated range (the negative derivative persists at its upper endpoint), and has positive left derivative at 1. The switching boundary terms cancel. A constant amplitude cannot equal the strictly decreasing calibration c(s) throughout threshold crossing, so even the best rectangular critical cost is strictly larger. Independent split quadrature and derivative bisection reproduce b_opt=0.559923943977420, T=0.970283867532391, E=0.543285169886401, and D_*=0.528426409720027. The Finding says measurable while the formal Assumptions state bounded piecewise continuous; for finite-dose nonnegative measurable inputs the stronger wording also follows: the clipped vector field is measurable in time, uniformly Lipschitz on the invariant cube and uniformly bounded there, so the unique Carathéodory solution, chain rule almost everywhere, and first-hit argument still apply, and the attaining comparison profiles are piecewise continuous.",
+      "residual_risks": [
+        "The computed decimals are numerical corroboration; the proof, not the benchmark, handles universal quantifiers. No finite-dose input can succeed at the boundary, including a rectangle at its critical duration."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general clipped model permits heterogeneous linear gains and a vector input; systematic time-dependent-input analysis is explicitly left open in the inspected passages.",
+          "The other control papers use smooth odd sigmoid/attention or multi-option attention-coupled dynamics."
+        ],
+        "reasoning": "A general governing equation contains the broadcast specialization as a model but is not a broader theorem covering its dose or pulse optimum. The smooth attention models do not specialize to this cost law.",
+        "searches": [
+          "arXiv:2603.29214v2, Section IV-A, Section VI and Conclusion",
+          "arXiv:2103.14764, pp. 1–2",
+          "arXiv:2103.12223, pp. 3, 6"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 983fae53d9eb",
+        "arXiv:2603.29214v2",
+        "arXiv:2103.14764",
+        "arXiv:2103.12223",
+        "arXiv:1805.10116v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Synchronization follows from the standard model and uniqueness. The synaptic work reports minimum stimulus area and optimal stimulation in a bistable cubic two-ODE model."
+        ],
+        "reasoning": "The reduction is not novel. The sharp calibration, construction of the open success half-line and strict convexity of the rectangle cost are additional model-specific conclusions; the synaptic result does not imply them.",
+        "searches": [
+          "arXiv:2603.29214v2, Eq. (3), Section VI and Conclusion",
+          "Gastaldi, Muscinelli and Gerstner, arXiv:1805.10116v1, abstract and Discussion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Resultary finding optimizes a seeded, unforced complete-graph cascade boundary, not the integral of a common time-dependent forcing from zero.",
+          "Equation (3) gives the same clipping-quadratic model; Section VI gives a randomized-delay square-wave illustration."
+        ],
+        "reasoning": "The common model and threshold vocabulary do not identify the seed-size and dose optimization problems; neither compared statement gives the scalar calibration or optimizes the rectangle.",
+        "searches": [
+          "Resultary semantic lookup for nonlinear-opinion cascade thresholds and broadcast dose; seeded cascade boundary 983fae53d9eb",
+          "Belaustegui et al., arXiv:2603.29214v2, Section IV-A and Section VI"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest retrieved catalogue record contains a seeded unforced exact cascade boundary and time-to-threshold result, not the dose frontier or numerical/analytic minimizing rectangle."
+        ],
+        "reasoning": "No matching exact entry was established by the scoped catalogue comparisons; the title similarity was resolved against the actual finding.",
+        "searches": [
+          "Resultary semantic lookup for the saturated NOD threshold, broadcast cost and pulse formulation; exact RESULT.md of 983fae53d9eb"
+        ]
+      },
+      "rationale": "The clipped-quadratic model and optimal-stimulation concept are prior. The exact arbitrary-waveform dose frontier, strict nonattainment for success, and unique rectangular optimum for this synchronous broadcast problem are distinct in the strongest compared statements.",
+      "residual_risks": [
+        "Bounded comparison cannot rule out an unindexed exact treatment of this scalar saturation control problem. No novelty is credited to the NOD model or to optimal stimulation in general."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same cascade family, different optimization",
+          "evidence": "Homogeneous seeded complete graph, zero external bias and threshold clock.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-a-sharp-complete-network-cascade-boundary-for-a-nonlinear-thresh--983fae53d9eb",
+          "material_read": "RESULT.md Finding and Assumptions, offset 0",
+          "method": "Local Resultary mirror, snapshot 36a7204",
+          "title": "A sharp complete-network cascade boundary for a nonlinear threshold model",
+          "trigger": "Closest catalogue model match"
+        },
+        {
+          "assessment": "Model prior; inspected input results do not cover the claim",
+          "evidence": "Clipped nonlinear equation and delayed square-wave example; systematic timed-input analysis deferred.",
+          "identifier_or_url": "https://arxiv.org/html/2603.29214v2",
+          "material_read": "Section IV-A Eq. (3), offsets 12800–14118; Section VI around 39641; Conclusion around 41942",
+          "method": "OA primary text",
+          "title": "A Continuous-Time and State-Space Relaxation of the Linear Threshold Model with Nonlinear Opinion Dynamics",
+          "trigger": "Primary model and timed interventions"
+        },
+        {
+          "assessment": "Different class of dynamics",
+          "evidence": "Distributed inputs and dynamic attention with odd sigmoidal saturation.",
+          "identifier_or_url": "https://arxiv.org/abs/2103.14764",
+          "material_read": "pp. 1–2, offsets 1182 and 9349",
+          "method": "OA primary text",
+          "title": "Control of Agreement and Disagreement Cascades with Distributed Inputs",
+          "trigger": "Plausible broader opinion control"
+        },
+        {
+          "assessment": "Different class of dynamics",
+          "evidence": "Multi-option attention dynamics with generic sigmoidal nonlinearities.",
+          "identifier_or_url": "https://arxiv.org/abs/2103.12223",
+          "material_read": "pp. 3 and 6, offsets 8274 and 19511",
+          "method": "OA primary text",
+          "title": "Analysis and Control of Agreement and Disagreement Opinion Cascades",
+          "trigger": "Plausible broader opinion control"
+        },
+        {
+          "assessment": "Generic motivation, not an implication of the dose law",
+          "evidence": "Optimal stimulation in a different bistable two-ODE model with cubic nonlinearity.",
+          "identifier_or_url": "https://arxiv.org/abs/1805.10116",
+          "material_read": "Abstract p. 1 and Discussion pp. 16–17, offsets 0, 35530 and 37126",
+          "method": "OA primary text",
+          "title": "Optimal Stimulation Protocol in a Bistable Synaptic Consolidation Model",
+          "trigger": "Potential equivalent minimum stimulus-area result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof",
+        "arXiv:2603.29214v2, Section VI and Conclusion"
+      ],
+      "rationale": "The result answers a specific open timed-input question for the source model in a natural homogeneous broadcast regime. The sharp strict threshold, time-saturating mechanism, and positive penalty from imposing a rectangular shape give a usable benchmark that distinguishes reachability at the threshold from activation, not just a scalar reformulation.",
+      "residual_risks": [
+        "This benchmark does not establish optimality for heterogeneous initial conditions, targeted interventions, or stochastic social dynamics."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

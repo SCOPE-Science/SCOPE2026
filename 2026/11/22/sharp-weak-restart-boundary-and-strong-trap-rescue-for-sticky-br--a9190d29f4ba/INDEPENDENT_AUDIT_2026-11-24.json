@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:28:30.955387Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md:4–63",
+        "Frozen VERIFICATION.md:19–23",
+        "Frozen verify.py:18–107",
+        "Independent review_replay.py, restart()"
+      ],
+      "rationale": "For the conservative sticky wall the backward equation has phi'(0)=nu(s/D)phi(0), and normalizing its two-term hyperbolic solution at L gives the stated transform. The duration of a renewal attempt is min(tau, Exp(r)), with expectation (1-phi_r)/r and success probability phi_r. Their quotient gives the mean. Writing a_y=y²/2+eta y and b_y=y^4/24+eta y³/6 in the kernel expansion yields the weak coefficient b_1-b_u-a_u(a_1-a_u)=-(1-u)P_eta(u)/24. The replay verifies this as a polynomial identity (`python3 -B /workspace/review_replay.py`, check 1). P_eta has a single positive root by its coefficient signs and opposite signs at 0 and 1. Each u in (0,1/sqrt(5)) has exactly one positive eta-crossing by the opposite signs of the leading and constant coefficients of P as a quadratic in eta; evaluating at an earlier root therefore forces the later root to be strictly smaller. At the initial root 1/sqrt(5) the coefficient of eta is positive, giving strict decrease from zero stickiness too. Bracketing P_eta(t/eta)/eta by its limit 24t-4 on either side of 1/6 gives the stated asymptotic. For fixed interior u and r>0, dividing numerator and denominator by eta gives the finite hyperbolic-sine limit while T_0 diverges. At u=0, the denominator remains 1 and the positive higher-order cosh terms show strict harm for every r>0, including eta=0. No uploaded checker was executed.",
+      "residual_risks": [
+        "Only first variation is classified at the interior critical position; the large-stickiness limit fixes positive r and strictly interior u and is not uniform down to the wall or zero rate."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Indexed record a02eb1d7ba06 gives a global benefit sign criterion (1-u)(1-5u)+4eta(1-3u)<0 in its own variables for a Robin-reactive endpoint opposite a reflecting wall. Pal–Prasad interval resetting is credited for the general mechanism and has absorbing endpoints."
+        ],
+        "reasoning": "A Robin-reactive target introduces loss at that endpoint; the present Wentzell endpoint is conservative and carries residence mass proportional to stickiness. The Robin criterion is not a broader version of the same threshold, nor does a two-absorbing-endpoint criterion apply. The mirrored Robin proof was not retrieved; the boundary distinction is present in the available record statement.",
+        "searches": [
+          "partially reactive interval global reset-benefit threshold Robin absorbing reflecting endpoint restart",
+          "Pal Prasad First passage under stochastic resetting in an interval DOI:10.1103/PhysRevE.99.032123"
+        ]
+      },
+      "checked_sources": [
+        "Resultary a9190d29f4ba and a02eb1d7ba06, indexed statements",
+        "ArXiv:2302.13986 and 2305.08701 scope and frozen equation-level comparisons",
+        "ArXiv:2602.02446 and 2611.23790 indexed model descriptions",
+        "Frozen RESULT.md:68–80 and AUDIT.json source inspections"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Frozen RESULT.md:68–74 compares the prior sticky-slab transform and credits the renewal identity; lines 36–63 analyze the weak sign boundary and singular limits. The identified 2026 finite-duration resetting result arXiv:2611.23790 reports two absorbing boundaries and delayed return."
+        ],
+        "reasoning": "Known unreset moments and renewal determine a candidate derivative mechanically, which is not by itself the new result. Proof of single-root sign change, strict motion in eta and the sharp scaled-root limit, with fixed-rate interior versus wall classification, is not contained in the compared statements. Finite-duration return with two absorbers changes both the renewal attempt and geometry.",
+        "searches": [
+          "Bressloff arXiv:2302.13986 sticky Feller–Wentzell Eq. (2.23)",
+          "Scher Reuveni Grebenkov arXiv:2305.08701 slab Laplace transform",
+          "First passage under stochastic resetting in an interval"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Scher–Reuveni–Grebenkov arXiv:2305.08701, slab Eqs. (4),(6),(9) as compared in the frozen record: the transform in the rapid-binding limit is the unreset kernel. Bressloff arXiv:2602.02446 search result states a half-line run-and-tumble model with orientation resetting and a sticky target at 0."
+        ],
+        "reasoning": "Eliminating the adsorbed state gives a boundary derivative proportional to s phi(0), the same Wentzell transform. This covers the kernel, not the analyzed launch threshold. A half-line velocity-state model and sticky target at the endpoint do not specialize simply to an inert reflecting sticky endpoint and independent killing at L. The recent RTP primary PDF was not retrieved, so the stated comparison is limited to the available model description.",
+        "searches": [
+          "‘sticky Brownian’ resetting escape sticky boundary Poisson resetting absorbing interval weak resetting threshold",
+          "first passage sticky adsorption desorption wall slab stochastic resetting interval finite Poisson restart sticky escape Scher Grebenkov reset initial bulk or boundary"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact matching indexed record a9190d29f4ba is the assignment itself. The closest separate numerical/symbolic boundary statement was a02eb1d7ba06 rather than a Wentzell critical-position table."
+        ],
+        "reasoning": "A self-hit does not corroborate priority. Comparing the available distinct statement identifies a different boundary generator, not an earlier exact table of this cubic or its roots.",
+        "searches": [
+          "sticky reflecting Brownian escape Poisson resetting weak-rate threshold Wentzell boundary",
+          "partially reactive interval global reset-benefit threshold Robin absorbing reflecting endpoint restart"
+        ]
+      },
+      "rationale": "Pass for the sticky-strength-dependent sign boundary, its strict movement and sharp asymptotic, and the contrasting fixed-rate singular regimes. The unreset transform and moments and the general Poisson restart identity are prior ingredients, not new. Neither the different-boundary interval theorem nor the identified sticky active-particle renewal statement supplies this classification.",
+      "residual_risks": [
+        "Targeted full-text passages for the primary sticky and interval papers were not independently retrieved; the author-hosted sticky-slab alternate was attempted. Unread specialized analyses could anticipate the classification. The frozen record also identifies Song–Wang DOI:10.1017/jpr.2019.93 as double-exponential jumps, not confirmed at full-text level. No negative priority inference was drawn from failed retrievals."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The base unreset law is already covered; deeper priority checks remain incomplete at paper-passage level.",
+          "evidence": [
+            "Frozen AUDIT.json identifies Eq. (9) as the launch-to-absorber kernel quotient, with q_s=k_a/[D(1+k_d/s)]. At large k_d and fixed k_a/k_d this is proportional to s."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2305.08701",
+          "material_read": "Search and source-scope description; frozen prior comparison of slab Eqs. (4),(6),(9), not independently retrieved",
+          "method": "Compare adsorption/desorption boundary reduction stated in the frozen evidence, try the author-hosted lawful copy and arXiv extraction",
+          "title": "Escape of a Sticky Particle",
+          "trigger": "Same unreset sticky slab and first-passage law"
+        },
+        {
+          "assessment": "Closely related objective, but reactive loss versus conservative sticky residence prevents direct implication.",
+          "evidence": [
+            "Global positive-rate condition in u=(1-x_0/L)^2 and eta=D/(kappa L) for partially reactive absorption."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-an-exact-global-reset-benefit-threshold-for-a-partially-reactive--a02eb1d7ba06",
+          "material_read": "Indexed scientific statement including the condition and boundary roles; mirror passage timed out",
+          "method": "Compare generator, meaning of eta and quantifiers of the benefit criterion",
+          "title": "An exact global reset-benefit threshold for a partially reactive interval",
+          "trigger": "Closest separate indexed exact interval restart threshold"
+        },
+        {
+          "assessment": "Sticky target on a half-line with orientation dynamics differs from a conservative sticky wall and a separate absorbing outlet.",
+          "evidence": [
+            "Description specifies [0,infinity), a sticky boundary at 0, velocity states ±v, and resetting to initial position and orientation."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2602.02446",
+          "material_read": "Indexed primary model description; PDF extraction unavailable",
+          "method": "Check boundary role, state and domain in available description",
+          "title": "Renewal theory for a run-and-tumble particle with stochastic resetting",
+          "trigger": "Recent uncited sticky-boundary model with Poisson resetting"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md:6–18 and 36–63",
+        "Prior slab escape and interval restart statements as credited in RESULT.md:68–79"
+      ],
+      "rationale": "Launch position and trapping strength are natural control parameters for resetting in this geometry. The critical-position law provides an explicit sign decision and a nontrivial boundary-layer scale 1/(6 eta), while the finite interior strong-trap limit and all-rate wall obstruction distinguish physical behaviors not visible in the unreset mean. These quantify a design question beyond computing a moment or quoting a known kernel.",
+      "residual_risks": [
+        "No positive-rate optimum, uniform near-wall rescue, or uncontrolled experimental extrapolation is asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

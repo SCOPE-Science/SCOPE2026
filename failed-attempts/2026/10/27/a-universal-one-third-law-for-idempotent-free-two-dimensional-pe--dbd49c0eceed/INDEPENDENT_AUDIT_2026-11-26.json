@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:39:25.758065Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For x on a projectively fixed line with Mv^[2]=lambda v, the only nonzero solution on the line is lambda^(-1)v, and invertibility ensures lambda is nonzero. The binary cubic is not identically zero, hence has at most three distinct projective roots. Uniform invertible matrices induce uniform projectivities. For each ordered distinct tuple of size 1, 2 or 3, the incidence probability is the reciprocal of the number of such tuples if the square images are distinct and zero otherwise. In odd characteristic there are q-1 colliding ordered pairs and 3(q-1)^2 excluded ordered triples, counted once each; in even characteristic squaring is bijective. Factorial-moment inversion gives the stated table including q=2. The independent bounded enumeration solved the original algebra equations for every invertible matrix over F_2,F_3,F_4,F_5 and obtained the frozen histograms. The frozen verifier was read but not run; neither enumeration proves the theorem for all q.",
+      "replay": "python3 /workspace/audit_checks/frozen_examples.py (record 5 check)",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 10/25 record gives I(A) distributed as 2^dim ker(C-I) for uniform C in GL_n(F_2), with explicit probabilities 1/3,1/2,1/6 for total counts 1,2,4 at dimension two.",
+          "The survey proves E[N]=1 for invertible structure matrices."
+        ],
+        "reasoning": "The earlier all-dimensional theorem specializes exactly to the even row on subtracting the zero idempotent; row/column conventions are irrelevant under transpose. The survey gives only the first moment, but it supplies the last linear constraint once the zero and two strata have been counted.",
+        "searches": [
+          "Local Resultary: Field-independent idempotent-count law for characteristic-two perfect evolution algebras",
+          "Kaygorodov, Martín González and Viruel, arXiv:2610.22248v1, Remark 23"
+        ]
+      },
+      "checked_sources": [
+        "Exact publications and catalogue records in source_inspections",
+        "Local Resultary 10/13 binary idempotent spectra and 10/04 idempotent-free existence results",
+        "Independent cubic counts in claim_vs_prior_implication"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Rank-one M gives the factorization (u_1 Y-u_2 X)(v_1 X^2+v_2 Y^2) for M=u v^T. Thus all root-free projective cubics occur on the invertible locus and, since infinity cannot be a root, normalize bijectively to irreducible monic cubics. Elements of F_(q^3) outside F_q contribute one per free three-element Frobenius orbit, giving (q^3-q)/3 versus q^3-q projective invertible matrices.",
+          "For odd q, projective cubics having exactly two rational roots are L^2 M with unequal linear factors, hence q(q+1) of them. Among rank-one forms, the diagonal quadratic either has a double root at an axis (2q choices with a different linear factor) or has an opposite nonzero split pair (q-1 choices when the linear factor is one of the pair). These disjoint cases exhaust deletions, leaving (q-1)^2 invertible projective cubics with two distinct roots. This gives exactly the advertised odd P2. Normalization, the first moment and N<=3 then determine the other probabilities."
+        ],
+        "reasoning": "The universal one-third is a direct irreducible-cubic count and the odd correction is elementary rank-one subtraction from the standard degree-three splitting count. The frozen projective factorial-moment proof is correct but does not establish an independently distinct remainder beyond these counts and the earlier even law.",
+        "searches": [
+          "Frozen binary cubic, RESULT.md lines 18–24, versus classical degree-three irreducible-polynomial count",
+          "Remark 23 first moment and catalogue characteristic-two specialization"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "M modulo scalars is in bijection with projective binary cubics via -c X^3+a X^2Y-d XY^2+b Y^3, restricted to ad-bc != 0. This is a fixed-critical-input family of postcompositions of coordinate squaring, not all degree-two rational maps or their conjugacy classes.",
+          "The two 11/02 catalogue entries give the same nonzero-idempotent probabilities for the exact same matrix-uniform sampling scheme."
+        ],
+        "reasoning": "Fixed directions and nonzero idempotents count the same objects. Conjugacy classifications and all-map periodic-point averages are not equivalent to the measure in question; the matched catalogue formula is equivalent, while the cubic description reduces the central invariant to a standard count.",
+        "searches": [
+          "Manes–Yasufuku, Explicit descriptions of quadratic maps, Theorem 1.1",
+          "Garton, arXiv:2208.13281v3, §1",
+          "Local Resultary: characteristic-two perfect evolution algebras and two-dimensional nonzero-idempotent distributions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 10/25 finding explicitly tabulates the even characteristic row at n=2. The 10/13 binary result covers q=2.",
+          "The 11/02 exact-distribution finding states both parity rows and gives the odd deviation from the S_3 fixed-point distribution as (q-1)/(q(q+1)) times (0,-1/2,1,-1/2). A separate 11/02 result also states the matching law."
+        ],
+        "reasoning": "Exact catalogue coverage for the even row is dated earlier than the frozen record, and for both rows there are later-dated matching results; these dates and matches do not establish external priority for the full table.",
+        "searches": [
+          "Local Resultary 10/25 field-independent law, 10/13 binary spectra and 11/02 exact two-dimensional law records"
+        ]
+      },
+      "rationale": "The earlier field-independent characteristic-two record gives the even row exactly, and the universal headline one-third is mechanically the classical irreducible-cubic count: every projective cubic with no rational root belongs to the invertible matrix locus because rank-one matrices yield a rational linear factor. For odd q the remaining independent stratum N=2 is obtained by ordinary split-cubic factor counts with a rank-one deletion, detailed below; the prior first moment and P0 then determine the rest. Two later-dated indexed statements exactly match the full distribution; this is separate evidence of equivalence, not proof that either had priority. The rejection is not a claim that the odd row was found explicitly in an earlier paper.",
+      "residual_risks": [
+        "The bounded search does not determine historical priority for the explicit full table. The later date of an equivalent catalogue entry neither proves nor rules out earlier publication elsewhere."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Earlier exact coverage of even row",
+          "evidence": "For n=2 it explicitly gives 1/3,1/2,1/6 for I=1,2,4 over all characteristic-two extensions.",
+          "identifier_or_url": "2026/10/25/SCOPE-field-independent-idempotent-count-law-for-characteristic-two-pe--3591a9c3116b",
+          "material_read": "Finding and assumptions, offset 0 through proof step 1",
+          "method": "local publication mirror",
+          "title": "Field-independent idempotent-count law for characteristic-two perfect evolution algebras",
+          "trigger": "Same uniform invertible structure matrices, broader dimension"
+        },
+        {
+          "assessment": "Equivalent mathematical claim, later listed date",
+          "evidence": "Both parity rows and sampling by uniform GL_2 matrices agree exactly.",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-distribution-of-nonzero-idempotents-in-random-two-dimensio--a6f1df44ea9b",
+          "material_read": "Finding and assumptions, offset 0",
+          "method": "local publication mirror",
+          "title": "Exact distribution of nonzero idempotents in random two-dimensional perfect evolution algebras",
+          "trigger": "Exact object and full table"
+        },
+        {
+          "assessment": "Exact distribution overlap; later listed date",
+          "evidence": "Same odd-characteristic law and characteristic-two branch.",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-finite-field-idempotent-law-for-two-dimensional-perfect-ev--e52a1524f840",
+          "material_read": "Finding",
+          "method": "local publication mirror",
+          "title": "Exact finite-field idempotent law for two-dimensional perfect evolution algebras",
+          "trigger": "Same finite-field dimension-two distribution"
+        },
+        {
+          "assessment": "Covers first moment rather than law",
+          "evidence": "Uniform invertible structure matrices give expected nonzero-idempotent count 1.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.22248v1",
+          "material_read": "p. 19 Remark 23, PDF text offset 69002",
+          "method": "lawful OA primary PDF passage",
+          "title": "Evolution algebras: a survey of results and a list of open problems",
+          "trigger": "Known expected count under identical weighting"
+        },
+        {
+          "assessment": "Conjugacy classification under different assumptions",
+          "evidence": "Multiplier-based classes in characteristic unequal to 2 and 3; no weighted sampled-family law in the inspected statements.",
+          "identifier_or_url": "Manes and Yasufuku, Acta Arith. 148.3 (2011)",
+          "material_read": "§1 Theorem 1.1 p. 258 offset 2759; §2 p. 259 offset 6134",
+          "method": "lawful OA primary PDF passages",
+          "title": "Explicit descriptions of quadratic maps on P^1 defined over a field K",
+          "trigger": "Quadratic fixed points and multipliers"
+        },
+        {
+          "assessment": "Different family and statistic",
+          "evidence": "Average periodic-point proportions over all degree-d maps, asymptotic and with q coprime to d!.",
+          "identifier_or_url": "https://arxiv.org/abs/2208.13281v3",
+          "material_read": "§1 p. 2, offset 4800",
+          "method": "lawful OA primary PDF passage",
+          "title": "Periodic Points of Rational Functions over Finite Fields",
+          "trigger": "Finite-field dynamical statistics"
+        },
+        {
+          "assessment": "Different weighting",
+          "evidence": "Classification by algebra moduli or isomorphism classes does not give the uniform GL_2 distribution.",
+          "identifier_or_url": "doi:10.1007/s10801-022-01196-1",
+          "material_read": "pp. 569–570, scope of the classification",
+          "method": "lawful primary text passages",
+          "title": "Two-dimensional perfect evolution algebras over domains",
+          "trigger": "Classification of the same algebras"
+        },
+        {
+          "assessment": "Counts orbits, not matrix-uniform nonzero-idempotent law",
+          "evidence": "Isomorphism classes are counted by group orbits.",
+          "identifier_or_url": "https://arxiv.org/abs/2310.12368",
+          "material_read": "p. 1, counting scope",
+          "method": "lawful OA primary PDF passage",
+          "title": "Isomorphism Classes of Idempotent Evolution Algebras",
+          "trigger": "Finite-field counts for the same perfect-algebra objects"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Uniform matrix weighting is natural, and a genuinely unknown law here could be valuable. As frozen, the even row is an earlier explicit specialization, the headline is a textbook root-free cubic count on the invertible locus, and the odd correction is a direct rank-one deletion from a standard splitting count. The exact probabilities are correct but do not leave a distinct mathematical result substantial enough for a repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

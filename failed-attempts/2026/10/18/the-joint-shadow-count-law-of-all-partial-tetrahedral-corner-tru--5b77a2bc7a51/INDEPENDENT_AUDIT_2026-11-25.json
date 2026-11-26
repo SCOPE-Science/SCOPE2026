@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:19:11.911807Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–70",
+        "Frozen VERIFICATION.md",
+        "Frozen verify.py"
+      ],
+      "rationale": "Barycentric coordinates put the cut at vertex i at lambda_i=1-t_i and all old facets at lambda_i=0. The depth hypothesis prevents two cut facets from meeting and leaves every old edge with positive length. For a generic direction U, the relative interior of the edge normal cone meets U-perp precisely when its two facet normals have opposite scalar-product signs; such an exposed edge projects to one full polygon edge. A cut facet has the negative of its opposite old facet's normal. Thus there are four old silhouette edges and one additional edge per cut for a 2:2 sign split; for a 1:3 split with outlier i there are three old edges and two additional edges per cut except at i. The outlier event is the tangent cone at i and its antipode up to boundaries, because the other three inequalities are exactly the incident-facet cone inequalities and positive facet-area equilibrium forces the fourth sign. Its mass is Omega_i/(2 pi). All masses are positive: the cones have interiors and v0+v1-v2-v3 has barycentric direction derivatives (1,1,-1,-1), giving an open balanced chamber. The empty and singleton mask coordinates distinguish the five outcomes. Complementation and labeled angle recovery follow by substitution. The finite checker was inspected, not used as a proof or executed.",
+      "residual_risks": [
+        "Null degenerate views are excluded. The result concerns a shared Haar viewing direction and disjoint parallel cuts only."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2ea0e48a588e retains its pointwise formula for all arbitrary tetrahedra and depths with t_i+t_j<1 and explicitly allows different admissible depth vectors.",
+          "Glisse–Lazard arXiv:cs/0702087v1 §1 supplies the general silhouette criterion, not the exact mask transfer; Black–Criado arXiv:2406.06936v1 Theorem 1.1 is an expected-size bound."
+        ],
+        "reasoning": "The pointwise transfer has strictly broader depth coverage than the frozen t_i<1/2 hypothesis. The only specialized aspect of the later tabulation is symmetry in its displayed probabilities, not the exact pointwise map.",
+        "searches": [
+          "Resultary: arbitrary shape, unequal disjoint cut depths, pointwise shadow transfer and complements",
+          "Resultary 2ea0e48a588e, Assumptions and scope"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, lines 36 and 72–86",
+        "Resultary 2ea0e48a588e, 96e083507a68 and ddfd7f3eeb66",
+        "arXiv:0809.3459v1, cs/0702087v1 and 2406.06936v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Evaluating eq. (1) by sign split gives 4+|S| or 3+2(|S|-1_{i in S}) simultaneously. This calculation uses no regularity.",
+          "Feldman–Klain's single-vertex formula has numerator 2 Omega_i and denominator area(S^2)=4 pi. The union of those disjoint generic loss events is the complement of the balanced event."
+        ],
+        "reasoning": "Attach the individually known probabilities to the already determined labeled vectors; the singleton coordinate equals three exactly on its own labeled event. No new spherical measure, count formula, or inference statistic is needed. Mathematical coverage is distinct from historical precedence.",
+        "searches": [
+          "Resultary 2ea0e48a588e, equations (1)–(2), Proof §4",
+          "arXiv:0809.3459v1 p. 1 eq. (1) and p. 2 proof of Theorem 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 2ea0e48a588e, Finding eq. (1): count the unlike-sign old pairs plus ordered like-sign pairs with first index in S.",
+          "Feldman–Klain p. 1: projection of v is interior iff the generic view lies in its tangent cone or antipode; p. 2: for a simplex exactly one vertex disappears in a simplex shadow."
+        ],
+        "reasoning": "A balanced sign chamber gives the frozen balanced vector. The other four vectors are indexed precisely by the unique disappearing vertex. This is the same random vector up to the relabeling of sign chambers, not a comparison of marginal laws alone.",
+        "searches": [
+          "Resultary: simultaneous tetrahedral silhouette counts under every subset of parallel corner cuts",
+          "Feldman–Klain, arXiv:0809.3459v1, equations (1)–(2)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2ea0e48a588e, table following eq. (3), gives the exact regular partial-stage distributions.",
+          "96e083507a68 Finding gives the exact untruncated/full pair relation and 8/9 law for arbitrary tetrahedra; ddfd7f3eeb66 Finding gives the untruncated marginal."
+        ],
+        "reasoning": "Neither regular-only distributions nor the full-mask marginal is an arbitrary-shape labeled table. Coverage rests on the exact all-mask pointwise map together with the per-vertex probability, not on extrapolating from those tables.",
+        "searches": [
+          "Resultary: exact partial stage silhouette distributions, fully truncated 8/9 law, and tetrahedral angle probabilities"
+        ]
+      },
+      "rationale": "The complete stated law is mechanically covered by an independently indexed pointwise transfer formula and the classical per-vertex projection probability, not merely by a regular-tetrahedron table or by the formerly known unlabeled sum. Resultary 2ea0e48a588e, equations (1)–(2) and proof section 4, determines each mask's count for every generic direction and arbitrary shape, under a depth hypothesis containing the frozen one. Feldman–Klain p. 1 equation (1) supplies the probability of disappearance of each individually specified vertex, not just the sum in their Theorem 1. For the unique sign outlier i, the direction traverses exactly the tangent cone at i or its antipode: this is the disappearing vertex event in that equation. Thus the exact same five-atom joint law, labeled recovery, and complement law follow. The overlapping catalogue record is distinct and listed on a later date; this is a finding of demonstrable coverage in the inspected sources, not a claim that the later record historically preceded the frozen one or that this finding was copied.",
+      "residual_risks": [
+        "Historical priority relative to the close catalogue record is not established by the path date. The fail is based on available mathematical coverage, not on chronology or unavailable literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the arbitrary-shape pointwise map, complement and regular marginals; paired with per-vertex projection probability it covers the arbitrary-shape joint law",
+          "evidence": "Same unlike/like sign expression for all masks; eq. (4) evaluates it for an outlier index; t_i+t_j<1.",
+          "identifier_or_url": "2026/11/1/SCOPE-complementary-silhouette-counts-and-exact-shadow-laws-under-tetr--2ea0e48a588e",
+          "material_read": "Finding eqs. (1)–(3) and table; Assumptions; Proof §§2–5; Limitations",
+          "method": "Published catalogue and targeted local mirrored RESULT.md offsets 0, 6241",
+          "title": "Complementary silhouette counts and exact shadow laws under tetrahedral vertex truncations",
+          "trigger": "Possible equivalent all-mask count and broader depth range"
+        },
+        {
+          "assessment": "Explicitly gives each labeled vertex-loss probability",
+          "evidence": "The projection of v is interior iff the line through v enters the polytope interior, giving 2 alpha_P(v)/(n omega_n); at most one such projection for a simplex.",
+          "identifier_or_url": "https://arxiv.org/pdf/0809.3459v1",
+          "material_read": "PDF pp. 1–2, eq. (1), Theorem 1 and proof, offsets 3190 and 4532",
+          "method": "Targeted primary PDF inspection",
+          "title": "Angles as probabilities",
+          "trigger": "Does the classical theorem give an individual vertex-loss event or only its sum?"
+        },
+        {
+          "assessment": "Covers empty/full pair and its unlabeled solid-angle sum",
+          "evidence": "Pointwise sum twelve; nonagon probability sum_i Omega_i/(2 pi).",
+          "identifier_or_url": "2026/10/18/SCOPE-shadow-count-complementarity-under-complete-parallel-truncation--96e083507a68",
+          "material_read": "Finding",
+          "method": "Published catalogue and local mirrored RESULT.md",
+          "title": "Shadow-count complementarity under complete parallel truncation of a tetrahedron",
+          "trigger": "Exact fully truncated special case"
+        },
+        {
+          "assessment": "Untruncated marginal, not partial cut laws",
+          "evidence": "Triangular projection has probability sum_i Omega_i/(2 pi).",
+          "identifier_or_url": "2026/10/11/SCOPE-area-weighted-silhouette-probabilities-of-arbitrary-tetrahedra--ddfd7f3eeb66",
+          "material_read": "Finding",
+          "method": "Published catalogue and local mirrored RESULT.md",
+          "title": "Area-weighted silhouette probabilities of arbitrary tetrahedra",
+          "trigger": "Possible arbitrary-shape distribution"
+        },
+        {
+          "assessment": "General outline edge criterion",
+          "evidence": "Silhouette edges separate front and back facets; work concerns average silhouette size.",
+          "identifier_or_url": "arXiv:cs/0702087v1",
+          "material_read": "§1 p. 3, offset 3075",
+          "method": "Targeted primary PDF inspection",
+          "title": "An Upper Bound on the Average Size of Silhouettes",
+          "trigger": "Silhouette criterion and possible broader count theorem"
+        },
+        {
+          "assessment": "General expectation bounds rather than the coupled law",
+          "evidence": "Bounds expected shadow size over random directions.",
+          "identifier_or_url": "arXiv:2406.06936v1",
+          "material_read": "Abstract and Theorem 1.1, p. 1, offset 4233",
+          "method": "Targeted primary PDF inspection",
+          "title": "Random Shadows of Fixed Polytopes",
+          "trigger": "Possible general random shadow distribution"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 10–36",
+        "Resultary 2ea0e48a588e, eqs. (1)–(2)",
+        "Feldman–Klain, arXiv:0809.3459v1, eq. (1)"
+      ],
+      "rationale": "All-mask coupling and labeled solid-angle inference are natural and useful as mathematical observations. But after the checked pointwise transfer law, reading off the five vectors and their weights from the existing per-vertex probabilities is immediate. The frozen additional claims (marginals and singleton recovery) introduce no further geometric mechanism or nontrivial exact invariant beyond this relabeling; no separate substantive increment survives at the claimed scope.",
+      "residual_risks": [
+        "This is a judgment about incremental content relative to the checked coverage, not a judgment that coupled shadow laws have no scientific use."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

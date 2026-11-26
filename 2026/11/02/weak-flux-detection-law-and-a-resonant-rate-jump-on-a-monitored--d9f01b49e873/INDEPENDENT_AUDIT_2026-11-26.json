@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:33:50.111551Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The survival norm is ||K_alpha^n d||^2 for K the compression of U to the undetected sites. Fourier decomposition has a uniform mode of phase u and a two-dimensional sector with phases w exp(±i beta). The symmetric undetected vector has squared uniform-mode weight 2/3, while the antisymmetric vector is entirely in the latter sector. Projecting the rotation gives the diagonal entries (2u+w cos beta)/3 and w cos beta, and opposite off-diagonal entries ±w sin beta/sqrt(3). Off revival the dark eigenvalue is simple and the other squared modulus is (5+4 cos(3t))/9<1. The second-order dark-amplitude coefficient has real part −3t^2/2 + (3t^2/2) Re[1/(exp(3it)-1)] = −9t^2/4; squaring gives the required rate 9t^2/2. The dark spectral projector tends to the initial-state projector. At revival, after removing the common phase and dividing K−I by alpha, the leading matrix is the skew rotation with simple eigenvalues ±it and orthogonal eigenspaces. The average of the diagonal second-order terms in either eigenvector is −t^2. Squaring 1±it alpha−t^2 alpha^2 gives loss t^2 alpha^2 to leading order. Both channels have this decay, their initial norm weights sum to one, and the oscillating cross term vanishes because the projected directions become orthogonal. Bounded projectors and strict positive scaled losses give a uniform C exp(−c alpha^2 n) survival bound at each fixed positive t; this gives eventual detection and uniform integrability for every scaled integer moment, with limit m!/Lambda^m. This holds for either sign of alpha, requires sufficiently small nonzero alpha, and has no uniformity in t near a revival. A fresh full-Hamiltonian, finite-parameter calculation at /workspace/branches/9e580f8c-17c6-4c50-80ed-6c02e76f847a/full_hamiltonian_check.py corroborated spectral losses, survival at one point and scaled means at t=1 and 2pi/3; e.g. at alpha=0.005 the scaled means were 0.222240057147 and 0.227987937706. This is not a proof of all moments. Supporting verification files were read, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The quantum-renewal equation gives general first-detection amplitudes; dark-space theory describes dark overlap and missing total detection mass.",
+          "Resultary 9c2164f9c4e0 studies continuous absorption on even rings near half flux, including detuning-squared leakage and a survival mixture; 57062606578c mentions weak-detuning survival on a lossy star but its mirror full text was unavailable."
+        ],
+        "reasoning": "The general framework does not resolve the two spectral perturbations of the specific one-detector compression. A continuous absorber and a star/even ring are not equivalent to this positive fixed sampling interval on a triangle.",
+        "searches": [
+          "Friedman–Kessler–Barkai arXiv:1611.05676 Eq. (17); Thiel et al. arXiv:1906.08112 pp. 1–2",
+          "Resultary weak-detuning survival comparisons, 9c2164f9c4e0 and 57062606578c"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Wang et al. arXiv:2402.15843v2",
+        "arXiv:1611.05676 and 1906.08112",
+        "Local Resultary 3dc132dc2bac and 9c2164f9c4e0; index-only 57062606578c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior exact return law has F_1=r and F_n=(1−r)^2 r^(n−2) for n≥2 as sampling time varies at zero flux. The long tail has total mass 1−r, tending to zero; a conditional rescaling can give an exponential law but the unconditional scaled return collapses to zero.",
+          "Appendix B relates slow null decay to nearly unit eigenvalues in a different finite-flux parameter region. Phase matching specifies exact degenerate eigenphases, not leakage coefficients on a fixed-t weak-flux approach."
+        ],
+        "reasoning": "The return law does not imply the nondegenerate unconditional limit from an initially dark state. Computing the second-order losses, identifying which spectral weights survive, and controlling the tails at the exact revival are still necessary even given the known survival operator.",
+        "searches": [
+          "Wang et al. arXiv:2402.15843v2, section VI.1 Eq. (11), Appendix B Eqs. (23)–(24) and section V.2 Eq. (10)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Wang Eq. (2) is the same Hamiltonian and section II.2 uses the same one-site projective tests. In their section V.1 the phase-phi initial state is the frozen d when phi=pi.",
+          "Wang Appendix B Eq. (24) uses P U. Its restriction on vectors after a null measurement is the two-dimensional compression P U P; it has the same nonzero eigenvalues, not a different evolution by notation."
+        ],
+        "reasoning": "The exact zero-phase and sampling-revival darkness (Wang Eq. (9)) apply directly to this model and preparation. They fix the endpoint, not how the survival spectral radii or initial weights approach the endpoint.",
+        "searches": [
+          "Wang et al. arXiv:2402.15843v2, sections II, V and Appendix B",
+          "Local Resultary/SCOPE one-detector triangle dark-state and weak-flux survival comparison"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Indexed 3dc132dc2bac gives gcd and flux-dependent dark dimensions and ultimate non-detection weights with two monitored sites, not one-site limiting rates.",
+          "Wang lists exact phase coincidences and Appendix B illustrates near-unit eigenvalues at finite flux. These are not an exact small-flux loss coefficient table for the two regimes."
+        ],
+        "reasoning": "An exact matching formula or table would have to cover fixed off-revival and exact-revival times for the initially dark preparation, not merely list resonance locations, limiting detection probabilities, or finite-parameter eigenvalues. No such matching entry was established by the bounded search.",
+        "searches": [
+          "Local Resultary/SCOPE searches for exact one-detector weak-flux hitting rates with a revival, and dark-state comparisons 3dc132dc2bac and 9c2164f9c4e0",
+          "Wang et al., section V.2 and Appendix A exact phase-matching loci"
+        ]
+      },
+      "rationale": "Wang et al. give exactly the same model, stroboscopic protocol and zero-phase dark state, and explicitly study phase coincidences and slow survival eigenvalues. Those are not claimed as new. The inspected strongest related formulas do not give the initially dark, fixed-t weak-flux limit with unit limiting survival weight, the two distinct exact coefficients, or the all-moment limit. The distinction between a simple long-lived mode and a two-mode revival at fixed t is substantive, not a change of normalization.",
+      "residual_risks": [
+        "Full indexed lossy-star comparison 57062606578c was not available through its local mirror; exact overlap beyond the accessible summary remains unresolved.",
+        "The bounded comparison does not establish worldwide priority or rule out an uninspected general resonance expansion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact model and zero-phase precedents; later-phase coincidences and return tails do not imply the audited weak-phase hitting law",
+          "evidence": [
+            "Section V.1 includes the initial phase pi state and the zero-flux revival cases.",
+            "The return tail is weighted by a vanishing mass. Appendix B uses the same survival-operator mechanism but studies finite-flux near-unit eigenvalues."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2402.15843v2",
+          "material_read": "Sections II, V.1 Eq. (9), V.2 Eq. (10) and VI.1 Eq. (11), offsets near 40000, 44973, 58000; Appendix A phase loci and Appendix B Eqs. (23)–(24), offset 86957 onward",
+          "method": "OA HTML exact passages, with return-tail calculation and explicit comparison of survival operators",
+          "title": "First Hitting Times on a Quantum Computer: Tracking vs. Local Monitoring, Topological Effects, and Dark States",
+          "trigger": "Identical Hamiltonian, monitoring and initially dark state; strongest near-revival comparison"
+        },
+        {
+          "assessment": "Explains general exact dynamics and eventual detection weights, not the fixed-time spectral-loss expansion or its two rate regimes",
+          "evidence": [
+            "Stroboscopic quantum renewal for the first-detection amplitude and eventual detection determined by bright versus dark state overlap."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1611.05676 ; https://arxiv.org/pdf/1906.08112",
+          "material_read": "Friedman–Kessler–Barkai Eq. (17), HTML offset near 22000; Thiel et al. PDF pp. 1–2, offset near 4200",
+          "method": "OA original article and PDF passages",
+          "title": "Quantum walks: the first detected passage time problem; Dark states of quantum search cause imperfect detection",
+          "trigger": "General renewal and dark-subspace results that might cover the law implicitly"
+        },
+        {
+          "assessment": "Related arithmetic darkness and leakage scaling, different detector mechanism, geometry and/or observable",
+          "evidence": [
+            "Two monitored sites and gcd-based dark spaces versus a continuous absorbing even ring and large-ring survival mixture."
+          ],
+          "identifier_or_url": "Resultary 3dc132dc2bac and 9c2164f9c4e0",
+          "material_read": "Both RESULT.md Findings, at local mirror offsets 0 and 90 respectively, including detector and evolution assumptions",
+          "method": "Configured Resultary lookup, exact local mirror passages",
+          "title": "Flux-selective arithmetic dark states with two detectors on a quantum ring; Quadratic half-flux leakage and a Bessel survival law for an absorbing ring",
+          "trigger": "Strongest accessible indexed dark-state and quadratic-leakage matches"
+        },
+        {
+          "assessment": "Exact relation unresolved; summary indicates a lossy star and inverse-square detuning, not direct coverage of the triangle",
+          "evidence": [
+            "The accessible summary describes weak-detuning survival in a lossy star."
+          ],
+          "identifier_or_url": "Resultary 57062606578c",
+          "material_read": "Catalogue summary only; the matching RESULT.md was absent from the local mirror path",
+          "method": "Configured Resultary lookup and attempted original local-mirror retrieval",
+          "title": "Critical-point law for weak-disorder decay on a lossy quantum star",
+          "trigger": "Possible related weak-detuning temporal survival rate"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The same three-site experiment has different sharp escape rates depending on whether the sampling interval lands exactly on a revival. Determining the factor 9/2 and the entire distribution with moment convergence distinguishes real long-lived dynamics from a small-probability return tail. The result is a checkable exact benchmark for monitoring protocols and for the nonuniform limits near revival; it does not claim the joint crossover.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

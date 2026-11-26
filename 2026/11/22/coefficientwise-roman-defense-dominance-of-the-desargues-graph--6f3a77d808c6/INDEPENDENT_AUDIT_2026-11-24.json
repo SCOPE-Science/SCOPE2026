@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:17:24.671131Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For each fixed label-two set B, exactly the vertices outside N[B] are forced to be ones; vertices of N[B] outside B can be zeros or ones independently because each has a two-neighbor. This includes the empty support and does not require B to dominate. A separately written exact census reconstructed both graphs from their edges and exhausted all 1,048,576 supports per graph; it matched all 441 joint histogram entries and all 41 weight coefficients for each graph in the packaged table. It also matched the expanded difference and all 12 entries of Q, and independently compared the support formula with direct ternary enumeration on GP(5,1). The replay program and full output are roman_independent_census.py and roman_independent_census.json under /workspace/branches/32e2e07e-ff41-42af-9fe6-2f0d2911884e/. Uploaded code was inspected, not run. The Python package checker is the one that compares each stored entry; the C++ companion recomputes both vectors and tests their difference, minima, total counts and total supports. Since Q is positive in exactly degrees 0–11 and (1+z)^6 in 0–6, the difference after shifting is positive in all weights 12–29 and zero elsewhere. Each graph's minimum is 12; the counts there are P=20 and D=340 and totals are P=742721362 and D=754088530. Independent labels with a common parameter z give the shared denominator (1+z+z²)^20, hence strict dominance for every z>0 and exactly 11367168/3^20 absolute difference at z=1. Nothing here extends that comparison to arbitrary three-way label distributions.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wang et al. prove the GP(n,2) minimum formula ceil(8n/7) for n≥5. The frozen result credits Zhang–Shao–Xu for the GP(n,3) minimum; their text could not be extracted from the cited lawful PDF.",
+          "The exact Desargues minimum-function result counts and classifies the 340 optimum assignments and their reconfiguration."
+        ],
+        "reasoning": "These results address a scalar minimum or its optimizing fiber, not the full polynomials. The independent census proves both minima directly; lack of access to the GP(n,3) article is not evidence that its full contents cannot overlap.",
+        "searches": [
+          "arXiv:1103.2419 Theorem 2.12",
+          "Zhang–Shao–Xu, On the Roman domination numbers of generalized Petersen graphs, Theorem 3 as cited",
+          "Resultary 20a24343886d"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, both packaged checkers, and data/roman_census.json",
+        "arXiv:1103.2419",
+        "Resultary 20a24343886d and identical assigned record 6f3a77d808c6",
+        "Zhang–Shao–Xu (cited PDF attempted)",
+        "Symmetry 18(11), 1942 (indexed predicate; full text attempted)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2011 minimum formula yields 12 for GP(10,2); the 2026-10-18 Desargues record yields 340 as that graph's coefficient at weight 12.",
+          "The audited difference is strict at eighteen successive weights and requires sign information not supplied by the earlier minimum statements."
+        ],
+        "reasoning": "An optimum and its multiplicity can be held fixed while higher coefficients differ in either direction. Neither known ingredient implies the displayed factorization or success dominance for all positive z.",
+        "searches": [
+          "20a24343886d RESULT.md offset 0",
+          "arXiv:1103.2419 Theorem 2.12 p. 8",
+          "Frozen ordinary Roman predicate and difference vector"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A bivariate census by |B| and 20−|N[B]|, or by the equivalent support-size and dominated-size pair, gives the Roman enumerator by direct substitution.",
+          "Perfect Roman domination surfaced as a nearby predicate with an exactly-one condition, not the at-least-one predicate of the reviewed polynomial."
+        ],
+        "reasoning": "Searches must account for the neighborhood-support reformulation and not only the Roman label name. More restrictive variants do not give this count; counts at the minimum weight do not determine all weights.",
+        "searches": [
+          "Resultary: all-weight Roman domination, generalized Petersen, Desargues and dodecahedral graph",
+          "Literature: Roman domination polynomial and generalized Petersen neighborhood counts",
+          "arXiv:1103.2419"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The returned same-object exact full census is the assigned 6f3a77d808c6 and its own table. The distinct earlier 20a24343886d supplies the exact Desargues minimum fiber only. No independent full table was located in the bounded checks."
+        ],
+        "reasoning": "An earlier complete pair of neighborhood-support tables would cover this claim even without Roman terminology, since it mechanically gives all 41 weight coefficients. The inspected distinct exact result gives only one coefficient for one graph.",
+        "searches": [
+          "Resultary: GP(10,2) and GP(10,3) Roman enumerators and neighborhood histograms",
+          "Literature: Roman polynomial or complete neighborhood-support tables for Desargues and dodecahedral graphs",
+          "Frozen data/roman_census.json"
+        ]
+      },
+      "rationale": "Pass the full all-weight comparison of the two graphs and the resulting reliability inequality to the best of current knowledge. The Roman domination number, the Desargues minimum count, and the general support bijection are not the originality claim. No distinct inspected source supplies the complete coefficient data or a comparison implying the positive factorization.",
+      "residual_risks": [
+        "Unindexed full label polynomials or equivalent joint neighborhood support tables for both graphs could mechanically cover the comparison.",
+        "The lawful full-text attempt for Zhang–Shao–Xu did not yield extractable passages; the known minimum is credited, and overlap beyond the checked sources is not ruled out."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct minimum coverage; no full weight profile in the inspected result",
+          "evidence": "ceil(8n/7) for n≥5, hence 12 at n=10.",
+          "identifier_or_url": "https://arxiv.org/abs/1103.2419",
+          "material_read": "Definition p. 2, OA offset 4312; Theorem 2.12 p. 8, offset 29760",
+          "method": "Primary OA extraction",
+          "title": "Roman domination number of Generalized Petersen Graphs P(n,2)",
+          "trigger": "Exact graph-family antecedent for the dodecahedral minimum"
+        },
+        {
+          "assessment": "Direct overlap at the minimum only",
+          "evidence": "340 optimum assignments at weight 12 and their reconfiguration; no D-versus-P all-weight comparison.",
+          "identifier_or_url": "20a24343886d",
+          "material_read": "RESULT.md offset 0, theorem and scope",
+          "method": "Local mirror",
+          "title": "Frozen and mobile minimum Roman functions of the Desargues graph",
+          "trigger": "Strongest earlier result on the exact Roman-label assignments"
+        },
+        {
+          "assessment": "Access limitation; no whole-paper exclusion inferred",
+          "evidence": "Frozen record credits the family minimum result. Our verification of the minimum is independent of this citation.",
+          "identifier_or_url": "https://combinatorialpress.com/article/jcmcc/Volume%20089/vol-089-paper%2023.pdf",
+          "material_read": "Cited Theorem 3 identifier only; full text unavailable",
+          "method": "Lawful OA PDF extraction attempted via direct and alternate network route",
+          "title": "On the Roman domination numbers of generalized Petersen graphs",
+          "trigger": "Cited exact family theorem for the Desargues minimum"
+        },
+        {
+          "assessment": "Nearby variant, not used to rule out whole-paper overlap",
+          "evidence": "Indexed exactly-one-neighbor condition differs from the ordinary Roman condition checked here.",
+          "identifier_or_url": "https://www.mdpi.com/2073-8994/18/11/1942",
+          "material_read": "Indexed predicate description only; full article unavailable to the OA reader",
+          "method": "Literature search and lawful OA attempt",
+          "title": "Generalized-Petersen perfect Roman domination variant",
+          "trigger": "Closely named variant with the same graph family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The invariant is the natural weight enumerator for the established Roman defense model. The two canonical 20-vertex cubic generalized Petersen graphs have matching minimum weights and equal numbers of vertices and edges, so the exact all-weight order is not a consequence of the usual minimum statistic or elementary comparison by adding edges. The independent-label experiment makes the coefficientwise result useful as a uniform success-probability ordering, and the complete census preserves the exact finite data for later comparisons. The result is valuable on this particular pair without claiming a general Petersen-family principle.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

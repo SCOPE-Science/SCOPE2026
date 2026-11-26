@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:57:31.237205Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–58",
+        "Frozen VERIFICATION.md and verify.py, inspected but not executed",
+        "Independent replay: python3 -B /workspace/branches/independent_replay.py, check4"
+      ],
+      "rationale": "For the strict confidence rule on the ordered path, x_k is the maximum on the left and x_{k+1} the minimum on the right. Thus d_k <= Delta_k <= D_k. The sole update changing Delta_k is across k, with decrement mu*d_k*(1/k+1/(n-k)). A blocked cut cannot unblock because internal updates only move the two boundary opinions apart, and its two conserved means differ. Above Theta all edges are active; the product for a full sweep contracts the mean-zero sphere strictly, since equality at every norm-nonincreasing pair update would require every initial adjacent difference to be zero. Independent positive-rate clocks produce such sweeps infinitely often in disjoint windows of the edge word. Below Theta, repeating the edges on both sides of an omitted maximizing cut either freezes some edge in a finite prefix or forces the cut gap to converge to Theta, which also forces finite freezing. At equality, reaching the envelope requires a maximizing cut, no prior positive exchange across it, and two homogeneous blocks. When mu<1/2 all initially positive within-block gaps survive at every finite step. For midpoint updates a last positive gap cannot disappear in a block of length at least three, because that update creates a positive neighboring gap; singleton and pair blocks can be homogenized with at most one update each. The pair updates used for the exceptions are receptive because the strict initial order makes each initial adjacent gap strictly below its own centroid separation. This proves the n=3 and central-cut n=4 exceptions and excludes all others. Arithmetic progressions have D_k=nh/2 for all k. The independent rational replay includes a noncentral maximizing n=4 case (0,1,2,9), Theta=8, and recovers both stated small-size freezing examples. Finite replay is corroboration only.",
+      "residual_risks": [
+        "Restriction to strictly increasing deterministic scalar data, a path, symmetric pair updates and strict confidence is essential to the proof. The theorem does not give the magnitude of the probability of nonconsensus."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lanchier–Li's finite-graph Theorem 1 lower-bounds consensus probability with distributional input and an inclusive gate; Dubovskaya et al. use a mean-field model; Zhang et al. use clique means."
+        ],
+        "reasoning": "Broader network scope does not imply the deterministic sharp probability-one boundary, finite adverse word or strict threshold equality exceptions.",
+        "searches": [
+          "Primary Deffuant path threshold lookup",
+          "arXiv:2005.13141",
+          "arXiv:2210.07167",
+          "arXiv:2107.04948"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md references and prior-work discussion",
+        "Local Resultary three-agent NDW finding",
+        "Lanchier–Li Theorem 1",
+        "Dubovskaya et al.; Zhang et al.; Boyd et al., stated scopes"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Unconditional gossip yields convergence when all edges are always active. The finite-graph probability bound is neither an exact fixed-profile criterion nor a converse."
+        ],
+        "reasoning": "The cut envelope, schedules producing finite irreversible gaps, and finite homogenization obstruction are needed to apply or complement the standard convergence conclusion.",
+        "searches": [
+          "Boyd et al., Randomized Gossip Algorithms",
+          "Lanchier–Li, Theorem 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The indexed three-agent claim uses a leaf-gap/2 boundary with directed neighbor-average reception; below it the center fluctuates and both leaves remain fixed."
+        ],
+        "reasoning": "For equal spacings on three agents the frozen criterion is 3/4 of the leaf gap; the difference from 1/2 is not a parameter renaming, and the update operators differ.",
+        "searches": [
+          "Local Resultary deterministic ordered path / bounded-confidence threshold lookups",
+          "2026/10/25/SCOPE-a-sharp-three-agent-confidence-threshold-between-consensus-and-p--28a3aef41d87"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The material indexed small-case result supplies a threshold for a different gate; no matching table or exact cut criterion was identified in the inspected results."
+        ],
+        "reasoning": "This is an all-profile theorem, not a tabulation; finite three-agent cases cannot supply the all-length boundary classification.",
+        "searches": [
+          "Local Resultary sharp confidence thresholds and path cases",
+          "2026/10/25/SCOPE-a-sharp-three-agent-confidence-threshold-between-consensus-and-p--28a3aef41d87"
+        ]
+      },
+      "rationale": "The closest indexed three-agent sharp threshold uses a directed neighbor-average confidence gate and different conclusions. Primary Deffuant and averaging sources checked do not cover the deterministic profile criterion or the strict equality classification. Credit the existing averaging argument as background, not part of the distinct claim.",
+      "residual_risks": [
+        "Bounded primary search returned no useful additional hit, which is not evidence of absence. A deterministic bounded-confidence treatment under other terminology could supply an earlier related criterion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related, does not cover",
+          "evidence": "Pure neighborhood model, leaf-gap threshold d/2 and persistent center fluctuations with frozen leaves.",
+          "identifier_or_url": "2026/10/25/SCOPE-a-sharp-three-agent-confidence-threshold-between-consensus-and-p--28a3aef41d87",
+          "material_read": "Finding and assumptions, offset 0 onward",
+          "method": "Local Resultary and mirrored RESULT.md",
+          "title": "A sharp three-agent confidence threshold between consensus and persistent opinion fluctuations",
+          "trigger": "Strongest indexed adjacent result"
+        },
+        {
+          "assessment": "Finite graph bound, not the claimed sharp criterion",
+          "evidence": "Inclusive confidence; P(C) bounded below by a function of the opinion-space radius and E||X-c||.",
+          "identifier_or_url": "https://arxiv.org/pdf/2005.13141",
+          "material_read": "Abstract; model near offset 6505; Theorem 1 p. 3 near offset 12143",
+          "method": "OA paper",
+          "title": "Probability of consensus in the multivariate Deffuant model on finite connected graphs",
+          "trigger": "Potential general finite-graph implication"
+        },
+        {
+          "assessment": "Mean-field setting, not deterministic finite paths",
+          "evidence": "Density/network mean-field and stability results.",
+          "identifier_or_url": "https://arxiv.org/abs/2210.07167",
+          "material_read": "Abstract p. 1",
+          "method": "OA paper",
+          "title": "Analysis of Mean-Field Approximation for Deffuant Opinion Dynamics on Networks",
+          "trigger": "Strict confidence model comparison"
+        },
+        {
+          "assessment": "Different interaction rule",
+          "evidence": "Agents update against clique averages rather than a symmetric adjacent pair.",
+          "identifier_or_url": "https://arxiv.org/abs/2107.04948",
+          "material_read": "Abstract p. 1",
+          "method": "OA paper",
+          "title": "Dynamics of Opinions with Bounded Confidence in Social Cliques: Emergence of Fluctuations",
+          "trigger": "Related bounded-confidence updates"
+        },
+        {
+          "assessment": "Standard averaging background",
+          "evidence": "Network averaging without endogenously blocked edges.",
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/gossip.pdf",
+          "material_read": "Abstract p. 2508",
+          "method": "OA paper",
+          "title": "Randomized Gossip Algorithms",
+          "trigger": "Prior averaging implication"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof, lines 4–53",
+        "Lanchier–Li finite-graph bound for context"
+      ],
+      "rationale": "On a natural sparse interaction graph this gives a computable exact criterion for consensus with probability one, including a constructive positive-probability obstruction on the opposite side and a nontrivial change at equality which depends on compromise and path length. The cut centroid identifies the invariant governing the threshold rather than just bounding initial neighbor gaps.",
+      "residual_risks": [
+        "Not a criterion for unstructured order, other graphs or the inclusive gate; no quantitative fragmentation probability is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

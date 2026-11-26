@@ -1,0 +1,150 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T14:13:03.840111Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 13–114; VERIFICATION.md lines 19–23; verify.py and verification-output.txt lines 1–12"
+      ],
+      "rationale": "Reversing the labels makes rate k correspond to increasing rank n−k+1, so a fixed point is equivalent to k−1 clocks exceeding its own. The exponential race and conditioning yield the stated integral. For any realized Bernoulli vector, only k=S or k=S+1 can contribute, giving the uniform logarithmic domination and the bounded contribution from t<1/n; the geometric-series estimate makes the t≥1 tail integrable. In the scaling window t→0, nt→∞, geometric sums give tm→1 and tv→1/2 for the exceedance mean and variance. The characteristic-function bound follows by taking the square root of 1−4p(1−p)sin²(θ/2) for each Bernoulli factor and multiplying. Fourier inversion for adjacent masses introduces |1−exp(iθ)|≤|θ|, giving π/(4V), uniform after deleting any one summand since V≥v−1/4. Hence the deletion changes the total mass over k within M sqrt(v) of m by O(M/sqrt(v)). The comparison masses sum to P(S<n)=1−o(1) because m/n→0; Chebyshev and the two-index identity bound the two exterior masses by (1+o(1))/M² and (2+o(1))/M². The normalized weight tk exp(−tk) tends uniformly to 1/e on each such band, and is bounded globally by 1/e. Sending M to infinity and using t=n^(−u) with dominated convergence gives the stated limit along every n. A fresh rational recursion over remaining-label subsets, drawing label j with weight (n−j+1) divided by the remaining total and crediting a hit exactly at position n−|subset|+1=j, reproduced all seven recorded expectations (last 8823199676/5019589575).",
+      "residual_risks": [
+        "Finite checks do not prove the asymptotic; the preceding argument does. The frozen script was not executed. No variance or distributional conclusion is part of correctness here."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The singular case is discussed as open for fixed-point distribution in §5.2. Mukherjee requires regular positive continuous density with local control, Paguyo treats uniform double-coset sampling, and Borga–Dubach treat LIS. Long instead also states a stronger local Poisson point-process limit on log-terminal windows whose centers tend to infinity and are o(n)."
+        ],
+        "reasoning": "The first four primary comparisons do not imply the leading singular mean. Long covers it directly, not by claiming that a local Poisson limit alone yields a globally integrated mean.",
+        "searches": [
+          "Borga–Chatterjee–Diaconis arXiv:2509.07729v3 §5.2",
+          "Mukherjee arXiv:1509.04552v3 Theorems 1.1, 1.3",
+          "Paguyo arXiv:2112.07728v2 Theorem 1.1",
+          "Borga–Dubach arXiv:2610.30382 abstract",
+          "Long §3.2–3.3 and Theorem 3.24"
+        ]
+      },
+      "checked_sources": [
+        "Long archived PDF at 32b0620 and public history/commit",
+        "arXiv:2509.07729v3, 1509.04552v3, 2112.07728v2, 2610.30382",
+        "Resultary 54d919a68dd2 and 7ea2577a5fda"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior source sums its uniform one-point estimate from ceil(log n) to floor(n/log n) and controls each excluded range by O(log log n). The result holds along the same integers with the natural logarithm."
+        ],
+        "reasoning": "The finding is already a stated and proved result, not merely inferable from existing methods. The frozen global Bernoulli-mass argument is a different proof of that same claim; no separate proof improvement is the frozen finding.",
+        "searches": [
+          "Long PDF commit 32b0620, Theorem 3.5 and its proof; repository history and commit message"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorem 3.5, p. 10, states E F_n ∼ e^(−1) log n for θ_i=n+1−i. Section 3 uses the descending weights and the equivalent rate-reversed fixed-point test. Fixed-point counts are unchanged by inversion, and common weight normalization does not change a Luce ranking."
+        ],
+        "reasoning": "The target is identical, not just a related density, statistic or parameter regime.",
+        "searches": [
+          "Sukhatme weights n+1−i fixed points logarithmic mean and terminal-rate formulation",
+          "Archived Long PDF at commit 32b0620, §3 and Theorem 3.5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 54d919a68dd2 is a finite-step Luce profile with fixed positive blocks; 7ea2577a5fda concerns finitely many spikes and different limits. The exact theorem was found outside those ranked records in the archived Long PDF. The tracked history lists Add Sukhatme fixed-point extraction and audit record (#16), commit 32b0620, on 2026-10-12."
+        ],
+        "reasoning": "No separate exact table is needed for this asymptotic; the proof and file history at the archived source are explicit exact coverage.",
+        "searches": [
+          "Resultary queries for fixed points under the Sukhatme/Luce profile",
+          "Public tracked file history for output/pdf/sukhatme-fixed-points.pdf"
+        ]
+      },
+      "rationale": "Christopher D. Long's Sukhatme Fixed Points and the Terminal Poisson Process states this exact leading mean under exactly the same weights as Theorem 3.5, and supplies a proof via a uniform one-point terminal saddle estimate and a harmonic sum. The publicly readable PDF at committing revision 32b0620 contains that theorem; the repository history dates the addition to 2026-10-12, before the frozen record. The identity of theorem, weights and statistic is decisive, not the keyword hit or the incompletely retrievable older extraction provenance. The external proof is different; this is not evidence that the frozen proof was copied, nor is it the frozen record's own mirror.",
+      "residual_risks": [
+        "The older extraction source hash 6178a99a8f2ee7b6416edd026e7780b9b8fa9fa0 was unavailable; this does not affect the theorem retrieved in the already-prior addition 32b0620. No inference on who first discovered the result or on the provenance of the frozen proof is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact theorem and direct proof predate the frozen record; PDF labels its own extraction and audit status",
+          "evidence": [
+            "p. 5 profile, text near offset 13526; p. 10 Theorem 3.5 and proof, offsets 27900–31455; p. 34 Theorem 3.24"
+          ],
+          "identifier_or_url": "https://raw.githubusercontent.com/long-mathematics/luce-tsetlin-permutations/32b0620/output/pdf/sukhatme-fixed-points.pdf",
+          "material_read": "Provenance, §3 profile and Theorem 3.5 including proof; §3.3 Theorem 3.24 for context",
+          "method": "OA archived PDF passage and comparison with working PDF",
+          "title": "Sukhatme Fixed Points and the Terminal Poisson Process",
+          "trigger": "Exact statement in distinct manuscript"
+        },
+        {
+          "assessment": "Addition shown on 2026-10-12, agreeing with the revision bearing the direct theorem",
+          "evidence": [
+            "Commit history entry Add Sukhatme fixed-point extraction and audit record (#16); https://github.com/long-mathematics/luce-tsetlin-permutations/commit/32b0620"
+          ],
+          "identifier_or_url": "https://github.com/long-mathematics/luce-tsetlin-permutations/commits/main/output/pdf/sukhatme-fixed-points.pdf",
+          "material_read": "Tracked history and commit 32b0620 message",
+          "method": "Public OA web pages and proof-bearing file read at that revision",
+          "title": "Public file history and addition of the Sukhatme fixed-point manuscript",
+          "trigger": "Date and provenance of actual theorem-bearing PDF"
+        },
+        {
+          "assessment": "Infinite diagonal integral and open distribution question; not the exact mean there",
+          "evidence": [
+            "Offsets 113700–116676"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2509.07729v3",
+          "material_read": "§5.2 fixed-point discussion",
+          "method": "Bounded OA HTML passage",
+          "title": "Permuton and local limits for the Luce model",
+          "trigger": "Same Sukhatme profile and motivating open question"
+        },
+        {
+          "assessment": "Regular positive continuous density assumptions do not address the singular endpoint",
+          "evidence": [
+            "Offsets 10082–10400 and 12700–14599"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1509.04552v3",
+          "material_read": "Definition 1.3, Theorems 1.1, 1.3, Remark 1.1",
+          "method": "OA HTML passages",
+          "title": "Fixed points and cycle structure of random permutations",
+          "trigger": "General Poisson limit might cover target"
+        },
+        {
+          "assessment": "Uniform double-coset model, not the Luce weights",
+          "evidence": [
+            "Offset 11500"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2112.07728v2",
+          "material_read": "Theorem 1.1",
+          "method": "OA HTML passage",
+          "title": "Fixed points, descents, and inversions in parabolic double cosets of the symmetric group",
+          "trigger": "Possible related Poisson fixed-point estimate"
+        },
+        {
+          "assessment": "Asymptotic for a different statistic",
+          "evidence": [
+            "Offsets 0–2458"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.30382",
+          "material_read": "Abstract",
+          "method": "OA HTML passage",
+          "title": "The longest increasing subsequences of Luce permutations and permutons",
+          "trigger": "Same Sukhatme profile"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–15 and 116–122; Long Theorem 3.5 at 32b0620"
+      ],
+      "rationale": "The constant and model are well motivated, but the frozen narrow finding offers a previously stated exact mean, not a new invariant, stronger asymptotic, or a separately scoped proof improvement. Its shorter-looking mass argument may be worth studying as an expository or methodological contribution, but that is not the claim assessed and no repaired result is asserted.",
+      "residual_risks": [
+        "This verdict concerns the claimed exact invariant, not whether a future explicit comparison could establish value for a substantially simpler independent proof."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

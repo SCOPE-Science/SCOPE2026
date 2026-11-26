@@ -1,11 +1,21 @@
-# Review of the integral Pascal concurrence-graph calculation
+# Independent mathematical audit
 
-**Correctness — PASS.** The graph is specified without geometric ambiguity by 60 unoriented Hamiltonian cycles, twenty squared-cycle Steiner triples and sixty edge-disjoint Kirkman triples. Published labelled Steiner/Kirkman triples have independent full \(S_6\) orbits exactly matching these constructions. An exact-rational conic specialization verifies 60 distinct Pascal lines and 80 distinct geometric triple points. Integer adjacency checks yield sixty vertices, 240 edges, degree eight and connectivity. Bareiss determinants and prime-local Smith reductions at three distinct roots yield the same determinant and all invariant factors; the prime valuations exhaust its factorization. The standalone scripts reconstruct every object from scratch. The exceptional-configuration and non-generic limits are stated.
+## correctness
 
-**Originality — PASS, provisional.** The closest geometric full text, Baralić–Spasojević (arXiv:1209.4795), proves concurrence of the classical named triples and geometric extensions. The 2013 Pisanski–Servatius book explains the underlying line configuration. The closest published arithmetic item classifies Frobenius cycles of 180 Pascal–Kirkman flags, not chip-firing classes. An earlier calculation of the 35-vertex Steiner–Plücker Levi graph has different vertices, edges and Laplacian. The targeted literature and mathematical-record searches did not locate a complete 60-by-60 combined-concurrence Laplacian Smith form. Searches cannot prove novelty; an earlier computation under an unrecognized graph name remains possible.
+PASS
 
-**Mathematical value — PASS.** The chosen graph is forced by taking *all* two classical kinds of distinguished triple concurrence among the 60 Pascal lines, not by an arbitrary subconfiguration. The Kirkman adjacencies alone split into six 10-vertex Desargues sectors, while the Steiner triples meet distinct sectors and connect them. The complete mixed-prime torsion, including \(11\)-torsion and exponent \(5280\), refines both this geometry and the spanning-tree/spectral data. It is a natural integral invariant of the classical projective configuration; no downstream theorem is asserted.
+For the repaired claim, Props. 3.2–3.3 of arXiv:1209.4795 establish the two labelled concurrence patterns. I generated their full relabelling orbits, built all 60 lines using the chord formula (tu,−t−u,1), and recovered all actual marked flags by exact projective intersections. At (0,1,3,9,27,81) there are 80 distinct marked points each on exactly its prescribed three lines; the absence of other marked flags is a finite list of open conditions, so the graph is constant on a nonempty Zariski open set. The independent adjacency gave a connected 8-regular graph with 240 edges, the stated exact characteristic polynomial and tree count 2^71·3^13·5^8·11^16. An integer Smith calculation on its cofactor gave 1(36), 2(7), 22, 88, 176, 528(5), 2640(4), 5280(4), with parenthesized multiplicities. The replacement geometry verifier also passes its full flag tests.
 
-**Closest literature and limitations.** The result is about a finite graph attached to generic six-point conic configurations in characteristic zero. It does not compute the conic's geometric Picard group and says nothing about special sextuples with coinciding points or lines. Historical priority is provisional; independently checked mathematical validation is not claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best of the checked evidence, the surviving distinct result is the exact integral critical group of the generic combined marked graph. The cited incidence theorem is prior input, not the arithmetic result, and the strongest distinct catalogue match computes a different graph. The scope repair does not change the arithmetic claim assessed for originality.
+
+## value
+
+PASS
+
+Both kinds of marked point are canonical parts of the generic hexagrammum; taking both, but not ordinary intersections, is geometrically motivated. The complete primary structure and exponent distinguish integral chip-firing obstructions not determined by the rational spectrum. The repaired scope additionally explains an actual marked-incidence jump while keeping all named objects distinct. No wider claim about special sextuples or the conic Jacobian is needed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

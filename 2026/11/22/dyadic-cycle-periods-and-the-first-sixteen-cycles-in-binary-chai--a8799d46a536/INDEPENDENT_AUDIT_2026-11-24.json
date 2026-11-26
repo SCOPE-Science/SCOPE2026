@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:55:06.931594Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Mod t only (0,0) and (1,0) can be periodic. In the first class, multiplying b by a∈tR_m strictly raises its valuation until b=0, so only (a,0) cycles there. In the second, the output equations give b=v+u and u²+(1+v)u+v+w=0; the unknown coefficient at each positive degree has coefficient 1 and all other summands at that degree are determined from lower ones. Thus this core is permuted. Under one-level reduction, new coefficients transform affinely with linear part (x,y)↦(x+y,y). A power returning the lower level acts by a translation or by a shear plus translation on a fiber, with order dividing four. The singleton unit core at m=1 begins the induction, so all periods are powers of two. For the formal polynomial iterates the second-coordinate degree is strictly larger than the first, and the degree recurrence is (d,e)↦(e,d+e); no positive iterate is the identity. For each power 2^k a nonzero coordinate difference cannot vanish on the product of the infinite subset tF₂[[t]] of F₂((t)) with itself. A nonzero evaluation survives in a finite quotient, giving periods exceeding 2^k. The degree-eight jet argument is consistent: both homogeneous parts have both variables as factors and vanish on u=b, so they contain ub(u+b); on the binary core this product is in t⁴, giving order at least nine after the degree-five factor, while discarded degree ≥9 terms already vanish through m=9. The entire finite cutoff and census were also independently reproduced, using a distinct multiplication-table recurrence P(a,2c+e)=tP(a,c)+ea and full path visitation of all 2^(2m) vertices for 1≤m≤10. No period 16 occurred at m≤9. At m=10 the exact cycle counts at 1,2,4,8,16 were 1024,1280,5888,17152,6144 and no others; core fixed counts were 512,3072,26624,163840,262144. The witness in bit encoding went (3,4)→(515,4) after eight and returned after sixteen, so its least period is sixteen. In a finite functional graph each weak component has exactly one directed cycle; the counts sum to 31488. Replay: python3 /workspace/branches/5d54ab14-9345-42dc-b9bd-eb18147d673b/independent_census.py 10; full_run.txt in the same directory records the UTC run and all counts. Uploaded verify.py and reference log were inspected, not executed. The finite run supports the finite cutoff and census, not the all-m assertions.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chernev–Chernev discuss two-cycles with nontrivial nilpotents and identify longer cycles as a research direction.",
+          "e988f4ba1aa2 concerns reduced finite fields, existence of nontrivial cycles for m≥3, and an explicit 8-cycle over F₁₆, not nilpotent fibers."
+        ],
+        "reasoning": "The all-ring two-cycle criterion has broad ring scope but not broad primitive-period scope. The distinct field classification does not imply behavior under nilpotent thickening.",
+        "searches": [
+          "arXiv:2611.07521v1 §4 Statement 4.1 and conclusion",
+          "Resultary e988f4ba1aa2, characteristic-two finite-field cycles"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md §§1–5, VERIFICATION.md, verify.py, verification_output.txt",
+        "Independent full census code and run cited under correctness",
+        "Resultary a8799d46a536 and e988f4ba1aa2",
+        "Chernev–Chernev arXiv:2611.07521v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A two-cycle does not control the order of core lifts or imply arbitrarily large dyadic periods.",
+          "The threshold proof turns on eighth-iterate cancellation and a binary nilpotent-valuation gain; the field witness supplies neither, nor a census of the nonreduced ring."
+        ],
+        "reasoning": "The exact m≤9 obstruction, the first m=10 witness, and the census are not specializations of the checked criteria. The periodic-core proof and degree-growth argument justify the independent all-length component.",
+        "searches": [
+          "Chernev–Chernev §§3–4 and conclusion, exact map and cycle assertions",
+          "Resultary finite-field cycle criterion and explicit cycle, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Definition 3.1 is precisely the edge (a,b)↦(a+b,ab).",
+          "The exact matching Resultary record a8799d46a536 is this very assignment, not another result."
+        ],
+        "reasoning": "The Vieta, structure-graph, and functional-graph descriptions describe the same map at this ring. The finite-field graph on F_(2^m) is not an equivalent formulation of the graph over F₂[t]/(t^m) despite the equal ring cardinality.",
+        "searches": [
+          "Resultary semantic checks for structure graph cycles, Vieta map, binary truncated-polynomial/chain rings, and first period 16",
+          "Chernev–Chernev arXiv:2611.07521v1 §3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The only matching table surfaced was the assignment itself at a8799d46a536; the frozen reference log belongs to that package.",
+          "The checked external comparisons concern fixed-point or two-cycle existence and selected finite fields, not a table for F₂[t]/(t^10)."
+        ],
+        "reasoning": "No independent matching exact census was found in the checked sources, and a generic ability to enumerate finite functional graphs is not a known value of this census.",
+        "searches": [
+          "Resultary exact first-sixteen/census semantic checks for m=10 and binary chain rings",
+          "arXiv:2611.07521v1 computational scope and conclusion"
+        ]
+      },
+      "rationale": "The structure graph and the possibility of two-cycles in nonreduced rings are established prior work. The available comparisons do not give the periodic core, the unbounded dyadic-order statement, or the exact first period-sixteen threshold and census for this truncated-polynomial tower. A focused lookup and inspected passages support this bounded verdict, not a comprehensive priority claim.",
+      "residual_risks": [
+        "Full texts of the cited Lipkovski foundational article (https://research.matf.bg.ac.rs/handle/123456789/2452) and the Lipkovski–Daoub–Shafah Filomat article were not obtained in the bounded comparisons. The focused literature search supplied no additional relevant primary findings; that does not establish their absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_MAP_PARTIAL_PRIOR_COVERAGE",
+          "evidence": "Defines the same edge and discusses a nontrivial-nilpotent two-cycle criterion; the conclusion calls for study of cycle lengths and large cycles.",
+          "identifier_or_url": "https://arxiv.org/pdf/2611.07521",
+          "material_read": "§3 Definition 3.1 (p. 3, offset 6788), §4 Statement 4.1, and conclusion (p. 10, offset 20634).",
+          "method": "Original OA PDF passage inspection.",
+          "title": "On the Connected Components of Structure Graphs of Associative Rings",
+          "trigger": "Same Vieta map over rings and connected components with cycles."
+        },
+        {
+          "assessment": "DIFFERENT_RINGS",
+          "evidence": "Finite fields F_(2^m), with an 8-cycle over F₁₆; no truncated-ring result in the inspected statement.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-the-complete-characteristic-two-cycle-criterion-for-finite-field--e988f4ba1aa2/RESULT.md",
+          "material_read": "Local-mirror Finding and scope.",
+          "method": "Statement-level comparison of the coefficient rings and periods.",
+          "title": "The complete characteristic-two cycle criterion for finite fields",
+          "trigger": "Same map and characteristic, with an exact cycle criterion."
+        },
+        {
+          "assessment": "ACCESS_LIMITATION",
+          "evidence": "Cited publisher path returned 404 and DOI access did not yield readable full text. No negative inference about the paper's precise content.",
+          "identifier_or_url": "https://journal.pmf.ni.ac.rs/filomat/index.php/filomat/article/view/3518",
+          "material_read": "No primary full text obtained; available bibliographic citation only.",
+          "method": "Bounded publisher and DOI access attempts.",
+          "title": "An Association between Digraphs and Rings",
+          "trigger": "Cited earlier cycles paper on residue rings and the same structure graph."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Long cycles of this natural structure map are a posed mathematical direction. The binary nilpotent tower isolates the effect of thickening; the periodic core and unbounded dyadic orders are structural answers. The cutoff at an intrinsically defined first occurrence of period sixteen is not an arbitrary finite slice, and the complete counts at that threshold give the component structure and a baseline for studying later lifts.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

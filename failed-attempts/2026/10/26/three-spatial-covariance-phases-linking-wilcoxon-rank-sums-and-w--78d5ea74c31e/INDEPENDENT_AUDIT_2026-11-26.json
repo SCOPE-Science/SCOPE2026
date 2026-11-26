@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:11:19.663940Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–56",
+        "verify.py (inspected)",
+        "VERIFICATION.md lines 19–23",
+        "Independent replay: review-evidence/rank-runs.py"
+      ],
+      "rationale": "Given an unlike adjacent pair, exactly one of its two positions is selected uniformly and the other selected ranks are a uniform (a−1)-subset of the remaining N−2 ranks. Expanding Y² directly, the conditional singleton and two-site inclusion probabilities outside the pair are (a−1)/(N−2) and (a−1)(a−2)/((N−2)(N−3)). The resulting conditional-square difference reduces exactly to the reported constant plus the centered quadratic in j−N/2. Multiplying by 2ab/[N(N−1)] gives the local covariance. Summing cancels the centered quadratic; word reversal gives zero linear covariance. The aggregate identity also holds at N=2 and N=3 (0 and −2/9, respectively). For even N the quadratic is affine in the squared distance from the center, so the extrema occur at the center and endpoints. Substitution gives exactly the two reported zeros and their ordering. An additional exact enumeration independently checked 1,364 identities over N=2 through 15; the conditioning argument proves the unrestricted formula.",
+      "residual_risks": [
+        "The local expression requires N>=4. The stated center threshold is for even N; it is not the odd-length threshold."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The parity-sawtooth record studies Wilcoxon/Mann–Whitney conditional variance given total run count and gives E[U|R]=ab/2.",
+          "Holcombe treats the separate runs and rank-sum statistics in a common statistically equivalent blocks representation and derives label-indicator moments."
+        ],
+        "reasoning": "Conditional variance by total run count can inform the aggregate moment but loses boundary position; it is not the decisive source of local coverage. The common blocks representation in the inspected sections is also not itself the stated position-resolved identity. The exact quadratic from the other indexed record is what directly determines all local signs.",
+        "searches": [
+          "2026/11/2/SCOPE-a-parity-sawtooth-law-for-conditional-wilcoxon-variance-under-fi--0712c2da4770",
+          "arXiv:2501.10844v1, Sections 3.2, 3.3 and 4.3"
+        ]
+      },
+      "checked_sources": [
+        "The exact November 2 RESULT.md and the comparative sources above",
+        "Primary-literature search pairing Wilcoxon/Mann–Whitney with runs yielded generic references, not a decisive comparison"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact matching quadratic contains the factor (j−N/2)^2−N(N−2)/12. At the two extremes its conditional-square differences are (N²+N+1−7Q)/6 and ((4N+6)Q−(N³+N²−2N+6))/(12(N−3)).",
+          "Bisewski et al. discuss the runs statistic as an order-sensitive test; that is not the mixed-moment result."
+        ],
+        "reasoning": "Setting the endpoint and center expressions to zero gives precisely Q_e and Q_c. An affine function of the squared distance has neither a larger nor a smaller value between the two extrema. These substitutions give the three regimes and the equality cases with no additional mixed-moment theorem. N=2 is degenerate with constant R. There is no substantive uncovered remainder in the assigned finding.",
+        "searches": [
+          "2026/11/2/SCOPE-exact-squared-rank-sum-and-runs-covariance-under-the-two-sample--50b596d23f6a, RESULT.md Finding and proof",
+          "arXiv:2210.14546v1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The November 2 record's Finding and assumptions state the same local and aggregate formulas with W, J_t and A=ab in place of Y, T_j and Q.",
+          "The record explicitly gives Cov(W,R)=0 as well."
+        ],
+        "reasoning": "Its W=sum(i*X_i)−a(N+1)/2 equals the frozen Y exactly because sum X_i=a. J_t=T_j, and −ab(ab−1)/(3N)=Q(1−Q)/(3N). This is exact statement equivalence, not an analogy between two rank statistics.",
+        "searches": [
+          "Resultary: Wilcoxon rank sum runs statistic covariance squared rank sum local adjacent change fixed composition binary words",
+          "2026/11/2/SCOPE-exact-squared-rank-sum-and-runs-covariance-under-the-two-sample--50b596d23f6a"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The first indexed record provides the exact laws, not just sample outputs. The second gives a covariance for runs versus a Cramér–von Mises statistic."
+        ],
+        "reasoning": "A numerical table is unnecessary because the database match is a closed-form statement. The other record shares the permutation model and statistic R but not the squared Wilcoxon variable.",
+        "searches": [
+          "2026/11/2/SCOPE-exact-squared-rank-sum-and-runs-covariance-under-the-two-sample--50b596d23f6a",
+          "2026/10/26/SCOPE-exact-negative-runs-cram-r-von-mises-covariance-and-a-universal--44e1e8c41113"
+        ]
+      },
+      "rationale": "A distinct published record gives the identical aggregate and position-resolved laws under the same fixed-composition model and with the same normalization. The extra center/endpoint phase statement is a direct consequence of its explicit quadratic. The comparator is indexed under November 2, later than the frozen record's October 26 path. Exact published coverage is established; historical priority, dependence between records, and who first proved it are not established by this comparison.",
+      "residual_risks": [
+        "The indexed dates alone do not establish historical priority or attribution. Specialized historical joint-law literature was not exhaustively checked."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage of the two moments, with the phase classification an immediate consequence",
+          "evidence": [
+            "Same fixed composition, centered rank sum and transition indicator. Same local formula for N>=4 and aggregate formula for N>=3. The proof uses two-position conditioning and cancellation of the centered quadratic."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-squared-rank-sum-and-runs-covariance-under-the-two-sample--50b596d23f6a/RESULT.md",
+          "material_read": "Finding, Assumptions and scope, and Proof at offset 0, through the small-N treatment",
+          "method": "Published record via local mirror",
+          "title": "Exact squared-rank-sum and runs covariance under the two-sample permutation null",
+          "trigger": "Exact apparent match of both local and aggregate laws"
+        },
+        {
+          "assessment": "Conditions on total run count, not a specified boundary",
+          "evidence": [
+            "States E[U|R]=ab/2 and a parity law for conditional variance."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-a-parity-sawtooth-law-for-conditional-wilcoxon-variance-under-fi--0712c2da4770",
+          "material_read": "Indexed finding and model statement",
+          "method": "Published record comparison",
+          "title": "A parity sawtooth law for conditional Wilcoxon variance under fixed composition",
+          "trigger": "Possibly stronger conditional law"
+        },
+        {
+          "assessment": "Different squared statistic",
+          "evidence": [
+            "The mixed moment is with the Cramér–von Mises discrepancy, not Y²."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-exact-negative-runs-cram-r-von-mises-covariance-and-a-universal--44e1e8c41113",
+          "material_read": "Indexed finding",
+          "method": "Published record comparison",
+          "title": "Exact negative runs–Cramér–von Mises covariance",
+          "trigger": "Same null and mixed covariance terminology"
+        },
+        {
+          "assessment": "Related framework, not the exact mixed law in the passages read",
+          "evidence": [
+            "Section 3.2 gives runs and their marginal law; Section 3.3 treats Mann–Whitney placements and Wilcoxon; Section 4.3 gives generalized label-indicator moments."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2501.10844v1",
+          "material_read": "Sections 3.2, 3.3 and 4.3 (offsets 29700–33348, 39000–46391 and 62800–66397)",
+          "method": "Open-access passage inspection",
+          "title": "The Building Blocks of Classical Nonparametric Two-Sample Testing Procedures: Statistically Equivalent Blocks",
+          "trigger": "Common treatment of runs and Wilcoxon"
+        },
+        {
+          "assessment": "Motivates considering runs without stating this local covariance",
+          "evidence": [
+            "Discusses runs as a test for order-sensitive departures alongside KS."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2210.14546v1",
+          "material_read": "Discussion of order-sensitive tests, offsets 5400–8391",
+          "method": "Open-access passage inspection",
+          "title": "Nonparametric testing via partial sorting",
+          "trigger": "Motivating comparison of tests sensitive to order"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 10–23 and 46–56",
+        "2026/11/2/SCOPE-exact-squared-rank-sum-and-runs-covariance-under-the-two-sample--50b596d23f6a, Finding"
+      ],
+      "rationale": "The statistical interaction is naturally motivated and an exact local covariance would be useful in its own right. However, that exact invariant and the aggregate comparison are already covered. The surviving phase description consists of evaluating the known affine-in-squared-distance profile at its two extremes and taking the roots; it does not establish a further structural result, joint calibration, or other substantive gain. There is no supported nonroutine remainder to repair into a separate finding.",
+      "residual_risks": [
+        "This assesses the incremental mathematical result, not the usefulness of presenting or teaching the spatial interpretation."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

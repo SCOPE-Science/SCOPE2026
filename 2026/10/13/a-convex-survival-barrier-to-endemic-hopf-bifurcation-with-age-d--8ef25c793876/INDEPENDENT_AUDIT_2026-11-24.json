@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:45:22.323911Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 11–70: hypotheses, perturbation equation, curvature measure and resolvent argument",
+        "Frozen VERIFICATION.md and verify.py; the uniform-duration guard checks the law starting at zero; finite numerical runs were not used or re-executed"
+      ],
+      "rationale": "For m=∫F finite and R₀=∫A>1 the constant equilibrium and exact perturbation equation yield H=A/R₀−(R₀−1)F/m and Δ=1−Ĥ. For σ≥0, g=e^(−σa)F is integrable, decreasing and distributionally convex since F′=−K is nondecreasing. Both g and its right derivative tend to zero at infinity, so g(a)=∫(u−a)_+dg′(u). Tonelli gives ∫u² dg′(u)=2∫g<∞, justifying the cosine transform identity with nonnegative integrand (1−cos(ωu))/ω² after integration. The normalized positive A term has real part strictly less than one except at z=0: for σ>0 the maximal weight is attained only at a=0, and for nonzero ω on the axis it is attained only on a null set. At z=0, Δ=R₀−1>0. This establishes strict positivity of the determinant's real part throughout the claimed half-plane. With an exponential moment, monotonicity bounds e^(ηa)F(a) for a≥1 by e^η∫_(a−1)^a e^(ηs)F(s)ds; thus A=βF also has an exponential moment. For bounded real parts the exponentially weighted kernels range over a compact L¹ set, so Riemann–Lebesgue decay is uniform there; large positive real parts give small transform directly by domination. Compactness on the remaining bounded rectangle extends nonvanishing to Re z≥−δ for a sufficiently small δ>0. The weighted causal Wiener criterion then gives an inverse identity plus an L¹(e^(δa)da) resolvent. Splitting at t=0, each G in {H,F,A} contributes a past forcing bounded in weighted sup norm by ||G||_(1,δ)||history||_∞. Causal convolutions have the same operator bound on future perturbations, and the weighted norm of a product is at most the product of weighted norms. The resulting resolvent fixed-point map on a ball of radius proportional to the history size is a contraction for small compatible histories; it gives exponential incidence decay. No decay of the entire past in the unweighted history norm is asserted. The uniform-duration illustration is Uniform[0,T], as confirmed by the supplied cosine check, not a uniform distribution starting at a positive age.",
+      "residual_risks": [
+        "Without an exponential moment only the characteristic-root exclusion is proved, not an exponential rate or a nonlinear global claim.",
+        "Closed-right-half-plane exclusion rules out a classical Hopf crossing; it is not a classification of every form of nonlinear or infinite-memory dynamics."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Nakata–Röst gives local and global endemic stability with constant transmission and a finite maximum infectious period.",
+          "Their discussion cites Gripenberg for a variable-infectivity integral equation with technical assumptions on infectivity and sojourn kernels; the underlying article was not recovered."
+        ],
+        "reasoning": "For zero mortality the first comparison fits the target by taking a constant profile on the support of F and zero outside, which is L¹ for finite support. Its stronger stability conclusion on that case does not extend the infectivity quantifier. The secondary Gripenberg description is too imprecise to decide coverage and is a residual risk.",
+        "searches": [
+          "Nakata–Röst arXiv:1704.04225, Prop. 2, Thm. 8 and discussion",
+          "Gripenberg, On some epidemic models, Quart. Appl. Math. 39, 317–327",
+          "Chen–Yang–Zhang 10.3934/mbe.2014.11.449"
+        ]
+      },
+      "checked_sources": [
+        "Scarabel–Coldwell–Cassidy arXiv:2511.09196",
+        "Nakata–Röst arXiv:1704.04225",
+        "Diekmann–Montijn author preprint 7639D",
+        "Resultary 2026/9/18/SCOPE-two-stage-kernels-close-age-structured-threshold-dynamics--361cf4b95c9f",
+        "Gripenberg and Chen–Yang–Zhang, limited access as specified"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Same-model determinant is already derived in Scarabel et al.; Nakata–Röst's proof specializes to constant transmission. Diekmann–Montijn obtains Fourier-coefficient conditions for crossings of a different determinant."
+        ],
+        "reasoning": "Deriving the determinant, or proving an exclusion for one transmit-profile family, does not yield the required right-half-plane estimate uniform over every admissible profile. The main extra step is to apply classical convex-kernel cosine positivity to the survival term and independently bound the real part of the normalized positive profile. General linearized stability machinery supplies a method once the zero-free region has been proved, not that region itself.",
+        "searches": [
+          "arXiv:2511.09196 Eq. (7), endemic equation and bifurcation discussion",
+          "arXiv:1704.04225 Prop. 2 and Thm. 8",
+          "Diekmann–Montijn author preprint p. 12"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Scarabel et al. pp. 7–9 use the same susceptible balance, A=βF and endemic equation; the checked bifurcation analysis treats selected profiles.",
+          "Diekmann–Montijn uses a different temporary-immunity model with deterministic return time and a finite-support infective-force kernel."
+        ],
+        "reasoning": "The first source covers the model and determinant exactly, not the stated sign for all profiles under nonincreasing K. The second is related by use of Fourier transforms of kernels, not by equivalence of models or the uniform exclusion.",
+        "searches": [
+          "Scarabel–Coldwell–Cassidy arXiv:2511.09196, Eq. (7) and endemic characteristic equation",
+          "Diekmann–Montijn author preprint 7639D, temporary immunity renewal characteristic equation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest checked catalogue statement is for two-stage hypoexponential Gurtin–MacCamy population dynamics reduced to a planar system."
+        ],
+        "reasoning": "The result under review is a continuum-kernel implication rather than a tabulatable parameter value. The closest age-structured catalogue theorem has a different equation, restrictive stage structure and a different dynamical conclusion; it does not give the exact implication for this model.",
+        "searches": [
+          "Resultary: age-dependent renewal endemic spectrum, convex survival sign criterion, nonincreasing residence density",
+          "2026/9/18/SCOPE-two-stage-kernels-close-age-structured-threshold-dynamics--361cf4b95c9f"
+        ]
+      },
+      "rationale": "The closest inspected paper has the identical renewal model and determinant, but its checked analysis does not state this profile-uniform sufficient condition. Earlier constant-transmission results give stronger convergence for a special model, not this quantifier. The Fourier positivity argument for decreasing convex integrable kernels and the causal resolvent method are classical techniques; the supported contribution is the exact application to the endemic determinant for every admissible nonnegative age profile, and the local incidence consequence with light tails. Unavailable sources are reported as limits, not negative evidence.",
+      "residual_risks": [
+        "Gripenberg's exact kernel hypotheses and Chen–Yang–Zhang's full theorem were not recovered; broader coverage may be found there or in other general renewal literature.",
+        "A broader web lookup was unavailable and adds no evidence of noncoverage. The judgment rests on the actual sources compared."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact equation and characteristic relation are prior; no all-profile sign theorem in the inspected analysis",
+          "evidence": "Identifies A=βF and the endemic equation, then uses numerical investigations for the relevant bifurcation cases.",
+          "identifier_or_url": "https://arxiv.org/pdf/2511.09196",
+          "material_read": "Eq. (7) and endemic equation pp. 7–9, offsets 21200–31388; selected bifurcation results pp. 17–18, offsets 54800–61281",
+          "method": "Bounded OA primary PDF passages",
+          "title": "Genuine and spurious bistability in a simple epidemic model with waning immunity",
+          "trigger": "Identical age-dependent renewal system and determinant"
+        },
+        {
+          "assessment": "Stronger convergence in the finite-period, constant-transmission special case",
+          "evidence": "Transmission coefficient is constant and a maximum infectious duration is assumed; the no-mortality case falls in the corresponding part of the frozen model.",
+          "identifier_or_url": "https://arxiv.org/pdf/1704.04225",
+          "material_read": "Model pp. 3–4 offsets 4900–10066, Prop. 2 pp. 6–7 offsets 10700–14949, Thm. 8 pp. 12–13 offsets 21500–26496, discussion pp. 13–14 around offset 26400",
+          "method": "Bounded OA primary PDF passages",
+          "title": "Global stability of an SIS epidemic model with a finite infectious period",
+          "trigger": "Possible stronger stability theorem in overlapping model"
+        },
+        {
+          "assessment": "Different renewal equation and crossing criterion",
+          "evidence": "Assumes deterministic temporary-immunity return and finite-support infective-force kernel; the theorem relates crossings to Fourier coefficients.",
+          "identifier_or_url": "https://ir.cwi.nl/pub/7639/7639D.pdf",
+          "material_read": "Model offsets 1200–6168 and main root-crossing theorem p. 12 near offset 26300",
+          "method": "OA author preprint passages",
+          "title": "Prelude to Hopf bifurcation in an epidemic model",
+          "trigger": "Earlier closely related Fourier analysis of epidemic Volterra roots"
+        },
+        {
+          "assessment": "Plausible unresolved coverage, not a claim of noncoverage",
+          "evidence": "The secondary description reports global-attractivity conditions involving both infectivity and sojourn-time kernels; exact conditions not verified.",
+          "identifier_or_url": "G. Gripenberg, Quarterly of Applied Mathematics 39, 317–327",
+          "material_read": "Citation and description in Nakata–Röst discussion, pp. 13–14; no paper full text",
+          "method": "Citation tracing and bounded lawful AMS issue lookup; full text not recovered",
+          "title": "On some epidemic models",
+          "trigger": "Potentially broader variable-infectivity stability with general kernels"
+        },
+        {
+          "assessment": "Not the same model or theorem",
+          "evidence": "Two-stage hypoexponential Gurtin–MacCamy reduction yields a planar convergence result, not the target endemic spectral sign condition.",
+          "identifier_or_url": "2026/9/18/SCOPE-two-stage-kernels-close-age-structured-threshold-dynamics--361cf4b95c9f",
+          "material_read": "Finding, offset 0",
+          "method": "Bounded local-mirror primary record, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Two-stage kernels close age-structured threshold dynamics",
+          "trigger": "Closest catalogue hit for age-structured kernel stability"
+        },
+        {
+          "assessment": "Wider theorem scope unverified",
+          "evidence": "No paper-level absence claim is made from the frozen description of the SIRS compartment structure.",
+          "identifier_or_url": "10.3934/mbe.2014.11.449",
+          "material_read": "Bibliographic identity and frozen comparison; full text not recovered",
+          "method": "Bounded OA lookup reported no repository copy",
+          "title": "The global stability of an SIRS model with infection age",
+          "trigger": "Cited stability theorem for an infection-age model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md proof and limitations",
+        "Scarabel–Coldwell–Cassidy equation and bifurcation passages",
+        "Nakata–Röst model and stability results"
+      ],
+      "rationale": "A single test on the shape of the survival law replaces a separate search for characteristic roots for each admissible age profile. It gives an analytic boundary for classical endemic Hopf behavior in the same model studied via specific bifurcation examples, and separates the root exclusion from the stronger incidence convergence available only with a tail hypothesis. This usefulness does not depend on a new Fourier or Wiener theorem.",
+      "residual_risks": [
+        "The shape restriction is sufficient only, and neither global convergence nor a converse follows."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

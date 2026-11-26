@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:04:54.067723Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–47; basin_catalog.csv; the three frozen Python scripts inspected without execution",
+        "Independent replay: python3 -B /workspace/checks/majority.py",
+        "Sage reference documentation, GoldnerHararyGraph entry"
+      ],
+      "rationale": "Independently reconstructed the supplied 27-edge graph as the triangle on {1,3,10}, both vertices {4,7} joined to all three, and six degree-three ears, one for each choice of two triangle vertices and one degree-six vertex. Adding a self-vote only at even degree gives exactly the specified strict majority with tie retention, since a one-vote self term cannot overturn a strict open-neighbor majority. Enumerated the 2,048 masked states using that rule. From the states with F²x=x, a reverse-edge breadth-first traversal reaches all states, tracks each eventual basin, and gives first-entry depths with counts (96,742,850,324,36). The only fixed masks are 0 and 2047, each with basin 935; all 49 individual catalog rows agree. The 47 two-cycle basins have sizes 2,6,8 with multiplicities 27,18,2, totaling 178 states. The fractions reduce to 935/1024 and 89/1024. Depth four gives F⁶=F⁴, while the witness 179→119→51→49→0 gives F⁵≠F³. Distinct degrees force automorphisms to preserve the triangle and the pair of degree-six vertices; their independent permutations each extend uniquely because the ears have distinct neighbor triples. Acting on unordered phase pairs gives seven classes of sizes 2,3,6,6,6,12,12, with the two constant masks fixed separately.",
+      "residual_risks": [
+        "All numeric assertions are exhaustive for the explicitly defined labeled edge dictionary. Sage reference documentation corroborates the named graph's order, size and automorphism group, but the upstream constructor source could not be independently read to certify identical labeling. All encoded witnesses here refer to the frozen labels."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The finite symmetric threshold result guarantees eventual period one or two. The broader planar-network study is a Monte Carlo noise-driven phase-transition calculation, not an exact state census."
+        ],
+        "reasoning": "Neither provides an evaluated cutoff of four, how many temporal cycles this graph has or the sizes of their basins; stochastic thermodynamic quantities do not give those deterministic values.",
+        "searches": [
+          "arXiv:1405.2486v1 §1; Goles–Olivos theorem as stated there",
+          "arXiv:1205.5297v1, Abstract and §II"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1405.2486v1",
+        "arXiv:1205.5297v1",
+        "Sage GoldnerHararyGraph documentation",
+        "Resultary d2fd4ae979a1 and identical assigned hit d2be4eef1fc9"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The period restriction broadly covers the possible eventual cycle lengths, not the number or weights of the cycles. The closest separate exact named-graph census uses different adjacency."
+        ],
+        "reasoning": "The graph adjacency determines but does not itself evaluate this exact invariant; a graph-specific state enumeration and permutation analysis are still necessary. None of the compared statements implies the stated numerical or orbit data as an evaluated specialization.",
+        "searches": [
+          "arXiv:1405.2486v1 §1",
+          "arXiv:1205.5297v1 §II",
+          "Resultary d2fd4ae979a1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Benjamini et al. definition synchronously uses open-neighbor majority and retains at ties. The local finite rule is equivalently strict odd-size majority with self counted just at even degree. Lima et al. instead use a stochastic single-spin flip-attempt process."
+        ],
+        "reasoning": "The deterministic model agrees up to vote encoding with the general period theorem. Apollonian-network ancestry of the underlying graph does not make a different stochastic asynchronous model equivalent.",
+        "searches": [
+          "Goldner–Harary spelling variants, attractor and basin census, tie-retaining synchronous majority dynamics",
+          "arXiv:1405.2486v1, §1",
+          "arXiv:1205.5297v1, §II"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact catalogue hit d2be4eef1fc9 is this frozen record. The closest distinct record tabulates the Herschel graph, which has the same vertex count but only 18 edges, with 20 fixed states, 61 two-cycles and a six-step cutoff. Sage lists graph and automorphism invariants, not dynamical basin counts."
+        ],
+        "reasoning": "The distinct table corresponds to a nonisomorphic graph and hence is not a tabulation of these states. No matching evaluated table was located in the bounded comparisons.",
+        "searches": [
+          "Resultary: Goldner–Harary exact synchronous majority attractors and basin census",
+          "Sage reference GoldnerHararyGraph entry",
+          "Resultary d2fd4ae979a1, original Finding and Assumptions"
+        ]
+      },
+      "rationale": "The general period-at-most-two result and the named graph are established. The distinct contribution is the exact evaluated census, including individual basins, sharp entry time and graph-automorphism classes for this explicit deterministic system. The checked deterministic prior work does not tabulate this graph, and the superficially related Apollonian majority-vote study has a different update law and different observables. No inspected result supplies this full graph-specific classification.",
+      "residual_risks": [
+        "An unindexed exact computation or archive may contain an equivalent census. Unavailable primary text or source-code retrieval does not establish absence of relevant results.",
+        "Same-day catalogue dates do not settle priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers eventual periods but not the evaluated Goldner–Harary census",
+          "evidence": [
+            "It describes retention in a tie and states the classical finite theorem attributed to Goles–Olivos."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1405.2486v1",
+          "material_read": "§1 definition and finite period-two theorem, offsets 1900–5474",
+          "method": "OA full-text passage",
+          "title": "Convergence, unanimity and disagreement in majority dynamics on unimodular graphs and random graphs",
+          "trigger": "Exact synchronous majority rule and possible general theorem covering the finite dynamics"
+        },
+        {
+          "assessment": "Not a full-text comparison; the general theorem is credited via its explicit restatement",
+          "evidence": [
+            "The accessible restatement specifies period at most two for the finite model, not graph-specific basin data."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/0166-218X(81)90034-2",
+          "material_read": "DOI landing page only; theorem checked in Benjamini et al. §1",
+          "method": "Lawful OA lookup; article text unavailable in this attempt",
+          "title": "Comportement périodique des fonctions à seuil binaires et applications",
+          "trigger": "Original finite period theorem"
+        },
+        {
+          "assessment": "Different stochastic process and observables",
+          "evidence": [
+            "The model includes noise in attempted spin flips and uses Monte Carlo estimates of a phase transition."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1205.5297v1",
+          "material_read": "Abstract and §II Model and simulation, offsets 0–6486",
+          "method": "OA full-text passages",
+          "title": "Non-equilibrium model on Apollonian networks",
+          "trigger": "Majority vote on a network family containing the graph construction type"
+        },
+        {
+          "assessment": "Corroborates graph invariants; does not, by itself, certify the specific label dictionary",
+          "evidence": [
+            "The entry gives 11 vertices, 27 edges and automorphism group D₆ of order 12."
+          ],
+          "identifier_or_url": "https://doc.sagemath.org/html/en/reference/graphs/sage/graphs/generators/smallgraphs.html",
+          "material_read": "Named constructor documentation, offsets 39100–41599; upstream code text not available from the attempted source copies",
+          "method": "OA website passage and bounded source retrieval attempts",
+          "title": "Sage reference, GoldnerHararyGraph",
+          "trigger": "Check graph name, structural invariants, and explicit labeling in the cited constructor"
+        },
+        {
+          "assessment": "Closely analogous computation on a different named graph",
+          "evidence": [
+            "The Herschel graph there has 18 edges and a substantially different fixed-point, time and basin census."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-exact-majority-attractor-basins-and-a-six-update-clock-on-the-he--d2fd4ae979a1",
+          "material_read": "Original Finding and Assumptions",
+          "method": "OA local Resultary mirror",
+          "title": "Exact majority attractor basins and a six-update clock on the Herschel graph",
+          "trigger": "Closest distinct exact finite census with same rule and vertex count"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–23",
+        "Independent replay of every state, basin row and spatial orbit",
+        "arXiv:1405.2486v1, §1"
+      ],
+      "rationale": "The input is a canonical small maximal planar graph, not an arbitrary selected mask or subgraph. The exact census quantifies two different aspects of stabilization on it: very many periodic attractors (47 against two fixed points) despite only 89/1024 of initial states entering any such attractor. The sharp stopping time, catalog and symmetry reduction are useful for exact comparison of dynamics on other named networks or validation of finite majority algorithms. The result is a complete finite invariant, not a claim about consensus on planar graphs generally.",
+      "residual_risks": [
+        "The measurements pertain only to the prescribed graph, update rule and uniform initial states; they do not establish a broader law."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

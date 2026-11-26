@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T17:20:38.374630Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md proof and hypotheses; VERIFICATION.md and VERIFY.py inspected",
+        "Fresh replay: python3 /tmp/opencode/reproduce_quadrics.py; direct quotient map, ordinary modular rank, full three-plane histogram, and generated-four-flat census",
+        "Costoya–Fernández Ouaridi–Viruel arXiv:2609.32784v1, unital Waring identification on p. 14"
+      ],
+      "rationale": "Multiplication modulo t⁴ gives the four stated independent formal quadrics. Expanding the eight displayed squares gives all four targets, and distinct cross terms followed by pure squares show the eight are independent. Formal polynomial equality is appropriate; no monomial has a variable degree reaching 3, so evaluation also separates the polynomials. Nonzero linear forms give 40 projective squares. If seven squares span a space containing S, their quotient images have dimension at most three; extending to a three-plane forces the span of all squares lying over it to meet S in dimension four. My exact replay computed the full 33,880-three-plane intersection histogram (31,905, 1,830, 145, 0 for dimensions 1–4), ruling this out. An eight-dimensional support containing S is the whole inverse image of its four-plane W, and is square-generated iff its squares have rank eight. For an independent census I generated only W spanned by four independent quotient images of squares (6,654 distinct flats), since every eligible W must have a basis of such images. The rank-eight cases were 243 with 10 squares and 9 with 16, totaling 252 without repetitions. The unital, characteristic-not-two result of Costoya–Fernández Ouaridi–Viruel identifies the verified rank with evolution dimension. By polarization it is also the symmetric bilinear rank of multiplication, not necessarily the unrestricted bilinear rank.",
+      "residual_risks": [
+        "The census is over this one field and formal coefficient space; it does not count optimal ordered algorithms, embeddings, or isomorphism classes of envelopes."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Remark 5.4 specifies rank greater than seven for F₃ and length four. Theorem 5.6 requires at least seven distinct scalars here, which F₃ lacks. Randriambololona treats the relevant algebra family and gives interpolation bounds, including a symmetric version when the interpolants coincide."
+        ],
+        "reasoning": "The known lower bound supplies one side of the rank result; the field-size theorem does not specialize to this parameter. A construction or rank bound does not enumerate all spans of optimal symmetric algorithms. Winograd's full-text coverage is unresolved.",
+        "searches": [
+          "Costoya–Fernández Ouaridi–Viruel arXiv:2609.32784v1 Remark 5.4 and Theorem 5.6; Randriambololona arXiv:1107.0336v5 Theorem 3.5; Winograd DOI 10.1007/BF01683270"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.32784v1, 1601.00126v2, 1107.0336v5; Resultary 3d1f53f6c678; access-limited leads listed above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known lower bound plus the explicit eight-square identity transmits the rank, and the later exact result already has a minimality certificate. Neither yields the number of four-planes whose full inverse images are spanned by squares or their 10-versus-16 incidence split."
+        ],
+        "reasoning": "Optimality proves a nonempty family of rank-eight supports, not its cardinality. Enumerating generated four-flats and measuring the quadratic span and point count requires additional work on the finite configuration.",
+        "searches": [
+          "Comparison of Costoya et al. Remark 5.4, Resultary 3d1f53f6c678, and the frozen eight-dimensional support condition"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Polarization identifies the Waring rank here with multiplication's symmetric rank. Ballet–Pieltant–Rambaud–Sijsling explicitly distinguish symmetric and unrestricted complexity and discuss truncated-polynomial algebras."
+        ],
+        "reasoning": "An equivalent symmetric-rank result for this local algebra would cover the numerical rank even if described as a multiplication algorithm. Irreducible field extensions and the nonsymmetric minimization are different comparisons; a verified unrestricted rank lower bound could constrain the symmetric rank, but an unrestricted upper bound need not do so.",
+        "searches": [
+          "Resultary and primary literature under F₃[t]/(t⁴), length-four truncated polynomial algebra, evolution-envelope dimension, simultaneous Waring rank, symmetric multiplication complexity; arXiv:1601.00126v2 §§1.1–1.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 3d1f53f6c678 explicitly states rank and evolution dimension eight for this algebra; its inspected witness and 4,420-three-flat minimality certificate lack the 252/243/9 census. The field-extension values on p. 4 of arXiv:1601.00126v2 are for other algebras."
+        ],
+        "reasoning": "The catalogue rank is a demonstrable exact overlap, not merely a coincident value; its later date does not establish all historical priority questions. The inspected tables and entry do not supply the complete incidence census for this support space.",
+        "searches": [
+          "Resultary for the F₃ length-four rank-eight threshold and optimal square supports; neighboring exact symmetric-complexity values in arXiv:1601.00126v2"
+        ]
+      },
+      "rationale": "The complete 252-space incidence census is the supported distinct contribution. The lower bound greater than seven is already in Costoya–Fernández Ouaridi–Viruel, and the exact rank eight has direct overlap with a later Resultary entry. The scalar rank alone is not the basis of the originality decision.",
+      "residual_risks": [
+        "Older symmetric multiplication classifications or unindexed tables may contain related or equivalent parameter counts. The documented exact rank overlap is separated from the distinct census; no global priority claim is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the Waring link and exact-field lower bound, not the rank-eight upper bound or support census in the cited results.",
+          "evidence": "Remark 5.4 gives wr(H₄)>7 over F₃; Theorem 5.6 is for fields with at least 2n−1 distinct scalars.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.32784v1",
+          "material_read": "Remark 5.4, p. 13; unital Waring identification and Theorem 5.6, p. 14",
+          "method": "OA PDF passages",
+          "title": "Commutative algebras are ideals of evolution algebras",
+          "trigger": "Same local algebra and exact exceptional field"
+        },
+        {
+          "assessment": "Direct numerical overlap in a later entry, not the support census.",
+          "evidence": "Rank and evolution dimension eight; a different explicit witness and a certificate on 4,420 generated three-planes.",
+          "identifier_or_url": "2026/11/2/SCOPE-the-eight-square-evolution-envelope-threshold-for-mathbb-f-3-t-t--3d1f53f6c678",
+          "material_read": "RESULT.md Finding and witness/minimality proof passages",
+          "method": "Local Resultary mirror",
+          "title": "The eight-square evolution-envelope threshold for F₃[t]/(t⁴)",
+          "trigger": "Exact same rank and algebra"
+        },
+        {
+          "assessment": "Distinguishes minimizations; nearby degree-four field-extension numbers do not apply to this local algebra.",
+          "evidence": "The exact degree-four values shown include μ₂^sym(4)=9 and μ₄^sym(4)=μ₅^sym(4)=8 for field extensions.",
+          "identifier_or_url": "https://arxiv.org/abs/1601.00126v2",
+          "material_read": "§§1.1–1.2, pp. 1–2; truncated algebra definitions and nearest tables, pp. 3–4",
+          "method": "OA PDF passages",
+          "title": "On the symmetric bilinear complexity of multiplication in finite fields",
+          "trigger": "Plausible exact ranks and symmetric truncated-polynomial algorithms"
+        },
+        {
+          "assessment": "General complexity estimates and construction, not a full optimal support classification.",
+          "evidence": "μ_q(m,ℓ) concerns F_(q^m)[t]/(t^ℓ); symmetric case of the interpolation inequalities when D₁=D₂.",
+          "identifier_or_url": "https://arxiv.org/abs/1107.0336v5",
+          "material_read": "pp. 3 and 19–20; definition and Theorem 3.5",
+          "method": "OA PDF passages",
+          "title": "Bilinear complexity of algebras and the Chudnovsky–Chudnovsky interpolation method",
+          "trigger": "General multiplication-algorithm framework covering the algebra family"
+        },
+        {
+          "assessment": "Precise coverage unresolved.",
+          "evidence": "DOI and bibliographic description, not a full-text finding.",
+          "identifier_or_url": "https://doi.org/10.1007/BF01683270",
+          "material_read": "Bibliographic lead only; original unavailable",
+          "method": "Bounded OA retrieval attempt",
+          "title": "Some bilinear forms whose multiplicative complexity depends on the field of constants",
+          "trigger": "Classical small-field multiplication overlap"
+        },
+        {
+          "assessment": "Title does not settle coverage.",
+          "evidence": "Search hit and PII; no original result passage inspected.",
+          "identifier_or_url": "ScienceDirect PII 0196677484900142",
+          "material_read": "Bibliographic lead only",
+          "method": "OA retrieval attempt returned 403",
+          "title": "On symmetric algorithms for bilinear forms over finite fields",
+          "trigger": "Potential exact optimal symmetric algorithms"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Costoya et al. Remark 5.4 and Theorem 5.6; RESULT.md Optimal quadratic-support census; reproduced incidence histogram"
+      ],
+      "rationale": "This is the explicit small-field exception in the motivating interpolation theorem, not a chosen numerical slice without context. Beyond the short upper-bound decomposition, the complete incidence split describes every possible optimal support for a natural local algebra and exposes two different numbers of available projective squares within those supports. It can inform the separate classification of optimal decompositions without pretending that the subspaces are inequivalent envelopes.",
+      "residual_risks": [
+        "One algebra and one coefficient field; orbit or isomorphism classification remains beyond the result."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

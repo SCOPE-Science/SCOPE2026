@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:32:40.641146Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–91; independent clock, cumulant and tilt calculations",
+        "Frozen VERIFICATION.md and verify.py (inspected, not executed; diagnostics only)"
+      ],
+      "rationale": "In a two-sided stationary Poisson construction, the elapsed interval and earlier inter-reset intervals are iid exponentials; independent Brownian increments over them are iid Laplace with scale ℓ=√(D/r). Successive contractions give the stated weighted sum. Its variances are summable and identical-noise coupling contracts any initial difference by a raised to the number of resets, giving uniqueness. Writing w=ℓ²θ², the log product is ∑_{k≥1}w^k/[k(1−e^{−2εk})]; expanding the reciprocal as (2εk)⁻¹+1/2+O(εk), with the error bound valid also for large εk, gives Λ/ε−(1/2)log(1−w)+O(ε) with interior derivatives. At θ_y the tilted mean differs from y/ε by O(1). The tilted Laplace factors after centering and √ε scaling have product modulus bounded by (1+cεt²)^−⌊1/ε⌋, c=ℓ²e⁻². On |t|≤ε⁻¹/² this is bounded by an integrable Gaussian; outside, its integral is bounded by ε⁻¹/²(1+c)^−(⌊1/ε⌋−1) times the integral of (1+cu²)^−1. The characteristic-function limit thus gives uniform density convergence. Integrating the tilted density against e^−θ_y u for overshoot u≥0 gives √ε/[θ_y√(2πΛ″)], and exponentiating the order-one cumulant gives the stated boundary multiplier. For the full LDP, Λ is strictly convex and steep, local lower bounds follow by interior tilts and concentration, and Markov bounds and exponential tightness give the full upper bound. Near zero the quartic cumulant gives the stated negative quartic correction. At large y, 1−(ℓθ_y)²=e^−θ_y y gives y(1/ℓ−θ_y)→0 and Λ→π²/12, proving the claimed intercept.",
+      "residual_risks": [
+        "Relative asymptotic for fixed finite y>0 and fixed ℓ>0, not a crossover uniform in y or a fixed-contraction spatial tail."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Thm. 4.3 gives exp(−t_n F(x)) ψ(h)/[h√(2πt_n η″(h))] times 1+o(1) under nonlattice mod-φ convergence on a strip containing zero, with η′(h)=x.",
+          "Lemma 2.1 with m=1, ν=−1 and its small parameter equal to 2ε gives log(w;e^−2ε)_∞=−Li₂(w)/(2ε)+(1/2)log(1−w)+O(ε) for |w|<1."
+        ],
+        "reasoning": "The generic result has the exact sharp shape including the residual transform; the q-product expansion determines that transform explicitly, not merely its exponential order. The interior strip and nonlattice hypotheses are checked below.",
+        "searches": [
+          "Féray–Méliot–Nikeghbali arXiv:1304.2934v4 Sec. 4.2, Thm. 4.3, with Def. 1.1",
+          "Garoufalidis–Zagier arXiv:1812.07690 Lemma 2.1, Eq. 4"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2205.03363",
+        "arXiv:2406.08387",
+        "arXiv:1304.2934v4",
+        "arXiv:1812.07690",
+        "Resultary e56c39b9e83a, 1d7c3b0372cd, efe3b78806cd"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "With w=ℓ²z² and q=e^−2ε the stationary MGF is (w;q)_∞⁻¹. The published product asymptotic supplies η(z)=Li₂(ℓ²z²)/2 and ψ(z)=(1−ℓ²z²)^−1/2.",
+          "The log-product expansion is locally uniform on |Re z|<1/ℓ by the same trapezoidal estimate: 1−ℓ²z²e^−2u has positive real part and the u derivatives decay integrably uniformly on strip-compacts. The real limiting law is nonlattice and infinitely divisible: for every s>0 exp(sεK_ε(it)) is a characteristic function (each Laplace factor raised to a positive real power is a bilateral gamma characteristic function), and tends to the continuous exp(sη(it)); |exp(η(it))|<1 for nonzero real t by the strictly negative integral of log(1+ℓ²t²e^−2u) with a minus sign."
+        ],
+        "reasoning": "Apply Thm. 4.3 along any ε_n↓0 with t_n=1/ε_n, X_n=X_{ε_n}, x=y, h=θ_y, F=I_ℓ. Since η′(0)=0 and η′ tends to infinity at the right endpoint, every fixed y>0 qualifies. The theorem yields the frozen formula in full including its endpoint factor, and symmetry yields the left tail. The checks of the strip and reference law use elementary properties of the already published product and require no new sharp-deviation theorem or model-specific estimate beyond the product asymptotic.",
+        "searches": [
+          "arXiv:2205.03363 Eqs. 5–8",
+          "arXiv:1812.07690 Lemma 2.1",
+          "arXiv:1304.2934v4 Thm. 4.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Nov. 2 record 1d7c3b0372cd chooses −log(a²)=2ε, so its scaled variable is twice the one under review and its speed is half; converting both yields the same LDP.",
+          "Tal-Friedman et al. Eq. 5 is the stationary Fourier product and Eqs. 6–8 give the independent scaled Laplace representation. Biroli et al. treat the exact stationary density and the spatial tail at fixed contraction."
+        ],
+        "reasoning": "The change of parameter does not create a new rate function. The fixed-contraction spatial asymptotic in Biroli is a different limit and is not used to infer the sharp joint-scaling tail. The prior Tal-Friedman product is exactly the reciprocal q-Pochhammer after passing to the MGF.",
+        "searches": [
+          "Resultary e56c39b9e83a, 1d7c3b0372cd, efe3b78806cd",
+          "arXiv:2205.03363 Sec. II, Eqs. 5–8",
+          "arXiv:2406.08387 Eqs. 17–18"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Oct. 27 record explicitly excludes probability prefactors in its Limitations (RESULT.md offset 10568). Both Nov. 2 Findings include a dilogarithmic LDP, with efe3b78806cd also addressing a diffusion-approximation tail gap; neither inspected Finding gives this sharp coefficient."
+        ],
+        "reasoning": "These are relevant exact-function antecedents, not evidence of a previously printed prefactor. A numerical table would not settle an identity of tail equivalents for all fixed y.",
+        "searches": [
+          "Resultary weak proportional-reset rare-displacement and weak partial-reset dilogarithmic LDP results: e56c39b9e83a, 1d7c3b0372cd, efe3b78806cd"
+        ]
+      },
+      "rationale": "The LDP and dilogarithm were already stated for this model in Resultary. The remaining sharp equivalent is covered by the published stationary product, the standard asymptotic of that same q-product including the endpoint term, and the prior nonlattice mod-φ theorem. The applicability and substitutions below yield exactly the claimed multiplier, not just the rate or an unspecified prefactor. This is prior implication, not a claim that the exact reset-tail formula was previously printed verbatim.",
+      "residual_risks": [
+        "No claim about who first printed the sharp probability in exactly these variables. The decision rests on a verified implication, not on search silence or failed retrieval of other reset papers."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies exact starting law and scale",
+          "evidence": "∏ r/(r+Dk²a^{2j}); independent Laplace terms with variances 2Da^{2j}/r.",
+          "identifier_or_url": "https://arxiv.org/html/2205.03363",
+          "material_read": "Sec. II, Eqs. 5–8, HTML offset 10730",
+          "method": "Lawful arXiv HTML",
+          "title": "Diffusion with Partial Resetting",
+          "trigger": "Prior exact stationary transform for the same model"
+        },
+        {
+          "assessment": "Exact stationary law and distinct fixed-a limit",
+          "evidence": "Eq. 17 is a sum of exponentials; Eq. 18 retains the slowest exponential as |x|→∞ at given a.",
+          "identifier_or_url": "https://arxiv.org/html/2406.08387",
+          "material_read": "Eqs. 15–18 and ensuing asymptotic discussion, HTML offset 18100",
+          "method": "Lawful arXiv HTML",
+          "title": "Resetting by rescaling: exact results for a diffusing particle in one-dimension",
+          "trigger": "Same model and exact tails"
+        },
+        {
+          "assessment": "Supplies the sharp tail equivalent on an interior strip",
+          "evidence": "Explicit residual multiplier ψ(h)/(h√(2πt_nη″(h))).",
+          "identifier_or_url": "https://arxiv.org/html/1304.2934",
+          "material_read": "Sec. 4.2, Theorem 4.3 and Remarks 4.4–4.6, HTML offset 101300; Definition 1.1 strip locator",
+          "method": "Lawful arXiv HTML",
+          "title": "Mod-φ convergence I: Normality zones and precise deviations",
+          "trigger": "Prior potentially dominating nonlattice precise-deviation theorem"
+        },
+        {
+          "assessment": "Gives both displayed cumulant terms in the positive-q specialization",
+          "evidence": "m=1 and ν=−1 reduce the input to (w;q)_∞ with leading −Li₂(w)/(2ε) and order-one +(1/2)log(1−w).",
+          "identifier_or_url": "https://arxiv.org/html/1812.07690",
+          "material_read": "Lemma 2.1, Eqs. 4–5, HTML offset 6900",
+          "method": "Lawful arXiv HTML",
+          "title": "Asymptotics of Nahm sums at roots of unity",
+          "trigger": "The same q-Pochhammer endpoint multiplier"
+        },
+        {
+          "assessment": "Prior rate coverage; no exact printed prefactor in inspected passages",
+          "evidence": "The earliest explicitly excludes prefactors; the two later entries state LDPs, one with ε defined as −log(a²).",
+          "identifier_or_url": "Resultary e56c39b9e83a; 1d7c3b0372cd; efe3b78806cd",
+          "material_read": "First record's Limitations; Findings of the two Nov. 2 records",
+          "method": "Local Resultary mirror",
+          "title": "Dilogarithmic rare-displacement law and two stationary weak-reset LDP comparisons",
+          "trigger": "Exact same-model rate-level overlaps"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–41 and 97–103; exact implications in the originality assessment"
+      ],
+      "rationale": "The fixed-y coefficient is physically meaningful, but the frozen contribution combines a known stationary transform, its standard q-product asymptotic, and a precise-deviation theorem that already yields the full coefficient in this regime. The LDP is also covered. A self-contained derivation is useful exposition, but no further regime or nonroutine mathematical gap is closed by the stated claim.",
+      "residual_risks": [
+        "This does not evaluate a uniform crossover or another sharp regime not claimed in the record."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

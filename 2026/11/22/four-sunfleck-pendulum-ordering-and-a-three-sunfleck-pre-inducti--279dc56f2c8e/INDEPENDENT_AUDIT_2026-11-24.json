@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:02:26.542317Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–74; VERIFICATION.md; inspected verify.py without running it",
+        "Independent replay: python3 -B /workspace/branches/audit-replay/sunfleck.py (SymPy for polynomial identities; exact fractions for permutations)"
+      ],
+      "rationale": "Integrating light-phase induction gives the stated loss term and the dark interval multiplies induction by q. Thus the carry score Σu_i x_i differs from the reported score by the fixed sum of increments. Independent polynomial expansion verified all three three-fleck and all five four-fleck swap identities and four-fleck reversal. With three flecks the last-pair swap is strict unless the larger is second, leaving (a,c,b), (b,c,a), (c,b,a). The first two tie at zero; otherwise (b,c,a) beats its reversal. The remaining leading-pair comparison changes sign exactly at s=qa, where the tie is (b,c,a) with (c,b,a), not the reversal pair. With four flecks the strict signs of the four end–middle swaps force the two ends to be the smaller pair. The middle swap requires (A−D)(B−C)>0 and leaves just the two mutually reversed orders, which tie. This proves sufficiency because a maximum exists. Exact enumeration of 630 independent rational permutation families, including s=qa, s=0 and s=1, and the exact Q example corroborated the all-real algebra.",
+      "residual_risks": [
+        "Strictly distinct positive increments and q strictly between 0 and 1 are needed for the strict comparisons; four-fleck result assumes s=0. An unequal gap, a dark reward or a terminal reward changes the comparison."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Burgess et al. explicitly use exponentially weighted light history for low-to-high transitions and study an eight-stage irradiance motif. Full texts of the specified Retkute and Durand articles were not retrieved via DOI or Europe PMC attempts."
+        ],
+        "reasoning": "Modeling memory and responses to a specified motif does not itself solve a fixed-multiset permutation problem; the inspected analysis does not establish the stated ranking under the frozen equal-gap assumptions.",
+        "searches": [
+          "Burgess et al. DOI 10.3389/fpls.2023.1116367, §§2.6, 3.4",
+          "Retkute et al. 10.1093/jxb/erv055; Durand et al. 10.1111/nph.18222"
+        ]
+      },
+      "checked_sources": [
+        "OEIS A101986",
+        "Burgess et al. 2023 §§2.6, 3.4",
+        "Local Resultary c427f3833ad3",
+        "Cited Retkute and Durand access attempts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The OEIS objective has no state carried through a nonadjacent pair. Related physiology results address response history, and the shade-gap theorem varies h rather than permuting a fixed multiset."
+        ],
+        "reasoning": "Even if the same four-order pair wins for adjacent-only products, this implies only a limiting comparison and, for strictly separated scores, persistence near q=0. Extending it to all q and proving the nonzero-s switch require the new exchange identities.",
+        "searches": [
+          "A101986 comments on adjacent-products pendulum",
+          "Burgess et al. §3.4; local Resultary shade-gap finding c427f3833ad3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A101986 gives a pendulum construction for the successive-pair product objective, including four items; no applicable dominating theorem emerged in the bounded search."
+        ],
+        "reasoning": "Q/q tends to the adjacent-product objective as q tends to zero, but its nonadjacent terms depend on which increments are between the endpoints. A ranking of the leading term does not give all-q rankings or the switch.",
+        "searches": [
+          "OEIS A101986 successive-pair products",
+          "Literature search for a stronger general pendulum rearrangement on adjacent and attenuation-weighted products"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The top Resultary hit is the identical frozen item. The distinct indexed shade-gap result optimizes a variable gap between two identical fixed-length flecks, with photodamage. OEIS is an adjacent-only exact sequence, not an all-retention table."
+        ],
+        "reasoning": "Neither the different fixed-duration problem nor the adjacent-only catalogue entry provides the exact maximizing sets across the stipulated parameter domain.",
+        "searches": [
+          "OEIS A101986 entry and construction comments",
+          "Resultary local index, records 279dc56f2c8e and c427f3833ad3"
+        ]
+      },
+      "rationale": "The distinctly supported statements are the exact three-fleck switch including tie cases and the all-q four-fleck ordering in the specified scalar model. Neither exponential light memory nor the adjacent-product pendulum pattern is claimed new.",
+      "residual_risks": [
+        "Earlier empirical or modeling papers, including Retkute, Durand, Jackson and Pons, were not all available in primary full text.",
+        "The bounded rearrangement search does not rule out an unindexed stronger theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Genuine limiting objective precedent, not all-q coverage",
+          "evidence": "The listed construction concerns adjacent products only and permutations of consecutive integers.",
+          "identifier_or_url": "https://oeis.org/A101986",
+          "material_read": "Entry and comments (offsets 137 and about 700–1300)",
+          "method": "OA website text",
+          "title": "A101986: Maximum sum of products of successive pairs in a permutation of order n+1",
+          "trigger": "Same pendulum structure and four-item example"
+        },
+        {
+          "assessment": "Substantial model precedent with different transition assumptions and no stated permutation classification in inspected sections",
+          "evidence": "§2.6 credits Retkute et al. for fading memory; §3.4 varies genotype response across a specified irradiance motif.",
+          "identifier_or_url": "https://doi.org/10.3389/fpls.2023.1116367",
+          "material_read": "§2.6 p.5, §3.4 p.6 (PDF text offsets about 31000 and 38713)",
+          "method": "OA full PDF bounded passages",
+          "title": "Burgess, Retkute and Murchie, photosynthetic entrainment in fluctuating light",
+          "trigger": "Exponential light history and multistage response"
+        },
+        {
+          "assessment": "Different variational parameter and state model, regardless of same-day ordering",
+          "evidence": "Two identical fixed-length flecks with a variable intervening gap and two state variables.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-shade-gap-transition-for-two-sunflecks-with-induction-an--c427f3833ad3",
+          "material_read": "RESULT.md Finding and Assumptions, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "A sharp shade-gap transition for two sunflecks with induction and photodamage",
+          "trigger": "Same setting and exact transition claim"
+        },
+        {
+          "assessment": "Independent priority comparison limited for this source",
+          "evidence": "The retrieved attribution concerns the memory mechanism, not an exact permutation result; the primary paper was not excluded wholesale.",
+          "identifier_or_url": "https://doi.org/10.1093/jxb/erv055",
+          "material_read": "Burgess §2.6 attribution; no original full-text passage obtained",
+          "method": "DOI and identified Europe PMC route attempted (403)",
+          "title": "Retkute et al., Exploiting heterogeneous environments",
+          "trigger": "Earlier fading-memory model explicitly credited by Burgess"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen model and exact witness; prior fading-memory context in Burgess et al. §2.6 and limiting objective in A101986"
+      ],
+      "rationale": "With total light time and durations held fixed, state carryover alone changes modeled carbon gain. The exact three-fleck threshold isolates when pre-induction reverses the ordering incentive, and the four-fleck theorem proves a uniform ranking despite varying physical time constants and nonadjacent memory. Together they give interpretable exact benchmarks rather than a sampled optimal schedule.",
+      "residual_risks": [
+        "A scalar theoretical benchmark, not a calibrated multi-state or field recommendation."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:41:22.884837Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The three distinct proper positive divisors of an odd instance are odd, so sigma(n) is odd and every prime exponent is even. For n=p²q²r², bound the sum of d_i/n by taking the reciprocals of the three smallest distinct divisors greater than one. The ordered denominators are bounded below respectively by (7,11,13) when p≥7, by (5,7,13) when p=5 and r≥13, and by (3,9,37) when p=3 and q≥37. Exact rational substitution gives all three strict exclusions. The remaining q-list for p=3 is exhaustive and every signature selection gives a genuine polynomial identity A r²−B r−C=0 with B,C>0. An independent exact enumeration found the positive integral roots by checking the divisors of C, since r must divide C. It reproduced 23,400 selections, 22,620 positive leading coefficients, 57 square discriminants and all nine integral roots r>q; precisely four roots counted with signature multiplicity are prime. Trial-divisor enumeration also gives exactly the two triples for 27225 and one each for 38025 and 53361, and no triple of sum 61,439 for the sole residual case 148225. This is an all-prime classification because the reduction to finitely many polynomials did not bound r empirically. The multiplicity-six equivalent formulation is restricted to odd exactly 3-deficient-perfect integers with three distinct prime factors.",
+      "replay": "python3 /workspace/branches/independent_replay.py 1",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Aursukaree–Pongsriiam classify odds with at most two prime factors and obtain 1521 only. Their finite small-prime bounds are within that support.",
+          "The closest inspected catalogue record gives 130,154,170,182,290,434 for even squarefree n=2pq and explicitly excludes nonsquarefree n."
+        ],
+        "reasoning": "Neither support restriction includes any of the present odd three-prime squares.",
+        "searches": [
+          "arXiv:2001.06953v1, Theorem 2.3 and its prime bounds",
+          "SCOPE squarefree three-prime exactly 3-deficient-perfect numbers, suffix ab05cf25cba0"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, and VERIFY.py (read only)",
+        "arXiv:2001.06953v1",
+        "DOI:10.1017/S0004972714000082",
+        "OEIS A331629 and b-file",
+        "Resultary record ab05cf25cba0"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The two-prime theorem applies only on smaller support, the squarefree theorem only to n=2pq, and the table is bounded by its listed entries."
+        ],
+        "reasoning": "No inspected stronger result supplies the needed exclusion of arbitrarily large third primes or the four-witness completeness. Parity alone only singles out the exponent layer.",
+        "searches": [
+          "arXiv:2001.06953v1",
+          "SCOPE record ab05cf25cba0",
+          "OEIS A331629 b-file"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Aursukaree–Pongsriiam use the same exactly-three divisor equation and already establish the odd-square lemma.",
+          "Tang–Feng use one missing divisor; their nonexistence theorem with three odd prime factors is for a different equation."
+        ],
+        "reasoning": "At odd n, the first possible multiplicity with three distinct primes is six by the known parity argument. Exactly three deficient divisors is not equivalent to deficient-perfect with one missing divisor.",
+        "searches": [
+          "Resultary: odd exactly 3-deficient-perfect prime squares and three-prime support",
+          "arXiv:2001.06953v1, Lemma 2.1 and Theorem 2.3",
+          "DOI:10.1017/S0004972714000082"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The b-file lists 27225 at index 127, 38025 at 148 and 53361 at 173 among 1,000 entries. The database equation is the same; its integer list is not a table of all deficient-divisor triples."
+        ],
+        "reasoning": "This establishes exact example overlap, not that there are no later members of that family, nor all witness multiplicities.",
+        "searches": [
+          "OEIS A331629",
+          "https://oeis.org/A331629/b331629.txt"
+        ]
+      },
+      "rationale": "The parity lemma and the three numerical examples are not credited as distinct. The supported distinct result is the unconditional completeness in the odd p²q²r² layer, including every divisor triple, not the first listing of these integers.",
+      "residual_risks": [
+        "Bounded literature comparisons and a live OEIS file do not establish priority or rule out an unindexed complete classification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers odd-square lemma and at most two primes, not three-prime squares",
+          "evidence": "The only odd instance with at most two distinct primes is 1521; the bound involving 79 is in the two-prime proof.",
+          "identifier_or_url": "https://arxiv.org/pdf/2001.06953v1",
+          "material_read": "Abstract, pp. 2–3 Lemma 2.1 and Theorem 2.3 with prime bounds (offsets about 6400–10000)",
+          "method": "Bounded open PDF inspection",
+          "title": "On Exactly 3-Deficient-Perfect Numbers",
+          "trigger": "Same divisor equation and odd small-prime classification"
+        },
+        {
+          "assessment": "Different number of missing divisors",
+          "evidence": "Their equation subtracts a single proper divisor, not a sum of three.",
+          "identifier_or_url": "https://doi.org/10.1017/S0004972714000082",
+          "material_read": "Page 1 definition and stated nonexistence",
+          "method": "Bounded source inspection",
+          "title": "On deficient-perfect numbers",
+          "trigger": "Earlier result about three distinct prime factors"
+        },
+        {
+          "assessment": "Same divisor equation, disjoint exponent and parity regime",
+          "evidence": "It classifies n=2pq with p,q odd and distinct and does not assert the nonsquarefree case.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-squarefree-three-prime-exactly-3-deficient-perfect-numbers--ab05cf25cba0",
+          "material_read": "Mirrored RESULT.md Finding and assumptions, from offset 0",
+          "method": "Bounded published-record text inspection",
+          "title": "Squarefree three-prime exactly 3-deficient-perfect numbers",
+          "trigger": "Closest Resultary record by divisor count and number of prime factors"
+        },
+        {
+          "assessment": "Confirms all three examples, not witness or prime-layer completeness",
+          "evidence": "The entries at indices 127, 148 and 173 are the three integers in the Finding.",
+          "identifier_or_url": "https://oeis.org/A331629",
+          "material_read": "Entry definition and indexed rows in b331629.txt",
+          "method": "Public exact-entry and data-file inspection",
+          "title": "Integers that are exactly 3-deficient-perfect numbers",
+          "trigger": "Exact numerical census overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exponent layer is forced as the first eligible odd layer after the known two-prime result, not selected by an arbitrary numerical cutoff. The classification bounds an unbounded third-prime search and determines actual witness multiplicities, including a number with two distinct triples, useful when organizing the broader three-prime case. It does not resolve the larger even exponents.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

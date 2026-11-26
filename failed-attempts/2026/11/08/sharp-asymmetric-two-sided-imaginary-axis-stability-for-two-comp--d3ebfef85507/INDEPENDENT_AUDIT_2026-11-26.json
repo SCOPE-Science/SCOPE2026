@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:48:30.811573Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof, lines 3–56",
+        "Frozen VERIFICATION.md, lines 19–25",
+        "Frozen verify.py, lines 6–65 (read, not executed; exact rational cases are supplementary to the symbolic check)"
+      ],
+      "rationale": "For k=u+iv, divide |P_k(iy)|²−1 by y² at nonzero y to get the convex quadratic |k|²y²−2vy+1−2u. For A=ah>0 and B=bh>0 the exact endpoint constraints are disks centered at (1+iA)/A² and (1−iB)/B², with radii A^−2 and B^−2. Squared center distance minus squared sum of radii is ((A+B)²−4)/(A²B²). At A+B=2 the weighted division point is uniquely k=(2+i(A−B))/(A²+B²). Substituting gives |k|²=u and 1−2u=−uAB, hence the stated factorization and exact axis interval. In fact endpoint sufficiency for arbitrary k when both widths are positive follows from convexity of the bracket. If B=0, stability near zero gives u≥1/2, while the nonzero endpoint disk requires u≤2/A²; equality at A=2 picks its unique rightmost point (1+i)/2. Conjugation handles A=0. For real k, the nonzero radius equals sqrt(2u−1)/u when u>1/2, bounded by 1 with equality only at u=1. This verifies the example, the gain, and the zero-width boundaries. The factor and normal-matrix realizations follow by multiplication and the spectral theorem. The proof is scalar/normal and does not assert nonnormal contractivity.",
+      "residual_risks": [
+        "No formal proof or uploaded-code execution is asserted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The November 2 Proof equations (1)–(4) give necessity and sufficiency of the two disk constraints for all positive widths, not just the optimal scaling.",
+          "The inspected general stability design papers use real coefficients in the relevant explicit constructions; Ketcheson–Ahmadia's two-stage symmetric radius is 1."
+        ],
+        "reasoning": "The directly matching complex result is stronger on positive widths because it classifies feasibility for every interval. A general optimization formulation alone would not establish the asymmetric optimum.",
+        "searches": [
+          "Resultary: extremal polynomial imaginary-axis stability interval two-sided complex coefficients",
+          "Ketcheson–Ahmadia arXiv:1201.3035 §4.1.2; Doehring–Gassner–Torrilhon DOI 10.1007/s10915-024-02478-5 pp. 3–4"
+        ]
+      },
+      "checked_sources": [
+        "Resultary local semantic index",
+        "Resultary 2026/11/2/SCOPE-the-sharp-two-sided-imaginary-axis-stability-frontier-for-comple--1c70b734f08f/RESULT.md",
+        "arXiv:2601.07730v2",
+        "arXiv:1201.3035",
+        "DOI 10.1007/s10915-024-02478-5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The indexed result gives the imaginary-axis factorization with eta=(R−S)/2 at R+S=2, the two-complex-Euler realization, and the real step and gain.",
+          "George et al. give the optimal length 2 and coefficients (1±i)/2 on the one-sided imaginary intervals, with real optimum k=1 and length 1."
+        ],
+        "reasoning": "At the boundary 1/(1+eta²)=2/(R²+S²), so the factorization is the same as the frozen formula. The direct prior statements together cover the positive-width, balanced and one-sided cases.",
+        "searches": [
+          "Indexed November 2 RESULT.md, Finding, Corollary and Proof equations (1)–(4)",
+          "George, Koellermeier, Jung and Mangan arXiv:2601.07730v2 §3.2, Theorem 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Indexed November 2 RESULT.md, Finding: for R,S>0 the whole interval [-S,R] works iff R+S≤2; the unique boundary coefficient is (2+i(R−S))/(R²+S²)."
+        ],
+        "reasoning": "Put R=ah and S=bh. The frontier and the optimizer at h=2/(a+b) are identical, not merely related by a common method.",
+        "searches": [
+          "Resultary: sharp asymmetric two-sided imaginary-axis stability two complex Euler substeps",
+          "Resultary: complex stability polynomial entire asymmetric imaginary interval optimized coefficient"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The distinct indexed November 2 result's Finding and Corollary give the exact formulas for continuously varying positive widths.",
+          "Table 2 lists H_opt/s=0.500 for two stages for real coefficients on an imaginary interval."
+        ],
+        "reasoning": "The decisive indexed entry is an exact theorem, not a match to a sampled parameter or the frozen record itself. The real-coefficient table checks the symmetric limit only.",
+        "searches": [
+          "Resultary: complex stability polynomial entire asymmetric imaginary interval optimized coefficient",
+          "Resultary: two-stage complex time integrator one-sided imaginary-axis interval length two",
+          "Ketcheson–Ahmadia arXiv:1201.3035 Table 2"
+        ]
+      },
+      "rationale": "Direct theorem-level overlap: the indexed November 2 finding already gives the same mixed-sign whole-interval feasibility frontier, unique complex optimizer, factorization, real optimum and exact gain. The one-sided cases excluded by its positive-width hypotheses were separately established in George et al., Theorem 1. Combining those cases does not leave a distinct substantive mathematical claim. This is demonstrated coverage, not an inference of authorship or priority from an index date.",
+      "residual_risks": [
+        "No claim of absolute historical priority. A further search for still earlier general extremal-polynomial results was not necessary to decide the demonstrated overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the central theorem, factorization and gain, indeed gives endpoint sufficiency for all complex coefficients and both positive widths",
+          "evidence": "'if and only if R+S≤2'; unique c_*=(2+i(R−S))/(R²+S²); exact polynomial identity and step-ratio formulas in Finding.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-the-sharp-two-sided-imaginary-axis-stability-frontier-for-comple--1c70b734f08f/RESULT.md",
+          "material_read": "Finding, corollary, scope, proof equations (1)–(4), offset 0 through 4027",
+          "method": "Local mirror file, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "The sharp two-sided imaginary-axis stability frontier for complex quadratic time integrators",
+          "trigger": "Distinct indexed finding with the same asymmetric interval and stability polynomial"
+        },
+        {
+          "assessment": "Covers the one-sided optimal coefficients and intervals and their real comparison, not simultaneous mixed-sign optimization",
+          "evidence": "Complex quadratic coefficients 1/2 ± i/2 give optimal imaginary length 2; real coefficient 1 gives length 1.",
+          "identifier_or_url": "https://arxiv.org/html/2601.07730v2",
+          "material_read": "§3.2 Theorem 1, extracted offset 20583",
+          "method": "OA arXiv HTML passage",
+          "title": "Explicit complex time integrators for stiff problems",
+          "trigger": "Frozen result cites prior one-sided endpoints"
+        },
+        {
+          "assessment": "Symmetric real-coefficient comparison only in this passage",
+          "evidence": "The symmetry is due to real coefficients; two-stage H_opt/s=0.500.",
+          "identifier_or_url": "https://arxiv.org/abs/1201.3035",
+          "material_read": "§4.1.2 and Table 2, pp. 12–13, extracted offset 43987",
+          "method": "OA arXiv PDF after the publisher DOI route did not supply the text",
+          "title": "Optimal stability polynomials for numerical integration of initial value problems",
+          "trigger": "General optimal stability-polynomial framework and exact tabulations"
+        },
+        {
+          "assessment": "Real-coefficient comparison, not free complex k in the inspected construction",
+          "evidence": "The stability polynomials for the explicit methods in these passages have real coefficients.",
+          "identifier_or_url": "https://doi.org/10.1007/s10915-024-02478-5",
+          "material_read": "Springer PDF pp. 3–4, offsets 6522 and 12138",
+          "method": "OA publisher PDF passages",
+          "title": "Doehring, Gassner and Torrilhon (2024), stability-polynomial optimization",
+          "trigger": "Broader optimization framework potentially covering asymmetric coefficients"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Relationship to prior work",
+        "November 2 indexed finding, theorem and corollary",
+        "George et al., arXiv:2601.07730v2, Theorem 1"
+      ],
+      "rationale": "The exact real-versus-complex step trade-off is a useful question for asymmetric imaginary spectra. The submitted mathematical contribution, however, is the already covered positive-width trade-off with already known one-sided optima appended; the rescaling, explicit example and consolidation into a single formula do not supply a distinct valuable result.",
+      "residual_risks": [],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

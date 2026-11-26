@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T13:33:27.878396Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In the zero-sum Euclidean hyperplane the tree incidence matrix has squared column volume n by Cauchy–Binet and its unimodular row deletions. The dual normal to the facet omitting a cut of size k is the centered indicator of a cut side, of norm sqrt(k(n−k)/n). The volume-to-height identity gives area sqrt(k(n−k)) for each of the two opposite facets. For each k≥2 the qualifying cut edges form a connected core: any edge between two qualifying edges has at least k vertices toward each. A core of h≥1 edges contributes h+1 vertices, with at least k−1 further vertices beyond each of two end cuts, so h≤n−2k+1, the path count. Summation by parts weights these tail counts by strictly positive increments. The leaves determine F₂; the star and path are the only first extrema. A nonstar attaining the second-minimum bound has just one nonpendant edge of smaller size two, giving the subdivided star. A nonpath attaining the second-maximum bound has three leaves and just one size-two cut; if two arms have length at least two they produce two such cuts, so the arms are 1,1,n−3. This shape loses only the size-two tail entry relative to the path, including at n=5; both exact gaps are twice the size-one to size-two increment. For the Cayley mean, the labeled trees with a specified one-edge split are counted by the product of two Cayley counts and k(n−k) choices of bridge. Double counting oriented sides cancels the factor two for opposite facets. Uniform Stirling reduces the kth mean summand to n^(5/2)/(sqrt(2π)k(n−k)) times 1+O(1/k+1/(n−k)); summing yields precisely the stated constant and O(n^(3/2)) remainder. This proof uses the specified metric and labeled law. The inspected check_surface.py is a finite floating-point replay and was not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general wedge-sum intrinsic-volume formula gives the tree cut-area expression after evaluation of the omitted-column wedge norms.",
+          "The smaller vertex-side tail order of Song–Huang agrees with the frozen order. Wang's accessible abstract instead uses nontrivial leaf-set splits."
+        ],
+        "reasoning": "The cut formula is a specialization. An increasing cut toll is monotone in the smaller-component tail order, but the order definition alone does not establish the second-extremal tail equality classifications; those are supplied directly by 9131f80ca221. Leaf-set cuts are not automatically vertex-set cuts.",
+        "searches": [
+          "Joós and Lángi, arXiv:2206.03204, §2 Corollary 1",
+          "Song and Huang, arXiv:2207.03357v1, §2",
+          "Wang, DOI:10.1016/j.aam.2018.12.004"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 9131f80ca221 and fd88bc727366, mirrored Findings",
+        "arXiv:2206.03204, Introduction and Corollary 1",
+        "arXiv:2207.03357v1, Introduction and §2",
+        "DOI:10.1016/j.aam.2018.12.004, abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact extremal theorem includes the whole frozen size range and the mean record additionally provides a random-facet limit law. Symmetric relabeling of the cut size proves equality of the two mean formulas."
+        ],
+        "reasoning": "Nothing material remains outside the combined prior statements. The O(n^(3/2)) error in the frozen leading asymptotic is also the direct uniform Stirling remainder of the exact known sum, with residual terms bounded by summing k^(-2)(n−k)^(-1) and its reflection. Combining the two results does not prove a new relation between their deterministic and probabilistic conclusions.",
+        "searches": [
+          "Resultary 9131f80ca221 and fd88bc727366, exact mirrored Findings",
+          "Joós–Lángi Corollary 1, with incidence-generator evaluation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Record 9131f80ca221 states the same cut formula, four extreme shapes, and gap for a range including all n≥5.",
+          "Record fd88bc727366 gives the expected total area under the same unit incidence and uniform labeled conventions."
+        ],
+        "reasoning": "The mean written as a half-range sum with a half-weight for a balanced cut is exactly the all-k sum by k↔n−k symmetry. The extremal ranges, objects and equality types agree on the entire frozen range.",
+        "searches": [
+          "Resultary: intrinsic Euclidean surface area of tree graphical zonotopes, second extrema and equal gaps",
+          "Resultary: Cayley random tree zonotope, Borel facets and logarithmic mean area"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The first indexed theorem gives both gaps as 2(sqrt(2(n−2))−sqrt(n−1)), with the same unique unlabeled second extremizers. The second gives the exact expected area in symmetric half-range form and leading constant sqrt(2/π)."
+        ],
+        "reasoning": "These are direct all-orders theorem matches, not coincident values in a bounded enumeration. The mean uses the same labeled probability measure and origin-independent intrinsic area.",
+        "searches": [
+          "Resultary 9131f80ca221, Sharp second-extremal Euclidean surface areas of tree graphical zonotopes",
+          "Resultary fd88bc727366, A Borel facet law and logarithmic mean surface-area excess"
+        ]
+      },
+      "rationale": "Two distinct published Resultary findings cover the asserted scientific contributions under the same normalization: one gives the cut formula and the full first- and second-extremal ladder with equal gaps, and the other gives the exact Cayley mean and its logarithmic asymptotic. The frozen record combines these previously existing statements without an additional supported conclusion. Equivalent coverage is independent of resolving chronological priority.",
+      "residual_risks": [
+        "The earlier published matches establish coverage, not a comprehensive historical-priority ordering.",
+        "Wang's full text and the original 2018 Vukičević–Sedlar edge-division paper were not inspected; possible additional antecedents do not affect the direct matches."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly covers the cut sum, star/path extrema, unique second extrema and equal gap",
+          "evidence": [
+            "Same subdivided-star and (1,1,n−3) trees; same gap; covers n≥4 with the n=4 coincidence noted."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-sharp-second-extremal-euclidean-surface-areas-of-tree-graphical--9131f80ca221",
+          "material_read": "Mirrored RESULT.md, offsets 767–1852, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Targeted local mirror inspection",
+          "title": "Sharp second-extremal Euclidean surface areas of tree graphical zonotopes",
+          "trigger": "Exact matching geometric invariant and extremal ladder"
+        },
+        {
+          "assessment": "Same exact mean and leading constant in the same normalization",
+          "evidence": [
+            "Half-range split formula with half-weight at the balanced split; leading sqrt(2/π)n^(3/2)log n and additional Borel facet-law result."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-a-borel-facet-law-and-logarithmic-mean-surface-area-excess-for-c--fd88bc727366",
+          "material_read": "Mirrored RESULT.md, offsets 0–2729, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Targeted local mirror inspection",
+          "title": "A Borel facet law and logarithmic mean surface-area excess for Cayley tree zonotopes",
+          "trigger": "Exact random-tree mean and logarithmic asymptotic"
+        },
+        {
+          "assessment": "General formula specializes to the cut area",
+          "evidence": [
+            "V_k is the sum of norms of k-generator wedge products; area in dimension d is 2V_(d−1). The introduction credits Brazitikos and McIntyre with the general formula."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2206.03204",
+          "material_read": "Introduction p. 2 and §2 Corollary 1, equation (4), p. 5, text offset 16412",
+          "method": "Targeted primary PDF passages",
+          "title": "Isoperimetric problems for zonotopes",
+          "trigger": "General intrinsic-volume formula that may imply the area evaluation"
+        },
+        {
+          "assessment": "Same general order as the frozen path-tail argument",
+          "evidence": [
+            "Smaller vertex-component size μ_T(e), its edge-count vector r_i and cumulative tail sums; cites Vukičević and Sedlar for the order."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2207.03357v1",
+          "material_read": "Introduction and §2, pp. 2–3, offsets 4000 and 8000",
+          "method": "Targeted primary PDF passages",
+          "title": "A relation on trees and the topological indices based on subgraph",
+          "trigger": "Edge-division ordering for exact comparisons of split sums"
+        },
+        {
+          "assessment": "Inspected invariant uses leaf-set splits; other implications not resolved from the abstract",
+          "evidence": [
+            "Increasing toll summed over nontrivial phylogenetic leaf-set splits, not all vertex-component splits."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.aam.2018.12.004",
+          "material_read": "Accessible abstract only; full text was not retrieved",
+          "method": "Primary abstract and lawful full-text attempts",
+          "title": "Split sizes and extremal tree shapes",
+          "trigger": "Potential broader theorem on increasing cut tolls and tree extremals"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The natural area invariant does distinguish shapes with identical volume, and the exact second extremes and random mean are intrinsically useful facts. This frozen record adds no independently useful invariant, parameter range, or inference beyond the exact existing geometric and probabilistic results. Collecting both known conclusions on one page is not a distinct scientific contribution.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

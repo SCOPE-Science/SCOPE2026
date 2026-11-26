@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T16:59:31.836094Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The frozen Gram-matrix bounds are correct. The frozen statistical statement in RESULT.md line 40 is false as literally quantified: e_j=√ν Z_j are independent centered coordinates of common variance ν, but the noise vector is a design column times √ν. The least-squares coefficient error then has deterministic squared norm ν, not νR conditional on A. In particular this noise can have finite mean risk even where R has infinite expectation. The corrected statistical hypothesis explicitly imposes conditional mean zero and second moment E[ee*|A]=νI, under which tracing the conditional second moment of A†e proves the asserted identity. The repaired theorem also sharpens the partial frozen sampling regimes. Verify full rank by the first N distinct nodes; the normalized (z−Z_1)^(N−1) and Haar cluster probability (δ/π)^(m−1) give the lower power α=(m−1)/(2(N−1)). For strict events one can set δ so the Rayleigh upper bound is s/2. The checked square lemma uses a Lagrange inverse, coefficient binomial norm, and the conditional chord law P(|Z_i−Z_j|/2≤u)=(2/π)arcsin(u)≤u, so reciprocal chord products have a logarithmically corrected square-root tail at the Gram threshold. In the repaired upper bound condition on Z_1; rotations of every node preserve the subframe Gram spectrum by a diagonal unitary, so the square probability q_N(s) is the same for any fixed anchor. There are M=m−1 residual cyclic windows of d=N−1 variables; each variable occurs in exactly d windows, also at m=N when windows coincide. Full Gram dominance forces all M anchored windows to have small least eigenvalue. Integrate one independent residual coordinate at a time, applying Hölder of exponent d to the d incident factors. Their old roots cancel on the next integration, leaving the product of the full L^d norms, so the intersection probability is at most q_N(s)^(M/d) with no independence assertion for the overlapping events. This gives the identical power α with a log upper loss. Layer cake gives finiteness exactly for p<α and divergence at equality by the lower bound, transferred to R^p by 1/Λ≤R≤N/Λ. In particular mean risk under the corrected noise assumptions is finite exactly for m≥2N. The original uniform disjoint-block bound is retained as a corollary and is valid by positive Gram addition and true block independence. Corrections are complete in /workspace/repairs/5; replay its RESULT.md proof and run the new CHECK.py there (318 bounded exact window/threshold cases and column identity passed). The frozen CHECK.py was inspected statically only. No finite check proves the analytic quantifiers.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2010 full-text Theorem 2.1 summarizes Bass–Gröchenig Theorems 5.1 and 6.2 on high-probability conditioning; Corollary 3.3 and eq. (3.14) also center near the normalized eigenvalue 1. Those bounds do not decay to zero in the fixed-m small-eigenvalue limit needed for integrability. Theorem 2.2 concerns a weighted design and a high-probability guarantee. Tucci–Whiting Theorem 3.3 gives inverse-moment divergence for square Vandermonde matrices and p≥1; their Theorem 3.1 supplies inverse coefficients. The random-Vandermonde asymptotics surfaced by search are not the same fixed-size risk question."
+        ],
+        "reasoning": "No inspected broader theorem gives the repaired fixed-N,m endpoint threshold beyond the square or two-frequency special cases. The prior square interpolation tail supplies the square input to our argument, not the rectangular collision exponent with an overlapping family of subframes. The full older Bass–Gröchenig paper remains an access/priority risk, not negative evidence.",
+        "searches": [
+          "Web: Bass Gröchenig Random Sampling of Multivariate Trigonometric Polynomials 2004 condition number Theorem 4.1 tail smallest eigenvalue inverse moments full text Bass Grochenig pdf",
+          "Gröchenig–Pötscher–Rauhut arXiv:math/0701781v2 §§2–3",
+          "Tucci–Whiting arXiv:1202.3184v2 §3",
+          "Web: random Vandermonde unit circle finite negative moments smallest singular iid L2 least squares inverse exact threshold m 2n clustered one-dimensional risk integrability full text"
+        ]
+      },
+      "checked_sources": [
+        "Xu–Shen arXiv:2609.29286v1 Theorem 6 and Proposition 5 proof",
+        "Tucci–Whiting arXiv:1202.3184v2 §3",
+        "Gröchenig–Pötscher–Rauhut arXiv:math/0701781v2 §§2–3",
+        "Bass–Gröchenig DOI record and attributed bound summaries; full original uninspected",
+        "Resultary critical square interpolation and two-mode circular sketch indexed statements"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 6 claims E[σ_r(A)^(−2)]=∞ for uniform independent samples without a restriction on m. Proposition 5 is the decisive gap: §6.3 uses z=e_i−e_j in the row space C^m with A z, which is not defined in general; using A* still requires projecting to the complement of its kernel to test the least positive singular value. For N=3,m=9, take angular nodes in turns 0,δ,1/8,…,7/8. As δ→0 there are still eight distinct limiting nodes, full column rank and a positive least singular value, while the proposed upper bound tends to zero. Known square tails directly imply the disjoint-block corollary, but that bound alone leaves 2N≤m<3N unclassified."
+        ],
+        "reasoning": "The repaired sharp rectangular negative-moment exponent holds in a regime where the closest same-design paper asserts the opposite. It uses the additional conditional overlapping-window argument to recover the entire interval, not merely a parameter substitution in a known square/two-mode threshold. This challenges the specific random-design theorem, not the paper’s results for other designs.",
+        "searches": [
+          "Xu–Shen v1 Theorem 6, Proposition 5 eq. (19), and §§5.2, 6.3",
+          "Resultary: Critical inverse moments and logarithmic tails of random Fourier interpolation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Xu–Shen take uniform t_j, centered frequencies −q,…,q and N=2q+1. With Z_j=exp(2πit_j), a row-unitary factor diag(Z_j^(−q)) identifies the unnormalized designs. Their risk scales the same inverse-Gram trace by ε²/m for m≥N, a positive fixed multiplier. Entrywise moments, Gram inverse moments and negative moments of the least positive singular value should not be conflated."
+        ],
+        "reasoning": "For m≥N the rank is N almost surely, so σ_r(A)^2 is exactly Λ in the overlapping odd-N case. Squared inverse singular-value finiteness and inverse-Gram trace finiteness are equivalent. The repaired exact threshold is on the same object where the centered prior paper claims divergence.",
+        "searches": [
+          "Resultary: random rectangular Fourier uniformly sampled nodes sharp inverse moment exponent (m-1)/(2N-2), exact finite mean cutoff m >= 2N using shared anchor overlapping Vandermonde subframes subset Holder",
+          "Web: random circle Vandermonde oversampled negative moments inverse Gram exact threshold 2N conditioned common node Finner interpolation reciprocal chords Fourier smallest eigenvalue",
+          "Xu–Shen v1 §1.1, (2) and Theorem 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed square result gives sharp logarithmic tails and critical fraction 1/2 at m=N. The indexed circular Fourier sketch gives an exact tail and moment cutoff for N=2. The submitted record itself is also indexed but is not independent evidence."
+        ],
+        "reasoning": "An exact regime chart for the continuum model would count as prior coverage; neither finite simulations nor tabulations of limiting positive moments test unbounded inverse moments at fixed m,N. The exact indexed special cases are credited and do not supply the N≥3 tall-model threshold.",
+        "searches": [
+          "Resultary: random Fourier Vandermonde circular independent sampling critical inverse moments oversampled inverse Gram least squares expected reconstruction risk",
+          "Resultary: random rectangular Fourier uniformly sampled nodes sharp inverse moment exponent (m-1)/(2N-2), exact finite mean cutoff m >= 2N using shared anchor overlapping Vandermonde subframes subset Holder"
+        ]
+      },
+      "rationale": "Qualified for the repaired exact rectangular inverse-moment threshold and matching small-eigenvalue power up to the explicit logarithmic upper factor. The frozen m≥3N finite regime follows directly from known square inverse moments plus elementary independent positive-Gram addition; that corollary is not credited as new. The new comparison uses overlapping, conditioned subframes to reach the known geometric obstruction's exact exponent in the rectangular model.",
+      "residual_risks": [
+        "Full Bass–Gröchenig article not reached; its statements beyond the inspected restatements remain a specific priority risk.",
+        "Earlier work on inverse moments for rectangular random interpolation could encode the exact threshold in a different form. Search coverage is not exhaustive, and unavailable searches were not treated as negative evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Contradicted for the tall finite-risk regime; specific proof gap identified",
+          "evidence": [
+            "Thm. 6 concerns inverse-squared singular values. Prop. 5, eq. (19), invokes minimum pair separation. The proof uses the row-difference direction in a column-space minimization."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2609.29286v1",
+          "material_read": "Primary arXiv v1 PDF/HTML; §1.1 equations (2)–(8), Theorems 1 and 6, Proposition 5, §5.2 and §6.3 proof of Proposition 5",
+          "method": "Compare normalization, rank and the exact variational step with a deterministic rank-preserving coalescence example",
+          "title": "Non-asymptotic Analysis of Expected Reconstruction Risk for Trigonometric Polynomial Models",
+          "trigger": "Identical iid design for odd N and contrary claimed divergent risk"
+        },
+        {
+          "assessment": "Genuine square prior, no rectangular threshold in the inspected theorems",
+          "evidence": [
+            "Theorem 3.3 assumes square N×N and proves infinite inverse-power trace for p≥1; its proof uses the reciprocal chord products."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1202.3184v2#S3",
+          "material_read": "arXiv v2 abstract and §3 Theorem 3.1 and 3.3 statements and the latter proof's inverse-entry integral",
+          "method": "Primary HTML passage inspection, compared square and rectangular quantifiers",
+          "title": "Asymptotic Behavior of the Maximum and Minimum Singular Value of Random Vandermonde Matrices",
+          "trigger": "Earlier square inverse-moment result and Lagrange geometry"
+        },
+        {
+          "assessment": "Related high-probability conditioning, not the stated fixed-size inverse-moment result",
+          "evidence": [
+            "Theorem 2.1 controls λ_min(n^−1 U*U)≥1−ε; its failure bound remains nonzero at ε→1 for fixed n. Theorem 2.2 additionally uses Voronoi weights."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/math/0701781v2",
+          "material_read": "§2 Theorems 2.1 and 2.2; §3 Corollary 3.3 and displayed normalization/deviation inequality",
+          "method": "Read primary HTML full-text sections and take fixed-size small-cutoff limit of the displayed estimates",
+          "title": "Learning Trigonometric Polynomials from Random Samples and Exponential Inequalities for Eigenvalues of Random Matrices",
+          "trigger": "Plausible stronger random Fourier eigenvalue tails, and lawful published restatement of Bass–Gröchenig estimates"
+        },
+        {
+          "assessment": "Original full text not independently excluded",
+          "evidence": [
+            "ArXiv:math/0701781v2 §2 explicitly attributes the displayed well-conditioning bound to Bass–Gröchenig Thms. 5.1 and 6.2 and a weighted bound to Thm. 4.2. These statements do not yield an integrable fixed-m small-cutoff tail."
+          ],
+          "identifier_or_url": "https://doi.org/10.1137/S0036141003432316",
+          "material_read": "DOI bibliographic record; independently checked later primary paper's explicit restatements of relevant estimates; original full text not obtained",
+          "method": "Tried DOI and searched for a lawful author or preprint copy; no authorized full-text download tool available in this session",
+          "title": "Random Sampling of Multivariate Trigonometric Polynomials",
+          "trigger": "Most plausible older theorem for the same iid Fourier sampling design"
+        },
+        {
+          "assessment": "Direct ingredient and sufficient-regime corollary; indexed statement does not give the repaired rectangular threshold",
+          "evidence": [
+            "The indexed square tail implies finite p<1/2 moments and, via three independent square blocks, the original existence statement at m≥3N."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-critical-inverse-moments-and-logarithmic-tails-of-random-fourier--323dcae74731",
+          "material_read": "Indexed mathematical statement; attempted separate full-text fetch was not available",
+          "method": "Statement and implication comparison, plus self-contained reconstruction of the square upper lemma",
+          "title": "Critical inverse moments and logarithmic tails of random Fourier interpolation",
+          "trigger": "Exact square predecessor potentially implying the original finite regime"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The repaired theorem distinguishes exactly when expectations of noise amplification exist, including the boundary and all positive inverse-moment orders, in a standard iid Fourier design. It resolves the previously unclassified 2N≤m<3N range and gives a precise correction to the tall-design divergence claim. The required noise assumption separates inverse-Gram integrability from potentially design-correlated error. No uniform-in-dimension guarantee, leading coefficient, or sharp logarithmic factor is claimed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

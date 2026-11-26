@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:35:01.793139Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The seventh cyclotomic polynomial forces equal fibre counts at a Fourier zero; a blind projective direction therefore removes exactly six frequencies, and the trivial multiplier is 7. Normalizing three directions gives f and f-x permutations. Their first and second sums remove the degree-6 and degree-5 coefficients; the cubic case is impossible by its squared sum after depression, and in the quartic case the squared sum after translation removes the quadratic coefficient. The square/nonsquare test gives the 35 affine and 98 nonlinear graphs for a fixed triple; each nonlinear graph has precisely three blind directions. Independent enumeration of the 5040 permutation graphs confirmed these facts, and single-, pair- and triple-incidence counts recover the five rank populations, summing to 85,900,584. For the representative quartic, the two Gauss periods have sum -1 and product 2; the origin, the punctured diagonals and the two sign cases off the diagonals yield squared singular values 49,14,7,0 with multiplicities 1,12,18,18. A fresh exact cyclotomic calculation reproduced these and the kernel numerators 31 (once), -4 (18 times), 3 (30 times), with denominator 49. Both endpoint norms equal the kernel l1 norm (columns, respectively rows), and averaging any projection by translations preserves identity on the range and cannot increase either norm. The only resulting invariant projection has precisely the visible frequencies as its support. Thus 193/49 is sharp for arbitrary linear projections, and the pseudoinverse norm is 1/sqrt(7). The frozen verification programs were inspected, not executed; independent reproduction used the fixed-triple census and cyclotomic calculation rather than replaying the 85.9-million-subset program. Replay specifications: RESULT.md Proof 1–5 and the bounded procedures in VERIFICATION.md.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 1981 theorem and its supplement give at least five determined directions and the same equality orbit at p=7. The 2026-11-08 extension Finding gives the unrestricted fourth-power constant 5/2 on the same curve."
+        ],
+        "reasoning": "The equality orbit is a covered special case. An l2-to-L4 energy extremum for arbitrary coefficients is not a pointwise Fourier singular-value law or an l1/linfinity projection norm.",
+        "searches": [
+          "Lovász–Schrijver, Remarks on a theorem of Rédei, Thm. I and supplement",
+          "Resultary: fourth-moment extension on the seven-point quartic graph"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md",
+        "Lovász–Schrijver 1981",
+        "Evans 2023",
+        "Resultary quartic Gabor and extension records"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The classical direction classification plus cyclotomic vanishing gives the minimum nonline rank and its equality orbit. The Gabor zero list determines the range's support but does not evaluate the inverse Fourier idempotent; the different extension extremum does not give individual multipliers."
+        ],
+        "reasoning": "Computing the nonzero values requires a Gauss-period evaluation, and the endpoint conclusion needs evaluation of the projection kernel plus a minimization argument. No inspected stronger result supplies these quantitative conclusions by specialization.",
+        "searches": [
+          "Quartic Gabor Finding, §4 and Limitations",
+          "Lovász–Schrijver supplement",
+          "Quartic extension Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2026-10-18 quartic Gabor Finding and §4 identify exactly the p=7 zero-translation zero frequencies; they coincide with the 18 additive Fourier zeros here. Its Limitations leave the nonzero singular spectrum of the lifted measurement map open. The exact assigned record also matches, but is not another source."
+        ],
+        "reasoning": "The zero-translation slice is an equivalent vanishing problem, not an equivalent nonzero spectrum or endpoint projection computation; do not credit the zero set as new.",
+        "searches": [
+          "Resultary: quartic graph rank, exact mask census and 193/49",
+          "Primary web lookup for the literal 193/49 endpoint constant"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Evans gives Euler's 19 normalized orthomorphisms and the factor |G| for the unnormalized count, here 133. No distinct exact endpoint table was identified in the checked Resultary records."
+        ],
+        "reasoning": "133 is known, with the five population counts obtained via incidence reconstruction; the inspected count does not tabulate either spectral or endpoint constants.",
+        "searches": [
+          "Evans, AJC 86 (2023), p.206",
+          "Resultary: 5488, seven-point rank census, 193/49"
+        ]
+      },
+      "rationale": "Credit the classical extremal geometry, the known orthomorphism count and the previously known zero-translation kernel. The distinct conclusion supported by the comparisons is the full additive-convolution singular-value law and sharp endpoint projection constant for the extremal masks. The global rank census is contextual and reconstructible from prior direction geometry plus transversal incidence counts, not a new general direction theorem.",
+      "residual_risks": [
+        "Equivalent finite-field Fourier-idempotent norm calculations may be unindexed; the focused web lookup did not settle that possibility."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers underlying extremal geometry",
+          "evidence": [
+            "At least (p+3)/2 directions; equality represented by graph of t^((p+1)/2)."
+          ],
+          "identifier_or_url": "https://ir.cwi.nl/pub/10047/10047D.pdf",
+          "material_read": "Theorem I and supplement, pp.449–450",
+          "method": "Targeted OA PDF passages",
+          "title": "Remarks on a theorem of Rédei",
+          "trigger": "Same direction extremizers"
+        },
+        {
+          "assessment": "Covers 133 orthomorphisms",
+          "evidence": [
+            "19 normalized at order seven, with count multiplied by group order for all orthomorphisms."
+          ],
+          "identifier_or_url": "https://ajc.maths.uq.edu.au/pdf/86/ajc_v86_p206.pdf",
+          "material_read": "Introduction, p.206",
+          "method": "Targeted OA PDF passage",
+          "title": "On the number of orthomorphisms of the cyclic group of order nine",
+          "trigger": "Possible exact p=7 count"
+        },
+        {
+          "assessment": "Covers the 18 zeros, not the claimed additive nonzero law or endpoint norm",
+          "evidence": [
+            "At zero translation m≠0,n=0 or n≠0,m/n in {3,4} for p=7."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-exact-rank-and-weyl-kernel-classification-for-quartic-graph-gabo--1f76e4a64221",
+          "material_read": "Finding, §4 and Limitations",
+          "method": "Local mirror bounded passages",
+          "title": "Exact rank and Weyl-kernel classification for quartic-graph Gabor tomography",
+          "trigger": "Same curve and Fourier zeros"
+        },
+        {
+          "assessment": "Different operator and norm",
+          "evidence": [
+            "Fourth-power l2-to-L4 constant 5/2 for extension with arbitrary weights."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-sharp-unrestricted-fourth-moment-extension-on-the-seven-point-qu--362930bb4f18",
+          "material_read": "Finding and prior-work passage",
+          "method": "Local mirror bounded passages",
+          "title": "Sharp unrestricted fourth-moment extension on the seven-point quartic graph",
+          "trigger": "Same potential spectral invariant and curve"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The masks are selected intrinsically by the least nontrivial convolution rank, not by an arbitrary instance. The singular spectrum determines sharp l2 recovery stability and the endpoint constant determines the least amplification when projecting to admissible data, even without equivariance. Together the constants give reusable sharp stability information across the entire extremal affine orbit; the rank census situates it within the full population.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:56:24.376719Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Verified symbolically, without executing the frozen verifier. Each of the four pairs of adjacent increments gives one free color-rotation orbit of proper triples, so the rule is center color plus g(u,v); every increment triple extends bilaterally. Thus v+g(v,w)−g(u,v) must never be zero mod 3. Normalize g(−,−)=0 and call the other entries b,c,d in order (−,+),(+,−),(+,+). The test reduces to b≠1, c≠2, c−b≠2, d−b≠2, d−c≠1. In (b,c) order (0,0),(2,0),(0,1),(2,1), the allowed d sets are {0},{0,2},{0,1},∅, respectively. This is exactly the five listed classes modulo constant offsets; all are distinct on admissible triples and each has three color translates. The increment rule for T+ on bits (a,b,c) is (a AND NOT b) OR (b AND c), hence 184, and T− gives its bit-complement conjugate, 226. For 184 reading 1100 from all predecessor pairs leaves successively {00,01,11}, {11}, {10}, and ∅; the complementary witness gives 0011 for 226. Every binary sequence has a proper coloring lift, so a missing edge cylinder implies nonsurjectivity of each lift; the remaining nine maps have explicit shift/rotation inverses. Reflection x↦−x conjugates T+ to T− and excludes both distinct traffic classes, and negates the constant rotations while preserving the spatial shifts. Together with cyclic symmetry this leaves exactly three maps. The frozen script's finite ring checks are supplementary; the local constraints and predecessor witnesses apply to bilateral configurations, only within the stated centered radius.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 2 says only shifts commute with all symbol maps on the full shift when the alphabet has at least three symbols, not that only shifts commute with permutations on this subshift. Its hypotheses differ from both the C3 and S3 claims. The algebraic-subshift paper concerns Boolean algebraic subshifts and homomorphic automata. The indexed binary hard-core census has a different alphabet, constraint, radius and symmetry."
+        ],
+        "reasoning": "Symbol-map centralization cannot be substituted for color-permutation centralization, and restricting the ambient full shift is not the same hypothesis. A general extension or logical encoding does not imply which allowable extensions preserve proper colorings.",
+        "searches": [
+          "Color Blind Cellular Automata, Proposition 1, Example 1 and Theorem 2",
+          "arXiv:1203.6795v1, abstract and opening scope",
+          "Local Resultary 824122558fbf"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Salo–Törmä author-hosted Color Blind Cellular Automata; arXiv:1203.6795v1; arXiv:comp-gas/9703001v1",
+        "Local Resultary be3c887106f0, 5a87e3038c99 and 824122558fbf"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A full-shift color-blind example in Salo–Törmä is radius one but does not classify proper coloring endomorphisms. The exact hard-core census gives five onto spatial shifts in a different shift, and the traffic-image records give particular binary image descriptions."
+        ],
+        "reasoning": "The traffic obstruction gives the nonsurjectivity once those lifts are known; the distinct step is showing the two traffic classes are the only non-shift classes and determining exactly which maps commute with reflection. The catalog traffic overlaps are dated later and are not priority evidence over the frozen result.",
+        "searches": [
+          "Color Blind Cellular Automata, Example 1 and Proposition 1",
+          "Local Resultary 824122558fbf, be3c887106f0 and 5a87e3038c99, exact findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Proposition 1 identifies Π-blind maps on a subshift with restrictions of Π-blind full-shift maps preserving it; for this permutation-invariant subshift the construction uses the same radius, assigning the center color outside admissible words."
+        ],
+        "reasoning": "That formulation is equivalent as a way to represent the maps, but leaves the preservation condition to be solved and does not give the five normalized rules or how many are onto.",
+        "searches": [
+          "Local Resultary: proper three-coloring centered-radius-one equivariant endomorphisms and binary increment traffic factors",
+          "Salo–Törmä, Color Blind Cellular Automata, Proposition 1 and its proof"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Fukś gives the classical binary Rule 184 table. Later indexed be3c887106f0 explicitly gives `1100` as forbidden in the bilateral one-step image in the course of determining the two-step image. Later indexed 5a87e3038c99 gives exact cyclic-ring reachability by absence of cyclic `1100` and a Rule 226-based selector."
+        ],
+        "reasoning": "There is exact overlap for the binary obstruction, not for the exhaustive lifting result. Neither the table nor the cyclic/bilateral image statements alone enumerate which ternary local rules can induce binary factors.",
+        "searches": [
+          "Local Resultary: Rule 184 one- and two-step images and finite-ring inversion",
+          "arXiv:comp-gas/9703001v1, §II truth table"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the whole low-radius proper-coloring classification, including exactly which classical binary rules are induced and the consequent surjectivity and full-permutation subcounts. Neither the traffic update itself nor the general extension framework is credited as new. The primary extension result and the strongest indexed traffic-image match do not classify local rules that preserve this particular constrained shift.",
+      "residual_risks": [
+        "The compared primary passages and bounded searches do not exclude an unindexed equivalent constrained-shift classification or earlier exact traffic-image work.",
+        "The standard binary traffic rule and the general subshift extension should remain explicitly credited as prior inputs."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Extension and stronger-symmetry full-shift result are prior; do not give this subshift census",
+          "evidence": "Proposition 1 extends an already Π-blind f on X by a Π-blind g preserving X. Theorem 2 assumes all symbol maps on S^Z and |S|≥3 for its shift-only assertion.",
+          "identifier_or_url": "https://villesalo.com/article/CBCA2.pdf",
+          "material_read": "PDF Example 1 (offset 8710), Proposition 1 and proof (offsets 14780–17940), Theorem 2 (offset 36697)",
+          "method": "Lawful author-hosted journal-version PDF, identified from author's publications page",
+          "title": "Color Blind Cellular Automata",
+          "trigger": "Strongest primary broader permutation-centralizer and subshift result"
+        },
+        {
+          "assessment": "Different stated hypotheses and conclusions in the compared passage",
+          "evidence": "The opening describes Boolean algebraic subshift characterization and homomorphic automata on lattice subshifts.",
+          "identifier_or_url": "https://arxiv.org/pdf/1203.6795v1",
+          "material_read": "PDF p. 1, scope at offset 507",
+          "method": "Lawful OA PDF",
+          "title": "On Shift Spaces with Algebraic Structure",
+          "trigger": "Related algebraic-subshift structure cited in the source"
+        },
+        {
+          "assessment": "Binary Rule 184 established; no ternary lift classification in those passages",
+          "evidence": "The truth table and traffic interpretation are for the binary rule used with Rule 232.",
+          "identifier_or_url": "https://arxiv.org/pdf/comp-gas/9703001v1",
+          "material_read": "PDF pp. 1–2, §II, offsets 650 and 8499",
+          "method": "Lawful OA PDF",
+          "title": "Solution of the Density Classification Problem with Two Cellular Automata Rules",
+          "trigger": "Prior binary traffic rule"
+        },
+        {
+          "assessment": "Real overlap for the binary image witness, later catalog date",
+          "evidence": "The bilateral one-step Rule 184 image avoids 1100; the two-step image additionally avoids 110100.",
+          "identifier_or_url": "2026/11/22/SCOPE-the-exact-second-spatial-image-of-synchronous-traffic-rule-184--be3c887106f0",
+          "material_read": "RESULT.md Finding, offset 45",
+          "method": "Local Resultary mirror",
+          "title": "The exact second spatial image of synchronous traffic Rule 184",
+          "trigger": "Strongest exact indexed binary overlap"
+        },
+        {
+          "assessment": "Related exact finite-ring traffic statement, not a bilateral ternary theorem",
+          "evidence": "Bilateral proper colorings are not the objects counted; it tests cyclic avoidance of 1100 and gives a reflected Rule 226 selector on the ring image.",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-one-step-reachability-inversion-and-density-spectrum-of-th--5a87e3038c99",
+          "material_read": "RESULT.md Finding, offset 190",
+          "method": "Local Resultary mirror",
+          "title": "Exact one-step reachability, inversion and density spectrum for synchronous traffic",
+          "trigger": "Possible broader reachability result"
+        },
+        {
+          "assessment": "Analogue, not an implication",
+          "evidence": "Centered radius two on binary hard-core shifts with five onto spatial shifts, not the cyclic-color proper-three-coloring family.",
+          "identifier_or_url": "2026/10/26/SCOPE-radius-two-rigidity-across-binary-hard-core-shifts-with-sharp-fo--824122558fbf",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Radius-two rigidity across binary hard-core shifts",
+          "trigger": "Closest prior indexed constrained-shift census"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a complete classification at the first nontrivial locality radius for a natural nearest-neighbor constraint and natural color symmetry. It shows a structural dichotomy between isomorphisms and a specific pair of traffic factors, and explains why enforcing all color permutations removes the noninvertible maps. That content is more informative than the bare count 15 or a small-ring census.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

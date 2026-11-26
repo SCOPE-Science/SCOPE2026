@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:52:16.400574Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the four-state inverse recurrence from x_(i+2)=y_i XOR x_i XOR x_(i+1). Counting the old state at each output position, concatenation composes return permutations and adds decorated-letter counts from the second block at the first block's exit state. An independent exact block-composition reconstruction, /workspace/branches/independent-certificate-3.py (replay: python3 /workspace/branches/independent-certificate-3.py), without running the supplied scripts or expanding the words, verified the two depth-16 return permutations (0,3,1,2) and (1,2,0,3), lengths 2584 and 1597, and the complete transpose incidence certificate. With T=Mᵀ and w=Rᵀ, it gave (T³-I)w=(0,0,24,-24,24,-24,0,0)ᵀ and T times that vector equal to itself. Both finite identities matter: the return identities ensure block compatibility inductively under substitution; the invariant increment implies the k+3 identity at every k. Exact k=0,1,2 initial rows match, and log F_(16k+2)=16k log φ+O(1), giving signed count slopes ±1/(8 log φ) with bounded residue terms. The Findings' indexing and the proof agree. Editorial off-by-one in the scope sentence: the last counted pair is (x_(N_k-1),x_(N_k)); the final update uses x_(N_k+1), which is not itself counted. This does not change the explicitly defined count or theorem. No inference is made for arbitrary prefixes or temporal dynamics.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1.6 concerns endpoint difference x_(ell-1)-x_0 mod κ over noble-means substitutions. Its displayed family does not use the middle bit of a length-three code. The introduction cites broader strict ergodicity of such lifts under all permutative sliding-block codes to [GJK], listed in preparation; §5.1 treats linear recurrence and unique ergodicity of minimal lift components."
+        ],
+        "reasoning": "Even applicable qualitative strict ergodicity concerns limiting frequencies, not bounded-versus-logarithmic branch discrepancies or this exact recurrence. The unavailable broader manuscript is a specific risk, not negative evidence.",
+        "searches": [
+          "arXiv:2609.01140v2, Thm. 1.6, introduction, §5.1 and bibliography [GJK]"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.01140v2",
+        "Claussen (2008), DOI 10.1063/1.2939398",
+        "Resultary a41f2d510950 (self-hit), ec90f5e076e2, da32a32421a1, ea473cd93241, d6bfcaf54f1b, 29efb4b8c4fd"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The same-day base-3/2 parity-word record concerns 01 and 10 count discrepancy about frequency 2/5, with a different signed recurrence. The Thue–Morse record gives exact 01 discrepancy extrema at N<4^k."
+        ],
+        "reasoning": "Analogous substitution/digit-count techniques do not transfer the return words, the observed 00 state, or the invariant increment to the Fibonacci lift. None of the compared qualitative or exact laws gives the eight-state invariant column.",
+        "searches": [
+          "Resultary d6bfcaf54f1b and 29efb4b8c4fd for logarithmic transition discrepancies"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kang–Jäger give a permutation skew-product representation of inverse permutative lifts, the structural equivalent of the automaton setup.",
+          "Claussen iterates aggregate temporal activity for a single-seed Rule 150 orbit, not the spatial predecessor pair counts."
+        ],
+        "reasoning": "Equivalence of representations does not identify the weighted old-state counts in this substitution cocycle with a temporal Fibonacci iteration.",
+        "searches": [
+          "Resultary: Fibonacci one-sided inverse Rule 150 pair-state discrepancy and logarithmic drift",
+          "arXiv:2609.01140v2, §3, Thm. 1.3",
+          "Claussen, DOI 10.1063/1.2939398"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "a41f2d510950 is the same record, not an independent match. ec90f5e076e2, da32a32421a1 and ea473cd93241 concern finite cyclic Rule 150 fibers on constrained source words."
+        ],
+        "reasoning": "A finite-ring multiplicity table does not give the branch occupation counts in an infinite one-sided lift or their prefix-law constants.",
+        "searches": [
+          "Resultary exact-formula and semantic searches for the four initial vectors and D_s(k+3)-D_s(k)",
+          "Resultary same-day cyclic Rule 150 results"
+        ]
+      },
+      "rationale": "Available inverse-lift theory gives structural, and possibly broader qualitative, coverage. The supported distinct claim is the exact branch-dependent period-three discrepancy drift at the specified Fibonacci prefixes, not the existence of inverse branches, the use of permutations, or qualitative frequencies alone.",
+      "residual_risks": [
+        "The named Gohlke–Jäger–Kang manuscript is listed in preparation, not read. Unindexed exact work on discrepancy for substitution lifts may exist. The focused general lookup returned no useful additional source and is not proof of absence; same-day ordering is unresolved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Structural and qualitative overlap, not the quantitative discrepancy",
+          "evidence": "Representation by a skew product; the stated strict ergodicity theorem uses an endpoint-only code; broader work is cited in preparation.",
+          "identifier_or_url": "https://arxiv.org/html/2609.01140v2",
+          "material_read": "Thm. 1.3 (offset ~12490), Thm. 1.6 (~18383–18709), introductory broader claim (~22845), §5.1 (~97700–103688) and [GJK] bibliography (~161000)",
+          "method": "OA bounded full-text passages",
+          "title": "Permutative lifts of strictly ergodic subshifts",
+          "trigger": "Fibonacci inverse permutative lifts"
+        },
+        {
+          "assessment": "Different observable and evolution",
+          "evidence": "Temporal activity starting from a single occupied site, not inverse branches of a Fibonacci fixed point.",
+          "identifier_or_url": "https://publications.aston.ac.uk/id/eprint/37635/1/Time_evolution_of_the_rule.pdf",
+          "material_read": "Page 2, offsets ~1846, 2287",
+          "method": "OA PDF passage",
+          "title": "Time evolution of the rule 150 cellular automaton activity from a Fibonacci iteration",
+          "trigger": "Same cellular automaton and Fibonacci terminology"
+        },
+        {
+          "assessment": "No implication for the prefix invariant",
+          "evidence": "Finite cyclic predecessor multiplicities or ambiguity languages on constrained inputs.",
+          "identifier_or_url": "Resultary ec90f5e076e2; da32a32421a1; ea473cd93241",
+          "material_read": "Statement and scope in corresponding RESULT.md files",
+          "method": "Resultary search and local mirror passages",
+          "title": "Exact inversion fibers of cyclic Rule 150 on the Lucas language and related cyclic fiber results",
+          "trigger": "Same-day and same automaton, possible exact table"
+        },
+        {
+          "assessment": "Analogue, not equivalent",
+          "evidence": "Different word, transitions, frequency and recurrence.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-logarithmic-transition-discrepancy-in-the-base-3-2-digit-p--d6bfcaf54f1b",
+          "material_read": "RESULT.md Finding",
+          "method": "Resultary search and local mirror passage",
+          "title": "Sharp logarithmic transition discrepancy in the base-3/2 digit parity word",
+          "trigger": "Same-day sharp logarithmic recurrence analogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a natural parity inverse of an aperiodic substitution word, identical limiting frequencies conceal a signed logarithmic bias on two of the four branches and bounded bias on the other two. The exact recurrence identifies which initial conditions exhibit the drift and its scale along two permutation-compatible full substitution blocks, not a fitted or arbitrary small-instance table.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -160,9 +160,10 @@ def row_table():
     assert Counter(observed)==Counter(published)
     assert len(set((r['open_q_coefficient'],r['open_constant']) for r in rows))==15
     assert len(set(zeta_signatures))==25
-    # At q>=8 each of the 25 formal zetas remains distinct. Small q may collide.
-    for q,expected in [(2,25),(3,23),(4,25),(5,23),(6,23),(7,22),(8,25),(9,25),(17,25)]:
-        assert len({tuple(q*a+b for a,b in s) for s in zeta_signatures})==expected
+    # Specialization uses the extension field size q**n, not q.
+    # Periodicity proves all-degree separation for every q >= 2; this samples degrees 1 through 24.
+    for q in (2,3,4,5,7,8,17):
+        assert len({tuple(q**n*a+b for n,(a,b) in enumerate(s,1)) for s in zeta_signatures})==25
     return rows
 
 # Two independent split blow-up examples in characteristic 17.

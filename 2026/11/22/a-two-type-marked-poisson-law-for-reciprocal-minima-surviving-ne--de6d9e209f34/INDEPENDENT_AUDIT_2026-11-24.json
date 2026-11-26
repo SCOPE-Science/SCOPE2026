@@ -1,0 +1,153 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:12:26.943029Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the simultaneous-event formula, not merely the mean limits. The atomless quantile transform preserves orders almost surely, even for a continuous CDF with gaps. One fresh competitor contributes (1-x)(1-y) and a retained one contributes 1-max(x,y), giving h=(1-max)(1-epsilon min). Integrating over a retained focal diagonal or the two replaced focal triangles gives the stated exact means with m=2n-2, including the full-retention and full-refresh endpoints. For r designated cells in distinct rows and columns there are 2(n-r) external competitors per cell and precisely two cross cells per focal pair, tested against the coordinatewise maxima. All other placements contribute zero. After rescaling, the rescaled retained mark density multiplied by n^2 is n(1-epsilon_n), tending to c, including c=0 where an asymptotic ratio should not be used. The analogous replaced density tends to 1. The external factors tend to exp(-4s) or exp(-2(s+t)), and all finitely many cross factors tend to 1. The exponential bound from 1-h >= (x+y)/2 dominates fixed-order integrals; Riemann sums exclude only an O_r(1/n) proportion of placements. For counts in disjoint continuity boxes and both types, tightness follows from first moments, all subsequential mixed moments pass by higher-moment uniform integrability, and the product Poisson law is moment determinate. First-moment mark tail bounds prevent escape and give total counts and the zero-count limit. Replay: RESULT.md lines 39–90; inspected VERIFICATION.md and verify.py (finite checks, not executed or used as an infinite proof).",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The circle-model matching overlap in 278e7537a80c uses independent point clouds. 57f17c94e3c2 concerns changed cycle deletions for cactus MSTs. Israeli–Peled studies rescaled MST spaces near a different noise scale."
+        ],
+        "reasoning": "These are neighboring Poisson or noise results, not a general theorem specialized to the shared-cell refresh and separate quantile marks.",
+        "searches": [
+          "Resultary: reciprocal-nearest-neighbor overlap",
+          "Resultary: noise stability / resampling",
+          "278e7537a80c",
+          "57f17c94e3c2",
+          "arXiv:2306.07357"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and supporting verification files",
+        "Resultary 147ee1997627, 355cf7f112df, 278e7537a80c, 57f17c94e3c2",
+        "Israeli–Peled arXiv:2306.07357v3",
+        "Regular Minimality and bipartite nearest-neighbor primary leads, with limitations recorded above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Exchangeable one-array matching locations can be useful at epsilon=1, when the arrays are independent. They do not encode the conditional two-array survival kernel when epsilon<1. The quoted primary MST result describes metric-space decorrelation, not common local extrema."
+        ],
+        "reasoning": "Allowing for implications at the independent endpoint does not imply the finite-c crossover or either marked process under the joint refresh coupling.",
+        "searches": [
+          "355cf7f112df",
+          "278e7537a80c",
+          "arXiv:2306.07357",
+          "doi:10.3389/fpsyg.2010.00211",
+          "doi:10.1016/j.jmp.2010.12.002",
+          "doi:10.1002/(SICI)1098-2418(199910/12)15:3/4<279::AID-RSA6>3.0.CO;2-J"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The noisy-minima search includes the identical frozen record (self-match). 355cf7f112df gives the one-matrix mutual-maximum count and matching locations; 147ee1997627 gives births and losses after deleting one row."
+        ],
+        "reasoning": "Reversing order equates minima and maxima but does not replace the one-matrix experiment with coupled matrices. Row deletion preserves all other entries and has a different dependence structure.",
+        "searches": [
+          "Resultary: noisy reciprocal minima / cell refresh",
+          "Resultary: random games / mutual row-column extrema",
+          "355cf7f112df",
+          "147ee1997627"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact one-matrix hypergeometric count and matching-location law was the nearest exact enumeration; the complete two-type marked assertion matched the frozen record itself."
+        ],
+        "reasoning": "An exact one-array count does not tabulate a two-array marked law; a finite count table by itself is inapplicable to the infinite point-process limit.",
+        "searches": [
+          "Resultary: noisy reciprocal minima / refresh and one-matrix mutual row-column extrema",
+          "355cf7f112df"
+        ]
+      },
+      "rationale": "The supported distinct claim is the finite-c retained/replaced, spatial and quantile-marked overlap law with exact finite means. One-array extrema laws, single-row perturbations, and independent geometric matching overlaps do not supply the two-copy shared-competitor calculation or the retained mark intensity. No equivalent or dominating result was found in the examined evidence; this is not a priority guarantee.",
+      "residual_risks": [
+        "The cited 2010, 2011 and 1999 full texts were not independently inspected; unexamined or unindexed results could contain stronger overlap statements.",
+        "Matching catalogue dates are not evidence of priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different perturbation",
+          "evidence": "Deletes one row; dependent loss and birth counts rather than common cells under cellwise refresh.",
+          "identifier_or_url": "Resultary:147ee1997627",
+          "material_read": "RESULT.md, opening finding (offset 0)",
+          "method": "Local Resultary mirror",
+          "title": "Reciprocal minimum births and losses after one random matrix row deletion",
+          "trigger": "Same local statistic, perturbation comparator"
+        },
+        {
+          "assessment": "One-array result",
+          "evidence": "Exact count and matching locations of one iid atomless array; no coupled retained/replaced marks in the statement.",
+          "identifier_or_url": "Resultary:355cf7f112df",
+          "material_read": "RESULT.md, opening finding (offset 0)",
+          "method": "Local Resultary mirror",
+          "title": "An exact hypergeometric law for mutual row-column maxima",
+          "trigger": "Order dual and exact enumeration"
+        },
+        {
+          "assessment": "Different object and coupling",
+          "evidence": "Independent labelled point clouds, including a circle model, not independently refreshed cells of one array.",
+          "identifier_or_url": "Resultary:278e7537a80c",
+          "material_read": "RESULT.md, opening finding (offset 0)",
+          "method": "Local Resultary mirror",
+          "title": "Distribution-free overlap calibration and multiscale limits for reciprocal-nearest-neighbor matchings",
+          "trigger": "Closest cross-replicate Poisson overlap"
+        },
+        {
+          "assessment": "Different statistic",
+          "evidence": "Counts changed cycle deletions in cactus MSTs.",
+          "identifier_or_url": "Resultary:57f17c94e3c2",
+          "material_read": "RESULT.md, opening finding (offset 0)",
+          "method": "Local Resultary mirror",
+          "title": "Sharp noise stability ordering and Poisson refresh transition",
+          "trigger": "Poisson transition with refreshed weights"
+        },
+        {
+          "assessment": "Different statement and scale",
+          "evidence": "Decorrelation of rescaled MST spaces above an n^(-1/3) resampling scale; no implication for the stated overlap limit from those results.",
+          "identifier_or_url": "https://arxiv.org/pdf/2306.07357",
+          "material_read": "v3 abstract p. 1 and §2.1 pp. 4–5",
+          "method": "OA paper",
+          "title": "Noise sensitivity of the minimum spanning tree of the complete graph",
+          "trigger": "Primary mathematical refresh comparison"
+        },
+        {
+          "assessment": "No whole-paper conclusion",
+          "evidence": "No full text from those routes; neighboring scope reported by the frozen citation, not independently certified from it.",
+          "identifier_or_url": "https://doi.org/10.3389/fpsyg.2010.00211",
+          "material_read": "Official article/PDF attempted; full text not obtained in this inspection",
+          "method": "Lawful public article and PDF retrieval attempts",
+          "title": "Matrices Satisfying Regular Minimality",
+          "trigger": "Exact subject precedent for a one-copy statistic"
+        },
+        {
+          "assessment": "No whole-paper conclusion",
+          "evidence": "Landing material cannot exclude a stronger appendix result.",
+          "identifier_or_url": "https://doi.org/10.1016/j.jmp.2010.12.002",
+          "material_read": "DOI landing material only",
+          "method": "Lawful public DOI retrieval",
+          "title": "Matrices with a given number of violations of Regular Minimality",
+          "trigger": "Direct one-matrix enumeration lead"
+        },
+        {
+          "assessment": "No whole-paper conclusion",
+          "evidence": "Access failure was not treated as negative evidence.",
+          "identifier_or_url": "https://doi.org/10.1002/(SICI)1098-2418(199910/12)15:3/4%3C279::AID-RSA6%3E3.0.CO;2-J",
+          "material_read": "Publisher retrieval attempted; full text not obtained",
+          "method": "Lawful public DOI retrieval",
+          "title": "The random bipartite nearest neighbor graphs",
+          "trigger": "Related bipartite local minima"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Determines how the two mechanisms—retention of an unusually small observation and fresh rediscovery of the same minimum—coexist at the natural order-one overlap scale. Their calibrated rates and distinct value profiles quantify what a single total count would hide, in a basic iid coupled-matrix model. No claim of quantitative convergence or extension to geometric or dependent costs is needed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

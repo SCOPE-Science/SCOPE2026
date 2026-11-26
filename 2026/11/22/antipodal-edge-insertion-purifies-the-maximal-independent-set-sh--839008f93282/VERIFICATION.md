@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-# Reproducible finite verification
+# Independent mathematical audit
 
-Run the bundled standard-library Python program with `python3 verify_folded.py`, and independently compile and run the C++17 implementation with `c++ -std=c++17 -O2 verify_quotient.cpp -o verify_quotient && ./verify_quotient`. Both programs construct all maximal independent sets of the folded five-cube and of the ordinary four-cube from their adjacency definitions, enumerate all 65,536 vertex supports for each graph, and test equality of the distinct trace count to the complete powerset size. The implementations do not share graph-construction routines.
+## correctness
 
-The Python program checks the equality of every shattered support to the independent-support condition in the folded five-cube, its two 40- and 80-element facet orbits under the 1,920 affine symmetries, and all 32 hexadecimal witnesses. It confirms the ordinary four-cube's eight antipodal lower-dimensional maximal supports.
+PASS
 
-Observed exact output:
+Use the explicit folded 5-cube F=Q4 plus antipodal edges, not the 10-regular complement. A shattered support must be independent to admit the full trace. An independent triple can be translated to 0 and two sums of direction pairs with a shared member; translations and direction permutations give one orbit. At {0,3,5} the three independent extensions are 6,9,14: the latter two lie with the triple in N(1), and the first is the affine-sum extension, adjacent to both others. This gives 160 triples, 80 neighborhood quadruples and 40 affine planes. The planes are maximal independent and the sole extensions beyond four are the 16 neighborhoods. Each neighborhood quadruple extends to exactly one maximal independent set, ruling out shattering a five-set. The two orbit representatives are shattered by the listed witnesses. Independent reproduction enumerated all 65,536 supports per graph and all maximal-independent-set traces; replay python3 /workspace/branches/13e11a5a-0a54-4226-a73e-81ef5bbc595f/recheck.py. It confirmed both polynomials, the orbit types for F and the eight antipodal pair facets of Q4. The difference is setwise, not just a net count: a Q4 shattered four-set contains no antipodal pair by the pair-facet result, so is independent in F and remains shattered; exactly 16 new four-sets result. A separate local obstruction identifies these new four-sets as the 16 ordinary Q4 neighborhoods: each neighbor of a queried vertex in N_Q4(v) is v or is at distance two from v, and so fails to be private to that vertex. No trace with exactly that one vertex absent can be achieved in Q4. All 16 neighborhoods become shattered independent quadruples in F, accounting for the whole difference. The supplied scripts were inspected, not executed.
 
-```
-FOLDED_FIVECUBE_MIS_SHATTER_PASS concepts=56 faces=1,16,80,160,120 facets=40+80
-ANTIPODAL_PERTURBATION_PASS q4_facets=8x2+104x4 folded_facets=120x4
-QUOTIENT_CLEBSCH_Q4_EXHAUSTIVE_PASS 65536_supports_per_graph
-```
+## originality
 
-The structural proof in `RESULT.md` does not treat sampled output as an infinite-family proof: the stated graphs are finite, the complete search domain has exactly 65,536 supports each, and independent finite arithmetic proves the orbit reduction and upper obstruction. No assertion about higher-dimensional folded cubes or independent external verification is made.
+PASS
+
+The standalone Q4 polynomial and facet structure are directly covered by a distinct same-day Resultary record and are credited rather than accepted as a distinct result. In the frozen comparison Q4 is the baseline. The supported distinct contribution is the structural folded-cube shattering classification and exact change of the complex under inserting the antipodal edges. The earlier or same-day general/comparison statements examined do not cover that contribution.
+
+## value
+
+PASS
+
+A natural symmetric edge insertion raises the number of shattered four-sets while removing pair facets and making the shattering complex pure, without changing its dimension. The folded four-facet geometry and obstruction at five give a concrete structural distinction from independence. The exact perturbation is useful as a benchmark for how shattering by maximal independent sets responds to changes in adjacency; the already covered cube numbers serve as its comparison, not its value on their own.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

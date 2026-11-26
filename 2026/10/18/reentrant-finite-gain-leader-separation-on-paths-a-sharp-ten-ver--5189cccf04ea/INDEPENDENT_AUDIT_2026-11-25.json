@@ -1,0 +1,91 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:09:03.136629Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The theorem survives unchanged; the complete corrected RESULT.md in /workspace/repairs/3 fixes the material misattribution of the general finite-gain criterion and noise-free path results and describes the coefficient checks accurately. Re-audit of the surviving result: L plus the two positive pins is positive definite by its quadratic form, and the stationary covariance is half the inverse. Grounding gives a middle resistance (x+s)(d−x+s)/(d+2s) at x and a tail resistance equal to distance plus the leader resistance. Summing shows the only fixed-gap placement dependence is the sum of the two quadratic tail lengths; moving one unit from the longer to the shorter improves it unless the gap in tail lengths is at most one. In /workspace/branches/replay_3.py, direct resistance summation and selected exact grounded matrix inverses agree; positive quadratic certificates exclude 1,2,2,4,5,6,5,6 gaps, respectively, for n=3,…,10. The remaining pair differences give strictly increasing transitions at five and nine, and the stated four phases and isolated ties at ten. For n=5m the smooth derivative numerator at gains 1 and 2 has one positive zero in (3m,3m+1), by its signs and Descartes' rule. The exact odd-tail correction is 1/4; the zero-correction gaps 3m−1 and 3m+1 bound all gaps farther out by strict monotonicity. Independently reconstructed rational gaps strictly select 3m+1 at gain one and 3m at gain two for every m≥2. Balancing gives exactly the listed sets, with all ties retained. The finite checks cover all relevant small orders, while the family conclusion follows from symbolic inequalities rather than sampled sizes.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 2 applies to any connected graph but leaves pair maximization unsolved; Corollary 3 computes two noise-free path leaders. The indexed general fixed-gap formula still leaves an integer minimization and separately proves a scaled-gain limiting reversal."
+        ],
+        "reasoning": "Neither a general objective nor a scaled-gain limit implies the exact finite-order phase thresholds or the prescribed all-size pair of gains. The hard-pinned noise-free solution likewise cannot decide the positive finite-gain comparisons.",
+        "searches": [
+          "arXiv:1407.1569v1 Theorem 2, §V-D Corollary 3 and Appendix C",
+          "Resultary dcf37f107b48 limiting and finite path claims"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1407.1569v1 Theorem 2, Theorem 3, §V-D and Appendix C",
+        "Resultary dcf37f107b48"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The formulas supply a computable starting value for every pair or gap. Excluding all losing gaps for a continuum of gains requires uniform sign comparisons; the two gains for unbounded m require the derivative/parity argument or equivalent uniform comparisons."
+        ],
+        "reasoning": "Data for a different finite order or a limiting model cannot be treated as an already proved stronger assertion. The algebraic fixed-gap overlap is acknowledged, including its ability to generate these comparisons, without crediting it with a solved minimization it does not state.",
+        "searches": [
+          "arXiv:1407.1569v1, equations (41)–(44) and Corollary 3",
+          "Resultary dcf37f107b48, fixed-gap formula and P21 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorem 2 gives the equivalent gain-dependent joint-centrality maximization for two noise-corrupted leaders, with M=L+K in its proof. The indexed November match gives the finite path objective by gap and exhibits an exact P21 reentry."
+        ],
+        "reasoning": "Joint centrality is an equivalent objective after normalization, not a different phenomenon. The stated P21 reversal materially overlaps the general qualitative finding, not the exact smallest order or the two specified gains on P_(5m).",
+        "searches": [
+          "Fitch–Leonard arXiv:1407.1569v1, Theorem 2 and equations (41)–(44)",
+          "Resultary noisy path pin reentry, dcf37f107b48"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest indexed finding lists a P21 sequence 12→13→12 and a different asymptotic result. The path optimum tabulated analytically in the paper is noise-free, with positions asymptotic to 0.2n and 0.8n."
+        ],
+        "reasoning": "No inspected exact statement or table precomputes the P10 values and ties, verifies their minimal order, or provides the same fixed gains on every P_(5m).",
+        "searches": [
+          "Resultary: finite-gain path leader optimal gap, sharp ten-vertex onset, infinite gain reversal; dcf37f107b48",
+          "Fitch–Leonard path placements in §V-D"
+        ]
+      },
+      "rationale": "General two-noisy-leader objectives and prior noise-free path placements are acknowledged. The distinctive claims supported here are the exact all-positive-gain P10 diagram with proof of the first possible decrease and the all-m fixed-gain reversal on P_(5m), not the formulation of the general placement problem or the first indexed observation of any reentrant example.",
+      "residual_risks": [
+        "Not all Lin or Patterson full texts were independently inspected; a different exact specialization of a known objective could exist. This is not a claim of historical priority for the resistance formula or qualitative reentry alone."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct objective coverage; published finite-gain criterion and noise-free path result are separate",
+          "evidence": [
+            "Theorem 2 maximizes k-dependent joint centrality for two noise-corrupted leaders. Theorem 3 concerns noise-free cycle leaders; Appendix C, not Appendix B, proves the noise-free path Corollary 3."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1407.1569v1",
+          "material_read": "Theorem 2, p. 12 (offsets near 50500–53075); §V-D Corollary 3 p. 14 (near 57200); appendix comparison for Theorem 3 and Corollary 3",
+          "method": "OA PDF passages including v1",
+          "title": "Joint Centrality Distinguishes Optimal Leaders in Noisy Networks",
+          "trigger": "Same two-noisy-leader objective and claimed path specialization"
+        },
+        {
+          "assessment": "Material same-model overlap, dated after the frozen result; different solved phase and scaling statements",
+          "evidence": [
+            "Exact fixed-gap criterion, scaled-gain reentry, and a P21 example with separations 12,13,12. The stated results do not include sharp P10 onset or the P_(5m) gain-one/gain-two family."
+          ],
+          "identifier_or_url": "Resultary 2026/11/22/dcf37f107b48",
+          "material_read": "RESULT.md Finding and hypotheses (offsets 0–4998, including P21 example near 1885)",
+          "method": "Local index and mirror",
+          "title": "Reentrant optimal pin separation in noisy path consensus",
+          "trigger": "Same model and same qualitative reversal"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result challenges monotone gain-separation intuition in a common finite-gain consensus problem. It identifies the smallest counterexample, resolves every positive-gain tie there, and shows the decrease persists at fixed gains in arbitrarily large paths, rather than being an isolated finite anomaly or an effect visible only after rescaling.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

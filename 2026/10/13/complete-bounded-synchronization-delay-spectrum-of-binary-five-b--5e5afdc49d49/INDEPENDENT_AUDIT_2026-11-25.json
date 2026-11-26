@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:41:35.732681Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A constant word allows indefinitely many shifted candidate blocks in its repetitions, as do two distinct rotations in the code: repeat the first word in the true framing and the rotated word in the false one. All other length-five words are primitive, leaving six necklaces and at capacity exactly 5^6 selections. At offset r in 1..4 each candidate word spans two neighboring true words; a run of d candidates corresponds to d overlap edges and conversely concatenating the d+1 true words realizes the run. The false ending differs from a true boundary by r modulo five and hence violates the condition; an aligned run never violates it. A directed cycle permits arbitrary walk lengths, while the longest directed path in an acyclic graph gives the last failing d, with zero edges corresponding to delay one. Complement preserves edges and reversal reverses edges and takes offset r to 5−r. An independent exhaustive implementation uses r-bit prefix states instead of full-word vertices: match a true word’s (5−r)-suffix to the candidate’s prefix, allowing the candidate’s remaining r bits to be the next true word’s prefix. Every such walk lifts because each transition chooses a new true word with the required prefix. Topological elimination and longest-path propagation on these states recover 6421, 86, 5546, 3116, 456 for infinity and delays 1–4. The 9204 finite rows match the frozen CSV byte-for-byte, SHA-256 8f42b6607925826293bfdc79878c2a8c0a11051d1e1cc45f6dc28e8d382e8ea6. Independent stabilizer and Burnside counts give size-two/size-four splits (17,1378), (10,774), (0,114) at delays 2–4, hence 1395, 784, 114 orbits. The Lyndon selection has delay two and certifies attainable capacity six. Replay: python3 /workspace/branches/independent_delay.py with the frozen catalogue.csv path as its sole argument. Both packaged verifiers were inspected, not executed. Delay counts error-free candidate blocks, not elapsed bits, and the census is only for binary length five at capacity.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The classical comma-free result yields the primitive-necklace bound and an attaining construction for length five. The inspected Cummings abstract concerns connectivity of a canonical bounded-delay code."
+        ],
+        "reasoning": "Existence of optimum or canonical constructions does not determine the delay of each of the 5^6 selections, the absence of delays five and above, or their symmetry counts.",
+        "searches": [
+          "Golomb–Gordon–Welch, Comma-Free Codes, DOI 10.4153/CJM-1958-023-9, pp. 202–204",
+          "Cummings 1988, Connectivity of Synchronizable Codes in the N-Cube, publisher abstract"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, delay_verify.py, delay_verify.cpp and catalogue.csv",
+        "Resultary same-day comma-free census --7bf3722e0e12",
+        "Golomb–Gordon–Welch 1958 (primary passages)",
+        "Golomb–Gordon 1965 and Cummings 1987/1988 (abstract or excerpt access as recorded)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Comma-freedom excludes every false single block. The delayed strata permit false runs of respectively one, two and three blocks, and unbounded framing requires a cycle. Neither the primitive bound nor the comma-free equality count partitions the remaining 15,539 selections among those classes."
+        ],
+        "reasoning": "Counting one stratum and knowing the size of the selection space only fixes the total of the complement, not its delay or orbit distribution. No inspected primary statement yields that distribution by substitution.",
+        "searches": [
+          "Classical comma-free capacity and construction passages",
+          "Indexed comma-free equality census, Finding and relationship-to-prior-work"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The frozen normalization is one more than the longest number of overlap edges in an acyclic offset graph, with cycles giving unbounded delay.",
+          "The indexed Golomb–Gordon abstract discusses the least message length ensuring unique decipherability; the Cummings survey excerpt uses an integer synchronization delay, but accessible material does not settle exact normalization or whether the same census is tabulated."
+        ],
+        "reasoning": "For this fixed block length, an offset walk and a false-framed sequence of complete words are equivalent. A graph characterization, or a delay in bits or message length, is not by itself this exact distribution; numerical comparison requires mapping conventions and checking the same parameter range.",
+        "searches": [
+          "Resultary: binary length-five maximum-cardinality bounded synchronization delay, overlap digraphs and false-framed blocks",
+          "Golomb–Gordon 1965, Codes With Bounded Synchronization Delay",
+          "Cummings 1987, Aspects of Synchronizable Coding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed comma-free record gives exactly 86 delay-one optima, with seven size-two and eighteen size-four orbits. Ranked searches did not return the 5546, 3116, 456 strata or their exact orbits."
+        ],
+        "reasoning": "This is verified overlap at delay one only and is explicitly excluded as a novelty claim. Same-day record dates do not establish priority; ranked search is not exhaustive.",
+        "searches": [
+          "Resultary: binary five-bit capacity six, 86 comma-free optima, delayed spectrum and complement/reversal census",
+          "2026/10/13/SCOPE-complete-equality-census-for-binary-length-five-comma-free-codes--7bf3722e0e12, offsets 0 and 3892"
+        ]
+      },
+      "rationale": "Pass is for the exact new delay-2–4 spectrum and orbit decomposition at capacity, together with the complete finite versus unbounded split under the stated block-count convention. Neither capacity six nor the delay-one stratum is credited as original. The precise delay-one census is verified in a different same-day indexed record, but the wording ‘known previously’ does not establish earlier publication of that count; the inspected classical passages establish the capacity and construction, not the count. This bibliographic distinction does not affect the mathematical spectrum or the explicitly excluded scope of novelty. No inspected exact or implication-equivalent delayed spectrum dominated the supported distinct result.",
+      "residual_risks": [
+        "Blocked or scanned early sources and potentially unindexed specialist tables leave a real chance of independent enumeration or equivalent normalization not captured by the comparisons.",
+        "Current coverage of the 86-code stratum is verified; earlier authorship or exact ordering is not determined."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact delay-one match, not the new strata; relative priority unresolved",
+          "evidence": "86 labeled comma-free optima, with seven size-two and eighteen size-four orbits; classical sources are described as providing construction and optimum rather than this census.",
+          "identifier_or_url": "2026/10/13/SCOPE-complete-equality-census-for-binary-length-five-comma-free-codes--7bf3722e0e12",
+          "material_read": "RESULT.md Finding at offset 0; prior-work comparison at offset 3892",
+          "method": "Resultary local mirror",
+          "title": "Complete equality census for binary length-five comma-free codes",
+          "trigger": "Exact capacity-six counting overlap"
+        },
+        {
+          "assessment": "Establishes capacity and construction, not the exact delayed census",
+          "evidence": "At most one element per primitive rotation class; a length-five code attains that bound.",
+          "identifier_or_url": "https://doi.org/10.4153/CJM-1958-023-9",
+          "material_read": "pp. 202–204, OA offsets 0 and 4909",
+          "method": "Cambridge PDF text, bounded passages",
+          "title": "Comma-Free Codes",
+          "trigger": "Primary optimal length-five comma-free theorem"
+        },
+        {
+          "assessment": "Unresolved definition and tables; no negative whole-paper conclusion",
+          "evidence": "Abstract discusses the least message length guaranteeing unique decipherability.",
+          "identifier_or_url": "https://www.sciencedirect.com/science/article/pii/S0019995865903001",
+          "material_read": "Search-indexed abstract only",
+          "method": "Search-result abstract and lawful OA attempt; full text inaccessible",
+          "title": "Codes With Bounded Synchronization Delay",
+          "trigger": "Foundational finite-delay classification and possible alternative convention"
+        },
+        {
+          "assessment": "Whole-survey comparison unresolved",
+          "evidence": "The excerpt names an integer synchronization delay d without settling comparison to the frozen census.",
+          "identifier_or_url": "https://combinatorialpress.com/article/jcmcc/Volume%201/vol-001-paper%204.pdf",
+          "material_read": "Indexed synchronization-delay excerpt only",
+          "method": "Indexed excerpt and attempted PDF text reading; not text-extractable",
+          "title": "Aspects of Synchronizable Coding",
+          "trigger": "Survey could contain an equivalent bounded-delay definition or table"
+        },
+        {
+          "assessment": "The abstract addresses a construction rather than a census",
+          "evidence": "Concerns connectivity of a canonical bounded-delay code in the N-cube.",
+          "identifier_or_url": "https://combinatorialpress.com/article/jcmcc/Volume%2003/vol-003-paper%207.pdf",
+          "material_read": "Publisher abstract",
+          "method": "Publisher description, not a full-text comparison",
+          "title": "Connectivity of Synchronizable Codes in the N-Cube",
+          "trigger": "Study of canonical bounded-delay codes and their geometry"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Length five is a natural primitive-necklace capacity case with a known comma-free boundary. The exact classification quantifies the choices opened up by allowing finite rather than immediate resynchronization at the same optimal size, determines the maximum attainable finite delay, and provides a replayable full catalogue with equivalence counts. These are different framing tradeoffs at fixed capacity, not a bit-error or throughput assertion.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

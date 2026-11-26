@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:47:43.143110Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md Finding, Assumptions and Proof, lines 3–66",
+        "VERIFICATION.md",
+        "check_spectra.py (read only)",
+        "/workspace/reproduction/rotations.py and rotations.txt; replay python3 /workspace/reproduction/rotations.py"
+      ],
+      "rationale": "The two lists are full six-element conjugacy classes: proper signed coordinate permutations act transitively on the directed coordinate axes and on the unoriented edge axes. For both lists the absolute quaternion inner product is 0 inside each distinct matched pair and 1/2 across blocks, with 1 on the diagonal. This fixes the labeled relative-angle matrix. The signed lift spans differ (four via sums and differences for the quarter-turns, three for the edge half-turns), independent of lift sign. Every isometry of this round real projective space lifts to an orthogonal isometry of its spherical universal cover, so the ranks obstruct ambient congruence. Schur orthogonality for Haar probability yields the sample Gram chi_l/d after dividing evaluation by d. Its three eigenspaces are pair differences, block-constant configurations with zero total, and constants, giving the stated multiplicities and eigenvalues. At degrees 1, 2, 3 the unscaled extrema are (2,4), (2,8), (4,10) for d=3,5,7; at all degrees l>=4 each unscaled row has absolute off-diagonal sum at most 5, so the normalized extrema lie in [1-5/d,1+5/d], strictly inside [2/5,8/5]. This establishes full row rank, interpolation, uniqueness of the extreme degree, and the sharp condition number. With W positive diagonal, the weighted Gram shares the spectrum of G^(1/2) W G^(1/2); transitive group averaging replaces W by a scalar identity of the same trace. Rayleigh quotient convexity/concavity bounds the two extremes in the required directions. My integer reproduction independently generated the proper signed permutations, computed the two conjugacy classes and relative trace patterns, and checked six spectral power sums for each degree 1–6; Newton identities fix the corresponding finite eigenvalue multisets. The all-degree and all-weight decisions are analytic.",
+      "residual_risks": [
+        "Squared condition numbers refer to the six positive singular values on the data space, not injectivity of the Wigner evaluations. Neither noncentral kernels nor mixed-degree evaluation are covered."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bangun–Behboodi–Mathar study Wigner-D coherence on Euler grids; McEwen et al., §III, give exact transform recovery on an equiangular bandlimited grid."
+        ],
+        "reasoning": "Neither sampled geometry nor sampling question specializes to the two internal conjugacy-class angle matrices and their exact single-degree six-value spectra.",
+        "searches": [
+          "arXiv:2010.02344 Wigner mutual coherence on regular grids",
+          "arXiv:1508.03101 SO(3) bandlimited equiangular sampling theorem"
+        ]
+      },
+      "checked_sources": [
+        "Resultary f6e9da5f7f5e (self), 99fe4bac94d9, 1e4c42991dc6, 315825ed9519",
+        "Bangun et al. arXiv:2010.02344",
+        "McEwen et al. arXiv:1508.03101"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The full-group angle metric can encode class distances, and the general character formula converts a known class angle matrix into a kernel; the prior icosahedral statement only evaluates its own single class."
+        ],
+        "reasoning": "Those standard tools and data do not decide the projective noncongruence or supply the sharp all-degree Wigner comparison. A positive data-space Gram and optimal weights for these natural classes require the internal angle pattern and its transitive symmetry, not merely a general sampling or metric result.",
+        "searches": [
+          "99fe4bac94d9 mirrored Finding and scope",
+          "1e4c42991dc6 mirrored Finding and scope",
+          "arXiv:2010.02344 §7 and arXiv:1508.03101 §III"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The edge-half-turn lines are the cuboctahedron modulo antipodes, whereas the quarter-turn lines have rank four. The prior full-group result classifies absolute rotation angles of the 24 rotations and lists both six-element classes."
+        ],
+        "reasoning": "Counting angles from the identity or giving the rank of a negative-type embedding of the full rotation metric is not a comparison of the classes’ signed quaternion lift ranks. The latter remains sensitive to information lost by taking absolute values.",
+        "searches": [
+          "Projective line comparison for cuboctahedral lines, signed Gram matrices and paired octahedral rotation classes",
+          "Resultary 99fe4bac94d9 (full octahedral metric), mirrored RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "f6e9da5f7f5e is the exact self-hit. 1e4c42991dc6 computes a Wigner spectrum on a 12-element fivefold icosahedral class, with sectors of dimensions 1,5,3,3. 99fe4bac94d9 studies the full cube group. The distinct same-day 315825ed9519 studies common invariant quaternionic lines of matrices."
+        ],
+        "reasoning": "The icosahedral calculation is a methodological precedent, not a spectrum for these classes. The invariant-line result and whole-group metric do not tabulate the two projective lift ranks and common internal Gram matrix.",
+        "searches": [
+          "Resultary: exact Wigner sampling spectra on finite rotation classes; catalogue IDs f6e9da5f7f5e, 1e4c42991dc6, 99fe4bac94d9, 315825ed9519"
+        ]
+      },
+      "rationale": "The supported distinction is the paired natural octahedral classes with identical central two-point data but different ambient projective ranks, together with their sharp common all-degree sampling behavior. The basic character and symmetry-averaging tools and the cuboctahedral line configuration on its own are not original contributions.",
+      "residual_risks": [
+        "Focused web results did not settle possible earlier recognition of the paired six-line projective systems. Priority is limited to the inspected evidence, not guaranteed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior full group metric, no twin or class sampling comparison found",
+          "evidence": "24-rotation metric, listing angle π/2 class and an edge angle π class.",
+          "identifier_or_url": "99fe4bac94d9",
+          "material_read": "Mirrored RESULT.md beginning at offset 0, Finding and angle classes",
+          "method": "Resultary hit and local mirror",
+          "title": "Sharp negative-type exponent and endpoint embedding rank for octahedral rotations",
+          "trigger": "Same group and metric"
+        },
+        {
+          "assessment": "Related character computation on a different twelve-element set",
+          "evidence": "Multiplicity sectors 1,5,3,3 and data interpolation from degree 3 onward.",
+          "identifier_or_url": "1e4c42991dc6",
+          "material_read": "Mirrored RESULT.md beginning at offset 0, Finding",
+          "method": "Resultary hit and local mirror",
+          "title": "Exact Wigner sampling spectra on the twelve fivefold icosahedral rotations",
+          "trigger": "Same exact-degree Wigner spectrum method on a finite class"
+        },
+        {
+          "assessment": "Regular-grid coherence rather than class kernel twins",
+          "evidence": "Wigner D coherence bounds and spherical-harmonic algorithms.",
+          "identifier_or_url": "https://arxiv.org/abs/2010.02344",
+          "material_read": "PDF p. 1 abstract, §7 p. 11 (OA offset about 60200)",
+          "method": "OA PDF passages",
+          "title": "Tight bounds on the mutual coherence of sensing matrices for Wigner D-functions on regular grids",
+          "trigger": "Wigner sampling bounds"
+        },
+        {
+          "assessment": "Bandlimited sampling on an equiangular grid",
+          "evidence": "Exact Wigner transform recovery from the grid, not the finite class calculation.",
+          "identifier_or_url": "https://arxiv.org/abs/1508.03101",
+          "material_read": "PDF p. 1 abstract and §III p. 2 (OA offset about 10000)",
+          "method": "OA PDF passages",
+          "title": "A novel sampling theorem on the rotation group",
+          "trigger": "General sampling theorem for the same ambient group"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding and Proof",
+        "/workspace/reproduction/rotations.txt"
+      ],
+      "rationale": "These are canonical equal-size cube rotation classes, not arbitrary tuned point sets. They show exactly what even complete central pair measurements cannot distinguish in SO(3), while yielding a useful positive single-degree interpolation result with sharp bounds over every degree and a principled equal-weight optimum. The lift-rank obstruction makes the distinction geometric rather than a numerical coincidence.",
+      "residual_risks": [
+        "This is not a classification of all projective twins or of optimal point sets on SO(3)."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

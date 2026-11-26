@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:52:43.308837Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Write f as a constant plus its three adjacent jumps times their step functions. The ℓ¹ norm on jumps gives the exact maximum of column norms, attained by a maximizing step. For u>0 the connected heat kernel is strictly positive and stochastic, so the step residual has strictly negative signs before its edge and strictly positive signs after; two distinct jumps, irrespective of their signs, conflict at a coordinate. Thus even a tie creates no multi-step extremizer. Reflection splits the generator into the even block with eigenvalues 0,2 and odd block [[1,−1],[−1,1+2r]]. The coefficients follow from twice the cross-cut leakage, giving end loss 2(1−H_11) and middle loss 2−(1,1)e^{−uA_r}(1,1)^T. Independently, writing Q=s²+2(1+r)s+2r, the Laplace transform of the difference is (s+1)/(s(s+2))−(s+3)/Q, which gives the positive-convolution identity with transforms ĝ=1/Q and q̂=1/(s(s+2)). At r≥1 both contributions are nonnegative with the convolution strictly positive. For 0<r<1 the ratio (q*g)/g rises strictly since log g has strictly negative second derivative, so each fixed-v integrand q(v)g(u−v)/g(u) increases and the integration interval expands. The ratio starts as u²/6 and tends to infinity since (q*g)(u)→1/(4r) whereas g→0. This proves the unique positive crossing and its sign order. Continuity in r at fixed u>0 forces u*→0 as r↑1, where the local expansion is uniform. For r↓0 use u=x/r and the substitution y=rs in the convolution; g_r(y/r)→e^{−y}/2 and q((x−y)/r)→1/2 for 0<y<x, with a uniform bounded integrand. This gives r(q*g)(x/r)→(1−e^{−x})/4 and the strictly increasing scaled root limit log 3. All conclusions use counting ℓ¹, unweighted jump variation, and positive time. The script and its reported finite tests were inspected but not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Inspected birth–death results establish gradient intertwining or spectral formulas. Dowker constructs interval heat kernels. The complete bipartite record gives related cut rigidity on different graphs."
+        ],
+        "reasoning": "General transition or semigroup formulas can give entries, but do not decide the unique positive zero of the difference of these two weighted cut leakages; distinct graph topologies do not realize the symmetric weighted path setting.",
+        "searches": [
+          "Chafaï–Joulin arXiv:1011.2331",
+          "Castro–Grünbaum SIGMA 9 (2013), 020",
+          "Dowker arXiv:1207.2096",
+          "Resultary b2e6b62be786 sharp heat approximation on complete bipartite graphs"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_weighted_path.py",
+        "Resultary b61064b7e3c0, ecbe5ad031f6 and b2e6b62be786 local mirrors",
+        "Chafaï–Joulin arXiv:1011.2331",
+        "Castro–Grünbaum SIGMA 9 (2013), 020",
+        "Dowker arXiv:1207.2096"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The unit-conductance theorem has central extremizers and does not vary r. The other four-path theorem has b>2a>0, c>3(b−a), ramps and a middle-to-left switch; the submitted symmetry c=a is incompatible with that cone."
+        ],
+        "reasoning": "Neither theorem implies a positive switching time on the symmetric weak-middle-link cone. The weighted result requires the all-positive-kernel convolution and the strict increase of its ratio, not merely the ability to diagonalize the heat matrix.",
+        "searches": [
+          "b61064b7e3c0, Finding and assumptions",
+          "ecbe5ad031f6, Finding and assumptions",
+          "Chafaï–Joulin intertwining and contraction results"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The unweighted path record uses exactly the same identity-defect norm and adjacent variation; its N=4 assertion matches r=1. The separately indexed heat-gradient migration uses the norm of H_t itself on Lipschitz signals with different weights. A focused web lookup surfaced general heat-semigroup topics rather than an additional close exact match."
+        ],
+        "reasoning": "The unweighted result is the exact same operator norm at r=1 after time scaling, whereas an extremizing row of a gradient propagator under the Lipschitz norm is not an extremizing jump column of I−H_t under counting ℓ¹. The web miss is not negative evidence.",
+        "searches": [
+          "Resultary: finite-path heat approximation in discrete bounded variation",
+          "Resultary: weighted four-vertex heat-gradient migration",
+          "Web: weighted finite path graph heat semigroup exact L1 approximation identity defect bounded variation cut sharp constant four vertices crossover conductance"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "b61064b7e3c0 provides exact coefficients for unit-conductance paths. ecbe5ad031f6 provides a migration characterization for a different norm and cone. No distinct exact weighted BV-to-ℓ¹ crossover table emerged in these inspected records."
+        ],
+        "reasoning": "Exact values for the symmetric unweighted slice or for an asymmetric Lipschitz problem cannot supply a weighted crossover for all 0<r<1.",
+        "searches": [
+          "Resultary exact finite-path defect norms and central-cut rigidity",
+          "Resultary weighted four-site migration and exact threshold"
+        ]
+      },
+      "rationale": "The unweighted four-site case is exact indexed overlap and the generic path step reduction is not counted as new. The audited distinct claim is the weighted comparison, especially that the weak central edge causes exactly one switching time with specified sides, strict one-step rigidity through the tie, and two threshold asymptotics. Other inspected heat-gradient or graph-cut records do not cover this setting. Same-day indexing of the exact r=1 overlap does not determine priority.",
+      "residual_risks": [
+        "This comparison uses relevant passages rather than a historical census of weighted-path heat bounds.",
+        "The within-day order of the r=1 overlap is unresolved; no priority statement is inferred."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage at r=1",
+          "evidence": "All path edges have unit conductance; sharp identity-defect constant and central single-step extremizers; no variation of central conductance.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-exact-finite-path-heat-approximation-in-discrete-bounded-variati--b61064b7e3c0/RESULT.md",
+          "material_read": "Finding and assumptions, offsets 0–4975",
+          "method": "Local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact finite-path heat approximation in discrete bounded variation, with central-cut rigidity",
+          "trigger": "Identical operator and norm on finite paths"
+        },
+        {
+          "assessment": "Different norm and incompatible parameter cone",
+          "evidence": "Studies Lipschitz norm of H_t on b>2a and c>3(b−a); migration and extremizing ramps are not the same as BV-to-ℓ¹ defect and steps.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-unique-heat-gradient-migration-and-two-transient-amplification--ecbe5ad031f6/RESULT.md",
+          "material_read": "Finding and assumptions, offsets 0–5409",
+          "method": "Local mirror",
+          "title": "A unique heat-gradient migration and two transient amplification peaks on a weighted four-vertex path",
+          "trigger": "Exact heat-migration terminology and four weighted vertices"
+        },
+        {
+          "assessment": "Related intertwining, different norms",
+          "evidence": "Discrete gradients and Lipschitz/Wasserstein contraction, not the split of identity-defect cut leakages.",
+          "identifier_or_url": "https://arxiv.org/abs/1011.2331",
+          "material_read": "pp. 1 and 8–9, offsets 0–4451 and 23541–26702",
+          "method": "Primary OA passages",
+          "title": "Intertwining and commutation relations for birth-death processes",
+          "trigger": "Weighted path semigroup and sharp norm methods"
+        },
+        {
+          "assessment": "General spectral machinery",
+          "evidence": "Representation of transition probabilities does not in the inspected passages compare these two cut columns.",
+          "identifier_or_url": "https://sigma-journal.com/2013/020/sigma13-020.pdf",
+          "material_read": "pp. 1–2, offset 0–5193",
+          "method": "Primary OA passages",
+          "title": "On a Seminal Paper by Karlin and McGregor",
+          "trigger": "General birth–death transition spectral representation"
+        },
+        {
+          "assessment": "Kernel construction, not a crossover theorem",
+          "evidence": "Discrete interval and circle heat kernels, not the claimed conductance-dependent norm comparison.",
+          "identifier_or_url": "https://arxiv.org/abs/1207.2096",
+          "material_read": "pp. 1–2, offsets 0–5153",
+          "method": "Primary OA passages",
+          "title": "Heat-kernels on the discrete circle and interval",
+          "trigger": "Exact finite interval kernels"
+        },
+        {
+          "assessment": "Different graph families",
+          "evidence": "Complete bipartite graphs, rather than the symmetric conductance deformation of a four-vertex path.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-sharp-heat-approximation-and-finite-time-cut-rigidity-on-k-m-m-a--b2e6b62be786",
+          "material_read": "Finding and graph assumptions",
+          "method": "Local mirror",
+          "title": "Sharp heat approximation and finite-time cut rigidity on K_{m,m} and K_{m,m+1}",
+          "trigger": "Same identity-defect and cut-rigidity theme"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The four-site reflection-symmetric path is the smallest such path with competing balanced and outer cuts. The perturbation exposes a genuine finite-time effect that the unweighted norm cannot see: fast-time sensitivity to conductance initially favors an outer edge when the middle is weaker, but late-time mass balance favors the middle. The record shows a single switch, identifies every equality case even at the tie, and quantifies the separate nearly unweighted and nearly disconnected regimes. This is a complete exact classification within its natural model, not merely a matrix-exponential example.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

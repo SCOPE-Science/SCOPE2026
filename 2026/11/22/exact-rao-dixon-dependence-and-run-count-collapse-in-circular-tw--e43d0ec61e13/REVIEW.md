@@ -1,11 +1,21 @@
-# Self-review: exact Rao–Dixon dependence
+# Independent mathematical audit
 
-**Correctness — PASS.** Uniform circular label order gives the uniform weak-composition law. The exact Rao/runs identity is algebraic for every tie-free sample when the second sample is no larger, and exact mixed factorial moments yield the full covariance and correlation. The squared-correlation numerator/denominator factorization establishes the full small-sample positivity and perfect-correlation boundary; a positive cubic establishes strict decline along balanced sample sizes. The bundled checker independently verified 9560 exact-rational assertions, supporting but not replacing the unrestricted proof.
+## correctness
 
-**Originality — PASS (qualified).** Gatto–Jammalamadaka (2015) already present the individual Rao, circular runs, and Dixon definitions, the half-normalization and general conditional distribution. Jammalamadaka–Guerrier–Mangalam (2021) already publish exact *individual* distributions and separate Gaussian limits. Holst–Rao (1980) already provides general symmetric-frequency asymptotics. The present exact pairwise cross-covariance and full dependence curve, the explicit Rao/runs subbalanced equivalence and the strictly monotone balanced residual are not stated by the directly inspected primary sources or matching research records. They are derived from a known global null law, and older equivalent formulas remain possible.
+PASS
 
-**Value — PASS.** Rao and Dixon are competing recognized two-sample tests of circular equality. Knowing that Rao exactly duplicates circular runs in a broad sample-size regime prevents redundant testing; the sharp finite-sample dependence law quantifies how much linear fluctuation remains in Dixon after Rao, and its limiting half-variance residual is a useful calibration distinction. It does not prove any extra testing power or nonlinear independence.
+For the independent samples under the common atomless null, anchoring a named first-sample point yields equally likely assignments of the other first-sample label positions. These positions and the weak gap compositions are in bijection. Samplewise, the zeros are the only negative deviations when n/m<=1, so R=2nZ/m. Each occupied gap contributes one second-sample run, matched by one first-sample run, proving the stated affine equivalence, with matched tie treatment. The null has P(S1=0)=(m-1)/(m+n-1), P(S1=S2=0)=(m-1)(m-2)/((m+n-1)(m+n-2)), including m=2. The factorial generating identities give E Q=n+2n(n-1)/(m+1) and its zero-conditioned version by replacing m with m-1. For Var Q, if P_k is the ratio of falling n of order k to rising m of order k, expansion gives (24m+4m(m-1))P_4+24mP_3+4mP_2-(2mP_2)^2, which factors as in the source. The covariance follows from the mean shift multiplied by m P(S1=0); both variances and covariance are positive. Verified the denominator-minus-numerator factor and balanced successive-difference factor; the cubic is positive at 2 and has positive derivative for s>=2. Counting positive compositions gives the balanced vacancy law; leading powers give both limiting statements. Independent exact replay python3 -B /workspace/evidence/check_2.py checks separator configurations for 28 pairs with 2<=n<=m<=8. All-parameter correctness uses the moment proof, not these finite checks. This is dependence in second moments and optimal linear prediction, not a full joint law or incremental power theorem.
 
-**References and residual limitation.** The directly compared 2021 open-access paper and 2015 primary chapter define all test normalizations and models; the 1980 source supplies earlier general asymptotics. No independent validation or comprehensive historical priority determination is claimed. The complete statement and reproducible exact checks are provided separately.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+For the exact finite mixed covariance/correlation and its balanced behavior, best of inspected evidence. Do not credit Rao's vacancy/run reduction separately as new mathematics: it follows immediately from the 2021 published positive-part identity and identifying circular blocks. The vacancy marginal at balance is also a direct composition count. The strongest inspected sources give definitions, marginal calibration, the common occupancy law, or exact entries for other occupancy/spacing covariances; they do not give the evaluated mixed rational dependence and its monotonicity.
+
+## value
+
+PASS
+
+Two used circular two-sample procedures have an exact finite dependence that is not visible from separate critical values or asymptotic marginal normality. The rational correlation discriminates two-observation degeneracy, sparse versus balanced behavior, and the exact monotone loss of linear predictability at balance. The simple run identity has practical interpretive value but is not the standalone research contribution; neither piece establishes power improvements.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

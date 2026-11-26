@@ -1,15 +1,21 @@
-# Review of the sixfold Pascal collapse
+# Independent mathematical audit
 
-## Correctness — PASS
-The conic normal form, Pascal cross products, and 120-element projective symmetry action are all explicit. Three representative calculations and the projective transitivity of the ten exterior lines prove the 30/20/10 orbit fiber decomposition. The included self-contained exact checker enumerates the entire 60-element domain and 31 rational points/lines, independently confirming all counts and incidence multiplicities. Extension-field point counts and zeta formulas follow by inclusion-exclusion for a reduced union of ten rational lines, not by extrapolation.
+## correctness
 
-## Originality — PASS, with residual risk
-The closest source is Chipalkatti's complex coincidence classification (arXiv:1407.1447), followed by Chipalkatti–Da Silva's resolved degeneration of colliding points (arXiv:2202.12975). Neither deals with distinct six F5-rational points. Innamorati (doi:10.3390/math11092210), citing Edge, explicitly gives the ten external lines and their Desargues incidences; that geometry is established prior work. The claimed addition is that the 60 Pascal hexagons map *exactly* and *six-to-one* onto those lines, with fibers 3+2+1 by projectivity orbit. A generic-characteristic arithmetic Pascal–Kirkman study begins at characteristic seven, and does not cover this case. An unindexed older finite-geometry computation remains a genuine risk, so priority is not independently established.
+PASS
 
-## Mathematical value — PASS
-The complete conic is the unique six-point conic sextuple over F5, not a parameter slice chosen after computation. Its 60-to-10 collapse reveals a sharp special-characteristic boundary for a classical map and a nontrivial bridge to the Desargues configuration. The accompanying exact complement zeta count is a transparent arithmetic consequence, not the sole motivation.
+Conics are projectively equivalent over F5. On XZ=Y², external lines have normalized A=1 and discriminant 2 or 3, giving ten. Independent enumeration using direct chord equations and incidence tests reproduced all 60 certified images, including distinct collinear opposite-side intersections, and all ten exterior lines. Orbit expansion using translation, scaling by 2 and inversion (generators by the fractional-linear normal form) gave the stated representatives, orbit sizes 30,20,10, and per-line orbit counts 3,2,1. The incidence histogram is 6,15,10 at multiplicities 0,2,3. Distinct linear tangents make the rational multiple points ordinary; every pair meets in the same rational point after extension. The reduced union therefore has 10(Q+1)−15−2·10=10Q−25 points and its complement Q²−9Q+26. Exponentiating the counts yields both stated zeta functions.
 
-## Scope and limitations
-Only the combinatorial hexagon-to-line multiplicity is established, not scheme-theoretic specialization length. The reduced ten-line divisor and its incidence geometry are treated explicitly. No assertion of independent verification or external certification is made.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit is for the orbitwise refinement of the Pascal map on the complete F5 six-set, not for the classical exterior-line geometry or the aggregate sixfold fiber alone. A distinct indexed general finite-field fiber result covers the exterior-only assertion at q=5 and implies aggregate sixfold fibers by equivariance and the 60 inputs. Its available statement does not determine the decomposition of each fiber into the 30-, 20-, and 10-element domain orbits. That refinement is independently proved and not covered by the strongest accessible comparisons.
+
+## value
+
+PASS
+
+The full rational six-set is the smallest complete conic configuration admitting a Pascal hexagon. The split of a single image fiber into three distinct symmetry strata is useful exact information on this finite-field degeneration and is not recoverable from a uniform total or the incidence geometry. The reduced-divisor zeta formula is a useful derived description, not a separate novelty claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:22:34.530671Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On the fixed-mean hyperplane the attractive Laplacian is positive definite, so the Rayleigh maximum defines a finite positive threshold. Symmetric edge pairing gives the exact squared-norm dissipation: a negative semidefinite quadratic plus the negative sum of R_ij times [alpha*Delta^2-Delta*tanh(alpha*Delta)]. Each bracket is strictly positive for a nonzero difference. If the derivative vanishes at or below threshold, y is in the kernel of the signed Laplacian and every repulsive difference vanishes, so L_R*y=0 implies L_A*y=0 and y=0. This proves global asymptotic stability by bounded sublevels and LaSalle; above threshold the linearization has a positive mean-zero eigenvalue. For a simple critical kernel the stable complement is strictly contracting at the linear level. Its center graph has zero quadratic term because the vector field has no quadratic term. Projection of the cubic tanh term gives -kappa*a^3, with kappa=alpha_*^3/(3N) times the fourth-power repulsive edge energy. The energy cannot vanish on a unit null vector by the same two-kernel argument. On the center graph (a^-2)'=2*kappa+O(a^2), giving the signed vector limit, and local exponential tracking transfers it to all orbits except the zero center leaf. Global convergence brings every orbit into the local foliation. The flow is a global diffeomorphism at finite times; integer inverse-time images of the codimension-one strong-stable manifold give the invariant null exceptional set on each fixed-mean hyperplane. Independently, on the three-node path the mean-zero vectors (1,0,-1) and (1,-2,1) have threshold signed eigenvalues 0 and 3 at alpha_*=1/2. The unit critical vector gives kappa=1/18. Direct subtraction gives p'=-p and q'=-(q-tanh q)/3 exactly. For q(0)!=0, U=q^-2 grows to infinity with U'=2/9-4/(45U)+O(U^-2). First U/t tends to 2/9, then U=2t/9+O(log t), making the remainder after subtracting 2/9-2/(5t) integrable. Hence the finite logarithmic constant depends only on q(0). The frozen checker was read, not run; no finite trajectory is used as a proof of either asymptotic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Homs-Dones, Devriendt and Lambiotte use odd edge couplings, gradient structure and LaSalle, with an almost-everywhere convergence result for trees. Devriendt and Lambiotte use a different polynomial consensus–dissensus interaction. The closest retrieved logarithmic laws concern a Lorenz pitchfork and a logistic-threshold flow.",
+          "Classical center-manifold tracking is a general method; it needs the leading projected drift and the sign of its coefficient as inputs."
+        ],
+        "reasoning": "The inspected broader results do not give the tanh-network critical edge coefficient or the sharp decay and exceptional set under the frozen topology hypotheses. Standard projection and tracking are not themselves claimed as new.",
+        "searches": [
+          "arXiv:2008.12022 gradient formulation and Prop. 4.2",
+          "arXiv:2002.08408 pp. 4–5",
+          "Resultary critical-relaxation and first-logarithmic-correction comparisons"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and CHECK.py",
+        "Boyce et al. publisher version and arXiv v1 version comparison",
+        "arXiv:2008.12022",
+        "arXiv:2002.08408",
+        "Resultary semantic index and named local mirror records"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact published Hessian bounds the potential below in curvature by H(alpha). At semidefinite equality, strictness along a candidate null direction can already be recovered from the extra repulsive-edge tanh-squared curvature along line segments and connectedness; the frozen direct dissipation is an alternative. That closure alone is closely implied by the published structure.",
+          "The published path potential and general model permit deriving the scalar q equation, but the examined statements do not establish arbitrary-network cubic projection, strict positivity of that projection, or its sharp global trajectory classification. The path logarithm requires the quintic term and an integrable remainder after changing variables."
+        ],
+        "reasoning": "The original pass rests on the combined quantitative dynamical statement at a simple critical mode, not on relabeling the linear threshold, treating a special identical topology as unknown, or isolating a routine path coefficient. The general prior stability results do not specify what happens on the center trajectories in this regime.",
+        "searches": [
+          "DOI 10.1007/s00332-026-10333-0, Eqs. (18)–(24) and Appendix C Eqs. (C.1)–(C.4)",
+          "arXiv:2008.12022 pp. 5–6 and Prop. 4.2",
+          "Resultary first logarithmic correction records"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Boyce et al. use the same gradient flow and H(alpha)=L_A-alpha*L_R on the fixed-mean hyperplane. Their Theorem 1 treats strict positivity on this hyperplane or a negative direction; their identical-network equality result sets A=R and alpha=1, making H identically zero.",
+          "The generalized Rayleigh threshold is just the boundary of the matrix condition in the published model. Rescaling time could absorb N in the ODE, but the submitted coefficient and asymptotic are for the original 1/N normalization."
+        ],
+        "reasoning": "The reformulation does not make the threshold or model new. The identical-network equality case does not imply the distinct-topology theorem with one critical mode and a stable complement.",
+        "searches": [
+          "Resultary: distinct attraction repulsion networks critical semidefinite global consensus tanh",
+          "Boyce et al. DOI 10.1007/s00332-026-10333-0, Theorem 1, Eqs. (18)–(24), Sec. 3.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The publisher's Table 1 and Appendix C already give the attractive path/repulsive endpoint threshold 1/(K-1), so 1/2 at K=3 is covered. The Lorenz entry gives a distinct logarithmic coefficient from another center manifold; the logistic-threshold entry gives a logarithmic law in a different network model.",
+          "The strongest compared path calculation gives its potential and quadratic threshold, not a table of decay coefficients. No same-model critical-rate formula was retrieved in the displayed catalogue results."
+        ],
+        "reasoning": "Matching the path or threshold is not matching the rate. The path logarithm is an explicit scalar specialization, not evidence that the general critical asymptotic or its coefficient follows from the threshold table.",
+        "searches": [
+          "Resultary: critical tanh network simple zero eigenmode quartic edge coefficient consensus decay",
+          "Resultary: three-agent repulsive endpoint edge q inverse square log t consensus alpha 1/2",
+          "Boyce et al. publisher version Sec. 4.2, Table 1 and Appendix C"
+        ]
+      },
+      "rationale": "The model, signed-Laplacian frontier, strict-coercivity and instability cases, identical-network equality, and path threshold are credited to Boyce et al. Their exact Hessian supplies ingredients for the boundary closure, so that local extension should not be treated as a separate strong novelty claim. The supported distinct content is the critical dynamical theorem across distinct weighted topologies: the explicit positive edge-energy coefficient, signed sharp limit with a global exceptional-set characterization, and its next-order path specialization.",
+      "residual_risks": [
+        "This is not a historical priority certification; ranked catalogue results and bounded primary inspections may miss a same-model nonlinear asymptotics treatment.",
+        "The path threshold is expressly prior and the distinct-graph boundary closure is directly reachable from the published exact curvature formula. The rate assessment is limited to a simple mean-zero critical kernel."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage of model, strict cases, equal-network example and path threshold; general critical rate not supplied by these statements",
+          "evidence": [
+            "Eq. (18) retains the exact sech-squared factors; Eq. (24) is the signed-Hessian lower bound. The published proof uses strict positivity for global stability. Appendix C starts from the exact path potential and expands it to obtain the matrix threshold 1/(K-1)."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00332-026-10333-0",
+          "material_read": "Publisher version Theorem 1, pp. 7–9 Eqs. (18)–(24), Sec. 3.2 pp. 14–15, Sec. 4.2 Table 1 pp. 17–18, Appendix C pp. 30–31",
+          "method": "Lawful OA publisher PDF passage inspection, including offsets 22600 and 85300",
+          "title": "Opinion dynamics modelling: distinct attraction and repulsion topologies highlight quantitative effects of trolling",
+          "trigger": "Same differential equation, spectral threshold, possible prior equality proof and exact path specialization"
+        },
+        {
+          "assessment": "Appendix numbering differs; cite the publisher version for the stated path threshold comparison",
+          "evidence": [
+            "The v1 Appendix C heading is Large controversialness in all-to-all network."
+          ],
+          "identifier_or_url": "arXiv:2512.05725v1",
+          "material_read": "p. 26, Appendix C heading, offset 99000",
+          "method": "OA arXiv PDF bounded passage",
+          "title": "Opinion dynamics modelling: distinct attraction and repulsion topologies highlight quantitative effects of trolling, first preprint",
+          "trigger": "Version-specific provenance of the frozen Appendix C citation"
+        },
+        {
+          "assessment": "General method and different tree convergence statement",
+          "evidence": [
+            "Odd edge coupling supports a gradient flow; almost-everywhere convergence on trees does not give this critical rate."
+          ],
+          "identifier_or_url": "arXiv:2008.12022",
+          "material_read": "pp. 5–6, gradient and LaSalle passage, offset 18500; p. 16, Prop. 4.2, offset 51500",
+          "method": "OA PDF passage inspection",
+          "title": "Nonlinear consensus on networks: equilibria, effective resistance and trees of motifs",
+          "trigger": "Potential broader theorem for nonlinear edge consensus"
+        },
+        {
+          "assessment": "Polynomial dynamics, not the tanh-network rate",
+          "evidence": [
+            "The model uses a polynomial consensus–dissensus coupling."
+          ],
+          "identifier_or_url": "arXiv:2002.08408",
+          "material_read": "pp. 4–5, offsets 22900–25600",
+          "method": "OA PDF passage inspection",
+          "title": "Nonlinear network dynamics with consensus–dissensus bifurcation",
+          "trigger": "Critical rate comparison in a different edge model"
+        },
+        {
+          "assessment": "Shared mechanism, different equation and coefficient",
+          "evidence": [
+            "The Lorenz pitchfork expansion has coefficients 15/22 for t and 609/1936 for log t."
+          ],
+          "identifier_or_url": "Resultary 2026/10/11/SCOPE-first-logarithmic-correction-to-critical-relaxation-in-the-class--0635d2dc2449",
+          "material_read": "RESULT.md finding",
+          "method": "Local mirror statement inspection",
+          "title": "First logarithmic correction to critical relaxation in the classical Lorenz system",
+          "trigger": "Sharp inverse-square logarithmic relaxation analogue"
+        },
+        {
+          "assessment": "Different network law and cusp asymptotic",
+          "evidence": [
+            "Irreducible row-stochastic logistic threshold flow gives an all-coordinate (8/3)*t-(8/5)*log(t)+C+o(1) law."
+          ],
+          "identifier_or_url": "Resultary 2026/11/1/SCOPE-exact-global-monostability-frontier-and-critical-logarithmic-rel--5f085f4d7690",
+          "material_read": "RESULT.md finding",
+          "method": "Local mirror statement inspection",
+          "title": "Exact global monostability frontier and critical logarithmic relaxation",
+          "trigger": "Closest network boundary/logarithm analogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "At this natural threshold the signed spectrum alone cannot distinguish very slow attraction from instability. The explicit repulsive edge energy predicts the decay amplitude across different networks with a single critical mode, while the exceptional-set result identifies exactly which solutions instead relax exponentially. The path formula gives a concrete benchmark for the subleading correction and shows why a pure inverse-square time law misses a divergent logarithm.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

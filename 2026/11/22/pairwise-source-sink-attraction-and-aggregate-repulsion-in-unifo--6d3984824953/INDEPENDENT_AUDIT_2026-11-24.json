@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:33:19.017418Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independently reconstructed the edge-restricted degree enumerator by contracting ij in the tree sum with edge weight x_u x_v. The two available attachments to a remaining vertex combine into weight (x_i+x_j)x_v. Prüfer enumeration on the contracted labels and division by the product of original vertex weights give (x_i+x_j)(Σx)^(n−3); n=2 is immediate. If q_i=2^(−degree(i)), then for i≠j the conditional mixed joint probability is q_i q_j(1+1_ij), and the same-type joint probability is q_i q_j(1−1_ij); on the diagonal the mixed joint probability is zero. Unrestricted and restricted Prüfer weights give E q_i=d_n/2, E q_i q_j=c_n/4 and E[q_i q_j 1_ij]=c_n/[4(n−1)]. Summing gives the stated formulas for covariance and variance. The ratio c_n/d_n²=(1−(2n−1)^(-2))^(n−2) is greater than (n−1)/n by Bernoulli's inequality and less than one for n≥3. The 1/n coefficients in c_n and d_n² relative to e^(-1) are 3/2 and 7/4, giving all three limits, with a positive limiting scaled variance. At n=2 both counts are constant, so only the covariance, not a finite-n correlation, is asserted there. On a fixed path with n≥3 the shared-edge and same-label terms give (n−4)/16. An independent connected-edge-subset enumeration with /workspace/review_replay.py checks exact rational moments at n=2–5; the frozen Prüfer verifier is finite corroboration, not the all-n proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Prüfer degree polynomial is known but contains no direction marks or edge-inclusion data by itself.",
+          "The acyclic orientation polynomial in arXiv:1910.10920 marks sinks of a fixed graph, not joint source and sink events over its uniformly sampled spanning trees."
+        ],
+        "reasoning": "A sufficiently resolved joint enumerator on all labeled oriented trees would imply the aggregate formulas and, by exchangeability and diagonal exclusion, the marked mixed profile. Neither inspected general method is such an enumerator.",
+        "searches": [
+          "arXiv:1206.0598, Bernardi–Morales",
+          "arXiv:1910.10920, Hwang et al.",
+          "Resultary: bivariate source–sink and multivariate marked enumerators"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "arXiv:1206.0598",
+        "arXiv:1910.10920",
+        "Resultary db5fdb9d6d6f, 2469f7d4f0dd, 6a486f2e7cb4, 2ecb6362d538 and 6f5632222324"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The fixed-tree covariance is 2Σ_edges q_i q_j−Σ_i q_i², which already gives the path's (n−4)/16.",
+          "Unconditional covariance additionally has a between-tree covariance of the conditional means; averaging only the fixed-tree covariance would omit it.",
+          "The bipartite result has positive cross-class and negative within-class block covariances, with no complete-graph specialization in its parameter domain."
+        ],
+        "reasoning": "The shared-edge correction must be evaluated jointly with degree weights, tracked for distinct labels and combined with the different aggregate normalization. This is the additional calculation and sign comparison, not a renamed fixed-tree theorem.",
+        "searches": [
+          "Resultary db5fdb9d6d6f, Finding and Proof §1",
+          "Resultary 2469f7d4f0dd and 6a486f2e7cb4",
+          "arXiv:1206.0598, p.1",
+          "Resultary 2ecb6362d538, Finding and assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The model is uniform over all labeled oriented trees, since every underlying tree has exactly 2^(n−1) orientations.",
+          "The fixed-tree results include the shared-edge identity but condition on a deterministic tree. The complete-bipartite spanning-tree result has class-dependent marginals and excludes within-class edges."
+        ],
+        "reasoning": "Alias 'uniform oriented labeled tree' preserves the law. Fixed-tree orientations and uniform orientations of a random spanning tree of a prescribed complete bipartite graph do not preserve it.",
+        "searches": [
+          "Resultary: oriented Cayley trees marked source–sink covariances and joint source/sink laws",
+          "Resultary db5fdb9d6d6f and 2469f7d4f0dd (fixed trees)",
+          "Resultary 2ecb6362d538 (bipartite spanning trees)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed Cayley finding matches the frozen record itself.",
+          "6f5632222324 counts sink class and number for acyclic orientations of K_(m,n), not orientations of a Cayley tree.",
+          "2ecb6362d538 treats spanning trees of K_(a,b); its indexed date does not resolve priority."
+        ],
+        "reasoning": "No distinct inspected exact table matches both the random-tree measure and the mixed statistics. An enumerator for sinks alone can recover source marginals by reversal, not the mixed moment.",
+        "searches": [
+          "Resultary: Cayley source/sink distribution, mixed moments and source–sink enumerators",
+          "Resultary 6f5632222324, two-parameter sink-side law",
+          "Resultary 2ecb6362d538, balance-dependent covariance"
+        ]
+      },
+      "rationale": "Pass for the integrated complete-graph Cayley ensemble, in particular the exact distinct-label positive versus total negative profile and its quantitative persistence. The fixed-path comparison and the conditional shared-edge mechanism are prior. Weighted Cayley enumeration and fixed-tree moments are ingredients, not an already averaged profile or an exact bivariate law identified for this ensemble.",
+      "residual_risks": [
+        "No primary text obtained for Okoth's dissertation.",
+        "Focused external lookup did not furnish another usable comparison; an unindexed joint enumerator or an earlier complete weighted Cayley calculation could subsume the moments."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior fixed-tree formula and path sign; no averaged Cayley profile in that statement",
+          "evidence": [
+            "Cov(S,K|T)=2Σ_edges 2^(−d_i−d_j)−Σ_i 4^(−d_i); path value (n−4)/16"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/27/SCOPE-sharp-path-star-bounds-for-source-sink-covariance-in-randomly-or--db5fdb9d6d6f/RESULT.md",
+          "material_read": "Finding and Proof §1",
+          "method": "Indexed record and local-mirror passage inspection",
+          "title": "Sharp path–star bounds for source–sink covariance in randomly oriented trees",
+          "trigger": "Same statistics on fixed trees"
+        },
+        {
+          "assessment": "Prior ingredient; no orientation event in the displayed polynomial",
+          "evidence": [
+            "Σ_T∏x_i^(d_i(T))=(∏x_i)(Σx_i)^(n−2)"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1206.0598",
+          "material_read": "p.1, Cayley multidegree polynomial",
+          "method": "Open-access text",
+          "title": "Counting Trees Using Symmetries",
+          "trigger": "Weighted labeled-tree enumeration"
+        },
+        {
+          "assessment": "Formal sink-set marking is not joint source–sink marking in the random-tree ensemble",
+          "evidence": [
+            "The defining sum is over acyclic orientations of a fixed input graph with a monomial in the sink-set variables"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1910.10920",
+          "material_read": "pp.1–2, sink polynomial definition",
+          "method": "Open-access text",
+          "title": "Acyclic Orientation Polynomials and the Sink Theorem for Chromatic Symmetric Functions",
+          "trigger": "Multivariate marks on orientation sinks"
+        },
+        {
+          "assessment": "Analogous law, but spanning-tree base graph and class statistics differ; not evidence of a priority order",
+          "evidence": [
+            "Uniform spanning trees of K_(a,b), a,b≥2; exact 2×2 class-count mixed covariance with within-class negative and cross-class positive entries"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-a-balance-dependent-source-sink-covariance-signature-in-random-b--2ecb6362d538/RESULT.md",
+          "material_read": "Finding and assumptions; start of weighted degree proof, offset 0–2960",
+          "method": "Local-mirror passage inspection",
+          "title": "A balance-dependent source–sink covariance signature in random bipartite spanning trees",
+          "trigger": "Same-day close mixed-covariance result"
+        },
+        {
+          "assessment": "Unverified comparison, not evidence of coverage or noncoverage",
+          "evidence": [
+            "The frozen relationship section distinguishes label-order orientations from independent fair orientations; this was not confirmed from the thesis"
+          ],
+          "identifier_or_url": "https://www.academia.edu/69407610/Combinatorics_of_oriented_trees_and_tree_like_structures",
+          "material_read": "No primary text obtained; frozen source describes the locally oriented model",
+          "method": "Supplied lawful URL and alternate route attempted; HTTP 403",
+          "title": "Combinatorics of oriented trees and tree-like structures",
+          "trigger": "Plausibly related source/sink enumeration"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The labels and null model are canonical. Exact strict positive mixed association at every unequal label pair can misleadingly suggest positively associated counts. The exact cancellation with the equal-label exclusion proves the opposite at every nondegenerate order and quantifies its surviving linear scale, with a different sign from a fixed path. This is a substantive finite-to-asymptotic comparison rather than re-evaluation of a deterministically oriented tree.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

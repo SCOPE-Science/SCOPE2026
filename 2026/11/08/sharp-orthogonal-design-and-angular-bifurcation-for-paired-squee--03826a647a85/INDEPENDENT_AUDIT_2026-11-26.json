@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:58:57.816652Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–38 and 42–65, with independent exponent, strictness and threshold checks",
+        "Frozen VERIFICATION.md and verification/check_gaussian_pair.py, inspected without execution"
+      ],
+      "rationale": "The stated unit normalization and Fourier convention give ambiguity magnitude exp[-pi(s x^2+s^(-1) xi^2)/2] before rotation. Both positive summands strictly decrease along each ray, so the closed-disk minimum is on its boundary. Doubling the angular coordinate and shifting by pi gives the two exponential-cosine terms. At antipodal doubled centers the floor is the minimum of a strictly convex exponential sum in x=cos(t); its derivative gives the clipped logarithm. To compare any other angle, relabel if needed so the antipodal minimizing cosine is nonpositive, hold that cosine fixed and choose the sign of sin(t) to decrease the other cosine. This is strict for a negative minimizing cosine, even at -1; for cosine zero it is strict whenever sin(beta) is nonzero, and for coincident centers t=pi makes both terms smaller. This proves exact equality only at perpendicular physical axes. For equal weights and s_1>s_2, the stationary cosine is x_infinity minus a positive multiple of R^(-2); direct subtraction shows 0<x_infinity<1. It enters the interval through -1 at the stated R_0 and never reaches +1. Inverting the doubled cosine proves the one- and two-line classification, square-root opening at threshold, and the pi/4 crossing. The variables are real phase-space coordinates; no requirement that a fractional Fourier transform preserve real-valued windows is needed.",
+      "residual_risks": [
+        "The bundled finite mesh/refinement checks are not a proof of continuous angular optimization and were not executed; the strict analytic comparison supplies that proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The circle polarization theorem assumes a single shared nonincreasing convex geodesic kernel, with a strict-convexity hypothesis for uniqueness.",
+          "For e^(a cos u) the second derivative at u=0 is -a e^a, so global geodesic convexity fails; moreover, unequal squeezings and weights need not supply the same kernel."
+        ],
+        "reasoning": "The broader circle theorem does not apply by rescaling or doubling the angle. Alaifari–Yang's equidistant design uses a common dilation and does not assert this strict maximization with constrained heterogeneous profiles.",
+        "searches": [
+          "Hardin–Kendall–Saff, arXiv:1208.5261, Theorem 1",
+          "Alaifari–Yang, arXiv:2410.05486, Section 2.1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, lines 71–85",
+        "Resultary and primary texts itemized above",
+        "Targeted keyword lookup on heterogeneous Gaussian ambiguity maximin design (no decisive result)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known rotation and ambiguity identities reduce the problem to two exponential profiles but supply no bound strict away from a relative right angle.",
+          "The frozen comparison holds one term fixed at the antipodal minimizer and strictly decreases the other at all other angles, with a separate coincident-center check. The bifurcation comes from the stationary cosine passing through a clipping endpoint, not from optimizing the common squeeze as in the three-window work."
+        ],
+        "reasoning": "Neither substitution of two windows into a proposed equispaced design, nor transferring a three-window squeezing threshold, proves these specific statements.",
+        "searches": [
+          "Alaifari–Yang arXiv:2410.05486, Section 2.1, Eq. (7) and ellipse-coverage remark",
+          "Resultary 5dbcb6b18396 and a5ef66ef0375, Finding and proof passages"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The angular objective is the minimum of a positive sum of two exponential-cosine profiles, on the doubled circle. Perpendicular physical axes become antipodal centers.",
+          "Alaifari–Yang's equal-level ellipse-union coverage controls which point has at least one sufficiently large term. This is not the minimum of their pointwise sum; a common Gaussian normalization factor does not remove that distinction."
+        ],
+        "reasoning": "The common Gaussian profile and reconstruction denominator are genuine overlaps. Changing from threshold coverage to the sum changes the optimized function; unequal weights and squeezings are part of the all-parameter equality law.",
+        "searches": [
+          "Resultary: paired squeezed Gaussian ambiguity magnitude, orthogonal design, disk maximin and angular bifurcation",
+          "Alaifari–Yang arXiv:2410.05486, Section 2.1, Eq. (7) and ellipse-coverage remark",
+          "Hardin–Kendall–Saff arXiv:1208.5261, Theorem 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "03826a647a85 is the assigned result itself. Distinct records 5dbcb6b18396 and a5ef66ef0375 optimize three equally spaced windows with a common squeeze; the first uses amplitude sums and the second squared magnitudes with a weight budget."
+        ],
+        "reasoning": "The stated optimum is a parameter-dependent equality theorem, not a table lookup. The self-match is not independent; the two distinct thresholds concern a change in optimal squeeze, not the worst-direction bifurcation of a fixed two-window design.",
+        "searches": [
+          "Resultary semantic lookup for Gaussian ambiguity disk floors and squeezing thresholds"
+        ]
+      },
+      "rationale": "The positive-sum reconstruction denominator and equal-spacing design are known, as are related three-window squeezing thresholds. The supported distinct claims are exact two-window maximin over relative orientation for arbitrary positive weights and genuine squeezings, with strict equality classification, and the exact change of the minimizing directions for unequal squeezings at equal weight. The strongest inspected precedents use different objectives, a restriction to common kernels, or a different number of windows.",
+      "residual_risks": [
+        "An equivalent strict two-profile polarization lemma may exist under other terminology; the bounded search does not establish comprehensive priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same reconstruction setting, not the heterogeneous weighted-sum equality theorem",
+          "evidence": [
+            "Equidistant rotations use a common dilation; disk coverage is computed from the union of rotated threshold ellipses, separately from the sum appearing in Eq. (7)."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2410.05486",
+          "material_read": "Section 2.1, Gaussian formula, equidistant design and remark on ellipse coverage (HTML offsets 15700–23788), Eq. (7) (23500–27165)",
+          "method": "Targeted OA HTML passages",
+          "title": "Multi-Window Approaches for Direct and Stable STFT Phase Retrieval",
+          "trigger": "Same Gaussian rotations and positive denominator"
+        },
+        {
+          "assessment": "Kernel and convexity hypotheses do not yield the asserted two-profile law",
+          "evidence": [
+            "A single shared nonincreasing convex geodesic kernel is required."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1208.5261",
+          "material_read": "Theorem 1 and hypotheses, HTML offsets 3450–7146",
+          "method": "Targeted OA HTML passages",
+          "title": "Polarization Optimality of Equally Spaced Points on the Circle for Discrete Potentials",
+          "trigger": "Abstract maximin and equal-spacing uniqueness analogue"
+        },
+        {
+          "assessment": "Different number of windows and different variable optimized",
+          "evidence": [
+            "Three equally spaced unit-weight terms with a common squeeze optimized; transition at R=2/sqrt(pi)."
+          ],
+          "identifier_or_url": "2026/11/1/SCOPE-sharp-squeezing-transition-for-three-rotated-gaussian-ambiguity--5dbcb6b18396/RESULT.md",
+          "material_read": "Finding and proof passages at mirror offsets 0–4557 and 4500–8084",
+          "method": "Resultary and local mirror",
+          "title": "Sharp squeezing transition for three rotated Gaussian ambiguity windows",
+          "trigger": "Same amplitude-sum disk floor and a squeezing transition"
+        },
+        {
+          "assessment": "Squared response, different constraints and threshold variable",
+          "evidence": [
+            "Fixed equally spaced angles, common squeeze and weight budget; threshold at pi R^2=2."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-sharp-squeezing-threshold-for-three-rotated-gaussian-ambiguity-w--a5ef66ef0375/RESULT.md",
+          "material_read": "Finding and relevant proof passages at mirror offsets 0–4802 and 4500–9324",
+          "method": "Resultary and local mirror",
+          "title": "Sharp squeezing threshold for three rotated Gaussian ambiguity windows",
+          "trigger": "Related exact three-window threshold"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–38 and 67–79",
+        "Alaifari–Yang, arXiv:2410.05486, Eq. (7)"
+      ],
+      "rationale": "A weighted positive ambiguity floor is a concrete denominator-design target in multi-window inversion, distinct from ellipse coverage. Fixing the squeezings and weights is a natural constraint when windows are chosen in advance. An exact optimizer with no alternative relative angles, plus the radius where the worst line splits into two, gives both a usable stability floor and the directions at which it is tight.",
+      "residual_risks": [
+        "Does not optimize weights, prove lattice uniqueness, or determine the complete nonlinear recovery error."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

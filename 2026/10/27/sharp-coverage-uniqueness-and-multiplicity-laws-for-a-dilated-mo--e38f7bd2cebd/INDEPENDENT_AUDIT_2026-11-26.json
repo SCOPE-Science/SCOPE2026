@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:22:46.258845Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the repaired claim the lowest input digit pair has one choice for each raw contribution 0,1,3,4. This yields r(4m)=r(m)+r(m−1), r(4m+1)=r(4m+3)=r(m), r(4m+2)=0 and r(−1)=0. If W_k counts the adjacent pairs with r(m)+r(m−1)=1, then U_(k+1)=2U_k+W_k. For x=r(m), y=r(m−1), the next-scale adjacent sums are x+2y, 2x+y, x, x; the first two contribute exactly one singleton iff x+y=1. Hence W_(k+1)=2U_k+W_k, with W_0=U_0=1, giving U_k=3^k for every k>=0. The known support count has strictly larger growth base, proving the fraction limit. Independent enumeration verified the frozen small cases and the new checker at /workspace/repairs/3/verify.py ran successfully for k=0,...,7, including the adjacent-pair test. The supplied frozen checker was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dekking develops substitution methods for A+A using zero-indicator sequences and examples such as Fibonacci Beatty sumsets. The matched Resultary result gives the exact two-carry update, a broadly useful input for distribution questions on this particular sumset."
+        ],
+        "reasoning": "A sumset support method only detects nonemptiness; it does not count singleton fibers. The known multiplicity update computes individual r(n), but deriving a global closed count requires an additional invariant; in the repair this is the equality of singleton and adjacent-pair counts at every scale.",
+        "searches": [
+          "Dekking arXiv:2105.04959v1, p. 1, substitution sumsets",
+          "03c3bdcdf47a, carry-vector recurrence and support counting, offsets 1800–3559"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py",
+        "Resultary 03c3bdcdf47a",
+        "Dekking arXiv:2105.04959v1",
+        "OEIS A007052 and A000695",
+        "Moser OEIS-hosted scan (access attempt)",
+        "Repaired RESULT.md, VERIFICATION.md and verify.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The old theorem aggregates carry support and bounds the largest multiplicity by Fibonacci numbers. Neither statistic isolates the number of singleton outputs. Coefficient-two digits 0,1,2,3 are all distinct and have no carry, unlike coefficient-three raw digits 0,1,3,4."
+        ],
+        "reasoning": "The known carry update makes the new count accessible, but the identity between singleton and adjacent-pair counts, with its own two-state recurrence, is doing nontrivial counting work. No such count follows directly by specializing the older support or maximum statements.",
+        "searches": [
+          "Resultary 03c3bdcdf47a Finding, exact carry proof, sharpness witnesses and verification",
+          "OEIS A000695 and classical coefficient-two interpretation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "03c3bdcdf47a has the identical inputs, interval and ordered-coefficient multiplicity. It gives the same support and maximum, but not the displayed singleton count. A change of notation from R(n) to r(n) leaves the overlapped parts identical."
+        ],
+        "reasoning": "Retaining the same arithmetic object is intentional. Restricting multiplicity to exactly one is a different question from counting all positive multiplicities or optimizing them.",
+        "searches": [
+          "Local Resultary: Moser–de Bruijn coefficient-three sumset M+3M exactly 3^k integers below 4^k have a unique ordered representation singleton fibres, count r(n)=1",
+          "Resultary 03c3bdcdf47a, RESULT.md, Finding at offset 0 and relevant proofs"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A007052 gives 1,3,10,34,116,396,1352,4616 and the support recurrence in another interpretation. A000695 lists the Moser–de Bruijn integers themselves, not the singleton fibre counts at coefficient three. The repair makes no originality claim for the numerical powers-of-three sequence by itself."
+        ],
+        "reasoning": "A matching support sequence or the elementary sequence of powers of three is not the theorem that links the latter to this multiplicity distribution. The known arithmetic interpretation of A007052 in this same object is covered by 03c3bdcdf47a and credited.",
+        "searches": [
+          "OEIS A007052 initial terms and recurrence",
+          "OEIS A000695 digits and representation context",
+          "Resultary 03c3bdcdf47a exact formulas"
+        ]
+      },
+      "rationale": "The repaired finding is solely the exact singleton count for coefficient three, and the resulting vanishing proportion when divided by known support. The published same-object record is emphatically credited for support, its exponent, and the Fibonacci maximum. Its Finding and relevant proof/verification passages do not state the singleton count. The new adjacent-pair counting identity is a separate conclusion drawn from the underlying representation recurrence, not a transcription of the support recurrence or the maximum.",
+      "residual_risks": [
+        "General literature search service did not supply usable results for the helper query; this is not negative evidence. An earlier automata, digit-system, or representation-theoretic account of the singleton count may remain unindexed. The Moser scan was not read directly."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "exact overlap on support and maximum, no singleton count in relevant passages",
+          "evidence": [
+            "Same formula at each 4^k and asymptotic support exponent, same Fibonacci maximum and sharpness words.",
+            "Verification compares individual multiplicities and checks support/maximum; neither statement nor verification description gives U_k=3^k."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-a-spectral-counting-law-and-fibonacci-multiplicities-for-the-mos--03c3bdcdf47a/RESULT.md",
+          "material_read": "Finding and scope offset 0, carry and bound proof offsets 1800–3559, attaining words and verification offsets 3540–4892, prior-work and limitations from offset 4900",
+          "method": "local Resultary mirror",
+          "title": "A spectral counting law and Fibonacci multiplicities for the Moser–de Bruijn coefficient-three sumset",
+          "trigger": "same dilated sumset and two of the three frozen invariants"
+        },
+        {
+          "assessment": "related method, no singleton count identified in inspected text",
+          "evidence": [
+            "The abstract describes A+A for zero-indicator substitution sequences and related Fibonacci Beatty examples; exact-name keyword misses are not proof of noncoverage."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2105.04959",
+          "material_read": "v1 p. 1, offsets 0–2024, and targeted keyword locations",
+          "method": "OA PDF passage inspection",
+          "title": "Sumsets and Fixed Points of Substitutions",
+          "trigger": "broader sumset method for automatic and morphic sets"
+        },
+        {
+          "assessment": "same base set, not a coefficient-three singleton count",
+          "evidence": [
+            "Terms have base-four digits only 0 or 1 and are sums of distinct powers of four."
+          ],
+          "identifier_or_url": "https://oeis.org/A000695",
+          "material_read": "definition and comments at offsets 209–1073",
+          "method": "OA database passage inspection",
+          "title": "Moser–de Bruijn sequence: sums of distinct powers of 4",
+          "trigger": "exact base-set identification"
+        },
+        {
+          "assessment": "same support sequence under separate interpretation, not singleton distribution",
+          "evidence": [
+            "Initial values and second-order recurrence match the credited support count."
+          ],
+          "identifier_or_url": "https://oeis.org/A007052",
+          "material_read": "terms at offsets 209–1156 and recurrence at 4904–5798",
+          "method": "OA database passage inspection",
+          "title": "Number of order-consecutive partitions of n",
+          "trigger": "exact support sequence match"
+        },
+        {
+          "assessment": "not a full-text comparison",
+          "evidence": [
+            "03c3bdcdf47a's prior-work section describes the coefficient-two result and analogous complementary sets; the scan did not yield readable machine text via the configured routes."
+          ],
+          "identifier_or_url": "https://oeis.org/A000695/a000695.pdf",
+          "material_read": "identified lawful scan, no extractable passage obtained",
+          "method": "OA direct and alternate configured retrieval attempt",
+          "title": "An Application of Generating Series",
+          "trigger": "historical treatment of the same digit set and other coefficients"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Coefficient two is collision-free, whereas for coefficient three the support grows but the multiplicities can be large. An exact singleton count measures how much of that support retains the classical uniqueness property and shows it is an exponentially vanishing fraction. This probes the actual distribution where the known support and maximum provide no count, with a natural all-scale formula rather than a finite census.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

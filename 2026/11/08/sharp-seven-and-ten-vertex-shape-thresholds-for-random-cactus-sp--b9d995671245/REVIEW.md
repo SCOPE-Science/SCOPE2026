@@ -1,19 +1,21 @@
-# Scientific review: sharp leaf-polynomial thresholds on cactus graphs
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The conductance law on a cactus separates into one independently deleted edge per cycle. At a vertex incident to \(c\) cycle blocks and \(h\) bridge blocks, the tree degree is at least \(c+h\); this establishes the precise classification of possible leaf events and the probability-generating-function factorization. The real-rootedness test is exactly the quadratic discriminant test. For unit weights, a cycle with \(r\) alternating active/inactive runs has edge-type counts \(a,b=2r,c\), and graph order obeys \(N\ge a+2c+3r\). The bound establishes the all-graph cutoffs six (real-rootedness) and nine (log-concavity); the explicit graphs of orders seven and ten attain failures. The needed convolution closure is standard and is supported by the two-by-two-minor argument in the proof. Independent exact-rational enumeration over 101 graph types through seven vertices, with positive nonconstant weights, agrees with the factorization. This finite evidence is corroborative, not a substitute for the general proof.
+PASS
 
-## Originality — PASS, subject to historical-priority risk
+The block tree makes spanning trees a Cartesian product of single edge deletions, whose weight factors are inverse conductances. A vertex incident to at least two blocks retains degree at least two; only original leaves and degree-two vertices on a cycle contribute. Thus weighting and the discriminant test (also for monomials and linear factors) follow. For a mixed unit-weight cycle with a active-active and c inactive-inactive edges and r active runs, its middle coefficient is 2r; each of the c+r inactive vertices requires a distinct exterior vertex, by the block tree. Thus N≥a+2c+3r. If ac>0 and N≤6 only a=c=r=1 fits, giving discriminant zero. At N≤9, r=1 allows ac≤4 by checking c=1,2,3; r≥2 gives a+2c≤3 and ac≤1. Mixed patterns have 2r>0, so the factors have contiguous support and log-concavity survives convolution via order-two Toeplitz minors. The pentagon and octagon with two adjacent pendant attachments give, after shift and normalization, (1,2,2) and (1,2,5), proving the exact orders. The claim about missing terms in the local proof uses the actual attainable patterns, not arbitrary quadratics with an internal zero.
 
-The closest primary literature includes Hladký–Nachmias–Tran (arXiv:1711.09788), on dense-graph local limits and leaf densities of uniform spanning trees; Bahrani–Lumbroso (arXiv:1711.10647), on random generation and structural enumeration of cactus graphs; and Noguchi–Zamfirescu (arXiv:2312.13674), on contiguity of the *set* of achievable spanning-tree leaf counts. The latter source was examined through its theorem and complete available argument. The stated results do not determine the coefficient shape or precise weighted cactus factorization, nor do they imply the two sharp finite cutoffs without additional analysis. The contribution is not an assertion that cactus cycles can be deleted independently; it is the precise characterization and the first-failure order determination derived from that mechanism. Related full texts on general random spanning-tree leaf statistics were not all inspected, so historical priority remains open to independent checking.
+## originality
 
-## Value — PASS
+PASS
 
-Coefficient log-concavity and polynomial real-rootedness govern shape and concentration of a full sampling law, not merely a mean. The distinction matters because connected graphs always have contiguous spanning-tree leaf-count support, but contiguity alone says nothing about shape. The cactus family is a natural sparse class with tractable block structure: the result decides real-rootedness for every positive weighting and proves the smallest possible unweighted failures of two stronger distributional properties. The order cutoffs are exact, globally quantified and accompanied by transparent witnesses rather than arbitrary numerical instances.
+The best matching catalog entry is the identical frozen record, not an independent antecedent. Distinct leaf-law and cactus comparisons and the broader leaf-support theorem do not give the probability shape classification or either minimal order. This supports the distinct combined result, not priority for cycle-block factorization or leaf support.
 
-## Limits and comparison risk
+## value
 
-The order thresholds do not extend to arbitrary conductances or noncactus graphs. A finite checker cannot establish the all-order inequalities. The broad Aldous random-tree article was available only in abstract and background material for this comparison; the cactus generation article was consulted through its public abstract. Neither is presently a decisive plausible covering result, but their deeper text remains a residual historical check. The proof and originality comparison have not undergone independent validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The finite weighted law gives a reusable exact description of tree leaves on cyclic block structures. The distinct sharp orders separate two common distribution-shape properties over an entire natural graph class; neither a single counterexample nor a leaf-support theorem gives those minima.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T14:48:39.066944Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–44 and 46–98",
+        "VERIFICATION.md",
+        "CHECKER.py",
+        "/workspace/branches/frozen_review_checks.py"
+      ],
+      "rationale": "Differentiate the backward Neumann equation for smooth data to get the Dirichlet heat equation with drift b. For BV data, extend by its one-sided traces and mollify. L1 convergence of functions and weak convergence of derivative measures against the positive-time kernel give the same formula, without assuming strong BV-norm approximation of a jump. The Dirichlet gauge exp(b(y-x)/2-b²t/4) has the correct sign; integrating in x identifies survival from y with reverse drift -b. Positivity gives the total-variation upper bound by the maximal column mass; a single jump attains each column mass, and support of the variation measure on the unique maximizing point proves all nonconstant equality cases. The Gaussian finite-grid Prékopa argument gives a log-concave limit: any touching path that does not cross immediately has probability zero by boundary regularity and the strong Markov property, and hitting exactly at t is a null event. Analyticity, positivity and boundary zeros then give uniqueness and an interior maximum. Strict submultiplicativity follows from integrating strictly submaximal column mass off this one point against the strictly positive kernel. The sine coefficients follow by integrating exp(-by/2). For short time, the killed image expansion minus the two one-sided losses has exponentially smaller first spatial derivative near the midpoint: all omitted image distances, including the tails of the one-sided reflected integrals beyond the opposite endpoint, are at least 5/4 for y in [1/4,3/4]. The two leading absolute first-passage slopes are exp(-(y-bt)^2/(4t))/sqrt(pi t) and exp(-(1-y+bt)^2/(4t))/sqrt(pi t) with uniform relative O_b(t) near the midpoint, by differentiating the reflection formulas and applying Mills' expansion to the tilted tails. Their ratio is exp(-(y-1/2-bt)/(2t)). Evaluate at y=1/2+bt±M_b t² with M_b sufficiently large: the derivative changes sign, proving the required bracket without having to assume O(t) localization first. The two reflection tails at that critical point each contribute 4 sqrt(t/pi) exp(-1/(16t)) to the exit probability, establishing the drift-neutral leading prefactor. At large time the first mode has curvature -(pi²+b²/4) times its value at its peak; for the tilted second sine mode, its derivative divided by the first mode at that point is -2pi sin(pi y_infty). This recovers c_b from the ratio of sine coefficients. The next spectral gap is 8pi², so the quadratic implicit-expansion error O_b(exp(-6pi²t)) dominates it. The independent replay `python3 /workspace/branches/frozen_review_checks.py` (section 3, passes) integrates tilted Gaussian images at 85 digits and confirms the spectral formula, short-time scaling for three signed drifts, and the first long-time correction for two nonzero drifts at selected times. The supplied checker was inspected, not executed.",
+      "residual_risks": [
+        "The numerical checks are bounded and supplementary. Short- and long-time arguments hold with b fixed, not uniformly over drift magnitudes."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The compared Wang–Yan claims are a Neumann L1-to-L∞ gradient estimate and |grad P_t f|<=P_t |grad f|, not a sharp positive-time BV coefficient.",
+          "Keady's interval Dirichlet log-concavity preservation covers an ingredient after the gauge; it supports uniqueness combined with analyticity but does not give optimized deficit or migration.",
+          "Resultary 2ce6926bb633 gives an analogous sharp circular BV contraction with semicircle-step optimizers and exponentially small onset; the circle has no reflecting endpoints or nontrivial drift-driven optimizer location."
+        ],
+        "reasoning": "These general or adjacent estimates do not mechanically specialize to the full interval classification. Prior preservation theorems are credited at the proof-ingredient level.",
+        "searches": [
+          "Wang–Yan arXiv:1009.1965, Theorem 1.1 and section 3 gradient bounds",
+          "Keady DOI 10.1017/S1446788700035679, Theorems 1.0–1.1",
+          "Resultary: circular sharp heat variation contraction and reflecting heat approximation"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary 6f50c9ea61c0 (self), 4ae74af9e1d6, 2ce6926bb633, 79e9f8095717, 63d9dae361aa",
+        "arXiv:1009.1965",
+        "DOI 10.1155/2015/391681",
+        "DOI 10.1017/S1446788700035679",
+        "Frozen RESULT.md lines 100–113 and AUDIT.json lines 67–106"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The principal-eigenfunction peak and exponential gap method are classical mechanisms. The nonzero second-mode coefficient here comes from differentiating total survival and comparing first-mode curvature; it is not an exit-odds switching coefficient.",
+          "A fixed-position survival expression does not by itself show that the optimal displacement is bt+O_b(t²) and cancels the drift in the leading deficit. The Brownian column equality and positivity argument connects that optimization with the BV step extremizers."
+        ],
+        "reasoning": "The compared statements support parts of the method but do not supply the sharp norm and extremizers together with the explicit asymptotic balance at both ends. The distinct claim is that quantified classification, not the mere use of standard semigroup estimates.",
+        "searches": [
+          "Compare the available fixed-start Guillaume formulas, Keady's preservation theorem and Resultary 4ae74af9e1d6, 2ce6926bb633, 79e9f8095717 and 63d9dae361aa with RESULT.md lines 20–38 and 59–94"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The column representation identifies the BV optimum with the maximum over starting points of killed survival with drift -b; conversely, maximizing survival identifies every optimal step. Fixed-input two-sided barrier formulas are in the earlier Guillaume source (frozen AUDIT.json lines 86–94)."
+        ],
+        "reasoning": "A prior two-sided drifted survival optimization theorem with the same location asymptotics would be equivalent to the central optimizer claim, irrespective of BV terminology. The recorded fixed-input formulas do not give the maximization or its small-time uniform derivative balance.",
+        "searches": [
+          "Resultary: fixed-time maximizer of two-sided killed drifted Brownian survival and sharp reflecting-interval BV norm",
+          "Guillaume DOI 10.1155/2015/391681 section 5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "6f50c9ea61c0 is the assigned record itself. 4ae74af9e1d6 indexes exit-odds switching with a third-mode correction, not survival maximization. 79e9f8095717 indexes the reflecting-interval BV-to-L1 approximation norm; 63d9dae361aa indexes a cumulative approximation error with horizon-dependent jump migration.",
+          "No exact independent tabulation of y_b(t), its two asymptotic laws, or the same norm is evidenced by those summaries. Comparable centered jumps or motion with the time parameter occur for different optimized objects."
+        ],
+        "reasoning": "An exact result for P_t-I into L1 or its cumulative error is not an entry for the BV-to-BV norm of P_t. An equality of exit odds is not the zero of the spatial derivative of total survival. The index does not establish historical uniqueness.",
+        "searches": [
+          "Resultary: drifted BV heat and optimizer migration; Dirichlet diffusion exit-odds switching; reflecting-interval heat approximation and cumulative jump migration"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the combined sharp BV norm, optimizing-jump classification, and explicit two-end optimizer laws. Differentiation, fixed-start survival, log-concavity and spectral theory are known inputs. Nearby indexed claims are materially related, but their available statements are for different functionals or geometries, not this full statement.",
+      "residual_risks": [
+        "Current retrievals did not produce new full-text passages; prior comparisons rely on available summaries and exact recorded theorem locators. A failed or irrelevant literature hit is not negative evidence.",
+        "Unseen older work specifically optimizing two-sided drifted survival and resolving both endpoint-time optimizer expansions could bear directly on priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General bounds, not the presented optimizer classification in those statements",
+          "evidence": [
+            "Theorem 1.1 has an L1→L∞ gradient bound of order t to the power -(d+1)/2."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1009.1965",
+          "material_read": "Theorem 1.1 and section 3 comparisons from frozen AUDIT.json lines 74–84; exact reader retrieval timed out",
+          "method": "Compare recorded operator norms and gradient inequality with the reviewed variation norm",
+          "title": "Gradient Estimate on the Neumann Semigroup and Applications",
+          "trigger": "Primary prior Neumann gradient and reflecting representation result"
+        },
+        {
+          "assessment": "Credited survival formulas; no stronger comparison that determines studied optimum was verified",
+          "evidence": [
+            "Section 5 evaluates survival with prescribed two-sided barriers at fixed inputs."
+          ],
+          "identifier_or_url": "https://doi.org/10.1155/2015/391681",
+          "material_read": "Recorded sections 1–5 comparison in frozen AUDIT.json lines 86–94; exact article retrieval unavailable in this review",
+          "method": "Compare prescribed inputs in the recorded statements with optimization and equality conditions",
+          "title": "On the Computation of the Survival Probability of Brownian Motion with Drift in a Closed Time Interval When the Absorbing Boundary Is a Step Function",
+          "trigger": "Closest classical drifted two-sided survival formulas"
+        },
+        {
+          "assessment": "Known uniqueness ingredient, not the complete BV/optimizer claim",
+          "evidence": [
+            "Interval Dirichlet heat preserves spatial log-concavity; multiplication by the exponential tilt preserves it as well."
+          ],
+          "identifier_or_url": "https://doi.org/10.1017/S1446788700035679",
+          "material_read": "Theorems 1.0–1.1 and sections 4–6 comparison recorded in frozen AUDIT.json lines 96–106; exact document retrieval timed out",
+          "method": "Compare the recorded preservation theorem to the gauged survival solution",
+          "title": "The persistence of logconcavity for positive solutions of the one dimensional heat equation",
+          "trigger": "Can imply log-concavity of the tilted killed heat solution"
+        },
+        {
+          "assessment": "Material analogies; no verified equivalent statement; unseen ancillary overlap remains possible",
+          "evidence": [
+            "Exit-odds switching and approximation error differ from maximizing survival; periodic contraction differs from reflecting endpoints."
+          ],
+          "identifier_or_url": "Resultary 4ae74af9e1d6; 2ce6926bb633; 79e9f8095717; 63d9dae361aa",
+          "material_read": "Specific indexed statements only; exact linked files could not be read",
+          "method": "Compare functionals, geometry and spectral corrections in the catalogue summaries",
+          "title": "Related exit-odds and heat approximation/variation findings",
+          "trigger": "Late-time location asymptotics, sharp variation coefficients, and moving jump optimizers"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 5–44 and 59–94",
+        "Wang–Yan gradient comparison",
+        "Guillaume fixed-start survival comparison"
+      ],
+      "rationale": "The exact operator norm and equality profile answer a natural sharp stability question for reflecting diffusion that qualitative contraction cannot answer. In particular the worst jump shifts by order t with nonzero drift, although the leading norm deficit has the same asymptotic prefactor and exponent as at zero drift. Its distinct late relaxation scale and coefficient give quantitative information beyond using the principal eigenfunction for norm decay alone.",
+      "residual_risks": [
+        "No claim for variable drift, general boundary conditions or dimensions, or globally uniform in b asymptotics."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

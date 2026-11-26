@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:27:02.431977Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Lemmas 1–3 and sharpness",
+        "Frozen tree_certificate.json, verification_output.txt, verify_edge_neighborhood.py and VERIFICATION.md",
+        "Independent replay: python /workspace/audit_reproduction.py (record 4). Reconstructed both incidence matrices and both ranks; the eight certificate paths 000 through 111 end at centers 7,6,1,2,3,0,4,5."
+      ],
+      "rationale": "For two distinct positive queries, disjoint edges have at most one common center (two bridges force a triangle or square); incident edges leave only their common star, in which a new query isolates or co-isolates at most one center. This precludes online depth four. After a positive root uv, queries outside both endpoints hit at most one candidate and queries through u other than uv hit just the other u-edges, excluding themselves. A depth-two split of this positive space therefore requires degree at least four at one endpoint and at least two at the other. That proves the subcubic cap and supplies a fixed shattered pair: two edges a,b at the high-degree endpoint have traces 01,10,11,00 from a,b,uv and an extension at the opposite endpoint. The general lower bound VC <= Ldim and the depth-one case cover the remaining dimensions, including the empty-class convention. The exact nine-vertex depth-three certificate checks out; depth three requires eight distinct edge functions, excluding all smaller trees.",
+      "residual_risks": [
+        "Finite replay establishes the two witnesses, not the all-graph bounds; the latter follow from the incidence proof. No claim for graphs with triangles or squares."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The same-day triangular-graph record gives exact full-graph ranks and an induced-subgraph cap of four. The chordal-graph neighborhood polynomial counts supports admitting any common neighbor."
+        ],
+        "reasoning": "The same-day record is materially related, irrespective of priority, but its cap is too weak. Counting all-positive supports is different from requiring every alternating branch.",
+        "searches": [
+          "Resultary df7df7b63727, Finding; arXiv:2007.16042, abstract; arXiv:2008.08349, abstract"
+        ]
+      },
+      "checked_sources": [
+        "Resultary df7df7b63727",
+        "Resultary bce7d7b3acb1",
+        "Adler–Benediktsson–Macpherson arXiv:2007.16042",
+        "Bergold–Hochstättler–Mayer arXiv:2008.08349"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The induced-subgraph cap of four and Johnson VC cap of four yield neither the two-positive-query obstruction nor the subcubic obstruction; a static tree bound cannot bound the additional adaptive depth."
+        ],
+        "reasoning": "Credit the standard VC <= Ldim inequality and related Johnson and tree results; none of these statements entails the claimed cap, relative gap, or degree threshold.",
+        "searches": [
+          "Exact Findings df7df7b63727 and bce7d7b3acb1; Adler et al. arXiv:2007.16042"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Line graph open neighborhoods are edge adjacency without self-incidence, equivalently restrictions of triangular-graph adjacency to the selected edges as both queries and centers. The Johnson paper studies this Boolean relation but bounds static VC dimension."
+        ],
+        "reasoning": "The representation is shared; a static VC upper bound does not give the adaptive bound or the one-unit gap.",
+        "searches": [
+          "Web terms: Littlestone dimension, line graph, girth, open neighborhood",
+          "Resultary triangular graph neighborhood record df7df7b63727",
+          "arXiv:2007.16042"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The triangular graph table concerns J(n,2), not the underlying tree order; the later bce7d7b3acb1 gives a different nine-vertex tree (four length-two arms) with VC dimension three, not the assigned VC-two, Ldim-three witness."
+        ],
+        "reasoning": "Neither record supplies the two exact dimension pairs or the minimum tree order for online depth three. The later static witness does not rule out smaller VC-two trees with online depth three.",
+        "searches": [
+          "Resultary df7df7b63727 and bce7d7b3acb1, exact Findings"
+        ]
+      },
+      "rationale": "The standard VC lower comparison is not novel. The distinct contribution is the girth-dependent online upper bound, its degree and VC refinements, and the exact online sharpness for trees. The strongest same-day comparison on the same incidence relation bounds all induced subgraphs of the triangular graph by four, not three, and supplies no degree or VC-relative refinement. No implication-level match emerged in the available comparisons.",
+      "residual_risks": [
+        "Primary comparisons are to specific passages, not a whole-document exclusion.",
+        "The searches do not exclude unindexed work using equivalent adaptive invariants. Same-day catalog date establishes neither priority nor dependence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Partial broader-family overlap only",
+          "evidence": "Exact J(n,2) ranks and uniform induced-subgraph bound four.",
+          "identifier_or_url": "Resultary 2026/11/2/SCOPE-exact-online-shattering-dimensions-of-triangular-graph-neighborh--df7df7b63727",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary index and mirrored statement comparison",
+          "title": "Exact online shattering dimensions of triangular graph neighborhoods",
+          "trigger": "Strongest same-relation online result, same day"
+        },
+        {
+          "assessment": "Later related static invariant",
+          "evidence": "VC cap three, attained first at nine vertices by the tree with four length-two arms.",
+          "identifier_or_url": "Resultary 2026/11/22/SCOPE-exact-open-neighborhood-shattering-polynomial-for-line-graphs-of--bce7d7b3acb1",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary index and mirrored statement comparison",
+          "title": "Exact open-neighborhood shattering polynomial for line graphs of trees",
+          "trigger": "Same concept class on trees; apparent nine-vertex threshold"
+        },
+        {
+          "assessment": "Shared neighborhood relation; static cap is not the online claim",
+          "evidence": "Johnson graphs and induced subgraphs have VC dimension at most four.",
+          "identifier_or_url": "https://arxiv.org/abs/2007.16042",
+          "material_read": "PDF p. 1, abstract around offset 1200",
+          "method": "Primary PDF passage and comparison of stated invariant",
+          "title": "Vapnik–Chervonenkis Dimension and Density on Johnson and Hamming Graphs",
+          "trigger": "Open neighborhoods on the ambient Johnson graph"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": "Generating function of subsets of vertices that have a common neighbor.",
+          "identifier_or_url": "https://arxiv.org/abs/2008.08349",
+          "material_read": "PDF p. 1, definition around offset 900",
+          "method": "Primary PDF passage and comparison of definitions",
+          "title": "The Neighborhood Polynomial of Chordal Graphs",
+          "trigger": "Neighborhood invariant on a class including tree line graphs"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, sharpness and minimal tree order; independently checked witnesses"
+      ],
+      "rationale": "These are sharp structural thresholds for adaptive edge identification: maximum degree alone excludes depth three below four, and girth forces the adaptive advantage over fixed queries to at most one. The P5 and minimum-order nine-vertex tree show that the advantage is genuine even among trees and certify where the higher online rank starts; the result is not a computation of two arbitrary trees.",
+      "residual_risks": [
+        "No exact rank classification of individual girth-five graphs or broader line graph families is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

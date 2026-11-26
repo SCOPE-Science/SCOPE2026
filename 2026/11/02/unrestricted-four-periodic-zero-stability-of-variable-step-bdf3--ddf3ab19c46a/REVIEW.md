@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The variable-step recurrence is derived from four-node cubic Lagrange differentiation, not assumed from a constant-step formula. For any positive quadruple, the exact two-dimensional four-step monodromy has trace and determinant given by homogeneous rational functions. The three strict Schur--Jury conditions reduce to three degree-20 polynomials. The full embedded integer coefficient certificate contains exactly 271, 267 and 271 nonzero monomials, all with positive coefficients; the independent SymPy and standard-library reconstructions agree coefficient for coefficient. This gives an all-positive-parameters proof, not a numerical sample. On the geometric reset family the trace and determinant expansions prove the sharp near-neutral law. The constant mode is simple because the difference dynamics decay.
+PASS
 
-## Originality — PASS on inspected evidence, with priority risk
+Independently differentiating the Newton interpolant through 0,−a,−a−b,−a−b−c and substituting nodal differences yields precisely the published P/D and −U/D entries with unit shift below. At four successive chronological phases the product has trace T/Δ and determinant E/Δ; the positive one-step determinants also justify conjugacy under phase shift. The quadratic Schur test reduces to Δ−T+E, Δ+T+E, and Δ−E strictly positive. An independent integer polynomial-ring product matches every TSV entry, all of degree twenty, with counts 271,267,271 and minimum coefficients 6,6,3. This proves strict positivity on the full positive orthant, not a sampled set. In the full nodal state the constant coordinate is triangularly coupled to the damped difference block, so 1 is simple and geometric decay of differences gives convergence. The separate exact substitution h_i=r^i gives trace −1+6r−74r²/3+O(r³) and determinant r⁵/3+O(r⁶); the simple branch near −1 has modulus 1−6r+O(r²) and dominates the branch tending to 0. This proves sharpness of the supremum without weakening the pointwise strict inequality.
 
-The full readable Calvo--Grigorieff (2002) article gives a ratio bound below 1.199 and variation assumptions for its parabolic stability estimate. The full Li--Liao (2022) text treats ratio restrictions near 2.553 in a different perturbed stability framework; Söderlind--Fekete--Faragó (2018) treat smooth-grid families with ratios approaching one. Earlier two- and three-periodic BDF3 classifications do not imply the arbitrary positive four-periodic statement. The Guglielmi--Zennaro (2001) spectral-radius paper and Calvo--Grande--Grigorieff (1990) paper were not fully accessible; they remain priority risks rather than grounds for claiming exhaustive novelty. No inspected theorem was found that covers the entire three-free-parameter family, and the exact positive-coefficient criterion and boundary asymptotic were not supplied by inspected sources.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Four independent positive periodic steps form the next natural complete periodic family after the three-period case, rather than a random parameter slice. The new all-ratio theorem proves robustness even when every adjacent ratio restriction in classical sufficient conditions is violated, while its explicit geometric degeneration shows why no common strict damping margin exists. The three degree-20 algebraic inequalities give a reproducible mechanism for this robustness. The result is restricted to homogeneous zero stability and does not purport to solve general variable-step stability.
+The closest indexed all-ratio theorem is for three-periodic BDF3, not for four independent spacings. Its exact product and its boundary family are different. Relevant available BDF3 literature uses ratio or smoothness conditions not satisfied by the four-step geometric reset. The supported distinction is this exact fixed four-period positive family and its sharp reset branch, not the general Floquet method or Schur signs as a technique.
 
-## Closest literature and limitations
+## value
 
-Calvo--Grande--Grigorieff (1990), Guglielmi--Zennaro (2001), Calvo--Grigorieff (2002), Söderlind--Fekete--Faragó (2018), and Li--Liao (2022). Full-text access was not obtained for the first two; the 2002, 2018 and 2022 texts were materially inspected. Independent mathematical validation remains unperformed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Four-periodic grids are a natural next full Floquet family after two and three, not a single chosen ratio. The proof gives unrestricted stability across that entire family despite arbitrarily large adjacent ratios, and the exact reset limit identifies why fixed-grid damping cannot have a common strict spectral margin. The full-degree certificate tests a genuine gap not closed by an existing short-period stability test.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

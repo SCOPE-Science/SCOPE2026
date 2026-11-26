@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:28:33.479941Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In F_2^n modulo the all-ones vector, endpoint displacement has exactly two binary support representatives, S and its complement. The number of letters in a word is at least the size of its odd-occurrence support; equality at minimum length forces a permutation of one minimal support, and such permutations give distinct simple geodesics since the edge generators are distinct. For n>=5 a reroute replaces two consecutive letters by a different ordering of the same pair: two distinct unordered pairs with equal quotient sum would have symmetric difference all n coordinates, but it has size at most four. Thus the support is invariant, and the adjacent swaps connect each permutation component; both supports are minimal precisely for even n at distance n/2. F_3 is K_4 and has only one-step geodesics, while F_4 is K_(4,4), whose four two-step paths between equal-side endpoints differ only at their middle and form K_4. Component size, degree, inversion metric and edge count follow from the adjacent-transposition Cayley graph; S_3 gives a six-cycle in each n=6 diametric component. Each quotient vertex has binom(n,n/2)/2 diametric neighbors in even dimension, so multiplying by 2^(n-1)/2 and dividing by the total number of unordered pairs yields the exact count and fraction; the central-binomial asymptotic agrees. A separately written check enumerating vertex paths for all targets from zero in n=3 through 8 reproduced the component sizes, degrees and edge counts; relevant replay files are finite_rerouting_check.py and finite_chunk_n8.txt in the review evidence. That replay does not replace the argument for unbounded n. The frozen verifier and its recorded output for n=3 through 10 were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bonsma p. 1 gives the general one-vertex rerouting problem. Asplund et al. pp. 13–14 study the ordinary cube. The two November 22 catalogue results on geodesic fault tolerance/loss concern deletions in ordinary-cube geodesics. Fang's consulted bibliographic material concerns path embedding and panconnectivity; full text was not recovered."
+        ],
+        "reasoning": "General rerouting definitions and connectedness/embedding of base paths do not classify connected components of the quotient's graph of all shortest paths. Results about deleted vertices in the ordinary cube do not address quotient edits.",
+        "searches": [
+          "arXiv:1009.3217",
+          "arXiv:1705.09385",
+          "DOI 10.1016/j.tcs.2007.07.005",
+          "Resultary: shortest-path graphs and faults in antipodal cube geodesics"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify_folded_geodesics.py and verify_folded_geodesics.out",
+        "arXiv:1009.3217 and arXiv:1705.09385",
+        "MathWorld Folded Cube Graph",
+        "DOI 10.1016/j.tcs.2007.07.005 (limited access)",
+        "Resultary 2026/11/22 records 86f632bfcc10, de11f17d6b33 and f6361fb0e267"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The ordinary-cube permutation proof supplies the graph internal to each support. The landmark result supplies the pair-count precedent but works with distance profiles, not internal vertices of a geodesic."
+        ],
+        "reasoning": "To infer the full result one still needs the quotient-specific two-step analysis: replaceable generator pairs can be complements for n=4, and cannot be for n>=5. Neither checked result decides this, and the quotient graph is not obtained simply by identifying ordinary-cube path graph vertices.",
+        "searches": [
+          "Asplund et al. arXiv:1705.09385 Proposition 27",
+          "Resultary two-landmark anonymity folded cubes, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "MathWorld's definition merges antipodal cube vertices; the frozen graph has 2^(n-1) vertices, rather than an added-matching graph on 2^n vertices in the same dimension.",
+          "Asplund et al. Proposition 27 identifies the ordinary-cube antipodal shortest-path graph as the adjacent-transposition graph of S_m."
+        ],
+        "reasoning": "Any alternate folded-cube convention must first be compared by matching the underlying graph and shifting dimension if applicable. A minimal support can be viewed as an ordinary subcube, but the ordinary-cube proposition classifies no moves between complementary supports after quotienting.",
+        "searches": [
+          "Resultary: folded cube antipodal quotient geodesic rerouting parity and permutahedra",
+          "MathWorld Folded Cube Graph",
+          "arXiv:1705.09385 Proposition 27"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The landmark-anonymity Finding gives the exact same number 2^(n-3) binom(n,n/2) for even n>=6, counting diametric pairs of this quotient in a different characterization."
+        ],
+        "reasoning": "This is exact overlap on an auxiliary count. It identifies which pairs are diametric but not which rerouting edges exist for those pairs. No exact catalogue entry for the full reconfiguration classification surfaced in the checked searches.",
+        "searches": [
+          "Resultary: antipodal folded cube parity, diametric pairs, and shortest-path reconfiguration",
+          "2026/11/22/SCOPE-parity-reversal-of-two-landmark-anonymity-in-folded-cubes--86f632bfcc10"
+        ]
+      },
+      "rationale": "The ordinary-cube permutahedron and the count of diametric pairs in the same quotient are known or already catalogued ingredients, not distinct claims. The checked sources do not give the full endpoint-by-endpoint quotient rerouting classification, in particular the obstruction separating two supports in all even n>=6 and the opposite behavior for n=4.",
+      "residual_risks": [
+        "Fang's full text remained inaccessible and is not ruled out merely by title or access failure.",
+        "An unindexed equivalent folded-cube statement or a more general covering theorem may exist; this comparison does not establish exhaustive priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Matches the operation, not a statement about the quotient components",
+          "evidence": "Vertices are shortest st-paths and a move changes one internal vertex.",
+          "identifier_or_url": "https://arxiv.org/abs/1009.3217",
+          "material_read": "PDF p. 1, definition of shortest-path solution graph",
+          "method": "Lawful arXiv PDF passage",
+          "title": "The Complexity of Rerouting Shortest Paths",
+          "trigger": "General problem potentially encompassing the move rule"
+        },
+        {
+          "assessment": "Covers the ordinary cube permutahedron; does not by that proposition give the quotient classification",
+          "evidence": "For opposite cube corners the graph is the adjacent-transposition Cayley graph of S_m.",
+          "identifier_or_url": "https://arxiv.org/abs/1705.09385",
+          "material_read": "PDF pp. 13–14, coordinate-order argument and Proposition 27",
+          "method": "Lawful arXiv PDF passage, extracted text offset 46200",
+          "title": "Reconfiguration graphs of shortest paths",
+          "trigger": "Ordinary cube shortest-path graphs; most relevant structural precedent"
+        },
+        {
+          "assessment": "Exact overlap on counting diametric pairs; different graph construction and conclusion",
+          "evidence": "For even n>=6 the optimum two-landmark pairs are the diametric pairs, counted by 2^(n-3) binom(n,n/2).",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-parity-reversal-of-two-landmark-anonymity-in-folded-cubes--86f632bfcc10/RESULT.md",
+          "material_read": "RESULT.md, Finding at offset 0",
+          "method": "Local mirror, commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Parity reversal of two-landmark anonymity in folded cubes",
+          "trigger": "Strongest catalogue hit on the same base graph, parity, and endpoint classes"
+        },
+        {
+          "assessment": "Same antipodal identification as the frozen record",
+          "evidence": "Construction merges antipodal vertices, rather than adding an edge between them without identifying them.",
+          "identifier_or_url": "https://mathworld.wolfram.com/FoldedCubeGraph.html",
+          "material_read": "Opening definition",
+          "method": "Lawful public graph-profile passage",
+          "title": "Folded Cube Graph",
+          "trigger": "Check alternative terminology and quotient convention"
+        },
+        {
+          "assessment": "Incomplete comparison; no inference from failed retrieval",
+          "evidence": "Available description concerns path embedding/panconnectivity; no full-text passage establishes the relationship to rerouting.",
+          "identifier_or_url": "https://doi.org/10.1016/j.tcs.2007.07.005",
+          "material_read": "Bibliographic/landing material only; full text not verified",
+          "method": "Lawful DOI and ScienceDirect retrieval attempts",
+          "title": "The bipanconnectivity and -panconnectivity of the folded hypercube",
+          "trigger": "Possible folded-cube path theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The classification resolves whether shortest routes stay mutually reachable after identifying antipodes, a natural stability question for a standard quotient of a cube. It determines the exact failure regime, exhibits two nontrivial components rather than isolated paths in the first disconnected instance, and explains why the smallest even-dimensional diametric example behaves differently. The constructive component metric and the frequency of affected endpoint pairs add usable quantitative conclusions.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

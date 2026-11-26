@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:20:49.438554Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md:19–67",
+        "Frozen VERIFICATION.md and verify.py"
+      ],
+      "rationale": "The projected box is a planar zonotope; the absolute planar determinants of its three pairs of projected edge generators give x|U₁|+y|U₂|+z|U₃| for (x,y,z)=(bc,ac,ab). Independently expanding in centered coordinates Y_i=|U_i|−1/2 gives E[Y_i³]=0 (each |U_i| is uniform on [0,1]), E[Y_i²Y_j]=(5π−16)/(24π) for i≠j, and E[Y₁Y₂Y₃]=(π−3)/(4π) by the Dirichlet(1/2,1/2,1/2) monomial integral. With s=x+y+z, q=xy+yz+zx and p=xyz, this yields κ₃=(5π−16)(sq−3p)/(8π)+6(π−3)p/(4π), or κ₃=[3(4−π)p−(16−5π)sq]/(8π). Here p=V² and sq/p=9+Σ_{i<j}(x_i−x_j)²/(x_i x_j); the latter terms are the stated pairwise side-length energies because x_i=V/a_i. Thus the coefficient is strictly positive in the deficit and the cube value 3(7π−22)/(4π) is strictly negative. Equality in the upper bound is precisely equal sides. The area is not constant (a slight tilt from any coordinate axis increases it to first order), so the sign carries over to standardized skewness, not the proved extremum.",
+      "residual_risks": [
+        "Submitted code was inspected, not executed. Its sampled moments and projected hull checks are numerical diagnostics, not the justification of the identity. No claim for non-Haar viewing, nonorthogonal boxes or standardized-skewness extremizers."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "0d2368f94d4d gives first and second area moments for orthotopes and explicitly excludes higher moments.",
+          "Cited tomography result cb0a2e3c75db may address the identical raw variable in dimension three; its statement and proof were not recovered."
+        ],
+        "reasoning": "The lower moments do not determine the cubic term involving all three directions. An injective reconstruction theorem using moments does not alone give their exact algebraic expressions; the unretrieved primary formula matters.",
+        "searches": [
+          "Resultary: Haar random shadow orthotope area moment formulas all orthotopes",
+          "Resultary: orthotope Haar hyperplane projection volume moments tomography third moment"
+        ]
+      },
+      "checked_sources": [
+        "0d2368f94d4d",
+        "cb0a2e3c75db (lookup and secondary citation only)",
+        "Vickers–Brown DOI 10.1098/rspa.2000.0667 (abstract)",
+        "Walters DOI 10.1017/S0305004100023574 (OA access attempt)",
+        "arXiv:1203.2464 §2.2",
+        "be3a7e96608c, 357f1ce92466, 5f6a2c7bb90c (indexed summaries)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The frozen RESULT.md:72–78 reports the older cuboid density and possible moment-level overlap. DOI access for Walters recovered no lawful OA full text, and Vickers–Brown full text was not accessible on the tried publisher/alternate routes."
+        ],
+        "reasoning": "Exact formulas for the first three raw moments would immediately imply this result by centralization and sq/(xyz)−9 factorization; no such matching formulas were available in the inspected evidence. The cuboid density in principle allows a third-moment integration, but its existence does not exhibit the cancellation, sign or sharp deficit.",
+        "searches": [
+          "Resultary: cb0a2e3c75db",
+          "Resultary: \"Sharp finite-moment tomography of orthotopes in every dimension\"",
+          "DOIs 10.1098/rspa.2000.0667 and 10.1017/S0305004100023574"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "f1cd7217840b is the assigned result, not another discovery.",
+          "Vickers–Brown and Walters are the same-observable density leads. Only the Vickers–Brown abstract was available in this review; the frozen result reports the more specific cuboid treatment in §§3(b), 4(c)."
+        ],
+        "reasoning": "Central third moment, third cumulant and the sign of standardized skewness are related formulations; the sharp fixed-volume bound is on the unstandardized central moment normalized by V², not on standardized skewness. A cuboid PDF is not an explicit sharp central-moment evaluation.",
+        "searches": [
+          "Resultary: cuboid random projection shadow area third raw moment central moment",
+          "Web: Vickers Brown 2001 \"The distribution of projected area and perimeter\" cuboids third moment exact distribution Walters 1947 raw moment"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Finch gives E[cw]=3/2 and E[cw²]=1+4/(3π) for the unit cube, not its central cubic value, in §2.2.",
+          "Resultary hits be3a7e96608c, 357f1ce92466, and 5f6a2c7bb90c concern perimeter moments or area–perimeter covariance."
+        ],
+        "reasoning": "A numerical or exact table limited to a cube could at most cover the cube constant, not certify the all-box inequality; even this cubic cube entry is not supplied by the inspected Finch section.",
+        "searches": [
+          "Resultary: unoriented random shadows orthotopes moments tomography perimeter area",
+          "Finch arXiv:1203.2464, §2.2"
+        ]
+      },
+      "rationale": "Credit the classical brightness formula and prior distributional work, and do not credit raw moments as a standalone contribution. The identified available exact-moment statements do not contain the cubic coefficient for all boxes, and no checked statement gives or mechanically yields the universal sharp negative central moment with its aspect-ratio deficit. Integrating a known cuboid density determines the moment in principle, but the comparison did not find a passage that reduces the signed sharp identity to a stated formula. The unresolved tomography lead is material: if it contains exact raw moments through order three, the centralization and factorization would be a direct corollary.",
+      "residual_risks": [
+        "The older distribution papers were not inspected in full independently. The cited exact hyperplane-volume moment tomography primary text was not retrieved. Earlier equivalent cubic formulas could change the priority assessment."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers lower moments only",
+          "evidence": "Gives first and second raw area moments; explicitly disclaims higher orders.",
+          "identifier_or_url": "0d2368f94d4d",
+          "material_read": "Finding and limitations, offsets 0, 2200, 9360",
+          "method": "Local published mirror",
+          "title": "Exact planar shadow-area moments for all orthotopes",
+          "trigger": "Same Haar projection observable and exact moments"
+        },
+        {
+          "assessment": "Material unresolved overlap risk",
+          "evidence": "The cited reconstruction uses moments of hyperplane projected volume, equal to shadow area when dimension is three. No exact third-moment formula was verified there.",
+          "identifier_or_url": "cb0a2e3c75db",
+          "material_read": "Secondary description in frozen RESULT.md:75; no primary passage retrieved",
+          "method": "Local Resultary ID/title/semantic lookups",
+          "title": "Sharp finite-moment tomography of orthotopes in every dimension",
+          "trigger": "Possible exact first three raw moments for the same observable in dimension three"
+        },
+        {
+          "assessment": "Distributional overlap acknowledged; sharp identity comparison limited",
+          "evidence": "The abstract concerns area and joint area/perimeter PDFs; the frozen report attributes specific cuboid formulas to the cited sections.",
+          "identifier_or_url": "https://doi.org/10.1098/rspa.2000.0667",
+          "material_read": "Publisher abstract; frozen reference to §§3(b), 4(c); no primary full-text passage recovered",
+          "method": "Primary search; publisher/Academia full-text access unsuccessful, JSTOR landing only",
+          "title": "The distribution of projected area and perimeter of convex, solid particles",
+          "trigger": "Earlier distribution for cuboid brightness"
+        },
+        {
+          "assessment": "Priority unresolved for explicit cubic formulas",
+          "evidence": "No primary passage available; not evidence of absence.",
+          "identifier_or_url": "https://doi.org/10.1017/S0305004100023574",
+          "material_read": "Citation/secondary description only",
+          "method": "Lawful DOI/OA resolution, including repository recovery, did not find full text",
+          "title": "The distribution of projected areas of fragments",
+          "trigger": "Prior general cuboid distribution attributed by Vickers–Brown"
+        },
+        {
+          "assessment": "Same area variable for a cube, through second moment in the cube table",
+          "evidence": "The unit cube entries for cw are 3/2 and 1+4/(3π) for orders one and two, alongside perimeter and mixed entries.",
+          "identifier_or_url": "https://arxiv.org/pdf/1203.2464",
+          "material_read": "§2 and §2.2, PDF text offsets 8073 and 10100–12333",
+          "method": "OA PDF passage inspection",
+          "title": "Planar Projections and Second Intrinsic Volume",
+          "trigger": "Exact tabulated cube projection-area moments"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md:3–20,46–78",
+        "Finch §2.2",
+        "0d2368f94d4d"
+      ],
+      "rationale": "Beyond calculating a moment, this resolves a uniform sign question for a classical geometric observable: single-coordinate cubic contributions vanish, correlated viewing coordinates drive the sign, and the exact cancellation separates a negative cube term from a nonnegative shape penalty. The penalty gives strict equality and quantitative departure from cubic shape at fixed volume without needing to integrate the cuboid PDF case by case.",
+      "residual_risks": [
+        "Value is for the sharp geometric sign and stability statement, not rediscovery of a distribution, raw-moment tomography or a general skewness-ordering theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

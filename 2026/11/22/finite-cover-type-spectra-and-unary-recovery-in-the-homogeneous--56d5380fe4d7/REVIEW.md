@@ -1,15 +1,21 @@
-# Scientific review: finite-cover type spectra and unary recovery
+# Independent mathematical audit
 
-## Correctness — PASS
-The age is the family of finite two-element-fibre structures with a choice of one of the two perfect matching alignments for each pair of different fibres. The proof checks separately (i) uniquely determined old singleton mates, (ii) the set-partition species of fresh fibres of sizes one or two, and (iii) independent binary edge-matchings to all old and all other fresh fibres. The resulting exponential generating function yields a coefficient formula valid for every nonnegative arity. Numerical recovery from the unary count uses disjoint integer intervals \([2^m,2^m+m]\). The attached independent direct-diagram verifier checked 40 small configurations and a second exact EGF calculation checked 288 more; the infinite claim relies on the combinatorial proof, not on extrapolation.
+## correctness
 
-## Originality — PASS, with residual historical risk
-Aranda's 2015 Chapter 3 classification identifies the finite cover and its matching structure. It does not state the complete marked-base tuple-type EGF, the coefficient formula with named singleton mates, or the one-arity determination of all higher counts. Evans (1996) and Ivanov (1999) give general finite-cover context, without a directly identified dominating count formula in the materials accessible for comparison. Published results on two-equivalence grids and random bipartite reducts involve different ages, languages and invariants; their statements do not imply this exact claim. No exact covering formula emerged from targeted mathematical record searches. Historical priority cannot be certified from this finite search, and two older finite-cover articles were available only as abstracts.
+PASS
 
-## Mathematical value — PASS
-The all-arity orbit/type profile of a distinguished, classified homogeneous finite cover is a natural invariant. Unlike a finite numerical census, this result simultaneously resolves all finite named bases and all tuple arities. It identifies the precise algebraic contributions from incompletely represented fibres, proves independence from the detailed old \(S/T\) colouring, and establishes the unusual arity-one numerical saturation of the full spectrum. These are useful structural conclusions rather than an arbitrary small-instance parameter.
+Aranda's construction supplies unrestricted finite S-matching choices between two-element R-classes. Homogeneity carries equal induced diagrams to equal complete types over the pointwise-named old vertices, and different diagrams already differ atomically. For j coordinates occupied by old mates there are binomial(r,j)(s)_j assignments. The rest partition into singleton and doubleton fresh classes; with p doubletons the number of fresh classes is k=r−j−p. Choosing a visible representative of each class reads an independent bit on each old–fresh and fresh–fresh pair, with exponent mk+binomial(k,2); all remaining edges are forced and there is no quotient on the named diagrams. This gives the coefficient formula and the formal EGF. For r=1, the disjoint intervals [2^m,2^m+m] for m≥1 recover m and s; the empty base gives 1. Equal occupancy need not give equal old diagrams: two singleton-class points can be S-related or T-related. A bounded direct census at f=s=1,r=3 gave 716 diagrams for either old matching bit (608 without the mate and 108 with it).
 
-## Limitations
-Only the three-colour homogeneous matching cover is treated. The unary count does not reconstruct an old base up to coloured isomorphism, merely its completed/singleton fibre occupancy. More general finite covers and graph reducts require new arguments. Older equivalent formulae may exist, and the independent audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit Aranda for the homogeneous matching cover and its finite-diagram description. The supported distinct contribution is the uniform pointed injective spectrum, including old singleton mates, and the inference that its numerical parameter content is already captured at arity one. The inspected closely related orbit enumerations use different objects or groups.
+
+## value
+
+PASS
+
+The formula evaluates arbitrary pointed injective orbit counts in a natural finite cover where old algebraic mates and fresh fibers contribute differently. Arity-one recovery shows exactly which information about the base the entire numerical spectrum retains and which matching information it loses. This is more than an unpointed initial-term calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

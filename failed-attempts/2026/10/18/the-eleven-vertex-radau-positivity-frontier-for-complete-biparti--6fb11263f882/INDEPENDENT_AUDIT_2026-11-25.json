@@ -1,0 +1,178 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T17:56:50.149315Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof lines 22–82",
+        "Frozen VERIFICATION.md and verify.py (read, not executed)",
+        "Independent spectral entry reformulation, scalar bounds, and exact rational witnesses in this review"
+      ],
+      "rationale": "The constant projector, within-part zero-sum projectors and between-part contrast yield the five claimed entry types, including parts of size one (zero within-part projector) and equal parts (coincident eigenvalues). Independently for off-diagonals, let D(x)=x²+4x+6, F(x)=(6−2x)/D(x), G(x)=1−F(x) and J(x)=(x+6)/D(x), so G(x)=xJ(x). Across parts the value is G(Nh)/N>0 for h>0. Within the p-part it is (qh/p)(J(qh)−J(Nh)), strictly positive since J'(x)=−(x²+12x+18)/D(x)². The diagonal is a convex combination of spectral values with constant weight 1/N; the other values are at least (5−3√3)/2, the minimum at 3+3√3, giving a strictly positive lower bound through N=11. For w=a/b and h=8/b the diagonal in the a-part is −5/51+C/N with C=56/51+(160w−8)/(51(32w²+80w+51)); C<60/51 follows from 4(32w²+80w+51)−(160w−8)>0. Thus every indicated diagonal is strictly negative for N≥12. Exact rational substitution gives −125/24939 for K₆,₆ and −5/787 at the singleton vertex of K₁,₁₁. Continuity of the diagonal at h=0 and strict positivity of the off-diagonals for h>0 cover small steps; convergence of F(hL) to the positive constant projector covers large steps. T₀=I checks the endpoint of the nonnegative assertion.",
+      "residual_risks": [
+        "Completed steps only; this does not classify stage positivity, general weighted diffusion, or the number and endpoints of positivity intervals on an individual graph."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "SCOPE 657de75ce7c2 asserts the iff threshold through N=11 for all unweighted complete multipartite graphs, including unequal and balanced two-part graphs, with strict reentry at large steps.",
+          "The other graph records treat stars alone, balanced graphs with at least three parts, or the different Gauss–Legendre integrator. Bolley–Crouzeix treat a general positivity-preserving operator class."
+        ],
+        "reasoning": "Only the all-partitions multipartite theorem is a true covering theorem; generic impossibility over a broad operator class, a different integrator, and special families cannot substitute for it.",
+        "searches": [
+          "SCOPE 657de75ce7c2, Finding offset 0 and comparison offset 6445",
+          "SCOPE 8c0d50ef8119, 17146a0a41df, 3d0ba37aabda, and 6250aee1370d, Findings",
+          "Bolley and Crouzeix (1978), Lemma 1 and Theorem 1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 657de75ce7c2, 17146a0a41df, 3d0ba37aabda, 8c0d50ef8119 and 6250aee1370d",
+        "Hairer–Wanner §3",
+        "Bolley–Crouzeix Lemma 1 and Theorem 1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The multipartite theorem gives h_s=8/(N−s) and strictly negative diagonals at every vertex in the part of size s, for every N≥12, as well as strict positivity near zero and infinity.",
+          "The broader operator-class impossibility theorem does not identify any graph-order cutoff."
+        ],
+        "reasoning": "Setting the part sizes to a≤b and s=a gives exactly h=8/b for the specified vertices, not merely some failure. The displayed rational entries for individual graphs are direct evaluations of the completed step and do not constitute a distinct result. Exact coverage is verified; its later catalogue date is not evidence of earlier priority.",
+        "searches": [
+          "SCOPE 657de75ce7c2, exact witness and reentry statement",
+          "Bolley and Crouzeix (1978), Theorem 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The matched catalogue record uses the same completed two-stage Radau IIA update on finite simple unweighted complete multipartite graphs, with the same all-h notion of entrywise positivity.",
+          "Hairer–Wanner supply the stability function, not a graph-class threshold."
+        ],
+        "reasoning": "Any two nonempty parts of the multipartite theorem give the exact bipartite Laplacian; there is no change of normalization, method, or phase of the time step.",
+        "searches": [
+          "Resultary: all-timestep Radau IIA entrywise positivity on complete bipartite and multipartite Laplacians",
+          "SCOPE 657de75ce7c2, Finding",
+          "Hairer and Wanner (1999), §3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The two star-window entries resolve an exact subfamily. The matching result provides an all-orders analytic classification rather than a finite table."
+        ],
+        "reasoning": "The claim ranges over every order, bipartition, and real timestep. A finite collection of windows would not cover it, but the indexed stronger classification determines the entire claimed cutoff and witness.",
+        "searches": [
+          "Resultary: twelve-vertex Radau positivity barrier and exact positivity windows",
+          "SCOPE 657de75ce7c2, 17146a0a41df and 3d0ba37aabda, Findings"
+        ]
+      },
+      "rationale": "The current catalogue contains a distinct stronger theorem that directly covers the entire claimed class, cutoff, indicated witness, and small/large-step positivity. This is a failure to establish a distinct claim against current verified coverage, not a finding of prior publication or priority against the frozen record: the matching catalogue record is dated later. The frozen bipartite theorem is mathematically correct; no separate original remainder is claimed.",
+      "residual_risks": [
+        "Priority is not determined by the observed later catalogue date. Horváth and Kraaijevanger–van de Griend were not fully accessible; neither access gap drives the decision."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct complete coverage by specialization; record is later, not an earlier-priority finding",
+          "evidence": [
+            "All complete multipartite graphs, same N≤11 threshold, h_s=8/(N−s), and loss/recovery. Taking two parts gives the entire reviewed theorem."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-twelve-vertices-are-the-exact-radau-iia-positivity-barrier-for-c--657de75ce7c2",
+          "material_read": "RESULT.md Finding at offset 0; prior-work discussion at offset 6445 (snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4)",
+          "method": "Resultary search and local mirror statement inspection",
+          "title": "Twelve vertices are the exact Radau IIA positivity barrier for complete multipartite diffusion",
+          "trigger": "Same integrator and cutoff on a larger graph class"
+        },
+        {
+          "assessment": "Direct overlap only for K₁,m; a second star record is 2026/11/8 SCOPE 3d0ba37aabda",
+          "evidence": [
+            "Exact star step intervals and order barrier, not arbitrary bipartitions."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-three-disjoint-positivity-windows-for-two-stage-radau-iia-on-sta--17146a0a41df",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Resultary search and local mirror statement inspection",
+          "title": "Three disjoint positivity windows for two-stage Radau IIA on stars",
+          "trigger": "Exact cutoff and intervals in the star subfamily"
+        },
+        {
+          "assessment": "Equal parts and at least three parts; not a general bipartite statement",
+          "evidence": [
+            "Its restrictions exclude the target family."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-sharp-radau-iia-positivity-and-reentry-on-balanced-multipartite--8c0d50ef8119",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Resultary search and local mirror statement inspection",
+          "title": "Sharp Radau IIA positivity and reentry on balanced multipartite graphs",
+          "trigger": "Same integrator and reentry in a related family"
+        },
+        {
+          "assessment": "Different integrator",
+          "evidence": [
+            "Gauss–Legendre stage parity does not classify Radau IIA."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-stage-parity-classification-of-gauss-legendre-positivity-on-comp--6250aee1370d",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Resultary search and local mirror statement inspection",
+          "title": "Stage parity classification of Gauss–Legendre positivity on complete graph classes",
+          "trigger": "Overlapping graph family and positivity problem"
+        },
+        {
+          "assessment": "Classical rational step, not the graph theorem",
+          "evidence": [
+            "Radau IIA rational stability function."
+          ],
+          "identifier_or_url": "https://www.unige.ch/~hairer/preprints/coimbra.pdf",
+          "material_read": "Author PDF §3, pp. 6–7, equations (15)–(16), OA offsets 18800 and 22200",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "Stiff differential equations solved by Radau methods",
+          "trigger": "Classical stability function and method comparison"
+        },
+        {
+          "assessment": "General operator-class restriction, not a finite graph classification",
+          "evidence": [
+            "Unconditional positivity for the general class imposes a condition on the step function."
+          ],
+          "identifier_or_url": "https://www.numdam.org/article/M2AN_1978__12_3_237_0.pdf",
+          "material_read": "Lemma 1, p. 239 and Theorem 1, p. 241, OA offsets 4000–5000 and 8300",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "Conservation de la positivité lors de la discrétisation des problèmes d'évolution paraboliques",
+          "trigger": "Potential structural obstruction to unconditional positivity"
+        },
+        {
+          "assessment": "Full-text comparison unresolved; no negative inference",
+          "evidence": [
+            "No available repository copy was located in the check."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.apnum.2004.08.026",
+          "material_read": "Landing-page bibliographic and abstract material only",
+          "method": "DOI and lawful OA recovery attempts",
+          "title": "On the positivity step size threshold of Runge–Kutta methods",
+          "trigger": "Primary positivity-threshold theory"
+        },
+        {
+          "assessment": "Full-text comparison unresolved; no negative inference",
+          "evidence": [
+            "No full-text passage was recovered in the check."
+          ],
+          "identifier_or_url": "Kraaijevanger and van de Griend, Numerische Mathematik 49 (1986), 413–424",
+          "material_read": "Bibliographic material only",
+          "method": "Publisher and DOI recovery attempts",
+          "title": "Absolute monotonicity of rational functions occurring in the numerical solution of initial value problems",
+          "trigger": "Potential positivity characterization by rational functions"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Limitations",
+        "SCOPE 657de75ce7c2 for current coverage"
+      ],
+      "rationale": "As a mathematical classification the order-only barrier is substantive: it identifies where this specific high-order method preserves nonnegative data, and a uniform explicit violating step for every split, despite recovery at large steps. This is a useful threshold and meaningful counterexample family, not an arbitrarily chosen graph instance. The current catalogue already contains it, which is decisive under originality rather than a defect in the question's scientific motivation.",
+      "residual_risks": [
+        "Practical inference is limited to the specified completed-step matrix on unweighted complete bipartite graphs."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

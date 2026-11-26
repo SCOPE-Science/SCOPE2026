@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The cycle transfer polynomial and its complete negative-real root factorization yield an exact phase function, without approximating roots. Every imaginary-axis solution is classified by a unique strictly increasing phase, has a simple nonzero derivative, and crosses left-to-right by an explicit positive implicit-derivative expression. Root continuity supplies the global count. The sharp \(\sqrt{3en}\) threshold follows by minimizing a positive product envelope, using the exact first two power sums of its spectral weights, and controlling the discrete phase grid. Direct independent-set enumeration and exact Routh checks are supplementary, not the all-size proof.
+## correctness
 
-**Originality — PASS on examined evidence.** Scott–Sokal supply foundational hard-core zero-free context, Chudnovsky–Seymour supply real-rooted cycles, and Brown–Cameron already imply eventual nonstability under joining a sufficiently large clique. The earlier complete scalar phase diagram for equal-root factors \((1+z)^k+rz\) is genuinely close but does not determine the unequal cycle-factor phase list or the \(\sqrt{3e}\) asymptotic constant. Other known wheel work on \(I(C_n;z)+t\) changes the constant term, unlike the present linear perturbation. The identified literature and published record comparisons did not establish this exact cycle-clique zero-count theorem; broader unindexed coverage is still a priority risk.
+PASS
 
-**Mathematical value — PASS.** The precise threshold upgrades a qualitative large-clique existence theorem to an all-size, all-clique zero-count classification, a sharp first unstable cycle length, and a nontrivial \(\sqrt n\) onset law with constant. This solves a motivated spectral-stability question for a natural family of hard-core gases, rather than supplying a small calculation.
+The join permits cycle-only independent sets and the h singleton clique sets, giving the linear perturbation at common fugacity. The transfer recurrence has characteristic roots (1±sqrt(1+4z))/2; the d distinct Chebyshev phase zeros give the stated factorization with constant 1. On the positive imaginary axis the unwrapped phase increases from 0 to dπ/2, so only the phases (4j+3)π/2 with 4j+3<d occur; zero itself is excluded. At a crossing F'/F=A−iyB, with A>0, giving P_z=u(1−y²B)−iuyA and Re(dz/du)=y²A/[u((1−y²B)²+y²A²)]>0. This proves simplicity, the forward direction, and the counts even at tied gains (the crossing pairs are then distinct); the fixed leading coefficient prevents any other change for d≥2, and d=1 is a stable positive linear polynomial. For C8 the positive-gain solution gives 72+56sqrt(2), strictly between 151 and 152. The first two coefficients give sum(a)=n and sum(a²)=3n. For the envelope minimizer t=y² the stationarity sum is between 3nt/(1+16t) and 3nt, pinning t between 1/(3n) and 1/(3n−16) for large n. Thus log H at its minimum is (1+log(3n))/2+O(1/n). On this frequency scale the phase grows with derivative n+O(1); an admissible phase lies O(1/n) away in frequency. The curvature of log H is O(n) there, so discretizing the envelope incurs only O(1/n) relative loss. This proves the frozen constant sqrt(3e). A fresh independent recurrence, rational isolation of the even part in y², and exact rectangle root counts checked C7, C8, C12, C16, C17 including 0, 2 and 4 RHP zeros. In addition P(12,35)=(2z²+1)(z⁴+18z³+52z²+47z+1), with a simple axis pair and a strictly stable quotient; this checks the strict boundary convention at an integer gain.
 
-Limits: the theorem concerns complex-fugacity zeros, not a positive-real phase transition. It does not rank different phase thresholds or establish uniqueness of the first minimizer at all sizes. Independent scientific audit is outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the known clique-join eventual-instability phenomenon and the related equal-root corona census. The supported distinct contribution is the exact cycle gain census with the cycle-specific boundary and discrete-to-envelope asymptotic sqrt(3e), not the generic idea of testing imaginary-axis crossings or the existence of unstable joins. No inspected statement supplies or implies this combination; the literature assessment remains bounded.
+
+## value
+
+PASS
+
+The sharp onset for a natural cycle-plus-clique model is not determined by real-rootedness of the cycle or qualitative large-clique instability. The gain census distinguishes strict stability, neutral boundary, and multiple unstable pairs, and the sharp growing threshold distinguishes a fixed-size clique from the first possible instability scale. This is substantive even though the method uses standard root-continuity tools.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

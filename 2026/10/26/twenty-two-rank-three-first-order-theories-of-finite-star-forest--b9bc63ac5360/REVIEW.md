@@ -1,15 +1,21 @@
-# Scientific review: finite star-forest rank-three classification
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The three-round Duplicator strategy gives the uniform reduction from all nonempty star forests to 255 canonical component-count vectors. The six equality/adjacency bits on triples are complete quantifier-free types, and iterating extension sets three times is exactly the Ehrenfeucht–Fraïssé rank-three invariant. Re-running the attached exact checker gives 22 different invariant values and a sharp maximum minimal representative order of nine. A second implementation of the actual game refutes equivalence for all 231 pairs of different class representatives. The nine-vertex lower bound applies to arbitrary forests by the size-nonincreasing reduction, not merely to the finite census.
+PASS
 
-## Originality — PASS with residual risk
+In three rounds Duplicator needs at most three leaves in any visited star and at most three fresh components of each type. Matching components consistently preserves equality, within-component adjacency, and nonadjacency between components, including when a previously marked vertex is chosen again. This proves truncation for all nonempty finite star forests and never increases the order of a representative. The iterated sets of six-bit ordered triple types are the exact extension invariants of the three-round game: atomic types decide the final position, and equality of extension sets is precisely the back-and-forth response condition at each earlier position. Nonemptiness allows each partial atomic type to be recovered from an extension. An independent direct minimax classification in increasing order of the 255 profiles gives 22 classes and one representative minimum nine, for profile (0,0,3,0), with all 231 pairs of representatives inequivalent. Size-monotone truncation excludes any smaller noncanonical witness.
 
-Searches for rank-three star-forest theory counts, small-model bounds, forest game profiles and equivalent aliases revealed no directly matching published calculation. The closest method source, Immerman's 1999 chapter on Ehrenfeucht–Fraïssé games, explains the game theorem but the inspected chapter does not present a star-forest census. The Algor–Alon paper concerns edge-cover star arboricity, not quantifier-rank semantics. A broad comparison with earlier low-rank equivalence-relation and graph-family classifications does not logically imply this exact 22-class count: components of a star forest cannot be replaced by ordinary equivalence classes without changing the atomic relation and potentially the quantifier rank. Unknown textbook exercises or folklore remain a live risk; a search is not a uniqueness proof.
+## originality
 
-## Value — PASS
+PASS
 
-Star forests are the components used in star arboricity and a natural sparse graph class. Their complete rank-three first-order profile was not determined by the generic finite-type theorem: this finding gives a concrete twenty-two-state quotient and a sharp nine-point kernel for evaluating every rank-three sentence uniformly on arbitrary members of the class. The precise cardinal and minimal kernel, including the extremizing three-component forest, are the natural invariant and boundary; neither computation correctness alone nor an unmotivated small example is the basis for value.
+The exact 22-class census and sharp minimum-representative bound are distinct on the inspected evidence. The closest graph-class census is for linear forests, which covers some but not all of the target rank-three theories; the same-day nine-element bound for equivalence relations concerns a different vocabulary interpretation and a different class of structures. The general EF method gives a decision criterion but not the census or its sharp kernel.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+This is an exact low-rank model classification for a natural class of forests, with no expansion of the language or artificial vertex cutoff. Rank three is the first rank that can witness two distinct neighbors of a vertex. A sharp uniform representative bound and its extremal class give a useful finite domain for deciding equivalence at that depth; the computation identifies what the general finite-type theorem cannot supply.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

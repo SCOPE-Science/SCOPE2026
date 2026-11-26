@@ -1,0 +1,91 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:30:06.792805Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the stabilizer H of a proper 6A, put t=|H|. Kneser gives |6A| >= 6|A+H|-5t while properness gives |6A| <= p^a-t. Since |A|>(p-1)p^(a-1)/4, it follows that (p-3)p^(a-1)/2<4t. This contradicts t<=p^(a-1) for p>=11; at p=7 it forces H to be the kernel of reduction modulo 7 (also valid at a=1). The image of A then contains two distinct classes, whose sixfold sums cover the seven classes; H-periodicity lifts coverage to the entire group. The witness {1,2} is a strict majority of Q(7) and has only six fivefold sums. Coverage at any smaller order would imply coverage at order five by adding fixed terms. This is an analytic check for every a; the frozen Python tests are supplementary.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bajnok gives chi(G,h)=1+max_{d|n} (floor((d-2)/h)+1)n/d for all finite abelian groups of order n. He also states the exact minimum size of hA (Plagne's theorem). The comparison to ten summands over general moduli does not address this exact unrestricted result."
+        ],
+        "reasoning": "At h=6 and n=p^a this covers every subset at or above the indicated critical size, not just subsets of invertible squares.",
+        "searches": [
+          "Bajnok, arXiv:1412.4058v1, section 1, critical-number formula and Theorem 2 (Plagne)",
+          "Frozen comparison: Lacey–Mousavi–Rahimi–Vempati, arXiv:2610.22747v1, Theorem 1.7 and section 4"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py (inspected, not executed)",
+        "Bajnok arXiv:1412.4058v1 section 1",
+        "Local Resultary index and closest mirrored RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For d=p^b with d=1 mod 6 the contribution to chi-1 equals n/6-n/(6d); with d=5 mod 6 it equals n/6+n/(6d). Thus chi-1=(n-1)/6 for p=1 mod 6, and p^(a-1)(p+1)/6 for p=5 mod 6. Both are strictly below (p-1)p^(a-1)/4 for the relevant p>=7. In order seven every pair has at most six fivefold sums and {1,2} is an admissible pair of squares."
+        ],
+        "reasoning": "The frozen sufficiency statement follows by integer rounding, with no small-prime exception. The matching uniform lower bound requires only taking an admissible pair at the smallest prime, not a further residue-specific theorem.",
+        "searches": [
+          "Bajnok, arXiv:1412.4058v1, section 1, specialize the unrestricted critical-number formula"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bajnok uses unrestricted hA (repetition allowed), the same operation as the frozen result. The closest inspected Resultary record, 2026/10/26/SCOPE-the-complete-restricted-sum-coverage-spectrum-of-quadratic-units--6886428cd7e2, uses distinct terms from the entire unit-square set modulo p^2."
+        ],
+        "reasoning": "The Resultary record is not equivalent to a theorem on arbitrary dense subsets and repeated sums. The unrestricted formulation in Bajnok is the exact ambient-group version of the cardinality question.",
+        "searches": [
+          "Local Resultary semantic search for half-density and six repeated sums of quadratic units modulo prime powers",
+          "Bajnok, arXiv:1412.4058v1, section 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact critical-number formula applies to every p^a; at n=7 it gives chi(G,6)=2 and chi(G,5)=3. The mirror gives a coverage spectrum for a different, restricted sumset."
+        ],
+        "reasoning": "No separate numerical table is needed for the all-prime-powers statement: an existing exact formula determines the ambient threshold, including the small modulus.",
+        "searches": [
+          "Bajnok, arXiv:1412.4058v1, section 1, displayed exact chi and rho formulas",
+          "Local Resultary restricted quadratic-unit coverage record, mirrored RESULT.md"
+        ]
+      },
+      "rationale": "The claimed covering theorem is an immediate specialization of the older exact unrestricted critical-number theorem. It holds without restricting A to squares and even at equality when half the square count is an integer. Sharpness of the uniform six is the elementary two-element obstruction in the group of order seven; the square restriction merely supplies a permissible pair.",
+      "residual_risks": [
+        "The search is bounded and does not determine the first occurrence of this particular quadratic-residue phrasing; established stronger coverage already decides the scientific comparison."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers and strengthens sufficiency; the matching small-prime witness is immediate.",
+          "evidence": [
+            "Definition of unrestricted hA; chi(G,h)=v_1(n,h)+1; exact minimum-size formula stated as Theorem 2 and attributed to Plagne."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1412.4058v1",
+          "material_read": "Section 1, initial definitions and displayed v_g, chi and rho formulas (HTML text offsets 0 and 6092–11289).",
+          "method": "Lawful arXiv HTML, bounded passage inspection.",
+          "title": "The h-critical number of finite abelian groups",
+          "trigger": "Exact unrestricted h-fold covering thresholds could subsume the repeated-sum density bound."
+        },
+        {
+          "assessment": "Related, not equivalent.",
+          "evidence": [
+            "Distinct-element sums from all units that are squares modulo p^2, with full coverage for 3<=k<=|Q_p|-3 at p>=7; not repeated sums of arbitrary dense subsets."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-the-complete-restricted-sum-coverage-spectrum-of-quadratic-units--6886428cd7e2",
+          "material_read": "Mirrored RESULT.md, finding at offset 0, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4.",
+          "method": "Local semantic index and local mirror.",
+          "title": "The complete restricted sum coverage spectrum of quadratic units",
+          "trigger": "Closest local-index match on quadratic-unit coverage."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The local covering constant can be useful when cited as a corollary, but the record adds no nonroutine residue-specific bound or obstruction to the known exact unrestricted theorem. Both the specialization and the sharpness example are immediate.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

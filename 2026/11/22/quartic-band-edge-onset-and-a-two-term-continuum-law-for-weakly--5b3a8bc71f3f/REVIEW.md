@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The positive off-band spectrum is reconstructed from a Jacobi recurrence and an exact decaying-tail matching condition. A finite Schur complement with its strictly monotone parameter-scaled diagonal proves the number and simplicity of threshold crossings. Taylor expansion of the matching equation is uniform near each fixed noncritical or critical root, giving the explicit \(m^{-3}\) correction and the critical \(m^{-4}\) law. The finite diagnostics in `check.py` passed 104 assertions, but numerical experiments do not substitute for the infinite-dimensional proof.
+PASS
 
-## Originality — PASS, qualified
+Finite rank preserves the free essential band. An exterior eigenvector has x₀≠0 by recurrence, so Cauchy–Schwarz in the shift form gives |⟨Jx,x⟩|≤2t||x||√(||x||²−|x₀|²)<2t||x||², justifying strictness in the matching step. Chebyshev solutions on the prefix and the unique ℓ² tail give t sin(mθ)=exp(η)sin((m+1)θ). For λ=2 cosh η the exact tail Schur complement has last diagonal exp(η), the other diagonals λ and off-diagonals −t. It is strictly above its η=0 limit for η>0, so threshold zero directions do not contribute to the negative inertia. At t=1 the limiting form is positive (sum of adjacent squares plus the left endpoint square), and division by t makes the diagonal strictly decreasing. Its only positive crossings for t>1 are the listed cos((m+1)θ)=0 roots in 0<θ<π/2, each simple by the Jacobi recurrence. Secant expansion gives m²(t_{m,j}−1)=a_j−2a_j/m+O(m⁻²), so the critical state really exists. For δ=1/m and fixed σ=√(2α−κ²)>0, θ=δσ+O(δ³) is analytic near δ=0 after choosing the odd extension. The matching residual divided by δ is −G+δH+O(δ²), with the stated H; at every continuum root G'=(2α/σ²)(1+κ)sinσ and H=2αsinσ. Monotone intersection on each stated σ interval and the exact count exhaust all roots; ordering is opposite that of σ. The implicit correction is δσ²/(1+κ); at κ=0 it is positive δ·2a_j. Converting via 2cosh(δκ_m) gives both gap laws with their remainders. Rotations of the shift are unitarily equivalent, giving the numerical radius formula. The frozen checker was inspected, not executed. An independent Jacobi ratio iteration at 55 digits (replay: /workspace/branches/replay_jacobi_edge.py) checked j=1,2 in noncritical and critical examples; at m=2048 the four coefficient ratios were 0.999850, 0.997273, 0.998295, 0.984853. These are corroboration only.
 
-The 2015 weighted-shift point-spectrum paper covers arbitrary *fixed-length* prefixes and supplies the already-known finite secular framework. The 2014 two-bond paper and a related indexed two-bond classification also cover the smallest fixed-prefix special cases. The 2026 geometric-modulation paper addresses a different decay regime. None of the inspected scientific claims states the growing-prefix weak-contrast limit together with the all-bound-state \(m^{-3}\) correction and the critical \(m^{-4}\) edge scale. The leading continuum half-line square-well equation is classical and is not claimed as a novel spectral object. A potential stronger uniform lattice-to-continuum theorem outside the reviewed sources remains the principal novelty risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The number of enhanced links tends to infinity while their contrast vanishes at the exact scale that competes with the essential band edge. The result predicts the number, spacing, and localization rates of every emerging bound state, separates the generic quadratic edge scale from a quartic critical scale, and quantifies the leading finite-lattice correction. Those are natural spectral-stability quantities not obtained by holding the number of links fixed. The result is limited to a natural piecewise-constant profile; no generalization to arbitrary smooth profiles is asserted.
+Best-of-knowledge pass for the fixed-α growing-prefix expansion, including the explicit first correction of every existing positive branch and the quartic gap of the newly born branch at α=a_j. The finite-prefix secular machinery and its exact thresholds are pre-existing or directly extracted from it and are not credited as new; nor is the leading square-well matching equation on its own.
 
-## Closest prior work and limitations
+## value
 
-Undrakh–Nakazato–Vandanjav–Chien (2015) is mathematically the strongest comparator, because its arbitrary finite-prefix polynomial characterization contains the starting spectral recurrence. The sharp asymptotics for a *simultaneously growing* prefix were separately derived and checked, rather than credited as a new recurrence. The 2014 article specializes to two raised links, and the 2026 article to geometric weighted modulation. A theorem containing a uniform continuum expansion could supersede the new assertion; no such matching result was identified in the actual comparisons. No independent audit was conducted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A leading continuum model alone predicts a threshold resonance with zero gap at α=a_j. The exact finite branch instead binds there at a smaller identifiable scale. The first branch-by-branch drift and the separate critical coefficient quantify both effects for a natural finite block without conflating eigenvalues with resonances or treating the standard finite-prefix equation as the result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

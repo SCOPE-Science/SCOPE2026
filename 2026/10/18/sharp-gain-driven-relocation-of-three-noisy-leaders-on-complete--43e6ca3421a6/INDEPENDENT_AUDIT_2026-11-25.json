@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:00:32.398210Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Connectedness plus a nonempty pinned set makes D=L+κD_S positive definite; the stationary Lyapunov equation with identity noise gives covariance D⁻¹/2. Permutation symmetry leaves four types. Inverting the rank-two cross block from the block-diagonal part gives the stated trace U+V+(VU′+UV′)/(1−UV); U≤m/3 and V≤3/m with at least one strict inequality. Subtracting the four expressions yields the three comparisons in RESULT.md, lines 43–59, with positive denominators. Expanding P_m at m=3+y makes every κ coefficient positive, ruling out a=2. The a=1 comparison is strictly negative for m≤7, and for m≥8 has a single positive quadratic root. The a=3 difference vanishes identically at m=3, is always negative for m≥6, and has exactly one positive zero for m=4,5 since the bracket decreases strictly from 3m² to minus infinity. This gives all strict regions and ties; dividing the positive κ_+ formula by m gives a limit of one. Independent exact Gauss–Jordan evaluation of the four Laplacian inverses for 45 rational (m,κ) rows confirmed the three differences (python -B /workspace/branches/audit-replay.py 2). The sign proof covers all admissible rows and irrational thresholds.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fitch–Leonard's finite-gain theorem is for two noisy leaders; arbitrary leader counts there are principally noise-free. The resistance-distance paper's explicit noisy cycle optimum has two leaders; the examined other cases include paths, trees and noise-free leaders.",
+          "Mackin–Patterson treats larger leader budgets with submodular approximation; Patterson–McGlohon–Dyagilev treats weighted paths and rings."
+        ],
+        "reasoning": "These stronger-in-graph-dimension tools do not give exact optimization for this third leader and this topology at all gains. Neither a guarantee nor a formula for scoring a candidate identifies all crossings.",
+        "searches": [
+          "arXiv:1407.1569, §V-B Theorem 2",
+          "arXiv:1708.06873",
+          "arXiv:1712.08212, pp. 1–2",
+          "arXiv:1412.6595, p. 1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verification/verify.py",
+        "arXiv:1407.1569, 1708.06873, 1712.08212 and 1412.6595",
+        "Resultary 133a17f467a6 and 5b299daa2230"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Endpoint optimality cannot supply finite-gain roots or distinguish the endpoint ties at m=6 and 7. The general noisy optimization literature allows candidate evaluation or approximation, not the exact differences and the positive-coefficient exclusion of a=2."
+        ],
+        "reasoning": "The gain thresholds and boundary exclusions require a nontrivial global comparison of rational objectives, not parameter renaming or evaluating a previously established stronger classification.",
+        "searches": [
+          "Resultary 133a17f467a6, assumptions and limitations",
+          "arXiv:1407.1569, Theorem 2",
+          "arXiv:1712.08212, approximation formulation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Minimizing stationary total variance is equivalent to minimizing the pinned inverse trace at finite κ; finite noisy feedback is not the same as removing rows and columns of pinned vertices.",
+          "The grounded noise-free limit identifies optimum endpoints, with ties at m=6 and 7 that are split at every finite gain."
+        ],
+        "reasoning": "The stochastic, inverse-trace and centrality formulations were compared, keeping finite gain and hard grounding distinct.",
+        "searches": [
+          "Joint centrality / noisy leader pinning, arXiv:1407.1569, pp. 2–3, 12, 14",
+          "Resistance-based leader selection, arXiv:1708.06873, pp. 1 and 7",
+          "Resultary 133a17f467a6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Same-day 5b299daa2230 is an exact finite-gain phase diagram, but for four leaders on K_(2,m) with different switches.",
+          "133a17f467a6 is an exact three-leader classification on arbitrary complete bipartite graphs under noise-free hard grounding only; in the present count convention its endpoint types are {0,3}, {3}, {0,3}, {0,1}, {1} for m=3; m=4,5; m=6; m=7; m≥8, respectively."
+        ],
+        "reasoning": "The exact endpoint overlap is credited without inferring priority from posting dates. Neither distinct indexed record subsumes the exact finite-gain ternary-budget statement.",
+        "searches": [
+          "Resultary: complete bipartite exact finite-gain noisy leader optimization and three-leader allocation; 5b299daa2230, 133a17f467a6"
+        ]
+      },
+      "rationale": "The all-finite-gain three-leader classification on K_(m,3), including the two threshold functions and strict finite-gain separation at m=6,7, survives the closest actual comparisons. The standard variance objective and general methods are not original here.",
+      "residual_risks": [
+        "An unindexed exact specialization of noisy leader placement formulas could overlap. The broad search result on one-dimensional noise-free optimization is not negative evidence about K_(m,3)."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the noise-free endpoint only",
+          "evidence": "Minimizes tr(L_FF⁻¹) and explicitly excludes noisy pinning; limit ties at m=6,7 differ from strict finite-gain optimum.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-exact-three-leader-coherence-allocation-on-complete-bipartite-ne--133a17f467a6",
+          "material_read": "RESULT.md Finding and Assumptions (offset 0), Limitations (offset 6554)",
+          "method": "Local Resultary mirror passage inspection",
+          "title": "Exact three-leader coherence allocation on complete bipartite networks",
+          "trigger": "Same topology family and number of leaders"
+        },
+        {
+          "assessment": "Different topology and budget, no equivalent phase diagram",
+          "evidence": "Four leaders on K_(2,m); e.g. count in two-vertex part switches 2→0→1 for m=9,10.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-complete-four-leader-phase-diagram-on-unequal-complete-bipartite--5b299daa2230",
+          "material_read": "RESULT.md Finding and Assumptions (offset 0)",
+          "method": "Local Resultary mirror passage inspection",
+          "title": "Complete four-leader phase diagram on unequal complete bipartite graphs",
+          "trigger": "Same-day exact finite-gain bipartite classification"
+        },
+        {
+          "assessment": "Finite gain is addressed but for two noisy leaders",
+          "evidence": "Section V-B gives the two-noisy-leader joint-centrality optimization, illustrated on cycles.",
+          "identifier_or_url": "https://arxiv.org/pdf/1407.1569",
+          "material_read": "pp. 2–3, 12 (Theorem 2), 14 (cycle example)",
+          "method": "OA PDF passage inspection",
+          "title": "Joint Centrality Distinguishes Optimal Leaders in Noisy Networks",
+          "trigger": "Primary finite-gain noisy-leader method"
+        },
+        {
+          "assessment": "Objective and selected topologies, not the specified finite-gain triple",
+          "evidence": "Distinguishes noisy and noise-free models and gives exact two-leader noisy results on cycles.",
+          "identifier_or_url": "https://arxiv.org/pdf/1708.06873",
+          "material_read": "pp. 1 and 7, offsets 767, 6200, 48972",
+          "method": "OA PDF passage inspection",
+          "title": "A Resistance Distance-Based Approach for Optimal Leader Selection in Noisy Consensus Networks",
+          "trigger": "General resistance objectives and explicit optimums"
+        },
+        {
+          "assessment": "Approximation result, not the claimed exact classification",
+          "evidence": "Optimizes the noisy leader set via submodular methods and greedy bounds.",
+          "identifier_or_url": "https://arxiv.org/pdf/1712.08212",
+          "material_read": "pp. 1–2, formulation and guarantee",
+          "method": "OA PDF passage inspection",
+          "title": "Submodular Optimization for Consensus Networks with Noise-Corrupted Leaders",
+          "trigger": "General noisy-leader optimization for arbitrary budgets"
+        },
+        {
+          "assessment": "Different graph class",
+          "evidence": "Weighted paths and rings, not complete bipartite graphs.",
+          "identifier_or_url": "https://arxiv.org/pdf/1412.6595",
+          "material_read": "p. 1, scope and abstract",
+          "method": "OA PDF passage inspection",
+          "title": "Efficient, Optimal k-Leader Selection for Coherent, One-Dimensional Formations",
+          "trigger": "Exact k-leader algorithms"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Equal gain is an actionable control parameter in a natural symmetric network family. The exact classification shows distinct relocation modes (all three leaders or just one) and two adjacent graph sizes where the hard-grounding limit's ties hide a strict preference at every finite gain. This goes beyond computing traces for a few instances or tabulating candidates; it resolves all sizes and gain ties for this budget.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

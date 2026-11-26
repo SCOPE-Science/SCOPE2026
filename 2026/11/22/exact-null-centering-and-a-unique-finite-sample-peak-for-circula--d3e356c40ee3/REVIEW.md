@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The statistic has exactly Liu's average-pooling log-score normalization. Circular Dirichlet spacing blocks have the stated beta marginals. The two beta-log expectations and harmonic-number sum prove the mean exactly, without relying on large-sample approximations. A positive trapezoidal integral proves strict increase of the bias numerator and strict decrease of its increments; a second decreasing sequence controls the unique maximum. Four rational sign enclosures and a replayed checker validate the discrete thresholds. Random experiments were used only as corroboration, never as infinite proof.
+PASS
 
-## Originality
+The known continuous null gives iid uniforms and exchangeable Dirichlet(1,…,1) spacings. Every cyclic j-spacing sum is Beta(j,N−j), so averaging over origins preserves the mean. Differentiation of the beta integral gives the two harmonic-number log moments. Pairing j and N−j with the fixed weights gives the harmonic contribution (N−1)(N+2)/N and the claimed log sum. With F_N=N(m_N−1), subtraction and integration by parts give ΔF_N=2N(N+1)∫₀¹ t(1−t)/(N+t)³ dt>0. For N>1, the logarithmic derivative of N(N+1)/(N+t)³ is bounded above by 1/N−2/(N+1)<0. Hence ΔF_N decreases strictly, and G_N=NΔF_N−F_N decreases strictly because its increment equals (N+1)(ΔF_{N+1}−ΔF_N). Independently enclosed F20<0<F21 and G55<0<G54 settle both global classifications since the sign of G_N gives the sign of m_{N+1}−m_N. The integral gives ΔF_N=1/(3N)+O(N⁻²) uniformly and thus the stated asymptotic. Each summand is a nonnegative Bernoulli relative-entropy score after multiplying by −2, positive with positive probability, so division by m_N is well defined and cannot change within-n ordering.
 
-PASS, qualified. The primary 2022 preprint explicitly constructs the score and gives an approximate Gaussian-based mean-one statement. Its inspected relevant sections do not state the exact nonlinear finite-sample mean, unique reference crossing, or unique peak. The closest alternative source on circularized tests was available as an abstract only; earlier Zhang-type logarithmic-score formulas may conceal equivalent expressions. These are priority limitations, not claims of exhaustive absence.
+## originality
 
-## Value
+PASS
 
-PASS. Exact finite-null centering, including the global sample-size variation, addresses a concrete normalizing constant in a published testing procedure. It supports exact moment matching and validation of numerical null calibration; it does **not** produce exact critical values, change test power by mere positive scaling, or warrant a claim of a large-sample performance improvement. The maximum above-one discrepancy is about 0.6%, whereas very small samples exhibit larger below-one discrepancies.
+The modified score and average circularization are Liu's, exactly in the checked normalization. The supported distinction is exact finite-null centering and the global crossing and maximum, not the known Gaussian/continuum approximation or the limiting mean. Neither the accessed closest primary passages nor the closely overlapping asymptotic SCOPE result specifies or implies the finite profile.
 
-## Closest literature and limits
+## value
 
-Liu (arXiv:2209.08050, equations (2.2), (4.8), Remark 6.3) is the primary comparator. The contemporaneous arXiv:2209.08150 abstract, the 2023 journal version's metadata and Zhang (2002) provide related context. Full mathematical inspection of the other circularization preprint and of Zhang's original article was not possible. Known continuous null parameters, exact average pooling, and the distinction from Gaussian surrogate laws are essential hypotheses.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For an existing goodness-of-fit score whose asymptotic reference mean is one, the exact mean gives a benchmark across sample sizes and an exact deterministic standardization. The small peak overshoot is not the value by itself: the discrepancy is much larger below one at small n (for n=1, m_2=2−2 log 2), and the proof locates the only sign reversal and the only turning point over the whole integer range. Neither classification follows from asymptotic unit mean.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

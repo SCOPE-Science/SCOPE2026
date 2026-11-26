@@ -1,23 +1,21 @@
-# Scientific review: bounded diffusivity and first-passage optimization
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The backward equation for the reflected Itô diffusion yields the exact functional \(\int_0^1(1-x)/D(x)\,dx\). Strict convexity of \((1-x)/d+d/c^2\) for almost every \(x\), with a multiplier chosen by the exact mean-budget equation, is a global optimality and uniqueness certificate over **all bounded measurable** admissible profiles. Direct integration gives both exact profile and value branches. The derivative calculation proves \(C^2\), but not \(C^3\), at the cap-activation threshold. A standalone checker verifies the exact branch identities, 16 independently sampled quadratures and 16 numerical constrained optimizations. Numerical checks corroborate, but do not replace, the analytic proof.
+PASS
 
-## Originality — PASS, qualified
+A reflected Brownian motion with generator f″, killed at 1, has occupation density 1−x when launched at 0. The time change with clock ∫(1/D) ds gives the specified natural-scale diffusion and the frozen objective, including bounded Borel D up to a.e. equality. For t=1−x and μ=1/c², strict convexity of t/d+μd outside the null set t=0 gives the unique box minimizer clip(c√t,ℓ,u). Integrating in t with splits at ℓ²/c² and, if active, u²/c² gives means 2c/3+ℓ³/(3c²) and u−(u³−ℓ³)/(3c²); both are strictly increasing in their active ranges and cover (ℓ,u). The upper layer has zero length at c=u. The same integrals for t/d give 2/(3c)−ℓ³/(6c⁴) and 1/(2u)+(u³−ℓ³)/(6c⁴). The two branches match along with F′=−1/c² and F″=3/(min(c,u)³−ℓ³); differentiating F″ gives the one-sided nonzero jump and shows F‴ does not exist at the threshold. Rescaling the generator on [0,L] supplies precisely the stated factor L² in physical passage time.
 
-The closest paper, Menon (2026), arXiv:2611.17470v1, supplies the crucial general variational context and the unbounded optimum; it does not derive a simultaneous finite floor-and-ceiling profile, the precise cap-onset budget, the explicit two-bound optimum value, or the jump in the third budget derivative. The 2023 study by Menon, dos Santos and Anteneodo supplies the Itô mean-time integral for arbitrary diffusivity and examples, not the present two-sided constrained optimization. General heterogeneous-diffusion escape work by Tung and Lawley concerns other boundary geometries and observables. Mathematical overlap was compared at the level of what each theorem implies, not matching words. The new result is a constrained-design extension of established convex-variational structure, not an independent invention of the Itô first-passage formula or square-root allocation idea. Related generic bounded-resource optimization and unindexed exact treatments remain priority risks.
+## originality
 
-## Value — PASS
+PASS
 
-A nonzero mobility floor and a finite ceiling are motivated by implementability: the unconstrained Itô minimizer from the motivating literature vanishes at the absorbing endpoint, while experimentally tunable diffusivity cannot be arbitrarily small or large. Under two physical bounds, the optimal design has an exactly solvable structural change from one to two saturated layers; the sharp threshold and the \(C^2\)-but-not-\(C^3\) value regularity give a quantitative phase diagram and a useful benchmark for numerical bounded-diffusivity design. Unlike a single special parameter example, the theorem classifies all positive floor, ceiling and mean triples in its domain. It does not claim higher-dimensional, non-Itô, or variance-optimal design results.
+Credit the prior weighted reciprocal MFPT functional, unconstrained square-root optimum, and standard multiplier clipping. The distinct supported contribution is the quantitative two-bound active-set and optimal-value classification, including the order and coefficient of the loss of smoothness. No verified source states a stronger bounded-profile result that supplies this classification by substitution.
 
-## Closest literature, comparisons and limitations
+## value
 
-- L. Menon (2026), arXiv:2611.17470v1, §§II–III and Appendix B: fixed-average unconstrained optimum and numerical positivity floor; no analytic simultaneous upper and lower caps.
-- L. Menon Jr., M. A. F. dos Santos and C. Anteneodo (2023), arXiv:2311.00818v1, §3.1: arbitrary-coefficient first-passage integral, not a constrained global optimizer.
-- H.-R. Tung and S. D. Lawley (2025), arXiv:2512.19646v1, accessible abstract: three-dimensional small-target escape, not an exact bounded-design classification; the uninspected full text is an access-limited priority risk rather than evidence of absence.
+PASS
 
-This review assesses the specified one-dimensional Itô model and mean first-passage objective only. Complete bibliographic novelty cannot be certified from indexed searches.
+The clipped shape alone would be a standard multiplier calculation. The complete value law answers a practical design question the unbounded result cannot: when the ceiling binds in the presence of a positive floor, and what time penalty begins to accrue. For example, the proved jump says that relative to the floor-only optimum the cap penalty turns on cubically, with leading coefficient 9u⁵/[4(u³−ℓ³)³]. The threshold and marginal-budget behavior therefore supply concrete information beyond a restatement of the clipping rule.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T20:57:20.112156Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a fixed SPD matrix, diagonalize once; on mode λ each error is multiplied by 1−B_i h_i λ. Independence across attempts (not across eigenmodes) gives the product of expected squared multipliers, and a pure mode at any admissible λ realizes the robust spectral objective. Write z=λ/m, m=(μ+L)/2, c=(L−μ)/(L+μ), B=1−p+pc². Repeating a normalized step a minimizes the maximum absolute endpoint residual uniquely at a=1. At a_i=1+x_i, independently expanded the weighted endpoint certificate with weights (1+c)/2 and (1−c)/2. After subtracting B² it is p(1−c²) times [1−p(1+c²)](x₁²+x₂²)+2pc²(x₁+x₂+x₁x₂)²+p(1+c²)x₁²x₂². Thus p≤1/(1+c²) suffices globally, and even at equality the last two terms force x₁=x₂=0. For p above that bound, splitting symmetrically by d changes the objective by 2pz²[1−p−p(1−z)²]d²+p²z⁴d⁴, negative uniformly near either endpoint for small d, with uniform strict baseline slack on the compact remaining interval. Take d<1. The minimizing pair exists by continuity and coercivity, including p=1: at least one endpoint has |1−a₂z|≥c independently of a₂, while at both endpoints |1−a₁z| tends uniformly to infinity when a₁ does; exchange the steps for the other case. In the rational example, direct integer coefficient multiplication gives the quartic numerator [62500,−225000,311400,−194400,46656] in ascending powers of z, divided by 62500. Its second-derivative numerator discriminant is −34264166400 with positive leading coefficient. Thus the endpoint values 3233/31250 and 2873/31250 give the exact maximum, below 169/1600. No closed-form optimizer above the transition is proved. The supplied symbolic checker and output were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sambharya–Stellato optimize the sum over input instances of squared deterministic two-step residuals, using spectral moments. Their Theorem 4 gives two distinct optimal steps under its nondegeneracy assumption.",
+          "Agarwal–Goel–Zhang derive the deterministic Chebyshev construction and consider bounded gradient perturbations, not independently omitted updates in a mean-square risk."
+        ],
+        "reasoning": "Optimizing a fixed instance average or a deterministic Chebyshev residual does not cover the present worst-λ observer and Bernoulli loss model. The fixed-distribution objective can be a lower-bound device for a robust objective, but neither prior treats the two additional one-step risks or proves the sharp equality regime when they are included.",
+        "searches": [
+          "arXiv:2411.15717v1 §5.2.1, Eq. (9), Theorem 4",
+          "arXiv:2103.01338 §§2.2–2.3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, scope and Proof §§1–4; VERIFICATION.md; verification script and recorded output",
+        "arXiv:2103.01338v2 §§2.2–2.3; arXiv:2411.15717v1 §5.2.1",
+        "Resultary --31fff666d705 and --2722e33f2ae6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Stagewise-safe optimization restricts each step to ≤2/L and eventually uses {2/L,2/(L+2μ)}. Fixed-budget optimization singles out unequal splits from a deterministic amplification criterion. Eq. (9) averages deterministic full products over instances."
+        ],
+        "reasoning": "Even if the present beneficial perturbation preserves the sum, the fixed-budget result does not control the erasure terms or certify a global optimum without that sum restriction. A switch in condition number or deterministic total budget does not imply a switch in delivery probability with the spectrum held fixed. The global endpoint lower bound and strict full-band comparison are missing from these prior results.",
+        "searches": [
+          "Resultary 2026/9/20 SCOPE-stagewise-safe-two-step-richardson-frontier--31fff666d705",
+          "Resultary 2026/11/22 SCOPE-sharp-spectral-budget-allocation-for-two-euler-richardson-steps--2722e33f2ae6",
+          "arXiv:2411.15717v1 Eq. (9)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Spectral normalization gives ∏_i[(1−p)+p(1−a_i z)²], a product of per-attempt expected squares. Agarwal–Goel–Zhang optimize a deterministic residual polynomial ∏_i(1−a_i z)."
+        ],
+        "reasoning": "For p=1 the two objectives have the same minimizing steps after squaring the deterministic norm. For p<1, the random-subset one-step and zero-step terms are additional design-dependent contributions (the zero-step contribution is constant); simply squaring the deterministic polynomial or using the mean iterate is not equivalent.",
+        "searches": [
+          "intermittent or erased gradient descent steps skipped Richardson iteration stochastic Chebyshev acceleration robust mean-square spectral interval independent Bernoulli step losses",
+          "arXiv:2103.01338 §§2.2–2.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest definite match in objects, --31fff666d705, gives the deterministic, stagewise-safe frontier, with change at κ=1+√2. The same-day --2722e33f2ae6 gives deterministic optimal step allocation constrained by a fixed sum."
+        ],
+        "reasoning": "The indexed formulae are for genuinely different optimization problems, not this p-dependent threshold or an exact computation of its objective. The same-day record was assessed by assumptions, without inferring priority.",
+        "searches": [
+          "Resultary: two-step Richardson acceleration optimal step schedule deterministic worst-case error nonexpansive steps frontier"
+        ]
+      },
+      "rationale": "The independently omitted whole-step, worst-spectrum expected-square transition is not a matching theorem in the compared sources. Perfect delivery is the classical deterministic polynomial problem, not the new claim. The exact low-delivery uniqueness and cutover to strict benefit from unequal steps are the substantive increment. This assessment is limited to the inspected evidence.",
+      "residual_risks": [
+        "Targeted web search did not produce a close result; that is not evidence against an equivalent result in intermittent iterative solvers, reliability-aware design or stochastic polynomial approximation.",
+        "No novelty is claimed for the p=1 Chebyshev limit or general use of spectral factors."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the deterministic polynomial limit, not independent whole-step erasure.",
+          "evidence": "p(A)=∏_t(I−η_tA) and the deterministic Chebyshev minimax construction.",
+          "identifier_or_url": "https://arxiv.org/html/2103.01338v2",
+          "material_read": "Opening and §§2.2–2.3, offsets 0–6997 and 6997–13474",
+          "method": "Lawful OA article full-text passage",
+          "title": "Acceleration via Fractal Learning Rate Schedules",
+          "trigger": "Deterministic Chebyshev schedule and inexact-gradient robustness"
+        },
+        {
+          "assessment": "Different objective, random variables, and spectral quantifier.",
+          "evidence": "Eq. (9) sums squared norms of the deterministic two-step product over instances; Theorem 4 uses weighted spectral moments instead of erasure probabilities.",
+          "identifier_or_url": "https://arxiv.org/html/2411.15717v1",
+          "material_read": "§5.2.1, Eq. (9) and Theorem 4, extraction beginning 38880",
+          "method": "Lawful OA article full text, located and then read by offset",
+          "title": "Learning Algorithm Hyperparameters for Fast Parametric Convex Optimization",
+          "trigger": "Sharp two-step quadratic optimization in a squared-error norm"
+        },
+        {
+          "assessment": "Different feasible domain, objective and threshold parameter.",
+          "evidence": "Deterministic worst absolute amplification under per-stage nonexpansiveness, with change at κ=1+√2.",
+          "identifier_or_url": "2026/9/20/SCOPE-stagewise-safe-two-step-richardson-frontier--31fff666d705",
+          "material_read": "RESULT.md Finding and scope, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Stagewise-safe two-step Richardson frontier",
+          "trigger": "Closest distinct two-step exact minimax schedule"
+        },
+        {
+          "assessment": "No Bernoulli omissions; optimizes deterministic amplification at fixed total budget.",
+          "evidence": "Piecewise optimal deterministic split with unequal steps after its budget threshold.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-spectral-budget-allocation-for-two-euler-richardson-steps--2722e33f2ae6",
+          "material_read": "RESULT.md Finding and scope, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Sharp spectral budget allocation for two Euler–Richardson steps",
+          "trigger": "Same-day two-step equal/unequal allocation boundary"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This gives an exact design boundary for a natural two-attempt budget: independently losing a step can make repetition uniquely optimal even when unequal steps would accelerate at perfect delivery. The lower-regime global certificate and full-interval strict improvement above the threshold distinguish those mechanisms, not just local instability. No conclusion is drawn about adaptive or longer schedules, or an unequal optimizer formula.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

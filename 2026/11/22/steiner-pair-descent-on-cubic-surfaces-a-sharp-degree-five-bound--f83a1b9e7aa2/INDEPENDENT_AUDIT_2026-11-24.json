@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:54:47.593931Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The 27 Picard classes give the line-intersection graph. Its triangles are tritangent plane triples: intersecting lines are coplanar in a triple, including concurrent triples since the tangent plane at their smooth common point contains all of them. For three disjoint tritangents, a conjugate tritangent contains one line from each; testing the conjugate triples directly gives exactly 120 nine-line supports with complementary partitions. Frobenius preserves the graph and thus these supports, with rationality of a configuration equivalent to setwise stability. Independently of the frozen reflection walk, each ordered sixer of skew lines determines at most one incidence automorphism: outside the six, each line has a unique incidence pattern with it, as seen from the listed L and Q classes. Exhaustion gives 72 sixers and all 720 orderings for each extend, with adjacency checked, so the graph automorphism action has exactly the known Weyl group order 51840. Taking the least orbit size on supports gives the claimed histogram; jointly testing fixed tritangents gives 12960. A geometric point in a Frobenius cycle of length h is rational over F_(q^n) iff h divides n, so least cycle size is precisely the minimal descent degree, not the splitting field degree. Banwait–Fité–Loughran Theorem 1.9 is unweighted for cubic surfaces and applies to this conjugacy-invariant event, yielding 1/4 asymptotically. In the sharpness construction, secants of the five conjugate conic points are nonrational since a rational secant would stabilize its two-point intersection with the conic. Each excludes at most one rational point outside the conic; q²−10>0 for q≥4, so the sixth point can be chosen off those secants and the conic. Bézout excludes any different conic through the five given points; the six centers are in general position. The blowup and anticanonical embedding descend and give the asserted five-cycle action, which has the claimed three profiles. Neither q=2 nor q=3 sharpness is asserted.",
+      "reproduction": "python3 /workspace/reproductions/02_steiner.py constructs graph triangles and Steiner conjugate triples rather than repeating the uploaded support-multiplicity or reflection-walk algorithm, and exhausts 72×720 ordered sixers. It confirms 51840 elements, minimum counts 22752,6480,5760,6480,10368, event count 12960, 25 distinct combined cycle profiles and example profiles 1²5⁵, 5⁹, 5²⁴. These match verification_output.json lines 1–37. Frozen verify_steiner_frobenius.py was inspected, not executed. The finite exhaustion checks the actions; it is not a census of surfaces or a proof of geometric equidistribution.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1.9 gives asymptotic class proportions |C|/|W| with no automorphism weighting in degree 3; it does not identify the class union selecting this event.",
+          "The inspected 40-object record gives a complete class identifier from a different action. The frozen record credits Loughran–Trepalin for class realizability rather than the orbit invariant."
+        ],
+        "reasoning": "General equidistribution yields the density mechanically after the relevant class union and its size are known, not before. Inverse class realizability can give examples wherever the associated Weyl type is realizable; finding the maximizing minimum degree and the type that realizes it still requires the pair action. The exact field range of the prior inverse-Galois result was not independently confirmed here.",
+        "searches": [
+          "Banwait–Fité–Loughran arXiv:1606.00300 §1.4 and §7.1.1",
+          "Loughran–Trepalin arXiv:1811.06785 inverse Galois cited in RESULT.md",
+          "Resultary c536c9326761 and 84e77c75d6b3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify_steiner_frobenius.py and verification_output.json",
+        "arXiv:1006.1474 Fact 2.9",
+        "arXiv:1611.02475 Appendix A Table 1",
+        "arXiv:1606.00300 Theorem 1.9 and Table 7.1",
+        "Resultary c536c9326761 and 84e77c75d6b3",
+        "arXiv:1811.06785 (frozen attribution only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Complete class resolution plus the known group action makes the new statistic computable. It does not display the class-to-shortest-pair-orbit map. The recorded F_q blowup picks a specific 5-cycle; its minimal descent must still be verified in the 120-action."
+        ],
+        "reasoning": "The density and extension interpretations are consequences once the pair-orbit and joint event computations are in hand. The supported distinction is the exact invariant needed for rational markings, including the existence of real cubic surfaces attaining the bound, not the abstract possibility of enumerating their Weyl permutations.",
+        "searches": [
+          "RESULT.md lines 37–48 versus arXiv:1006.1474 Fact 2.9, arXiv:1606.00300 Theorem 1.9/Table 7.1, and Resultary c536c9326761"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fact 2.9 gives the 120 pairs in types 20+10+90, the same configurations as the support formulation. The same-day 40 Steiner-triplet record c536c9326761 constructs pair supports but the inspected finding classifies orbit partitions on 40 triplets, with degrees through 9, not minimum descent on 120 pairs.",
+          "Same-day tritangent flags record 84e77c75d6b3 concerns lines, planes and flags of six-point blowups."
+        ],
+        "reasoning": "A fixed unordered pair, a fixed nine-line support of its two partitions, and the existence of a pair over the base field are equivalent. A fixed triplet of pairs can permute its constituents, and flags correlate a different incidence relation. The related claims are not equivalent merely because their spectra detect the same Weyl type.",
+        "searches": [
+          "Resultary: Frobenius orbits on 120 unordered Steiner trihedral pairs, Galois-invariant nine-line supports, tritangent fixed without a fixed pair",
+          "Elsen­hans–Jahnel arXiv:1006.1474 §2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Appendix A Table 1 gives 25 conjugacy classes with Carter graphs, orders, eigenvalues and names; Table 7.1 gives all 25 classes' 27-line orbits and Schläfli-graph refinements.",
+          "The inspected 40-triplet statement uses the same group but does not tabulate the shortest orbits on pairs or their correlation with a tritangent fixed point. Its use of pair supports is real overlap."
+        ],
+        "reasoning": "If a table supplied both 120-pair and 45-plane cycle profiles per class with class sizes, this record's frequencies would be routine read-offs. The inspected tables supply class and other-action data. Transport to the pair action and finding the shortest cycles is an additional exact orbit computation, not a class-weight summation of those stated profiles.",
+        "searches": [
+          "Rybakov–Trepalin arXiv:1611.02475 Appendix A Table 1",
+          "Banwait–Fité–Loughran arXiv:1606.00300 Table 7.1 and §7.1.1",
+          "Resultary c536c9326761 40-object orbit spectra; 84e77c75d6b3 tritangent flags"
+        ]
+      },
+      "rationale": "The 120-point action, character/class data, inverse-realizability framework and unweighted equidistribution are prior inputs. The available strongest related statements do not give the 120-pair shortest-orbit histogram or the joint tritangent/Steiner event classification. Credit this explicit rationality invariant and its geometric realization and density, not the classical geometry or a new Weyl-class classification.",
+      "residual_risks": [
+        "Uninspected historical tables or artifacts associated with the related full Weyl actions could encode the same pair/plane profiles. The specified primary tables and available exact triplet statements do not display them. The extent of overlap of the explicit field-range realization with earlier inverse Galois constructions remains unconfirmed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known identification and 120-pair census; does not supply the asserted Frobenius statistic in inspected passages.",
+          "evidence": [
+            "Fact 2.9 describes the 20+10+90 blowup types; the abstract concerns constructions over Q."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1006.1474",
+          "material_read": "Official arXiv HTML §2 Fact 2.9, source offsets 72434–73494, and abstract",
+          "method": "Official open-access arXiv HTML passage inspection after primary reader timeout",
+          "title": "Cubic surfaces with a Galois invariant pair of Steiner trihedra",
+          "trigger": "Identical 120-point geometry and Galois-invariant pairs"
+        },
+        {
+          "assessment": "Class data, not a cycle table on 120 pairs.",
+          "evidence": [
+            "The 25 rows list type, Carter graph, order, eigenvalues on K_X^⊥ and representative names."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1611.02475",
+          "material_read": "Official arXiv HTML Appendix A Table 1, source offset 655122",
+          "method": "Official open-access arXiv HTML passage inspection after primary reader timeout",
+          "title": "Minimal cubic surfaces over finite fields",
+          "trigger": "Complete E6 class reference table could encode the needed action"
+        },
+        {
+          "assessment": "Confirms unweighted citation and distinct 27-line table.",
+          "evidence": [
+            "The statement counts 'without weighting by the automorphism group' for d≤3 and the denominator is the number of isomorphism classes. Table 7.1 concerns line and induced Schläfli-graph orbit types."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1606.00300",
+          "material_read": "Official arXiv HTML §1.4 at source offset 103084, pre-Theorem 1.9 and theorem at 118574 and 118839; §7.1.1 and Table 7.1 at 564774 and 578054",
+          "method": "Official open-access arXiv HTML passage inspection after primary reader timeout",
+          "title": "Del Pezzo surfaces over finite fields and their Frobenius traces",
+          "trigger": "Resolve unweighted versus weighted frequency and breadth of the orbit table"
+        },
+        {
+          "assessment": "Material overlap in inputs, not a demonstrated equivalent output. No priority is inferred from the same date.",
+          "evidence": [
+            "40 unordered Steiner-triplet cycle partitions distinguish the 25 classes; counts through degree 9 suffice but degree 8 does not. Its stated spectrum concerns triplets rather than the claimed shortest pair orbit."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-the-forty-steiner-triplets-determine-cubic-surface-frobenius--c536c9326761",
+          "material_read": "Resultary indexed comparison and available finding/proof passage on the pair-support construction and 40-point spectra; local mirror lookup did not resolve",
+          "method": "Local Resultary discovery and passage comparison",
+          "title": "The forty Steiner triplets determine cubic surface Frobenius",
+          "trigger": "Same group, related Steiner structures, potentially stronger exact spectra"
+        },
+        {
+          "assessment": "Credit inverse-realizability background; do not use this attribution as evidence of full-paper noncoverage or exclusive priority of the field range.",
+          "evidence": [
+            "Class realizability and minimal pair-descent degrees are separate statements; independent geometry verifies the claimed range without relying on this citation."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1811.06785",
+          "material_read": "Frozen attribution at RESULT.md lines 53–63; no independently confirmed exact field-range passage",
+          "method": "Local citation comparison",
+          "title": "Inverse Galois problem for del Pezzo surfaces over finite fields",
+          "trigger": "Potential prior realizability of the maximizing Weyl class"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The minimum extension degree is a natural, useful invariant of a rational marking, not another label of a Weyl class. The exhaustive result gives a sharp universal degree, explicit geometric examples at the bound, and a quarter-frequency mismatch between two standard cubic-surface markings. Knowing Frobenius class labels or line spectra alone does not give these exact results by a table read-off.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

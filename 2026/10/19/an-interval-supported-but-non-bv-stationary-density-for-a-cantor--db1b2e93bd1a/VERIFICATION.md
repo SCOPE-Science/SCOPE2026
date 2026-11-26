@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-Run `python3 verify.py` using Python 3.9 or newer. The script requires only standard-library modules and exits successfully with `VERIFY_OK` if its finite checks pass.
+## correctness
 
-Checks actually made include: the exact \(m\)-fold multiplicity of ternary centered signs at diagonal level \(m\) through level 12; exact rational verification of the triple-angle extremum \(-9/16\) and the rational comparison \(256>243\); independent finite product grouping at resonances \(t_N=(\pi/2)3^{N+1}\) for five \(N\)-values; positivity of \(A,B\) and the strict inequality \(3A>1\) in their finite approximations; and nonvanishing on neighboring frequency samples.
+PASS
 
-The proof's infinite claims do not depend on numerical convergence. Strict \(3A>1\) follows analytically from \(A>(4/9)\). The \(L^2\) conclusion follows from a geometric-scale upper bound with exponent \(\kappa>1/2\). The non-BV conclusion follows from the exact geometric subsequence, the finite-measure Fourier bound for distributional derivatives, and the divergence of \((3A)^N\). The high-Sobolev exclusion uses uniform lower bounds on intervals around each resonant frequency, not isolated samples. Neither the uniqueness of historical priority nor an optimal Sobolev threshold is certified here.
+The affine contraction gives the unique stationary series. Its support is the compact fixed point of the contracting support operator; adding [0,1/3] fills the gaps of the scaled Cantor set (maximal gap 2/9). Grouping the centred independent signs by n+k=m gives m copies with coefficient 2/3^(m+1). Choose m so the m-th angle is u in [π/3,π]; its product with the next cosine has absolute value at most 9/16 by the quadratic 4z²−3z, z=cos²(u/3), or the bound 1/2 on the lower half of the range. This gives Fourier decay with exponent log_3(16/9)>1/2 and Plancherel yields the stated strict lower Sobolev range. At the stated t_N all angles through m=N are integer multiples of π; the remaining factors are positive and give BA^N. The tail-deficit bound A≥(1−π²/144)/2>4/9 implies unbounded t_N|μ̂(t_N)|, incompatible with a finite derivative measure of the BV zero extension (finite one-sided traces). Fixed-width bands around t_N retain a uniform positive fraction of A^N: the early product has summable cosine deficits and the late log ratio is bounded by O((N+1)3^(−N)) away from zeros. Summing the band contributions diverges also at the stated endpoint. Independent finite products reproduced A, B, s_* and the sampled resonances; the analytic estimates, not samples, cover all N and stated Sobolev exponents.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS for the matched-scale regularity separation and quantitative resonance results, not for first introducing the model, invariant product, general L² technique, or interval topology. Mantica's product and known topological theorem give substantial ingredients. The exact weighted resonance and quantitative estimates, including lower bounds on whole Fourier bands, are not supplied by the compared statements. Neither the Cantor-measure Fourier ranking nor the finite-digit coherence invariant in Resultary is a result on the stationary affine series.
+
+## value
+
+PASS
+
+The matching-scale Cantor example separates an interval attractor and genuine L² regularization from BV regularization in a natural singular-noise affine model. The lacunary mechanism and fixed-band Sobolev obstruction give quantitative information beyond testing a sufficient smoothing criterion or finding one large Fourier value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

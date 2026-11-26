@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:48:19.734867Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A vertex at a leaf is the unique separator of its incident edge from the other endpoint, forcing a_n and b_1. For the prefix list (a_1,a_1b_2,…,a_1b_i), only indices 2 through i affect the list: each selected a-coordinate cuts at one threshold, and each selected b-coordinate can isolate only one item. Thus i distinct codes require at least i−1 effective landmarks. The reflected suffix list gives the n−i bound on indices i through n−1. At total size n the two internal counts overlap only at index i; their sum forces at least one at every internal pair, then exactly one. For sufficiency, the (b_1,a_n) signatures separate types except within individual shores, within internal edges and within each boundary star together with its center. Distinct A-vertices are distinguished at their smaller index, distinct B-vertices at their larger index. For edges with different A-index the smaller A-index works; otherwise the larger B-index works. A star edge is distinguished from its center at the leafward endpoint's index. At n=2 the seven signatures are already distinct and the forced landmarks give the lower bound. The frozen verifier and output were read, not executed. An independently written BFS/mixed-code check exhausted subsets of size at most n for 2≤n≤6 and found no smaller solutions and exactly 1,2,4,8,16 bases with the stated form; the frozen output reports the longer n≤8 enumeration, which is not a general proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kelenc et al. give the all-vertices criterion via maximal neighbors, and exact theorems for cycles, complete bipartite graphs, trees and grids in §4. The tree theorem includes the boundary H_2=P_4, not H_n for n≥3.",
+          "The Manipal author-institution abstract for the 2021 chain graph paper describes ordinary metric dimension and the restricted threshold dimension under nesting-preserving edge additions.",
+          "The October 4 exact ordinary chain resolving theorem uses vertex-only codes."
+        ],
+        "reasoning": "General mixed obstructions and the forced-leaf principle are prior machinery. The inspected family formulas do not contain the whole half-graph family. Ordinary chain resolution is a different constraint, not a stronger mixed theorem.",
+        "searches": [
+          "Resultary: mixed metric dimension chain graphs Ferrers graphs bipartite chain graph",
+          "Kelenc et al., Theorem 3.8 and §4",
+          "Web: \"Metric dimension and its variations of chain graphs\" \"Bhat\" \"Hanif\" PDF 809 821 mixed resolving"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py and verify_output.txt",
+        "Primary Kelenc et al. passages and Bhat–Hanif–Sudhakara institution abstract",
+        "Resultary Findings and edge-only proof listed above",
+        "Independent bounded subset computation"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The edge theorem already treats edge stars with threshold and singleton coordinates. The mixed prefix instead includes a_1 and excludes the pendant edge; the suffix analog includes b_n. The resulting effective ranges both overlap the same pair at their shared index.",
+          "At n=3, {b_1,a_3} contains one from each shifted edge pair and is an edge basis but fails to resolve a_1 versus a_1b_2."
+        ],
+        "reasoning": "The earlier proof technique gets credit, but the example witnesses that even the edge basis containing both compulsory leaves is insufficient. The new vertex–edge requirements give a different lower bound and exact minimum family.",
+        "searches": [
+          "October 4 edge-metric bases Finding and threshold-marker proof; October 4 chain resolving polynomial Finding; Kelenc et al. §4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "October 4 edge-metric half-graph Finding uses j≤i rather than i≤j and pairs {a_r,b_{r+1}}. Reversing both index orders gives the same graph but inequivalent resolving conditions and shifted pairs.",
+          "Kelenc et al., arXiv:1611.04292v2, p. 1, define mixed generators on the disjoint collection of vertices and edges with ordered distance coordinates."
+        ],
+        "reasoning": "Half/chain/Ferrers aliases and reversal were checked, as was the distinction between mixed, ordinary, edge-only, and unordered-multiset resolution. None of the differently named hit invariants reduces to the frozen mixed invariant on this graph.",
+        "searches": [
+          "Resultary: mixed metric dimension half graph chain graph Ferrers graph bases classification",
+          "Resultary: mixed metric dimension of half graphs exact bases opposite leaves diagonal pairs",
+          "Web: \"mixed metric dimension\" (\"half graph\" OR \"chain graph\" OR \"Ferrers graph\")"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed neighboring exact accounts give edge, vertex, multiset or outer-multiset counts. Their reported basis families do not match the mixed condition.",
+          "Frozen n≤8 computation and fresh n≤6 check are finite corroboration, not prior tables supporting the arbitrary-n count."
+        ],
+        "reasoning": "There is no inspected exact database or table covering the unbounded mixed basis classification; small known cases such as the path are not counted as a contribution.",
+        "searches": [
+          "Resultary: half graph mixed resolving set metric basis all bases",
+          "Resultary exact half-graph metric, edge, multiset and outer-multiset Findings"
+        ]
+      },
+      "rationale": "The closest earlier exact catalogue result is edge metric bases of the same graph. Reversing indices converts its pairs to {a_{k+1},b_k}, k=1,…,n−1, and its dimension is n−1. Its proof already uses threshold/singleton counting on edge stars. Those results do not yield the mixed dimension or its diagonal transversals: adding the star center as a competing element changes which landmarks are effective, forces the leaves, and shifts the two critical ranges. Even the simple edge lower bound does not combine additively with the two leaves, which can themselves contribute to edge resolution. Neither the published mixed-family formulas nor the other inspected half/chain resolving invariants cover this exact mixed classification. The Bhat–Hanif–Sudhakara full text remains an explicit limitation, not negative evidence.",
+      "residual_risks": [
+        "The 2021 chain-graph paper's full text was not available through the inspected lawful routes. Other equivalent or differently named mixed-resolution accounts may remain unindexed or unlocated."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same invariant; no all-half-graph theorem in the inspected results.",
+          "evidence": "Theorem 3.8 characterizes dimension equal to graph order, and the §4 formulas concern other listed graph families, including trees covering H_2.",
+          "identifier_or_url": "https://arxiv.org/pdf/1611.04292v2",
+          "material_read": "Definition p. 1 (offset 2173), Theorem 3.8 p. 5 (19296), §4 including Proposition 4.2 p. 6 (21098).",
+          "method": "Lawful OA primary PDF passages and literal half graph, chain graph and Ferrers graph locators.",
+          "title": "Mixed metric dimension of graphs",
+          "trigger": "Foundational mixed-metric results and possible generic coverage."
+        },
+        {
+          "assessment": "Abstract states ordinary metric and restricted threshold dimension; no whole-paper noncoverage finding.",
+          "evidence": "It describes an algorithm for specified order and metric dimension and adding edges while retaining nesting and bipartiteness.",
+          "identifier_or_url": "https://doi.org/10.17777/pjms2021.24.3.309; https://researcher.manipal.edu/en/publications/metric-dimension-and-its-variations-of-chain-graphs/",
+          "material_read": "Author-institution abstract and bibliographic metadata at offset 450; no article full text.",
+          "method": "DOI/journal attempts plus targeted primary-literature search and lawful alternate author-institution and ResearchGate routes; only institution abstract readable.",
+          "title": "Metric dimension and its variations of chain graphs",
+          "trigger": "Exact chain family and a plausibly broader title."
+        },
+        {
+          "assessment": "Prior edge-only theorem with closely shared technique, not an implication of mixed transversals.",
+          "evidence": "Dimension n−1, all one-per-shifted-pair sets, and the row-star threshold/singleton bound.",
+          "identifier_or_url": "2026/10/4/SCOPE-edge-metric-bases-of-half-graphs--13a0853af1d2",
+          "material_read": "Finding, assumptions and prefix star argument, offset 0.",
+          "method": "Resultary lookup and bounded local-mirror text.",
+          "title": "Edge metric bases of half graphs",
+          "trigger": "Most relevant earlier exact basis theorem on the same graph."
+        },
+        {
+          "assessment": "Vertex-only resolution, not the mixed condition.",
+          "evidence": "Classifies ordinary resolving sets and their cardinality enumeration.",
+          "identifier_or_url": "2026/10/4/SCOPE-resolving-sets-and-the-resolving-polynomial-of-chain-graphs--30553b031b4a",
+          "material_read": "Finding at offset 0.",
+          "method": "Resultary lookup and bounded local-mirror text.",
+          "title": "Resolving sets and the resolving polynomial of chain graphs",
+          "trigger": "Broader exact family of chain graphs."
+        },
+        {
+          "assessment": "Different target objects and unordered representations.",
+          "evidence": "Ordinary multiset dimension is parity-dependent; outer multiset bases use shifted pairs and exclude landmarks from the distinction test.",
+          "identifier_or_url": "2026/10/12/SCOPE-multiset-dimension-and-all-bases-of-half-graphs--20bb4bddb689; 2026/10/12/SCOPE-outer-multiset-dimension-and-all-bases-of-half-graphs--e07788c0c245",
+          "material_read": "Both Findings at offset 0.",
+          "method": "Resultary lookup and bounded local-mirror text.",
+          "title": "Multiset dimension and all bases of half graphs; Outer multiset dimension and all bases of half graphs",
+          "trigger": "Close titles, same graphs, potentially confused resolving invariants."
+        },
+        {
+          "assessment": "Neither compares mixed element codes on half graphs.",
+          "evidence": "The first concerns adjacency resolution in crown graphs; the second edge-version metric and doubly resolving parameters in friendship graphs.",
+          "identifier_or_url": "2026/10/13/SCOPE-adjacency-bases-of-crown-graphs--7667ce13f106; 2026/10/13/SCOPE-edge-version-metric-and-double-metric-bases-of-friendship-graphs--4a3e5bfe9e08",
+          "material_read": "Both Findings at offset 0.",
+          "method": "Resultary lookup and bounded local-mirror text.",
+          "title": "Adjacency bases of crown graphs; Edge-version metric and double metric bases of friendship graphs",
+          "trigger": "Distinct same-day neighboring metric-basis hits."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Mixed dimension is a standard invariant, and the canonical twin-free nested bipartite family is a natural family on which vertex–edge resolution is not captured by the previously solved edge or vertex variants. The exact all-n family of optimal witnesses exposes a different pairing structure from edge resolution and supplies both sharp dimension and a complete basis count. The value is the structural classification, not a new general resolving proof technique or finite computation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

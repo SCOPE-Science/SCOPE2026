@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-The executable `check_equilibria.cpp` uses direct neighbour counts, independently of the proof's reduced formula, to compare the purported structural characterization with the actual fixed-point predicate at every three-opinion word in the target histogram sector on rings of lengths 5 through 16. It also checks every admissible minority count and the exact labelled formula. The captured output is `check_equilibria.out`.
+# Independent mathematical audit
 
-The independently written exact-arithmetic `check_transfer.py` compares the three-by-three transfer trace against a cyclic-spacing binomial enumerator for two sign parameters and lengths 5 through 90, and verifies the closed parity-filtered formula over the same lengths. The captured output is `check_transfer.out`.
+## correctness
 
-Compilation and replay instructions:
+PASS
 
-```
-g++ -O3 -std=c++17 check_equilibria.cpp -o check_equilibria
-./check_equilibria
-python3 check_transfer.py
-```
+For histogram (L,L,r) with r<L, subtracting the deleted cyclic triple from the totals gives the open-neighbor votes. A boundary C of an adjacent C-run and the center of CAC or CBC have an opposite unique winner, ruling out distance one and two. At an isolated C an equal pair of leader neighbors also gives an opposite unique winner. Within each C-gap, any equal leader pair must be an internal doublet surrounded by the other leader: triples of the same leader and doublets abutting C are prohibited. Such an internal doublet is prohibited when L-r>=2 because a competing leader uniquely wins. When L-r=1, the total of 2r+2 leader sites leaves only two extra sites above two per gap, permitting at most one equal edge, whereas an even cyclic binary word has an even number of equal edges. Thus alternation is necessary in this boundary case as well. Conversely the allowed triples leave the incumbent either a winner or unchanged on a leading tie, including C when not a maximizing opinion. Marking a C gives n choices times the weak compositions of n-3r into r parts; divide by r and multiply by six for naming the minority and alternating. The three-state cyclic trace encodes these same placements; parity projection keeps r congruent to n mod 2 and the subtractions remove the empty packing for even n and the three perfect packings for 3|n. The trace is the sum of eigenvalue powers. For z=1 the other two roots are conjugate of modulus lambda^(-1/2)<0.827 (lambda>1.465). For z=-1 the real root is -u with u^3+u^2=1, 0.7548776<u<0.7548777, so the conjugate pair has modulus u^(-1/2)<1.151. These bounds prove the stated error and eventual positivity for the entropy limit (B_6=0 is immaterial). Fresh exact enumeration counted votes on the actual complement edges for n=5..12, yielding totals 30,0,42,72,54,150,198,252; an independent trace recurrence matched the spacing counts for n=5..100. The all-n conclusion uses the proof, not these finite tests.
 
-These are finite numerical checks only. The all-length correctness justification appears in the proof, which handles low-population boundary cases and the tie rule explicitly. Asymptotic error estimates are from the roots of the displayed characteristic polynomials, not numerical extrapolation.
+## originality
+
+PASS
+
+The standard hard-core placement enumeration and transfer calculation are not themselves claimed as new. The supported distinct result is the exact dynamical equivalence of that model, with an alternating leader background, to the positive-minority tied-leader sector on the cycle complement; it also yields the stated labelled count and sector entropy.
+
+## value
+
+PASS
+
+The two-leader tie is precisely where a nonmaximizing minority can persist under this update. The exact structure, including the boundary where locally permitted doublets are excluded only by cyclic parity, explains how that persistence leads to a positive, computable aggregate entropy. This is a natural all-length sector and not an arbitrary finite sample or merely a count of arrangements imposed in advance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

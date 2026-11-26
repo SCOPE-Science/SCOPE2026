@@ -1,0 +1,98 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:39:33.817884Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For distinct nonzero residues a,b the conjugate difference is the usual root difference times (1−cζ^{−a−b}); an integer collision coefficient at odd conductor can only be 1. For c≠1 the element is integral of full degree, and the absolute Vandermonde quotient is the index since Z[ζ] is the full integer ring. For pair sum zero every nonzero a pairs with −a and no diagonal occurs; for nonzero sum t, omit a=0,t,t/2 and divide by two. The nonzero-sum product is (1−c^p)/(1−c), giving the stated formula. For p=3 the zero exponent permits c=2; for p≥5 it excludes c=2. At c=1 the field is the maximal real subfield, not a full-rank order. Independent replay /workspace/branches/review_replay_3.py constructed powers in the integral ζ basis and checked 70 exact determinants; this is corroboration, not the general proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The catalogued theorem states odd composite; the proof of the product, up to ‘This proves the index formula’, counts units one prime power at a time and uses oddness only for division by 2 and roots of unity. Even a single CRT factor is valid. Shah–Nakahara concerns certain proper index-two subfields."
+        ],
+        "reasoning": "The displayed scope alone is disjoint, but the actual published argument for the product is valid unchanged at every odd prime. The argument for strict positivity of E_n(n) at c=2 does use compositeness and is not transferred.",
+        "searches": [
+          "Resultary: SCOPE-exact-composite-conductor-index-for-zeta-c-zeta-1--375c815a6974, Finding, Assumptions, and Proof",
+          "Shah–Nakahara (2002), DOI:10.1017/S0027763000008369, abstract and pp. 85–86"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Resultary composite-conductor record 375c815a6974",
+        "arXiv:2609.38844v1 §§2 and 2.1–2.6",
+        "Shah–Nakahara (2002), DOI:10.1017/S0027763000008369"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At n=p the catalogued one-factor proof gives R_p(1)=p−1 and R_p(p)=p−2, hence E_p(p)=(p−3)/2. Its product is |1−c|^{(p−1)/2}|Φ_p(c)|^{(p−3)/2}. Substitute Φ_p(c)=(1−c^p)/(1−c). A zero exponent at p=3 immediately gives the extra c=2 case."
+        ],
+        "reasoning": "No new counting lemma, exceptional case mechanism, or method is required. The article's proper-subfield result alone would not imply the index; the separate catalogued proof does.",
+        "searches": [
+          "Composite-conductor Resultary record, Proof, local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "arXiv:2609.38844v1 Proposition 2.1, Lemma 2.4 and Corollary 2.6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same family appears as u=ζ+cζ⁻¹ in both sources. The catalogued proof expresses the index as the absolute product of 1−cζ^{−a−b} over unordered distinct unit pairs; this is the frozen Vandermonde quotient."
+        ],
+        "reasoning": "The change of notation from pair sums to cyclotomic factors leaves the invariant unchanged.",
+        "searches": [
+          "Resultary: exact cyclotomic index for ζ+cζ⁻¹",
+          "arXiv:2609.38844v1 §2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest other indexed result was the catalogued divisor-product formula R_n(m), E_n(m); the motivating paper's Corollary 2.6 separately gives the real-subfield integer ring at c=1."
+        ],
+        "reasoning": "This is a symbolic family, not a lookup in a finite field-index table; an exact symbolic evaluator in the catalog is the decisive comparison.",
+        "searches": [
+          "Resultary catalog search for the exact cyclotomic element and integer index"
+        ]
+      },
+      "rationale": "The motivating article does leave out the full-field index, but the distinct catalogued composite-conductor record provides exactly the unit-pair proof of the index product without using compositeness until the subsequent index-one classification. The prime formula and its p=3 exception follow mechanically. This is established overlap, not a chronological priority finding.",
+      "residual_risks": [
+        "No chronological priority is inferred for distinct same-day records.",
+        "Older equivalent formulations may exist, but the negative originality finding already has a positive coverage demonstration."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers by unchanged proof and one-factor evaluation, not by the literal composite-only theorem",
+          "evidence": "The proof obtains R(t) from the two prime-power counts p^{e−1}(p−1) and p^{e−1}(p−2), removes one diagonal exactly when m=n, and then groups the index by cyclotomic factors. Only its later c=2 positivity argument needs n composite.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-exact-composite-conductor-index-for-zeta-c-zeta-1--375c815a6974/RESULT.md",
+          "material_read": "Finding, Assumptions, unit-pair and product proof, and classification proof",
+          "method": "Local-mirror text, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4; compare hypotheses at each proof step",
+          "title": "Exact composite-conductor index for ζ+cζ⁻¹",
+          "trigger": "Same exact family and index with a wider divisor-stratified calculation"
+        },
+        {
+          "assessment": "Covers the proper-subfield case and real boundary, not the full-field index",
+          "evidence": "Proposition 2.1 says ‘Suppose that Q(u) is a proper subfield of K, then O_{Q(u)}=Z[u]’; Lemma 2.4 characterizes this by a conjugate collision.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.38844v1",
+          "material_read": "§2 Proposition 2.1 and its proof pp. 2–3, Lemma 2.4 p. 3, Corollary 2.6 p. 4",
+          "method": "Lawful OA full-text passage comparison",
+          "title": "Monogenity of the irreducible factors of (k,t)-Fibonacci and (k,t)-Lucas polynomials",
+          "trigger": "Motivating source for the same transformed root"
+        },
+        {
+          "assessment": "Different subfield problem",
+          "evidence": "The abstract considers [k_m:K]=2 at specified conductors m=ℓp^n, not the full-field integer index of the frozen family.",
+          "identifier_or_url": "https://doi.org/10.1017/S0027763000008369",
+          "material_read": "Abstract and introduction, printed pp. 85–86",
+          "method": "OA text and comparison of field hypotheses",
+          "title": "Monogenesis of the rings of integers in certain imaginary abelian fields",
+          "trigger": "Potential alternate monogenesis coverage"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The exact order index would be a natural monogeneity invariant in isolation. Here the one-prime substitution in an existing unit-pair formula and the exponent-zero arithmetic at p=3 do not make a separately supported scientific contribution. No nonmechanical remainder was found to repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The result specifies the stationary isotropic spherical-diffusion model, all positive-rate and calibrated-parameter assumptions, and the exact population statistics. The active moment recurrence follows from the stationary generator; the independent Gaussian component changes variance but no higher cumulants. At fixed observed variance the implicit positive solution for inverse trap rate increases with the angular-to-trap rate ratio, while the normalized fourth-cumulant factor strictly decreases. Together with both endpoint limits this proves the stated exact open feasible region and bijection. The accompanying exact-rational and numerical inverse checker passed 362 assertions; finite checks supplement rather than replace the algebraic proof.
+## correctness
 
-**Originality — PASS (qualified).** The closest same-model full text is Chaudhuri and Dhar, arXiv:2005.14234, where stationary second and fourth moments and a kurtosis expression are known. The forward formulas here are expressly acknowledged as known. Their presentation analyzes forward parameter sweeps and nonmonotonic kurtosis, whereas the assessed theorem fixes observed variance and proves strict monotonicity of the fourth cumulant along that level set, giving global two-rate identification and exact feasibility. Frydel, arXiv:2312.05406, provides a recurrence/convolution framework, not global inverse identification. Nakul and Gopalakrishnan, arXiv:2209.09184, study stationary mode shapes, not a sharp two-moment inverse. Published related inverse problems for passive traps and different active models do not imply this map's injectivity. An unindexed equivalent calculation remains a priority risk, and no claim of exhaustiveness of the literature is made.
+PASS
 
-**Mathematical value — PASS.** Two stationary snapshot quantities provide a globally unique calibration of two hidden dynamics rates, eliminating the need for orientation tracking or time-series fitting under the stated calibrated conditions. The strict inverse and sharp attainable set address a naturally motivated identifiability problem: variance alone has a continuum of compatible rates, while fourth-order information resolves it even when conventional one-parameter kurtosis plots show reentrance. The result also flags precisely the limiting regimes where calibration is ill-conditioned. This is a complete inverse characterization rather than a routine numerical substitution, albeit limited to an idealized exact model.
+The frozen inverse and open band are correct; the frozen Limitations mislabeled the quadratic athermal approach as being at the upper fourth-cumulant boundary. The corrected RESULT.md in /workspace/repairs/4 states that it is at C_4=-M(V), i.e. the lower boundary, and gives the verified leading coefficient. In stationary position, an independent Gaussian contributes D/kappa to the variance and zero to the fourth cumulant. The spherical coordinate generator sends u^b to b(b-1)u^(b-2)-b(b+d-2)u^b, which with the harmonic filter drift gives the joint recurrence. Using the uniform sphere second and fourth moments 1/d and 3/[d(d+2)], the recurrence gives m20=m11=1/[d(1+(d-1)q)], m13=(m04+6q m11)/[1+3(d+1)q], m22=(m13+q m20)/(1+dq), and m40=3m22/[3+(d-1)q]. Subtracting the variance square with factor three and rescaling gives the stated C_4. At fixed V>0, B(q)>0 decreases, the positive root x(q) increases, and A(q)=V-Dx(q)>0 is nonincreasing, including constant A=V for D=0. The denominator of F_d is its numerator plus d(d-1)q², implying 0<F_d<1 and F_d strictly decreasing for q>0, with limits 1 and 0. Thus -C_4 decreases strictly from M(V) to zero, each admissible pair has unique q and x, and variance alone has a continuum of rate pairs. At D=0, 1-F_d~d(d-1)q²/3 as q→0, so the inverse rate D_r=q/x is not Lipschitz at the lower boundary. At fixed V both thermal cases yield unbounded D_r as C_4→0. Checked the symbolic moment, derivative, and onset identities with python /workspace/reproduce_frozen.py. The frozen checker was inspected, not run; its finite inverse examples are not certification of either boundary or the whole range.
 
-**Scientific limits.** Neither statistical error analysis nor extensions to unknown propulsion amplitude, torque, anisotropy or transient observations are provided. The result has not received independent validation. The source paper already derives the necessary forward moments; priority should be checked further before any journal submission.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best of current knowledge, the distinct claim is the global two-unknown inverse with exactly the specified open attainable region for all dimensions and calibrated D>=0. The repaired source credits the forward radial and coordinate statistics through their exact isotropic equivalence; it does not claim the stationary moments or density as new.
+
+## value
+
+PASS
+
+Two calibrated snapshot observables identify the two rates despite potentially misleading single-parameter kurtosis sweeps. The exact attainable band discriminates model-compatible population data, makes the inversion one-dimensional, and identifies regimes of ill conditioning. This is a useful inverse theorem beyond evaluating known forward moments and does not assert finite-sample inference performance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

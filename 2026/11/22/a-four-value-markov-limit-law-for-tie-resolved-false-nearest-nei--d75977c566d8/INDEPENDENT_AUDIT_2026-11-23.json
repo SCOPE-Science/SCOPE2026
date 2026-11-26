@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T17:37:45.050611Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Fix the first index J_s of each symbol and its successor A_s. Once both references are present, for every nonreference position the earliest eligible index has distance zero and is J_s; Definition 1.1 flags that position exactly when its successor disagrees with A_s. The difference from the resulting transition-count formula is at most 2/n, even if a symbol has only one occurrence in the finite sample. Apply the ergodic theorem on a single probability-one event to the four transition frequencies; their random selection by A_s then needs no independence from the empirical counts. Given X_0=s, the opposite hit T is almost surely finite and at least 1, so X_1 is measurable at T, including the case T=1. The strong Markov law of X_{T+1} is the fixed opposite row, while X_1 has row s. The conditional product law does not depend on s, proving independence unconditionally. Multiplication gives the displayed ordered weights (A_0,A_1)=(0,0),(0,1),(1,0),(1,1); summing row means and independent weighted variances gives both formulas and the unique zero-variance point. Independently expanded the four-point moments symbolically and checked the finite reduction on all 4,052 binary words of lengths n+1, 2<=n<=10, with both symbols in the first n positions: minimize (distance,index) over j!=i and compare with the first-occurrence rule. The finite check is not the a.s. proof. The nearest-neighbour definition only needs n>=2; ratios at duplicate points and positive amplitude thresholds cause no boundary issue. No frozen code was executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Śpiewak Theorems 1.2 and 1.3 and Remarks 1.4–1.5",
+          "Resultary Bernoulli record ea9548b07d02"
+        ],
+        "reasoning": "Prevalence for smooth perturbed observables and the cited zero/one limiting conclusions do not cover a specified binary coordinate with persistent exact ties. The iid parameters are a+b=1, not a larger class.",
+        "searches": [
+          "Śpiewak arXiv:2611.18087v1 §1.5 and §4.1",
+          "false nearest neighbors discrete binary stationary Markov chain smallest index tie limit law first occurrence (Resultary)"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.18087v1",
+        "arXiv:nlin/0304054",
+        "Resultary ea9548b07d02"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Bernoulli variance agrees on a=p,b=1-p",
+          "At a=b=s the stationary marginal stays fixed while the mean is 2s(1-s)"
+        ],
+        "reasoning": "Substituting stationary marginal probabilities in the Bernoulli law would give the same law at every a=b=s and therefore does not recover either the mean or nondegeneracy off s=1/2. The new step is the conditional strong Markov product at two first visits; neither primary FNN source gives that implication.",
+        "searches": [
+          "Resultary ea9548b07d02",
+          "Śpiewak arXiv:2611.18087v1 Theorems 1.2–1.3",
+          "Kennel–Buhl arXiv:nlin/0304054"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Śpiewak arXiv:2611.18087v1 §1.4",
+          "Kennel–Buhl arXiv:nlin/0304054 pp. 1–2"
+        ],
+        "reasoning": "The quantized successor mismatch is equivalent to Śpiewak's ordinary FNN test at duplicate scalar observations with this tie convention. Kennel–Buhl instead compares original-space distances at neighbours of two-sided symbolic embeddings, using their ranks, not successor comparisons at the earliest duplicate scalar observation.",
+        "searches": [
+          "false nearest neighbours quantized discrete binary stationary Markov chain tie breaking first occurrence FNN strong Markov distribution symbolic Kennel Buhl Śpiewak",
+          "false nearest neighbors discrete binary stationary Markov chain smallest index tie limit law first occurrence (Resultary)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary exact assigned hit and nearest substantive Bernoulli law ea9548b07d02; remaining hits concerned other symbolic statistics or processes",
+          "Primary FNN paper §1.3 Table 1"
+        ],
+        "reasoning": "The assigned hit is not separate prior evidence. The Bernoulli entry has an exact distribution only for independent symbols. Śpiewak's Table 1 summarizes dimension regimes, not an atom table; no separate matching exact Markov table was retrieved.",
+        "searches": [
+          "false nearest neighbors discrete binary stationary Markov chain smallest index tie limit law first occurrence (Resultary)",
+          "false nearest neighbours quantized discrete binary stationary Markov chain tie breaking first occurrence FNN strong Markov distribution symbolic Kennel Buhl Śpiewak"
+        ]
+      },
+      "rationale": "The closest exact published result retrieved is the Bernoulli subfamily, not a law for genuinely dependent chains. The primary smooth FNN and symbolic partition papers do not imply this tie-resolved law. Priority is best of knowledge, not certified.",
+      "residual_risks": [
+        "An earlier equivalent finite-state limit under another nearest-neighbour convention may not have been indexed; the related Bernoulli record was inspected at index level only."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same defined duplicate-distance conventions, but no coverage of this fixed first-index binary Markov law",
+          "evidence": [
+            "Definition 1.1 footnote 2 takes 0/0=0 and positive/0=+infinity",
+            "Theorem 1.2 uses a prevalent smooth observation and large ratio tolerance; Theorem 1.3 gives convergence to one below measure dimension for prevalent observations with sufficiently fast correlation decay"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.18087v1",
+          "material_read": "Abstract, §1.2–1.5 including Definition 1.1, Theorems 1.2–1.3 and Remarks 1.4–1.5",
+          "method": "Open primary full-text HTML, relevant statements and definitions",
+          "title": "On the convergence of the False Nearest Neighbours algorithm",
+          "trigger": "Same core algorithm and a potential general convergence theorem"
+        },
+        {
+          "assessment": "A distinct partition-refinement diagnostic",
+          "evidence": [
+            "Symbolic embeddings use both past and future coordinates, then rank the original-space distances at their nearest neighbours"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/nlin/0304054",
+          "material_read": "Abstract and method on pp. 1–2, including Eq. (1) and construction of J_sfnn",
+          "method": "Open primary arXiv PDF text",
+          "title": "Estimating good discrete partitions from observed data: symbolic false nearest neighbors",
+          "trigger": "Potential differently named discrete FNN statistic"
+        },
+        {
+          "assessment": "The indexed exact law is for Bernoulli dynamics; that stated case is recovered on a+b=1",
+          "evidence": [
+            "Independent symbols with parameter p and variance p(1-p)(1-2p)^2[p^2+(1-p)^2]"
+          ],
+          "identifier_or_url": "Resultary ea9548b07d02",
+          "material_read": "Indexed published summary and variance formula",
+          "method": "Configured Resultary search record; not full-text inspection",
+          "title": "A four-atom false-nearest-neighbour limit law for quantized Bernoulli dynamics",
+          "trigger": "Closest indexed exact limit law"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A complete natural two-parameter calibration of the simplest dependent binary sensor distinguishes serial persistence from stationary symbol imbalance. The fixed-marginal family yields a checkable change in mean and loss of self-averaging, attributable to the random choice of first-hit successors, not generic observation behavior or a numerical fit. The conclusion is useful for this specified tie rule and is not a claim about successful embedding.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:58:36.556979Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, assumptions and Proof",
+        "Frozen VERIFICATION.md and verify_algebraic_edge_connectivity_boundary.py (inspected, not executed)",
+        "/workspace/replay_1.log"
+      ],
+      "rationale": "Independently partitioned every simple edge mask through order five into relabeling orbits and filtered for connectivity, yielding 1, 2, 6, 21 connected classes at n=2,3,4,5. Compared all 32 pairs of distinct classes at equal (n,m) by exact Laplacian characteristic polynomials with simultaneous real-root isolation and exact ties, and by exhaustive nontrivial edge cuts. No opposite strict order occurs. At n=6 the stated witnesses are connected, both have seven edges, and their Laplacian polynomials factor respectively as x(x−6)(x−4)(x−2)(x−1)^2 and x(x−3)^2(x−2)(x^2−6x+4). Their smallest positive roots are 1 and 3−sqrt(5), respectively. The cone has bridges, and in the triangle–square union all edges are on cycles and a degree-two vertex can be isolated by two deletions; the cut sizes are 1 and 2, also checked directly. Replay: python /workspace/replay_frozen_graphs.py 1 (SymPy 1.14.0); output /workspace/replay_1.log.",
+      "residual_risks": [
+        "The second Laplacian eigenvalue is defined for n≥2; at order one there is no pair of distinct graphs. This checks strict comparisons of the combinatorial Laplacian and ordinary edge connectivity, not a normalized, weighted, or larger-order generalization."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sandia pp. 11–13 compare aggregate rewiring results for n=100, k=4; Jamakovic–Van Mieghem discuss Erdős–Rényi robustness trends. Sandia quotes Fiedler's pointwise inequality lambda_2 ≤ vertex connectivity ≤ edge connectivity."
+        ],
+        "reasoning": "A same-graph inequality does not order values across graphs. Simulated trends for specific rewiring families do not give the first size at which the strict ordering can differ over all connected simple graphs.",
+        "searches": [
+          "DOI:10.2172/973665, Sandia report pp. 3, 9–13",
+          "DOI:10.21136/CMJ.1973.101168, OA retrieval attempts",
+          "DOI:10.1007/978-3-540-79549-0_16, Springer PDF p. 1"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.2172/973665",
+        "DOI:10.21136/CMJ.1973.101168 (quoted result only)",
+        "DOI:10.1007/978-3-540-79549-0_16",
+        "Resultary:2026/10/13/b8dc85ef301b",
+        "Resultary:2026/10/13/88819cfc31aa"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The checked Resultary claims compare Moran's I and Geary's C on a fixed graph, or degree and betweenness centralization on trees. Neither compares the target metrics.",
+          "Sandia's most relevant conclusion is a broad nonmonotonicity statement in circular lattice and mesh rewiring experiments."
+        ],
+        "reasoning": "Neither the statistical comparison nor the tree centralization result specializes to the desired statement (edge connectivity is constant on connected nontrivial trees). Even granting the general link-preserving discordance, one cannot infer exclusion through five or the explicit seven-edge example. The thematic indexed records were compared on statements rather than discarded by date.",
+        "searches": [
+          "DOI:10.2172/973665, pp. 9–13",
+          "Resultary:2026/10/13/b8dc85ef301b",
+          "Resultary:2026/10/13/88819cfc31aa"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Feddema–Byrne–Abdallah, pp. 9–10, discuss higher Fiedler value with lower node and link robustness under rewiring without adding nodes or links."
+        ],
+        "reasoning": "At fixed n the edge count fixes density; 'Fiedler value' and 'link connectivity' name the two metrics in the claim. Rewiring at constant edge count is a serious overlap for the qualitative phenomenon, not an equivalent statement of the exact minimum or witness. Vertex connectivity alone would also be a different comparator.",
+        "searches": [
+          "Resultary: \"six vertices\" \"edge connectivity\" algebraic connectivity fixed edges reversal",
+          "Resultary: Fiedler algebraic connectivity combinatorial robustness edge connectivity does not increase robustness graph ranking"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No matching small-order enumeration or witness occurred in the inspected ranked hits. The Sandia plots use ten runs per data point and the inspected material does not list individual graph realizations."
+        ],
+        "reasoning": "Plots of averages do not give an exact joint table of Laplacian eigenvalues, edge cuts and equal-size comparisons through five vertices, or the specified six-vertex pair.",
+        "searches": [
+          "Resultary: \"n≤5\" \"3-√5\" \"algebraic connectivity\" edge connectivity",
+          "Resultary: \"P3∪2K1\" algebraic connectivity \"3−√5\" graph",
+          "Sandia report pp. 11–13, plots and accompanying text"
+        ]
+      },
+      "rationale": "The bounded evidence supports the exact minimum at fixed order and size, with the explicit seven-edge witness. The broad observation that algebraic connectivity and edge robustness can disagree, even under link-preserving rewiring, already appears in Sandia SAND2009-4494 and is not credited here as new. Its inspected results do not state or imply this finite boundary.",
+      "residual_risks": [
+        "Unlike the frozen source's earlier access note, the official full Sandia PDF is now accessible; only the listed passages were used. Its individual simulation realizations were not inspected.",
+        "Fiedler's primary text was unavailable in this check, and ranked catalogue and literature searches cannot exclude an unexamined exact example or table."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior coverage of qualitative link-preserving discordance, not the checked sharp finite theorem.",
+          "evidence": "Reports decreases in node and edge connectivity as algebraic connectivity increases in rewiring families; n=100, k=4 simulation plots aggregate ten runs per point.",
+          "identifier_or_url": "https://www.osti.gov/servlets/purl/973665/",
+          "material_read": "Full report accessible; abstract p. 3, literature review p. 9, Section 3 p. 10 and rewiring experiment pp. 11–13.",
+          "method": "Open official OSTI primary PDF, bounded passages at offsets 3046, 12442, 13740, 16912 and 20062.",
+          "title": "Algebraic Connectivity and Graph Robustness",
+          "trigger": "Closest primary source explicitly reporting disagreement with edge robustness."
+        },
+        {
+          "assessment": "The quoted bound does not imply the cross-graph theorem; no whole-document noncoverage assessment.",
+          "evidence": "lambda_2(G) ≤ vertex connectivity(G) ≤ edge connectivity(G).",
+          "identifier_or_url": "https://doi.org/10.21136/CMJ.1973.101168",
+          "material_read": "Fiedler's inequality as attributed in the accessible Sandia report; primary text not retrieved in this review.",
+          "method": "OA DOI recovery and DML landing/PDF attempts; Sandia report as secondary evidence.",
+          "title": "Algebraic connectivity of graphs",
+          "trigger": "Foundational paper on the exact two connectivity concepts."
+        },
+        {
+          "assessment": "Different, probabilistic scope in the inspected material.",
+          "evidence": "Discusses Erdős–Rényi graphs and increase of algebraic connectivity with node and link connectivity.",
+          "identifier_or_url": "https://doi.org/10.1007/978-3-540-79549-0_16",
+          "material_read": "Springer PDF abstract, proceedings p. 183.",
+          "method": "Open primary PDF passage.",
+          "title": "On the Robustness of Complex Networks by Using the Algebraic Connectivity",
+          "trigger": "Cited primary paper on comparing spectral and link robustness."
+        },
+        {
+          "assessment": "Different quantities and comparison unit.",
+          "evidence": "Compares two binary fields on one graph using Moran's I and Geary's C.",
+          "identifier_or_url": "Resultary:2026/10/13/b8dc85ef301b",
+          "material_read": "RESULT.md Finding, local mirror offset 0, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4.",
+          "method": "Ranked Resultary search and local mirror read.",
+          "title": "Moran and Geary first strictly reverse on five spatial units",
+          "trigger": "Thematic exact small-order reversal hit."
+        },
+        {
+          "assessment": "Different quantities and graph domain.",
+          "evidence": "Compares tree centralization measures, first strictly reversing at order eight.",
+          "identifier_or_url": "Resultary:2026/10/13/88819cfc31aa",
+          "material_read": "RESULT.md Finding, local mirror offset 0, same snapshot.",
+          "method": "Ranked Resultary search and local mirror read.",
+          "title": "Degree and betweenness centralization first reverse on trees",
+          "trigger": "Thematic fixed-order reversal of network measures."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, witness and interpretation",
+        "DOI:10.2172/973665, robustness discussion",
+        "/workspace/replay_1.log"
+      ],
+      "rationale": "A worst-case link deletion budget and a global Laplacian eigenvalue answer different robustness questions. Controlling both order and size makes the first reversal interpretable. The exact bridge-versus-no-bridge witness is more operationally useful than an unspecified simulation trend: it is a minimal benchmark in which a single link failure disconnects the option ranked higher by the eigenvalue.",
+      "residual_risks": [
+        "No inference about typical networks, dynamical performance, or normalized Laplacian rankings follows from the boundary."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

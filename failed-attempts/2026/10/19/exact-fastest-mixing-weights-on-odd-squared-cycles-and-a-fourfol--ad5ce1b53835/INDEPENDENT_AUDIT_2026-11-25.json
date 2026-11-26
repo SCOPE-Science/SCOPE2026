@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:46:18.909952Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Proof §§1–6",
+        "Frozen VERIFICATION.md and verify.py (inspected, not run)",
+        "Boyd et al. §3.1.1, ordinary cycle"
+      ],
+      "rationale": "Averaging over the cycle symmetries reduces the value, not the optimizer classification, to two orbit weights. On a=Rb, the Fourier drop is bF(c_k) and F is a strictly concave quadratic with vertex (c_++c_-)/2; equal endpoint values are its strict minimum on the grid. With y=π/(2n) the vertex is −sin(3y)sin(y). For n≡1 mod 4 the proposed d=sin(y) is separated from the lower neighboring cosine by the midpoint −sin(y)cos(2y), strictly below the vertex; its upper neighboring midpoint is positive. For n≡3 mod 4, d=−sin(y) is separated from the lower neighbor by −sin(3y)cos(2y), again strictly below the vertex, and the other midpoint is positive. These comparisons use 0<y≤π/14 and include n=7, so d is the unique grid maximum on the nonconjugate half-grid. Feasibility follows from E+M−4(1+R)=4(1−C)[1/2+2C+2C²−(1+2C)d], with C=cos(π/n), |d|<1/2, making the bracket positive. After balancing the extreme drops, the difference from any other circulant multiplier, divided by 1−c, is affine in c. It cannot be nonpositive at the two positive contacts and nonnegative at the interior negative contact unless identically zero; this proves the lower bound and invariant uniqueness. With t=π/n, E=16t²+O(t⁴), M=4+5t²+O(t³), R=3t²+O(t⁴), giving the stated weight and gap expansions. The step-two-only graph is isomorphic to a cycle because n is odd; balancing its extreme nonconstant Fourier modes yields the stated SLEM and gap ∼2t², hence the sharp limiting ratio four.",
+      "residual_risks": [
+        "Only circulant uniqueness is proved, not uniqueness of unrestricted spatially varying symmetric stochastic optimizers."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The October 13 theorem applies to all n≥5, with the three mode contacts stated for n≥6, and the later November 2 entry also supplies an exact all-order formula. Boyd et al. supplies only the one-hop comparison within the cited cycle section."
+        ],
+        "reasoning": "Restriction to odd n≥7 leaves the same stochastic feasible set and optimality theorem. The ordinary-cycle result alone could not establish the two-orbit optimizer.",
+        "searches": [
+          "Resultary 68c871d2f31e and 1e4c2afd1cba Findings and assumptions",
+          "Boyd et al. §3.1.1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 68c871d2f31e and 1e4c2afd1cba",
+        "Boyd et al. §3.1.1",
+        "Saha–Das Theorem 3.2",
+        "Frozen RESULT.md Limitations (unnamed thesis; full text not identified)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "68c871d2f31e gives 1−μ=8π²/n²+O(n⁻⁴) and the factor-four comparison to the globally optimal one-hop walk. Multiplication of vertex labels by 2 identifies C_n with the step-two-only graph for odd n."
+        ],
+        "reasoning": "The factor-four claim survives this relabeling verbatim. The finite comparison denominator and the displayed mass expansions follow by applying the bare-cycle formula and expanding the available exact weights; these are not separate topological or extremal claims.",
+        "searches": [
+          "68c871d2f31e Finding including its gap comparison",
+          "Boyd et al. §3.1.1 equations (3.3)–(3.4)",
+          "Frozen RESULT.md lines 30–45 and Proof §6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "68c871d2f31e Finding uses l=sin²(π/n), r=sin²(π floor(n/2)/n), j=floor((n+2)/4), u=sin²(πj/n), D=l r+u(l+r−u), with a=(l+r−1)/(2D), b=1/(8D)."
+        ],
+        "reasoning": "For odd n, j=floor((n+1)/4), c_+=1−2l, c_-=1−2r and R=4(l+r−1). Then E=16l r and M=16u(l+r−u). Thus E+M=16D and the cited optimizer and SLEM are exactly the frozen ones, not just asymptotically equal.",
+        "searches": [
+          "Resultary: exact fastest symmetric mixing on two-hop cyclic networks; second power of a finite cycle",
+          "Public query: squared cycle / square of a cycle Markov chain jumps ±1 ±2 odd even explicit optimal weights thesis"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact two-hop formula yields every table row one could derive from the frozen optimizer. Saha–Das gives the unweighted adjacency spectrum, not exact minimax values."
+        ],
+        "reasoning": "No standalone finite census is claimed; the matching closed form resolves all values and weights. A shared unweighted spectrum would be insufficient without the exact indexed minimax formula.",
+        "searches": [
+          "Resultary exact optimizer and Fourier-contact formulas for cycle squares",
+          "Saha–Das The Square Graph of a Cycle Graph, Theorem 3.2"
+        ]
+      },
+      "rationale": "The earlier indexed all-size theorem 68c871d2f31e already gives this exact optimization, invariant uniqueness and three-mode contacts on the full odd range, including the fourfold gap gain versus the one-hop cycle. On odd n the one-hop and two-hop cycles alone are isomorphic. Coverage is exact, independently of the unavailable thesis and not because of similarity to the separate even-cycle record.",
+      "residual_risks": [
+        "The unidentified thesis and limited public retrieval leave external priority unresolved, but are not grounds for failure. The positive exact indexed match decides mathematical coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly subsumes the odd-cycle theorem and implies its comparison",
+          "evidence": "Weights in l,r,u; strict holding; unique circulant optimum; three active modes and the all-order factor-four leading gain.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-exact-fastest-symmetric-mixing-on-two-hop-cyclic-networks--68c871d2f31e/RESULT.md",
+          "material_read": "Finding and Assumptions and scope, mirror offsets 0–2521",
+          "method": "Resultary lookup and local mirror exact passage",
+          "title": "Exact fastest symmetric mixing on two-hop cyclic networks",
+          "trigger": "Earlier exact unrestricted SLEM optimum for a covering family"
+        },
+        {
+          "assessment": "Equivalent on the assigned regime; later indexed date",
+          "evidence": "Using endpoint cosines U,L and contact V, its Δ=(V−L)(U−V) and T=Δ+2(1−L)(1−U) give M−E=4Δ and E+M=4T when L=−cos(π/n).",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-fastest-mixing-on-the-second-power-of-every-finite-cycle--1e4c2afd1cba/RESULT.md",
+          "material_read": "Finding and scope, mirror offsets 374–3461",
+          "method": "Resultary lookup and local mirror passage",
+          "title": "Exact fastest mixing on the second power of every finite cycle",
+          "trigger": "Second exact all-parity match in alternate parameters"
+        },
+        {
+          "assessment": "Establishes one-hop benchmark, not full two-hop design",
+          "evidence": "Two neighbors per vertex and a one-edge-orbit optimization.",
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fast_mix_symm.pdf",
+          "material_read": "§3.1.1, p. 8 in PDF (journal p. 800), equations (3.3)–(3.4)",
+          "method": "Primary OA PDF passage",
+          "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+          "trigger": "Exact ordinary-cycle benchmark and possible support overlap"
+        },
+        {
+          "assessment": "Related unweighted adjacency calculation, not a stochastic optimizer",
+          "evidence": "The spectrum is the sum of the one- and two-hop cosine terms, with fixed coefficients.",
+          "identifier_or_url": "https://doi.org/10.26713/cma.v16i4.3246",
+          "material_read": "Abstract/introduction and Theorem 3.2, pp. 1 and 4",
+          "method": "Primary OA PDF passages",
+          "title": "The Square Graph of a Cycle Graph",
+          "trigger": "Published spectral study of the identical graph"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 19–45",
+        "68c871d2f31e exact weights and fourfold comparison"
+      ],
+      "rationale": "The quantified spectral benefit of a vanishing edge weight is valuable in the exact all-order result. The frozen odd-only record adds no independently useful new extremal statement: it specializes those weights and their asymptotics, and replaces the earlier comparison cycle by an isomorphic one.",
+      "residual_risks": [
+        "No distinct valuable mathematical remainder identified for repair."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

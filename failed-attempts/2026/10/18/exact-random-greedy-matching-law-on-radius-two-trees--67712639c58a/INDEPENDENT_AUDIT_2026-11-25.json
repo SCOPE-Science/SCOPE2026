@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:39:15.092448Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Until the center is matched, an arriving central edge can win exactly when it is first in its branch. In any branch a prior outer edge would have matched the branch vertex (unless this branch's central edge had already been accepted, which contradicts the center being vacant). Thus the earliest eligible edge is exactly the central winner. The subprobability density for branch i's eligible time t is (1−t)^{a_i}; integrating it against the independent branch survivals [a_j+(1−t)^{a_j+1}]/(a_j+1) gives p_i by y=1−t, and evaluating the product of survivals at t=1 gives p_empty. This includes a_i=0 (always eligible), the single-branch star, and the no-central possibility only when all branches have a leaf. The possible matchings are exactly those listed, and permutations of leaf labels act transitively in each class, giving the stated labeled law. For d≥2 and all a_i≥1 the class sizes are A and A/a_i with A=∏a_i; the difference in mass of the no-central event is the stated TV bound and is positive by the product cross terms. A separate exact permutation check reported agreement on 88 profiles (1,012,517 orders and 523 labeled outputs); at (1,1) the three masses are 1/4,3/8,3/8 and TV=1/12. The frozen script and recorded output under artifacts/ were inspected, not executed. Finite agreement supplements the argument, and no scientific correctness defect was found.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Proposition 4 applies to dimer RSA on any finite graph; splitting a vertex replaces it by separate degree-one copies, one for each incident edge. The proof shares edge arrival times in the original and split graphs until the selected vertex first changes state.",
+          "The same-day clique-bouquet result covers the exact labeled law for line graphs of double stars. It need not cover the general multi-positive radius-two family."
+        ],
+        "reasoning": "The 2005 result has precisely the required finite-graph hypotheses. On splitting c in a radius-two tree, component j is a star with a_j+1 edges, one being the former central edge. This is an explicit family-wide specialization of a theorem and its coupling, not a numerically fitted implication or an assumption about within-day ordering.",
+        "searches": [
+          "Penrose–Sudbury arXiv:math/0503519 §2.4 Proposition 4 and its proof",
+          "Random Sequential Adsorption on Random Trees, DOI:10.1007/s10955-009-9776-3",
+          "Resultary clique-bouquet exact labeled law 7409a1c63395"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, artifacts/verify.py and artifacts/verify_output.txt",
+        "Penrose–Sudbury DOI:10.1214/105051604000000765 / arXiv:math/0503519",
+        "Fairfax-Ball arXiv:2610.02276",
+        "Mahabadi et al. DOI:10.4230/LIPIcs.ITCS.2025.74",
+        "Resultary 7409a1c63395 and e71b45a83f23"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The proof keeps the identical edge arrival time for every corresponding edge and identifies the first instant a vertex in W changes state pathwise. For W={c}, before that instant all corresponding accept/reject decisions agree; the unique arrival at the first instant that matches its split copy must therefore be the original winning central edge.",
+          "In split star j its distinguished edge is accepted iff it is earliest among the a_j+1 times. Its acceptance time density is (1−t)^{a_j}, with remaining mass at infinity. The stars are independent.",
+          "Thus the exact winner law is ∫_0^1(1−t)^{a_i}∏_{j≠i}[(a_j+(1−t)^{a_j+1})/(a_j+1)]dt and the no-winner mass is the product of survivals at t=1. Uniformity over leaf labels is immediate by exchangeability.",
+          "For the TV witness the only extra calculation is counting A and A/a_i labeled choices and using ∏(1+1/a_i)>1+∑1/a_i for at least two positive terms."
+        ],
+        "reasoning": "This yields the exact polynomial-integral law, not merely its qualitative validity or a general algorithm capable of enumerating it. The frozen earliest-eligible argument is the earlier splitting argument specialized to stars. The event comparison adds no independent structural ingredient beyond this specialization and elementary counting; it is not a substantive surviving claim suitable for repair.",
+        "searches": [
+          "Proof of Proposition 4, Penrose–Sudbury arXiv:math/0503519 pp. 17–18",
+          "Frozen RESULT.md lines 34–71 versus the split-edge coupling"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Penrose–Sudbury §2.1 Dimer RSA sets one independent uniform arrival per edge and accepts iff both endpoints are vacant: exactly the frozen random-edge greedy process.",
+          "Greedy matchings are greedy vertex MISs of the line graph, not generally greedy vertex MISs of the original tree."
+        ],
+        "reasoning": "The dimer RSA equivalence is pathwise and preserves the terminal accepted edges and labels. The tree-MIS theorem of Fairfax-Ball concerns a different graph input after converting the sampling process; it is not the decisive prior coverage.",
+        "searches": [
+          "random sequential adsorption dimers finite trees exact edge occupation probabilities blocking product Penrose Sudbury greedy maximal matching radius two terminal distribution",
+          "Penrose–Sudbury, DOI:10.1214/105051604000000765",
+          "Resultary edge-order matching / vertex-order line-graph MIS comparison"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Indexed 7409a1c63395 gives the exact labeled clique-bouquet law, including the double-star specialization, with same-day priority unresolved and this boundary already excluded from the finding's novelty claim.",
+          "Indexed e71b45a83f23 tabulates/classifies gaps for vertex-order MIS on trees of diameter at most three, not the full edge-matching law on radius-two trees.",
+          "Penrose–Sudbury separately tabulate regular-tree formulas in §2.5; the decisive earlier coverage is Proposition 4 and the coupling, not an exact table entry naming these profiles."
+        ],
+        "reasoning": "The exact special-case overlap is real despite the uncertain order within a day. The other indexed gap theorem has a different process/domain. The lack of a table of all branch profiles would not negate the explicit older implication.",
+        "searches": [
+          "Resultary exact greedy labeled matching and line-graph MIS laws",
+          "Resultary 2026/10/18/…--7409a1c63395 and 2026/10/12/…--e71b45a83f23",
+          "Penrose–Sudbury arXiv:math/0503519 §§2.4–2.5"
+        ]
+      },
+      "rationale": "The central-winner and complete labeled formulas are mechanically implied by Penrose–Sudbury's earlier general dimer RSA vertex-splitting coupling, not just computable by a generic brute-force recursion. Splitting the center produces independent stars. The published proof couples corresponding edge arrivals up to the first match of the split vertex; that first edge and its branch are the same pathwise. The minimum in each star gives exactly the finding's eligible-time distribution. The TV witness then uses its no-center probability and elementary counting. The priority defect is demonstrated by the earlier primary theorem and proof, not inferred from the same-day catalogue overlap or any inaccessible paper.",
+      "residual_risks": [
+        "The date order within the two October 18 findings is unresolved; the decision rests on the 2005 proof.",
+        "No exhaustive history of dimer deposition or cograph laws is claimed. DOI:10.1007/s10955-009-9776-3 did not yield full text via the inspected route; that limitation does not affect the constructive earlier implication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive earlier broader coverage; the coupling explicitly yields the cause-specific first arrival on splitting c.",
+          "evidence": "The paper replaces each selected vertex by degree-one copies, keeps identical corresponding edge arrival times, and the split/original realizations coincide up to the selected vertex's first occupation.",
+          "identifier_or_url": "https://doi.org/10.1214/105051604000000765; OA https://arxiv.org/pdf/math/0503519",
+          "material_read": "§2.1 Dimer RSA near offset 8170; §2.4 Proposition 4 and (9) near offsets 18540–23440; proof pp. 17–18 at offset 48690 onward",
+          "method": "OA PDF of the same paper recovered through DOI alternate; primary statement and proof inspected",
+          "title": "Exact and approximate results for deposition and annihilation processes on graphs",
+          "trigger": "Directly equivalent random sequential adsorption process and potential general branch-splitting law"
+        },
+        {
+          "assessment": "Covers the double-star matching subcase; within-day priority cannot be inferred, and it is not needed for the verdict.",
+          "evidence": "Exact labeled greedy MIS law on K₁ joined to a disjoint union of cliques, which includes the line graphs of double stars.",
+          "identifier_or_url": "2026/10/18/SCOPE-exact-greedy-law-balance-and-infinite-non-equicardinal-uniform-c--7409a1c63395",
+          "material_read": "Mirrored RESULT.md, clique-bouquet law, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local Resultary lookup and mirror",
+          "title": "Exact greedy law, balance and infinite non-equicardinal uniform constructions",
+          "trigger": "Material same-day exact labeled law for clique bouquets"
+        },
+        {
+          "assessment": "Different graph/observable; not the decisive coverage.",
+          "evidence": "Vertex-order greedy MIS on diameter-at-most-three trees, whereas the all-positive multi-branch case here is a diameter-four tree with edge-order matching.",
+          "identifier_or_url": "2026/10/12/SCOPE-sharp-fixed-order-greedy-uniformity-gaps-for-trees-of-diameter-a--e71b45a83f23",
+          "material_read": "Mirrored RESULT.md, TV/diameter theorem",
+          "method": "Local Resultary lookup and mirror",
+          "title": "Sharp fixed-order greedy uniformity gaps for trees of diameter at most three",
+          "trigger": "Close indexed TV and double-star finding"
+        },
+        {
+          "assessment": "Different graph after converting processes.",
+          "evidence": "Vertex-order MIS on trees and mixed spiders, not edge-order matching on trees.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.02276",
+          "material_read": "Theorems 1.1–1.2 at PDF offsets 3510–6979",
+          "method": "OA PDF passage comparison",
+          "title": "Greedy Uniformity on Trees: Exact Obstruction and Near-Uniform Spiders",
+          "trigger": "Related all-tree nonuniformity theorem"
+        },
+        {
+          "assessment": "Same process, different size-estimation emphasis; not the basis of the priority verdict.",
+          "evidence": "Defines random-order greedy matching and uses matching-size estimation.",
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.ITCS.2025.74",
+          "material_read": "Abstract and random-edge greedy definition, PDF offset 27200",
+          "method": "OA PDF passage comparison",
+          "title": "Sublinear Metric Steiner Tree via Improved Bounds for Set Cover",
+          "trigger": "Prior use of the same random greedy matching process"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Explicit labeled probabilities are a useful objective, but for the claimed radius-two family the formula directly instantiates the published coupling on disjoint stars. After crediting that coverage, the TV statement is only the difference of probabilities of one already determined event versus a direct cardinality count; the strictness is the elementary cross-term inequality. There is no independently substantive new bound or classification left to retain under the value criterion.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

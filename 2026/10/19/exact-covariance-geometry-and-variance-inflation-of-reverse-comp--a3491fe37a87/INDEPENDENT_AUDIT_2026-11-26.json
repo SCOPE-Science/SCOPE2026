@@ -1,0 +1,154 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:38:12.469007Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–46",
+        "Frozen VERIFICATION.md and verify.py (read, not executed)"
+      ],
+      "rationale": "The count is indexed by increasing start positions i<j, so each candidate is counted once. Substituting j'=j−(m+g−1) gives 1≤i<j'≤n−2m−g+2 and hence the stated binomial count, also zero when no pair fits. Each event imposes a matching of m complement constraints, so has probability q^(−m). At different endpoint sums c and c' the matchings have no common edge. A cycle would have to alternate colors; every two successive reflection steps would advance by the same nonzero translation c'−c (with a fixed choice of first color), which cannot close. Each edge of the resulting forest costs one factor q^(−1), by rooting each component, proving pairwise independence even with intersecting supports. At one endpoint sum the starts are (i,j) and (i+d,j−d); all constraints belong to one matching. The left intervals overlap in max(m−d,0) sites, which is exactly their number of shared edges, since all left endpoints lie strictly below the common geometric center. There are B(n−2m−g−2d+2) unordered pairs of this type at shift d, from the stricter inner-stem separation. Summation of the diagonal and twice these unordered-pair covariances gives the displayed variance including empty and m=1 cases. For fixed m,g each shifted binomial count is asymptotic to the first; the geometric sum then yields the successive limit (q+1)/(q−1). Substitution for q=4,m=2,g=0 gives (15B(n−2)+6B(n−4))/256 and ratio 21/16.",
+      "residual_risks": [
+        "Distinct-center independence is pairwise, not mutual. The model counts candidate complementary factors in a uniform abstract word, not selected folds; the limiting variance ratio takes n to infinity first."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Burden et al. define D2 match indicators between two random sequences and analyze overlap covariance; Remark 4.7 identifies zero covariance for certain uniform-law overlaps. Their introduction credits earlier expectation and variance bounds. Fitch's bibliographic title suggests a closely related expectation calculation, but no decisive passage was accessible."
+        ],
+        "reasoning": "The two-sequence dependence analysis is relevant but does not directly model one word in which a position can be used on opposite stem sides by different candidates. The one-word reflection-center proof covers that case and counts the near-diagonal same-center dependence. The actual scope of Fitch remains unresolved.",
+        "searches": [
+          "DOI 10.1214/07-AAP452, §§2.1, 4",
+          "Lippert–Huang–Waterman, PNAS 99 (2002), 13980–13989, as characterized in Burden et al.",
+          "DOI 10.1093/nar/11.13.4655 (OA retrieval attempts)"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 0aca79ccebc0 and 7fd48777c0b3",
+        "DOI 10.1214/07-AAP452",
+        "arXiv:2302.13714v1 and arXiv:2304.11403",
+        "Fitch DOI 10.1093/nar/11.13.4655 (bibliography only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known avoidance covers no-occurrence words, and the inspected match-count source provides a different overlap stratification. This result uses the forest structure for unequal endpoint sums and exact common-edge cardinality m−d at equal sums."
+        ],
+        "reasoning": "Mean frequencies alone cannot specify co-occurrence. The two-sequence setup does not directly give the one-word reflection classification or the count B(n−2m−g−2d+2) necessary for the exact variance; the inspected prior results do not imply that formula as stated.",
+        "searches": [
+          "DOI 10.1214/07-AAP452, Definition 4.3 and Remark 4.7",
+          "arXiv:2302.13714v1, §I and Definition 2",
+          "Frozen RESULT.md, lines 36–46"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "At g=0, H=0 is avoidance of nonoverlapping reverse-complement factors of the specified length. The code papers use this known predicate. A later Resultary palindrome-radius record analyzes a literal equality reflection graph and parity-specific counts."
+        ],
+        "reasoning": "An avoidance statement is the zero-count event, not second moments of the count. The literal-palindrome comparison shares the alternating-reflection mechanism but uses different constraints and counts; in particular it does not furnish the arbitrary stem and loop truncation formula here.",
+        "searches": [
+          "arXiv:2302.13714v1, Definition 2",
+          "arXiv:2304.11403, Definition 1",
+          "Resultary record 7fd48777c0b3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Earlier record 0aca79ccebc0 gives moments of the number of distinct one-step reverse-complement duplication outputs, using local complementary-alternating triples. Later record 7fd48777c0b3 gives exact literal-palindrome radius and positional count laws. No same statistic was found in the bounded lookup."
+        ],
+        "reasoning": "Neither the duplication output multiplicity nor literal palindrome moments give a tabulation of all i<j disjoint reverse-complement stems with arbitrary m and g. An unrelated web result does not count as evidence of absence.",
+        "searches": [
+          "Resultary semantic lookup for exact stem-count variance and reflection-center covariance",
+          "Resultary records 0aca79ccebc0 and 7fd48777c0b3, RESULT.md"
+        ]
+      },
+      "rationale": "Supported distinction: exact covariance support and finite variance for disjoint reverse-complement factor pairs within one iid uniform word. The stem predicate, counting means, and covariance methods for random word matching are not credited as new in themselves. The older Fitch comparison is explicitly access-limited.",
+      "residual_risks": [
+        "No full Fitch text was available after lawful attempts; older expectation and same-center joint-frequency coverage cannot be excluded. The indexed comparison is bounded to accessible evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Access limited; no negative coverage conclusion from the title or retrieval failure.",
+          "evidence": [
+            "W. M. Fitch (1983), DOI 10.1093/nar/11.13.4655; possible overlap with expectation or joint counts is unresolved."
+          ],
+          "identifier_or_url": "https://doi.org/10.1093/nar/11.13.4655",
+          "material_read": "Bibliographic identification only; no scientific passage retrieved.",
+          "method": "OA DOI retrieval, DOI recovery and lawful PMC/PubMed attempts.",
+          "title": "Calculating the expected frequencies of potential secondary structure in nucleic acids as a function of stem length, loop size, base composition and nearest-neighbor frequencies",
+          "trigger": "Closest older candidate using stem and loop lengths in a statistical model."
+        },
+        {
+          "assessment": "Substantial analogue in a two-sequence model; no one-word stem claim in the inspected passages.",
+          "evidence": [
+            "D2 sum of start-pair indicators, overlap neighborhoods and uniform-law zero covariance in certain cases; citation to earlier Lippert et al. results."
+          ],
+          "identifier_or_url": "https://doi.org/10.1214/07-AAP452",
+          "material_read": "Introduction, §§2.1 and 4, including Definitions 2.3–2.4, 4.3 and Remark 4.7; reference list.",
+          "method": "Targeted OA full-text passages from arXiv:0801.3145.",
+          "title": "Approximate word matches between two random sequences",
+          "trigger": "Older exact and approximate match-count covariance methods."
+        },
+        {
+          "assessment": "Avoidance and code design rather than the random covariance claim.",
+          "evidence": [
+            "Definition of m-SSA by forbidden nonoverlapping reverse-complement occurrences."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2302.13714v1",
+          "material_read": "§I p. 1 and Definition 2 p. 2, PDF offsets near 1239 and 13641.",
+          "method": "Targeted OA primary-source passages.",
+          "title": "On the Design of Codes for DNA Computing: Secondary Structure Avoidance Codes",
+          "trigger": "Uses the same reverse-complement nonoverlap predicate."
+        },
+        {
+          "assessment": "Mathematical rate model sets aside loop length; inspected passages concern avoidance.",
+          "evidence": [
+            "Stem/loop discussion in §I and definition of m-SSA."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2304.11403",
+          "material_read": "§I p. 1 and Definition 1 p. 2, PDF offsets near 1650 and 9665.",
+          "method": "Targeted OA primary-source passages.",
+          "title": "Improved constructions of secondary structure avoidance codes for DNA sequences",
+          "trigger": "Same predicate and potential loop-parameter comparison."
+        },
+        {
+          "assessment": "Different output-count random variable and covariance geometry.",
+          "evidence": [
+            "Distinct descendant count B=n−1−C using a consecutive-triple statistic with only adjacent-start covariance."
+          ],
+          "identifier_or_url": "Resultary 2026/10/18/0aca79ccebc0",
+          "material_read": "RESULT.md offsets near 0 and 5808.",
+          "method": "Local mirror.",
+          "title": "Exact one-step descendant spectrum for length-two reverse-complement duplication",
+          "trigger": "Closest earlier catalogue claim with exact mean and variance for a reverse-complement statistic."
+        },
+        {
+          "assessment": "Later structural analogue for literal palindromes, not the same statistic.",
+          "evidence": [
+            "Pairwise independence of maximal radii at distinct centers and covariance formulas for literal-palindrome counts."
+          ],
+          "identifier_or_url": "Resultary 2026/11/8/7fd48777c0b3",
+          "material_read": "RESULT.md offsets near 235 and 4034.",
+          "method": "Local mirror.",
+          "title": "Pairwise independence of palindrome radii and the exact parity-sensitive variance",
+          "trigger": "Closely analogous distinct-center independence."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 7–46",
+        "Burden et al., §§2.1 and 4"
+      ],
+      "rationale": "The reflection-center description gives an exact second-moment baseline for a natural random-word statistic. Position overlap alone could suggest widespread covariance; the proof identifies precisely why most such pairs are independent and gives a correction for the rest. The successive Fano ratio (q+1)/(q−1) remains above the independent-event limit even for long rare stems, so the correction is quantitatively relevant rather than a boundary-only effect.",
+      "residual_risks": [
+        "The value is a uniform random-word baseline and does not establish prediction of actual molecular folding, uncertainty under nonuniform sequence models, or a distributional limit."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

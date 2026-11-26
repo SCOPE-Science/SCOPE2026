@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:24:34.977859Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 7–91 and example at line 95",
+        "VERIFICATION.md and verify.py inspected, not executed"
+      ],
+      "rationale": "Summing the four rates gives forward and reverse rates 2k cosh(θ±fx/2), so the centered output is an input-independent bias δ exp(−a cosh θ) plus an odd input response x tanh θ tanh(f/2)[1−exp(−a cosh θ)]/2. The best signed worst-input margin for the bias-matched constant is at 0 and equals C, and the opposite constant cannot have positive margin. For copying, the response term increases on [0,b] while the absolute bias decreases; inversion is its reflection. Both therefore have best margin B attained at opposite endpoints. This proves the count, including equality at positive margin, zero bias, and impossibility of four. With d=|δ|, z=exp(−a), maximizing min(dz,H(1−z^c)/2−dz^c) at fixed z either balances the strict increasing and decreasing terms or uses d=1/2 if their crossing is outside the interval. The balanced branch strictly decreases as z increases (numerator decreases and denominator increases); the other branch z/2 strictly increases. Their unique meeting is z+(1+H)z^c=H. At that point the maximizing d is 1/2, giving exactly two preparations and a unique finite positive time. The root bounds 0<H−z≤(1+H)H^c give z/H→1 and the stated power and logarithmic expansions for fixed b>0. A separate scalar root computation gave (z,T,γ)=(0.2206514320678,0.3350337566916,0.1103257160339) for k=b=f=1, agreeing with the example.",
+      "residual_risks": [
+        "The asymptotics are not uniform in b as b approaches zero; the theorem holds with b fixed.",
+        "At any sufficiently late finite time three tasks can still be attained for a sufficiently small margin if δ≠0; the long-time obstruction is at fixed positive margin or at the stationary limit."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Appendix C takes p(0)=(1/2,1/2); the general transient bounds there use this input-independent uniform initialization.",
+          "Floyd et al. define the output of their classifier through steady-state node occupancy, π=lim p(t)."
+        ],
+        "reasoning": "The wider network size or more general transient inequality does not imply the exact common-bias three-label tradeoff; initial bias is absent in the steady-state model and excluded from the transient derivation inspected.",
+        "searches": [
+          "Aslyamov–Esposito, arXiv:2610.20481v1, Eqs. (30)–(31) and Appendix C",
+          "Floyd et al., arXiv:2409.05827v1, steady-state node occupancy formulation"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and supporting files",
+        "Aslyamov–Esposito arXiv:2610.20481v1",
+        "Floyd et al. arXiv:2409.05827v1",
+        "Resultary indexed SCOPE-387a57f5bc7d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Uniform dynamics yield an antisymmetric pair and thus no positive-margin constant labeling. The extra homogeneous solution for arbitrary initial bias is elementary two-state relaxation."
+        ],
+        "reasoning": "The extra homogeneous solution alone is not claimed as novel physics. The distinct optimized result comes from balancing a decaying preparation signal with a control-dependent endpoint response, both under a constraint on the common preparation. Prior uniform and steady-state classifications do not do that optimization or imply its optimum.",
+        "searches": [
+          "Aslyamov–Esposito Eq. (28), Eq. (32) and Appendix C",
+          "Floyd et al. steady-state formulation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Aslyamov–Esposito Eq. (28) is the δ=0 output and Eq. (32) is the exact B at δ=0.",
+          "SCOPE-387a57f5bc7d concerns a two-state finite-time minimax mismatch-entropy optimum, not Boolean labelings attainable under a common preparation and shared control."
+        ],
+        "reasoning": "The prior two-channel calculation coincides only on a strict subdomain. The biased initial term is not recoverable by a control reparametrization in the uniform case, whose centered outputs sum to zero across inputs.",
+        "searches": [
+          "Resultary comparisons on two-state transient classification, shared control, nonuniform initialization and readout-time optimization",
+          "arXiv:2610.20481v1, Eqs. (27)–(32) and Appendix C",
+          "SCOPE-387a57f5bc7d"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Eq. (32) gives the exact earlier figure for the copy/invert margin on the uniform face. The nearest indexed two-state optimum uses a different objective."
+        ],
+        "reasoning": "An exact table of finite circuits is not a natural check for this continuum optimization; the pertinent exact evidence is the published formula and its assumptions, which do not give the three-task envelope.",
+        "searches": [
+          "Resultary SCOPE-387a57f5bc7d and the nearest finite-time optimization results",
+          "arXiv:2610.20481v1, Eqs. (27)–(32)"
+        ]
+      },
+      "rationale": "The dynamics, uniform-preparation output, and uniform finite-time copy/invert margin are exact prior coverage. The distinct finding is the arbitrary common preparation dependence of attainable tasks and the joint preparation-time optimum and weak-driving law. The inspected stronger-looking transient bound explicitly fixes uniform preparation, and the broader stationary theory cannot retain the preparation variable.",
+      "residual_risks": [
+        "Primary web search was unproductive beyond the direct source checks; an earlier specialization of a broader transient study remains possible, and no global priority is asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact model and uniform-baseline overlap; not the arbitrary-initialization optimization",
+          "evidence": [
+            "Same two-channel rates; Eq. (28) centered response has no constant shift, Eq. (32) is the δ=0 copying/inversion optimum, and Appendix C explicitly sets p(0)=(1/2,1/2)."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.20481v1",
+          "material_read": "Eqs. (27)–(32), HTML text offsets 25500–32464; Appendix C, offsets 55474–59414",
+          "method": "OA full-text passage inspection",
+          "title": "Physical limits to stochastic classifiers",
+          "trigger": "Identical kinetic switch and exact prior finite-time margin"
+        },
+        {
+          "assessment": "Steady-state result, not finite-time preparation design",
+          "evidence": [
+            "The value read out is the steady-state occupancy, described via π=lim p(t)."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2409.05827v1",
+          "material_read": "Output definition and stationary probability, HTML offsets 7909–12144",
+          "method": "OA full-text passage inspection",
+          "title": "Limits on the computational expressivity of non-equilibrium biophysical processes",
+          "trigger": "Potential broader network-classification coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, three-task design theorem, scope and weak-driving law",
+        "Aslyamov–Esposito Eqs. (27)–(32)"
+      ],
+      "rationale": "This is the finite-time initialization question for a previously studied benchmark. It distinguishes a genuine change in attainable task set from a change in margin alone, shows why a maximally biased preparation is globally best despite its penalty for input-dependent tasks, and gives the uniquely timed design and its fixed-control weak-drive scaling. These conclusions are useful within the specified ensemble-mean classifier even without an experimental or wider-network claim.",
+      "residual_risks": [
+        "No claim about single-run error, preparation cost, entropy production, more inputs, or other readout policies."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T18:56:11.644080Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md §§1–3 and assumptions, including the e^{±lambda} field normalization",
+        "VERIFICATION.md and verify.py: inspected the refresh, stationary/Poisson, integral and finite-cycle diagnostics; not executed"
+      ],
+      "rationale": "With edge indices relative to the walker, the independent refresh part has gap mu on the mean-zero product space. The unbiased zero-disorder shift part is self-adjoint and nonpositive. Both disorder and field perturb only bounded operators, analytically near zero by the bounded-mark assumption. A way to verify the variance limit and analyticity without assuming a bounded corrector is to tilt the two shift terms by exp(z) and exp(-z), leaving the diagonal and refresh terms unchanged. At zero parameters the time-one semigroup has an isolated simple eigenvalue 1 and the remainder has norm at most exp(-mu). Small analytic bounded perturbations preserve the isolation and exponential separation, so the product-start moment generating function is the leading exponential times a nonvanishing analytic prefactor, plus an exponentially decaying relative error locally in z. Differentiating its logarithm gives the speed and variance rate, also for noninteger times by the bounded fractional-time semigroup. At zero field, reflection makes the stationary drift zero. Write G=(-L0)^(-1) on the mean-zero space, g=eta_0-eta_{-1}, S=T_--T_+, and f=Gg/2. The stationary-density derivative in disorder is h1=Sf/2, and its field derivative is G^2 S^2 g/8 by differentiating the adjoint Poisson equation. Using d_lambda=1-d^2 and the exact density normalization gives mobility coefficient -E[g^2]/4+<g,h1'>/2. Differentiating the tilted eigenvalue twice gives the variance rate pi[1+2(p T_+-(1-p)T_-)chi], where L chi=-d and chi=epsilon f+O(epsilon^2); its quadratic coefficient is <(T_+-T_-)f,h1>+<g,(T_++T_-)f>/2, the same as the bracket calculation including refreshes. In the coordinate-linear sector the resolvent symbol is 1/(mu+1-cos k). Periodic integration by parts reduces the variance integral to minus rho, where rho=mu+1-sqrt(mu(mu+2)); the additional mobility integral is rho+mu rho'. Thus the deficit coefficient is sigma^2(1-rho+mu rho')/2 = sigma^2 sqrt(mu/(mu+2))/2. Sign reversal of all marks gives even analyticity and hence the fourth-order remainder. The coefficient is positive and increasing at fixed positive mu, with the stated endpoint limits; the perturbation argument does not supply a remainder uniform as mu tends to zero.",
+      "residual_risks": [
+        "The replay path is python verify.py with the frozen requirements.txt; its finite periodic Rademacher examples and quadrature do not certify the infinite-lattice limit.",
+        "No arbitrary-disorder inequality, uniform refresh limit, or claim for a differently normalized field is established."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Avena–Blondel–Faggionato give invariant-density and speed perturbation theory with a spectral gap; Gantert–Guo–Nagel treat a static environment. The closest dynamic paper establishes Einstein failure for some rates using a sufficiently fast refresh argument."
+        ],
+        "reasoning": "General methods and qualitative failure do not give the all-fixed-mu coefficient; the static model cannot supply it.",
+        "searches": [
+          "Primary-literature lookup on constant-speed dynamically refreshed conductances and weak-disorder Einstein response",
+          "arXiv:1602.06322",
+          "arXiv:1512.01884",
+          "doi:10.1007/s10955-004-8815-3"
+        ]
+      },
+      "checked_sources": [
+        "Resultary ranked findings",
+        "arXiv:2610.04598v1",
+        "arXiv:1602.06322",
+        "arXiv:1512.01884",
+        "doi:10.1007/s10955-004-8815-3 (limited access)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 33 establishes nonidentity of mobility and variance for some refresh rate. The evaluated fixed-rate expansion needs the specific first-chaos resolvent and cancellation between response and variance."
+        ],
+        "reasoning": "Neither existence of a counterexample nor a general recipe for invariant-law perturbation is a covering statement for the evaluated all-rate expansion.",
+        "searches": [
+          "arXiv:2610.04598v1, Lemma 31 and Theorem 33",
+          "arXiv:1602.06322, abstract and introduction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same law is obtained in Couillard–Scali by choosing the refresh distribution Law(1+epsilon xi) and direction 1; the walk has rate one and exactly the same exponential field. Its regeneration mobility formula uses this response, not a different normalization."
+        ],
+        "reasoning": "The model and response quantities are not new; the regeneration identity does not itself evaluate the weak-disorder coefficients.",
+        "searches": [
+          "Resultary: refreshed 1D edge conductances, diffusivity/mobility and weak-disorder Einstein deficit",
+          "arXiv:2610.04598v1, tilted walk definition and Lemma 31"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No materially matching census or formula was identified among inspected ranked results. In the same-model paper's Einstein-relation section, neither the lattice Green coefficient rho nor the evaluated deficit coefficient appears in the inspected results."
+        ],
+        "reasoning": "The exact formula is assessed against the strongest located source rather than inferred absent from a bounded search.",
+        "searches": [
+          "Resultary: constant-speed weak-disorder responses on independently refreshed symmetric edges",
+          "arXiv:2610.04598v1, model, CLT and Section 5"
+        ]
+      },
+      "rationale": "The exact model, CLT and a qualitative failure of the Einstein relation are already covered. The supported distinct contribution is the evaluated joint second-order expansion, and thereby the strict variance-minus-mobility sign for weak symmetric disorder at every fixed positive refresh rate.",
+      "residual_risks": [
+        "Bounded comparison; in particular the 2005 time-mixing-tracer theorem was not inspected in full.",
+        "An unlocated evaluated perturbative identity or equivalent specialization might cover the coefficient."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct partial coverage",
+          "evidence": [
+            "Independent rate-mu resampling, rate-one jumps and identical exponential tilt; regeneration identity and fast-refresh proof of Einstein failure, not an evaluated expansion for each fixed mu."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.04598",
+          "material_read": "Model and bias, pp. 3–4; Lemma 31 and Theorem 33, pp. 25 and 28 (extracted offsets about 8200, 86800 and 98700–101000)",
+          "method": "Lawful OA primary text, targeted passages",
+          "title": "The constant speed random walk on dynamical conductances",
+          "trigger": "Same model and Einstein-relation failure"
+        },
+        {
+          "assessment": "Method covered, evaluated coefficients not shown by the inspected statements",
+          "evidence": [
+            "Spectral-gap perturbation expansions for the invariant law and speed."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1602.06322",
+          "material_read": "Abstract and introduction, pp. 1 and 3",
+          "method": "Lawful OA primary text, targeted passages",
+          "title": "Analysis of random walks in dynamic random environments via L²-perturbations",
+          "trigger": "Plausible methodological implication"
+        },
+        {
+          "assessment": "Different environment",
+          "evidence": [
+            "Static rather than independently refreshed conductances."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1512.01884",
+          "material_read": "pp. 1–2, model and main result",
+          "method": "Lawful OA primary text",
+          "title": "Einstein relation and steady states for the random conductance model",
+          "trigger": "Random-conductance mobility versus variance"
+        },
+        {
+          "assessment": "Exact overlap unresolved",
+          "evidence": [
+            "The secondary description confirms an Einstein-relation result for a dynamic-environment tracer, not the assumptions or coefficients of its primary theorem."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s10955-004-8815-3",
+          "material_read": "Citation and speed-response context in Avena–Blondel–Faggionato; full text not obtained",
+          "method": "DOI and publisher PDF attempted; OA secondary context",
+          "title": "On mobility and Einstein relation for tracers in time-mixing random environments",
+          "trigger": "Dynamic-environment Einstein response"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md expansion and fixed-rate assumptions",
+        "Couillard–Scali, Theorem 33"
+      ],
+      "rationale": "A qualitative counterexample for some rates does not tell whether weak disorder has a robust signed effect when refresh is slow but strictly positive. The exact coefficient gives that sign for all positive fixed rates and quantifies both refresh endpoint limits at the coefficient level. It is a useful analytic benchmark for dynamic response, not a claim about strong disorder.",
+      "residual_risks": [
+        "The usefulness is perturbative and one-dimensional; it supplies no joint disorder/refresh asymptotic."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

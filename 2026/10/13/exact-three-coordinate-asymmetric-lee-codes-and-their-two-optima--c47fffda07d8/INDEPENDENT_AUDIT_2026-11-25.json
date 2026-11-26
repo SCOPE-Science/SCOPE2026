@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:30:48.134643Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md:17–53",
+        "VERIFICATION.md:19–27",
+        "verify_ald.py",
+        "verify_ald.cpp",
+        "orbit_reps.json",
+        "python3 /workspace/replay/3.py"
+      ],
+      "rationale": "Minimizing forbidden pairs is exactly independent-set search on the complement of the stated compatibility graph. My independent replay /workspace/replay/3.py built the forbidden graph from the symbol costs, then partitioned every candidate set by including or excluding one conflict vertex. A cover by disjoint conflict cliques is an upper bound on extensions, and pruning strictly below (not at) the incumbent preserves every equality case. An edgeless remainder is attained uniquely by taking all remaining vertices. In 2,677 nodes this reproduced 1,752 compatibility edges, optimum 19 and exactly 32 distinct masks. Explicit coordinate permutations and local swaps sent both frozen masks through disjoint orbits of sizes 8 and 24 exhausting the optimum set. The action has order 384, giving stabilizers 48 and 16. Pair histograms for distances 3 through 8 are (24,69,0,24,24,30) and (28,61,4,24,24,30), each accounting for all 171 pairs. The frozen Bron–Kerbosch histogram and greedy-coloring verifier were inspected; the independent search establishes the optimum and equality census without depending on the histogram of smaller maximal cliques.",
+      "residual_risks": [
+        "This verifies the stated coordinate-and-swap group, not a classification of every isometry of the finite distance space. No inference for other lengths or distances."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general LP and construction bounds in the full ALD article leave 6–30 at this instance. The earlier ITW Delsarte LP table has a dash at n=3,d=3, not a sharp 19."
+        ],
+        "reasoning": "General inequalities and code constructions do not settle this instance's size or equality geometry. A generic exact graph search is a method, not an already evaluated optimum.",
+        "searches": [
+          "arXiv:1506.00740v5 LP bounds and construction comparison",
+          "DOI:10.1109/ITW.2015.7133171 computational results and Tables I–II"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1506.00740v5",
+        "DOI:10.1109/ITW.2015.7133171",
+        "Resultary afad0a924898",
+        "Resultary 7bc1f4c34c70"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "6 ≤ A₁(3,3) ≤ 30 does not force 19, let alone 32 optimizers, orbit sizes 8 and 24 or two distinct word-pair spectra.",
+          "The perfect hash maximum is 9 with 4,608 labeled optima in its own larger symbol group; the asymmetric binary maximum is 7 with 181,440 labeled optima."
+        ],
+        "reasoning": "Neither a bound, a different optimizer census nor the generic search method entails the frozen exact classification.",
+        "searches": [
+          "arXiv:1506.00740v5 Table V and p. 19 conclusions",
+          "Resultary afad0a924898 and 7bc1f4c34c70 findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The shared object is a pairwise minimum-distance code in a four-symbol alphabet with local costs 1, 2 and 4; equivalently a clique in the compatibility graph.",
+          "Resultary afad0a924898 uses triple separation (perfect hashing); Resultary 7bc1f4c34c70 uses binary length eight and a one-direction asymmetric-error metric."
+        ],
+        "reasoning": "Neither adjacent finite census is an alternate formulation: arity of separation or local metric and length change the optimizer set. No chronology is inferred from same-day dates.",
+        "searches": [
+          "Published Resultary semantic ALD / length-three optimum and equality search",
+          "Gabrys–Kiah–Milenkovic arXiv:1506.00740v5, ALD model"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Table V (p. 18) explicitly supplies lower and upper bounds 6 and 30 via equations (13) and (7). ITW Tables I and II (p. 4) do not give a number for this cell. The plausible Resultary hits examined report different problems."
+        ],
+        "reasoning": "There is an exact parameter match in the literature table but not an exact-result match; nothing in the cells gives labeled optima or their spectra.",
+        "searches": [
+          "arXiv:1506.00740v5 Table V, lambda=1, n=3, d=3",
+          "ITW Tables I–II, n=3, d=3",
+          "Published Resultary ALD exact-parameter/equality census search"
+        ]
+      },
+      "rationale": "The original ALD and its general bounding framework are prior. Its directly comparable numerical entry is a strict interval containing 19, not an exact optimum. The exact maximum and the two-orbit geometry with enumerated invariants are distinct on the inspected evidence.",
+      "residual_risks": [
+        "Bounded literature and semantic corpus searches cannot exclude an unindexed earlier exact enumeration. No absolute priority claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defines the model and bounds the instance, not the reported exact census",
+          "evidence": [
+            "Table V n=3, λ=1, d=3: 6–30; caption specifies construction/LP bounds."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1506.00740v5",
+          "material_read": "ALD model, Table V p. 18 (PDF extraction around offset 99000), p. 19 conclusion",
+          "method": "OA full-paper passage comparison",
+          "title": "Asymmetric Lee Distance Codes for DNA-Based Storage",
+          "trigger": "Same ALD and exact distance/length parameters"
+        },
+        {
+          "assessment": "LP improvements in other cells; the target cell is not reported as an optimum",
+          "evidence": [
+            "Both tables have a dash at n=3,d=3."
+          ],
+          "identifier_or_url": "https://personal.ntu.edu.sg/hmkiah/docs/papers/ALD_ITW.pdf",
+          "material_read": "Abstract, computational results and Tables I–II, PDF pp. 1, 3–4, offsets 23071 and 25140–27831",
+          "method": "Direct OA PDF, locate and bounded passage reads",
+          "title": "Asymmetric Lee Distance Codes: New Bounds and Constructions",
+          "trigger": "Plausible improved or exact small-instance bound"
+        },
+        {
+          "assessment": "Distinct compatibility condition",
+          "evidence": [
+            "Triple separation, optimum 9 with 4,608 labeled maxima in one S₄³ ⋊ S₃ orbit."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-complete-equality-classification-of-p-3-3-4-9-perfect-hash-famil--afad0a924898",
+          "material_read": "Mirrored finding and equality description",
+          "method": "Published Resultary local search and mirror read",
+          "title": "Complete equality classification of P(3,3,4,9) perfect hash families",
+          "trigger": "Same length and alphabet with exact optimizer classification"
+        },
+        {
+          "assessment": "Different metric, length and alphabet",
+          "evidence": [
+            "Binary length eight, one-direction asymmetric errors, optimum 7 and 181,440 labeled optima."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-complete-equality-classification-for-binary-length-eight-double--7bc1f4c34c70",
+          "material_read": "Mirrored finding and distance scope",
+          "method": "Published Resultary local search and mirror read",
+          "title": "Complete equality classification for binary length-eight asymmetric codes",
+          "trigger": "Same-day asymmetric-code equality census"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "ALD Table V and ITW computational tables",
+        "RESULT.md:27–41",
+        "Independent orbit and spectrum replay"
+      ],
+      "rationale": "Minimum distance three is a natural low-distance ALD design threshold already singled out in the literature, and length three is an existing comparison cell with a substantial explicit bound gap. Closing 6–30 to 19 gives an exact small benchmark for bounding and construction methods. More importantly, a complete optimizer census shows equal cardinality need not mean equal geometry: there are two inequivalent optimal designs with different numbers of closest pairs. A researcher testing exact optimization, symmetry reduction or robustness criteria based on close pairs could use these precise data.",
+      "residual_risks": [
+        "This is a small exact benchmark, not a general construction or a demonstrated result for larger instances."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

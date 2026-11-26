@@ -1,12 +1,21 @@
-# Scientific review of the short-block DNA-code capacity theorem
+# Independent mathematical audit
 
-## Correctness — PASS
-The domain explicitly includes exact half-GC balance, maximum homopolymer run one, self reverse-complement distance at least three, and both ordinary and cross-reverse-complement distance at least three for distinct words. Each valid codebook is an independent set of the derived finite incompatibility graph. Complete enumeration yields zero eligible length-two words and a length-four graph with 40 vertices and 468 edges, whose maximal-independent-set listing proves the exact maximum four with 64 optima. A length-six witness of 27 words is checked directly against every requirement. Two independently generated exact binary models, with 980 maximal-clique constraints and 7804 pair constraints respectively, solve to integer optimum 27 with certified solver upper bounds less than 28. An independently checked 136-word length-eight witness proves both payload thresholds. The complete computations replay from the embedded program and explicit files. Numerical mixed-integer branch-and-bound is a reproducible computational component; there is no formal solver-independent branch certificate.
+## correctness
 
-## Originality — PASS (qualified)
-King's 2003 fixed-GC and reverse-complement theory and tables establish bounds without homopolymer exclusion; the length-six distance-three GC-three table has an unconstrained construction with at least 41 words and does not imply the exact value 27 after excluding repeated adjacent symbols. Aboluion, Smith and Perkins's 2012 constructions likewise do not require the homopolymer condition. Nguyen et al.'s 2020 constructions combine run-length and GC constraints with correction but not the specified Watson–Crick cross-distance and do not derive this length-six finite optimum. The most relevant published length-four equality-case study fully covers the unrestricted length-four problem, so the auxiliary length-four number is not used as the novelty basis. Research-index searches for the six-base object, numerical optimum, aliases and stronger cases, together with accessible earlier claim summaries, found no equivalent or stronger result implying the main exact cutoff. Earlier unpublished, unindexed or differently named constructions remain possible; no search can prove historical uniqueness.
+PASS
 
-## Mathematical value — PASS
-The exact six-base capacity of 27 is a concrete design bottleneck for libraries requiring four simultaneous biochemical/coding constraints. The explicit eight-base library of 136 shows the first length supporting both 32 and 128 message labels, including two common binary payload sizes. This is a natural finite threshold, not an arbitrary subcode slice: it combines constant melting-content control, a stringent local synthesis constraint, one-substitution correction and avoidance of Watson–Crick cross-hybridization. These exact and constructive benchmarks are meaningful even without an asymptotic coding theorem. Limitations are the severe no-repeated-adjacent condition, aligned Hamming channel only, and the absence of an exact maximum at length eight.
+The incompatibility graph exactly describes the stated aligned Hamming and reverse-complement constraints after filtering for exact half-GC content, unequal adjacent symbols and self-separation. Reverse complementation is a Hamming isometry and preserves eligibility. Each eligible orientation class has two members, at most one of which can be selected; reversing either representative only interchanges the two cross distances being compared. Thus the unweighted compatibility clique number of the orientation classes equals capacity. Independently, n=2 is impossible by distance alone; n=4 has 40 eligible words, four size-four quotient cliques and no size-five clique, hence 4·2^4=64 labeled maxima. At n=6 there are 344 eligible words and 7804 incompatibility edges, yielding 172 orientation classes with 1908 cross-class conflicts. A separately written integer bitset search proved no clique of size 28: each candidate-prefix greedy coloring partitions into independent sets, bounding the extension by the number of colors; the recursion branches on inclusion and removes each candidate before considering later branches, and prunes only branches that cannot beat the independently checked size-27 incumbent. The complete run visited 5,237,256 search nodes. Direct read-only witness checks establish sizes 27 at six and 136 at eight for precisely the stated constraints. Since taking subsets preserves eligibility and separation, eight is the least positive even length for 32 or 128 messages.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The supported distinct claim is the exact six-symbol cutoff under the simultaneous fixed-composition, run-length-one and orientation-aware Hamming conditions, with the resulting first feasible message lengths. Credit ordinary constant-GC reverse-complement capacity, run-length-limited code concepts and the neighboring unrestricted four-symbol equality classifications; do not treat those as new. The available strongest comparisons do not give the exact restricted cutoff.
+
+## value
+
+PASS
+
+The restrictions model a finite substitution code under composition and orientation constraints. Exact exclusion of 28 codewords at length six certifies that improving the search or construction cannot deliver a five-bit payload at that block length; the eight-symbol lower bound answers the corresponding five- and seven-bit feasibility questions. This is a concrete design boundary where asymptotic results and unrestricted-distance tables do not decide the answer.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

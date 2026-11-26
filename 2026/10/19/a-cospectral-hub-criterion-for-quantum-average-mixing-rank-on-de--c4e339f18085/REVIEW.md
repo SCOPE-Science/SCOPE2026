@@ -1,15 +1,21 @@
-# Scientific review: cospectral hubs and average mixing of detuned double stars
+# Independent mathematical audit
 
-## Correctness — PASS
-For every integer \(p,q\ge2\), positive real \(a,b,w\), and real \(c,d\), the explicit bright Jacobi matrix has simple nonzero spectrum. The dark projector has leaf-contrast eigenvalues exactly \(1-2/s\), while every nonzero spectral Schur square is a squared-entry profile of a rank-one projector. Thus no cross-sector cancellations are possible. Equality of the hub spectral-profile vectors is equivalent to cospectrality and is necessary and sufficient for an additional null direction; the first two spectral moments prove precisely \(c=d\) and \(pa^2=qb^2\), with reflection furnishing sufficiency. The claim includes all asserted boundaries, and independent exact rational and numerical checks reproduce the rank classification. Finite checks are corroborative, not a substitute for proof.
+## correctness
 
-## Originality — PASS, with residual access risk
-The established unweighted double-star rank formula covers only unit hopping with no central onsite energies and is not claimed as new. The new claim classifies the genuinely more general independent hub onsite energies and unequal aggregated hopping strengths, including cospectral-but-asymmetric trees and removal of the null direction by onsite detuning. The general average-mixing and tree papers furnish methods but not the exact present parameter classification. A recent paper on Laplacian quantum-walk trace/laziness for double stars is a potentially relevant source, but only its abstract was accessible. Its full-text coverage cannot be ruled out. Semantic comparisons do not establish independent priority, nor do absence of database hits or matching title words prove novelty.
+PASS
 
-## Value — PASS
-Exact detection of a one-dimensional mixing kernel in an asymmetric tunable two-hub network is an interpretable spectral transition, not merely a renamed unweighted case. The hub cospectrality criterion yields a coupling-strength-independent boundary, gives an explicit positive-definiteness condition at arbitrary tree size, and shows that independent onsite detuning removes a rank defect even without modifying edges. The precise kernel basis makes the effect reusable in studies of long-time coherent transport.
+The uniform vectors on each leaf side and the hubs reduce H to the four-site Jacobi matrix with off-diagonals a sqrt(p), w, b sqrt(q). Its spectrum is simple by the three-term recurrence and has no zero, since its determinant is p q a^2 b^2. Thus the entire zero projector is the direct sum of the two leaf-contrast projectors. The Schur square of each contrast projector has eigenvalue (s-1)/s on the constant vector and 1-2/s on contrasts, so any kernel vector has no leaf component except differences for size-two sides. Those differences are also killed by all nonzero projector squares because their profiles are uniform on each leaf group. The two columns of squared hub amplitudes each sum to one, so a hub dependence is possible exactly for identical profiles, and then the direction is their difference. Equality of profiles forces equality of the diagonal first and second Hamiltonian moments, hence c=d and pa^2=qb^2. Conversely these identities give exact reflection symmetry of the four-site matrix, making all squared hub components equal even when the full graph has asymmetric leaf counts. Positive semidefiniteness prevents cancellation between projection contributions; this proves the exact basis and the positive-definiteness criterion, including the p=2, q=2 and arbitrary real detuning cases.
 
-## Closest literature and limitations
-Coutinho et al., *A New Perspective on the Average Mixing Matrix* (2017/2018), give the universal commutant/projector framework; Godsil–Guo–Sinkovic, *Average mixing matrix of trees* (2017/2018), analyze trees and the simple-spectrum situation; Coutinho et al., *Irrational quantum walks* (2022/2023), provide general average-mixing theory. Mohan et al., *Laziness of Quantum Walks on Graphs* (2026), concern a different Laplacian trace observable according to the accessible abstract; the full paper was not inspected, which remains a material access risk. The result is restricted to uniform hopping within each pendant group, zero pendant onsite energies, and at least two leaves on either side.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The unweighted zero-potential subcase and the strong-cospectral difference-vector mechanism are covered. The supported distinct claim is the complete simultaneous positive-weight and independent-onsite classification, including the non-automorphic defect on the effective balance locus and its removal by detuning; the inspected precedents do not give that classification.
+
+## value
+
+PASS
+
+The exact balance locus describes a controllable rank defect that does not require graph symmetry, persists for arbitrary positive hub coupling, and is removed by onsite detuning alone. On this natural two-hub family the full kernel gives more information than the existence of a strongly cospectral pair or the qualitative unweighted rank law, while covering arbitrary leaf counts in the stated range.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

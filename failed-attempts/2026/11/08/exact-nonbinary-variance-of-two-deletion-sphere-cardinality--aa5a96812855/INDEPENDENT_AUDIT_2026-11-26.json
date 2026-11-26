@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:19:46.898360Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Appending a symbol partitions deletion descendants into D1(u) and D2(u)a; their overlap consists of the one-deletion descendants ending in a. Retaining the terminal copy or deleting the last two symbols supplies the shorter prefix as appropriate, including the length-one base case. This proves the pointwise binomial(run count,2) plus long runs minus internal singleton returns formula. The increment parametrization is bijective, and on each nonzero block the number of choices at each step is 1 for a return and q−2 otherwise, proving the conditional binomial law even with self-inverse symbols. The centered conditional mean has linear coefficient (m−1)p and square-free pair coefficients 1 (nonadjacent) and −1/(q−1) (adjacent). Independence makes these terms orthogonal; adding the expected conditional binomial variance gives the boxed polynomial and its cubic leading term. Expectation simplifies to 1+(m−1)p+binom(m,2)p²; at m=1 the empty descendant has count one. Independent replay: python3 -B /workspace/branches/independent_checks.py 5 used leftmost embeddings and matched exact moments on 26,194 words, for q=2–5 and n=2–6. Finite only; the general result follows from the argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The two earlier November 2 records extend to q≥2; 8af4e5cf362e specifies the entire probability law via a counting polynomial. Biers-Ariel–Godbole–Kelley counts distinct subsequences across all lengths, and Li–Wang–Fu analyzes nonbinary deterministic extrema."
+        ],
+        "reasoning": "The full law for fixed length n−2 dominates the claimed first two moments. The other papers count a different statistic or solve a deterministic optimization; neither supplies this equivalence from the passages read.",
+        "searches": [
+          "Resultary b1a2bd3da18e and 8af4e5cf362e; arXiv:1704.08661v3 p. 1; arXiv:2601.06493v2 Theorem 17"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and both Python checkers (read only)",
+        "Resultary exact records 1cbd5a76d8bf, b1a2bd3da18e, 8af4e5cf362e and binary record 6c9fe70986cc",
+        "arXiv:1202.1644v1 pp. 1–2",
+        "arXiv:2601.06493v2 p. 1 and Theorem 17",
+        "arXiv:1704.08661v3 p. 1",
+        "DOIs 10.1109/TIT.2008.924730 and 10.1109/TIT.2002.806155 (full texts not obtained)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "b1a2bd3da18e explicitly gives the conditional binomial law as well as the two moments. 8af4e5cf362e supplies an enumerating polynomial and explicitly states the same mean and variance."
+        ],
+        "reasoning": "The earlier moment statements already directly cover the full claimed contribution. Even without the displayed moments, normalizing the polynomial by q^n and differentiating at one gives them. No conclusion about the inaccessible Mercier paper is needed for the decision.",
+        "searches": [
+          "November 2 RESULT.md Findings b1a2bd3da18e and 8af4e5cf362e; Mercier–Khabbazian–Bhargava DOI 10.1109/TIT.2008.924730"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "October 25 RESULT.md Finding: variance binom(m,2)p²(1−p²)+6binom(m,3)p³(1−p)+(m−1)p(q−2)/q², p=(q−1)/q; mean binom(m,2)p²+m−(m−1)/q."
+        ],
+        "reasoning": "After factoring (m−1)(q−1)/(2q⁴) from this variance, the bracket is m(q−1)(2q−1)+2m(m−2)(q−1)²+2q(q−2), which expands to the frozen bracket. The mean is the same after substitution.",
+        "searches": [
+          "Resultary searches for q-ary two-deletion variance, moments and fixed-radius distinct subsequences; matches 1cbd5a76d8bf and b1a2bd3da18e"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier catalogue Findings explicitly supply both all-parameter q-ary moments, not just finite tables or the binary specialization."
+        ],
+        "reasoning": "No table extrapolation is needed: the exact invariant is indexed for every q and n in the claimed range.",
+        "searches": [
+          "Resultary exact-moment and exact-size-distribution entries 1cbd5a76d8bf, b1a2bd3da18e, 8af4e5cf362e; binary antecedent 6c9fe70986cc"
+        ]
+      },
+      "rationale": "Three earlier catalogue findings directly cover this uniform nonbinary variance. October 25 record 1cbd5a76d8bf gives an algebraically identical polynomial; November 2 record b1a2bd3da18e gives the same moments and conditional law, and record 8af4e5cf362e gives the moments and a full distribution formula. The comparison is for the exact same uniform linear word and distinct two-deletion outputs; the explicit restriction of novelty to q≥3 does not avoid these sources.",
+      "residual_risks": [
+        "The relative historical priority of the catalogue entries and possible earlier journal antecedents was not determined. The exact pre-existing catalogue statements already settle coverage of the frozen claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct equivalent formula.",
+          "evidence": "Finding prints the variance in p=(q−1)/q and the same mean, for uniform words and m=n−1.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-exact-q-ary-two-deletion-variance-and-a-two-scale-poisson-ambigu--1cbd5a76d8bf/RESULT.md",
+          "material_read": "Finding at offset 0 and prior-work/limitations passage at offset 7900.",
+          "method": "Targeted local mirror reading, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4.",
+          "title": "Exact q-ary two-deletion variance and a two-scale Poisson ambiguity law",
+          "trigger": "Same q-ary statistic and variance."
+        },
+        {
+          "assessment": "Direct and broader overlap.",
+          "evidence": "Exact mean and variance for q≥2 and a conditional binomial law.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-fluctuations-of-two-deletion-output-counts-over-finite-alp--b1a2bd3da18e/RESULT.md",
+          "material_read": "RESULT.md Finding at offset 0.",
+          "method": "Targeted local mirror reading at the same snapshot.",
+          "title": "Exact fluctuations of two-deletion output counts over finite alphabets",
+          "trigger": "Same uniform-word fluctuations and conditional law."
+        },
+        {
+          "assessment": "Contains the same moments and generalizes to the law.",
+          "evidence": "Gives the enumerator for all q,n and explicitly gives the uniform mean and variance.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-size-distribution-of-two-deletion-descendants-over-every-f--8af4e5cf362e/RESULT.md",
+          "material_read": "RESULT.md Finding, offsets 0–1000.",
+          "method": "Targeted local mirror reading at the same snapshot.",
+          "title": "Exact size distribution of two-deletion descendants over every finite alphabet",
+          "trigger": "Stronger full size distribution."
+        },
+        {
+          "assessment": "Primary-text coverage undetermined.",
+          "evidence": "Title concerns deterministic subsequence counting; without the text that does not determine its moment results.",
+          "identifier_or_url": "https://doi.org/10.1109/TIT.2008.924730",
+          "material_read": "Bibliographic record only; no usable theorem passage.",
+          "method": "DOI OA recovery and publisher lookup; no lawful copy located in the bounded attempt.",
+          "title": "On the number of subsequences when deleting symbols from a string",
+          "trigger": "Plausible older coverage in exact deletion counting."
+        },
+        {
+          "assessment": "Those passages are on deterministic and extremal counts.",
+          "evidence": "Run-structured bounds and balanced-string extrema are not a uniform-input variance statement.",
+          "identifier_or_url": "https://arxiv.org/abs/2601.06493",
+          "material_read": "Version 2 p. 1 and Theorem 17, p. 14.",
+          "method": "Targeted OA text at offsets 542 and 67703.",
+          "title": "On the number of subsequences in the nonbinary deletion channel",
+          "trigger": "Same nonbinary deletion balls."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "An exact variance for this natural channel statistic is useful in isolation, but the identical result is already given alongside stronger distributional information. The orthogonal expansion is a valid derivation; the frozen record does not show a separate new structural conclusion or application that would supply a valuable remainder.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

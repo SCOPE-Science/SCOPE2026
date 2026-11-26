@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:53:26.228431Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A length-two interval isolates either point of a pair and each singleton of a nonconsecutive triple; a consecutive triple's middle singleton is impossible. On a nonconsecutive triple the arc joining two selected vertices while avoiding the third can be extended at an endpoint if its length is odd: if both extensions hit the excluded point, that point has both selected vertices as its neighbors, a contradiction. Empty/full traces are supplied by definition, and cyclically alternating membership on four points is impossible. This proves the face counts, including no triangles at n=4, where K4 has cycle rank three. For n≥6 the apex i+4 is not adjacent to any vertex of the omitted triangle {i,i+1,i+2}; coning its boundary gives a disk consisting of present triangles, including for n=6. Attaching the omitted triangles therefore leaves the fundamental group unchanged and recovers the simply connected full two-skeleton. Integral H2 is a subgroup of the free 2-chain group, and the Euler characteristic gives rank binom(n−1,3)−n. Hurewicz and homological Whitehead then give the claimed wedge. Inspected the supplied proof/check_even_arcs.py, proof/check_even_arcs.cpp and their archived outputs (Python through n=18, C++ through n=20, F2 boundary ranks through n=14); not rerun. Those checks do not prove integral homotopy, which follows from the disk argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The graph-ball proposition is a proper size-three labeled compression result for balls of a cycle.",
+          "The geodesic result uses shortest-path vertex sets; at even order its shattered triangles require an antipodal pair."
+        ],
+        "reasoning": "Neither a compression bound for graph balls nor an exact theorem for shortest paths provides an exact trace criterion for arbitrary even-length intervals.",
+        "searches": [
+          "arXiv:2206.13254, §4, Proposition 10",
+          "SCOPE-parity-classification-and-topology-of-geodesic-shattering-on-fin--eeb9c033ac3d"
+        ]
+      },
+      "checked_sources": [
+        "Resultary indexed cycle shattering results",
+        "da8d9213216f",
+        "eeb9c033ac3d",
+        "arXiv:2206.13254"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Unrestricted circular intervals realize every trace on a triple and miss the alternating trace on four points, yielding the full two-skeleton, not the missing-face complex.",
+          "The geodesic complex instead has circle as well as two-sphere summands at even order."
+        ],
+        "reasoning": "None of the comparisons determines which faces survive even-cardinality restriction or whether the missing boundaries are null-homotopic. Merely subtracting triangular face counts from an Euler characteristic cannot establish integral topology.",
+        "searches": [
+          "SCOPE records da8d9213216f and eeb9c033ac3d, exact support and homotopy statements",
+          "arXiv:2206.13254, §4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The odd-order diameter-radius ball classification has precisely the consecutive triples missing; even-order diameter-radius balls shatter every triple.",
+          "Complement of a proper interval on even order has unchanged parity. On odd order the parity flips; the no-empty-ball convention then omits the full concept after complementation, but makes no difference on proper supports."
+        ],
+        "reasoning": "The actual complement reduction supplies an odd-order counterpart, not a reduction of the audited even-order class. Vertex relabeling cannot identify two shattering complexes with different numbers of triangles.",
+        "searches": [
+          "Resultary: cycle graph balls, parity, circular arcs and shattering",
+          "SCOPE-radius-filtered-graph-balls-on-cycles-exact-shattering-polynomia--da8d9213216f"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same identifier bd2f409f992a is the assigned record, not corroborating coverage. The closest distinct exact-polynomial entry da8d9213216f yields a different even-order cubic coefficient (all triples present)."
+        ],
+        "reasoning": "No distinct tabulation of the audited family or its homotopy type was identified; the nearest exact entry counts a different family.",
+        "searches": [
+          "Resultary: exact shattering polynomials and topological classifications of circular-arc, ball and shortest-path families"
+        ]
+      },
+      "rationale": "The inspected sources do not cover the even-length arc class on even cycles. The same missing-triple rule in a neighbor class on odd cycles is important overlap, but complement preserves cardinality parity at the audited even orders. Nearest even-order comparisons have different triangular faces and topology. The decision is scoped to the exact even-cycle classification and integral homotopy claim, not to general arc VC bounds or priority against unindexed work.",
+      "residual_risks": [
+        "Bounded literature search; the primary query did not surface a closely matching circular-interval VC paper. This does not exclude an unindexed exact formulation under another name."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related, not covering even-length arcs on even cycles",
+          "evidence": [
+            "Every triple at even order; all but consecutive triples at odd order; no empty ball adjoined."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-radius-filtered-graph-balls-on-cycles-exact-shattering-polynomia--da8d9213216f",
+          "material_read": "Finding, assumptions, Proof: Diameter radii",
+          "method": "Resultary and local mirror text",
+          "title": "Radius-filtered graph balls on cycles: exact shattering polynomials and a two-phase density law",
+          "trigger": "Nearest exact polynomial and odd-cycle complement counterpart"
+        },
+        {
+          "assessment": "Different hypothesis class and topology",
+          "evidence": [
+            "Shortest-path family, antipodal-pair condition at even order, and circle and sphere summands."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-parity-classification-and-topology-of-geodesic-shattering-on-fin--eeb9c033ac3d",
+          "material_read": "Finding and Homotopy classification",
+          "method": "Resultary and local mirror text",
+          "title": "Parity classification and topology of geodesic shattering on finite cycles",
+          "trigger": "Same cycle and integral homotopy questions"
+        },
+        {
+          "assessment": "Related compression result for graph balls, not coverage of the exact even-interval theorem",
+          "evidence": [
+            "Size-three proper labeled compression for cycle balls; the proof's concepts are balls, either paths or the whole cycle."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2206.13254",
+          "material_read": "§4 Cycles, Proposition 10 and relevant proof, p. 9",
+          "method": "Bounded OA PDF text inspection",
+          "title": "Sample compression schemes for balls in graphs",
+          "trigger": "Primary result for shattering-related invariants on cycles"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Cardinality parity is a natural restriction on cyclic range queries distinct from shortest paths or balls. The exact description identifies which triples fail (not just the VC dimension) and shows that losing precisely those faces changes the top sphere rank without creating first homology at all even orders ≥6, with a sharp circle-wedge exception at order four. These are useful exact comparators for cycle shattering complexes.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

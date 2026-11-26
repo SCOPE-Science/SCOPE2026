@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof first reconstructs the central-binomial partial sums exactly, then proves \(P_n(e^{w/n})/\sqrt n=H(w)+O_R(n^{-1})\) on compact sets. Nonvanishing of \(H\) on the closed left half-plane follows from positivity of a decreasing-kernel sine transform; a zero exists by finite-exponential-type factorization and negative-axis power decay. The differential equation ensures every zero is simple. A Fresnel asymptotic uniformly excludes zeros at high imaginary values in any bounded real strip, making the least real part positive and attained. Finally the telescoping difference polynomial forces every polynomial zero whose radius is \(1+O(n^{-1})\) to lie within \(O(n^{-1})\) of \(1\). This closes the global-root selection step using the simple limiting zeros. Exact-arithmetic and high-precision checks in `checker.py` supplement the proof, not replace it.
+PASS
 
-## Originality — PASS, with historical-priority limitations
+The coefficient recurrence gives the exact sum S_k=(2k+1)a_k. After summation by parts, bounded variation of sqrt(t)*exp(wt) on [0,1] and the summed O((k+1)^(-1/2)) coefficient errors give P_n(exp(w/n))/sqrt(n)=H(w)+O_R(1/n) uniformly on every fixed disk |w|<=R. For Re w<=0 and Im w>0, integration by parts of the sine integral against (1-cos(yt))/y gives a nonnegative endpoint term and a strictly positive integral, because t^(-1/2)*exp(Re(w)t) is strictly decreasing; the term at zero vanishes like t^(3/2). Conjugation and positivity on the real axis finish exclusion. Zero-free exponential type would force H to be an exponential of a linear polynomial, incompatible with H(-R) comparable to R^(-1/2). The differential identity H+2wH'=2exp(w)/sqrt(pi) gives simplicity. The oscillatory term in bounded real-part strips is the nonzero leading Fresnel term exp(i sign(y) pi/4)/sqrt(|y|): subtracting the weight at zero gives an absolutely integrable derivative for the remainder and an O(1/|y|) bound. Thus a zero exists and c_* is a strictly positive attained minimum. Global angular exclusion is decisive: with d_k=a_(k-1)-a_k one has (1-z)P_n(z)=Q_n(z)-a_n*z^(n+1), where Q_n is the truncation of sqrt(1-z). Its unit-circle error is bounded by a_n. At z=rho*u in the candidate collar, rho^k-1<=k(rho-1)rho^(k-1) and sum(k*d_k)=S_(n-1)/2=O(sqrt(n)), so Q_n(rho*u)-Q_n(u)=O_C(n^(-1/2)). At a zero this forces sqrt(|1-u|)=O_C(n^(-1/2)) and a bounded scaled logarithm. Strict coefficient ratios exclude all |z|<=1. Rouché on a circle of radius M/n at a simple minimizing H zero gives a candidate, and on the resulting fixed compact set of possible scaled nearest roots the pointwise bound |H|=O(1/n) forces distance O(1/n) to a simple H zero. Exponentiating yields the claimed O(n^(-2)) radial remainder on both sides. The uploaded checker was inspected, not executed; its Newton solves follow one local branch, and the polynomial coefficient recurrence also uses a Python floating ratio before multiplying the high-precision values. Neither that computation nor a certified numerical value of c_* is needed.
 
-Technau, *Shapiro's problem on polynomials with large partial sums of coefficients* (2026), §§1, 5.4, defines the same polynomial and explicitly poses the asymptotic for its closest zero as Open Problem 5.7; its proven bounds leave a logarithmic discrepancy. The present statement gives a genuine limit with a second-order remainder and an intrinsic constant. Equivalent scaled-Laplace and roots-of-sections searches returned no matching claim. Broader root-accumulation statements and finite section tables cannot alone imply the quantitative radius law. A plausible 1949 article of E. R. Love, and other classical zero-location sources, could cover the result; full text was not available and no historical-priority exhaustiveness is claimed. Full accessible text of Talbot (1974) establishes disk zero-freeness for the same series but not a sharp radius asymptotic; Janson–Norfolk (2009) studies a distinct ordinary-binomial family; and the full available Vargas (2012) thesis discusses different section families. These more specific comparisons strengthen, but do not certify exhaustively, historical novelty.
+## originality
 
-## Value — PASS
+PASS
 
-The result answers an explicit recent mathematical problem about the analyticity radius of Landau's classical extremal rational functions. It identifies both the exact natural scale and a rigorous limiting constant, while excluding other roots from defeating the local scaling limit. The second-order remainder offers a quantitative benchmark for future numerical or analytic study of the limiting entire-function zero geometry.
+The supported contribution is the global minimum-modulus asymptotic and its remainder for the precise central-binomial section sequence, not local scaling or an error-function zero in isolation. The same problem appears in Technau with a logarithmic gap, and the available nearby section and incomplete-beta results do not give the uniform complex collar localization needed for the global minimum. The historical priority check is bounded; unresolved same-family older sources are named below without assigning them a noncoverage verdict.
 
-## Limitations
+## value
 
-The constant has an exact implicit, rather than closed elementary, characterization; the zero achieving it is not numerically certified. Independent review has not been performed. Residual literature-access risks are stated above.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+It resolves Technau’s explicit nearest-zero asymptotic question for a classical family by removing the full logarithmic uncertainty, gives a strictly positive well-defined sharp constant, and improves the radial remainder to second order. The proof isolates why local scaling captures the true global minimum, a useful distinction in section-zero problems. It is not a claim to solve the larger Shapiro coefficient problem or to numerically certify the identity of the extremizing zero.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

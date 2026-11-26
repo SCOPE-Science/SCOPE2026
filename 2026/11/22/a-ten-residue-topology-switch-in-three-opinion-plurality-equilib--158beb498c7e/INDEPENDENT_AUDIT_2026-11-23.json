@@ -1,0 +1,160 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:51:00.119221Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–116",
+        "VERIFICATION.md",
+        "verify.py inspected, not executed; verification_output.txt inspected",
+        "Independent antisymmetric replay: /workspace/branches/dbbeecf8-86be-4ea8-9a04-f34e8c2e3285/independent_matrix_check.py",
+        "Independent symmetric trace/Newton arithmetic mod 1000003, 1000033, 1000037, 1000039, 1000081, 1000099, 1000117, 1000121, 1000133"
+      ],
+      "rationale": "A legal transfer from (u,v) to (v,w) enforces the two stationary neighbor tests precisely at v. The n transitions anchored at the labelled rungs are in bijection with fixed configurations; for a twist, extending the rungs by rail swap at i+n checks both sides of the seam, giving trace(JT^n) rather than an orbit quotient. The rung-swap commutes with T; the stationary count difference is twice the trace of the 36-dimensional odd sector. An independent exact reconstruction certified the stated antisymmetric polynomial, its Newton sums, and small direct graph counts (15,39) and (93,135). The ancillary 45-dimensional even polynomial was separately checked by summing transitions into each rail orbit, computing traces of powers through 45 and applying Newton identities modulo nine distinct primes near 10^6. Their product exceeds 10^54, above the bound on any coefficient discrepancy: each true coefficient is bounded by 10^45 from eigenvalue modulus ≤9 and the displayed polynomial has coefficient l1 norm below 10^6. The second quartic factors as (z²−φ²z+φ²)(z²−φ⁻²z+φ⁻²), yielding arguments ±π/5 and ±2π/5. The other quartic has all roots strictly inside radius 3/2 by Rouché. Using the positive exact margin at n=16 and the decreasing relative error thereafter certifies the leading-cosine sign. The exact integer recurrence covers n=3–15 with no zero and reproduces the required signs.",
+      "residual_risks": [
+        "No conclusion about eventual convergence, transients or non-fixed periodic orbits; inputs and counts are labelled and use the specified open-neighbor, incumbent-retaining plurality rule."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The plurality consensus paper uses random neighbor samples and randomized tie handling on a clique; the majority dynamics paper uses binary opinions and addresses eventual periods.",
+          "The binary all-length ladder theorem gives a fixed-state difference of two and a period-two seam response modulo six, with no ternary sector."
+        ],
+        "reasoning": "Neither a binary specialization nor a general equilibrium framework yields the all-length ternary result. In particular the triple of distinct opinions, accepted at any incumbent in this model, has no binary counterpart.",
+        "searches": [
+          "arXiv:1501.07388 p. 2",
+          "arXiv:1310.2858 p. 2",
+          "arXiv:1405.2486 p. 2",
+          "Resultary 69a75f8bbc7c"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary records 9090c4dd259d, 69a75f8bbc7c, 10332c192abb, 2d7906b7fadd, b1358b923807",
+        "arXiv:1501.07388, 2101.09103, 1310.2858, 1405.2486",
+        "Frozen RESULT.md lines 135–143"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior sources give a special finite ternary census, a different all-length binary seam law, or equilibria under different games.",
+          "The claim here uses the antisymmetric ternary transfer determinant and its dominant complex roots with exact argument ±π/5."
+        ],
+        "reasoning": "Labelled transfer and twisted closure are available methods. None of the compared results implies the ternary transfer polynomial or the sign and lower-order terms; those require resolving new local admissibility counts and bounding the resulting spectrum.",
+        "searches": [
+          "Resultary 9090c4dd259d and 69a75f8bbc7c original statements",
+          "arXiv:1501.07388 and arXiv:2101.09103 statement loci"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Apt et al. study graph coordination games; in a cubic graph with the entire common three-color palette, each color gives payoff one in the all-distinct case and otherwise the unique plurality is the unique best response, so fixed states here are exactly pure Nash equilibria.",
+          "Sánchez Muñoz–Mc Gettrick count two-choice anti-coordination equilibria on ladders, while the prism public-goods rule activates at zero or three active neighbors, neither of which has the same local predicate."
+        ],
+        "reasoning": "The PNE restatement is exact but is not an enumeration given by the general coordination-game paper. Changing best-response rules or the palette does not preserve the set of locally admissible rung transitions.",
+        "searches": [
+          "Resultary ternary plurality ladder/prism/Möbius fixed states and seam",
+          "arXiv:1501.07388",
+          "arXiv:2101.09103",
+          "Resultary 10332c192abb"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-day distinct generalized-Petersen record uses the same rule and has the exact prism entry E_P(5)=219, comparing that graph with the Petersen graph; this is genuine partial coverage.",
+          "The windmill and quadrilateral-book results treat other families, and the earlier seam tables/formulas are binary."
+        ],
+        "reasoning": "A single correct prism entry does not determine an all-length recurrence or the Möbius count even at the same n. This number is credited separately; no chronological order is inferred from the same-day date.",
+        "searches": [
+          "Resultary 2026/11/22/SCOPE-ternary-plurality-separates-two-binary-indistinguishable-general--9090c4dd259d",
+          "Resultary 69a75f8bbc7c",
+          "Resultary nearby ternary fixed-point records 2d7906b7fadd and b1358b923807"
+        ]
+      },
+      "rationale": "There is demonstrable exact overlap at the pentagonal prism count 219, which the original credits and does not claim separately. The distinct result is the paired all-length enumerations and in particular the Möbius seam correction and strict ten-residue sign law, not the local rule, the concept of a twist, or the isolated n=5 number. No examined comparator covers that distinct claim.",
+      "residual_risks": [
+        "Best-of-knowledge comparison, not exhaustive priority. An unindexed strip-coloring or coordination counting result in a different representation may remain. No independent dating of the two same-day statements was established or needed to credit the shared entry."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact E_P(5) overlap, not family-level coverage",
+          "evidence": "Same rule on the pentagonal prism gives 219 fixed states; its comparison graph is Petersen, not the twisted prism family.",
+          "identifier_or_url": "2026/11/22/SCOPE-ternary-plurality-separates-two-binary-indistinguishable-general--9090c4dd259d",
+          "material_read": "Local mirrored RESULT.md initial finding, offset 0",
+          "method": "Resultary search and local mirror original",
+          "title": "Ternary plurality separates two binary-indistinguishable generalized Petersen graphs",
+          "trigger": "Strongest same-rule, same-graph partial match, same day"
+        },
+        {
+          "assessment": "Binary benchmark, not ternary coverage",
+          "evidence": "Binary fixed-state count difference is 2; mod-six law is for the oscillatory seam response.",
+          "identifier_or_url": "2026/11/1/SCOPE-a-lucas-number-seam-response-in-majority-oscillations-on-prism-a--69a75f8bbc7c",
+          "material_read": "Mirrored RESULT.md finding, offset 0",
+          "method": "Resultary search and local mirror original",
+          "title": "A Lucas-number seam response in majority oscillations on prism and Möbius ladders",
+          "trigger": "Same two graph families and exact seam counts"
+        },
+        {
+          "assessment": "Different predicate and no Möbius comparison",
+          "evidence": "Binary response is active precisely at zero or three active neighbors.",
+          "identifier_or_url": "2026/11/8/SCOPE-parity-twisted-equilibrium-census-for-0-or-3-public-goods-on-pri--10332c192abb",
+          "material_read": "Mirrored RESULT.md finding, offset 0",
+          "method": "Resultary search and local mirror original",
+          "title": "Parity-twisted equilibrium census for 0-or-3 public goods on prism networks",
+          "trigger": "Exact labelled prism equilibria"
+        },
+        {
+          "assessment": "Equivalent framework, no comparable explicit enumeration established",
+          "evidence": "Discusses graph coordination games and k-/strong equilibria; no prism–Möbius ternary seam law in the inspected material.",
+          "identifier_or_url": "https://arxiv.org/abs/1501.07388",
+          "material_read": "Primary PDF p. 2, text offset 5586",
+          "method": "Bounded OA passage",
+          "title": "Coordination Games on Graphs",
+          "trigger": "Exactly equivalent fixed-point/PNE formulation at this degree and palette"
+        },
+        {
+          "assessment": "Different number of choices and opposite best-response objective",
+          "evidence": "The paper studies two-choice anti-coordination, not three-choice coordination.",
+          "identifier_or_url": "https://arxiv.org/abs/2101.09103",
+          "material_read": "Primary PDF p. 1, text offset 1475, statement of games studied",
+          "method": "Bounded OA passage",
+          "title": "Nash Equilibria in Certain Two-Choice Multi-Player Games Played on the Ladder Graph",
+          "trigger": "Combinatorial equilibrium census on ladders and circular ladders"
+        },
+        {
+          "assessment": "Different dynamics and graphs",
+          "evidence": "Random three-neighbor sample on a clique and uniform random tie handling.",
+          "identifier_or_url": "https://arxiv.org/abs/1310.2858",
+          "material_read": "Primary PDF p. 2, text offset 5279",
+          "method": "Bounded OA passage",
+          "title": "Simple Dynamics for Plurality Consensus",
+          "trigger": "Three-neighbor plurality model"
+        },
+        {
+          "assessment": "Binary dynamics and eventual periods, not ternary fixed-state counts",
+          "evidence": "The model has binary opinions and tie retention and discusses eventual period at most two.",
+          "identifier_or_url": "https://arxiv.org/abs/1405.2486",
+          "material_read": "Primary PDF p. 2, text offset 3785",
+          "method": "Bounded OA passage",
+          "title": "Convergence, unanimity and disagreement in majority dynamics on unimodular graphs and random graphs",
+          "trigger": "Incumbent-retaining majority and periodic behavior"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md exact difference, spectral formula and sign proof",
+        "Binary seam benchmark 69a75f8bbc7c",
+        "Ternary finite-case comparator 9090c4dd259d"
+      ],
+      "rationale": "A single natural boundary twist produces both signs of the stationary-state difference in an exact ten-residue pattern for all lengths, with a golden-ratio spectral correction. This is a non-obvious comparison on canonical cubic graphs, useful also as a labelled pure-equilibrium enumeration; it is stronger than a small case check or the generic transfer construction. The analytic sign certificate matters because finite counts alone cannot exclude later sign deviations.",
+      "residual_risks": [
+        "The result quantifies equilibria, not stability or dynamic attraction, and says nothing about other palettes or strips."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,152 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:24:25.129823Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–93; VERIFICATION.md; verify_decks.py; verify_structural.py (scripts inspected, not run)",
+        "Cai–Kiah–Nguyen–Yaakobi, arXiv:2001.01376, Definition 8 and Proposition 9, PDF page 7",
+        "/workspace/branches/audit_exact_124.py, independently executed for record 2"
+      ],
+      "rationale": "Cai et al.'s Type-A characterization applies to sets of distinct one-deletion outputs. It can also be reconstructed directly: if the first and last mismatches are p and q, any common deletion with the first deletion index earlier than the second yields the same descendant as deleting p from the first word and q from the second (shift alignment on [p,q] and a constant run up to p). The reverse order yields the other candidate. Two distinct outputs require p<q and both shift alignments, forcing opposite alternating phases between p and q. In a triangle the difference sets are intervals and one is the symmetric difference of the other two. Two intervals with nonempty interval symmetric difference must be adjacent and disjoint, or nested with one shared end. Thus there is one long edge split into two adjacent shorter edge intervals of lengths at least two. In the 001-avoiding graph the cut producing 00 is immediately followed by 1; the cut producing 11 preserves admissibility, including the phase-dependent external boundaries. The prefix must be empty or legal ending in 1, the suffix must be legal and not start in 01; this gives the stated Fibonacci factors. The unique interval and cut validate both counts, including the empty small-length sums. The dominant double pole is at phi^(-1), where z^2/(1-z)=1 and the edge leading constant is phi^3/5; hence the triangle-to-edge ratio tends to 1. Complement and reversal give the other individual forbidden factors. An independent inverted deletion-index census (python3 /workspace/branches/audit_exact_124.py 2) matched every coefficient through length 12, including the empty word, for all four motifs. This is corroboration, not the all-length proof.",
+      "residual_risks": [
+        "The cited Chrisnata et al. Lemma 28 wording could not be checked; the binary triangle geometry follows directly and does not depend on that citation."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Unrestricted all-alphabet counts have outside context series (1-qz)^(-2) and both cut phases survive; the local unrestricted triangle proof explicitly counts two",
+          "No primary full text was available for the cited Chrisnata et al. lemma, so no whole-document exclusion is inferred"
+        ],
+        "reasoning": "Even the full unrestricted structural classification only supplies the parametrization. Exact context languages and which splice survives need a separate motif-dependent argument.",
+        "searches": [
+          "Resultary unrestricted edge record 737fed325e91 and unrestricted triangle record e753c7b5bfd6",
+          "Chrisnata–Kiah–Yaakobi DOI 10.1109/TIT.2022.3184868, targeted OA/metadata lookup"
+        ]
+      },
+      "checked_sources": [
+        "Resultary e753c7b5bfd6, 737fed325e91, e0ee2801984a, 4a3ef99abab1, and 268e2a51ec42",
+        "arXiv:2001.01376",
+        "DOI:10.1109/TIT.2022.3184868 (metadata only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Unrestricted T(z)=2z^2 E(z)/(1-z); in this language T(z)=z^2 E(z)/(1-z)",
+          "The Dyck record has T_(n+1)-T_n=2E_n with a Dyck-specific count"
+        ],
+        "reasoning": "Cumulative laws in these priors are genuine overlaps in method and theme, not an implication of the 001 law: the splice count and admissible contexts are different. The same-day Dyck record was compared on content, not excluded on date.",
+        "searches": [
+          "Resultary triangle-spectrum record e753c7b5bfd6, finding and proof",
+          "Resultary Dyck cumulative-law record 268e2a51ec42, finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary Type-A lemma identifies deletion-set edges with the alternating-block flip formulation, not with a new edge characterization",
+          "Resultary e0ee2801984a gives a different edge law and isolation counts under 010 avoidance; 4a3ef99abab1 treats a uniform run cap"
+        ],
+        "reasoning": "Reversal and bit complementation preserve the deletion relation and give exactly the four stated motifs. They cannot turn 010 into 001, and a bound on every run is not the asymmetric requirement that 00 starts a terminal zero suffix. These reformulations and neighboring constraints do not yield the same census.",
+        "searches": [
+          "Resultary searches for two-read single-deletion edge/triangle generating functions under forbidden-triple binary constraints",
+          "Cai–Kiah–Nguyen–Yaakobi, arXiv:2001.01376, Definition 8 and Proposition 9"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact Resultary hit was the assigned finding itself, not a different witness. The distinct inspected constrained hits were 010 avoidance, bounded runs, and Dyck words.",
+          "The targeted primary search supplied no matching table or statement; this is not evidence of exhaustive absence."
+        ],
+        "reasoning": "No independent exact constrained table or matching theorem was found in the inspected evidence. The unrestricted binary tables already disagree at E(3) and T(4).",
+        "searches": [
+          "Resultary exact 001-avoiding two-read deletion census and related constrained graph enumerations",
+          "Targeted primary-literature search for the single-triple-avoidance two-read edge and triangle census"
+        ]
+      },
+      "rationale": "The edge normal form and unrestricted splice geometry/counts are prior. The distinct supported claim is the exact induced edge and triangle census for one fixed motif in the reversal/complement orbit of 001, including the one-splice coefficient law. Neither unrestricted count can give this restriction by specialization of alphabet size, and the closest restricted censuses examined use other languages.",
+      "residual_risks": [
+        "The cited 2022 lemma was not read in primary full text. An older constrained-motif census outside the inspected sources could affect priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the exact structural premise, not the constrained enumerator",
+          "evidence": "Type-A pairs have opposite alternating phases in common contexts; exactly two shared one-deletion traces for Hamming distance at least two iff Type-A.",
+          "identifier_or_url": "https://arxiv.org/abs/2001.01376",
+          "material_read": "PDF page 7, Definition 8 and Proposition 9 (text offset 34580)",
+          "method": "OA text inspection",
+          "title": "Coding for Sequence Reconstruction for Single Edits",
+          "trigger": "Primary edge-equivalence premise"
+        },
+        {
+          "assessment": "Covers the unrestricted geometry and enumerator",
+          "evidence": "Both splice orientations survive and outside contexts are arbitrary.",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-triangle-spectrum-of-the-two-read-deletion-confusability-g--e753c7b5bfd6",
+          "material_read": "Finding and long-interval proof (offsets 0 and 3331)",
+          "method": "Local published mirror",
+          "title": "Exact triangle spectrum of the two-read deletion-confusability graph",
+          "trigger": "Unrestricted triangle implication"
+        },
+        {
+          "assessment": "Unrestricted count only",
+          "evidence": "E_q(z)=binom(q,2) z^2/[(1-z)(1-qz)^2].",
+          "identifier_or_url": "2026/10/4/SCOPE-exact-edge-count-of-the-finite-alphabet-two-read-single-deletion--737fed325e91",
+          "material_read": "Finding and alternating-block construction (offset 0)",
+          "method": "Local published mirror",
+          "title": "Exact edge count of the finite-alphabet two-read single-deletion reconstruction graph",
+          "trigger": "Broader alphabet edge count"
+        },
+        {
+          "assessment": "Different motif orbit",
+          "evidence": "010-free graph has adjacent-swap edges and a different edge series.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-two-read-deletion-ambiguity-and-isolated-word-spectrum-in--e0ee2801984a",
+          "material_read": "Finding (offset 0)",
+          "method": "Local published mirror",
+          "title": "Exact two-read deletion ambiguity and isolated-word spectrum in the 010-avoiding source",
+          "trigger": "Other single-motif census"
+        },
+        {
+          "assessment": "Different source family",
+          "evidence": "Run-cap edge/span enumerators do not give the stated triangle law.",
+          "identifier_or_url": "2026/11/22/SCOPE-two-read-deletion-ambiguity-across-all-bounded-homopolymer-sourc--4a3ef99abab1",
+          "material_read": "Finding (offset 0)",
+          "method": "Local published mirror",
+          "title": "Two-read deletion ambiguity across all bounded-homopolymer sources",
+          "trigger": "Potentially broader regular constraint"
+        },
+        {
+          "assessment": "Distinct Dyck-specific identity",
+          "evidence": "T_(n+1)-T_n=2E_n for Dyck words is not the 001 coefficient identity.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-triangle-edge-cumulative-law-for-dyck-word-two-read-deletion-a--268e2a51ec42",
+          "material_read": "Finding (offset 0)",
+          "method": "Local published mirror",
+          "title": "A triangle-edge cumulative law for Dyck-word two-read deletion ambiguity",
+          "trigger": "Strong same-day thematic overlap"
+        },
+        {
+          "assessment": "No conclusion on the lemma's wording or broader coverage from unavailable text",
+          "evidence": "No accessible alternate full-text copy was identified; the independently reconstructed binary geometry suffices for correctness.",
+          "identifier_or_url": "https://doi.org/10.1109/TIT.2022.3184868",
+          "material_read": "Bibliographic/access metadata; no full text",
+          "method": "Targeted web search and lawful OA DOI/repository lookup",
+          "title": "Correcting Deletions With Multiple Reads",
+          "trigger": "Cited Section VI, Lemma 28"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, constrained edge and triangle counts and asymptotic comparison",
+        "Resultary unrestricted triangle record e753c7b5bfd6 for contrast"
+      ],
+      "rationale": "This gives a benchmark for ambiguity on a natural memory-constrained binary source. Triangles detect three pairwise ambiguities that edge totals alone do not capture, and the forbidden-splice mechanism gives a sharp identity and limiting edge multiplicity, not just a small table. It does not solve the independence-number or optimal reconstruction-code problem.",
+      "residual_risks": [
+        "The incidence limit is an average, not a uniform degree statement or a code-size bound."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

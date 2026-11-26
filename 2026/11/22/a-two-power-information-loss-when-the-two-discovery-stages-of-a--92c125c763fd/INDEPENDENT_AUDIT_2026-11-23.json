@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:47:35.952613Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independence of the two failure counts follows by restarting the iid draws at the first usable coupon: the second success probability is independent of its label. With zeta=1/(2m-1), eta=zeta^2, the two inverse success probabilities are h(1-zeta) and h(1+zeta). Multiplying their geometric pgfs gives the stated rational pgf, mean 2h-2 and variance 2h^2(1+eta)-2h; these invert to m and theta. At homogeneity the labeled score is (S2-S1)/(h-1), of information 2/a. The derivative pgf for the sum is h^(-2)(1-z)^2/(1-az)^4; coefficient division by the homogeneous negative-binomial mass gives the stated quadratic score. The factorial moments E[(T)_j]=(j+1)!(h-1)^j give mean zero, orthogonality to T, and information 1/(3a^2). Tail bounds for the coefficient derivatives follow from a common complex-parameter neighborhood and a pgf circle of radius just below 1/a; positive physical masses have a lower geometric bound with base arbitrarily close to a. These bounds justify the third-order log Taylor remainder, a rowwise score CLT and a second-derivative LLN (choose geometric bases close enough for the second moment). The increments are asymptotic to -1/(2m^3) in eta and -1/(2m^2) in zeta; the information times n times their squares gives both stated Gaussian variances, with mean minus half the variance. Taylor expansion of KL plus Pinsker gives merging below the thresholds. The midpoint tests have influence functions (3a^2/2) times the total score and (a/2) times the pair score; their limiting variances, half-separations and the likelihood-ratio errors agree. Uniform moments and the denominators bounded below by 2 in the sample statistics give the supercritical consistency and compact-h scope. The fixed-mean path is a hard nuisance comparison (the homogeneous h score is orthogonal to both shape scores), not a claim for common known theta or an unrestricted global minimax theorem. I inspected the exact-fraction diagnostic without running it. Independent bounded diagnostic: at h=2, sum the convolved mass times x-log(1+x), x=P_(m+1)(t)/P_m(t)-1, over t=0,...,160, and use the independent two-geometric KL formula for the pair. At m=192 the scaled values were 0.166662 and 0.500030, near 1/6 and 1/2; this does not prove the limits.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The signed negative-binomial correction treats any finite number of independent geometrics, with a quadratic leading heterogeneity term and cubic-scale total-variation error. O’Neill treats more than two discovery stages at the distributional level."
+        ],
+        "reasoning": "More summands and an exact distribution do not provide neighboring-point Fisher information or a two-scheme Gaussian experiment. The general signed approximation is not a stronger inference result.",
+        "searches": [
+          "Resultary 2026/11/8 heterogeneous geometric sums, 7476715dcf93",
+          "O’Neill arXiv:2201.03122, pp. 7 and 26"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2201.03122",
+        "arXiv:2209.02220",
+        "Resultary 7476715dcf93",
+        "Resultary 92c125c763fd (identical finding, excluded as independent evidence)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior signed correction can supply the leading one-sample mass perturbation after including the movement of the mean failure probability; it does not bound the required squared-score likelihood geometry. Its cubic error about homogeneity is of the same order as the adjacent aggregate perturbation. The O’Neill pgf plus further work can produce the exact score, information, normalization and efficient tests."
+        ],
+        "reasoning": "Generic LAN supplies the method, not the degeneracy after aggregation, critical rates and efficiencies. The full comparison is not a mechanically stated special case of the inspected results.",
+        "searches": [
+          "7476715dcf93, Finding and signed expansion",
+          "arXiv:2201.03122, convolution and pgf"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "O’Neill’s negative-occupancy hitting time is the sum of the two waiting counts in this parameterization; adding two attempts is merely an observation shift. The inspected statements give convolution, generating functions and moments, not the comparison of adjacent size models or the labeled-versus-unlabeled repeated tests."
+        ],
+        "reasoning": "The model is equivalent to known negative occupancy at target two. The data reduction and local inference claim are not a renamed occupancy distribution formula.",
+        "searches": [
+          "Resultary semantic comparison of negative occupancy, heterogeneous geometric sums and adjacent-size inference",
+          "arXiv:2201.03122",
+          "arXiv:2209.02220"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "92c125c763fd is this identical frozen finding, not external coverage. The distinct 7476715dcf93 Finding gives an approximation and a TV constant to a homogeneous baseline, not adjacent-model thresholds or a table of the constants audited here."
+        ],
+        "reasoning": "The exact comparison is asymptotic in adjacent sizes and sample counts, not a finite distribution-table lookup. No distinct equivalent entry was found in the inspected results.",
+        "searches": [
+          "Resultary: two-stage coupon aggregate and labeled waiting times, unknown rate, adjacent sizes",
+          "Resultary 92c125c763fd and 7476715dcf93; distinct claims compared"
+        ]
+      },
+      "rationale": "Pass is for the fixed-mean repeated-testing comparison, its critical constants, and nuisance-free efficient moment rules, not for the geometric convolution, the vanishing first-order heterogeneity term, or classical likelihood theory. The closest published statements establish ingredients, not an inference theorem that covers the two observation regimes.",
+      "residual_risks": [
+        "Bounded search does not exclude an equivalent inference result under an abundance-estimation or singular geometric-mixture formulation.",
+        "Originality is not claimed for the moment inversion by itself, the occupancy law, the generic second-order behavior of geometric sums, or the general asymptotic methods."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage of the distributional law, not the inspected testing result",
+          "evidence": "p. 26 (text offset 68400) gives the representation as a sum of independent geometrics; p. 7 (offset 18750) addresses pgf and moments.",
+          "identifier_or_url": "https://arxiv.org/pdf/2201.03122",
+          "material_read": "pp. 1–2 definitions and abstract; p. 7 generating functions and moments; p. 26 geometric convolution",
+          "method": "Lawful OA PDF passages",
+          "title": "An examination of the negative occupancy distribution and the coupon-collector distribution",
+          "trigger": "Same waiting-time distribution and coupon thinning"
+        },
+        {
+          "assessment": "Inspected passages address spectral, recursive and mixture properties",
+          "evidence": "pp. 2–3 (text offsets 300 and 3200) describe occupancy distributions and Markov-chain methods rather than neighboring-model testing.",
+          "identifier_or_url": "https://arxiv.org/pdf/2209.02220",
+          "material_read": "pp. 2–3, definitions and aims",
+          "method": "Lawful OA PDF passages",
+          "title": "Three Distributions in the Extended Occupancy Problem",
+          "trigger": "Broader occupancy law and possible inferential equivalence"
+        },
+        {
+          "assessment": "Genuine overlap for the quadratic distributional correction, no stated adjacent-size testing claim",
+          "evidence": "Finding bounds total variation to a signed mass using S3 and S2 squared and gives a local constant relative to the homogeneous negative binomial; scope is geometric-sum approximation.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/36a7204b5741b75430355c38bf9bf0ef7468c2a4/2026/11/8/SCOPE-a-signed-negative-binomial-correction-for-heterogeneous-geometri--7476715dcf93/RESULT.md",
+          "material_read": "Finding; Assumptions and scope; opening of Proof, text offsets 0–3177",
+          "method": "Local source mirror, bounded reading",
+          "title": "A signed negative-binomial correction for heterogeneous geometric sums",
+          "trigger": "Strong broader coverage candidate for near-homogeneity and aggregation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This measures a concrete information loss in a natural recording decision: remembering the two discovery stages saves two powers of the number of coupon types in independent repetitions at matched mean. Exact population identifiability alone does not predict the loss. The sharp errors and nuisance-free efficient tests specify the operational difference even at the critical scales. The motivation depends on an unknown usability rate and is not extended to general numbers of discoveries or fixed known rates.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

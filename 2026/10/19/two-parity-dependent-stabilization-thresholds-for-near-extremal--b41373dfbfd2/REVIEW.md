@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claimed vertex families follow from the previously proved dense-sum-free dichotomy in [1, Theorem 1.1] and exhaustive symbolic case analysis of the at-most-three omitted integers. The derivation includes all quantifiers, the strict inequality at each parameter threshold, repeated summands, explicit listed configurations, their sum-freeness and exact pairwise-intersection criteria for swap edges. The isolated all-odd clique is separated by a quantitative intersection bound. The boundary examples are finite exhaustive computations, not extrapolations. Independent backtracking and symbolic-family verification programs agree throughout their tested parameters. The full infinite claim follows from the written argument, not the finite tests.
+## correctness
 
-## Originality — PASS, conditional on accessible literature
-Freiman [2] and Deshouillers–Freiman–Sós–Temkin [1] give structural restrictions, while Alon–Balogh–Morris–Samotij [3] give asymptotic enumeration and structural results. None of the inspected claims gives the exact one-element-exchange graph, its two connected components, detailed edges, or these sharp thresholds. Targeted publication and mathematical-record searches identified no dominating statement; there is residual risk of an unindexed or implicit equivalent construction, especially since the set classification uses [1]. The original contribution is not the prior density theorem or the general maximum cardinality, but the reachability and complete exchange adjacency classification.
+PASS
 
-## Value — PASS
-Constrained fixed-cardinality one-swap reconfiguration is a natural local move for sampling and optimization over Schur-free subsets. At precisely one below the maximum cardinality, the feasible landscape splits into two irreducible classes, with exact parity-dependent vertex and edge profiles and sharp first stabilization points. The second component is not a trivial clique: it contains explicit cross-clique bridges and exceptional attached states. This is an interpretable infinite-family reachability obstruction that asymptotic counting alone does not provide.
+The structural theorem applies strictly in both claimed ranges, since k>0.4n+0.8. It leaves the all-odd clique and sets wholly in an upper window of size m+2 (starting at m or m-1). Such a window has too few odds to allow even one edge to the all-odd clique. Classification by the minimum is exhaustive: odd n with minimum m forbids 2m and requires omitting one of m+1,2m+1; even n with minimum m-1 forbids 2m-2 and the pairs {m,2m-1}, {m,2m}, {m+1,2m}. The other minimum cases have only the doubling constraint or none. This yields exactly the listed families. In the upper window, an edge is equivalently an intersection of size one between the two-element omission sets (odd n), or of size two between the three-element omission sets (even n). In the even case, writing a=m-1,b=m,c=m+1,d=2m-2,e=2m-1,f=2m, omissions are {a,b,t}, {a,f,s}, and {d,e,f},{b,d,f},{b,c,d}; common pairs give exactly 2(m-1) U-to-V edges and the nine stated others. In the odd case the omissions are {m,t}, {2m,2m+1}, {m+1,2m}, producing the five extra edges. These edges give the two connected components and the edge totals for all n in scope. An independent exhaustive combination/bit-shift enumeration and common-deletion adjacency at /workspace/review-evidence/3/boundaries.py reproduced (18,47,[9,7,1,1]) at n=13 and (31,125,[20,9,1,1]) at n=18, and the stabilization profiles at n=15 and n=20. The conclusion is sharp for eventual stabilization, not a monotonicity claim below the thresholds. Supplied scripts and recorded outputs were inspected, not executed.
 
-## Literature, limits and uncertainty
-[1] Deshouillers et al. (1999), Theorem 1.1, DOI 10.24033/ast.443, provides the essential pre-existing structural dichotomy. [2] Freiman (1992), Theorems 1 and 2, examines structural and optimal sum-free sets at different bounds. [3] Alon et al., arXiv:1202.5200v1 (2012-02-23), investigates fixed-size asymptotic counts. Full publication priority, especially implicit treatment in other texts or private computations, has not been independently verified. This review is not an independent external audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge pass for the fixed-size exchange graph, including its sharp parity boundary, not for density structure or extremal set size. The strongest prior theorem is precisely the structural dichotomy used in the proof. It supplies a search domain for the upper-window configurations, but not their legal omissions, adjacency classes, connectivity, or the boundary counterchecks. No equivalent exact table or stronger covering theorem was found in the sources inspected.
+
+## value
+
+PASS
+
+One deletion and insertion is the natural fixed-size move, and one below maximum is the first near-extremal slice where new states and links matter. The full clique/attachment description determines reachability and bottlenecks, while the independently checked counterexamples identify the exact distinct stabilization cutoffs by parity. The contribution is the connected structure, not merely a few small counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:21:21.575263Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, exact model and Proof §§1–6",
+        "Frozen VERIFICATION.md and check.py (inspected, not executed)",
+        "Replay: from /workspace, python3 review-checks/records-2-5.py, section 5; symbolic rain-window integration and isolated quartic root"
+      ],
+      "rationale": "Shifting a delayed first date to zero multiplies its positive success probability by exp(t₁), so every optimizer starts at zero. For u=exp(−t₂), v=exp(−t₃), direct integration over the three intervals of the uniform variable exp(−R) gives the same objective F as inclusion–exclusion. The compactified domain is continuous at its zero corner; that corner is strictly worse than (1,1), and moving off v=0 at u>0 increases F. On v=u<1 the only possible diagonal maximizer has negative F_v and is improved by decreasing v. The u=1 edge has unique optimizer v=min(1,p₁/p). Interior stationarity forces u=Z(y) and p₁<y<3/4 for y=pv/u. The singular value y=8/9 cannot satisfy F_v=0. On the admissible interval the remaining stationarity function is strictly increasing by the stated positive quadratics, and its endpoint signs yield the unique admissible root only for p>p₂. For those p the boundary candidate has F_u<0 (so an inward move decreasing u increases F); at p=p₂ the limiting root is the existing boundary point, not a tie. This exhausts all closure boundaries and interior stationary points and gives the three unique ordered calendars. Independent integration and polynomial root isolation reproduce both constants and, at p=1, dates 0, 0.156819423113, 0.706895851121 and success 0.7895887539535.",
+      "residual_risks": [
+        "The frozen phrase ‘negative inward-boundary derivative’ refers to the coordinate partial F_u, not its negative in the inward direction; the feasible improvement stated there is correct.",
+        "Uniqueness is for ordered calendars and the matched-rate, conditionally independent, one-effective-rain model."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "ten Brink et al. use discrete year categories and a continuous onset of favorable growing conditions; in the latter they evolve mean and variance of emergence, with fitness/dormancy and variations in resource competition.",
+          "Agoungbome et al. compute crop yield across candidate single sowing dates across seasons with AquaCrop. The full motivating Farrell text and full Denton text were not read."
+        ],
+        "reasoning": "A seasonal endpoint objective, evolving germination phenotype or crop-yield window does not mechanically yield the global optimizer over three deterministic releases maximizing one-trigger union success.",
+        "searches": [
+          "Optimal germination timing in unpredictable environments ten Brink Gremer Kokko 14654 PDF author open repository",
+          "Agoungbome DOI 10.3390/agronomy13010167; Farrell DOI 10.1002/eap.2834; Denton DOI 10.1111/1365-2664.14779"
+        ]
+      },
+      "checked_sources": [
+        "Resultary f3c46e32c67c (same record), e11da55e7695, b2d028296c40 and d5e09d0d6d10, mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+        "ten Brink et al. DOI 10.1111/ele.13461; Agoungbome et al. DOI 10.3390/agronomy13010167; limited-access Farrell and Denton references"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the frozen model the conditional failure product shares one random time and couples the three release dates even when individual lifetimes are independent. The p₁ boundary derivative and the p₂ interior entry depend on those specific joint terms.",
+          "The snapshot record chooses observation times of a transient episode with exponential arrival and departure; the wildfire record compares planned-fire deadlines via expected viable release per unit time. Neither supplies these conditional intersection terms or the boundary derivative classifier."
+        ],
+        "reasoning": "The inspected related models explain why timing can matter but give no stronger result whose substitution yields the three regimes with the exact transition constants and uniqueness.",
+        "searches": [
+          "e11da55e7695, b2d028296c40 and d5e09d0d6d10 primary mirrored Findings versus the frozen rain-window objective",
+          "ten Brink et al. continuous-season model, PDF p. 3; Agoungbome et al. §3.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "An equivalent stochastic formulation is that each release creates a live opportunity with probability p and an independent exponential lifetime; maximize the chance an independent exponential trigger finds at least one released opportunity live. Integrating their shared trigger gives the conditional-failure-product model.",
+          "The closest indexed seed-bank analogue e11da55e7695 has two independent opportunities over a fixed total duration with success κ exp(−λu)(1−exp(−λu)); the operations-research search returned related perishable inventory and production models, not a retrieved theorem of this form."
+        ],
+        "reasoning": "Two independent success opportunities over a fixed duration do not have the common trigger integral, feasible dates, or conditional success law here. Generic production and inventory records were not treated as whole-document exclusions.",
+        "searches": [
+          "Resultary: three-cohort sowing, exponential first-rain timing, independent seed viability decay, exact diversified calendars",
+          "staggered deterministic release exponentially perishable independent attempts common exponential trigger optimize three schedule reliability seed sowing first rainfall Farrell Gremer dormancy"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact matching indexed passage is the assigned f3c46e32c67c itself. Distinct neighbors classify a fixed-duration two-opportunity timing problem, a snapshot detection calendar and a planned-fire deadline, respectively."
+        ],
+        "reasoning": "Neither finding the same published record nor seeing another exact timing table establishes independent coverage; the other verified indexed tables optimize different events, actions or hazards.",
+        "searches": [
+          "Resultary exact threshold and quartic searches under rain/sowing/seed-bank and equivalent elapsed-lifetime terminology; IDs f3c46e32c67c, e11da55e7695, b2d028296c40, d5e09d0d6d10"
+        ]
+      },
+      "rationale": "Rain-dependent sowing and diversified timing are established ideas. The supported distinct finding is the full three-release optimum under one exponential trigger, with three independently decaying establishment opportunities conditional on that trigger and a union-of-successes objective. In that model the two exact thresholds control changes in the active equality constraints. The strongest indexed exponential calendars and the biological timing literature inspected use different feasible timing choices or objectives, and do not give these thresholds or the unique quartic regime.",
+      "residual_risks": [
+        "Full Farrell and Denton texts not inspected; no full-document exclusion.",
+        "Potential coverage under another terminology in reliability scheduling is not ruled out. Same-day related record dates do not establish priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Distinct stochastic dependence and budget",
+          "evidence": "Two independent opportunities, fixed total duration, individual success κ exp(−λu)(1−exp(−λu)).",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-reentrant-equal-spacing-in-a-two-opportunity-seed-bank-rescue-mo--e11da55e7695",
+          "material_read": "Finding, Assumptions and scope, Proof",
+          "method": "Local Resultary search and primary mirror passages",
+          "title": "Reentrant equal spacing in a two-opportunity seed-bank rescue model",
+          "trigger": "Close exact seed release/timing classification"
+        },
+        {
+          "assessment": "Single transient episode observed at multiple times, not multiple independent releases sharing one trigger",
+          "evidence": "Exponential arrival/departure and a detection objective.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-optimal-snapshot-calendars-for-a-single-transient-ecological-pre--b2d028296c40",
+          "material_read": "Finding and Assumptions and scope",
+          "method": "Local Resultary search and primary mirror passages",
+          "title": "Optimal snapshot calendars for a single transient ecological presence",
+          "trigger": "Potential equivalent exponential observation calendar"
+        },
+        {
+          "assessment": "Different scalar decision and criterion",
+          "evidence": "Single planned-fire deadline; expected viable seed release per unit time.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-a-wildfire-hazard-reversal-in-the-optimal-fire-deadline-for-matu--d5e09d0d6d10",
+          "material_read": "Finding and Assumptions and scope",
+          "method": "Local Resultary search and primary mirror passages",
+          "title": "A wildfire hazard reversal in the optimal fire deadline for mature seed release",
+          "trigger": "Exact timing problem against common exponential hazard"
+        },
+        {
+          "assessment": "Substantive theoretical predecessor on timing diversification, not the frozen optimizer",
+          "evidence": "Favorable onset persists to season end; mean and variance of emergence evolve, with dormancy and fitness effects rather than a single effective rain success event.",
+          "identifier_or_url": "https://www.kokkonuts.org/wp-content/uploads/ele.13461.pdf",
+          "material_read": "Author PDF p. 3, continuous-season model and beginning of results (text around 19400–22900)",
+          "method": "Lawful author-hosted OA PDF, located and read by passage",
+          "title": "Optimal germination timing in unpredictable environments: the importance of dormancy for both among- and within-season variation",
+          "trigger": "Close analytical germination bet-hedging model"
+        },
+        {
+          "assessment": "Different methodological and scientific quantity",
+          "evidence": "Simulates yield for dates from May 1 to November 30 for each season with AquaCrop; no comparison of three dates via the frozen conditional union objective in inspected method.",
+          "identifier_or_url": "https://mdpi-res.com/d_attachment/agronomy/agronomy-13-00167/article_deploy/agronomy-13-00167-v2.pdf",
+          "material_read": "Primary PDF p. 6, §§3.2–3.2.1, around offset 21070",
+          "method": "Lawful publisher OA PDF alternate after landing-page access limits",
+          "title": "Optimal Sowing Windows under Rainfall Variability in Rainfed Agriculture in West Africa",
+          "trigger": "Direct prior work on rainfall-dependent optimal sowing windows"
+        },
+        {
+          "assessment": "Motivating context; no inference of whole-document noncoverage",
+          "evidence": "Precipitation timing relative to seeding is the identified topic; no analytic exponential timing theorem was retrieved.",
+          "identifier_or_url": "https://doi.org/10.1002/eap.2834",
+          "material_read": "Landing-page/abstract material or frozen cited characterization only; full text not read",
+          "method": "Bounded lawful OA attempts did not recover readable full text",
+          "title": "Soil surface treatments and precipitation timing determine seedling development across southwestern US restoration sites",
+          "trigger": "Closest empirical motivation for seeding at multiple times"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, three-regime calendar and its global comparison",
+        "ten Brink et al. continuous-season theory as independent mathematical motivation for timing diversification"
+      ],
+      "rationale": "The tradeoff between early availability and lifetime decay is inherent in timing several opportunities before one uncertain trigger. Three cohorts are the smallest instance in which simultaneous, partly staggered, and fully staggered schedules can all be distinct. Exact thresholds show when to expect each pattern and include both boundary cases; this gives a structural baseline for timing diversification without inferring distinct rain sources or adaptive decisions.",
+      "residual_risks": [
+        "Not a field-calibrated recommendation. Unequal rates, correlated establishment, repeated rainfall and adaptive planting could change the regimes."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -16,11 +19,6 @@
 }
 ---
 
-## Reproduction
-The self-contained standard-library program `verify.py` independently solves the rational cyclic normal equations for every facet at each integer \(3\le n\le26\). It compares the exact squared norms with the stated formulas and verifies tangent-facet counts and dimensions by rational Gaussian elimination. Run with `python3 verify.py`.
+## Reproduction and limits
 
-## Checked output
-`PASS: 1022 exact facet-normal, shell, contact, and center-rank checks for 3 <= n <= 26`.
-
-## Logical limits
-The exact computation verifies only the enumerated finite cases, not infinitely many dimensions. The all-order norm identities follow from the cyclic recurrence and elementary cycle-Laplacian calculation in `RESULT.md`; global optimality follows by rotational averaging, and the full center-locus assertion follows by solving the tangent equalities and retaining all facet inequalities. No third-party mathematical audit has been performed.
+The odd-order part of the unchanged `verify.py` (Python 3, standard library only) uses the intrinsic rational normal equations to compute and compare the exact squared norms for every facet at odd orders 3 through 25. The script also contains even-order comparisons; these are outside the corrected claim. The alternating recurrence and the facet inequalities in `RESULT.md` prove the odd-order formula and uniqueness; finite comparisons are corroboration, not the proof.

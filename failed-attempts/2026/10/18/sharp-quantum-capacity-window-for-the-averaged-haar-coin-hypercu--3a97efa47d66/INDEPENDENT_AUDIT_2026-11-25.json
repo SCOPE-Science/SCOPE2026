@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:38:29.050416Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof lines 43–109 and assumptions",
+        "Frozen VERIFICATION.md and verify.py inspected, not executed",
+        "Independent radial recursion: /workspace/branches/915c274c-5a71-4045-9510-3c9b6c5d3bb1/independent_kl_check.py and independent_kl_check.txt; at d=64, c=0, t=66, KL=0.486613468274 nats"
+      ],
+      "rationale": "In the Hadamard basis the channel is a commuting phase-error channel with the walk's error law. Its complement measures the computational diagonal and prepares the stated environment state, so the same measurement on the channel output degrades it. Pauli covariance and concavity of coherent information give the maximally mixed optimum; Pauli trace orthogonality gives the environment entropy H_2(P). The support is contained in the current parity layer, which gives the exact KL identity and a recoverable qubit. For d=2 the layer is uniform after one step; for d≥3 the singleton eigenvalue (1−2/d)^t obstructs finite-time uniformity; all nonparity modes vanish as t increases. At the window, pairing complementary characters on the layer yields the orthogonal expansion and binomial squared norms. The generating function, expanded locally uniformly in its complex argument (and hence coefficientwise at each fixed order), yields joint Hermite convergence by the sign central limit theorem. The factorial tail bound permits truncation in L² and uniform integrability of L log L via the bounded second moment. The Gaussian tilt then gives KL limit e^(−4c)/2. Monotonicity under postcomposition and bracketing the unique root of the limiting profile give the first-crossing result. This is capacity per independent use of the composed vertex-only channel, not per elementary step or for a retained coin.",
+      "residual_risks": [
+        "Finite recursion corroborates a single dimension and time; only the analytic proof establishes the fixed-c limit. No uniform-in-c claim or statement about single realizations is established."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The unicyclic proof treats the ordinary parity-conditioned cube and more general projected likelihoods for an even incidence relation. Its §§2–3 give an L² approximation and the full weak density limit on the cube.",
+          "Devetak–Shor give the single-letter formula for degradable channels and include dephasing channels. Diaconis–Graham–Morrison's accessible abstract gives a transition-region variation-distance profile only."
+        ],
+        "reasoning": "The full likelihood statement with a moment bound is stronger than just TV or chi-square for this purpose. Generalized dephasing theory covers the information-theoretic step, but the accessible classical abstract alone would not decide the KL comparison.",
+        "searches": [
+          "Resultary 2ee94cfb912f Proof §§1–4",
+          "arXiv:quant-ph/0311131, Eq. (18) and Appendix B",
+          "10.1002/rsa.3240010105, publisher abstract and alternate-copy attempt"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 2ee94cfb912f and 41a818eacc0d",
+        "Quillen arXiv:2607.04584",
+        "Devetak–Shor arXiv:quant-ph/0311131",
+        "Diaconis–Graham–Morrison DOI 10.1002/rsa.3240010105 (abstract only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The indexed proof controls ||L_d−R_d||₂→0 for a parity-conditioned biased product likelihood R_d and obtains L_d⇒exp(sZ−s²/2), with bounded E[L_d²] and s=e^(−2c). Since x log x is bounded below and o(x²) at infinity, this yields E[L_d log L_d]→s²/2. The expectation follows by the standard Gaussian moment-generating function.",
+          "For the dephasing channel with error law P, Pauli averaging and the known capacity formula give d−H_2(P); entropy on a layer of size 2^(d−1) gives 1+D/ln 2. Composing channels gives monotonicity and inverting this scalar profile yields the stated first crossing."
+        ],
+        "reasoning": "The omitted words 'relative entropy' do not leave a gap in the mathematical implication: no additional likelihood control is required, and no distinct capacity theorem is needed. The different Hermite proof does not add a different scientific claim.",
+        "searches": [
+          "Resultary 2ee94cfb912f §§2–3, offsets 2995–8311",
+          "arXiv:2607.04584 Eq. (58)",
+          "arXiv:quant-ph/0311131 Eq. (18)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The graph record works with the single-coordinate m-cube law Q_{m,t} and the uniform parity layer U_{m,t} before taking the incidence push-forward. Its odd-cycle incidence map is a bijection on that layer, preserving likelihoods, and a triangle with attached tree vertices realizes every m≥3.",
+          "Quillen gives the identical averaged vertex map, the eigenvalues 1−2k/d and the surviving antipodal Fourier coherence."
+        ],
+        "reasoning": "The graph terminology does not change the law, parity reference, critical time, or limiting likelihood in the odd-cycle case. The quantum representation changes the units by 1/ln 2 after subtracting the parity-protected qubit.",
+        "searches": [
+          "Resultary searches for parity-relative KL, the d log(d)/4 entropy window, Haar-averaged channel capacity and capacity first-crossing; strongest match 2ee94cfb912f",
+          "arXiv:2607.04584 Eqs. (58), (64)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest exact entries are analytic profile results, not tables: the first gives the same likelihood limit and the second treats an altered continuous-time law with a global flip clock."
+        ],
+        "reasoning": "An exact finite database entry is not the claimed object; the result is a fixed-scale asymptotic identity and a first-crossing asymptotic. Neither matching sample numbers nor absence of a tabulated capacity is relevant to coverage by the analytic proof.",
+        "searches": [
+          "Resultary 2ee94cfb912f, Finding and Proof",
+          "Resultary 41a818eacc0d, rare antipodal flip comparison"
+        ]
+      },
+      "rationale": "A distinct indexed record establishes the lognormal likelihood limit and bounded second moments for the same parity-referenced nonlazy cube law and identical time scaling. These estimates, not merely its stated total variation and chi-square profiles, directly imply the claimed KL constant by uniform integrability. The finite-time capacity identity applies known generalized dephasing theory to the known averaged channel; converting the KL profile to capacity and inverting it introduces no separately established new scientific result. This is verified coverage by implication, not a priority finding between the same-date records.",
+      "residual_risks": [
+        "The inaccessible classical full text may contain further coverage; it was not needed for the originality decision. The matching indexed record's date does not establish chronological priority or dependence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive stronger probabilistic coverage by implication; no priority inferred",
+          "evidence": "Section 1 gives the parity-layer incidence bijection; §2 approximates the cube density in L²; §3 proves the lognormal weak limit and obtains its second moment exp(s²).",
+          "identifier_or_url": "2026/10/18/SCOPE-parity-dependent-gaussian-cosh-cutoff-profiles-for-unicyclic-edg--2ee94cfb912f",
+          "material_read": "Finding, Assumptions and proof §§1–4, in particular offsets 2995–8311",
+          "method": "Configured Resultary search and bounded local-mirror passages, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Parity-dependent Gaussian–cosh cutoff profiles for unicyclic edge-toggle walks",
+          "trigger": "Identical nonlazy cube scaling, parity reference and likelihood"
+        },
+        {
+          "assessment": "Direct prior coverage of channel identities, not the capacity window in the passages examined",
+          "evidence": "Kraus operators X_j/√d, eigenvalues 1−2|k xor k'|/d, and antipodal eigenvalue −1.",
+          "identifier_or_url": "https://arxiv.org/abs/2607.04584",
+          "material_read": "Primary PDF pages 9–10, Eqs. (58) and (64), including the surviving-eigenvalues discussion, offsets 67000, 74400 and 75800",
+          "method": "Bounded OA arXiv PDF passages",
+          "title": "Quantum random walks on d-regular graphs with Haar-random coin operators",
+          "trigger": "Exact averaged hypercube channel"
+        },
+        {
+          "assessment": "Directly supplies general capacity principle",
+          "evidence": "Single-letter coherent information for degradable channels, with every dephasing channel degradable.",
+          "identifier_or_url": "https://arxiv.org/abs/quant-ph/0311131",
+          "material_read": "Primary PDF pages 12–13, Eq. (18) and dephasing argument, offsets 45450 and 47900",
+          "method": "Bounded OA arXiv PDF passages",
+          "title": "The capacity of a quantum channel for simultaneous transmission of classical and quantum information",
+          "trigger": "Generalized dephasing capacity theorem"
+        },
+        {
+          "assessment": "TV profile established by abstract; full-paper entropy coverage not assessed",
+          "evidence": "The abstract describes an explicit variation-distance expression in the transition region, not a likelihood moment estimate or KL result.",
+          "identifier_or_url": "https://doi.org/10.1002/rsa.3240010105",
+          "material_read": "Publisher-indexed abstract; attempted lawful alternate public PDF without extractable passages; Stanford landing page only",
+          "method": "Publisher and lawful OA alternate check",
+          "title": "Asymptotic analysis of a random walk on a hypercube with many dimensions",
+          "trigger": "Classical cutoff profile with close time scaling"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, exact capacity and first-crossing statements",
+        "Quillen arXiv:2607.04584 §IV B"
+      ],
+      "rationale": "An exact relative-entropy profile has scientific utility for this specified averaged channel: unlike variation distance alone, it quantitatively controls the residual quantum communication rate and locates the time to reach any fixed excess above one protected qubit. This usefulness of the mathematical target does not give originality credit for the covered likelihood result or its routine capacity conversion.",
+      "residual_risks": [
+        "No operational claim for a retained coin, time correlated uses, or finite-block coding optimality."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

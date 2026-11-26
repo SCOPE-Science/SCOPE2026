@@ -1,15 +1,21 @@
-# Scientific review: symmetric planar disk-lens isotropic constant
+# Independent mathematical audit
 
-## Correctness — PASS
-The statement concerns the full parameter interval \(0\le a<1\) for two congruent unit disks, with uniform interior measure and the affine-invariant normalization \(L^4=\det\operatorname{Cov}/A^2\). Exact integration gives three positive moments; the derivative of their quotient reduces to a trigonometric expression of a fixed sign. A finite, explicit rational Taylor certificate bounds that expression over the **entire** angle interval: coefficients through total degree 44, five negative coefficient pairs, and a rigorous Lagrange remainder. The standalone script recomputed the sign certificate exactly and checked the analytic identities symbolically. The endpoint at the disk is immediate; the thin-lens endpoint is derived by an affine blow-up and exact beta integrals. The strict inequality is not inferred from 28 quadrature examples.
+## correctness
 
-## Originality — PASS, provisional
-The closest published mathematical note *Sharp covariance anisotropy law for symmetric Euclidean ball lenses* (identifier `dbb6d001c487`) contains exact uniform-volume covariance eigenvalues and strict monotonicity of their ratio. The moment expressions are therefore not independently new. Its ratio theorem does **not** imply strict monotonicity of the different functional \(\det\operatorname{Cov}/A^2\) as the area and both eigenvalues vary. The paper *Sharp Mahler-product monotonicity of symmetric planar circular lenses* (identifier `b079d50aa217`) concerns area times polar area, not the uniform-volume second-moment determinant. K. Bezdek's 2019 full paper treats lens inradius and intrinsic-volume extremality; Finch's 2013 lens section treats three-dimensional volume, area and mean width; Kipp's 2024/2025 paper treats polytopal and zonotopal isotropic extremality. Searches using isotropic-constant, inertia-determinant, two-circle intersection, separation monotonicity and exact endpoint aliases did not identify stronger coverage. This is a bounded comparison, not a claim of exhaustive priority. Residual risk: unindexed classical engineering formulas for the moment product or an equivalent inequality.
+PASS
 
-## Mathematical value — PASS
-The new mathematical contribution is an **all-separations strict ordering** of a canonical convex family by a natural affine-geometric invariant, together with a sharp nontrivial endpoint and explicit equality/limiting geometry. This resolves the competition between shrinking area and the two differently scaling covariance eigenvalues, which is not settled by the known anisotropy ratio or Mahler-product ordering. It is a complete family theorem rather than an arbitrary isolated numerical value. The statement does not claim a universal inequality for arbitrary convex bodies or extend to unequal balls.
+Two reflections give a centered diagonal covariance. The strip at |x| has half-height √(1−(a+|x|)²) for |x|≤1−a; integrating 1, x² and y² gives A, X and Y and thus F=XY/A⁴. Substituting u=cos v in the three strip integrals (using cos/sin power identities) recovers all closed forms. Independently the moving-boundary derivatives are A′=−4s, Y′=−4s³/3, and X′=−8(s³/3−aA/4); substituting them and reducing by s²=1−a² reproduces F′=−4aP/(9sA⁵). I reconstructed P's Taylor coefficients by exponentials in `python3 /workspace/checks/independent_01_05.py` (check 4), checked the exact cancellation through degree 15, the increasing cubic bound, the five nonpositive coefficient pairs, the last negative coefficient, and the strict full-interval remainder margin (approximately 7.35316e−5 after dividing by θ¹⁶). In each exponential term θ^p exp(ikθ) the real-variable integral remainder is bounded by |k|^(45−p)θ^45/(45−p)!, since derivatives along the real angle have unit exponential magnitude. This makes the sign strict for 0<θ<π/2 independently of numerical sampling. At a=0 the moments are those of the unit disk. Rescaling x by 1/(1−a) and y by 1/√(2(1−a)) gives the stated limiting strip heights; integrating the parabolic strip produces 8/3, 64/105, and 8/15. Dominated convergence gives the corresponding limit 9/1400 for F, and strict increase on the interior plus continuity supplies the equality structure. The author-reported 150 tests are not an independent rerun.
 
-## Verification and limitations
-Run `python verify.py` with Python 3, SymPy and mpmath. The supplied run passed 150 assertions; the rational sign certificate is an infinite-domain analytical proof when read together with Taylor's theorem. The first lead source is Bezdek's arXiv:1912.05118v1 of 2019-12-11. Other background references cross publication periods. Independent mathematical validation has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct claim is strict monotonicity and the sharp range for the normalized covariance determinant on the entire two-disk family. Individual moments are recoverable from prior work and ordinary circular-segment integration. No priority is claimed for those moments or for the disk lower bound alone.
+
+## value
+
+PASS
+
+The equal-disk lens is the basic nonscalar intersection family. The theorem orders it by a canonical affine invariant, despite both axial scales changing, and identifies a sharp limiting parabolic lens. This yields a meaningful benchmark beyond raw inertia or anisotropy ordering; no claim is made for unequal disks or arbitrary nesting.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

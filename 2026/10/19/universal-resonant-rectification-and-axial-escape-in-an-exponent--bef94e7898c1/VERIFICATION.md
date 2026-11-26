@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -18,6 +21,4 @@
 
 # Reproducibility and scope
 
-The standalone `verify.py` was run successfully using SymPy, NumPy and SciPy. The exact symbolic checks verify the energy and difference identities, the forced harmonic perturbation equation, Fourier orthogonality and required quadratic/fourth moments. Numerical checks cover nine forcing/stiffness combinations inside the theorem's sufficient domain, with four exponential-tilt choices per response. They supplement the proof but are not evidence that a finite computation covers all initial conditions or all parameters.
-
-The complete analytical justification appears in `RESULT.md`: coercive absorption, convex invariant set and Brouwer fixed point, contraction of the base, half-period antisymmetry, integrability of the axial transient and an analytic small-drive expansion. Originality rests on scientific comparison with the cited open-access primary article, accessible supporting literature, and mathematical-result searches; priority remains subject to broader bibliographic verification. No independent audit has been performed.
+The analytical proof in `RESULT.md` covers global absorption, contraction on the absorbing sublevel, periodicity and half-period antisymmetry, and the integrable axial transient. The accompanying `verify.py` has recorded symbolic checks of the energy and difference identities, and finite numerical checks of periodic responses and drift signs. It contains additional checks of the perturbative cycle drift, a comparison result rather than a separate claim here. The finite checks do not establish the global quantifiers. The all-initial-data result, and not the local-branch expansion, is the scope of the theorem.

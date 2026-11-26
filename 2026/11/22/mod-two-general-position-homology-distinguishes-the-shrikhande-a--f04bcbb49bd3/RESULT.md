@@ -1,52 +1,36 @@
-# Mod-two general-position homology distinguishes the Shrikhande and four-by-four rook graphs
+# Mod-two general-position homology of the Shrikhande graph
 
 ## Finding
-
-Let \(\operatorname{GP}(G)\) be the abstract simplicial complex of all subsets of vertices of a graph \(G\) containing no three vertices on a common shortest graph path. For the Shrikhande graph \(\mathrm{Sh}\) and the four-by-four rook graph \(R=K_4\square K_4\), the complete reduced homology over \(\mathbb F_2\) is
-
+Let \(\operatorname{GP}(G)\) consist of the subsets of vertices of \(G\) containing no three vertices on a common shortest path of the full graph. For the Shrikhande graph \(\mathrm{Sh}\), the complete reduced homology with coefficients in \(\mathbb F_2\) is
 \[
 \widetilde H_i(\operatorname{GP}(\mathrm{Sh});\mathbb F_2)\cong
-\begin{cases}\mathbb F_2^{57},&i=3,\\0,&i\ne3,\end{cases}
-\qquad
-\widetilde H_i(\operatorname{GP}(R);\mathbb F_2)\cong
-\begin{cases}\mathbb F_2^{98},&i=3,\\\mathbb F_2,&i=4,\\0,&\text{otherwise}.\end{cases}
+\begin{cases}\mathbb F_2^{57},&i=3,\\0,&i\ne3.\end{cases}
 \]
+The face counts by size, beginning with the empty face, are \((1,16,120,416,672,432,144,16)\).
 
-Both graphs are strongly regular with parameters \((16,6,2,2)\), but their general-position complexes have different mod-two homology, including a fourth-dimensional class only on the rook side. In size order, including the empty simplex, their face-count vectors are respectively \((1,16,120,416,672,432,144,16)\) and \((1,16,120,416,632,240,16)\).
+This distinguishes Shrikhande from its strongly regular counterpart \(R=K_4\square K_4\). The separately established homotopy equivalence \(|\operatorname{GP}(R)|\simeq (\bigvee^{98}S^3)\vee S^4\) [1] implies mod-two reduced ranks 98 and 1 in degrees 3 and 4, respectively. Those ranks and the previously enumerated rook face counts [2] are comparison data, not new claims here.
 
-## Assumptions and scope
+## Graph and chain model
+Use vertex set \((\mathbb Z/4\mathbb Z)^2\), indexed lexicographically, with edges at differences \(\pm(1,0),\pm(0,1),\pm(1,1)\) in Shrikhande and edges between distinct vertices sharing a coordinate in the rook graph. For Shrikhande the six difference vectors give degree six, and enumerating the differences between the six vectors gives exactly two common neighbors for every pair of distinct vertices. Hence the graph has diameter two and any forbidden geodesic triple is an induced three-vertex path. Conversely any induced three-vertex path has nonadjacent endpoints, so it lies on a shortest path. There are 144 forbidden triples: 72 unordered nonedges, each with two choices for the middle vertex.
 
-The vertex set of each graph is \((\mathbb Z/4\mathbb Z)^2\), indexed lexicographically by \((a,b)\) with \(a,b\in\{0,1,2,3\}\). In \(\mathrm{Sh}\), two distinct vertices are adjacent precisely when their difference is one of \(\pm(1,0)\), \(\pm(0,1)\), \(\pm(1,1)\) modulo four. In \(R\), distinct \((a,b)\) and \((c,d)\) are adjacent precisely when \(a=c\) or \(b=d\). Every graph distance and every geodesic is taken in the *original full graph*, not in a subgraph induced by a proposed face. Homology is reduced simplicial homology with coefficients in \(\mathbb F_2\). No claim is made for arbitrary graphs with these parameters.
+## Exact computation
+Generate every mask from \(0\) to \(2^{16}-1\), keeping it if none of the forbidden triple masks is contained in it. Equivalently, test that every component of the induced subgraph is complete, since a shortest path between nonadjacent vertices within a component of a \(P_3\)-free graph is impossible. For each size \(k\), make one column for each retained mask of size \(k\) and one row for each retained mask of size \(k-1\). Set a row entry to one exactly when its mask is obtained by removing one vertex of the column face. This is the augmented simplicial boundary; composition vanishes because each removal of an unordered pair is counted twice. Eliminate modulo two using XOR, counting independent pivots. The exact Shrikhande counts are:
 
-## Proof
+| Face size \(k\) | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|
+| Faces \(c_k\) | 1 | 16 | 120 | 416 | 672 | 432 | 144 | 16 |
+| Boundary rank \(r_k\) | 0 | 1 | 15 | 105 | 311 | 304 | 128 | 16 |
 
-Each graph has sixteen vertices, six neighbors at each vertex, and precisely two common neighbors for every pair of distinct vertices, independently of adjacency. These assertions follow by enumerating coordinate differences; the verifier exhaustively checks them. In particular, every nonadjacent pair has distance two. Consequently a triple lies on a geodesic if and only if its induced graph is a three-vertex path: a geodesic containing three distinct vertices has length two, while every induced two-edge path joins a nonadjacent pair and is therefore shortest.
+Writing \(r_8=0\), the reduced Betti number in degree \(k-1\) is \(c_k-r_k-r_{k+1}\). It is 57 at \(k=4\), by \(672-311-304=57\), and zero otherwise. The zero in degree \(-1\) is included since the augmentation is onto. In particular the absence of degree-four mod-two homology contrasts with the known rook case even though both graphs have parameters \((16,6,2,2)\).
 
-Thus a subset is a face if and only if none of its three-subsets induces exactly two edges. Each graph has precisely 144 forbidden triples: the 72 nonedges have exactly two common neighbors, and each forbidden triple has one uniquely determined nonadjacent endpoint pair. Equivalently a face induces a disjoint union of cliques. These two equivalent predicates are independently checked on **all** \(2^{16}=65536\) vertex subsets.
-
-Let \(c_k\) denote the number of faces of cardinality \(k\), with \(c_0=1\). Let \(r_k\) be the exact rank over \(\mathbb F_2\) of the augmented simplicial boundary sending a face of cardinality \(k\) to the sum of its \(k\) immediate subfaces. Then \(r_1=1\), and the mod-two reduced Betti number in degree \(k-1\) equals \(c_k-r_k-r_{k+1}\), where the final missing rank is zero. The exact computation yields:
-
-| Graph | \((c_0,c_1,\ldots)\) | \((r_1,r_2,\ldots)\) |
-|---|---|---|
-| Shrikhande | \((1,16,120,416,672,432,144,16)\) | \((1,15,105,311,304,128,16)\) |
-| Four-by-four rook | \((1,16,120,416,632,240,16)\) | \((1,15,105,311,223,16)\) |
-
-Every column is assembled by deleting each vertex from the corresponding face. Field-two Gaussian elimination is carried out exactly, with integer bitsets and XOR, never floating-point numerical rank. A second, independent row-bitset implementation computes every same rank on the transposed boundary matrix. The program verifies that consecutive boundary maps compose to zero, that each generated face has every codimension-one subface, and that the alternating face count agrees with the resulting Euler characteristic. The claimed homology follows immediately from the displayed rank identity.
-
-## Verification
-
-Run `python3 verify.py` using Python 3 and no external packages. The script checks the strongly regular parameters, forbidden triples, all 65,536 masks by two different face-membership predicates, the complete face vectors, every mod-two boundary rank by two elimination orientations, consecutive boundary compositions, and reduced Euler identities. The run completed with `ALL CHECKS PASSED`. These are exhaustive finite calculations, not statistical experiments.
+## Verification and scope
+Run `python3 verify.py` from the package directory. The program checks the two equivalent face predicates on all \(2^{16}\) masks, computes each rank by row and column elimination, and checks the boundary composition and Euler identities. Its rook calculation replays the comparison data. Only reduced mod-two homology is asserted for Shrikhande; no integral, rational, torsion, equivariant, or homotopy classification is claimed.
 
 ## Relationship to prior work
-
-Manuel and Klavžar (2017) introduced the graph-geodesic general-position problem. Anand, Chandran, Changat, Klavžar, and Thomas (2018 preprint) characterize general-position vertex sets; their graph-theoretic characterization supplies context for the induced-path formulation. Iršič, Klavžar, Rus, and Tuite (2024 preprint) study general-position counting polynomials rather than the mod-two homology of this strongly regular pair. Published work on three-row rook-graph general-position complexes concerns graphs with exactly three rows, not the four-by-four rook graph; published computations for Shrikhande/rook higher-independence and four-vertex-path-free complexes concern different face predicates. Numerical coincidence between an unrelated homology rank and the value 57 does not imply that the complexes have the same homology. No covering statement was identified in the inspected texts and indexed mathematical records; an unindexed equivalent computation remains possible.
-
-## Limitations
-
-Only reduced homology over \(\mathbb F_2\) is determined. Neither integral torsion, rational homology, wedge decompositions, fundamental groups nor group actions are claimed. The finite computation concerns exactly the two specified sixteen-vertex graphs; it does not imply any infinite-family formula or a result for all strongly regular graphs. The literature check does not prove absolute novelty.
+The general-position characterization of Anand et al. [3] encompasses the face predicate on these diameter-two graphs. The general-position polynomial of Iršič et al. [4] encodes face counts. Neither characterization nor face counts determine the boundary ranks used here. Higher-independence complexes and four-vertex-path avoidance complexes impose different constraints. Equivalent unlocated computations may exist.
 
 ## References
-
-- P. Manuel and S. Klavžar, *Graph theory general position problem*, public preprint 2017-08-30, https://arxiv.org/abs/1708.09130 .
-- B. S. Anand, U. Chandran S. V., M. Changat, S. Klavžar, E. J. Thomas, *Characterization of general position sets and its applications to cographs and bipartite graphs*, public preprint 2018-12-20, https://arxiv.org/abs/1812.08460 .
-- V. Iršič, S. Klavžar, G. Rus, J. Tuite, *General position polynomials*, public preprint 2024-01-11, https://arxiv.org/abs/2401.05696 .
+1. *Ninety-eight three-spheres and one four-sphere in the four-by-four rook general-position complex*, [result](https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-ninety-eight-three-spheres-and-one-four-sphere-in-the-four-by-fo--7d66b9444862/RESULT.md).
+2. *General-position polynomials of rectangular rook graphs via bipartite star forests*, [result](https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-general-position-polynomials-of-rectangular-rook-graphs-via-bipa--fc2af413d7b2/RESULT.md).
+3. B. S. Anand et al., *Characterization of general position sets and its applications to cographs and bipartite graphs*, [arXiv:1812.08460](https://arxiv.org/abs/1812.08460).
+4. V. Iršič et al., *General position polynomials*, [arXiv:2401.05696](https://arxiv.org/abs/2401.05696).

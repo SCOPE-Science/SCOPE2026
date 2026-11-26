@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:01:27.723346Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A selected outer vertex in petal i requires k_i >= floor(m_i/2)+1-h, where h indicates the hub; the selected hub requires sum k_i >= floor(N/2). Without the hub, any occupied petal supplies a minimal subset of exactly b_i+1 vertices. With it, global minimality forces k_i <= b_i, since otherwise the petal supplies a proper alliance. The sum of these caps is (N-q)/2 and reaches the hub threshold exactly for q <= 1, forcing saturation of every cap. Deleting any vertex other than the hub now fails the hub threshold, and any nonempty hub-free subset fails a petal threshold. This applies also to singleton petals and equal powers in the counting polynomial. For m_i=2 the two counts are r and 2^r, with missing sizes 3 through r for r>=3. The proof is unrestricted; the frozen verification and verify_alliance.py were inspected but their finite execution was not rerun. The code enumerates proper submasks until a witness is found or all have been ruled out.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Feng–Fernau–Mann address enumeration algorithms and conditional complexity, including trees; Gaikwad–Maity address optimization and parameterized complexity."
+        ],
+        "reasoning": "An algorithm applicable to these inputs is not a closed classification or parity cutoff. No distinct general block-graph formula was established by these passages.",
+        "searches": [
+          "arXiv:2312.11963v2, Theorems 1, 5, 6 and §5",
+          "arXiv:2202.02010, introduction and §6"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify_alliance.py",
+        "Resultary 9d94a5b53ac4",
+        "Resultary 92025ccd10b6",
+        "arXiv:2312.11963v2",
+        "arXiv:2202.02010",
+        "arXiv:1811.10089v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The October 26 record explicitly excludes singleton petals. A singleton is an alliance on its own; after removing singleton petals the only altered threshold is at the hub, which either stays the same or exceeds every admissible petal-cap sum."
+        ],
+        "reasoning": "This deletion and threshold comparison gives the whole apparent scope increment; the sparse friendship cardinality spectrum is already explicit.",
+        "searches": [
+          "Resultary 92025ccd10b6, Finding and Assumptions and scope",
+          "Frozen RESULT.md, pp. represented by lines 34–60"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Both October findings use inclusion minimality and state the same two types for unequal petals of size at least two."
+        ],
+        "reasoning": "Clique bouquets and these one-hub windmills are the same labelled graphs in that domain; neither statement uses domination.",
+        "searches": [
+          "Local Resultary searches for windmill, clique bouquet and globally minimal defensive alliance",
+          "Resultary 9d94a5b53ac4 and 92025ccd10b6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed records already contain the binomial cardinality polynomial (not just a finite set of examples) and rz²+2^rz^(r+1) for friendship graphs. Ibrahim’s singleton-coefficient result uses the different defensive-surplus polynomial."
+        ],
+        "reasoning": "The indexed formulas exactly determine the claimed coefficients on the shared domain; Ibrahim's invariant does not count inclusion minima.",
+        "searches": [
+          "Resultary 9d94a5b53ac4, Finding at offset 84",
+          "Resultary 92025ccd10b6, Finding at offset 83",
+          "arXiv:1811.10089v1, §4.10 pp. 14ff."
+        ]
+      },
+      "rationale": "The two earlier findings give the full classification, parity cutoff, polynomial and friendship gap on m_i>=2. Leaves are outside their stated domain but do not yield a distinct substantial result: each singleton is an alliance, so can never occur in any other global minimum. With L leaves removed and nonleaf total N0, all nonhub thresholds are unchanged. If floor((N0+L)/2) rises above floor(N0/2), no hub minimum can survive, since its cap was at most floor(N0/2); otherwise every nonleaf alliance has unchanged feasibility. Add Lz for the leaves. If only one petal remains, the pruned graph is a clique with a single elementary size threshold; if none remain there can be no hub minimum for r>=2. This recovers the exact extension without a new mechanism.",
+      "residual_risks": [
+        "The bounded comparisons do not settle first publication of the October results or rule out a separate block-graph theorem; neither limitation affects the verified overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material direct coverage",
+          "evidence": "Two families, q<=1, exact counting and friendship gap with m_i>=2.",
+          "identifier_or_url": "Resultary 2026/10/18 SCOPE-a-parity-barrier-for-globally-minimal-defensive-alliances-in-cli--9d94a5b53ac4",
+          "material_read": "RESULT.md Finding, offset 84",
+          "method": "Local mirror bounded passage",
+          "title": "A parity barrier for globally minimal defensive alliances in clique windmills",
+          "trigger": "Direct matching family and parity theorem"
+        },
+        {
+          "assessment": "Material direct coverage, leaves excluded in statement",
+          "evidence": "Exact polynomial and friendship specialization; pendant singletons explicitly outside scope.",
+          "identifier_or_url": "Resultary 2026/10/26 SCOPE-parity-dichotomy-for-globally-minimal-defensive-alliances-in-cli--92025ccd10b6",
+          "material_read": "RESULT.md Finding, offset 83; Assumptions and scope",
+          "method": "Local mirror bounded passages",
+          "title": "Parity dichotomy for globally minimal defensive alliances in clique windmills",
+          "trigger": "Closest direct formula and scope"
+        },
+        {
+          "assessment": "Related, not the cited structural formula",
+          "evidence": "General enumeration and tree results; conditional hardness for bipartite and split graphs.",
+          "identifier_or_url": "arXiv:2312.11963v2",
+          "material_read": "Theorem 1 pp. 4–5; §5 p. 9; Theorems 5 and 6 pp. 16, 18",
+          "method": "OA primary PDF passages",
+          "title": "Enumerating Minimal Defensive Alliances",
+          "trigger": "Enumeration and special graph families"
+        },
+        {
+          "assessment": "Optimization context, no all-cardinality implication in these results",
+          "evidence": "Maximum-size objective and neighborhood diversity FPT result.",
+          "identifier_or_url": "arXiv:2202.02010",
+          "material_read": "Abstract/introduction pp. 1–2 and §6 p. 18",
+          "method": "OA primary PDF passages",
+          "title": "Globally Minimal Defensive Alliances: A Parameterized Perspective",
+          "trigger": "Exact optimization on structured graphs"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": "Connected induced sets counted by defensive surplus; friendship is characterized by a singleton coefficient, not its inclusion-minimal alliances.",
+          "identifier_or_url": "arXiv:1811.10089v1",
+          "material_read": "Polynomial definition pp. 2–3; §4.10 p. 14",
+          "method": "OA primary PDF passages",
+          "title": "Defensive alliance polynomial",
+          "trigger": "Same graph family with an apparent polynomial match"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "A structural parity cutoff and arbitrarily long gaps would be useful for this natural family, but these are already present in the matching findings. The only remaining change, admitting pendant singletons, contributes their singleton terms and a direct threshold suppression; it does not give an independently substantial classification or new phenomenon warranting repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

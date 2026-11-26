@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof derives the exact projective distance in barycentric coordinates, represents a Euclidean-uniform sampled point by normalized independent exponentials, obtains an all-center integral with independent unequal-rate exponentials, proves strict Schur-concavity by the negative second derivative of \(\log(1-e^{-c x_i s})\), evaluates the maximum by a beta substitution, and gives the short-radius and Gumbel limits with explicit quantifiers and normalization. The standalone checker validates numerical special cases and independently sampled points; simulations are not used to prove infinitely quantified assertions.
+## correctness
 
-**Originality — PASS, provisional pending external priority verification.** Foertsch–Karlsson (2004) treats simplex Hilbert metric isometry, Vernicos (2012, 2014) intrinsic Finsler-volume growth, Nielsen–Sun (2017) distance algorithms and ball geometry, and Nielsen–Shao (2017) polygonal ball shape and intersections. The present normalized Euclidean volume functional, strict positional majorization and exact sharp beta volume bound are not statements of those theorems or their immediate consequences. Standard logistic-range and exponential-extreme facts are acknowledged as generic probabilistic ingredients rather than claimed new. Published mathematical records and primary papers were compared for equivalent formulas, broader coverage, exact tables, and mathematical implication. Unindexed historical work may predate the result.
+PASS
 
-**Mathematical value — PASS.** Normalized Euclidean mass is the natural coverage probability for uniformly sampled points of any simplex. The answer gives all-dimensional exact values for every interior center, a unique optimal center, and a sharp large-dimensional ball-radius threshold. The resulting geometric inequality is structural and meaningful even without extensions to other convex domains.
+The repaired Finding retains the arbitrary-center formula and strict barycentric comparison. The affine reduction gives the unhalved max/min cross-ratio. The exponential direction is uniform by the total-mass Jacobian; the scaled independent exponentials have rates x_i, and the minimum density calculation gives e^{-s}(P+P'/c) for the product P. Both boundary terms vanish in the integration by parts, giving the integral and subset sum. Strict Karamata applies for every positive s and strict majorization comparison. The small-radius coefficient follows by dominated convergence against e^{-s}s^n, with c~r. Independently, for two vertices the odds bounds give the interval length (1+c)x_1/(1+cx_1)-x_1/(1+cx_2), which agrees by expanding the subset sum. The frozen central formula and Gumbel limit are also mathematically consistent: use the beta recurrence and exponential max/log(n)->1 and scaled minimum Exp(1), without assuming their independence. Read the packaged checker and verification notes without executing the uploaded code; the all-dimension check is analytic.
 
-**Scope and risks.** Busemann and Holmes–Thompson measures must not be conflated with Euclidean sampling. The metric is the logarithm of the cross-ratio without a factor of one half, and the asymptotic is centroid-anchored. The literature and index searches are evidence, not uniqueness proofs. An independent audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS applies to the repaired arbitrary-center mass law and strict barycentric majorization, not the frozen presentation as a new centroid optimum and Gumbel threshold. The latter, including the exact central mass, are directly covered by the earlier November 1 Resultary record and are now credited as prior. Its log-coordinate convolution is an implicit volume integral, not the evaluated exponential-product or rational law in x. The inspected primary sources on metric and ball structure or Finsler volume also do not supply the surviving theorem.
+
+## value
+
+PASS
+
+The arbitrary-center law computes uniform Euclidean coverage for a given intrinsic neighborhood, including off-center candidates and local mass asymptotics. Strict barycentric majorization compares many nonoptimal centers at all radii, which a centroid optimum or its limiting quantile does not do. These are useful in their own right without reclaiming the earlier central results.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

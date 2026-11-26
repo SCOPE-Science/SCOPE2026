@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:00:53.668725Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The defect is bilinear, and choosing all four matrix-unit images independently enumerates every one of the 16^4 linear maps exactly once. I independently ran python3 /workspace/branches/record5_replay.py, which builds the product table from contracted matrix coordinates, checks the 16 basis pairs for every map at each weight and all 256 pairs for every accept, and uses incremental GF(2) elimination on matrix powers to find the first monic relation. It returned totals 28 and 110, degree distributions (1,21,6) and (2,84,24), and extremal polynomial masks 8 (six) and 10,12 (twelve each), i.e. X³, X³+X, X³+X². The replay independently constructs inner conjugations from inverse pairs of invertible matrices; Skolem–Noether applies to the central simple algebra M_2(F_2), and the scalar center of GL_2(F_2) is trivial, yielding all six. Transpose normalizes the conjugation action and R→R+id commutes with both actions; substituting the identity verifies it preserves the weight-one condition. Taking the direct orbit images gave sizes (3,3)→(6) at weight zero and (6,6,6,6)→(12,12)→(24) at weight one; these partitions verify the stated exchanges. Both prescribed canonical reductions were in the independently determined extremal sets. Only the independent program was executed. In the frozen documentation VERIFY_OK is said to be at the end, whereas the packaged output begins with it; all numerical lines agree and this does not affect the result.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 5.18 lists four weight-zero normal forms over an algebraically closed field under conjugation, transpose and scalar action. Benito–Gubarev–Pozhidaev exclude characteristic two. The rank-one census formulas apply at n=q=2 but only to nonzero linear-rank-one operators of weight zero."
+        ],
+        "reasoning": "Even geometric normal forms do not directly give rational conjugacy, stabilizer sizes, or individual operator counts over F_2, and the weight-zero comparison has no weight-one conclusion. The finite-field rank-one theorem does not address higher-rank maps and has no degree-three cases since R²=0 there.",
+        "searches": [
+          "Gubarev arXiv:1805.00723v3 §5.4 Theorem 5.18",
+          "Benito–Gubarev–Pozhidaev arXiv:1801.07037 field assumption and Theorem 3",
+          "Resultary finite-field matrix algebra rank-one census c47da0cfa606"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, artifacts/verify.py, and artifacts/verify_output.txt",
+        "Gubarev arXiv:2609.05647v1 and arXiv:1805.00723v3",
+        "Benito–Gubarev–Pozhidaev arXiv:1801.07037",
+        "Resultary c47da0cfa606 and ranked finite-field comparison",
+        "Tang–Zhang–Sun bibliographic/landing material; Panasenko bibliographic identification"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The canonical integer examples predate the census; the field restriction prevents invoking the extremal rigidity theorem as stated. The exact broader rank-one calculation reaches only maps annihilated by X²."
+        ],
+        "reasoning": "One obtains lower-bound examples by reduction and a separate rank-one subset by specialization, not simultaneous exclusion of degree 4 at both weights, extremal symmetry partitions, or the two all-map counts. These are the independently verified additions.",
+        "searches": [
+          "arXiv:2609.05647v1 canonical formulas and Theorem 1.1",
+          "arXiv:1805.00723v3 Theorem 5.18",
+          "c47da0cfa606 finding and n=q=2 specialization"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorem 1.1 treats equivalence by automorphisms, transpose, and weight-dependent symmetries, but explicitly assumes characteristic zero. Its canonical operators do have reductions giving extremals here."
+        ],
+        "reasoning": "The characteristic-zero sign convention agrees with the frozen equation after reduction, and the nonzero-weight involution becomes R+id. Reduction supplies candidate examples, not a classification of the rational points or an upper bound on degree in the new characteristic.",
+        "searches": [
+          "Rota–Baxter / Rota-Baxter on M_2(F_2) or 2×2 matrices over F_2: classification, enumeration, census, orbit",
+          "Resultary: extremal/minimal polynomial and characteristic-two matrix Rota–Baxter operators",
+          "Gubarev arXiv:2609.05647v1, Theorem 1.1 and canonical formulas"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest distinct indexed census is c47da0cfa606: substituting n=q=2 gives 15=3+12 nonzero weight-zero linear-rank-one operators. The inspected search did not yield a table with the whole totals or the extremal orbit partitions."
+        ],
+        "reasoning": "The 15 are a proper subset of the 28, excluding zero as well as maps of higher rank. They contribute neither weight-one operators nor degree-three extremal orbits. Search misses do not establish absence.",
+        "searches": [
+          "Resultary: 28/110 and all-operator census for M_2(F_2), finite matrix Rota–Baxter operator classification; rank-one record c47da0cfa606",
+          "Primary search: Rota–Baxter on 2×2 matrices over F_2, classification/enumeration/orbits"
+        ]
+      },
+      "rationale": "The distinct supported result is the full finite-field census at the two weights and the refined rational extremal orbit partitions, including the degree bound achieved in characteristic two. Known integral canonical examples and the analogous characteristic-zero equivalence are not new. The broader rank-one result overlaps one subset of the weight-zero maps but neither determines the total nor reaches an extremal. No inspected source determines the whole result; this is a best-of-knowledge assessment.",
+      "residual_risks": [
+        "A focused primary search for M_2(F_2) classifications produced no new lead; a characteristic-two classification outside the indexed sources could exist. The Panasenko and Tang–Zhang–Sun articles were not obtained in full. Neither access limitation is evidence of novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct characteristic-zero analogue and earlier examples, not characteristic-two coverage",
+          "evidence": [
+            "Theorem 1.1 begins with a field of characteristic zero and degree 2n−1.",
+            "Its classification uses transpose and the respective scalar or φ symmetries."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2609.05647v1",
+          "material_read": "Abstract, canonical formulas and Theorem 1.1 on p. 2, around OA offsets 5000–8400; §3 on p. 3",
+          "method": "Bounded OA PDF passages",
+          "title": "Extremal Rota–Baxter operators on matrix algebras",
+          "trigger": "Exact competing maximal-degree and equivalence theorem"
+        },
+        {
+          "assessment": "Geometric weight-zero normal forms are relevant but not a rational two-weight census or orbit result",
+          "evidence": [
+            "Theorem 5.18 explicitly classifies up to symmetries over an algebraically closed field.",
+            "The abstract's matrix RB-index result invokes characteristic zero."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1805.00723v3",
+          "material_read": "Abstract, and §5.4, Lemma 5.17 and Theorem 5.18, OA around offsets 95000–96850",
+          "method": "Bounded OA PDF passages",
+          "title": "Rota–Baxter operators on unital algebras",
+          "trigger": "Plausible broad weight-zero classification and RB-index coverage"
+        },
+        {
+          "assessment": "Same matrix algebra and nonzero weights, but explicitly excludes the assigned characteristic",
+          "evidence": [
+            "The characteristic of the main field F is different from two."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1801.07037",
+          "material_read": "Global field assumption on p. 2 (offset 5450) and Theorem 3, p. 14 (offset 44900)",
+          "method": "Bounded OA PDF passages",
+          "title": "Rota–Baxter Operators on Quadratic Algebras",
+          "trigger": "Potential nonzero-weight M_2 classification"
+        },
+        {
+          "assessment": "Prior partial coverage of weight zero, not the full census or extremal equivalence",
+          "evidence": [
+            "The rank-one formulas hold at n=2 and give 15 maps at q=2.",
+            "Every counted map has R²=0; the formulas count operators, not orbits."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-an-exact-rank-one-rota-baxter-census-for-full-matrix-algebras-ov--c47da0cfa606/RESULT.md",
+          "material_read": "Finding, scope and tensor reduction (offsets 0–3187) and the n=q=2 verification entry",
+          "method": "Resultary local full-text mirror",
+          "title": "An exact rank-one Rota–Baxter census for full matrix algebras over finite fields",
+          "trigger": "Closest indexed finite-field count on the same object"
+        },
+        {
+          "assessment": "Title concerns complex algebras; no full-text noncoverage claim",
+          "evidence": [
+            "Complex simple associative algebras is the stated title scope."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.amc.2013.12.032",
+          "material_read": "Title and DOI landing page, not full article",
+          "method": "Bounded DOI access",
+          "title": "Rota–Baxter operators on 4-dimensional complex simple associative algebras",
+          "trigger": "Cited low-dimensional matrix-algebra analogue"
+        },
+        {
+          "assessment": "Residual comparison risk; not used to exclude overlap",
+          "evidence": [],
+          "identifier_or_url": "https://doi.org/10.26516/1997-7670.2025.54.113",
+          "material_read": "Bibliographic identification only; no full-text passage obtained",
+          "method": "Bounded DOI and lawful OA retrieval attempt",
+          "title": "Rota-Baxter operators of weight zero on Cayley-Dickson algebra with matrix images",
+          "trigger": "Cited refinement involving weight-zero matrix images"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The smallest field excluded by the related characteristic hypotheses is a natural boundary for the stated rigidity question, not a randomly selected finite sample. The exhaustive result resolves that boundary for both possible weights and establishes the necessity of the individual symmetry generators in the finite-field setting: conjugation is not transitive, transpose alone still fails at weight one, and adding φ resolves the split. These precise counts and degree/orbit distributions give a useful reference and test case for attempts to extend the rigidity theorem to positive characteristic. No extension to other fields or sizes is inferred.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

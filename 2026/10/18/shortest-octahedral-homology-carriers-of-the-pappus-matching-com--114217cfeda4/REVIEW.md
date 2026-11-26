@@ -1,15 +1,21 @@
-# Scientific review — shortest Pappus matching-complex carriers
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The flag-complex support lemma establishes a sharp twelve-vertex lower bound for nonzero degree-five homology. Equality forces an induced sixfold join of two-point complexes. In the Pappus graph these correspond bijectively to partitions into six three-vertex paths; an exact-cover recurrence enumerates 297. An exact acyclic Morse reduction on all 35,368 augmented faces yields a 43-by-3 integral boundary matrix with a unit three-minor, hence fifth homology is a rank-40 free lattice. The 297 candidate fundamental chains have exact zero simplicial boundary and primitive integer quotient coordinates. Complete group enumeration gives the five orbit sizes and Smith invariant factors; 40 cycles from one size-108 orbit have unimodular determinant minus one. The independent mod-two checker agrees on the ambient Betti number. The verifiers reconstruct data from their own source files; finite computations are not used to infer an infinite family.
+## correctness
 
-## Originality
-**PASS, subject to bibliographic uncertainty.** The previously published integral Pappus matching-complex computation explicitly proves the full complex is a wedge of forty five-spheres, with an integer 43-by-3 Morse matrix, but does not state a minimum induced-support theorem, enumerate 297 shortest carriers, classify their five automorphism orbits and integral span ranks, or produce a unimodular basis within one orbit. Its full RESULT.md proof and verification section were examined. The earlier mod-two Pappus finding proves only rank 40 in degree five. The 1994 Björner–Lovász–Vrećica–Živaljević work concerns complete/chessboard matching complexes and broad connectivity; Marietti–Testa concern forests and Bayer–Goeckner–Jelić Milutinović concern manifold matching complexes, whereas the Pappus complex is nonpure. The carrier and lattice statements do not follow from these already-published conclusions. Searches on object aliases, P3-factor decompositions, octahedral induced spheres, group orbits, primitive lattice generation, equivalent top-homology descriptions, and published-finding corpus published records identified no stronger covering result. An equivalent computation could remain unindexed.
+PASS
 
-## Mathematical value
-**PASS.** Determining the exact smallest induced supports of a canonical symmetric cubic graph's matching-complex homology and the integral lattice they generate is a natural local-to-global refinement of its known wedge homotopy type. The identification of exactly 297 primitive minimum supports, five symmetry orbits with different integral ranks, and an integral basis of 40 supports confined to one orbit is information not implied by ambient Betti numbers, rational spanning, or the earlier homotopy classification. The result gives a completely checkable finite model of equivariant support generation without asserting an unwarranted family theorem.
+For a vertex-minimal induced flag support with nonzero reduced H_d, deletion and the star-link exact sequence force nonzero H_{d-1} in every link, and no vertex is universal. Induction from d=0 gives 2d+2 vertices; equality forces the complement graph to be a perfect matching. This applies to any nonzero ambient image, and the octahedral opposite pairs are exactly incident input edges from disjoint three-vertex paths. Here six paths partition the graph. An independent exact reproduction using vertex deletion for faces, branching on the least uncovered graph vertex for partitions, and distance-preserving bijections for automorphisms recovered 297 supports, 216 automorphisms and the stated orbit representatives and sizes. Global Hasse acyclicity and a 43-by-3 critical boundary with a +1 minor on rows (2,3,15) were checked. Subtracting signed paired coface boundaries in topological order kills the matched lower coordinates over Z. The surviving matched-upper coordinates are determined for cycles because their down-boundary block is unit triangular. Every one of the 5,319 original degree-six boundaries has critical image in the span of the three critical boundary columns, so the resulting map on H_5 into Z^40 is injective. The stated 40 orbit-0 cycles have determinant -1, making it onto. All 297 signed cycles had zero boundary and gcd-one quotient coordinates. Exact Smith forms gave ranks (40,25,35,31,5) and index one for all five orbits.
 
-## Closest sources and limits
-The two previously published exact Pappus matching-complex findings are the closest: the integral wedge classification and the mod-two homology computation. Both share the exact object but lack the new induced-support and primitive orbit-spanning claims. The paper *Chessboard Complexes and Matching Complexes* provides the archive-era matching-complex framework but not this Pappus-specific result. A literature search cannot certify global uniqueness; stronger unindexed results remain an originality risk. Full independent mathematical audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The new scope is the Pappus-specific induced supports and integral inclusion/orbit lattices, not the ambient homotopy type, free rank, graph symmetry order, or signed Morse matrix. The October 11 same-object calculation is the strongest prior overlap and gives the same matrix, but no minimum-support classification or orbit-basis theorem was found in the inspected claim and argument. Searches and comparisons support the distinct claim, not global priority.
+
+## value
+
+PASS
+
+The question is how homology of a standard symmetric graph can be generated from smallest induced subcomplexes, not what its known Betti number is. The result classifies every minimal inclusion class and distinguishes equal-size symmetry orbits with different ranks (40 versus 35). The explicit basis in one orbit provides usable integral generators with minimal supports. These are measurable distinctions not recoverable from the homotopy type alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

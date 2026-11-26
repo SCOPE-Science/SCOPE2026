@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:42:13.181585Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–21 and 23–61 (independent boundary-equation replay)",
+        "VERIFICATION.md and check.py (inspected, not executed)"
+      ],
+      "rationale": "For any allowed finite reversal rate, each block of duration L/v has conditional probability at least exp(−λL/v) min(p,q) of absorption, giving a finite mean. The backward equations for dimensionless directional means give D'=−2 and S'=2zD, where D is their difference and S their sum. Writing D=1+c−2y and S=B+2z((1+c)y−y²), the transmitting survival boundaries at 0 and 1 reduce to pB+(p+2z)c=2−p and qB−[q+2(1−q)z]c=2−q. The determinant has nonzero magnitude 2H, H=pq+sz. Hence c=(q−p)/H and averaging S/2 gives B/2+z/6+zc/2, which simplifies to the stated mean. At z=0 this is (1/p+1/q−1)/2 as also obtained directly from the half-traversal mean plus repeated ballistic trials. Its derivative is 1/6−(p−q)²/(2H²). For unequal p,q the derivative strictly increases to 1/6; the minimum is interior exactly when the derivative at zero is negative, and is unique at zero at equality or below. At p=q the term with the squared difference is absent and the slope is strictly positive. The example gives z*=(3√3−1)/4 and T*=5/6+√3/4 with ballistic T=2. The positive p,q restriction is essential for the ballistic endpoint.",
+      "residual_risks": [
+        "The finite-volume check is corroborative, not an all-parameter proof; no convergence rate or one-way-detector ballistic formula is asserted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Marris–Giuggioli treat discrete periodic propagators and state-specific partial absorption, including two target states and first moments.",
+          "Angelani's more general interval theory gives a mean-exit formula with boundary interaction, not periodic transmission at the detector in the inspected passage."
+        ],
+        "reasoning": "The discrete theorem covers an approximating family, a substantive overlap. Obtaining the claimed formula requires evaluating its two target-state expressions under the finite-speed telegraph limit with forward probability 1−λΔt, reversal probability λΔt and spatial step vΔt, including the mean scaling and ballistic endpoint. This is not simply substituting p,q into a published continuous optimization law.",
+        "searches": [
+          "Primary literature lookup on persistent directional imperfect targets on a periodic domain",
+          "Marris–Giuggioli arXiv:2404.13360v2, Eqs. (1), (6), (21), (24), (27), (29)–(32), supplementary (S49)",
+          "Angelani (2023), One-dimensional run-and-tumble motions with generic boundary conditions, Eq. (47)"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and supporting package",
+        "Marris–Giuggioli 2404.13360v2",
+        "De Gregorio–Iafrate 2011.03025v2",
+        "Angelani 1601.04845v1 and 2023 generic-boundary paper",
+        "Tejedor–Voituriez–Bénichou 1111.1881v2",
+        "Resultary asymmetric finite-interval record"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Positive optimal reversal under unequal absorption was already demonstrated in a reflected interval with a suitably chosen fixed start.",
+          "General periodic first-passage and absorption methods predate the transmitting-circle calculation."
+        ],
+        "reasoning": "The earlier qualitative optimization conclusion does not locate the current phase boundary and need not hold for every parameter choice. Here direction mixing can compensate for sustained repeated misses in the less reactive direction. The additional transmitted-boundary solution and averaging determine the reciprocal term and hence the exact threshold; the calculus optimization after that is routine.",
+        "searches": [
+          "Asymmetric finite-interval Resultary Finding and boundary dynamics",
+          "Marris–Giuggioli §§III–IV target-state and first-moment equations; Tejedor–Voituriez–Bénichou exact means"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "De Gregorio–Iafrate give Poisson velocity switching on a circle with no reactive point in the inspected model.",
+          "Angelani's nonabsorbing endpoint impacts reverse direction. Cutting the circle at the trap instead couples opposite ends with the same direction."
+        ],
+        "reasoning": "The ambient telegraph process is inherited; reflecting survival is not just another parametrization of transmission. For instance, at zero switching unequal reaction strengths are tried alternately in the reflecting geometry but a particle repeats only its own direction's trial in the circle geometry.",
+        "searches": [
+          "Resultary queries on run-and-tumble circle/ring, direction-dependent point absorption, transparent survival and optimal rate",
+          "De Gregorio–Iafrate arXiv:2011.03025v2 p. 1",
+          "Angelani arXiv:1601.04845v1 Eqs. (18)–(24)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed interval has a rational exact mean and Δ<0 threshold depending on the start position; its formula assumes partial absorption at reflecting endpoints.",
+          "Tejedor–Voituriez–Bénichou give exact means and an optimal persistence phenomenon for a perfect target in a discrete periodic search; Marris–Giuggioli give discrete global means."
+        ],
+        "reasoning": "The exact formulas and optima were compared at the model level. No inspected table or formula gives the displayed two-parameter continuum transition for this detector and initial law. Agreement at a perfect-absorption endpoint would not establish that threshold.",
+        "searches": [
+          "Resultary 2026/10/26 sharp-non-sticky-tumbling-assisted-capture-in-an-asymmetric-fini--5ff3d150b267, RESULT.md",
+          "Marris–Giuggioli global mean Eq. (32); Tejedor–Voituriez–Bénichou Eqs. (7)–(8)"
+        ]
+      },
+      "rationale": "The contribution supported here is the continuous circle's exact mean and sharp positivity boundary for a direction-dependent transparent detector. Telegraph transport, partial absorption, and persistence optimization have clear precedents. The closest discrete framework classifies internal-state-dependent traps and provides first-passage tools, but the inspected formulas do not give the stated continuous mean or threshold without evaluating a specific periodic two-state trap limit. The nearest indexed continuous threshold uses reflected failures and a fixed interior start.",
+      "residual_risks": [
+        "No priority guarantee; a prior evaluated telegraph-limit specialization or a broader boundary-transition theory with this same asymmetry may provide a closer match. The inspected discrete framework is a genuine prior method for this direction-dependent trapping problem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantive discrete structural overlap; continuous mean and exact threshold not supplied by the inspected formulas",
+          "evidence": "Includes periodic propagators, state-specific partial absorption probabilities, formulas for two target states, and time derivatives for first moments.",
+          "identifier_or_url": "https://arxiv.org/abs/2404.13360v2",
+          "material_read": "Eqs. (1), (6), (21), (24), (27), (29)–(32), supplementary (S49), main PDF pp. 3–4 and 11–16",
+          "method": "Open PDF bounded passages",
+          "title": "Persistent and anti-persistent motion in bounded and unbounded space: Resolution of the first-passage problem",
+          "trigger": "Closest potentially encompassing periodic/directional imperfect-target framework"
+        },
+        {
+          "assessment": "Ambient process only in inspected text",
+          "evidence": "Derives distributions and semigroup of the unreactive circle process.",
+          "identifier_or_url": "https://arxiv.org/abs/2011.03025v2",
+          "material_read": "PDF p. 1, abstract and model overview",
+          "method": "Open PDF bounded passage",
+          "title": "Telegraph Random Evolutions on a Circle",
+          "trigger": "Same ambient stochastic process"
+        },
+        {
+          "assessment": "Different survival boundary",
+          "evidence": "Endpoint survivors reflect; the mean concerns a confined interval.",
+          "identifier_or_url": "https://arxiv.org/abs/1601.04845v1",
+          "material_read": "PDF pp. 1–2 and Eqs. (18)–(24)",
+          "method": "Open PDF bounded passages",
+          "title": "Run-and-tumble particles, telegrapher's equation and absorption problems with partially reflecting boundaries",
+          "trigger": "Continuous partial capture in one dimension"
+        },
+        {
+          "assessment": "Interval mean-exit formula, not transparent periodic detector",
+          "evidence": "Boundary interactions in the interval are not same-direction continuation to the opposite side of the cut.",
+          "identifier_or_url": "J. Phys. A 56 (2023), L. Angelani",
+          "material_read": "pp. 5–7 and Eq. (47)",
+          "method": "Open full-text bounded passage",
+          "title": "One-dimensional run-and-tumble motions with generic boundary conditions",
+          "trigger": "Possible broader continuous mean-exit theorem"
+        },
+        {
+          "assessment": "Prior optimization with different target and dynamics",
+          "evidence": "Discrete periodic perfect-target search has a nontrivial optimized persistence length.",
+          "identifier_or_url": "https://arxiv.org/abs/1111.1881v2",
+          "material_read": "PDF p. 3, Eqs. (7)–(8) and optimal persistence discussion",
+          "method": "Open PDF bounded passage",
+          "title": "Optimizing persistent random searches",
+          "trigger": "Prior persistence optimization with a periodic target"
+        },
+        {
+          "assessment": "Material qualitative overlap but different transition law",
+          "evidence": "Nonabsorbing impacts reverse velocity. The fixed-start positivity test is Δ<0 and depends on the distance to the more reactive endpoint.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-sharp-non-sticky-tumbling-assisted-capture-in-an-asymmetric-fini--5ff3d150b267",
+          "material_read": "RESULT.md Finding and model assumptions",
+          "method": "Published-record local mirror",
+          "title": "Sharp non-sticky tumbling-assisted capture in an asymmetric finite interval",
+          "trigger": "Strongest indexed asymmetric-reaction threshold overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding, hypotheses and boundary solution",
+        "Marris–Giuggioli partial-absorption framework; Resultary reflecting-interval comparison"
+      ],
+      "rationale": "The result separates a ballistic regime from a tumbling-assisted one for a natural transparent point trap, and identifies the exact balance between directional asymmetry and the reaction probabilities. The optimum and its transition are testable predictions; they show why asymmetry alone does not suffice and why results with reflection cannot automatically be used. This applies throughout the stated range of both reaction probabilities, not only at the illustrative parameter choice.",
+      "residual_risks": [
+        "No conclusion is established for multiple, extended or sticky traps, unequal speed magnitudes, position-dependent switching, or nonuniform initial laws."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

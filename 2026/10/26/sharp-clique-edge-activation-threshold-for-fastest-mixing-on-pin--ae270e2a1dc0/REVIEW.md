@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The global reduction is justified by concavity of the Rayleigh-minimum spectral gap and graph automorphisms. The three invariant Laplacian blocks give all eigenvalues, including both multiplicities required for \(n\ge3,m\ge2\). Normalizing the desired gap to one converts the problem into a strictly convex scalar budget minimization; the critical threshold, explicit weights, all-optima zero-support statement, and strictly improving counterregime follow from that calculation. The included checker reconstructs matrices and performed 1,779 finite supporting tests; the infinite proof is analytical, not based on enumeration.
+## correctness
 
-## Originality — PASS with residual risk
-The closest primary full texts read were the general fastest-mixing Markov-process analysis of Sun–Boyd–Xiao–Diaconis, the connectivity/symmetry analysis of Ghosh–Boyd, and the pineapple adjacency-cospectrality analysis of Topcu–Sorgun–Haemers. They do not give the two-parameter arbitrary-conductance pineapple optimum or the exact all-optimizer clique-support transition. Related exact results for two leaves on distinct clique vertices, a hub-leaf wheel, and leaf coronas have different permissible edge sets and do not imply this claim. An indexed pineapple curvature-distortion result optimizes another graph invariant; only its summary was accessible. Search incompleteness and unidentified specialized prior work remain risks; absence of a matched search hit is not proof of novelty.
+PASS
 
-## Mathematical value — PASS
-This natural network topology balances reinforcing an existing clique against servicing multiple low-degree terminal states. The threshold \(m=\sqrt{n(n-1)/2}\) is a parameter-dependent structural boundary: below it all permitted edge types can be funded optimally, whereas above it an entire class of existing edges is unused by *every* optimum. The formula gives a closed-form spectral-gap benchmark and a precise design decision without numerical semidefinite optimization.
+An independent spectral upper bound uses an embedding with hub at zero. The other n−1 clique vertices have a regular simplex of side one in an orthogonal plane or subspace, of squared circumradius (n−2)/(2(n−1)), translated along an axis to height S_n/(n−1) so every hub edge has length one. Their resultant is S_n along the axis. If m<S_n, put all pendant vertices at the opposite axial unit vector. Otherwise use unit vectors with common axial coordinate −S_n/m and transverse components summing to zero; m>=2 permits this, and the equality case has zero transverse component. All graph edge lengths are at most one, and the centered sum of squared norms is D_{n,m}. Applying the Rayleigh inequality to each centered coordinate gives lambda_2*D_{n,m}<=sum_e w_e times its squared length<=B for every feasible weight vector. For attainability, the two difference spaces have eigenvalues c and a+(n−1)b; the nonzero quotient roots have sum na+(m+1)c and product (n+m)ac. Substitution of the stated active weights gives one quotient root equal to 1, the other greater than 1, and the difference-space constraints, with exact cost D_{n,m}. At and above equality the stated uniform star has unit target gap. If m>=S_n, equality in the embedding bound forces its nonzero centered axial coordinate vector to be a lambda_2 eigenvector. At each non-hub clique vertex, interior clique terms cancel (same axial value); at each leaf there is one term. Because all these axial entries are nonzero and the centered hub entry is zero, every hub edge has weight lambda_2, consuming the budget and forcing the claimed zero weights, including at m=S_n. If m<S_n, omitting all interior clique edges reduces to a star, whose best gap is B/(n+m−1) by averaging, strictly below the optimum. The exhibited active design has every edge positive.
 
-## Scope of the assessment
-The theorem requires \(n\ge3\), \(m\ge2\), nonnegative real edge conductances, and an unweighted sum budget. It does not characterize every nonsymmetric maximizer, handle one pendant leaf, or claim originality from failure of a database search. Independent validation has not been conducted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct contribution is the exact two-parameter optimum and transition at m=sqrt(n(n−1)/2), together with the every-optimizer aggregate support assertion on both sides, not the general fastest-mixing SDP, separator embedding theory or graph definition. The closest general work gives usable prior machinery and structural information on a more restricted large-leaf regime. The closest catalogue records differ in topology, objective or constraints and do not supply this sharp threshold or the explicit active optimum.
+
+## value
+
+PASS
+
+A budgeted diffusion on the canonical clique-with-leaves graph can optimally use less of the available topology. The result tells exactly when interior edges go from necessary in any optimum to forbidden in every optimum, and the explicit penalty relative to a star shows the size of the spectral gain in the active regime. The equality and nonsymmetric cases make the cutoff informative beyond finding a symmetric example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

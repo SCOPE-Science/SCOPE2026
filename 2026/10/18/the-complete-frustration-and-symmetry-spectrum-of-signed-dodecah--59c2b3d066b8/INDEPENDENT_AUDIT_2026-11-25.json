@@ -1,0 +1,160 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:21:22.927252Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The boundary map sends a primal edge to the two incident faces, and is the binary incidence map of the connected dual. Its image is the even masks and its kernel has dimension 30−11=19, exactly the dimension of the contained primal switching-cut space. Thus its fibers are precisely the switching classes, and minimum signature size is minimum dual T-join size. Pairing the odd ends of trails gives the distance-sum lower bound; taking the symmetric difference of shortest paths realizing a pairing gives the upper bound. The full automorphism action on the face masks is that of the dual icosahedron: uniqueness of the spherical embedding of the 3-connected primal identifies the action on faces, and the 20 dual triangles are facial and allow the dual automorphisms to induce primal ones. The bound of 120 follows by specifying the image of a directed edge and an incident triangular face, then propagating across adjacent faces. Independently ran `python3 /workspace/checks/2.py /workspace/source/2026/10/18/the-complete-frustration-and-symmetry-spectrum-of-signed-dodecah--59c2b3d066b8`. A min-plus induction over the 30 distinct edges takes or skips each edge once, tracking minimum size and multiplicity for each syndrome, independently of the uploaded BFS/pairing programs. All 2,048 computed rows agreed with the frozen CSV. The exact histogram was (1,30,315,1058,577,66,1), with all negative-face-weight strata verified and mask 4095 the only one with minimum 6. A separate permutation backtrack found all 120 adjacency automorphisms. Frustration-weighted Burnside gives (1,1,7,20,13,3,1), and the independent maps also verified the 46 frozen representatives and orbit sizes. The full mask has exactly 125 optimal edge subsets; with degree odd at all twelve vertices and total degree twelve, their degrees must all be one. Conversely every perfect matching gives such a subset; the odd facial signs are exactly those of the all-negative primal signing. This is exhaustive for the specified graph only. Both frozen programs, transcript files and CSVs were inspected as evidence; no frozen script was executed or rewritten.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Generalized Petersen maximum-frustration bounds and the exact odd-order result for P_{2m+1,2} do not give a distribution for even GP(10,2); Theorem 3.1's coprimality hypothesis does not hold for (10,2).",
+          "The six switching types and frustration table in Zaslavsky's theorem are for the ten-vertex Petersen graph, not the twenty-vertex dodecahedron.",
+          "A Hamilton cycle of length 12 in the dual already gives every even syndrome a T-join using at most six edges, since the complementary cycle T-joins partition the cycle. This covers the maximum lower/upper value with the full-mask degree bound, not the class census."
+        ],
+        "reasoning": "Statements about the worst weight or about a different graph do not imply the exact refinements. General switching and dual T-join methods require an evaluated graph-specific step.",
+        "searches": [
+          "Sehrawat–Bhattacharjya arXiv:1905.05548, §3 Theorems 3.1 and 3.3 and §4",
+          "Zaslavsky arXiv:1303.3347, Theorem 7.2 and Table 7.1",
+          "Solé–Zaslavsky Lemmas 1–2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md, both verification scripts, both CSV certificates and frozen output transcripts",
+        "Solé–Zaslavsky (1994), Lemmas 1–2",
+        "arXiv:1905.05548",
+        "arXiv:1303.3347",
+        "5b865b296968",
+        "98a001e14839",
+        "1922f6e21101",
+        "030a231d3690"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "One all-odd syndrome has frustration six from the dual degree bound and a perfect matching. Equating its six-edge representatives with those matchings imports the known 125 count, but neither the covering radius nor 125 excludes another syndrome with leader weight six.",
+          "For a boundary size of two, pair distances suffice; larger masks require a minimum over pairings or a syndrome recurrence. Knowing ordinary even-subset orbit sizes or full-mask matching counts does not by itself compute those minima."
+        ],
+        "reasoning": "Strip the known maximum and count, and the routine correspondence, from the originality assessment. The verified profile, orbit refinement, and uniqueness are material distinct content on presently inspected evidence.",
+        "searches": [
+          "Solé–Zaslavsky, frustration as minimum coset weight and worst frustration as covering radius",
+          "5b865b296968, exact icosahedral matching count",
+          "Sehrawat–Bhattacharjya arXiv:1905.05548, generalized Petersen bounds"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For the dodecahedral cut code, a coset corresponds to a face syndrome and its leader weight equals frustration. A full coset-leader weight census would therefore be equivalent to the labeled class histogram.",
+          "On the dual, the same problem is the minimum T-join profile on even subsets of the icosahedral vertices, modulo the full icosahedral group for the orbit count.",
+          "The inspected general cut-code lemmas identify these invariants but provide no dodecahedron-specific weight table in those passages."
+        ],
+        "reasoning": "Parity and planar duality expose genuine alternate formulations; neither simply a perfect-matching count nor a bare orbit count determines the minimum across every syndrome.",
+        "searches": [
+          "Resultary comparisons under signed dodecahedron, frustration spectrum, dual icosahedral matchings and switching",
+          "Solé–Zaslavsky, A Coding Approach to Signed Graphs, Lemmas 1–2, printed pp. 546–547",
+          "dodecahedron signed graph coset leader distribution cut code dodecahedral frustration index switching 1058 577 46"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "5b865b296968 explicitly computes 125 icosahedral perfect matchings, and 98a001e14839 uses the same count in a flip-graph problem. Credit the exact known count rather than interpreting it as 125 switching classes.",
+          "Same-day 1922f6e21101 tabulates anti-forcing witnesses of the 36 primal dodecahedral perfect matchings in two orbits. 030a231d3690 is about rational homology of a perfect-matching complex.",
+          "The searches surfaced no inspected table of dodecahedral coset-leader weights or even dual subset orbits graded by minimum T-join size. An icosahedral permutation-table paper is a plausible partial source, but the located primary text could not be read."
+        ],
+        "reasoning": "These are verified exact overlaps in adjacent, distinguishable invariants. The same-day comparison is rejected as equivalent because it uses primal matchings and anti-forcing, not because of the date. Bare vertex permutation or cycle data could give the 46 total by Burnside, but not the frustration partition without more information.",
+        "searches": [
+          "Resultary: dodecahedral switching classes and frustration, icosahedral dual matchings, and exact invariant comparisons",
+          "dodecahedron signed graph coset leader distribution cut code dodecahedral frustration index switching 1058 577 46",
+          "icosahedron vertex subsets enumeration orbits 46 even icosahedral symmetry independent distinct colorings perfect matchings 125 icosahedral graph"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the exact dodecahedral frustration distribution and negative-face refinement, its full-symmetry refinement by frustration, and the resulting unique maximizing switching class. Credit prior switching/cut-code theory, the maximum six, ordinary symmetry enumeration machinery, and independently available icosahedral perfect-matching count 125; none is an independent originality basis here. The minima-to-perfect-matchings identification is the equality case in the T-join degree bound, not a new counting technique. No compared result gives the retained frustration-graded census or mechanically identifies the unique deepest coset without the graph-specific calculation. This is not a priority certificate.",
+      "residual_risks": [
+        "A published but differently indexed dodecahedral coset-leader table or a dual even-subset table annotated by minimum T-join weight could overlap; none was verified.",
+        "The icosahedral point-group paper, sign-symmetry thesis and recent computational paper were not read in primary full text. Their access status is not negative evidence.",
+        "The maximum and 125 matching count are not billed as distinct. The comparison is scoped to actual inspected statements and makes no claim about historical discovery priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_FRAMEWORK_NOT_GRAPH_TABLE_IN_PASSAGES_READ",
+          "evidence": "Switching corresponds to cut-code cosets, with frustration equal to coset minimum weight and worst frustration equal to covering radius.",
+          "identifier_or_url": "https://people.math.binghamton.edu/zaslav/Tpapers/cas.sidma1994.pdf",
+          "material_read": "Lemmas 1–2, printed pp. 546–547",
+          "method": "Lawful author-hosted primary PDF passages",
+          "title": "A Coding Approach to Signed Graphs",
+          "trigger": "Exact alternate cut-code formulation"
+        },
+        {
+          "assessment": "MAXIMUM_BOUND_OR_DIFFERENT_PARAMETER_RANGE",
+          "evidence": "The coprime hypothesis and the exact odd-order subclass do not cover this even noncoprime graph's census; applicable bounds do not characterize all switching classes.",
+          "identifier_or_url": "https://arxiv.org/pdf/1905.05548",
+          "material_read": "Theorems 3.1 (p. 6), 3.3 (p. 10) and relevant §4 bound",
+          "method": "Lawful OA primary PDF passages",
+          "title": "Maximum Frustration in Signed Generalized Petersen Graphs",
+          "trigger": "Family contains the graph GP(10,2)"
+        },
+        {
+          "assessment": "DIFFERENT_GRAPH",
+          "evidence": "Six switching-isomorphism types with frustration values for the ordinary Petersen graph only.",
+          "identifier_or_url": "https://arxiv.org/pdf/1303.3347",
+          "material_read": "Theorem 7.2 and Table 7.1 (p. 9)",
+          "method": "Lawful OA primary PDF passages",
+          "title": "Six Signed Petersen Graphs, and their Automorphisms",
+          "trigger": "Comparable exact signing classification by symmetry"
+        },
+        {
+          "assessment": "COVERS_125_COUNT_ONLY",
+          "evidence": "Counts 125 perfect matchings in its matching-complex calculation, not minimum signed-edge counts over arbitrary primal switching classes.",
+          "identifier_or_url": "2026/10/25/SCOPE-the-icosahedral-perfect-matching-complex-is-bigvee-43-s-2-vee-bi--5b865b296968",
+          "material_read": "RESULT.md near offset 1900",
+          "method": "Published corpus mirror, primary RESULT.md",
+          "title": "The icosahedral perfect matching complex",
+          "trigger": "Exact count for the dual graph"
+        },
+        {
+          "assessment": "DIFFERENT_OBJECT_AND_STATISTIC",
+          "evidence": "36 perfect matchings in two symmetry orbits on the primal graph, with anti-forcing witness constraints.",
+          "identifier_or_url": "2026/10/18/SCOPE-exact-anti-forcing-witness-profiles-and-the-edge-disjoint-deleti--1922f6e21101",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Published corpus mirror, primary RESULT.md",
+          "title": "Exact anti-forcing witness profiles and the edge-disjoint deletion structure",
+          "trigger": "Distinct same-day exact enumerative dodecahedron record"
+        },
+        {
+          "assessment": "ACCESS_LIMITED",
+          "evidence": "The listing mentions vertex permutations of the point groups. No claim is made about the inaccessible paper's full contents.",
+          "identifier_or_url": "https://www.researchgate.net/publication/244627512_The_icosahedral_point_groups",
+          "material_read": "Bibliographic search listing only; OA requests returned HTTP 403",
+          "method": "Lawful direct and fallback requests; no primary passage obtained",
+          "title": "The icosahedral point groups",
+          "trigger": "Vertex permutation data might give an ungraded orbit count"
+        },
+        {
+          "assessment": "ACCESS_LIMITED",
+          "evidence": "The listing mentions complete multipartite graphs; it does not suffice to exclude other graphs from the thesis.",
+          "identifier_or_url": "https://scholarsjunction.msstate.edu/cgi/viewcontent.cgi?article=6995&context=td",
+          "material_read": "Bibliographic search listing only; primary file requests returned HTTP 403",
+          "method": "Lawful direct and alternate retrieval attempt",
+          "title": "Sign-symmetry and frustration index in signed graphs",
+          "trigger": "Thesis on related switching and frustration invariants"
+        },
+        {
+          "assessment": "ACCESS_LIMITED",
+          "evidence": "No benchmark appendix could be read; the listing does not establish any specific table for this graph.",
+          "identifier_or_url": "https://www.sciencedirect.com/science/article/pii/S1877750326001997",
+          "material_read": "Bibliographic search listing only; primary requests returned HTTP 403",
+          "method": "Lawful direct and alternate retrieval attempt",
+          "title": "Scaling frustration index and balanced state discovery for signed networks",
+          "trigger": "Recent computational work might include benchmark tables"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is an exhaustive, frustration-graded switching-isomorphism classification for a canonical Platonic graph with its natural full symmetry group, not an arbitrary bounded slice. One needs the precise counts, rather than the old covering radius, to benchmark algorithms for minimum signatures, know how common near-maximal behavior is, or select representatives of all maximally frustrated classes up to symmetry. Separating face parity weight from optimum edge count also records when the trivial half-weight lower bound is not attained. The graph-specific, symmetry-graded data and unique extremal class are the useful retained facts, rather than the already-known maximum or a recomputation of the dual matching count. No generalization to other signed graphs is claimed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

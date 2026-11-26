@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The proof explicitly defines the killed kernels, synchronized \(n^{-1/2}\) and \(n^{-1}\) perturbations, the Doob transformation, primitive-block matrices, the centering criterion and the second-order exponent. The stationary response row is uniquely defined on the zero-mass subspace. A fixed-block total-variation contraction improves the normalized distribution to an \(O(n^{-1})\) residual after the \(n^{-1/2}\) response term. The scalar multipliers consequently equal \(1+\beta/n+O(n^{-3/2})\); summable errors establish the positive power-law constant. Exact rational verification reproduces the two sign-opposed exponents, and finite numerical slopes agree. Finite tests are not substituted for an asymptotic proof.
+PASS
 
-## Originality
+The absolute-time phase is fixed along each residue-aligned d-step product. The Doob similarity gives a primitive stochastic limit P and the stated two orders, with the ordered two-A products at order T^-1. The fixed-support blocks need not individually be entrywise positive, but some fixed power of their limiting P is, and the corresponding products of normalized row maps are eventually uniformly contractive in total variation: their derivatives on zero-mass rows tend uniformly to that of the limiting fixed-block stochastic map. The trial probability row pi+T^-1/2 w is eventually positive and has one-block defect O(T^-1) because of centering, the Poisson equation and the O(T^-3/2) time shift; iterating the contraction gives an O(T^-1) row deviation. Its zero mass then produces multiplier 1+(pi D1+wC1)/T+O(T^-3/2), whose log-error tail is O(T^-1/2); the harmonic log has coefficient 1/d. The leftover s steps converge after Doob scaling to Q^s on a positive terminal vector, so the constants are strictly positive and the same error order holds. Centering is only required for the specified class/phase, and the Green series converges geometrically on zero-mass rows. Independent replay, `python3 /workspace/review-evidence/reproduce.py 3`, extracts the second-order coefficients from exact 2x2 characteristic polynomials, giving beta=-3/80 and 3/16 (swapped at odd phase), in agreement with the archived check; this verifies the example, not the infinite-time law. The killing factors remain positive and substochastic for every integer n>=1.
 
-PASS, provisional. Kohki Iba's 2026 complete arXiv manuscript assumes a phase-independent \(1/n\) perturbation, with a \(1/n^2\) correction, and derives a common power exponent; this does not imply the stated balanced periodic \(1/\sqrt n\) second-order formula. Champagnat–Villemonais examine time-homogeneous periodic killed chains, not decaying timed perturbations. Searches for the Markov specialization, balanced critical exponents, initial-class dependence and a resolvent/Green response found no direct corresponding record. Classical general asymptotic-difference-equation theory of Benzaid and Lutz could contain a broader representation that simplifies some steps; its abstract was inspected but the complete text was inaccessible, so priority remains provisional. A previous mathematical finding about static hazards has distinct hypotheses and conclusions.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. The result answers a natural boundary question in the asymptotics of surviving finite-state processes: what replaces the first-order stationary exponent when the leading perturbation decays only as \(n^{-1/2}\) but its block average cancels? The answer includes an explicit Green-operator correlation, not a bare second-order average. The four-state example demonstrates that equally decaying and first-order-balanced killing environments can produce opposite polynomial survival corrections depending on the initial cyclic class; an ordinary exponential survival rate conceals that distinction.
+The supported distinction is the centered periodic finite killed-chain result with explicit class/phase-dependent exponent, residue error bound and a worked same-chain opposite-sign example. The local response coefficient is a standard simple-eigenvalue perturbation coefficient, and the scalar quadratic accumulation and appearance of critical-scale autocorrelation are not independently new. The strongest inspected statements do not establish this class-sensitive result or example. Priority against general discrete asymptotic integration is not settled.
 
-## Closest work and residual risks
+## value
 
-The underlying Perron transform, primitive-block contraction and matrix Poisson equation are standard tools. The 2026 Iba source is closest in stochastic objects, and the 1987 Benzaid–Lutz source is closest as potentially broader abstract linear-system asymptotic theory. This review does not establish priority over every abstract version of the latter. The current proof and exact matrix identities are self-contained, and the result does not claim new general Perron–Frobenius theory.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+At the centered critical scale, a first-order stationary average predicts no class distinction and the exponential survival cost is the same. The two exact powers prove that a single killed chain can nevertheless exhibit increasingly unequal survival across initial cyclic classes, while the response formula specifies when second-order averaging alone fails. This is a structural distinction for a natural perturbative boundary, not a numerical extrapolation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

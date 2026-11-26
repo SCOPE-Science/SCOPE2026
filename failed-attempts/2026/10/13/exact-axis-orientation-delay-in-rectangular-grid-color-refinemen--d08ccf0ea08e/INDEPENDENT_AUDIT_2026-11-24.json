@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:41:18.461774Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Coordinate swapping pairs the quadrant walks from the two roots through length m−2 without any truncation. Their near-side defects cancel, while the only far-side contribution at length m−2 is the unique straight walk from u to the opposite short side, interpreted as the empty walk when m=2. Therefore the difference of the defect moments is exactly +1 at that length and zero earlier. Round k+1 determines the length-k defect moment from the recursion of neighbour colours. The fixed-graph unary C² rank correspondence holds: to count neighbours and non-neighbours of lower-rank unary types one uses the previous colours, adjacency/equality and the global type totals. This proves the first split, rank and stabilization bound. An independent script at /workspace/audit-evidence/5/grid.py checked all 210 pairs 2≤m<n≤22, not just the 204 cases in the attached script (whose outer loop stops at m=18). That limited coverage does not affect the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The former gives the exact stable orbit partition and depth max{m−1, floor((n−1)/2)} when m<n, and also treats squares. Its proof provides early walk moments through order m−1 for these grids.",
+          "Kiefer–McKay's abstract concerns general extremal depths, not a grid-pair calculation."
+        ],
+        "reasoning": "The exact stabilization result strictly covers the claimed lower bound; the earlier proof, not the depth formula alone, covers the specific pair.",
+        "searches": [
+          "SCOPE 19dfa9d1dbd4, Finding and proof §§1–2, 4–5",
+          "arXiv:2005.10182v1"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE 19dfa9d1dbd4",
+        "arXiv:1407.3175v2",
+        "DOI:10.1609/aaai.v28i1.8992",
+        "arXiv:2005.10182v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For u−v the prior logarithmic exponential-walk series is F_(m−2)−F_(m−1)+F_(n−1)−F_(n−2) modulo z^m, with F_a beginning −z^(a+1)/(a+1)!.",
+          "Since n>m and both original series have constant 1, their first difference is −z^(m−1)/(m−1)!, i.e. Δ(A^(m−1)1)=−1 and all earlier Δ vanish."
+        ],
+        "reasoning": "Use b=4·1−A1, so Δ(A^k b)=4Δ(A^k1)−Δ(A^(k+1)1); the prior series directly gives the exact +1. The prior also proves these walk counts observable in the corresponding refinement rounds and the explicit unfolding equality through m−2. Therefore the entire first split and rank follow without a new grid argument, including m=2.",
+        "searches": [
+          "SCOPE 19dfa9d1dbd4 equation (2), mirrored RESULT.md offsets 1380–3496, and pointed comparison at 7400; arXiv:1407.3175v2 §4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "SCOPE 19dfa9d1dbd4 explicitly pairs the rooted unfoldings at (1,0) and (0,1) through m−2.",
+          "Krebs–Verbitsky, Lemmas 2.6 and 4.1, establish the equivalences to rounds and rank-bounded unary counting logic."
+        ],
+        "reasoning": "Under the same uniform initialization and rank convention, the pointed unary-rank statement is an equivalent readout of the first round separation, not a new claim.",
+        "searches": [
+          "Resultary: exact colour-refinement depth and first pointed axis split in rectangular grids",
+          "arXiv:1407.3175v2 §4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Resultary match is an exact theorem including its walk series, not merely its finite grid checks. The AAAI grid1000 table is an experimental algorithm benchmark."
+        ],
+        "reasoning": "Finite benchmark tables do not decide the all-parameter pointed statement. The exact catalogue theorem and proof do.",
+        "searches": [
+          "Resultary rectangular-grid orbit/refinement records; SCOPE 19dfa9d1dbd4 verification section",
+          "Kersting et al., Power Iterated Color Refinement, p. 5"
+        ]
+      },
+      "rationale": "The exact same pointed result, including the first defect difference and least unary rank, follows directly from actual passages of the earlier Resultary rectangular-grid theorem and the known logic correspondence. This is demonstrated coverage, not an inference from the global depth's title or a literature-access limitation.",
+      "residual_risks": [
+        "The bounded literature search does not establish earliest attribution. Coverage by the inspected Resultary proof is enough for this decision."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers all material claims by exact implication",
+          "evidence": "General expansion from the four side distances fixes the first walk difference with factorial coefficient; the explicit comparison identifies the same pointed pair and depth.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-exact-colour-refinement-depth-of-rectangular-grid-graphs--19dfa9d1dbd4/RESULT.md",
+          "material_read": "Finding; proof §§1–2, equation (2), §4 and pointed lower-bound paragraph; Verification",
+          "method": "Local Resultary mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact colour-refinement depth of rectangular grid graphs",
+          "trigger": "Same graph, initialization, threshold and oriented pair"
+        },
+        {
+          "assessment": "General correspondences",
+          "evidence": "Gives the cover/colour equality and rank-bounded counting description of a colour.",
+          "identifier_or_url": "https://arxiv.org/html/1407.3175v2",
+          "material_read": "Lemma 2.6 and §4 Lemma 4.1, OA offsets 27454 and 131125",
+          "method": "Primary HTML targeted passages",
+          "title": "Universal covers, color refinement, and two-variable counting logic: Lower bounds for the depth",
+          "trigger": "Unfolding and least quantifier-rank interpretation"
+        },
+        {
+          "assessment": "Benchmark rather than exact formula",
+          "evidence": "The table gives algorithmic measurements for an instance, not the pointed first separation in all rectangles.",
+          "identifier_or_url": "DOI:10.1609/aaai.v28i1.8992",
+          "material_read": "p. 5 grid1000 benchmark, OA offset 29655",
+          "method": "Primary OA PDF targeted passage",
+          "title": "Power Iterated Color Refinement",
+          "trigger": "Grid comparison in colour-refinement literature"
+        },
+        {
+          "assessment": "General worst-case context only as inspected",
+          "evidence": "The stated bounds concern general graphs and are not the basis for the specific coverage decision.",
+          "identifier_or_url": "https://arxiv.org/html/2005.10182v1",
+          "material_read": "Abstract, OA offset 308",
+          "method": "Primary HTML targeted passage",
+          "title": "The Iteration Number of Colour Refinement",
+          "trigger": "General depth results"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The pointed locality effect is well motivated, but the stated deficit identity is a linear rewrite of the exact earlier walk coefficient, and the two logical and algorithmic consequences add no independent invariant. The record leaves no distinct valuable remainder to repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

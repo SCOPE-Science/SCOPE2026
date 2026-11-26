@@ -1,0 +1,151 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:47:15.054490Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–58",
+        "Frozen VERIFICATION.md, prism_parity_verify.py and prism_parity_verify.out (inspected, not executed)"
+      ],
+      "rationale": "On the two cyclic layers over F2[z,z^-1]/(z^n-1), the three-neighbor update becomes upper triangular with equal diagonal B=z^-1(z^2+z+1) and upper entry 1 after the invertible change (u,v) to (u,u+v). The cubic-root factor divides z^n-1 exactly for 3|n, then with multiplicity e=2^v2(n) by squarefreeness of the odd part. Its two-row primary summand has binary dimension 4e and is nilpotent; the complement is invertible and supplies all periodic configurations. On the primary summand the even powers are B^t I. For odd t, the kernel equations are B^t v=0 and B^(t-1)(Bu+v)=0. With w=Bu+v these become B^(t-1)w=0 and B^(t+1)u=0, so the kernel dimensions are exactly the two truncated valuations in the result, including t=1 and powers where entries vanish. In particular e=1 gives dimensions 0,2,4, while even e gives 4 min(t,e). Multiplying by the count on the complementary primary factors and subtracting cumulative counts proves the shells. On dyadic rims z^n-1=(z+1)^n, the uncoupled adjacency A=z^-1(z+1)^2 has A^(n/2)=0. Here F^(2^j)-I=A^(2^j)I for j>=1, giving saturation at j=s-1 and the stated fixed-space dimensions at smaller powers. For j=0 the same two-row substitution uses diagonal A and gives dim ker A^2=4. Consecutive differences divided by the corresponding primitive periods prove the full dyadic census, including s=2.",
+      "residual_risks": [
+        "The 87,360-case enumeration directly asserts entry-time histograms and prints period histograms. Separate rank checks supply finite dyadic fixed-space comparisons; the general proof, not the printed output, establishes the infinite conclusions."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The earlier prism record's fixed-space degree D_(n,m) uses deg gcd(z^n+1,H_m^2) for odd m and twice deg gcd(z^n+1,H_m) for even m, where H_m=(z²+z+1)^m+z^m. It provides primitive-orbit counts at every m by Möbius inversion.",
+          "The cited additive-automata papers address polynomial methods and infinite-space temporal or jointly periodic points; their inspected passages are not themselves the finite prism census."
+        ],
+        "reasoning": "Unrestricted n,m in the earlier prism formula dominate the frozen dyadic-period scope. This coverage is stronger than relying on a general polynomial algorithm or on infinite-CA literature.",
+        "searches": [
+          "98fe0217a715 proof §4; Cordovil–Dilão–Noronha da Costa Theorems 2.3 and 2.5; Ward Theorem 2 and Corollary 2; Boyle–Lee §§2–3; Dennunzio–Di Lena–Margara Proposition 4.7"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 98fe0217a715 and 884f1b68d250",
+        "DOI:10.1007/BF02187700",
+        "DOI:10.3390/e2030142",
+        "arXiv:math/0607178",
+        "arXiv:1208.2770"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For n=2^s, z^n+1=(z+1)^n. H_1=(z+1)^2, and H_(2^j)=H_1^(2^j). Thus the earlier gcd gives D_(n,1)=4, D_(n,2^j)=min(2n,2^(j+2)) for j>=1 and fixes all states by 2^(s-1)."
+        ],
+        "reasoning": "The only possible periods are the divisors of 2^(s-1). Subtracting consecutive fixed populations and dividing by 2^j yields exactly the frozen primitive orbit formula. The uncoupled comparison is immediate from A=z^-1(z+1)^2 on the same dyadic ring, and does not rescue a distinct result.",
+        "searches": [
+          "Direct comparison of the frozen Finding and 98fe0217a715 proof §§2–4 (local mirror, offset 0–6625)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "98fe0217a715 gives F(x)_(i,j)=x_(i-1,j)+x_(i+1,j)+x_(i,1-j) mod 2.",
+          "884f1b68d250 uses cubic anti-conformist language but defines outputs 0,1,0,1 according to the number of neighboring ones, explicitly the same XOR rule."
+        ],
+        "reasoning": "These are identical labelled state spaces, operators and orbit notions for the prism; the alternative dynamical wording does not make a second rule. One-dimensional infinite shifts in the cited literature are not identical to this finite two-track restriction.",
+        "searches": [
+          "Local Resultary search for prism parity, circular ladder mod-three reversibility and dyadic orbit census",
+          "98fe0217a715 and 884f1b68d250, Findings and Assumptions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "For k=2^v2(n) and 3|n, 98fe0217a715 tabulates cumulative count 2^(2n-4k+delta_t), with delta_t=2 min(t,2) if k=1, and 4 min(t,k) otherwise. 884f1b68d250 supplies the dyadic fixed-space and primitive counts directly."
+        ],
+        "reasoning": "Immediate consecutive differences give P,3P,12P for k=1 and P followed by 15P·16^(t-1) for k>=2. Restating the exact cumulative census as shells does not supply a new invariant.",
+        "searches": [
+          "98fe0217a715 Finding, Full entry-time census; 884f1b68d250 Finding, dyadic counts"
+        ]
+      },
+      "rationale": "Shown covered by distinct earlier Resultary 98fe0217a715, which has the identical labelled prism, neighbor rule and normalization. It states the reversibility criterion, recurrent dimension, transient maximum, cumulative counts at every entry time, and a stronger fixed/primitive-period formula valid for all n and temporal exponents. The present shell counts and dyadic census are direct evaluations of those formulas. The same-day 884f1b68d250 also gives overlapping results under the alias cubic anti-conformist dynamics, but no inferred priority from that date is needed for this decision.",
+      "residual_risks": [
+        "Original full text was not inspected for Martin–Odlyzko–Wolfram, Chin–Cortzen–Goldman or Ganguly–Sikdar–Pal Chaudhuri: attempted access led respectively to a redirect, a landing page only or an unsuccessful DOI lookup. These are historical-access limitations, not the basis for the concrete prior-coverage failure."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same rule and exact entry distribution; stronger all-rim, all-exponent temporal census.",
+          "evidence": [
+            "Cumulative 2^(2n-4k+delta_t), explicit odd-k=1 exception, gcd/Möbius formulas with no restrictions on temporal exponent."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-modulo-three-reversibility-and-a-two-adic-transient-census-for-p--98fe0217a715/RESULT.md",
+          "material_read": "Finding, assumptions, proof §§1–4, offset 0–6625",
+          "method": "Local Resultary mirror",
+          "title": "Modulo-three reversibility and a two-adic transient census for parity dynamics on circular prisms",
+          "trigger": "Same model and an apparent exact prior census"
+        },
+        {
+          "assessment": "Same rule, recurrence, sharp entry-time bound and dyadic census; not a full shell statement. No priority order inferred from its date.",
+          "evidence": [
+            "The local three-neighbor table 0,1,0,1 equals XOR, with the same circular prism and dyadic period counts."
+          ],
+          "identifier_or_url": "884f1b68d250",
+          "material_read": "Finding and Assumptions, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Three divisibility and exact dyadic orbit census in cubic anti-conformist dynamics",
+          "trigger": "Same-day potential equivalence under other rule terminology"
+        },
+        {
+          "assessment": "Inspected statements concern one-dimensional infinite binary additive CA, not a stated prism shell census.",
+          "evidence": [
+            "The temporal periods and counts are developed for an infinite-lattice additive rule."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/BF02187700",
+          "material_read": "Printed pp. 279–280, Theorems 2.3 and 2.5",
+          "method": "OA publisher PDF passage inspection",
+          "title": "Periodic Orbits for Additive Cellular Automata",
+          "trigger": "Cited algebraic periodic-orbit precedent"
+        },
+        {
+          "assessment": "Periodic-point machinery, not a prism entry-time statement in these passages.",
+          "evidence": [
+            "Fixed-point/periodic-point formulas for S-integer systems and one-dimensional additive CA."
+          ],
+          "identifier_or_url": "https://doi.org/10.3390/e2030142",
+          "material_read": "Printed pp. 152–154, Theorem 2 and Corollary 2",
+          "method": "OA full-text passage inspection",
+          "title": "Additive Cellular Automata and Volume Growth",
+          "trigger": "General periodic-point formula precedent"
+        },
+        {
+          "assessment": "Inspected asymptotic jointly periodic results are adjacent rather than the exact prism formulas.",
+          "evidence": [
+            "Section 2 points to period and preperiod analysis at fixed spatial period; Proposition 3.4 is a growth result."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0607178",
+          "material_read": "Printed pp. 5–7, §§2–3 including Proposition 3.4 and Martin–Odlyzko–Wolfram discussion",
+          "method": "OA full-text passage inspection",
+          "title": "Jointly Periodic Points in Cellular Automata",
+          "trigger": "Joint shift and temporal periodicity could cover finite spatial restrictions"
+        },
+        {
+          "assessment": "Topological density/emptiness on an infinite shift, not the finite labelled count in the inspected statements.",
+          "evidence": [
+            "Proposition 4.7 concerns strictly temporally periodic points of additive dynamics on an infinite lattice."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1208.2770",
+          "material_read": "Printed p. 228 and p. 233, Proposition 4.7",
+          "method": "OA full-text passage inspection",
+          "title": "Strictly Temporally Periodic Points in Cellular Automata",
+          "trigger": "Frozen cited precedent on temporal periodicity"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–22 and 54–58",
+        "Resultary 98fe0217a715 Finding and proof §§2–4"
+      ],
+      "rationale": "Exact reversibility, entry shells and orbit counts of this natural finite system would be useful invariants if not already available. The full population data can already be read from the earlier cumulative and stronger temporal census through arithmetic differences and specializations, and the ungirded-rim contrast is immediate nilpotence of the scalar cyclic adjacency. This package has no genuinely distinct scientific remainder; the more explicit dyadic expressions may have expository use.",
+      "residual_risks": [
+        "The scientific value assessment concerns the incremental frozen contribution, not the underlying prism question or the correctness of its formulas."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

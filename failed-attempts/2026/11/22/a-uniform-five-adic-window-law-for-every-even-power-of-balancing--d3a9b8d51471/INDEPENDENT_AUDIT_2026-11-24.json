@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:15:30.295174Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For M=[[6,−1],[1,0]], M³ is [[204,−35],[35,−6]]=−I modulo 5. Fifth powering inductively gives M^(3·5^r)=−I+5^(r+1)A_r with A_r integral. For the five offsets j=0,…,4, the even power eliminates the sign, the quadratic errors vanish modulo 5^(r+2) even for r=0, and the linear term disappears on summation since ∑j=10. Thus each 3·5^(r+1) block is five times the preceding block modulo 5^(r+2). Its base residue is 2 from the word (0,1,1), so concatenation gives 2k/3 modulo 5^(ν₅(k)+1) on every start, without dividing by the exponent. For k=1 or 2 modulo 3 the possible window residues differ by one; at least one is a unit. These arguments cover the entire positive-even exponent domain and the infinite gcd, only at prime five. The supporting recurrence order follows by conjugation-invariance of the monic product over the d+1 algebraic-integer Binet roots. Independent rolling-modular replay: /workspace/review-evidence/replay.py 2, output 2.txt; 22,981 windows, including large powers of five in the length and exponents divisible by five. This corroborates but does not prove the all-parameter statement.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sanna treats the valuation of a single term: for B_n the rank of apparition of 5 is 3, and for positive n divisible by 3 the valuation is 1+ν₅(n), otherwise zero.",
+          "The rank-four all-power work controls 17-divisibility of the gcd, not 5-adic block sums. The Fibonacci record uses a related matrix lift for different powered terms and different residues.",
+          "The Lucas-balancing proof says that the geometric-series quotient for a principal unit is 5^s times a principal unit congruent to one modulo 5; this reason imposes no bound on the exponent of γ."
+        ],
+        "reasoning": "Term valuations and the 17-result are not dominating statements. The decisive broader mechanism is the principal-unit averaging exposed in the closest five-adic block proof.",
+        "searches": [
+          "Sanna, The p-Adic Valuation of Lucas Sequences, Corollary 1.7",
+          "Resultary 83f377b1571c",
+          "Resultary 15fb03885e39",
+          "Resultary a16d5bf57f16"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 15fb03885e39",
+        "Resultary dea4e87b5cd7",
+        "Resultary 9976f1178eb2",
+        "Resultary 83f377b1571c",
+        "Resultary a16d5bf57f16",
+        "arXiv:2301.05758",
+        "arXiv:2204.12626",
+        "Sanna 2016, Theorem 1.5 and Corollary 1.7"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The geometric-sum step is displayed for γ^j with j=±2,±4, but its given proof takes only q=γ^j∈1+5𝒪 and so applies verbatim for every integer j; j=0 gives the constant sum exactly. By linearity each monomial of ((α^r x−α^(−r)x^(−1))/(4√2))^d averages to 5^s times its value at 1 modulo 5^(s+1). Thus the sum over the three residue classes in any 3·5^s block is 5^s(0^d+1^d+6^d)≡2·5^s. Splitting k into these blocks gives the exact assigned residue.",
+          "The same source's adjacent-window subtraction says that universal vanishing modulo 5 would make k a period. The powered balancing residue word is (0,1,1), so this requires 3|k."
+        ],
+        "reasoning": "This is a direct extension of the exact averaging calculation already supplied for the same α and γ and the same three residue classes. Changing the Laurent polynomial and substituting its three initial values does not require a new substantive theorem or estimate.",
+        "searches": [
+          "Resultary 15fb03885e39, RESULT.md, block-sum paragraph and adjacent-window argument"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "15fb03885e39 uses α=3+2√2, γ=−α³∈1+5ℤ₅[√2], and explicitly writes B_r=(α^r−α^(−r))/(4√2), with B_0=0, B_1=1, B_2=6.",
+          "For an even exponent the sign (−1)^t drops out, so B_(3t+r)^d is a finite Laurent polynomial in γ^t over the same ring, with value B_r^d at 1. It is the same principal-unit averaging problem, with the Binet minus sign rather than the plus sign in C_n and a different polynomial degree."
+        ],
+        "reasoning": "There is a direct reduction via the proof's Laurent-polynomial representation, not an equality between the quartic C_n gcd and the B_n^d gcd.",
+        "searches": [
+          "Resultary: five-adic valuation for balancing and Lucas-balancing power windows",
+          "Resultary 15fb03885e39, RESULT.md Proof, offset 1160 onward",
+          "arXiv:2301.05758 §6.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The even-k and odd-k balancing-square records give gcd(k,B_k)/2 and gcd(k,B_k), respectively. With the term valuation this already gives the full five-primary gcd result for d=2.",
+          "The quartic Lucas-balancing catalogue result gives block residue 3·5^s and a distinct gcd valuation when 5 divides k but 3 does not; it is not a tabulation of the assigned quantities."
+        ],
+        "reasoning": "The exact square gcd data give only a slice. The all-even-power overlap is by mathematical implication from a proof ingredient, not by matching the catalogue numbers.",
+        "searches": [
+          "Resultary dea4e87b5cd7",
+          "Resultary 9976f1178eb2",
+          "Resultary 15fb03885e39"
+        ]
+      },
+      "rationale": "The square gcd specialization is known, and the asserted all-even-power increment follows mechanically from the principal-unit block-sum argument and the same Binet parameters explicitly developed in the distinct quartic Lucas-balancing record 15fb03885e39. The latter's stated quartic gcd theorem alone is not the claim. Its exposed general geometric-sum calculation plus the binomial expansion of the already displayed B_n gives the full assigned statement, without a further lifting estimate. Both records carry the same date; this is an implication assessment, not an assertion of their relative chronology or of textual copying.",
+      "residual_risks": [
+        "Chronological priority between the same-date records was not established. Balancing-specific p-adic term papers encountered access failures; they do not drive the negative decision."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different stated invariant; direct proof-level implication of the assigned block calculation",
+          "evidence": "Displays the same α, γ and Binet expression for B_r. The block congruence proof invokes the geometric sum of a principal unit, followed by Laurent expansion; the remaining gcd case is reduced to a period by adjacent-window subtraction.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-a-complete-five-adic-valuation-law-for-quartic-lucas-balancing-w--15fb03885e39/RESULT.md",
+          "material_read": "Finding and proof, in particular offsets 1160–5632",
+          "method": "Local mirror; exact statement and decisive proof paragraphs",
+          "title": "A complete five-adic valuation law for quartic Lucas-balancing windows",
+          "trigger": "Same prime, three-class block lifting and related recurrence"
+        },
+        {
+          "assessment": "Motivates square problems; no all-even-power answer there",
+          "evidence": "Partial square results for Pell and four balancing-related square questions with computational observations.",
+          "identifier_or_url": "arXiv:2301.05758",
+          "material_read": "§6.1, PDF pp. 21–22, Question 30",
+          "method": "Open-access primary PDF",
+          "title": "Pell and Associated Pell Braid Sequences as GCDs of Sums of k Consecutive Pell, Balancing, and Related Numbers",
+          "trigger": "Motivating balancing-window questions"
+        },
+        {
+          "assessment": "Different recurrence and fixed square power",
+          "evidence": "Gibonacci recurrence G_n=G_(n−1)+G_(n−2).",
+          "identifier_or_url": "arXiv:2204.12626",
+          "material_read": "Introduction and Theorem 3.11",
+          "method": "Open-access primary PDF",
+          "title": "GCD of Sums of k Consecutive Squares of Generalized Fibonacci Numbers",
+          "trigger": "Square window analogy"
+        },
+        {
+          "assessment": "Single terms only",
+          "evidence": "With discriminant 32 and rank 3 it gives ν₅(B_n)=1+ν₅(n) for 3|n.",
+          "identifier_or_url": "https://www.fq.math.ca/Papers1/54-2/Sanna02242016.pdf",
+          "material_read": "§1, Theorem 1.5 and Corollary 1.7",
+          "method": "Open-access primary PDF",
+          "title": "The p-Adic Valuation of Lucas Sequences",
+          "trigger": "Rank-of-apparition specialization"
+        },
+        {
+          "assessment": "Cover square global gcd but not stated individual-window residues",
+          "evidence": "The B-square gcd is gcd(k,B_k)/2 at even k, gcd(k,B_k) at odd k.",
+          "identifier_or_url": "Resultary:dea4e87b5cd7 and Resultary:9976f1178eb2",
+          "material_read": "Both Findings, offsets 0",
+          "method": "Local mirror",
+          "title": "Even- and odd-window gcds of balancing and Lucas-balancing squares",
+          "trigger": "Exact d=2 specializations"
+        },
+        {
+          "assessment": "Different prime and precision",
+          "evidence": "Applies to 17-divisibility, not the 5-adic valuation or residue.",
+          "identifier_or_url": "Resultary:83f377b1571c",
+          "material_read": "Finding and relationship passage, offsets 0 and 4424",
+          "method": "Local mirror",
+          "title": "Exact rank-four prime divisibility across all powers of balancing-number window sums",
+          "trigger": "Same sequence and unrestricted powers"
+        },
+        {
+          "assessment": "Methodological analogue, not identical sequence",
+          "evidence": "Fourth-multiple Fibonacci powers have attenuation by one in the gcd valuation and a different residue.",
+          "identifier_or_url": "Resultary:a16d5bf57f16",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror",
+          "title": "The attenuated five-primary gcd law for fourth-multiple Fibonacci power windows",
+          "trigger": "Comparable five-adic lifting"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The per-window residue is a natural invariant and the matrix derivation is valid and convenient. As a distinct finding, however, it supplies the value obtained immediately by applying the available principal-unit block computation to the same recurrence's other Binet polynomial. The complement uses the same period obstruction, and the square global gcd was already determined. No separate structural extension, new obstruction or application survives beyond that evaluation.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility and limitations
 
-Run `python3 verify.py` with Python 3 and only its standard library. Expected output:
+# Independent mathematical audit
 
-```
-VERIFY_OK exhaustive_support_cases 19607 rank_bruteforce_cases 274 sharp_depth_cases 13 direct_boolean_closures 600
-```
+## correctness
 
-The support tests compare an independently implemented modal successor-type refinement with the peeling quotient for every tuple of one to five nonempty subsets of a three-color palette. Rank tests brute-force all supports for small size vectors and palette sizes at most four. The depth family is tested for 2 through 14 parts. Random tests use direct Boolean-algebra closure and allow repeated colors within a part. These computations do not establish the general theorem; it is proved in `RESULT.md`. Independent external audit was not performed.
+PASS
+
+For a nonempty witness set in one part, the complement of its diamond is exactly that part. Successive Boolean exclusion of earlier peeled parts makes such witnesses definable. On the core, every used color has representatives in at least two core parts, so every successor color can be matched while avoiding the current part. Matching peeled successors in the same peeled part proves bisimulation; the definable parts and color tests distinguish all proposed classes. Hence the atom and cardinality formulas hold. Injectivity within each part is also required for full generation: the all-subfamilies private-color test in the Finding is read as an equivalence for empty core, as its proof specifies. A sequential peeling order forbids its first i-1 distinct witness colors in part i. Exchanging any ascending pair of sizes minimizes the maximum n_i+i-1 in descending order; suffix palettes containing their designated witness attain the bound. This handles k=1 and zero generators. Depth is bounded by one new diamond per round, using complementation for a final singleton part. In the chain example each still-unsplit repeated color is visible from every part; only the part with a private current type is detected in the next refinement, splitting just the next chain color. This yields exactly k-1 strict steps, including the final two-part step.
+
+## originality
+
+PASS
+
+The supported distinct result is the specialization to a single ordinary diamond on loopless complete multipartite frames: exact color-class quotient, optimal palette size, and worst-case depth with a matching family. Generic bisimulation and private elements are credited, not claimed as inventions.
+
+## value
+
+PASS
+
+The quotient gives modal observability for every valuation, not only valuations attaining the generator minimum. It replaces generic partition refinement by an explicit support calculation and yields both a tight resource threshold and a sharp depth bound even when parts are tiny. Those answer natural classification and optimization questions about this family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

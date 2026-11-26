@@ -1,0 +1,98 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T12:21:32.670602Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The effort cap is redundant on the nonnegative simplex because U_max >= E. In x_i=tau*q*u^i the normalized difference from any vertex is R-cQ, Q=sum_{j<i}x_j*x_i, R=sum_i x_i*(1-1/P_i), P_i=prod_{j<i}(1+x_j). For a positive current amount with positive preceding sum s_i, P_i>=1+s_i and s_i<S, so 1-1/P_i>=s_i/(1+s_i)>s_i/(1+S). This proves strict global exclusion of every split even at c=1/(1+S). The exact ordered two-entry split difference t*(S-t)*[1/(1+S-t)-c] proves necessity and eliminates every earlier pulse locally above the threshold. At the final pulse with preceding total t, the difference is at least (S-t)*t*[1/(1+t)-c]-c*t^2/2, uniformly in the split; its ratio to t tends to S*(1-c). At c>=1 a lone earlier t produces a strictly negative exact difference with denominator 1+t, including at c=1. For successive positive entries a,b after prefix product P, the reward difference on swapping equals ab(a-b)/(P*(1+a)*(1+b)); later products and the cost term are unchanged. This proves strict improvement to sorted order from any inversion, not a claim about arbitrary nonadjacent transpositions. The all-parameter judgment is analytic; the frozen rational checks are finite, inspected and not rerun.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cacace–Oliviero–Pezzella formulate general continuous-time production–destruction control with running/terminal costs and a dynamic-programming discretization.",
+          "Distinct Resultary Beverton–Holt record concerns a schedule-invariant extinction threshold and two-season concentration/splitting criterion, under a different state law and objective."
+        ],
+        "reasoning": "No proved stronger optimization classification in the inspected passages specializes to the discrete old-state reward and shared-budget thresholds. A generic control framework is not such a theorem.",
+        "searches": [
+          "arXiv:2501.13085v1 §2.1, equations (2.11)–(2.12)",
+          "Resultary fixed-budget harvesting comparison"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.20131v1",
+        "arXiv:2501.13085v1",
+        "Resultary 78f8c5354fcd and c6be2955be70"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For S=2 the published sufficient bound is c<1/9 for two steps, while the exact pulse boundary is c<=1/3 for every N>=2. A nonglobal pulse at one parameter pair does not yield uniform strictness, classification of pulse positions, or the equality cases."
+        ],
+        "reasoning": "The sharp comparison for every allocation uses interference over all prefixes and a sharp limiting split, neither implied by the cited results.",
+        "searches": [
+          "arXiv:2611.20131v1 §6.1, Propositions 6.1–6.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Autran's sufficient condition becomes c<(1+S)^(-2) in exactly the old-state normalization; the exact-removal reward is a different objective.",
+          "Autran's c<1 nonconvexity result is not a local pulse classification. Its two-step example falls at S=2,c=1/2 inside the frozen nonglobal regime."
+        ],
+        "reasoning": "Model and parameters match Autran, but both the conclusion and range of the new phase diagram are strictly stronger than those stated comparisons.",
+        "searches": [
+          "arXiv:2611.20131v1 §6.1, Propositions 6.1–6.3",
+          "Resultary old-state pure-removal pulse threshold search"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact top hit was the frozen finding itself. The distinct same-date Beverton–Holt hit has a different indexed statement; its mirrored full record was unavailable."
+        ],
+        "reasoning": "The identical hit gives no separate coverage. The distinct hit was compared on model and conclusion rather than excluded by date; no covering formula was identified.",
+        "searches": [
+          "Resultary old-state discrete harvest c=1/(1+S) and fixed-budget allocation queries; hits 78f8c5354fcd and c6be2955be70"
+        ]
+      },
+      "rationale": "Best of current knowledge: the arbitrary-horizon necessary and sufficient global pulse boundary and complete local pulse classification are distinct from the strongest located coverage. Prior work contains this objective, its two-step comparisons and a local example, not the all-horizon boundary, endpoint inclusion and ordering theorem.",
+      "residual_risks": [
+        "The distinct Beverton–Holt local mirror was unavailable; comparison is limited to the indexed statement.",
+        "The primary-literature index search added no relevant hit; this is not evidence of exhaustive priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Partial coverage, not the sharp arbitrary-horizon classification",
+          "evidence": "Old-state nonconvexity for c<1; a specific nonglobal constrained minimum; two-step sufficient extreme-allocation condition c<(1+S)^(-2).",
+          "identifier_or_url": "https://arxiv.org/html/2611.20131v1",
+          "material_read": "§6.1, Propositions 6.1–6.3, OA offsets 47000–50197 and 51500–55994",
+          "method": "Primary OA full-text passages",
+          "title": "Quadrature-Induced Local Minima in Structure-Preserving Lotka–Volterra Control",
+          "trigger": "Same pure-removal scheme and reward, directly cited two-step thresholds"
+        },
+        {
+          "assessment": "Related framework, no matching implication in the inspected formulation",
+          "evidence": "Continuous finite-horizon dynamics and general running/terminal costs; no fixed-budget old-state threshold stated there.",
+          "identifier_or_url": "https://arxiv.org/pdf/2501.13085v1",
+          "material_read": "§2.1, equations (2.11)–(2.12), pp. 5–6; OA offsets 14500–18444",
+          "method": "Primary OA full-text passage",
+          "title": "Modified Patankar Semi-Lagrangian Scheme for the Optimal Control of Production-Destruction Systems",
+          "trigger": "Potential broader production–destruction optimization result"
+        },
+        {
+          "assessment": "Related but different model on available evidence; finer comparison limited by access",
+          "evidence": "Two-season Beverton–Holt law with cumulative fishing mortality, extinction invariance and a seasonal ratio criterion.",
+          "identifier_or_url": "Resultary 2026/11/22/c6be2955be70",
+          "material_read": "Indexed statement only; corresponding local mirror unavailable",
+          "method": "Resultary semantic lookup and attempted mirror read",
+          "title": "A sharp seasonal allocation law for fixed-budget Beverton–Holt harvesting",
+          "trigger": "Closest distinct same-date fixed-budget harvesting result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This resolves a motivated fixed-budget optimization question raised by a known quadrature artifact. A sharp horizon-independent classification identifies when complete concentration is optimal, separates that from a regime of nonglobal strict local trapping, and gives a useful ordering rule without solving an interior critical-point system. The old-state, pure-removal and feasible-pulse restrictions are essential.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

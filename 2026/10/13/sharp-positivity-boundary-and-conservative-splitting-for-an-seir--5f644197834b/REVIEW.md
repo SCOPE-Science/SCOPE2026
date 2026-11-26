@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** Summing the four printed stage equations and using the residual definition of deaths gives the exact additional waning-flux term; substituting the recovered update yields a necessary-and-sufficient inequality. The impossibility proof fixes any positive rates and step size and lets the exposed and infectious seeds approach zero while preserving strictly positive living states. The accompanying rational example has a strictly negative deceased fraction. The transfer-balanced alternative is proved nonnegative and conservative by matching each flow and is first-order consistent; finite checker outputs substantiate arithmetic only, not the universal proof.
+## correctness
 
-**Originality — PASS (narrow scope).** The 2026 five-compartment recurrence in arXiv:2606.15201v1 is advertised as simplex preserving yet has an exact if-and-only-if loss-of-immunity boundary not stated there. The 2025 four-compartment SIRSD precursor by the same authors already displays an analogous unmatched mortality term (its Section 5 equations (9)–(10)), and a later 2026 gain–loss neural-ODE work explains established flux-matching methods. The new statement is accordingly **not** that mixing time levels or conservation-aware splitting was first discovered here. The identified exact five-compartment boundary and independent rational counterexample are the narrower claim. Searches are not exhaustive priority proofs; earlier algebraic precursors materially limit breadth.
+PASS
 
-**Mathematical value — PASS.** Population-simplex invariance is the advertised physical guarantee of the synthetic-data generator. Its precise failure for all positive immunity-waning rates admits arbitrary-step examples and can yield a negative mortality count in exact arithmetic. The feasibility frontier and directly implementable all-step conservative replacement address this modeling gap. The contrast is substantive for models with temporary immunity; the source's published numerical experiments explicitly use zero immunity waning and are not challenged.
+Summing the four printed living updates cancels transmission, progression and recovery and gives d^+-d=h*mu*i^++alpha*h*(r^+-r). Substituting r^+-r=h*(gamma*i^+-alpha*r)/(1+alpha*h) proves the one-step nonnegativity condition with equality allowed, and separately the condition for nondecreasing deaths. The living updates are nonnegative and at least one stays positive for finite h whenever the current living fraction is positive. For alpha=0 the mortality increment is nonnegative. For any fixed positive h, alpha and other stated rates, start with e=i=d=0 and 0<r<1: the exact death residual is -alpha^2*h^2*r/(1+alpha*h). Perturb e,i,d upwards while reducing s; continuity gives strictly interior counterexamples for this same h and rates. In the balanced update the waning transfer is bounded by r; the subsequent four nonnegative transfers occur with opposite signs in donor and recipient, giving zero net mass change and nondecreasing deaths. Expanding each transfer to first order at fixed 1-d>0 gives the continuous SEIRSD vector field and O(k^2) local defect for h=k+O(k^2). Setting alpha=0 makes the updates coincide exactly. The stated domain excludes d=1 where q is not defined; the balanced state map can be extended there by fixing the all-deceased vertex since q is bounded by beta on the punctured simplex and all updated living coordinates tend to zero. Independent exact replay `python3 /workspace/review_replay.py 1` reproduces both vectors, including deaths -58583/161600 and 243/161600. The frozen checker was inspected, not executed.
 
-**Closest literature and limitations.** Zinihi–Ehrhardt–Sidi Ammi, arXiv:2606.15201v1, §4.1 Eqs. (7)–(8); the same authors' arXiv:2508.16766v1 §5 Eqs. (9)–(10); arXiv:2607.10858v1 §§3–4; and the SEIARD NSFD article DOI:10.1080/10920277.2026.2664588 §4. The proof is confined to the printed update and exact positivity/conservation/first-order consistency, not higher-order accuracy, universal stability, historical uniqueness, or forecasting quality. Independent verification has not been conducted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The unmatched mortality correction is closely anticipated by the earlier SIRSD paper and general paired-transfer positivity methods are established. The supported distinct contribution is the exact equivalence for the particular published five-coordinate SEIRSD recurrence, including the obstruction for every positive h at every positive immunity-loss rate, and a sequential replacement retaining the original permanent-immunity update. The source's numerical experiments with alpha=0 are outside the negative-death cases.
+
+## value
+
+PASS
+
+Population-simplex feasibility is a meaningful structural requirement of the printed numerical method. Its failure is not just normalization error or a single large-step artifact; the exact frontier distinguishes feasible inputs, and for each step there are valid strictly interior states that return negative deaths. The matched variant preserves the established permanent-immunity use case and corrects temporary-immunity feasibility without claiming higher accuracy, universal stability, or an improvement in epidemiological inference.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

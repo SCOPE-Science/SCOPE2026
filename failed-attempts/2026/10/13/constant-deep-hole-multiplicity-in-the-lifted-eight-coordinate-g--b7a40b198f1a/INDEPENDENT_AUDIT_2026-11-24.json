@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:09:07.543530Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The base code has rank-two parity checks, no zero columns, and a dual of minimum distance 6. For each of the four ternary directions, a nonzero row combination killing it has at most two zero coordinates. All four directions therefore occur twice among the eight columns. Distinct directions remain independent in F_Q. Deep syndromes are precisely those outside the four extended lines, since each pair of different lines spans the whole syndrome space. There are (Q−1)(Q−3)>0 such syndromes for m≥2, including 48 at m=2. For any one deep syndrome, each of six line pairs has four choices of coordinate pair with one uniquely determined pair of nonzero error values, and a same-line pair gives none. Thus the count of errors, equivalently nearest codewords, is 24. The finite F_9 checker was inspected, not run; the closed count proves the extension statement.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The D5 paper supplies a Hamming weight-shell UPWS identity Σ_i β_i B_i(v,C)=1 and proves its hypotheses for the exact family. Equation (4.12) gives the all-m dual weight set {6,8}. The projective multiple-covering text assumes d≥2R−1 and uses sets of points, so its ordinary secant count does not directly apply to the repeated-column d=2 code."
+        ],
+        "reasoning": "The UPWS identity, with the verified dual weights and codimension, does apply directly. Knowing only that deep distributions agree would be insufficient; the precise spectral information is decisive.",
+        "searches": [
+          "arXiv:2502.10223v2, Definition 1.3, Theorem 1.4, Proposition 4.4(iv), Theorems 4.5 and 5.2",
+          "arXiv:1506.00392 Definition 2.4 and Proposition 3.1, for generalized secant counting"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and artifacts/verify.py",
+        "Davydov–Marcugini–Pambianco arXiv:2502.10223v2",
+        "Bartoli et al. arXiv:1506.00392",
+        "Resultary records 160ef35008b2, cd265683b731 and a61ef94af46e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For a character indexed by a row of H, the transform of the weight-i syndrome counts is K_i(w)=[z^i](1+(Q−1)z)^(8−w)(1−z)^w, with w the weight of that dual vector: each nonzero dual coordinate contributes a character sum −1, and a zero coordinate contributes Q−1. On the Q² syndromes, the published packing identity gives P(w)=Σ_{i=0}^2 β_i K_i(w) with P(0)=Q² and P(6)=P(8)=0. Therefore P(w)=Q²(w−6)(w−8)/48. The leading coefficient of K_2(w) is Q²/2, hence β_2=1/24. At a deep syndrome the terms of weights 0 and 1 vanish, so β_2 B_2=1."
+        ],
+        "reasoning": "The all-m number is forced by substitution in the general published identity and quadratic interpolation, without reconstructing a Golay matrix, resolving a new geometric invariant, or assuming the conjecture. The frozen geometric proof is sound but is an alternate elementary route to that forced numerical consequence.",
+        "searches": [
+          "arXiv:2502.10223v2 Definition 1.3, Proposition 4.4(iv) equation (4.12), Theorem 4.5(i), and Theorem 5.2; comparison via Hamming weight-shell transform"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source identifies coset weight-two counts with numbers of codewords at distance two from a farthest vector. The indexed Gashkov–Sidel’nikov, normalized GDRS and ternary Golay b-symbol findings treat different weight spectra or code families."
+        ],
+        "reasoning": "Subtracting a codeword from a fixed representative of a deep coset gives a one-to-one correspondence with its weight-two errors. The equated assertions are exactly the D5 multiplicity; changing the code family or enumerating b-symbol weights does not produce it.",
+        "searches": [
+          "Resultary: D5 lift of [8,6,2]_3, deep-hole multiplicity 24, rank-two syndrome cosets, and (2,24)-APMCF",
+          "arXiv:2502.10223v2 Definition 1.5, Theorems 2.1 and 5.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Table 2 lists λ_8,2=λ_8,3=24, and Remark 5.5(ii) conjectures λ_8,m=24 for every m≥2. No exact all-m D5 result was identified among the inspected indexed near-matches."
+        ],
+        "reasoning": "The two rows are finite data, not an all-m proof. The substantiated coverage comes from the exact all-m dual-weight and uniform-packing results, not the table or a failed database search.",
+        "searches": [
+          "arXiv:2502.10223v2 Table 2 and Remark 5.5(ii)",
+          "Resultary exact D5, λ_8,m and [8,6,2] lift searches"
+        ]
+      },
+      "rationale": "The same authors genuinely pose this numerical conjecture and do not display its all-m value as a theorem. Nevertheless their published exact dual-weight set {6,8} for every m≥2 and their UPWS identity for the same [8,6] lift already fix the covering constant by the elementary Hamming character transform and quadratic interpolation. This is a verified corollary of stronger results, not a claim that Remark 5.5 already states it as proved or that the finite table extrapolates.",
+      "residual_risks": [
+        "The journal version was not readable via the publisher; the decisive exact hypotheses are present in the public v2. Earlier sources could state the count more explicitly. Neither uncertainty affects the demonstrated stronger-result implication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct specification of all required hypotheses and spectra; explicit conjecture, with value a routine consequence of other theorems in the same paper",
+          "evidence": [
+            "UPWS shell identity; D5 covering radius two and codimension two for m≥2; equation (4.12) states the dual nonzero weights are exactly 6 and 8 for all m≥2; finite λ=24 at m=2,3"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2502.10223v2",
+          "material_read": "Definition 1.3 and Theorem 1.4 p. 3 near offset 8142; Proposition 4.3 p. 14; Proposition 4.4(iv) and Theorem 4.5 pp. 15–17, offsets 48500–54644; Theorems 5.2 and 5.4 p. 18, offsets 57550–61770; Table 2 and Remark 5.5(ii) p. 19",
+          "method": "OA full arXiv PDF, selected statements and proofs",
+          "title": "New infinite families of uniformly packed near-MDS codes and multiple coverings, based on the ternary Golay code",
+          "trigger": "Exact family, conjecture and possible implication of broader covering results"
+        },
+        {
+          "assessment": "Projective set counting is related but the inspected statement does not include this repeated-column case",
+          "evidence": [
+            "Uses sets S and assumes d≥2R−1; the audited case has R=2 and d=2"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1506.00392",
+          "material_read": "Definition 2.4, surrounding minimum distance condition (2.2), and Proposition 3.1, pp. 5–6, offsets 10400–14599",
+          "method": "OA primary PDF",
+          "title": "Further results on multiple coverings of the farthest-off points",
+          "trigger": "Potential radius-two secant formula"
+        },
+        {
+          "assessment": "Different families, weight or invariant; none is a direct duplicate",
+          "evidence": [
+            "Gashkov–Sidel’nikov weight-three bounds; gcd-conditioned normalized GDRS weight-two spectrum; b-symbol spectrum of the unpunctured [11,6,5]_3 code"
+          ],
+          "identifier_or_url": "Resultary records 160ef35008b2, cd265683b731 and a61ef94af46e",
+          "material_read": "Local-mirror RESULT.md findings on the respective families and enumerators",
+          "method": "Indexed full-statement comparison",
+          "title": "Gashkov–Sidel’nikov deep-hole multiplicity; Prime-power gcd strata of weight-two GDRS coset spectra; Complete cyclic b-symbol spectra of the ternary Golay code",
+          "trigger": "Nearest exact multiplicity, coset spectrum and Golay record matches"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The conjectured count is well motivated and the short projective argument is correct. But its only claimed new precise invariant is already a direct numerical consequence of the existing uniform-packing and dual-spectrum theorems for D5. The indicator-line argument supplies an alternate explanation, not a surviving unknown invariant or a new structural theorem of independent scope.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:58:51.174308Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 33–115",
+        "Frozen VERIFICATION.md, lines 19–25",
+        "Frozen verify.py, inspected but not executed; its finite model checks are illustrative"
+      ],
+      "rationale": "Reconstructed the result for fixed 1<alpha<2 and each fixed positive j. Normalized area gives target monomial squared norm 1/(m+1) and source moment v_n. Substituting u=(n+1)(1-t) in v_n gives pointwise exponential density and normalized logarithmic weight tending to one, dominated by C exp(-u/2)(1+|log u|)^alpha for n>=1. Thus v_n has leading coefficient one and the model entries in RESULT.md (46) have the stated normalization. Dividing each normalized entry by the square root of the two cell lengths gives kernel (75)-(77), with limit y^(-alpha/2) for x<y and zero for x>y. On y>=epsilon uniform domination applies. The sum over m of the squared entries in column n is O((log(n+2))^(1-alpha)/(n+1)); integral comparison bounds the normalized sum on y<epsilon by O(epsilon^(2-alpha))+o(1), including a cell straddling epsilon (its upper logarithmic coordinate differs by O(1/log(N+2))). The limit kernel has the same integrable small-column behavior. A bounded diagonal correction tending to one in high columns preserves convergence, as the finitely many early columns vanish after normalization. The exact full-output squared tail is O((log(N+2))^(-alpha)); embedding its additional cells in L2(0,infinity) gives the same limit with zero extension. For the Bessel reduction the adjoint implies x^alpha u'=-s^(-2) integral_0^x u and hence the zero flux condition; the J branch has zero flux and the independent branch has leading behavior x^(1-alpha) with nonzero flux, also at integer order. Conversely, a regular solution satisfying u(1)=0 gives f=-x^(alpha/2)u' in L2 and reproduces the adjoint eigen-equation by integrating the flux. This yields exactly the stated Bessel zeros; norm convergence controls fixed-index singular values, and the squared kernel norm is 1/(2-alpha).",
+      "residual_risks": [
+        "No rate, growing-index limit, or critical-endpoint assertion is verified. The finite checker is not needed for the proof and does not compare exact radial moments."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Norrbo gives the global threshold and logarithmic moments. The general weighted Volterra theorem covers the limit spectrum, not the discrete Hilbert-section transfer."
+        ],
+        "reasoning": "Neither result supplies convergence of the normalized log-cell kernels or tightness of their squared mass.",
+        "searches": [
+          "arXiv:2610.00252v1, Abstract and §2",
+          "DOI:10.21136/CMJ.2018.0555-16",
+          "Böttcher–Dörfler Theorem 5.1"
+        ]
+      },
+      "checked_sources": [
+        "Böttcher–Dörfler, Theorem 5.1",
+        "arXiv:2610.00252v1",
+        "DOI:10.21136/CMJ.2018.0555-16 (bibliographic only)",
+        "Resultary: 45336ee10f3a, 5361aa9c5ddc, 4700f0b336be"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The logarithmic moment input and the exact continuous spectrum are both prior, but the finite-section proof requires a new uniform near-zero column estimate, explicit log-cell convergence and a tail argument in the subcritical normalization."
+        ],
+        "reasoning": "Unboundedness gives no normalized spectral profile, and an endpoint compact-error comparison does not identify the rescaled subcritical triangular kernel.",
+        "searches": [
+          "arXiv:2610.00252v1 and Böttcher–Dörfler Theorem 5.1, compared to frozen RESULT.md steps 2–5",
+          "Resultary record 45336ee10f3a, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The continuous kernel is exactly T_1 with delta=0 and beta=-alpha/2 in Theorem 5.1; the resulting Bessel order and constant coincide exactly.",
+          "The critical Copson record gives a half-line operator modulo a Hilbert–Schmidt perturbation; the present assertion is compact convergence on a rescaled interval, below the endpoint."
+        ],
+        "reasoning": "Credit the exact equivalent continuous spectrum but distinguish it from the discrete approximation theorem.",
+        "searches": [
+          "Böttcher–Dörfler, PREPRINT_01.pdf, Theorem 5.1",
+          "Resultary local comparison: logarithmic Hilbert matrix, subcritical finite sections and Bessel/Volterra/Copson models"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Compared the Findings for records 45336ee10f3a, 5361aa9c5ddc and 4700f0b336be: critical Fredholm/Copson comparison, oscillatory critical essential norm, and untruncated supercritical Hilbert–Schmidt threshold with residue, respectively."
+        ],
+        "reasoning": "These actual neighboring statements quantify different operators or regimes and do not give the finite-section Bessel law or its Hilbert–Schmidt normalization.",
+        "searches": [
+          "Resultary local searches for the subcritical logarithmic spectral law and for Hilbert-matrix approximation by weighted Copson/Volterra operators"
+        ]
+      },
+      "rationale": "The supported distinct claim is the subcritical finite-section Hilbert–Schmidt transfer and its spectral consequences, not the continuous Bessel spectrum, the moment asymptotic, or the boundedness threshold. The checked stronger and adjacent results do not give that transfer.",
+      "residual_risks": [
+        "Karapetrović full text was not confirmed; an earlier equivalent discrete transfer in the weighted Bergman or finite-section literature remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the continuous Bessel spectrum exactly, not the discrete transfer",
+          "evidence": "Set delta=0 and beta=-alpha/2 in the theorem for T_1.",
+          "identifier_or_url": "https://www.tu-chemnitz.de/mathematik/preprint/2009/PREPRINT_01.pdf",
+          "material_read": "Theorem 5.1, p. 16 (offset 46227)",
+          "method": "OA author PDF, targeted passage",
+          "title": "Weighted Markov-type inequalities, norms of Volterra operators, and zeros of Bessel functions",
+          "trigger": "Exact continuous operator and formula"
+        },
+        {
+          "assessment": "Threshold and moment input; no finite-section limit in compared statements",
+          "evidence": "Boundedness for alpha>=2 and failure below threshold; the logarithmic asymptotic of the moments is already available.",
+          "identifier_or_url": "https://arxiv.org/html/2610.00252v1",
+          "material_read": "Abstract and section 2, including offset 6199",
+          "method": "OA primary text, targeted reading",
+          "title": "The Hilbert matrix operator into the Bergman space",
+          "trigger": "Same operator and logarithmic weights"
+        },
+        {
+          "assessment": "Detailed coverage not determined",
+          "evidence": "Identified earlier work; does not itself provide affirmative evidence of an equivalent transfer.",
+          "identifier_or_url": "https://doi.org/10.21136/CMJ.2018.0555-16",
+          "material_read": "Bibliographic reference via Norrbo; DOI and Springer routes did not yield primary text for comparison",
+          "method": "Lawful retrieval attempts and bibliographic cross-reference",
+          "title": "Libera and Hilbert matrix operator on logarithmically weighted Bergman, Bloch and Hardy-Bloch spaces",
+          "trigger": "Same weighting context"
+        },
+        {
+          "assessment": "Adjacent, not equivalent",
+          "evidence": "Critical alpha=2 half-line Copson comparison and essential/Fredholm statements.",
+          "identifier_or_url": "2026/10/11/SCOPE-hilbert-schmidt-copson-model-and-fredholm-circle-at-the-logarith--45336ee10f3a",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Hilbert–Schmidt Copson model and Fredholm circle at the logarithmic Hilbert-matrix endpoint",
+          "trigger": "Closest methodological discrete-to-continuous analogue"
+        },
+        {
+          "assessment": "Different exponent and invariant",
+          "evidence": "Oscillatory critical weighting and essential norm, not subcritical finite sections.",
+          "identifier_or_url": "2026/10/26/SCOPE-oscillatory-critical-logarithmic-bergman-weights-have-an-exact-h--5361aa9c5ddc",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Oscillatory critical logarithmic Bergman weights have an exact Hilbert-matrix essential norm",
+          "trigger": "Exact logarithmic Hilbert-matrix invariant"
+        },
+        {
+          "assessment": "Different approach to the threshold",
+          "evidence": "Untruncated operator for alpha>2 and critical residue, not N-dependent subcritical sections at fixed alpha.",
+          "identifier_or_url": "2026/10/18/SCOPE-a-sharp-hilbert-schmidt-transition-and-unit-spectral-energy-resi--4700f0b336be",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary local mirror",
+          "title": "A sharp Hilbert–Schmidt transition and unit spectral-energy residue at the logarithmic Bergman threshold",
+          "trigger": "Potential same Hilbert–Schmidt energy statement"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof",
+        "Norrbo, arXiv:2610.00252v1",
+        "Böttcher–Dörfler, Theorem 5.1"
+      ],
+      "rationale": "Quantifies the spectral divergence of the natural polynomial truncations below a known mapping threshold. The full compact limit gives the entire squared mass and each fixed-index constant, matters not determined by unboundedness or norm growth alone, and identifies a reusable operator approximation rather than just fitting a first singular value.",
+      "residual_risks": [
+        "No claim of a new continuous spectral theorem or a rate uniform in the index or at alpha=2."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

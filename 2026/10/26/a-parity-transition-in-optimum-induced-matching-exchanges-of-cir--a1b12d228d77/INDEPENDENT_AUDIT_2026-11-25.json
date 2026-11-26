@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:53:09.322005Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–73",
+        "Frozen VERIFICATION.md and verify.py, actual conflict predicates, exhaustive branch recurrence and exchange tests for 4≤n≤19"
+      ],
+      "rationale": "A column with two occupied endpoints must use its rung, since otherwise that rung would be an extra induced edge. Its neighbors are empty. Thus a_i+a_{i+1}≤2, and summing gives |M|≤floor(n/2), attained by rungs. At even n, equality gives alternating 0/2 or constant 1; the latter pairs consecutive columns with alternating rails and closes precisely when 4 divides n. The distinct even edge sets are disjoint (in the rail case they differ in start offset or at every rail row); |M|≥2 makes them isolated. At odd n=2k+1 the total column deficit is two. A double deficit determines a unique all-rung pattern, and two unit deficits separate one run of ones, paired along alternating rails, from a zero-ended alternating 0/2 run. This gives n rung states and 2nk other states. For exchange exhaustiveness, both rail starts and rung columns in each odd family form cyclic intervals in +2 order, with the rail rows fixed by the initial row. If the rail count increases, the old rail interval must be contained, leaving only the two end extensions, each dropping exactly one rung. For the all-rung to one-rail case, containment of the k−1 rung interval gives the two claimed offsets. At fixed positive rail count with rungs present, identical rails fix the state; identical rungs fix the rail positions and permit a row flip only for a single rail. At the all-rail and all-rung boundaries the length-k intervals share k−1 starts only at shifts ±2; on rails the common rows require a starting-row flip. This recovers every displayed adjacency, including k=2. Counting neighbors gives the degree spectrum and handshaking gives 2n(n+1) edges; rung shifts generate the odd cycle and run shrinkage links every mixed state to it. The proof is all-order; the frozen exact enumeration was inspected, not rerun.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Nakahata's inspected corollary is for chordal graphs; the prism contains its induced rim C_n for every n≥4.",
+          "Joos Theorem 1 gives a large-maximum-degree lower bound, whereas the prism is cubic.",
+          "The weakly chordal algorithm paper and the regular-bipartite/hypercube paper could not be inspected in full."
+        ],
+        "reasoning": "The inspected broader statements either miss the hypothesis or only bound the optimum size. A weakly chordal algorithm does not apply to the infinite prism family (induced rim for n≥5) and finding one optimum would not give the exchange graph.",
+        "searches": [
+          "arXiv:2505.07268, Corollary 1 and §3",
+          "arXiv:1406.2440v1, Theorem 1",
+          "DOIs 10.1016/S0012-365X(02)00803-8 and 10.1016/j.tcs.2013.01.027"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2505.07268",
+        "arXiv:1406.2440v1",
+        "Resultary Möbius ladder …31a272059515",
+        "Two cited algorithmic works, citation/access evidence only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Möbius-ladder theorem has one row-swapping seam; its full horizontal cyclic tour thus closes with the opposite mod-4 condition.",
+          "At odd n a rail run starts at i and uses step-2 rail starts. Choose an even integer lift of each i modulo 2n, possible uniquely as n is odd. For exchanges with common rails, the compared starts differ by 0 or ±2 in the displayed rule, so their lifted difference is the same modulo 2n and the common-row tests agree under twisted projection. Exchanges involving rung-only states impose no row comparison. The odd exchange graphs thus exhibit more than coincident degree totals.",
+          "The frozen source mentions a strong-edge-coloring calculation but does not identify a corresponding citation."
+        ],
+        "reasoning": "The later Möbius-ladder result is a genuine odd-order analogue and does not cover the full untwisted theorem; even the count differs at n=4. Its fixed seam hypothesis is not a stronger theorem for arbitrary seams. Strong edge coloring partitions all edges and is not itself a classification of single maximum matchings or their adjacencies.",
+        "searches": [
+          "Resultary Möbius-ladder record …31a272059515, especially gap-two transitions and odd exchange proof",
+          "Nakahata §3 and Corollary 1",
+          "Frozen RESULT.md, lines 83–85, prism strong chromatic index lead"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Nakahata §3 identifies induced matchings with all component sizes two and defines component-jumping, as distinct from vertex token-jumping.",
+          "Induced matchings are independent sets of the square of the line graph, with the single edge replacement corresponding to one token jump in that conflict graph."
+        ],
+        "reasoning": "Component-jumping on the original graph with k size-two components, and token-jumping of maximum independent sets on its squared line graph, both encode exactly the stated move. Token-jumping of the original endpoint vertices does not. The encodings alone do not classify the prism optima.",
+        "searches": [
+          "Resultary: optimum induced/strong matching exchanges on prisms and cyclic ladders",
+          "Nakahata, arXiv:2505.07268, §3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary …31a272059515, Finding and proof §§2–6: Möbius ladders have the same n² odd count and odd degree spectrum, but six optima for n≡2 (mod 4) and two for n≡0 (mod 4), opposite to the prism."
+        ],
+        "reasoning": "The finite counts for the twisted ladder are not an exact table for the untwisted ladder. The same odd counts reflect matching local rules, not identity of the substrates.",
+        "searches": [
+          "Resultary catalogue: exact prism/circular-ladder induced matching counts and exchanges; twisted ladder analogue"
+        ]
+      },
+      "rationale": "Best of current knowledge for the complete untwisted prism classification. The distinct Möbius-ladder result has a substantive odd-order overlap (indeed the odd exchange graphs can be identified using rail lifts) and should be credited as a close analogue. Its seam condition is different and its even counts reverse the residue classes, so it is not a theorem treating the untwisted family. No inspected earlier general result supplied this exact exchange classification.",
+      "residual_risks": [
+        "Two older cited algorithmic full texts were unavailable; an unindexed ladder result could exist.",
+        "The strong-chromatic-index comparison lacks a precise source citation in the frozen package."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact move framework, inspected special-class theorem not applicable",
+          "evidence": "Copies of size two give induced matchings, and component-jumping exchanges one entire component; Corollary 1 assumes chordality.",
+          "identifier_or_url": "https://arxiv.org/abs/2505.07268",
+          "material_read": "§3 pp. 4–5, offsets 9800 and 11570; Corollary 1 p. 11, offset 32531",
+          "method": "Primary PDF passage inspection",
+          "title": "Reconfiguring Multiple Connected Components with Size Multiset Constraints",
+          "trigger": "General reconfiguration framework incorporating induced matchings"
+        },
+        {
+          "assessment": "No coverage from the inspected bound",
+          "evidence": "Requires sufficiently large maximum degree and concerns only a size lower bound.",
+          "identifier_or_url": "https://arxiv.org/abs/1406.2440v1",
+          "material_read": "p. 2, Theorem 1, offset 4800",
+          "method": "Primary PDF passage inspection",
+          "title": "Induced Matchings in Graphs of Bounded Maximum Degree",
+          "trigger": "Potential dominating general induced-matching theorem"
+        },
+        {
+          "assessment": "Material overlap for odd-order structure, different graph family and even theorem",
+          "evidence": "Gap-two constraints and start-support exchanges give the same odd count and spectrum; the twisted full tour allows horizontal optima at n≡2, not n≡0, mod 4.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-a-parity-transition-in-optimal-induced-matching-exchanges-on-m-b--31a272059515/RESULT.md",
+          "material_read": "Finding and proof §§2–6, offsets 0 and 2600–7683",
+          "method": "Published-record mirror passage comparison",
+          "title": "A parity transition in optimal induced-matching exchanges on Möbius ladders",
+          "trigger": "Same exchange labels and odd invariants, close ladder family"
+        },
+        {
+          "assessment": "No full-text claim of noncoverage",
+          "evidence": "The stated weakly chordal class excludes prisms with rim n≥5.",
+          "identifier_or_url": "10.1016/S0012-365X(02)00803-8",
+          "material_read": "Citation and stated class; theorem full text not retrieved",
+          "method": "Bounded open-access retrieval attempt",
+          "title": "Finding a maximum induced matching in weakly chordal graphs",
+          "trigger": "Cited exact induced-matching algorithm"
+        },
+        {
+          "assessment": "Exact theorem coverage not independently determined",
+          "evidence": "The frozen comparison describes complexity and hypercube sizes, not a prism exchange classification.",
+          "identifier_or_url": "10.1016/j.tcs.2013.01.027",
+          "material_read": "Citation; full text not retrieved",
+          "method": "Bounded open-access retrieval attempt",
+          "title": "Dabrowski–Demange–Lozin, Theoretical Computer Science 478, pp. 33–40",
+          "trigger": "Cited regular bipartite and hypercube work, potentially relevant to even cubic prisms"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and complete odd neighbor presentation",
+        "Resultary Möbius ladder …31a272059515"
+      ],
+      "rationale": "This is an explicit all-order reconfiguration graph for optimal packings on a canonical cyclic graph family, not just a packing bound. It determines the failure of every local move at even order, gives paths between all optima at odd order, and locates the sources of the nonuniform odd degrees. The seam comparison also separates the even count's sensitivity to the boundary condition from the persistence of the odd exchange structure.",
+      "residual_risks": [
+        "No statement for n=3, nonmaximum states, or other reconfiguration operations."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

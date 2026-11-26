@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:14:07.980760Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With the specified coproduct and D sigma = zeta sigma D, applying the relation to x forces D(x)=f(x^m); conversely the skew derivative with that generator value has the required relation on every monomial. Descent is precisely [N]_zeta x^(N-1) f=0, equivalent to forbidding a constant when r>0. The skew derivation annihilates every invariant polynomial; iterating on x^i gives the product of the j consecutive quantum integers with x^(i-j) f^j, or zero for i<j. A factor vanishes in any m-step iteration. Independently, put y=x^m and split into residues c mod m. For c>=j the j-step image in residue c-j is multiplication by y^(js) times a unit and a nonzero scalar; for c<j it is zero. The target residue has length ell+1 if c-j<r, else ell. The source has at least target length minus one, which is sufficient for js>=1, while s=0 is allowed only for r=0 so source and target lengths agree there. Summing max(0,target length-js) over c=j,...,m-1 recovers the stated rank including ell=js and ell<js. Rank one power determines s for a nonzero parameter; the Jordan second differences and the coefficient counts then give exactly the claimed partition frequencies. N<m leaves only zero, and at N=m a nonzero constant gives one block of length m. The frozen checker enumerates permitted parameters over prime fields, not arbitrary linear maps. The separate bounded probe `python3 -B /workspace/review_evidence/small_field_checks.py` verified quotient descent and all power ranks on 189 assignments with m=3 over F4, N=2 through 10; general exhaustiveness is by the generator proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 8 assumes every skew derivation of the algebra is inner.",
+          "Cline restates Montgomery–Schneider Theorem 2.5 for dimension equal to the root order, no nonzero nilpotent elements, and a nonzero scalar beta in the relation u^m=beta; this is not the separately cited Lemma 2.1 and Theorem 2.2."
+        ],
+        "reasoning": "The latter theorem's assumptions exclude k[x]/(x^N). The innerness framework does not even apply wholesale to the present family: at N=m a compatible D with D(x) a nonzero constant cannot be inner, since a twisted inner derivation for scaling maps x into (x). The inaccessible passages of Montgomery–Schneider are not treated as negative evidence.",
+        "searches": [
+          "DOI 10.21099/tkbjm/1496164292, exact PDF attempts",
+          "Centrone–Yasumura Theorem 8",
+          "arXiv:1805.10340, Theorem 0.1"
+        ]
+      },
+      "checked_sources": [
+        "DOI 10.21099/tkbjm/1496164292 (retrieval attempts, not full text)",
+        "DOI 10.1016/j.jalgebra.2020.06.007",
+        "arXiv:1805.10340",
+        "Resultary: 0a31c6fc6432",
+        "Resultary: 748cf1f7f8fb"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known action machinery is in terms of automorphisms and skew derivations. The reported N=m cyclic boundary has only a scalar generator parameter in the nilpotent quotient, whereas general N permits invariant coefficients in degrees m,2m,... and imposes a residue-dependent descent condition."
+        ],
+        "reasoning": "Even granting the cited N=m antecedent, it does not give the extraction of every residue-specific surviving image count or its field frequency in general N. These are the distinct contributions; a graded/skew-derivation representation by itself does not supply them.",
+        "searches": [
+          "Centrone–Yasumura Theorem 8",
+          "Montgomery–Schneider, Lemma 2.1 and Theorem 2.2 (citation; full text not retrieved)",
+          "Cline, Theorem 0.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Witt and substitution records count valuation-related types on one-variable truncated rings, but use ordinary derivations and substitutions, respectively.",
+          "Theorem 8 expresses Taft actions by gradings and twisted inner derivations under an innerness hypothesis."
+        ],
+        "reasoning": "An ordinary derivative on the characteristic-p Witt truncation is not the primitive-m-root derivative (a primitive p-th root does not exist in characteristic p). On substitutions, leading degrees multiply under iteration; here images shift residue by one at each power. The inner twisted derivative description is a framework, not the claimed residue-rank theorem.",
+        "searches": [
+          "Resultary: 0a31c6fc6432 and 748cf1f7f8fb",
+          "Centrone–Yasumura, DOI 10.1016/j.jalgebra.2020.06.007, Theorem 8"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact assigned-record identity is not independent overlap. Same-day Witt and substitution records have explicit spectra/frequencies but for different linear operators."
+        ],
+        "reasoning": "Neither alternative spectrum implies the claimed rank polynomial; the coefficient stratification here counts individual permitted generator images and uses all N, not orbits or a fixed truncation. No priority inference is drawn from same-day dates.",
+        "searches": [
+          "Resultary: 6b81699a8630, 0a31c6fc6432, 748cf1f7f8fb"
+        ]
+      },
+      "rationale": "The distinct supported contribution is the dependence of every power rank on truncation residue and valuation, the reconstruction from the first rank, and exact frequencies of those profiles for fixed scaling across all truncations. This does not claim the skew-derivation framework or the dimension-equals-order boundary. Inspected local comparisons are different operators, and the accessible primary statements do not imply this all-N stratification.",
+      "residual_risks": [
+        "The exact Montgomery–Schneider Lemma 2.1 and Theorem 2.2 passages could not be read. Broader results expressed in root-of-unity q-differential-module or graded shift language could subsume the rank stratification; this bounded review does not certify publication priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Credit the cited boundary as antecedent; exact scope of those passages not independently verified",
+          "evidence": [
+            "A separate, accessible restatement of the same authors' Theorem 2.5 is limited to the reduced dimension-equals-order case; it is not a substitute for the unavailable passages."
+          ],
+          "identifier_or_url": "https://doi.org/10.21099/tkbjm/1496164292",
+          "material_read": "Landing information and citation evidence only; not the lemma or theorem",
+          "method": "Lawful full-text attempts at the university repository and Project Euclid publisher PDF route",
+          "title": "Skew derivations of finite-dimensional algebras and actions of the double of the Taft Hopf algebra",
+          "trigger": "Closest same-object boundary cited at Lemma 2.1 and Theorem 2.2"
+        },
+        {
+          "assessment": "General conditional action description, not the explicit ranks or their finite-field counts",
+          "evidence": [
+            "When all skew derivations are inner, the theorem uses an order-m automorphism and a homogeneous element whose twisted inner derivation has vanishing m-th power."
+          ],
+          "identifier_or_url": "https://users.ime.usp.br/~fyyasumura/manuscripts/Actions_of_Taft_s_algebras_on_finite_dimensional_algebras.pdf",
+          "material_read": "Theorem 8, p. 6, OA offset 17100",
+          "method": "Targeted OA primary PDF passage",
+          "title": "Actions of Taft's algebras on finite dimensional algebras",
+          "trigger": "Possible stronger classification by gradings and skew derivations"
+        },
+        {
+          "assessment": "Restates a different theorem of Montgomery–Schneider under hypotheses not including the given radical truncations",
+          "evidence": [
+            "Theorem 0.1 attributes to their Theorem 2.5 the form A=k[u]/(u^n-beta), beta nonzero, for n-dimensional inner-faithful actions with no nonzero nilpotents."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1805.10340",
+          "material_read": "p. 2, Theorem 0.1, OA offset 5610",
+          "method": "Targeted lawful OA PDF locator followed by offset reading",
+          "title": "On actions of Drinfel'd doubles on finite dimensional algebras",
+          "trigger": "Published restatement of prior cyclic Taft action theorem"
+        },
+        {
+          "assessment": "Different operator family and length regime",
+          "evidence": [
+            "D=f partial_x acts on F_q[x]/(x^p) in characteristic p, with rational canonical forms and field counts."
+          ],
+          "identifier_or_url": "Resultary: 0a31c6fc6432",
+          "material_read": "RESULT.md Finding, local mirror offset 0",
+          "method": "Ranked Resultary lookup and local mirror reading",
+          "title": "Complete rational-canonical spectra of finite one-variable Witt derivations",
+          "trigger": "Same-day ordinary-derivation valuation/Jordan census"
+        },
+        {
+          "assessment": "Substitution endomorphisms restricted to the maximal ideal, not Taft skew generators",
+          "evidence": [
+            "The rank sequence is floor((N-1)/d^r) from composition orders, not the residue-block counts for q-derivatives."
+          ],
+          "identifier_or_url": "Resultary: 748cf1f7f8fb",
+          "material_read": "RESULT.md Finding, local mirror offset 0",
+          "method": "Ranked Resultary lookup and local mirror reading",
+          "title": "Jordan profiles and a pure-point depth law for nilpotent truncated substitution endomorphisms",
+          "trigger": "Same-day same ambient truncation and complete Jordan profile"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The first-rank rigidity and residue-controlled higher-power cutoffs give a complete usable invariant of the skew generator in the fixed-scaling local algebra family. The exact frequency lets a reader count any nilpotent module profile over fields admitting the root without enumerating all parameter polynomials. This is an all-truncation structural result and not just a check of the single known cyclic boundary.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:58:37.205273Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–120",
+        "Frozen verify_factors.py and verify_orthant_gradient.py (inspected, not executed)",
+        "Independent replay: python3 -B /workspace/checks/orthant.py (SymPy)"
+      ],
+      "rationale": "For trace-free symmetric Q, the tangential gradient is 2(Qx−(xᵀQx)x), so its squared norm is 4(||Qx||²−|xᵀQx|²), also over the complexification. The global norm in the stated coefficients is 2(||u||²+||v||²)/(d+2). Using conditional orthant moments, the scaled edge block has diagonal 1, entries a(d−2)/(2d) on edges sharing one vertex, and −2a²/d on disjoint edges. The trace-free diagonal block is I and its coupling to edges is (a/√2)B. Writing the edge block as αI+βBᵀB+γJ and using BBᵀ=(d−2)I+J gives the reported constant, incidence-kernel and standard sectors and all multiplicities. The characteristic polynomial is negative at α and L: for α, 3a−2<0 and 4a²−6a+2=2(2a−1)(a−1)<0; for L the first bracket is negative and the second is 1+(d−3)(2a−1)>0. L−α>0. Strict positivity and upper bound one for the actual fractions follow because a nonzero pure quadratic cannot have identically zero tangential gradient on either open region. Writing T=α+(d−2)β and k²=a²(d−2)/2 gives μ₊=ad/2+O(1) and μ₋=(T−k²)/μ₊=1−a+O(1/d), hence d/(π−2)+O(1) for the eigenvalue ratio. An exact independent generalized Gram calculation using infinitesimal rotations reproduced the characteristic polynomials for d=3 and d=4 and checked the three explicit d=3 values.",
+      "residual_risks": [
+        "The all-dimensional conclusion rests on the moment computation and block decomposition, not finite testing. At d=3 α remains a comparison value, not an eigenvalue. The singular-value condition number of the gradient map grows as the square root of the eigenvalue ratio."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Both works offer regional matrices for broad vector or spin-weighted observation problems. The checked passages do not give evaluated orthant branches or the dimension-asymptotic ratio."
+        ],
+        "reasoning": "A general matrix formulation allows one to pose the problem but not read off the spectrum or ordering; it leaves regional evaluation and restriction to the gradient subspace.",
+        "searches": [
+          "arXiv:2103.14650v1, §§3.1 and 4.2",
+          "arXiv:1306.3201v1, §3.1 eqs. 45–53"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2103.14650v1",
+        "arXiv:1306.3201v1",
+        "Resultary 043aca2fd738, 3cfdd280c69a, 6162fab5602a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The scalar result supplies a fourth-moment form and the incidence decomposition as well as second-moment information. Its proven ratio is asymptotic to 2(π−2)d²/[π²(π−3)], not the gradient ratio."
+        ],
+        "reasoning": "These are close proof ingredients, not the ordered eigenvalues for the changed form. One must add the second-moment term with its relative normalization, compute and compare the modified sectors, and control the now linear ratio; simply transferring the scalar eigenvalues or optimizer is false.",
+        "searches": [
+          "Resultary 043aca2fd738, original Finding and moment proof",
+          "arXiv:2103.14650v1, regional and vector concentration constructions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The scalar precursor uses regional |f|² and the same harmonic domain, with a simple symmetric maximum. The gradient energy differs by its regional second-moment term 4∫||Qx||² and has the global Dirichlet normalization."
+        ],
+        "reasoning": "A factor relating global gradient and global scalar norms on one harmonic degree does not identify their regional forms; the gradient observation has two extremal sectors of dimension d−1 instead of a simple maximal sector. A tangential vector-field formulation allows the gradient subspace but is not an evaluated spectrum.",
+        "searches": [
+          "Resultary: degree-two orthant Dirichlet gradient concentration and scalar precursor",
+          "Resultary 043aca2fd738, original RESULT.md",
+          "arXiv:2103.14650v1, §§3.1 and 4.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact orthant-gradient hit is the assigned record. Separate exact spectral findings are scalar-positive-orthant, Dirichlet-gradient lunes, and Dirichlet-gradient antipodal caps."
+        ],
+        "reasoning": "The lune or antipodal-cap formulas are not region specializations that give the all-dimensional positive orthant; the scalar spectral table has a different numerator form. No table search can establish absolute priority.",
+        "searches": [
+          "Resultary: quadratic spherical orthant gradient Dirichlet concentration, exact spectrum and conditioning",
+          "Resultary 043aca2fd738, 3cfdd280c69a and 6162fab5602a"
+        ]
+      },
+      "rationale": "The strongest direct overlap is the published scalar-value calculation on exactly the same domain and harmonic space. Its moments and representation decomposition make the gradient computation accessible, but its evaluated operator is not the new one. The distinct contribution is the evaluated and ordered gradient blocks and the changed extremal sectors and conditioning law; neither use of orthant Gaussian moments nor general regional vector concentration is new.",
+      "residual_risks": [
+        "The scalar precursor already contains much of the toolkit, so independently derived or unindexed explicit gradient evaluations remain plausible. Same-day catalogue dates establish no order."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantial shared ingredients; evaluated spectrum is scalar-value only",
+          "evidence": [
+            "The scalar form has a unique maximizing symmetric mode and a quadratic eigenvalue-ratio law."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-quadratic-spherical-orthant-concentration-and-a-sharp-dime--043aca2fd738",
+          "material_read": "Original Finding and moment/incidence proof, RESULT.md offsets 0–4270 and 4500–9493",
+          "method": "OA local Resultary mirror",
+          "title": "Exact quadratic spherical-orthant concentration and a sharp dimension-squared stability law",
+          "trigger": "Identical space and region with closest moment and symmetry calculations"
+        },
+        {
+          "assessment": "General regional matrix framework, not the evaluated orthant-gradient spectrum",
+          "evidence": [
+            "Regional kernel matrices are formulated for arbitrary measurable regions, with vector blocks including tangential components."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2103.14650",
+          "material_read": "§3.1, pp. 13–14; §4.2, pp. 25–26",
+          "method": "OA PDF text around offsets 53500–62954 and 119000–126433",
+          "title": "A Unified Approach to Scalar, Vector, and Tensor Slepian Functions on the Sphere and Their Construction by a Commuting Operator",
+          "trigger": "General spin and tangential concentration framework"
+        },
+        {
+          "assessment": "General matrix problem for an arbitrary domain, not explicit positive-orthant eigenvalues",
+          "evidence": [
+            "The regional variational problem is converted into a finite vector concentration matrix."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1306.3201",
+          "material_read": "§3.1, eqs. 45–53, pp. 9–10",
+          "method": "OA PDF text, offsets 35000–39471",
+          "title": "Spatiospectral concentration of vector fields on a sphere",
+          "trigger": "Plausibly broader vector Slepian spectrum"
+        },
+        {
+          "assessment": "Lune, not orthant",
+          "evidence": [
+            "The mask is a spherical lune, cut out by an angle restriction in a two-plane."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-exact-dirichlet-concentration-and-a-dimension-three-symmetry-tra--3cfdd280c69a",
+          "material_read": "Finding, RESULT.md offsets 0–4042",
+          "method": "OA local Resultary mirror",
+          "title": "Exact Dirichlet concentration and a dimension-three symmetry transition",
+          "trigger": "Exact gradient spectrum for an angular mask"
+        },
+        {
+          "assessment": "Antipodal polar caps, not orthant",
+          "evidence": [
+            "The cap-pair result has three branches and the regions have a different axial symmetry."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-a-dimension-free-optimizer-switch-for-tangential-gradient-concen--6162fab5602a",
+          "material_read": "Finding, RESULT.md offsets 0–3298",
+          "method": "OA local Resultary mirror",
+          "title": "A dimension-free optimizer switch for tangential-gradient concentration",
+          "trigger": "Exact quadratic gradient optimizer by symmetry"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 25–47 and 93–120",
+        "Resultary scalar orthant record 043aca2fd738"
+      ],
+      "rationale": "Exact observability of gradients rather than values on a canonical restricted region is a distinct problem. The result gives a complete squared-restriction spectrum, both extremal eigenspace dimensions and a sharp linear eigenvalue-ratio asymptotic, in contrast to the same-domain scalar quadratic law. This changes both the best-observed subspace and dimension dependence, not just a normalization or a numeric example.",
+      "residual_risks": [
+        "Pure quadratics and continuous energy data only; no inference to general vector fields, noise-optimal recovery, or sampling sites."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

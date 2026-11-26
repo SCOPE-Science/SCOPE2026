@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The explicit statement quantifies over all nonempty pointed models with independently reflexive/transitive relations, finite nonempty sets of modal-index words (including the empty word), and all valuations. Run reduction is justified by relation idempotence, and scattered-subsequence dominance by reflexive insertion. A finite prefix trie with one label per directed edge is itself an admissible finite model: its only paths to an antichain leaf require the leaf word to embed in the demanded operator word. Thus each leaf is indispensable and the exact uniform support bound is proven, rather than inferred from finite testing. The prefix-free cylinder argument gives the sharp length-layer maximum, including the separate one-letter and empty-word cases. The standalone checker was executed successfully, reporting `VERIFY_OK cases=1469 max_q2=2 q3_d3=12 trie_worlds=22`. No proof relies on empirical extrapolation.
+PASS
 
-## Originality — PASS within inspected material
+Reflexivity and transitivity give R_a R_a=R_a, so consecutive repeats can be removed from each word. A subsequence path is a path for any containing word by inserting reflexive steps. Every normalized word contains a minimal normalized word, so satisfying the minimal conjunction is equivalent to satisfying the original under every valuation; retaining a selected endpoint per minimal word proves the upper bound on arbitrary frames. For the lower bound, take the prefix trie of those minimal words. There are no consecutive same-label edges on a branch, so the reflexive transitive closure for a given label adds only loops. A walk to a marked leaf must take the unique forward branch in order with optional stays, and exists exactly when the leaf word is a subsequence of the query word. The minimal antichain therefore forces every originally marked leaf to be retained. This concerns subvaluations of the original marked set, not arbitrary relocations of marks. The empty word produces the singleton antichain and one-world witness. For q>=2 the full reduced depth-d layer has q(q-1)^(d-1) members. Every nonempty shorter reduced word has a continuation to that layer; prefix-incomparable words have disjoint continuation sets. The full layer is a subsequence antichain, so the bound is sharp, while for q=1 the only reduced possibilities are the letter and the comparable empty word. The q=2 plateau and q=3 exponential case follow. Independent replay: python3 /workspace/checks/frozen_replay.py 1; exhausts the 29 preorders on three labeled worlds, their 841 ordered pairs, all starts and valuations for five representative conjunctions, plus two exact larger chain-pair constructions for rank-two long-word examples. These checks are bounded; the proof supplies the sharp result on all frames.
 
-The closest direct source is van Benthem, ten Cate and Yang (2026), Section 2.4 and Proposition 2.9, establishing finite witness bounds without giving their exact least value for an independently indexed reflexive-transitive modal path conjunction. Earlier continuity and modal-operator references do not imply the antichain formula or its sharp two/three-modality threshold from their inspected statements. Two relevant statement-level research records about generalized path conditions and fixed-frame S4 word ranks address different objects or hypotheses. The main residual risk is an unindexed result on the free idempotent word monoid or on exact support width of positive modal path conjunctions; uniqueness has not been certified, and search absence alone is not evidence of novelty.
+## originality
 
-## Value — PASS
+PASS
 
-This is a motivated exact quantitative refinement of the standard strong-continuity property, turning a nonconstructive existential budget into a structural normal form with explicit extremal finite models. The two-versus-three modality transition is substantive: arbitrarily nested two-modal pure-path conjunctions need no more than two atomic witnesses, whereas a third independent modality yields an exponential worst-case rank in depth. This distinguishes alphabet dimension and nesting depth and supplies a computable exact certificate for the restricted syntax, rather than a numerical curiosity.
+The supported distinct result is the exact least retention budget and its sharp alphabet/depth extremum for this restricted family. Standard S4 reductions, relational-word techniques and existence of uniform finite budgets are not the originality claim.
 
-## Limits and source comparison
+## value
 
-The theorem treats only finite conjunctions of existential word paths to one positive atom; the exponential bound does not apply generally to negation, universal modalities, additional Boolean nesting or interaction axioms. Primary text inspected: van Benthem et al., arXiv:2603.12171v1, especially Section 2.4, and Gouveia–Santocanale, arXiv:1704.03772, Introduction. The two closest indexed statement records are `2026/10/13/SCOPE-length-two-generalized-path-conditions-form-a-six-way-antichain--8fded11c0af7` and `2026/10/12/SCOPE-rank-graded-s4-modalities-on-finite-two-row-stable-kripke-frames--00d57ca864fb`. Neither inspected statement entails this result. Their full texts were not material-read, leaving a specific historical-priority risk. No external or independent validation is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The least budget is a natural quantitative version of strong continuity, and the trie makes it an exact finite obstruction as well as an upper bound. The plateau for two independent modalities despite arbitrary nesting, versus depth-exponential worst cases for at least three, is a meaningful structural distinction rather than an isolated small-instance count. No generalization to universal modalities or interacting frame relations is assumed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

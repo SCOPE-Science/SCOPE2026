@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:15:16.945842Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–69; VERIFY.py; VERIFICATION.md"
+      ],
+      "rationale": "The coordinate bound applies to every translated and rotated inner ellipsoid; Hadamard gives the volume and forces the diagonal centered shape at equality, which is attained by splitting each axial stretch between the box and ball. The feasible positive box corners are exactly those with sum of squared excesses above the half-lengths at most r^2. A maximizing corner is at least a coordinatewise and strict concavity of the log product gives the positive normalized solution v_i(a_i+r v_i)=c. Expanding the outer quadratic about v gives the claimed negative remainder: r/c-r^2/z_i^2 is strictly positive because z_i^2-rc=a_i z_i>0. This both gives enclosure and forces exactly the signed contacts. Sign averaging and AM–GM of the eigenvalues give the determinant lower bound for every enclosing shape and force q=0 and Q=d diag(z_i^2) at equality. At r→0 the outer corners converge to a; at r→∞ the products of v_i+a_i/r converge uniformly on the compact positive unit ball to the product of v_i, with unique maximizer v_i=1/sqrt(d). The ratio limits follow. The analytical proof, not the finite optimizer checks, is decisive.",
+      "residual_risks": [
+        "Proof assumes all half-lengths strictly positive; finite contact classification is not extended to degenerate boxes. Numerical support inspected, not replayed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The October 25 theorem permits arbitrary distinct positive b_i and every translated and rotated competitor. Güler–Gürtuna give symmetry of extremal ellipsoids, not the numerical John axes of this body."
+        ],
+        "reasoning": "The earlier exact theorem, unlike a numerical approximation or a general optimality criterion, strictly contains the frozen positive ball case.",
+        "searches": [
+          "Resultary coaxial box–ellipsoid sums; arXiv:0709.0707 §4; DOI:10.3390/math13081326"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 6852fba8cf70 full theorem and proof passages",
+        "arXiv:0709.0707 §4",
+        "DOI:10.3390/math13081326 accessible material"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior equations are q_i(a_i+q_i)=κ b_i^2 and Σ(q_i/b_i)^2=1, with axes sqrt(d)(a_i+q_i) and contacts ±(a_i+q_i) independently in each coordinate."
+        ],
+        "reasoning": "Put b_i=r, q_i=r v_i and c=κr. The equations, axes, enclosure-deficit identity and contact set reduce exactly to the frozen formula. A larger-volume centered box would violate the enclosing determinant bound applied to its sign points; equality forces the same corners. The paired inner axes need only the coordinate box's John bound and an elementary Minkowski decomposition.",
+        "searches": [
+          "6852fba8cf70, Finding and Proof §§1–2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Finding and scope: coordinate-aligned positive ellipsoid plus box, all d≥2, with the equal-semiaxis special case expressly included."
+        ],
+        "reasoning": "Euclidean parallel body, rounded orthotope and ball–box Minkowski sum denote the same case b_i=r of that theorem.",
+        "searches": [
+          "Exact Löwner ellipsoid of coaxial box–ellipsoid sums, 2026/10/25/SCOPE-exact-l-wner-ellipsoid-of-coaxial-box-ellipsoid-sums--6852fba8cf70, RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Its full finding lists the unique scalar parameter, exact axes, volume, and all 2^d contacts."
+        ],
+        "reasoning": "An indexed exact formula covering the entire parameter family is decisive; an entry for each choice of side lengths is unnecessary.",
+        "searches": [
+          "Resultary exact Löwner ellipsoid of coaxial box–ellipsoid sums, 6852fba8cf70"
+        ]
+      },
+      "rationale": "The earlier coaxial box–ellipsoid theorem explicitly includes the Euclidean rounded box, gives the same unrestricted Löwner semiaxes, entire contact set and volume, and uses the same containment certificate under substitution. The John calculation is not stated there, but the main novelty distinction in the frozen record (an exact unrestricted Löwner/contact classification not already covered by a broader theorem) fails. The outer-corner maximum follows from that certificate, and the remaining volume statements are elementary consequences with the inner ellipsoid.",
+      "residual_risks": [
+        "The separate historical priority of the elementary John formula was not determined; covered Löwner portion does not depend on it or on the inaccessible 2025 full text."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly dominates the frozen outer ellipsoid and contact theorem",
+          "evidence": [
+            "States equal b_i case in scope; equations and complete sign contact set in Finding; containment identity in Proof §2."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-exact-l-wner-ellipsoid-of-coaxial-box-ellipsoid-sums--6852fba8cf70/RESULT.md",
+          "material_read": "Finding, Assumptions and Proof, especially around offsets 435–3104",
+          "method": "Local Resultary match and mirrored full-text passages",
+          "title": "Exact Löwner ellipsoid of coaxial box–ellipsoid sums",
+          "trigger": "Same body within a broader class and exact global optimizer and equality classification"
+        },
+        {
+          "assessment": "Symmetry ensures form, not the parallel body's numerical axes",
+          "evidence": [
+            "Extremal ellipsoids inherit automorphisms of the body."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0709.0707",
+          "material_read": "§4 p. 3, symmetry principle",
+          "method": "Primary full-text passage",
+          "title": "The extremal volume ellipsoids of convex bodies, their symmetry properties, and their determination in some special cases",
+          "trigger": "Possible general theorem for inner and outer ellipsoids of unconditional bodies"
+        },
+        {
+          "assessment": "Not needed for the established prior-coverage finding",
+          "evidence": [
+            "Exact established overlap is supplied instead by 6852fba8cf70."
+          ],
+          "identifier_or_url": "https://doi.org/10.3390/math13081326",
+          "material_read": "Bibliographic/abstract material only; bounded full-text retrieval did not succeed",
+          "method": "Lawful OA attempts; no uninspected content relied on",
+          "title": "Lightweight Implicit Approximation of the Minkowski Sum of an N-Dimensional Ellipsoid and Hyperrectangle",
+          "trigger": "Same Minkowski sum class"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and Proof; Resultary 6852fba8cf70 Finding, Assumptions and Proof"
+      ],
+      "rationale": "An unrestricted exact outer contact classification would be useful, but that information is already available in equal or greater generality. Removing it leaves an immediate Hadamard bound saturated by the explicit coordinatewise dilation, plus routine volume arithmetic and limits using the known outer formula. No independent substantive remainder supports a repair.",
+      "residual_risks": [
+        "No claim that the original geometric question is unmotivated, or that pairing the formulas is pedagogically useless."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T19:35:45.136784Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With equal capacities and source-local C_ij=δ_ij, the primary model's Eq. (9) indeed collapses to (aI+fL)^{−1} in the symmetric weighted case, and its strict invasion test uses the spectral radius after multiplication by B=diag(c_i/e_i). The assumption is fixed C=I in the reduced model, not a generic f-dependent birth factor. Put t=1/f; on constants the inverse is 1/a, and on the mean-zero space each resolvent eigenvalue is t/(λ+a t)=t/λ+O(t²) with λ>0. Thus K_f B extends analytically at t=0 with rank-one leading matrix 1 b^T/(na) and nonzero isolated eigenvalue s/(na). Its left and right eigenvectors can be b^T and 1, pairing to s; the eigenvalue derivative is b^T L^+ b/s. The Perron branch at large f is this eigenvalue, since the remaining spectrum tends to zero and the positive kernel is irreducible. The energy is zero only for constant b, when row sums give the exact factor b_i/a. Multiplying by the eventually positive h_f gives coefficient Q_G−η; the strict alternatives follow at fixed graph, and the equality case is not claimed. Fix r=b−(s/n)1; on the mean-zero space ∂L/∂w_uv=(e_u−e_v)(e_u−e_v)^T, so differentiating the inverse gives ∂(r^TL^+r)/∂w_uv=−(φ_u−φ_v)^2. This is a conductance derivative on the connected domain. For exact finite replay, form H=aI+fL from unit path and triangle edges and subtract (49/50)diag(3,2,1) with a=2 and f=10. The leading minors are (453/50, 101953/1250, −448897/62500) and (953/50, 352453/1250, 1053103/62500), respectively. Congruence by H^{−1/2} turns H−hB into I−hH^{−1/2}BH^{−1/2}, giving strict invasion on the path and strict non-invasion on the triangle. Solving Lφ=(1,0,−1)^T with zero mean gives the respective potentials (1,0,−1)^T and (1/3,0,−1/3)^T, energies 2 and 2/3, and Q values 1/3 and 1/9, straddling 1/5. These were reproduced by exact rational determinant and mean-zero linear solves. The archived verifier was inspected, not executed, and the finite witness does not prove the general expansion. This is a fixed-graph deterministic linear threshold under the stated reduction, not a stochastic survival or uniform large-network result.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Altenberg's Theorem 5 gives convexity/reduction for s(mA+V) in a much more general framework. Chen et al. Theorem 3.1 gives derivative/convexity statements for Laplacian-plus-diagonal matrices; Theorem 4.4 gives their fast-mixing weighted-mean limit, which is the ordinary average for symmetric L.",
+          "These results give the qualitative direction and, in the exact additive formulation, a topology-independent leading threshold. None of the read statements evaluates the f^{−1} term for the coupled limit h=h_f."
+        ],
+        "reasoning": "General spectral reduction encompasses known behavior at or away from the leading threshold but gives no strict ordering between two graphs within the 1/f window at a specified η. The additional energy computation is the part compared for originality.",
+        "searches": [
+          "arXiv:1108.4546 generalized Karlin theorem, Theorem 5",
+          "arXiv:1911.02232 Theorems 3.1, 4.4 (preprint of the cited spectral-monotonicity work)",
+          "large diffusion second-order expansion principal eigenvalue patch models weighted graph population heterogeneity spectral bound geometric mean"
+        ]
+      },
+      "checked_sources": [
+        "Bernardi et al. arXiv:2602.06640 (primary PDF)",
+        "Nicoletti et al. PNAS e2311548120 (open main article)",
+        "Altenberg arXiv:1108.4546 and Chen et al. arXiv:1911.02232 (open preprint theorem sections)",
+        "Resultary nearby dispersal/capacity records (indexed statements)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Bernardi et al. Eq. (11) resolves the exact kernel into Laplacian eigenmodes and §II.B mentions same-patch explorer birth; Theorem 1 gives the Perron test. The coefficient here uses the first variation of the Perron root at the rank-one limit, not merely a kernel-entry expansion. It becomes b^TL^+b/s after applying the correct left/right normalization.",
+          "In the 2023 model the kernel includes an adjacency birth factor and h(f); adding a corridor changes that factor as well as the dispersal operator. The reported benefits of adding connectivity therefore do not imply this window or contradict the reversal under fixed C=I.",
+          "The qualitative reduction/mean limit does not compare η to the graph-dependent coefficient and hence does not imply the claimed strict sign when the leading margin is itself O(f^{−1})."
+        ],
+        "reasoning": "The prior works provide the model, exact threshold, methods and broad position of the leading boundary. The assessed contribution is which topology-dependent margin survives in the specifically normalized threshold, not the known result that movement or connectivity can matter.",
+        "searches": [
+          "Bernardi et al., arXiv:2602.06640 equations (5)–(12), (15)–(16), Appendix A",
+          "Nicoletti et al., DOI 10.1073/pnas.2311548120, Eqs. [2], [6], [10] and corridor comparisons",
+          "arXiv:1911.02232 Theorem 4.4 and arXiv:1108.4546 Theorem 5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Writing H=aI+fL, the exact threshold is hρ(H^{−1}B)>1 if and only if λ_max(hB−fL)>a; equivalently 1/ρ is the minimum eigenvalue of B^{−1/2}HB^{−1/2}. The first formulation puts the comparison in the additive diffusion/reduction literature, not just the resolvent literature.",
+          "The energy r^TL^+r also equals −½Σ_{i,j}r_i r_j R_eff(i,j) since Σ_i r_i=0. Known effective-resistance identities are therefore the same electrical object; the claim is the coefficient with which it enters the invasion threshold."
+        ],
+        "reasoning": "These exact alias reductions separate already known monotonicity and resistance formulas from the evaluated inverse-mobility coefficient. At fixed f, adding a conductance increases H in Loewner order, which already yields qualitative nonincrease of ρ through B^{1/2}H^{−1}B^{1/2}; the numerical comparison alone is not the discovery.",
+        "searches": [
+          "heterogeneous metapopulation fast explorer graph resistance critical window spectral invasion threshold weighted Laplacian (Resultary)",
+          "fast dispersal correction Laplacian pseudoinverse spectral radius metapopulation large diffusion first order graph Poisson resistance Bernardi 2602.06640 growth heterogeneity principal eigenvalue",
+          "spectral radius diagonal positive matrix (I + m Laplacian) inverse asymptotic first order heterogeneity reproductive value Kato threshold patch ecology resolvent"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Excluding the assigned record, indexed hits include the four-patch equal-degree directed-network invasion comparison and a stochastic Allee fixation fast-mixing limit. Neither uses this symmetric source-local explorer kernel.",
+          "Nicoletti et al. use neighbor-born explorers and give a large-f formula involving mean out-degree plus habitat examples. This does not tabulate the source-local energy, window, or the exact opposite sign under the stated fixed-rate path-to-triangle change."
+        ],
+        "reasoning": "The meaningful comparison is not whether the exact parameter tuple appears in a table; even more general available figures/formulas are based on a different birth factor, so they do not automatically determine this witness. The finite witness by itself can be reproduced from the old kernel and is not relied on to establish novelty.",
+        "searches": [
+          "Resultary: heterogeneous metapopulation fast explorer graph resistance critical window spectral invasion threshold weighted Laplacian",
+          "network metapopulation capacity effective resistance Laplacian heterogeneous dispersal invasion exact critical birth rate Bernardi Nicoletti",
+          "Nicoletti et al. 2023 main text Results and Metapopulation Capacity"
+        ]
+      },
+      "rationale": "The birth-resolvent kernel and Perron criterion are prior; qualitative dispersal reduction, electrical inverse differentiation and eigenvalue perturbation are not contributions. The surviving quantitative claim is the evaluated electrical energy coefficient for this source-local kernel and its use in a sharp common-recruitment window. The checked primary kernel and spectral reduction results do not state or mechanically specialize to this coefficient and window; they require evaluating a different sensitivity. The exact same-parameter path/triangle witness illustrates that boundary rather than constituting a separate priority claim.",
+      "residual_risks": [
+        "The Nicoletti supplementary PDF and final publisher version of the Chen paper were not read; the checked Chen theorem statements come from the open preprint. Earlier diffusion asymptotic or electrical-network literature could contain an equivalent coefficient in another normalization; bounded search is not exhaustive.",
+        "The same-rate comparison is only for fixed source-local birth and equal capacities. A colonization feasibility factor with its own 1/f dependence must be included separately; an adjacency-dependent choice changes the model. The critical equality case η=Q_G is outside the claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct prior for underlying kernel and threshold; exact evaluated coefficient and critical scaling are not in the read statements",
+          "evidence": [
+            "Eq. (9) has the capacity ratio M_j/M_i and sum over C_jk times the inverse; Eq. (10) gives the combinatorial Laplacian for equal capacities; §II.B mentions C proportional to δ_ij; Eq. (16) multiplies the kernel by recruitment/extinction ratios."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2602.06640",
+          "material_read": "Primary PDF §§II.A–B, Eqs. (5)–(12), Eq. (15), Theorem 1/Eq. (16), and start of its proof in Appendix A",
+          "method": "Compare displayed resolvent/birth term, assumptions and Perron threshold to the specialization",
+          "title": "Habitat heterogeneity and dispersal network structure as drivers of metacommunity dynamics",
+          "trigger": "Exact explorer model, plausible direct coverage of kernel, threshold and large-f behavior"
+        },
+        {
+          "assessment": "Neighbor-born regime, not the fixed source-local corridor change",
+          "evidence": [
+            "C_ij=c_i h(f)A_ij with no source self-birth in this model; Eq. [10] gives a limit proportional to mean out-degree; Fig. 3 studies corridor addition under that model."
+          ],
+          "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10655566/",
+          "material_read": "Open full main article: Microscopic Dynamics, Effective Metapopulation Model, Effects of Modularity and Fragmentation, and Materials and Methods Eqs. [6], [10]",
+          "method": "Compare microscopic birth rules, resolvent orientation and high-exploration capacity",
+          "title": "Emergent encoding of dispersal network topologies in spatial metapopulation models",
+          "trigger": "Closest earlier explorer-based kernel and corridor-sign results"
+        },
+        {
+          "assessment": "Covers reduction and the leading averaged limit, not an evaluated graph-Poisson first correction in the inspected results",
+          "evidence": [
+            "Theorem 4.4(2) gives a weighted-average fast-mixing limit with strict decrease for nonconstant diagonal; Theorem 3.1 compares spectral derivatives at positive dispersal."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1911.02232",
+          "material_read": "Open preprint §§3–4, Theorems 3.1 and 4.4 and their result/proof setup",
+          "method": "Substitute the symmetric −L and compare what the reported limit and derivative statements determine",
+          "title": "Spectral Monotonicity of Perturbed Quasi-positive Matrices with Applications in Population Dynamics",
+          "trigger": "Potential stronger theorem after reducing invasion to an additive Laplacian-plus-diagonal spectral bound"
+        },
+        {
+          "assessment": "General qualitative coverage, not a source-local numerical asymptotic correction in the inspected theorem",
+          "evidence": [
+            "Theorem 5 establishes convexity and reduction of s(mA+V) in the resolvent-positive framework."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1108.4546",
+          "material_read": "Open preprint definitions and theorem statements around generalized Karlin Theorem 5",
+          "method": "Compare the spectral-bound class and dependence on dispersal with the exact additive sign formulation",
+          "title": "Resolvent Positive Linear Operators Exhibit the Reduction Phenomenon",
+          "trigger": "Broader qualitative growth monotonicity with mixing"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "At infinite exploration the leading average cannot distinguish connected habitat geometries. The correction identifies exactly the structural quantity that decides invasion at the first unresolved recruitment scale. The conductance derivative says when a corridor changes that coefficient strictly, and the rational witness separates the two strict outcomes without confounding local recruitment rates; no ecological field or stochastic-survival claim follows.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

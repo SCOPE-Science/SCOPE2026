@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:05:24.822040Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For q>1 and α>0 the full chains are irreducible. Reflection gives exactly two boundary-orientation orbits on two sites, with the center orbit added on three; row sums to each target orbit and heat agree within each orbit. The normalized Poisson equation therefore reduces to the orbit system. Integrating the centered heat semigroup gives w, and a small positive temperature step pairs w at the new temperature with old minus new stationary law, giving transient bath heat −C dT. Holding f, α and the kinetic prefactor fixed gives dq/dT=−fq/(2T²) and E=−q(∂qρ)·w/f. /workspace/replay.py (chain, Python 3 + SymPy) independently reconstructs stationarity using tree cofactors and the heat response fixing the last potential to zero; a constant shift is immaterial because (∂qρ)·1=0. It checks both exact rational functions and the derivative factors. The formulas have strictly positive numerators and denominators in scope. The two-site derivative has a strictly decreasing linear numerator with positive intercept exactly at q>√(5+2√6). The three-site numerator has negative quadratic and linear coefficients, so it is strictly decreasing on α≥0; its intercept sign reduces at z=q²+q⁻²>2 to 3z²−7z−70, strictly increasing with one zero there. The unique positive crossing, when present, is a maximum; both responses decay at large α. At either threshold the derivative is strictly negative for α>0, so the supremum is only the α→0+ limit, not a capacity claim for the reducible zero-rate chain. K(6)>0 gives q₃,c²<6<q₂,c² and a nonempty separation interval. These checks apply to two and three sites with constant unit hop prefactor, no flip heat and fixed f,T while varying α. The packaged verification was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Santra's centered lattice [−L,L] includes the three-site chain at L=1; the shown single-particle peak is for L=20 and uses the numerical machinery described in Appendix B.",
+          "Dolai–Maes–Netočný apply active calorimetry in continuous space with thermal Brownian noise; Khodabandehlou–Maes develop the Drazin-inverse response for driven finite-state models."
+        ],
+        "reasoning": "The broader same-model framework and earlier general response formulas explain how a heat capacity is obtained, but the inspected results neither supply the small-size formulas with the signs of their derivatives nor cover an even site count in Santra's centered odd-site setup.",
+        "searches": [
+          "Santra arXiv:2608.17903, §III.B, Fig. 3, §V and App. B; SciPostPhys.14.5.126; arXiv:2204.04974v4"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "arXiv:2608.17903, §§II, III.B, V and App. B",
+        "DOI:10.21468/SciPostPhys.14.5.126; arXiv:2204.04974v4",
+        "Resultary 0f01f56aa8e5 and 069d27d7962f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The primary discussion ties its observed intermediate-alpha maximum to the boundary occupation crossover near 2α*/π²; Appendix B uses sparse-generator and temperature finite-difference computations.",
+          "Section V notes that temperature-dependent prefactors can change the capacity shape or sign, so the rate convention is material."
+        ],
+        "reasoning": "A displayed or approximate large finite-channel peak at chosen drives does not imply an iff over all positive drives for each small size, strict decay at equality, or the open regime where only one size peaks. The evaluated rational derivative factors provide this missing information; no general shape-transition or prefactor-independent claim is credited.",
+        "searches": [
+          "Santra §III.B Fig. 3 and discussion after Eq. (24), OA offset 26220; Appendix B offset 54463; compare frozen RESULT.md lines 72–96"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Santra's zero-potential hops are ν exp(β f a σδ/2) at reflecting walls with a constant flip rate; orientational flips have no heat and hop heat is f a σδ.",
+          "Its Eqs. (22)–(24) give C=(∂Tπ)w, the same sign and response convention."
+        ],
+        "reasoning": "With ν=a=k_B=1, q=e^{f/(2T)} is a reparameterization of the same drive. The qualitative interior peak at finite persistence is not a separate discovery; the independent question is exactly for which q it occurs at two and three sites and whether it is unique.",
+        "searches": [
+          "Santra arXiv:2608.17903, §§II–III Eqs. (1)–(3), (22)–(24); pointwise excess-heat/quasipotential and persistence/tumbling formulations",
+          "Resultary: reflecting-chain RTP calorimetric onset, two-/three-site tumbling peaks"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest mirrored active-particle record 0f01f56aa8e5 treats a Brownian RTP-bath power envelope versus diffusivity.",
+          "069d27d7962f concerns steady heat current and local correlations on a finite two-bath Kawasaki ring."
+        ],
+        "reasoning": "Neither invariant is the stationary temperature derivative paired with the centered heat quasipotential versus the tumbling rate. These are differences in both observable and setting, not evidence that every entry has been ruled out.",
+        "searches": [
+          "Resultary: exact title and two-/three-site drive thresholds, reflecting run-and-tumble calorimetric onset; 0f01f56aa8e5; 069d27d7962f"
+        ]
+      },
+      "rationale": "Santra's model and heat definition match under the intended units and prefactor, and the paper already reports the broad qualitative tumbling-rate peak. Its inspected calculation concerns a channel with L=20, with numerical response and an approximate persistence-scale peak, not the exact two- and three-site thresholds, positivity and uniqueness classification or strict size separation. The accessible Drazin and active-calorimetry results supply general tools or different models, and no exact match appeared in the bounded indexed comparisons. This pass is for the quantitative minimal-size classification only.",
+      "residual_risks": [
+        "A separate exact small-channel analysis under equivalent rate and heat conventions could have been missed; Santra's inspected full-text portions do settle the important qualitative overlap but do not establish historical priority for the thresholds."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct qualitative coverage and same mechanism, no observed exact small-size classification",
+          "evidence": "Reflecting hops and heat conventions match with constant unit prefactor. Fig. 3 reports a peak versus α for L=20; the discussion locates it approximately near a boundary crossover; Appendix B describes numerical response.",
+          "identifier_or_url": "https://arxiv.org/pdf/2608.17903",
+          "material_read": "§II Eqs. (1)–(3); §III pp. 3–9 including Fig. 3, Eqs. (22)–(24) and following discussion; §V pp. 12–13; App. B p. 18 (OA offsets around 10158, 26003–28706, 35500, 54463)",
+          "method": "Bounded OA PDF article inspection and direct convention match",
+          "title": "Heat capacity as a marker for shape and jamming transitions in active systems",
+          "trigger": "Same reflecting lattice RTP, thermal response and alpha-peak phenomenon"
+        },
+        {
+          "assessment": "Framework in a different model",
+          "evidence": "Continuous-space RTP with Brownian thermal noise and temperature-independent propulsion; heat-capacity examples versus temperature in potentials.",
+          "identifier_or_url": "https://scipost.org/10.21468/SciPostPhys.14.5.126/pdf",
+          "material_read": "pp. 2–5, OA offsets 8844–16788",
+          "method": "OA PDF",
+          "title": "Calorimetry for active systems",
+          "trigger": "Earlier active-particle excess-heat definition and examples"
+        },
+        {
+          "assessment": "Methodological coverage, not these thresholds",
+          "evidence": "Graph/Drazin method for excess heat in driven Markov jump processes with ring examples, not an outward/inward reflecting orientation chain threshold.",
+          "identifier_or_url": "https://arxiv.org/pdf/2204.04974",
+          "material_read": "pp. 1–3 of v4, OA offsets 0–6968",
+          "method": "OA PDF",
+          "title": "Drazin-inverse and heat capacity for driven random walkers on the ring",
+          "trigger": "General finite-state heat-capacity method"
+        },
+        {
+          "assessment": "Different response and dynamics",
+          "evidence": "Power transfer by a Brownian-diffusive RTP bath, with a diffusivity threshold.",
+          "identifier_or_url": "Resultary 0f01f56aa8e5",
+          "material_read": "RESULT.md finding and scope",
+          "method": "Resultary local mirror",
+          "title": "Sharp thermal suppression and quadratic power-envelope collapse",
+          "trigger": "Closest exact active-particle thermal threshold in catalogue search"
+        },
+        {
+          "assessment": "Different model and observable",
+          "evidence": "Steady heat current and local order for a four-site Ising/Kawasaki ring.",
+          "identifier_or_url": "Resultary 069d27d7962f",
+          "material_read": "RESULT.md finding and scope",
+          "method": "Resultary local mirror",
+          "title": "Minimal two-bath Kawasaki ring",
+          "trigger": "Exact minimal finite thermal Markov model in catalogue search"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "These natural minimal chain lengths separate the onset of a response peak from drive and persistence alone. The strict intermediate drive interval supplies an exact control comparison with the same kinetics in both models, and the positivity and uniqueness classification distinguishes an actual optimum from a zero-rate boundary effect. This does not claim a thermodynamic transition or predict general longer channels.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

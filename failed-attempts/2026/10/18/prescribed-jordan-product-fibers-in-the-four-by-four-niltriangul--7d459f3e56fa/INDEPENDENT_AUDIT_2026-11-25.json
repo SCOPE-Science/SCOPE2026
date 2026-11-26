@@ -1,0 +1,159 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:36:24.932482Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independently stratify by (d,D). Off the origin its two first-output equations leave two free coordinates in (a,A,f,F), with trivializations on d≠0 and D≠0. For (u,v)≠(0,0) the last equation is always a nonzero linear constraint on (b,e,B,E), giving an affine bundle of relative dimension three there, plus two central free coordinates. This gives a geometrically irreducible dimension-nine fiber of class (L²−1)L⁷. For u=v=0, let Z be d=D=0. For w≠0 the patch off Z has class (L²−1)²L⁵, and Z has class (L⁴−1)L⁵: remove the vanishing coefficient vector of the last linear equation in each case. At w=0 add respectively (L²−1)L⁶ and L⁶. The latter additions total L⁸. For central targets, off Z each d or D chart eliminates the first two equations and reduces the last to a two-pair dot product at level w, primitive linear in one variable and geometrically irreducible in all characteristics. The charts intersect. Z is a four-pair dot-product hypersurface times the two free central coordinates, also geometrically irreducible of dimension nine. The two closed pieces (closure of the open part and Z) cannot contain one another because they have equal dimension and only one lies in d=D=0. The formula at RESULT.md line 63 uses dw rather than w for the coordinates in line 60; multiplying the two tilded coordinates by the unit d gives the stated normalization and does not change the argument. This checks reduced geometry and point counts, not scheme-theoretic reducedness of the original fibers. The finite verifier was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Soffer §2.1 identifies group and algebra commuting pairs; Kaur–Sharma–Singh §8 studies commuting probabilities, not nonzero prescribed outputs in the inspected text.",
+          "The commuting-tuples record, Finding and initial proof, covers arbitrary algebraically closed characteristic and r=2, with two dimension-nine components, including explicit d=0 and d≠0 pieces.",
+          "Kumar–Prajapati and Majeed–Ramkumar study commuting/noncommuting sets or graphs, a different invariant."
+        ],
+        "reasoning": "The r=2 result covers the geometric zero fiber in all characteristics via the sign isomorphism, not just via the pointwise characteristic-two identification. Results about the commutation relation or conjugacy class counts alone do not cover the prescribed nonzero fibers.",
+        "searches": [
+          "arXiv:1411.5389",
+          "arXiv:1601.04133v1",
+          "arXiv:2006.01493v1",
+          "arXiv:2608.09235v1",
+          "2026/10/13/SCOPE-irreducible-components-of-commuting-tuples-in-the-four-strand-un--40c40428c8f0"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–85; VERIFICATION.md and verify.c",
+        "Ranked Resultary search and local mirror passages (snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4)",
+        "arXiv:1411.5389, 1601.04133v1, 2006.01493v1, 2608.09235v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The group proof stratifies by (d,D) zero/nonzero and by the vanishing of (a,A,f,F); it solves two affine-linear constraints and then one affine-linear constraint with explicitly given coefficients. On the removed-coefficient locus the equation is trivial only at w=0.",
+          "All these base pieces and linear fibers are defined over arbitrary k; on opens with a nonzero pivot the affine-bundle coordinates are obtained by division by that pivot."
+        ],
+        "reasoning": "The group proof's affine-stratum formula works verbatim with L in place of q, not by inference from point-count agreement. For nonzero (u,v) the base is an affine-plane bundle over A² minus zero and the last-rank-one affine bundle is everywhere defined. For a nonzero central target, the two bases over nonzero and zero (d,D) are respectively a rank-two bundle with its zero section removed and A⁴ minus zero. The affine fibers over both give irreducible dimension-nine strata, whose closures are distinct as one lies in d=D=0. The zero case has the separate indexed component theorem. This leaves no additional nonroutine geometric classification in the frozen scope.",
+        "searches": [
+          "UT4 group commutator RESULT.md, Matrix identity, Outer parameter count and Last-coordinate rank (offsets 1537–4597)",
+          "Commution-tuples RESULT.md, Finding and Exact commuting equations (offsets 0–2169)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In the frozen coordinates, negate e in X and A,E,F in Y, leaving other coordinates fixed. The three Lie-bracket output coordinates in the transformed variables are (u,−v,−w).",
+          "The indexed group proof, matrix identity at offset 1537, gives third group output equal to third additive output minus (f+F)u, with identical first two outputs in additive coordinates."
+        ],
+        "reasoning": "The sign changes are invertible even in characteristic two (then they are the identity). For fixed u, translate b by +u and B by −u in additive-bracket coordinates before applying 1+X,1+Y: the translation adds (f+F)u to the additive third output and cancels the group correction. Thus there are algebraic fiber isomorphisms, not just matching cardinalities. Translation is allowed to depend on the prescribed target.",
+        "searches": [
+          "Resultary: n4 prescribed Jordan product, additive bracket and UT4 commutator fibers",
+          "2026/10/12/SCOPE-three-exact-additive-commutator-fibers-distinguish-the-central-s--384549b5164b",
+          "2026/10/26/SCOPE-three-level-commutator-fibers-in-the-four-by-four-unitriangular--8c26524bd7a0"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Additive record Finding: q⁹−q⁷, 2q⁹−2q⁷, 2q⁹+q⁸−2q⁷ with the exact same three target conditions, for all finite fields.",
+          "Group record proof computes the same distribution at each target, not just the same histogram.",
+          "The related ordinary-product record (2026/10/13, ID suffix 9ed32ce5752d) concerns XY=T, so its four-stratum table is not evidence of Jordan-fiber coverage."
+        ],
+        "reasoning": "Under the explicit coordinate isomorphisms each relevant indexed count applies to each frozen target in the appropriate stratum. Equal polynomials alone would not imply classes or components.",
+        "searches": [
+          "Resultary: three exact additive commutator fibers in n4",
+          "Resultary: UT4 group commutator fiber levels",
+          "Resultary: four product fiber strata strictly upper triangular 4×4"
+        ]
+      },
+      "rationale": "The complete fixed-target finite-field distribution is already indexed for the additive commutator and transfers by an explicit change of signs over every field, not only in characteristic two. The arbitrary-field classes and component transition are mechanically implied by the affine stratification in the indexed four-by-four group-word calculation, after an explicit target-dependent affine translation. The latter companion record's displayed date is later; the verdict concerns demonstrable coverage and implication, not historical priority. The zero-fiber component theorem is also directly covered independently.",
+      "residual_risks": [
+        "Ranked catalogue and bounded literature checks do not establish historical priority. No inference about omitted work is made from a web lookup that yielded no useful evidence.",
+        "The geometric implication is obtained from the actual affine-ranked equations, not from substituting L for q in a bare table."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact all-finite-field count under sign isomorphism",
+          "evidence": [
+            "The table uses precisely (u,v)≠0, nonzero central, and zero."
+          ],
+          "identifier_or_url": "2026/10/12/SCOPE-three-exact-additive-commutator-fibers-distinguish-the-central-s--384549b5164b/RESULT.md",
+          "material_read": "Finding and scope at offset 0–1600; located rank calculations",
+          "method": "Bounded local mirror reading",
+          "title": "Three exact additive-commutator fibers distinguish the central series of n4(F_q)",
+          "trigger": "Same target coordinates and fiber levels"
+        },
+        {
+          "assessment": "Exact affine translation and explicit stratification imply classes and nonzero geometry",
+          "evidence": [
+            "Group third entry subtracts (f+F)u; the last linear part is Fb−Ae−fB+aE, with rank zero only if a=A=f=F=0."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-three-level-commutator-fibers-in-the-four-by-four-unitriangular--8c26524bd7a0/RESULT.md",
+          "material_read": "Proof at offsets 1537–4597",
+          "method": "Bounded local mirror reading",
+          "title": "Three-level commutator fibers in the four-by-four unitriangular group",
+          "trigger": "Same distribution for group word might be algebraically equivalent"
+        },
+        {
+          "assessment": "Exact r=2 zero-fiber component coverage",
+          "evidence": [
+            "Two components of dimension 9 over algebraically closed fields of any characteristic; identity translation gives the additive zero fiber."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-irreducible-components-of-commuting-tuples-in-the-four-strand-un--40c40428c8f0/RESULT.md",
+          "material_read": "Finding, scope, exact commuting equations at offsets 0–2169",
+          "method": "Bounded local mirror reading",
+          "title": "Irreducible components of commuting tuples in the four-strand unitriangular group",
+          "trigger": "Zero fiber commuting-variety geometry"
+        },
+        {
+          "assessment": "Zero-output relation and conjugacy-class context",
+          "evidence": [
+            "Group and algebra commuting-pair relation, rather than nonzero-target geometry."
+          ],
+          "identifier_or_url": "arXiv:1411.5389",
+          "material_read": "pp. 1, 3 (§2.1)",
+          "method": "Bounded OA PDF text",
+          "title": "Upper bounds on the number of conjugacy classes in unitriangular groups",
+          "trigger": "Lie/group zero-fiber correspondence"
+        },
+        {
+          "assessment": "Different observable",
+          "evidence": [
+            "Maximal pairwise noncommuting set size."
+          ],
+          "identifier_or_url": "arXiv:1601.04133v1",
+          "material_read": "p. 1 abstract",
+          "method": "Bounded OA PDF text",
+          "title": "Maximal non-commuting sets in unipotent upper-triangular linear group UU4(F_q)",
+          "trigger": "Four-strand commutation"
+        },
+        {
+          "assessment": "Zero-output aggregate context",
+          "evidence": [
+            "Branching rules and probabilities in odd characteristic, including UT4."
+          ],
+          "identifier_or_url": "arXiv:2006.01493v1",
+          "material_read": "p. 1 and §8 p. 115",
+          "method": "Bounded OA PDF text",
+          "title": "Branching rules and commuting probabilities for triangular and unitriangular matrices",
+          "trigger": "Commuting probability specializes a fiber law"
+        },
+        {
+          "assessment": "Graph invariants, not the stated fiber invariant in the inspected material",
+          "evidence": [
+            "Vertices and edges used to study commutation."
+          ],
+          "identifier_or_url": "arXiv:2608.09235v1",
+          "material_read": "p. 1 abstract",
+          "method": "Bounded OA PDF text",
+          "title": "Commuting Graph of Unitriangular Group UT(4,p)",
+          "trigger": "Same matrix size and group"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The three-way target distinction and component jump are natural invariants, but the count is already available up to an invertible coordinate change. The remaining geometric language repackages the very same affine bundles and known zero-fiber geometry; the component count off zero follows from those irreducible bases and one dimension comparison. No distinct nonroutine residual is established.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

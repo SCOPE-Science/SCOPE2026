@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:11:00.156862Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the repaired statement, the pair blocks give a negative eigenvalue iff q/d^2 < (1-q)m, where m is the geometric mean of the top two populations. For low s, a centered Cauchy–Schwarz bound on their sum and AM–GM give the first branch, attained only by equal leaders and a constant tail (with the uniform endpoint). For high s, with leader sum t>0, s+2m^2 <= t^2+(1-t)^2 <= 1; equality requires t=1. The two roots (1±sqrt(2s−1))/2 attain the bound, including the single occupied level and empty NPT set at s=1. The two branches meet at s=1/2 and q=q_* is always PPT. Inspect RESULT.md proof and frozen verify.py lines 3–24 for formulas and finite witness construction. The original recorded 8,016 finite checks were not rerun and are not used for the continuum theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ali et al. give the arbitrary-input pair spectrum and negativity for this global channel; their fixed-input result does not solve the constrained extremum.",
+          "Two-qubit conversion and collective spin depolarization differ in range or channel."
+        ],
+        "reasoning": "The broader fixed-input formula reduces the task but gives no tail-uniformity or support transition under a prescribed s. Neither of the other noise analyses dominates the repaired claim.",
+        "searches": [
+          "arXiv:2606.16695v1 Eqs. (43)–(49)",
+          "arXiv:2606.16916v2 Eqs. (9), (14)–(15)",
+          "arXiv:2106.11680v2, abstract"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:quant-ph/9806094",
+        "arXiv:2606.16695v1",
+        "arXiv:2606.16916v2",
+        "arXiv:2106.11680v2",
+        "Resultary query results and the inspected third-purity-cumulants record"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The old expression gives the unrestricted optimum immediately by a_1 a_2<=1/2 and gives the uniform threshold by substitution. At fixed s those arguments do not produce the two different sharp bounds and their equality regimes."
+        ],
+        "reasoning": "Credit the known fixed-state threshold and its elementary numerical corollaries. The independent residual claim solves an additional moment-constrained optimization with distinct attained spectra in the two regimes.",
+        "searches": [
+          "Vidal–Tarrach arXiv:quant-ph/9806094 Eq. (41) and (B.2)–(B.3)",
+          "Ali et al. arXiv:2606.16695v1, global depolarization Eqs. (43)–(49)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In Schmidt amplitudes the constrained objective is random robustness d^2 a_1 a_2 at fixed sum a_i^4; in populations it is the geometric mean of the two largest entries at fixed squared Euclidean norm.",
+          "Vidal–Tarrach fix the state and give its robustness, not this constrained optimizer."
+        ],
+        "reasoning": "Changing the variables or the noise parameter does not make the known fixed-state formula new. The equality spectra and the switch of the optimal support at s=1/2 remain additional statements.",
+        "searches": [
+          "Resultary: fixed diagonal/collision purity and largest pair product; sharp simplex/purity extrema",
+          "Vidal–Tarrach arXiv:quant-ph/9806094 Eq. (41), Appendix B",
+          "Primary-literature lookup for the fixed-collision-purity pair-product envelope"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected same-day Resultary record 2026/10/12/SCOPE-exact-third-purity-cumulants-and-a-cubic-root-resonance-in-rando--0e21877b6a1a treats third cumulants of reduced-state purity for random phase-flat states, not a deterministic top-pair extremum. Related indexed Schatten and reset-noise leads were not source-verified because mirror files were unavailable."
+        ],
+        "reasoning": "No inspected exact continuum formula or table subsumes this optimization. Date comparison and ranked omissions are not evidence of priority.",
+        "searches": [
+          "Resultary: pure-state random robustness and white-noise thresholds; controlled-shift conversion with global depolarization; sharp simplex/purity extrema"
+        ]
+      },
+      "rationale": "The pass is confined to the all-d, all-s fixed-collision-purity envelope and its equality spectra. The fixed-output white-noise threshold, uniform example, and unconstrained optimum are known or direct consequences of earlier work and are not credited as original. The endpoint repair does not enlarge the scientific claim.",
+      "residual_risks": [
+        "A prior simplex moment extremum under other terminology could imply the entire fixed-s envelope. The bounded searches do not exclude it.",
+        "Candidate Schatten and reset-noise records returned unavailable mirror text; their catalogue descriptions alone are not primary scientific evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the fixed-state threshold and mechanically the unrestricted optimum, not the fixed-purity optimization",
+          "evidence": "Their random robustness is d^2 a_1 a_2; setting q=R_r/(1+R_r) gives the same threshold.",
+          "identifier_or_url": "arXiv:quant-ph/9806094",
+          "material_read": "p. 5 definition, p. 15 Eq. (41), Appendix B Eqs. (B.2)–(B.3)",
+          "method": "Lawful arXiv full-text passages and parameter conversion",
+          "title": "Robustness of entanglement",
+          "trigger": "White-noise robustness for any pure bipartite state"
+        },
+        {
+          "assessment": "Covers the imported spectral criterion, not the constrained equality classification in the compared passage",
+          "evidence": "Global depolarization uses the d^2-dimensional identity, and independent partial-transpose pair blocks give a sum of positive parts.",
+          "identifier_or_url": "arXiv:2606.16695v1",
+          "material_read": "p. 4 Eqs. (43)–(49)",
+          "method": "Lawful arXiv full-text passages",
+          "title": "High-dimensional coherence to entanglement transduction under canonical noise",
+          "trigger": "Same controlled shift and global depolarization model"
+        },
+        {
+          "assessment": "Restricted to a two-qubit output and does not cover d>=3",
+          "evidence": "The preprint compares global and local depolarization of a CNOT output.",
+          "identifier_or_url": "arXiv:2606.16916v2",
+          "material_read": "pp. 1, 3–4, Eqs. (9), (14)–(15)",
+          "method": "Lawful arXiv full-text passages",
+          "title": "Quantifying Coherence-to-Entanglement Conversion Efficiency under Noisy Operations",
+          "trigger": "Closely related white-noise conversion problem"
+        },
+        {
+          "assessment": "The stated collective-noise results concern a different channel and state family",
+          "evidence": "Symmetric spin states under collective depolarization; no fixed computational population-pair optimization in the compared result.",
+          "identifier_or_url": "arXiv:2106.11680v2 / DOI:10.1103/PhysRevResearch.4.013178",
+          "material_read": "p. 1 abstract in the arXiv copy",
+          "method": "Lawful OA alternate same-paper copy after publisher route returned HTTP 403",
+          "title": "Extreme depolarization for any spin",
+          "trigger": "Possible broader survival result under depolarization"
+        },
+        {
+          "assessment": "Different constrained quantity and objects",
+          "evidence": "Third cumulants of reduced-state purities in an ensemble, not largest Schmidt-pair product at prescribed collision purity.",
+          "identifier_or_url": "2026/10/12/SCOPE-exact-third-purity-cumulants-and-a-cubic-root-resonance-in-rando--0e21877b6a1a",
+          "material_read": "RESULT.md Finding and Assumptions",
+          "method": "Local published-record mirror and statement comparison",
+          "title": "Exact third-purity cumulants and a cubic-root resonance in random phase-flat states",
+          "trigger": "Candidate same-day purity result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A collision probability constrains how strongly a pure input can populate the two levels that control white-noise entanglement survival. The full attained continuum boundary and equality spectra show exactly when the population tail is necessary and when it must disappear; this is a natural optimization at a measurable constraint. The known unrestricted peak is not the basis for the pass.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

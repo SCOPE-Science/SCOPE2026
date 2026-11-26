@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:46:10.692558Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 4–59",
+        "VERIFICATION.md",
+        "verify_antiprism.py lines 9–76",
+        "verification_output.txt line 1"
+      ],
+      "rationale": "Direct chord distances give the stated same-ring and cross-ring maxima. For even n=2m the farthest cross neighbors of U_j are L_(j+m−1) and L_(j+m), with indices modulo n. The cyclic order U_j,L_(j+m),U_(j+1),... exhibits the Hamiltonian rim; the same-ring diameter pairs are n steps apart along it. Their union has an odd cycle of length n+1. Thus a within-part bound strictly below min(A,B) in squared distance is impossible. The rings themselves attain A; alternatively, splitting each within-ring opposite pair gives a bound B since the next-largest same-ring distance squared is 4r²cos²(π/n)<B. At A=B the stated three-coloring separates the chords by using reversed parity on the interior of the second half and a third color at its ends. In either strict regime the farthest graph alone is bipartite (matching or even cycle). For odd n=2m+1, U_j and L_(j+m) are antipodes and the longest edges of one ring form a cycle with step m, hence an odd cycle. This forces 2rc_n and the ring partition attains it. The finite-set diameter-graph chromatic interpretation is exact; monotonicity of the two squared branches gives the unique even optimum and the odd limiting supremum. The last aside of proof step 2 should not be read as a two-color obstruction from the longer class alone in a strict regime: it is bipartite, and only the union is used in that lower bound.",
+      "residual_risks": [
+        "Recorded finite run (253 cases; 303,178 pair evaluations) was inspected, not rerun. Its bipartiteness checks do not independently establish three-colorability, which follows analytically."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The f7af00ce36fc indexed statement includes forbidden-diameter Möbius ladders in a broader two-regular-polygon setting. The frozen comparison credits Tolmachev with general Borsuk/contact-point results; this attribution was not independently verified from primary text."
+        ],
+        "reasoning": "The available statements do not identify the specific all-height first bipartite threshold or the height maximizing it. The Rips graph calculation may cover some or all of the diameter-graph component and is not counted as independent priority for the abstract graph.",
+        "searches": [
+          "Resultary f7af00ce36fc (twisted double regular polygons)",
+          "RESULT.md lines 64–74; Tolmachev arXiv:2611.16775"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary summaries f7af00ce36fc, 679c3e42e50f, d6c704c1d311",
+        "Hierarchical diameter-clustering search passage",
+        "RESULT.md lines 64–74"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A Möbius ladder as a forbidden-distance graph need not occur at the overall diameter or determine a whole minimax law. The available terminal Rips synopsis does not specify the same critical height or give an all-n strict versus non-strict bipartiteness criterion."
+        ],
+        "reasoning": "To imply the full quantitative result, the prior statement must control threshold edge classes (including the cutoff below the diameter in strict regimes) and their ordering as h varies. The indexed statements do not show this implication; no full-text assertion of noncoverage is made.",
+        "searches": [
+          "Resultary f7af00ce36fc",
+          "Resultary 679c3e42e50f",
+          "Resultary d6c704c1d311"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Euclidean two-diameter objective is equivalent to locating the first bipartite strict distance-threshold graph; strict improvement of the overall diameter equals coloring the diameter graph. The hierarchical diameter-clustering search passage describes an algorithmic clustering problem and gives no distance threshold for these rings."
+        ],
+        "reasoning": "An equivalent graph result giving the final nonbipartite threshold for all n and heights would cover the minimax law. A generic graph characterization or algorithm does not determine that threshold.",
+        "searches": [
+          "Primary-literature search: two-clustering, Euclidean diameter minimax partitions",
+          "Resultary: two-part diameter law and Möbius-ladder diameter graphs"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Indexed records 679c3e42e50f and d6c704c1d311 cover hexagonal-antiprism persistence and optimized spherical covering respectively. Frozen RESULT.md line 65 identifies the former as a six-distance-class antecedent for n=6."
+        ],
+        "reasoning": "A single ring order does not supply all-order parity. The covering-height optimum cos(π/n)/(1+cos(π/n)) optimizes a different objective and differs from q_n for even n≥4.",
+        "searches": [
+          "Resultary: antiprism persistence, latitude-ring covering and diameter laws"
+        ]
+      },
+      "rationale": "Credit the threshold graph correspondence, standard Möbius-ladder coloring, and earlier distance/graph information for related two-ring configurations. On the available statements, the supported distinct result is the all-order quantitative two-part minimax law, its height optimization, and its association with the strict-diameter chromatic transition. No separate priority is assigned to the abstract ladder or to pair-distance computation. The terminal Rips record is serious potential graph-level overlap, not settled by the different title.",
+      "residual_risks": [
+        "Full text of the terminal Rips comparison remains unavailable. It could include an equivalent realization or threshold law not surfaced by the indexed statement. Other exact diameter-graph or clustering antecedents also remain possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong potential graph-level overlap; exact threshold and all-order two-part implication unresolved",
+          "evidence": "The summary lists Möbius ladders among forbidden-diameter graphs for parallel rotated regular n-gons.",
+          "identifier_or_url": "2026/11/17/SCOPE-terminal-vietoris-rips-homotopy-phases-of-twisted-double-regular-polygons--f7af00ce36fc",
+          "material_read": "Indexed finding summary; no full-text passage",
+          "method": "Local Resultary and targeted local-mirror RESULT.md query for Möbius, unavailable",
+          "title": "Terminal Vietoris–Rips homotopy phases of twisted double regular polygons",
+          "trigger": "Same two-ring geometry family and plausible prior Möbius-ladder diameter graph"
+        },
+        {
+          "assessment": "Same geometry but different optimization on available statements",
+          "evidence": "Half-step twist and height squared cos(π/n)/(1+cos(π/n)) for covering.",
+          "identifier_or_url": "2026/10/18/SCOPE-sharp-spherical-covering-by-two-twisted-regular-latitude-rings--d6c704c1d311",
+          "material_read": "Indexed summary and frozen RESULT.md line 65 attribution",
+          "method": "Local Resultary; requested mirror text unavailable",
+          "title": "Sharp spherical covering by two twisted regular latitude rings",
+          "trigger": "Same optimal ring twist and height optimization"
+        },
+        {
+          "assessment": "Special-order geometric antecedent, not shown to cover all orders",
+          "evidence": "Twelve vertices, Vietoris–Rips filtration, and six distance classes credited in the frozen result.",
+          "identifier_or_url": "2026/11/1/SCOPE-integral-persistence-phase-diagram-for-height-deformed-hexagonal--679c3e42e50f",
+          "material_read": "Indexed summary and frozen RESULT.md line 65 attribution",
+          "method": "Local Resultary; requested mirror text unavailable",
+          "title": "Integral persistence phase diagram for height-deformed hexagonal antiprisms",
+          "trigger": "Same heights and distance classes in order six"
+        },
+        {
+          "assessment": "Algorithmic relation, no matching configuration theorem established",
+          "evidence": "The passage concerns hierarchical diameter clustering and algorithms, not the specific antiprism cutoff.",
+          "identifier_or_url": "https://web.lemoyne.edu/~dasa/hclustering.pdf",
+          "material_read": "Search-result passage only",
+          "method": "Primary-literature search",
+          "title": "On hierarchical diameter-clustering, and the supplier problem",
+          "trigger": "Equivalent maximum-cluster-diameter formulation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 17–42 and 44–59"
+      ],
+      "rationale": "A quantitative optimum is determined on a natural sphere family, including a sharp and isolated obstruction to splitting into two strictly smaller-diameter parts. The contrast between odd matching/odd within-ring obstruction and the even ladder at one height yields a useful model of the distinction between weak min-max diameter and strict Borsuk coloring.",
+      "residual_risks": [
+        "No claim for arbitrary twist, varying ring sizes, or groups of more than two parts except the stated strict-diameter chromatic number."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

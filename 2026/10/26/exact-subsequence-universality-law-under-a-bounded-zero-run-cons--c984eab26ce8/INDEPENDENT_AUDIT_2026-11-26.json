@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:46:50.935573Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The index is the number of greedy arches: each arch embeds one prescribed letter, and the sequence of arch-terminal letters followed by a letter missing from the tail witnesses failure at the next length. Independently, a two-state renewal over whole arches gives first-row arch weights uz²(1−z^r)/(1−z), uz²/(1−z) and second-row weights uz²(1−z^{r−1})/(1−z), uz²/(1−z). This reproduces the frozen generating function, including the r=1 and empty-word cases. At u=1 the positive root is simple and uniquely interior to all other pole moduli by the triangle-inequality equality condition using powers one and two; analytic pole isolation on a fixed larger circle justifies differentiating the coefficient ratio for fixed r. For the replacement, m=r+2 and e=2ρ−1=ρ^m reduce the excess rate to e(m−4+2/(3+e))/(3[1−(m−1)e]). For m≥5 the consecutive e ratio is below 9/16, increasing the positive denominator, while the other numerator-factor ratio is at most 16/9; hence the excess strictly decreases. An independent bounded standard-library rational calculation verified both initial root brackets and the exact separating fractions for μ_2>μ_3. The r=1 rate is strictly below 1/3 and all subsequent rates are above it. From e=2^{-m}(1+e)^m one gets e=2^{-m}(1+O(m2^{-m})) and hence the claimed two-term-in-r leading expression and error. The frozen checker was inspected, not executed; it concerns finite histograms, not the slope comparisons.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The DFA algorithms recover the number of accepted k-universal words at any fixed length; subtracting counts for k and k+1 gives coefficients of the exact-index law. The Parikh-matrix article addresses extremal universality under fixed letter counts and two-letter subsequence counts, not the uniform mean under a run cap."
+        ],
+        "reasoning": "Computing each fixed-length histogram is broader in languages but does not establish the uniform-in-cap asymptotic slope ordering. A universal/existential index over a different constrained family is not the mean compared here.",
+        "searches": [
+          "arXiv:2311.10658v1, Theorem 28 and Corollary 30",
+          "Primary search: binary one sided bounded run subsequence universality index optimal cap expected value rate 1/3 arch factorization monotonicity",
+          "arXiv:2610.06717v1, Abstract and §§2–4"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Resultary b87cc26c6be8, 3a8f24d1254e and e77c4e8d9f37",
+        "arXiv:2311.10658v1, 2304.04583v1, 0902.4246v2 and 2610.06717v1",
+        "Replacement RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The matched mean proof controls n→∞ with r fixed, then passes to the limit ρ_r→1/2. It does not prove ordering of successive positive-cap slopes or give the leading correction in r. The replacement needs an inequality comparing adjacent roots and their r-dependent factors, a separate exact comparison at r=2, and a sharper expansion of 2ρ_r−1."
+        ],
+        "reasoning": "Neither a limit nor exact computation at selected r establishes monotonicity for all r. The optimizer and convergence law are not labels for the prior derivative formula; they require nontrivial inequalities and estimates for its moving pole.",
+        "searches": [
+          "Resultary b87cc26c6be8, mean universality rate near offsets 6150–8500",
+          "Resultary e77c4e8d9f37, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Replacing every bit by its complement gives an index-preserving bijection between the words avoiding 0^{r+1} and those avoiding 1^{r+1}. The matched entry gives the identical rational F_r and fixed-r slope formula."
+        ],
+        "reasoning": "Exchanging symbols does not produce a new distribution or a different asymptotic rate. The new claim orders these same rates across r and quantifies their convergence, not across alternative labelings.",
+        "searches": [
+          "Local Resultary search for bounded zero runs and binary subsequence-universality laws",
+          "Local Resultary query: subsequence universality one sided run limit binary mean slope strictly decreasing optimal cap 2 efficiency convergence asymptotic arch distribution",
+          "Resultary b87cc26c6be8, Finding and mean-rate proof"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "e77c4e8d9f37 gives the unrestricted law and mean with linear coefficient 1/3. 3a8f24d1254e bounds runs of both symbols, so it counts a different language. b87cc26c6be8 gives the identical symbolic law and some individual mean slopes. The 729a1bce797c search summary concerns shortest absent subsequences and its original text was not available through the exact mirror path."
+        ],
+        "reasoning": "The unrestricted baseline, both-symbol cap, and individual rates do not supply the across-cap optimizer. The exact one-sided match is substantial and is explicitly credited; the unavailable same-day entry is an access limitation rather than affirmative negative evidence.",
+        "searches": [
+          "Resultary 2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37",
+          "Resultary 2026/10/25/SCOPE-run-limited-binary-words-exact-subsequence-universality-spectrum--3a8f24d1254e",
+          "Resultary b87cc26c6be8 and same-day search hit 729a1bce797c"
+        ]
+      },
+      "rationale": "A distinct indexed record gives the same one-sided constrained law after bit complementation, including the derivative formula, values at the first two caps, and the unrestricted limit. Its later catalogue date is not a priority finding. The replacement instead establishes the complete ordering of the asymptotic rates across the caps, the unique optimizer r=2, and the sharp weak-cap excess. The inspected law and limiting statement do not supply these global comparisons and estimates.",
+      "residual_risks": [
+        "The exact equivalence does not establish the relationship or priority of the two indexed entries.",
+        "The mirror copy of 729a1bce797c was unavailable; the bounded search does not exclude a prior cross-cap comparison in another formulation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact equivalent distribution and same fixed-r slope computation; no complete ordering or sharp correction in inspected passages",
+          "evidence": [
+            "Same numerator and denominator after complementing bits.",
+            "Differentiates the simple dominant pole and obtains the limit 1/3 as r tends to infinity; records μ_1 and μ_2."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-subsequence-universality-distribution-of-binary-run-limite--b87cc26c6be8",
+          "material_read": "Finding, arch derivation and mean universality rate; mean passage near offsets 6150–8500, mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Bounded local mirror text inspection",
+          "title": "Exact subsequence-universality distribution of binary run-limited languages",
+          "trigger": "Matching one-sided language up to exchanging zero and one"
+        },
+        {
+          "assessment": "Different admissible language and extremal statistics",
+          "evidence": [
+            "Both zero- and one-runs are bounded, and an exact index distribution and forcing threshold are given."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-run-limited-binary-words-exact-subsequence-universality-spectrum--3a8f24d1254e",
+          "material_read": "Finding at offsets 0–4292 and relationship passage following it",
+          "method": "Bounded local mirror text inspection",
+          "title": "Run-limited binary words: exact subsequence-universality spectrum and sharp forcing thresholds",
+          "trigger": "Earlier arch-refined homopolymer-cap generating function"
+        },
+        {
+          "assessment": "Provides unrestricted law and mean, not the comparisons of finite one-sided caps",
+          "evidence": [
+            "F=(1+z)/(1−z−2uz²); mean n/3−2/9+(2/9)(−1/2)^n."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37",
+          "material_read": "Finding near offset 0",
+          "method": "Bounded local mirror text inspection",
+          "title": "Closed-form law for binary subsequence universality",
+          "trigger": "Explicit baseline, potentially a limiting specialization of the cap law"
+        },
+        {
+          "assessment": "Counts accepted k-universal words, but does not optimize asymptotic means over one-sided caps",
+          "evidence": [
+            "Counting algorithms are formulated for exact or bounded lengths of DFA-accepted words."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2311.10658v1",
+          "material_read": "Theorem 28 and Corollary 30, PDF p. 16, extracted offsets near 64422–67866",
+          "method": "Bounded OA PDF text inspection",
+          "title": "k-Universality of Regular Languages",
+          "trigger": "General regular-language coefficient computation"
+        },
+        {
+          "assessment": "Different language parameters and statistics",
+          "evidence": [
+            "The language fixes counts of both letters and the subsequence ab. The quantified results concern existential and universal index, not the present constrained mean."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.06717v1",
+          "material_read": "Abstract and definitions, PDF pp. 1 and 4; opening of §4, p. 6",
+          "method": "Bounded OA PDF text inspection",
+          "title": "Subsequence Analysis Problems for Binary Parikh Matrices",
+          "trigger": "Primary search hit on universality indices of constrained binary languages"
+        },
+        {
+          "assessment": "Unresolved at full-text level; available summary describes a distinct counted object",
+          "evidence": [
+            "The summary concerns shortest absent subsequence strings, not the uniform set of all words under a one-sided run cap."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-exact-mean-and-universality-index-distribution-of-shortest-absent--729a1bce797c",
+          "material_read": "Search summary only; original unavailable at the exact local mirror path",
+          "method": "Configured local search and exact mirror lookup",
+          "title": "Exact mean and universality-index distribution of shortest absent subsequences",
+          "trigger": "Same-day plausible overlapping index-distribution entry"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Uniform words under increasingly permissive one-sided constraints need not have mean universality rates ordered by inclusion of the languages. The repaired theorem identifies the unique optimal cap and gives the rate gain when the constraint is weak, rather than merely re-evaluating the same rational series or contrasting a few small caps. These answer optimization and approximation questions for the natural random-word statistic.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

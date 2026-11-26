@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:42:40.933265Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof Steps 1–4",
+        "Frozen VERIFICATION.md and verify_split3.py, inspected statically",
+        "arXiv:2308.07722, Theorem 3.3 and Lemma 3.5"
+      ],
+      "rationale": "With n=q+2 the Laplacian is zero on the constants, 2 on leaf contrasts and n on the remaining two dimensions. In the spectral resolvent the distinct-vertex constant contribution is c; for two leaves the contrast subtracts (1/(μ+2)−1/(μ+n))/q=1/((μ+2)(μ+n)), leaving 2c/(μ+2). Products of different unordered pairs of independent signs are uncorrelated. Each unordered same-class pair contributes 4B_ij² to the summed variance. Dividing by 4c² gives the stated class-count energy. For separate hubs with u≤v attached leaves, when u≥1 the move (u,v)→(u−1,v+1) followed by merging the second hub into the first class has energy difference −(1−β)(v−u+1) and leaves three nonempty classes. If u=0 and v≥2, simply merging gives 1−v. The leftover one-attached-leaf profile exceeds the balanced merged, zero-attached-leaf profile by β(H_q−q+1)=β(floor(q/2)−1)(ceil(q/2)−1)>0. With joined hubs, fixing x leaves in their class forces balance of the other classes by pair convexity, and ΔF=2+β[x−floor((q−x−1)/2)] is strictly increasing; this accounts for possible adjacent ties below the transition. The proper profile exceeds the balanced merged profile by βH_q−1. At β≤1/H_q the first ΔF is positive, so no further profile ties. This proves the threshold, uniqueness statements up to the stated symmetries and minimum variance for all q≥4, μ>0, including μ_c=2 for q=4.",
+      "residual_risks": [
+        "The reported 9808 score, 760 direct-inverse/variance and 47 boundary checks are finite corroboration; no uploaded code was executed here.",
+        "No coverage of different probe couplings, counts, graph weights or an objective other than variance."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General stochastic probing variance does not optimize all classes; the star record covers k≥3 classes but has only one hub; equal-part multipartite work uses two classes.",
+          "The inspected lattice QCD abstract targets valid distance-d colorings for the Wilson–Dirac graph."
+        ],
+        "reasoning": "A broader class budget on stars still cannot compare joint versus separate placement of two hubs. The cited variance formula and valid distance-coloring methods do not settle a fixed-budget search over nonproper classes.",
+        "searches": [
+          "Resultary: complete-bipartite and equal-part multipartite probing; 276450ab2e3f, 1dbb23f30782",
+          "arXiv:2308.07722, Thm. 3.3 and Lem. 3.5",
+          "arXiv:2606.00394v1, abstract"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2308.07722",
+        "arXiv:2606.00394v1 (abstract)",
+        "Resultary b49efa2c401d (self-match), 3ce288627e5e, 276450ab2e3f, 1edc2b42b895, 1dbb23f30782"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier two-color biclique result has two classes and omits the hub-hub edge.",
+          "The three-class biclique and star case comparisons have other cost parameters and boundary equality cases."
+        ],
+        "reasoning": "Neither specialization nor class relabeling gives the strict separated-hub exclusions plus the competing balanced merged-hub profile proved here. Those comparisons, rather than the variance identity or convex balancing alone, establish the topology switch.",
+        "searches": [
+          "arXiv:2308.07722 Theorem 3.3 and Lemma 3.5",
+          "Resultary 3ce288627e5e, 276450ab2e3f and 1edc2b42b895, Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The existing fixed-partition variance formula reduces this optimization to a weighted Max-3-Cut: all pairs incident to a hub have weight 1, leaf pairs have weight β.",
+          "The closest three-probe bipartite record has threshold μ=n(√2−1) on K_{n,n}, not the two-orbit weighted complete design with two expensive adjacent hubs."
+        ],
+        "reasoning": "Recasting the optimization as a cut is standard; a cut formulation alone gives no optimum or equality cases for this weight pattern. The complete split graph, unlike a biclique, has the hub-hub adjacency needed for the competing joined-hub class.",
+        "searches": [
+          "Resultary: two-hub split graph; three-state weighted-cut allocation",
+          "arXiv:2308.07722, Theorem 3.3 and Lemma 3.5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed match b49efa2c401d is the assigned finding itself.",
+          "The closest distinct matches 3ce288627e5e and 276450ab2e3f have different graph families and optimizer regimes."
+        ],
+        "reasoning": "The close analogue records are credited as overlaps in approach and compared on their statements; the shared date does not prove precedence. This is a ranked catalogue check, not evidence that no table or equivalent theorem exists.",
+        "searches": [
+          "Resultary: two-hub split graph; complete-bipartite probing; equal-part multipartite probing; three-state weighted-cut allocation"
+        ]
+      },
+      "rationale": "The distinct claim is the exact transition and complete extremizer classification for the two-adjacent-hub, three-nonempty-class problem. Credit the general variance objective, the existing proper-color probing designs, and analogous switches for other specific graph families. The evidence inspected does not show this classification following from those analogues.",
+      "residual_risks": [
+        "Full-text OA attempts for DOI 10.1137/21M1422495 and 10.1137/18M1176427 returned HTTP 403; no full-text comparison is claimed for those methods.",
+        "An equivalent theorem for two-hub or weighted complete 3-cut optimization may exist outside the bounded search. The close same-day catalogue records do not establish historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers fixed-partition normalization and variance, not this exact optimization",
+          "evidence": "Rademacher class variance is twice the ordered off-diagonal squared sum; independent class estimates sum variances.",
+          "identifier_or_url": "https://arxiv.org/pdf/2308.07722",
+          "material_read": "Theorem 3.3, p. 7 (OA offset 25900), Lemma 3.5, p. 8 (27750)",
+          "method": "Bounded primary OA PDF read",
+          "title": "Analysis of stochastic probing methods for estimating the trace of functions of sparse symmetric matrices",
+          "trigger": "Direct source of general stochastic probing variance"
+        },
+        {
+          "assessment": "Strong analogy; not the same weight structure or optimizer classification",
+          "evidence": "K_{n,n}, critical shift n(√2−1), mixed-class family and different boundary degeneracy.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-mixed-class-transition-in-three-probe-trace-estimation-o--3ce288627e5e",
+          "material_read": "RESULT.md, Finding, offset 0",
+          "method": "Configured local catalogue mirror",
+          "title": "A sharp mixed-class transition in three-probe trace estimation on balanced complete bipartite graphs",
+          "trigger": "Same number of probes and proper/improper transition"
+        },
+        {
+          "assessment": "Same estimator and balancing idea on one hub only",
+          "evidence": "For K_{1,m}, k≥3, proper class condition uses (μ+1)²≥floor((m−1)/(k−1)).",
+          "identifier_or_url": "2026/11/22/SCOPE-all-budget-optimal-rademacher-probing-partitions-on-screened-sta--276450ab2e3f",
+          "material_read": "RESULT.md, Finding, offset 0",
+          "method": "Configured local catalogue mirror",
+          "title": "All budget-optimal Rademacher probing partitions on screened stars",
+          "trigger": "Closest hub-occupancy classification"
+        },
+        {
+          "assessment": "Related earlier result, different graph and budget",
+          "evidence": "Optimizes two nonempty classes on K_{m,n}.",
+          "identifier_or_url": "2026/11/8/SCOPE-sharp-two-color-stochastic-probing-transition-on-complete-bipart--1edc2b42b895",
+          "material_read": "RESULT.md, Finding, offset 0",
+          "method": "Configured local catalogue mirror",
+          "title": "Sharp two-color stochastic probing transition on complete bipartite graphs",
+          "trigger": "Earlier exact stochastic probing transition"
+        },
+        {
+          "assessment": "Inspected abstract has a different graph and optimization target; no whole-document inference",
+          "evidence": "Structured sampling from valid distance-d colorings of a Wilson–Dirac operator graph.",
+          "identifier_or_url": "https://arxiv.org/pdf/2606.00394v1",
+          "material_read": "PDF p. 1, bounded abstract passage, OA offset 0",
+          "method": "Primary OA PDF read",
+          "title": "Probing and graph coloring techniques for trace estimation in Lattice QCD",
+          "trigger": "Related literature search hit for trace-probing optimization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof Steps 2–4",
+        "arXiv:2308.07722, fixed-partition variance",
+        "Resultary 3ce288627e5e and 276450ab2e3f for neighboring benchmarks"
+      ],
+      "rationale": "This is an exact design benchmark at a fixed three-query cost: full proper coloring can be beaten by deliberately placing adjacent universal vertices together, and the exact parameter and equality cases determine when this happens. The competing topologies and their uniqueness are substantive information beyond a pair-sum formula or a numerical example.",
+      "residual_risks": [
+        "The inverse is analytically available on this graph; the result does not establish a practical speedup or a general-purpose probing design algorithm."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

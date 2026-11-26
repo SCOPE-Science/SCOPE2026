@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:32:57.663464Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Root the gaps at a sampled point, not at a fixed angular origin: conditional on that sample the other rotated locations are iid uniform, giving the Dirichlet law and beta marginals. The perimeter does not depend on which sample is the root. The Klein model gives the cyclic edges, and the hyperbolic cosine rule gives the chord as 2 arsinh(Sₙ sin(πx)), including x>1/2. This yields the exact mean. Cubic bounds give E[1−Wₙ]=O((1+Sₙ²)/n²) in the small regime, and Jensen gives the deterministic upper bound arsinh(πqₙ)/(πqₙ) in the large regime. For finite positive qₙ→s, replacing sin(πx) by πx costs O_P(n⁻²) by the Dirichlet third moment. The normalized-exponential representation and expansion at the sample mean 1 give the influence function in (6): averaging the derivative replaces it by −b(πqₙ) with fluctuation O_P(n⁻¹/²), and the quadratic remainder is O_P(n⁻¹). Uniform moments give the triangular-array CLT; nonaffinity of arsinh gives positive variance. This centers at F(qₙ) without a rate assumption. Exponential moments give the small-s expansion, and strict decrease follows from arsinh(t)/t. For the large-s bound, the proof shorthand for h(t)=arsinh(t)−log(2t) is not a uniform bound near t=1; the precise bounds O(1+|log t|) on (0,1] and O(t⁻²) on [1,∞) make h integrable and give E[h(zZ)]=O(1/z), proving the stated remainder. The fixed-radius cubic coefficient is −π³S(1+S²)/6, with remainder controlled by the fifth gap moment. verify.py was inspected, not executed; its diagnostics do not prove the limit laws.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mirakhmedov's Theorem 2.1 applies to varying score functions of m-tuples of uniform spacings. With m=1 and all scores equal to gₙ, its center is nE[gₙ(Z)] and its variance per term is Var(gₙ(Z))−Cov(gₙ(Z),Z)². The moment condition holds by domination by Z and the limiting positive variance. Besau et al. prove a volume CLT for a fixed smooth convex body with boundary sampling, including hyperbolic settings."
+        ],
+        "reasoning": "Using the geometric chord-to-score error, the stronger spacings theorem gives the assigned critical CLT, including the triangular-array center. Integration by parts yields Cov(gₙ(Z),Z)=E[Zgₙ′(Z)], exactly the frozen correction. Neither that theorem nor the fixed-body volume CLT gives the full large- and small-radius perimeter profile and sharp expansions.",
+        "searches": [
+          "Mirakhmedov arXiv:2404.09581, equations (2.1)–(2.3) and Theorem 2.1",
+          "Lars Holst Asymptotic normality of sum functions of spacings Moran 1979 exponential conditional variance pdf nth dependent score spacings",
+          "Besau–Rosen–Thäle arXiv:2005.10502, central limit theorem"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and supporting VERIFICATION.md and verify.py",
+        "Mirakhmedov arXiv:2404.09581",
+        "Holst DOI 10.1214/aop/1176994901, abstract only",
+        "Resultary a2dad3e05c2a and a3d0d2a1df39",
+        "Besau et al. arXiv:2005.10502",
+        "Fodor arXiv:1902.03655v1",
+        "Nikitin–Polevaya DOI 10.1007/s10958-021-05586-x, abstract only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The critical CLT follows by specialization of Theorem 2.1 plus the geometric approximation. The geometric findings also locate the two deterministic perimeter-fraction limits, identify their connection to the nonconstant critical function, and quantify both tails of that function. Fodor's theorem deals with deterministic optimal perimeter approximation, not an iid hull."
+        ],
+        "reasoning": "Credit the prior theorem for the probability mechanism and the resulting critical normal law, not merely a methodological resemblance. The extra conclusions use radius-dependent chord estimates and direct analysis of the geometric profile beyond the hypotheses of the critical CLT. The accessible Nikitin–Polevaya abstract is not a full-text basis for excluding coverage.",
+        "searches": [
+          "arXiv:2404.09581, simple spacings specialization",
+          "Fodor arXiv:1902.03655v1, perimeter and Theorem 1.2",
+          "random inscribed polygons hyperbolic perimeter random boundary points central limit theorem spacings",
+          "Nikitin–Polevaya DOI 10.1007/s10958-021-05586-x"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Rooted angular gaps are the simple uniform circular spacings. The critical perimeter fraction is asymptotically their average with score gₙ(x)=arsinh(πqₙx)/(πqₙ). In the area catalogue match λₙ=n sech²(Rₙ/2) is asymptotic to 2/qₙ as the radii diverge, but the area score and limit function differ."
+        ],
+        "reasoning": "Changing from the radius to the spacing scale is an equivalent description of the critical window, not by itself a new theorem. Changing from area to geodesic perimeter changes the chord/triangle functional; a scale reparametrization does not identify the two laws.",
+        "searches": [
+          "Resultary: hyperbolic circle random polygon geodesic hull perimeter points independent uniform arclength fixed growing radius",
+          "sum functions uniform spacings Holst exponential limiting normal Var covariance arXiv Moran spacing central limit theorem circular pdf",
+          "arXiv:2404.09581, Theorem 2.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The area record a2dad3e05c2a has the same geometry and logarithmic radius window but an area coverage profile. The Euclidean record a3d0d2a1df39 gives a sum of angle-dependent exponential corner losses for a fixed polygon."
+        ],
+        "reasoning": "These catalogue entries concern exact but different observables or sampling geometries. Neither supplies an exact perimeter profile for growing hyperbolic circles; the common date of the Euclidean record does not determine priority.",
+        "searches": [
+          "Resultary: hyperbolic circle random polygon geodesic hull perimeter points independent uniform arclength fixed growing radius",
+          "Resultary: a-critical-logarithmic-radius-crossover-for-random-hyperbolic-cy--a2dad3e05c2a",
+          "Resultary: random-perimeter-loss-limits-determine-the-angle-multiset-of-eve--a3d0d2a1df39"
+        ]
+      },
+      "rationale": "The critical CLT mechanism, including the covariance correction and flexibility to use n-dependent scores, is already covered by a stronger circular-spacings theorem. Credit the supported distinct geometric contribution: the explicit perimeter-fraction crossover with sharp profile expansions in both extreme-radius directions, joined to the exact mean and the critical fluctuation formula for this growing-radius polygon model. No separate novelty is claimed for the spacings CLT or for the normalization correction. The strongest exact-model catalogue match concerns area, not perimeter; the older perimeter comparisons use different sampling or are deterministic.",
+      "residual_risks": [
+        "Older geometric-probability full text is incompletely indexed; an earlier explicit geometric perimeter profile would alter the assessment.",
+        "No priority claim for the spacings theorem or for the area/perimeter method as such. The inaccessible abstracts were not treated as negative full-text evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct broader coverage of the probabilistic CLT component after geometric reduction",
+          "evidence": "The center Aₙ,ₘ is the sum of exponential score expectations; the variance is n(Cₙ,ₘ−Bₙ,ₘ²), and the corrected score subtracts Bₙ,ₘ(X−1).",
+          "identifier_or_url": "https://arxiv.org/pdf/2404.09581",
+          "material_read": "Introduction and definitions, pp. 1–2; Theorem 2.1 with propositions and formula (2.1), pp. 4–5, extraction offsets 8830–14221",
+          "method": "Open-access primary PDF passage; checked m=1 varying-score specialization",
+          "title": "The central limit theorem for sum-functions of m-tuples of spacings",
+          "trigger": "Stronger uniform-spacing theorem with the same normalization correction"
+        },
+        {
+          "assessment": "Classical related CLT; no precise whole-paper exclusion inferred from abstract",
+          "evidence": "The abstract states a sum-function CLT for uniform spacings; the more directly applicable varying-score result was verified in Mirakhmedov.",
+          "identifier_or_url": "https://doi.org/10.1214/aop/1176994901",
+          "material_read": "Bibliographic information and abstract; available publisher and JSTOR links did not yield inspected full text",
+          "method": "Lawful OA lookup; compared the newer accessible primary general theorem separately",
+          "title": "Asymptotic Normality of Sum-Functions of Spacings",
+          "trigger": "Classical general spacings CLT"
+        },
+        {
+          "assessment": "Material geometric and methodological overlap, but a different observable",
+          "evidence": "Gives an area-coverage profile and normalization-corrected Gaussian fluctuations in the λₙ window, not the perimeter profile.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-a-critical-logarithmic-radius-crossover-for-random-hyperbolic-cy--a2dad3e05c2a",
+          "material_read": "Local-mirror finding offsets 800–4248, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Configured local Resultary index and mirror",
+          "title": "A critical logarithmic-radius crossover for random hyperbolic cyclic polygons",
+          "trigger": "Same growing-radius hyperbolic sampling model and critical CLT"
+        },
+        {
+          "assessment": "Different geometry, scale and limit law",
+          "evidence": "Its loss limit is a sum of independent angle-dependent corner losses, not a perimeter fraction for varying hyperbolic radii.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-random-perimeter-loss-limits-determine-the-angle-multiset-of-eve--a3d0d2a1df39",
+          "material_read": "Finding and statement for the fixed Euclidean polygon",
+          "method": "Configured local Resultary index and mirror",
+          "title": "Random perimeter-loss limits determine the angle multiset of even-sided polygons",
+          "trigger": "Indexed random perimeter limit potentially covering the same finding"
+        },
+        {
+          "assessment": "Fixed-body volume result, not an implication for the growing-radius perimeter",
+          "evidence": "The theorem uses a fixed smooth positive-curvature body and normalized boundary samples to study volume.",
+          "identifier_or_url": "https://arxiv.org/abs/2005.10502",
+          "material_read": "Theorem 1.1 of the Springer PDF, p. 3, extraction offset 4900",
+          "method": "Open-access primary PDF passage",
+          "title": "Random inscribed polytopes in projective geometries",
+          "trigger": "Earlier CLT for random inscribed polytopes including hyperbolic geometry"
+        },
+        {
+          "assessment": "Different deterministic optimization problem",
+          "evidence": "The theorem treats optimal perimeter-deviation approximation by polygons and does not give iid sampling distributions.",
+          "identifier_or_url": "https://arxiv.org/abs/1902.03655v1",
+          "material_read": "Abstract and Theorem 1.2, pp. 1–2, offsets 450 and 5089",
+          "method": "Open-access primary PDF passage",
+          "title": "Perimeter Approximation of Convex Discs in the Hyperbolic Plane and on the Sphere",
+          "trigger": "Exact hyperbolic perimeter keyword and geometry match"
+        },
+        {
+          "assessment": "Plausibly relevant; unavailable theorem details were not used to infer noncoverage",
+          "evidence": "The accessible comparison concerns ellipse sampling; no specific theorem beyond the abstract was verified.",
+          "identifier_or_url": "https://doi.org/10.1007/s10958-021-05586-x",
+          "material_read": "Accessible abstract about uniform vertices on ellipses and related limit laws; full text not available through the attempted lawful route",
+          "method": "Publisher abstract and open-access lookup",
+          "title": "Limit Theorems for Areas and Perimeters of Random Inscribed and Circumscribed Polygons",
+          "trigger": "Potential earlier random-perimeter limit theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For growing circles the number of sampled points alone does not determine accurate perimeter approximation. The result identifies an exact nontrivial fraction at the logarithmic radius threshold and gives leading errors on both sides of the profile, alongside its critical variance and the rate-sensitive centering. These determine what aspect of perimeter is resolved at each scale; the contribution is the geometric transition, not a new generic CLT.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

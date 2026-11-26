@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T17:01:02.510011Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, check_cycle_square.py, VERIFICATION.md, REVIEW.md, AUDIT.json, METADATA.json and SLOGAN.txt. The supplied code was inspected, not executed.",
+        "Corrected files: /workspace/repairs/3/RESULT.md, /workspace/repairs/3/VERIFICATION.md and /workspace/repairs/3/SLOGAN.txt."
+      ],
+      "rationale": "The frozen fixed-target quantifier includes H={0}, for which every signal vanishes and the inequality holds at every n; its sharpness statement also fails in that target. It therefore cannot pass literally. The complete corrected RESULT.md under /workspace/repairs/3 specifies nonzero H for both directions and states the trivial space separately; the verification note and slogan are synchronized there. For the corrected claim, integrating t exp(−(lambda+mu)t) gives the real cross coefficient a=lambda*mu/(lambda+mu)^2 and the diagonal coefficient 1/4. Difference of the two squared quadratics yields 4(1−4a)s[A+(1+4a)sB+s²C], with A=sum u³v, B=sum u²v² and C=sum uv³. Since 1−4a=(lambda−mu)^2/(lambda+mu)^2>0, any nonzero A suffices for a sign-changing perturbation. On C_n for n≥5, mode 3 is not 0 or ±1 modulo n, hence has distinct positive eigenvalue from mode 1 even at the smallest aliasing orders. The triple-angle identity makes A=||v||²_2/4≥n/8, with ||v||²_2=n at n=6 and n/2 otherwise. The bracket for s=−1/64 stays above n(1/8−2/64−1/4096)>0. A real scalar witness embeds on a unit line of each nonzero real or complex H. At n=3 there is only one nonzero eigenvalue. At n=4, antipodal parity of the eigenvalue-four and eigenvalue-two components cancels sum q_j c_j, with rho=8/9, leaving (17/81)sum c_j². This proves the equality condition using real inner products even for complex H, and pure nonzero modes prove sharpness in the two contracting cases.",
+      "residual_risks": [
+        "Independent exact sample arithmetic is reproducible from the explicit C_6 and complex C_4 vectors in the replacement VERIFICATION.md; deficits are −20493/640000 and 136/81, respectively. The uniform Fourier argument, not those finite replays or the frozen floating-point checks, establishes the all-n statement. No optimal constant for n≥5 or general necessity of the cubic criterion is asserted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lai–Li–Li give bounds for the same temporal functional over all symmetric submarkovian semigroups and the exact half normalization at spatial p=2. Their quoted general bound at p=4 is not 1/2 and their sharpness lower comparisons concern Euclidean heat and dimension. Feneuil uses fractional powers of I−P and powers of a discrete Markov operator P on a weighted graph."
+        ],
+        "reasoning": "A bound holding on all symmetric semigroups with a nonsharp p=4 factor does not decide if the half benchmark fails on a particular cycle. Discrete-time bounds do not give the normalized continuous-time obstruction, and complete bipartiteness only covers one of the tested cycles.",
+        "searches": [
+          "arXiv:2611.10710v1, Theorems 1.1–1.2 and Eq. (2.3)",
+          "arXiv:1404.1353v2, introduction and Sections 1.1–1.2 overview; complete-bipartite family proof in Resultary"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.10710v1",
+        "arXiv:1404.1353v2",
+        "Resultary complete-bipartite and small-order graph onset result texts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The onset result gives the full pointwise spectral kernel and scalar triangle equality. At K_{2,2}, the complete-bipartite result gives rho_A=rho_B=8/9 and equality when each within-part contrast is real-orthogonal to its between-part value. The parts are the opposite vertex pairs, so the identity is exactly the C_4 deficit after writing c_j=2 Re inner product. The failing complete-bipartite example uses a cubic imbalance on a size-three part."
+        ],
+        "reasoning": "C_4 and its orthogonality equality criterion are direct previous specializations, and the cubic mechanism has a concrete special-case precedent. But C_n for n≥5 is not complete bipartite and the earlier P_4 example is not a cycle. To get the general sufficient criterion one must retain the first variation A of the mixed-mode deficit; to get the cycle result one must then establish A≥n/8 and bound the higher terms uniformly. Those implications are not supplied by either inspected graph-family proof.",
+        "searches": [
+          "Full Resultary graph-onset result (ID ending 10b68babaeff), spectral-kernel and up-to-three proof",
+          "Full Resultary complete-bipartite result (ID ending 94da44836cfd), spectral decomposition, deficit and equality proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The two relevant corpus results use the same time-square functional on, respectively, small connected graphs and the complete bipartite family. Feneuil's continuous-time discussion distinguishes time derivatives and spatial gradients; its own results concern discrete-time functionals."
+        ],
+        "reasoning": "An equivalent formulation compares the graph eigenmode Gram quadratic with the pointwise squared signal and asks for a negative integrated fourth-power deficit. The spectral kernel is prior; neither a spatial-gradient inequality nor an L4 bound with a larger coefficient answers this signed deficit question.",
+        "searches": [
+          "Resultary: Hilbert-valued temporal heat Littlewood Paley square function exact L4 constant one half finite cycles cubic eigenfunctions",
+          "Web: temporal Littlewood Paley Stein heat square function graph cycle sharp L4 constant one half cubic eigenfunction orthogonality"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The graph-onset record explicitly treats all connected graphs through order three and gives one P_4 witness ratio 17/256. The complete bipartite record covers C_4 exactly. The second web query returned unrelated results, not evidence of absent prior work."
+        ],
+        "reasoning": "An exact finite graph table or graph-order onset addresses different quantifiers from failure for every C_n at n≥5. The existing finite exact cases are covered material, not evidence for a new threshold across the full cycle family.",
+        "searches": [
+          "Resultary: exact finite-graph temporal heat square function half L4 threshold contracting all graphs at most three vertices four-vertex path sharp counterexample",
+          "Web: square function finite cycles heat semigroup sharp L4 contraction spectral cubic cross moment temporal Stein"
+        ]
+      },
+      "rationale": "For the repaired claim, the pointwise kernel, factor 1/2 for single eigenmodes, scalar triangle and the four-cycle result including its Hilbert-valued equality criterion are already supplied by known background and overlapping graph results. The replacement credits them explicitly. The surviving contribution on the available evidence is the uniform analytic failure theorem with the same explicit witness on every longer cycle and the general eigenspace-cubic sufficient criterion. This is a limited literature assessment, not a priority attestation.",
+      "residual_risks": [
+        "An older perturbative theorem for pointwise spectral-multiplier kernels or temporal fourth moments could give the general sufficient obstruction. The tested web and corpus searches do not certify historical absence. Dungey's directly cited publisher PDF was not readable via that route; the space-gradient distinction is also identified in Feneuil's introduction."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General upper bounds and L2 identity are prior; the inspected statements do not resolve the sharp half-benchmark for each cycle at p=4",
+          "evidence": "Eq. (2.3) gives squared L2 norm exactly one quarter of squared centered signal norm; Theorem 1.1 gives a larger coefficient at p=4.",
+          "identifier_or_url": "https://arxiv.org/abs/2611.10710",
+          "material_read": "Open v1 PDF and HTML: introduction, Theorems 1.1–1.2, and Section 2.1 including Eq. (2.3)",
+          "method": "ArXiv PDF/HTML and displayed theorem comparison",
+          "title": "Optimal orders for Hilbert-valued Littlewood–Paley functions of symmetric semigroups",
+          "trigger": "Same temporal Hilbert-valued square function and universal normalization"
+        },
+        {
+          "assessment": "The inspected setting uses graph Markov powers and fractional discrete functionals, distinct from the continuous heat-mode question",
+          "evidence": "Introduction concludes by specifying discrete-time fractional functionals; Section 1.1 defines P, its discrete iterates, and Delta=I−P.",
+          "identifier_or_url": "https://arxiv.org/abs/1404.1353",
+          "material_read": "v2 PDF opening, contents, introductory continuous/discrete comparison and Section 1.1 setting and operator definitions",
+          "method": "Open arXiv PDF text",
+          "title": "Littlewood–Paley functionals on graphs",
+          "trigger": "Closest older graph-functional comparison beyond abstract"
+        },
+        {
+          "assessment": "Direct overlap for scalar triangle case and two-mode kernel, but no all-cycle failure theorem or arbitrary cubic spectral criterion",
+          "evidence": "Its quantified theorem is all connected graphs of order at most three plus the exhibited P_4 witness, with a general kernel identity as a tool.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-four-vertices-are-necessary-and-sufficient-for-fourth-norm-ampli--10b68babaeff/RESULT.md",
+          "material_read": "Complete public RESULT.md, including spectral-kernel formula, proof for n≤3, P_4 and scope",
+          "method": "Read full public repository result as text",
+          "title": "Four vertices are necessary and sufficient for fourth-norm amplification of the heat square function on an unweighted graph",
+          "trigger": "Same functional at exact factor and overlapping cycle instance"
+        },
+        {
+          "assessment": "Covers the C_4 estimate and pointwise real-inner-product equality characterization; cubic imbalance in a larger part is a special case of the mechanism, not the arbitrary eigenspace criterion or cycle family theorem",
+          "evidence": "Within-part eigenvalue 2, between-part eigenvalue 4 and rho=8/9 at K_{2,2}; partwise contrasts change sign between opposite vertices.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-the-exact-l-4-heat-square-function-contraction-boundary-on-compl--94da44836cfd/RESULT.md",
+          "material_read": "Complete public RESULT.md, especially the fourth-power identity and all-size failure witness",
+          "method": "Read full public repository result as text and specialize m=n=2",
+          "title": "The exact L4 heat square-function contraction boundary on complete bipartite graphs",
+          "trigger": "Same functional and exact four-cycle overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Replacement RESULT.md and VERIFICATION.md",
+        "Lai–Li–Li Eq. (2.3)",
+        "Resultary complete-bipartite and small-order graph onset result texts"
+      ],
+      "rationale": "The half coefficient is forced by pure heat modes, so it is mathematically meaningful to distinguish when mixing modes forces a larger constant. The repaired result exhibits the same bounded-size Fourier prescription at every longer cycle and isolates a reusable signed test for spectral mixing, treating the two small contracting cases as established calibrations rather than new discoveries. It is not a numerical norm table or a trivial consequence of replacing the zero target by a nonzero one.",
+      "residual_risks": [
+        "This assessment is for the half-benchmark, not the exact best constants of failing cycles or an all-graph classification."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

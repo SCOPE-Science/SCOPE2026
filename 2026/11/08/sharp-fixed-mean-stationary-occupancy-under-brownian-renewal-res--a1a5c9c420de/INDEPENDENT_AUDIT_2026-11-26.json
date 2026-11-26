@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:44:27.573570Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the equilibrium clock the age has density P(S>t)/mu, including lattice and deterministic S. Tonelli gives E[H_x(S)]/mu, the continuous Gaussian-mixture density at nonzero x. With h=p_s(x), R=H_x-sh satisfies R'=-sh', so R decreases from zero until x²/sigma² and then increases strictly to infinity. Thus H_x(s)/s has one strict maximum; the line to the tangency followed by H_x is a concave majorant. Below tangency, strictly positive clocks of mean below tangency must pay a strict majorization loss; clocks on epsilon and the tangent time approach the bound. At tangency, upper equality excludes waits below it and the mean excludes waits above it; above tangency strict concavity gives uniqueness. For the lower bound, H_x(s)>0 and the tail weight on M is O(1/M) while H_x(M)=O(sqrt(M)), so the two-endpoint limit proves the positive-but-unattained infimum zero. Independently quadrature and scalar root finding give s*=2.66988552687754032, threshold 0.61200318096248076, and optimum 0.20245649018802463 versus deterministic 0.16663094117537260 at x=sigma=mu=1. Replay: python3 /workspace/branches/independent_checks.py (brownian_check); finite diagnostics only. The uploaded checker was read, not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Assefa–Keller-Ressel–Palmowski derive polynomial moments/cross-moments and a matrix renewal equation. Neither that moment objective nor the abstract concave-envelope bound states the Brownian contact set.",
+          "The inspected intermittent-reset diffusion formula makes the optimization possible; it does not already give a uniform optimum over all strictly positive wait laws at fixed mean."
+        ],
+        "reasoning": "Allowing a larger class of processes or giving a general density representation does not cover the substantive envelope evaluation and equality cases. The inaccessible 2019 text is a residual priority risk only.",
+        "searches": [
+          "arXiv:2610.01363v1, abstract and §3 at offsets 0, 7500, 11400",
+          "arXiv:1510.07876, stationary-reset and free-diffusion passages",
+          "doi:10.1103/PhysRevE.100.042103, OA retrieval"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1510.07876",
+        "arXiv:2610.01363v1",
+        "doi:10.1103/PhysRevE.100.042103 (access attempt only)",
+        "Resultary a1a5c9c420de (self), acf0d7ce781d, 7863fbd17fff"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known stationary-law formulas identify the functional, but do not choose the supporting line, show that there is one positive tangent, or deal with removal of zero from the admissible support. Fig. 4 concerns another functional and a parametric family."
+        ],
+        "reasoning": "The model-specific sign-change argument and endpoint analysis are needed after the known reduction. The checked prior results do not imply the sharp claim by parameter substitution.",
+        "searches": [
+          "arXiv:1510.07876, Eqs. (9)–(10), Fig. 4",
+          "arXiv:2610.01363v1 §3",
+          "Resultary records acf0d7ce781d and 7863fbd17fff"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The stationary occupation-density optimization is the upper concave envelope of the integrated Gaussian kernel at its prescribed moment, divided by that moment. Its infimum is the lower closed-envelope value. The reset-time law, not the law of reset locations, is the variable.",
+          "Eule–Metzger compare Gamma/Weibull clocks and treat the deterministic limit, but their reset optimization concerns first-passage time, not this equivalent moment problem."
+        ],
+        "reasoning": "A fixed-position stationary density, even rewritten as renewal reward, is not a hitting-time observable. The underlying representation and envelope technique are credited background.",
+        "searches": [
+          "arXiv:1510.07876, free-diffusion stationary density, Eqs. (9)–(10)",
+          "arXiv:2610.01363v1, abstract and §3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "a1a5c9c420de is this identical record, not independent evidence.",
+          "The locally mirrored Findings for acf0d7ce781d and 7863fbd17fff optimize respectively first-passage Laplace/variance and excursion risk with Poisson resetting over reset locations at fixed mean absorption/search time.",
+          "Eule–Metzger Eq. (10) is the deterministic branch's starting formula, not a table of the transition and extrema over renewal laws."
+        ],
+        "reasoning": "None of the distinct inspected records is an exact entry or a parameter conversion for the requested fixed-mean stationary density optimum. Same-day dates do not establish priority.",
+        "searches": [
+          "Resultary semantic lookup for fixed-mean Brownian renewal stationary point density; identifiers a1a5c9c420de, acf0d7ce781d, 7863fbd17fff"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the explicit nonzero-position Brownian envelope and its equality/nonattainment classification, not the renewal density formula or the abstract one-moment envelope method. The inspected related models do not determine the Gaussian tangency and its strict-positive equality cases.",
+      "residual_risks": [
+        "The Masoliver–Montero full text was not available for a decisive comparison.",
+        "Targeted search cannot rule out an earlier specialized Gaussian occupation-kernel optimization under other terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known renewal representation and comparisons; inspected calculations do not cover all fixed-mean wait laws",
+          "evidence": "Gamma-family and deterministic profiles; first-passage optimization in the Gamma family.",
+          "identifier_or_url": "https://arxiv.org/html/1510.07876",
+          "material_read": "Free diffusion, Eqs. (9)–(10), Weibull discussion and Fig. 4 discussion; approximately offsets 7800, 16200, 19000",
+          "method": "Bounded primary-text passages",
+          "title": "Non-equilibrium steady states of stochastic processes with intermittent resetting",
+          "trigger": "General renewal resetting and explicit Brownian stationary profiles"
+        },
+        {
+          "assessment": "Different functional",
+          "evidence": "Polynomial-moment/cross-moment formulas and a matrix renewal equation, rather than point-density optimization.",
+          "identifier_or_url": "https://arxiv.org/html/2610.01363v1",
+          "material_read": "Abstract and §3, offsets 0, 7500 and 11400",
+          "method": "Bounded primary-text passages",
+          "title": "Moments of polynomial processes under affine resetting",
+          "trigger": "Broader process class with arbitrary renewal times"
+        },
+        {
+          "assessment": "Unresolved passage-level comparison",
+          "evidence": "No negative inference from retrieval failure.",
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevE.100.042103",
+          "material_read": "No decisive passage retrieved",
+          "method": "OA route and identified APS harvest route tried; 403 and 401 respectively, no lawful repository copy located",
+          "title": "Anomalous diffusion under stochastic resettings: A general approach",
+          "trigger": "General resetting and stationary distributions"
+        },
+        {
+          "assessment": "Different constraint, control and objective",
+          "evidence": "Poisson reset locations and mean search/absorption time, not positive renewal intervals and stationary point density.",
+          "identifier_or_url": "Resultary acf0d7ce781d and 7863fbd17fff",
+          "material_read": "RESULT.md Findings, respectively offsets 0 and 805",
+          "method": "Published catalogue lookup and local-mirror passages",
+          "title": "Related fixed-mean Brownian first-passage and excursion envelopes",
+          "trigger": "Closest distinct catalogue matches"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Pointwise stationary density is a natural occupation objective at a specified nonzero location and is inequivalent to first passage. The result decides when timing randomness is useless and when deterministic resetting is strictly suboptimal, quantitatively, and explains why vanishing intervals are needed in the latter regime. This is an exact all-law comparison, not a numerical improvement for one parametric family.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

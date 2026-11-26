@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:22:10.514561Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Assumptions and Proof; VERIFICATION.md; check.py (read, not run)",
+        "Replay: python3 /workspace/branches/independent_reproduction.py 1; direct enumeration over spin strings at n=4, 8, 12 (12, 140, 1848 accepted respectively), Gram quadratic forms and independent quadrature at every mode"
+      ],
+      "rationale": "An even wall count gives exactly two cyclic strings per labeled wall set, and reversal separates the constant eigenvalue 1. For the balanced exchangeable edge signs, odd products average zero; multiplying their deterministic zero sum by a product of t signs gives the stated recurrence. Its even solution is the beta moment with the indicated normalizer, extended to 0≤j≤m by the same product. The covariance matrix is circulant and its Fourier sum is over m=n/2 even separations. Inverting the upper half of the beta integral gives r^j+r^(m−j); the two geometric sums at z^m=1 combine to the stated positive Poisson factor, with z=−exp(−2πiℓ/m) valid because m is even. Positivity and strict angular monotonicity follow pointwise for 0<r<1; the endpoints are integrable, including the top mode where the apparent double zero cancels. Symmetry yields the claimed multiplicities within the coordinate block. For the bottom mode the coefficient at even m in the summed wall generating function is binom(n,m+1); aligning phases gives the top mode. The coordinate trace is n, so 1 is between the extreme eigenvalues and the squared condition number is their ratio. Coefficients beyond a_1 sum to O(n^−2) by a uniform geometric bound through n/8 and a decreasing exponentially small tail; this yields 1+4/n+O(n^−2). Empty sums at n=4 give the correct eigenvalues 2/3 and 4/3.",
+      "residual_risks": [
+        "Finite reproduction checks the stated normalization and representative spectra, not the universal ordering or asymptotic on its own."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Periodic-ring broken-bond counts give 2 binom(n,b) for even b; the free-boundary paper concerns different wall-count distributions.",
+          "The fixed-four-wall archive theorem is valid across n≥5, with changing extremizers and a growing condition ratio; the wall count equals n/2 only at n=8."
+        ],
+        "reasoning": "Covering other temperatures, other wall counts as counting problems, or more sizes with a fixed count of four does not give the spectral theorem along the balanced family. No broader covering spectral statement was established from the inspected passages.",
+        "searches": [
+          "arXiv:cond-mat/0308442, Secs. II and IV",
+          "arXiv:2306.16994v1, Eqs. (15)–(19)",
+          "arXiv:cond-mat/0603417, Sec. IV",
+          "Resultary b4ed6570eeb9, exact Finding and Proof"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and references",
+        "arXiv:cond-mat/0308442, cond-mat/0603417, 2306.16994v1 (Eqs. (15)–(19)), 2509.08557v2",
+        "Resultary b4ed6570eeb9 and 159f7c631a3c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "If y is wall fugacity and v=(1−y)/(1+y), multiply the canonical correlation by the even-wall partition polynomial; extracting the coefficient at y^(n/2) recovers the fixed-shell correlation. Its finite Fourier transform then gives the same eigenvalue numbers in an implicit sum.",
+          "The beta representation uses the particular balanced-shell moments; the fixed-four-wall record has different extrema when the schemes do not coincide."
+        ],
+        "reasoning": "Known correlations and a Fourier transform account for the individual moments and spectrum as a finite sum, so those alone are not credited. Coefficient extraction does not preserve a pointwise-in-temperature inequality in general. Factoring the beta transform into a positive kernel gives the missing strict inequalities and sharp conditioning, not a relabeling of the canonical covariance.",
+        "searches": [
+          "arXiv:cond-mat/0308442 Eq. (3), Sec. IV Eqs. (28)–(30)",
+          "Resultary b4ed6570eeb9, extremal modes and condition ratio",
+          "Frozen RESULT.md, beta mixture and extrema"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Gram spectrum is equivalently a finite static structure factor (the discrete Fourier transform of the two-point correlation), with a separate constant mode.",
+          "Antal et al. give the canonical correlation (v^t+v^(n−t))/(1+v^n). Balog–Rançon compute a momentum-space correlation at fixed magnetization in a scaling limit."
+        ],
+        "reasoning": "Conditioning on a balanced wall count is neither evaluating at fixed temperature nor fixing total magnetization. A canonical transform or a fixed-magnetization limit does not itself state the finite balanced-shell positive mixture and all-mode ordering.",
+        "searches": [
+          "Primary literature comparison for constrained Ising momentum-space correlations and wall counts",
+          "arXiv:cond-mat/0308442, Eq. (3), Sec. IV",
+          "arXiv:2509.08557v2, Eq. (25) and Appendix B"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "b4ed6570eeb9 agrees exactly at n=8: minimum 4/5 at modes 0,4; maximum 48/35 at 2,6; squared ratio 12/7. Its family has four walls for every size.",
+          "Same-date 159f7c631a3c uses the Lucas-cube constraint of no consecutive ones, not an exact wall count."
+        ],
+        "reasoning": "The n=8 coincidence is exact coverage of one common instance, not of strict ordering or conditioning along all multiples of four. The distinct same-date record was assessed by its different sample set, not by its date.",
+        "searches": [
+          "Configured Resultary comparison for cyclic Ising shells and sharp Fourier conditioning; exact matches b4ed6570eeb9 and 159f7c631a3c"
+        ]
+      },
+      "rationale": "The supported distinct claim is the positive Poisson representation and resulting strict full ordering and sharp frame conditioning for the balanced cyclic microcanonical family. Wall counts, canonical correlations and the fixed-shell moment extraction are prior or standard. The closest distinct archive record overlaps exactly at n=8, but does not cover the family. No bounded source comparison establishes absolute priority.",
+      "residual_risks": [
+        "An older structure-factor or Krawtchouk-transform treatment with equivalent strict inequalities may escape this bounded comparison. No priority inference is made from the archive dates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides recovery of the balanced moments, not the strict spectral theorem in those passages",
+          "evidence": "Finite periodic correlation is (v^t+v^(n−t))/(1+v^n), and fixed even wall sectors are counted.",
+          "identifier_or_url": "https://arxiv.org/abs/cond-mat/0308442",
+          "material_read": "Sec. II Eq. (3), PDF p. 2; Sec. IV Eqs. (28)–(30), PDF p. 5",
+          "method": "Targeted lawful OA passages",
+          "title": "Probability distribution of magnetization in the one-dimensional Ising model: Effects of boundary conditions",
+          "trigger": "Direct canonical predecessor for the periodic-chain correlations and wall decomposition"
+        },
+        {
+          "assessment": "Different constraint and limiting problem",
+          "evidence": "The momentum-space result fixes magnetization in a scaling limit; Appendix B sums wall sectors at fixed total spin and examines a two-wall limit.",
+          "identifier_or_url": "https://arxiv.org/abs/2509.08557v2",
+          "material_read": "Eq. (25), PDF p. 4; Appendix B Eqs. (B1)–(B5), PDF p. 11",
+          "method": "Targeted lawful OA passages",
+          "title": "Constraint correlation functions of the one-dimensional Ising model in the scaling limit",
+          "trigger": "Closest momentum-space constrained-Ising match"
+        },
+        {
+          "assessment": "Exact overlap at n=8, different family and asymptotic elsewhere",
+          "evidence": "There are exactly four walls for each n≥5, extremizer changes at n=8,12, and the squared condition ratio is asymptotic to n²/20.",
+          "identifier_or_url": "Resultary 2026/11/16/SCOPE-four-wall-cyclic-ising-shells-an-exact-fourier-frame-and-two-sha--b4ed6570eeb9",
+          "material_read": "Mirrored RESULT.md Finding and Proof, offsets 0–5958",
+          "method": "Configured local mirror",
+          "title": "Four-wall cyclic Ising shells: an exact Fourier frame and two sharp extremal-mode changes",
+          "trigger": "Closest same-ensemble-at-one-size sharp frame result"
+        },
+        {
+          "assessment": "Different constrained sampling ensemble",
+          "evidence": "Cyclic words are constrained by avoidance of consecutive ones, not by the balanced energy condition.",
+          "identifier_or_url": "Resultary 2026/11/1/SCOPE-exact-lucas-cube-fourier-precision-and-parity-split-sharp-frame--159f7c631a3c",
+          "material_read": "Mirrored RESULT.md Finding at offset 0",
+          "method": "Configured local mirror",
+          "title": "Exact Lucas-cube Fourier precision and parity-split sharp frame conditioning",
+          "trigger": "Strong same-date match for cyclic-word Fourier conditioning"
+        },
+        {
+          "assessment": "Free-boundary wall statistics, not the target cyclic Fourier theorem",
+          "evidence": "The wall-count probabilities use an open chain with free boundaries.",
+          "identifier_or_url": "https://arxiv.org/abs/cond-mat/0603417",
+          "material_read": "Sec. IV Eqs. (4.1)–(4.3), PDF p. 9",
+          "method": "Targeted lawful OA passages",
+          "title": "Domain statistics in a finite Ising chain",
+          "trigger": "Possible finite-domain-wall predecessor"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, spectrum, extrema and asymptotic",
+        "Exact comparison at n=8 and distinction from the fixed-four-wall family"
+      ],
+      "rationale": "For a natural constrained ensemble the result identifies all least and most observable first-coordinate frequencies, proves full rank, and gives the exact sharp stability ratio. A list of pair correlations does not establish this ordered comparison. The positive-mixture mechanism explains the ordering and quantifies how the balanced-shell frame approaches tightness, rather than only listing checks at a few sizes.",
+      "residual_risks": [
+        "No conclusion is credited for higher-order characters, unbalanced shells or nonuniform sampling."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -18,8 +21,6 @@
 
 # Reproduction
 
-Run `python3 artifacts/verify.py` with Python 3 (standard library only). The program builds literal Boolean matrix products and verifies each rank-one idempotent and each edge via products for \(2\le n\le4\). It enumerates all cliques/facets and graph distances through \(n=5\); it also checks predicted integer formula boundary cases through \(n=13\). Success marker: `VERIFY_OK_BOOLEAN_RANK_ONE_IDEMPOTENT_CLIQUES`.
+Run `python3 artifacts/verify.py` with Python 3 and its standard library. The checker compares literal Boolean products to the rectangular commutation rule at dimensions 2 through 4. At dimensions 2 through 5 it constructs the graph, compares its degree frequency table to the predicted table, checks its isolated vertex count, and computes distances in the nonisolated component. The predicted diameters in those dimensions are 1, 3, 3, and 3. The checker retains additional clique and facet count tests; its existing success marker is `VERIFY_OK_BOOLEAN_RANK_ONE_IDEMPOTENT_CLIQUES`.
 
-The tested integer clique vectors for \(n=2,3,4,5\) are \((7,1)\), \((37,24,1)\), \((175,385,66,1)\), \((781,5160,2725,165,1)\). Facet vectors are \((5,1)\), \((19,21,1)\), \((65,295,62,1)\), \((211,3465,2405,160,1)\). No computation certifies all infinitely many dimensions; the RESULT.md proof is uniform.
-
-Self-review: passed. Independent audit: not yet performed.
+The degree theorem and diameter classification for general dimensions are proved in `RESULT.md`, rather than inferred from the finite checks.

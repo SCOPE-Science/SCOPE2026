@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:43:36.587494Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–78",
+        "Frozen VERIFICATION.md, lines 19–25",
+        "Frozen check_perrin.py, especially lines 42–59 (inspected, not executed)",
+        "Independent bounded scalar-state recurrence enumeration"
+      ],
+      "rationale": "For the frozen companion matrix M, Cayley–Hamilton and its first three traces prove P_n=tr(M^n). The identities M^7=I+2B and M^14=I+4C can also be recovered from M³=M+I: B=M²+M and C=B+B². The decisive odd traces are tr(M^jB)=(P_(7+j)−P_j)/2=5,7 and tr(M^jC)=(P_(14+j)−P_j)/4=17,29, for j=1,3. For an odd index-parameter difference h, (M^(7h)−I)/2 is B mod two. For h=2^r w with r≥1 and w odd, the normalized quotient by 2^(r+1) is C mod two: squaring I+2^(r+1)C_r preserves C_r mod two after dividing, as does taking an odd power. The factor M^(7v) reduces to I, so the trace difference has exactly the claimed valuation for all pairs. Parity and injectivity on a block of 2^(k−1) parameters give complete even and odd sections. M mod two has order seven, and the valuation law with j=1 already forces any scalar period divisible by seven to be a multiple of 7·2^(k−1); the lifted matrix identity supplies the period, and the nonconstant seven-term parity cycle forces the factor seven. Repetition yields infinitely many index occurrences and density. Independently enumerated both sections and the first recurrence-state return for k=1 through 12. The frozen checker line 57 does not reduce the matrix power mod 2^k and by itself cannot rule out a half-period; the independent proof and first-return enumeration do not use that test.",
+      "residual_risks": [
+        "The frozen optional checker overstates its minimal-period test; its calculation is not required for the all-depth proof.",
+        "No full-period fiber multiplicities are asserted beyond the two selected branches."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primitive-recurrence result covers all nonzero seeds modulo two, proves state minimality by lifting, and gives exact isometric branches in proof §3. Herendi's cited construction assumes a different characteristic polynomial factorization. The Bravo–Irmak abstract concerns values shifted by one; full paper not recovered."
+        ],
+        "reasoning": "The decisive broader coverage is by the same recurrence with a larger class of seeds and exact pairwise lift identities, not by mere uniform distribution or single-value valuations.",
+        "searches": [
+          "Resultary universal dyadic surjectivity for primitive Padovan recurrences proof",
+          "Herendi dyadic uniform recurrence constructions",
+          "Bravo–Irmak shifted Perrin valuations"
+        ]
+      },
+      "checked_sources": [
+        "Primitive Padovan Finding and proof §§1–3",
+        "OEIS A001608 and A104217",
+        "Herendi pp. 109–110",
+        "Bravo–Irmak abstract",
+        "2026/11/22/SCOPE-two-complete-residue-sections-of-narayana-cows-at-every-power-of--1d412e89dd2f, Finding"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The quotient (Q^(7h)−I)/2^(1+ν₂(h)) is B mod two if h is odd and D mod two otherwise; left output projection for the Perrin seed gives odd scalars in the specified two branches. The same proof gives the first return of the three-term state for every k."
+        ],
+        "reasoning": "For any u,v, apply the quotient with h=u−v to Q^(7v+j) times the Perrin seed; Q^7=I mod two. This mechanically yields the frozen exact valuation and the subsequent section and density claims. State and scalar periods coincide for a sliding triple by definition, regardless of the broader paper's stated focus on the state.",
+        "searches": [
+          "Primitive Padovan RESULT.md, §§1–3, offsets 0–5971"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Perrin is the primitive Padovan recurrence with seed (3,0,2), and its terms are equally eQ^n v or tr(M^n). The indexed theorem's Q, B and D are the frozen M, B and C."
+        ],
+        "reasoning": "Changing output realization from trace to first coordinate does not change the recurrence or the initial values. The indexed first-coordinate normalized leading terms give exactly the same two odd certificates.",
+        "searches": [
+          "Resultary Perrin parity sections, companion-matrix lifting and primitive Padovan recurrences"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A001608 gives the Perrin recurrence and seed. A104217 gives periods 7,14,28,56,112 for moduli 2,4,8,16,32. The Narayana cows exact section result is a different recurrence; the primitive Padovan exact result has the relevant all-depth law."
+        ],
+        "reasoning": "The numerical data do not prove the all-depth law. The separately verified indexed Padovan proof, not the finite table or the Narayana analogy, gives equivalent coverage.",
+        "searches": [
+          "OEIS A001608 and A104217",
+          "Resultary exact recurrence residue sections, including Narayana cows"
+        ]
+      },
+      "rationale": "The exact collision law and the two sections follow by direct substitution in the separately indexed primitive Padovan recurrence theorem, not just from its headline surjectivity. Set u_0,u_1,u_2=(3,0,2), Q=M, e=(1,0,0). Its §§1–3 give the integer matrix quotients B and D=C for all index differences and give both isometric branches via b_j=d_j=1. At j=1 the state is (0,2,3), and at j=3 it is (3,2,5); eB and eD give (5,17) and (7,29), both odd. The two parities are even and odd, respectively. These are exactly the two general branches, with the same valuation law at arbitrary precision. Its full-state period is also the least period of the scalar sequence: a scalar period repeats all three consecutive coordinates, and a state period repeats the first coordinate. The same-day catalogue dates do not establish priority, but they do not remove the demonstrated stronger coverage.",
+      "residual_risks": [
+        "The same-day catalogue order and historical priority are not inferred.",
+        "The body of the shifted-valuation article was not read; the strong coverage evidence is independent of it."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct mathematical coverage; same-day publication order not resolved",
+          "evidence": "Exact matrix lift, the condition b_j=d_j=1 for complementary isometric branches, and full-state least period by the same matrix lift.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-odd-fibers-and-universal-dyadic-surjectivity-for-primitive-padov--dbfa8b1bd442/RESULT.md",
+          "material_read": "Finding, assumptions, and proof §§1–3, offsets 0–5971",
+          "method": "Local Resultary catalogue and mirrored source",
+          "title": "Odd fibers and universal dyadic surjectivity for primitive Padovan recurrences",
+          "trigger": "Same recurrence with broader primitive seeds"
+        },
+        {
+          "assessment": "Known data, not general valuation law",
+          "evidence": "Initial power-of-two periods; standard Perrin seed and recurrence.",
+          "identifier_or_url": "https://oeis.org/A104217 and https://oeis.org/A001608",
+          "material_read": "A104217 page offset 0; A001608 page offset 137",
+          "method": "Public OEIS passage inspection",
+          "title": "Perrin sequence and period of Perrin sequence modulo n",
+          "trigger": "Exact data and rate normalization"
+        },
+        {
+          "assessment": "Different polynomial and uniformity question",
+          "evidence": "Construction assumes a factor (x²−1) mod two; Perrin's polynomial reduces to the irreducible x³+x+1.",
+          "identifier_or_url": "https://doi.org/10.1515/udt-2018-0006",
+          "material_read": "pp. 109–110, statement of construction assumptions",
+          "method": "Lawful journal PDF passage",
+          "title": "Construction of uniformly distributed linear recurring sequences modulo powers of 2",
+          "trigger": "General recurrence theorem that might imply the sections"
+        },
+        {
+          "assessment": "Abstract specifies shifted values; implicit results in body unresolved",
+          "evidence": "Abstract treats the 2-adic order of P_n+1, not a stated law for arbitrary differences of terms.",
+          "identifier_or_url": "https://journals.tubitak.gov.tr/math/vol48/iss6/13/",
+          "material_read": "Publisher abstract, offset 247; full text unavailable",
+          "method": "Public abstract; publisher PDF and DOI OA recovery attempts",
+          "title": "The 2-adic valuation of shifted Padovan and Perrin numbers and applications",
+          "trigger": "Same Perrin sequence and local prime"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding",
+        "Primitive Padovan recurrence proof §§1–3"
+      ],
+      "rationale": "Two exact sections for a named recurrence are a natural invariant, but in this record the whole claimed invariant and period are an immediate first-coordinate specialization of the already indexed primitive-seed mechanism, with the same matrix and leading quotients. The frozen assertion does not produce a distinct residue-fiber invariant beyond that implication.",
+      "residual_risks": [
+        "This judges incremental mathematical value of the finding, not the usefulness of the two explicitly named sections."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

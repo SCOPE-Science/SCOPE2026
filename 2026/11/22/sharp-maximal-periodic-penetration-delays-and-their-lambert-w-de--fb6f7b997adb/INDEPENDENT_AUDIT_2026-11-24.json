@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T13:18:41.343914Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The periodic closure appends the least number of zeros making the sum of the two exterior runs divisible by m. When that sum is 1 modulo m, a cyclic period n+j with 0<=j<=m-2 would have total zeros congruent to 1+j-t for t appended ones, a nonzero residue. A shorter-than-word period entails a border. In the special residue case a zero-ended word with zero at both ends can delete its last zero and close cyclically. If endpoints differ, the shortest border v is unbordered, contains a one, and has length at most n/2 (an overlapping border of shortest length k would force a shorter one of length 2k-n). Deleting the final v gives a cyclic closure: the junction gap is the one in the original word that reaches the final copy of v, since its first one is in the same position as in the prefix copy. The zero word has period one. Hence precisely the asserted unbordered words are maximal, including the witness 1^(n-1)0. Reversal exchanges the two orientations. In the 1-to-0 orientation, all words have generating function z^2/(1-z-z^m). A bordered word has unique decomposition vsv with unbordered oriented v; s must run from modular state 1 to 0, first traversing m-1 zeros and then concatenating the loops 1 and 0^m. Conversely such concatenation has shortest border v since a shorter border would border v. This gives the Mahler equation. The whole-language series follows by arbitrary initial/final zero runs and arbitrary intervening 0^(jm)1 blocks. Its dominant root r is simple and unique on its modulus circle by equality in the triangle inequality. U<=A coefficientwise, so its equation continues it into a disk larger than r (chosen smaller than sqrt(r)); its pole at r does not cancel since r^(m-1)U(r^2)<=r^2/2. Taking the ratio of pole coefficients and substituting the equation at r^2 gives the two stated density forms. For the variable modulus, t=m delta satisfies t exp(t)<=m, hence t<=W(m); expanding log(t)+t=log m+O(t^2/m) and using monotonicity gives t~W(m). At r^4 the leading denominator is 4delta+O(delta^2) and the U(r^8) term is bounded after division by O(delta^2) via A(r^8), giving the stated relative correction. Replay: RESULT.md steps 1–5. The frozen checks/verify.py was located and inspected, not executed. An independent bounded enumeration tested all 1,684 admissible words of lengths 2–11 at m=3,4,5,6 by trial of each cyclic completion up to n+m-1, and checked the border criterion and resulting count recurrence there. These finite cases are corroboration only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The indexed Perron result gives an exponentially convergent offset law and a Perron–Frobenius border formula for all positive-entropy primitive finite-state Markov shifts. The renewal edge shift here is primitive (cycle plus unit loop). A word with a 1 has a unique edge lift fixed by the state before that symbol, and any binary periodic configuration containing it has a periodic lift of the same least period. All-zero words have m edge lifts rather than one.",
+          "Thus the indexed Markov-law hypotheses apply by lifting, even though X_m itself is not an SFT. The frozen citation describes Pannipitiya Prop. 2.27 as giving a mixing SFT bound of n+K-1; it does not supply the exact modular extremal counts."
+        ],
+        "reasoning": "The lift changes only the all-zero word multiplicity by m-1, negligible against exponential word growth, so credit the fixed-m limit-existence mechanism to the general indexed law wherever it applies. Its summary does not state the exact all-length extremizer recurrence and its varying-m asymptotic; whether its full Perron formula includes the same specialization of the limit constant could not be checked. The new contribution is assessed beyond existence or a linear upper bound.",
+        "searches": [
+          "Resultary: 178df22e69e4 Perron border law bounded periodic closing fluctuations mixing Markov shifts",
+          "arXiv:2611.13416v1 §2.4, Proposition 2.27",
+          "Resultary: entropy-sharp periodic-cylinder closure 22e18f2d92a1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, AUDIT.json and checks/verify.py",
+        "Resultary 178df22e69e4, ce7ef1cd5963, f35c34872b3f and c7dc48ac5e91 (indexed statements)",
+        "Holub–Shallit §4.1 Theorem 7 and (6) in OA PDF",
+        "arXiv:2611.13416v1 and Climenhaga S-gap discussion (recorded comparisons with limited independent access)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The fixed Fibonacci denominator at modulus two cannot decide the modulus-dependent bridge z^(m-1)/(1-z-z^m) or its behavior evaluated at the changing singular radius. The entropy equation alone fixes the exponential rate, not the proportion of extremizers.",
+          "The unrestricted alphabet formula confirms shortest-border decomposition as established technique. The modular path counting, noncancelling residue, and r_m^4 evaluation are additional steps to obtain the density expansion."
+        ],
+        "reasoning": "A general offset limit or an entropy root is compatible with many different extremal counts. The exact modulus-dependent determination and varying-modulus correction are the supported additions. Access limitations preclude claiming the complete prior text gives no related special case.",
+        "searches": [
+          "Holub–Shallit Theorem 7 and (6)",
+          "Resultary ce7ef1cd5963, f35c34872b3f and 178df22e69e4; Pannipitiya Proposition 2.27 and Climenhaga gap-entropy theorem as cited"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "X_m is the S-gap shift for S=m times the nonnegative integers, with renewal automaton a cyclic zero walk and a loop labeled 1 at state zero. A period of a finite word in the unconstrained sense is not necessarily realizable as a period of a configuration of X_m.",
+          "Holub–Shallit §4.1 Theorem 7 counts unbordered words on an unconstrained alphabet: u_n=ell*u_(n-1) for odd n>=3, with minus u_(n/2) for even n>=4. It gives a functional equation with squaring in that setting, but no state-one-to-zero bridge of this renewal language."
+        ],
+        "reasoning": "The equivalence with S-gap language explains the known entropy root. The border method transfers, but the modular path and cyclic admissibility conditions require a fresh count and change the equation.",
+        "searches": [
+          "Resultary: modular and even shifts, periodic penetration/periodic-cylinder closure, Mahler unbordered words",
+          "Holub–Shallit, DOI 10.4230/LIPIcs.STACS.2016.44 §4.1",
+          "Climenhaga, Entropy of S-gap shifts"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed golden-mean finding ce7ef1cd5963 gives a Fibonacci-weighted shortest-border Mahler law; the frozen record explicitly credits coincidence of the m=2 recurrence and limiting constant. The indexed even-shift finding f35c34872b3f gives maximal n+1 and a full-growth extremizer family, also in modulus two.",
+          "Exact match for m>=3 with the displayed variable-modulus recurrence and asymptotic was the assigned record itself; indexed c7dc48ac5e91 studies a zero-entropy shift with a nonconvergent law."
+        ],
+        "reasoning": "The two concrete modulus-two matches are excluded from the claim, not rejected by date. The inspected indexed statements do not specify the all-m>=3 formula or large-m correction. Catalogue absence is not a priority proof.",
+        "searches": [
+          "Resultary: golden-mean Mahler law parity and even-shift maximal delay; exact modular gap delays and W(m)^2/m^2"
+        ]
+      },
+      "rationale": "Credit the established entropy root, shortest-border method, nearby finite-state closing laws and all modulus-two overlap. In particular a general primitive Markov closing-offset limit transports to this language, so mere existence of a fixed-modulus limit is not credited. Supported distinct content is the exact sharp extremizer characterization and all-length enumeration for the variable-modulus family m>=3, its explicit fixed-modulus density and its quantified large-modulus asymptotic. The strongest indexed cases and source-access limits are specified below.",
+      "residual_risks": [
+        "Full statements of the closest indexed Perron and modulus-two records were not retrievable. In particular, other consequences of the general Perron border formula may cover more of the fixed-modulus density calculation than its summary states.",
+        "An older exact modular renewal count could be indexed under a different formulation. The law's claimed distinction is confined to the variable-modulus family and excess exact results documented above."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers fixed-modulus existence of an offset limit by the lift; the indexed statement does not give the modular all-length recurrence or the large-modulus law.",
+          "evidence": [
+            "Primitive finite-state Markov shifts have exponentially convergent closing-offset laws, with a Perron–Frobenius border formula. The displayed example has positive mass for n+1."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-perron-border-law-and-bounded-periodic-closing-fluctuations-for--178df22e69e4",
+          "material_read": "Indexed theorem statement; targeted local-mirror Finding retrieval unsuccessful.",
+          "method": "Exact-ID Resultary search and direct mathematical reduction through the renewal edge presentation.",
+          "title": "Perron border law and bounded periodic-closing fluctuations for mixing Markov shifts",
+          "trigger": "Strong general indexed theorem potentially covering the modular language via its lift."
+        },
+        {
+          "assessment": "Take the modulus-two recurrence and constant as previously covered; these are not claimed here.",
+          "evidence": [
+            "Summary describes Fibonacci-weighted shortest-border decomposition in a fixed golden-mean language; frozen RESULT.md lines 88–90 credit the m=2 overlap."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-golden-mean-periodic-cylinders-a-mahler-law-and-a-sharp-parity-s--ce7ef1cd5963",
+          "material_read": "Indexed theorem summary and frozen acknowledgment of the m=2 equation and constant; full result text unavailable.",
+          "method": "Resultary and requested local-mirror passages, then compare scope.",
+          "title": "Golden-mean periodic cylinders: a Mahler law and a sharp parity split",
+          "trigger": "Explicit closest finite-form Mahler count and limiting probability."
+        },
+        {
+          "assessment": "Even shift is the excluded modulus m=2. The accessible statement does not extend to variable modulus.",
+          "evidence": [
+            "The indexed statement gives sharp period n+1 and a full-exponential-growth family attaining it."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-entropy-sharp-maximal-periodic-cylinder-delay-in-the-even-shift--f35c34872b3f",
+          "material_read": "Indexed statement; full result text unavailable.",
+          "method": "Resultary and limited statement comparison.",
+          "title": "Entropy-sharp maximal periodic-cylinder delay in the even shift",
+          "trigger": "Same family at modulus two and same extremal statistic."
+        },
+        {
+          "assessment": "Related method for unconstrained words, not the modular renewal count.",
+          "evidence": [
+            "Theorem 7 subtracts u_(n/2) at even n. Equation (6) and the next display give the unbordered limit and (1-x)L0(x)=x-L0(x^2/ell), involving alphabet size ell, not the modular bridge."
+          ],
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.STACS.2016.44",
+          "material_read": "Primary OA PDF pp. 44:5–44:6, §4.1 Theorem 7 and generating-function derivation (text offset 15075).",
+          "method": "Located matching terms in the DOI-linked OA proceedings PDF and read the bounded theorem passage by offset.",
+          "title": "Periods and Borders of Random Words",
+          "trigger": "Classical shortest-border recurrence and limit for unbordered word probabilities."
+        },
+        {
+          "assessment": "Reported mixing finite-type bound is not the extremal classification, enumeration, or asymptotic under review.",
+          "evidence": [
+            "Frozen AUDIT.json reports M(C_n)<=n+K-1 for mixing SFTs."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2611.13416",
+          "material_read": "Frozen report of §2.4 Proposition 2.27 and Remark 2.28; independent targeted text retrieval unsuccessful.",
+          "method": "Attempted OA text access and compared recorded statement.",
+          "title": "Local Periodic Orbit Penetration in Dynamical Systems",
+          "trigger": "Same penetration invariant with a broader-looking symbolic upper bound."
+        },
+        {
+          "assessment": "Substituting yields r/(1-r^m)=1, equivalent to the same root, but not the count or density of maximum penetration words.",
+          "evidence": [
+            "Theorem 1 is cited for the sum of gap monomials equaling one."
+          ],
+          "identifier_or_url": "https://vaughnclimenhaga.wordpress.com/2014/09/08/entropy-of-s-gap-shifts/",
+          "material_read": "Frozen description of Theorem 1; independent text retrieval unsuccessful.",
+          "method": "Compare reported entropy equation by substituting S=m times the nonnegative integers.",
+          "title": "Entropy of S-gap shifts",
+          "trigger": "General S-gap entropy theorem gives the identical characteristic root."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a natural strictly sofic family the maximum additive delay grows with modulus, whereas the limiting fraction of words attaining it vanishes at a squared-logarithmic scale divided by m^2. An all-length extremizer count and explicit asymptotic quantify this separation, which neither a generic bounded-offset law for fixed input graph nor entropy alone measures. The result does not extrapolate uniform word proportions from the measure of maximal entropy.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

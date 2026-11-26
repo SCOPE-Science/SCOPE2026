@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:49:01.229497Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–74; frozen VERIFICATION.md and CHECKER.py (inspected, not executed)",
+        "/workspace/branches/90d3f51d-9adb-4281-af1a-5ffd72803723/cyclic-rational-ring-check.md (bounded independent calculation): modal roots on both sides at k=2,3,4,5,7,16,51; three-point characteristic-polynomial check at k=3; t_3=0.820357195635835"
+      ],
+      "rationale": "At the synchronous equilibrium, t=s(s−1) and a=(s−1)/s. Linearization differentiates the current numerator and lagged squared denominator to a and −2a. Diagonalizing the spatial shift gives all k quadratics lambda²−a omega lambda+2a omega. For a<1/2 the Schur condition is exactly H(a,Re omega)>0. Its minimizing mode(s) have the smallest cosine; the derivative −6a(3−2a Re omega−8a²) is strictly negative throughout this interval, so the sign change determines the unique first threshold. At equality the product has modulus below one, leaving one unit root and one interior root per critical mode, and all other modes are strictly stable. A critical mode is expanding above the crossing up to 1/2 by the strict Schur violation away from equality. Exactly at a=1/2, if neither root expanded their moduli would both equal one and b−conj(b)c would vanish for the quadratic lambda²+b lambda+c; here it is a(2a−omega), nonzero in a critical mode. For a>1/2 expansion follows from the product. The even-case factorization expands correctly and the sole critical multiplier is −1; real unit multipliers are excluded for odd k. Simplicity and the positive radial derivative establish transversality. Differentiating H at a=1/3, u=−1 gives the claimed odd-k asymptotics after converting a to t. The in-phase mode remains contracting until t=2.",
+      "residual_risks": [
+        "Numerical tests do not prove arbitrary k; the spectral argument does. The threshold specifies neither a nonlinear bifurcation nor global attraction."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 4 is sufficient only, and the concluding section proposes higher-dimensional cyclic systems. The identified broader delayed-feedback source was not available in full text. The indexed all-size spectral-gap theorem applies to a different dynamical family."
+        ],
+        "reasoning": "General linearization and Schur tools are known, but no inspected broader theorem asserts the specific sharp threshold and minimum-cosine/parity classification. Unavailable text is a residual risk, not evidence of noncoverage.",
+        "searches": [
+          "Yazlık–Fidancı–Hassani Theorem 4 and p. 2537 conclusion on higher-dimensional cyclic systems",
+          "Cyclic delay characteristic equations, DOI 10.3934/dcdss.2020017",
+          "Resultary 411da2c8e9b3, transverse Floquet spectrum"
+        ]
+      },
+      "checked_sources": [
+        "DOIs 10.1007/s12190-024-02057-9 and 10.1186/s13662-019-2490-9, primary passages",
+        "Resultary 411da2c8e9b3",
+        "DOI 10.3934/dcdss.2020017, abstract and OA attempts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The three-component sufficient bound becomes 3a<1, equivalent to t<3/4. This number agrees with the exact boundary only for even k, and the sufficiency theorem does not give instability above it. The odd k=3 numerical root exceeds it, with the in-phase factor still inside the unit disk."
+        ],
+        "reasoning": "The displayed Jacobian enables the subsequent Fourier analysis, but supplies neither a necessity result nor which modes destabilize first. Selecting the extremizing spatial phase and demonstrating outward, sole-mode crossing completes the sharp result; the known bound alone does not imply it.",
+        "searches": [
+          "Yazlık–Fidancı–Hassani Theorem 4, equal-gain specialization",
+          "Bešo et al. Theorem 1; Resultary 411da2c8e9b3 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The three-dimensional paper has the same recurrence upon equalizing the parameters. The scalar paper treats lambda²−a lambda+2a, one modal factor only. The Resultary comparator instead uses the lagged-to-current ratio with a first-power denominator and a period-dividing-two family."
+        ],
+        "reasoning": "The matched scalar threshold at t=2 is in phase and strictly after the first ring instability. The two-step Floquet spectrum in the other recurrence is not a reparameterization of the unit-multiplier test here.",
+        "searches": [
+          "Yazlık–Fidancı–Hassani DOI 10.1007/s12190-024-02057-9, equal p=q=r=t",
+          "Bešo et al. DOI 10.1186/s13662-019-2490-9, synchronous restriction",
+          "Resultary cyclic rational-delay spectra 411da2c8e9b3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The known exact scalar t=2 and bound t<3/4 concern different objects or a sufficient region. The indexed k^(-2) Floquet-gap estimate is not a table of first gain thresholds for this map."
+        ],
+        "reasoning": "A generic numerical sequence database is inapplicable to an assertion parameterized by a continuous gain and complex unit crossings for all k. The plausible exact known benchmarks and algebraic formulas were compared at their stated parameters; none gives the exact off-axis three-mode threshold in the inspected statements.",
+        "searches": [
+          "Yazlık–Fidancı–Hassani Eqs. (20)–(22) and Theorem 4, exact Jacobian and stability formulas",
+          "Bešo et al. Eq. (3), Theorem 1, exact scalar threshold",
+          "Resultary 411da2c8e9b3, exact cyclic spectral estimate"
+        ]
+      },
+      "rationale": "The same three-component system, its Jacobian and a sufficient stability region are prior work, as is the in-phase scalar threshold. What survives the comparison is the sharp full-ring threshold, parity-dependent critical spectrum and large-odd-size correction in the stated uniform-gain model. This is not a claim to a new Schur criterion, to introducing the recurrence, or to exhaustive historical priority.",
+      "residual_risks": [
+        "The named broader cyclic-delay primary text was unavailable. Abstract-level information and unrelated web results are not a substitute for a full comparison or evidence of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same model at equal parameters, prior sufficient test, not the sharp result",
+          "evidence": "Jacobian displayed; equal-parameter sufficient region reduces to 3a<1. Concluding section proposes larger cyclic dimension.",
+          "identifier_or_url": "https://doi.org/10.1007/s12190-024-02057-9",
+          "material_read": "Eqs. (20)–(22), pp. 2525–2526; Theorem 4, pp. 2528–2529; conclusion p. 2537",
+          "method": "OA PDF primary-text passages",
+          "title": "Stability analysis of a three-dimensional system of difference equations with quadratic terms",
+          "trigger": "Same three-component equations and potential sharp prior"
+        },
+        {
+          "assessment": "Covers scalar/in-phase local threshold only",
+          "evidence": "The recurrence has denominator squared and the scalar threshold is p=2.",
+          "identifier_or_url": "https://doi.org/10.1186/s13662-019-2490-9",
+          "material_read": "Eq. (3) and Theorem 1, pp. 1–4",
+          "method": "OA primary-text passages",
+          "title": "Boundedness of solutions and stability of certain second-order difference equation with quadratic term",
+          "trigger": "Exactly the uncoupled scalar restriction"
+        },
+        {
+          "assessment": "Different recurrence and invariant family; date alone used for no priority inference",
+          "evidence": "The update is 1+x_(n−1)^(i+1)/x_n^(i+1); the theorem is about a period-dividing-two family and a two-step k^(-2) spectral gap.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-normal-attraction-and-a-diffusive-spectral-gap-for-cyclic-ration--411da2c8e9b3/RESULT.md",
+          "material_read": "Mirrored Finding, recurrence and transverse spectrum",
+          "method": "Local Resultary discovery and matched statement inspection",
+          "title": "Normal attraction and a diffusive spectral gap for cyclic rational delay maps",
+          "trigger": "Closest cyclic-delay and spectral Resultary comparison"
+        },
+        {
+          "assessment": "More specific overlap unresolved",
+          "evidence": "The abstract describes cyclic delayed negative feedback and a characteristic equation, but does not identify the present numerator/lagged-squared-denominator recurrence or the k-dependent threshold.",
+          "identifier_or_url": "https://doi.org/10.3934/dcdss.2020017",
+          "material_read": "Landing-page and abstract information only",
+          "method": "DOI/AIMS OA text retrieval attempted; alternate landing pages did not supply full text",
+          "title": "A cyclic system with delay and its characteristic equation",
+          "trigger": "Potential broader delayed cyclic feedback spectral theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, threshold and asymptotic statements; the three-component sufficient test and scalar t=2 comparator"
+      ],
+      "rationale": "A sharp threshold and the identity of the destabilizing modes resolve what a sufficient norm bound and the synchronous scalar analysis leave open. The parity law separates a single alternating negative multiplier from a genuinely nonreal pair; the strict extension of the stable interval for odd rings and its k^(-2) scale quantify this difference.",
+      "residual_risks": [
+        "The value is the exact linear spectral classification, not a nonlinear bifurcation diagnosis."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

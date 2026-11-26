@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:05:58.536488Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For k>=1 the selected divisors of 3*2^k have sum 4*2^k-2, exactly half the total. Multiplying a balanced divisor partition by every divisor of a coprime factor preserves equality. Factoring out the complete power of 2 and the unique factor of 3 proves both progression rules. All table starts have the claimed residues, and adding 18 each time preserves the variable summand's membership. The only uncovered odd targets above 983 are 1001 and 1019, both settled by the displayed exceptional decompositions. I independently enumerated paired divisors through 1200, doing exact subset-sum by remainders for the half containing n, and reconstructed the residue minima and the finite two- and three-sum sets. This confirmed 945 is the only odd Zumkeller number through 983, the six possible even summands below 38, and the absence of 38 from their two-sum set. Any decomposition of 983 must have exactly one odd summand, so the deficit 38 is decisive. Replay: python3 /workspace/branches/local_exact_audit.py 1. The symbolic progression argument, not the finite computation, proves the infinite tail.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The published record states G_3=983 and G_k=6k+955 for k>=4.",
+          "Somu–Kukla–Tran Proposition 4.6 gives the even two-sum classification and a large odd two-sum bound; §5 suggests examining three and four summands."
+        ],
+        "reasoning": "The indexed result treats the full family of fixed lengths k>=3, including the exact frozen case. The older paper provides the building blocks rather than a statement of the sharp three-summand conductor.",
+        "searches": [
+          "Resultary: fixed-length Zumkeller sums",
+          "Somu–Kukla–Tran, arXiv:2310.14149v2 §§4–5"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 0595ebc48afa, RESULT.md",
+        "Somu–Kukla–Tran, arXiv:2310.14149v2, §§4–5",
+        "OEIS A368007"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The even two-term targets are all even integers >=12 except 14,16,20,22,28,38. Adding 6 covers every even n>=46; adding 945 covers every odd n>=985, since n-945 is even and >=40.",
+          "The Resultary proof uses the sole odd candidate 945 and 38 as a two-summand exception to exclude 983."
+        ],
+        "reasoning": "The published two-sum classification immediately implies the upper bound and a stronger even cutoff than the frozen 98. The separately indexed proof supplies sharpness explicitly; the frozen residue construction does not establish a stronger invariant.",
+        "searches": [
+          "arXiv:2310.14149v2 Proposition 4.6",
+          "0595ebc48afa three-summand proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2026/10/18/SCOPE-sharp-fixed-length-zumkeller-sum-thresholds--0595ebc48afa, RESULT.md: definition and finding near offset 184; three-summand proof near offset 3038."
+        ],
+        "reasoning": "The maximum excluded target is one less than the conductor. The existing record proves that maximum is 983, for the identical summand set and repetition convention. The general web lookup was nondecisive.",
+        "searches": [
+          "Resultary: sharp fixed-length Zumkeller sum thresholds; greatest nonrepresentable number versus conductor",
+          "Targeted literature lookup for exact three-Zumkeller summand conductor and divisor partitions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A368007 lists two-summand exceptions; the linked table description is n,a(n) for n=1,...,1541.",
+          "The Resultary entry explicitly records the exact three-summand maximum 983."
+        ],
+        "reasoning": "The OEIS entry is a different invariant and is not a direct exact-conductor listing. The exact match is the fixed-length Resultary record.",
+        "searches": [
+          "OEIS A368007 and its linked two-summand table description",
+          "Resultary exact fixed-length Zumkeller record"
+        ]
+      },
+      "rationale": "The earlier indexed fixed-length Zumkeller result explicitly proves G_3=983 with the same positive summands, repetition convention, and exact number of terms; this is equivalent to conductor 984. Its companion results give all greater fixed-length thresholds. The frozen modular covering offers an alternative proof of an already covered result, not a distinct threshold.",
+      "residual_risks": [
+        "General search retrieval was noisy and is not negative evidence about further coverage. The exact positive coverage is decisive.",
+        "The individual lines of the linked OEIS two-summand table were not needed or independently read."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage",
+          "evidence": "G_3=983 is proved for exactly three positive summands with repetitions allowed, and the entire tail above 983 is included.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-sharp-fixed-length-zumkeller-sum-thresholds--0595ebc48afa",
+          "material_read": "RESULT.md definition and finding (offset 184) and three-summand proof (offset 3038)",
+          "method": "Configured Resultary search and local mirror reader, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Sharp fixed-length Zumkeller sum thresholds",
+          "trigger": "Exact possible threshold match in the published Resultary index"
+        },
+        {
+          "assessment": "Supplies progression, least odd 945 and even two-sum facts; implies the upper bound, not a directly stated sharp three-sum result",
+          "evidence": "Proposition 4.6 excludes exactly 14,16,20,22,28,38 among even n>=12; §5 proposes examining sums of three or four.",
+          "identifier_or_url": "https://arxiv.org/html/2310.14149v2",
+          "material_read": "§4 at offsets 19472 and 23595; §5 at offset 52246",
+          "method": "Targeted reading of the lawful arXiv full text",
+          "title": "Some Results on Zumkeller Numbers",
+          "trigger": "Motivating primary source and possible implication by addition"
+        },
+        {
+          "assessment": "Different number of summands",
+          "evidence": "The definition is explicitly two-summand nonrepresentability, and the sequence is marked finite.",
+          "identifier_or_url": "https://oeis.org/A368007",
+          "material_read": "Heading, comment and links near offset 209; linked table not independently opened",
+          "method": "Targeted public webpage reading",
+          "title": "Positive integers which cannot be written as a sum of two Zumkeller numbers",
+          "trigger": "Candidate exact exception table"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The exact conductor answers a natural additive question, but it is already established, and the alternative modular cover here neither improves a threshold nor yields a distinct valuable claim: even targets are already covered from 46 by the older two-sum theorem. This submission is not a new scientific answer to the posed problem.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

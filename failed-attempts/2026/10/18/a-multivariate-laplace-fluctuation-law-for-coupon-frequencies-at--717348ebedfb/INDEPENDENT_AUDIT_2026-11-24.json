@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:00:27.097529Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The underlying draws, not the draws conditioned on their stopping count, are independent uniform marks. Independent rate-one Poisson streams give n exp(-tau_n) tending to Exp(1); conditional on the last first-arrival time and its index, there is one compulsory singleton and the other counts are independent positive-truncated Poisson variables. On compact positive windows of n exp(-tau_n), the conditional multinomial variances divided by (log n)^r tend uniformly to n exp(-tau_n)/r!, the scaled off-diagonal terms are O((log n)^((r+s)/2)/n), and the largest centered scaled summand is O((log n)^(-1/2)). The conditional characteristic-function expansion therefore has uniform vanishing remainder, yielding the joint Gaussian mixture when the window restriction is removed. The exact conditional mean minus the Poisson center is the singleton correction plus (n exp(-tau_n)-1)q_r(tau_n), negligible on every claimed scale. The independent rate-n clock has squared error H_n/n; the derivative of the center is O_p((log n)^r), so replacing tau_n by W_n/n incurs o_p((log n)^(r/2)) for fixed r. Exponential integration produces the stated characteristic function. For R>=2, distinct squares have positive covariance 1/(r!s!), although conditional coordinates are independent; for R=1 the dependence remark is vacuous. The frozen finite checker was inspected, not executed, and is not used as a proof of the limit.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "0d3ee5e36129 supplies the studentized independent-normal vector and its unstudentized mixed-Gaussian version for every fixed cumulative index range through J; choose J=R+1.",
+          "Saunders and Ilienko give first-order limits on the full log-power scales. Mahmoud and Smythe's deterministic-time CLTs cover sublinear and linear phases, expressly not the superlinear n log n completion window."
+        ],
+        "reasoning": "The indexed cumulative theorem covers the stopped second-order question and gives stronger studentized information. A first-order limit loses the residual and deterministic-time results in the cited regimes cannot be substituted at completion.",
+        "searches": [
+          "0d3ee5e36129, Finding and Poisson-to-discrete proof",
+          "Saunders arXiv:2005.08915 Theorem 1.1; Ilienko arXiv:2002.00650 Theorem 2.1; Mahmoud and Smythe DOI 10.1239/aap/1339878719 Theorems 1–2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_coupon.py",
+        "Resultary 0d3ee5e36129, 30d62ac7ab73, 6fa85e17147f",
+        "Foata–Han–Lass Proposition 4.1, Myers–Wilf section 4, Mahmoud–Smythe Theorems 1–2, Saunders Theorem 1.1, Ilienko Theorem 2.1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Indexed cumulative centers m_{n,j}(t) are 1+(n-1) times the sum of truncated Poisson cell probabilities up to j-1. Their successive differences give (n-1)q_r(t) in frozen notation, with the same singleton correction for r=1.",
+          "The indexed cumulative residual U_{n,j}-m_{n,j} is of order (log n)^((j-1)/2), jointly with exp(-G_n).",
+          "The older generating-function and singleton-distribution papers describe the finite laws, not this residual limit."
+        ],
+        "reasoning": "In the r-th difference divided by (log n)^(r/2), the U_{n,r} residual vanishes in probability and the U_{n,r+1} residual tends to sqrt(E/r!) times its independent normal. The center differs from M_{n,r} by O_p(1) because n exp(-W_n/n) is tight, and log of the clock statistic recovers G_n. The remaining claimed characteristic function is the exponential Laplace transform of the conditional Gaussian characteristic function. Thus every limit assertion follows directly from 0d3ee5e36129.",
+        "searches": [
+          "0d3ee5e36129, Finding and proof offsets 2641–5854",
+          "Foata–Han–Lass Proposition 4.1 and Myers–Wilf section 4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For the same stopped uniform collection process, U_{n,j} in 0d3ee5e36129 counts types seen fewer than j times at completion. All types have appeared, so U_{n,2}=K_{n,1} and U_{n,r+1}-U_{n,r}=K_{n,r} for r>=2.",
+          "The indexed timing statistic n exp(-W_n/n), in frozen notation, is exactly exp(-G_n)."
+        ],
+        "reasoning": "The exact-r and cumulative counts are fixed finite differences on the same trajectory, not different occupancy experiments. The clock statistics are continuous transforms of each other on the positive limiting support.",
+        "searches": [
+          "Local Resultary: coupon completion, k-tons, observed-centered sibling deficits, mixed Gaussian and Laplace fluctuations",
+          "0d3ee5e36129, mirrored Finding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/10/12/SCOPE-observable-centered-gaussian-fluctuations-of-coupon-collector-si--0d3ee5e36129, RESULT.md offsets 0–2648, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4, states the joint cumulative mixed-normal and studentized limits.",
+          "Distinct singleton results 30d62ac7ab73 and 6fa85e17147f give the overlapping r=1 studentized and Laplace statements respectively."
+        ],
+        "reasoning": "There is exact overlap for the singleton and a dominating statement for all fixed r jointly by the cumulative formula. Coverage is not inferred from index dates or title similarity.",
+        "searches": [
+          "Local Resultary: visible completion time, singleton Gaussian and Laplace, cumulative coupon deficits"
+        ]
+      },
+      "rationale": "Distinct indexed record 0d3ee5e36129 already states the joint observed-time-centered mixed-Gaussian limit for all fixed finite vectors of cumulative low-frequency counts. Differencing and the successive log scales give the exact-frequency limit, with the same mixing variable and observable centering to the required precision. Integrating the Gaussian mixture gives the Laplace formula without additional asymptotics. The academic first-order and deterministic-time results alone would not support a coverage verdict.",
+      "residual_risks": [
+        "This is a bounded comparison, not a comprehensive priority assessment.",
+        "The verdict does not require ruling out other academic sources because the indexed cumulative theorem already yields the claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the full claim by fixed differences and scales",
+          "evidence": "Joint fixed-J cumulative mixed-Gaussian limit with the same observable timing statistic and compatible center.",
+          "identifier_or_url": "2026/10/12/SCOPE-observable-centered-gaussian-fluctuations-of-coupon-collector-si--0d3ee5e36129",
+          "material_read": "Mirrored RESULT.md Finding and scope offsets 0–2648; conditional limit and clock-transfer proof offsets 2641–5854",
+          "method": "Local Resultary and mirror passage reads",
+          "title": "Observable-centered Gaussian fluctuations of coupon-collector sibling deficits",
+          "trigger": "Joint stopped observed-time-centered CLT"
+        },
+        {
+          "assessment": "Covers r=1 only; adds conditional error bound",
+          "evidence": "Joint studentized singleton and Gumbel convergence to independent limits.",
+          "identifier_or_url": "30d62ac7ab73",
+          "material_read": "Mirrored Finding, offset 0",
+          "method": "Local Resultary and mirror passage read",
+          "title": "Studentized Gaussian fluctuations of the coupon collector's terminal singleton count",
+          "trigger": "Exact singleton residual comparison"
+        },
+        {
+          "assessment": "Covers r=1 only",
+          "evidence": "Same singleton Gaussian mixture and Laplace marginal, jointly with the completion coordinate.",
+          "identifier_or_url": "6fa85e17147f",
+          "material_read": "Mirrored Finding, offset 0",
+          "method": "Local Resultary and mirror passage read",
+          "title": "A randomly centered Laplace fluctuation law at coupon collection",
+          "trigger": "Exact singleton Laplace comparison"
+        },
+        {
+          "assessment": "Relevant finite law, not a theorem of second-order convergence",
+          "evidence": "Exact multivariate generating function in completion time and counts.",
+          "identifier_or_url": "https://irma.math.unistra.fr/~guoniu/papers/p32frere.pdf",
+          "material_read": "Proposition 4.1, p. 8, offset 23239",
+          "method": "Targeted OA PDF read",
+          "title": "Les nombres hyperharmoniques et la fratrie du collectionneur de vignettes",
+          "trigger": "Exact joint finite law"
+        },
+        {
+          "assessment": "Finite singleton overlap only",
+          "evidence": "Exact singleton/completion-length distribution and harmonic-number mean.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0304229",
+          "material_read": "Section 4, pp. 18–19, offsets 61600 and 65180, equations 44–47",
+          "method": "Targeted OA PDF read",
+          "title": "Some New Aspects of the Coupon-Collector's Problem",
+          "trigger": "Terminal singleton results"
+        },
+        {
+          "assessment": "Sampling regime does not cover the claimed stopping time",
+          "evidence": "Sublinear and linear joint CLTs; superlinear phase explicitly not considered.",
+          "identifier_or_url": "DOI 10.1239/aap/1339878719",
+          "material_read": "Theorems 1–2, PDF pp. 4–5 at offsets 19827 and 24631; superlinear exclusion p. 6 offset 27057",
+          "method": "Targeted OA PDF read",
+          "title": "On the Joint Behavior of Types of Coupons in Generalized Coupon Collection",
+          "trigger": "Deterministic-time occupancy CLTs"
+        },
+        {
+          "assessment": "First-order coverage only",
+          "evidence": "For quota one the count divided by its leading full logarithmic power converges jointly with completion time.",
+          "identifier_or_url": "https://arxiv.org/abs/2005.08915",
+          "material_read": "Theorem 1.1, p. 2, offset 6380",
+          "method": "Targeted OA PDF read",
+          "title": "The number of k-tons in the coupon collector problem",
+          "trigger": "Same stopping problem and frequency coordinates"
+        },
+        {
+          "assessment": "First-order cumulative result",
+          "evidence": "All fixed cumulative coordinates have the same exponential first-order limit, not the residual law.",
+          "identifier_or_url": "https://arxiv.org/abs/2002.00650",
+          "material_read": "Theorem 2.1, p. 4, offset 15642",
+          "method": "Targeted OA PDF read",
+          "title": "Limit theorems in the extended coupon collector's problem",
+          "trigger": "Broader cumulative occupancy vector"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The second-order fluctuation question is substantive and the accessible Laplace description has explanatory merit, but the submitted theorem adds no new limit or parameter regime to the indexed cumulative result. Finite differencing at separated logarithmic scales and the exponential transform give the entire description routinely. The frozen claim does not supply a new quantitative error bound, uniformity regime, or different occupancy phenomenon.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

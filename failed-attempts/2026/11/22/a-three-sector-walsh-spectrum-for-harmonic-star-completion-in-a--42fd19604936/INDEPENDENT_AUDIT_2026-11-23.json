@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:57:08.239546Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–77",
+        "Frozen VERIFICATION.md, lines 19–24; verify_hypercube.py, lines 24–79"
+      ],
+      "rationale": "The connected cube grounded on the star has a unique harmonic solution. Center-only data extend by zero off the center, and leaf-only harmonic weights sum to one off the center. By coordinate permutation symmetry their column sums are (2^d−1)/d, giving that eigenvalue on equal leaves; weighted Jensen and boundary reproduction give the extremal bounds. The leaf Gram matrix has constant diagonal and constant off-diagonal, so a single leaf difference evaluates the whole zero-sum sector. Transposition antisymmetry leaves opposite copies of v(z) on (1,0,z),(0,1,z), with v(0)=1 and (2I+L_{Q_{d−2}})v=0 elsewhere. The two copies cancel the squared-norm factor of two in the input. Walsh diagonalization of the normalized massive Green column gives the exact reciprocal-binomial ratio; simple binomial coefficient shifts give the stated Λ_d. For d=2, the slice is one point and the contrast ties the center at 1. For d≥3 the massive Green column is positive off the origin by its convergent adjacency Neumann series, so Λ_d>1, and Jensen is strictly lossy at e₁+e₂, which can hit each contrasting leaf in one step. For the rate, Taylor-expand the reciprocal around m/2 for K~Bin(m,1/2), m=d−1: odd terms cancel, the variance term is 2/m², the fourth-moment remainder is O(m⁻³), and the excluded tail is exponentially small. Multiplying by (m/2)(1−2⁻ᵐ)⁻² proves the expansion. Parseval postcomposition is an isometry, preserving the Gram operator, and restriction after synthesis is a left inverse. The exact-rational checker was inspected as text, not run; its d=2,…,6 checks are supplementary only.",
+      "residual_risks": [
+        "The calculation is for the specified star in the unweighted coordinate cube with counting norms, not for arbitrary Cayley embeddings or different norms."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The face result proves λ_{h,t} for all positive codimensions and all positive face Walsh weights with identical unit edges and counting norms. The wavelet paper gives the abstract Dirichlet and Parseval setup but illustrates K_{1,4} in a different Cayley host of order 8. The embedding thesis allows arbitrary binary generators and concerns minimum dimension, not a Gram formula."
+        ],
+        "reasoning": "Abstract existence or a different small star does not by itself give the spectrum. The exact general face mode calculation does give the reduced contrast for all target dimensions with a nontrivial slice.",
+        "searches": [
+          "Resultary cubical-face RESULT.md, Finding and Proof §§1–3",
+          "arXiv:2607.14168 Theorems 1, 5 and §8.2; arXiv:2606.29391 Theorem 2.37; Chung–Yau, Discrete Green’s Functions pp. 191–192"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof §§1–4",
+        "Mirrored cubical-face and cyclic completion records above",
+        "Primary OA wavelet/embedding, hitting-probability and discrete Green sources above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "With h=d−2,t=1 the face Green column is (L_h+2I)⁻¹δ₀/G(0), exactly the star contrast column. The matching ratio of inverse Green moments gives the whole contrast invariant and the elementary other sectors complete the Gram table."
+        ],
+        "reasoning": "No further substantial spectral calculation survives the identification. Parseval invariance is automatic and the O(d⁻²) remainder follows from standard expansion of the already covered reciprocal-binomial sum.",
+        "searches": [
+          "Compare frozen RESULT.md Proof §§1–3 with cubical-face RESULT.md Proof §§1–3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "On the active transposition-odd star slices, the two zero neighbors are replaced, in one fewer dimension, by one opposite-sign neighbor; the left side loses one in the degree and the right side acquires −v, giving the same equation. Boundary and host squared norms agree under this reduction.",
+          "The unshifted two-vertex hitting-probability problem in the smaller cube is therefore equivalent in its antisymmetric sector, though generally not in its equal-boundary-value sector."
+        ],
+        "reasoning": "The relevant alias is the weight-one mode of coordinate-edge harmonic completion; different named boundary sets do not prevent exact spectrum coverage on the deciding sector.",
+        "searches": [
+          "Resultary: harmonic star completion counting-norm cube Gram spectrum Walsh; distinct cubical-face result, Finding and Proof §1 (offsets 0 and 2150)",
+          "Volkov–Wong, arXiv:0711.2675, adjacent-vertex Dirichlet hitting probabilities"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The face result gives the identical exact λ_{h,1} sequence; the exact sharp value 3548/2883 occurs at h=4 and equals the frozen d=6 value under h=d−2. The earlier cyclic completion spectrum is for a path inside a cycle and is not an exact match. The identical star record in the index is the assigned record itself."
+        ],
+        "reasoning": "The relevant overlap is an exact sequence with a proved index shift, not equality at one dimension or an inferred order between same-day records.",
+        "searches": [
+          "Resultary separate cubical-face result, Finding, offsets 0 and 1260; earlier cyclic harmonic-completion record, Finding; exact-title match to the assigned record"
+        ]
+      },
+      "rationale": "The distinct indexed cubical-face theorem gives exactly the nontrivial leaf-contrast amplification after a norm-preserving reduction to its edge case. It does not have the same full boundary problem, and the dates do not establish who derived the common quantity first. In the star contrast (0;1,−1,0,…,0), swap coordinates 1 and 2. The equal-coordinate slices are identically zero and the other slices are v(z),−v(z), z in Q_{d−2}, with v(0)=1. In the smaller cube Q_{d−1}, put values +1 and −1 on the coordinate edge (0,0),(1,0). Its harmonic extension is v(z),−v(z) on the two end slices: the single transverse sign-flip neighbor contributes −v(z), while the degree is d−1, so the resulting equation is the same d v(z)=sum of v over the d−2 cube neighbors. The identification preserves both counting norms (both inputs have squared norm 2 and both outputs two copies of v). Hence for every d≥3 the middle eigenvalue is literally λ_{d−2,1} of the face theorem (k=1); d=2 is the trivial one-point slice. The center and constant leaves are elementary invariant sectors, and the multiplicity d−1 follows from the constant-diagonal/constant-off-diagonal leaf Gram block. Thus the precise nontrivial exact sequence is already covered, not merely similar numerically. The first inverse-dimension correction is a routine binomial moment expansion of that sequence and does not leave a distinct substantive claim. This is a scientific coverage judgment, not an assertion of chronological priority.",
+      "residual_risks": [
+        "No order is inferred from the common date of the star and face records. The failure rests on exact mathematical coverage in the distinct available face result, not on an assertion of copying, precedence, or whole-document exclusions from snippets."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive exact coverage of the middle sector via coordinate-edge antisymmetry; same-day priority not established",
+          "evidence": [
+            "For face frequency t the extension profile satisfies (L_h+2tI)a_t=0 outside 0 and a_t(0)=1. Its squared norm equals λ_{h,t}. Equality at h=4 for t=1 gives 3548/2883."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-a-sharp-universal-mean-zero-stability-constant-for-harmonic-comp--6f3eb6ef825d/RESULT.md",
+          "material_read": "Finding and assumptions, offsets 0 and 1260; Proof §§1–3, offset 2150",
+          "method": "Indexed original via local mirror; literal locator and bounded passage reads",
+          "title": "A sharp universal mean-zero stability constant for harmonic completion from cubical faces",
+          "trigger": "Same hypercube Dirichlet Gram spectra and exact matching constant"
+        },
+        {
+          "assessment": "General framework and a different geometric example, not the target exact spectrum",
+          "evidence": [
+            "Host Parseval identity and Dirichlet minimization are established. K_{1,4} uses generators 001,010,100,111 in a host of order 8, and the experiment tabulates Dirichlet energies, not this spectrum."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2607.14168",
+          "material_read": "Theorems 1 and 5, pp. 6, 12; star example pp. 15–17 and §8.2",
+          "method": "Bounded OA full-text passages",
+          "title": "Tight Wavelet Frames on Graphs via Isometric Group Embedding",
+          "trigger": "Cited framework and exact star experiment"
+        },
+        {
+          "assessment": "Different optimization problem; establishes scope distinction",
+          "evidence": [
+            "Minimum binary Cayley dimension is ceil(log₂ q)+1 for K_{1,q}; arbitrary generators are allowed."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2606.29391",
+          "material_read": "Theorem 2.37, p. 61, around offset 139850",
+          "method": "Bounded OA full-text passage",
+          "title": "Minimal Isometric Embeddings of Graphs into Abelian Groups: Theory, Algorithms, and Applications to Signal Processing over Networks",
+          "trigger": "Cited exact star embedding dimension"
+        },
+        {
+          "assessment": "Distinct boundary geometry; analogous Gram methodology",
+          "evidence": [
+            "P_n in C_{2n−2} has Gram eigenvalues 1, n(n+1)/(6(n−1)), and n/2, with nonconstant part controlled by the endpoint block."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/16/SCOPE-harmonic-completion-of-cyclic-graph-wavelets-exact-frame-distort--8426f47cda6b/RESULT.md",
+          "material_read": "Finding and assumptions (offset 0) and endpoint-block calculation (about offset 3881)",
+          "method": "Bounded passages of indexed original",
+          "title": "Harmonic completion of cyclic graph wavelets: exact frame distortion and a quadratic Dirichlet obstruction",
+          "trigger": "Earlier exact three-sector harmonic Gram precedent"
+        },
+        {
+          "assessment": "States pointwise adjacent-vertex hitting probabilities; no independent Gram priority inference from the abstract",
+          "evidence": [
+            "Computes probability of hitting one of two adjacent vertices before the other from each starting vertex; that is the Dirichlet profile before taking squared norms."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0711.2675",
+          "material_read": "Abstract, p. 1",
+          "method": "OA original abstract only",
+          "title": "A note on random walks in a hypercube",
+          "trigger": "Equivalent small-edge harmonic problem"
+        },
+        {
+          "assessment": "General ingredients, not the decisive exact sequence source",
+          "evidence": [
+            "On the regular cube the random-walk Dirichlet equation agrees after rescaling with the combinatorial Laplacian equation."
+          ],
+          "identifier_or_url": "https://doi.org/10.1006/jcta.2000.3094",
+          "material_read": "Introduction and two-point formulation, pp. 191–192",
+          "method": "Bounded original passages",
+          "title": "Discrete Green’s Functions",
+          "trigger": "General cube harmonic-measure and Green-function method"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–19 and Proof",
+        "Cubical-face RESULT.md, Finding and Proof §§1–3"
+      ],
+      "rationale": "The conditioned norm and exact spectrum are natural diagnostics for a coordinate-star signal embedding. But the only nontrivial sector is the already evaluated edge contrast in one fewer dimension. Identity on the center, equal leaves and their amplification by vertex count, sector multiplicity by symmetry, and Parseval invariance do not supply an additional valuable exact invariant beyond that coverage. A separate report of the same special-mode evaluation is not enough under the value criterion.",
+      "residual_risks": [
+        "No conclusion is drawn about distortion in noncoordinate or truly minimum-dimensional binary Cayley hosts."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

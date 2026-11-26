@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:27:00.303819Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For each s_i, if exactly one side is a descent the two products have different lengths. If both are descents the two products are w. If neither is a descent, equality means w conjugates s_i to itself, hence preserves its support pair, necessarily fixing both entries (a swap would be a descent). This criterion is invariant under inversion. A central w with w(1)=1 must fix successive entries; otherwise let j=w(1)>1. If j<n, then w⁻¹(j)=1<w⁻¹(j+1), so the criterion would force w(j)=j, impossible. Inversion then gives w(n)=1. The two new boundary indices are double descents, so restriction and extension give an exact recurrence on the middle block down to size 0 or 1. For k<m the first ascending comparator sweep of the reduced endpoint-transposition word pushes the minimum of the increasing middle block to its end without crossing its descending boundary. The return sweep places its maximum at the start, also without crossing a boundary; the omitted final comparator of index n−1 is not needed (the penultimate endpoint in a full-length first sweep has already been disposed of, and for k≥1 this index is in or at the end block). This includes middle lengths 2 and 3; the identity case is simply evaluation of the reduced word for (1 n). The longest element absorbs on both sides. Associativity gives truncated addition and only the two endpoint idempotents for n≥2; n=1 is trivial. Independently enumerated permutations through n=7 and tested every central product using reduced words from sequential inversion deletions, at /workspace/checks/hecke.py and hecke.txt. The proof, rather than that finite test, covers arbitrary n.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Berenstein–Greenstein–Li arXiv:2605.09761v1 p. 1 introduces parabolic products and homomorphisms. The frozen proof credits their general parabolic product laws with the multiplication component after the candidates are identified.",
+          "Resultary e28983f8bc92 concerns a dihedral type, and 8a2a93a34079 endomorphisms of an outward-star Hecke–Kiselman monoid."
+        ],
+        "reasoning": "Neither the idempotent pair problem nor a product law of the proposed elements characterizes all commutants of all standard generators. A dihedral statement at larger dihedral parameters is not a theorem for arbitrary symmetric groups. General J-trivial context was not treated as negative coverage evidence.",
+        "searches": [
+          "arXiv:2605.09761 Proposition 4.18 and Corollary 4.20",
+          "arXiv:1010.3455",
+          "Resultary: Hecke–Kiselman, biHecke, J-trivial and dihedral monoid centers"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2112.01768v1 and arXiv:2605.09761v1, p. 1",
+        "Resultary c8fd72e25c4a, cc1e681db5b3, 956f87755c16, e28983f8bc92, 8a2a93a34079 (available catalogue comparisons)",
+        "Frozen RESULT.md §§Proof, Relationship to prior work and References"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "cc1e681db5b3 classifies maximal commuting cliques of monoid idempotents. Already for n=4 the endpoint transposition is central and its square is the distinct longest element, so the idempotent classification cannot describe it.",
+          "A detailed algebra-center support theorem or an explicit centralizer intersection theorem would be relevant, but the inspected passages do not show either covers the all-n classification."
+        ],
+        "reasoning": "Even a multiplication theorem covering all the candidate products is conditional on choosing the candidates and does not supply their exhaustiveness as central elements. Conversely, if König's basis exhibits exactly these singleton supports, then the central list is covered; this potential implication is why the algebra-center comparison remains the main risk.",
+        "searches": [
+          "Resultary c8fd72e25c4a and cc1e681db5b3",
+          "arXiv:2112.01768v1 p. 1 and arXiv:2605.09761v1 p. 1; frozen citations to Theorem 3.5, Proposition 4.18 and Corollary 4.20"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "König, arXiv:2112.01768v1 p. 1, describes a linear center basis indexed by maximal compositions of n, using certain equivalence classes.",
+          "For the monoid algebra, a single monoid basis vector is central exactly when the underlying element is central; expansion against distinct products cannot hide a failed commutation."
+        ],
+        "reasoning": "Thus a linear center theorem with explicit singleton supports can be genuine prior coverage, not automatically irrelevant. Its advertised maximal-composition indexing alone does not give those singleton supports. Equivalent descriptions searched include two-sided commutation with the standard generators and powers of the endpoint transposition in the Demazure product.",
+        "searches": [
+          "Resultary: type-A 0-Hecke monoid center, central permutations, adjacent-generator common centralizers",
+          "Web: König \"Combinatorics of Centers\" 0-Hecke \"singleton\" Theorem 3.5 maximal compositions maximal length central monoid"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "c8fd72e25c4a reports counts for two adjacent standard generators, with positional size distribution and asymptotic proportion 1/36 for each such centralizer; 956f87755c16 concerns the minimum Coxeter length of a Demazure square root of the longest element.",
+          "The exact matching catalogue result 3f22905e338c is the frozen record itself, not separate evidence."
+        ],
+        "reasoning": "The counts of the adjacent centralizers do not give the intersection or its product law. Being a square root of the longest element is not the centrality predicate. Distinct same-day records have been compared scientifically, not ordered by date.",
+        "searches": [
+          "Resultary: c8fd72e25c4a adjacent-generator common centralizers type-A 0-Hecke monoids generator double descent fixed pair center all generators adjacent positions",
+          "Resultary: type-A 0-Hecke center and absorber-length thresholds"
+        ]
+      },
+      "rationale": "Pass is for the exhaustive classification of individual central elements of the type-A monoid and the resulting identification of its center, not the general Demazure product laws or the vector-space center. Same-type catalogue results for adjacent generators, idempotents and length thresholds do not state the intersection/classification at issue. Primary-text access leaves a specific unresolved possibility that algebra-center support descriptions make the classification implicit; the available results do not show this.",
+      "residual_risks": [
+        "Exact full-text comparison of König's support description and the cited parabolic laws was limited by passage access; unseen implications and folklore remain possible.",
+        "The local double-descent test is elementary. The distinct claim assessed is the exhaustive list and its all-degree center structure, not novelty of the test in isolation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Confirms equivalence-class approach; cannot infer an exclusion of monoid centrality from the title or abstract.",
+          "evidence": "A linear center basis is parametrized by maximal compositions, with explicit descriptions for certain classes.",
+          "identifier_or_url": "https://arxiv.org/pdf/2112.01768",
+          "material_read": "v1 p. 1 abstract and opening; Theorem 3.5 passage not retrieved",
+          "method": "OA passage attempt, primary PDF preview, alternate rendering attempt",
+          "title": "Combinatorics of Centers of 0-Hecke Algebras in Type A",
+          "trigger": "Linear center can imply monoid center via single basis vectors"
+        },
+        {
+          "assessment": "Retain the source's product-law credit; independent comparison of exact scopes of those propositions is limited.",
+          "evidence": "Introduces the parabolic elements and studies parabolic and injective homomorphisms. Frozen RESULT.md cites specific product laws, not a classification of all central monoid basis elements.",
+          "identifier_or_url": "https://arxiv.org/pdf/2605.09761v1",
+          "material_read": "v1 p. 1 abstract and contents; cited proposition and corollary not independently retrieved",
+          "method": "OA passage attempt and open primary PDF preview",
+          "title": "Hecke monoids, their homomorphisms and parabolicity",
+          "trigger": "Previous parabolic multiplication and commuting idempotents"
+        },
+        {
+          "assessment": "Exact count for two adjacent generators; not the full simultaneous center statement.",
+          "evidence": "Three-point parabolic double-coset count plus boundary correction for the adjacent-generator centralizers.",
+          "identifier_or_url": "Resultary 2026/11/22 c8fd72e25c4a",
+          "material_read": "Returned catalogue statement; mirrored Finding inaccessible",
+          "method": "Resultary and bounded mirror attempt",
+          "title": "Adjacent-generator common centralizers in type-A 0-Hecke monoids",
+          "trigger": "Same monoid, closest generator commutation condition"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The center of these standard finite monoids is a natural structural invariant, distinct from the associated algebra center and the idempotent commutation problem. The all-degree exclusion of every permutation except the nested reversals and the identification of their growing absorbing power chain give concrete uniform data about central, usually nonidempotent elements. This is a complete infinite-family classification, not a finite count or a new claim of general parabolic multiplication.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

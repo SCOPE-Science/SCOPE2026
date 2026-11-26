@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The theorem is finite with explicit quantifiers for all \(2^{15}-2\) nonempty proper row sets. The cited general balance necessity is confirmed from Alexeev–Cahill–Mixon, Section 2. Complementarity follows from Jacobi's identity for invertible Fourier matrices, and affine transformations act by invertible diagonals and permutations. The exact standard-library verifier exhaustively enumerates balanced affine classes through seven rows. Every exceptional class has a completely vanishing integer determinant polynomial modulo \(X^{15}-1\); every other class has all maximal minors nonzero in at least one of two valid prime-field specializations. The original complex determinant cannot vanish if its polynomial has a nonzero specialization. Check results: \(54{,}928\) certified nonzero minors, five explicit singular minors, counts \(15,60,60,180,60,180,600\) for row sizes one through seven. Finite enumeration is exhaustive here because the domain has exactly fifteen indices.
+PASS
 
-## Originality: PASS, residual risk documented
+For a divisor d, write k=td+u, 0≤u<d. Select t complete column cosets of the subgroup of size d, plus u more columns. On any fixed residue class of rows modulo d, the columns within one coset have proportional restrictions, so the rank of the complete cosets is at most Σ_j min(t,m_j) for residue sizes m_j. With the extra u columns this gives a singular minor if any m_j<t. If u>0 and a class exceeds t+1, its complementary occupancy is below the corresponding floor for the complement; if u=0 an oversized class forces an undersized one in the original set. Jacobi's identity and F⁻¹=F*/15 give complementary-minor equivalence, so these cases prove necessity. Row translation scales columns and multiplication by a unit permutes columns; hence one representative per affine orbit through size seven suffices. Independent audit_fourier.py exhausts the balanced orbits, classifies them without assuming the exception list, and tests column ranks modulo 31 at an order-15 root. A modular nonzero certifies complex nonvanishing. For ambiguous minors it instead computes the determinant as a wedge-product subset DP in Z[X]/(X¹⁵−1) and divides by Φ₁₅ over Z, an exact complex test. All five listed witnesses have identically zero group-ring coefficient vectors. The five bad orbit sizes are 30,120,120,60,30 in listed order. For the good reps, 53803 minors pass mod 31 and the other 1125 have nonzero cyclotomic remainders. Full-spark counts through size seven are 15,60,60,180,60,180,600 and double by complement to 2310. The full matrix is invertible by Fourier orthogonality.
 
-Alexeev–Cahill–Mixon [1] prove a necessary balance condition for all orders and its sufficiency for prime powers, but neither a sufficient criterion nor full census at order \(15\). Closest published classifications at orders \(10\), \(12\), and \(14\) concern different Fourier matrices. The known all-modulus three-row criterion and four-row special-pattern results cannot determine arbitrary five-, six-, or seven-row classes. Caragea–Lee [2] concern only principal minors, not full spark. Targeted literature and published-record searches found no statement implying the five-orbit classification and exact count, but absence of a match is not a proof of global novelty; equivalent material under another formulation is a residual risk.
+## originality
 
-## Mathematical value: PASS
+PASS
 
-This is a complete classification for the first odd semiprime Fourier matrix and pinpoints exactly when the natural divisor-balance necessary condition ceases to be sufficient. The sharp anomaly is structurally nonmonotone across five, six, and seven rows; the result gives a complete, reproducible count of deterministic harmonic frames maximally robust to observation erasures. It is not a parameter substitution in a prime-power theorem: order \(15\) falls outside that theorem's sufficient regime, and the five exceptional affine orbits are genuine additional obstructions.
+Uniform divisor distribution is a prior necessary condition, and prime-power sufficiency, affine symmetries, and complementary-minor duality are not the contribution. The distinct claim is the complete complex order-15 classification of the balanced failures, including five affine exceptions up to complement and the census resulting from them. The closest preceding catalogue result at the same order treats one unbalanced four-row pattern; it does not classify any of the balanced exceptions. The primary results inspected concern other orders, a necessary condition, or principal minors. Later exact rank tables overlap in specific cardinalities. The frozen prose would be clearer to distinguish previously catalogued classifications at 10, 12, and 14 from journal results; the reviewed sources do not establish a journal attribution for each of those full classifications.
 
-## Scope and limitations
+## value
 
-Only Fourier order \(15\) is classified, with no quantitative conditioning or extension to arbitrary composite moduli. All scientific verification is from a fully inspectable finite proof and self-review. Independent audit remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Order 15 is the smallest odd composite order that is not a prime power. It tests exactly where divisor balance stops being a complete characterization in the odd semiprime setting, and gives a concrete nonmonotone pattern: balanced five-row failures, none at six rows, and four balanced failure orbits at seven rows. The exact orbit witnesses and exhaustive positives give a useful benchmark for uniform sampling and for testing proposed criteria beyond prime powers, not merely an isolated determinant calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

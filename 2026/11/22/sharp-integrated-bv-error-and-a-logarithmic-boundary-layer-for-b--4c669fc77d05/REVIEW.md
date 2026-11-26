@@ -1,19 +1,21 @@
-# Scientific review: sharp integrated BV error for Baskakov point sampling
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The representation of any right-continuous Jordan-BV input as an integral of one-jump functions reduces the exact operator norm to step responses. On a sampling cell, negative-binomial tails are beta-prime CDFs; the integrated error is strictly convex in jump location and therefore maximizes at the cell ends (with one-sided limits included). The full-line absolute-moment identity and a uniform gamma-ratio central limit bound give the leading norm constant. The beta-prime Gaussian moderate tail balances the loss in the local standard deviation and gives the \(\sqrt{2}\) coefficient of logarithmic jump retreat. The accompanying script confirms 324 tail evaluations, 81 original-integral checks, and 81 cell endpoint checks; these are finite consistency tests, not the proof of the limiting theorem.
+PASS
 
-## Originality — PASS, qualified
+For the canonical right-continuous half-line BV representative, integration against Df reduces the quotient exactly to unit steps. A step in ((j−1)/n,j/n] uses the negative-binomial survival at j, equivalently the CDF of Y=Gamma(j)/Gamma(n) with independent factors. Integrating this CDF by parts gives J (the truncated first moment is j/(n−1) times the shifted beta CDF). The integrated response has second derivative 2 times the positive density, so only the two formal cell ends matter; a jump beyond 1 has a smaller sampled tail than the jump at 1. For s≤1, the response is E|Y−s|−E(Y−1)+, where the last expression denotes the expectation of the positive part. With a=j/n bounded away from zero the centered exponential sum W=(U−aV)/sqrt(n) has variance a(1+a) and uniform Wasserstein normal error O(n^−1/2); Cauchy–Schwarz with E(n/V−1)^2=O(1/n) controls multiplying W by n/V. Thus E|Y−s|=sqrt(2 a(1+a)/(pi n))+O(1/n) at either endpoint. When a→0 the exact inverse-gamma second moments give o(n^−1/2). For the nonstandard tail step, the density has Stirling exponent −nD_a(y) with D_a(y)=(1+a)log((1+y)/(1+a))−a log(y/a), D'_a(y)=(y−a)/(y(1+y)); on a fixed multiple of sqrt(log n/n) near a≈1 Taylor expansion gives a uniform relative 1+o(1) Gaussian density. Chernoff applied to U−yV at lambda=(y−a)/(y(1+a)) gives P(Y≥y)≤exp(−nD_a(y)); Cauchy–Schwarz with bounded second moments then makes the contribution outside a sufficiently wide window negligible. At a=1−c sqrt(log n/n)+O(1/n), the Gaussian excess integral is asymptotic to 2 n^(−1/2−c²/4)/(c² sqrt(pi) log n). The competitor c=sqrt(2) gives the sharp leading limit and a full-moment loss of (3/(2 sqrt(pi)))sqrt(2 log n)/n+O(1/n). Any maximizing sequence must have a→1. Larger fixed c incurs a strictly larger full-moment loss by monotonicity of the variance profile; smaller fixed positive c incurs, by stochastic ordering in j, a tail dominating sqrt(log n)/n. This proves the location limit for every winning pair, unchanged by the 1/n endpoint choice. Verification.md and the supplied Python code were inspected as finite diagnostics, not executed or relied on as proof.
 
-Abel–Gupta–Ivan (2002) derive pointwise BV rates and discontinuity limits for Baskakov–Kantorovich integral variants. Gupta–Abel (2004) use a Durrmeyer integral modification, and Patel–Mishra (2014) describe a modified integral operator and BV derivatives. No inspected theorem subsumes the exact integrated identity-error norm of classical negative-binomial point sampling, its finite beta-prime formula, or the sharp logarithmic retreat of its norming jump. The previously known Poisson/Szász–Mirakjan–Kantorovich integrated window law is analogous, but its operator, endpoint variance and normalization differ. The Gupta–Govil (2006) original was not fully accessible and leaves a genuine historical-priority risk. Actual indexed and historical-claim comparisons are recorded in `AUDIT.json`.
+## originality
 
-## Value — PASS
+PASS
 
-The boundary placement of a discontinuity determines how much binomial-type averaging error is visible inside a finite observation window. The exact degree-wise formula gives an executable benchmark, and the asymptotic law identifies a nonstandard logarithmic transition (rather than only a leading order of convergence) with a kernel-dependent variance constant. This is a structural, motivated operator-norm fact, not only a numerical rate estimate.
+The strongest distinct indexed result has the same logarithmic boundary mechanism, not the same operator or theorem. The comparison supports the specific negative-binomial beta-prime norm and retreat theorem, not priority for the mechanism itself.
 
-## Limitations
+## value
 
-The input must have a chosen right-continuous point representative; only the classical Baskakov point sampler with \(n\ge2\), the observation interval \([0,1]\), and whole-half-line Jordan variation are covered. No all-degree winning-cell classification or general norm attainment is claimed. Moderate-deviation calculations establish asymptotic but not explicit finite-n error bounds. Some relevant historical sources were read only in part or at the bibliographic level; independent originality and correctness checks remain outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Fixed-window approximation of discontinuous half-line data naturally needs the error integrated where observations are available, relative to whole-input variation. The formula gives an exact all-degree benchmark (as a supremum, not an attainment classification). The location law identifies a distinct logarithmically enhanced scale and exact constant for all winning candidates, distinguishing variance gain from boundary leakage in this classical sampler.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

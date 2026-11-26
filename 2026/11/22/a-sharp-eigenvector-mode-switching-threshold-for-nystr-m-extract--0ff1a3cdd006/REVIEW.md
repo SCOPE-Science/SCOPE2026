@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The two trial vectors have disjoint support, giving an exactly diagonal Rayleigh--Ritz core. Its positive diagonal gap is \(au+\delta(1-u)\). The Nyström operator is a sum of two orthogonal rank-one contributions, with nonzero eigenvalues \(1-\delta_c(a,u)\) and \(1-\delta\). This directly proves the if-and-only-if switch at \(\delta_c\), the eigenvector identities, the equality multiplicity, and the eigenvalue and angle comparisons. The proof handles every \(a,u\in(0,1)\) and \(\delta\in(0,1-a)\). The standalone exact-rational checker also evaluates 874 admissible parameter cases and one complete rational matrix instance. Those tests are supporting checks, not a replacement for the proof.
+PASS
 
-## Originality — PASS, with residual historical risk
+Independent exact diagonalization verifies the whole open parameter domain. The Ritz gap is au+δ(1−u)>0 and the positive Nyström eigenvalues are the squared norms of Aq_i divided by the respective Ritz values: 1−δ_c and 1−δ. Their eigenvectors are orthogonal, giving the two branches, a two-dimensional top eigenspace at equality, and the stated errors (uniqueness means up to sign). Since b_1>a, 0<δ_c<(1−a)u<1−a, so both branches actually occur. The cross-Gram with span(e_1,e_3) is √(1−u)I. For a=1/2 and δ=u/8 the errors are u/8 and u/2 for the extracted leading eigenvalues, while the two vector sine errors are 1 and √u. The true top gap closes in the limit; the toy family is not a fixed-gap counterexample. Frozen verify.py was inspected, not executed; its finite rational checks are supplementary, not the basis of the verdict.
 
-Nakatsukasa--Tang, arXiv:2605.05043v1/v2, is the direct motivating source. Its leading-eigenvalue ordering theorem is consistent with the present result. It explicitly distinguishes subspace accuracy from accuracy of individually extracted eigenvectors, but does not give this method-specific exact switching curve, the orthogonal-mode branch for arbitrarily accurate trial planes, or the fourfold simultaneous eigenvalue improvement. Haas--Nakatsukasa, arXiv:2506.01207v2, concerns Ritz and singular-value error bounds; the earlier sharp Ritz-vector literature is about different extraction operators. Semantic published-result searches retrieved nearby studies of sketched Ritz eigenpairs and Nyström preconditioner conditioning, but none establishing the present four-mode classification. No search certifies unique historical priority, and an unreviewed specialized source could contain an equivalent example.
+## originality
 
-## Value — PASS
+PASS
 
-The exact threshold resolves a concrete, natural methodological boundary: ordered Nyström eigenvalue accuracy need not improve the **correspondingly ordered individual eigenvector**, even when the trial plane and the competing Ritz eigenvector are arbitrarily accurate. The complete two-leakage-mode phase diagram identifies the precise relevant top eigengap scale, \(\delta_c(a,u)\), and separates mode swapping from genuine power-refinement. This is informative for eigenpair labeling near spectral clusters and is not claimed to be a general Nyström failure theorem or a fixed-gap pathology.
+The qualitative caveat about individual vectors and the ordered eigenvalue improvement are prior. What survives is the explicit two-leakage family, the exact crossing surface and tie, and a simultaneous strict quantitative advantage in eigenvalue error with maximal individual-vector error. No equivalent exact comparison or stronger covering result was found in the inspected material; priority is provisional.
 
-## Scope and limitations
+## value
 
-The classification is for the specified four-dimensional PSD diagonal family, two-dimensional orthonormal trial plane, and exact arithmetic. The original top eigenvalue stays simple but its gap closes as the trial angle goes to zero in the failure construction. Equal Nyström eigenvalues have nonunique leading eigenvectors. Individual eigenvector ordering is not invariant-subspace ordering. General PSD inputs and floating-point effects remain outside the claim. Independent historical-priority checking and mathematical audit are not performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A simple exact witness answers a live extraction question that the known subspace comparisons leave open. The crossing occurs on a sharp squared-angle eigengap scale, can produce maximal vector error at arbitrarily small trial-space error, and accompanies a strictly better eigenvalue on the very same examples. The threshold and tie are useful for interpreting ordered eigenpairs near clustered spectra; no general or fixed-gap instability is asserted.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

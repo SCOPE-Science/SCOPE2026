@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T13:48:00.273018Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The threshold projection is invariant under common translation. Its active-set derivative J_F subtracts the active mean on F and vanishes elsewhere; each F occurs on a strict open cell. Segment integration gives the maximum of the local norms, and a one-jump step attains each local norm because the path-difference map identifies the quotient by constants with an l1 space. At a cut with a,b active positions on the two sides, the output is −b/(a+b) and a/(a+b) on those respective positions. The middle edge splits additively by sign. Appending a zero toward the cut on each side gives max transition count min(2a,2z+1) on a side with a ones and z zeros, attained by alternating runs. In the deficit formula, for a=b each side deficit is nonnegative and vanishes only for u,v in {−1,0}; this gives n=4a−2,4a−1,4a. If b>a and b≤3a, the minimum v-term is at v=−1 (possibly tied when b=3a) and the integer numerator of the deficit is at least d(2d−1) for d=b−a. Equality at one requires d=1,u=0,v=−1, hence n=2(a+b)−1; if b>3a the integer numerator is at least b²−ab+2a(a−1)>1. All larger numerators give a deficit at least 1/(a+b)>1/(n+1). The residue-specific selectors realize the claimed maxima, including n=2. Strict slack gives distinct arbitrarily close attaining inputs, and scalar clipping gives only the separate one-input variation bound. Positive mass scales out. Independent exact replay in branches/db9cfbef-f580-405f-ba1d-713faf127430/independent_check.py checked 851,867 active-support/cut cases through n=15, 72 boundary counts, and all integer maxima and strict witnesses through n=100. The universal result is analytical, not an extrapolation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The graph theorem gives L(G)=max over A,S of TV_G(J_A 1_S)/|boundary_G S| and genuine nearby-pair attainment, for all connected simple graphs, including open paths.",
+          "Its connectivity envelope is 1+F_n/lambda(G), with F_n of order n², attained by joined cliques. This is not the fixed open-path modulus of order n.",
+          "The classical projection paper gives KKT clipping by a common threshold. Lellmann et al. compute TV on spatial gradients across pixels while constraining the class vector separately at each pixel."
+        ],
+        "reasoning": "The graph theorem materially anticipates the linearization and representation. Its sharp connectivity envelope is only an upper bound on this path, not the given linear closed form. The other inspected techniques do not evaluate the norm of the path first differences of an active face.",
+        "searches": [
+          "Resultary af98be3387d4, Findings, Proof §§1–5",
+          "Wang–Carreira-Perpiñán arXiv:1309.1541v1, p. 2",
+          "Lellmann et al., pp. 1–3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and checker.py",
+        "Independent replay in branches/db9cfbef-f580-405f-ba1d-713faf127430/independent_check.py",
+        "Resultary af98be3387d4 and 95284892279a",
+        "Wang–Carreira-Perpiñán arXiv:1309.1541v1",
+        "Lellmann et al., simplex-constrained TV"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior graph quotient specialized to a path reduces to one-jump cuts by decomposition in first differences, still leaving the simultaneous placement and cardinality optimization on both sides.",
+          "The frozen proof adds min(2a,2z+1) on each side with different weights, then an exact positive-integer gap classification distinguishing d=1 from all other unbalanced cases."
+        ],
+        "reasoning": "Finite-max evaluation at each fixed dimension and local attainment are prior implications. The uniform algebraic evaluation and its exceptional denominator n+1 need the additional path argument and were not found covered in the compared statements.",
+        "searches": [
+          "af98be3387d4, graph-cut formula and clique equality proof",
+          "95284892279a, cyclic Finding and active-set proof",
+          "Frozen proof §§2–4, exact deficit optimization"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The path problem is the norm on path first differences of the active-face orthogonal projection, or the connected-graph cut quotient at G=P_n.",
+          "The cyclic result gives floor((n+2)^2/8)/ceil((n+2)/2), with a closing edge, and first expansion at n=4 rather than n=3."
+        ],
+        "reasoning": "For a path a one-jump cut has one boundary; on a cycle a proper interval has two. Removing the edge changes both numerator and denominator in an active-set-dependent way. The cyclic exact number does not convert by a fixed factor or index shift into this open-path formula.",
+        "searches": [
+          "Resultary: Euclidean simplex projection two-input open-path variation modulus; connected-graph variation of simplex projection",
+          "Resultary cyclic result 95284892279a Finding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier graph verifier enumerates all connected labelled simple graphs through order five (thus including small paths) and larger samples and envelope witnesses; it does not furnish a path-specific all-length table in the inspected comparison.",
+          "The cyclic closed form is an exact result for a different family of graphs."
+        ],
+        "reasoning": "Small path instances are reproducible from available results, but the open-path residue pattern, including the exact nonzero gap for all n=1 mod 4, is not a fixed finite table lookup.",
+        "searches": [
+          "Resultary: exact path simplex variation; af98be3387d4 Verification and Findings; cyclic 95284892279a Finding"
+        ]
+      },
+      "rationale": "Pass for the all-dimensional closed evaluation with its mod-4 defect. The earlier connected-graph theorem already supplies an exact finite maximum and nearby-pair attainment for this very path, as well as the positive-mass and one-input statements. Those are not new here. What remained to evaluate was the path-specific constrained boundary maximum uniformly in dimension; the exact integer gap is not a mechanical graph substitution or finite re-tabulation.",
+      "residual_risks": [
+        "The frozen prior-work section omits the material connected-graph antecedent; priority is not inferred for the known general representation or its consequences.",
+        "An unindexed explicit evaluation of the open-path specialization could overlap. A focused unsuccessful search is not proof of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers general representation, attainment, mass and pointwise contraction; does not automatically evaluate the fixed path family in closed form",
+          "evidence": "RESULT.md offsets 0–5191: exact active-set/cut ratio; offsets 5191–7955: sharp-connectivity construction with two joined cliques and verifier scope.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-sharp-graph-variation-instability-of-simplex-projection-under-ed--af98be3387d4",
+          "material_read": "RESULT.md Findings, fixed-graph formula and proof, clique-envelope optimizer and Verification",
+          "method": "Local Resultary and exact published-record mirror excerpts",
+          "title": "Sharp graph-variation instability of simplex projection under edge-connectivity constraints",
+          "trigger": "Stronger result on exactly the same projection and metric on arbitrary connected graphs"
+        },
+        {
+          "assessment": "Overlap in method and pointwise claim; different two-input norm and cut geometry",
+          "evidence": "RESULT.md offset 0–2589, cyclic edge with indices modulo n and asymptotic n/4.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-sharp-cyclic-variation-amplification-of-euclidean-simplex-projec--95284892279a",
+          "material_read": "Finding, scope and active-set proof §1",
+          "method": "Local mirror bounded exact excerpt",
+          "title": "Sharp cyclic-variation amplification of Euclidean simplex projection",
+          "trigger": "Same projection, related sharp total-variation formula"
+        },
+        {
+          "assessment": "Supports the threshold/active-set step but does not supply the seminorm evaluation in the inspected proof",
+          "evidence": "Text offsets 7800–11391: positive support determined by threshold and sum constraint.",
+          "identifier_or_url": "https://arxiv.org/abs/1309.1541",
+          "material_read": "v1 p. 2 KKT proof",
+          "method": "Lawful OA PDF bounded passages",
+          "title": "Projection onto the Probability Simplex: An Efficient Algorithm with a Simple Proof, and an Application",
+          "trigger": "Standard threshold formula and active supports"
+        },
+        {
+          "assessment": "TV differentiates over location, not over a path of class coordinates in one simplex; the matching optimization step uses a different seminorm problem",
+          "evidence": "Eq. (2) integrates norms of spatial gradients over Ω while u(x) lies in the simplex for each x.",
+          "identifier_or_url": "https://hci.iwr.uni-heidelberg.de/sites/default/files/publications/files/402459334/Lellmann-et-al-09a.pdf",
+          "material_read": "P. 1 Eq. (2) and per-location simplex constraint; p. 2 method overview; p. 3 gradient formulation",
+          "method": "Lawful OA VPN PDF, bounded equation and passages",
+          "title": "Convex Multi-Class Image Labeling by Simplex-Constrained Total Variation",
+          "trigger": "Plausible match by simplex projection and total variation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact closed expression makes the stability loss for ordered coordinates available without an exponential search over supports and cuts. It isolates an arithmetic obstruction with feasible attaining configurations and exposes strict pairwise expansion already at n=3 despite pointwise variation diminution. This value concerns the path evaluation, not the pre-existing general graph formula.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility of the finite checks
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3 and its standard library. The verifier uses exact rational numbers and symbolic pairs \(a+b\Lambda\) reduced by \(\Lambda^2=h\Lambda+Q\). It constructs arbitrary admissible leaf self-loop and leaf-to-leaf contact perturbations while maintaining the exact prescribed symmetric row sums. It verifies the Rayleigh defect formula identically in the resulting quadratic field, then calculates the leading eigenvalue by a separately implemented Jacobi diagonalization for a numerical cross-check.
+## correctness
 
-The deterministic check covers five matrix orders, three through seven, with nine rational choices per order and eleven matrices per parameter choice: 495 exact row-sum, symmetry and quadratic-identity tests. It also checks the rational three-group threshold example, whose star Perron root is exactly one, and verifies the nonstar Rayleigh lower-gap \(3/55\). Expected final line:
+PASS
 
-`VERIFY_OK: 495 exact symmetric row-sum/Rayleigh identities and numerical eigenvalue checks; sharp three-type threshold and stability 3/55`
+For the symmetric nonnegative fixed-row-sum class with m>=2, positive L_i and H>=sum L_i, put h=H-sum L_i and Q=sum L_i^2. The star's positive eigenvector v=(Lambda,L_1,...,L_m) has eigenvalue Lambda by Lambda^2=h Lambda+Q, so Lambda is its Perron root, also at h=0. For D=M-M_star, D1=0 by the row constraints and symmetry. Thus v^T D v = (Lambda 1-v)^T D (Lambda 1-v) = g_per^T M_per g_per with g_i=Lambda-L_i>0, because the hub coordinate is zero and the star's peripheral block vanishes. Dividing by Lambda^2+Q via Rayleigh–Ritz proves both reported defect inequalities. Any nonzero peripheral block makes the defect strict; a zero block forces the star by the row sums. Evaluating the quadratic at 1 proves Lambda<=1 iff h+Q<=1; this is a condition for existence of an admissible matrix at or below threshold, with only the star at equality. The exact example's Rayleigh defect is 3/55. The universal decision is analytic; the submitted script was inspected and not executed.
 
-**Limits.** A finite number of cases cannot establish a theorem for arbitrary matrix size or real inputs. The proof in `RESULT.md` supplies the unrestricted sign argument, exact spectral minimization, and threshold equivalence; this script only checks concrete algebra and examples. Eigenvalue diagonalization uses floating point and a strict tolerance, while rational identities are exact. An independent scientific audit has not been performed.
+## originality
+
+PASS
+
+Credit is for the closed form and unique minimizer for arbitrary, including unequal, peripheral totals and the quantitative defect. The optimization problem itself is established, and a distinct same-day record already gives the full minimizer/value in the equal-peripheral subfamily. Neither the matched general optimization formulation nor the two-rate result states or implies the arbitrary heterogeneous formula and defect by direct specialization.
+
+## value
+
+PASS
+
+This is an exact answer to a natural constrained minimization previously posed in general SDP form. In the heterogeneous dominant-row regime it replaces optimization with an explicit feasibility threshold, identifies the only minimizer, and bounds the loss away from the minimum by an interpretable peripheral mass defect. These are substantive beyond repeating the equal-peripheral example or a generic spectral estimate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof constructs the precise Zak multiplier from a directly evaluated exponentially decaying correlation sequence and pushes forward the normalized torus measure. The two singular local models are nondegenerate and all other critical points are classified by strict angular monotonicity. The logarithmic coefficient follows from the local saddle Hessian with the normalized angular measure; the square-root cusp coefficient uses both sides of the nonsmooth translational seam. The unique positive cubic crossing is proved algebraically. A 38-check standalone numerical program independently compared Zak sums, both singular coefficients and the crossing. Its finite checks are not substitutes for infinite analytic proofs.
+## correctness
 
-**Originality — PASS, qualified.** Faulhuber--Shafkulovska (2023), Section 8, already provides the sharp Gabor frame bounds for two-sided exponential windows. Those bounds are explicitly acknowledged as known: they do not determine the interior spectral law. The 2026 total-positivity frame-set theorem proves existence rather than density asymptotics. Kloos--Stöckler supplies general Zak methods. Targeted published-record, literature and accessible-prior-claim comparisons did not reveal an equivalent two-singularity/cubic-crossing statement. Priority risk remains for unindexed specialized spectral analyses.
+PASS
 
-**Value — PASS.** The normalized spectral law controls spectral filtering and average inverse-stability behavior, not just the worst frame condition number. Its logarithmic saddle and nonsmooth square-root corner reveal distinct exact singular mechanisms, and their algebraic exchange gives a natural structural transition in the simplest redundant Laplace Gabor family. The result is a continuous parameter theorem, not a fixed numerical slice or recomputation of known bound tables.
+For 0≤x≤1, the positive and negative halves of the Zak series sum to e^(−λx)/(1−e^(−λ)w^(−1)) + e^(−λ(1−x))w/(1−e^(−λ)w) for w=e^(2πiω). The frequency-step-1/2 frame operator sums the two squared Zak moduli at w and −w; combining the geometric factors yields 2(HP+4Q) with angular period 2π in 4πω. Uniform x gives two inverse branches of H, whose Jacobians sum to 1/(λ√(h²−h0²)); the energy change of variables contributes 1/(2P) and normalized angle contributes 1/(2π). Thus the stated density is a probability density, not an eigenvalue counting law. For u=cos θ the derivative numerator is affine in u and increasing in H. At H=h0 and u=−1 its controlling factor is 2(1−e^(−λ))²(e^(−2λ)+3e^(−λ)+1), and at u=1 the numerator is a sum of positive terms. This proves angular monotonicity, isolates the smooth saddle and seam corner, and gives a positive global minimum 2(sech λ−sech² λ). Substitution gives the stated energies and the Hessian entries Aλ, −Bλ. In the saddle normal form, rescaling and rotating the local coordinates gives product energy, Jacobian 1/√(AλBλ), and two hyperbola branches; with normalized angular measure this gives log coefficient 1/(π√(AλBλ)). At the seam, on each side the normal derivative is −4λ tanh λ, and the tangential quadratic term is (3/2)tanh²λ sech²λ. Inverting the normal map removes the angular interval of length 2√(δ/bλ) on the high-energy side; the two normal branches give the claimed symmetric density-difference coefficient. The regular parts are C¹ near the seam energy except at the collision, where the seam term is bounded and does not affect the leading logarithm. Setting c=cosh λ gives c³−2c²−c+1=0, with exactly one root above 1; substituting c=1+2cos(2π/7) follows from the seventh-root-of-unity identity. These are two singular mechanisms, not two distinct levels at the collision. CHECK.py and VERIFICATION.md were read, not executed; the checker compares finite direct Zak evaluations and numerical density asymptotics with programmed coefficients, not an independent symbolic derivation or a uniform crossover test.
 
-**Scientific scope and risks.** The lattice is fixed at translation one and frequency step one half, with an unnormalized symmetric Laplace window. The two local asymptotics hold for fixed decay parameter and only the logarithmic law is asserted at the collision. Independent audit is not performed and equivalently worded older spectral calculations may escape the present searches.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Do not credit existence, extremal bounds, or an explicit Zak fiber as distinct here. The supported contribution is the normalized pushforward law with two interior singularity mechanisms, their constants and one exact exchange of energy ordering. The closest inspected indexed records have overlapping fibers and stronger asymmetric frame bounds, but their findings address extrema, not the spectral density or its crossover.
+
+## value
+
+PASS
+
+A canonical spectral law for a classical frame model distinguishes an interior log divergence and a seam loss of angular measure. The difference between the two mechanisms, their exact constants and one crossing are information beyond sharp frame bounds, and the quadrature makes the law usable for other trace-per-cell observables.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

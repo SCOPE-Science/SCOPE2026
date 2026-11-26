@@ -1,0 +1,163 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:07:23.149790Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The down-first convention is essential: each consecutive comparison of a subsequence must use a step with the matching sign in its disjoint index interval. At most one such step can be used in each maximal sign run, and the initial run must be skipped if it ascends. Turning points and the final point, with the initial point added exactly when the first step descends, attain this bound. Under the Mallows law fixing the value sets of disjoint consecutive blocks makes cross-block inversions fixed while the within-block weights factor; the unchanged conditional laws prove independence without conditioning as well. Thus only turning-window lags one and two and the two overlaps with the first descent contribute. Exact descent-word counts on lengths two through five reproduce all six probabilities, the covariance multiplicities n-3 and n-4, and the separately verified V and K rational functions; n=4 is valid and has no lag-two turning pair. For complementary positive q the leading coefficient is reciprocal. Its positive numerator equals (1-q)(1-q^5)+2q^3 up to the positive prefactor, and its limits are zero at the extremes. Differentiation gives the displayed reciprocal degree-ten polynomial; exactly two coefficient sign changes, P(0)=1, P(1)=-25 and positive leading coefficient yield exactly one simple positive root on each side of one. The derivative signs +,-,+,- establish the outlying maxima and the strict local minimum at one. The derivative of 2q/T has the sign of 1-q^2. Independent replay python3 -B /workspace/reproduce_frozen.py 1 checks the symbolic identities and rational root bracket, and exhausts all subsequences of permutations of lengths 4–7, checking exact moments at q=2/5,1,5/2. This does not claim to optimize the full variance at any fixed n.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Crane et al. state consecutive homogeneity and weak dissociation and express the variance for a fixed consecutive pattern using overlap probabilities. Monotone Mallows subsequences and counts of classical patterns are other statistics."
+        ],
+        "reasoning": "The local machinery implies how to set up the calculation, not the evaluated joint covariance of all turning-point patterns plus the distinguished endpoint or the extremal root and sign classification. Longest increasing/decreasing subsequences do not specialize to the alternating length.",
+        "searches": [
+          "Crane–DeSalvo–Elizalde arXiv:1609.01370: weak dissociation and consecutive-pattern variance",
+          "Bhatnagar–Peled arXiv:1306.3674: Mallows monotone subsequences",
+          "Dubach arXiv:2410.17228v1: classical pattern counts"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:math/0511419v1",
+        "arXiv:1005.1893",
+        "doi:10.46298/dmtcs.2956",
+        "arXiv:1609.01370",
+        "arXiv:1306.3674",
+        "arXiv:2410.17228v1",
+        "SCOPE-20261122-bc5270fcda48",
+        "SCOPE-20261102-39c7625bf9e2",
+        "SCOPE-20261018-5eac6eea209c",
+        "SCOPE-20261018-b3ad3b36c62e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known q=1 values are (4n+1)/6 and 8n/45-13/180 under the stated convention. The November 22 main statement excludes endpoints and reports covariance sign and correlation, not parameter maximizers of the asymptotic variance."
+        ],
+        "reasoning": "The uniform values are exact prior coverage. The expression V follows from the related catalogue record plus Romik's identity and bounded first-descent overlaps. Having V determines the extremal question but does not supply its resolved structure: factoring the derivative and excluding additional positive critical roots gives the precise two reciprocal global optima and the contrary behavior at q=1. The finite boundary term still requires the separate covariance calculation.",
+        "searches": [
+          "Stanley arXiv:math/0511419v1 p. 4 Eq. (7)",
+          "Houdré–Restrepo arXiv:1005.1893 Theorem 2.1",
+          "SCOPE-20261122-bc5270fcda48 Finding and Assumptions",
+          "Crane–DeSalvo–Elizalde arXiv:1609.01370 p. 28"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Romik gives the exact down-first representation as 1+B+P_n+W_n; Stanley notes the identity in alternating-run terms. The November 22 catalogue record defines the same P_n and W_n as interior peaks and valleys and gives Var(P_n)=Var(W_n)=Cov(P_n,W_n)+q/(1+q)^2."
+        ],
+        "reasoning": "Consequently Var(P_n+W_n)=4 Cov(P_n,W_n)+2q/(1+q)^2. The record's covariance coefficient is q(q^6-q^5+2q^3-q+1)/(T^2 U), so its turning-point variance coefficient is exactly V(q), with the frozen denominator and normalization. The first descent changes the O(1) term via Var(B)+2 Cov(B,P_n+W_n), which is not the interior covariance formula.",
+        "searches": [
+          "Resultary: longest alternating subsequence variance under Mallows, alternating runs, and peak/valley covariance with a boundary descent",
+          "Romik doi:10.46298/dmtcs.2956 Corollary 2",
+          "Stanley arXiv:math/0511419v1 p. 4",
+          "SCOPE-20261122-bc5270fcda48"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The golden-ratio record has an exact finite covariance for the interior peak/valley pair. The same-day peaks-and-double-ascents record treats a different covariance and root threshold. Two earlier records concern record/descent dependence and the covariance spectrum of all consecutive triples in uniform permutations, respectively."
+        ],
+        "reasoning": "The golden-ratio record has genuine coverage of V by implication; its golden-ratio exception is the sign change of a different finite-size covariance, not the global maximizers of V. The other exact formulas are for distinct covariance statistics or only the uniform model. Catalogue dates order entries on different days, not results within a day or intellectual priority.",
+        "searches": [
+          "Resultary: exact variance nV+K, reciprocal off-uniform optima and alternating runs under Mallows weighting",
+          "SCOPE-20261122-bc5270fcda48",
+          "SCOPE-20261102-39c7625bf9e2",
+          "SCOPE-20261018-5eac6eea209c",
+          "SCOPE-20261018-b3ad3b36c62e"
+        ]
+      },
+      "rationale": "Credit the deterministic representation, the one-window mean ingredients, the uniform moments, and the known Mallows local-dependence machinery. A distinct later catalogue record already implies the exact coefficient V(q) through its peak/valley covariance identities; an isolated discovery of V is not the point of the pass. The retained contribution is the exact finite-size down-first variance including the first-descent boundary correction and the explicit reciprocal off-uniform maximizer classification of the leading coefficient. No located statement covers those conclusions together or reports the extremal classification.",
+      "residual_risks": [
+        "The full text of Counting permutations by their alternating runs could not be retrieved via the publisher routes attempted; the audit relies on Stanley for the run equivalence, not a coverage determination about the inaccessible paper.",
+        "Equivalent exact formulas could appear in other Mallows or q-weighted run enumerations. Catalogue lookup is bounded and its rankings are not priority evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the uniform case and identifies the run equivalence",
+          "evidence": [
+            "Mean (4n+1)/6, variance 8n/45-13/180."
+          ],
+          "identifier_or_url": "arXiv:math/0511419v1",
+          "material_read": "PDF p. 4, Eq. (7) and surrounding text, offset 6898",
+          "method": "Primary full-text PDF passage",
+          "title": "Longest Alternating Subsequences of Permutations",
+          "trigger": "Prior exact moments and alternate runs terminology"
+        },
+        {
+          "assessment": "Down-first uniform moments and limit theorem, not the varying Mallows parameter",
+          "evidence": [
+            "Same uniform moments and Gaussian limit."
+          ],
+          "identifier_or_url": "arXiv:1005.1893",
+          "material_read": "PDF p. 2, definition and Theorem 2.1, offsets 3030,4300",
+          "method": "Primary full-text PDF passages",
+          "title": "A probabilistic approach to the asymptotics of the length of the longest alternating subsequence",
+          "trigger": "Uniform and possibly dependent permutation generalizations"
+        },
+        {
+          "assessment": "Covers the structural identity exactly",
+          "evidence": [
+            "as_n=1+sum indicators with the first indicator a descent and subsequent indicators interior extrema."
+          ],
+          "identifier_or_url": "doi:10.46298/dmtcs.2956",
+          "material_read": "PDF p. 3, Corollary 2, offset 8389",
+          "method": "Primary full-text PDF passage",
+          "title": "Local extrema in random permutations and the structure of longest alternating subsequences",
+          "trigger": "Direct deterministic variant of the frozen statistic"
+        },
+        {
+          "assessment": "Confirms general method and its fixed-pattern statistic",
+          "evidence": [
+            "Weak dissociation, consecutive homogeneity, and one-pattern overlap variance."
+          ],
+          "identifier_or_url": "arXiv:1609.01370",
+          "material_read": "PDF pp. 4 and 28, offsets 13742,102400",
+          "method": "Primary full-text PDF passages",
+          "title": "The probability of avoiding consecutive patterns in the Mallows distribution",
+          "trigger": "Exact overlapping-pattern variances for the same probability law"
+        },
+        {
+          "assessment": "Scope is monotone subsequences or classical patterns, rather than alternating lengths",
+          "evidence": [
+            "Longest increasing/decreasing subsequence and classical pattern counts under Mallows regimes."
+          ],
+          "identifier_or_url": "arXiv:1306.3674; arXiv:2410.17228v1",
+          "material_read": "Bhatnagar–Peled p. 1 offset 900 and Dubach abstract/schema of q regimes at offset 0",
+          "method": "Primary PDF passages",
+          "title": "Lengths of Monotone Subsequences in a Mallows Permutation; Classical patterns in Mallows permutations",
+          "trigger": "Potential alternate Mallows subsequence/count formulation"
+        },
+        {
+          "assessment": "Exact coefficient overlap by a displayed covariance identity. No boundary term or two-maximizer result in the compared statement.",
+          "evidence": [
+            "Var(peak)-Cov(peak,valley)=q/(1+q)^2; equal peak and valley variances; Cov advances by V/4 per unit n."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-a-golden-ratio-exception-to-positive-peak-valley-covariance-in-m--bc5270fcda48/RESULT.md",
+          "material_read": "Mirrored Finding and Assumptions (offset 0–2135), covariance-coefficient passage (offset 2480), snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Resultary semantic lookup and primary mirror read",
+          "title": "A golden-ratio exception to positive peak–valley covariance in Mallows permutations",
+          "trigger": "Strongest indexed match: same local indicators and same slope polynomial"
+        },
+        {
+          "assessment": "Different selected statistics or probability regime",
+          "evidence": [
+            "Peaks with double ascents, records with descents, and uniform consecutive-triple spectrum, respectively."
+          ],
+          "identifier_or_url": "SCOPE-20261102-39c7625bf9e2; SCOPE-20261018-5eac6eea209c; SCOPE-20261018-b3ad3b36c62e",
+          "material_read": "Mirrored Findings at offset 0",
+          "method": "Resultary semantic lookup and relevant mirror passages",
+          "title": "A unique covariance transition between peaks and double ascents; Bidiagonal record–descent dependence in Mallows permutations; Exact covariance spectrum of the six consecutive triple patterns",
+          "trigger": "Related same-day or earlier covariance analyses"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural parameter governing inverse biases controls two different optimizations: the uniform law maximizes the density of the alternating length but is an interior local minimum for its fluctuation coefficient. The exact pair of reciprocal optima gives a structural answer on the full positive half-line, not a comparison of selected q values. The boundary correction also determines exact finite moments for the specified asymmetric orientation. The known uniform values or isolated slope identity are not the reason for a value pass.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

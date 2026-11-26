@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:09:57.151545Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the stopped OU search with generator f''−kx f', reset-position law is r g_r(x)dx, and one Brownian-return cycle succeeds with p=phi_r+rJ>0, including hits during return. Cycles regenerate at 0 and finish almost surely. In the renewal transform the denominator tends to p; the defect in the sum of all one-cycle transform terms is rI sqrt(s)+o(sqrt(s)), since the negative-side exit transform is exp(x sqrt(s)), the positive interval has bounded exit mean, and killed occupations inherit bounded Gaussian moments from the unconditioned search. A monotone Tauberian theorem yields K/sqrt(pi t), including divergence at the endpoint alpha=1/2. I also checked the confined limit independently by the OU time change: for start −a the Brownian clock is (exp(2κt)−1)/(2κ); integrating the reflection-principle survival and setting v=κt bounds the rescaled mean by a sqrt(2/pi) times the integral of (exp(2v)−1)^(-1/2), which is pi/2. Dominated convergence gives the same limiting constant sqrt(pi/2)a. For 0<x<1 a bounded-interval exit calculation (or the barrier x(1−x) for κ<=1) keeps that contribution bounded, and the scale-function success tends to x. Dividing the mean cycle duration by its success probability gives the claimed coefficient. Discounted Dynkin applied to x gives phi_r=(r+k)(I−J), so K=1−k phi_r/((r+k)p) lies strictly between zero and one. The no-reset search mean is the finite OU hitting-time Green integral, unlike the free-return mean for each positive r. The frozen numerical verifier was inspected, not executed; the proof, rather than a grid extrapolation, settles both limits.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Biswas–Kundu–Pal's harmonic-return appendix (Eqs. S73–S80) uses freely diffusing search, rather than k>0 harmonic search.",
+          "Biswas–Dubey–Kundu–Pal use a linear return potential; Singh detects the target on search, not on return."
+        ],
+        "reasoning": "Those frameworks supply reusable renewal and exit methods, but their exact evaluated results do not yield the k>0, return-visible occupation amplitude identity and paired asymptotics by parameter substitution.",
+        "searches": [
+          "arXiv:2307.16294v3, stochastic home-return renewal and §S11.1",
+          "arXiv:2406.08975v1, drift-diffusive search with stochastic returns",
+          "arXiv:2407.02071v1, cost-time for diffusive search under resetting"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Resultary free-return tails, weak-return trap laws, exact OU/OU asymptotics and renewal/first-completion terminology",
+        "arXiv:2610.18814v1",
+        "arXiv:2307.16294v3",
+        "arXiv:2406.08975v1",
+        "arXiv:2407.02071v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Equation (8), with the correct single-return small-stiffness asymptotic and an integrable domination, gives the weak-trap mean coefficient; the mean renewal equation is explicitly prior.",
+          "The printed negative-side Eq. (52) in HTML, Eq. (D10) in the PDF, has a first term proportional to Erfi(sqrt(κ/2)x_0)[1−Erfi(sqrt(κ/2)x_0)] with positive prefactor, which at x_0<0 would give a negative leading mean if expanded literally. The frozen result instead uses a nonnegative hitting-time formula verified by the OU time change.",
+          "A mean formula, corrected or not, does not determine the zero-stiffness total-completion tail constant. That requires the cycle Laplace defect and its Tauberian inversion, and the explicit amplitude equality further uses the killed-search linear Dynkin identity."
+        ],
+        "reasoning": "The finite-stiffness mean framework is already covered and the weak limit is a derived asymptotic, not a new renewal formula. The supported novelty is the exact total-completion tail and its identified common amplitude, not merely an expansion of a prior scalar MFPT.",
+        "searches": [
+          "Dubey–Pal Eq. (8) and Eqs. (51)–(56), especially PDF Appendix D Eq. (D10)",
+          "Biswas–Kundu–Pal Eqs. S73–S80"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Dubey–Pal's harmonic switching trap with target-visible stochastic return is the same model after taking D=L=1, k_1=k and k_2=κ.",
+          "Its Eq. (8) is a total mean formula, not a small-frequency transform or regularly varying total-completion tail. The full-text passages checked do not state the half-moment threshold or identify its amplitude with the weak trap coefficient."
+        ],
+        "reasoning": "The change of names and units is not new; the singular-law comparison is about complete-path first completion, not the elementary Brownian return time by itself.",
+        "searches": [
+          "Resultary: harmonic stochastic reset return free Brownian half-moment tail",
+          "Resultary: stochastic home-return weak return stiffness shared amplitude",
+          "arXiv:2610.18814v1, §II, Eq. (8), and Appendix D"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/11/8/SCOPE-sharp-r-3-2-clock-moment-law-for-stochastic-return-ornstein-uhle--1c82f789b3f9 evaluates a large reset-rate correction, not the stiffness singularity.",
+          "2026/11/8/SCOPE-a-universal-three-term-weak-return-trap-law-for-visible-brownian--92af90436b2d and 2026/11/2/SCOPE-universal-weak-return-trap-moment-hierarchy-for-brownian-search--498e0c3e1b07 treat Brownian, not positively confined, search.",
+          "The closest prior exact formulas evaluate the mean at positive return stiffness; they do not catalogue the claimed free-return tail or relate the two coefficients."
+        ],
+        "reasoning": "No inspected exact entry supplies the target pair of quantities in the same regime. The parameter and observable differences, not catalogue dates, distinguish the statements.",
+        "searches": [
+          "Resultary: weak-return trap, moment hierarchy, and exact OU stochastic-return asymptotics",
+          "arXiv:2610.18814v1, Eq. (8) and the return components in Appendix D"
+        ]
+      },
+      "rationale": "Credit prior work for the same two-stiffness model, the mean renewal equation, and standard Brownian and OU exit identities. The distinct result assessed is the exact free-return total-completion tail, its half-moment endpoint, and the identification of its explicit model-dependent amplitude with the correctly evaluated weak-confinement singularity. The positive-stiffness MFPT formula is not an independent novelty claim.",
+      "residual_risks": [
+        "An unindexed stochastic-return renewal tail theorem could cover the heavy-tail step in a more abstract formulation. The comparisons do not establish priority over all such treatments.",
+        "The paper's full positive-stiffness special-function evaluation was not separately certified; the review relies on its verified scope and mean renewal formula for the comparison."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same model and renewal mean; no matching stated total-completion free-return tail or joined amplitude in the inspected passages",
+          "evidence": "Eq. (8) divides mean search-plus-return cycle duration by one-cycle success; Eq. (9) separates the half-line and interval returns. The literal negative-side closed form in Eq. (D10) has the sign issue described above.",
+          "identifier_or_url": "https://arxiv.org/html/2610.18814v1; https://arxiv.org/pdf/2610.18814v1",
+          "material_read": "§II around HTML offset 9000; Eqs. (8)–(9) around offsets 19500–23031; Appendix D around 75200–80493; PDF p. 29 Eq. (D10)",
+          "method": "Read primary HTML passages and checked the displayed negative-side formula against the PDF text layout",
+          "title": "Towards synergy between theory and experiments: First-passage processes under resetting with stochastic return protocols",
+          "trigger": "Identical OU/OU switching model and exact positive-stiffness MFPT"
+        },
+        {
+          "assessment": "Related renewal calculation with different search process",
+          "evidence": "Search is diffusive in the harmonic-return example, without the k>0 OU killed resolvent.",
+          "identifier_or_url": "https://arxiv.org/html/2307.16294v3",
+          "material_read": "Supplement §S11.1 around offset 91300, Eqs. S73–S80",
+          "method": "Read primary full-text passages",
+          "title": "Search with stochastic home-returns can expedite classical first passage under resetting",
+          "trigger": "Previous target-visible home-return renewal methods and harmonic-return example"
+        },
+        {
+          "assessment": "Different search and return forces",
+          "evidence": "Drift-diffusive search and linear return potential U(x)=λ|x|, not the OU/OU switch.",
+          "identifier_or_url": "https://arxiv.org/html/2406.08975v1",
+          "material_read": "Abstract and model passages around offsets 1931 and 10923",
+          "method": "Read primary abstract and model full text",
+          "title": "Drift-diffusive resetting search process with stochastic returns: speed-up beyond optimal instantaneous return",
+          "trigger": "Related first-passage model with stochastic return and finite MFPT"
+        },
+        {
+          "assessment": "Different target visibility and search model",
+          "evidence": "First arrival is counted in the diffusive phase, rather than permitting hits on the return leg.",
+          "identifier_or_url": "https://arxiv.org/html/2407.02071v1",
+          "material_read": "Model and arrival convention around offsets 8800–10621",
+          "method": "Read primary full-text passages",
+          "title": "Cost-time trade-off in diffusion with stochastic return: optimal resetting potential and Pareto front",
+          "trigger": "Confining stochastic return and first-passage limit comparisons"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The unconfined phase can destroy all completion moments of order at least one half even though the search alone has finite mean. The exact same nonuniversal amplitude controls how the mean becomes singular when that phase is weakly confined. This quantitative separation is useful for comparing stochastic-reset protocols in a standard model; it is not implied merely by knowing a Brownian hitting-time exponent or by reporting an exact positive-stiffness mean.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:58:46.165522Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§ Finding, Assumptions and scope, Proof",
+        "VERIFICATION.md and verify_rhombic_pedal.py (read only)",
+        "Independent triangulation and symbolic differentiation: python3 reproductions/reproduce_other_reviews.py, record 1"
+      ],
+      "rationale": "All six facet distances, including the vertical half-height, are fixed at one; 0 <= c < 1 parametrizes that family up to congruence. The first pedal is the polar with exactly eight supporting planes indexed by the sign vectors; the second feet are their dual sign vectors divided by squared norm. In the orthogonal horizontal sum/difference axes the resulting four columns have radii A,B and half-heights h+,h−. A supporting functional of the projected diamond, slightly tilted vertically, exposes each endpoint. In any convex representation the total weight at the two Y-corners is at least |Y|/B, and this lower bound can be attained throughout the diamond; placing all mass on the upper endpoints therefore yields the claimed roof for h+ >= h−. This proves the four lateral quadrilaterals and four roof triangles for c>0 (two merged flat roofs at c=0). Section integration gives V=4AB(2h++h−)/3. Differentiation gives the stated quintic and positive prefactor; F′(c) <= 99(c−1)<0 before the excluded endpoint. Opposite endpoint signs and the rational bracket establish the unique interior global maximum; the cube gives 8/27, and V tends to zero as c approaches 1. An exact determinant test at c=3/5 gave 190/729 without floating hull triangulation, and the derivative replay reproduced c*=0.175097381279917 and V*=0.302143544127582.",
+      "residual_risks": [
+        "The rational hull test is corroboration only. The proof does not address arbitrary prism heights, sheared axes, or unnormalized or uncircumscribed parallelotopes."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Same-day SCOPE-two-step-pedal-rigidity-of-centered-spatial-parallelepipeds--ed62f9be4515 proves parallelepipedhood of the second pedal iff the initial Gram matrix is diagonal.",
+          "SCOPE-four-step-pedal-return-and-aspect-ratio-inversion-for-prisms-ove--c2558824bf16 requires the centered base to be bicentric."
+        ],
+        "reasoning": "The rigidity statement covers the qualitative non-parallelotope assertion, since w1·w2=−c/(1−c²) is nonzero. It does not force the asserted facet census. A nonsquare rhombus is not cyclic, so the bicentric-prism theorem does not cover c>0. The date of the rigidity record was not used to determine priority.",
+        "searches": [
+          "Resultary centered spatial parallelepiped second-pedal rigidity",
+          "Resultary prisms over bicentric polytopes and aspect-ratio inversion"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md",
+        "arXiv:2611.01247v1 §4",
+        "Resultary records ed62f9be4515 and c2558824bf16"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Point inversion followed by a convex hull does not in general preserve extreme vertices; the roof faces here follow from an attainment argument over the diamond.",
+          "Rectangular-box return and same-day second-pedal rigidity do not compare pedal volumes within the rhombic family."
+        ],
+        "reasoning": "The inversion proposition makes the starting coordinates available; it is not a volume-optimization theorem or a direct extremum corollary. The eight-face noncube classification and strict global comparison require additional shape and derivative analysis.",
+        "searches": [
+          "arXiv:2611.01247v1 §4",
+          "Local Resultary mirror, centered parallelepiped rigidity and bicentric-prism return theorems"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Proposition 4.1 identifies the second pedal with the hull of the spherical inverses of the original vertices."
+        ],
+        "reasoning": "Constructing the second pedal via polarity is equivalent to the known inversion rule, not an originality claim. Obtaining the family-specific exposed roof structure, exact volume and optimizer requires more than that identification.",
+        "searches": [
+          "Resultary search on second-pedal/circumscribed-prism inversion and skew volume",
+          "arXiv:2611.01247v1 §4, Proposition 4.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The latter gives D²(P0)=P0/3 and therefore the exact cube volume 8/27; neither inspected prism record gives the noncubical profile or the quintic optimizer."
+        ],
+        "reasoning": "The exact value that is already recoverable is only the cube baseline. The parameter-uniform profile and nonzero algebraic maximizer are not entries established by the retrieved sources. The identified copy of the frozen record itself is not a distinct predecessor.",
+        "searches": [
+          "Resultary targeted profile/optimum lookup for normalized tangential rhombic prisms",
+          "Bicentric-prism result, statement and t=1 condition"
+        ]
+      },
+      "rationale": "Credit inversion of vertices, qualitative non-parallelepiped rigidity, and the cube endpoint to existing results. The explicit noncubical facet and volume profiles and the unique skew optimizer are supported as distinct, to the best of the inspected evidence.",
+      "residual_risks": [
+        "The independent topic search yielded general polytope references, not a decisive alternative source. Unindexed older inversion/pedal literature may contain additional family calculations; the result is not a priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the inversion construction; no family volume or skew optimum in the relevant proposition.",
+          "evidence": "Proposition 4.1 gives D²(K)=conv{r²v/||v||² : v a vertex of K}.",
+          "identifier_or_url": "https://arxiv.org/html/2611.01247v1",
+          "material_read": "Original HTML §4, especially Proposition 4.1 (near character offset 19300)",
+          "method": "Lawful full-text passage retrieval and statement comparison",
+          "title": "When Pedal Shapes Come Back: a Complex Story",
+          "trigger": "Same circumscribed-polytope two-step operation"
+        },
+        {
+          "assessment": "Covers loss of parallelepipedhood, not the complete facet or volume claim.",
+          "evidence": "For B=A[-1,1]^3, D²(B) is a parallelepiped iff AᵀA is diagonal.",
+          "identifier_or_url": "2026/11/22/SCOPE-two-step-pedal-rigidity-of-centered-spatial-parallelepipeds--ed62f9be4515",
+          "material_read": "RESULT.md opening theorem",
+          "method": "Local Resultary search and mirrored statement, commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Two-step pedal rigidity of centered spatial parallelepipeds",
+          "trigger": "Closest same-day record with the same second-pedal shape question"
+        },
+        {
+          "assessment": "Recovers the square-base cube, not the nonsquare rhombic prism family.",
+          "evidence": "At a=h=1 and circumradius √2 the formula reduces to P0/3; nonsquare rhombi violate the common circumcircle hypothesis.",
+          "identifier_or_url": "2026/11/17/SCOPE-four-step-pedal-return-and-aspect-ratio-inversion-for-prisms-ove--c2558824bf16",
+          "material_read": "RESULT.md statement and exact formula at offset 0, t=1 homothety around offset 2998",
+          "method": "Local Resultary search and mirrored result, same commit",
+          "title": "Four-step pedal return and aspect-ratio inversion for prisms over bicentric polytopes",
+          "trigger": "Related exact second-pedal description on a prism family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md shape and extremum claims",
+        "Same-day rigidity theorem and bicentric-prism theorem for the narrower known conclusions"
+      ],
+      "rationale": "A single natural shape parameter ranges from the symmetric cube to near-degeneracy while all facet distances are fixed. The calculation gives a sharp counterexample to cube extremality on this family, a complete facet transition, and a unique maximizing geometry. The value is the structural comparison and exact optimizer, not the size of the percentage gain.",
+      "residual_risks": [
+        "This is a one-parameter classification, not an extremum theorem over all circumscribed polytopes or all prisms."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

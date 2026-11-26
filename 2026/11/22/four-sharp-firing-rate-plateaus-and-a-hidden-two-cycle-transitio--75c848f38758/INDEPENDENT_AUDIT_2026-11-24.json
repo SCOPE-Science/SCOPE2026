@@ -1,0 +1,155 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:53:04.205156Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–55",
+        "Frozen VERIFICATION.md, lines 18 onward",
+        "Frozen check.py, lines 5–62 (inspected; source replay entry point)",
+        "Independent integer-twelfth reconstruction, testing all three starting phases at the six interior boundaries and seven cell midpoints"
+      ],
+      "rationale": "Starting from the stated forward projection, the lifted map is order preserving and commutes with unit translations, bounding the displacement between any two phase orbits by one period after alignment. Each orbit eventually cycles on the three residues; fixed phases, pairs, and cyclically or anticyclically ordered triples give respectively 1, 2, 3, and 3/2 firings per period. Greedy times are no later than those of any feasible periodic schedule from the same initial event, so it suffices to test feasible representatives of these candidate greedy cycles. A forward triple requires s ≤ a; a pair requires s ≤ max_g min(g,1−g) = min(c,1−c) (when c ≥ 1/2, b ≤ 1−c); a reverse triple requires s ≤ 1−c. A fixed phase is always feasible. This proves both staircases including c = 1/2, tied gaps, and inclusivity. The reverse-triple argument classifies candidate greedy 3/2 cycles; arbitrary nongreedy schedules of the same rate need not take only that form. Independently rebuilt the concrete map in integer twelfths at every gap boundary inside (0,1) and in every intervening cell. Up to cyclic rotation, the interval lists in twelfths were (3,5,4), (4,8), (5,7), (7,9,8), and (12), giving the five displayed variances and confirming the factor-four drop just above s = 1/3. The bounded reproduction corroborates the example, not the universal proof.",
+      "residual_risks": [
+        "Limited to the deterministic projection model and travel times 0 < s < 1; transient patterns and other clocks are not classified."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3 of Kaymakçalan–Selçuk gives the broader forward-projection recurrence; Corollary 4 treats hℤ. Section 8 identifies further periodic-clock arithmetic as an open direction in that work.",
+          "The two cited driven-neuron papers were not readable at the attempted DOI and APS pages."
+        ],
+        "reasoning": "The arbitrary-time-scale recurrence is credited as prior and is the starting point of the audit, but no prior formula covering arbitrary three-phase clocks was found in those inspected sections. A general recurrence alone leaves the greedy-cycle feasibility analysis and concrete interval switch to be worked out. Inaccessible sources are not negative evidence.",
+        "searches": [
+          "arXiv:2611.17219v1, Theorem 3, Corollary 4 and Section 8",
+          "doi:10.1103/PhysRevE.64.041914",
+          "doi:10.1103/PhysRevE.65.041913"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.17219v1",
+        "Resultary 13e929870991",
+        "Resultary 9e02bdaae0ad",
+        "Resultary c91ffd9e85fc"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The one-phase corollary and the two-phase Finding give rates for smaller state spaces. Neither has the reversed three-cycle (three firings in two periods) or two distinct two-phase attractors selected across a travel-time boundary in a three-phase clock."
+        ],
+        "reasoning": "Adding a third phase changes the greedy projection even in the rate-two region: it selects different pairs as s crosses the middle gap in the example. This is not obtained by substituting gap parameters in either smaller-clock theorem.",
+        "searches": [
+          "Kaymakçalan–Selçuk, arXiv:2611.17219v1, Theorem 3 and Corollary 4",
+          "Resultary: SCOPE-a-sharp-half-rate-resonance-collapse-under-alternating-observati--13e929870991"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The periodic-window Finding uses continuous observation windows and a rotation-with-reset map, rather than three discrete residues.",
+          "The Sturmian Finding concerns an aperiodic two-gap clock; it classifies a rate jump and interval words in that different model."
+        ],
+        "reasoning": "The projected map is a monotone periodic lift, but shared rotation arithmetic is not an equivalence with continuous windows or a Sturmian event sequence. Neither inspected statement identifies a substitution giving the claimed three-gap staircase and variance jump.",
+        "searches": [
+          "Resultary: periodic opportunities and three-gap firing staircase",
+          "Resultary: SCOPE-arithmetic-capture-and-exact-firing-rate-staircases-on-periodic--c91ffd9e85fc",
+          "Resultary: SCOPE-sturmian-renormalization-and-a-sharp-firing-rate-jump-for-aperio--9e02bdaae0ad"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact database hit 75c848f38758 is the assigned record itself. Closest distinct same-model Finding is 13e929870991, giving a two-phase clock classification with alternating interval laws."
+        ],
+        "reasoning": "Self matching is not independent coverage. The two-phase result does not classify three positive gaps; date alone gives no priority inference.",
+        "searches": [
+          "Resultary: three-gap/three-phase constant-input periodic firing staircase",
+          "Resultary: 75c848f38758 and nearest periodic-clock results"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the explicit all-parameter three-phase staircase and the rate-invisible interval-law switch in the example, not the projection recurrence, phase rotation method or firing-rate quantization alone. None of the inspected comparators states or supplies the combined classification. This is a best-of-knowledge comparison, not a priority determination.",
+      "residual_risks": [
+        "An unindexed equivalent in circle-map or cyclic scheduling literature remains possible.",
+        "The cited APS texts were inaccessible; their contents are not ruled out.",
+        "The local same-day records resolve neither chronological priority nor independence by their dates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior recurrence and uniform-lattice result; no three-phase staircase in the inspected passages.",
+          "evidence": [
+            "Forward projection, hℤ step law, and discussion of unresolved periodic arithmetic"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.17219v1",
+          "material_read": "Theorem 3, Corollary 4, Section 8 (normalized offsets near 22350, 26323, 37864)",
+          "method": "Bounded OA HTML passages",
+          "title": "Structure-Preserving Leaky Integrate-and-Fire Dynamics on Arbitrary Time Scales",
+          "trigger": "Cited exact model and broader time-scale theorem"
+        },
+        {
+          "assessment": "Analogous classification for two phases only.",
+          "evidence": [
+            "Two-phase periodic clock and alternating interval laws"
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-half-rate-resonance-collapse-under-alternating-observati--13e929870991",
+          "material_read": "RESULT.md, Finding, offset 0",
+          "method": "Resultary local mirror",
+          "title": "A sharp half-rate resonance collapse under alternating observations",
+          "trigger": "Closest same-model catalogue comparison"
+        },
+        {
+          "assessment": "Aperiodic clock treatment; not the finite three-phase result.",
+          "evidence": [
+            "Two gaps with Sturmian interval laws"
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-sturmian-renormalization-and-a-sharp-firing-rate-jump-for-aperio--9e02bdaae0ad",
+          "material_read": "RESULT.md, Finding, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Sturmian renormalization and a sharp firing-rate jump for aperiodic observation",
+          "trigger": "Related time-scale rate jump"
+        },
+        {
+          "assessment": "Related rotation structure in a different observation model.",
+          "evidence": [
+            "Continuous periodic windows and a rotation-with-reset map"
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-arithmetic-capture-and-exact-firing-rate-staircases-on-periodic--c91ffd9e85fc",
+          "material_read": "RESULT.md, Finding, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Arithmetic capture and exact firing-rate staircases on periodic observation windows",
+          "trigger": "Plausible rotation/periodic staircase equivalence"
+        },
+        {
+          "assessment": "No statement-level conclusion about this paper.",
+          "evidence": [],
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevE.64.041914",
+          "material_read": "No primary text retrieved",
+          "method": "OA DOI and APS attempts returned HTTP 403",
+          "title": "Mode locking in a periodically forced integrate-and-fire-or-burst neuron model",
+          "trigger": "Cited mode-locking comparator"
+        },
+        {
+          "assessment": "No statement-level conclusion about this paper.",
+          "evidence": [],
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevE.65.041913",
+          "material_read": "No primary text retrieved",
+          "method": "OA DOI and APS attempts returned HTTP 403",
+          "title": "Precision and reliability of periodically and quasiperiodically driven integrate-and-fire neurons",
+          "trigger": "Cited comparator for finer timing statistics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 8–37 and 43–55",
+        "arXiv:2611.17219v1, Corollary 4 and Section 8"
+      ],
+      "rationale": "This is a complete sharp classification for the smallest clock supporting a reverse three-cycle. It also demonstrates a genuine observable distinction beyond the rate: the two adjacent rate-two regimes have different repeating intervals and variances. The result can be used directly to choose a clock or travel time in the stated model, without an empirical neuron-performance claim.",
+      "residual_risks": [
+        "Mathematical classification only; no transfer to driven neurons, larger clocks, or empirical spike data is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:34:11.525840Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–54",
+        "Frozen VERIFICATION.md, quotient_check.py and verify.cpp, inspected statically",
+        "/workspace/branches/535b33a5-1b4e-46b7-bedd-474f09614c23/independent_quotient_check.py"
+      ],
+      "rationale": "Two white vertices in a twin block form a fort: no vertex outside the pair sees exactly one and neither can be forced first. With at most one white per block, the mask intersection lists all white neighbors of a blue representative, including the possible white vertex of its own clique block. Such a representative exists exactly under the test in the record. A stalled white set is a fort contained in the initial white set, precluding success by any ordering; a successful run witnesses ordinary zero forcing. Increasing the size of B3 from 2 to 2+t does not change the existence of a blue representative for any allowed mask, and merely changes the factor 2 to 2+t when B3 is missing one vertex. Independent quotient enumeration confirmed the full base polynomial, order, edge count, connectedness, and the successful-mask/count/slope triples (214,680,112), (247,678,64), (214,690,68) at missing cardinalities 3, 4, 5. This yields strict gaps 12+4t and 2+48t for every integer t≥0, not an extrapolation. The base is connected, and every added twin has the required adjacencies to remain in the component. The result claims existence, not minimality of order 18.",
+      "residual_risks": [
+        "The uploaded graph-level 2^18 run was not replayed; the independent exact quotient calculation together with the reduction establishes the claimed coefficients. No impossibility for order at most 17 is established."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Newton–Brimkov symmetric G_(t,t,t) has order 10+3t. The exact formula is for t≥2 and its stated nonunimodality corollary is for t≥24, giving orders 82,85,88,… . Their asymmetric displayed example has order 81."
+        ],
+        "reasoning": "An infinite family at these orders does not cover n=18 nor all n≥18. The fact that both constructions use blocks or twin restrictions does not confer preservation of the three valley coefficients under the particular one-block expansion.",
+        "searches": [
+          "Newton–Brimkov, arXiv:2611.11352v1, §2 Theorem 1 and corollary",
+          "Resultary lookup for zero forcing witness families, all orders, and twins"
+        ]
+      },
+      "checked_sources": [
+        "Resultary near-match search",
+        "Bounded primary-literature search",
+        "Inspected full-text passages above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The displayed Newton–Brimkov witnesses have orders 81 and 82. The later note certifies a 20-vertex valley and mentions 19; these are existence results and provide no operation that decreases the order while preserving a valley. The frozen affine expansion instead relies on a particular block that is never without a blue representative in permitted states and on exact weighted counts."
+        ],
+        "reasoning": "Neither a larger witness nor the earlier infinite family implies a smaller witness; the all-order conclusion requires preservation and strict slope inequalities specific to this construction.",
+        "searches": [
+          "Newton–Brimkov, §2 parameter ranges and explicit examples",
+          "AFTD note, formal result and smaller-order discussion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier sources also count ordinary zero forcing sets; this is genuine overlap in the property, not a different zero-forcing rule. Counting by missing vertices simply reverses the order of the coefficient list and preserves the local valley. The exact Resultary hit is the frozen original, not another construction."
+        ],
+        "reasoning": "Checking both blue-size and white-size indexing does not yield an inspected equivalent order-18 or all-orders claim. Existing generic nonunimodality is not itself claimed as new.",
+        "searches": [
+          "Resultary lookup on ordinary zero forcing polynomial nonunimodality at order 18 and true/clique-twin expansions",
+          "Primary-literature search on same or smaller zero-forcing nonunimodality witnesses and clique-twin extension",
+          "arXiv:2611.11352v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The AFTD order-20 graph has 135 edges and a z(15),z(16),z(17) valley of 932,909,939 by enumeration, with Lean proving bounds in the directions needed for nonunimodality. The order-19 discussion reports 780,754,780 around degree 15 and says it is not formalized. Neither is the order-18 graph or polynomial. The exact indexed order-18 valley is the assigned original itself."
+        ],
+        "reasoning": "These are materially overlapping finite witnesses, but exact orders and coefficients distinguish them; no inspected distinct exact order-18-or-smaller witness table was found.",
+        "searches": [
+          "AFTD 2026-11-11 note, explicit order-20 graph and reported order-19 enumeration",
+          "Resultary exact order-18 and family lookup"
+        ]
+      },
+      "rationale": "General nonunimodality and infinite families were already known. The inspected prior examples and theorems do not supply the connected order-18 witness or the specified all-orders clique-twin family with its exact valley. Priority is limited to the evidence below.",
+      "residual_risks": [
+        "Historical priority is not certified. Unindexed or informal smaller examples remain possible; an empty primary-search return is not evidence of absence. The order-19 statement is a reported computation, not independently verified here."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior general counterexamples and an infinite family; does not cover the smaller witness or its all-order family",
+          "evidence": [
+            "G_t has order 10+3t, with nonunimodality for t≥24; G_(24,24,23) is an explicit order-81 witness.",
+            "The order-81 and order-82 displayed valleys are respectively 2592,2403,2427 and 2628,2436,2485."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2611.11352v1",
+          "material_read": "§2 Theorem 1, PDF p. 3 / OA offset near 7600; corollary and examples, pp. 5–6 / OA offset near 14000",
+          "method": "Open-access primary PDF",
+          "title": "Zero forcing is not unimodal",
+          "trigger": "Earlier resolution of the general unimodality question, with an exact infinite family"
+        },
+        {
+          "assessment": "A formalized order-20 nonunimodality proof plus an enumerated order-19 report; no order-18 result in the inspected material",
+          "evidence": [
+            "The formal proof bounds z(15)≥932, z(16)≤909, z(17)≥939. The full polynomial was enumerated outside Lean.",
+            "The reported order-19 dip is 780>754<780; note explicitly says not formalized."
+          ],
+          "identifier_or_url": "https://rainwangphy.github.io/aftd-platform/blog/2026-11-11-op-1400/",
+          "material_read": "Graph and formal proof passage, web OA offset near 9000; later order-19 discussion near 14700",
+          "method": "Public primary note in OA website mode",
+          "title": "Existence of a Simple Graph of Order 20 with a Non-Unimodal Zero Forcing Polynomial",
+          "trigger": "Closest previously reported order bounds, including a smaller nonformal example"
+        },
+        {
+          "assessment": "Identical frozen record, not an independent priority source",
+          "evidence": [
+            "Same base polynomial, adjacency masks, and three exact affine counts at every n≥18."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-an-eighteen-vertex-zero-forcing-nonunimodality-witness-and-a-per--8c1a5515407e",
+          "material_read": "Finding and proof in the matching RESULT.md",
+          "method": "Frozen file and Resultary local mirror",
+          "title": "An eighteen-vertex zero-forcing nonunimodality witness and a persistent twin-expansion family",
+          "trigger": "Exact indexed witness and expansion"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Newton–Brimkov minimum-order question and family",
+        "AFTD smaller-order examples",
+        "Frozen construction and coefficient proof"
+      ],
+      "rationale": "The minimum counterexample order was explicitly posed after the general unimodality conjecture failed; the exact connected order-18 witness improves the inspected upper bounds and supplies a concrete target for exclusion searches below 18. Independently, the stable quotient mechanism gives a valley for every order from 18 onward, rather than isolated examples or an infinite sequence of sparse orders. The explicit construction and exact gaps are useful beyond merely reasserting nonunimodality.",
+      "residual_risks": [
+        "Order 18 is an upper bound for the minimum, not a proof of the minimum. The expansion is a specific family, not a general zero forcing polynomial preservation theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,97 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:47:17.033674Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For linear binary words the multiset of bigrams and the initial letter determine total letter multiplicities: the bigram heads count all positions except the initial one. Conversely the letter and head counts determine that initial letter. The equal-length-four classes give 16 literal forbidden windows and four extras, 00100100, 01000010, 10111101 and 11011011. In the seven-bit suffix graph, each legal word of length n>=7 is exactly one labelled walk of n-7 steps with arbitrary endpoints. The independent replay at review-evidence/record1_arithmetic_check.py (output beside it as record1_arithmetic_check.txt) rebuilt all 128 states and 236 edges directly from letter and pair counts, checked all coordinates of the row-vector identity at lag 33, reproduced the numerator and initial counts, and verified strong connectivity, period one and both Perron enclosures by exact integer comparisons. For n>=40, the polynomial convolution vanishes by right multiplication of that vector identity; convolution for n<40 uses the verified initial values, including the empty word. Thus the finite certificate gives an all-n rational series. Primitivity gives the simple Perron rate and positive leading constant; the strict comparison uses strict entrywise containment somewhere in irreducible graphs. Independently, in the literal-only case the first four letters and the subsequent lag-four XOR bits are bijective coordinates, and a forbidden literal square is exactly four consecutive zero XORs. The tetranacci equation for that avoidance rate agrees with the literal enclosure. The literal graph has 240 surviving edges of 256 possible; the awkward wording in the proof does not change the edge set or calculation. Uploaded support was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Question 5 investigates binary avoidance of 2-Abelian squares with period at least p, and reports finite search evidence for p=3. SCOPE-f351b762e936 instead studies ordinary Abelian squares at exact half-lengths two and three."
+        ],
+        "reasoning": "Stronger simultaneous restrictions can yield lower bounds or existence for the larger target language, but not an exact count of it. Ordinary Abelian equivalence imposes one-letter, not ordered two-letter, multiplicities.",
+        "searches": [
+          "Rao–Rosenfeld, arXiv:1507.02581, abstract and Question 5",
+          "Local Resultary search for exact-period repetition avoidance"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1104.4273",
+        "arXiv:1507.02581",
+        "Resultary: SCOPE-78eced905c91, SCOPE-f351b762e936"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The equivalence characterization enables recognition of individual forbidden blocks. A transfer construction ensures rationality, and primitivity plus strict edge containment gives qualitative strictness; neither statement specifies the actual order-32 denominator, numerator or rate enclosure."
+        ],
+        "reasoning": "Do not credit rationality or the qualitative comparison theorem as novel. The exact finite-type spectral/counting invariant needs the target-specific class and graph evaluation and exact polynomial and Perron certificates. No inspected stronger exact theorem or table supplies it directly.",
+        "searches": [
+          "arXiv:1104.4273, binary class characterization",
+          "arXiv:1507.02581, Question 5",
+          "Standard fixed forbidden-factor transfers and Perron theory"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The published boundary-letter and length-two factor-count definition is equivalent to the count definition here, but its binary characterization is a classification of equivalence, not an avoidance enumerator. The primary query yielded no relevant exact statement."
+        ],
+        "reasoning": "An exact generating function or growth rate for avoiding the same 20 length-eight windows would qualify as coverage even without 2-Abelian terminology. Forbidding just the 16 literal windows is a different standard constraint, equivalent to avoiding 0000 in lag-four XOR coordinates.",
+        "searches": [
+          "Primary query: \"2-Abelian\" \"period-four\" square binary avoidance generating function entropy",
+          "Huova–Karhumäki, arXiv:1104.4273, definitions and binary characterization"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "SCOPE-78eced905c91 states the exact same N/P and rate, but is this record itself. The nearest distinct catalogue result SCOPE-f351b762e936 concerns different periods and equivalence."
+        ],
+        "reasoning": "Neither the self-hit nor another avoidance invariant at different periods establishes independent evidence for the exact target sequence. No distinct matching table was identified.",
+        "searches": [
+          "Resultary query: binary 2-Abelian square avoidance fixed period 4 exact generating function entropy enumeration"
+        ]
+      },
+      "rationale": "The exact fixed-half-length-four enumerator and its Perron rate are distinct from previously stated equivalence characterizations, global or long-repetition avoidance results, and literal-square counts. No inspected statement or published table was found that covers this exact numerical invariant. This is a bounded conclusion, not a priority guarantee.",
+      "residual_risks": [
+        "The exact fixed-list language may have been enumerated under different forbidden-pattern terminology or in an unindexed table. The focused search did not resolve historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Relevant mathematical antecedent, not exact entropy of this language",
+          "evidence": "Boundary conditions and k-factor counts define equivalence; class characterization addresses equality of blocks rather than counts of avoiding hosts.",
+          "identifier_or_url": "https://arxiv.org/pdf/1104.4273",
+          "material_read": "PDF pp. 1–2, OA offsets 3446–7292",
+          "method": "Primary definitions and statement comparison",
+          "title": "Observations and Problems on k-abelian avoidability",
+          "trigger": "Alternate standard formulation and class characterization"
+        },
+        {
+          "assessment": "Long-period avoidance, not this exact-period enumeration",
+          "evidence": "Period at least p and length-15000 evidence for p=3, not an explicit enumerator for a single forbidden period.",
+          "identifier_or_url": "https://arxiv.org/pdf/1507.02581",
+          "material_read": "PDF p. 1 abstract and p. 8 Question 5, offset near 19700",
+          "method": "Primary scope and question comparison",
+          "title": "Avoidability of long k-abelian repetitions",
+          "trigger": "Same binary repetition notion and possible broader period coverage"
+        },
+        {
+          "assessment": "Different avoidance invariant in the first; exact self-hit in the second",
+          "evidence": "The first concerns Abelian half-lengths two and three; the second contains the exact frozen statement and is not independent prior work.",
+          "identifier_or_url": "Resultary: SCOPE-f351b762e936; SCOPE-78eced905c91",
+          "material_read": "Original Findings and defining assumptions in local mirror",
+          "method": "Resultary search and local mirror comparison",
+          "title": "Sharp eventual periodicity and alphabet threshold for avoidance; Exact entropy of the first genuinely nonliteral binary 2-Abelian avoidance slice",
+          "trigger": "Closest distinct and exact catalogue hits"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Half-length four is the first possible length of a genuinely nonliteral binary 2-Abelian equivalence class: length two is determined by its sole bigram, and for length three the two bigrams with their fixed initial letter cannot be traversed in two distinct orders producing different words. Thus this slice is selected by a combinatorial threshold, not by an arbitrary enumeration cutoff. Its exact recurrent counts and rate quantify an exponential cost from only four new exclusions and provide a reusable benchmark for fixed-period avoidance, beyond the generic fact of rationality or the qualitative rate inequality.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

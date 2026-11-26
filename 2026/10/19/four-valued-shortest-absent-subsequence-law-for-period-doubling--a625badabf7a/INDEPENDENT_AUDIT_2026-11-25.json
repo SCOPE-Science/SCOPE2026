@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:36:56.613884Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The substitution recurrence gives p_i = ν₂(i+1) mod 2 and every 1 has its own preceding zero. Selecting those pairs gives (01)^r as a subsequence; length r is universal and 1^(r+1) is absent. Any candidate of length r+1 containing adjacent 01 fits in r pairs by using one pair for that 01, so only 1^a 0^(r+1−a) need be tested. For a≤r the earliest a ones leave r−a mandatory inter-one zeros plus any surplus and terminal zeros. Failure occurs exactly when no surplus or terminal zeros remain. At a last 1 this gives one additional SAS plus one per consecutive terminal singleton zero gap. For 4|n with odd valuation, positions n−2 and n have valuation parity odd in one-based indexing, but n−4 has valuation 2; the terminal run length is 1. For n≡2 mod 4 and n>2, n−4 always gives a 1, and n−2 gives a 1 precisely in the odd valuation case, where n−6 has valuation 2; the run length is 2 or 0. When the last bit is 0 only the pure-one SAS survives, including n=1. W₂=01 gives exactly 00,10,11. The valuation classes have densities 2^(-h−1), and summing them is justified by a vanishing tail bounded by the density of multiples of 2^H. The n=4q+2 family has odd ν₂(n−2) for one third of q, giving density 1/12 for four SAS and 1/6 for two; multiples of four ending in 1 give 1/12 for three, and the remainder 2/3 for one. No certification is asserted. Separately, `python3 /workspace/branches/frozen_review_checks.py` compared the exact minimum failure length and all SAS via a greedy next-letter automaton at every length 1–2048; this is bounded corroboration, not the all-length proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The SAS characterization selects positions relative to arches for arbitrary words. The generic algorithm builds/tests shortest absences from an input word.",
+          "Rampersad–Stipulanti concern the formal inverse of a generating function for the same automatic sequence."
+        ],
+        "reasoning": "The arch theorem subsumes the general certification method and generic algorithms can compute each finite instance, but neither gives an arithmetic all-prefix classification. That requires inferring and evaluating which terminal gaps can occur throughout this specific automatic word. Formal generating-function inversion addresses a different invariant.",
+        "searches": [
+          "arXiv:2108.13968, Theorem 3.4 and Algorithm 6/Theorem 4.5",
+          "arXiv:1807.11899, abstract"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2108.13968 (Fundamenta Informaticae 189, DOI 10.46298/fi.9221)",
+        "arXiv:1807.11899 abstract",
+        "Resultary f2e64bc8fcc5 Finding",
+        "Resultary 6721431be060 indexed entry"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier arch machinery handles individual input words, not class densities.",
+          "For k≥2 the dyadic law follows from ν₂(2^k)=k in the frozen result; the reverse direction leaves all n≡2 mod 4 with n>2 and all other non-dyadic n unclassified."
+        ],
+        "reasoning": "The new structural evaluation is the terminal-run restriction to at most two consecutive singleton gaps and its exact arithmetic breakpoint for every prefix; converting those classes to densities is a consequence. Neither the dyadic restriction nor a generic algorithm provides these classes.",
+        "searches": [
+          "arXiv:2108.13968, Theorem 3.4 and Algorithm 6/Theorem 4.5",
+          "Resultary f2e64bc8fcc5, RESULT.md Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kosche et al., arXiv:2108.13968, Definition 2.3 and Theorem 3.4, treat shortest absent scattered subsequences through arch factorization.",
+          "Record f2e64bc8fcc5, Finding, gives identical SAS sets on the dyadic subfamily W_(2^k)."
+        ],
+        "reasoning": "A shortest missing scattered factor is the same observable when order-preserving embeddings and the fixed alphabet are used. The dyadic statement matches exactly after identifying the iterates with dyadic prefixes, including W₂, but has no non-dyadic cases or prefix-length densities. Contiguous absent factors are not equivalent.",
+        "searches": [
+          "web: \"shortest absent subsequences\" \"period-doubling\" arch factorization",
+          "Resultary: period-doubling prefixes shortest absent subsequences four-valued valuation densities"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 2026/11/2, f2e64bc8fcc5, Finding: dyadic finite words have one SAS at even order and three at odd order.",
+          "Resultary 2026/10/26, 6721431be060, indexed description: logarithmic antidictionaries for minimal absent contiguous factors of dyadic words."
+        ],
+        "reasoning": "The dyadic record is later-dated and exactly covers only a subfamily; a table restricted to powers of two cannot determine the frequencies over all positive integers. The antidictionary result tracks a different occurrence relation. No exact all-prefix catalogue match was established.",
+        "searches": [
+          "Resultary: period-doubling prefixes shortest absent subsequences four-valued valuation densities"
+        ]
+      },
+      "rationale": "The supported scope is the explicit all-prefix SAS sets and their four natural-density classes, not the general SAS theory, valuation coding, or an isolated dyadic formula. No equivalent or dominating result was established in the inspected sources. A later catalogue record has exactly the dyadic restriction, a material but narrower overlap.",
+      "residual_risks": [
+        "Search coverage was bounded and did not establish that a differently indexed all-prefix calculation is absent.",
+        "The dyadic restriction is already explicitly available in a later indexed finding; the judgment is about the full original all-prefix scope, not priority over the later claim's authors."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General characterization and algorithms, not the evaluated automatic-prefix law.",
+          "evidence": [
+            "Definition 2.3 specifies arches; Theorem 3.4 describes SAS via an arch-respecting sequence of positions; Algorithm 6 supplies a generic construction."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2108.13968",
+          "material_read": "Definition 2.3 (PDF p. 4, text offset 12497); Theorem 3.4 (p. 6, offset 20084); Algorithm 6 and Theorem 4.5 (p. 18, offset 58127).",
+          "method": "Targeted open-access PDF passage inspection.",
+          "title": "Absent Subsequences in Words",
+          "trigger": "Primary general theorem for the exact observable and potentially dominating characterization."
+        },
+        {
+          "assessment": "Exact overlap on dyadic lengths only; catalogue date is later than the assigned record.",
+          "evidence": [
+            "For q ones, even order gives 1^(q+1) alone; odd order also gives 1^q0 and 1^(q−1)00. Both agree exactly at n=2^k."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-parity-rigid-shortest-absent-subsequences-of-finite-period-doubl--f2e64bc8fcc5/RESULT.md",
+          "material_read": "RESULT.md, Finding.",
+          "method": "Local Resultary retrieval and mirror passage inspection.",
+          "title": "Parity-rigid shortest absent subsequences of finite period-doubling words",
+          "trigger": "Exact same sequence and observable."
+        },
+        {
+          "assessment": "Context, not dispositive negative evidence about uninspected text.",
+          "evidence": [
+            "The abstract describes generating-function inversion, rather than absent subsequences."
+          ],
+          "identifier_or_url": "arXiv:1807.11899",
+          "material_read": "Abstract only.",
+          "method": "Open abstract inspection.",
+          "title": "The Formal Inverse of the Period-Doubling Sequence",
+          "trigger": "Same fixed point under automatic-sequence terminology."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The shortest missing scattered words are a natural fine invariant of prefix universality, more informative than the number of arches. The result answers all prefix queries without testing candidate words and distinguishes four sharply different count regimes, with an exact frequency law, on a canonical automatic word. The finite witness bound four and distribution require the arithmetic structural calculation, not a benchmark at an arbitrary cutoff. It does not claim comparable results for arbitrary factors or universal probabilistic behavior.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

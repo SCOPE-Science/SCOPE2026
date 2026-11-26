@@ -1,19 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The model has independently timed, rate-one first attempts, and acceptance depends only on uncovered support. The union-of-support induction is explicit. A fixed site's coverage by length-\(k\) intervals is fully determined by \(3k-2\) independent clocks. Conditional on attempted starts, their order is exactly uniform, producing the subset recurrence for finite time and the terminal factorial denominator. The degree-16 polynomial has a verified exact coefficient list with exactly one positive-root sign change; positive small-\(x\) and negative large-\(x\) signs establish existence and uniqueness. The attached standard-library checker reproduces the exact coefficients by forward and backward subset enumeration; direct permutation enumeration supports smaller cases. Risks: the theorem does not extrapolate the temporal crossing beyond length six and does not claim the numerical checker proves anything about a distinct infinite-volume process.
+PASS
 
-## Originality — PASS, qualified
+Coverage of a site by time t is exactly the event that at least one interval containing it has attempted by t: the first such attempt necessarily adds that site. Hence repeats cannot be accepted and each tracked start is accepted iff it is earliest over the incident clocks of at least one of its sites. The k starts containing zero therefore use only the 3k−2 stated starts, with no infinite-volume boundary extrapolation or recursively needed remote acceptances. Conditional on the set of starts attempted, uniform ordering follows from exchangeability of the independent exponential clocks; the set weights are q^m(1−q)^(3k−2−m) per labelled subset. I independently replayed the exact ordered-prefix count with a different acceptance predicate: earlier starts to the left cover a prefix of the candidate interval, those to the right cover a suffix, and for nearest left and right distances L,R capped at k, an uncovered site exists iff L+R>k. The integer histogram for each subset sums to |S|!, which is the required normalization. Dividing totals at degree m by m! reproduced every B6 coefficient, the positive coefficient signs for lengths 2–5, the six terminal rationals, the complete coefficient list of the finite-time sixfold law after extracting q^6, and the opposite exact signs at q=577764/10^6 and 577765/10^6. B6 has seven positive low-degree and nine negative high-degree coefficients, apart from its zero constant; Descartes' rule plus the signs near 0 and infinity gives exactly one simple positive x-root. The map x=e^t−1 is strictly increasing, yielding the full time-ordering statement. Independent evaluation gave q*=0.57776462798272308285948 and t*=0.86219236683740609698770. The limit t→∞ selects the full subset, not a simulation of jamming.
 
-Krapivsky (2022, arXiv:2209.03992) supplies the model and mean coverage; Viot and Krapivsky (2024, arXiv:2410.12373) supply full exact one-site distributions through length five, general finite-hierarchy solvability, and approximate terminal simulations for length six. In particular, the six-mer *terminal ordering* was numerically known; it is not the new claim. A published trimer spatial-correlation analysis already uses local first-arrival permutation counts, so this proof principle is also prior art. The new supported statement is the complete all-time one-crossover sign classification at length six with an exact sign certificate and previously unevaluated six-mer exact densities, including sixfold occupancy. Searches for the claim, source IDs, six-mer equivalents and broader coverage found no explicit earlier theorem; database non-hits cannot establish uniqueness. Residual risk: generic exact solvability in the 2024 paper may make the result readily derivable and other literature could have evaluated the same special case.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The question of which multiplicity dominates is a natural diagnostic for multiple-deposition covering, and the first six-mer onset is a motivated boundary of the previously evaluated full temporal series. The new result distinguishes a merely numerical terminal ordering from a rigorously unique temporal transition and evaluates an extremely rare exact sixfold event. It is an exact, self-contained finite natural invariant and a complete sign classification of the previously unsolved first case, not an arbitrary parameter sample. The result neither asserts a new general covering theory nor resolves the large-polymer or continuum asymptotic problem.
+The assessed distinct claim is the evaluated six-mer temporal reversal and its uniqueness certificate, exact terminal law and finite-time sixfold probability. The dimer ordering is explicitly known, and exact time laws already cover the k=3–5 one-site distributions from which their sign inequalities can be deduced; treat the lower-length results as the comparative baseline. Credit the known first-arrival method, general hierarchy and numerically observed six-mer terminal ordering.
 
-## Closest work and limitations
+## value
 
-Exact published single-site kinetics stop at length five, while length-six terminal values were simulated; the temporal one-crossing statement was not derived in the inspected papers. The local exponential-clock method is available from prior trimer work and must not be attributed as a newly invented technique. The priority claim remains qualified pending independent literature assessment.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Six is the natural first unevaluated length after the earlier complete time laws and the first tested case in which simulations reverse the jammed ordering. Proving a unique crossing over the full time axis answers a structural question that the jammed data cannot settle. The exact terminal vector and rare sixfold trajectory also provide reproducible benchmarks where simulation estimates of rare events are weak. Value is not assigned to recompiling known lower-length laws or claiming a general solution for arbitrary k.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

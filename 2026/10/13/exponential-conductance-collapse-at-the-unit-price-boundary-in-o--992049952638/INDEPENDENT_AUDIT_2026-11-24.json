@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:18:38.615529Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On the orthogonal complement of constants the objective is N times trace of the inverse. Its Hessian is strictly positive in every nonzero symmetric direction, and the simple-graph off-diagonals make edge-to-Laplacian injective. On the compact budget simplex the objective diverges at disconnected limits. Hence a unique minimizer exists, invariant under cube translations and ordinary-coordinate permutations. Each class must be positive, since omitting either class disconnects even in dimension two. The Walsh mode with k ordinary bits and distinguished bit ε has eigenvalue 2b(k+εx), with multiplicity binomial(n,k) for each ε, n=d−1. This gives precisely 2^(2d−2)F_n(x); F_n=(n+tx)(A_n+B_n). The class budget fraction tx/(n+tx) is a strictly increasing coordinate in which the conductances are affine, giving exactly one stationary root. At t=1 all directions are interchangeable. Independently differentiating gives F_n'=tA_n+Σ_{k=0}^n binomial(n,k)(tk−n)/(k+x)^2. The normalized binomial concentrates at k/n=1/2; lower-tail exponential bounds control inverse powers for k≥1. For x=ny, y>0, nF_n'/2^n tends to the derivative of f_t(y)=(1+ty)(2+1/(y+1/2)). At t<1 its derivative changes sign only at the asserted positive y_t, so fixed y on either side brackets the root and the normalized value tends to f_t(y_t)=2+2√(t(2−t)). At t>1 fixed positive x has positive derivative eventually, while the k=0 term forces negative derivative near zero. At the resulting x→0 root the k≥1 terms plus tA_n are (4(t−1)+o(1))2^n/n; the term n/x² balances this, giving the stated asymptotic. It also gives n/(2^n x)→0, so the zero-index contribution to F_n/2^n vanishes, yielding 4, the same limit as t=1. The constant conversion is N³/8=2^(3d−3). No varying-price or finite deletion claim follows. The exact small-cube inverse and eigenpair checks and bounded scalar diagnostics in verify_hypercube.py were inspected, not rerun; the independent argument supports the unrestricted and asymptotic claims.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general unit-total-conductance budget model and strict convexity establish uniqueness. The hypercube is explicitly named in the edge-transitive equal-weight result."
+        ],
+        "reasoning": "The general convex framework extends to an affine expenditure constraint but supplies no unequal-price cube allocation or large-d limit. Equal weights are already covered at t=1.",
+        "searches": [
+          "Ghosh, Boyd & Saberi, SIAM Review 50 (2008), author PDF pp. 1–2, 8–9 and 23"
+        ]
+      },
+      "checked_sources": [
+        "Ghosh–Boyd–Saberi author PDF",
+        "Resultary a55462304722",
+        "Resultary bd58a5b010d3",
+        "Resultary bf23d5d98989"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Trace inverse and spanning-tree product aggregate Laplacian eigenvalues differently and have different asymptotic optimizers on the same priced cube.",
+          "The spectral-gap folded-cube law has a different graph, objective and threshold quantifier."
+        ],
+        "reasoning": "Neither result implies the singular contribution n/x² in the inverse-trace optimization or its balance against the 2^n/n bulk. The new asymptotic conclusions are not just the equal-cost formula in different notation.",
+        "searches": [
+          "Ghosh–Boyd–Saberi convexity and edge-transitivity sections",
+          "Resultary a55462304722 Finding and asymptotic statement, bf23d5d98989 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The objective N tr(L⁺) is the sum of unordered-pair resistances. Fourier diagonalization yields the fixed-weight inverse spectrum in both formulations.",
+          "Resultary bd58a5b010d3 gives weighted Boolean Cayley resistance geometry but does not optimize the weights under unequal prices."
+        ],
+        "reasoning": "The trace and resistance objectives are equivalent. A formula at fixed Cayley weights does not identify the allocation minimizing it over all feasible edge weights or the root's scale.",
+        "searches": [
+          "Resultary: weighted Boolean Cayley resistance; priced binary cube spanning-tree allocation",
+          "Primary Ghosh–Boyd–Saberi, Minimizing Effective Resistance of a Graph"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest priced-cube indexed allocation maximizes the weighted spanning-tree enumerator, with expensive-side scale n/2^d rather than n/√(2^n).",
+          "The folded-cube match adds antipodal edges and optimizes spectral gap with a finite deletion threshold at t=d."
+        ],
+        "reasoning": "An exact table for this infinite fixed-price transition is not a natural verification source; the relevant indexed exact laws were compared. Neither gives the studied optimizer or its value.",
+        "searches": [
+          "Resultary same-object and adjacent objective searches: a55462304722, bd58a5b010d3, bf23d5d98989",
+          "Literature lookup on anisotropic weighted cubes and Kirchhoff optimization"
+        ]
+      },
+      "rationale": "Credit prior strict convexity and equal-price cube symmetry, as well as the routine Walsh diagonalization. The supported distinct claim is the one-direction-priced Kirchhoff optimizer and its fixed-price asymptotic split and normalized cost. The closest catalogue matches change the graph, objective, or both; they were compared mathematically, not excluded by date.",
+      "residual_risks": [
+        "Liu et al. (2013) was inaccessible, as was a 2019 weighted folded-cube coherence hit (snippet only). An unread specialist anisotropic Kirchhoff optimization could provide stronger coverage; neither access failure is evidence against overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers convex optimization, uniqueness and equal-price cube",
+          "evidence": "Unit conductance budget; trace-inverse strict convexity; hypercube named as edge-transitive.",
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/eff_res.pdf",
+          "material_read": "pp. 1–2, 8–9 and 23",
+          "method": "Open author PDF",
+          "title": "Minimizing Effective Resistance of a Graph",
+          "trigger": "Primary resistance-budget optimization framework"
+        },
+        {
+          "assessment": "Distinct objective; no equivalent coverage",
+          "evidence": "The expensive-side limit 2^d x/(d−1)→1/(t−1) contradicts identification with the trace-inverse optimizer.",
+          "identifier_or_url": "2026/11/2/SCOPE-a-three-regime-optimal-spanning-tree-allocation-law-for-priced-b--a55462304722/RESULT.md",
+          "material_read": "Finding and asymptotic discussion, offsets 0 and 8200",
+          "method": "Resultary local mirror",
+          "title": "A three-regime optimal spanning-tree allocation law for priced binary cubes",
+          "trigger": "Same priced ordinary cube and regime language"
+        },
+        {
+          "assessment": "Fixed-weight spectral framework, not an allocation law",
+          "evidence": "Weighted Cayley effective resistance and geometry, with no expenditure optimizer in the inspected claim.",
+          "identifier_or_url": "2026/11/2/SCOPE-strict-euclidean-resistance-and-a-sharp-bipartite-walsh-gap-in-w--bd58a5b010d3/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Strict Euclidean resistance and a sharp bipartite Walsh gap in weighted Boolean Cayley networks",
+          "trigger": "Weighted Boolean cube Fourier and resistance formulation"
+        },
+        {
+          "assessment": "Different graph and objective",
+          "evidence": "Folded cube with extra antipodal edges and spectral-gap deletion threshold t=d.",
+          "identifier_or_url": "2026/10/13/SCOPE-sharp-antipodal-price-threshold-and-edgewise-rigidity-for-folded--bf23d5d98989/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Sharp antipodal price threshold and edgewise rigidity for folded cubes",
+          "trigger": "Closely matching threshold and price words"
+        },
+        {
+          "assessment": "No full-text conclusion about coverage",
+          "evidence": "The frozen bibliography cites it for unweighted Kirchhoff formulas; that characterization was not independently checked against the paper.",
+          "identifier_or_url": "10.1155/2013/543189",
+          "material_read": "Citation only; identified PDF inaccessible and no OA alternate recovered",
+          "method": "Attempted lawful OA retrieval",
+          "title": "The Kirchhoff Index of Hypercubes and Related Complex Networks",
+          "trigger": "Exact Kirchhoff formulas for related graphs"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The priced direction is required to keep the two halves connected. Finite positivity alone would not distinguish an order-one direction from a ratio shrinking exponentially. The exact exponent and constant, together with the cheap-side linear growth and the different limiting objective below unit price, quantify a real optimizer sensitivity in a symmetric standard network.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

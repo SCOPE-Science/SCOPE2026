@@ -1,15 +1,21 @@
-# Exact sampling and parity classes: scientific review
+# Independent mathematical audit
 
-## Correctness (PASS)
-The explicit cyclic-edge conjugacy is a linear bijection. For every \(n\ge1\) and \(1\le j\le n\), the resulting graph splits into \(\gcd(j,n+1)\) cycles, and the first \(n+1-\gcd(j,n+1)\) edge occurrences form a forest. This proves the exact orbit-rank formula and, because the noise bits are fair and independent, the exact all-time total variation distance. Parity quotient and Burnside's lemma prove the communicating classes and their periods. The standalone checker independently passed 186840 rank tests, 1039 exact-state distribution checks, and 12 orbit-count tests; none is invoked as an infinite proof.
+## correctness
 
-## Originality (PASS on inspected evidence)
-Levin and Tankala's 2021 preprint, Section 5 Theorem 2, gives exact sampling for the middle site in even dimension. This follows from the current criterion, but the paper does not state the arbitrary-site gcd classification, complete finite-time distance, or cyclic parity classes. Diaconis and Graham (1992) analyze a different unipotent Jordan-block affine map, and Chung, Diaconis and Graham (1987) study integer-modulus affine recursions. Relevant exact-phrase, shift-register, controllability, and cyclic-parity searches revealed no dominating statement in the examined material. A possible equivalent statement under older binary linear-system terminology remains an acknowledged priority risk. The full text of one contextual article was not accessible, so its abstract was not used to assert whole-document noncoverage.
+PASS
 
-## Value (PASS)
-Choosing where to inject randomness in a shift-register sampler changes the answer from exact \(n\)-step sampling to permanent nonmixing. This theorem determines the sharp arithmetic boundary, exact sampling time and distance at every step, and the precise nonergodic decomposition. Such a complete positive/negative structural classification addresses an intrinsic modeling choice that the closest published special-case theorem leaves open.
+The shift is an invertible binary map. The columns Ae_j,…,A^te_j are the linear image of the independent fair noise bits, so each affine support point has identical mass. Independently, take e_1 as cyclic generator and write m=n+1: the state module is F₂[z]/P with P=(z^m−1)/(z−1), and z acts by A. The cyclic basis in the proof telescopes to e_j=z(1+…+z^{m−j−1})e_1. The gcd of P with this generator polynomial is (z^g−1)/(z−1), of degree g−1; this uses the polynomial gcd of z^m−1 and z^{m−j}−1 and does not require square-freeness in characteristic two. Thus its annihilator has degree m−g and the first t noise columns have rank min(t,m−g). The uniform-affine-to-uniform TV distance is exactly one minus the support fraction, including t=0 and n=1. In the rotation model, residue-class parity is onto the even-parity g-bit words, its kernel is the span of the within-class edge incidences, and noise fills each reachable parity fiber after m−g steps. Reachability at all sufficiently large compatible times gives exactly one closed communicating class per quotient orbit and period equal to that orbit length. The Burnside fixed words repeat each free bit g/d_s times, so even parity is either automatic or one independent constraint. Independent direct binary elimination matched all 348 ranks for n=1,…,8, all sites and t=0,…,n+3; direct fair-noise propagation through t=11 and SCC/return-period computation in the 256-state n=8,j=3 example gave support plateau 64 and classes of sizes 64 and 192 with periods 1 and 3. The all-dimension result follows from the proof, not these checks.
 
-## Scientific boundaries
-All results require a fixed injection site and independent fair binary bits. The claim does not extend to biased noise or arbitrary feedback rules. The source comparison is evidence-based rather than a certificate of first discovery; no independent audit or validation is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The fixed middle-site uniformization theorem and general affine/controllability methods are not new. The evaluated all-site finite-time profile together with the parity rotation-orbit classification, exact class periods and count are a distinct supported claim. The cited theorem and the most plausible catalog matches do not have those statements or a stronger result that mechanically yields the combined classification.
+
+## value
+
+PASS
+
+For the natural fixed-site variant, exact sampling at the previously analyzed site does not distinguish sites that sample uniformly from sites trapped forever in a cycle of affine fibers. The theorem supplies that sharp design criterion, the entire distance profile, and the complete reducible-case partition with periods. These answer concrete reachability and sampling questions beyond an isolated rank check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

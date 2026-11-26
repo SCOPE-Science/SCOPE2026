@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T18:47:57.806030Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding, Proof and Verification witness; VERIFICATION.md and verify.py (inspected, not run)",
+        "Independent completed-square certificate above"
+      ],
+      "rationale": "The phase diagram and optimizer characterization in the Finding follow independently by completing the penalized cost. For theta=lambda-j>0 and B the actual expected score energy, J-lambda B = sigma^2(h-lambda+g^2/theta) - (2theta-a-b^2/theta) E[u_0^2] - theta E[(u_1-g x_1/theta)^2]. Put theta_0=(a+d)/4. For theta>=theta_0 this is an upper-bound certificate; equality requires using the full budget, the stated feedback, and s=0 if theta>theta_0. With s=0 the budget requires theta=b sigma/sqrt(beta-sigma^2), which is at least theta_0 precisely through beta_crit. At theta_0 the remaining affine budget identity determines s uniquely, including s=0 at equality; any independent initial input with that second moment works. Substitution gives both value branches, their common derivative at equality, and the exact gap above it, theta_0 (sqrt(beta-sigma^2)-b sigma/theta_0)^2. The exact witness follows at h=3,j=1,b=1,sigma^2=1,beta=3. One auxiliary sentence at RESULT.md line 113 is off by equality: the strictly regular Riccati family cannot saturate at beta=beta_crit either, as the preceding displayed strict inequality already shows. It approaches the optimum there as a limit. This wording error does not enter or invalidate the Finding, which treats threshold equality correctly.",
+      "residual_risks": [
+        "The theorem excludes beta=sigma^2, g=0 and indefinite weights. The exactly-at-threshold dual admissibility wording in the auxiliary proof paragraph should not be used as a separate theorem. No outer nonlinear design result is inferred."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Remark 2 states active budget and an exact singular-boundary policy: add noise on the nullspace of S_t(lambda_crit), leaving the fixed-multiplier cost unchanged, and choose its covariance to exhaust the budget. Appendix A Lemma 4 gives general feasible causal covariances. The adjacent abstracts concern task-dependent learning or Markov occupancy exploration, not a closer explicit threshold."
+        ],
+        "reasoning": "The stronger result gives more than generic feasibility or an analogy: it already prescribes the regular and singular branches for the same oracle. Here the sole null direction is the first scalar input.",
+        "searches": [
+          "arXiv:2609.08751v1 §IV Remark 2, Appendix A Lemma 4, Appendix D",
+          "Wagenmaker–Simchowitz–Jamieson (PMLR 139, 2021) and Mutný–Janik–Krause (PMLR 206, 2023) abstracts"
+        ]
+      },
+      "checked_sources": [
+        "Bencherki–Lee–Matni–Rantzer arXiv:2609.08751v1",
+        "Resultary --375226b570f8",
+        "PMLR 139 and 206 cited abstracts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior recursion gives S_1=theta and S_0=2theta-a-b^2/theta. Setting S_0=0 gives theta_0=(a+d)/4, so Eq. (15) gives the endpoint budget sigma^2(1+g^2/theta_0^2). Nullspace excitation in Remark 2 fixes the last gain g/theta_0. As beta=sigma^2(1+K^2)+(2+K^2)s, subtracting its s=0 value yields the exact slope and the unique second moment. The dual value is lambda beta plus the constant in the completed square. Restricting to u_0=0 deletes the S_0 condition; the same terminal scalar minimization gives the stated comparator and squared gap."
+        ],
+        "reasoning": "Every quantitative branch and the comparator reduce to direct evaluation of the existing recursion, its equality conditions and its stated singular prescription. The observation that a constant input with the same second moment suffices under these assumptions follows from the very same scalar identity.",
+        "searches": [
+          "arXiv:2609.08751v1 PDF p. 3, §IV Eqs. (12)–(15), Remark 2 (OA offsets 20300 and 24000)",
+          "Apply the scalar recursion and nullspace budget prescription at both thresholds"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Set H=2, scalar B=1, x_0=0, W^(2)=I and M=-Q in Eq. (12). This is the identical maximization after reversing the sign. The state-transition term drops out because the initial state is zero and the terminal input does not affect any future scored state.",
+          "Resultary --375226b570f8 uses the same time scale but a nonlinear inverse-information objective, so it is not the equivalent formulation."
+        ],
+        "reasoning": "The equivalence is at the level of objectives, constraints and causality, not terminology or common numerical parameters.",
+        "searches": [
+          "Bencherki–Lee–Matni–Rantzer arXiv:2609.08751v1, §IV Eqs. (12)–(15)",
+          "Resultary: sharp two-step input excitation and feedback gap"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/10/25 SCOPE-sharp-deterministic-input-gap-and-three-regime-a-optimal-timing--375226b570f8 Finding: objective tr((eta I+Sigma)^(-1)) and gap against fixed deterministic open-loop inputs."
+        ],
+        "reasoning": "The closest exact catalogue item treats a different objective and comparator. No matching explicit table was identified; the decisive overlap is the prior Riccati theorem and its specialization.",
+        "searches": [
+          "Resultary: two-step scalar budget threshold, deterministic input gap, and exact covariance oracles"
+        ]
+      },
+      "rationale": "The scalar formulas are not printed in the closest prior paper, but they result mechanically from its exact oracle and singular Riccati prescription. Section IV already supplies the active constraint, regular recursion and boundary null-direction solution for this very optimization. Specializing to two scalar steps leaves only a terminal gain, one scalar quadratic equation for the boundary, and an affine budget balance. The no-excitation comparator is the prior regular step with the initial control fixed to zero. Thus the claimed phase diagram is covered by implication, not by a word-for-word match or a database miss.",
+      "residual_risks": [
+        "The focused literature query returned no further exact match. This is not a priority claim; the negative judgment rests on positive evidence of implication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "covers by direct implication; does not separately print the scalar phase diagram",
+          "evidence": "Remark 2 explicitly states the exact nullspace-excitation optimizer at the limiting multiplier, and Eq. (15) propagates its regular-branch energy. The specialization shown above produces the asserted formulas.",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.08751",
+          "material_read": "PDF p. 3 §IV Eqs. (12)–(15), Remark 2; p. 5 Appendix A Lemma 4; p. 7 Appendix D relevant Riccati passage",
+          "method": "bounded OA PDF excerpts and explicit scalar specialization",
+          "title": "Optimal input design via Frank–Wolfe",
+          "trigger": "potential exact coverage of the same LMO and singular threshold"
+        },
+        {
+          "assessment": "different objective and policy restriction",
+          "evidence": "Nonlinear inverse-information objective, with an open-loop comparator; no Q-dependent linear-oracle threshold formula.",
+          "identifier_or_url": "2026/10/25/SCOPE-sharp-deterministic-input-gap-and-three-regime-a-optimal-timing--375226b570f8",
+          "material_read": "RESULT.md Finding and scope",
+          "method": "Resultary search and local mirror",
+          "title": "Sharp deterministic input gap and three-regime A-optimal timing",
+          "trigger": "strongest exact catalogue hit on two-step excitation timing and gaps"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Proof",
+        "arXiv:2609.08751v1 §IV Remark 2 and Eqs. (12)–(15)"
+      ],
+      "rationale": "The quantified example is a useful illustration of the known singular-budget mechanism, but the proposed invariant is the direct two-step scalar evaluation of the existing solution, and the restricted-policy gap is the square produced by the same one-step calculation. No additional nonmechanical policy obstruction, oracle theorem, or link to the outer nonlinear criterion is established.",
+      "residual_risks": [
+        "This value judgment does not concern the general singular-boundary mechanism or distinct nonlinear two-step design problems."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T19:15:58.697073Z",
+  "axes": {
+    "correctness": {
+      "independent_replay": [
+        "/workspace/branches/ad46f1b6-97b0-4c4d-a723-440e0f17ccb7/finite_ridge_recheck.py",
+        "/workspace/branches/ad46f1b6-97b0-4c4d-a723-440e0f17ccb7/finite_ridge_recheck.txt"
+      ],
+      "rationale": "The corrected record retains the valid sparse theorem and fixes a false statement about the omitted endpoint. Behrend et al.'s Propositions 2.7, 2.8 and 3.5 give the actual vertices, complete facets and simplicity. At a vertex the proper upper facets form a chain of positive-support prefixes. Two proper uppers meet exactly when nested; any such pair, or any proper upper and the global upper, is realized by extending a prefix. A lower facet meets a proper upper exactly off its support, meets another lower at zero, and meets the global upper exactly when there is a spare zero slot. Simplicity makes these and only these pairs ridges. The outward cosines are 0 for the first two right-angle classes, -1/√m for lower/global, and √(s/t) for nested uppers including t=m. Choosing the sets gives the stated counts. Independent reconstruction of the hull from all 21 defining points at (4,2) recovers nine facets and exactly 4 acute, 18 right and 4 obtuse ridges; additional finite checks use the stated facet and vertex descriptions. For k=n-1, successive downward ratios of binomial terms are at most k/(m-k+1)=o(1); thus the right and obtuse totals are asymptotic to m times and 2^k times binomial(m,k), respectively. Among obtuse ridges, the share with larger proper upper of size k and smaller proper upper is 1-o(1); its smaller size has the binomial(k,1/2) law with endpoints removed. Conditioning off an o(1) mass is harmless for the scaled weak limit, and the angle derivative at 1/2 is 1. This proves the 1/4 variance and, with the mass comparison, the two-point law including both endpoints. At n=m-1 the very same finite proof works: the global facet contains a vertex with exactly one zero in each prescribed lower coordinate, and there are still exactly the proper upper sizes 1,…,m-2. The original claim that the formulas do not extend there was false. At n≥m the global/lower intersections are indeed empty, because every point on the global facet is a convex combination of all-positive maximizing vertices. The corrected limited scope now agrees with these facts.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The all-parameter face-poset theorem gives chains and dimensions, and its facet inequalities already give the normals. The published parking angle law covers all positive parking parameters but attains a single 3π/4 atom and an asymptotic variance of 3/8."
+        ],
+        "reasoning": "The known face results supply the finite input and make recovering individual angles routine. The positive parking theorem has a different subset-size regime; it gives neither the sparse weights nor the conditional normal law at the sparse dominant size.",
+        "searches": [
+          "Heuer–Striker arXiv:2012.09901, §5.1",
+          "Behrend et al. arXiv:2207.14253, Propositions 2.7, 2.8, 3.5 and Theorem 3.6",
+          "Resultary generalized parking-function ridge-angle theorem, Finding and Proof"
+        ]
+      },
+      "checked_sources": [
+        "Heuer–Striker arXiv:2012.09901",
+        "Behrend et al. arXiv:2207.14253",
+        "Behrend arXiv:2403.06975",
+        "Resultary generalized parking-polytope ridge spectrum"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier two positive parking branches derive their 3/8 normal limit by treating the three coordinate bins symmetrically, with typical larger set size about 2m/3. The sparse weights force the larger proper set to have size n-1 except for o(1) of obtuse ridges, while right-angle incidences compete independently at scale m."
+        ],
+        "reasoning": "Deriving the sparse angular transition requires the truncation-dominance and right/obtuse mass comparisons, not a substitution into the earlier Gaussian law. Novelty and value rest mainly on that asymptotic result, not on simplicity or the individual angle formula.",
+        "searches": [
+          "Behrend et al. arXiv:2207.14253, Propositions 2.8/3.5 and Theorem 3.6 proof",
+          "Resultary generalized parking-function ridge-angle theorem, nested-bin proof and normal limit"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Translation by the all-one vector identifies P(m,m-1) with the ordinary parking-function polytope and identifies P(m,n) for n≥m-1 with the (n-m+2,1)-parking family. For n≤m-2 that parameter is nonpositive, outside the published positive-parameter theorem."
+        ],
+        "reasoning": "Angle preservation under the translation gives genuine prior coverage at the classical endpoint, expressly excluded from the surviving novelty claim. The sparse permitted upper sizes 1,…,n-1,m omit at least two sizes; they do not match either positive parking branch.",
+        "searches": [
+          "Resultary: partial permutohedron ridge dihedral angles Gaussian limit sparse parking function polytopes",
+          "Web: partial permutohedra dihedral angles sparse ridge face lattice angle distribution generalized parking function polytope crossover Gaussian",
+          "Behrend arXiv:2403.06975, Eqs. (8)–(9)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The search retrieves the target and an exact angle table for the two positive parking branches; other retrieved records tabulate type-A permutohedron angles or analyze partial-permutohedron widths and vertex cones. The existing face-chain count is combinatorial."
+        ],
+        "reasoning": "No retrieved angle table with the sparse truncation and its binomial-scale weights was identified. The two nearby parking tables match the classical endpoint or a dense case, not the sparse theorem. A vertex-cone or width calculation samples a different object.",
+        "searches": [
+          "Resultary: partial permutohedron ridge dihedral angles Gaussian limit sparse parking function polytopes",
+          "Behrend et al. arXiv:2207.14253, §3 outline and Theorem 3.6"
+        ]
+      },
+      "rationale": "The combinatorial classification is known and the Euclidean cosine calculation closely parallels the parking-polytope antecedent. The surviving claim is about the sparse range and especially the distinct asymptotic competition and conditional variance. The corrected record explicitly credits the finite endpoint n=m-1 as known, rather than falsely distinguishing its finite formula from the classical parking formula.",
+      "residual_risks": [
+        "A general geometric/angular theorem or unindexed sparse table may imply some of the claims; the review does not certify historical priority.",
+        "The same finite formula at n=m-1 is already covered and is not part of the originality verdict."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides the inequality description and redundant-inequality analysis",
+          "evidence": [
+            "The inequalities bound sums over coordinate subsets and impose nonnegativity."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2012.09901",
+          "material_read": "§5.1, Proposition 5.7 and Theorems 5.10–5.11 passages",
+          "method": "Open PDF text extraction",
+          "title": "Partial permutation and alternating sign matrix polytopes",
+          "trigger": "Original construction and facet claims"
+        },
+        {
+          "assessment": "Confirms all finite structural premises and that the same facet pattern persists at n=m-1",
+          "evidence": [
+            "Proposition 2.8 uses |S|≤n-1 or |S|=m; Proposition 3.5 proves simplicity; Theorem 3.6 gives nested-chain faces and dimensions."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2207.14253",
+          "material_read": "Propositions 2.6–2.8 and 3.5; Theorem 3.6 and proof",
+          "method": "Open PDF text extraction",
+          "title": "Partial permutohedra",
+          "trigger": "Irredundant facets and face incidences"
+        },
+        {
+          "assessment": "Exact isometry to the classical parking polytope at n=m-1; positive-parameter correspondence starts there",
+          "evidence": [
+            "Equation (8) identifies P(m,m-1) by translation; the wider family uses a=n-m+2 and b=1."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2403.06975",
+          "material_read": "Introduction, subsection (iii), Eq. (8) and subsequent (a,b)-parking correspondence",
+          "method": "Open PDF text extraction",
+          "title": "Ehrhart polynomials of partial permutohedra",
+          "trigger": "Potential exact equivalence at boundary and beyond"
+        },
+        {
+          "assessment": "Prior coverage at n=m-1 and for neighboring dense cases, not sparse regimes",
+          "evidence": [
+            "Classical permitted sizes are 1,…,m-2,m, with m acute angles. Both positive parameter branches have the three-bin Gaussian limit with variance 3/8."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-universal-dihedral-angle-spectra-and-gaussian-ridge-law-for-gene--676f0e5f85c3/RESULT.md",
+          "material_read": "Finding, assumptions and proof of angle counts and Gaussian law",
+          "method": "Local mirror full-text inspection",
+          "title": "Universal dihedral-angle spectra and Gaussian ridge law for generalized parking-function polytopes",
+          "trigger": "Same angular observable with plausible dominating parameter range"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The count-weighted angle law exposes a nontrivial coexistence of two macroscopically different angles at a logarithmic cutoff and gives an exact conditional fluctuation law. This supplies a natural metric diagnostic in a face regime not covered by the positive parking limit. The endpoint correction neither adds an old result to the novelty claim nor removes the sparse phenomenon.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

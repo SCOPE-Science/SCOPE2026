@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:59:06.895594Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For unit L² norm g, Gaussian overlap gives exp[-u²/(4σ²)], hence the fixed projection √π erf(βt)/(2β), and pairwise integration gives squared matched norm 2∫₀ᵗ(t-u)exp(-4β²u²)du. Independent white noise with variance proportional to t gives the respective squared SNRs after division by t, with wall-time cost t+h. Heterogeneous durations give a cost-weighted average rate, not a higher optimum. For x=βt and d=βh, the fixed root equation compares 2/[∫₀¹exp(x²(1-v²))dv], strictly decreasing from 2 to 0, with 1+x/(x+d), strictly increasing from 1 to 2. This proves unique optimality and monotonicity in h, and gives the finite limit x_* when d diverges. In the matched case F=||S_t||²/t is increasing and strictly concave, by strict decrease of the autocorrelation kernel; (t+h)F'-F decreases strictly from h to -2M₀ and its zero increases and diverges with h. Both numerators equal t-(2/3)β²t³+O(t⁵) near zero and both optimizers tend to zero as h↓0, giving the common cube-root coefficient via stationarity. For the matched optimum, h/t²→M₀/M₁=2β√π; the h-scaled maximal rates yield the quoted large-overhead ratio. Strict Cauchy–Schwarz holds at every t>0 since the averaging multiplier in Fourier space is nonconstant, so the strict optimized penalty is not limited to the asymptotic case. An independently evaluated Gaussian integral and bracket solve gave x_*≈0.9899390828419043, R_*≈0.6293963793249795, and example durations 343.9137776 and 346.2406090 seconds. The supplied checker was read, not executed. The limiting ratio is not asserted to be the finite-h ratio or to model a real transit pipeline.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The exact Doppler benchmark gives the matched-filter objective, unique optimum and overhead laws, not the squared fixed projection. Sinusoidal phase-balanced photometry instead optimizes a sinc attenuation rate. Beatty–Gaudi's Gaussian case is photon-noise centroiding precision."
+        ],
+        "reasoning": "The matched case should not be reclaimed as new. Its favorable squared-SNR norm bound holds for any projection but only bounds the fixed rate; it neither gives the unique fixed maximizing duration nor identifies its limiting loss. The other cadence objective does not include this Gaussian projected signal.",
+        "searches": [
+          "Resultary:baa64c15b418 matched Doppler benchmark, RESULT.md offsets 0 and 5064",
+          "Resultary:6cf92380bd95 exact overhead smearing for sinusoidal photometry, RESULT.md offset 0",
+          "arXiv:1507.00780 §2.1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary:baa64c15b418",
+        "Resultary:6cf92380bd95",
+        "arXiv:2312.08320v1",
+        "arXiv:1507.00780",
+        "arXiv:2302.02897v1",
+        "arXiv:1803.04987"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The norm-based prior benchmark already implies the matched denominator in the limiting ratio. Its stationarity equation does not apply to the squared projection. The empirical study gives maxima varying with case and transit duration. The photometric study concerns radius-ratio precision rather than line correlation."
+        ],
+        "reasoning": "The new fixed scalar optimization requires the Gaussian overlap and decreasing elasticity, and then different large-overhead scaling from the known matched result. A numerical optimizing cadence or known matched-filter dominance gives neither the fixed-template optimizer curve nor its exact normalized limiting retention.",
+        "searches": [
+          "Resultary:baa64c15b418 main optimization and limitations",
+          "arXiv:2312.08320 §3.3 and empirical optima",
+          "arXiv:2302.02897 §2.3 and photometric cadence results"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The fixed quantity is a projection onto the intrinsic Gaussian, not the full norm of the Gaussian convolved with the constant-velocity top hat. After rescaling, h times the large-overhead rate has Gaussian box-aperture shape erf(x)²/x; at finite overhead the objective instead has denominator x(x+d).",
+          "The spectroscopy simulations optimize a CCF detection statistic with a transit/pipeline model. The line-detection matched-filter source analyzes weak interferometric lines without this exposure/overhead optimization."
+        ],
+        "reasoning": "A differently worded Gaussian aperture or overlap calculation could cover the limiting scalar root; the limiting one-dimensional shape is not a unique spectroscopic construction. An aperture result for erf(x)²/x alone does not establish either the positive-overhead equation or the optimized comparison with a time-smeared full filter under the same wall-clock model.",
+        "searches": [
+          "Resultary meaning lookup for fixed Gaussian template, Gaussian/top-hat overlap, and Doppler-smeared exposure optimization",
+          "arXiv:2312.08320 §2, §3.3 and detection results",
+          "arXiv:1803.04987 §2.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest distinct direct catalogue hit is the matched benchmark. It does not supply the fixed optimizer x_h, its limiting root or the paired normalized retained fraction. The bound target is not independent prior evidence."
+        ],
+        "reasoning": "An erf table evaluates the special function after selection of the objective; it does not encode which positive-overhead exposure is optimal. A prior specialized table of Gaussian aperture optima could provide the limiting root, so the comparison is credited only for the wall-time fixed versus adapted template result as a whole.",
+        "searches": [
+          "Resultary lookup for Gaussian fixed-template exposure saturation and template mismatch penalty",
+          "Resultary:baa64c15b418, exact matched comparison"
+        ]
+      },
+      "rationale": "The matched-only uniqueness and overhead laws are already present in the distinct exact benchmark; empirical spectroscopy cadence and general matched-filter theory are also established. The supported distinct claim is the all-overhead unbroadened Gaussian-template optimizer and its exact comparison with the matched policy, including the finite-versus-diverging duration and limiting relative squared-SNR rate. Neither the matched benchmark nor the inspected primary astronomical analyses give that fixed-template policy. This is bounded evidence, not a claim to priority for scalar Gaussian aperture optimization or for the benchmark.",
+      "residual_risks": [
+        "The bounded public Doppler search was off-target; that is not evidence of absence. Older fixed-filter, detector integration, or Gaussian aperture optimizations may cover an equivalent scalar subproblem or more.",
+        "No priority ordering is inferred from same-day records, nor is the matched benchmark claimed as part of the distinct contribution."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EXACT_MATCHED_SUBCLAIM_COVERED",
+          "evidence": "Full matched-filter optimizer, uniqueness and overhead powers, but not the unbroadened filter. Same-day indexing does not establish chronological priority.",
+          "identifier_or_url": "Resultary:2026/11/22/SCOPE-a-unique-doppler-smearing-exposure-optimum-and-two-overhead-powe--baa64c15b418",
+          "material_read": "RESULT.md offsets 0 and 5064; local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local Resultary and original in mirror",
+          "title": "A unique Doppler-smearing exposure optimum and two overhead power laws",
+          "trigger": "Exact same-day benchmark for the same integrated line"
+        },
+        {
+          "assessment": "EMPIRICAL_CADENCE_OPTIMUM_DIFFERENT_STATISTIC",
+          "evidence": "Co-adds Doppler-shifted subexposures and optimizes a detection map in numerical transit scenarios. Reported maxima are case-dependent, not the exact idealized Gaussian fixed-template law.",
+          "identifier_or_url": "https://arxiv.org/abs/2312.08320v1",
+          "material_read": "PDF p. 5, exposure-smearing discussion near offset 38500; p. 6 §3.3 near 51516; p. 9 results near 69637",
+          "method": "Primary OA PDF passages",
+          "title": "Optimising spectroscopic observations of transiting exoplanets",
+          "trigger": "Same application and exposure-smearing/overhead tradeoff"
+        },
+        {
+          "assessment": "DIFFERENT_ESTIMATOR_OBJECTIVE",
+          "evidence": "Gaussian centroid precision of shallow lines, not wall-time choice for a Doppler-averaged line and a fixed template.",
+          "identifier_or_url": "https://arxiv.org/abs/1507.00780",
+          "material_read": "§2.1, PDF pp. 3–4 at offsets 19520 and 22515; Gaussian result at offset 27436",
+          "method": "Primary OA PDF passages",
+          "title": "Astrophysical Sources of Statistical Uncertainty in Precision Radial Velocities and Their Approximations",
+          "trigger": "Gaussian photon-limited line precision"
+        },
+        {
+          "assessment": "PHOTOMETRIC_CADENCE_ANALOGUE",
+          "evidence": "Photometric radius-ratio precision objective, not spectral Gaussian template mismatch.",
+          "identifier_or_url": "https://arxiv.org/abs/2302.02897v1",
+          "material_read": "§2.3 PDF p. 4 offset 26433; results/discussion pp. 9, 12 around offsets 73067 and 84695",
+          "method": "Primary OA PDF passages",
+          "title": "Understanding and predicting cadence effects in the characterization of exoplanet transits",
+          "trigger": "Cadence and information analysis analogue"
+        },
+        {
+          "assessment": "GENERAL_FILTER_TECHNIQUE_NOT_CADENCE",
+          "evidence": "Derives weak-line matched filtering but not an exposure-duration/overhead optimum.",
+          "identifier_or_url": "https://arxiv.org/abs/1803.04987",
+          "material_read": "§2.1 PDF pp. 3–4, offset 11928",
+          "method": "Primary OA PDF passage",
+          "title": "Matched filtering for weak interferometric line detection",
+          "trigger": "Weak-line matched-filter alias"
+        },
+        {
+          "assessment": "DIFFERENT_SIGNAL_AND_FILTER",
+          "evidence": "Sinc attenuation for phase-balanced photometry, not Gaussian line projection and broadened-template comparison.",
+          "identifier_or_url": "Resultary:2026/11/22/SCOPE-exact-overhead-smearing-law-for-phase-balanced-sinusoidal-photom--6cf92380bd95",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary and original in mirror",
+          "title": "Exact overhead-smearing law for phase-balanced sinusoidal photometry",
+          "trigger": "Same-day analytical overhead-smearing analogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The comparison isolates a choice made in Doppler-smeared line detection: retaining the intrinsic template rather than adapting it. It changes the large-overhead optimizing strategy from unbounded duration to finite saturation and leaves about a 37.1% loss in optimized squared SNR per wall time, despite equal leading small-overhead duration laws. This is a sharp model benchmark, not a marginal numerical improvement. Its use is as an idealized comparison for white photon noise and constant drift, not as a recommended cadence for a finite transit or an estimate of a real instrument's losses.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:37:16.345318Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 14–82",
+        "VERIFICATION.md and CHECK.py, inspected only"
+      ],
+      "rationale": "Differentiate the ordered payoff with respect to its first argument before identifying the slots in a self-game. This gives both frozen gradient formulas with the common factor br_j−c. It vanishes at the interior critical profile, and a whole neighborhood of the fixed point has inactive projection by continuity. In the subsequent population Jacobian, including when i=j, only the derivative of this factor survives. Subtracting the two strategy increments gives M_ij=a_i(2αq_i+2q_j−s), with s=1−α² and a_i=bη_i/(Ns²). For M factored into the columns a_i(2αq_i−s), 2a_i and rows 1, q_j, the reversed 2×2 product has trace CS and determinant 4α[(Σa_iq_i)²−(Σa_i)(Σa_iq_i²)]=−4αC²σ_w². The variance is strictly positive exactly for nonconstant q_i because all rates are positive. Two distinct nonzero shifts of opposite signs follow; the determinant identity for the full product transfers these shifts with multiplicities to the 2N-dimensional Jacobian, all remaining multipliers being one. The positive shift gives μ_+>1 and hence local linear instability even for very small positive rates. Symbolic replay: python /workspace/audit_evidence/reconstruct.py (payoff_jacobian); independently differentiates the payoff, with self-play identified after the first derivative, and checks the frozen exact two-player example. Only the analytic rank calculation proves the all-N claim.",
+      "residual_risks": [
+        "Nonconstant forgiveness coordinates, not merely unequal learning rates, are required. The conclusion excludes boundary projection, different self-play derivatives and any global-basins claim. The smaller multiplier need not lie in the unit disk."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fujimoto and Kaneko classify transverse eigenvalues along a two-player continuum for continuous reinforcement dynamics, with a supplement on differing speeds. McAvoy, Mori and Plotkin use sampled pairs with a shared learning rate in the update displayed in Eq. (2)."
+        ],
+        "reasoning": "The two-player continuous-time learning rule is not the complete-population synchronous gradient with self-play, and its qualitative nonstability statement does not give the target weighted-variance determinant. Random pairing is not the deterministic population average for the claimed Jacobian.",
+        "searches": [
+          "arXiv:1905.06602v1, pp. 11 and 26",
+          "arXiv:2111.07776, Eq. (2) and reactive-strategy reduction"
+        ]
+      },
+      "checked_sources": [
+        "Resultary record ending dd0961a43f9f (self-hit)",
+        "arXiv:2610.15054v1, 1905.06602v1 and 2111.07776"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The first paper studies boundary generous-reciprocity configurations and homogeneous learning in the cited comparisons. The second provides a nearby two-agent spectral phenomenon for a different ODE."
+        ],
+        "reasoning": "Neither boundary recovery nor homogeneous stability yields the nonconstant weighted variance. The full-model antecedent permits the calculation but does not give the opposite signs of the two nonneutral shifts without the additional determinant argument.",
+        "searches": [
+          "arXiv:2610.15054v1, projected update p. 3, many-agent discussion p. 8, supplement p. S6",
+          "arXiv:1905.06602v1, p. 11 interior fixed-point stability"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Wolfe and Plotkin give the same reactive payoff, first-argument gradient, complete-population mean including self-play, individual rates and simultaneous projected steps. Their gradient immediately exhibits critical reciprocity as a fixed locus; their many-agent discussion notes the absence of a formal two-dimensional movement analysis."
+        ],
+        "reasoning": "This is exact model coverage and fixed-point implication, not exact spectral coverage. Stability requires differentiating through the critical opponent factor on the diagonal as well and resolving a weighted two-dimensional moment matrix.",
+        "searches": [
+          "Primary literature: ‘Multi-Agent Learning of Reactive Strategies in Iterated Games’ heterogeneous learning rates stability Jacobian critical reciprocity",
+          "arXiv:2610.15054v1, p. 3 and p. 8"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The mirror Finding at text offset 713 is the assigned record itself. No separate materially matching record was identified among the returned results."
+        ],
+        "reasoning": "The self-hit is not independent prior evidence. A bounded catalogue comparison does not exclude unpublished or differently indexed calculations.",
+        "searches": [
+          "Resultary semantic search for critical-reciprocity interior spectrum and heterogeneous learning rates; record ending dd0961a43f9f"
+        ]
+      },
+      "rationale": "The ordered updating rule, its critical gradient factor and the continuum of zero-gradient points are prior ingredients. The distinct supported claim is the exact rank-two spectrum at every heterogeneous interior critical-reciprocity profile for every strictly positive rate vector. The closest same-rule primary passages do not state this calculation, and the nearest spectral comparisons use different update laws or interaction populations.",
+      "residual_risks": [
+        "A more general stability theorem for deterministic self-included learning may imply this exact spectrum but was not located. The nearby two-player comparison is bounded to the inspected, different-update formulation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Model and stationarity overlap; no matching arbitrary-N interior spectrum in decisive passages",
+          "evidence": "Ordered payoff gradient including self-play, individual simultaneous rates, and discussion of boundary recovery rather than the weighted interior transverse spectrum.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.15054v1",
+          "material_read": "PDF p. 3 offsets 19087, 22391, 23338 and 25371; p. 8 offsets 52199 and 56758; supplement p. S6 offset 106615",
+          "method": "OA PDF text, targeted primary passages",
+          "title": "Multi-Agent Learning of Reactive Strategies in Iterated Games",
+          "trigger": "Identical learning rule and critical stationary locus"
+        },
+        {
+          "assessment": "Similar transverse stability question but different equations and population",
+          "evidence": "Two zero ODE eigenvalues, classification of the other two, and nonstability under the stated payoff inequality; supplement varies speeds.",
+          "identifier_or_url": "https://arxiv.org/abs/1905.06602v1",
+          "material_read": "PDF p. 11 offsets 31500–32387; p. 26 offset 73000",
+          "method": "OA PDF text, targeted primary passages",
+          "title": "Emergence of Exploitation as Symmetry Breaking in Iterated Prisoner's Dilemma",
+          "trigger": "Related two-player interior continuum instability with differential learning speeds"
+        },
+        {
+          "assessment": "Different pairing and learning update",
+          "evidence": "Random within-subpopulation pairing and paired update with a shared rate, not deterministic full-population averaging including self-play.",
+          "identifier_or_url": "https://arxiv.org/abs/2111.07776",
+          "material_read": "Eq. (2), HTML offsets 12196–15710; reactive-strategy reduction, offsets 34418–37913",
+          "method": "OA arXiv HTML targeted primary passages",
+          "title": "Selfish optimization and collective learning in populations",
+          "trigger": "Population gradient learning for reactive strategies"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding and proof; arXiv:2610.15054v1 model and many-agent discussion"
+      ],
+      "rationale": "A structurally natural continuum of zero-gradient equilibria need not be robust. The exact variance identity proves that changing positive learning rates cannot stabilize any of its forgiveness-heterogeneous interior profiles and provides both transverse multipliers, rather than only a sampled example or a sufficient bound on step size.",
+      "residual_risks": [
+        "The diagnostic cannot predict cooperation outcomes or nonlinear motion in neutral directions."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

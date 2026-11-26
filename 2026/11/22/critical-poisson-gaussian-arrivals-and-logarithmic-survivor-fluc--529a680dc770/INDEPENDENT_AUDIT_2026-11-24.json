@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:26:59.862705Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reflection and independent killing give the defective Brownian hitting density and Laplace transform. The standardized conditional density is φ(v) times (1+v/√q)^(−3/2) exp(v³/[2√q(1+v/√q)]) on v>−√q. On |v|≤q^(1/12) its linear correction is (v³−3v)/(2√q) with the stated integrable Gaussian-weighted remainder. The exact conditional MGF satisfies log M_q(t)≤t² for |t|≤√q/4, so ±q^(1/12)/2 as Chernoff parameters control the complement. Thus the first-order absolute integral is E|Z³−3Z|/(4√q), yielding the positive stated C_*. The binomial success count with p=m/N and iid conditional marks may be coupled first in its count and then in its marks, giving the bound mδ_q+m²/N. The one-point sector over the sign-positive density set gives the lower bound, because its binomial/Poisson mass difference is O_m(N^−1). The min distribution follows from the exact absence-of-points formula and subtraction of the no-success atom. Given the first successful particle and time, the other particles are independently conditioned on no success by that time; being alive and unabsorbed is a subset of that event, giving the ratio in Eq. (5). Compact success-conditioned mark windows force the conditional binomial mean to infinity uniformly and give log mean log N−q/2−v√q/2+o(1), with vanishing relative count error. Tightness then yields the joint limit including vanishing probability of no other live searcher. This gives a process-level order, not a process-level leading constant. The live population is √N times a random subpower factor, not Θ(√N) in the sense of a multiplicatively tight ratio.",
+      "replay": "python3 /workspace/branches/frozen_math_replay.py, check 1: separate Hermite quadrature gives C_*=0.3775032500326193 and finite-q TV diagnostics agree with the order. The supplied verify_critical.py was inspected, not executed. Its 239 reported deterministic checks corroborate finite identities only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Paquin-Lefebvre–Delbreil–Holcman give broad exact survivor-at-exit formulas including the successful particle. The inspected asymptotic is for large population at fixed disk parameters. The recruitment record adds particles by a Poisson stream and obtains T/θ converging to an exponential law at its critical balance."
+        ],
+        "reasoning": "Their exact formulas supply inputs (the exit population corresponds here to A_N+1), but the fixed-parameter asymptotic does not cover rate q_N² growing with log² N. Continuous recruitment yields almost-sure eventual success instead of the nonzero no-success atom of a finite initial population.",
+        "searches": [
+          "arXiv:2611.14375v1, §2.3 Eqs. (2.25)–(2.29) and §4.2 Eqs. (4.17)–(4.18)",
+          "2026/10/18/SCOPE-sharp-mortality-recruitment-threshold-for-first-arrivals-of-inde--2f684bcae431"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, METADATA.json, SLOGAN.txt, REVIEW.md, VERIFICATION.md and verify_critical.py",
+        "Three literature sources and two published Resultary entries listed above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known exact success probability is m/N on this sequence. Known single-mark TV order plus iid marking and standard count coupling implies the whole-cloud order by coupling and the one-point sector. Known exact finite survivor-count identities also apply here with a one-particle adjustment."
+        ],
+        "reasoning": "These prior implications limit the priority claim: neither the cloud's qualitative limit nor its order in isolation is the core novelty. The explicit absolute Hermite coefficient and the refined two-sided comparison quantify the approximation; deriving the nondegenerate joint survivor-mark law additionally requires conditioning, tightness on critical time windows and concentration of the population under a diverging kill rate. An equivalent stronger statement was not found in the inspected asymptotics.",
+        "searches": [
+          "Meerson–Redner Eqs. (2)–(5) and (11)",
+          "Skorski, Total Variation Distance",
+          "arXiv:2611.14375v1, §2.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Meerson–Redner pp. 1–2 give the identical one-particle hitting law. The conditional dimensionless time is IG with mean 1/(2q) and shape 1/2, so its standardized mark has the k=√q parameter of Skorski's comparison. Skorski states an upper bound O(1/k) and a matching lower order in the Total Variation Distance section."
+        ],
+        "reasoning": "This is a true reparametrization for the single mark: the q^−1/2 order there is not new. The evidence does not identify C_* or a joint limit of the surviving count with the minimum mark. Independent per-searcher clocks are essential: a common mortality shock, recruitment, and synchronized release are not interchangeable.",
+        "searches": [
+          "Skorski, Normality of Inverse Gaussian, standardized IG total variation",
+          "Meerson–Redner DOI:10.1103/PhysRevLett.114.198101",
+          "Local Resultary: synchronized Brownian mortality/redundancy, critical arrivals and survivor counts"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The published mirror's related burst result has Poisson production batches and no initial batch; the count includes the binder and converges at arbitrarily early binding to a size-biased batch law. The closest threshold result is the recruitment model above."
+        ],
+        "reasoning": "This is a process asymptotic, not a tabulated invariant. The inspected indexed records with similar critical or survivor terminology do not give exact entries for the synchronized population or the claimed coefficient and joint limit.",
+        "searches": [
+          "Local Resultary: critical mortal Brownian search, population alive at first passage and Poisson Gaussian clouds",
+          "2026/11/22/SCOPE-sharp-burst-tail-amplification-in-the-population-present-at-firs--ddf90b482081"
+        ]
+      },
+      "rationale": "The success threshold, scalar Poisson count/empty atom at fixed m, conditional inverse-Gaussian law, single-mark TV order, and finite-N first-arrival survivor-count formulas are known or direct implications of known results. The supported distinct claims are the explicit first-order single-mark TV coefficient, the two-sided sharp whole-cloud comparison at synchronized critical scaling, and the tied first-arrival/logarithmic live-count law. No inspected result establishes those new conclusions under the same assumptions. This is a bounded assessment, not a priority claim for standard marking or normal approximation machinery.",
+      "residual_risks": [
+        "Other inverse-Gaussian or extreme-first-passage papers may state equivalent expansions or critical marked limits; the comparison is bounded.",
+        "The inspected Holcman et al. passages corroborate the fixed-parameter regime, but not the frozen discussion's specific attribution of a noncommutation warning."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct antecedent for exact laws and threshold",
+          "evidence": "F_1=exp(−L√(μ/D)), conditional moments and exact probability 1−(1−F_1)^N.",
+          "identifier_or_url": "https://sites.santafe.edu/~redner/pubs/pdf/PhysRevLett.114.198101.pdf",
+          "material_read": "pp. 1–2, Eqs. (2)–(5), (11)",
+          "method": "Lawful OA PDF",
+          "title": "Mortality, Redundancy, and Diversity in Stochastic Search",
+          "trigger": "Identical one-dimensional mortal hitting model"
+        },
+        {
+          "assessment": "Broader exact finite formulas; inspected large-N regime differs",
+          "evidence": "Counts the successful particle with the other survivors; disk large-population asymptotic at fixed parameters.",
+          "identifier_or_url": "arXiv:2611.14375v1",
+          "material_read": "§2.3 Eqs. (2.25)–(2.29) and §4.2 Eqs. (4.17)–(4.18), HTML offsets near 21920 and 66200",
+          "method": "OA arXiv HTML",
+          "title": "From Distribution of Extremes With Degradation to the Stress Redundancy Principle",
+          "trigger": "Survivor population observed at first exit"
+        },
+        {
+          "assessment": "Order overlap but not explicit coefficient",
+          "evidence": "Setup uses k=√(shape/mean), correct parameter also in the density despite a later notational inconsistency; claims O(k^−1) and a matching lower order.",
+          "identifier_or_url": "https://skorski.info/2023/12/03/normality-of-inverse-gaussian/",
+          "material_read": "Opening setup and Total Variation Distance, offsets 0 and 3970",
+          "method": "OA public mathematical note",
+          "title": "Normality of Inverse Gaussian",
+          "trigger": "Same standardized single-mark law"
+        },
+        {
+          "assessment": "Different population mechanism",
+          "evidence": "One initial particle plus continuous Poisson recruitment; rescaled first arrival has exponential limit.",
+          "identifier_or_url": "2026/10/18/SCOPE-sharp-mortality-recruitment-threshold-for-first-arrivals-of-inde--2f684bcae431",
+          "material_read": "RESULT.md Finding and assumptions, near offset 342",
+          "method": "Local published mirror",
+          "title": "Sharp mortality–recruitment threshold for first arrivals of independent Brownian searchers",
+          "trigger": "Closely related Brownian mortality threshold"
+        },
+        {
+          "assessment": "Different time regime and population law",
+          "evidence": "Poisson production batches, no initial batch, early-binding size-biased population, includes the binder.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-burst-tail-amplification-in-the-population-present-at-firs--ddf90b482081",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local published mirror",
+          "title": "Sharp burst-tail amplification in the population present at first binding",
+          "trigger": "Population observed at first success"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The natural window keeps the eventual number of successes nondegenerate. A sharp whole-cloud approximation quantifies errors for all successful-arrival statistics, while the joint live-count limit gives an informative population response that a first-hitting-time law alone misses. At a given first-arrival mark, the log count resolves a diverging fluctuation scale despite vanishing relative binomial noise. The value is in this quantitative joint description, not in the known threshold.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

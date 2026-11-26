@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:18:51.609352Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The signed distance profile on the product is the sum of profiles of the one-coordinate marginals. Its maximum and minimum separately split because all coordinate choices coexist, so half the oscillation adds, with exactly the stated normalization. A zero-sum measure on a factor lifts along its anchored coordinate line and has zero other marginals. This proves surjectivity, identifies the kernel as the preimage of the factor kernels and gives the dimension by rank-nullity. The alternating signed rectangle proves strict degeneracy even when factors have trivial kernels. For an equilateral factor the profile is minus lambda times the signed mass. In the zero-sum hyperplane each ordered difference inequality has a point with only that inequality tight, so all are facets. At a vertex the tight pairs join maxima and minima; an intermediate coordinate would leave a free direction modulo constants. A nontrivial two-level cut is uniquely fixed by its tight equalities and zero sum. The convex hull of the embedded factor balls has exactly their embedded vertices, and its polar is the product of their polars, giving the claimed counts including q_i=2 and s=1. Independent exact check `python /workspace/checks.py 4`: a four-cycle factor (already degenerate) times a weighted equilateral triple has factor ranks 2,2 and rank 4; all 1,320 signed contrasts of type 2e_i-e_j-e_k agree. Exact raw profile-difference inequalities on a weighted 2-by-3 quotient section yield 8 vertices and 12 facets. These are corroborations, not the proof for arbitrary factors.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sarma gives the matrix product A⊗J+J⊗B; Bapat–Kurata's accessible landing page/abstract concerns Cartesian products of Euclidean distance matrices; Doust–Wolf's Theorem 1.1 concerns an inverse-distance-matrix scalar for affinely independent cube subsets."
+        ],
+        "reasoning": "The additive matrix and rank framework is prior background, but these statements do not give an isometric quotient with its product norm: equality of the oscillations requires taking separate coordinate extrema, and the identification onto the sum requires surjectivity on zero-mass marginals. An inverse-matrix scalar on cube subsets makes neither assertion.",
+        "searches": [
+          "arXiv:1901.01904v1 §§1–2",
+          "doi:10.1016/j.laa.2018.10.008",
+          "arXiv:2109.07052v2 Theorem 1.1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:math/0611049",
+        "arXiv:1902.10334",
+        "arXiv:1901.01904v1",
+        "arXiv:2109.07052v2",
+        "doi:10.1016/j.laa.2018.10.008 (abstract)",
+        "Resultary 6d849c3a6bbb (mirrored text), 3bd6d7048744 and 88717b0ba198 (indexed summaries)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The one-factor oscillation ball is the projection of a scaled cube along constants (equivalently, its polar is a scaled type-A root polytope). The cited Hamming rectangle's interaction subspace lies in a different norm, and the cited four-cycle gives a kernel example only."
+        ],
+        "reasoning": "Credit the familiar factor geometry and standard polarity of direct sums. The genuinely informative step is that the quotient norm actually is an l1 sum of marginal quotients even for degenerate non-equilateral factors. Neither a rank calculation, a projection in the ordinary transportation-cost norm, nor a one-factor face formula on its own implies that identification.",
+        "searches": [
+          "arXiv:1902.10334 §4 pp. 21–22 and arXiv:1901.01904v1 §§1–2",
+          "Resultary 6d849c3a6bbb, Finding and Proof §§1–4",
+          "Frozen RESULT.md Proof §§1–4 (comparison of the norm and the facial claims)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The double-point test functions are half differences of distance profiles (up to sign); the four-cycle kernel was already known. The closest Hamming-rectangle result computes a projection in the ordinary transportation-cost norm."
+        ],
+        "reasoning": "The double-point definitions are equivalent, and the old four-cycle is an instance of degeneracy. They do not identify the space and its norm on all finite sum-metric products. Switching from the ordinary Lipschitz-free norm to the distance-test quotient is a genuine change of norm, not renaming.",
+        "searches": [
+          "Local Resultary comparison: double-point transportation distance-difference norm, Cartesian metric product, marginal quotient, weighted Hamming geometry",
+          "arXiv:math/0611049 §1.2.2",
+          "arXiv:1902.10334 §4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest available match isolates row/column-zero marginals on a weighted Hamming rectangle but measures the least projection norm in the ordinary transportation-cost space. The other indexed summaries concern ordinary Lipschitz-free balls of shortened equilateral metrics and even circular ladders; their mirrored full files were not available."
+        ],
+        "reasoning": "A shared marginal interaction space in the rectangle is not an exact quotient isometry or its weighted Hamming face census. No cataloged exact overlap was established; unavailable full files are not negative evidence.",
+        "searches": [
+          "Local Resultary search: double-point marginal quotient and weighted Hamming product faces",
+          "SCOPE-optimal-interaction-projections-on-weighted-hamming-rectangles--6d849c3a6bbb",
+          "SCOPE-facet-enumeration-for-equilateral-metrics-with-independently-shortened-pairs--3bd6d7048744",
+          "SCOPE-balanced-ternary-classification-of-facets-of-even-prism-lipschitz-free-balls--88717b0ba198"
+        ]
+      },
+      "rationale": "The supported distinct claim is the normed marginal quotient for the finite sum-metric product, with its concrete Hamming geometry, not the double-point definition, the four-cycle kernel, the rank phenomenon alone, or single equilateral factor combinatorics. No available inspected theorem covers the full metric quotient claim. The conclusion is bounded by the stated comparison and access limits.",
+      "residual_risks": [
+        "Bapat–Kurata full text and the two weaker Resultary candidate files were unavailable for direct inspection.",
+        "An unindexed result on oscillation norms or decomposable distance-function spaces could phrase an equivalent quotient differently."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Definitions are equivalent; no covering product theorem in inspected material",
+          "evidence": "Test functions are (rho(y,.)-rho(x,.))/2.",
+          "identifier_or_url": "arXiv:math/0611049",
+          "material_read": "§1.2.2, pp. 7–8, near OA offset 17400",
+          "method": "OA PDF bounded passage inspection",
+          "title": "Linearly rigid metric spaces and the embedding problem",
+          "trigger": "Same seminorm, possible equivalent product theorem"
+        },
+        {
+          "assessment": "Known kernel criterion and examples, not the audited product norm law",
+          "evidence": "Exhibits a four-cycle with a nonzero double-point kernel.",
+          "identifier_or_url": "arXiv:1902.10334",
+          "material_read": "§4, pp. 21–22 near offset 56811",
+          "method": "OA PDF bounded passage inspection",
+          "title": "Generalized transportation cost spaces",
+          "trigger": "Same double-point space and known degeneracy"
+        },
+        {
+          "assessment": "Prior additive matrix framework; no isometric quotient in inspected statements",
+          "evidence": "Defines A⊘B=A⊗J+J⊗B.",
+          "identifier_or_url": "arXiv:1901.01904v1",
+          "material_read": "§§1–2 pp. 2–3 near offset 3900",
+          "method": "OA PDF bounded passage inspection",
+          "title": "On Cartesian product of matrices",
+          "trigger": "Possible general product distance matrix implication"
+        },
+        {
+          "assessment": "Unresolved full comparison; no whole-paper inference",
+          "evidence": "Accessible scope is the Cartesian product of Euclidean distance matrices.",
+          "identifier_or_url": "doi:10.1016/j.laa.2018.10.008",
+          "material_read": "Publisher landing page/abstract only; lawful full text not obtained",
+          "method": "OA retrieval and alternate-copy check",
+          "title": "On Cartesian product of Euclidean distance matrices",
+          "trigger": "Specific cited matrix product source"
+        },
+        {
+          "assessment": "Different invariant and hypotheses",
+          "evidence": "Analyzes a scalar involving the inverse distance matrix for affinely independent Hamming-cube subsets.",
+          "identifier_or_url": "arXiv:2109.07052v2",
+          "material_read": "Theorem 1.1 p. 2 near offset 4483",
+          "method": "OA PDF bounded passage inspection",
+          "title": "A problem on distance matrices of subsets of the Hamming cube",
+          "trigger": "Hamming metric and distance matrix link"
+        },
+        {
+          "assessment": "Different norm and assertion; no exact matching theorem",
+          "evidence": "Studies the least projection norm onto zero row/column marginals in the ordinary Lipschitz-free space.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-optimal-interaction-projections-on-weighted-hamming-rectangles--6d849c3a6bbb",
+          "material_read": "Mirrored RESULT.md Finding and Proof §§1–4",
+          "method": "Local mirror passage inspection",
+          "title": "Optimal interaction projections on weighted Hamming rectangles",
+          "trigger": "Same-day entry with the closest marginal interaction subspace"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The natural distance-test norm forgets interactions on product metrics. The precise quotient separates the interactions from factor-level degeneracies and determines all remaining norm geometry, not just a rank or a small example. Hamming products give usable exact facet and vertex counts in that quotient and clarify why ordinary transportation-cost geometry is a different problem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

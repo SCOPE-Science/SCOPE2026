@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:45:57.501690Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With t nonempty rows, every column is a word and exactly m of the m^t words are constant. Allocate distinct nonconstant words to the r nonconstant classes, and distinct constant words to the at most m constant classes. At the least feasible t, duplicate rows are impossible: deleting a duplicate position leaves both forms of distinction intact and contradicts minimality. If r=0, one row suffices. For extraction include all m constant functions: the first row has m classes and each additional selected row strictly refines the restrictions of the m+r distinct functions until all are separated, in at most r more rows. In the binary staircase, deleting an endpoint makes a column constant and deleting an interior row identifies adjacent columns; these failures persist under further restrictions. This works inside any m≥2. For the specified logic, match the distinct constant values by a permutation of M and extend the pair of teams by witnessing a weak quantifier with corresponding single values. The profile is preserved on extended variable lists, so induction on atoms, weak connectives and weak quantifiers proves the same invariance as the cited lemma. Weak negation of equality is not a pointwise disequality atom. The conjunction of negated constancy and pairwise negated equality forces r=k, proving sharpness of the uniform nonempty witness cutoff. The finite checker was inspected, not executed or used as a general proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Engström–Kontinen proves validity of the equality–constancy type reduction for all formulas in the specified fragment and constructs its type formulas using weak literals.",
+          "Crowston et al. bounds additional tests by n minus the number of classes already induced by an arbitrary seed family. Encode each m-valued evaluation by the binary tests 1_{f(s)=a}; m−1 indicators from the first row induce m classes on N=m+r functions. Lemma 1 adds at most r binary tests. Replacing each by its original row retains all separations."
+        ],
+        "reasoning": "The stronger seed-family result implies the upper bound on actual rows for general m, not just the binary special case. Logical preservation is also entirely covered by the general invariant lemma.",
+        "searches": [
+          "Engström–Kontinen Lemma 3.3 and Prop. 3.4",
+          "Crowston et al., Lemma 1 on extending a seed test family by class refinement"
+        ]
+      },
+      "checked_sources": [
+        "Frozen result, verification notes and checker",
+        "Crowston et al. arXiv:1212.0117 §1 and Lemma 1",
+        "Engström–Kontinen arXiv:2609.15216 Lemma 3.3 and Prop. 3.4",
+        "Resultary records 0495dcb52c52, 44509f634dde, 6a71ab201cb7, 4795e8c6c39c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Section 1 of the Test Cover paper explicitly contrasts the tight binary identifying capacity ⌈log₂ N⌉ with the sharp worst-case size N−1 under restricted availability. Lemma 1 proves the seeded refinement giving r+1 here by the indicator reduction.",
+          "For unrestricted design the augmented m+r items must have distinct response words, so m^t≥m+r. Sufficiency is immediate from the same capacity count: fix the m constant words first, then fill the remaining r slots. Deleting duplicate row positions does not change any distinctions; minimal length prevents duplicates. For the semantic cutoff, the type formulas of Proposition 3.4 include the all-distinct/nonconstant type."
+        ],
+        "reasoning": "The tight worst-case guarantee of the general Test Cover theorem alone does not establish tightness for the subclass with prescribed constant items. The staircase supplies that check. The precise constrained replacement and logical cutoff are nevertheless direct coding and type-formula readouts, not an independently established new mathematical principle in the frozen finding.",
+        "searches": [
+          "arXiv:1212.0117 §1 pp. 1–2 and Lemma 1 p. 5",
+          "arXiv:2609.15216 Lemma 3.3 and Prop. 3.4",
+          "Resultary pure-equality PSPACE RESULT.md §§1–2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Test Cover selects tests that distinguish all pairs of items; the analogue here takes the m+r distinct functions as items, and an actual row is the m-valued test of evaluation.",
+          "The two constant binary words are the codes of the two distinguished constant functions when m=2; on a larger alphabet use one prescribed constant word for each value.",
+          "The pure-equality PSPACE Resultary record 0495dcb52c52 has exactly the same profiles and defines realizability by c≤m, with a full Cartesian witness construction rather than an optimized one."
+        ],
+        "reasoning": "Preserving the profile is equivalent to separating all m+r padded items because a nonconstant coordinate must remain unequal to every constant function. Replacing and extracting correspond respectively to unrestricted code design and selecting existing tests.",
+        "searches": [
+          "Resultary lookups for the exact replacement budget, equality–constancy invariance, separating rows/test sets, and column profiles",
+          "Crowston–Gutin–Jones–Saurabh–Yeo, Parameterized Study of the Test Cover Problem, arXiv:1212.0117 §1 and Lemma 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-day primitive inclusion record 44509f634dde has a numerical r+1 for a smallest nonclosed team, but its equivalence uses r-coordinate projections of Boolean assignments, not equality and constancy of full columns.",
+          "The PSPACE record shares the exact invariant (and gives realizability) but does not bound minimum rows. Record 6a71ab201cb7 concerns failing subteams for disjunctions of constancy atoms; 4795e8c6c39c concerns minimum tuples in ternary Armstrong relations for specified database keys."
+        ],
+        "reasoning": "There is no finite table that can decide this all-m, all-r capacity law; these database/index comparisons distinguish matching numerical thresholds, different notions of subteam and truly matching profiles. They do not supply the decisive prior implication, which is the test-cover/coding comparison.",
+        "searches": [
+          "Indexed minimum-row/column-profile and equality–constancy searches",
+          "Resultary records 44509f634dde, 0495dcb52c52, 6a71ab201cb7 and 4795e8c6c39c"
+        ]
+      },
+      "rationale": "The frozen pair is a direct application of distinct-word capacity and existing Test Cover partition refinement to a known logical type reduction. The general extraction upper bound transfers from Crowston et al., Lemma 1, even for m>2 by seeding binary indicators of one actual row; the sharp word cutoff is the alphabet capacity bound on the same m+r functions, with m prescribed constant words. The staircase checks tightness in this constrained subclass, not a new separation principle. The closest logic records do not explicitly state the numerical budgets, but their proof supplies the full semantic reduction. Neither the catalogue date nor a negative search is the reason for the decision.",
+      "residual_risks": [
+        "An explicit same-language row bound under other database or logical terminology might exist; no claim of exhaustive coverage is made.",
+        "The exact two budgets are correct. The novelty judgment does not assert that the closest logic articles state those numbers verbatim, or that the generic sharp Test Cover example itself already respects the constant anchors."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct prior coverage of the extraction upper bound by indicator conversion; prior binary capacity/selection distinction. Does not specifically formulate the equality–constancy subclass or its logical interpretation.",
+          "evidence": [
+            "§1 reports tight bounds ⌈log₂ N⌉ and N−1, and defines selecting tests to separate every pair.",
+            "Lemma 1 proof extends a seed inducing C classes by at most N−C tests, each increasing the class count."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1212.0117",
+          "material_read": "Title and authors at offset 0; §1 pp. 1–2, offsets 1670–6366; Lemma 1 p. 5, offsets 15155–16264",
+          "method": "OA primary PDF text, read at identified offsets",
+          "title": "Parameterized Study of the Test Cover Problem",
+          "trigger": "Exact formulation as choosing tests to separate a set of items and prior greedy seed extension"
+        },
+        {
+          "assessment": "Provides the exact semantic reduction; it does not state minimum replacement or subteam sizes.",
+          "evidence": [
+            "Lemma 3.3 identifies equality and constancy agreement as sufficient for agreement on all formulas including weak quantifiers.",
+            "Prop. 3.4 defines complete types by conjunctions of equality and constancy literals and their weak negations."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2609.15216",
+          "material_read": "Lemma 3.3, PDF pp. 5–6, offset about 16777; Prop. 3.4 pp. 6–7, offset about 18838",
+          "method": "OA primary PDF passage inspection",
+          "title": "Intuitionistic Implication in Elementary Team Logics",
+          "trigger": "Same fragment, same invariant and type formulas"
+        },
+        {
+          "assessment": "Same profile and finite realizability criterion; whole Cartesian witness does not optimize the number of rows. No date-based priority inference.",
+          "evidence": [
+            "For q≥2 a profile is realizable exactly when c≤q; their proof assigns constants fixed distinct values and lets the remaining classes vary independently over the universe."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-mathrm-pspace-complete-reasoning-for-the-inclusion-free-equality--0495dcb52c52",
+          "material_read": "RESULT.md Finding and proof §§1–2, offsets 2040–3690 for the profile, its realization, and start of symbolic evaluation",
+          "method": "Configured local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "PSPACE-complete reasoning for the inclusion-free equality fragment",
+          "trigger": "Closest indexed result on the identical type and finite structures"
+        },
+        {
+          "assessment": "Different language, profile and optimization; matching numerical cutoff does not supply coverage.",
+          "evidence": [
+            "Positive primitive inclusion on Boolean assignments observes local projections; r+1 describes the smallest nonclosed team, not preserved equality and constancy under extraction."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-sharp-arity-local-visibility-and-a-stirling-census-for-primitive--44509f634dde",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Configured local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Sharp arity-local visibility and a Stirling census for primitive inclusion",
+          "trigger": "Same-day hit with the threshold r+1 for team size"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Distinguishing replacement from extraction is useful when presenting the invariant, but the numerical contrast is a routine code-capacity versus available-test distinction transferred directly through the known type characterization. The staircase correctly supplies an admissible worst case without establishing a separate structural phenomenon. The narrowed numerical cutoff alone is mechanically obtained by reserving the constant words and applying the existing type formula; no distinct surviving mathematical claim warrants a repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

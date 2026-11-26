@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:02:55.686418Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, classification, witness table and proof",
+        "VERIFICATION.md and order15_fullspark_checker.py (read)",
+        "Independent replay: python3 audit_fourier.py",
+        "Alexeev–Cahill–Mixon arXiv:1110.3548, Theorem 9 and following balance discussion"
+      ],
+      "rationale": "For a divisor d, write k=td+u, 0≤u<d. Select t complete column cosets of the subgroup of size d, plus u more columns. On any fixed residue class of rows modulo d, the columns within one coset have proportional restrictions, so the rank of the complete cosets is at most Σ_j min(t,m_j) for residue sizes m_j. With the extra u columns this gives a singular minor if any m_j<t. If u>0 and a class exceeds t+1, its complementary occupancy is below the corresponding floor for the complement; if u=0 an oversized class forces an undersized one in the original set. Jacobi's identity and F⁻¹=F*/15 give complementary-minor equivalence, so these cases prove necessity. Row translation scales columns and multiplication by a unit permutes columns; hence one representative per affine orbit through size seven suffices. Independent audit_fourier.py exhausts the balanced orbits, classifies them without assuming the exception list, and tests column ranks modulo 31 at an order-15 root. A modular nonzero certifies complex nonvanishing. For ambiguous minors it instead computes the determinant as a wedge-product subset DP in Z[X]/(X¹⁵−1) and divides by Φ₁₅ over Z, an exact complex test. All five listed witnesses have identically zero group-ring coefficient vectors. The five bad orbit sizes are 30,120,120,60,30 in listed order. For the good reps, 53803 minors pass mod 31 and the other 1125 have nonzero cyclotomic remainders. Full-spark counts through size seven are 15,60,60,180,60,180,600 and double by complement to 2310. The full matrix is invertible by Fourier orthogonality.",
+      "residual_risks": [
+        "The computation is exhaustive for complex order 15 only. Nonvanishing supplies no lower bound on conditioning. The cyclotomic replay verifies the same ambiguous minors without using the second prime; the frozen second-prime argument is valid because 12 mod 61 has order 15 and an exact complex zero would reduce to zero there."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 9 has a prime-power sufficiency hypothesis; the order-10 example shows that arbitrary-composite sufficiency is false. The necessary direction covers 15 but does not separate its balanced row sets.",
+          "The squarefree principal-minor assertions restrict row and column sets to be equal. Earlier complete catalogue classifications at 10, 12, and 14 use different cyclic groups."
+        ],
+        "reasoning": "Order 15 is not a prime power; neither the necessary balance direction nor the squarefree principal-minor conclusions can distinguish the five failing balanced affine classes from the other balanced classes.",
+        "searches": [
+          "Alexeev–Cahill–Mixon Theorem 9 and composite-order example",
+          "Caragea–Lee Theorems 1.1–1.2 and Conjecture 1.3",
+          "Resultary order-10, order-12, and order-14 classifications 579f4b382450, 81a97859d04e, be518195ffd5"
+        ]
+      },
+      "checked_sources": [
+        "Alexeev–Cahill–Mixon arXiv:1110.3548",
+        "Caragea–Lee arXiv:2409.09793",
+        "Resultary 04538f9363bb, 1a68a76be220, 6d1752cd1bea, c7f8e777d742, 579f4b382450, 81a97859d04e and be518195ffd5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General balance rules reject the earlier example {0,1,2,5}: its mod-5 occupancies are 3,1,1,0,0. The frozen five witnesses have C≠R and concern balanced sets. The cited general three-row criterion in the frozen discussion would at most cover size three and its complements."
+        ],
+        "reasoning": "The earlier one-row-pattern theorem and the general balance obstruction account for known nongeneric failures but do not imply which balanced five- and seven-row sets fail, or that every remaining balanced orbit is full spark. The nonprincipal witnesses are compatible with squarefree principal-minor conjectures.",
+        "searches": [
+          "arXiv:1110.3548, Theorem 9 and order-10 discussion",
+          "arXiv:2409.09793, Theorems 1.1–1.2",
+          "Resultary 04538f9363bb, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Full spark here means invertibility for every specified k-frequency support sampled on the k selected indices. It is not recovery of arbitrary unknown k-sparse supports from k samples.",
+          "The unnormalized Fourier inverse is F*/15; Jacobi duality exchanges M and C with both complements. Caragea–Lee's corresponding proposition is stated for principal minors."
+        ],
+        "reasoning": "Transposition identifies the sampling and row-restriction formulations. Row-complement classifications at size 15−k would already cover size k; principal-minor results with identical index sets are not equivalent.",
+        "searches": [
+          "Resultary: full spark for Fourier/DFT order fifteen, divisor-uniform/affine exceptions, universal sampling and rank incidence",
+          "Alexeev–Cahill–Mixon arXiv:1110.3548, full-spark definition and Definition 7",
+          "Caragea–Lee arXiv:2409.09793, Proposition 2.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "04538f9363bb gives exactly 15 singular minors for the one order-15 row set {0,1,2,5}, unbalanced mod 5. 1a68a76be220 counts 30 singular principal minors in characteristic 7.",
+          "Later 6d1752cd1bea gives all order-15 four-row/four-column ranks; later c7f8e777d742 gives the complete five-by-five rank distribution. These are cardinality-specific exact overlap, not earlier all-cardinality coverage."
+        ],
+        "reasoning": "An earlier per-row rank table at the same modulus with complex arbitrary column sets could imply full-spark status for that row. The inspected earlier row example is already rejected by balance. Neither a finite-field principal table nor a rank distribution in a different characteristic is an exact census of this object.",
+        "searches": [
+          "Resultary exact minors and rank tables for order 15: 04538f9363bb, 1a68a76be220, 6d1752cd1bea, c7f8e777d742"
+        ]
+      },
+      "rationale": "Uniform divisor distribution is a prior necessary condition, and prime-power sufficiency, affine symmetries, and complementary-minor duality are not the contribution. The distinct claim is the complete complex order-15 classification of the balanced failures, including five affine exceptions up to complement and the census resulting from them. The closest preceding catalogue result at the same order treats one unbalanced four-row pattern; it does not classify any of the balanced exceptions. The primary results inspected concern other orders, a necessary condition, or principal minors. Later exact rank tables overlap in specific cardinalities. The frozen prose would be clearer to distinguish previously catalogued classifications at 10, 12, and 14 from journal results; the reviewed sources do not establish a journal attribution for each of those full classifications.",
+      "residual_risks": [
+        "A bounded search does not exclude an earlier exact row-set table or an equivalent statement in universal sampling or uncertainty-principle terminology. Relative publication timing cannot be inferred solely from nearby catalogue path dates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior general obstruction and prime-power theorem, not order-15 census",
+          "evidence": "Divisor distribution, prime-power equivalence, and balanced singular example at N=10.",
+          "identifier_or_url": "https://arxiv.org/pdf/1110.3548",
+          "material_read": "Full-spark definition p. 3; Definition 7 p. 11; Theorem 9 p. 12; p. 16 discussion; text offsets about 9000, 41904, 46446 and 59537",
+          "method": "Primary PDF passages",
+          "title": "Full Spark Frames",
+          "trigger": "Foundational divisor balance and Fourier full spark"
+        },
+        {
+          "assessment": "Different index-set constraint",
+          "evidence": "Squarefree nonzero principal minors in certain orders; complementary principal-minor relation.",
+          "identifier_or_url": "https://arxiv.org/pdf/2409.09793",
+          "material_read": "Theorems 1.1–1.2, Conjecture 1.3 and Proposition 2.1, pp. 2–3, text offsets about 6157–9900",
+          "method": "Primary PDF passages",
+          "title": "On the Principal Minors of Fourier Matrices",
+          "trigger": "Squarefree Fourier minors and complement duality"
+        },
+        {
+          "assessment": "Earlier catalogue overlap for one unbalanced row pattern",
+          "evidence": "For {0,1,2,5} at N=15 exactly 15 four-column minors vanish.",
+          "identifier_or_url": "Resultary 04538f9363bb",
+          "material_read": "RESULT.md, Finding, initial passage",
+          "method": "Published record text",
+          "title": "An odd-semiprime full-spark rigidity theorem for a four-row Fourier restriction",
+          "trigger": "Same order and four-row Fourier full spark"
+        },
+        {
+          "assessment": "Different field and principal minors",
+          "evidence": "Thirty singular principal submatrices in characteristic seven, not a complex classification.",
+          "identifier_or_url": "Resultary 1a68a76be220",
+          "material_read": "RESULT.md, Finding, initial passage",
+          "method": "Published record text",
+          "title": "Exact characteristic-seven principal-minor defects of the order-fifteen Fourier matrix",
+          "trigger": "Exact order-15 singular-minor table"
+        },
+        {
+          "assessment": "Later cardinality-specific overlap",
+          "evidence": "Covers row/column-pair ranks at size four.",
+          "identifier_or_url": "Resultary 6d1752cd1bea",
+          "material_read": "RESULT.md, Finding, initial passage",
+          "method": "Published record text",
+          "title": "Complete rank-incidence census for four-frequency Fourier sampling",
+          "trigger": "Exact order-15 four-by-four ranks"
+        },
+        {
+          "assessment": "Later cardinality-specific overlap",
+          "evidence": "Covers the five-by-five rank distribution.",
+          "identifier_or_url": "Resultary c7f8e777d742",
+          "material_read": "RESULT.md, Finding, initial passage",
+          "method": "Published record text",
+          "title": "Exact three-dimensional loss and the complete five-frequency Fourier census",
+          "trigger": "Exact order-15 five-by-five ranks"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, the classification, witness table and cardinality census",
+        "Alexeev–Cahill–Mixon, prime-power criterion and order-10 obstruction"
+      ],
+      "rationale": "Order 15 is the smallest odd composite order that is not a prime power. It tests exactly where divisor balance stops being a complete characterization in the odd semiprime setting, and gives a concrete nonmonotone pattern: balanced five-row failures, none at six rows, and four balanced failure orbits at seven rows. The exact orbit witnesses and exhaustive positives give a useful benchmark for uniform sampling and for testing proposed criteria beyond prime powers, not merely an isolated determinant calculation.",
+      "residual_risks": [
+        "There is no general semiprime classification or signal-conditioning estimate here."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:33:34.967746Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In T_n all nonadjacent pairs are at distance two, so the forbidden triples are induced three-vertex paths. Components of a selected induced cluster graph are pairwise intersecting edge families on mutually disjoint supports in K_n; one incident pair ab,ac shows the only non-star possibility is the whole triangle abc. Unused vertices contribute singleton blocks. The weights at support sizes 1, 2, 3 and k>=4 are 1, z, 3z^2+z^3 and kz^{k-1}, yielding the first EGF. Maximality excludes two unused vertices, two-edge stars, and any unused vertex when a selected star exists. Conversely, an edge crossing occupied components meets a selected edge in each, and those two old edges are disjoint; this supplies the general crossing case in line 48. An added leaf edge in a star of at least three edges or an edge from an unused vertex into a triangle also creates a forbidden triple. Thus the maximal modes are full coverage by allowed components, or a single unused vertex with only triangles, giving exactly the second EGF including the formal n=0,1 terms. For maximum size, each nontriangle support loses exactly one selected edge relative to its vertex count, giving the claimed residue cases. In the full-coverage maximal mode, twice the edge count minus n is additive: zero for a K2, 3 for a triangle, and k-2 for a k-vertex star (k>=4). This corrects the informal half-support arithmetic in line 58: a triangle and a five-vertex star each have excess 3/2 above half their support. For odd n, an odd component is necessary, the least doubled excess is 3, and equality is exactly one triangle or one five-vertex star plus disjoint pairs. The unused-vertex mode never ties the minima for n>=2. Counting labels gives both extremal formulas. Private replay /workspace/branches/replay/triangle.py and triangle.txt used actual shortest paths and all legal subset extensions, reproducing both complete arrays through n=7 and checking extremal coefficients by exact extraction through n=15. The proof, not these finite checks, covers all n.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general characterization uses complete induced components subject to distance conditions that simplify in T_n. Ghorbani et al. give the scalar maximum and its clique-component analysis. Di Stefano et al. specify components of a maximal family as triangles and stars of one or at least three edges, together with coverage of all ground vertices when any star is present and at most one unused vertex otherwise; they determine the scalar lower number."
+        ],
+        "reasoning": "The scalar numbers are credited prior work; counts do not follow from the scalar numbers alone. The published component and coverage restrictions, however, supply the enumerated blocks and exactly the two label-coverage modes, with sufficiency checked directly by adding any single edge.",
+        "searches": [
+          "Anand et al. arXiv:1812.08460, Theorem 3.1",
+          "Ghorbani et al. arXiv:1903.04286, Section 4.2 Theorem 4.4",
+          "Di Stefano et al. arXiv:2306.09965, Definition 1.2 and Theorem 5.2 and proof"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary mirror searches and exact October 13 and November 8 Findings named above",
+        "arXiv:1812.08460 Theorem 3.1",
+        "arXiv:1903.04286 Theorem 4.4",
+        "arXiv:2306.09965 Definition 1.2 and Theorem 5.2 proof",
+        "arXiv:2401.05696 Theorem 4.2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier exact EGF encodes all maximum multiplicities at the known maximum degree; the nondivisible case chooses a single nontriangle support. The admissible maximal blocks on each k-set for k=2,3,>=4 have weights z,z^3,k z^{k-1}; the separate one-unused-vertex case is a singleton times a labelled set of triangles. The odd lower cases come from the equality analysis in the same matching/triangle/star constraints."
+        ],
+        "reasoning": "The full-cover contribution is the standard labelled SET exponential applied to those weights, and the exceptional-mode term is the product with t. The lower multiplicities then just select one equality block and pair the remaining labels. These formulas are useful explicit representations, but an omitted printed formula does not make a mechanically implied census a distinct scientific result.",
+        "searches": [
+          "Earlier all-set Resultary Finding and Proof, offset 0",
+          "Di Stefano et al. Theorem 5.2 proof, p. 12",
+          "Ghorbani et al. Theorem 4.4, p. 10"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier local record has exp(u e^{uz} - u^2 z/2 + u^3 z^3/6), with u marking ground labels; u=t yields exactly the first boxed equation.",
+          "Anand et al.'s cluster-component criterion reduces to P_3-freeness in diameter two, so maximal cluster subsets in the later local record are the same inclusion-maximal sets. Iršič et al.'s K(n,2) has disjointness adjacency and is the complement, not an alias for J(n,2)."
+        ],
+        "reasoning": "Renaming the ground-count variable or using line-graph notation is exact equivalence for the all-set polynomial; passing to the disjointness graph is not. The maximal-cluster formulation is exact by the geodesic criterion, not merely close in title.",
+        "searches": [
+          "Local Resultary search for triangular J(n,2)=L(K_n) general-position and maximal cluster polynomials, stars and triangles",
+          "Anand et al. arXiv:1812.08460, Theorem 3.1",
+          "Iršič et al. arXiv:2401.05696, Theorem 4.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier Finding gives the exact all-set EGF, binomial coefficient recurrence and divisible-by-three top multiplicity. The later Finding gives the occupied-block exponent zt^2/2+z^3t^3/6+sum_{k>=4} z^{k-1}t^k/(k-1)! and the one-unused-label term, identical to the second boxed series after expansion of t(e^{zt}-1)."
+        ],
+        "reasoning": "Both comparisons are full enumerator matches, hence stronger than equality of a few coefficient rows. The October 13 match is earlier than the frozen record; November 8 is later and is not treated as earlier-priority evidence.",
+        "searches": [
+          "2026/10/13/SCOPE-full-general-position-polynomial-of-triangular-graphs-by-star-tr--9b9fdc66bc5e",
+          "2026/11/8/SCOPE-maximal-cluster-subgraphs-of-triangular-graphs-a-partition-polyn--68bb3fc9b806",
+          "Local Resultary exact-family search for triangular graph general-position polynomials"
+        ]
+      },
+      "rationale": "The first of the two central EGFs is explicitly the same as the earlier 2026/10/13 Resultary Finding after a variable rename, which also already gives its coefficient recurrence and the divisible-by-three maximum multiplicity. The nondivisible maximum formula extracts a coefficient from that earlier series at the known degree. The remaining maximal enumerator is not printed in the inspected earlier sources, but follows mechanically by the labelled set construction from the previously specified maximal component and coverage restrictions, with an elementary forbidden-triple converse. It is explicitly present in a later record under the equivalent maximal-cluster formulation; that later record alone does not establish earlier priority. The finding as frozen is not an original pair of enumerators and extremal counts.",
+      "residual_risks": [
+        "Other unindexed enumerations could exist; no claim of independent priority for the printed maximal formula is made. The original FAIL is justified by exact earlier all-set coverage and the direct prior structural implication, not by the undetermined relationship to the later maximal-cluster record."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact prior all-set coverage",
+          "evidence": [
+            "The labelled EGF is exp(u e^{uz} - u^2 z/2 + u^3 z^3/6); the record also has the recurrence and divisible-by-three maximum count."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-full-general-position-polynomial-of-triangular-graphs-by-star-tr--9b9fdc66bc5e",
+          "material_read": "RESULT.md Finding and Proof, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Full general-position polynomial of triangular graphs by star–triangle assemblies",
+          "trigger": "Same object and all-set enumerator"
+        },
+        {
+          "assessment": "Exact later overlap for the maximal enumerator, not evidence of earlier priority",
+          "evidence": [
+            "The full-cover block weights have sizes 2, 3, and k>=4 and give the same exponent; the isolated-label case contributes t times the exponential for triangles."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-maximal-cluster-subgraphs-of-triangular-graphs-a-partition-polyn--68bb3fc9b806",
+          "material_read": "RESULT.md Finding and Proof, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Maximal cluster subgraphs of triangular graphs: a partition polynomial",
+          "trigger": "Equivalent diameter-two maximality and same object"
+        },
+        {
+          "assessment": "General structural result",
+          "evidence": [
+            "General position is characterized by complete components with mutual distance conditions, which are automatic for distinct components in this diameter-two setting."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1812.08460",
+          "material_read": "Theorem 3.1, p. 4, offset 10961",
+          "method": "Lawful OA primary PDF",
+          "title": "Characterization of general position sets and its applications to cographs and bipartite graphs",
+          "trigger": "Structural implication for diameter-two graphs"
+        },
+        {
+          "assessment": "Known scalar maximum and relevant structure; no explicit multiplicity in inspected passage",
+          "evidence": [
+            "gp(L(K_n)) is n when 3 divides n and n-1 otherwise; the proof uses disjoint clique-component supports."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1903.04286",
+          "material_read": "Section 4.2 Theorem 4.4 and proof, p. 10, offset 27553",
+          "method": "Lawful OA primary PDF",
+          "title": "The general position problem on Kneser graphs and on some graph operations",
+          "trigger": "Exact maximum and potential component census"
+        },
+        {
+          "assessment": "Previously supplies the operative structural restrictions; no explicit generating function in the proof",
+          "evidence": [
+            "A maximal set is a disjoint union of triangles and stars with either one or at least three edges; with a star any uncovered vertex can extend it.",
+            "In the absence of stars there are only triangles and at most one unused ground label; the theorem gives both parity cases for gp^-."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2306.09965",
+          "material_read": "Definition 1.2, p. 3 (offset 7605); Theorem 5.2 and proof, p. 12 (around 35159); reference [19], p. 18 (50000)",
+          "method": "Lawful OA primary PDF; inspected the decisive proof passage directly",
+          "title": "Lower General Position Sets in Graphs",
+          "trigger": "Prior exact maximal-set components, coverage and minimum"
+        },
+        {
+          "assessment": "Different adjacency and geodesics",
+          "evidence": [
+            "The explicit result is for Kneser K(n,2), whose adjacent pairs are disjoint."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2401.05696",
+          "material_read": "Section 4, Theorem 4.2, p. 10, offset 29459",
+          "method": "Lawful OA primary PDF",
+          "title": "General Position Polynomials",
+          "trigger": "Explicit polynomial for a potentially confused 2-subset graph"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Counting by cardinality is natural, but the complete all-set distribution was already available. The remaining maximal polynomial amounts to the elementary labelled-set count of the allowed components from the earlier maximality proof (with the direct single-edge obstruction for the converse). Its lower extremal coefficient reduces to matching counts and the two known tight support types. No mathematically substantive remainder beyond this routine translation and coefficient extraction was established, so no repaired claim is issued.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

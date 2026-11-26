@@ -1,0 +1,92 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:03:30.732358Z",
+  "axes": {
+    "correctness": {
+      "rationale": "An independent exact Pauli calculation from the six amplitudes checked normalization plus 12, 54, 108 and 81 components at orders one through four. They agree with the frozen tensors. Walsh Parseval for the product-projector expansion gives 16C=1+(S+3T+Q^2)/9. For the Gram identity, writing H for the sum of the four triangle products and R for the sum of the three four-cycle products, det G=1-S+2H+P-2R=0, T=4-2S+2H and Q^2=P+2R, giving the stated identity. For M=sum n_i n_i^T, trace M=4, trace M^2=4+2S and det M=T. Thus S+2T<=6 reduces to 2 product(lambda)<=sum_{i<j} lambda_i lambda_j. The rank-three case is strict since sum 1/lambda_i>=9/4>2; the rank-two case is strict from the one positive pair product. Equality requires rank one. With P<=3 this gives S+3T+Q^2<=15; at rank one, the unit axes are collinear and P=3, so the bound is attained. In particular the computational basis has six outcomes each of probability 1/6. This proves the claimed natural-log entropy and all equality cases up to outcome swaps (basis-vector phases do not affect projectors). The supplied exact-checker source was inspected, not executed; the continuous optimization is analytic, not from sampling.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The former gives numerical RIU curves and describes global maximality for q>=2 as a conjecture supported by numerical tests. The latter identifies numerically conjectured values by a star."
+        ],
+        "reasoning": "A broader conjecture is not stronger proved coverage. Average two-qubit marginal entropy is a different optimization; single-product-overlap bounds target the largest probability, not the order-two sum or its equality cases.",
+        "searches": [
+          "arXiv:1506.04788, Sec. 5, pp. 11–13",
+          "DOI 10.1088/1742-6596/698/1/012003, Table 1 and caption"
+        ]
+      },
+      "checked_sources": [
+        "Enríquez–Puchała–Życzkowski, arXiv:1506.04788 / DOI 10.3390/e17075063",
+        "Enríquez–Wintrowicz–Życzkowski, DOI 10.1088/1742-6596/698/1/012003",
+        "Resultary under RIU/product-measurement collision aliases",
+        "Frozen RESULT.md, VERIFICATION.md and artifacts/verify.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier state formula implies C=1/6 in one product basis. The discussion says further numerical tests support the global maximality conjecture and states the expected fixed-state number; no upper-bound or rigidity proof is supplied in those passages."
+        ],
+        "reasoning": "The exhibited basis only yields max C>=1/6. The reverse bound over the continuum and the fact that equality forces rank one are the new mathematical steps.",
+        "searches": [
+          "arXiv:1506.04788, order-two purity definition (p. 3), Eq. (32), Fig. 5 and Sec. 5 closing discussion",
+          "2016 survey, Table 1 and caption"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Enríquez–Puchała–Życzkowski, pp. 3, 11 and 13, use the same product-basis purity and state (32) and report log 6 in a numerical investigation (Fig. 5 and discussion). The scoped Resultary queries returned no material match."
+        ],
+        "reasoning": "The fixed-state optimization is exactly the old product-basis purity problem, not a change of definition. Attainment by the computational basis does not prove a universal collision upper bound, and neither it nor a numerical search determines all equality bases.",
+        "searches": [
+          "Resultary: Higuchi Sudbery order-two Rényi Ingarden Urbanik entropy collision probability 1/6 common Bloch line product bases",
+          "Resultary: Higuchi–Sudbery state S_2^RIU = log 6 product measurement bases",
+          "Web: \"Minimal Rényi–Ingarden–Urbanik entropy\" Higuchi Sudbery order two log 6 numerical local bases"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The table already gives the same log 6 entry at q=2 for HS, marked as numerical conjecture in the caption. It does not list a rigorous optimum or optimizing bases."
+        ],
+        "reasoning": "The exact reported number is credited; the table does not give an exact optimizer certificate or a classification.",
+        "searches": [
+          "2016 survey, Table 1, p. 10, OA offset 41100",
+          "2015 RIU paper, Fig. 5 and p. 13, OA offset 95000",
+          "Resultary: Higuchi–Sudbery state S_2^RIU = log 6 product measurement bases"
+        ]
+      },
+      "rationale": "The order-two value was previously reported numerically for the same state, not newly predicted here. The supported distinct contribution is a continuous-basis proof and the necessary-and-sufficient common-line equality condition. No equivalent proof or optimizer classification was found in the inspected closest literature or indexed Resultary matches.",
+      "residual_risks": [
+        "A rigorous derivation under different collision-entropy or tensor-norm terminology may be unindexed or missed; the comparison is bounded.",
+        "The broader global-maximality conjecture and other Rényi orders are outside the result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Numerical value covered; no exact fixed-state proof or equality classification in the relevant inspected discussion",
+          "evidence": "The passage reports log 6 and discusses numerical tests, not an inequality over every local measurement.",
+          "identifier_or_url": "https://arxiv.org/pdf/1506.04788",
+          "material_read": "Product-basis purity definition p. 3, HS Eq. (32) and numerical Fig. 5 discussion p. 11, and q>=2 discussion p. 13 (OA offsets 12950, 68100 and 95000)",
+          "method": "Primary OA PDF passages",
+          "title": "Minimal Rényi–Ingarden–Urbanik entropy of multipartite quantum states",
+          "trigger": "Defining work with the same state, measure, order and claimed number"
+        },
+        {
+          "assessment": "Same value listed with numerical-conjecture status; no optimizer classification",
+          "evidence": "HS order-two entry log 6 is starred and the caption defines starred entries as conjectured from numerical calculations.",
+          "identifier_or_url": "https://doi.org/10.1088/1742-6596/698/1/012003",
+          "material_read": "Table 1 and caption, p. 10 (OA offset 41100)",
+          "method": "Primary OA full-text table passage",
+          "title": "Maximally Entangled Multipartite States: A Brief Survey",
+          "trigger": "Potential exact source for HS order-two value"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This turns a previously numerical fixed-state product-measurement optimum into a sharp theorem and determines every measurement attaining it. The rigidity is useful beyond the single entropy number: it separates relative-axis alignment from a coincidence at the computational basis and gives an exact benchmark for continuous local-basis optimization. It does not resolve the larger optimization over states.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

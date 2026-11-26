@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:30:58.142560Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, lines 27–92",
+        "VERIFICATION.md and verify.py inspected, not executed",
+        "Independent replay: python3 /workspace/review-checks/4_decks.py"
+      ],
+      "rationale": "The alternating triples distinguish four runs (both present), three (one, fixing the start), and at most two (neither); letter totals and ordered pairs recover these shorter cases. For four runs starting in zero, the deck supplies Z=a+c, O=b+d, P=N10=bc, N010=aP and N101=dP, which recover all four exponents at fixed orientation. For a same-deck word starting in one, put Q=N01 and rho=P/Q. Pair balance gives P+Q=ZO and the alternating triples give opposite end exponents rho*d,rho*a. The product of its two middle exponents is (Z-rho*a)(O-rho*d)=Q+rho(rho-1)ad since Zd+Oa=Q+ad. As that product must equal Q, rho=1 and the word is the reversal. Counting zeros before and after individual ones (and vice versa) gives the two triple-difference identities, so the reversal is equivalent precisely when N01=N10, or 2bc=ZO. Dividing b(c-a)=d(a+c) by gcd(c-a,c+a) gives the positive solutions, with c>a. Each labeled unordered reversal pair has a unique zero-start representative, so the listed parameters are nonredundant for labeled pairs; complement is an involution on the family, not an additional nonredundant list if one further quotients by complement. Independent direct enumeration of all 510 binary words of lengths 1–8 found zero collisions through length 6, exactly two reversal pairs at 7, and eight nonreversal pairs at 8. The specified witness has the stated deck and run counts 4 and 5. Thus the theorem is sharp in both stated senses, not a claim that the first collision of any kind has length 8.",
+      "residual_risks": [
+        "The replay covers the finite cutoff only; the rigidity theorem beyond it is proved algebraically.",
+        "The assumptions require both words to be in the four-run class when deducing reversal rigidity."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Section 6 gives a binary local-switch account at k=2 and notes the extension to k>=3 is unclear.",
+          "The weight-three classification concerns collisions with three ones, not arbitrary weights."
+        ],
+        "reasoning": "Neither the k=2 theorem nor a fixed-weight slice subsumes all run lengths and weights in the at-most-four-run theorem. Contiguous reconstruction uses a different, generally inequivalent observable.",
+        "searches": [
+          "arXiv:2001.11732, Section 6",
+          "Resultary f95f52cd118b, Finding and Assumptions"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2001.11732",
+        "Resultary 58afc1431d6d, f95f52cd118b",
+        "OA access attempts for DOI 10.3934/amc.2021032 and DOI 10.1109/ISCIT.2019.8905191"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The later four-run record explicitly contains equivalent coverage of the structural claim and criterion, not merely matching parameters.",
+          "The weight-three finding and the cited global deck-range problem do not classify words of arbitrarily large weight and at most four runs."
+        ],
+        "reasoning": "No demonstrated prior implication covers the orientation rigidity in the frozen scope. The demonstration needs the two alternating triple counts combined with the pair product identity; it is not a recomputation of overall small-deck table entries.",
+        "searches": [
+          "Lejeune–Rigo–Rosenfeld arXiv:2001.11732, Section 6",
+          "Resultary 58afc1431d6d and f95f52cd118b Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The k-binomial definition uses exactly the scattered counts for lengths at most k. For n>=3 the entry counts for length 3 determine the lower lengths by counting supersequences with multiplicity, so length-three deck and the length-at-most-three deck are equivalent at those lengths.",
+          "Resultary 58afc1431d6d states the same four-run classification and reversal equation."
+        ],
+        "reasoning": "Treat 3-binomial equivalence and the length-three deck as the same observable within the nontrivial range; do not count a new term for the observable as a distinct result. The matching catalogue finding is a later dated record, not a demonstrated prior theorem.",
+        "searches": [
+          "Resultary: binary three-deck fibres, run-bounded reconstruction, binomial equivalence",
+          "Lejeune–Rigo–Rosenfeld arXiv:2001.11732, Definition 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The later catalogue records explicitly distinguish first restricted ambiguities at length 7, which are reversals. The frozen source cites global distinct-deck counts in Chrisnata et al.; the actual full-text tables were not available to this review."
+        ],
+        "reasoning": "Global class counts alone are not structural data for a run-restricted deck fibre, and a first arbitrary collision at length 7 is not the first nonreversal collision. Some exact finite data may overlap; the unavailable tables are not claimed not to contain them.",
+        "searches": [
+          "Chrisnata et al. DOI 10.3934/amc.2021032 and 10.1109/ISCIT.2019.8905191, lawful OA full-text attempts",
+          "Resultary 58afc1431d6d and f95f52cd118b"
+        ]
+      },
+      "rationale": "The supported contribution is the complete four-run rigidity and reversal criterion for scattered multiplicity decks, with a verified five-run boundary. The later indexed record contains the same central classification as well as a census; this is real duplication of scope, not evidence of independent priority or a prior source for the frozen theorem. The small length threshold is supporting sharpness, not the basis for the originality pass.",
+      "residual_risks": [
+        "The cited journal and conference full texts were unavailable for statement-level comparison; small-length data or further specialized results there could overlap.",
+        "A later catalogue finding with equivalent central scope is identified; the accessible record dates do not settle the provenance of the mathematics."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Definitions and binary k=2 structure, not the k=3 theorem in the inspected passages",
+          "evidence": "Section 6 says extending the local k=2 description to k>=3 is unclear.",
+          "identifier_or_url": "https://arxiv.org/abs/2001.11732",
+          "material_read": "Definition 2, PDF page 2, offset 5400; Section 6, page 19, offset 54700",
+          "method": "OA PDF passages",
+          "title": "On the binomial equivalence classes of finite words",
+          "trigger": "Same equivalence and possible stronger binary classification"
+        },
+        {
+          "assessment": "Specific residual access risk, not a negative coverage claim",
+          "evidence": "The frozen relationship section reports global deck-range counts; no inspected primary table establishes run-restricted rigidity or the first nonreversal collision.",
+          "identifier_or_url": "https://doi.org/10.3934/amc.2021032; conference precursor https://doi.org/10.1109/ISCIT.2019.8905191",
+          "material_read": "Identifiers and cited description; no primary full-text result/table obtained",
+          "method": "Bounded lawful OA retrieval attempts for journal and proceedings, with no repository copy returned",
+          "title": "On the number of distinct k-decks: Enumeration and bounds",
+          "trigger": "Possible exact small-length tables or stronger prior statements for binary k-decks"
+        },
+        {
+          "assessment": "Exact central overlap in a later dated catalogue record; priority not independently adjudicated",
+          "evidence": "Same reversal classification and exponent equation, plus a restricted fibre census and length-seven first restricted collision.",
+          "identifier_or_url": "Resultary 58afc1431d6d",
+          "material_read": "RESULT.md Finding and Assumptions, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Exact three-deck fibres for binary words with at most four runs",
+          "trigger": "Direct match in observable, alphabet and run bound"
+        },
+        {
+          "assessment": "Later weight-three slice; no uniform four-run theorem in the inspected statement",
+          "evidence": "First weight-three collision at length 7, including the reversal pair 0110001 and 1000110.",
+          "identifier_or_url": "Resultary f95f52cd118b",
+          "material_read": "RESULT.md Finding and Assumptions, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "All binary three-deck collisions at weight three",
+          "trigger": "Possible stronger classification for the small-cutoff witness"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, Findings and proof sections 1–5",
+        "Independent replay /workspace/review-checks/4_decks.py"
+      ],
+      "rationale": "Reconstruction from subsequence multiplicities has a natural restriction by the number of symbol changes. The proof delineates the last bound with uniqueness up to reversal, classifies exactly which reversals it cannot distinguish, and shows by a minimal nonreversal witness what fails when the run bound is increased. The arbitrary-length classification, not the small finite enumeration alone, is the substantive contribution.",
+      "residual_risks": [
+        "No classification of unrestricted or all five-run fibres, robustness to noisy decks, or extension to larger alphabets is asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

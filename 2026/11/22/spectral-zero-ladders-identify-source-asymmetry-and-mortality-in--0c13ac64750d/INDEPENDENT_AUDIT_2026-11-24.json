@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:04:27.071939Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–21 and 23–73; VERIFICATION.md; checks/spectral_two_wall.py inspected, not executed",
+        "python3 /workspace/branches/frozen_review_reproduction.py diffusion: independent high-precision sinh-product sign and slope checks at 12 roots, including μ=0, confirming the second correction"
+      ],
+      "rationale": "The backward Dirichlet equation with killing gives the two defective hitting transforms. Poisson cluster covariance counts ordered distinct offspring since one particle cannot hit both walls, hence is nonnegative at every lag and transforms with the stated conjugation to b·E[K(K−1)]·F_0(iω)overline(F_L(iω)). Strict midpoint positivity and the ladder are the nonzero-factor case E[K(K−1)]>0, as the Finding's final zero-spectrum exception and proof clarify. When that factor vanishes, Poisson marking and displacement yield independent Poisson streams. Independently, after multiplying by a positive real normalization, the off-center sign is exactly the sign of cos(dv)−[cosh(du)/cosh(Lu)]cos(Lv), where d=|L−2x|, u²=v²+μ/D and ω=2Duv. Since 0<d<L, both the correction and its v derivative are exponentially small. In disjoint fixed neighborhoods of the reference cosine zeros a nonzero-slope bound yields one simple zero, and outside there are none eventually. Expanding ω about the reference phase proves the O(n^−2) correction and the constant μ. If the exact zero list is supplied without phase labels, consecutive sorting differs by at most a fixed integer shift in the tail; the leading quadratic coefficient A comes from growth and the shift from the limit of sqrt(ω_k/A)−k−1/2, so it does not contaminate μ. Reflection and exact-data limitations are correctly stated.",
+      "residual_risks": [
+        "The numerical roots are not a proof of the infinite ladder. Midpoint positivity should always be read with the positive factorial-moment hypothesis; the zero and singleton burst case cannot identify geometry or mortality."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Boyer–Mercado-Vásquez PDF p. 1 abstract treats arbitrary propagators, synthesis/degradation, bursty synthesis and first passage. That inspected passage does not assert a two-wall stationary cospectral ladder.",
+          "Classical cluster formulas are credited in frozen RESULT.md lines 81–83; decisive primary passages were not retrieved."
+        ],
+        "reasoning": "The general propagator/cluster setting can encompass ingredients of the model, but the examined statements do not give the needed phase expansion, sign dichotomy, or second term of the ordered roots.",
+        "searches": [
+          "Boyer–Mercado-Vásquez arXiv:2611.04843v1; bounded primary web query on Poisson burst diffusion two targets and spectral zeros",
+          "Bartlett DOI 10.1111/j.2517-6161.1963.tb00508.x; Westcott DOI 10.1017/S0021900200096005; Hawkes DOI 10.1093/biomet/58.1.83"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md §§Proof and Relationship to prior work",
+        "Resultary 0c13ac64750d, 39e2bd9a0c31 and 6da71896305d",
+        "Primary abstracts arXiv:2611.04843v1 and arXiv:1812.03009v2; publication retrieval attempts listed above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The cross-spectrum product is expressly acknowledged classical cluster reasoning. The exact difference-of-cosines reduction, exponentially small derivative correction and recovery from the μ intercept depend on the two-wall geometry."
+        ],
+        "reasoning": "General transform identities do not on their own identify the asymptotic zero sequence or its inverse parameters. Credit the established identities and count the specialized theorem, not the intermediate product formula, as distinct.",
+        "searches": [
+          "Frozen Proof §§2–5 and Relationship to prior work; accessed abstracts of arXiv:2611.04843v1 and arXiv:1812.03009v2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "0c13ac64750d gives the exact result and is the assigned record itself. Distinct records 39e2bd9a0c31 and 6da71896305d concern local factorial cumulants and first-reaction rates respectively."
+        ],
+        "reasoning": "A one-detector marginal cumulant or first arrival does not specify the lagged covariance of two stationarily observed count streams. Reflection or reversing the complex conjugation leaves the real cospectrum invariant but did not reveal a distinct indexed statement of the same ladder.",
+        "searches": [
+          "Resultary: two-target burst diffusion; Poisson cluster cospectra; source-asymmetry zeros; inverse mortality from zero ladder"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact catalogue match is the assigned record, not a prior table. Pal–Prasad p. 1 abstract concerns interval first passage and splitting under resetting."
+        ],
+        "reasoning": "Absorption transforms or splitting probabilities for the same interval do not tabulate cospectral phases or ordered zeros of the two-target cluster process.",
+        "searches": [
+          "Resultary searches using off-center positive simple zeros, μ offset and the two-target diffusion signatures; arXiv:1812.03009v2"
+        ]
+      },
+      "rationale": "The supported distinct result is the two-endpoint cospectral symmetry classification and the indexed two-term ladder recovering mortality as well as source distance, not Poisson-cluster spectral calculus, killed hitting transforms, or stochastic burst synthesis.",
+      "residual_risks": [
+        "Only the most relevant accessible primary abstracts, not the decisive full text of the burst paper and classical point-process sources, could be read. A stronger existing specialization is not excluded by lookup failure."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Shared burst model ingredients; whole-document coverage unresolved",
+          "evidence": "The abstract treats arbitrary single-particle propagators and first-passage properties, not an explicit two-endpoint stationary zero sequence.",
+          "identifier_or_url": "arXiv:2611.04843v1",
+          "material_read": "PDF p. 1 abstract, extracted lines 17–33; targeted fuller passage not obtained",
+          "method": "Bounded primary PDF reading and follow-up retrieval attempt",
+          "title": "Stochastic synthesis and degradation of arbitrary diffusive processes",
+          "trigger": "Closest burst synthesis and degradation framework"
+        },
+        {
+          "assessment": "Shared interval geometry but different resetting and first-passage problem",
+          "evidence": "Splitting probabilities at absorbing endpoints under resetting are not a burst arrival cospectrum.",
+          "identifier_or_url": "arXiv:1812.03009v2",
+          "material_read": "PDF p. 1 abstract, extracted lines 9–20",
+          "method": "Bounded primary PDF reading",
+          "title": "First passage under stochastic resetting in an interval",
+          "trigger": "Related absorbing interval endpoint transforms"
+        },
+        {
+          "assessment": "General machinery credited; specialized overlap not demonstrated by available evidence",
+          "evidence": "Sum over distinct within-cluster particles gives the transform product but imposes no geometry-specific large-frequency phase on general offspring kernels.",
+          "identifier_or_url": "10.1111/j.2517-6161.1963.tb00508.x; 10.1017/S0021900200096005; 10.1093/biomet/58.1.83",
+          "material_read": "Frozen RESULT.md lines 32–40, 81–83 and 92–94; no relevant primary passage retrieved",
+          "method": "Bounded lawful retrieval attempts; general covariance then independently derived from the model",
+          "title": "Bartlett, Westcott and Hawkes on point-process spectra and clusters",
+          "trigger": "Potential general formula implying the product or zero ladder"
+        },
+        {
+          "assessment": "Different observables and claims",
+          "evidence": "Local factorial-cumulant scaling and first-reaction rates, not endpoint cospectral zero geometry.",
+          "identifier_or_url": "Resultary 39e2bd9a0c31 and 6da71896305d",
+          "material_read": "Catalogue statements",
+          "method": "Local Resultary search",
+          "title": "Local burst-diffusion cumulants; renewal burst-interval coupling for mortal first reaction",
+          "trigger": "Closest distinct indexed diffusion-burst results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding, asymptotics and Limitations; exact normalized cospectral expression"
+      ],
+      "rationale": "The result explains how an everywhere nonnegative covariance can have a sign-alternating real cross-spectrum in a basic two-target diffusion model. It proves an exact identifiability statement for two independent parameters from different scales of one spectral observable, independent of burst intensity and nonzero factorial-moment scale.",
+      "residual_risks": [
+        "High-frequency magnitudes decay exponentially in sqrt(ω); the exact-spectrum recovery makes no claim of stable estimation from noisy finite data."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -26,7 +26,7 @@ In particular, \(\mathbb EL=-1/4\), \(\operatorname{Var}(L)=1/16\), and its exce
 
 ## Assumptions and scope
 
-The statistical observation model is independent and identically distributed \((X_i,Y_i)\sim\operatorname{Unif}(0,1)\otimes\operatorname{Unif}(0,1)\). The displayed score is fixed independently of these observations. It lies in \((0,1)\), and \(s(X_i,Y_i)\) is itself uniform on \((0,1)\), with a continuous distribution and no comparison ties almost surely. Both original and cyclically permuted score lists contain \(n\) observations, and all \(n^2\) cross-comparisons are included, including \(i=j\). This is the held-out rank statistic in formula (2.2) of [1], conditional on a specified score; no claim is made that a trained algorithm will output that score.
+The statistical observation model is independent and identically distributed \((X_i,Y_i)\sim\operatorname{Unif}(0,1)\otimes\operatorname{Unif}(0,1)\). The displayed score is fixed independently of these observations. Its marginal distribution is uniform on \((0,1)\). Although the scores are distinct within each list almost surely, cross-list ties occur: almost surely equality holds precisely when \(i=j+1\) cyclically and \(A_i=A_j\). These ties arise from reuse of \(Y_i\) and contribute zero under the strict inequality. Both lists contain \(n\) observations, and all \(n^2\) cross-comparisons are included, including \(i=j\). This is the strict comparison in formula (2.2) of [1] for the specified score, not a rank statistic with midrank or random tie-breaking. No claim is made that a trained algorithm will output that score.
 
 Although \(s\) uses both independent coordinates, its probability integral transform is exactly \(F_s(s(X,Y))=s(X,Y)=A/2+Y/2\), additive across coordinates. Thus the non-additivity hypothesis in Theorem 3.1 and Remark 3 of [1] fails; the published Gaussian theorem does not apply. The finding identifies the remaining second-order law without contradicting that theorem.
 
@@ -72,7 +72,7 @@ Since \(\sum_{i\ne j}B_iB_jH_{ij}=\sum_{i<j}B_iB_j\), regrouping signed terms yi
 
 Then \(C_{ik}=\kappa(Z_i,Z_k)\) exactly. Let \(K\) be the compact self-adjoint integral operator defined by this kernel under uniform area measure, with nonzero eigenvalues \((\lambda_r)\), repeated by multiplicity and signed. Its squared Hilbert–Schmidt norm is \(\sum_r\lambda_r^2=\int\kappa^2=1/2\).
 
-For every finite eigenfunction truncation, the standardized sums \(n^{-1/2}\sum_i B_i e_r(Z_i)\) satisfy a joint centered normal CLT with *identity* covariance. Indeed, away from the cyclic wrap, the process \((B_i,Z_i)\) is one-dependent, bounded for each fixed eigenfunction, and its off-diagonal covariances vanish exactly because \(\mathbb E(B_iB_j)=0\) whenever \(i\ne j\). The diagonal eigenfunction-square means obey a one-dependent law of large numbers. Hence the finite truncation of the quadratic term in (1), divided by \(n\), converges to \(\tfrac12\sum_r\lambda_r(G_r^2-1)\) over the retained modes, where the \(G_r\) are independent standard normals. The \(L^2\) error from omitted modes is bounded by their squared Hilbert–Schmidt tail, uniformly up to a vanishing \(O(1/n)\) contribution from the \(O(n)\) adjacent pairs. This follows particularly simply because different unordered Rademacher pair products are orthogonal even when their \(Z\)-marks overlap. Finite-rank approximation followed by the Hilbert–Schmidt limit proves
+For every finite eigenfunction truncation, the standardized sums \(n^{-1/2}\sum_i B_i e_r(Z_i)\) satisfy a joint centered normal CLT with *identity* covariance. Indeed, away from the cyclic wrap, the process \((B_i,Z_i)\) is one-dependent; for each nonzero eigenvalue take the bounded representative \(e_r=Ke_r/\lambda_r\). The single wrap term is negligible, and off-diagonal covariances vanish because \(\mathbb E(B_iB_j)=0\) whenever \(i\ne j\). The diagonal eigenfunction-square means obey a one-dependent law of large numbers. Hence the finite truncation of the quadratic term in (1), divided by \(n\), converges to \(\tfrac12\sum_r\lambda_r(G_r^2-1)\) over the retained modes, where the \(G_r\) are independent standard normals. By orthogonality of the unordered sign pairs, the squared \(L^2\) error is bounded by the squared Hilbert–Schmidt tail for the nonadjacent pairs, whose marks are independent. The \(O(n)\) adjacent pairs contribute \(O(1/n)\) for each fixed truncation, by boundedness. Taking \(n\to\infty\) first and then enlarging the truncation proves
 
 \[
 \boxed{\quad L_n\Rightarrow-\frac14+\frac14\sum_r\lambda_r(G_r^2-1).\quad} \tag{2}
@@ -82,13 +82,13 @@ The series converges in \(L^2\); the shift \(-1/4\) comes from \(-1/2+T_n/(2n)\t
 
 **4. Complete spectrum.** Let \(Ag(u)=\int_u^1g(v)\,dv-\tfrac12\int_0^1g(v)\,dv\), and embed univariate functions into the square through \(Ug(u,v)=g(u)\) and \(Vg(u,v)=g(v)\). The kernel operator is \(K=UAV^*-VAU^*\). Exchanging \(u,v\) anticommutes with \(K\), so every nonzero eigenvalue occurs in a positive/negative pair. The range of \(K\) consists of sums of a function of \(u\) and a function of \(v\); consequently its positive squared spectrum can be determined from the antisymmetric subspace \(g(u)-g(v)\), with \(\int_0^1g=0\).
 
-On that subspace \(K\) sends \(g(u)-g(v)\) to \(-(Ag)(u)-(Ag)(v)\). Applying \(K\) again gives the antisymmetric representative \(-P_0A(Ag+PAg)\), where \(P\) projects onto constants and \(P_0=I-P\). For an eigenvalue square \(\omega^{-2}>0\), differentiating twice gives
+On that subspace \(K\) sends \(g(u)-g(v)\) to \(-(Ag)(u)-(Ag)(v)\). Applying \(K\) again gives the antisymmetric representative \(-P_0A(Ag+PAg)\), where \(P\) projects onto constants and \(P_0=I-P\). For an eigenvalue square \(\omega^{-2}>0\), differentiating once yields \(\omega^{-2}g'=Ag+PAg\). Since \(Ag(0)=Ag(1)=0\), the value of the right side at zero is half its integral. Differentiating again gives the boundary problem
 
 \[
 g''+\omega^2g=0,\qquad\int_0^1g=0,\qquad g(1)-g(0)=2g'(0).
 \]
 
-Solving this elementary boundary problem gives exactly one frequency \(2\pi m\) for every \(m=1,2,\ldots\), and exactly one positive root \(\rho_m\in(2m\pi,(2m+1)\pi)\) of \(\tan(\rho_m/2)=\rho_m\) for every \(m=0,1,\ldots\). Each contributes the eigenvalues \(\pm1/\omega\), with \(\omega\) ranging over these two sets. These account for all nonzero eigenvalues of \(K\).
+Conversely, for a solution of this problem with \(\omega\ne0\), \(\omega^{-2}g'-Ag\) is constant by the differential equation. The boundary condition makes that constant equal to \(PAg\); integrating and using zero mean recovers \(\omega^{-2}g=-P_0A(Ag+PAg)\). In the basis \(\cos(\omega(u-1/2)),\sin(\omega(u-1/2))\), the zero-mean condition sets the cosine coefficient to zero unless \(\sin(\omega/2)=0\), and the remaining boundary condition imposes \(\sin(\omega/2)=\omega\cos(\omega/2)\) on a nonzero sine coefficient. Thus there is one frequency \(2\pi m\) for each \(m=1,2,\ldots\), and one positive root \(\rho_m\in(2m\pi,(2m+1)\pi)\) of \(\tan(\rho_m/2)=\rho_m\) for each \(m=0,1,\ldots\). The latter count follows from strict convexity of the tangent on each of those branches, with slope \(1/2\) at the left edge, and negativity on the intervening branches. Each antisymmetric eigenfunction of \(K^2\) with positive eigenvalue pairs with a symmetric one via \(K\), giving eigenvalues \(\pm1/\omega\). These account for all nonzero eigenvalues of \(K\).
 
 Thus (2) is equivalently
 
@@ -103,7 +103,7 @@ with independent standard normals. For each frequency the characteristic-functio
 =\prod_{m\ge0}\left(1-\frac{z^2}{\rho_m^2}\right),
 \]
 
-at \(z=it/2\) produces the characteristic function stated in the finding. The product normalization is one at zero, and every factor is positive for real \(t\).
+at \(z=it/2\) produces the characteristic function stated in the finding. To see that the product includes all zeros, the sine solution of the boundary problem for a nonzero complex zero would give the eigenvalue \(z^{-2}\) of the positive self-adjoint operator \(K^2\); thus \(z\) must be real. The positive zeros are simple (the tangent-minus-line function crosses with strictly positive slope). The normalized entire function is even and of order one, so pairing the sign-opposite zeros in its canonical product leaves only a constant factor, fixed at one by the value at zero. Every characteristic-function factor is positive for real \(t\).
 
 **5. Non-Gaussianity and exact kurtosis.** The Taylor expansion of the normalized entire function is \(1-(5/24)z^2+(3/640)z^4+O(z^6)\); comparing elementary symmetric sums gives \(\sum_m\rho_m^{-2}=5/24\) and \(\sum_m\rho_m^{-4}=49/1440\). Adding the frequencies \(2\pi m\) yields
 
@@ -125,7 +125,7 @@ General degenerate U-statistic chaos expansions and weak-dependence spectral met
 
 ## Limitations
 
-The score is deliberately chosen from the additive exception and is fixed, not produced by a specified training algorithm. Conclusions concern its held-out null law; no trained-classifier power, consistent testing under alternatives, performance of the estimated variance denominator in [1], or finite-sample calibration guarantee is claimed. The spectral derivation is analytic and self-contained but has not received independent mathematical validation. Relevant broader literature may contain unrecognized equivalent specializations.
+The score is deliberately chosen from the additive exception and is fixed, not produced by a specified training algorithm. Conclusions concern its strict held-out null law; no trained-classifier power, consistent testing under alternatives, performance of the estimated variance denominator in [1], or finite-sample calibration guarantee is claimed. Relevant broader literature may contain unrecognized equivalent specializations.
 
 ## References
 

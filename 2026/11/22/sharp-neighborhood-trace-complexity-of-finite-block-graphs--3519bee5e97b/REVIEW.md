@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The quantified domain is **every finite nonempty simple block graph**, **every** marked vertex set of size \(m\), and every open-neighborhood center, including marked centers. For \(m\ge4\), the proof partitions multi-element traces into marked centers, centers supported in one marked component, and cross-component centers; the vertex–clique incidence forest gives the \(\sum b_i\) and \(c-1\) bounds. The exact defect identity \(u+b+1=2t-(\ell+\delta)\) and its only two exceptional connected components (singletons and triangles) yield the universal \(3m-2\) upper bound. The path of triangular blocks with pendants and an isolate attains equality for every \(m\ge4\); separate constructions attain \(2^m\) for \(0\le m\le3\). The standalone standard-library checker independently exhausts all labelled block graphs through six vertices and all their parameter subsets, checks explicit witnesses through 18 markers, and checks random larger block graphs. It does not substitute for the incidence-forest proof.
+PASS
 
-## Originality — PASS within inspected evidence
+The proof covers arbitrary ambient order and both marked and unmarked centers. In the vertex–block incidence forest, two neighbors of an unmarked center from the same connected marked component must use the same clique, or there would be two paths between them. For the multicomponent count, contract the disjoint connected subtrees formed by each marked component and its incident clique nodes. Keep only terminal-to-center edges, without any suppression: with c terminals and s centers seeing multiple terminals, the forest has at least 2s and at most c+s−1 edges. This gives at most m+Σ_i(u_i+b_i+1) traces. The deficit from 2t_i in u_i+b_i+1 is the count of vertices of degree at most one plus Σ_B(|B|−2); it is at least two except on a singleton or a triangle. In the one-triangle case with other vertices, contracting the triangle gives a tree with a leaf outside the triangle. These deficits imply the 3m−2 upper bound for m≥4, and 2^m suffices below four marks. The path-of-triangles witness separates adjacent pairs, distance-two pairs, singletons and the empty trace; the small witnesses attain all subsets, including the unique empty trace at m=0 on a nonempty graph. The four-mark obstruction and three-mark witness give VC dimension 3, and the eventual exact linear formula gives density 1.
 
-The closest full-text primary source, Dreier et al. (2026), proves \(|A|^{1+o(1)}\) neighborhood complexity for monadically dependent classes and supplies no exact coefficient or block-graph bound. The earlier full-text graph-VC paper of Benediktsson et al. (2020) treats Johnson/Hamming graphs. Chakraborty et al. (2018) use neighborhoods for identifying codes in block graphs, not the maximum number of distinct trace types on an arbitrary parameter set. Publicly indexed results on block-graph neighborhood-complex homotopy, convexity, color refinement, and general rank-width-one traces do not state or imply this all-size exact block-graph shatter function. In particular, a previously recorded rank-width-one result treats only the four-marker maximum (12 for the larger class), and a cograph bound concerns a different restricted graph class. A potential equivalent formulation under an alternative terminology or in uninspected full text remains a priority risk; a search failure is not a proof of novelty.
+## originality
 
-## Value — PASS
+PASS
 
-The new exact \(3m-2\) coefficient and exceptional three-marker threshold refine generic almost-linear neighborhood-complexity results by resolving an all-parameter structural extremum, not just the exponent. The contrast between adjacency VC dimension three and VC density one matters when bounding the number of adjacency types over named parameter sets in finite-model arguments; every coefficient and the additive constant are sharp. The path-of-triangles witness also exhibits which marked-component features attain the maximum.
+The inspected statements cover related trace problems and broader asymptotic or small-profile bounds, not this all-m open-adjacency maximum of 3m−2 on block graphs. The exact function, not the generic technique or the VC terminology, supports this assessment.
 
-## Closest literature and limitations
+## value
 
-The most relevant prior full texts are Dreier et al. (2026), Benediktsson–Macpherson–Adler (2020), and Chakraborty–Foucaud–Parreau–Wagler (2018). Further indexed block-graph and rank-width results were compared at the level actually accessible. The proof does not cover closed-neighborhood systems or general chordal graphs. Earlier historical records beyond accessible material are not claimed checked, nor is historical uniqueness certified. No independent audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is the exact shatter function of a natural clique-tree class, independent of ambient order and including both center types. It determines not just the growth exponent but the sharp linear coefficient and deficit, and explains the small-set exception via the different singleton and triangle deficits. The extremal witnesses and the trace-counting lemma are useful when a generic growth or VC-dimension estimate is too coarse.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

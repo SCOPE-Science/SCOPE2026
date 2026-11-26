@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:21:00.257664Z",
+  "axes": {
+    "correctness": {
+      "rationale": "An E-block survives L_E L_F precisely when its F-expanded neighborhood is contained in S; similarly for the reverse order. Equal outputs are saturated by both partitions, hence by their join, and both outputs are subsets of S. On a partially included join-component equality therefore means both outputs are empty there, which proves the component criterion. On the connected alternating cycle the two neighborhood families together give all indexed four-point windows; at n=2 they all coincide as sets, and every proper input avoids them. For n≥3 a proper input containing exactly four consecutive points witnesses failure of universal commutation. The run-state automaton has a unique closed state sequence for each admissible indexed word, since a zero resets the state; the trace counts indexed words, not rotation classes. Adding the full set and normalizing by 2^(2n) is correct. The matrix is primitive with characteristic polynomial t^4-t^3-t^2-t-1 and its Perron root lies strictly between one and two, giving the claimed decay. Separate literal composition checks agreed on all 90346 partition-pair/subset cases through size five and all 87376 cyclic inputs for n=2 through 8; the replay reproduced the seven counts and the trace recurrence through length 44. The component and transfer arguments, not the finite replay, prove the unbounded results.",
+      "replay_paths": [
+        "/workspace/branches/9f8405b3-599b-493d-ab61-83cd191d2478/check_record3.py",
+        "/workspace/branches/9f8405b3-599b-493d-ab61-83cd191d2478/check_full.txt"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gopaulsingh's Claim 1 identifies u_E1([y]_E2), the union of inner classes meeting the outer block, as the minimum input whose L_2 L_1 output contains that block. The argument for this minimum uses only the definition of the lower operators.",
+          "The trajectory theorem treats all times and possibly several cycles, including the frozen cycle as the one-component case."
+        ],
+        "reasoning": "The minimal-input identity gives the neighborhood condition separately for each composition without cyclic restrictions. Intersecting their saturated ranges produces join-components; in a component not contained in S both outputs must be empty for equality. The arbitrary-partition criterion is this direct joint reformulation of the minimal-input identity.",
+        "searches": [
+          "arXiv:1612.03814 p. 11, Claim 1; Resultary d96482bfb41c, Finding and exact trajectory proof §2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–66; VERIFICATION.md and verify_cycle.py as recorded evidence",
+        "Resultary d96482bfb41c, pointwise trajectory §2",
+        "arXiv:1612.03814, pp. 7 and 11",
+        "OEIS A073817, Comments and Formula"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The proof of the broader trajectory result gives exact surviving blocks, while the OEIS entry gives the same characteristic polynomial and trace sequence for the resulting run constraint."
+        ],
+        "reasoning": "Two-step specialization in both phases and join saturation identify the entire equality locus; division by the number of subsets turns the known count into the claimed probability. The known root expression yields the same leading term by the strict dominance of the positive tetranacci root. No new cyclic enumeration or decay rate remains after these substitutions.",
+        "searches": [
+          "Resultary d96482bfb41c, §2 exact trajectory; arXiv:1612.03814 p. 11; OEIS A073817 Comments and Formula"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For the phase starting with E, the other record's trajectory at time two keeps F-pair f_i exactly when the adjacent E-pair indicators B_i and B_(i+1) are both one. It uses the same cyclic coordinates e_i={u_i,v_i}, f_i={v_i,u_(i+1)}."
+        ],
+        "reasoning": "A surviving pair at time two requires precisely its four source points in S. Exchanging E and F, or rotating the cycle by one step, gives the other window parity. For proper S the two outputs can agree only when both are empty, since a common output would be saturated for the connected join. Hence equality is exactly four-window avoidance or the full set. The joint event follows from the pointwise trajectory, not from multiplying two marginal extinction probabilities.",
+        "searches": [
+          "Resultary: alternating rough approximations, cyclic overlap and extinction; 2026/10/18 record d96482bfb41c, exact trajectory proof §2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A073817 explicitly counts fixed-position cyclic binary words avoiding four ones, lists 15, 51, 191, 708, 2631, 9775 and 36319 at lengths 4,6,...,16, and gives the trace of a companion matrix for x^4-x^3-x^2-x-1 and the sum of the four root powers."
+        ],
+        "reasoning": "The frozen counts are exactly A073817(2n)+1: restrict the known circular count to even lengths and add the full set. This is equality of the counted avoidance class and of the trace/root formulas, not just an accidental finite match.",
+        "searches": [
+          "OEIS A073817, Comments, Formula and tabulated terms; targeted lookup for indexed circular words avoiding four consecutive ones"
+        ]
+      },
+      "rationale": "The cyclic finding is a direct consequence of a distinct indexed exact trajectory theorem for the same alternating pair partitions, applied at time two in both phases; the remaining enumeration and root formula are already the indexed tetranacci-Lucas count. The general component criterion adds the ordinary join-saturation observation to the earlier minimal-input characterization of block survival. The comparison concerns mathematical coverage and direct implication, not chronology: the indexed trajectory result has the same catalogue date as the frozen record.",
+      "residual_risks": [
+        "The same-day date does not order the two indexed results or determine priority. The circular-run primary references named by the OEIS were not directly used as full-text evidence; the mathematical coverage follows from the inspected trajectory, minimal-input argument and exact OEIS entry."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct implication via both phases; not merely a similar extinction-time statistic",
+          "evidence": [
+            "At even time t=2h, f_i survives iff the indicators B_(i+j) for 1-h≤j≤h are all one; h=1 is the decisive specialization."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-exact-extinction-time-spectra-and-logarithmic-cutoff-for-alterna--d96482bfb41c/RESULT.md",
+          "material_read": "Finding, assumptions and proof §§1–2, offset 0 onward",
+          "method": "Local mirror full-text passage",
+          "title": "Exact extinction-time spectra and logarithmic cutoff for alternating rough approximations of two-matchings",
+          "trigger": "Same partitions and pointwise trajectory may dominate the two-step claim"
+        },
+        {
+          "assessment": "Gives the block survival condition; does not explicitly present the frozen probability law",
+          "evidence": [
+            "u_E1([y]_E2) is the minimum X such that L_2 L_1(X) contains [y]_E2, because each intersecting E1-class must lie in X."
+          ],
+          "identifier_or_url": "arXiv:1612.03814",
+          "material_read": "p. 7 composition definition and p. 11 Claim 1, around PDF text offset 32800",
+          "method": "Open-access PDF passages",
+          "title": "Double Successive Rough Set Approximations",
+          "trigger": "Earlier lower-composition structure for arbitrary equivalences"
+        },
+        {
+          "assessment": "Exact coverage of the cyclic enumeration under an even-index, plus-one transform",
+          "evidence": [
+            "Comments give the fixed-position circular avoidance interpretation; Formula gives the companion-matrix trace and the root power sum."
+          ],
+          "identifier_or_url": "https://oeis.org/A073817",
+          "material_read": "Opening terms, Comments and Formula sections",
+          "method": "Open public database page",
+          "title": "Tetranacci numbers with different initial conditions",
+          "trigger": "Exact linked table, cyclic counting interpretation and trace formula"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Measuring order sensitivity is motivated, but the frozen quantitative claim offers no substantive increment over the established pointwise trajectories and the exact indexed run table: it takes time two in both phases and adds the full input. The general block criterion is the known minimal-input test intersected with the two saturation conditions. Beyond a useful exposition of these consequences, the record does not isolate a nonroutine new agreement phenomenon or a gap left by that coverage.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

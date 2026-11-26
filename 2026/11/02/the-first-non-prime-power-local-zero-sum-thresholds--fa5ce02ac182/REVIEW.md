@@ -1,11 +1,21 @@
-# Review of the exact local zero-sum thresholds at six
+# Independent mathematical audit
 
-**Correctness — PASS.** The explicit multiset with five \(1\)'s, five \(-1\)'s, one \(13\), and one \(-13\), all viewed modulo \(36\), has no nonempty subsum with gcd \(6\) with \(36\). Normalizing a unit entry to \(1\), ordering the multiset, and tracking every exact-length subset-sum residue for lengths at most six covers every counterexample. The supplied unrestricted-depth exact enumerator has \(3944\) nodes, maximum depth \(12\), and no length-thirteen bad sequence. The proof explains why the recurrence, pruning, and normalization are exhaustive. Finite computed evidence is not generalized by sampling: the program exhausts the entire reduced finite state space.
+## correctness
 
-**Originality — PASS (subject to priority risk).** Gao--Jiang--Mu explicitly ask for the constants at non-prime-power moduli; their Example 6.2 gives the lower bound but not the matching upper bound for \(n=6\). The full primary article's main theorems cover prime powers. Searches for the exact-gcd threshold, its notation, aliases, and relevant published mathematics did not recover a theorem implying the exact answer. Related fixed-length, non-divisibility constants in Sun and Li--Ling--Sun--Zhu do not imply the exact-gcd, short-subsequence upper bound. The latter works were compared primarily through their abstracts, and unindexed equivalent results remain possible.
+PASS
 
-**Mathematical value — PASS.** This computes both natural invariants in the first case of an explicit open composite-modulus problem and proves a general lower bound is already sharp there. The calculation is modest in scale but structurally meaningful because the competing prime-divisibility constraints must be enforced simultaneously, unlike the solved prime-power cases. It is not a claim about all composite moduli or an optimal general algorithm.
+Coprimality to 6 means a unit modulo 36, and gcd(s,36)=6 gives precisely the residues 6 and 30. Multiplication by a unit preserves that gcd and subsequence length; after normalization and sorting, any counterexample is a nondecreasing multiset starting with 1. Each recurrence state records sums of exactly j selected positions; the update takes old j−1 sums to account for inclusion of the new position, so repeats of a residue are handled correctly, and a pruned prefix cannot have a bad extension. An independent 36-bit-mask search with no depth cap reproduced all 3944 admissible prefixes, with counts 1,10,47,141,322,560,638,639,633,566,315,72 by length and no length-13 state. For the lower bound, d+13e with −5≤d≤5 and e∈{−1,0,1} cannot equal ±6 modulo 36, even without any length restriction. Thus 13 suffices for the short version and is necessary for the unrestricted version, proving both equalities.
 
-**Main limitation.** The result is an exact finite-modulus evaluation with a transparent exhaustive computation, not an infinite-family formula. Publication priority remains provisional pending independent scholarly review.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The prior exact-gcd problem and the twelve-term witness are verified in Gao–Jiang–Mu. The supported distinct claim is the matching upper bound at n=6. The strongest numerically similar same-day finding and the published weaker-predicate theorem neither guarantee a sum with gcd exactly 6 nor imply this upper bound.
+
+## value
+
+PASS
+
+The first modulus with two distinct prime divisors is the natural boundary of the known prime-power theorem and the first instance of the cited problem, not an arbitrary experimental choice. A sharp upper bound for the more restrictive short-subsequence invariant shows that the general lower construction is attained already at this boundary and settles both thresholds there.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness: PASS.** The full 49-vertex adjacency relation is built independently from square enumeration and from a field-norm criterion. The exhaustive C++ anchored support search proves the complete polynomial through rank five; the 49-concept cardinality bound proves that no larger support is shattered. The independent Python check verifies every extremal support, exactly two free affine semilinear orbits, and every four-support's five-extension count. The \(k f_k=49 a_k\) identity and the 4-to-5 incidence identity independently constrain reported totals.
+## correctness
 
-**Originality: PASS within checked material.** The quadratic-residue VC framework, translate invariance and general bounds are established in McDonald–Sahay–Wyman (2022). Its Section 4 finite numerics are explicitly prime-field-only, while the present computation concerns \(\mathbb F_{49}\). A published Paley-25 complete polynomial and orbit classification does not imply the 49-vertex result. No covering statement surfaced in the source, alias, finite-field-size or orbit searches. Independent historical-priority validation remains outstanding.
+PASS
 
-**Mathematical value: PASS.** Quadratic-residue translation systems are natural pseudorandom benchmarks. This order gives a sharp five-query configuration count, its two full symmetry types, and a substantial nonpure four-facet layer; the two-orbit and incidence phenomena distinguish the full concept geometry from a bare VC dimension. The result is intentionally a motivated complete finite case, not an unsupported all-field generalization.
+Reviewed the zero-diagonal open-neighborhood convention, including centers on supports, and reproduced the whole census independently. In F_7[i] the norm of a+bi is a^2+b^2 and is u^8 on nonzero u; the square test is exactly membership of the norm in {1,2,4}, with zero excluded. Replay /workspace/audit-replay/4.py traverses unanchored increasing supports, partitioning all 49 centers by traces as each vertex is appended. Both splits of every previous trace cell must be nonempty; a failed prefix legitimately precludes a shattered superset. Counts are (1,49,1176,18424,199920,4704) exactly; 49 centers rule out 64 required traces at size six and thus all larger sizes. Applying the 2352 explicitly defined semilinear maps to each of the displayed representatives gives 2352 distinct images per orbit, disjoint, with union all shattered five-sets; this verifies freeness for the named group without claiming it is the full automorphism group. Enumerating the five four-faces of each five-set gives exactly 11760 faces of degree two and no positive degree other than two. All other 188160 shattered four-supports are maximal by heredity, and five-facets also exist. Counts and replay output are in /workspace/audit-replay/4.txt. The exact computation is a finite exhaustion for this one graph, not a bound extended to other fields.
 
-**Limitations.** The result is confined to the zero-diagonal open-neighborhood system on one extension field; the code is a finite exhaustive proof whose replay and independent review are distinct activities. Unindexed prior equivalent results remain possible.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge pass on the full arbitrary-support polynomial and the free orbits and facet-extension distribution. The quadratic-residue VC framework is known. The exact historical priority of the bare VC dimension at 49 remains unresolved and is not needed for this distinct census. Neither generic VC statements nor fixed consecutive character tests give the full arbitrary-support result in the material accessed.
+
+## value
+
+PASS
+
+The quadratic-residue translate class is a standard finite-field test of shattering. Order 49 is a small quadratic-extension case in which five queries are possible but six are ruled out, so the rank limit is natural. The exact fifth-face count, its two symmetry types, and the nonpure maximal fourth layer describe incidence structure a researcher cannot recover from VC dimension or strong regularity alone. This is a complete finite classification, not significance inferred from a single software run or a selected witness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

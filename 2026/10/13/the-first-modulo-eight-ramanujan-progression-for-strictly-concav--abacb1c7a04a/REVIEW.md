@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The four infinite modulo-eight progressions are a direct, expressly attributed consequence of Liu–Xia Theorem 1.4. A deterministic exact finite coefficient certificate proves that every residue class of every modulus below \(25\) has at least one nonzero coefficient, and separately eliminates the other \(21\) residue classes at \(25\). Agreement of two different coefficient computations through degree \(500\) guards against implementation errors; the finite coverage check is exhaustive over the claimed modulus range.
+## correctness
 
-**Originality — PASS, with qualification.** Andrews–El Bachraoui give the complete modulo-four dichotomy, and Liu–Xia already prove the four modulo-eight congruences at modulus \(25\). Those positive facts are not new. The compared full texts do not determine the **least** qualifying modulus or rule out other classes at modulus \(25\). This note adds precisely those completeness and optimality statements by a finite covering certificate. A related July 2026 preprint was accessible only at abstract level; unindexed equivalent work remains a risk.
+PASS
 
-**Value — PASS.** Determining the least possible modulus of a universal Ramanujan-type congruence for a natural composition series is a motivated exact invariant. The result closes the sharpness question for the first known prime-square progression and completely characterizes that threshold, with a short reproducible obstruction certificate. It does not claim a general classification of larger moduli.
+For the series defined in RESULT.md, Liu–Xia (1.1) is the same normalization, and Theorem 1.4 with p=5 and prime-power parameter zero explicitly gives all four universal progressions (valid starting at k=0). Theorem 1.1 makes every triangular coefficient odd, including the constant term (also 1 by direct evaluation). T_(a+2m)−T_a is a multiple of m, so residues from one triangular period suffice. An independent recomputation from the product verified the eighteen coefficients 4 mod 8, their coverage of all 124 nontriangular pairs with m≤24, and the congruence and nonzero coefficient of each of the 21 displayed witnesses at modulus 25. Every witness in residue r is at an index r+mk with k≥0. The finite step disproves universality rather than extrapolating it.
 
-**Closest sources:** Andrews–El Bachraoui, arXiv:2606.30208v1; Liu–Xia, arXiv:2607.07145v1 (Theorem 1.4 and formulas (2.9), (3.1)); the abstract-only related arXiv:2607.10576.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The four congruences were already stated explicitly by Liu–Xia. The supported distinct result is the least modulus and the exhaustive exclusion of all other pairs through that modulus, which the prior infinite families, mod-4 classification and density theorem do not establish.
+
+## value
+
+PASS
+
+The first published example sets a natural cutoff; testing whether any smaller modulus works, and exhausting its own residues, proves its sharpness rather than choosing an arbitrary numerical interval. The witnesses are useful for separating true modulo-eight progressions from candidates surviving the known mod-four test.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,150 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:33:03.778624Z",
+  "axes": {
+    "correctness": {
+      "rationale": "I regenerated the full census with `python /workspace/replay/cubics.py 200 <frozen-dir>/orbits.csv`. The twenty degree-three monomials give 2^20-1 nonzero masks. Swaps of neighboring coordinates and a single shear generate GL_4(F2): conjugation supplies all elementary shears, and Gaussian elimination requires no nontrivial scalings. Thus the independent orbit traversal covers PGL_4(F2) with no scalar quotient. It found 141 orbits on 1,048,575 forms and matched every orbit minimum and weight in the frozen CSV, which it used only for comparison. Geometric smoothness was checked by affine-chart unit-ideal tests over F2; a proper ideal stays proper after field extension and has an algebraic-closure zero, and the Euler identity in characteristic two ensures a common zero of the four homogeneous partials lies on the cubic. I independently tested tritangent sections by exact linear divisibility, not by generating the frozen list's products: a candidate linear form divides a section precisely when elimination of its pivot annihilates the restricted polynomial. If a nonzero cubic has three distinct geometric linear factors, Frobenius permutes them in a triple, a fixed line and a pair, or three fixed lines, so the relevant field is respectively F8, F4, or F2. Testing for three distinct divisors over these fields proves both directions and yielded 106 section masks. Applying the tests to all 15 rational planes and exact zero restriction to all 35 rational lines per smooth orbit gave 36 smooth orbits, 322560 smooth equations, and all 15 table rows with both multiplicities as printed. The explicit masks 66880 and 67195 gave (weight, line count, tritangent count)=(28,15,15) and (840,0,9). The first attains the total number of available planes; the second really permits conjugate components. The computation does not extend beyond F2.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Banwait–Fité–Loughran classify 25 Weyl types, with Picard eigenvalues and line-orbit information, and discuss realizing the types over sufficiently large fields.",
+          "5e55036a6d2f tabulates line and tritangent actions for every Weyl type but does not give the multiplicities of F2 projective forms in those types. 0053074ac1a9 studies ten binary classes and tabulates lines and Eckardt points, a different configuration."
+        ],
+        "reasoning": "A generic type table determines the profile of a surface only after its Weyl type is identified; class sizes inside W(E6) are not frequencies of cubic equations. Realizability in sufficiently large fields does not identify which types appear over F2 or with which projective multiplicities.",
+        "searches": [
+          "Banwait–Fité–Loughran arXiv:1606.00300, §§1.1, 7.1–7.2",
+          "Resultary 5e55036a6d2f and 0053074ac1a9",
+          "McKean arXiv:2101.08217, Theorems 1.1–1.3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py and orbits.csv",
+        "Resultary local search and records 5e55036a6d2f and 0053074ac1a9",
+        "arXiv:1606.00300 and arXiv:2101.08217",
+        "Karaoğlu DOI:10.3906/mat-2102-10 abstract",
+        "Dickson JSTOR:1968056 indexed passage"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A complete bijective bookkeeping of the F2 projective representatives with their Weyl conjugacy classes and stabilizers would yield both weighted columns simply by aggregating the corresponding fixed counts.",
+          "The inspected catalogs give fixed counts by Weyl class, or partial binary spectra for different configurations, but did not provide the required assignment for all 36 binary classes. Counts of Eckardt points and fixed tritangent triples are not interchangeable; tritangent lines need not be concurrent."
+        ],
+        "reasoning": "The possible exact implication was tested rather than assuming different indexing makes it original. On the actual available statements, the missing type assignment or geometric section evaluation is mathematically necessary to obtain the weighted table. The same-day Weyl profile record receives full credit for its per-type data without any assumption about priority.",
+        "searches": [
+          "Resultary 5e55036a6d2f, Finding, scope and CSV; 0053074ac1a9, Finding",
+          "Banwait–Fité–Loughran arXiv:1606.00300, Table 7.1 and §7.2",
+          "Karaoğlu DOI:10.3906/mat-2102-10, abstract and attempted full text"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same t is the number of fixed tritangent triples of the Weyl action; a stable triple spans a stable plane, and a plane containing three distinct surface lines fixes the triple as a set.",
+          "Table rows C08 and C09 in the related record have identically 3^9 on lines but respectively three and nine fixed tritangents. The Weyl-class fixed-count table already gives those two (line, tritangent) pairs.",
+          "In the independent F2 census, surfaces with five rational points and zero rational lines exhibit both t=0 and t=1, as do surfaces with seven rational points and zero lines."
+        ],
+        "reasoning": "Neither rational point and line counts together nor a bare abstract line cycle type suffice in general. An actual Weyl conjugacy class, signed/incidence-preserving line action, or full matching Picard eigenvalue data would suffice for each surface. Such an assignment for every F2 projective orbit would therefore be strong coverage, even without reproducing the same displayed census.",
+        "searches": [
+          "Resultary: 36 smooth cubic surface projective classes over F2 binary field Frobenius W(E6) conjugacy class assignments zeta functions all weighted frequencies tritangent planes",
+          "Banwait–Fité–Loughran arXiv:1606.00300, §1.1 and Table 7.1",
+          "Resultary 5e55036a6d2f, Finding and e6_profiles.csv"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected same-day e6_profiles.csv is a complete exact table, but its indices and weights concern Weyl classes, not binary projective classes or equations.",
+          "Karaoğlu's accessible abstract identifies a representative classification over F2 with line-count and automorphism information. Dickson's indexed passage explicitly gives rational lines by nonsingular type. Full text of these two sources could not be checked for additional or mechanically sufficient columns.",
+          "No distinct matching F2 weighted table surfaced in the available material reviewed; the exact frozen record is not independent coverage."
+        ],
+        "reasoning": "Known binary representatives and stabilizer data supply the input domain and potentially its weights. The distinct quantity to compare is the full tritangent annotation or a table determining it, not those weights or the representative list alone.",
+        "searches": [
+          "Resultary focused search: F2 smooth cubic surface weighted tritangent census and Frobenius type assignment",
+          "Primary literature search: smooth cubic surfaces over F2 Frobenius types zeta functions 36 projective classes Dickson Karaoglu Swinnerton Dyer classification table tritangent planes",
+          "Karaoğlu DOI:10.3906/mat-2102-10 and Dickson JSTOR:1968056"
+        ]
+      },
+      "rationale": "Pass for the complete equation- and projective-orbit-weighted joint distribution over F2, not for the classification of smooth forms, the rational-line counts alone, or the generic fixed-count table indexed by Weyl conjugacy class. Parts of the result overlap existing data: a smooth cubic with fifteen rational lines already forces every plane to be tritangent by counting the 45 incidences of those lines with rational planes. The full weighted distribution, including multiplicities for the classes with few or no rational lines, was not found or mechanically obtained from the available prior tables.",
+      "residual_risks": [
+        "The precise Karaoğlu and Dickson table contents were not accessible in the bounded retrieval. An earlier class-to-Weyl or full Picard spectrum assignment, if present, would materially change the comparison.",
+        "Access and catalogue limitations are not evidence of absence; same-day records give no priority ordering. The pass is for the distinct weighted F2 result supported by the available evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides the generic pair for any assigned Weyl type, not the small-field class weights.",
+          "evidence": [
+            "The degree-one fixed counts of C08 and C09 are (0,3) and (0,9), with common line cycle type 3^9.",
+            "Scope explicitly does not assert every Weyl class occurs over each small field or recover a defining equation or isomorphism class."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-three-extension-recovery-of-cubic-surface-frobenius-from-lines-a--5e55036a6d2f",
+          "material_read": "RESULT.md Finding and scope at text start; e6_profiles.csv header and rows including C08 and C09 (offset 0 onward) and C24.",
+          "method": "Resultary local mirror, exact primary files.",
+          "title": "Three-extension recovery of cubic-surface Frobenius from lines and tritangent planes",
+          "trigger": "Exact line/tritangent fixed counts on the full Weyl group; strongest match by invariant."
+        },
+        {
+          "assessment": "Partial by class and different by invariant.",
+          "evidence": [
+            "Gives data for ten non-Frobenius-split binary classes and tabulates Eckardt-point cycles rather than plane cycles."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-complete-frobenius-spectra-of-eckardt-points-and-lines-on-binary--0053074ac1a9",
+          "material_read": "RESULT.md Finding at offset 0 and stated domain.",
+          "method": "Resultary local mirror.",
+          "title": "Complete Frobenius spectra of Eckardt points and lines on binary cubic surfaces",
+          "trigger": "Binary class-by-class Frobenius profile hit."
+        },
+        {
+          "assessment": "Picard eigenvalues determine the Weyl class, but these passages do not attach the eigenvalue data to every smooth F2 projective class.",
+          "evidence": [
+            "Table 7.1 lists the 25 types, eigenvalues, trace and line-orbit type, not binary orbit weights or rational tritangent counts."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1606.00300",
+          "material_read": "§1.1, p. 1; §7.1 Table 7.1, pp. 20–22, and §7.2.",
+          "method": "Lawful open primary PDF, targeted table and passage reading.",
+          "title": "Del Pezzo surfaces over finite fields and their Frobenius traces",
+          "trigger": "Potential equivalent Picard-spectrum classification."
+        },
+        {
+          "assessment": "Credit binary classification and line information. Do not infer that the entire unavailable paper lacks further pertinent data.",
+          "evidence": [
+            "The abstract describes representatives, lines, singularities and automorphism properties. The full table and its possible Frobenius information remain unverified."
+          ],
+          "identifier_or_url": "https://doi.org/10.3906/mat-2102-10",
+          "material_read": "Publisher abstract and bibliographic landing page only; precise representative-table columns could not be read from the available sources.",
+          "method": "DOI publisher page; access attempted through identified publisher PDF and alternate public copy.",
+          "title": "Non-Singular Cubic Surfaces over F_(2^k)",
+          "trigger": "Exact binary representative list could contain mechanically sufficient additional information."
+        },
+        {
+          "assessment": "Credit the established classification and rational-line counts; no whole-paper determination.",
+          "evidence": [
+            "The indexed passage says all rational straight lines are given for each nonsingular type, with possible counts 15,9,5,3,2,1,0."
+          ],
+          "identifier_or_url": "https://www.jstor.org/stable/1968056",
+          "material_read": "Indexed passage on lines of nonsingular types; direct article and PDF attempts yielded no readable full text.",
+          "method": "Primary literature lookup and OA article/PDF retrieval attempt.",
+          "title": "Projective Classification of Cubic Surfaces Modulo 2",
+          "trigger": "Original binary classification is a plausible source of equivalent tabulation."
+        },
+        {
+          "assessment": "Line counts and their realization are distinct from tritangent data.",
+          "evidence": [
+            "The main statements concern possible rational-line counts, not their joint frequencies with tritangents over F2."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2101.08217",
+          "material_read": "Theorems 1.1–1.3, pp. 1–2.",
+          "method": "Lawful open primary PDF.",
+          "title": "Rational lines on smooth cubic surfaces",
+          "trigger": "Possible general theorem on rational-line profiles."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The smallest base field gives a natural exact census in which fixed plane sections bear directly on arithmetic descent of tritangents, not simply on whether their line components are rational. Equation counts and class counts answer different frequency questions because of automorphisms. A complete cross-tabulation is useful for checking small-field classification and Frobenius computations; the 840 equations with no rational lines but nine rational tritangents give a sharp concrete illustration of why the joint observable is needed. The value is not the re-enumeration of known forms or the generic Weyl-class data.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

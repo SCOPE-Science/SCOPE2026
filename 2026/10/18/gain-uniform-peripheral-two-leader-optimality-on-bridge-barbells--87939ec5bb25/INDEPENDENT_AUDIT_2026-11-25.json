@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:01:39.971622Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Proof and Verification; VERIFICATION.md; verify.py (inspected, not executed)",
+        "/workspace/audit-replay/04-logdet.py (independent symbolic replay; minimum and four gaps verified)",
+        "Independent exact full-matrix corroboration for m=3,4 and κ=1/3,1,7/2"
+      ],
+      "rationale": "The five placement orbits exhaust the two-element sets, including at m=3. I reproduced the displayed minimum and all four gap identities symbolically, by a log-determinant calculation independent of the equitable quotient. For each clique with r pins let d_i=m+t+κ1_{i pinned}, P=∏d_i, f=1−Σ1/d_i and h=1/d_hub. The shifted clique determinant is Pf and its hub cofactor is Ph(f+h). The bridge is one rank-one update, so the full shifted determinant is the product of clique determinants plus the two products of one determinant and the other clique's hub cofactor. This polynomial identity handles an unpinned clique without dividing by its singular Laplacian at t=0. The derivative of the full log determinant at t=0 is the inverse trace. All four verified gaps are strictly positive for m≥3 and κ>0. The covariance normalization divides the trace by two and does not change the optimizer.",
+      "residual_risks": [
+        "No conclusion for unequal clique sizes, unequal gains, or a nonunit bridge; the finite matrix checks only corroborate the symbolic proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fitch–Leonard's arbitrary-graph two-leader formula applies at finite gain but leaves the placement-specific graph quantities to evaluate and compare.",
+          "The unequal-clique variable-conductance result includes the same balanced unit graph, but treats noise-free hard pinning only."
+        ],
+        "reasoning": "Broader graph coverage at hard pinning does not dominate the finite-gain quantifier. The general noisy-leader formula has no graph-specific sign or strict equality classification without further work.",
+        "searches": [
+          "arXiv:1407.1569v2",
+          "Resultary 0d41f722819e"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1407.1569v2",
+        "Resultary 0d41f722819e",
+        "Resultary 3efa33a797ea",
+        "Resultary 5431b532d7f2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At unit bridge conductance the noise-free optimum equals 2(2m²+5m−10)/(m(m+4)), exactly the κ→∞ limit here.",
+          "That equality and the limiting optimizer do not prove the four strict gap signs over κ>0. The general joint-centrality identity evaluates a pair, not the ordering of these five orbits uniformly in gain and clique size."
+        ],
+        "reasoning": "The hard-pinning overlap is real; the distinct comparison is over the full finite-gain domain.",
+        "searches": [
+          "arXiv:1407.1569v2, §V.B",
+          "Resultary 0d41f722819e, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For equal noise-corrupted gains the inverse-trace objective is twice the sum of stationary variances. Maximizing the gain-dependent joint centrality in Fitch–Leonard is equivalent to minimizing this objective, but the paper gives no inspected bridge-barbell optimizer rule.",
+          "The balanced bridge-barbell and clique windmill are not isomorphic: the latter joins blades at a common hub rather than a bridge edge between disjoint cliques."
+        ],
+        "reasoning": "An equivalent objective and a related dense bottleneck topology were found, not an equivalent finite-gain bridge-barbell result.",
+        "searches": [
+          "Resultary bridge-barbell and clique leader-placement lookup",
+          "arXiv:1407.1569v2, Theorem 2, Eqs. (41)–(42)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Records 5431b532d7f2, 3efa33a797ea and 0d41f722819e were compared at statement level. They cover, respectively, a different invariant on the same graph, finite gain on a different graph, and hard pinning on the same graph. The distinct same-day windmill record was not dismissed based on its date."
+        ],
+        "reasoning": "No distinct catalogue record inspected gives the exact finite-gain optimizer and trace. No bare search miss is used as a novelty proof.",
+        "searches": [
+          "Local Resultary search for bridge barbells, balanced clique two-leader placement and close graph families"
+        ]
+      },
+      "rationale": "The supported distinct result is the strict optimizer classification and exact minimum at every finite positive gain for the balanced unit bridge barbell. Neither the general formulation nor the bridge-barbell results inspected establish the finite-gain inequalities. The perfect-pinning overlap is expressly excluded from the originality credit.",
+      "residual_risks": [
+        "The broader web lookup returned no useful scientific comparator. An unindexed graph-specific specialization or another equivalent finite-gain result remains possible; this is a best-of-knowledge assessment."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General formula and objective, not the bridge-barbell optimizer",
+          "evidence": [
+            "The gain-dependent score involves entries of the Laplacian pseudoinverse, effective resistance and biharmonic distance; examples include paths and cycles."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1407.1569v2",
+          "material_read": "§V.B, Theorem 2, Eqs. (41)–(42), PDF pp. 12–13; nearby graph examples",
+          "method": "Open full text, bounded theorem passage",
+          "title": "Joint Centrality Distinguishes Optimal Leaders in Noisy Networks",
+          "trigger": "Same noisy two-leader optimization and potentially dominating formula"
+        },
+        {
+          "assessment": "Exact hard-pinning overlap, not finite noisy gain; catalogue date later than frozen record",
+          "evidence": [
+            "At equal clique sizes, one internal vertex in each clique is optimal for every positive bridge conductance; the unit-conductance minimum equals the limit of the frozen formula."
+          ],
+          "identifier_or_url": "Resultary 0d41f722819e",
+          "material_read": "RESULT.md, Finding",
+          "method": "Local catalogue and mirrored result passage",
+          "title": "A sharp bridge-conductance transition in optimal two-leader placement on unequal clique barbells",
+          "trigger": "Strongest same-graph placement comparator"
+        },
+        {
+          "assessment": "Related optimization, different graph; no priority inferred from same date",
+          "evidence": [
+            "For two blades it selects peripherals on different blades, whereas for at least three it selects hub plus peripheral on K₁ ∨ (rK_m)."
+          ],
+          "identifier_or_url": "Resultary 3efa33a797ea",
+          "material_read": "RESULT.md, Finding",
+          "method": "Local catalogue and mirrored result passage",
+          "title": "Gain-uniform two-leader placement transition on clique windmills",
+          "trigger": "Distinct same-day finite-gain placement record"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": [
+            "Enumerates zero-forcing sets, not noisy leader placements by inverse trace."
+          ],
+          "identifier_or_url": "Resultary 5431b532d7f2",
+          "material_read": "RESULT.md, Finding",
+          "method": "Local catalogue and mirrored result passage",
+          "title": "Zero forcing polynomial of bridge barbells",
+          "trigger": "Same graph family cited by the frozen record"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof; four independently checked strict gap identities"
+      ],
+      "rationale": "The bridge endpoints are natural candidate leaders on this dense bottleneck graph. The exact strict classification shows that both endpoints are inferior at every positive gain, not merely in a hard-pinning asymptotic or at selected parameters. The positive gaps and minimum give an explicit placement benchmark without minimizing a general formula case by case.",
+      "residual_risks": [
+        "This is an exact benchmark for one balanced family, not a general rule that bottleneck vertices are poor leaders."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

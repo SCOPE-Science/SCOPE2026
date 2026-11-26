@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:52:05.993768Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The signed measure has total variation one and no atoms. For each t the representing measure of evaluation after P is δ_t−h(t)μ, with the two summands mutually singular; taking the supremum of their total variations gives ||P||=1+||h||∞ directly. Equality |μ(h)|=||h||∞ for nonzero h would require opposite constant normalized values on the two open halves, contradicting continuity. Pairing midpoint reflections gives the sharp bound 2 min(R,Lu) for the difference, attained simultaneously by the clipped ramp. Its weighted integral is R−Cα R^(α+2)/L^(α+1) for R≤L/2, otherwise L/L*. This proves feasibility and root uniqueness on the stated branch. Positivity of the density, continuity, and Lipschitz saturation between the two clipping points force the same ramp; at the critical budget endpoint saturation forces slope L and the optimal sup norm fixes the intercept. Let b=α+1 and q=2R/L. The scalar equation is (L/2)[q−q^(b+1)/(b+1)]=1. At q=1 the bracket is b/(b+1) and its deficit at q=1−z is b z²/2+O(z³). Hence R=L*/2−sqrt((L−L*)/b)+O(L−L*). At large L the increasing branch tends to R=1 and substitution gives R−1=Cα L^(−b)+O(L^(−2b)). This yields the unrestricted infimum 2 with nonattainment. The α=0 exact solution L(1−sqrt(1−4/L))/2 also checks both regimes. The frozen checker was inspected but not executed; its reported quadrature checks are bounded, not the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The signed-density result gives the exact threshold and optimizer for arbitrary normalized positive-a.e. density on the positive half of a symmetric interval. Take a=1/2 and w(u)=2^α(α+1)u^α. The countably atomic lattice-phase example has a different limiting law and does not cover the density theorem. Kania and Lewicki give the unrestricted projection constant and the minimal-projection criterion in Daugavet spaces."
+        ],
+        "reasoning": "The indexed general density theorem specializes without a change of norms or budget conventions. The earlier atomic and Daugavet results should not be substituted for it in deciding finite-budget overlap.",
+        "searches": [
+          "Resultary 2026/11/22/SCOPE-exact-lipschitz-budget-projections-for-symmetric-signed-density--951557382c69",
+          "Resultary 2026/11/1/SCOPE-sharp-lipschitz-budgets-and-lattice-phase-convergence-for-nonatt--06943e74246c",
+          "Kania and Lewicki, arXiv:2604.10771v1, Cor. 3.3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and checker.py",
+        "Resultary 2026/11/22/SCOPE-exact-lipschitz-budget-projections-for-symmetric-signed-density--951557382c69",
+        "Resultary 2026/11/1/SCOPE-sharp-lipschitz-budgets-and-lattice-phase-convergence-for-nonatt--06943e74246c",
+        "arXiv:2305.08500v1",
+        "arXiv:2604.10771v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The indexed exact power equation gives feasibility and the branch identically and yields the critical cusp by the expansion q−q^(α+2)/(α+2)=(α+1)/(α+2)−(α+1)(1−q)²/2+O((1−q)³). The general Daugavet result only gives the unrestricted constant and nonattainment; the dual formulation supplies context for the scalar maximization."
+        ],
+        "reasoning": "The cusp coefficient is a useful interpretation of the tradeoff, but not an independent nonmechanical extension of the exact formula. This is a mathematical implication from the inspected indexed record; historical priority between records is a separate question.",
+        "searches": [
+          "Indexed symmetric signed-density Finding and §6",
+          "Kania and Lewicki, Corollary 3.3",
+          "Hille and Theewis, arXiv:2305.08500v1, Introduction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Hille and Theewis use the Fortet–Mourier dual unit ball defined by simultaneous bounds on sup norm and Lipschitz constant. For R,L>0, writing h=Rf and rescaling the metric by L/R realizes exactly the inner envelope in the frozen proof. For this equal-mass pair of measures the cost min((L/R)|x−y|,2) is saturated by reflection and the explicit clipped ramp. The indexed signed-density result formulates the same problem after translation of the midpoint to zero."
+        ],
+        "reasoning": "The two bounds are not a different dual problem from the max-norm formulation. General duality alone does not identify the unique optimizer; that requires the case-specific reflection equality. This equality and rigidity are present in the indexed signed-density treatment.",
+        "searches": [
+          "Hille and Theewis, arXiv:2305.08500v1, Fortet–Mourier max-norm definition",
+          "Resultary exact Lipschitz-budget projections for symmetric signed densities"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed Finding explicitly displays L*=2(α+2)/(α+1), the identical scalar equation and root branch, a two-term high-budget expansion, and an exact α=0 root. No numerical table is needed to compare exact values."
+        ],
+        "reasoning": "This is formula-level coverage at all the frozen exponents and finite budgets, rather than a match of selected constants.",
+        "searches": [
+          "Resultary signed-density finding, offset 0, explicit power specialization",
+          "Resultary signed-density proof §6, Closed power family and inverse tradeoff"
+        ]
+      },
+      "rationale": "A distinct indexed result on symmetric signed densities gives the same optimizer, exact threshold and scalar equation even in its explicitly stated power family, as well as a stronger high-budget expansion. The one component not expressly stated there, the power-family square-root coefficient at feasibility, follows by an elementary local expansion of that very equation at its specified critical root. The indexed record is catalogued later than the frozen record; this is assessment of demonstrable existing coverage, not a claim of earlier public priority or copying. The older literature separately covers nonattainment and the max-norm dual problem but does not itself state the full finite-budget theorem.",
+      "residual_risks": [
+        "The catalog dates and the inspected passages do not resolve historical priority or provenance of the overlapping exact results.",
+        "The bounded literature check is not exhaustive for earlier continuous-density formulas or explicit cusp statements."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct exact coverage of budget, optimizer, scalar equation and high-budget law; cusp implicit; no chronological priority inference",
+          "evidence": "The explicit power specialization after translating the interval gives the same formula and a stronger large-L expansion.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-exact-lipschitz-budget-projections-for-symmetric-signed-density--951557382c69/RESULT.md",
+          "material_read": "Finding and scope, offsets 0–3400; proof §§5–6, offsets 6200–8890",
+          "method": "Bounded local-mirror passages, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact Lipschitz-budget projections for symmetric signed-density hyperplanes",
+          "trigger": "Exact same continuous density specialization and arbitrary-density extension"
+        },
+        {
+          "assessment": "Equivalent inner optimization after scaling; not the exact power-family theorem",
+          "evidence": "The max-norm formulation imposes simultaneous sup-norm and Lipschitz constraints; a reflection coupling and a saturating test function identify the value here.",
+          "identifier_or_url": "https://arxiv.org/html/2305.08500v1",
+          "material_read": "Introduction near HTML offset 4300, max-norm dual formulation",
+          "method": "Open-access bounded primary text",
+          "title": "Norming and dense sets of extreme points of the unit ball in spaces of bounded Lipschitz functions",
+          "trigger": "Plausible equivalence via the bounded-Lipschitz dual formulation"
+        },
+        {
+          "assessment": "Covers the unrestricted conclusion, not this Lipschitz-budget law",
+          "evidence": "A Daugavet hyperplane has projection constant 2 and has a minimal projection precisely when its defining functional attains its norm.",
+          "identifier_or_url": "https://arxiv.org/html/2604.10771v1",
+          "material_read": "Corollary 3.3 near HTML offset 21349",
+          "method": "Open-access bounded primary text",
+          "title": "Finite-codimensional subspaces of Daugavet spaces: projection constants and minimal projections",
+          "trigger": "Unrestricted hyperplane projection theorem"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Quantifying projection norm versus a Lipschitz budget is a natural problem, and the cusp is a useful reading of the tradeoff. But the exact curve, uniqueness and high-budget behavior are already covered in the indexed comparison, and the remaining stated power-family cusp is a local Taylor consequence of its identical scalar equation. No additional independent range, invariant or obstruction is established.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

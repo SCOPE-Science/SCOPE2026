@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The run-boundary tower is a genuine topological conjugacy because runs have uniformly bounded length. Its finite-color extension contributes no entropy, and every invariant base measure has a fair-color lift; the exact entropy variational identity follows. The bounds \(2/3\) and \(3/4\) follow from digit-symmetrization and exclusion of triple-one blocks. At depth two, the six-pattern characterization, 14-state graph determinant, positive 15th power, and symmetric quotient establish the exact entropy and zeta. The supplied symbolic checker reconstructs the graph and checks cyclic period counts through twelve.
+PASS
 
-## Originality — PASS within inspected evidence
+Use the run containing the physical origin to fix both the derivative index and the level in the roof tower. This gives a conjugacy over the binary symbol-flip extension with roof y_0; the extension has zero relative entropy and every derivative invariant measure lifts. The variational and return-time entropy formulas therefore give h_k=sup h_mu/(1+mu([2])). The no-three-ones restriction gives mu([2])≥1/3, and an MME (which exists for the finite-alphabet subshift) symmetrized under symbol interchange has mu([2])=1/2 without loss of entropy. Together with the Fibonacci base this proves the bounds. With triple letters excluded, three singleton runs are precisely the middle three letters of an alternating five-block, and three double runs are precisely the two listed six-blocks. The reconstructed 14-state graph gives the stated determinant, indexed periodic counts, and an everywhere positive 15th power. The positive Perron vector descends to the complement quotient, whose only positive eigenvalue solves the displayed quartic; primitivity implies mixing and uniqueness of the Parry MME.
 
-Mitchell–Walton–Whittaker, arXiv:2611.06878v1, prove transitivity of the full smooth shift and define the finite derivative hierarchy. Cassaigne–Henry, arXiv:2603.10733v1, analyze the language and complexity of infinitely smooth sequences. Relevant published comparisons concern self-shuffling or other finite-type languages. These do not cover the new uniform entropy comparison or the exact second-stage orbit census. The standard tower entropy theorem and finite-state zeta method are acknowledged; hidden equivalent historical tables remain a real priority risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Every finite differentiability stage is a natural approximation to the infinitely smooth Kolakoski system. The combination of explicit positive lower bounds, geometric upper decay, and a complete low-stage zeta/entropy anchor is a substantive quantitative dynamical classification, useful for testing entropy approximations and periodic-orbit enumeration.
+Best-of-knowledge pass for the explicit comparison of entropy at every finite depth and the all-period depth-two zeta/entropy classification. Already documented are the derivative hierarchy, zero entropy of infinite smooth languages, and the shortest-orbit data for these finite-depth systems. The pass does not credit those or the standard tower entropy and finite-type zeta machinery as new.
 
-## Limitations
+## value
 
-The contraction constants are not claimed sharp, and no exact higher-stage entropy or zeta is asserted. Computations certify finite integer matrix identities; the infinite entropy inequality is a mathematical proof. Independent review has not occurred, and no absence-of-prior-publication guarantee is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The derivative hierarchy is a natural interpolation between a positive-entropy finite-type shift and the infinitely differentiable Kolakoski shift. The explicit comparison quantifies complexity loss when passing from derivative time to spatial time. Depth two is the first shift with nontrivial derivative restrictions; its exact graph invariant gives all periodic counts, mixing and a computable entropy rather than just a finite search for short periods.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

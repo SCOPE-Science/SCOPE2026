@@ -1,0 +1,153 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:39:52.738093Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–88",
+        "Frozen VERIFICATION.md, verify.py and verification_output.txt (reported finite tests, uploaded code not executed)",
+        "Independent double-precision bisection and analytic root-mode check"
+      ],
+      "rationale": "In the stipulated unshifted ansatz with r=η²<1, consistency gives 2α=1+r, the first-order equation gives (α−r)β=1−r hence β=2, and the second-order equation gives (7+5r)/4=2, hence r=1/5 and α=3/5. This fixes the parameters in the cited stage realization, not all possible nonlinear implementations of the same stability polynomial. With exact past data v₀=y+(h/2)y′−(h²/4)y″+O(h³), v₁=y+hy′+O(h²), and v₂=v₀+h f₀+h f₁ has the needed second-order Taylor expansion after output mixing. At h=0 the roots 1,1/5 give zero stability. For decay, v₂=t v₀, so the characteristic polynomial is ξ²−(3/5)(1+t)ξ+t/5. For −1≤t<1 the strict Schur inequalities hold; for t≤0 the recurrence is nonnegative with at least one positive coefficient. For 0<t<1 both roots are positive and the dominant coefficient has the sign of q−ℓ₋. After division by ℓ₊^n the solution is a convex interpolation between that coefficient and the normalized initial value 1, with positive weight on 1 at each finite index. This proves the stated cone, including the smaller-root equality mode. The polynomial at ξ=1/5 is (2/25)(t−1)<0. Implicit differentiation then makes ℓ₋ strictly increasing in t, with nonzero slope on the upper z-branch, while e^(−z) decreases, giving one crossing there and none on the lower branch. Beyond the crossing, strict negativity occurs for n strictly greater than the log quotient in the original; an integral quotient gives a zero at equality, so floor plus one is essential. Its numerator is log(z−z_*)+O(1), and its denominator has a nonzero smooth limit; this yields the claimed delay. Independent double-precision bisection gives z_*≈3.480888475257458 and coefficient ≈0.331753556229006. The first v₀ is exactly (3e^(−z)−1)y₀/2, proving the claimed overlap of negative stage and positive endpoints.",
+      "residual_risks": [
+        "All finite-iterate statements are in exact arithmetic for constant-step scalar decay. At z=4 a unit root remains, not strict decay; the theorem is for 0<z<4. No complete classification of internal-stage positivity is claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The inspected SSP passage bases monotonicity guarantees on convex combinations of forward Euler steps and appropriate starting data.",
+          "The 2024 article was identified as a possible family-level overlap; publisher retrieval returned HTTP 403 and no primary body was inspected."
+        ],
+        "reasoning": "A guarantee for an SSP region, or its failure, does not characterize all positive start ratios for this fixed scalar recurrence, in particular when its earlier-value coefficient is negative. No coverage inference is drawn from the inaccessible article.",
+        "searches": [
+          "Ketcheson–Gottlieb–Macdonald, arXiv:1106.3626, p. 2, SSP criteria",
+          "Two-step Runge–Kutta–Chebyshev article, PII S0377042724001171"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2303.16267v1",
+        "arXiv:1106.3626",
+        "Resultary ranked retrieval and three material primary records"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The original order and realization equations specialize directly to the frozen coefficients; no novelty assigned to solving those equations. The paper uses a reference solution for the second starting datum in its examples, with no exponential-starter sign transition in the inspected passages.",
+          "The same-method energy theorem and the other coefficients' phase diagrams do not yield the threshold, the delay or the hidden-stage interval for this method."
+        ],
+        "reasoning": "The contribution uses the classical two-mode decomposition to resolve an all-step sign question not answered by the order/stability polynomials alone: comparison of the exact starter against the smaller-root mode over the whole stable interval and comparison with the internal stage.",
+        "searches": [
+          "Moisa and Faleichik Secs. 3, 5 and 6",
+          "Resultary same-coefficient switching finding and optimized two-step positivity findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary source gives the family-level order equations and stage recurrence. The November 2 switching result has the very same stage formula and parameters, but investigates quadratic-energy contraction under switched scalar rates."
+        ],
+        "reasoning": "The scalar test and its companion-matrix recurrence are equivalent on constant coefficients, but a contraction energy, even when sharp, does not determine each coordinate's sign or the sign of an internal stage.",
+        "searches": [
+          "Resultary: same unshifted Chebyshev stability polynomial, stage coefficients and scalar positivity cone",
+          "Moisa and Faleichik, arXiv:2303.16267v1, Secs. 3 and 5, Eqs. (9)–(10), (21)–(24)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The November 2 positive-start diagram concerns a different implicit stiff step. The October 27 positivity-resonance record also uses an exact exponential starter and delayed sign loss, but has a different O2CP recurrence and thresholds. The same-coefficient November 2 switching result has a different invariant."
+        ],
+        "reasoning": "Agreement on starter or proof technique is insufficient; the exact test is matching the recurrence and sign invariant at all steps, or a general result that implies this one.",
+        "searches": [
+          "Resultary: exact positive-start phase diagrams, first-negative delay, exact exponential starter and internal-stage sign boundary"
+        ]
+      },
+      "rationale": "The polynomial ansatz and stage realization are prior, as are general two-step recurrence formulas and SSP criteria. The supported distinct claim is the full positive-start boundary for the specified nondegenerate unshifted branch, with its exact-exponential-starter threshold and all-iteration sign-loss delay, and the separate first-stage obstruction within its endpoint-positive regime. The inspected method papers and closely overlapping indexed claims do not give these results for this recurrence and starter.",
+      "residual_risks": [
+        "The 2024 article and unlocated equivalent method-specific analyses remain literature risks. No originality is assigned to classical recurrence formulas, the source's family, or ordinary Taylor order checks."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the family and implies the stage/recurrence on specialization, not the exact positivity diagram in the inspected passages",
+          "evidence": [
+            "The source derives the polynomial order constraints and a generic stage recurrence.",
+            "The numerical setup obtains y₁ from a reference solution and uses parameter choices different from the unshifted rational branch."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2303.16267v1",
+          "material_read": "Secs. 3 and 5 Eqs. (9)–(10), (21)–(24), offsets about 6800–10900, 11200 and 14600; Sec. 6 offset 17539",
+          "method": "Primary OA HTML",
+          "title": "Second order stabilized two-step Runge–Kutta methods",
+          "trigger": "Original ansatz, order conditions and stages"
+        },
+        {
+          "assessment": "A sufficient monotonicity framework, not the audited exact scalar cone",
+          "evidence": [
+            "SSP uses convex combinations of steps with known forward-Euler monotonicity."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1106.3626",
+          "material_read": "p. 2, offset about 7300",
+          "method": "Primary OA PDF",
+          "title": "Strong stability preserving two-step Runge–Kutta methods",
+          "trigger": "General monotonicity framework possibly covering positive starts"
+        },
+        {
+          "assessment": "Same stages; different observable and quantified problem",
+          "evidence": [
+            "The sharp guarantee is contraction in one quadratic energy for arbitrarily switched frozen scalar rates."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-sharp-common-energy-for-switching-in-a-second-order-two-step-c--c02d62aa9c87",
+          "material_read": "Finding and method specification",
+          "method": "Local Resultary primary mirror",
+          "title": "A sharp common energy for switching in a second-order two-step Chebyshev method",
+          "trigger": "Identical method formula and parameters"
+        },
+        {
+          "assessment": "Different implicit method and recurrence",
+          "evidence": [
+            "The phase diagram includes tuned eigenmode data, but its parameters do not give this explicit unshifted Chebyshev branch."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-complete-positive-start-phase-diagram-for-optimized-two-step-sti--89235ce0d52d",
+          "material_read": "Finding and method specification",
+          "method": "Local Resultary primary mirror",
+          "title": "Complete positive-start phase diagram for an optimized two-step stiff integrator",
+          "trigger": "Same positivity invariant and root-mode approach"
+        },
+        {
+          "assessment": "Different O2CP recurrence and sign thresholds",
+          "evidence": [
+            "Uses an exact exponential starter, but does not give the arbitrary-start cone or stage boundary for the audited method."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/27/SCOPE-two-isolated-positivity-resonances-of-an-optimized-two-step-para--d036e6948156",
+          "material_read": "Finding and recurrence comparison",
+          "method": "Local Resultary primary mirror",
+          "title": "Two isolated positivity resonances of an optimized two-step parabolic integrator",
+          "trigger": "Exact exponential starter and delayed sign loss"
+        },
+        {
+          "assessment": "Coverage unresolved; not used as negative evidence",
+          "evidence": [
+            "No relevant primary passage was obtained."
+          ],
+          "identifier_or_url": "https://www.sciencedirect.com/science/article/pii/S0377042724001171",
+          "material_read": "Search identification only; primary body inaccessible",
+          "method": "Bounded OA and ordinary webpage retrieval attempts",
+          "title": "Two-step second-order Runge–Kutta–Chebyshev paper, PII S0377042724001171",
+          "trigger": "Plausibly related family and internal stability"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 22–43 and 71–88",
+        "Moisa and Faleichik method specification"
+      ],
+      "rationale": "A stable decay test can return positive endpoints while evaluating f at an inadmissible state; the proof identifies a whole interval with this behavior for exact positive data. Separately, the logarithmic delay explains why finite tests can miss endpoint failure near the boundary. The precisely defined unshifted branch, sharp complete starting cone and two distinct practical obstructions make this more than a stability-polynomial substitution.",
+      "residual_risks": [
+        "The result informs this scalar test and the first stage for exact starts; it does not certify positivity for vector or nonlinear problems."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

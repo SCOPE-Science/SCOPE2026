@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (C): PASS.** Separate multinomial enumeration of one and two marked cells proves the exact covariance identity. Consecutive ratios of the normalized joint probability strictly decrease for every fixed positive first load, forcing one positive interval. A genuine feasible negative–positive–negative witness is checked as exact rational arithmetic. The fixed-box critical threshold is proved by the local bivariate multinomial Gaussian approximation at the exact maximizing second load, using the finite ratio monotonicity to control the *global* maximum. The checker corroborates the claims but is not the infinite proof.
+## correctness
 
-**Originality (O): PASS, with historical priority risk.** The basic covariance identity and many-box Poisson covariance matrix are standard and not counted. The relevant prior infinite-box occupancy CLT (Barbour–Gnedin) uses a different regime. O'Neill's indexed 2019 occupancy paper studies the occupied-bin count; complete publisher full text was not accessible, and its precise contents remain a residual risk. Related published results on \(\operatorname{Cov}(K,M_r)\) and on precision of occupied-bin indicators cannot imply each \(\operatorname{Cov}(M_r,M_s)\) separately. Related recorded results aggregate frequency-count covariances with Pearson statistics. No equivalent finite two-switch + fixed-box Gaussian sharp-threshold result was identified in direct and alias searches.
+PASS
 
-**Value (V): PASS.** Counts of boxes with exactly a specified load are canonical occupancy-spectrum statistics. Complete sign variation and the sharp standardized-load threshold answer a natural structural question about when two frequency categories can be positively associated; neither the two reversals nor their precise boundary is a generic textbook occupancy moment computation.
+For unequal loads the same-box product vanishes, giving the ordered-pair coefficient m(m-1) and the subtraction m²p_rp_s. The diagonal B is auxiliary only. On the feasible support the consecutive ratio is ((n-r-s)/(n-s))((m-1)/(m-2)), strictly decreasing for r>0 and constant above one for r=0. The zero forbidden tail preserves unimodality. An independent exact rational recalculation gave Q at s=6,7,11,12 respectively 14348907/17039360, 4782969/4259840, 4782969/3727360, 4782969/7454720 for (m,n,r)=(3,15,3), giving the stated two genuine reversals after deletion of s=3. For central r_n the consecutive ratio crosses one at n-(m-1)r_n, which is strictly inside the support for large n and gives standardized maximizing-load displacement x/rho, up to o(1), including an adjacent-integer tie. Thus the compact central local limit is used at the actual maximizer, not extrapolated to the tails. The Gaussian joint-to-marginal ratio completes to a_m exp(x²/2) times a Gaussian factor centered at x/rho. Here a_m<1 by the displayed polynomial inequality. Below the threshold the entire row is negative eventually; above it the maximum is positive and loads at suitable fixed displacements on each side give negatives. The maximizing loads are then distinct from r_n since x/rho!=x. No sign is claimed at equality.
 
-**Limitations and risk.** Diagonal variances are excluded; the exact threshold is proved only when the number of boxes is fixed and the number of balls grows; equality at the Gaussian threshold is left unresolved. A relevant publisher full text and some indexed public records were not accessible in full, so historical priority is not independently certified. Only same mathematical model proof review and standalone computational checks were performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The ordered-box covariance formula and Gaussian approximation are classical tools, not distinct claims. The supported distinction is the sign interval as the second frequency s varies at fixed m,n,r, and the sharp fixed-m central-load threshold obtained by locating the true global maximum. The strongest indexed sign-window results share the model and in one case the covariance itself, but vary a different coordinate or take a different limiting regime.
+
+## value
+
+PASS
+
+The sign of dependence between exact occupancy frequencies is not settled by knowing that the loads of two specific boxes are negatively correlated. The result gives a complete finite restriction on where positive covariance can occur, proves that two reversals really occur, and identifies the exact centered-load threshold separating no positive pairs from positive pairs across the entire row. The global maximizer is essential to that distinction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

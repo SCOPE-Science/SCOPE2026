@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-Run `python3 verify_hesse.py` with Python 3 and no additional packages. It enumerates all \(432\) affine transformations on \(\mathbb F_3^2\), constructs the four finite configurations, and computes each permutation cycle decomposition. It checks that the ten signatures have sizes \(72,9,54,108,36,24,1,72,8,48\), that each determinant value occurs in \(216\) transformations, that there are exactly nine zeta signatures, and that the one point-free signature consists of precisely \(48\) affine maps with nontrivial unipotent linear part and nontrivial torsor class.
+## correctness
 
-The verifier first computes the norm of every one of the \(220\) Eisenstein-integer triple determinants of the twelve geometric lines, obtaining the exact distribution \(0^{36},1^{28},3^{81},9^{72},27^3\). This rules out extra line concurrency in all characteristics greater than three. An independent geometric construction over \(\mathbb F_7\) checks twelve distinct lines, nine quadruple intersection points, twelve double intersection points, and all \(66\) line pairs. A polynomial routine using integer dictionaries computes the Hessian for each of three explicit cubics. It tests smoothness at all rational projective points, finds the rational flexes, and tests all rational projective lines for membership in the Hesse pencil by comparing the binary-cubic restrictions of the cubic and Hessian at four distinct parameter points. The results are \(0,0\), \(0,3\), and \(3,3\) for (rational flexes, rational Hesse lines), and rational cubic point counts \(6,9,6\), respectively.
+PASS
 
-The supplied `verify_output.txt` is the checked execution output and ends with `VERIFY_OK`. Exhaustion concerns a finite group and finite projective planes only; the general theorem uses the geometric configuration, Galois-torsor description, normalization, and a separate point-free linear-algebra argument. No nonreduced singularity schemes, characteristics two or three, or complete small-field realization classification are asserted. Independent mathematical validation has not been performed.
+The flexes are the solutions to 3(R−O)=ξ; a rational O exists by the Hasse bound, and the Weil pairing gives determinant q mod 3 on the 3-torsion. Collinear triples are affine lines. The classical triangles give ordinary nodes indexed equivariantly by the omitted line, and the nine flexes give ordinary quadruple points; the degree-twelve plane curve has arithmetic genus 55. The branches are the incident point-line pairs and the ordered distinct parallel-line pairs. Normalization counts (q^n+1) per fixed line, then subtracts fixed branches and adds fixed singular points, explaining the sign and the second copy of the line-orbit term in the zeta formula. The independent 432-map enumeration reproduces all ten rows and shows only 6 and 9 match in zeta. A rational line or flex ensures a point, and a rational point elsewhere either lies on a unique line or is a double vertex determining a rational omitted line. In the absence of a fixed vector, identity-linear translations fix parallel lines and the 1,−1 linear case fixes a line via its quotient action. Only a nonidentity unipotent with translation outside im(A−I) remains; its action has order 3 and no fixed lines or flexes, and ξ is not divisible by 3 over k. The F7 witnesses have types 10, 9 and 6; their rational union counts are 0, 21 and 21. For geometric smoothness of the examples, the first two are the degree-three complete linear-system embeddings described in the proof: on their nonsingular elliptic models 1,x,(y+y(P))/(x−x(P)) is a basis, with possible poles only at O and P of orders bounded by 2 and 1 respectively; eliminating y gives the displayed cubics. The third is nonsingular by its Weierstrass discriminant.
+
+## originality
+
+PASS
+
+Credit the classical affine Hesse geometry, the exact ten flex/line projected spectra already covered by 1cb01bddc7d8, and the two fixed-model divisor zeta functions already covered by 8db8d705d1dd. The supported distinct contribution is the all-template branch-orbit and singular-union zeta classification, its exact zeta coincidence with differing rational singular strata, and the arithmetic point-free characterization and realizations. Neither checked record supplies that full result.
+
+## value
+
+PASS
+
+The exact zeta classification for a natural singular curve records which arithmetic incidence data survive in point counts; the realized equal-zeta pair proves that rational quadruple points are not determined. The point-free criterion isolates an embedding-dependent obstruction and the example proves it occurs, despite the smooth cubic itself having rational points. These are substantive beyond a table of flex permutations or the fixed arrangement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

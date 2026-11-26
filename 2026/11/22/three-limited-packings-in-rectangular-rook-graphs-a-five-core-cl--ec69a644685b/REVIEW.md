@@ -1,21 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-The exact identity \(|S\cap N[(i,j)]|=d_i+e_j-\mathbf1_{(i,j)\in S}\) applies to all cells, selected or not. It forces the maximum selected row and column degrees to sum to at most four; in the equality case all intersections of maximum-degree rows and columns must be selected. The only possible exceptional components are a three-star, three-edge path, four-edge path, or four-cycle. Every other selected edge is an isolated matching edge. This proves a disjoint all-set classification and the displayed coefficient formula, including the factor-of-two orientation correction for ordinary matchings. Every domain restriction and sharpness construction for \(L_3\) is accounted for.
+PASS
 
-Direct enumeration of every subset in eight small boards using exact closed neighborhoods agrees with the formula. A separate C++ implementation also checks the wider boards \(3\)-by-\(6\), \(3\)-by-\(7\), and \(4\)-by-\(6\). An independent selected-bipartite-component checker verifies the classification in five instances. The code outputs are included and reproducible. The general theorem rests on the proof, not on the experiments.
+For the selected-edge graph in K_(m,n), the closed-neighborhood load at any cell ij is d_i+e_j−1_{ij selected}, including at missing cells. At maximum shore degrees r,c the load condition forces r+c≤4, and when equality holds precisely all intersections of maximum-degree vertices must be selected. Up to transposition the cases r+c≤3 give a matching or disjoint two-stars with centers on one shore, including the empty set separately. In the (3,1) case all used columns must meet the degree-three row, so only that star exists. In the (2,2) case the maximum-degree vertices induce a selected K_(a,b) with a,b in {1,2}. Filling their remaining incidences with degree-one endpoints gives P₄, either orientation of P₅, or C₄; the remaining edges are a matching on unused vertices. These conditions are sufficient as well. Choosing p double and q single centers and assigning disjoint opposite endpoints gives the R summand, with two orientations intersecting exactly in the matchings. The P₄ and C₄ counts are 4 and 1 per 2-by-2 block; a row-centered P₅ uses a center row, an unordered column pair and an ordered pair of other rows, then a matching on unused roots. Together with the isolated-star count these give the exact polynomial. The forest on the smaller shore attains min(2s,ℓ), and the C₄ family attains s+2 while the other exceptions do not exceed it. At ℓ≥2s, s≥3 makes 2s strictly better than s+2: every optimum is a double star centered at every smaller-shore vertex with all leaves distinct, counted by ℓ!/[2^s(ℓ−2s)!]. Read the finding's 'rows' as the smaller shore, after the transposition explicit in the proof.
 
-## Originality (PASS, provisional historical priority)
+## originality
 
-The 2023 paper by Ahmadi, Soltankhah and Samadi, arXiv:2308.16837v1, develops packing partitions principally for capacity two. The product bounds in Ahmadi and Soltankhah, arXiv:2405.03237v1, concern capacity two (closed and total), not this all-set capacity-three rook enumeration. Public research-record searches also returned three-independent rook-graph enumerators and general complete-multipartite limited packing, but those neither have the same three-limited property on this Cartesian product nor establish its stated polynomial. The claim is distinct in parameter, condition and counting level; no known covering result was identified after the described searches. This does not amount to a proof of absolute historical novelty. Priority risks include hard-to-index specialized product literature, unpublished calculations and a potentially unrecognized derivation from a general result.
+PASS
 
-## Value (PASS)
+The strongest same-host matches count induced three-independence or pack edges of the rook graph; the closest closed limited-packing product theorems are at capacity two. The related same-day triangular finding does not give this bipartite-root classification. Credit applies to the closed-three exact all-set census, rectangle maximum and long-board optimizers, not to the common degree formula.
 
-Three-limited packings are a natural local capacity condition for facility placement. Unlike an arbitrary finite census, the theorem provides a complete structural and exact all-cardinality solution on an infinite canonical graph family. The one-exceptional-component rigidity yields the sharp three-regime capacity law \(\max\{s+2,\min(2s,\ell)\}\) and identifies the entire optimum class in the sufficiently rectangular regime. In particular, at square aspect ratio capacity three allows only two more placements than a matching, whereas at width at least twice the height it permits two placements per row. Those structural differences explain why generic product upper bounds are far from universally sharp.
+## value
 
-## Sources and limitations
+PASS
 
-Public primary sources inspected: https://arxiv.org/abs/2308.16837 (v1, 2023-08-31) and https://arxiv.org/abs/2405.03237 (v1, 2024-05-06). Additional broader context: https://arxiv.org/abs/1501.01833. The theorem does not cover arbitrary Cartesian factors, capacity greater than three or all inclusion-maximal packing configurations. Historical priority remains provisional and requires independent review.
+Rook graphs are a natural two-parameter family in which unselected intersections couple the row and column loads. The exact census exposes which small cores can coexist with a matching and predicts a sharp aspect-ratio change: the C₄ construction wins on short rectangles and doubled occupancy on the smaller shore wins on long ones. All coefficients and the long-rectangle extremizer count convey information beyond a generic product bound or an existence example.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

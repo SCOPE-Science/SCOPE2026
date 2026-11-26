@@ -1,0 +1,155 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:17:58.091245Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, lines 5–46",
+        "VERIFICATION.md, lines 1–23",
+        "verify_rank.py, lines 9–101; requirements.txt",
+        "De Simone–Capra–Franzosi arXiv:2609.20390v1, Eqs. (21)–(25)"
+      ],
+      "rationale": "For this Ising normalization the site coherence magnitude is the product over incident interactions of |cos(t K_uv)|. In particular the center has |cos(t/D)|^m and every leaf has a common factor |cos(t/D)|, so t*=pi D/2 is the first time at which the total one-body distance reaches its maximum. Expanding (1-2x)(1-2y) and dropping local phases gives the coefficient (-1)^(cj) exp(i pi beta i j) with the Dicke binomial multiplicities. Tracing out the center side cancels opposite-parity weights; the sum over its leaves gives the stated binomially weighted cosine power. Depending on coefficient convention the density matrix uses the transpose of the column Gram matrix, which is isospectral. The nonzero spectrum is that of the compression with zeros discarded; the complementary reduced space is padded with its own zeros. Taking absolute squares and convolving the two binomial coefficients by Vandermonde gives the stated purity. For rank, divide out the strictly positive multiplicities and use the first s Vandermonde columns (or first b+1 distinct nodes if fewer columns) for nodes z=(-1)^c exp(i pi beta i). Each distinct z^2 supplies both square roots; the squared nodes exp(2 pi i beta i) are distinct for irrational beta and have exact period q for beta=p/q reduced. This gives the asserted ranks for both parities of p, with no floating-point assumption. For a=0 use an empty product; for b=1 there are two eigenvalues 1/2 and rank two, including m=1. The bundled checker was inspected, not run; the independent algebra covers the infinite parameter domain.",
+      "residual_risks": [
+        "At large size thresholded floating-point eigenvalues need not distinguish arbitrarily small positive eigenvalues from zero; exact rank uses the Vandermonde minor.",
+        "The maximal time refers to the one-body entanglement distance, not a simultaneous maximizer for all cuts."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hein et al. give the general weighted qubit graph-state reduced entry as a phase times a product of cosines of the cross weights. Finite-field quadratic-phase Theorem 1 relates purity to the finite-field incidence rank. The resource construction arXiv:2512.01327v1 advertises universality at arbitrary nonzero uniform weight on other graphs."
+        ],
+        "reasoning": "The general reduced-entry identity covers the underlying partial trace and specializes to the parity/cosine expression. It does not give an evaluated Schmidt-rank law for a real phase. The finite-field flat-purity law does not extend by parameter substitution to irrational and arbitrary rational real qubit weights.",
+        "searches": [
+          "arXiv:quant-ph/0602096, reduced density matrix, Eqs. (174)–(176)",
+          "arXiv:2605.05167v2, section II.2, Theorem 1; arXiv:2512.01327v1, abstract"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.20390v1",
+        "arXiv:quant-ph/0602096",
+        "arXiv:2610.03595v1",
+        "arXiv:2605.05167v2",
+        "arXiv:2512.01327v1 (abstract)",
+        "Resultary 28b5ad3b8fec, 867c58f80465, ed3d0ebf6e6a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At rational angle, a cat-component decomposition supplies an upper-bound mechanism, not the smaller-dimension equality for every finite cut. Standard weighted graph-state traces determine entries, not the rank of this real-parameter matrix."
+        ],
+        "reasoning": "The exact upper-and-lower rank and irrational case need a nondegeneracy proof and exact collision count for this matrix. The distinction is not that the known general density matrix fails to specify the state; it is that evaluating the rank across its continuous family uses additional algebra.",
+        "searches": [
+          "arXiv:2609.20390v1 Eqs. (21)–(25); arXiv:2610.03595v1 sections 9–10; arXiv:quant-ph/0602096 Eqs. (174)–(176)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "De Simone–Capra–Franzosi Eqs. (21)–(25) give the one-body distances, maximal time and twisted state, not the arbitrary-cut rank. Wang et al. sections 9–10 use a cut norm bound and rational cat decompositions for collective twisting.",
+          "Resultary 28b5ad3b8fec concerns two-qubit negativity in K_(1,1,c); 867c58f80465 concerns Pauli moments of a two-excitation Dicke state."
+        ],
+        "reasoning": "Equivalently the claim is the rank of the two-sign exponential sample matrix at nodes scaled by the center parity, with a cut-dependent Dicke Gram compression. Neither one-site distance nor two-qubit negativity nor the cat-component count is that rank. Substantive same-day comparisons were made without inferring priority from the date.",
+        "searches": [
+          "Resultary: weighted Ising entanglement, arithmetic Schmidt rank and marked star cuts",
+          "arXiv:2609.20390v1; arXiv:2610.03595v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest marked-star rank record ed3d0ebf6e6a is a later Kneser graph qudit flat-spectrum law over finite fields; the other checked records give different observables. No exact table for this family was identified in returned evidence."
+        ],
+        "reasoning": "A table of rank examples could cover individual instances only. The asserted all-real rank and symbolically complete cut compression are not extrapolated from examples.",
+        "searches": [
+          "Resultary: Katz-star cut spectrum, phase rank and denominator resonance; checked 28b5ad3b8fec, 867c58f80465 and ed3d0ebf6e6a"
+        ]
+      },
+      "rationale": "Credit the all-cut Katz-star classification, in particular the sharp rank at every real coupling and its exact dependence on the lowest denominator. The weighted-graph partial trace and rational finite-component mechanisms themselves are known, and the Katz-specific Gram entries are a specialization and symmetric-basis compression of the known partial trace. The inspected prior implications do not fix the rank when the cut dimension competes with the rational period; the additional Vandermonde lower bound is essential. This is a best-of-knowledge distinction, not priority certification.",
+      "residual_risks": [
+        "A more general exact Schmidt-rank evaluation with a mechanical specialization to this weighted state may exist in uninspected or unindexed literature; the inspected broader trace formula is not such an evaluation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers model, state and one-body time; not all-cut evaluated rank",
+          "evidence": [
+            "Separates t1*=pi D/2 from the leaves' special time t2*=pi D/(2 beta)."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2609.20390v1",
+          "material_read": "Star subsection, Eqs. (21)–(25)",
+          "method": "Bounded OA full-text comparison",
+          "title": "Entanglement Dynamics in Katz-Weighted Graph States",
+          "trigger": "Same Katz-star Hamiltonian and time"
+        },
+        {
+          "assessment": "Covers general trace formula but not the evaluated rank",
+          "evidence": [
+            "Drop intra-side gates; off-diagonal entries factor into a phase times cosines, one per complementary vertex."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/quant-ph/0602096",
+          "material_read": "p. 73, Eqs. (174)–(176), OA offset 263515",
+          "method": "Located the reduced-density passage and read it in context",
+          "title": "Entanglement in Graph States and its Applications",
+          "trigger": "General reduced-state identity for weighted graph states"
+        },
+        {
+          "assessment": "Related mechanism, different invariant",
+          "evidence": [
+            "Rational twisting cat representation and TV overhead; cut bound involves operator-Schmidt trace norm."
+          ],
+          "identifier_or_url": "arXiv:2610.03595v1",
+          "material_read": "Sections 9 and 10 (OA offsets about 107500 and 120850)",
+          "method": "Read targeted OA passages",
+          "title": "The exact LCU sampling overhead of collective diagonal unitaries: resonances and a continued-fraction dichotomy",
+          "trigger": "Rational twisting and cut bounds"
+        },
+        {
+          "assessment": "Different phase and coefficient field",
+          "evidence": [
+            "Purity is a power of finite-field size governed by a cross-block rank."
+          ],
+          "identifier_or_url": "arXiv:2605.05167v2",
+          "material_read": "Section II.2 Theorem 1",
+          "method": "Read theorem passage",
+          "title": "Entanglement-Rank Duality in Quadratic Phase Quantum States",
+          "trigger": "Closest rank and purity analogue"
+        },
+        {
+          "assessment": "Only evidence for scope of advertised result, not a full-text exclusion",
+          "evidence": [
+            "Planar weighted graph states as universal resources at nonzero constant weight."
+          ],
+          "identifier_or_url": "arXiv:2512.01327v1",
+          "material_read": "Abstract only",
+          "method": "Read OA abstract",
+          "title": "Measurement-based quantum computation on weighted graph states with arbitrarily small weight",
+          "trigger": "General real-weight context"
+        },
+        {
+          "assessment": "Distinct objects or invariants",
+          "evidence": [
+            "K_(1,1,c) negativity, Dicke Pauli moments, and finite-field Kneser-qudit resonance respectively."
+          ],
+          "identifier_or_url": "Resultary 28b5ad3b8fec, 867c58f80465, ed3d0ebf6e6a",
+          "material_read": "Original finding passages in local mirrors",
+          "method": "Statement-level parameter, graph, and observable comparison",
+          "title": "Related catalogue statements on weighted states, Dicke states and star cuts",
+          "trigger": "Closest published catalogue analogues"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, lines 5–22 and 40–54",
+        "arXiv:2609.20390v1, star subsection"
+      ],
+      "rationale": "The time is selected by the source model, not an ad hoc numerical slice. The result resolves whether the state uses all available symmetric-subspace dimensions across each cut, and gives the exact finite-cut saturation and denominator drop. Both distinguish states having the same maximal one-body distance. This also supplies an algebraic rank test when tiny eigenvalues make numerical rank unreliable; for m=80, a=30 the admissible 1/10 has rank 20 versus 51 at any admissible irrational coupling.",
+      "residual_risks": [
+        "This is a result at the designated time for one graph family, not a general graph-state or arbitrary-time classification."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

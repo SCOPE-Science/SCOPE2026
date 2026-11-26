@@ -1,11 +1,21 @@
-# Scientific review — rare Weibull boundary layer in power-Gumbel block maxima
+# Independent mathematical audit
 
-**C (correctness): PASS.** The density and CDF are explicitly those of the 2023 model. Taking the CDF to the sample-size power gives the exact family parameter change and the negative mass \(e^{-c_n}\). Conditioning and scaling yield the stated exact survival, and the exponential coupling proves the stochastic-order convergence to Weibull without simulation. The two logarithmic-density derivatives are strictly decreasing on both branches and give one mode each for every fixed finite sample size. The negative root, the positive root and both peak heights have complete expansions, with constants checked by direct substitution; the standard unconditional Gumbel limit is separately identified. A standalone symbolic/numeric checker was replayed. The original power exponent must exceed one and all limits fix the parameters.
+## correctness
 
-**O (originality): PASS, qualified.** The 2023 founding article already gives the CDF, its first density, plots of two modes, and implicit single-distribution mode equations. These are not claimed. The exact *conditioned block-maximum* Weibull law, its monotone exponential coupling, the vanishing-lobe mass and peak-height asymptotics, and the simultaneous two modal positions were not identified in the original full text. The 2025 revised BGEV and 2026 regression paper use a different parameterization with a spatial shift and study block-maxima modeling and general transformations, but do not state this rare-branch law. The 2023 earlier noninvertible Gumbel model is not the same object. Searches of published mathematical research records found no directly covering result. Some unindexed historical treatment might still exist; the novelty judgment is not a proof of global priority.
+PASS
 
-**V (value): PASS.** Bimodality is a central purpose of the model for extreme-risk blocks. The new result shows precisely why the apparent negative density mode cannot represent a comparably weighted physical regime for sufficiently large blocks: its mass is exactly exponentially tiny even while a strict density maximum remains. It also identifies the sharply rescaled conditional Weibull event law, the surviving rare mode's position and height, and the unconditioned Gumbel regime. These are structurally motivated quantitative diagnostics, not a narrow arbitrary sample or a finite simulation.
+Taking the CDF power gives the location change with the stated minus sign and mass exp(-c_n). For a scaled negative excursion t, the ratio of the two CDFs gives the exact conditional survival exp[-c_n*expm1(t^p/c_n)]. The single exponential coupling realizes these conditional laws (not the original nested maxima); c*log(1+E/c) has positive derivative for E>0 and tends to E. On either branch put v=|x|^p/sigma. The density is proportional to v^k y exp(-y), where y=c_n exp(v) on the negative branch and y=c_n exp(-v) on the positive branch. The log scores k/v+1-y and k/v+y-1 both strictly decrease from positive infinity and each crosses zero once. The density vanishes at zero and at both tails, so these are strict distinct local maxima at every n. At the negative root t=c_n*v solves t exp(t/c_n)=k+t/c_n, giving t=k+O(1/c_n) and y=c_n+k+O(1/c_n); substituting preserves the exp(-k) height factor. At the positive root v=L-log(1-k/v), L=log c_n, which gives v=L+k/L+O(L^-2) and y tending to 1. Restoring units gives the two stated positions and heights; their ratio forces eventual unique positive global dominance. The ordinary unconditioned normalization follows by expanding the inverse signed power of b_n+sigma*G on its eventually positive branch. Independent high-precision finite checks corroborated the two location and height scales.
 
-The conclusion applies only to the fixed three-parameter 2023 family and i.i.d. maxima. Neither a general max-stability theorem for arbitrary transformations nor historical novelty certification is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The signed-power Gumbel family, underlying mode equation and closure from max-stability are prior ingredients. The assessed addition is the combined rare conditional law and quantitative description of both peaks across block sizes. Comparison with the exact underlying model and the related published block-maxima limit found no covering statement of the conditional boundary layer together with the sharp peak asymptotics. Conditioning and stationary-point analysis are standard methods, not asserted as new.
+
+## value
+
+PASS
+
+Bimodality is a defining feature of the model, so comparing its persistence under the standard block-maximum operation with the actual branch mass is natural. A zero-density valley preserves two strict local modes while the secondary peak and branch probability collapse on explicit different scales. The conditional law describes the fluctuations within that shrinking branch and the peak constants distinguish this from merely restating closure or the ordinary Gumbel limit.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

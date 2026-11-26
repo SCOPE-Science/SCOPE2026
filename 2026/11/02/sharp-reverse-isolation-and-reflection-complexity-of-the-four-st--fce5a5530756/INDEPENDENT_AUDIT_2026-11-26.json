@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:20:45.184784Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the infinite four-symbol fixed point, the classes {a,d} and {b,c} alternate. In a factor window the first and last letters of each image are injective on the known source parity class. Complete images recover the internal letters, and classwise injectivity recovers the partial endpoints. This proves the two factor-count recurrences (even length 2m with m>=2, odd length 2m+1 with m>=1); P(1)=4 and P(2)=8 then yield P(n)=8n-8 for n>=2. All eight alternating ordered pairs occur in sigma^4(a). Every length-at-most-eight window lies in sigma^3(xy) for an occurring pair xy, and conversely each such block pair occurs. Independent enumeration gave P=(4,8,16,24,32,40,48,56), reversible counts (4,8,16,16,16,8,4,0), and palindrome counts (4,0,8,0,8,0,4,0). At length seven the four words acabaca, babdbab, cdcacdc and dbdcdbd are all palindromes. A separate implementation using translate and consecutive pairs in sigma^4(a) regenerated the exact 504 bytes of factors8.txt (SHA-256 2aa97abe490366aad190ec88b638589d77046f871f0d6b69982810e4a6ec0fb4). Any longer reversed pair would give a length-eight reversed pair. Subtracting half the number of reversible nonpalindromes from P gives all stated reflection counts. The frozen verifier was inspected, not executed; no prefix extrapolation, formal verification or expert attestation is used.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 59 gives binary r(n)=p(n)=8n-8 at n>=15 for the generalized family.",
+          "Resultary 2fe09ee974cf proves an analogous cutoff for 0→01,1→21,2→0, with last reversible word 1012101 and a different eventual count."
+        ],
+        "reasoning": "Broader binary families do not include the unprojected alphabet, and an analogous ternary result is for another language. Neither gives the four-state sharp profile.",
+        "searches": [
+          "arXiv:2406.09302, Proposition 58 and Theorem 59",
+          "Resultary comparison: 2fe09ee974cf and 1493882ca092"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2406.09302, p. 29",
+        "Resultary 2fe09ee974cf",
+        "Resultary 1493882ca092",
+        "Resultary 3742eafffb98"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The binary no-reflection theorem rules out any four-letter pair projecting to a reflected binary pair at n>=15.",
+          "The binary factor count gives a lower bound for the four-letter factor count at n>=8."
+        ],
+        "reasoning": "These are real implications, but they give neither the four-letter n=8 barrier nor its sharp n=7 witnesses or short orbit counts. Binary reverse pairs need not lift to literal four-letter pairs.",
+        "searches": [
+          "arXiv:2406.09302, Proposition 58 and Theorem 59",
+          "Resultary 1493882ca092, binary p(n) at n>=8"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The OA paper defines binary generalized Golay–Shapiro by a running sum modulo two; the finite exceptional reflection profile is different.",
+          "Resultary 1493882ca092 uses this substitution with a binary projection but studies one-step tortoise complexity; 3742eafffb98 concerns binary circular palindromes."
+        ],
+        "reasoning": "A bijective renaming would preserve literal reversal, but a binary projection is not a bijective renaming. Circular palindromes or tortoise classes also do not encode ordinary reversal orbits.",
+        "searches": [
+          "Resultary: four-state Rudin–Shapiro precursor reversal / reflection spectrum and sharp reversal cutoff",
+          "arXiv:2406.09302, generalized Golay–Shapiro section"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The returned close records include ternary reversal, binary tortoise, and binary circular-palindrome results; none tabulates the same unprojected reversal invariant."
+        ],
+        "reasoning": "An equal eventual factor count is not the short reflection table or exact reverse cutoff. The bounded ranked comparison is not exhaustive.",
+        "searches": [
+          "Resultary ranked searches for the unprojected four-state factor and reversal table and length-eight barrier"
+        ]
+      },
+      "rationale": "The supported distinct claim is the full literal four-letter reflection profile and its sharp cutoff at eight, for the specified unprojected substitution. Checked binary and ternary results are not equivalent. This is a bounded assessment, not priority certification.",
+      "residual_risks": [
+        "A historical or unindexed result on the literal four-state language, possibly under a bijective renaming of the substitution, could contain the same profile.",
+        "Catalog dates alone do not order related same-day records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL IMPLICATION; NOT COVERING the sharp four-letter result",
+          "evidence": [
+            "Running sum modulo two; reflected binary factors end at length 14, with 8n-8 reflection classes thereafter."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2406.09302",
+          "material_read": "OA preprint, p. 29, family definition, Proposition 58 and Theorem 59",
+          "method": "Read the bounded original PDF text passage",
+          "title": "The reflection complexity of sequences over finite alphabets",
+          "trigger": "Same invariant for Rudin–Shapiro and generalized Golay–Shapiro words"
+        },
+        {
+          "assessment": "NOT COVERING; different substitution",
+          "evidence": [
+            "0→01,1→21,2→0; r(n)=2n+1 for n>=8, with last reflected factor 1012101."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-exact-reflection-spectrum-and-a-sharp-reversal-barrier-for-a-ter--2fe09ee974cf",
+          "material_read": "RESULT.md finding",
+          "method": "Read the local indexed mirror passage",
+          "title": "Exact reflection spectrum and a sharp reversal barrier for a ternary word",
+          "trigger": "Same invariant and candidate cutoff"
+        },
+        {
+          "assessment": "NOT COVERING; distinct observable after binary projection",
+          "evidence": [
+            "Binary p(n)=8n-8 for n>=8, not literal four-state reflection."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-one-step-tortoise-complexity-of-the-binary-rudin-shapiro-w--1493882ca092",
+          "material_read": "RESULT.md definition and finding",
+          "method": "Read the local indexed mirror passage",
+          "title": "Exact one-step tortoise complexity of the binary Rudin–Shapiro word",
+          "trigger": "Same morphism and eventual factor-count expression"
+        },
+        {
+          "assessment": "NOT COVERING; different alphabet and equivalence",
+          "evidence": [
+            "Binary circular palindromes do not enumerate ordinary four-letter reflected pairs."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-cyclic-factor-fidelity-and-the-complete-circular-palindrome-lang--3742eafffb98",
+          "material_read": "RESULT.md finding",
+          "method": "Read the local indexed mirror passage",
+          "title": "Cyclic factor fidelity and the complete circular-palindrome language",
+          "trigger": "Related palindrome invariant for this family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The four-state precursor is a natural presentation of a canonical automatic sequence. The exact threshold is the shortest observation length at which the forward language and its reversal are disjoint. That fact and the last admissible reversed words are lost under binary projection, and the calculation resolves the entire reflection invariant rather than an arbitrarily truncated factor list.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

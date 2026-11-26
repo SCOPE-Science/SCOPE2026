@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:39:27.289758Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 30–89",
+        "VERIFICATION.md and checker.py inspected as text"
+      ],
+      "rationale": "Sum/difference transforms of disjoint independent microscopic payoffs give independent slopes of variance 4 and centered intercepts of variance m, independent across rows. Principal matrices are nonsingular almost surely; one affine system per open face bounds the count by 3^m. Requiring roots on all parallel edges maximizes the absolute offset to |h_i|+sum_{j≠i}|a_ij|/2 and forces the strict condition. Conversely dividing by the diagonals gives a strict self-map contraction on every free subcube. Fixed-coordinate normal rates have sign -sgn(a_ii); free-block Gershgorin discs remain strictly in their sign half-planes while off-diagonals shrink to zero, giving the asserted unstable dimension. A free unstable direction gives instability within its invariant face; a positive normal rate gives inward perturbations that grow, so the sink count is also valid relative to the full cube. Independence and sign symmetry then yield the q_m^m event and the 2^K count with K conditionally binomial. The three-ray spherical triangle for m=2 has angles pi/2, pi/4, pi/3, giving q_2=1/6. A separate exact cone integral and Jensen bound give log q_m=-(m/2)log m+(m/2)(1+log(2/pi))-log m+O(1), which in particular proves the stated remainder for the log joint probability. This does not depend on the finite checker or Monte Carlo figures.",
+      "replay_paths": [
+        "/workspace/replay/record4.md"
+      ],
+      "residual_risks": [
+        "Only the specified iid microscopic Gaussian law, local stability in the cube, and stationary-point counts are concluded; no basin sizes or Nash-only counts."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mocenni–Moraes–Santos' boundary instability theorem uses zero self-interaction. The inspected Song–Duong–Han results cover two and three populations, not arbitrary dimension."
+        ],
+        "reasoning": "The required dominance and sink classification use nonzero own-population coefficients. The zero-diagonal theorem neither covers nor contradicts that positive-probability regime.",
+        "searches": [
+          "arXiv:2606.20688, Theorem 2",
+          "arXiv:2611.23223, §IV and scope of low-dimensional results"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.23223 main OA text",
+        "arXiv:2606.20688 Theorem 2",
+        "Frozen source and bounded local comparison"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Per-candidate probabilities concern overlapping events that share payoff coefficients. Neither multiplying such marginals nor using the hyperbolicity conclusion of a different model derives the maximal-phase probability."
+        ],
+        "reasoning": "Necessity from all parallel edges and sufficiency on every face turn a highly dependent family of possible equilibria into independent centered row inequalities. The conditional sign law and rare-event constant require this or a comparable joint reduction; they are not mere finite-table extrapolations.",
+        "searches": [
+          "arXiv:2611.23223 Theorem 1, §IV/Lemma 5 and pp. 2,9 supplement pointers",
+          "arXiv:2606.20688 Theorem 2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Song–Duong–Han's iid microscopic-payoff model agrees at m=2 and m=3; their separate independent-coefficient model is not generally the same ensemble. Their finite candidate positions are the same faces under distinct coordinates and terminology."
+        ],
+        "reasoning": "Compare the same joint all-face event, not a differently parameterized sum of marginals or the independent-coefficient model. The sign-count law is for 2^K, not for a binomial number of sinks.",
+        "searches": [
+          "arXiv:2611.23223, microscopic-payoff Theorem 1 and §IV/Lemma 5",
+          "Exact all-face versus centered strict row-dominance comparison"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Same-ensemble reported frequencies are 0.0277 for nine equilibria and 0.0001 for 27 equilibria. The first is consistent with 1/36, but the main text reports simulations of these aggregate frequencies. No separate supplement was retrieved; no negative table finding is made for it."
+        ],
+        "reasoning": "These tables overlap with the frozen event in finite dimensions and must be credited. They do not supply its exact joint probability, sink law or large-m log constant.",
+        "searches": [
+          "arXiv:2611.23223 Tables II and V",
+          "Bounded local published-record evidence comparison"
+        ]
+      },
+      "rationale": "The low-dimensional face candidates and simulated same-ensemble maximum-count frequencies are prior. Credit the all-m strict characterization and joint laws, including the conditional stable-state count and sharp log-probability asymptotic, which are not supplied by the inspected finite-dimensional results.",
+      "residual_risks": [
+        "The separate supplement to arXiv:2611.23223 was not available for comparison; in particular it could contain an exact finite-m maximum event calculation. No exclusive priority asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct prior overlap on ensemble, face candidates, and simulated maximum-count frequencies; stronger all-m joint statements not present in the material read.",
+          "evidence": [
+            "First public 2026-11-17 UTC, before the frozen edition; not treated as a later-priority comparison.",
+            "m=3 case has 8 vertices, 12 open edges, 6 open two-dimensional faces, and 1 interior candidate.",
+            "Table II's 0.0277 is simulated, not the exact 1/36 in the compared main text."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2611.23223",
+          "material_read": "Main OA PDF Theorem 1 p. 4 (offset 29602); §IV/Lemma 5 pp. 6–7 (offsets 39236–54084); Tables II and V pp. 7,9 (offsets 54068,66554); supplement pointers pp. 2,9; separate supplement not retrieved",
+          "method": "Targeted primary-text comparisons of microscopic ensemble, marginal versus joint events, and histogram provenance",
+          "title": "Equilibrium Statistics and Stability in Random Two-Population and Three-Population Evolutionary Games",
+          "trigger": "Same microscopic Gaussian payoffs, maxima and total-count histograms at m=2 and m=3"
+        },
+        {
+          "assessment": "Specific earlier structural theorem for a different no-self-interaction model.",
+          "evidence": [
+            "The mixed boundary rest point is nonhyperbolic or a saddle under its assumptions; the proof uses a_vv=0."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2606.20688",
+          "material_read": "OA PDF Theorem 2 p. 10 (offset 32298), including zero diagonal in proof",
+          "method": "Check model hypotheses and implication for the strict dominance regime",
+          "title": "On the Structure and Stability of Boundary Mixed Steady States in Evolutionary Games on Networks",
+          "trigger": "General networked boundary mixed rest-point structure and stability"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding and proof §§2–5",
+        "arXiv:2611.23223 Tables II and V"
+      ],
+      "rationale": "A joint probability of occupying every support face and a simultaneous local stability census answer different questions from marginal existence probabilities or expected counts. Their exact relation separates the many-stationary-state regime from the number of actual sinks; the sharp rarity asymptotic quantifies how rapidly this regime disappears as population number grows.",
+      "residual_risks": [
+        "Mathematical benchmark, not an empirical prevalence or global dynamics claim."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

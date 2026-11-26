@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:10:32.717328Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof lines 38–88",
+        "Frozen VERIFICATION.md and verify.py, especially lines 62–112"
+      ],
+      "rationale": "Independently reconstructed the functional and covariance limits. For attachment bit A_k, Y_k=1−(1−A_k)Y_{k−1} takes values 0,1, so H is terminal depth. The leaf increment is A_{k−1}(1−A_k). For μ=1/(1+q), sums of the centered increments from k=3 to m are, up to uniformly bounded endpoint terms, sums of martingale differences (A_k−p)(Y_{k−1}/(1+q), q−A_{k−1}). This follows by telescoping Y_k−μ+q(Y_{k−1}−μ)=Y_{k−1}(A_k−p) and shifting the one-step leaf term q(A_{k−1}−p). The finite-state chain (Y,A) forgets initialization at the first success; its stationary moments are E Y=μ, E A=p, E(YA)=p. Thus time-averaged predictable brackets converge to the asserted Σ by the ergodic theorem; the bounded differences satisfy Lindeberg for the martingale functional CLT. Orthogonality of differences gives covariance convergence separately, with endpoint terms negligible after division by n by Cauchy–Schwarz. Summing the expectation recursion gives the asserted height mean and counting the deterministic initial A_2 gives the stated leaf mean. The determinant factors as stated, and the sign changes at the unique root of q²+q−1 on (0,1). The line-96 characterization of Isaev et al. is bibliographically inaccurate (uniform labelled trees, not uniform recursive trees), not a mathematical defect. Packaged code was inspected, not executed; the large-n moment checks use floating point, despite a code comment calling them exact.",
+      "residual_risks": [
+        "Fixed interior p only; no finite-size independence or theorem at p varying with n."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Tang et al. define the model and study ends/collisions. Isaev et al. treat uniform labelled trees and martingale limits. Devroye et al. use a scaled parent index. The same-model Resultary proof supplies an iid reward representation, geometric tail and common reset."
+        ],
+        "reasoning": "A generic CLT alone does not identify the covariance; the indexed same-model analysis already performs that identification and supplies the hypotheses for path convergence.",
+        "searches": [
+          "Tang–Wang–Wu arXiv:2607.02916",
+          "Isaev–Southwell–Zhukovskii, Distribution of tree parameters by martingale approach",
+          "Devroye–Fawzi–Fraiman, The height of scaled attachment random recursive trees",
+          "Same-model Resultary proof §§2 and 4"
+        ]
+      },
+      "checked_sources": [
+        "November 8 exact same-model Resultary finding",
+        "Tang–Wang–Wu",
+        "Isaev–Southwell–Zhukovskii",
+        "Devroye–Fawzi–Fraiman"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Blocks have geometric-zero-run K, duration K+1 and reward (floor(K/2)+1, 1_{K≥1}). Apply vector Donsker to iid centered rewards; N(nt)/n→pt uniformly by the renewal law. The maximal residual block over n steps is O(log n) in probability by a union bound on the geometric tail; time-change gives exactly the asserted Brownian covariance."
+        ],
+        "reasoning": "A scalar CLT does not in general imply a functional CLT, but this particular explicit regenerative proof does via a standard time change without another model-specific computation.",
+        "searches": [
+          "November 8 Resultary proof §§1–4, especially independent renewal blocks and their moments"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 2026/11/8 two-lag Bernoulli-tree record Finding and Proof §§1–3: same parent choices, depth/leaf definitions, explicit matrix and root. Its vertices v_0 through v_n are the assigned vertices 1 through n+1."
+        ],
+        "reasoning": "The shift only changes centerings by O(1); the end-time law and all covariance coefficients match exactly.",
+        "searches": [
+          "Configured Resultary latest/penultimate Bernoulli tree height leaves covariance query and exact cross-covariance formula query"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "November 8 record explicitly lists the joint Gaussian matrix and determinant, threshold, Gaussian independence at the root, and a stronger covariance remainder O(1)."
+        ],
+        "reasoning": "This is exact formula coverage, not a numerically similar value or nearby tree law.",
+        "searches": [
+          "Configured Resultary two-lag height/leaf query and exact-formula query"
+        ]
+      },
+      "rationale": "A distinct Resultary record for exactly this model, with labels shifted by one, gives the same covariance, determinant and golden-ratio transition, and supplies the explicit iid regenerative reward representation. The present path-level extension follows directly from those same blocks by the iid invariance principle, the renewal law and the negligible maximal incomplete block. The exact means are elementary consequences of the identical increment recursions. The later catalogue date is not evidence of chronological priority over the assigned record; this decision is about demonstrated scientific coverage, not who discovered it first.",
+      "residual_risks": [
+        "Catalogue comparison establishes coverage, not historical priority or exhaustiveness of literature search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact matrix and transition overlap; FCLT is implied by the exhibited blocks.",
+          "evidence": "Identical increment recursions, independent geometric blocks with exact reward pair, and identical covariance including determinant.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-golden-ratio-covariance-transition-for-height-and-leaves-in-tw--18e3157fa569/RESULT.md",
+          "material_read": "Finding, Proof §§1–3 offsets 0–4230; §4 and prior-work discussion from offset 4400",
+          "method": "Configured search and OA local mirror",
+          "title": "A golden-ratio covariance transition for height and leaves in two-lag Bernoulli trees",
+          "trigger": "Same model, observables and covariance formula"
+        },
+        {
+          "assessment": "Model match; inspected theorems concern ends and collision.",
+          "evidence": "Two-choice law and unique-end and infinite-collision statements.",
+          "identifier_or_url": "https://arxiv.org/abs/2607.02916",
+          "material_read": "v1 PDF p. 1 offset 256; p. 3 offset 5908, Theorems 1.1–1.2",
+          "method": "Lawful OA PDF text",
+          "title": "Infinite collisions of simple random walks on random recursive trees generated by Bernoulli sequences",
+          "trigger": "Identical attachment model"
+        },
+        {
+          "assessment": "Different law, generic methodological background.",
+          "evidence": "Uniform unrooted labelled trees and martingale CLT, not uniform recursive trees.",
+          "identifier_or_url": "https://www.cambridge.org/core/journals/combinatorics-probability-and-computing/article/distribution-of-tree-parameters-by-martingale-approach/32DFE2BAD7DFC3309F3FAD131FEFC451",
+          "material_read": "PDF p. 1 abstract and p. 2 offset 4485",
+          "method": "Lawful OA PDF text",
+          "title": "Distribution of tree parameters by martingale approach",
+          "trigger": "Cited tree-statistic CLT result"
+        },
+        {
+          "assessment": "Different parent law and not the joint height–leaf covariance.",
+          "evidence": "Scaled parent floor(iX_i) and depth/first-order height.",
+          "identifier_or_url": "https://dmtcs.episciences.org/en/articles/2788",
+          "material_read": "PDF pp. 1–2 offsets 0 and 2935",
+          "method": "Lawful OA PDF text",
+          "title": "The height of scaled attachment random recursive trees",
+          "trigger": "Cited attachment-tree height result"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding; matching two-lag record Finding and Proof §§2–4"
+      ],
+      "rationale": "The exact tree-specific covariance and sign transition would be informative in isolation, but are already covered. The only material difference is the process statement obtained by standard iid renewal time change with unchanged rewards and covariance. No new path statistic or tree-specific conclusion beyond that routine upgrade is established as an independently valuable remainder.",
+      "residual_risks": [
+        "This does not diminish the utility of the underlying explicit covariance calculation as a mathematical fact."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

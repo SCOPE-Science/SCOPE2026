@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The Chebyshev residual and quadratic inverse are explicitly defined on the exact spectral interval of a shifted unweighted tree Laplacian. Expansion gives the signed edge-degree identity; positive definiteness gives strictly positive diagonal entries. Comparing each edge to an embedded double star and evaluating the largest-root cubic at a rational threshold proves the order-eleven universal claim without enumeration. The order-twelve symmetric double star and its exact shift \(\mu=1/4\) give a negative entry. Exact symbolic computations and a supplementary census of 435 nonisomorphic trees through order eleven reproduced the identities. See `RESULT.md` and `verify.py`. The census is confirmatory, not a substitute for the proof.
+## correctness
 
-**Originality — PASS on the inspected record, with priority risk.** A directly related earlier result, *Condition three is the sharp positivity frontier for the degree-three Chebyshev semi-iterate*, already obtains the same quadratic polynomial and a sharp condition-number bound for arbitrary Stieltjes matrices. That portion is explicitly treated as prior work. Its arbitrary-matrix dimension-three counterexamples do not imply the tree-specific first failure at twelve vertices: shifted connected tree Laplacians have rigid row sums, integer edge degrees and an extremal tree-Laplacian spectral constraint absent from that setting. Wathen–Rees (2008) and Meng–Saunders–Mahoney (2011) establish Chebyshev iterative/preconditioning methods and convergence but not this minimality classification. Searches for tree-specific sign changes, smallest shifted graph Laplacians, aliases of the Chebyshev inverse polynomial, and double-star cases identified no dominating result. Unindexed monotone-iteration and polynomial-preconditioning literature remains a risk.
+PASS
 
-**Value — PASS.** A finite-stage polynomial approximate inverse can be spectrally positive while violating the coordinatewise monotonicity of the true inverse. The theorem gives the first possible unweighted tree size for this behavior, an exact local test for every weighted tree, and an explicit shift threshold for a natural family of two-hub trees. It therefore provides a structural diagnostic and a small reproducible regression example for positive-cone-safe polynomial preconditioners. The polynomial identity alone would be a routine deduction; the nontrivial, graph-universal eleven-versus-twelve threshold and its spectral proof are the substantive contribution.
+The degree-three residual gives a quadratic inverse polynomial with positive leading coefficient a_2. Multiplying A² gives the degree-sum edge test a_2 w_ij(μ+3Λ/2−d_i−d_j) on trees, one positive two-step product at distance two and zero at distances at least three. The Chebyshev residual has modulus less than one on the positive spectrum, so the inverse polynomial is positive definite and all diagonal entries are positive. Around an arbitrary edge, its incident double star has s+2=d_i+d_j vertices in the unweighted tree and its padded Laplacian is dominated in positive-semidefinite order by the full one. A quotient on the two hubs and two constant leaf blocks yields the cubic; absent leaf blocks introduce only redundant unit roots. At z=2(s+2)/3 its value is maximized by balancing the leaf counts because the coefficient multiplying kℓ is z>0. The ten exact balanced values for s=0,…,9 are negative, so the largest root exceeds z. This proves the all-shift assertion through order eleven. Factoring the symmetric cubic gives the claimed largest eigenvalue and cutoff, positive exactly for m≥5; the outside edge degree sum is smaller than 3Λ/2, and the explicit m=5, μ=1/4 bridge radical is strictly negative. Thus the failure at twelve is existential and sharp, not a claim that all twelve-vertex trees fail.
 
-**Limits and closest comparisons.** Only the exact-endpoint, degree-three completed Chebyshev polynomial is addressed. The order cut-off is unweighted-tree-specific. The 2008 report and 2011 preprint were examined in their relevant Chebyshev sections; the closest published research result's complete `RESULT.md` was read. The 1993 factorized approximate-inverse article was accessible as abstract/metadata only, and a broad unindexed classical-literature risk persists. This review is not independent validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The quadratic polynomial itself is prior. The strongest inspected overlap gives a sufficient condition-number frontier for all Stieltjes matrices and different witnesses; it neither rules out smaller unweighted tree failures at arbitrarily small shifts nor proves the exact double-star onset. The inspected same-day neighbors use different graph hypotheses or different polynomials.
+
+## value
+
+PASS
+
+This separates spectral positivity from preservation of the nonnegative coordinate cone at the first possible order in a standard graph family. It identifies a minimal regression example and a local degree/spectral diagnostic, not just a new counterexample at an arbitrary size or a restatement of the condition-number theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

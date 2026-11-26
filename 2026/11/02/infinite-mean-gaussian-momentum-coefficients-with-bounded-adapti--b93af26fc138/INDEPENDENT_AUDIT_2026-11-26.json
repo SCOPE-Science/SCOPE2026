@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:17:12.841314Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Algorithm 2 initialized with relaxation one gives x¹=(I−P_s)x⁰; Algorithm 3 uses uncapped Eq. (17) at k=1. For n≥2, d=x¹−x⁰ and x¹ are nonzero a.s.; conditionally on s, the second sketch z has nonzero component along x¹ and nonzero projection off d a.s., so the algorithm does not reject and its Gram determinant is nonzero. In the frame e=d/||d||, v=x¹/||x¹|| write z=Ze+W, U=W·v, R=||W||. Minimizing ||x¹−αg+βd||² first over β cancels the e-component, and then minimizing off e gives α=1/R² and β=(||x¹||/||d||)ZU/R². Conditionally on s the scalar law of (Z,R,T=U/R) is fixed, with independent Gaussian, chi_(n−1), and sphere-coordinate factors. These scalars, not necessarily the embedded vector W, are independent of the first-sketch ratio; this is the precise moving-frame reading needed for RESULT.md line 75. That ratio is χ_(n−1)/|G₀| for independent factors. The gamma-density integral for R^-2p gives the stated step moments, finite exactly for p<(n−1)/2. In the β moment multiply the chi moment and inverse-chi moment with the sphere-coordinate moment and the two one-dimensional normal moments: the powers of two and Γ((n−1+p)/2) cancel, leaving exactly the stated gamma quotient. Tonelli gives divergence for p≥1 from |G₀|^−p and symmetry gives no signed mean. For n=2 the two absolute Cauchy ratios are independent and each has square-root moment √2. Finally the remaining update is projection off W after projection off s; their orthogonality gives the two-plane complement. The mean of its rotationally invariant projector has trace n−2 and equals (n−2)I/n. Independent basic projections multiply the squared-error factor (n−1)/n twice, giving the difference ||x⁰||²/n². This was checked analytically; the supplied simulation is not evidence for divergent moments or numerical stability.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zeng–Han–Su–Xie already identify the orthogonal projection onto the two-dimensional affine space and prove conditional error bounds; Loizou–Richtárik analyze fixed-parameter stochastic momentum."
+        ],
+        "reasoning": "These results cover nonexpansion or provide error analysis, not moment integrability of the separate stochastic adaptive coefficients. The exact two-plane identity is a projection specialization and does not by itself support originality.",
+        "searches": [
+          "arXiv:2305.05482 Proposition 4.1, Fig. 1, Theorems 3.3 and 4.2, Remark 4.3",
+          "arXiv:1712.09677 Theorem 1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen Finding, analytical proof, verification notes and script read",
+        "arXiv:2305.05482 original equations and algorithms",
+        "arXiv:2210.06367 and arXiv:1712.09677 algorithm/theorem passages",
+        "Two closest indexed findings above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Projection suppresses each step's component along d, but says nothing about the separately represented β. In the Gaussian specialization the independent |G₀| denominator from the initialization survives in β even when the random affine minimizer is bounded."
+        ],
+        "reasoning": "The published algorithm and classical distributions provide ingredients, but iterate convergence and the two different indexed coefficient analyses do not imply the unconditional first-sketch fraction, the paired exact moment formulas, or dimension-independent divergence for this β.",
+        "searches": [
+          "arXiv:2305.05482 Eq. (6), Eq. (17), Algorithms 2–3, Theorem 4.2",
+          "Indexed exact Pareto-two coefficient and fixed-parameter Gaussian frontier findings above"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Eq. (17) defines the precise adaptive scalars; eliminating the momentum direction in the two-variable minimization yields a projection and the coefficient ratios. The indexed Gaussian identity-system result instead fixes the coefficients.",
+          "arXiv:2210.06367 Algorithm 1 gives deterministic adaptive Polyak parameters, not stochastic sketches."
+        ],
+        "reasoning": "The moving-frame Gaussian-ratio reformulation is an equivalent description of these specific scalars. Coefficients of a fixed-parameter recurrence or a deterministic conjugate-gradient update are not the same random variables.",
+        "searches": [
+          "arXiv:2305.05482 Eq. (17), Algorithm 3, and stochastic conjugate-gradient interpretation",
+          "Resultary: Gaussian rank-one adaptive stochastic heavy-ball, inverse chi-square coefficients and infinite moments"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The October 12 finding treats a different randomized-schedule coefficient with t^−2 survival tail, finite first moment and divergent second moment.",
+          "The November 2 finding uses the same Gaussian identity setting with fixed (α,ω) and an asymptotic squared-error factor."
+        ],
+        "reasoning": "The former cannot provide this infinite-first-moment law for a different random variable; the latter covers a different recurrence and observable. The shared date with the latter implies no priority order. No exact table for Eq. (17)'s two-stage Gaussian coefficients was located in the checked sources.",
+        "searches": [
+          "Resultary: exact heavy-ball coefficient Pareto or Cauchy tails; Gaussian rank-one identity system mean square",
+          "2026/10/12/SCOPE-exact-pareto-two-tail-for-randomized-heavy-ball-momentum-coeffic--d6a15c23760c",
+          "2026/11/2/SCOPE-exact-mean-square-frontier-and-a-sharp-no-momentum-optimum-for-g--e2fbb7bd2830"
+        ]
+      },
+      "rationale": "The exact coefficient laws and integrability thresholds for the published two-step adaptive update are the distinct claim on the inspected evidence. The projection interpretation and general error comparison are already in the original method paper; the exact two-step Gaussian error is a specialization, not an independent novelty claim.",
+      "residual_risks": [
+        "A prior treatment under a different stochastic projection or random linear-algebra parameterization may not be indexed as heavy-ball. The bounded comparisons do not certify historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the coefficient definitions, optimizer geometry and general convergence, not the examined Gaussian coefficient laws.",
+          "evidence": [
+            "Alg. 3 initializes with ζ₀=1, resamples zero sketched residuals and uses Eq. (17). Prop. 4.1 identifies the rank-two branch; Theorem 4.2 concerns conditional squared error."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2305.05482",
+          "material_read": "Eq. (6) p. 10, Alg. 2 p. 16; Eq. (17), Prop. 4.1 and Fig. 1 pp. 17–18; Alg. 3 and Theorem 4.2 pp. 19–20; Theorem 3.3 p. 12 and Remark 4.3 p. 20",
+          "method": "Open PDF, equation and theorem comparison",
+          "title": "On adaptive stochastic heavy ball momentum for solving linear systems",
+          "trigger": "Exact published algorithm, branch, and strongest prior error theory"
+        },
+        {
+          "assessment": "Deterministic quadratic method, not the stated Gaussian sketched coefficient experiment.",
+          "evidence": [
+            "The adaptive deterministic coefficients and CG equivalence use quadratic objective data, not two independent sketches."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2210.06367",
+          "material_read": "Introduction and Algorithm 1, pp. 1–2",
+          "method": "Open PDF, parameter-generation comparison",
+          "title": "Quadratic minimization: from conjugate gradient to an adaptive Heavy-ball method with Polyak step-sizes",
+          "trigger": "Earlier adaptive momentum and conjugate-gradient reformulation"
+        },
+        {
+          "assessment": "Fixed-parameter momentum bounds do not concern the optimized adaptive coefficient law.",
+          "evidence": [
+            "Convergence theorem with tunings fixed rather than generated by Eq. (17)."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1712.09677",
+          "material_read": "Theorem 1, p. 13 and parameter discussion p. 24",
+          "method": "Open PDF, statement comparison",
+          "title": "Momentum and stochastic momentum for stochastic gradient, Newton, proximal point and subspace descent methods",
+          "trigger": "Earlier stochastic heavy-ball convergence"
+        },
+        {
+          "assessment": "Different coefficient model; no implication of the adaptive law.",
+          "evidence": [
+            "Randomized schedule with finite first moment and infinite second moment."
+          ],
+          "identifier_or_url": "2026/10/12/SCOPE-exact-pareto-two-tail-for-randomized-heavy-ball-momentum-coeffic--d6a15c23760c",
+          "material_read": "Finding",
+          "method": "Resultary local mirror, matching statement and tail comparison",
+          "title": "Exact Pareto-two tail for randomized heavy-ball momentum coefficients",
+          "trigger": "Indexed exact random heavy-ball coefficient moments"
+        },
+        {
+          "assessment": "Fixed-parameter asymptotic error study, not the adaptive two-step coefficient laws; no date-based priority inference.",
+          "evidence": [
+            "Fixed (α,ω) and asymptotic mean-square factor."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-exact-mean-square-frontier-and-a-sharp-no-momentum-optimum-for-g--e2fbb7bd2830",
+          "material_read": "Finding",
+          "method": "Resultary local mirror, recurrence and observable comparison",
+          "title": "Exact mean-square frontier and a sharp no-momentum optimum for Gaussian sketches",
+          "trigger": "Same identity system and Gaussian rank-one sketches"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact laws give separate diagnostic thresholds for coefficients of a real adaptive algorithm, rather than an arbitrary scalar statistic. A raw momentum average is not integrable at any dimension despite an exactly bounded improving iterate. The first-sketch denominator and cancellation explain why iterate-error guarantees alone cannot control coefficient moments. This does not demonstrate finite-precision instability or a long-run effect.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

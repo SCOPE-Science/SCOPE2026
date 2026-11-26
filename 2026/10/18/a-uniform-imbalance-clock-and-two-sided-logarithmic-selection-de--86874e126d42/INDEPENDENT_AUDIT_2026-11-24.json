@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:29:12.351219Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–127",
+        "Frozen VERIFICATION.md and verify.py",
+        "Independent exact rational spot checks"
+      ],
+      "rationale": "Subtracting the coordinate updates yields (x-y) times a positive factor and gives exactly (1+εr)^2/[(1+εr_x)(1+εr_y)] for U'/U. Its numerator minus denominator is ε[r+ε(r²-r_xr_y)], with the bracket positive for the full |ε|<=1/2 range since r²<r. The estimate |log(1+z)-z|<=z² there gives the stated 4ε² per-step error. Reciprocal total mass t satisfies |t'-(1+t)/a|<=|ε|/a. Iterating gives |t_n-t_*|<=a^(-n)|t_0-t_*|+|ε|/(a-1). Applying the 1-Lipschitz transform 1/(1+t), multiplying by |ε| and summing proves (1) with its precise transient and linear-in-n constants. For fixed s0 the error vanishes uniformly on bounded critical windows, including the floor error, and s tends to a-1 there. Positive initial w=dε^γ gives log U=log(d²)+cτ+o(1) in the window; fixed positive w on the negative side gives log(U/h^(2γ))=log(w²/(1-w²))-cτ+o(1). Inverting gives both claimed profiles. For each threshold, evaluate the strictly monotone limiting profile at the displayed limiting crossing center plus and minus any fixed positive offset; the finite trajectories bracket the threshold for all small perturbations. This proves existence and both scaled first-passage constants without assuming beforehand that the first crossing is in the window. The diagonal is excluded from the logarithm, and ε=0 preserves composition exactly. Fifteen independently written rational spot checks included ε=±1/2 and 0; replay: python3 -I /tmp/opencode/frozen_audit_small_checks.py, clock(). The frozen script was read, not run.",
+      "residual_risks": [
+        "The all-time inequality applies to every positive initial mass with the explicit state-dependent transient. The o(1) critical-window laws hold at fixed s0 as stated, not uniformly as s0 goes to zero with ε. The finite spot checks do not certify asymptotics."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cushing et al. cover broader growth and competition parameters and identify final states in the strict parameter regimes; their quantitative hypotheses and conclusions do not control passage on the stated moving time scale.",
+          "The 2011 system has first coordinate (α1+β1 x)/(A1+y), lacking self-density in that denominator. It is not the same rational update. Chow–Hsieh full text was not recovered."
+        ],
+        "reasoning": "A broader parameter domain with a different conclusion, or a different map sharing the Leslie–Gower name, does not cover the frozen estimate. No exclusion is inferred from the inaccessible broader Beverton–Holt paper.",
+        "searches": [
+          "Cushing et al. Theorem 4",
+          "Chow–Hsieh DOI 10.1080/10236198.2012.656618 publisher and lawful OA recovery",
+          "Kalabušić–Kulenović–Pilav DOI 10.1186/1687-1847-2011-29 equation (1)"
+        ]
+      },
+      "checked_sources": [
+        "Cushing et al. (2004), author manuscript",
+        "Chow–Hsieh DOI metadata and OA access attempts only",
+        "Kalabušić–Kulenović–Pilav (2011), equation (1)",
+        "Local Resultary matches c20db74919f6, 1f013dbbf161, 0cb2dce249d9 and ba681c04dc59"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 4 identifies qualitative coexistence/exclusion limits at fixed coefficients rather than the finite-time error, dependence on s0, initializing w at dε^γ, or an explicit first-passage shift.",
+          "The Volterra slow clock controls a different map, while the partially saturated example concerns transverse contraction of a heteroclinic segment, not this near-neutral composition law."
+        ],
+        "reasoning": "A fixed-parameter convergence statement need not bound the error for simultaneous small disturbance, small imbalance, and diverging time. An applicable general reduction would still have to supply the uniform multiplier control through logarithmically long times; that implication was not established by the inspected comparisons.",
+        "searches": [
+          "Cushing et al. full author manuscript, Theorem 4 and model equations",
+          "Resultary c20db74919f6, Finding and assumptions; ba681c04dc59, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same map is obtained from Cushing et al. by equal growth rates a and c1=c2=1+ε. log U equals 2 log|x-y|-log(4xy), so projective or relative-imbalance language does not change the comparison.",
+          "The closest explicit slow clock (c20db74919f6) is for a two-sex Volterra quadratic stochastic map, on inverse-|ε| time rather than the logarithmically enhanced passage scale."
+        ],
+        "reasoning": "The exact model specialization is old; neither the same model's asymptotic attraction nor the analogue's slow clock on a different map supplies this log-relative-imbalance drift and logarithmic horizon.",
+        "searches": [
+          "Local Resultary: Leslie–Gower/Beverton–Holt squared-odds near-neutral clock, logarithmic selection and two-sided passage",
+          "Cushing et al. (2004) equations (1)–(2), cases B/C and Theorem 4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matched Findings concern respectively a two-sex Volterra map, a continuous-time Allee–fear system, a quadratic cross-competition ODE at fixed criticality and a partially saturated Leslie–Gower resonant heteroclinic problem. None gives the same formula for the frozen parameter domain.",
+          "A surfaced same-day Poisson–binomial crossover record 7734bd902ab8 was described by the index as a different problem; its text was not available in the local mirror and is not used as substantive exclusion evidence."
+        ],
+        "reasoning": "An exact analytic clock and continuous-parameter asymptotic profile, rather than a tabulated invariant, are at issue. The closest available indexed exact statements have different dynamics or quantities.",
+        "searches": [
+          "Local Resultary strongest clock hit c20db74919f6 and related two-sided passage/imbalance hits 1f013dbbf161, 0cb2dce249d9, ba681c04dc59"
+        ]
+      },
+      "rationale": "The rational competition map and qualitative stability exchange are established. The distinct claim is the global-in-time finite-perturbation bound with explicit transient, and its two-sided logarithmically delayed, time-resolved passage laws for the specified distinct initializations. The strongest accessible identical-model results do not supply this quantitative statement. Relevant inaccessible literature remains a genuine priority risk but does not defeat the available comparison.",
+      "residual_risks": [
+        "The Chow–Hsieh body remains inaccessible. An uninspected general quantitative perturbation theorem or alternate-coordinate result could subsume the laws. The comparisons do not certify historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers qualitative dynamics but not the frozen quantitative estimates.",
+          "evidence": [
+            "Set b1=b2=a, c1=c2=1+ε. Attraction/coexistence or axial convergence is split by c1c2 below or above 1; the stated strict cases do not include equality."
+          ],
+          "identifier_or_url": "https://www.andrews.edu/~henson/DiscreteCompetitionModels.pdf; DOI 10.1080/10236190410001652739",
+          "material_read": "Author manuscript equations (1)–(2), journal pp. 1140–1141, cases B/C and Theorem 4, pp. 1143–1145.",
+          "method": "Compared parameter specialization and actual conclusions in the accessible original manuscript.",
+          "title": "Some Discrete Competition Models and the Competitive Exclusion Principle",
+          "trigger": "Identical underlying model with a broader stability theorem."
+        },
+        {
+          "assessment": "Content-level coverage cannot be assessed from the available evidence.",
+          "evidence": [
+            "DOI and title identify the comparison target only."
+          ],
+          "identifier_or_url": "https://doi.org/10.1080/10236198.2012.656618",
+          "material_read": "Bibliographic identification; no full text inspected.",
+          "method": "Checked publisher and lawful OA DOI recovery; neither supplied the text.",
+          "title": "On multidimensional discrete-time Beverton–Holt competition models",
+          "trigger": "Broader same-class model that might contain quantitative conclusions."
+        },
+        {
+          "assessment": "Different recurrence, not a specialization yielding the frozen clock.",
+          "evidence": [
+            "The first denominator is A1+y while the second is A2+B2x+y."
+          ],
+          "identifier_or_url": "https://doi.org/10.1186/1687-1847-2011-29",
+          "material_read": "Primary PDF abstract and §1, equation (1), p. 1; text offset 2870.",
+          "method": "Read the precise recurrence and compared its denominators with the frozen map.",
+          "title": "Dynamics of a two-dimensional system of rational difference equations of Leslie–Gower type",
+          "trigger": "Potentially comparable two-species Leslie–Gower stability result."
+        },
+        {
+          "assessment": "Conceptual analogue but not equivalent or covering.",
+          "evidence": [
+            "The Volterra result gives a slow-clock/profile estimate on inverse-|ε| time near a neutral fixed curve."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-weak-selection-clock-for-a-two-sex-volterra-map-near-its-n--c20db74919f6/RESULT.md",
+          "material_read": "Local-mirror Finding and assumptions, offset 0.",
+          "method": "Compared map, observable, time scale and claimed estimate.",
+          "title": "Exact weak-selection clock for a two-sex Volterra map near its neutral curve",
+          "trigger": "Strongest conceptual and quantitative local catalogue overlap."
+        },
+        {
+          "assessment": "Different partially saturated map and different quantity.",
+          "evidence": [
+            "The conclusion concerns contraction transverse to a resonant heteroclinic segment, not the passage time or sigmoid of a detuned neutral mixture."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-an-exact-heteroclinic-resonance-and-quadratic-log-transverse-con--ba681c04dc59/RESULT.md",
+          "material_read": "Local-mirror Finding, offset 0.",
+          "method": "Compared update class and the role of the logarithm.",
+          "title": "An exact heteroclinic resonance and quadratic-log transverse contraction",
+          "trigger": "Closest same-name model catalogue overlap."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, equations (1)–(4) and negative profile",
+        "Cushing et al. Theorem 4"
+      ],
+      "rationale": "The natural dynamical question is how long a nearly neutral mixture remains apparently balanced before exclusion, or how long it takes to mix in the opposite perturbation. The uniform density-transient control reaches the logarithmically enhanced horizon where an ordinary local stability calculation or inverse-perturbation scaling is insufficient. It gives the actual centering constants and different transition profiles on the two sides, without claiming new equilibrium classifications.",
+      "residual_risks": [
+        "Fixed a>1, symmetry and deterministic two-species dynamics are essential to the scope; the evidence does not extend the result to noise, asymmetry or multispecies systems."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:32:21.619648Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Expanding (D-A)^2 gives d_v(d_v+1) on the diagonal, c_uv-d_u-d_v on an edge, and c_uv on a nonedge. Intersecting the associated nonnegative conditions gives the exact union-complement with closed edge cutoff. The diagonal discriminant is d(d-2)/3: degrees zero and one do not obstruct; degree two gives the double zero (1-h)^2. For d>=3 the first root decreases with d, and h_-(Delta)<3/(Delta+1)<3/Delta<=h_E. A direct stable negative witness on every branching graph is h=3/(Delta+1): the maximum-degree diagonal is -(Delta-2)/(2(Delta+1)), and h lambda_max<=6Delta/(Delta+1)<6. The norm claim follows since the multiplier P_2(1-y/3) has absolute value at most one exactly for y in [0,6] when y>=0. For stars lambda_max=m+1 and the spoke cutoff is 6/(m+1); only the hub may be negative, and h_+(m)<6/(m+1). The four-vertex witness, two smaller positive stars and the 1/sqrt(3) fraction follow. No graph of at most three vertices has a negative diagonal or reentry after an edge first fails. Row sums remain one, including isolated vertices. The independent python /workspace/reproduce_frozen.py checks 64 labeled four-vertex graphs at six rational steps and the exact maximum-degree witness formula. The frozen checker was inspected, not executed; its graph comparisons and computed star signs use rational arithmetic, but its star reference root comparisons at sampled steps contain floating square roots. These finite checks are supplemental to the exact proof and not evidence of continuum coverage by enumeration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The standard RKL1 absolute-monotonicity bound at two stages uses r=3-sqrt(3), the first zero of 1-r+r²/6. It gives a sufficient scale r/Delta, not the exact h_-(Delta); at Delta=3 that scale is about 0.42265 versus 0.5.",
+          "The arbitrary-generator exact positivity result 4f9e85fe71de is for coefficient 1/2 in the quadratic endpoint, not RKL1's 1/6."
+        ],
+        "reasoning": "Broader generator coverage for a different polynomial does not imply RKL1 reentry. SSP and the cited one-dimensional maximum-principle analysis do not provide the all-graph sharp endpoint interval.",
+        "searches": [
+          "RKL1 versus absolute monotonicity and SSP guarantees; arXiv:2611.16238v1 §§3.1,4.2.3",
+          "Resultary 4f9e85fe71de",
+          "Dawes DOI 10.1016/j.compfluid.2020.104762"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.16238v1",
+        "Dawes DOI 10.1016/j.compfluid.2020.104762",
+        "Resultary 395a6d422888",
+        "Resultary 3730497a7f20",
+        "Resultary 17146a0a41df",
+        "Resultary e295dbcc047e",
+        "Resultary 4f9e85fe71de"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The formula for the all-graph sign set follows by applying the known entry identities to the known polynomial and solving the scalar inequalities; that ingredient is not claimed as an independently novel technique. The sharp consequence rests on the degree-root ordering, edge dominance bound and stability inequality, and the reentry has both edges and hub explicitly accounted for."
+        ],
+        "reasoning": "The unrestricted branching barrier, stable negative example for every such graph, and exact first-order star windows are not supplied by the regular Euler result, the weaker SSP guarantee, or the coefficient-1/2 results.",
+        "searches": [
+          "Resultary 395a6d422888 Finding and proof offsets 0, 2820",
+          "Tan et al. Eq. (11) and p. 8 scope",
+          "Resultary 4f9e85fe71de Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Putting s=2 and M=-L in the unmodified RKL1 update gives exactly the assigned polynomial.",
+          "The polynomial also equals (I-aL)(I-bL) with a,b=h(1±1/sqrt(3))/2. The earlier two-Euler record gives the common-neighbor L² identities for any graph, and its sign region evaluated on this ray covers the regular-graph specialization."
+        ],
+        "reasoning": "The two names denote the same update along the fixed ray, so regular-graph coverage and the entry algebra are real prior overlap. The regular sign-region theorem itself does not give the all-branching exact horizon and spectral separation on irregular graphs.",
+        "searches": [
+          "Tan–Aslam–Bertozzi arXiv:2611.16238v1 §3.1 Eq. (11) and §4.2.3",
+          "Resultary 395a6d422888, two-stage Euler supersteps"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "e295dbcc047e has an exact spectral-to-positivity gap for RKL2 on connected regular graphs. 3730497a7f20 gives a three-stage RKL2 reentry on a directed three-state chain; 17146a0a41df gives three windows for rational Radau IIA starting at star size m=11."
+        ],
+        "reasoning": "These are exact diagrams but not exact cases of the same endpoint polynomial. Same-date records were compared without treating date alone as priority.",
+        "searches": [
+          "Resultary graph-local RKL positivity and reentrant star thresholds: e295dbcc047e, 3730497a7f20, 17146a0a41df"
+        ]
+      },
+      "rationale": "Best of current knowledge, the supported distinct result is the exact unmodified RKL1 degree-only first endpoint barrier with stable negativity on every branching simple graph, and the smallest-star reentry and full star windows. The polynomial, graph entry algebra, and regular-graph specialization are credited, not treated as new.",
+      "residual_risks": [
+        "Dawes (2021) could not be compared in full. Unindexed older Legendre/SSP positivity analyses may contain overlap; statement-level evidence checked here does not establish exhaustive historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Polynomial already known; cited maximum principles and shifted variant not the assigned graph theorem",
+          "evidence": "Legendre update at s stages; periodic/homogeneous Neumann rectangular domains and one-dimensional scope; separate modified polynomial.",
+          "identifier_or_url": "https://arxiv.org/pdf/2611.16238v1",
+          "material_read": "§3.1 pp. 7–8 Eq. (11), offsets 20400/24200; Remark 4.2 offset 27200; §4.2.3 p. 12 offset 42400",
+          "method": "Primary OA passages",
+          "title": "Fully Explicit Stabilized Runge–Kutta Methods for Allen–Cahn and Cahn–Hilliard Dynamics",
+          "trigger": "Exact RKL1 polynomial and maximum-principle scope"
+        },
+        {
+          "assessment": "Regular-graph coverage and common algebra; not all-irregular horizon",
+          "evidence": "Connected regular graph sign optimization; common L² entries derived for any graph.",
+          "identifier_or_url": "Resultary 395a6d422888",
+          "material_read": "RESULT.md Finding and proof, offsets 0 and 2820",
+          "method": "Semantic search and local mirror",
+          "title": "A triangle-count law for positive two-stage Euler supersteps on regular graphs",
+          "trigger": "Exact equivalent product formulation"
+        },
+        {
+          "assessment": "Distinct polynomial and directed generator",
+          "evidence": "Three-stage second-order two-window reentry on a pure-birth chain.",
+          "identifier_or_url": "Resultary 3730497a7f20",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Semantic search and local mirror",
+          "title": "Reentrant endpoint positivity of three-stage RKL2 on a minimal Markov chain",
+          "trigger": "Prior low-stage reentry example"
+        },
+        {
+          "assessment": "Different rational endpoint",
+          "evidence": "Three positive windows beginning at m=11 for Radau IIA.",
+          "identifier_or_url": "Resultary 17146a0a41df",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Semantic search and local mirror",
+          "title": "Three disjoint positivity windows for two-stage Radau IIA on star networks",
+          "trigger": "Same star setting"
+        },
+        {
+          "assessment": "Connected regular graphs and RKL2",
+          "evidence": "Quadratic coefficient 1/2; not the 1/6 RKL1 method.",
+          "identifier_or_url": "Resultary e295dbcc047e",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Semantic search and local mirror",
+          "title": "A sharp spectral-to-positivity gap for two-stage RKL2 heat flow",
+          "trigger": "Closely related same-date sharp graph gap"
+        },
+        {
+          "assessment": "Different coefficient; no corresponding reentry inference",
+          "evidence": "I+hQ+h²Q²/2 for finite weighted directed generators; initial positivity interval.",
+          "identifier_or_url": "Resultary 4f9e85fe71de",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Semantic search and local mirror",
+          "title": "Sharp graph-local positivity horizons and an SSP equality motif",
+          "trigger": "Broader graph class and exact local endpoint positivity"
+        },
+        {
+          "assessment": "Full scope unresolved, not negative evidence",
+          "evidence": "No readable full text was obtained.",
+          "identifier_or_url": "https://doi.org/10.1016/j.compfluid.2020.104762",
+          "material_read": "Landing page/abstract only",
+          "method": "DOI/OA repository lookup",
+          "title": "Some properties of the Runge–Kutta–Legendre super-time-stepping explicit methods",
+          "trigger": "Potential historical overlap with RKL monotonicity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A sharp maximum-degree rule usable without triangle or spectral data, a guaranteed spectral-versus-positivity gap for every branching graph, and explicit reentry at the smallest possible number of vertices answer natural endpoint maximum-principle questions for an existing integrator. The importance is in those exact obstructions and thresholds, not in expanding L² alone.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

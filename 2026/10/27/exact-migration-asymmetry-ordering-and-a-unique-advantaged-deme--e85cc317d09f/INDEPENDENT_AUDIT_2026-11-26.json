@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:35:04.546830Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With parent types indexing rows, the survival map is F(q)=1-exp(-lambda Mq). Positivity follows by iterating above a sufficiently small positive Perron vector, since M is positive on the admissible interval and has spectral radius 1. Strict concavity along positive rays rules out two positive fixed points by scaling one to first contact; iteration from 1 gives the survival probabilities. For K=lambda diag(1-q)M, Kq<q componentwise by -p log p<1-p, so rho(K)<1, det(I-K)>0, and the interior fixed point is smooth. Differentiating and inverting gives the displayed typewise derivatives and the average identity, where the mixed terms cancel by the column sums. At balance the antisymmetric slope is lambda q0 p0/[1-z(1-s)]>0; a positive equal-component solution at d!=0 would require equal row sums, which are 1+d and 1-d. This fixes the sign everywhere and exchanging types proves evenness. Independently, for u=(q1+q2)/2 and v=(q1-q2)/2 the sum of the exponents gives (1-u)^2-v^2=exp(-2 lambda u); the derivative of (1-u)^2-exp(-2 lambda u) at q0 is -2p0(1-z). Substituting the antisymmetric slope and using smooth evenness verifies the curvature and O(d^4) remainder. At s=1, q2=1-exp(-lambda(1-d)u) decreases strictly from q0>1-1/lambda to 0 because u decreases and is bounded. The q1 derivative changes sign exactly once at that crossing; q1 on negative d equals q2 on positive d and cannot also maximize. Substituting the crossing into the sum and ratio of exponents gives the stated scalar equation and imbalance, and x+lambda exp(-x) is strictly increasing above log(lambda). The theorem is about an exact Poisson branching model, not finite-population fixation. Inspected RESULT.md, VERIFICATION.md and verify.py; the recorded 148 finite numerical comparisons plus curvature check were not rerun and are not used as proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Abbara–Bitbol's S25 and S27–S29 give the Poisson generating function, mean matrix and fixed-point characterization; S32–S36 give a broad comparison to well-mixed extinction.",
+          "The publisher returned 403 for the Czuppon et al. full text and the repository attempt timed out; no independent full-text conclusion about that paper is drawn."
+        ],
+        "reasoning": "The fixed-point model itself is known. An upper comparison to a common well-mixed benchmark does not order two imbalanced matrices or differentiate along their fixed-trace path. The inability to inspect one relevant paper is a remaining risk, not a reason for scientific noncompletion.",
+        "searches": [
+          "OA arXiv:2306.10879 supplement Eqs. S25, S27–S36, S42–S44 and S59–S61",
+          "Czuppon–Blanquart–Uecker–Débarre DOI 10.1086/714034, publisher and identified repository route"
+        ]
+      },
+      "checked_sources": [
+        "Abbara–Bitbol arXiv:2306.10879 supplement",
+        "Resultary 559ca648b128 and b385f9482117",
+        "Czuppon et al. 10.1086/714034, access attempted only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At D=2 the star mean at leading order is proportional to (1+alpha)^2/(1+alpha^2)=2s^2/(s^2+d^2), with alpha=(s-d)/(s+d). The center-origin coefficient is proportional to (1+alpha)/(1+alpha^2), maximized at alpha=sqrt(2)-1.",
+          "The supplement derives these expressions from a leading weak-selection expansion; the catalogue's exact derivative concerns a different dispersal path."
+        ],
+        "reasoning": "Weak-selection mean ordering, its leading curvature, and the limiting advantaged-origin maximum (d=sqrt(2)-1 at s=1) are already encoded in prior results. Read the frozen novelty statement with the exact all-lambda qualification: control of a leading coefficient alone cannot bound the derivative at arbitrary lambda, ensure a unique global maximum of the exact function, or give its fixed-lambda curvature and location. The determinant identity and exact crossing bridge that gap.",
+        "searches": [
+          "ArXiv:2306.10879, supplement §3.3, S42–S44, and §3.3.2, S59–S61, pp. 20–21",
+          "Resultary 559ca648b128 Finding and assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Abbara–Bitbol, supplement Eqs. S59–S61, covers the two-type parameters as a two-node star at leading weak selection.",
+          "559ca648b128 treats unequal source and sink means and symmetric dispersal, with an interior maximum in a parameter band but no uniqueness result. b385f9482117 treats heterogeneous three-site continuous-time birth/death with symmetric migration."
+        ],
+        "reasoning": "Here the common multiplier scales a column-stochastic matrix with trace 2-s; increasing d at fixed s trades one off-diagonal entry for the other, rather than changing symmetric dispersal intensity at fixed heterogeneous growth. The two-node star is the genuinely equivalent parameterization for the inspected weak-selection calculation. The web lookup produced no materially relevant passage, not evidence of absence.",
+        "searches": [
+          "Resultary: two-type Poisson Galton-Watson column-stochastic migration matrix fixed trace strict asymmetry average survival probability decreasing |d| unique maximum type-specific survival s=1 curvature",
+          "Resultary: two-deme Poisson branching survival probability asymmetric migration averaged survival strict decrease in imbalance unique origin-specific optimum",
+          "Web: \"two-type\" Poisson Galton-Watson asymmetric migration survival probability \"fixed trace\""
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The nearest tabulable expressions are star weak-selection coefficients, not exact arbitrary-lambda survival values; no matching exact formula for the frozen family was identified in the catalogue comparisons."
+        ],
+        "reasoning": "A finite numerical table cannot establish this continuous ordering or a unique turning point over the whole domain. The exact analogue to a database check is searching for a parameter-indexed formula or classification for the invariant; the inspected formula has only a leading-order scope.",
+        "searches": [
+          "Resultary fixed-trace survival and curvature queries, nearest records 559ca648b128 and b385f9482117",
+          "OA arXiv:2306.10879 supplement Eqs. S59–S61 as exact expression for leading coefficients"
+        ]
+      },
+      "rationale": "Best of current knowledge for the exact, arbitrary-lambda fixed-trace ordering and fixed-lambda curvature, and the exact rank-one type-specific optimum and its location. Abbara–Bitbol already give the exact Poisson model, a comparison with the well-mixed case, and both the suppression and an advantaged-origin optimum at leading weak selection for two types. None of those statements controls the exact ordering between arbitrary imbalances or the shape and location of the maximum at every lambda>1. The closest catalogue theorems differ in migration symmetry, growth parameters, number of types or dynamical model.",
+      "residual_risks": [
+        "Relevant Czuppon et al. full text remained inaccessible; no claim of exhaustive publication priority. Weak-selection phenomena themselves are not original here; the pass is for the stated exact results within the branching model."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact fixed-point background and exact leading weak-selection coefficients; no inspected fixed-trace all-lambda theorem",
+          "evidence": [
+            "S25 has exponential generating function with parent index i; S59–S61 depend on the migration ratio after imposing column normalization; S42–S44 give the expansion regime."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2306.10879",
+          "material_read": "Supplement Eqs. S25–S36, pp. 17–19, offsets near 76733 and 80732; Eqs. S42–S44 and S59–S61, pp. 20–21, offsets near 89314 and 97789–99552",
+          "method": "OA PDF bounded original passages",
+          "title": "Frequent asymmetric migrations suppress natural selection in spatially structured populations",
+          "trigger": "Same Poisson model and two-node column-normalized star"
+        },
+        {
+          "assessment": "Unresolved comparison, not negative evidence",
+          "evidence": [
+            "Publisher responded 403 and repository retrieval timed out; the frozen paper's description is not independent evidence."
+          ],
+          "identifier_or_url": "https://doi.org/10.1086/714034",
+          "material_read": "Full text not retrieved",
+          "method": "Publisher access and identified repository attempt",
+          "title": "The Effect of Habitat Choice on Evolutionary Rescue in Subdivided Populations",
+          "trigger": "Cited nonmonotone establishment under habitat selection/dispersal"
+        },
+        {
+          "assessment": "Adjacent but not an implication",
+          "evidence": [
+            "Unequal source and sink means, symmetric dispersal, no unique maximum theorem."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-a-sharp-source-sink-establishment-reversal-under-symmetric-dispe--559ca648b128/RESULT.md",
+          "material_read": "Finding and scope, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "A sharp source–sink establishment reversal under symmetric dispersal",
+          "trigger": "Exact sensitivity and interior extremum in a two-patch Poisson model"
+        },
+        {
+          "assessment": "Different model and comparison, later record",
+          "evidence": [
+            "Three habitats, heterogeneous growth, symmetric migration, continuous-time birth/death."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-sharp-three-habitat-reversal-of-optimal-founder-placement-unde--b385f9482117/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "A sharp three-habitat reversal of optimal founder placement",
+          "trigger": "Exact founder-site ordering switch in a habitat branching model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Holding the total exchange and the supercritical multiplier fixed isolates asymmetry in a natural two-type model. The exact comparison orders all balances rather than comparing only to perfect balance or expanding in weak selection. The rank-one result shows why a uniformly averaged objective and a fixed-type objective can favor different imbalances, and the exact curvature describes the near-balance loss at fixed parameters. These are usable model-level conclusions with clear boundaries, not empirical claims about biological fixation or arbitrary migration networks.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

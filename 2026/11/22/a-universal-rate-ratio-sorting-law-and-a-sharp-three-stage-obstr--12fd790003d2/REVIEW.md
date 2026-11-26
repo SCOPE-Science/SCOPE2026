@@ -1,11 +1,21 @@
-# Scientific review: sequential-rate ordering and its first stage-count obstruction
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact lower-triangular Markov propagators yield the adjacent-swap difference as the product of a rate determinant, two strictly positive integrals and positive prefix/suffix survival factors. Thus sorting by decreasing rate ratio is globally optimal and any strict inversion is suboptimal, with equality only for tied ratios. Three-stage matrix entries at a fixed logarithmic duration have exact rational closed forms, so the positive and negative displayed differences establish a genuine reversal without reliance on numerical tolerance. The supplied checker reconstructs the exact matrices and test cases. The claim excludes uncertainty, mortality and variable block durations chosen as control decisions.
+## correctness
 
-**Originality — PASS, with priority risk.** The full Bak–Salamon–Andresen (2002) paper concerns reversible chemical reactions and free temperature choice to maximize intermediate product, whereas the present exact claim fixes each environment's duration and rates and maximizes terminal absorption under permutations. Yin (2008) models deterministic stage lengths from reciprocal temperature transfers. Carrington et al. (2013) measure thermal effects on organismal development. No such finite-multiset rate-ratio theorem or three-stage context reversal was identified in the checked comparisons. The classic phase-type representation and adjacent interchange method are acknowledged; older reactor-control and abstract matrix scheduling results might cover a stronger statement. The Yin full paper was only partially accessible. Publication priority remains subject to independent scholarly verification.
+PASS
 
-**Value — PASS.** This provides an exact \(O(n\log n)\) universal scheduling rule for the smallest nontrivial irreversible stage chain, despite unequal mandatory exposure durations; the rule is biologically interpretable as front-loading environments preferentially accelerating entry into the intermediate stage. The explicit three-stage sign reversal identifies a sharp structural boundary where a context-free two-stage heuristic becomes unreliable. It is not just a renaming of an already assumed optimal order: the chronology effect persists even at identical total rate integrals and is quantified in an exact benchmark. The conclusion is a benchmark for choosing or testing stage-dependent exposure models, not a field-validated intervention.
+The frozen lower-left transient commutator and its positive prefix/suffix factors produce the stated swap sign, including exact ties and equal within-block rates. The frozen sentence saying entries below the diagonal are zero is reversed for the column convention; it does not affect the fractions and is removed in the replacement. Independently evaluated the three transient exponential matrices via spectral-projector interpolation at the distinct eigenvalues −r_j, multiplying exact rationals. This gives 245/768 and −59245/1376256 and, over common denominator 1376256, the complete ABC/ACB/BAC/BCA/CAB/CBA numerators 1231672/1198687/902392/938120/1218287/1277532. AB is uniquely optimal on {A,B}, while CBA is uniquely optimal on {A,B,C}. The same unchanged pair must be reversed by any correct optimizer in those two instances, ruling out sorting individual blocks by any fixed total order, but not a state-dependent algorithm or ties resolved using the instance. The one-transition formula and two-transition affine comparison rule out either obstruction below three transitions. The complete replacement includes a rational partial-fraction replay script; the frozen uploaded script was not executed.
 
-**Literature limitations.** Broader control theory or phase-type matrix-product inequalities may imply this statement without the same terminology, and the full older reactor-control literature could not be exhaustively inspected. No independent audit or laboratory comparison has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The original two-transition result FAILS originality as a claimed new sorting theorem: the full strict comparison/tie rule is a specialization of established affine ordering. The corrected claim passes on the explicit smallest-stage obstruction within positive-rate sequential chains. It retains the real prefix reversal and proves opposite relative orders in two unique global optima; it clearly credits the two-transition rule as background. General matrix-ordering hardness does not give this restricted counterexample.
+
+## value
+
+PASS
+
+The repaired example identifies the first stage count at which a context-free approach breaks, even with equal durations and all rates strictly positive. The two unique optima show the obstruction is not merely an irrelevant local comparison inside two suboptimal schedules. This makes it a reusable benchmark for ordering in serial Markov models, while explicitly excluding empirical intervention claims and general algorithmic impossibility.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

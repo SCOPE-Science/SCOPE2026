@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-Run `python3 verify.py` in a standard Python 3 environment. The script prints `VERIFY_OK` if all assertions succeed and needs no third-party packages.
+## correctness
 
-The first check enumerates the thirteen reachable states of the pair-memory transfer system for triple commuting idempotents. With its exact integer matrix, the initial triple counts are `1, 8, 46, 254`, and it checks thirteen consecutive terms of the fourth-order recurrence. Cayley–Hamilton in dimension thirteen then establishes the recurrence at *every* later term, not merely the checked range. The script checks further coefficients and tests the general finite-state transition construction at other arities.
+PASS
 
-The second check constructs each parabolic longest permutation and Demazure product for zero through six Coxeter generators, independently constructs the matching Catalan retractions, and verifies pairwise commutation reflection and product matching exhaustively. It also counts all ordered pairwise-commuting triples for zero through five generators and compares with the rational coefficients.
+The repaired RESULT.md proves the actual remaining claim for every n, including n=0. For the parabolic longest idempotent the absent generators' points are fixed, and absorption by each present generator excludes its lowered point from the image. An increasing regressive idempotent retracts every point to its greatest fixed point below it, so these images are a bijection. Two exclusive fixed-point colors in one common gap give unequal compositions; otherwise both compositions retract the gap to its left end. Under complement this condition says each run of I union J belongs entirely to one factor. The separated runs commute, and in each run the full parabolic longest idempotent absorbs the other factor, proving the lift and the union product. Subproducts of commuting idempotents remain commuting idempotents. The transfer keeps exactly the relevant exclusive-side memory in each pair and handles repeated entries. Independently, /workspace/review_evidence/check_1.py constructs the 13 states and their four symmetry classes, obtains the quartic by an exact determinant ratio, and compares against direct Catalan compositions for n=0,...,5. The frozen verifier was inspected, not executed. The quartic remains a checked contextual example, not part of the distinctness claim.
 
-The general commutation reflection rests on the parabolic-cut argument in the proof, not on finite enumeration. The only external algebraic lemma is the standard characterization of idempotents in the 0-Hecke monoid and the Bruhat-maximal-product property cited in the result. All calculations use exact integer arithmetic. No independent mathematical audit has been performed.
+## originality
+
+PASS
+
+The frozen two-part originality framing did not survive: 494cdd8f9928 contains the identical Catalan triple series as a specialization of an exact rank refinement. The complete replacement at /workspace/repairs/1/RESULT.md retains as the distinct claim the structural reflection of commutation and all its partial idempotent products across the noninjective quotient; exact Catalan pair/triple results are credited and arbitrary-arity counting is presented as a consequence. The closest sources give the quotient, classifications, or Catalan-side criteria and refinements, not the 0-Hecke lift. This is a statement-level comparison, not an assertion of historical priority.
+
+## value
+
+PASS
+
+The structural identification is worth separating from the numerical overlap: the noninjective quotient loses information on elements in general, yet it retains which idempotents commute and every product of a mutually commuting family. This permits results about the full commuting configurations and their products in either model to be transported to the other, not just equality of a small table. Locating the runwise absorption mechanism supplies the missing reason for that transfer.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

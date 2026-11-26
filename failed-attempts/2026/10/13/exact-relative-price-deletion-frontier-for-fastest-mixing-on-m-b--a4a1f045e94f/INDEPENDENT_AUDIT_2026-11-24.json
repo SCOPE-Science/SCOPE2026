@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:40:42.574998Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, proof steps 1–5",
+        "VERIFICATION.md",
+        "check_mobius.py"
+      ],
+      "rationale": "On the orthogonal complement of the constants, the averaged cosine and sine Rayleigh quotients at frequencies 1 and 2 are (pB+4A)/(2n) and qB/(2n). Substituting A=(1-B)/t gives the two affine bounds. They cross at B=4/(4+t(q-p)); the slope of the first-harmonic bound changes sign at t=4/p, yielding exactly the stated maximizing budgets, including B in [p/q,1] at equality. Class-constant rates attain the bound: the smallest nonzero even mode is qb and the smallest odd mode is pb+2a. The first-harmonic bound is tight at every optimum, so both cosine and sine are gap eigenvectors. The tangent component of their common equation forces sin(pi/n)(w[j-1]-w[j])=0 at each vertex, and the radial equation then forces equal rung rates. This also applies to n=3 and to zero rungs. The fixed-price large-n claims follow from n²p→π² and n²q→4π². VERIFICATION.md and check_mobius.py were inspected; the script was not executed. Its finite numerical trials supplement but do not certify equality-case rigidity.",
+      "residual_risks": [
+        "No formal verification or fresh numerical replay is claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general continuous-time priced SDP includes the problem but does not itself evaluate this ladder or classify equality. The even-cycle result handles arbitrary positive total budget for n≥4; the matching-priced K_{3,3} result covers n=3."
+        ],
+        "reasoning": "The two exact results together include every allowed n. Budget scaling for the former and relative price P/Q=t for the latter preserve the maximizing sets after rate normalization.",
+        "searches": [
+          "Sun–Boyd–Xiao–Diaconis, DOI 10.1137/S0036144504443821",
+          "Resultary eb857c995ddb and efaad5dd81d4"
+        ]
+      },
+      "checked_sources": [
+        "Resultary eb857c995ddb",
+        "Resultary efaad5dd81d4",
+        "Sun–Boyd–Xiao–Diaconis 2006",
+        "Boyd–Diaconis–Parrilo–Xiao 2009",
+        "Azimi–Farrokhi Derakhshandeh Ghouchan arXiv:2306.10497v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At c=4/p the even-cycle statement gives 0≤a≤p(q-p)/(4nq); the budget gives p/(2nq)≤b≤1/(2n) and the same gap p/(2n). Its subcritical and supercritical cases also agree, including rigidity. The K_{3,3} statement reaches the matching-deletion transition at P=4Q, matching p=1 and t=4."
+        ],
+        "reasoning": "This is direct coverage of the classification. Unweighted resistance work and discrete-time SLEM optimization do not instead establish it.",
+        "searches": [
+          "Resultary eb857c995ddb, RESULT.md optimizer and rigidity passages",
+          "Resultary efaad5dd81d4, RESULT.md threshold and critical-family passages"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A cycle with an antipodal perfect matching is exactly the Möbius ladder defined here; at n=3 it is K_{3,3} with a distinguished perfect matching. The even-cycle result agrees under m=n, budget B=1 in its notation, c=t, D_m=p, A_m=q."
+        ],
+        "reasoning": "The objectives, independent edge variables, and linear budgets coincide, not merely the graph spectra or the prices.",
+        "searches": [
+          "Resultary: 2026/11/8/SCOPE-priced-antipodal-shortcuts-on-even-cycles-an-exact-fastest-diffu--eb857c995ddb",
+          "Resultary: 2026/11/2/SCOPE-exact-spectral-gap-price-transition-and-all-optimal-allocations--efaad5dd81d4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The catalogue contains exact optimizer and gap formulas, rather than a numerical table or a title-only match. Both entries explicitly classify unrestricted optimal allocations."
+        ],
+        "reasoning": "The indexed exact statements are stronger evidence than agreement on a special numerical threshold.",
+        "searches": [
+          "Local Resultary mirror, eb857c995ddb and efaad5dd81d4"
+        ]
+      },
+      "rationale": "Two distinct Resultary statements cover all graph sizes of the frozen theorem, including the full critical face and exclusion of nonsymmetric optima. This establishes overlapping coverage, not precedence or provenance. The asymptotics are direct limits of the covered formulas and do not leave a distinct surviving claim.",
+      "residual_risks": [
+        "No claim of historical priority or provenance follows from the catalogue dates.",
+        "A broader external-priority search was not necessary to establish the exact overlaps and was not undertaken."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers n≥4",
+          "evidence": "Independent nonnegative conductances, three price regimes, full critical segment, and forced class uniformity.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-priced-antipodal-shortcuts-on-even-cycles-an-exact-fastest-diffu--eb857c995ddb",
+          "material_read": "RESULT.md offsets 0–5818 and 5818–9578",
+          "method": "Local Resultary mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Priced antipodal shortcuts on even cycles",
+          "trigger": "Same graph and price-dependent optimizer"
+        },
+        {
+          "assessment": "Covers n=3",
+          "evidence": "Distinguished matching in K_{3,3}, cutoff P=4Q, critical family and unrestricted uniqueness off the cutoff.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-spectral-gap-price-transition-and-all-optimal-allocations--efaad5dd81d4",
+          "material_read": "RESULT.md offsets 0–4383 and 4383–6883",
+          "method": "Local Resultary mirror",
+          "title": "Exact spectral-gap price transition and all optimal allocations",
+          "trigger": "Remaining n=3 case"
+        },
+        {
+          "assessment": "General framework; no ladder price classification in the inspected passage",
+          "evidence": "Priced graph process and cycle examples, not an antipodal-matching equality-case result.",
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fmmp.pdf",
+          "material_read": "PDF page 16, cycle discussion near text offset 50393",
+          "method": "Lawful OA primary text",
+          "title": "The Fastest Mixing Markov Process on a Graph and a Connection to a Maximum Variance Unfolding Problem",
+          "trigger": "Cited continuous-time priced optimization"
+        },
+        {
+          "assessment": "Different objective and constraints",
+          "evidence": "Discrete-time SLEM with row-stochastic constraints.",
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fast_mix_symm.pdf",
+          "material_read": "PDF pages 2 and 8",
+          "method": "Lawful OA primary text",
+          "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+          "trigger": "Cited symmetry reduction and cycle example"
+        },
+        {
+          "assessment": "Different quantities",
+          "evidence": "Laplacian pseudoinverse, resistance, Kirchhoff index and spanning trees; not optimized conductances under a relative price.",
+          "identifier_or_url": "https://arxiv.org/html/2306.10497v1",
+          "material_read": "HTML scope passage near offset 704",
+          "method": "Lawful OA primary text",
+          "title": "Explicit formulas for matrices associated to ladder, circular ladder, and Möbius ladder graphs",
+          "trigger": "Cited work on same topology"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, proof steps 2–5",
+        "Resultary eb857c995ddb",
+        "Resultary efaad5dd81d4"
+      ],
+      "rationale": "As mathematics, a complete transition and equality-case classification for a natural graph family is useful: it determines precisely when an entire class of shortcuts should be removed and excludes hidden asymmetric policies. This intrinsic value does not make the covered result a distinct contribution.",
+      "residual_risks": [
+        "The classification is for the symmetric continuous-time Laplacian gap and a linear price budget, not discrete-time SLEM or general mixing times."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

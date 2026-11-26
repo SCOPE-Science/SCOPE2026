@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The exact supporting-plane minimizer lies within distance \(s\) of the exit point, rather than the previous proof's \(2s\). Projection onto the certified tangent ball stays in the original local ball, and its distance from the relaxed minimizer is exactly \(\sqrt{\rho^2+\|p-q\|^2}-\rho\). The explicit two-dimensional disk family gives limiting ratio one against the proposed coefficient. Degenerate normal-only directions and already-feasible trial points are handled separately. The standalone verifier passed after extraction from the package.
+PASS
 
-## Originality
+If c=0 or the full ball minimizer is feasible, the output is exact. Otherwise write d0=-c/||c||, q=x+tau d0, and v=p-q. The support inequality gives n·d0>=0 when tau>0; if tau=0 and n·d0<0 the ray enters the rolling ball, a contradiction. The relaxed solution is in the tangent plane (the unconstrained solution is outside the halfspace or on its boundary). Since q is feasible for the relaxation, d0·v>=0 for every minimizer, including a tie. Hence s^2>=||p-x||^2=||v||^2+tau^2+2tau d0·v>=||v||^2. Projection into the tangent ball is feasible in K, does not increase distance to q, and moves by a nonpositive multiple of v+rho n, whose scalar product with q-x is nonnegative. Expanding the two distances to x proves locality. The excess objective is bounded by ||c|| times the exact displacement sqrt(rho^2+||v||^2)-rho, giving both displayed bounds. On the disk, at x=rho e1 and s=rho eps, the positive tangential component eps^3 forces the unique relaxed solution x+s e2; the disk support point rho d_eps lies in the local ball since its squared distance to x is at most 2rho^2 eps^6. The repaired support gap is rho(1-(sqrt(1-eps^6)+eps^4)/sqrt(1+eps^2))=rho eps^2/2+O(rho eps^4). Thus the uniform coefficient cannot be reduced. The supplied disk tests were inspected, not run; their tolerances and finite scope do not bear the proof.
 
-PASS, best knowledge with residual historical risk. Hazan, arXiv:2608.04321v2, §2.2, Lemma 2.3, proves the larger constant \(2/\rho\), not the structural strengthening or sharp lower witness. Levy--Krause's 2019 tangent construction concerns approximate projection, while Kolzenburg--Richtárik's 2026 short-step analysis assumes an exact local oracle. Searches covering synonyms for supporting-tangent repair, rolling-ball geometry, geometric oracle bounds, and sharp constants found no equivalent result. The accessible material for Richtárik--Mahran's 2026 exact local-LMO paper did not establish this approximate-oracle statement; its complete text was not accessible through the checked open routes.
+## originality
 
-## Value
+PASS
 
-PASS. The result determines an optimal universal constant for an explicitly used local oracle, sharpens the geometric term in the standard additive-oracle transfer bound by a factor of four, and proves the quadratic error order cannot be improved for this algorithm even on a disk. It does not claim a fourfold wall-time improvement or any improvement for alternative algorithms. The numerical and scientific scope is exact tangent access.
+Best-of-knowledge pass for the sharp coefficient, in particular the matching loss witness for the same deterministic construction with a unique relaxed solution. Hazan's Lemma 2.3 states 2/rho for exactly this oracle. Its proof already establishes the nonnegative cross term that implies ||p-q||<=s by expansion, so the stronger upper estimate is a short consequence of existing proof ingredients, not a new oracle or independently novel upper-bound mechanism. The verified prior sources do not give the matching lower gap relative to the true local optimum.
 
-## Closest coverage and risks
+## value
 
-The source paper's stated coefficient is known and is not itself novel. The new part is the stronger \(\|p-q\|\le s\) geometry together with a sharp lower family. Classical tangent-plane repair may have equivalent optimal-constant statements not surfaced by searches; historical priority requires external checking. The complete text of a later projection-equivalence article was not obtained, though its abstract concerns the exact oracle rather than a tangent-ball approximate one.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The same oracle now has a quantified sharp performance limit, not merely a smaller valid coefficient. The disk construction shows that no analysis of this algorithm can uniformly improve its quadratic guarantee under the same assumptions, even if ties never occur. This separates an analysis improvement from an algorithmic limit and does not promise an improved convergence order.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

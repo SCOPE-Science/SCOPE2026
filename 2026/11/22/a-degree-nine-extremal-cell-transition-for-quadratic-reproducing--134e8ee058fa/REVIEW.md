@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The beta-binomial identity exactly identifies each step response as the distribution function of a square-root transform of a beta random variable. Strict convexity restricts the global BV norm to two cell-side candidates per sample index; the Stieltjes-measure representation supplies the all-input inequality and sharpness by step approximation. The supplied independent-of-floating-point checker tests all 81 strict finite candidate rankings by rational probability and Riemann-sum enclosures. The coupling bound of at most \(1/n\) with the ordinary beta law and the beta central limit theorem establish the all-degree asymptotic and localization. The right-continuity convention is essential to the nonattainment assertion.
+PASS
 
-## Originality
+A jump at s in ((j-1)/n,j/n] samples exactly the binomial upper tail from j. The beta CDF and monotone inverse King map identify the error as E|X_j-s| including the endpoint jump s=1. The canonical right-continuous Stieltjes measure has total mass in absolute variation equal to Var(f); Minkowski gives the matching upper bound and concentrating unit mass at jumps gives the lower bound. On each cell the error derivative is 2F_X(s)-1, strictly increasing; only one-sided endpoints enter, and each uniquely winning R endpoint is excluded in its own cell, so no norm attainment by a step or by any nonzero variation measure. Independently reproduced all 81 comparisons using exact integers on M=25200 and Q=25200·2^15. At i/M find the lower parameter as k/Q with k=floor(Q i²/M²) at n=1 and k=(isqrt(Q²+4n(n-1)i²(Q/M)²)-Q)//(2(n-1)) otherwise. Bound each increasing binomial CDF between tail numerators at k and min(k+1,Q); for a candidate p/M sum lower left nodes for F on [0,p/M], and 1 minus upper right nodes on [p/M,1]; reverse bounds for the upper sum. All comparisons have denominator MQ^n; minimum gap across the nine winning lower bounds versus strongest rival upper is >0.00023129 (n=9, rival R_{9,3}). Confirmed all three printed strict decimal enclosures; independent n=8 and n=9 intervals have endpoints approximately (0.1511675291,0.1512072132) and (0.1369558401,0.1369955238). Frozen CHECKER.py inspected, not executed; the replay algorithm above uses a different grid and exact square root. Finally inverse shift ≤1/n by rationalization, so beta CLT in the interior plus bounded scaled second moments gives convergence of mean absolute deviations. Mean shift is O(1/n) and scaled variance vanishes at endpoint subsequences. Subsequence compactness gives both the sharp asymptotic and all near-maximizing single-jump positions converging to 1/2.
 
-**PASS, with historical-priority risk.** Gonska–Piţul (2005, entire eight-page paper inspected), King (2003, bibliographic abstract and quoted exact definition), the Acar et al. (2019) full-text survey and Adell et al. (2025, HTML sections on BV error) do not establish the present global integrated exact norm or the degree-nine strict candidate separation. The closest existing quantitative approximation results use smoothness moduli, moment bounds or pointwise estimates. Classical Bernstein absolute-moment formulas concern the distinct identity sampling parameter; even their general step-reduction technique alone does not certify the King-specific finite cell change. The 2010 study of certain King-type operators assumes functions *whose derivative* has bounded variation and provides pointwise rates, not this BV-to-integrated-L1 norm. The original King full text and the 2010 full text were unavailable; a hidden equivalent result elsewhere cannot be ruled out.
+## originality
 
-## Value
+PASS
 
-**PASS.** Quadratic reproduction is a classical design choice for positive approximation, yet approximation quality on discontinuities can differ substantially from smooth-function estimates. The first exact boundary-to-interior worst-cell transition is a natural finite cutoff for this standard family, not a chosen parameter slice; its certified value, precise one-sided extremizing jump, nonattainment and asymptotic midpoint localization jointly give a benchmark for selecting or assessing positive point-sampling filters. The new classification stops at degree nine and does not claim a complete higher-degree index pattern.
+The new mathematical target is the finite sharp norm profile for this prescribed nonlinear King time change, particularly the first switch from a boundary cell to a strictly interior cell and its directional nonattainment. The operator, basic distributional reductions, and leading Bernstein asymptotic transfer are not separately strong priority claims. Best-of-knowledge PASS for the complete King-specific comparison.
 
-## Closest comparisons and limits
+## value
 
-Gonska–Piţul's paper treats the same quadratic-preserving operator and therefore is the most direct operator-level comparison. The 2019 survey covers generalized shape-preserving families but not an exact BV-to-L1 integrated norm. The 2025 broad probabilistic approximation analysis addresses local bounds, not the exact King jump grid rankings. Exact Bernstein BV norms are for a different inverse parameter map. The original 2003 King's full text was inaccessible through available sources; qualified priority rather than absolute uniqueness is appropriate.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The first strict change of the worst jump from a boundary to the right side of an interior lattice point is a natural cutoff for a standard operator, not an arbitrary degree sample. It answers which discontinuity its sharp norm measures, and rigorous nonattainment and eventual midpoint localization clarify how representative conventions and approximation degree affect that benchmark.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

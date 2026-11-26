@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Reproducibility and proof obligations
+# Independent mathematical audit
 
-Run `python3 verify.py` in the directory containing this document, `RESULT.md`, and `verify.py`. The program uses only the Python standard library.
+## correctness
 
-Actual completed finite checks:
+PASS
 
-1. For every integer \(1\le k\le28\), explicitly generated all binary palindromes of length \(k\) and tested each against the claimed word \(W_k\), checking length, run count, and at least \(k-1\) complete arches after removal of either designated endpoint.
-2. For every binary host of lengths \(1\) through \(12\), tested all feasible palindrome orders and checked that any universal host has at least \(2\lceil k/2\rceil\) runs and at least \(k\) copies of each letter.
-3. For every integer \(1\le r\le36\), checked that the stated extremal witness has exactly \(r\) runs and exhibits the claimed palindrome-subsequence order.
+In any subsequence embedding, the host-run indices of the first positions of successive pattern runs strictly increase. Equality of total run counts forces the first letters to agree. For odd k the two alternating palindromes have k runs and opposite first letters; for even k, reflecting an alternating half gives k−1 runs (only the middle pair merges), again with both first letters possible. The resulting lower bound is 2 ceil(k/2), including k=1,2. For (0011)^m, deleting the initial 0 gives 01(10 01)^(m−1) and a residual 1, and deleting the final 1 gives 001(10 01)^(m−1); these each have 2m−1 complete binary blocks. Appending 01 for the odd witness adds one complete block to the corresponding truncated decompositions, leaving only the same possible residual 1. The k=1 endpoint check requires zero blocks. Such blocks embed the remaining k−1 symbols individually, because a palindrome can use the initial 0 or the final 1 according to its common endpoint letter. The witnesses have the stated runs and length 2k, which is necessary by the two constant palindromes. Inverting the run bound gives capacity at most 2 floor(r/2); for odd r>1, appending 0 to the preceding even-run witness adds exactly one run. Constant words give capacity zero at r=1. For unrestricted universality the two alternating patterns need k+1 runs; k+1 alternating host runs of length k realize any pattern by assigning its first run to host run 1 or 2 and successive runs in order.
 
-The program reported `ALL FINITE CHECKS PASSED; infinite statement follows from RESULT.md`.
+## originality
 
-These tests are finite. They do not establish the theorem for all lengths, do not certify originality, and are not an independent audit. The infinite theorem is proved by the run-injection lower bound, explicit arch decompositions, and constructive upper bounds in `RESULT.md`.
+PASS
+
+Credit the sharp arbitrary-host run minimum and its simultaneous attainment with the shortest length, not the arch lemma or the separate 2k minimum. The strongest inspected overlap is an exact census of shortest hosts in the identical palindrome-subsequence class, refined by ordinary arch index, not by runs; the supported distinct result is the uniform run extremum and fixed-run capacity.
+
+## value
+
+PASS
+
+Runs measure the number of alternating blocks needed to realize a universal host independently of its length. The exact even-order saving despite retaining all constant and maximal-run palindromes, along with simultaneous shortest length, quantifies what restricting the test language buys. This is a structural extremum for all orders, not a new proof of the standard arch lemma or merely a shortest-length tally.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

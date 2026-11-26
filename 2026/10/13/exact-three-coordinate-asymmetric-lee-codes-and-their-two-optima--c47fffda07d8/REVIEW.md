@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The local metric is the published \(\lambda=1\) ALD formula, checked against the four-by-four cost matrix. The correspondence between distance-three codes and cliques of the 64-word compatibility graph is exact. An exhaustive Bron–Kerbosch implementation enumerates 618624 maximal cliques, with largest size 19 and exactly 32 attaining that size. A separately written C++ greedy-color-bound maximum-clique search independently returns the same optimum and count; its branch upper bound is a proper coloring bound on the remaining candidate graph. Both verifiers were executed from the included source paths and passed. The claimed order-384 symmetries preserve the local metric, and both orbit sizes, representative spectra, and exhaustion of the 32 maxima are separately checked.
+PASS
 
-## Originality — PASS, with residual risk
+Minimizing forbidden pairs is exactly independent-set search on the complement of the stated compatibility graph. My independent replay /workspace/replay/3.py built the forbidden graph from the symbol costs, then partitioned every candidate set by including or excluding one conflict vertex. A cover by disjoint conflict cliques is an upper bound on extensions, and pruning strictly below (not at) the incumbent preserves every equality case. An edgeless remainder is attained uniquely by taking all remaining vertices. In 2,677 nodes this reproduced 1,752 compatibility edges, optimum 19 and exactly 32 distinct masks. Explicit coordinate permutations and local swaps sent both frozen masks through disjoint orbits of sizes 8 and 24 exhausting the optimum set. The action has order 384, giving stabilizers 48 and 16. Pair histograms for distances 3 through 8 are (24,69,0,24,24,30) and (28,61,4,24,24,30), each accounting for all 171 pairs. The frozen Bron–Kerbosch histogram and greedy-coloring verifier were inspected; the independent search establishes the optimum and equality census without depending on the histogram of smaller maximal cliques.
 
-The earliest primary version, arXiv:1506.00740v1, is dated 2015-06-02. In the expanded full text arXiv:1506.00740v5, Table V lists the length-three, minimum-distance-three, \(\lambda=1\) bounds \(6\le A_1(3,3)\le30\), not 19. The author-hosted 2015 ITW full text gives LP bounds and constructions, not an equality census. These two primary texts were examined for the same metric, same parameters, and potentially stronger implications. Targeted bibliographic and equivalent-formulation searches did not locate the exact optimum or orbit classification. The result is therefore assessed as not implied by the inspected sources; a nonindexed historical computation is still possible.
+## originality
 
-## Value — PASS
+PASS
 
-This is an exact solution of a specifically motivated short-code benchmark in the asymmetric DNA-readout metric, improving a 6-to-30 published interval to an exact value and classifying the full equality layer. The two inequivalent optimal geometries are structurally distinguished by their pair-distance spectra, showing that the maximum need not arise from a single design type. The finite scope is explicit and the result does not claim asymptotic gains.
+The original ALD and its general bounding framework are prior. Its directly comparable numerical entry is a strict interval containing 19, not an exact optimum. The exact maximum and the two-orbit geometry with enumerated invariants are distinct on the inspected evidence.
 
-## Limits of review
+## value
 
-The code computations are complete over the specified 64-word space but provide no result for other lengths, distances, or metric parameters. Novelty searches cannot certify that no obscure equivalent enumeration exists. This is a self-review, not an independent external audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Minimum distance three is a natural low-distance ALD design threshold already singled out in the literature, and length three is an existing comparison cell with a substantial explicit bound gap. Closing 6–30 to 19 gives an exact small benchmark for bounding and construction methods. More importantly, a complete optimizer census shows equal cardinality need not mean equal geometry: there are two inequivalent optimal designs with different numbers of closest pairs. A researcher testing exact optimization, symmetry reduction or robustness criteria based on close pairs could use these precise data.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

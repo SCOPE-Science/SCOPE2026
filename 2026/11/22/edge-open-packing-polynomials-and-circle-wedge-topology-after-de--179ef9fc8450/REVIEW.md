@@ -1,15 +1,21 @@
-# Scientific review: matching-deleted biclique edge-open packings
+# Independent mathematical audit
 
-## Correctness — PASS
-For disjoint selected edges \(x_i y_j\) and \(x_k y_\ell\), the only possible distinct joining edges are \(x_i y_\ell\) and \(x_k y_j\). Deletion of a matching makes both absent precisely for reciprocal pairs \(\{x_i y_j,x_j y_i\}\) supported by two deleted diagonals. Any packing containing such a pair has no third member; all other multi-edge packings are star subsets because pairwise intersecting bipartite edges share a common center. This exhausts all faces and makes full stars and reciprocal pairs exactly the facets. Their unique enumeration proves both polynomials. The star-facet subcomplex is a contractible-simplex cover with nerve the original connected bipartite graph; each reciprocal pair attaches a one-simplex between existing vertices and adds exactly one homotopy circle. Thus the integral wedge formula is proved, not inferred from mod-two experiments. Direct edge-by-edge and independent subset-DP enumerations passed 17 and 33 finite parameter cases; direct boundary-rank homology checks passed six cases.
+## correctness
 
-## Originality — PASS (provisional historical priority)
-Chelladurai–Kalimuthu–Soundararajan (2022), Proposition 2.3, gives only the **maximum cardinality** for undeleted complete multipartite graphs, not the deleted-matching cardinality and maximal-set polynomials or topology. Brešar–Samadi (2024), Theorem 4.2, bounds the change in maximum cardinality upon one edge deletion; such an inequality neither determines full subsets nor computes the matching-deletion complex. Brešar–Dravec–Hedžet–Samadi (2024) treats trees and graph products. Closest accessible mathematical notes concern injective edge coloring of undeleted multipartite graphs, vertex dissociation sets on the same matching-deficient bicliques, and edge-open packings on rook graphs or subdivisions. None of their inspected exact statements implies the present all-parameter polynomial and integral wedge claim. Targeted searches for equivalent labels, the exact family, maximal packings and homotopy found no covering result. This is not an exhaustive priority proof; unindexed equivalent work remains possible.
+PASS
 
-## Value — PASS
-The natural sparse perturbation \(K_{m,n}\setminus M_t\) sharply reveals how deleted cross-edges generate reciprocal, inclusion-maximal two-edge packings while the large full-star facets survive. Two disjoint deletions cause an unbounded gap in maximal packing sizes on balanced bicliques, a phenomenon not captured by the known optimum of the intact graph. Beyond cardinality, the complete packing complex has an explicit integral homotopy type, with a nonmonotone first Betti rank \((m-1)(n-1)-t+\binom t2\); the combinatorial reason for each added circle is identified. This is a complete infinite-family classification, not a routine recalculation of the scalar maximum.
+Two edges that meet are compatible by bipartiteness. A disjoint pair is compatible exactly when both cross-edges were deleted, which forces a unique reciprocal partner; a third edge would have to meet both and be one of the missing cross-edges. A pairwise-intersecting family lies in one star because there are no triangles. This partitions packings into empty, singletons, unique-center star subsets of size at least two, and reciprocal pairs. Every degree is at least two, so singletons extend, whole stars cannot extend, and the maximal polynomial follows. At saturation all vertices on the smaller shore lose one edge, while the other shore has degree at most the smaller shore size; the largest star has size max(m,n)-1, also when m=n. Below saturation the largest full-degree star survives. For topology, the nonempty intersection of any two star simplices is exactly the vertex for their shared graph edge; all higher intersections are empty. The good-cover nerve is thus G, connected because any two vertices of either shore share a neighbour, and it has cycle rank mn-t-m-n+1. Each reciprocal pair contributes one independent new interval attaching its two endpoints to the connected star complex; its attaching map from S^0 is homotopic to a constant, adding a circle. There are no additional higher faces. This proves actual homotopy equivalence, not just the recorded mod-two checks. It gives the stated Betti change t-2 and the maximal-size gap for balanced shores.
 
-## Closest sources and residual limitations
-Primary sources: DOI 10.1051/ro/2022171 (2022, Definition 1.1 and Proposition 2.3); arXiv:2403.00750v1 (2024-03-01, Introduction and §4.2); arXiv:2406.04020v1 (2024-06-06, Introduction and product-graph sections). Related published studies: “Correct injective edge chromatic index of complete multipartite graphs” (2026) and “Dissociation and maximal-set polynomials of bicliques with a deleted matching” (2026), compared at the full theorem/proof level. The claimed result does not treat nonmatching deletions or general multipartite graphs. Tests are finite, and no independent mathematical validation or exhaustive publication-priority clearance has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The established undeleted biclique maximum and the star property used to derive it are prior. The same deleted-matching graph also has known vertex-dissociation enumerators and topology, but for a different complex. None of the inspected statements covers the additional reciprocal edge-packing facets, the deletion-sensitive exact enumerators or their integral homotopy type; the one exact match is this same Resultary record.
+
+## value
+
+PASS
+
+Matching deletion is the basic perturbation connecting complete bicliques to crown graphs. The reciprocal pair is a precise new type of maximal face, gives an unbounded gap in balanced maximal-size spectra, and accounts for every new circle relative to the star subcomplex. This is a single structural description of enumerative and integral topological behavior, not a table of small examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,21 +1,21 @@
-# Scientific review: critical business-cycle phase and scaling ellipse
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claimed parameter interval, punctured local domain, normalization and limiting quantifiers follow from the explicit real-to-complex linear conjugacy and a locally invertible cubic nonresonant transformation. The resonant coefficient is computed from the **original exact polynomial** as \(C=-3\alpha(1+i c)/(2(1+\alpha))\); its rotated real and imaginary parts are respectively \(-a_\alpha\) and \(a_\alpha c\). Since \(a_\alpha>0\), the local normal form strictly contracts radii. Reciprocal-radius summation gives \(n|u_n|^2\to (1+\alpha)/(3\alpha)\), and summability of the angular remainder proves the finite renormalized phase with coefficient \(c/2\). The distinction between rational and irrational linear rotation is handled independently: Weyl summation for the latter, slow unbounded logarithmic drift on a residue class for the former. There is no need to assume all initial states belong to a global basin. Finite checks from the accompanying script passed; they do not replace the proof.
+PASS
 
-## Originality — PASS within checked sources
+In the asserted physical complex coordinate the exact map is multiplication by ω=α+i√(1−α²) plus the real cubic −2α(Re z−c Im z)^3. Its z² z̄ coefficient divided by ω is −a+iac with a=3α/[2(1+α)]>0. The other cubic homological denominators require only ω²≠1 and ω⁴≠1, automatic on the open interval. Oddness gives an O(|u|⁵) remainder after the odd near-identity change. For ρ=|u|², sufficiently small nonzero states stay small, cannot hit zero, and obey ρ′=ρ−2aρ²+O(ρ³). Reciprocation first gives ρ=Θ(1/n), then 1/ρ=2an+O(log n). The phase increments are θ+acρ+O(ρ²); subtracting θ+c/(2n) leaves O(log n/n²), whose tail is O(log n/n). Thus the corrected phase converges with the advertised error after multiplication by the n⁻¹ᐟ² amplitude; returning to z changes it by only O(n⁻³ᐟ²). Irrational rotation follows by bounded exponential partial sums and summation by parts against n^{ikc/2}; rational rotation follows on each residue class because the unbounded increasing logarithm has increments tending to zero. Inverse real-linear coordinates give the exact full ellipse. All conclusions exclude the origin and are for fixed α and sufficiently small data.
 
-The closest primary paper, Grushkovskaya (2024), fully treats this precise neutral map but proves local decay estimates and prints a radial normal form, without proving its nonzero logarithmic phase drift or describing the full ellipse of **rescaled** limit points for all rational and irrational angles. Puu and Sushko (2004) study attracting sets, fixed-point stability and post-bifurcation invariant circles, which cannot imply the asymptotic rotation phase at the critical fixed point without further analysis. The nonresonant cubic normal-form technique is classical background, not a new method; the new mathematical content is the model-specific strict angular drift and its all-angle elliptical accumulation consequence. Relevant indexed results on cubic Liénard weak foci, cubic stable flows and neutral maps use other flows or maps and do not cover this recurrence. An unindexed equivalent derivation remains possible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-At a nonhyperbolic fixed point, a decay bound does not identify how signed observables oscillate, whether a scaled state converges, or what its limit set is. This theorem gives the exact complex amplitude and logarithmic phase in the model's original coordinates, with a parameter-explicit ellipse describing every scaled subsequential limit. The rational-angle conclusion is not implied by ordinary irrational linear-rotation density: the nonlinear, unbounded logarithmic phase creates the complete limit set even at rational rotation numbers. The model is naturally defined by an established stability boundary, rather than an arbitrary numerical slice. The result neither claims a general theorem for all neutral maps nor an invariant unscaled attractor.
+The exact map, neutral boundary, cubic normal form and O(n⁻¹ᐟ²) upper bound are antecedents. In the inspected evidence, the distinct claim is the controlled complex-orbit asymptotic in the original coordinate, including an initial-state phase, quantitative remainder and rational-angle full accumulation ellipse. The cited radial upper estimate and formal radial truncation do not yield those statements by substitution.
 
-## Closest literature and limitations
+## value
 
-- Grushkovskaya, *Asymptotic behavior of solutions of nonlinear discrete systems in critical cases*, first published 16 October 2024, https://doi.org/10.1007/s11071-024-10295-6 , especially Sections 3 and 4.1.
-- Puu and Sushko, *A business cycle model with cubic nonlinearity* (2004), https://doi.org/10.1016/S0960-0779(03)00132-2 , especially Section 2.1.
-- Generic cubic Neimark--Sacker normal forms are established background. No independent novelty certification is claimed. The local constants need not be uniform near the endpoints, and no global-basin statement is proved.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The result resolves what a known stability/decay bound leaves open: exact amplitude, a phase correction needed to approximate each orbit, and the fate of the rescaled limit set at commensurate rotation. In particular, merely predicting a finite set of rational rotation phases misses the whole ellipse because the drift keeps accumulating. This is a meaningful distinction for the canonical neutral-boundary example without claiming a new normal-form method.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

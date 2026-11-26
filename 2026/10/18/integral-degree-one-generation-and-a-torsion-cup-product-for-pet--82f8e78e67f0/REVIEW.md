@@ -1,15 +1,21 @@
-# Scientific review: Integral Petersen two-particle cup products
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-An exact cubical model of \(45\) vertices, \(120\) edges and \(75\) squares is justified by the two-particle subdivision criterion. Its second boundary has rank \(70\), rank \(69\) modulo two, and a determinant-two maximal-rank minor, fixing all nonzero integral Smith factors. Six embedded product tori span five independent rational cycles; the first cellular boundary has rank \(44\). The six degree-one pullback classes are integral generators because a second particle can park outside each fundamental cycle. Their external-product pullbacks give an explicit matrix \(C\) of fifteen degree-two cups. A determinant-one \(75\)-column certificate for \([\partial_2^{\mathsf T}\mid C]\) proves full integral surjectivity. The displayed torsion combination annihilates the top rational cycles while remaining nonzero modulo coboundaries over \(\mathbb F_2\); the Smith group restricts its exact order to two. The supplied verifier reconstructs all matrices rather than trusting a log. No finite computations are extrapolated to an infinite claim.
+PASS
 
-## Originality — PASS
+PASS is for the repaired claim only. The frozen torsion formula is false: with its last pair (10,13), the evaluations on oriented product tori (0,7,6,1,9)×(2,4,3,5,8) and (0,7,6,2,8)×(1,5,3,4,9) are −1 and +1. Frozen verify.py lines 75 and 164 select row[8], which is instead the lexicographic chord pair (10,14). The independent exact reconstruction at /workspace/branches/08a3c15a-8c4e-488e-adf7-6249df9df778/independent_check.py confirmed the false pairing, the graph-cell counts (45,120,75), cokernel Smith factors of 69 ones and a two, and full cup-plus-coboundary column lattice; it did not run the uploaded verifier. The repair isolates the realization of the torsion by a single cup, (α8+α10)∪(α14−α10). The square cochain for this product follows from the cellular map into the torus, with support (8,10),(8,14),(10,14) and signs (−1,1,1). The two-particle discretization hypotheses hold (girth five and the essential-vertex path bound). The separate repaired package reconstructs the cells from the graph, checks an explicit integral D u=2c certificate and an F2 cycle with ⟨c,z⟩=1. This proves exact order two, not merely rational invisibility. The unique torsion subgroup follows from the known H_1 and the universal coefficient theorem. Replay: python3 /workspace/repairs/4/verify.py, observed PRODUCT_ORDER_TWO_OK integral_double_boundary=True mod2_cycle_pairing=1.
 
-The closest published mathematical note, *Two-particle Petersen configuration homology as an \(S_5\)-module* (opaque ID `2bac82e0590d`), was materially inspected in full (`RESULT.md`, `REVIEW.md`). It determines abstract homology groups and rational symmetry representations but expressly does not determine the cohomology ring. Neither group ranks nor rational characters imply that the integral torsion in \(H^2\) is an actual product of degree-one classes. Barnett–Farber (2009, `arXiv:0903.2180v1`) was read in its model and cup-product sections: it treats ordered points, with its explicit algebra section restricted to planar graphs. Farber–Hanbury (2010, `arXiv:1005.2300v1`) was read in its defining results on mature graphs and homology, which do not give the unordered Petersen integral cup ring. Searches for aliases, ring generation, Bockstein/torsion cup products and broader graph-braid cohomology found no covering theorem. Residual bibliographic risk includes unindexed literature and the full 2010 Barnett thesis, whose abstract only was accessible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The Petersen graph is the smallest standard highly symmetric non-planar cubic graph, and its two-strand braid space is a canonical non-planar benchmark. An integral order-two *cup product* is strictly more informative than the known torsion abstractly present in first homology: it exhibits genuinely multiplicative information that rational representations cannot detect. Proving full degree-one generation by a unimodular certificate resolves a natural finite, nonroutine integral ring question; no general family theorem is needed to motivate this structural distinction.
+PASS is restricted to the corrected explicit single product of two specified integral total-motion classes. The abstract group and even generation by degree-one cups are covered or directly implied by prior results. The strongest exact Petersen records inspected give homology and integral pairings against tori, which cannot certify that a rationally zero cup is a nonzero torsion class, or exhibit a decomposable pair with that property. No equivalent pair or subsuming explicit result was established in the bounded checks.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Realizability of a torsion class by a single pair of ordinary integral motion classes is stronger than additive generation. This is an explicit, short witness for a natural nonplanar graph, useful for detecting integral multiplication that all rational and integral top-cycle evaluations miss. The proof certifies both halves of exact order without a routine rank-only comparison; no general classification or support minimality is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

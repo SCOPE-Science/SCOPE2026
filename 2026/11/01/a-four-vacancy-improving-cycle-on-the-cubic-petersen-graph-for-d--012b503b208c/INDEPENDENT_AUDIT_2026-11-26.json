@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:11:41.788237Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 9–53; VERIFICATION.md and verify_cycle.py (frozen materials inspected, not executed)",
+        "/workspace/branches/04651474-8114-4493-a624-0f805e91d232/independent_replay.py (independent Python 3 replay, 60 jumps checked)"
+      ],
+      "rationale": "The outer 5-cycle, five spokes and inner pentagram give the standard connected cubic Petersen graph. An independent exact rational replay of the frozen edge list, initial labeled state and jump block verified occupied sources, vacant destinations, recomputation after vacating the old vertex, and strict gains 0→1/2 and 2/3→1 on alternating moves in all six blocks. The ten-move block permutes the labels on vertices (1,2,3,4,5,6) by the single cyclic shift 1→2→3→4→5→6→1; it interchanges the two types in place after one block, preserves all vacancy locations at block boundaries, and restores every agent after six blocks. Repetition gives an infinite strict improvement path and rules out any strict ordinal potential on this finite state space.",
+      "residual_risks": [
+        "Certificate of the displayed witness, not a search over graphs or states; no minimality, absence of pure equilibrium, or best-response cycle is asserted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 5.1 gives potential for regular graphs with one empty vertex; Theorem 5.2 puts its negative construction at degree δ≥4 with δ empty vertices.",
+          "16555f5a4e5a gives a potential for the same fractional utility on complete bipartite graphs with multiple vacancies; abb933b376cf gives one with exactly one vacancy. Petersen has an odd 5-cycle."
+        ],
+        "reasoning": "Neither a regular-graph result with the wrong degree/vacancy constraints nor a theorem restricted to complete bipartite graphs covers this instance.",
+        "searches": [
+          "arXiv:2305.17757 Theorems 5.1 and 5.2",
+          "Published Resultary: 16555f5a4e5a, abb933b376cf"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2305.17757",
+        "arXiv:2505.10005",
+        "Published Resultary 16555f5a4e5a, abb933b376cf, 2be0aa682a4b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Reducing the degree of a regular-graph example changes the neighbors that enter the utilities; Theorem 5.2 gives no reduction to degree three and expressly leaves it open.",
+          "With only two types a distinct-type count ignores how many neighbors of each type occur; its behavior need not imply anything about strict gain of the unlike occupied-neighbor fraction."
+        ],
+        "reasoning": "No inspected theorem or witness already implies the cubic counterexample. The supported novelty is the negative cubic-regular result in this model, not discovery of improvement cycles in unrestricted regular graphs.",
+        "searches": [
+          "arXiv:2305.17757 pp. 20–21",
+          "arXiv:2505.10005 pp. 1 and 22",
+          "Published Resultary 2be0aa682a4b"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Narayanan–Sabbagh–Voudouris, p. 21, explicitly leaves the potential question open for degree-three regular graphs.",
+          "Variety-seeking arXiv:2505.10005 uses distinct neighbor-type count; 2be0aa682a4b uses a single-peaked same-color fraction in a closed neighborhood."
+        ],
+        "reasoning": "For a finite labeled jump game, a strict improvement cycle is a witness against the finite-improvement property and a strict ordinal potential. Terminology about nonterminating jumps was compared at the utility and move-rule levels, not treated as equivalence by itself.",
+        "searches": [
+          "arXiv:2305.17757 Section 5 (potential games and improvement-response cycles)",
+          "arXiv:2505.10005 (variety-seeking jump games)",
+          "Published Resultary: 2be0aa682a4b (nonterminating jumps)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest exact cycle in Resultary, 2be0aa682a4b, is four jumps on K_(3,3) with two vacancies and a different payoff; the fractional paper's explicit certificate at the closest degree uses degree at least four."
+        ],
+        "reasoning": "This is a finite witness rather than a canonical census entry, so the relevant exact comparison is whether the available construction/certificate catalogues already exhibit a negative cubic instance under the same rules. The inspected witnesses do not.",
+        "searches": [
+          "Published Resultary: fractional diversity jumps, exact potential/census, improving-cycle witnesses; 16555f5a4e5a, abb933b376cf, 2be0aa682a4b",
+          "arXiv:2305.17757 Theorem 5.2 construction"
+        ]
+      },
+      "rationale": "The inspected literature explicitly asks about degree-three regular graphs with the fractional utility and does not cover the exhibited four-vacancy two-type witness. The closest matching cycles use different hypotheses or payoffs.",
+      "residual_risks": [
+        "The focused public query returned an unrelated result; actual conclusions rest on direct statement comparisons. Other exact cubic witnesses or implicit constructions outside inspected sources remain possible. No priority is inferred from directory dates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct antecedent, not covering the cubic counterexample",
+          "evidence": "The regular degree-three potential question remains open in Section 5; the neighboring theorems are respectively one vacancy and degree at least four.",
+          "identifier_or_url": "https://arxiv.org/abs/2305.17757",
+          "material_read": "PDF utility description p. 1; Theorems 5.1 and 5.2 and open question pp. 20–21 (offsets 71497, 72526, 74823)",
+          "method": "Matched utility, degree, vacancies and nature of potential/construction",
+          "title": "Diversity-seeking Jump Games in Networks",
+          "trigger": "Exactly the fractional model and explicit cubic-regular question"
+        },
+        {
+          "assessment": "Different model",
+          "evidence": "The objective counts different neighbor types rather than the fraction of occupied neighbors that are unlike.",
+          "identifier_or_url": "https://arxiv.org/abs/2505.10005",
+          "material_read": "PDF p. 1 and conclusion p. 22 (offsets 1151, 78403)",
+          "method": "Compared the actual payoff functions",
+          "title": "Variety-Seeking Jump Games on Graphs",
+          "trigger": "Similar jump-game terminology and two-type potential results"
+        },
+        {
+          "assessment": "Inapplicable to Petersen",
+          "evidence": "The potential is on complete bipartite K_(A,B), while Petersen contains a 5-cycle.",
+          "identifier_or_url": "Resultary 2026/10/25, 16555f5a4e5a",
+          "material_read": "RESULT.md Finding, local mirror offset 0",
+          "method": "Compared graph class and conclusion",
+          "title": "A factorial ordinal potential and equilibrium census for diversity-seeking jumps",
+          "trigger": "Same fractional model, multiple vacancies"
+        },
+        {
+          "assessment": "Different instance class",
+          "evidence": "The claim is for complete bipartite graphs and one vacancy.",
+          "identifier_or_url": "Resultary 2026/10/26, abb933b376cf",
+          "material_read": "RESULT.md Finding, local mirror offset 0",
+          "method": "Compared graph class and vacancy count",
+          "title": "Exact potential and equilibrium census for one-vacancy diversity-seeking jumps",
+          "trigger": "Same payoff and exact potential"
+        },
+        {
+          "assessment": "Different model and witness",
+          "evidence": "A four-jump K_(3,3) witness with two vacancies uses a single-peaked closed-neighborhood same-color utility, not the frozen fractional utility.",
+          "identifier_or_url": "Resultary 2026/11/2, 2be0aa682a4b",
+          "material_read": "RESULT.md Finding, local mirror offset 0",
+          "method": "Compared graph, agent/vacancy counts and payoff",
+          "title": "One vacancy forces terminating jumps on complete bipartite networks",
+          "trigger": "Published exact improving cycle in a related jump game"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 23–42",
+        "arXiv:2305.17757 Section 5"
+      ],
+      "rationale": "This is a short, repeatable finite certificate answering the stated cubic-regular potential question negatively in a symmetric unweighted instance with only two types. The degree restriction and labeled closure are the substantive points; a merely type-level return or a cycle in a higher-degree model would not answer the question.",
+      "residual_risks": [
+        "Does not determine the vacancy threshold for cubic graphs or establish nonexistence of equilibria."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

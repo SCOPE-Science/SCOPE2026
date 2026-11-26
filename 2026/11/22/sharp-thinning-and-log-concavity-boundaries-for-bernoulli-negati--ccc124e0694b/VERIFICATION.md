@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -16,13 +19,6 @@
 }
 ---
 
-# Verification record
+# Reproducibility notes
 
-Run the embedded standard-library-only diagnostic script with `python3 verify.py`. It uses exact rational arithmetic and reproducible fixed-seed parameter selections. The observed output was:
-
-```
-Exact rational diagnostic assertions: 9791
-Four contrasting parameter points passed.
-```
-
-Checks include the pgf recurrence through degree 22, signs of first 23 logarithmic coefficients when the analytically derived inequalities hold, first 22 monotonicity inequalities for canonical measures, first 22 log-concavity inequalities when \(\nu\ge1\), and four rational examples distinguishing the regimes. This is finite supporting evidence only. The known infinite-divisibility boundary is reproduced for context using signs of **every** even coefficient; for thinning it establishes all even-index differences; for log-concavity failure it proves an eventual positive second log-difference using full asymptotic expansion. No independent validation has been performed.
+Run `python3 verify.py` in the same directory. The standard-library script computes canonical coefficients by formal division of the normalized pgf series, compares them with their formula, and checks boundary cases and separating examples using exact rational arithmetic. Index 12 gives an obstruction in a case where the comparison at index 2 alone does not detect failure. The all-index and all-rate statements follow from the analytic parity argument and thinning-quotient proof in `RESULT.md`, not these finite illustrations. This version does not claim a new mass-curvature criterion.

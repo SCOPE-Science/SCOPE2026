@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:57:42.673108Z",
+  "axes": {
+    "correctness": {
+      "rationale": "VT checksum residues modulo n+1 distinguish any two distinct insertions into a shared read. The integer checksum difference for different insertion bits lies in [1,n] or [-n,-1]; for the same bit it counts the intervening opposite bits up to sign, and zero yields the same word. This gives the clique upper bound. The two small examples work by literal deletion: the one-1 words share the all-zero read, and the extra word shares an end-1 read with each while ruling out the all-zero read. The common-insertion lemma also checks: in a common supersequence, if the coordinate deleted to give u is earlier, it can slide through the constant run to the first index where u and v differ; the inserted symbol and index are then forced. The other order yields at most one other candidate. The base-case sentence describing the lemma has its quantifiers reversed: the needed application is that two distinct reads cannot have three prescribed common parents. Thus any three star words share only u_n. At n=5 the five listed words share the displayed reads with v_5; v_5 does not contain u_5 as a one-deletion read. For induction, insertions into u_nt_n are formerly valid insertions with t_n appended plus the single exceptional insertion u_nt_n(1-t_n). The invariant on v_n persists when the alternating suffix is appended. The new word shares v_n with v_{n+1}; it shares u_nt_n with the appended star members, not with v_{n+1}. Appending t_n preserves the old edges, and the exceptional outsider stays outside the star, so the whole family has size n+1 and empty total intersection. At n=1 or 2 any clique lies in an insertion neighborhood. The proof suffices for all lengths; the finite script was inspected, not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The differential VT paper constructs deletion/burst-deletion codes. Wang et al. count triangles to bound independent sets in a graph on permutations. Resultary 0087ea889799 uses Hamming distance two between composition-read vectors."
+        ],
+        "reasoning": "Neither changing to multisets of symbol counts, eliminating repeated symbols, nor bounding independent sets yields the binary repeated-symbol clique with no common exact deletion word.",
+        "searches": [
+          "Nguyen–Cai–Siegel arXiv:2311.04578",
+          "Wang et al. arXiv:2406.16656",
+          "Resultary 0087ea889799: two-symbol composition confusability"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py",
+        "arXiv:math/0207197, arXiv:2311.04578, arXiv:2406.16656",
+        "Resultary 0087ea889799, e753c7b5bfd6, b19c2f7e6141"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The n+1 VT classes bound any clique, and the n+1 parents of any fixed read saturate the ordinary upper bound. But that saturating family has a common read.",
+          "A distinct indexed two-read pencil result assumes an edge condition that the assigned family need not meet."
+        ],
+        "reasoning": "The classical coding and insertion facts leave open whether forbidding the common read reduces the bound. The star-minus-one construction with a compatible outsider supplies that missing implication for every n>=3.",
+        "searches": [
+          "Sloane arXiv:math/0207197, deletion graph and VT code construction",
+          "Resultary searches for noncanonical extremizers and insertion-neighborhood exceptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sloane defines adjacency by a shared single-deletion read and gives the VT coloring through the deletion-correcting classes.",
+          "In fixed-length binary insertion/deletion distance, pairwise adjacency is diameter at most two, but the target additionally excludes a common length-(n-1) subsequence. The anticode search surfaced other edit/list/covering problems, not an inspected exact noncanonical equality theorem."
+        ],
+        "reasoning": "An anticode of size n+1 can be an insertion neighborhood. A result giving only the diameter and size conditions does not establish the extra exclusion.",
+        "searches": [
+          "Resultary: pairwise one-deletion confusability, maximum cliques without a common deletion read",
+          "Resultary: binary single insertion/deletion metric diameter-two optimal anticodes and noncanonical optimal anticodes",
+          "Sloane arXiv:math/0207197, pp. 2–4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact triangle spectrum result assumes at least two distinct shared reads for an edge. The two-pencil result imposes exactly two and gives floor(n/2)+1. The VT graph gives n+1 when any common read is required, without the global exclusion."
+        ],
+        "reasoning": "Edges with a single shared read are permitted here, and a whole-family condition is imposed. Exact tables in stricter pair-overlap graphs do not tabulate this maximum.",
+        "searches": [
+          "Resultary: one-deletion clique maximum n+1, pairwise-only/non-Helly overlap and shared-read graph",
+          "Resultary e753c7b5bfd6 and b19c2f7e6141"
+        ]
+      },
+      "rationale": "The supported distinction is attaining the classical n+1 upper bound with no common read at every n>=3, not the bound or the ordinary clique number. The inspected overlaps do not provide the globally incompatible equality family in the one-common-read graph.",
+      "residual_risks": [
+        "A focused public lookup did not return useful hits; that is not evidence of absence. A classification of optimal edit anticodes or an equivalent reconstruction result outside the inspected sources could contain a compatible outsider construction."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers ordinary clique bound, not the noncanonical extremizer",
+          "evidence": "Two words are adjacent when their deletion sets intersect, and the VT classes are independent sets in this graph.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0207197",
+          "material_read": "PDF pp. 2–4, deletion adjacency and VT classes",
+          "method": "OA PDF passages",
+          "title": "On Single-Deletion-Correcting Codes",
+          "trigger": "Same graph and classical exact upper bound"
+        },
+        {
+          "assessment": "Inspected passage concerns code construction, not maximal confusable families",
+          "evidence": "The stated results concern differential VT and shifted VT codes for deletion and burst errors.",
+          "identifier_or_url": "https://arxiv.org/abs/2311.04578",
+          "material_read": "Abstract, p. 1",
+          "method": "OA PDF passage",
+          "title": "A New Version of q-ary Varshamov–Tenengolts Codes with More Efficient Encoders",
+          "trigger": "Possible stronger single-deletion result"
+        },
+        {
+          "assessment": "Different vertex domain and extremal objective",
+          "evidence": "Edges encode long common subsequences of permutations; triangle enumeration serves independent-set bounds.",
+          "identifier_or_url": "https://arxiv.org/abs/2406.16656",
+          "material_read": "Abstract p. 1 and graph definition p. 5",
+          "method": "OA PDF passages",
+          "title": "Permutation and Multi-permutation Codes Correcting Multiple Deletions",
+          "trigger": "Deletion graph analysis via triangles"
+        },
+        {
+          "assessment": "Different graph",
+          "evidence": "Adjacency is Hamming distance two for composition-read vectors, explicitly distinguished from the deletion-ball graph.",
+          "identifier_or_url": "0087ea889799",
+          "material_read": "Finding and scope",
+          "method": "Configured local mirror",
+          "title": "Maximum pairwise confusability cliques in two-symbol composition readouts",
+          "trigger": "Resultary clique-maximum match"
+        },
+        {
+          "assessment": "Different edge threshold and invariant",
+          "evidence": "It requires at least two common reads and counts triangles.",
+          "identifier_or_url": "e753c7b5bfd6",
+          "material_read": "Finding and edge definition",
+          "method": "Configured local mirror",
+          "title": "Exact triangle spectrum of the two-read deletion confusability graph",
+          "trigger": "Binary one-deletion overlap graph"
+        },
+        {
+          "assessment": "Different edge threshold",
+          "evidence": "It requires exactly two common reads and gives clique number floor(n/2)+1.",
+          "identifier_or_url": "b19c2f7e6141",
+          "material_read": "Finding and edge definition",
+          "method": "Configured local mirror",
+          "title": "Sharp clique bound and two-pencil structure in the two-read single-deletion graph",
+          "trigger": "Binary one-deletion clique and pencil structure"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "It resolves whether a global read is forced at maximum pairwise ambiguity. There is no penalty in clique size for forbidding a common read, not just a small non-Helly example. The all-length explicit construction is useful for distinguishing a maximum clique from a canonical insertion neighborhood in the binary deletion graph.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

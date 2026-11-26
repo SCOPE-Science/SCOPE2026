@@ -1,21 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** For all finite fields, path concatenation gives the stated two graded commutator equations and the exact 8-by-8 block matrix. Conjugation centralizers are precisely kernels of the linear commutator map, including in characteristic two. The case partition by the support of four arrow coefficients is disjoint and exhaustive. For a=0 the parity blocks reduce the problem to the ranks of a 2-by-2 matrix; for nonzero independent supports the two ranks are 2 and the compatibility inclusion holds; for adjacent supports both ranks are 3 and L_b(a)=-B_a(b) proves compatibility. Counting all four rank strata and multiplying central-coordinate choices gives the complete polynomial, and the normalization sum of class sizes equals q^12. Direct length-two-path witnesses give odd exponents 1 (n=3) and 3 (all n>=5). Compiled standalone checker independently exhausts q=2,3,5 and returns VERIFY_OK. The proof, rather than these finite tests, establishes all prime powers.
+PASS
 
-## Originality
+The class-size exponent is the rank of y↦xy−yx since (1+x)(1+y)=(1+y)(1+x) exactly when xy=yx. A triple bracket has leading term γ₀ for n≥4 and γ₀−γ₂ for n=3, so the class is three in every characteristic. At a=0 the two parity blocks share the determinant condition and each is nonzero when b≠0. Single-parity nonzero support of a gives ranks (2,2) for A,B and no residual rank because L preserves parity. Adjacent nonzero support gives ranks (3,3): up to rotation, for support {0,1}, the B equations force v₁=v₂=v₃=0; for {0,1,2}, they force v₂=v₃=0 and one relation on v₀,v₁; on full support each vᵢ/(aᵢaᵢ₊₁) is the same. Then L(a)=−B(b) puts the image of ker A in im B. Multiplying pair counts by q⁴ and dividing by the corresponding class size reproduces the displayed polynomial, including its total at T=1. The length-two witnesses give proportional output forms at n=3 and three independent forms at every n≥5. Independent replay, python3 /workspace/frozen_math_replay.py 4, exhausts all 65,536 coefficient pairs over GF(4) by literal path multiplication and obtains ranks 0,2,4,6 with counts 1,75,7860,57600; it supplements, not replaces, the characteristic-free argument.
 
-**PASS, with residual source risk.** Earlier literature introduces algebra groups and supercharacters (Diaconis–Thiem), reduces class/character counts to commutator rank data under conditions (O'Brien–Voll), and establishes class-size graph polynomials for nilpotency-class-two graphical groups (Rossmann). Those antecedents do not calculate the class-three ordinary conjugacy polynomial of a fourth-truncated four-cycle radical, and the graphical-group formula cannot imply it because triple commutators are nonzero. A previous local square-zero-element classification of the same Nakayama algebras computes a different invariant, not ordinary conjugacy classes. Targeted published-finding corpus searches for cyclic Nakayama algebra groups, class-size exponents and adjacency commutator ranks found no exact or dominating counterpart. Residual risk from Robinson 1998 and unindexed specialized work remains.
+## originality
 
-The closest specifically relevant sources are Diaconis–Thiem (2006), O’Brien–Voll (2012) and Rossmann (2021); these establish algebra-group methods, general class-vector reductions and graphical-group class enumerators, respectively. The crucial implication comparison is between the nilpotency-class-three oriented-cycle radical and the nilpotency-class-two graphical groups: the latter have no nonzero third commutators. Robinson (1998) is a concrete unresolved source risk because its complete text was not available. Nonappearance in searched databases does not by itself prove novelty.
+PASS
 
-## Value
+The ordinary class-size polynomial and parity criterion for the strictly radical fourth-truncated cyclic family are distinct on the inspected evidence. The general centralizer/rank reduction is established methodology, not the contribution. Robinson's paper remains an access risk, not evidence in either direction.
 
-**PASS.** The class-size polynomial is the complete natural conjugacy-class distribution of the principal unipotent group of the first four-vertex oriented cyclic Nakayama algebra of Loewy length four. It determines its class number and every conjugacy orbit size in arbitrary characteristic, and the all-cycle parity obstruction shows the striking even-power spectrum is a structurally isolated resonance, not an arbitrary small-field numerical coincidence. This is a nontrivial class-three complement to the mature class-two graphical-group enumerations, without claiming general higher-cycle classification.
+## value
 
-## Boundaries
+PASS
 
-The all-length result is an existence/obstruction statement only: complete class-size polynomial for \(n=4\), odd exponent witnesses for \(n=3\) and all \(n\ge5\). No claim of a complete class spectrum outside the four-cycle is made. Computations are finite corroborations; proof is uniform in the field. External independent mathematical verification has not been performed.
+The four-cycle is a natural exception within a uniform truncated path-algebra family: parity blocks explain exactly why odd ranks disappear only there. The explicit ordinary conjugacy distribution combines a usable invariant over every finite field with a sharp family boundary, rather than tabulating an isolated small example.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:13:54.336479Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the unweighted adjacency walk, write E=J/v, C=I−E, D=B−kE. The design equation gives DDᵀ=DᵀD=s²C with 0<s<k. The constant sector and its orthogonal complement give exactly the four projectors at ±k and ±s, including multiplicity v−1 at each of ±s. In the Cesàro average the unequal eigenvalue terms vanish. The Schur squares of the two constant-sector and the two complementary projectors yield X=(E∘E+C∘C)/2 and Y=(E∘E+(D∘D)/s²)/2. Since B is 0–1, X=cI+J/v² and Y=αB+βJ with the stated α,β. Both blocks sum to 1/2 per row, giving eigenvalues 1 and 0 on the two constant directions. On the complementary pair of spaces the off-diagonal singular value is |α|s, giving each of c±d exactly v−1 times. For 2≤k≤v−2, s≥1 and |v−2k|≤v−4 give c−d≥1/v; for k=v−1, s=1 and d=c, and writing B=J−P gives Y=XP and kernel (u,−Pᵀu). The trace, projective-plane specialization for q≥2, and smallest positive eigenvalues follow. Conversely a connected regular bipartite graph with four eigenvalues has two positive singular values, k simple and s on the orthogonal complement; the Gram matrix has constant off-diagonal entries and recovers the symmetric design conditions. Independent numerical grouping of the actual adjacency eigenspaces compared full spectra on six examples, including both signs of v−2k and the smallest crown case (OPENBLAS_NUM_THREADS=1 python3 /workspace/branches/independent_checks.py 5). This corroborates the all-parameter proof rather than replacing it.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Godsil proves the time-average Schur-square identity and has an explicit scheme formula in an equal-valency pseudocyclic setting. Coutinho et al. relate the matrix and its rank to the averaged-state projection on the adjacency commutant. The bipartite regular four-eigenvalue distance-regular description is relevant structural background."
+        ],
+        "reasoning": "The diameter-three incidence distance scheme does not satisfy the equal-valency hypothesis: e.g. the distance-one and distance-two valencies are k and v−1, unequal in the interior. A general projection formula or rank characterization still requires computing on the design incidence class.",
+        "searches": [
+          "Godsil arXiv:1103.2578, Lemma 1.1 and pseudocyclic schemes",
+          "Coutinho–Godsil–Guo–Zhan arXiv:1709.03591, §§2–3",
+          "Abiad–Dalfó–Fiol DOI 10.1016/j.ejc.2013.05.006"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py (inspected, not run)",
+        "Godsil and Coutinho et al. primary passages; Baptista et al. introductory scope; Abiad–Dalfó–Fiol retrieval attempt",
+        "Two closely related Resultary findings and bounded primary search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General Cesàro identity and commutant formulation determine a method. For the design, the additional 0–1 cross-block reduction gives Y=αB+βJ; singular modes and explicit control of (v−2k)/s give the exact rank jump."
+        ],
+        "reasoning": "Being in the Bose–Mesner algebra does not specify its coefficients or which eigenvalues vanish. The displayed parameter-dependent spectrum and nullity boundary require the design-specific reduction; they are not a specialization of the inspected equal-valency or rank formulas.",
+        "searches": [
+          "Godsil Lemma 1.1 and special scheme formulas; Coutinho et al. Lemma 2.2, Corollary 2.3, Theorem 3.1 and Corollary 3.2",
+          "Baptista–Coutinho–Marques arXiv:2308.16378v1, alternative averaging scope"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The symmetric-design incidence description is equivalent to the connected regular bipartite four-eigenvalue description by the Gram-matrix calculation. The same-date crown graph Resultary finding concerns an arbitrary distribution of sampling times giving a uniform matrix, and explicitly distinguishes the ordinary Cesàro limit."
+        ],
+        "reasoning": "The crown graph is a true overlapping family, but changing the averaging operation and asking for existence of uniformity does not produce the limiting Cesàro spectrum even there. The graph-theoretic alias is not credited as new.",
+        "searches": [
+          "Resultary: symmetric-design incidence Cesàro spectrum and four-adjacency-eigenvalue regular bipartite graphs",
+          "Primary query: average mixing matrix quantum walks symmetric designs incidence graphs distance regular diameter three crown bipartite spectrum rank Godsil"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The related accessible formulas and catalogued results are family- or averaging-specific. The primitive strongly regular graph full-rank result explicitly excludes primitive distance-regular graphs of diameter greater than two; it does not describe diameter-three bipartite design incidence graphs."
+        ],
+        "reasoning": "A finite database could overlap individual designs, but cannot by itself establish the parameter-uniform spectrum over all designs. The strongest exact family evaluations examined here concern other averaging regimes or graph classes.",
+        "searches": [
+          "Godsil arXiv:1103.2578 introduction and explicit pseudocyclic formula",
+          "Resultary: randomized-time uniform crown-graph mixing and full-rank primitive strongly regular graphs",
+          "Primary query on symmetric-design incidence, distance-regular and crown spectra"
+        ]
+      },
+      "rationale": "The supported distinct content is the full family-specific average spectrum with sharp rank boundary and exact least positive mode, not the general projector-Schur-square machinery or the classical adjacency spectrum. The strongest inspected general results reduce the problem to computing squared projectors or a commutant projection, but give neither the design-specific cross-block coefficient nor the positivity and multiplicity classification. No covering theorem was verified in the bounded comparison.",
+      "residual_risks": [
+        "An unlocated association-scheme computation or family-specific result might give the same Cesàro eigenvalues directly. General framework overlap alone does not establish it.",
+        "Full text of Abiad–Dalfó–Fiol was not retrieved; no negative inference is made from that access limitation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General method and separate scheme result; no incidence-design exact spectrum in the inspected passages",
+          "evidence": [
+            "The average is the sum of the spectral-idempotent Schur squares. The pseudocyclic claim assumes relations of equal valency."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1103.2578",
+          "material_read": "§1 Lemma 1.1, text offsets about 4350–7071; opening pseudocyclic passage near offset 2250",
+          "method": "Primary OA PDF passages and primary search",
+          "title": "Average Mixing of Continuous Quantum Walks",
+          "trigger": "Canonical general formulas and explicit association-scheme case"
+        },
+        {
+          "assessment": "Structural background; not a numerical formula for this family",
+          "evidence": [
+            "Averaged-state map projects onto the commutant; rank equals the dimension of the span of the associated average states."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1709.03591",
+          "material_read": "§2 Lemma 2.2 and Corollary 2.3, §3 Theorem 3.1 and Corollary 3.2, offsets about 8000 and 10200–12500",
+          "method": "Primary OA PDF passages",
+          "title": "A New Perspective on the Average Mixing Matrix",
+          "trigger": "General rank characterization which might imply the claimed nullity"
+        },
+        {
+          "assessment": "Unresolved whole-text comparison; the graph-class equivalence is independently proved and treated as background",
+          "evidence": [
+            "The source is cited for bipartite regularity, not relied upon as a negative whole-document result."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.ejc.2013.05.006",
+          "material_read": "Bibliographic/abstract material only; primary full text not available by the routes tried",
+          "method": "Bounded DOI/OA attempt",
+          "title": "Algebraic characterizations of regularity properties in bipartite graphs",
+          "trigger": "Four-eigenvalue regular bipartite alias and possible distance-algebra consequences"
+        },
+        {
+          "assessment": "Different averaging and invariant; no priority inference from date",
+          "evidence": [
+            "Arbitrary distributions of observation times yielding uniformity, explicitly distinct from ordinary Cesàro averaging."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-randomized-time-uniform-quantum-mixing-on-crown-graphs-exactly-t--715745e5641d",
+          "material_read": "Local-mirror RESULT.md opening Finding at offset 0",
+          "method": "Resultary and local mirror",
+          "title": "Randomized-time uniform quantum mixing on crown graphs",
+          "trigger": "Same-date result on exactly the rank-drop graph class"
+        },
+        {
+          "assessment": "Different graph class and not a broader covering theorem",
+          "evidence": [
+            "The claimed scope is primitive strongly regular graphs, not diameter-three bipartite designs."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-full-rank-of-long-time-quantum-mixing-on-primitive-strongly-regu--eb4cf76e53eb",
+          "material_read": "Local-mirror RESULT.md offsets 0–2061",
+          "method": "Resultary and local mirror",
+          "title": "Full rank of long-time quantum mixing on primitive strongly regular graphs",
+          "trigger": "Same long-time rank question on nearby distance-regular family"
+        },
+        {
+          "assessment": "Confirms distinction of averaging schemes; not relied upon for whole-document absence",
+          "evidence": [
+            "Considers alternative continuous and discrete probability distributions and states results for alternate averages, including constancy examples for short paths."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2308.16378v1",
+          "material_read": "Opening abstract and introduction, offsets 0–3232",
+          "method": "Primary OA bounded reading",
+          "title": "Unexpected Averages of Mixing Matrices",
+          "trigger": "Primary search and frozen bibliography on sample-time averaging"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact average-mixing spectrum is a natural quantum-walk invariant, and the design class covers all connected four-eigenvalue regular bipartite graphs. It identifies the unavoidable sign kernel, isolates the crown nullity jump, and provides the exact smallest positive mode to quantify behavior on the nonsingular subspace. Parameter-only equality makes those quantities usable without choosing or diagonalizing an individual incidence matrix. This value is in the complete spectrum and boundary, rather than merely applying the known general time-average identity.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

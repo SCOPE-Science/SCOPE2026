@@ -1,12 +1,21 @@
-# Self-review — a single normalization hole in a cubic Togliatti threefold
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof fixes the grading, thirteen lattice points, and the twelve original monomials unambiguously. The explicit unimodular decomposition proves the integer-decomposition property for every dilation of the lattice polytope, not just sampled degrees; four pair identities eliminate all products involving the missing monomial in degree at least two. This gives a length-one normalization quotient \(k(-1)\) over **every** field. Hochster's normal-semigroup theorem then yields depth one and the local cohomology obstruction. Inclusion-exclusion gives the exact Hilbert series and degree. The self-contained checker verifies primitive lattice determinant, central triangulation, every pair identity and Hilbert counts through degree eight, returning `VERIFY_OK`; experiments are corroborating, not an all-degree argument.
+## correctness
 
-## Originality — PASS (qualified)
-The example's twelve cubics, weak Lefschetz defect and osculating/singularity geometry are prior facts from Mezzetti–Miró-Roig–Ottaviani, Example 4.6 (arXiv:1110.5239v1). The direct source's inspected example does not provide the one-dimensional normalization cokernel, depth or Hilbert series. Michałek–Miró-Roig (arXiv:1310.2529) classifies **smooth** monomial cubic Togliatti systems, not this singular source example. Colarte–Mezzetti–Miró-Roig (arXiv:2012.01958), Sections 2–3 and 5, proves arithmetic Cohen–Macaulayness for special invariant varieties and shows different non-aCM **surface** examples, not this threefold's explicit gap. published-finding corpus searches for the source, parameter list, alias descriptions and arithmetic data found different varieties; see `AUDIT.json` for actual searches and implication comparisons. An equivalent older monomial-semigroup table not found in search remains a material originality risk.
+PASS
 
-## Mathematical value — PASS
-This is an exact structural answer for a named Togliatti threefold in a family where Cohen–Macaulayness is mathematically motivated. It settles projective normality versus intrinsic normality, completely determines its graded deficiency \(H^1_{R_+}(R)\), and gives all Hilbert dimensions and degree. None follows just from a source claim that the image is singular or osculating defective. The result is object-specific, not a general classification of all cubic Togliatti systems. The singular-support geometry, minimal free resolution and any further local schemes are not addressed.
+Reconstructed the exponent calculation in the grading by cubic factors. The vertices of P=[0,2]^3∩{2≤a+b+c≤3} are the permutations of (2,0,0) and (2,1,0); its only non-generator lattice point is m=(1,1,1). Three generator differences (−1,1,0),(−1,0,1),(0,1,0) have determinant of absolute value 1, giving the full homogenized lattice with a degree-one generator. For an independent all-degree decomposition, list a,b,c tokens in three consecutive color runs and assign the stream cyclically to d bins. For (a,b,c)∈dP, each bin gets 2 or 3 tokens total and at most 2 of each color; its exponent is in P∩Z³. Every pair containing m (including m+m) has a replacement in A+A by the four permutation-type identities in the finding; checking their coordinates and iterating removes all occurrences for d≥2. Therefore the cone saturation differs only at (m,1), and the quotient is k(−1), killed by R_+. The graded localizations then give the same Proj. The radical of R_+S is S_+ since the added degree-one generator squares into R; Hochster's theorem and the exact sequence with k(−1) give precisely H¹=k(−1) below dimension four and depth 1 at the homogeneous maximal ideal. In the lattice count, two coordinate upper-bound violations cannot occur at total ≤3d. Subtract the three single violations and the region of total ≤2d−1 to obtain the binomial formula. Its third-degree polynomial gives normalized numerator 1+9t+6t², so the correction −t gives the displayed series, degree 16 and the stated Hilbert functions at d=0,1 and d≥2. The argument is characteristic-free and does not require executing the bundled finite checker (read, not run).
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Credit the named twelve-cubic projection, omission of x_0x_1x_2 as a coordinate, and osculating geometry to the original Example 4.6. The supported distinct result is the exact normalization gap, including the fact that there are no higher-degree holes, and the resulting graded arithmetic deficiency for this named ring. The closest inspected surface semigroup literature has a similar missing exponent but not this ring or its normalization/depth result.
+
+## value
+
+PASS
+
+A canonical, independently motivated map from the Togliatti literature has a fully computed arithmetic defect. Identifying the unique absent section and the absence of every higher-degree defect explains how intrinsic normality coexists with failed projective normality and with depth one, and supplies exact invariants useful in comparing arithmetic behavior across Togliatti examples. This is not a claimed new general Cohen–Macaulay criterion or just a low-degree enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

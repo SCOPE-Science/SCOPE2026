@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:37:29.130293Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The uniform endpoint estimate can be justified without importing parameter uniformity from Sidi. Localize in x=cos(t) at x=1 and at t=theta. At x=1 expand the amplitude in sqrt(1-x) through degree four, and subtract the 1/2 and 3/2 powers globally with their Taylor coefficients. The remaining localized function is smooth apart from a remainder of order (1-x)^(5/2), with differentiated bounds uniform in delta in [5/4,3/2]. Three integrations using the Legendre self-adjoint operator give O(n^(-6)): the third iterate has at worst an integrable (1-x)^(-1/2) singularity and the earlier fluxes vanish. Rodrigues/beta integration gives the 1/2-power coefficient exactly as -1/(sqrt(2) L(L^2-1)), L=n+1/2; the 3/2 power is O(L^(-5)). The former times the Taylor coefficient -sqrt(2) delta theta^(delta-1) gives +B L^(-3). At the interior cutoff, expand the interior Legendre oscillatory series through the L^(-7/2) term with uniform O(L^(-9/2)) remainder on a compact interval around theta. This expansion follows from the two quadratic endpoints of the Laplace integral for P_n(cos t): the coefficient of the quadratic term in the log at one endpoint is -i sin(t) exp(-it)/2, with real part -sin^2(t)/2; the other endpoint is conjugate. The smooth amplitudes admit uniform Gaussian expansion and the integral away from the endpoints is exponentially small. For u=theta-t, the first amplitude has endpoint sqrt(2 sin(theta)/pi); the Fourier integral of u^delta times a smooth cutoff/amplitude has leading coefficient Gamma(delta+1) exp(-i pi(delta+1)/2) L^(-delta-1) times the endpoint value. To see the uniform next-order estimate, subtract the endpoint value times exp(-u), integrate the latter exactly, and split the remaining O(u^(delta+1)) amplitude smoothly at u proportional to 1/L; on the larger-u range four integrations by parts give O(L^(-delta-2)) uniformly. The higher oscillatory terms therefore give O(L^(-delta-5/2)) or smaller. This verifies the frozen error after scaling by L^3; directly integrating the raw first-order Darboux remainder without cancellation would not suffice. Strict coefficient positivity at delta=3/2 is verified by specializing the strict all-degree boundary result in 107c9b8148b4 §§1–3 to lambda=1/2 (the cap coefficients are squares, nonzero away from finitely many radii for each fixed degree, and the positive-mixture proof yields strictness). This is stronger than inferring it from strict positive definiteness alone. In the subcritical expansion the phase is -sin(L theta+pi epsilon/2), and B_0/A_0=sqrt(2 theta/sin theta). On the rational orbit 2n p+p runs over one parity class modulo 2q, giving the displayed distances to q/2 and all three q cases. On irrational orbits visits to a fixed phase arc are syndetic by compactness and minimality. For fixed epsilon in (0,1/4), there are arbitrarily large degrees with shifted sine bounded positively (already its n=0 value is positive), so the growing L^epsilon term proves the minimum exists on the whole specified range. In the limit, L^epsilon below exp(C-eta), C=log(B_0/(A_0 m)), leaves a uniform positive gap at all high degrees before that scale, and continuity plus strict critical positivity handles the finite low degrees. A near-maximal phase recurs within bounded gaps in the interval between exp((C+eta/2)/epsilon) and exp((C+eta)/epsilon), so a negative coefficient occurs there. This proves the first-index limit at fixed theta; no finite quadrature, theta-uniform limit or strict critical positivity from a numerical check is used.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The all-real lambda result 107c9b8148b4 gives strictly positive critical coefficients for lambda=1/2 and above-threshold positivity, not a below-threshold first-index estimate.",
+          "Beatson–zu Castell–Xu state the general threshold as Conjecture 1.4 and Proposition 1.5 is restricted to d=4,6,8. Xu's inspected Jacobi result excludes alpha=beta=0, the Legendre case."
+        ],
+        "reasoning": "Boundary positivity is positively covered and is an input, not a novelty claim. No sufficient critical or above-critical result compared here gives a uniform signed envelope below threshold, much less the matching arithmetic upper and lower fences.",
+        "searches": [
+          "arXiv:1110.2437 Conjecture 1.4 and Proposition 1.5",
+          "arXiv:1701.00787 v2 pp. 1–2",
+          "Resultary 107c9b8148b4 §§1–3",
+          "Lu DOI 10.1016/j.jat.2024.106120, attempted full-text and author-copy lookup"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and CHECK.py (read, not executed)",
+        "Resultary 107c9b8148b4, 22297a327baa and 0098d04d5418",
+        "arXiv:1110.2437, arXiv:1701.00787v2, arXiv:2608.22173",
+        "Lu and Sidi DOI/OA attempts as described"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The frozen record credits Sidi's endpoint/interior singularity method, rather than claiming a new Legendre expansion method. The exact Sidi passage could not be obtained; the review establishes the required uniform estimate independently.",
+          "The exact critical-positivity antecedent concerns the zero/boundary value of epsilon. Ge's inspected theorem provides a negative-coefficient witness but for other kernels."
+        ],
+        "reasoning": "Fixed-exponent endpoint asymptotics with an untracked error do not imply a first-negative scale when epsilon tends to zero. The uniform expansion, persistence at all fixed low indices, and recurrence near the best attainable phase enter the conclusion at distinct steps. No source checked supplied this combination as a general result from which the displayed limit follows by substitution.",
+        "searches": [
+          "Sidi DOI 10.1090/S0025-5718-2010-02454-8, Theorem 4.2 and AMS PDF attempted lookup",
+          "Resultary 107c9b8148b4 §3",
+          "Ge arXiv:2608.22173 Theorem 1.6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "By Schoenberg, the target is the smallest harmonic-degree witness against positive semidefiniteness, not merely nonpositivity of the kernel or existence of negative coefficients.",
+          "Ge arXiv:2608.22173 Theorem 1.6 constructs negative spherical coefficients for a different Euclidean-to-spherical restriction problem. Related first-sign Results 22297a327baa and 0098d04d5418 concern a Runge–Kutta stability function and an elliptic Taylor series, respectively."
+        ],
+        "reasoning": "Those first-sign results concern different coefficients, and a fixed-exponent sign change does not quantify the first sign near the Legendre threshold. Neither equivalent wording nor a matching theorem with these assumptions was found in the inspected material.",
+        "searches": [
+          "Resultary: Legendre coefficients first negative index near critical exponent 3/2 exponential rate cutoff angle rational phase maxima simultaneous limit",
+          "Primary literature: \"first negative\" \"Legendre\" coefficients near critical exponent spherical truncated power positive definite cutoff angle rational phase oscillation Lu Sidi"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest indexed first-index formulae are for other function families; the rational phase formula in this record follows directly by minimizing distance to pi/2 among the shifted lattice angles."
+        ],
+        "reasoning": "There is no finite table input: q is unbounded, the irrational cases are included, and the invariant is an exponential onset constant for a varying exponent. Even a known trigonometric maximum table would not identify that constant for these Legendre coefficients.",
+        "searches": [
+          "Resultary: first negative Legendre index rational phase maxima and denominator classes",
+          "Resultary 22297a327baa and 0098d04d5418, Findings"
+        ]
+      },
+      "rationale": "Pass for the simultaneous first-negative-degree exponent with its phase-dependent rational values. Neither strict positivity at the boundary, nor fixed-parameter endpoint asymptotics, nor elementary evaluation of a phase maximum alone is claimed as original. No inspected statement yields the first-index law for this family.",
+      "residual_risks": [
+        "The direct Lu and Sidi full texts were not obtained, so their exact scope beyond the verified antecedents is not certified.",
+        "The bounded search does not rule out an earlier equivalent simultaneous first-index theorem not surfaced by the chosen searches."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage of the threshold input, not the subcritical first-index law",
+          "evidence": "Cap squares and the Lu mixture lemmas show strict positivity of the coefficient at every degree for t=2 beta, lambda>0; setting lambda=1/2 gives the required I_n(3/2,theta)>0.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/9/20/SCOPE-gegenbauer-polya-boundary-all-real-lambda--107c9b8148b4/RESULT.md",
+          "material_read": "Theorem and §§1–3, offsets 0 and 1100–8341",
+          "method": "Indexed record and OA local mirror",
+          "title": "Boundary positivity for the Gegenbauer Pólya integral at every real parameter",
+          "trigger": "Exact strict boundary input and potential broader coverage"
+        },
+        {
+          "assessment": "Direct comparison limited; independently located specialization of exact boundary premise",
+          "evidence": "The inspected all-real parameter result references Lu Lemmas 3.3(iii) and 3.4 for the successive positive mixtures. The citation to Lu Theorem 3.5 was not independently read in full.",
+          "identifier_or_url": "https://doi.org/10.1016/j.jat.2024.106120",
+          "material_read": "Landing/abstract; full proof not obtained directly; mixture lemmas reproduced as statements in 107c9b8148b4 §2",
+          "method": "OA publisher route and author-copy search; local-mirror corroboration for the mathematical premise",
+          "title": "Strictly positive definite functions on spheres",
+          "trigger": "Cited Theorem 3.5 and critical strictness"
+        },
+        {
+          "assessment": "Recognized antecedent for method; scope of its parameter estimates unverified",
+          "evidence": "No claim of exclusion from an unread theorem. The required localized uniform error was reconstructed separately.",
+          "identifier_or_url": "https://doi.org/10.1090/S0025-5718-2010-02454-8",
+          "material_read": "Bibliographic identification; attempted Theorem 4.2 and AMS PDF, access denied",
+          "method": "OA DOI and publisher PDF attempts",
+          "title": "Asymptotic expansions of Legendre series coefficients for functions with interior and endpoint singularities",
+          "trigger": "Potential general theorem containing the asymptotics"
+        },
+        {
+          "assessment": "States the general threshold conjecture and proves restricted even-dimensional cases, not this onset law",
+          "evidence": "Conjecture 1.4 concerns all-parameter positivity; Proposition 1.5 lists d in {4,6,8}.",
+          "identifier_or_url": "https://arxiv.org/abs/1110.2437",
+          "material_read": "Conjecture 1.4 and Proposition 1.5, PDF pp. 3–5, offsets 9500–16454",
+          "method": "OA primary PDF passage",
+          "title": "A Pólya criterion for (strict) positive-definiteness on the sphere",
+          "trigger": "General Pólya threshold and its exact scope"
+        },
+        {
+          "assessment": "Inspected parameter range excludes the Legendre specialization",
+          "evidence": "The abstract uses nonnegative integer Jacobi alpha,beta and max(alpha,beta)>0.",
+          "identifier_or_url": "https://arxiv.org/abs/1701.00787",
+          "material_read": "v2 pp. 1–2, offsets 0–6932",
+          "method": "OA primary PDF passage",
+          "title": "Positive definite functions on spheres and Pólya type criteria",
+          "trigger": "Later Jacobi positivity results"
+        },
+        {
+          "assessment": "Different witness and no onset law in the checked theorem",
+          "evidence": "Its kernels are Euclidean-positive-definite functions with non-positive-definite geodesic restrictions, not the varying truncated powers considered here.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.22173",
+          "material_read": "Theorem 1.6, p. 3, offset 7500",
+          "method": "OA primary PDF passage",
+          "title": "Isotropic Positive Definite Functions on Spheres: Even-Dimensional Gneiting's Problem",
+          "trigger": "Closest negative-coefficient result cited in the frozen record"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result quantifies the least harmonic degree at which spherical positive definiteness fails. A fixed-exponent nonpositivity test or a finite list of apparently positive coefficients would miss an obstruction delayed to exponentially large degree. The exact rate and the rational phase corrections give a meaningful measurable difference between cutoff angles, with the pointwise (not angle-uniform) scope maintained.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim has explicit parameter domain and a convergent Lyapunov Gramian. The Cauchy determinant identity and Kalman minor give the exact objective for all positive conductances and damping. The derivative numerator is a quadratic with a negative constant and positive leading coefficient, forcing exactly one interior positive root and a global maximum. Monotonicity and both damping asymptotics follow from explicit signed derivatives and nonsingular polynomial expansions. Symbolic Lyapunov elimination and exact identity checks were independently replayed within the same mathematical review, together with finite numerical diagnostics; the latter are not treated as proofs of universal claims.
+PASS
 
-## Originality — PASS on inspected evidence, qualified
+The positive damping shifts the weighted star spectrum to μ, μ+S±√(S²−3uv), distinct for the positive spokes. In modal coordinates the Lyapunov Gramian has entries bᵢbⱼ/(αᵢ+αⱼ). The Cauchy determinant cancels the squared Vandermonde in the Kalman determinant, whose modulus is uv|u−v|, leaving the denominator product stated in (1). Independently, solving the nine Lyapunov equations modulo 1009 for (μ,u,v)=(1,1,2),(2,2,2),(3,5,11),(7,3,17),(2,13,7) gave determinant residues 983,0,522,111,371, agreeing with (1); these checks do not replace the identity. The product x=uv/S² parametrizes unordered positive pairs. The objective is positive between its zero boundary values 0 and 1/4. Its log derivative is −Qτ over a positive denominator. The positive quadratic coefficient, negative constant and Qτ(1/6)>0 give a unique positive root in (0,1/6), with a change from increasing to decreasing. The resulting unequal optimum has exactly two labelled allocations. The log derivative increases strictly with τ at every fixed interior x, forcing the zero rightward. Substituting x=τz and dividing Q by τ² gives limiting polynomial 9z²−12z−16 with a simple positive root c. At large τ the log derivative tends to 2/x−4/(1−4x) with derivative −216 at 1/6, and its first damping correction is −9/(2τ²), giving −1/(48τ²) in the root and O(τ⁻³) remainder. The weaker solution of z(S−z)=S²x is Sx+O(Sx²). Substitution in (1) gives the displayed (5√5−11)/(1152μ²S), whereas any fixed unequal positive pair gives a positive constant times μ⁻¹. The undamped integral itself is not finite. The packaged checker was reviewed, not executed.
 
-The closest published frameworks optimize actuator selection or worst-case/average control energy, not the two continuous conductances under a fixed total-budget and D-volume objective. A relevant publicly available fixed-weight star result optimizes the sensor location instead of edges, so its implication runs neither to the quadratic optimum nor to the singular weak-edge asymptotic. The arXiv HTML of Pasqualetti–Zampieri–Bullo (2013) and Cortesi–Summers–Lygeros (2014) was materially reviewed, and the star sensor theorem full text was compared. Index coverage is not a uniqueness proof. Becker et al. (2019) is a relevant but differently targeted edge-optimization abstract; full-text comparison and other unindexed overlaps remain genuine publication-priority risks.
+## originality
 
-## Value — PASS
+PASS
 
-The objective is the standard volume of the reachable ellipsoid, and edge budget is a natural engineering constraint. A complete exact classification for the smallest nontrivial hub-controlled star demonstrates that the volume-optimal allocation is always asymmetric, with a non-obvious nearly disconnected weak-link scaling. The difference between fixed-conductance \\(O(\\mu^{-1})\\) and designed \\(O(\\mu^{-2})\\) determinant growth identifies a real tradeoff between energy-volume metrics and connectivity/robustness. It is not proposed as an arbitrary numerical example or as a general-star theorem.
+Credit the Gramian-volume objective and the general Cauchy/Krylov reduction. The supported distinction is the exact all-damping optimizer and strict monotonicity for an undirected hub-controlled star under the fixed spoke-sum constraint. A directed-chain record also covers the weak-damping mechanism: after spectral matching it can even be used to recover the leading optimum value. It does not give the finite-damping star optimization, because the matching changes the feasible spectrum and multiplies the determinant by a nonconstant factor. No ordering is inferred from the common publication date.
 
-## Closest literature and limitations
+## value
 
-Pasqualetti et al. (2013), arXiv:1308.1201; Cortesi et al. (2014), arXiv:1403.6351; the 2026 public weighted-star D-optimal sensor classification; Becker et al. (2019), arXiv:1902.04195. The theorem does not extend to zero leakage, finite-time performance, or other metrics. Full publication priority and independent checking remain outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For the smallest undirected star allowing a nontrivial split of a fixed conductance, this fully resolves an explicit determinant design for all damping ratios, not a numerical sample or a fixed-damping slice. It separates volume from intuition based on equal mixing weights and shows the unique unordered optimum approaches disconnection while maintaining controllability. The increasing normalized product and sharp asymptotics quantify the transition and the fixed-design penalty without claiming larger-network optimality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

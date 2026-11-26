@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The finite connected-graph theorem is proved using a similarity to a symmetric positive-weight adjacency matrix. Every old edge loses at most a factor \(1/\sqrt2\) of its weight, while the new edge contributes a strictly positive Rayleigh term. A three-site exact eigenvalue formula, monotonicity, and endpoint limits prove the entire attainable open interval. The threshold interpretation follows from an irreducible Metzler Jacobian and the \(M\)-matrix stability criterion. The embedded program independently corroborates the formula and 769,905 finite comparisons. These calculations do not replace the infinite proof.
+## correctness
 
-**Originality — PASS, with residual literature risk.** The specific claim is a sharp, universal *single-corridor ratio bound* and a complete attainable spectrum for the heterogeneously quality-weighted, column-normalized dispersal operator. Hanski–Ovaskainen and Grilli–Barabás–Allesina concern spectral habitat models without the same fixed-export degree change. The latter full-text Methods use a dispersal kernel proportional to source patch value, whereas the proposed edge insertion renormalizes all outgoing routes at its endpoints. Shtilerman–Stone's regular-graph eigenvalue equals degree, contrasting with the normalized benchmark one here; the accessible material does not assert the proposed bound. Gilarranz–Bascompte study relative abundance over network families, and Eldan–Rácz–Schramm consider normalized-Laplacian spectral gaps, not this positive weighted Perron root. Existing research findings were also compared by mathematical implication, and none accessible contained or entailed the new general inequality and full image. Full texts of some related articles could not be read, so equivalence under another terminology remains possible; originality is a reasoned literature assessment, not a uniqueness certificate.
+PASS
 
-**Mathematical value — PASS.** The motivating gap is whether new habitat corridors, which dilute fixed propagule output over more routes, can harm species invasion and by how much. The theorem gives a sharp universal downside ceiling and proves that improvements have no analogous ceiling; both statements are exact over all finite connected networks and arbitrary positive site heterogeneity. Its complete attainable range and three-patch extremizers make it a reusable, nonroutine network-design robustness boundary, rather than a numerically tuned example.
+For a positive Perron vector w of K, the empty-state Jacobian obeys J(c)w=(cρ(K)−1)diag(m)w. Irreducible Metzler bounds give the asserted stability sign on either side of 1/ρ(K). Conjugation by diag(sqrt(q_i d_i)) yields the symmetric weights sqrt(q_i q_j/(d_i d_j)). Because the inserted edge was absent, no old edge has both endpoint degrees changed. Each old weight is multiplied by 1 or sqrt(d/(d+1))≥1/sqrt(2). The new positive edge improves the Rayleigh quotient strictly on the old positive Perron vector. For q=(1,b,1), the transpose reduced to the invariant (end,center) subspace has characteristic polynomials x²−b before and x²−x/2−b/2 after insertion, and symmetry places the Perron vector in this subspace. This recovers R(b)=(b^{-1/2}+sqrt(8+b^{-1}))/4. It is strictly decreasing, with the stated endpoint limits; equivalently each R>1/sqrt(2) is realized by b=(2R−1/R)^{-2}. Equality is impossible for any allowed instance, and two or fewer vertices cannot furnish a missing edge in a connected simple graph. Thus the reciprocal critical-rate factor is always strictly below sqrt(2). Independent symbolic reduction and combinatorial counts 81+6,804+763,020=769,905 for the stated finite grid are replayable via python /workspace/branches/independent_checks.py. The numerical grid minimum was not needed for the theorem and was not independently recomputed.
 
-**Limits.** Only the deterministic fixed-output linear invasion threshold is addressed. This is not an assertion of persistent survival of finite-state stochastic populations, nor does it cover additive per-edge export models. Unread full texts remain an originality risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinction is the exact strict lower bound and full attainable capacity-ratio range for degree-renormalized fixed exports at unchanged positive extinctions. The nearest indexed path-to-triangle invasion reversal uses a different operator. Known spectral-capacity and edge-perturbation theory supplies the method or motivation, not the exact range under this intervention.
+
+## value
+
+PASS
+
+Fixed per-patch dispersal gives a clear mathematical reason why a new edge may be adverse, unlike adding independent per-edge export. The strict uniform downside ceiling and lack of an upside ceiling answer how large that tradeoff can be. Exact attainability already on the minimal network supplies a controlled benchmark. Interpret it only as deterministic linear invasion, not stochastic survival or a measured habitat effect.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

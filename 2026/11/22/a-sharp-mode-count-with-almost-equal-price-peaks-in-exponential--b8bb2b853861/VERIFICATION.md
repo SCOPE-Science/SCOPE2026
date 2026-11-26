@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-23.md",
+      "INDEPENDENT_AUDIT_2026-11-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification details
+# Independent mathematical audit
 
-The standalone `verify.py` uses Python 3's standard library and checks the exponential mixture with \(L=400\) for segment counts \(n=1,\ldots,8\). It verifies opposite derivative signs at the two endpoints of each predicted peak window, refines the positive-to-negative crossing by bisection, checks peak-height brackets and the dimension-independent near-equal ratio, and evaluates 1,200 additional randomly generated mixtures by a sampled derivative grid. One local invocation returned `PASS 1693 finite numerical assertions`.
+## correctness
 
-Run `python3 verify.py` alongside `RESULT.md` to reproduce the finite checks. The samples do not establish a universal upper bound, absence of undetected derivative zeros or infinite-parameter assertions. These are justified by the written exponential-polynomial zero-count proof and analytic derivative sign/height estimates in the proof. The code does not provide independent verification or empirical validation. Double-precision root locations and revenue values have numerical error; they are explanatory examples only.
+PASS
+
+The normalized positive n-rate mixture has R'(0)=1. Multiplying its affine-coefficient exponential derivative by a nonvanishing exponential and differentiating twice removes one mode. Rolle with multiplicities gives the bound 2n-1 by induction, including the affine exception. Between successive strict maxima there is an interior minimum, so there are at most n. For the geometric construction, after division by L^j the slower-rate positive terms at the right endpoint sum to less than 1/(L-1) versus its own negative e^(-3/2)/2; at the left endpoint the faster-rate losses are at most e^(-L/4)/(2(1-e^(-L/4))) versus its own positive e^(-1/2)/2. Signs in the disjoint windows and in the gaps exhaust the 2n-1 zero budget and force simplicity. On each window the own contribution to the unnormalized objective is at most 1/e, and attains 1/e at the center price 1/L^j; geometric slow tails and decreasing exponential fast tails give the stated common upper bound. An independent decimal evaluation gives 1.01021910461827 at L=400 for the ratio bound. Positive normalization cancels in the ratio and does not alter stationary points. The case n=1 is included. Simple roots persist locally; the theorem does not assert that the fixed geometric weights make the peaks exactly equal.
+
+## originality
+
+PASS
+
+Credit the classical zero-count principle and the stronger, exactly tied two-component special case. No statement located in the compared sources covers the joint all-n saturation by simple modes with a dimension-uniform near-equal-height construction. This assessment is for that combination, not a priority claim about two-component bimodality or extended Chebyshev bounds.
+
+## value
+
+PASS
+
+A count bound alone would not tell whether the spurious peaks can have comparable economic objective values. Achieving the largest permitted mode count with uniformly comparable heights is a meaningful obstruction to relying on a single local optimization of a natural one-price model, even though the witness is highly dispersed and not an empirical claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

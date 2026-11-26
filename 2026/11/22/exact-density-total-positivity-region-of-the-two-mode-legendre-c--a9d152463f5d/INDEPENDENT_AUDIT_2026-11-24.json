@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:12:53.510217Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independently differentiated the copula, checked the scale a=3λ1, b=5λ2/4 and reconstructed the two inequalities on density and minors. Dividing the small-rectangle TP2 minor by the two side lengths and taking the limit gives D=c c_xy−c_x c_y≥0 even at a density zero; continuity takes this to the boundary. Nonnegativity at corners and (1,0) gives |a|≤1+4b, −1/4≤b≤1/2, and D(0,0) forces a≥0. D at the appropriate corner requires b>−1/16 and a(1+16b)≥36|b|. For b<0 combining with a≤1+4b gives the stated radical cutoff. For b>1/8 the edge x=1 bounds a by 2√(6b(1−2b)); its incompatibility with the corner condition follows from the factor 24b(8b−1)^3, also covering b=1/2 by the limiting edge bound. For sufficiency fix t=|xy| and use 2t≤x²+y²≤1+t² to minimize the density bound, giving a≤1+4b and strict positivity inside, including on the axes. For negative b the worst D occurs at the corner; for nonnegative b the bound follows from the monotonicity of t/[1+b(1+3t)^2], whose derivative has numerator 1+b−9bt²≥0 in range. Integrating D/c² proves interior TP2, then continuity handles every boundary rectangle. Spearman is a/3 by integration; the admissible segment b=0 followed by the upper boundary a=1+4b for 0≤b≤1/8 realizes the full range, with unique a=3/2 at b=1/8. Independent symbolic replay: python3 /workspace/branches/legendre_algebra.py passed the density transform, D, feasibility identities, monotonicity numerator and rank integral. This is algebra corroboration; the continuous inequalities above prove the universal claim. The frozen checker was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fuchs–Tschimpke formalize density-TP2/positive likelihood-ratio dependence; their analyzed Archimedean and extreme-value classes are not this density. The 2025 Legendre follow-up treats coefficient restrictions and rank/estimation, not the density-minor coefficient classification in the inspected passages."
+        ],
+        "reasoning": "The general criterion defines the property, but does not solve the joint sign constraints or give a sharp enclosing classification here.",
+        "searches": [
+          "Fuchs–Tschimpke arXiv:2205.01914, equations (3.1), (3.4)",
+          "Longla–Mous-Abou Hamadou doi:10.1007/s00362-025-01778-8 pp. 10–11"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Longla arXiv:2308.11074 and 2024 article",
+        "Longla–Mous-Abou Hamadou 2025",
+        "Fuchs–Tschimpke arXiv:2205.01914",
+        "Published same-family admissibility RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "(a,b)=(0,1/16) has density at least 7/8, yet D(1,−1)=−36/16. The old rank formula computes a/3 for given a but does not bound a subject to the additional density-minor constraints."
+        ],
+        "reasoning": "Neither validity plus a known rank identity nor the abstract definition mechanically gives the new parameter classification; the uniform minor bound, positive-b exclusion and lower negative cutoff are additional work.",
+        "searches": [
+          "Resultary prior admissibility RESULT.md, offsets 0 and 6600",
+          "Longla (25)–(26)",
+          "Fuchs–Tschimpke p. 4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Longla (25) is the identical two-term copula and (26) gives rho_S=λ1; the cited older Sarmanov excerpt was unavailable to compare precisely."
+        ],
+        "reasoning": "The fully matching Lancaster/Legendre model and rank identity are prior; neither an equivalent density-TP2 classification nor covering Sarmanov formula was verified.",
+        "searches": [
+          "Legendre copula TP2 density total positivity Lancaster two-mode coefficients",
+          "Longla arXiv:2308.11074 §2.2.2",
+          "Drouet Mari–Kotz §5.7.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Strongest local match gives exact copula-validity inequalities and unrestricted sharp rank ranges, including |rho_S|≤1/√3, in the equivalent normalization B=4b. The inspected finding does not give a TP2 range or its rank limit."
+        ],
+        "reasoning": "The indexed exact same-family result covers nonnegativity, not minors; the exact target here is a continuous parameter set, not just a table of coefficients.",
+        "searches": [
+          "Resultary search for the exact two-mode Legendre density, its TP2 region and copula admissibility",
+          "2026/10/13/SCOPE-exact-admissibility-and-sharp-rank-correlation-ranges-for-the-tw--4829e3cb0e98"
+        ]
+      },
+      "rationale": "Credit the established family, rho identity, full copula-validity region and general dependence criteria. The supported distinct result is the closed density-TP2 coefficient region and its restricted rank envelope, not any of those antecedents. No exact or dominating covering result was established by the inspected comparisons.",
+      "residual_risks": [
+        "Older Sarmanov material not verified directly; a differently parameterized exact classification may be unindexed.",
+        "Focused web lookup did not yield additional relevant primary work and provides no negative evidence by itself."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same model and rank identity are covered; passage does not classify density-TP2.",
+          "evidence": "Identical copula and rho_S=λ1.",
+          "identifier_or_url": "https://arxiv.org/abs/2308.11074; doi:10.1007/s00362-024-01559-9",
+          "material_read": "§2.2.2 pp. 14–16, equations (25)–(26), around OA offset 37800 and matching journal passage",
+          "method": "OA preprint and journal full-text passages",
+          "title": "New copula families and mixing properties",
+          "trigger": "Exact two-mode family"
+        },
+        {
+          "assessment": "Covers parameter/rank background, not sharp minor region in material read.",
+          "evidence": "Rank relation and discussion of the Legendre construction.",
+          "identifier_or_url": "https://doi.org/10.1007/s00362-025-01778-8",
+          "material_read": "Legendre family and rank discussion, printed pp. 10–11, around OA offset 27300",
+          "method": "OA full-text passage",
+          "title": "Estimation problems for some perturbations of the independence copula",
+          "trigger": "Same-family follow-up"
+        },
+        {
+          "assessment": "General TP2 definition and interpretation, not classification of this two-mode density.",
+          "evidence": "Density TP2 applies determinant inequalities to the density, not to C itself.",
+          "identifier_or_url": "https://arxiv.org/abs/2205.01914",
+          "material_read": "p. 4, (3.1), (3.4), around offset 12800",
+          "method": "OA full-text passage",
+          "title": "Total positivity of copulas from a Markov kernel perspective",
+          "trigger": "Broader dependence theory"
+        },
+        {
+          "assessment": "Covers exact copula validity and unrestricted rank range, a different property.",
+          "evidence": "Using B=4b, the same family allows |rho_S| up to 1/√3 without TP2.",
+          "identifier_or_url": "2026/10/13/SCOPE-exact-admissibility-and-sharp-rank-correlation-ranges-for-the-tw--4829e3cb0e98",
+          "material_read": "RESULT.md, offsets 0 and 6600",
+          "method": "Local published mirror",
+          "title": "Exact admissibility and sharp rank-correlation ranges for the two-mode Legendre copula",
+          "trigger": "Closest Resultary same-object match"
+        },
+        {
+          "assessment": "Unresolved precise comparison, not negative evidence.",
+          "evidence": "Frozen result identifies a one-parameter precursor; precise source scope not independently confirmed.",
+          "identifier_or_url": "Drouet Mari and Kotz (2001), §5.7.2",
+          "material_read": "No decisive original passage; the cited excerpt timed out",
+          "method": "Bounded OA retrieval attempt",
+          "title": "Correlation and Dependence",
+          "trigger": "Sarmanov Legendre antecedent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A sharp structural condition for positive likelihood-ratio dependence in a previously studied two-parameter model is useful beyond basic validity. It settles admissible negative and positive second-mode limits, handles exact zero-density boundary cases, and gives an attainable Spearman ceiling of 1/2 rather than the one-mode limit 1/3 or the unrestricted two-mode ceiling. No claim about more modes or all copulas is supported.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

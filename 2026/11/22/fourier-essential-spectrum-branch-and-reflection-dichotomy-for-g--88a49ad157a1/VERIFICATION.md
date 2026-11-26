@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -18,6 +21,6 @@
 
 # Verification notes
 
-The theorem follows from an explicit unitary conjugacy, Bochner dominated convergence for weakly null Fourier packets, the Fredholm left-parametrix obstruction, and Fourier-transform uniqueness for finite measures. No numerical cutoff is used as an infinite proof.
+The theorem follows from an explicit unitary conjugacy, vector-valued dominated convergence for weakly null Fourier packets, the Fredholm left-parametrix obstruction, and Fourier-transform uniqueness for finite measures. No numerical cutoff is used as an infinite proof.
 
-To replay supplementary checks, run `python check.py` with SymPy installed. Observed result: 199 passed algebraic/rational/finite-packet checks. The checks include the exact Cayley affine map, scalar amplitude after the logarithmic transformation, 192 polynomial matrix coefficients for rational parameters, and three packet estimates. Independent mathematical validation has not been performed.
+To replay supplementary checks, run `python check.py` with SymPy installed. The checks include the exact Cayley affine map, scalar amplitude after the logarithmic transformation, 192 rational matrix coefficient comparisons with a formal series recurrence, and three packet estimates.

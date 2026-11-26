@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:03:15.968406Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Absorption before the next reversal has probability at least exp(−ℓ) after each reversal, yielding a geometric tail for N and analytic count cumulants at z=1. In distance units λ/v the first-step generator gives f'_+=f_+−zf_- and f'_-=zf_+−f_-, with one absorbing value at each outgoing velocity. The transfer matrix squares to (1−z²)I; its (1,1) coefficient A_q=cosh(qw)+sinh(qw)/w gives the right numerator. Applying the transfer first from the left endpoint and then across the remaining h gives the other numerator z sinh(hw)/w, with common denominator A_ℓ. Both event probabilities are positive for 0<s<1 and parity agrees with the outgoing direction. In the difference of conditional count cumulant generators, the normalized common denominator cancels. Expanding the log of the residual left/right ratio at z=e^θ, y=1−e^(2θ), verifies both rational formulas, including the deterministic +1 contribution to Δ_m but not to Δ_V. Their increasing q-parts have strictly positive derivatives (the numerators are 2q(q²+3q+3) and 4q³(q³+6q²+15q+15)); their decreasing h-parts enter with minus signs. The left limits are 1−ℓ²/3 and −2(ℓ⁴+15ℓ²)/45, and the right limits are strictly positive. This gives exactly the asserted threshold domains, including no interior mean zero at ℓ=√3. With u=q+1 the differences become (u²−h²+2/u)/3 and 2[(u²−h²)(u²+h²+15)−20u−6/u+10/u²]/45. Substitution of the mean zero gives −(4/15)(4u+6/u−1/u²)<0. The small-ℓ variance gap divided by 2ℓ²/3 converges uniformly to 3s²−(1−s)². For large ℓ let M=ℓ+1 and d=u−h, so s=1/2−1/(2ℓ)+d/(2ℓ). Evaluate at d=c/M²: the scaled mean equation tends to c+4, and the scaled variance equation to c/2−10, with errors O(M^−2) uniformly for bounded c. Bracketing and the nonzero limiting slopes yield the coefficients −2, 10 and hence 12 in the three stated ℓ^−3 expansions with at least the claimed error. Section 1 of python /workspace/review_reproduction.py replays the cumulant identities and verifies the numerical example (0.2886751345948129, 0.4155475052942946) at ℓ=3. Finite checks are not the proof, and none of these arguments classifies elapsed-time variance or sticky/reactive endpoints.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ratanov permits asymmetric velocities/rates and specifies both directions of a single-level passage with joint count/time densities; these laws provide inputs for a strong-Markov reduction of the interval law.",
+          "Guéneau–Touzo proves a time-dependent exit/CDF duality via matching conditions rather than computing the explicit finite-time law in the inspected passage. Marchione–Orsingher give unmarked exit probabilities and mean elapsed time."
+        ],
+        "reasoning": "The broader one-level count laws cover the transform inputs, and the unmarked interval results cover classical first-exit observables. Neither source supplies a monotone variance gap or compares its zero with the zero of the count-mean gap.",
+        "searches": [
+          "Primary search: telegraph process absorbing interval exit count number of velocity reversals generating function conditional exit side run-and-tumble first passage",
+          "Ratanov, arXiv:2102.04905, §2, (2.4)–(2.6)",
+          "Guéneau–Touzo, arXiv:2312.13200, §5",
+          "Marchione–Orsingher, arXiv:2605.05430, §2, Thms. 1–2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 809b0f9b369d",
+        "Ratanov arXiv:2102.04905",
+        "Marchione–Orsingher arXiv:2605.05430",
+        "Guéneau–Touzo arXiv:2312.13200",
+        "Cinque arXiv:2011.00342",
+        "Foong–Kanno (1994), RePEc abstract only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The count tilt is E_λ[z^N e^(−p T)1_E]=U_E(p+λ(1−z);zλ) for 0<z≤1 by the Poisson stopped path-density factor. A full rate-dependent side-resolved time transform would therefore imply the marked PGFs.",
+          "The unrestricted PGFs G_L and G_0 from the interior for first hitting L and 0 obey G_L=F_R+aF_B and G_0=F_B+bF_R, where a and b are the unrestricted continuation PGFs from the opposite outward boundary states. This is the strong Markov property with multiplicative marking. Each continuation needs a reversal, so ab<1 for z<1. Thus Ratanov's one-sided count laws determine both interval transforms by solving a two-by-two system; at z=1 take limits.",
+          "The transfer or renewal identities do not contain the all-s sign classification. It requires control of the two cumulant differences, including sign of the variance gap at the mean root and separate asymptotic balances."
+        ],
+        "reasoning": "Do not claim the count transforms as new independent objects merely because they are written in a different form. The actual distinct conclusion supported on this evidence is the simultaneous all-rate threshold law, including the strict disagreement region and its width.",
+        "searches": [
+          "Resultary R4: time-count transform tilt reversal rate telegraph process finite interval two-sided exit reversal count generating function",
+          "arXiv:2102.04905, §2, Thm. 2.1",
+          "Resultary 809b0f9b369d, marked transfer proof",
+          "Foong–Kanno (1994), RePEc abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "At the right-exit boundary start the companion's PGF of N/2 is exactly F_R(z)/Pr(R) at s=0 with its marking variable set to z². Its proof displays the same two-state marked transfer problem for right absorption.",
+          "Marchione–Orsingher's splitting law is the z=1 specialization. Ratanov gives actual stopped first-passage counts, but for a single target level with no competing absorbing endpoint."
+        ],
+        "reasoning": "Hitting a target on an unrestricted line includes paths that would already be killed at the opposite endpoint. Boundary-start pairing and this one-sided stopping law are real overlaps with components of the problem, but not equivalent to comparing both conditional counts over all interior start points.",
+        "searches": [
+          "Resultary R1: run and tumble finite interval conditional number of velocity reversals before exit marked probability generating function exit side",
+          "Resultary 809b0f9b369d, Finding and marked transfer proof",
+          "arXiv:2605.05430, §2, Thm. 1",
+          "arXiv:2102.04905, §2, Thm. 2.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The distinct catalogue match gives the exact boundary right-exit count moments and a limit of the scaled reversal-pair law, not the two threshold functions. No separate entry containing the interior mean onset, nesting and cubic gap was identified in the inspected results."
+        ],
+        "reasoning": "Relevant exact data are symbolic count and root laws indexed by interval start and rate. The boundary count moments and their diffusive limit are not spatial-root tables or identities. Limited search is not proof that no equivalent symbolic result exists.",
+        "searches": [
+          "Resultary R2: conditional reversal count mean variance ordering thresholds nested spatial crossing square root three finite interval telegraph particle",
+          "Resultary R3: high reversal rate asymptotic gap between conditional mean and variance reversal count thresholds ell inverse cube",
+          "Resultary 809b0f9b369d, Finding"
+        ]
+      },
+      "rationale": "The balance of evidence supports the paired interior mean/variance threshold theorem, not novelty of standard telegraph transforms, the classical splitting law, or the one-sided or boundary-start marked counts. The strongest inspected same-day record has exactly the right-exit boundary law and the same transfer method. Primary one-sided marked passage laws can in fact be combined to give interior two-sided PGFs. Neither of those facts establishes the global two-root comparisons and their different rates of appearance by parameter substitution.",
+      "residual_risks": [
+        "Foong–Kanno full text was not accessible in the bounded scholarly review; the inspected abstract alone does not rule out further overlap. The available Ratanov text gives a concrete transform antecedent even without that full text.",
+        "The exact ordering of same-day catalogue records is unestablished. An older or unindexed work may give the same all-rate comparisons; no historical-priority guarantee is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact boundary case and transfer overlap; no interior threshold comparison",
+          "evidence": "Inward launch at left endpoint, conditioning on success at right; M=N/2, exact moments and M/c² limiting distribution.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-compound-poisson-reversal-pair-law-for-a-successful-telegraph-cr--809b0f9b369d/RESULT.md",
+          "material_read": "Finding, assumptions and backward transfer proof (mirror offsets 0 and 830); prior-work paragraph near 6982",
+          "method": "Resultary search and targeted local mirror inspection",
+          "title": "Compound-Poisson reversal-pair law for a successful telegraph crossing",
+          "trigger": "Exact conditional reversal PGF with absorbing interval"
+        },
+        {
+          "assessment": "Direct one-sided marked law; enough for transform reduction, not the two-threshold result",
+          "evidence": "Joint densities f_i(t,y;n) for opposite signs of velocity and either sign of the single threshold.",
+          "identifier_or_url": "https://arxiv.org/pdf/2102.04905",
+          "material_read": "§2 definition of T(y), Thm. 2.1 (2.4)–(2.5) and Remark 2.1 (2.6), pp. 2–3",
+          "method": "Targeted open preprint after finding the lawful alternate to the restricted journal page",
+          "title": "On telegraph processes, their first passage times and running extrema",
+          "trigger": "Possible primary stopped reversal-count ancestor"
+        },
+        {
+          "assessment": "Unmarked exit probabilities and elapsed-time mean",
+          "evidence": "Kinetic outgoing boundary values and unmarked formulas matching the count PGFs at z=1.",
+          "identifier_or_url": "https://arxiv.org/abs/2605.05430",
+          "material_read": "§2, Thms. 1–2, HTML offsets 31652 and 45585",
+          "method": "Targeted open-access full-text inspection",
+          "title": "Dirichlet problems and exit distributions for the telegraph process and its planar extensions",
+          "trigger": "Same interval and absorbing exit boundary conditions"
+        },
+        {
+          "assessment": "Exit-by-time duality, not a count threshold theorem",
+          "evidence": "The relevant passage equates exit probability and wall CDF via equations and boundary conditions without computing them explicitly.",
+          "identifier_or_url": "https://arxiv.org/abs/2312.13200",
+          "material_read": "Abstract and §5, offsets 624 and 36453",
+          "method": "Targeted open-access full-text inspection",
+          "title": "Relating absorbing and hard wall boundary conditions for a one-dimensional run-and-tumble particle",
+          "trigger": "Finite-time interval exit law and duality"
+        },
+        {
+          "assessment": "Different conditioning and one target level",
+          "evidence": "First passage conditioned on count at a fixed observation horizon, not the count stopped at either endpoint.",
+          "identifier_or_url": "https://arxiv.org/abs/2011.00342",
+          "material_read": "§4, Thm. 4.1, offset 89164",
+          "method": "Targeted open-access full-text inspection",
+          "title": "The Negative Reflection Principle and the Joint Distribution of the Telegraph Process and its Maximum",
+          "trigger": "Count-conditioned first passage may resemble stopped count"
+        },
+        {
+          "assessment": "Relevant verified count overlap at abstract level only; full scope and possible further implications unresolved",
+          "evidence": "Abstract states explicit passage distributions for arbitrary numbers of reversals and both starting directions, and displacement densities in the presence of a trap; does not specify the paired interval threshold result.",
+          "identifier_or_url": "https://ideas.repec.org/a/eee/spapps/v53y1994i1p147-173.html (DOI 10.1016/0304-4149(94)90061-2)",
+          "material_read": "RePEc abstract, offset 602; full text not obtained",
+          "method": "Lawful DOI/OA attempt and public abstract on identified alternate index",
+          "title": "Properties of the telegrapher's random process with or without a trap",
+          "trigger": "Early explicit reversal-resolved first-passage distributions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exit side is a natural conditioning event for a finite-speed searcher, and the reorientation burden is distinct from elapsed time. The result establishes that the two conditional rankings disagree on a computable spatial region, even though they compare the same two count laws, and explains how the region changes with persistence. At high reversal rates the disagreement is confined to a cubic-width layer; at weak rates the variance ordering alone still switches. The value is the full exact comparison and scale, not another calculation of splitting probabilities.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

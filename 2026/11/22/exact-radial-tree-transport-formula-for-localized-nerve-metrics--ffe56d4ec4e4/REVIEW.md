@@ -1,25 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The source cost and the explicitly defined radial tree agree on all possible center/shell/outside pair types, using only the ultrametric inequality. The shell dendrogram has nonnegative edges because the shell diameter is bounded above by its radius; the trunk is monotone. The classical tree flow-balance identity then proves the exact transport minimum for arbitrary real probability weights, including identified zero-cost outside sites. The code independently compared all pair distances and 7,920 optimal-transport evaluations across 3,960 generated center/radius instances. The argument's correctness does not depend on the numeric experiments.
+PASS
 
-## Originality
+For a shell of radius t the restricted ultrametric has diameter at most t, and a last-common-ancestor height of (r-t)d(x,y)/2 above the leaves produces the required same-shell path cost, with a stem if the graft height L(t) exceeds the dendrogram height. Along the trunk H is strictly increasing. F=H+L and H-L=2rt, so pairs at distinct interior radii t<s give F(s)-2rt, exactly (r-s)s+2r(s-t); the equality d(x,y)=s follows from the strong triangle inequality in both directions. At the root the cost is F(t), and with an outside endpoint it is 2r(r-t) or 2r^2 from the root; all outside sites map to the same vertex. This accounts for the cutoff equality d(m,x)=r, singleton shells and the degenerate pair costs. The cut formula is a lower bound by conservation on every edge, and it is attained by decomposing the unique signed net tree flow into transport paths plus stationary mass. Any plan on the quotient tree vertices lifts by distributing each incoming and outgoing amount according to the original marginal masses in each fiber. Maximizing over centers then gives the stated metric without interchanging transport and maximization. The stated line counterexample has distinct largest and second-largest four-point sums (10 and 9).
 
-**PASS on inspected sources, with priority risk.** McCabe–Perea [1] define the exact localized cost and prove pseudometric and nerve stability statements, but their §3 does not identify the restricted cost as a radial tree pseudometric on finite ultrametrics, nor give a mass-cut evaluation formula. Skandalis–Valette [2] and Chen–Tabaghi–Wang [3] provide the established tree transport machinery, but not the nontrivial radial realization of the localized cost. Semantic searches of an indexed mathematical research database found related ultrametric and transportation claims but no covering statement. This is an evidence-based literature comparison, not a proof that an equivalent source cannot exist.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The result computes an entire recently introduced topology-relevant optimal-transport metric without a transport optimization on a natural hierarchical class of data. It applies uniformly to every finite ultrametric, scale, pair of probability weights and center, providing an explicit formula suitable for comparisons of hierarchical landmark weights. The four-point non-ultrametric obstruction clarifies why the exact decomposition has structural content rather than following for arbitrary metrics.
+The radial-tree representation of the specific localized cost is the distinct result; the cut formula for a known tree is established background. Neither the inspected original cost definition and auxiliary-Wasserstein realization nor the known cut formulas provide the identification needed here.
 
-## Closest literature and limitations
+## value
 
-[1] McCabe and Perea, *Wasserstein Stability of the Nerve Map*, arXiv:2611.15938v1 (2026-11-11), https://arxiv.org/html/2611.15938v1. Original definition, metric and nerve-map stability bound, not the radial-tree special case.
+PASS
 
-[2] Skandalis and Valette, *On the transportation cost norm on finite metric graphs*, arXiv:2601.16859v1 (2026), https://arxiv.org/abs/2601.16859. Tree-flux transport framework, not the localized cost realization.
+The result converts a stability-related localized metric defined via a family of transport optimizations into weighted sums of observable mass imbalances in a natural hierarchical class. For a fixed support and scale the trees depend only on the metric and can be reused for arbitrary measure comparisons, which replaces an entire transport LP at each center by a subtree pass. The obstruction on the ordinary four-point line shows this representation is not merely a restatement for all finite inputs.
 
-[3] Chen, Tabaghi and Wang, *Learning Ultrametric Trees for Optimal Transport Regression*, arXiv:2210.12288 (2022), https://arxiv.org/abs/2210.12288. Standard ultrametric-tree and transport framework, not the nerve metric.
-
-Only finite ultrametrics are covered. Priority risk from unindexed equivalent literature and independent mathematical review remain unresolved.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

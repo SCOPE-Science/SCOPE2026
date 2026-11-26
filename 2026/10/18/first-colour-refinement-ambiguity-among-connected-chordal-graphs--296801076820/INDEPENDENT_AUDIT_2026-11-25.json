@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:19:51.838747Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Assumptions, Proof, Verification; VERIFICATION.md; artifacts/verify.py",
+        "Independent replay: python3 /tmp/opencode/independent_graph_poset.py graph 8"
+      ],
+      "rationale": "Independently enumerated connected chordal graphs at each order from the singleton, adjoining a vertex with a nonempty clique neighbourhood. This obviously preserves connectedness and rules out new induced cycles of length ≥4. Conversely a simplicial vertex exists by perfect elimination; deleting one preserves chordality, and paths between surviving vertices can bypass it using an edge of its neighbour clique. I deduplicated by exact canonical adjacency encodings over invariant degree blocks, without the source atlas or hash. The counts are 1,1,2,5,15,58,272,1614; there are 7268 attachments before deduplication at order eight. Joint refinement by exact previous-colour and neighbour-multiset tuples, continuing until the colour partition stops splitting, yielded the same counts of classes through seven and 1612 classes at eight, with nontrivial class sizes 2,2. The order-eight exceptions have 13 and 14 edges. Their degree-cell sizes and quotient rows match the finding: (4,2,2) with rows (0,1,1),(2,0,2),(2,2,1), and (4,4) with rows (0,2),(2,3). The two graphs within each pair have 2 versus 4 distinct degree-two open neighbourhoods, confirming the stated nonisomorphism and agreeing with the doubled-matching versus cycle constructions. The source verifier checks equitability and prints the matrices; the independent replay checks their actual numerical values. The result is restricted to competitors that are themselves connected chordal graphs.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The later all-chordal result enumerates 2119 order-eight objects and 2117 classes with both doubletons connected, so it is strictly broader and contains the result. The same-day cograph result concerns a different class and has first collisions at order twelve. The earlier amenability classification quantifies over all graph competitors."
+        ],
+        "reasoning": "Global amenability is not equivalent to identification among connected chordal graphs; for example, adjoining a universal vertex to 2K3 and to C6 gives two seven-vertex graphs with the same equitable degree partition, but only the former is chordal. A failure of global amenability can therefore hold below the restricted threshold.",
+        "searches": [
+          "Resultary 300ae62db8ad and 0ed3fc39ed7d",
+          "Arvind–Köbler–Rattan–Verbitsky, definitions and anisotropic cells; Kiefer–Schweitzer–Selman, general identification"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md §§Assumptions and Relationship to prior work; METADATA.json publication_date",
+        "Resultary 300ae62db8ad and 0ed3fc39ed7d",
+        "arXiv:1503.08792, arXiv:1502.01255, arXiv:1003.4865; McKay chordal graph table; focused scholarly search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General equitable cells and incidence switches explain how individual ambiguities arise. Prior global characterizations and object counts do not identify both members as connected chordal or exclude other restricted collisions. Doing so needs a full graph-class census with the invariant or an exact structural analysis. The later all-chordal record explicitly proves the relevant restriction."
+        ],
+        "reasoning": "Earlier ingredients do not determine the restricted class multiplicities by a change of parameters. The later stronger statement would imply the result if earlier priority were established, which the available dates do not support.",
+        "searches": [
+          "Arvind et al. arXiv:1502.01255 §3, cell graph and Lemma 7; McKay chordal object counts; frozen Proof Steps 1–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For ordinary uncoloured graphs, equality of stable shared 1-WL histograms is C² equivalence. The November 8 chordal C² record states the same first layer on the connected subdomain, down to the same degree quotients and witness types."
+        ],
+        "reasoning": "The two invariants are equivalent in the graph signature. Global identification, by contrast, imposes an extra condition on the class of competing graphs and is not just different terminology for the frozen claim.",
+        "searches": [
+          "Resultary and focused web literature search: connected chordal graphs, colour refinement/1-WL/C², first ambiguity and exact eight-vertex classes",
+          "Kiefer–Schweitzer–Selman arXiv:1503.08792; Pikhurko–Verbitsky arXiv:1003.4865"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "McKay's table lists 5,15,58,272,1614 for connected chordal graphs at orders 4–8; those are object counts. The November 8 record explicitly identifies the same two eight-vertex quotients and graph6 representatives."
+        ],
+        "reasoning": "A catalogue of the input class does not count 1-WL fibres. The exact matching Resultary census does, but the matching record is not the frozen record itself and its catalogue date is later.",
+        "searches": [
+          "McKay's graph catalogue, Chordal graphs section; Resultary 300ae62db8ad"
+        ]
+      },
+      "rationale": "Earlier inspected sources supply ordinary 1-WL/C² equivalence, structural recognition of amenable graphs, and the chordal object counts, not the first connected-chordal collision census. The strongest substantive match is the later November 8 Resultary result for all chordal graphs, which gives these very two pairs and subsumes the frozen connected version. This is demonstrable equivalent coverage on the connected subdomain, not evidence of earlier priority; the frozen publication_date is October 18 and the inspected matching catalog record is later-dated. The later result alludes to earlier witness identifications without an identified external source; independent priority for the witnesses is not certified. The supported distinct contribution relative to the earlier sources is the minimality and complete first layer in the connected chordal class.",
+      "residual_risks": [
+        "Earlier unidentified appearances of the witnesses remain possible. Priority or derivation between the later overlapping catalogue result and the frozen record was not independently established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact overlap on connected graphs, later-dated broader census",
+          "evidence": "Two doubletons among all chordal graphs, both connected, with the same 13- and 14-edge profiles; the earlier-witness remark is not paired with a specific external citation in the passages inspected.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exactly-two-first-c-2-collisions-among-chordal-graphs-at-eight-v--300ae62db8ad",
+          "material_read": "RESULT.md Finding, offsets 0–1599; proof and prior-work discussion, offsets 4250–6850",
+          "method": "Resultary search and local mirror",
+          "title": "Exactly two first C² collisions among chordal graphs at eight vertices",
+          "trigger": "Strongest matching broader census"
+        },
+        {
+          "assessment": "Different graph class",
+          "evidence": "No collision through order 11 in connected cographs, with three regular pairs at order 12.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-the-first-colour-refinement-ambiguity-among-connected-cographs--0ed3fc39ed7d",
+          "material_read": "RESULT.md Finding and scope, offsets 0–2271",
+          "method": "Resultary search and local mirror",
+          "title": "The first colour-refinement ambiguity among connected cographs",
+          "trigger": "Same-day result on a nearby class"
+        },
+        {
+          "assessment": "General graph identification, not the connected-chordal census",
+          "evidence": "Characterizes graph identification by counting logic and discusses recognition.",
+          "identifier_or_url": "https://arxiv.org/abs/1503.08792",
+          "material_read": "Abstract and introduction, pp. 1–3, offsets 0 and 7000–9200",
+          "method": "OA primary PDF",
+          "title": "Graphs Identified by Logics with Counting",
+          "trigger": "C² and broad identification theorem"
+        },
+        {
+          "assessment": "General structural criteria and local switches, not restricted pair counts",
+          "evidence": "Amenability is separation from every nonisomorphic graph; cell-graph obstructions build nonisomorphic alternatives with the same refinement partition.",
+          "identifier_or_url": "https://arxiv.org/abs/1502.01255",
+          "material_read": "Introduction, pp. 2–4; cell graph and Lemma 7, pp. 7–8, text offsets 23900–26959",
+          "method": "OA primary PDF",
+          "title": "Graph Isomorphism, Color Refinement, and Compactness",
+          "trigger": "Colour-refinement amenability and constructions"
+        },
+        {
+          "assessment": "General framework in the inspected passages",
+          "evidence": "Describes logic/refinement correspondences, rather than the first chordal collision layer.",
+          "identifier_or_url": "https://arxiv.org/abs/1003.4865",
+          "material_read": "Abstract; §1.3, p. 6, offset 15669; refinement discussion, p. 15, offset 44645",
+          "method": "OA primary PDF",
+          "title": "Logical Complexity of Graphs: A Survey",
+          "trigger": "Equivalent WL/counting-logic formulations"
+        },
+        {
+          "assessment": "Corroborates order totals, not ambiguity classes",
+          "evidence": "Lists 1614 connected chordal graphs at order eight.",
+          "identifier_or_url": "https://users.cecs.anu.edu.au/~bdm/data/graphs.html",
+          "material_read": "Chordal graphs section, offset 2189; underlying graph file not inspected",
+          "method": "OA public web-page inspection",
+          "title": "Combinatorial Data: Graphs",
+          "trigger": "Published exact small-order graph catalogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Assumptions and Proof",
+        "Independent graph census and inspected amenability distinction"
+      ],
+      "rationale": "Chordal graphs form a natural graph class and ordinary refinement is a standard structural invariant. This establishes the first loss of separation in that class and describes every minimal exception, not just one computational example. The explicit quotient profiles and pair shapes give minimal benchmarks and separate this relative threshold from global amenability.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

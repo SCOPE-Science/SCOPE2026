@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the scalar SAV descent frontier
+# Independent mathematical audit
 
-The reproducible `verify.py` is included as an independent source file and may be run with `python verify.py` in an environment containing SymPy and mpmath. It reconstructs the first step directly from the published SAV update, independently simplifies the rational step to the stated squared-state form, computes the exact rational positive-energy witness, differentiates the key rational term, and evaluates the symbolic asymptotic limits. High-precision root finding produces \(u_*=0.09974525904287852385\ldots\) and \(h_*=0.97493280401545327419\ldots\). A fixed-seed set of 4,000 numerical probes cross-checks the subcritical descent statement. The symbolic limit identities and exact fraction witness are exact; the finite samples do not prove the infinite claims.
+## correctness
 
-**Analytic proof components.** The equality test inside \(0<x^2<2\) follows from the two equal-energy squared amplitudes \(x^2\) and \(2-x^2\), with the step sign determined at \(0<h\le1\). Strict concavity of the one-variable function \(d\) and the bound \(d(u)<2\) for negative \(u\) yield a unique global worst case. For larger amplitudes the exact update remains between the original state and zero, where the quartic energy bound applies. The case \(h>1\) follows from linearization at a minimizer. The explicit family with \(h=\varepsilon^{-3}\) supplies the asymptotic original/auxiliary energy gap.
+PASS
 
-**Limitations.** The proof is mathematical and exact arithmetic; the Python checker verifies critical computations but is not a formal proof assistant. There is no external independent audit, no claim about methods with relaxation/stabilization, and no proof of publication priority from negative searches.
+For the initialized first step, write t=x², u=t−1 and α=h/(1+hβ), where β=2tu²/(1+u²). Then x⁺=x(1−αu) and (r⁺)²=r²/(1+hβ)². The equilibria t=0,1 are fixed; otherwise β>0. For t≥2, 0<αu<1/2 (with ≤1/2 for its large-h bound), so 0<(x⁺)²<t and strict quartic descent follows. For 0<t<2, t≠1, h≤1, the sign of x is preserved and comparison with the equal-energy partner 2−t gives α≤2/[t+sqrt(t(2−t))], equivalently h d(u)≤2. For u<0 we have d(u)<2; for 0<u<1, d''(u)=−(1−u²)^(-3/2)+8(u−1)(u²+4u+1)/(1+u²)^3<0, with d'(0)=1 and d'(1−)=−∞. This proves the cutoff and all equality cases up to the cutoff; the same maximizer gives expansion up to h=1 and the multiplier 1−2h at a minimum gives an expanding initialization for every h>1. Along x=sqrt(1−ε), h=ε^(-3), 1+hβ~2/ε and x⁺~1/(2ε), giving the stated objective and auxiliary asymptotics.
+
+## originality
+
+PASS
+
+Credit the unrelaxed update and modified-energy law to Liu–Shen–Zhang, and the qualitative original-energy defect to established SAV literature. The supported distinct contribution is the quantitative sharp all-initialization frontier and equality structure for this quartic step, together with the divergent first-step separation. Neither the same-update quadratic recurrence nor the nearby relaxed first-step rank criterion covers it.
+
+## value
+
+PASS
+
+The double well is a natural minimal nonconvex test of whether the unconditional auxiliary-energy guarantee controls the actual objective. An exact global cutoff strictly below the local threshold rules out inferring universal descent from linear stability, and the divergence construction rules out even a qualitative bound of original by improved auxiliary behavior for large first steps. Both conclusions are useful for testing first-step safeguards.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The claimed integral barcode follows from exact combinatorial face enumeration at all integer thresholds, an exhaustive acyclic face-poset matching at scales zero to four, and integral unit-pivot Morse differentials that are identically zero. The nontrivial scale-one-to-two map is a three-dimensional split surjection with a unit determinant minor. The scale-two two-cycle and both scale-three three-cycles have explicit signed bounding chains at the next scale, with identities checked against increasing-vertex-oriented simplicial boundaries. The scale-five nerve is a full simplex. The complete `VERIFY.py` package was executed and its deterministic output agrees with `VERIFY_OUTPUT.json`. A separate mod-two simplicial matrix calculation checks the stage ranks independently of the Morse matching. No infinite-family or scale-two homotopy claim is used.
+## correctness
 
-## Originality — PASS relative to the inspected evidence
-The closest same-object published record, *Consecutive mixed-dimensional graph Čech wedges on the Frucht graph*, classifies the individual scales three and four but explicitly excludes persistence inclusions. Its complete scientific `RESULT.md` was read, including the scope, proof, and limitations. Adams–Shukla–Singh, *Čech complexes of hypercube graphs* (arXiv:2212.05871), supplies the nerve definition and the even/odd facet rule; its hypercube homotopy and persistence theorems do not cover the Frucht graph. A previously indexed Frucht Vietoris–Rips filtration uses a different simplicial criterion. Targeted queries of the published mathematical-record index and public literature uncovered no claim implying the specific inclusion homomorphisms or full barcode. A not-indexed stronger result remains a genuine residual risk, not an assertion of uniqueness.
+PASS
 
-## Value — PASS
-A complete integral persistence calculation resolves the precise gap left by a known two-stage Frucht classification. Its most informative feature is the complete turnover of rank-two third homology across an inclusion—something that individual Betti numbers and sphere-wedge stage classifications cannot detect. Explicit primitive chains make the distinction mathematically reproducible and relevant to studies of graph-metric Čech persistence. The classification is naturally finite and is not presented as a general theorem.
+For a witness in a unit edge, a distance to a center is the minimum of distances via the two endpoints. If 2k≤r<2k+1, go to the nearer endpoint: centers reached via the farther endpoint have endpoint-distance at most k−1, so all centers are at distance at most k from the nearer endpoint. If 2k+1≤r<2k+2, all centers reached via either endpoint have integer endpoint-distance at most k and the midpoint witnesses them. Together with vertex witnesses this proves precisely the even/odd face rule and no intermediate changes for closed balls. An independent full enumeration gave face counts 12,30,109,423,2084,4095. Signed boundary Smith forms at the nontrivial stages give torsion-free homology and Betti vectors (12), (1,7), (1,3,1), (1,0,2,2), (1,0,0,2,1) in unreduced degrees. In the scale-two 1-cycle lattice of rank 32, the boundaries and included scale-one cycles span with Smith factors all 1, proving a split surjection onto Z^3 with kernel rank four. Independently the surjectivity follows by replacing a newly added distance-two edge by the other two sides of its closed-neighborhood triangle. Adjoining the included source cycle spaces to the target boundary spaces leaves ranks 86 for H_2(2)→H_2(3) and 293 for H_3(3)→H_3(4). Since the target groups are torsion-free the integral maps are zero. In particular the equal-rank map genuinely vanishes, and no zero-rank calculation over a finite field is used to infer that. The other maps are forced by the groups. The split map and single-scale groups give the stated integral interval sum without invoking a general interval theorem over Z.
 
-## Scope and limitations
-Only the specified twelve-vertex Frucht graph, the closed-ball geometric-realization convention and its reduced integral persistence are covered. The exact stage-three/stage-four homotopy types themselves were prior work. The scale-two homotopy type and filtered homotopy equivalence are not claimed. Novelty is bounded by inspected accessible published sources.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The two mixed-dimensional wedge stages and their integral groups are directly covered by the earlier Frucht record. The supported distinction is the inclusion-induced homomorphisms and the integral interval decomposition; notably the earlier work compares the stages but explicitly leaves the rank-two H_3 map undetermined. No comparable exact-map result was established in the bounded review.
+
+## value
+
+PASS
+
+This resolves an explicit gap left by consecutive wedge classifications for a canonical asymmetric cubic graph. The equal free ranks conceal complete turnover across an inclusion, a concrete reason to compute maps rather than infer persistence from stage homotopy. The complete integral barcode gives a reproducible benchmark distinguishing the closed geometric-graph Čech filtration from simpler graph constructions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

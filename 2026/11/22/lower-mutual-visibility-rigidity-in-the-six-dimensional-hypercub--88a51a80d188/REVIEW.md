@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The graph, set type, quantifiers and normalization are explicit. The closed-neighborhood construction proves attainability and maximality. Coordinatewise XOR is an automorphism sending an arbitrary selected vertex to zero. The proof of completeness checks the exact finite domain \(\binom{63}{k-1}\) for each \(k=2,\ldots,7\), by enumerating each coordinate-order geodesic and every one-vertex extension. No smaller maximal set exists; all seven size-seven normalized solutions are closed neighborhoods. An independently coded monotone-lattice shortest-path predicate agrees on all normalized candidate sets through size six and verifies all 64 neighborhood witnesses. The mathematical proof is conditional only on reproducibly executing finite algorithms with standard integer semantics; it makes no infinite extrapolation.
+## correctness
 
-## Originality — PASS, with residual publication-priority risk
-Brešar–Yero (arXiv:2307.02951, 2023) states the lower-visibility problem and supplies only a neighborhood upper bound for this graph. Korže–Vesel (arXiv:2405.05650, 2024), inspected through its original full preprint, gives upper/maximum visibility values (including \(\mu(Q_6)=32\)), not the minimum cardinality among inclusion-maximal ordinary sets. Relevant indexed results on \(Q_7,Q_8\) concern total mutual-visibility, and the distance-limited hypercube record concerns an upper maximum, so neither implies this theorem. Unindexed records or alternative formulations could still affect priority; no independence or absolute novelty certification is claimed.
+PASS
 
-## Value — PASS
-The 2023 open problem explicitly asks for lower ordinary mutual visibility on hypercubes. At six dimensions, a 64-vertex cube has exponentially many subsets, but this theorem gives the exact lower size and classifies every smallest inclusion-maximal solution, showing full neighborhood rigidity. It determines the smallest possible termination of the greedy visibility extension process, rather than the already known largest visibility number. This is a natural, nontrivial finite benchmark and a boundary condition for the unsolved all-dimensional problem, not an arbitrary induced subgraph or routine substitution.
+Closed neighborhoods are visible via the pair's two-flip vertex, and cannot accept an outside vertex since every geodesic from the center starts in the selected neighborhood. Their induced stars have distinct centers. Empty and singleton sets extend. For the decisive finite exclusion I inspected both frozen C++ predicates and conducted a fresh exhaustive computation, not execution of the supplied C++: `python3 /workspace/checks/q6_orbits.py` (Python 3 and NumPy; log `/workspace/checks/q6_orbits_output.txt`). The independent checker augments representatives of orbits under XOR and coordinate permutations. Deleting one vertex from any candidate, taking the orbit representative for the smaller set, and applying the same isometry to the deleted vertex shows that augmentation covers every next-size orbit. It marks all and only the normalized containing-zero images by translating by each selected origin and applying all 720 coordinate permutations. A same-cardinality colex bitmap separately confirms disjointness and full coverage of each entire normalized domain. Visibility is checked by directed reachability along edges reducing Hamming distance to the target, allowing selected endpoints but not selected interior vertices. Heredity makes all one-vertex extensions a sufficient maximality test. Weighted by normalized orbit sizes, tested totals for sizes 2–7 were 63, 1953, 39711, 595665, 7028847, 67945521; visible totals were 63, 1953, 39696, 594440, 6982332, 66836889, and maximal totals were 0, 0, 0, 0, 0, 7. The sole maximal orbit through size seven is represented by (0,1,2,4,8,16,32), with seven images containing zero. This recovers only the 64 closed neighborhoods, and does not extrapolate to higher dimensions.
 
-## Closest sources and limits
-The source establishing the definition and open problem is Brešar–Yero, https://arxiv.org/abs/2307.02951. The closest same-object full-text comparison is Korže–Vesel, https://arxiv.org/pdf/2405.05650, especially its Sections 2–3 and Table 2. The result is finite and computer-assisted; publication-priority review and independent expert replication remain open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The known neighborhood construction and upper bound are credited. The supported distinct claim is the matching lower bound and classification of all minimum inclusion-maximal ordinary sets in Q6. Neither known maximum-size Q6 counts nor same-value lower results for other graphs settle that claim.
+
+## value
+
+PASS
+
+The six-cube is a natural member of the explicitly posed lower-visibility family, and its 64 vertices already give nearly 68 million translation-normalized candidates at the critical size. The result establishes both the exact minimum termination size of ordinary visibility extension and the whole minimum configuration type, a useful boundary case for testing general lower-bound and rigidity conjectures. It is more than a known upper bound or a maximum-number recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

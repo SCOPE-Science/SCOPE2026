@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The exact formulas follow from the explicitly stated boundary-value problem and renewal calculation. The global unfavorable-anchor inequality is a strict Cauchy–Schwarz inequality for \(\cosh u\) and \(\operatorname{sech}u\) on every nontrivial interval, while the fresh-anchor global favorable inequality follows from the positive partial-fraction representation of \(\coth z\). The Laplace comparison follows from strict concavity of a rational transform and Jensen's inequality.
+# Independent mathematical audit
 
-The standalone `verify.py` was run using Python with only its standard library and reported 94 passing numerical assertions. Its independent finite-difference Laplace boundary-value solution, trapezoidal integrals, sampled strict signs and endpoint asymptotics are reproducible by invoking `python verify.py` in the same directory. A finite grid does not prove any universal statement, so the mathematical proof is in `RESULT.md`; the script tests only numerical consistency. The endpoint expansion coefficients were independently compared with symbolic Taylor expansions. The distributional comparison is a Laplace-transform order, not ordinary stochastic dominance.
+## correctness
 
-The scientific novelty assessment is provisional. The elementary renewal framework and individual reset protocols are available in prior literature; the claim is restricted to their global uniform-ensemble contrast and its sharp consequences. Independent mathematical and publication-priority audits have not been performed.
+PASS
+
+Reassessed the complete corrected RESULT.md under repairs/2. The original circle theorem passes, but the original extension to arbitrary reset-free motions listed only transform/support and absorption conditions and omitted excursion renewal, which the asserted general formulas require. For a counterexample to the unrestricted extension, start uniformly at site h∈{0,1}, retain h as a hidden mode, and use hit hazard κ_h>0 when the current site equals h and zero otherwise, with κ_0≠κ_1. In the reset-free model from h this gives nonconstant φ_λ(h)=κ_h/(κ_h+λ). Persistent resets keep the hit hazard κ_h. Fresh uniform positional resets flip between matching and nonmatching sites at rate a=r/2, holding h fixed. Their conditional hit transform is κ_h(s+a)/[(s+κ_h)(s+a)+as], strictly less than the persistent κ_h/(s+κ_h) for s,r>0. Both hit almost surely. The repaired extension requires independent excursions with reset-free law conditional on each restart site, eliminating this counterexample. The discounted first-hit and first-reset terms are respectively u=φ_(s+r) and r(1−u)/(s+r); conditional renewal and independent site renewal put the site average on opposite sides of g(u)=(s+r)u/(s+ru). Strict concavity proves the repaired comparison precisely at nonconstant u. Circle Brownian motion renews, and folding gives the absorbing/reflecting problem with uniform distance and φ=cosh(k(ℓ−x))/cosh(kℓ). Integrating φ and its reciprocal separately yields the stated means. Positive partial fractions show strict decrease from T_0 to an unattained zero infimum in A. For Q the derivative of cosh(z)∫sech−z−z³/3 is strictly positive by Cauchy–Schwarz and the difference vanishes at zero, proving the unique zero-rate optimum without asserting positive-rate monotonicity. Independent replay `python3 /workspace/review-evidence/reproduce.py 2` confirms both low-rate expansions in exact arithmetic, and corroborates the means and transform ordering by Simpson quadrature at eight ring rates and forty (s,r) comparisons. The high-rate terms follow analytically from the limits of coth, arctan(sinh), and cosh. The proof, not the quadrature, covers all parameters.
+
+## originality
+
+PASS
+
+Reassessed on the narrower, renewal-only claim. The exact circle renewal ingredients are already available for fresh iid draws and for an individually fixed site; substituting the geometry and integrating does not itself constitute novelty. The supported distinction is the matched uniform ensemble's opposite global optima relative to the same unreset mean, with strict same-geometry all-rate inequalities and a comparison of transforms across those two protocols. The checked earlier statements do not give that combination or directly imply the persistent strict sign against the unreset baseline. The Jensen step and the renewal assumption are elementary, not independent novelty claims.
+
+## value
+
+PASS
+
+The repaired claim retains the central quantitative contrast. The two protocols have identical marginal target-distance sampling, yet remembering just one latent anchor flips the global role of resets: one policy improves over unreset at every positive rate, while the other worsens at every such rate despite zero first derivative at the baseline. The high-rate ratio grows exponentially, and the renewed transform comparison describes more than a mean. The omitted nonrenewal extension is unnecessary to the mathematical value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

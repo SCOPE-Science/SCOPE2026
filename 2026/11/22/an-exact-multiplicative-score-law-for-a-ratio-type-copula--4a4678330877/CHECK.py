@@ -30,5 +30,5 @@ for zz in [0.00001,0.001,0.02,0.1,0.25,0.5,0.8,0.99]:
     ff=float(cdf.subs(z,zz))
     assert abs(ff-4*zz/(1+zz)**2)<1e-12
     assert 0<ff<1
-print('PASS: 14 symbolic identities and 16 numerical/domain checks.')
+print('PASS: 13 symbolic identities and 16 numerical/domain checks.')
 print('Mean log-score = 2; variance =',float(8*s.log(2)-4))

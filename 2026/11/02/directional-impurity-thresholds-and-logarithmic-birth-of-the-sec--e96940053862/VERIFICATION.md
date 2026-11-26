@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-The attached `verify_rectangular_two_impurity.py` is executable with Python 3, NumPy, and SciPy. Run `python verify_rectangular_two_impurity.py` and compare with `verify_rectangular_output.txt`. Six directional-threshold checks independently compare a one-dimensional integrated Green-function formula with a discrete two-dimensional Brillouin-zone quadrature away from the spectrum; all pass within \(2.8\times10^{-17}\). Three antisymmetric bound-state energies for \((t_x,t_y)=(3,1)\) agree with the second-largest eigenvalue of a \(41\times41\) open finite lattice to within \(1.3\times10^{-12}\). The critical nearest-neighbor values \(9\) and \(6\) are checked. Four finite-difference edge-slope tests show slow convergence toward the explicit analytic logarithmic coefficient. Numerical tests are finite corroboration only; the arbitrary-displacement and \(V\downarrow V_c\) statements follow from the proof's spectral and local integral arguments.
+## correctness
 
-There has been no independent scientific audit or proof-assistant certification.
+PASS
+
+The even and odd defect-site resolvent eigenvalues are strictly decreasing, positive and tend to zero. Only the even one diverges at the edge; the odd one has finite positive limit g_r(E_*). Positivity of the off-diagonal resolvent (for example by the lattice walk series) orders the two branches and excludes a double root. At V_c the inverse Fourier transform of (1−exp(−ik·r))/q(k) has defect values g_r(E_*) and −g_r(E_*), so solves the threshold equation and is odd under u↦r−u. Its transform is L¹ but not L², by a lower bound on an angular sector on which |k·r| is comparable to |k|. An L² threshold solution cannot have a nonzero constant or dipole source at the edge, so no threshold eigenvector is missed. For the subtracted integral the Taylor remainders are O(δ) after integration. In the scaled low-frequency disk the factor 1/2 from 1−cos, the angular integral π(m²/t_x+n²/t_y), the radial factor (1/2)log(1/δ), the Jacobian and the normalized measure yield (m²/t_x+n²/t_y)/(16π√(t_xt_y)). Inversion against (V−V_c)/V_c² gives the claimed limit. The resistance factor is two, from the squared dipole numerator. Integrating one Fourier variable and substituting the half-angle in the other gives the two arctangents, including 9 and 6 for (3,1).
+
+## originality
+
+PASS
+
+Pass is for the explicit sharp fixed-displacement anisotropic second-mode onset for an equal positive pair, not the resistor-network integral, rank-two secular determinant, or logarithmic edge singularities in themselves. The strongest examined distinct statements use opposite defect signs, a different support or boundary geometry, or a different spectral limit. None establishes this coefficient and transition for the stated pair.
+
+## value
+
+PASS
+
+For a natural two-site lattice model the result separates the one-mode and two-mode regimes and gives the rate of detachment, not just the threshold location. The coefficient distinguishes orientations and displacement at fixed anisotropy and explains the logarithmic suppression due to the critical odd resonance. These are quantitative predictions for a localized mode absent from a static resistance computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

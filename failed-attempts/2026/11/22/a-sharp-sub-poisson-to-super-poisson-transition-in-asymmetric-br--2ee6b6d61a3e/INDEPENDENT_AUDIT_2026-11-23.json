@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:57:53.675688Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In the killed equation Df″−(s+r1_{x>L})f=−r1_{x>L}, the reflecting and bounded solutions are a cosh on the inactive leg and r/(s+r) plus a decaying exponential on the active leg. Continuity of value and derivative at L gives the stated transform. Its s↓0 limit is 1 and the analytic expansion has finite moments (the square-root factors cancel at zero). As an independent moment check, put a=L√(r/D), y=x√(r/D), M₁=r EₓT, M₂=r² EₓT². On the left M₁(y)=1+a+(a²−y²)/2; on the right M₁(y)=1+a exp(−(y−a)). The second-moment equation gives M₂′(a−)=−2a(1+a)−2a³/3; the bounded right solution is 2+[c+a(y−a)]exp(−(y−a)), giving M₂(a)=2+3a+2a²+2a³/3. Subtracting M₁(a)² yields the stated variance. Strong Markov at resets to L gives iid intervals, and the conditional hazard gives a nonlattice law. The renewal variance-to-mean limit is Var(T)/(ET)². Its difference from one is a(2a²/3−1)/(1+a)²; its derivative has numerator (2a³+6a²+3a−3)/3 over (1+a)³, with the numerator strictly increasing on a>0. This verifies the crossing, unique minimum and its characterization; r/(1+a) increases strictly with r. These are fixed-parameter long-time statements about effective resets, not counts of alarm proposals. CHECK.py was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Plata et al. give the same reflected, threshold-gated reset model; their reflecting stationary density already gives the mean rate by integrating the upper tail.",
+          "The space-dependent resetting framework of Roldán–Gupta identifies first-event laws with killed diffusion but is not by itself evaluated coverage.",
+          "Bressloff evaluates the reflected finite-interval killed propagator with one active subinterval and an exponential occupation threshold.",
+          "The general evaluated diffusion transform in Salminen–Stenlund is exact for this reflection/interface, without any finite-box limit."
+        ],
+        "reasoning": "For the Bressloff comparison, reflect coordinates so the active leg is [−R,0] and the inactive leg has length L, then start at 0. The kill density is r times the active-side surviving density. Integrating (2.12b) and multiplying by r gives r tanh(qR)/{Dq[m+q tanh(qR)]}; R→∞ yields the same half-line transform. Neither comparator needs a separate model-specific killed PDE solution.",
+        "searches": [
+          "Diffusion occupation time above a level, Salminen–Stenlund Corollary 4.2 and Eq. (21)",
+          "Bressloff arXiv:2205.13989 §2 Eqs. (2.12b)–(2.13), (2.17)–(2.18)",
+          "Plata–Gupta–Azaele arXiv:2007.12417 §II, Case I; Roldán–Gupta arXiv:1703.10615 §§I–II"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and CHECK.py",
+        "arXiv:1911.10839",
+        "arXiv:2205.13989",
+        "arXiv:2007.12417",
+        "arXiv:1703.10615",
+        "Local Resultary IDs 2ee6b6d61a3e, 9d06348897e5, 1df1e504d3ad and 05188208a06b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Both explicit comparisons recover the same waiting-time transform. Regeneration at L determines the count law from the waiting times, and the classical renewal dispersion limit uses only its first two moments.",
+          "Expanding the already evaluated denominator in z=s/r gives 1+(1+a)z+(a/2−a³/3)z²+O(z³). The Fano crossing and the minimum follow directly from this expansion."
+        ],
+        "reasoning": "The difference from one reduces immediately to a(2a²/3−1)/(1+a)²; differentiating gives the monotone cubic numerator. This is a mechanical readout of the evaluated clock law for a known regenerative model, even though the specific reset-count terminology and threshold were not located verbatim.",
+        "searches": [
+          "arXiv:1911.10839 Corollary 4.2, Eq. (21); arXiv:2205.13989 Eqs. (2.12b)–(2.13)",
+          "Compare original long-time renewal count to the evaluated first-event transform"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Let A_t be the active-side occupation time before killing, and E_s an independent rate-s exponential sampling time. Conditional survival of the first effective alarm is exp(−r A_t), so E exp(−sT)=1−E exp(−r A_{E_s}).",
+          "Salminen–Stenlund Corollary 4.2, Eq. (21), gives this exponential-epoch occupation transform via increasing/decreasing diffusion solutions. Their §2 allows a conservative regular diffusion on an interval with the appropriate boundary conditions."
+        ],
+        "reasoning": "Shift to Y=X−L, on [−L,∞), and set the source's right occupation penalty to r and left penalty to zero, and its exponential sampling rate to s. In natural scale both fundamental solutions may be normalized to 1 at the interface: on the left take ψ_s(y)=cosh(k(y+L))/cosh(kL), k=√(s/D), derivative m=k tanh(kL); on the right take φ_{s+r}(y)=exp(−qy), q=√((s+r)/D), derivative −q. Eq. (21) gives (m+s q/(s+r))/(m+q); one minus this is r/[s+r+√(s(s+r)) tanh(L√(s/D))]. The start is precisely the nonsticky interface.",
+        "searches": [
+          "Salminen Stenlund Pitman Yor one dimensional diffusions occupation time above a level at independent exponential time reflecting Brownian motion positive level Laplace transform hitting occupation inverse local times",
+          "arXiv:1911.10839, §2 and Corollary 4.2",
+          "Bressloff arXiv:2205.13989, partially absorbing medium and exponential stopping occupation time"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 2ee6b6d61a3e is the frozen result itself, not an independent hit. Adjacent entries concern first-passage with resets, inverse-square adaptive resetting, or local-time-driven counts before absorption, not this law.",
+          "The primary exact formulas cover the continuum of parameters via the explicit identities given above, though the phase crossing is not separately tabulated there."
+        ],
+        "reasoning": "For a continuum threshold the relevant exact lookup is an evaluated transform or formula catalogue. Independent exact coverage came from the primary formulas rather than a duplicate catalogue entry.",
+        "searches": [
+          "Local Resultary step-hazard Brownian reset-count Fano and occupation-time transform",
+          "Resultary 2ee6b6d61a3e, 9d06348897e5, 1df1e504d3ad and 05188208a06b",
+          "Primary exact-transform formulas arXiv:1911.10839 and arXiv:2205.13989"
+        ]
+      },
+      "rationale": "There is exact broader coverage of the full clock transform in Salminen–Stenlund's diffusion occupation-time formula; Bressloff independently gives an evaluated finite-box occupation resolvent with exactly this half-line limit. These are explicit formulas, not merely general Feynman–Kac advice. The observed count is a renewal count with that clock. Its sharp crossing and minimum, though not found written verbatim in those sources, follow by two derivatives, the standard renewal Fano identity, and a one-variable sign calculation. No additional uncovered result of the frozen scope was established. This is a coverage judgment, not a claim that an earlier paper printed the same Fano threshold.",
+      "residual_risks": [
+        "No earlier explicit statement of the Fano threshold itself was established; exact underlying law and mechanical implication were established.",
+        "The related Evans–Majumdar whole-line window model DOI 10.1088/1751-8113/44/43/435001 was not read in full (DOI/IOP returned 403). That access limitation is not a basis for the verdict."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive stronger exact formula; direct specialization",
+          "evidence": "For right penalty r and left penalty zero, Eq. (21) uses ψ_s and φ_{s+r}; after shifting the interface to zero the derivatives m,−q give the precise transform by taking one minus the exponential-epoch survival probability. The paper identifies antecedents in Watanabe and Pitman–Yor; direct coverage here relies on the checked corollary.",
+          "identifier_or_url": "https://arxiv.org/pdf/1911.10839",
+          "material_read": "Introduction and discussion of prior formulas (PDF p. 3; offset 4500), definitions and fundamental solutions §2 (offset 8000), Corollary 4.2 Eq. (21) and Remark 4.3 (PDF p. 11; offset 37720)",
+          "method": "OA full-text PDF passage inspection",
+          "title": "On Occupation Times of One-Dimensional Diffusions",
+          "trigger": "Exact exponential-epoch occupation transform for regular diffusions"
+        },
+        {
+          "assessment": "Equivalent first-event transform in the half-line limit; different subsequent reset mechanism",
+          "evidence": "Integrating Q from (2.12b) at interface start with absorption hazard r, after identifying the lengths, gives r tanh(qR)/[Dq(m+q tanh(qR))], which converges to the frozen formula.",
+          "identifier_or_url": "https://arxiv.org/pdf/2205.13989",
+          "material_read": "§2 threshold formulation (PDF p. 3, offset 8000), matches and Eqs. (2.12b)–(2.13), (2.17)–(2.18) (PDF p. 6, offset 18880)",
+          "method": "OA full-text PDF passage inspection",
+          "title": "Diffusion in a partially absorbing medium with position and occupation time resetting",
+          "trigger": "Evaluated step-killing resolvent with reflection, before any resets"
+        },
+        {
+          "assessment": "Same model and stationary density; does not supply the crossing in the consulted statements",
+          "evidence": "Relocation to x_r at rate r only when x>x_r, with a reflecting origin in the stationary calculation; separate extinction first-passage observable.",
+          "identifier_or_url": "https://arxiv.org/pdf/2007.12417",
+          "material_read": "§II setup and Case I (PDF pp. 2–3, offsets 16008 and 18000) and discussion of the stationary and first-passage observables (offset 35450)",
+          "method": "OA primary PDF passages",
+          "title": "Asymmetric Stochastic Resetting: Modeling Catastrophic Events",
+          "trigger": "Same threshold-gated reset model rather than another activation rule"
+        },
+        {
+          "assessment": "General framework, not relied upon alone for exact coverage",
+          "evidence": "First reset under space-dependent rate is treated with the no-reset propagator and renewal framework.",
+          "identifier_or_url": "https://arxiv.org/pdf/1703.10615",
+          "material_read": "§§I–II (PDF pp. 2–4, offsets 13400 and 17800); earlier window-rate citation at offset 19505",
+          "method": "OA primary PDF passages",
+          "title": "Path-integral formalism for stochastic resetting: Exactly solved examples and shortcuts to confinement",
+          "trigger": "Direct first-reset connection under space-dependent rates"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The dispersion question is natural and the threshold can be useful, but this record's exact result is a routine consequence of the prior evaluated occupation law for an already introduced resetting process. The derivative and sign formulas add a convenient presentation rather than a distinct exact fact not mechanically implied. No independent scientific remainder warrants repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

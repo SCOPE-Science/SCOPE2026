@@ -1,23 +1,21 @@
-# Scientific review: one-way crossing and sliding capture
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact interface normal components are \(1-y\) on the left and \(a+y\) on the right. Strict left-to-right and strict right-to-left crossings require disjoint parameter ranges \(a>-1\) and \(a<-1\). No orbit consisting solely of crossing segments can close; each affine half-plane vector field is a saddle and has no nonconstant periodic orbit on its own. At the advertised example parameters, exact diagonalizations yield left and right arcs both traveling from upper to lower contacts in times \(6\log\varphi\) and \(4\log\varphi\). The lower contact has inward one-sided normals, and the upper has outward normals. The Filippov sliding field has an exact rational expression and exactly one attracting root in the entire attracting sliding region. The symbolic checker and additional interior diagnostics passed. Tangency and sliding-cycle questions are explicitly excluded from the nonexistence theorem.
+PASS
 
-## Originality — PASS within inspected evidence
+The unchanged theorem in the replacement RESULT.md is specifically about strict crossings. At the interface the left and right normals are 1−y and a+y. The common-positive interval exists only for a>−1 and the common-negative interval only for a<−1; at a=−1 they never have the same nonzero sign. A periodic trajectory with only strict crossings would require both directions. Neither affine saddle can support a cycle within its own open half-plane. At the benchmark the left coordinates (y−x,y−3x−2) have rates (−1,1), and the right coordinates (x+y−2,y−x+1) have rates (3/2,−1/2). Starting at P+, evaluating at e^(T_L)=(1+δ)/(1−δ)=φ⁶ and e^(T_R/2)=(2+δ)/(2−δ)=φ² gives P− in each case. Strict convexity on the left and strict concavity of x_R(t) on the right give the correct interior signs between the contacts. At P+ the normals are (−δ,δ−1/4), and at P− they are (δ,−δ−1/4), so these are repelling and attracting sliding contacts respectively, not fold points. The Filippov tangential field on y<1 is (6y²−5y−2)/(9−8y). Its denominator is positive and its only root on that component is (5−√73)/12; its sign points toward the root on both sides. Each sliding solution is confined between its initial ordinate and the root, hence is global forward and converges. The slope at the root is −3√73/(17+2√73). Independent exact recomputation: /workspace/branches/714facf4-45de-4374-9801-78365fd2cc1a/ordinal4-check-notes.txt. The frozen checker was inspected, not run. Public wording in RESULT.md and SLOGAN.txt was narrowed from nonsliding generally to strict crossing; contacts involving tangencies and cycles with sliding are not classified. The replacement slogan also describes the common endpoint orientation, not monotonicity of the height along both arcs.
 
-The 2023 originating paper displays a closed algebraic two-arc level-set loop, identifies a region where it calls that loop a limit cycle, and explicitly uses the Filippov convention. The new claim checks the previously unaddressed necessary orientation of normal velocities and proves there is no **crossing** periodic orbit anywhere in that entire two-parameter example family. The originating upper-bound theorem remains untouched; only its sharpness example is at issue. Llibre–Valls (2021) exclude crossing cycles in two-zone **Hamiltonian–Hamiltonian** saddle systems; that does not cover this Hamiltonian–non-Hamiltonian pair because the right trace is \(1\). Phatangare–Masalkar–Kendre (2024) study nilpotent centers with saddles rather than this pair. The indexed closest three-zone Hamiltonian cycle and two-zone focus-annulus results do not imply the one-way normal barrier in the exact published family. Relevant publication text and scientific claims, not title similarity, were compared. Unindexed discussions and subsequently issued corrections that were not found remain a priority risk.
+## originality
 
-## Value — PASS
+PASS
 
-This is not merely another parameter example or a restatement of the published upper bound. It identifies a physically decisive dynamical obstruction: matching two invariant algebraic curves can create a closed geometric loop whose two halves are both oriented the same way. The result distinguishes an actual Filippov crossing orbit from an algebraic construction presented as a sharpness witness, proves an entire parameter family cannot contain such cycles, and identifies the exact alternative sliding-capture mechanism at the stated numerical witness. The two distinct exact flight clocks make the obstruction reproducible in original time. Such orientation checks are necessary when proving existence of cycles in nonsmooth differential equations.
+The primary paper contains the same matrices, level-set matching and contacts, and explicitly calls its Figure 6 loop a limit cycle. The retained result corrects that dynamical interpretation under the same Filippov convention, proves a family-level strict-crossing obstruction for those matrices, and gives the forward flight times and local sliding fate. Related general exclusions inspected here do not cover the pair. Priority remains conditional on the sources inspected.
 
-## Primary sources and limitations
+## value
 
-- García, Llibre, Pérez del Río and Pérez-González, *Axioms* 12 (2023), 342, equations (36)–(38) and Section 4: full online text of the relevant result and its example inspected.
-- Llibre and Valls, *Symmetry* 13 (2021), 1128: the two-Hamiltonian-saddles hypothesis of Theorem 3 is inapplicable.
-- Phatangare, Masalkar and Kendre, arXiv:2407.15163 (2024): the investigated nilpotent-center/saddle systems have different dynamics.
+PASS
 
-No conclusion is made for general sliding limit cycles, for fold points, or for two-zone affine systems with other off-diagonal sign patterns. The global sliding attraction statement is confined to the indicated sliding half-line at the specific benchmark parameters. Independent assessment is pending.
+This is a checkable counterexample to inferring actual cycling from matched polynomial level sets, tied to a published example claimed to witness sharpness. The strict-crossing obstruction is robust to the two forcing parameters; the exact clocks and sliding capture explain what the two advertised arcs actually do. The correction is valuable even though its decisive interface test is short.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

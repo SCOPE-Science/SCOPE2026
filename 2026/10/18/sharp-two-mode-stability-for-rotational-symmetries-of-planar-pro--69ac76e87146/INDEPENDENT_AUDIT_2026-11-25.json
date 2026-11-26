@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:36:03.618897Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Verified the exact spectrum, constants and endpoints in RESULT.md lines 26–65. On the reference equator, the j-th positive Fourier coefficient of Y_lm selects m=j, with amplitude √[(2l+1)(l−j)!/(4π(l+j)!)] P_l^j(0). Probability Haar orthogonality divides its square by 2l+1 and kills distinct-degree cross terms. Rodrigues' formula gives the stated equatorial double-factorial value when l−j is even and zero otherwise; factorial cancellation gives λ_lj=c_((l−j)/2)c_((l+j)/2)/(4π), c_k=4^(−k)binom(2k,k). This counts one positive Fourier order, not both signs. The pullback of area-null sets along rotated circles is null for Haar times circle measure, by rotational invariance; Cauchy–Schwarz gives bounded extension from polynomials on area-L² and the a.e.-orientation Fourier interpretation. Exactly one mode survives for each l≥2. In the ratios s_lj=(l+1/2)λ_lj the central-binomial recurrence gives the stated two-degree ratio: its denominator minus numerator is 4j²−1>0. Stirling gives the common limit 1/(2π²), and the initial ratios are 15/(64π) and 35/(128π), with the latter larger. Thus the lower constant is approached but not attained apart from the kernel; every nonkernel equality for the upper bound has degree 3 only, modulo degrees 0 and 1. Independently on a rotated equator write u₃=A cos(t−t₀) with A²=1−C², C uniform on [−1,1]. The degree-two and degree-three zonal test energies are then 45 E[A⁴]/(256π)=3/(32π) and 175 E[A⁶]/(1024π)=5/(64π), confirming the low-degree normalization. The support-function restriction to a plane gives its orthogonal projection; r+εY has positive spherical support Hessian for sufficiently small ε, so both sharpness sequences are admissible among smooth strictly convex bodies. The high-degree energy λ~const/l rules out every stronger H^(−s) norm with s<1/2 even on these perturbations. Inspected VERIFICATION.md and check_frame.py, without executing the supplied script. The spectral recurrence and Stirling are the infinite-degree proof, not the saved 2,006 finite checks. This gives no finite-plane or Hausdorff stability claim.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1.4 of Myroshnychenko–Ryabogin–Saroglou identifies exactly the continuous real joint kernel in every n≥3 but does not quantify its averaged coercivity.",
+          "The spherical arc SVD resolves the individual Wigner components D^l_(j,k) P̃_l^j(0) s_j(ψ). Spin Funk has the same associated-Legendre/factorial amplitudes in its spin convention; shifted Radon theory gives other generalized multipliers."
+        ],
+        "reasoning": "These results supply the qualitative rigidity and accessible individual spectrum, or estimates on a different full-arc norm. The full-arc estimates sum across orders and arc lengths and are not sharp termwise comparison estimates for the two selected orders.",
+        "searches": [
+          "arXiv:2609.27192 Theorem 1.4 and Lemma 4.12",
+          "arXiv:1706.05284 Theorem 3.3 and equations (15)–(18)",
+          "arXiv:1510.01595 Section II and arXiv:2211.10348 equations (3.14)–(3.18)"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.27192",
+        "arXiv:1706.05284",
+        "arXiv:1510.01595",
+        "arXiv:2211.10348",
+        "Hielscher–Quellmalz vertical-slice SVD",
+        "Resultary dc0b84a88437",
+        "Resultary 3d6fadcfb4ff"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The selected amplitudes can be recovered by resolving the Wigner orders in the arc formula and removing s_j(ψ) at a nonzero value; Haar orthogonality then gives the squared coefficients after normalizing. Thus the spectrum is not treated as a new theorem independent of prior harmonic machinery.",
+          "The closest two-mode record proves strict lower control by bounding (l+1)λ_l below through Wallis comparisons, not the extremum of (l+1/2)λ_l. In the frozen claim, exact optimization requires the recurrence sign for both parity subsequences, their competing low-degree maxima and their common infimum."
+        ],
+        "reasoning": "Neither the prior qualitative theorem nor the norm inequalities for other data imply this sharp estimate; obtaining it from available exact spectra still requires a global degree comparison under a different and natural shifted Laplacian weight. No novelty is attributed to Stirling, equatorial evaluation, or the general support-Hessian device.",
+        "searches": [
+          "arXiv:1706.05284 equation (15) and Theorem 3.3 proof",
+          "Resultary dc0b84a88437 sharp Wallis bound and convex application, mirror offset 4600",
+          "arXiv:2609.27192 Lemma 4.12"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The closest dc0b84a88437 gives the same modes, exact multipliers, high-degree sharpness and a convex support-function application. Its probability-area L² and weight 1/(l+1) with lower coefficient 2/π convert to surface-area L² and coefficient 1/(2π²), still with weight 1/(l+1).",
+          "The frozen comparison uses the larger weight 1/(l+1/2) and additionally has a sharp upper bound and degree-three extremizer. The 3d6fadcfb4ff record gives a general single-mode multiplier, applying it to orders 2 and 5 with Sobolev comparability."
+        ],
+        "reasoning": "The lower-only weaker shifted inequality and geometric high-degree mechanism overlap substantially, but changing Haar/area units does not change the l-dependence of the weight or supply a sharp upper extremizer. The shared spectrum is credited as overlap, regardless of catalogue dates.",
+        "searches": [
+          "Resultary semantic comparison: second and third great-circle Fourier modes, sharp half-order recovery and support functions",
+          "Resultary dc0b84a88437 and 3d6fadcfb4ff full-text comparisons"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact tables/formulas for the individual multipliers exist. For example, the arc formula (15) displays the equatorial Legendre coefficient for each order before summing over orders for (16); the separate two-mode catalogue result explicitly contains the same sequence."
+        ],
+        "reasoning": "This is exact overlap at the spectral-input level. None of the inspected exact comparisons states the full shifted two-sided extremal problem with its maximum, unattained infimum and equality structure.",
+        "searches": [
+          "Resultary dc0b84a88437 exact coupled two-mode spectrum, proof §§2–5",
+          "Resultary 3d6fadcfb4ff exact one-mode spectrum",
+          "McEwen–Price equations (5), (9); Hielscher–Potts–Quellmalz equations (15)–(18)"
+        ]
+      },
+      "rationale": "The qualitative kernel and tools for obtaining the exact equatorial amplitudes have prior coverage. The supported distinct content is the sharp two-sided comparison in the specified shifted Sobolev norm, including the exact upper extremal degree and geometric sharpness. This is a bounded comparison, not a determination of historical priority.",
+      "residual_risks": [
+        "The comparison does not rule out an older jointly optimized formulation in spherical or spin tomography; individual amplitudes and related exact inequalities are demonstrably available, not speculative overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct qualitative overlap, not a quantitative sharp estimate",
+          "evidence": "Vanishing ±2 and ±3 on all circles forces constant plus linear; irreducibility is used to establish parity-compatible equatorial nonvanishing.",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.27192",
+          "material_read": "Theorem 1.4, PDF p. 2 offset 5900; Lemma 4.12 and proof, pp. 9–10 offsets 27900–31975",
+          "method": "OA primary PDF passages",
+          "title": "On convex bodies with rotationally symmetric planar projections",
+          "trigger": "Same modes 2 and 3 and exact joint kernel"
+        },
+        {
+          "assessment": "Contains component coefficients; estimates the full arc operator",
+          "evidence": "The individual normalized associated Legendre values appear multiplied by Wigner functions and arc-length coefficients; the singular values sum across orders.",
+          "identifier_or_url": "https://arxiv.org/pdf/1706.05284",
+          "material_read": "Equation (15) and Theorem 3.3 with proof, equations (16)–(18), PDF p. 10 offsets 25400–29356",
+          "method": "OA primary PDF passages",
+          "title": "Spherical arc transform / great-circle arc tomography",
+          "trigger": "Same harmonic amplitudes in a broader SVD"
+        },
+        {
+          "assessment": "Related exact multiplier, not the coupled shifted estimate",
+          "evidence": "The spin-Funk eigenvalue is 2π(−1)^s√((l−s)!/(l+s)!)P_l^s(0). Its squared amplitude is proportional to the assigned single-order weight after measure normalization.",
+          "identifier_or_url": "https://arxiv.org/pdf/1510.01595",
+          "material_read": "Section II, equations (3)–(5) and (9), PDF p. 2 offsets 13700–17313",
+          "method": "OA primary PDF passage",
+          "title": "Scale-discretised ridgelet transform on the sphere",
+          "trigger": "Spin-Funk eigenvalues analogous to selecting one equatorial order"
+        },
+        {
+          "assessment": "Broader related tools, different transform",
+          "evidence": "Jacobi multipliers are obtained for shifted transforms; no two-mode shifted-weight optimization in the inspected statements.",
+          "identifier_or_url": "https://arxiv.org/pdf/2211.10348",
+          "material_read": "Equations (3.14)–(3.18), Theorems 3.4–3.5, PDF p. 14 offset 31500",
+          "method": "OA primary PDF passage",
+          "title": "On the Injectivity of the Shifted Funk-Radon Transform and Related Harmonic Analysis",
+          "trigger": "General spherical Radon harmonic multipliers"
+        },
+        {
+          "assessment": "Parallel-circle means, not all oriented great-circle Fourier observations",
+          "evidence": "The input data and exact SVD refer to vertical slice averages.",
+          "identifier_or_url": "https://www-user.tu-chemnitz.de/~qmi/paper/circav.pdf",
+          "material_read": "Theorem 3.3 and equation (3.5), PDF p. 5 offset 16500",
+          "method": "OA primary PDF passage",
+          "title": "Reconstructing a Function on the Sphere from Its Means Along Vertical Slices",
+          "trigger": "Another exact sphere slice SVD"
+        },
+        {
+          "assessment": "Exact multiplier and weaker lower-estimate overlap, not the shifted sharp upper extremum",
+          "evidence": "The lower bound uses probability-area norm and weight 1/(l+1). The Wallis comparison bounds (l+1)λ_l and the proof applies a high-degree support-function perturbation.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-sharp-half-order-stability-from-two-great-circle-fourier-modes--dc0b84a88437/RESULT.md",
+          "material_read": "Finding and proof §§2–5, mirror offsets 0–4785 and 4560–9571",
+          "method": "Local Resultary mirror passages",
+          "title": "Sharp half-order stability from two great-circle Fourier modes",
+          "trigger": "Same modes, sharp lower-bound problem and geometric application"
+        },
+        {
+          "assessment": "Component spectral overlap and different coupled pair",
+          "evidence": "Uses orders 2 and 5 and Sobolev comparability, not the assigned optimized constants for 2 and 3.",
+          "identifier_or_url": "Resultary 3d6fadcfb4ff",
+          "material_read": "Finding and proof, mirror offsets 0–3887 and 3800–7248",
+          "method": "Local Resultary mirror passages",
+          "title": "Exact Fourier defect identity and sharp stability for threefold rotational symmetry",
+          "trigger": "General exact one-mode formula and sharp half-order exponent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The two modes are selected by an existing qualitative projection-rigidity problem, not arbitrary test frequencies. The result gives quantitative recovery in the natural shifted order −1/2 norm (l+1/2 is the square root of the l-th eigenvalue of −Δ+1/4), resolves both extremal regimes, and shows the same obstruction for actual smooth strictly convex bodies. The added sharp information is the degree-three energy maximum and exact high-degree loss, not a change of measure convention.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

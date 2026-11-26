@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS — The coefficient-matrix normal form and congruence reduce each hypersurface to a cone over a smooth alternating Frobenius hypersurface. Scaling by a trace-zero element over the quadratic field produces a nondegenerate Hermitian form. Its classical count saturates the Weil purity bound on the primitive middle cohomology, forcing all squared eigenvalues to be equal; the base-field trace then determines positive and negative multiplicities. The cone count identity supplies all singular ranks. Exact finite arithmetic agreed in 14 complete finite enumerations. Limits: purity and primitive cohomology are invoked as standard theorems, not computationally proved here.
+## correctness
 
-## Originality
-PASS, with substantial priority caveat — The initiating 2026 paper determines the degree-\(q+1\) alternating normal form and smoothness, and Homma–Kim gives a prior projective characterization of the smooth stratum. Bose–Chakravarti (1966) already gives Hermitian quadratic point counts, including singular ranks, so the quadratic count alone is NOT claimed as a novel calculation. The submitted additional statement is the uniform full base-field Frobenius spectrum and all-extension zeta function across every rank. The relevant inspected sources and targeted indexed research searches did not directly state that entire zeta formula. Since it follows by combining established deep ingredients, undetected equivalent treatments remain a real risk.
+PASS
 
-## Value
-PASS — The entire family has identical rational point sets over its defining field, yet the exact quadratic-extension count separates all projective rank strata. More substantially, the complete zeta function identifies the full arithmetic evolution over every finite extension, including parity oscillations and the effects of singular cones, instead of stopping at a base-field extremal count. This supplies a uniform arithmetic refinement of the recent geometric classification, not merely a one-off sample computation.
+The degree-q+1 vanishing forms are the alternating Frobenius forms, by projective reduction of x_i^q x_j followed by interpolation, valid also in characteristic two. Alternating congruence gives the normal form, a smooth base on 2r variables and k free coordinates; over a field of size Q these multiply the base count by Q^k and add the vertex. I checked the all-extension formula independently by additive characters. For Q=q^s and nonzero character parameter a, summing a single alternating pair over y leaves Q times the indicator of a^q x^(q²)=a x. By cyclicity of the multiplicative group, for odd s there are q solutions x for every a; for even s there are q² on the subgroup a^((Q−1)/(q+1))=1 and one otherwise. Multiplying over the r pairs and projectivizing yields the primitive correction Q^(r−1) times q^r for odd s and (q^(2r)+q)/(q+1) for even s. Its formal exponential splits into the two claimed signs with the announced multiplicities; the k unused coordinates yield the shifts and vertex factors. This also covers r=1 (q+1 separate base-field points) and k=0. The q² excess over the ambient hyperplane count has one strictly rank-decreasing term, and congruence identifies the corresponding projective class. The frozen purity argument is consistent with this derivation; the two signs are characteristic-polynomial multiplicities, not an assertion of semisimplicity.
 
-## Limitations and closest literature
-Bourgeois-Conti–Moon–Perez–Warren, arXiv:2611.15768v1, Section 3; Homma–Kim, arXiv:1611.02371, Theorem 1.1; Bose–Chakravarti, *Hermitian varieties*, Theorem 8.1 and corollary. The first two settle the basic geometry and classification; the third covers the quadratic Hermitian point count. Potential full-zeta equivalences in older Hermitian arithmetic literature have not been exhaustively excluded. No independent mathematical audit is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Only the uniform full base-field Frobenius spectrum across all alternating ranks is credited as the distinct contribution. The normal form and smooth subclass are known; the quadratic count and its rank-separation interpretation follow from the classical degenerate Hermitian formula and alternating congruence. A quadratic spectrum alone loses signs under squaring; recovering the base-field characteristic polynomial and extending across all cones uses the space-filling trace in addition to those prior results. No inspected separate statement gives that all-rank, all-extension formula.
+
+## value
+
+PASS
+
+Computing the complete arithmetic invariant of the entire natural minimum-degree family is meaningful when every base-field rational point set is identical, and when the Hermitian model over the quadratic field hides the odd-extension behavior. The formula uniformly includes all singular ranks and gives a concrete, readily usable distinction between their projective classes. The value is in the full descent spectrum, not the routine quadratic monotonicity corollary alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

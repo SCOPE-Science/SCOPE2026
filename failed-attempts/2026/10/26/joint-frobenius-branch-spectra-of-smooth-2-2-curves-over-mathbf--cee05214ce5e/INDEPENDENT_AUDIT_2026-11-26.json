@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:06:46.645502Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–41 and VERIFICATION.md",
+        "Frozen scripts, representative CSV and reference outputs (inspected, not executed)",
+        "Independent replay: python3 /workspace/branches/1046d9d1-9c17-4ef8-b8e9-2df68080e874/clean_replay.py; output clean_replay.json in the same directory"
+      ],
+      "rationale": "In characteristic three a squarefree homogeneous discriminant rules out a fiber with all coefficients zero, and hence gives a finite quadratic cover. In a chart with unit quadratic coefficient near a ramified point the equation has the local form u²=h, and the simple zero of h gives smoothness. Away from these zeros the cover is étale. Conversely the smooth (2,2) divisor has both projections finite separable of degree two and simple branching, so both discriminants are squarefree. An independent standard-library replay exhausted the 9,841 projective coefficient vectors, tested both discriminants including infinity, recovered cycle degrees from projective root counts over extensions of degrees 1 to 4, and partitioned all forms under the full 1,152-element group including the swap. It found 41 total orbits, 14 smooth orbits and 5,184 smooth forms. In the six rows of the Finding it obtained form counts 144,432,1728,2304,144,432 and orbit counts 1,2,4,4,1,2, and the stated rational-point frequencies. The extension root counts are used only after the geometric squarefreeness test; they are sufficient to recover every degree of a squarefree quartic.",
+      "residual_risks": [
+        "The independent check uses the squarefree discriminant proof rather than rerunning the frozen Gröbner-ideal computation."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fisher–Radičević provide the two discriminants and branch interpretation; Fisher–Ho–Park give q⁴(q+1)²(q−1)² smooth forms up to scale; Li–Takenawa interpret the deck composition as elliptic translation."
+        ],
+        "reasoning": "The aggregate total and general double-cover framework do not fix the joint partition counts. The exact finite atlas, together with the branch-polynomial rule, is decisive instead.",
+        "searches": [
+          "arXiv:1703.01940 §2; arXiv:1911.09623 Remark 3.6; arXiv:2203.12319 p. 1",
+          "Literature lookup for F3 smooth biquadric branch splitting and projective orbits"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 273da4267491 and its exact orbit table",
+        "Fisher–Radičević §2; Fisher–Ho–Park Remark 3.6; Li–Takenawa p. 1",
+        "Independent discriminant extraction on the prior 14 smooth masks"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Full types on the earlier orbit masks, in the Finding's row order: {1035}; {973,993}; {976,982,991,1011}; {984,994,1002,1020}; {2487}; {2461,2506}. These give exactly all six claimed equation and orbit weights."
+        ],
+        "reasoning": "The full split is a direct invariant calculation per already published model, not an inference from the coarser table alone. For example the zero/zero rational branch cases split into 2487 with (2,2) on both sides and 2461 and 2506 with (4) on both sides. This is a recomputation on a dominating finite classification.",
+        "searches": [
+          "Decode the 14 earlier representative masks; evaluate the two discriminants by the independent root-count routine; aggregate with the earlier orbit weights"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 273da4267491: same normalized bidegree and monomial order, same geometrically smooth locus, and same factor-swapping split-quadric equivalence.",
+          "For these degree-two tame covers a rational ramification point lies over exactly one rational branch point and vice versa; full Frobenius cycle type refines that rational count."
+        ],
+        "reasoning": "The atlas tabulates the same objects, not abstract elliptic-curve isomorphism classes. The two reported statistics differ, but both are computable from the exact same complete representative table.",
+        "searches": [
+          "Resultary exact-title/alias lookup for F3 biquadratic branch pairs, 5184 equations and 14 split-quadric orbits"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier atlas's smooth base-3 masks and sizes are 973:144, 976:576, 982:288, 984:576, 991:288, 993:288, 994:576, 1002:576, 1011:576, 1020:576, 1035:144, 2461:288, 2487:144, 2506:144. Its monomial index and base-3 encoding match the frozen CSV.",
+          "The atlas already prints 5,184 and 14. Its rational branch-count data do not by themselves resolve the (2,2) versus (4) partition at zero rational points."
+        ],
+        "reasoning": "This is an exact and complete database of the requisite smooth equations up to the same group, with every representative weight determined. No remaining forms or orbits have to be classified to read off the refined table.",
+        "searches": [
+          "Resultary ternary atlas 273da4267491, RESULT.md proof §2, data/orbits.json offsets 1850–5135, verify/census.py offsets 0–1592",
+          "Frozen REPRESENTATIVES.csv"
+        ]
+      },
+      "rationale": "The earlier ternary atlas already supplies the identical 14 fully specified smooth polarized models and their orbit weights. It does not print the full Frobenius partitions, and rational branch counts alone are not enough when a divisor has no rational point. But evaluating the two branch quartics on the earlier atlas's exact coefficient masks recovers every asserted bin without a new classification or census. I performed this direct extraction on all 14 prior rows; their masks and sizes also agree exactly with the frozen representative CSV.",
+      "residual_risks": [
+        "No earlier printed six-row partition table was established; the rejection is based on verified direct coverage by an earlier exact atlas, not such a bibliographic claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Dominating exact classification; full partition columns implicit, not printed",
+          "evidence": "Every one of the 14 prior representative masks and orbit sizes agrees with the frozen table; branch root degrees on those 14 forms suffice.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-a-ternary-atlas-of-elliptic-biquadratics-branch-pairs-and-qrt-pe--273da4267491",
+          "material_read": "RESULT.md Finding and proof §§1–2; data/orbits.json smooth rows within offsets 1850–5135; verify/census.py offsets 0–1592",
+          "method": "Local mirror statement, table and mask encoding comparison; direct extraction on its smooth rows",
+          "title": "A ternary atlas of elliptic biquadratics: branch pairs and QRT periods",
+          "trigger": "Same field, objects, smooth total and orbit count"
+        },
+        {
+          "assessment": "Prior branch interpretation rather than joint census",
+          "evidence": "The two binary quartics cut out the branch divisors of the two double covers.",
+          "identifier_or_url": "https://arxiv.org/pdf/1703.01940",
+          "material_read": "§2, p. 3, offset 8624",
+          "method": "OA primary passage comparison",
+          "title": "Some minimisation algorithms in arithmetic invariant theory",
+          "trigger": "Prior two branch forms for a (2,2) curve"
+        },
+        {
+          "assessment": "Known aggregate total",
+          "evidence": "The smooth row specializes to 5,184 forms over F3.",
+          "identifier_or_url": "https://arxiv.org/pdf/1911.09623",
+          "material_read": "Remark 3.6, p. 10, offset 38344",
+          "method": "OA primary passage comparison",
+          "title": "Everywhere local solubility for hypersurfaces in products of projective spaces",
+          "trigger": "Prior total smooth-form count"
+        },
+        {
+          "assessment": "Dynamical background, not this finite census",
+          "evidence": "Describes the composition of the two ruling involutions and its elliptic translation interpretation.",
+          "identifier_or_url": "https://arxiv.org/pdf/2203.12319",
+          "material_read": "p. 1, offset 3578",
+          "method": "OA primary passage comparison",
+          "title": "Li–Takenawa on the pencil of biquadratic curves and the QRT map",
+          "trigger": "Geometry of the earlier atlas's QRT invariant"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 5–19",
+        "Resultary 273da4267491 data/orbits.json and the 14-row invariant extraction"
+      ],
+      "rationale": "The Frobenius types are natural invariants and the counts are correct. However, for this fixed field and population the classification is already tabulated down to the same weighted representatives. Applying a known quartic test twice per earlier representative and grouping the resulting labels is routine table extraction. There is no surviving new classification or independently uncovered structural assertion at the stated scope.",
+      "residual_risks": [
+        "This decision is specific to the F3 table, not to general joint branch laws over finite fields."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

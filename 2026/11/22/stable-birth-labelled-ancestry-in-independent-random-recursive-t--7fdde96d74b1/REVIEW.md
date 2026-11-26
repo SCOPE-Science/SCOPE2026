@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The complete-history parent-choice count gives exactly \(s/k^q\), not merely a mean-field approximation; it makes the root agreement count an exact one-step Markov chain. Bounded first and second moments, monotone convergence, the gamma-factor identity, Bonferroni bounds, and a Yule-process monotone coupling prove the limiting mean, the exact state-conditional stabilization probability, the sharp late-arrival constant and exponential tails. The independent exact-rational enumeration and 80 numerical analytic comparisons passed when run from the artifact package. Exhaustive finite checks are supporting evidence and cannot establish the infinite claims by themselves.
+PASS
 
-## Originality — PASS (with explicit priority limitations)
+Pass applies to the repaired files. Birth two joins deterministically; at every subsequent step both outcomes have positive probability, so the conditional transition and Gamma statements must not quantify over s=1 at n>=2 without choosing a version on null events. The replacements restrict both statements to the actual support and make the Bonferroni argument explicit. Given the entire history, exactly s of k^q parent tuples extend an agreed ancestry. The mean product stays bounded, proving a finite monotone limit; the second moment obeys a summably forced linear recursion with factors 1+2/k^q. Conditional on the current agreement set, independent tests into that fixed set identify the first future join, giving the exact product and a Bonferroni error bounded by s^2 (sum_{k>=n} k^{-q})^2/2. Averaging gives the stated leading term with error O_q(n^{-q}). Gamma telescoping and the sine product give the atom, and the Yule comparison at each birth follows from 1-(1-1/k)^(s/k) >= s/k^2 by concavity; the total Yule time is finite. The independent edge-count indicators have mean harmonic and variance at most harmonic. Replay python3 -B /workspace/checks/ancestry.py: direct enumeration of whole paths for (n,q)=(6,2),(5,3) agrees exactly with the law and reachable states; product numerics give mean 3.6760779104 and atom 0.2169542944. These are checks, not substitutes for the infinite argument.
 
-Baur's full text gives the independent-parent recursive-tree construction and homogeneous percolation results for \(p(n)\to1\), not birth-dependent retention \(k^{1-q}\) or this finite stable root component. Recent work on the largest unlabelled common subtree permits rearrangements and is not a fixed-birth-label lineage theorem. Indexed searches for common ancestry, inhomogeneous percolation, Gamma stabilization products, and matching-parent edge forests did not identify a statement implying the whole result. These negative searches do **not** establish uniqueness. A plausible 2026 same-model paper was available only through abstract-level material, so its entire body cannot be declared non-covering; older unindexed equivalent formulas are also possible.
+## originality
 
-## Value — PASS
+PASS
 
-Two independently grown genealogies have a natural stringent comparison: how many original birth labels retain the same *complete* ancestry? The exact Gamma stabilization probability and sharp late-arrival rate quantify when the common rooted core becomes permanently fixed. Its finite size, exponential tail, and contrast with logarithmically many isolated coincident parent edges exhibit a structural distinction that the edge-overlap count alone does not resolve. The result is an exact model-level statement, not an arbitrary finite enumeration.
+The supported distinct contribution is the quantitative, fixed-birth-label root-component law for an age-dependent retention schedule, especially the sharp late-join rate and exact two-copy stabilization probabilities. Classical special-function products and the independent-parent construction are not new. The support correction does not change the published comparison.
 
-## Limits
+## value
 
-Birth labels must coincide; unlabelled optimized common subtree sizes are outside scope. The Yule bound need not be sharp. Historical priority remains conditional on unindexed literature, particularly inaccessible full text of the recent common-subtree study. Finite computations corroborate, rather than prove, infinite limits.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The root cluster is a natural stringent measure of agreement between genealogies with common birth labels. Finite eventual agreement despite order-logarithmic edge matches is structurally meaningful; the exact atom and sharp late-join constant quantify size and timing, not just finiteness. The support repair changes none of those conclusions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

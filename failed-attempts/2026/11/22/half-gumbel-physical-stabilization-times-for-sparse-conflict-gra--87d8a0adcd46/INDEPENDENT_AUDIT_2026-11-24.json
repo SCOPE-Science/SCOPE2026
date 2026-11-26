@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:03:13.119558Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Under the stated atomic free-color guard, a recoloring never creates a conflict, and the first activation of either endpoint removes each initially conflicting edge. Thus T is the maximum of the endpoint minima of the independent first activation times, with T=0 for no conflicts. At t>=0 the untouched vertices are iid Bernoulli(e^-t), giving the independent-set CDF and the equality with the zero-edge event. The line graph is a valid dependency graph, including independence of each indicator from the entire family outside its dependency neighborhood. Including self-pairs gives b1=(m+D2)q^4; the ordered distinct adjacent pairs give b2=D2 q^3, since they share ONE vertex and their union has three vertices. The frozen proof's 'share exactly three endpoints' is a wording error, not an error in the formula. The external-dependence term is zero. At t=(log m+x)/2 the mean is e^-x, the q^4 error is O_x(m^-1+D2/m^2), and the q^3 error is O_x(D2/m^(3/2)); all vanish under the stated hypothesis. D2<=2m Delta gives the degree corollary. A star survives iff its center and at least one leaf are untouched, and a clique completes iff at most one vertex remains untouched, giving both advertised boundary laws. The hypothesis is sufficient only. The frozen checker was inspected, not run; its exact finite cases concern the scheduling reduction, retained-set sums and pair counts, not the Poisson limit.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general local-dependence theorem compares a sum of indicators with its mean-matched Poisson law using the marginal-product, joint-occurrence and outside-conditioning error sums.",
+          "The cyclic-dimer result uses a different edge-arrival process and centers at log n-2; it is an analogy, not the same theorem."
+        ],
+        "reasoning": "For deterministic H the Bernoulli-retained-edge indicators fit the general theorem with their line-graph neighborhoods and zero outside-conditioning term. No connectivity, girth or bipartiteness assumption is needed for that substitution.",
+        "searches": [
+          "Arratia–Goldstein–Gordon (1989), DOI 10.1214/aop/1176991491, Theorem 1",
+          "poisson-late-availability-and-a-gumbel-jamming-time-for-cyclic-d--0335952f8ba4"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and checker.py",
+        "de Panafieu et al., Proposition 1(2) and Appendix A",
+        "Arratia–Goldstein–Gordon (1989), bibliographic record and standard dependency-graph theorem as cited",
+        "The two identified Resultary findings"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The zero-count approximation has mean mq^2. A self-pair contributes q^4 to the product sum, a distinct adjacent pair contributes q^4 there and q^3 to the joint sum, and all others are outside the neighborhoods."
+        ],
+        "reasoning": "Setting mq^2=e^-x gives the displayed Gumbel normalization as soon as the dominant error D2 q^3 tends to zero. Stars and cliques reduce to elementary first- or second-extreme order statistics. There is no additional threshold characterization or strengthening beyond this specialization.",
+        "searches": [
+          "arXiv:2611.17989v1, Proposition 1(2)",
+          "DOI 10.1214/aop/1176991491, dependency-graph specialization"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The prior proposition identifies elapsed legitimacy time with the first tick of the last non-peak. Under the first-clock ordering, a vertex is a non-peak exactly when it is the earlier endpoint of some conflict edge."
+        ],
+        "reasoning": "Taking the last first tick among such vertices is precisely max over conflict edges of min of the two first ticks. Vertex percolation and independence-polynomial language express the same event.",
+        "searches": [
+          "arXiv:2611.17989v1, Section 3.1 Proposition 1(2) and Appendix A",
+          "initial conflict graph, last non-peak, vertex-retention edge counts"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The compared catalogue findings concern cyclic dimer adsorption and a threshold-graph process with one-dependent clique-birth increments, respectively. Neither computes the stabilization law for a fixed conflict graph with vertex clocks."
+        ],
+        "reasoning": "No inspected distinct catalogue statement was an exact duplicate, including the same-day threshold-graph result. Catalogue non-matching does not overcome demonstrable prior implication.",
+        "searches": [
+          "Resultary: Poisson/Gumbel jamming and conflict clock graph limits",
+          "2026/10/25/SCOPE-poisson-late-availability-and-a-gumbel-jamming-time-for-cyclic-d--0335952f8ba4",
+          "2026/11/22/SCOPE-sparse-threshold-graph-births-and-one-dependent-clique-clocks--003eccb67492"
+        ]
+      },
+      "rationale": "The exact clock representation is covered by the cited stabilization paper. Combined with the established local-dependence Poisson theorem, the proposed bound and scaling are direct specializations: the usual two error sums reduce to self-pairs and ordered adjacent pairs without an additional probabilistic argument. The independent-set formula and the two exceptional laws follow immediately from the same representation. This assessment is about prior implication, not an assertion that an inspected paper prints the exact D2 statement verbatim.",
+      "residual_risks": [
+        "The 1989 theorem's original full-text page was not newly retrieved; the adverse decision is based on the explicit implications of the established bound and inspected clock representation, not on a retrieval failure.",
+        "An earlier explicit fixed-host vertex-retention formulation may exist; exact publication priority was not established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the elapsed-time representation; no D2 limit in those passages",
+          "evidence": "Elapsed time is the first tick of the last non-peak, with a proof in Appendix A.",
+          "identifier_or_url": "https://arxiv.org/abs/2611.17989v1",
+          "material_read": "Section 3.1 Proposition 1(2), PDF pp. 6–7; Appendix A, pp. 20–21",
+          "method": "Targeted OA PDF passages",
+          "title": "The Exact Stabilization Time of Self-Stabilizing Coloring: Mean, Variance, and Distribution",
+          "trigger": "Same coloring dynamics and physical-clock representation"
+        },
+        {
+          "assessment": "Classical general bound as explicitly invoked in the frozen proof; direct implication via the identified neighborhoods, not a claim about contents beyond the standard theorem",
+          "evidence": "The frozen proof cites the general two-sum upper bound for dependency neighborhoods; the ordered pair sums in this application were independently reconstructed.",
+          "identifier_or_url": "https://doi.org/10.1214/aop/1176991491",
+          "material_read": "Publisher landing/abstract; no newly inspected full theorem passage from this copy",
+          "method": "Publisher and exact OA PDF retrieval attempts",
+          "title": "Two Moments Suffice for Poisson Approximations: The Chen–Stein Method",
+          "trigger": "General theorem cited for the quantitative bound"
+        },
+        {
+          "assessment": "Related, different dynamics and centering",
+          "evidence": "Late available edges on a cycle with edge-arrival adsorption; centering log n-2.",
+          "identifier_or_url": "2026/10/25/SCOPE-poisson-late-availability-and-a-gumbel-jamming-time-for-cyclic-d--0335952f8ba4",
+          "material_read": "RESULT.md, finding at offset 0",
+          "method": "Local catalogue and mirrored source",
+          "title": "Poisson late availability and a Gumbel jamming time for cyclic dimer adsorption",
+          "trigger": "Closest catalogue Poisson/Gumbel clock analogue"
+        },
+        {
+          "assessment": "Different graph process and observable",
+          "evidence": "One-dependent clique-birth increments, not fixed-conflict-graph physical stabilization.",
+          "identifier_or_url": "2026/11/22/SCOPE-sparse-threshold-graph-births-and-one-dependent-clique-clocks--003eccb67492",
+          "material_read": "RESULT.md, finding at offset 0",
+          "method": "Local catalogue and mirrored source",
+          "title": "Sparse threshold-graph births and one-dependent clique clocks",
+          "trigger": "Distinct same-day vertex-induced edge-dependence hit"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Physical completion is a motivated observable and the resulting formulas are useful expository examples. But the record adds only a routine application of a standard bound to a known clock representation, with an elementary sufficient degree condition and immediate extreme-order-statistic examples. It does not establish a nontrivial boundary, characterize when convergence holds, or handle graphs beyond the generic error bound. No distinct valuable remainder is established as a repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

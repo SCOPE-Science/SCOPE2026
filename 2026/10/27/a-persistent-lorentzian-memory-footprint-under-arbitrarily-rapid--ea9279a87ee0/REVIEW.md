@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The process and thermal-normalization conventions are fixed explicitly. The quadratic Foster--Lyapunov identity supplies finite stationary second moments, and the nondegenerate noise gives uniqueness. Exact stationary moment equations establish \(M\) and \(K\), independently of the published one-time variance. Regression under the full jump-diffusion generator yields a two-eigenvalue covariance. A strictly negative characteristic polynomial at \(d\) proves both weights are positive, not merely numerically so. The integrated lag follows by direct matrix inversion. Fixed-parameter expansions prove the two noncommuting strong-reset time scales and fixed-frequency Lorentzian term; the Fourier transform is performed before passing to the nonuniform limit. The standalone checker passed 268 deterministic assertions. Limitation: no uniform result at lag zero or growing frequencies.
+## correctness
 
-## Originality
-**PASS under the documented accessible comparison; independent assessment outstanding.** Santra--Das (arXiv:2603.17027v1 and the available journal article) give this exact model and its one-time moments/distributions, but no stationary two-time covariance or fixed-frequency strong-reset residual. Goswami (arXiv:2412.19564) gives a broader bath-unreset coupled model with one-time propagators and first-passage statistics, but no same two-time limiting theorem in the inspected full text. Biswas et al. (arXiv:2412.09260) study two-time correlations under a different protocol explicitly renewing the bath memory, so their exponential reset damping is not a stronger theorem for the nonrenewed bath. Classical linear semigroup algebra is used, not claimed. Relevant spectral literature could still imply the specialization, and the one-time covariance structure makes the calculation feasible; absolute novelty is not established by absence from indexed searches.
+PASS
 
-## Value
-**PASS.** A prior one-time conclusion is that rapid probe resetting effectively removes memory from the leading spatial distribution. The quantified two-time statement shows the important limit of that intuition: a persistent bath-specific Lorentzian remains after natural rate rescaling, while the integrated correlation time is enhanced by an exact factor tending to \(1+g/2\). Those measurable temporal responses cannot be read from the stationary variance alone, and the rigorous crossover at \(t\asymp(\log r)/r\) identifies where the small but slow bath contribution overtakes the rapidly damped one. The object and observable are physically motivated, rather than an arbitrary parameter choice.
+The generator applied to x²+gq² gives −2(x−q)²−rx²+4, which is coercive at fixed g,r>0. With the elliptic diffusion and positive probability of no reset over any finite interval, the stationary law is unique with finite second moments. The stationary quadratic equations give H=1+K and the stated M,K. The linear mean drift A has distinct negative eigenvalues, with trace −(1+r+1/g) and determinant r/g, so the stationary projection of exp(tA) gives the two rates and amplitudes by matching C(0) and C′(0+). For Z=K/M one has 1/2<Z<1. With d=1+r−Z and the frozen quadratic p, p(d)=−gZd+Z−1<0, placing d strictly between the roots. The first row of (−A)^{-1} gives the integrated lag. At fixed g, λ_f=r+1+O_g(r^{-1}), λ_s=1/g+O_g(r^{-1}), a_f=2/r+O_g(r^{-2}) and a_s=1/r²+O_g(r^{-3}); in particular λ_f−d tends to 1/2. These expansions give the short-time and positive-lag limits, the stated crossover with its error, and the fixed-frequency constant 4 plus bath Lorentzian by transforming both modes before taking limits. The convergence is locally uniform on the stated domains; the fixed-positive-lag scaling fails at zero. Independent exact balance and bounded semigroup/asymptotic checks agreed.
 
-## Closest literature and risk
-The strongest overlap risk is implicit coverage by the full coupled Markov generator or by more general partially resetting linear-system spectroscopy; no mathematical priority guarantee is possible without independent assessment. The reset-all-memory correlations of Biswas et al. are not the same statement. No claims are made for nonlinear or multi-bath extensions.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Originality is supported for the positive-mode and singular two-scale stationary law, especially the explicit nonzero residual spectral Lorentzian for an unreset bath. The same model, moment equations, and one-time variance are known, and the matrix regression itself is a routine implication; neither is credited as new. The strongest examined same-model prior gives one-time and transient variances, not the modal-weight sign or strong-reset spectral coefficients. Inspected full-renewal spectral results use a materially different reset operator.
+
+## value
+
+PASS
+
+The two leading measurements diagnose different effects: on reset-time lags the covariance is bath-independent to leading order, while at fixed positive lag its first surviving term measures the bath relaxation time. At fixed frequency that weak slow mode competes with the shrinking fast layer and adds an explicit Lorentzian to a constant background. This predicts a quantitative way to distinguish retained bath memory even when leading one-time statistics cannot, and supplies a clear benchmark for nonrenewing reset models.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

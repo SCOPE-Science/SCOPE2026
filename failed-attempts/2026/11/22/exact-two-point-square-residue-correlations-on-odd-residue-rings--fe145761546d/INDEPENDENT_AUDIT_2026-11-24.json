@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:50:59.519233Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The frozen proof counts distinct classes, including zero once. An odd-prime square has even valuation and square leading unit, and these conditions suffice by lifting. For nonzero shift of valuation t, classes below t keep their leading unit, classes above t obtain the shift's leading unit, and at t the only cancellation is at the unique leading residue −u. Away from 0 and −u the two nonzero unit tests reduce exactly to the finite-field character count; the quadratic character sum is −1 by counting factorizations of u². When t is even the two tail counts coincide by scaling by p^t. Odd t leaves only the lower layers; h=0 returns the cardinality. CRT acts on both membership tests. For p≡1 mod 4 the difference is 2S_{p,m}(1)−p^{m−1}, equal to 1 at m=1 and strictly negative by the geometric bound for p≥5, m≥2. Independent direct sets checked 1,555 prime-power shifts and all 780 shifts over six stated composites, and recovered the prime-five pairs (2,1),(2,5),(6,25),(22,125). Replay: /workspace/branches/f9f84e3c-a818-4441-a4b7-ffbfe2b053a6/independent_check.py. This is finite corroboration; the valuation proof establishes the universal result.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Seraj treats general distinct k-th-power counts at zero shift, not two points. The regular-residue law applies to local units plus zero, not all square classes. c42daa360e08 gives all-depth coefficients, including K_m(0)."
+        ],
+        "reasoning": "Distinguish genuinely covering spectral information about the same indicator from broader-looking results with a different observable or input set.",
+        "searches": [
+          "Seraj, Resolution of Mathar’s Conjectures on Counting Power Residues, Theorem 1",
+          "Resultary c42daa360e08, Finding and Proof §§1–2",
+          "Resultary joint translate counts for regular residues ff65dda93828"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check_square_corr.py",
+        "Resultary c42daa360e08 and ff65dda93828",
+        "Seraj 2023 Theorem 1",
+        "Huczynska–Johnson access attempts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Put r=m−v for the frequency's conductor exponent. On units modulo p^r, both the constant and Legendre-character exponential sums vanish for r>t+1. At r=t+1 they equal −p^t and p^t T_p χ(u). Thus only the last surviving conductor can depend on the character of u.",
+          "For r≤t, including frequency zero, Parseval on the reduction modulo p^t gives the partial inverse sum U_{p,m}(t)+p^{t−m}S_{p,m}(t)^2: the nonzero fibers below t have size p^{m−t} and the zero fiber has size S_{p,m}(t). This includes the trivial reduction at t=0.",
+          "Write B=S_{p,m}(t+1), P=p^{m−t−1}. If t is odd, the prior J at r=t+1 is B and cancels the squared zero-fiber term. If t is even, the prior J=B−P/2 ± PT_p/2; substituting and using S_{p,m}(t)=B+(p−1)P/2 gives U+B+(p−3)P/4 plus χ(u)(B−P/2) for p≡1 mod 4, and no character term for p≡3 mod 4. This is exactly the frozen formula since both scaled tails are B."
+        ],
+        "reasoning": "At t=0 the difference is directly 2B−P. The known one-point tail gives +1 at depth one and a strict negative difference thereafter. Thus the valuation formulas, the stated reversal, and the composite extension are elementary consequences of the stronger prior coefficient result; different normalization or the lack of a printed spatial table does not remove coverage.",
+        "searches": [
+          "c42daa360e08/RESULT.md Finding and Proof §2, mirror offsets 0–4887",
+          "Seraj PDF §1 and classical Paley pair counts at m=1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "c42daa360e08 §2 evaluates the unnormalized additive transform K_m at every frequency by valuation and Legendre character, for all squares including zero and nonunits."
+        ],
+        "reasoning": "The endpoint norm alone would not cover correlations; the individual coefficients do, since the ordered cyclic correlation is the inverse transform of |K_m|². A modulus with multiple odd prime factors just takes the product of these kernels via CRT.",
+        "searches": [
+          "Resultary: odd prime-power complete square set, two-point shifts, Fourier/Wiener norms",
+          "Resultary c42daa360e08, exact Fourier-algebra norm of the complete square set"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The identical target hit is not independent evidence. The distinct 2026/11/8 record gives H_{p,m} and explicit J^±_{m,v} by valuation and character; this is exact all-depth data, not a finite numerical table. No separate printed spatial table was verified."
+        ],
+        "reasoning": "A direct formula match need not be a literal table match; the following comparison shows that its exact data give the asserted specialized formula.",
+        "searches": [
+          "Resultary: exact square residue correlation and prime-power reversal",
+          "Resultary c42daa360e08, exact B and J strata"
+        ]
+      },
+      "rationale": "An earlier exact transform on the identical complete square set yields the elementary no-residue-scan correlation formula and the sign reversal. This is demonstrated by a valuation-stratum inversion, not merely the observation that an abstract Fourier transform exists. The exact spatial form need not be printed in the prior record for the implication to hold.",
+      "residual_risks": [
+        "The exact scope of inaccessible Huczynska–Johnson and older possible cyclotomic sources is not resolved. Neither limitation weakens the demonstrated prior implication from c42daa360e08."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Stronger spectral input; full claimed correlation and reversal follow by explicit inversion",
+          "evidence": [
+            "K_m(0)=H_{p,m}; K_m(k)=J_{m,v}^{χ(k/p^v)} for nonzero k, with explicit B and J, and the exact same square set."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-fourier-algebra-norm-of-the-complete-square-set-on-odd-pri--c42daa360e08/RESULT.md",
+          "material_read": "Finding, scope and Proof §§1–2, offsets 0–4887; related-work/limitations passages later in the text",
+          "method": "Local Resultary search and mirror inspection",
+          "title": "Exact Fourier-algebra norm of the complete square set on odd prime-power cyclic groups",
+          "trigger": "Exact frequency strata for the same set at every prime-power depth"
+        },
+        {
+          "assessment": "Known zero-shift case only in inspected theorem",
+          "evidence": [
+            "Multiplicative cardinality of distinct power residues and exact prime-power formula."
+          ],
+          "identifier_or_url": "https://math.colgate.edu/~integers/x62/x62.pdf",
+          "material_read": "§1, pp.1–2, offsets 0–4137, Theorem 1",
+          "method": "OA PDF passage inspection",
+          "title": "Resolution of Mathar’s Conjectures on Counting Power Residues",
+          "trigger": "Exact prime-power counts of distinct squares"
+        },
+        {
+          "assessment": "Unresolved exact scope; not used as negative evidence",
+          "evidence": [],
+          "identifier_or_url": "https://doi.org/10.1002/jcd.21930",
+          "material_read": "No full-text passage retrieved",
+          "method": "Lawful publisher full-text and PDF attempts returned 403",
+          "title": "New constructions for disjoint partial difference families and external partial difference families",
+          "trigger": "Cited potential Paley finite-field overlap"
+        },
+        {
+          "assessment": "Different set",
+          "evidence": [
+            "Local units plus zero, not every distinct square residue."
+          ],
+          "identifier_or_url": "Resultary ff65dda93828",
+          "material_read": "Finding and formula near offsets 0–4492",
+          "method": "Local Resultary mirror",
+          "title": "Joint translate counts for regular residues",
+          "trigger": "Close shifted-residue invariant"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The complete local spectrum and sign reversal are meaningful arithmetic features, and the direct argument is a useful alternate derivation. But the frozen claim offers no independent exact invariant beyond elementary inversion of already evaluated valuation strata and CRT. A wording or certificate repair would not leave an uncovered contribution.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

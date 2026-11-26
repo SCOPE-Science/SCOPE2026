@@ -1,21 +1,21 @@
-# Review of extinction-order extremizers and exponential separation
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The result is a precise statement about one focal species facing an exogenously fixed sequence of all partner losses, with positive weights and intrinsic dependence strictly between zero and one. Conditional multiplication produces the survival functional. The exact two-factor adjacent-swap difference equals \(abr(a-b)(r-1)/((a+c)(b+c)(a+b+c))\), giving global strict sorting via adjacent exchanges. The geometric suffix fractions and finite products were checked algebraically and with an independent exact-rational program. Positive product limits follow from summability of their logarithmic defects; the descending product is exponentially small with a positive constant and a tail error of order \(\lambda^{-m}\). Endpoints \(r=0\), \(r=1\) and changing interaction weights are excluded. Limits are proved analytically, not inferred from numerical experiments.
+PASS
 
-## Originality — PASS, subject to external priority uncertainty
+The chain rule gives positive conditional survival factors 1−rw/W with W the remaining total immediately before the loss, including the just-lost weight. Swapping adjacent a,b with suffix total c changes only their factors; common-denominator subtraction gives abr(a−b)(r−1)/[(a+c)(b+c)(a+b+c)]. Since r−1<0 this favors weak-first order, strictly for unequal weights, with no exceptions at c=0. Adjacent inversions prove the global extrema and the tie qualification. For geometric weights the lost fractions with k remaining are (λ−1)/(λ^k−1) and (1−λ⁻¹)(1+1/(λ^k−1)). The first product has strictly positive factors with summable deficits. In the second, extracting B from each factor leaves positive factors with summable O(λ⁻ᵏ) deficits, and the log tail after m has O(λ⁻ᵐ) size. This proves both constants, the relative error and the ratio. The terminal factor is 1−r; for equal weights the gamma ratio follows by telescoping the gamma recurrences. Fresh bounded checks passed on 300 exact swaps, 36,522 permutations with tie-sensitive extremizer checks, 288 geometric finite-product comparisons, and nine product-tail checks.
 
-The 2014 source by Vieira and Almeida-Neto [1] supplies the explicitly updating hazard rule, while its full primary text studies stochastic network cascades and empirical comparisons. The source does not state the exact all-permutation inequality or infinite-family exponential separation. Traveset et al. [2] address mean survival in random and generalist/specialist removal scenarios, not these global per-permutation extremizers; an uninspected supplementary derivation is a residual priority risk. Bane et al. [3] find order-sensitive network robustness under alternative knockout rules and discuss how their rules differ from the Vieira–Almeida-Neto model. Memmott et al. [4] consider topological loss-of-last-partner dynamics and pollinator-degree order. A separate mathematical sequencing or reliability result might subsume the adjacent-exchange lemma; no claim of proven uniqueness or comprehensive exhaustiveness is made.
+## originality
 
-## Value — PASS
+PASS
 
-Sequentially updating interaction shares after partner loss is an explicit mechanism in a widely used stochastic coextinction model. The theorem replaces stochastic comparison of many focal loss sequences with an exact, strict optimality criterion for any positive weight vector. More substantively, a natural geometric family demonstrates positive limiting focal survival versus exponentially vanishing survival even though **all partners are ultimately lost in both sequences**. The result identifies exactly which model feature produces this strong sequence sensitivity: renormalization, not the set of removed partners. The fact is useful as a structural benchmark for coextinction simulation and for interpreting heterogeneous interaction importance; it does not purport to predict an actual intervention's outcome in a whole ecological network.
+Credit dynamic interaction renormalization and ecological removal-order comparisons to the prior model literature. The supported distinct result is the exact strict comparison of every prescribed permutation in the focal product, together with the explicit positive-versus-exponential asymptotic at fixed intrinsic dependence. This is a bounded comparison; the exact seed text could not be confirmed independently.
 
-## Limitations and closest sources
+## value
 
-The largest substantive restriction is the focal-only, no-feedback, externally fixed removal process. Full mutualistic cascades can invalidate a globally optimal sorted schedule by changing partner losses, network topology, or strengths. The geometric asymptotic has increasing weight heterogeneity. Checks against relevant indexed research and available original full texts did not identify the exact result, but incomplete supplementary materials and broad classical product-ordering literature remain credible historical-priority risks. Independent audit and external validation have not been performed.
+PASS
 
-References: [1] https://doi.org/10.1111/ele.12394; [2] https://doi.org/10.1038/s41598-017-07037-7; [3] https://doi.org/10.1002/ece3.4529; [4] https://doi.org/10.1098/rspb.2004.2909.
+The exact ordering is a structural property of the sequentially normalized focal model, absent when the denominator stays fixed. The geometric family shows that the distinction can persist at large order as a strict positive survival limit versus exponential decay, not just a finite change in percentage. The result also provides a benchmark for understanding what the renormalization alone can explain in more complex models.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

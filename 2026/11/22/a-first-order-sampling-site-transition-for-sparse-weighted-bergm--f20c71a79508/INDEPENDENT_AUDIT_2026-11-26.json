@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T15:35:09.713708Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–43 and 45–105; VERIFICATION.md, lines 19–23; check.py, lines 11–113 (inspected, not executed)",
+        "Independent bounded replay: python3 /workspace/branches/frozen_claim_checks.py (bergman)"
+      ],
+      "rationale": "Projection onto the one-dimensional kernel span yields the stated coefficient and captured norm. The disk normalization gives the monomial norms by the beta integral. Phase alignment is necessary at any nonzero maximum for a>0; a=0 is maximized only at the center. With x=|w|^2 the reduced score is (1+a x^(m/2))^2(1-x)^beta and the x=1 endpoint cannot win. At m=2 the derivative sign is affine and gives the exact continuous branch, including uniqueness at equality. At m>2 the derivative sign is a x^(m/2-1)[m-(m+beta)x]-beta. The positive bracket-product is strictly unimodal; its maximum gives the spinodal, where the derivative has a double zero and does not change sign. Above it the larger root is the only positive-radius local maximum. To tie the center requires a=A(x)=((1-x)^(-beta/2)-1)/x^(m/2). This diverges at both ends; the critical equation after y=1-x has strictly concave left-minus-right function, negative at y=0, zero at y=1 and positive just left of 1. Its unique interior root gives the unique minimum and the coexistence radius. At the spinodal the entire score is still strictly decreasing, so coexistence is later. The noncentral branch is smooth at coexistence and its partial derivative in a is strictly positive there, giving the envelope kink. For q=m/2, v=beta/2 fixed v, the root tends to zero and q y tends to v, giving (1-y)^q→exp(-v), the stated a_c asymptotic and, by the explicit spinodal formula, the finite a_sn limit. A separate exact check at m=3, beta=2 established x*=1/3, a_c^2=27/4 and a_sn^2=5.",
+      "residual_risks": [
+        "The separate replay checks a special case only; the general diagram rests on the analytic sign and uniqueness arguments. The asymptotics hold at fixed beta, not uniformly over growing weights."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Frozen RESULT.md line 109 identifies the 2022 paper's reported weighted pointwise reduction and monomial case; the passage was not independently retrieved. The Crossref abstract at DOI:10.1002/mma.5648 describes sparse approximations by linear combinations of reproducing kernels via POAFD, not a binomial site theorem."
+        ],
+        "reasoning": "A general existence theorem or pointwise reduction does not on its own classify a nonconvex global maximum. A theorem actually solving the normalized pointwise binomial problem would cover the diagrams; the available evidence establishes methodological overlap, not such a theorem.",
+        "searches": [
+          "Qu Qian Li Zhu 2022 Best kernel approximation in Bergman spaces Section 5 equation (9) Theorem 14 monomial Bergman",
+          "OA request at DOI:10.1016/j.amc.2021.126749, Section 5 equation (9) Theorem 14 monomial",
+          "Resultary: Qu Dang 2019 Reproducing kernel approximation weighted Bergman POAFD algorithm"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 4ce98dad6ca9, 973f6bafeca1, b4983d324094",
+        "Qu–Qian–Li–Zhu (2022), DOI:10.1016/j.amc.2021.126749 (document retrieval attempts and frozen comparison)",
+        "Qu–Dang (2019), DOI:10.1002/mma.5648 (abstract)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The strongest reported reduction is Qu–Qian–Li–Zhu §5, Eq. (9), Theorem 14 (locator from frozen RESULT only). In the available prior statements, no counterpart of the crossing minimization and the strictly concave critical-radius equation is given for this target."
+        ],
+        "reasoning": "A monomial's single power of x produces one radial optimum without competition from a center value; it has no a-dependent tie. The binomial has an extra constant term and requires both the radial stationary analysis and the comparison to the center. Neither the available Hankel catalog description nor the POAFD abstract gives these steps as a prior formula for weighted Bergman one-kernel approximation.",
+        "searches": [
+          "Targeted DOI, publisher and exact-title OA checks for Qu–Qian–Li–Zhu (2022) and Qu–Dang (2019)",
+          "Resultary: binomial Hankel kernel tests center-to-off-center transition symbol z^m+c z^n exact threshold"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "4ce98dad6ca9 describes a one-kernel weighted Bergman site switch for 1+a z-z^2, and b4983d324094 a center/off-center switch in a Hardy Hankel kernel-test norm."
+        ],
+        "reasoning": "Projection error minimization and maximizing |f(w)|^2/K(w,w) are the same problem here. The Hardy Hankel test does not optimize this score. The quadratic trinomial varies the linear term and has at most an isolated rotated binomial intersection at zero linear coefficient, not the binomial amplitude family or m>=3 transition.",
+        "searches": [
+          "Resultary: pure monomial best Bergman kernel approximation one kernel radial optimizer monomial nonuniqueness",
+          "Resultary: binomial Hankel kernel tests center-to-off-center transition symbol z^m+c z^n exact threshold"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "973f6bafeca1 gives a regular cyclic family of kernel sites for a monomial and a high-degree law according to the catalog description. No applicable table for the binomial single-kernel problem was identified."
+        ],
+        "reasoning": "A monomial's radial optimum or a multiple-kernel capture formula is not an exact lookup for the two-term, one-atom competition with the center. Numeric tables at selected beta and m could not establish the diagram as a function of continuous amplitude and weight.",
+        "searches": [
+          "Resultary: pure monomial best Bergman kernel approximation one kernel radial optimizer monomial nonuniqueness",
+          "Resultary: regular cyclic family evaluation kernels monomial Bergman gamma capture law"
+        ]
+      },
+      "rationale": "Credit is for the exact binomial phase diagram, its coexistence/spinodal gap and fixed-weight large-degree law, not the standard reduction to normalized point evaluation, or nonuniqueness of optimal kernel sites in general. The available adjacent statements concern a different target, number of kernels, or extremal functional. The cited article with the closest general reduction could not be inspected in full after lawful retrieval attempts; priority is bounded by the available evidence.",
+      "residual_risks": [
+        "The full §5 and examples of the 2022 closest reduction paper could not be inspected; the 2019 algorithm paper likewise remains unchecked beyond its abstract. An exact binomial specialization in either could change priority.",
+        "Indexed analogues were compared on available statements, not full inaccessible papers. No priority order inferred from same-day records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Reduction and monomial discussion credited as reported; no whole-paper judgment",
+          "evidence": [
+            "Frozen comparison describes a normalized pointwise maximum and pure-monomial nonuniqueness. Full text could not be verified."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.amc.2021.126749",
+          "material_read": "Frozen RESULT.md line 109 identifies §5 Eq. (9) and Theorem 14; article passage unavailable",
+          "method": "Targeted web and OA lookup, DOI/publisher/text-mining link, exact-title arXiv and OpenAlex availability checks",
+          "title": "Best kernel approximation in Bergman spaces",
+          "trigger": "Closest general one-kernel weighted Bergman framework or possible covering specialization"
+        },
+        {
+          "assessment": "Methodological overlap; examples in the article not assessed",
+          "evidence": [
+            "The abstract describes obtaining sparse approximations as linear combinations of the corresponding reproducing kernels by POAFD."
+          ],
+          "identifier_or_url": "https://doi.org/10.1002/mma.5648",
+          "material_read": "Crossref publisher-deposited abstract; no full text retrieved",
+          "method": "Targeted Resultary, OA, DOI and publisher lookup; OpenAlex and exact-title arXiv availability checks",
+          "title": "Reproducing kernel approximation in weighted Bergman spaces: Algorithm and applications",
+          "trigger": "Possible exact weighted Bergman binomial example in algorithm paper"
+        },
+        {
+          "assessment": "Different target in the available statement; same-day listing says nothing about order",
+          "evidence": [
+            "Varies the middle coefficient of 1+a z-z^2 and treats a conjugate-to-real switch."
+          ],
+          "identifier_or_url": "4ce98dad6ca9",
+          "material_read": "Catalog description; mirror and OA passage unavailable",
+          "method": "Resultary lookup and targeted mirror retrieval attempt",
+          "title": "Sharp conjugate-to-real transition in one-kernel weighted Bergman approximation",
+          "trigger": "Closest indexed one-kernel transition in the same space"
+        },
+        {
+          "assessment": "Different target and atom count in the indexed statement",
+          "evidence": [
+            "Monomial in a regular cyclic family of kernels, not a one-atom binomial."
+          ],
+          "identifier_or_url": "973f6bafeca1",
+          "material_read": "Catalog description; mirror and OA passage unavailable",
+          "method": "Resultary lookup and targeted mirror retrieval attempt",
+          "title": "Exact cyclic Bergman kernel approximation and its gamma capture law",
+          "trigger": "Bergman capture and large-degree law"
+        },
+        {
+          "assessment": "Structural analogue; different score and Hilbert-space problem in the available statement",
+          "evidence": [
+            "Two-term Hardy Hankel symbol z^m+c z^n and a reproducing-kernel test norm."
+          ],
+          "identifier_or_url": "b4983d324094",
+          "material_read": "Catalog description; exact mirror passage unavailable",
+          "method": "Targeted Resultary search and mirror lookup",
+          "title": "A sharp center-to-off-center transition for binomial Hankel kernel tests",
+          "trigger": "Earlier indexed binomial center/off-center jump"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–43 and 107–115"
+      ],
+      "rationale": "A lowest-complexity sparse target gives an exact contrast between continuous and abrupt site selection. The distinction between first appearance of noncentral local optima and global takeover matters for a greedy maximization step; the window grows without bound at fixed weight. The multiplicities, amplitudes and radius characterize the phenomenon beyond a single example. This does not assert convergence or performance of a full approximation algorithm.",
+      "residual_risks": [
+        "No application to other targets, multiple kernels or variable-weight asymptotics is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

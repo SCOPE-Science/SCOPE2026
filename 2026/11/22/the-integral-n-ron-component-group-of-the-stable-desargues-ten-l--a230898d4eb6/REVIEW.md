@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The Desargues ten-triple-point labeling by two-subsets and three-subsets yields precisely thirty exceptional-to-line nodes and fifteen line-to-line nodes, with twenty rational components and genus twenty-six. The block-Laplacian determinant is derived from the standard Petersen spectrum; the resulting tree count agrees with the product of the complete invariant factors. The supplied standard-library certificate executes independent prime-power Smith calculations at each prime divisor of the determinant, using both an exceptional and a line vertex as deleted root. The necessary Néron interpretation assumes a regular semistable unit-thickness smoothing over an algebraically closed residue field.
+## correctness
 
-**Originality — PASS (historical priority provisional).** The ten-line Desargues arrangement and the general Raynaud correspondence are established prior work, not claimed here. The inspected Amram–Cohen–Teicher–Ye classification establishes the geometry but gives no full Smith decomposition for this boundary. The generalized Petersen graph has the same twenty vertices as the Desargues Levi graph but only thirty edges; its Jacobian literature does not cover the additional fifteen nodal edges. The claim differs also from other previously examined line-arrangement boundary critical groups with different incidence lattices. Alternative descriptions or unindexed tables remain a residual risk.
+PASS
 
-**Mathematical value — PASS.** This is a complete integral degeneration invariant of the canonical stable boundary associated to a classical maximally symmetric ten-line, ten-triple-point arrangement. The group distinguishes valuation layers, generator ranks, exponent, and distinct prime-primary structures that cannot be recovered from the characteristic polynomial or total spanning-tree count alone. It is a meaningful exact geometric benchmark, not an arbitrary induced subgraph or a routine restatement of the graph-spectrum formula.
+The ordinary-singularity and exact incidence hypotheses are essential and explicit in the frozen scope. Blowing up each ordinary triple point replaces it by three nodes on the exceptional line. The fifteen ordinary double points persist, giving ten degree-three exceptionals and ten degree-six strict lines, all rational. Each line pair either shares an exceptional neighbor or meets directly, so the graph is connected, the curve stable and its arithmetic genus 45−20+1=26. After complementing the three-subsets, the exceptional/line incidence block equals Petersen adjacency A on two-subsets, and direct line edges form another copy of A on the line layer. I independently constructed the matrix by disjointness, checked the stated characteristic polynomial, computed the 19-by-19 cofactor determinant 25,815,552,000 and directly computed the integer Smith list 1^11, 2^3, 14, 28, 140^2, 420. The proper regular semistable unit-thickness hypotheses give the stated Raynaud component group. For existence, the unobstructed deformation of a stable nodal curve has independent local node parameters; taking all of them of first order gives completed local equations xy=t times a unit, with smooth generic fiber and regular total space. The projective stable deformation algebraizes over a complete DVR. This is not an assertion about a specified plane pencil or unrestricted projective specializations.
 
-**Limits.** This does not assert an integral Picard group of the ambient blown-up surface, a classification of every ten-line arrangement, or an unconditional identification for every model thickness. A broader published exact sandpile table could establish prior coverage; independent mathematical audit is pending.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best of current knowledge, the distinct target is the integral Smith group of the splitting graph of the Petersen graph, realized here as the Desargues blowup boundary with the ordinary double-point edges retained. The graph construction and its spectral setting, the classical Desargues realization, and the Raynaud interpretation are not new. The closest exact same-date group uses the ordinary 30-edge Desargues graph and is different. The checked splitting-graph literature gave the actual graph alias and spectral context, not an exact integral group for that graph.
+
+## value
+
+PASS
+
+Retaining precisely the ordinary double intersections is forced by the specified geometric blowup, not an arbitrary graph augmentation. The resulting splitting graph is a named graph transformation of Petersen as well as the dual graph of a natural stable curve. Its full integral factors supply the component group of regular realizations of that boundary, and discriminate groups with the same spanning-tree number or the different genus-eleven Desargues Levi degeneration. This is a useful exact distinction beyond spectral tree enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

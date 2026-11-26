@@ -1,9 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The embedding \(0\mapsto(0,0)\), \(1\mapsto(1,0)\), \(2\mapsto(1,1)\) gives the correct parity of each coordinatewise minimum via the standard binary dot product. The span is totally isotropic in a nondegenerate \(2n\)-dimensional space, hence has dimension at most \(n\). A rank-two coordinate projection excludes exactly one of four equally frequent states and proves the three-quarter bound. If all coordinate projections have rank at most one, a nontrivial self-orthogonal code on the digit-one coordinates forces a stronger half-size bound. The explicit construction attains equality. Full maximal-clique enumeration for \(2\le n\le5\) and direct parity checks support the proof; finite tests are not the infinite proof.
+## correctness
 
-**Originality — PASS, with residual literature risk.** Banerjee–Dewan, *An Eventown Result for Multisets* (arXiv:2610.21636v1), determine the unrestricted maximum and its unique even-multiplicity extremizer, but their inspected introduction, principal theorem, and complete even-multiplicity equality section do not give a quantitative noncanonical gap. The uniqueness statement does not imply this sharp three-quarter bound. Han–Zhang–Zhao (arXiv:2608.16321v1) work with ordinary set Eventown supersaturation, not two-bounded minimum-multiset intersection. Searches for the noncanonical bound, second extremum, and parity-embedding equivalents did not locate a claim implying this theorem. An independently known equivalent result in unindexed literature is possible.
+PASS
 
-**Mathematical value — PASS.** A dimension-independent, sharp stability gap is a substantive strengthening of qualitative uniqueness in an actively studied extremal multiset problem: a single odd multiplicity rules out the upper quarter of the admissible cardinality range, for every ground-set size. The exact infinite construction shows the loss cannot be improved. This does not assert a solution for larger multiplicity bounds or uniqueness among the new equality cases.
+The local binary pair (1{x≥1},1{x≥2}) reproduces min parity, including the diagonal. Total isotropy of the full span in a nondegenerate 2n-space gives dimension at most n. A surjective coordinate projection excludes a full coset, namely the fiber of (0,1), exactly a quarter of the span. If every coordinate projection has rank at most one, the nonzero projected lines must contain an actual embedding generator, so only (1,0) and (1,1) lines occur. The (1,0) bits form a self-orthogonal binary image, of dimension at most floor(|I|/2); its kernel has dimension at most the number of (1,1) coordinates. An actual digit 1 requires |I|≥2 (self-orthogonality excludes a nonzero image for |I|=1), giving codimension at least one relative to n. The construction with the first two digits identical and the other digits even is compatible and reaches the asserted bound including n=2. The independent direct-minimum clique search `python3 /workspace/independent_checks.py 5` returned 3, 6, 12, 24 for n=2 through 5; only the span argument gives the infinite claim.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The inspected multiset theorem already gives the 2^n maximum and the unique all-even extremizer. The supported distinct claim is the sharp occupancy loss under the presence of any multiplicity 1. Neither that unrestricted theorem nor an indexed equivalent supplying the subextremal loss was found in the evidence compared.
+
+## value
+
+PASS
+
+The estimate gives a sharp, dimension-independent gap below the known maximum and a structural witness for the loss: one forbidden local projection state or a full dimension loss. The gap is genuinely stronger than qualitative uniqueness and the construction attains it at all sizes. Neither larger multiplicity bounds nor classification of all gap extremizers is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

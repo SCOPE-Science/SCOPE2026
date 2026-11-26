@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The finite complete prefix code supplies a unique greedy parse at every digit residue and the Kraft equality. A cycle of the induced finite map has total encoded length divisible by the de Bruijn period, giving the orbit-size bound. The de Bruijn distinct-block property limits the common coded prefix of any two code-boundary shifts; strong separation converts this to a Euclidean separation estimate. The normalized product is bounded below uniformly for every sufficiently large order. The symbolic checker confirms three representative code families, but the general proof is analytic/combinatorial.
+## correctness
 
-## Originality — PASS under inspected evidence
-Kong–Wang–Yu (arXiv:2609.16296v1, first posted September 14, 2026) prove dimension equality and homogeneous critical positivity and ask about inhomogeneous critical positivity. The closest public two-map \(\{\rho,\rho^2\}\) proof uses a Golden-Mean constrained universal cycle and does not imply a result for all complete prefix codes with three or more maps. Targeted searches for weighted de Bruijn, Kraft, variable-length codes, inhomogeneous critical content, and stronger coverage did not locate this full statement. Lack of a search result alone is not a uniqueness proof; unindexed antecedents remain possible.
+PASS
 
-## Value — PASS
-The complete-code condition is a meaningful structural class for which an open critical-dimensional existence question becomes explicitly solvable. The construction covers unequal ratios and any finite number of codewords, yields a constant lower bound and supplies a concrete real-line three-map example. The method may be reusable in further symbolic-fractal constructions. It does not claim resolution of the unrestricted inhomogeneous question.
+The ratios are exactly b^(-|c_i|/s), with positive code lengths because the maps are contractions. Kraft equality and strong separation give dimension s. A de Bruijn digit cycle has b^k distinct length-k blocks. Parsing at every residue defines a finite self-map; on any directed cycle its positive total digit length is a multiple of b^k, and individual advances are at most L. A shorter symbol period would induce a digit period divisible by b^k and thus an earlier return to the same parser residue. At distinct parser residues a common symbol prefix encodes at most k-1 digits. Applying its similarity to distinct first-level pieces gives the stated gap. The resulting cardinalities tend to infinity, exactly as required by the critical-content definition, and the normalized gap is at least (b/L)δ^s. The unequal-ratio example has separated invariant interval images, with minimum interval gap 3/16.
 
-## Limitations and sources
-Directly consulted primary mathematical literature: Kong–Wang–Yu, *Asymptotic separation of periodic orbits and fractal dimension*, arXiv:2609.16296v1; and the complete public result *Positive critical periodic content for the \(\{\rho,\rho^2\}\) contraction pair* (2026). The standard de Bruijn construction is an input, not a newly proved research contribution. Numerical checks are finite and no independent scientific validation was undertaken.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct claim is quantitative critical positivity for every strongly separated system with finite complete-prefix-code ratios. It extends the known homogeneous construction to unequal ratios through a block-boundary cycle argument. The closest distinct Resultary record uses a related coding construction for an unequal two-map pair, not the complete-code family. This is a bounded best-of-knowledge decision, not a priority determination.
+
+## value
+
+PASS
+
+At the critical exponent, dimension equality permits every large-period normalized gap to shrink to zero. This result rules that out quantitatively for a structurally defined, genuinely inhomogeneous class. The bound gives explicit data for constructing large separated orbits, and the parser-cycle argument works for arbitrarily many length levels. Its value is as a constructive partial answer, not as a solution for all uneven ratios.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

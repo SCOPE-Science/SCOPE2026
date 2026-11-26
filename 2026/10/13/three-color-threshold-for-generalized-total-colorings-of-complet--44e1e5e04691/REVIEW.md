@@ -1,19 +1,21 @@
-# Review: Three-color threshold for generalized total colorings of complete bipartite graphs
+# Independent mathematical audit
 
-## Correctness
-PASS. With three colors, proper vertex coloring forces the palettes used on the two shores of a complete bipartite graph to be disjoint. Since each shore uses at least one color, the only palette-size patterns are \((1,1)\), \((2,1)\), and its transpose. In each case every edge has a unique permissible third color. The \((1,1)\) case makes the entire biclique monochromatic on edges and is acyclic exactly for a star. The \((2,1)\) case produces two complete bipartite edge-color classes, each acyclic exactly when its small vertex class is a singleton, forcing smaller shore size two. Explicit star decompositions prove the converse. For \(K_{3,n}\), the three-color obstruction and an explicit four-color star construction match.
+## correctness
 
-The verifier independently checks the definition for all \(1\le m\le n\le6\) and the four-color construction through \(n=100\). This computation is corroborative only; the proof handles all parameters.
+PASS
 
-## Originality
-PASS, with a stated residual literature risk. The closest recent source proves a four-color extension theorem for planar graphs and defines exactly the \((\mathcal O,\mathcal D_1)\) coloring used here, but its inspected public full text contains no “bipartite” or “complete bipartite” occurrence. The original framework paper's indexed abstract says it determines paths, cycles, and selected complete-graph cases, not complete bipartite graphs. Focused searches under complete-bipartite, \((\mathcal O,\mathcal D_1)\), generalized-total-chromatic, three-color-threshold, and endpoint-avoiding forest formulations found no statement implying the theorem.
+Both the frozen coloring arguments and the narrowed theorem are mathematically correct. In K_{3,n} with n>=3, the shores have disjoint vertex palettes. With three colors, if both shores are monochromatic then all edges receive the remaining color and contain a four-cycle. Otherwise one shore uses two colors, of which one repeats, and the other uses one color; edges from two equally colored vertices to two vertices of the other shore are forced to the same third color, again a four-cycle. Fewer than three colors are impossible at an incident edge and its endpoints. With four colors, the opposite shore is colored 4, the smaller shore gets 1,2,3, and the respective full incident stars get 2,3,1. Every nonempty edge class is one star and every edge avoids both endpoint colors. For n>=5, two forests on n+3 vertices can cover at most 2(n+2)<3n edges, so a four-color construction cannot use disjoint edge and vertex palettes. The repaired result and verification notes state these scopes accurately.
 
-The residual risk is that the complete full text of the 2011 framework paper was not inspected line by line in this run, so an unindexed equivalent statement cannot be excluded solely by the abstract and searches. No located source provided stronger coverage or a decisive implication.
+## originality
 
-## Value
-PASS. The result gives a complete all-parameter classification of the minimum possible palette size three on a canonical graph family, and it identifies an infinite sharp-four family exactly at the first nonplanar shore size. It therefore sharpens the recent planar four-color theorem on all planar bicliques with smaller shore at most two and gives a clean boundary immediately beyond planar coverage. The proof exposes a reusable palette-forcing mechanism rather than relying on a finite table.
+PASS
 
-## Closest literature and limitations
-The closest source is Schreib's 2026 planar theorem, which supplies the active \((\mathcal O,\mathcal D_1)\) framework and a universal four-color theorem only for planar graphs. Borowiecki et al. (2011) introduced the general framework, while Borowiecki and Broere (2016) developed the planar conjecture. No exact value is asserted here for bicliques with smaller shore at least four.
+PASS for the repaired claim only. The frozen finding's headline three-color threshold fails originality: the actual 2016 Theorem 6 sharpness example K_{3,3}-e forces failure for all m,n>=3 by subgraph inheritance, while Theorem 1 covers K_{2,n} from an acyclic three-coloring and stars are immediate. The narrowed exact value four for K_{3,n} retains the original nonplanar upper-bound contribution and explicitly credits prior support for the lower bound. The checked general acyclic-coloring theorem gives five from four acyclic vertex colors; the four-color upper bounds in the checked papers are for planar graphs. They do not give the uniform four-color upper bound for the nonplanar family.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The repaired theorem computes the sharp invariant on the first complete-bipartite shore size excluded by the old three-color criterion. This is a natural nonplanar test family for the same four-color invariant studied in the planar literature. For n>=5, simply putting the vertex and edge colors in disjoint palettes cannot attain four; the explicit rotation of the three star colors solves that obstruction for every n. Thus the exact family value is useful independently of the already implied three-color threshold.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

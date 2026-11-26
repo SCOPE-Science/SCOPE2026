@@ -1,19 +1,21 @@
-# Review of exact two-weight isotonic stability
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** Equality components of every order-preserving least-squares fit are order-convex connected Hasse subsets, and first-order stationarity makes each component a weighted mean. The norm of each block map is an equality case of weighted Hölder. Polyhedral projection supplies finite piecewise-linear upper bounds. Conversely, contracting any connected order-convex subset preserves acyclicity; strict external inequalities and a relative-interior positive normal-cone witness make that particular pooling face stable, proving exact attainment. A two-vertex cover gives the mismatch obstruction, and Hölder equality gives the matching sufficiency. The exact-arithmetic script corroborates 84 weighted graphs, 1,164 candidate-block checks, 1,152 face comparisons, 63 rigidity checks, and the sharp two-point example. Its finite scope is not used as universal proof.
+PASS
 
-## Originality
+The literal original correctness assessment is FAIL at V=∅: the Finding says any finite poset, the maximum has no blocks, max_i is undefined as written, and no distinct data pair exists. Even with the canonical zero-dimensional norm the least Lipschitz bound is 0, not the asserted 1. The complete replacement RESULT.md and SLOGAN.txt in /workspace/repairs/2/ restrict the finding to nonempty finite posets, address the empty case separately, and correct the reported profile description (four fitting choices × three monitoring choices on each of seven orders). In the repaired claim, active Hasse components are connected and order-convex because every saturated path between comparable equal-valued endpoints is constant. Strict external edges permit blockwise variations; stationarity makes each branch a direct sum of weighted means. Weighted duality gives the exact branch norms at every q including the endpoints. Continuity and finitely many affine branch restrictions give the global bound on every segment. Conversely, contracting one convex block yields an acyclic quotient, since a new cycle lifts to a path through an outside vertex between block members. Choose strict levels on this quotient and data with residual equal to the sum of internal edge normals. For a small perturbation z, the weighted residual change M(z−Az) is zero off the block and has zero block sum; internal edge vectors span that space by connectivity. Using a fixed basis expresses the change with small coefficients, preserving positivity of active multipliers and strict external inequalities. This proves local affine attainment for each block, also for singletons. A cover pair is an admissible block, and equality in Hölder (or the maximum bound at q=1) forces h_i/m_i to match across each cover; the sup norm is always preserved on constants and nonexpansive. With m=(9,1), h=(1,1), the two-point block gives 2·9/10=9/5 and 2·82/100=41/25 for q=1 and squared q=2, respectively. The proof applies to all positive real masses and disconnected orders. The frozen verification script was inspected, not executed; its finite diagnostics do not cover the empty order or certify the general theorem.
 
-**PASS (self-review; bibliographic risk remains).** The 2015 Németh–Németh full relevant text establishes coordinatewise isotonicity of the weighted projection, but not two-independent-weight sharp \(\ell_q\) Lipschitz constants. The 2015 Kyng–Rao–Sachdeva paper develops weighted fitting algorithms, not a distinct monitoring-norm modulus. Yang–Barber's 2017 Theorem 1 and Section 6 treat the unweighted chain, whose norm-invariance theorem does not yield the arbitrary-poset, two-weight formula. A published finite-poset \(\ell_p\)-objective stability theorem uses a different projection whenever \(p\ne2\). Database searches on weighted isotonic sensitivity, aliases, two-weight comparisons, norm changes and equality faces found no dominating exact result. The residual possibility of an unindexed general polyhedral-projection formula is explicitly retained.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** Using inverse-variance masses to fit a monotone signal and different masses to measure/report prediction changes is a natural stability mismatch. The theorem replaces an unknown nonlinear global Lipschitz factor by exact, attainable statistics of connected order-convex pools for *every* finite poset. Its universal nonexpansivity criterion specifies precisely when reporting weights can differ without amplification and provides a sharp adjacent-pair failure certificate. Neither mere code reproducibility nor the pre-existing pooled-mean identity alone establishes this global finite-poset classification.
+For the repaired nonempty scope, the attainable block maximum and exact two-weight rigidity are not supplied by the closest indexed or published statements inspected. The general piecewise-linear reduction is standard, not an additional originality claim; identification and open-region realization of the possible pools and their exact weighted dual norms are the distinct results being assessed.
 
-## Scope and limits
+## value
 
-The hypotheses require finite real orders, fixed positive masses, and quadratic fitting loss; q ranges over the entire real interval from one through infinity. Some potentially covering broad projection literature was not fully available, so originality is a best-knowledge conclusion rather than a uniqueness certificate. External scientific audit and validation were not performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Fitting weights and reporting weights can differ in a finite monotone estimation problem. An exact attainable stability factor, expressed in terms of geometrically characterized pools, measures amplification in precisely that setting. The componentwise proportionality criterion and opposite cover-pair witness give a useful diagnostic rather than just a numerical example or an arbitrarily chosen order. Excluding the empty order leaves this entire scientifically useful domain intact.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

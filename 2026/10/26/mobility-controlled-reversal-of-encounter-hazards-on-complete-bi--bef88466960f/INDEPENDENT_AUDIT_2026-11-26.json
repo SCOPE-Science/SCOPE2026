@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:05:55.908167Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The class exit rates from a particular ordered pair, not just an average, are 2α from A and 2β from B to D; from D the rates into A, B and absorption are p, q and κ as given. At each visit to D there is positive chance κ/(α+β) of absorption on the next jump; no-jump events ensure positive survival at any finite time. First-step equations give the three stated rational transforms with common denominator det(sI−Q). For −Q the reversible weights π_D=1, π_A=p/(2α), π_B=q/(2β) give the positive quadratic form p(x_A−x_D)^2+q(x_B−x_D)^2+κx_D^2. For unequal rates the secular function is strictly decreasing between poles with opposite signs across each root bracket, giving the strict interlacing. For equal rates the middle eigenvalue is 2α and its residue cancels in all three laws. Residue division by λ_j gives D all positive nonzero survival coefficients (at least two), hence a strictly negative hazard derivative. In a slow starting part the survival after factoring out exp(−λ1 t) is positive, increasing and strictly concave, so its log is strictly concave and the hazard increases. In a fast starting part the derivative, up to positive factors, is a strictly negative constant plus two positive decreasing exponentials. It starts positive because Q²1 gives h′_A(0)=2ακ (or h′_B(0)=2βκ) and ends negative, so there is exactly one positive critical time. The leading residue is positive in all cases. The limiting positive λ1 is the smallest eigenvalue of −Q as explicitly defined in the proof, not an eigenvalue of Q with that sign. Frozen verify.py and VERIFICATION.md were inspected, not run. Their recorded 426 rational identities and 18 numerical shape samples are corroboration, not the general proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ohwa gives general backward-transform methods and examples on stars, cycles and complete graphs. Zhang et al. analyze expected meeting times for discrete-time walks on regular graphs. The universal first-collision-side-marks biclique record has an exact equal-rate two-walker law within a wider multi-walker result."
+        ],
+        "reasoning": "The equal-rate specialization of the transform is covered, but having more walkers at equal rates does not cover unequal part-dependent rates, and general methods or expected meeting times alone do not supply this hazard classification.",
+        "searches": [
+          "Ohwa DOI 10.1186/s40736-015-0016-2 Theorem 2 and §§3.1–3.3",
+          "Zhang, Tan and Krishnamachari arXiv:1408.2005v1",
+          "Resultary biclique meeting-law and threshold lookups"
+        ]
+      },
+      "checked_sources": [
+        "Ohwa DOI 10.1186/s40736-015-0016-2",
+        "Zhang–Tan–Krishnamachari arXiv:1408.2005v1",
+        "Four compared local Resultary records listed above",
+        "Zhang taboo-walk thesis snippet only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The equal-rate transform eliminates the middle spectral mode, whereas when α≠β the residue has opposite signs in A and B. The other inspected threshold result compares means rather than time-dependent log survival."
+        ],
+        "reasoning": "Neither an exact law on the cancellation locus nor an ordering of different-model means already implies the unequal-rate sign switch and single positive critical time.",
+        "searches": [
+          "Ohwa §§2–3",
+          "Resultary equal-rate biclique transform and discrete-time laziness comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ohwa permits the exponential waiting-time mean to differ by walker, with a shared transition matrix. Here each walker changes waiting rate upon changing part. In particular, in the two same-part classes the total exit rates are respectively 2α and 2β; fixed rates of the two walkers would sum to the same value in either class."
+        ],
+        "reasoning": "The two kinds of mobility heterogeneity have different generators; changing the names of parameters cannot convert this into the inspected fixed-per-walker model.",
+        "searches": [
+          "Resultary semantic lookups for location-dependent biclique meeting hazards and two-walker meeting laws",
+          "Ohwa DOI 10.1186/s40736-015-0016-2 §§1.2–2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "SCOPE-universal-first-collision-side-marks-and-an-exact-multi-walker-l--408d24e29fef supplies the equal-rate law; SCOPE-two-sharp-laziness-thresholds-for-meeting-on-complete-bipartite--26d2ff691960 concerns synchronous discrete-time mean ordering. Same-day SCOPE-exact-traffic-dynamics-and-path-space-entropy-for-two-noncollidi--84ed4797c0f0 and SCOPE-a-sharp-one-vacancy-exception-for-noncollision-conditioning-on-w--86c040931fca concern conditioning on noncollision."
+        ],
+        "reasoning": "The same-day matches were compared by process and observable: equilibrium or statewise collision rates in conditioned dynamics are not −S′_X(t)/S_X(t) under unconditioned motion killed at first contact. No exact unequal-rate hazard match was found among the inspected catalogue hits.",
+        "searches": [
+          "Four targeted Resultary semantic lookups on biclique meeting laws, hazards and rate thresholds"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the strict monotone/one-peak classification under unequal location-dependent rates, with exact threshold α=β for arbitrary m,n≥2. Existing equal-rate meeting laws, general backward methods, and differently meaningful collision rates were credited rather than treated as new.",
+      "residual_risks": [
+        "The taboo-walk thesis full text was inaccessible, so overlap cannot be ruled out from that source. Targeted searches do not establish absolute priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related methodology with different assumptions",
+          "evidence": "Shared transition matrix and walker-dependent waiting means; Theorem 2 and examples do not give the location-dependent hazard reversal.",
+          "identifier_or_url": "https://doi.org/10.1186/s40736-015-0016-2",
+          "material_read": "§§1.2–2, PDF pp. 2–3, extracted offsets about 5400–15413; examples §§3.1–3.3",
+          "method": "Bounded primary PDF reading",
+          "title": "Exact computation for meeting times and infection times of random walks on graphs",
+          "trigger": "General continuous-time transforms and graph examples"
+        },
+        {
+          "assessment": "Distinct dynamics and statistic",
+          "evidence": "Expected discrete-time meeting times with circle and torus results, not the continuous-time hazard classification.",
+          "identifier_or_url": "https://arxiv.org/abs/1408.2005v1",
+          "material_read": "Abstract and introduction, p. 1, extracted offset about 700",
+          "method": "Bounded primary PDF reading",
+          "title": "On the Meeting Time for Two Random Walks on a Regular Graph",
+          "trigger": "Meeting times on symmetric graphs"
+        },
+        {
+          "assessment": "Equal-rate transform overlaps",
+          "evidence": "Covers equal-rate two-walker and multi-walker laws, not the unequal location-rate threshold.",
+          "identifier_or_url": "SCOPE-universal-first-collision-side-marks-and-an-exact-multi-walker-l--408d24e29fef",
+          "material_read": "Local mirror offsets 200–4877",
+          "method": "Statement comparison in the local mirror",
+          "title": "Universal first-collision side marks and an exact multi-walker lifetime law on bicliques",
+          "trigger": "Exact laws on the same graph"
+        },
+        {
+          "assessment": "Different threshold",
+          "evidence": "Synchronous discrete walks with common holding probability, comparing mean meeting times.",
+          "identifier_or_url": "SCOPE-two-sharp-laziness-thresholds-for-meeting-on-complete-bipartite--26d2ff691960",
+          "material_read": "Local mirror offsets 2200–5411",
+          "method": "Statement comparison in the local mirror",
+          "title": "Two sharp laziness thresholds for meeting on complete bipartite graphs",
+          "trigger": "Threshold on the same graph family"
+        },
+        {
+          "assessment": "Not equivalent",
+          "evidence": "Balanced graphs and equal rates, with a forever-conditioned process rather than initial-placement survival hazards.",
+          "identifier_or_url": "SCOPE-exact-traffic-dynamics-and-path-space-entropy-for-two-noncollidi--84ed4797c0f0",
+          "material_read": "Finding and assumptions from local mirror offset 0",
+          "method": "Statement comparison in the local mirror",
+          "title": "Exact traffic dynamics and path-space entropy for two noncolliding walkers on balanced bicliques",
+          "trigger": "Same-day overlapping graph, walkers and collision language"
+        },
+        {
+          "assessment": "Different collision statistic",
+          "evidence": "Uses statewise hazard to compare conditioning with exclusion, not meeting-time hazard curves.",
+          "identifier_or_url": "SCOPE-a-sharp-one-vacancy-exception-for-noncollision-conditioning-on-w--86c040931fca",
+          "material_read": "Finding and assumptions from local mirror offset 0",
+          "method": "Statement comparison in the local mirror",
+          "title": "A sharp one-vacancy exception for noncollision conditioning on weighted graphs",
+          "trigger": "Same-day overlap in collision hazard terminology"
+        },
+        {
+          "assessment": "Unresolved; not evidence of noncoverage",
+          "evidence": "Snippet describes a conjectured parity-dependent geometric law with simulations on complete and incomplete bipartite graphs; model and full statements not verified.",
+          "identifier_or_url": "https://scse.d.umn.edu/sites/scse.d.umn.edu/files/xianwu_zhang_thesis.pdf",
+          "material_read": "Search snippet only; direct and alternate OA retrieval returned HTTP 403",
+          "method": "External literature lookup and bounded OA retrieval attempts",
+          "title": "Meeting times of Taboo random walks on bipartite graphs",
+          "trigger": "Plausible same-family meeting-time distribution thesis"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The statistic answers how the prospective encounter risk changes with elapsed nonencounter time, which a mean or limiting decay rate cannot determine. A unique peak in just the faster starting part, with a kinetic equality threshold independent of both part sizes, is a structural classification over a natural graph family and nontrivial parameter range.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

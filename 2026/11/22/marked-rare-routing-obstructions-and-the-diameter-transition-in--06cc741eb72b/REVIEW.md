@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof specifies independent fair orientations, finite graph conventions, ordered obstruction pairs, scaling and the critical limit. The exact subset/2-step equivalence is deterministic. Conditional ternary coordinate sampling supplies the bivariate Gaussian marks. The locally dependent marked-event bound tends to zero because the shared-index rate \(5/8\) is below \((3/4)^{3/2}\); a direct routing union bound then reduces diameter to the presence of any left obstruction. The packaged checker passed 79,561 assertions. Infinite limits are proved by the analytical probability estimates and established multivariate Poisson approximation, not by enumeration.
+## correctness
 
-## Originality — PASS (historical priority qualified)
-Stark (2004), DOI 10.37236/1812, is direct prior art for the **unmarked** Poisson comparison count and the conditional ternary coordinate law. Those statements are excluded from the claimed new contribution. The novelty assessed here is joint marked spatial/degree convergence with asymptotically disjoint obstructions **and** the explicit 3/4 diameter law and finite error reduction in random bipartite orientations. Primary context from Moon–Moser (1962) and Bollobás–Frank–Karoński (1983) concerns four-cycle counts, not the degree-marked diameter transition. Choi–Eoh–Kim–Lee (2016), whose full arXiv text was inspected, bounds the diameter of a derived undirected (1,2)-step competition graph, a mathematically different distance from the underlying directed diameter studied here. The accessible main text of Stark was checked; some early primary texts were accessible only as extracts/abstracts, which limits priority confidence. Related result-collection searches did not show an equivalent broader network claim.
+PASS
 
-## Value — PASS
-The source and target of rare directed diameter failures are not typical vertices: their outdegrees are polarized around \(n/3\) and \(2n/3\). Identifying their full Gaussian marked process and the limiting switch between diameter three and four supplies a structural mechanism for extreme-aspect-ratio directed routing, rather than another ordinary first-moment formula. A precise finite coupling-error bound explains when the effect is observable.
+Independently reconstructed the statement in RESULT.md, lines 5–34 and 42–63. The absence of a left-to-left 2-path is exactly row inclusion. One obstructed row pair has three equiprobable coordinate types 00, 01, 11; this gives the stated means, common variance 2/9 and covariance 1/9, so the conditional multivariate CLT has correlation 1/2. Two distinct obstructions on three rows give five allowed patterns out of eight for a fork and four for a chain; two reversed obstructions permit two of four patterns. Disjoint row pairs are independent. For a direct check of the marked argument, independently retain each obstruction with probability 1−exp(−f) at its mark. The conditional probability of retaining none is the Laplace functional. Scalar dependency-graph Poisson approximation applies to the retained indicators, with errors bounded by O(m³(3/4)^{2n} + m³(5/8)^n + m²(1/2)^n); the three terms vanish under the given scaling. The conditional CLT times the ordered location-grid limit gives the limiting retained mean. The conditional mark laws are tight and expected mass is bounded, giving weak convergence of finite point measures, not just local convergence. The overlap expectation also tends to zero. For the diameter reduction, condition on the row of a fixed left vertex and choose an available witness right neighbor different from the queried right vertex. Each of the other m−1 independent rows offers a 3-path with probability 1/4. A union bound with the missing-neighbor and failed right-to-right 2-path events gives exactly the stated three error terms. On the complement every left pair can route in at most four steps; bipartite parity makes an obstructed pair require four, while in the absence of obstructions the diameter is exactly three (one direction of each cross edge is absent). This also covers the allowed infinite-distance convention. VERIFICATION.md and check.py were inspected, not executed. The stated 79,561 assertions are source-reported finite checks, not independent reproduction or asymptotic evidence; the pass rests on the proof check.
 
-## Closest literature and limits
-Stark's stronger unmarked Poisson theorem is credited; the conditional degree marginals are immediate from its inclusion-coordinate law, but independent Gaussian marks across the entire exceptional population and the directed diameter transition are additional. Full-text historical coverage of the early bipartite-tournament literature is incomplete. The result is restricted to fair independent orientations and the finite positive intensity window.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The ordered inclusion-count Poisson limit is already covered by Stark. The supported distinct result is the Bernoulli row-degree and ordered location process jointly with the directed 3-versus-4 diameter reduction and its explicit finite error. The strongest distinct indexed overlap proves a closely related Gaussian-marked matching for continuous coordinatewise comparisons, with the same endpoint correlation, but it does not imply the Bernoulli theorem or the routing result. No priority order is inferred from the matching publication date.
+
+## value
+
+PASS
+
+The graph diameter is a global maximum over directed routes. The explicit reduction to a sparse family of disjoint anomalous pairs and the joint degree law identify where the transition comes from, distinguish typical outdegrees from the troublesome one-third/two-thirds profiles, and quantify when other routing failures can be ignored. This is more than reusing a prior count threshold or rephrasing a covariance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

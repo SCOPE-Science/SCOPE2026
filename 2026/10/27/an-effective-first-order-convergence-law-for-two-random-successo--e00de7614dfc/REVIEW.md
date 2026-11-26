@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For each prescribed colour-path forest, contraction gives the exact probability \(1/(n)_{e}\). Vertex-disjoint coloured cycles have limiting mixed factorial moments \(\prod_H|\operatorname{Aut}(H)|^{-t_H}\); overlapping distinct cycles contain positive excess and contribute \(O(n^{-1})\). Endpoint separation and absence of nearby double cycles make bounded-radius neighbourhood types deterministic functions of finitely many independent Poisson cycle counts. Effective bounded-degree Hanf locality proves the limit law and computability. Finite enumeration independently checks 20 exact finite mean identities through six labels; no infinite claim rests solely on computation.
+PASS
 
-## Originality — PASS, with historical-priority qualification
+For a fixed feasible pattern, contract each prescribed same-colour directed path to a block, giving exactly 1/(n)_{e_A}(n)_{e_B}. In mixed factorial moments disjoint ordered occurrences supply the product of inverse coloured automorphism orders. A component containing two distinct overlapping cycles has multigraph excess at least one, while other cycle components have nonnegative excess. A bounded union with v vertices and positive excess contributes O(n^v n^(-e))=O(n^-1), proving the joint Poisson claim including parallel two-cycles. For the locality step one may exclude all bounded connected bicyclic patterns of size sufficient to cover the outer 2R neighborhood of any short core, not merely pairs of cycles each of length <=2R+1; all such bad patterns have positive excess. An endpoint mark requires its path block to be first or last in its colour, giving an extra O(1/n) per endpoint constraint. If first and last are prescribed in the same block then the event is impossible for large n; otherwise two endpoint constraints cost O(n^-2), including across colours by independence. Thus a bounded cycle joined to an endpoint or bounded connecting tree with two marked endpoints is negligible. An induced non-tree R-ball has a cycle of length <=2R+1 by a breadth-first tree plus a non-tree edge (including a parallel arc). On the good event the local contributions are the deterministic rooted types in port-labelled tree completions of one core at a time, with the generic tree type saturating; each cycle count can itself be clipped at the Hanf threshold. The finitely many attainable vectors can be enumerated from these templates; each has positive limiting probability from the independent positive-mean Poisson variables and is therefore represented by a finite pair of paths. Enumerating finite pairs to find a representative for each vector terminates. Rational Poisson means and finite combinations of their clipped masses give the asserted ring with a computable common denominator. For the coherently directed alternating cycle of length 2m only even rotations preserve colour, including the m=1 parallel-edge case, so finite sums of distinct reciprocal integers give the dense set as stated. Reviewed RESULT.md:23–50, VERIFICATION.md and check_successor_local_law.py. The checker concerns four finite first moments, was not rerun and is not needed for the asymptotic proof. The result is for the successor reduct only, with fixed formulas.
 
-The closest prior finite-rank logical statement covers rank two only; no extension to all fixed first-order sentences follows from it. Work on two full random linear orders concerns a stronger language with a *failure* of convergence and hence does not cover the successor-only theorem. Work on uncoloured random regular graphs does not directly determine coloured successor-cycle intensities or the four fixed endpoints. Jeż–Michaliszyn–Witkowski study a different finite satisfiability problem. Full equivalence and possible subsumption by general coloured configuration-model theorems remain a documented risk. Searches of public mathematical-finding records, multiple claim aliases, and source full-text introductions/results did not identify direct coverage; search absence is not proof of priority.
+## originality
 
-## Value — PASS
+PASS
 
-The transition from a failure of convergence for two full orders to an effective convergence theorem for their joint successor reduct is a natural logical expressiveness boundary. The complete short-cycle Poisson process yields exact effective arithmetic restrictions on all limiting probabilities, while a concrete infinite family proves density. These structural properties are not routine parameter substitutions from the cited models.
+The exact-model earlier theorem covers quantifier rank two (even for more colours), and earlier results for other random structures supply much of the proof architecture including Poisson cores, Hanf reduction and density. The distinct result is the extension to every quantifier rank in the two-path model, with its full short-coloured-cycle family and treatment of the four endpoints. No inspected stronger theorem implies the complete result for these two independently sampled Hamiltonian paths.
 
-## Limits and closest literature
+## value
 
-Related results include arXiv:2610.19943, arXiv:2302.10148, Albert–Bouvel–Féray (2020), McKay–Wormald–Wysocka (2004), and Haber–Krivelevich (2010). Higher-order and variable-complexity logics are outside scope. A broad predecessor on coloured random permutation configurations could affect historical novelty. No independent verification has been carried out.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The theorem identifies exactly what is gained by retaining only successors in a model known not to converge in its full-order signature. It gives a full effective law rather than only an example sentence or bounded-rank list, explains the endpoint and cycle contributions, and quantifies how much variation remains through the arithmetic and density conclusions. The close matching and involution analogues are creditable precedents, but they do not settle these model-specific questions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

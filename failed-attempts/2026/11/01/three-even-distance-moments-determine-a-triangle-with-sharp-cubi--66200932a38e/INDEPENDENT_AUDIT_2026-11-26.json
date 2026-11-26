@@ -1,0 +1,171 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:30:06.144960Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independently integrated on the barycentric difference domain: in two coordinates the overlap density of the difference w with sum w_i=0 is 2(1−sum max(w_i,0))² on sum max(w_i,0)≤1. In each of the six sign sectors the square-distance polynomial is x u²+y v²+(x+y−z)uv for the two incident sides x,y at the isolated-sign vertex and the opposite side z; the Jacobian is one. The beta integral of u^p v^q(1−u−v)² over u,v≥0, u+v≤1 is 2p!q!/(p+q+4)!. The exact independent replay (python3 /workspace/branches/independent_triangle.py) gives coefficients 1/18 and 1/60 on pure degree-one and degree-two monomials, zero mixed degree-two coefficient, and coefficients 23/4200, 7/4200, −28/4200 on the cubic pure, mixed squared-linear, and xyz patterns respectively. The inverse elementary symmetric formula and side-side-side congruence establish injectivity. The two explicit triangles are strict for the stated small r, share m1 and m2, have |Δm3|=r³/420 and ordered squared-side discrepancy r. For the uniform bound the coefficients are Lipschitz in the bounded input moments, so on the boundary of any cluster of radius-η disks about the first roots the original polynomial modulus is at least η³; choose η comparable to δ^(1/3), with a generic slightly larger radius if disks are tangent. Rouché preserves multiplicity in each cluster, with diameter at most 6η; a real matching bounds ordered discrepancies as well. At δ=0 the cubics agree, and for large δ the root bound suffices. The example rules out all larger exponents near equilateral. The result concerns squared sides and population moments, not a sampling theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Tong et al. cover the full forward law for arbitrary triangles; Reichenwallner gives an all-order forward moment formula via line integration.",
+          "Bäsel treats regular polygons rather than all arbitrary triangles.",
+          "65a901f1282f gives additional full first-two-moment fiber and sharp third-moment interval results."
+        ],
+        "reasoning": "Forward formulas are prior work and allow moment evaluation, but do not in their inspected statements establish the finite inverse or its sharp regularity. The latter is explicitly covered by the exact indexed matches.",
+        "searches": [
+          "arXiv:1312.2498, forward PDF/CDF §§I–II",
+          "arXiv:1702.05943, Proposition 4",
+          "arXiv:2101.03815, Theorem 3",
+          "Resultary: sharp triangular distance moment fibers"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, verification notes and rational checker",
+        "Resultary 3e3e8b4e2ad2, 01d8e7d59b1c, 78cb6c0f15da and 65a901f1282f",
+        "arXiv:1312.2498, 1702.05943 and 2101.03815; DOI 10.2307/3213843 attempted"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "3e3e8b4e2ad2 gives (m1,m2,m3) with the same coefficients, cubic-root bound with constant 100 on squared sides at most 1, and failure of any higher exponent near equilateral.",
+          "That earlier Finding's two-moment failure holds even when triangle area is also known."
+        ],
+        "reasoning": "For bound B, apply the prior theorem after scaling lengths by B^(−1/2): the original sorted squared-side discrepancy is at most 100B(max_{1≤k≤3} B^(−k)|Δm_k|)^(1/3). Sharpness likewise carries to any positive fixed equilateral scale. The frozen no-area witness and new integration check verify existing conclusions, not stronger ones.",
+        "searches": [
+          "3e3e8b4e2ad2 RESULT.md Finding at offset 0 and proof through offset 6323",
+          "78cb6c0f15da RESULT.md offsets 0 and 6258",
+          "65a901f1282f RESULT.md offsets 0 and 5883"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "3e3e8b4e2ad2 uses two independent area-uniform points, the same even powers and the same multiset of squared sides.",
+          "Tong–Ahmadi–Pan §II-B derives the pair-distance distribution from the chord distribution. Gates full text was not accessible."
+        ],
+        "reasoning": "The two triangle inverse settings coincide; moment order k means distance power 2k. Odd chord moments are not numerically identical to the even pair-distance moments, but for invariant line measure the pair-distance moments are ratios of chord integrals of orders 2k+3 and 3 times the known factor 6/((2k+2)(2k+3)), by the distance Jacobian and integration along the chord. Gates's exact choices of odd moments were not verified, so its possible coverage is not dismissed on terminology alone.",
+        "searches": [
+          "Resultary: three even interpoint distance moments determine Euclidean triangle",
+          "Resultary: sharp cubic inverse stability squared triangle sides",
+          "Tong–Ahmadi–Pan arXiv:1312.2498, chord/pair-distance relation",
+          "Gates DOI 10.2307/3213843"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "3e3e8b4e2ad2 Finding offset 0 states the same full inverse and optimal stability at size bound 1.",
+          "01d8e7d59b1c gives the same reconstruction and two-moment failure; 78cb6c0f15da adds sharp inverse stability for normalized shape.",
+          "65a901f1282f, a distinct same-day entry, also gives the inverse and exponent with compact side-length bounds, plus the full moment-fiber calculation."
+        ],
+        "reasoning": "The exact impact is determined by matching formulas, assumptions and conclusions, not by titles. The earlier bound-one theorem is enough; same-day coverage is comparison evidence and does not prove ordering.",
+        "searches": [
+          "Resultary: three even interpoint-distance moments determine every Euclidean triangle",
+          "Resultary: three even moments of random triangle distances",
+          "Resultary: triangles and sharp cubic root inverse stability"
+        ]
+      },
+      "rationale": "The distinct earlier record 3e3e8b4e2ad2 states all three identical moment identities, the same cubic inverse, two-moment failure even with area as an extra datum, and uniform optimal 1/3 inverse Hölder stability on squared sides bounded by 1. The general bound B in the frozen finding follows by scaling squared sides by 1/B and moments by B^(−k). Other direct matches include a distinct same-day record with additional fiber classification. None of the frozen scientific conclusions survives as a distinct contribution.",
+      "residual_risks": [
+        "Gates full text unavailable; which moments it uses and the exact implication for the pair-distance inverse remain unverified.",
+        "No claim about the original historical discovery date outside the precise inspected indexed coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage; scaling gives general positive size bounds",
+          "evidence": [
+            "Same three coefficients and cubic inverse; two-moment failure even with area; exponent 1/3 uniformly and sharp near equilateral."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-three-even-interpoint-distance-moments-determine-every-euclidean--3e3e8b4e2ad2/RESULT.md",
+          "material_read": "Finding, assumptions, inverse and sharpness proof; offset 0 to relevant passages through 6323",
+          "method": "Resultary lookup and OA local-mirror reading",
+          "title": "Three even interpoint-distance moments determine every Euclidean triangle with sharp cubic-root stability",
+          "trigger": "Exact full-claim overlap apart from size parameter"
+        },
+        {
+          "assessment": "Covers inverse and minimality but not stability",
+          "evidence": [
+            "Identical three even moments, cubic reconstruction, and two-moment failure."
+          ],
+          "identifier_or_url": "01d8e7d59b1c",
+          "material_read": "Finding, offset 0",
+          "method": "Resultary lookup and OA local mirror",
+          "title": "Three even moments of random triangle distances determine the triangle",
+          "trigger": "Second exact inverse and minimality comparator"
+        },
+        {
+          "assessment": "Substantial overlap but different normalization",
+          "evidence": [
+            "Same forward formulas and inverse; optimal exponent for normalized shape."
+          ],
+          "identifier_or_url": "78cb6c0f15da",
+          "material_read": "Finding and stability, offsets 0 and 6258",
+          "method": "Resultary lookup and OA local mirror",
+          "title": "Three even distance moments reconstruct triangles with sharp cubic-root stability",
+          "trigger": "Prior stability under shape normalization"
+        },
+        {
+          "assessment": "Exact overlapping inverse/stability content alongside a different stronger fiber claim; no date-order inference",
+          "evidence": [
+            "Three-moment reconstruction, sharp exponent and interval of possible third moments in an entire fixed first-two-moment fiber."
+          ],
+          "identifier_or_url": "65a901f1282f",
+          "material_read": "Finding and fiber/stability passages, offsets 0 and 5883",
+          "method": "Resultary lookup and OA local mirror",
+          "title": "Sharp triangular distance moment fibers and cubic inverse stability",
+          "trigger": "Distinct same-day overlap with broader fibers"
+        },
+        {
+          "assessment": "Forward PDF/CDF, not a finite inverse in the inspected passages",
+          "evidence": [
+            "Derives interpoint distance PDF and CDF from chord-length distribution."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1312.2498",
+          "material_read": "p. 1 around offset 2694; §II-B pp. 4 and 6 around offsets 14163 and 25022",
+          "method": "OA primary PDF",
+          "title": "Random Distances Associated with Arbitrary Triangles: A Systematic Approach between Two Random Points",
+          "trigger": "Same sampling and arbitrary triangles; possible distribution-to-inverse implication"
+        },
+        {
+          "assessment": "Prior forward moments, not inverse regularity in the inspected proposition",
+          "evidence": [
+            "Parameterized forward moments of two area-uniform points in a triangle."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1702.05943",
+          "material_read": "Proposition 4 and its line-integral reduction, p. 8, offset 22284 onward",
+          "method": "OA primary PDF of DOI 10.1007/s00605-017-1077-3",
+          "title": "Moments of volumes of lower-dimensional random simplices are not monotone",
+          "trigger": "Same all-order forward moment problem in a triangle"
+        },
+        {
+          "assessment": "Regular-polygon restriction",
+          "evidence": [
+            "Second and fourth moments for regular polygons, not inversion for arbitrary triangles."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2101.03815",
+          "material_read": "Abstract and Theorem 3, pp. 1 and 9, offsets 244 and 33236",
+          "method": "OA primary PDF",
+          "title": "The moments of the distance between two random points in a regular polygon",
+          "trigger": "Forward even-moment comparator"
+        },
+        {
+          "assessment": "Exact theorem not verified; not used to fail originality",
+          "evidence": [
+            "Frozen prior-work discussion describes odd random-chord moments; that description is not a firsthand verification."
+          ],
+          "identifier_or_url": "https://doi.org/10.2307/3213843",
+          "material_read": "Bibliographic/landing references only; no readable full text in bounded access attempt",
+          "method": "DOI and Cambridge page attempted",
+          "title": "Recognition of triangles and quadrilaterals by chord length distribution",
+          "trigger": "Plausible earlier finite-odd-chord-moment inverse and relation to pair-distance moments"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "A minimal finite-moment inverse and optimal stability near a symmetric triangle are intrinsically worthwhile, but both are already present in the checked indexed work. The general size bound is a direct scaling corollary, and the alternate sharpness witness and coefficient expansion do not produce a new mathematical invariant or a better bound. No substantive remainder to repair is established in the frozen finding.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

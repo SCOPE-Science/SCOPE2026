@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:01:37.288400Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Frozen Finding 4 fails as stated: take q=2, p=(1,1), d=p. All assumptions hold, σ=0, D_p=I and K_p=0, so 0 is an eigenvalue of infinite multiplicity, not a purely a.c. spectrum without eigenvalues. The corrected RESULT.md and SLOGAN.txt in /workspace/repairs/3 treat that case explicitly and say the residue coefficient has rank two only when σ>0. Re-audit: the exact block entry is i(p_r−p_s)H_a/q with a=(r+s+1)/q; H_a−H is a rank-one integral whose trace-norm majorant behaves as O(x^(a−1)+1) near 0 and O(1) near 1. The coefficient maps the normalized constant and centered vectors by ±iσ as stated and kills their orthogonal complement. The tail summability implies trace-class difference by the bound on each Hilbert column, and Weyl and Kato–Rosenblum give the essential and a.c. claims. At N=qM, the correct residue projection is I⊗P_M; interlacing changes counts by fewer than q for other N. The scalar law applies at t/(πσ) in the normalized Hilbert model: each sign has coefficient π⁻² arcosh(πσ/t) below the edge, zero at or above it. The min–max count sandwich at t±δ has error at most ∥Q_M∥₁/δ; threshold continuity includes the edge. For σ=0 the entire perturbed commutator is trace class (not necessarily zero), so its finite counts are bounded. Complex conjugation gives exact sign pairing. The q=2 shifted block has a=1 and no remainder; nonzero scale preserves pure a.c. spectrum, while zero scale gives the zero operator. These analytic checks, not finite diagnostics, verify the corrected claim.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fedele Theorem 1.2 gives scalar selfadjoint Hankel signed densities; Pushnitski–Yafaev give scalar jump-band channels under local log-Hölder assumptions."
+        ],
+        "reasoning": "Before the residue-class reduction, the commutator is not in general scalar Hankel: the numerator is a difference of periodic diagonal entries rather than a function of j+k. These theorems do not supply the residue coefficient or trace-class reduction.",
+        "searches": [
+          "arXiv:1903.11572v1 §1.3; arXiv:1408.2361v1 §1.2",
+          "Resultary: multichannel or matrix-valued Hankel formulation of periodic Hilbert commutators"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1903.11572v1",
+        "arXiv:2411.07324v1",
+        "arXiv:1408.2361v1",
+        "SCOPE-20261102-992ea1cd7ba8",
+        "SCOPE-20260919-ba346044 (index only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The classical model is unitarily multiplication by π/cosh(πt); the normalized positive section law is π⁻² arcsech(s). Related Cesàro catalogue record has a different kernel and gives only a trace-square law."
+        ],
+        "reasoning": "Those results yield the bands and counts after the new coefficient identity and trace-class arguments, not by directly specializing a theorem about this commutator family. Weighted-tail stability requires the particular Hilbert column estimates.",
+        "searches": [
+          "Fedele §1.1, §1.3; Montes-Rodríguez–Virtanen Theorem 3 and Corollary 1; Pushnitski–Yafaev §1.2; Resultary Hilbert eigenstrip and Cesàro commutator analogues"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "SCOPE-a-periodic-oscillation-law-for-generalized-ces-ro-commutators--992ea1cd7ba8 treats generalized discrete Cesàro commutators and a Hilbert–Schmidt logarithmic law."
+        ],
+        "reasoning": "Its operator and Hilbert–Schmidt observable are different: a trace-square asymptotic does not identify signed threshold counts, the essential band or a.c. multiplicity.",
+        "searches": [
+          "Resultary and literature search: periodic diagonal Hilbert matrix commutator, variance and signed logarithmic Weyl law"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Fedele gives the classical count for H/π; the exact periodic commutator formula returned by Resultary was the assigned record itself."
+        ],
+        "reasoning": "The scalar coefficient and Hilbert spectrum are known inputs. A commutator table or exact signed law on the stated class was not found in the bounded comparison.",
+        "searches": [
+          "Resultary: σ-determined Hilbert commutator signed eigenvalue counts",
+          "Fedele equations (1.8)–(1.10) and Montes-Rodríguez–Virtanen §3"
+        ]
+      },
+      "rationale": "For the repaired claim, the genuinely distinct content is the periodic diagonal commutator's variance-only channel and signed counting classification, with a trace-class weighted-tail criterion. Neither the scalar Hilbert input nor broader scalar Hankel theorems state that operator identification. The corrected constant case is a boundary clarification, not claimed as a new scientific result.",
+      "residual_risks": [
+        "Older matrix-valued Hankel or multichannel formulations may subsume the reduction; no exhaustive priority claim.",
+        "Original Hilbert eigenstrip text was not retrievable; its mathematical relationship is not ruled out by an index summary."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies classical input, not the periodic diagonal reduction",
+          "evidence": [
+            "γ̂(j)=1/[π(j+1)]; positive Hilbert density π⁻² arcsech(s), negative density zero."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1903.11572",
+          "material_read": "§1.1 (1.8)–(1.10), pp. 2–3, OA text offsets 7000 and 11200; §1.3 Theorem 1.2, pp. 5–6, offset 20500",
+          "method": "Lawful OA PDF passages",
+          "title": "The spectral density of Hankel operators with piecewise continuous symbols",
+          "trigger": "Exact Hilbert counting normalization; broader signed-density comparison"
+        },
+        {
+          "assessment": "Supplies the scalar Hilbert spectral theorem",
+          "evidence": [
+            "Multiplication by π/cosh(πt) on the positive half-line with positive weight gives simple purely a.c. spectrum [0,π]."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2411.07324",
+          "material_read": "§3 Theorem 3 and Corollary 1 pp. 7–8, offsets 13000 and 19000",
+          "method": "Lawful OA PDF passages",
+          "title": "The Hilbert matrix done right",
+          "trigger": "Pure a.c. multiplicity and normalization"
+        },
+        {
+          "assessment": "Related scalar model, not direct coverage",
+          "evidence": [
+            "Multiplicity-one bands assigned to jumps of a scalar Hankel symbol with log-Hölder assumptions."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1408.2361",
+          "material_read": "§1.2 (1.3)–(1.4), pp. 2–3, offsets 2600 and 6600",
+          "method": "Lawful OA PDF passages",
+          "title": "Spectral and scattering theory of self-adjoint Hankel operators with piecewise continuous symbols",
+          "trigger": "Potential broader scattering and a.c. band theorem"
+        },
+        {
+          "assessment": "Different operator and spectral quantity",
+          "evidence": [
+            "Variance-dependent Hilbert–Schmidt logarithmic coefficient for a generalized Cesàro operator, not the selfadjoint Hilbert commutator bands/counts."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-a-periodic-oscillation-law-for-generalized-ces-ro-commutators--992ea1cd7ba8",
+          "material_read": "Opening RESULT.md Finding, local-mirror offset 0",
+          "method": "Resultary and local mirror",
+          "title": "A periodic oscillation law for generalized Cesàro commutators",
+          "trigger": "Closest available periodic diagonal commutator analogue"
+        },
+        {
+          "assessment": "Unresolved, not a whole-document noncoverage judgment",
+          "evidence": [
+            "Description concerns diagonal double-Hilbert eigenstrip defects, an H^(1/2) limit and coefficients from squared jumps."
+          ],
+          "identifier_or_url": "2026/9/19/SCOPE-half-sobolev-law-truncated-diagonal-hilbert-eigenstrips--ba346044",
+          "material_read": "Index description only; original text unavailable from mirror",
+          "method": "Resultary search and attempted local-mirror retrieval",
+          "title": "Half-Sobolev law for truncated diagonal Hilbert eigenstrips",
+          "trigger": "Potential relation via diagonal Hilbert matrices and logarithmic coefficients"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The repaired theorem identifies one scalar statistic of arbitrary periodic patterns that fixes three nontrivial infinite-dimensional and finite-section spectral invariants, with an explicit stability class and mechanism. It does not claim to classify singular spectrum or general-period outliers. The degenerate-case correction does not remove the substantive nonconstant family or its stability theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

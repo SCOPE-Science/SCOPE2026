@@ -1,0 +1,177 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:22:40.218752Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–67",
+        "VERIFICATION.md, verify.py and verify_output.txt (read as evidence, not executed)",
+        "Own Floyd–Warshall plus subset enumerator, replay: node /workspace/branches/frozen_review_checks.js (books output)"
+      ],
+      "rationale": "The only pairs at distance three are x_i,y_j for i≠j. Their three geodesics have edge sets {a_i,h,b_j}, {a_i,a_j,c_j}, {c_i,b_i,b_j}; every other shortest path has at most two edges. Thus whenever at least two a-edges (respectively b-edges) are selected, the chosen c-indices must avoid their indices; with the spine present the two end-index sets must have one empty or be the same singleton. These necessary and sufficient conditions give the disjoint binomial counts. Independently, with c-indices avoiding A∪B, the per-page weight is W=1+3z+z²; inclusion–exclusion for |A|,|B|≤1 gives V=W^r−2[(1+2z)^r+rz(1+z)(1+2z)^(r−1)]+(1+z)^r+(2rz+rz²)(1+z)^(r−1)+r(r−1)z²(1+z)^(r−2). This verifies the stated total after substituting z=1. With no spine and both end-index sets large, |S|≤r+|A∩B|≤2r, with 2r forcing all a- and b-edges. The other no-spine cases reach at most r+2. With the spine the size r+3 is attained only by both ends of one page and all c-edges. This gives the small cases and the tie at r=3. An independent shortest-path and subset computation for r=2,3,4,5 found 6,18,36,60 obstructions; totals 73,297,1195,4949; and top coefficients 2,4,1,1.",
+      "residual_risks": [
+        "The checks for small r corroborate the obstruction argument, not the all-r claim on their own."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "A square book with at least two pages is 2-connected and noncomplete, so the block-graph results do not apply.",
+          "The partial-cube lemma certifies the union of the K_2 factor class and one page class, an r+3 set, without counting all admissible subsets."
+        ],
+        "reasoning": "The closest general construction supplies some sets, but cannot by itself exclude other maximizers or even achieve the maximum for r≥4 when 2r>r+3.",
+        "searches": [
+          "arXiv:2302.01587 §3",
+          "arXiv:2207.07357, k=3 specialization and Lemma 4.1",
+          "Cao–Ji–Wang 10.1007/s40840-025-01873-x, access attempted"
+        ]
+      },
+      "checked_sources": [
+        "Primary arXiv:2105.04292, 2302.01587, 2207.07357, 2509.22571 at the stated loci",
+        "Resultary 384eef95b95d (statement and scope); f3101a5990fe (summary only)",
+        "DOIs 10.1007/s40840-025-01873-x and 10.1080/09728600.2026.2637971 (limited access only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The grid uniqueness result concerns grids with both path orders at least 5. The partial-cube construction gives the page-specific spine sets but supplies neither the other maximizing pattern nor an upper bound matching it. The inspected visibility polynomial counts vertex sets under a different geodesic test."
+        ],
+        "reasoning": "The required exhaustive three-type obstruction classification and then the all-cardinalities count are not recovered by the known scalar values or inclusion of certain valid constructions.",
+        "searches": [
+          "Compare arXiv:2105.04292 Theorems 4.1–4.2, arXiv:2207.07357 Lemma 4.1 and frozen RESULT.md lines 36–67",
+          "arXiv:2509.22571 p. 1 for the visibility-polynomial predicate"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "B_2 is P_3 □ P_2; the grid theorem gives its maximum 5, not an enumerator or two labeled extremizers.",
+          "The catalogue visibility record gives 2r with the unique maximum set of non-spine vertices, not edge subsets with no three in a geodesic."
+        ],
+        "reasoning": "The graph alias identifies the established scalar instance. A common number for r≥3 under a different predicate is not an equivalence: B_2 already has visibility value 4 versus edge general position 5.",
+        "searches": [
+          "Resultary and literature lookups for square-page/quadruple-page book edge general position, also tree-prism case K_(1,r) □ K_2 and visibility comparisons",
+          "Manuel–Prabha–Klavžar arXiv:2105.04292 Theorem 4.1",
+          "Resultary 384eef95b95d, same square-page book family"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "384eef95b95d gives vertex-visibility optima on the same graph; f3101a5990fe is identified only by its catalogue summary as an ordinary vertex-general-position polynomial. Neither is an inspected edge-GP coefficient formula."
+        ],
+        "reasoning": "Even the first coefficient after the empty subset differs for edge and vertex polynomials on the same book (3r+1 vs 2r+2 for r≥2). Targeted searches found no exact enumerator, which alone would not establish distinctness.",
+        "searches": [
+          "Resultary semantic lookups for complete edge-GP subset census on quadrilateral books and square-page/general-position polynomial aliases",
+          "Resultary 384eef95b95d and f3101a5990fe"
+        ]
+      },
+      "rationale": "The full labeled edge-subset polynomial and resulting all-family maximum-set classification are distinct in the assessed evidence. The known 3-by-2 grid maximum and union-of-two-Θ-classes candidates are credited; vertex general position and mutual visibility on the same graph are not the tested edge predicate. This is a bounded positive judgment, not exhaustive priority.",
+      "residual_risks": [
+        "The Cao–Ji–Wang paper could overlap at least the scalar maximum; inaccessible full text and possible unindexed tree-prism work limit priority conclusions."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers gp_e(B_2)=5 only in this family; cited uniqueness theorem does not apply to B_2",
+          "evidence": [
+            "P_3 □ P_2 has maximum 5; grid uniqueness has both path orders at least five."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2105.04292",
+          "material_read": "Theorems 4.1 and 4.2, pp. 6 and 9, OA offsets 18134 and 27180",
+          "method": "Primary OA PDF passages",
+          "title": "Edge General Position Problem",
+          "trigger": "Grid theorem for the same graph at r=2"
+        },
+        {
+          "assessment": "Block-graph scope excludes the books",
+          "evidence": [
+            "A whole square-page book is one noncomplete block."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2302.01587",
+          "material_read": "§3, p. 7, OA offset 16561",
+          "method": "Primary OA PDF passage",
+          "title": "Extremal edge general position sets in some graphs",
+          "trigger": "Candidate broader graph-class theorem"
+        },
+        {
+          "assessment": "Known construction only, not a complete classification on the book",
+          "evidence": [
+            "k=3 is ordinary edge general position; two Θ-classes may be combined. This gives r+3 edges when combining the K_2 class with one page class."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2207.07357",
+          "material_read": "p. 2, OA offsets 4424 and 5500, and Lemma 4.1, p. 8, offset 17350",
+          "method": "Primary OA PDF passages",
+          "title": "Generalization of edge general position problem",
+          "trigger": "Generalized predicate and partial-cube prism representation"
+        },
+        {
+          "assessment": "Comparable geometry but different vertex predicate",
+          "evidence": [
+            "Four visibility values equal 2r and the unique maximum set is the non-spine vertices. For r=3 the frozen edge result has four optimum sets."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-four-mutual-visibility-parameters-of-square-page-book-graphs--384eef95b95d",
+          "material_read": "Mirrored RESULT.md, Finding and assumptions, offsets 0–1553 and 1350–2744",
+          "method": "Resultary search and local mirror",
+          "title": "Four mutual-visibility parameters of square-page book graphs",
+          "trigger": "Same square-page books and comparable extremizers"
+        },
+        {
+          "assessment": "Summary indicates vertex general position, not evidence about every claim in the unavailable text",
+          "evidence": [
+            "Summary describes a polynomial for vertex sets."
+          ],
+          "identifier_or_url": "Resultary f3101a5990fe",
+          "material_read": "Catalogue summary only; exact mirror file unavailable",
+          "method": "Resultary lookup and attempted mirror retrieval",
+          "title": "Strict log-concavity of general-position polynomials of square-page book graphs",
+          "trigger": "Same family with a general-position polynomial"
+        },
+        {
+          "assessment": "Counts vertex mutual-visibility subsets, a different predicate",
+          "evidence": [
+            "The polynomial is defined via cardinalities of vertex mutual-visibility sets."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2509.22571",
+          "material_read": "p. 1, OA offset 0",
+          "method": "Primary OA PDF passage",
+          "title": "Visibility Polynomial of Some Graph Classes",
+          "trigger": "Potential enumerator equivalence"
+        },
+        {
+          "assessment": "Scope remains an access risk, not evidence of noncoverage",
+          "evidence": [
+            "Frozen reference 4 and indexed title identify the paper."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s40840-025-01873-x",
+          "material_read": "Identification only; no readable primary passage recovered",
+          "method": "Lawful DOI/Springer retrieval attempts and alternate-copy lookup",
+          "title": "The edge general position number of some graphs",
+          "trigger": "Same invariant; potential broader scalar theorem"
+        },
+        {
+          "assessment": "Abstract concerns an edge variant of total visibility; no whole-text exclusion",
+          "evidence": [
+            "The abstract describes total visibility rather than defining the frozen no-three-on-any-geodesic invariant."
+          ],
+          "identifier_or_url": "https://doi.org/10.1080/09728600.2026.2637971",
+          "material_read": "Indexed abstract excerpt only; full text inaccessible",
+          "method": "Literature lookup and OA attempt",
+          "title": "Edge total mutual-visibility in graphs",
+          "trigger": "Edge-predicate alias check"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 16–31 and 36–67",
+        "The inspected grid/partial-cube comparisons and independently enumerated small extremizers"
+      ],
+      "rationale": "The diameter-three book is a natural family with many competing geodesics between page interiors. The polynomial counts every size of admissible set, beyond a scalar maximum, and the case analysis explains a switch from spine-based optima to a unique spine-free optimum, with a tie at exactly three pages. Thus it supplies a usable exact enumerator and structural information, not a finite list or a routine restatement of the grid maximum.",
+      "residual_risks": [
+        "Value is for this family and predicate; no extension to arbitrary prisms or polygonal books is shown."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

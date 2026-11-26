@@ -1,0 +1,188 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:53:54.055158Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–39; VERIFICATION.md and verify.py inspected, not executed.",
+        "Independent bounded replay: python3 /tmp/opencode/review-stirling-4.py generates by recursive first-pair decomposition instead of largest insertion, directly standardizes erasures and checks the three forms, all fixed-pair counts and exact mean for orders 2–6 (10,395 words at order 6)."
+      ],
+      "rationale": "The two copies of the largest label are adjacent, with a unique parent word and gap. Restrict equal erasures for i<j to standardized labels ≤j−1, obtaining Δ_i(w_≤j)=w_≤(j−1). At the birth step, let p count the letters before the old maximum pair in w_≤(j−1), and g be the insertion gap of jj in that word. To match the position of the maximal pair in the two descendants one must have g−(number of copies of i before g)=p. When i=j−1, its three solutions are the gaps immediately before, inside and after ii; after deleting the surviving maximum, both lower words coincide. Otherwise the lower words coincide by induction; with the inductively prescribed configurations through j−1, the gap equation has a unique solution in each case: inside the old maximum pair on a nested chain, just after it on the increasing row, and just before it on the decreasing row. For a later inserted pair equality survives exactly when equal numbers of copies of i and j precede the insertion gap, since deletion standardizes that new pair to the maximum in both descendants. In a chain this excludes only the two stretches between corresponding opening and closing endpoints, 2(j−i) gaps; in a sibling row it excludes all 2(j−i)+1 internal gaps. An insertion cannot restore an already failed collision because one can erase the later maximum from equal descendants. This establishes necessity, sufficiency and the gap product, starting with one extension per geometry for each order-i word. In each displayed geometry all adjacent pairs collide, hence the interval equivalence and L formula. For the expected number of nested adjacent pairs, the birth probability 1/(2i+1) times the telescoping survival probability (2i+1)/(2n−1) gives (n−1)/(2n−1) in total. For siblings the update multiplier is (2n−4)/(2n−1) and the birth term 2/(2n−1), giving the fixed mean 2/3 from n=2. The extreme pair i=1,j=n gives precisely the three one-output words.",
+      "residual_risks": [
+        "Finite tests supplement, not replace, the gap and cancellation proof; the order-seven count in the frozen verification is reported evidence, not independently re-executed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Janson’s tree insertion has 2n+1 possible gaps and gives the plateau/leaf mean (2n+1)/3, a different statistic. Bóna gives the same plateau mean.",
+          "Brualdi–Dahl also discuss reducing multiplicity by deleting one copy of each label, not choosing one label and deleting both copies.",
+          "The DOI lookup for Deletions in Multipermutations did not expose the paper full text; deletion-sphere context makes this a plausible comparison but not established coverage."
+        ],
+        "reasoning": "The abstract insertion construction does not specify which gaps preserve equality of two arbitrary rank-standardized erasures. The latter needs label-order and position constraints.",
+        "searches": [
+          "Bóna arXiv:0708.3223 Stirling statistics",
+          "Janson arXiv:0803.1129 tree representation and insertion",
+          "Brualdi–Dahl Stirling multipermutations",
+          "Sala–Gabrys–Dolecek DOI 10.1109/ISIT.2014.6875338"
+        ]
+      },
+      "checked_sources": [
+        "Three Resultary records above; primary passages of Bóna, Janson, Brualdi–Dahl, Gabrys et al. and Ma et al.; attempted Sala–Gabrys–Dolecek."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The frozen gap test compares counts of passed copies of i and j at a common position; the compatibility at their birth depends on rank displacement and labels i,…,j. It yields 2(j−i) or 2(j−i)+1 destructive gaps depending on geometry.",
+          "Prior plateau means, maximum packing at one order and unlabeled tree chains do not state a label-pair survival product or all-order expected number of distinct standardized outputs."
+        ],
+        "reasoning": "Neither specializing a prior expected plateau count nor replacing Dyck parenthesis pairs with ordered labels mechanically produces the label-resolved result; the cancellation argument adds distinct information.",
+        "searches": [
+          "Compare arbitrary erase-label pair with maximal-pair AM-reduction, Stirling plateau survival, Dyck unary/leaf collision summary and five-label capacity verification"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The directly inspected five-label Stirling capacity record has exactly the same channel but studies maximum packing of disjoint decks at n=5.",
+          "Brualdi–Dahl Theorem 9 repeatedly erases the adjacent *largest* pair to characterize membership. Gabrys et al. standardize after deleting one symbol from an ordinary permutation.",
+          "The Dyck record’s catalogue summary describes unary chains and consecutive leaf-sibling runs after matched-parenthesis erasure; full local text was unavailable."
+        ],
+        "reasoning": "Forgetting labels gives a related noncrossing tree channel, but forgets the consecutive label order and rank shifts here. Even the near-match Dyck summary does not supply the label-resolved criterion or pair counts. No full-text negative claim is made about it.",
+        "searches": [
+          "Resultary: Stirling permutations whole-label-pair deletion, Dyck matched-pair erasure, set-partition deletion collisions",
+          "Brualdi–Dahl AM-closed pattern characterization; Gabrys et al. rank-standardized single deletion"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected n=5 capacity record gives capacity 33 and reports three one-output sources among 945, one finite overlap.",
+          "The set-partition census deletes two positions in unlabeled partitions. Ma et al. tabulate descent/ascent–plateau code statistics, not distinct erasure outputs."
+        ],
+        "reasoning": "A finite histogram and an exact capacity do not establish the all-order theorem, even in the same channel; counts of word-pattern statistics and position erasures are different enumerators.",
+        "searches": [
+          "Resultary: exact one-pair deletion capacity of five-label Stirling permutations, matched-pair erasure in Dyck words, exact distance-resolved collisions of set partitions",
+          "Ma et al. Stirling Permutation Codes. II, arXiv:2406.04211v2"
+        ]
+      },
+      "rationale": "The full interval classification and fixed-pair law for standardized erasure of an arbitrary repeated label, together with the resulting all-order mean, are supported as distinct. Largest-pair deletion, plateau counting and standardization for ordinary permutations are prior techniques or different statistics. The same-channel finite capacity record already reports the order-five deck-size-one count; that finite instance is not credited as novel.",
+      "residual_risks": [
+        "The unavailable full Dyck record could clarify the extent of transfer through a tree model; same-day indexing does not resolve priority.",
+        "The full Deletions in Multipermutations paper and unindexed equivalent results remain possible sources of overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact order-five overlap for number of one-output sources, not the all-order result",
+          "evidence": [
+            "Capacity 33; three one-output order-five sources among 945."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-exact-one-pair-deletion-capacity-of-five-label-stirling-permutat--0b9ab94c20c4",
+          "material_read": "RESULT.md Finding, Verification and Relationship to prior work, offsets 0 and 2689",
+          "method": "Local Resultary mirror",
+          "title": "Exact one-pair deletion capacity of five-label Stirling permutations",
+          "trigger": "Identical channel and an exact finite deck computation"
+        },
+        {
+          "assessment": "Material structural risk, not a verified equivalent",
+          "evidence": [
+            "Summary describes a matched-parenthesis Dyck-word deletion channel, with unary chains and consecutive leaf siblings."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-matched-pair-erasure-in-Dyck-words-collision-paths-and-an-algebr--83c34875495f",
+          "material_read": "Resultary indexed summary only; exact record unavailable from local mirror",
+          "method": "Local Resultary catalogue and attempted mirror lookup",
+          "title": "Matched-pair erasure in Dyck words: collision paths and an algebraic distribution",
+          "trigger": "Closest structural overlap, chains and leaf-sibling runs"
+        },
+        {
+          "assessment": "Different source and erasure operation",
+          "evidence": [
+            "Position erasure in unlabeled set partitions, not whole repeated labels in ordered Stirling words."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-exact-distance-resolved-collisions-of-one-deletion-set-partition--d07bd07e8019",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Exact distance-resolved collisions of one-deletion set partitions",
+          "trigger": "Similar collision census under another deletion model"
+        },
+        {
+          "assessment": "Defines underlying words and treats local statistics",
+          "evidence": [
+            "Three words at order two; plateau mean (2n+1)/3."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0708.3223",
+          "material_read": "PDF pp. 1–3, offsets 1580, 3956–4622 and 5482",
+          "method": "OA primary-text passages",
+          "title": "Real Zeros and Normal Distribution for Statistics on Stirling Permutations Defined by Gessel and Stanley",
+          "trigger": "Closest classical statistics and base cases"
+        },
+        {
+          "assessment": "Covers largest insertion and plateau mean, not survival of pair-erasure conflicts",
+          "evidence": [
+            "2n+1 gap insertion construction and leaf/plateau correspondence."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0803.1129",
+          "material_read": "PDF pp. 2–3, offsets 2500 and 6400",
+          "method": "OA primary-text passages",
+          "title": "Plane Recursive Trees, Stirling Permutations and an Urn Model",
+          "trigger": "Tree representation and potential exact recurrence implication"
+        },
+        {
+          "assessment": "Deletion as membership/avoidance and multiplicity reduction, not this collision equivalence",
+          "evidence": [
+            "Stirling 2-permutations avoid 212; AM-closed means recursively deleting adjacent maxima."
+          ],
+          "identifier_or_url": "Brualdi–Dahl, Multipermutations and Stirling Multipermutations",
+          "material_read": "PDF pp. 10–11 and p. 16 Theorem 9, offsets 31000 and 48000",
+          "method": "OA primary-text passages",
+          "title": "Multipermutations and Stirling Multipermutations",
+          "trigger": "Prior exact repeated-label deletion characterization"
+        },
+        {
+          "assessment": "Same order standardization but ordinary permutations and single-symbol channel",
+          "evidence": [
+            "Removes one distinct symbol before standardization."
+          ],
+          "identifier_or_url": "https://doi.org/10.1109/ISIT.2014.6875337",
+          "material_read": "PDF pp. 1–2, offsets 0 and 5200",
+          "method": "OA primary-text passages",
+          "title": "Single-Deletion-Correcting Codes over Permutations",
+          "trigger": "Prior use of standardized deletion outputs"
+        },
+        {
+          "assessment": "Different meaning of codes and polynomials",
+          "evidence": [
+            "Studies descent statistics and ascent–plateau polynomials."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2406.04211v2",
+          "material_read": "PDF p. 1, offset 0",
+          "method": "OA primary-text passage",
+          "title": "Stirling Permutation Codes. II",
+          "trigger": "Possible exact Stirling deck code result"
+        },
+        {
+          "assessment": "No full-text comparison possible; not evidence of noncoverage",
+          "evidence": [
+            "Reported scope includes deletion sphere sizes and code constructions; coverage of this whole-label channel is unresolved."
+          ],
+          "identifier_or_url": "https://doi.org/10.1109/ISIT.2014.6875338",
+          "material_read": "DOI and secondary description; full text not reached",
+          "method": "Lawful OA attempt",
+          "title": "Deletions in Multipermutations",
+          "trigger": "Potential broader result on deletion-sphere sizes in repeated-symbol words"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–25 and 30–39; finite same-channel capacity comparison."
+      ],
+      "rationale": "The geometry identifies exactly which labels a receiver cannot distinguish under complete-label deletion, not merely how often some ambiguity occurs. The products and mean quantify typical loss of distinct outputs, while the extreme three words identify complete ambiguity; these are natural channel-specific invariants independent of the harder packing question.",
+      "residual_risks": [
+        "No inference is made about partial deletion, higher multiplicities or optimal code capacity."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:52:53.616301Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Along a successful sequence every forced color is required in every proper extension, so a successful seed has one proper completion and counting its restrictions does not duplicate it. Two blank peripheral vertices in the same petal cannot be first among that pair to color, even if the hub is colored. A colored hub therefore allows any pattern of at most one peripheral blank per petal. A blank hub must be first to color, because each blank peripheral has at most m-2 visible neighbors before it. Within restrictions of a fixed completion this is possible exactly when all m-1 non-hub colors are visible somewhere, excluding exactly m-1 patterns, each with one peripheral blank of the same color in every petal. Multiplying by A=m((m-1)!)^k gives the stated B, and weighting each term by p^(N-j)(1-mp)^j yields FC, including the endpoints as a polynomial identity. The top coefficient A[(m-1)^k-(m-1)] is positive for k>=2 and m>=3; its cancellation at k=1 agrees with the complete-graph boundary. A separate finite reverse-step enumeration from a fixed proper completion (/workspace/branches/replay/r2_reverse.py) matched coefficients for seven pairs, including k=3,m=4 and k=2,m=5. That check corroborates the proof and does not extend it to excess palettes.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Resultary theorem covers equal and unequal petal sizes and states domain and probability formulas and a blank-center neighbor-color criterion.",
+          "Farr defines the local rule and treats complete graphs; Farr–Morgan gives a generic recurrence rather than the bouquet formula."
+        ],
+        "reasoning": "In d80fcc5f6b79 take a=m-1, q=m, B=k, S=0 and U=V=1; the seed exponent becomes k(m-2). All hypotheses hold for the assigned W. The general recurrence in the literature is useful framework but not required for the demonstrated coverage.",
+        "searches": [
+          "Resultary d80fcc5f6b79, unequal clique bouquets at the chromatic palette",
+          "Farr arXiv:2609.17108v1 and Farr–Morgan arXiv:2406.15746v1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary d80fcc5f6b79",
+        "Resultary c1051e120f18",
+        "Resultary e268651435bd",
+        "arXiv:2609.17108v1",
+        "arXiv:2406.15746v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The specialization yields A z^{k(m-2)}[(1+z)(z+m-1)^k-(m-1)] and the same FC polynomial. Its minimum-domain coefficient is A[(m-1)^k-(m-1)].",
+          "The general blank-hub rule requires q-1 colors in its initially colored neighborhood."
+        ],
+        "reasoning": "The domain polynomial equals z^N B(1/z). Setting all petals to maximum size makes the hub-color requirement equivalent to rejecting the patterns where every petal omits the same peripheral color. Both the obstruction and all numerical consequences already follow with no further theorem. Farr's complete-graph case on its own would only explain k=1.",
+        "searches": [
+          "Resultary d80fcc5f6b79, Finding and formula derivation offsets 0, 700 and 4600",
+          "Farr arXiv:2609.17108v1, Proposition 6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "c1051e120f18, offset 734, gives the equal-windmill polynomial graded by seed size, with peripheral clique size m'=m-1.",
+          "e268651435bd gives the equal-case enumerator, minimum count and probability formula with q=m and n=k (offsets 870, 1358, 1702)."
+        ],
+        "reasoning": "For a graph of order N, replacing the marked variable by its inverse and multiplying by its Nth power converts blank-count to colored-domain count. After that reversal and relabelling, the formulas coincide, not just their minimum degrees. The latter record is indexed later and is corroborative of equivalence; it is not the basis for priority.",
+        "searches": [
+          "Resultary: exact forced-colouring polynomials of clique bouquets and windmills, seed size, blank hub",
+          "Resultary c1051e120f18 and e268651435bd, exact formulas"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary c1051e120f18 contains an exact equal-petal enumerator and minimum size, not merely an example or coefficient table.",
+          "Resultary d80fcc5f6b79 records formulas for the full family."
+        ],
+        "reasoning": "A search for separately tabulated coefficients is unnecessary to establish coverage because the indexed formulas give every coefficient for every claimed parameter pair. The literature lookup's lack of a relevant hit is not evidence of absence.",
+        "searches": [
+          "Local Resultary search for equal clique windmills and forced seed enumerator",
+          "Targeted literature search for chromatic-palette bouquet forcing polynomials (no relevant returned hit)"
+        ]
+      },
+      "rationale": "Distinct Resultary records already cover the main statement. One gives the theorem for arbitrary petal sizes at the chromatic palette; the assigned equal-petal enumerator, probability polynomial, center-blank obstruction and minimum seed count and multiplicity all specialize from it. A separate record gives the equal-case seed polynomial directly after reindexing. This is demonstrated statement coverage, not a conclusion about historical authorship or an inference from date alone.",
+      "residual_risks": [
+        "The assessment establishes equivalent coverage, not complete publication history or priority between authors."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the assigned result as an exact special case",
+          "evidence": "Chromatic palette, colored-domain and probability polynomials, center-blank visibility condition and minimum-domain formula specialize as above.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-exact-forcing-polynomials-and-parity-sensitive-real-zeros-for-cl--d80fcc5f6b79/RESULT.md",
+          "material_read": "Finding and formula derivation at offsets 0, 700 and 4600",
+          "method": "Local Resultary mirror",
+          "title": "Exact forcing polynomials and parity-sensitive real zeros for clique bouquets",
+          "trigger": "Potential stronger exact theorem for unequal bouquets"
+        },
+        {
+          "assessment": "Directly equivalent equal-case enumerator",
+          "evidence": "Peripheral order m' is one less than the full petal order here; degree counts seeds, not blanks.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-forced-colouring-polynomials-of-clique-windmills--c1051e120f18/RESULT.md",
+          "material_read": "Equal-windmill formula at offset 734",
+          "method": "Local Resultary mirror",
+          "title": "Forced-colouring polynomials of clique windmills",
+          "trigger": "Potential direct equivalent under petal-size convention"
+        },
+        {
+          "assessment": "Equivalent, indexed later",
+          "evidence": "Putting q=m and n=k gives the same formulas; the conclusion does not depend on the date of this record.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-forcing-colouring-spectrum-of-clique-windmills--e268651435bd/RESULT.md",
+          "material_read": "Formula, minimum count and probability at offsets 870, 1358, 1702",
+          "method": "Local Resultary mirror",
+          "title": "Exact forcing-colouring spectrum of clique windmills",
+          "trigger": "Additional matching statement"
+        },
+        {
+          "assessment": "Rule and one-clique formula are established; no noncomplete-bouquet formula in inspected passages",
+          "evidence": "The complete-graph result concerns the k=1 boundary, outside the claimed novelty.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.17108",
+          "material_read": "PDF pp. 2, 7–8 and 10; definitions, generating relation, Proposition 6",
+          "method": "OA primary PDF, bounded passages",
+          "title": "The forced colouring function of a graph",
+          "trigger": "Primary definition and possible closed-form precedent"
+        },
+        {
+          "assessment": "Generic recurrence, not the bouquet coefficient formula as stated",
+          "evidence": "The formula sums over domains; Theorem 6 is a recurrence on chromatically labelled graphs.",
+          "identifier_or_url": "https://arxiv.org/abs/2406.15746",
+          "material_read": "PDF pp. 13–14 and 22, including Theorem 6",
+          "method": "OA primary PDF, bounded passages",
+          "title": "Graph polynomials: some questions on the edge",
+          "trigger": "Earlier forcing probability recurrence"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The forcing invariant and hub interaction are mathematically natural. But as a separate claimed finding this is the equal-petal specialization of an already explicit broader formula and is also available directly for equal petals. Reversing the count grading does not add a new structural result or independently needed unknown exact fact. No distinct valuable remainder was identified to repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

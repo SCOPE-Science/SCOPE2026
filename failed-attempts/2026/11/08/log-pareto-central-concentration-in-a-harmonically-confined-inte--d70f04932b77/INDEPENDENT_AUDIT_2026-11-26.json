@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T10:00:33.032117Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The run-start map is z ↦ exp(-μU)(a+Bz), globally contracting by at most B and preserving [0,L]. Backward iteration gives the unique entrance law even for real initial positions; finite mean h+θ/(α−1) gives the equilibrium occupation normalization. The post-run Y belongs to [a,L], independently of the following rest. Changing variables in the age measure S(t)dt/m gives the factor 1/(μmx) and S(log(Y/x)/μ); integrating the same age measure from log(Y/x)/μ to infinity gives θ[1+log(Y/x)/(μθ)]^(1−α)/[(α−1)m]. Uniform boundedness of log(Y/L) gives both constants. The active trajectory has occupation density bounded by 1/[mμ(L−x)] at small x and contributes no boundary atom. Finite ages and interior entrance positions rule out mass at zero; substituting x=L exp(−s) in the inverse-moment integral gives an exponentially divergent integral. The exponential-rest comparison should be read as an algebraic law, not a divergence at every exponential rate. In-house quadrature of the age integral at both entrance endpoints for two parameter sets corroborated the normalization; replay: python -B /workspace/independent_checks.py 1. This finite check does not prove the limits.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Datta–Beta–Großmann use arbitrary waiting laws but derive free-space transport; Sun–Ye–Podgornik use exponential run and tumble durations; Basu et al. use Markov jump rates."
+        ],
+        "reasoning": "The arbitrary waiting laws in free space do not yield the trapped invariant occupation. The exact trap results inspected do not include Lomax zero-velocity intervals in a deterministic positive-run cycle.",
+        "searches": [
+          "piecewise deterministic Markov process deterministic run heavy-tailed resting time harmonic trap stationary center",
+          "arXiv:2406.15277v3; arXiv:2409.00578v2; arXiv:1910.10083v1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 21–91 and 97–111; VERIFICATION.md; check.py (inspected only)",
+        "Resultary 918a353be34f and d2cdec50cb7e",
+        "arXiv:2406.15277v3, 2401.01576v2, 1910.10083v1, 2409.00578v2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior edge theorem integrates S(a) da/(2 mean hold) and averages H(log(D/ε)); it assumes identical holding distributions. Basu et al. give algebraic, finite, and critical logarithmic behavior under exponential switches."
+        ],
+        "reasoning": "The stated earlier theorem cannot be applied by assigning different laws to identically distributed intervals, nor does a small-ball asymptotic alone imply the density asymptotic. Its proof transfers very directly, which materially limits value even though the precise asserted regime is distinct.",
+        "searches": [
+          "Resultary 918a353be34f, original scope and proof §§3–5, offset 3200; arXiv:1910.10083v1 abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 918a353be34f, Assumptions and scope and proof §§1–5; Farago–Smith arXiv:2401.01576v2, model pp. 1–2"
+        ],
+        "reasoning": "With y=2x/L−1 and time rescaled by μ, the flows become dy/ds=−y±1; the trap center here is precisely a support edge, not a different mathematical type of concentration. The holding law is asymmetric here and common iid in the earlier edge theorem; Farago–Smith use sign-changing velocities, not the stated deterministic/heavy-tailed pair.",
+        "searches": [
+          "intermittent active swimmer zero velocity rests heavy-tailed off periods harmonic confinement",
+          "alternating renewal shot noise harmonic confinement heavy-tailed zero-velocity intervals stationary density"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 918a353be34f and d2cdec50cb7e inspected at original statement level; self-hit excluded."
+        ],
+        "reasoning": "The first gives coefficient 1/2 for one-edge small balls with common unit-scale Lomax holds, not the density with unequal holding laws. The second treats signed exponential runs and stationary Laplace-transform moment formulas, not the central density or inverse moments.",
+        "searches": [
+          "harmonic trap Lomax inactive deterministic run logarithmic central stationary density inverse moments",
+          "log-Pareto singularity stationary position density PDMP renewal run rest harmonic trap"
+        ]
+      },
+      "rationale": "Limited to the exact asymmetric deterministic-run/Lomax-rest invariant law and its density coefficient. The strongest prior record has essentially the same mechanism but its stated theorem assumes a common iid heavy-tailed holding law across both signs and gives an edge probability rather than the asserted density in this model. Its theorem does not subsume this parameter regime. No claim of a new confinement mechanism or absolute priority is supported.",
+      "residual_risks": [
+        "The broad literature query on the exact Lomax model could not be admitted within the search wave; no inference of absence was made from it.",
+        "A general unequal-holding-law renewal occupation result could further reduce priority; the decisive earlier edge proof already makes the mathematical increment small."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantial method and conclusion overlap; shared iid law excludes the frozen pair of holding distributions.",
+          "evidence": "Common iid sign holds, age measure S(a)da/(2m), logarithmic Gibbs-free occupation concentration at support edges, all inverse boundary-gap moments infinite.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-logarithmic-edge-concentration-in-a-heavy-tailed-harmonically-tr--918a353be34f/RESULT.md",
+          "material_read": "Finding and Assumptions; proof §§1–5, offset 3200",
+          "method": "Local mirror, original text",
+          "title": "Logarithmic edge concentration in a heavy-tailed harmonically trapped process",
+          "trigger": "Strongest indexed match and affine equivalence of flows"
+        },
+        {
+          "assessment": "Different run law and invariant statistic; no priority inferred from same-day date.",
+          "evidence": "Exponential randomly signed runs, general rests, Laplace-transform formulas for moments and Erlang kurtosis crossover.",
+          "identifier_or_url": "Resultary 2026/11/8 d2cdec50cb7e",
+          "material_read": "RESULT.md, offset 0",
+          "method": "Local mirror",
+          "title": "Laplace-transform universality and a sharp kurtosis crossover",
+          "trigger": "Distinct same-day run–rest match"
+        },
+        {
+          "assessment": "Free-space rather than stationary confinement law.",
+          "evidence": "Non-Poisson shot noise and general waiting, transport and diffusion, external fields as extension.",
+          "identifier_or_url": "arXiv:2406.15277v3",
+          "material_read": "PDF pp. 1–2 and conclusion p. 12",
+          "method": "Primary OA passages",
+          "title": "The random walk of intermittently self-propelled particles",
+          "trigger": "Arbitrary holding laws and zero-speed turns"
+        },
+        {
+          "assessment": "Different velocities and waiting-model decomposition.",
+          "evidence": "Positive/negative directions and a numerical method for steady state with general waiting.",
+          "identifier_or_url": "arXiv:2401.01576v2",
+          "material_read": "PDF abstract and model pp. 1–2",
+          "method": "Primary OA passages",
+          "title": "Confined run and tumble particles with non-Markovian tumbling statistics",
+          "trigger": "Closest non-Markovian trapped model"
+        },
+        {
+          "assessment": "Markovian comparison, not the claimed heavy-tail relation.",
+          "evidence": "One jump rate γ, ± and zero velocities; algebraic, critical logarithmic, finite regimes.",
+          "identifier_or_url": "arXiv:1910.10083v1",
+          "material_read": "PDF p. 1 abstract with switching and three regimes",
+          "method": "Primary OA passage",
+          "title": "Exact stationary state of a run-and-tumble particle with three internal states in a harmonic trap",
+          "trigger": "Central singularities with inactive state"
+        },
+        {
+          "assessment": "Both holding times exponential, outside the claimed model.",
+          "evidence": "Exact moments/steady-state analysis with exponential run and tumble durations.",
+          "identifier_or_url": "arXiv:2409.00578v2",
+          "material_read": "PDF abstract and model p. 2",
+          "method": "Primary OA passages",
+          "title": "Exact moments for a run and tumble particle in a harmonic trap with a finite tumble time",
+          "trigger": "Harmonic trap with finite rests"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The physical trap center is a support endpoint in this one-sided process. The affine change of coordinates identifies the dynamics with the earlier two-sign edge model; replacing the opposite heavy-tailed hold by fixed h makes the entrance gap uniformly positive and removes the main estimate in that proof. The new coefficient is then the ordinary age normalization 1/(h+E U) and exponential-flow Jacobian, the density is a direct change of variables in the prior occupation identity, and the inverse-moment and no-atom consequences are immediate. No further invariant or scope extending beyond this simpler case is established. This is a correct and useful illustrative calculation, not a sufficiently substantive independent mathematical finding.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

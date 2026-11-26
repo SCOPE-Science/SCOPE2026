@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:35:10.261753Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Finite zero/one base-ℓ subset sums are distinct and strictly between zero and one. A nonempty sum with last nonzero digit at j has reduced denominator ℓ^j; choosing ℓ not to divide the gcd of the exponents of b makes its b-power irrational by an integer-valuation contradiction. The finitely many mantissas therefore lie in interiors of distinct sufficiently fine base-b cylinders. A common positive radius preserves every subset product within its cylinder, including singletons, and can make the prime intervals disjoint. Scaling by b^{L|S|} gives the same leading K digits for the divisor as for its assigned mantissa, and every divisor has at least K digits; different first K digits rule out a prefix relation. The prime number theorem in fixed proportional intervals supplies ≫ b^L/L primes per interval, and unique factorization gives distinct squarefree products bounded by Cb^{rL}. Taking L=floor(log_b(X/C)/r) gives b^{rL}>X/(Cb^r) and L comparable to log X, proving the bound for every sufficiently large real X at each fixed b,r. This works for perfect power bases and r=1. The OEIS existence conclusions use ω=Ω=r, not an identification of minima. The original verifier was inspected, not executed; python3 reproductions/frozen_math_checks.py independently confirmed primality and 127 distinct binary 13-bit prefixes for the seven-prime witness by integer division and shifts. This is only a finite witness.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The inspected extremal-set results concern the prime-list relation; no inspected source supplies a family with the ordinary base-b subset-product prefixes constrained as in the theorem."
+        ],
+        "reasoning": "An extremal result for ordered lists of primes or arbitrary codes does not place the digit strings of products in prescribed distinct cylinders. The fixed-interval prime number theorem provides primes, not the cylinder separation that makes the independent choices work.",
+        "searches": [
+          "Focused primary-literature search on prefix-free divisor code / binary divisor prefixes",
+          "Ahlswede–Khachatrian–Sárközy, §§1–2",
+          "Resultary search for quantitative squarefree divisor code constructions"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "OEIS A090335, A088862 and A090332",
+        "Ahlswede–Khachatrian–Sárközy 10.1007/978-1-4757-6048-4_1, §§1–2",
+        "Brown prime-prefix-free paper, p. 1",
+        "Bounded local Resultary and primary-literature searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The two least-number problems impose different factor-count constraints, but the same digit-prefix property. The extremal prime-list paper does not use that digit-prefix property."
+        ],
+        "reasoning": "The new squarefree construction implies existence in both least-number problems by well-ordering, not equality of their minima. Existence for the ambient sequence or finite lists of examples does not imply existence at each prescribed factor count.",
+        "searches": [
+          "OEIS A090335 and A088862, wording and examples",
+          "Ahlswede–Khachatrian–Sárközy, §2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The former definition uses initial segments of sorted prime-factor lists of squarefree integers; the latter forbids a prime among proper binary prefixes of one integer. The frozen property compares digit expansions of pairs of actual nonunit divisors."
+        ],
+        "reasoning": "These are distinct prefix relations; neither title is an equivalent formulation of the divisor-code condition. Local searches did not surface a material equivalent among the inspected ranked hits.",
+        "searches": [
+          "Local Resultary search for binary and all-base prefix-free divisor representations",
+          "Ahlswede–Khachatrian–Sárközy, §1",
+          "Brown, The Reciprocal Sum of the Prime-Prefix-Free Integers Converges Under the Riemann Hypothesis, p. 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A090335 counts distinct factors and has example 2093 at index 3. A088862 counts factors with multiplicity and has example 3125 at index 5. Both explicitly comment that they are conjectured to be defined at all indices. A090332 is the ambient binary nonunit-divisor code sequence."
+        ],
+        "reasoning": "The definitions match in base two. A finite list does not establish nonemptiness at every index, let alone a quantitative fixed-r count. The result is not a table of exact minima. If zero is included, 1 is the separate vacuous witness.",
+        "searches": [
+          "OEIS A090335",
+          "OEIS A088862",
+          "OEIS A090332"
+        ]
+      },
+      "rationale": "The inspected binary entries pose all-index existence; the proof supplies a construction in every integer base and a uniform-in-X lower bound for each fixed pair (b,r). Neither the finite OEIS tables nor literature using other prefix relations implies this construction or rate. This is a bounded assessment, not proof of historical priority.",
+      "residual_risks": [
+        "Unlocated work or independent notes could have settled the OEIS existence question without a cross-link. No claim of exhaustive priority is made.",
+        "The strongest general quantitative lower bound was not assessed for priority or sharpness; the frozen claim asserts only X/(log X)^r."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Matches the application, not a prior all-index proof",
+          "evidence": "Comments conjecture definition at every n; example a(3)=2093.",
+          "identifier_or_url": "https://oeis.org/A090335",
+          "material_read": "Entry definition, comments and example, offset 400",
+          "method": "Public database page",
+          "title": "OEIS A090335, smallest number with exactly n distinct prime factors whose nonunit divisors form a binary prefix code",
+          "trigger": "Exact binary distinct-factor existence problem"
+        },
+        {
+          "assessment": "Matches the second application, not a prior all-index proof",
+          "evidence": "Same conjecture comment and example a(5)=3125.",
+          "identifier_or_url": "https://oeis.org/A088862",
+          "material_read": "Entry definition, comments and example, offset 400",
+          "method": "Public database page",
+          "title": "OEIS A088862, smallest number with exactly n prime factors, possibly repeated, whose nonunit divisors form a binary prefix code",
+          "trigger": "Exact binary multiplicity-count problem"
+        },
+        {
+          "assessment": "Same property, no fixed-factor lower bound in the inspected statement",
+          "evidence": "The comment explicitly identifies the divisors >1 as the codewords.",
+          "identifier_or_url": "https://oeis.org/A090332",
+          "material_read": "Entry and comment, offset 400",
+          "method": "Public database page",
+          "title": "OEIS A090332, numbers with no divisors >1 that are prefixes of other divisors in binary representation",
+          "trigger": "Ambient set without prescribed factor counts"
+        },
+        {
+          "assessment": "Different relation",
+          "evidence": "The definition requires a|b and every prime of b/a to exceed every prime of a; the extremal-set results use that prime-list prefix.",
+          "identifier_or_url": "https://www.math.uni-bielefeld.de/ahlswede/homepage/public/151.pdf",
+          "material_read": "§1 p. 3 offset 0; §2 pp. 4–5 around offset 6900",
+          "method": "OA author-hosted paper text",
+          "title": "On prefix-free and suffix-free sequences of integers",
+          "trigger": "Closest historical terminology and an extremal counting result"
+        },
+        {
+          "assessment": "Different condition on a single integer",
+          "evidence": "Forbids an odd prime equal to a proper binary prefix of n, independent of its divisor code.",
+          "identifier_or_url": "https://jdb19937.github.io/prime-prefix-free/ppf.pdf",
+          "material_read": "p. 1, offset 200",
+          "method": "OA paper text",
+          "title": "The Reciprocal Sum of the Prime-Prefix-Free Integers Converges Under the Riemann Hypothesis",
+          "trigger": "Uses ordinary binary prefix terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "It settles two explicit binary existence conjectures, and its stable digit-cylinder argument explains how to enforce all divisor constraints at once in any base. The stated exponent is not sharp by this method: for r>1 one can fix r−1 primes in their stable mantissa windows at an initial scale and vary the last prime at a growing scale, as the first K digits of each divisor still depend only on the product of mantissas. That observation does not diminish the constructive solution of the all-index existence question or the valid lower bound actually asserted.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

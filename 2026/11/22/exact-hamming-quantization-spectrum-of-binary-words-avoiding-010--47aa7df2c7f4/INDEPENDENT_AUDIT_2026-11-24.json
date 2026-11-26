@@ -1,0 +1,167 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:10:15.362183Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–29 and 31–68",
+        "Frozen VERIFICATION.md, lines 19–21",
+        "Frozen verify.py, lines 9–109 (inspected, not executed)",
+        "Independent brute-force reproduction: build the avoiding list from all binary words at each length 0–9, minimize pairwise Hamming distances for each input, and compare to the greedy distances and the stated histogram"
+      ],
+      "rationale": "An original 010 can overlap another only at shift two; the runs of overlaps therefore form paths, whose disjoint packing numbers are the ceilings of half their numbers of occurrences. Any correction must hit every disjoint occurrence. Pair consecutive occurrences in each run and flip their shared zero; for an unpaired final occurrence flip its middle one. Flips are nonadjacent. A shared zero turned to one has unchanged adjacent ones and cannot center a new 010; a middle one turned to zero has unchanged adjacent zeros and cannot be an endpoint of a new 010. Thus every original occurrence is destroyed and no new one is created, proving Hamming distance equals maximum disjoint packing. Earliest-ending intervals give a maximum packing; the scan must reset to the empty prefix at a hit. For the three states empty, 0 and 01, the continuation series A,B,C obey A=1+z(A+B), B=1+z(B+C), C=1+z(1+u)A. Solving gives the stated rational function for A. The word (010)^k with any suffix of length below three attains the obvious packing limit k=⌊n/3⌋. Expanding in u gives [u^k]A=z^{3k}(1+z²)/(1−2z+z²−z³)^{k+1}; the first three coefficients after removing z^{3k} are exactly 1, 2k+2 and 2k²+5k+4, including k=0. At z=t/2 the u-derivatives at one are t³/[8(1−t)²(1+t²/4)] and t⁶/[32(1−t)³(1+t²/4)²]. The poles at ±2i contribute only exponentially decaying terms times polynomials in n. The principal parts at t=1 give mean n/10−4/25+o(1), second factorial moment n²/100−37n/500+O(1), and variance 29n/500+O(1). Chebyshev gives convergence of D_n/n. An independent exhaustive check through n=9 directly minimized the mismatch count over all avoiding words for each input and checked each distance, optimum flip construction, histogram and deep-hole count; this finite check is corroboration only.",
+      "residual_risks": [
+        "The proof is for contiguous factors in finite linear words and substitutions. The moment conclusions use unbiased iid bits. The recorded through-length-15/180 checks are not an all-length proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The inspected constrained-system examples concern homogeneous run-length constraints, and Takahashi's exact distribution theorem assumes nonoverlapping words in the sense that two copies cannot occur within less than twice their length. 01010 violates that hypothesis for 010. Takahashi describes all-size occurrence generating functions and return-time results in the two earlier papers, whose full texts were not inspected."
+        ],
+        "reasoning": "The constrained-system framework motivates the distance problem, but the inspected run-length theorems do not supply a 010 Hamming packing identity. The known theory counts matches or return times and does not by itself certify that editing one position per packed occurrence suffices without producing new matches.",
+        "searches": [
+          "Elimelech–Meyerovitch–Schwartz, arXiv:2302.02363, Example 1 and Theorem 14",
+          "Takahashi, arXiv:2105.05172v4, Theorem 1",
+          "Robin–Daudin, J. Appl. Prob. 36(1), 179–193 (1999)",
+          "Régnier–Szpankowski (1998), as cited in Takahashi"
+        ]
+      },
+      "checked_sources": [
+        "Resultary cyclic cover, deletion ambiguity, cyclic occurrence, first-occurrence and index-summary matches",
+        "Elimelech–Meyerovitch–Schwartz, arXiv:2302.02363",
+        "Takahashi, arXiv:2105.05172v4",
+        "Charalampopoulos–Kociumaka–Wellnitz, arXiv:2004.08350"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Let A₀(z)=(1+z²)/Q(z) be the prior avoidance series. The counting series for blocks ending at their first hit, by appending one bit to an avoiding prefix and subtracting the still-avoiding words, is B(z)=1−(1−2z)A₀(z)=z³/Q(z). Greedy disjoint hits partition a word uniquely into first-hit blocks followed by an avoiding suffix. Thus A₀(z)/(1−uB(z)) is already implied as a disjoint-hit enumerator; its deep-hit and moment constants follow in that process interpretation."
+        ],
+        "reasoning": "This implications check credits the entire greedy occurrence distribution as a direct consequence of the old avoidance law. The nontrivial additional step is the all-input equality of that count to the minimum Hamming distance, proved by edits that simultaneously hit all originals and cannot introduce new 010s. The inspected first-hit or enumeration theorems do not imply that edit statement; only with it do the enumerator and its consequences become quantization results.",
+        "searches": [
+          "Resultary exact cyclic-cover lengths, ordinary 010-avoidance series",
+          "Resultary: 2026/10/18/SCOPE-exact-compound-poisson-law-for-the-excess-first-occurrence-time--36c13b698190",
+          "Takahashi's introduction on occurrence generating functions and return times",
+          "Frozen RESULT.md, lines 33–48"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In 01010 the full occurrence count is two, the maximum disjoint count is one, and the distance is one. Counting all hits keeps suffix 0 after a hit; the disjoint scan resets to the empty prefix. The deletion record studies read ambiguity, and approximate pattern matching targets occurrences within a mismatch budget."
+        ],
+        "reasoning": "Bit complement trivially transfers 010 to 101 with identical distances. It does not transfer the language to a homogeneous run constraint or an unbordered motif. Counts of all overlapping matches, distance to an individual approximate match, deletion ambiguity and distance to the full avoiding language are distinct invariants.",
+        "searches": [
+          "arXiv:2105.05172v4, §II and Theorem 1",
+          "arXiv:2004.08350, Hamming mismatch definition at p. 2",
+          "Resultary: 2026/11/22/SCOPE-exact-two-read-deletion-ambiguity-and-isolated-word-spectrum-in--e0ee2801984a"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 11/2 result contains (1+z²)/(1−2z+z²−z³), the exact u=0 specialization. The cyclic occurrence finding concerns unbordered motifs. The Poisson-binomial record's index summary concerns ordinary motif-occurrence counts; its mirrored full text was unavailable. The direct indexed Hamming match is the bound record itself."
+        ],
+        "reasoning": "Credit the prior exact zero-distance count. Neither the inspected word-cover result nor the distinct cyclic-occurrence result gives a table of Hamming costs. In length five the ordinary occurrence histogram is 21+10v+v² and the Hamming polynomial is 21+11u; an occurrence histogram cannot simply be interpreted as a distance histogram.",
+        "searches": [
+          "Resultary: 2026/11/2/SCOPE-exact-cyclic-cover-lengths-for-binary-words-avoiding-010--c88f5aa31843",
+          "Resultary: 2026/10/18/SCOPE-a-poisson-binomial-universality-boundary-for-pattern-counts-in-i--f2d2b4ad711f",
+          "Resultary: 2026/11/22/SCOPE-exact-cyclic-occurrence-laws-for-unbordered-motifs-under-composi--55e26c912018",
+          "Resultary re-indexed 010 Hamming quantization finding (bound record itself)"
+        ]
+      },
+      "rationale": "The supported distinct claim is the exact distance-to-language characterization and safe optimal repair for 010, together with the resulting quantization distribution as an application. The unmarked avoidance series is already indexed, and the same marked enumerator as a distribution of greedy disjoint hits is determined by the known first-hit/avoidance law and renewal decomposition. The algebra and asymptotic constants should not be credited as an independent new theorem about occurrence processes. The inspected sources do not prove the Hamming repair identity.",
+      "residual_risks": [
+        "An earlier general pattern-removal theorem could contain the 010 safe-repair equality; none was found in the inspected primary statements. Robin–Daudin and Régnier–Szpankowski primary full texts remain uninspected, and one occurrence-count mirror was unavailable. Their inaccessibility is not evidence against priority. The originality pass is expressly limited to the supported Hamming characterization and its application, not general greedy occurrence enumeration."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact u=0 overlap and, by first-hit factorization, determines the greedy-count enumerator but not the repair lemma",
+          "evidence": "The objective is one shortest circular covering word; the ordinary avoidance series is (1+z²)/(1−2z+z²−z³).",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-cyclic-cover-lengths-for-binary-words-avoiding-010--c88f5aa31843",
+          "material_read": "Published mirror RESULT.md, offset 0, objective and avoidance count",
+          "method": "Read bounded local-mirror result",
+          "title": "Exact cyclic-cover lengths for binary words avoiding 010",
+          "trigger": "Exact case-specific prior for the same avoiding language"
+        },
+        {
+          "assessment": "Framework and results for homogeneous run-length examples, not the assigned finite spectrum",
+          "evidence": "It gives covering and essential-radius results for run-length-constrained binary systems.",
+          "identifier_or_url": "https://arxiv.org/abs/2302.02363",
+          "material_read": "Example 1 and Theorem 14, pp. 5 and 8, offsets 25000 and 44900",
+          "method": "Read bounded primary OA passages",
+          "title": "Quantized-Constraint Concatenation and the Covering Radius of Constrained Systems",
+          "trigger": "Same general covering/quantization problem"
+        },
+        {
+          "assessment": "Nonoverlapping-word theorem does not apply to 010",
+          "evidence": "Theorem 1 assumes the word itself cannot overlap at shifts shorter than its length, not a scan that chooses disjoint matches of a bordered word.",
+          "identifier_or_url": "https://arxiv.org/abs/2105.05172v4",
+          "material_read": "Introduction and §II, pp. 2–4, offsets 0 and 7800; bibliography p. 11, offset 29693",
+          "method": "Read bounded primary OA passages and checked the definition against 01010",
+          "title": "The explicit formulae for the distributions of nonoverlapping words and its applications to statistical tests for pseudo random numbers",
+          "trigger": "Exact distribution theorem with a potentially equivalent nonoverlap assumption"
+        },
+        {
+          "assessment": "Unresolved exact scope, not evidence of noncoverage",
+          "evidence": "The later paper describes return-time analysis and identifies the citation but does not establish a minimum-substitution theorem.",
+          "identifier_or_url": "Robin–Daudin, J. Appl. Prob. 36(1), 179–193 (1999)",
+          "material_read": "Publisher landing page and the primary Takahashi introduction and bibliography; no Robin–Daudin full text retrieved",
+          "method": "Attempted lawful full-text retrieval; used only explicit cross-reference for scope",
+          "title": "Exact distribution of word occurrences in a random sequence of letters",
+          "trigger": "Possible exact prior distribution or renewal analysis"
+        },
+        {
+          "assessment": "Different Hamming objective",
+          "evidence": "A k-mismatch occurrence is a substring within k substitutions of a specified pattern, not a nearest avoiding word.",
+          "identifier_or_url": "https://arxiv.org/abs/2004.08350",
+          "material_read": "Definition on p. 2, offset 7000",
+          "method": "Read bounded primary OA passage",
+          "title": "Faster Approximate Pattern Matching: A Unified Approach",
+          "trigger": "Possible Hamming-distance repair result"
+        },
+        {
+          "assessment": "Relevant first-hit statistics, not an edit-cost characterization",
+          "evidence": "The law is for the waiting time to the first word occurrence in an iid source.",
+          "identifier_or_url": "2026/10/18/SCOPE-exact-compound-poisson-law-for-the-excess-first-occurrence-time--36c13b698190",
+          "material_read": "Published mirror RESULT.md, finding at offset 0",
+          "method": "Read exact indexed finding and worked out the renewal implication separately",
+          "title": "Exact compound-Poisson law for the excess first occurrence time",
+          "trigger": "Indexed iid first-occurrence formula underlying possible renewal coverage"
+        },
+        {
+          "assessment": "Different boundary conditions, word class, and invariant",
+          "evidence": "It counts cyclic occurrences of unbordered motifs; 010 is bordered and the target distance is for linear words.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-cyclic-occurrence-laws-for-unbordered-motifs-under-composi--55e26c912018",
+          "material_read": "Published mirror RESULT.md finding, offset 0",
+          "method": "Read bounded local-mirror result",
+          "title": "Exact cyclic occurrence laws for unbordered motifs under composition",
+          "trigger": "Exact indexed motif distributions"
+        },
+        {
+          "assessment": "Different metric and optimization",
+          "evidence": "It studies single-deletion-confusable pairs and isolated words, not substitutions to reach the full language.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-two-read-deletion-ambiguity-and-isolated-word-spectrum-in--e0ee2801984a",
+          "material_read": "Published mirror RESULT.md finding, offset 0",
+          "method": "Read bounded local-mirror result",
+          "title": "Exact two-read deletion ambiguity and isolated-word spectrum in a forbidden-factor language",
+          "trigger": "Same avoiding language in a different coding problem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 33–68",
+        "Elimelech–Meyerovitch–Schwartz, arXiv:2302.02363, constrained-system context",
+        "Claim-versus-prior implication above"
+      ],
+      "rationale": "For this short bordered mixed constraint, a lower bound by disjoint violations does not automatically give an avoiding repair because a substitution can create a new violation. The exact matching edit construction is a useful structural result: it gives an optimal linear-time quantizer and turns known pattern enumeration into an exact test case for constrained-code quantization, including the separation of typical cost 1/10 from worst cost 1/3. The pass is not based on recomputing known occurrence polynomials.",
+      "residual_risks": [
+        "The edit construction is specific to 010 (or its bit complement) and does not generalize automatically to broader forbidden-factor systems, cyclic constraints or insertion/deletion distance."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

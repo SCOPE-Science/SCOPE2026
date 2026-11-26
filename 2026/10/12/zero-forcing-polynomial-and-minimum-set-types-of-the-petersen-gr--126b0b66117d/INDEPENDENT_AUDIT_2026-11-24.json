@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:38:31.433372Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed Petersen independently as KG(5,2) and verified the explicit outer-cycle, spoke and pentagram identification with P(5,2). A white set fails exactly when it contains a nonempty fort: no first force into a fort can occur, and the nonempty remaining white set at a stalled closure is itself a fort. Exhausting all 1024 white sets by this test gives coefficients 132, 190, 120, 45, 10, 1 in degrees 5 through 10 and zero below. The 252 five-sets have type census C5:12, P5:60, P4 plus isolate:60, fork:60, P3 plus two isolates:30, and two edges plus isolate:30. These six degree sequences identify the types in this girth-five graph; each member of the first three types and no member of the last three passes the fort test. Replay: python3 /workspace/branches/independent_exact_checks.py, check_petersen(). The packaged closure checker and stored output were inspected, not executed. This is exhaustive only for the stated ten-vertex graph.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The generalized Petersen theorem is a scalar Z(P(n,2))=6 for n≥10.",
+          "Boyer et al. give generic formulas for the top three coefficients."
+        ],
+        "reasoning": "The family theorem excludes n=5 and in any event does not count forcing sets. The generic coefficients imply x^10+10x^9+45x^8, not the other three nonzero coefficients or their structural refinement.",
+        "searches": [
+          "Rashidi et al., DOI 10.13069/jacodesmath.729465, Theorem 2.5",
+          "Boyer et al., arXiv:1801.08910, §3 Theorem 1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary ranked results including the Petersen line-graph listing",
+        "AIM Minimum Rank Group, DOI 10.1016/j.laa.2007.10.009",
+        "Hogben et al., arXiv:1410.4191",
+        "Boyer et al., arXiv:1801.08910",
+        "Rashidi et al., DOI 10.13069/jacodesmath.729465"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "AIM proves Z(P)=5 and exhibits the outer C5; Hogben et al. use Z(P)=5 and the matching construction for propagation time one."
+        ],
+        "reasoning": "One minimum witness, its automorphic images, and a propagation-time minimum do not classify all minimum sets; in particular they do not yield either of the two 60-set noncycle classes or the census at sizes 6 and 7.",
+        "searches": [
+          "AIM Minimum Rank Group, Proposition 3.26 and Figure 9",
+          "Hogben et al., arXiv:1410.4191, Example 3.14"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The closest indexed zero-forcing listing, 2026/11/2/SCOPE-the-minimum-zero-forcing-exchange-graph-of-the-petersen-line-gra--4e6c2c9b2a97, describes 2280 minimum seven-sets on the 15-vertex line graph."
+        ],
+        "reasoning": "Forcing edge-vertices in the line graph is not equivalent to forcing vertex subsets of the ten-vertex Petersen graph. No statement of an equivalent census was found in the inspected ranked results.",
+        "searches": [
+          "Resultary: Petersen zero forcing polynomial; Petersen minimum zero forcing set induced types"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No matching count surfaced in the ranked Resultary output.",
+          "The AIM table's Petersen row gives order 10, minimum rank 5 and Z=5; it does not tabulate forcing sets."
+        ],
+        "reasoning": "The inspected table supplies an extremal scalar and rank, not the enumerative invariant. There is no exhaustive negative claim about other datasets.",
+        "searches": [
+          "Resultary: exact Petersen coefficients 132 190 120 45 10 1",
+          "AIM Minimum Rank Group, DOI 10.1016/j.laa.2007.10.009, summary table and Proposition 3.26"
+        ]
+      },
+      "rationale": "The supported distinct claim is the full Petersen census together with the induced-type partition of all minimum forcing sets. The scalar minimum, an outer C5 witness, and generic top coefficients are established prior coverage, not original components. The checked sources do not give or imply the remaining census and classification without additional graph-specific analysis.",
+      "residual_risks": [
+        "An unindexed exact computation, supplemental graph data, or an inaccessible source could contain a fuller Petersen census; ranked search is not a global novelty proof.",
+        "The line-graph record comparison is limited to the indexed statement."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The indexed claim concerns a different graph and invariant; no whole-document exclusion is inferred from the summary.",
+          "evidence": [
+            "15-vertex line graph, 2280 minimum seven-vertex forcing sets."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-the-minimum-zero-forcing-exchange-graph-of-the-petersen-line-gra--4e6c2c9b2a97",
+          "material_read": "Indexed statement of graph, order and count; local full text not available",
+          "method": "Resultary listing and local mirror check",
+          "title": "The minimum zero forcing exchange graph of the Petersen line graph",
+          "trigger": "Closest ranked Petersen/zero-forcing census"
+        },
+        {
+          "assessment": "Prior scalar and one minimum witness, not a census.",
+          "evidence": [
+            "M(P)=5=Z(P), mr(P)=5; the five outer cycle vertices form a zero forcing set."
+          ],
+          "identifier_or_url": "https://draganstevanovic.wordpress.com/wp-content/uploads/2012/09/published-version2.pdf",
+          "material_read": "Petersen table row and Proposition 3.26, journal p. 1643, including proof",
+          "method": "Read original paper via lawful OA copy; locate Petersen and open offset 43350",
+          "title": "Zero forcing sets and the minimum rank of graphs",
+          "trigger": "Exact graph and cited source of Z=5"
+        },
+        {
+          "assessment": "Uses prior Z and exhibits optimal propagation; no all-minimum classification in the compared example.",
+          "evidence": [
+            "It is known that Z(P)=5; pt(P)=1."
+          ],
+          "identifier_or_url": "arXiv:1410.4191",
+          "material_read": "Example 3.14, p. 11",
+          "method": "Bounded primary PDF reading",
+          "title": "Propagation time for zero forcing on a graph",
+          "trigger": "Exact Petersen graph and minimum matching sets"
+        },
+        {
+          "assessment": "Generic top-coefficient coverage only for the compared claims.",
+          "evidence": [
+            "Top coefficients use total order, nonisolates and non-twin pairs."
+          ],
+          "identifier_or_url": "arXiv:1801.08910",
+          "material_read": "§3 Theorem 1, p. 3; literal Petersen location check",
+          "method": "Bounded primary PDF reading and keyword location",
+          "title": "The zero forcing polynomial of a graph",
+          "trigger": "General coefficient results could imply census terms"
+        },
+        {
+          "assessment": "Different parameter range and scalar statistic.",
+          "evidence": [
+            "Z(P(n,2))=6 for n≥10."
+          ],
+          "identifier_or_url": "DOI 10.13069/jacodesmath.729465",
+          "material_read": "Abstract and Theorem 2.5, journal p. 185",
+          "method": "Bounded primary PDF reading",
+          "title": "Computing the zero forcing number for generalized Petersen graphs",
+          "trigger": "Possible dominating theorem for P(n,2)"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Petersen is a canonical small regular test graph for ordinary forcing and propagation time. The exact enumerator gives fixed-cardinality forcing probabilities as a reference for comparisons. More substantively, the minimum-family classification distinguishes cycle, connected path and disconnected configurations and rules out the same-size fork and other shapes; it answers which minimum seeds work, not just the previously known size or a count obtained from a single witness. The scope is a benchmark and exact structural classification for one natural graph, not a family theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

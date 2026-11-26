@@ -1,0 +1,157 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:51:45.686379Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, hypothesis and proof, lines 5–84",
+        "Repaired RESULT.md, Finding, scope, proof and earlier-results discussion",
+        "Frozen verify.py, lines 16–79 and 82–113; VERIFICATION.md; inspected but not executed"
+      ],
+      "rationale": "Both the frozen covariance identities and the repaired multivariate claim are correct. For fixed a,b the coefficient-to-evaluations map has image M={(u,v)∈R²:v−u∈gR}. Containment follows by congruence of every monomial modulo g; the constant column spans the diagonal, and subtracting that column times a_i from coordinate column i yields (0,b_i−a_i), together spanning the entire difference ideal gR. Fibers are equal, so (0,0) has mass 1/|M|=g/m² and the first coordinate has uniform marginal. This remains true on the diagonal g=m, and when g=1 the pair is uniform on R². Expanding g−1 via totients and summing over ordered pairs gives exactly the A_d(u)B_d(u) covariance, including A∩B. On the full grid the class-product sum is d^n(m/d)^{2n}. This gives the repaired all-modulus and prime-power variance and the exact examples 6 and 19 for m=4 and 6 at n=2. The repaired main theorem has n≥2 and keeps the same free coefficient and arbitrary-support hypotheses; its univariate commentary is not part of novelty. The original proof's stray reference to 'proper' divisors is not retained: the divisor m is included.",
+      "residual_risks": [
+        "The optional replay is the unchanged frozen verify.py under Python 3. Its recorded counts are 5998 polynomials across ten finite ensembles and 2754 pair checks; some ensembles are univariate comparison cases. Of the 116 modulus/dimension checks, direct lattice summation is restricted to m^n≤100000. The proper-subset computation checks a variance, not every mixed subset covariance; the general proof supplies the exact mixed statement."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Jain–Moon–Wu's proved field generating functions have a degree threshold and do not cover composite residue rings. Their Conjecture 5.7 has a mean part and a one-variable variance statement for d>1, with stabilization separate. Monagan–Tuncer is all-modulus but one-variable. Caruso works with distributions/densities of actual p-adic roots in extensions; Evans counts actual p-adic zeros of random systems."
+        ],
+        "reasoning": "Monic or nonmonic one-variable congruence counting and p-adic Haar theorems about exact zeros are not general theorems specializing to the repaired finite-image and arbitrary-region law. The single-evaluation expectation is elementary and is not a novelty claim.",
+        "searches": [
+          "arXiv:2308.14580v1, finite-field results pp. 1–2, and Conjecture 5.7 pp. 10–11",
+          "arXiv:2110.03942, introductory results; Evans 2006, Theorem 1.2 and p-adic co-area discussion",
+          "arXiv:1609.08712v1, Theorem 1, Remark 1 and pair-count proof"
+        ]
+      },
+      "checked_sources": [
+        "Repaired multivariate statement and proof",
+        "Resultary and inspected mirror statements",
+        "arXiv:1609.08712v1",
+        "arXiv:2308.14580v1",
+        "arXiv:2110.03942",
+        "Evans (2006) primary PDF"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In one variable, conditioning on all higher coefficients yields a compatible linear congruence of index m/g and one forced constant coefficient. This directly extends the prior univariate pair count and explains why removing monicity in one variable does not rescue originality. In n≥2 the proof must control the whole multi-coordinate difference ideal, the simultaneous image for arbitrary monomial supports, and its aggregation by vector congruence classes."
+        ],
+        "reasoning": "There is no identified broader exact finite-ring statement to instantiate for all dimensions and subset regions, and univariate variance tables and limiting/exact p-adic counts cannot supply those covariance entries. The extension remains simple but gives new parameter-dependent information, not a mere relabeling of the univariate sequence.",
+        "searches": [
+          "arXiv:1609.08712v1, pair-count proof on pp. 6–7, compared with repaired evaluation image proof",
+          "arXiv:2308.14580v1, Conjecture 5.7, compared with repair scope"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Monagan–Tuncer count simultaneous roots at univariate residues separated by h using gcd(m,h) and recover exactly the one-variable variance over every modulus. This gives their univariate subset covariance after summing the kernel, whether or not the occupancy display is printed.",
+          "The repaired kernel uses the ideal jointly generated by all coordinate differences. Actual p-adic roots and roots modulo a composite integer are different observables; a finite field with p^k elements does not model residues in Z/p^kZ for k>1."
+        ],
+        "reasoning": "The univariate determinant/gcd and ideal-image viewpoints agree in one dimension; the repair does not count this equivalence or the totient identity as novel. The higher-dimensional image and its dependence on all coordinate congruences are the remaining claim.",
+        "searches": [
+          "Resultary and literature: modular polynomial zero counts, pair kernel, multivariate residue rings, divisor-scale covariance and p-adic Haar moments",
+          "arXiv:1609.08712v1, Theorem 1 and proof; arXiv:2308.14580v1, Section 5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Remark 1 table gives the univariate variance as A006579(m)/m in the applicable monic model, an exact overlap of the numbers. The indexed third-moment result gives the same univariate pair count and variance for monic d≥3 at every prime power, and adds a third moment. The indexed prime-square result gives the monic distribution for modulus p² and sharp degree stabilization, with the same second moment for d≥2."
+        ],
+        "reasoning": "These distinct records match univariate data regardless of their dates; they do not provide the n≥2 mixed subset profile. Neither the reproduced numbers nor the univariate conjecture verification are credited as originality in the repair.",
+        "searches": [
+          "Monagan–Tuncer, Remark 1, variance table and OEIS A006579 identification",
+          "Resultary and mirror: 2026/11/2/SCOPE-exact-third-moments-of-random-monic-polynomials-modulo-prime-pow--8147ff07d6a2 and 2026/11/2/SCOPE-an-exact-prime-square-root-law-and-sharp-stabilization-degree-fo--0b8f91357cf1"
+        ]
+      },
+      "rationale": "PASS is for the repaired multivariate spatial claim only. In the frozen submission, the univariate variance and its connection to Conjecture 5.7 are foregrounded as a contribution without the directly overlapping Monagan–Tuncer result. Their Theorem 1 and its proof give the same arbitrary-modulus univariate gcd kernel and variance for monic polynomials; the same pair-count proof works for prescribed higher coefficients when the constant and linear terms are free. Thus the frozen univariate contribution is not accepted as original. The replacement explicitly credits it and limits the claim to the joint multi-coordinate kernel and regional divisor-scale decomposition, for which the inspected closest statements supply no covering higher-dimensional theorem.",
+      "residual_risks": [
+        "No absolute priority claim. The separately formatted journal version of Jain–Moon–Wu was not read as full text; the arXiv alternate was inspected and that distinction is preserved. Older arbitrary-dimensional congruence-evaluation identities could exist under other terminology. The two exact univariate overlaps are credited, not dismissed on chronology or monicity alone."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct prior coverage in the monic univariate model for arbitrary modulus and degree >1; pair-count mechanism transfers to prescribed higher terms",
+          "evidence": [
+            "Counts |A_0∩A_h|=gcd(m,h)m^{D−2} among m^D monic polynomials of degree D>1; gives both general and prime-power variances and a variance table."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1609.08712v1",
+          "material_read": "Theorem 1, Remark 1 and proof beginning on p. 6, extending onto p. 7; decisive OA passage offsets 19800–24811",
+          "method": "Open primary PDF, statement and proof comparison",
+          "title": "Counting roots of polynomials and roots of resultants over finite rings",
+          "trigger": "Same gcd-based two-root count and variance over finite residue rings"
+        },
+        {
+          "assessment": "The submitted version poses the relevant univariate variance and mean separately from stabilization and does not contain the repaired multivariate claim in the examined passages",
+          "evidence": [
+            "Modular ensemble with bounded individual degrees; d>1 on univariate variance; finite-field generating-function statements do not use the residue-ring ideal."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2308.14580v1; journal doi:10.2140/involve.2025.18.707",
+          "material_read": "Submitted version, pp. 1–2 and pp. 10–11, Question 5.6 and Conjecture 5.7; decisive passage at OA offsets 31800–36169. Journal DOI resolved to a closed publisher version with an identified submitted alternate.",
+          "method": "Open primary preprint; lawful alternate for the publisher DOI",
+          "title": "Distribution of the number of zeros of polynomials over a finite field",
+          "trigger": "Origin of the referenced moments and possible coverage in revision"
+        },
+        {
+          "assessment": "Different random variable",
+          "evidence": [
+            "Root-density stabilization in p-adic extensions concerns actual roots, not finite quotient zero indicators."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2110.03942",
+          "material_read": "Introductory results, pp. 1–2, OA offset 3220",
+          "method": "Bounded primary PDF reading",
+          "title": "Where are the zeroes of a random p-adic polynomial?",
+          "trigger": "Haar-random polynomial moment and density coverage"
+        },
+        {
+          "assessment": "Different observable and ensemble; no repaired finite-quotient pair kernel in those passages",
+          "evidence": [
+            "Counts exact solutions of random systems in Z_p^d."
+          ],
+          "identifier_or_url": "https://www.stat.berkeley.edu/~evans/699.pdf",
+          "material_read": "Theorem 1.2, p. 4, OA offset 7200, and p-adic co-area discussion, p. 9",
+          "method": "Bounded author-hosted primary PDF reading",
+          "title": "The expected number of zeros of a random system of p-adic polynomials",
+          "trigger": "Multivariate p-adic zero moments that might specialize to modular counts"
+        },
+        {
+          "assessment": "Exact overlap on the stated monic univariate comparison model, not the repaired dimension range",
+          "evidence": [
+            "Includes variance k(1−1/p), univariate pair probability, and third moment for monic d≥3."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-exact-third-moments-of-random-monic-polynomials-modulo-prime-pow--8147ff07d6a2",
+          "material_read": "Mirror RESULT.md, Finding and pair-count part of Proof",
+          "method": "Local mirror",
+          "title": "Exact third moments of random monic polynomials modulo prime powers",
+          "trigger": "Same congruence zero-count moments and pair kernel"
+        },
+        {
+          "assessment": "Stronger one-variable distribution result for the monic prime-square subproblem only",
+          "evidence": [
+            "Monic modulus p² root law contains a variance for degree ≥2 and sharp stabilization degree 2p."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-an-exact-prime-square-root-law-and-sharp-stabilization-degree-fo--0b8f91357cf1",
+          "material_read": "Mirror RESULT.md, Finding",
+          "method": "Local mirror",
+          "title": "An exact prime-square root law and sharp stabilization degree",
+          "trigger": "Potential stronger distribution result implying variance"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired Finding, proof and scope",
+        "Monagan–Tuncer, Theorem 1 and Remark 1 for the one-variable baseline",
+        "Jain–Moon–Wu, Section 5 for the composite-modulus problem"
+      ],
+      "rationale": "The repaired result resolves a natural finite-ring second-moment question for arbitrary sampling regions and every composite modulus, rather than merely reproducing a known univariate variance. It determines which joint congruence scales create zero-count dependence, gives exact covariance for intersecting as well as disjoint regions, and specializes to the full-grid multivariate variance without expanding the higher-degree ensemble. The precision is independently useful for uncertainty in counts on residue-restricted regions, even though the totient sum and the single-evaluation expectation are classical or elementary.",
+      "residual_risks": [
+        "No utility claim depends on higher moments, stabilization, positive association, or applied prediction. The new value is confined to the multivariate second-moment structure and exact region counts."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

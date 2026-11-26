@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:27:15.336487Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Lemmas 1–4, and verification package (uploaded code inspected, not run)",
+        "Independent replay: python3 /workspace/branches/0a3c41cf-cb3f-442b-97d9-b1ce1dc67f8e/independent_check.py; q=1,2,3 and k=1,…,4, hosts of lengths through k+1, with 15,432 feasible envelope pairs and 52,068 threshold-membership pairs checked."
+      ],
+      "rationale": "A feasible nonempty pattern with maximum letter count h shares a constant-letter subsequence of length h with every host of the specified content and has length at most T=min(k, sum_i min(c_i,h)). Conversely one can realize every admissible h with total T and maximum count h by reserving one coordinate of capacity h, then filling the remaining capacities. Placing those counts in reverse block order from the host forces every common subsequence to use one letter and attains T−h. The empty host and pattern give zero. Globally the deficit of a feasible length-m pattern is at most m−ceil(m/q), a nondecreasing function of m. Pure-letter patterns detect the capped count of every letter at any nonnegative budget. Opposite block orders with balanced counts and total length k attain the bound k−ceil(k/q); the reverse host distinguishes itself from the forward host at every lower budget without changing the capped counts. This also covers q=1 and k=1, when no lower nonnegative budget exists, and q>k, when the witness uses k distinct letters.",
+      "residual_risks": [
+        "The finite checks corroborate the algebraic proof; they do not establish the all-parameter result by themselves."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2025 paper proves finite-index properties and explicitly leaves more detailed same-Parikh class analysis and class counts open.",
+          "The 2026 paper proves capped-Parikh equivalence and (k+1)^q classes for ℓ=k−1."
+        ],
+        "reasoning": "That special budget agrees with the audited transition in regimes where ceil(k/q)=1, but neither the general necessity at smaller budgets nor the exact fixed-content envelope follows by parameter substitution into that proposition.",
+        "searches": [
+          "arXiv:2506.03814v1 §4 and conclusion",
+          "arXiv:2610.17910v1 Proposition 10 and Corollary 11",
+          "Resultary: \"Parikh-collapse threshold\" exact content envelope"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2506.03814v1 and arXiv:2610.17910v1",
+        "Resultary a3ecc4dfa117 and 101032d9443e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Definition 4 plus a most-frequent-letter bound gives the sufficient half at ℓ≥k−ceil(k/q) directly, including from the older model on nonempty patterns.",
+          "The binary catalogue results supply only specific order-sensitive examples at ℓ=1."
+        ],
+        "reasoning": "Sufficiency alone is a routine implication. Universal sharpness requires a feasible deficit witness at the upper bound for each q,k in the nontrivial regime, and the content result requires sharp feasible counts at arbitrary capacities; these distinct extremal statements are not supplied by the inspected prior claims.",
+        "searches": [
+          "arXiv:2610.17910v1 Definition 4, Proposition 10, Corollary 11",
+          "arXiv:2506.03814v1 conclusion",
+          "Resultary a3ecc4dfa117 and 101032d9443e"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The original LCS formulation excludes the empty pattern by its budget range; the later definition explicitly allows all nonnegative budgets.",
+          "Parikh feasibility plus |u|−LCS(u,w)≤ℓ is exactly the later nonnegative-budget membership criterion."
+        ],
+        "reasoning": "Uniform inclusion or exclusion of the empty pattern cannot change the quotient. The exact extremal envelope and sharp loss of order information were not found in the inspected equivalent formulations.",
+        "searches": [
+          "Resultary: exact content envelope Parikh jumbled scattered factor LCS deficit sharp collapse threshold",
+          "Resultary: LCS deficit jumbled scattered factor capped Parikh",
+          "Resultary: \"jumbled scattered factors\" Simon equivalence Parikh",
+          "arXiv:2506.03814v1 Definition 4 and §4; arXiv:2610.17910v1 Definition 4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary a3ecc4dfa117 gives exact index 66 and a length spectrum at (q,k,ℓ)=(2,4,1), where the audited threshold result says >25.",
+          "Resultary 101032d9443e classifies the five-word class of 00110 at the same triple."
+        ],
+        "reasoning": "These exact finite tabulations are stronger within their binary subthreshold instance, but they do not determine either the general transition or the content envelope; no full table or formula for those was found in the reviewed results.",
+        "searches": [
+          "Resultary: binary one-jumble four-Simon equivalence 66 classes",
+          "Resultary: LCS deficit jumbled scattered factor capped Parikh"
+        ]
+      },
+      "rationale": "The definition, finite-index framework, capped-count result at budget k−1, and the pigeonhole sufficient condition are not credited as new. The supported distinct claims are the exact worst-order envelope at every content and the matching necessity at the alphabet-dependent collapse threshold. Inspected more precise subthreshold counts apply to one binary parameter triple, not the general sharp statement.",
+      "residual_risks": [
+        "The comparison is bounded, and the explicit v2 request for arXiv:2610.17910 did not yield a later-version passage. It does not establish publication priority or rule out other equivalent extremal LCS formulations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same basic model on nonempty patterns, but not the sharp threshold or content envelope",
+          "evidence": "The budget definition uses [|u|−1]_0; the conclusion leaves same-Parikh class structure and counts for future work.",
+          "identifier_or_url": "https://arxiv.org/html/2506.03814v1",
+          "material_read": "Definition 4 and LCS discussion (offsets 12500–16945), §4 (31900–36900), conclusion (64900–67471)",
+          "method": "Primary OA text, bounded passages",
+          "title": "Jumbled Scattered Factors",
+          "trigger": "Original model, LCS formulation and equivalence problem"
+        },
+        {
+          "assessment": "States the result at ℓ=k−1; definition implies the improved sufficient bound, not its optimality or the content envelope",
+          "evidence": "The nonnegative-budget definition combines Parikh feasibility and a deficit bound; at ℓ=k−1 the proposition and corollary give capped-Parikh equivalence and (k+1)^q classes.",
+          "identifier_or_url": "https://arxiv.org/html/2610.17910v1",
+          "material_read": "Definition 4 (offsets 14000–16996), Proposition 10/Corollary 11 (22400–27888), and v1 PDF title page",
+          "method": "Primary OA bounded HTML comparison and PDF version check",
+          "title": "Jumbled Simon’s Equivalence and Embeddings",
+          "trigger": "Exact prior capped-Parikh characterization and class count"
+        },
+        {
+          "assessment": "Special case beyond the coarse lower bound here, not coverage of the general transition",
+          "evidence": "The index is 66 for q=2, k=4, ℓ=1, strictly exceeding the 25 capped signatures.",
+          "identifier_or_url": "2026/10/26/SCOPE-exact-index-and-saturation-spectrum-of-binary-one-jumble-four-si--a3ecc4dfa117",
+          "material_read": "Finding and exact index/spectrum argument, offsets 0–10569",
+          "method": "Resultary query and paged local mirror",
+          "title": "Exact index and saturation spectrum of binary one-jumble four-Simon equivalence",
+          "trigger": "Exact index in the same equivalence model"
+        },
+        {
+          "assessment": "Individual class, not a general threshold or envelope",
+          "evidence": "Identifies the entire five-word class of 00110 at q=2, k=4, ℓ=1.",
+          "identifier_or_url": "2026/11/2/SCOPE-a-five-element-class-in-binary-jumbled-simon-equivalence--101032d9443e",
+          "material_read": "Finding, scope and class description, offsets 0–7328",
+          "method": "Resultary query and paged local mirror",
+          "title": "A five-element class in binary jumbled Simon equivalence",
+          "trigger": "Explicit same-content behavior in a subthreshold regime"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, exact content envelope and sharp equivalence-index transition; arXiv:2506.03814v1 §4 and arXiv:2610.17910v1 Proposition 10/Corollary 11"
+      ],
+      "rationale": "The exact envelope determines how much order can cost at a prescribed content, including highly unbalanced contents where the worst-case alphabet bound is far from attained. The sharp collapse theorem answers exactly when all order information disappears from this established equivalence model, rather than giving another nonoptimal sufficient budget. The two statements are useful despite not classifying the subthreshold quotient.",
+      "residual_risks": [
+        "The content envelope is a maximum over orderings, not the deficit of each particular host, and the result does not enumerate all subthreshold classes."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

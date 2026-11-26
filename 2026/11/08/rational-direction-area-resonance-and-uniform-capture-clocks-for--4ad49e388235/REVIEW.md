@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The normalized unit-advance map faithfully models the one-sided seam: outside the barrier the sheet update is a transposition, and inside it both sheets collapse to one. Fixing the terminal phase of the circle rotation gives precisely one ancestral phase, so the fiber in the image has two labels if and only if all \(n\) barrier tests are negative. This proves the union-of-translates image formula without probabilistic assumptions. A complete rational phase cycle contains \(q\) grid points and either never hits the barrier (both sheet labels periodic with periods dividing \(2q\)) or hits it (a unique periodic sheet and one finite-time-captured sheet). Their union area is \(\min\{1,qb\}\). Below the disjointness threshold, the first-hit intervals are disjoint, one of length \(b\) for each possible delay, proving exact discrete uniform capture. Endpoint exceptions have zero area. The computational checks replay these identities over a finite but varied exact-rational test family; no finite test is treated as proof of the unrestricted theorem.
+PASS
 
-## Originality — PASS within inspected evidence
+For local fractional horizontal position r, the next seam is reached at height y+alpha(1−r)=u+alpha mod 1. The remaining r units of horizontal motion restore the coordinate r, so the same phase formula applies to all slices, with area Jacobian one. At an arrival height in the barrier both sheet histories merge into the left sheet; otherwise they are exchanged. Each target phase has a unique base ancestor and loses exactly one sheet iff one of its preceding n arrival heights is in the barrier. A full q-cycle has either only swaps (so the period divides 2q) or a constant composition with exactly one fixed sheet (so the periodic label returns after q steps). Away from boundary lines the stable image is locally constant in the sheet coordinate; its complement has neighborhoods with no returns after q steps, and a short phase neighborhood excludes earlier returns when q>1. The translated intervals form a 1/q-grid, giving union length min(1,qb). In the disjoint case, the transient sheet over B−j alpha first agrees with the periodic sheet at step j, so the area of each such class is b and normalization by qb gives 1/q. The proof includes q=1; when qb=1 and B is open the grid endpoints can be missed, without changing area. The irrational-area comparison agrees with the originating paper's Theorem 1.
 
-The nearest paper, Beck–Chen–Yang, *Irreversible and dissipative systems* (arXiv:2404.00078, Section 2/Theorem 1), identifies the two-square dissipative barrier and the recurrent-area split for irrational slopes. Its explicitly irrational formulation does not provide the rational-denominator recurrent-area spectrum or the corresponding exact transient capture-time law. Beck–Chen–Yang, *New Kronecker–Weyl type equidistribution results and diophantine approximation* (arXiv:2106.14001), uses symmetric gates with invertible sheet transitions; the one-way coalescence needed here is absent. Related published claims on finite-time escape of planar repellers and arithmetic first returns concern different systems and do not imply these formulas. The classical finite-rotation grid identity alone is not asserted as novel. Remaining risk: an equivalent rational variant in unindexed or inaccessible material, including general finite-state reset skew-product results, may already exist.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The originating irrational-slope area law might suggest that the two-square dissipative region always contracts to area \(1\). The exact rational denominator criterion detects a distinct, mathematically natural family of positive-area non-collapsing periodic sheet pairs. Its finite-time area law and uniform capture distribution quantify the transient loss of phase-space area and show exactly how each rational phase cell contributes, providing physical consequences beyond an isolated combinatorial grid calculation. The threshold \(qb=1\) is the precise boundary of that dynamical resonance.
+The single-barrier model and its merging mechanism, two-sheet symmetry and irrational equal areas are in Beck–Chen–Yang. The strongest verified predecessor studies the same surface for irrational slopes and uses a reverse-flow construction with guaranteed encounters; it does not give the finite-depth image formula or evaluate the rational paired-sheet and no-hit cases. These cases, including the exact conditioned first-capture masses, form the supported distinct claim. The related symmetric half-plane rotation and invertible two-circle gate have different sheet dynamics.
 
-## Limitations
+## value
 
-The classifications use one connected barrier interval, rational positive slopes, two sheets, and unit-horizontal-advance time; boundary orbit conventions can change null-set details. Neither broader surfaces nor arbitrary disconnected barriers are covered. The external originality search cannot establish absolute novelty. Independent mathematical audit is not performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The rational directions are a natural gap left by the same model's irrational theorem. This precisely identifies the denominators with excess recurrent area and gives a nontrivial capture law, not just an eventual-area bound. The area and time normalization allow direct comparisons with other barrier configurations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

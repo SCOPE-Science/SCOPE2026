@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:52:05.055251Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 15–35, verify.py, VERIFICATION.md, and verification_output.txt",
+        "/workspace/quotient_recompute.py independent exact replay",
+        "arXiv:2003.04018, Theorem 6.1, PDF p. 12"
+      ],
+      "rationale": "The capacity bound in Jojić–Panina–Vrećica–Živaljević, Theorem 6.1, is 2n ≥ 6+3−1, giving four-connectivity of the cover for n≥4. Each column transposition fixes a vertex outside its swapped pair, so the fixed-point generators exhaust the acting group in Armstrong's orbit fundamental-group formula. On a closed flag simplex, any two points identified by the action have the same face-cardinality support: there is at most one vertex of each cardinality in that flag, so they are the same point. This gives regular quotient cells, and their faces are exactly the flag deletions. I recomputed the complete boundary ranks independently by enumerating the allowed largest-face column masks, enumerating all labeled subset flags ending at each such face, then identifying flags by sorted cumulative column histories. Replay: python3 -B /workspace/quotient_recompute.py 4 5 6. Counts match the frozen table and the rank lists are (76,1084,4493,6841,3419), (82,1264,5519,8731,4499), and (83,1288,5633,8911,4589), with boundary-square zero and Betti vector (1,0,0,0,0,1) in each case. An occupied-column injection or bijection extends to a column permutation, and at most six columns occur in any largest face; this proves all-width stabilization and PL compatibility, not merely agreement of sampled Betti numbers. Finite generation and universal coefficients remove lower two-local homology and all two-primary torsion; top homology is free of rank one. Simply connected localization, the first nonzero Hurewicz class, and localized Whitehead give the stated two-local sphere, not an integral equivalence.",
+      "residual_risks": [
+        "No integral computation at odd primes was performed or needed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The three-row classification concerns wedge-of-spheres or contractibility and torsion of the underlying chessboard complexes.",
+          "The generalized capacity theorem gives connectivity of that underlying complex."
+        ],
+        "reasoning": "Both apply to the cover; neither is an equivariant classification from which the full geometric quotient has the asserted mod-two homology.",
+        "searches": [
+          "arXiv:2610.37827, Theorem 1.1 and §2",
+          "arXiv:2003.04018, §6 and Theorem 6.1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 7faa5a2c0c25 and e5952a573c96",
+        "arXiv:2610.37827",
+        "arXiv:2003.04018"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The cover is four-connected, and fixed-point isotropy controls the orbit fundamental group.",
+          "The cyclic calculation does not supply the subsequent stabilizer and characteristic-two chain data for the S_n orbit space."
+        ],
+        "reasoning": "Simple connectivity is a standard consequence of published inputs; the mod-two quotient ranks are not. In particular characteristic two divides |S_n|, so treating the quotient by a free action or an averaging argument from ordinary homology would be invalid.",
+        "searches": [
+          "arXiv:2003.04018, Theorem 6.1",
+          "arXiv:2610.37827, Theorem 1.1",
+          "Cyclic quotient record e5952a573c96, Finding and proof §§2, 5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact Resultary match has suffix 7faa5a2c0c25 and the same Finding and proof as the frozen record.",
+          "The close cyclic quotient record e5952a573c96 uses C_n rather than S_n."
+        ],
+        "reasoning": "The multiset model is a description of the geometric S_n quotient, not vertex-orbit identification or a cyclic quotient. A title search miss does not exclude equivalence in different terminology.",
+        "searches": [
+          "Resultary: three-row bounded-degree chessboard and geometric column-symmetry quotient results",
+          "Primary search for the exact full-column-symmetry theorem title"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact full-symmetric invariant returned by the index was the assigned result.",
+          "The earlier indexed torsion calculation gives H1=H3=Z/n for odd-width C_n quotients, not the S_n ranks."
+        ],
+        "reasoning": "The known indexed values identify a different action and integral invariant; they cannot be used as a table of the full-symmetric quotient homology.",
+        "searches": [
+          "Resultary full-S_n, two-local and integral quotient matches",
+          "Resultary record e5952a573c96, Finding and proof §§2, 5"
+        ]
+      },
+      "rationale": "The inspected comparisons cover connectivity and homotopy of the cover, or a different column action. They do not give the characteristic-two geometric full-symmetric quotient invariant. The exact indexed matching record is the assigned result itself, not another theorem.",
+      "residual_risks": [
+        "The inspected material does not exhaust unpublished or differently indexed quotient results.",
+        "No readable OA full text was returned for Armstrong's 1968 paper; its standard fundamental-group theorem is used, not claimed as new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same frozen finding; not independent prior coverage",
+          "evidence": "Same S_n action, mod-two S^5, and stabilization at six columns.",
+          "identifier_or_url": "Resultary 2026/11/22 record 7faa5a2c0c25",
+          "material_read": "RESULT.md, Finding and proof §§1–4",
+          "method": "Configured local mirror",
+          "title": "A two-local sphere theorem for full column-symmetry quotients of three-row two-matching complexes",
+          "trigger": "Exact indexed match"
+        },
+        {
+          "assessment": "Coverage of the underlying complex only",
+          "evidence": "At most three rows gives wedge-of-spheres or contractible types apart from the ordinary 3×4 exception; the theorem does not take column orbit spaces.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.37827",
+          "material_read": "Theorem 1.1, PDF pp. 2–3, and §2 definition",
+          "method": "OA PDF, localized passage",
+          "title": "Homotopy types and torsion in homology of generalized chessboard complexes",
+          "trigger": "Stronger integral result for a matching object"
+        },
+        {
+          "assessment": "Different group and no implication of the full-symmetric result",
+          "evidence": "For odd n≥5 it gives cyclic quotient H1=H3=Z/n.",
+          "identifier_or_url": "Resultary 2026/10/18 record e5952a573c96",
+          "material_read": "Finding and proof §§2, 5",
+          "method": "Configured local mirror",
+          "title": "Cyclic quotient torsion and the parity threshold for three-row two-matching complexes",
+          "trigger": "Same cover and related quotient"
+        },
+        {
+          "assessment": "Connectivity input confirmed, not the quotient result",
+          "evidence": "Row and column capacities with sum l_j ≥ sum k_i + row count −1 imply (sum k_i−2)-connectivity.",
+          "identifier_or_url": "https://arxiv.org/abs/2003.04018",
+          "material_read": "§6 definition and Theorem 6.1, PDF pp. 11–12, offset 31130",
+          "method": "OA PDF, located and opened by offset",
+          "title": "Generalized chessboard complexes and discrete Morse theory",
+          "trigger": "Cited connectivity theorem and possible broader coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof §§2–4",
+        "Independent rank replay at widths 4, 5, 6"
+      ],
+      "rationale": "For a natural full column action with many stabilizers, the actual quotient mod-two homology cannot be read off from the nonequivariant wedge or from rational representations. The complete orbit calculation and finite stabilization yield a uniform homotopy classification at the prime where the elementary averaging argument fails.",
+      "residual_risks": [
+        "No claim of an integral sphere or a classification of other actions is supported."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

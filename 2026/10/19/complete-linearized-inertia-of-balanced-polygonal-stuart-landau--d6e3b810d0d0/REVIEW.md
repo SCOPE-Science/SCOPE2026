@@ -1,19 +1,21 @@
-# Scientific review: linearized inertia of balanced Stuart–Landau polygons
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The stated normalization is exact: in the frame rotating with the common frequency, the linearized map at an all-active balanced polygon is the symmetric matrix induced by \(c\|Tv\|^2-2\kappa\|Uv\|^2\). For a noncollinear polygon, tangential directions make \(T|_{\ker U}\) surjective. This produces a two-dimensional positive subspace, while arbitrary radial projections can be realized inside \(\ker T\), giving an \(M\)-dimensional negative subspace. The two rank bounds prove these are the complete positive and negative indices, and the submersion theorem identifies exactly \(M-2\) geometric zeros. At a collinear configuration, longitudinal and transverse coordinates split the Jacobian into explicit rank-one updates. Sylvester congruence produces the exact \(\tau\)-trichotomy, including the equality case. This proof covers every permitted size and parameter without numerical extrapolation. The standard-library verifier independently checked 3,504 exact-rational assertions; finite tests remain supplementary.
+PASS
 
-## Originality — PASS with stated priority risk
+The complete-graph coupling is c times the sum minus Mc times the local coordinate. After rotation and use of the equilibrium radii, the quadratic form is c|Tv|²−2κ|Uv|², with Tv=Σv_j and (Uv)_j=w_j·v_j. When the polygon is noncollinear, U is onto and T maps ker U onto the plane, so (T,U) is onto. In a basis lifting its image and completing with its kernel, the form is congruent to diag(cI₂,−2κI_M,0_{M−2}). The derivative of polygon closure on the fixed-radius product has rank two because the rotated w_j span the plane. Thus the kernel is the tangent space of the equilibrium manifold. Continuity and the separated nonzero spectrum give local normal hyperbolicity, not a uniform bound up to the collinear set. At collinearity signs of the w_j drop out: the transverse block is c11ᵀ, and the longitudinal block is −2D+c11ᵀ with D=diag(β_j−Mc)>0. Congruence by D^(−1/2) gives M−1 negative directions and the sign of 2(τ−1) for the last longitudinal direction. The transverse block adds one positive and M−1 zeros, so the critical equality and both strict inequalities give exactly the displayed cases; each is unstable. I read the rational checker but did not run it; the argument is exact for arbitrary permitted lengths.
 
-Zhao and Uchida, arXiv:2610.08239v1, derive the model, the gradient structure under purely real coupling, and the polygonal equilibrium family. Their Sections 3 and 5 do not state the complete inertia and singular collinear threshold; their polygon transverse-stability analysis uses numerical shape sampling with generally reactive coupling. Kemeth and collaborators, arXiv:1807.11231v2, treat homogeneous splay and cluster stability, not the all-active arbitrary-heterogeneity polygon census. Ku, Girvan and Ott, arXiv:1412.3803v1, treat related incoherent and clumped states without the result. Comparison against published research-search records identified nearby Stuart–Landau phase-reduction and cluster results but not the present all-geometry signature theorem. The gradient representation is acknowledged prior art; the claimed result is the exact geometry-independent noncollinear inertia plus the collinear phase boundary. The residual possibility of an earlier equivalent spectral argument in specialized literature remains.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The claim supplies a uniform stability-index classification for an entire family of stationary configurations singled out in recent amplitude-inclusive oscillator research. An exact count of *all* expanding, contracting and neutral modes is stronger than the easy observation that balanced configurations can be unstable. The special collinear configurations have a nontrivial, sharp parameter threshold not visible from the generic polygon dimension alone. The example of four identical oscillators locates an explicit change in unstable dimension at \(c=\beta/6\). These statements delimit the purely dissipative case and clarify why reactive coupling matters when seeking stable balanced cycles. No global-basin or nonlinear-bifurcation result is claimed.
+The rotating-frame gradient system and closed-polygon zero-mean family, with its generic dimension, are prior work. In the primary passages inspected, I found no prior determination of all the indices for arbitrary all-active fixed-length shapes under positive real coupling, or of the exact singular collinear threshold. Two later catalogue records cover the same theorem, one as a special case of a wider classification. Their later dates do not support earlier priority; the overlap is substantive and does not make these three different mathematical results on the common regime.
 
-## Scientific limitations and independent status
+## value
 
-All oscillators must be active and the coupling must be strictly positive and real. The theorem does not cover reactive coupling, Kerr-type terms, inactive sites, nonlinear stability at the collinear zero-eigenvalue boundary, or a complete classification of all equilibria. Priority relative to inaccessible or unindexed older work cannot be ruled out. Independent scientific validation has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The result replaces shape-by-shape stability analysis in the real-coupled regime by complete indices for every allowed size and heterogeneity. The two normally expanding directions at regular polygons and the sharp loss or gain of one longitudinal direction at collinearity separate degeneracies that the common-phase neutral mode alone would not reveal. This is a useful exact benchmark for these equilibria, without implying a nonlinear bifurcation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

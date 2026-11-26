@@ -1,19 +1,21 @@
-# Scientific review: Fibonacci minimal absent-subsequence antichains
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The definitions concern distinct words absent as scattered subsequences, with every one-position deletion present. The proof invokes the original Theorem 3.1 of Kosche et al. for greedy minimal-absence; its four conditions are checked against the transition rule. A complete classification of reachable greedy pair states shows exactly two first-position incoming groups for runs 3 onward, with Fibonacci multiplicities, and one uniform multiplicity for all interior positions. Termination is possible only at the last positions of the two final runs or the first position of the last run. These cases yield exact terminal counts \(\(F_r\)\) and \(F_{r+1}\). The two-run base is checked separately. Each choice of letters determines a unique greedy path, so the proof does not overcount embeddings. Independent brute-subsequence enumeration and path dynamic programming agree in 124 finite cases. No finite experiment is substituted for the induction.
+PASS
 
-## Originality — PASS, with residual risk
+Reconstructed the MAS condition for scattered subsequences: deleting the preceding letter forces each proposed next letter to occur in the previous greedy block, since otherwise its greedy position and the eventual failure are unchanged. Conversely, after any single deletion the block witnesses place the remaining suffix one block earlier; deletion of the last letter gives the already embedded prefix. A word has a unique greedy path. At the first position of run j>=3 the only arrivals are from the last position of run j-2 and the first position of run j-1. Both first-position states admit both letters because the intervening run has length at least two, so first-position and within-run totals obey the Fibonacci recurrence with A_1=A_2=1. A final letter of the last-run type fails only after its last position; the other final letter can fail exactly at the end of the penultimate run or at the first position of the last run. The binary complement and two-run cases agree. Independent prefix exploration and individual deletion tests corroborated both counts on 360 run tuples, using lengths 2, 3, 4 and 2–5 runs. The induction, not the finite test, covers unbounded r and lengths.
 
-The closest general criterion is Kosche et al., arXiv:2108.13968, Theorem 3.1; the supplied example for \(0011\) is the first member of this family, not the infinite formula. Adamson et al., arXiv:2407.18599, study numbers of all absent subsequences at fixed lengths and universality indices, a different statistic. The subsequent arXiv:2504.21471 studies output-sensitive MAS enumeration, not this Fibonacci run invariant. A related published count for \((01)^k\) concerns undoubled runs, and does not imply the result for arbitrary lengths at least two. Searches for Fibonacci MAS, alternating run dilations, absent subsequence antichains, and exact boundary counts did not identify equivalent statements. Since indexing is incomplete, an equivalent historical theorem remains possible; this is self-review, not independent validation.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The theorem completely evaluates a natural combinatorial invariant on an infinite family with unbounded run count and *arbitrary* run lengths, proving non-obvious invariance under run dilation and an exact split by terminal symbol. It exposes a Fibonacci state-transition mechanism in the boundary of the scattered-subsequence downset, a useful structural comparison point for the effect of isolated runs and alphabet extension. No claim of wider algorithmic improvement is made. The result is not merely a finite census or substitution into a pre-existing explicit run formula.
+The established greedy criterion and the two-run example are reused. No inspected earlier source gives or subsumes the arbitrary-run-length Fibonacci count together with the terminal-symbol split. The later exact catalogue overlaps are material but cover different subfamilies or statistics and do not establish earlier coverage.
 
-## Scientific limits
+## value
 
-Requires a binary alphabet, at least two runs, and minimum run length two. Does not evaluate the entire MAS length spectrum, nor extend to one-letter runs. The literature comparisons are fallible, and no independent audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The cardinality of the minimal obstruction antichain is a natural invariant of the subsequence order. Its independence from arbitrarily large and nonuniform run dilations, and the sharper terminal split, reveal structure beyond enumerating a fixed alternating example or reporting the output of a general algorithm.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

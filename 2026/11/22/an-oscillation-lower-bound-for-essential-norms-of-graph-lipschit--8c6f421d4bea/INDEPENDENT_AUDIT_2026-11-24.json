@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:28:03.934663Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The theorem assumes a bounded multiplier and the stated root-plus-edge norm. On a locally finite connected graph the edge difference of a little-space function is in c0(E), since only finitely many edges meet any given ball. The root value and differences give an isometric embedding into the scalar plus c0 space. Hahn–Banach and the summable edge coefficients in its dual show that bounded root/edgewise-null sequences are weakly null; their continuous inclusion gives the same in the big space. For a selected escaping edge at minimum radius r, the distance-to-edge tent of height r−ceil(sqrt(r)) is 1-Lipschitz, vanishes on every fixed ball eventually, and has equal values at the two endpoints. Its root value is zero and an edge leaving the plateau gives norm one. The product jump divided by r times the symbol jump tends to one; compact operators kill the weakly null tents in norm. Escaping singleton indicators give the A lower bound by the same argument. B is finite and the two radius conventions agree: testing the multiplier on min(d(a,·),r), which is constant outside a finite ball and has norm one, bounds r|Δψ| for edges of minimum radius r. Thus a radius difference of one incurs an error tending to zero. Independently checked the A=0 upper bound: multiply by a radial cutoff η that vanishes through R, ramps at slope 1/R to radius 2R, and is 1 thereafter; M_ψ−M_(ηψ) has finite rank. On an edge oriented from larger radius v to smaller radius w, the three product-rule contributions for a unit f are bounded by A_R, B_R and 2A_R respectively (|f(w)|≤d(a,w) whenever the cutoff contributes, and d(a,w)≤2R on a ramp edge). The root contribution is zero. This yields the asserted equality by taking R→∞ when A=0, consistent with Proposition 8.3. The ladder distances are k+i; the horizontal jump times radius tends to 2, the vertical jump vanishes, and the symbol tends to zero. Boundedness follows directly by the edge product rule from bounded amplitude and weighted jumps, also on the little space since little-space f obeys |f(v)|/d(a,v)→0 by summing along root geodesics. This proves the exact sharpness claim and its positive scalar multiples. The checked finite-ladder script was inspected but not executed; it is not used as proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The same-model graph paper bounds from below by A and from above by 4A+B, explicitly leaving a B-dependent lower estimate open.",
+          "The available exact little-space formula allows arbitrary positive weights but assumes a locally finite rooted tree; the two other cited mirror files were unavailable for statement inspection."
+        ],
+        "reasoning": "An upper bound by B when A=0 is not equality; the graph paper does not give the needed lower bound. Generality in weights on a tree does not supply generality in unweighted graph topology or a proof for both spaces.",
+        "searches": [
+          "arXiv:2602.13534v1, §8, immediately following Proposition 8.2 and Proposition 8.3",
+          "Resultary 6b05c4d0072a; cited d1427342c9b4 and 2e6f7e5ce734"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, AUDIT.json and checker.py",
+        "arXiv:2602.13534v1 §8",
+        "Resultary 6b05c4d0072a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The tree formula unweighted gives limsup of |ψ(v)|+|v||ψ(v)−ψ(parent(v))| on the little rooted-tree space. The general-graph A lower bound can be zero when B is positive, as on the ladder."
+        ],
+        "reasoning": "Tree row equality depends on independent edge coordinates; passing to a spanning tree does not preserve all difference constraints or supply compact lower-bound witnesses on the graph space. A positive lower bound requires a new graph-valid weakly null family that preserves the jump on the selected edge.",
+        "searches": [
+          "arXiv:2602.13534v1, Propositions 8.2–8.3",
+          "Resultary 6b05c4d0072a, exact tail-row formula"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Definition 8.1 uses the same tail variables and root-plus-edge norm; either endpoint radius gives the same limiting B under boundedness.",
+          "On a rooted tree, choosing the child endpoint translates the weighted jump term to |v||ψ(v)−ψ(parent(v))|; the little-tree formula with unit weights contains that term."
+        ],
+        "reasoning": "The graph result is not a normalization change. It agrees with a known specialization to trees but addresses graph edge differences with path consistency around cycles, where the freely assignable tree increments are not available.",
+        "searches": [
+          "arXiv:2602.13534v1, §8 Definition 8.1 and Propositions 8.2–8.3",
+          "Resultary exact essential norm little weighted tree multipliers, 6b05c4d0072a"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The relevant catalogue exact formula is an analytic tree formula, not a lookup table for arbitrary cyclic graphs. The inspected all-graph paper provides bounds rather than exact values for the class A=0."
+        ],
+        "reasoning": "A numerical-table match is inapplicable for the quantified graph-and-symbol theorem. The appropriate exact match is an indexed essential-norm formula; the checked one implies the A=0 value only on its tree class, not on the cyclic ladder or all graphs.",
+        "searches": [
+          "Resultary 6b05c4d0072a",
+          "Resultary d1427342c9b4 and 2e6f7e5ce734 identified in frozen citations",
+          "arXiv:2602.13534v1, §8"
+        ]
+      },
+      "rationale": "The supported distinct claim is the B coefficient-one lower bound on arbitrary locally finite connected graphs on both spaces, and the corresponding A=0 exactness including cyclic graphs. The A lower bound and the restriction of the A=0 identity to previously covered tree spaces are not new. Best-of-knowledge comparison, not a priority certificate.",
+      "residual_risks": [
+        "Complete texts of Locke's 2016 dissertation and the cited Colonna–Locke 2023 manuscript were not inspected.",
+        "The cited big-tree and tail-escape catalogue full texts were unavailable in the matching local mirror; no negative coverage conclusion relies on that.",
+        "A different metric-space or operator-theoretic formulation may yield an unindexed equivalent bound."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Matching universal upper bound and A lower bound; no B-dependent lower result in these passages",
+          "evidence": "The authors leave a lower bound depending on B for future research; Proposition 8.3 states the upper estimate 4A+B.",
+          "identifier_or_url": "https://arxiv.org/html/2602.13534v1",
+          "material_read": "§8 Definition 8.1 (OA offset 79724); text after Proposition 8.2 (about 85933); Proposition 8.3 and proof (86088)",
+          "method": "OA text passages",
+          "title": "Multiplication Operators on the Lipschitz Space of an Infinite Graph",
+          "trigger": "Same operator and norms, exact upper bound and potential prior proof of B lower bound"
+        },
+        {
+          "assessment": "Covers the A=0 identity for the unweighted little tree specialization",
+          "evidence": "Arbitrary positive weights on a locally finite rooted tree; setting weights to one gives the parent-jump formula, not arbitrary graphs.",
+          "identifier_or_url": "Resultary 6b05c4d0072a",
+          "material_read": "Exact formulas and rooted-tree scope in RESULT.md",
+          "method": "Local catalogue mirror",
+          "title": "Exact essential norms for multipliers on little weighted Lipschitz spaces of rooted trees",
+          "trigger": "Strongest inspectable exact tail-row formula"
+        },
+        {
+          "assessment": "Exact content not independently established",
+          "evidence": "No scope conclusion beyond the supplied citation was inferred from the title.",
+          "identifier_or_url": "Resultary d1427342c9b4",
+          "material_read": "Frozen citation; matching local-mirror body was unavailable",
+          "method": "Local catalogue mirror retrieval attempt",
+          "title": "Exact essential norms of multipliers on big weighted Lipschitz spaces of rooted trees",
+          "trigger": "Potential big-space exact formula"
+        },
+        {
+          "assessment": "Exact content not independently established",
+          "evidence": "The available citation is insufficient to infer precise coverage.",
+          "identifier_or_url": "Resultary 2e6f7e5ce734",
+          "material_read": "Frozen citation; matching local-mirror body was unavailable",
+          "method": "Local catalogue mirror retrieval attempt",
+          "title": "Tail-escape essential norms and a sharp summability transition for weighted tree Lipschitz multipliers",
+          "trigger": "Potential overlap in weak-null or tail-escape methods"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This closes the explicitly identified missing B-dependent lower-bound question in the all-graph framework, with best possible coefficient. In particular the B term can entirely determine the essential norm while amplitude tends to zero, a case the previously known amplitude lower estimate cannot distinguish. The edge-centered witness works on graphs with cycles and against all compact operators on both spaces, not just compact multipliers or approximants in a tree coordinate system. The ladder demonstrates the resulting nonzero sharp invariant on a cyclic graph.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

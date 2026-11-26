@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproduction of the finite certificate
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3.9 or later and no third-party packages. The expected output starts with `VERIFY_OK` on all three lines. The script independently implements direct deletion and inverse signed-rank insertion, checks their identical incidence relations, checks the exact forty-unit total twice-weight and all 384 source inequalities, and checks twenty specified codewords for 46 disjoint received outputs. There are two unused received words. Both the upper-bound proof and the attaining code are included in `RESULT.md`.
+## correctness
 
-This program covers only the signed four-rank channel defined in `RESULT.md`; it does not test larger ranks, unordered symbols, uncertain signs, or a multiple-deletion channel. Finite exact checks do not constitute independent external mathematical certification.
+PASS
+
+The sign is attached to the surviving entry while its magnitude is standardized, and an unknown single output rather than the whole deletion deck is the observation. There are 384 sources and 48 outputs. The prescribed nonnegative twice-weights have multiplicities 12,32,4 and total 40. For nonconstant sign words, the one-, two-, and three-change cases each provide two distinct nonalternating output sign patterns, hence at least two units. For constant signs and a one-output deck, comparing the standardized survivors from deleting adjacent entries of magnitudes a<b at their common position gives a and b-1, so these magnitudes must be consecutive. Repeating this at all three adjacent pairs forces monotone order, whose single output has weight two. A constant-sign deck of size at least two needs no special argument. I independently generated all incidences by inserting every signed absolute rank at every position into each of the 48 outputs, lifting ranks at least the inserted one. All 384 twice-weight constraints held. This inverse enumeration confirmed the printed ten sources and their negatives give 20 distinct sources and 46 distinct outputs with no cross-deck collision; the two omissions are exactly ±(3,-2,1). The integral packing gives a feasible fractional packing of value 20, and the halves of the listed weights provide a dual feasible cover of cost 20. Weak duality certifies both optima exactly.
+
+## originality
+
+PASS
+
+The unsigned standardized channel, adjacent-consecutive collision rule and generic fractional shadow-packing formulation are prior tools. The exact signed B_4 integer/fractional optima and sign-symmetric attaining certificate were not established by the inspected alternatives. This is a statement-level best-of-knowledge verdict, not an exhaustive priority claim.
+
+## value
+
+PASS
+
+The first balanced sign case makes four ranks a natural baseline: at three every source has a constant-sign output, so just four such outputs cap capacity and the four constant-sign monotone sources attain it. At four a two-plus/two-minus source escapes that bound altogether. An exact benchmark at this onset of mixed-sign shadow packing is useful for evaluating signed deletion constructions and bounds. The half-integral explicit cover and sign-symmetric packing establish not just the number, but exact tightness of a reusable relaxation and attainment with a natural symmetry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

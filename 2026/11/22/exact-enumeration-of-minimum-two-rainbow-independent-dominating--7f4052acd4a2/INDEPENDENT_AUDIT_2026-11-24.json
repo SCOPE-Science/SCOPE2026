@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:46:38.745404Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Checked the local constraints and reconstructed the all-n equality structure. A middle column 00 forces its two neighbours to be complementary double columns (12 and 21), since the two horizontal labels in each row must be 1 and 2. Its reduced cost is zero. A singleton middle column has reduced cost zero. A double middle column contributes one unless it follows an empty one, when it contributes zero. Thus reduced costs are nonnegative and telescope, and weight n occurs exactly when all double columns follow an empty one. An empty column then forces its predecessor double and the column before that empty, so iterating around the cycle forces alternating empty and double columns. The doubles must alternate 12/21, yielding four indexed functions if 4 divides n and none otherwise. With no empty column there are only singletons. Encode their four types by (row, colour) in F_2^2. Adjacent types must be distinct, and each type must have its simultaneous row-and-colour flip on at least one side. Equivalently consecutive nonzero increments d_j around the cycle have no adjacent pair avoiding c=(1,1), and their sum is zero. Character filtering for that parity condition cancels the four choices of starting type against the factor 1/4. For a character with values u,v on (1,0),(0,1) and w=uv on c, the weighted increment matrix with rows (0,0,w),(0,0,w),(u,v,w) has characteristic polynomial t(t^2-wt-w(u+v)). The four choices of character yield trace sum 2^n+3(-1)^n+u_n, giving the stated correction after adding the alternating family. Counts are positive at 4 and 5 and bounded below by 2^n-3-2(√2)^n>0 for n>=6, so weight n is indeed attained. This proof counts indexed columns and named colours. Independently, review-evidence/prisms.py rebuilt the 35 states, histogram 46 tight and 24 slack arcs, characteristic polynomial, two nontrivial components, and all displayed sample traces. Uploaded supporting files and test claims were inspected; no uploaded programs were executed. The proof and scope here are n>=4.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gabrovšek–Peperko–Žerovnik use a min-plus closed-walk method and a 26×26 tropical matrix in the exact prism case, proving gamma_ri2(C_n □ P_2)=n for n>=4; P_2 is K_2. That theorem is numbered 4.2 in the accessible paper, not 1.6 as cited in the frozen record. The 2021 precursor remains unreadable through the identified routes; the 2023 authors describe it as an announcement of the values with few details.",
+          "The catalogue exact minimum-independent-domination multiplicity SCOPE-e9f31746918a is for a tensor product C_n × K_q, q>=3, not the Cartesian torus with a 4-cycle layer."
+        ],
+        "reasoning": "Priority for the optimum weight is not in doubt; it is credited as old. An enumerator for a broader family containing C_n □ C_4 would cover the multiplicity, but the inspected results on other products or other domination notions do not do so.",
+        "searches": [
+          "DOI:10.1007/s10100-023-00840-w, §3 Theorem 3.1, §4.1 Theorem 4.2",
+          "Conference-precursor title, SOR'21 pp. 173–178, optimal-functions query",
+          "SCOPE-e9f31746918a; SCOPE-4bf772728255, original Findings"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1709.08966",
+        "DOI:10.1007/s10100-023-00840-w",
+        "SOR'21 proceedings pp. 173–178 (secondary description and access attempt only)",
+        "Resultary: SCOPE-7f4052acd4a2, SCOPE-4bf772728255, SCOPE-e9f31746918a; SCOPE-6a2d2531557b (index description only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The published prism argument states optimum traces and a periodicity used to extend them; it does not distinguish tied assignments. The independent-domination correspondence changes representation, not the evaluation. The count requires separating the alternating empty/double sector and the singleton sector with colour/row constraints, or equivalently evaluating the tight ordinary transfer spectrum."
+        ],
+        "reasoning": "The weight theorem and generic transfer method do not mechanically give the advertised numbers. A different calculation preserves ties and identifies an exact recurrence and the extra period-four functions. This is not a new proof of the known weight presented as novelty.",
+        "searches": [
+          "DOI:10.1007/s10100-023-00840-w, §3 and §4.1 case C_n □ P_2",
+          "arXiv:1709.08966, product correspondence",
+          "Resultary: SCOPE-e9f31746918a and SCOPE-4bf772728255, Findings and scope"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The original definition uses singleton positive labels, each label class independently, with each zero adjacent to every positive colour. Sending f(v)=k>0 to a selected vertex (v,k) is a weight-preserving bijection to independent dominating sets of the Cartesian product with K_2; unselected fibres require a selected neighbour in each colour layer. Here (C_n □ K_2) □ K_2 is C_n □ C_4. The alias lookup did not identify a competing minimum-set count for that torus.",
+          "SCOPE-4bf772728255 covers those tori but concerns parity of open-neighbour counts, a different condition even on the selected vertices."
+        ],
+        "reasoning": "An exact unquotiented count of smallest maximal independent sets on the labelled width-four torus would be the same result and was checked under that alias. Ordinary domination, parity domination, independent 2-rainbow domination with the whole nonzero set independent, and tensor graph products need not count the same objects.",
+        "searches": [
+          "arXiv:1709.08966, §1, definitions and independent-domination product correspondence",
+          "Resultary query for exact enumeration of minimum maximal independent sets on width-four Cartesian tori, with 24 40 76 112 232 504",
+          "Primary query for enumeration of minimum independent dominating sets of C4-by-cycle toroidal grids"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "SCOPE-7f4052acd4a2 is the exact self-match, not an independent prior claim. The traces at n=3–12 in the 2023 paper are optimum weights, not counts; for example their n=4 value is 4, the optimum weight, not the 24 functions. No distinct matching count table was identified."
+        ],
+        "reasoning": "Compare semirings and labelled objects before comparing a table. Tropical trace takes a minimum; ordinary trace of the tight subgraph counts choices. A close catalogue summary SCOPE-6a2d2531557b concerns three colours; its original text was not accessible and it is not used as decisive evidence.",
+        "searches": [
+          "Local Resultary for labelled prism optimum multiplicities and the torus alias and initial counts",
+          "2023 paper §4.1 prism trace table and Theorem 4.2"
+        ]
+      },
+      "rationale": "The distinction is the exact labelled multiplicity and its decomposition. The underlying weight n and a minimum-weight transfer treatment of the very same graph are established prior work, as the Finding's relationship section expressly acknowledges. No inspected statement was found that gives or directly entails the number of optima.",
+      "residual_risks": [
+        "The 2021 proceedings text was not located in readable form; it could contain more than the minimum values described by the journal article.",
+        "A bounded search does not exclude a prior exact table or formula under smallest maximal independent sets on cyclic width-four grids or another coding of the same assignments."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same invariant and known change of representation, not an exact prism multiplicity in those statements",
+          "evidence": "Positive label classes are separately independent; every zero sees each class; the ordered partition retains colour names. The related independent 2-rainbow invariant is distinguished in the text.",
+          "identifier_or_url": "https://arxiv.org/pdf/1709.08966",
+          "material_read": "Introduction and definition pp. 1–3, especially offsets 7213–9509",
+          "method": "OA PDF definitions and proof of equality of objects by the fibre correspondence",
+          "title": "On k-rainbow independent domination in graphs",
+          "trigger": "Definition and equivalence to independent domination on a Cartesian product"
+        },
+        {
+          "assessment": "Exact prior weight and tropical-transfer framework; not the count",
+          "evidence": "26×26 matrix; trace values are minimum weights; Theorem 4.2 says gamma_ri2=n for n>=4. No multiplicity is stated in the prism discussion inspected.",
+          "identifier_or_url": "https://doi.org/10.1007/s10100-023-00840-w",
+          "material_read": "§3 Theorem 3.1, PDF p. 6 near offset 16411; §4.1 C_n □ P_2 and Theorem 4.2 near offsets 25940–27482; introduction's SOR precursor note and reference",
+          "method": "OA PDF read and direct comparison of objectives and trace definitions",
+          "title": "On the 2-rainbow independent domination numbers of some graphs",
+          "trigger": "Same graph and minimum attainable weight, plausible stronger transfer coverage"
+        },
+        {
+          "assessment": "Residual access risk, not evidence either for or against earlier multiplicity",
+          "evidence": "The accessible paper credits a limited-detail announcement of the minimum values.",
+          "identifier_or_url": "SOR'21 pp. 173–178; https://eurekamag.com/research/097/247/097247928.php",
+          "material_read": "Bibliographic entry and description in the 2023 paper; no primary proceedings text",
+          "method": "Targeted literature lookup plus attempted OA routes for identified entries; no lawful readable exact copy established",
+          "title": "2-rainbow independent domination numbers of some graphs (SOR'21 proceedings)",
+          "trigger": "Cited conference precursor on the exact invariant"
+        },
+        {
+          "assessment": "Different domination predicate or different graph product",
+          "evidence": "First imposes odd open-neighbour counts even at selected vertices; second explicitly uses the categorical product and q>=3.",
+          "identifier_or_url": "Resultary: SCOPE-4bf772728255; SCOPE-e9f31746918a",
+          "material_read": "Original Findings and defining scope, local mirror offset 0",
+          "method": "Resultary search under the torus equivalence and mirror comparison",
+          "title": "A sharp quarter–half density phase diagram for parity domination on Cartesian tori; Cyclic color-gap rigidity and exact minimum independent-domination multiplicities in C_n × K_q",
+          "trigger": "Possible torus or minimum independent-set equivalences"
+        },
+        {
+          "assessment": "Same record, not independent coverage",
+          "evidence": "Identical n>=4 recurrence, labels and 4-cycle and 12-state components.",
+          "identifier_or_url": "Resultary: SCOPE-7f4052acd4a2",
+          "material_read": "Original Finding and relationship to prior work",
+          "method": "Local mirror versus frozen statement",
+          "title": "Exact enumeration of minimum two-rainbow independent dominating functions on cycle prisms",
+          "trigger": "Exact formula hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The cyclic prism is a natural narrow product family for which the energy/weight minimum alone leaves the multiplicity unresolved. The exact count shows exponentially many optima, resolves the subleading colour–row constraint and the separate periodic family, and supplies a reusable labelled benchmark for optimum multiplicities (equivalently smallest maximal independent sets on the width-four torus). The value is the full optimum structure and tie count, not recovery of the known weight.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

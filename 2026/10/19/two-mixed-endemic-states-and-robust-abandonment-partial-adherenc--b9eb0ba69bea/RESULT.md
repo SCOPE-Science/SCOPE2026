@@ -1,124 +1,92 @@
-# Two mixed endemic states and robust abandonment–partial-adherence bistability
+# An explicit basin separator between two endemic adherence outcomes
 
 ## Finding
 
-For the coupled SIRS–replicator model defined below, there are **at most two distinct stationary states with both positive infection and strictly mixed adherence**. This is a sharp bound. A fully rational parameter choice attains it and has precisely two locally attracting endemic states, one with no adherence and the other with strictly partial adherence. A third endemic state, with smaller but positive adherence, is a hyperbolic saddle separating these alternative outcomes locally. This yields coexistence of intervention abandonment and sustained partial protection, rather than the abandonment–universal-protection bistability illustrated in earlier parameter studies.
+For the rational parameter example below of the autonomous SIRS–replicator model, the lower of the two mixed endemic equilibria is a hyperbolic saddle. Its two unstable branches converge, respectively, to the endemic no-adherence and endemic partial-adherence sinks. Thus the saddle's local stable manifold separates their two basins in a neighborhood of the saddle. These connections and local separation persist under sufficiently small parameter perturbations. The statement is about where the unstable branches actually go, not just about the linear stability types of the three equilibria.
 
-Specifically, for the parameters given in the assumptions, the only two mixed endemic adherence fractions are
-\[
- x_{\pm}=\frac{409\pm\sqrt{109681}}{2880},
- \qquad 0.027<x_-<0.028,\qquad 0.257<x_+<0.258.
-\]
-The lower state is a saddle and the upper state a locally asymptotically stable equilibrium. The no-adherence endemic equilibrium is also locally asymptotically stable. All three endemic states are hyperbolic, so their existence and stability persist under sufficiently small simultaneous perturbations of the parameters.
+More explicitly, an invariant tube around the positive endemic response curve gives certified open sets of initial conditions in the two basins. Within the tube, adherence decreases monotonically to zero on the lower side of the saddle and increases monotonically to the upper mixed equilibrium on the upper side. No claim about the entire basin boundary is made.
 
-## Assumptions and scope
+## Model and parameter choice
 
-Let \(S,I,R\geq0\), \(S+I+R=1\), and \(x\in[0,1]\) be respectively susceptible, infectious, recovered, and adherence fractions. Dynamics on the invariant simplex are
+Let \(S,I,R\ge0\), \(S+I+R=1\), and \(0\le x\le1\). The model is
 \[
 \begin{aligned}
- \dot S&=\mu-\beta b(x)SI+\delta(1-S-I)-\mu S,\\
- \dot I&=\beta b(x)SI-(\gamma+\mu)I,\\
- \dot x&=\varepsilon x(1-x)\alpha(x,I),
+\dot S&=\mu-\beta b(x)SI+\delta R-\mu S,\\
+\dot I&=\beta b(x)SI-(\gamma+\mu)I,\\
+\dot R&=\gamma I-(\mu+\delta)R,\\
+\dot x&=h(x)\big[-c+a\xi\beta I(1-ex)+\kappa(2x-1)\big],\qquad
+b(x)=(1-ax)(1-ex),\quad h(x)=\varepsilon x(1-x).
 \end{aligned}
 \]
-where
-\[
- b(x)=(1-ax)(1-ex),\qquad
- \alpha(x,I)=-c+a\xi\beta I(1-ex)+\kappa(2x-1).
-\]
-Here \(\mu,\delta,\gamma,\beta,c,\xi,\varepsilon>0\), \(a,e\in[0,1]\), and \(\kappa\geq0\). By a *mixed endemic state* we mean an equilibrium with \(I>0\) and \(0<x<1\). The count bound holds for every such parameter set, including the degenerate cases \(a=0\), \(e=0\), and \(a=1\). It counts distinct states and does not assert all are stable.
-
-For the sharp example, all numbers are exact rationals:
+Use the exact parameters
 \[
 (\mu,\delta,\gamma,\beta,a,e,\xi,c,\kappa,\varepsilon)
 =\left(\frac1{10},\frac9{10},1,\frac{33}{10},\frac9{10},\frac1{10},\frac{800}{297},\frac{503}{300},1,\frac1{100}\right).
 \]
-Set \(\rho=\beta/(\gamma+\mu)\) and \(K=(\mu+\delta)/(\mu+\delta+\gamma)\). For this example \(\rho=3\), \(K=1/2\). All epidemic parameters are positive and all behavioral efficacy parameters lie strictly between zero and one.
+For \(0\le x\le13/50\), the endemic response at fixed \(x\) is \(S_*(x)=1/[3b(x)]\), \(I_*(x)=R_*(x)=E(x)=(1-S_*(x))/2\). Define the behavioral response on this curve by
+\[
+G(x)=-c+8(1-x/10)E(x)+(2x-1)
+=\frac{1440x^2-409x+10}{100(9x-10)}.
+\]
+The two roots are \(x_\pm=(409\pm\sqrt{109681})/2880\), with \(27/1000<x_-<28/1000\) and \(257/1000<x_+<258/1000\). The brackets follow by substitution into the numerator (signs \(+,-,-,+\) in increasing order). The denominator is strictly negative throughout the interval. Consequently \(G<0\) on \([0,x_-)\), \(G>0\) on \((x_-,x_+)\), and \(G'(x_-) >0>G'(x_+)\). Let \(p_0,p_-,p_+\) be the points on the endemic response curve with \(x=0,x_-,x_+\), respectively. In particular \(p_0\) has \(S=I=R=1/3\), not zero infection.
 
 ## Proof
 
-**1. Reduction and universal bound.** At any endemic equilibrium, the infection equation forces \(\beta b(x)S=\gamma+\mu\), and the recovered-state balance gives \(R=\gamma I/(\mu+\delta)\). Hence
+### Hyperbolicity
+
+At either mixed point put \(C=\beta bE\), \(A=1+C\), \(u=-\beta b'S_*E\), \(v=h\,8(1-x/10)\), and \(w=h(2-(4/5)E)\). In the coordinates \((S,I,x)\) the Jacobian and characteristic coefficients are
 \[
- S=\frac{1}{\rho b(x)},\qquad
- I=E(x):=K\left(1-\frac1{\rho b(x)}\right),\qquad \rho b(x)>1.
+J=\begin{pmatrix}-A&-2&u\\ C&0&-u\\0&v&w\end{pmatrix},\qquad
+C_1=A-w,\quad C_2=2C-Aw+uv,\quad C_3=uv-2Cw=-2ChG'.
 \]
-The mixed behavioral equation is equivalent to \(G(x):=\alpha(x,E(x))=0\). If \(a>0\), cancellation of \(1-ex\) yields on the endemic domain
+Indeed, differentiating the fixed-\(x\) epidemic equations yields \(S_*'=u/C\) and \(E'=-u/(2C)\); the feedback derivative is then \(hG'=w+vE'\). On the interval of interest \(b>7/10\), \(E>1/4\), \(C>1/2\), \(A<3\), \(u,v>0\) at the mixed points, and \(0<w\le1/200\). These imply \(C_1,C_2>0\) and
 \[
- G(x)=-c-\kappa+2\kappa x+a\xi\beta K
- \left(1-ex-\frac1{\rho(1-ax)}\right).
+C_1 C_2-C_3=2AC-A^2w+Aw^2+uv(C-w)>1-9/200>0.
 \]
-Because \(\rho b(x)>1\), necessarily \(1-ax>0\). Multiplying by this strictly positive factor gives the quadratic polynomial identity
+The signs of \(G'\) give one eigenvalue in the open right half-plane at \(p_-\) and none at \(p_+\), by the cubic Routh test. Neither point has a purely imaginary or zero eigenvalue, since \(C_3\ne0\) and \(C_1C_2\ne C_3\). At \(p_0\), the epidemic block has negative trace and positive determinant, and the transverse eigenvalue is \(\varepsilon G(0)=-1/10000\). Thus \(p_0,p_+\) are sinks and \(p_-\) is a saddle with one-dimensional unstable manifold.
+
+### Trapping tubes and their limits
+
+Set \(D(x)=\beta b(x)\), \(C(x)=D(x)E(x)\), \(L(x)=8(1-x/10)\), and use the deviations \(y=I-E(x)\), \(z=R-E(x)\). Since \(\gamma=\mu+\delta=1\), the equations become
 \[
- (1-ax)G(x)=(A_0+B_0x)(1-ax)-\frac{P}{\rho},
- \quad P=a\xi\beta K,
- \quad A_0=-c-\kappa+P,
- \quad B_0=2\kappa-eP.
+\dot x=h(x)(G(x)+L(x)y),\qquad
+\dot y=-D(x)(E(x)+y)(y+z)-E'(x)\dot x,\qquad
+\dot z=y-z-E'(x)\dot x.
 \]
-When \(a>0\), the quadratic coefficient is \(-aB_0\), which may vanish; nevertheless this is always a polynomial of degree at most two. A nonzero polynomial of degree at most two has at most two roots. It cannot vanish identically: if \(B_0=0\), its linear coefficient is \(-aA_0\); vanishing also requires \(A_0=0\), which would leave the nonzero constant \(-P/\rho\). If \(a=0\), then \(G(x)=-c+\kappa(2x-1)\) is affine and has at most one root (or none). Thus there are at most two mixed endemic states for every admissible parameter choice. Distinct \(x\) determine distinct endemic \((S,I,x)\).
-
-**2. Exact sharp witness.** Substitution of the rational parameters into the endemic feedback gives
+Define \(r=(y^2+C(x)z^2)^{1/2}\). On either interval \(0<x<x_-\) or \(x_-<x<x_+\), consider the tube \(r\le |G(x)|/16\) in the biological state space. Because \(0<L\le8\), within the tube \(\dot x\) has the sign of \(G\) and
 \[
- G(x)=\frac{1440x^2-409x+10}{100(9x-10)}.
+\frac12 h|G|\le|\dot x|\le\frac32 h|G|\le \frac{3}{800}|G|.
 \]
-The discriminant of the numerator is \(109681\), so its two simple roots are the displayed \(x_\pm\). Rational sign certificates are
+
+Here are uniform analytic bounds validating invariance. On \([0,13/50]\), one has
 \[
-\begin{array}{c|rrrr}
- x&27/1000&28/1000&257/1000&258/1000\\\hline
- 1440x^2-409x+10&169/25000&-2019/6250&-61/25000&4127/12500
-\end{array}
+\tfrac7{10}<b\le1,\quad |b'|\le1,\quad \tfrac12<C<2,\quad |C'|<2,\quad
+D<4,\quad |E'|<\tfrac12,\quad |G'|<1,\quad |G|<\tfrac3{10}.
 \]
-(the signs alone are also sufficient). Both roots lie below \(13/50\), where \(b(x)>7/10\) and \(\rho b(x)>21/10>1\), so they give genuine positive-infection equilibria with \(I>1/4\). At each, \(S=1/[3b(x)]\), \(I=(1-1/[3b(x)])/2\), and \(R=I\). Also \(G(0)=-1/100<0\), and the no-adherence endemic equilibrium is \((S,I,x)=(1/3,1/3,0)\).
-
-**3. Stability at the mixed states.** Write \(C=\beta bI\), \(A=\mu+\delta+C=1+C\), \(B=\delta+\gamma+\mu=2\), and set
+For the first bounds use \(b=1-x+9x^2/100\), \(C=\beta(b-1/3)/2\), and \(E'=b'/(6b^2)\). For \(G'\) use \(8/5-(6/5)/(1-9x/10)^2\) with \(1-9x/10>3/4\), then use \(G(0)=-1/100\). Differentiating the norm gives
 \[
- h=\varepsilon x(1-x),\quad
- u=-\beta b'(x)SI>0,\quad
- v=h a\xi\beta(1-ex)>0,\quad
- w=h(2\kappa-ae\xi\beta I).
+\tfrac12\frac{d}{dt}r^2
+=-Cy^2-Cz^2-Dy^2(y+z)-E'\dot x(y+Cz)+\tfrac12 C'\dot x z^2.
 \]
-At either mixed equilibrium the Jacobian is
+In the tube, \(D(|y|+|z|)\le10r<3/16\). The first three terms are therefore at most \(-5r^2/16\); the remaining two are at most \((5/4)r|\dot x|+2r^2|\dot x|\). At \(r>0\), the speed bound yields
 \[
- J=\begin{pmatrix}-A&-B&u\\ C&0&-u\\0&v&w\end{pmatrix}.
+\dot r\le -\tfrac3{10}r+\tfrac54|\dot x|.
 \]
-Its characteristic polynomial \(\lambda^3+C_1\lambda^2+C_2\lambda+C_3\) satisfies
+The same inequality holds for the upper right derivative at \(r=0\) by the deviation equations. On the tube wall \(r=|G|/16>0\), the outward derivative satisfies
 \[
-\begin{aligned}
- C_1&=A-w,\\ C_2&=BC-Aw+uv,\\
- C_3&=(\mu+\delta)uv-BCw=-BC hG'(x),\\
- C_1C_2-C_3&=ABC-A^2w+Aw^2+uv(C-w).
-\end{aligned}
+\frac{d}{dt}\big(r-|G|/16\big)
+\le -\tfrac3{160}|G|+\big(\tfrac54+\tfrac1{16}\big)\tfrac3{800}|G|<0.
 \]
-For \(0<x<13/50\) at these equilibria, \(I>1/4\), \(b>7/10\), and therefore
-\[
- \frac{231}{400}<C\le\frac{33}{20},\qquad
- 1<A\le\frac{53}{20},\qquad
- 0<w\le\frac1{200}<C.
-\]
-Indeed \(ae\xi\beta=4/5\), so \(w>0\), and \(h\le1/400\) gives the asserted upper bound. It follows immediately that \(C_1>0\), \(C_2>0\), and
-\[
- C_1C_2-C_3>
- 2\frac{231}{400}-\left(\frac{53}{20}\right)^2\frac1{200}>0.
-\]
-Because the denominator \(100(9x-10)\) is negative, the lower numerator root has \(G'(x_-) >0\), while the upper has \(G'(x_+)<0\). Hence \(C_3<0\) at \(x_-\), giving exactly one eigenvalue with positive real part by Routh's sign criterion; it is a hyperbolic saddle. At \(x_+\), all four strict cubic Routh–Hurwitz inequalities hold, so it is a hyperbolic sink.
+Thus no trajectory starting in a tube can leave through its wall. The speed bound precludes reaching either forward endpoint in finite time (\(h=0\) at zero and \(G=0\) at \(x_+\), with smooth functions). Bounded monotone adherence then converges to zero in the lower tube and to \(x_+\) in the upper tube, since the lower speed bound is positive on any compact interior interval. In the upper tube \(r\to0\) by the wall bound. In the lower tube \(\dot x\to0\) by the speed bound and \(h(0)=0\); integrating the norm inequality gives \(r\to0\) as well. These limits prove the claimed convergence for the indicated initial conditions.
 
-**4. The abandonment endemic state and robustness.** At \(x=0\), the endemic SIRS two-dimensional subsystem has negative trace \(-[\mu+\delta+\beta I]\) and determinant \((\delta+\gamma+\mu)\beta I>0\). The transverse behavioral eigenvalue is \(\varepsilon G(0)=-1/10000<0\), so \((1/3,1/3,0)\) is a hyperbolic sink. These three endemic states remain in the admissible region, with the same local types, under sufficiently small simultaneous perturbations of the parameters by continuity and the implicit-function theorem. The exact existence of two mixed equilibria, together with the universal two-root bound, excludes any additional mixed endemic stationary state in the perturbed regime.
+### Identification of both unstable branches
 
-## Verification
+In each tube select starting points on the endemic response curve with adherence tending to \(x_-\) from that side. Fix an interior adherence slice on the same side and shift each trajectory's time origin to its unique crossing of the slice. The elapsed times from the chosen starting points to the slice tend to infinity: near \(x_-\) the upper speed bound is at most a constant times \(|x-x_-|\). The crossing points have a convergent subsequence in the compact slice. Continuous dependence gives a complete backward orbit from the limit point, within that tube for all finite negative times. Indeed the limiting orbit cannot reach a tube endpoint in finite backward time, by the same Lipschitz speed bounds, and for every finite interval the approximating orbits remain in the closed tube inequalities. Its backward adherence limit is \(x_-\), by the lower speed bound in the tube interior; then \(r\to0\) by the wall inequality. Thus it lies on the unstable manifold of \(p_-\). One orbit is on each side, giving both branches, and the tube convergence proves they go to the two different sinks.
 
-The standalone file `check.py` verifies by exact SymPy rational arithmetic the feedback-function identity, discriminant and rational root brackets, the endemic-domain inequalities, the characteristic-coefficient formulas and \(C_3=-BChG'\), and the strict Routh–Hurwitz bounds. Execute `python check.py` with Python 3.10+ and SymPy installed. The analytical argument above proves the universal claim; finite computations only reproduce its algebraic certificates. For reference, the mixed adherence fractions are approximately \(0.0270204099742\) and \(0.257007367804\), with corresponding prevalences \(0.328716436127\) and \(0.277462481588\).
+For a hyperbolic saddle with a one-dimensional unstable direction, the local stable manifold has two sides. Points sufficiently close to the saddle on either side leave a local saddle neighborhood arbitrarily close to the corresponding unstable branch (the local saddle exit property, or the inclination lemma). Each branch has entered an open sink basin, so points on those sides belong to the corresponding basins after shrinking the neighborhood. For persistence, take a finite segment of each branch ending in a local attracting neighborhood of its sink. The equilibria and local unstable branches persist by hyperbolicity; continuous dependence keeps the two segments in the corresponding trapping neighborhoods at their endpoints for sufficiently small parameter changes. This preserves the asserted local separation. There is no claim that the full stable manifold is the entire global basin boundary.
 
-## Relationship to prior work
+## Reproducibility and relationship to previous work
 
-Kumata, Ito, and Yamamichi (arXiv:2610.12519v1, posted 7 October 2026) introduce the very same private-protection/source-control/conformity SIRS model, write its endemic feedback function and a general Jacobian, and numerically describe stable partial adherence, periodic solutions, abandonment–full-adherence bistability, and partial–full-adherence coexistence. Those constructions and the reduced equilibrium formulas are prior work, not claimed new. Their main discussion, figure classifications, and supplementary derivations do not give an attained **universal bound of two mixed endemic stationary states** or a certified coexistence of stable **no-adherence endemic** and stable **partially adherent endemic** states. The present contribution is the sharp algebraic bound plus exact rational three-endemic-state realization with rigorously assigned local stability types.
+The inequalities displayed above establish the invariant tubes and the two connections analytically; neither a small-parameter limit nor integration of a sample trajectory is the certificate. The existing `check.py` corroborates the equilibrium identities and strict local linear stability inequalities only. It does not check the new tube or connections.
 
-Saad-Roy and Traulsen (2023) analyze the earlier adherence-coupled SIRS model without this product protection and conformity combination. Their full text does not contain the above sharp mixed-state multiplicity/concurrent-sink witness. Other epidemic–behavior and evolutionary feedback models can exhibit bistability, so bistability alone is not claimed new.
-
-## Limitations
-
-The claim concerns deterministic homogeneous-mixing mean-field dynamics and local stability. It does not establish global basin geometry, transition probabilities for finite stochastic populations, empirical efficacy of any intervention, or invariance under arbitrary model modifications. The witness uses a small behavioral-update rate, \(\varepsilon=1/100\), although the two-interior-state count is independent of that rate. The motivating preprint supplies nearly all the general equilibrium/Jacobian formulas; the novelty is the particular complete quantitative conclusion and phenomenon, not a new modeling framework. Work containing an equivalent unindexed multiplicity theorem remains a bibliographic risk; there has been no independent audit.
-
-## References
-
-1. R. Kumata, H. Ito, and M. Yamamichi, *Voluntary nonpharmaceutical intervention as a feedback-evolving game*, arXiv:2610.12519v1 (7 October 2026), https://arxiv.org/html/2610.12519v1. Examined main text, model equations, figures and supporting sections S1–S4.
-2. C. M. Saad-Roy and A. Traulsen, *Dynamics in a behavioral–epidemiological model for individual adherence to a nonpharmaceutical intervention*, PNAS **120** (2023), e2311584120, https://doi.org/10.1073/pnas.2311584120. Examined full text.
-3. A. Martin, H. Castella, and F. Hamelin, *Wearing face masks to protect oneself and/or others*, Journal of Theoretical Biology (2026), https://doi.org/10.1016/j.jtbi.2026.112395. Abstract consulted; full text not examined.
+Kumata, Ito and Yamamichi, *Voluntary nonpharmaceutical intervention as a feedback-evolving game*, [arXiv:2610.12519v1](https://arxiv.org/abs/2610.12519v1), introduce the model and equilibrium feedback. Their Fig. 3C illustrates the separation of no adherence and full adherence in numerical trajectories, not a saddle-to-sink connection theorem for two endemic sinks of which one has mixed adherence. The Resultary entry *Three is the sharp local-attractor capacity of a conformist behavioral SIRS model*, `2026/11/22/SCOPE-three-is-the-sharp-local-attractor-capacity-of-a-conformist-beha--862b1c9a80d4`, proves strict concavity on the positive endemic branch and gives a rational witness of the same local equilibrium pattern (with an additional disease-free sink). The mere mixed-state count and local bistability are not claimed as distinct results here. The present claim is the explicit orbit and basin-separation certificate for the specified parameters. It is a statement about a deterministic homogeneous model, not about actual interventions or populations.

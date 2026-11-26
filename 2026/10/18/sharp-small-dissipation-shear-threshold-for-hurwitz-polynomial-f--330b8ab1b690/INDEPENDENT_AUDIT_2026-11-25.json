@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T17:53:23.559573Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Proof §§1–5",
+        "Frozen VERIFICATION.md and VERIFY.py, inspected without execution",
+        "Independent replay: python3 /workspace/branches/frozen_review_algebra.py (record 2 block)",
+        "Castañeda–Rebollo-Perdomo arXiv:2610.09176v1, §2"
+      ],
+      "rationale": "Independent differentiation of the Cartesian field and symbolic expansion confirm c_2,c_1,c_0, the completed square, all three highest-degree terms of (c_2 c_1−c_0)/μ, and κ_1. The cubic criterion with c_0,c_2>0 is sufficient as well as necessary: c_1>0 follows from c_2c_1>c_0. c_2 has a uniform positive lower bound for small μ; c_0 is positive outside a compact set by positive definite leading forms of f_3,f_4, and on the compact set by g→10 uniformly. Dividing H by s²(1+μs²+μ²s⁴) gives a convex combination of strictly positive leading forms on the unit semicircle, with uniform O(1/s) error. Thus no zeros or near-zero minima can escape to infinity. Near the limiting unique interior minimizer (10/sqrt(62),1/(2sqrt(62))) the Hessian is positive definite, and outside that neighborhood the limiting square gives a positive compact gap. The analytic minimizer has value with κ-derivative u_0/5, giving a local analytic strict threshold; its first correction is −5P_2/u_0=428.396613755040596…>0. At equality the positive cubic coefficients yield (λ+c_2)(λ²+c_1) exactly on a single u>0 orbit of rotation. For fixed κ away from κ_0 the leading sign is decided on the compact region using the same tail bound (or by a negative value at the limiting minimizer); at κ_0 the first correction excludes strict Hurwitz. On z=−u/10, S=−25(u−1)(u−4)/21, yielding the two period-2π circles and opposite signs of the transverse Jacobian determinant; the trace at u=4 is negative for small μ.",
+      "residual_risks": [
+        "The exact analytic iff concerns a fixed interval around κ_0 at small positive μ; it is not a global finite-parameter diagram. The equality circle is a locus of pointwise Jacobian spectra, not asserted to be a flow orbit."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary proof controls polynomial signs at one parameter pair and extends them by openness. The Dulac and phase-portrait results extend cycle classification for the same field, not Cartesian Hurwitzness. The spectral noninvariance record compares one globally Hurwitz instance with a gauge-conjugate non-Hurwitz instance."
+        ],
+        "reasoning": "Broader cycle classification does not imply pointwise stability of the Cartesian Jacobian. Local robustness at one parameter pair and gauge comparison do not dominate a sharp small-μ threshold for every point in the fixed field.",
+        "searches": [
+          "arXiv:2610.09176v1 §2, Lemma 3 and Theorem 1",
+          "Resultary 50f7b9fa53d4; dcab60c2756e; 5bc2762ee4ff"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.09176v1",
+        "Resultary 41e7de6a0455, 5bc2762ee4ff, 50f7b9fa53d4, dcab60c2756e",
+        "Other same-family indexed comparisons: 03361c09e75e (saddle separatrix), dee29eccd0bc (attracting-cycle basin certificate)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The primary coefficient formulas enable the polynomial expansion but do not give the completed-square optimizer, uniform tail control along e=κμ, minimizer-value derivative, or equality locus.",
+          "The one-point obstruction tests a fixed point distinct from the limiting boundary minimizer, and the global phase portrait explicitly does not characterize everywhere-Hurwitz spectra."
+        ],
+        "reasoning": "A strict local test or coefficient identity is not a theorem about the globally minimized cubic residual. The noncompact minimization and its perturbation add substantive information beyond prior criteria.",
+        "searches": [
+          "arXiv:2610.09176v1 §2, rotational reduction and characteristic coefficients",
+          "Resultary 41e7de6a0455 §3 one-point obstruction",
+          "Resultary dcab60c2756e scope"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary example (μ,e)=(1/1000,1/10) corresponds to κ=100; an open neighborhood of it does not give a boundary as μ→0.",
+          "Writing the target in shear gives e_*(μ)=κ_0μ+κ_1μ²+O(μ³). The indexed one-point criterion is e>250μ/7+830μ/(21−166μ), with leading coefficient 250/7+830/21 < κ_0."
+        ],
+        "reasoning": "Changing e to e/μ does not turn local existence at κ=100 or a fixed-point test into the everywhere-Hurwitz threshold.",
+        "searches": [
+          "Resultary: exact Castañeda–Rebollo-Perdomo polynomial family small-dissipation Hurwitz shear ratio and equality circle",
+          "arXiv:2610.09176v1 §2",
+          "Resultary 41e7de6a0455 Finding and §3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The explicit indexed spectral test is at p=(1,0,−1/10); the original open-set example uses κ=100. Neither gives the compared constants κ_0=(5000−400sqrt(62))/21 and κ_1=428.396613755… for a globally minimized discriminant condition."
+        ],
+        "reasoning": "The question is a parameter curve, not a lookup for stability at one tuple. The nearest exact expressions were checked against the curve; there is no known matching table entry in the compared sources.",
+        "searches": [
+          "Focused Resultary family and spectral-boundary lookup",
+          "Resultary 41e7de6a0455 and 5bc2762ee4ff exact parameters",
+          "arXiv:2610.09176v1 explicit stability parameter"
+        ]
+      },
+      "rationale": "The supported distinct result is the everywhere-Cartesian-Hurwitz boundary germ of this exact family, its two coefficients and its unique equality circle. The original field, two cycles, cubic coefficients and a globally Hurwitz open set are prior. The strongest same-family primary and indexed spectral findings inspected do not supply a global minimum or the boundary germ. The conclusion is best of current knowledge, not a priority certification.",
+      "residual_risks": [
+        "Focused searches can miss unindexed equivalent parameter scalings or later work; absence of a matching hit is not evidence of priority.",
+        "PASS is for the threshold germ and equality geometry, not for novelty of the vector field, periodic circles or transparency of the cubic test."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes family and baseline, not the boundary",
+          "evidence": "Proves two periodic circles and global Hurwitzness at (μ,e)=(1/1000,1/10) and in an open neighborhood.",
+          "identifier_or_url": "https://arxiv.org/html/2610.09176v1",
+          "material_read": "§2, Lemma 3, coefficient formulas, and open-set proof of Theorem 1, OA offsets 11100–13591, 14000–18913, 27800–32297",
+          "method": "OA primary manuscript passages",
+          "title": "A family of Hurwitz polynomial vector fields in R³ having non-constant periodic orbits",
+          "trigger": "Same exact polynomial family and Cartesian Hurwitz test"
+        },
+        {
+          "assessment": "Exact pointwise obstruction, not a competing global threshold",
+          "evidence": "Iff at p=(1,0,−1/10), with leading e/μ coefficient below 88.114… .",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-global-analytic-phase-gauge-conjugacy-and-a-sharp-hurwitz-obstru--41e7de6a0455",
+          "material_read": "RESULT.md Finding and §3, mirror offsets 0–4491",
+          "method": "Resultary index and local mirror",
+          "title": "Global analytic phase-gauge conjugacy and a sharp Hurwitz obstruction",
+          "trigger": "Same family and analytic shear obstruction"
+        },
+        {
+          "assessment": "Distinct conjugacy comparison",
+          "evidence": "Uses the original globally Hurwitz sample and shows failure at a point for a conjugate member.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-analytic-gauge-conjugacy-and-hurwitz-spectral-noninvariance-in-a--5bc2762ee4ff",
+          "material_read": "RESULT.md Finding and proof, mirror offsets 0–3854",
+          "method": "Resultary index and local mirror",
+          "title": "Analytic gauge conjugacy and Hurwitz spectral noninvariance",
+          "trigger": "Same Cartesian spectral test and family"
+        },
+        {
+          "assessment": "Dynamical classification rather than pointwise Hurwitzness",
+          "evidence": "Two-cycle classification through μ=1764/15625; explicitly does not decide Jacobian-Hurwitzness.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-an-optimal-power-dulac-certificate-extends-the-global-two-cycle--50f7b9fa53d4",
+          "material_read": "RESULT.md Finding and scope, mirror offsets 0–3705",
+          "method": "Resultary index and local mirror",
+          "title": "An optimal power-Dulac certificate extends the global two-cycle classification",
+          "trigger": "Same established cycles and parameter family"
+        },
+        {
+          "assessment": "Does not cover the Cartesian spectral assertion",
+          "evidence": "Global dynamical outcomes for μ<=1764/15625 and all real e; pointwise Hurwitzness scoped out.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-weighted-dulac-global-phase-portrait-for-a-three-dimensional-h--dcab60c2756e",
+          "material_read": "RESULT.md Finding and scope, mirror offsets 0–3448",
+          "method": "Resultary index and local mirror",
+          "title": "A weighted-Dulac global phase portrait for a three-dimensional Hurwitz family",
+          "trigger": "Same radial reduction, possible dominating parameter theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding, Proof §§2–5 and Limitations",
+        "arXiv:2610.09176v1, Theorem 1 and proof"
+      ],
+      "rationale": "The known counterexample is specified by an isolated certified pair plus an unspecified open region. A necessary and sufficient local shear boundary across all space identifies how the counterexample can stay everywhere Hurwitz as dissipation vanishes. The first correction decides the critical fixed ray itself, and the equality locus describes how strict stability fails. These are structural refinements of a motivated stability problem, not arbitrary parameter tuning.",
+      "residual_risks": [
+        "Does not solve the finite-μ global diagram or determine basin changes or stability at other parameters."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

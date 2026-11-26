@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The finite irreducible Erlang-stage Markov embedding and Feynman–Kac/Perron theory give the cumulant growth rate, with an explicit unique root of the cycle equation. Gärtner–Ellis with compact support yields the full speed-time LDP; the endpoint and smooth-interior arguments are supplied in RESULT.md. Explicit expansion at both infinite tilts gives the phase-ratio exponents. Taking a positive common root exactly characterizes equal-shape aliasing, and edge exponents prove the converse. The independent phase-generator eigenvalue program agrees with scalar roots and analytic equal-shape formulas in 140 comparisons. The check is finite; the proof handles every positive rate and every finite integer stage pair.
+## correctness
 
-## Originality
-**PASS with residual priority risk.** The initiating 2026 source discusses the standard Poisson model and proposes non-Markovian tumbling; it does not contain this free-particle large-deviation classification. Di Crescenzo (2001) gives full position densities of Erlang reversal processes, and Macci (2016) proves broader non-standard telegraph LDPs. Neither accessible abstract asserts the exact two-sided if-and-only-if *rate-function aliasing* and opposite edge exponents. The 2022 open-access paper's full theorem concerns three-state occupation-time densities, not a matching classification. Nonetheless the two inaccessible plausible prior full texts may implicitly imply the formula; this remains material and requires independent expert priority checking. An earlier two-time-law alias theorem compares different observables and an Erlang/hyperexponential construction rather than matching large-deviation pressures for equal-stage Erlang pairs.
+PASS
 
-## Value
-**PASS.** Large-deviation inference from rare long-time transport can fail to identify whether microscopic tumbling times are memoryless; the phenomenon persists over a complete infinite parameter family, while finite-time ballistic atoms still expose the difference. A sharp if-and-only-if boundary and two quantitative edge exponents diagnose when this aliasing fails. These are motivated active-transport identifiability facts, not a mere numerical recomputation of moments.
+The finite cyclic stage embedding and Feynman–Kac give the simple Perron eigenvalue for every initial phase. Multiplying the positive eigenvector ratios gives A_+^p A_-^q = λ_+^p λ_-^q with A_± positive; the product increases from zero to infinity above the larger diagonal threshold. Implicit logarithmic differentiation gives Λ′ = v(p/A_+ − q/A_-)/(p/A_+ + q/A_-) and Λ″(p/A_+ + q/A_-) = p(Λ′−v)^2/A_+^2 + q(Λ′+v)^2/A_-^2 > 0. At positive tilt A_- = A_+ + 2vθ + λ_-−λ_+, so A_+ tends to zero with the stated positive coefficient and power −q/p; swapping signs gives −p/q. These also yield the slopes ±v, intercepts −λ_±, and θ(v−Λ′)→0 at the positive edge (with the sign-reversed counterpart). Thus the Legendre rate has the stated endpoint limits; exponential tightness and Gärtner–Ellis on the interior give the full LDP, including open neighborhoods of the endpoints. Taking the positive p-th root when p=q gives the Markov quadratic, whose Legendre transform gives the displayed rate. Conversely the conjugate rate determines the pressure; the intercepts fix the comparator rates and its inverse-first-power edge law forces p=q. The ballistic atom for a fresh plus run is the Erlang survivor. Line 4's phrase 'family of unequal Erlang stage counts' is infelicitous; the explicit quantifiers in line 6 and classification in line 23 include equal counts and are consistent.
 
-## Sources and limitations
-See RESULT.md references and AUDIT.json comparisons. The 2001 and 2016 related papers were accessible only at abstract level; complete earlier full text was not accessible during this review. The theorem is an unconfined benchmark, not a result about escape in a bistable potential. Verification is self-review only; no independent audit has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass the complete two-sided Erlang classification and edge-ratio discrimination, not the underlying model, classical Markov rate or symmetric Erlang-2 example as separate contributions. The strongest inspected catalogue overlap is an exact special case, not a dominating result; accessible literature evidence does not establish earlier equivalent or stronger coverage of the boundary. This is not a priority finding.
+
+## value
+
+PASS
+
+The pressure is a natural observable for discriminating holding-time models from displacement. An exact alias/no-alias boundary and a positive, reciprocal-power signature of the directional shape ratio give a usable identifiability result, in contrast to a comparison of a few cumulants or examples. The ballistic atom shows what the rate discards.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:42:12.896653Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md: parametrization, subset formula, variance and limit",
+        "Frozen VERIFICATION.md and check.py: definition-level and subset-formula checks",
+        "Separate exhaustive replay output at /workspace/branches/a4b5a090-d14a-482e-9913-992a6cc6c3cd/independent-enum.txt: 1×3, 2×2, 2×3 and all 9! underlying permutations at 3×3; counts 6, 16, 288, 46656 and variances 1, 5/4, 7/6, 10/9; at 3×3, 17972 zero and 16515 one fixed point"
+      ],
+      "rationale": "The band product forces each orthomorphism row to be a bijection of columns. For each reached column, the first coordinates of the images under α then run through a permutation of the rows, independently across those columns. This yields a bijection to the independent row and column permutation choices, and its product count. For a specified subset of cells T, α fixes every cell exactly when each incident row permutation fixes its specified columns and each incident column permutation fixes its specified rows. A uniform m-permutation fixes r specified points with probability (m−r)!/m!, and expansion of the product of 1+(t−1) times the fixed-point indicator gives the entire stated PGF. The singleton probability is 1/(ab). Ordered distinct pairs in a common row, a common column, and neither contribute 1/a, 1/b, and (a−1)(b−1)/(ab) respectively to the second factorial moment, equal to the variance since the mean is one. For one side of length one this is the ordinary uniform permutation, including deterministic variance zero at 1×1. For fixed k there are at most k nonempty row factors and k nonempty column factors; each specified k-cell event has probability (ab)^(−k)(1+O_k(1/a+1/b)) uniformly as both sides grow. The factorial moments therefore tend to 1, which gives ordinary moment convergence and the Poisson(1) law by moment determinacy.",
+      "residual_risks": [
+        "The audited limit requires min(a,b)→∞; the replay verifies small sizes only and is not its proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The finite-band decomposition with complete mappings independent by rectangular classes specializes to the assigned single-class band, including the explicit local action on α.",
+          "The semigroup paper treats Brandt-semigroup enumeration by Latin squares, establishes band existence, and poses a cycle-structure problem; those passages alone do not give this PGF.",
+          "The C₂ rectangular-group count concerns a different multiplication and state space."
+        ],
+        "reasoning": "Only the exact local parametrization from the finite-band classification is needed; neither the Brandt result nor the C₂ count is transferable by changing labels.",
+        "searches": [
+          "Resultary 522c8013084e (finite bands), 6264cf1f154b (rectangular groups)",
+          "arXiv:2608.25092v1, Section 6.1, Section 12, Problem 15.6"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 522c8013084e, 6264cf1f154b, 05254e329b97, 8997d3fea37f",
+        "arXiv:2608.25092v1; bounded primary search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Uniform choice transports through the indexed bijection to uniform independent row and column permutations. Prescribing T pointwise fixes d_i row inputs and e_j column inputs, hence gives exactly the product of reciprocal falling factorials.",
+          "Subset expansion gives all coefficients at once; at order two the only configurations are same row, same column, or neither. At each fixed order k the factors differ uniformly from their powers by 1+O_k(1/a+1/b), so the method of moments immediately applies in the stated growing-side regime."
+        ],
+        "reasoning": "This is a direct distributional corollary of the stronger indexed parametrization. The exact formulas for α are not stated in the inspected counterpart, but neither they nor the two-side limit require a new implication beyond the elementary fixed-point calculation. The inspected semigroup problem is motivation, not a priority claim.",
+        "searches": [
+          "Resultary 522c8013084e, Finding and proof Step 2; Frozen RESULT.md exact-law and limit arguments",
+          "arXiv:2608.25092v1 Problem 15.6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Step 2 gives α(i,λ)=(p_{τ_i(λ)}(i),τ_i(λ)) for arbitrary independent row permutations τ_i and reached-column permutations p_μ.",
+          "On a fixed cell this is exactly τ_i(λ)=λ and p_λ(i)=i, while θ fixes the cell already under the first condition alone."
+        ],
+        "reasoning": "The fixed-point statistic is not the θ spectrum; it is the intersection of the fixed-cell sets of the two product-coordinate permutations in the very same given bijection.",
+        "searches": [
+          "Local Resultary: rectangular band complete mappings enumeration exact count",
+          "External: ‘complete mappings’ rectangular bands fixed points distribution counting semigroup enumeration Poisson limit",
+          "Resultary 522c8013084e, Step 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "522c8013084e states C(B)=∏_D (a_D!)^{b_D}(b_D!)^{a_D}, giving the precise normalizing count on a single class.",
+          "The conditional-random-map records give exact fixed-point laws in a different sampling space; indegrees all one give the unrestricted permutation variance one, not the rectangular-band variance."
+        ],
+        "reasoning": "The exact count is explicitly represented; the complete α-PGF is not copied from a scalar table and instead follows directly from the indexed parametrization.",
+        "searches": [
+          "Local Resultary: exact rectangular-band count and random-map fixed-point laws; 522c8013084e, 05254e329b97, 8997d3fea37f"
+        ]
+      },
+      "rationale": "The distinct indexed finite-band result 522c8013084e gives both the count and precisely the labeled row-column product parametrization, including its explicit formula for α on a cell. Its displayed cycle polynomial is for θ, not α, and is not itself the answer. But its parametrization already gives the entire uniform law of α as a product of independent unrestricted permutations. Requiring the two component permutations to fix the row and column indices on T gives the frozen full PGF directly by the standard specified-fixed-point probability, not by a new structural lemma. The finite correction and restricted two-growing-side limit then follow by ordinary second-moment counting and fixed-order factorial moments. This is direct implication of the audited claim, not a finding of earlier priority based on the distinct record's later path date.",
+      "residual_risks": [
+        "The strongest indexed match has a later displayed path date; historical priority or dependency is not established. The decision concerns indexed implication, not priority.",
+        "Other stochastic models can have similar limits without the same exact finite distribution; no exhaustive bibliographic claim is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact count and fully specified stronger parametrization; mechanical implication for α, even though the displayed spectrum is for θ",
+          "evidence": "Any independent row choices τ_i and column choices p_μ define the unique α by the same labeled cell formula. Single-class count is the frozen count.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-orthomorphism-fibers-and-cycle-spectra-of-finite-bands--522c8013084e/RESULT.md",
+          "material_read": "Finding and proof Steps 1–3 from offset 550, especially Step 2",
+          "method": "Bounded local mirror passages",
+          "title": "Orthomorphism fibers and cycle spectra of finite bands",
+          "trigger": "Strongest matching complete-mapping count and product structure"
+        },
+        {
+          "assessment": "Supports motivation and distinguishes the genuine sampling spaces",
+          "evidence": "Counts Brandt complete mappings by Latin squares, treats identity complete mappings of bands and asks about cycle structure generally.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.25092",
+          "material_read": "v1 Section 6.1 Proposition 6.5 p. 22, Section 12 p. 53, Problem 15.6 p. 60, OA offsets 74750, 177650, 195800",
+          "method": "OA PDF passages",
+          "title": "Complete Mappings of Semigroups",
+          "trigger": "Primary source for band complete mappings and cycle question"
+        },
+        {
+          "assessment": "Related object, not a fixed-point law for the frozen band",
+          "evidence": "Counts mappings over [r]×C₂×[s], with an extra group coordinate.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-transversal-counts-for-rectangular-groups-over-c-2--6264cf1f154b",
+          "material_read": "RESULT.md Finding",
+          "method": "Bounded local mirror passage",
+          "title": "Exact transversal counts for rectangular groups over C₂",
+          "trigger": "Plausibly equivalent rectangular Rees-matrix count"
+        },
+        {
+          "assessment": "Different conditioning",
+          "evidence": "Prescribed indegrees constrain the fibers, not the additional rectangular-band orthomorphism.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-conditional-fixed-points-of-random-mappings-a-complete-poisson-b--05254e329b97",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Bounded local mirror passage",
+          "title": "Conditional fixed points of random mappings: a complete Poisson–Bernoulli law",
+          "trigger": "Similar exact PGF and Poisson limit"
+        },
+        {
+          "assessment": "Different ensemble",
+          "evidence": "Its prescribed-fiber setting does not impose both permutation conditions of complete mappings.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-poisson-bernoulli-limits-for-fixed-points-of-random-mappings-con--8997d3fea37f",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Bounded local mirror passage",
+          "title": "Poisson–Bernoulli limits for fixed points of random mappings with constrained fibers",
+          "trigger": "Related fixed-point limit theorem"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and scope",
+        "Problem 15.6 of arXiv:2608.25092v1",
+        "Exact parametrization in Resultary 522c8013084e, Step 2"
+      ],
+      "rationale": "The fixed-point statistic is naturally motivated by the semigroup cycle question and its precise finite correction could be useful in isolation. As a distinct contribution relative to the current indexed result, however, it is a mechanically obtained narrow invariant of an already specified independent-permutation parametrization. The two-growing-side Poisson limit uses only its uniform fixed-order factorial estimate; the frozen record offers no other asymptotic regime or α cycle analysis that survives independently of that calculation.",
+      "residual_risks": [
+        "The conclusion does not diminish the potential value of other complete-mapping statistics or claims beyond the frozen scope."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

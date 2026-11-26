@@ -1,21 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem is proved for every integer \(k\ge3\) and every \(0<p<1\), not extrapolated from finite cases. The weighted autocorrelation polynomials are derived by listing all proper borders of the two specified words. Substituting the two polynomials into the standard first-hit denominator gives the explicit one-variable equation \(G(p,t)=0\) with a unique root in the required interval. Its derivative bounds show that \(t(p)\) is strictly decreasing; the crossover factor \(H_k(p)\) is therefore strictly increasing. Strict opposite endpoint orderings, the continuity of the Perron roots, and the unique possible equality together prove exactly one actual crossing. Polynomial elimination gives the unique algebraic \(t_k\), and a uniform implicit expansion proves both asymptotic coefficients. Critical boundary checks include \(D_U(1/q)<0\), \(D_V(1/q)<0\), and the positivity of the quadratic \(q^2-pq+kp^2\).
+PASS
 
-`CHECK.py` independently compares exact finite-state survival probabilities with generating-function coefficients for 1,848 rational cases and tests 630 additional overlap/phase conditions, including known \(k=2\) behavior. Finite diagnostics are supportive only; the proof, not enumeration, establishes the universal theorem. No independent audit has been performed.
+The repaired text disambiguates the generating function: C_w/D_w has coefficients indexed by iid block length, not by the number of shifts in the definition of survival. For example, one shift survives with probability 1-p²q^(2k), whereas the length-one avoidance probability is 1. The two series differ by removing the first N-1 terms and shifting the exponent, which preserves their first positive pole. The standard denominator identity and original theorem therefore survive unchanged. I checked the proper border lists and weighted suffix factors. In the V denominator, t=qz gives G=t-q-p t^(2k+1)(1-t); G is strictly increasing on [0,1], its zero is in (q,1), and the zero decreases in p. At an equality of first poles the function (p/q) times the sum of t^(-j) must equal one, and it is strictly increasing. Both denominators start positive at 1 and are negative at 1/q: for U, the remaining factor q²-pq+kp² is positive. At the small-p end C_U<C_V throughout this root interval, and at the large-p end the reverse holds. Evaluating the respective denominators at the other first zero gives opposite strict escape-rate orderings; the finite prefix spectral radius is continuous in p, so the unique candidate is attained. Substituting q=p times the geometric sum into G gives 2t^k-1=t^(3k)(1-t), strictly increasing after bringing all terms to the left. The strict bounds use q<t<1 and k≥3. With c=log 2, t=exp(-y/k), the corrected proof bounds 0<y<c and the right-hand side by c/k. The local implicit solution has y=c-c/(8k)+O(k^(-2)), hence 1-t=c/k-(c/8+c²/2)/k²+O(k^(-3)). The exact formula p=(1-t)/(1-t^(2k+1)(1-t)) adds c²/(4k²), yielding the claimed coefficient. Own direct finite-string enumeration at p=2/9 and k=3,4 agrees exactly with the length-indexed coefficients through N+2; high-precision bisection at k=3,4,8 reproduces the printed thresholds. These are finite cross-checks; the argument above covers the full parameter set. The supplied script was inspected, not run.
 
-## Originality — PASS within inspected evidence
+## originality
 
-The nearest published overlap is Bonanno–Cristadoro–Lenci (2022), Remark 3.7: it already exhibits the \(k=2\) pair and observes a numerical bias crossover. That instance is explicitly excluded from the new parameter claim. Proposition 2.4 in the same work gives the general weighted denominator but not the all-\(k\) unique crossing or \(\log 2\) two-term asymptotic for \(k\ge3\). Chandgotia–Marcus–Richey–Wu (2024 preprint) provide general unweighted forbidden-word shift structure, while Bóna–Maga–Richey (first public 4 June 2026) analyze border-dependent letter frequencies and pose broader ordering questions. The full accessible relevant sections and exact example in the primary 2022 text were compared at the level of statements and implications. Published research-record searches of the pair family and the logarithmic threshold did not identify a matching theorem. The possibility of an unlocated older formulation, or a longer worked example elsewhere, remains a priority risk; a search gap alone is not proof of novelty.
+PASS
 
-## Value — PASS
+The isolated k=2 reversal and general autocorrelation formula are prior art. The repaired statement keeps the same substantive claim: the growing k≥3 family, uniqueness over the full bias interval and the sharp threshold asymptotic. These are not established by the compared prior statements.
 
-Two holes have exactly equal Bernoulli measure for every bias yet reverse their escape ordering once, at a parameter that is fully classified for an unbounded natural family. The structural competition is between \(k\) zero-only self-overlaps and one long mixed self-overlap. The logarithmic scaling \(p_k\sim(\log2)/k\), together with the explicit second-order term, gives a sharp parameter scale that the isolated published \(k=2\) example cannot predict. This is a genuine parameter-phase theorem for open symbolic dynamics, not a new numerical value for an old six-symbol pair or a routine formula substitution.
+## value
 
-## Closest source and limits
+PASS
 
-Bonanno, Cristadoro and Lenci, *Maximal escape rate for shifts* (2022), Proposition 2.4 and Remark 3.7, https://arxiv.org/html/2112.14248v2. The general weighted-correlation identity and previously known length-six crossover are credited. The theorem applies to iid binary sources and exactly the stated family; it makes no broader optimality claim. Historical priority is provisional. Mathematical independence has not been established.
+For natural equal-mass holes, bias can reverse the escape ordering even with composition fixed. The theorem gives a unique sharp scale, exact threshold, and second-order correction for arbitrarily long words. This goes beyond a numerical table or an example at a fixed length.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

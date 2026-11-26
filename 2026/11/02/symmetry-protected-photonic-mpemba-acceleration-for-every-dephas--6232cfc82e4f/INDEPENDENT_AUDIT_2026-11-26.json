@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:36:55.571922Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In dimensionless time Jt the dissipator is q times the sum of the site-projector Lindblad terms. Trace and positivity are preserved. An independent exact matrix-unit construction, python3 /workspace/checks/02_spectral_certificate.py (SymPy), gave the stated full characteristic polynomial and verified the cubic discriminant, both shifted Hurwitz identities, the q=3 branch test and the cyclic Krylov spaces of the two specified deviations. The cubic discriminant is strictly negative for every q>0, and evaluation at −2q/3 orders its unique real root and the conjugate pair's real part on the two sides of 3. At 3 just real parts coincide. The odd quadratic is defective at 2√2; all other scalar or quadratic spectator real parts equal −q and cannot dominate. Shifting the cubic by the leading odd root real part gives positive A,B,C and AB>C both below the odd exceptional point and above it with b in (0,√2]; hence strict spectral separation without sampling. Zero is simple and all nonzero modes are stable. Cyclicity excites the full leading generalized eigenspace in each active block; spectral projection and finite-dimensional Jordan form give the claimed norm log-slopes even on real-part ties and at the odd exceptional point. Near the stationary state the natural-log entropy deficit is (3/2)Tr(X²)+O(||X||³), doubling the log-slopes. The initial pure deficit is log 3 and the near state has strictly interior spectrum and nonzero deficit for the given ε. Strict separation of the log-slopes yields an eventual ordering for each fixed set of parameters, not a uniform time estimate. Expansion of the simple cubic root near q=0 gives −3q/4+O(q³); substitution r=uR, u=1/q, gives R=−6+O(u²) at large q. With the odd formula these give limits 5/4 and 3. The frozen 387-check count is recorded evidence, not the independent replay.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Longhi's general model includes the three-site generator, but the inspected center-localization conclusion is given with a strong-dephasing slow-mode analysis.",
+          "Wei et al. use the slowest accessible mode and symmetry sectors in a dephased long-range XXZ chain."
+        ],
+        "reasoning": "Restriction to a symmetry sector proves only sector selection. It does not furnish the spectral ordering of those sectors for all q, nor the q=3 switch of the leading even decay envelope.",
+        "searches": [
+          "Longhi, arXiv:2408.03296v1, main text pp. 1–3",
+          "Wei et al., arXiv:2605.20930, symmetry-filtered slow modes"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, check.py and self-review",
+        "Longhi 2024 arXiv:2408.03296v1 main paper",
+        "Wei et al. arXiv:2605.20930",
+        "Resultary November 2 diffusion-chain record"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The strongest inspected common mechanism is elimination of a slow mode by symmetry or choice of initial state, including center localization for odd chains in the strong-dephasing treatment.",
+          "The finite-q proof independently needs strict stability of a shifted cubic and nonzero excitation of its leading modes, including at the crossover."
+        ],
+        "reasoning": "Knowing the generator makes a finite matrix calculation possible, but neither the qualitative symmetry statement nor the limiting diffusion model mechanically gives the strict all-q spectral comparison. No new claim is made to the underlying mechanism.",
+        "searches": [
+          "Longhi 2024, pp. 1–3",
+          "Wei et al., arXiv:2605.20930, PDF pp. 1–2",
+          "Resultary November 2 classical diffusion result, main claim and limitations"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Longhi 2024 uses the same open-chain evolution and entropy deficit; its inspected odd-chain center-localization result is presented in the strong-dephasing analysis.",
+          "The closest catalogue record compares classical reflecting-path laws for odd N≥5 and explicitly excludes finite-dephasing quantum walks."
+        ],
+        "reasoning": "Strong-dephasing diffusion suppresses coherences and is a limit, not a reparametrization of all positive finite q. The state pairs and quantified regimes are different.",
+        "searches": [
+          "Focused search for the three-site Haken–Strobl/dephasing path spectrum and photonic Mpemba effect",
+          "Resultary: finite dephasing parity spectra and photonic diffusion-chain Mpemba crossing"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected catalogue entry gives a classical crossing-time characterization, not the cubic and quadratic spectral leaders; no covering finite-q rate table was found in the inspected primary passages."
+        ],
+        "reasoning": "Relevant exact coverage would give the finite-q path leaders and ordering (possibly through a stronger theorem). A classical diffusion rate or a set of parameter examples cannot determine this uniform ordering and its complex branches.",
+        "searches": [
+          "Resultary: three-site finite-q dephasing spectra, photonic crossing times",
+          "arXiv:2408.03296v1, spectral analysis pp. 2–3"
+        ]
+      },
+      "rationale": "The open-chain generator, entropy diagnostic and parity-related suppression mechanism are precedented. Credit only the exact finite-q three-site rates, their strict all-q comparison and the resulting statement for the explicit pair. The closest verified statements do not give that comparison.",
+      "residual_risks": [
+        "The Longhi supplement was not inspected line by line. The main paper and bounded search cannot rule out a covering finite-q calculation elsewhere.",
+        "Exact continuous-time trimer spectra may appear under other dephasing or transport terminology; a previously computed spectrum alone and a previously proved strict state-pair rate ordering are different forms of overlap.",
+        "Same-day dates do not establish relative priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantial overlap in mechanism and model; no covering exact rates in inspected passages",
+          "evidence": "P. 1 model, p. 2 entropy distance and different mixed-state example, p. 3 odd-center slow-mode avoidance in strong dephasing.",
+          "identifier_or_url": "https://arxiv.org/abs/2408.03296v1",
+          "material_read": "Main PDF pp. 1–3, OA offsets 7650, 12585 and 22285; separately hosted supplement not read",
+          "method": "Lawful OA arXiv PDF; publisher access challenged",
+          "title": "Photonic Mpemba effect",
+          "trigger": "Closest prior work: same evolution equation, center state and relaxation metric"
+        },
+        {
+          "assessment": "Classical limit, different states and N; not equivalent finite-q coverage",
+          "evidence": "Reflecting diffusion path for odd N≥5; center mass vs law uniform on first N−1 sites. Finite-dephasing walk excluded.",
+          "identifier_or_url": "2026/11/2/SCOPE-sharp-mpemba-crossing-times-in-finite-photonic-diffusion-chains--681f350a5e8e",
+          "material_read": "Mirrored RESULT.md Finding and limitations, offsets 0 and 7389",
+          "method": "Local Resultary search and mirrored record",
+          "title": "Sharp Mpemba crossing times in finite photonic diffusion chains",
+          "trigger": "Same-day exact photonic chain and center-state comparison"
+        },
+        {
+          "assessment": "Shared spectral mechanism; different generator",
+          "evidence": "Locally dephased long-range XXZ chain and a decay rate set by the slowest accessible mode.",
+          "identifier_or_url": "https://arxiv.org/abs/2605.20930",
+          "material_read": "PDF pp. 1–2, OA offsets 1520 and 14002",
+          "method": "Lawful OA arXiv PDF passages",
+          "title": "Symmetry-Protected Fast Relaxation and the Strong Quantum Mpemba Effect",
+          "trigger": "General symmetry-sector filtering precedent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The open three-site path is the smallest reflection-symmetric open line with a center site and an independent odd diagonal perturbation. The theorem resolves whether the entropy acceleration persists outside the previously motivated strong-dephasing regime in that minimal example. It provides exact rates, two distinct spectral events without gap closing, and finite limiting acceleration factors useful for validating approximations. It does not claim an all-chain theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

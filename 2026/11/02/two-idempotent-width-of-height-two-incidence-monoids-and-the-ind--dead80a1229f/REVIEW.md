@@ -1,19 +1,21 @@
-# Review of the two-idempotent incidence-monoid classification
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof calculates all incidence-algebra products because height two eliminates intermediate summands. The idempotent entry test follows directly from squaring and remains valid in every characteristic. The explicit source/sink factorization gives two idempotents for each element with the claimed diagonal-support pattern, and a separate closure argument identifies their products with the generated monoid. Fixing a diagonal support provides exactly the claimed independent edge coefficients. Bipartite two-colorings and independent sets give the two finite-field leading terms. The rank-two nilpotent Jordan shift has the stated three-idempotent factorization and cannot equal two idempotents in the three-chain algebra by rank and diagonal intersection. Standalone exhaustive checks include fields of characteristics two and three and the nonprime field of four elements. The tests support specific cases and do not replace the unrestricted proof.
+PASS
 
-## Originality — PASS relative to available evidence
+With no strict intermediary, (ef)ᵤᵥ=eᵤᵤfᵤᵥ+eᵤᵥfᵥᵥ, so an idempotent's strict entries are free precisely at unequal diagonal bits, including in characteristic two. A product has binary diagonal and vanishes on every edge with both product endpoint bits 1. The same condition is closed under multiplication, since an output diagonal bit 1 requires both factors to have it. To cover the full proposed locus, orient edges from U to V; set the two factor diagonals on each u to (1,hᵤᵤ) and on each v to (hᵥᵥ,1). If hᵥᵥ=0 use the first factor's free strict entry for hᵤᵥ; otherwise use the second factor's entry unless both output bits are one, when zero is required. These choices are independent, giving a genuine factorization over any field. Width means the uniform at-most-two bound in the Finding; the least width is one for an antichain and exactly two once an edge exists, witnessed by a nonzero single-edge nilpotent. For fixed support S there are q^(m−i_G(S)) product elements, and q^(cut_G(S)) idempotents. The largest-power terms are respectively independent sets and bipartite colorings (two per component including isolated vertices). This gives both limits, including m=0. In UT₃ the displayed idempotents multiply to E₁₂+E₂₃, of rank 2 and zero diagonal. Each of two hypothetical factors needs at least two diagonal ones because its idempotent rank equals their integer count. The diagonal supports then intersect, a contradiction in every characteristic. Replay: RESULT.md Steps 1–6 constitute the proof; VERIFICATION.md and verify.py were inspected, not run, and enumerate selected examples, not arbitrary posets or fields.
 
-The closest inspected primary source, Bilen Can–Casimiro–Malheiro (arXiv:2208.01073, posted 2022-08-01), studies idempotent components and restricted antichain submonoids. Its complete-bipartite component-product result is inside an orthodox antichain submonoid and cannot by itself recover nonidempotent products in the full incidence algebra. Kolegov's 2024 paper is on the number of idempotents needed to generate the *algebra*, not the multiplicative length of products; only its abstract was accessible, so unrecognized implications remain a risk. General full-matrix transformation-factorization papers do not assert a support-preserving incidence-monoid normal form. The familiar independent-set polynomial and bipartite proper-coloring count are prior notions; the claim is their exact realization by this product locus, not their existence. Searches for equivalent width-two, triangular, and idempotent-product statements found no equivalent all-height-two theorem in available records. Uninspected specialized matrix-semigroup literature remains a priority risk.
+## originality
 
-## Value — PASS
+PASS
 
-The result is a complete structural classification of a natural multiplicative submonoid in every height-two incidence algebra, not just a one-parameter count. It supplies a universal two-factor constructive normal form, detects a sharp height-three obstruction, recovers a graph's independent-set polynomial as an intrinsic finite-field limit, and quantifies the portion of idempotent-generated elements that themselves remain idempotent. This answers a natural question arising from the active study of incidence-monoid idempotent varieties and their orthodox submonoids.
+The local idempotent equations and generic hard-core specialization are antecedents. The distinct contribution is the global classification of attainable products in the ambient monoid: a single choice of factor diagonals works simultaneously for all edges of an arbitrary bipartite incidence support and realizes every compatible strict entry. The resulting distinct-output fiber counts and sharp failure at height three are not provided by the strongest compared component and ordered-pair results.
 
-## Closest literature and scientific limitations
+## value
 
-Bilen Can, Casimiro, Malheiro, *Idempotent Varieties of Incidence Monoids and Bipartite Posets* (arXiv:2208.01073), particularly Theorems 3.2 and 4.9, was read in full-text form; N. A. Kolegov, *Idempotent Generators of Incidence Algebras* (2024), was compared at abstract level. Structural assertions are for fields and height-two posets; exact counts are for finite fields. No general width-two claim is made beyond height two. An independent mathematical audit is outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A field-independent bounded-length normal form resolves the full multiplicative product locus and makes every finite-field diagonal-support fiber explicit. The leading coefficients recover a graph invariant of the poset comparability graph, and an obstruction already in the three-chain makes the general height threshold meaningful. The known independence-polynomial limit of the graph sum is a consequence, not the sole scientific gain.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

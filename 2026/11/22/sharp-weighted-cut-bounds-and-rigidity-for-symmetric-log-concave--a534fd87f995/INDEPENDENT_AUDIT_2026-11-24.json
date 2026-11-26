@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:31:55.221579Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md:5–75 and 87",
+        "Frozen VERIFICATION.md:19–31 and check.py:8–44",
+        "Repairs/4 RESULT.md:15–29, 33–75, 87; REVIEW.md scope paragraph",
+        "Independent review_replay.py, cuts()"
+      ],
+      "rationale": "Final assessment is of the repaired statement. The original unrestricted even-unimodal extension was not well-defined: the centered Cauchy is even unimodal, but C_f(0) and L_f both diverge; in particular their scaled subtraction is undefined. The repair requires E|X|<∞ for the extension and updates both the result and the scientific scope statement in the accompanying self-review. This condition is automatic in the original log-concave class. For finite first absolute moment, decompose crossing length into distances to the cut to obtain C=2[(1-F)a+Fb], with a=E(t-X)_+, b=E(X-t)_+. Absolute continuity and b-a=mu-t give C'=2f(t)(mu-t); the positive interior density in the stated class yields the unique centered maximum. Opposite-sign pairs give its value E|X|=I1. Integrating indicators of thresholds between the two endpoints gives L=2I1-I2, I2=∫g². The half-line survival inherits log-concavity by the monotone hazard, so g²≥g(2t); the defect integral follows and can vanish only when -log g is linear by convexity and equality under doubling. Bounded support cannot satisfy equality in its upper half. For the upper side, H(da)=-2a df(a) is a probability law by integration by parts for the monotone profile, allowing atoms in the mixing law and interpreting the density a.e. Finite E|X| implies EA=2E|X|, so subtraction is legitimate. Given a≥b, E|aU-bU'|=a/2+b²/(6a); subtracting (a+b)/3 gives exactly (a-b)²/(6a). Independence forces a deterministic radius at zero defect. The polynomial family gives the advertised continuous range strictly between the endpoints and the uniform endpoint. Separate direct integrations of length over the two endpoint coordinates verified p=0,1,2 and an unequal-radius identity (`python3 -B /workspace/review_replay.py`, check 4). No uploaded checker was executed.",
+      "residual_risks": [
+        "No ratio or subtraction of divergent expectations is asserted for the unrestricted unimodal class. The finite replay is corroboration only; both sharp and rigidity statements rest on the analytic proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Correa et al. arXiv:2611.09166v1 p. 1 abstract lines 13–22 states the arbitrary-pair one-dimensional 1/3 guarantee and matching upper example. Indexed 7c0d2b594e14 gives a centered hyperplane optimum for compact radial laws and continuous nonnegative nondecreasing distance weights. The moments-based Gini bound DOI:10.1007/s00362-022-01374-0 surfaced by abstract-level search."
+        ],
+        "reasoning": "The general 1/3 bound does not specialize to the stronger iid 2/3 guarantee or the 3/4 cap. The separate centered hyperplane result covers choosing the center for the bounded radial examples with length weights, so no novelty is attributed to that aspect. Its indexed statement does not give the efficiency interval or rigidity. Moment-based bounds are a different input and are not endorsed as excluded at whole-paper level.",
+        "searches": [
+          "arXiv:2611.09166 §3.1 one-dimensional",
+          "weighted segment cut expected length pair crossing point same distribution symmetric log-concave",
+          "Gini mean difference versus mean absolute deviation symmetric continuous distributions sharp bounds"
+        ]
+      },
+      "checked_sources": [
+        "Yitzhaki–Lambert METRON 71 abstract and frozen Proposition 1 comparison",
+        "ArXiv:2611.09166 and 1405.5027 primary first pages",
+        "Resultary 7c0d2b594e14, a89e9ca30f9b, and self-hit a534fd87f995",
+        "Frozen RESULT.md:81–93 and AUDIT.json"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Gerstenberger–Vogel arXiv:1405.5027v1 p. 1 abstract lines 6–24 compares asymptotic efficiencies of dispersion estimators at the normal distribution and under contamination. The older Gini/absolute-deviation relationship identifies the background statistics. Frozen proof at lines 47–75 supplies a nonnegative survival-doubling defect and a distinct nonnegative random-radius defect."
+        ],
+        "reasoning": "Efficiency in the estimator literature is not the cut fraction. The known quantile identity translates the problem but does not bound the resulting statistic under the hypotheses. A general survival-order comparison with exponential or uniform may imply one or both inequalities; no retrieved statement was established as implying these two exact defects. The defects additionally encode rigidity, not just evaluation of well-known distributions.",
+        "searches": [
+          "arXiv:1405.5027 efficiency of Gini’s mean difference absolute deviation",
+          "DOI:10.1007/s40300-013-0015-y",
+          "arXiv:2611.09166 weighted Euclidean measure separation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Yitzhaki–Lambert DOI:10.1007/s40300-013-0015-y publisher abstract links quantile absolute deviation and Gini differences through between-group or transformed-distribution identities. Independently, conditioning on signs for R=|X| yields L=E max(R,R′)=ER+E|R−R′|/2."
+        ],
+        "reasoning": "Hence the geometric claim is the signed GMD/MAD interval [4/3,3/2], or equivalently a Gini index interval [1/3,1/2] for the absolute-value law R. To cover the claimed result via these aliases requires the matching half-line distribution assumptions and equality/defect assertions. The inspected Gini/quantile relationship does not assert those conclusions; the full paper and older alternative statistical formulations remain priority risks.",
+        "searches": [
+          "‘The relationship between the absolute deviation from a quantile and Gini’s mean difference’ Lambert Yitzhaki full text crossing weighted Gini absolute deviation 2013",
+          "symmetric log-concave Gini mean difference mean absolute deviation sharp interval Laplace uniform rigidity defect",
+          "inequality bounds ratio Gini mean difference mean absolute deviation 4/3 unimodal distribution Laplace 3/2 dispersive order symmetric Gini Pietra index",
+          "‘Gini index’ IFR ‘1/2’ decreasing density uniform ‘1/3’ inequality reliability Gini mean difference increasing failure rate exponential uniform distribution"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact match a534fd87f995 is the assigned item; indexed 7c0d2b594e14 is a distinct center-optimality statement, and a89e9ca30f9b concerns finite sliding-window path dispersion. Frozen source evidence lists discrete Gini/standard-deviation and MAD/standard-deviation records cc38c112bff2 and 7a1bac9c4e8e."
+        ],
+        "reasoning": "Neither tables of individual Laplace/uniform moments nor finite-graph/discrete variance comparisons imply that these are unique extremizers over the entire class. Center maximization addresses the cut location, not the fraction of total length captured.",
+        "searches": [
+          "symmetric log-concave Gini mean difference mean absolute deviation sharp interval Laplace uniform rigidity defect",
+          "weighted segment cut expected length pair crossing point same distribution symmetric log-concave"
+        ]
+      },
+      "rationale": "Reassessed after specifying the finite-moment scope. Pass for exact sharp range with extremizer classification and the two named defects, not for the weighted-cut model, location of the best cut on symmetric laws in covered settings, the MAD–Gini relation, or the scale mixture representation. Both the ordinary signed Gini/MAD alias and the Gini index of the absolute-value law were checked. The available comparisons do not cover the two rigidity defects and the class-wide classification together; historical priority of individual bounds is not certified.",
+      "residual_risks": [
+        "Older survival-order, reliability, or Gini/Pietra/MAD papers may imply separate constants or rigidity. Relevant full-text passages or mirror documents were not available for all matches; no negative conclusion is drawn from access errors."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct prior relation between ingredients, not in the accessible abstract a sharp interval for this distribution class",
+          "evidence": [
+            "METRON 71:97–104 abstract describes between-group or transformed-distribution relations among absolute deviations and Gini differences."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s40300-013-0015-y",
+          "material_read": "Publisher abstract; frozen prior comparison to Proposition 1; original full text not independently obtained",
+          "method": "Compare accessible quantile/Gini identities to the sharp class and equality claims; targeted lawful passage attempt timed out",
+          "title": "The relationship between the absolute deviation from a quantile and Gini’s mean difference",
+          "trigger": "Same mathematical ratio under different terminology"
+        },
+        {
+          "assessment": "Direct geometric precedent; available theorem summary has broader input class but a weaker guarantee and does not supply both endpoints.",
+          "evidence": [
+            "Abstract gives the tight 1/3 for arbitrary pairs in dimension one, rather than the exact symmetric iid range."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2611.09166",
+          "material_read": "Primary PDF p. 1 abstract, lines 13–25; frozen prior comparison to §3.1",
+          "method": "Compare the stated guarantee and assumptions; targeted §3.1 passage extraction unavailable",
+          "title": "Separating Measures by Hyperplanes",
+          "trigger": "Same length-weighted iid cut when pair measures are equal"
+        },
+        {
+          "assessment": "Subsumes center optimality for the common compact radial special case, not the stated exact cut fraction endpoints or two defects.",
+          "evidence": [
+            "Indexed claim gives a centered maximizing hyperplane for two compactly supported radial laws under nondecreasing distance weights."
+          ],
+          "identifier_or_url": "2026/11/17/SCOPE-centered-hyperplane-optimality-for-radial-distance-weighted-cuts--7c0d2b594e14",
+          "material_read": "Indexed scientific statement; full mirrored file not retrieved",
+          "method": "Specialize common-center radial assumptions to dimension one, compact support, and length weight",
+          "title": "Centered hyperplane optimality for radial distance-weighted cuts",
+          "trigger": "Separate prior center-maximization statement"
+        },
+        {
+          "assessment": "The inspected portion concerns statistical estimation efficiency, not the sharp cut fraction; no whole-paper exclusion.",
+          "evidence": [
+            "Abstract compares normal and contaminated-normal asymptotic relative efficiencies, and introduction defines the dispersion measures."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1405.5027",
+          "material_read": "Primary PDF p. 1 abstract and start of introduction, lines 6–40; no decisive further passages retrieved",
+          "method": "Check which notion of efficiency is used and whether the observed statements concern extremal classes",
+          "title": "On the efficiency of Gini’s mean difference",
+          "trigger": "Potential older Gini and absolute-deviation comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired RESULT.md:5–29 and 47–75",
+        "Correa et al. arXiv:2611.09166v1 abstract",
+        "Yitzhaki–Lambert METRON 71 abstract"
+      ],
+      "rationale": "Even after crediting the classical dispersion reduction and centered optimality, the exact attainable interval and scale-rigidity defects are a meaningful answer for a natural restricted class of length-weighted cuts. The defects quantify precisely how departures from exponential survival and from a single uniform scale affect the two endpoint inequalities. The explicit continuous family separates class-wide attainability from a table of isolated distribution values. Finiteness is automatic for the motivated log-concave class and is merely made explicit for the optional unimodal extension.",
+      "residual_risks": [
+        "The result remains one dimensional with independent equal-law endpoints and length weights. It is not a higher-dimensional cut guarantee or an estimator-efficiency result."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}
